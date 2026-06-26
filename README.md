@@ -24,9 +24,14 @@ python3 tools/serve.py
 Serveren henter eksamensmanualen automatisk, så du slipper å gjøre noe mer.
 (Trenger bare Python 3 — som følger med macOS. Ingen npm, ingen bygging.)
 
-### Alternativ: åpne `app.html` direkte
+### På nett (GitHub Pages)
 
-Du kan også dobbeltklikke `app.html`. Første gang blir du bedt om å velge
+Publisert versjon: **https://magnusafjeld-cpu.github.io/SAM3/**. Første gang
+velger du eksamensmanualen (eller drar den inn); den lagres lokalt etterpå.
+
+### Alternativ: åpne `index.html` direkte
+
+Du kan også dobbeltklikke `index.html`. Første gang blir du bedt om å velge
 `SAM3_Eksamensmanual.html` (eller dra den inn). Pensumet parses og lagres lokalt,
 så du slipper å velge igjen.
 
@@ -56,7 +61,8 @@ så du slipper å velge igjen.
 
 ```
 SAM3 Code/
-├── app.html                 # Inngangspunkt (design/CSS inline)
+├── index.html               # Inngangspunkt (design/CSS inline)
+├── SAM3_Eksamensmanual.html # Kilden — pensum parses fra denne ved oppstart
 ├── js/
 │   ├── bundle-data.js       # Studieplan, quiz, flashcards, aktiv læring, eksamener, ordliste
 │   ├── bundle-core.js       # Manual-parser + utils, store, srs, søk, repetisjon, metrics, router

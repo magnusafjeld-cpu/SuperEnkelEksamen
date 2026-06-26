@@ -4,9 +4,9 @@ Local server for the SAM3 learning platform.
 
 Run it, then open http://127.0.0.1:4178/ in your browser.
 
-It serves this folder, makes the exam manual reachable so the platform can
-load the whole curriculum automatically (no file-picker needed), and redirects
-"/" to the app.
+It serves this folder (index.html is the app) and makes the exam manual
+reachable so the platform can load the whole curriculum automatically
+(no file-picker needed).
 """
 import os
 import shutil
@@ -34,14 +34,6 @@ if os.path.exists(_parent_manual) and not os.path.exists(_local_manual):
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *a, **k):
         super().__init__(*a, directory=ROOT, **k)
-
-    def do_GET(self):
-        if self.path in ("/", ""):
-            self.send_response(302)
-            self.send_header("Location", "/app.html")
-            self.end_headers()
-            return
-        return super().do_GET()
 
     def log_message(self, *a):
         pass

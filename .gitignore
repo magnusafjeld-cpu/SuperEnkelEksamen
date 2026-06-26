@@ -4,7 +4,3 @@
 # Editor / tooling
 .claude/
 .vscode/
-
-# The exam manual is personal source material — kept out of the repo.
-# serve.py copies it in locally at runtime; the app also accepts it via file-picker.
-SAM3_Eksamensmanual.html
