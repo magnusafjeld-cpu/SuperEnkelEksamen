@@ -176,6 +176,52 @@ window.SAM3 = window.SAM3 || {};
   };
 })(window.SAM3);
 
+/* ---------------- parse-problems (oppgavebank med fasit) ---------------- */
+(function (S) {
+  const norm = (s) => (s || "").replace(/[ \t]+/g, " ").replace(/\n{3,}/g, "\n\n").trim();
+  function typeOf(id) {
+    if (id.startsWith("grpov")) return "Gruppeøving";
+    if (id.startsWith("innlev")) return "Innlevering";
+    if (id.startsWith("sv")) return "Sensorveiledning";
+    return "Eksamen";
+  }
+  const TOPIC_RULES = [
+    ["Oppgave 1 · Måling", /nasjonalregnskap|\bbnp\b|real (?:vs|og)|laspeyres|paasche|deflator|sparing|driftsbalanse|produksjonsgap|tre måter|tre måtane/i],
+    ["Oppgave 2 · Vekst", /solow|romer|\bvekst\b|\btfp\b|produksjonsfunksjon|teknologi|konvergens|\bideer\b|patent|bærekraft|fattigdom|nåverdi|fisher|gylden sparerate/i],
+    ["Oppgave 2 · Arbeid/inflasjon", /arbeidsmarked|ledighet|badekar|\bokun|sysselsetting|permittering|hyperinflasjon|seignorage|humankapital/i],
+    ["Oppgave 3 · Kort sikt", /\bis-?mp|as-?ad|phillips|pengepolitikk|taylor|\brente|inflasjonsmål|konjunktur|finansielt sjokk|stabiliser|norges bank/i],
+    ["Åpen økonomi", /\bnok\b|valuta|\buip\b|trilemma|\bppp\b|krone|åpen økonomi|twin deficit/i],
+  ];
+  function tagTopics(text) {
+    const t = text || ""; const tags = [];
+    TOPIC_RULES.forEach(([tag, rx]) => { if (rx.test(t)) tags.push(tag); });
+    return tags.length ? tags : ["Blandet"];
+  }
+  S.parseProblems = function (htmlText) {
+    const doc = new DOMParser().parseFromString(htmlText, "text/html");
+    const out = [];
+    doc.querySelectorAll("section.doc[id]").forEach((sec) => {
+      const id = sec.id;
+      const titleEl = sec.querySelector("h2.title");
+      const subjEl = sec.querySelector(".subj");
+      const noteEl = sec.querySelector(".note");
+      const q = sec.querySelector(".qa .q .verbatim");
+      const a = sec.querySelector(".qa .a .verbatim");
+      const title = titleEl ? titleEl.textContent.trim() : id;
+      const subj = subjEl ? subjEl.textContent.replace(/^\s*Tema:\s*/i, "").trim() : "";
+      out.push({
+        id, type: typeOf(id), title, subj,
+        note: noteEl ? noteEl.textContent.trim() : "",
+        qText: q ? norm(q.textContent) : "",
+        aText: a ? norm(a.textContent) : "",
+        hasFasit: !!(a && a.textContent.trim().length),
+        topics: tagTopics(subj + " " + title),
+      });
+    });
+    return out;
+  };
+})(window.SAM3);
+
 /* ---------------- store ---------------- */
 (function (S) {
   const KEY = "sam3.progress.v1"; const D = window.SAM3_DATA;
@@ -204,6 +250,7 @@ window.SAM3 = window.SAM3 || {};
   let byNum = null;
   function ensureIndex() { if (!byNum) { byNum = {}; (D.curriculum || []).forEach((c) => (byNum[c.num] = c)); } return byNum; }
   S.bootData = function (curriculum, reference) { D.curriculum = curriculum; D.reference = reference; byNum = null; ensureIndex(); };
+  S.bootProblems = function (problems) { D.problems = problems; };
   function chapter(num) { return ensureIndex()[num]; }
   function chapters() { return D.curriculum || []; }
   function parts() {
@@ -217,7 +264,9 @@ window.SAM3 = window.SAM3 || {};
   function activeFor(num) { return D.activeLearning[num] || []; }
   function activeDayIndex() { const diff = S.u.daysBetween(D.plan.startDate, S.u.todayISO()); if (diff < 0) return 1; return S.u.clamp(diff + 1, 1, D.plan.totalDays); }
   function daysUntilStart() { return S.u.daysBetween(S.u.todayISO(), D.plan.startDate); }
-  S.data = { raw: D, chapter, chapters, parts, day, days, quizzesForChapter, activeFor, activeDayIndex, daysUntilStart, get reference() { return D.reference; }, plan: D.plan, exams: D.exams, glossary: D.glossary || { economists: [], symbols: [] } };
+  function problems() { return D.problems || []; }
+  function problemById(id) { return (D.problems || []).find((p) => p.id === id); }
+  S.data = { raw: D, chapter, chapters, parts, day, days, quizzesForChapter, activeFor, activeDayIndex, daysUntilStart, problems, problemById, get reference() { return D.reference; }, plan: D.plan, exams: D.exams, glossary: D.glossary || { economists: [], symbols: [] } };
 })(window.SAM3);
 
 /* ---------------- srs ---------------- */
@@ -342,7 +391,7 @@ window.SAM3 = window.SAM3 || {};
     const wsum = parts.reduce((a, p) => a + p.w, 0);
     return Math.round(parts.reduce((a, p) => a + p.v * p.w, 0) / wsum);
   }
-  function nextMilestone() { const st = S.store.get(); for (const day of S.data.days()) { if (!(st.days[day.day] && st.days[day.day].completed)) return { day: day.day, label: day.milestone, date: day.date }; } return { day: 14, label: "Klar for eksamen 🎓", date: S.data.days()[13].date }; }
+  function nextMilestone() { const st = S.store.get(); const ds = S.data.days(); for (const day of ds) { if (!(st.days[day.day] && st.days[day.day].completed)) return { day: day.day, label: day.milestone, date: day.date }; } const last = ds[ds.length - 1]; return { day: last.day, label: last.milestone, date: last.date }; }
   function streak() {
     const st = S.store.get(); const dates = new Set();
     Object.values(st.days).forEach((d) => d && d.completedAt && dates.add(d.completedAt));

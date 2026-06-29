@@ -13,6 +13,7 @@ window.SAM3 = window.SAM3 || {};
     { group: "Øving", items: [
       { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
       { route: "#/flashcards", match: "/flashcards", label: "Flashcards", ico: "cards", badge: () => S.srs.stats().due || null },
+      { route: "#/oppgaver", match: "/oppgaver", label: "Oppgavebank", ico: "book" },
       { route: "#/exam", match: "/exam", label: "Eksamenstrening", ico: "exam" },
       { route: "#/review", match: "/review", label: "Repetisjon", ico: "repeat", badge: () => S.repetition.suggest(20).filter((s) => s.priority === "high").length || null },
     ]},
@@ -77,6 +78,7 @@ window.SAM3 = window.SAM3 || {};
     R.on("/chapter/:num", (p) => setView(() => V.chapter.render(p.num)));
     R.on("/quiz", () => setView(() => V.quiz.render()));
     R.on("/flashcards", () => setView(() => V.flashcards.render()));
+    R.on("/oppgaver", (p, q) => setView(() => V.problems.render(q.doc || null)));
     R.on("/exam", () => setView(() => V.exam.render()));
     R.on("/review", () => setView(() => V.review.render()));
     R.on("/search", (p, q) => setView(() => V.search.render(q.q || "")));
@@ -93,11 +95,22 @@ window.SAM3 = window.SAM3 || {};
 
 /* ---------------- manual loader (cache -> fetch -> file picker) ---------------- */
 (function (S) {
-  const CACHE = "sam3.manual.v1";
+  const MAN_CACHE = "sam3.manual.v1", PROB_CACHE = "sam3.problems.v1";
   function setSplash(html) { const b = document.getElementById("splash-body"); if (b) b.innerHTML = html; }
   function hideSplash() { const s = document.getElementById("splash"); if (s) s.remove(); }
-  function cacheGet() { try { const c = localStorage.getItem(CACHE); if (c) { const d = JSON.parse(c); if (d && d.curriculum && d.curriculum.length) return d; } } catch (e) {} return null; }
-  function cacheSet(d) { try { localStorage.setItem(CACHE, JSON.stringify(d)); } catch (e) {} }
+  function lsGet(key) { try { const c = localStorage.getItem(key); return c ? JSON.parse(c) : null; } catch (e) { return null; } }
+  function lsSet(key, d) { try { localStorage.setItem(key, JSON.stringify(d)); } catch (e) {} }
+  function cacheGet() { const d = lsGet(MAN_CACHE); return (d && d.curriculum && d.curriculum.length) ? d : null; }
+  function cacheSet(d) { lsSet(MAN_CACHE, d); }
+  async function loadProblems() {
+    const cached = lsGet(PROB_CACHE);
+    if (cached && cached.length) { S.bootProblems(cached); return; }
+    const cands = ["SAM3_Alle_oppgaver_med_fasit.html", "Alle_oppgaver.html", "../SAM3_Alle_oppgaver_med_fasit.html"];
+    for (const url of cands) {
+      try { const r = await fetch(url, { cache: "no-store" }); if (r && r.ok) { const t = await r.text(); if (t.indexOf('class="doc"') > -1) { const parsed = S.parseProblems(t); if (parsed.length) { S.bootProblems(parsed); lsSet(PROB_CACHE, parsed); return; } } } } catch (e) {}
+    }
+    S.bootProblems([]);
+  }
   function looksLikeManual(t) { return t && (t.indexOf('id="k0"') > -1 || t.indexOf('class="chap"') > -1); }
   async function tryFetch() {
     const cands = ["SAM3_Eksamensmanual.html", "manual.html", "assets/manual.html", "../SAM3_Eksamensmanual.html"];
@@ -106,7 +119,7 @@ window.SAM3 = window.SAM3 || {};
     }
     return null;
   }
-  function finish(d) { S.bootData(d.curriculum, d.reference); hideSplash(); S.app.init(); }
+  async function finish(d) { S.bootData(d.curriculum, d.reference); await loadProblems(); hideSplash(); S.app.init(); }
   function readFile(file) {
     setSplash('<div class="spinner"></div><p class="muted">Leser og parser manualen…</p>');
     const fr = new FileReader();
