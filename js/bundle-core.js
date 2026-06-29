@@ -329,9 +329,16 @@ window.SAM3 = window.SAM3 || {};
   function daysPct() { const st = S.store.get(); const done = Object.values(st.days).filter((d) => d && d.completed).length; return { done, total: S.data.plan.totalDays, pct: Math.round((done / S.data.plan.totalDays) * 100) }; }
   function quizStats() { const ans = S.store.get().quiz.answered; const ids = Object.keys(ans); const correct = ids.filter((k) => ans[k].correct).length; const acc = ids.length ? Math.round((correct / ids.length) * 100) : null; return { answered: ids.length, correct, accuracy: acc, total: S.data.raw.quizzes.length }; }
   function readiness() {
+    // Coverage-based: every component measures how much is DONE, not a rate.
+    // (A single correct quiz answer must not move the needle much.)
     const r = readPct(), d = daysPct(), c = S.srs.stats(), q = quizStats();
-    const parts = [{ v: r.pct, w: 0.42 }, { v: d.pct, w: 0.2 }, { v: c.masteredPct, w: 0.2 }];
-    if (q.accuracy != null) parts.push({ v: q.accuracy, w: 0.18 });
+    const quizCoverage = q.total ? Math.round((q.correct / q.total) * 100) : 0;
+    const parts = [
+      { v: r.pct, w: 0.45 },
+      { v: d.pct, w: 0.25 },
+      { v: c.masteredPct, w: 0.18 },
+      { v: quizCoverage, w: 0.12 },
+    ];
     const wsum = parts.reduce((a, p) => a + p.w, 0);
     return Math.round(parts.reduce((a, p) => a + p.v * p.w, 0) / wsum);
   }
