@@ -84,6 +84,7 @@ window.SAM3 = window.SAM3 || {};
     chart: 'M4 20V4M4 20h16M8 16v-5M12 16V8M16 16v-8',
     grid: 'M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z',
     check: 'M5 12.5 10 17 19 7', arrow: 'M9 6l6 6-6 6',
+    bolt: 'M13 2 4.5 13.5h5L8 22l8.5-11.5h-5z',
     target: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2z',
     clock: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2',
     flag: 'M5 21V4M5 4h12l-2 4 2 4H5',
@@ -225,7 +226,7 @@ window.SAM3 = window.SAM3 || {};
 /* ---------------- store ---------------- */
 (function (S) {
   const KEY = "sam3.progress.v1"; const D = window.SAM3_DATA;
-  const defaults = () => ({ version: 1, startedAt: S.u.todayISO(), chapters: {}, days: {}, sections: {}, quiz: { answered: {}, sessions: [] }, cards: {}, active: {}, exams: {}, settings: {} });
+  const defaults = () => ({ version: 1, startedAt: S.u.todayISO(), chapters: {}, days: {}, sections: {}, quiz: { answered: {}, sessions: [] }, cards: {}, active: {}, exams: {}, settings: {}, lyn: { xp: 0, days: {}, plays: 0, best: {} } });
   function load() { try { const raw = localStorage.getItem(KEY); if (raw) return Object.assign(defaults(), JSON.parse(raw)); } catch (e) {} return defaults(); }
   let state = load(); const subs = new Set();
   const persist = S.u.debounce(() => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }, 120);

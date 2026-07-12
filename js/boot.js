@@ -11,6 +11,7 @@ window.SAM3 = window.SAM3 || {};
       { route: "#/curriculum", match: "/curriculum", label: "Pensum", ico: "grid" },
     ]},
     { group: "Øving", items: [
+      { route: "#/lyn", match: "/lyn", label: "Lynlæring", ico: "bolt", badge: () => (S.views.lyn && !S.views.lyn.dailyDone()) ? "⚡" : null },
       { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
       { route: "#/flashcards", match: "/flashcards", label: "Flashcards", ico: "cards", badge: () => S.srs.stats().due || null },
       { route: "#/oppgaver", match: "/oppgaver", label: "Oppgavebank", ico: "book" },
@@ -24,10 +25,10 @@ window.SAM3 = window.SAM3 || {};
   ];
   const MOBILE = [
     { route: "#/", match: "/", label: "Hjem", ico: "home" },
+    { route: "#/lyn", match: "/lyn", label: "Lyn", ico: "bolt" },
     { route: "#/plan", match: "/plan", label: "Plan", ico: "calendar" },
     { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
     { route: "#/flashcards", match: "/flashcards", label: "Kort", ico: "cards" },
-    { route: "#/search", match: "/search", label: "Søk", ico: "search" },
   ];
 
   let contentEl, currentView = () => V.dashboard.render();
@@ -78,6 +79,7 @@ window.SAM3 = window.SAM3 || {};
     R.on("/chapter/:num", (p) => setView(() => V.chapter.render(p.num)));
     R.on("/quiz", () => setView(() => V.quiz.render()));
     R.on("/flashcards", () => setView(() => V.flashcards.render()));
+    R.on("/lyn", () => setView(() => V.lyn.render()));
     R.on("/oppgaver", (p, q) => setView(() => V.problems.render(q.doc || null)));
     R.on("/exam", () => setView(() => V.exam.render()));
     R.on("/review", () => setView(() => V.review.render()));

@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#f5f5f7">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="SAM3">
 <title>SAM3 Makro · Eksamenstrening</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232f6bff'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>S3</text></svg>">
 <style>
@@ -286,6 +289,62 @@ details.card>summary:hover{background:var(--bg-sunken);}
 details.card[open]>summary{border-bottom:1px solid var(--hairline);border-radius:var(--r-lg) var(--r-lg) 0 0;}
 .prob-summary .chip{flex:0 0 auto;}
 .verbatim-box{white-space:pre-wrap;font-family:var(--mono);font-size:12.5px;line-height:1.55;color:var(--ink-2);background:var(--bg-sunken);border-radius:12px;padding:14px 16px;max-height:460px;overflow:auto;border-left:3px solid var(--hairline-strong);margin-top:6px;}
+/* Lynlæring (mobil-først minispill) */
+.lyn-wrap{max-width:540px;margin:0 auto;}
+.lyn-hero{background:linear-gradient(135deg,#5b21b6 0%,#4338ca 50%,#2f6bff 130%);color:#fff;border-radius:var(--r-xl);padding:22px 22px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;}
+.lyn-hero:after{content:"";position:absolute;right:-50px;top:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%);}
+.lyn-streak{text-align:center;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 16px;min-width:74px;}
+.lyn-streak .fl{font-size:20px;}
+.lyn-streak .n{font-size:22px;font-weight:800;line-height:1.1;}
+.lyn-streak .l{font-size:10.5px;opacity:.85;}
+.lyn-cta{margin-top:14px;cursor:pointer;background:linear-gradient(135deg,var(--accent),#6f9bff);color:#fff;border:none;transition:transform .1s;}
+.lyn-cta:active{transform:scale(.985);}
+.lyn-cta.done{background:var(--green-soft);color:var(--ink);}
+.lyn-cta-emoji{font-size:26px;width:46px;height:46px;display:grid;place-items:center;background:rgba(255,255,255,.16);border-radius:14px;flex:0 0 auto;}
+.lyn-cta.done .lyn-cta-emoji{background:#fff;}
+.lyn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.lyn-tile{background:#fff;border:1px solid var(--hairline);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:16px 14px;text-align:left;cursor:pointer;transition:transform .1s,box-shadow .15s;display:flex;flex-direction:column;gap:3px;}
+.lyn-tile:hover{box-shadow:var(--shadow-md);}
+.lyn-tile:active{transform:scale(.97);}
+.lyn-tile:disabled{opacity:.45;cursor:default;}
+.lyn-tile .em{font-size:24px;}
+.lyn-tile .nm{font-weight:680;font-size:14.5px;letter-spacing:-.01em;}
+.lyn-tile .ds{font-size:12px;color:var(--ink-3);}
+.lyn-game{min-height:280px;}
+.lyn-prog{display:flex;gap:4px;margin-bottom:12px;}
+.lyn-prog span{flex:1;height:4px;border-radius:99px;background:var(--bg-sunken);}
+.lyn-prog span.done{background:var(--accent);}
+.lyn-prog span.cur{background:var(--accent-soft-2);}
+.lyn-timer{height:6px;border-radius:999px;background:var(--bg-sunken);overflow:hidden;margin:2px 0 10px;}
+.lyn-timer span{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--green),var(--amber),var(--rose));border-radius:999px;transition:width .1s linear;}
+.lyn-q{font-size:18.5px;font-weight:640;line-height:1.35;margin:6px 0 16px;letter-spacing:-.01em;}
+.lyn-combo{color:var(--amber);font-weight:750;font-size:13px;margin:-8px 0 10px;}
+.lyn-statement{font-size:19px;font-weight:600;line-height:1.42;margin:14px 0 20px;min-height:80px;letter-spacing:-.01em;}
+.lyn-big{display:flex;gap:12px;margin-top:6px;}
+.lyn-big button{flex:1;padding:18px 10px;font-size:17px;font-weight:750;border-radius:16px;cursor:pointer;letter-spacing:.02em;background:#fff;transition:transform .08s;}
+.lyn-big button:active{transform:scale(.96);}
+.lyn-big button:disabled{opacity:.55;cursor:default;}
+.lyn-sant{color:#1d7a47;border:2px solid var(--green);}
+.lyn-sant:hover{background:var(--green-soft);}
+.lyn-usant{color:#b8324b;border:2px solid var(--rose);}
+.lyn-usant:hover{background:var(--rose-soft);}
+.par-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px;}
+.par-tile{min-height:66px;padding:8px 6px;border-radius:14px;border:1.5px solid var(--hairline-strong);background:#fff;font-size:12.5px;font-weight:580;cursor:pointer;display:grid;place-items:center;text-align:center;line-height:1.25;transition:all .12s;color:var(--ink);}
+.par-tile.sel{border-color:var(--accent);background:var(--accent-soft);}
+.par-tile.matched{border-color:var(--green);background:var(--green-soft);opacity:.55;pointer-events:none;}
+.par-tile.bad{border-color:var(--rose);background:var(--rose-soft);animation:shake .3s;}
+.chain-pool{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
+.chain-step{width:100%;text-align:left;padding:13px 15px;border-radius:13px;border:1.5px solid var(--hairline-strong);background:#fff;font-size:14px;font-weight:540;cursor:pointer;line-height:1.35;color:var(--ink);}
+.chain-step:hover{border-color:var(--accent);background:var(--accent-soft);}
+.chain-built{display:flex;flex-direction:column;gap:6px;margin-bottom:6px;}
+.chain-done{display:flex;gap:10px;align-items:flex-start;background:var(--green-soft);border:1px solid #cdeed8;border-radius:12px;padding:9px 13px;font-size:13.5px;line-height:1.35;}
+.chain-done .cnum2{font-weight:800;color:#1d7a47;flex:0 0 auto;}
+.shake{animation:shake .3s;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
+.lyn-bit{font-size:15px;line-height:1.6;color:var(--ink-2);}
+.lyn-bit b,.lyn-bit strong{color:var(--ink);}
+.lyn-xp-big{font-size:42px;font-weight:800;letter-spacing:-.03em;color:var(--accent-ink);}
+.opt.mono span{font-family:var(--mono);font-size:13px;line-height:1.4;}
 .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:var(--r-pill);font-size:14px;font-weight:540;box-shadow:var(--shadow-lg);opacity:0;transition:all .3s;z-index:200;pointer-events:none;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 .fade-in{animation:fadeIn .35s ease;}
@@ -340,6 +399,7 @@ window.SAM3_DATA = {};
 <script src="js/bundle-data.js"></script>
 <script src="js/bundle-core.js"></script>
 <script src="js/bundle-views.js"></script>
+<script src="js/bundle-lyn.js"></script>
 <script src="js/boot.js"></script>
 </body>
 </html>

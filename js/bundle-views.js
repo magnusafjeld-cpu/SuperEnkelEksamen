@@ -61,7 +61,7 @@ window.SAM3.views = window.SAM3.views || {};
     left.appendChild(el(".eyebrow", greeting.toUpperCase()));
     left.appendChild(el("h2", day.title));
     left.appendChild(el("p", until > 0 ? `Planen starter ${formatDate(S.data.plan.startDate, { year: true })}. Bruk gjerne dag 1 som forhåndstitt allerede nå.` : day.tip));
-    left.appendChild(el(".hero-cta", el("a.btn.primary", { href: `#/day/${day.day}` }, "Start dagens økt →"), el("a.btn.ghost", { href: "#/flashcards" }, `${S.srs.stats().due} kort til repetisjon`), el("a.btn.ghost", { href: "#/quiz" }, "Ta en quiz")));
+    left.appendChild(el(".hero-cta", el("a.btn.primary", { href: `#/day/${day.day}` }, "Start dagens økt →"), el("a.btn.ghost", { href: "#/lyn" }, (S.views.lyn && S.views.lyn.dailyDone()) ? "⚡ Lynøkt fullført" : "⚡ Lynøkt (4 min)"), el("a.btn.ghost", { href: "#/quiz" }, "Ta en quiz")));
     const right = el("div", { style: { position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" } });
     const rg = ring(readiness, 132, `${readiness}%`, "klar", "#ffffff"); rg.querySelector(".ring-bg").style.stroke = "rgba(255,255,255,.22)";
     right.appendChild(rg); right.appendChild(el(".tiny", { style: { color: "rgba(255,255,255,.8)" } }, "Eksamensberedskap"));
