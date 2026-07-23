@@ -227,8 +227,16 @@ window.SAM3 = window.SAM3 || {};
 /* ---------------- store ---------------- */
 (function (S) {
   const KEY = "sam3.progress.v1"; const D = window.SAM3_DATA;
-  const defaults = () => ({ version: 1, startedAt: S.u.todayISO(), chapters: {}, days: {}, sections: {}, quiz: { answered: {}, sessions: [] }, cards: {}, active: {}, exams: {}, settings: {}, lyn: { xp: 0, days: {}, plays: 0, best: {} }, dybde: { marks: {} } });
-  function load() { try { const raw = localStorage.getItem(KEY); if (raw) return Object.assign(defaults(), JSON.parse(raw)); } catch (e) {} return defaults(); }
+  const defaults = () => ({ version: 1, startedAt: S.u.todayISO(), chapters: {}, days: {}, sections: {}, quiz: { answered: {}, sessions: [] }, cards: {}, active: {}, exams: {}, settings: {}, lyn: { xp: 0, days: {}, plays: 0, best: {} }, dybde: { banks: { kort: { marks: {} }, lang: { marks: {} } } } });
+  function migrate(state) {
+    // eldre versjon lagret dybdetrening-vurderinger flatt (state.dybde.marks); flytt inn i "kort"-banken
+    if (state.dybde && state.dybde.marks && !state.dybde.banks) {
+      state.dybde = { banks: { kort: { marks: state.dybde.marks }, lang: { marks: {} } } };
+    }
+    if (!state.dybde || !state.dybde.banks) state.dybde = { banks: { kort: { marks: {} }, lang: { marks: {} } } };
+    return state;
+  }
+  function load() { try { const raw = localStorage.getItem(KEY); if (raw) return migrate(Object.assign(defaults(), JSON.parse(raw))); } catch (e) {} return defaults(); }
   let state = load(); const subs = new Set();
   const persist = S.u.debounce(() => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }, 120);
   function emit() { subs.forEach((fn) => fn(state)); persist(); }
