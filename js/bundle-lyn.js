@@ -11,6 +11,8 @@ window.SAM3_DATA.lyn = {
   shift: [{"q":"Norges Bank hever realrenten Rₜ. Hva skjer i IS-diagrammet?","options":["IS skifter inn","IS skifter ut","Bevegelse langs IS","IS blir brattere"],"answer":2,"why":"Rₜ står på aksen i IS-diagrammet, så renteendring gir bevegelse langs kurven. Høyere Rₜ gjør lån dyrere, investeringene faller og Ỹ synker.","ch":14},{"q":"Regjeringen øker offentlige innkjøp (ā↑). Hva skjer med IS-kurven?","options":["Bevegelse langs IS","IS skifter ut","IS skifter inn","MP skifter opp"],"answer":1,"why":"ā står ikke på noen akse, så skift. Positivt etterspørselssjokk gir høyere Ỹ for enhver rente: IS skifter ut/høyre.","ch":14},{"q":"Boligkrakk og kredittskvis demper konsum og investering (ā↓). IS-kurven?","options":["IS skifter ut","Bevegelse langs IS","AS skifter opp","IS skifter inn"],"answer":3,"why":"ā er ikke på aksen: negativt etterspørselssjokk gir lavere Ỹ ved uendret rente, så hele IS skifter inn/venstre.","ch":14},{"q":"Eksportmarkedene styrker seg (āex↑). Hva skjer i IS-diagrammet?","options":["IS skifter inn","Bevegelse langs IS","IS skifter ut","MP skifter ned"],"answer":2,"why":"āex inngår i ā, som ikke står på aksen. Sterkere eksportetterspørsel er et positivt ā-sjokk: IS skifter ut.","ch":14},{"q":"Norges Bank hever styringsrenten iₜ mens inflasjonen er treg. IS-MP-diagrammet?","options":["MP skifter opp","MP skifter ned","Bevegelse langs MP","IS skifter inn"],"answer":0,"why":"Treg π gjør at Rₜ = iₜ − πₜ stiger. Sentralbanken velger nytt R-nivå: MP-linjen skifter opp, og vi får bevegelse langs IS til negativt gap.","ch":15},{"q":"Inflasjonen πₜ stiger og sentralbanken svarer via Taylor-regelen. Hva skjer i AD-diagrammet?","options":["AD skifter inn","AD skifter ut","Bevegelse langs AD","AS skifter ned"],"answer":2,"why":"πₜ står på aksen i AS-AD. Renteresponsen er bygget inn i AD-helningen: høyere π gir høyere R og lavere Ỹ, en bevegelse langs AD.","ch":17},{"q":"Sentralbanken senker inflasjonsmålet π̄ (som Norge i 2017). Hva skjer med AD?","options":["AD skifter ned/inn","AD skifter ut","Bevegelse langs AD","AS skifter opp"],"answer":0,"why":"π̄ inngår i AD-ligningen og står ikke på aksen. Lavere mål krever høyere rente ved gitt inflasjon, så AD skifter ned/inn.","ch":17},{"q":"Importprisene hopper (ō↑). Hva skjer med Phillips/AS-kurven?","options":["Bevegelse langs AS","AS skifter ned","AS skifter opp","AD skifter inn"],"answer":2,"why":"ō står ikke på aksen: kostnadssjokket løfter hele AS. Sentralbankens respons gir så bevegelse langs AD til stagflasjon (π↑, Ỹ↓).","ch":16},{"q":"Høykonjunktur presser produksjonsgapet opp (Ỹₜ > 0). Phillips-kurven?","options":["PC skifter opp","Bevegelse langs PC","PC skifter ned","PC blir brattere"],"answer":1,"why":"Ỹₜ står på aksen, så etterspørselsdrevet endring er bevegelse langs kurven. Kapasitetspress gir høyere inflasjon via leddet v̄·Ỹₜ.","ch":16},{"q":"Ny periode starter etter høy inflasjon i fjor (πₜ₋₁ høy, adaptive forventninger). AS-kurven?","options":["AS skifter opp","Bevegelse langs AS","AS skifter ned","AD skifter ut"],"answer":0,"why":"πₜ₋₁ inngår i AS-ligningen, ikke på aksen. Høyere forventet inflasjon bakes inn i prissettingen og løfter AS mellom periodene.","ch":16},{"q":"Etter prissjokket faller inflasjonen og forventningene πₜ₋₁ justeres ned periode for periode. Hva skjer med AS?","options":["Bevegelse langs AS","AS skifter gradvis ned","AD skifter ut","AS skifter opp"],"answer":1,"why":"πₜ₋₁ er skiftvariabel i AS. Adaptive forventninger oppdateres bakover, så AS skifter gradvis ned og økonomien går langs AD tilbake mot likevekt.","ch":17},{"q":"Risikopåslaget f̄ stiger under finansuro. Hva skjer i AS-AD-diagrammet?","options":["AD skifter inn","AD skifter ut","Bevegelse langs AD","AS skifter opp"],"answer":0,"why":"f̄ gir leddet −b̄f̄ i AD og står ikke på aksen. Lånerenten stiger selv med uendret styringsrente, som et negativt etterspørselssjokk: AD inn.","ch":18},{"q":"Oljeprisen faller kraftig og bedriftenes kostnader synker (ō < 0). AS-kurven?","options":["AS skifter opp","Bevegelse langs AS","AD skifter inn","AS skifter ned"],"answer":3,"why":"Negativt prissjokk: ō er skiftvariabel, ikke på aksen. AS skifter ned, og vi får lavere inflasjon og høyere produksjon langs AD.","ch":16},{"q":"Finanspolitisk ekspansjon i nedgangstid (ā↑). Hva skjer i AS-AD-diagrammet?","options":["AS skifter opp","Bevegelse langs AS","AD skifter ut","AD skifter inn"],"answer":2,"why":"ā inngår i AD, ikke på aksen: AD skifter ut. Deretter bevegelse langs AS til høyere Ỹ og π, siden AS bare skifter ved ō eller πₜ₋₁.","ch":17},{"q":"Positivt etterspørselssjokk (ā↑): hva skjer med AS-kurven i selve sjokkperioden?","options":["AS skifter opp","AS skifter ned","Ingen skift: bevegelse langs AS","AS blir flatere"],"answer":2,"why":"AS skifter bare ved ō eller πₜ₋₁, og begge er uendret i sjokkperioden. Ỹₜ står på aksen, så AD-skiftet gir bevegelse langs AS.","ch":17},{"q":"Utenlandsk realrente R^W stiger og kronen svekkes (εₜ↑). Norsk AD-kurve?","options":["AD skifter inn","Bevegelse langs AD","AS skifter opp","AD skifter ut"],"answer":3,"why":"Kapital trekkes ut, real depresiering gjør eksporten mer konkurransedyktig og NX stiger. Virker som positivt ā-sjokk: AD skifter ut.","ch":19},{"q":"Svakere vekst hos handelspartnerne reduserer eksportetterspørselen (ā_nx↓). Hva skjer med AD?","options":["Bevegelse langs AD","AD skifter ut","AS skifter ned","AD skifter inn"],"answer":3,"why":"ā_nx inngår i ā, som er skiftvariabel i AD. Lavere eksportetterspørsel er et negativt etterspørselssjokk: AD skifter inn.","ch":19},{"q":"Toll på importerte innsatsvarer øker bedriftenes kostnader. Hva skjer med AS?","options":["AD skifter inn","AS skifter opp","Bevegelse langs AS","AS skifter ned"],"answer":1,"why":"Kostnadssjokket er ō↑, en skiftvariabel: AS skifter opp. Tollens etterspørselsside (ā_nx↓) skifter i tillegg AD inn (dual effekt).","ch":19},{"q":"Sentralbanken blir mer aggressiv mot inflasjonsavvik (m̄↑). Hva skjer med AD?","options":["AD skifter ut","AD blir flatere (helningen endres)","Bevegelse langs AD","AS skifter opp"],"answer":1,"why":"m̄ inngår i helningen b̄m̄, ikke i konstantleddet. Sterkere renterespons gir større utslag i Ỹ per enhet inflasjonsavvik: flatere AD.","ch":17},{"q":"Langsiktig realrente r̄ (= MPK) faller. Hva skjer i IS-diagrammet?","options":["IS skifter inn","IS skifter ut","Bevegelse langs IS","IS blir flatere"],"answer":0,"why":"r̄ står ikke på aksen og er skiftvariabel. Lavere avkastning gjør færre prosjekter lønnsomme ved gitt Rₜ: Ỹ = ā − b̄(Rₜ − r̄) faller, IS inn.","ch":14},{"q":"Spareraten s̄ øker fra 15 til 40 % (Sør-Korea). Hva skjer i Solow-diagrammet?","options":["Bevegelse langs s̄y-kurven","s̄y-kurven roterer opp","d̄k-linjen blir brattere","y-kurven skifter ned"],"answer":1,"why":"s̄ er kurveparameter, ikke på aksen (k). Investeringskurven s̄y roterer opp og skjærer d̄k lenger ute: nytt høyere k* og y*, rask overgangsvekst.","ch":8},{"q":"Et jordskjelv ødelegger halve kapitalbeholdningen. Hva skjer i Solow-diagrammet?","options":["s̄y-kurven skifter ned","y-kurven skifter ned","Ingen kurver flytter: nytt punkt til venstre for k*","d̄k-linjen roterer ned"],"answer":2,"why":"k står på aksen og ingen parametre (s̄, A, d̄) endres: ingen skift. Økonomien havner under k* og vokser langs kurvene tilbake til samme steady state.","ch":8},{"q":"TFP faller (A↓) etter svekkede institusjoner. Hva skjer i Solow-diagrammet?","options":["Bevegelse langs kurvene","Bare s̄y-kurven skifter ned","Både y- og s̄y-kurven skifter ned","d̄k-linjen blir slakere"],"answer":2,"why":"A inngår i både y = Ak^α og s̄y, så begge kurver skifter ned: nytt lavere k* og y*. I motsetning til jordskjelv, som er bevegelse langs.","ch":8},{"q":"Befolkningsveksten n̄ øker. Hva skjer i Solow-diagrammet med befolkningsvekst?","options":["s̄y-kurven skifter opp","Bevegelse langs (n̄+d̄)k-linjen","y-kurven blir brattere","(n̄+d̄)k-linjen blir brattere"],"answer":3,"why":"n̄ virker som ekstra avskrivning: mer av investeringen går til å utstyre nye innbyggere med kapital. Brattere (n̄+d̄)k gir lavere k* og y*.","ch":8},{"q":"Negativt etterspørselssjokk har rammet, og sentralbanken kutter renten. IS-MP-diagrammet?","options":["MP skifter opp","Bevegelse langs MP","IS skifter ut","MP skifter ned"],"answer":3,"why":"Sentralbankens rentevalg flytter MP-linjen: kutt gir MP ned og bevegelse langs den innskiftede IS-kurven, som demper det negative gapet.","ch":15},{"q":"Et prissjokk (ō↑) treffer. Hva skjer med AD-kurven i samme periode?","options":["AD skifter inn","Ingen skift: bevegelse langs AD","AD skifter ut","AD blir brattere"],"answer":1,"why":"ō inngår ikke i AD. Sjokket skifter AS opp; når πₜ (på aksen) stiger, hever sentralbanken renten, en bevegelse langs AD til stagflasjonspunktet B.","ch":17}],
   chains: [{"title":"Rentekanalen i åpen økonomi","steps":["Norges Bank setter styringsrenten i høyere enn hos handelspartnerne","Kapital strømmer inn til Norge for å høste renteforskjellen","Kronen styrker seg: εₜ↓ (færre kroner per euro)","Trege priser gjør at også realvalutakursen appresierer","Norsk eksport blir dyrere ute og import billigere: NX faller","Valutakanalen demper etterspørselen i tillegg til IS-kanalen"],"why":"Viser at renteøkning i åpen økonomi virker via to kanaler: IS og valutakursen. UIP-mekanismen rente til krone til NX var eksplisitt tema i V25 3b.","ch":19},{"title":"Fra inflasjon over mål til lukket gap (MP og IS)","steps":["Inflasjonen ligger over målet: πₜ > π̄","Taylor-regelen Rₜ = m̄(πₜ − π̄) + r̄ tilsier realrente over r̄","Sentralbanken hever nominell rente i; treg inflasjon gir R↑","Bevegelse langs IS: dyrere å låne, investering og konsum faller","Produksjonsgapet blir negativt: Ỹ < 0","Via Phillips-kurven avtar prispresset og π faller mot målet"],"why":"Selve transmisjonsmekanismen bak renteanbefalingen i Oppgave 3: fra inflasjonsavvik via Taylor-regelen og IS til gap og disinflasjon.","ch":15},{"title":"Kostnadssjokk i AS-AD over flere perioder","steps":["Positivt prissjokk treffer: ō > 0 (f.eks. oljepris opp)","AS-kurven skifter opp med hele sjokket","Sentralbanken reagerer på høyere π: bevegelse langs AD til B","Stagflasjon i B: høyere inflasjon og lavere produksjon","Neste periode er ō = 0, men πₜ₋₁ er forhøyet og holder AS oppe","AS skifter gradvis ned når forventningene faller: tilbake til A"],"why":"Standardscenariet i Oppgave 3. Sensor krever stagflasjonspunktet B og at adaptive forventninger (πₜ₋₁) gjør tilbakevendingen gradvis over flere perioder.","ch":17},{"title":"Solow: konvergens mot steady state","steps":["Økonomien starter under steady state: k < k*","Investeringen overstiger avskrivningen: s̄y > d̄k","Nettoinvesteringen er positiv, så k vokser","Avtakende MPK gjør at investeringstilveksten flater ut","Avskrivningen d̄k vokser lineært og tar igjen investeringen","I k* er s̄y = d̄k: nettoinvestering null og veksten stopper"],"why":"Konvergensmekanismen er Solow-modellens kjerne og ble testet direkte V25. Formel uten mekanisme gir bare delvis uttelling.","ch":8},{"title":"Hvorfor høyere sparerate bare gir nivåeffekt","steps":["Spareraten øker: s̄y-kurven roterer opp i Solow-diagrammet","Ved gamle k* er nå s̄y > d̄k: nettoinvesteringen blir positiv","Kapitalen per innbygger vokser mot et nytt, høyere k*","Avtakende MPK: avskrivningen innhenter investeringen på nytt","I nytt steady state er y* høyere, men veksten er igjen null","Kun nivåeffekt: rask vekst i overgangen, ingen varig vekst"],"why":"Solows sentrale lærdom: kapitalakkumulasjon gir nivå, ikke varig vekst. Skillet mellom nivå og vekstrate er en klassisk felle i Oppgave 2.","ch":8},{"title":"Romer: fra ikke-rivalisering til vedvarende vekst","steps":["Ideer er ikke-rivaliserende: samme oppskrift kan brukes av alle","Utviklingskostnaden fordeles på stadig flere enheter","Å doble all innsats mer enn dobler produksjonen: økende skalautbytte","Kunnskapslageret er endogent og vokser: ΔAₜ₊₁ = z̄Lₐₜ","Forskerne vokser med befolkningen: Lₐₜ = ℓ̄Nₜ gir g*A = n̄","Vedvarende vekst per innbygger på BGP: g*y = γn̄"],"why":"Forklarer det Solow ikke kan: varig vekst. Kjeden fra ikke-rivalisering til g*y = γn̄ er det høyest belønnede enkelttemaet i Oppgave 2.","ch":9},{"title":"Badekarmodellen: utledningen av u*","steps":["Ledigheten endres med innstrøm minus utstrøm: ΔUₜ₊₁ = s·Eₜ − f·Uₜ","Steady state krever konstant vannstand: sett ΔUₜ₊₁ = 0","Da er innstrøm lik utstrøm: s·Eₜ = f·Uₜ","Sett inn Eₜ = L − Uₜ og løs: sL = (f + s)·U*","Del på L: u* = s/(f + s), uavhengig av arbeidsstyrken"],"why":"Utledningen av den naturlige ledighetsraten kan kreves vist (H25). Kjeden viser hvorfor bare s og f, ikke L, bestemmer u*.","ch":11},{"title":"Seignorage og hyperinflasjon (Sargent)","steps":["Store underskudd: ingen vil låne staten penger, skatteøkninger politisk umulige","Siste utvei i G = T + ΔB + ΔM er å trykke penger: ΔM↑","Kvantitetsteorien: π* = gM − gY, pengevekst blir inflasjon","Inflasjonsskatten uthuler realverdien for dem som holder kontanter","Samme realinntekt krever stadig mer trykking: inflasjonen akselererer","Hyperinflasjon har dermed finanspolitisk rot (Sargent)"],"why":"Kobler statens budsjettbetingelse til kvantitetsteorien og forklarer Sargents sitat: vedvarende høy inflasjon har finanspolitisk rot, motstykket til Friedman.","ch":12},{"title":"Finansiell friksjon, AD inn og nullgrensen (ZLB)","steps":["Finansuro: investorer krever risikopremie, f̄ stiger","Lånerenten R = R_ff + f̄ stiger selv om styringsrenten er uendret","Dyrere lån demper investering og konsum: AD skifter inn","Dyp nedgang med π < π̄: sentralbanken kutter renten mot null","Nullgrensen (ZLB): nominell rente kan ikke kuttes videre","Deflasjon løfter realrenten R = i − π og forsterker nedgangen"],"why":"Forklarer hvorfor lånerenten kan stige selv når styringsrenten kuttes, og hvorfor ZLB og deflasjon forsterker kriser. Kjernen i finanskrise-oppgaver.","ch":18},{"title":"Toll: dual effekt på AD og AS","steps":["Toll innføres mot norsk handel (f.eks. USA)","Svakere handelspartnere og verdikjeder: eksportetterspørselen faller","ā_nx faller: AD skifter inn","I tillegg: toll på innsatsvarer øker kostnadene, ō↑","AS skifter opp: kostnadsdrevet prispress","Produksjonen faller entydig, inflasjonseffekten er uklar"],"why":"V25 3c testet nettopp dette: ett sjokk treffer begge kurver. Vanligste feil er å behandle toll som enten AD eller AS, ikke begge.","ch":19},{"title":"Tidskonsistens og uavhengig sentralbank","steps":["Priser og lønninger for neste periode er allerede fastsatt","Sentralbanken fristes til ekspansiv politikk for å presse Ỹ opp","Aktørene forutser dette og bygger høyere inflasjon inn i kontrakter","Inflation bias: høyere inflasjon uten høyere produksjon","Binding til en pengepolitisk regel fjerner fristelsen","Uavhengig sentralbank med lovfestet mål gir troverdighet"],"why":"Kydland-Prescott begrunner hvorfor regler slår diskresjon og hvorfor sentralbanken er uavhengig. Testet i V24 3.3 om tillit og forventningsdannelse.","ch":18},{"title":"Okuns lov: fra produksjonsgap til ledighet","steps":["Et negativt sjokk gir faktisk BNP under potensielt: Ỹ < 0","Bedriftene produserer mindre og trenger færre ansatte","Ledigheten stiger over naturlig nivå: u − ū = −0,5·Ỹ > 0","Eksempel: Ỹ = −4 % gir syklisk ledighet på +2 prosentpoeng","Ledigheten normaliseres først når produksjonsgapet lukkes"],"why":"Okuns lov er broen fra produksjonsgapet til det vi bryr oss om: ledighet. Testet H25 2a; pass på fortegnet i koeffisienten −0,5.","ch":13}]
 };
+/* Opp eller ned (komparativ statikk), forfattet fra manualen. */
+window.SAM3_DATA.lyn.updown = [{"q":"Kostnadssjokk ō > 0 treffer økonomien. Hva skjer med produksjonsgapet Ỹ på kort sikt?","dir":"ned","why":"AS skifter opp; sentralbanken møter høyere inflasjon med høyere realrente (MP), og bevegelsen langs AD gir Ỹ < 0. Stagflasjon: π opp og produksjon ned.","ch":17},{"q":"Spareraten s̄ øker varig. Hva skjer med steady state-nivået y* i Solow-modellen?","dir":"opp","why":"s̄y-kurven roterer opp: investering overstiger avskrivning ved gammelt k*, kapitalen vokser til nytt høyere k*, og y* = A(k*)^α stiger.","ch":8},{"q":"Norges Bank hever renten over utlandets. Hva skjer med kronekursen εₜ (NOK per euro)?","dir":"ned","why":"UIP: høyere norsk rente trekker kapital inn og kronen styrkes. Da trengs færre kroner per euro, så εₜ faller (εₜ↓ = sterkere krone).","ch":19},{"q":"Separasjonsraten s øker, flere mister jobben per periode. Hva skjer med den naturlige ledigheten u*?","dir":"opp","why":"Badekaret: u* = s/(f+s). Større innstrøm til ledighet hever vannstanden, så den naturlige ledighetsraten stiger.","ch":11},{"q":"Et jordskjelv ødelegger halve kapitalbeholdningen K̄. Hva skjer med lønnen w* i produksjonsmodellen?","dir":"ned","why":"Hver arbeider har mindre kapital å jobbe med: MPL = (1−α)A(K/L)^α faller når K faller, og i likevekt er w = MPL.","ch":7},{"q":"Sentralbanken øker pengeveksten gM varig, mens gY er uendret. Hva skjer med langsiktig inflasjon π*?","dir":"opp","why":"Kvantitetsteorien: π* = gM − gY. På lang sikt slår høyere pengevekst én-til-én ut i inflasjonen (Friedman).","ch":12},{"q":"Fruktbarheten faller så befolkningsveksten n̄ synker varig. Hva skjer med vekstraten g*y i Romer-modellen?","dir":"ned","why":"g*y = γn̄: færre nye forskere over tid gir lavere kunnskapsvekst. Dette er en vekstrateeffekt, ikke en nivåeffekt.","ch":9},{"q":"Produksjonsgapet blir negativt, Ỹ = −4 %. Hva skjer med arbeidsledigheten u ifølge Okuns lov?","dir":"opp","why":"Okun: u − ū = −0,5·Ỹ. Med Ỹ = −4 % blir syklisk ledighet +2 prosentpoeng, så u stiger over sitt naturlige nivå ū.","ch":13},{"q":"Sentralbanken senker inflasjonsmålet π̄ under adaptive forventninger. Hva skjer med Ỹ på kort sikt?","dir":"ned","why":"AD skifter ned: lavere mål krever høyere realrente ved gitt inflasjon. Forventningene (πₜ₋₁) henger igjen, så gapet blir midlertidig negativt.","ch":17},{"q":"Et jordskjelv ødelegger halve kapitalbeholdningen K̄. Hva skjer med realrenten r* i produksjonsmodellen?","dir":"opp","why":"Kapital blir knapp: MPK = αA(L/K)^(1−α) stiger når K faller, og i likevekt er r = MPK.","ch":7},{"q":"Avskrivningsraten d̄ øker varig. Hva skjer med steady state-kapitalen k* i Solow?","dir":"ned","why":"d̄k-linjen blir brattere og krysser s̄y ved lavere kapital: k* = (s̄A/d̄)^(1/(1−α)) faller.","ch":8},{"q":"Oljeprisen hopper opp, et prissjokk ō > 0. Hva skjer med inflasjonen π i sjokkperioden?","dir":"opp","why":"Phillips: πₜ = πₜ₋₁ + v̄Ỹₜ + ō. Kostnadssjokket løfter AS direkte, så inflasjonen stiger selv om produksjonen faller.","ch":16},{"q":"Norges Bank hever styringsrenten. Hva skjer med nettoeksporten NX?","dir":"ned","why":"Høyere rente styrker kronen (real appresiering): norsk eksport blir dyrere ute og import billigere, så NX faller. Valutakanalen.","ch":19},{"q":"Krig ødelegger kapital slik at k faller under k*. Hva skjer med k i periodene etterpå?","dir":"opp","why":"Ingen kurver skifter: under k* er s̄y > d̄k, nettoinvesteringen er positiv, og kapitalen vokser tilbake mot samme k*.","ch":8},{"q":"Inflasjonen π stiger mens nominell rente i holdes uendret. Hva skjer med realrenten R?","dir":"ned","why":"Fisher: R = i − π. Høyere inflasjon spiser av den nominelle avkastningen, så kjøpekraftsavkastningen faller.","ch":12},{"q":"Myndighetene subsidierer forskning så forskerandelen ℓ̄ øker moderat. Hva skjer med BGP-nivået y*?","dir":"opp","why":"y* = C·(z̄ℓ̄Nₜ)^γ: flere forskere gir mer kunnskap og en høyere bane. Nivåeffekt; vekstraten er fortsatt γn̄.","ch":9},{"q":"Et boligkrakk gir negativt etterspørselssjokk, ā < 0. Hva skjer med produksjonsgapet Ỹ ved uendret rente?","dir":"ned","why":"IS skifter innover: lavere konsum- og investeringsetterspørsel gir Ỹ = ā − b̄(R − r̄) < 0 når renten holdes uendret.","ch":14},{"q":"Sentralbanken hever nominell rente i mens inflasjonen er treg. Hva skjer med realrenten R?","dir":"opp","why":"R = i − π: fordi π er treg på kort sikt, følger realrenten den nominelle opp. Derfor kan sentralbanken styre R på kort sikt.","ch":15},{"q":"Bedre matching i arbeidsmarkedet øker jobbfinneraten f. Hva skjer med den naturlige ledigheten u*?","dir":"ned","why":"u* = s/(f+s): raskere utstrøm fra ledighet tømmer badekaret fortere, så steady state-ledigheten faller.","ch":11},{"q":"Produktiviteten A øker i produksjonsmodellen. Hva skjer med lønnen w*?","dir":"opp","why":"Høyere A løfter marginalproduktet av arbeid: w* = (1−α)A(K̄/L̄)^α stiger, og i likevekt er w = MPL.","ch":7},{"q":"Finansuro øker risikopremien f̄. Hva skjer med produksjonsgapet Ỹ?","dir":"ned","why":"Lånerenten R = R_ff + f̄ stiger selv med uendret styringsrente: AD skifter innover (leddet −b̄f̄), som et negativt etterspørselssjokk.","ch":17},{"q":"Utenlandsk realrente R^W øker mens norsk rente er uendret. Hva skjer med norsk produksjonsgap Ỹ?","dir":"opp","why":"Kronen depresierer (εₜ↑), norsk eksport blir mer konkurransedyktig, NX øker og AD skifter ut: positivt etterspørselssjokk.","ch":19},{"q":"Befolkningsveksten n̄ øker varig i Solow-modellen. Hva skjer med y* per innbygger?","dir":"ned","why":"Mer investering går med til å utstyre nye arbeidere (capital widening): k* = (s̄A/(n̄+d̄))^(1/(1−α)) faller, og y* faller.","ch":8},{"q":"Finanspolitisk ekspansjon gir positivt etterspørselssjokk ā > 0. Hva skjer med inflasjonen π?","dir":"opp","why":"AD skifter ut og økonomien beveger seg langs AS: kapasitetspresset øker, så både Ỹ og π stiger (v̄Ỹ-leddet).","ch":17},{"q":"Høykonjunktur gir positivt produksjonsgap, Ỹ > 0. Hva skjer med arbeidsledigheten u?","dir":"ned","why":"Okuns lov: u − ū = −0,5·Ỹ. Positivt gap gir negativ syklisk ledighet, så u faller under den naturlige raten ū.","ch":13},{"q":"Arbeidsstyrken L̄ øker varig (innvandring). Hva skjer med realrenten r* i produksjonsmodellen?","dir":"opp","why":"Flere arbeidere per kapitalenhet hever kapitalens marginalprodukt: r = αA(L/K)^(1−α) stiger når L øker.","ch":7},{"q":"Forskerproduktiviteten z̄ faller varig. Hva skjer med BGP-nivået y* i Romer-modellen?","dir":"ned","why":"z̄ inngår i nivået y* = C·(z̄ℓ̄Nₜ)^γ, så banen forskyves ned. Vekstraten γn̄ er uendret: en ren nivåeffekt.","ch":9},{"q":"Utenlandske sentralbanker hever renten mens norsk rente er uendret. Hva skjer med kronekursen εₜ?","dir":"opp","why":"Kapital strømmer ut mot høyere avkastning ute, kronen svekkes, og εₜ stiger (flere kroner per euro). εₜ↑ = svakere krone.","ch":19},{"q":"Inflasjonen er over målet, og sentralbanken øker reaksjonsparameteren m̄. Hva skjer med Ỹ?","dir":"ned","why":"MP: R = m̄(π − π̄) + r̄. Med π > π̄ gir større m̄ høyere realrente; via IS faller investering og konsum, og gapet trekkes ned.","ch":15},{"q":"TFP-nivået A øker varig. Hva skjer med steady state-konsumet c* i Solow?","dir":"opp","why":"A virker dobbelt: direkte på y og indirekte via høyere k*. y* stiger, og med uendret s̄ stiger c* = (1−s̄)y*.","ch":8}];
 
 (function (S) {
   const { el, icon } = S.u;
@@ -53,6 +55,12 @@ window.SAM3_DATA.lyn = {
     par: { name: "Par-sprint", emoji: "🃏", desc: "Match symboler og begreper", ready: () => (S.data.glossary.symbols || []).length >= 6, run: runPar },
     skift: { name: "Skift eller glid?", emoji: "📈", desc: "Kurveskift vs. bevegelse langs", ready: () => D().shift.length >= 10, run: runSkift },
     kjede: { name: "Kjede", emoji: "🔗", desc: "Bygg mekanismen steg for steg", ready: () => D().chains.length >= 3, run: runKjede },
+    hode: { name: "Hoderegning", emoji: "🔢", desc: "Eksamensmatte uten kalkulator", ready: () => true, run: runHode },
+    updown: { name: "Opp eller ned?", emoji: "↕️", desc: "Hvilken vei går størrelsen?", ready: () => (D().updown || []).length >= 10, run: runUpDown },
+    forklar: { name: "Forklar!", emoji: "🎙️", desc: "45 sekunder per mekanisme", ready: () => forklarPool().length >= 3, run: runForklar },
+    oddone: { name: "En skiller seg ut", emoji: "🕵️", desc: "Finn inntrengeren", ready: () => (S.data.reference.formulaTables || []).filter((t) => t.rows.length >= 3).length >= 2, run: runOddOne },
+    memory: { name: "Memory", emoji: "🧠", desc: "Finn skjulte par", ready: () => (S.data.glossary.symbols || []).length >= 6, run: runMemory },
+    okonom: { name: "Hvem er økonomen?", emoji: "🧑‍🏫", desc: "Koble navn til bidrag", ready: () => (S.data.glossary.economists || []).length >= 6, run: runOkonom },
     bit: { name: "Dagens bit", emoji: "☕", desc: "To innsikter og én sjekk", ready: () => S.data.chapters().length > 0, run: runBit },
   };
   function availableGames() { return Object.keys(GAMES).filter((k) => { try { return GAMES[k].ready(); } catch (e) { return false; } }); }
@@ -300,6 +308,182 @@ window.SAM3_DATA.lyn = {
       }
     }
     step(); return box;
+  }
+
+  /* ---------- opp eller ned (komparativ statikk) ---------- */
+  function runUpDown(done) {
+    const items = shuffle(D().updown || []).slice(0, 10);
+    const box = el(".lyn-game");
+    let i = 0, correct = 0, xp = 0;
+    function step() {
+      S.u.clear(box);
+      if (i >= items.length) { done(xp, `Opp eller ned: ${correct}/${items.length} riktige`); return; }
+      const it = items[i];
+      box.appendChild(progBar(items.length, i));
+      box.appendChild(el(".tiny.muted", "K" + it.ch));
+      box.appendChild(el(".lyn-statement", it.q));
+      const fb = el("div");
+      const row = el(".lyn-big",
+        el("button.lyn-opp", { onclick: () => answer("opp") }, "⬆ OPP"),
+        el("button.lyn-ned", { onclick: () => answer("ned") }, "⬇ NED"));
+      function answer(v) {
+        const ok = v === it.dir;
+        if (ok) { correct++; xp += 8; }
+        row.querySelectorAll("button").forEach((b) => (b.disabled = true));
+        fb.appendChild(el(".explain", { style: { borderColor: ok ? "var(--green)" : "var(--rose)" } },
+          el("b", ok ? "Riktig! " : "Feil. "), `Svar: ${it.dir.toUpperCase()}. ${it.why}`));
+        fb.appendChild(el(".center", { style: { marginTop: "12px" } },
+          el("button.btn.primary", { onclick: () => { i++; step(); } }, i + 1 >= items.length ? "Se resultat" : "Neste")));
+      }
+      box.appendChild(row); box.appendChild(fb);
+    }
+    step(); return box;
+  }
+
+  /* ---------- hoderegning (generert eksamensmatte, uten kalkulator) ---------- */
+  function fmtOpts(correct, distractors, unit) {
+    const set = [correct];
+    distractors.forEach((d) => { if (set.length < 4 && Number.isFinite(d) && d !== correct && !set.includes(d)) set.push(d); });
+    let step = Math.max(1, Math.abs(Math.round(correct * 0.5)) || 1), k = 1;
+    while (set.length < 4) { const cand = correct + k * step; if (!set.includes(cand)) set.push(cand); k = k > 0 ? -k : -k + 1; }
+    const opts = shuffle(set);
+    return { options: opts.map((v) => v + unit), answer: opts.indexOf(correct) };
+  }
+  function hodePool() {
+    const pool = [];
+    [[1, 70], [2, 35], [5, 14], [7, 10]].forEach(([g, t]) => {
+      const o = fmtOpts(t, [70 * g, Math.round(t / 2), t + 15], " år");
+      pool.push({ q: `Økonomien vokser ${g} % i året. Omtrent hvor lang er doblingstiden?`, options: o.options, answer: o.answer, why: `Regelen om 70: 70/${g} = ${t} år.` });
+    });
+    [[4, -2], [-4, 2], [6, -3], [-2, 1]].forEach(([gap, du]) => {
+      const correct = `${Math.abs(du)} pp ${du < 0 ? "under" : "over"} ū`;
+      const options = shuffle([correct, `${Math.abs(du)} pp ${du < 0 ? "over" : "under"} ū`, `${Math.abs(gap)} pp ${du < 0 ? "under" : "over"} ū`, "Uendret ledighet"]);
+      pool.push({ q: `Produksjonsgapet er ${gap > 0 ? "+" : ""}${gap} %. Hva sier Okuns lov (koeff. 0,5) om ledigheten?`, options, answer: options.indexOf(correct), why: `u − ū = −0,5·(${gap}) = ${du > 0 ? "+" : ""}${du} prosentpoeng.` });
+    });
+    [[2, 18, 10], [1, 19, 5], [2, 8, 20], [3, 17, 15]].forEach(([s, f, u]) => {
+      const o = fmtOpts(u, [Math.round(100 * f / (f + s)), s, u * 2], " %");
+      pool.push({ q: `Badekarmodellen: s = ${s} %, f = ${f} %. Hva er naturlig ledighet u*?`, options: o.options, answer: o.answer, why: `u* = s/(f+s) = ${s}/${f + s} = ${u} %.` });
+    });
+    [[7, 2, 5], [9, 3, 6], [5, 2, 3], [10, 3, 7]].forEach(([gm, gy, pi]) => {
+      const o = fmtOpts(pi, [gm + gy, gy - gm, gm], " %");
+      pool.push({ q: `Pengeveksten er ${gm} %, produksjonsveksten ${gy} %. Hva blir langsiktig inflasjon π*?`, options: o.options, answer: o.answer, why: `π* = g_M − g_Y = ${gm} − ${gy} = ${pi} %.` });
+    });
+    [[5, 2, 3], [4, 3, 1], [6, 2, 4], [3, 4, -1]].forEach(([i2, pi, r]) => {
+      const o = fmtOpts(r, [i2 + pi, pi - i2, i2], " %");
+      pool.push({ q: `Nominell rente i = ${i2} %, inflasjon π = ${pi} %. Hva er realrenten R?`, options: o.options, answer: o.answer, why: `Fisher: R = i − π = ${i2} − ${pi} = ${r} %.` });
+    });
+    [[1200, 1000, 120], [660, 600, 110], [520, 400, 130]].forEach(([n, r2, d2]) => {
+      const o = fmtOpts(d2, [100, d2 + 10, d2 - 10], "");
+      pool.push({ q: `Nominelt BNP = ${n}, reelt BNP = ${r2}. Hva er BNP-deflatoren?`, options: o.options, answer: o.answer, why: `Deflator = (nominelt/reelt)·100 = ${n}/${r2}·100 = ${d2}.` });
+    });
+    [[4, 3, 0, 3], [5, 3, 3, 2], [6, 6, 3, 2], [3, 3, 3, 0]].forEach(([gy, gk, gl, ga]) => {
+      const o = fmtOpts(ga, [gy - gk, gy - gl, gy], " %");
+      pool.push({ q: `g_Y = ${gy} %, g_K = ${gk} %, g_L = ${gl} %, α = 1/3. Hva er TFP-veksten g_A?`, options: o.options, answer: o.answer, why: `g_A = ${gy} − (1/3)·${gk} − (2/3)·${gl} = ${ga} % (Solow-residualen).` });
+    });
+    [[600, 200, 150, 120, 90, 980], [500, 250, 100, 80, 60, 870], [700, 150, 200, 90, 70, 1070]].forEach(([C2, I2, G2, X2, M2, Y2]) => {
+      const o = fmtOpts(Y2, [Y2 + M2, Y2 - (X2 - M2), Y2 - M2], "");
+      pool.push({ q: `C=${C2}, I=${I2}, G=${G2}, eksport=${X2}, import=${M2}. Hva er BNP fra utgiftssiden?`, options: o.options, answer: o.answer, why: `Y = C+I+G+(X−M) = ${C2}+${I2}+${G2}+(${X2}−${M2}) = ${Y2}.` });
+    });
+    return pool;
+  }
+  function runHode(done) {
+    const rounds = shuffle(hodePool()).slice(0, 8);
+    return mcqRunner({ rounds, secs: 25, xpPer: 12, title: "Hoderegning" }, done);
+  }
+
+  /* ---------- forklar! (mekanisme mot fasit, selvrettet) ---------- */
+  function forklarPool() {
+    const AL = window.SAM3_DATA.activeLearning || {};
+    const out = [];
+    Object.keys(AL).forEach((ch) => AL[ch].forEach((p) => { const sol = p.solution || p.hint; if (sol) out.push({ ch: +ch, q: p.q, sol }); }));
+    return out;
+  }
+  function runForklar(done) {
+    const items = shuffle(forklarPool()).slice(0, 3);
+    const box = el(".lyn-game");
+    let i = 0, xp = 0;
+    function step() {
+      clearTick(); S.u.clear(box);
+      if (i >= items.length) { done(xp, `Forklar: ${items.length} mekanismer gjennomgått`); return; }
+      const it = items[i];
+      box.appendChild(progBar(items.length, i));
+      box.appendChild(el(".tiny.muted", "K" + it.ch + " · Forklar i hodet (eller høyt) før du sjekker"));
+      box.appendChild(el(".lyn-statement", it.q));
+      const bar = el(".lyn-timer", el("span")); box.appendChild(bar);
+      const fasit = el(".explain", { style: { display: "none" } });
+      fasit.innerHTML = "<b>Fasit: </b>" + S.u.escapeHtml(it.sol);
+      const rate = el(".fc-rate", { style: { display: "none", marginTop: "12px" } });
+      const mk = (cls, label, pts) => el("button." + cls, { onclick: () => { xp += pts; i++; step(); } }, label);
+      rate.appendChild(mk("again", "Bommet", 0)); rate.appendChild(mk("hard", "Delvis (+8)", 8)); rate.appendChild(mk("good", "Traff (+15)", 15));
+      const reveal = el("button.btn.primary", { onclick: show }, "Vis fasit");
+      function show() { clearTick(); bar.style.display = "none"; reveal.style.display = "none"; fasit.style.display = "block"; rate.style.display = "flex"; }
+      box.appendChild(el(".center", reveal));
+      box.appendChild(fasit); box.appendChild(rate);
+      const t0 = Date.now(); const span = bar.firstChild; const secs = 45;
+      tick = setInterval(() => { if (!box.isConnected) { clearTick(); return; } const left = 1 - (Date.now() - t0) / (secs * 1000); if (left <= 0) show(); else span.style.width = (left * 100) + "%"; }, 120);
+    }
+    step(); return box;
+  }
+
+  /* ---------- en skiller seg ut (generert fra formelsamlingen) ---------- */
+  function runOddOne(done) {
+    const tables = (S.data.reference.formulaTables || []).filter((t) => t.rows.length >= 3);
+    const rounds = [];
+    let guard = 0;
+    while (rounds.length < 8 && guard++ < 40 && tables.length >= 2) {
+      const pick = shuffle(tables); const A = pick[0], B = pick[1];
+      const own = shuffle(A.rows).slice(0, 3).map((r) => r.term);
+      const intr = shuffle(B.rows).map((r) => r.term).find((t) => !own.includes(t));
+      if (!intr) continue;
+      const options = shuffle([...own, intr]);
+      rounds.push({ q: `Hvilken hører IKKE til temaet «${A.title}»?`, options, answer: options.indexOf(intr), why: `«${intr}» hører til «${B.title}».` });
+    }
+    return mcqRunner({ rounds, xpPer: 10, title: "En skiller seg ut" }, done);
+  }
+
+  /* ---------- memory (skjulte par) ---------- */
+  function runMemory(done) {
+    const short = (s) => { const t = s.split(/[.;(]/)[0].trim(); return t.length > 40 ? t.slice(0, 37) + "…" : t; };
+    const pairs = shuffle(S.data.glossary.symbols).slice(0, 6).map((e, ix) => ({ k: ix, a: e.sym, b: short(e.name) }));
+    const tiles = shuffle(pairs.flatMap((p) => [{ k: p.k, t: p.a }, { k: p.k, t: p.b }]));
+    const box = el(".lyn-game");
+    box.appendChild(el(".lyn-q", "Memory: finn parene (symbol ↔ betydning)"));
+    const movesEl = el(".tiny.muted.center", "0 trekk"); box.appendChild(movesEl);
+    const grid = el(".par-grid");
+    let first = null, moves = 0, matched = 0, locked = false;
+    tiles.forEach((tile) => {
+      const b = el("button.par-tile.hidden-face", "?");
+      b.addEventListener("click", () => {
+        if (locked || b.classList.contains("matched") || (first && b === first.btn)) return;
+        b.classList.remove("hidden-face"); b.textContent = tile.t;
+        if (!first) { first = { btn: b, k: tile.k }; return; }
+        moves++; movesEl.textContent = moves + " trekk";
+        if (first.k === tile.k) {
+          b.classList.add("matched"); first.btn.classList.add("matched"); first = null; matched++;
+          if (matched === pairs.length) {
+            const xp = moves <= 9 ? 60 : moves <= 13 ? 45 : 30;
+            setTimeout(() => done(xp, `Memory: 6 par på ${moves} trekk`), 500);
+          }
+        } else {
+          locked = true; const prev = first; first = null;
+          setTimeout(() => { [b, prev.btn].forEach((x) => { x.classList.add("hidden-face"); x.textContent = "?"; }); locked = false; }, 750);
+        }
+      });
+      grid.appendChild(b);
+    });
+    box.appendChild(grid);
+    return box;
+  }
+
+  /* ---------- hvem er økonomen? ---------- */
+  function runOkonom(done) {
+    const eco = S.data.glossary.economists || [];
+    const rounds = shuffle(eco).slice(0, 8).map((e) => {
+      const others = shuffle(eco.filter((x) => x.name !== e.name)).slice(0, 3).map((x) => x.name);
+      const options = shuffle([e.name, ...others]);
+      return { q: "Hvem forbindes med: " + e.note, options, answer: options.indexOf(e.name), why: e.name + ". " + e.note };
+    });
+    return mcqRunner({ rounds, xpPer: 8, title: "Hvem er økonomen" }, done);
   }
 
   /* ---------- visninger ---------- */
