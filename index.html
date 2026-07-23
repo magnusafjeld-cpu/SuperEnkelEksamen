@@ -350,6 +350,29 @@ details.card[open]>summary{border-bottom:1px solid var(--hairline);border-radius
 .lyn-bit b,.lyn-bit strong{color:var(--ink);}
 .lyn-xp-big{font-size:42px;font-weight:800;letter-spacing:-.03em;color:var(--accent-ink);}
 .opt.mono span{font-family:var(--mono);font-size:13px;line-height:1.4;}
+/* Dybdetrening (100 spørsmål, selvrettet) */
+details.dyb-q{background:var(--card);border:1px solid var(--hairline);border-radius:var(--r-lg);margin:11px 0;overflow:hidden;box-shadow:var(--shadow-sm);}
+details.dyb-q.done{border-left:4px solid var(--green);}
+details.dyb-q.again{border-left:4px solid var(--rose);}
+.dyb-qh{list-style:none;cursor:pointer;padding:15px 18px;display:flex;gap:12px;align-items:flex-start;transition:background .12s;}
+.dyb-qh::-webkit-details-marker{display:none;}
+.dyb-qh:hover{background:var(--bg-sunken);}
+.dyb-num{font-size:12px;font-weight:700;color:#fff;background:var(--accent);border-radius:7px;padding:2px 8px;flex:0 0 auto;margin-top:2px;min-width:26px;text-align:center;}
+.dyb-qt{flex:1;min-width:0;}
+.dyb-qtext{font-size:15.5px;font-weight:540;line-height:1.42;}
+.dyb-tags{margin-top:6px;}
+.dyb-tags .tag{font-size:11px;font-weight:600;color:var(--ink-3);background:var(--bg-sunken);border-radius:999px;padding:2px 9px;margin-right:6px;display:inline-block;}
+.dyb-ans{display:none;padding:0 18px 18px;border-top:1px solid var(--hairline);}
+details.dyb-q[open] .dyb-ans{display:block;}
+.dyb-ansin{background:var(--green-soft);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:14px 17px;margin-top:14px;font-size:15px;line-height:1.6;color:var(--ink-2);}
+.dyb-ansin b{color:#1d7a47;}
+.dyb-self{margin-top:12px;display:flex;gap:9px;flex-wrap:wrap;align-items:center;}
+.dyb-self span{font-size:13px;color:var(--ink-3);margin-right:2px;}
+button.dyb-sb{font-family:inherit;font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:999px;cursor:pointer;border:1.5px solid var(--hairline-strong);background:#fff;transition:.15s;}
+button.dyb-sb.g{color:#1d7a47;border-color:#b9d3c2;}
+button.dyb-sb.g:hover,button.dyb-sb.g.on{background:var(--green);color:#fff;border-color:var(--green);}
+button.dyb-sb.r{color:#b8324b;border-color:#e3c2c2;}
+button.dyb-sb.r:hover,button.dyb-sb.r.on{background:var(--rose);color:#fff;border-color:var(--rose);}
 .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:var(--r-pill);font-size:14px;font-weight:540;box-shadow:var(--shadow-lg);opacity:0;transition:all .3s;z-index:200;pointer-events:none;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 .fade-in{animation:fadeIn .35s ease;}
@@ -405,6 +428,7 @@ window.SAM3_DATA = {};
 <script src="js/bundle-core.js"></script>
 <script src="js/bundle-views.js"></script>
 <script src="js/bundle-lyn.js"></script>
+<script src="js/bundle-dybde.js"></script>
 <script src="js/boot.js"></script>
 </body>
 </html>

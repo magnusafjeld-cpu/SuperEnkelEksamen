@@ -79,6 +79,7 @@ window.SAM3 = window.SAM3 || {};
     cards: 'M4 8a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM18 7l2 .7a2 2 0 0 1 1.2 2.5l-2 6',
     quiz: 'M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.9.4-1 1-1 1.7M12 17h.01M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z',
     exam: 'M12 3 3 7l9 4 9-4zM3 7v6m6 1.5 3 1.3 3-1.3M7 10v5c0 1.1 2.2 2.5 5 2.5s5-1.4 5-2.5v-5',
+    layers: 'M4 7.5h16M4 12h16M4 16.5h10',
     repeat: 'M4 9a8 8 0 0 1 14-3l2 2M20 4v4h-4M20 15a8 8 0 0 1-14 3l-2-2M4 20v-4h4',
     search: 'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-4.3-4.3',
     chart: 'M4 20V4M4 20h16M8 16v-5M12 16V8M16 16v-8',
@@ -226,7 +227,7 @@ window.SAM3 = window.SAM3 || {};
 /* ---------------- store ---------------- */
 (function (S) {
   const KEY = "sam3.progress.v1"; const D = window.SAM3_DATA;
-  const defaults = () => ({ version: 1, startedAt: S.u.todayISO(), chapters: {}, days: {}, sections: {}, quiz: { answered: {}, sessions: [] }, cards: {}, active: {}, exams: {}, settings: {}, lyn: { xp: 0, days: {}, plays: 0, best: {} } });
+  const defaults = () => ({ version: 1, startedAt: S.u.todayISO(), chapters: {}, days: {}, sections: {}, quiz: { answered: {}, sessions: [] }, cards: {}, active: {}, exams: {}, settings: {}, lyn: { xp: 0, days: {}, plays: 0, best: {} }, dybde: { marks: {} } });
   function load() { try { const raw = localStorage.getItem(KEY); if (raw) return Object.assign(defaults(), JSON.parse(raw)); } catch (e) {} return defaults(); }
   let state = load(); const subs = new Set();
   const persist = S.u.debounce(() => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }, 120);

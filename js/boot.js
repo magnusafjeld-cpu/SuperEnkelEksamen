@@ -14,6 +14,7 @@ window.SAM3 = window.SAM3 || {};
       { route: "#/lyn", match: "/lyn", label: "Lynlæring", ico: "bolt", badge: () => (S.views.lyn && !S.views.lyn.dailyDone()) ? "⚡" : null },
       { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
       { route: "#/flashcards", match: "/flashcards", label: "Flashcards", ico: "cards", badge: () => S.srs.stats().due || null },
+      { route: "#/dybde", match: "/dybde", label: "Dybdetrening", ico: "layers", badge: () => (S.views.dybde && S.views.dybde.weakCount()) || null },
       { route: "#/oppgaver", match: "/oppgaver", label: "Oppgavebank", ico: "book" },
       { route: "#/exam", match: "/exam", label: "Eksamenstrening", ico: "exam" },
       { route: "#/review", match: "/review", label: "Repetisjon", ico: "repeat", badge: () => S.repetition.suggest(20).filter((s) => s.priority === "high").length || null },
@@ -29,6 +30,7 @@ window.SAM3 = window.SAM3 || {};
     { route: "#/plan", match: "/plan", label: "Plan", ico: "calendar" },
     { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
     { route: "#/flashcards", match: "/flashcards", label: "Kort", ico: "cards" },
+    { route: "#/dybde", match: "/dybde", label: "Dybde", ico: "layers" },
   ];
 
   let contentEl, currentView = () => V.dashboard.render();
@@ -79,6 +81,7 @@ window.SAM3 = window.SAM3 || {};
     R.on("/chapter/:num", (p) => setView(() => V.chapter.render(p.num)));
     R.on("/quiz", () => setView(() => V.quiz.render()));
     R.on("/flashcards", () => setView(() => V.flashcards.render()));
+    R.on("/dybde", () => setView(() => V.dybde.render()));
     R.on("/lyn", () => setView(() => V.lyn.render()));
     R.on("/oppgaver", (p, q) => setView(() => V.problems.render(q.doc || null)));
     R.on("/exam", () => setView(() => V.exam.render()));
