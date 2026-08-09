@@ -1,5 +1,5 @@
 /* ===================== CORE: parser, utils, store, srs, search, repetition, metrics, router ===================== */
-window.SAM3 = window.SAM3 || {};
+window.EDU = window.EDU || {};
 
 /* ---------------- utils ---------------- */
 (function (S) {
@@ -74,6 +74,7 @@ window.SAM3 = window.SAM3 || {};
   }
   const ICONS = {
     home: 'M3 11.5 12 4l9 7.5M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9',
+    user: 'M12 11.5a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5M4.5 20.5a7.5 7.5 0 0 1 15 0',
     calendar: 'M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM4 9h16M8 3v4M16 3v4',
     book: 'M5 4h11a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2zM18 16H7a2 2 0 0 0-2 2',
     cards: 'M4 8a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM18 7l2 .7a2 2 0 0 1 1.2 2.5l-2 6',
@@ -92,7 +93,7 @@ window.SAM3 = window.SAM3 || {};
   };
   function icon(name, cls) { const p = ICONS[name] || ICONS.home; return `<svg class="ico ${cls || ""}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="${p}"></path></svg>`; }
   S.u = { el, frag, clear, mount, escapeHtml, todayISO, parseISO, daysBetween, formatDate, clamp, nowTs, debounce, toast, ring, bar, icon, ICONS };
-})(window.SAM3);
+})(window.EDU);
 
 /* ---------------- parse-manual ---------------- */
 (function (S) {
@@ -176,7 +177,7 @@ window.SAM3 = window.SAM3 || {};
     const chapters = [...doc.querySelectorAll("section[id]")].filter((s) => /^k\d+$/.test(s.id)).map(parseChapter).sort((a, b) => a.num - b.num);
     return { curriculum: chapters, reference: parseReference(doc) };
   };
-})(window.SAM3);
+})(window.EDU);
 
 /* ---------------- parse-problems (oppgavebank med fasit) ---------------- */
 (function (S) {
@@ -222,26 +223,42 @@ window.SAM3 = window.SAM3 || {};
     });
     return out;
   };
-})(window.SAM3);
+})(window.EDU);
 
-/* ---------------- store ---------------- */
+/* ---------------- store ----------------
+   Fremdriften lagres per fag under "edu.<fagId>.progress.v1". Lageret åpnes av
+   boot når faget er valgt; open() migrerer den gamle ufagede SAM3-nøkkelen første
+   gang. state.savedAt er tidsstempelet sky-synken bruker til å avgjøre hvem som
+   er nyest. */
 (function (S) {
-  const KEY = "sam3.progress.v1"; const D = window.SAM3_DATA;
-  const defaults = () => ({ version: 1, startedAt: S.u.todayISO(), chapters: {}, days: {}, sections: {}, quiz: { answered: {}, sessions: [] }, cards: {}, active: {}, exams: {}, settings: {}, lyn: { xp: 0, days: {}, plays: 0, best: {} }, dybde: { banks: { kort: { marks: {} }, lang: { marks: {} }, eksamen: { marks: {} } } } });
+  const D = window.EDU_DATA;
+  const LEGACY_KEY = "sam3.progress.v1";   // fra tiden før fag-velgeren
+  let subjectId = "sam3", KEY = "edu.sam3.progress.v1";
+  const defaults = () => ({ version: 1, startedAt: S.u.todayISO(), savedAt: 0, chapters: {}, days: {}, sections: {}, quiz: { answered: {}, sessions: [] }, cards: {}, active: {}, exams: {}, settings: {}, lyn: { xp: 0, days: {}, plays: 0, best: {} }, dybde: { banks: { kort: { marks: {} }, lang: { marks: {} }, eksamen: { marks: {} } } } });
   function migrate(state) {
     // eldre versjon lagret dybdetrening-vurderinger flatt (state.dybde.marks); flytt inn i "kort"-banken
     if (state.dybde && state.dybde.marks && !state.dybde.banks) {
       state.dybde = { banks: { kort: { marks: state.dybde.marks }, lang: { marks: {} } } };
     }
     if (!state.dybde || !state.dybde.banks) state.dybde = { banks: { kort: { marks: {} }, lang: { marks: {} }, eksamen: { marks: {} } } };
+    if (!state.savedAt) state.savedAt = 0;
     return state;
   }
-  function load() { try { const raw = localStorage.getItem(KEY); if (raw) return migrate(Object.assign(defaults(), JSON.parse(raw))); } catch (e) {} return defaults(); }
+  function readKey(k) { try { const raw = localStorage.getItem(k); return raw ? JSON.parse(raw) : null; } catch (e) { return null; } }
+  function load() {
+    let raw = readKey(KEY);
+    if (!raw && subjectId === "sam3") raw = readKey(LEGACY_KEY);   // arv fra før-fag-versjonen
+    return raw ? migrate(Object.assign(defaults(), raw)) : defaults();
+  }
   let state = load(); const subs = new Set();
+  function open(id) { subjectId = id; KEY = "edu." + id + ".progress.v1"; state = load(); }
   const persist = S.u.debounce(() => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }, 120);
-  function emit() { subs.forEach((fn) => fn(state)); persist(); }
+  function emit() { state.savedAt = S.u.nowTs(); subs.forEach((fn) => fn(state)); persist(); }
   function subscribe(fn) { subs.add(fn); return () => subs.delete(fn); }
   function get() { return state; }
+  /* Brukes av sky-synken når fjernversjonen har vunnet: bytt hele staten uten å
+     stemple nytt savedAt (ellers ville hver innlasting sett ut som en endring). */
+  function adopt(next) { state = migrate(Object.assign(defaults(), next)); subs.forEach((fn) => fn(state)); try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
   function touchChapter(num) { const c = state.chapters[num] || (state.chapters[num] = {}); c.lastSeen = S.u.todayISO(); emit(); }
   function setChapterRead(num, read) { const c = state.chapters[num] || (state.chapters[num] = {}); c.read = read; c.lastSeen = S.u.todayISO(); emit(); }
   function setUnderstanding(num, val) { const c = state.chapters[num] || (state.chapters[num] = {}); c.understanding = (c.understanding === val) ? null : val; c.lastSeen = S.u.todayISO(); emit(); }
@@ -254,7 +271,7 @@ window.SAM3 = window.SAM3 || {};
   function resetAll() { state = defaults(); emit(); }
   function card(id) { return state.cards[id]; }
   function setCard(id, obj) { state.cards[id] = obj; emit(); }
-  S.store = { get, subscribe, emit, persist, touchChapter, setChapterRead, setUnderstanding, setSectionRead, setDayComplete, recordAnswer, recordQuizSession, setExam, setActiveDone, resetAll, card, setCard };
+  S.store = { get, open, adopt, subscribe, emit, persist, touchChapter, setChapterRead, setUnderstanding, setSectionRead, setDayComplete, recordAnswer, recordQuizSession, setExam, setActiveDone, resetAll, card, setCard, subjectId: () => subjectId };
 
   // data facade — curriculum/reference filled at runtime via bootData
   let byNum = null;
@@ -276,8 +293,10 @@ window.SAM3 = window.SAM3 || {};
   function daysUntilStart() { return S.u.daysBetween(S.u.todayISO(), D.plan.startDate); }
   function problems() { return D.problems || []; }
   function problemById(id) { return (D.problems || []).find((p) => p.id === id); }
-  S.data = { raw: D, chapter, chapters, parts, day, days, quizzesForChapter, activeFor, activeDayIndex, daysUntilStart, problems, problemById, get reference() { return D.reference; }, plan: D.plan, exams: D.exams, glossary: D.glossary || { economists: [], symbols: [] } };
-})(window.SAM3);
+  // getters hele veien: fagets datafil lastes dynamisk *etter* denne modulen,
+  // så ingenting her kan snapshotte D.plan/D.exams/D.glossary ved definisjon.
+  S.data = { raw: D, chapter, chapters, parts, day, days, quizzesForChapter, activeFor, activeDayIndex, daysUntilStart, problems, problemById, get reference() { return D.reference; }, get plan() { return D.plan; }, get exams() { return D.exams; }, get glossary() { return D.glossary || { economists: [], symbols: [] }; } };
+})(window.EDU);
 
 /* ---------------- srs ---------------- */
 (function (S) {
@@ -315,7 +334,7 @@ window.SAM3 = window.SAM3 || {};
     return { total: all.length, mastered, learning, fresh, due, masteredPct: all.length ? Math.round((mastered / all.length) * 100) : 0 };
   }
   S.srs = { deck, dueCards, rate, isDue, stateOf, stats, INTERVALS, MAXBOX };
-})(window.SAM3);
+})(window.EDU);
 
 /* ---------------- search ---------------- */
 (function (S) {
@@ -350,7 +369,7 @@ window.SAM3 = window.SAM3 || {};
   }
   function typeColor(typed) { return ({ kap: "accent", sec: "slate", formel: "indigo", begrep: "teal", okonom: "amber", var: "green", fig: "rose" })[typed] || "slate"; }
   S.search = { search, build, typeColor };
-})(window.SAM3);
+})(window.EDU);
 
 /* ---------------- repetition ---------------- */
 (function (S) {
@@ -378,7 +397,7 @@ window.SAM3 = window.SAM3 || {};
     return limit ? ranked.slice(0, limit) : ranked;
   }
   S.repetition = { suggest, score, examFrequency, quizAccuracy };
-})(window.SAM3);
+})(window.EDU);
 
 /* ---------------- metrics ---------------- */
 (function (S) {
@@ -411,7 +430,7 @@ window.SAM3 = window.SAM3 || {};
     return n;
   }
   S.metrics = { coreChapters, readPct, understoodCount, daysPct, quizStats, readiness, nextMilestone, streak };
-})(window.SAM3);
+})(window.EDU);
 
 /* ---------------- router ---------------- */
 (function (S) {
@@ -433,4 +452,4 @@ window.SAM3 = window.SAM3 || {};
   function start() { window.addEventListener("hashchange", resolve); resolve(); }
   function getCurrent() { return current; }
   S.router = { on, setNotFound, navigate, start, getCurrent, parse };
-})(window.SAM3);
+})(window.EDU);

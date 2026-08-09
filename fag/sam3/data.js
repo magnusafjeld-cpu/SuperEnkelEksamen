@@ -1,8 +1,8 @@
 /* ===================== AUTHORED DATA ===================== */
-window.SAM3_DATA = window.SAM3_DATA || {};
+window.EDU_DATA = window.EDU_DATA || {};
 
 /* ---------- 14-day study plan ---------- */
-window.SAM3_DATA.plan = {
+window.EDU_DATA.plan = {
   startDate: "2026-06-29", totalDays: 21,
   examNote: "3 timer · 3 oppgaver (alle må bestås) · ingen kalkulator · tospråklig ordbok tillatt",
   days: [
@@ -150,7 +150,7 @@ window.SAM3_DATA.plan = {
 };
 
 /* ---------- Quiz pool (ch = chapter, oppg = exam task) ---------- */
-window.SAM3_DATA.quizzes = [
+window.EDU_DATA.quizzes = [
   { id:"q1", ch:1, oppg:0, type:"mcq", q:"En variabel som bestemmes utenfor modellen og tas som gitt, kalles:",
     options:["Endogen","Eksogen","Et residual","En parameterfri størrelse"], answer:1,
     explanation:"Eksogene variabler tas som gitt; en endring i en eksogen variabel kalles et sjokk. Endogene variabler bestemmes inne i modellen." },
@@ -293,7 +293,7 @@ window.SAM3_DATA.quizzes = [
 ];
 
 /* ---------- Conceptual flashcards (formula cards auto-generated at runtime) ---------- */
-window.SAM3_DATA.flashcards = [
+window.EDU_DATA.flashcards = [
   { id:"f1", ch:1, deck:"begrep", front:"Eksogen variabel", back:"En variabel modellen tar som gitt (bestemt utenfor modellen). En endring i den kalles et sjokk. Notasjon: strek over (ā, K̄)." },
   { id:"f2", ch:1, deck:"begrep", front:"Endogen variabel", back:"En variabel som bestemmes inne i modellen — resultatet vi er interessert i. Notasjon ved likevekt: stjerne (Y*, k*, u*)." },
   { id:"f3", ch:1, deck:"intuisjon", front:"Modellen som et kart", back:"En modell skal ha det detaljnivået som er mest nyttig for spørsmålet — ikke perfekt realisme. Derfor modelleres samme økonomi ulikt på kort og lang sikt." },
@@ -337,7 +337,7 @@ window.SAM3_DATA.flashcards = [
 ];
 
 /* ---------- Active-learning prompts per chapter ---------- */
-window.SAM3_DATA.activeLearning = {
+window.EDU_DATA.activeLearning = {
   1:[{type:"control",q:"Hva er forskjellen på en eksogen og en endogen variabel, og hvorfor avhenger klassifiseringen av spørsmålet?",solution:"Eksogen = tatt som gitt utenfor modellen; endogen = bestemt inne i modellen. Hva som er hva avhenger av spørsmålet: i kortsiktsmodellen er potensielt BNP eksogent (Ȳ), mens langsiktsmodellen forklarer det (endogent). Klassifiseringen er et modellvalg, ikke en iboende egenskap ved variabelen."},{type:"explain",q:"Forklar 'modellen som et kart' med egne ord, og gi et eksempel på når mer detalj gjør modellen dårligere.",solution:"En modell forenkler virkeligheten til det som er relevant for spørsmålet, slik et kart utelater detaljer. Et 1:1-kart er like ubrukelig som virkeligheten selv (Borges). Eksempel: å ta med alle finansfriksjoner i en enkel Solow-analyse skjuler hovedmekanismen (kapitalakkumulasjon)."},{type:"reflect",q:"Hvorfor modellerer vi samme økonomi ulikt på kort og lang sikt? Knytt det til hva som er eksogent/endogent.",solution:"På kort sikt er priser/lønninger trege, så vi tar Ȳ som gitt og studerer svingninger rundt det (etterspørselen styrer). På lang sikt er priser fleksible og tilbudssiden (kapital, arbeid, teknologi) bestemmer Ȳ. Samme økonomi, ulikt spørsmål gir ulik modell."}],
   2:[{type:"calc",q:"Et land har C=600, I=200, G=150, eksport=120, import=90. Regn ut BNP fra utgiftssiden.",hint:"Y = C + I + G + (X − M) = 600+200+150+(120−90) = 980."},{type:"control",q:"Hvordan beregner du verdiskaping, og hvorfor unngår dette dobbelttelling?",solution:"Verdiskaping = produksjonsverdi − vareinnsats. Ved å telle bare merverdien i hvert ledd unngår man å telle innsatsvarer flere ganger (stål teller ikke både hos stålverket og bilfabrikken). Summen av verdiskaping over alle sektorer = BNP fra produksjonssiden."},{type:"explain",q:"Forklar hvorfor produksjon, inntekt og utgift alltid er tre like store sider av BNP.",solution:"Alt som produseres selges eller lagerføres (regnes som investering), så produksjonsverdi = utgifter. Salgsinntekten fordeles fullt ut som inntekt (lønn + driftsresultat), så utgifter = inntekt. Dermed Produksjon = Inntekt = Utgift, en regnskapsidentitet."}],
   3:[{type:"control",q:"Skriv sparebalansen og forklar hvert ledd. Hva betyr et overskudd på driftsbalansen?",solution:"S = I + CA. S = nasjonal sparing, I = innenlandsk investering, CA = driftsbalansen (NX + F). Overskudd på CA betyr at landet sparer mer enn det investerer hjemme og plasserer differansen ute (netto kapitaleksport, bygger fordringer på utlandet)."},{type:"reflect",q:"Norge har stort driftsoverskudd. Hva sier S = I + CA om forholdet mellom norsk sparing og investering?",solution:"Stort driftsoverskudd (olje/gass-eksport + Oljefondets avkastning F) betyr S > I: Norge sparer en stor del av eksportinntektene i utlandet (SPU) i stedet for å investere alt hjemme. Overskuddet motsvares av netto kapitaleksport."}],
@@ -362,7 +362,7 @@ window.SAM3_DATA.activeLearning = {
 };
 
 /* ---------- Exam-training data ---------- */
-window.SAM3_DATA.exams = {
+window.EDU_DATA.exams = {
   format:{ duration:"3 timer", tasks:3, note:"Alle tre oppgaver må bestås. Ingen kalkulator (tospråklig ordbok tillatt).",
     weights:["Oppgave 1 ≈ 30 %","Oppgave 2 ≈ 30–40 %","Oppgave 3 ≈ 30–40 %"],
     keyInsight:"Tema-til-oppgave-koblingen er IKKE fast. Alle temaer kan dukke opp hvor som helst. Oppgave 3 er likevel alltid kortsiktsmodellen, nesten alltid med norsk/åpen-økonomi-vri." },
@@ -389,7 +389,7 @@ window.SAM3_DATA.exams = {
 };
 
 /* ---------- Glossary: economists + symbols ---------- */
-window.SAM3_DATA.glossary = {
+window.EDU_DATA.glossary = {
   economists:[
     { name:"John Maynard Keynes", note:"Grunnla moderne makro som respons på depresjonen; etterspørselsstyring.", chapters:[1] },
     { name:"Charles I. Jones", note:"Lærebokens forfatter; produksjons-, Solow- og Romer-rammeverket.", chapters:[7,8,9] },

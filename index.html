@@ -6,8 +6,9 @@
 <meta name="theme-color" content="#f5f5f7">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="SAM3">
-<title>SAM3 Makro · Eksamenstrening</title>
+<meta name="apple-mobile-web-app-title" content="Eksamenstrening">
+<!-- tittel og ikon settes av js/picker.js etter hvilket fag som er valgt -->
+<title>Eksamenstrening</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232f6bff'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>S3</text></svg>">
 <style>
 /* ============================================================
@@ -386,6 +387,47 @@ textarea{font-family:inherit;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .drop{border:2px dashed var(--hairline-strong);border-radius:var(--r-lg);padding:28px;margin-top:18px;background:#fff;transition:all .15s;}
 .drop.over{border-color:var(--accent);background:var(--accent-soft);}
+
+/* fag-velger */
+.splash-card.wide{max-width:560px;text-align:left;}
+.picker-title{font-size:26px;font-weight:680;letter-spacing:-.02em;}
+.picker-sub{color:var(--ink-3);font-size:14.5px;margin:8px 0 24px;}
+.subject-list{display:flex;flex-direction:column;gap:12px;}
+.subject-card{display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;padding:16px 18px;border-radius:var(--r-lg);border:1px solid var(--hairline);background:var(--card);box-shadow:var(--shadow-sm);transition:transform .14s,box-shadow .14s,border-color .14s;}
+.subject-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--sc);}
+.subject-card .sc-logo{width:46px;height:46px;flex:0 0 auto;border-radius:13px;background:var(--sc);display:grid;place-items:center;color:#fff;font-weight:750;font-size:18px;letter-spacing:-.03em;}
+.subject-card .sc-text{flex:1;min-width:0;}
+.subject-card .sc-name{font-weight:640;font-size:16px;letter-spacing:-.015em;color:var(--ink);}
+.subject-card .sc-blurb{font-size:13px;color:var(--ink-3);line-height:1.45;margin-top:3px;}
+.subject-card .sc-arrow{width:19px;height:19px;flex:0 0 auto;color:var(--ink-4);}
+.picker-foot{display:flex;align-items:center;gap:12px;margin-top:22px;}
+
+/* konto */
+.foot-link{display:block;width:100%;text-align:left;border:none;background:none;cursor:pointer;padding:8px 2px 2px;font-size:12.5px;font-weight:560;color:var(--ink-3);}
+.foot-link:hover{color:var(--accent-ink);}
+.acct{display:flex;align-items:center;gap:9px;width:100%;text-align:left;border:none;background:none;cursor:pointer;padding:10px 2px 2px;}
+.acct .acct-dot{width:8px;height:8px;flex:0 0 auto;border-radius:50%;background:var(--ink-4);}
+.acct.ok .acct-dot{background:var(--green);}
+.acct.bad .acct-dot{background:var(--rose);}
+.acct .acct-t{font-size:12.5px;font-weight:580;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:170px;}
+.acct .acct-s{font-size:11px;color:var(--ink-4);}
+.acct:hover .acct-t{color:var(--accent-ink);}
+.acct-head{display:flex;align-items:center;gap:13px;margin-bottom:14px;}
+.acct-avatar{width:44px;height:44px;flex:0 0 auto;border-radius:50%;background:var(--accent-soft);color:var(--accent-ink);display:grid;place-items:center;font-weight:700;font-size:18px;}
+.acct-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+.acct-form{display:flex;flex-direction:column;gap:14px;margin-top:16px;max-width:380px;}
+.field{display:flex;flex-direction:column;gap:6px;}
+.field-l{font-size:12.5px;font-weight:600;color:var(--ink-2);}
+.input{font:inherit;font-size:15px;padding:11px 13px;border-radius:var(--r-sm);border:1px solid var(--hairline-strong);background:var(--bg-elevated);color:var(--ink);width:100%;transition:border-color .14s,box-shadow .14s;}
+.input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+.acct-msg{font-size:13.5px;line-height:1.5;color:var(--ink-3);padding:10px 12px;border-radius:var(--r-sm);background:var(--bg-sunken);}
+.acct-msg.ok{background:var(--green-soft);color:#1e6b41;}
+.acct-msg.bad{background:var(--rose-soft);color:#a32b45;}
+.acct-links{display:flex;gap:16px;flex-wrap:wrap;}
+.linkbtn{border:none;background:none;padding:0;cursor:pointer;font-size:13px;font-weight:560;color:var(--accent-ink);}
+.linkbtn:hover{text-decoration:underline;}
+.acct-steps{margin:12px 0 0;padding-left:20px;color:var(--ink-2);font-size:14.5px;line-height:1.7;}
+.acct-steps code{font-family:var(--mono);font-size:12.5px;background:var(--bg-sunken);padding:1px 6px;border-radius:6px;}
 @media (max-width:1080px){.article-wrap{grid-template-columns:1fr;}.article-toc{display:none;}.grid.cols-4{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:860px){
   .grid.cols-3,.grid.cols-2{grid-template-columns:1fr;}
@@ -404,31 +446,37 @@ textarea{font-family:inherit;}
 </head>
 <body>
 <div id="splash"><div class="splash-card">
-  <div class="splash-logo">S3</div>
-  <h2 style="font-size:22px;font-weight:700;">SAM3 Makroøkonomi</h2>
-  <div id="splash-body"><div class="spinner"></div><p class="muted">Laster pensum fra eksamensmanualen…</p></div>
+  <div class="spinner"></div>
 </div></div>
 
 <script>
 /* ============================================================================
-   SAM3 MAKROØKONOMI — interaktiv eksamenstrening (selvstendig enkeltfil).
-   Alt fagstoff parses fra SAM3_Eksamensmanual.html (kilden) ved oppstart.
-   Internt holdt modulært: DATA · PARSER · CORE · VIEWS · BOOT.
+   INTERAKTIV EKSAMENSTRENING — fagnøytral motor.
+   Faget velges ved oppstart (js/subjects.js) og bestemmer navn, farger,
+   moduler, datafiler og pensumkilde. Pensumet parses fra fagets HTML-manual.
+   Modulært: SUBJECTS · CONFIG · CORE · VIEWS · ACCOUNT · PICKER · BOOT.
    ============================================================================ */
-window.SAM3 = {};
-window.SAM3_DATA = {};
+window.EDU = {};
+window.EDU_DATA = {};
 </script>
 
-<!-- Bundled modules. Internally each bundle is organised as IIFE "components":
-     bundle-data  = authored study data (plan, quiz, flashcards, prompts, exams, glossary)
-     bundle-core  = manual parser + utils + store + srs + search + repetition + metrics + router
-     bundle-views = all UI views (dashboard, plan, curriculum, chapter, quiz, …)
-     boot         = app shell + router wiring + manual loader -->
-<script src="js/bundle-data.js"></script>
+<!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
+     faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
+<script src="js/subjects.js"></script>
+<script src="js/config.js"></script>
+
+<!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
+     bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
+     bundle-views = alle visninger (dashboard, plan, pensum, kapittel, quiz, …)
+     account      = Supabase-innlogging og synk av fremdrift (valgfritt)
+     picker       = fag-velger, tema og dynamisk lasting av fagdata
+     boot         = app-skall, ruting og innholdslasting -->
 <script src="js/bundle-core.js"></script>
 <script src="js/bundle-views.js"></script>
 <script src="js/bundle-lyn.js"></script>
 <script src="js/bundle-dybde.js"></script>
+<script src="js/account.js"></script>
+<script src="js/picker.js"></script>
 <script src="js/boot.js"></script>
 </body>
 </html>
