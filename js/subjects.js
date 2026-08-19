@@ -22,6 +22,16 @@
                 gyldige: /plan /curriculum /lyn /quiz /flashcards /dybde
                          /oppgaver /exam /review /search /progress
    ======================================================= */
+/* Plattformen selv — navnet over fagene. Brukes i velgeren, sidetittelen og
+   ikonet. Fagene under har sine egne navn og farger. */
+window.EDU_PLATFORM = {
+  name: "Super Enkel Eksamen",
+  short: "SEE",
+  logo: "SEE",
+  tagline: "Eksamenstrening som faktisk sitter",
+  accent: "#2f6bff",
+};
+
 window.EDU_SUBJECTS = [
   {
     id: "sam3",

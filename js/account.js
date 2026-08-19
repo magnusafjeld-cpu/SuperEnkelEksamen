@@ -223,13 +223,11 @@ window.EDU = window.EDU || {};
     else wrap.appendChild(signInCard());
 
     /* Også her, ikke bare i sidepanelet — sidepanelet finnes ikke på mobil. */
-    if ((window.EDU_SUBJECTS || []).length > 1) {
-      wrap.appendChild(el(".card", { style: { marginTop: "20px", display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" } },
-        el("div", { style: { flex: "1 1 220px" } },
-          el("div", { style: { fontWeight: 560 } }, "Fag: " + ((window.EDU_SUBJECT || {}).name || "")),
-          el(".tiny.muted", "Hvert fag har sin egen fremdrift og synkes for seg.")),
-        el("button.btn.ghost", { onclick: () => S.picker.show({ cancel: true }) }, "Bytt fag")));
-    }
+    wrap.appendChild(el(".card", { style: { marginTop: "20px", display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" } },
+      el("div", { style: { flex: "1 1 220px" } },
+        el("div", { style: { fontWeight: 560 } }, "Fag: " + ((window.EDU_SUBJECT || {}).name || "")),
+        el(".tiny.muted", "Hvert fag har sin egen fremdrift og synkes for seg.")),
+      el("button.btn.ghost", { onclick: () => S.picker.show({ cancel: true }) }, "Alle fag")));
     return wrap;
   }
 

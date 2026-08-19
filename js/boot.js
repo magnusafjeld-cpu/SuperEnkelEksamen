@@ -56,11 +56,11 @@ window.EDU = window.EDU || {};
     const foot = el(".sidebar-foot");
     foot.appendChild(el(".mini-ring", el("div", { id: "mini-ring" }), el(".mt", { id: "mini-mt" })));
     foot.appendChild(el("div", { id: "account-slot" }));
-    if ((window.EDU_SUBJECTS || []).length > 1) foot.appendChild(el("button.foot-link", { onclick: () => S.picker.show({ cancel: true }) }, "Bytt fag"));
+    foot.appendChild(el("button.foot-link", { onclick: () => S.picker.show({ cancel: true }) }, "Alle fag"));
     sb.appendChild(foot); return sb;
   }
   /* Konto-knappen ligger i topplinja, ikke bare i sidepanelet — på mobil er
-     sidepanelet skjult, og da ville Konto og «Bytt fag» vært uten inngang. */
+     sidepanelet skjult, og da ville Konto vært uten inngang. */
   function buildTopbar() {
     const tb = el(".topbar"); tb.appendChild(brand()); tb.appendChild(el(".spacer"));
     if (has("/search")) tb.appendChild(el("button.iconbtn", { onclick: () => S.router.navigate("#/search"), html: icon("search"), title: "Søk" }));

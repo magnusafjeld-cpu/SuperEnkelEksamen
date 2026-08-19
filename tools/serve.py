@@ -35,6 +35,12 @@ class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *a, **k):
         super().__init__(*a, directory=ROOT, **k)
 
+    def end_headers(self):
+        # Utviklingsserver: aldri buffer. Uten dette serverer nettleseren gjerne
+        # gamle js/*.js etter en endring, og du feilsoeker en fil som ikke kjoerer.
+        self.send_header("Cache-Control", "no-store, must-revalidate")
+        super().end_headers()
+
     def log_message(self, *a):
         pass
 

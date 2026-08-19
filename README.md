@@ -1,4 +1,4 @@
-# Interaktiv eksamenstrening
+# Super Enkel Eksamen
 
 En personlig læringsplattform som tar deg gjennom et helt pensum, dag for dag,
 fram til skoleeksamen — som studieplan, quiz, flashcards med spaced repetition,
@@ -41,7 +41,11 @@ pensumfilen. Den parses og lagres lokalt, så du slipper å velge igjen.
 > nettleser hver gang. Med innlogging følger den deg mellom enheter.
 
 Hopp rett til et fag med `?fag=<id>`, f.eks.
-`http://127.0.0.1:4178/?fag=sam3`.
+`http://127.0.0.1:4178/?fag=sam3`. Tilbake til fag-velgeren kommer du alltid via
+**Alle fag** nederst i sidepanelet, eller fra Konto-siden på mobil.
+
+Selve plattformnavnet, logoen og undertittelen settes ett sted: `EDU_PLATFORM`
+øverst i `js/subjects.js`.
 
 ---
 

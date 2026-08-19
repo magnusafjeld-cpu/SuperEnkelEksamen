@@ -8,6 +8,7 @@ window.EDU = window.EDU || {};
 (function (S) {
   const CHOICE_KEY = "edu.subject";
   const all = () => window.EDU_SUBJECTS || [];
+  const P = () => window.EDU_PLATFORM || { name: "Eksamenstrening", logo: "?", accent: "#2f6bff" };
 
   function stored() { try { return localStorage.getItem(CHOICE_KEY); } catch (e) { return null; } }
   function remember(id) { try { localStorage.setItem(CHOICE_KEY, id); } catch (e) {} }
@@ -33,12 +34,18 @@ window.EDU = window.EDU || {};
     if (sub.accentSoft) r.setProperty("--accent-soft", sub.accentSoft);
     if (sub.accentSoft2) r.setProperty("--accent-soft-2", sub.accentSoft2);
     if (sub.accent) r.setProperty("--shadow-accent", "0 8px 24px " + hexA(sub.accent, 0.22));
-    document.title = sub.name + " · " + (sub.tagline || "Eksamenstrening");
+    document.title = sub.name + " · " + P().name;
+    setFavicon(sub.logo, sub.accent);
+  }
+  /* Velgeren har ingen fag ennå, så da er det plattformen som eier tittel og ikon. */
+  function applyPlatformTheme() { document.title = P().name; setFavicon(P().logo, P().accent); }
+  function setFavicon(logo, accent) {
     const tc = document.querySelector('meta[name="theme-color"]');
     if (tc) tc.setAttribute("content", "#f5f5f7");
     const fav = document.querySelector('link[rel="icon"]');
+    const size = !logo ? 52 : logo.length > 2 ? 30 : logo.length > 1 ? 38 : 52;
     if (fav) fav.setAttribute("href", "data:image/svg+xml," + encodeURIComponent(
-      `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='${sub.accent || "#2f6bff"}'/><text x='50' y='68' font-size='${sub.logo && sub.logo.length > 2 ? 38 : 52}' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>${sub.logo || "?"}</text></svg>`));
+      `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='${accent || "#2f6bff"}'/><text x='50' y='${size > 40 ? 68 : 62}' font-size='${size}' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>${logo || "?"}</text></svg>`));
   }
   function hexA(hex, a) {
     const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -72,7 +79,7 @@ window.EDU = window.EDU || {};
   function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
 
   /* Tegner velgeren i splash-kortet. Kalles ved oppstart uten valgt fag, og fra
-     "Bytt fag" i sidepanelet. */
+     «Alle fag» i sidepanelet. */
   function show(opts) {
     opts = opts || {};
     const splash = ensureSplash();
@@ -80,8 +87,13 @@ window.EDU = window.EDU || {};
     card_.innerHTML = "";
     card_.classList.add("wide");
 
+    applyPlatformTheme();
     const head = document.createElement("div");
-    head.innerHTML = `<h2 class="picker-title">Hvilket fag skal du trene på?</h2>` +
+    head.innerHTML =
+      `<div class="picker-brand"><div class="pb-logo">${esc(P().logo || "?")}</div>` +
+      `<div><div class="pb-name">${esc(P().name)}</div>` +
+      `<div class="pb-tag">${esc(P().tagline || "")}</div></div></div>` +
+      `<h2 class="picker-title">Hvilket fag skal du trene på?</h2>` +
       `<p class="picker-sub">Hvert fag har sin egen plan, sine egne oppgaver og sin egen fremdrift.</p>`;
     card_.appendChild(head);
 
@@ -99,7 +111,7 @@ window.EDU = window.EDU || {};
     if (opts.cancel) {
       const back = document.createElement("button");
       back.className = "btn ghost"; back.textContent = "Avbryt";
-      back.onclick = () => { card_.classList.remove("wide"); splash.remove(); };
+      back.onclick = () => { card_.classList.remove("wide"); splash.remove(); if (window.EDU_SUBJECT) applyTheme(window.EDU_SUBJECT); };
       foot.appendChild(back);
     }
     card_.appendChild(foot);
@@ -116,5 +128,5 @@ window.EDU = window.EDU || {};
     return sp;
   }
 
-  S.picker = { resolve, choose, show, applyTheme, loadScripts, ensureSplash };
+  S.picker = { resolve, choose, show, applyTheme, applyPlatformTheme, loadScripts, ensureSplash };
 })(window.EDU);
