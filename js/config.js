@@ -12,6 +12,6 @@
    nettleseren. Kontoer og synk slås på i det disse fylles ut.
    ============================================================ */
 window.EDU_CONFIG = {
-  supabaseUrl: "",
-  supabaseAnonKey: "",
+  supabaseUrl: "https://xjmjoolrbgfqrcovznru.supabase.co",
+  supabaseAnonKey: "sb_publishable_nkIlyly95NTdvh1bWy6jIg_JLly4pWt",
 };
