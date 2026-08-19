@@ -9,6 +9,12 @@ window.EDU = window.EDU || {};
   const CHOICE_KEY = "edu.subject";
   const all = () => window.EDU_SUBJECTS || [];
   const P = () => window.EDU_PLATFORM || { name: "Eksamenstrening", logo: "?", accent: "#2f6bff" };
+  /* Byggnummeret står i script-taggen i index.html (js/picker.js?v=N). Vi leser
+     det derfra og henger det på fagdataene også, slik at ett tall busts hele
+     bufferen. GitHub Pages setter max-age=600 på filene, så uten dette kjører
+     telefonen gammel kode i opptil ti minutter etter en push. */
+  const BUILD = (() => { try { return new URL(document.currentScript.src).searchParams.get("v") || ""; } catch (e) { return ""; } })();
+  const versioned = (src) => (BUILD && src.indexOf("?") < 0 ? src + "?v=" + BUILD : src);
 
   function stored() { try { return localStorage.getItem(CHOICE_KEY); } catch (e) { return null; } }
   function remember(id) { try { localStorage.setItem(CHOICE_KEY, id); } catch (e) {} }
@@ -56,7 +62,7 @@ window.EDU = window.EDU || {};
   function loadScripts(list) {
     return (list || []).reduce((chain, src) => chain.then(() => new Promise((res, rej) => {
       const s = document.createElement("script");
-      s.src = src; s.async = false;
+      s.src = versioned(src); s.async = false;
       s.onload = res;
       s.onerror = () => rej(new Error("Fant ikke datafilen " + src));
       document.head.appendChild(s);

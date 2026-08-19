@@ -47,6 +47,16 @@ Hopp rett til et fag med `?fag=<id>`, f.eks.
 Selve plattformnavnet, logoen og undertittelen settes ett sted: `EDU_PLATFORM`
 øverst i `js/subjects.js`.
 
+> **Etter endringer i `js/` eller `fag/`: bump byggnummeret** i `index.html`, ellers
+> kjører telefoner og nettlesere gammel kode i opptil ti minutter (GitHub Pages
+> setter `max-age=600`). Ett tall, alle filene:
+>
+> ```bash
+> sed -i '' 's/?v=[0-9]*/?v=4/g' index.html
+> ```
+>
+> Fagdatafilene arver samme nummer automatisk via `js/picker.js`.
+
 ---
 
 ## Hva plattformen inneholder
