@@ -745,7 +745,7 @@ window.EDU_DATA.sets = [
     "exercises": [
       {
         "n": 1,
-        "title": "Multiple choice",
+        "title": "Multiple choice (MC 1–10)",
         "points": 36,
         "topic": "Answer key only — questions not recorded",
         "chapters": [
@@ -849,7 +849,7 @@ window.EDU_DATA.sets = [
       },
       {
         "n": 2,
-        "title": "Risk shifting",
+        "title": "Problem 1 — Risk shifting",
         "points": 52,
         "topic": "Agency costs of debt, risk shifting, debt buy-back",
         "chapters": [
@@ -935,7 +935,7 @@ window.EDU_DATA.sets = [
       },
       {
         "n": 3,
-        "title": "Valuation with leverage",
+        "title": "Problem 2 — Valuation with leverage",
         "points": 36,
         "topic": "WACC, MM II, growing perpetuity, releveraging",
         "chapters": [
@@ -1002,7 +1002,7 @@ window.EDU_DATA.sets = [
       },
       {
         "n": 4,
-        "title": "Credit risk and CDS",
+        "title": "Problem 3 — Credit risk and CDS",
         "points": 28,
         "topic": "Risky debt, risk-neutral default probability, credit default swaps",
         "chapters": [
@@ -1056,7 +1056,7 @@ window.EDU_DATA.sets = [
       },
       {
         "n": 5,
-        "title": "M&A",
+        "title": "Problem 4 — M&A",
         "points": 28,
         "topic": "Coinsurance, diversification and value transfer in a merger",
         "chapters": [
@@ -1133,7 +1133,7 @@ window.EDU_DATA.sets = [
     "exercises": [
       {
         "n": 1,
-        "title": "Multiple choice",
+        "title": "Multiple choice (MC 1–10)",
         "points": 36,
         "topic": "Mixed: MM, CAPM, beta, payout, WACC/APV, FTE, options, issuance",
         "chapters": [
@@ -1269,7 +1269,7 @@ window.EDU_DATA.sets = [
       },
       {
         "n": 2,
-        "title": "Capital Structure",
+        "title": "Problem 1 — Capital Structure",
         "points": 36,
         "topic": "Interest tax shield, permanent debt, recapitalisation",
         "chapters": [
@@ -1346,7 +1346,7 @@ window.EDU_DATA.sets = [
       },
       {
         "n": 3,
-        "title": "Valuation with leverage",
+        "title": "Problem 2 — Valuation with leverage",
         "points": 36,
         "topic": "APV with a predetermined debt schedule",
         "chapters": [
@@ -1447,7 +1447,7 @@ window.EDU_DATA.sets = [
       },
       {
         "n": 4,
-        "title": "Real Options",
+        "title": "Problem 3 — Real Options",
         "points": 36,
         "topic": "Option to wait, abandonment option, decision tree",
         "chapters": [
@@ -1527,7 +1527,7 @@ window.EDU_DATA.sets = [
       },
       {
         "n": 5,
-        "title": "Asymmetric information",
+        "title": "Problem 4 — Asymmetric information",
         "points": 36,
         "topic": "Myers-Majluf, signalling, pecking order",
         "chapters": [
@@ -1608,7 +1608,7 @@ window.EDU_DATA.sets = [
     "exercises": [
       {
         "n": 1,
-        "title": "Multiple choice",
+        "title": "Multiple choice (MC 1–10)",
         "points": 48,
         "topic": "M&A stock swap, MM, agency, real options, APV",
         "chapters": [
@@ -2002,7 +2002,7 @@ window.EDU_DATA.sets = [
     "exercises": [
       {
         "n": 1,
-        "title": "Multiple choice",
+        "title": "Multiple choice (MC 1–10)",
         "points": 48,
         "topic": "MM, CAPM, tax shield, debt overhang, payout, credit risk, CDS, APV",
         "chapters": [
@@ -2256,7 +2256,7 @@ window.EDU_DATA.sets = [
       },
       {
         "n": 4,
-        "title": "Valuation with leverage (APV)",
+        "title": "Problem 3 — Valuation with leverage (APV)",
         "points": 48,
         "topic": "APV",
         "chapters": [
@@ -2318,7 +2318,7 @@ window.EDU_DATA.sets = [
       },
       {
         "n": 5,
-        "title": "Real options (the patent)",
+        "title": "Problem 4 — Real options (the patent)",
         "points": 48,
         "topic": "Real options",
         "chapters": [

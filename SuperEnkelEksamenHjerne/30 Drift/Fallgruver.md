@@ -99,6 +99,22 @@ const m=window.EDU_DATA.quizzes.filter(q=>q.type==="mcq");const t=[0,0,0,0];
 m.forEach(q=>t[q.answer]++);console.log(t,"av",m.length)'
 ```
 
+## 7d. Eksamenssettenes oppgavenummer er ikke papirets
+
+De fire eldre settene har en flervalgsdel som ligger som **oppgave 1** i appen.
+Papirets «Problem 1» havner dermed på plass 2, og hele nummereringen er forskjøvet
+med én. Manualen siterer papirets nummerering («V2024 Problem 3»), så uten et
+mottiltak ville leseren landet på feil oppgave.
+
+Løsningen er at titlene bærer papirets egen merkelapp: oppgave 3 heter
+«Problem 2 — Valuation with leverage». Da er koblingen synlig uansett hvilken
+posisjon den har.
+
+**Kurbatov-settene (H2024, H2025) har ingen flervalgsdel**, så der er oppgave N
+lik Exercise N. Ikke «rett» dem — formatstrengen deres sier «no multiple choice»,
+og et regex-søk etter «multiple choice» treffer den. Avgjør på om settet faktisk
+*har* en flervalgsblokk som oppgave 1, ikke på formatteksten.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden
