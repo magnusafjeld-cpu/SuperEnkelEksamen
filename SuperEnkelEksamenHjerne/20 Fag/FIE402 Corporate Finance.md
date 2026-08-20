@@ -141,12 +141,17 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Aktiv læring | **208** oppgaver |
 | Dybdetrening | **458** i seks banker |
 | Lynlæring | **233** elementer, med fremdriftsport |
+| Ordliste | 25 økonomer, 67 symboler |
 
 **Lynøkta følger fremdriften.** Manifestet setter `lynFollowsProgress`, så minispillene
 henter bare fra kapitler du har nådd — 3 spill er åpne i modul 1, alle 13 fra modul 6.
 Formeltabellene måtte kapittelmerkes særskilt via `formulaTableChapters`, siden de ikke
 bærer noen merking selv. Se [[Moduler og visninger]].
-| Ordliste | 25 økonomer, 67 symboler |
+
+**Kapittelhenvisninger merkes ved visning.** Manualen skriver dem som bare «k17», som
+ikke sier noe til en leser som ikke har vært der. Motoren bytter dem ut: bakover blir
+det en stille lenke, framover får den tittelen og merket «senere». Se
+[[Moduler og visninger]].
 
 **Manualen ble tre ganger større enn planlagt.** Målet var 35 000 ord. Ordgrensen ble
 19. august først strammet til 1 400 per kapittel og deretter fjernet helt, med

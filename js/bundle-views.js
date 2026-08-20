@@ -234,6 +234,7 @@ window.EDU.views = window.EDU.views || {};
     wrap.appendChild(el(".row.wrap", { style: { gap: "8px", marginBottom: "18px" } }, el(".chip." + sh().phaseColor(phaseForChapter(num)), c.partName), el(".chip", sh().chapterMeta(c)), el(".chip", { onclick: sh().go("#/flashcards"), style: { cursor: "pointer" } }, "🎴 Øv på formler"), el(".chip", { onclick: sh().go("#/quiz"), style: { cursor: "pointer" } }, "❓ Quiz dette temaet")));
     const layout = el(".article-wrap"); const article = el("div"); const prose = el(".prose");
     prose.appendChild(frag(c.html));
+    merkKapittelhenvisninger(prose, num);
     const heads = [...prose.querySelectorAll("h3")]; heads.forEach((h, i) => { h.id = `s-${num}-${i}`; });
     article.appendChild(prose);
     article.appendChild(activeLearning(num, c));
@@ -293,6 +294,62 @@ window.EDU.views = window.EDU.views || {};
     if (c.tips.length || c.mistakes.length) { const tcard = el(".card"); if (c.tips[0]) { tcard.appendChild(el("h4", { style: { marginBottom: "6px", color: "#1d7a47" } }, "📘 Eksamenstips")); tcard.appendChild(el("p.muted", { style: { fontSize: "14px", marginTop: 0 } }, c.tips[0].text.slice(0, 240) + (c.tips[0].text.length > 240 ? "…" : ""))); } if (c.mistakes[0]) { tcard.appendChild(el("h4", { style: { marginBottom: "6px", color: "#9a630f", marginTop: "14px" } }, "⚠️ Vanlig feil")); tcard.appendChild(el("p.muted", { style: { fontSize: "14px", marginTop: 0 } }, c.mistakes[0].text.slice(0, 240) + (c.mistakes[0].text.length > 240 ? "…" : ""))); } grid.appendChild(tcard); }
     sec.appendChild(grid); return sec;
   }
+  /* Manualen skriver kapittelhenvisninger som bare «k17». Det sier ingenting til
+     en leser som ikke har vært der, og verre: det ser ut som noe han burde kjenne
+     igjen. Her byttes koden ut med kapitlets tittel, og henvisninger framover
+     merkes som nettopp det — så «k17» blir «k17 · The WACC method · senere».
+     Bare tekstnoder røres, og aldri inne i SVG, kode eller lenker. */
+  function merkKapittelhenvisninger(rot, denne) {
+    const åpne = leseposisjon();
+    const hopp = { SVG: 1, CODE: 1, PRE: 1, A: 1, SCRIPT: 1, STYLE: 1 };
+    const walker = document.createTreeWalker(rot, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) => {
+        for (let p = n.parentNode; p && p !== rot; p = p.parentNode) {
+          if (hopp[(p.tagName || "").toUpperCase()] || p.namespaceURI === "http://www.w3.org/2000/svg") return NodeFilter.FILTER_REJECT;
+        }
+        return /\bk\d{1,2}\b/.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      },
+    });
+    const treff = []; let n;
+    while ((n = walker.nextNode())) treff.push(n);
+    treff.forEach((node) => {
+      const deler = node.nodeValue.split(/\b(k\d{1,2})\b/);
+      if (deler.length < 2) return;
+      const frag = document.createDocumentFragment();
+      deler.forEach((del, i) => {
+        const m = i % 2 === 1 && /^k\d{1,2}$/.test(del) ? +del.slice(1) : null;
+        const kap = m == null ? null : S.data.chapter(m);
+        if (!kap || m === denne) { frag.appendChild(document.createTextNode(del)); return; }
+        const framover = åpne && !åpne.has(m);
+        const a = el("a.kapref" + (framover ? ".senere" : ""), { href: `#/chapter/${m}`,
+          title: (framover ? "Kommer senere: " : "") + kap.fullTitle });
+        a.appendChild(el("span.kr-kode", del));
+        /* Bakover holder koden alene — du har lest kapitlet. Framover trenger du
+           både tittelen og beskjeden om at den ligger foran deg. */
+        if (framover) {
+          const t = kap.title.length > 30 ? kap.title.slice(0, 29).trimEnd() + "…" : kap.title;
+          a.appendChild(el("span.kr-tittel", t));
+          a.appendChild(el("span.kr-flagg", "senere"));
+        }
+        frag.appendChild(a);
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+  /* Hvor langt leseren er kommet: alt i modulene til og med den han står i,
+     pluss alt han selv har huket av som lest. Null hvis faget ikke har en plan
+     å måle mot — da merkes ingenting som «senere». */
+  function leseposisjon() {
+    const dager = S.data.days() || [];
+    if (!dager.length) return null;
+    const åpne = new Set();
+    const st = S.store.get();
+    Object.keys(st.chapters || {}).forEach((k) => { if (st.chapters[k] && st.chapters[k].read) åpne.add(+k); });
+    const nå = S.data.activeDayIndex();
+    dager.forEach((d) => { if (d.day <= nå) (d.chapters || []).forEach((c) => åpne.add(c)); });
+    return åpne;
+  }
+
   function prevNext(num) {
     const prev = S.data.chapter(num - 1), next = S.data.chapter(num + 1); const st = S.store.get().chapters[num] || {};
     const box = el(".card", { style: { marginTop: "30px", textAlign: "center" } });

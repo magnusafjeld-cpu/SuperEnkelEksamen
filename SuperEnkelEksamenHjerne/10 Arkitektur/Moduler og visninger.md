@@ -89,6 +89,30 @@ Dagens økt er 3 spill (~4 min) og gir **+25 bonus-XP**. Nivåene:
 Fersking (0) → Student (120) → Gruppelærer (320) → Seminarleder (650) →
 Foreleser (1100) → Sensor (1700) → Nobelkandidat (2600).
 
+## Kapittelhenvisninger merkes ved visning
+
+Pensummanualen skriver kryssreferanser som bare **`k17`**. Det er kompakt for
+forfatteren og ubrukelig for leseren: koden sier ingenting om hva kapitlet
+inneholder, og verre — den ser ut som noe han burde kjenne igjen. FIE402 har 126
+framoverreferanser, og 122 av dem ga ingen antydning om at stoffet kommer senere.
+
+`merkKapittelhenvisninger()` i `js/bundle-views.js` løser det ved visning i stedet
+for i teksten, så alle 335 referansene er dekket av én endring:
+
+- **Bakover eller allerede lest** → en stille lenke, bare koden. Du vet hva det er.
+- **Framover** → koden, kapitlets tittel, og merket «senere». På skjermer under
+  560 px skjules tittelen, så chipen ikke flyter ut av linja.
+
+Hva som regnes som lest er den samme leseposisjonen som lynøkta bruker: alt i
+modulene til og med den du står i, pluss alt du har huket av. Merker du et kapittel
+som lest, blir referansene til det stille umiddelbart.
+
+Bare tekstnoder røres, og aldri inne i SVG, `<code>`, `<pre>` eller en eksisterende
+lenke — ellers ville mønsteret kunne treffe inne i en formel eller et attributt.
+Manualfila selv er urørt; dette er ren visning.
+
+[[SAM3 Makroøkonomi]] bruker ikke konvensjonen og får null treff.
+
 ## Lynlæringens fremdriftsport
 
 Uten port henter minispillene fra hele pensum fra dag én, så du kan få M&A-spørsmål

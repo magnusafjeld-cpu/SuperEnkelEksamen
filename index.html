@@ -465,6 +465,18 @@ textarea{font-family:inherit;}
 .exam-clock .ec-l{font-size:12px;text-transform:uppercase;letter-spacing:.06em;opacity:.75;}
 .exam-clock .ec-t{font-family:var(--mono);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;}
 @media (max-width:860px){.exam-clock .ec-t{font-size:20px;}}
+/* ---- kapittelhenvisninger i pensumteksten ----
+   Bakover: en stille kode. Framover: kode + tittel + «senere», siden leseren
+   verken kan plassere kapitlet eller vet at det ligger foran ham. */
+.prose a.kapref{border-bottom:none;font-weight:640;color:var(--accent-ink);white-space:nowrap;}
+.prose a.kapref:hover{text-decoration:underline;}
+.prose a.kapref.senere{display:inline-flex;align-items:baseline;gap:5px;background:var(--bg-sunken);border:1px solid var(--hairline-strong);border-radius:var(--r-sm);padding:0 7px;font-size:.9em;font-weight:400;max-width:100%;white-space:normal;}
+.prose a.kapref.senere:hover{background:var(--accent-soft);border-color:var(--accent-soft-2);text-decoration:none;}
+.prose a.kapref.senere .kr-kode{font-weight:660;color:var(--ink-3);flex:0 0 auto;}
+.prose a.kapref.senere .kr-tittel{color:var(--ink-2);min-width:0;overflow:hidden;text-overflow:ellipsis;}
+.prose a.kapref.senere .kr-flagg{flex:0 0 auto;font-size:.8em;font-weight:620;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-4);border-left:1px solid var(--hairline-strong);padding-left:5px;}
+@media (max-width:560px){.prose a.kapref.senere .kr-tittel{display:none;}
+  .prose a.kapref.senere{gap:4px;}}
 </style>
 </head>
 <body>
@@ -485,8 +497,8 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=9"></script>
-<script src="js/config.js?v=9"></script>
+<script src="js/subjects.js?v=11"></script>
+<script src="js/config.js?v=11"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
@@ -495,13 +507,13 @@ window.EDU_DATA = {};
      account      = Supabase-innlogging og synk av fremdrift (valgfritt)
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=9"></script>
-<script src="js/bundle-views.js?v=9"></script>
-<script src="js/bundle-lyn.js?v=9"></script>
-<script src="js/bundle-dybde.js?v=9"></script>
-<script src="js/bundle-sett.js?v=9"></script>
-<script src="js/account.js?v=9"></script>
-<script src="js/picker.js?v=9"></script>
-<script src="js/boot.js?v=9"></script>
+<script src="js/bundle-core.js?v=11"></script>
+<script src="js/bundle-views.js?v=11"></script>
+<script src="js/bundle-lyn.js?v=11"></script>
+<script src="js/bundle-dybde.js?v=11"></script>
+<script src="js/bundle-sett.js?v=11"></script>
+<script src="js/account.js?v=11"></script>
+<script src="js/picker.js?v=11"></script>
+<script src="js/boot.js?v=11"></script>
 </body>
 </html>
