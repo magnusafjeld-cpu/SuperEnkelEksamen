@@ -36,12 +36,23 @@ Auth → SMTP Settings*.
 Supabase → **Authentication** → **URL Configuration**:
 
 - **Site URL**: `https://magnusafjeld-cpu.github.io/SuperEnkelEksamen/`
-- **Redirect URLs**, legg til begge:
+- **Redirect URLs**, legg til alle tre:
   - `https://magnusafjeld-cpu.github.io/SuperEnkelEksamen/**`
   - `http://127.0.0.1:4178/**`
+  - `http://localhost:*/**`
 
 Uten dette virker ikke lenken i glemt-passord-e-posten — Supabase nekter å sende
 brukeren tilbake til en adresse den ikke kjenner.
+
+> [!warning] Adressene følger ikke med når repoet døpes om
+> Byttes repo-navnet, endres Pages-adressen, og disse feltene må rettes for hånd.
+> Skjer det ikke, ser alt normalt ut helt til noen trykker «Glemt passord» — og da
+> går lenken til en død side. Dette skjedde i august 2026 ved navnebyttet fra SAM3.
+
+Den tredje linja med jokertegn dekker lokal utvikling. Appen sender brukeren
+tilbake til `location.origin + location.pathname` (se `js/account.js`), og
+forhåndsvisningen i Claude Code velger en tilfeldig port når 4178 er opptatt, så
+en fast portadresse alene er ikke nok.
 
 ## 4. Lim nøklene inn i appen
 
