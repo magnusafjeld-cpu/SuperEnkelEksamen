@@ -129,28 +129,30 @@ Kapitlene skrives som frittstående `<section id="kN">`-fragmenter og settes inn
 `FIE402_Manual.html`. **Manualen er sannhetskilden** når den først er satt sammen —
 fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 
-## Status (19. august 2026, under bygging)
+## Status: ferdig
 
-| | Skrevet | Gjenstår |
-|---|---|---|
-| Manualen | 26 av 30 seksjoner · 84 500 ord · 41 figurer · 73 gjennomregnede eksempler · 195 bokser | k20, k23, k26, k27 |
-| Studieplan | alle 24 moduler | — |
-| Eksamenssett | **alle seks: 32 oppgaver, 147 deloppgaver** | — |
-| Quiz | 53 (kapittel 0–5) | k6–k28 |
-| Flashcards | 48 forfattet + 80 formelkort | k6–k28 |
-| Aktiv læring | 37 oppgaver | k6–k28 |
-| Lynlæring | 233 elementer, dekker k0–k27 | — |
-| Dybdetrening | 72 i `foundations` | fem banker igjen |
+| | |
+|---|---|
+| Manualen | **30 kapitler · 109 000 ord** · alle uavhengig tallkontrollert |
+| Studieplan | **25 moduler · 78 timer**, estimatene regnet av faktisk innhold |
+| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver |
+| Quiz | **338** (246 flervalg / 92 kortsvar) |
+| Flashcards | **268** forfattet + 80 auto-genererte formelkort |
+| Aktiv læring | **208** oppgaver |
+| Dybdetrening | **458** i seks banker |
+| Lynlæring | **233** elementer |
+| Ordliste | 25 økonomer, 67 symboler |
 
-**Manualen ble mye større enn planlagt.** Målet var 35 000 ord; den ligger an til
-rundt 100 000. Det er et bevisst valg: 19. august ble ordgrensen først strammet til
-1 400 per kapittel, og deretter fjernet helt med beskjeden *«pass først og fremst på
-at pensum er dekket»*. Spesifikasjonen sier nå at et kapittel som er kort fordi det
-utelot stoff, er mislykket. Konsekvensen er at manualen er tre–fire ganger SAM3.
+**Manualen ble tre ganger større enn planlagt.** Målet var 35 000 ord. Ordgrensen ble
+19. august først strammet til 1 400 per kapittel og deretter fjernet helt, med
+beskjeden *«pass først og fremst på at pensum er dekket»*. Spesifikasjonen sier nå at
+et kapittel som er kort fordi det utelot stoff, er mislykket.
 
-> [!note] Lynlæringen ligger foran pensum
-> Lyninnholdet dekker kapittel 0–27. Til de siste kapitlene er skrevet, kan
-> minispillene servere spørsmål om stoff som ennå ikke står i manualen.
+**Studieplanens tidsestimater regnes av innholdet**, ikke gjettes: `tools/fie402-rekalibrer-plan.py`
+leser manualen og setter `estMinutes` av ordantall (60 ord/min), antall gjennomregnede
+eksempler (15 min hver) og en fast drillpost. Kjør den på nytt hvis kapitler endres.
+Det var den som avslørte at M&A og eierstyring hadde havnet i samme modul på 405
+minutter; den ble delt, og planen gikk fra 24 til 25 moduler.
 
 ## Hva kontrollen fant
 

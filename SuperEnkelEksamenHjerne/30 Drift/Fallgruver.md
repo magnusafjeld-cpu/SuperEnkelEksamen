@@ -77,6 +77,28 @@ spaced repetition-historikken** — kort du har mestret dukker opp som nye, og
 vurderingene havner på feil formel. Legg tabellene i endelig rekkefølge fra start,
 og legg nye rader nederst i sin seksjon.
 
+## 7c. Quiz: riktig svar samler seg på alternativ B
+
+Da drillen ble skrevet av parallelle agenter, endte **161 av 246 riktige svar på
+indeks 1**. Leseren lærer da posisjonen, ikke faget.
+
+Fellen ligger i den åpenbare fiksen. Å stokke om alternativene brekker
+forklaringene, fordi de refererer til dem ved bokstav — og en automatisk
+bokstav-remapping er direkte farlig, siden enkeltbokstaver også er fagsymboler:
+i M&A er **A** kjøperen og **T** målet, i opsjonskapitlene er **S** aksjekursen og
+**K** innløsningskursen, og **D** er markedsverdien av gjeld overalt.
+
+Løsningen som ble brukt: skriv forklaringene om så de refererer til **innholdet** i
+alternativet («the answer that multiplies tau_c by D»), og stokk først deretter.
+Fordelingen er nå 25/25/25/25 med null bokstavreferanser igjen. Skriver du ny drill,
+kontroller fordelingen før du legger den inn:
+
+```bash
+node -e 'global.window={};eval(require("fs").readFileSync("fag/fie402/data.js","utf8"));
+const m=window.EDU_DATA.quizzes.filter(q=>q.type==="mcq");const t=[0,0,0,0];
+m.forEach(q=>t[q.answer]++);console.log(t,"av",m.length)'
+```
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden

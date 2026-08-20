@@ -334,13 +334,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Under the format Kurbatov set in H2024 and repeated in H2025, the FIE402 paper consists of:",
     "options": [
-      "10 multiple-choice questions plus two long problems",
       "6 exercises worth 100 points in total, with no multiple choice at all",
-      "4 exercises of 25 points each, all quantitative",
-      "3 exercises, each of which must be passed separately"
+      "3 exercises, each of which must be passed separately",
+      "10 multiple-choice questions plus two long problems",
+      "4 exercises of 25 points each, all quantitative"
     ],
-    "answer": 1,
-    "explanation": "Six exercises, 100 points, three hours, closed book, no multiple choice. Option A describes the pre-2024 papers, where MC blocks were standard; the format changed in 2024 and MC is gone. There is no 4x25 structure, and the 'each exercise must be passed' rule belongs to other courses: here the grade A-F is set on the total, so a weak exercise can be carried by the others."
+    "answer": 0,
+    "explanation": "Six exercises, 100 points, three hours, closed book, no multiple choice. The paper with 10 multiple-choice questions plus two long problems describes the pre-2024 sittings, where MC blocks were standard; the format changed in 2024 and MC is gone. There is no 4x25 structure, and the 'each exercise must be passed separately' rule belongs to other courses: here the final grade is set on the total, so a weak exercise can be carried by the others."
   },
   {
     "id": "q2",
@@ -349,13 +349,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Which of these is NOT printed on the exam formula sheet?",
     "options": [
-      "The free cash flow definition, FCF = EBIT(1 - tau_c) + Dep - CapEx - dNWC",
       "The CAPM, r_i = r_f + beta_i(E[Rmkt] - r_f)",
-      "V^L = V^U + PV(TS), and which rate discounts the tax shield",
-      "rE = rU + (D/E)(rU - rD)"
+      "The free cash flow definition, FCF = EBIT(1 - tau_c) + Dep - CapEx - dNWC",
+      "rE = rU + (D/E)(rU - rD)",
+      "V^L = V^U + PV(TS), and which rate discounts the tax shield"
     ],
-    "answer": 2,
-    "explanation": "The sheet gives FCF, the perpetuity and growing perpetuity, the CAPM, MM II in rate form, the betaU weighting, pre- and after-tax WACC, binomial replication and the M&A stock-swap NPVs. So A, B and D are all handed to you. V^L = V^U + PV(TS) is not on it, and neither is the far more valuable fact of which rate discounts the shield (rU under constant D/E, rD or rf under fixed permanent debt). That line has to be memorised, and it has been worth 20-40 points in recent papers."
+    "answer": 3,
+    "explanation": "The sheet gives FCF, the perpetuity and growing perpetuity, the CAPM, MM II in rate form, the betaU weighting, pre- and after-tax WACC, binomial replication and the M&A stock-swap NPVs. So the FCF definition, the CAPM and the relevering formula rE = rU + (D/E)(rU - rD) are all handed to you. V^L = V^U + PV(TS) is not on it, and neither is the far more valuable fact of which rate discounts the shield (rU under constant D/E, rD or rf under fixed permanent debt). That line has to be memorised, and it has been worth 20-40 points in recent papers."
   },
   {
     "id": "q3",
@@ -364,13 +364,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "The consistency check [E/(E+D)]betaE + [D/(E+D)]betaD = betaU is designed to catch:",
     "options": [
-      "A wrong forecast of next year's free cash flow",
       "A wrong weight, or use of the (1 - tau_c) version of the weighting that this course rejects",
+      "A wrong forecast of next year's free cash flow",
       "An incorrect corporate tax rate in the FCF line",
       "Investors holding irrational beliefs after an equity issue"
     ],
-    "answer": 1,
-    "explanation": "Check 2 is a redundant recomputation of betaU from the relevered numbers, so it breaks exactly when a weight is wrong or when the (1 - tau_c) unlevering has crept in. It says nothing about the cash flow forecast (A) or the tax rate used in FCF (C), because neither enters the beta weighting. Rationality of beliefs (D) is check 5 and belongs to Myers-Majluf, not to the cost of capital."
+    "answer": 0,
+    "explanation": "Check 2 is a redundant recomputation of betaU from the relevered numbers, so it breaks exactly when a weight is wrong or when the (1 - tau_c) unlevering has crept in. It says nothing about the forecast of next year's free cash flow, and nothing about the tax rate used in FCF, because neither enters the beta weighting. Irrational beliefs after an equity issue are the subject of check 5, which belongs to Myers-Majluf, not to the cost of capital."
   },
   {
     "id": "q4",
@@ -394,13 +394,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "In the organising identity V^L = V^U + PV(TS) - PV(distress costs) - PV(agency costs) + PV(agency benefits), the terms after V^U represent:",
     "options": [
-      "Alternative ways of measuring the same set of cash flows",
-      "One named market imperfection each, added back to the perfect-market benchmark",
+      "Different investors' subjective valuations of the same firm",
       "Accounting adjustments required by the reporting standard",
-      "Different investors' subjective valuations of the same firm"
+      "Alternative ways of measuring the same set of cash flows",
+      "One named market imperfection each, added back to the perfect-market benchmark"
     ],
-    "answer": 1,
-    "explanation": "MM I says that with no taxes, no bankruptcy costs, no conflicts and no private information, V^L = V^U: financing is irrelevant. The course then removes the 'no' one friction at a time, and each removal opens exactly one channel: interest deductibility, costly bankruptcy, the shareholder-creditor conflict, and debt as discipline. They are not remeasurements of the same thing (A), they are genuinely different value effects; they are economic, not accounting (C); and they are objective market values, not subjective opinions (D)."
+    "answer": 3,
+    "explanation": "MM I says that with no taxes, no bankruptcy costs, no conflicts and no private information, V^L = V^U: financing is irrelevant. The course then removes the 'no' one friction at a time, and each removal opens exactly one channel: interest deductibility, costly bankruptcy, the shareholder-creditor conflict, and debt as discipline. They are not alternative ways of measuring the same set of cash flows, they are genuinely different value effects; they are economic, not adjustments required by a reporting standard; and they are objective market values, not different investors' subjective valuations."
   },
   {
     "id": "q6",
@@ -409,13 +409,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "H2025 asked for four decimal places. The manual's rule on precision in a chained exercise is:",
     "options": [
-      "Round every rate to two decimals so the arithmetic stays clean",
       "Carry four decimals on every rate, because the keys penalise drift beyond about 0.001",
       "Precision does not matter provided the method is stated correctly",
-      "Round only the final answer, to the nearest whole percentage point"
+      "Round only the final answer, to the nearest whole percentage point",
+      "Round every rate to two decimals so the arithmetic stays clean"
     ],
-    "answer": 1,
-    "explanation": "Kurbatov chains sub-questions - H2025 Exercise 4 ran to nine linked steps - so rounding at step two contaminates steps three to nine. Two decimals (A) and whole percentage points (D) both produce drift the keys flag as an error. C is the most dangerous answer: method earns marks, but the keys explicitly deduct for rounding drift beyond roughly 0.001, so a correct method with sloppy precision still loses points."
+    "answer": 0,
+    "explanation": "Kurbatov chains sub-questions - H2025 Exercise 4 ran to nine linked steps - so rounding at step two contaminates steps three to nine. Rounding every rate to two decimals, and rounding the final answer to a whole percentage point, both produce drift the keys flag as an error. The answer that says precision does not matter provided the method is stated is the most dangerous one: method does earn marks, but the keys explicitly deduct for rounding drift beyond roughly 0.001, so a correct method with sloppy precision still loses points."
   },
   {
     "id": "q7",
@@ -437,13 +437,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A perpetuity pays 25 per year with the FIRST payment at date 5. The discount rate is 8%. Its value today is:",
     "options": [
-      "312.5000, because C/r is always a date-0 value",
-      "229.6968, because C/r = 312.5000 is a date-4 value and must be discounted four periods",
+      "212.6822, because C/r must be discounted five periods",
       "248.0726, because C/r must be discounted three periods",
-      "212.6822, because C/r must be discounted five periods"
+      "312.5000, because C/r is always a date-0 value",
+      "229.6968, because C/r = 312.5000 is a date-4 value and must be discounted four periods"
     ],
-    "answer": 1,
-    "explanation": "C/r lands one period BEFORE the first cash flow, never on the same date. First payment at date 5 puts 25/0.08 = 312.5000 at date 4, so PV0 = 312.5000/1.08^4 = 229.6968. Option A treats C/r as automatically dated 0, the single most expensive convention error in the course. Option C discounts three periods (a first payment at date 4), option D discounts five (a first payment at date 6). Count periods on a drawn timeline, not in your head."
+    "answer": 3,
+    "explanation": "C/r lands one period BEFORE the first cash flow, never on the same date. First payment at date 5 puts 25/0.08 = 312.5000 at date 4, so PV0 = 312.5000/1.08^4 = 229.6968. Reporting 312.5000 treats C/r as automatically dated 0, the single most expensive convention error in the course. Discounting three periods, which gives 248.0726, would be right for a first payment at date 4; discounting five, which gives 212.6822, would be right for a first payment at date 6. Count periods on a drawn timeline, not in your head."
   },
   {
     "id": "q9",
@@ -453,12 +453,12 @@ window.EDU_DATA.quizzes = [
     "q": "A concession pays a free cash flow of 60 at date 1, growing 3% per year forever. The discount rate is 10%. Its value at date 0 is:",
     "options": [
       "857.1429",
+      "461.5385",
       "882.8571",
-      "600.0000",
-      "461.5385"
+      "600.0000"
     ],
     "answer": 0,
-    "explanation": "PV0 = C1/(r - g) = 60/(0.10 - 0.03) = 857.1429, and because the first flow is at date 1, that is already a date-0 value. Option B grows the 60 by one more period (60 x 1.03/0.07), which double-counts growth: C1 is defined as the flow that has ALREADY grown once. Option C ignores growth entirely (60/0.10). Option D adds g to r instead of subtracting it (60/0.13) - a sign slip that always makes the firm look cheaper."
+    "explanation": "PV0 = C1/(r - g) = 60/(0.10 - 0.03) = 857.1429, and because the first flow is at date 1, that is already a date-0 value. The answer 882.8571 grows the 60 by one more period (60 x 1.03/0.07), which double-counts growth: C1 is defined as the flow that has ALREADY grown once. The answer 600.0000 ignores growth entirely (60/0.10). The answer 461.5385 adds g to r instead of subtracting it (60/0.13) - a sign slip that always makes the firm look cheaper."
   },
   {
     "id": "q10",
@@ -468,12 +468,12 @@ window.EDU_DATA.quizzes = [
     "q": "In a growing perpetuity, the condition r > g should be read as:",
     "options": [
       "A technicality with no economic content",
+      "A requirement that only applies when g is negative",
       "A diagnostic: if terminal growth exceeds the cost of capital, one of the two has been mis-estimated",
-      "A restriction that can be relaxed for high-growth firms",
-      "A requirement that only applies when g is negative"
+      "A restriction that can be relaxed for high-growth firms"
     ],
-    "answer": 1,
-    "explanation": "Each year the flow is (1+g) times larger while the discount factor is 1/(1+r) times smaller, so present values shrink at roughly the net rate r - g; that net rate is what makes the sum converge. Push g towards r and the sum diverges, and above r the formula returns a negative number that is not a value at all. So it is not a technicality (A) and cannot be relaxed (C): a perpetual growth rate above the cost of capital would mean the firm eventually becomes the whole economy. It applies for every g, not just negative ones (D)."
+    "answer": 2,
+    "explanation": "Each year the flow is (1+g) times larger while the discount factor is 1/(1+r) times smaller, so present values shrink at roughly the net rate r - g; that net rate is what makes the sum converge. Push g towards r and the sum diverges, and above r the formula returns a negative number that is not a value at all. So it is neither a technicality without economic content nor a restriction that high-growth firms may relax: a perpetual growth rate above the cost of capital would mean the firm eventually becomes the whole economy. And it binds for every g, not only for negative ones."
   },
   {
     "id": "q11",
@@ -482,13 +482,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "The annuity formula PV = (C/r)[1 - (1+r)^-N] is best understood as:",
     "options": [
+      "An approximation that is only accurate for large N",
       "A separate result that must be memorised on its own",
-      "A perpetuity starting at date 1 minus an identical perpetuity starting at date N+1",
       "The sum of N independent NPV calculations that happens to have a closed form",
-      "An approximation that is only accurate for large N"
+      "A perpetuity starting at date 1 minus an identical perpetuity starting at date N+1"
     ],
-    "answer": 1,
-    "explanation": "Buy a perpetuity worth C/r today and sell one that starts at date N+1; the second is worth C/r at date N, hence (C/r)/(1+r)^N today. What you keep is exactly dates 1 to N, which is the annuity formula. This construction is why the formula does not need memorising (A) and is exact for every N, not an approximation (D). It matters far beyond arithmetic: an exit or abandonment option in k25 converts a perpetuity into a truncated annuity, and the option is worth precisely the tail you gave up."
+    "answer": 3,
+    "explanation": "Buy a perpetuity worth C/r today and sell one that starts at date N+1; the second is worth C/r at date N, hence (C/r)/(1+r)^N today. What you keep is exactly dates 1 to N, which is the annuity formula. This construction is why the result does not have to be memorised as a separate fact, and why it is exact for every N rather than an approximation that improves with large N. It matters far beyond arithmetic: an exit or abandonment option in k25 converts a perpetuity into a truncated annuity, and the option is worth precisely the tail you gave up."
   },
   {
     "id": "q12",
@@ -497,13 +497,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Two mutually exclusive projects each cost 200 today. M pays 42 per year for 8 years (NPV 32.4624 at r = 9%, IRR 13.2258%). W pays a single 500 at date 8 (NPV 50.9331, IRR 12.1353%). Which do you take, and why?",
     "options": [
-      "M, because its IRR is higher",
-      "W, because NPV measures the money the decision adds at date 0, and IRR ranks by project shape rather than by the actual cost of capital",
+      "Neither can be chosen without knowing the reinvestment rate",
       "M, because it pays back faster",
-      "Neither can be chosen without knowing the reinvestment rate"
+      "M, because its IRR is higher",
+      "W, because NPV measures the money the decision adds at date 0, and IRR ranks by project shape rather than by the actual cost of capital"
     ],
-    "answer": 1,
-    "explanation": "W adds 50.9331 of value at 9%, M only 32.4624, so W is worth 18.4707 more today. IRR reverses the ranking because it is the rate at which a project's own cash flows break even, so it describes the project's shape, not the market it lives in: M's early flows are barely discounted at any rate, giving a high break-even rate but little gain when capital is cheap. Payback (C) is worse still - it discards everything after the cutoff, so a project whose value arrives late can never pass. D is a distraction: NPV already discounts at the market rate, so no separate reinvestment assumption is needed."
+    "answer": 3,
+    "explanation": "W adds 50.9331 of value at 9%, M only 32.4624, so W is worth 18.4707 more today. IRR reverses the ranking because it is the rate at which a project's own cash flows break even, so it describes the project's shape, not the market it lives in: M's early flows are barely discounted at any rate, giving a high break-even rate but little gain when capital is cheap. Choosing M for its faster payback is worse still - payback discards everything after the cutoff, so a project whose value arrives late can never pass. Waiting for a reinvestment rate is a distraction: NPV already discounts at the market rate, so no separate reinvestment assumption is needed."
   },
   {
     "id": "q13",
@@ -527,13 +527,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "The same concession (60 growing at 3%, r = 10%) is delayed by permits so that the FIRST cash flow now arrives at date 4. Its value today is:",
     "options": [
-      "585.4401",
-      "643.9841",
       "708.3825",
-      "857.1429"
+      "585.4401",
+      "857.1429",
+      "643.9841"
     ],
-    "answer": 1,
-    "explanation": "The formula is unchanged, but its output moves with the stream: C1/(r - g) = 857.1429 now sits at date 3, one period before the first flow, so PV0 = 857.1429/1.10^3 = 643.9841. Option A discounts four periods, the classic off-by-one that treats the formula's output as dated at the first cash flow. Option C discounts only two. Option D forgets to discount at all. Check by ratio: 643.9841/857.1429 = 0.7513 = 1/1.10^3."
+    "answer": 3,
+    "explanation": "The formula is unchanged, but its output moves with the stream: C1/(r - g) = 857.1429 now sits at date 3, one period before the first flow, so PV0 = 857.1429/1.10^3 = 643.9841. The answer 585.4401 discounts four periods, the classic off-by-one that treats the formula's output as dated at the first cash flow. The answer 708.3825 discounts only two. The unchanged 857.1429 forgets to discount at all. Check by ratio: 643.9841/857.1429 = 0.7513 = 1/1.10^3."
   },
   {
     "id": "q15",
@@ -555,13 +555,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "EBIT = 180, tau_c = 22%, depreciation = 45, CapEx = 60, dNWC = +12, and interest expense = 20. Free cash flow is:",
     "options": [
-      "97.8000",
       "113.4000",
-      "117.8000",
-      "125.4000"
+      "125.4000",
+      "97.8000",
+      "117.8000"
     ],
-    "answer": 1,
-    "explanation": "FCF = 180(0.78) + 45 - 60 - 12 = 140.4000 + 45 - 60 - 12 = 113.4000. Option A subtracts interest before tax, (180 - 20)(0.78) + 45 - 60 - 12 = 97.8000: financing costs never enter the numerator, because rwacc in the denominator already pays the lenders. Option C adds the interest tax shield 0.22 x 20 = 4.4 back into the cash flow, which double-counts the shield once you discount at the after-tax WACC or add PV(TS) in APV. Option D forgets dNWC entirely."
+    "answer": 0,
+    "explanation": "FCF = 180(0.78) + 45 - 60 - 12 = 140.4000 + 45 - 60 - 12 = 113.4000. The answer 97.8000 subtracts interest before tax, (180 - 20)(0.78) + 45 - 60 - 12: financing costs never enter the numerator, because rwacc in the denominator already pays the lenders. The answer 117.8000 adds the interest tax shield 0.22 x 20 = 4.4 back into the cash flow, which double-counts the shield once you discount at the after-tax WACC or add PV(TS) in APV. The answer 125.4000 forgets dNWC entirely."
   },
   {
     "id": "q17",
@@ -572,11 +572,11 @@ window.EDU_DATA.quizzes = [
     "options": [
       "Interest is not a real cash outflow",
       "Financing costs live in the discount rate, so charging them in the numerator too would pay lenders twice",
-      "Interest is already inside depreciation",
-      "The tax authorities do not allow interest as a deduction"
+      "The tax authorities do not allow interest as a deduction",
+      "Interest is already inside depreciation"
     ],
     "answer": 1,
-    "explanation": "rwacc is a weighted average of rE and rD, so the cost of borrowing is already in the denominator; subtracting interest from the numerator as well would value the firm far too low. Interest certainly IS a cash outflow (A) - it is simply a payment to a claim holder, and FCF measures the pot before the split. It has nothing to do with depreciation (C). And interest is deductible (D) - that is precisely why the shield exists, and why FCF's deliberate omission of it has to be repaired later, either through rwacc or through a separate PV(TS)."
+    "explanation": "rwacc is a weighted average of rE and rD, so the cost of borrowing is already in the denominator; subtracting interest from the numerator as well would value the firm far too low. Interest certainly IS a real cash outflow - it is simply a payment to a claim holder, and FCF measures the pot before the split. It has nothing to do with depreciation, which is a separate non-cash deduction. And interest is fully deductible, not disallowed by the tax authorities - that is precisely why the shield exists, and why FCF's deliberate omission of it has to be repaired later, either through rwacc or through a separate PV(TS)."
   },
   {
     "id": "q18",
@@ -585,13 +585,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A firm permanently cuts inventory, taking net working capital from 16% of sales to 11% of sales on sales of 750. The effect on that year's free cash flow is:",
     "options": [
+      "+37.5000, but only after tax, so +29.2500",
       "-37.5000, because working capital is subtracted",
       "+37.5000, because dNWC = -37.5000 and FCF subtracts the change",
-      "Zero, because the balance sheet does not affect cash flow",
-      "+37.5000, but only after tax, so +29.2500"
+      "Zero, because the balance sheet does not affect cash flow"
     ],
-    "answer": 1,
-    "explanation": "NWC falls from 0.16 x 750 = 120.0000 to 0.11 x 750 = 82.5000, so dNWC = -37.5000, and -dNWC = +37.5000 raises FCF. Inventory on the shelf is cash already spent and not yet recovered; selling it down without replacing it brings that cash back. Option A subtracts the level or the wrong sign - the formula subtracts the CHANGE, and -(-37.5000) = +37.5000. Option C is wrong because working capital is exactly where the balance sheet touches cash flow. Option D taxes it, but this is a balance-sheet release, not profit, so no tax applies."
+    "answer": 2,
+    "explanation": "NWC falls from 0.16 x 750 = 120.0000 to 0.11 x 750 = 82.5000, so dNWC = -37.5000, and -dNWC = +37.5000 raises FCF. Inventory on the shelf is cash already spent and not yet recovered; selling it down without replacing it brings that cash back. Answering -37.5000 subtracts the level, or the change with the wrong sign - the formula subtracts the CHANGE, and -(-37.5000) = +37.5000. Answering zero because the balance sheet does not affect cash flow is wrong precisely because working capital is where the balance sheet touches cash flow. Taxing the release down to +29.2500 misreads it: a balance-sheet release is not profit, so no tax applies."
   },
   {
     "id": "q19",
@@ -600,13 +600,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Net working capital is held at 15% of sales. Sales rise from 400 to 460. dNWC for the year is:",
     "options": [
+      "+60.0000",
       "+69.0000",
       "+9.0000",
-      "+60.0000",
       "-9.0000"
     ],
-    "answer": 1,
-    "explanation": "NWC_t = w x Sales_t, so dNWC_t = w(Sales_t - Sales_(t-1)) = 0.15(460 - 400) = 9.0000. Option A subtracts the LEVEL 0.15 x 460 = 69.0000 instead of the change, one of the two fatal sign errors in this material. Option C subtracts the change in sales without the 15%. Option D has the sign backwards: sales are growing, so the firm is tying MORE cash up, and growth is not free. Write the levels in a row of their own, difference them, then feed the difference in."
+    "answer": 2,
+    "explanation": "NWC_t = w x Sales_t, so dNWC_t = w(Sales_t - Sales_(t-1)) = 0.15(460 - 400) = 9.0000. The answer +69.0000 uses the LEVEL 0.15 x 460 instead of the change, one of the two fatal sign errors in this material. The answer +60.0000 takes the change in sales without applying the 15%. The answer -9.0000 has the sign backwards: sales are growing, so the firm is tying MORE cash up, and growth is not free. Write the levels in a row of their own, difference them, then feed the difference in."
   },
   {
     "id": "q20",
@@ -615,13 +615,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Depreciation is deducted inside EBIT and then added back in full. The net effect on cash is:",
     "options": [
-      "Zero, so the treatment is purely cosmetic",
       "tau_c x Depreciation of tax saved - the deduction lowers the tax bill, and the add-back corrects the cash",
+      "(1 - tau_c) x Depreciation",
       "The full depreciation amount, because it is a cash outflow",
-      "(1 - tau_c) x Depreciation"
+      "Zero, so the treatment is purely cosmetic"
     ],
-    "answer": 1,
-    "explanation": "Depreciation is not a payment - nobody receives it - but the tax authority allows it as a deduction, so it genuinely lowers cash tax paid. Running it through EBIT gets the tax bill right; adding the full amount back gets the cash right; the residue is tau_c x Depreciation of tax saved. It is therefore not cosmetic (A). It is not an outflow (C). Option D is what you would get if you added back only the after-tax amount, which under-adds by exactly the shield you were trying to capture. Same logic as the interest tax shield in k7: a deduction is worth its tax rate times its size."
+    "answer": 0,
+    "explanation": "Depreciation is not a payment - nobody receives it - but the tax authority allows it as a deduction, so it genuinely lowers cash tax paid. Running it through EBIT gets the tax bill right; adding the full amount back gets the cash right; the residue is tau_c x Depreciation of tax saved. The net effect is therefore not zero, so the treatment is not cosmetic, and it is not the full depreciation amount, because depreciation is not a cash outflow. Multiplying by (1 - tau_c) is what you would get if you added back only the after-tax amount, which under-adds by exactly the shield you were trying to capture. Same logic as the interest tax shield in k7: a deduction is worth its tax rate times its size."
   },
   {
     "id": "q21",
@@ -643,13 +643,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "You compute TV_3 = FCF_4/(r - g). Over how many periods must it be discounted, and how is it combined with the explicit forecast?",
     "options": [
+      "Three periods, but it must be discounted separately and never added to FCF_3",
       "Four periods, because the first cash flow inside it arrives at date 4",
       "Three periods, because the growing-perpetuity formula returns a date-3 value; it is normally added to FCF_3 before discounting",
-      "Three periods, but it must be discounted separately and never added to FCF_3",
       "It needs no discounting, because it is already a present value"
     ],
-    "answer": 1,
-    "explanation": "The growing perpetuity returns a value one period before its first flow, so TV_3 sits at date 3 even though FCF_4 is the first flow inside it. Discounting over four periods (A) is the single most common terminal-value error and understates the firm by one full period of discounting. Whether you add TV_3 to FCF_3 and discount the sum, or discount them separately and add, is arithmetically identical (C is a false restriction). And it is a date-3 value, not a date-0 value (D)."
+    "answer": 2,
+    "explanation": "The growing perpetuity returns a value one period before its first flow, so TV_3 sits at date 3 even though FCF_4 is the first flow inside it. Discounting over four periods, on the argument that the first cash flow inside it arrives at date 4, is the single most common terminal-value error and understates the firm by one full period of discounting. Whether you add TV_3 to FCF_3 and discount the sum, or discount them separately and add, is arithmetically identical, so the rule that it must never be added to FCF_3 is a false restriction. And it is a date-3 value, not a figure that is already a present value."
   },
   {
     "id": "q23",
@@ -658,13 +658,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Year 3 FCF is 120.00, but it was inflated by a one-off inventory release of 20.8. A normalised year 4 gives FCF_4 = 99.224. With r = 9% and g = 2%, the correct TV_3 and the naive one are:",
     "options": [
-      "1 417.4857 correct; the naive 120.00 x 1.02/0.07 = 1 748.5714 overstates it by 331.0857",
       "1 748.5714 correct; the normalised figure ignores growth",
-      "1 714.2857 correct; growth should not be applied to a terminal year",
-      "Both give the same answer, because the release is only a timing difference"
+      "1 417.4857 correct; the naive 120.00 x 1.02/0.07 = 1 748.5714 overstates it by 331.0857",
+      "Both give the same answer, because the release is only a timing difference",
+      "1 714.2857 correct; growth should not be applied to a terminal year"
     ],
-    "answer": 0,
-    "explanation": "TV_3 = 99.224/0.07 = 1 417.4857. Growing the reported FCF_3 instead gives 120.00 x 1.02/0.07 = 1 748.5714, which assumes the one-off 20.8 release recurs every year forever - an overstatement of 331.0857. Option B has the roles reversed. Option C (120/0.07 = 1 714.2857) drops growth but keeps the contaminated flow, so it is wrong twice. Option D is the trap: the release IS a timing difference, which is exactly why it must not be capitalised into a perpetuity. Build a normalised FCF_(T+1) from its components. Check: 1 417.4857 x 0.07 = 99.2240."
+    "answer": 1,
+    "explanation": "TV_3 = 99.224/0.07 = 1 417.4857. Growing the reported FCF_3 instead gives 120.00 x 1.02/0.07 = 1 748.5714, which assumes the one-off 20.8 release recurs every year forever - an overstatement of 331.0857. Calling 1 748.5714 the correct figure has the roles reversed. The 1 714.2857 route (120/0.07) drops growth but keeps the contaminated flow, so it is wrong twice. And the claim that both routes agree because the release is only a timing difference is the trap: the release IS a timing difference, which is exactly why it must not be capitalised into a perpetuity. Build a normalised FCF_(T+1) from its components. Check: 1 417.4857 x 0.07 = 99.2240."
   },
   {
     "id": "q24",
@@ -687,13 +687,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A stock has volatility 35% and correlation 0.45 with the market; market volatility is 20%. Its beta is:",
     "options": [
+      "0.0315",
       "1.7500",
       "0.7875",
-      "0.4500",
-      "0.0315"
+      "0.4500"
     ],
-    "answer": 1,
-    "explanation": "beta = Corr x sigma_i/sigma_mkt = 0.45 x 0.35/0.20 = 0.7875. Equivalently Cov = 0.45 x 0.35 x 0.20 = 0.031500 and Var(Rmkt) = 0.20^2 = 0.040000, so beta = 0.031500/0.040000 = 0.7875. Option A is sigma_i/sigma_mkt with the correlation dropped, which treats total volatility as if it were all systematic. Option C reports the correlation itself. Option D reports the covariance without dividing by the market variance. Beta is correlation SCALED by relative volatility: high volatility raises beta only to the extent it comes with correlation."
+    "answer": 2,
+    "explanation": "beta = Corr x sigma_i/sigma_mkt = 0.45 x 0.35/0.20 = 0.7875. Equivalently Cov = 0.45 x 0.35 x 0.20 = 0.031500 and Var(Rmkt) = 0.20^2 = 0.040000, so beta = 0.031500/0.040000 = 0.7875. The answer 1.7500 is sigma_i/sigma_mkt with the correlation dropped, which treats total volatility as if it were all systematic. The answer 0.4500 reports the correlation itself. The answer 0.0315 reports the covariance without dividing by the market variance. Beta is correlation SCALED by relative volatility: high volatility raises beta only to the extent it comes with correlation."
   },
   {
     "id": "q26",
@@ -702,13 +702,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Firm-specific risk carries no risk premium because:",
     "options": [
+      "Regulators forbid pricing it",
       "It is small relative to systematic risk",
       "A diversified investor can delete it for free, so anyone paid for bearing it would be collecting a return for no risk, and the price would be bid up until the extra return vanished",
-      "Regulators forbid pricing it",
       "It has a beta of exactly 1"
     ],
-    "answer": 1,
-    "explanation": "If a stock offered extra return purely for erratic own-earnings, a diversified investor would buy it, hold it beside forty others, watch the erratic part disappear from his portfolio, and collect the premium bearing nothing. Every diversified investor would want that trade, so the price rises until the extra return is gone. It is not about magnitude (A) - firm-specific risk is often the LARGER part of a single stock's volatility, as at n = 1 in the diversification table. It is a market equilibrium result, not regulation (C). And firm-specific risk by definition has zero market beta, not one (D). An undiversified investor genuinely bears more risk, but the market does not pay him for a cost he chose."
+    "answer": 2,
+    "explanation": "If a stock offered extra return purely for erratic own-earnings, a diversified investor would buy it, hold it beside forty others, watch the erratic part disappear from his portfolio, and collect the premium bearing nothing. Every diversified investor would want that trade, so the price rises until the extra return is gone. It is not about magnitude - firm-specific risk is often the LARGER part of a single stock's volatility, as at n = 1 in the diversification table. It is a market equilibrium result, not something regulators forbid. And firm-specific risk by definition has zero market beta, not a beta of one. An undiversified investor genuinely bears more risk, but the market does not pay him for a cost he chose."
   },
   {
     "id": "q27",
@@ -718,12 +718,12 @@ window.EDU_DATA.quizzes = [
     "q": "A comparable's cost of equity is 12.8%. The risk-free rate is 2.5% and the EXPECTED RETURN ON THE MARKET is 8.0%. Its equity beta is:",
     "options": [
       "1.8727",
-      "2.3273",
       "1.2875",
-      "1.6000"
+      "1.6000",
+      "2.3273"
     ],
     "answer": 0,
-    "explanation": "Run the CAPM backwards: betaE = (rE - rf)/(E[Rmkt] - rf) = (0.1280 - 0.0250)/(0.0800 - 0.0250) = 0.1030/0.0550 = 1.8727. Option B divides by the premium without subtracting rf from rE (0.1280/0.0550). Option C divides the excess return by the market's EXPECTED RETURN rather than by its PREMIUM (0.1030/0.0800) - the single most contaminating slip in the course, since it feeds every downstream number. Option D makes both errors at once (0.1280/0.0800). Underline which of E[Rmkt] and the premium you were given before writing anything."
+    "explanation": "Run the CAPM backwards: betaE = (rE - rf)/(E[Rmkt] - rf) = (0.1280 - 0.0250)/(0.0800 - 0.0250) = 0.1030/0.0550 = 1.8727. The answer 2.3273 divides by the premium without subtracting rf from rE (0.1280/0.0550). The answer 1.2875 divides the excess return by the market's EXPECTED RETURN rather than by its PREMIUM (0.1030/0.0800) - the single most contaminating slip in the course, since it feeds every downstream number. The answer 1.6000 makes both errors at once (0.1280/0.0800). Underline which of E[Rmkt] and the premium you were given before writing anything."
   },
   {
     "id": "q28",
@@ -732,13 +732,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "rf = 3%, the EXPECTED RETURN ON THE MARKET is 8%, and a stock has beta 1.40. Its required return is:",
     "options": [
-      "14.2000%",
-      "10.0000%",
       "11.2000%",
+      "10.0000%",
+      "14.2000%",
       "8.0000%"
     ],
     "answer": 1,
-    "explanation": "The market risk premium is E[Rmkt] - rf = 0.08 - 0.03 = 0.05, so r = 0.03 + 1.40(0.05) = 0.1000 = 10.0000%. Option A uses E[Rmkt] as if it were the premium: 0.03 + 1.40(0.08) = 0.1420, an overstatement of 4.2 percentage points that then propagates into betas, rU, rE and every WACC downstream. Option C is 1.40 x 0.08 with no risk-free rate. Option D ignores beta. 'The market risk premium is 6%' and 'the expected return on the market is 6%' are different sentences and give different answers."
+    "explanation": "The market risk premium is E[Rmkt] - rf = 0.08 - 0.03 = 0.05, so r = 0.03 + 1.40(0.05) = 0.1000 = 10.0000%. The answer 14.2000% uses E[Rmkt] as if it were the premium: 0.03 + 1.40(0.08) = 0.1420, an overstatement of 4.2 percentage points that then propagates into betas, rU, rE and every WACC downstream. The answer 11.2000% is 1.40 x 0.08 with no risk-free rate added. The answer 8.0000% ignores beta altogether. 'The market risk premium is 6%' and 'the expected return on the market is 6%' are different sentences and give different answers."
   },
   {
     "id": "q29",
@@ -747,13 +747,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "An investor holds betas 1.35, 0.80 and 1.60 in weights 40%, 35% and 25%. With rf = 2.5% and a market risk premium of 5.5%, the portfolio's beta and required return are:",
     "options": [
-      "1.2500 and 9.3750%",
-      "1.2200 and 9.2100%",
       "1.2200 and 9.2100%, but only if the stocks are uncorrelated",
-      "1.2200 and 9.2100% only for equally weighted portfolios"
+      "1.2200 and 9.2100% only for equally weighted portfolios",
+      "1.2500 and 9.3750%",
+      "1.2200 and 9.2100%"
     ],
-    "answer": 1,
-    "explanation": "betaP = 0.40(1.35) + 0.35(0.80) + 0.25(1.60) = 0.6000 + 0.2800 + 0.4000 = 1.2200, and rP = 0.025 + 1.2200(0.055) = 0.0921 = 9.2100%. Check by the other route: 0.40(0.099250) + 0.35(0.069000) + 0.25(0.113000) = 0.0921. The two agree because the CAPM is linear in beta. Option A averages the betas without weights (1.2500). Options C and D attach false conditions: betas add linearly by market-value weights regardless of correlations or weighting scheme - it is volatilities that do not add, and that linearity is exactly what makes the unlever/relever machinery of k4 possible."
+    "answer": 3,
+    "explanation": "betaP = 0.40(1.35) + 0.35(0.80) + 0.25(1.60) = 0.6000 + 0.2800 + 0.4000 = 1.2200, and rP = 0.025 + 1.2200(0.055) = 0.0921 = 9.2100%. Check by the other route: 0.40(0.099250) + 0.35(0.069000) + 0.25(0.113000) = 0.0921. The two agree because the CAPM is linear in beta. The answer 1.2500 and 9.3750% averages the betas without their weights. The two answers that attach conditions - uncorrelated stocks, or equal weights - are false restrictions: betas add linearly by market-value weights regardless of correlations or weighting scheme. It is volatilities that do not add, and that linearity is exactly what makes the unlever/relever machinery of k4 possible."
   },
   {
     "id": "q30",
@@ -775,13 +775,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Every stock has volatility 30% and every pair correlates 0.25. As the number of equally weighted holdings grows without limit, portfolio volatility approaches:",
     "options": [
-      "0.0000%",
-      "15.0000%",
       "7.5000%",
+      "15.0000%",
+      "0.0000%",
       "30.0000%"
     ],
     "answer": 1,
-    "explanation": "sigma_P = sigma x sqrt(1/n + (1 - 1/n)rho), which tends to sigma x sqrt(rho) = 0.30 x sqrt(0.25) = 0.30 x 0.5000 = 15.0000%. The 1/n term is firm-specific risk and dies at rate 1/n; the second term converges to the average covariance and no amount of diversification touches it. Option A is the common belief that diversification removes all risk - it removes only the diversifiable half. Option C halves the wrong quantity (0.30 x 0.25). Option D is a single stock. Note how fast it converges: at n = 10, sigma_P = 17.1026%, already within 2.1 points of the floor."
+    "explanation": "sigma_P = sigma x sqrt(1/n + (1 - 1/n)rho), which tends to sigma x sqrt(rho) = 0.30 x sqrt(0.25) = 0.30 x 0.5000 = 15.0000%. The 1/n term is firm-specific risk and dies at rate 1/n; the second term converges to the average covariance and no amount of diversification touches it. Answering 0.0000% is the common belief that diversification removes all risk - it removes only the diversifiable half. Answering 7.5000% halves the wrong quantity (0.30 x 0.25). Answering 30.0000% is the volatility of a single stock, before any diversification. Note how fast it converges: at n = 10, sigma_P = 17.1026%, already within 2.1 points of the floor."
   },
   {
     "id": "q32",
@@ -790,13 +790,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Which statement about betas and volatilities is correct?",
     "options": [
-      "Both add linearly in value weights",
       "Betas add linearly in value weights; volatilities do not, and that linearity is what makes unlevering possible",
-      "Volatilities add linearly; betas do not",
-      "Neither adds linearly, so portfolios must always be rebuilt from covariances"
+      "Both add linearly in value weights",
+      "Neither adds linearly, so portfolios must always be rebuilt from covariances",
+      "Volatilities add linearly; betas do not"
     ],
-    "answer": 1,
-    "explanation": "betaP = w1beta1 + ... + wnbetan exactly, because beta is a covariance divided by a constant and covariance is linear. Volatilities are not additive: combining two 40% stocks with correlation 0.20 gives 30.98%, not 40%. This is not a curiosity - a firm is a portfolio of its debt and its equity, so betaU = [E/(E+D)]betaE + [D/(E+D)]betaD, which is the entire unlever/relever machinery of chapter 4. If volatilities added (C) there would be no diversification benefit at all, and if nothing added (D) the twin-firm routine could not exist."
+    "answer": 0,
+    "explanation": "betaP = w1beta1 + ... + wnbetan exactly, because beta is a covariance divided by a constant and covariance is linear. Volatilities are not additive: combining two 40% stocks with correlation 0.20 gives 30.98%, not 40%. This is not a curiosity - a firm is a portfolio of its debt and its equity, so betaU = [E/(E+D)]betaE + [D/(E+D)]betaD, which is the entire unlever/relever machinery of chapter 4. If volatilities added in value weights there would be no diversification benefit at all, and if neither betas nor volatilities added, the twin-firm routine could not exist."
   },
   {
     "id": "q33",
@@ -806,12 +806,12 @@ window.EDU_DATA.quizzes = [
     "q": "In this course, the pre-tax WACC equals:",
     "options": [
       "The after-tax WACC grossed up by 1/(1 - tau_c)",
-      "rU, the unlevered cost of capital - identically, not approximately",
       "rE, because equity is the residual claim",
-      "The yield to maturity on the firm's debt"
+      "The yield to maturity on the firm's debt",
+      "rU, the unlevered cost of capital - identically, not approximately"
     ],
-    "answer": 1,
-    "explanation": "[E/V]rE + [D/V]rD is the definition of the pre-tax WACC and also the definition of rU: if you own all the equity and all the debt you own the assets. It is an arithmetic identity, flat in leverage, and it is a free consistency check on every leverage question. Option A is a plausible-looking rearrangement but false: the two WACCs differ by exactly (D/V)rD x tau_c, not by a scaling factor. Option C confuses the whole with a part. Option D confuses debt's promised yield with anything at all - see chapter 5, where even rD is not y."
+    "answer": 3,
+    "explanation": "[E/V]rE + [D/V]rD is the definition of the pre-tax WACC and also the definition of rU: if you own all the equity and all the debt you own the assets. It is an arithmetic identity, flat in leverage, and it is a free consistency check on every leverage question. Grossing the after-tax WACC up by 1/(1 - tau_c) is a plausible-looking rearrangement but false: the two WACCs differ by exactly (D/V)rD x tau_c, not by a scaling factor. Calling it rE confuses the whole with a part. And the yield to maturity on the debt is not even rD - see chapter 5, where the promised yield y is stripped of expected losses before it can be used."
   },
   {
     "id": "q34",
@@ -826,7 +826,7 @@ window.EDU_DATA.quizzes = [
       "1.7333"
     ],
     "answer": 1,
-    "explanation": "This course weights WITHOUT any tax term: betaU = 0.60(1.7333) + 0.40(0.5000) = 1.0400 + 0.2000 = 1.2400. The assumption is that the firm rebalances to a target debt-to-value ratio, so the tax shield carries the same risk as the assets and gets no separate treatment. Option A is the textbook (1 - tau_c) version some courses use: 0.60/0.90 x 1.7333 + 0.30/0.90 x 0.5000 = 1.3222, which would give rU = 9.9333% instead of 9.4400% and would break the check that value by WACC equals value by APV. Option C sets betaD = 0 and drops the debt term. Option D forgets to unlever at all."
+    "explanation": "This course weights WITHOUT any tax term: betaU = 0.60(1.7333) + 0.40(0.5000) = 1.0400 + 0.2000 = 1.2400. The assumption is that the firm rebalances to a target debt-to-value ratio, so the tax shield carries the same risk as the assets and gets no separate treatment. Weighting debt by D(1 - tau_c) is the textbook version some other courses use: 0.60/0.90 x 1.7333 + 0.30/0.90 x 0.5000 = 1.3222, which would give rU = 9.9333% instead of 9.4400% and would break the check that value by WACC equals value by APV. The answer 1.0400 sets betaD = 0 and drops the debt term. The answer 1.7333 is the equity beta itself, unlevered not at all."
   },
   {
     "id": "q35",
@@ -835,13 +835,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A listed twin has rE = 12.40%, rD = 5.00%, E/V = 0.60 and D/V = 0.40. rf = 2.00% and the market risk premium is 6.00%. rU is:",
     "options": [
-      "9.4400%",
       "9.9333%",
-      "8.2400%",
-      "12.4000%"
+      "12.4000%",
+      "9.4400%",
+      "8.2400%"
     ],
-    "answer": 0,
-    "explanation": "betaE = (0.1240 - 0.0200)/0.0600 = 1.7333; betaD = (0.0500 - 0.0200)/0.0600 = 0.5000; betaU = 0.60(1.7333) + 0.40(0.5000) = 1.2400; rU = 0.0200 + 1.2400(0.0600) = 0.0944. Confirm directly: 0.60(0.1240) + 0.40(0.0500) = 0.0744 + 0.0200 = 0.0944, because pre-tax WACC = rU. Option B is the (1 - tau_c) unlevering this course rejects. Option C sets betaD = 0 despite rD = 5.00% > rf, giving betaU = 1.0400. Option D takes the twin's rE as if leverage did not matter."
+    "answer": 2,
+    "explanation": "betaE = (0.1240 - 0.0200)/0.0600 = 1.7333; betaD = (0.0500 - 0.0200)/0.0600 = 0.5000; betaU = 0.60(1.7333) + 0.40(0.5000) = 1.2400; rU = 0.0200 + 1.2400(0.0600) = 0.0944. Confirm directly: 0.60(0.1240) + 0.40(0.0500) = 0.0744 + 0.0200 = 0.0944, because pre-tax WACC = rU. The answer 9.9333% comes from the (1 - tau_c) unlevering this course rejects. The answer 8.2400% sets betaD = 0 despite rD = 5.00% > rf, giving betaU = 1.0400. The answer 12.4000% simply repeats the twin's rE, as if leverage did not matter."
   },
   {
     "id": "q36",
@@ -850,13 +850,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "With betaU = 1.2400 you relever to your own D/E = 0.50, and your own debt has betaD = 0.4000. Your equity beta is:",
     "options": [
-      "1.8600",
-      "1.6600",
+      "1.4400",
       "1.2400",
-      "1.4400"
+      "1.6600",
+      "1.8600"
     ],
-    "answer": 1,
-    "explanation": "betaE = betaU + (D/E)(betaU - betaD) = 1.2400 + 0.50(1.2400 - 0.4000) = 1.2400 + 0.4200 = 1.6600. Check: with D/V = 1/3 and E/V = 2/3, (2/3)(1.6600) + (1/3)(0.4000) = 1.2400 = betaU. Option A sets your betaD to zero, 1.2400 + 0.50(1.2400) = 1.8600, which overstates equity risk because debt is then assumed to absorb none of the business risk. Option C forgets to relever. Option D uses D/V = 1/3 in place of D/E, a slip that recurs constantly - the multiplier in MM II is D/E, never D/V."
+    "answer": 2,
+    "explanation": "betaE = betaU + (D/E)(betaU - betaD) = 1.2400 + 0.50(1.2400 - 0.4000) = 1.2400 + 0.4200 = 1.6600. Check: with D/V = 1/3 and E/V = 2/3, (2/3)(1.6600) + (1/3)(0.4000) = 1.2400 = betaU. The answer 1.8600 sets your betaD to zero, 1.2400 + 0.50(1.2400), which overstates equity risk because debt is then assumed to absorb none of the business risk. The answer 1.2400 forgets to relever at all. The answer 1.4400 uses D/V = 1/3 in place of D/E, a slip that recurs constantly - the multiplier in MM II is D/E, never D/V."
   },
   {
     "id": "q37",
@@ -866,12 +866,12 @@ window.EDU_DATA.quizzes = [
     "q": "rU = 10%, rD = 5%, and the target capital structure is D/V = 0.40. rE is:",
     "options": [
       "12.0000%",
+      "10.0000%",
       "13.3333%",
-      "15.0000%",
-      "10.0000%"
+      "15.0000%"
     ],
-    "answer": 1,
-    "explanation": "MM II uses D/E, not D/V. D/V = 0.40 means D/E = 0.40/0.60 = 0.6667, so rE = 0.10 + 0.6667(0.10 - 0.05) = 0.13333 = 13.3333%. Check: 0.60(0.133333) + 0.40(0.05) = 0.0800 + 0.0200 = 0.1000 = rU. Option A substitutes D/V = 0.40 straight into the formula, the single most common arithmetic slip in the course, and it fails the check: 0.60(0.12) + 0.40(0.05) = 0.0920, not 0.1000. Option C doubles the spread. Option D forgets that leverage raises rE at all."
+    "answer": 2,
+    "explanation": "MM II uses D/E, not D/V. D/V = 0.40 means D/E = 0.40/0.60 = 0.6667, so rE = 0.10 + 0.6667(0.10 - 0.05) = 0.13333 = 13.3333%. Check: 0.60(0.133333) + 0.40(0.05) = 0.0800 + 0.0200 = 0.1000 = rU. The answer 12.0000% substitutes D/V = 0.40 straight into the formula, the single most common arithmetic slip in the course, and it fails the check: 0.60(0.12) + 0.40(0.05) = 0.0920, not 0.1000. The answer 15.0000% doubles the spread. The answer 10.0000% forgets that leverage raises rE at all."
   },
   {
     "id": "q38",
@@ -880,13 +880,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "With rE = 11.9600%, rD = 4.4000%, D/V = 1/3, E/V = 2/3 and tau_c = 25%, the after-tax WACC is:",
     "options": [
+      "7.6300%",
       "9.4400%",
-      "9.0733%",
       "7.0800%",
-      "7.6300%"
+      "9.0733%"
     ],
-    "answer": 1,
-    "explanation": "rwacc = (2/3)(0.1196) + (1/3)(0.0440)(0.75) = 0.079733 + 0.011000 = 0.090733 = 9.0733%. Equivalently rU - (D/V)tau_c rD = 0.0944 - (1/3)(0.25)(0.0440) = 0.090733, which shows the whole effect of debt is the tax subsidy. Option A is the PRE-tax WACC, which equals rU and is the right rate for the APV numerator but not for discounting FCF. Option C applies (1 - tau_c) to the entire WACC, 0.0944 x 0.75, which wrongly shields the equity return too. Option D uses D/E = 0.50 as if it were D/V."
+    "answer": 3,
+    "explanation": "rwacc = (2/3)(0.1196) + (1/3)(0.0440)(0.75) = 0.079733 + 0.011000 = 0.090733 = 9.0733%. Equivalently rU - (D/V)tau_c rD = 0.0944 - (1/3)(0.25)(0.0440) = 0.090733, which shows the whole effect of debt is the tax subsidy. The answer 9.4400% is the PRE-tax WACC, which equals rU and is the right rate for the APV numerator but not for discounting FCF. The answer 7.0800% applies (1 - tau_c) to the entire WACC, 0.0944 x 0.75, which wrongly shields the equity return too. The answer 7.6300% uses D/E = 0.50 as if it were D/V."
   },
   {
     "id": "q39",
@@ -912,13 +912,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A question states the comparable's debt has an expected return of 5.00% while rf = 2.00%. You set betaD = 0 out of habit. What happens?",
     "options": [
-      "Nothing - betaD is a second-order effect",
-      "betaU is understated (1.0400 instead of 1.2400), because debt is assumed to bear none of the business risk, and every number downstream is wrong",
+      "Only the after-tax WACC is affected",
       "betaU is overstated, because debt then carries all the risk",
-      "Only the after-tax WACC is affected"
+      "betaU is understated (1.0400 instead of 1.2400), because debt is assumed to bear none of the business risk, and every number downstream is wrong",
+      "Nothing - betaD is a second-order effect"
     ],
-    "answer": 1,
-    "explanation": "With E/V = 0.60 and betaE = 1.7333, dropping betaD = 0.5000 gives betaU = 1.0400 rather than 1.2400, so rU falls from 9.4400% to 8.2400% and the whole valuation inflates. Debt is risk-free only if it is repaid in every state; whenever default is a real possibility the shortfall is correlated with the market, so betaD > 0 and it must be carried. It is not second-order (A) - 0.14 of missing rU compounds through a perpetuity. Option C has the direction backwards: carrying a positive betaD makes betaU HIGHER for a given betaE, not lower. And the error hits rU, rE and both WACCs, not just the after-tax one (D). This was tested directly in 2017H MC6 and H2025 Exercise 4(a)."
+    "answer": 2,
+    "explanation": "With E/V = 0.60 and betaE = 1.7333, dropping betaD = 0.5000 gives betaU = 1.0400 rather than 1.2400, so rU falls from 9.4400% to 8.2400% and the whole valuation inflates. Debt is risk-free only if it is repaid in every state; whenever default is a real possibility the shortfall is correlated with the market, so betaD > 0 and it must be carried. It is not a second-order effect - 0.14 of missing rU compounds through a perpetuity. Saying betaU is overstated has the direction backwards: carrying a positive betaD makes betaU HIGHER for a given betaE, not lower. And the damage is not confined to the after-tax WACC; it hits rU, rE and both WACCs. This was tested directly in H2025 Exercise 4(a)."
   },
   {
     "id": "q41",
@@ -927,13 +927,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "After a recapitalisation you keep the OLD rD by mistake, relever with it, and both consistency checks (pre-tax WACC = rU, and the weighted betas = betaU) still pass. What does that tell you?",
     "options": [
-      "The answer must be right, since both checks passed",
-      "The checks only verify that rE, rD and rU hang together algebraically; they cannot detect a wrong INPUT such as a stale borrowing rate",
       "The checks were applied incorrectly",
+      "The checks only verify that rE, rD and rU hang together algebraically; they cannot detect a wrong INPUT such as a stale borrowing rate",
+      "The answer must be right, since both checks passed",
       "Consistency checks are useless and should be skipped"
     ],
     "answer": 1,
-    "explanation": "Checks 1 and 2 are redundant computations of a number you already have: they confirm internal algebraic consistency, nothing more. Feed in rD = 4.5000% after leverage has doubled and you get betaE = 2.10 and rE = 13.5000%, and 0.5(0.1350) + 0.5(0.0450) = 9.0000% = rU passes cleanly on a wrong answer. So A is exactly the false comfort the chapter warns about. The checks were applied correctly (C). And they remain worth the two minutes (D) - they catch weights, rates and the (1 - tau_c) slip - but if the question says the borrowing rate rises with leverage, you must use the new rate; no identity will rescue you."
+    "explanation": "Checks 1 and 2 are redundant computations of a number you already have: they confirm internal algebraic consistency, nothing more. Feed in rD = 4.5000% after leverage has doubled and you get betaE = 2.10 and rE = 13.5000%, and 0.5(0.1350) + 0.5(0.0450) = 9.0000% = rU passes cleanly on a wrong answer. So concluding that the answer must be right because both checks passed is exactly the false comfort this chapter warns about. Nothing was applied incorrectly - the checks did what they can do. And they remain worth the two minutes rather than being skipped; they catch weights, rates and the (1 - tau_c) slip. But if the question says the borrowing rate rises with leverage, you must use the new rate; no identity will rescue you."
   },
   {
     "id": "q42",
@@ -955,13 +955,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Which values must be used for E and D in every weight in this chapter?",
     "options": [
-      "Book values from the balance sheet, because they are audited",
-      "Market values - share price times share count for E; debt is usually close enough to book, but say so explicitly if you rely on it",
       "The average of book and market values",
-      "Whichever produces a D/V closest to the industry average"
+      "Market values - share price times share count for E; debt is usually close enough to book, but say so explicitly if you rely on it",
+      "Whichever produces a D/V closest to the industry average",
+      "Book values from the balance sheet, because they are audited"
     ],
     "answer": 1,
-    "explanation": "Every weight is a market value. If the exam gives a share price and a share count, multiply them: that is E. Book equity is a historical accounting residual that can differ from market equity by a factor of several, and using it propagates into betaU, rU, rE and both WACCs. Being audited (A) makes book equity reliable as history, not as a valuation. Averaging (C) and matching an industry benchmark (D) are inventions with no basis in the theory - the weights must reflect the actual claims investors hold today."
+    "explanation": "Every weight is a market value. If the exam gives a share price and a share count, multiply them: that is E. Book equity is a historical accounting residual that can differ from market equity by a factor of several, and using it propagates into betaU, rU, rE and both WACCs. Being audited makes book equity reliable as history, not as a valuation. Averaging book with market, or picking whichever D/V lands closest to the industry average, are inventions with no basis in the theory - the weights must reflect the actual claims investors hold today."
   },
   {
     "id": "q44",
@@ -989,7 +989,7 @@ window.EDU_DATA.quizzes = [
       "6.3830% only if there is no default risk"
     ],
     "answer": 1,
-    "explanation": "y = F/P - 1 = 1 000/940 - 1 = 0.063830 = 6.3830%. Option A computes the discount as a percentage of face (60/1 000) rather than of what you paid. Option C is a plausible-looking expected return, not the yield. Option D attaches a false condition: the PROMISED yield is defined by the price and the promised payment regardless of default risk - default risk is precisely why the promised yield exceeds the expected return, and separating the two is what this chapter is about."
+    "explanation": "y = F/P - 1 = 1 000/940 - 1 = 0.063830 = 6.3830%. The answer 6.0000% computes the discount as a percentage of face (60/1 000) rather than of what you paid. The answer 5.6000% is a plausible-looking expected return, not the yield. And the version that makes 6.3830% conditional on there being no default risk attaches a false condition: the PROMISED yield is defined by the price and the promised payment regardless of default risk - default risk is precisely why the promised yield exceeds the expected return, and separating the two is what this chapter is about."
   },
   {
     "id": "q46",
@@ -998,13 +998,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "That same bond has a 5% default probability with a 35% recovery rate. Using the course formula, the expected return on the debt is:",
     "options": [
-      "6.3830%",
       "3.1330%",
       "2.9255%",
-      "5.8830%"
+      "5.8830%",
+      "6.3830%"
     ],
-    "answer": 1,
-    "explanation": "L = 1 - R = 0.65, so p x L = 0.05 x 0.65 = 0.0325, and rD = y - p x L = 0.063830 - 0.032500 = 0.031330 = 3.1330%. Option A is the promised yield, which is a best case and not an average. Option C is the exact cash-flow route, [0.95(1 000) + 0.05(350)]/940 - 1 = 2.9255%; both are defensible if you SAY which you used, and the gap of 0.2074 percentage points is exactly p x L x y, because the course formula applies the loss rate to the amount invested while the exact route applies it to the promised payment, which is (1 + y) times larger. Option D uses p alone and forgets the recovery rate."
+    "answer": 0,
+    "explanation": "L = 1 - R = 0.65, so p x L = 0.05 x 0.65 = 0.0325, and rD = y - p x L = 0.063830 - 0.032500 = 0.031330 = 3.1330%. The answer 6.3830% is the promised yield, which is a best case and not an average. The answer 2.9255% is the exact cash-flow route, [0.95(1 000) + 0.05(350)]/940 - 1; both that and the course formula are defensible if you SAY which you used, and the gap of 0.2074 percentage points is exactly p x L x y, because the course formula applies the loss rate to the amount invested while the exact route applies it to the promised payment, which is (1 + y) times larger. The answer 5.8830% uses p alone and forgets the recovery rate."
   },
   {
     "id": "q47",
@@ -1013,13 +1013,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Which rate belongs in the WACC, and why?",
     "options": [
-      "The promised yield y, because that is what the firm contracts to pay",
-      "The expected return rD, because the WACC averages what investors expect to earn - the promised yield is the return in the states where nothing goes wrong",
       "The risk-free rate, because default risk is diversifiable",
-      "The coupon rate, because it is fixed by contract"
+      "The coupon rate, because it is fixed by contract",
+      "The promised yield y, because that is what the firm contracts to pay",
+      "The expected return rD, because the WACC averages what investors expect to earn - the promised yield is the return in the states where nothing goes wrong"
     ],
-    "answer": 1,
-    "explanation": "The WACC is a weighted average of expected returns, since that is what the firm's cash flows must cover on average. Using y (A) inflates the discount rate and undervalues the firm, and the error grows with credit risk - in the worked case, using y = 8.4000% instead of rD = 5.4000% pushes the pre-tax WACC from 8.2750% to 9.4750%, an overstatement of 1.2000 percentage points and roughly a 9% valuation error on a perpetuity. Option C is wrong because default clusters in bad states for the whole economy, which is systematic. Option D confuses a contract term with a market outcome."
+    "answer": 3,
+    "explanation": "The WACC is a weighted average of expected returns, since that is what the firm's cash flows must cover on average. Using the promised yield y inflates the discount rate and undervalues the firm, and the error grows with credit risk - in the worked case, using y = 8.4000% instead of rD = 5.4000% pushes the pre-tax WACC from 8.2750% to 9.4750%, an overstatement of 1.2000 percentage points and roughly a 9% valuation error on a perpetuity. Using rf on the grounds that default risk is diversifiable is wrong because default clusters in bad states for the whole economy, which is systematic. And the coupon rate confuses a contract term with a market outcome."
   },
   {
     "id": "q48",
@@ -1028,13 +1028,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A bond yields 7.2% while rf = 2.0%. Default probability is 4% with loss given default 70%. The credit spread splits into:",
     "options": [
+      "2.8000 pp of spread = the whole risk premium; rD = 2.0000%",
       "5.2000 pp of spread = 2.8000 pp expected loss + 2.4000 pp risk premium; rD = 4.4000%",
       "5.2000 pp of spread, all of it risk premium; rD = 7.2000%",
-      "2.8000 pp of spread = the whole risk premium; rD = 2.0000%",
       "5.2000 pp of spread = 4.0000 pp expected loss + 1.2000 pp risk premium"
     ],
-    "answer": 0,
-    "explanation": "Spread = y - rf = 5.2000 pp. Expected loss = p x L = 0.04 x 0.70 = 2.8000 pp, which is not a premium at all - it is money the lender simply does not expect to receive, so it is subtracted on the way from y to rD = 4.4000%. The remaining 2.4000 pp is genuine compensation for bearing systematic default risk, and only that block belongs in a beta. Option B reads the whole spread as premium, the most common error in this material. Option C throws away the premium. Option D uses p alone as the loss rate and ignores the 30% that is never recovered anyway."
+    "answer": 1,
+    "explanation": "Spread = y - rf = 5.2000 pp. Expected loss = p x L = 0.04 x 0.70 = 2.8000 pp, which is not a premium at all - it is money the lender simply does not expect to receive, so it is subtracted on the way from y to rD = 4.4000%. The remaining 2.4000 pp is genuine compensation for bearing systematic default risk, and only that block belongs in a beta. Reading the whole 5.2000 pp as risk premium, leaving rD = 7.2000%, is the most common error in this material. Treating the 2.8000 pp as the whole premium and pushing rD down to rf throws the premium away. And splitting the spread as 4.0000 pp plus 1.2000 pp uses p alone as the loss rate, ignoring the 30% that is recovered anyway."
   },
   {
     "id": "q49",
@@ -1056,13 +1056,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A firm's bonds have a promised yield of 8.0% and rf = 2.5%, with a market risk premium of 5.5%. Expected default losses are 2.0 percentage points per year. betaD is:",
     "options": [
-      "1.0000, from (0.0800 - 0.0250)/0.0550",
-      "0.6364, from (0.0600 - 0.0250)/0.0550",
       "0.3636, from (0.0800 - 0.0600)/0.0550",
+      "0.6364, from (0.0600 - 0.0250)/0.0550",
+      "1.0000, from (0.0800 - 0.0250)/0.0550",
       "Zero, because debt is a fixed claim"
     ],
     "answer": 1,
-    "explanation": "First strip the expected loss: rD = y - pL = 0.0800 - 0.0200 = 0.0600. Then betaD = (rD - rf)/(E[Rmkt] - rf) = (0.0600 - 0.0250)/0.0550 = 0.6364. Option A computes beta from the PROMISED yield, treating the whole spread as a risk premium and overstating betaD by more than half - which then overstates betaU and every downstream rate. Option C prices the expected-loss block, which is compensation for nothing and carries no beta. Option D is the reflex that debt is risk-free; a fixed claim is only risk-free if it is always paid in full."
+    "explanation": "First strip the expected loss: rD = y - pL = 0.0800 - 0.0200 = 0.0600. Then betaD = (rD - rf)/(E[Rmkt] - rf) = (0.0600 - 0.0250)/0.0550 = 0.6364. Computing beta from the PROMISED yield, (0.0800 - 0.0250)/0.0550 = 1.0000, treats the whole spread as a risk premium and overstates betaD by more than half - which then overstates betaU and every downstream rate. The 0.3636 route prices the expected-loss block, (0.0800 - 0.0600)/0.0550, which is compensation for nothing and carries no beta. And betaD = 0 is the reflex that debt is a risk-free fixed claim; a fixed claim is only risk-free if it is always paid in full."
   },
   {
     "id": "q51",
@@ -1071,13 +1071,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A 5-year bond has face value 1 000 and a 5% annual coupon. The market yield is 6.5%. Its price is:",
     "options": [
-      "1 000.0000, because a bond always trades at face at issue",
+      "The price cannot be determined without knowing the recovery rate",
       "937.6648, a discount, because the coupon rate is below the yield",
       "1 044.5182, a premium, because coupons are certain",
-      "The price cannot be determined without knowing the recovery rate"
+      "1 000.0000, because a bond always trades at face at issue"
     ],
     "answer": 1,
-    "explanation": "P = 50 x [1 - 1.065^-5]/0.065 + 1 000/1.065^5 = 50 x 4.155679 + 729.8808 = 207.7840 + 729.8808 = 937.6648. The coupon rate is a contract term that fixes the krone amount; the yield is a market outcome. When the market demands more than the coupon rate, the only way for the bond to compete is to be cheap, so it trades at a discount. Option A confuses par issuance with market pricing after rates move. Option C is the price at a 4% yield and has the direction backwards. Option D is false: the yield already embeds whatever the market believes about default, which is why y is a PROMISED return."
+    "explanation": "P = 50 x [1 - 1.065^-5]/0.065 + 1 000/1.065^5 = 50 x 4.155679 + 729.8808 = 207.7840 + 729.8808 = 937.6648. The coupon rate is a contract term that fixes the krone amount; the yield is a market outcome. When the market demands more than the coupon rate, the only way for the bond to compete is to be cheap, so it trades at a discount. Answering 1 000.0000 confuses par issuance with market pricing after rates move. The premium price 1 044.5182 is what you get at a 4% yield and has the direction backwards. And the recovery rate is not needed: the yield already embeds whatever the market believes about default, which is why y is a PROMISED return."
   },
   {
     "id": "q52",
@@ -1086,13 +1086,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "For the bond in q45 (P = 940, F = 1 000, rf = 2.5%, L = 0.65), the risk-neutral default probability q is 5.6154%, while the true probability is 5.0000%. Why is q the larger number?",
     "options": [
-      "Because analysts systematically underestimate default",
       "Because discounting at rf pushes all the risk adjustment into the probability, so bad states are deliberately overweighted",
+      "Because q is measured over a longer horizon",
       "Because q includes the recovery rate and p does not",
-      "Because q is measured over a longer horizon"
+      "Because analysts systematically underestimate default"
     ],
-    "answer": 1,
-    "explanation": "q solves P = F[1 - qL]/(1 + rf): [1 - 940(1.025)/1 000]/0.65 = 0.0524/0.65 = 0.056154. Since the expected payment is discounted at the RISK-FREE rate rather than at a rate above it, the compensation for risk has to enter somewhere else - and it enters by overweighting the states where default happens. Default clusters in bad states, and a krone in a bad state is worth more to investors, so q exceeds p. It is a pricing device, not a forecast, and that is why real probabilities never appear in binomial option pricing in k22. Option A confuses a pricing convention with a forecasting bias; both q and p use the same L (C) and the same horizon (D)."
+    "answer": 0,
+    "explanation": "q solves P = F[1 - qL]/(1 + rf): [1 - 940(1.025)/1 000]/0.65 = 0.0524/0.65 = 0.056154. Since the expected payment is discounted at the RISK-FREE rate rather than at a rate above it, the compensation for risk has to enter somewhere else - and it enters by overweighting the states where default happens. Default clusters in bad states, and a krone in a bad state is worth more to investors, so q exceeds p. It is a pricing device, not a forecast, and that is why real probabilities never appear in binomial option pricing in k22. Blaming analyst pessimism confuses a pricing convention with a forecasting bias; and neither the recovery rate nor the horizon differs between the two numbers - both use the same L and the same one year."
   },
   {
     "id": "q53",
@@ -1116,13 +1116,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Of the three perfect-market conditions behind MM Proposition I, the one that does most of the work is:",
     "options": [
+      "All investors have the same risk preferences",
       "No taxes and no issuance costs",
-      "Asset cash flows are independent of the financing mix",
       "Firms and investors trade the same securities at the same prices, so an investor can build homemade leverage",
-      "All investors have the same risk preferences"
+      "Asset cash flows are independent of the financing mix"
     ],
     "answer": 2,
-    "explanation": "If you can borrow on the firm's terms, you can lever an unlevered share yourself: buy it and fund part with a personal loan. No firm can charge for a service you can perform for free, which is what kills the value gap. A and B are genuine assumptions but they are removed later (taxes in k7, financing affecting investment in k9-k11) and the propositions survive the arbitrage argument in the meantime. D is not an MM assumption at all: the result is enforced by trade, not by preferences, which is precisely why it does not depend on what investors happen to like."
+    "explanation": "If you can borrow on the firm's terms, you can lever an unlevered share yourself: buy it and fund part with a personal loan. No firm can charge for a service you can perform for free, which is what kills the value gap. The absence of taxes and issuance costs, and the independence of asset cash flows from the financing mix, are genuine assumptions, but they are removed later (taxes in k7, financing affecting investment in k9-k11) and the propositions survive the arbitrage argument in the meantime. Identical risk preferences are not an MM assumption at all: the result is enforced by trade, not by preferences, which is precisely why it does not depend on what investors happen to like."
   },
   {
     "id": "q102",
@@ -1131,13 +1131,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "rU = 9.00%, rD = 5.00% and the firm runs at D/E = 1.5000. MM Proposition II gives rE =",
     "options": [
-      "15.0000%",
-      "11.4000%",
+      "3.0000%",
       "16.5000%",
-      "3.0000%"
+      "11.4000%",
+      "15.0000%"
     ],
-    "answer": 0,
-    "explanation": "rE = rU + (D/E)(rU - rD) = 0.0900 + 1.5000(0.0900 - 0.0500) = 0.0900 + 0.0600 = 0.1500. Option B substitutes D/V = 1.5/2.5 = 0.6000 into a formula that takes D/E, the single commonest slip on this line; it also fails the check, since 0.4(0.1140) + 0.6(0.0500) = 0.0756, not rU. Option C adds rD instead of the spread (0.09 + 1.5 x 0.05). Option D reverses the spread to (rD - rU) and produces a cost of equity below the cost of debt, which is impossible for a levered firm."
+    "answer": 3,
+    "explanation": "rE = rU + (D/E)(rU - rD) = 0.0900 + 1.5000(0.0900 - 0.0500) = 0.0900 + 0.0600 = 0.1500. The answer 11.4000% substitutes D/V = 1.5/2.5 = 0.6000 into a formula that takes D/E, the single commonest slip on this line; it also fails the check, since 0.4(0.1140) + 0.6(0.0500) = 0.0756, not rU. The answer 16.5000% adds rD instead of the spread (0.09 + 1.5 x 0.05). The answer 3.0000% reverses the spread to (rD - rU) and produces a cost of equity below the cost of debt, which is impossible for a levered firm."
   },
   {
     "id": "q103",
@@ -1146,13 +1146,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "An all-equity firm has 25 million shares at 40.00, so E = 1000. It issues 400 of risk-free perpetual debt at rD = 5.00% and repurchases shares. No taxes. What happens?",
     "options": [
-      "It buys 10.0000 million shares at 40.00, leaving 15.0000 million, and the price stays at 40.00",
       "It buys 10.0000 million shares, but the price then falls to 33.33 because the remaining equity is riskier",
       "It buys 16.6667 million shares, because the repurchase executes at the ex-dividend price of 24.00",
+      "It buys 10.0000 million shares at 40.00, leaving 15.0000 million, and the price stays at 40.00",
       "It buys 8.0000 million shares, because the announcement lifts the price to 50.00"
     ],
-    "answer": 0,
-    "explanation": "With no taxes and no costs there is no news at the announcement, so V stays 1000 and the price stays 40.00: n = 400/40.00 = 10.0000 million, N1 = 15.0000 million and E1 = 1000 - 400 = 600, giving 600/15 = 40.00. Option B is the standard misreading of MM II: rE does rise, from 10.0000% to 13.3333%, but it rises exactly enough to compensate for the extra risk, so the price does not move. Option C imports the ex-dividend price of the special-dividend route, which belongs to a different transaction. Option D imports the announcement jump of k7, which needs a tax shield; here there is none."
+    "answer": 2,
+    "explanation": "With no taxes and no costs there is no news at the announcement, so V stays 1000 and the price stays 40.00: n = 400/40.00 = 10.0000 million, N1 = 15.0000 million and E1 = 1000 - 400 = 600, giving 600/15 = 40.00. Expecting the price to fall to 33.33 because the remaining equity is riskier is the standard misreading of MM II: rE does rise, from 10.0000% to 13.3333%, but it rises exactly enough to compensate for the extra risk, so the price does not move. Buying 16.6667 million shares at 24.00 imports the ex-dividend price of the special-dividend route, which belongs to a different transaction. And a jump to 50.00 on the announcement imports the tax-shield effect of k7; here there are no taxes."
   },
   {
     "id": "q104",
@@ -1162,12 +1162,12 @@ window.EDU_DATA.quizzes = [
     "q": "Same firm (25 million shares at 40.00, rU = 10.00%, FCF = 100), but the 400 of new debt is paid out as a special dividend instead. The ex-dividend price and the ongoing dividend per share are:",
     "options": [
       "24.00 and 3.20",
-      "40.00 and 3.20",
       "24.00 and 5.3333",
-      "16.00 and 4.00"
+      "16.00 and 4.00",
+      "40.00 and 3.20"
     ],
     "answer": 0,
-    "explanation": "DPS_special = 400/25 = 16.00, so the ex-dividend price is 40.00 - 16.00 = 24.00 on an unchanged 25 million shares, and 25 x 24.00 = 600 = E1. Interest is 0.05 x 400 = 20, leaving 80 for equity, so the ongoing DPS is 80/25 = 3.20, and 3.20/0.133333 = 24.00 confirms it. Option B leaves the price at 40.00, which is the repurchase route's answer. Option C pairs the right price with the repurchase route's DPS of 80/15 = 5.3333. Option D reports the dividend itself as the price."
+    "explanation": "DPS_special = 400/25 = 16.00, so the ex-dividend price is 40.00 - 16.00 = 24.00 on an unchanged 25 million shares, and 25 x 24.00 = 600 = E1. Interest is 0.05 x 400 = 20, leaving 80 for equity, so the ongoing DPS is 80/25 = 3.20, and 3.20/0.133333 = 24.00 confirms it. Leaving the price at 40.00 is the repurchase route's answer, where the share count falls instead of the price. Pairing the correct 24.00 with a DPS of 5.3333 mixes the two routes: 80/15 is the repurchase firm's per-share dividend, on 15 million shares rather than 25. And 16.00 is the special dividend itself, reported as if it were the price."
   },
   {
     "id": "q105",
@@ -1177,12 +1177,12 @@ window.EDU_DATA.quizzes = [
     "q": "After a leveraged recapitalisation the cost of equity has risen from 10.0000% to 13.3333%. The correct interpretation is:",
     "options": [
       "Shareholders are worse off, because their required return rose",
+      "The firm should reverse the recapitalisation to bring rE back down",
       "The rise exactly compensates for the extra risk equity now bears, so the share price does not move",
-      "The firm's weighted average cost of capital has risen by the same amount",
-      "The firm should reverse the recapitalisation to bring rE back down"
+      "The firm's weighted average cost of capital has risen by the same amount"
     ],
-    "answer": 1,
-    "explanation": "Every recapitalisation raises rE, and every year candidates read that as bad news. Equity now stands behind a fixed interest claim, so its cash flow is more volatile and the market prices that; the dividend per share rises in exactly the ratio needed to leave the price unchanged (80/15 = 5.3333 discounted at 13.3333% is 40.00). Option C is wrong twice over: the pre-tax WACC is flat at rU by construction, since the weights shift towards the cheaper claim by exactly as much as rE climbs. Option D would be a recommendation to undo a transaction that changed nothing."
+    "answer": 2,
+    "explanation": "Every recapitalisation raises rE, and every year candidates read that as bad news. Equity now stands behind a fixed interest claim, so its cash flow is more volatile and the market prices that; the dividend per share rises in exactly the ratio needed to leave the price unchanged (80/15 = 5.3333 discounted at 13.3333% is 40.00). Shareholders are therefore not worse off for the higher required return. The claim that the WACC rose by the same amount is wrong twice over: the pre-tax WACC is flat at rU by construction, since the weights shift towards the cheaper claim by exactly as much as rE climbs. And reversing the recapitalisation to push rE back down would be a recommendation to undo a transaction that changed nothing."
   },
   {
     "id": "q106",
@@ -1191,13 +1191,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Under MM in a perfect market, at which moment can the share price move?",
     "options": [
-      "At execution, when the debt is issued and the shares are bought",
-      "At the announcement, because that is when information reaches the market - and under MM the announcement carries no news, so nothing moves at either date",
       "At both dates, in proportion to the amount of debt issued",
-      "On the record date, when the register is read"
+      "On the record date, when the register is read",
+      "At execution, when the debt is issued and the shares are bought",
+      "At the announcement, because that is when information reaches the market - and under MM the announcement carries no news, so nothing moves at either date"
     ],
-    "answer": 1,
-    "explanation": "The announcement is the only moment a price can jump, because it is the only moment information arrives; execution merely swaps cash for securities at prices already set. Under MM the announcement carries no news, so nothing moves at either date, and the composition of a shareholder's wealth changes while its size does not. Option A has the logic backwards. Option C would make the price a function of leverage, which is what Proposition I denies. Option D confuses the payout calendar of k15, where the record date is explicitly not a price event."
+    "answer": 3,
+    "explanation": "The announcement is the only moment a price can jump, because it is the only moment information arrives; execution merely swaps cash for securities at prices already set. Under MM the announcement carries no news, so nothing moves at either date, and the composition of a shareholder's wealth changes while its size does not. Putting the move at execution has the logic backwards. Letting the price move at both dates in proportion to the debt issued would make the price a function of leverage, which is what Proposition I denies. And the record date is not a price event at all - that is the payout calendar of k15, where the register is merely read."
   },
   {
     "id": "q107",
@@ -1206,13 +1206,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Firm U is all-equity and worth 1200; identical Firm L has 500 of risk-free perpetual debt at 4.00% plus equity of 800, so V^L = 1300. Both sets of assets pay 120 a year forever. Trading 1% of each, the arbitrage profit today is:",
     "options": [
-      "1.00, with a net cash flow of zero in every year thereafter",
+      "13.00, the value of 1% of Firm L",
       "1.00 today plus 0.20 a year forever",
-      "Zero, because L's higher cost of equity justifies the higher value",
-      "13.00, the value of 1% of Firm L"
+      "1.00, with a net cash flow of zero in every year thereafter",
+      "Zero, because L's higher cost of equity justifies the higher value"
     ],
-    "answer": 0,
-    "explanation": "Short 1% of L's equity (+8.00), borrow 1% of L's debt level at 4.00% (+5.00), buy 1% of U (-12.00): net +1.00 today, which is 1% of the 100 mispricing. Each year afterwards you receive 0.01 x 120 = 1.20 from U, pay 0.04 x 5.00 = 0.20 of interest and owe the short 0.01 x 100 = 1.00, netting exactly zero in every state. Option B would mean a money pump, and it appears when the personal loan is sized wrongly - borrow the wrong amount and step three stops cancelling, which is the line to verify. Option C confuses the implied rE of 100/800 = 12.5000% with a reason for a higher firm value: the higher rE is the consequence of leverage, not a source of value. Option D reports a position size as a profit."
+    "answer": 2,
+    "explanation": "Short 1% of L's equity (+8.00), borrow 1% of L's debt level at 4.00% (+5.00), buy 1% of U (-12.00): net +1.00 today, which is 1% of the 100 mispricing. Each year afterwards you receive 0.01 x 120 = 1.20 from U, pay 0.04 x 5.00 = 0.20 of interest and owe the short 0.01 x 100 = 1.00, netting exactly zero in every state. An answer of 1.00 today plus 0.20 a year forever would be a money pump, and it appears when the personal loan is sized wrongly - borrow the wrong amount and step three stops cancelling, which is the line to verify. Saying the profit is zero because L's higher cost of equity justifies the higher value confuses the implied rE of 100/800 = 12.5000% with a source of value: the higher rE is the consequence of leverage, not a reason for a bigger firm. And 13.00 reports a position size as a profit."
   },
   {
     "id": "q108",
@@ -1249,13 +1249,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A firm states that it maintains a constant debt-to-equity ratio. Its interest tax shield should be discounted at:",
     "options": [
-      "rD, because the shield comes out of the interest payments",
+      "rf, because the tax authority is a risk-free counterparty",
       "rU, because rebalancing makes next year's debt move with firm value, so the shield carries asset risk",
-      "The after-tax WACC, because that is the rate used for levered cash flows",
-      "rf, because the tax authority is a risk-free counterparty"
+      "rD, because the shield comes out of the interest payments",
+      "The after-tax WACC, because that is the rate used for levered cash flows"
     ],
     "answer": 1,
-    "explanation": "Under a target ratio the firm borrows more when it is worth more and repays when it is worth less, so future debt is unknown today and moves with the assets. A cash flow with asset risk gets the asset rate, rU. Option A is right only for fixed permanent debt, where D is a contract number and only default can stop the shield; applying it under rebalancing overstates value and breaks the WACC-equals-APV check. Option C double-counts: the after-tax WACC already contains the shield through the (1 - tau_c) factor, so discounting the shield with it counts the same benefit twice. Option D confuses who pays the tax with how risky the deduction is: the amount deducted depends on the firm's own interest bill, which is not risk-free."
+    "explanation": "Under a target ratio the firm borrows more when it is worth more and repays when it is worth less, so future debt is unknown today and moves with the assets. A cash flow with asset risk gets the asset rate, rU. Discounting at rD is right only for fixed permanent debt, where D is a contract number and only default can stop the shield; applying it under rebalancing overstates value and breaks the WACC-equals-APV check. The after-tax WACC double-counts: it already contains the shield through the (1 - tau_c) factor, so discounting the shield with it counts the same benefit twice. And rf confuses who pays the tax with how risky the deduction is: the amount deducted depends on the firm's own interest bill, which is not risk-free."
   },
   {
     "id": "q111",
@@ -1264,13 +1264,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "V^U = 800, D = 200 permanent at rD = 6.00%, rU = 10.00%, tau_c = 25%. Now suppose instead that the firm rebalances to a constant D/E while keeping D at 200. PV(TS) under the two policies is:",
     "options": [
-      "50.0000 permanent and 30.0000 rebalanced",
+      "12.5000 permanent and 7.5000 rebalanced",
       "50.0000 under both, since the annual shield is the same",
       "30.0000 permanent and 50.0000 rebalanced",
-      "12.5000 permanent and 7.5000 rebalanced"
+      "50.0000 permanent and 30.0000 rebalanced"
     ],
-    "answer": 0,
-    "explanation": "The annual shield is tau_c x rD x D = 0.25 x 0.06 x 200 = 3.0000 under either policy. Permanent debt discounts it at rD: 3.0000/0.06 = 50.0000 = tau_c x D. Rebalancing discounts the same 3.0000 at rU: 3.0000/0.10 = 30.0000. Option B is the error the chapter warns about - the cash flow is identical, the risk is not, and the risk is what sets the rate. Option C reverses the two rates, which always makes the rebalancing firm look more valuable than the fixed-debt one; since rU exceeds rD the permanent case must be worth more. Option D applies tau_c to the shield a second time."
+    "answer": 3,
+    "explanation": "The annual shield is tau_c x rD x D = 0.25 x 0.06 x 200 = 3.0000 under either policy. Permanent debt discounts it at rD: 3.0000/0.06 = 50.0000 = tau_c x D. Rebalancing discounts the same 3.0000 at rU: 3.0000/0.10 = 30.0000. Answering 50.0000 under both, on the ground that the annual shield is the same, is the error the chapter warns about - the cash flow is identical, the risk is not, and the risk is what sets the rate. Reporting 30.0000 for permanent debt and 50.0000 for rebalancing reverses the two rates, which always makes the rebalancing firm look more valuable; since rU exceeds rD the permanent case must be worth more. And 12.5000 with 7.5000 applies tau_c to the shield a second time."
   },
   {
     "id": "q112",
@@ -1280,12 +1280,12 @@ window.EDU_DATA.quizzes = [
     "q": "The shortcut V^L = V^U + tau_c x D is valid:",
     "options": [
       "For any firm with debt outstanding",
-      "Only for debt that is fixed in amount and never repaid, since only then does rD cancel out of PV(TS) = tau_c x rD x D / rD",
       "Only when the debt is risk-free",
-      "For any firm whose tax rate is constant"
+      "For any firm whose tax rate is constant",
+      "Only for debt that is fixed in amount and never repaid, since only then does rD cancel out of PV(TS) = tau_c x rD x D / rD"
     ],
-    "answer": 1,
-    "explanation": "The shortcut is the permanent-debt case with the discount rate cancelled: a level perpetuity of tau_c x rD x D discounted at rD leaves tau_c x D, and rD disappears, which is why it looks so simple. Applied to a firm that rebalances to a target ratio it overstates value - 850 instead of 830 on the numbers of the chapter - and it breaks consistency check 1. Option C is close but not the condition: fixed permanent debt that is mildly risky still discounts at rD; what matters is that the amount is a contract number, not that default is impossible. Option D confuses a constant rate with a constant debt level."
+    "answer": 3,
+    "explanation": "The shortcut is the permanent-debt case with the discount rate cancelled: a level perpetuity of tau_c x rD x D discounted at rD leaves tau_c x D, and rD disappears, which is why it looks so simple. Applied to a firm that rebalances to a target ratio it overstates value - 850 instead of 830 on the numbers of the chapter - so it does not hold for any firm with debt outstanding. Requiring the debt to be risk-free is close but is not the condition: fixed permanent debt that is mildly risky still discounts at rD; what matters is that the amount is a contract number, not that default is impossible. And a constant tax rate is not the same thing as a constant debt level."
   },
   {
     "id": "q113",
@@ -1294,13 +1294,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "An all-equity firm worth 900 on 30 million shares announces a permanent issue of 300 of risk-free debt at 5.00% to fund a repurchase; tau_c = 22%. The number of shares repurchased is:",
     "options": [
-      "10.0000 million, at the pre-announcement price of 30.00",
       "9.3168 million, at the post-announcement price of 32.20",
       "9.0909 million, at the post-repurchase price of 33.00",
+      "10.0000 million, at the pre-announcement price of 30.00",
       "8.9552 million, at a price of 33.50"
     ],
-    "answer": 1,
-    "explanation": "PV(TS) = 0.22 x 300 = 66, so V^L = 966 and the price jumps at once to 966/30 = 32.20, a rise of 2.20 = 66/30. The buyback executes at that price: n = 300/32.20 = 9.3168 million, leaving 20.6832 million, and E1 = 966 - 300 = 666 gives 666/20.6832 = 32.20. Option A uses the stale price, which is the standard way to lose this sub-question: it implies 666/20 = 33.30, so the share would have two prices after one transaction. Options C and D invent later prices; there is no second jump, because the debt issue itself is zero NPV to the lenders and adds no information."
+    "answer": 0,
+    "explanation": "PV(TS) = 0.22 x 300 = 66, so V^L = 966 and the price jumps at once to 966/30 = 32.20, a rise of 2.20 = 66/30. The buyback executes at that price: n = 300/32.20 = 9.3168 million, leaving 20.6832 million, and E1 = 966 - 300 = 666 gives 666/20.6832 = 32.20. Buying 10.0000 million at the stale pre-announcement price of 30.00 is the standard way to lose this sub-question: it implies 666/20 = 33.30, so the share would have two prices after one transaction. The prices 33.00 and 33.50 invent a later jump; there is none, because the debt issue itself is zero NPV to the lenders and adds no information."
   },
   {
     "id": "q114",
@@ -1309,13 +1309,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "In the recapitalisation above, who captures the 66 of tax shield?",
     "options": [
-      "The new lenders, who financed it",
       "The pre-announcement shareholders, seller and holder alike, because value moves when the information moves",
+      "The new lenders, who financed it",
       "Only the shareholders who hold through the repurchase",
       "It is split between shareholders and the tax authority"
     ],
-    "answer": 1,
-    "explanation": "New lenders hand over 300 and receive a claim worth 300 at a fair rD, so their NPV is zero and they gain nothing. The shield accrues to whoever owns the firm at the moment the plan becomes credible, and both the seller (who receives 32.20 in cash) and the holder (whose share is worth 32.20) are in that group. Option C is the frequent guess and it contradicts the arithmetic: the price had already risen before anyone tendered. Option D reverses the mechanism - the whole point is that the government's claim shrinks, so it is the tax authority that loses the 66."
+    "answer": 0,
+    "explanation": "New lenders hand over 300 and receive a claim worth 300 at a fair rD, so their NPV is zero and they gain nothing. The shield accrues to whoever owns the firm at the moment the plan becomes credible, and both the seller (who receives 32.20 in cash) and the holder (whose share is worth 32.20) are in that group. Restricting the gain to those who hold through the repurchase is the frequent guess and it contradicts the arithmetic: the price had already risen before anyone tendered. And splitting the gain with the tax authority reverses the mechanism - the whole point is that the government's claim shrinks, so it is the tax authority that loses the 66."
   },
   {
     "id": "q115",
@@ -1324,13 +1324,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "The same firm borrows 200 at rD = 6.00% with tau_c = 25%, but the debt will be repaid in full after one year. PV(TS) is:",
     "options": [
-      "50.0000",
-      "30.0000",
       "2.8302",
-      "3.0000"
+      "3.0000",
+      "50.0000",
+      "30.0000"
     ],
-    "answer": 2,
-    "explanation": "One shield of tau_c x rD x D = 0.25 x 0.06 x 200 = 3.0000 arrives at the end of year 1, and it is as safe as the debt itself, so PV(TS) = 3.0000/1.06 = 2.8302. Option A capitalises a single payment as a perpetuity, the classic overstatement, and option B does the same at rU. Option D forgets to discount at all - the shield arrives at date 1, not date 0. Read the sentence describing the debt before choosing a formula: 'repaid after one year' is a schedule, not a perpetuity."
+    "answer": 0,
+    "explanation": "One shield of tau_c x rD x D = 0.25 x 0.06 x 200 = 3.0000 arrives at the end of year 1, and it is as safe as the debt itself, so PV(TS) = 3.0000/1.06 = 2.8302. The answer 50.0000 capitalises a single payment as a perpetuity at rD, the classic overstatement, and 30.0000 does the same at rU. The answer 3.0000 forgets to discount at all - the shield arrives at date 1, not date 0. Read the sentence describing the debt before choosing a formula: 'repaid after one year' is a schedule, not a perpetuity."
   },
   {
     "id": "q116",
@@ -1339,13 +1339,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A firm with V^U = 800 rebalances to a constant D/E with D = 200, rD = 6.00%, rU = 10.00%, tau_c = 25%, and unlevered FCF of 80 a year in perpetuity. Which number confirms that PV(TS) = 30.0000 rather than 50.0000?",
     "options": [
-      "D + E = 830, which adds up either way",
       "The after-tax WACC route gives 850 exactly, since E = 650, D/E = 0.3077, rE = 11.2308% and rwacc = 9.6471%",
+      "D + E = 830, which adds up either way",
       "The after-tax WACC route gives 830 exactly, since E = 630, D/E = 0.3175, rE = 11.2698% and rwacc = 9.6386%",
       "Nothing confirms it; the choice of rate is a matter of taste"
     ],
     "answer": 2,
-    "explanation": "V^L = 800 + 30 = 830, so E = 630 and D/E = 200/630 = 0.3175. Then rE = 0.1000 + 0.3175(0.1000 - 0.0600) = 0.1127, and rwacc = (630/830)(0.112698) + (200/830)(0.0600)(0.75) = 0.085542 + 0.010843 = 0.096386, giving 80/0.096386 = 830.00. That is consistency check 1 and it is a real second computation, because it never uses PV(TS). Option A is an identity: E was defined as V^L - D, so it cannot fail and proves nothing. Option B is what you get by assuming the answer: at V^L = 850 the same route returns rwacc = 9.6471% and 80/0.096471 = 829.27, not 850, so the claim is self-contradicting - which is exactly how the check exposes the wrong discount rate. Option D is the answer the keys punish hardest: the rate follows from the stated debt policy, and stating that policy in one line earns marks."
+    "explanation": "V^L = 800 + 30 = 830, so E = 630 and D/E = 200/630 = 0.3175. Then rE = 0.1000 + 0.3175(0.1000 - 0.0600) = 0.1127, and rwacc = (630/830)(0.112698) + (200/830)(0.0600)(0.75) = 0.085542 + 0.010843 = 0.096386, giving 80/0.096386 = 830.00. That is consistency check 1 and it is a real second computation, because it never uses PV(TS). The observation that D + E = 830 is an identity: E was defined as V^L - D, so it cannot fail and proves nothing. The route built on E = 650 assumes the answer: at V^L = 850 it returns rwacc = 9.6471% and 80/0.096471 = 829.27, not 850, so the claim is self-contradicting - which is exactly how the check exposes the wrong discount rate. And calling the choice of rate a matter of taste is the answer the keys punish hardest: the rate follows from the stated debt policy, and stating that policy in one line earns marks."
   },
   {
     "id": "q117",
@@ -1382,13 +1382,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Direct and indirect costs of financial distress differ mainly in that:",
     "options": [
+      "Direct costs are estimated at 10-20% of firm value and indirect costs at 3-4%",
       "Direct costs are borne by creditors and indirect costs by shareholders",
       "Direct costs are close to a fixed fee and bite hardest on small firms, while indirect costs are behavioural, far larger, and mostly arrive before any court is involved",
-      "Indirect costs are tax deductible and direct costs are not",
-      "Direct costs are estimated at 10-20% of firm value and indirect costs at 3-4%"
+      "Indirect costs are tax deductible and direct costs are not"
     ],
-    "answer": 1,
-    "explanation": "Direct costs are lawyers, advisers, court and trustee fees and management time, typically 3-4% and roughly fixed in size, so they hurt small firms disproportionately. Indirect costs are what everyone dealing with the firm does the moment default looks likely - customers needing warranties leave, suppliers demand cash, staff leave, assets are fire-sold - and they are typically estimated at 10-20% and largely precede any formal proceeding. Option D has the two estimates swapped. Option A confuses the timing question with the type question: ex post both fall on creditors, ex ante both fall on shareholders. Option C invents a tax treatment that has nothing to do with the distinction."
+    "answer": 2,
+    "explanation": "Direct costs are lawyers, advisers, court and trustee fees and management time, typically 3-4% and roughly fixed in size, so they hurt small firms disproportionately. Indirect costs are what everyone dealing with the firm does the moment default looks likely - customers needing warranties leave, suppliers demand cash, staff leave, assets are fire-sold - and they are typically estimated at 10-20% and largely precede any formal proceeding. The answer putting direct costs at 10-20% and indirect at 3-4% has the two estimates swapped. Splitting them by who bears them, creditors versus shareholders, confuses the timing question with the type question: ex post both fall on creditors, ex ante both fall on shareholders. And deductibility invents a tax treatment that has nothing to do with the distinction."
   },
   {
     "id": "q120",
@@ -1398,12 +1398,12 @@ window.EDU_DATA.quizzes = [
     "q": "tau_c = 25%, the personal rate on equity income is tau_e = 20% and on interest income tau_i = 35%. The effective tax advantage of debt is:",
     "options": [
       "25.0000%",
-      "7.6923%",
       "10.0000%",
-      "40.0000%"
+      "40.0000%",
+      "7.6923%"
     ],
-    "answer": 1,
-    "explanation": "tau* = 1 - (1 - tau_c)(1 - tau_e)/(1 - tau_i) = 1 - (0.75 x 0.80)/0.65 = 1 - 0.60/0.65 = 1 - 0.923077 = 0.076923. One krone of pre-tax profit delivers 0.60 through the equity route and 0.65 through the debt route, so the debt route saves 0.05 on 0.65, which is 7.6923%. Option A ignores personal taxes entirely and is the number k7 would have used. Option C subtracts tau_e from tau_i as if the corporate layer did not exist. Option D adds rates. Note the direction: tau_i above tau_e drives tau* below tau_c, and a large enough personal penalty drives the advantage to zero."
+    "answer": 3,
+    "explanation": "tau* = 1 - (1 - tau_c)(1 - tau_e)/(1 - tau_i) = 1 - (0.75 x 0.80)/0.65 = 1 - 0.60/0.65 = 1 - 0.923077 = 0.076923. One krone of pre-tax profit delivers 0.60 through the equity route and 0.65 through the debt route, so the debt route saves 0.05 on 0.65, which is 7.6923%. The answer 25.0000% ignores personal taxes entirely and is the number k7 would have used. The answer 10.0000% subtracts tau_e from tau_i as if the corporate layer did not exist. The answer 40.0000% adds rates together. Note the direction: tau_i above tau_e drives tau* below tau_c, and a large enough personal penalty drives the advantage to zero."
   },
   {
     "id": "q121",
@@ -1412,13 +1412,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Bankruptcy costs are paid out of the assets, which creditors end up owning. Who actually bears them?",
     "options": [
-      "Creditors, since it is their collateral that is consumed",
-      "Shareholders, ex ante: creditors who expect to lose in some state pay less for the bond, so the firm raises less cash and the shortfall lands on the seller of the claim",
       "The court and the advisers, who are paid out of the estate",
+      "Shareholders, ex ante: creditors who expect to lose in some state pay less for the bond, so the firm raises less cash and the shortfall lands on the seller of the claim",
+      "Creditors, since it is their collateral that is consumed",
       "Nobody, because bankruptcy only transfers ownership and MM says transfers are free"
     ],
     "answer": 1,
-    "explanation": "The direction is fixed and it is worth writing down: ex post the costs fall on creditors, ex ante entirely on shareholders. Debt is sold at a fair price, so lenders who anticipate a loss in some state simply pay less today by the present value of that loss. Option A describes the ex post incidence and stops there, which is the half-answer the keys penalise. Option D is right that a transfer of ownership is free under MM and wrong that nothing else happens: the process consumes real resources, and only that deadweight part is a distress cost. Option C confuses who receives the money with who ends up poorer."
+    "explanation": "The direction is fixed and it is worth writing down: ex post the costs fall on creditors, ex ante entirely on shareholders. Debt is sold at a fair price, so lenders who anticipate a loss in some state simply pay less today by the present value of that loss. Naming creditors as the bearers describes the ex post incidence and stops there, which is the half-answer the keys penalise. Saying nobody bears them because bankruptcy is only a transfer of ownership is right that a transfer is free under MM and wrong that nothing else happens: the process consumes real resources, and only that deadweight part is a distress cost. And naming the court and the advisers confuses who receives the money with who ends up poorer."
   },
   {
     "id": "q122",
@@ -1427,13 +1427,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Assets will be worth 300 or 120 in a year, equally likely under the risk-neutral probability, rf = 5.00%, and default consumes 20% of asset value. The firm has debt with face value 150. The present value of the distress cost is:",
     "options": [
-      "11.4286",
-      "24.0000",
       "28.5714",
+      "24.0000",
+      "11.4286",
       "51.4286"
     ],
-    "answer": 0,
-    "explanation": "Only the bad state defaults: 120 < 150, so the process burns 0.20 x 120 = 24.00 and creditors collect 96.00. The expected burn is 0.50 x 24.00 = 12.00, and PV = 12.00/1.05 = 11.4286. Confirm it from the other side: V^U = 210/1.05 = 200.00 while D = 123/1.05 = 117.1429 and E = 75/1.05 = 71.4286, so V^L = 188.5714 and the gap is 11.4286. Option B is the undiscounted state loss, and it is not probability-weighted either. Option D is the shortfall to creditors, 150 - 96 = 54 discounted - a transfer, not a cost. Option C mixes the two."
+    "answer": 2,
+    "explanation": "Only the bad state defaults: 120 < 150, so the process burns 0.20 x 120 = 24.00 and creditors collect 96.00. The expected burn is 0.50 x 24.00 = 12.00, and PV = 12.00/1.05 = 11.4286. Confirm it from the other side: V^U = 210/1.05 = 200.00 while D = 123/1.05 = 117.1429 and E = 75/1.05 = 71.4286, so V^L = 188.5714 and the gap is 11.4286. The answer 24.0000 is the undiscounted state loss, and it is not probability-weighted either. The answer 51.4286 is the shortfall to creditors, 150 - 96 = 54, discounted - a transfer, not a cost. And 28.5714 mixes the two."
   },
   {
     "id": "q123",
@@ -1442,13 +1442,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "In that same firm, the creditors promise 150 and pay 117.1429 for the bond. The 32.8571 difference is:",
     "options": [
-      "A deadweight loss caused by the bankruptcy process",
-      "The compensation creditors demand for the states in which they are not paid in full, which shows up as a promised yield of 28.0488% against a risk-free 5.00%",
       "The value of the tax shield on the debt",
+      "The compensation creditors demand for the states in which they are not paid in full, which shows up as a promised yield of 28.0488% against a risk-free 5.00%",
+      "A deadweight loss caused by the bankruptcy process",
       "The agency cost of debt"
     ],
     "answer": 1,
-    "explanation": "The promised yield is 150/117.1429 - 1 = 0.280488, and the spread over rf is not profit: it is the price of a claim that pays 150 in one state and 96 in the other. Creditors gain exactly zero on the deal, since they pay 117.1429 for a claim worth 117.1429. Option A confuses the discount with the deadweight loss, which is only the 11.4286 that nobody receives. Option C is a different chapter's term entirely and this example has no taxes. Option D belongs to k9 and k10, where the loss comes from a decision, not from the bankruptcy process."
+    "explanation": "The promised yield is 150/117.1429 - 1 = 0.280488, and the spread over rf is not profit: it is the price of a claim that pays 150 in one state and 96 in the other. Creditors gain exactly zero on the deal, since they pay 117.1429 for a claim worth 117.1429. Calling the 32.8571 a deadweight loss confuses the discount with the burn, which is only the 11.4286 that nobody receives. The tax shield is a different chapter's term entirely, and this example has no taxes. And the agency cost of debt belongs to k9 and k10, where the loss comes from a decision, not from the bankruptcy process."
   },
   {
     "id": "q124",
@@ -1457,13 +1457,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A firm has V^U = 500 and tau* = 12.00%. PV(financial distress) is 0 at D = 0, 2 at 100, 7 at 200, 16 at 300 and 30 at 400. The optimal debt level is:",
     "options": [
-      "D = 200, where V^L = 517",
       "D = 300, where V^L = 520",
-      "D = 400, where V^L = 518",
-      "D = 100, where the marginal distress cost is smallest"
+      "D = 100, where the marginal distress cost is smallest",
+      "D = 200, where V^L = 517",
+      "D = 400, where V^L = 518"
     ],
-    "answer": 1,
-    "explanation": "Compute differences, not levels. Each extra 100 of debt buys 0.12 x 100 = 12 of shield. It costs 2, then 5, then 9, then 14. Take every step whose marginal cost is below 12 and stop at the first one that is not: 14 > 12, so stop at 300, where V^L = 500 + 36 - 16 = 520. Option A stops one step early and leaves 3 of value on the table; option C takes one step too many and gives 2 of it back. Option D is the rule misread as 'minimise the cost' rather than 'equate cost with benefit at the margin' - at D = 100 the marginal shield still exceeds the marginal cost by 10, so the firm should borrow more."
+    "answer": 0,
+    "explanation": "Compute differences, not levels. Each extra 100 of debt buys 0.12 x 100 = 12 of shield. It costs 2, then 5, then 9, then 14. Take every step whose marginal cost is below 12 and stop at the first one that is not: 14 > 12, so stop at 300, where V^L = 500 + 36 - 16 = 520. Stopping at 200 leaves 3 of value on the table; going on to 400 takes one step too many and gives 2 of it back. And choosing 100 because the marginal distress cost is smallest reads the rule as 'minimise the cost' rather than 'equate cost with benefit at the margin' - at 100 the marginal shield still exceeds the marginal cost by 10, so the firm should borrow more."
   },
   {
     "id": "q125",
@@ -1472,13 +1472,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Ignoring personal taxes in a trade-off calculation typically:",
     "options": [
-      "Has no effect, because personal taxes wash out in equilibrium",
+      "Changes the distress schedule but not the optimum",
       "Overstates the marginal benefit of debt, pushing the computed optimum to too much leverage and overstating firm value",
       "Understates the benefit of debt, because personal taxes on equity are usually higher",
-      "Changes the distress schedule but not the optimum"
+      "Has no effect, because personal taxes wash out in equilibrium"
     ],
     "answer": 1,
-    "explanation": "tau* REPLACES tau_c and is normally smaller, because interest is taxed more heavily in the investor's hands than equity income is - capital gains are taxed only on realisation. Using tau_c = 22% instead of tau* = 16% in the chapter's example makes each 50 of debt appear to buy 11.00 of shield rather than 8.00, and against the same distress schedule the apparent optimum moves from 150 to 250, with value overstated by 11.50. Option C reverses the usual inequality. Option A is what would be true if tau_i equalled tau_e. Option D is wrong because the schedule is an input; it is the benefit line that moves."
+    "explanation": "tau* REPLACES tau_c and is normally smaller, because interest is taxed more heavily in the investor's hands than equity income is - capital gains are taxed only on realisation. Using tau_c = 22% instead of tau* = 16% in the chapter's example makes each 50 of debt appear to buy 11.00 of shield rather than 8.00, and against the same distress schedule the apparent optimum moves from 150 to 250, with value overstated by 11.50. Saying the benefit is understated reverses the usual inequality between tau_i and tau_e. Saying personal taxes wash out would be true only if tau_i equalled tau_e. And the claim that the optimum is unaffected is wrong because the distress schedule is an input; it is the benefit line that moves."
   },
   {
     "id": "q126",
@@ -1516,13 +1516,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Limited liability makes the equity claim E = E[max(CF - K, 0)]. The consequence for a levered firm's project choice is:",
     "options": [
-      "Shareholders become more cautious, because they are paid last",
-      "The payoff is convex, so a mean-preserving spread raises equity value: the upside is collected in full while the downside is capped at zero",
+      "Creditors capture the upside, so shareholders prefer safe projects",
       "Shareholders are indifferent to risk, because expectations pass through the max operator",
-      "Creditors capture the upside, so shareholders prefer safe projects"
+      "Shareholders become more cautious, because they are paid last",
+      "The payoff is convex, so a mean-preserving spread raises equity value: the upside is collected in full while the downside is capped at zero"
     ],
-    "answer": 1,
-    "explanation": "Push the good state up and the shareholder collects every krone of it; push the bad state below K and he gains nothing extra, being already at zero. That asymmetry is Jensen's inequality, and it is the whole mechanism - name it risk shifting or asset substitution. Option A confuses being paid last with being risk averse; being paid last is exactly what creates the option. Option C is true only when the debt is risk-free, because then equity is linear in CF and expectations do pass straight through, which is why the incentive disappears at low leverage. Option D reverses the claims: creditors are capped at K, so they hold the concave side."
+    "answer": 3,
+    "explanation": "Push the good state up and the shareholder collects every krone of it; push the bad state below K and he gains nothing extra, being already at zero. That asymmetry is Jensen's inequality, and it is the whole mechanism - name it risk shifting or asset substitution. Expecting caution because equity is paid last confuses being paid last with being risk averse; being paid last is exactly what creates the option. Indifference to risk, with expectations passing straight through the max operator, holds only when the debt is risk-free, because then equity is linear in CF - which is why the incentive disappears at low leverage. And having creditors capture the upside reverses the claims: creditors are capped at K, so they hold the concave side."
   },
   {
     "id": "q129",
@@ -1531,13 +1531,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Face value K = 120, rf = 0, two equally likely states. Project S pays 150 or 130; project R pays 220 or 30. Management acting for shareholders chooses:",
     "options": [
-      "S, because V_S = 140 exceeds V_R = 125",
       "R, because equity is worth 50 under R against 20 under S, even though R destroys 15 of firm value",
-      "S, because R defaults in the bad state and default is costly",
-      "Either, since both give creditors the same expected payoff"
+      "S, because V_S = 140 exceeds V_R = 125",
+      "Either, since both give creditors the same expected payoff",
+      "S, because R defaults in the bad state and default is costly"
     ],
-    "answer": 1,
-    "explanation": "Under S the bad state still covers 120, so debt is risk-free at 120 and equity is 0.50(30) + 0.50(10) = 20. Under R the bad state pays creditors only 30, so debt is 0.50(120) + 0.50(30) = 75 and equity is 0.50(100) = 50. Management maximises the EQUITY value, not firm value, so it takes R. Option A answers the wrong question - what is efficient rather than what is chosen - which the chapter names as the first of three ways to lose the points. Option D is arithmetically false: creditors get 120 under S and 75 under R."
+    "answer": 0,
+    "explanation": "Under S the bad state still covers 120, so debt is risk-free at 120 and equity is 0.50(30) + 0.50(10) = 20. Under R the bad state pays creditors only 30, so debt is 0.50(120) + 0.50(30) = 75 and equity is 0.50(100) = 50. Management maximises the EQUITY value, not firm value, so it takes R. Choosing S because V_S = 140 exceeds V_R = 125 answers the wrong question - what is efficient rather than what is chosen - which the chapter names as the first of three ways to lose the points. Choosing S because default is costly imports distress costs that this example does not have. And indifference on the ground that creditors fare equally is arithmetically false: creditors get 120 under S and 75 under R."
   },
   {
     "id": "q130",
@@ -1547,12 +1547,12 @@ window.EDU_DATA.quizzes = [
     "q": "In that firm the agency cost of the risk-shifting decision is:",
     "options": [
       "15, the first-best value minus the value actually chosen",
-      "30, the gain to shareholders",
       "45, the loss to creditors",
-      "75, the value of the debt under R"
+      "75, the value of the debt under R",
+      "30, the gain to shareholders"
     ],
     "answer": 0,
-    "explanation": "Agency cost = V(first best) - V(chosen) = 140 - 125 = 15, a deadweight loss. Option B reports the transfer captured by shareholders (50 - 20 = 30) and option C the mirror image lost by creditors (75 - 120 = -45); neither is the cost, and reporting a transfer as an agency cost is the second of the three named errors. Consistency check 3 ties them together: -45 + 30 = -15, which is the NPV of switching to R, and that identity is the line to write out. Option D is a claim value, not a change."
+    "explanation": "Agency cost = V(first best) - V(chosen) = 140 - 125 = 15, a deadweight loss. The figure 30 is the transfer captured by shareholders (50 - 20) and 45 the mirror image lost by creditors (75 - 120); neither is the cost, and reporting a transfer as an agency cost is the second of the three named errors. Consistency check 3 ties them together: -45 + 30 = -15, which is the NPV of switching to R, and that identity is the line to write out. The figure 75 is the value of a claim, not a change in value."
   },
   {
     "id": "q131",
@@ -1561,13 +1561,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Same two projects (150/130 and 220/30, rf = 0, equal probabilities). The face value at which management is indifferent is:",
     "options": [
-      "K* = 30, where R's debt first becomes risky",
       "K* = 60, where E_S(K) = 140 - K equals E_R(K) = 110 - 0.5K, both worth 80",
-      "K* = 120, the actual face value",
-      "K* = 130, the lowest payoff under S"
+      "K* = 30, where R's debt first becomes risky",
+      "K* = 130, the lowest payoff under S",
+      "K* = 120, the actual face value"
     ],
-    "answer": 1,
-    "explanation": "Work inside one linear piece: for 30 < K <= 130 project S covers its debt in both states, so E_S(K) = 0.50(150 - K) + 0.50(130 - K) = 140 - K, while R defaults in the bad state, so E_R(K) = 0.50(220 - K) = 110 - 0.5K. Setting them equal gives 30 = 0.5K, K* = 60, and both sides equal 80. Option A marks where R's debt turns risky, but risky debt alone is not enough: below 60 the transfer from creditors is smaller than the 15 the gamble destroys, so there is still no conflict. Option D is the upper end of the interval, where the algebra stops being valid, not the solution. State the interval when you answer, because max(., 0) makes both functions piecewise linear."
+    "answer": 0,
+    "explanation": "Work inside one linear piece: for 30 < K <= 130 project S covers its debt in both states, so E_S(K) = 0.50(150 - K) + 0.50(130 - K) = 140 - K, while R defaults in the bad state, so E_R(K) = 0.50(220 - K) = 110 - 0.5K. Setting them equal gives 30 = 0.5K, K* = 60, and both sides equal 80. The value 30 marks where R's debt turns risky, but risky debt alone is not enough: below 60 the transfer from creditors is smaller than the 15 the gamble destroys, so there is still no conflict. The actual face value of 120 is where the conflict already exists, not where it starts. And 130 is the upper end of the interval, where the algebra stops being valid, not the solution. State the interval when you answer, because max(., 0) makes both functions piecewise linear."
   },
   {
     "id": "q132",
@@ -1576,13 +1576,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "At K = 120 with project R in place, a costless forward would convert R's payoff into a certain 125 in both states. Do shareholders take this zero-NPV hedge?",
     "options": [
+      "It depends on whether the firm is risk averse",
       "Yes, because reducing risk always raises firm value",
       "No: equity falls from 50 to 5 while debt rises from 75 to 120, so the whole benefit goes to creditors",
-      "Yes, because the hedge has zero NPV and therefore cannot hurt them",
-      "It depends on whether the firm is risk averse"
+      "Yes, because the hedge has zero NPV and therefore cannot hurt them"
     ],
-    "answer": 1,
-    "explanation": "Hedged, the firm pays 125 with certainty, creditors are paid 120 in full and equity keeps 5. Unhedged, equity was worth 50. Removing the risk removes the option value, and 45 moves to the lenders. Consistency check 4 confirms it is pure transfer: total value is fixed at 125, and creditors' gain of 120 - 75 = 45 equals shareholders' loss of 50 - 5 = 45. Option C is the trap the exam sets - zero NPV means zero change in FIRM value, which says nothing about the split. Option A is false whenever the claims are non-linear. Only with risk-free debt is a hedge neutral to shareholders, which is why they hedge willingly at low leverage and refuse in deep distress."
+    "answer": 2,
+    "explanation": "Hedged, the firm pays 125 with certainty, creditors are paid 120 in full and equity keeps 5. Unhedged, equity was worth 50. Removing the risk removes the option value, and 45 moves to the lenders. Consistency check 4 confirms it is pure transfer: total value is fixed at 125, and creditors' gain of 120 - 75 = 45 equals shareholders' loss of 50 - 5 = 45. The zero-NPV argument is the trap the exam sets - zero NPV means zero change in FIRM value, which says nothing about the split. The claim that less risk always raises firm value is false whenever the claims are non-linear, and firm-level risk aversion is not a category this model has. Only with risk-free debt is a hedge neutral to shareholders, which is why they hedge willingly at low leverage and refuse in deep distress."
   },
   {
     "id": "q133",
@@ -1592,12 +1592,12 @@ window.EDU_DATA.quizzes = [
     "q": "If creditors anticipate at issue that management will choose the risky project, what happens?",
     "options": [
       "They lend anyway at the risk-free rate and lose 45",
-      "They pay 75 rather than 120 for the bond, so the firm raises 45 less today and shareholders bear the 15 agency cost ex ante",
+      "They demand equity instead of debt",
       "The agency cost disappears, because it was only a transfer",
-      "They demand equity instead of debt"
+      "They pay 75 rather than 120 for the bond, so the firm raises 45 less today and shareholders bear the 15 agency cost ex ante"
     ],
-    "answer": 1,
-    "explanation": "Rational lenders price the behaviour they expect. Paying 75 means the owners end up with 75 raised plus 50 of equity, that is 125, against the 140 they would have had if they could credibly promise S. The 15 deadweight loss lands on them, exactly as k8's distress costs did. Option C confuses the transfer with the loss: the transfer vanishes once it is priced in, the deadweight loss does not. Option A assumes creditors do not anticipate, which contradicts the rational-pricing assumption used throughout. This is also why shareholders willingly accept covenants and collateral - they are buying back their own credibility."
+    "answer": 3,
+    "explanation": "Rational lenders price the behaviour they expect. Paying 75 means the owners end up with 75 raised plus 50 of equity, that is 125, against the 140 they would have had if they could credibly promise S. The 15 deadweight loss lands on them, exactly as k8's distress costs did. Saying the agency cost disappears because it was only a transfer confuses the transfer with the loss: the transfer vanishes once it is priced in, the deadweight loss does not. Lending anyway at the risk-free rate and losing 45 assumes creditors do not anticipate, which contradicts the rational-pricing assumption used throughout, and demanding equity instead is not what the model predicts. This is also why shareholders willingly accept covenants and collateral - they are buying back their own credibility."
   },
   {
     "id": "q134",
@@ -1606,13 +1606,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Under project R the bad state produces 30 against a face value of 120. Equity's payoff in that state is:",
     "options": [
+      "30, since shareholders are residual claimants",
       "-90, and it must be carried into the expectation",
       "0, because of limited liability",
-      "30, since shareholders are residual claimants",
       "-90, but only if the firm is liquidated"
     ],
-    "answer": 1,
-    "explanation": "Equity is max(CF - K, 0), so it is 0, never negative. Forgetting the zero is the third of the three named ways to lose the points, and it is fatal because it destroys the convexity that generates the entire result: with -90 carried through, E_R would be 0.50(100) + 0.50(-90) = 5, below E_S, and you would conclude that management takes the safe project. Options A and D both assume shareholders can be pursued for the shortfall, which limited liability forbids. Option C hands equity the creditors' recovery."
+    "answer": 2,
+    "explanation": "Equity is max(CF - K, 0), so it is 0, never negative. Forgetting the zero is the third of the three named ways to lose the points, and it is fatal because it destroys the convexity that generates the entire result: with -90 carried through, E_R would be 0.50(100) + 0.50(-90) = 5, below E_S, and you would conclude that management takes the safe project. Carrying -90 into the expectation, with or without a liquidation caveat, assumes shareholders can be pursued for the shortfall, which limited liability forbids. And answering 30 hands equity the creditors' recovery."
   },
   {
     "id": "q135",
@@ -1651,13 +1651,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Shareholders fund a new project themselves. The change in their wealth is:",
     "options": [
-      "The project's NPV",
-      "NPV minus the rise in the market value of the existing debt",
       "NPV minus the face value of the debt",
+      "NPV minus the rise in the market value of the existing debt",
+      "The project's NPV",
       "The NPV multiplied by the equity share of the firm"
     ],
     "answer": 1,
-    "explanation": "Delta(shareholders' wealth) = NPV - Delta D, where Delta D is the increase in the MARKET value of the debt already outstanding. Shareholders pay for the rise in the value of their own claim, not for projects, and when debt is risky part of any new value lands on creditors who paid nothing towards it. Debt overhang is the case Delta D > NPV > 0. Option A is true only when the debt is risk-free, so that Delta D = 0. Option C confuses the face value, a contractual number that does not move, with the market value, which does. Option D would be right if new value were split pro rata, but it is not: in default states creditors take the whole increment."
+    "explanation": "Delta(shareholders' wealth) = NPV - Delta D, where Delta D is the increase in the MARKET value of the debt already outstanding. Shareholders pay for the rise in the value of their own claim, not for projects, and when debt is risky part of any new value lands on creditors who paid nothing towards it. Debt overhang is the case Delta D > NPV > 0. Getting the whole NPV is true only when the debt is risk-free, so that Delta D = 0. Subtracting the face value confuses a contractual number that does not move with the market value, which does. And scaling the NPV by the equity share would be right if new value were split pro rata, but it is not: in default states creditors take the whole increment."
   },
   {
     "id": "q138",
@@ -1666,13 +1666,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Debt of face value 120 matures in a year; cash flow will be 60 or 180, equally likely, rf = 4.00%. A project costing 25 today, funded by the owners, adds a safe 40 in both states. The shareholders':",
     "options": [
-      "Wealth rises by 13.4615, so they invest",
-      "Wealth falls by 5.7692, so they reject a project with NPV 13.4615",
       "Wealth rises by 19.2308, which is the creditors' gain",
-      "Wealth is unchanged, because the project is fairly priced"
+      "Wealth rises by 13.4615, so they invest",
+      "Wealth is unchanged, because the project is fairly priced",
+      "Wealth falls by 5.7692, so they reject a project with NPV 13.4615"
     ],
-    "answer": 1,
-    "explanation": "Before: D = (0.5 x 60 + 0.5 x 120)/1.04 = 86.5385 and E = (0.5 x 0 + 0.5 x 60)/1.04 = 28.8462. After: cash flows are 100 and 220, so D = 110/1.04 = 105.7692 and E = 50/1.04 = 48.0769. Shareholders: 48.0769 - 28.8462 - 25 = -5.7692, so they reject. Option A gives them the whole NPV, which would need risk-free debt. Option C is the creditors' gain of 105.7692 - 86.5385 = 19.2308, and check 3 ties the two together: 19.2308 - 5.7692 = 13.4615 = NPV = 40/1.04 - 25. The bad-state increment, worth 0.5(40)/1.04 = 19.2308, went wholly to the lenders while the owners paid all 25."
+    "answer": 3,
+    "explanation": "Before: D = (0.5 x 60 + 0.5 x 120)/1.04 = 86.5385 and E = (0.5 x 0 + 0.5 x 60)/1.04 = 28.8462. After: cash flows are 100 and 220, so D = 110/1.04 = 105.7692 and E = 50/1.04 = 48.0769. Shareholders: 48.0769 - 28.8462 - 25 = -5.7692, so they reject. Handing them a gain of 13.4615 gives them the whole NPV, which would need risk-free debt. The 19.2308 is the creditors' gain, 105.7692 - 86.5385, not the shareholders': check 3 ties the two together, 19.2308 - 5.7692 = 13.4615 = NPV = 40/1.04 - 25. Nor is the wealth unchanged; fair pricing of the project says nothing about how its value is split. The bad-state increment, worth 0.5(40)/1.04 = 19.2308, went wholly to the lenders while the owners paid all 25."
   },
   {
     "id": "q139",
@@ -1681,13 +1681,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "In that example the agency cost of debt overhang is:",
     "options": [
-      "5.7692, the loss to shareholders",
       "13.4615, the NPV of the project that never happens",
+      "25.0000, the investment that is not made",
       "19.2308, the transfer to creditors",
-      "25.0000, the investment that is not made"
+      "5.7692, the loss to shareholders"
     ],
-    "answer": 1,
-    "explanation": "Measure the agency cost as first-best value minus value under the chosen action, exactly as in k9. The first best takes the project and gains 13.4615; the chosen action is to skip it, so 13.4615 of value is destroyed. Option A is a transfer that never happens, because the investment is never made - if the project is not taken there is no 5.7692 loss and no 19.2308 gain (option C). Option D is the outlay, not a loss: spending 25 to receive 38.4615 is not a cost. Note also that consistency check 4 does NOT apply here, because total value is not fixed - value is destroyed, not moved."
+    "answer": 0,
+    "explanation": "Measure the agency cost as first-best value minus value under the chosen action, exactly as in k9. The first best takes the project and gains 13.4615; the chosen action is to skip it, so 13.4615 of value is destroyed. The 5.7692 is a transfer that never happens, because the investment is never made - if the project is not taken there is no 5.7692 loss and no 19.2308 gain to creditors either. And the 25.0000 outlay is not a loss: spending 25 to receive 38.4615 is not a cost. Note also that consistency check 4 does NOT apply here, because total value is not fixed - value is destroyed, not moved."
   },
   {
     "id": "q140",
@@ -1696,13 +1696,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Same firm. The creditors offer to cut the face value from 120 to K1 if the owners inject the 25. The range of face values both sides accept is:",
     "options": [
-      "90 <= K1 <= 108",
       "75 <= K1 <= 120",
-      "100 <= K1 <= 120",
-      "86.5385 <= K1 <= 105.7692"
+      "86.5385 <= K1 <= 105.7692",
+      "90 <= K1 <= 108",
+      "100 <= K1 <= 120"
     ],
-    "answer": 0,
-    "explanation": "Creditors need D(K1) >= 86.5385, so the expected payoff must reach 90; with the project the bad state pays 100, so for K1 <= 100 the debt is safe and pays K1 in both states, giving K1 >= 90. Shareholders need E(K1) - 25 >= 28.8462, so the expected equity payoff must reach 56.00; for K1 >= 100 that is 110 - 0.5K1 >= 56, hence K1 <= 108. Option B uses undiscounted or pre-project payoffs. Option D mistakes market values for face values - K1 is a face value throughout this chapter, never a market value and never a strike. At K1 = 90 the owners take the whole 13.4615; at 108 the creditors do."
+    "answer": 2,
+    "explanation": "Creditors need D(K1) >= 86.5385, so the expected payoff must reach 90; with the project the bad state pays 100, so for K1 <= 100 the debt is safe and pays K1 in both states, giving K1 >= 90. Shareholders need E(K1) - 25 >= 28.8462, so the expected equity payoff must reach 56.00; for K1 >= 100 that is 110 - 0.5K1 >= 56, hence K1 <= 108. The range 75 to 120 uses undiscounted or pre-project payoffs, and 100 to 120 sets the floor at the bad-state cash flow rather than at the creditors' participation constraint. The range running from 86.5385 to 105.7692 mistakes market values for face values - K1 is a face value throughout this chapter, never a market value and never a strike. At K1 = 90 the owners take the whole 13.4615; at 108 the creditors do."
   },
   {
     "id": "q141",
@@ -1711,13 +1711,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Why must the creditors' gain and the shareholders' gain from a renegotiation always sum to the project's NPV?",
     "options": [
-      "Because the debt is fairly priced",
-      "Because renegotiation changes only the division of the payoff while the project changes only how much there is to divide, so every division term cancels",
       "Because creditors and shareholders have equal bargaining power",
-      "Because the risk-neutral probabilities sum to one"
+      "Because the debt is fairly priced",
+      "Because the risk-neutral probabilities sum to one",
+      "Because renegotiation changes only the division of the payoff while the project changes only how much there is to divide, so every division term cancels"
     ],
-    "answer": 1,
-    "explanation": "Add the two changes and the face value drops out of the algebra, leaving the change in total firm value, which is the NPV. That is why consistency check 3 holds at ANY K1 in the acceptable range, and why gains summing to anything else mean an arithmetic error - typically forgetting to subtract the investment I, or writing K1 instead of the actual cash flow in the default state. Option C is irrelevant: bargaining power decides where in the range the deal lands, not what the total is. Option A is a different fact and option D a different model. Note what check 3 cannot catch: a wrong rho or rf scales both claims alike and passes."
+    "answer": 3,
+    "explanation": "Add the two changes and the face value drops out of the algebra, leaving the change in total firm value, which is the NPV. That is why consistency check 3 holds at ANY K1 in the acceptable range, and why gains summing to anything else mean an arithmetic error - typically forgetting to subtract the investment I, or writing K1 instead of the actual cash flow in the default state. Bargaining power is irrelevant: it decides where in the range the deal lands, not what the total is. Fair pricing of the debt is a different fact, and the risk-neutral probabilities summing to one is a different model. Note what check 3 cannot catch: a wrong rho or rf scales both claims alike and passes."
   },
   {
     "id": "q142",
@@ -1726,13 +1726,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A covenant restricting further borrowing, dividends and asset sales raises firm value because:",
     "options": [
+      "It removes the need for renegotiation later",
       "It transfers value from shareholders to creditors, which is efficient",
       "Anything the borrower promises today is priced today: the debt is worth more at issue, so the same money is raised against a smaller promised repayment, and the owners recover the deadweight loss that no longer occurs",
-      "It lets the firm borrow at the risk-free rate",
-      "It removes the need for renegotiation later"
+      "It lets the firm borrow at the risk-free rate"
     ],
-    "answer": 1,
-    "explanation": "The gain is not a transfer to lenders; it is the elimination of a deadweight loss, and it returns to the shareholders through the price of the bond. That is why shareholders accept covenants voluntarily rather than having them imposed. Option A treats a transfer as a gain, the standard confusion of this material. Option C overstates: covenants reduce the probability and severity of the agency problems, they do not make the debt risk-free. Option D is wrong in fact - renegotiation is often still needed, and covenants have a real cost of their own, since a covenant that binds where the forbidden action was efficient destroys value itself."
+    "answer": 2,
+    "explanation": "The gain is not a transfer to lenders; it is the elimination of a deadweight loss, and it returns to the shareholders through the price of the bond. That is why shareholders accept covenants voluntarily rather than having them imposed. Calling the transfer from shareholders to creditors efficient treats a transfer as a gain, the standard confusion of this material. Claiming the firm can then borrow at the risk-free rate overstates the effect: covenants reduce the probability and severity of the agency problems, they do not make the debt risk-free. And removing the need for renegotiation is wrong in fact - renegotiation is often still needed, and covenants have a real cost of their own, since a covenant that binds where the forbidden action was efficient destroys value itself."
   },
   {
     "id": "q143",
@@ -1741,13 +1741,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Funding the new project with debt that is SENIOR to the existing claim, or secured on the new asset, addresses overhang because:",
     "options": [
-      "It lowers the interest rate on the whole capital structure",
-      "The new lender takes the bad-state cash flow first, so the old creditor collects no windfall and the owners are willing to invest",
+      "Senior debt has no agency costs at all",
       "It converts the old debt into equity",
-      "Senior debt has no agency costs at all"
+      "It lowers the interest rate on the whole capital structure",
+      "The new lender takes the bad-state cash flow first, so the old creditor collects no windfall and the owners are willing to invest"
     ],
-    "answer": 1,
-    "explanation": "Overhang exists because the project's cash in default states flows to the incumbent lender krone for krone while the owners pay the whole outlay. Give the new financing priority over that cash and the windfall disappears, so the investment decision returns to something close to first best. This is exactly why incumbent lenders forbid it by covenant. Option C describes a different remedy entirely - a debt-for-equity swap, which is renegotiation. Option D is far too strong: senior debt is still debt and still creates risk-shifting incentives on the assets it stands behind."
+    "answer": 3,
+    "explanation": "Overhang exists because the project's cash in default states flows to the incumbent lender krone for krone while the owners pay the whole outlay. Give the new financing priority over that cash and the windfall disappears, so the investment decision returns to something close to first best. This is exactly why incumbent lenders forbid it by covenant. The interest rate on the whole capital structure need not fall - the incumbent claim gets worse, not better. Converting the old debt into equity describes a different remedy entirely, a debt-for-equity swap, which is renegotiation. And claiming senior debt has no agency costs is far too strong: senior debt is still debt and still creates risk-shifting incentives on the assets it stands behind."
   },
   {
     "id": "q144",
@@ -1756,13 +1756,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Convertible debt blunts both agency costs of debt at once because:",
     "options": [
-      "It carries a lower coupon",
       "The lender shares the upside, so risk shifting no longer pays the owners, and he is readier to fund, which softens overhang",
+      "It carries a lower coupon",
       "It is senior to all other claims",
       "It cannot default"
     ],
-    "answer": 1,
-    "explanation": "A conversion right hands the lender a slice of the good states, which is precisely the region shareholders were trying to enlarge at his expense, so the gain from raising asset risk shrinks; and because the lender expects to participate in success he requires less to fund, which is what makes the overhang problem smaller. That combination is why it is the standard instrument for young, volatile firms. Option A is a consequence, not the mechanism. Options C and D are simply false: convertibles have whatever seniority they are given and default like any other bond. k24 prices the instrument as debt plus a call on the equity."
+    "answer": 0,
+    "explanation": "A conversion right hands the lender a slice of the good states, which is precisely the region shareholders were trying to enlarge at his expense, so the gain from raising asset risk shrinks; and because the lender expects to participate in success he requires less to fund, which is what makes the overhang problem smaller. That combination is why it is the standard instrument for young, volatile firms. The lower coupon is a consequence of the conversion right, not the mechanism. And the claims that convertibles are senior to everything, or cannot default, are simply false: convertibles have whatever seniority they are given and default like any other bond. k24 prices the instrument as debt plus a call on the equity."
   },
   {
     "id": "q145",
@@ -1792,7 +1792,7 @@ window.EDU_DATA.quizzes = [
       "V^L = V^U(1 + tau_c x D/V)"
     ],
     "answer": 1,
-    "explanation": "Each term after V^U is one named market imperfection put back into the perfect-market benchmark: interest deductibility (k7), costly bankruptcy (k8), risk shifting and debt overhang (k9-k10), and debt as a commitment against empire building (k11). Option A stops at the trade-off's benefit side and would recommend 100% debt. Option C gets the sign on the agency costs of debt backwards - risk shifting and overhang destroy value and are subtracted. Option D is not a result in this course. None of this is on the formula sheet, so it has to be memorised."
+    "explanation": "Each term after V^U is one named market imperfection put back into the perfect-market benchmark: interest deductibility (k7), costly bankruptcy (k8), risk shifting and debt overhang (k9-k10), and debt as a commitment against empire building (k11). Stopping at V^U + PV(TS) keeps only the trade-off's benefit side and would recommend 100% debt. Adding the agency costs of debt instead of subtracting them gets the sign backwards - risk shifting and overhang destroy value. And V^U(1 + tau_c x D/V) is not a result in this course. None of this is on the formula sheet, so it has to be memorised."
   },
   {
     "id": "q147",
@@ -1801,13 +1801,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "An all-equity firm has V^U = 1000 and 200 of excess cash; the CEO intends to spend the 200 on a project worth 175. Instead it borrows 400 of permanent debt and pays out the proceeds and the cash; tau_c = 25% and PV(distress) at that leverage is 30. Shareholder wealth rises by:",
     "options": [
-      "100, the tax shield",
       "95, decomposing into +25 of agency benefit, +100 of tax shield and -30 of distress cost",
       "70, the tax shield net of distress",
+      "100, the tax shield",
       "130, the cash paid out minus the bad project"
     ],
-    "answer": 1,
-    "explanation": "If the cash stays inside, wealth is 1000 + 175 = 1175, because the market prices the -25 NPV project in today. With the recapitalisation, PV(TS) = 0.25 x 400 = 100, so V^L = 1000 + 100 - 30 = 1070, of which 400 is debt and 670 equity, plus 600 paid out (400 of proceeds and 200 of cash): 1270. The gain is 95, and the decomposition 25 + 100 - 30 = 95 is the check that can actually fail. Option A counts only the shield and ignores both the avoided waste and the distress cost. Option C omits the agency benefit, which is the point of the chapter. D + E = 1070 cannot fail, since E was computed as V^L - D, so it proves nothing."
+    "answer": 0,
+    "explanation": "If the cash stays inside, wealth is 1000 + 175 = 1175, because the market prices the -25 NPV project in today. With the recapitalisation, PV(TS) = 0.25 x 400 = 100, so V^L = 1000 + 100 - 30 = 1070, of which 400 is debt and 670 equity, plus 600 paid out (400 of proceeds and 200 of cash): 1270. The gain is 95, and the decomposition 25 + 100 - 30 = 95 is the check that can actually fail. Answering 100 counts only the shield and ignores both the avoided waste and the distress cost. Answering 70 nets the shield against distress but omits the agency benefit, which is the point of the chapter. Answering 130 nets cash movements instead of value effects and matches none of the three terms. Note that debt plus equity summing to 1070 cannot fail, since equity was computed as V^L minus debt, so it proves nothing."
   },
   {
     "id": "q148",
@@ -1816,13 +1816,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "In that firm, the recapitalisation stops being worthwhile once PV(distress costs) reaches:",
     "options": [
-      "100",
+      "400",
       "125",
-      "95",
-      "400"
+      "100",
+      "95"
     ],
     "answer": 1,
-    "explanation": "The two benefits are the avoided waste of 25 and the tax shield of 100, so the recapitalisation adds value while distress costs stay below 125. Quoting that break-even is what separates an answer that understood the trade-off from one that memorised it. Option A counts only the shield and forgets that the discipline is worth something in its own right. Option C is the net gain at the stated distress level of 30, not the break-even. Option D is the debt level."
+    "explanation": "The two benefits are the avoided waste of 25 and the tax shield of 100, so the recapitalisation adds value while distress costs stay below 125. Quoting that break-even is what separates an answer that understood the trade-off from one that memorised it. Answering 100 counts only the shield and forgets that the discipline is worth something in its own right. Answering 95 quotes the net gain at the stated distress level of 30, not the break-even. And 400 is the debt level, not a cost."
   },
   {
     "id": "q149",
@@ -1831,13 +1831,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Debt commits a manager to return cash, while a promise to pay dividends does not, because:",
     "options": [
+      "Creditors monitor better than shareholders",
       "Dividends are taxed and interest is not",
       "A missed interest payment puts the firm in default, hands control to creditors and usually ends the manager's career, whereas a quietly abandoned dividend costs him nothing enforceable",
-      "Debt contracts are longer than dividend policies",
-      "Creditors monitor better than shareholders"
+      "Debt contracts are longer than dividend policies"
     ],
-    "answer": 1,
-    "explanation": "The commitment is credible precisely BECAUSE the penalty is severe and outside the manager's control - which is the same feature that made debt costly in k9 and k10. One friction, two signs. Option D is a real effect but not the mechanism: the discipline works through the enforceability of the claim, not through superior monitoring. Option A confuses a tax argument with a governance argument. Option C is not generally true and would not create commitment even if it were. Leveraged buyouts apply this mechanism deliberately."
+    "answer": 2,
+    "explanation": "The commitment is credible precisely BECAUSE the penalty is severe and outside the manager's control - which is the same feature that made debt costly in k9 and k10. One friction, two signs. Superior monitoring by creditors is a real effect but not the mechanism: the discipline works through the enforceability of the claim, not through who watches more closely. The tax treatment of dividends and interest confuses a tax argument with a governance argument. And contract length is not generally different, and would not create commitment even if it were. Leveraged buyouts apply this mechanism deliberately."
   },
   {
     "id": "q150",
@@ -1846,13 +1846,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "The free cash flow problem is worst in:",
     "options": [
-      "Young firms with many growth options and no revenue",
-      "Mature, cash-rich firms in shrinking industries with weak governance",
       "Firms with high asset volatility and risky debt",
-      "Firms whose shares are held by a single concentrated owner"
+      "Firms whose shares are held by a single concentrated owner",
+      "Young firms with many growth options and no revenue",
+      "Mature, cash-rich firms in shrinking industries with weak governance"
     ],
-    "answer": 1,
-    "explanation": "Free cash flow is what remains after every positive-NPV project has been funded. A firm with many good projects has nothing left over, so discipline is not needed and flexibility is worth more - which is why option A points to the firm that should be all-equity. A mature firm generating cash it has nowhere good to put is exactly the setup that finances diversifying acquisitions and vanity capacity. Option C names the firm where the agency COSTS of debt bite hardest, the opposite side of the ledger. Option D describes a firm where the monitoring problem is already partly solved (k27)."
+    "answer": 3,
+    "explanation": "Free cash flow is what remains after every positive-NPV project has been funded. A firm with many good projects has nothing left over, so discipline is not needed and flexibility is worth more - which is why the young firm with growth options and no revenue is the one that should be all-equity. A mature firm generating cash it has nowhere good to put is exactly the setup that finances diversifying acquisitions and vanity capacity. High asset volatility with risky debt names the firm where the agency COSTS of debt bite hardest, the opposite side of the ledger. And a single concentrated owner describes a firm where the monitoring problem is already partly solved (k27)."
   },
   {
     "id": "q151",
@@ -1861,13 +1861,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Which firm does the assembled framework predict should carry the most debt?",
     "options": [
-      "A biotechnology firm with no revenue and a value made almost entirely of growth options",
-      "A mature shipping company with stable cash flows, a fleet other operators would buy, no attractive expansion and a large cash balance",
       "A software firm growing 40% a year and funding it from an equity issue",
-      "A firm whose assets are mostly intangible but which is highly profitable"
+      "A firm whose assets are mostly intangible but which is highly profitable",
+      "A mature shipping company with stable cash flows, a fleet other operators would buy, no attractive expansion and a large cash balance",
+      "A biotechnology firm with no revenue and a value made almost entirely of growth options"
     ],
-    "answer": 1,
-    "explanation": "Sign every term for the shipping firm and they all point one way: the tax shield is large because taxable profits are stable; distress costs are small because cash flows are steady and ships are redeployable, so a default transfers assets rather than destroying a business; agency costs of debt are small because there are few growth options to distort; and the agency benefit is large because idle cash with no projects is the empire-building setup. For the biotech in option A every term points the other way. Option D is the interesting trap: profitability raises the shield but intangibility raises expected distress costs sharply, and the intangibility usually dominates."
+    "answer": 2,
+    "explanation": "Sign every term for the shipping firm and they all point one way: the tax shield is large because taxable profits are stable; distress costs are small because cash flows are steady and ships are redeployable, so a default transfers assets rather than destroying a business; agency costs of debt are small because there are few growth options to distort; and the agency benefit is large because idle cash with no projects is the empire-building setup. For the biotech with no revenue and nothing but growth options every term points the other way, and the fast-growing software firm is the same case one stage later. The profitable but intangible firm is the interesting trap: profitability raises the shield but intangibility raises expected distress costs sharply, and the intangibility usually dominates."
   },
   {
     "id": "q152",
@@ -1876,13 +1876,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "The most profitable firms in an industry often carry the LEAST debt. Which theory explains this, and how?",
     "options": [
+      "The agency benefit of debt: profitable firms have less free cash flow",
       "The trade-off theory: profitable firms have more to lose in distress",
-      "The pecking order: profits accumulate as retained earnings, which sit at the top of the financing ladder, so a firm funding everything internally never has to borrow",
       "The trade-off theory: profitable firms need the deduction more",
-      "The agency benefit of debt: profitable firms have less free cash flow"
+      "The pecking order: profits accumulate as retained earnings, which sit at the top of the financing ladder, so a firm funding everything internally never has to borrow"
     ],
-    "answer": 1,
-    "explanation": "The tax story predicts the opposite sign - profitable, taxable firms should use the deduction most - which is why this regularity is the pecking order's best evidence. It explains the sign through a mechanism rather than through a target: leverage falls not because the firm wants less of it but because it never had to ask for it. Option C states the trade-off prediction correctly and it is the one contradicted by the data. Option D reverses the facts: profitable firms have more free cash flow, not less."
+    "answer": 3,
+    "explanation": "The tax story predicts the opposite sign - profitable, taxable firms should use the deduction most - which is why this regularity is the pecking order's best evidence. It explains the sign through a mechanism rather than through a target: leverage falls not because the firm wants less of it but because it never had to ask for it. The trade-off answer that profitable firms need the deduction more states that prediction correctly, and it is the one contradicted by the data; the version about having more to lose in distress is the same theory wearing a different hat. And the free cash flow answer reverses the facts: profitable firms have more free cash flow, not less."
   },
   {
     "id": "q153",
@@ -1919,13 +1919,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "New investors buy a fraction alpha of the post-issue firm for I. The correct pricing condition is:",
     "options": [
+      "alpha = I/(E[V | beliefs] + I)",
       "alpha = I/(E[V | beliefs] + NPV)",
-      "alpha = I/(E[V | beliefs] + I + NPV)",
       "alpha = I/(V_true + I + NPV)",
-      "alpha = I/(E[V | beliefs] + I)"
+      "alpha = I/(E[V | beliefs] + I + NPV)"
     ],
-    "answer": 1,
-    "explanation": "The firm after the issue is worth the assets in place as investors assess them, PLUS the cash that just came in, PLUS what the project adds beyond its cost - that is E[V | beliefs] + I + NPV. Option A leaves out the cash raised, which is the single most common way to wreck this exercise: the denominator is too small, alpha too large, and every payoff after it wrong in the same direction. Option C prices off the manager's private V, but alpha is priced off BELIEFS; the truth enters only in the payoff line, and the two being different numbers is the whole point. Option D drops the project's NPV, which is public information in this setup. Sanity check: a firm raising 80 against assets of 225 and a project adding 20 has sold about a quarter of itself, not a third."
+    "answer": 3,
+    "explanation": "The firm after the issue is worth the assets in place as investors assess them, PLUS the cash that just came in, PLUS what the project adds beyond its cost - that is E[V | beliefs] + I + NPV. Leaving out the cash raised is the single most common way to wreck this exercise: the denominator is too small, alpha too large, and every payoff after it wrong in the same direction. Pricing off the manager's private V_true is wrong because alpha is priced off BELIEFS; the truth enters only in the payoff line, and the two being different numbers is the whole point. Dropping the project's NPV from the denominator omits public information that the buyers certainly use. Sanity check: a firm raising 80 against assets of 225 and a project adding 20 has sold about a quarter of itself, not a third."
   },
   {
     "id": "q156",
@@ -1935,12 +1935,12 @@ window.EDU_DATA.quizzes = [
     "q": "Assets in place are worth 300 (high) or 150 (low), the market puts q = 0.50 on high, I = 80 must be raised by a share issue and the project's NPV of 20 is public. At the pooling belief, alpha and the high type's dilution are:",
     "options": [
       "alpha = 0.2462 and dilution 18.4615, so the high type issues",
+      "alpha = 0.2667 and dilution 20.0000, so the high type is indifferent",
       "alpha = 0.2462 and dilution 18.4615, so the high type abstains",
-      "alpha = 0.3200 and dilution 24.0000, so the high type abstains",
-      "alpha = 0.2667 and dilution 20.0000, so the high type is indifferent"
+      "alpha = 0.3200 and dilution 24.0000, so the high type abstains"
     ],
     "answer": 0,
-    "explanation": "E[V | issue] = 0.50(300) + 0.50(150) = 225, so the post-issue firm is worth 225 + 80 + 20 = 325 and alpha = 80/325 = 0.2462. Dilution = alpha(V_H - E[V | issue]) = 0.246154 x 75 = 18.4615, which is BELOW the NPV of 20, so the high type issues: its payoff is 300 + 20 - 18.4615 = 301.5385 against 300 by abstaining, and the direct form (1 - 0.246154)(400) = 301.5385 agrees. The low type gains 18.4615 and issues too, so the pooling belief is confirmed by the behaviour it priced - a rational pooling equilibrium. Option C computes alpha = 80/250, dropping the project entirely from the denominator."
+    "explanation": "E[V | issue] = 0.50(300) + 0.50(150) = 225, so the post-issue firm is worth 225 + 80 + 20 = 325 and alpha = 80/325 = 0.2462. Dilution = alpha(V_H - E[V | issue]) = 0.246154 x 75 = 18.4615, which is BELOW the NPV of 20, so the high type issues: its payoff is 300 + 20 - 18.4615 = 301.5385 against 300 by abstaining, and the direct form (1 - 0.246154)(400) = 301.5385 agrees. The low type gains 18.4615 and issues too, so the pooling belief is confirmed by the behaviour it priced - a rational pooling equilibrium. Pairing the correct numbers with abstention gets the comparison the wrong way round. The alpha of 0.3200 comes from 80/250, dropping the project and the cash from the denominator, and 0.2667 = 80/300 drops only part of it."
   },
   {
     "id": "q157",
@@ -1949,13 +1949,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Same firm (V_H = 300, V_L = 150, q = 0.50, I = 80) but the project's NPV is only 10. The equilibrium is:",
     "options": [
-      "Pooling at alpha = 0.2540, both types issue",
+      "Separating: only the high type issues, since it has the better assets",
       "Separating: only the low type issues, at alpha = 0.3333, and its old shareholders end with 160.00",
       "Neither type issues, so no shares are sold",
-      "Separating: only the high type issues, since it has the better assets"
+      "Pooling at alpha = 0.2540, both types issue"
     ],
     "answer": 1,
-    "explanation": "Test pooling first: E[V | issue] = 225 gives alpha = 80/315 = 0.2540 and a dilution for the high type of 0.253968 x 75 = 19.0476, above the NPV of 10, so the high type refuses - the belief is contradicted by the behaviour it predicts, and consistency check 5 kills it. Reprice with E[V | issue] = 150: alpha = 80/240 = 0.3333, the low type keeps (2/3)(240) = 160.00 against 150, so it still issues; the high type would get (2/3)(390) = 260.00 against 300 and stays out. Both act as assumed, so the belief is rational. Note the shortcut: when the issuer's type is revealed the dilution term is zero and the payoff must be exactly V_L + NPV = 160. Option D inverts the model - the low type is the one that gains from being sold at any pooled or revealed price."
+    "explanation": "Test pooling first: E[V | issue] = 225 gives alpha = 80/315 = 0.2540 and a dilution for the high type of 0.253968 x 75 = 19.0476, above the NPV of 10, so the high type refuses - the belief is contradicted by the behaviour it predicts, and consistency check 5 kills it. That is why the pooling answer at alpha = 0.2540 fails even though its arithmetic is right. Reprice with E[V | issue] = 150: alpha = 80/240 = 0.3333, the low type keeps (2/3)(240) = 160.00 against 150, so it still issues; the high type would get (2/3)(390) = 260.00 against 300 and stays out. Both act as assumed, so the belief is rational, and 'neither type issues' is therefore wrong - the low type is happy to sell. The version where only the high type issues inverts the model: the low type is the one that gains from being sold at any pooled or revealed price. Note the shortcut: when the issuer's type is revealed the dilution term is zero and the payoff must be exactly V_L + NPV = 160."
   },
   {
     "id": "q158",
@@ -1964,13 +1964,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Consistency check 5 in a Myers-Majluf exercise means:",
     "options": [
-      "Verifying that alpha lies between zero and one",
       "Asking whether the belief you priced the issue at is consistent with the actions each type actually takes, and repricing if it is not",
       "Checking that the payoff to old shareholders exceeds the investment",
+      "Verifying that alpha lies between zero and one",
       "Confirming that new investors earn a positive return"
     ],
-    "answer": 1,
-    "explanation": "An equilibrium here is a pair, not a number: an action for each type and a belief for the market that is correct given those actions. Computing alpha and stopping there is described in the solution keys as the standard incomplete answer, which is exactly why it is on the k0 list of checks. Option D contradicts competitive pricing - new investors break even by construction. Options A and C are arithmetic hygiene, not equilibrium conditions. The check runs both ways: a pooling belief is rational only if BOTH types issue at the pooled price, and a separating belief only if the low type still issues at the harsher price AND the high type still prefers to abstain at it."
+    "answer": 0,
+    "explanation": "An equilibrium here is a pair, not a number: an action for each type and a belief for the market that is correct given those actions. Computing alpha and stopping there is described in the solution keys as the standard incomplete answer, which is exactly why it is on the k0 list of checks. Requiring new investors to earn a positive return contradicts competitive pricing - they break even by construction. Checking that alpha lies in the unit interval, or that the old shareholders' payoff exceeds the investment, is arithmetic hygiene, not an equilibrium condition. The check runs both ways: a pooling belief is rational only if BOTH types issue at the pooled price, and a separating belief only if the low type still issues at the harsher price AND the high type still prefers to abstain at it."
   },
   {
     "id": "q159",
@@ -1979,13 +1979,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "An issue is refused. The correct comparison for the high type's old shareholders is the issue payoff against:",
     "options": [
-      "V + NPV, the value of the firm with the project",
-      "V, the assets alone, because the project is lost if it is not funded now",
+      "V + I, the assets plus the cash",
       "E[V | beliefs], what the market thinks the firm is worth",
-      "V + I, the assets plus the cash"
+      "V + NPV, the value of the firm with the project",
+      "V, the assets alone, because the project is lost if it is not funded now"
     ],
-    "answer": 1,
-    "explanation": "One of the two assumptions carrying the whole result is that the project disappears if it is not funded now: no cash in the bank, no bank loan, no waiting for the information to become public. So abstaining means keeping the assets and losing the project. Option A is the standard slip and it makes an issue look unattractive to everyone: if the firm could fund the project from cash instead, the comparison WOULD be V + NPV and no issue would ever be worth doing - which is precisely why financial slack is the first remedy on the list. Option C applies the market's belief where the manager's truth belongs; alpha is priced off beliefs, the payoff is computed off the truth."
+    "answer": 3,
+    "explanation": "One of the two assumptions carrying the whole result is that the project disappears if it is not funded now: no cash in the bank, no bank loan, no waiting for the information to become public. So abstaining means keeping the assets and losing the project, and the comparison is against V alone. Comparing against V + NPV is the standard slip and it makes an issue look unattractive to everyone: if the firm could fund the project from cash instead, that WOULD be the right comparison and no issue would ever be worth doing - which is precisely why financial slack is the first remedy on the list. Comparing against E[V | beliefs] applies the market's belief where the manager's truth belongs; alpha is priced off beliefs, the payoff is computed off the truth. And V + I adds cash the firm does not have if it does not issue."
   },
   {
     "id": "q160",
@@ -1994,13 +1994,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Compare the two inefficiencies in this model. Which statement is right?",
     "options": [
-      "Pooling destroys value while separating only transfers it",
-      "Separating destroys value, because the high type abandons a positive-NPV project; pooling only transfers value between two groups of old shareholders",
       "Both destroy value in equal measure",
-      "Neither is inefficient, because all prices are fair"
+      "Neither is inefficient, because all prices are fair",
+      "Pooling destroys value while separating only transfers it",
+      "Separating destroys value, because the high type abandons a positive-NPV project; pooling only transfers value between two groups of old shareholders"
     ],
-    "answer": 1,
-    "explanation": "Under separating the high type walks away and its NPV simply never happens: with q = 0.50 and NPV = 10 the expected loss is 0.50 x 10 = 5. That is underinvestment through adverse selection, the same family as the debt overhang of k10. Under pooling both types invest, so nothing real is lost; the good firm's owners hand a sum to the new investors and the bad firm's owners receive the same sum through them, and new investors break even - a transfer in the sense of consistency check 4. Option A has them swapped. Option D confuses fair pricing with efficiency: nobody is fooled and the outcome is still inefficient, which is what makes adverse selection different from mispricing."
+    "answer": 3,
+    "explanation": "Under separating the high type walks away and its NPV simply never happens: with q = 0.50 and NPV = 10 the expected loss is 0.50 x 10 = 5. That is underinvestment through adverse selection, the same family as the debt overhang of k10. Under pooling both types invest, so nothing real is lost; the good firm's owners hand a sum to the new investors and the bad firm's owners receive the same sum through them, and new investors break even - a transfer in the sense of consistency check 4. The answer that has pooling destroying value and separating merely transferring it has them swapped, and they are certainly not equal in size. Calling neither inefficient because all prices are fair confuses fair pricing with efficiency: nobody is fooled and the outcome is still inefficient, which is what makes adverse selection different from mispricing."
   },
   {
     "id": "q161",
@@ -2009,13 +2009,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "With V_H = 300, V_L = 150, I = 80 and NPV = 10, the prior at which the outcome flips from separating to pooling is:",
     "options": [
-      "q* = 0.5000",
       "q* = 0.7111",
-      "q* = 0.6000",
-      "q* = 0.8000"
+      "q* = 0.8000",
+      "q* = 0.5000",
+      "q* = 0.6000"
     ],
-    "answer": 1,
-    "explanation": "Write E[V] = 150 + 150q and set the high type's dilution equal to its NPV: 80(300 - 150 - 150q) = 10(150 + 150q + 80 + 10), so 12000 - 12000q = 2400 + 1500q, 13500q = 9600 and q* = 0.7111. Verify: at q* the pooled belief is 256.6667, alpha = 80/346.6667 = 0.2308, and the dilution is 0.230769 x 43.3333 = 10.0000, exactly the NPV. Above q* the market is confident enough for the good firm to sell shares and everyone issues; below it the outcome separates. The other options are guesses that fail this substitution, which is the check to run on any threshold you derive."
+    "answer": 0,
+    "explanation": "Write E[V] = 150 + 150q and set the high type's dilution equal to its NPV: 80(300 - 150 - 150q) = 10(150 + 150q + 80 + 10), so 12000 - 12000q = 2400 + 1500q, 13500q = 9600 and q* = 0.7111. Verify: at q* the pooled belief is 256.6667, alpha = 80/346.6667 = 0.2308, and the dilution is 0.230769 x 43.3333 = 10.0000, exactly the NPV. Above q* the market is confident enough for the good firm to sell shares and everyone issues; below it the outcome separates. The round thresholds 0.5000, 0.6000 and 0.8000 are guesses that fail this substitution, which is the check to run on any threshold you derive."
   },
   {
     "id": "q162",
@@ -2053,13 +2053,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "The pecking order ranks financing sources as:",
     "options": [
+      "Whatever keeps the firm closest to its target debt ratio",
       "Equity, then debt, then retained earnings, ranked by cost of capital",
       "Retained earnings, then debt (safest first), then hybrids, then equity - ranked by how badly the claim can be underpriced when the manager knows more",
-      "Whatever keeps the firm closest to its target debt ratio",
       "Debt, then equity, then retained earnings, ranked by tax efficiency"
     ],
-    "answer": 1,
-    "explanation": "The ranking falls straight out of the dilution term of k12. Internal cash sells no outside claim, so the cost is zero. Riskless debt promises a fixed amount the firm pays whichever type it is, so the buyer's ignorance is irrelevant and the cost is zero again. Risky debt differs across types only over the range where the firm cannot pay - a slice of the outcomes. Equity is the residual, so every krone of hidden value belongs to it. Option C describes the trade-off theory, which the pecking order explicitly does not contain: there is no target ratio, and observed leverage is a residue of past deficits. Option D reverses the ranking and gives the wrong reason."
+    "answer": 2,
+    "explanation": "The ranking falls straight out of the dilution term of k12. Internal cash sells no outside claim, so the cost is zero. Riskless debt promises a fixed amount the firm pays whichever type it is, so the buyer's ignorance is irrelevant and the cost is zero again. Risky debt differs across types only over the range where the firm cannot pay - a slice of the outcomes. Equity is the residual, so every krone of hidden value belongs to it. Ranking by cost of capital, with equity first, inverts the ladder. Staying close to a target debt ratio describes the trade-off theory, which the pecking order explicitly does not contain: there is no target ratio, and observed leverage is a residue of past deficits. And the tax-efficiency ranking reverses the order and gives the wrong reason."
   },
   {
     "id": "q165",
@@ -2069,12 +2069,12 @@ window.EDU_DATA.quizzes = [
     "q": "Which statement about the pecking order is correct?",
     "options": [
       "It requires markets to be inefficient, since otherwise the mispricing could not exist",
+      "It predicts that profitable firms borrow most",
       "It rests on asymmetric information: prices are efficient with respect to the market's information set, and the cost arises because the manager's set is larger",
-      "It forbids firms from ever issuing equity",
-      "It predicts that profitable firms borrow most"
+      "It forbids firms from ever issuing equity"
     ],
-    "answer": 1,
-    "explanation": "This is the standard wrong answer inverted. Every price in the model is fair GIVEN THE INFORMATION INVESTORS HAVE; investors are rational and anticipate that a firm issuing equity is more likely to be the low type, and they price that in before the shares are sold. Nothing requires prices to be wrong, only that the two sides know different things. Market timing is where inefficiency may or may not enter, and keeping the two apart is worth points. Option C confuses ranking with prohibition - a firm with no cash, no debt capacity and a large positive-NPV project issues equity and should. Option D is the trade-off prediction, and it is the one the data contradicts."
+    "answer": 2,
+    "explanation": "This is the standard wrong answer inverted. Every price in the model is fair GIVEN THE INFORMATION INVESTORS HAVE; investors are rational and anticipate that a firm issuing equity is more likely to be the low type, and they price that in before the shares are sold. Nothing requires prices to be inefficient, only that the two sides know different things. Market timing is where inefficiency may or may not enter, and keeping the two apart is worth points. Reading the theory as a ban on equity issues confuses ranking with prohibition - a firm with no cash, no debt capacity and a large positive-NPV project issues equity and should. And the prediction that profitable firms borrow most is the trade-off's, and it is the one the data contradicts."
   },
   {
     "id": "q166",
@@ -2083,13 +2083,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A firm must raise 120. Next year it is worth 500 or 260 (high type) or 340 or 80 (low type), each state equally likely, rf = 0, and the market puts q = 0.50 on each type. The good firm's transfer to new investors is:",
     "options": [
-      "34.5763 with equity and 13.3333 with debt, so it prefers debt by 21.2430",
+      "Zero under debt, because debt is a fixed claim",
       "The same under both, since the amount raised is the same",
-      "13.3333 with equity and 34.5763 with debt, so it prefers equity",
-      "Zero under debt, because debt is a fixed claim"
+      "34.5763 with equity and 13.3333 with debt, so it prefers debt by 21.2430",
+      "13.3333 with equity and 34.5763 with debt, so it prefers equity"
     ],
-    "answer": 0,
-    "explanation": "Equity: the pooled expectation is 0.50(380) + 0.50(210) = 295, so alpha = 120/295 = 0.4068 and the stake sold is worth 0.406780 x 380 = 154.5763 against the 120 received - a transfer of 34.5763, which is also alpha(380 - 295). Debt: the face value raising 120 solves 0.75K + 20 = 120, so K = 133.3333, worth 133.3333 to the high type (safe, since 260 > 133.3333) and 0.5K + 40 = 106.6667 to the low type, so the transfer is 13.3333. With q = 0.50 the transfer must be half the spread between the two true values, and it is: (133.3333 - 106.6667)/2 = 13.3333 and (154.5763 - 85.4237)/2 = 34.5763. Option D would be right only for RISKLESS debt: here the face value exceeds the low type's worst payoff of 80, so it is risky and the transfer is positive but small."
+    "answer": 2,
+    "explanation": "Equity: the pooled expectation is 0.50(380) + 0.50(210) = 295, so alpha = 120/295 = 0.4068 and the stake sold is worth 0.406780 x 380 = 154.5763 against the 120 received - a transfer of 34.5763, which is also alpha(380 - 295). Debt: the face value raising 120 solves 0.75K + 20 = 120, so K = 133.3333, worth 133.3333 to the high type (safe, since 260 > 133.3333) and 0.5K + 40 = 106.6667 to the low type, so the transfer is 13.3333. The good firm therefore prefers debt by 21.2430, and the answer that swaps the two figures has the preference backwards. The transfers are not equal under the two instruments, which is the entire pecking order. A zero transfer under debt would be right only for RISKLESS debt: here the face value exceeds the low type's worst payoff of 80, so the debt is risky and the transfer is positive but small. With q = 0.50 the transfer must be half the spread between the two true values, and it is: (133.3333 - 106.6667)/2 = 13.3333 and (154.5763 - 85.4237)/2 = 34.5763."
   },
   {
     "id": "q167",
@@ -2098,13 +2098,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "In that firm, how much can be raised with no adverse-selection cost at all?",
     "options": [
-      "Nothing, because the manager always knows more",
       "Up to 80, the lowest payoff either type can produce, since debt of that face value is repaid with certainty by both",
       "Up to 120, the amount needed",
+      "Nothing, because the manager always knows more",
       "Up to 260, the high type's worst state"
     ],
-    "answer": 1,
-    "explanation": "Any face value up to 80 is repaid in full in every state by both types, so the two types' claims are worth exactly the same and the buyer's ignorance is irrelevant: the transfer is zero. That is the bottom rung of the ladder made concrete - the information cost of this firm's financing is zero for the first 80, 13.3333 at 120 in the form of debt, and 34.5763 in the form of equity. Option D uses the wrong type's floor: the low type can produce only 80, and the market cannot tell them apart. Option A ignores that a claim insensitive to the private information costs nothing to sell, which is the entire mechanism of the pecking order."
+    "answer": 0,
+    "explanation": "Any face value up to 80 is repaid in full in every state by both types, so the two types' claims are worth exactly the same and the buyer's ignorance is irrelevant: the transfer is zero. That is the bottom rung of the ladder made concrete - the information cost of this firm's financing is zero for the first 80, 13.3333 at 120 in the form of debt, and 34.5763 in the form of equity. Raising the full 120 costlessly is therefore not possible, and 260 uses the wrong type's floor: the low type can produce only 80, and the market cannot tell them apart. Saying nothing can be raised costlessly ignores that a claim insensitive to the private information costs nothing to sell, which is the entire mechanism of the pecking order."
   },
   {
     "id": "q168",
@@ -2114,12 +2114,12 @@ window.EDU_DATA.quizzes = [
     "q": "Assets in place are worth 600, 500 or 400, equally likely, I = 150 must be raised by an equity issue and the project's NPV is 20. In the equilibrium the top type abstains and the other two pool. The announcement return is:",
     "options": [
       "-4.0000%",
-      "-8.4416%",
       "-2.9126%",
+      "-8.4416%",
       "-10.0000%"
     ],
-    "answer": 1,
-    "explanation": "With E[V | issue] = 450, alpha = 150/620 = 0.2419; the 600 type's dilution is 36.2903, above the NPV of 20, so it abstains, while the 500 and 400 types issue - all three act as the belief assumes. After an issue the market prices the firm at 450 + 20 = 470; after no issue at 600. Before the announcement P0 = (1/3)(600) + (2/3)(470) = 513.3333, so the return is -43.3333/513.3333 = -8.4416%. Decompose it: the assets in place are revised from 500 to 450, worth -50, and the project moves from an expected (2/3)(20) = 13.3333 to a certain 20, worth +6.6667. Check that prices average back to the prior plus the expected NPV actually captured: 500 + 13.3333 = 513.3333."
+    "answer": 2,
+    "explanation": "With E[V | issue] = 450, alpha = 150/620 = 0.2419; the 600 type's dilution is 36.2903, above the NPV of 20, so it abstains, while the 500 and 400 types issue - all three act as the belief assumes. After an issue the market prices the firm at 450 + 20 = 470; after no issue at 600. Before the announcement P0 = (1/3)(600) + (2/3)(470) = 513.3333, so the return is -43.3333/513.3333 = -8.4416%. The round -4.0000% and -10.0000% are guesses, and -2.9126% measures the fall against the wrong base. Decompose it: the assets in place are revised from 500 to 450, worth -50, and the project moves from an expected (2/3)(20) = 13.3333 to a certain 20, worth +6.6667. Check that prices average back to the prior plus the expected NPV actually captured: 500 + 13.3333 = 513.3333."
   },
   {
     "id": "q169",
@@ -2128,13 +2128,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "In that example the price fell 43.3333 on the announcement while the issuing firm's dilution cost was 12.0968. The gap is:",
     "options": [
-      "A deadweight loss caused by the issue",
       "Not a cost to anybody: it is the market discovering something that was already true before the announcement was made",
-      "The underwriter's fee",
-      "The value of the project transferred to new investors"
+      "A deadweight loss caused by the issue",
+      "The value of the project transferred to new investors",
+      "The underwriter's fee"
     ],
-    "answer": 1,
-    "explanation": "Saying 'the issue destroyed 43.33 of value' is the standard error on this question. The firm of type 500 was always worth 500; before the announcement the market held a blend that still gave weight to its being the top type, and the issue revealed that it is not. The revision is information, not destruction. The real cost to the issuing firm's old shareholders is the dilution of 12.0968, which is 2.36% of the pre-announcement price. Option D confuses the transfer with the revision. Note the symmetry that makes the whole thing an equilibrium: the firms that do NOT issue are repriced upward, and the probability-weighted average returns to the price that prevailed before anyone acted."
+    "answer": 0,
+    "explanation": "Saying 'the issue destroyed 43.33 of value' is the standard error on this question, so calling the gap a deadweight loss is exactly what to avoid. The firm of type 500 was always worth 500; before the announcement the market held a blend that still gave weight to its being the top type, and the issue revealed that it is not. The revision is information, not destruction. The real cost to the issuing firm's old shareholders is the dilution of 12.0968, which is 2.36% of the pre-announcement price, and it is not an underwriting fee - no bank is involved in the revision. Treating the gap as project value transferred to new investors confuses the transfer with the revision. Note the symmetry that makes the whole thing an equilibrium: the firms that do NOT issue are repriced upward, and the probability-weighted average returns to the price that prevailed before anyone acted."
   },
   {
     "id": "q170",
@@ -2149,7 +2149,7 @@ window.EDU_DATA.quizzes = [
       "The market has previously rewarded the same action"
     ],
     "answer": 1,
-    "explanation": "That double inequality is the single-crossing condition and it is the whole theory: if both hold, only the high type signals and the market reads it correctly. Option A is cheap talk - it costs nothing to say, so a low-type manager says the same words and investors learn nothing from either. Option C fails the condition: if the cost is the same for both, everyone signals and the action conveys nothing. Option D is history, not a mechanism. Test any action you propose in a verbal answer against this line - taking on debt, repurchasing shares, raising the dividend and refusing to issue equity all pass it, and an announcement does not."
+    "explanation": "The double inequality - imitation costs the low type more than the gain, which in turn exceeds the high type's cost - is the single-crossing condition and it is the whole theory: if both parts hold, only the high type signals and the market reads it correctly. A public statement that the firm is undervalued is cheap talk - it costs nothing to say, so a low-type manager says the same words and investors learn nothing from either. An action equally costly to both types fails the condition: everyone signals and the action conveys nothing. And a history of being rewarded is not a mechanism. Test any action you propose in a verbal answer against this line - taking on debt, repurchasing shares, raising the dividend and refusing to issue equity all pass it, and an announcement does not."
   },
   {
     "id": "q171",
@@ -2158,13 +2158,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A conglomerate cannot get its opaque technology division valued properly, but its property portfolio trades against monthly comparables. To fund a project it should:",
     "options": [
-      "Issue equity, because that spreads the cost over the whole firm",
       "Sell the property, because the transparent asset fetches its full value while equity in the opaque firm does not",
       "Sell the technology division, since the market does not appreciate it anyway",
-      "Do nothing, because any transaction reveals information"
+      "Do nothing, because any transaction reveals information",
+      "Issue equity, because that spreads the cost over the whole firm"
     ],
-    "answer": 1,
-    "explanation": "Fund from the asset the market values correctly and keep the one it cannot see. In the chapter's case an equity issue costs the old shareholders alpha times the undervaluation, while selling the transparent division at its full value transfers nothing at all. Option C sells the asset that is undervalued, which realises the loss rather than avoiding it. Option D ignores that the choice itself is informative in the right direction: a management that sells property rather than shares behaves like a firm whose shares are underpriced, which is why divestiture and carve-out announcements are typically met with a POSITIVE price reaction while equity issues are met with a negative one."
+    "answer": 0,
+    "explanation": "Fund from the asset the market values correctly and keep the one it cannot see. In the chapter's case an equity issue costs the old shareholders alpha times the undervaluation, while selling the transparent property at its full value transfers nothing at all, so spreading the cost over the whole firm through an equity issue is the expensive route. Selling the technology division disposes of the asset that is undervalued, which realises the loss rather than avoiding it. And doing nothing ignores that the choice itself is informative in the right direction: a management that sells property rather than shares behaves like a firm whose shares are underpriced, which is why divestiture and carve-out announcements are typically met with a POSITIVE price reaction while equity issues are met with a negative one."
   },
   {
     "id": "q172",
@@ -2188,13 +2188,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A firm sells 4,000,000 new shares at an offer price of 75. The underwriting spread is 7% and other direct costs are 9 million. Net proceeds are:",
     "options": [
-      "300.0 million",
-      "279.0 million",
+      "291.0 million",
       "270.0 million",
-      "291.0 million"
+      "279.0 million",
+      "300.0 million"
     ],
-    "answer": 2,
-    "explanation": "Gross proceeds are 4,000,000 x 75 = 300.0 million; the spread is 0.07 x 300.0 = 21.0, so the bank pays the company 279.0; other direct costs of 9.0 leave 270.0. That, not the 300.0, is the number that funds the business. Option A is gross proceeds. Option B stops after the spread and forgets the billed costs, which are largely fixed and therefore hurt small issues most. Option D subtracts the other costs but not the spread. The bank does not invoice for its fee - it keeps a slice of the offer price, which is exactly why it is easy to leave out."
+    "answer": 1,
+    "explanation": "Gross proceeds are 4,000,000 x 75 = 300.0 million; the spread is 0.07 x 300.0 = 21.0, so the bank pays the company 279.0; other direct costs of 9.0 leave 270.0. That, not the 300.0, is the number that funds the business. The 300.0 is gross proceeds. The 279.0 stops after the spread and forgets the billed costs, which are largely fixed and therefore hurt small issues most. The 291.0 subtracts the other costs but not the spread. The bank does not invoice for its fee - it keeps a slice of the offer price, which is exactly why it is easy to leave out."
   },
   {
     "id": "q174",
@@ -2204,12 +2204,12 @@ window.EDU_DATA.quizzes = [
     "q": "The shares in that offering close their first day at 90. The total cost to the pre-IPO owners is:",
     "options": [
       "21.0 million, the underwriting spread",
-      "90.0 million, or 30.00% of gross proceeds: the spread of 21.0, other costs of 9.0 and 60.0 of money left on the table",
       "60.0 million, the money left on the table",
-      "30.0 million, the spread plus other direct costs"
+      "30.0 million, the spread plus other direct costs",
+      "90.0 million, or 30.00% of gross proceeds: the spread of 21.0, other costs of 9.0 and 60.0 of money left on the table"
     ],
-    "answer": 1,
-    "explanation": "Total cost = N_primary x P_close - net proceeds = 4,000,000 x 90 - 270.0 = 360.0 - 270.0 = 90.0, and it decomposes exactly into 21.0 + 9.0 + 60.0. That decomposition is the check to run at the end of any offering question. Underpricing is (90 - 75)/75 = 20.00% and it is more than twice the bank's fee, yet it never appears on an invoice, which is why candidates leave it out - options A, C and D each report one piece. Cross-check from the other direction: to net the same 270.0 at a price of 90 with a 7% spread the firm needed (270 + 9)/(90 x 0.93) = 3,333,333 shares, so it handed over 666,667 shares more than necessary, worth 60.0 at 90."
+    "answer": 3,
+    "explanation": "Total cost = N_primary x P_close - net proceeds = 4,000,000 x 90 - 270.0 = 360.0 - 270.0 = 90.0, and it decomposes exactly into 21.0 + 9.0 + 60.0. That decomposition is the check to run at the end of any offering question. Underpricing is (90 - 75)/75 = 20.00% and it is more than twice the bank's fee, yet it never appears on an invoice, which is why candidates leave it out - the answers 21.0, 60.0 and 30.0 each report one piece of the total. Cross-check from the other direction: to net the same 270.0 at a price of 90 with a 7% spread the firm needed (270 + 9)/(90 x 0.93) = 3,333,333 shares, so it handed over 666,667 shares more than necessary, worth 60.0 at 90."
   },
   {
     "id": "q175",
@@ -2224,7 +2224,7 @@ window.EDU_DATA.quizzes = [
       "The underwriter, who bought the shares at the offer price"
     ],
     "answer": 1,
-    "explanation": "State it precisely, as the examiner does. The company's accounts never see the underpricing - its cash position is the net proceeds either way - so option A confuses the balance sheet with the shareholders. Option C is worse: the pre-IPO owners' stake was diluted by more shares than it needed to be, and 'underpricing is not a payment, it is shares' is the sentence to write. Option D inverts the firm-commitment arrangement: the bank buys at the offer price less the spread and resells, so a first-day rise is a gain for its clients, not a loss for it. Watch the primary/secondary split: if part of the offering is EXISTING shares sold by a venture fund, that fund bears its slice of the underpricing personally, not the company."
+    "explanation": "State it precisely, as the examiner does. The company's accounts never see the underpricing - its cash position is the net proceeds either way - so naming the company as the loser confuses the balance sheet with the shareholders. Saying nobody pays because no cash changes hands is worse: the pre-IPO owners' stake was diluted by more shares than it needed to be, and 'underpricing is not a payment, it is shares' is the sentence to write. Naming the underwriter inverts the firm-commitment arrangement: the bank buys at the offer price less the spread and resells, so a first-day rise is a gain for its clients, not a loss for it. Watch the primary/secondary split: if part of the offering is EXISTING shares sold by a venture fund, that fund bears its slice of the underpricing personally, not the company."
   },
   {
     "id": "q176",
@@ -2233,13 +2233,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Half of offerings turn out to be worth 140 per share and half 100. Informed investors know which; you order 1,000 shares in every one and are cut back to 25% in good offerings and filled in full in bad ones. The offer price at which you break even is:",
     "options": [
-      "120.00, the unconditional expected value",
       "108.00",
+      "100.00, the value of the bad offering",
       "112.00",
-      "100.00, the value of the bad offering"
+      "120.00, the unconditional expected value"
     ],
-    "answer": 1,
-    "explanation": "Work in shares RECEIVED, not shares ordered: 0.50(250)(140 - P) + 0.50(1000)(100 - P) = 0, so 125(140 - P) + 500(100 - P) = 0, hence 17500 + 50000 = 625P and P = 108.00. Option A is the naive benchmark, and at that price you would lose 0.50(250)(20) + 0.50(1000)(-20) = -7,500 per round while the average first-day return across offerings is exactly 0.00% - that contrast is the winner's curse in one line. Option D over-corrects. Check at 108: 125(32) = +4,000 and 500(-8) = -4,000, summing to zero."
+    "answer": 0,
+    "explanation": "Work in shares RECEIVED, not shares ordered: 0.50(250)(140 - P) + 0.50(1000)(100 - P) = 0, so 125(140 - P) + 500(100 - P) = 0, hence 17500 + 50000 = 625P and P = 108.00. The unconditional expected value of 120.00 is the naive benchmark, and at that price you would lose 0.50(250)(20) + 0.50(1000)(-20) = -7,500 per round while the average first-day return across offerings is exactly 0.00% - that contrast is the winner's curse in one line. The intermediate 112.00 under-corrects and the bad offering's value of 100.00 over-corrects. Check at 108: 125(32) = +4,000 and 500(-8) = -4,000, summing to zero."
   },
   {
     "id": "q177",
@@ -2248,13 +2248,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "At that price the measured average first-day return is 0.50(29.6296%) + 0.50(-7.4074%) = 11.1111%. This number is:",
     "options": [
-      "The profit uninformed investors earn on the shares they receive",
-      "Compensation for adverse allocation: uninformed investors break even, and the issuer gives up 12.00 per share against an unconditional value of 120",
       "The underwriter's total fee expressed as a return",
+      "Compensation for adverse allocation: uninformed investors break even, and the issuer gives up 12.00 per share against an unconditional value of 120",
+      "The profit uninformed investors earn on the shares they receive",
       "Evidence that the market is inefficient"
     ],
     "answer": 1,
-    "explanation": "The measured underpricing is not a profit anyone earns. Uninformed investors make a large percentage return on the offerings they barely get into and lose a small one on the offerings they are stuffed with, and it exactly cancels - that is what setting expected profit to zero produced. The cost to the issuer is real, though: shares worth 120 on average are sold for 108, which is 12.00 per share, 8.5714% of the value and 11.1111% of the offer price. Option D confuses adverse selection with mispricing, exactly as in k13. Note that the issuer cannot escape by excluding the informed, because their bids are what builds the book and tells the bank what the offering is worth."
+    "explanation": "The measured underpricing is not a profit anyone earns, so it is not what uninformed investors take home. They make a large percentage return on the offerings they barely get into and lose a small one on the offerings they are stuffed with, and it exactly cancels - that is what setting expected profit to zero produced. Nor is it the bank's fee in disguise; no fee appears anywhere in this calculation. The cost to the issuer is real, though: shares worth 120 on average are sold for 108, which is 12.00 per share, 8.5714% of the value and 11.1111% of the offer price. Reading the number as evidence of an inefficient market confuses adverse selection with mispricing, exactly as in k13. Note that the issuer cannot escape by excluding the informed, because their bids are what builds the book and tells the bank what the offering is worth."
   },
   {
     "id": "q178",
@@ -2263,13 +2263,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A company with 50,000,000 shares trading at 60 raises 450 million in a 1-for-5 rights issue at a subscription price of 45. The theoretical ex-rights price and the value of one right are:",
     "options": [
-      "TERP = 57.50 and each right is worth 2.50",
-      "TERP = 60.00 and each right is worth 15.00",
+      "TERP = 45.00 and each right is worth zero",
       "TERP = 52.50 and each right is worth 7.50",
-      "TERP = 45.00 and each right is worth zero"
+      "TERP = 57.50 and each right is worth 2.50",
+      "TERP = 60.00 and each right is worth 15.00"
     ],
-    "answer": 0,
-    "explanation": "New shares = 50,000,000/5 = 10,000,000 at 45, which raises 450 million. TERP = (3,000 + 450)/60 million shares = 57.50, and the right is worth P_cum - TERP = 60 - 57.50 = 2.50. Cross-check the other way: five rights plus 45 buy a share worth 57.50, a gain of 12.50 spread over five rights, so 2.50 each. Option B denies that the price falls at all, which is arithmetic rather than opinion: the share count rises by 20% while the value inside the firm rises by 15%. Every valuation after the ex-rights date uses TERP, not the cum price; keep using 60 where 57.50 belongs and every later sub-question inherits the error."
+    "answer": 2,
+    "explanation": "New shares = 50,000,000/5 = 10,000,000 at 45, which raises 450 million. TERP = (3,000 + 450)/60 million shares = 57.50, and the right is worth P_cum - TERP = 60 - 57.50 = 2.50. Cross-check the other way: five rights plus 45 buy a share worth 57.50, a gain of 12.50 spread over five rights, so 2.50 each. Holding the price at 60.00 denies that the price falls at all, which is arithmetic rather than opinion: the share count rises by 20% while the value inside the firm rises by 15%. The 52.50 and the 45.00 confuse the subscription price with the post-issue price, and a right is never worthless when the subscription price sits below it. Every valuation after the ex-rights date uses TERP, not the cum price; keep using 60 where 57.50 belongs and every later sub-question inherits the error."
   },
   {
     "id": "q179",
@@ -2284,7 +2284,7 @@ window.EDU_DATA.quizzes = [
       "60,000 only if he sells the rights instead of subscribing"
     ],
     "answer": 1,
-    "explanation": "TERP = 3,450/65 = 53.0769 and the right is worth 60 - 53.0769 = 6.9231. Subscribing for 300 new shares costs 9,000 and leaves 1,300 shares worth 1,300 x 53.0769 = 69,000, so wealth is 60,000 - exactly the 1,000 x 60 he started with, and exactly what the 1-for-5 at 45 produced. The subscription discount is a choice about how many new shares to create, not about how much value to give away. What it DOES change is the penalty for inaction: letting the rights lapse now costs 6,923.08 instead of 2,500. Option A is the most common misreading of a Norwegian rights issue; the only shareholder who loses is the one who neither subscribes nor sells."
+    "explanation": "TERP = 3,450/65 = 53.0769 and the right is worth 60 - 53.0769 = 6.9231. Subscribing for 300 new shares costs 9,000 and leaves 1,300 shares worth 1,300 x 53.0769 = 69,000, so wealth is 60,000 - exactly the 1,000 x 60 he started with, and exactly what the 1-for-5 at 45 produced. The subscription discount is a choice about how many new shares to create, not about how much value to give away, so he is neither diluted by the deeper discount nor enriched by the cheaper shares, and the 60,000 does not depend on whether he sells the rights or uses them. What the discount DOES change is the penalty for inaction: letting the rights lapse now costs 6,923.08 instead of 2,500. The dilution reading is the most common misinterpretation of a Norwegian rights issue; the only shareholder who loses is the one who neither subscribes nor sells."
   },
   {
     "id": "q180",
@@ -2321,13 +2321,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "In a perfect market the ex-dividend price falls by exactly the dividend because:",
     "options": [
-      "Accounting rules require the equity account to be reduced",
       "Buying cum-dividend, collecting the dividend and selling ex would otherwise be a riskless profit, so trade closes the gap",
       "Investors dislike dividends and sell before the ex-date",
+      "Accounting rules require the equity account to be reduced",
       "The firm's assets fall in value by the amount paid out"
     ],
-    "answer": 1,
-    "explanation": "At a cum price of 30.00 with a 5.00 dividend, an ex price of 26.00 would let you pay 30.00 and receive 31.00 overnight with no risk and no capital tied up. Everyone would do it, the cum price is bid up or the ex price driven down, and the gap closes at exactly 5.00. The drop is enforced by trade, the same way MM Proposition I was in k6. Option D is nearly right but says it backwards: the CASH falls by the amount paid, and the operating assets are untouched - it is the claim on the cash that leaves with it. Option C would predict a drop of the wrong size and is a tax story, which belongs to k16, where the drop becomes Div x (1 - tau_d)/(1 - tau_g)."
+    "answer": 0,
+    "explanation": "At a cum price of 30.00 with a 5.00 dividend, an ex price of 26.00 would let you pay 30.00 and receive 31.00 overnight with no risk and no capital tied up. Everyone would do it, the cum price is bid up or the ex price driven down, and the gap closes at exactly 5.00. The drop is enforced by trade, the same way MM Proposition I was in k6, not by an accounting requirement to reduce the equity account. Saying the firm's assets fall by the amount paid is nearly right but backwards: the CASH falls by the amount paid, and the operating assets are untouched - it is the claim on the cash that leaves with it. And a wave of selling by investors who dislike dividends would predict a drop of the wrong size; that is a tax story, and it belongs to k16, where the drop becomes Div x (1 - tau_d)/(1 - tau_g)."
   },
   {
     "id": "q183",
@@ -2336,13 +2336,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A firm has 25 million shares, operations worth 500 (FCF 50 at rU = 10.00%) and 125 of excess cash, so P0 = 25.00. Compare paying the 125 as a dividend with using it to repurchase shares.",
     "options": [
+      "Both leave the price at 25.00, since payout is irrelevant",
       "Dividend: ex-price 20.00 on 25 million shares. Repurchase: 5 million shares bought, 20 million left, price still 25.00. Both leave a holder with 2,500 per 100 shares",
-      "Dividend: ex-price 20.00. Repurchase: price rises to 31.25 because fewer shares share the same firm",
       "Dividend: price unchanged at 25.00, since the cash was already in the price. Repurchase: price falls to 20.00",
-      "Both leave the price at 25.00, since payout is irrelevant"
+      "Dividend: ex-price 20.00. Repurchase: price rises to 31.25 because fewer shares share the same firm"
     ],
-    "answer": 0,
-    "explanation": "A dividend changes the NUMERATOR and a repurchase changes the DENOMINATOR, and per share the two arrive at the same place. Dividend: DPS = 125/25 = 5.00, ex-price 20.00, market capitalisation 500. Repurchase: n = 125/25.00 = 5 million, N1 = 20 million, E1 = 500, price 500/20 = 25.00. Option B forgets that the firm handed over cash worth exactly what it bought, so a repurchase at a fair price is a zero-NPV transaction. Option D confuses irrelevance of WEALTH with constancy of the quoted price: the two routes leave different prices and different share counts, and identical wealth. Confirm through the ongoing dividend: 50/25 = 2.00 at 10% is 20.00, and 50/20 = 2.50 at 10% is 25.00."
+    "answer": 1,
+    "explanation": "A dividend changes the NUMERATOR and a repurchase changes the DENOMINATOR, and per share the two arrive at the same place. Dividend: DPS = 125/25 = 5.00, ex-price 20.00, market capitalisation 500. Repurchase: n = 125/25.00 = 5 million, N1 = 20 million, E1 = 500, price 500/20 = 25.00. A repurchase price of 31.25 forgets that the firm handed over cash worth exactly what it bought, so a repurchase at a fair price is a zero-NPV transaction. The route that leaves the dividend price at 25.00 and drops the repurchase price to 20.00 has the two transactions swapped. And holding both at 25.00 because payout is irrelevant confuses irrelevance of WEALTH with constancy of the quoted price: the two routes leave different prices and different share counts, and identical wealth. Confirm through the ongoing dividend: 50/25 = 2.00 at 10% is 20.00, and 50/20 = 2.50 at 10% is 25.00."
   },
   {
     "id": "q184",
@@ -2352,12 +2352,12 @@ window.EDU_DATA.quizzes = [
     "q": "A shareholder holding 100 shares receives the 5.00 dividend and does not want the cash. He rebuilds his position by reinvesting the 500 at:",
     "options": [
       "25.00, the cum-dividend price, buying 20 shares",
+      "He cannot: once paid, the dividend cannot be undone",
       "20.00, the ex-dividend price, buying 25 shares and ending with 125",
-      "The average of the two prices",
-      "He cannot: once paid, the dividend cannot be undone"
+      "The average of the two prices"
     ],
-    "answer": 1,
-    "explanation": "Reinvestment happens at the price at which the shares now trade, which is the ex-dividend price of 20.00, so he buys 25 shares and holds 125 worth 2,500 - identical to the 100 shares worth 2,500 he would have held under the repurchase route. Check by OWNERSHIP FRACTION rather than by share count, since the two routes leave different totals outstanding: 125/25,000,000 and 100/20,000,000 are both 0.0000060. Option A is the mirror image of the standard repurchase error and it makes the check fail, since 120 shares out of 25 million is a smaller claim. Option D denies homemade dividends: a shareholder who wants cash under the repurchase route sells 500/25.00 = 20 shares and ends in exactly the dividend position."
+    "answer": 2,
+    "explanation": "Reinvestment happens at the price at which the shares now trade, which is the ex-dividend price of 20.00, so he buys 25 shares and holds 125 worth 2,500 - identical to the 100 shares worth 2,500 he would have held under the repurchase route. Check by OWNERSHIP FRACTION rather than by share count, since the two routes leave different totals outstanding: 125/25,000,000 and 100/20,000,000 are both 0.0000060. Reinvesting at the cum-dividend price of 25.00 is the mirror image of the standard repurchase error and it makes the check fail, since 120 shares out of 25 million is a smaller claim; averaging the two prices is the same mistake by half. And saying the dividend cannot be undone denies homemade dividends: a shareholder who wants cash under the repurchase route sells 500/25.00 = 20 shares and ends in exactly the dividend position."
   },
   {
     "id": "q185",
@@ -2372,7 +2372,7 @@ window.EDU_DATA.quizzes = [
       "6.6667%"
     ],
     "answer": 1,
-    "explanation": "V stays 1500, so E1 = 900 and D/E = 600/900 = 0.6667. Then rE = 0.0800 + 0.666667(0.0800 - 0.0400) = 0.0800 + 0.026667 = 0.106667. Check it: (900/1500)(0.106667) + (600/1500)(0.0400) = 0.0640 + 0.0160 = 0.0800 = rU, so the pre-tax WACC is flat. Option A forgets to relever - the firm is no longer all-equity. Option C substitutes D/V = 0.40 into a formula that takes D/E, and the check then fails. Option D subtracts the spread instead of adding it. rE is the same on both payout routes, because leverage D/E is the same on both."
+    "explanation": "V stays 1500, so E1 = 900 and D/E = 600/900 = 0.6667. Then rE = 0.0800 + 0.666667(0.0800 - 0.0400) = 0.0800 + 0.026667 = 0.106667. Check it: (900/1500)(0.106667) + (600/1500)(0.0400) = 0.0640 + 0.0160 = 0.0800 = rU, so the pre-tax WACC is flat. Leaving rE at 8.0000% forgets to relever - the firm is no longer all-equity. The 12.0000% substitutes D/V = 0.40 into a formula that takes D/E, and the check then fails. The 6.6667% subtracts the spread instead of adding it. rE is the same on both payout routes, because leverage D/E is the same on both."
   },
   {
     "id": "q186",
@@ -2382,12 +2382,12 @@ window.EDU_DATA.quizzes = [
     "q": "Same firm and same 600 of debt, paid out as a special dividend rather than a buyback. The ex-dividend price and the ongoing dividend per share are:",
     "options": [
       "18.00 and 1.92",
-      "30.00 and 3.20",
       "18.00 and 3.20",
+      "30.00 and 3.20",
       "12.00 and 2.40"
     ],
     "answer": 0,
-    "explanation": "DPS_special = 600/50 = 12.00, so the ex-dividend price is 30.00 - 12.00 = 18.00 on an unchanged 50 million shares, and 50 x 18.00 = 900 = E1. Interest is 0.04 x 600 = 24, leaving 96 for equity, so the ongoing DPS is 96/50 = 1.92 and 1.92/0.106667 = 18.00 confirms it. Option B is the repurchase route (price 30.00, 96/30 = 3.20 per share on 30 million shares). Option C mixes one from each. The two routes split differently between price and share count and are identical in every other respect, which is the sentence the exam wants."
+    "explanation": "DPS_special = 600/50 = 12.00, so the ex-dividend price is 30.00 - 12.00 = 18.00 on an unchanged 50 million shares, and 50 x 18.00 = 900 = E1. Interest is 0.04 x 600 = 24, leaving 96 for equity, so the ongoing DPS is 96/50 = 1.92 and 1.92/0.106667 = 18.00 confirms it. The pair 30.00 and 3.20 is the repurchase route, where the price holds and 96/30 is paid on 30 million shares; pairing 18.00 with 3.20 takes one figure from each route. And 12.00 reports the special dividend itself as the price. The two routes split differently between price and share count and are identical in every other respect, which is the sentence the exam wants."
   },
   {
     "id": "q187",
@@ -2396,13 +2396,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "The board considers holding 125 of cash for one year at rf = 4.00% and paying it out then instead of now. A shareholder who wants his money today:",
     "options": [
-      "Is worse off by the year's interest",
       "Does not care: he borrows 500 against his 100 shares at 4.00%, and the 520 he receives next year exactly repays 520",
+      "Cannot replicate the immediate payout without selling shares",
       "Is better off, because deferral defers his tax",
-      "Cannot replicate the immediate payout without selling shares"
+      "Is worse off by the year's interest"
     ],
-    "answer": 1,
-    "explanation": "The account pays 125 x 1.04 = 130 in a year, risk-free, worth 130/1.04 = 125 today, so today's price does not move: retaining cash is negative debt and creates nothing. A holder of 100 shares wanting 500 now borrows 500 at 4.00%; next year he receives 100 x (130/25) = 520 and repays 500 x 1.04 = 520, exactly cancelling. Option C imports a friction that this chapter has assumed away and k16 prices. Option D is wrong twice: selling shares is one homemade route and borrowing is another, and both are available at the same prices the firm faces. The step that can fail is borrowing the PRESENT VALUE of what you will receive - borrow 520 instead and the year-end receipt falls 20.80 short."
+    "answer": 0,
+    "explanation": "The account pays 125 x 1.04 = 130 in a year, risk-free, worth 130/1.04 = 125 today, so today's price does not move: retaining cash is negative debt and creates nothing, and no year's interest is lost to him. A holder of 100 shares wanting 500 now borrows 500 at 4.00%; next year he receives 100 x (130/25) = 520 and repays 500 x 1.04 = 520, exactly cancelling. Being better off through deferred tax imports a friction that this chapter has assumed away and k16 prices. And the claim that he cannot replicate the payout without selling shares is wrong twice: selling shares is one homemade route and borrowing is another, and both are available at the same prices the firm faces. The step that can fail is borrowing the PRESENT VALUE of what you will receive - borrow 520 instead and the year-end receipt falls 20.80 short."
   },
   {
     "id": "q188",
@@ -2442,13 +2442,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "An investor pays tau_d = 35% on dividends and tau_g = 25% on realised capital gains. The effective dividend tax rate is:",
     "options": [
+      "26.6667%",
       "10.0000%",
-      "13.3333%",
       "35.0000%",
-      "26.6667%"
+      "13.3333%"
     ],
-    "answer": 1,
-    "explanation": "tau*_d = (tau_d - tau_g)/(1 - tau_g) = (0.3500 - 0.2500)/0.7500 = 0.1000/0.7500 = 0.133333. Option A is the raw difference in rates and ignores that the capital gain is itself taxed, which is what makes the penalty RELATIVE to a gain larger than the gap between the rates. Option C is the dividend rate itself, which would be the answer only if capital gains were untaxed. Option D divides by (1 - tau_d) instead. When tau_d equals tau_g the measure is zero and k15's full ex-dividend drop returns."
+    "answer": 3,
+    "explanation": "tau*_d = (tau_d - tau_g)/(1 - tau_g) = (0.3500 - 0.2500)/0.7500 = 0.1000/0.7500 = 0.133333. The answer 10.0000% is the raw difference in rates and ignores that the capital gain is itself taxed, which is what makes the penalty RELATIVE to a gain larger than the gap between the rates. The answer 35.0000% is the dividend rate itself, which would be right only if capital gains were untaxed. The answer 26.6667% divides by (1 - tau_d) instead. When tau_d equals tau_g the measure is zero and k15's full ex-dividend drop returns."
   },
   {
     "id": "q191",
@@ -2457,13 +2457,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A share trades at 80.00 the day before it goes ex on a dividend of 6.00, with tau_d = 35% and tau_g = 25%. The ex-dividend price is:",
     "options": [
-      "74.00",
       "74.80",
+      "80.00",
       "76.10",
-      "80.00"
+      "74.00"
     ],
-    "answer": 1,
-    "explanation": "P_cum - P_ex = Div x (1 - tau_d)/(1 - tau_g) = 6.00 x 0.65/0.75 = 5.20, so P_ex = 74.80: the price falls by LESS than the dividend, because a krone of dividend is worth less in the hand than a krone of price given up. Verify with a cost basis of 50: selling cum yields 80.00 - 0.25(30.00) = 72.50, while holding through yields 6.00(0.65) + 74.80 - 0.25(24.80) = 3.90 + 68.60 = 72.50, so the investor is indifferent and 74.80 is the equilibrium. Option A is k15's perfect-market drop, and at that price holding through pays only 71.90 against 72.50 for selling first, so everyone would sell cum-dividend - not an equilibrium. The leak to the tax authority is 6.00 - 5.20 = 0.80 = 6.00 x tau*_d."
+    "answer": 0,
+    "explanation": "P_cum - P_ex = Div x (1 - tau_d)/(1 - tau_g) = 6.00 x 0.65/0.75 = 5.20, so P_ex = 74.80: the price falls by LESS than the dividend, because a krone of dividend is worth less in the hand than a krone of price given up. Verify with a cost basis of 50: selling cum yields 80.00 - 0.25(30.00) = 72.50, while holding through yields 6.00(0.65) + 74.80 - 0.25(24.80) = 3.90 + 68.60 = 72.50, so the investor is indifferent and 74.80 is the equilibrium. A fall to 74.00 is k15's perfect-market drop, and at that price holding through pays only 71.90 against 72.50 for selling first, so everyone would sell cum-dividend - not an equilibrium. A price of 76.10 shrinks the drop too far, and no fall at all ignores the payout entirely. The leak to the tax authority is 6.00 - 5.20 = 0.80 = 6.00 x tau*_d."
   },
   {
     "id": "q192",
@@ -2472,13 +2472,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A repurchase is taxed more lightly than a dividend for three separate reasons. They are:",
     "options": [
-      "A lower rate, a smaller base, and deferral for everyone who does not tender",
-      "A lower rate, a larger base, and no withholding",
       "Deferral, a lower rate, and exemption for institutional holders",
+      "A lower rate, a larger base, and no withholding",
+      "A lower rate, a smaller base, and deferral for everyone who does not tender",
       "A smaller base, a lower rate, and the fact that the firm deducts the payment"
     ],
-    "answer": 0,
-    "explanation": "Rate: tau_g instead of tau_d. Base: only the gain (P minus basis), not the whole payment. Deferral: shareholders who do not tender pay nothing until they eventually sell. Name all three; an answer giving one earns a fraction of the marks. Option B has the base backwards - the base is smaller, which is the point. Option D invents a corporate deduction: neither dividends nor repurchases are deductible, which is why the interest shield of k7 exists at all. Value the deferral as a present value rather than assuming it away: it is a delay, not a saving, and the shares that remain carry a LARGER unrealised gain under the repurchase."
+    "answer": 2,
+    "explanation": "Rate: tau_g instead of tau_d. Base: only the gain (P minus basis), not the whole payment. Deferral: shareholders who do not tender pay nothing until they eventually sell. Name all three; an answer giving one earns a fraction of the marks. The version with a LARGER base has that term backwards - the base is smaller, which is the point - and withholding is not one of the three. An exemption for institutional holders is not a general feature of the comparison. And the claim that the firm deducts the payment invents a corporate deduction: neither dividends nor repurchases are deductible, which is why the interest shield of k7 exists at all. Value the deferral as a present value rather than assuming it away: it is a delay, not a saving, and the shares that remain carry a LARGER unrealised gain under the repurchase."
   },
   {
     "id": "q193",
@@ -2488,12 +2488,12 @@ window.EDU_DATA.quizzes = [
     "q": "25 million shares trade at 40.00 with a basis of 25.00; the firm distributes 200. tau_d = 30%, tau_g = 20%, remaining shares are expected to be sold in 8 years and the deferred liability is discounted at 5.00%. The present value of tax paid is:",
     "options": [
       "60.00 as a dividend and 15.00 as a repurchase, a saving of 45.00",
+      "The same under both, since the same 200 leaves the firm",
       "83.69 as a dividend and 55.61 as a repurchase, a saving of 28.08",
-      "60.00 as a dividend and 55.61 as a repurchase, a saving of 4.39",
-      "The same under both, since the same 200 leaves the firm"
+      "60.00 as a dividend and 55.61 as a repurchase, a saving of 4.39"
     ],
-    "answer": 1,
-    "explanation": "Dividend: DPS = 8.00, ex-price 32.00, tax now 0.30 x 200 = 60.00; the 25 million shares then carry an unrealised gain of 7.00 each, so 35.00 of future tax with a present value of 35.00/1.05^8 = 23.69, giving 83.69. Repurchase: 5 million shares bought at 40.00 realise a gain of 15.00 each, so 15.00 of tax now; the remaining 20 million carry a gain of 15.00 each, so 60.00 of future tax worth 40.61 today, giving 55.61. The saving is 28.08, about 14% of the amount distributed. Option A stops at the immediate tax and ignores the larger embedded gain the repurchase leaves behind, which is the half of the comparison candidates drop. Pre-tax wealth is 1000 on both routes, which is the check that the comparison is measuring tax and nothing else."
+    "answer": 2,
+    "explanation": "Dividend: DPS = 8.00, ex-price 32.00, tax now 0.30 x 200 = 60.00; the 25 million shares then carry an unrealised gain of 7.00 each, so 35.00 of future tax with a present value of 35.00/1.05^8 = 23.69, giving 83.69. Repurchase: 5 million shares bought at 40.00 realise a gain of 15.00 each, so 15.00 of tax now; the remaining 20 million carry a gain of 15.00 each, so 60.00 of future tax worth 40.61 today, giving 55.61. The saving is 28.08, about 14% of the amount distributed. The pair 60.00 and 15.00 stops at the immediate tax and ignores the larger embedded gain the repurchase leaves behind, which is the half of the comparison candidates drop; pairing 60.00 with 55.61 makes that omission on one side only. And the two routes are certainly not equal: the same 200 leaves the firm, but it is taxed at different rates, on different bases, at different times. Pre-tax wealth is 1000 on both routes, which is the check that the comparison is measuring tax and nothing else."
   },
   {
     "id": "q194",
@@ -2502,13 +2502,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "30 million shares trade at 25.00. The firm makes a fixed-price tender offer for 6 million shares at 28.00 and every holder tenders, so the purchase is pro rata. Afterwards:",
     "options": [
-      "The price is 28.00, since that is what the firm paid",
-      "The price is 24.25, and a holder who tenders pro rata is left with exactly 25.00 per original share",
+      "The price is 24.25, and every shareholder gains the 12% premium",
       "The price is 25.00, because a repurchase is always price-neutral",
-      "The price is 24.25, and every shareholder gains the 12% premium"
+      "The price is 28.00, since that is what the firm paid",
+      "The price is 24.25, and a holder who tenders pro rata is left with exactly 25.00 per original share"
     ],
-    "answer": 1,
-    "explanation": "Outlay = 6 x 28.00 = 168, so E1 = 750 - 168 = 582 on 24 million shares, giving P1 = 24.25 - BELOW the 25.00 it started at, because the premium was paid out of the shares that remain. Wealth per original share = 0.20(28.00) + 0.80(24.25) = 5.60 + 19.40 = 25.00. Option D is the error the mechanism is designed to expose: the premium is a TRANSFER from those who stay to those who sell, which is why fixed-price offers are almost always oversubscribed and pro-rated. Option A produces a firm that gained 60 by handing out its own cash (168 + 24 x 28.00 = 840 against 750), which is the contradiction that catches the mistake. A holder who does not tender loses 0.75 per share."
+    "answer": 3,
+    "explanation": "Outlay = 6 x 28.00 = 168, so E1 = 750 - 168 = 582 on 24 million shares, giving P1 = 24.25 - BELOW the 25.00 it started at, because the premium was paid out of the shares that remain. Wealth per original share = 0.20(28.00) + 0.80(24.25) = 5.60 + 19.40 = 25.00. The reading in which everyone gains the 12% premium is the error the mechanism is designed to expose: the premium is a TRANSFER from those who stay to those who sell, which is why fixed-price offers are almost always oversubscribed and pro-rated. A post-offer price of 28.00 produces a firm that gained 60 by handing out its own cash (168 + 24 x 28.00 = 840 against 750), which is the contradiction that catches the mistake, and 25.00 would require the repurchase to have been made at the market price, which it was not. A holder who does not tender loses 0.75 per share."
   },
   {
     "id": "q195",
@@ -2517,13 +2517,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "The same 6 million shares are instead bought by Dutch auction. Shareholders offer 1.5 million at 25.50, 2.0 million at 26.00 and 3.5 million at 26.50. The clearing price and the resulting share price are:",
     "options": [
-      "26.50 and 24.625, with the 26.50 bids pro-rated to 71.4286%",
-      "25.50 and 24.625, since the firm pays the lowest price offered",
       "26.50 and 24.25, the same as the fixed-price offer",
-      "26.00 and 24.50, where supply first exceeds demand"
+      "25.50 and 24.625, since the firm pays the lowest price offered",
+      "26.00 and 24.50, where supply first exceeds demand",
+      "26.50 and 24.625, with the 26.50 bids pro-rated to 71.4286%"
     ],
-    "answer": 0,
-    "explanation": "Cumulative supply reaches 1.5, then 3.5, then 7.0 million, so the lowest price at which it reaches 6.0 million is 26.50. Everyone who tendered at or below 26.50 is paid 26.50, and the 26.50 bids are pro-rated: 2.5 of the 3.5 million offered there, or 71.4286%. Outlay = 159, so E1 = 591 on 24 million shares and P1 = 24.625. Option B misreads the mechanism - a single clearing price is paid to all successful tenderers, not each holder's own bid. Compared with the fixed-price offer the auction bought the same 6 million shares for 159 rather than 168, and the remaining price is higher by exactly 9/24 = 0.375. That saving to the shareholders who stay is why a firm that does not need speed prefers the auction."
+    "answer": 3,
+    "explanation": "Cumulative supply reaches 1.5, then 3.5, then 7.0 million, so the lowest price at which it reaches 6.0 million is 26.50. Everyone who tendered at or below 26.50 is paid 26.50, and the 26.50 bids are pro-rated: 2.5 of the 3.5 million offered there, or 71.4286%. Outlay = 159, so E1 = 591 on 24 million shares and P1 = 24.625. Paying the lowest price offered misreads the mechanism - a single clearing price is paid to all successful tenderers, not each holder's own bid. Clearing at 26.00 stops where cumulative supply is still only 3.5 million, and pairing the right clearing price with the fixed-price offer's 24.25 forgets that the outlay is 9 lower here. Compared with the fixed-price offer the auction bought the same 6 million shares for 159 rather than 168, and the remaining price is higher by exactly 9/24 = 0.375. That saving to the shareholders who stay is why a firm that does not need speed prefers the auction."
   },
   {
     "id": "q196",
@@ -2532,13 +2532,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "A firm announces a repurchase and the share price rises. The correct interpretation is:",
     "options": [
-      "The repurchase created value equal to the price rise",
       "The announcement is read as management saying the shares are undervalued, so the price moved towards a value that was already there",
+      "The repurchase created value equal to the price rise",
       "The remaining shareholders gained at the expense of those who tendered",
       "Earnings per share rose, and the price followed"
     ],
-    "answer": 1,
-    "explanation": "Everything the repurchase itself does is the k15 arithmetic, which is neutral. Buying shares at the market price is profitable for the remaining holders precisely when the shares are cheap, so the announcement is informative - and the shares were already worth more than the market thought. Keep the two claims apart in your writing: 'this is a signal about existing value' scores, and 'this creates value' is the error the keys look for. Option D confuses accounting with value: the shares that would have shared those earnings were bought and cancelled, and the holders paid for that out of the firm's own cash. The signal is weaker than a dividend increase, because an open-market programme is an announcement of intent rather than a commitment, and stronger when management's own large holdings are not tendered."
+    "answer": 0,
+    "explanation": "Everything the repurchase itself does is the k15 arithmetic, which is neutral, so the transaction did not create value equal to the price rise. Buying shares at the market price is profitable for the remaining holders precisely when the shares are cheap, so the announcement is informative - and the shares were already worth more than the market thought. Keep the two claims apart in your writing: 'this is a signal about existing value' scores, and 'this creates value' is the error the keys look for. Nor did the remaining holders gain at the tenderers' expense: an open-market purchase at the market price transfers nothing. And the earnings-per-share story confuses accounting with value: the shares that would have shared those earnings were bought and cancelled, and the holders paid for that out of the firm's own cash. The signal is weaker than a dividend increase, because an open-market programme is an announcement of intent rather than a commitment, and stronger when management's own large holdings are not tendered."
   },
   {
     "id": "q197",
@@ -2547,13 +2547,13 @@ window.EDU_DATA.quizzes = [
     "type": "mcq",
     "q": "Which instrument disciplines a cash-rich management more, and which do managers prefer?",
     "options": [
+      "Neither disciplines, since payout is irrelevant",
       "The repurchase disciplines more, and managers prefer the dividend",
       "The regular dividend disciplines more because it is sticky and forces the firm back to the capital market, while managers prefer the open-market repurchase because it commits to nothing",
-      "Both discipline equally, since the same cash leaves",
-      "Neither disciplines, since payout is irrelevant"
+      "Both discipline equally, since the same cash leaves"
     ],
-    "answer": 1,
-    "explanation": "The two instruments differ in COMMITMENT, and that is the only difference that matters here. A regular dividend is sticky, so raising it hands the market a stick to beat management with next year and forces the firm back to outside investors for funding, where every project is priced by people who are not on the payroll. An open-market programme can be quietly abandoned - programmes are routinely only partly completed. Option C ignores the commitment asymmetry. Option D applies k15's benchmark where a friction has been restored: with agency costs of equity present, forcing cash out creates real value. The same feature explains the observed pattern: repurchases absorb the transitory part of earnings, the regular dividend the part management believes is permanent."
+    "answer": 2,
+    "explanation": "The two instruments differ in COMMITMENT, and that is the only difference that matters here. A regular dividend is sticky, so raising it hands the market a stick to beat management with next year and forces the firm back to outside investors for funding, where every project is priced by people who are not on the payroll. An open-market programme can be quietly abandoned - programmes are routinely only partly completed - which is exactly why managers prefer it, so the pairing that has the repurchase disciplining more and managers preferring dividends is backwards on both counts. Saying both discipline equally because the same cash leaves ignores the commitment asymmetry. And saying neither disciplines because payout is irrelevant applies k15's benchmark where a friction has been restored: with agency costs of equity present, forcing cash out creates real value. The same feature explains the observed pattern: repurchases absorb the transitory part of earnings, the regular dividend the part management believes is permanent."
   },
   {
     "id": "q198",
@@ -2661,6 +2661,2742 @@ window.EDU_DATA.quizzes = [
       "Position afterwards: 16,000,000 shares at 90 gives a market capitalisation of 1,440.0, of which the pre-IPO owners hold 12/16 = 75%, worth 1,080.0.",
       "Second route to the same 60.0, and the one that shows what underpricing IS. To net the same 270.0 at a price of 90 with a 7% spread, the firm needed (270.0 + 9.0)/(90 x 0.93) = 279.0/83.70 = 3,333,333 shares. It sold 4,000,000, so it handed over 666,667 shares more than necessary, worth 60.0 at 90. Underpricing is not a payment, it is shares.",
       "State the incidence precisely, as the examiner does: the cost of underpricing falls on the PRE-ISSUE SHAREHOLDERS, in shares, in proportion to how many PRIMARY shares were sold. The company's cash position is 270.0 either way. Had 1,000,000 of the four million been SECONDARY shares sold by a venture fund, that fund would have received 75 x 0.93 = 69.75 per share instead of the 90 the market paid within hours, and it would bear that slice of the underpricing itself."
+    ]
+  },
+  {
+    "id": "q501",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "The three empirical facts about takeovers are: target shareholders earn a premium of roughly 20-40%, acquirer announcement returns are close to zero, and deals cluster in waves. Which single mechanism explains the first two at once?",
+    "options": [
+      "The free-rider problem: each dispersed target holder can refuse to tender, so the bidder must offer essentially the whole improvement",
+      "Competition authorities force acquirers to pay a regulated price",
+      "Target boards are legally obliged to accept the highest bid on the table",
+      "Accounting rules require the premium to be recognised as goodwill"
+    ],
+    "answer": 0,
+    "explanation": "One mechanism, two facts. A raider who can lift a target from 45 to 60 faces holders each of whom owns a negligible fraction, so no single tender decision changes whether the bid succeeds. If the bid is expected to succeed, holding out is worth 60 and tendering below 60 is worse, so everyone holds out and the bid fails at any price under 60. The premium is therefore large (fact one) and almost nothing is left for the acquirer (fact two). Competition authorities, goodwill accounting and board duties are real constraints, but none of them predicts both facts from one argument, and none of them sets the price a bidder must offer. The standard escapes are a secret toehold built before announcement and a bid made coercive by freezing out non-tendering holders."
+  },
+  {
+    "id": "q502",
+    "ch": 26,
+    "oppg": 3,
+    "type": "short",
+    "q": "The target's share price jumps on announcement but stops below the offer price. Explain what the gap measures, and say what you throw away if you treat the post-announcement price as the offer.",
+    "model": [
+      "The gap is the market discounting the possibility that the deal never closes: a competition authority blocks it, financing collapses, or either set of shareholders votes it down.",
+      "A share bought today at the post-announcement price pays the offer only in the completion branch; in the failure branch it reverts to roughly the pre-announcement price. The price is therefore a probability-weighted, discounted average of the two, not the offer.",
+      "The gap is the only information the question contains about deal risk. Section 26.6 converts it into a number: the implied probability of completion, worth 12 of the 20 points in H2025 Exercise 6.",
+      "If you treat the post-announcement price as the offer, you compute a premium that nobody is receiving and you destroy the input to the probability calculation.",
+      "State the assumption when you use it: the calculation also assumes nothing else moved the prices that day and that the announcement said nothing new about the target as a stand-alone business."
+    ]
+  },
+  {
+    "id": "q503",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE A. Storfjord Verft ASA has 60 million shares at 90 NOK. It offers ER = 0.4000 of its own shares per share of Kvaloy Marin AS, which has 25 million shares at 32 NOK. Synergies are S = 350 million. What is the merged share price P_new?",
+    "options": [
+      "96.4286 NOK",
+      "90.0000 NOK",
+      "93.5714 NOK",
+      "92.1429 NOK"
+    ],
+    "answer": 2,
+    "explanation": "A = 60 x 90 = 5400, T = 25 x 32 = 800, so A + T + S = 6550. New shares x = 0.4000 x 25 = 10.00 million, total 70.00 million. P_new = 6550/70 = 93.5714. The unchanged 90.0000 NOK is the pre-announcement price, which would be right only at ER_max, where the acquirer keeps nothing. The other two figures come from a wrong numerator or a wrong denominator: dropping the synergy gives 6200/70 = 88.5714, and dividing by the acquirer's own 60 million shares gives 6550/60 = 109.1667. The share count in the denominator must be N_A + x, never N_A and never N_A + N_T."
+  },
+  {
+    "id": "q504",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE A continued (A = 5400, T = 800, S = 350, x = 10.00, total shares 70.00, P_new = 93.5714). What are NPV_A and NPV_T?",
+    "options": [
+      "NPV_A = 214.2857 and NPV_T = 135.7143",
+      "NPV_A = 100.0000 and NPV_T = 250.0000",
+      "NPV_A = 350.0000 and NPV_T = 0.0000",
+      "NPV_A = 135.7143 and NPV_T = 214.2857"
+    ],
+    "answer": 0,
+    "explanation": "y = 10/70 = 0.14285714. NPV_A = (1 - y)(6550) - 5400 = 5614.2857 - 5400 = 214.2857. NPV_T = 0.14285714 x 6550 - 800 = 935.7143 - 800 = 135.7143. Two free checks: the two sum to 350.0000 = S, and the price-change identity gives NPV_A = 60(93.5714 - 90.0000) = 60 x 3.5714 = 214.2857. Giving the acquirer the whole 350 and the target nothing would require the target to accept exactly its stand-alone value, which happens only at ER_min = 0.3339. The pair 135.7143 and 214.2857 swaps the two, which is what you get if you use y where you need 1 - y, and 100 with 250 satisfies the sum but neither computation. The acquirer keeps 214.2857/350 = 61.2245% of the synergy here, which is unusually favourable: the empirical norm is the other way round."
+  },
+  {
+    "id": "q505",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE A continued. Storfjord offers 0.4000 shares worth 90 NOK each for a Kvaloy share worth 32 NOK, and the merged price settles at 93.5714. What are the offered and the actual premium?",
+    "options": [
+      "Offered 16.9643%, actual 12.5000%",
+      "Offered 12.5000%, actual 16.9643%",
+      "Offered 12.5000%, actual 10.1786%",
+      "Offered 12.5000%, actual 12.5000% - the two are always equal in a share exchange"
+    ],
+    "answer": 1,
+    "explanation": "Offered premium = (ER x P_A)/P_T - 1 = (0.4000 x 90)/32 - 1 = 36/32 - 1 = 0.1250. Actual premium = (ER x P_new)/P_T - 1 = (0.4000 x 93.5714)/32 - 1 = 37.4286/32 - 1 = 0.1696. The ratio between them is P_new/P_A: 1.1696 = 1.1250 x (93.5714/90.0000). The two are equal only in a cash deal, where the currency does not move, so the pairing that makes them always equal is wrong; and the actual exceeds the offered exactly when the deal is positive-NPV for the acquirer, which it is here, so any pairing in which the actual comes out below 12.5000% has the sign backwards. Check: NPV_T = T x actual premium = 800 x 0.169643 = 135.7143, matching the direct computation."
+  },
+  {
+    "id": "q506",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE A continued. What is the highest exchange ratio Storfjord can offer without making the deal negative-NPV for its own shareholders?",
+    "options": [
+      "ER_max = 0.4000",
+      "ER_max = 0.3339",
+      "ER_max = 0.6250",
+      "ER_max = 0.5111"
+    ],
+    "answer": 3,
+    "explanation": "ER_max = (P_T + S/N_T)/P_A = (32 + 350/25)/90 = (32 + 14)/90 = 46/90 = 0.5111, and the formula-sheet form agrees: [(T + S)/A](N_A/N_T) = (1150/5400)(60/25) = 0.212963 x 2.4 = 0.5111. The most you can pay per target share is the target's own price plus the entire synergy per target share, converted at your own price. The 0.3339 is ER_min = [T/(A + S)](N_A/N_T) = (800/5750)(2.4), the floor below which the target refuses. The 0.4000 is the offer actually made, which sits comfortably inside [0.3339, 0.5111], and 0.6250 is above the ceiling. At ER = 0.5111 the merged price returns to exactly 90.0000 and NPV_A = 0, which is the price-change identity again."
+  },
+  {
+    "id": "q507",
+    "ch": 26,
+    "oppg": 3,
+    "type": "short",
+    "q": "Write out the two bounds on the exchange ratio, say which one is on the formula sheet, and explain in words what each one means.",
+    "model": [
+      "Ceiling: ER_max = (P_T + S/N_T)/P_A, printed on the sheet in the equivalent form ER less than [(T + S)/A](N_A/N_T). Above it NPV_A turns negative.",
+      "Floor: ER_min = [T/(A + S)](N_A/N_T). It is NOT on the sheet, but exams ask for the range, not only the cap. Below it NPV_T turns negative.",
+      "In words, the ceiling is the target's own price plus the whole synergy per target share, translated into acquirer shares at the acquirer's price: the acquirer can hand over everything it gains but no more.",
+      "The floor is the mirror image with S moved from the numerator to the denominator: the target must receive at least its own stand-alone value out of the merged firm.",
+      "Between the two bounds, NPV_A + NPV_T = S always, so bargaining over ER only moves value between the two sets of shareholders and creates none. That is why the sum line in Figure 26.1 is flat.",
+      "At ER_max the merged price equals P_A exactly, so the acquirer's shares do not move; that is the fastest way to check the bound."
+    ]
+  },
+  {
+    "id": "q508",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE B. Nordlys Data ASA has 80 million shares at 45 NOK and bids for Vestkyst Logistikk AS, 20 million shares at 28 NOK, with S = 90 million. The board announces a 25% premium paid in Nordlys shares. What is the actual premium the Vestkyst shareholders receive?",
+    "options": [
+      "25.0000%, the same as announced",
+      "23.5465%",
+      "26.4535%",
+      "16.0714%"
+    ],
+    "answer": 1,
+    "explanation": "The offer is 28 x 1.25 = 35.00 per share, so ER = 35/45 = 0.777778 and x = 15.5556 million new shares, total 95.5556. A + T + S = 3600 + 560 + 90 = 4250, so P_new = 4250/95.5556 = 44.4767, down from 45.00. Each Vestkyst share receives 0.777778 x 44.4767 = 34.5930, not 35.00, an actual premium of 23.5465%. The announced 25.0000% would be delivered only in cash, where the currency does not move. An actual premium above the announced one requires the acquirer's price to rise, which it does not here: NPV_A = 80(44.4767 - 45.0000) = -41.8605. And 16.0714% is the largest actual premium consistent with NPV_A at least zero, namely S/T = 90/560, which shows how far past break-even this offer is."
+  },
+  {
+    "id": "q509",
+    "ch": 26,
+    "oppg": 3,
+    "type": "short",
+    "q": "Without computing anything, state the rule that tells you whether the actual premium is above or below the offered premium, and explain the mechanism in one or two sentences.",
+    "model": [
+      "The rule: 1 + actual = (1 + offered) x (P_new/P_A). So the actual premium exceeds the offered premium exactly when P_new is above P_A, that is exactly when the deal is positive-NPV for the acquirer, and falls short exactly when the acquirer overpays.",
+      "The link is the price-change identity NPV_A = N_A(P_new - P_A), so the sign of the gap between the two premiums and the sign of NPV_A are the same fact stated twice.",
+      "Mechanism: the target is being paid in acquirer shares, so it is paid in a currency whose value the deal itself changes. A bad deal debases the currency between the press release and the moment the target's holders hold the shares.",
+      "The effect vanishes in a cash deal, where the currency is fixed, and it grows with the size of the offer, because every extra share issued dilutes the very currency being handed over.",
+      "Exam use: this lets you answer 'which premium is larger' with one sentence and no arithmetic, and it doubles as a sanity check on a computed answer whose signs disagree."
+    ]
+  },
+  {
+    "id": "q510",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE B continued (A = 3600, T = 560, S = 90, total 4250, N_A = 80, N_T = 20, P_T = 28). Which exchange ratio delivers an ACTUAL premium of exactly 20%?",
+    "options": [
+      "ER = 0.7513, an offered premium of 20.7378%",
+      "ER = 0.7778, an offered premium of 25.0000%",
+      "ER = 0.7111, an offered premium of 20.0000%",
+      "No exchange ratio can, because 20% exceeds the maximum"
+    ],
+    "answer": 0,
+    "explanation": "Solve ER x P_new = P_T(1 + prem*) with P_new = 4250/(80 + 20 ER): ER = P_T(1 + prem*)N_A/[(A + T + S) - P_T(1 + prem*)N_T] = 33.60 x 80/(4250 - 33.60 x 20) = 2688/3578 = 0.751258. Check: x = 15.025154, total 95.025154, P_new = 44.7250, and 0.751258 x 44.7250 = 33.6000 exactly. The offered premium needed is 0.751258 x 45/28 - 1 = 20.7378%, higher than the 20% actually received, as it must be for a value-destroying deal - so the ratio 0.7111, which delivers an OFFERED premium of 20%, confuses offered with actual, and 0.7778 is the 25% offer from the previous part. Saying no exchange ratio can reach 20% is wrong but points at something true: at ER = 0.7513 the acquirer's NPV is 80(44.7250 - 45.0000) = -22.0000, so 20% is attainable, just not without destroying value - the ceiling for a non-negative NPV_A is an actual premium of S/T = 16.0714%."
+  },
+  {
+    "id": "q511",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE C. Hoylandet Systemer ASA earns 600 on 150 million shares trading at 96 NOK. Sordal Industri AS earns 120 on 40 million shares at 24 NOK. Hoylandet pays a 25% premium in its own shares, and there are NO synergies at all. What happens to EPS and to the acquirer's share price?",
+    "options": [
+      "EPS rises 10.7692% and the share price rises, since accretive deals create value",
+      "EPS rises 10.7692% while the share price falls from 96.0000 to 94.5231",
+      "Both are unchanged, because there are no synergies",
+      "EPS falls and the share price falls"
+    ],
+    "answer": 1,
+    "explanation": "Offer 24 x 1.25 = 30.00, ER = 30/96 = 0.3125, x = 12.50 million, total 162.50 million. Combined earnings 720, so EPS_new = 720/162.50 = 4.4308 against 4.0000, an accretion of 10.7692%. With S = 0 the merged firm is worth 150 x 96 + 40 x 24 = 15360, so P_new = 15360/162.50 = 94.5231 and NPV_A = 150(94.5231 - 96.0000) = -221.5385, exactly the +221.5385 the target gains. So earnings per share rise while the price falls: they do not move together, and nothing is left unchanged just because S = 0. Accretion was guaranteed before any analysis: Hoylandet paid 30.00 for earnings of 3.00 per share, a P/E of 10.0000, well under its own 24.0000. Concluding that an accretive deal must therefore create value is the error the whole section exists to kill - EPS is an accounting ratio, the share price is the value statement, and here they point in opposite directions."
+  },
+  {
+    "id": "q512",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE C again, but at a ZERO premium: ER = 24/96 = 0.2500, so x = 10.00 million and total shares are 160.00 million. What are EPS accretion and the change in the acquirer's share price?",
+    "options": [
+      "EPS accretion 0.0000%, share price unchanged at 96.0000",
+      "EPS accretion 12.5000%, share price unchanged at 96.0000",
+      "EPS accretion 12.5000%, share price up to 98.0000",
+      "EPS accretion 10.7692%, share price down to 94.5231"
+    ],
+    "answer": 1,
+    "explanation": "EPS_new = 720/160 = 4.5000, up 12.5000% from 4.0000, and P_new = 15360/160 = 96.0000, exactly unchanged. This is the sharpest form of the point: EPS rose MORE at a zero premium than at a 25% one, in a transaction in which by construction not one krone of value was created or moved. Nothing else is needed to prove that EPS growth is not value creation. Zero accretion is the intuition most candidates carry in - that with no premium and no synergies nothing can change - but the share count changed, and so did the earnings. A rise to 98.0000 would create value out of nothing, and the 10.7692% with 94.5231 belongs to the 25%-premium version of the deal. The merged P/E is 96.0000/4.5000 = 21.3333, down from 24.0000: accretion and multiple contraction are two descriptions of one event, and only the second is about value."
+  },
+  {
+    "id": "q513",
+    "ch": 26,
+    "oppg": 3,
+    "type": "short",
+    "q": "A CFO's slide says the acquisition is '10.8% accretive in year one'. Write the answer that shows why this is not evidence about the deal.",
+    "model": [
+      "State the condition first: a deal is accretive if and only if the P/E paid for the target is below the acquirer's own P/E. It follows from EPS_new = (E_A + E_T)/(N_A + x) - EPS rises when the earnings bought per new share issued exceed the acquirer's own EPS, and dividing by P_A turns that into a comparison of multiples.",
+      "So accretion follows mechanically from the two multiples and is known before any analysis of the business. In CASE C, Hoylandet paid a P/E of 10.0000 against its own 24.0000, so accretion was guaranteed.",
+      "The decisive demonstration: redo the deal at a ZERO premium. EPS rises 12.5000% - more than at the 25% premium - while the share price is exactly unchanged at 96.0000 and no value is created or transferred. An effect that survives a transaction with zero economic content cannot be evidence about that transaction.",
+      "What actually happened at the 25% premium: 221.5385 million moved out of the acquirer's shareholders and into the target's, and the merged P/E fell from 24.0000 to 21.3333.",
+      "Name the mechanism: buying slower-growing, riskier earnings must lower the average multiple, so EPS accretion and multiple contraction are one event described twice. The conglomerate-era name is the bootstrap or chain-letter effect - repeat the trick annually and reported EPS grows indefinitely until the acquisitions stop."
+    ]
+  },
+  {
+    "id": "q514",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE D. Haugesund Kjemi ASA has 30 million shares at 210 NOK and announces an all-cash offer of 115 NOK per share for Rana Prosess AS, 9 million shares at 88 NOK. On the announcement Haugesund falls to 204.00 and Rana rises to 115.00. What synergy does the market imply?",
+    "options": [
+      "S = 0.0000, since the acquirer's price fell",
+      "S = 243.0000, the premium paid",
+      "S = 180.0000",
+      "S = 63.0000"
+    ],
+    "answer": 3,
+    "explanation": "S_implied is the change in the two firms' COMBINED market value: before, 30 x 210 + 9 x 88 = 6300 + 792 = 7092; after, 30 x 204 + 9 x 115 = 6120 + 1035 = 7155; difference +63.0000. The formula works whatever the payment method, because the two sets of shareholders between them own the whole merged firm, in shares or in cash. The 243.0000 is the premium, 9(115 - 88), which is the target's gain, not the synergy, and 180.0000 is the acquirer's loss. Check the split: the acquirer's shareholders gain 30(204 - 210) = -180.0000, and S - premium = 63 - 243 = -180.0000, the two routes agreeing. Reading a falling acquirer price as zero synergy confuses the two: the market thinks there IS 63 of value created and that Haugesund is paying 243 for it."
+  },
+  {
+    "id": "q515",
+    "ch": 26,
+    "oppg": 3,
+    "type": "short",
+    "q": "You have computed an implied synergy from the announcement-day price reaction. State the assumptions the number rests on, and say in which direction each one biases the estimate.",
+    "model": [
+      "Assumption 1 - the deal is expected to close. If the market puts less than certainty on completion, the observed prices are probability-weighted, so the computed figure UNDERSTATES the synergy conditional on closing. Section 26.6 shows how to recover the probability separately.",
+      "Assumption 2 - nothing else moved the prices that day. Any market-wide or industry news on the announcement date contaminates the number in either direction; the clean version subtracts a market or industry return.",
+      "Assumption 3 - the announcement told the market nothing new about the target as a STAND-ALONE business. If the bid revealed that the target is worth more on its own, part of its jump is a revaluation, not a gain from combining, and the estimate OVERSTATES the synergy. The solution keys reward this caveat explicitly.",
+      "Assumption 4 - the pre-announcement prices contained no anticipation of the bid. Leakage or a prior stake-building rumour puts part of the reaction before the measurement window, understating the number.",
+      "How to write it: give the number, then one sentence per caveat with its direction. Both the second and the third caveat are worth marks on their own."
+    ]
+  },
+  {
+    "id": "q516",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE E. Company A trades at 120 before the announcement and 114 after; company B at 26 before and 28 after. If the deal completes in one year, each B share is exchanged for 0.2500 A shares; if it fails, prices return to their original levels. The one-year risk-free rate is 4.0000%. What probability of completion does the market imply?",
+    "options": [
+      "p = 0.5900",
+      "p = 0.8125",
+      "p = 0.9600",
+      "p = 0.8700"
+    ],
+    "answer": 3,
+    "explanation": "Buy 4 target shares at 28 (cost 112) and short one acquirer share at 114, putting the 114 on deposit: the strategy costs 112. If the deal completes, the 4 target shares become the 1 acquirer share owed, the legs cancel and you keep 114 x 1.04 = 118.5600. If it fails, you unwind at reverted prices: 118.5600 + 4(26) - 120 = 102.5600. The certainty equivalent is 112 x 1.04 = 116.4800, so 116.4800 = p(118.5600) + (1 - p)(102.5600), giving 13.92 = 16.00p and p = 0.8700. The value 0.5900 is the error the H2025 key singles out: setting the expected payoff equal to the COST, 112, instead of the cost grown at rf, which gives (112 - 102.56)/16. The values 0.8125 and 0.9600 come from mis-sized legs or a dropped discount factor. Independent check via the spread: 1 - p = 1.04(114 - 112)/(120 - 104) = 2.08/16 = 0.1300."
+  },
+  {
+    "id": "q517",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE E continued. Why is it legitimate to grow the strategy's cost at the risk-free rate rather than at a risk-adjusted rate, and what does that imply about the p you recover?",
+    "options": [
+      "Because merger arbitrage is riskless once the positions are open",
+      "Because the risk-free rate is the lower bound on any discount rate, so it gives a conservative answer",
+      "Because the exchange ratio is fixed, which removes all systematic risk from both firms",
+      "Because the only remaining risk is whether a regulator or a shareholder vote blocks the deal, which is diversifiable and so carries no risk premium - and therefore the risk-neutral p coincides with the market's actual belief"
+    ],
+    "answer": 3,
+    "explanation": "Everything about the two businesses cancels out in the long-short position: in the completion branch the long leg literally turns into the short leg, and in the failure branch both legs revert to stated prices. What remains is a bet on one binary event - regulatory approval, financing, a shareholder vote - and that risk is diversifiable, so it earns no premium. This is the difference from the binomial chapter: there the risk-neutral rho is a pricing device and NOT a forecast, whereas here p really is the market's forecast, and saying so is worth a sentence in an exam. Calling the position riskless once opened overstates it - it is exposed to deal failure, which is exactly the risk being priced. Treating rf as a conservative lower bound invents a principle that does not exist, and a fixed exchange ratio does not remove the completion event, only the currency risk within it."
+  },
+  {
+    "id": "q518",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE E continued (p = 0.8700, rf = 4.0000%, A pre 120, post 114). What is A's price in one year if the deal COMPLETES, and what does it tell you?",
+    "options": [
+      "114.0000, the post-announcement price, so completion is already fully priced in",
+      "118.3448, so the market thinks completion leaves A's shareholders 1.6552 per share worse off than the stand-alone 120.0000",
+      "124.8000, so the market expects A to gain from the deal",
+      "120.0000, since prices always revert to their pre-announcement level"
+    ],
+    "answer": 1,
+    "explanation": "Solve 1.04(114) = p x A_s + (1 - p)(120): 118.5600 = 0.87 A_s + 0.13(120) = 0.87 A_s + 15.60, so A_s = 102.96/0.87 = 118.3448, which is 1.6552 below the stand-alone 120.0000. Verify: [0.87(118.3448) + 0.13(120)]/1.04 = 114.0000. The target's completion price is 0.2500 x 118.3448 = 29.5862 against a stand-alone 26, a gain of 13.7931%, and the same check gives [0.87(29.5862) + 0.13(26)]/1.04 = 28.0000. So the market believes the acquisition destroys value for the acquirer and creates it for the target - the signature the H2025 follow-up wants, and it points at empire building or hubris rather than at synergies. Reading the post-announcement 114.0000 as the completion price confuses today's probability-weighted price with a conditional one; 124.8000 has the acquirer gaining, which contradicts the fall on announcement; and 150 reverting to 120.0000 describes the FAILURE branch only."
+  },
+  {
+    "id": "q519",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "CASE H. A trades at 150 before the bid and 146 after; B at 84 before and 86.40 after. Completion in one year exchanges 5 B shares for 3 A shares, so ER = 0.6000, and failure returns prices to their original levels. With rf = 3.0000%, the implied probability of completion is:",
+    "options": [
+      "p = 0.7940",
+      "p = 0.2060",
+      "p = 0.8200",
+      "p = 0.3620"
+    ],
+    "answer": 0,
+    "explanation": "Long 5 target shares at 86.40 costs 432; short 3 acquirer shares at 146 raises 438, which goes on deposit. Net cost 432. Completion: the 5 target shares become the 3 acquirer shares owed, leaving 438 x 1.03 = 451.1400. Failure: 451.1400 + 5(84) - 3(150) = 451.1400 + 420 - 450 = 421.1400. Certainty equivalent 432 x 1.03 = 444.9600, so 23.82 = 30.00p and p = 0.7940. Spread check: 1.03(146 - 86.40/0.6000)/(150 - 84/0.6000) = 1.03(2)/10 = 0.2060 - which is the FAILURE probability, and reporting it is a classic slip when the question asks for completion. The 0.3620 is the no-rf error, (432 - 421.14)/30, and 0.8200 is a rounding guess. Note the direction of the ratio: 5 target shares for 3 acquirer shares means each target share receives 0.6000 acquirer shares, so you hold 5 long against 3 short, not the reverse."
+  },
+  {
+    "id": "q520",
+    "ch": 26,
+    "oppg": 3,
+    "type": "short",
+    "q": "Set up the long-short strategy for an announced share exchange from scratch, in words, and list the three errors that cost most of the points in H2025 Exercise 6.",
+    "model": [
+      "Build a position whose payoff you know in BOTH branches: buy 1/ER target shares at the post-announcement price and short-sell one acquirer share, placing the short proceeds in the risk-free asset. The net outlay is the cost of the target shares.",
+      "Completion branch: the target shares convert into exactly the acquirer share you owe, so both legs cancel and you keep the deposit grown at rf.",
+      "Failure branch: no conversion, so you unwind at the reverted pre-announcement prices - sell the target shares, buy back the acquirer share - and keep the deposit.",
+      "Certainty equivalent: cost x (1 + rf) = p x payoff(complete) + (1 - p) x payoff(fail). Solve for p.",
+      "Error 1 - setting the expected payoff equal to the cost instead of the cost times (1 + rf). This is the error the key singles out; in CASE E it turns p = 0.8700 into 0.5900.",
+      "Error 2 - using post-announcement prices in the failure branch. The question states that prices revert, so the failure branch uses the PRE-announcement prices, and they are what does the work.",
+      "Error 3 - inverting the exchange ratio. '5 shares of B for 1 share of A' means each B share receives 0.2000 A shares, so hold 5 B against 1 A. Write the ratio out as a sentence in your own words before using it.",
+      "Free second route: 1 - p = (1 + rf)[P_A,post - P_B,post/ER]/[P_A,pre - P_B,pre/ER]. The merger spread narrows towards zero as completion becomes certain and reverts to its pre-announcement width if the deal dies."
+    ]
+  },
+  {
+    "id": "q521",
+    "ch": 26,
+    "oppg": 3,
+    "type": "short",
+    "q": "H2024 Exercise 1 asked why an acquisition could be GOOD for the acquirer and forbade the answer 'synergies'. Give four distinct mechanisms, one to two sentences each.",
+    "model": [
+      "Undervaluation. The acquirer believes the market price understates the target's true worth, so buying it is a positive-NPV investment with no operating change at all. It creates nothing for society but real value for the acquirer's shareholders, and it requires genuinely superior information - plausible for a rival in the same industry, implausible as a general claim.",
+      "Tax. Two channels: a profitable acquirer can use the target's accumulated tax losses immediately, and the combined firm's steadier cash flow supports more debt, so PV(TS) rises. This is a genuine transfer from the tax authority, but loss carry-forwards are usually restricted precisely to stop acquisitions motivated by them, and the debt-capacity gain requires the firm actually to lever up afterwards.",
+      "The disciplinary takeover. The target is run badly; the acquirer replaces its management and runs the same assets better. This is the market for corporate control from k27, and it is real operating value - the assets are unchanged, the decisions are not.",
+      "Buy rather than build. Acquiring a licence, a patent portfolio, a distribution network or a trained team can be cheaper and faster than building one, and avoids adding capacity to the industry. The relevant comparison is the price paid INCLUDING the premium against the cost of building, not against the target's stand-alone value.",
+      "Also available: relieving a financing constraint at the target - debt overhang or adverse selection was blocking positive-NPV projects and the acquirer's balance sheet unlocks them. Name the constraint; 'deep pockets' alone is not a mechanism, since a good project can normally be financed by someone.",
+      "Market power is a fifth, but flag the catch: removing a competitor raises rents at customers' expense, which is precisely what competition authorities exist to block, so the larger the effect the lower the probability the deal closes."
+    ]
+  },
+  {
+    "id": "q522",
+    "ch": 26,
+    "oppg": 3,
+    "type": "short",
+    "q": "Same H2024 grid, the other cell: why could the very same acquisition be BAD for the acquirer's shareholders? Synergies may not be mentioned. Give four mechanisms.",
+    "model": [
+      "Hubris and the winner's curse. Several bidders each estimate the target's value with error, so the one who wins is disproportionately the one who overestimated most and the winning bid is biased high even if every bidder is honest. An overconfident CEO will not shade his bid for the fact of winning, which is exactly the remedy the mechanism calls for.",
+      "Empire building. A larger firm brings the CEO a larger salary, more status and more security, so a manager sitting on free cash flow acquires even at a negative NPV. The prediction is testable: cash-rich firms, few investment opportunities, weak governance, and a negative acquirer announcement return.",
+      "Coinsurance. Pooling two imperfectly correlated cash flow streams behind one balance sheet makes both firms' debt safer, so value moves from shareholders to creditors with total value unchanged. Consistency check 4 applies: creditors' gain equals shareholders' loss, and shareholders can diversify far more cheaply by holding both shares and paying no premium.",
+      "A stock-financed offer signals overvaluation. By the Myers-Majluf logic, a manager who believes his shares are undervalued prefers to pay cash, so paying in stock tells a rational market that the acquirer thinks its own currency is expensive - and the market marks the acquirer down on the announcement.",
+      "Also available: the free-rider problem forces the acquirer to hand over essentially the whole improvement in the premium, which is why acquirer announcement returns are close to zero on average and negative for stock deals."
+    ]
+  },
+  {
+    "id": "q523",
+    "ch": 26,
+    "oppg": 3,
+    "type": "short",
+    "q": "Complete the H2024 grid: name three reasons the deal is good for the TARGET's shareholders and three reasons it is bad for them. No synergies.",
+    "model": [
+      "Good 1 - the premium. A 20% to 40% premium, in cash immediately and with certainty, is a gain no operating improvement was needed to produce, and the free-rider problem is what makes it large.",
+      "Good 2 - relief of a financing constraint. If debt overhang or adverse selection was stopping the target from funding its own positive-NPV projects, the acquirer's balance sheet unlocks them and the target's holders are paid for that today.",
+      "Good 3 - better management and better capital allocation, and, for an undiversified founder, an escape from having his whole fortune tied to one firm.",
+      "Bad 1 - loss of independence, of jobs and of the private benefits of control, which fall on the target's managers and employees and, in a family firm, on the controlling owner directly.",
+      "Bad 2 - a weak auction. With only one bidder the premium is small, and the target's board has little to bargain with. The mirror image of the free-rider point: bidders pay the whole improvement only when they must.",
+      "Bad 3 - being paid in acquirer stock that turns out to be overvalued, so the actual premium falls short of the offered one, or a coercive tender offer that pressures holders into tendering below the value they would receive by holding out."
+    ]
+  },
+  {
+    "id": "q524",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "Two identical, independent all-equity-plus-debt firms merge with NO synergies. Each is worth 100 or 40 with equal probability, each has debt with face value 60, and rates are zero. Stand-alone each firm has V = 70, D = 50, E = 20. After the merger?",
+    "options": [
+      "V = 150, D = 110, E = 40 - diversification creates 10 of value",
+      "V = 140, D = 100, E = 40 - the merger is neutral for everyone",
+      "V = 140, D = 90, E = 50 - shareholders gain from the lower default risk",
+      "V = 140, D = 110, E = 30 - creditors gain 10 and shareholders lose 10"
+    ],
+    "answer": 3,
+    "explanation": "Combined assets are 200 with probability 0.25, 140 with probability 0.50 and 80 with probability 0.25, against total face value 120. Debt receives 120, 120, 80 respectively, so D = 0.25(120) + 0.50(120) + 0.25(80) = 110. Equity receives 80, 20, 0, so E = 0.25(80) + 0.50(20) = 30. Total is still 140: no synergy, no new value, so the split cannot stay at 100 and 40, and shareholders certainly do not gain from the lower default risk. Creditors gained 10, shareholders lost exactly 10 - consistency check 4, and the fastest way to catch an arithmetic slip here is that your two changes must cancel. The answer that lifts total value to 150 is the diversification fallacy: risk fell, but only systematic risk is priced, and the risk reduction that does have a price consequence accrues to creditors. Name it in the answer: the coinsurance effect."
+  },
+  {
+    "id": "q525",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "An acquirer chooses to pay in its own shares rather than cash. What does a rational market infer, and why?",
+    "options": [
+      "That the acquirer is confident about the synergies, since it is willing to share them",
+      "That the acquirer is financially constrained and could not raise the cash",
+      "Nothing: the payment method is a settlement detail with no information content",
+      "That the acquirer believes its own shares are overvalued, by the Myers-Majluf logic - a manager who thinks his shares are cheap prefers to pay cash"
+    ],
+    "answer": 3,
+    "explanation": "Run the adverse-selection argument with a merger attached. A manager who believes his shares are undervalued does not want to issue them at the current price, so he prefers cash; a manager who believes they are overvalued prefers to pay in the overvalued currency. A rational market knows this and marks the acquirer down on a stock deal, which is what the evidence shows - so the payment method is not a settlement detail without information content. Two consequences are examinable: the target should demand a higher NOMINAL price in shares than in cash, which is a second reason the actual premium diverges from the offered one, and the inference is self-confirming, which is consistency check 5 in its M&A costume. Reading a share offer as confidence in the synergies has the sharing right but the sign of the inference wrong. And a cash constraint is possible in a particular case but is not what the pooling equilibrium predicts."
+  },
+  {
+    "id": "q526",
+    "ch": 26,
+    "oppg": 3,
+    "type": "short",
+    "q": "Compare cash and acquirer shares as payment along at least five dimensions. Write it as an examiner would want to read it.",
+    "model": [
+      "Who bears synergy risk. Cash: the acquirer alone, since the target is paid a fixed amount whatever happens next. Shares: shared, because the target's holders own y of the combined firm and suffer if the synergies disappoint.",
+      "Who bears the risk that the acquirer is mispriced. Cash: nobody, cash is cash. Shares: the target, in a fixed-ratio offer - which is why targets negotiate collars and fixed-value structures.",
+      "What the market infers. Cash: little, or that the acquirer is confident. Shares: that the acquirer thinks its own shares are overvalued, so the announcement return is worse.",
+      "Tax to the target's shareholders. Cash: an immediate taxable disposal. Shares: usually deferred until the new shares are sold.",
+      "Effect on the acquirer's capital structure. Debt-financed cash raises leverage, adding PV(TS) and the discipline of committed payments at the cost of distress risk, and cash paid out removes free cash flow. Shares lower leverage and dilute existing holders, including any blockholder whose monitoring you were relying on.",
+      "Probability of completion. Cash is higher and faster: no acquirer shareholder vote on an issue of new shares and no dependence on the acquirer's share price. A share exchange feeds a lower p straight into the implied-probability calculation of section 26.6.",
+      "Closing sentence that earns the mark: the payment method is not a settlement detail - it allocates risk, transmits information and changes the probability the deal closes at all."
+    ]
+  },
+  {
+    "id": "q527",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "An M&A exercise runs a chain of sub-questions: the price per share of the combined firm, the acquirer's price immediately after the announcement, the target's price immediately after the announcement, the actual premium, and the exchange ratio giving a stated actual premium. What is the single most reliable way to lose points here?",
+    "options": [
+      "Producing a correct number for a different question than the one asked, because the arithmetic is nearly identical across the sub-questions and only one word changes",
+      "Writing the answer in NOK rather than in millions",
+      "Rounding to four decimals rather than six",
+      "Using the formula-sheet form of ER_max instead of the memorised form"
+    ],
+    "answer": 0,
+    "explanation": "The sub-questions differ by one noun and the answers are all different: in a share exchange the acquirer's post-announcement price IS the merged price P_new, the target's post-announcement price is ER x P_new, the offered premium uses P_A and the actual premium uses P_new. The old spring 2017 paper devoted a 45-point exercise entirely to that distinction. The defence costs ten seconds: underline which price and which premium is being asked for before computing, and write next to your answer which one you produced. Four decimals is the stated standard rather than a trap, the two forms of ER_max are algebraically identical, and units are a labelling matter that costs little if stated."
+  },
+  {
+    "id": "q528",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "The identity NPV_A + NPV_T = S. What is it good for, and what is it NOT good for?",
+    "options": [
+      "It is an accounting identity that cannot fail if x and y are consistent, so it verifies the arithmetic but is no evidence that the reasoning or the synergy estimate is right",
+      "It fails whenever the acquirer overpays, which is how you detect overpayment",
+      "It holds only for cash deals, since share deals split value differently",
+      "It proves the deal is value-creating whenever both NPVs are positive"
+    ],
+    "answer": 0,
+    "explanation": "The identity says the deal divides the synergy and nothing else: every krone the acquirer gains beyond S is a krone the target loses. Because it follows mechanically from y = x/(N_A + x) and P_new = (A + T + S)/(N_A + x), it cannot fail when those are consistent - so it locates a slip in x or y and nothing more, and two positive NPVs are therefore no proof that the deal creates value; they only reflect the S you assumed. The check that CAN fail, and is therefore worth running, is the price-change identity NPV_A = N_A(P_new - P_A), because it does not use y at all: get y wrong and the two routes disagree. The claim that the identity breaks when the acquirer overpays has it backwards - overpayment simply makes NPV_A negative and the two still sum to S. And it is not limited to cash deals: the split formula is about ownership of the merged firm, not about settlement."
+  },
+  {
+    "id": "q529",
+    "ch": 26,
+    "oppg": 3,
+    "type": "short",
+    "q": "CASE E follow-up, the H2025 shape. The acquirer's price fell and the target's jumped. (a) Give a reason for the deal other than synergies that fits this reaction. (b) How would you vote as an acquirer shareholder, and what would happen next?",
+    "model": [
+      "(a) The reaction IS the answer: the market thinks the acquirer is paying more than it gets. Backing out the conditional prices, A is worth 118.3448 if the deal completes against a stand-alone 120.0000, while B's holders receive 29.5862 against 26.0000, a gain of 13.7931%.",
+      "(a) That is the signature of empire building: a manager sitting on free cash flow buys size, salary, status and security at a negative NPV to his own shareholders. Hubris and the winner's curse fit the same pattern, as does the market simply expecting the target's management to be improved under new owners at a price that overpays for the improvement.",
+      "(a) Name the mechanism, and add the testable prediction: cash-rich acquirer, weak governance, few investment opportunities, negative announcement return.",
+      "(b) Vote against. The deal is negative-NPV for me: my shares are worth 118.3448 in the completion branch and 120.0000 if the bid dies, so blocking it is worth 1.6552 per share.",
+      "(b) What happens if enough holders do the same: the deal fails, so prices move back towards the pre-announcement levels of 120 and 26, and the implied probability collapses towards zero.",
+      "(b) The qualification that earns the extra mark: they need not revert exactly. The bid may have told the market something about the target that survives the failed deal - a stand-alone revaluation - and a determined management may simply try again, or another bidder may appear now that the target is in play."
+    ]
+  },
+  {
+    "id": "q530",
+    "ch": 26,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "In the stock-swap formulas, what must A and T be?",
+    "options": [
+      "The two firms' STAND-ALONE equity values, N_A x P_A and N_T x P_T at pre-announcement prices",
+      "The book values of equity from the latest balance sheets",
+      "The offer value and the acquirer's enterprise value",
+      "The two firms' market capitalisations on the day after the announcement"
+    ],
+    "answer": 0,
+    "explanation": "A + T + S is the merged firm's value, so A and T must be the stand-alone values the synergy is added to, N_A x P_A and N_T x P_T at pre-announcement prices. Substituting post-announcement market capitalisations double counts the very synergy you are about to add - those prices already contain the market's estimate of S. Book values of equity are irrelevant to a market-value calculation, and the offer value is an output of ER, not an input to it. If a question gives you both pre- and post-announcement prices, the pre-announcement pair belongs in the swap arithmetic and the post-announcement pair belongs in the implied-synergy or implied-probability calculation of section 26.6."
+  },
+  {
+    "id": "q531",
+    "ch": 27,
+    "oppg": 3,
+    "type": "short",
+    "q": "H2024 Exercise 2, twelve points. Select and describe TWO distinct ways of monitoring the chief executive. Say who performs the monitoring and which tools they have, three to four sentences each.",
+    "model": [
+      "Method 1 - the board of directors, and specifically its independent members. The monitor is the board, and within it the independent directors and the audit and remuneration committees, since an inside director reports to the chief executive in his day job and cannot credibly vote against him.",
+      "Their tools are the strongest of any monitor: they hire and dismiss the chief executive, design and approve his pay contract, approve budgets, major acquisitions and large financings, and the audit committee can meet the external auditor with no member of management in the room.",
+      "The mechanism reaching the CEO is direct and continuous - the person who decides his pay and his tenure is not himself, so shirking has a personal cost. The weakness is capture: management usually controls what information reaches the board and often influences who is nominated, which is why independence, separating chair and CEO, and annual election of all directors are the standard remedies.",
+      "Method 2 - the market for corporate control. The monitor is an outside acquirer, and behind it every shareholder who can decide to sell into a bid; no one needs the board's permission.",
+      "The tool is the hostile takeover itself, most often a tender offer made directly to shareholders over the board's head, after which the entire management team is replaced.",
+      "It works largely as a threat: a firm whose value is depressed by weak management trades below what a competent owner would pay, and that gap is the invitation, so a CEO who wants to keep his job has a reason to close it first. Its limits are poison pills and staggered boards, which make a hostile purchase practically impossible without board consent, the free-rider problem that forces bidders to pay most of the improvement away in the premium, and the fact that takeovers work on years rather than quarters.",
+      "Why this scores: the two are genuinely distinct - one internal, one external - each names the monitor as a body rather than an abstraction, each lists concrete tools, and each closes with the condition under which the monitor fails. Do not spend a sentence defining corporate governance; it scores nothing."
+    ]
+  },
+  {
+    "id": "q532",
+    "ch": 27,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "Which body has the legal authority to dismiss the chief executive?",
+    "options": [
+      "The largest shareholder, once the stake passes 10%",
+      "The board of directors - every other mechanism works by influencing the board or by going around it",
+      "The audit committee, on the auditor's recommendation",
+      "The general meeting of shareholders, by simple majority"
+    ],
+    "answer": 1,
+    "explanation": "The board hires him, sets his pay, approves the strategy and the large transactions, and is the body that can dismiss him. That is why the central chain in Figure 27.1 runs shareholders to board to CEO and is the only route with legal force behind it. Shareholders elect and remove DIRECTORS and vote on pay and major deals, but they do not fire the CEO directly at a general meeting, which is precisely why a proxy fight targets board seats. The audit committee is a board committee with access to the auditor, not an appointing body, and a 10% stake confers no removal power - it confers, in Norway, the right to demand an independent investigation, while 5% lets you requisition an extraordinary general meeting. So the first question about any board is whether it is capable of using the power it has."
+  },
+  {
+    "id": "q533",
+    "ch": 27,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "Why is board independence the first feature to check, and what counts as a 'grey' director?",
+    "options": [
+      "Independence is a listing formality with no economic content; 'grey' has no accepted meaning",
+      "An inside director reports to the CEO in his day job and cannot credibly vote to dismiss him; a grey director - the firm's banker, a large supplier, a former executive - has business or a relationship to lose",
+      "Independence guarantees expertise; a grey director is one with no industry experience",
+      "Independent directors own more shares, which is what makes them monitor"
+    ],
+    "answer": 1,
+    "explanation": "Only genuinely outside directors can act against management without personal cost: an inside director reports to the CEO in his day job, and a grey director - the firm's banker, a large supplier, a former executive - has business or a relationship to lose. That is the whole argument, and it extends naturally: committee work is where monitoring actually happens, so audit, remuneration and nomination committees must be independent - a board that lets the CEO pick his own remuneration committee has already lost. Independence is about incentives, not expertise; indeed an independent director typically knows LESS about the business than an insider, which is one of the costs of governance worth naming, and 'grey' is a standard term rather than an empty one, so treating independence as a listing formality misses the mechanism. Explaining independence through larger shareholdings inverts the skin-in-the-game point: directors should be paid partly in shares they must hold, but that is a separate feature, and the failure described here is structural, not a matter of exhorting directors to be diligent."
+  },
+  {
+    "id": "q534",
+    "ch": 27,
+    "oppg": 3,
+    "type": "short",
+    "q": "H2025 Exercise 2, twelve points. You hold between 5% and 10% of the shares and votes in a listed company whose management is plainly shirking and enjoying private benefits. Give three actions, two to three sentences each.",
+    "model": [
+      "Action 1 - force a redesign of the pay contract. I would publish a specific proposal to cut fixed salary in favour of restricted stock with long vesting and a bonus measured relative to an industry benchmark, and vote against the remuneration report until it is adopted. It works by raising his pay-performance sensitivity: at present he keeps a small fraction of any value he creates and bears almost none of what he wastes, so shirking is nearly free, and changing that changes his behaviour without anyone having to observe his effort. The limitation is that sensitivity is not free either - an undiversified manager must be compensated for bearing firm-specific risk, and heavy use of options can push him from shirking into excessive risk taking.",
+      "Action 2 - build a coalition with the other large holders and requisition an extraordinary general meeting. With 5 to 10% I can force a meeting in most European regimes, Norway included, but I cannot win a vote alone, so the first move is to approach the other institutions, who share my interest and have been free-riding on it, and agree a joint slate of directors. The mechanism is that the board is the only body that can dismiss the CEO or rewrite his contract, so changing its composition changes what he faces daily, and directors facing a contested election usually settle before the ballot. The limitation is cost and time: I bear the whole expense while every other shareholder receives their share of the gain for nothing, and a staggered board can delay a change of majority by two annual cycles.",
+      "Action 3 - demand that the surplus cash be paid out, or that the firm be recapitalised with debt. I would press for a special dividend or a buyback funded partly by borrowing, so that the cash pile is committed rather than available. The mechanism is free cash flow: cash inside the firm is what funds the comfortable life and the empire, while interest and principal must be paid on time, default would hand control to creditors and end his career, and every new project must now be presented to outside investors who will price it. The limitation is that leverage brings expected distress costs and the shareholder-creditor conflicts of debt overhang and risk shifting, so this suits a mature cash-rich firm and not one with lumpy investment needs.",
+      "A fourth if there is time - support a change of control: use the stake as a toehold to invite a bidder or lead a take-private with a financial sponsor, which replaces the whole team at once and concentrates ownership so monitoring is worthwhile by construction. H2025 explicitly credits creative but well-argued answers.",
+      "Why this scores: each item is the same three-sentence skeleton - the action, the mechanism that reaches the manager, the limitation - each mechanism is named in the vocabulary the keys use, and the three are different in KIND: one changes incentives, one changes the board, one changes the balance sheet."
+    ]
+  },
+  {
+    "id": "q535",
+    "ch": 27,
+    "oppg": 3,
+    "type": "short",
+    "q": "Why is 5 to 10% exactly the interesting stake for an exam question about shareholder activism? Argue it from below and from above.",
+    "model": [
+      "From below - the free-rider arithmetic. A holder who spends C to create an improvement of dV in firm value captures only his share alpha x dV, so he acts only if alpha x dV exceeds C, that is if alpha exceeds C/dV. A 0.1% holder in a firm where a campaign costs 12 and creates 300 collects 0.3000 and does nothing; he sells instead. The break-even stake is 4.0000%, and once you allow campaigns to fail with probability 1 - q it rises to C/(q x dV) - at q = 0.65 that is 6.1538%. So monitoring only pays for himself somewhere in the mid single digits.",
+      "From above - he still cannot impose the outcome. He cannot outvote the register, cannot appoint directors alone and cannot force a sale, so every action must persuade someone else. That is why coalition-building and public argument dominate the list of things he can actually do.",
+      "He is also large enough to be visible and constrained: crossing 5% triggers a disclosure obligation in Norway and most of Europe, so his stake is public and management knows exactly who he is, while crossing the control thresholds far above would trigger a mandatory offer for the whole company.",
+      "And exit is expensive for him. A 7% block in a firm worth 6000 is worth 420, and a 2.5% price impact on the way out costs 10.5000, against a voice payoff of 21.0000 - 12.0000 = 9.0000 if the campaign succeeds for certain. Voice beats exit precisely in this band.",
+      "The classical formulation: value of voice = q x alpha x dV - C against cost of exit = (price impact) x alpha x V. Below a few per cent the first is negative and exit is nearly free, so small holders sell. Above 5% the first turns positive while the second grows with the stake, so both are the same order of magnitude and the choice is a genuine decision.",
+      "One sentence of framing that earns a mark: he is producing a public good and keeping only his own share of it - if the 7% holder acts, the other holders receive 279.0000 for contributing nothing. That is why governance is chronically undersupplied."
+    ]
+  },
+  {
+    "id": "q536",
+    "ch": 27,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "Nordfjord-type case. A listed firm's equity is worth 6000. An investor believes a disciplined CEO would raise value by 5%, and a campaign to force the change would cost 12 all in. What is the break-even stake, and would a 5% holder act if the campaign succeeds with probability 0.65?",
+    "options": [
+      "Break-even 6.1538% for certain success, falling to 4.0000% once uncertainty is allowed",
+      "Break-even 4.0000% regardless of q, so a 5% holder acts either way",
+      "Break-even 4.0000% for certain success; at q = 0.65 the break-even rises to 6.1538%, so a 5% holder does NOT act",
+      "Break-even 0.2000%, so almost every holder acts"
+    ],
+    "answer": 2,
+    "explanation": "dV = 0.05 x 6000 = 300.0000 against a cost of 12.0000, so from the shareholders' point of view as a body the campaign is obviously worth running. But each owner decides alone: alpha* = C/dV = 12/300 = 0.0400. Add uncertainty and the condition becomes q x alpha x dV greater than C, so alpha* = 12/(0.65 x 300) = 12/195 = 0.0615. A 5% holder expects 0.65 x 0.05 x 300 - 12 = -2.2500 and stays home; a 7% holder expects 0.65 x 0.07 x 300 - 12 = +1.6500 and acts. So the threshold is not invariant to q, and 0.2000% would follow only if the cost were a hundredth of what it is. The answer that starts at 6.1538% and falls to 4.0000% inverts the effect of uncertainty - a lower probability of success can only RAISE the stake you need. This arithmetic is the reason the exam sets the question at 5 to 10%."
+  },
+  {
+    "id": "q537",
+    "ch": 27,
+    "oppg": 3,
+    "type": "short",
+    "q": "Distinguish the agency COST from the transfer, using a concrete example, and say why the distinction is worth marks.",
+    "model": [
+      "Example: the CEO's perks cost the firm 25 and are worth 4 to him personally. The agency cost is 25 - the value destroyed - and the deadweight loss is 21, the part that reaches nobody.",
+      "An answer that says 'the CEO gains at the shareholders' expense' has described a TRANSFER of 4. An answer that says 'the firm gives up 25 of value to deliver 3 or 4 of private benefit, a deadweight loss of 21' has described the problem.",
+      "The definition to hold on to is the one used for debt-side agency problems too: the agency cost is first-best value minus chosen value, never the transfer between claimants.",
+      "Why it matters for the exam: the same distinction is consistency check 3 and 4 in the debt chapters, so the habit transfers - always ask whether an action changes total value or only moves it between claimants.",
+      "It also disciplines the remedy. If the problem is a transfer, you argue about fairness; if it is destroyed value, you argue about incentives and monitoring, which is where the marks are."
+    ]
+  },
+  {
+    "id": "q538",
+    "ch": 27,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "A CEO holds 0.2500% of the equity outright plus options over a further 2.0000% of the shares with a delta of 0.6000. What is his pay-performance sensitivity, and how large a perk is he willing to take?",
+    "options": [
+      "delta = 1.4500%, and a perk worth 4 to him is worth taking as long as it costs the firm less than 275.8621",
+      "delta = 2.2500%, and a perk worth 4 to him is worth taking if it costs the firm less than 177.7778",
+      "delta = 1.2000%, and a perk worth 4 to him is worth taking if it costs the firm less than 333.3333",
+      "delta = 0.2500%, since options transmit no value until they are exercised"
+    ],
+    "answer": 0,
+    "explanation": "delta = fraction of shares held + (options as a fraction of shares) x N(d1) = 0.002500 + 0.020000 x 0.600000 = 0.002500 + 0.012000 = 0.014500. He keeps 1.4500% of every krone he creates and bears 1.4500% of every krone he destroys, so a private benefit worth 4 to him is worth taking while the cost to the firm stays below 4/0.014500 = 275.8621. Double his sensitivity and the threshold falls to 137.9310. A sensitivity of 2.2500% adds the options at full weight and ignores the delta; 1.2000% counts only the options and drops the shares; and 0.2500% ignores the options entirely, though an out-of-the-money option on a struggling firm does indeed barely move his wealth. That single calculation is the case for equity-based pay - and the case against thinking a large salary is the problem, since a fixed salary has a sensitivity of exactly zero."
+  },
+  {
+    "id": "q539",
+    "ch": 27,
+    "oppg": 3,
+    "type": "short",
+    "q": "'More pay-performance sensitivity is always better.' Say why this is wrong, and what the design question actually is.",
+    "model": [
+      "A manager cannot diversify his human capital. His job, his reputation and now his wealth all ride on one firm, so loading him with stock makes him bear firm-specific risk that shareholders have already diversified away - and only systematic risk is priced.",
+      "He must be compensated for bearing it, which makes high-sensitivity pay expensive for shareholders, and he will respond by avoiding risk that shareholders want taken.",
+      "Options push in the opposite direction and overshoot: a convex payoff makes risk shifting attractive, which is the same asset-substitution problem debt creates on the other side of the balance sheet. And once deeply out of the money they lose all sensitivity and stop working entirely.",
+      "So the optimum is interior. The design question is not 'how much sensitivity' but 'sensitivity to WHAT': relative performance evaluation against a peer group strips out the market and industry component so the manager is paid for what he controls, long vesting lengthens the horizon, and clawbacks undo bonuses paid on figures later restated.",
+      "The standard answer is a mix of stock and options with long vesting and a relative benchmark - and the standard objection to it is that executives resist a scheme that pays nothing in a rising market, and that a defensible peer group is hard to construct."
+    ]
+  },
+  {
+    "id": "q540",
+    "ch": 27,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "The board of a listed firm adopts a poison pill without a shareholder vote. Which statement is defensible?",
+    "options": [
+      "The pill is unambiguously good, since firms with pills receive higher premiums",
+      "The pill is neutral: it changes who negotiates but not the price finally paid",
+      "The pill protects shareholders, because it stops a raider from buying their shares cheaply",
+      "The pill's real effect is to require the bidder to negotiate with the BOARD rather than with the shareholders, since only the board can redeem it - which is a bargaining instrument under one hypothesis and entrenchment under the other"
+    ],
+    "answer": 3,
+    "explanation": "The pill lets every shareholder other than the bidder buy new shares at a deep discount once a trigger stake is crossed, diluting the raider to the point where a hostile purchase is not worth attempting. Because only the board can redeem it, the decision about whether the owners may sell their own property has been taken by the very people the bid would displace. Two readings are possible and the evidence does not settle it cleanly: the shareholder-bargaining hypothesis, under which a single negotiator extracts a higher premium and defeats coercive low-ball tenders, and the managerial-entrenchment hypothesis, under which the board refuses an offer shareholders would have accepted. So it is neither neutral - it changes who negotiates AND what is finally paid - nor a protection against shareholders being bought out cheaply, which is the distractor this section exists to kill. And calling it unambiguously good asserts one side of a contested empirical question: firms with strong defences do receive FEWER bids."
+  },
+  {
+    "id": "q541",
+    "ch": 27,
+    "oppg": 3,
+    "type": "short",
+    "q": "Write the twelve-point version of 'is a unilaterally adopted poison pill in the shareholders' interest?'. Say what separates it from the six-point version.",
+    "model": [
+      "Mechanism, precisely: the pill allows every shareholder other than the bidder to buy new shares at a large discount once the bidder crosses a trigger stake, so his holding is diluted to the point where a hostile purchase is not worth attempting. Only the board can redeem it, so its real effect is to force the bidder to negotiate with the board rather than with the shareholders.",
+      "Hypothesis 1, shareholder bargaining: the board becomes a single negotiator for a dispersed and free-riding shareholder base, which is worth something precisely because the free-rider problem otherwise forces bidders to offer nearly the whole improvement anyway, and a board can defeat a coercive low-ball tender.",
+      "Hypothesis 2, managerial entrenchment: the board consists of the people the bid would displace, so the pill lets them refuse an offer shareholders would have accepted, and firms with strong defences do receive fewer bids.",
+      "What separates them in the data - this is the part that earns the mark: if defences raise premiums, protected firms should receive higher-priced bids and defended firms that are eventually sold should sell for more; if they entrench, protected firms should receive fewer bids and show weaker operating performance.",
+      "The decisive objection here is procedural rather than economic: it was adopted without a shareholder vote, so directors have taken to themselves a decision about whether the owners may sell their own property.",
+      "Conclusion, conditional and with a remedy attached: defensible as a negotiating instrument, indefensible as a permanent unilaterally adopted one, and the natural fix is to require ratification at the next general meeting.",
+      "What the six-point answer lacks: it describes the mechanism roughly, names one side only, offers no testable prediction, and asserts a conclusion instead of conditioning it. None of the extra length in the long answer is description - if you are writing a fourth sentence that only explains what the defence is, you have left the budget without adding an element."
+    ]
+  },
+  {
+    "id": "q542",
+    "ch": 27,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "Why is a staggered board the most effective entrenchment device known when combined with a poison pill?",
+    "options": [
+      "It transfers voting rights from ordinary shares to a founder class",
+      "It requires a supermajority of shareholders to approve any takeover",
+      "It lets the board issue new shares without shareholder approval",
+      "Only a third of the directors stand each year, so even a bidder owning a majority must win TWO annual meetings to control the board and redeem the pill - and two annual cycles is longer than most bidders will wait"
+    ],
+    "answer": 3,
+    "explanation": "The pill can only be redeemed by the board, and the staggered board makes the board slow to replace: with only a third of the directors standing each year, even a bidder owning a majority must win TWO annual meetings before it can redeem the pill, and two annual cycles is longer than most bidders will wait. The delay is the point. It blunts both routes at once - the shareholder vote and the takeover threat - which is why 'all directors elected annually' is the standard governance recommendation on election terms. The defence for it is continuity and a long investment horizon insulated from short-term pressure; the case against is that the delay is precisely what makes it effective as entrenchment. Issuing shares without approval is what the pill itself does, not the staggering; a founder class with extra votes is dual-class shares, a different device that permanently separates cash flow rights from control; and a supermajority requirement is its own provision. Note the shape every defence question takes: state how it works, then answer the only question that matters - whose interest does it serve?"
+  },
+  {
+    "id": "q543",
+    "ch": 27,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "Debt is described as a governance mechanism, not only a financing choice. Which pair of channels does that claim rest on?",
+    "options": [
+      "The tax shield, and the lower cost of debt relative to equity",
+      "Cash - contractual interest and principal remove the free cash flow that funds empire building and force the manager back to the capital market - and control, since default hands the firm to creditors and usually ends his career",
+      "The signalling content of a debt issue, which tells the market the shares are undervalued",
+      "Covenants and collateral, which give lenders a veto over strategy"
+    ],
+    "answer": 1,
+    "explanation": "Naming both channels separates a good answer from an adequate one. The cash channel is the agency benefit of debt: committed interest and principal strip out the discretionary cash and make every new project go back to outside investors who will price it. The control channel is what makes the commitment credible: default hands the firm to creditors, and the penalty for missing a payment is severe and outside the manager's control. Debt therefore substitutes for monitoring, which is why an LBO uses it deliberately - and it is the same instrument that produces debt overhang and risk shifting, one friction with two signs. The tax shield, the relative cost of debt and the signalling content of an issue are true statements about debt from other chapters but are not governance channels; covenants and collateral are a real lender tool, but lenders monitor RISK rather than performance, since they want to be repaid, not to maximise value."
+  },
+  {
+    "id": "q544",
+    "ch": 27,
+    "oppg": 3,
+    "type": "short",
+    "q": "Explain why a leveraged buyout is a governance transaction and not merely a financing one. Name the costs as well.",
+    "model": [
+      "Four mechanisms operate at once, and listing them is the answer.",
+      "Ownership is concentrated: the sponsor owns the whole firm, so the free-rider problem disappears and monitoring is worth its cost by construction. The break-even stake condition alpha greater than C/dV is trivially satisfied at alpha = 1.",
+      "Debt disciplines: heavy interest payments strip out the free cash flow that funded the empire, and default now genuinely ends the manager's career.",
+      "Management equity is high-powered: the executive team receives a large percentage stake, so pay-performance sensitivity rises by an order of magnitude - from around 1.4500% in a listed firm to 8% or more, which cuts the size of perk the manager finds worth taking by a factor of five or so.",
+      "The listing goes away: no quarterly earnings to manage and no dispersed register to coordinate.",
+      "The costs belong in the same answer: the leverage brings expected distress costs and the risk-shifting and debt-overhang conflicts, and the sponsor's own investors face an agency problem one level up. An answer that lists mechanisms and stops is adequate; one that names a cost is good."
+    ]
+  },
+  {
+    "id": "q545",
+    "ch": 27,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "Say-on-pay is usually an ADVISORY vote. Why is it still a useful tool for a 5 to 10% holder?",
+    "options": [
+      "Because its force is reputational: it is an annual, public, low-cost vote on the one thing directors care about defending, and directors dislike a large protest vote in the labour market for directors",
+      "Because 5 to 10% is enough to defeat the resolution outright",
+      "Because it converts into a binding vote if it fails twice",
+      "Because an advisory vote against legally voids the remuneration report"
+    ],
+    "answer": 0,
+    "explanation": "Advisory means it does not compel, so it voids nothing, and 5 to 10% cannot defeat a resolution alone - that is the whole reason this holder must persuade others. The mechanism is that directors and executives care intensely about a visible protest vote, so the cost is reputational and falls on individuals who face re-election and who sit on other boards. It is also the cheapest action in the toolkit: no litigation, no proxy solicitation, and it recurs every year. An automatic conversion into a binding vote after two failures is invented; some jurisdictions do have variants, but the examinable point is that say-on-pay works because directors dislike being publicly rebuked, not because it compels them."
+  },
+  {
+    "id": "q546",
+    "ch": 27,
+    "oppg": 3,
+    "type": "short",
+    "q": "A Norwegian listed firm has a founding family holding 35% of the shares. Which agency conflict do you analyse, and which protective machinery is relevant?",
+    "model": [
+      "Not the textbook one. Dispersed US and UK ownership makes the conflict managers against shareholders; concentrated Continental and Nordic ownership - families, foundations, industrial holding companies, the state - largely solves that, because someone with 35% always finds monitoring worth its cost, so management-driven empire building is correspondingly rarer.",
+      "It replaces it with the controlling owner against the MINORITY: related-party transactions on favourable terms, dual-class structures that keep control while selling cash flow rights, and resistance to any takeover that would end the family's position.",
+      "Say it in the free-rider language: the block solves the undersupply of monitoring but creates a second problem, private benefits of control extracted at the minority's expense.",
+      "The protective machinery is different too. Mandatory bid rules force an offer for all remaining shares once an acquirer passes the control threshold, so control cannot change hands without minority holders being offered the same price.",
+      "Equal-treatment requirements and independent review of related-party deals attack the tunnelling channel directly, and minority thresholds matter: 5% of the capital lets a holder requisition an extraordinary general meeting in Norway, and about a tenth lets him demand an independent investigation.",
+      "Ownership disclosure at 5% makes stake-building visible, which is a governance instrument in both directions - it stops secret accumulation and it tells management who its critics are.",
+      "The exam habit: when a question hands you a firm with a dominant owner, say explicitly which conflict you are analysing before you start listing mechanisms."
+    ]
+  },
+  {
+    "id": "q547",
+    "ch": 27,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "Which statement about index funds as monitors is correct?",
+    "options": [
+      "They monitor risk rather than performance, exactly as lenders do",
+      "They do not vote, since passive funds are prohibited from voting their shares",
+      "They are the strongest monitors, since they hold every firm and can always sell",
+      "They cannot sell, so exit is unavailable and voice is all they have - but their monitoring budget per holding is tiny, so voting is close to free while active engagement is not"
+    ],
+    "answer": 3,
+    "explanation": "An index fund is locked in by its mandate, which removes the Wall Street walk entirely and makes it a permanent owner - in principle the ideal long-horizon monitor - so calling it the strongest monitor BECAUSE it can always sell gets the exit point exactly backwards. In practice its tools are the cheap ones: voting power aggregated across thousands of holdings, published voting policies, engagement teams and the proxy advisers they follow. The constraint is economic, not legal: with thousands of positions and a fee measured in basis points, the budget per company is minimal, so voting happens and campaigning rarely does. Passive funds are not barred from voting - they vote, and their published policies are one of their main instruments. And monitoring risk rather than performance describes LENDERS, whose interests diverge from shareholders' because they want to be repaid, not to maximise value."
+  },
+  {
+    "id": "q548",
+    "ch": 27,
+    "oppg": 3,
+    "type": "short",
+    "q": "'Governance is not free.' Name at least four costs of the mechanisms in this chapter and state what the target actually is.",
+    "model": [
+      "Monitoring consumes real resources: the campaign in the blockholder example cost 12 to produce an improvement of 300, and that 12 is gone whether or not the campaign succeeds.",
+      "Independent directors know less about the business than insiders do - the same feature that makes them able to act against management makes them worse informed.",
+      "High pay-performance sensitivity is expensive: an undiversified manager must be compensated for bearing firm-specific risk, and options bought cheaply invite risk shifting.",
+      "Compliance absorbs management attention and money. Internal-control rules are expensive enough that they are a documented reason small firms delist or stay private, and disclosure and say-on-pay consume board time.",
+      "Takeover pressure and quarterly scrutiny can push managers towards decisions that look good this quarter, which is the honest core of the case for staggered boards and dual-class shares.",
+      "So the target is not maximum governance. It is the point where the marginal reduction in agency cost equals the marginal cost of the mechanism - the same trade-off shape as the optimal capital structure.",
+      "Exam value: an answer that lists mechanisms and stops is adequate; an answer that names the cost of one of them is good, and this sentence costs you ten seconds."
+    ]
+  },
+  {
+    "id": "q549",
+    "ch": 27,
+    "oppg": 3,
+    "type": "mcq",
+    "q": "Sarbanes-Oxley and Dodd-Frank are best remembered by which failure each targets?",
+    "options": [
+      "SOX targets accounting fraud and a captured auditor - CEO and CFO certify the accounts, internal controls are reported on, the audit committee is independent and hires the auditor, and consulting sales to audit clients are restricted; Dodd-Frank targets pay set by a board the executive influenced - say-on-pay, pay-for-performance disclosure and clawbacks",
+      "SOX targets executive pay; Dodd-Frank targets accounting fraud",
+      "Both are comply-or-explain codes, so neither requires anything",
+      "Both target takeover defences and require pills to be ratified by shareholders"
+    ],
+    "answer": 0,
+    "explanation": "SOX (2002) attacks the INFORMATION the board and the market rely on: certification by the CEO and CFO, internal controls, an independent audit committee that hires the auditor, and limits on consulting sold to audit clients. Dodd-Frank (2010) attacks the pay-setting process and the disconnection between pay and value: say-on-pay, pay-for-performance disclosure and clawbacks. The pairing that gives pay to SOX and accounting fraud to Dodd-Frank swaps them. Neither statute is about takeover defences - the pill question is settled by case law and by charter provisions, not by these acts. And calling both comply-or-explain codes confuses statutes with codes: comply-or-explain codes, of which Norway's code of practice is one, require DISCLOSURE rather than compliance - state which recommendations you depart from and why - which lets governance quality be priced rather than mandated, and works only if investors read and react. Listing standards sit in between, requiring a majority of independent directors and fully independent audit and remuneration committees."
+  },
+  {
+    "id": "q550",
+    "ch": 27,
+    "oppg": 3,
+    "type": "short",
+    "q": "You are handed an unfamiliar governance question in the exam. What five arguments do you run through, and how do you turn the chosen ones into points?",
+    "model": [
+      "One, incentives: what is the manager's pay-performance sensitivity, and what would change it? Shares, options and their delta, relative performance evaluation, vesting, clawbacks.",
+      "Two, information: who can see what he is doing, and who controls the flow? The auditor and the audit committee, the board's own information, analysts and the press.",
+      "Three, control rights: who can actually remove him, and what stands in the way? The board, the shareholder vote, the takeover market - and the defences that block it.",
+      "Four, cash: does he have free cash flow, and would a payout or leverage take away the discretion?",
+      "Five, ownership structure: is the register dispersed, so the conflict is management against shareholders, or concentrated, so it is the controlling owner against the minority?",
+      "Pick the three that apply and write each in the same skeleton: the action or the monitor, the mechanism that reaches the manager, the limitation. Nothing else scores.",
+      "Two things to avoid: do not spend a sentence defining corporate governance, and do not let two of your three items be the same argument in different clothes - one changing incentives, one changing the board, one changing the balance sheet is the shape that reads as three distinct answers."
+    ]
+  },
+  {
+    "id": "q301",
+    "ch": 17,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "The WACC method uses one discount rate for every future period. That is legitimate only if:",
+    "options": [
+      "the firm's debt beta is zero, so the debt carries no systematic risk",
+      "the firm's debt-to-value ratio, measured at market value, is the same at every future date",
+      "the firm's debt, measured in kroner, is the same at every future date",
+      "the firm's book leverage matches the leverage on its most recent balance sheet"
+    ],
+    "answer": 1,
+    "explanation": "Constant D/V at market value is the entire price of admission. It fixes the weights E/V and D/V, so rE is constant, so r_wacc is constant, so one rate discounts everything. A fixed amount of debt in kroner is precisely the case where the method breaks down: as firm value moves, D/V drifts, the wedge (D/V)rD*tau_c changes every year, and no single rate values the firm correctly. That is APV territory. A zero debt beta changes the size of beta_U but says nothing about whether a single rate exists. And book leverage never enters: the weights in r_wacc are market-value target weights of the firm being valued."
+  },
+  {
+    "id": "q302",
+    "ch": 17,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A firm rebalances to D/V = 0.35, borrows at r_D = 4.5000% and faces tau_c = 22%. By how many percentage points does its after-tax WACC sit below r_U?",
+    "options": [
+      "7.7000 pp",
+      "0.3465 pp",
+      "0.9900 pp",
+      "1.5750 pp"
+    ],
+    "answer": 1,
+    "explanation": "r_U - r_wacc = (D/V)*r_D*tau_c = 0.35 x 0.0450 x 0.22 = 0.003465, i.e. 0.3465 percentage points. That single term is the whole interest tax shield, expressed as a rate cut instead of a cash flow. 1.5750 pp is 0.35 x 0.0450, the debt's full contribution to the pre-tax WACC, which forgets that only tau_c of the interest comes back from the tax authority. 0.9900 pp is 0.22 x 0.0450, the shield per krone of DEBT rather than per krone of FIRM VALUE, so it omits the D/V weight. 7.7000 pp is tau_c x (D/V), which is the rate-cut version of the tau_c*D error and is roughly twenty times too large."
+  },
+  {
+    "id": "q303",
+    "ch": 17,
+    "oppg": 1,
+    "type": "short",
+    "q": "The question states that a firm 'maintains a debt-to-value ratio of 0.30 by rebalancing annually'. State the three consequences that follow, each of which is worth a mark on its own.",
+    "model": [
+      "1. The weights E/V and D/V never change, so rE is the same in every period, so r_wacc is the same in every period and one rate discounts the whole stream. This is what licenses the WACC method at all.",
+      "2. Future debt levels move with firm value, which is uncertain. So the interest tax shield carries the risk of the ASSETS, and in an APV valuation it is discounted at rU, not at rD. This is the single most examined judgement in the course.",
+      "3. Pre-tax WACC = rU holds exactly, and beta_U may be weighted without any (1 - tau_c) term. Both are consequences of the rebalancing policy, not free algebra: under fixed permanent debt the shield is a safe stream, the relation between rE, rD and rU changes, and neither statement survives.",
+      "Write the policy sentence at the top of your answer in the question's own words, then the rate it implies. The solution keys award marks for that line before any arithmetic appears."
+    ]
+  },
+  {
+    "id": "q304",
+    "ch": 17,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Nordvest Bygg AS 'maintains a debt-to-equity ratio of 0.50 and rebalances annually to that target'. In an APV valuation of the firm, the interest tax shield must be discounted at:",
+    "options": [
+      "r_wacc, because the shield is part of the levered firm's value",
+      "r_f, because the tax authority is a risk-free counterparty",
+      "r_D, because the shield is generated by the interest payment",
+      "r_U, because future debt tracks firm value and the shield therefore carries asset risk"
+    ],
+    "answer": 3,
+    "explanation": "Follow one krone of shield. Under a target ratio, next year's debt is d times next year's V^L, and V^L depends on how the business does: good year, more debt, bigger shield. So the shield moves one-for-one with the assets, which is the definition of asset risk, and asset risk is priced at r_U. Discounting at r_D is the fixed-permanent-debt answer, where D is written into a loan contract and does not respond to the business at all. Discounting at r_f is right only in the special case of risk-free FIXED debt. And r_wacc is never right for the shield: it already has the shield folded into it, so using it here would count the shield twice, which is a category error about what r_wacc is."
+  },
+  {
+    "id": "q305",
+    "ch": 17,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A firm reports free cash flow of 84 for the year just ended, expects growth of 3.0000% forever, and has r_wacc = 9.0000%. Its levered value today is:",
+    "options": [
+      "1 400.0000",
+      "1 442.0000",
+      "961.3333",
+      "1 322.9358"
+    ],
+    "answer": 1,
+    "explanation": "The growing perpetuity takes NEXT year's flow: FCF_1 = 84 x 1.03 = 86.5200, and V^L = 86.5200/(0.0900 - 0.0300) = 86.5200/0.0600 = 1 442.0000. Write the FCF_1 = FCF_0(1 + g) line on its own before you divide. 1 400.0000 is 84/0.0600, which prices the stream one year too early by feeding the realised flow into a formula that wants the forecast. 961.3333 is 86.5200/0.0900, which forgets to subtract g and understates the firm by a third. 1 322.9358 is the right value discounted one period too many, the date error the perpetuity formula invites: C/(r - g) already sits one period BEFORE the first cash flow."
+  },
+  {
+    "id": "q306",
+    "ch": 17,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A candidate computes FCF correctly, discounts it at r_wacc to get 670.1290, and then adds PV(TS) = 24.9677 on top, citing V^L = V^U + PV(TS). What is wrong with the resulting 695.0967?",
+    "options": [
+      "The identity applies only to firms with no growth",
+      "PV(TS) was discounted at the wrong rate and should have used r_D",
+      "Nothing. The identity V^L = V^U + PV(TS) always holds",
+      "The tax shield is already inside r_wacc, so it has been counted twice; the V^U in the identity is discounted at r_U, never at r_wacc"
+    ],
+    "answer": 3,
+    "explanation": "This is the most damaging error in the chapter, and it is not harmless: the WACC method values the shield by shaving (D/V)*r_D*tau_c off the discount rate, so adding PV(TS) as a separate term adds it a second time. The identity V^L = V^U + PV(TS) is true, but the V^U inside it is the ALL-EQUITY firm discounted at r_U, and 670.1290 is not that number. Blaming the shield's discount rate repeats the misconception at one remove: the shield's rate is r_U here because the firm rebalances, and no rate fixes a double count. Growth is a distraction; it has nothing to do with the error. The rule is: choose one method per valuation and use the other only as the check."
+  },
+  {
+    "id": "q307",
+    "ch": 17,
+    "oppg": 1,
+    "type": "short",
+    "q": "Haugesund Marine ASA is listed with equity worth 800 and debt worth 200, r_E = 13.0000% and r_D = 4.5000%. Unlisted Storeide AS is in the same business, will run at a permanent target D/V = 0.35 and borrows at 4.5000%. r_f = 3.0000%, market risk premium 5.0000%, tau_c = 22%. Storeide's free cash flow next year is 60, growing at 2.0000% forever. Work through to V^L, then confirm it by APV.",
+    "model": [
+      "Step 1 - the twin's betas. beta_E = (0.1300 - 0.0300)/0.0500 = 2.0000 and beta_D = (0.0450 - 0.0300)/0.0500 = 0.3000. The debt beta is not zero, so carry it.",
+      "Step 2 - unlever on the twin's own weights, E/V = 0.8000 and D/V = 0.2000: beta_U = 0.8000(2.0000) + 0.2000(0.3000) = 1.6000 + 0.0600 = 1.6600, so rU = 0.0300 + 1.6600(0.0500) = 0.1130 = 11.3000%.",
+      "Sanity line: the twin's own weighted rates give 0.8000(0.1300) + 0.2000(0.0450) = 0.104000 + 0.009000 = 0.113000, the same rU. This line catches a dropped debt beta.",
+      "Step 3 - relever to D/V = 0.35, so D/E = 0.35/0.65 = 0.538462. rE = 0.1130 + 0.538462(0.1130 - 0.0450) = 0.113000 + 0.036615 = 0.149615 = 14.9615%.",
+      "Step 4 - r_wacc = 0.6500(0.149615) + 0.3500(0.0450)(1 - 0.22) = 0.097250 + 0.012285 = 0.109535 = 10.9535%. Pre-tax: 0.097250 + 0.015750 = 0.113000 = rU, an identity under this course's rebalancing convention, so it catches arithmetic and nothing more.",
+      "Step 5 - value by WACC. V^L = 60/(0.109535 - 0.020000) = 60/0.089535 = 670.1290.",
+      "Step 6 - APV. V^U = 60/(0.113000 - 0.020000) = 60/0.093000 = 645.1613. D_0 = 0.35 x 670.1290 = 234.5451, so TS_1 = 0.22 x 0.0450 x 234.5451 = 2.3220, growing at 2.0000% and discounted at rU because leverage is a target ratio: PV(TS) = 2.3220/0.093000 = 24.9677.",
+      "Consistency check 1: 645.1613 + 24.9677 = 670.1290, the WACC answer. Say honestly what this is: the APV route took D_0 from the WACC answer, so it is a fixed-point re-check. It still catches the two errors that happen, a wrong rate on the shield and arithmetic slips. Discount the shield at rD instead and you get 2.3220/(0.0450 - 0.0200) = 92.8799 and a total of 738.0412, which no WACC could reproduce.",
+      "Scale check: PV(TS) is 3.73% of firm value. tau_c*D_0 = 51.5999 would have been 2.0667 times too large, and 2.0667 is exactly (rU - g)/rD."
+    ]
+  },
+  {
+    "id": "q308",
+    "ch": 17,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Ryfylke Instrument AS is for sale at 750 for the whole firm. Its free cash flow next year is 45, r_U = 9.6500% and r_wacc = 9.3500%. What growth rate does the asking price imply?",
+    "options": [
+      "3.3500%",
+      "6.0000%",
+      "3.6500%",
+      "15.3500%"
+    ],
+    "answer": 0,
+    "explanation": "Set 45/(0.093500 - g) = 750 and solve: g = 0.093500 - 45/750 = 0.093500 - 0.060000 = 0.033500 = 3.3500%. Verify forwards: 45/0.060000 = 750.0000. The 3.6500% uses r_U instead of r_wacc, which answers a different question, namely the growth the price would imply for an all-equity firm. The 6.0000% is FCF_1/V, the cash flow yield, which is what you subtract, not the answer. The 15.3500% adds where the algebra subtracts. Do this in two lines algebraically; guessing values of g until the price matches wastes minutes and earns no method marks."
+  },
+  {
+    "id": "q309",
+    "ch": 17,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Same firm: FCF_1 = 45, r_U = 9.6500%, r_wacc = 9.3500%, asking price 750. You believe growth is only 2.5000%. What is the most you can pay, and what is the NPV of paying the asking price?",
+    "options": [
+      "656.9343, so the NPV at 750 is -93.0657",
+      "1 800.0000, so the NPV at 750 is +1 050.0000",
+      "629.3706, so the NPV at 750 is -120.6294",
+      "750.0000, so the NPV at 750 is 0"
+    ],
+    "answer": 0,
+    "explanation": "The break-even purchase price is the same equation solved for price: P* = 45/(0.093500 - 0.025000) = 45/0.068500 = 656.9343, and paying 750 gives NPV = 656.9343 - 750 = -93.0657. Walk away or negotiate down to 656.93. The 629.3706 is 45/(0.096500 - 0.025000), which values the firm as if it were unlevered and so throws the tax shield away. Answering 750.0000 with a zero NPV confuses the price with the value - the asking price is what someone wants, not what the stream is worth at your growth estimate. And 1 800.0000 divides by g instead of by r_wacc - g."
+  },
+  {
+    "id": "q310",
+    "ch": 17,
+    "oppg": 1,
+    "type": "short",
+    "q": "Ryfylke Instrument sells 2.00 million units at price p, with variable cost 35 per unit, fixed costs 14, depreciation 12, CapEx 12 and no working-capital movement. tau_c = 25%. The valuation needs FCF_1 = 45. What unit price is required? Show the chain.",
+    "model": [
+      "Run the chain backwards: required V^L gives required FCF_1, which gives required EBIT_1, which gives the required price.",
+      "Depreciation and CapEx cancel (both 12), so FCF_1 = EBIT_1(1 - tau_c) and the required EBIT_1 = 45/0.75 = 60.0000.",
+      "EBIT = 2.00(p - 35) - 14 - 12 = 2.00(p - 35) - 26, so 2.00p - 70 - 26 = 60, hence 2.00p = 156 and p = 78.0000.",
+      "Verify forwards: EBIT = 2.00(78.0000 - 35) - 26 = 86.0000 - 26.0000 = 60.0000; FCF = 60.0000(0.75) + 12 - 12 = 45.0000.",
+      "Say in one sentence whether that price is plausible against the market the question describes. On a verbal follow-up the examiner wants the judgement, not only the number."
+    ]
+  },
+  {
+    "id": "q311",
+    "ch": 17,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Why does the exam reward computing V^L by the backward recursion V^L_(t-1) = (FCF_t + V^L_t)/(1 + r_wacc) rather than as one discounted sum?",
+    "options": [
+      "It is the only form that remains valid when g is positive",
+      "It produces V^L at every date, and those intermediate values are what the debt schedule D_t = d*V^L_t and the tax shields need",
+      "It removes the need to compute a terminal value",
+      "It is numerically more accurate over long horizons"
+    ],
+    "answer": 1,
+    "explanation": "The recursion answers the question at EVERY date, and the moment a target debt ratio appears you need V^L_1, V^L_2 and so on, because D_t = d*V^L_t and the shield in year t is tau_c*r_D*D_(t-1). H2025 Exercise 4 is built on exactly this chain. The two routes give the same V^L_0 to the last decimal, so numerical accuracy is not the issue. Removing the terminal value is backwards: the recursion STARTS at V^L_T = TV_T, so the terminal value is still required. And the claim that only the recursion survives positive growth is simply untrue; both forms handle growth."
+  },
+  {
+    "id": "q312",
+    "ch": 17,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "The statement 'pre-tax WACC = r_U' is best described as:",
+    "options": [
+      "an approximation whose error shrinks as leverage falls",
+      "pure algebra, since a weighted average of r_E and r_D must return r_U by construction",
+      "true only when the firm's debt is risk-free",
+      "a consequence of the rebalancing convention: it needs the tax shield to carry asset risk, and it fails under fixed permanent debt"
+    ],
+    "answer": 3,
+    "explanation": "It looks like a weighted average and therefore like free arithmetic, but the weights are constant only under rebalancing, and it is rebalancing that gives the shield the same risk as the assets and lets beta_U be weighted without a (1 - tau_c) term. Under fixed permanent debt the shield is a safe stream, the relation between rE, rD and rU changes, and the identity does not hold - so it is neither pure algebra nor an approximation that improves at low leverage, and it does not depend on the debt being risk-free. Say 'under the course's rebalancing convention' when you assert it. Note also what follows for the exam: once rE has been produced by MM II from that same rU, writing the line back out cannot fail, so label it as an arithmetic check rather than as verification."
+  },
+  {
+    "id": "q313",
+    "ch": 17,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A comparable firm runs at D/V = 0.40; you will run the business at D/V = 0.25. Which quantities cross from the comparable to your firm?",
+    "options": [
+      "r_E and r_wacc, since both firms are in the same industry",
+      "beta_E and r_E, since equity risk is a property of the industry",
+      "D/V and D/E, since the comparable's leverage is the best available estimate of yours",
+      "beta_U and r_U only, because they describe the business rather than the financing"
+    ],
+    "answer": 3,
+    "explanation": "Only beta_U and rU are properties of the business risk; everything with an E or a D subscript is contaminated by the comparable's own financing, so neither the comparable's rE and r_wacc nor its beta_E cross over. Borrowing its D/V and D/E skips the relevering step entirely, and that is the single most common way to fail consistency check 1 in a twin-firm exercise: you were told your own target ratio, and it is 0.25. The practical defence is mechanical: write the two D/V ratios next to each other on your paper, labelled with the firm names, before you compute anything."
+  },
+  {
+    "id": "q314",
+    "ch": 18,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A firm has 250 million of perpetual debt outstanding that it never repays and simply rolls over. The interest tax shield should be discounted at:",
+    "options": [
+      "the growth rate of free cash flow",
+      "r_D, or r_f if the debt is risk-free, because the debt balance is fixed by contract and only default can stop the payments",
+      "r_U, because the firm's value is uncertain",
+      "r_wacc, since the shield accrues to the levered firm"
+    ],
+    "answer": 1,
+    "explanation": "The shield in year t is tau_c*r_D*D_(t-1), and the only uncertain thing in that expression is D_(t-1). Under a fixed permanent loan D is written into the contract and does not respond to the business at all, so the shield is as safe as the interest payment that generates it, and r_D prices exactly that risk - r_f if the debt is risk-free. With rD in both numerator and denominator it cancels: PV(TS) = tau_c*r_D*D/r_D = tau_c*D. Discounting at r_U is the rebalancing answer, for a firm whose debt tracks its value. Discounting at r_wacc double counts, because r_wacc already contains the shield. And the growth rate of free cash flow is not a discount rate at all."
+  },
+  {
+    "id": "q315",
+    "ch": 18,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A firm's stated policy is 'net debt is held at three times next year's free cash flow'. The tax shield is discounted at:",
+    "options": [
+      "r_D, because the amount is given by a stated rule",
+      "r_U, because the debt tracks a risky operating quantity and the shield therefore carries asset risk",
+      "r_f, because the multiple is contractual",
+      "The policy is incoherent and cannot be valued"
+    ],
+    "answer": 1,
+    "explanation": "A rule is not a contract. If free cash flow comes in 10% above expectation the firm borrows 10% more, so D_(t-1) is unknown today and moves with the business. Value is itself the discounted stream of free cash flow, so debt tied to FCF lands in the same place as debt tied to value: D/V is constant and the shield carries asset risk, hence rU. Discounting at r_D because the amount follows a stated rule confuses a formula with a fixed balance, and r_f would require the multiple to be a contractual, risk-free amount, which it is not. The policy is perfectly valuable, so declaring it incoherent gives up marks for nothing. The one thing to verify before using a single WACC on such a firm is that FCF and value really do grow at a common rate, which they do in a constant-growth perpetuity, the case the exam sets."
+  },
+  {
+    "id": "q316",
+    "ch": 18,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "PV(TS) = tau_c*D is correct:",
+    "options": [
+      "only when the firm rebalances to a target ratio",
+      "only when the debt amount is fixed AND the debt is permanent",
+      "whenever the firm has debt outstanding",
+      "whenever the corporate tax rate is constant over time"
+    ],
+    "answer": 1,
+    "explanation": "It needs both conditions: fixed in amount AND permanent. Drop permanence and the shield stops after the repayment, so the answer collapses towards a short table. Drop fixity, that is let the firm rebalance to a target ratio, and the shield is discounted at rU instead of rD, which under a no-growth policy divides the answer by rU/rD. So it holds neither for every firm with debt outstanding nor for the rebalancing case, and a constant tax rate is not one of the conditions at all. tau_c*D is the CEILING on the shield for a given D, the largest it can ever be, because it assumes the stream lasts forever and is safe enough to discount at rD. Before writing it, ask two questions in order: is the amount fixed, and is it permanent. If either answer is no, you are building a table instead."
+  },
+  {
+    "id": "q317",
+    "ch": 18,
+    "oppg": 1,
+    "type": "short",
+    "q": "Write out, cold, the rule for which rate discounts the interest tax shield. Cover four debt policies, say what makes D_(t-1) uncertain in each, and note where the WACC method is available.",
+    "model": [
+      "The shield in year t is tau_c*r_D*D_(t-1). Its risk is decided entirely by what makes D_(t-1) uncertain seen from today, so read the debt sentence in the question before writing anything.",
+      "1. 'Maintains a debt-to-equity ratio of 0.50', 'keeps debt at 30% of firm value', 'rebalances annually'. Future debt tracks firm value, so D_(t-1) is unknown and carries asset risk. Discount at rU. A constant WACC is available; this is the WACC method's home ground.",
+      "2. 'Has 200 million of perpetual debt outstanding', 'the loan is never repaid'. D is contractual and known; only default can stop the payments. Discount at rD, or at rf if the debt is risk-free, and PV(TS) = tau_c*D. No constant WACC: D/V drifts as value changes, so use APV.",
+      "3. 'Repays 100 million a year for three years', 'the loan amortises over five years'. The amount at every date is given in the question. Discount at rD period by period, in a table. No constant WACC.",
+      "4. 'Holds debt at three times free cash flow', 'debt is 2.5 times EBITDA'. Debt tracks a risky operating quantity, so the shield again carries asset risk. Discount at rU. A constant WACC is available provided FCF and value grow at a common rate.",
+      "Write the policy line first: 'the firm rebalances to a constant D/V, so the tax shield carries asset risk and is discounted at rU', or 'the debt is fixed and permanent, so the shield is discounted at rD and PV(TS) = tau_c*D'. That sentence earns marks on its own. If the wording is genuinely ambiguous, state the assumption you are making and carry on."
+    ]
+  },
+  {
+    "id": "q318",
+    "ch": 18,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Sorlandet Verktoy AS produces unlevered free cash flow of 96 a year in perpetuity with no growth, r_U = 12.0000%. It borrows 400 at r_D = 5.0000% and tau_c = 25%. If the firm rebalances to a constant D/V, PV(TS) is:",
+    "options": [
+      "5.0000",
+      "71.4286",
+      "41.6667",
+      "100.0000"
+    ],
+    "answer": 2,
+    "explanation": "The annual shield is tau_c*r_D*D = 0.25 x 0.0500 x 400 = 5.0000 under every policy; only its risk differs. Under rebalancing it is a level perpetuity discounted at rU: 5.0000/0.1200 = 41.6667, so V^L = 800.0000 + 41.6667 = 841.6667 and the implied target ratio is 400/841.6667 = 0.4752. The 100.0000 is tau_c*D = 5.0000/0.0500, the fixed-permanent-debt answer, correct for a different firm and here 2.4 times too large. The 71.4286 discounts at rU - rD, which is not a rate anything in this course uses. And 5.0000 is the annual flow, not its present value."
+  },
+  {
+    "id": "q319",
+    "ch": 18,
+    "oppg": 1,
+    "type": "short",
+    "q": "Same firm: FCF = 96 in perpetuity, r_U = 12.0000%, debt 400 at r_D = 5.0000%, tau_c = 25%. Value it under three debt policies: (A) the 400 is fixed and never repaid; (B) the firm rebalances to a constant D/V; (C) the loan is repaid in full at the end of year 3. Then run the WACC route on policy B.",
+    "model": [
+      "Common to all three: V^U = 96/0.1200 = 800.0000, and the annual shield is 0.25 x 0.0500 x 400 = 5.0000. The cash flow is identical under every policy. Only its risk differs, and therefore only its discount rate differs.",
+      "Policy A, fixed and permanent. Level perpetuity discounted at rD: PV(TS) = 5.0000/0.0500 = 100.0000, which is tau_c*D = 0.25 x 400 = 100.0000. V^L = 900.0000.",
+      "Policy B, rebalanced. The same 5.0000, discounted at rU: PV(TS) = 5.0000/0.1200 = 41.6667. V^L = 841.6667, and the implied target is d = 400/841.6667 = 0.475248.",
+      "Policy C, repaid at the end of year 3. Three known shields of 5.0000, discounted at rD: 5.0000/1.05 + 5.0000/1.05^2 + 5.0000/1.05^3 = 4.761905 + 4.535147 + 4.319188 = 13.6162. V^L = 813.6162.",
+      "WACC route on policy B, which is a genuine second computation because it never mentions PV(TS). E = 841.6667 - 400 = 441.6667, D/E = 0.905660, so rE = 0.1200 + 0.905660(0.1200 - 0.0500) = 0.120000 + 0.063396 = 0.183396 = 18.3396%. Weights E/V = 0.524752 and D/V = 0.475248, so r_wacc = 0.524752(0.183396) + 0.475248(0.0500)(0.75) = 0.096238 + 0.017822 = 0.114059 = 11.4059%. V^L = 96/0.114059 = 841.6667.",
+      "Watch the check bite. Keep the rebalancing story but discount the shield at rD, claiming 900.0000: then E = 500.0000, D/E = 0.800000, rE = 0.1200 + 0.800000(0.0700) = 0.176000, r_wacc = 0.097778 + 0.016667 = 0.114444, and 96/0.114444 = 838.8350. That is 61.1650 away from the 900.0000 you claimed, and the examiner needs one line to spot it. Policy A's 900.0000 is not wrong in itself; it is wrong for a firm that rebalances."
+    ]
+  },
+  {
+    "id": "q320",
+    "ch": 18,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Same firm and the same 400 of debt under the three policies (fixed permanent, rebalanced, repaid after three years). Which ordering of the resulting firm values is correct, and why?",
+    "options": [
+      "Repaid after three years is highest, because the firm escapes its interest burden fastest",
+      "Fixed permanent 900.0000, rebalanced 841.6667, repaid after three years 813.6162, because the shield lasts longest and is discounted most gently under fixed permanent debt",
+      "Rebalanced is highest, because the shield grows with the firm",
+      "All three are equal at 841.6667, because the annual shield is 5.0000 in every case"
+    ],
+    "answer": 1,
+    "explanation": "Same firm, same 400 of debt, same 5.0000 of shield in every year it is outstanding. What changes is how long the shield lasts and how risky it is. Fixed permanent debt lasts forever and is discounted at 5.0000%, giving the ceiling tau_c*D = 100.0000 and a firm value of 900.0000. Rebalancing keeps the shield forever but prices it at 12.0000%, cutting it to 41.6667. Repayment after three years leaves only three shields, worth 13.6162, the lowest of the three - so neither rebalancing nor early repayment can come out on top. Making all three equal at 841.6667 is the trap the identical cash flow sets: identical numerators do not imply identical present values. And preferring the fastest repayment confuses avoiding interest with creating value; the interest is what generates the deduction in the first place."
+  },
+  {
+    "id": "q321",
+    "ch": 18,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Namdal Kraft AS takes a loan of 360 at r_D = 6.0000%, repaid in three equal instalments of 120 at the end of years 1, 2 and 3, and is debt-free afterwards. Interest is charged on the opening balance and tau_c = 22%. PV(TS) is:",
+    "options": [
+      "79.2000",
+      "8.6325",
+      "9.5040",
+      "4.3984"
+    ],
+    "answer": 1,
+    "explanation": "Opening balances 360, 240, 120 give interest 21.6000, 14.4000, 7.2000 and shields 4.7520, 3.1680, 1.5840. The amounts are contractual, so discount at rD: 4.483019 + 2.819509 + 1.329957 = 8.6325. Second route, which never computes an individual shield: every shield is 0.22 x 0.0600 = 0.0132 times the opening balance, and 360/1.06 + 240/1.06^2 + 120/1.06^3 = 653.9761, so 0.0132 x 653.9761 = 8.6325. The 9.5040 is the sum of the three shields with no discounting at all. The 79.2000 is tau_c*D_0, the permanent-debt ceiling, here 9.1746 times too large. And 4.3984 uses CLOSING balances, the off-by-one that always understates when the loan amortises."
+  },
+  {
+    "id": "q322",
+    "ch": 18,
+    "oppg": 1,
+    "type": "short",
+    "q": "Namdal Kraft generates 108 a year in perpetuity, r_U = 12.0000%, tau_c = 22%. It borrows 360 at r_D = 6.0000%, repaid in three instalments of 120, then stays debt-free. Value the firm, verify PV(TS) by a second route, and say what consistency check 1 can and cannot do here.",
+    "model": [
+      "V^U = 108/0.1200 = 900.0000.",
+      "The loan table, opening balance first: year 1 opening 360.00, interest 21.6000, TS 4.7520, discounted 4.483019; year 2 opening 240.00, interest 14.4000, TS 3.1680, discounted 2.819509; year 3 opening 120.00, interest 7.2000, TS 1.5840, discounted 1.329957. From year 4 the balance is zero.",
+      "The amounts are contractual, so the rate is rD = 6.0000%: PV(TS) = 8.6325. V^L = 900.0000 + 8.6325 = 908.6325.",
+      "Second route. Every shield is 0.22 x 0.0600 = 0.013200 times the opening balance, so PV(TS) must be 0.013200 times the present value of the balance profile: 360.00/1.06 + 240.00/1.06^2 + 120.00/1.06^3 = 339.6226 + 213.5991 + 100.7542 = 653.9761, and 0.013200 x 653.9761 = 8.6325. Same number from a route that never computed an individual shield.",
+      "Consistency check 1 cannot be run in its usual form, and saying so is part of the answer. D/V is not constant: it starts at 360.00/908.6325 = 0.396200 and falls to zero by date 3, so there is no single r_wacc.",
+      "To show how badly a constant WACC misfires, build one at the opening ratio: E = 548.6325, D/E = 0.656177, rE = 0.1200 + 0.656177(0.0600) = 0.159371, r_wacc = 0.603800(0.159371) + 0.396200(0.0600)(0.78) = 0.096228 + 0.018542 = 0.114770, giving 108/0.114770 = 941.0111, which overstates the firm by 32.3786 because it assumes the firm keeps borrowing at 39.62% of value forever when in fact it retires the loan in three years.",
+      "What you CAN check: the second route above, and the ceiling. PV(TS) must lie strictly between 0 and tau_c*D_0 = 79.2000, and 8.6325 does. Writing 79.2000 here would inflate firm value by 7.8%."
+    ]
+  },
+  {
+    "id": "q323",
+    "ch": 18,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "In a loan with a stated amortisation profile, the shield in year t is charged on D_(t-1). Using D_t instead:",
+    "options": [
+      "is the convention this course uses",
+      "understates the shield when the loan amortises, because it uses a balance that has already been reduced",
+      "overstates the shield, because it uses a balance that has not yet been reduced",
+      "has no effect, since the total repaid is the same either way"
+    ],
+    "answer": 1,
+    "explanation": "Keep the two directions apart, because they are separate errors. In an AMORTISING loan the balance falls, so the closing balance D_t is smaller than the opening balance D_(t-1) and using it understates every shield: in the Namdal table 8.6325 becomes 4.3984. In a REBALANCED, growing firm the balance rises, so the same off-by-one uses a balance that has not yet been reached and OVERSTATES every shield. The overstatement answer therefore states the growing-firm direction and is wrong for an amortising loan. Saying it makes no difference ignores discounting and timing, and it is certainly not the course convention: interest is charged on the opening balance throughout."
+  },
+  {
+    "id": "q324",
+    "ch": 18,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "In an APV valuation, V^U must be discounted at:",
+    "options": [
+      "r_U, because V^U is by definition the firm as if it were financed entirely by equity",
+      "r_D under fixed debt and r_U under rebalancing, mirroring the shield",
+      "r_E, since equity holders own the unlevered firm",
+      "r_wacc, since it is the firm's own cost of capital"
+    ],
+    "answer": 0,
+    "explanation": "V^U is the all-equity firm, so it takes rU under every debt policy. Using r_wacc counts the shield once inside V^U and again in PV(TS), which is the same double count as the WACC-plus-PV(TS) error, arriving from the other direction. Using rE mismatches the cash flow: FCF belongs to debt and equity together and never takes the equity rate. And letting the rate on V^U mirror the debt policy confuses the two halves of the method: the debt policy decides the rate on the SHIELD only; the operating stream is unaffected by how the firm is financed, which is the whole point of splitting the valuation."
+  },
+  {
+    "id": "q325",
+    "ch": 18,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A firm's debt has a promised yield of y = 7.2000%, a default probability of 3% and a loss given default of 40%, so the expected return is r_D = 6.0000%. r_U = 10.5000%, D/V = 0.30, tau_c = 22%, FCF_1 = 70 growing at 2.0000%. A candidate keeps r_E = 12.4286% but plugs y into the WACC formula. What happens?",
+    "options": [
+      "r_wacc falls and the firm is overvalued, because a higher debt cost lowers the WACC",
+      "Nothing; y and r_D are interchangeable in the WACC",
+      "r_wacc rises from 10.1040% to 10.3848% and the firm is undervalued by 28.9270, and the pre-tax WACC check catches it because 10.8600% is not r_U",
+      "The error is invisible to every consistency check"
+    ],
+    "answer": 2,
+    "explanation": "r_wacc = 0.7000(0.124286) + 0.3000(0.0600)(0.78) = 0.087000 + 0.014040 = 0.101040 correctly, and 0.087000 + 0.3000(0.0720)(0.78) = 0.087000 + 0.016848 = 0.103848 with the yield. Value falls from 70/0.081040 = 863.7710 to 70/0.083848 = 834.8440, a loss of 28.9270. So the two rates are not interchangeable, and a higher debt cost RAISES the WACC rather than lowering it, which also rules out the overvaluation story. The wedge y - r_D = p*L = 0.0120 is expected loss, not a required return, and only the expected return belongs in the cost of capital. Nor is the error invisible: the pre-tax line gives 0.087000 + 0.021600 = 0.108600 against r_U = 10.5000%, so the ten-second check does catch this one."
+  },
+  {
+    "id": "q326",
+    "ch": 18,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A firm carries 500 of debt at r_D = 5.0000%, tau_c = 25%, r_U = 11.0000%. Under fixed permanent debt the shield is worth 125.0000. Under rebalancing with debt and shield growing at g = 3.0000% it is worth 78.1250. The ratio 1.6000 equals:",
+    "options": [
+      "(r_U - g)/r_D, the ratio of the two denominators",
+      "1 + the credit spread",
+      "tau_c divided by g",
+      "the leverage ratio D/V"
+    ],
+    "answer": 0,
+    "explanation": "The two answers share the numerator tau_c*r_D*D = 6.2500 and differ only in the denominator: rD = 0.0500 under fixed permanent debt, rU - g = 0.0800 under rebalancing. So the ratio is (0.1100 - 0.0300)/0.0500 = 1.6000, which is the ratio of the two denominators and has nothing to do with tau_c/g, with D/V, or with the credit spread. Set g = 0 and the ratio becomes rU/rD = 2.2000, and the rebalanced shield falls to 56.8182. This is the fastest smell test on the paper: since rU normally sits well above rD, the rebalanced shield is worth substantially less than tau_c*D, and any rebalanced answer near the tau_c*D ceiling should make you stop and reread the debt sentence."
+  },
+  {
+    "id": "q327",
+    "ch": 18,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Kvinnherad-style case: FCF_1 = 90 growing at 3.0000%, r_U = 10.5000%, r_D = 5.0000%, tau_c = 22%, and the policy is 'net debt is held at 2.5 times next year's free cash flow'. V^L is:",
+    "options": [
+      "1 233.0000",
+      "1 200.0000",
+      "1 249.5000",
+      "1 323.7500"
+    ],
+    "answer": 0,
+    "explanation": "V^U = 90/(0.1050 - 0.0300) = 1 200.0000. D_0 = 2.5 x 90 = 225.0000, so TS_1 = 0.22 x 0.0500 x 225.0000 = 2.4750, growing at 3.0000%. The debt tracks free cash flow, which is risky, so discount at rU: PV(TS) = 2.4750/0.0750 = 33.0000 and V^L = 1 233.0000. Confirm that leverage really is constant: D_0/V^L_0 = 0.182482, and one year on D_1 = 231.7500 against V^L_1 = 1 269.9900, again 0.182482. The 1 323.7500 discounts the shield at rD, giving 2.4750/0.0200 = 123.7500, which no WACC built from these inputs can reproduce. The 1 200.0000 forgets the shield entirely, and 1 249.5000 uses tau_c*D, the fixed-permanent-debt ceiling."
+  },
+  {
+    "id": "q328",
+    "ch": 18,
+    "oppg": 1,
+    "type": "short",
+    "q": "In one paragraph each, say when APV is the only legitimate method, when WACC is faster, and what a full-mark APV answer looks like on the page.",
+    "model": [
+      "APV only. Whenever leverage is changing: a loan with a stated repayment schedule, a fixed amount of debt whose D/V therefore drifts as value moves, or debt raised for one project and repaid at its end. There is no single r_wacc in these cases, and using a constant one is not an approximation but an error; the amortising-loan example overstates the firm by more than 3% when you try it. APV is also the method when the question asks what the debt policy is WORTH, because PV(TS) is the answer as a number and the WACC method never produces it.",
+      "WACC faster. Whenever a target leverage ratio is stated and you are valuing a whole firm or division. One rate does the whole job and the shield never has to be scheduled. Crucially, r_wacc depends on the RATIO, which the question gives you, not on the debt LEVEL, which you do not yet know, so the WACC route escapes the circularity D_t = d*V^L_t. That is why the exam asks for the WACC valuation first and the APV valuation second.",
+      "The full-mark APV answer is four lines in this order. One: name the debt policy in the question's own words and state the rate it implies. Two: V^U, discounted at rU, with the substituted arithmetic shown. Three: the shield, as a table if it is scheduled and as a perpetuity formula if it is not. Four: V^L = V^U + PV(TS), followed either by 'this agrees with the WACC value of ..., consistency check 1' or by 'the WACC method is not available here because D/V is not constant'.",
+      "Three errors that cost the whole sub-question: discounting V^U at r_wacc, which double counts the shield; using the promised yield instead of the expected return rD in the cost of capital; and using the wrong debt balance, since the shield in year t comes from D_(t-1)."
+    ]
+  },
+  {
+    "id": "q329",
+    "ch": 19,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "The flow to equity in period t is built as:",
+    "options": [
+      "FCF_t - Interest_t + tau_c*r_D*D_t",
+      "FCF_t - Interest_t + (D_t - D_(t-1))",
+      "FCF_t - (1 - tau_c)*Interest_t + (D_t - D_(t-1)), with Interest_t = r_D*D_(t-1)",
+      "FCF_t - (1 - tau_c)*Interest_t - (D_t - D_(t-1))"
+    ],
+    "answer": 2,
+    "explanation": "Three terms, three ideas. FCF is the whole pot. Interest is subtracted AFTER tax, because the payment costs the firm r_D*D but saves it tau_c*r_D*D, so the net cash leaving is (1 - tau_c)*r_D*D. Net borrowing D_t - D_(t-1) is added with its own sign: money the lenders hand over is cash available to shareholders, money repaid is cash taken from them. Subtracting the full pre-tax interest quietly deletes the tax shield from the method. Subtracting net borrowing instead of adding it flips the sign, which turns every repayment into a receipt. And the version that adds tau_c*r_D*D_t on top mixes a shield term into a construction that already contains it, and uses the closing balance where the opening one belongs."
+  },
+  {
+    "id": "q330",
+    "ch": 19,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Why does the flow-to-equity method need no separate PV(TS) term and no adjusted discount rate?",
+    "options": [
+      "Because the shield is captured by lenders rather than by shareholders",
+      "Because the shield is already in the cash flow: FCF taxes full EBIT, and subtracting only (1 - tau_c)*Interest hands the deduction back to shareholders year by year",
+      "Because FTE assumes the tax shield is zero",
+      "Because r_E already contains the shield in the same way r_wacc does"
+    ],
+    "answer": 1,
+    "explanation": "FCF was computed by taxing full EBIT, as if there were no interest deduction at all. Subtracting only the after-tax interest instead of the full interest returns the deduction to shareholders as extra cash, so the shield arrives as cash and is discounted at rE with everything else. That also explains why FTE gives EQUITY value directly: the shareholders are the ones who actually receive the shield, so the notion that lenders capture it reverses who benefits, and the shield is certainly not assumed to be zero. Saying rE contains the shield the way r_wacc does is the confusion worth naming: rE is a required return that rises with leverage through MM II, and it contains no tax adjustment; only r_wacc carries the (1 - tau_c) factor."
+  },
+  {
+    "id": "q331",
+    "ch": 19,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Under a target ratio, D_t = d*V^L_t, but computing V^L by APV needs the shields, which need the debt. How does the exam intend you to break the circle?",
+    "options": [
+      "Assume D_t = d*V^U_t, which removes the circularity exactly",
+      "Set the first year's debt from the balance sheet and grow it at g",
+      "Value first by WACC, because r_wacc depends on the RATIO d, which the question gives you, not on the debt LEVEL; then read D_t = d*V^L_t off the value path",
+      "Guess a value, derive the debt, value the shields, get a new value, and iterate until it settles"
+    ],
+    "answer": 2,
+    "explanation": "Value first by WACC: r_wacc depends on the RATIO d, which the question gives you, not on the debt LEVEL, so you can build rE and r_wacc from d, rU and rD before knowing a single krone of anything, roll the value path back from the last period, and then read D_t = d*V^L_t off it. This is the practical reason the exam always asks for the WACC valuation first and the APV valuation second. Iterating from a guess is correct but hopeless under time pressure and should never appear on the paper. Applying d to V^U uses the wrong value; the policy is stated on LEVERED value. And fixing the first year's debt from the balance sheet and growing it at g abandons the target ratio the question stated, leaving a debt schedule inconsistent with the valuation."
+  },
+  {
+    "id": "q332",
+    "ch": 19,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Under a target ratio, the debt adjustment between dates is dD_t = d(V^L_t - V^L_(t-1)). Its sign is therefore:",
+    "options": [
+      "decided by whether the firm has free cash flow available that year",
+      "always positive, because firms do not repay debt voluntarily",
+      "the sign of the change in levered value: a firm whose value rises borrows more, a firm whose value falls repays",
+      "positive while the firm is growing and zero once it reaches its terminal value"
+    ],
+    "answer": 2,
+    "explanation": "Since d is positive, the sign of dD_t is simply the sign of V^L_t - V^L_(t-1): a firm whose value rises borrows more, a firm whose value falls repays. The target ratio removes the choice, so you never have to reason about whether the firm WANTS to borrow, and 'firms do not repay voluntarily' is not a financing policy. Tying the sign to whether free cash flow is available that year confuses the financing policy with the operating flow, which is exactly the mistake that leaves debt sitting at its opening level for a whole horizon. And the growth-then-zero pattern is wrong in both halves: a valuation that runs off a terminal value has debt growing forever at g, while a firm with a finite life has V^L_T = 0, so D_T = 0 and the entire remaining balance is repaid in the last year."
+  },
+  {
+    "id": "q333",
+    "ch": 19,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Finnmark Sjomat AS earns free cash flow of 120, 150 and 180 at dates 1 to 3 and is then wound up with nothing left. It holds D/V = 0.35, r_D = 5.0000%, r_U = 11.0000%, tau_c = 22%, so r_E = 14.2308% and r_wacc = 10.6150%. What are V^L_0 and D_1?",
+    "options": [
+      "V^L_0 = 364.0702 and D_1 = 127.4246",
+      "V^L_0 = 450.0000 and D_1 = 157.5000",
+      "V^L_0 = 361.4659 and D_1 = 126.5131",
+      "V^L_0 = 364.0702 and D_1 = 98.9507"
+    ],
+    "answer": 3,
+    "explanation": "Roll back from V^L_3 = 0: V^L_2 = 180/1.106150 = 162.7266, V^L_1 = (150 + 162.7266)/1.106150 = 282.7162, V^L_0 = (120 + 282.7162)/1.106150 = 364.0702. Then D_1 = 0.35 x 282.7162 = 98.9507. The pairing that keeps debt at its opening level D_0 = 127.4246 quietly abandons the target ratio the question stated, and it is the single most common error in this exercise type. The 361.4659 is V^U, the unlevered value, which is not what the target ratio is applied to. And 450.0000 is the undiscounted sum of the flows."
+  },
+  {
+    "id": "q334",
+    "ch": 19,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Same firm. With D_0 = 127.4246 and D_1 = 98.9507, what is FCFE_1?",
+    "options": [
+      "86.5566",
+      "115.0304",
+      "113.6288",
+      "91.5261"
+    ],
+    "answer": 0,
+    "explanation": "Interest_1 = 0.0500 x 127.4246 = 6.3712, after tax 0.78 x 6.3712 = 4.9696, and dD_1 = 98.9507 - 127.4246 = -28.4739, so FCFE_1 = 120.0000 - 4.9696 - 28.4739 = 86.5566. The 115.0304 leaves debt at its opening level and so omits the repayment altogether, treating the debt schedule as bookkeeping rather than as cash. The 113.6288 subtracts the full pre-tax interest and forgets the repayment. The 91.5261 subtracts the repayment but forgets the interest. Only the figure containing all three terms can be right."
+  },
+  {
+    "id": "q335",
+    "ch": 19,
+    "oppg": 1,
+    "type": "short",
+    "q": "Finnmark Sjomat AS: free cash flow 120, 150, 180 at dates 1 to 3, then wound up. Target D/V = 0.35, r_D = 5.0000%, r_U = 11.0000%, tau_c = 22%. Build the whole table, value the equity by FTE, and confirm by WACC and by APV.",
+    "model": [
+      "Rates from the ratio alone. D/E = 0.35/0.65 = 0.538462, so rE = 0.1100 + 0.538462(0.1100 - 0.0500) = 0.110000 + 0.032308 = 0.142308 = 14.2308%, and r_wacc = 0.6500(0.142308) + 0.3500(0.0500)(0.78) = 0.092500 + 0.013650 = 0.106150 = 10.6150%. Pre-tax: 0.092500 + 0.017500 = 0.110000 = rU.",
+      "Value path, rolled back from V^L_3 = 0: V^L_2 = 180/1.106150 = 162.7266; V^L_1 = 312.7266/1.106150 = 282.7162; V^L_0 = 402.7162/1.106150 = 364.0702. Verify directly: 120/1.106150 + 150/1.106150^2 + 180/1.106150^3 = 364.0702.",
+      "Debt schedule. D_0 = 127.4246, D_1 = 98.9507, D_2 = 56.9543, D_3 = 0.0000. Adjustments: -28.4739, -41.9964, -56.9543. Levered value falls at every date because there are fewer cash flows left in front of the firm, so debt must fall with it. Each repayment is cash shareholders fund.",
+      "Interest on the OPENING balance: 6.3712, 4.9475, 2.8477; after tax 4.9696, 3.8591, 2.2212.",
+      "FCFE: year 1, 120.0000 - 4.9696 - 28.4739 = 86.5566; year 2, 150.0000 - 3.8591 - 41.9964 = 104.1445; year 3, 180.0000 - 2.2212 - 56.9543 = 120.8245.",
+      "E_0 = 86.5566/1.142308 + 104.1445/1.142308^2 + 120.8245/1.142308^3 = 236.6456, and V^L_0 - D_0 = 364.0702 - 127.4246 = 236.6456.",
+      "Consistency check 1 by APV, the genuinely independent route since it uses neither rE nor r_wacc. V^U = 120/1.11 + 150/1.11^2 + 180/1.11^3 = 361.4659. Shields tau_c*r_D*D_(t-1) = 1.4017, 1.0885, 0.6265, all discounted at rU because the ratio is a target: PV(TS) = 2.6043. V^L_0 = 361.4659 + 2.6043 = 364.0702.",
+      "Scale note: the shield is only 2.6043 on a firm worth 364.0702, because the debt is modest and lives for three years. A candidate writing tau_c*D_0 = 28.0334 would be out by a factor of 10.76.",
+      "What the missing repayment costs. Leave debt at 127.4246 through years 1 and 2 and repay it all at date 3: FCFE becomes 115.0304, 145.0304, 47.6059 and E_0 = 243.7841, overstating equity by 7.1385, i.e. 3.0165%, on an exercise where the same debt schedule feeds three later sub-questions."
+    ]
+  },
+  {
+    "id": "q336",
+    "ch": 19,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Same firm. A candidate builds the debt schedule correctly but writes FCFE_t = FCF_t - Interest_t + dD_t, forgetting the (1 - tau_c). The equity value falls from 236.6456 to 234.1641. What has the error deleted?",
+    "options": [
+      "Nothing of substance; 2.4815 is within rounding tolerance",
+      "The terminal value of the firm",
+      "The interest tax shield, which in the FTE method arrives only through the (1 - tau_c) factor",
+      "The repayment of debt in the final year"
+    ],
+    "answer": 2,
+    "explanation": "FTE has no PV(TS) term and no adjusted discount rate, so the shield reaches the answer through exactly one channel: subtracting (1 - tau_c)*Interest rather than the full Interest. Remove the factor and the shield is gone - the final-year repayment and the terminal value are both still in the calculation, untouched. The 2.4815 lost is the present value at rE of the after-tax saving, and it sits close to the PV(TS) of 2.6043 that APV computes at rU, the small gap being the difference in discount rate. Waving it away as rounding is the attitude the keys punish: H2025 asked for four decimal places and penalises drift beyond about 0.001, so a 2.4815 shortfall is a visible error."
+  },
+  {
+    "id": "q337",
+    "ch": 19,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Helgeland Vind AS has free cash flow of 5, 50 and 150 at dates 1 to 3 and then ends. With d = 0.40, r_U = 10.0000%, r_D = 5.0000% and tau_c = 25%, the debt path is 64.2059, 68.3055, 54.7945, 0.0000. In which year is the tax shield largest, and why?",
+    "options": [
+      "Year 1, because the firm has the longest remaining life",
+      "Year 2, because the shield is charged on the opening balance D_1 = 68.3055, the peak of the debt path",
+      "Year 3, because the whole remaining balance is repaid then",
+      "Year 3, because the largest cash flow arrives then"
+    ],
+    "answer": 1,
+    "explanation": "TS_t = tau_c*r_D*D_(t-1), so the shields are 0.8026, 0.8538 and 0.6849 and the largest sits in year 2, charged on the peak opening balance D_1 = 68.3055. The value path rises from 160.5148 to 170.7637 as the big date-3 payoff comes one year closer while only 5 is paid out, so the firm BORROWS 4.0996 at date 1, and only then does value fall and the firm repay 13.5110 and 54.7945. Year 1 is not the answer just because the remaining life is longest - the shield is charged on a balance, not on a horizon. Pointing at year 3 because the largest cash flow arrives then confuses the operating flow with the debt balance, and pointing at the final repayment confuses a cash flow with a tax saving on interest. If your largest shield sits in the wrong year, you have used D_t where you needed D_(t-1)."
+  },
+  {
+    "id": "q338",
+    "ch": 19,
+    "oppg": 1,
+    "type": "short",
+    "q": "Helgeland Vind AS: free cash flow 5, 50 and 150 at dates 1 to 3, then nothing. d = 0.40, r_U = 10.0000%, r_D = 5.0000%, tau_c = 25%. Build the schedule and read the debt adjustments aloud, then value the equity and check by APV.",
+    "model": [
+      "Rates: D/E = 0.666667, rE = 0.1000 + 0.666667(0.0500) = 0.133333 = 13.3333%, r_wacc = 0.6000(0.133333) + 0.4000(0.0500)(0.75) = 0.080000 + 0.015000 = 0.095000 = 9.5000%. Pre-tax: 0.080000 + 0.020000 = 0.100000 = rU.",
+      "Value path from V^L_3 = 0: V^L_2 = 150/1.095 = 136.9863; V^L_1 = 186.9863/1.095 = 170.7637; V^L_0 = 175.7637/1.095 = 160.5148.",
+      "Debt: 64.2059, 68.3055, 54.7945, 0.0000. Adjustments: +4.0996, -13.5110, -54.7945. Interest on the opening balance: 3.2103, 3.4153, 2.7397; after tax 2.4077, 2.5615, 2.0548.",
+      "Read the three FCFE rows aloud. Year 1: 5.0000 - 2.4077 + 4.0996 = 6.6918. The firm is worth MORE at date 1 than at date 0, because the big date-3 payoff has come a year closer while only 5 was paid out, so holding 40% leverage means borrowing an extra 4.0996, and shareholders keep it. Year 2: 50.0000 - 2.5615 - 13.5110 = 33.9276, value has fallen so 13.5110 must be retired. Year 3: 150.0000 - 2.0548 - 54.7945 = 93.1507, the firm winds up and the whole remaining balance goes back to the lenders.",
+      "E_0 = 6.6918/1.133333 + 33.9276/1.133333^2 + 93.1507/1.133333^3 = 96.3089, and V^L_0 - D_0 = 160.5148 - 64.2059 = 96.3089.",
+      "Consistency check 1 by APV: V^U = 5/1.10 + 50/1.10^2 + 150/1.10^3 = 158.5650. Shields 0.8026, 0.8538, 0.6849 discounted at rU give PV(TS) = 1.9498, and 158.5650 + 1.9498 = 160.5148. Note that the middle shield is the largest, because it is charged on D_1, the peak of the debt path.",
+      "Four places this table goes wrong: interest on D_t instead of D_(t-1); forgetting the final repayment, which is usually the largest single number in the FCFE column; applying d to V^U instead of V^L; and subtracting interest before tax."
+    ]
+  },
+  {
+    "id": "q339",
+    "ch": 19,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A question asks for the equity value of a firm and for the cash actually reaching shareholders each year. Which method is being demanded, and what must you remember at the end?",
+    "options": [
+      "FTE, and remember that its output is equity, so add D_0 back before comparing it with a WACC or APV firm value",
+      "WACC, and remember to add excess cash",
+      "WACC, and remember to discount FCFE at r_wacc",
+      "APV, and remember to subtract PV of distress costs"
+    ],
+    "answer": 0,
+    "explanation": "FTE is the only method whose output is equity value rather than firm value, and the only one that shows the debt repayments as cash, so it is the method being demanded - and its output must have D_0 added back before it is compared with a WACC or APV firm value. Forgetting that is the commonest way to fail consistency check 1 on an otherwise correct calculation. Adding excess cash to a WACC answer is a different adjustment for a different question, and subtracting PV of distress costs belongs to an APV with distress, which is not what was asked. Discounting FCFE at r_wacc contains the mismatch this whole chapter warns against: FCFE belongs to shareholders alone and takes rE; FCF belongs to debt and equity together and takes r_wacc. Every valuation error in this part of the course is a mismatch between the cash flow and the rate."
+  },
+  {
+    "id": "q340",
+    "ch": 19,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Running WACC, APV and FTE on the same rebalanced firm, which agreement is genuinely informative about the DEBT SCHEDULE?",
+    "options": [
+      "WACC against FTE, because both use r_E somewhere",
+      "FTE against V^L - D_0, because a mistake in the debt schedule shows up loudly in FCFE and can hide entirely inside a WACC calculation",
+      "None of them; all three are algebraic identities",
+      "WACC against APV, because they use different discount rates"
+    ],
+    "answer": 1,
+    "explanation": "A single r_wacc never asks you what the debt LEVEL actually was, only what the ratio is, so an error in the schedule leaves the WACC answer untouched. FTE is built from the level, the adjustment and the interest, so it fails loudly when any of them is wrong, which is why FTE against V^L - D_0 is the informative comparison. WACC against APV is the check to run for the shield's discount rate, but it is a fixed point rather than two independent routes, because the APV route takes D_t = d*V^L_t from the WACC answer. WACC against FTE is not informative simply because rE appears in both. And calling all three pure identities overstates: these checks cannot catch a wrong input such as beta_U, but they do catch wrong rates and wrong schedules, which is why they are worth the two minutes."
+  },
+  {
+    "id": "q341",
+    "ch": 19,
+    "oppg": 1,
+    "type": "short",
+    "q": "How should a nine-part valuation be laid out on the page so that one slip costs one mark instead of nine?",
+    "model": [
+      "Build ONE table with a column per date and rows for FCF_t, V^L_t, D_t, dD_t, Interest_t, TS_t and FCFE_t. Write it once, near the top, and then answer the sub-questions by pointing at cells.",
+      "Fill it in the only order that works: V^L from the right, using the backward recursion from the terminal value or from zero; D from V^L via D_t = d*V^L_t; and everything else from D. The value path has to exist before the debt schedule can, and the debt schedule has to exist before the APV shields and the flow to equity can.",
+      "State the debt policy in one sentence above the table, in the question's own words, plus the rate it implies for the shield. That sentence is worth marks on its own and it tells the grader the rest of the page is deliberate.",
+      "Carry full precision inside the chain and round only when you write. H2025 asked for four decimal places and the keys measure drift against roughly 0.001. Subtracting already-rounded components instead of the full-precision ones is what makes an answer drift away from the key over nine steps.",
+      "The candidates who lose this exercise are the ones who recompute the value path from scratch inside each sub-answer and get a slightly different number each time. If a number will not come, give it a symbol, say so in one line, assume a labelled value and carry on: later sub-questions are marked on method."
+    ]
+  },
+  {
+    "id": "q342",
+    "ch": 20,
+    "oppg": 1,
+    "type": "short",
+    "q": "Storfjord Systemer AS. Sales are 500 (year 0 actual) then 560, 620, 660. Operating costs excluding depreciation are 60% of sales; depreciation is 55 a year; CapEx is 60, 60 and 66; net working capital is 15% of that year's sales; every operating item grows at 2.5000% after year 3; tau_c = 25%. Compute free cash flow for years 1 to 3 and the normalised year 4 flow.",
+    "model": [
+      "Lay it out vertically, one labelled line per term, with the NWC LEVEL in a row of its own before differencing it.",
+      "NWC levels at 15% of sales: 75.00, 84.00, 93.00, 99.00, so dNWC is 9.00, 9.00 and 6.00.",
+      "Year 1: sales 560.00, operating costs 336.00, depreciation 55.00, so EBIT = 169.00. EBIT(1 - tau_c) = 126.7500. FCF_1 = 126.7500 + 55.00 - 60.00 - 9.00 = 112.7500.",
+      "Year 2: EBIT = 620.00 - 372.00 - 55.00 = 193.00, after tax 144.7500. FCF_2 = 144.7500 + 55.00 - 60.00 - 9.00 = 130.7500.",
+      "Year 3: EBIT = 660.00 - 396.00 - 55.00 = 209.00, after tax 156.7500. FCF_3 = 156.7500 + 55.00 - 66.00 - 6.00 = 139.7500.",
+      "Working-capital check: 9.00 + 9.00 + 6.00 = 24.00, and NWC_3 - NWC_0 = 99.00 - 75.00 = 24.00.",
+      "The normalised year 4, built from components rather than by growing FCF_3. EBIT_4 = 209.00 x 1.025 = 214.2250, after tax 160.6688. Depreciation_4 = 56.3750, CapEx_4 = 67.6500. Sales_4 = 676.5000, so dNWC_4 = 0.15(676.5000 - 660.00) = 2.4750. FCF_4 = 160.6688 + 56.3750 - 67.6500 - 2.4750 = 146.9188.",
+      "Growing FCF_3 instead would give 139.7500 x 1.025 = 143.2438, understating the perpetual flow by 3.6750, because year 3 was not a steady-state year: sales grew 6.45% that year and it carried a step-up in CapEx. Normalise the terminal year, always."
+    ]
+  },
+  {
+    "id": "q343",
+    "ch": 20,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "In the same case the terminal year must be normalised. Growing FCF_3 = 139.7500 at 2.5000% gives 143.2438, while building year 4 from its components gives 146.9188. Why does the shortcut understate?",
+    "options": [
+      "Because the tax rate changes after year 3",
+      "Because year 3 was not a steady-state year: it absorbed 6.00 of working capital where the steady state needs only 2.4750, and it carried a step-up in CapEx to 66.00",
+      "Because the growth rate applies to sales rather than to free cash flow",
+      "Because depreciation is not allowed to grow"
+    ],
+    "answer": 1,
+    "explanation": "Growing a flow assumes the flow is already representative. Year 3 is not: sales grew 6.45% that year, so dNWC was 6.00 against a steady-state 2.4750, and CapEx stepped up from 60.00 to 66.00 while depreciation stayed at 55.00. Rebuilding EBIT_4, depreciation_4, CapEx_4 and dNWC_4 one line at a time gives 146.9188, and the 3.6750 gap is capitalised into a terminal value, so it is worth far more than it looks. Depreciation is allowed to grow, and the tax rate does not change, so neither of those explains the gap. Growth applying to sales rather than to free cash flow is a real trap in other questions, but here the question states that EVERY operating item grows at 2.5000%, which is what licenses the component-by-component build."
+  },
+  {
+    "id": "q344",
+    "ch": 20,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Kvitsoy Teknikk ASA is listed with equity worth 640 and debt worth 160, r_E = 13.2000% and r_D = 4.6000%. r_f = 3.5000%, market risk premium 5.5000%. Its unlevered beta and r_U are:",
+    "options": [
+      "beta_U = 1.4509 and r_U = 11.4800%",
+      "beta_U = 1.4109 and r_U = 11.2600%",
+      "beta_U = 1.7636 and r_U = 13.2000%",
+      "beta_U = 0.5127 and r_U = 6.3200%"
+    ],
+    "answer": 0,
+    "explanation": "beta_E = (0.1320 - 0.0350)/0.0550 = 1.763636 and beta_D = (0.0460 - 0.0350)/0.0550 = 0.200000. With E/V = 0.8000 and D/V = 0.2000, beta_U = 0.8000(1.763636) + 0.2000(0.200000) = 1.410909 + 0.040000 = 1.450909, so r_U = 0.0350 + 1.450909(0.0550) = 0.114800. Cross-check on the twin's own rates: 0.8000(0.1320) + 0.2000(0.0460) = 0.114800. The pair 1.7636 and 13.2000% is the equity beta and the equity rate, unlevered not at all. The pair 1.4109 and 11.2600% sets beta_D = 0, dropping a positive term, which UNDERSTATES beta_U and rU and so OVERVALUES the firm. And 0.5127 with 6.3200% inverts the weights."
+  },
+  {
+    "id": "q345",
+    "ch": 20,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Storfjord will run at a target D/V = 0.25 and borrows at r_D = 4.6000%, with r_U = 11.4800% and tau_c = 25%. Its r_E and after-tax WACC are:",
+    "options": [
+      "r_E = 13.7733% and r_wacc = 11.4800%",
+      "r_E = 13.7733% and r_wacc = 10.3300%",
+      "r_E = 13.7733% and r_wacc = 11.1925%",
+      "r_E = 13.2000% and r_wacc = 11.2500%"
+    ],
+    "answer": 2,
+    "explanation": "D/E = 0.25/0.75 = 0.333333, so r_E = 0.1148 + 0.333333(0.1148 - 0.0460) = 0.114800 + 0.022933 = 0.137733. Then r_wacc = 0.7500(0.137733) + 0.2500(0.0460)(0.75) = 0.103300 + 0.008625 = 0.111925. Cross-check by betas: beta_E = 1.450909 + 0.333333(1.450909 - 0.200000) = 1.867879, and 0.0350 + 1.867879(0.0550) = 0.137733. The pair 13.2000% and 11.2500% reads the target D/V = 0.25 as a D/E of 0.25, giving 0.1148 + 0.25(0.0688) and weights of 0.80/0.20; note how that wrong r_E lands exactly on the comparable's 13.2000%, which makes it look plausible. The 11.4800% is the PRE-TAX WACC, which equals r_U and is the check line, not the discount rate for FCF. And 10.3300% drops the debt term, reporting only 0.7500(0.137733). The wedge between the two WACCs is 0.2500 x 0.0460 x 0.25 = 0.2875 pp."
+  },
+  {
+    "id": "q346",
+    "ch": 20,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "With FCF_4 = 146.9188, r_wacc = 11.1925% and g = 2.5000%, the terminal value is 1 690.1783. Where does it sit and over how many periods is it discounted?",
+    "options": [
+      "At date 4, discounted over four periods",
+      "At date 0, so it is not discounted at all",
+      "At date 3, discounted over three periods, because C/(r - g) sits one period before the first cash flow inside it",
+      "At date 3, but discounted over four periods because FCF_4 arrives at date 4"
+    ],
+    "answer": 2,
+    "explanation": "TV_3 = FCF_4/(r_wacc - g) = 146.9188/0.086925 = 1 690.1783 and it is a date-3 value, even though the first flow inside it arrives at date 4, so it is discounted over three periods. Dating it at 4 and discounting four periods, or leaving it undiscounted as if it were already a date-0 value, both misread the convention. Keeping the date right but discounting four periods anyway is the specific error the convention invites, and it costs a full period of discounting: it is the same slip in the unlevered half of the APV, where TV^U_3 = 146.9188/0.0898 = 1 636.0663 also sits at date 3. In a backward recursion the convention takes care of itself, because you start at V^L_3 = TV_3 and walk left."
+  },
+  {
+    "id": "q347",
+    "ch": 20,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Storfjord's value path is V^L = 1 538.2438, 1 597.6617, 1 645.7300, 1 690.1783 at dates 0 to 3, with d = 0.25. The debt adjustment at date 1 is:",
+    "options": [
+      "+14.8545, cash the firm borrows and shareholders keep",
+      "+59.4179, the whole change in levered value",
+      "0.0000, because the target ratio is unchanged",
+      "-14.8545, cash shareholders must fund"
+    ],
+    "answer": 0,
+    "explanation": "dD_1 = 0.25(1 597.6617 - 1 538.2438) = 0.25 x 59.4179 = 14.8545, and it is positive because Storfjord's levered value RISES: the business grows, so holding leverage at 25% means borrowing more each year (14.8545, then 12.0171, then 11.1121). That cash is available to shareholders and enters FCFE with a plus sign, so it is money coming in, not money shareholders must fund. Answering zero is the mistake of reading a constant RATIO as a constant LEVEL; the ratio is held constant precisely BY changing the level. And 59.4179 forgets the factor d: the debt adjustment is d times the change in value, not the change in value."
+  },
+  {
+    "id": "q348",
+    "ch": 20,
+    "oppg": 1,
+    "type": "short",
+    "q": "Continue the Storfjord case. With FCF = 112.7500, 130.7500, 139.7500 and FCF_4 = 146.9188, r_U = 11.4800%, r_wacc = 11.1925%, g = 2.5000%, d = 0.25, r_D = 4.6000%, tau_c = 25%: value the firm by WACC, build the debt schedule, value it again by APV, and run the checks.",
+    "model": [
+      "TV_3 = 146.9188/(0.111925 - 0.025000) = 146.9188/0.086925 = 1 690.1783. Roll back: V^L_2 = (139.7500 + 1 690.1783)/1.111925 = 1 645.7300; V^L_1 = (130.7500 + 1 645.7300)/1.111925 = 1 597.6617; V^L_0 = (112.7500 + 1 597.6617)/1.111925 = 1 538.2438.",
+      "Verify along the one-line route: 112.7500/1.111925 + 130.7500/1.111925^2 + 139.7500/1.111925^3 + 1 690.1783/1.111925^3 = 1 538.2438.",
+      "Debt schedule, D_t = 0.25 V^L_t: 384.5609, 399.4154, 411.4325, 422.5446. Adjustments +14.8545, +12.0171, +11.1121, all positive because value rises every year. Interest on the OPENING balance: 17.6898, 18.3731, 18.9259. Shields tau_c x interest: 4.4225, 4.5933, 4.7315.",
+      "APV, first half. TV^U_3 = 146.9188/(0.114800 - 0.025000) = 146.9188/0.089800 = 1 636.0663, and V^U = 112.7500/1.1148 + 130.7500/1.1148^2 + 139.7500/1.1148^3 + 1 636.0663/1.1148^3 = 1 488.1083.",
+      "APV, second half. The firm rebalances to a constant D/V, so the shield carries asset risk and is discounted at rU. The continuing shield starts from D_3: TS_4 = 0.25 x 0.0460 x 422.5446 = 4.8593, so its value at date 3 is 4.8593/0.089800 = 54.1121. PV(TS) = 4.4225/1.1148 + 4.5933/1.1148^2 + 4.7315/1.1148^3 + 54.1121/1.1148^3 = 50.1355.",
+      "V^L_0 = 1 488.1083 + 50.1355 = 1 538.2438. Consistency check 1 passes. Discount the shield at rD = 4.6000% instead and the continuing piece alone becomes 4.8593/(0.0460 - 0.0250) = 231.3935, PV(TS) rises to 214.7487 and the APV total misses the WACC total by 164.6132.",
+      "Consistency check 2: 0.7500(1.867879) + 0.2500(0.200000) = 1.400909 + 0.050000 = 1.450909 = beta_U. Say plainly that this one cannot fail, since beta_E was produced by relevering that same beta_U; it still catches a slip in the weights or the (1 - tau_c) unlevering this course rejects.",
+      "The extra check worth running. FCFE = 112.7500 - 0.75(17.6898) + 14.8545 = 114.3371; then 128.9872 and 136.6677. With E_3 = 1 690.1783 - 422.5446 = 1 267.6337 discounted at rE = 13.7733%, E_0 = 1 153.6828 = V^L_0 - D_0. This is the only route that confirms the debt schedule itself.",
+      "Scale line: PV(TS) is 3.2593% of firm value, which is what a 25% target ratio at 4.6000% borrowing and 25% tax is worth. tau_c*D_0 = 96.1402 would be 1.9176 times too large. The smell test: under rebalancing the shield is worth roughly rD/(rU - g) = 0.5122 of the tau_c*D ceiling, so about half, and here it is 0.5215 of it."
+    ]
+  },
+  {
+    "id": "q349",
+    "ch": 20,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Suppose you had misread the comparable as equity 160 and debt 640. Then beta_U = 0.5127, r_U = 6.3200%, r_E = 6.8933%, r_wacc = 6.0325%, and the WACC valuation gives 3 828.6758 instead of 1 538.2438. What does consistency check 1 do?",
+    "options": [
+      "It fails, but only in the terminal value",
+      "It passes perfectly, because beta_U feeds r_U, which feeds r_E and r_wacc, so a wrong beta_U moves both routes together",
+      "It fails immediately, since the APV route uses r_U directly",
+      "It cannot be run, because r_wacc is below r_D"
+    ],
+    "answer": 1,
+    "explanation": "This is the caveat that matters more than the check. Both routes rest on beta_U, so both are built on the same wrong r_U, the APV total comes out at 3 828.6758 as well, and check 1 signs off on a firm overvalued by 2 290.4321 - it does not fail, in the terminal value or anywhere else, and nothing about r_wacc here prevents it from being run. The checks verify that your algebra hangs together; they cannot verify that you read the question correctly. The guard is not a check but a habit: write E/V and D/V down as numbers before you use them, read them back against the balance sheet, and reread the inputs once before you start the valuation, because after that every number on the page depends on them."
+  },
+  {
+    "id": "q350",
+    "ch": 20,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Storfjord's enterprise value is 1 538.2438, D_0 = 384.5609, it holds 90 of excess cash and has 20 million shares. The value per share is:",
+    "options": [
+      "81.4122",
+      "57.6841",
+      "62.1841",
+      "76.9122"
+    ],
+    "answer": 2,
+    "explanation": "E_0 = V^L_0 + excess cash - D_0 = 1 538.2438 + 90.0000 - 384.5609 = 1 243.6828, and 1 243.6828/20 = 62.1841. Excess cash is worth its face value today, never appeared in free cash flow, and so is simply added at the end. The 57.6841 forgets the cash, which is stated separately in the question precisely because it is not operating value and the marks for it are free. The 76.9122 reports the enterprise value per share, answering a different question. And 81.4122 adds the cash but never subtracts the debt. Sanity line worth writing: D_0/V^L_0 = 0.250000, the target ratio you were given."
+  },
+  {
+    "id": "q351",
+    "ch": 20,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "In step (i) of a full valuation, which cash goes on at the end and which does not?",
+    "options": [
+      "Excess cash and marketable securities are added; cash required for operations is already inside net working capital and must not be added again",
+      "No cash is added, because it is already in the enterprise value",
+      "All cash on the balance sheet is added, since cash is worth its face value",
+      "Cash is added only if it exceeds the debt outstanding"
+    ],
+    "answer": 0,
+    "explanation": "The distinction the paper tests is between excess cash and operating cash. Excess cash and marketable securities never appeared in free cash flow, because FCF measures what the operations generate and idle cash generates nothing operational, so they are separate assets added at face value. Cash required for operations has already been paid for inside the dNWC line, so adding it again double counts - which is why neither 'add all cash' nor 'add none' is right, and why the size of the debt has nothing to do with it. If the question says 'cash required for operations' it is inside NWC; if it says 'excess cash' or 'marketable securities' it goes on at the end. Note also that the debt subtracted is D_0 = d*V^L_0, the level consistent with the policy you valued on, not a book figure."
+  },
+  {
+    "id": "q352",
+    "ch": 28,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "The paper is 100 points in 180 minutes, and 10 minutes are reserved at each end for reading and for checking. On a 12/12/18/18/20/20 split, by which minute should Exercise 4 be closed?",
+    "options": [
+      "Minute 90, i.e. half the paper",
+      "Minute 106, from closing minute = 10 + 1.6 x (points on this and all earlier exercises)",
+      "Minute 128, from 1.8 minutes per point",
+      "Minute 29, its own budget of 1.6 x 12"
+    ],
+    "answer": 1,
+    "explanation": "160 minutes for 100 points is 1.6 minutes per point, and the closing minute is 10 + 1.6 x (points on this and all earlier exercises). Exercise 4 finishes the first 60 points, so 10 + 1.6 x 60 = 106. The full ladder is 29, 48, 77, 106, 138, 170 - so 29 is where Exercise 1 closes, not Exercise 4, and 1.8 minutes per point ignores the 20 minutes reserved at the two ends. Half the paper by the halfway minute is a rule of thumb that ignores the point split entirely. Write the closing-minute formula in the margin rather than the per-exercise budget, because a closing MINUTE can be compared with the clock on the wall while a budget cannot. When the clock passes it, move on even with a sub-question open: the marginal point in an exercise you have half-finished is far cheaper than the marginal point in one you have not started."
+  },
+  {
+    "id": "q353",
+    "ch": 28,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "What should the first ten minutes of the exam be spent on?",
+    "options": [
+      "Starting the largest exercise, because it carries the most points",
+      "Writing out the formula sheet from memory",
+      "Attempting the verbal exercises, which need no planning",
+      "Reading all six exercises, writing the printed points next to each, converting them into a clock, and choosing the order"
+    ],
+    "answer": 3,
+    "explanation": "Spend the first ten minutes not writing. Read everything, note the points, draw the clock, decide the order. Positions 1 and 2 have been the verbal exercises in both Kurbatov papers and are the cheapest points on the paper for a prepared candidate, so many people should start there - but starting anywhere before you have read the whole paper is the trap, and drifting into the largest exercise because it looks important leaves you at minute 150 with two twelve-point discussions unwritten. Attempting the verbal exercises immediately skips the ordering decision that makes them cheap. Writing out remembered formulas is half-right and belongs to the first MINUTE, not the first ten: note the handful of results that are NOT on the formula sheet while they are still intact, then read."
+  },
+  {
+    "id": "q354",
+    "ch": 28,
+    "oppg": 1,
+    "type": "short",
+    "q": "The same verbal question can earn 6 points or 12. What exactly separates the two answers? Illustrate with the item 'diversification as a motive for an acquisition'.",
+    "model": [
+      "Four elements, and they are the same four every time. (1) The MECHANISM is named, so each label is followed by the channel through which value actually moves. (2) A DIRECTION or a sign: who gains, who loses, and by which route. (3) A CONDITION or limitation: when the argument holds and when it fails. (4) A LINK to course machinery, by its proper name.",
+      "The six-point version: 'A firm might acquire another for diversification, to spread its risk across more businesses.' A label, correctly recalled, with nothing attached to it.",
+      "The twelve-point version: 'Diversification and coinsurance. Combining two imperfectly correlated cash flow streams makes default less likely, which raises the value of the debt. Note the direction: this is a gain to CREDITORS, and unless the firm relevers afterwards to capture it, shareholders can be worse off. Shareholders can also diversify on their own account far more cheaply, so diversification alone is a weak motive.'",
+      "That is three sentences and roughly three times the length, and none of the extra length is padding. The sentence budgets the paper prints, two to three sentences per item, are large enough for exactly this and no larger. If you are writing a fourth sentence of description, you have left the budget without adding an element.",
+      "Shape every item the same way: name it in the first three words, explain the mechanism in one or two sentences, then give one limitation or condition. Three of those is a full answer at four points each. Nothing is padded with definitions of the topic itself, which earn nothing."
+    ]
+  },
+  {
+    "id": "q355",
+    "ch": 28,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "In the fixed numbering of the five consistency checks, which is which?",
+    "options": [
+      "1 is the weighted-beta identity and 2 is WACC = APV",
+      "The numbering is a convention and any order will do",
+      "1 is put-call parity and 5 is the M&A summation identity",
+      "1 is value by WACC = value by APV; 2 is [E/V]beta_E + [D/V]beta_D = beta_U; 3 is creditors' gain + shareholders' gain = the project's NPV; 4 is creditors' gain = shareholders' loss when total value is fixed; 5 is whether investors' beliefs are rational given the action taken"
+    ],
+    "answer": 3,
+    "explanation": "The numbering is fixed and the chapters refer to the checks by number, so an answer that writes 'consistency check 1' must mean value by WACC = value by APV, with the weighted-beta identity as 2, the gains-sum-to-NPV law as 3, the fixed-total transfer as 4, and the rationality of beliefs as 5. Swapping the first two, or slotting in put-call parity and the M&A summation identity, breaks the shared vocabulary the keys use, and treating the order as arbitrary gives up the ability to refer to a check by number at all. Checks 1 and 2 are redundant computations, 3 and 4 are conservation laws, and 5 is an equilibrium question that the keys single out as the step candidates skip. Other useful identities exist, such as state-by-state D + E = V and NPV_A + NPV_T = S in a stock swap, and they are worth running, but they are not members of the numbered five and should not be presented as such."
+  },
+  {
+    "id": "q356",
+    "ch": 28,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Before writing a tick next to a consistency check, what question should you ask?",
+    "options": [
+      "Did I use four decimal places?",
+      "Does the answer look reasonable in magnitude?",
+      "Is this check on the formula sheet?",
+      "What number would have to be wrong for this line to break? If the answer is 'none', the check is decoration"
+    ],
+    "answer": 3,
+    "explanation": "A redundant computation verifies something only if the second route uses different inputs, so the question to ask is what number would have to be wrong for the line to break. Recomputing beta_U from a beta_E you produced by relevering that same beta_U returns the right number whatever else is wrong; so does P = E_1/N_1 after a repurchase where n was defined as D/P, and so does D + E = V^L where E was computed as V^L - D. Say so when you write the line, then look for the route that does NOT share inputs, which is usually the one that discounts a new cash flow at a new rate. Magnitude checks are genuinely useful but are a separate habit, not a substitute for asking what a check can catch; decimal discipline is a presentation rule; and whether a check appears on the formula sheet says nothing about what it can detect."
+  },
+  {
+    "id": "q357",
+    "ch": 28,
+    "oppg": 1,
+    "type": "short",
+    "q": "You cannot obtain beta_U in part (a) of a chained exercise, and parts (b) to (f) all depend on it. What do you write?",
+    "model": [
+      "Three lines, and they convert an unanswerable chain into a fully answerable one at the price of a single mark.",
+      "1. Name the missing quantity as a symbol and say so: 'I could not obtain beta_U in (a); I write it as beta_U and carry it forward.'",
+      "2. Carry it through the remaining algebra symbolically. rU = rf + beta_U x MRP, then rE = rU + (D/E)(rU - rD), then r_wacc = (E/V)rE + (D/V)rD(1 - tau_c). Every one of those lines is a method mark and none of them needs the number.",
+      "3. If a number is needed later, assume one and LABEL it: 'Assume beta_U = 1.4000, stated as an assumption because part (a) is unresolved.' Then finish the exercise on that number.",
+      "Why it costs almost nothing: the examiner is marking whether you can execute the routine, and the routine is unaffected by which number entered it. A labelled assumption also stops the marker reading your later parts as wrong rather than as consistent with an earlier slip. It has a second use during the exam itself, because writing the algebra symbolically often reveals what went wrong in the earlier step once the arithmetic is out of the way.",
+      "The one thing never to do is leave a sub-question blank. An empty sub-question is the only guaranteed zero on the paper."
+    ]
+  },
+  {
+    "id": "q358",
+    "ch": 28,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "What is the rounding discipline the keys measure against?",
+    "options": [
+      "Round every intermediate figure to four decimals as you go, so the chain stays tidy",
+      "Report everything to two decimals, since money is quoted that way",
+      "Carry rates at six decimals inside the chain, report rates at four and money at two, and round only at the point where you write a number down",
+      "Rounding is a presentation matter and carries no marks"
+    ],
+    "answer": 2,
+    "explanation": "Carry rates at six decimals inside the chain, report rates at four and money at two, and round only where you write a number down. H2025 asked for four decimal places and the keys penalise drift beyond roughly 0.001. The danger is compounding: a rate rounded to 0.0973 instead of 0.097290 shifts a perpetuity value by several units, and in a nine-step exercise it shifts every step after it - which is exactly why rounding every intermediate figure as you go is the habit that produces the drift, and why two decimals throughout is worse still. Rounding is certainly not mark-free. One further rule: when you print an intermediate breakdown, make the parts sum to the total you print, so write 0.083250 + 0.014040 = 0.097290 rather than 0.0833 + 0.0140 = 0.0973."
+  },
+  {
+    "id": "q359",
+    "ch": 28,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Before any arithmetic in a leveraged-valuation exercise, which sentence in the question must you find?",
+    "options": [
+      "The sentence stating the risk-free rate",
+      "The sentence giving the corporate tax rate",
+      "The sentence giving the number of shares outstanding",
+      "The debt-policy sentence, because 'maintains a target D/E or D/V' means the shield is discounted at r_U while 'X of permanent debt' or a fixed schedule means r_D"
+    ],
+    "answer": 3,
+    "explanation": "The examiner states the debt policy in one clause and never repeats it: 'maintains a target D/E or D/V' means the shield is discounted at r_U, while 'X of permanent debt' or a fixed schedule means r_D. Underline it, then write as the first line of your answer either 'the firm rebalances to a constant D/V, so the tax shield carries asset risk and is discounted at rU' or 'the debt is fixed and permanent, so the shield is discounted at rD and PV(TS) = tau_c*D'. That line earns marks on its own in the solution keys and it stops you mixing the two halfway through. The tax rate, the share count and the risk-free rate are all needed, but none of them changes the METHOD, and this judgement has been the most tested single one across the mapped papers."
+  },
+  {
+    "id": "q401",
+    "ch": 21,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Put-call parity, in the form you must carry into the exam because it is not on the formula sheet, says:",
+    "options": [
+      "C = P + S - K, using the undiscounted strike",
+      "C = P + PV(K) - S, with PV(K) = K/(1 + r_f)^T",
+      "C = P + S - PV(K), with PV(K) = K/(1 + r_f)^T",
+      "C = P + S - PV(K) only if you also know the volatility of the share"
+    ],
+    "answer": 2,
+    "explanation": "Buy the share and a put (protective put) and you pay S + P for a payoff of max(S_T, K). Buy the call and lend PV(K) (fiduciary call) and you pay C + PV(K) for the same max(S_T, K). Equal payoffs in every state means equal prices, so C + PV(K) = P + S, hence C = P + S - PV(K). The version with S and PV(K) swapped prices a completely different portfolio. The version using the undiscounted strike forgets that the strike is paid at T, not today, which is the single most common slip here. And making parity conditional on knowing the volatility is wrong in an important way: it is an accounting identity between two payoff-identical portfolios, so no distribution, no volatility and no expected return enters it. That is exactly why parity survives when every pricing model fails."
+  },
+  {
+    "id": "q402",
+    "ch": 21,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Havlys ASA trades at S = 64.00. A one-year European put with K = 70 costs 9.20 and r_f = 4.00%. What is the one-year European call with the same strike worth?",
+    "options": [
+      "5.8923",
+      "3.2000",
+      "0.4000",
+      "12.5077"
+    ],
+    "answer": 0,
+    "explanation": "PV(K) = 70/1.04 = 67.3077. C = P + S - PV(K) = 9.20 + 64.00 - 67.3077 = 5.8923. Check it backwards: P = C - S + PV(K) = 5.8923 - 64.00 + 67.3077 = 9.2000, and in compact form C - P = -3.3077 = S - PV(K) = 64.00 - 67.3077. The 3.2000 is 9.20 + 64.00 - 70, the undiscounted strike. The 12.5077 solves the parity equation with S and PV(K) the wrong way round. The 0.4000 multiplies the strike by 1.04 instead of dividing. Note that the put is dearer than the call because S = 64.00 sits below PV(K) = 67.3077: the sign of C - P depends on nothing but that comparison."
+  },
+  {
+    "id": "q403",
+    "ch": 21,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Bjornefjell ASA trades at 250.00. A TWO-year European call with K = 260 costs 28.50 and r_f = 3.50%. What is the two-year European put with the same strike worth?",
+    "options": [
+      "29.7077",
+      "38.5000",
+      "18.5000",
+      "21.2128"
+    ],
+    "answer": 3,
+    "explanation": "The exponent is T, always. (1.035)^2 = 1.0712, so PV(K) = 260/1.0712 = 242.7128 and P = C - S + PV(K) = 28.50 - 250.00 + 242.7128 = 21.2128. Check: C = P + S - PV(K) = 21.2128 + 250.00 - 242.7128 = 28.5000. The 29.7077 discounts one year instead of two: PV(K) = 260/1.035 = 251.2077. That single missing exponent costs 8.4949, and no consistency check inside the question would catch it, because the wrong answer is internally consistent. The 38.5000 is the undiscounted 28.50 - 250 + 260, and 18.5000 nets the two prices with no discounting at all. Also sanity-check the bounds: 21.2128 is below PV(K) = 242.7128 and above max(PV(K) - S, 0) = 0."
+  },
+  {
+    "id": "q404",
+    "ch": 21,
+    "oppg": 2,
+    "type": "short",
+    "q": "A share trades at S = 110.00. A one-year European call with K = 120 trades at 8.40 and the put with the same strike and maturity at 14.00. No dividends. Back out the one-year risk-free rate the option market is using, to four decimals, and say why this works.",
+    "model": [
+      "Rearrange parity for the discounted strike: PV(K) = S + P - C. This is the fourth and sneakiest rearrangement, and the exam has used it.",
+      "PV(K) = 110.00 + 14.00 - 8.40 = 115.6000.",
+      "r_f = (K/PV(K))^(1/T) - 1 = 120/115.6000 - 1 = 0.0380623, that is 3.8062%. With T = 1 there is no root to take; with T = 2 you would have to take the square root of 120/PV(K).",
+      "Check: PV(K) = 120/1.0380623 = 115.6000, and C = P + S - PV(K) = 14.00 + 110.00 - 115.6000 = 8.4000, reproducing the quoted call.",
+      "Why it works: the two portfolios (share plus put, and call plus a bond paying K) have identical payoffs max(S_T, K) in every single state, so their prices must be identical today. The only unknown left in that identity is the price of the bond, and a bond price is a discount rate. No model, no distribution and no volatility is used anywhere.",
+      "State the assumptions in half a sentence, because that is often its own mark: European options, same strike, same maturity, same underlying, no dividends before T."
+    ]
+  },
+  {
+    "id": "q405",
+    "ch": 21,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "A share trades at S = 118.00 and r_f = 6.00%. A one-year European call with K = 110 is quoted at 9.00. Which statement is correct?",
+    "options": [
+      "The quote is fine: it is above the intrinsic value of 118.00 - 110 = 8.00",
+      "Nothing can be said without the volatility of the share",
+      "The quote is impossible: the arbitrage floor is max(S - PV(K), 0) = 14.2264, so the call is 5.2264 too cheap",
+      "The quote is impossible: a call can never be worth less than the share, 118.00"
+    ],
+    "answer": 2,
+    "explanation": "PV(K) = 110/1.06 = 103.7736, so the lower bound is max(118.00 - 103.7736, 0) = 14.2264 and the quote of 9.00 sits 5.2264 below it. Defending the quote by comparing it with the intrinsic value of 8.00 is the classic trap: max(S - K, 0) is NOT the floor for a European call, because you do not pay the strike until T, and using it would have waved this arbitrage through. The claim that a call can never be worth less than the share garbles the upper bound, which is C <= S, not C >= S. And volatility is not needed: the bounds follow from arbitrage alone, since buying the call, shorting the share and lending PV(K) = 103.7736 takes in 118.00 - 9.00 - 103.7736 = 5.2264 today against a payoff of max(110 - S_T, 0), which is never negative."
+  },
+  {
+    "id": "q406",
+    "ch": 21,
+    "oppg": 2,
+    "type": "short",
+    "q": "Set out the arbitrage in the previous situation as a table: S = 118.00, K = 110, T = 1, r_f = 6.00%, call quoted at 9.00. Show today's cash flow and the cash flow at T in every state.",
+    "model": [
+      "Step 1 - the floor. PV(K) = 110/1.06 = 103.7736, so max(S - PV(K), 0) = 14.2264. The quote of 9.00 is below it, so the call is cheap relative to the share: buy the call, short the share, lend the present value of the strike.",
+      "Buy the call: -9.00 today, max(S_T - 110, 0) at T.",
+      "Short one share: +118.00 today, -S_T at T.",
+      "Lend 103.7736 at 6%: -103.7736 today, +110.00 at T.",
+      "Net today: 118.00 - 9.00 - 103.7736 = +5.2264. Net at T: max(S_T - 110, 0) - S_T + 110 = max(110 - S_T, 0), which is at least zero in every state.",
+      "Verify state by state: S_T = 80 gives 0 - 80 + 110 = +30.00; S_T = 110 gives 0 - 110 + 110 = 0.00; S_T = 150 gives 40 - 150 + 110 = 0.00. Never negative.",
+      "Check: money in today, never a payment later. The minimum consistent quote is 14.2264, and at exactly that price the strategy nets 0.0000 today, which is what a bound at equality must give."
+    ]
+  },
+  {
+    "id": "q407",
+    "ch": 21,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "A share trades at S = 95.00, r_f = 6.00%, and both a European call and a European put with K = 100 expire in one year. Which is dearer, and by how much?",
+    "options": [
+      "It depends on the volatility: at high volatility the call wins",
+      "The call, by 0.6604",
+      "The call, because share prices drift upwards over time",
+      "The put, by 5.0000"
+    ],
+    "answer": 1,
+    "explanation": "PV(K) = 100/1.06 = 94.3396, and parity in its most compact form says C - P = S - PV(K) = 95.00 - 94.3396 = +0.6604. The call is dearer by exactly 0.6604 and nothing else can change that. Making the put dearer by 5.0000 uses the undiscounted strike, S - K, and gets the sign wrong as well. Explaining the call's premium by upward drift in share prices invokes expected returns, which do not appear in the identity at all. And the volatility answer is the most instructive error: volatility raises the call and the put by exactly the same amount (chapter 23), so it cancels out of C - P completely. When S = PV(K) the two contracts are worth exactly the same, whatever the volatility and whatever anyone thinks about direction."
+  },
+  {
+    "id": "q408",
+    "ch": 21,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Why is an American call on a share that pays no dividends never exercised early?",
+    "options": [
+      "Because early exercise is forbidden by the contract",
+      "Because the share always rises, so waiting is better on average",
+      "Because exercising gives S - K, while the unexercised contract is worth at least S - PV(K), and PV(K) is smaller than K whenever r_f is positive",
+      "Because the time value of an American option is zero"
+    ],
+    "answer": 2,
+    "explanation": "The lower bound says the live contract is worth at least S - PV(K), and with r_f above zero PV(K) is strictly below K, so S - PV(K) is strictly above the S - K you would get by exercising. You would be throwing away the interest on the strike plus whatever time value is left; if you want out, sell the option rather than exercise it. Early exercise is not forbidden - confusing that with the European contract misses the point that it is permitted and still not worth doing. The claim that the share always rises smuggles in an expected return, which plays no part in the argument, and zero time value is false: the whole point is that time value is positive. Two consequences the exam likes: an American call on a non-dividend share is worth exactly the same as the European one, so Black-Scholes prices it correctly; and no such argument exists for a put, because getting K now beats getting K later, so an American put can be strictly more valuable than a European one."
+  },
+  {
+    "id": "q409",
+    "ch": 21,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "A share trades at 118.00. A call with K = 110 costs 14.20 and a put with K = 110 costs 3.10. What are the intrinsic value and time value of each?",
+    "options": [
+      "Call: 8.00 intrinsic and 6.20 time value. Put: -8.00 intrinsic and 11.10 time value",
+      "Call: 6.20 intrinsic and 8.00 time value. Put: 3.10 intrinsic and 0.00 time value",
+      "Call: 14.20 intrinsic and 0.00 time value. Put: 3.10 intrinsic and 0.00 time value",
+      "Call: 8.00 intrinsic and 6.20 time value. Put: 0.00 intrinsic and 3.10 time value"
+    ],
+    "answer": 3,
+    "explanation": "Intrinsic value uses today's share price and the UNDISCOUNTED strike: for a call it is max(S - K, 0) = max(118.00 - 110, 0) = 8.00, and for a put it is max(K - S, 0) = max(110 - 118.00, 0) = 0.00. Time value is the remainder: 14.20 - 8.00 = 6.20 for the call and 3.10 - 0.00 = 3.10 for the put. Reporting the full premiums as intrinsic value leaves no time value anywhere, and swapping the call's two components reverses them. A put with -8.00 of intrinsic value is the standard error: intrinsic value can never be negative, because the max is there precisely to floor it at zero. The put here is out of the money and is worth 3.10 anyway, all of it time value, for the reason that runs through the whole of Part V: the holder keeps the good states and is protected in the bad ones, so only the favourable states carry weight in the price."
+  },
+  {
+    "id": "q410",
+    "ch": 21,
+    "oppg": 2,
+    "type": "short",
+    "q": "Fjordgard ASA trades at S = 140.00. A one-year European call with K = 150 costs 9.40 and r_f = 5.00%. The share will pay a dividend before expiry whose present value is 6.00. Value the one-year European put with the same strike, and say what it would have cost you to ignore the dividend.",
+    "model": [
+      "With a dividend, parity becomes C = P + S - PV(Div) - PV(K), because the share held inside the protective put pays that cash out while the call holder receives nothing.",
+      "PV(K) = 150/1.05 = 142.8571.",
+      "Rearranged: P = C - S + PV(Div) + PV(K) = 9.40 - 140.00 + 6.00 + 142.8571 = 18.2571.",
+      "Ignoring the dividend gives P = C - S + PV(K) = 9.40 - 140.00 + 142.8571 = 12.2571, understating the put by exactly PV(Div) = 6.0000.",
+      "The direction is worth stating in words: a dividend lowers the share on the ex-dividend date, which is bad for the call holder and good for the put holder. So dividends push C down and P up, and any correction that moves the put the other way is wrong.",
+      "Write the assumptions before applying any version of parity: European options, same K, same T, same underlying, and a known dividend with present value PV(Div) paid before T. For American options parity collapses to a pair of inequalities, because either side may be exercised early."
+    ]
+  },
+  {
+    "id": "q411",
+    "ch": 21,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "S = 190.00, K = 210, T = 1, r_f = 5.00%. The call trades at 13.60 and the put at 24.40. What is the arbitrage?",
+    "options": [
+      "Buy the share and the put, write the call and borrow 200.00, for 0.80 today",
+      "Buy the call and the put, for a profit of 0.80 today",
+      "Write the put, buy the share short, buy the call and lend 200.00, for 0.80 today",
+      "There is no arbitrage: 24.40 is the parity price"
+    ],
+    "answer": 2,
+    "explanation": "PV(K) = 210/1.05 = 200.0000. The fiduciary call costs C + PV(K) = 13.60 + 200.00 = 213.6000; the protective put costs P + S = 24.40 + 190.00 = 214.4000. Both pay max(S_T, 210) at T, so the protective put is 0.8000 too dear: sell it (write the put and short the share) and buy the cheap side (buy the call and lend 200.00). Cash in today: 24.40 + 190.00 - 13.60 - 200.00 = +0.8000, and the two legs cancel state by state at T. The mirror-image trade, buying the share and the put while writing the call and borrowing, buys the expensive side and sells the cheap one, so it loses 0.8000 today. There IS an arbitrage, because parity would put the put at 13.60 - 190.00 + 200.00 = 23.6000. And buying both options is a straddle, not an arbitrage - it costs money and pays off only on a large move. A quick direction test: the put is too dear here, so you must be writing the put."
+  },
+  {
+    "id": "q412",
+    "ch": 21,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "You buy a one-year call with K = 210 for a premium of 13.60. The risk-free rate is 5.00%. What is the break-even share price at expiry?",
+    "options": [
+      "223.6000 always: financing the premium is irrelevant to the option",
+      "210.0000, because that is where the option starts paying",
+      "196.4000, because the premium reduces the effective strike",
+      "223.6000 if the premium is treated as sunk, 224.2800 if you borrowed it at r_f"
+    ],
+    "answer": 3,
+    "explanation": "Payoff equals the premium when max(S_T - 210, 0) = 13.60, so S_T = 210 + 13.60 = 223.6000. If instead you borrowed the premium at 5%, you owe 13.60(1.05) = 14.2800 at expiry and the true break-even is 210 + 14.2800 = 224.2800. Use the simple version unless the question mentions financing, and say which one you used - which is why the answer that declares financing irrelevant is only half right. Answering 210.0000 confuses the break-even with the kink: the payoff diagram kinks at K = 210, the profit diagram crosses zero at K + C. And 196.4000 subtracts the premium from the strike, which is the put's rule applied to a call. Note also that the exercise decision never looks at the premium: you exercise whenever S_T is above 210 even if the trade still loses money overall, because the premium is sunk."
+  },
+  {
+    "id": "q413",
+    "ch": 21,
+    "oppg": 2,
+    "type": "short",
+    "q": "You observe C = 12.75 and P = 5.30 on one-year European options with K = 90, and r_f = 4.50%. No dividends. What must the share be trading at, and how do you check the answer against the bounds?",
+    "model": [
+      "Parity solved for the share: S = C - P + PV(K).",
+      "PV(K) = 90/1.045 = 86.1244.",
+      "S = 12.75 - 5.30 + 86.1244 = 93.5744.",
+      "Check by running parity forward: C = P + S - PV(K) = 5.30 + 93.5744 - 86.1244 = 12.7500, reproducing the observed call.",
+      "Bounds check on the call: max(S - PV(K), 0) = max(93.5744 - 86.1244, 0) = 7.4500 and the upper bound is S = 93.5744, so 12.75 sits comfortably inside 7.4500 to 93.5744.",
+      "Bounds check on the put: max(PV(K) - S, 0) = 0.0000 and the upper bound is PV(K) = 86.1244, so 5.30 is admissible.",
+      "This construction has a name worth using in an answer: C - P + PV(K) is a synthetic share built out of options and a bond. Chapter 24 uses exactly the same trick in reverse to build synthetic risky debt out of the firm's assets and a put."
+    ]
+  },
+  {
+    "id": "q414",
+    "ch": 22,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Sorlandet Energi ASA trades at S0 = 120.00. In one year the share will be worth either 150.00 or 100.00, and r_f = 6.00%. For a one-year European call with K = 130, what is the hedge ratio?",
+    "options": [
+      "0.1333",
+      "2.5000",
+      "0.4000",
+      "0.6000"
+    ],
+    "answer": 2,
+    "explanation": "Delta is a ratio of DIFFERENCES, not of levels: Delta = (Cu - Cd)/(Su - Sd) = (20.00 - 0.00)/(150.00 - 100.00) = 20.00/50.00 = 0.4000. The call behaves like 0.4 of a share. The 0.1333 is the standard slip Cu/Su = 20/150, which is simply not a solution to the two replication equations. The 0.6000 is the magnitude of the put's delta, which is -0.6000 here, and 2.5000 inverts the ratio. Note the useful check Delta_call - Delta_put = 0.4000 - (-0.6000) = 1.0000, which is put-call parity differentiated: a call minus a put is one share. Before using any of this, verify the tree is arbitrage-free: 100.00 is below (1.06)(120.00) = 127.20, which is below 150.00."
+  },
+  {
+    "id": "q415",
+    "ch": 22,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Same tree: S0 = 120.00, up to 150.00 or down to 100.00, r_f = 6.00%, K = 130. What is the call worth?",
+    "options": [
+      "12.2642",
+      "10.2642",
+      "8.0000",
+      "18.8679"
+    ],
+    "answer": 1,
+    "explanation": "Delta = 0.4000, then B = (Cd - Sd x Delta)/(1 + r_f) = (0.00 - 100.00 x 0.4000)/1.06 = -40.00/1.06 = -37.7358, so you borrow 37.7358 today and repay 40.00 next year. C = S0 x Delta + B = 48.0000 - 37.7358 = 10.2642. Verify state by state: up, 0.4(150.00) - 40.00 = 20.00, matching Cu; down, 0.4(100.00) - 40.00 = 0.00, matching Cd. The 8.0000 writes B = -40.00 instead of -37.7358: B is the amount borrowed TODAY, and it is B(1 + r_f) that appears in the date-1 equations, so discounting nothing understates the call by 2.2642. The 12.2642 is the price you get by weighting the payoffs with a real probability of 0.65 and discounting at r_f, which mixes two worlds and overstates the call by 2.0000. And 18.8679 is 20.00/1.06: the up-state payoff discounted at r_f with no probability weight at all."
+  },
+  {
+    "id": "q416",
+    "ch": 22,
+    "oppg": 2,
+    "type": "short",
+    "q": "On the Sorlandet tree (S0 = 120.00, up 150.00, down 100.00, r_f = 6.00%, K = 130) the market quotes the call at 12.00. Show the arbitrage, including the cash flows in both states.",
+    "model": [
+      "Step 1 - the replicating cost. Delta = (20.00 - 0.00)/50.00 = 0.4000; B = (0.00 - 100.00 x 0.4000)/1.06 = -37.7358; C = 120.00(0.4000) - 37.7358 = 10.2642.",
+      "Step 2 - direction. The quote of 12.00 is above 10.2642, so the call is dear: write the call and buy the replicating portfolio.",
+      "Step 3 - today. Sell the call for +12.00, buy 0.4 shares for -48.00, borrow +37.7358. Net cash today = 12.00 - 48.00 + 37.7358 = +1.7358.",
+      "Step 4 - at date 1. Up state: 0.4(150.00) = 60.00 from the shares, -40.00 to repay the loan, and -20.00 on the written call, netting 0.0000. Down state: 0.4(100.00) = 40.00, -40.00 loan repayment, and 0.00 on the call, netting 0.0000.",
+      "Check: the arbitrage profit 1.7358 equals the mispricing 12.0000 - 10.2642 = 1.7358 exactly. If it does not, you have taken the wrong side.",
+      "A quick direction test to write down: the quoted price was too high, so you must be SELLING the option. Had it been quoted at 9.00 you would buy the call and short 0.4 shares while lending 37.7358."
+    ]
+  },
+  {
+    "id": "q417",
+    "ch": 22,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "On the same tree (S0 = 120.00, up 150.00, down 100.00, r_f = 6.00%), what is the risk-neutral probability rho of the up state?",
+    "options": [
+      "0.4560",
+      "0.4000",
+      "0.5440",
+      "0.6500"
+    ],
+    "answer": 2,
+    "explanation": "rho = [(1 + r_f)S0 - Sd]/(Su - Sd) = [1.06(120.00) - 100.00]/50.00 = (127.20 - 100.00)/50.00 = 27.20/50.00 = 0.5440, and 1 - rho = 0.4560, so the complement 0.4560 answers the down state. Always run the one-line check that rho prices the underlying before you use it on anything else: [0.5440(150.00) + 0.4560(100.00)]/1.06 = (81.60 + 45.60)/1.06 = 127.20/1.06 = 120.0000. That check costs a line and catches a transposed Su and Sd. The 0.6500 is a real probability, which never enters a price, and 0.4000 is the hedge ratio. rho is not a forecast and not anybody's belief: it is the weight that makes the share itself earn exactly r_f."
+  },
+  {
+    "id": "q418",
+    "ch": 22,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "On the Sorlandet tree management states that the true probability of the up state is 0.65. Using 0.65 to weight the call's payoffs and discounting at r_f = 6.00% gives 12.2642 instead of the correct 10.2642. What is the right way to describe that number?",
+    "options": [
+      "It is wrong: a real probability paired with the risk-free rate mixes two inconsistent worlds and overstates the call by 2.0000",
+      "It is a better estimate, because it uses real information about the firm",
+      "It is right, but only if investors are risk-neutral",
+      "It is the call's expected payoff, so it is a legitimate second answer"
+    ],
+    "answer": 0,
+    "explanation": "The only probability entitled to the risk-free rate is rho, so pairing the true 0.65 with r_f mixes two inconsistent worlds and overstates the call by 2.0000 - it is not extra information about the firm, and risk neutrality is not a repair, since under risk neutrality the true probability would itself equal rho. Discounting a true expected payoff DOES work, but only at the option's own risk-adjusted rate: E[payoff] = 0.65(20.00) = 13.00, and 13.00/10.2642 - 1 = 26.6544%, so 13.00/1.266544 = 10.2642. You cannot know 26.6544% until you already know the price, and that circularity is the practical reason the risk-neutral route wins - which is also why the 12.2642 figure is not a defensible answer either. The 26.6544% is not arbitrary either: the replicating portfolio is 48.0000 of shares financed by 37.7358 of debt against 10.2642 of your own money, so r_f + (S0 x Delta/C)(r_S - r_f) = 0.0600 + 4.6765(0.104167 - 0.0600) = 0.266544, which is chapter 4's relevering formula with the option playing the part of the equity."
+  },
+  {
+    "id": "q419",
+    "ch": 22,
+    "oppg": 2,
+    "type": "short",
+    "q": "In three or four sentences, explain why the true probability of the up state never appears in a binomial option price, and say where the market's beliefs actually went. This is a standing discussion question.",
+    "model": [
+      "The replicating portfolio matches the option's payoff in EVERY state, not on average. Because the match is exact state by state, it does not matter how likely the states are.",
+      "Two things that are equal in all circumstances must have the same value under any beliefs and any risk preferences. Two investors who violently disagree about the share still agree the call is 0.4 shares minus a loan, and they can both look up what 0.4 shares cost.",
+      "The beliefs did not disappear; they went into the share price. S0 = 120.00 already embeds the market's probabilities and its risk aversion, so that information is used through an observed price rather than through a probability you would have to guess.",
+      "That is why rho deserves its name: it is what the probability would be if nobody demanded a risk premium, and it differs from the true probability by exactly the amount of risk adjustment the market applies. Present it as a pricing weight, never as a forecast.",
+      "Two sentences worth keeping apart in writing: 'the risk-neutral probability of the up state is 0.5440' is a statement about prices; 'the probability of the up state is 0.5440' is a statement about the world, and it is not one you have made.",
+      "Marks are awarded for computing rho, for saying that discounting is at r_f BECAUSE rho already carries the risk adjustment, and for stating in words that the true probability is irrelevant."
+    ]
+  },
+  {
+    "id": "q420",
+    "ch": 22,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "On the same tree, what is the one-year European put with K = 130 worth, and what is its hedge ratio?",
+    "options": [
+      "P = 10.2642, the same as the call, because the tree is symmetric",
+      "P = 12.9057 with Delta = -0.6000, replicated by shorting 0.6 shares and lending 84.9057",
+      "P = 12.9057 with Delta = +0.6000, replicated by buying 0.6 shares and borrowing 84.9057",
+      "P = 30.0000 with Delta = -0.6000"
+    ],
+    "answer": 1,
+    "explanation": "Pu = max(130 - 150.00, 0) = 0.00 and Pd = max(130 - 100.00, 0) = 30.00. Delta_P = (0.00 - 30.00)/50.00 = -0.6000, negative because a put is replicated by SHORTING shares and lending. B_P = (30.00 - 100.00(-0.6000))/1.06 = 90.00/1.06 = 84.9057, positive, so you lend. P = 120.00(-0.6000) + 84.9057 = -72.0000 + 84.9057 = 12.9057. Risk-neutral route agrees: [0.5440(0.00) + 0.4560(30.00)]/1.06 = 13.68/1.06 = 12.9057. A positive delta with borrowing instead of lending loses the sign, which is the second most common slip in this material; 30.0000 is the undiscounted down-state payoff; and the put does not match the call, since the payoff vectors differ. Parity check from chapter 21: PV(K) = 130/1.06 = 122.6415, so P + S0 - PV(K) = 12.9057 + 120.0000 - 122.6415 = 10.2642, which is the call - a genuine check, since call and put came from different payoff vectors and different hedge ratios."
+  },
+  {
+    "id": "q421",
+    "ch": 22,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "You cannot see a tree for the share, but you can see the one-year European put price of 12.9057 with K = 130, and you know the share will be either 150.00 or 100.00 with r_f = 6.00%. What is rho?",
+    "options": [
+      "0.4560",
+      "0.5440",
+      "0.4300",
+      "It cannot be recovered from a put"
+    ],
+    "answer": 1,
+    "explanation": "On a two-state tree every asset must be priced by the same weights, so rho = [X0(1 + r_f) - Xd]/(Xu - Xd) works for ANY observed price X0 with two future values, and a put is no exception. For the put: [12.9057(1.06) - 30.00]/(0.00 - 30.00) = (13.6800 - 30.00)/(-30.00) = 16.3200/30.00 = 0.5440. Same weight as the share gives, as it must be. Doing the same on the call price of 10.2642 gives [10.2642(1.06) - 0.00]/(20.00 - 0.00) = 10.8800/20.00 = 0.5440. If two assets on the same tree implied DIFFERENT rho, one of them would be mispriced and there would be an arbitrage, which is a legitimate answer to 'comment on these prices'. The 0.4560 is 1 - rho, so mind the sign of the denominator when the payoffs fall rather than rise, and 0.4300 matches no route at all."
+  },
+  {
+    "id": "q422",
+    "ch": 22,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "A traded copper certificate holds copper, pays nothing along the way, trades at 60.00 today and will be worth 78.00 or 48.00 in one year. The risk-free rate is 5.00%. What risk-neutral probability does it imply for the strong state?",
+    "options": [
+      "0.5250",
+      "0.6000",
+      "0.4000",
+      "0.5000"
+    ],
+    "answer": 3,
+    "explanation": "rho = [(1.05)(60.00) - 48.00]/(78.00 - 48.00) = (63.00 - 48.00)/30.00 = 15.00/30.00 = 0.5000. Check that it reprices the certificate: [0.5000(78.00) + 0.5000(48.00)]/1.05 = 63.00/1.05 = 60.0000. This is how H2024 Exercise 6 was built: the uncertainty is the price of something traded, so you extract rho from the traded twin and then discount every state-contingent project cash flow at r_f. The distractors are the real errors. The 0.4000 is (60.00 - 48.00)/30.00: today's price never grown by (1 + r_f), which is the commonest slip in this formula. The 0.6000 is its complement, (78.00 - 60.00)/30.00, the numerator taken from the top of the tree instead. And 0.5250 is rho itself multiplied by 1.05 - the discount factor applied to the weight rather than to the payoff. Note what the correct answer is NOT: it is not a statement that copper is equally likely to be strong or weak. For an asset that pays off in good times, rho sits below the true probability, because the market discounts good-state payoffs."
+  },
+  {
+    "id": "q423",
+    "ch": 22,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "A recombining two-period tree has S0 = 100.00, u = 1.25 and d = 0.80 at every node, with r_f = 7.00% per period. What is rho, and does it change as you move through the tree?",
+    "options": [
+      "rho cannot be computed without the strike",
+      "rho = 0.5333, and it is the same at every node",
+      "rho = 0.6000 at every node, because rho depends only on u, d and r_f",
+      "rho = 0.6000 at the root and rises after an up move, because the share is dearer"
+    ],
+    "answer": 2,
+    "explanation": "rho = [(1 + r_f) - d]/(u - d) = (1.07 - 0.80)/(1.25 - 0.80) = 0.27/0.45 = 0.6000. Written in gross-return form the share price cancels, so as long as u, d and r_f are unchanged, rho is unchanged at every node - it does not rise after an up move, and 0.5333 does not solve the equation at any node. Verify at the up node: from 125.00 the next prices are 156.25 and 100.00, and [0.6000(156.25) + 0.4000(100.00)]/1.07 = (93.7500 + 40.0000)/1.07 = 133.7500/1.07 = 125.0000. Waiting for the strike confuses the pricing weights with the contract: rho belongs to the tree, not to the derivative, which is exactly why the same rho prices a call, a put and a project on that tree."
+  },
+  {
+    "id": "q424",
+    "ch": 22,
+    "oppg": 2,
+    "type": "short",
+    "q": "On that tree (S0 = 100.00, u = 1.25, d = 0.80, r_f = 7.00%, rho = 0.6000), value a two-period European call with K = 90 by backward induction, then reproduce it with the direct two-period formula, and state the standard error in the direct route.",
+    "model": [
+      "Share tree: 125.00 and 80.00 at date 1; 156.25, 100.00 and 64.00 at date 2. Up-then-down and down-then-up both land on 100.00, which is what recombination means.",
+      "Date-2 payoffs: Cuu = 156.25 - 90 = 66.25, Cud = 100.00 - 90 = 10.00, Cdd = max(64.00 - 90, 0) = 0.00.",
+      "Roll back to date 1. Cu = [0.6000(66.25) + 0.4000(10.00)]/1.07 = (39.7500 + 4.0000)/1.07 = 43.7500/1.07 = 40.8879. Cd = [0.6000(10.00) + 0.4000(0.00)]/1.07 = 6.0000/1.07 = 5.6075.",
+      "Roll back to today. C0 = [0.6000(40.8879) + 0.4000(5.6075)]/1.07 = (24.5327 + 2.2430)/1.07 = 26.7757/1.07 = 25.0240.",
+      "Direct route: the risk-neutral weights on the three terminal nodes are rho^2 = 0.3600, 2rho(1 - rho) = 0.4800 and (1 - rho)^2 = 0.1600, summing to 1.0000. C0 = [0.3600(66.25) + 0.4800(10.00) + 0.1600(0.00)]/(1.07)^2 = (23.8500 + 4.8000)/1.1449 = 28.6500/1.1449 = 25.0240. Identical.",
+      "The standard error is dropping the factor 2 on the middle term, because TWO paths reach 100.00. That gives (23.8500 + 2.4000)/1.1449 = 26.2500/1.1449 = 22.9278, an understatement of 2.0962 that nothing inside the calculation flags.",
+      "Replication check at the root: Delta0 = (40.8879 - 5.6075)/(125.00 - 80.00) = 35.2804/45.00 = 0.7840, B0 = (5.6075 - 80.00 x 0.7840)/1.07 = -53.3768, and 100.00(0.7840) - 53.3768 = 25.0240."
+    ]
+  },
+  {
+    "id": "q425",
+    "ch": 22,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "On the same two-period tree, an AMERICAN put with K = 110 is worth 13.3112 while the European put with the same strike is worth 10.6210. Where does the difference come from?",
+    "options": [
+      "From the root, where immediate exercise gives 10.0000 against a continuation value of 13.3112",
+      "From discounting the American put at a lower rate",
+      "From the up node, where the put is in the money at date 2",
+      "From the down node at date 1, where immediate exercise gives 30.0000 against a continuation value of 22.8037"
+    ],
+    "answer": 3,
+    "explanation": "Date-2 payoffs are 0.00, 10.00 and 46.00. At the down node (S = 80.00) continuation is [0.6000(10.00) + 0.4000(46.00)]/1.07 = 24.4000/1.07 = 22.8037, while exercising gives 110 - 80.00 = 30.0000, so you exercise and carry 30.0000 backwards - that node is the whole of the premium. At the up node continuation 3.7383 beats exercise 0.0000, so nothing happens there. At the root continuation is [0.6000(3.7383) + 0.4000(30.0000)]/1.07 = 14.2430/1.07 = 13.3112 against immediate exercise of 10.0000, so you hold: the root comparison is stated correctly in one of the wrong answers, but the root is not where the premium is created. And no American option is discounted at a different rate - the rate is r_f in both trees. The European value rolls 22.8037 back instead of 30.0000 and gets 10.6210, so the right to exercise early is worth 2.6902. The expensive error is rolling an American option back as if it were European: the result is a perfectly correct European price that no internal check will flag."
+  },
+  {
+    "id": "q426",
+    "ch": 22,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Before you use a binomial tree at all, which condition must hold, and what does it guarantee?",
+    "options": [
+      "The true probability of the up state must be between 0 and 1",
+      "u must equal 1/d, otherwise the tree does not recombine",
+      "Su - Sd must exceed the strike, otherwise the call is worthless",
+      "Sd is below (1 + r_f)S0, which is below Su - it guarantees that rho lies strictly between 0 and 1"
+    ],
+    "answer": 3,
+    "explanation": "The share must be able to beat the risk-free investment in one state and lose to it in the other, that is Sd < (1 + r_f)S0 < Su. If (1 + r_f)S0 were at or below Sd the share would dominate the bond and you would borrow without limit to buy it; if it were at or above Su the reverse. Written out, that inequality is exactly what makes rho = [(1 + r_f)S0 - Sd]/(Su - Sd) land strictly inside (0, 1). The true probability lying in the unit interval is irrelevant, since it never enters a price. Requiring u = 1/d describes a convenient parametrisation that makes a multi-period tree recombine cleanly, not a no-arbitrage condition, and it says nothing about whether a one-period tree is admissible. And a condition on the strike confuses the tree with the contract: a call struck above every terminal node is worth zero, which is a perfectly consistent price rather than an arbitrage. On the Sorlandet tree, 100.00 is below 127.20, which is below 150.00, so it is admissible."
+  },
+  {
+    "id": "q427",
+    "ch": 23,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "An increase in volatility, holding everything else fixed, does what to a European call and to a European put on the same share?",
+    "options": [
+      "Raises the call and leaves the put unchanged",
+      "Lowers both, because risk is a cost",
+      "Raises both, by exactly the same amount",
+      "Raises the call and lowers the put"
+    ],
+    "answer": 2,
+    "explanation": "Volatility raises both, and put-call parity forces the increases to be identical: C - P = S - PV(K), and sigma appears nowhere on the right-hand side, so any change in sigma must move C and P by the same amount - it cannot raise one and lower or freeze the other, and it cannot lower both. Concretely, for S = 80.00, K = 84, r_f = 4.00% and T = 1, raising sigma from 30% to 40% takes the call from 9.2049 to 12.3615 and the put from 9.9741 to 13.1307, both up by exactly 3.1566. The mechanism is truncation: the payoff max(S_T - K, 0) is already zero below K and stays zero all the way down, so extra probability in the left tail costs the call holder nothing, while extra probability in the right tail is pure extra payoff with no upper limit. The same argument upside down works for the put. It is not that risk is rewarded - under the risk-neutral distribution the share still earns only r_f. The gain comes entirely from the kink."
+  },
+  {
+    "id": "q428",
+    "ch": 23,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Vestland Marine's one-year call with K = 84 trades at 13.9287 when S = 80.00 and r_f = 4.00%, which implies a volatility of 45%. Your own estimate of the true volatility is 28%. What is the call worth to you, and what is your conclusion?",
+    "options": [
+      "It cannot be said without knowing the expected return on the share",
+      "8.5706, so the call is underpriced by 5.3581",
+      "8.5706, so the call is overpriced by 5.3581",
+      "13.9287, because the market price is by definition the value"
+    ],
+    "answer": 2,
+    "explanation": "Call value is strictly increasing in sigma, so a lower volatility means a lower value, and the market price is therefore something to test rather than something to accept as the value by definition. Rerunning Black-Scholes at sigma = 28% with PV(K) = 84/1.04 = 80.7692 gives d1 = 0.1058, d2 = -0.1742, N(d1) = 0.5421, N(d2) = 0.4309 and C = 80.00(0.5421) - 80.7692(0.4309) = 43.3680 - 34.7994 = 8.5706. The call is overpriced, not underpriced, by 13.9287 - 8.5706 = 5.3581, which is 38.4680% of the quoted price. This is H2025 Exercise 1: say the direction first, name the comparative static that produces it, and only then quantify. Waiting for the share's expected return is the standing trap of the chapter: it does not appear in the formula, and neither does any real probability of the share rising."
+  },
+  {
+    "id": "q429",
+    "ch": 23,
+    "oppg": 2,
+    "type": "short",
+    "q": "H2025 Exercise 1, in full. A one-year call on Vestland Marine with K = 84 trades at 13.9287 (S = 80.00, r_f = 4.00%, implied volatility 45%). You believe the true volatility is 28%. (a) What happens to the value? (b) What should you do about it? Answer in the four moves the solution keys reward.",
+    "model": [
+      "Move 1 - name the comparative static. Black-Scholes call value is strictly increasing in sigma, because the payoff max(S_T - K, 0) truncates the left tail: extra dispersion adds upside without adding downside.",
+      "Move 2 - give the direction, then the number. My volatility is below the implied volatility, so the call is worth less to me than the market price: 8.5706 against 13.9287. It is overpriced by 5.3581, some 38.4680% of the quote.",
+      "Move 3 - state the action. Write the call at 13.9287 and delta-hedge it by buying N(d1) = 0.5421 shares at my own volatility, costing 0.5421 x 80.00 = 43.3711, financed by borrowing. The share leg cancels the exposure to the direction of the share, so the position is a bet on volatility only. If the share moves as little as 28% volatility implies, the hedged position costs less to run than the 13.9287 taken in.",
+      "Move 4 - name a limitation, because the marks are there. This is NOT an arbitrage. I may simply be wrong about sigma, and realised volatility can exceed 28% even if 28% was the right expectation. The hedge must be rebalanced as Delta moves and cannot be adjusted continuously, which costs money. And Black-Scholes itself may be the wrong model, in which case implied volatility is measuring model error rather than anyone's forecast. An unhedged written call has unlimited loss.",
+      "A free extra point: the put is overpriced by exactly the same amount, since C - P = S - PV(K) contains no sigma. At 45% the put is worth 14.6979 and at 28% it is worth 9.3398, a difference of 5.3581, identical to the call's. So 'sell the put' is an equally valid answer, and a complete answer says so."
+    ]
+  },
+  {
+    "id": "q430",
+    "ch": 23,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "In C = S x N(d1) - PV(K) x N(d2), what are the two normal terms?",
+    "options": [
+      "N(d1) is the probability of exercise and N(d2) is the probability of default",
+      "N(d1) is the option's delta, the number of shares in the replicating portfolio; N(d2) is the risk-neutral probability that the call finishes in the money",
+      "Both are probabilities that the call finishes in the money, computed under different distributions",
+      "N(d1) is the hedge ratio and N(d2) is the real-world probability that S_T exceeds K"
+    ],
+    "answer": 1,
+    "explanation": "Set the formula against chapter 22's C = S x Delta + B and they line up term for term: N(d1) is the delta, the number of shares in the replicating portfolio, and B = -PV(K) x N(d2) is the borrowing that finances them. N(d2) is a genuine probability, but a risk-neutral one - the probability under rho that S_T exceeds K - so calling it a real-world probability is wrong for the same reason rho is not a forecast, and it has nothing to do with default. N(d1) is not a probability at all, so the reading that makes both terms probabilities of finishing in the money fails: it is the probability-weighted VALUE of receiving the share, which is why N(d1) is always above N(d2), the gap being exactly sigma x sqrt(T) inside the normal. A call pays two things in the same states, a share received and a strike paid, and because they are not the same size they need different weights. Calling N(d1) 'the probability of exercise' is one of the two standard ways to lose the interpretation marks."
+  },
+  {
+    "id": "q431",
+    "ch": 23,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "A three-month European call has S = 80.00, K = 84, r_f = 4.00% and sigma = 30%. Which of these is set up correctly?",
+    "options": [
+      "T = 0.25, sigma x sqrt(T) = 0.0750",
+      "T = 0.25, sigma x sqrt(T) = 0.1500",
+      "T = 3, sigma x sqrt(T) = 0.3000",
+      "T = 3, sigma x sqrt(T) = 0.5196"
+    ],
+    "answer": 1,
+    "explanation": "Everything must be in the same time unit. sigma is annualised, so T goes in years: three months is T = 0.25, sqrt(0.25) = 0.5000, and sigma x sqrt(T) = 0.30(0.5000) = 0.1500. The call then comes out at 3.4512 with PV(K) = 84/(1.04)^0.25 = 83.1804. Leaving T at 3 prices a three-YEAR option, whichever value of sigma x sqrt(T) is paired with it. Pairing the right T with 0.0750 multiplies sigma by T instead of by sqrt(T). Two related input errors are worth listing beside this one: sigma is a volatility of RETURNS, not of the price level, so a share that moves 24 kroner on a base of 80 has sigma near 30%, not 30; and if a question gives you a variance, take the square root before anything touches the formula, since a variance of 0.09 means sigma = 0.3000."
+  },
+  {
+    "id": "q432",
+    "ch": 23,
+    "oppg": 2,
+    "type": "short",
+    "q": "Starting from S = 80.00, K = 84, r_f = 4.00%, T = 1 and sigma = 30% (C = 9.2049, P = 9.9741), one input is changed at a time. Show the parity check that ties the whole comparative-statics table together, using these five results: S to 88 gives C = 14.0818 and P = 6.8510; K to 92 gives 6.3666 and 14.8281; sigma to 40% gives 12.3615 and 13.1307; T to 2 gives 14.4438 and 12.1066; r_f to 7% gives 10.2159 and 8.7206.",
+    "model": [
+      "Parity says C - P = S - PV(K), so the change in (C - P) must equal the change in (S - PV(K)) and nothing else. Base PV(K) = 84/1.04 = 80.7692, so base S - PV(K) = -0.7692.",
+      "Row S 80 to 88: dC = +4.8769, dP = -3.1231, dC - dP = +8.0000. S rose by 8.0000 and PV(K) did not move.",
+      "Row K 84 to 92: dC = -2.8384, dP = +4.8539, dC - dP = -7.6923. PV(K) went from 80.7692 to 92/1.04 = 88.4615, a rise of 7.6923.",
+      "Row sigma 30 to 40: dC = +3.1566, dP = +3.1566, dC - dP = 0.0000 exactly. sigma appears nowhere in S - PV(K). This is the strongest row of the five, because it turns 'volatility raises calls and puts alike' into an equality you can test to four decimals.",
+      "Row T 1 to 2: dC = +5.2389, dP = +2.1324, dC - dP = +3.1065. PV(K) fell from 80.7692 to 84/(1.04)^2 = 77.6627, a fall of 3.1065.",
+      "Row r_f 4 to 7: dC = +1.0110, dP = -1.2536, dC - dP = +2.2646. PV(K) fell from 80.7692 to 84/1.07 = 78.5047, a fall of 2.2646.",
+      "Why the check is worth running: C and P were computed from the formula independently, and parity was never used to produce either, so it can fail. A sign error in d2, a strike discounted for the wrong number of years, or a missing sigma x sqrt(T) in d2 would all break a row."
+    ]
+  },
+  {
+    "id": "q433",
+    "ch": 23,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Which of these claims about time to expiry is stated safely?",
+    "options": [
+      "Options are always worth more with more time to expiry",
+      "A put is worth more with more time; for a call the effect is ambiguous",
+      "Time to expiry does not enter Black-Scholes at all once sigma is fixed",
+      "A call is worth more with more time; for a EUROPEAN put the effect is ambiguous, though an American put is always worth more"
+    ],
+    "answer": 3,
+    "explanation": "More time means more dispersion, which helps everything, and a smaller PV(K), which helps a call and hurts a put. So the safe statement is 'more time raises a call, and for a EUROPEAN put the effect is ambiguous, while an American put is always worth more' - not the blanket claim that more time raises every option, and not the version with call and put swapped. For a European put the two forces pull against each other and the second can win: with S = 60.00, K = 100, r_f = 6.00% and sigma = 20%, the European put is worth 37.1295 at T = 0.5, 34.4008 at T = 1, 29.7622 at T = 2 and 20.6590 at T = 5 - it falls steadily, because the holder is waiting to RECEIVE K and pushing that receipt further away is costly. An American put with the same inputs can never fall below its immediate exercise value of 100 - 60.00 = 40.0000, because you can always take the money today. And T is certainly in the formula, both in the discounting and inside sigma x sqrt(T). Say 'for a call' or 'for an American option' when you claim an effect of T, and you cannot be caught."
+  },
+  {
+    "id": "q434",
+    "ch": 23,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "An exam hands you S = 140.00, K = 150, r_f = 5.00%, T = 2, N(d1) = 0.6120 and N(d2) = 0.4530. What is the call worth?",
+    "options": [
+      "20.1018",
+      "12.6540",
+      "17.7300",
+      "24.0473"
+    ],
+    "answer": 3,
+    "explanation": "Since the N(d) tables came off the formula sheet in 2021, a numerical question will hand you the two normal values and want only the last two lines. PV(K) = 150/(1.05)^2 = 150/1.1025 = 136.0544. C = S x N(d1) - PV(K) x N(d2) = 140.00(0.6120) - 136.0544(0.4530) = 85.6800 - 61.6327 = 24.0473. Read the answer as a portfolio to check it: the call is 0.6120 shares worth 85.6800, financed by borrowing 61.6327, and the borrowing is below PV(K) = 136.0544 because you repay it only in the states where you exercise. The 17.7300 uses the undiscounted strike, 140(0.6120) - 150(0.4530), understating the call by 6.3173. The 20.1018 is the put: P = C - S + PV(K) = 24.0473 - 140.00 + 136.0544. Check: C - P = 3.9456 = S - PV(K) = 140.00 - 136.0544."
+  },
+  {
+    "id": "q435",
+    "ch": 23,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "What does it mean to say an option's implied volatility is 45%?",
+    "options": [
+      "The option is 45% overpriced relative to its historical value",
+      "The share's volatility has been measured at 45%",
+      "45% is the volatility that makes the Black-Scholes formula reproduce the option's market price - it is another way of quoting the price, not a measurement of the share",
+      "The market forecasts a 45% chance the option finishes in the money"
+    ],
+    "answer": 2,
+    "explanation": "Four of the five inputs are observable; only sigma is not, so the formula is used backwards and the implied number is the volatility that reproduces the quoted price - another way of quoting the price, not a measurement of the share and not a percentage by which the option is overpriced. There is exactly one answer, because value is strictly increasing in sigma, so the map from sigma to price is one-to-one. It is also not a probability of finishing in the money; that would be N(d2). The expensive misreading is to say 'the share's volatility is 45%' when what you observed was a price. Two consequences that have shown up as discussion questions: if the model is wrong, the implied number absorbs the error - the volatility smile exists not because a share has several volatilities but because real returns have fatter tails than the lognormal distribution assumed. And implied volatility is a risk-neutral quantity, so it contains a premium for bearing volatility risk and typically sits above what is subsequently realised. This is the same distinction as rho against the true probability in chapter 22 and 1 - N(d2) against a real default forecast in chapter 24."
+  },
+  {
+    "id": "q436",
+    "ch": 23,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "At sigma = 0 with S = 80.00, K = 84, r_f = 4.00% and T = 1, what are the call and the put worth?",
+    "options": [
+      "Both zero, because there is no uncertainty",
+      "Call 0.0000 and put 0.7692, which are the chapter 21 arbitrage floors max(S - PV(K), 0) and max(PV(K) - S, 0)",
+      "Call 0.0000 and put 4.0000, the intrinsic value max(K - S, 0)",
+      "Undefined: the formula divides by sigma x sqrt(T)"
+    ],
+    "answer": 1,
+    "explanation": "With no uncertainty the option collapses onto its arbitrage floor: PV(K) = 84/1.04 = 80.7692, so the call floor is max(80.00 - 80.7692, 0) = 0.0000 and the put floor is max(80.7692 - 80.00, 0) = 0.7692. The put is therefore not worth zero, and the 4.0000 version uses the undiscounted strike, which is the same error as using intrinsic value as a bound in chapter 21. Nothing is undefined either: sigma = 0 is a limit the floors describe perfectly well. This limiting case is a good sanity anchor for the whole chapter: both value curves start at their floors when sigma = 0 and slope up from there, and near the money the relationship is close to a straight line, which is why doubling your volatility assumption roughly doubles the option's time value. The vertical gap between the two curves stays fixed at PV(K) - S = 0.7692 for every sigma - parity again."
+  },
+  {
+    "id": "q437",
+    "ch": 23,
+    "oppg": 2,
+    "type": "short",
+    "q": "List the assumptions behind Black-Scholes and say, for each, what it buys and what goes wrong without it. This is a standard verbal sub-question.",
+    "model": [
+      "European exercise: only the terminal distribution matters. Without it, an American put is worth strictly more and must be priced on a tree, taking the maximum of continuation and immediate exercise at every node.",
+      "No dividends before T: the share you replicate with pays nothing out. Without it, calls are worth less and puts more, and early exercise of an American call can become optimal just before an ex-dividend date.",
+      "Constant, known sigma: one number describes the whole distribution. Without it you get the volatility smile - implied volatility varying by strike and maturity - which is the model being asked to absorb a mismatch.",
+      "Lognormal returns: closed-form partial expectations, which is what makes the answer a formula rather than a simulation. Without it, real returns have fatter tails and jumps, so deep out-of-the-money options are systematically underpriced by the formula.",
+      "Continuous, costless trading: the hedge can be rebalanced perfectly. Without it the replication is approximate, and hedging costs are real and rise with how often you rebalance. Chapter 22 gives the reason the hedge must be adjusted at all: Delta is not constant, and it jumps as the underlying moves.",
+      "Constant r_f, no frictions, no default: PV(K) is unambiguous. This matters most for long-dated contracts and for the option-based credit models of chapter 24.",
+      "What none of the assumptions touch: the share's expected return and anybody's probability of the share rising. That absence is inherited from chapter 22's replication argument, and it survives the continuous limit unchanged."
+    ]
+  },
+  {
+    "id": "q438",
+    "ch": 23,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "How closely does a binomial tree approximate Black-Scholes, and what should you not claim?",
+    "options": [
+      "They are different theories and give systematically different answers",
+      "A one-step tree is a good approximation, since both are no-arbitrage models",
+      "The tree always prices above Black-Scholes, so it gives a conservative upper bound",
+      "They agree in the limit as the number of steps grows, not at a small number of steps, and the convergence is not even monotone"
+    ],
+    "answer": 3,
+    "explanation": "Nothing new happens between the two models: cut the year into n periods, set u = exp(sigma x sqrt(T/n)) and d = 1/u so total volatility stays at sigma, and let n grow. The distribution of S_T settles into a lognormal one and the tree price converges to the closed form - in the limit, not at a small number of steps, and not monotonically. Convergence oscillates as the terminal nodes shuffle around the strike, so a coarse tree can be wrong in either direction, which also kills the claim that the tree always prices above Black-Scholes and gives a conservative bound. A single step is genuinely crude: for one worked case a one-step tree gives 14.1636 against a Black-Scholes value of 11.5061. Nor are they different theories with systematically different answers. What the limit adds is only a closed form for the two pieces of the replicating portfolio; the economics is chapter 22's replication argument with the arithmetic done once and for all."
+  },
+  {
+    "id": "q439",
+    "ch": 23,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Which slip does 'discount the strike before you take the logarithm' guard against?",
+    "options": [
+      "Using the put formula for a call",
+      "Forgetting to annualise sigma",
+      "Writing ln(S/K) instead of ln(S/PV(K)) in d1, which drops the interest-rate effect entirely",
+      "Reading N(d) from a table rounded to four decimals"
+    ],
+    "answer": 2,
+    "explanation": "This manual writes d1 = ln[S/PV(K)]/(sigma x sqrt(T)) + (sigma x sqrt(T))/2, with PV(K) = K/(1 + r_f)^T. Writing ln(S/K) removes the discounting of the strike and so drops the interest-rate effect entirely, mis-pricing the option in a direction that depends on the sign of ln(S/K), which is why it will not always look obviously wrong. It has nothing to do with annualising sigma, with choosing the wrong contract, or with how finely the normal table is rounded. Textbooks stating Black-Scholes in continuous time write PV(K) = K x exp(-r_f x T) and then expand the same d1 as [ln(S/K) + (r_f + sigma^2/2)T]/(sigma x sqrt(T)); substitute the continuous PV(K) into the expression above and you get exactly that. It is one formula and two ways of quoting r_f, not two models - but say which r_f you mean and keep it consistent inside a question. Chapter 24 uses the continuous version, because option-based credit models are stated that way."
+  },
+  {
+    "id": "q440",
+    "ch": 23,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Which of these is the same result seen from a different angle as 'option value rises with volatility'?",
+    "options": [
+      "MM Proposition I: capital structure does not affect firm value",
+      "The coinsurance effect, where merging firms' creditors gain",
+      "The pecking order, where firms prefer internal funds to equity",
+      "Risk shifting in chapter 9, where shareholders of a distressed firm prefer a riskier project even at a lower NPV"
+    ],
+    "answer": 3,
+    "explanation": "Equity is a call on the firm's assets, so it has a floor at zero and no cap above; extra asset volatility therefore raises equity value at the creditors' expense, which is precisely why the shareholders of a distressed firm prefer the riskier project even at a lower NPV. That is the max(., 0) truncation of this chapter with a new label. Chapter 25's option to wait is the same shape once more: the value of waiting is the sum of p_i x max(0, NPV_i), where the same maximum truncates the bad states. MM Proposition I and the pecking order are results about financing choices, not about kinked payoffs. The coinsurance effect is a related but distinct result: it is about the concavity of an option on a POOL versus a pool of options, and it moves value the other way, from shareholders to creditors. Every 'risk is good here' result in the course is one kink seen from a different side, and saying so explicitly in a verbal answer is the kind of mechanism-naming the solution keys reward."
+  },
+  {
+    "id": "q441",
+    "ch": 24,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "A firm's only debt is a zero-coupon bond with face value K maturing at date T. In option terms, what are the two claims?",
+    "options": [
+      "Both claims are calls, differing only in the strike",
+      "Equity is a call on firm value struck at K; debt is the firm minus that call, equivalently risk-free debt of PV(K) minus a put struck at K",
+      "Equity is a call on the SHARE price struck at K; debt is risk-free",
+      "Equity is a put on firm value struck at K; debt is a call on firm value"
+    ],
+    "answer": 1,
+    "explanation": "Limited liability means E_T = max(V_T - K, 0), which is a European call on the firm's ASSETS struck at the face value of the debt. The debt is what is left: D_T = min(V_T, K) = V_T - max(V_T - K, 0). Add and subtract the promised payment and you get the second, more useful reading for credit: D_T = K - max(K - V_T, 0), that is D = PV(K) - Put(V, K, T). Lending to a levered firm is lending safely and writing a put to the shareholders at the same time - so equity is not the put and debt is not a call, and the two claims are not both calls. Striking the call on the SHARE price names the wrong underlying: V is enterprise value and its sigma is ASSET volatility, not the volatility of the shares, which is the levered quantity N(d1)(V/E)sigma, and the debt is certainly not risk-free. The two claims add to V_T in every state, which is what makes the consistency checks work."
+  },
+  {
+    "id": "q442",
+    "ch": 24,
+    "oppg": 2,
+    "type": "short",
+    "q": "Fjordbygg AS has assets worth V0 = 200.00 today; in one year they will be worth 270.00 or 170.00. It has one zero-coupon bond with face value K = 190 maturing in one year, and r_f = 5.00%. Value the equity and the debt, then produce the promised yield, the credit spread, the risk-neutral default probability and the recovery rate.",
+    "model": [
+      "Step 1 - the risk-neutral probability. rho = [(1.05)(200.00) - 170.00]/(270.00 - 170.00) = (210.00 - 170.00)/100.00 = 0.4000, and 1 - rho = 0.6000. Check that it reprices the assets: [0.4000(270.00) + 0.6000(170.00)]/1.05 = 210.00/1.05 = 200.0000.",
+      "Step 2 - the two claims state by state. Up: debt min(270.00, 190) = 190.00, equity max(270.00 - 190, 0) = 80.00. Down: debt min(170.00, 190) = 170.00, equity 0.00.",
+      "Step 3 - value them. E = [0.4000(80.00) + 0.6000(0.00)]/1.05 = 32.00/1.05 = 30.4762. D = [0.4000(190.00) + 0.6000(170.00)]/1.05 = 178.00/1.05 = 169.5238.",
+      "Check A: E + D = 30.4762 + 169.5238 = 200.0000 = V0. This check CAN fail, and it catches the commonest slip, a missing max(., 0) in one state.",
+      "Step 4 - promised yield. y = 190/169.5238 - 1 = 0.120787 = 12.0787%. Credit spread = 12.0787% - 5.0000% = 7.0787%.",
+      "Step 5 - default and recovery. Default happens in the down state, so q = 1 - rho = 0.6000. Creditors collect 170.00 of a promised 190, so R = 0.8947 and L = 1 - R = 0.1053. Chapter 5's formula reproduces the price: D = K(1 - qL)/(1 + r_f) = 190(1 - 0.0632)/1.05 = 178.0000/1.05 = 169.5238.",
+      "Check B (debt as risk-free minus a put): the put pays max(190 - 170.00, 0) = 20.00 in the down state, worth [0.6000(20.00)]/1.05 = 11.4286, and PV(K) = 190/1.05 = 180.9524, so PV(K) - Put = 169.5238 = D. Equivalently parity: E = Put + V0 - PV(K) = 11.4286 + 200.0000 - 180.9524 = 30.4762."
+    ]
+  },
+  {
+    "id": "q443",
+    "ch": 24,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "For Fjordbygg (D = 169.5238, K = 190, r_f = 5.00%, q = 0.6000, R = 0.8947) the true probability of the down state is 0.35. What is the expected return on the debt?",
+    "options": [
+      "6.3158%",
+      "12.0787%",
+      "5.0000%",
+      "7.9494%"
+    ],
+    "answer": 3,
+    "explanation": "An expected return is a real-world average, so this is the one step where a true probability is legitimate. Expected payment = 0.65(190.00) + 0.35(170.00) = 123.50 + 59.50 = 183.0000, so r_D = 183.0000/169.5238 - 1 = 0.079494 = 7.9494%. The 12.0787% is the PROMISED yield, which every state-contingent payment falls short of on average; 5.0000% is the risk-free rate, which a risky claim must beat; and 6.3158% is the CDS running spread, not a return. Check the ordering, which the examiner expects: r_f = 5.0000% is below r_D = 7.9494%, which is below y = 12.0787%. Chapter 5's shortcut r_D = y - pL gives 0.120787 - 0.35(0.105263) = 8.3944%, which is 0.0045 too high; the gap is p x L x y = 0.35(0.105263)(0.120787) = 0.0045 exactly, as chapter 5 warned. Use the cash-flow route when you have the payoffs."
+  },
+  {
+    "id": "q444",
+    "ch": 24,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "A bank offers a one-year credit default swap on the full 190 notional of Fjordbygg's bond. What is the upfront price, and what is the running spread?",
+    "options": [
+      "Upfront 20.0000 and running spread 10.5263%",
+      "Upfront 11.4286 and running spread 6.3158%",
+      "Upfront 19.0476 and running spread 10.0000%",
+      "Upfront 11.4286 and running spread 7.0787%"
+    ],
+    "answer": 1,
+    "explanation": "A CDS buys back the put embedded in risky debt: CDS payoff = max(K - V_T, 0), so the upfront price is Put(V, K, T) = PV(K) - D = 180.9524 - 169.5238 = 11.4286. Three routes agree: as an expectation, [0.4000(0) + 0.6000(20.00)]/1.05 = 11.4286; as the missing put, 11.4286; as expected loss, q x L x K/(1 + r_f) = 0.6000(0.105263)(190)/1.05 = 11.4286. So the undiscounted 20.0000 and the 19.0476 are both wrong upfront prices. Converting to a running spread paid at the end of the year on a notional of 190: s(190)/1.05 = 11.4286, so s = 0.063158 = 6.3158%, which is just q x L. Pairing the right upfront with 7.0787% quotes the BOND credit spread as if it were the CDS spread. The two are consistent, not equal: y - r_f = qL(1 + r_f)/(1 - qL) = 0.063158(1.05)/0.936842 = 0.070787. The bond spread is larger because it is charged on the discounted price 169.5238 while the CDS spread is charged on the full notional 190 - a real error of 76 basis points, not a rounding difference."
+  },
+  {
+    "id": "q445",
+    "ch": 24,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "You buy the Fjordbygg bond for 169.5238 and the one-year CDS for 11.4286. What return do you earn, and what does that prove?",
+    "options": [
+      "5.0000%, proving that a risky bond plus a CDS is a risk-free bond",
+      "6.3158%, the CDS spread",
+      "7.9494%, the bond's expected return, because the CDS only removes part of the risk",
+      "12.0787%, because you still hold the bond's promised yield"
+    ],
+    "answer": 0,
+    "explanation": "Total outlay is 169.5238 + 11.4286 = 180.9524, and the package delivers 190.00 with certainty: in the up state the bond pays 190.00 and the CDS pays 0; in the down state the bond recovers 170.00 and the CDS pays the 20.00 shortfall. The return is 190/180.9524 - 1 = 0.050000 = 5.0000% = r_f, and 180.9524 is exactly PV(K). You do not keep the promised yield of 12.0787%, because you paid for the protection; you do not keep the bond's own expected return of 7.9494%, because the CDS removes ALL the credit risk here, not part of it; and the 6.3158% spread is what you pay, not what you earn. That is the no-arbitrage statement worth memorising: risky bond + CDS = risk-free bond. If the two sides do not match in the market, the difference is the CDS basis and it is a trade. It also gives you the standard reverse use: from a traded CDS spread you can invert s = q x L for the market's risk-neutral default probability, given an assumed recovery rate, and the market convention is R = 40% - so a 3.00% spread implies q = 0.03/0.60 = 5.0000%."
+  },
+  {
+    "id": "q446",
+    "ch": 24,
+    "oppg": 2,
+    "type": "short",
+    "q": "Nordhav ASA has assets worth V = 400 with asset volatility sigma = 40% a year, one zero-coupon bond with face value K = 350 maturing in T = 3 years, and a continuously compounded risk-free rate of 3.00%. The asset beta is 0.90. You are given N(d1) = 0.7483 and N(d2) = 0.4905. Value the equity and the debt, compute the yield and the credit spread, and give both betas.",
+    "model": [
+      "Say the compounding convention first: Black-Scholes here is the continuous-time version, so PV(K) = K x exp(-r_f x T) and r_f is continuously compounded.",
+      "Arguments, for the record: ln(400/350) = 0.1335, numerator = 0.1335 + [0.0300 + 0.40^2/2](3) = 0.1335 + 0.3300 = 0.4635, denominator = 0.40 x sqrt(3) = 0.6928, so d1 = 0.6690 and d2 = 0.6690 - 0.6928 = -0.0238.",
+      "PV(K): exp(-0.09) = 0.9139, so PV(K) = 350(0.9139) = 319.8759.",
+      "Equity as a call: E = 400(0.7483) - 319.8759(0.4905) = 299.3200 - 156.8991 = 142.4209. Debt as the residual: D = 400.0000 - 142.4209 = 257.5791.",
+      "Yield: K/D = 350/257.5791 = 1.3588, ln(1.3588) = 0.3066, so y = 0.3066/3 = 10.2202% continuously compounded and the spread is 10.2202% - 3.0000% = 7.2202%. On an annual effective basis y = 1.3588^(1/3) - 1 = 10.7607% against r_f,eff = exp(0.03) - 1 = 3.0455%, a spread of 7.7153%. Same credit, two conventions - quote one and name it.",
+      "Check by the put route, which is an independent recombination: P = PV(K) x N(-d2) - V x N(-d1) = 319.8759(0.5095) - 400(0.2517) = 162.9768 - 100.6800 = 62.2968, so D = PV(K) - P = 319.8759 - 62.2968 = 257.5791, identical to the residual route.",
+      "Betas: beta_E = N(d1)(V/E)beta_U = 0.7483(400/142.4209)(0.90) = 0.7483(2.8086)(0.90) = 1.8915, and beta_D = [1 - N(d1)](V/D)beta_U = 0.2517(1.5529)(0.90) = 0.3518. Chapter 4's linear relevering reproduces it: 0.90 + (257.5791/142.4209)(0.90 - 0.3518) = 1.8915. The option version's contribution is that it TELLS you beta_D instead of asking you to guess it.",
+      "Default probability: N(-d2) = 0.5095, a 50.95% RISK-NEUTRAL probability of default before year 3. The true probability is lower, because rho overweights bad states, so this number prices and hedges - it does not forecast."
+    ]
+  },
+  {
+    "id": "q447",
+    "ch": 24,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Nordhav's management raises asset volatility from 40% to 60%, holding V at 400. Equity goes from 142.4209 to 185.7992 and debt from 257.5791 to 214.2008, while the equity beta FALLS from 1.8915 to 1.4894. How should that be described?",
+    "options": [
+      "An error: equity beta cannot fall when the firm gets riskier",
+      "Value creation of 43.3783, since the shareholders are better off",
+      "Risk shifting - a pure transfer of 43.3783 from creditors to shareholders, with beta_E falling because the equity claim is now a bigger, less levered slice of the same assets",
+      "A coinsurance effect running in reverse"
+    ],
+    "answer": 2,
+    "explanation": "Total value is fixed at 400 by assumption, so this is consistency check 4: shareholders gain 185.7992 - 142.4209 = +43.3783 and creditors lose 257.5791 - 214.2008 = -43.3783, equal and opposite. Nothing was created; volatility is a redistribution, and it is why lenders write covenants. It is also not coinsurance in reverse, which is about pooling cash flows rather than about raising their risk. The credit numbers move accordingly: the yield rises from 10.2202% to 16.3673% continuously compounded, a spread of 13.3673%. The falling equity beta is not an error either. beta_E = N(d1)(V/E)beta_U, and although N(d1) barely moves (0.7483 to 0.7687), E has grown from 142.4209 to 185.7992, so the same asset risk is now spread over more equity value and the leverage embedded in the option has gone down. The shareholders are better off in value terms AND less levered at the same time, which is precisely why the transfer is attractive to them."
+  },
+  {
+    "id": "q448",
+    "ch": 24,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Which reading of N(d2) and N(d1) in the credit model is right?",
+    "options": [
+      "N(d1) is the recovery rate and N(d2) is one minus the default rate",
+      "N(d2) is the true probability of default and N(d1) is the probability of exercise",
+      "N(d2) is the risk-neutral probability of no default, so N(-d2) is a risk-neutral default probability that typically overstates the true one; N(d1) is not a probability at all but the delta of equity with respect to firm value",
+      "Both are risk-neutral default probabilities, computed over different horizons"
+    ],
+    "answer": 2,
+    "explanation": "N(d2) is the risk-neutral probability that V_T ends above K, so N(-d2) = 1 - N(d2) really is a default probability - but a risk-neutral one, not the true frequency. Like chapter 5's implied q, it already contains the risk premium and it overstates the true default rate, often by a factor of two or more, because default clusters in bad states of the world. A spread read as a forecast will always predict too many defaults; the model is built to price and to hedge, not to predict. N(d1) is not a probability at all: it is the option's delta, the units of the firm's assets a replicating portfolio holds, which is why it reappears as the elasticity that scales beta - so it is neither a probability of exercise nor a recovery rate, and the two normal terms are not two default probabilities over different horizons. Calling N(d1) 'the probability of exercise' and N(-d2) 'the chance the firm goes bankrupt' are the two standard ways to lose the interpretation marks on a verbal question."
+  },
+  {
+    "id": "q449",
+    "ch": 24,
+    "oppg": 2,
+    "type": "short",
+    "q": "Two identical, independent firms each have assets worth 120 or 50 in one year with risk-neutral probability 0.5000 each, and each has a zero-coupon bond with face value 80. Set r_f = 0. They merge with NO synergies; the merged firm assumes both bonds, ranking equally. Who gains, who loses, and by how much?",
+    "model": [
+      "Stand-alone, per firm: V = 0.5(120) + 0.5(50) = 85.0000; D = 0.5(80) + 0.5(50) = 65.0000; E = 0.5(40) + 0.5(0) = 20.0000. Each bond yields 80/65.0000 - 1 = 23.0769%, with a risk-neutral default probability of 0.5000 and recovery 50/80 = 0.6250. Two firms together: V = 170.0000, D = 130.0000, E = 40.0000.",
+      "Merged, four equally likely combinations (independence, 0.2500 each), total face value 160: good-good gives V = 240 with debt 160 and equity 80; the two mixed states give V = 170 with debt 160 and equity 10; bad-bad gives V = 100 with debt 100 and equity 0.",
+      "Values: V = 170.0000, D = 0.25(160) + 0.50(160) + 0.25(100) = 145.0000, E = 0.25(80) + 0.50(10) + 0.25(0) = 25.0000.",
+      "Consistency check 4: creditors as a group gain 145.0000 - 130.0000 = +15.0000 and shareholders lose 25.0000 - 40.0000 = -15.0000. Firm value is 170.0000 before and after, so the merger cannot create or destroy value, only move it. Quote this check by number.",
+      "Name the mechanism: the COINSURANCE effect. An option on a portfolio is worth no more than a portfolio of options, so pooling assets destroys equity value; debt is the residual, so it gains the same amount. Per bond the gain is 72.5000 - 65.0000 = +7.5000, and each shareholder group loses 12.5000 - 20.0000 = -7.5000.",
+      "Credit numbers: the merged bonds promise 160 and are worth 145.0000, so y = 10.3448%, down from 23.0769%. The risk-neutral default probability falls from 0.5000 to 0.2500 - only bad-bad - while recovery given default is unchanged at 100/160 = 0.6250. The entire improvement is fewer defaults, not better recoveries.",
+      "Independent check via the option route: stand-alone each put pays 30 in the bad state, worth 15.0000, so two puts are worth 30.0000; merged, the put pays 160 - 100 = 60 only in bad-bad, worth 0.25(60) = 15.0000. The puts lost 15.0000 of value, precisely the creditors' gain.",
+      "Why it is not a reason to merge: the gain is real but it goes to the wrong people, and shareholders decide on mergers. Standard responses are to lever up afterwards and pay out the proceeds, or to ring-fence the subsidiaries so the cash flows never pool. What coinsurance does justify is more debt capacity, hence a larger tax shield - a genuine gain, and the phrase to use when an exam bans 'synergies' as an answer."
+    ]
+  },
+  {
+    "id": "q450",
+    "ch": 24,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Sognefjell AS chooses between a safe project S (firm worth 160 or 110, risk-neutral probability 0.5000 each) and a gamble R (210 or 50). Face value is 70 and r_f = 0. With straight debt, which project do the owners choose and what does it cost?",
+    "options": [
+      "R, and it creates 5.0000 of value because the upside is larger",
+      "They are indifferent, since debt is risk-free in both cases",
+      "S, because it has the higher firm value",
+      "R: equity is worth 70.0000 under R against 65.0000 under S, destroying 5.0000 of firm value - asset substitution"
+    ],
+    "answer": 3,
+    "explanation": "Under S the debt is fully repaid in both states, so D = 70.0000 and E = 0.5(90) + 0.5(40) = 65.0000, with V = 135.0000. Under R the firm defaults in the down state, so D = 0.5(70) + 0.5(50) = 60.0000 and E = 0.5(140) + 0.5(0) = 70.0000, with V = 130.0000. The owners take R because 70.0000 beats 65.0000, even though firm value falls by 5.0000 - so the higher firm value under S does not decide it, no value is created by the gamble, and the debt is emphatically not risk-free under R. Name the mechanism: risk shifting, or asset substitution. Consistency check 3 ties it together: creditors' gain 60.0000 - 70.0000 = -10.0000 plus shareholders' gain 70.0000 - 65.0000 = +5.0000 equals -5.0000, the NPV of switching. This is chapter 23's result with a balance sheet attached: equity is a call, so extra volatility raises it at the creditors' expense."
+  },
+  {
+    "id": "q451",
+    "ch": 24,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Replace Sognefjell's bond with a convertible, same face value 70, convertible into gamma = 0.4000 of the firm. What changes?",
+    "options": [
+      "The convertible is worth less than the straight bond, so the firm must offer a higher coupon",
+      "Nothing: the holder converts in every state, so it behaves like equity",
+      "The owners now pick S, because equity is worth 65.0000 under S against 63.0000 under R - conversion removes the convexity at the top exactly where the gamble paid",
+      "The owners still pick R, but the creditors are protected"
+    ],
+    "answer": 2,
+    "explanation": "Conversion pays off when gamma x V_T exceeds 70, that is when V_T exceeds K/gamma = 175. Under S neither state reaches 175, so the convertible behaves as straight debt: 70.0000, with equity 65.0000 - the holder therefore does not convert in every state, and it does not behave like equity throughout. Under R the up state of 210 does: the holder takes 0.4(210) = 84, and in the down state the firm defaults for 50, so the convertible is worth 0.5(84) + 0.5(50) = 67.0000 and equity is 0.5(126) + 0.5(0) = 63.0000. The owners now choose S, 65.0000 against 63.0000, so the gamble is no longer taken and the creditors are protected by the change in behaviour rather than in spite of it; the first-best value of 135.0000 is restored and the agency cost of 5.0000 disappears. The decomposition check: a convertible is a straight bond plus gamma calls struck at K/gamma, so under R it is 60.0000 + 0.5(0.4)(210 - 175) = 60.0000 + 7.0000 = 67.0000. And the coupon argument has the direction backwards: the convertible is worth MORE than the straight bond under both projects, which is why the firm raises the same money on a lower coupon."
+  },
+  {
+    "id": "q452",
+    "ch": 24,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Which of these is a real modelling error rather than a matter of convention?",
+    "options": [
+      "Reducing a coupon bond to a single promised payment and saying so",
+      "Quoting the credit spread on a continuously compounded basis",
+      "Using N(d) values rounded to four decimals",
+      "Pricing the debt directly with Black-Scholes as if the bond were an option"
+    ],
+    "answer": 3,
+    "explanation": "Debt is not an option, so pricing the bond directly with Black-Scholes is a modelling error rather than a convention. It is V minus a call, or equivalently PV(K) minus a put, so you compute the option first and subtract. Quoting the spread continuously compounded, and reducing a coupon bond to a single promised payment, are conventions or approximations that are perfectly acceptable as long as you name them: quote a continuously compounded y against a continuously compounded r_f, and say out loud that you are approximating. Four-decimal N values are a rounding choice - for one worked case they moved the yield by 0.0016 percentage points, which is well inside tolerance provided you keep the precision fixed through the whole chain. Two further things worth checking on this material: the underlying is FIRM value and sigma is ASSET volatility, so an exam that hands you equity volatility expects you to say the two differ, since equity volatility is the levered N(d1)(V/E)sigma."
+  },
+  {
+    "id": "q453",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Which three ingredients must be present before a real option has any value at all?",
+    "options": [
+      "Uncertainty, information arriving over time, and irreversibility or a cost of reversing",
+      "Competition, patents and a first-mover advantage",
+      "A positive NPV, a long horizon and a low discount rate",
+      "A traded twin asset, a risk-free rate and a known volatility"
+    ],
+    "answer": 0,
+    "explanation": "Without uncertainty there is nothing to learn, so waiting only delays cash flow. Without information arriving over time you wait and are none the wiser. Without irreversibility - or at least a cost of reversing - you can commit now and simply undo it later for free, so the right to defer is worthless. Naming those three is a standard sub-question and costs one line. A positive NPV, a long horizon and a low discount rate confuse the option with the project: a real option can be valuable on a project whose static NPV is NEGATIVE, which is the whole point of the chapter. A traded twin, a risk-free rate and a known volatility describe one VALUATION route, the risk-neutral one, not a condition for the option to exist; the other route uses real probabilities and a risk-adjusted rate. And competition, patents and first-mover advantages are reasons an option may be short-lived, not ingredients that give it value."
+  },
+  {
+    "id": "q454",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Kystvind AS can build a wind farm for I = 800, payable at once, producing a perpetuity from one year later: 120 a year forever if the power price is high (probability 0.55) or 50 a year forever if it is low (0.45). The regime is revealed in a year and is permanent, and r = 10.00%. What does the plain NPV rule say, and what should the firm do?",
+    "options": [
+      "NPV = 85.0000, but waiting is worth 200.0000, so wait - immediate exercise destroys 115.0000",
+      "NPV = -300.0000 in the low state, so reject",
+      "NPV = 400.0000, so build now and the option is irrelevant",
+      "NPV = 85.0000, so build now"
+    ],
+    "answer": 0,
+    "explanation": "Expected annual cash flow is 0.55(120) + 0.45(50) = 88.50, so NPV_now = 88.50/0.10 - 800 = 885.0000 - 800 = 85.0000, positive - which is why neither the -300.0000 low-state figure nor the +400.0000 high-state figure is the answer to 'what does the plain NPV rule say'. But those state NPVs are the point: NPV_high = 120/0.10 - 800 = +400.0000 and NPV_low = 50/0.10 - 800 = -300.0000, and waiting lets you decline the low branch: [0.55(400.0000) + 0.45(0.0000)]/1.10 = 220.0000/1.10 = 200.0000. The option to wait is 200.0000 - max(0, 85.0000) = 115.0000, so building now is not the right action even though the NPV is positive. Consistency: 0.55(400) + 0.45(-300) = 85.0000, the same NPV_now, which proves the state NPVs before you build the option on top of them. Say it in words: the project is worth 200.00 held as an option and 85.00 exercised immediately, so exercising immediately destroys 115.00."
+  },
+  {
+    "id": "q455",
+    "ch": 25,
+    "oppg": 2,
+    "type": "short",
+    "q": "For Kystvind (I = 800, high 120 with probability 0.55, low 50 with probability 0.45, r = 10.00%), decompose the option value of 115.0000 into the two forces that produce it, and state the timing assumption you are making.",
+    "model": [
+      "Waiting does two things, one good and one bad, and the option value is the net.",
+      "It avoids the low branch. That branch's NPV of -300.0000 is already a date-0 figure, so avoiding it is worth 0.45(300.0000) = +135.0000 in today's money.",
+      "It delays the good branch by a year. The high branch is worth 0.55(400.0000) = 220.0000 taken today and 220.0000/1.10 = 200.0000 taken in a year, so the delay costs 220.0000 - 200.0000 = -20.0000.",
+      "Net: 135.0000 - 20.0000 = 115.0000, the same number as 200.0000 - 85.0000 by a completely different route. The decomposition is itself worth marks, because it names the two forces.",
+      "The timing assumption: the whole project shifts by a year, cost and cash flows together, so NPV_i is unchanged in size and only its date moves. If instead the cash flows were tied to fixed calendar dates, waiting would lose the first year's flow permanently and NPV_i would have to be rebuilt from the remaining stream. Examiners accept either reading; they do not accept silence.",
+      "Two discounting traps to avoid while doing this: do not discount NPV_i twice - it is already a present value as of the investment date and needs exactly one more factor of (1 + r) - and remember that the alternative to a bad project is zero, not a negative number, so the outer max(0, .) belongs on the reference strategy too.",
+      "Worth half a sentence if you have it: applying a single r to both branches is an approximation, not a theorem. An option on a project is riskier than the project itself, so its true cost of capital is higher and moves through the tree. The risk-neutral route is the clean fix when the data supports it."
+    ]
+  },
+  {
+    "id": "q456",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Why is E[max(0, NPV_i)] never smaller than max(0, E[NPV])?",
+    "options": [
+      "Because the first decides state by state after the uncertainty resolves, while the second takes one decision in the dark for all states at once - and the gap between them is the entire value of flexibility",
+      "Because the first uses a lower discount rate",
+      "Because expectations are always larger than maxima",
+      "Because the first uses risk-neutral probabilities"
+    ],
+    "answer": 0,
+    "explanation": "max(0, E[NPV]) is what you get by averaging first and deciding afterwards: one decision, taken before you know which state you are in. E[max(0, NPV_i)] is what you get by deciding after seeing the state, so the bad states contribute 0 rather than a negative number, and the gap between the two is the entire value of flexibility. It has nothing to do with expectations exceeding maxima in general, and nothing to do with using a lower discount rate. Every number in the chapter is a difference between those two expressions, so if you collapse them the chapter disappears - and 'averaging before taking the maximum' is the single most expensive error here, because it erases the option and still produces a plausible-looking number. Write the max INSIDE the expectation and you have earned most of the marks. Appealing to risk-neutral probabilities confuses the probability measure with the position of the maximum: both expressions can be written under either measure, and the inequality holds regardless."
+  },
+  {
+    "id": "q457",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Havglass AS is considering a launch costing 600 today, with r = 12.00%. Demand is strong (probability 0.25) with a PV of 1100, base (0.45) with 640, or weak (0.30) with 250. A consultancy offers a perfect, instantaneous market study. What is the most the firm should pay for it?",
+    "options": [
+      "350.0000",
+      "105.0000",
+      "143.0000",
+      "38.0000"
+    ],
+    "answer": 1,
+    "explanation": "The state NPVs are +500.0000, +40.0000 and -350.0000. Uninformed, E[NPV] = 0.25(500) + 0.45(40) + 0.30(-350) = 125.0000 + 18.0000 - 105.0000 = 38.0000, which is positive, so the firm launches and the uninformed strategy is worth max(0, 38.0000) = 38.0000. Informed, E[max(0, NPV_i)] = 125.0000 + 18.0000 + 0.0000 = 143.0000. The value of perfect information is 143.0000 - 38.0000 = 105.0000. Independent check: information changes exactly one decision, the weak state, where it stops you losing 350, so its value must be 0.30(350) = 105.0000. That check catches the commonest error, dropping the max(0, .) so the weak state contributes -350 to both terms and the value of information collapses to zero. The 143.0000 is the informed strategy itself, not the value of the information; the 38.0000 is the uninformed strategy; and 350.0000 is the loss avoided in one state, unweighted. Offer the study at 110 and refuse."
+  },
+  {
+    "id": "q458",
+    "ch": 25,
+    "oppg": 2,
+    "type": "short",
+    "q": "Same Havglass numbers. (a) What if the study takes a year, so the launch and all its cash flows shift with it? (b) What if the base state's PV were 500 rather than 640? Give both answers and read the difference.",
+    "model": [
+      "(a) The informed strategy is unchanged in size but arrives a year later: 143.0000/1.12 = 127.6786. The uninformed alternative is still available today and worth 38.0000, so the delayed study is worth 127.6786 - 38.0000 = 89.6786.",
+      "The delay therefore costs 105.0000 - 89.6786 = 15.3214, which is exactly 143.0000(1 - 1/1.12) = 143.0000(0.107143) = 15.3214 - a fall of 14.5918% in the value of the study. A study priced at 95 is worth buying only if it can be done immediately.",
+      "Note what this expression IS: E[max(0, NPV_i)]/(1 + r) - max(0, E[NPV]) is precisely the value of the option to wait from section 25.2. Information delayed by a year and waiting a year for the world to reveal itself are the same calculation.",
+      "(b) With PV_base = 500 the base NPV becomes -100.0000. Then E[NPV] = 125.0000 - 45.0000 - 105.0000 = -25.0000, which is negative, so the UNINFORMED firm does nothing and that strategy is worth 0.0000, not -25.0000. The informed strategy is 0.25(500) = 125.0000, so the study is worth the full 125.0000.",
+      "Read the pattern: information is valuable in proportion to how close the uninformed decision was to being wrong. More states in which the uninformed decision misfires means more valuable information, and when the uninformed decision is to reject, the study is worth the entire informed value.",
+      "Two sentences that always earn something: a study can never have NEGATIVE value, because you can ignore it; and imperfect information is worth strictly less than the perfect-information figure, never more, so 105.0000 is an upper bound however precise the seller claims to be. If you would launch in every state, or in none, the study is worth zero however precise it is - value comes from the action the information permits, never from the knowledge itself."
+    ]
+  },
+  {
+    "id": "q459",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Nordfrakt AS can build a ship for 1500 today. From date 1 the annual cash flow is 260 forever if freight rates hold (probability 0.65) or 60 forever if they collapse (0.35); the regime is revealed by the date-1 cash flow and is permanent, and r = 12.00%. The ship can be sold at any date from 1 onwards for 800. What is the exit option worth?",
+    "options": [
+      "300.0000",
+      "93.7500",
+      "83.3333",
+      "177.0833"
+    ],
+    "answer": 1,
+    "explanation": "At date 1 the firm has just received that year's cash flow and owns a perpetuity of the same amount from date 2, so the branch values committed to operating are 260 + 260/0.12 = 2426.6667 and 60 + 60/0.12 = 560.0000. Committed value today = [0.65(2426.6667) + 0.35(560.0000)]/1.12 = 1773.3333/1.12 = 1583.3333, an NPV of 83.3333. With the exit, the tight branch compares continuing (500.0000) with the salvage (800), so you sell: 60 + 800 = 860.0000. Value with the exit = [0.65(2426.6667) + 0.35(860.0000)]/1.12 = 1878.3333/1.12 = 1677.0833, an NPV of 177.0833. The option is 1677.0833 - 1583.3333 = 93.7500. Independent check: it changes one branch only, by the difference between salvage and continuation there, 0.35(800 - 500.0000)/1.12 = 105.0000/1.12 = 93.7500. The 177.0833 is the NPV with the option, not the option's value; 83.3333 is the NPV without it; and 300.0000 is the undiscounted, unweighted gap between salvage and continuation."
+  },
+  {
+    "id": "q460",
+    "ch": 25,
+    "oppg": 2,
+    "type": "short",
+    "q": "Same Nordfrakt case, but a charter contract forbids selling the ship before date 4. In the tight branch the firm must run at 60 for dates 1 to 4 and sell at date 4. Value the project under the lock-in and say what the contract costs.",
+    "model": [
+      "The perpetuity in the bad branch becomes a truncated ANNUITY plus a discounted salvage value. This is the exact shape H2025 Exercise 5 used.",
+      "Annuity factor: 1.12^4 = 1.5735, so 1/1.5735 = 0.6355 and AF = (1 - 0.6355)/0.12 = 3.0373.",
+      "Tight branch measured at date 0: 60(3.0373) + 800(0.6355) = 182.2410 + 508.4145 = 690.6554.",
+      "Value under the lock-in: 0.65(2426.6667)/1.12 + 0.35(690.6554) = 1408.3333 + 241.7294 = 1650.0627, so NPV = 150.0627 and the exit option is now worth 1650.0627 - 1583.3333 = 66.7294 instead of 93.7500.",
+      "The four-year lock-in therefore costs 1677.0833 - 1650.0627 = 27.0206 of firm value. Same salvage, four years later, after four more years of thin cash flow.",
+      "Ordering check, which catches a mis-set annuity or a mis-discounted salvage: the three versions of the tight branch must satisfy no exit 500.0000, less than lock-in 690.6554, less than immediate exit 860.0000/1.12 = 767.8571. If your locked-in figure falls outside that range, something is wrong.",
+      "Name the mechanism: the exit option is a PUT on the project, struck at the salvage value. It raises the project's value without changing a single cash flow, because it truncates the left tail. That is also why standardised, easily resold assets - generic ships, generic machinery, unspecialised property - are worth more than their own cash flows suggest."
+    ]
+  },
+  {
+    "id": "q461",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "In the Nordfrakt case (salvage 800, tight-branch continuation value 500.0000 at date 1, probability 0.35, r = 12.00%), at what salvage value would the exit option be worth exactly zero?",
+    "options": [
+      "800",
+      "860",
+      "500",
+      "300"
+    ],
+    "answer": 2,
+    "explanation": "The option's value is 0.35(S - 500.0000)/1.12 for any salvage S above the continuation value of 500.0000, and zero below it, because you would simply not exercise. It closes at S = 500.0000. This is the general result: an option is worth nothing when there is no state in which you would use it. The same logic runs through the whole chapter - the option to wait is worthless once every state is profitable, and a study is worthless once it changes no decision. The 800 is the salvage actually offered, where the option is plainly worth something; 860 is the whole tight-branch payoff including that year's cash flow of 60; and 300 is the gap between them, not a salvage value. Note also the related indifference question the exam likes: the committed project breaks even at a favourable-state probability of 0.6000, while WITH the exit option it breaks even at 0.5234 - flexibility widens the range of beliefs under which the ship is worth building."
+  },
+  {
+    "id": "q462",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Malmgruva AS has a concession with two years left. The mine is open; year 1 will produce -30. Year 2 gives +90 with probability 0.50 or -30 with probability 0.50. Mothballing costs 25 at closing, reopening costs 40, r = 10.00%. Strategy A keeps the mine open through year 1; strategy B mothballs today. Which wins?",
+    "options": [
+      "They are equal, because switching costs cancel",
+      "A, worth -1.4463 against B at -5.9917 - the round trip of closing and reopening costs more than the losses it avoids",
+      "Neither: shut permanently, since both values are negative",
+      "B, because you should never operate at a known loss"
+    ],
+    "answer": 1,
+    "explanation": "Strategy A: take -30 at date 1, then at date 1 decide. High: continuing is worth 90/1.10 = 81.8182 against -25 for closing, so continue. Low: continuing is -30/1.10 = -27.2727 against -25 for closing, so close. Value at date 1 = -30 + 0.50(81.8182) + 0.50(-25) = -30.0000 + 40.9091 - 12.5000 = -1.5909, and at date 0 that is -1.5909/1.10 = -1.4463. Strategy B: pay 25 today; at date 1, high means reopening for 40 and collecting 90, worth -40 + 81.8182 = 41.8182, low means staying closed at 0. Date-1 value 20.9091, date-0 value -25.0000 + 20.9091/1.10 = -25.0000 + 19.0083 = -5.9917. So strategy A wins by 4.5455, and the switching costs plainly do not cancel. Refusing to operate at a known loss ignores that operating at a loss can be right when reversing costs money. And shutting permanently would be wrong even though both figures are negative: the question is which loss is smaller, and strategy A keeps the profitable high branch alive at no switching cost."
+  },
+  {
+    "id": "q463",
+    "ch": 25,
+    "oppg": 2,
+    "type": "short",
+    "q": "Same Malmgruva case. (a) What would flexibility be worth if closing and reopening were free? (b) Explain the band of inaction, and find the annual loss at which the date-1 low-branch decision flips.",
+    "model": [
+      "(a) With free switching the firm would simply be idle in year 1 and open in year 2 only if the price were high: 0.50(81.8182)/1.10 = 40.9091/1.10 = 37.1901. The switching costs therefore destroy 37.1901 - (-1.4463) = 38.6364 of value. That is the number to quote when a question asks what flexibility is worth, or what an inflexible technology costs.",
+      "(b) The band of inaction, or hysteresis. At date 1 in the low branch, running loses 30/1.10 = 27.2727 in present value against 25.0000 to close, so you close. Cut the annual loss and the comparison flips.",
+      "Solve for the indifference: X/1.10 = 25.0000 gives X = 27.5000. For annual losses smaller than 27.5000 the firm keeps operating at a loss, because closing costs more than the losses it avoids. Between a zero margin and a loss of 27.5000 lies a band where cash flow is negative and shutting down is still wrong.",
+      "The band works in both directions: the same firm will not reopen the moment the price turns positive either, because reopening costs 40 and that money buys an option position it may have to pay for again.",
+      "Say why this is not irrationality. An outside observer sees a mine losing money and staying open, or a profitable price and an idle plant, and concludes management is asleep. The correct rule is not 'operate when the margin is positive' but 'switch when the gain exceeds the round trip'. The wider the switching costs, the wider the band and the longer the observed inertia - which is also why firms hold on to loss-making divisions and why exit from an industry lags the price collapse that caused it.",
+      "One discipline point: evaluate every strategy with the same convention - cash flows at the end of each year, switching costs at the moment of the decision. Discounting the date-1 closing cost a second time would give a different and wrong answer. Say where each payment lands on the timeline before you start."
+    ]
+  },
+  {
+    "id": "q464",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Sorhav AS may develop a gas field. A traded gas certificate trades at 100.00 today and will be worth 125.00 (strong) or 75.00 (weak) in a year; r_f = 5.00%. Which valuation route does that data signal, and what is rho?",
+    "options": [
+      "Black-Scholes, since the underlying is traded",
+      "Risk-neutral valuation, with rho = 0.5000 because the two states are symmetric",
+      "Risk-neutral valuation, with rho = 0.6000 and discounting at r_f",
+      "Real probabilities with a risk-adjusted rate; rho is not needed"
+    ],
+    "answer": 2,
+    "explanation": "The signal is in the data: a TRADED price with up and down moves plus a risk-free rate means risk-neutral valuation; a given probability plus a cost of capital means the real-probability route. Never mix them, and never discount a risk-neutral expectation at anything but r_f. Here rho = [(1.05)(100.00) - 75.00]/(125.00 - 75.00) = 30.00/50.00 = 0.6000, and the one-line check confirms it reprices the certificate: [0.6000(125.00) + 0.4000(75.00)]/1.05 = 105.00/1.05 = 100.0000. Setting rho = 0.5000 because the branches are symmetric mistakes symmetry of the STATES for symmetry of the weights: rho depends on where the forward price 105.00 sits between the two branches, not on how far apart they are. The real-probability route is not available here, since no probability was given, and Black-Scholes needs a volatility and a continuum of outcomes, not a two-state tree. This is precisely how H2024 Exercise 6 was built, and it was worth 20 points."
+  },
+  {
+    "id": "q465",
+    "ch": 25,
+    "oppg": 2,
+    "type": "short",
+    "q": "Continue with Sorhav. In one year the gas price becomes known; at that point the firm may develop the field for 320 or walk away. If it develops, the field produces a certain cash flow for six years, at dates 2 to 7: 90 a year if strong, 40 a year if weak. With rho = 0.6000 and r_f = 5.00%, value the field, and show what management's own probability of 0.75 for the strong state would have cost.",
+    "model": [
+      "Step 1 - the annuity factor. The cash flows are CERTAIN once the state is known, so discount them at r_f. 1.05^6 = 1.3401, so 1/1.3401 = 0.7462 and AF = (1 - 0.7462)/0.05 = 5.0757.",
+      "Step 2 - value the field in each state, measured at date 1. Strong: 90(5.0757) = 456.8123, so NPV_1 = 456.8123 - 320 = 136.8123. Weak: 40(5.0757) = 203.0277, so NPV_1 = 203.0277 - 320 = -116.9723.",
+      "Step 3 - apply the option. The firm develops only in the strong state, so the date-1 values are max(136.8123, 0) = 136.8123 and max(-116.9723, 0) = 0.0000.",
+      "Step 4 - discount at the risk-free rate with the risk-neutral weights. V_0 = [0.6000(136.8123) + 0.4000(0.0000)]/1.05 = 82.0874/1.05 = 78.1784.",
+      "Step 5 - what the flexibility is worth. Committed to developing whatever happens: [0.6000(136.8123) + 0.4000(-116.9723)]/1.05 = (82.0874 - 46.7889)/1.05 = 35.2985/1.05 = 33.6176. The right to wait a year and then decide is worth 78.1784 - 33.6176 = 44.5609.",
+      "Step 6 - the error to avoid. Pairing management's real probability of 0.75 with r_f gives 0.75(136.8123)/1.05 = 97.7231, overstating the field by 97.7231 - 78.1784 = 19.5446. The 0.75 belongs with a risk-adjusted discount rate you have not been given, or nowhere at all. The only probability entitled to r_f is rho.",
+      "Say the distinction out loud, because it is a mark: 'the risk-neutral probability of the strong state is 0.6000' is a statement about PRICES; 'the probability of the strong state is 0.6000' is a statement about the world, and it is not one you have made."
+    ]
+  },
+  {
+    "id": "q466",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Back to Kystvind (high 120, low 50, each perpetual, probabilities 0.55 and 0.45, r = 10.00%). At what investment cost I would the firm be indifferent between building now and waiting a year?",
+    "options": [
+      "800.0000",
+      "885.0000",
+      "1200.0000",
+      "570.0000"
+    ],
+    "answer": 3,
+    "explanation": "Write both strategies as functions of I. Invest now: the expected perpetuity is 88.50/0.10 = 885.0000, so investing now is worth 885.0000 - I. Waiting, for 500 below I below 1200, means the high state is still worth building and the low state is not, so it gives 0.55(1200 - I)/1.10 = 0.5000(1200 - I) = 600.0000 - 0.5000I. Set them equal: 885.0000 - I = 600.0000 - 0.5000I, so 285.0000 = 0.5000I and I* = 570.0000. Verify, and check the interval: 570.0000 lies in (500, 1200); at that cost, investing now gives 315.0000 and waiting gives 0.55(630.0000)/1.10 = 315.0000. The 885.0000 is the expected perpetuity value, 800 is the cost actually quoted in the case, and 1200 is the high state's perpetuity - none of them is an indifference point. Below I* build immediately, above it wait: a cheap project has little to lose in the low state, so the insurance the option provides is not worth a year of delay. The interval check is where the marks are lost, because an algebraic solution is only valid where the same branches are taken."
+  },
+  {
+    "id": "q467",
+    "ch": 25,
+    "oppg": 2,
+    "type": "short",
+    "q": "Same Kystvind case, but hold I at 800 and solve for the LOW-state annual cash flow X at which the firm becomes indifferent. Then say what happens above that value.",
+    "model": [
+      "Write both strategies as functions of X. Invest now: [0.55(120) + 0.45X]/0.10 - 800 = 660.0000 + 4.5000X - 800 = 4.5000X - 140.0000.",
+      "Wait: for X below 80, the low state is still not worth building, so waiting is worth [0.55(400.0000) + 0.45(0.0000)]/1.10 = 200.0000 - and it does not depend on X at all.",
+      "Set them equal: 4.5000X - 140.0000 = 200.0000, so 4.5000X = 340.0000 and X* = 75.5556.",
+      "Check the interval, because it is where the marks go: 75.5556 is below 80, so the branch assumption holds. Verify: 4.5000(75.5556) - 140.0000 = 200.0000, equal to the waiting value.",
+      "Check the other interval too, since it is free. For X at or above 80 the low state is worth building, so waiting gives [0.55(400.0000) + 0.45(10X - 800)]/1.10, which is exactly the invest-now value divided by 1.10. Waiting is then strictly worse whenever the project is worth doing at all, so there is no second crossing.",
+      "The answer in words: if the low state pays more than 75.5556 a year, build now; below that, wait. At the actual 50 the firm waits, consistent with the option value of 115.0000.",
+      "The general result behind it: the option to wait is worth nothing once there is no state in which you would decline. At X = 80 the low-state NPV is exactly 0, so declining gains nothing and the option value has already closed."
+    ]
+  },
+  {
+    "id": "q468",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Same Kystvind case, now solving for the probability p of the high state that makes the firm indifferent (I = 800, high 120, low 50, r = 10.00%). What is p*, and which side does what?",
+    "options": [
+      "p* = 0.8919; above it invest now, below it wait",
+      "p* = 0.5500; the given probability is exactly the indifference point",
+      "p* = 0.6667; above it invest now",
+      "p* = 0.8919; above it wait, below it invest now"
+    ],
+    "answer": 0,
+    "explanation": "Invest now: [120p + 50(1 - p)]/0.10 - 800 = 700p - 300.0000. Wait: p(400.0000)/1.10 = 363.6364p. Setting them equal, 336.3636p = 300.0000 and p* = 0.8919. Check: at p* investing now gives 700(0.8919) - 300.0000 = 324.3243 and waiting gives 400(0.8919)/1.10 = 324.3243. Above p* the low state is unlikely enough that the insurance is not worth a year of delay, so invest now; below it, wait - the opposite assignment gets the economics backwards. The 0.5500 is the probability the case gives, and at it the firm strictly prefers to wait, so it is not the indifference point; 0.6667 solves nothing here. The direction is worth reasoning about rather than memorising: waiting buys you the good states only, and the more certain you already are of landing in a good state, the less that purchase is worth against the cost of a year's delay. Always state which side does what in words - a bare number is only half the answer."
+  },
+  {
+    "id": "q469",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Fjordtek AS can build a pilot plant for 250 whose own cash flows are worth 210, so its stand-alone NPV is -40. The pilot creates the right, in two years, to build the full plant for 900; the full plant's PV at that date will be 1500 with probability 0.30 or 600 with probability 0.70. The cost of capital is 15.00%. Should the firm build the pilot?",
+    "options": [
+      "Yes: the follow-on option is worth 136.1059, so the package is worth 96.1059",
+      "No: the expected stage-two NPV is negative, at -22.6843",
+      "Yes, but only because the pilot's own NPV understates its cash flows",
+      "No: the pilot has a negative NPV of -40"
+    ],
+    "answer": 0,
+    "explanation": "The stage-two NPVs are 1500 - 900 = +600.0000 and 600 - 900 = -300.0000, and the firm builds only where it pays: [0.30(600.0000) + 0.70(0.0000)]/(1.15)^2 = 180.0000/1.3225 = 136.1059. Total = -40.0000 + 136.1059 = 96.1059, so build the pilot, and rejecting it on its stand-alone -40 ignores the right it creates. The -22.6843 is the trap of averaging before taking the maximum: committing to build the full plant whatever happens is worth [0.30(600.0000) + 0.70(-300.0000)]/1.3225 = -30.0000/1.3225, which with the pilot gives -62.6843 and would have you reject. The flexibility is worth 136.1059 - (-22.6843) = 158.7902. And the pilot's own cash flows are not understated - they really are worth 210; it is the follow-on right that carries the value. Name the mechanism: this is an expansion option, a CALL on a follow-on project struck at the follow-on investment cost, and it is why staged investment in R&D and pilot plants is worth more than a single NPV line suggests."
+  },
+  {
+    "id": "q470",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Match each real option to its financial analogue.",
+    "options": [
+      "Wait = American call struck at the investment cost; expand = call on a follow-on project; abandon = put struck at the salvage value; shut down and restart = a strip of options with switching costs",
+      "Wait = call; abandon = call; expand = put",
+      "Wait = put struck at the investment cost; abandon = call struck at salvage",
+      "All real options are European calls on the project"
+    ],
+    "answer": 0,
+    "explanation": "The catalogue is short and every exam question is one of these. Waiting is an American call on the project struck at the investment cost, held by whoever controls the timing. Expanding, or investing in stages, is a call on a follow-on project, held by the firm that took stage one. Abandoning or exiting is a put on the project struck at the salvage value, held by the operator. Shutting down and restarting is a strip of options, one per period, with switching costs. Switching inputs or outputs is an exchange option held by the flexible plant. The pairing that makes waiting a put and abandoning a call has the first two exactly backwards, which is the usual mistake: waiting gives you the right to ACQUIRE the project, and abandoning gives you the right to DISPOSE of it. Calling every real option a European call loses both the American feature and the put side, and the version that turns expansion into a put reverses that one too."
+  },
+  {
+    "id": "q471",
+    "ch": 25,
+    "oppg": 2,
+    "type": "mcq",
+    "q": "Which of these will produce a plausible-looking but wrong answer on a real-options question?",
+    "options": [
+      "Computing the static NPV first and saying what the naive rule would do",
+      "Drawing a decision tree with squares for decisions and circles for chance nodes",
+      "Solving an indifference equation outside the interval where its branch assumptions hold",
+      "Discounting NPV_i exactly once more by (1 + r) to bring it to today"
+    ],
+    "answer": 2,
+    "explanation": "The max(0, .) operators make each strategy piecewise linear in the unknown, so an algebraic solution is only valid inside the interval where the same branches are taken. Solve outside it and the answer is arithmetically right and economically impossible - and nothing inside the calculation complains. Always verify that the root lies in its own branch interval, exactly as chapter 9 does when finding the face value at which risk shifting begins. The other three are all things you SHOULD do: NPV_i is already a present value as of the investment date and needs exactly one more discount factor to reach today; the tree with squares for decisions and circles for chance nodes costs a minute and stops you discounting the wrong quantity; and the static NPV is usually its own sub-question and anchors everything after it. The other three expensive errors here are averaging before taking the maximum, discounting NPV_i twice or not at all, and forgetting that the alternative to a bad project is zero rather than a negative number."
+  },
+  {
+    "id": "q472",
+    "ch": 25,
+    "oppg": 2,
+    "type": "short",
+    "q": "You have 20 points and roughly 36 minutes on a real-options exercise. What are the five habits the solution keys reward, and what does a complete answer look like?",
+    "model": [
+      "1. Compute the STATIC NPV first and say what the naive rule would do. The exam usually asks for it as a sub-question, and it anchors everything after.",
+      "2. Draw the tree. Squares for decisions you make, circles for chance nodes the world resolves, numbers on the branches, and a mark on the branch you reject. It costs a minute and it stops you discounting the wrong quantity.",
+      "3. Take the maximum INSIDE the tree, at each node, and then discount - never the other way round. E[max(0, NPV_i)] is not max(0, E[NPV]), and collapsing them erases the option.",
+      "4. Report the option's value as a DIFFERENCE between two strategies you have both computed, not as a single mysterious number. Then run an independent check: the option usually changes exactly one branch, so its value should equal the probability of reaching that branch times the improvement there, discounted.",
+      "5. Answer the question that was actually asked. If it asks whether to invest, write 'wait' or 'invest now' in words. If it asks for an indifference point, state which side of it does what, and verify the root lies in its own branch interval. On a value-of-information question, add the sentence that the answer is the most the firm should pay for the study.",
+      "Which valuation route: a given probability and a cost of capital means real probabilities with r; a traded price with up and down moves and a risk-free rate means extract rho and discount at r_f. Never mix them.",
+      "Name the mechanisms as you go - 'the option to wait', 'the exit option is a put struck at the salvage value', 'hysteresis', 'the value of perfect information is capped by E[max] minus max(E)'. None of this material is on the formula sheet, and the labels are worth marks on their own.",
+      "Budget: roughly 1.8 minutes per point. Real options have been a fixed exam item since 2017 and carried 20 points in both Kurbatov papers, so this is a fifth of the paper from one chapter."
     ]
   }
 ];
@@ -3562,6 +6298,986 @@ window.EDU_DATA.flashcards = [
     "deck": "mekanisme",
     "front": "Why a dividend disciplines more, and why managers prefer the repurchase",
     "back": "They differ in one respect that matters: <b>commitment</b>.<br><br>A regular dividend is <b>sticky</b>, so raising it hands the market a stick to beat management with next year and forces the firm back to the capital market, where outsiders price every project. An open-market programme commits to nothing and can be quietly abandoned.<br><br>Hence the data: repurchases absorb the <b>transitory</b> part of earnings, the regular dividend the part management believes is <b>permanent</b>. And hence 'force a payout' is a strong answer on a governance question (k27)."
+  },
+  {
+    "id": "fc501",
+    "ch": 26,
+    "deck": "begrep",
+    "front": "Stock-swap notation: the five quantities you must produce yourself",
+    "back": "x = ER &times; N<sub>T</sub> &nbsp;&middot;&nbsp; y = x/(N<sub>A</sub> + x) &nbsp;&middot;&nbsp; P<sub>new</sub> = (A + T + S)/(N<sub>A</sub> + x)<br>NPV<sub>A</sub> = (1 &minus; y)(A + T + S) &minus; A &nbsp;&middot;&nbsp; NPV<sub>T</sub> = y(A + T + S) &minus; T<br><br>A = N<sub>A</sub>P<sub>A</sub> and T = N<sub>T</sub>P<sub>T</sub> must be <b>stand-alone</b> values at pre-announcement prices &mdash; a post-announcement market cap double counts the synergy.<br><b>The two NPVs and the ER bound are on the formula sheet; x, y and P<sub>new</sub> are not.</b>"
+  },
+  {
+    "id": "fc502",
+    "ch": 26,
+    "deck": "mekanisme",
+    "front": "The two free consistency checks in a share exchange",
+    "back": "<b>NPV<sub>A</sub> + NPV<sub>T</sub> = S</b> &mdash; an accounting identity. It cannot fail if x and y are consistent, so it locates an arithmetic slip and is <em>never</em> evidence that the reasoning is right.<br><br><b>NPV<sub>A</sub> = N<sub>A</sub>(P<sub>new</sub> &minus; P<sub>A</sub>)</b> &mdash; this one <em>can</em> fail, because it never uses y. Get y wrong and the two routes disagree. Run this one."
+  },
+  {
+    "id": "fc503",
+    "ch": 26,
+    "deck": "begrep",
+    "front": "The bargaining range for the exchange ratio",
+    "back": "<b>ER<sub>max</sub> = (P<sub>T</sub> + S/N<sub>T</sub>)/P<sub>A</sub></b> &mdash; the target's own price plus the whole synergy per target share, converted at the acquirer's price. Sheet form: ER &lt; [(T + S)/A](N<sub>A</sub>/N<sub>T</sub>).<br><b>ER<sub>min</sub> = [T/(A + S)](N<sub>A</sub>/N<sub>T</sub>)</b> &mdash; not on the sheet, but exams ask for the <em>range</em>.<br><br>At ER<sub>max</sub>, P<sub>new</sub> = P<sub>A</sub> exactly and NPV<sub>A</sub> = 0. That is the price-change identity again, and the fastest check on the bound."
+  },
+  {
+    "id": "fc504",
+    "ch": 26,
+    "deck": "begrep",
+    "front": "Offered premium versus actual premium",
+    "back": "offered = (ER &times; P<sub>A</sub>)/P<sub>T</sub> &minus; 1 &nbsp;&middot;&nbsp; actual = (ER &times; P<sub>new</sub>)/P<sub>T</sub> &minus; 1<br>1 + actual = (1 + offered) &times; (P<sub>new</sub>/P<sub>A</sub>) &nbsp;&middot;&nbsp; NPV<sub>T</sub> = T &times; actual premium<br><br>P<sub>A</sub> and P<sub>T</sub> are <b>pre-announcement</b>. Not on the formula sheet. The exam has asked for both in the same question, and the difference is a favourite sub-question."
+  },
+  {
+    "id": "fc505",
+    "ch": 26,
+    "deck": "intuisjon",
+    "front": "Which premium is larger &mdash; answered without computing",
+    "back": "The ratio between them is P<sub>new</sub>/P<sub>A</sub>, and NPV<sub>A</sub> = N<sub>A</sub>(P<sub>new</sub> &minus; P<sub>A</sub>). So:<br><b>actual &gt; offered &hArr; the deal is positive-NPV for the acquirer.</b><br><br>The target is paid in a currency whose value the deal itself changes. A bad deal debases the currency between the press release and delivery. The effect vanishes in a cash deal and grows with the size of the offer, because every extra share issued dilutes the currency being handed over."
+  },
+  {
+    "id": "fc506",
+    "ch": 26,
+    "deck": "mekanisme",
+    "front": "The exchange ratio that delivers a stated ACTUAL premium",
+    "back": "Set ER &times; P<sub>new</sub> = P<sub>T</sub>(1 + prem*) with P<sub>new</sub> = (A + T + S)/(N<sub>A</sub> + ER&middot;N<sub>T</sub>) and solve:<br><br><b>ER = P<sub>T</sub>(1 + prem*)N<sub>A</sub> / [(A + T + S) &minus; P<sub>T</sub>(1 + prem*)N<sub>T</sub>]</b><br><br>Then state what it cost: the largest actual premium consistent with NPV<sub>A</sub> &ge; 0 is <b>S/T</b>, so anything above that is the acquirer handing over more than it gains."
+  },
+  {
+    "id": "fc507",
+    "ch": 26,
+    "deck": "mekanisme",
+    "front": "EPS after a merger, and the accretion condition",
+    "back": "EPS<sub>new</sub> = (Earnings<sub>A</sub> + Earnings<sub>T</sub>)/(N<sub>A</sub> + x)<br><b>Accretive &hArr; the P/E paid for the target is below the acquirer's own P/E.</b><br><br>It falls out of the first line: EPS rises when the earnings bought per new share issued exceed the acquirer's own EPS; divide through by P<sub>A</sub> and it becomes a comparison of multiples. Not on the sheet &mdash; derive it once rather than memorise it."
+  },
+  {
+    "id": "fc508",
+    "ch": 26,
+    "deck": "intuisjon",
+    "front": "Why EPS accretion is not value creation",
+    "back": "The killer demonstration: run the same deal at a <b>zero premium</b> with <b>zero synergies</b>. EPS still rises &mdash; in the worked case from 4.0000 to 4.5000, up 12.5000% &mdash; while P<sub>new</sub> is exactly unchanged at 96.0000 and not one krone is created or moved.<br><br>At a 25% premium accretion is <em>lower</em> (10.7692%) while 221.5385 moves from the acquirer's holders to the target's. EPS accretion and multiple contraction are one event described twice, and only the second is about value. Conglomerate-era name: <b>the bootstrap or chain-letter effect</b>."
+  },
+  {
+    "id": "fc509",
+    "ch": 26,
+    "deck": "mekanisme",
+    "front": "Implied synergies from the announcement reaction",
+    "back": "<b>S<sub>implied</sub> = (N<sub>A</sub>P<sub>A,post</sub> + N<sub>T</sub>P<sub>T,post</sub>) &minus; (N<sub>A</sub>P<sub>A,pre</sub> + N<sub>T</sub>P<sub>T,pre</sub>)</b><br><br>The change in the two firms' COMBINED market value, whatever the payment method &mdash; the two sets of shareholders between them own the whole merged firm, in shares or in cash.<br>Cash check: the acquirer's gain must equal S &minus; premium paid.<br>Assumes the deal is expected to close, that nothing else moved prices that day, and that the announcement said nothing new about the target stand-alone. Not on the sheet."
+  },
+  {
+    "id": "fc510",
+    "ch": 26,
+    "deck": "mekanisme",
+    "front": "The implied probability that a deal closes",
+    "back": "<b>cost of the strategy &times; (1 + r<sub>f</sub>) = p &middot; payoff(completes) + (1 &minus; p) &middot; payoff(fails)</b><br><br>Long 1/ER target shares, short one acquirer share, short proceeds on deposit. Completion: the legs cancel, you keep the deposit grown at r<sub>f</sub>. Failure: unwind at the <b>pre-announcement</b> prices and keep the deposit.<br>Discount at r<sub>f</sub> because the remaining risk &mdash; regulator, financing, a vote &mdash; is diversifiable. So unlike the binomial &rho;, this p really is the market's forecast."
+  },
+  {
+    "id": "fc511",
+    "ch": 26,
+    "deck": "mekanisme",
+    "front": "The merger-spread shortcut for the implied probability",
+    "back": "<b>1 &minus; p = (1 + r<sub>f</sub>) &times; [P<sub>A,post</sub> &minus; P<sub>B,post</sub>/ER] / [P<sub>A,pre</sub> &minus; P<sub>B,pre</sub>/ER]</b><br><br>One acquirer share minus 1/ER target shares is a pure bet on <em>failure</em>: worth 0 if the deal completes, worth the pre-announcement width if it dies. The ratio of the two widths, grown at r<sub>f</sub>, is the failure probability.<br><b>Beware:</b> this route hands you 1 &minus; p. Questions ask for p."
+  },
+  {
+    "id": "fc512",
+    "ch": 26,
+    "deck": "intuisjon",
+    "front": "The three errors that cost the points in H2025 Exercise 6",
+    "back": "<b>1.</b> Setting the expected payoff equal to the strategy's cost instead of cost &times; (1 + r<sub>f</sub>). The key singles this one out; in the worked case it turns p = 0.8700 into 0.5900.<br><b>2.</b> Using post-announcement prices in the failure branch. The question says prices revert, so the failure branch uses the <b>pre</b>-announcement pair.<br><b>3.</b> Inverting the exchange ratio. &ldquo;5 shares of B for 1 share of A&rdquo; means each B share receives 0.2000 A shares &mdash; hold 5 B against 1 A. Write the ratio as a sentence before you use it."
+  },
+  {
+    "id": "fc513",
+    "ch": 26,
+    "deck": "mekanisme",
+    "front": "Backing out the conditional prices, and what they say",
+    "back": "With p in hand, solve (1 + r<sub>f</sub>)P<sub>A,post</sub> = p&middot;A<sub>s</sub> + (1 &minus; p)P<sub>A,pre</sub> for the acquirer's price <em>if the deal completes</em>, and the target's is ER &times; A<sub>s</sub>.<br><br>In the worked case: A<sub>s</sub> = 118.3448 against a stand-alone 120.0000, while B receives 29.5862 against 26.0000, a gain of 13.7931%.<br><b>Read it out loud:</b> the market thinks the deal destroys value for the acquirer and creates it for the target &mdash; the signature of <b>empire building</b>, not of synergies."
+  },
+  {
+    "id": "fc514",
+    "ch": 26,
+    "deck": "intuisjon",
+    "front": "Why acquirers capture so little: the free-rider problem in takeovers",
+    "back": "A raider can lift a widely held target from 45 to 60. Each holder owns a negligible fraction, so his tender decision cannot change whether the bid succeeds. If he expects success, holding out is worth 60 and tendering below 60 is worse &mdash; so everyone holds out and the bid fails at any price under 60.<br><br>One mechanism, two facts: <b>large premiums (20&ndash;40%)</b> and <b>near-zero acquirer returns</b>. Escapes: build a secret <b>toehold</b> before announcing, or make the bid coercive by freezing out non-tendering holders."
+  },
+  {
+    "id": "fc515",
+    "ch": 26,
+    "deck": "begrep",
+    "front": "The H2024 grid: four motives that are NOT synergies",
+    "back": "<b>Good for the acquirer:</b> undervaluation &middot; tax (the target's losses, or extra debt capacity raising PV(TS)) &middot; the disciplinary takeover &middot; buy-rather-than-build &middot; relieving a named financing constraint.<br><b>Bad for the acquirer:</b> the winner's curse and hubris &middot; empire building &middot; coinsurance handing value to creditors &middot; a stock offer read as a signal of overvaluation.<br><b>Good for the target:</b> the premium in cash &middot; financing constraint relieved &middot; better management &middot; diversification for an undiversified founder.<br><b>Bad for the target:</b> lost independence and private benefits &middot; a weak one-bidder auction &middot; being paid in overvalued stock &middot; a coercive tender."
+  },
+  {
+    "id": "fc516",
+    "ch": 26,
+    "deck": "mekanisme",
+    "front": "Coinsurance: a transfer, not a gain",
+    "back": "Two independent firms, each worth 100 or 40 with equal probability, each with debt of face value 60. Stand-alone: V = 70, D = 50, E = 20.<br>Merged with <b>no synergies</b>: combined assets 200/140/80 at 0.25/0.50/0.25 against face 120, so V = 140, <b>D = 110, E = 30</b>.<br><br>Creditors +10, shareholders &minus;10, total unchanged. Consistency check 4: if your two changes do not cancel, a payoff is mis-stated. Name it: <b>the coinsurance effect</b>. Shareholders can diversify by holding both shares and pay no premium for it."
+  },
+  {
+    "id": "fc517",
+    "ch": 26,
+    "deck": "begrep",
+    "front": "Cash or shares: the six dimensions",
+    "back": "<b>Synergy risk:</b> cash = acquirer alone; shares = shared, target owns y.<br><b>Acquirer-mispricing risk:</b> cash = nobody; shares = the target (hence collars).<br><b>Market's inference:</b> cash = confidence; shares = &ldquo;he thinks his stock is expensive&rdquo;.<br><b>Target's tax:</b> cash = immediate disposal; shares = deferred.<br><b>Capital structure:</b> debt-financed cash raises leverage and removes free cash flow; shares dilute and lower leverage, including any blockholder you relied on.<br><b>Probability of completion:</b> cash higher and faster &mdash; no acquirer share issue to vote on. That feeds straight into p."
+  },
+  {
+    "id": "fc518",
+    "ch": 26,
+    "deck": "intuisjon",
+    "front": "Underline the noun before you compute",
+    "back": "The sub-questions differ by one word and the answers all differ: <b>the merged share price</b> &middot; <b>the acquirer's price after the announcement</b> (= P<sub>new</sub> in a share deal) &middot; <b>the target's price after the announcement</b> (= ER &times; P<sub>new</sub>) &middot; <b>the offered premium</b> (uses P<sub>A</sub>) &middot; <b>the actual premium</b> (uses P<sub>new</sub>) &middot; <b>the ER that hits a stated actual premium</b>.<br><br>The arithmetic is the same throughout, which is exactly why this is the most reliable way to lose points. Underline the noun, and write beside your answer which quantity you produced. Spring 2017 gave 45 points to that distinction alone."
+  },
+  {
+    "id": "fc519",
+    "ch": 27,
+    "deck": "begrep",
+    "front": "The four named wedges between manager and owner",
+    "back": "<b>Shirking</b> &mdash; he gets leisure and an easier life; shareholders lose the value the effort would have produced. (The H2025 Exercise 2 setup.)<br><b>Private benefits and perks</b> &mdash; consumption paid for by the firm.<br><b>Empire building</b> &mdash; a bigger firm means a bigger salary, more status, more security; shareholders pay for negative-NPV acquisitions.<br><b>Entrenchment</b> &mdash; firm-specific investments, defences and a compliant board make him harder to replace; shareholders lose the value of replacing him."
+  },
+  {
+    "id": "fc520",
+    "ch": 27,
+    "deck": "mekanisme",
+    "front": "Agency COST versus transfer",
+    "back": "Perks cost the firm <b>25</b> and are worth <b>4</b> to the CEO. The agency cost is <b>25</b> &mdash; the value destroyed &mdash; and the deadweight loss is <b>21</b>.<br><br>&ldquo;The CEO gains at shareholders' expense&rdquo; describes a transfer and earns little. &ldquo;The firm gives up 25 of value to deliver 4 of private benefit, a deadweight loss of 21&rdquo; describes the problem and earns the marks.<br>Same definition as on the debt side: <b>agency cost = first-best value &minus; chosen value</b>."
+  },
+  {
+    "id": "fc521",
+    "ch": 27,
+    "deck": "begrep",
+    "front": "The board: six features and why each one matters",
+    "back": "<b>Independence</b> &mdash; an inside director reports to the CEO in his day job; a grey director (banker, supplier, ex-executive) has business to lose.<br><b>Committees</b> &mdash; audit, remuneration, nomination, all independent. This is where monitoring actually happens.<br><b>Chair separate from CEO</b> &mdash; otherwise he sets his own agenda and evaluates himself.<br><b>Size and workload</b> &mdash; big boards free-ride internally; busy directors have neither time nor incentive.<br><b>Skin in the game</b> &mdash; shares they must hold.<br><b>Annual election of all directors</b> &mdash; a staggered board needs two meetings to replace a majority."
+  },
+  {
+    "id": "fc522",
+    "ch": 27,
+    "deck": "intuisjon",
+    "front": "Why a captured board is the NORMAL failure",
+    "back": "Nothing here requires dishonest directors. The CEO controls the flow of information to the board, often influences who is nominated, and sits with those people for years. A director who challenges him pays the full social cost of the confrontation and, holding a small stake, collects a sliver of the benefit.<br><br>It is <b>the free-rider calculus transplanted into the boardroom</b>. That is why every remedy is structural &mdash; who is in the room, and who chooses them &mdash; and none of them is &ldquo;directors should try harder&rdquo;.<br>Exam sentence: <i>the board is a monitor only to the extent it is independent of the person it monitors.</i>"
+  },
+  {
+    "id": "fc523",
+    "ch": 27,
+    "deck": "begrep",
+    "front": "Monitor &rarr; tool &rarr; weakness (a monitor without a tool is not a monitor)",
+    "back": "<b>Board:</b> dismissal, pay design, approval of budgets and deals, access to the auditor &mdash; but capture.<br><b>Blockholders:</b> board seats, private access, credible threats, willingness to bear campaign costs &mdash; but private benefits of control.<br><b>Institutions/index funds:</b> aggregated votes, voting policies, engagement teams &mdash; but cannot sell, and a tiny budget per holding.<br><b>Auditor:</b> the opinion and the audit committee &mdash; but paid by the client.<br><b>Lenders:</b> covenants, collateral, maturity, refinancing &mdash; but they monitor risk, not performance.<br><b>Market for corporate control:</b> replaces the whole team &mdash; but defences, cost, free-riding.<br>Also: analysts and press, product market, managerial labour market, regulator and exchange."
+  },
+  {
+    "id": "fc524",
+    "ch": 27,
+    "deck": "mekanisme",
+    "front": "Debt as a governance mechanism: two channels",
+    "back": "<b>Cash.</b> Interest and principal are contractual, so leverage removes the free cash flow that funds empire building and forces the manager back to the capital market, where each new project is priced by outsiders.<br><b>Control.</b> Default hands the firm to creditors and usually ends his career &mdash; a penalty that is severe and outside his control, which is what makes the commitment credible.<br><br>Debt therefore <b>substitutes for monitoring</b>, which is why the LBO uses it deliberately. Same instrument, opposite sign, produces debt overhang and risk shifting. <i>One friction, two signs.</i>"
+  },
+  {
+    "id": "fc525",
+    "ch": 27,
+    "deck": "begrep",
+    "front": "Pay-performance sensitivity &delta;",
+    "back": "<b>&delta; = &Delta;(manager's wealth)/&Delta;(firm value) = fraction of shares held + (options as a fraction of shares) &times; N(d<sub>1</sub>)</b><br><br>Shares transmit value one for one; an option transmits it at the option delta, so a deeply out-of-the-money option on a struggling firm barely moves his wealth at all.<br>Worked: 0.2500% in shares plus options over 2.0000% at N(d<sub>1</sub>) = 0.6000 gives <b>&delta; = 1.4500%</b>. A perk worth 4 to him is worth taking while it costs the firm less than <b>275.8621</b>. Double &delta; and that falls to 137.9310. Not on the formula sheet."
+  },
+  {
+    "id": "fc526",
+    "ch": 27,
+    "deck": "intuisjon",
+    "front": "Why more sensitivity is not always better",
+    "back": "The manager cannot diversify his human capital: job, reputation and now wealth all ride on one firm, so stock loads him with firm-specific risk shareholders already diversified away. He must be paid for bearing it &mdash; expensive &mdash; and he responds by avoiding risk shareholders want taken.<br><br>Options overshoot in the other direction: convexity makes <b>risk shifting</b> attractive, and once deep out of the money they stop working entirely.<br>The optimum is interior. The design question is not <i>how much</i> sensitivity but <b>sensitivity to what</b>: relative performance evaluation, long vesting, a mix of stock and options."
+  },
+  {
+    "id": "fc527",
+    "ch": 27,
+    "deck": "mekanisme",
+    "front": "The break-even stake for activism",
+    "back": "A holder with stake &alpha; acts only if <b>&alpha; &times; &Delta;V &gt; C</b>, so <b>&alpha;* = C/&Delta;V</b>. With a success probability q: <b>&alpha;* = C/(q&middot;&Delta;V)</b>.<br><br>Worked: V = 6000, a 5% improvement so &Delta;V = 300, campaign cost C = 12. &alpha;* = <b>4.0000%</b> when success is certain, <b>6.1538%</b> at q = 0.65, <b>8.0000%</b> at q = 0.50.<br>So a 5% holder stays home (&minus;2.2500) and a 7% holder acts (+1.6500). <i>Uncertainty can only raise the stake you need.</i>"
+  },
+  {
+    "id": "fc528",
+    "ch": 27,
+    "deck": "intuisjon",
+    "front": "Governance is a public good",
+    "back": "If the 7% holder in the worked case runs the campaign, he captures <b>21.0000</b> and the other holders receive <b>279.0000</b> for contributing nothing. 21 + 279 = 300, the whole improvement.<br><br>He is producing a public good and keeping 7% of it. That is why <b>governance is chronically undersupplied</b> and why the blockholder is the pivotal figure &mdash; and it is the same argument that explains dispersed shareholders, free-riding index funds, and passive directors in a boardroom."
+  },
+  {
+    "id": "fc529",
+    "ch": 27,
+    "deck": "mekanisme",
+    "front": "Exit versus voice, and why 5&ndash;10% is the interesting band",
+    "back": "<b>value of voice = q &middot; &alpha; &middot; &Delta;V &minus; C</b> &nbsp;against&nbsp; <b>cost of exit = (price impact) &times; &alpha; &times; V</b><br><br>Below a few per cent voice is negative and exit is nearly free, so small holders sell. Above 5% voice turns positive while the price impact of exit grows with the stake, so the two are the same order of magnitude and the choice is a real decision.<br>Worked: a 7% block in a firm worth 6000 is worth 420; a 2.5% impact costs <b>10.5000</b> to exit, against <b>+9.0000</b> from a certain campaign. Not on the sheet."
+  },
+  {
+    "id": "fc530",
+    "ch": 27,
+    "deck": "begrep",
+    "front": "The 5&ndash;10% holder's toolkit &mdash; ten actions",
+    "back": "<b>1.</b> Engage the chair and board privately. <b>2.</b> Demand board representation or nominate directors. <b>3.</b> Requisition an EGM (5% suffices in Norway). <b>4.</b> Vote against directors and against the remuneration report. <b>5.</b> Submit a shareholder proposal. <b>6.</b> Run a proxy fight. <b>7.</b> Go public with an open letter. <b>8.</b> Redesign the pay contract &mdash; raise &delta;. <b>9.</b> Demand a payout or a leveraged recap. <b>10.</b> Change control: invite a bidder or lead a take-private.<br>In reserve: <b>litigate</b> (derivative suit), <b>demand an independent investigation</b> (about a tenth of the capital in Norway), <b>the Wall Street walk</b>.<br>Skeleton for each: <b>action &rarr; mechanism that reaches the CEO &rarr; limitation.</b>"
+  },
+  {
+    "id": "fc531",
+    "ch": 27,
+    "deck": "begrep",
+    "front": "Takeover defences and the question each one must answer",
+    "back": "<b>Poison pill</b> &mdash; everyone but the raider buys cheap shares; only the board can redeem it.<br><b>Staggered board</b> &mdash; a third stand each year, so two meetings are needed; with a pill, the strongest device known.<br><b>Golden parachute</b> &mdash; removes his personal reason to resist, but pays for failure and can itself deter bidders.<br><b>Dual-class shares and voting caps</b> &mdash; separate cash flow rights from control permanently.<br><b>White knight, white squire, crown jewel</b> &mdash; the last destroys value deliberately.<br><b>Greenmail</b> &mdash; the firm's money buys off a threat to management.<br><i>The question every answer must answer: whose interest does it serve?</i>"
+  },
+  {
+    "id": "fc532",
+    "ch": 27,
+    "deck": "intuisjon",
+    "front": "Never answer &ldquo;is this defence good for shareholders?&rdquo; flatly",
+    "back": "Name both hypotheses. <b>Shareholder bargaining:</b> the defence is a negotiating instrument that lets a single agent extract a higher premium for a dispersed, free-riding base and defeat a coercive low-ball tender. <b>Managerial entrenchment:</b> it protects a job, letting directors refuse an offer shareholders would have taken.<br><br>Then say <b>what separates them in the data</b> &mdash; this is where the mark is: if defences raise premiums, protected firms should get higher-priced bids; if they entrench, they should get <em>fewer</em> bids and show weaker operating performance.<br>Close on the pill's procedural point: it hands directors a decision about whether owners may sell their own property, and it needs no shareholder vote."
+  },
+  {
+    "id": "fc533",
+    "ch": 27,
+    "deck": "mekanisme",
+    "front": "Why an LBO is a governance transaction",
+    "back": "Four mechanisms at once. <b>Ownership concentrates</b> &mdash; the sponsor owns everything, so the free-rider problem disappears by construction. <b>Debt disciplines</b> &mdash; interest strips out the free cash flow and default ends the manager's career. <b>Management equity is high-powered</b> &mdash; &delta; rises by an order of magnitude, from around 1.4500% to 8% or more. <b>The listing goes away</b> &mdash; no quarterly earnings to manage, no dispersed register to coordinate.<br><br>The costs belong in the same answer: distress costs, risk shifting and debt overhang, and an agency problem one level up between the sponsor and its own investors."
+  },
+  {
+    "id": "fc534",
+    "ch": 27,
+    "deck": "begrep",
+    "front": "Regulation: what each intervention actually requires",
+    "back": "<b>Sarbanes-Oxley (2002)</b> &mdash; CEO and CFO personally certify the accounts; internal controls reported on; an independent audit committee that hires the auditor; consulting sales to audit clients restricted. Target: accounting fraud and a captured auditor.<br><b>Dodd-Frank (2010)</b> &mdash; say-on-pay, pay-versus-performance disclosure, clawbacks on restated figures. Target: pay set by a board the executive influenced.<br><b>Listing standards</b> &mdash; independent majority, independent audit and remuneration committees.<br><b>Comply-or-explain codes</b> (Norway has one) &mdash; not compliance but <em>disclosure</em>; governance gets priced rather than mandated.<br><b>Disclosure at 5% and mandatory bid rules</b> &mdash; no secret stakes, no control changing hands without the same price for minorities."
+  },
+  {
+    "id": "fc535",
+    "ch": 27,
+    "deck": "intuisjon",
+    "front": "The conflict is different in your own market",
+    "back": "Dispersed US/UK ownership &rarr; the conflict is <b>managers against shareholders</b>, and the free-rider problem is the disease.<br>Concentrated Nordic and Continental ownership &mdash; families, foundations, industrial holdings, the state &mdash; <b>solves</b> that (a 30% owner always finds monitoring worth its cost) and replaces it with <b>the controlling owner against the minority</b>: related-party transactions, dual-class structures, resistance to any takeover that would end the family's position.<br><br>Different machinery too: mandatory bid rules, equal-treatment requirements, independent review of related-party deals, and minority thresholds for calling meetings (5%) and demanding investigations (about 10%)."
+  },
+  {
+    "id": "fc536",
+    "ch": 27,
+    "deck": "mekanisme",
+    "front": "The five arguments that fit almost any governance question",
+    "back": "<b>1. Incentives</b> &mdash; what is &delta;, and what would change it?<br><b>2. Information</b> &mdash; who can see what he does, and who controls the flow?<br><b>3. Control rights</b> &mdash; who can actually remove him, and what stands in the way?<br><b>4. Cash</b> &mdash; does he have free cash flow, and would a payout or leverage take the discretion away?<br><b>5. Ownership structure</b> &mdash; dispersed (managers vs shareholders) or concentrated (controlling owner vs minority)?<br><br>Run the list, pick the three that apply, write each as <i>action &rarr; mechanism &rarr; limitation</i>. Every question in this chapter is one of the five wearing a costume."
+  },
+  {
+    "id": "fc537",
+    "ch": 27,
+    "deck": "intuisjon",
+    "front": "Governance is not free &mdash; and saying so is worth a mark",
+    "back": "Monitoring consumes real resources. Independent directors know less about the business than insiders do. Say-on-pay and disclosure absorb management attention. Internal-control compliance is expensive enough to be a documented reason small firms delist or stay private. Takeover pressure can push managers toward what looks good this quarter.<br><br>So the target is <b>not maximum governance</b>: it is the point where the marginal reduction in agency cost equals the marginal cost of the mechanism &mdash; the same trade-off shape as optimal capital structure.<br><i>Listing mechanisms is adequate. Naming the cost of one of them is good.</i>"
+  },
+  {
+    "id": "fc538",
+    "ch": 27,
+    "deck": "begrep",
+    "front": "Writing the twelve points: the sentence budget",
+    "back": "Both papers gave 12 points and both stated a budget. Write to it.<br><b>One sentence naming the action or the monitor. One on the mechanism that reaches the manager. One on the limitation.</b><br><br>Nothing else scores &mdash; and in particular <b>a definition of corporate governance scores nothing at all</b>.<br>Two further tests: are your three items different in <em>kind</em> (incentives, board, balance sheet), and does each one name a body or a person rather than an abstraction?"
+  },
+  {
+    "id": "fc301",
+    "ch": 17,
+    "deck": "begrep",
+    "front": "The WACC method, in one line",
+    "back": "V<sup>L</sup><sub>0</sub> = &Sigma;<sub>t</sub> FCF<sub>t</sub>/(1 + r<sub>wacc</sub>)<sup>t</sup>, with r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 &minus; &tau;<sub>c</sub>).<br><br>V<sup>L</sup><sub>0</sub> is the whole levered firm, debt plus equity: an <b>enterprise value</b>, operating assets only, no excess cash, no debt netted off. FCF is unlevered, built before interest.<br><br>The WACC formula is <b>on the formula sheet</b>. The interpretation is not."
+  },
+  {
+    "id": "fc302",
+    "ch": 17,
+    "deck": "mekanisme",
+    "front": "Where is the tax shield in the WACC method?",
+    "back": "Nowhere in the cash flow. It is folded into the rate:<br><br><b>r<sub>U</sub> &minus; r<sub>wacc</sub> = (D/V)&middot;r<sub>D</sub>&middot;&tau;<sub>c</sub></b><br><br>Each year the firm pays r<sub>D</sub>D of interest and the tax authority refunds &tau;<sub>c</sub> of it. Divide that refund by firm value and you get &tau;<sub>c</sub>r<sub>D</sub>D/V, exactly the wedge. Discounting FCF at a rate cut by the wedge is the same as adding the shield to the numerator every year &mdash; <b>provided the wedge is the same size every year</b>, which requires D/V constant.<br><br>Example: d = 0.35, r<sub>D</sub> = 4.5000%, &tau;<sub>c</sub> = 22% gives 0.003465, a cut of <b>0.3465 pp</b>."
+  },
+  {
+    "id": "fc303",
+    "ch": 17,
+    "deck": "begrep",
+    "front": "The constant D/V assumption, stated properly",
+    "back": "D<sub>t</sub>/V<sup>L</sup><sub>t</sub> = d, constant, for every t &mdash; at <b>market value</b>.<br><br>Read it as a <b>policy, not a fact about today's balance sheet</b>. The firm is assumed to rebalance: borrow more when the business becomes more valuable, repay when it becomes less valuable.<br><br>This is what the exam means by 'maintains a debt-to-equity ratio of 0.50' or 'keeps debt at 30% of firm value'. It is the entire price of admission to the WACC method."
+  },
+  {
+    "id": "fc304",
+    "ch": 17,
+    "deck": "mekanisme",
+    "front": "Three consequences of a constant D/V, each worth a mark",
+    "back": "<b>1.</b> The weights never change, so r<sub>E</sub> and therefore r<sub>wacc</sub> are the same in every period: one rate discounts everything.<br><b>2.</b> Future debt moves with firm value, which is uncertain, so the tax shield carries <b>asset risk</b> and in APV is discounted at r<sub>U</sub>.<br><b>3.</b> <b>Pre-tax WACC = r<sub>U</sub></b> holds exactly, and &beta;<sub>U</sub> may be weighted without any (1 &minus; &tau;<sub>c</sub>) term.<br><br>All three are consequences of the <i>policy</i>, not free algebra. Under fixed permanent debt none of them survives."
+  },
+  {
+    "id": "fc305",
+    "ch": 17,
+    "deck": "intuisjon",
+    "front": "Why is a constant ratio the natural assumption for a going concern?",
+    "back": "A firm that never rebalances <b>drifts</b>. Let the business do well for five years and its D/V collapses towards zero, so it carries almost no tax shield precisely when it can most afford the interest.<br><br>Real firms do not behave that way: they issue debt as they grow and repay as they shrink, keeping leverage within a band. Rebalancing is the tractable version of that behaviour, and it is the version this course examines.<br><br><b>If the question describes a fixed loan with a repayment schedule instead, it is telling you to use APV.</b>"
+  },
+  {
+    "id": "fc306",
+    "ch": 17,
+    "deck": "begrep",
+    "front": "The backward recursion, and why it beats the one-line sum",
+    "back": "V<sup>L</sup><sub>t&minus;1</sub> = (FCF<sub>t</sub> + V<sup>L</sup><sub>t</sub>)/(1 + r<sub>wacc</sub>), starting from V<sup>L</sup><sub>T</sub> = TV<sub>T</sub> = FCF<sub>T+1</sub>/(r<sub>wacc</sub> &minus; g), or from 0 if the firm ends.<br><br>Both routes give the same V<sup>L</sup><sub>0</sub>. The one-line sum answers <b>one</b> question: what is the firm worth today. The recursion answers it at <b>every date</b>, and those V<sup>L</sup><sub>t</sub> are what D<sub>t</sub> = d&middot;V<sup>L</sup><sub>t</sub>, the shields and the flow to equity all need.<br><br>Write the value line for every date even when only date 0 is asked. The next sub-question will ask for the rest."
+  },
+  {
+    "id": "fc307",
+    "ch": 17,
+    "deck": "mekanisme",
+    "front": "Running the valuation backwards: implied g and break-even price",
+    "back": "Same equation, solved two ways:<br><b>g = r<sub>wacc</sub> &minus; FCF<sub>1</sub>/V<sup>L</sup><sub>0</sub></b> reads the growth the seller is assuming out of an asking price.<br><b>P* = FCF<sub>1</sub>/(r<sub>wacc</sub> &minus; g)</b> is the most you can pay at the growth <i>you</i> believe, the price at which NPV = 0.<br><br>Worked: FCF<sub>1</sub> = 45, r<sub>wacc</sub> = 9.3500%, asking 750 &rarr; g = 0.093500 &minus; 0.060000 = <b>3.3500%</b>. Believe 2.5000% instead and P* = 45/0.068500 = <b>656.9343</b>, so paying 750 has NPV &minus;93.0657.<br><br>Do it algebraically in two lines. A third variant hands you an operating model: required V<sup>L</sup> &rarr; FCF<sub>1</sub> &rarr; EBIT &rarr; unit price."
+  },
+  {
+    "id": "fc308",
+    "ch": 17,
+    "deck": "intuisjon",
+    "front": "The most damaging error in the WACC method",
+    "back": "<b>Double counting the shield.</b> Compute FCF correctly, discount at r<sub>wacc</sub>, then add PV(TS) on top because V<sup>L</sup> = V<sup>U</sup> + PV(TS).<br><br>The identity is true, but <b>the V<sup>U</sup> in it is discounted at r<sub>U</sub>, never at r<sub>wacc</sub></b>. The shield is already inside the rate, through the (D/V)r<sub>D</sub>&tau;<sub>c</sub> cut, so adding it again pays the lender's tax gift twice.<br><br>Rule: <b>choose one method per valuation, and use the other only as the check.</b>"
+  },
+  {
+    "id": "fc309",
+    "ch": 17,
+    "deck": "begrep",
+    "front": "The three ways a WACC valuation goes wrong on the paper",
+    "back": "<b>1. Stale weights.</b> E/V and D/V are the <b>target</b> weights of the firm being valued, in market value. Not the twin's weights, not book values, not an old balance sheet.<br><b>2. A rate that does not match the cash flow.</b> FCF takes r<sub>wacc</sub>; flow to equity takes r<sub>E</sub>; the unlevered firm takes r<sub>U</sub>. Mixing them is the most expensive single error in this part of the course.<br><b>3. A changing capital structure.</b> A fixed loan, a repayment schedule or leverage being run down means r<sub>wacc</sub> is not constant. Switch to APV and say why in one sentence."
+  },
+  {
+    "id": "fc310",
+    "ch": 18,
+    "deck": "begrep",
+    "front": "The APV recipe, in three lines",
+    "back": "<b>V<sup>L</sup> = V<sup>U</sup> + PV(TS)</b><br>V<sup>U</sup> = &Sigma;<sub>t</sub> FCF<sub>t</sub>/(1 + r<sub>U</sub>)<sup>t</sup><br>TS<sub>t</sub> = &tau;<sub>c</sub>&middot;r<sub>D</sub>&middot;D<sub>t&minus;1</sub><br><br><b>Neither line is on the formula sheet. Memorise both.</b><br><br>V<sup>U</sup> is the firm as if financed entirely by equity, so it takes r<sub>U</sub> under <i>every</i> debt policy. D<sub>t&minus;1</sub> is the balance outstanding at the <b>start</b> of period t, because that is what the interest is charged on. All the difficulty sits in the rate you use on the second line."
+  },
+  {
+    "id": "fc311",
+    "ch": 18,
+    "deck": "mekanisme",
+    "front": "Which rate discounts the tax shield? The whole rule",
+    "back": "Ask what makes D<sub>t&minus;1</sub> uncertain seen from today.<br><br><b>Target ratio</b> ('maintains D/E of 0.50', 'debt is 30% of value') &rarr; debt tracks firm value &rarr; asset risk &rarr; <b>r<sub>U</sub></b>. WACC method available.<br><b>Fixed permanent amount</b> ('200 of perpetual debt') &rarr; contractual &rarr; <b>r<sub>D</sub></b>, or r<sub>f</sub> if risk-free, and PV(TS) = &tau;<sub>c</sub>D. WACC not available.<br><b>Stated amortisation</b> &rarr; known at every date &rarr; <b>r<sub>D</sub></b>, period by period, in a table. WACC not available.<br><b>Multiple of FCF or EBITDA</b> &rarr; tracks a risky operating number &rarr; <b>r<sub>U</sub></b>. WACC available if FCF and value grow together.<br><br>This one question appeared as multiple choice in <b>all eight mapped papers that had multiple choice</b>. It now arrives as one clause buried in a long exercise."
+  },
+  {
+    "id": "fc312",
+    "ch": 18,
+    "deck": "mekanisme",
+    "front": "Why does a target ratio make a safe-looking cash flow risky?",
+    "back": "Follow one krone of shield. Under a target ratio next year's debt is d &times; next year's V<sup>L</sup>, and V<sup>L</sup> depends on how the business does. <b>Good year, more debt, bigger shield. Bad year, less debt, smaller shield.</b> The shield moves one-for-one with the assets, which is the definition of asset risk, and asset risk is priced at r<sub>U</sub>.<br><br>Under fixed debt, D is written into a loan contract and does not respond to the business at all, so the shield is as safe as the interest payment that generates it and r<sub>D</sub> prices exactly that risk.<br><br>The rule is not a convention to memorise blindly. It follows from asking <b>what makes next year's balance uncertain</b>."
+  },
+  {
+    "id": "fc313",
+    "ch": 18,
+    "deck": "begrep",
+    "front": "PV(TS) = tau_c times D, and its two conditions",
+    "back": "If the debt is a fixed amount D rolled over forever, the shield is a level perpetuity of &tau;<sub>c</sub>r<sub>D</sub>D discounted at r<sub>D</sub>, and r<sub>D</sub> cancels:<br><br><b>PV(TS) = &tau;<sub>c</sub>r<sub>D</sub>D/r<sub>D</sub> = &tau;<sub>c</sub>D, so V<sup>L</sup> = V<sup>U</sup> + &tau;<sub>c</sub>D</b><br><br>The most attractive formula in the course and the most frequently misused. It needs <b>both</b>: the amount is fixed, <b>and</b> it is permanent. Drop either and the answer is wrong.<br><br>r<sub>D</sub> disappearing does not mean the rate was irrelevant. It means numerator and denominator both contain it."
+  },
+  {
+    "id": "fc314",
+    "ch": 18,
+    "deck": "mekanisme",
+    "front": "The rebalanced counterpart, and the ratio between the two answers",
+    "back": "Under a constant target ratio the <i>same</i> annual shield is discounted at r<sub>U</sub>:<br><br><b>PV(TS) = &tau;<sub>c</sub>r<sub>D</sub>D/(r<sub>U</sub> &minus; g)</b>, with g = 0 for a firm that is not growing.<br><br>Compare denominators: r<sub>D</sub> under fixed debt against r<sub>U</sub> &minus; g under rebalancing, so the ratio of the two answers is <b>(r<sub>U</sub> &minus; g)/r<sub>D</sub></b>.<br><br>Worked: &tau;<sub>c</sub> = 25%, r<sub>D</sub> = 5.0000%, D = 500, r<sub>U</sub> = 11.0000%, g = 3.0000%. Fixed gives 125.0000, rebalanced gives 6.2500/0.0800 = <b>78.1250</b>, ratio <b>1.6000</b>. With g = 0 the ratio is r<sub>U</sub>/r<sub>D</sub> = 2.2000.<br><br>Since r<sub>U</sub> sits well above r<sub>D</sub>, <b>a rebalanced shield near the &tau;<sub>c</sub>D ceiling means you misread the debt sentence.</b>"
+  },
+  {
+    "id": "fc315",
+    "ch": 18,
+    "deck": "begrep",
+    "front": "A known repayment schedule: no shortcut, build the table",
+    "back": "PV(TS) = &Sigma;<sub>t=1..T</sub> &tau;<sub>c</sub>r<sub>D</sub>D<sub>t&minus;1</sub>/(1 + r<sub>D</sub>)<sup>t</sup><br><br>D<sub>t&minus;1</sub> is the balance outstanding <b>during</b> period t: after the repayment at date t&minus;1 and before the repayment at date t. Getting this off by one is the standard slip here.<br><br>Worked: 360 at 6.0000%, three instalments of 120, &tau;<sub>c</sub> = 22%. Opening balances 360, 240, 120 &rarr; shields 4.7520, 3.1680, 1.5840 &rarr; <b>PV(TS) = 8.6325</b>.<br><br><b>Second route:</b> every shield is &tau;<sub>c</sub>r<sub>D</sub> = 0.013200 times the opening balance, and 360/1.06 + 240/1.06&sup2; + 120/1.06&sup3; = 653.9761, so 0.013200 &times; 653.9761 = 8.6325. Same number without ever computing an individual shield."
+  },
+  {
+    "id": "fc316",
+    "ch": 18,
+    "deck": "intuisjon",
+    "front": "tau_c times D is a ceiling, not a default",
+    "back": "It is the <b>largest</b> the shield can ever be for a given D, because it assumes the shield lasts forever <i>and</i> is safe enough to discount at r<sub>D</sub>.<br><br>Same firm, same 400 of debt, same 5.0000 of annual shield: fixed permanent gives <b>100.0000</b>, rebalanced gives <b>41.6667</b>, repaid after three years gives <b>13.6162</b>. Same numerator every time; only duration and risk differ.<br><br>Before you write &tau;<sub>c</sub>D, ask two questions in order: <b>is the amount fixed, and is it permanent?</b> If either answer is no, you are building a table. And any answer <i>above</i> the ceiling contains an arithmetic error."
+  },
+  {
+    "id": "fc317",
+    "ch": 18,
+    "deck": "mekanisme",
+    "front": "Why debt tied to free cash flow behaves like debt tied to value",
+    "back": "Because <b>value is the discounted stream of free cash flow</b>. If the firm holds debt at three times next year's FCF and FCF comes in 10% higher, it borrows 10% more &mdash; and it is also worth about 10% more. D/V lands in the same place either way, so the shield rides on a risky operating number in both cases and takes <b>r<sub>U</sub></b>.<br><br>Worked: FCF<sub>1</sub> = 90 growing at 3.0000%, r<sub>U</sub> = 10.5000%, r<sub>D</sub> = 5.0000%, &tau;<sub>c</sub> = 22%, D = 2.5&times;FCF. V<sup>U</sup> = 1 200.0000, TS<sub>1</sub> = 2.4750, PV(TS) = 2.4750/0.075000 = 33.0000, V<sup>L</sup> = <b>1 233.0000</b>. Leverage is 0.182482 at date 0 and 0.182482 at date 1: a constant-D/V policy in disguise.<br><br>Check before using a single WACC: <b>do FCF and value really grow at a common rate?</b> In a constant-growth perpetuity they do."
+  },
+  {
+    "id": "fc318",
+    "ch": 18,
+    "deck": "begrep",
+    "front": "When is APV the only legitimate method?",
+    "back": "Whenever <b>leverage is changing</b>, so no single r<sub>wacc</sub> exists:<br>&middot; a loan with a stated repayment schedule<br>&middot; a fixed amount of debt, whose D/V drifts as value moves<br>&middot; debt raised for one project and repaid at its end<br><br>And whenever the question asks <b>what the debt policy is worth</b>, because PV(TS) is the answer as a number and the WACC method never produces it.<br><br>Conversely, with a stated target ratio the WACC method is far faster: one rate does the whole job, and r<sub>wacc</sub> depends on the <b>ratio</b> (given) rather than the <b>level</b> (unknown), which is how it escapes the circularity."
+  },
+  {
+    "id": "fc319",
+    "ch": 18,
+    "deck": "mekanisme",
+    "front": "What a full-mark APV answer looks like",
+    "back": "Four lines, in this order.<br><b>1.</b> Name the debt policy in the question's own words and state the rate it implies.<br><b>2.</b> V<sup>U</sup>, discounted at r<sub>U</sub>, arithmetic shown.<br><b>3.</b> The shield: a table if it is scheduled, a perpetuity formula if it is not.<br><b>4.</b> V<sup>L</sup> = V<sup>U</sup> + PV(TS), followed by either 'this agrees with the WACC value of …, consistency check 1' or 'the WACC method is not available here because D/V is not constant'.<br><br>Where the APV sub-question follows the WACC one, <b>the marks are for the reasoning about the rate</b>, not for redoing the discounting."
+  },
+  {
+    "id": "fc320",
+    "ch": 18,
+    "deck": "intuisjon",
+    "front": "Why must APV and WACC agree when both apply?",
+    "back": "They are not two theories of value. They are <b>two ways of grouping the same cash flows</b>. The firm produces FCF and the tax authority hands back &tau;<sub>c</sub>r<sub>D</sub>D each year. APV values the two streams separately and adds. The WACC method values their sum in one step, by lowering the rate by exactly what the annual refund is worth per krone of firm value.<br><br>Same cash, same risk, same total. <b>When your two answers differ it is never because the methods disagree; it is because one of your inputs is inconsistent with the debt policy you assumed.</b> Find that input.<br><br>Under a fixed repayment schedule the agreement is not available at all, because there is no constant rate to use."
+  },
+  {
+    "id": "fc321",
+    "ch": 19,
+    "deck": "begrep",
+    "front": "Flow to equity: the formula and what it produces",
+    "back": "<b>FCFE<sub>t</sub> = FCF<sub>t</sub> &minus; (1 &minus; &tau;<sub>c</sub>)&middot;Interest<sub>t</sub> + (D<sub>t</sub> &minus; D<sub>t&minus;1</sub>)</b>, with Interest<sub>t</sub> = r<sub>D</sub>D<sub>t&minus;1</sub><br>E<sub>0</sub> = &Sigma;<sub>t</sub> FCFE<sub>t</sub>/(1 + r<sub>E</sub>)<sup>t</sup>, then V<sup>L</sup><sub>0</sub> = E<sub>0</sub> + D<sub>0</sub><br><br><b>Not on the formula sheet.</b> Two things make it different: the rate is r<sub>E</sub>, and the output is <b>equity</b>, not firm value.<br><br>Forgetting to add D<sub>0</sub> back before comparing with a WACC answer is the commonest way to fail consistency check 1 on a correct calculation."
+  },
+  {
+    "id": "fc322",
+    "ch": 19,
+    "deck": "mekanisme",
+    "front": "Why does FTE need no PV(TS) term?",
+    "back": "Because <b>the shield is already in the cash flow</b>. FCF was computed by taxing full EBIT, as if there were no interest deduction. Subtracting only (1 &minus; &tau;<sub>c</sub>)&middot;Interest instead of the full Interest hands the deduction straight back to shareholders, year by year, as extra cash.<br><br>So the shield arrives as cash and is discounted at r<sub>E</sub> with everything else &mdash; no separate term, no adjusted rate. It also explains why FTE gives equity value directly: <b>the shareholders are the ones who actually receive the shield</b>.<br><br>Drop the (1 &minus; &tau;<sub>c</sub>) and you have deleted the tax shield from the method entirely."
+  },
+  {
+    "id": "fc323",
+    "ch": 19,
+    "deck": "begrep",
+    "front": "The circularity D_t = d times V^L_t, and the way out",
+    "back": "To know the debt at date t you need the levered value at date t. To get that by APV you need the shields. To get the shields you need the debt. Round in a circle.<br><br><b>Do not iterate.</b> Correct, but hopeless under time pressure.<br><br><b>Value first by WACC.</b> r<sub>wacc</sub> depends on the <b>ratio</b> d, which the question gives you, not on the debt <b>level</b>, which you do not yet know. So build r<sub>E</sub> and r<sub>wacc</sub> from d, r<sub>U</sub> and r<sub>D</sub>, roll V<sup>L</sup><sub>t</sub> back from the last period, then set D<sub>t</sub> = d&middot;V<sup>L</sup><sub>t</sub> at every date.<br><br>This is why the exam always asks for the WACC valuation first and the APV valuation second."
+  },
+  {
+    "id": "fc324",
+    "ch": 19,
+    "deck": "mekanisme",
+    "front": "The debt adjustment between periods",
+    "back": "<b>&Delta;D<sub>t</sub> = D<sub>t</sub> &minus; D<sub>t&minus;1</sub> = d&middot;(V<sup>L</sup><sub>t</sub> &minus; V<sup>L</sup><sub>t&minus;1</sub>)</b> &mdash; not on the formula sheet.<br><br>The second equality is the useful form: <b>the sign of the adjustment is the sign of the change in value</b>, because d is positive. A growing firm borrows, a shrinking firm repays, and a firm with a finite life repays everything by the end because V<sup>L</sup><sub>T</sub> = 0.<br><br>Positive means the firm borrows more and shareholders keep the cash. Negative means the firm repays and shareholders fund it. Either way it belongs in FCFE, not only on the balance sheet."
+  },
+  {
+    "id": "fc325",
+    "ch": 19,
+    "deck": "intuisjon",
+    "front": "When V^L falls, the repayment is a cash flow (H2025 Exercise 4f)",
+    "back": "This is the step that separates a good script from a mediocre one, and it is missed for two different reasons. Some candidates <b>leave debt at its opening level</b> for the whole horizon, which quietly abandons the target ratio the question stated. Others compute D<sub>1</sub> correctly but <b>never put the repayment into FCFE</b>, treating the schedule as bookkeeping.<br><br>Both are wrong in the same direction: they overstate the cash reaching shareholders and so overstate equity.<br><br>Worked: a firm valued over three years at d = 0.35 has D = 127.4246, 98.9507, 56.9543, 0.0000. Leaving debt flat and repaying it all at the end gives E<sub>0</sub> = 243.7841 against the correct <b>236.6456</b>, an overstatement of 7.1385 (3.0165%) &mdash; on an exercise where the same schedule feeds three later sub-questions.<br><br>Nearly every firm valued over a finite horizon has a falling V<sup>L</sup> in its later years. <b>This is the normal case, not an exotic one.</b>"
+  },
+  {
+    "id": "fc326",
+    "ch": 19,
+    "deck": "begrep",
+    "front": "Four places the debt schedule goes wrong",
+    "back": "<b>1.</b> Using D<sub>t</sub> instead of D<sub>t&minus;1</sub> for interest. Interest in year t is charged on the balance carried <i>into</i> year t.<br><b>2.</b> Forgetting the final repayment. If the firm ends at date T then V<sup>L</sup><sub>T</sub> = 0, so D<sub>T</sub> = 0 and the whole balance D<sub>T&minus;1</sub> goes back in the last year. It is usually the largest number in the FCFE column.<br><b>3.</b> Applying d to the wrong value. D<sub>t</sub> = d&middot;V<sup>L</sup><sub>t</sub>, the <b>levered</b> value, never V<sup>U</sup>.<br><b>4.</b> Subtracting interest before tax. Only (1 &minus; &tau;<sub>c</sub>) of it leaves the firm.<br><br>Diagnostic: if your largest shield sits in the wrong year, you used D<sub>t</sub> where you needed D<sub>t&minus;1</sub>."
+  },
+  {
+    "id": "fc327",
+    "ch": 19,
+    "deck": "mekanisme",
+    "front": "Match the rate to the cash flow: the three lanes",
+    "back": "<b>FCF</b> belongs to debt and equity together &rarr; discount at <b>r<sub>wacc</sub></b> &rarr; get V<sup>L</sup> directly. Needs constant D/V.<br><b>FCF and TS separately</b> &rarr; discount at <b>r<sub>U</sub></b>, and the shield at r<sub>U</sub> or r<sub>D</sub> depending on policy &rarr; get V<sup>U</sup> + PV(TS). Works under any debt policy.<br><b>FCFE</b> belongs to shareholders alone &rarr; discount at <b>r<sub>E</sub></b> &rarr; get E, then add D<sub>0</sub>. Needs the whole debt schedule.<br><br><b>Never discount FCF at r<sub>E</sub>, and never discount FCFE at r<sub>wacc</sub>.</b> Every valuation error in this part of the course is a mismatch in this column."
+  },
+  {
+    "id": "fc328",
+    "ch": 19,
+    "deck": "intuisjon",
+    "front": "Why FTE and WACC give the same answer, and why run both",
+    "back": "They are the same equation rearranged. At every date V<sup>L</sup><sub>t</sub> = E<sub>t</sub> + D<sub>t</sub>. Discounting FCF at r<sub>wacc</sub> is a statement about the whole right-hand side; discounting FCFE at r<sub>E</sub> is the same statement about the first term only, once you have taken out what the lenders receive and put back what they lend. Nothing is added or removed, so the totals must agree.<br><br>The practical value is that <b>they fail in different ways</b>: a mistake in the debt schedule shows up loudly in FTE and can hide entirely inside a WACC calculation, since a single r<sub>wacc</sub> never asks you what the debt <i>level</i> actually was."
+  },
+  {
+    "id": "fc329",
+    "ch": 19,
+    "deck": "begrep",
+    "front": "Choosing between WACC, APV and FTE",
+    "back": "<b>Target ratio, firm value wanted</b> &rarr; WACC. One rate, no schedule needed, fastest by far.<br><b>A loan with a repayment schedule</b> &rarr; APV. There is no constant r<sub>wacc</sub>.<br><b>What is the debt policy worth?</b> &rarr; APV. PV(TS) is the answer as a number.<br><b>Cash reaching shareholders, or equity value directly</b> &rarr; FTE. The only method whose output is equity and the only one that shows repayments as cash.<br><b>A debt schedule, or H2025-style chained sub-steps</b> &rarr; WACC first, then the schedule, then APV and FTE. The value path is the input every other step needs."
+  },
+  {
+    "id": "fc330",
+    "ch": 19,
+    "deck": "mekanisme",
+    "front": "How to lay out a nine-part valuation so a slip costs one mark",
+    "back": "<b>One table</b>, a column per date, rows for FCF<sub>t</sub>, V<sup>L</sup><sub>t</sub>, D<sub>t</sub>, &Delta;D<sub>t</sub>, Interest<sub>t</sub>, TS<sub>t</sub> and FCFE<sub>t</sub>.<br><br>Fill V<sup>L</sup> from the right, D from V<sup>L</sup>, everything else from D. Then answer the sub-questions <b>by pointing at cells</b> rather than recomputing.<br><br>State the debt policy in one sentence above the table. Carry full precision, round only when you write. H2025 ran nine chained sub-questions over two periods and demanded four decimal places; <b>the candidates who lose the exercise are the ones who recompute the value path inside each sub-answer</b> and get a slightly different number every time."
+  },
+  {
+    "id": "fc331",
+    "ch": 20,
+    "deck": "begrep",
+    "front": "The chain of a full levered valuation",
+    "back": "projections &rarr; FCF<sub>t</sub> &nbsp;&middot;&nbsp; comparable &rarr; &beta;<sub>U</sub> &rarr; r<sub>U</sub> &rarr; r<sub>E</sub> &rarr; r<sub>wacc</sub><br>FCF<sub>t</sub> and r<sub>wacc</sub> &rarr; V<sup>L</sup><sub>t</sub> &rarr; D<sub>t</sub> = d&middot;V<sup>L</sup><sub>t</sub> &rarr; TS<sub>t</sub> &rarr; V<sup>U</sup> + PV(TS) &rarr; E<sub>0</sub> &rarr; price per share<br><br><b>Two independent inputs at the front, one number at the back, and every arrow a place an error travels.</b> The order is forced: the value path must exist before the debt schedule can, and the debt schedule before the APV shields can. That is why the exam asks for the WACC valuation first.<br><br>One arithmetic slip in the unlevering step travels through seven answers. That is also the opportunity: run the checks before the final line."
+  },
+  {
+    "id": "fc332",
+    "ch": 20,
+    "deck": "mekanisme",
+    "front": "Normalising the terminal year, and why growing FCF_T fails",
+    "back": "Build year T+1 <b>from its components</b>: grow EBIT, depreciation, CapEx and sales, then compute &Delta;NWC from the grown sales.<br><br>Worked: EBIT<sub>4</sub> = 209.00 &times; 1.025 = 214.2250 &rarr; 160.6688 after tax; Dep<sub>4</sub> = 56.3750; CapEx<sub>4</sub> = 67.6500; &Delta;NWC<sub>4</sub> = 0.15(676.5000 &minus; 660.00) = 2.4750. <b>FCF<sub>4</sub> = 146.9188.</b><br><br>Growing FCF<sub>3</sub> = 139.7500 at 2.5000% gives only 143.2438, short by 3.6750, because year 3 was <b>not a steady-state year</b>: sales grew 6.45%, so it absorbed 6.00 of working capital where the steady state needs 2.4750, and CapEx stepped up to 66.00 while depreciation stayed at 55.00.<br><br>That gap is then capitalised into a terminal value, so it is worth far more than it looks."
+  },
+  {
+    "id": "fc333",
+    "ch": 20,
+    "deck": "begrep",
+    "front": "The comparable's leverage is not your leverage",
+    "back": "Only <b>&beta;<sub>U</sub> and r<sub>U</sub></b> cross from the twin to your firm, because they describe the <b>business</b>. Everything with an E or a D subscript is contaminated by the twin's own financing.<br><br>Worked: the twin at E/V = 0.8000 has &beta;<sub>E</sub> = 1.763636 and &beta;<sub>D</sub> = 0.200000, so &beta;<sub>U</sub> = 1.450909 and r<sub>U</sub> = 11.4800%. Your firm at d = 0.25 then gets its own &beta;<sub>E</sub> = 1.867879 and r<sub>E</sub> = 13.7733%.<br><br>Sanity line on the twin's own rates: 0.8000(0.1320) + 0.2000(0.0460) = 0.114800 = r<sub>U</sub>. <b>Write the two D/V ratios next to each other, labelled with the firm names, so you cannot confuse them.</b>"
+  },
+  {
+    "id": "fc334",
+    "ch": 20,
+    "deck": "mekanisme",
+    "front": "Two off-by-one errors in the debt table",
+    "back": "<b>1. Interest is charged on D<sub>t&minus;1</sub>, not D<sub>t</sub>.</b> Year 1's interest is r<sub>D</sub> times the <i>opening</i> balance. Using the closing balance overstates every shield in a growing firm and understates every shield in an amortising loan, and the error grows with the firm.<br><br><b>2. The terminal shield starts from D<sub>T</sub>.</b> TS<sub>T+1</sub> = &tau;<sub>c</sub>r<sub>D</sub>D<sub>T</sub>, because D<sub>T</sub> is the balance carried into year T+1. Take it from D<sub>T&minus;1</sub> and the continuing value of the shield is understated by a full year of growth.<br><br>Both terminal pieces, V<sup>U</sup>'s and the shield's, sit at <b>date T</b> and are discounted over T periods, not T+1."
+  },
+  {
+    "id": "fc335",
+    "ch": 20,
+    "deck": "begrep",
+    "front": "From enterprise value to a price per share",
+    "back": "<b>E<sub>0</sub> = V<sup>L</sup><sub>0</sub> + excess cash &minus; D<sub>0</sub></b>, then <b>price = E<sub>0</sub>/N</b>. Not on the formula sheet.<br><br>Excess cash is worth its face value today, never appeared in free cash flow, and is simply added at the end. <b>Cash required for operations is different</b>: it is already inside net working capital and adding it again double counts.<br><br>Worked: 1 538.2438 + 90.0000 &minus; 384.5609 = 1 243.6828, over 20 million shares = <b>62.1841</b>.<br><br>Three ways this is lost after a perfect valuation: forgetting the excess cash; subtracting a book debt figure instead of D<sub>0</sub> = d&middot;V<sup>L</sup><sub>0</sub>; and reporting an enterprise value when a share price was asked for."
+  },
+  {
+    "id": "fc336",
+    "ch": 20,
+    "deck": "intuisjon",
+    "front": "A check that passes is not proof that the answer is right",
+    "back": "Consistency check 1 is the strongest evidence available on the paper, and it is still not proof. Misread the comparable's equity as 160 and its debt as 640 and you get &beta;<sub>U</sub> = 0.5127, r<sub>U</sub> = 6.3200%, r<sub>E</sub> = 6.8933%, r<sub>wacc</sub> = 6.0325% &mdash; and <b>both</b> routes land on 3 828.6758 for a firm worth 1 538.2438. The check signs off perfectly on an overvaluation of 2 290.4321.<br><br><b>The checks verify that your algebra hangs together. They cannot verify that you read the question correctly.</b><br><br>The guard is a habit, not a check: write E/V and D/V down as numbers, read them back against the balance sheet, and reread the inputs once before the valuation, because after that every number depends on them."
+  },
+  {
+    "id": "fc337",
+    "ch": 28,
+    "deck": "begrep",
+    "front": "The paper, and the clock to draw in the margin",
+    "back": "Six exercises, 100 points, three hours, no multiple choice, points printed per sub-question. The grade is set on the <b>total</b>, so no exercise has to be passed.<br><br>180 minutes less 10 for reading and 10 for checking leaves 160 for 100 points, i.e. <b>1.6 minutes per point</b>.<br><br><b>closing minute = 10 + 1.6 &times; (points on this and all earlier exercises)</b><br><br>On the 12/12/18/18/20/20 split of both Kurbatov papers that gives 29, 48, 77, 106, 138, 170. Write the <i>closing minute</i>, not the budget: it can be compared with the clock on the wall.<br><br>The budget is a <b>stop signal, not a target</b>. Candidates lose more marks to overrunning one hard sub-question than to any conceptual error."
+  },
+  {
+    "id": "fc338",
+    "ch": 28,
+    "deck": "begrep",
+    "front": "The five quantitative templates, and the phrase that announces each",
+    "back": "<b>T1 &middot; Twin-firm valuation</b> &mdash; 'a comparable listed firm', 'a twin'. Present in all eleven mapped papers, usually the largest exercise.<br><b>T2 &middot; Recapitalisation</b> &mdash; 'issues debt and repurchases shares'.<br><b>T3 &middot; Real option</b> &mdash; 'invest now or wait', 'may abandon'. Fold the tree back.<br><b>T4 &middot; State-by-state agency problem</b> &mdash; 'two projects', 'face value K', 'states'.<br><b>T5 &middot; M&amp;A stock swap</b> &mdash; 'offers ER of its shares per target share'.<br><br>Read for the <b>phrase</b> before you read for the numbers; the paper does not give you topic headings. Then, before any arithmetic, find the debt-policy sentence."
+  },
+  {
+    "id": "fc339",
+    "ch": 28,
+    "deck": "mekanisme",
+    "front": "What separates a 12-point verbal answer from a 6-point one",
+    "back": "Four elements, every time:<br><b>1.</b> The mechanism is <b>named</b>, and the label is followed by the channel through which value moves.<br><b>2.</b> A <b>direction or sign</b>: who gains, who loses, by which route.<br><b>3.</b> A <b>condition or limitation</b>: when it holds and when it fails.<br><b>4.</b> A <b>link to course machinery</b> by its proper name: coinsurance, agency costs, announcement returns, the market for corporate control.<br><br>Shape each item identically: name it in the first three words, one or two sentences of mechanism, one limitation. Three of those is a full answer at four points each.<br><br>The twelve-point answer is only about <b>three times as long</b>, and none of the extra length is padding. A fourth sentence of description has left the budget without adding an element."
+  },
+  {
+    "id": "fc340",
+    "ch": 28,
+    "deck": "begrep",
+    "front": "The five consistency checks, as a closing ritual",
+    "back": "<b>1.</b> Value by WACC = value by APV. Run on T1 and any levered valuation.<br><b>2.</b> [E/V]&beta;<sub>E</sub> + [D/V]&beta;<sub>D</sub> = &beta;<sub>U</sub>. Run on unlever/relever.<br><b>3.</b> Creditors' gain + shareholders' gain = the project's NPV. Run on T4.<br><b>4.</b> Creditors' gain = shareholders' loss when total value is fixed. Run on hedging and risk shifting.<br><b>5.</b> Are investors' beliefs rational given the action taken? Run on any signalling answer.<br><br><b>The numbering is fixed</b> and the chapters refer to the checks by number. Reserve the last ten minutes for this and nothing else, and write one sentence per exercise saying which check passed."
+  },
+  {
+    "id": "fc341",
+    "ch": 28,
+    "deck": "intuisjon",
+    "front": "Before you write a tick, ask what would have to be wrong",
+    "back": "Checks 1 and 2 are redundant computations, but they verify something <b>only if the second route uses different inputs</b>.<br><br>Recomputing &beta;<sub>U</sub> from a &beta;<sub>E</sub> you produced by relevering that same &beta;<sub>U</sub> is algebra, not verification: it returns the right number whatever else is wrong. The same trap catches P = E<sub>1</sub>/N<sub>1</sub> after a repurchase where n was defined as D/P, and D + E = V<sup>L</sup> where E was computed as V<sup>L</sup> &minus; D.<br><br><b>Ask: what number would have to be wrong for this line to break? If the answer is 'none', the check is decoration.</b> Then find the route that does not share inputs &mdash; usually the one that discounts a new cash flow at a new rate."
+  },
+  {
+    "id": "fc342",
+    "ch": 28,
+    "deck": "mekanisme",
+    "front": "Stuck in a chained sub-question: the three-line protocol",
+    "back": "<b>1.</b> Name the missing quantity as a symbol and say so: 'I could not obtain &beta;<sub>U</sub> in (a); I write it as &beta;<sub>U</sub> and carry it forward.'<br><b>2.</b> Carry it through the remaining algebra symbolically. r<sub>U</sub> = r<sub>f</sub> + &beta;<sub>U</sub>&middot;MRP, then r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> &minus; r<sub>D</sub>), then r<sub>wacc</sub>. Every line is a method mark and none needs the number.<br><b>3.</b> If a number is needed later, assume one and <b>label it</b>.<br><br>The examiner marks whether you can execute the routine, and the routine is unaffected by which number entered it. A labelled assumption costs a single mark and stops the marker reading your later parts as wrong rather than as consistent.<br><br><b>Never leave a sub-question blank. An empty sub-question is the only guaranteed zero on the paper.</b>"
+  },
+  {
+    "id": "fc401",
+    "ch": 21,
+    "deck": "begrep",
+    "front": "Put-call parity",
+    "back": "<b>C + PV(K) = P + S</b>, so <b>C = P + S &minus; PV(K)</b> with PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup>.<br><br>Compact form: <b>C &minus; P = S &minus; PV(K)</b>.<br><br>Requires: European, same K, same T, same underlying, no dividends before T. <b>Not on the formula sheet &mdash; memorise it.</b> It has been tested directly in four of the eleven mapped papers."
+  },
+  {
+    "id": "fc402",
+    "ch": 21,
+    "deck": "mekanisme",
+    "front": "Why parity holds under any model at all",
+    "back": "It compares two bundles that are equal <b>state by state</b>, not on average.<br><br>Protective put (share + put) pays max(S<sub>T</sub>, K). Fiduciary call (call + PV(K) lent) pays max(S<sub>T</sub>, K). Identical in every state &rArr; identical price today.<br><br>Nothing about volatility, expected returns or probabilities enters, which is why parity survives when Black-Scholes and the binomial model both fail. If an exam gives you a put and asks for a call, do <b>not</b> reach for a model."
+  },
+  {
+    "id": "fc403",
+    "ch": 21,
+    "deck": "begrep",
+    "front": "The four arbitrage bounds",
+    "back": "max(S &minus; PV(K), 0) &le; C &le; S<br>max(PV(K) &minus; S, 0) &le; P &le; PV(K)<br><br>European, no dividends. Each is one sentence of reasoning: a call cannot beat the share handed over free; the most a put can pay is K, and only at T.<br><br>They let you <b>reject a quoted price in one line</b>."
+  },
+  {
+    "id": "fc404",
+    "ch": 21,
+    "deck": "intuisjon",
+    "front": "Why intrinsic value is NOT the floor for a European call",
+    "back": "The floor is <b>S &minus; PV(K)</b>, not S &minus; K, because you do not pay the strike until T.<br><br>Example: S = 118.00, K = 110, r<sub>f</sub> = 6%. Intrinsic value is 8.00; the true floor is 118.00 &minus; 103.7736 = <b>14.2264</b>. A quote of 9.00 passes the intrinsic test and is a pure arbitrage.<br><br><b>Discount the strike before you compare.</b>"
+  },
+  {
+    "id": "fc405",
+    "ch": 21,
+    "deck": "mekanisme",
+    "front": "Why an American call on a non-dividend share is never exercised early",
+    "back": "Exercising gets you S &minus; K. Holding is worth at least S &minus; PV(K), and PV(K) &lt; K whenever r<sub>f</sub> &gt; 0.<br><br>So you would throw away the interest on the strike <i>plus</i> all remaining time value. <b>Sell the option, never exercise it.</b><br><br>Two consequences: American call = European call on a non-dividend share, so Black-Scholes prices it correctly; an American <i>put</i> has no such argument, because getting K now beats getting it later."
+  },
+  {
+    "id": "fc406",
+    "ch": 21,
+    "deck": "begrep",
+    "front": "Moneyness, intrinsic value, time value",
+    "back": "Premium = <b>intrinsic value + time value</b>.<br><br>Intrinsic: max(S &minus; K, 0) for a call, max(K &minus; S, 0) for a put &mdash; today's S, <b>undiscounted</b> K, never negative.<br>Time value: the remainder. Zero at expiry, largest near the money with long to run.<br><br>'In the money' means it would pay something if it expired now, <b>not</b> that it is a good trade."
+  },
+  {
+    "id": "fc407",
+    "ch": 21,
+    "deck": "intuisjon",
+    "front": "Why an out-of-the-money option is worth anything",
+    "back": "The holder chooses <b>after</b> seeing S<sub>T</sub>, so the left tail is truncated at zero. A share at 140 and a share at 200 both pay a call struck at 210 exactly nothing &mdash; the holder is indifferent between those two disasters.<br><br>Only the upside states carry weight in the price. <b>Every result in Part V, including 'volatility raises option value', follows from this one-sided max(&middot;, 0) and nothing else.</b>"
+  },
+  {
+    "id": "fc408",
+    "ch": 21,
+    "deck": "begrep",
+    "front": "The four rearrangements of parity",
+    "back": "C = P + S &minus; PV(K) &nbsp;&middot;&nbsp; P = C &minus; S + PV(K)<br>S = C &minus; P + PV(K) &nbsp;&middot;&nbsp; <b>PV(K) = S + P &minus; C</b><br><br>The last is the sneaky one: once you have PV(K) you have the implied risk-free rate, r<sub>f</sub> = [K/PV(K)]<sup>1/T</sup> &minus; 1.<br>The third builds a <b>synthetic share</b> out of options and a bond &mdash; the same trick chapter 24 runs in reverse for synthetic debt."
+  },
+  {
+    "id": "fc409",
+    "ch": 21,
+    "deck": "mekanisme",
+    "front": "Parity with dividends, and with American options",
+    "back": "Dividends with present value PV(Div) before T:<br><b>C = P + S &minus; PV(Div) &minus; PV(K)</b><br>because the share inside the protective put pays that cash out while the call holder receives nothing. Dividends push C <b>down</b> and P <b>up</b>.<br><br>American options: parity weakens to a pair of <b>inequalities</b>, since either side can be exercised early.<br>Different strikes or maturities: no identity at all, only bounds."
+  },
+  {
+    "id": "fc410",
+    "ch": 21,
+    "deck": "intuisjon",
+    "front": "Which is dearer, the call or the put?",
+    "back": "Parity settles it in one line: <b>C &minus; P = S &minus; PV(K)</b>. The sign depends on nothing but whether today's share price is above or below the discounted strike.<br><br>S = 95.00, K = 100, r<sub>f</sub> = 6% &rArr; PV(K) = 94.3396, so the call is dearer by exactly 0.6604.<br><br>When S = PV(K) the two are worth <b>exactly the same</b>, whatever the volatility, whatever the expected return, whatever anyone thinks about direction."
+  },
+  {
+    "id": "fc411",
+    "ch": 21,
+    "deck": "begrep",
+    "front": "Payoff diagram vs profit diagram",
+    "back": "<b>Payoff</b> starts at zero and never goes below it for a holder. <b>Profit</b> is the same shape pushed down by the premium.<br><br>The <b>kink</b> sits at K in both pictures. The <b>break-even</b> sits at K + C for a call and K &minus; P for a put; if the premium was borrowed, grow it: K + C(1 + r<sub>f</sub>).<br><br>The exercise decision <b>never</b> looks at the premium. You exercise a call whenever S<sub>T</sub> &gt; K, even if the trade still loses money."
+  },
+  {
+    "id": "fc412",
+    "ch": 22,
+    "deck": "begrep",
+    "front": "Binomial replication: Delta, B and the price",
+    "back": "&Delta; = (C<sub>u</sub> &minus; C<sub>d</sub>)/(S<sub>u</sub> &minus; S<sub>d</sub>)<br>B = (C<sub>d</sub> &minus; S<sub>d</sub>&middot;&Delta;)/(1 + r<sub>f</sub>)<br><b>C = S<sub>0</sub>&Delta; + B</b><br><br>All three <b>are</b> on the formula sheet. &Delta; is the hedge ratio, between 0 and 1 for a call and between &minus;1 and 0 for a put. B &lt; 0 means you borrow, and B is the amount <b>today</b> &mdash; it is B(1 + r<sub>f</sub>) that appears in the date-1 equations."
+  },
+  {
+    "id": "fc413",
+    "ch": 22,
+    "deck": "begrep",
+    "front": "The risk-neutral probability rho",
+    "back": "&rho; = [(1 + r<sub>f</sub>)S<sub>0</sub> &minus; S<sub>d</sub>]/(S<sub>u</sub> &minus; S<sub>d</sub>)<br><b>C<sub>0</sub> = [&rho;C<sub>u</sub> + (1 &minus; &rho;)C<sub>d</sub>]/(1 + r<sub>f</sub>)</b><br><br>Both on the formula sheet. &rho; is the weight that makes the <b>share itself</b> earn exactly r<sub>f</sub>; the second line then discounts at r<sub>f</sub> because &rho; already carries the risk adjustment.<br><br>Always run the one-line check that &rho; reprices the underlying before using it on anything else."
+  },
+  {
+    "id": "fc414",
+    "ch": 22,
+    "deck": "intuisjon",
+    "front": "Why the true probability never appears in the price",
+    "back": "The replicating portfolio matches the payoff in <b>every state</b>, not on average. Things equal in all circumstances have the same value under any beliefs and any risk preferences.<br><br>Two investors who violently disagree about the share still agree the call is half a share minus a loan &mdash; and they can look up what half a share costs.<br><br><b>The disagreement went into S<sub>0</sub>.</b> The market's beliefs and risk aversion are used, but through an observed price rather than a probability you must guess."
+  },
+  {
+    "id": "fc415",
+    "ch": 22,
+    "deck": "mekanisme",
+    "front": "What goes wrong if you insist on real probabilities",
+    "back": "Discounting the true expected payoff <b>does</b> work &mdash; but only at the option's own rate, which you cannot know until you already know the price.<br><br>Sorlandet: p = 0.65 gives E[payoff] = 13.00. At r<sub>f</sub> that is 12.2642 (<b>wrong</b>, overstates by 2.0000). At the share's 10.4167% it is also wrong. At the option's own 26.6544% it gives 10.2642 &check;<br><br>That 26.6544% is just relevering: r<sub>f</sub> + (S<sub>0</sub>&Delta;/C)(r<sub>S</sub> &minus; r<sub>f</sub>). The circularity is why the risk-neutral route wins."
+  },
+  {
+    "id": "fc416",
+    "ch": 22,
+    "deck": "begrep",
+    "front": "Backing rho out of ANY observed price",
+    "back": "&rho; = [X<sub>0</sub>(1 + r<sub>f</sub>) &minus; X<sub>d</sub>]/(X<sub>u</sub> &minus; X<sub>d</sub>)<br><br>X can be the share, a traded commodity certificate, a claim to an annuity, or an option whose price you can see &mdash; on a two-state tree <b>every</b> asset must be priced by the same weights.<br><br>If two assets on the same tree imply different &rho;, one is mispriced and there is an arbitrage. That is a legitimate answer to 'comment on these prices'."
+  },
+  {
+    "id": "fc417",
+    "ch": 22,
+    "deck": "mekanisme",
+    "front": "Two periods: work backwards and rebalance",
+    "back": "Solve the one-period problem three times, starting from the end. With u and d fixed at every node the tree <b>recombines</b> and &rho; is the same everywhere, because &rho; depends only on u, d and r<sub>f</sub>.<br><br>The hedge ratio does <b>not</b> stay put: deep in the money &Delta; approaches 1, far out of the money it approaches 0. A hedger who sets up &Delta;<sub>0</sub> and goes on holiday is under-hedged after a rise and over-hedged after a fall.<br><br>The strategy is self-financing: extra shares are bought with extra borrowing."
+  },
+  {
+    "id": "fc418",
+    "ch": 22,
+    "deck": "begrep",
+    "front": "The direct multi-period formula, and the slip in it",
+    "back": "Two periods: weights &rho;<sup>2</sup>, <b>2&rho;(1 &minus; &rho;)</b> and (1 &minus; &rho;)<sup>2</sup> on the three terminal nodes, discounted by (1 + r<sub>f</sub>)<sup>2</sup>.<br><br>The <b>factor 2</b> is there because two different paths reach the middle node. Dropping it is a standard slip: on one worked tree it turns 25.0240 into 22.9278.<br><br>Check the weights sum to 1.0000 before you use them."
+  },
+  {
+    "id": "fc419",
+    "ch": 22,
+    "deck": "mekanisme",
+    "front": "American options on a tree: the max at every node",
+    "back": "At <b>every intermediate node</b> take max(continuation value, immediate exercise) and carry that maximum backwards.<br><br>The expensive error is rolling the terminal payoffs all the way to the root with risk-neutral weights and handing that in. It gives a <b>perfectly correct European price</b>, so no internal check complains.<br><br>Never binds for a call on a non-dividend share; often binds for a put, where getting K early beats getting it late. Write one line at each node showing both candidates and which you took."
+  },
+  {
+    "id": "fc420",
+    "ch": 22,
+    "deck": "intuisjon",
+    "front": "Why two states are enough to pin down a unique price",
+    "back": "Two future states and two traded instruments (the share and the bond) let you build <b>any</b> pattern of payoffs: two unknowns, two equations, one solution. The market is <b>complete</b>, so the option is <b>redundant</b> &mdash; a package of things that already trade.<br><br>A redundant security can have only one price, or you buy the cheap version and sell the dear one.<br><br>Add a third state without a third asset and the argument collapses. That is why the model is built out of binary steps rather than realistic ones."
+  },
+  {
+    "id": "fc421",
+    "ch": 22,
+    "deck": "begrep",
+    "front": "The no-arbitrage condition on a tree",
+    "back": "<b>S<sub>d</sub> &lt; (1 + r<sub>f</sub>)S<sub>0</sub> &lt; S<sub>u</sub></b><br><br>The share must beat the bond in one state and lose to it in the other. Otherwise one asset dominates and you would trade without limit.<br><br>This inequality is exactly what makes &rho; land strictly between 0 and 1. Check it in one line before you compute anything."
+  },
+  {
+    "id": "fc422",
+    "ch": 22,
+    "deck": "intuisjon",
+    "front": "rho is not a forecast and not 'the market's probability'",
+    "back": "'The risk-neutral probability of the strong state is 0.4000' is a statement about <b>prices</b>.<br>'The probability of the strong state is 0.4000' is a statement about <b>the world</b> &mdash; and it is not one you have made.<br><br>For an asset paying off in good times, &rho; sits <b>below</b> the true probability; for one paying off in bad states (insurance, default) it sits <b>above</b>.<br><br>The same distinction separates 1 &minus; N(d<sub>2</sub>) from a default forecast in chapter 24, and implied volatility from realised volatility in chapter 23."
+  },
+  {
+    "id": "fc423",
+    "ch": 23,
+    "deck": "begrep",
+    "front": "The Black-Scholes formula",
+    "back": "<b>C = S&middot;N(d<sub>1</sub>) &minus; PV(K)&middot;N(d<sub>2</sub>)</b><br>d<sub>1</sub> = ln[S/PV(K)]/(&sigma;&radic;T) + (&sigma;&radic;T)/2 &nbsp;&middot;&nbsp; d<sub>2</sub> = d<sub>1</sub> &minus; &sigma;&radic;T<br>PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup> &nbsp;&middot;&nbsp; P = C &minus; S + PV(K)<br><br>Five inputs: S, K, T, r<sub>f</sub>, &sigma;. Four are readable off a screen; <b>only &sigma; must be estimated</b>. The share's expected return does not appear, and neither does any probability of the share rising."
+  },
+  {
+    "id": "fc424",
+    "ch": 23,
+    "deck": "mekanisme",
+    "front": "What N(d1) and N(d2) actually are",
+    "back": "Set it against chapter 22's C = S&Delta; + B and it lines up term for term:<br><b>&Delta; = N(d<sub>1</sub>)</b>, the shares in the replicating portfolio.<br><b>B = &minus;PV(K)&middot;N(d<sub>2</sub>)</b>, the borrowing that finances them.<br><br>N(d<sub>2</sub>) <i>is</i> a probability &mdash; the <b>risk-neutral</b> chance the call finishes in the money. N(d<sub>1</sub>) is <b>not</b> a probability: it is the probability-weighted <i>value</i> of receiving the share, which is why N(d<sub>1</sub>) &gt; N(d<sub>2</sub>) always, the gap being &sigma;&radic;T inside the normal."
+  },
+  {
+    "id": "fc425",
+    "ch": 23,
+    "deck": "intuisjon",
+    "front": "Why volatility raises BOTH the call and the put",
+    "back": "Spread the distribution of S<sub>T</sub> out. Extra probability of very high prices raises max(S<sub>T</sub> &minus; K, 0) without limit. Extra probability of very low prices lowers it <b>not at all</b> &mdash; the payoff is already zero at K and stays zero all the way down.<br><br>Upside-down, the same argument raises the put. So a single rise in &sigma; lifts both, and the <b>writer</b> pays for it.<br><br>It is <b>not</b> that risk is rewarded: under &rho; the share still earns only r<sub>f</sub>. The gain comes entirely from the kink."
+  },
+  {
+    "id": "fc426",
+    "ch": 23,
+    "deck": "begrep",
+    "front": "Comparative statics: the six signs",
+    "back": "S rises: C &uarr;, P &darr; &middot; K rises: C &darr;, P &uarr;<br>&sigma; rises: <b>C &uarr; and P &uarr;</b><br>T rises: C &uarr;, P <b>ambiguous for a European put</b> (&uarr; for an American one)<br>r<sub>f</sub> rises: C &uarr;, P &darr; (PV(K) shrinks)<br>Dividends before T: C &darr;, P &uarr;<br><br>Know the sentence behind each sign, not just the arrow. This is the examinable core since the N(d) tables came off the sheet in 2021."
+  },
+  {
+    "id": "fc427",
+    "ch": 23,
+    "deck": "mekanisme",
+    "front": "The parity check on a comparative-statics table",
+    "back": "Parity says C &minus; P = S &minus; PV(K), so <b>&Delta;C &minus; &Delta;P must equal the change in S &minus; PV(K)</b> and nothing else.<br><br>The strongest row is <b>&sigma;</b>: it appears nowhere in S &minus; PV(K), so &Delta;C &minus; &Delta;P must be exactly 0.0000 &mdash; which turns 'volatility raises calls and puts alike' into an equality testable to four decimals.<br><br>It is a real check, not an identity: C and P were computed independently, so a sign error in d<sub>2</sub> or a strike discounted for the wrong number of years breaks a row."
+  },
+  {
+    "id": "fc428",
+    "ch": 23,
+    "deck": "intuisjon",
+    "front": "Time to expiry and the European put",
+    "back": "'Options are worth more with more time' is true for <b>calls</b>, true for <b>American</b> options either way, and <b>not always true for a European put</b>.<br><br>A European put holder is waiting to <i>receive</i> K, and pushing that receipt further out is costly. With S = 60.00, K = 100, r<sub>f</sub> = 6%, &sigma; = 20% the European put falls: 37.1295 (T = 0.5), 34.4008 (T = 1), 29.7622 (T = 2), 20.6590 (T = 5).<br><br>An American put cannot fall below 100 &minus; 60.00 = 40.0000. <b>Say 'for a call' or 'for an American option' and you cannot be caught.</b>"
+  },
+  {
+    "id": "fc429",
+    "ch": 23,
+    "deck": "begrep",
+    "front": "Implied volatility",
+    "back": "&sigma;<sub>implied</sub> solves C<sub>market</sub> = S&middot;N(d<sub>1</sub>(&sigma;)) &minus; PV(K)&middot;N(d<sub>2</sub>(&sigma;)).<br><br>No closed form, but exactly one answer, because value is strictly increasing in &sigma;. Quoting implied volatility is therefore <b>just another way of quoting the price</b>, stripped of S, K, T and r<sub>f</sub>.<br><br>It is <b>not</b> a measurement of the share. If the model is wrong the implied number absorbs the error &mdash; that is what the volatility smile is."
+  },
+  {
+    "id": "fc430",
+    "ch": 23,
+    "deck": "mekanisme",
+    "front": "H2025 Exercise 1: true volatility below implied",
+    "back": "Four moves, in order:<br><b>1.</b> Name the comparative static: call value is increasing in &sigma;.<br><b>2.</b> Direction, then number: worth less than the market price, so <b>overpriced</b>.<br><b>3.</b> Action: <b>write the call and delta-hedge with N(d<sub>1</sub>) shares</b>, so the position bets on volatility, not on direction.<br><b>4.</b> Limitation: this is <b>not an arbitrage</b> &mdash; it relies on my &sigma; estimate, the hedge must be rebalanced and cannot be continuous, and the model may be wrong.<br><br>Free extra mark: the put is overpriced by <b>exactly the same amount</b>, since &sigma; is nowhere in C &minus; P = S &minus; PV(K)."
+  },
+  {
+    "id": "fc431",
+    "ch": 23,
+    "deck": "begrep",
+    "front": "Three input errors that cost more than they look",
+    "back": "<b>1. &sigma; is a volatility of returns, not of the price level.</b> A share moving 24 kroner on a base of 80 has &sigma; near 30%, not 30. Given a <i>variance</i>, take the square root first.<br><b>2. Same time unit throughout.</b> &sigma; annual &rArr; T in years. A three-month option has T = 0.25 and &sigma;&radic;T = &sigma;/2, not &sigma;.<br><b>3. Discount the strike before the logarithm.</b> ln[S/PV(K)], not ln(S/K)."
+  },
+  {
+    "id": "fc432",
+    "ch": 23,
+    "deck": "intuisjon",
+    "front": "Why Black-Scholes is not a new theory",
+    "back": "Cut the binomial year into n periods with u = e<sup>&sigma;&radic;(T/n)</sup> and d = 1/u, let n grow, and the tree price converges to the closed form.<br><br>At each instant the option is <b>still</b> replicated by shares plus borrowing, so it is still redundant and its price is still fixed by no arbitrage. The limit only supplies a closed form for the two pieces.<br><br>Convergence is <b>not monotone</b>, and a one-step tree is crude &mdash; 14.1636 against 11.5061 in one worked case. Never present a single step as an approximation."
+  },
+  {
+    "id": "fc433",
+    "ch": 23,
+    "deck": "begrep",
+    "front": "The assumptions, and what each buys",
+    "back": "European exercise &rarr; only the terminal distribution matters.<br>No dividends &rarr; the replicating share pays nothing out.<br>Constant known &sigma; &rarr; one number for the whole distribution (else: the smile).<br>Lognormal returns &rarr; closed-form partial expectations (else: fat tails, jumps).<br>Continuous costless trading &rarr; perfect rebalancing (else: hedging costs).<br>Constant r<sub>f</sub>, no frictions, no default &rarr; PV(K) unambiguous.<br><br>Listing these with one consequence each is a standard verbal sub-question."
+  },
+  {
+    "id": "fc434",
+    "ch": 24,
+    "deck": "begrep",
+    "front": "Equity and debt as options on firm value",
+    "back": "E<sub>T</sub> = max(V<sub>T</sub> &minus; K, 0) &nbsp;&rarr;&nbsp; <b>E = Call(V, K, T)</b><br>D<sub>T</sub> = min(V<sub>T</sub>, K) &nbsp;&rarr;&nbsp; <b>D = V &minus; Call(V, K, T)</b><br><br>Second reading, the useful one for credit:<br>D<sub>T</sub> = K &minus; max(K &minus; V<sub>T</sub>, 0) &nbsp;&rarr;&nbsp; <b>D = PV(K) &minus; Put(V, K, T)</b><br><br>Underlying is the <b>firm's assets</b>, so &sigma; is <b>asset</b> volatility. Not on the formula sheet. The two claims add to V<sub>T</sub> in every state."
+  },
+  {
+    "id": "fc435",
+    "ch": 24,
+    "deck": "intuisjon",
+    "front": "Why the lender is short a put",
+    "back": "Limited liability is not a courtesy, it is an <b>option the creditor granted</b>. Shareholders hold the right to hand over the assets in exchange for cancelling a debt of K, and they use it exactly when the assets are worth less than K.<br><br>That right is a put struck at K, written by the lender, and its value is the entire difference between a government bond and this bond.<br><br>Credit spread = the put's price as a rate. Default probability = the risk-neutral chance it ends in the money. <b>A CDS simply buys it back.</b>"
+  },
+  {
+    "id": "fc436",
+    "ch": 24,
+    "deck": "begrep",
+    "front": "Black-Scholes on the firm",
+    "back": "E = V&middot;N(d<sub>1</sub>) &minus; K&middot;e<sup>&minus;r<sub>f</sub>T</sup>&middot;N(d<sub>2</sub>)<br>d<sub>1</sub> = [ln(V/K) + (r<sub>f</sub> + &sigma;<sup>2</sup>/2)T]/(&sigma;&radic;T), d<sub>2</sub> = d<sub>1</sub> &minus; &sigma;&radic;T<br>D = V &minus; E = K&middot;e<sup>&minus;r<sub>f</sub>T</sup>&middot;N(d<sub>2</sub>) + V&middot;N(&minus;d<sub>1</sub>)<br><br>Continuous compounding here, so <b>say so</b>. Then y = (1/T)ln(K/D) and spread = y &minus; r<sub>f</sub> on the same basis.<br><br><b>Never price the debt directly with Black-Scholes</b> &mdash; it is not an option. Compute the option first and subtract."
+  },
+  {
+    "id": "fc437",
+    "ch": 24,
+    "deck": "mekanisme",
+    "front": "N(&minus;d2) is a risk-neutral default probability",
+    "back": "N(d<sub>2</sub>) is the risk-neutral probability the firm does <b>not</b> default, so N(&minus;d<sub>2</sub>) is the risk-neutral default probability.<br><br>Like chapter 5's implied q, it already contains a risk premium and <b>overstates</b> the true default frequency, often twofold, because default clusters in bad states.<br><br>A spread read as a forecast will always predict too many defaults. <b>The model is built to price and to hedge, not to predict.</b><br><br>N(d<sub>1</sub>) is not a probability at all &mdash; it is the delta of equity with respect to firm value."
+  },
+  {
+    "id": "fc438",
+    "ch": 24,
+    "deck": "begrep",
+    "front": "The beta of levered equity, option version",
+    "back": "<b>&beta;<sub>E</sub> = N(d<sub>1</sub>)&middot;(V/E)&middot;&beta;<sub>U</sub></b><br>&beta;<sub>D</sub> = [1 &minus; N(d<sub>1</sub>)]&middot;(V/D)&middot;&beta;<sub>U</sub><br><br><b>Not on the formula sheet &mdash; memorise it.</b> A call is a levered position in the underlying, so systematic risk scales with how much of the underlying you effectively hold per krone invested, which is N(d<sub>1</sub>)V/E.<br><br>Both are <b>instantaneous</b> and move as V moves. &beta;<sub>D</sub> is strictly positive whenever there is any chance of default, so setting &beta;<sub>D</sub> = 0 on risky debt understates &beta;<sub>U</sub>."
+  },
+  {
+    "id": "fc439",
+    "ch": 24,
+    "deck": "intuisjon",
+    "front": "Why the weighted-beta check cannot fail here",
+    "back": "Substituting the two option betas gives N(d<sub>1</sub>)&beta;<sub>U</sub> + [1 &minus; N(d<sub>1</sub>)]&beta;<sub>U</sub> = &beta;<sub>U</sub> for <b>any</b> N(d<sub>1</sub>) whatsoever.<br><br>So (E/V)&beta;<sub>E</sub> + (D/V)&beta;<sub>D</sub> = &beta;<sub>U</sub> verifies your <b>arithmetic</b> and nothing else. Chapter 4's linear relevering is the same statement rearranged.<br><br>The option version's real contribution: <b>it tells you &beta;<sub>D</sub></b> instead of asking you to guess it. Be honest about this in an answer &mdash; it reads as understanding."
+  },
+  {
+    "id": "fc440",
+    "ch": 24,
+    "deck": "begrep",
+    "front": "Credit default swap",
+    "back": "CDS payoff = max(K &minus; V<sub>T</sub>, 0) = <b>the put the lender wrote</b>.<br>Upfront price = Put(V, K, T) = <b>PV(K) &minus; D</b>.<br>Running spread over one period: <b>s = q&middot;L</b>, with L = 1 &minus; R.<br><br>No-arbitrage statement to memorise: <b>risky bond + CDS = risk-free bond</b>. Any gap is the CDS basis and it is a trade.<br><br>Bond spread &ne; CDS spread: y &minus; r<sub>f</sub> = q&middot;L(1 + r<sub>f</sub>)/(1 &minus; q&middot;L), larger because it is charged on the discounted price rather than the full notional."
+  },
+  {
+    "id": "fc441",
+    "ch": 24,
+    "deck": "mekanisme",
+    "front": "Risk shifting inside Black-Scholes",
+    "back": "Raise asset volatility, hold V fixed, and equity rises while debt falls by <b>exactly the same amount</b>. Total value does not move &mdash; consistency check 4.<br><br>Worked case: &sigma; 40% &rarr; 60% moves 43.3783 from creditors to shareholders and lifts the spread from 7.2202% to 13.3673%.<br><br>Note &beta;<sub>E</sub> can <b>fall</b> while this happens (1.8915 &rarr; 1.4894). Nothing is wrong: E is now a bigger claim, so the same asset risk is spread over more equity value and the embedded leverage has gone down."
+  },
+  {
+    "id": "fc442",
+    "ch": 24,
+    "deck": "mekanisme",
+    "front": "Convertible debt kills the risk-shifting incentive",
+    "back": "Payoff = max[ min(V<sub>T</sub>, K), &gamma;V<sub>T</sub> ], converting when V<sub>T</sub> &gt; K/&gamma;.<br><b>Convertible = straight bond + &gamma; calls struck at K/&gamma;.</b><br><br>Above the conversion point the shareholders' payoff is (1 &minus; &gamma;)V<sub>T</sub>, which is <b>linear</b>. Linear claimholders want the largest V, full stop, so they rank projects by NPV like an all-equity firm.<br><br>Convexity is what made risk shifting profitable; conversion removes it exactly where a gamble would have paid. It also weakens debt overhang, since the holder is already partly an owner."
+  },
+  {
+    "id": "fc443",
+    "ch": 24,
+    "deck": "begrep",
+    "front": "The coinsurance effect",
+    "back": "Call(V<sub>A</sub> + V<sub>B</sub>) &le; Call(V<sub>A</sub>) + Call(V<sub>B</sub>), with equality only under perfect positive correlation.<br><br>Equity is a call, so pooling assets <b>destroys equity value</b>; debt is the residual, so creditors gain exactly as much. <b>Name it in an answer.</b><br><br>Fewer defaults, unchanged recovery: in one worked merger the risk-neutral default probability falls from 0.5000 to 0.2500 while recovery stays at 0.6250."
+  },
+  {
+    "id": "fc444",
+    "ch": 24,
+    "deck": "intuisjon",
+    "front": "Why coinsurance is not a reason to merge",
+    "back": "The gain is real and it goes to <b>the wrong people</b>. Shareholders decide on mergers, and coinsurance takes value out of their pockets &mdash; an acquirer paying a premium on top is worse off still.<br><br>Two standard responses: <b>lever up after the deal</b> and pay out the proceeds, pushing default risk back up; or <b>ring-fence</b> the subsidiaries so the cash flows never pool.<br><br>What it <i>does</i> justify: more <b>debt capacity</b>, hence a larger tax shield. That phrase is worth real points when an exam bans 'synergies' as an answer."
+  },
+  {
+    "id": "fc445",
+    "ch": 24,
+    "deck": "begrep",
+    "front": "The five moves on an equity-as-an-option question",
+    "back": "<b>1.</b> State that equity is a call on firm value struck at the face value of the debt.<br><b>2.</b> Value it.<br><b>3.</b> Get the debt as V &minus; E <i>or</i> as PV(K) &minus; put, and say which route.<br><b>4.</b> Convert to a yield and a credit spread, <b>quoting the compounding convention</b>.<br><b>5.</b> Close with a check the examiner recognises: D + E = V, or consistency check 4 in a transfer question.<br><br>Reaches 8 of 11 mapped papers; absent from both Kurbatov papers so far, so treat it as a live risk item."
+  },
+  {
+    "id": "fc446",
+    "ch": 25,
+    "deck": "begrep",
+    "front": "The value of the option to wait",
+    "back": "value of waiting = &Sigma;<sub>i</sub> p<sub>i</sub>&middot;max(0, NPV<sub>i</sub>) / (1 + r)<br><b>option to wait = that, minus max(0, NPV<sub>now</sub>)</b><br><br>p<sub>i</sub> are <b>real</b> probabilities and r the project's cost of capital. NPV<sub>i</sub> is already a present value as of the investment date, so it needs <b>exactly one</b> more factor of (1 + r).<br><br>The outer max(0, &middot;) matters: the alternative to a bad project is <b>zero</b>, not a negative number. None of this is on the formula sheet."
+  },
+  {
+    "id": "fc447",
+    "ch": 25,
+    "deck": "intuisjon",
+    "front": "E[max(0, NPV)] is not max(0, E[NPV])",
+    "back": "max(0, E[NPV]) averages first and decides afterwards: <b>one decision, taken in the dark</b>, for all states at once.<br>E[max(0, NPV<sub>i</sub>)] decides <b>state by state</b>, after seeing which state you are in.<br><br>The second is never smaller, and <b>the gap between them is the entire value of flexibility</b>.<br><br>Write the max <b>inside</b> the expectation and you have earned most of the marks. Write it outside and you have answered the question the exam is not asking."
+  },
+  {
+    "id": "fc448",
+    "ch": 25,
+    "deck": "mekanisme",
+    "front": "Why waiting can beat a positive NPV",
+    "back": "Investing today buys you <b>the average outcome</b>: good states and bad states, all of it. Waiting buys you <b>the good states only</b>, because once you know the state you can decline the bad ones and NPV cannot go below zero.<br><br>The cost is a year of cash flow plus a year of discounting. Waiting wins when the first effect beats the second &mdash; large uncertainty, a really bad bad state, and no competitor about to take the project.<br><br>Same convexity as chapters 9 and 24: max(0, &middot;) truncates the left tail."
+  },
+  {
+    "id": "fc449",
+    "ch": 25,
+    "deck": "begrep",
+    "front": "The value of perfect information",
+    "back": "<b>VPI = E[max(0, NPV<sub>i</sub>)] &minus; max(0, E[NPV])</b><br><br>No discounting: the information arrives now and the project is undertaken now. This is the <b>most the firm should ever pay</b> for the study, and imperfect information is worth less, never more.<br><br>If the study takes a year, discount the informed term: E[max(0, NPV<sub>i</sub>)]/(1 + r) &minus; max(0, E[NPV]) &mdash; which is exactly the value of the option to wait."
+  },
+  {
+    "id": "fc450",
+    "ch": 25,
+    "deck": "intuisjon",
+    "front": "Information is worth nothing when it changes no decision",
+    "back": "Value comes from the <b>action the information permits</b>, never from the knowledge itself. Launch in every state and learning the state is worth zero, however precise the study. Launch in none, likewise.<br><br>So its value is largest for <b>marginal</b> projects and smallest for obvious ones &mdash; it is proportional to how close the uninformed decision was to being wrong.<br><br>Two lines worth writing: a study can never have negative value (you can ignore it), and its value is capped by the perfect-information figure even if the seller promises certainty."
+  },
+  {
+    "id": "fc451",
+    "ch": 25,
+    "deck": "mekanisme",
+    "front": "The independent check on a value-of-information answer",
+    "back": "Information changes a decision in <b>specific states only</b>. Its value must equal the probability of those states times the loss it prevents there.<br><br>Worked case: only the weak state's decision flips, and it stops you losing 350, so VPI = 0.30(350) = <b>105.0000</b> &mdash; matching E[max] &minus; max(E) = 143.0000 &minus; 38.0000.<br><br>This check is genuinely independent, and it catches the commonest error: dropping the max(0, &middot;) so the weak state contributes &minus;350 to <i>both</i> terms and the value of information collapses to zero."
+  },
+  {
+    "id": "fc452",
+    "ch": 25,
+    "deck": "begrep",
+    "front": "The exit option: perpetuity becomes truncated annuity",
+    "back": "value at the exit date = max( PV(continuing), salvage S )<br><br>Bad branch with no exit: <b>C/r</b>.<br>Bad branch with exit at date n: <b>C&middot;[1 &minus; (1 + r)<sup>&minus;n</sup>]/r + S/(1 + r)<sup>n</sup></b>.<br><br>If exit is immediate, n = 0 and the perpetuity is replaced by S alone. This is the exact shape H2025 Exercise 5 used, and it is why chapter 1's annuity factor keeps reappearing."
+  },
+  {
+    "id": "fc453",
+    "ch": 25,
+    "deck": "intuisjon",
+    "front": "Why the exit option is a put",
+    "back": "On the exit date you hold something worth PV(continuing) and you have the <b>right, not the duty</b>, to exchange it for S. That is a put struck at S, written on the project.<br><br>So everything about puts carries over: worth more when the project's value is volatile, when S is large relative to continuing, and when the exit date is far away.<br><br>The exam sentence: <b>an exit option raises the project's value without changing any cash flow, because it truncates the left tail.</b> Standardised, easily resold assets are worth more than their cash flows suggest for exactly this reason."
+  },
+  {
+    "id": "fc454",
+    "ch": 25,
+    "deck": "mekanisme",
+    "front": "Switching costs and the band of inaction",
+    "back": "close now if: PV(losses avoided) &gt; cost of closing + PV(expected cost of reopening)<br><br>The reopening cost enters weighted by the <b>probability you will want to restart</b>, which is what makes this a tree rather than a comparison of two numbers.<br><br>So the rule is not 'operate when the margin is positive' but <b>'switch when the gain exceeds the round trip'</b>. Between a zero margin and some loss threshold lies a band where cash flow is negative and shutting down is still wrong: <b>hysteresis</b>. It works in both directions."
+  },
+  {
+    "id": "fc455",
+    "ch": 25,
+    "deck": "begrep",
+    "front": "Solving for the indifference point",
+    "back": "Write both strategies as functions of X &rarr; set equal &rarr; solve &rarr; <b>check the solution lies in its own branch interval</b>.<br><br>The max(0, &middot;) operators make each strategy <b>piecewise linear</b>, so an algebraic solution is only valid where the same branches are taken. Solve outside the interval and the answer is arithmetically right and economically impossible.<br><br><b>That is where the marks are lost.</b> Same discipline as chapter 9's face value at which risk shifting begins. Then say in words which side does what."
+  },
+  {
+    "id": "fc456",
+    "ch": 25,
+    "deck": "begrep",
+    "front": "The catalogue of real options",
+    "back": "<b>Wait / defer</b> = American call on the project, struck at the investment cost.<br><b>Expand, or invest in stages</b> = call on a follow-on project.<br><b>Abandon / exit</b> = put on the project, struck at the salvage value.<br><b>Shut down and restart</b> = a strip of options, one per period, with switching costs.<br><b>Switch inputs or outputs</b> = exchange option.<br><br>Every exam question is one of these. Getting wait and abandon the right way round is the usual test."
+  },
+  {
+    "id": "fc457",
+    "ch": 25,
+    "deck": "mekanisme",
+    "front": "Which valuation route: real probabilities or rho?",
+    "back": "The <b>data</b> tells you.<br>A given probability + a cost of capital &rarr; real probabilities, discount at r.<br>A <b>traded price</b> with up and down moves + a risk-free rate &rarr; extract &rho; = [(1 + r<sub>f</sub>)S<sub>0</sub> &minus; S<sub>d</sub>]/(S<sub>u</sub> &minus; S<sub>d</sub>) and discount at <b>r<sub>f</sub></b>.<br><br><b>Never mix them.</b> Pairing a real probability with r<sub>f</sub> is the largest single error in this material &mdash; in one worked field it overstates the project by 19.5446 out of 78.1784.<br><br>H2024 Exercise 6 used the risk-neutral route for 20 points."
+  },
+  {
+    "id": "fc458",
+    "ch": 25,
+    "deck": "intuisjon",
+    "front": "Why the single discount rate is an approximation, not a theorem",
+    "back": "Applying one r to both branches is exactly that. An option on a project is <b>riskier than the project itself</b>, so its true cost of capital is higher and it changes as the tree moves &mdash; chapter 22 showed the option's own required return running at 26.6544% while the share's was 10.4167%.<br><br>The course accepts the single-rate calculation because it keeps the arithmetic examinable, and the risk-neutral route is the clean fix when the data supports it.<br><br>Half a sentence saying this reads as understanding rather than as hedging."
+  },
+  {
+    "id": "fc459",
+    "ch": 25,
+    "deck": "mekanisme",
+    "front": "The four errors that cost the most on real options",
+    "back": "<b>1.</b> Averaging <i>before</i> taking the maximum, which erases the option entirely.<br><b>2.</b> Discounting NPV<sub>i</sub> twice, or not at all.<br><b>3.</b> Solving an indifference equation <b>outside</b> the interval where its branch assumptions hold.<br><b>4.</b> Forgetting that the alternative to a bad project is <b>zero</b>, not a negative number.<br><br>Each produces a plausible-looking number, which is exactly why the examiner can price them so precisely."
+  },
+  {
+    "id": "fc460",
+    "ch": 25,
+    "deck": "begrep",
+    "front": "How the 20 points are actually awarded",
+    "back": "<b>1.</b> Compute the static NPV first and say what the naive rule would do.<br><b>2.</b> Draw the tree &mdash; squares for decisions, circles for chance &mdash; with numbers on it.<br><b>3.</b> Take the maximum <b>inside</b> the tree, at each node, then discount.<br><b>4.</b> Report the option as a <b>difference between two strategies you both computed</b>.<br><b>5.</b> Answer what was asked: 'wait' or 'invest now' in words; for an indifference point, which side does what.<br><br>Real options: 8 of 11 mapped papers, a fixed item since 2017, <b>20 points in both Kurbatov papers</b>, and none of it on the formula sheet."
   }
 ];
 
@@ -4132,6 +7848,533 @@ window.EDU_DATA.activeLearning = {
       "type": "reflect",
       "q": "H2025 Exercise 2 asked what a shareholder holding 5 to 10% can do about a CEO who is not acting in shareholders' interest, three actions at four points each. Write the payout action as it should appear on the script.",
       "solution": "The action: push for a payout - a special dividend, a leveraged recapitalisation, or a commitment to a higher regular dividend.\n\nThe mechanism, which is what the four points are actually for. The cash leaves the firm, so the free cash flow that funded the empire building is gone. If the payout is debt-financed, debt service becomes a hard constraint the manager cannot quietly abandon: a missed interest payment puts the firm in default and hands control to creditors, which is a penalty severe enough and far enough outside his control to be credible. And because the firm must now return to outside investors to fund anything new, every future project is priced by people who are not on the payroll.\n\nThe limitation, which the keys credit. A payout also removes flexibility and can force the firm to skip genuinely good projects later, and if the firm has real growth options the discipline is a cost rather than a benefit. So the action is strongest for a mature, cash-rich firm in an industry with few projects - which is exactly the firm the question describes when it describes a CEO with nothing better to do with the money.\n\nTwo to three sentences per action is the stated budget, so this is roughly: what the action is, how the mechanism bites, what it costs. Name it - free cash flow, agency cost of equity, commitment - and finish in a direction.\n\nThe general lesson for these questions: the marks are for the mechanism, not for the action. 'Pay out the cash' with no explanation is worth almost nothing; the same words with the commitment argument attached are worth the full four."
+    }
+  ],
+  "17": [
+    {
+      "type": "calc",
+      "q": "Haugesund Marine ASA is listed with equity 800 and debt 200, r_E = 13.0000% and r_D = 4.5000%. Unlisted Storeide AS is in the same business, will hold a permanent D/V = 0.35 and borrows at 4.5000%. r_f = 3.0000%, market risk premium 5.0000%, tau_c = 22%. Storeide's free cash flow next year is 60, growing 2.0000% forever. Find r_U, r_E, r_wacc and V^L, then confirm by APV.",
+      "hint": "beta_E = (0.1300 - 0.0300)/0.0500 = 2.0000; beta_D = (0.0450 - 0.0300)/0.0500 = 0.3000. The debt beta is not zero, so carry it.\nWeights on the TWIN: E/V = 0.8000, D/V = 0.2000. beta_U = 0.8000(2.0000) + 0.2000(0.3000) = 1.6000 + 0.0600 = 1.6600, so rU = 0.0300 + 1.6600(0.0500) = 0.113000 = 11.3000%.\nSanity on the twin's own rates: 0.8000(0.1300) + 0.2000(0.0450) = 0.104000 + 0.009000 = 0.113000. Same rU from rates as from betas.\nRelever to YOUR ratio: D/E = 0.35/0.65 = 0.538462, so rE = 0.113000 + 0.538462(0.113000 - 0.045000) = 0.113000 + 0.036615 = 0.149615 = 14.9615%.\nr_wacc = 0.6500(0.149615) + 0.3500(0.045000)(0.78) = 0.097250 + 0.012285 = 0.109535 = 10.9535%. Pre-tax: 0.097250 + 0.015750 = 0.113000 = rU.\nV^L = 60/(0.109535 - 0.020000) = 60/0.089535 = 670.1290.\nAPV: V^U = 60/0.093000 = 645.1613. D_0 = 0.35 x 670.1290 = 234.5451, TS_1 = 0.22 x 0.045000 x 234.5451 = 2.3220, discounted at rU because the ratio is a target: PV(TS) = 2.3220/0.093000 = 24.9677. Total 645.1613 + 24.9677 = 670.1290.\nShortcut worth knowing: V^L = FCF/(rU - g - tau_c*rD*d) = 60/(0.113000 - 0.020000 - 0.003465) = 60/0.089535 = 670.1290, the same number, which is why check 1 is a fixed point rather than two independent routes."
+    },
+    {
+      "type": "calc",
+      "q": "For each of these rebalancing firms, compute r_U - r_wacc and say in one line what the number means. (a) d = 0.40, r_D = 4.0000%, tau_c = 25%. (b) d = 0.25, r_D = 4.6000%, tau_c = 25%. (c) d = 0.35, r_D = 4.5000%, tau_c = 22%. Then say what the gap would be if you wrongly wrote tau_c*(D/V) in case (c).",
+      "hint": "The wedge is (D/V)*rD*tau_c, the whole tax shield expressed as a rate cut.\n(a) 0.4000 x 0.040000 x 0.25 = 0.004000, a cut of 0.4000 pp.\n(b) 0.2500 x 0.046000 x 0.25 = 0.002875, a cut of 0.2875 pp.\n(c) 0.3500 x 0.045000 x 0.22 = 0.003465, a cut of 0.3465 pp.\nWhat it means: every year the firm pays rD*D of interest and the tax authority refunds tau_c of it. Divide that refund by firm value and you get tau_c*rD*D/V, exactly the wedge. Discounting FCF at a rate cut by the wedge is the same as adding the shield to the numerator each year, PROVIDED the wedge is the same size every year, which needs D/V constant.\nThe error version in (c): tau_c*(D/V) = 0.22 x 0.35 = 0.077000, a cut of 7.7000 pp, more than twenty times too large. It is the rate-cut cousin of using tau_c*D on a rebalancing firm, and it should fail your smell test instantly: the tax shield is never worth several percentage points of discount rate at ordinary leverage."
+    },
+    {
+      "type": "calc",
+      "q": "Ryfylke Instrument AS is for sale at 750 for the whole firm and will produce free cash flow of 45 next year. You would run it at D/V = 0.30 borrowing at r_D = 4.0000%; beta_U = 1.30, r_f = 2.5000%, market risk premium 5.5000%, tau_c = 25%. (a) Build r_wacc. (b) What growth does the asking price imply? (c) What is the most you can pay if you believe 2.5000%? (d) The firm sells 2.00 million units at price p, variable cost 35, fixed costs 14, depreciation 12, CapEx 12, no working-capital movement. What unit price supports FCF_1 = 45?",
+      "hint": "(a) rU = 0.025000 + 1.30(0.055000) = 0.096500 = 9.6500%. D/E = 0.30/0.70 = 0.428571, so rE = 0.096500 + 0.428571(0.096500 - 0.040000) = 0.096500 + 0.024214 = 0.120714 = 12.0714%. r_wacc = 0.7000(0.120714) + 0.3000(0.040000)(0.75) = 0.084500 + 0.009000 = 0.093500 = 9.3500%. Pre-tax: 0.084500 + 0.012000 = 0.096500 = rU.\n(b) Set 45/(0.093500 - g) = 750 and solve: g = 0.093500 - 45/750 = 0.093500 - 0.060000 = 0.033500 = 3.3500%. Verify forwards: 45/0.060000 = 750.0000. State whether 3.3500% forever is plausible; a verbal follow-up wants the judgement, not the number.\n(c) P* = 45/(0.093500 - 0.025000) = 45/0.068500 = 656.9343. At 750 the NPV is 656.9343 - 750 = -93.0657. Walk away, or negotiate to 656.93.\n(d) Depreciation and CapEx cancel, so FCF_1 = EBIT_1(1 - tau_c) and required EBIT_1 = 45/0.75 = 60.0000. EBIT = 2.00(p - 35) - 14 - 12, so 2.00p - 96 = 60, hence 2.00p = 156 and p = 78.0000. Verify: 2.00(78.0000 - 35) - 26 = 60.0000, and 60.0000(0.75) + 12 - 12 = 45.0000.\nCheck on (b) by APV: V^U = 45/(0.096500 - 0.033500) = 714.2857; D_0 = 0.30 x 750 = 225.0000, TS_1 = 0.25 x 0.040000 x 225.0000 = 2.2500, PV(TS) = 2.2500/0.063000 = 35.7143; total 750.0000."
+    },
+    {
+      "type": "calc",
+      "q": "A firm forecasts free cash flow of 40, 55 and 62 for years 1 to 3, growing at 2.0000% thereafter. It holds D/V = 0.30, r_U = 10.0000%, r_D = 5.0000%, tau_c = 25%. Build r_wacc, roll the value back to date 0, verify with the one-line sum, then produce the debt schedule and check by APV.",
+      "hint": "D/E = 0.428571, so rE = 0.100000 + 0.428571(0.050000) = 0.121429 = 12.1429%, and r_wacc = 0.7000(0.121429) + 0.3000(0.050000)(0.75) = 0.085000 + 0.011250 = 0.096250 = 9.6250%. Pre-tax: 0.085000 + 0.015000 = 0.100000 = rU.\nFCF_4 = 62 x 1.02 = 63.2400, so TV_3 = 63.2400/(0.096250 - 0.020000) = 63.2400/0.076250 = 829.3770, a DATE-3 value.\nRoll back from V^L_3 = 829.3770: V^L_2 = (62 + 829.3770)/1.096250 = 813.1148; V^L_1 = (55 + 813.1148)/1.096250 = 791.8949; V^L_0 = (40 + 791.8949)/1.096250 = 758.8551.\nOne-line check: 36.4880 + 45.7661 + 47.0612 + 629.5398 = 758.8551.\nDebt: D_t = 0.30 V^L_t = 227.6565, 237.5685, 243.9344, 248.8131. Adjustments +9.9119, +6.3660, +4.8787, all positive because value rises. Shields tau_c*rD*D_(t-1) = 2.8457, 2.9696, 3.0492.\nAPV: TV^U_3 = 63.2400/0.080000 = 790.5000, and V^U = 36.3636 + 45.4545 + 46.5815 + 593.9144 = 722.3140. TS_4 = 0.25 x 0.050000 x 248.8131 = 3.1102, worth 3.1102/0.080000 = 38.8770 at date 3, so PV(TS) = 2.5870 + 2.4542 + 2.2909 + 29.2089 = 36.5410. Total 722.3140 + 36.5410 = 758.8551.\nNote both terminal pieces sit at DATE 3 and are discounted over three periods, not four."
+    },
+    {
+      "type": "control",
+      "q": "State the constant D/V assumption exactly as it should appear in an exam answer, and list the three consequences that follow from it.",
+      "solution": "D_t/V^L_t = d, constant, for every t, measured at MARKET value. Read it as a policy rather than as a fact about today's balance sheet: the firm is assumed to rebalance, borrowing more when the business becomes more valuable and repaying when it becomes less valuable. This is what the exam means by 'maintains a debt-to-equity ratio of 0.50' or 'keeps debt at 30% of firm value'.\n\nThree consequences, each worth a mark if you state it.\n\n1. Because the weights E/V and D/V never change, rE is the same in every period, so r_wacc is the same in every period, so one rate discounts everything. This is what licenses the WACC method at all.\n\n2. Because future debt levels move with firm value, which is uncertain, the tax shield carries the risk of the ASSETS. In an APV valuation it is therefore discounted at rU, not at rD.\n\n3. Because the shield carries asset risk, pre-tax WACC = rU holds exactly, and beta_U may be weighted without any (1 - tau_c) term. Both are consequences of the policy, not algebraic identities: under fixed permanent debt the shield is a safe stream, the relation between rE, rD and rU changes, and a single constant WACC no longer values the firm correctly.\n\nWrite the policy sentence at the top of the answer before any arithmetic. The solution keys award marks for it on its own."
+    },
+    {
+      "type": "explain",
+      "q": "Explain why lowering the discount rate values the interest tax shield correctly, and state precisely the condition the argument needs.",
+      "solution": "Every year the firm pays interest of rD*D and the tax authority refunds tau_c of it, so the firm receives tau_c*rD*D in cash. Express that annual refund as a fraction of firm value and you get tau_c*rD*D/V, which is exactly the term by which the after-tax WACC sits below rU: rU - r_wacc = (D/V)*rD*tau_c.\n\nSo discounting free cash flow at a rate reduced by that wedge is arithmetically the same as adding the shield to the numerator every year. The shield has not disappeared from the valuation; it has been moved from the numerator to the denominator.\n\nThe condition: the argument works only if the wedge is the SAME SIZE every year, and the wedge depends on D/V. So it requires D/V to be constant at every future date. That single condition is the entire price of admission to the WACC method, and it is why a question describing a fixed loan, a repayment schedule or leverage being deliberately run down is telling you to use APV instead.\n\nThe corollary is the error to avoid: since the shield is already in the rate, never also add PV(TS) to a WACC valuation. In the Storeide case that would give 670.1290 + 24.9677 = 695.0967 for a firm worth 670.1290."
+    },
+    {
+      "type": "calc",
+      "q": "Storeide's twin runs at D/V = 0.40 with r_E = 13.0000%; Storeide itself will run at D/V = 0.35 with r_D = 4.5000%, tau_c = 22%, and the correct r_wacc is 10.9535%. A candidate skips the relevering step and builds a WACC from the twin's rate and the twin's weights. Compute what he gets for V^L when FCF_1 = 60 and g = 2.0000%, and say which check would have caught him.",
+      "hint": "The wrong WACC: 0.6000(0.130000) + 0.4000(0.045000)(0.78) = 0.078000 + 0.014040 = 0.092040 = 9.2040%.\nV^L wrong = 60/(0.092040 - 0.020000) = 60/0.072040 = 832.8706, against the correct 60/0.089535 = 670.1290. He has overvalued the firm by 162.7416, i.e. 24.3%.\nWhy it goes that way: the twin's rE of 13.0000% reflects the twin's leverage but is paired here with Storeide's smaller debt weight and a tax shield computed on Storeide's terms, so the blend comes out too low.\nThe check that catches it: pre-tax WACC. 0.6000(0.130000) + 0.4000(0.045000) = 0.078000 + 0.018000 = 0.096000, which is NOT rU = 0.113000. Two numbers that should coincide differ by 1.7 percentage points, and it costs ten seconds to see.\nThe habit that prevents it: only beta_U and rU cross from the twin to your firm, because they describe the business. Write the two D/V ratios next to each other, labelled with the firm names, before you compute anything."
+    },
+    {
+      "type": "reflect",
+      "q": "The WACC formula is printed on the exam formula sheet. Where, then, do the marks in a WACC exercise actually sit, and how should the answer be laid out?",
+      "solution": "Writing down a formula the examiner handed you earns nothing. The marks sit on the intermediate lines and on the judgements.\n\nThe intermediate lines: beta_U, rU, rE, r_wacc, each V^L_t, each D_t, each TS_t. In the Kurbatov format this material is a single exercise of 18 to 20 points broken into up to nine sub-questions, and each line is a separately numbered sub-answer worth two to four points, marked on the working rather than on the final figure.\n\nThe judgements: which weights belong in the WACC (the target weights of the firm being valued, in market value), which rate matches which cash flow, and whether the capital structure the question describes is constant at all.\n\nLayout that protects you. Write the formula NAME before the numbers - 'unlevering the comparable', 'MM II', 'after-tax WACC'. Put the value path and the debt schedule in one labelled table with a column per date, so a later arithmetic slip costs one line instead of the exercise. Give rates to four decimals as percentages, because H2025 asked for four decimal places explicitly. And write the pre-tax WACC line even though nobody asked for it: it costs one line, it is a stated check in the keys, and it catches a relevering slip before that slip contaminates every later step.\n\nIf a number goes missing midway, carry it forward as a symbol and say so. The keys give credit for the correct method on a wrong input."
+    }
+  ],
+  "18": [
+    {
+      "type": "calc",
+      "q": "Sorlandet Verktoy AS produces unlevered free cash flow of 96 a year in perpetuity with no growth, r_U = 12.0000%, tau_c = 25%. It borrows 400 at r_D = 5.0000%. Value the firm under three policies: (A) the 400 is fixed and never repaid; (B) the firm rebalances to a constant D/V; (C) the loan is repaid in full at the end of year 3. Then run the WACC route on policy B.",
+      "hint": "Common to all three: V^U = 96/0.120000 = 800.0000, and the annual shield is 0.25 x 0.050000 x 400 = 5.0000. The cash flow is identical under every policy; only its risk differs, so only its discount rate differs.\n(A) Fixed and permanent: level perpetuity at rD, PV(TS) = 5.0000/0.050000 = 100.0000, which is tau_c*D = 100.0000. V^L = 900.0000.\n(B) Rebalanced: the same 5.0000 at rU, PV(TS) = 5.0000/0.120000 = 41.6667. V^L = 841.6667. Implied target d = 400/841.6667 = 0.475248.\n(C) Repaid at the end of year 3: three known shields at rD, 5.0000/1.05 + 5.0000/1.05^2 + 5.0000/1.05^3 = 4.7619 + 4.5351 + 4.3192 = 13.6162. V^L = 813.6162.\nWACC route on B, a genuine second computation because it never mentions PV(TS): E = 441.6667, D/E = 0.905660, rE = 0.120000 + 0.905660(0.070000) = 0.183396. Weights 0.524752 and 0.475248, so r_wacc = 0.096238 + 0.017822 = 0.114059 = 11.4059%, and 96/0.114059 = 841.6667.\nRatio check: 100.0000/41.6667 = 2.4000 = rU/rD, exactly as (rU - g)/rD predicts with g = 0."
+    },
+    {
+      "type": "calc",
+      "q": "Same firm, but a candidate keeps the rebalancing story and discounts the shield at r_D anyway, claiming V^L = 900.0000. Build the WACC that his own numbers imply and show the check failing. Then say why policy A's 900.0000 is not wrong in itself.",
+      "hint": "On his claim, E = 900.0000 - 400 = 500.0000, so D/E = 0.800000 and rE = 0.120000 + 0.800000(0.120000 - 0.050000) = 0.176000.\nWeights E/V = 500/900 = 0.555556 and D/V = 400/900 = 0.444444, so r_wacc = 0.555556(0.176000) + 0.444444(0.050000)(0.75) = 0.097778 + 0.016667 = 0.114444.\nV^L by WACC = 96/0.114444 = 838.8350, which is 61.1650 away from the 900.0000 he claimed. The examiner needs one line to spot it.\nWhy 900.0000 is not wrong in itself: it is the correct answer for a firm with 400 of FIXED, PERMANENT debt. It is wrong for a firm that rebalances, because rebalancing makes next year's debt depend on next year's firm value, which is uncertain, so the shield carries asset risk and takes rU.\nNote what this check does that the usual one does not: here it genuinely FAILS. When both routes share the same rU and the same debt levels, the check is a fixed point and cannot fail; it is informative precisely when the two routes disagree about the shield's rate."
+    },
+    {
+      "type": "calc",
+      "q": "Namdal Kraft AS generates 108 a year in perpetuity, r_U = 12.0000%, tau_c = 22%. It borrows 360 at r_D = 6.0000%, repaid in three equal instalments of 120 at the end of years 1 to 3, then stays debt-free. Value the firm, verify PV(TS) by a second route, and quantify what tau_c*D_0 would have cost.",
+      "hint": "V^U = 108/0.120000 = 900.0000.\nThe loan table, opening balance first. Year 1: opening 360.00, interest 21.6000, TS 4.7520, discounted at 6.0000% gives 4.4830. Year 2: opening 240.00, interest 14.4000, TS 3.1680, discounted 2.8195. Year 3: opening 120.00, interest 7.2000, TS 1.5840, discounted 1.3300. From year 4 the balance is zero.\nThe amounts are contractual, so the rate is rD: PV(TS) = 8.6325 and V^L = 908.6325.\nSecond route: every shield is tau_c*rD = 0.013200 times the opening balance, and 360.00/1.06 + 240.00/1.06^2 + 120.00/1.06^3 = 339.6226 + 213.5991 + 100.7542 = 653.9761, so 0.013200 x 653.9761 = 8.6325. Same number from a route that never computed an individual shield.\ntau_c*D_0 = 0.22 x 360 = 79.2000, which is 9.1746 times the correct shield and would inflate firm value by 70.5675, i.e. 7.77%.\nConsistency check 1 cannot be run in its usual form and saying so earns marks: D/V starts at 360.00/908.6325 = 0.396200 and falls to zero by date 3, so there is no single r_wacc. Force one at the opening ratio and you get rE = 0.159371, r_wacc = 0.114770 and 108/0.114770 = 941.0111, overstating the firm by 32.3786.\nWhat you CAN check: the second route, and the ceiling. PV(TS) must lie strictly between 0 and 79.2000."
+    },
+    {
+      "type": "calc",
+      "q": "Kvinnherad-style case. Free cash flow next year is 90, growing at 3.0000% forever. r_U = 10.5000%, r_D = 5.0000%, tau_c = 22%, and the stated policy is 'net debt is held at 2.5 times the coming year's free cash flow'. Value the firm, prove the policy is a constant-D/V policy in disguise, and confirm by WACC.",
+      "hint": "V^U = 90/(0.105000 - 0.030000) = 90/0.075000 = 1 200.0000.\nD_0 = 2.5 x 90 = 225.0000, and since FCF grows at 3.0000% so does the debt: D_1 = 2.5 x 92.70 = 231.7500.\nThe debt tracks free cash flow, which is risky, so the shield carries asset risk and takes rU. TS_1 = 0.22 x 0.050000 x 225.0000 = 2.4750, growing at 3.0000%, so PV(TS) = 2.4750/0.075000 = 33.0000 and V^L = 1 233.0000.\nProof that leverage is constant: D_0/V^L_0 = 225.0000/1 233.0000 = 0.182482. One year on, V^L_1 = 1 233.0000 x 1.03 = 1 269.9900 and D_1 = 231.7500, so D_1/V^L_1 = 0.182482, unchanged. That is why a single WACC is available and why rU was the right rate.\nWACC check: E = 1 008.0000, D/E = 0.223214, rE = 0.105000 + 0.223214(0.055000) = 0.117277 = 11.7277%. r_wacc = 0.817518(0.117277) + 0.182482(0.050000)(0.78) = 0.095876 + 0.007117 = 0.102993 = 10.2993%, and V^L = 90/(0.102993 - 0.030000) = 90/0.072993 = 1 233.0000.\nThe check bites: discount this shield at rD and you write 2.4750/(0.050000 - 0.030000) = 123.7500 and a firm value of 1 323.7500, which no WACC built from these inputs can produce."
+    },
+    {
+      "type": "calc",
+      "q": "A firm carries 500 of debt at r_D = 5.0000%, tau_c = 25%, r_U = 11.0000%. (a) Value the shield under fixed permanent debt. (b) Value it under rebalancing with debt and shield growing at g = 3.0000%. (c) Repeat (b) with g = 0. (d) A second firm has 300 of RISK-FREE permanent debt at r_f = 3.0000%, tau_c = 22%, r_U = 10.5000%. Value its shield, and value it again if the firm rebalanced instead.",
+      "hint": "(a) tau_c*D = 0.25 x 500 = 125.0000. Equivalently the annual shield 0.25 x 0.050000 x 500 = 6.2500 discounted at rD: 6.2500/0.050000 = 125.0000.\n(b) The same 6.2500 growing at 3.0000% and discounted at rU: 6.2500/(0.110000 - 0.030000) = 6.2500/0.080000 = 78.1250. Ratio 125.0000/78.1250 = 1.6000 = (rU - g)/rD = 0.080000/0.050000.\n(c) 6.2500/0.110000 = 56.8182. Ratio 125.0000/56.8182 = 2.2000 = rU/rD.\n(d) Risk-free fixed debt: annual shield 0.22 x 0.030000 x 300 = 1.9800, discounted at rf: 1.9800/0.030000 = 66.0000 = tau_c*D. Rebalanced with g = 0: 1.9800/0.105000 = 18.8571, a ratio of 3.5000 = rU/rf.\nThe lesson to carry: tau_c*D is a CEILING, and the rebalanced answer falls below it by roughly the factor (rU - g)/rD. Since rU sits well above rD, a rebalanced shield anywhere near tau_c*D means you have misread the debt sentence."
+    },
+    {
+      "type": "control",
+      "q": "State the rule for which rate discounts the interest tax shield, cold, covering four debt policies. For each, say what makes D_(t-1) uncertain and whether a constant WACC is available.",
+      "solution": "The shield in year t is tau_c*rD*D_(t-1), so its risk is decided entirely by what makes D_(t-1) uncertain seen from today. Read the debt sentence in the question before you write anything, and underline it.\n\n1. Target ratio: 'maintains a debt-to-equity ratio of 0.50', 'keeps debt at 30% of firm value', 'rebalances annually'. Future debt tracks firm value, so D_(t-1) is unknown and carries asset risk. Discount at rU. Constant WACC available; this is the WACC method's home ground.\n\n2. Fixed permanent amount: 'has 200 million of perpetual debt outstanding', 'the loan is never repaid'. D is known and fixed; only default can stop the payments. Discount at rD, or at rf if the debt is risk-free, and PV(TS) = tau_c*D. No constant WACC, because D/V drifts as value changes.\n\n3. Stated amortisation: 'repays 100 million a year for three years', 'the loan amortises over five years'. The amount at every date is given in the question. Discount at rD, period by period, in a table. No constant WACC; APV only.\n\n4. Debt tied to an operating quantity: 'holds debt at three times free cash flow', 'debt is 2.5 times EBITDA'. D_(t-1) follows a risky operating number, so the shield again carries asset risk. Discount at rU. Constant WACC available provided FCF and value grow at a common rate.\n\nOnly branch 2 permits the shortcut tau_c*D, and only when the debt is also permanent. Write the policy line first, in the question's own words, plus the rate it implies. If the wording is genuinely ambiguous, state the assumption you are making and carry on: an answer with a stated assumption scores, an answer with no stated assumption and the wrong rate does not."
+    },
+    {
+      "type": "explain",
+      "q": "Explain why a target debt ratio makes an apparently safe cash flow risky, and why fixed debt does not.",
+      "solution": "Follow one krone of shield. Under a target ratio the firm's debt next year is d times next year's levered value, and that value depends on how the business does. A good year means more debt and a bigger shield; a bad year means less debt and a smaller shield. The shield therefore moves one-for-one with the assets, and moving with the assets is the definition of asset risk, which is priced at rU.\n\nUnder fixed debt the amount is written into a loan contract and does not respond to the business at all. The shield is then as safe as the interest payment that generates it, and rD is the rate that prices exactly that risk. If the debt is risk-free, rf prices it.\n\nThe point worth making in an exam answer is that this is not a convention to memorise blindly. It follows from a single question: what makes next year's debt balance uncertain? That question also settles the cases the rule table does not literally list. Debt tied to EBITDA or to free cash flow follows a risky operating number, so rU. Debt raised for one project with a stated repayment schedule is contractual, so rD.\n\nThe cost of getting it wrong is not a small correction. In a growing-perpetuity firm the two answers differ by the factor (rU - g)/rD, which is typically between 1.5 and 2.5, and every later sub-question inherits the error."
+    },
+    {
+      "type": "explain",
+      "q": "Explain why V^U must be discounted at r_U and never at r_wacc, and name the error this prevents.",
+      "solution": "V^U is by definition the value of the firm as if it were financed entirely by equity. The rate that prices an all-equity claim on the operating assets is rU, and that is true under every debt policy, because the operating stream does not care how the firm is financed. That is exactly what makes the APV split useful: the first half answers 'what is the business worth' and the second half answers 'what does the financing add'.\n\nr_wacc is a different object. It is rU already reduced by (D/V)*rD*tau_c, that is rU with the tax shield folded in. So discounting FCF at r_wacc and calling the result V^U counts the shield once inside V^U, and then PV(TS) adds it a second time. That is the same double count as the more familiar error of running a WACC valuation and then adding PV(TS) on top, arriving from the other direction.\n\nThe defence is to keep the three lanes separate on the page and match the rate to the cash flow. FCF belongs to debt and equity together, so it takes a blended rate. FCFE belongs to shareholders alone, so it takes rE. The unlevered firm belongs to a hypothetical all-equity owner, so it takes rU. Every valuation error in this part of the course is a mismatch in that column."
+    },
+    {
+      "type": "reflect",
+      "q": "The 'which rate discounts the shield' question appeared as multiple choice in all eight mapped papers that had multiple choice. The Kurbatov format has no multiple choice. How is it examined now, and what does that change about how you prepare?",
+      "solution": "It now arrives as one sentence buried in a long exercise, describing the firm's debt policy, and the whole valuation turns on whether you read it correctly. H2025 Exercise 4 does exactly this: it states a target leverage ratio, so the shield must be discounted at rU. Get it wrong and consistency check 1 fails, the examiner sees it immediately, and every later sub-question inherits the error.\n\nThree things change about preparation.\n\nFirst, recognition matters more than recall. You are no longer choosing between four printed options; you are extracting a policy from prose. Practise on the wording rather than on the rule: 'maintains', 'rebalances' and 'target' point one way, while 'perpetual', 'repays', 'amortises' and a stated schedule point the other.\n\nSecond, the answer has to be written, not ticked. One line at the top of the sub-question, in the question's own words, stating the policy and the rate it implies. The keys award marks for that line before any arithmetic appears, and it also stops you mixing the two halfway through a nine-step exercise.\n\nThird, the consequences are now cumulative rather than isolated. Under multiple choice a wrong answer cost you one item. In a chained exercise it costs the APV sub-question, the consistency check and any sub-question built on the shield. That is why this is the single most valuable line in this part of the course."
+    }
+  ],
+  "19": [
+    {
+      "type": "calc",
+      "q": "A firm produces 72 of free cash flow every year in perpetuity with no growth. It holds a permanent D/V = 0.30 and borrows at r_D = 6.0000%. r_U = 10.0000% and tau_c = 25%. Value the equity by flow to equity, then confirm by WACC and by APV.",
+      "hint": "Rates: D/E = 0.30/0.70 = 0.428571, so rE = 0.100000 + 0.428571(0.100000 - 0.060000) = 0.100000 + 0.017143 = 0.117143 = 11.7143%. r_wacc = 0.7000(0.117143) + 0.3000(0.060000)(0.75) = 0.082000 + 0.013500 = 0.095500 = 9.5500%. Pre-tax: 0.082000 + 0.018000 = 0.100000 = rU.\nValue by WACC first, so that the debt LEVEL is known: V^L = 72/0.095500 = 753.9267, so D = 0.30 x 753.9267 = 226.1780 and E = 527.7487.\nFlow to equity: interest = 0.060000 x 226.1780 = 13.5707, after tax 0.75 x 13.5707 = 10.1780. Nothing grows, so debt never changes and net borrowing is 0.0000. FCFE = 72.0000 - 10.1780 + 0.0000 = 61.8220.\nDiscount at rE, a level perpetuity: E_0 = 61.8220/0.117143 = 527.7487, and V^L = 527.7487 + 226.1780 = 753.9267.\nAPV: V^U = 72/0.100000 = 720.0000; TS = 0.25 x 0.060000 x 226.1780 = 3.3927, discounted at rU because the ratio is a target, so PV(TS) = 3.3927/0.100000 = 33.9267. Total 753.9267.\nTwo warnings about what this proves. FTE used D = 226.1780, which came from the WACC answer, so it cannot catch an error in r_wacc; it catches errors in the FCFE construction, which is what it is for. The APV route is the genuinely independent one, because it never uses rE or r_wacc at all. And note tau_c*D = 56.5445 would have been 1.67 times the correct shield."
+    },
+    {
+      "type": "calc",
+      "q": "Finnmark Sjomat AS will generate free cash flow of 120, 150 and 180 at dates 1 to 3, after which the licence expires and the firm is wound up with nothing left. It holds D/V = 0.35 throughout, borrows at r_D = 5.0000%, r_U = 11.0000%, tau_c = 22%. Build the full table and value the equity three ways.",
+      "hint": "Rates from the ratio alone: D/E = 0.538462, rE = 0.110000 + 0.538462(0.060000) = 0.142308 = 14.2308%, r_wacc = 0.6500(0.142308) + 0.3500(0.050000)(0.78) = 0.092500 + 0.013650 = 0.106150 = 10.6150%. Pre-tax 0.110000 = rU.\nValue path from V^L_3 = 0.0000: V^L_2 = 180/1.106150 = 162.7266; V^L_1 = 312.7266/1.106150 = 282.7162; V^L_0 = 402.7162/1.106150 = 364.0702. Direct check: 120/1.106150 + 150/1.106150^2 + 180/1.106150^3 = 364.0702.\nDebt: 127.4246, 98.9507, 56.9543, 0.0000. Adjustments -28.4739, -41.9964, -56.9543. Levered value falls at every date, simply because there are fewer cash flows left in front of the firm, so debt must fall with it.\nInterest on the OPENING balance: 6.3712, 4.9475, 2.8477; after tax 4.9696, 3.8591, 2.2212.\nFCFE: 120.0000 - 4.9696 - 28.4739 = 86.5566; 150.0000 - 3.8591 - 41.9964 = 104.1445; 180.0000 - 2.2212 - 56.9543 = 120.8245.\nE_0 = 86.5566/1.142308 + 104.1445/1.142308^2 + 120.8245/1.142308^3 = 236.6456, and V^L_0 - D_0 = 364.0702 - 127.4246 = 236.6456.\nAPV: V^U = 361.4659; shields 1.4017, 1.0885, 0.6265 at rU give PV(TS) = 2.6043; total 364.0702. Three methods, one number. Note how small the shield is, 2.6043 on a firm worth 364.0702: a candidate writing tau_c*D_0 = 28.0334 would be out by a factor of 10.76."
+    },
+    {
+      "type": "calc",
+      "q": "Same firm. Suppose you had left the debt at its opening level of 127.4246 through years 1 and 2 and repaid it all at date 3, which is what 'the firm has 127.4246 of debt' sounds like if you stop reading at the ratio. Recompute the flow to equity and the equity value, and quantify the damage.",
+      "hint": "Interest would be 0.050000 x 127.4246 = 6.3712 in every year, after tax 4.9696.\nFCFE_1 = 120.0000 - 4.9696 + 0.0000 = 115.0304.\nFCFE_2 = 150.0000 - 4.9696 + 0.0000 = 145.0304.\nFCFE_3 = 180.0000 - 4.9696 - 127.4246 = 47.6059.\nE_0 = 115.0304/1.142308 + 145.0304/1.142308^2 + 47.6059/1.142308^3 = 243.7841, against the correct 236.6456. Equity is overstated by 7.1385, i.e. 3.0165%.\nWhy it is wrong: holding a constant RATIO means changing the LEVEL. The firm's levered value falls from 364.0702 to 282.7162 to 162.7266 to zero, so 35% of that decline has to be repaid at each date, and each repayment is cash shareholders fund.\nWhy it matters more than 3% suggests: this is H2025 Exercise 4(f), and the same debt schedule feeds the shields in the APV sub-question, the interest line in the FTE sub-question and the equity value at the end. One wrong schedule contaminates three later sub-answers.\nThe diagnostic that catches it: V^L_0 - D_0 = 236.6456, which the FTE answer must reproduce. 243.7841 does not, and the mismatch points straight at the debt column."
+    },
+    {
+      "type": "calc",
+      "q": "Helgeland Vind AS has a development phase and then a single large payoff: free cash flow of 5, 50 and 150 at dates 1 to 3, and then nothing. It holds d = 0.40, r_U = 10.0000%, r_D = 5.0000%, tau_c = 25%. Build the schedule, read the debt adjustments aloud, and check by APV.",
+      "hint": "rE = 0.100000 + 0.666667(0.050000) = 0.133333 = 13.3333%; r_wacc = 0.6000(0.133333) + 0.4000(0.050000)(0.75) = 0.080000 + 0.015000 = 0.095000 = 9.5000%. Pre-tax 0.100000 = rU.\nValue path from V^L_3 = 0.0000: V^L_2 = 150/1.095 = 136.9863; V^L_1 = 186.9863/1.095 = 170.7637; V^L_0 = 175.7637/1.095 = 160.5148. Value RISES from date 0 to date 1, because the big date-3 payoff comes one year closer while only 5 is paid out, and then falls once the payoff is behind the firm.\nDebt: 64.2059, 68.3055, 54.7945, 0.0000. Adjustments +4.0996, -13.5110, -54.7945.\nInterest on the opening balance: 3.2103, 3.4153, 2.7397; after tax 2.4077, 2.5615, 2.0548.\nFCFE: year 1, 5.0000 - 2.4077 + 4.0996 = 6.6918 (the firm borrows an extra 4.0996 because it is worth more, and shareholders keep it); year 2, 50.0000 - 2.5615 - 13.5110 = 33.9276 (value has fallen, so 13.5110 is retired); year 3, 150.0000 - 2.0548 - 54.7945 = 93.1507 (the firm winds up, so the whole remaining balance goes back).\nE_0 = 6.6918/1.133333 + 33.9276/1.133333^2 + 93.1507/1.133333^3 = 96.3089, and V^L_0 - D_0 = 160.5148 - 64.2059 = 96.3089.\nAPV: V^U = 158.5650; shields 0.8026, 0.8538, 0.6849 at rU give PV(TS) = 1.9498; total 160.5148. Note that the MIDDLE shield is the largest, because it is charged on D_1 = 68.3055, the peak of the debt path. If your largest shield sits in the wrong year, you used D_t where you needed D_(t-1)."
+    },
+    {
+      "type": "calc",
+      "q": "Take the Finnmark schedule again (FCF 120, 150, 180; D = 127.4246, 98.9507, 56.9543, 0.0000; r_D = 5.0000%, tau_c = 22%, r_E = 14.2308%; correct E_0 = 236.6456). Quantify two further errors: (a) subtracting the full pre-tax interest, and (b) charging interest on the closing balance D_t.",
+      "hint": "(a) Forgetting the (1 - tau_c). FCFE becomes 120.0000 - 6.3712 - 28.4739 = 85.1549; 150.0000 - 4.9475 - 41.9964 = 103.0561; 180.0000 - 2.8477 - 56.9543 = 120.1980. Discounted at rE that gives E_0 = 234.1641, understating equity by 2.4815.\nWhat the error deleted: the tax shield. FTE has no PV(TS) term and no adjusted rate, so the shield reaches the answer through exactly one channel, the (1 - tau_c) factor. Note that 2.4815 sits close to the PV(TS) of 2.6043 that APV computes at rU, the small gap being only the difference in discount rate.\n(b) Charging interest on D_t rather than D_(t-1): interest becomes 0.050000 x 98.9507 = 4.9475, then 2.8477, then 0.0000, after tax 3.8591, 2.2212, 0.0000. FCFE becomes 87.6670, 105.7824, 123.0457 and E_0 = 240.3631, overstating equity by 3.7175.\nThe direction here is worth noting: in a firm whose debt is FALLING, using the closing balance understates the interest and so overstates equity. In a growing firm the same off-by-one overstates every shield. Learn the mechanism, not the sign: interest in year t is charged on the balance the firm carried INTO year t."
+    },
+    {
+      "type": "control",
+      "q": "Write the flow-to-equity construction line by line and say what each term is doing. Then state what you must remember before comparing the result with a WACC or APV answer.",
+      "solution": "FCFE_t = FCF_t - (1 - tau_c)*Interest_t + (D_t - D_(t-1)), with Interest_t = rD*D_(t-1).\n\nThree terms, three ideas.\n\n1. FCF_t is the whole pot: the cash the operating business produces, computed before any financing, exactly as in the free cash flow chapter.\n\n2. (1 - tau_c)*Interest_t is what actually leaves the firm on account of the debt. The payment costs rD*D but saves tau_c*rD*D in tax, so the net outflow is the after-tax figure. Interest is charged on D_(t-1), the balance carried into the year.\n\n3. (D_t - D_(t-1)) is net borrowing. Money the lenders hand over is cash available to shareholders; money repaid to lenders is cash taken away from them. It is positive when debt rises and negative when it falls, and under a target ratio it equals d(V^L_t - V^L_(t-1)).\n\nThen E_0 = sum of FCFE_t/(1 + rE)^t. Two things to remember. The discount rate is rE, never r_wacc: FCFE belongs to shareholders alone. And the output is EQUITY value, so add D_0 back before comparing with a firm value from WACC or APV. Forgetting that addition is the commonest way to fail consistency check 1 on an otherwise correct calculation.\n\nIf the firm has a finite life, V^L_T = 0 so D_T = 0, and the whole balance D_(T-1) is repaid in the final year. That is usually the largest single number in the FCFE column."
+    },
+    {
+      "type": "explain",
+      "q": "Explain why the flow-to-equity method needs no PV(TS) term and no adjusted discount rate, and why it nevertheless gives exactly the same answer as the WACC method.",
+      "solution": "Why no PV(TS): the shield is already in the cash flow. Free cash flow was computed by taxing full EBIT, as if the firm had no interest deduction at all. Subtracting only (1 - tau_c)*Interest instead of the full Interest hands the deduction straight back to shareholders, year by year, as extra cash. So the shield arrives as cash and is discounted at rE along with everything else. It also explains why FTE produces equity value directly: the shareholders are the ones who actually receive the shield.\n\nWhy no adjusted rate: rE is a required return that already reflects the leverage through MM II. It is not adjusted for taxes, and it must not be. Only r_wacc carries the (1 - tau_c) factor, because only r_wacc is trying to fold the shield into a rate.\n\nWhy it agrees with WACC: the two methods are the same equation rearranged. At every date V^L_t = E_t + D_t. Discounting FCF at r_wacc is a statement about the whole right-hand side; discounting FCFE at rE is the same statement about the first term only, once you have taken out what the lenders receive and put back what they lend. Nothing is added or removed anywhere, so the totals must agree.\n\nThe practical value of running both is that they fail in different ways. A mistake in the debt schedule shows up loudly in FTE and can hide entirely inside a WACC calculation, since a single r_wacc never asks you what the debt level actually was."
+    },
+    {
+      "type": "explain",
+      "q": "Explain the circularity D_t = d*V^L_t, why the WACC method escapes it and APV does not, and what that implies for the order in which you answer a nine-part exercise.",
+      "solution": "The circularity. Under a target-ratio policy the debt at date t is d times the levered value at date t. To value the firm by APV you need the tax shields; to get the shields you need the debt levels in kroner; to get the debt levels you need the values. Round in a circle.\n\nWhy WACC escapes it. r_wacc depends on the debt RATIO, not on the debt LEVEL. The ratio is given to you in the question: it is d. So you can build rE from d, rU and rD, then r_wacc, then the whole value path, before you know a single krone of anything. APV needs levels, and levels are not available until the values are.\n\nThe way out is therefore not iteration. Iterating - guess a value, derive the debt, value the shields, get a new value, repeat - is correct but hopeless in a three-hour exam and should never appear on the paper. Value first by WACC, roll V^L_t back from the last period, then read D_t = d*V^L_t off the value path.\n\nWhat it implies for the order. Compute the whole value path V^L_0, V^L_1, ... even when only V^L_0 is asked for in that sub-question, because the next sub-question will need the rest. Then the debt schedule, then the adjustments, then the shields, then APV, then the flow to equity. This is exactly the order in which the exam asks for them, and it is not a coincidence: the exam always puts the WACC valuation before the APV valuation because the APV route cannot start until the WACC route has finished."
+    },
+    {
+      "type": "reflect",
+      "q": "H2025 Exercise 4(f) asked for the debt outstanding at every date and the adjustment between periods, and it is described as the step almost everyone gets wrong. Why is this particular step so easy to lose, and what habit protects it?",
+      "solution": "Two distinct failures, both in the same direction.\n\nThe first is leaving debt at its opening level for the whole horizon. This is a reading failure: the question says the firm holds a target ratio, and holding a constant RATIO means changing the LEVEL. Reading 'the firm has a debt-to-value ratio of 0.35' as 'the firm has 127.4246 of debt' quietly abandons the policy the question stated, while looking like an answer.\n\nThe second is computing the debt path correctly and then never putting the change into the flow to equity, treating the schedule as bookkeeping rather than as cash. A repayment is cash shareholders fund; new borrowing is cash they keep. Both belong in FCFE with their own sign.\n\nBoth overstate the cash reaching shareholders and so overstate equity, typically by a few percent, which is enough to be visible against a key measured to four decimals.\n\nWhy it is the normal case and not an exotic one: nearly every firm valued over a finite horizon has a falling V^L in its later years, simply because there are fewer cash flows left in front of it. A firm valued off a terminal value has the opposite pattern and borrows every year. A firm with back-loaded cash flows does both, in that order.\n\nThe habit that protects it: build the value path first, then write D_t = d*V^L_t on its own row, then a row of differences directly underneath. Seeing the differences written out as a row makes it almost impossible to forget that they are cash. And close with the cross-check V^L_0 - D_0 against the FTE equity value, because that is the only comparison that tests the debt column at all."
+    }
+  ],
+  "20": [
+    {
+      "type": "calc",
+      "q": "Storfjord Systemer AS. Sales are 500 in year 0 and forecast at 560, 620 and 660. Operating costs excluding depreciation are 60% of sales. Depreciation is 55 a year, CapEx is 60, 60 and 66, net working capital is 15% of that year's sales, every operating item grows at 2.5000% after year 3, and tau_c = 25%. Compute FCF for years 1 to 3 and the normalised year-4 flow.",
+      "hint": "Put the NWC LEVEL in a row of its own before differencing it: 0.15 x sales gives 75.00, 84.00, 93.00, 99.00, so dNWC is 9.00, 9.00, 6.00.\nYear 1: EBIT = 560.00 - 336.00 - 55.00 = 169.00; EBIT(1 - tau_c) = 126.7500; FCF_1 = 126.7500 + 55.00 - 60.00 - 9.00 = 112.7500.\nYear 2: EBIT = 620.00 - 372.00 - 55.00 = 193.00; after tax 144.7500; FCF_2 = 144.7500 + 55.00 - 60.00 - 9.00 = 130.7500.\nYear 3: EBIT = 660.00 - 396.00 - 55.00 = 209.00; after tax 156.7500; FCF_3 = 156.7500 + 55.00 - 66.00 - 6.00 = 139.7500.\nWorking-capital check: 9.00 + 9.00 + 6.00 = 24.00 and NWC_3 - NWC_0 = 99.00 - 75.00 = 24.00.\nNormalised year 4, built from components: EBIT_4 = 209.00 x 1.025 = 214.2250, after tax 160.6688; Dep_4 = 56.3750; CapEx_4 = 67.6500; Sales_4 = 676.5000 so dNWC_4 = 0.15(676.5000 - 660.00) = 2.4750. FCF_4 = 160.6688 + 56.3750 - 67.6500 - 2.4750 = 146.9188.\nGrowing FCF_3 instead gives 139.7500 x 1.025 = 143.2438, understating by 3.6750, because year 3 was not a steady-state year: sales grew 6.45%, so it absorbed 6.00 of working capital where the steady state needs 2.4750, and CapEx stepped up to 66.00. Normalise the terminal year, always."
+    },
+    {
+      "type": "calc",
+      "q": "Storfjord's listed comparable Kvitsoy Teknikk ASA has equity worth 640 and debt worth 160, r_E = 13.2000% and r_D = 4.6000%. r_f = 3.5000%, market risk premium 5.5000%. Storfjord will hold D/V = 0.25, borrows at 4.6000%, tau_c = 25%. Find beta_U, r_U, Storfjord's beta_E and r_E, and both WACCs.",
+      "hint": "beta_E = (0.132000 - 0.035000)/0.055000 = 1.763636; beta_D = (0.046000 - 0.035000)/0.055000 = 0.200000. Weights on the COMPARABLE: E/V = 0.8000, D/V = 0.2000.\nbeta_U = 0.8000(1.763636) + 0.2000(0.200000) = 1.410909 + 0.040000 = 1.450909, so rU = 0.035000 + 1.450909(0.055000) = 0.035000 + 0.079800 = 0.114800 = 11.4800%.\nCross-check on the comparable's own rates: 0.8000(0.132000) + 0.2000(0.046000) = 0.105600 + 0.009200 = 0.114800. Same rU from rates as from betas, which is the line that catches a dropped debt beta.\nRelever to d = 0.25, so E/V = 0.7500 and D/E = 0.333333: beta_E = 1.450909 + 0.333333(1.450909 - 0.200000) = 1.450909 + 0.416970 = 1.867879, and rE = 0.035000 + 1.867879(0.055000) = 0.035000 + 0.102733 = 0.137733 = 13.7733%. MM II cross-check: 0.114800 + 0.333333(0.114800 - 0.046000) = 0.114800 + 0.022933 = 0.137733.\nPre-tax WACC: 0.7500(0.137733) + 0.2500(0.046000) = 0.103300 + 0.011500 = 0.114800 = rU, under this course's rebalancing convention.\nAfter-tax WACC: 0.7500(0.137733) + 0.2500(0.046000)(0.75) = 0.103300 + 0.008625 = 0.111925 = 11.1925%. The gap between the two is (D/V)*rD*tau_c = 0.2500 x 0.046000 x 0.25 = 0.002875, a rate cut of 0.2875 pp.\nWatch the trap: the comparable runs at D/V = 0.2000 and Storfjord at 0.2500. Only beta_U and rU cross between them."
+    },
+    {
+      "type": "calc",
+      "q": "Continue: FCF = 112.7500, 130.7500, 139.7500 with FCF_4 = 146.9188 growing at 2.5000%, r_wacc = 11.1925%, d = 0.25, r_D = 4.6000%, tau_c = 25%. Value the firm by WACC at every date, verify with the one-line sum, and build the debt schedule with the adjustments, interest and shields.",
+      "hint": "TV_3 = 146.9188/(0.111925 - 0.025000) = 146.9188/0.086925 = 1 690.1783, a DATE-3 value.\nRoll back from V^L_3 = 1 690.1783: V^L_2 = (139.7500 + 1 690.1783)/1.111925 = 1 645.7300; V^L_1 = (130.7500 + 1 645.7300)/1.111925 = 1 597.6617; V^L_0 = (112.7500 + 1 597.6617)/1.111925 = 1 538.2438.\nOne-line check: 101.4007 + 105.7525 + 101.6542 + 1 229.4363 = 1 538.2438.\nDebt schedule, D_t = 0.25 V^L_t: 384.5609, 399.4154, 411.4325, 422.5446.\nAdjustments: +14.8545, +12.0171, +11.1121. All positive, because Storfjord's levered value rises every year as the business grows, so holding leverage at 25% means borrowing more each year. That cash is available to shareholders and enters FCFE with a plus sign.\nInterest on the OPENING balance: 0.046000 x 384.5609 = 17.6898, then 18.3731, then 18.9259. Shields tau_c x interest: 4.4225, 4.5933, 4.7315.\nThe shield for year 4 and beyond starts from D_3 = 422.5446: TS_4 = 0.25 x 0.046000 x 422.5446 = 4.8593, growing at 2.5000% forever alongside the firm. Taking it from D_2 instead understates the continuing shield by a full year of growth: 52.6890 at date 3 instead of 54.1121.\nSanity: D_0/V^L_0 = 384.5609/1 538.2438 = 0.250000, the target ratio you were given."
+    },
+    {
+      "type": "calc",
+      "q": "Continue: value Storfjord by APV using r_U = 11.4800%, and run the checks. FCF = 112.7500, 130.7500, 139.7500, FCF_4 = 146.9188, g = 2.5000%, shields 4.4225, 4.5933, 4.7315 and TS_4 = 4.8593. Then say what would have happened with the shield discounted at r_D = 4.6000%.",
+      "hint": "Unlevered half: TV^U_3 = 146.9188/(0.114800 - 0.025000) = 146.9188/0.089800 = 1 636.0663, also a date-3 value. V^U = 101.1392 + 105.2078 + 100.8697 + 1 180.8915 = 1 488.1083.\nShield half: Storfjord rebalances to a constant D/V, so the shield carries asset risk and is discounted at rU. The continuing piece at date 3 is 4.8593/0.089800 = 54.1121, so PV(TS) = 3.9671 + 3.6960 + 3.4151 + 39.0574 = 50.1355.\nV^L_0 = 1 488.1083 + 50.1355 = 1 538.2438, matching the WACC answer.\nWith the shield at rD instead: the continuing piece becomes 4.8593/(0.046000 - 0.025000) = 231.3935, PV(TS) rises to 214.7487 and the APV total of 1 702.8570 misses the WACC total by 164.6132. That is what the check is for.\nConsistency check 2: 0.7500(1.867879) + 0.2500(0.200000) = 1.400909 + 0.050000 = 1.450909 = beta_U. Say plainly that this one cannot fail, since beta_E was produced by relevering that same beta_U; it still catches a slip in the weights or the (1 - tau_c) unlevering this course rejects.\nScale line: PV(TS) is 50.1355/1 538.2438 = 3.2593% of firm value, which is what a 25% target ratio at 4.6000% borrowing and 25% tax is worth. tau_c*D_0 = 96.1402 would be 1.9176 times too large."
+    },
+    {
+      "type": "calc",
+      "q": "Finish the case. Storfjord has V^L_0 = 1 538.2438, D_0 = 384.5609, r_E = 13.7733%, holds 90 of excess cash and has 20 million shares. Value the equity by flow to equity as an extra check, then give the equity value and the price per share.",
+      "hint": "FCFE_t = FCF_t - (1 - tau_c)Interest_t + dD_t: 112.7500 - 0.75(17.6898) + 14.8545 = 114.3371; 130.7500 - 0.75(18.3731) + 12.0171 = 128.9872; 139.7500 - 0.75(18.9259) + 11.1121 = 136.6677.\nThe equity continuing at date 3 is E_3 = V^L_3 - D_3 = 1 690.1783 - 422.5446 = 1 267.6337. Discount everything at rE = 13.7733%: 100.4955 + 99.6474 + 92.7992 + 860.7407 = 1 153.6828.\nCross-check: V^L_0 - D_0 = 1 538.2438 - 384.5609 = 1 153.6828. Three methods, one number: by WACC 1 538.2438, by APV 1 538.2438, by FTE 1 153.6828 + 384.5609 = 1 538.2438. The FTE route confirms in addition that the debt schedule is internally consistent, which neither of the other two would have revealed on its own.\nStep (i): E_0 = V^L_0 + excess cash - D_0 = 1 538.2438 + 90.0000 - 384.5609 = 1 243.6828, and the price per share is 1 243.6828/20 = 62.1841.\nCheck: the FTE equity in the operating business was 1 153.6828, and 1 153.6828 + 90.0000 = 1 243.6828. Excess cash is worth its face value today, never appeared in free cash flow, and is simply added at the end; cash required for operations is already inside NWC and must not be added again."
+    },
+    {
+      "type": "control",
+      "q": "Write out the nine steps of a full levered valuation in the order a Kurbatov paper puts them, and state what each step needs from the ones before it.",
+      "solution": "(a) Free cash flow for the explicit years, plus a NORMALISED flow for the first terminal year. Needs only the projections.\n\n(b) The unlevered beta and the unlevered cost of capital of the business, from the comparable. Needs only the comparable's equity and debt values and its rE and rD. This and (a) are the two independent starting points; everything else is derived.\n\n(c) Your own cost of equity at your target leverage. Needs beta_U or rU from (b) and your own d.\n\n(d) The pre-tax and after-tax WACC. Needs (c). Write the pre-tax line even if nobody asked for it.\n\n(e) Value by the WACC method, giving V^L at every date. Needs (a) and (d). Use the backward recursion so the whole path exists.\n\n(f) The debt outstanding at every date and the adjustment between periods: D_t = d*V^L_t and dD_t = d(V^L_t - V^L_(t-1)). Needs the value path from (e). This is the step the exercise is won or lost on.\n\n(g) Value by the APV method. Needs the raw free cash flow from (a), rU from (b) and the debt schedule from (f). It touches neither rE nor r_wacc, which is what makes the next step informative rather than circular about the shield's rate.\n\n(h) Show that (e) and (g) agree, and run the other checks available, naming them by number.\n\n(i) Equity value and value per share: E_0 = V^L_0 + excess cash - D_0, then divide by the share count.\n\nThe order is forced by the dependencies, and it is why the exam always asks for the WACC valuation before the APV one."
+    },
+    {
+      "type": "explain",
+      "q": "Explain why excess cash is added at the end of a valuation rather than discounted, and how it differs from operating cash.",
+      "solution": "Because it is already worth its face value today. Discounting is how you convert a future, risky amount into a present one, and cash in the bank is neither future nor risky: 90 of cash is worth 90. It also never appeared in free cash flow, since FCF measures what the OPERATIONS generate and idle cash generates nothing operational. So it is a separate asset, added at the end alongside the subtraction of debt.\n\nThe distinction that matters on the paper is between excess cash and operating cash. Operating cash - the balance the business needs to run day to day - is part of net working capital, so it has already been paid for inside the dNWC line of the free cash flow build. Adding it again double counts. If the question says 'cash required for operations', it is inside NWC. If it says 'excess cash' or 'marketable securities', it goes on at the end.\n\nTwo related traps in the same step. The debt to subtract under a target-ratio valuation is D_0 = d*V^L_0, the level consistent with the policy you valued on, not a book figure from a balance sheet; if the question gives a conflicting book figure, say which you are using and why in one sentence. And read the final sub-question again before writing the last line: reporting an enterprise value when a share price was asked for throws away marks after a perfect valuation."
+    },
+    {
+      "type": "reflect",
+      "q": "This one exercise is worth more preparation than any other on the paper. Why? And what exactly does consistency check 1 prove about it?",
+      "solution": "Why it deserves the preparation. It is the only place on the paper where six chapters are examined at once, and the sub-questions are chained. Free cash flow feeds the valuation, the comparable feeds the discount rate, the discount rate feeds the value path, the value path feeds the debt schedule, the debt schedule feeds the shield and the flow to equity, and the last sub-question needs all of it. One arithmetic slip in the unlevering step travels through seven answers. A WACC-and-APV valuation on one case appears in all eleven mapped papers and is normally the largest single exercise, worth 18 to 20 points across up to nine sub-questions.\n\nThat is also the opportunity: run the checks before you write the final line and you catch your own slip while there is still time to fix it, which is worth more marks than any single formula in this part of the course.\n\nWhat check 1 proves, precisely. It proves that your algebra hangs together: that the shield was discounted at the rate the debt policy implies, and that the year-by-year arithmetic is right. Discount the shield at rD instead of rU in the Storfjord case and the APV total misses by 164.6132, which is unmissable.\n\nWhat it does NOT prove: that you read the question correctly. beta_U feeds rU, which feeds rE, which feeds r_wacc, so a wrong beta_U moves both routes together and they still agree. Misread the comparable's equity as 160 and its debt as 640 and both routes land on 3 828.6758 for a firm worth 1 538.2438, and the check signs off perfectly. It is also worth saying that the check is a fixed point rather than two independent routes, because the APV route takes its debt levels from the WACC answer.\n\nThe guard against a misread input is not a check but a habit: write E/V and D/V down as numbers, read them back against the balance sheet, and reread the inputs once before step (e), because after that every number on the page depends on them."
+    }
+  ],
+  "21": [
+    {
+      "type": "calc",
+      "q": "A share trades at 72.00. A TWO-year European call with K = 75 costs 9.80 and r_f = 4.50%. (a) Value the two-year European put. (b) Check the answer against the bounds. (c) What would forgetting the exponent have cost?",
+      "hint": "(a) (1.045)^2 = 1.0920, so PV(K) = 75/1.0920 = 68.6797. P = C - S + PV(K) = 9.80 - 72.00 + 68.6797 = 6.4797.\nRun it backwards: C = P + S - PV(K) = 6.4797 + 72.00 - 68.6797 = 9.8000, and C - P = 3.3203 = S - PV(K) = 72.00 - 68.6797.\n(b) Call bounds: max(S - PV(K), 0) = 3.3203 and S = 72.0000, so 9.80 sits inside. Put bounds: max(PV(K) - S, 0) = 0.0000 and PV(K) = 68.6797, so 6.4797 is admissible.\n(c) Discounting one year gives PV(K) = 75/1.045 = 71.7703 and P = 9.5703, an error of 3.0906. Nothing inside the question would catch it, because the wrong answer is internally consistent. The exponent is T, always."
+    },
+    {
+      "type": "calc",
+      "q": "You observe S = 110.00, a one-year call at 8.40 and a one-year put at 14.00, both struck at 120, no dividends. Recover the one-year risk-free rate to four decimals, and say what assumptions you used.",
+      "hint": "PV(K) = S + P - C = 110.00 + 14.00 - 8.40 = 115.6000. This is the fourth rearrangement of parity, and the exam has used it.\nr_f = K/PV(K) - 1 = 120/115.6000 - 1 = 0.0380623 = 3.8062%. With T = 2 you would need the square root of 120/PV(K).\nCheck: 120/1.0380623 = 115.6000, and C = P + S - PV(K) = 14.00 + 110.00 - 115.6000 = 8.4000, reproducing the quoted call.\nAssumptions, worth half a sentence because it is often a separate mark: European options, same strike, same maturity, same underlying, no dividends before T.\nWhy it works with no model at all: the two portfolios pay max(S_T, 120) in EVERY state, so their prices must be equal, and the only unknown left in that identity is a bond price - which is a discount rate."
+    },
+    {
+      "type": "calc",
+      "q": "S = 118.00, r_f = 6.00%, and a one-year European call with K = 110 is quoted at 9.00. Show that the quote is impossible and build the arbitrage as a table.",
+      "hint": "PV(K) = 110/1.06 = 103.7736, so the floor is max(118.00 - 103.7736, 0) = 14.2264. The quote is 5.2264 below it. Note that the INTRINSIC floor, 118.00 - 110 = 8.00, would have accepted this price - discount the strike before you compare.\nThe call is cheap relative to the share, so buy the call, short the share, lend PV(K):\nBuy the call: -9.00 today, max(S_T - 110, 0) at T.\nShort one share: +118.00 today, -S_T at T.\nLend 103.7736 at 6%: -103.7736 today, +110.00 at T.\nNet today: +5.2264. Net at T: max(110 - S_T, 0), never negative.\nStates: S_T = 80 gives +30.00; S_T = 110 gives 0.00; S_T = 150 gives 40 - 150 + 110 = 0.00.\nCheck: money in today, nothing ever owed later. The minimum consistent quote is 14.2264, and at exactly that price the strategy nets 0.0000 today - which is what a bound at equality must give."
+    },
+    {
+      "type": "calc",
+      "q": "You buy one call (K = 210) for 13.60 and one put (K = 210) for 23.60 on the same share, both one-year, r_f = 5.00%. Tabulate payoff and profit at S_T = 140, 190, 210 and 270, find both break-evens, and check the zero-sum property against the call writer.",
+      "hint": "Call payoffs: 0.00, 0.00, 0.00, 60.00. Call profits (premium sunk): -13.60, -13.60, -13.60, +46.40.\nPut payoffs: 70.00, 20.00, 0.00, 0.00. Put profits: +46.40, -3.60, -23.60, -23.60.\nBreak-evens: the call's is where max(S_T - 210, 0) = 13.60, so S_T = 223.6000. The put's is where max(210 - S_T, 0) = 23.60, so S_T = 186.4000.\nFinanced version, if the premium was borrowed at 5%: the call owes 13.60(1.05) = 14.2800, so 224.2800; the put owes 23.60(1.05) = 24.7800, so 185.2200. Use the simple version unless the question mentions financing, and SAY which you used.\nWritten-call profits are the mirror image: +13.60, +13.60, +13.60, -46.40. At every price, long call profit + written call profit = 0.\nThat zero-sum property is exactly why the contract can be priced by arbitrage in chapter 22.\nNote at S_T = 190 the put loses money (20.00 - 23.60 = -3.60) even though it finishes in the money: moneyness is not profitability."
+    },
+    {
+      "type": "control",
+      "q": "State the four arbitrage bounds and give the one-sentence argument for each.",
+      "solution": "max(S - PV(K), 0) <= C <= S and max(PV(K) - S, 0) <= P <= PV(K), for European options on a share paying no dividends, with PV(K) = K/(1 + r_f)^T.\n\nC <= S: the call gives you the share only if you also hand over K, so it cannot be worth more than the share handed over for free.\nC >= S - PV(K): buy the call and lend PV(K); at T you hold max(S_T - K, 0) + K = max(S_T, K), which is at least S_T, so the package beats holding the share and must cost at least as much.\nP <= PV(K): the most a put can ever pay is K, when the share is worthless - and you only get it at T.\nP >= PV(K) - S: the same argument in reverse.\n\nWhy they earn their keep: they let you reject an impossible quote in one line, and the call's lower bound is the reason an American call on a non-dividend share is never exercised early."
+    },
+    {
+      "type": "explain",
+      "q": "Explain, without any formula, why the asymmetry of an option's payoff is the whole subject of Part V.",
+      "solution": "The holder chooses whether to exercise AFTER seeing S_T. That single feature truncates the left tail: the worst outcome for a long call is that the right expires worthless, and no state of the world can make it worse. The upside is not truncated. So the holder owns the good states and has given up nothing but the premium.\n\nEverything later is a consequence of that one-sided max(., 0). Time value exists because a share that falls to 140 and a share that drifts to 200 are equally worthless to a call struck at 210, so only the favourable states carry weight in the price. Option value rises with volatility (chapter 23) because extra dispersion lands on a flat payoff on one side and a sloping one on the other. Equity is worth more when the firm gets riskier (chapter 24) because limited liability is the same truncation applied to the balance sheet. And the option to wait is valuable (chapter 25) because max(0, NPV_i) declines the bad states.\n\nWhen an exam asks you to explain an option result verbally, start from the truncation. It is the same sentence four times over, and the solution keys reward naming it."
+    },
+    {
+      "type": "reflect",
+      "q": "Parity appears in four of the eleven mapped papers and is not on the formula sheet. What exactly earns the marks on a parity question, and what wastes time?",
+      "solution": "Two shapes turn up. The first hands you three of the four quantities in C + PV(K) = P + S and asks for the fourth - sometimes for r_f or S rather than an option price. The marks go to three lines: PV(K) = ..., then C - P = S - PV(K), then the number. Add half a sentence naming the assumptions (European, same K and T, same underlying, no dividends), because that is often a separate mark, and quote rates to four decimals, as H2025 demanded.\n\nThe second gives you four prices that do not satisfy parity and asks what to do. The answer is always: price both portfolios, buy the cheap one and sell the dear one, and show the payoffs cancel in EVERY state, not just at two convenient prices. Then check that the profit today reproduces the parity gap exactly - if it does not, you bought the expensive side.\n\nWhat wastes time: reaching for a model. If a question gives you a call and asks for a put but also hands you a volatility, resist it. Parity gets you there exactly in thirty seconds; Black-Scholes gets you there approximately in five minutes. Say in one line why parity is exact - identical payoffs state by state, so no distribution, no risk preference and no expected return can enter."
+    }
+  ],
+  "22": [
+    {
+      "type": "calc",
+      "q": "Sorlandet Energi trades at S0 = 120.00 and will be worth 150.00 or 100.00 in a year; r_f = 6.00%. Value the one-year European call with K = 130 by replication, verify it state by state, then reproduce it risk-neutrally.",
+      "hint": "First check the tree is admissible: 100.00 < (1.06)(120.00) = 127.20 < 150.00.\nPayoffs: Cu = max(150.00 - 130, 0) = 20.00, Cd = 0.00.\nDelta = (20.00 - 0.00)/(150.00 - 100.00) = 0.4000. It is a ratio of DIFFERENCES, not Cu/Su = 0.1333.\nB = (0.00 - 100.00 x 0.4000)/1.06 = -40.00/1.06 = -37.7358, so you borrow 37.7358 today and repay 40.00.\nC = 120.00(0.4000) - 37.7358 = 48.0000 - 37.7358 = 10.2642.\nState check, the step that earns the marks: up, 0.4(150.00) - 40.00 = 20.00 = Cu; down, 0.4(100.00) - 40.00 = 0.00 = Cd.\nRisk-neutral route: rho = [1.06(120.00) - 100.00]/50.00 = 27.20/50.00 = 0.5440. Verify it reprices the share: [0.5440(150.00) + 0.4560(100.00)]/1.06 = 127.20/1.06 = 120.0000.\nC = [0.5440(20.00) + 0.4560(0.00)]/1.06 = 10.8800/1.06 = 10.2642. Identical, as it must be - the two are the same equation rewritten."
+    },
+    {
+      "type": "calc",
+      "q": "Same tree. (a) Value the put with K = 130 by replication. (b) Price it risk-neutrally. (c) Run the put-call parity check and say why it is a genuine check.",
+      "hint": "(a) Pu = max(130 - 150.00, 0) = 0.00, Pd = max(130 - 100.00, 0) = 30.00.\nDelta_P = (0.00 - 30.00)/50.00 = -0.6000 - negative, so the put is replicated by SHORTING 0.6 shares and lending.\nB_P = (30.00 - 100.00(-0.6000))/1.06 = 90.00/1.06 = 84.9057, positive, so you lend.\nP = 120.00(-0.6000) + 84.9057 = -72.0000 + 84.9057 = 12.9057.\n(b) P = [0.5440(0.00) + 0.4560(30.00)]/1.06 = 13.6800/1.06 = 12.9057.\n(c) PV(K) = 130/1.06 = 122.6415, so P + S0 - PV(K) = 12.9057 + 120.0000 - 122.6415 = 10.2642 - the call from the previous exercise.\nWhy it is genuine and not an identity you cannot fail: the call and the put came from DIFFERENT payoff vectors and DIFFERENT hedge ratios, and parity was never used to produce either. It would catch a sign error in Delta_P or a strike discounted at the wrong rate.\nAlso note Delta_C - Delta_P = 0.4000 - (-0.6000) = 1.0000, which is parity differentiated: a call minus a put is one share."
+    },
+    {
+      "type": "calc",
+      "q": "The market quotes the Sorlandet call at 12.00 instead of 10.2642. Trade against it and show the position closes out in both states. Then compute the option's own expected return using a true up-probability of 0.65 and reconcile it with the levered-position formula.",
+      "hint": "Direction: the quote is too high, so SELL the option and buy the replicating portfolio.\nToday: sell the call +12.00, buy 0.4 shares -48.00, borrow +37.7358. Net = +1.7358.\nUp: shares 60.00, loan -40.00, written call -20.00, net 0.0000. Down: shares 40.00, loan -40.00, call 0.00, net 0.0000.\nCheck: the profit 1.7358 equals the mispricing 12.0000 - 10.2642 = 1.7358 exactly.\nExpected returns, now using the real probability: E[S1] = 0.65(150.00) + 0.35(100.00) = 132.5000, so r_S = 132.5000/120.00 - 1 = 10.4167%. E[call payoff] = 0.65(20.00) = 13.0000, so r_C = 13.0000/10.2642 - 1 = 26.6544%.\nDiscounting the true expected payoff works ONLY at that rate: 13.0000/1.266544 = 10.2642.\nReconcile: the call is a levered position in the share - 48.0000 of shares financed by 37.7358 of debt against 10.2642 of your own money. r_f + (S0 x Delta/C)(r_S - r_f) = 0.0600 + 4.6765(0.104167 - 0.0600) = 0.266544. That is chapter 4's relevering formula with the option playing the part of the equity.\nAnd the circularity is the point: you cannot know 26.6544% until you already know the price. That is why the risk-neutral route wins."
+    },
+    {
+      "type": "calc",
+      "q": "A recombining tree has S0 = 100.00, u = 1.25, d = 0.80 and r_f = 7.00% per period, two periods. (a) Value a European call with K = 90 by backward induction and by the direct formula. (b) Give the three hedge ratios and say what rebalancing means.",
+      "hint": "(a) rho = (1.07 - 0.80)/(1.25 - 0.80) = 0.27/0.45 = 0.6000, the same at every node because it depends only on u, d and r_f.\nShare tree: 125.00 and 80.00; then 156.25, 100.00 and 64.00 (up-then-down and down-then-up both land on 100.00).\nDate-2 payoffs: 66.25, 10.00, 0.00.\nCu = [0.6000(66.25) + 0.4000(10.00)]/1.07 = 43.7500/1.07 = 40.8879. Cd = [0.6000(10.00)]/1.07 = 6.0000/1.07 = 5.6075.\nC0 = [0.6000(40.8879) + 0.4000(5.6075)]/1.07 = 26.7757/1.07 = 25.0240.\nDirect: weights 0.3600, 0.4800 and 0.1600 (they sum to 1.0000), so C0 = [0.3600(66.25) + 0.4800(10.00)]/(1.07)^2 = 28.6500/1.1449 = 25.0240.\nDrop the factor 2 on the middle term and you get 26.2500/1.1449 = 22.9278 - a standard slip, since TWO paths reach 100.00.\n(b) Delta_0 = (40.8879 - 5.6075)/45.00 = 0.7840; Delta_u = (66.25 - 10.00)/(156.25 - 100.00) = 1.0000; Delta_d = (10.00 - 0.00)/(100.00 - 64.00) = 0.2778.\nSo you start with 0.784 shares; after a rise you must buy up to a full share, after a fall sell down to 0.278. The extra shares are bought with extra borrowing, so the strategy is self-financing, and the position's value at each node is exactly the option value there.\nReplication check at the root: B0 = (5.6075 - 80.00 x 0.7840)/1.07 = -53.3768, and 100.00(0.7840) - 53.3768 = 25.0240."
+    },
+    {
+      "type": "calc",
+      "q": "On the same tree, value an AMERICAN put with K = 110 and compare it with the European one. Where exactly does the difference arise?",
+      "hint": "Date-2 payoffs: max(110 - 156.25, 0) = 0.00, max(110 - 100.00, 0) = 10.00, max(110 - 64.00, 0) = 46.00.\nUp node (S = 125.00): continuation [0.6000(0.00) + 0.4000(10.00)]/1.07 = 4.0000/1.07 = 3.7383 against immediate exercise max(110 - 125.00, 0) = 0.0000. Hold, value 3.7383.\nDown node (S = 80.00): continuation [0.6000(10.00) + 0.4000(46.00)]/1.07 = 24.4000/1.07 = 22.8037 against immediate exercise 110 - 80.00 = 30.0000. EXERCISE, value 30.0000.\nRoot: continuation [0.6000(3.7383) + 0.4000(30.0000)]/1.07 = 14.2430/1.07 = 13.3112 against immediate exercise 110 - 100.00 = 10.0000. Hold, value 13.3112.\nEuropean: roll 22.8037 back instead of 30.0000, giving [0.6000(3.7383) + 0.4000(22.8037)]/1.07 = 11.3645/1.07 = 10.6210.\nThe right to exercise early is worth 13.3112 - 10.6210 = 2.6902, and it all comes from the down node at date 1.\nThe expensive error is rolling the terminal payoffs straight to the root with risk-neutral weights: that gives 10.6210, a perfectly correct EUROPEAN price, so no internal check complains. Write one line at each node showing both candidates and which you took."
+    },
+    {
+      "type": "calc",
+      "q": "A traded copper certificate holds copper, pays nothing along the way, trades at 60.00 and will be worth 78.00 or 48.00 in a year; r_f = 5.00%. A mine may be built in one year for 55; if built, it produces a CERTAIN cash flow for four years, at dates 2 to 5: 22 a year if copper is strong, 8 a year if it is weak. Management believes the strong state has probability 0.70. Value the mine.",
+      "hint": "Step 1 - extract rho from the traded twin. (1.05)(60.00) = 63.0000, so rho = (63.0000 - 48.00)/(78.00 - 48.00) = 15.0000/30.00 = 0.5000. Check: [0.5000(78.00) + 0.5000(48.00)]/1.05 = 63.0000/1.05 = 60.0000.\nStep 2 - the annuity factor. The cash flows are certain once the state is known, so discount at r_f: 1.05^4 = 1.2155, 1/1.2155 = 0.8227, AF = (1 - 0.8227)/0.05 = 3.5460.\nStep 3 - value the mine in each state at date 1. Strong: 22(3.5460) = 78.0109, so NPV_1 = 78.0109 - 55 = 23.0109. Weak: 8(3.5460) = 28.3676, so NPV_1 = -26.6324.\nStep 4 - apply the option: build only in the strong state, so the date-1 values are 23.0109 and 0.0000.\nStep 5 - discount at r_f with the risk-neutral weights: V0 = [0.5000(23.0109)]/1.05 = 11.5054/1.05 = 10.9576.\nCheck 1 - what the flexibility is worth: committed to building either way, [0.5000(23.0109) + 0.5000(-26.6324)]/1.05 = -1.8107/1.05 = -1.7245. A pre-committed developer would reject the deposit, so the right to wait is worth 10.9576 - (-1.7245) = 12.6821 and turns a negative-value asset into a positive one.\nCheck 2 - the error to avoid: management's 0.70 paired with r_f gives 0.70(23.0109)/1.05 = 15.3406, overstating the mine by 4.3830. The only probability entitled to r_f is rho."
+    },
+    {
+      "type": "control",
+      "q": "Write down the no-arbitrage condition a binomial tree must satisfy, and say what it guarantees.",
+      "solution": "S_d < (1 + r_f)S_0 < S_u.\n\nThe share must be able to beat the risk-free investment in one state and lose to it in the other. If (1 + r_f)S_0 were at or below S_d, the share would dominate the bond and you would borrow without limit to buy it; if it were at or above S_u, the reverse trade would be free money.\n\nWhat it guarantees: rho = [(1 + r_f)S_0 - S_d]/(S_u - S_d) lies strictly between 0 and 1, so the risk-neutral weights are genuine weights. Check it in one line before computing anything - on the Sorlandet tree, 100.00 < 127.20 < 150.00.\n\nNote what the condition is NOT about: it says nothing about the true probability of either state, and nothing about the strike. rho belongs to the tree, not to the derivative, which is exactly why the same rho prices a call, a put and a project on that tree."
+    },
+    {
+      "type": "explain",
+      "q": "In four sentences, explain why the true probability of the up state never enters a binomial option price, and where the market's beliefs actually went.",
+      "solution": "The option is replicated exactly, state by state - not on average, in every state. Because the match is exact, two things that are equal in all circumstances have the same value under any beliefs and any risk preferences, so beliefs simply cancel. The market's beliefs and its risk aversion are not ignored: they already sit inside the observed share price S_0, so that information is used through a price rather than through a probability you would have to guess. Therefore rho is a pricing weight, not a forecast, and it should never be presented as one.\n\nA fifth sentence, if you have room: the difference between rho and the true probability is exactly the amount of risk adjustment the market applies - for an asset paying off in good times rho sits below the true probability, and for one paying off in bad states it sits above.\n\nThis is a standing discussion question, and the marks go to computing rho, to saying that discounting is at r_f BECAUSE rho already carries the risk adjustment, and to stating in words that the true probability is irrelevant."
+    },
+    {
+      "type": "reflect",
+      "q": "The formula sheet gives you Delta, B and rho, so the arithmetic is not what separates candidates. What is?",
+      "solution": "Two things. First, knowing which of the two routes to take and showing that they agree. Replication and risk-neutral valuation are the same equation rewritten, so producing both and noting they match costs almost nothing and demonstrates that you know why. Second, being able to say in three sentences why the true probability never appears - because that is a standing discussion question and because misusing real probabilities is how the largest errors in this material get made.\n\nCheap extra marks that are easy to forget: run the check that rho reprices the underlying, in one line, before using it on anything else; state the no-arbitrage inequality; and if the question hands you a real probability, read carefully whether it is a distractor or whether a separate sub-question needs it for an expected return. Both happen.\n\nWhere this leads: chapter 25 keeps this chapter's method exactly as it stands, replacing the share with a project - build the tree, extract rho from a traded twin, take max(0, NPV) at each node, discount at r_f. H2024 Exercise 6 was precisely that, for 20 points."
+    }
+  ],
+  "23": [
+    {
+      "type": "calc",
+      "q": "An exam gives you S = 140.00, K = 150, r_f = 5.00%, T = 2, N(d1) = 0.6120 and N(d2) = 0.4530. Value the call and the put, then read the answer as a portfolio and check it against the chapter 21 bounds.",
+      "hint": "PV(K) = 150/(1.05)^2 = 150/1.1025 = 136.0544.\nC = S x N(d1) - PV(K) x N(d2) = 140.00(0.6120) - 136.0544(0.4530) = 85.6800 - 61.6327 = 24.0473.\nP by parity, which is always faster than rerunning the formula: P = C - S + PV(K) = 24.0473 - 140.0000 + 136.0544 = 20.1018.\nRead as a portfolio: the call is 0.6120 shares worth 85.6800, financed by borrowing 61.6327. Delta is between 0 and 1, and the borrowing is below PV(K) = 136.0544 because you repay it only in the states where you exercise.\nBounds: 0 <= 24.0473 <= 140.00, and the lower bound max(S - PV(K), 0) = 3.9456 is satisfied. For the put, 0 <= 20.1018 <= PV(K) = 136.0544.\nParity check: C - P = 3.9456 = S - PV(K) = 140.00 - 136.0544.\nUsing the undiscounted strike instead would give 140(0.6120) - 150(0.4530) = 85.6800 - 67.9500 = 17.7300 - wrong by 6.3173, and the error is invisible unless you run the bounds check."
+    },
+    {
+      "type": "calc",
+      "q": "A one-year call on Vestland Marine with K = 84 trades at 13.9287 when S = 80.00 and r_f = 4.00%, implying a volatility of 45%. Your estimate of the true volatility is 28%, at which N(d1) = 0.5421 and N(d2) = 0.4309. (a) Value the call at your volatility. (b) Quantify the mispricing. (c) Do the same for the put.",
+      "hint": "(a) PV(K) = 84/1.04 = 80.7692. C = 80.00(0.5421) - 80.7692(0.4309) = 43.3680 - 34.7994 = 8.5706.\n(b) Value rises with volatility and my volatility is lower, so the call is worth LESS than the market price: 8.5706 against 13.9287. It is overpriced by 5.3581, which is 38.4680% of the quote. State the direction and the comparative static FIRST, then quantify.\n(c) Parity does the put for free, since sigma appears nowhere in C - P = S - PV(K). At 45% the put is worth 14.6979 and at 28% it is worth 9.3398, a difference of 5.3581 - identical to the call's. So 'sell the put' is an equally valid trade, and a complete answer says so.\nThe trade: write the call at 13.9287 and buy Delta = N(d1) = 0.5421 shares at 80.00, costing 43.3711, financed by borrowing. The share leg cancels the exposure to direction, so the position bets on volatility only.\nAnd the limitation, because the marks are there: this is NOT an arbitrage. I may be wrong about sigma; realised volatility can exceed 28% even if 28% was the right expectation; the hedge must be rebalanced as Delta moves and cannot be continuous; and an unhedged written call has unlimited loss."
+    },
+    {
+      "type": "calc",
+      "q": "Base case S = 80.00, K = 84, r_f = 4.00%, T = 1, sigma = 30%, giving C = 9.2049 and P = 9.9741. Raising sigma to 40% gives C = 12.3615 and P = 13.1307. Verify these two rows against put-call parity and explain why this particular check is the strongest one in the table.",
+      "hint": "Parity says C - P = S - PV(K), so the CHANGE in (C - P) must equal the change in (S - PV(K)) and nothing else.\nsigma appears nowhere in S - PV(K), so the change must be exactly 0.0000.\nCompute: dC = 12.3615 - 9.2049 = +3.1566 and dP = 13.1307 - 9.9741 = +3.1566, so dC - dP = 0.0000.\nThat is why it is the strongest row: it turns the abstract claim 'volatility raises calls and puts alike' into an equality you can test to four decimals. A sign error in d2, or a sigma x sqrt(T) left out of d2, would break it.\nCompare with a row where the check is non-trivial. Raising r_f from 4% to 7% gives C = 10.2159 and P = 8.7206, so dC - dP = 1.0110 - (-1.2536) = +2.2646; and PV(K) falls from 84/1.04 = 80.7692 to 84/1.07 = 78.5047, a fall of 2.2646.\nThe check can fail, which is what makes it worth running: C and P were computed from the formula independently, and parity was never used to produce either."
+    },
+    {
+      "type": "control",
+      "q": "Give the sign of the effect on a European call and on a European put of raising each of the five inputs, plus dividends, and one sentence of reasoning for each.",
+      "solution": "S rises: call up, put down. The call buys the share, so a dearer share makes the right to buy it worth more and the right to sell it worth less.\nK rises: call down, put up. You pay K on a call and receive K on a put.\nsigma rises: BOTH up. The downside is truncated at zero, so extra dispersion adds upside without adding downside - and parity forces the two increases to be identical.\nT rises: call up. For a EUROPEAN put it is ambiguous, because more dispersion helps but a smaller PV(K) hurts a holder who is waiting to receive K; for an American put the right to exercise early settles it upwards.\nr_f rises: call up, put down. A higher rate shrinks PV(K), so paying the strike later is better for a call holder and worse for a put holder waiting to receive it.\nDividends before T: call down, put up. The share drops on the ex-dividend date and the option holder does not receive the cash.\n\nThis is the examinable core of the chapter. Since the N(d) tables came off the formula sheet in 2021, the exam tests these signs and the sentences behind them, not the arithmetic - H2025 Exercise 1 was pure intuition with no computation at all, and it opened the paper."
+    },
+    {
+      "type": "explain",
+      "q": "Explain why extra volatility makes an option MORE valuable, when everywhere else in finance risk is a cost.",
+      "solution": "Hold the strike fixed and spread the distribution of S_T out. Two things happen at once, and only one of them reaches the option holder.\n\nThe extra probability of very high prices raises the call's payoff without limit: every krone above K is a krone in your pocket. The extra probability of very low prices does not lower it at all, because max(S_T - K, 0) is already zero at K and stays zero all the way down. A share at 40 and a share at 70 both pay a call struck at 105 exactly nothing, so the holder is indifferent between those two disasters. The loss is capped at the premium; the gain is not capped. Extra dispersion is therefore all upside, and the price rises.\n\nThe same argument runs upside down for a put: more probability of very low prices raises max(K - S_T, 0), and more probability of very high prices costs nothing because the put is already worthless there. So one increase in sigma raises both contracts - not a contradiction, because the WRITER of both is the one paying for it.\n\nAnd say what the reason is not. It is not that risk is rewarded: under the risk-neutral distribution the share still earns only r_f, spread or no spread. The gain comes entirely from the kink in the payoff, not from a risk premium."
+    },
+    {
+      "type": "control",
+      "q": "What is implied volatility, what is it not, and what two consequences follow?",
+      "solution": "It is the volatility that makes the Black-Scholes formula reproduce the option's observed market price. There is no closed form, so it is found by trial and error, but there is exactly one answer, because value is strictly increasing in sigma and the map from sigma to price is one-to-one. Quoting an option's implied volatility is therefore just another way of quoting its price, stripped of S, K, T and r_f, which is how traders actually talk.\n\nWhat it is NOT: a measurement of the share. It is an output of a model applied to a price.\n\nConsequence one: if the model is wrong, the implied number absorbs the error. Options on the same share with different strikes trade at different implied volatilities - the volatility smile - not because the share has several volatilities, but because real returns have fatter tails than the lognormal distribution Black-Scholes assumes.\n\nConsequence two: implied volatility is a risk-neutral quantity, so it contains a premium for bearing volatility risk and typically sits above the volatility subsequently realised.\n\nThis is the same distinction as rho against the true probability in chapter 22, and 1 - N(d2) against a real default forecast in chapter 24. The manual makes the point three times because the exam rewards it three times."
+    },
+    {
+      "type": "reflect",
+      "q": "The N(d) tables came off the formula sheet in 2021, and H2025 opened the paper with a Black-Scholes question containing no computation. What does that tell you about how to study this chapter?",
+      "solution": "Spend the time on meaning, not arithmetic. Black-Scholes has been tested numerically in only two of the eleven mapped papers, and even then a modern question hands you N(d1) and N(d2) so that only the last two lines are left. Practising the inversion of a normal table is close to wasted effort.\n\nWhat pays instead: the comparative statics with the sentence behind each sign; the reading of N(d1) as a delta and N(d2) as a risk-neutral probability; the fact that value rises with volatility, together with the truncation argument that produces it; and the four-move structure for a mispriced-option question - name the comparative static, give the direction, state the action, name one limitation.\n\nH2025 also gives credit for creative but well-argued answers, so a sensible extra point costs nothing: mention that the put is mispriced by exactly the same amount, or that implied volatility usually exceeds realised volatility because it is a risk-neutral quantity.\n\nAnd the chapter pays a second time in chapter 24, where N(d1) becomes the elasticity in beta_E = N(d1)(V/E)beta_U and 1 - N(d2) becomes a risk-neutral default probability. Learn the meanings here and chapter 24 is mostly relabelling."
+    }
+  ],
+  "24": [
+    {
+      "type": "calc",
+      "q": "Fjordbygg AS has assets worth 200.00 today, worth either 270.00 or 170.00 in a year, one zero-coupon bond with face value 190 maturing in a year, and r_f = 5.00%. Value the equity and the debt, then produce the yield, the credit spread, the risk-neutral default probability and the recovery rate. Run three checks.",
+      "hint": "rho = [(1.05)(200.00) - 170.00]/(270.00 - 170.00) = 40.00/100.00 = 0.4000. Check it reprices the assets: [0.4000(270.00) + 0.6000(170.00)]/1.05 = 210.00/1.05 = 200.0000.\nState by state - up: debt min(270.00, 190) = 190.00, equity max(270.00 - 190, 0) = 80.00, put 0.00. Down: debt 170.00, equity 0.00, put max(190 - 170.00, 0) = 20.00.\nE = [0.4000(80.00)]/1.05 = 32.00/1.05 = 30.4762. D = [0.4000(190.00) + 0.6000(170.00)]/1.05 = 178.00/1.05 = 169.5238.\ny = 190/169.5238 - 1 = 12.0787%. Credit spread = 12.0787% - 5.0000% = 7.0787%.\nq = 1 - rho = 0.6000; R = 170/190 = 0.8947; L = 0.1053.\nCheck A (the claims add up): 30.4762 + 169.5238 = 200.0000 = V0. This one CAN fail, and it catches the commonest slip - a missing max(., 0) in one state.\nCheck B (debt as risk-free minus a put): the put is worth [0.6000(20.00)]/1.05 = 11.4286 and PV(K) = 190/1.05 = 180.9524, so PV(K) - Put = 169.5238 = D. Equivalently parity: E = 11.4286 + 200.0000 - 180.9524 = 30.4762.\nCheck C (chapter 5's reverse-engineering): D = K(1 - qL)/(1 + r_f) = 190(1 - 0.0632)/1.05 = 178.0000/1.05 = 169.5238."
+    },
+    {
+      "type": "calc",
+      "q": "Continue with Fjordbygg. The TRUE probability of the down state is 0.35 and the market risk premium is 5%. (a) Compute the expected return on the debt and its beta. (b) Compare with chapter 5's shortcut r_D = y - p x L. (c) Verify the whole capital structure by weighting.",
+      "hint": "(a) An expected return is a real-world average, so this is the one step where a true probability belongs. Expected payment = 0.65(190.00) + 0.35(170.00) = 183.0000, so r_D = 183.0000/169.5238 - 1 = 7.9494%. beta_D = (0.079494 - 0.050000)/0.050000 = 0.5899.\nOrdering check the examiner expects: r_f = 5.0000% < r_D = 7.9494% < y = 12.0787%. The promised yield exceeds the expected return by the expected loss, and the expected return exceeds r_f by a genuine risk premium.\n(b) r_D = y - p x L = 0.120787 - 0.35(0.105263) = 8.3944%, which is 0.0045 too high. The gap is exactly p x L x y = 0.35(0.105263)(0.120787) = 0.0045, as chapter 5 warned. Use the cash-flow route when you have the payoffs, as you do here.\n(c) Equity: expected payoff 0.65(80.00) = 52.0000, so r_E = 52.0000/30.4762 - 1 = 70.6250%. Weights E/V = 0.1524 and D/V = 0.8476.\nWeighted: 0.1524(70.6250%) + 0.8476(7.9494%) = 17.5000%. And the assets: E[V1] = 0.65(270.00) + 0.35(170.00) = 235.0000, so r_U = 235.0000/200.00 - 1 = 17.5000%. They match.\nNever discount risk-neutral expectations at r_D, and never compute a promised yield from real probabilities. Mixing them is the fastest way to lose a whole question."
+    },
+    {
+      "type": "calc",
+      "q": "A bank offers a one-year CDS on the full 190 notional of the Fjordbygg bond (D = 169.5238, PV(K) = 180.9524, rho = 0.4000, q = 0.6000, L = 0.1053, r_f = 5.00%). Price it three ways, convert to a running spread, and reconcile with the bond's credit spread of 7.0787%.",
+      "hint": "The payoff state by state: up, the bond pays 190 and there is no claim, 0.00; down, the bond recovers 170.00 so the insurer pays 20.00. That is exactly max(K - V_T, 0).\nRoute 1, as an expectation: [0.4000(0) + 0.6000(20.00)]/1.05 = 12.00/1.05 = 11.4286.\nRoute 2, as the missing put: PV(K) - D = 180.9524 - 169.5238 = 11.4286. This is the answer to give when the exam hands you a bond price rather than a payoff tree.\nRoute 3, as expected loss: q x L x K/(1 + r_f) = 0.6000(0.105263)(190)/1.05 = 12.0000/1.05 = 11.4286.\nRunning spread, premium paid at the end of the year on a notional of 190: s(190)/1.05 = 11.4286, so s = 12.0000/190 = 6.3158%, which is just q x L. As an upfront percentage of notional it is 11.4286/190 = 6.0150%.\nReconciliation, and the two spreads are consistent rather than equal: y - r_f = q x L(1 + r_f)/(1 - q x L) = 0.063158(1.05)/0.936842 = 7.0787%. The bond spread is larger because it is charged on the discounted price 169.5238 while the CDS spread is charged on the full notional 190 - a real error of 76 basis points if you confuse them.\nFinal check: buy the bond for 169.5238 and the protection for 11.4286, total 180.9524, and receive 190 with certainty. Return = 190/180.9524 - 1 = 5.0000% = r_f. Risky bond + CDS = risk-free bond."
+    },
+    {
+      "type": "calc",
+      "q": "Nordhav ASA: assets V = 400, asset volatility 40%, one zero-coupon bond with face value K = 350 maturing in T = 3 years, continuously compounded r_f = 3.00%, beta_U = 0.90. You are given N(d1) = 0.7483 and N(d2) = 0.4905. Value both claims, get the yield and spread on both compounding conventions, and produce both betas.",
+      "hint": "Say the convention first: continuous compounding, so PV(K) = K x exp(-r_f x T).\nFor the record: ln(400/350) = 0.1335; numerator = 0.1335 + [0.0300 + 0.40^2/2](3) = 0.4635; denominator = 0.40 x sqrt(3) = 0.6928; d1 = 0.6690, d2 = -0.0238.\nexp(-0.09) = 0.9139, so PV(K) = 350(0.9139) = 319.8759.\nE = 400(0.7483) - 319.8759(0.4905) = 299.3200 - 156.8991 = 142.4209. D = 400.0000 - 142.4209 = 257.5791.\ny = ln(350/257.5791)/3 = ln(1.3588)/3 = 0.3066/3 = 10.2202% continuously compounded, spread 7.2202%.\nAnnual effective: y = 1.3588^(1/3) - 1 = 10.7607% against r_f,eff = exp(0.03) - 1 = 3.0455%, so the spread is 7.7153%. Same credit, two conventions - quote one and NAME it.\nCheck by the independent put route: P = PV(K) x N(-d2) - V x N(-d1) = 319.8759(0.5095) - 400(0.2517) = 162.9768 - 100.6800 = 62.2968, so D = 319.8759 - 62.2968 = 257.5791.\nBetas: beta_E = 0.7483(400/142.4209)(0.90) = 0.7483(2.8086)(0.90) = 1.8915; beta_D = 0.2517(400/257.5791)(0.90) = 0.2517(1.5529)(0.90) = 0.3518. Chapter 4's linear relevering agrees: 0.90 + (257.5791/142.4209)(0.90 - 0.3518) = 1.8915.\nDefault: N(-d2) = 0.5095 is a 50.95% RISK-NEUTRAL probability of default over three years. The true probability is lower - this number prices and hedges, it does not forecast."
+    },
+    {
+      "type": "calc",
+      "q": "Nordhav's management raises asset volatility from 40% to 60%, holding V at 400. At 60%, N(d1) = 0.7687 and N(d2) = 0.3804. Recompute the claims, the yield and beta_E, and name what has happened.",
+      "hint": "E = 400(0.7687) - 319.8759(0.3804) = 307.4800 - 121.6808 = 185.7992. D = 400.0000 - 185.7992 = 214.2008.\nShareholders gain 185.7992 - 142.4209 = +43.3783; creditors lose 257.5791 - 214.2008 = -43.3783. Equal and opposite.\nConsistency check 4: total value is fixed at 400 by assumption, so this is a PURE TRANSFER. Volatility is not value, it is a redistribution - and it is why lenders write covenants.\ny = ln(350/214.2008)/3 = ln(1.6340)/3 = 0.4910/3 = 16.3673% continuously compounded, so the spread jumps from 7.2202% to 13.3673%.\nbeta_E = 0.7687(400/185.7992)(0.90) = 0.7687(2.1529)(0.90) = 1.4894 - it FALLS, from 1.8915.\nNothing is wrong. beta_E = N(d1)(V/E)beta_U, and although N(d1) barely moves, E has grown from 142.4209 to 185.7992, so the same asset risk is spread over more equity value and the leverage embedded in the option has gone down. The shareholders are better off in value terms AND less levered at the same time, which is precisely why the transfer is attractive to them.\nName the mechanism: risk shifting, or asset substitution - chapter 9's result with a formula attached."
+    },
+    {
+      "type": "calc",
+      "q": "Two identical, independent firms each end the year worth 120 or 50 with risk-neutral probability 0.5000, each with a zero-coupon bond of face value 80. Set r_f = 0. They merge with no synergies, the merged firm assuming both bonds ranking equally. Work out who gains and who loses, and verify by the option route.",
+      "hint": "Stand-alone per firm: V = 85.0000; D = 0.5(80) + 0.5(50) = 65.0000; E = 0.5(40) + 0.5(0) = 20.0000. Yield 80/65.0000 - 1 = 23.0769%, default probability 0.5000, recovery 50/80 = 0.6250. Two firms: V = 170.0000, D = 130.0000, E = 40.0000.\nMerged, four equally likely combinations at 0.2500 each, total face 160: (good, good) V = 240, debt 160, equity 80; (good, bad) and (bad, good) V = 170, debt 160, equity 10; (bad, bad) V = 100, debt 100, equity 0.\nD = 0.25(160) + 0.50(160) + 0.25(100) = 145.0000. E = 0.25(80) + 0.50(10) = 25.0000. V = 170.0000.\nCreditors +15.0000, shareholders -15.0000. Consistency check 4: firm value is unchanged at 170.0000, so the merger can only MOVE value.\nPer bond: 145.0000/2 = 72.5000 against 65.0000 stand-alone, a gain of 7.5000 each; each shareholder group holds half the merged equity, 12.5000 against 20.0000, a loss of 7.5000 each. It cancels firm by firm as well.\nCredit numbers: merged y = 160/145.0000 - 1 = 10.3448%, down from 23.0769%. Risk-neutral default probability falls from 0.5000 to 0.2500 - only bad-bad - while recovery given default is unchanged at 100/160 = 0.6250. The entire improvement is FEWER DEFAULTS, not better recoveries.\nOption route, independent of the above: stand-alone each put pays 30 in the bad state, worth 15.0000, so two puts are worth 30.0000; merged, the put pays 60 only in bad-bad, worth 0.25(60) = 15.0000. The puts lost 15.0000, exactly the creditors' gain. Equity likewise: two calls at 20.0000 each against a call on the pooled assets worth 25.0000.\nName it: the coinsurance effect."
+    },
+    {
+      "type": "calc",
+      "q": "Sognefjell AS picks between safe project S (firm worth 160 or 110, risk-neutral probability 0.5000 each) and gamble R (210 or 50). Face value 70, r_f = 0. (a) What happens with straight debt? (b) Replace the bond with a convertible into gamma = 0.4000 of the firm, same face value. What changes, and why?",
+      "hint": "(a) Under S the debt is repaid in both states: D = 70.0000, E = 0.5(90) + 0.5(40) = 65.0000, V = 135.0000. Under R the firm defaults below: D = 0.5(70) + 0.5(50) = 60.0000, E = 0.5(140) + 0.5(0) = 70.0000, V = 130.0000.\nThe owners take R, because 70.0000 beats 65.0000, destroying 135.0000 - 130.0000 = 5.0000 of firm value. Name it: risk shifting, or asset substitution.\nConsistency check 3: creditors' gain -10.0000 plus shareholders' gain +5.0000 = -5.0000, the NPV of switching.\n(b) Conversion pays when gamma x V_T > 70, that is when V_T > K/gamma = 175.\nUnder S neither state reaches 175, so the convertible behaves as straight debt: 70.0000, equity 65.0000.\nUnder R the up state does: the holder takes 0.4(210) = 84; in the down state the firm defaults for 50. Convertible = 0.5(84) + 0.5(50) = 67.0000; equity = 0.5(126) + 0.5(0) = 63.0000.\nThe owners now choose S, 65.0000 against 63.0000. First-best value of 135.0000 is restored and the agency cost of 5.0000 disappears.\nDecomposition check: convertible = straight bond + gamma calls struck at K/gamma = 175. Under R: 60.0000 + 0.5(0.4)(210 - 175) = 60.0000 + 7.0000 = 67.0000. Under S: 70.0000 + 0.0000.\nWhy it works in one line: above the conversion point the shareholders' payoff is (1 - gamma)V_T, which is LINEAR, and linear claimholders rank projects by NPV like an all-equity firm. Convexity is what made the gamble pay, and conversion removes it exactly at the top."
+    },
+    {
+      "type": "control",
+      "q": "Write down the two readings of a levered firm's debt and say what each one is for.",
+      "solution": "Reading one, as the residual: D_T = min(V_T, K) = V_T - max(V_T - K, 0), that is D = V - Call(V, K, T). Equity is a call on the firm's assets struck at the face value of the debt, and debt is what is left of the firm once that call has been sold away. Use this to get the debt once you have valued the equity, and to run the check D + E = V.\n\nReading two, for credit: add and subtract the promised payment to get D_T = K - max(K - V_T, 0), that is D = PV(K) - Put(V, K, T). Risky debt is risk-free debt with the same face value MINUS a put on the firm's assets struck at K. Lending to a levered firm is lending safely and writing a put to the shareholders at the same time.\n\nThe second reading is the more useful one, because every credit concept is that put seen from a different angle: the credit spread is its price expressed as a rate, the risk-neutral default probability is the chance it ends in the money, and a CDS is a contract that simply buys it back. It also gives you a second, independent route to the debt value, which is a check the examiner recognises.\n\nNeither is on the formula sheet. And note the underlying: V is enterprise value and sigma is ASSET volatility, not the volatility of the shares."
+    },
+    {
+      "type": "explain",
+      "q": "Explain why a lender who has done nothing wrong ends up short a put option, and what follows from that.",
+      "solution": "Limited liability is not a courtesy, it is an option the creditor granted at the moment he lent. The shareholders hold the right - not the duty - to hand over the assets in exchange for cancelling a debt of K, and they will use it exactly when the assets are worth less than K. That right is a put struck at K, and the creditor wrote it.\n\nWhat follows: the value of that put is the entire difference between what the lender would have paid for a government bond of the same face value and maturity and what he pays for this bond. So D = PV(K) - Put, and the credit spread is just the put's price expressed as a rate.\n\nThree things then fall out at once. The spread rises with LEVERAGE, measured by PV(K)/V, because the put moves towards the money. It rises with ASSET VOLATILITY, because the put is an option and options gain from dispersion - which is chapter 9's risk shifting in credit terms, a move up the volatility curve that transfers value from the lender to the shareholders without changing V at all. And a CDS is priced as the put itself, so a risky bond plus a CDS is a risk-free bond.\n\nOne warning to add: three separate things push a spread up - a higher risk-neutral default probability, a lower recovery rate, and the risk premium hidden inside rho - and only the first two are statements about the borrower's finances."
+    },
+    {
+      "type": "reflect",
+      "q": "This material reaches eight of eleven mapped papers but is absent from both Kurbatov papers so far. How should you study it, and what register is it most likely to reappear in?",
+      "solution": "Treat it as a live risk item rather than a certainty. The older papers built long chained exercises on it - 2015 Problem 4 carried 90 points, and 2016 Problem 4, 2021 MC7-9 and V2024 Problems 3 and 4 all sit here - so if it comes back in the new 6-exercise format it will be worth real points.\n\nBut note what H2025 did with the neighbouring chapter: Exercise 1 was Black-Scholes tested VERBALLY, with no computation at all. That is exactly the register this material is most likely to reappear in, so prioritise the interpretation over the arithmetic: what N(d2) is a probability of, why a risk-neutral probability is not a forecast, why higher asset volatility helps shareholders and hurts lenders while leaving firm value alone, and why the weighted-beta check here cannot fail.\n\nThe quantitative pattern, if it does come numerically, is always the same five moves, each worth its own marks: state that equity is a call on firm value struck at the face value; value it; get the debt as V - E or as PV(K) - put and say which route you used; convert to a yield and a credit spread, quoting the compounding convention; and close with a check the examiner recognises, either D + E = V or consistency check 4.\n\nThe cheapest transferable phrase from this chapter is 'the coinsurance effect makes the merged firm's debt safer, which raises debt capacity and the tax shield' - because H2024 explicitly banned 'synergies' as an answer on the M&A exercise."
+    }
+  ],
+  "25": [
+    {
+      "type": "calc",
+      "q": "Kystvind AS can build a wind farm for 800, payable at once, producing a perpetuity from a year later: 120 a year forever if the power price is high (probability 0.55) or 50 a year forever if it is low (0.45). The regime is revealed in a year and is permanent; r = 10.00%. (a) What does the plain NPV rule say? (b) What is waiting worth? (c) Decompose the option value two ways.",
+      "hint": "(a) E[cash flow] = 0.55(120) + 0.45(50) = 88.5000, so NPV_now = 88.5000/0.10 - 800 = 885.0000 - 800 = 85.0000. Positive, so the naive rule says build.\n(b) State NPVs measured at the investment date: NPV_high = 120/0.10 - 800 = +400.0000; NPV_low = 50/0.10 - 800 = -300.0000.\nConsistency check before going further: 0.55(400.0000) + 0.45(-300.0000) = 85.0000, the same NPV_now. This proves the state NPVs before you build the option on top of them.\nWait a year and invest only in the high state: [0.55(400.0000) + 0.45(0.0000)]/1.10 = 220.0000/1.10 = 200.0000.\n(c) Option to wait = 200.0000 - max(0, 85.0000) = 115.0000. So wait, even though today's NPV is positive: the project is worth 200.00 held as an option and 85.00 exercised immediately, so exercising immediately destroys 115.00.\nSecond route: waiting AVOIDS the low branch, worth 0.45(300.0000) = +135.0000 in today's money since that branch's NPV was already a date-0 figure; and it DELAYS the good branch by a year, costing 220.0000 - 200.0000 = -20.0000. Net 115.0000. The decomposition is itself worth marks, because it names the two forces.\nState the timing assumption in one sentence: the whole project shifts by a year, cost and cash flows together, so NPV_i is unchanged in size and only its date moves."
+    },
+    {
+      "type": "calc",
+      "q": "Same Kystvind case. (a) At what investment cost I would the firm be indifferent between building now and waiting? (b) Holding I at 800, at what low-state annual cash flow X would it be indifferent? Check both interval assumptions.",
+      "hint": "(a) Invest now: 885.0000 - I. Wait, for 500 < I < 1200 (the high state is still worth building, the low state is not): 0.55(1200 - I)/1.10 = 0.5000(1200 - I) = 600.0000 - 0.5000I.\nSet equal: 885.0000 - I = 600.0000 - 0.5000I, so 285.0000 = 0.5000I and I* = 570.0000.\nInterval check: 570.0000 lies in (500, 1200). Below 500 both states are profitable; above 1200 neither is. Do the algebra inside ONE interval only.\nVerify: at I* investing now gives 885.0000 - 570.0000 = 315.0000 and waiting gives 0.55(630.0000)/1.10 = 315.0000.\nA table to sanity-check the direction: I = 500 gives 385.0000 against 350.0000 (invest now); I = 600 gives 285.0000 against 300.0000 (wait); I = 900 gives -15.0000 against 150.0000 (wait). Below I* build immediately, above it wait - a cheap project has little to lose in the low state, so the insurance is not worth a year of delay.\n(b) Invest now: [0.55(120) + 0.45X]/0.10 - 800 = 4.5000X - 140.0000. Wait, for X < 80: 200.0000, which does not depend on X at all.\n4.5000X - 140.0000 = 200.0000 gives X* = 75.5556, and 75.5556 < 80, so the branch assumption holds. Verify: 4.5000(75.5556) - 140.0000 = 200.0000.\nCheck the other interval free: for X >= 80 waiting equals the invest-now value divided by 1.10, so waiting is strictly worse and there is no second crossing. At X = 80 the low-state NPV is exactly 0, so the option to wait is already worth nothing - the general result being that it is worthless when there is no state in which you would decline."
+    },
+    {
+      "type": "calc",
+      "q": "Havglass AS is considering a launch costing 600 today, with r = 12.00%. Demand is strong (0.25) with PV 1100, base (0.45) with PV 640, or weak (0.30) with PV 250. (a) What is a perfect, instantaneous market study worth? (b) What if the study takes a year? (c) What if the base state's PV were 500 instead?",
+      "hint": "State NPVs: +500.0000, +40.0000, -350.0000.\n(a) Uninformed: E[NPV] = 0.25(500) + 0.45(40) + 0.30(-350) = 125.0000 + 18.0000 - 105.0000 = 38.0000. Positive, so the uninformed firm launches and that strategy is worth max(0, 38.0000) = 38.0000.\nInformed: E[max(0, NPV_i)] = 125.0000 + 18.0000 + 0.0000 = 143.0000.\nVPI = 143.0000 - 38.0000 = 105.0000. That is the MOST the firm should ever pay for the study.\nIndependent check: information changes exactly one decision - the weak state, where it stops you losing 350 - so its value must be 0.30(350) = 105.0000. This catches the commonest error, dropping the max(0, .) so the weak state contributes -350 to both terms and the value of information collapses to zero.\n(b) The informed strategy arrives a year late: 143.0000/1.12 = 127.6786, so the study is worth 127.6786 - 38.0000 = 89.6786. The delay costs 105.0000 - 89.6786 = 15.3214 = 143.0000(1 - 1/1.12), a fall of 14.5918%. A study priced at 95 is worth buying only if it can be done immediately. Note this expression IS the value of the option to wait.\n(c) NPV_base becomes -100.0000, so E[NPV] = 125.0000 - 45.0000 - 105.0000 = -25.0000, which is negative: the uninformed firm does NOTHING, worth 0.0000, not -25.0000. The informed strategy is 125.0000, so the study is worth the full 125.0000. More states in which the uninformed decision misfires means more valuable information."
+    },
+    {
+      "type": "calc",
+      "q": "Nordfrakt AS can build a ship for 1500. From date 1 the annual cash flow is 260 forever if freight rates hold (0.65) or 60 forever if they collapse (0.35), revealed by the date-1 cash flow and permanent; r = 12.00%. The ship can be sold at any date from 1 onwards for 800. Value the project with and without the exit right and check the option's value independently.",
+      "hint": "At date 1 the firm has just received that year's cash flow and owns a perpetuity of the same amount from date 2.\nCommitted branch values: favourable 260 + 260/0.12 = 2426.6667; tight 60 + 60/0.12 = 560.0000.\nCommitted value at date 0 = [0.65(2426.6667) + 0.35(560.0000)]/1.12 = [1577.3333 + 196.0000]/1.12 = 1773.3333/1.12 = 1583.3333, so NPV = 83.3333. The project is worth doing even with no flexibility.\nWith the exit: favourable, continuing is worth 2000.0000 against a salvage of 800, so keep operating, branch value 2426.6667. Tight, continuing is worth 500.0000 against 800, so SELL: branch value 60 + 800 = 860.0000.\nValue with the exit = [0.65(2426.6667) + 0.35(860.0000)]/1.12 = 1878.3333/1.12 = 1677.0833, so NPV = 177.0833.\nThe option is worth 1677.0833 - 1583.3333 = 93.7500.\nIndependent check: the option changes ONE branch only, by the difference between salvage and continuation there: 0.35(800 - 500.0000)/1.12 = 105.0000/1.12 = 93.7500. This catches a mis-stated branch value.\nName the mechanism: the exit option is a PUT on the project, struck at the salvage value. It raises the project's value without changing a single cash flow, because it truncates the left tail."
+    },
+    {
+      "type": "calc",
+      "q": "Same Nordfrakt case, but a charter contract forbids selling before date 4, so in the tight branch the firm must run at 60 for dates 1 to 4 and sell at date 4. Value the project under the lock-in, say what the contract costs, and run the ordering check.",
+      "hint": "The perpetuity in the bad branch becomes a truncated ANNUITY plus a discounted salvage value - the exact shape H2025 Exercise 5 used.\nAnnuity factor: 1.12^4 = 1.5735, so 1/1.5735 = 0.6355 and AF = (1 - 0.6355)/0.12 = 3.0373.\nTight branch measured at date 0: 60(3.0373) + 800(0.6355) = 182.2410 + 508.4145 = 690.6554.\nValue under the lock-in = 0.65(2426.6667)/1.12 + 0.35(690.6554) = 1408.3333 + 241.7294 = 1650.0627, so NPV = 150.0627 and the exit option is now worth 1650.0627 - 1583.3333 = 66.7294 instead of 93.7500.\nThe four-year lock-in therefore costs 1677.0833 - 1650.0627 = 27.0206 of firm value: the same salvage, four years later, after four more years of thin cash flow.\nOrdering check, which catches a mis-set annuity or a mis-discounted salvage: the three versions of the tight branch must satisfy no exit 560.0000/1.12 = 500.0000 < lock-in 690.6554 < immediate exit 860.0000/1.12 = 767.8571. If your locked-in figure falls outside that range, something is wrong.\nTwo related indifference questions the exam likes: the exit option is worth exactly zero when the salvage equals the continuation value of 500.0000; and the project breaks even at a favourable-state probability of 0.6000 without the exit option but at 0.5234 with it - flexibility widens the range of beliefs under which the ship is worth building."
+    },
+    {
+      "type": "calc",
+      "q": "Malmgruva AS has a concession with two years left and the mine is open. Year 1 will produce -30; year 2 gives +90 with probability 0.50 or -30 with probability 0.50. Mothballing costs 25 at closing, reopening costs 40, and the cost of capital is 10.00%. Compare keeping the mine open with mothballing today, then find what the switching costs themselves cost.",
+      "hint": "Strategy A - keep operating through year 1, then decide at date 1 once the year-2 price is known.\nHigh: continue and collect 90 at date 2, worth 90/1.10 = 81.8182, against closing for -25. Continue.\nLow: continue and lose 30 at date 2, worth -30/1.10 = -27.2727, against closing for -25. Close.\nValue at date 1 = -30 + 0.50(81.8182) + 0.50(-25) = -30.0000 + 40.9091 - 12.5000 = -1.5909. Value at date 0 = -1.5909/1.10 = -1.4463.\nStrategy B - mothball now: pay 25 at date 0 and produce nothing in year 1.\nHigh: reopen for 40 and collect 90 at date 2: -40 + 81.8182 = +41.8182. Worth doing. Low: stay closed, 0.0000.\nValue at date 1 = 0.50(41.8182) = 20.9091. Value at date 0 = -25.0000 + 20.9091/1.10 = -25.0000 + 19.0083 = -5.9917.\nDecision: -1.4463 beats -5.9917, so KEEP THE MINE OPEN through year 1, and that is worth 4.5455 relative to mothballing. Both figures are negative because the mine is in a bad patch with two years to run; the question is which loss is smaller. Answering 'neither, shut permanently' would be wrong, because A keeps the profitable high branch alive at no switching cost.\nWhat the switching costs cost: if closing and reopening were free, the firm would be idle in year 1 and open in year 2 only if the price were high: 0.50(81.8182)/1.10 = 37.1901. The frictions therefore destroy 37.1901 - (-1.4463) = 38.6364. That is the number to quote when a question asks what flexibility is worth, or what an inflexible technology costs.\nDiscipline point: same convention everywhere - cash flows at the end of each year, switching costs at the moment of the decision. Discounting the date-1 closing cost a second time gives a different and wrong answer."
+    },
+    {
+      "type": "calc",
+      "q": "Sorhav AS may develop a gas field. A traded gas certificate trades at 100.00 and will be worth 125.00 or 75.00 in a year; r_f = 5.00%. In a year the firm may develop for 320 or walk away; if it develops, the field produces CERTAIN cash flows for six years at dates 2 to 7: 90 a year if strong, 40 a year if weak. Management puts the strong state at 0.75. Value the field, and show what management's probability would have cost.",
+      "hint": "Step 1 - the data signals the method. A traded price with up and down moves plus a risk-free rate means risk-neutral valuation.\nrho = [(1.05)(100.00) - 75.00]/(125.00 - 75.00) = 30.0000/50.00 = 0.6000. Check it reprices the certificate: [0.6000(125.00) + 0.4000(75.00)]/1.05 = 105.0000/1.05 = 100.0000.\nStep 2 - the annuity factor. The cash flows are certain once the state is known, so discount at r_f: 1.05^6 = 1.3401, 1/1.3401 = 0.7462, AF = (1 - 0.7462)/0.05 = 5.0757.\nStep 3 - value the field in each state at date 1. Strong: 90(5.0757) = 456.8123, so NPV_1 = 136.8123. Weak: 40(5.0757) = 203.0277, so NPV_1 = -116.9723.\nStep 4 - apply the option: develop only in the strong state, so the date-1 values are 136.8123 and 0.0000.\nStep 5 - discount at r_f with the risk-neutral weights: V0 = [0.6000(136.8123)]/1.05 = 82.0874/1.05 = 78.1784.\nWhat the flexibility is worth: committed to developing either way gives [0.6000(136.8123) + 0.4000(-116.9723)]/1.05 = 35.2985/1.05 = 33.6176, so the right to wait and then decide is worth 78.1784 - 33.6176 = 44.5609.\nThe error to avoid: pairing 0.75 with r_f gives 0.75(136.8123)/1.05 = 97.7231, overstating the field by 19.5446. The 0.75 belongs with a risk-adjusted rate you have not been given, or nowhere at all. NEVER pair a real probability with r_f - the only probability entitled to r_f is rho."
+    },
+    {
+      "type": "calc",
+      "q": "Fjordtek AS can build a pilot plant for 250 whose own cash flows are worth 210. The pilot creates the right, in two years, to build the full plant for 900; the full plant's PV at that date will be 1500 with probability 0.30 or 600 with probability 0.70. The cost of capital is 15.00%. Should the firm build the pilot?",
+      "hint": "Stage-one NPV on its own: 210 - 250 = -40.0000. Rejected by the plain NPV rule.\nStage-two NPVs, measured at date 2: 1500 - 900 = +600.0000 and 600 - 900 = -300.0000.\nThe firm builds only where it pays, so the follow-on option is worth [0.30(600.0000) + 0.70(0.0000)]/(1.15)^2 = 180.0000/1.3225 = 136.1059.\nTotal = -40.0000 + 136.1059 = 96.1059. Build the pilot.\nThe trap, and it is the same one as everywhere in this chapter: averaging before taking the maximum. Committing to build the full plant whatever happens is worth [0.30(600.0000) + 0.70(-300.0000)]/1.3225 = -30.0000/1.3225 = -22.6843, which with the pilot gives -62.6843 and would have you reject. The flexibility is worth 136.1059 - (-22.6843) = 158.7902.\nName the mechanism: this is an EXPANSION option, a call on a follow-on project struck at the follow-on investment cost. It is why staged investment - R&D, pilot plants, an option on a second-phase licence - is worth more than a single NPV line suggests, and why a negative-NPV first stage can be the right decision.\nOne sentence worth adding on the assumption: applying a single r to both branches is an approximation, since an option on a project is riskier than the project itself. The risk-neutral route is the clean fix when the data supports it."
+    },
+    {
+      "type": "control",
+      "q": "Name the three ingredients a real option needs, and give the catalogue of real options with their financial analogues.",
+      "solution": "Three ingredients, and the examiner expects you to name them:\nUncertainty - something you do not yet know will be revealed. Without it, waiting only delays cash flow.\nInformation arriving over time - waiting actually resolves some of that uncertainty. Without it you wait and are none the wiser.\nIrreversibility, or a cost of reversing - investing or exiting cannot be undone for free. Without it you commit now and undo it later at no cost.\n\nThe catalogue, and every exam question is one of these:\nWait, delay, defer = an American CALL on the project, struck at the investment cost, held by whoever controls the timing.\nExpand, or invest in stages = a CALL on a follow-on project, held by the firm that took stage one.\nAbandon, exit, sell the assets = a PUT on the project, struck at the salvage value, held by the operator.\nShut down and restart = a strip of options, one per period, with switching costs.\nSwitch inputs or outputs = an exchange option, held by the flexible plant.\n\nGetting wait and abandon the right way round is the usual test: waiting gives you the right to ACQUIRE the project, abandoning the right to DISPOSE of it."
+    },
+    {
+      "type": "explain",
+      "q": "Explain why a project with a positive NPV can still be worth waiting on, and why E[max(0, NPV)] is not max(0, E[NPV]).",
+      "solution": "Investing today buys you the average outcome: the good states and the bad states, weighted by their probabilities, all of it. Waiting buys you the good states only, because once you know which state you are in you can decline the bad ones - and NPV cannot go below zero when you can simply not invest. What waiting costs is a year of cash flow plus a year of discounting. The option to wait is valuable exactly when the first effect beats the second, which happens when uncertainty is large, when the bad state is really bad, and when no competitor is about to take the project.\n\nThe two expressions differ in WHEN the decision is taken. max(0, E[NPV]) averages first and decides afterwards: one decision, taken in the dark, for all states at once. E[max(0, NPV_i)] decides state by state, after seeing which state you are in. The second is never smaller, and the gap between them is the entire value of flexibility.\n\nNotice the shape: max(0, NPV) is a convex function of the underlying, which is the same convexity that made shareholders love risk in chapters 9 and 24, and the same truncation that makes option value rise with volatility in chapter 23. Every 'risk is good here' result in this course is one kink seen from a different side.\n\nCollapse the two expressions and the whole chapter disappears. Write the max INSIDE the expectation and you have already earned most of the marks."
+    },
+    {
+      "type": "control",
+      "q": "State the method for solving an indifference point, and say where the marks are lost.",
+      "solution": "Write both strategies as explicit functions of the unknown X, set them equal, solve, then CHECK THE SOLUTION LIES IN ITS OWN BRANCH INTERVAL.\n\nThe last step is the one that matters. The max(0, .) operators make each strategy piecewise linear in X, so an algebraic solution is only valid inside the interval where the same branches are taken - where the same states are worth investing in and the same states are declined. Solve outside that interval and the answer is arithmetically right and economically impossible, and nothing inside the calculation complains.\n\nWorked shape: for a wind farm with high and low perpetuities of 120 and 50 and r = 10%, solving for the investment cost gives I* = 570.0000, and you must note that 570.0000 lies in (500, 1200) - the range where the high state is still worth building and the low state is not. Below 500 both states are profitable; above 1200 neither is.\n\nIf the other intervals are cheap to check, check them, because it is free and it demonstrates you understood why the interval mattered. And finish in words: state which side of the indifference point does what. 'I* = 570.0000' is half an answer; 'below 570.0000 build immediately, above it wait' is the whole one.\n\nThis is the same discipline chapter 9 uses to find the face value at which risk shifting begins."
+    },
+    {
+      "type": "reflect",
+      "q": "Real options are a fixed 20-point item in both Kurbatov papers and none of it is on the formula sheet. With 36 minutes on the clock, what do you actually write?",
+      "solution": "Five habits, in this order, and each is worth its own marks.\n\n1. Compute the STATIC NPV first and say what the naive rule would do. The exam usually asks for it as a sub-question and it anchors everything after it.\n2. Draw the tree - squares for decisions you make, circles for chance nodes the world resolves, numbers on the branches, a mark on the branch you reject. It costs a minute and stops you discounting the wrong quantity.\n3. Take the maximum INSIDE the tree, at each node, then discount. Never the other way round.\n4. Report the option's value as a DIFFERENCE between two strategies you have both computed, not as a single mysterious number - and then run an independent check, since the option usually changes exactly one branch and its value should equal the probability of reaching that branch times the improvement there, discounted.\n5. Answer the question that was asked. If it asks whether to invest, write 'wait' or 'invest now' in words. If it asks for an indifference point, say which side does what. On a value-of-information question, add the sentence that the answer is the most the firm should pay for the study.\n\nDecide the route from the data before you start: a given probability and a cost of capital means real probabilities discounted at r; a traded price with up and down moves and a risk-free rate means extract rho and discount at r_f. Never mix them.\n\nAnd name the mechanisms as you go - 'the option to wait', 'the exit option is a put struck at the salvage value', 'hysteresis', 'the value of information is capped by E[max] minus max(E)'. H2025 Exercise 5 asked for three of these in a row: the value of information, an exit option, and an indifference point. That is a fifth of the paper from one chapter."
+    }
+  ],
+  "26": [
+    {
+      "type": "calc",
+      "q": "Storfjord Verft ASA has 60 million shares at 90 NOK. It offers ER = 0.4000 of its own shares for each share of Kvaloy Marin AS, which has 25 million shares at 32 NOK. Synergies are S = 350 million. Work the swap end to end: new shares, ownership, merged price, both NPVs, the split of the synergy, and the full bargaining range. Then run both consistency checks.",
+      "hint": "Step 1 - stand-alone values. A = 60 x 90 = 5400.0000, T = 25 x 32 = 800.0000, so A + T + S = 6550.0000.\nStep 2 - new shares. x = 0.4000 x 25 = 10.0000 million, total 70.0000 million.\nStep 3 - ownership and price. y = 10/70 = 0.14285714, P_new = 6550/70 = 93.5714.\nStep 4 - the two NPVs. NPV_A = (1 - 0.14285714)(6550) - 5400 = 5614.2857 - 5400 = +214.2857. NPV_T = 0.14285714(6550) - 800 = 935.7143 - 800 = +135.7143.\nStep 5 - the split. The acquirer keeps 214.2857/350 = 61.2245% of the synergy, the target 38.7755%. Both positive, so both sets of shareholders should vote yes. Note this is unusually favourable to the acquirer: the empirical norm runs the other way, which is the free-rider result of 26.1.\nStep 6 - the range. ER_max = (32 + 350/25)/90 = 46/90 = 0.5111, and the sheet form gives [(800 + 350)/5400](60/25) = 0.212963 x 2.4 = 0.5111. ER_min = [800/(5400 + 350)](2.4) = 0.139130 x 2.4 = 0.3339. The offer sits inside [0.3339, 0.5111].\nCheck A (summation): 214.2857 + 135.7143 = 350.0000 = S. It cannot fail if x and y are consistent - it verifies the arithmetic, not the reasoning.\nCheck B (price change, the one that CAN fail): 60(93.5714 - 90.0000) = 60 x 3.5714 = 214.2857. It never uses y, so a wrong y makes the two routes disagree.\nCheck C (the bound): at ER = 0.5111, x = 12.7778, total 72.7778, P_new = 6550/72.7778 = 90.0000 exactly and NPV_A = 0.0000."
+    },
+    {
+      "type": "calc",
+      "q": "Same firms as above (N_A = 60, P_A = 90, N_T = 25, P_T = 32, S = 350, ER = 0.4000, P_new = 93.5714). (a) What premium was OFFERED and what premium is ACTUALLY received? (b) Verify NPV_T two ways. (c) Without computing, how would you have known which of the two premiums is larger?",
+      "hint": "(a) Offered premium = (ER x P_A)/P_T - 1 = (0.4000 x 90)/32 - 1 = 36.0000/32 - 1 = 0.1250 = 12.5000%.\nActual premium = (ER x P_new)/P_T - 1 = (0.4000 x 93.5714)/32 - 1 = 37.4286/32 - 1 = 0.1696 = 16.9643%.\nSo each Kvaloy share was offered 36.0000 NOK of Storfjord stock and actually receives 37.4286 NOK of it.\nRatio check: 1 + actual = (1 + offered) x (P_new/P_A) = 1.1250 x (93.5714/90.0000) = 1.1250 x 1.039683 = 1.1696.\n(b) Route 1: NPV_T = T x actual premium = 800 x 0.169643 = 135.7143. Route 2: NPV_T = y(A + T + S) - T = 0.14285714(6550) - 800 = 135.7143. They agree.\n(c) The ratio between the two premiums is P_new/P_A, and NPV_A = N_A(P_new - P_A). So the actual exceeds the offered exactly when the deal is positive-NPV for the acquirer. Here NPV_A = +214.2857, so actual must be the larger, and you can say so before touching a calculator.\nMechanism to write down: the target is paid in a currency whose value the deal itself changes. A good deal appreciates the currency between the press release and delivery; a bad deal debases it. In a cash deal the currency is fixed and the two premiums coincide."
+    },
+    {
+      "type": "calc",
+      "q": "Nordlys Data ASA has 80 million shares at 45 NOK and bids for Vestkyst Logistikk AS, 20 million shares at 28 NOK. Synergies are S = 90 million. The board announces an offer 'at a 25% premium', paid in Nordlys shares. (a) Turn the premium into an exchange ratio and find P_new. (b) Find the actual premium and both NPVs. (c) What exchange ratio would deliver an actual premium of exactly 20%, and what does that cost? (d) What is the largest actual premium Nordlys can pay without destroying value?",
+      "hint": "(a) Offered price per Vestkyst share = 28 x 1.25 = 35.0000, so ER = 35/45 = 0.777778. A = 3600.0000, T = 560.0000, A + T + S = 4250.0000. x = 0.777778 x 20 = 15.5556 million, total 95.5556 million, P_new = 4250/95.5556 = 44.4767, down from 45.0000.\n(b) Each Vestkyst share receives 0.777778 x 44.4767 = 34.5930, not 35.0000, so the actual premium is 34.5930/28 - 1 = 0.235465 = 23.5465% against an offered 25.0000% - short by 1.4535 percentage points.\ny = 15.5556/95.5556 = 0.16279070. NPV_A = (1 - 0.16279070)(4250) - 3600 = 3558.1395 - 3600 = -41.8605. NPV_T = 0.16279070(4250) - 560 = +131.8605. Sum = 90.0000 = S.\nPrice-change check: 80(44.4767 - 45.0000) = 80 x (-0.523256) = -41.8605. Both signs agree with the premium gap, as they must.\n(c) ER = P_T(1 + prem*)N_A/[(A + T + S) - P_T(1 + prem*)N_T] with P_T(1 + prem*) = 33.6000: ER = 33.6000 x 80/(4250 - 33.6000 x 20) = 2688/3578 = 0.751258. Then x = 15.025154, total 95.025154, P_new = 4250/95.025154 = 44.7250, and 0.751258 x 44.7250 = 33.6000.\nThe offered premium needed for that is 0.751258 x 45/28 - 1 = 0.207378 = 20.7378%, and NPV_A becomes 80(44.7250 - 45.0000) = -22.0000. So LOWERING the actual premium from 23.5465% to 20.0000% takes Nordlys from -41.8605 to -22.0000, a gain of 19.8605 for its own shareholders.\n(d) ER_max = (28 + 90/20)/45 = 32.5000/45 = 0.722222. At that ratio P_new = 45.0000 exactly and the actual premium is 0.722222 x 45/28 - 1 = 0.160714 = 16.0714%, which is exactly S/T = 90/560. That identity is worth remembering: the largest actual premium consistent with NPV_A of at least zero is the synergy divided by the target's stand-alone value."
+    },
+    {
+      "type": "calc",
+      "q": "Hoylandet Systemer ASA earns 600 million a year on 150 million shares trading at 96 NOK. Sordal Industri AS earns 120 million on 40 million shares at 24 NOK. Hoylandet offers a 25% premium in its own shares. There are NO synergies: S = 0. (a) Compute EPS after the merger and the accretion. (b) Compute the share price after the merger and both NPVs. (c) Redo it at a zero premium. (d) State the accretion condition and check it.",
+      "hint": "Setup: EPS_A = 600/150 = 4.0000 and P/E_A = 96/4 = 24.0000. EPS_T = 120/40 = 3.0000 and P/E_T = 24/3 = 8.0000.\n(a) Offer = 24 x 1.25 = 30.0000, so ER = 30/96 = 0.3125 and x = 0.3125 x 40 = 12.5000 million, total 162.5000 million. Combined earnings 720.0000, so EPS_new = 720/162.5 = 4.4308, up from 4.0000: accretion of 4.4308/4.0000 - 1 = 0.107692 = 10.7692%. The CFO's slide will say '10.8% accretive in year one'.\n(b) With S = 0 the merged firm is worth 150 x 96 + 40 x 24 = 14400 + 960 = 15360.0000, so P_new = 15360/162.5 = 94.5231, down 1.4769 per share, a fall of 1.5385%. NPV_A = 150(94.5231 - 96.0000) = -221.5385. With y = 12.5/162.5 = 0.07692308, NPV_T = 0.07692308(15360) - 960 = 1181.5385 - 960 = +221.5385. EPS rose 10.7692% while 221.5385 million left the acquirer's shareholders' pockets.\n(c) At a zero premium ER = 24/96 = 0.2500, x = 10.0000, total 160.0000. EPS_new = 720/160 = 4.5000, accretion 12.5000% - HIGHER than before - while P_new = 15360/160 = 96.0000, exactly unchanged, and both NPVs are 0.0000. EPS rose 12.5% in a transaction in which by construction not one krone of value was created or moved. Nothing else is needed to prove the point.\n(d) Accretive if and only if the P/E paid for the target is below the acquirer's own P/E. Here Hoylandet paid 30.0000 for earnings of 3.0000 per share, a P/E of 10.0000, well under its own 24.0000, so accretion was guaranteed before any analysis of the business. Equivalently the earnings yield bought is 120/(12.5 x 96) = 0.100000 against its own 4.0000/96 = 0.041667.\nAnd the mirror image: the merged multiple is 94.5231/4.4308 = 21.3333, down from 24.0000. Buying slower-growing earnings must lower the average multiple. Accretion and multiple contraction are one event described twice, and only the second is about value."
+    },
+    {
+      "type": "calc",
+      "q": "Haugesund Kjemi ASA has 30 million shares at 210 NOK and announces an ALL-CASH offer of 115 NOK per share for Rana Prosess AS, 9 million shares at 88 NOK. On the announcement Haugesund falls to 204.00 and Rana rises to 115.00. (a) What synergy does the market imply? (b) Who gets it? (c) Verify by an independent route. (d) Show the same number would come out of a stock offer at ER = 0.5500. (e) What do you say about the assumptions?",
+      "hint": "(a) Combined market capitalisation before: 30 x 210 + 9 x 88 = 6300.0000 + 792.0000 = 7092.0000. After: 30 x 204 + 9 x 115 = 6120.0000 + 1035.0000 = 7155.0000. S_implied = 7155.0000 - 7092.0000 = +63.0000. The market believes the combination creates 63 million of value.\n(b) The target's shareholders gain the cash premium, 9(115 - 88) = 243.0000. The acquirer's shareholders LOSE 30(204 - 210) = -180.0000. So the target captures 243/63 = 385.71% of the synergy and the acquirer hands over the rest.\n(c) Independent route, using different prices: in a cash deal the acquirer's holders end up owning A + T + S minus the cash paid out, so their gain must be S - premium = 63.0000 - 243.0000 = -180.0000, and 30 x (-6.0000) = -180.0000. The two routes agree, and a mis-keyed share count would break the agreement.\n(d) Stock version, same S: x = 0.5500 x 9 = 4.9500 million, total 34.9500 million, and A + T + S = 6300 + 792 + 63 = 7155.0000, so P_new = 7155/34.95 = 204.7210 and the target's shares trade at 0.5500 x 204.7210 = 112.5966. Combined capitalisation: 30 x 204.7210 + 9 x 112.5966 = 6141.6309 + 1013.3691 = 7155.0000, which is also 34.95 x 204.7210. S_implied = 7155.0000 - 7092.0000 = 63.0000 again. One formula covers both payment methods.\n(e) Three caveats, each with a direction. If the deal might fail, the observed prices are probability-weighted and the calculation UNDERSTATES the synergy conditional on closing. If the announcement also told the market something about Rana as a stand-alone business, part of its jump is a revaluation and the number OVERSTATES the gain from combining - the keys reward this one explicitly. And if anything else moved prices that day, the figure is contaminated in either direction.\nOne more sentence worth writing: the market thinks this deal creates 63 and that Haugesund is paying 243 for it. That price reaction is the signature of empire building or hubris, not of synergies."
+    },
+    {
+      "type": "calc",
+      "q": "Company A announces an offer for company B, with no anticipation in the prices beforehand. If the deal completes in exactly one year, each B share is exchanged for 0.2500 A shares; if it fails, prices return to their original levels. Before the announcement A trades at 120 and B at 26; immediately after, A trades at 114 and B at 28. The one-year risk-free rate is 4.0000%. (a) What probability of completion does the market imply? (b) Verify it a second way. (c) What are the two firms' prices conditional on completion, and what do they tell you?",
+      "hint": "(a) Step 1 - build a position that resolves cleanly. Buy 4 B shares at 28, costing 112.0000. Short-sell 1 A share for 114.0000 and put the 114.0000 in the risk-free asset. Net outlay: 112.0000 out, 114.0000 in, 114.0000 straight back out into the deposit, so the strategy costs 112.0000.\nStep 2 - completion branch. The 4 B shares become exactly the 1 A share owed, so the two legs cancel whatever A is worth, and you keep the deposit: 114.0000 x 1.04 = 118.5600.\nStep 3 - failure branch. No conversion, so unwind at the REVERTED prices: sell 4 B at 26 for 104.0000, buy back 1 A at 120.0000, keep the deposit. Payoff = 118.5600 + 104.0000 - 120.0000 = 102.5600.\nStep 4 - certainty equivalent. The only remaining risk is deal risk, which is diversifiable, so the strategy must earn r_f: 112.0000 x 1.04 = 116.4800 = p(118.5600) + (1 - p)(102.5600). Then 116.4800 - 102.5600 = 13.9200 = p(16.0000), so p = 0.8700 = 87.0000%.\n(b) Second route, no strategy required. One A share minus 4 B shares is worth 114 - 112 = 2.0000 today; it is worth 0 if the deal completes (4 B become 1 A) and 120 - 104 = 16.0000 if it fails. So the spread is a pure bet on failure: 2.0000 = (1 - p)(16.0000)/1.04, giving 1 - p = 1.04 x 2/16 = 0.1300 and p = 0.8700.\n(c) Solve 1.04(114) = p x A_s + (1 - p)(120): 118.5600 = 0.8700 A_s + 15.6000, so A_s = 102.9600/0.8700 = 118.3448, and B's completion price is 0.2500 x 118.3448 = 29.5862.\nVerify both: [0.8700(118.3448) + 0.1300(120)]/1.04 = 114.0000 and [0.8700(29.5862) + 0.1300(26)]/1.04 = 28.0000.\nRead it out: the market puts 87% on completion, and it says that even if the deal DOES complete, A is worth 118.3448, which is 1.6552 below where it started, while B's holders get 29.5862 against a stand-alone 26.0000, a gain of 13.7931%. The market thinks the acquisition destroys value for A and creates it for B, which points at empire building rather than synergies.\nThe error that costs most of the points: 112 = p(118.56) + (1 - p)(102.56) gives p = 0.5900. The left-hand side must be the outlay GROWN at r_f."
+    },
+    {
+      "type": "calc",
+      "q": "A different deal: A trades at 150 before the bid and 146 after; B at 84 before and 86.40 after. If the deal completes in one year, 5 shares of B are exchanged for 3 shares of A; if it fails, prices revert. The one-year risk-free rate is 3.0000%. Find the implied probability of completion, verify it, and state what the conditional prices imply. Then say what changes if you are told the offer is all cash instead.",
+      "hint": "First, translate the ratio into a sentence: 5 B shares become 3 A shares, so each B share receives 3/5 = 0.6000 A shares, and you hold 5 B against 3 A - not the reverse.\nStrategy: buy 5 B at 86.40, costing 432.0000. Short 3 A at 146.00, raising 438.0000, which goes on deposit. Net cost 432.0000.\nCompletion: the 5 B shares become the 3 A shares owed, the legs cancel, and you keep 438.0000 x 1.03 = 451.1400.\nFailure: 451.1400 + 5(84.00) - 3(150.00) = 451.1400 + 420.0000 - 450.0000 = 421.1400.\nCertainty equivalent: 432.0000 x 1.03 = 444.9600 = p(451.1400) + (1 - p)(421.1400), so 23.8200 = 30.0000p and p = 0.7940 = 79.4000%.\nSpread check: 1 - p = 1.03(146.00 - 86.40/0.6000)/(150.00 - 84.00/0.6000) = 1.03(146.0000 - 144.0000)/(150.0000 - 140.0000) = 2.0600/10.0000 = 0.2060, so p = 0.7940. Note the spread route hands you the FAILURE probability - questions ask for completion.\nConditional prices: 1.03(146) = 0.7940 A_s + 0.2060(150) gives 150.3800 = 0.7940 A_s + 30.9000, so A_s = 119.4800/0.7940 = 150.4786, and B's completion price is 0.6000 x 150.4786 = 90.2872, a gain of 7.4847% on its stand-alone 84.00. Verify: [0.7940(150.4786) + 0.2060(150)]/1.03 = 146.0000 and [0.7940(90.2872) + 0.2060(84)]/1.03 = 86.4000.\nSo here the market thinks completion leaves A's shareholders slightly BETTER off (150.4786 against 150.0000) as well as B's - a different story from the previous case, and worth one sentence in an answer.\nIf the offer were all cash, this strategy does not exist: there is nothing for the B shares to convert into, so the long-short hedge no longer cancels. The cash-deal version is simpler - the target's price is a probability-weighted average of the cash offer and the reverted price - and cash also raises p, because there is no acquirer share issue to vote on and no dependence on the acquirer's share price.\nThe no-r_f error here would give (432 - 421.14)/30 = 0.3620."
+    },
+    {
+      "type": "calc",
+      "q": "Two identical, independent firms merge with no synergies at all. Each firm's assets are worth 100 or 40 with equal probability, each has debt with face value 60, and rates are zero. (a) Value the debt and equity of each firm stand-alone. (b) Value them after the merger. (c) State who gained, who lost, and what the mechanism is called. (d) Which consistency check does this illustrate?",
+      "hint": "(a) Stand-alone. Assets: E[V] = 0.5(100) + 0.5(40) = 70.0000. Debt receives min(V, 60): 60.0000 or 40.0000, so D = 0.5(60) + 0.5(40) = 50.0000. Equity receives max(V - 60, 0): 40.0000 or 0.0000, so E = 0.5(40) = 20.0000. Check: 50.0000 + 20.0000 = 70.0000.\n(b) Merged, with independence. Combined assets are 200.0000 with probability 0.25, 140.0000 with probability 0.50, and 80.0000 with probability 0.25. Total face value is 120.0000.\nDebt receives 120.0000, 120.0000, 80.0000, so D = 0.25(120) + 0.50(120) + 0.25(80) = 30.0000 + 60.0000 + 20.0000 = 110.0000.\nEquity receives 80.0000, 20.0000, 0.0000, so E = 0.25(80) + 0.50(20) + 0.25(0) = 20.0000 + 10.0000 = 30.0000.\nCheck: 110.0000 + 30.0000 = 140.0000 = 2 x 70.0000. Total value is UNCHANGED, exactly as no synergies requires.\n(c) Creditors gained 110.0000 - 100.0000 = +10.0000. Shareholders lost 30.0000 - 40.0000 = -10.0000. Name it: the coinsurance effect. Pooling two imperfectly correlated streams behind one balance sheet makes both firms' debt safer, and the shareholders pay for it.\n(d) Consistency check 4: creditors' gain equals shareholders' loss when total value is fixed. It is the fastest way to catch an arithmetic slip in this family of questions - if your two changes do not cancel, a payoff is mis-stated.\nThe exam sentence: diversification does reduce risk, and that is not the same as creating value. Only systematic risk is priced, so merging diversifies away the part shareholders were never compensated for, and the discount rate on the combined assets is the value-weighted average of the two, unchanged. Shareholders can diversify far more cheaply by holding both shares and paying no premium. Coinsurance is a merger motive for shareholders only if the firm relevers afterwards to reclaim the transfer, or if you count the larger tax shield the extra debt capacity buys - say which one you mean."
+    },
+    {
+      "type": "control",
+      "q": "From memory, write down every quantity in a stock swap: the new shares, the target's ownership share, the merged price, both NPVs, both bounds on the exchange ratio, and the two premiums. Mark which ones are on the formula sheet.",
+      "solution": "x = ER x N_T - new acquirer shares issued. NOT on the sheet.\ny = x/(N_A + x) - the fraction of the merged firm the target's former holders own. NOT on the sheet.\nP_new = (A + T + S)/(N_A + x). NOT on the sheet.\nNPV_A = (1 - y)(A + T + S) - A. ON the sheet.\nNPV_T = y(A + T + S) - T. ON the sheet.\nER less than [(T + S)/A](N_A/N_T), equivalently ER_max = (P_T + S/N_T)/P_A. ON the sheet, in the first form.\nER_min = [T/(A + S)](N_A/N_T). NOT on the sheet, but exams ask for the range.\noffered premium = (ER x P_A)/P_T - 1 and actual premium = (ER x P_new)/P_T - 1. NEITHER is on the sheet.\n\nThree relations to have ready: NPV_A + NPV_T = S; NPV_A = N_A(P_new - P_A); NPV_T = T x actual premium; and 1 + actual = (1 + offered)(P_new/P_A).\n\nTwo things that are inputs, not outputs: A = N_A x P_A and T = N_T x P_T must be the STAND-ALONE values at pre-announcement prices. Substituting a post-announcement market capitalisation double counts the synergy you are about to add.\n\nSo the formula sheet gives you the two NPVs and the cap, and nothing else. Everything that feeds them - x, y, P_new - you supply, and every premium question is unsupported. That is where the marks are."
+    },
+    {
+      "type": "explain",
+      "q": "Explain, without arithmetic, why acquirers capture almost none of the value they create, and how the two standard escapes work.",
+      "solution": "Start from the fact to be explained: target shareholders earn 20% to 40%, and acquirer announcement returns are close to zero and negative on average in stock deals. One mechanism produces both.\n\nConsider a raider who can lift a widely held target from 45 to 60 per share. Each individual holder owns a negligible fraction of the company, so his own decision to tender cannot change whether the bid succeeds. Suppose he expects it to succeed. Then holding out is worth 60 to him, because he will own a share of the improved firm, and tendering at anything below 60 is strictly worse. Every holder reasons identically, so the bid fails at any price under 60, and the raider must offer essentially the whole improvement to get the shares. That is the free-rider problem in takeovers: the improvement is a public good among the target's shareholders, and each of them is individually pivotal for nothing but his own payoff.\n\nEscape one, the toehold. Buy a block secretly before announcing. The gain on the shares already owned accrues to the raider at the pre-announcement price, so even if he pays the full 60 for everything else, the toehold makes the bid privately profitable. This is why disclosure thresholds - 5% in Norway and most of Europe - matter economically and not only procedurally: they cap how large a toehold can be built in silence.\n\nEscape two, coercion. Make holding out worse than tendering. A two-tier offer, or the credible threat to freeze out non-tendering holders afterwards at a lower price, converts the shareholder's problem from 'will the bid succeed?' into 'do I want to be left behind?'. The bid then succeeds below 60, which is exactly why minority-protection rules - mandatory bid rules, equal-treatment requirements - exist.\n\nThe governance connection is worth a closing sentence: the free-rider problem is why the market for corporate control is a weak monitor even before you add poison pills and staggered boards. Bidders must hand over most of the improvement, so fewer disciplinary bids happen than the value gap would justify."
+    },
+    {
+      "type": "explain",
+      "q": "H2024 Exercise 1, twelve points. Give one reason the deal could be good for the acquirer, one bad for the acquirer, one good for the target and one bad for the target, at one to two sentences each. You may NOT say 'synergies'.",
+      "solution": "Prepare the grid rather than a list. Four cells, one to two sentences each, and each sentence must contain a mechanism and a direction.\n\nGOOD FOR THE ACQUIRER - undervaluation. The acquirer believes the market price understates the target's true worth, so buying it is a positive-NPV investment with no operating change at all. It requires genuinely superior information, which is plausible for a rival in the same industry and implausible as a general claim, and the target's board will contest it.\nAlternatives with the same shape: the target's accumulated tax losses can be used immediately by a profitable acquirer; the combined firm's steadier cash flow supports more debt so PV(TS) rises; the target is badly run and the same assets can be run better; a licence, patent portfolio or trained team is cheaper to buy than to build.\n\nBAD FOR THE ACQUIRER - the winner's curse. Several bidders each estimate the target's value with error, and the one who wins is disproportionately the one who overestimated most, so the winning bid is biased high even if every bidder is honest. Hubris adds a manager who does not believe he can be wrong, and the remedy - shade the bid for the fact of winning - is precisely what an overconfident CEO will not do.\nAlternatives: empire building funded by free cash flow at a negative NPV; coinsurance handing value to the creditors of both firms; a stock-financed offer that the market reads as a signal that the acquirer's own shares are overvalued.\n\nGOOD FOR THE TARGET - the premium. Its shareholders receive 20% to 40% over the pre-announcement price, in cash, immediately and with certainty, and the free-rider problem is what makes the premium that large.\nAlternatives: relief of a financing constraint that was blocking its own positive-NPV projects; better management and capital allocation; for an undiversified founder, an escape from having his whole fortune in one firm.\n\nBAD FOR THE TARGET - a weak auction. With only one bidder the premium is small, so the target's holders capture little of what the combination is worth, and the board has nothing to bargain with.\nAlternatives: loss of independence, of jobs and of the private benefits of control; being paid in acquirer stock that turns out to be overvalued, so the actual premium falls short of the offered one; a coercive tender offer that pressures holders into tendering below what holding out would have been worth.\n\nWhy this scores: each cell names a mechanism rather than a sentiment, each states the condition or catch, and the word 'synergies' never appears. Twelve points, four cells, three points each - do not spend the budget on an introduction."
+    },
+    {
+      "type": "reflect",
+      "q": "An M&A exercise gives you a chain of near-identical sub-questions. Which quantity does each one actually ask for, and what habit protects you?",
+      "solution": "In a share exchange the following are five different numbers produced by almost the same arithmetic:\n\n1. The price per share of the COMBINED firm: P_new = (A + T + S)/(N_A + x).\n2. The ACQUIRER's price immediately after the announcement: also P_new. In a share deal these coincide, which is why candidates stop reading.\n3. The TARGET's price immediately after the announcement: ER x P_new, because each target share is now a claim on ER merged shares.\n4. The OFFERED premium: (ER x P_A)/P_T - 1, valued at the acquirer's OLD price.\n5. The ACTUAL premium: (ER x P_new)/P_T - 1, valued at the price those shares are worth once the market has absorbed the deal.\nAnd a sixth: the exchange ratio that makes the actual premium equal a stated figure, which is the same algebra run backwards.\n\nThe habit: underline the noun in the question before computing, and write beside your answer which quantity you produced - 'this is the actual premium', 'this is the target's post-announcement price'. It costs ten seconds and it is the single most reliable way to keep points in this family of questions. The old spring 2017 paper devoted a 45-point exercise entirely to that distinction.\n\nTwo more habits from the same family. Carry four decimals throughout, because these exercises chain and rounding drift beyond about 0.001 is penalised. And when a sub-answer will not come, give it a symbol, state the assumption and carry it forward: later steps are marked on method, so one broken link should not cost you the rest of the exercise."
+    }
+  ],
+  "27": [
+    {
+      "type": "calc",
+      "q": "Nordfjord-type case. A listed firm's equity is worth 6000. An investor is convinced a disciplined chief executive would raise the value of the firm by 5%, and that a campaign to force the change would cost 12 all in. (a) Is the campaign worth running from the shareholders' point of view as a body? (b) Build the table of net payoffs for stakes of 0.1%, 3%, 5%, 7% and 10%. (c) Find the break-even stake, with and without a 0.65 probability of success. (d) Quantify the externality. (e) Compare voice with exit at a 2.5% price impact.",
+      "hint": "(a) dV = 0.0500 x 6000 = 300.0000 against a cost of 12.0000. From the point of view of the shareholders as a body the campaign is obviously worth running: 300.0000 is 25 times the cost.\n(b) But each owner decides alone, and captures only his own share.\n  0.1%: gain 0.3000, cost 12.0000, net -11.7000 - does not act.\n  3.0%: gain 9.0000, net -3.0000 - does not act.\n  5.0%: gain 15.0000, net +3.0000 - acts, barely.\n  7.0%: gain 21.0000, net +9.0000 - acts.\n  10.0%: gain 30.0000, net +18.0000 - acts.\n(c) Break-even: alpha* = C/dV = 12/300 = 0.0400 = 4.0000%. Verify by substitution: 0.0400 x 300 = 12.0000, exactly the cost.\nNow add the realistic feature - campaigns fail. With q = 0.6500 the condition is q x alpha x dV greater than C, so alpha* = 12/(0.6500 x 300) = 12/195 = 0.061538 = 6.1538%. The 5% holder now expects 0.6500 x 15.0000 - 12.0000 = -2.2500 and stays home; the 7% holder expects 0.6500 x 21.0000 - 12.0000 = +1.6500 and acts. At q = 0.5000 the break-even is 8.0000%.\nThis is the arithmetic behind the 5 to 10% band in H2025 Exercise 2: large enough that monitoring pays, small enough that you cannot simply impose the outcome.\n(d) The externality. If the 7% holder acts, he captures 21.0000 and the other holders receive 0.9300 x 300.0000 = 279.0000 for contributing nothing. The two shares rebuild the whole improvement: 21.0000 + 279.0000 = 300.0000. He is producing a public good and keeping 7% of it, which is why governance is chronically undersupplied.\n(e) Exit. The 7% stake is worth 0.0700 x 6000 = 420.0000, and selling a block that size moves the price: at a 2.5% impact the exit costs 0.0250 x 420.0000 = 10.5000, and it forgoes the 21.0000 the campaign would have produced. Voice beats exit here, +9.0000 against -10.5000, and the comparison is the point - exit is not free for a blockholder, which is precisely why a blockholder engages when a small holder simply sells."
+    },
+    {
+      "type": "calc",
+      "q": "A chief executive holds 0.2500% of the equity outright, plus options over a further 2.0000% of the shares with an option delta of 0.6000. (a) Compute his pay-performance sensitivity. (b) How costly a perk is he willing to impose on the firm for a private benefit worth 4 to him? (c) What happens if the board doubles his sensitivity? (d) What happens under an LBO in which the management team is given 8% of the equity? (e) Why is a large fixed salary not the problem the newspapers think it is?",
+      "hint": "(a) delta = fraction of shares held + (options as a fraction of shares) x N(d1) = 0.002500 + 0.020000 x 0.600000 = 0.002500 + 0.012000 = 0.014500 = 1.4500%. He keeps 1.4500% of every krone of value he creates and bears 1.4500% of every krone he destroys.\n(b) A perk worth 4.0000 to him personally is worth taking as long as it costs the firm less than 4.0000/0.014500 = 275.8621. That single number is the case for equity-based pay: the wedge between what the firm gives up and what he receives is enormous, and the agency cost is the 275.8621, not the 4.0000.\n(c) Double the sensitivity to 0.029000 and the threshold falls to 4.0000/0.029000 = 137.9310 - halved, exactly as the reciprocal implies.\n(d) LBO: with 8% outright, delta = 0.080000 and the threshold collapses to 4.0000/0.080000 = 50.0000. That is 5.5172 times the sensitivity of the listed firm, and it is one of the four reasons an LBO is a governance transaction and not merely a financing one.\n(e) Because a fixed salary has a pay-performance sensitivity of exactly ZERO. Raising or cutting it changes what he is paid, not what he wants. The quantity that matters is not the level of pay but its sensitivity to value - which is why boards that respond to public pressure by capping salary while leaving the equity component untouched are changing the wrong variable.\nOne caution to write down: delta is not to be maximised. An out-of-the-money option on a struggling firm has a small N(d1) and barely moves his wealth, so sensitivity evaporates exactly when you need it; and a manager loaded with stock bears firm-specific risk that shareholders have already diversified away, which he must be compensated for and which makes him avoid risk shareholders want taken."
+    },
+    {
+      "type": "calc",
+      "q": "The same firm as the blockholder case (equity worth 6000, an available improvement of 5%, campaign cost 12). (a) What probability of success would a 5% holder need before acting? (b) How large would the improvement have to be before a 6% holder acts at q = 0.6000? (c) Use the results to explain why coalition-building, and not a bigger stake, is what the exam answer should emphasise.",
+      "hint": "(a) The condition is q x alpha x dV greater than C, so the required q is C/(alpha x dV) = 12/(0.0500 x 300.0000) = 12/15.0000 = 0.8000. A 5% holder must be 80% sure the campaign works before it pays him personally - a demanding standard for a proxy fight against an incumbent board.\n(b) Required dV = C/(q x alpha) = 12/(0.6000 x 0.0600) = 12/0.036000 = 333.3333, which on a 6000 firm is an improvement of 333.3333/6000 = 0.055556 = 5.5556%. So a modest change in the odds moves the threshold materially: the same holder who acts on a 5.5556% improvement will not act on a 5.0000% one.\n(c) The lever with the largest effect is q, not alpha. Going from q = 0.6000 to certainty cuts the required improvement from 5.5556% to 3.3333%; buying another percentage point of stock is expensive, visible, and moves the threshold far less - and beyond a point it triggers disclosure and eventually a mandatory offer.\nWhat raises q? Other shareholders. A joint slate agreed with two other institutions, a public letter that lowers the coordination cost for holders who agree but were free-riding, a proxy adviser's recommendation, or a credible threat to requisition an extraordinary general meeting. Each of these raises the probability the campaign succeeds without the activist buying a single extra share.\nThat is why the model answer to H2025 Exercise 2 puts coalition-building at the centre: with 5 to 10% you are past the break-even for BOTHERING and short of the majority for WINNING, so every action you take must persuade someone else. Say that sentence in the exam."
+    },
+    {
+      "type": "control",
+      "q": "List the monitors of a chief executive. For each, name the tool it actually holds and the condition under which it fails. A monitor without a tool is not a monitor.",
+      "solution": "The board of directors. Tools: dismissal, pay design, approval of budgets, acquisitions and major financings, and direct access to the auditor through the audit committee. Fails when captured - management controls the information reaching the board and often influences who is nominated.\n\nBlockholders (families, founders, the state, private equity, a 5 to 10% fund). Tools: board seats, private access to the chair, credible threats to vote against, and the willingness to bear the cost of a campaign. Fails by turning into a different agency problem: private benefits of control extracted at the minority's expense.\n\nInstitutional investors, including index funds. Tools: voting power aggregated across thousands of holdings, published voting policies, engagement teams, and the proxy advisers they follow. Fails on budget - index funds cannot sell, so exit is unavailable, and the monitoring spend per holding is tiny. Voting is close to free, active engagement is not.\n\nThe auditor. Tools: an independent examination of the accounts, a qualified opinion, direct access to the audit committee. Fails because it is paid by the firm it audits, and historically sold consulting to the same client - which is exactly what Sarbanes-Oxley attacked.\n\nAnalysts and the press. Tools: public scrutiny, questions on results calls, reputational cost. Fails for lack of any formal power, and analysts depend on management for access.\n\nLenders. Tools: covenants, collateral, maturity structure, and the periodic need to refinance; a missed payment transfers control. Fails because they want to be repaid, not to maximise value, so they monitor risk rather than performance.\n\nThe product market. Tool: competition removes the slack that makes shirking survivable. Fails by being slow, and absent in concentrated or protected industries.\n\nThe managerial labour market. Tool: his reputation determines his next job. Weakest for a CEO at the end of his career, which is when entrenchment is worst.\n\nThe market for corporate control. Tool: a hostile takeover replaces the entire team, and the threat disciplines even without a bid. Fails against poison pills and staggered boards, and is weakened by the free-rider problem that forces bidders to pay the improvement away.\n\nRegulators and the exchange. Tools: disclosure requirements, certification of accounts, listing standards on board independence, insider-trading enforcement. Fails because rules set a floor, not a standard, and compliance becomes box-ticking.\n\nThe exam shape from H2024: name the monitor as a body or a person, list its concrete tools, then state when it fails. Two monitors, four sentences each, twelve points."
+    },
+    {
+      "type": "control",
+      "q": "State the three-part skeleton for a governance answer and the five arguments to run through when the question is unfamiliar. Then say what does NOT score.",
+      "solution": "The skeleton, one item per action or monitor:\n1. The action, or the monitor, named as a body or a person.\n2. The mechanism by which it reaches the chief executive - what changes about what he faces.\n3. The limitation - the condition under which it fails, or what it costs.\n\nThat is three sentences, and both Kurbatov papers stated a budget of two to three sentences per item at four points each. Write to the budget.\n\nThe five arguments that fit almost any governance question:\n1. Incentives - what is his pay-performance sensitivity, and what would change it?\n2. Information - who can see what he is doing, and who controls the flow? The auditor, the audit committee, the board's own reporting, analysts.\n3. Control rights - who can actually remove him, and what stands in the way? The board, the shareholder vote, the takeover market, and the defences.\n4. Cash - does he have free cash flow, and would a payout or leverage take away the discretion?\n5. Ownership structure - dispersed, so the conflict is managers against shareholders, or concentrated, so it is the controlling owner against the minority?\n\nPick the three that apply and make sure they are different in KIND: one changing incentives, one changing the board, one changing the balance sheet. Three variations on shareholder pressure read as one answer written three times.\n\nWhat does not score: a definition of corporate governance; a sentence that only describes what a mechanism is without saying what it changes; a list of mechanisms with no limitation attached; and, on a defence question, a flat yes or no. If you are writing a fourth sentence that only explains what the thing is, you have left the budget without adding an element."
+    },
+    {
+      "type": "explain",
+      "q": "H2025 Exercise 2, twelve points. You hold between 5% and 10% of the shares and votes in a listed company. Management is plainly exerting low effort and enjoying private benefits instead of maximising firm value. Give three actions, two to three sentences each, and make them different in kind.",
+      "solution": "ACTION 1 - run an activist campaign to change the pay contract. I would publish a specific proposal to cut fixed salary in favour of restricted stock with long vesting and a bonus measured relative to an industry benchmark, and vote against the remuneration report until it is adopted. This works because it raises his pay-performance sensitivity: at present he keeps a small fraction of any value he creates and bears almost none of what he wastes, so effort is expensive for him and shirking is nearly free - changing that changes his behaviour without anyone having to observe his effort. The limitation is that sensitivity is not free either, since an undiversified manager must be compensated for bearing firm-specific risk, and heavy use of options can push him from shirking into excessive risk taking.\n\nACTION 2 - build a coalition with the other large holders and requisition an extraordinary general meeting. With 5 to 10% I can force a meeting in most European regimes, Norway included, but I cannot win a vote alone, so the first move is to approach the other institutional holders, who share my interest and have been free-riding on it, and agree a joint slate of directors. The mechanism is that the board is the only body that can dismiss the chief executive or rewrite his contract, so changing its composition changes what he faces every day, and directors facing a contested election typically settle before the ballot. The limitation is cost and time: I bear the full expense of organising while every other shareholder receives their share of the gain for nothing, and a staggered board can delay a change of majority by two annual cycles.\n\nACTION 3 - demand that the surplus cash be paid out, or that the firm be recapitalised with debt. I would press for a special dividend or a buyback funded partly by borrowing, so that the cash pile is committed rather than available. The mechanism is the free cash flow argument: cash inside the firm is what pays for the private benefits and the comfortable life, while contractual interest and principal must be paid on time, default would hand control to creditors and end his career, and any new project must now be presented to outside investors who will price it. The limitation is that leverage is not free - it brings expected distress costs and the shareholder-creditor conflicts of debt overhang and risk shifting - so this is a remedy for a mature cash-rich firm and not for one with lumpy investment needs.\n\nA FOURTH IF THERE IS TIME - support a change of control: use the stake as a toehold to invite a bidder, or lead a take-private with a financial sponsor, which replaces the whole team at once and concentrates ownership so that monitoring is worthwhile by construction. H2025 explicitly credits creative but well-argued answers, so a fourth action costs nothing.\n\nWhy this scores: each item is three sentences in the same skeleton - the action, the mechanism that reaches the manager, the limitation. Each mechanism is named in the vocabulary the keys use: pay-performance sensitivity, free cash flow, the market for corporate control. And the three are different in kind, one changing incentives, one changing the board, one changing the balance sheet, which is what stops the second and third reading as restatements of the first. Nothing is spent defining corporate governance."
+    },
+    {
+      "type": "explain",
+      "q": "The board of a listed firm adopts a poison pill without a shareholder vote. Is this in the shareholders' interest? Write the twelve-point answer, then say what the six-point answer was missing.",
+      "solution": "THE TWELVE-POINT ANSWER. A poison pill allows every shareholder other than the bidder to buy new shares at a large discount once the bidder crosses a trigger stake, so the bidder's holding is diluted to the point where a hostile purchase is not worth attempting. Since only the board can redeem the pill, its real effect is to require the bidder to negotiate with the board rather than with the shareholders. Two readings of that are possible and the evidence does not settle it cleanly. Under the shareholder-bargaining hypothesis the board becomes a single negotiator for a dispersed and free-riding shareholder base, which is worth something precisely because the free-rider problem in takeovers otherwise forces bidders to offer nearly the whole improvement anyway, and a board can defeat a coercive low-ball tender. Under the managerial-entrenchment hypothesis, the board is composed of people the bid would displace, so a pill lets them refuse an offer that shareholders would have accepted, and firms with strong defences do receive fewer bids. The decisive objection to this pill is procedural rather than economic: it was adopted without a shareholder vote, so directors have taken to themselves a decision about whether the owners may sell their own property. My conclusion is that it is defensible as a negotiating instrument and indefensible as a permanent, unilaterally adopted one, and the natural remedy is to require it to be ratified at the next general meeting.\n\nTHE SIX-POINT ANSWER, for comparison. 'A poison pill lets existing shareholders buy new shares cheaply if a raider crosses a threshold, so it dilutes him and blocks the takeover. This protects management from being replaced, which is bad for shareholders because it removes the discipline of the takeover threat.'\n\nWHAT THE LONGER ANSWER HAS THAT THE SHORTER ONE DOES NOT.\nThe mechanism: stated precisely, including WHO can redeem the pill, which is where its power lies - not merely described.\nBoth sides: both hypotheses named in the terms the literature uses, rather than one side asserted.\nEvidence: what the two hypotheses predict DIFFERENTLY, so the argument is testable. If defences raise premiums, protected firms should receive higher-priced bids and defended firms that are eventually sold should sell for more; if they entrench, protected firms should receive fewer bids and show weaker operating performance.\nA conclusion: conditional, with a concrete remedy attached, instead of asserted flat.\n\nThe check: the twelve-point answer is about three times as long, it fits the stated four to six sentence budget, and none of the extra length is description. That is the test to apply to your own answer before moving on - if a sentence only explains what the defence IS, it is not buying you anything."
+    },
+    {
+      "type": "explain",
+      "q": "Explain why the board is simultaneously the most powerful monitor and the one that fails most often, and say what follows for the design of remedies.",
+      "solution": "Powerful, because it is the only monitor with legal authority over the chief executive. It hires him, sets his pay, approves the strategy and the large transactions, and it is the body that can dismiss him. Everything else in the chapter works by influencing the board or by going around it: a proxy fight targets board seats, an activist letter aims at the chair, say-on-pay embarrasses the remuneration committee, and a hostile bid exists precisely because it does not need the board's permission.\n\nFails most often, because the incentives inside the boardroom reproduce the free-rider problem of dispersed ownership. The CEO usually controls the flow of information to the board, often influences who is nominated, and sits with those people repeatedly over years. A director who challenges him pays the full social cost of the confrontation - awkward meetings, a reputation for being difficult, possible non-renomination - and, holding a small stake, collects a sliver of the benefit. Notice what this argument does NOT require: no director has to be dishonest, or lazy, or captured in any corrupt sense. Ordinary incentives are enough.\n\nWhat follows for remedies. Because the failure is structural, every serious remedy changes who is in the room and who chooses them, rather than exhorting directors to be diligent:\n- a majority of genuinely independent directors, since an inside director reports to the CEO in his day job and a grey director has business to lose;\n- independent audit, remuneration and nomination committees, because committee work is where monitoring actually happens and a board that lets the CEO pick his own remuneration committee has already lost;\n- a chair who is not the CEO, since the chair sets the agenda, runs the meeting and leads his evaluation;\n- a board small enough to argue in, with directors who are not sitting on many other boards, because large boards free-ride internally;\n- directors paid partly in shares they must hold, so monitoring has an offsetting personal reward;\n- annual election of all directors, because a staggered board means two annual meetings are needed to replace a majority, which blunts both the shareholder vote and the takeover threat.\n\nThe sentence to write in an exam: the board is a monitor only to the extent that it is independent of the person it is monitoring - and then name the specific feature the question's facts are pointing at."
+    },
+    {
+      "type": "reflect",
+      "q": "Corporate governance is a guaranteed twelve-point verbal exercise in the new exam format. What does that change about how you prepare it, compared with a quantitative topic?",
+      "solution": "It is the most predictable block of points on the paper: you know the topic before you open the exam, you know it will be verbal, and you know the shape. Exercise 2 was corporate governance in H2024 and again in H2025, twelve points both times, with no arithmetic anywhere in it. Nothing else on the paper can be prepared that precisely.\n\nSo prepare a STOCK OF ARGUMENTS, not an overview. The unit of preparation is not 'the chapter' but 'one item you can write three sentences about': one monitor with its tools and its failure condition, or one action with its mechanism and its limitation. Ten actions and ten monitors, each rehearsed to three sentences, is the whole preparation, and it takes an afternoon.\n\nRehearse in the format the marks are given in. Four points per item, two to three sentences - so write them out, in English, to length, at least once. Prose you have never written under a sentence budget comes out either as one line or as a page, and both lose marks.\n\nBuild in the discriminators that separate a strong answer from an adequate one, because they are cheap and they are where the grading actually happens:\n- name the monitor as a body or a person, not as an abstraction;\n- state the tool concretely - dismissal, pay design, the covenant, the vote;\n- close on the limitation or the cost, always;\n- on a defence question, name both hypotheses and say what would separate them in the data;\n- make your three items different in KIND.\n\nAnd know what does not pay: defining corporate governance, describing what a poison pill is for a third sentence, or listing twelve mechanisms shallowly when the question asked for three deeply.\n\nOne more contrast with quantitative topics. There, a slip cascades and can cost an entire exercise. Here the items are independent, so a weak third action does not damage the first two - which means writing three adequate items always beats writing one perfect one and running out of time. Budget the twelve points as three separate four-point answers and move on."
+    },
+    {
+      "type": "reflect",
+      "q": "You are handed a governance question about a Norwegian firm with a dominant family owner. Why is most of what you memorised about boards and CEOs the wrong material, and what is the right material?",
+      "solution": "Almost everything in the standard treatment is written for the dispersed ownership of the United States and the United Kingdom, where nobody owns enough to make monitoring worth its cost, so the conflict is managers against shareholders and the disease is the free-rider problem: undersupplied monitoring, captured boards, empire building funded by free cash flow.\n\nA 35% family stake solves that outright. Someone with 35% of the shares always finds monitoring worth its cost - the break-even condition alpha greater than C/dV is satisfied by an enormous margin - so the family sits on the board or in the chair, information flows, and management-driven empire building is correspondingly rarer. Writing three paragraphs about CEO shirking in this setting is answering a question that was not asked.\n\nThe conflict that replaces it is the CONTROLLING OWNER AGAINST THE MINORITY:\n- related-party transactions on favourable terms, which move value out of the listed company into entities the family owns outright;\n- dual-class structures and voting caps that keep control while selling cash flow rights, permanently separating the two;\n- resistance to any takeover that would end the family's position, even a value-increasing one - so the market for corporate control is switched off not by a poison pill but by the register itself;\n- payout and investment policy chosen for the family's tax position or its liquidity rather than for value.\n\nThe protective machinery is different too, and naming it is what earns the marks:\n- mandatory bid rules, so control cannot change hands without minority holders being offered the same price;\n- equal-treatment requirements and independent review of related-party deals;\n- minority thresholds that let small holders act - 5% of the capital to requisition an extraordinary general meeting in Norway, about a tenth to demand an independent investigation of specific transactions;\n- ownership disclosure at 5%, which makes stake-building visible in both directions;\n- comply-or-explain codes, which do not mandate a structure but force the firm to state which recommendations it departs from and why, so governance quality is priced rather than legislated - and which work only if investors read and react.\n\nThe habit to build: before listing mechanisms, write one sentence identifying WHICH conflict the facts describe. It costs nothing, it tells the examiner you can tell the two regimes apart, and it stops you from spending the whole budget on the wrong agency problem."
     }
   ]
 };

@@ -38,27 +38,22 @@ Levende liste. Kryss av eller stryk når noe er gjort, og noter datoen.
 - [ ] **Tom mappe `SAM3 Oppgavebank MC/`.** Ingen filer, ingen referanser. Trolig
       en rest — kan sannsynligvis slettes.
 
-## FIE402 — under bygging
+## FIE402 — ferdig
 
-Faget er lagt inn og kjører. Se [[FIE402 Corporate Finance]] for kursfakta og
-[[Eksamenssett-modulen]] for eksamensdelen. Bygges i bølger:
+Faget er komplett og publisert. Se [[FIE402 Corporate Finance]] for tallene og
+[[Eksamenssett-modulen]] for eksamensdelen. Bygget 19.–20. august 2026 i seks bølger.
 
-- [x] Bølge 1 — motorrydding, eksamensmodul, 24-modulsplan, kapittel k0–k5 og
-      formelsamlingen k29, eksamenssettene H2024 og H2025
-- [ ] Bølge 2 — kapitalstruktur, k6–k11
-- [ ] Bølge 3 — informasjon, emisjon og payout, k12–k16
-- [ ] Bølge 4 — verdsetting med gjeld, k17–k20
-- [ ] Bølge 5 — opsjoner k21–k25, deretter M&A, eierstyring og eksamensteknikk k26–k28
-- [ ] Bølge 6 — de ni øvrige eksamenssettene, med egne løsninger der fasit
-      mangler eller bare finnes som skanning
+Det som gjenstår er ikke innhold, men bruk:
 
-**Åpent spørsmål om lengde.** Kapitlene i bølge 1 ble 1 800–2 800 ord hver, mot
-et mål på 1 000–1 400. Hele SAM3-manualen er 22 700 ord; FIE402 ligger allerede
-på 18 700 etter sju seksjoner. Fortsetter det slik, blir manualen rundt 70 000
-ord. Det kan være riktig, siden den skal erstatte læreboka — men det er en
-beslutning som bør tas bevisst før bølge 2.
+- [ ] **Les Foundations og si fra om nivået treffer.** Kapitlene ble skrevet før du
+      hadde lest noe av faget; tonen er kalibrert mot en leser uten lærebok, men det
+      er en antakelse til den er prøvd.
+- [ ] **Kjør H2025 i eksamensmodus på tid.** Det er den beste enkeltmålingen av hvor
+      du står, og den eneste som avslører om tidsbudsjettet i k28 holder.
+- [ ] Vurder om lynlæringen bør begrenses til kapitler du har lest. Den dekker hele
+      pensum fra dag én, så den kan servere M&A-spørsmål i modul 3.
 
-## Åpne spørsmål
+## Åpne spørsmål## Åpne spørsmål
 
 - Hvilket fag blir nummer to? Det avgjør hvor hardt fagnøytraliteten må ryddes.
 - Skal flere personer bruke plattformen? Alt er per i dag bygget for én bruker;
