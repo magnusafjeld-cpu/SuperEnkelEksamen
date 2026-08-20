@@ -35,9 +35,9 @@ Auth → SMTP Settings*.
 
 Supabase → **Authentication** → **URL Configuration**:
 
-- **Site URL**: `https://magnusafjeld-cpu.github.io/SAM3/`
+- **Site URL**: `https://magnusafjeld-cpu.github.io/SuperEnkelEksamen/`
 - **Redirect URLs**, legg til begge:
-  - `https://magnusafjeld-cpu.github.io/SAM3/**`
+  - `https://magnusafjeld-cpu.github.io/SuperEnkelEksamen/**`
   - `http://127.0.0.1:4178/**`
 
 Uten dette virker ikke lenken i glemt-passord-e-posten — Supabase nekter å sende

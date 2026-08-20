@@ -5,9 +5,14 @@ fram til skoleeksamen — som studieplan, quiz, flashcards med spaced repetition
 dybdetrening, lynlæring, oppgavebank, eksamenstrening, søk og fremdriftssporing.
 
 Motoren er **fagnøytral**. Du velger fag ved oppstart, og hvert fag har sin egen
-plan, sine egne oppgaver og sin egen fremdrift. Første fag ut er
-**SAM3 Makroøkonomi**, som henter alt fagstoff fra `SAM3_Eksamensmanual.html`
-(den eneste sannhetskilden) og bygger resten på toppen av det.
+plan, sine egne oppgaver og sin egen fremdrift. To fag er lagt inn:
+
+- **SAM3 Makroøkonomi** — norsk, 24 kapitler, datostyrt 21-dagersplan.
+- **FIE402 Corporate Finance** — engelsk innhold (eksamen besvares på engelsk),
+  30 kapitler, modulbasert plan uten datoer, og tidligere eksamenssett.
+
+Hvert fag henter alt fagstoff fra sin egen pensum-HTML — den eneste
+sannhetskilden — og bygger resten på toppen av det.
 
 Med [Supabase koblet på](docs/supabase-oppsett.md) kan du logge inn og ta med
 fremdriften mellom telefon og PC. Uten er alt lokalt i nettleseren, som før.
@@ -29,7 +34,7 @@ Serveren henter pensumfilen automatisk, så du slipper å gjøre noe mer.
 
 ### På nett (GitHub Pages)
 
-Publisert versjon: **https://magnusafjeld-cpu.github.io/SAM3/**. Første gang
+Publisert versjon: **https://magnusafjeld-cpu.github.io/SuperEnkelEksamen/**. Første gang
 velger du pensumfilen (eller drar den inn); den lagres lokalt etterpå.
 
 ### Alternativ: åpne `index.html` direkte
@@ -75,6 +80,7 @@ Selve plattformnavnet, logoen og undertittelen settes ett sted: `EDU_PLATFORM`
 | **Repetisjonsmotor** | Bestemmer automatisk hva du bør repetere: usikre temaer, temaer du ikke har sett på lenge, sentrale eksamenstemaer og svak quizscore. |
 | **Eksamenstrening** | Foreslår tidligere eksamensoppgaver for dagen, viser hvilke temaer de tester, kobler til modellsvar og foreslår repetisjon hvis du sliter. |
 | **Oppgavebank** | Alle oppgaver med fasit, søkbare og filtrerbare. |
+| **Eksamenssett** | Hele tidligere eksamener. Øvingsmodus låser fasiten til du har skrevet svaret; eksamensmodus viser hele settet med nedtelling og åpner ingen fasit før du leverer. |
 | **Søk** | Søk på begreper, modeller, formler, økonomer, variabler og figurer på tvers av hele pensum. |
 | **Fremdrift** | Dager fullført, kapitler lest, quizscore, flashcard-status, svakeste temaer og hva som gjenstår. |
 | **Konto** | Valgfri innlogging (e-post + passord) med synk av fremdrift mellom enheter. |
@@ -93,16 +99,23 @@ SAM3 Code/
 │   ├── bundle-views.js        # alle visninger (dashboard, plan, pensum, kapittel, quiz, …)
 │   ├── bundle-lyn.js          # lynlæring: spillmotoren
 │   ├── bundle-dybde.js        # dybdetrening: visningen
+│   ├── bundle-sett.js         # eksamenssett: øvingsmodus og eksamensmodus på tid
 │   ├── account.js             # innlogging og synk mot Supabase
 │   ├── picker.js              # fag-velger, tema og dynamisk lasting av fagdata
 │   └── boot.js                # app-skall, ruting og innholdslasting
 ├── fag/
+│   ├── fie402/                # FIE402 Corporate Finance (engelsk)
+│   │   ├── data.js            #   plan (24 moduler), quiz, flashcards, ordliste
+│   │   ├── lyn.js             #   lynlæringsinnhold
+│   │   ├── dybde.js           #   dybdetreningsbanker
+│   │   └── sett.js            #   tidligere eksamenssett med fasit
 │   ├── sam3/                  # SAM3 Makroøkonomi
 │   │   ├── data.js            #   plan, quiz, flashcards, aktiv læring, eksamener, ordliste
 │   │   ├── lyn.js             #   lynlæringsinnhold
 │   │   └── dybde.js           #   dybdetreningsbanker (222 spørsmål)
 │   └── _mal/                  # mal for nye fag — kopier denne
 ├── SAM3_Eksamensmanual.html   # SAM3s pensumkilde
+├── FIE402_Manual.html         # FIE402s pensumkilde
 ├── SAM3_Alle_oppgaver_med_fasit.html
 ├── docs/
 │   ├── supabase.sql           # skjema + Row Level Security
@@ -120,15 +133,22 @@ makroøkonomi, og ingenting i `fag/` vet noe om hvordan appen er bygget.
 
 1. **Kopier malen**: `cp -r fag/_mal fag/<ditt-fag>`
 2. **Skriv pensumfilen.** Én HTML-fil med samme struktur som
-   `SAM3_Eksamensmanual.html`: kapitler i `<div class="chap" id="k0">`, med
-   `<h2>`-overskrifter og boksene *mekanisme*, *eksamenstips*, *vanlig feil* og
-   *sammenheng*. Parseren i `bundle-core.js` bygger resten selv — kapitler,
+   `SAM3_Eksamensmanual.html`: ett `<section id="kN">` per kapittel, med
+   `<h2 class="chap">N · Tittel</h2>`, `<h3>N.M Tittel</h3>` som direkte barn, og
+   boksene *mekanisme*, *eksamenstips*, *vanlig feil* og *sammenheng*. Parseren i `bundle-core.js` bygger resten selv — kapitler,
    seksjoner, formler, figurer (inkl. SVG) og tabeller.
 3. **Fyll `fag/<ditt-fag>/data.js`** med studieplan, quiz, flashcards og resten.
    Malen forklarer hvert felt. Alt bortsett fra planen er valgfritt.
 4. **Registrer faget** i `js/subjects.js` — ett objekt med navn, farger, hvilke
    moduler faget skal ha, hvilke datafiler som skal lastes, og stien til
-   pensumfilen.
+   pensumfilen. Der ligger også feltene som gjør motoren fagnøytral: `parts`
+   (delinndelingen), `coreChapters` (hvilke kapitler som er pensum), `dybdeBanks`,
+   `manual.refSections` (hvor formelsamlingen står) og `copy`. Alle har SAM3s
+   oppførsel som default, så de kan utelates.
+
+Planen kan være **datostyrt** (`plan.mode: "dates"`, som SAM3) eller
+**modulbasert** (`plan.mode: "modules"`, som FIE402). I modulmodus er «i dag»
+første ufullførte modul, og datoer vises ikke noe sted.
 
 Velgeren plukker det opp automatisk. Moduler du ikke fyller ut data for,
 slår du av med `modules`-feltet, så forsvinner de fra menyen.

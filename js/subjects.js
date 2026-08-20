@@ -52,6 +52,57 @@ window.EDU_SUBJECTS = [
     },
     modules: null,
   },
+  {
+    id: "fie402",
+    name: "FIE402 Corporate Finance",
+    short: "FIE402",
+    tagline: "NHH · exam prep",
+    logo: "CF",
+    blurb: "Hele mastermaualen på engelsk: kapitalstruktur, verdsetting med gjeld, opsjoner, M&A og eierstyring — med elleve tidligere eksamenssett.",
+    accent: "#12805c", accentInk: "#0b6448", accentSoft: "#e3f4ee", accentSoft2: "#cfeade",
+    scripts: ["fag/fie402/data.js", "fag/fie402/lyn.js", "fag/fie402/dybde.js", "fag/fie402/sett.js"],
+    manual: {
+      candidates: ["FIE402_Manual.html", "fag/fie402/manual.html", "../FIE402_Manual.html"],
+      label: "FIE402_Manual.html",
+      hint: "hele pensum lastes inn og lagres lokalt (du slipper å velge igjen)",
+      /* Formelsamlingen ligger sist, ikke i k22 som i SAM3. */
+      refSections: { formulas: "k29" },
+    },
+    /* Kapittel 0 er kurs- og eksamensintroduksjon, k29 er ren referanse —
+       ingen av dem teller som pensum i fremdriften. */
+    coreChapters: { from: 1, to: 28 },
+    parts: [
+      { id: 0, tag: "Part 0", name: "Foundations", chapters: [0, 1, 2, 3, 4, 5] },
+      { id: 1, tag: "Part I", name: "Capital structure", chapters: [6, 7, 8, 9, 10, 11] },
+      { id: 2, tag: "Part II", name: "Information and issuance", chapters: [12, 13, 14] },
+      { id: 3, tag: "Part III", name: "Payout policy", chapters: [15, 16] },
+      { id: 4, tag: "Part IV", name: "Valuation with leverage", chapters: [17, 18, 19, 20] },
+      { id: 5, tag: "Part V", name: "Options", chapters: [21, 22, 23, 24, 25] },
+      { id: 6, tag: "Part VI", name: "Transactions and governance", chapters: [26, 27] },
+      { id: 7, tag: "Part VII", name: "Exam craft", chapters: [28] },
+      { id: 8, tag: "Reference", name: "Formula reference", chapters: [29] },
+    ],
+    dybdeBanks: [
+      { key: "foundations", label: "Foundations", sub: "Fri kontantstrøm, CAPM, kapitalkostnad, unlever/relever og kredittrisiko (kapittel 1–5).",
+        tip: "Nivå 1–2 er definisjoner; nivå 3–4 er regnetrening. Unlever/relever-rutinen er den mest eksaminerte ferdigheten i hele faget — ta den til du ikke nøler." },
+      { key: "capital", label: "Capital structure", sub: "MM I og II, skatteskjold, konkurskostnader, risikoskifting og debt overhang (kapittel 6–11).",
+        tip: "Regn tilstand for tilstand. Sensor belønner at du navngir mekanismen, ikke bare at tallet stemmer." },
+      { key: "information", label: "Information & payout", sub: "Myers-Majluf, pecking order, emisjoner, utbytte og tilbakekjøp (kapittel 12–16).",
+        tip: "Myers-Majluf-malen går igjen nesten ordrett i fem eksamenssett. Husk å sjekke om investorenes tro er rasjonell — å regne ut α holder ikke." },
+      { key: "valuation", label: "Valuation with leverage", sub: "WACC-metoden, APV, FTE, gjeldspolitikk og gjeldsjustering (kapittel 17–20).",
+        tip: "Avslutt alltid med konsistenssjekken: WACC-verdien og APV-verdien skal være like." },
+      { key: "options", label: "Options", sub: "Put-call-paritet, binomisk modell, Black-Scholes, gjeld og EK som opsjoner, realopsjoner (kapittel 21–25).",
+        tip: "Realopsjoner er fast 20-poengspost i det nye formatet. Tren spesielt på verdien av informasjon og på exit-opsjoner." },
+      { key: "transactions", label: "M&A & governance", sub: "Oppkjøpsmotiver, aksjebytte, premie, implisitt dealsannsynlighet og eierstyring (kapittel 26–27).",
+        tip: "Eierstyring er garantert egen oppgave. Ha minst åtte tiltak du kan forklare på tre setninger hver." },
+    ],
+    copy: {
+      planEyebrow: "Studieplan · 25 moduler",
+      planIntro: "Modul 1–21 bygger faget fra bunnen: grunnlaget, kapitalstruktur, informasjon og utbytte, verdsetting med gjeld, opsjoner, og til slutt M&A og eierstyring. Modul 22–25 er ren eksamenstrening på ekte sett. Innleveringene HW1 og HW2 har egne milepæler underveis.",
+      dybdeIntro: "Selvrettet trening i seks bolker som følger kursets deler. Velg bank, filtrer på nivå og tema, og skriv svaret på papir før du åpner fasiten — eksamen er penn og papir.",
+    },
+    modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress"],
+  },
 ];
 
 /* Oppslag + valgt fag. window.EDU_SUBJECT settes av js/picker.js ved oppstart. */

@@ -4,3 +4,11 @@
 # Editor / tooling
 .claude/
 .vscode/
+
+# Obsidian: vindusposisjoner endrer seg hver gang hvelvet åpnes
+SuperEnkelEksamenHjerne/.obsidian/workspace.json
+
+# NHHs eksamens-PDF-er. Kildemateriale, ikke noe appen trenger for å kjøre —
+# innholdet er allerede hentet ut til fag/fie402/sett.js. Holdes utenfor et
+# offentlig repo både av hensyn til opphavsrett og fordi det er 11 MB.
+FIE402_Corp_course_files/

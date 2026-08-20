@@ -1,0 +1,97 @@
+---
+tags: [drift, fallgruver, viktig]
+oppdatert: 2026-08-19
+---
+
+# Fallgruver
+
+Ting som har bitt før, eller som garantert vil bite. **Les denne før du endrer
+noe.**
+
+## 1. Byggnummeret
+
+Endrer du `js/` eller `fag/` uten å bumpe `?v=N` i `index.html`, kjører telefonen
+gammel kode i opptil ti minutter. Se [[Publisering og cache]].
+
+## 2. Motoren må aldri snapshotte `EDU_DATA`
+
+Fagets datafiler lastes **etter** motoren. `const plan = EDU_DATA.plan` på
+toppnivå i en motorfil gir `undefined`. Bruk `S.data`-gettere. Feilen viser seg
+først når faget velges, ikke ved lasting. Se [[Arkitektur]].
+
+## 3. SAM3-lekkasjer i motoren — seks lukket, ni igjen
+
+Kartleggingen 19. august 2026 fant **15** steder der motoren visste noe den ikke
+burde. De seks som blokkerte et nytt fag er flyttet ut i fagmanifestet, med SAM3s
+verdi som default — se [[Fagregisteret]]:
+
+| Lukket | Var |
+|---|---|
+| `parts` | delinndelingen hardkodet i parseren |
+| `coreChapters` / `reviewChapters` | kapittelspennene 1–23 og 1–22, som dessuten var innbyrdes inkonsistente |
+| `dybdeBanks` | bankene `kort`/`lang`/`eksamen` med SAM3-beskrivelser |
+| `manual.refSections` | `#k21`/`#k22`/`#k23` slått opp direkte |
+| `problems.topicRules` / `.typeRules` | norske makro-regexer i oppgaveparseren |
+| `EDU_DATA.lyn.hode` | ~230 linjer generert makroøkonomi inne i lynmotoren, alltid påslått |
+
+`srs.deck()` sin `oppgLabel`-liste ble bare slettet — tabelltittelen fra manualen
+var allerede riktig oppførsel.
+
+**De ni som står igjen** er kosmetiske, men synlige for et annet fag:
+søkeforslagene («Solow, steady state, MPK …»), deck-etikettene i flashcards,
+«Ingen kalkulator»-chippen som ignorerer `exams.format`, «Oppgave 1/2/3» som fast
+akse i quizfiltre og eksamensvisning, og de faste SAM3-setningene i
+oppgavebankens sidetopp. FIE402 unngår dem ved å slå av `/oppgaver` og `/exam`.
+
+## 4. `id` i fagregisteret er en lagringsnøkkel
+
+Endres `id` etter at faget er tatt i bruk, peker `edu.<id>.progress.v1` plutselig
+et annet sted og all fremdrift ser ut som borte. (Den ligger fortsatt der, under
+den gamle nøkkelen.)
+
+## 5. Arvede localStorage-nøkler
+
+`sam3.progress.v1`, `sam3.manual.v1` og `sam3.problems.v1` er fra tiden før
+fag-velgeren. De leses én gang og kopieres til `edu.sam3.*`. Fjerner du
+migreringskoden, mister eksisterende installasjoner historikken sin.
+
+## 6. Endret pensum vises ikke
+
+Parset pensum ligger i `localStorage`. Endrer du manual-HTML-en, må
+**«Last innhold på nytt»** nederst på Fremdrift-siden trykkes.
+
+## 7. Studieplanen kan gå ut på dato
+
+`activeDayIndex()` klamper til `totalDays`. Er planen ferdig, står dashbordet
+permanent på siste dag uten å si fra. Gjelder SAM3 nå.
+
+Fag som ikke skal være datostyrt setter `plan.mode = "modules"` i stedet. Da er
+«i dag» første ufullførte modul, og dato og ukedag droppes overalt. Se
+[[Datamodell og lagring]].
+
+## 7b. Formelkortenes id-er er posisjonsbaserte
+
+Kortene som genereres fra formeltabellene får id `fmla-<tabellindeks>-<radindeks>`.
+**Omorganiserer du tabellene eller setter inn en rad midt i, forskyves hele
+spaced repetition-historikken** — kort du har mestret dukker opp som nye, og
+vurderingene havner på feil formel. Legg tabellene i endelig rekkefølge fra start,
+og legg nye rader nederst i sin seksjon.
+
+## 8. Filer som ikke er koblet til noe
+
+- `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden
+- `SAM3 Oppgavebank MC/` — tom mappe, ingen referanser
+
+(`.claude/launch.json` var også feil, men ble rettet 19. august 2026 og peker nå
+på `tools/serve.py`. `serve.py` leser porten fra `PORT` når den ikke får et
+argument, slik at forhåndsvisningen kan velge en ledig port når 4178 er opptatt.)
+
+## 9. Supabase-adressene følger ikke med på navnebytte
+
+Site URL og Redirect URLs må oppdateres manuelt i Supabase når Pages-adressen
+endres, ellers går glemt-passord-lenker til en død adresse. Se [[Supabase]].
+
+## 10. `.gitignore` ignorerer `.claude/`
+
+Prosjektinnstillinger for Claude Code følger altså ikke med repoet. Bevisst nok,
+men verdt å vite hvis noe «mangler» på en annen maskin.

@@ -17,6 +17,15 @@ window.EDU.views = window.EDU.views || {};
   function sectionTitle(text, seeAll) { const t = el(".section-title", el("h3", text)); if (seeAll) t.appendChild(el(".see-all", { onclick: seeAll.fn }, seeAll.label + " →")); return t; }
   function stat(value, label, kicker) { const s = el(".stat", el(".v", String(value)), el(".l", label)); if (kicker) s.appendChild(el(".k.up", kicker)); return s; }
   function phaseColor(phase) { return (S.data.plan.phaseColors && S.data.plan.phaseColors[phase]) || "slate"; }
+  /* Fag med plan.mode "modules" har ingen datoer — da heter en økt «modul», ikke «dag»,
+     og verken ukedag eller dato skal vises. */
+  const byModule = () => S.data.planMode() === "modules";
+  function unitName(cap) { const w = byModule() ? "modul" : "dag"; return cap ? w[0].toUpperCase() + w.slice(1) : w; }
+  function dayStamp(d) {
+    if (byModule() || !d || !d.date) return "";
+    return ` · ${d.weekday || ""} ${S.u.formatDate(d.date)}`.replace(/\s+/g, " ");
+  }
+  function copy(key, fallback) { return (((window.EDU_SUBJECT || {}).copy) || {})[key] || fallback; }
   function chapterMeta(ch) {
     const c = ch.counts; const bits = [];
     if (c.sections) bits.push(`${c.sections} seksjoner`);
@@ -38,7 +47,7 @@ window.EDU.views = window.EDU.views || {};
     return c;
   }
   function empty(emoji, title, sub, action) { const e = el(".empty", el(".ei", emoji), el("h3", title), el("p.muted", sub)); if (action) e.appendChild(el("div", { style: { marginTop: "18px" } }, action)); return e; }
-  S.views.shared = { pageHead, sectionTitle, stat, phaseColor, chapterMeta, go, understandingPicker, readCheck, empty };
+  S.views.shared = { pageHead, sectionTitle, stat, phaseColor, chapterMeta, go, understandingPicker, readCheck, empty, unitName, dayStamp, byModule, copy };
 })(window.EDU);
 
 /* ---------------- dashboard ---------------- */
@@ -57,11 +66,13 @@ window.EDU.views = window.EDU.views || {};
   }
   function hero(day, until, readiness) {
     const h = el(".hero"); const left = el("div", { style: { position: "relative", zIndex: 1, flex: "1 1 320px" } });
-    const greeting = until > 0 ? `Studiestart om ${until} dag${until > 1 ? "er" : ""}` : `Dag ${day.day} av ${S.data.plan.totalDays} · ${day.weekday} ${formatDate(day.date)}`;
+    const greeting = until > 0
+      ? `Studiestart om ${until} dag${until > 1 ? "er" : ""}`
+      : `${sh().unitName(true)} ${day.day} av ${S.data.plan.totalDays}${sh().dayStamp(day)}`;
     left.appendChild(el(".eyebrow", greeting.toUpperCase()));
     left.appendChild(el("h2", day.title));
     left.appendChild(el("p", until > 0 ? `Planen starter ${formatDate(S.data.plan.startDate, { year: true })}. Bruk gjerne dag 1 som forhåndstitt allerede nå.` : day.tip));
-    left.appendChild(el(".hero-cta", S.hasModule("/plan") && el("a.btn.primary", { href: `#/day/${day.day}` }, "Start dagens økt →"), S.hasModule("/lyn") && el("a.btn.ghost", { href: "#/lyn" }, (S.views.lyn && S.views.lyn.dailyDone()) ? "⚡ Lynøkt fullført" : "⚡ Lynøkt (4 min)"), S.hasModule("/quiz") && el("a.btn.ghost", { href: "#/quiz" }, "Ta en quiz")));
+    left.appendChild(el(".hero-cta", S.hasModule("/plan") && el("a.btn.primary", { href: `#/day/${day.day}` }, sh().byModule() ? "Start denne modulen →" : "Start dagens økt →"), S.hasModule("/lyn") && el("a.btn.ghost", { href: "#/lyn" }, (S.views.lyn && S.views.lyn.dailyDone()) ? "⚡ Lynøkt fullført" : "⚡ Lynøkt (4 min)"), S.hasModule("/quiz") && el("a.btn.ghost", { href: "#/quiz" }, "Ta en quiz")));
     const right = el("div", { style: { position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" } });
     const rg = ring(readiness, 132, `${readiness}%`, "klar", "#ffffff"); rg.querySelector(".ring-bg").style.stroke = "rgba(255,255,255,.22)";
     right.appendChild(rg); right.appendChild(el(".tiny", { style: { color: "rgba(255,255,255,.8)" } }, "Eksamensberedskap"));
@@ -71,7 +82,7 @@ window.EDU.views = window.EDU.views || {};
     const grid = el(".grid.cols-4", { style: { marginTop: "20px" } });
     const tile = (node) => el(".card", { style: { padding: "18px 20px" } }, node);
     grid.appendChild(tile(withBar(sh().stat(`${r.read}/${r.total}`, "Kapitler lest"), r.pct)));
-    grid.appendChild(tile(withBar(sh().stat(`${d.done}/${d.total}`, "Dager fullført"), d.pct, true)));
+    grid.appendChild(tile(withBar(sh().stat(`${d.done}/${d.total}`, sh().unitName(true) + "er fullført"), d.pct, true)));
     grid.appendChild(tile(sh().stat(srs.mastered, `Kort mestret · ${srs.due} forfaller`)));
     grid.appendChild(tile(sh().stat(q.accuracy != null ? q.accuracy + "%" : "—", `Quiz · ${q.answered} svart`)));
     return grid;
@@ -79,14 +90,14 @@ window.EDU.views = window.EDU.views || {};
   function withBar(statNode, pct, green) { const w = el("div", statNode); w.appendChild(el("div", { style: { marginTop: "12px" } }, bar(pct, { thin: true, green }))); return w; }
   function todayCard(day) {
     const card = el(".card.pad-lg");
-    card.appendChild(el(".row", el("h3", { style: { fontSize: "18px" } }, "Dagens plan"), el(".spacer"), el(".chip." + sh().phaseColor(day.phase), el(".dot"), day.phase)));
+    card.appendChild(el(".row", el("h3", { style: { fontSize: "18px" } }, sh().byModule() ? "Denne modulen" : "Dagens plan"), el(".spacer"), el(".chip." + sh().phaseColor(day.phase), el(".dot"), day.phase)));
     card.appendChild(el(".row.wrap", { style: { gap: "8px", margin: "10px 0 16px" } }, el(".chip", icon("clock"), `~${day.estMinutes} min`), ...day.chapters.map((n) => { const c = S.data.chapter(n); return el(".chip", { onclick: sh().go(`#/chapter/${n}`), style: { cursor: "pointer" } }, `K${n} · ${(c ? c.title : "").slice(0, 26)}`); })));
-    card.appendChild(el(".nav-section", { style: { paddingLeft: "0" } }, "Dagens mål"));
+    card.appendChild(el(".nav-section", { style: { paddingLeft: "0" } }, sh().byModule() ? "Mål for modulen" : "Dagens mål"));
     const st = S.store.get(); const dayDone = st.days[day.day] && st.days[day.day].completed;
     day.goals.forEach((g) => card.appendChild(el(".task-row" + (dayDone ? ".done" : ""), el("div", { style: { color: "var(--accent)", marginTop: "2px" }, html: icon("target") }), el("div", el(".tt", g)))));
-    card.appendChild(el(".nav-section", { style: { paddingLeft: "0" } }, "Dagens viktigste konsepter"));
+    card.appendChild(el(".nav-section", { style: { paddingLeft: "0" } }, sh().byModule() ? "Viktigste konsepter" : "Dagens viktigste konsepter"));
     card.appendChild(el(".row.wrap", { style: { gap: "8px" } }, ...day.keyConcepts.map((c) => el(".concept-pill", { onclick: S.hasModule("/search") ? () => S.router.navigate(`#/search?q=${encodeURIComponent(c)}`) : null }, c))));
-    card.appendChild(el(".row", { style: { marginTop: "20px" } }, el("a.btn.primary", { href: `#/day/${day.day}` }, "Åpne dagen"), el("button.btn" + (dayDone ? ".green" : ""), { onclick: () => { S.store.setDayComplete(day.day, !dayDone); S.u.toast(dayDone ? "Dag gjenåpnet" : "Dag fullført! 🎉"); S.app.refresh(); } }, dayDone ? "✓ Fullført" : "Marker dagen som fullført")));
+    card.appendChild(el(".row", { style: { marginTop: "20px" } }, el("a.btn.primary", { href: `#/day/${day.day}` }, sh().byModule() ? "Åpne modulen" : "Åpne dagen"), el("button.btn" + (dayDone ? ".green" : ""), { onclick: () => { S.store.setDayComplete(day.day, !dayDone); S.u.toast(dayDone ? (sh().unitName(true) + " gjenåpnet") : (sh().unitName(true) + " fullført! 🎉")); S.app.refresh(); } }, dayDone ? "✓ Fullført" : `Marker ${sh().unitName()}en som fullført`)));
     return card;
   }
   function sideColumn(day) {
@@ -96,10 +107,10 @@ window.EDU.views = window.EDU.views || {};
     S.repetition.suggest(3).forEach((s) => repCard.appendChild(el(".task-row", { style: { cursor: "pointer" }, onclick: sh().go(`#/chapter/${s.num}`) }, el(".priority-tag." + s.priority, { style: { marginTop: "1px" } }, s.priority === "high" ? "Høy" : s.priority === "med" ? "Med" : "Lav"), el("div", el(".tt", `K${s.num} · ${s.chapter.title}`), el(".td", s.reasons[0] || "Repetisjon")))));
     col.appendChild(repCard);
     const ms = S.metrics.nextMilestone();
-    col.appendChild(el(".card", el(".row", el("div", { style: { width: "44px", height: "44px", borderRadius: "12px", background: "var(--accent-soft)", display: "grid", placeItems: "center", color: "var(--accent-ink)" }, html: icon("flag") }), el("div", el(".tiny.muted", "Neste milepæl"), el("div", { style: { fontWeight: 620, marginTop: "2px" } }, ms.label), el(".tiny.muted", { style: { marginTop: "2px" } }, `Dag ${ms.day} · ${formatDate(ms.date)}`)))));
+    col.appendChild(el(".card", el(".row", el("div", { style: { width: "44px", height: "44px", borderRadius: "12px", background: "var(--accent-soft)", display: "grid", placeItems: "center", color: "var(--accent-ink)" }, html: icon("flag") }), el("div", el(".tiny.muted", "Neste milepæl"), el("div", { style: { fontWeight: 620, marginTop: "2px" } }, ms.label), el(".tiny.muted", { style: { marginTop: "2px" } }, `${sh().unitName(true)} ${ms.day}${sh().dayStamp(ms)}`)))));
     const upCard = el(".card"); upCard.appendChild(el("h3", { style: { fontSize: "16px", marginBottom: "10px" } }, "Kommende temaer"));
     const nextDays = S.data.days().filter((dd) => dd.day > day.day).slice(0, 3);
-    if (!nextDays.length) upCard.appendChild(el(".tiny.muted", "Du er på siste dag — tid for mock-eksamen!"));
+    if (!nextDays.length) upCard.appendChild(el(".tiny.muted", `Du er på siste ${sh().unitName()} — tid for mock-eksamen!`));
     nextDays.forEach((dd) => upCard.appendChild(el(".task-row", { style: { cursor: "pointer" }, onclick: sh().go(`#/day/${dd.day}`) }, el(".day-num", { style: { width: "38px", height: "38px", borderRadius: "10px" } }, el(".n", { style: { fontSize: "15px" } }, dd.day)), el("div", el(".tt", dd.title), el(".td", dd.phase)))));
     col.appendChild(upCard); return col;
   }
@@ -111,7 +122,11 @@ window.EDU.views = window.EDU.views || {};
   const { el, icon, formatDate, bar } = S.u; const sh = () => S.views.shared;
   function renderOverview() {
     const wrap = el(".fade-in"); const active = S.data.activeDayIndex();
-    wrap.appendChild(sh().pageHead("3-ukers studieplan", "Hele løpet, dag for dag", "Uke 1–2: pensum (rammeverk → måling → vekst → kort sikt → repetisjon). Uke 3: ren oppgavetrening med tidligere eksamener og fasit, sortert fra tema-fokus til hele sett på tid og generalprøve."));
+    const total = S.data.plan.totalDays;
+    wrap.appendChild(sh().pageHead(
+      sh().copy("planEyebrow", sh().byModule() ? `Studieplan · ${total} moduler` : "3-ukers studieplan"),
+      sh().byModule() ? "Hele løpet, modul for modul" : "Hele løpet, dag for dag",
+      sh().copy("planIntro", "Uke 1–2: pensum (rammeverk → måling → vekst → kort sikt → repetisjon). Uke 3: ren oppgavetrening med tidligere eksamener og fasit, sortert fra tema-fokus til hele sett på tid og generalprøve.")));
     const phases = [...new Set(S.data.days().map((d) => d.phase))];
     wrap.appendChild(el(".row.wrap", { style: { gap: "8px", marginBottom: "18px" } }, ...phases.map((p) => el(".chip." + sh().phaseColor(p), el(".dot"), p))));
     const list = el(".grid", { style: { gap: "12px" } });
@@ -119,7 +134,7 @@ window.EDU.views = window.EDU.views || {};
       const st = S.store.get().days[d.day] || {};
       const card = el(".card.day-card" + (st.completed ? ".is-done" : (d.day === active ? ".is-today" : "")), { onclick: sh().go(`#/day/${d.day}`) });
       card.appendChild(el(".phase-band", { style: { background: `var(--phase-${sh().phaseColor(d.phase)})` } }));
-      card.appendChild(el(".day-num", el(".n", st.completed ? "✓" : d.day), el(".d", d.weekday.slice(0, 3))));
+      card.appendChild(el(".day-num", el(".n", st.completed ? "✓" : d.day), el(".d", sh().byModule() ? "" : (d.weekday || "").slice(0, 3))));
       const mid = el("div", { style: { flex: "1" } }, el(".dtitle", d.title), el(".dmeta", el(".chip." + sh().phaseColor(d.phase), { style: { fontSize: "11px" } }, d.phase), el("span", `~${d.estMinutes} min`), el("span", "·"), el("span", d.chapters.length ? d.chapters.map((n) => "K" + n).join(", ") : ((d.problems && d.problems.length) ? d.problems.length + " oppgavesett" : "Oppgavetrening")), (d.pastExam || (d.problems && d.problems.length)) ? el(".chip.amber", { style: { fontSize: "11px" } }, "Oppgaver") : null));
       card.appendChild(mid);
       card.appendChild(el("div", { style: { color: "var(--ink-4)" }, html: icon("arrow") }));
@@ -133,11 +148,11 @@ window.EDU.views = window.EDU.views || {};
     const wrap = el(".fade-in"); const st = S.store.get().days[n] || {};
     const total = S.data.plan.totalDays;
     const right = el(".row", { style: { gap: "8px" } }, n > 1 ? el("a.btn.ghost.sm", { href: `#/day/${n - 1}` }, "← Forrige") : null, n < total ? el("a.btn.ghost.sm", { href: `#/day/${n + 1}` }, "Neste →") : null);
-    wrap.appendChild(sh().pageHead(`Dag ${n} av ${total} · ${d.weekday} ${formatDate(d.date)}`, d.title, null, right));
+    wrap.appendChild(sh().pageHead(`${sh().unitName(true)} ${n} av ${total}${sh().dayStamp(d)}`, d.title, null, right));
     wrap.appendChild(el(".row.wrap", { style: { gap: "8px", marginBottom: "20px" } }, el(".chip." + sh().phaseColor(d.phase), el(".dot"), d.phase), el(".chip", icon("clock"), `Estimert studietid: ~${d.estMinutes} min`), d.examFocus ? el(".chip.indigo", "Fokus: " + d.examFocus) : null, el(".chip.green", "🏁 " + d.milestone)));
     const cols = el(".grid.cols-2", { style: { alignItems: "start" } });
     const left = el(".stack", { style: { gap: "18px" } });
-    const goalCard = el(".card.pad-lg"); goalCard.appendChild(el("h3", { style: { fontSize: "17px", marginBottom: "4px" } }, "Dagens mål"));
+    const goalCard = el(".card.pad-lg"); goalCard.appendChild(el("h3", { style: { fontSize: "17px", marginBottom: "4px" } }, sh().byModule() ? "Mål for modulen" : "Dagens mål"));
     d.goals.forEach((g) => goalCard.appendChild(el(".task-row", el("div", { style: { color: "var(--accent)", marginTop: "2px" }, html: icon("target") }), el("div", el(".tt", g)))));
     left.appendChild(goalCard);
     if (d.chapters && d.chapters.length) {
@@ -152,7 +167,7 @@ window.EDU.views = window.EDU.views || {};
     }
     cols.appendChild(left);
     const col = el(".stack", { style: { gap: "18px" } });
-    col.appendChild(el(".card", el(".row", el("div", { style: { fontSize: "20px" } }, "💡"), el("h3", { style: { fontSize: "15px" } }, "Dagens tips")), el("p.muted", { style: { margin: "8px 0 0", fontSize: "14.5px", lineHeight: 1.55 } }, d.tip)));
+    col.appendChild(el(".card", el(".row", el("div", { style: { fontSize: "20px" } }, "💡"), el("h3", { style: { fontSize: "15px" } }, sh().byModule() ? "Tips" : "Dagens tips")), el("p.muted", { style: { margin: "8px 0 0", fontSize: "14.5px", lineHeight: 1.55 } }, d.tip)));
     const kcCard = el(".card"); kcCard.appendChild(el("h3", { style: { fontSize: "15px", marginBottom: "10px" } }, "Viktigste konsepter"));
     kcCard.appendChild(el(".row.wrap", { style: { gap: "8px" } }, ...d.keyConcepts.map((k) => el(".concept-pill", { onclick: S.hasModule("/search") ? () => S.router.navigate(`#/search?q=${encodeURIComponent(k)}`) : null }, k))));
     col.appendChild(kcCard);
@@ -166,7 +181,7 @@ window.EDU.views = window.EDU.views || {};
       col.appendChild(pdfCard);
     }
     cols.appendChild(col); wrap.appendChild(cols);
-    wrap.appendChild(el(".card", { style: { marginTop: "20px", textAlign: "center", background: st.completed ? "var(--green-soft)" : "#fff" } }, el("p", { style: { margin: "0 0 12px", fontWeight: 560 } }, st.completed ? "✓ Du har fullført denne dagen — godt jobbet!" : "Ferdig med dagens økt?"), el("button.btn" + (st.completed ? "" : ".primary"), { onclick: () => { S.store.setDayComplete(n, !st.completed); S.u.toast(st.completed ? "Dag gjenåpnet" : "Dag fullført! 🎉"); S.app.refresh(); } }, st.completed ? "Angre fullføring" : "Marker dag " + n + " som fullført")));
+    wrap.appendChild(el(".card", { style: { marginTop: "20px", textAlign: "center", background: st.completed ? "var(--green-soft)" : "#fff" } }, el("p", { style: { margin: "0 0 12px", fontWeight: 560 } }, st.completed ? `✓ Du har fullført denne ${sh().unitName()}en — godt jobbet!` : "Ferdig med økta?"), el("button.btn" + (st.completed ? "" : ".primary"), { onclick: () => { S.store.setDayComplete(n, !st.completed); S.u.toast(st.completed ? (sh().unitName(true) + " gjenåpnet") : (sh().unitName(true) + " fullført! 🎉")); S.app.refresh(); } }, st.completed ? "Angre fullføring" : `Marker ${sh().unitName()} ${n} som fullført`)));
     return wrap;
   }
   S.views.planOverview = { render: renderOverview }; S.views.day = { render: renderDay };

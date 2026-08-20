@@ -16,7 +16,9 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
-PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 4178
+# Port: argument foerst, deretter PORT fra miljoeet (brukes av forhaandsvisningen
+# i Claude Code naar 4178 er opptatt), ellers standarden.
+PORT = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("PORT", 4178))
 
 # Make the manual reachable from the app's origin. The manual normally lives one
 # directory up (next to this project). Copy it in once so fetch("SAM3_Eksamensmanual.html")

@@ -446,6 +446,25 @@ textarea{font-family:inherit;}
   .hero{padding:24px 22px;}.page-head h1{font-size:27px;}
 }
 @media (min-width:861px){.mobile-nav{display:none;}}
+/* ---- eksamenssett ---- */
+.sett-nav{cursor:pointer;font-weight:620;min-width:34px;justify-content:center;}
+.sett-nav.on{background:var(--accent);color:#fff;border-color:var(--accent);}
+.sett-part{border-top:1px solid var(--hairline);margin-top:16px;padding-top:14px;}
+.sett-part .row:first-child{margin-bottom:2px;}
+.part-label{font-weight:700;font-size:15px;color:var(--accent-ink);}
+.sol-panel{margin-top:14px;background:var(--green-soft);border:1px solid #cfe9d8;border-left:4px solid var(--green);border-radius:var(--r-md);padding:14px 18px;}
+.sol-h{display:flex;align-items:center;gap:8px;font-weight:650;color:#1f7a46;margin-bottom:6px;}
+.sol-h .ico{width:18px;height:18px;}
+.sol-panel .prose{font-size:14.8px;}
+.sol-panel .prose p:first-child{margin-top:0;}
+.sol-crit{margin:6px 0 0;padding-left:20px;font-size:14px;line-height:1.6;color:var(--ink-2);}
+.sol-crit li{margin:3px 0;}
+.exam-clock{position:sticky;top:0;z-index:55;display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:var(--r-md);padding:12px 18px;margin-bottom:18px;box-shadow:var(--shadow-md);}
+.exam-clock.done{background:var(--green);}
+.exam-clock.over{background:var(--rose);}
+.exam-clock .ec-l{font-size:12px;text-transform:uppercase;letter-spacing:.06em;opacity:.75;}
+.exam-clock .ec-t{font-family:var(--mono);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;}
+@media (max-width:860px){.exam-clock .ec-t{font-size:20px;}}
 </style>
 </head>
 <body>
@@ -466,21 +485,23 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=3"></script>
-<script src="js/config.js?v=3"></script>
+<script src="js/subjects.js?v=5"></script>
+<script src="js/config.js?v=5"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
      bundle-views = alle visninger (dashboard, plan, pensum, kapittel, quiz, …)
+     bundle-sett  = eksamenssett: øvingsmodus og eksamensmodus på tid
      account      = Supabase-innlogging og synk av fremdrift (valgfritt)
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=3"></script>
-<script src="js/bundle-views.js?v=3"></script>
-<script src="js/bundle-lyn.js?v=3"></script>
-<script src="js/bundle-dybde.js?v=3"></script>
-<script src="js/account.js?v=3"></script>
-<script src="js/picker.js?v=3"></script>
-<script src="js/boot.js?v=3"></script>
+<script src="js/bundle-core.js?v=5"></script>
+<script src="js/bundle-views.js?v=5"></script>
+<script src="js/bundle-lyn.js?v=5"></script>
+<script src="js/bundle-dybde.js?v=5"></script>
+<script src="js/bundle-sett.js?v=5"></script>
+<script src="js/account.js?v=5"></script>
+<script src="js/picker.js?v=5"></script>
+<script src="js/boot.js?v=5"></script>
 </body>
 </html>

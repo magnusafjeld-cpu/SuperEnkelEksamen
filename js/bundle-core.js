@@ -97,14 +97,22 @@ window.EDU = window.EDU || {};
 
 /* ---------------- parse-manual ---------------- */
 (function (S) {
-  const PARTS = [
+  /* Delinndelingen er fagspesifikk. Manifestet (subjects.js -> parts) eier den;
+     uten manifest brukes SAM3s opprinnelige tabell, så eksisterende fag er uendret.
+     Merk: partId/partTag lagres i den bufrede pensumparsingen — endrer du parts i
+     manifestet, må «Last innhold på nytt» kjøres for at det skal slå gjennom. */
+  const DEFAULT_PARTS = [
     { id: 0, tag: "Del 0", name: "Rammeverk", chapters: [0, 1] },
     { id: 1, tag: "Del I", name: "Oppgave 1: Nasjonalregnskap og måling", chapters: [2, 3, 4, 5] },
     { id: 2, tag: "Del II", name: "Oppgave 2: Vekst på lang sikt", chapters: [6, 7, 8, 9, 10, 11, 12] },
     { id: 3, tag: "Del III", name: "Oppgave 3: Den kortsiktige modellen", chapters: [13, 14, 15, 16, 17, 18, 19] },
     { id: 4, tag: "Del IV", name: "Anvendelse og repetisjon", chapters: [20, 21, 22, 23] },
   ];
-  const partFor = (n) => PARTS.find((p) => p.chapters.includes(n)) || PARTS[PARTS.length - 1];
+  function partsTable() {
+    const m = (window.EDU_SUBJECT || {}).parts;
+    return (Array.isArray(m) && m.length) ? m : DEFAULT_PARTS;
+  }
+  const partFor = (n) => { const t = partsTable(); return t.find((p) => p.chapters.includes(n)) || t[t.length - 1]; };
   const norm = (s) => (s || "").replace(/\s+/g, " ").trim();
   const txt = (el) => (el ? norm(el.textContent) : "");
   function calloutOf(el) {
@@ -124,9 +132,13 @@ window.EDU = window.EDU || {};
         cur = { id: m ? m[1] : "", title: m ? m[2] : title, _nodes: [node] }; sections.push(cur);
       } else if (cur) cur._nodes.push(node);
     });
+    /* Bare id, tittel og litt tekst lagres. Seksjonens egen HTML var en full kopi
+       av kapittelteksten og ble aldri lest; teksten brukes kun av søkeindeksen,
+       som klipper på 600 tegn. Dette holder den bufrede parsingen liten nok til
+       at den får plass i localStorage ved siden av de andre fagene. */
     return sections.map((s) => {
       const wrap = document.createElement("div"); s._nodes.forEach((n) => wrap.appendChild(n.cloneNode(true)));
-      return { id: s.id, title: s.title, html: wrap.innerHTML.trim(), text: norm(wrap.textContent) };
+      return { id: s.id, title: s.title, text: norm(wrap.textContent).slice(0, 800) };
     });
   }
   function parseChapter(sec) {
@@ -147,25 +159,35 @@ window.EDU = window.EDU || {};
     const mechanisms = [...body.querySelectorAll(".callout.mech")].map(calloutOf);
     const links = [...body.querySelectorAll(".callout.link")].map(calloutOf);
     const warnings = [...body.querySelectorAll(".callout.warn")].map(calloutOf);
-    const searchText = norm(body.textContent);
-    const counts = { figures: body.querySelectorAll("figure").length, worked: body.querySelectorAll(".worked").length, tables: body.querySelectorAll("table").length, formulas: formulas.length, sections: sections.length, words: searchText.split(" ").filter(Boolean).length };
+    const fullText = norm(body.textContent);
+    const counts = { figures: body.querySelectorAll("figure").length, worked: body.querySelectorAll(".worked").length, tables: body.querySelectorAll("table").length, formulas: formulas.length, sections: sections.length, words: fullText.split(" ").filter(Boolean).length };
+    /* Ordtellingen tas av hele teksten, men bare starten lagres: søkeindeksen
+       leser uansett kun de første 1200 tegnene (se search.build). */
+    const searchText = fullText.slice(0, 1400);
     return { id: sec.id, num, partId: part.id, partTag: part.tag, partName: part.name, title, fullTitle, leadIn, html: body.innerHTML, sections, formulas, tips, mistakes, mechanisms, links, warnings, counts, searchText };
   }
   function tableRows(table) { return [...table.querySelectorAll("tr")].map((tr) => [...tr.querySelectorAll("th,td")].map((c) => norm(c.textContent))); }
+  /* Hvilke seksjoner som er referansekapitler er fagspesifikt. Manifestet kan
+     overstyre via manual.refSections; defaultene er SAM3s k21/k22/k23. */
+  function refSection(doc, role, fallbackId) {
+    const cfg = (((window.EDU_SUBJECT || {}).manual || {}).refSections) || {};
+    const id = cfg[role] || fallbackId;
+    return id ? doc.querySelector("#" + id) : null;
+  }
   function parseReference(doc) {
     const ref = { formulaTables: [], examPatterns: [], coverage: [], checklists: [] };
-    const k22 = doc.querySelector("#k22");
+    const k22 = refSection(doc, "formulas", "k22");
     if (k22) k22.querySelectorAll("h3").forEach((h3) => {
-      if (!/^22\.\d+/.test(norm(h3.textContent))) return;
+      if (!/^\d+\.\d+/.test(norm(h3.textContent))) return;
       let el = h3.nextElementSibling; while (el && el.tagName !== "TABLE") el = el.nextElementSibling;
       if (!el || !el.classList.contains("data")) return;
       const rows = tableRows(el); const header = rows[0] || [];
       const out = rows.slice(1).filter((r) => r.length >= 3).map((r) => ({ term: r[0], formula: r[1], point: r[2] }));
-      ref.formulaTables.push({ title: norm(h3.textContent).replace(/^22\.\d+\s*/, ""), header, rows: out });
+      ref.formulaTables.push({ title: norm(h3.textContent).replace(/^\d+\.\d+\s*/, ""), header, rows: out });
     });
-    const k21 = doc.querySelector("#k21");
+    const k21 = refSection(doc, "patterns", "k21");
     if (k21) { const t = k21.querySelector("table.data"); if (t) tableRows(t).slice(1).filter((r) => r.length >= 4).forEach((r) => ref.examPatterns.push({ exam: r[0], task1: r[1], task2: r[2], task3: r[3] })); }
-    const k23 = doc.querySelector("#k23");
+    const k23 = refSection(doc, "coverage", "k23");
     if (k23) {
       const t = k23.querySelector("table.data"); if (t) tableRows(t).slice(1).filter((r) => r.length >= 3).forEach((r) => ref.coverage.push({ lecture: r[0], topic: r[1], chapters: r[2] }));
       k23.querySelectorAll(".callout.tip").forEach((c) => ref.checklists.push(calloutOf(c)));
@@ -182,22 +204,32 @@ window.EDU = window.EDU || {};
 /* ---------------- parse-problems (oppgavebank med fasit) ---------------- */
 (function (S) {
   const norm = (s) => (s || "").replace(/[ \t]+/g, " ").replace(/\n{3,}/g, "\n\n").trim();
+  const cfgProblems = () => ((window.EDU_SUBJECT || {}).problems) || {};
+  const DEFAULT_TYPE_RULES = [["grpov", "Gruppeøving"], ["innlev", "Innlevering"], ["sv", "Sensorveiledning"]];
   function typeOf(id) {
-    if (id.startsWith("grpov")) return "Gruppeøving";
-    if (id.startsWith("innlev")) return "Innlevering";
-    if (id.startsWith("sv")) return "Sensorveiledning";
-    return "Eksamen";
+    const rules = cfgProblems().typeRules || DEFAULT_TYPE_RULES;
+    for (const [prefix, label] of rules) if (id.startsWith(prefix)) return label;
+    return cfgProblems().typeFallback || "Eksamen";
   }
-  const TOPIC_RULES = [
+  const DEFAULT_TOPIC_RULES = [
     ["Oppgave 1 · Måling", /nasjonalregnskap|\bbnp\b|real (?:vs|og)|laspeyres|paasche|deflator|sparing|driftsbalanse|produksjonsgap|tre måter|tre måtane/i],
     ["Oppgave 2 · Vekst", /solow|romer|\bvekst\b|\btfp\b|produksjonsfunksjon|teknologi|konvergens|\bideer\b|patent|bærekraft|fattigdom|nåverdi|fisher|gylden sparerate/i],
     ["Oppgave 2 · Arbeid/inflasjon", /arbeidsmarked|ledighet|badekar|\bokun|sysselsetting|permittering|hyperinflasjon|seignorage|humankapital/i],
     ["Oppgave 3 · Kort sikt", /\bis-?mp|as-?ad|phillips|pengepolitikk|taylor|\brente|inflasjonsmål|konjunktur|finansielt sjokk|stabiliser|norges bank/i],
     ["Åpen økonomi", /\bnok\b|valuta|\buip\b|trilemma|\bppp\b|krone|åpen økonomi|twin deficit/i],
   ];
+  /* Temareglene er fagspesifikke. Manifestet kan gi egne som [etikett, regex-kilde];
+     en tom liste slår temamerkingen av helt i stedet for å merke alt «Blandet». */
+  function topicRules() {
+    const m = cfgProblems().topicRules;
+    if (!Array.isArray(m)) return DEFAULT_TOPIC_RULES;
+    return m.map(([tag, rx]) => [tag, rx instanceof RegExp ? rx : new RegExp(rx, "i")]);
+  }
   function tagTopics(text) {
+    const rules = topicRules();
+    if (!rules.length) return [];
     const t = text || ""; const tags = [];
-    TOPIC_RULES.forEach(([tag, rx]) => { if (rx.test(t)) tags.push(tag); });
+    rules.forEach(([tag, rx]) => { if (rx.test(t)) tags.push(tag); });
     return tags.length ? tags : ["Blandet"];
   }
   S.parseProblems = function (htmlText) {
@@ -234,13 +266,13 @@ window.EDU = window.EDU || {};
   const D = window.EDU_DATA;
   const LEGACY_KEY = "sam3.progress.v1";   // fra tiden før fag-velgeren
   let subjectId = "sam3", KEY = "edu.sam3.progress.v1";
-  const defaults = () => ({ version: 1, startedAt: S.u.todayISO(), savedAt: 0, chapters: {}, days: {}, sections: {}, quiz: { answered: {}, sessions: [] }, cards: {}, active: {}, exams: {}, settings: {}, lyn: { xp: 0, days: {}, plays: 0, best: {} }, dybde: { banks: { kort: { marks: {} }, lang: { marks: {} }, eksamen: { marks: {} } } } });
+  const defaults = () => ({ version: 1, startedAt: S.u.todayISO(), savedAt: 0, chapters: {}, days: {}, sections: {}, quiz: { answered: {}, sessions: [] }, cards: {}, active: {}, exams: {}, settings: {}, lyn: { xp: 0, days: {}, plays: 0, best: {} }, dybde: { banks: {} } });
   function migrate(state) {
     // eldre versjon lagret dybdetrening-vurderinger flatt (state.dybde.marks); flytt inn i "kort"-banken
     if (state.dybde && state.dybde.marks && !state.dybde.banks) {
       state.dybde = { banks: { kort: { marks: state.dybde.marks }, lang: { marks: {} } } };
     }
-    if (!state.dybde || !state.dybde.banks) state.dybde = { banks: { kort: { marks: {} }, lang: { marks: {} }, eksamen: { marks: {} } } };
+    if (!state.dybde || !state.dybde.banks) state.dybde = { banks: {} };   // bankene opprettes når de tas i bruk
     if (!state.savedAt) state.savedAt = 0;
     return state;
   }
@@ -287,15 +319,28 @@ window.EDU = window.EDU || {};
   }
   function day(n) { return D.plan.days.find((d) => d.day === n); }
   function days() { return D.plan.days; }
-  function quizzesForChapter(num) { return D.quizzes.filter((q) => q.ch === num); }
-  function activeFor(num) { return D.activeLearning[num] || []; }
-  function activeDayIndex() { const diff = S.u.daysBetween(D.plan.startDate, S.u.todayISO()); if (diff < 0) return 1; return S.u.clamp(diff + 1, 1, D.plan.totalDays); }
-  function daysUntilStart() { return S.u.daysBetween(S.u.todayISO(), D.plan.startDate); }
+  function quizzesForChapter(num) { return (D.quizzes || []).filter((q) => q.ch === num); }
+  function activeFor(num) { return (D.activeLearning || {})[num] || []; }
+  /* To plantyper. "dates" (default) er SAM3s: dagen følger kalenderen fra startDate.
+     "modules" er for selvpasede fag uten datoer — «i dag» er første ufullførte modul,
+     så planen aldri går ut på dato eller står fast på siste dag. */
+  function planMode() { return (D.plan && D.plan.mode) || "dates"; }
+  function activeDayIndex() {
+    const list = (D.plan && D.plan.days) || [];
+    if (planMode() === "modules") {
+      const st = S.store.get();
+      const next = list.find((d) => !(st.days[d.day] && st.days[d.day].completed));
+      return next ? next.day : (list.length ? list[list.length - 1].day : 1);
+    }
+    const diff = S.u.daysBetween(D.plan.startDate, S.u.todayISO()); if (diff < 0) return 1;
+    return S.u.clamp(diff + 1, 1, D.plan.totalDays);
+  }
+  function daysUntilStart() { return planMode() === "modules" ? 0 : S.u.daysBetween(S.u.todayISO(), D.plan.startDate); }
   function problems() { return D.problems || []; }
   function problemById(id) { return (D.problems || []).find((p) => p.id === id); }
   // getters hele veien: fagets datafil lastes dynamisk *etter* denne modulen,
   // så ingenting her kan snapshotte D.plan/D.exams/D.glossary ved definisjon.
-  S.data = { raw: D, chapter, chapters, parts, day, days, quizzesForChapter, activeFor, activeDayIndex, daysUntilStart, problems, problemById, get reference() { return D.reference; }, get plan() { return D.plan; }, get exams() { return D.exams; }, get glossary() { return D.glossary || { economists: [], symbols: [] }; } };
+  S.data = { raw: D, chapter, chapters, parts, day, days, quizzesForChapter, activeFor, activeDayIndex, daysUntilStart, planMode, problems, problemById, get reference() { return D.reference; }, get plan() { return D.plan; }, get exams() { return D.exams; }, get glossary() { return D.glossary || { economists: [], symbols: [] }; } };
 })(window.EDU);
 
 /* ---------------- srs ---------------- */
@@ -306,9 +351,8 @@ window.EDU = window.EDU || {};
     if (_deck) return _deck;
     const cards = [];
     (S.data.raw.flashcards || []).forEach((c) => cards.push({ id: c.id, ch: c.ch, deck: c.deck, front: c.front, back: c.back, kind: "konsept" }));
-    const oppgLabel = ["Oppgave 1", "Oppgave 2 · Vekst", "Oppgave 2 · Arbeid/inflasjon", "Oppgave 3", "Oppgave 3 · Åpen"];
     (S.data.reference.formulaTables || []).forEach((tbl, ti) => tbl.rows.forEach((row, ri) =>
-      cards.push({ id: `fmla-${ti}-${ri}`, ch: null, deck: "formel", front: `Formel: ${row.term}`, back: `<b>${S.u.escapeHtml(row.formula)}</b><br><span style="opacity:.8">${S.u.escapeHtml(row.point)}</span>`, topic: oppgLabel[ti] || tbl.title, kind: "formel" })));
+      cards.push({ id: `fmla-${ti}-${ri}`, ch: null, deck: "formel", front: `Formel: ${row.term}`, back: `<b>${S.u.escapeHtml(row.formula)}</b><br><span style="opacity:.8">${S.u.escapeHtml(row.point)}</span>`, topic: tbl.title, kind: "formel" })));
     _deck = cards; return cards;
   }
   function isDue(id) { const st = S.store.card(id); if (!st) return true; return S.u.daysBetween(st.due, S.u.todayISO()) >= 0; }
@@ -374,7 +418,7 @@ window.EDU = window.EDU || {};
 /* ---------------- repetition ---------------- */
 (function (S) {
   let _freq = null;
-  function examFrequency() { if (_freq) return _freq; _freq = {}; (S.data.exams.tasks || []).forEach((t) => (t.chapters || []).forEach((ch) => { _freq[ch] = (_freq[ch] || 0) + 1; })); return _freq; }
+  function examFrequency() { if (_freq) return _freq; _freq = {}; ((S.data.exams || {}).tasks || []).forEach((t) => (t.chapters || []).forEach((ch) => { _freq[ch] = (_freq[ch] || 0) + 1; })); return _freq; }
   function quizAccuracy(num) {
     const qs = S.data.quizzesForChapter(num); const ans = S.store.get().quiz.answered; let answered = 0, correct = 0;
     qs.forEach((q) => { const a = ans[q.id]; if (a) { answered++; if (a.correct) correct++; } });
@@ -391,8 +435,16 @@ window.EDU = window.EDU || {};
     if (num >= 13 && num <= 19) { s += 6; reasons.push("Oppgave 3 — historisk svakest, høyest utbytte"); }
     return { num, score: s, reasons };
   }
+  /* Hvilke kapitler som er "pensum" er fagspesifikt. To knapper fordi SAM3 har hatt
+     ulikt spenn for repetisjon (1-22) og fremdrift (1-23) siden starten; å slå dem
+     sammen ville flyttet hans prosenter. Nye fag setter bare coreChapters. */
+  function reviewRange() {
+    const s = window.EDU_SUBJECT || {};
+    return s.reviewChapters || s.coreChapters || { from: 1, to: 22 };
+  }
   function suggest(limit) {
-    const list = S.data.chapters().filter((c) => c.num >= 1 && c.num <= 22).map((c) => Object.assign(score(c.num), { chapter: c })).sort((a, b) => b.score - a.score);
+    const r = reviewRange();
+    const list = S.data.chapters().filter((c) => c.num >= r.from && c.num <= r.to).map((c) => Object.assign(score(c.num), { chapter: c })).sort((a, b) => b.score - a.score);
     const ranked = list.map((r) => Object.assign(r, { priority: r.score >= 55 ? "high" : r.score >= 28 ? "med" : "low" }));
     return limit ? ranked.slice(0, limit) : ranked;
   }
@@ -401,11 +453,12 @@ window.EDU = window.EDU || {};
 
 /* ---------------- metrics ---------------- */
 (function (S) {
-  function coreChapters() { return S.data.chapters().filter((c) => c.num >= 1 && c.num <= 23); }
+  function coreRange() { return (window.EDU_SUBJECT || {}).coreChapters || { from: 1, to: 23 }; }
+  function coreChapters() { const r = coreRange(); return S.data.chapters().filter((c) => c.num >= r.from && c.num <= r.to); }
   function readPct() { const core = coreChapters(); const st = S.store.get(); const read = core.filter((c) => st.chapters[c.num] && st.chapters[c.num].read).length; return { read, total: core.length || 1, pct: Math.round((read / (core.length || 1)) * 100) }; }
   function understoodCount() { const st = S.store.get(); let understood = 0, unsure = 0; coreChapters().forEach((c) => { const v = st.chapters[c.num] && st.chapters[c.num].understanding; if (v === "understood") understood++; else if (v === "unsure") unsure++; }); return { understood, unsure }; }
   function daysPct() { const st = S.store.get(); const done = Object.values(st.days).filter((d) => d && d.completed).length; return { done, total: S.data.plan.totalDays, pct: Math.round((done / S.data.plan.totalDays) * 100) }; }
-  function quizStats() { const ans = S.store.get().quiz.answered; const ids = Object.keys(ans); const correct = ids.filter((k) => ans[k].correct).length; const acc = ids.length ? Math.round((correct / ids.length) * 100) : null; return { answered: ids.length, correct, accuracy: acc, total: S.data.raw.quizzes.length }; }
+  function quizStats() { const ans = S.store.get().quiz.answered; const ids = Object.keys(ans); const correct = ids.filter((k) => ans[k].correct).length; const acc = ids.length ? Math.round((correct / ids.length) * 100) : null; return { answered: ids.length, correct, accuracy: acc, total: (S.data.raw.quizzes || []).length }; }
   function readiness() {
     // Coverage-based: every component measures how much is DONE, not a rate.
     // (A single correct quiz answer must not move the needle much.)

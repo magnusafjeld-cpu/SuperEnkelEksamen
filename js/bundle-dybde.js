@@ -1,17 +1,15 @@
-/* ===================== DYBDETRENING — tre selvrettede spørsmålsbanker =====================
-   "Kort sikt" (kortsiktsmodellen/AS-AD/IS-MP/åpen økonomi), "Lang sikt"
-   (produksjonsmodellen/Solow/Romer/vekst/arbeidsmarked/langsiktig inflasjon, hver
-   med nivå 1-4) og "Eksamensoppgaver" (38 faktiske eksamensoppgaver 2023-2025 med
-   sensorveiledning, der nivå er eksamenssemester). Filtrerbar på nivå og tema, med
-   "kunne/må øve"-vurdering som lagres lokalt per bank og mater navigasjonens
-   "må øve"-teller. */
+/* ===================== DYBDETRENING — selvrettede spørsmålsbanker =====================
+   Bankene kommer fra fagmanifestet (subjects.js -> dybdeBanks). Faller manifestet
+   bort, brukes SAM3s tre opprinnelige banker, slik at eksisterende fag er uendret.
+   Filtrerbar på nivå og tema, med "kunne/må øve"-vurdering som lagres lokalt per
+   bank og mater navigasjonens "må øve"-teller. */
 window.EDU = window.EDU || {};
 (function (S) {
   const { el, icon, escapeHtml } = S.u;
   const sh = () => S.views.shared;
   const D = () => window.EDU_DATA.dybde || {};   // faget trenger ikke ha dybdebanker
 
-  const BANKS = [
+  const FALLBACK_BANKS = [
     { key: "kort", label: "Kort sikt", sub: "Kortsiktsmodellen: produksjonsgap, IS-MP-PC, AS-AD og åpen økonomi (Oppgave 3).",
       tip: "Nivå 1–2 er oppvarming; nivå 3–4 er der eksamenspoengene ligger." },
     { key: "lang", label: "Lang sikt", sub: "Produksjonsmodellen, Solow, Romer, vekstregnskap, arbeidsmarked og langsiktig inflasjon (Oppgave 1–2).",
@@ -19,28 +17,42 @@ window.EDU = window.EDU || {};
     { key: "eksamen", label: "Eksamensoppgaver", sub: "38 faktiske eksamensoppgaver 2023–2025, med svar bygget på de offisielle sensorveiledningene.",
       tip: "Hvert nivå her er ett eksamenssett (f.eks. «Vår 2023»), ikke en vanskelighetsgrad. Skriv hele svaret ditt skriftlig før du sjekker fasiten — dette er nærmest ekte eksamen." },
   ];
+  /* Bankene er fagspesifikke. Manifestet eier dem; SAM3 har ingen dybdeBanks og
+     får derfor fallbacken — nøyaktig de tre bankene den alltid har hatt. */
+  function BANKS() {
+    const m = (window.EDU_SUBJECT || {}).dybdeBanks;
+    return (Array.isArray(m) && m.length) ? m : FALLBACK_BANKS;
+  }
 
   /* ---------- lokal tilstand (nullstilles ved navigering, ikke persistert) ---------- */
-  let activeBank = "kort";
+  /* null = ikke valgt ennå. Fagets datafil lastes etter denne modulen, så
+     førstevalget kan ikke bestemmes her oppe. */
+  let chosenBank = null;
+  function activeBankKey() {
+    const list = BANKS();
+    if (chosenBank && list.some((b) => b.key === chosenBank)) return chosenBank;
+    return (list[0] || {}).key || "kort";
+  }
   function levelKeysFor(bankKey) { return Object.keys((D()[bankKey] || {}).lvl || {}).map(Number).sort((a, b) => a - b); }
   /* bygges ved første bruk — fagets datafil lastes etter denne modulen */
   const filterState = {};
   function fs() {
-    return filterState[activeBank] || (filterState[activeBank] =
-      { fLevels: new Set(levelKeysFor(activeBank)), fTopic: "alle", viewMode: null, order: null, shuffled: false });
+    const k = activeBankKey();
+    return filterState[k] || (filterState[k] =
+      { fLevels: new Set(levelKeysFor(k)), fTopic: "alle", viewMode: null, order: null, shuffled: false });
   }
-  function bank() { return D()[activeBank] || { cats: [], lvl: {}, items: [] }; }
+  function bank() { return D()[activeBankKey()] || { cats: [], lvl: {}, items: [] }; }
   function items() { return bank().items || []; }
   function ensureOrder() { const s = fs(); if (!s.order) s.order = items().map((q) => q.id); return s.order; }
 
   /* ---------- vurderinger (lagres per bank for å unngå id-kollisjon) ---------- */
   function marksFor(bankKey) {
     const st = S.store.get();
-    if (!st.dybde || !st.dybde.banks) st.dybde = { banks: { kort: { marks: {} }, lang: { marks: {} }, eksamen: { marks: {} } } };
+    if (!st.dybde || !st.dybde.banks) st.dybde = { banks: {} };
     if (!st.dybde.banks[bankKey]) st.dybde.banks[bankKey] = { marks: {} };
     return st.dybde.banks[bankKey].marks;
   }
-  function marks() { return marksFor(activeBank); }
+  function marks() { return marksFor(activeBankKey()); }
   function markOf(id) { return marks()[id] || null; }
   function setMark(id, val) {
     const m = marks();
@@ -70,13 +82,19 @@ window.EDU = window.EDU || {};
   /* ---------- rendering ---------- */
   function render() {
     const wrap = el(".fade-in");
-    const totalItems = BANKS.reduce((a, b) => a + ((D()[b.key] && D()[b.key].items) || []).length, 0);
-    wrap.appendChild(sh().pageHead("Dybdetrening", `${totalItems} spørsmål, tre bolker`,
-      "Selvrettet trening i tre bolker: kort sikt (Oppgave 3), lang sikt (Oppgave 1–2) og faktiske eksamensoppgaver med sensorveiledning. Velg bank, filtrer på nivå og tema, og formuler svaret i hodet (eller skriftlig) før du åpner fasiten."));
+    const banks = BANKS();
+    const totalItems = banks.reduce((a, b) => a + ((D()[b.key] && D()[b.key].items) || []).length, 0);
+    const TALLORD = ["ingen", "én", "to", "tre", "fire", "fem", "seks", "sju", "åtte", "ni", "ti"];
+    const antall = TALLORD[banks.length] || String(banks.length);
+    const bolker = banks.length === 1 ? "én bolk" : `${antall} bolker`;
+    const intro = ((window.EDU_SUBJECT || {}).copy || {}).dybdeIntro
+      || `Selvrettet trening i ${bolker}: ${banks.map((b) => b.label.toLowerCase()).join(", ")}. `
+         + "Velg bank, filtrer på nivå og tema, og formuler svaret i hodet (eller skriftlig) før du åpner fasiten.";
+    wrap.appendChild(sh().pageHead("Dybdetrening", `${totalItems} spørsmål, ${bolker}`, intro));
 
     wrap.appendChild(bankSwitcher());
 
-    const curBank = BANKS.find((b) => b.key === activeBank) || {};
+    const curBank = BANKS().find((b) => b.key === activeBankKey()) || {};
     wrap.appendChild(el(".card", { style: { marginBottom: "18px", background: "var(--amber-soft)", border: "1px solid #f2dcb6" } },
       el("p", { style: { margin: 0, fontSize: "14.5px", lineHeight: 1.55 } },
         el("b", "Slik bruker du den: "),
@@ -96,14 +114,14 @@ window.EDU = window.EDU || {};
     const panel = el(".card", { style: { marginBottom: "18px" } });
     panel.appendChild(el(".nav-section", { style: { paddingLeft: 0 } }, "Velg bank"));
     const seg = el(".seg", { style: { flexWrap: "wrap" } });
-    BANKS.forEach((b) => {
+    BANKS().forEach((b) => {
       const n = ((D()[b.key] && D()[b.key].items) || []).length;
-      seg.appendChild(el("button" + (activeBank === b.key ? ".on" : ""), { onclick: () => {
-        if (activeBank !== b.key) { activeBank = b.key; S.app.refresh(); }
+      seg.appendChild(el("button" + (activeBankKey() === b.key ? ".on" : ""), { onclick: () => {
+        if (activeBankKey() !== b.key) { chosenBank = b.key; S.app.refresh(); }
       } }, `${b.label} · ${n}`));
     });
     panel.appendChild(seg);
-    const cur = BANKS.find((b) => b.key === activeBank);
+    const cur = BANKS().find((b) => b.key === activeBankKey());
     panel.appendChild(el("p.tiny.muted", { style: { marginTop: "10px", marginBottom: 0 } }, cur ? cur.sub : ""));
     return panel;
   }
@@ -113,7 +131,7 @@ window.EDU = window.EDU || {};
     const panel = el(".card", { style: { marginBottom: "18px" } });
     panel.appendChild(el(".nav-section", { style: { paddingLeft: 0 } }, "Nivå"));
     const lvlRow = el(".row.wrap", { style: { gap: "8px", marginBottom: "16px" } });
-    levelKeysFor(activeBank).forEach((n) => {
+    levelKeysFor(activeBankKey()).forEach((n) => {
       const on = s.fLevels.has(n);
       const label = ((bank().lvl || {})[n] || [])[0] || ("Nivå " + n);
       lvlRow.appendChild(el(".chip" + (on ? ".accent" : ""), { style: { cursor: "pointer" }, onclick: () => {
@@ -140,11 +158,12 @@ window.EDU = window.EDU || {};
       el("button.btn.sm", { onclick: () => { s.order = shuffleArr(items().map((q) => q.id)); s.shuffled = true; S.app.refresh(); } }, "Bland rekkefølge"),
       el("button.btn.sm", { onclick: () => { document.querySelectorAll("details.dyb-q[open]").forEach((d) => d.removeAttribute("open")); } }, "Lukk alle svar"),
       el("button.btn.sm.ghost", { onclick: () => {
-        const bankLabel = (BANKS.find((b) => b.key === activeBank) || {}).label || activeBank;
+        const k = activeBankKey();
+        const bankLabel = (BANKS().find((b) => b.key === k) || {}).label || k;
         if (confirm(`Nullstille alle vurderinger («kunne»/«må øve») for banken «${bankLabel}»? Kan ikke angres.`)) {
           const st = S.store.get(); if (!st.dybde || !st.dybde.banks) st.dybde = { banks: {} };
-          st.dybde.banks[activeBank] = { marks: {} }; S.store.emit();
-          s.fLevels = new Set(levelKeysFor(activeBank)); s.fTopic = "alle"; s.viewMode = null; s.order = null; s.shuffled = false;
+          st.dybde.banks[k] = { marks: {} }; S.store.emit();
+          s.fLevels = new Set(levelKeysFor(k)); s.fTopic = "alle"; s.viewMode = null; s.order = null; s.shuffled = false;
           S.app.refresh();
         }
       } }, "Nullstill denne banken"));

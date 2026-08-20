@@ -46,7 +46,7 @@ window.EDU_DATA = window.EDU_DATA || {};
     par: { name: "Par-sprint", emoji: "🃏", desc: "Match symboler og begreper", ready: () => (S.data.glossary.symbols || []).length >= 6, run: runPar },
     skift: { name: "Skift eller glid?", emoji: "📈", desc: "Kurveskift vs. bevegelse langs", ready: () => D().shift.length >= 10, run: runSkift },
     kjede: { name: "Kjede", emoji: "🔗", desc: "Bygg mekanismen steg for steg", ready: () => D().chains.length >= 3, run: runKjede },
-    hode: { name: "Hoderegning", emoji: "🔢", desc: "Eksamensmatte uten kalkulator", ready: () => true, run: runHode },
+    hode: { name: "Hoderegning", emoji: "🔢", desc: "Eksamensmatte uten kalkulator", ready: () => (D().hode || []).length >= 8, run: runHode },
     updown: { name: "Opp eller ned?", emoji: "↕️", desc: "Hvilken vei går størrelsen?", ready: () => (D().updown || []).length >= 10, run: runUpDown },
     forklar: { name: "Forklar!", emoji: "🎙️", desc: "45 sekunder per mekanisme", ready: () => forklarPool().length >= 3, run: runForklar },
     oddone: { name: "En skiller seg ut", emoji: "🕵️", desc: "Finn inntrengeren", ready: () => (S.data.reference.formulaTables || []).filter((t) => t.rows.length >= 3).length >= 2, run: runOddOne },
@@ -331,51 +331,16 @@ window.EDU_DATA = window.EDU_DATA || {};
     step(); return box;
   }
 
-  /* ---------- hoderegning (generert eksamensmatte, uten kalkulator) ---------- */
-  function fmtOpts(correct, distractors, unit) {
-    const set = [correct];
-    distractors.forEach((d) => { if (set.length < 4 && Number.isFinite(d) && d !== correct && !set.includes(d)) set.push(d); });
-    let step = Math.max(1, Math.abs(Math.round(correct * 0.5)) || 1), k = 1;
-    while (set.length < 4) { const cand = correct + k * step; if (!set.includes(cand)) set.push(cand); k = k > 0 ? -k : -k + 1; }
-    const opts = shuffle(set);
-    return { options: opts.map((v) => v + unit), answer: opts.indexOf(correct) };
-  }
+  /* ---------- hoderegning ---------- */
+  /* Innholdet er fagets, ikke motorens: EDU_DATA.lyn.hode. To former godtas —
+     { q, options, answer, why } ferdig satt, eller { q, correct, distractors, why }
+     der motoren bygger og blander alternativene ved hver kjøring. */
   function hodePool() {
-    const pool = [];
-    [[1, 70], [2, 35], [5, 14], [7, 10]].forEach(([g, t]) => {
-      const o = fmtOpts(t, [70 * g, Math.round(t / 2), t + 15], " år");
-      pool.push({ q: `Økonomien vokser ${g} % i året. Omtrent hvor lang er doblingstiden?`, options: o.options, answer: o.answer, why: `Regelen om 70: 70/${g} = ${t} år.` });
-    });
-    [[4, -2], [-4, 2], [6, -3], [-2, 1]].forEach(([gap, du]) => {
-      const correct = `${Math.abs(du)} pp ${du < 0 ? "under" : "over"} ū`;
-      const options = shuffle([correct, `${Math.abs(du)} pp ${du < 0 ? "over" : "under"} ū`, `${Math.abs(gap)} pp ${du < 0 ? "under" : "over"} ū`, "Uendret ledighet"]);
-      pool.push({ q: `Produksjonsgapet er ${gap > 0 ? "+" : ""}${gap} %. Hva sier Okuns lov (koeff. 0,5) om ledigheten?`, options, answer: options.indexOf(correct), why: `u − ū = −0,5·(${gap}) = ${du > 0 ? "+" : ""}${du} prosentpoeng.` });
-    });
-    [[2, 18, 10], [1, 19, 5], [2, 8, 20], [3, 17, 15]].forEach(([s, f, u]) => {
-      const o = fmtOpts(u, [Math.round(100 * f / (f + s)), s, u * 2], " %");
-      pool.push({ q: `Badekarmodellen: s = ${s} %, f = ${f} %. Hva er naturlig ledighet u*?`, options: o.options, answer: o.answer, why: `u* = s/(f+s) = ${s}/${f + s} = ${u} %.` });
-    });
-    [[7, 2, 5], [9, 3, 6], [5, 2, 3], [10, 3, 7]].forEach(([gm, gy, pi]) => {
-      const o = fmtOpts(pi, [gm + gy, gy - gm, gm], " %");
-      pool.push({ q: `Pengeveksten er ${gm} %, produksjonsveksten ${gy} %. Hva blir langsiktig inflasjon π*?`, options: o.options, answer: o.answer, why: `π* = g_M − g_Y = ${gm} − ${gy} = ${pi} %.` });
-    });
-    [[5, 2, 3], [4, 3, 1], [6, 2, 4], [3, 4, -1]].forEach(([i2, pi, r]) => {
-      const o = fmtOpts(r, [i2 + pi, pi - i2, i2], " %");
-      pool.push({ q: `Nominell rente i = ${i2} %, inflasjon π = ${pi} %. Hva er realrenten R?`, options: o.options, answer: o.answer, why: `Fisher: R = i − π = ${i2} − ${pi} = ${r} %.` });
-    });
-    [[1200, 1000, 120], [660, 600, 110], [520, 400, 130]].forEach(([n, r2, d2]) => {
-      const o = fmtOpts(d2, [100, d2 + 10, d2 - 10], "");
-      pool.push({ q: `Nominelt BNP = ${n}, reelt BNP = ${r2}. Hva er BNP-deflatoren?`, options: o.options, answer: o.answer, why: `Deflator = (nominelt/reelt)·100 = ${n}/${r2}·100 = ${d2}.` });
-    });
-    [[4, 3, 0, 3], [5, 3, 3, 2], [6, 6, 3, 2], [3, 3, 3, 0]].forEach(([gy, gk, gl, ga]) => {
-      const o = fmtOpts(ga, [gy - gk, gy - gl, gy], " %");
-      pool.push({ q: `g_Y = ${gy} %, g_K = ${gk} %, g_L = ${gl} %, α = 1/3. Hva er TFP-veksten g_A?`, options: o.options, answer: o.answer, why: `g_A = ${gy} − (1/3)·${gk} − (2/3)·${gl} = ${ga} % (Solow-residualen).` });
-    });
-    [[600, 200, 150, 120, 90, 980], [500, 250, 100, 80, 60, 870], [700, 150, 200, 90, 70, 1070]].forEach(([C2, I2, G2, X2, M2, Y2]) => {
-      const o = fmtOpts(Y2, [Y2 + M2, Y2 - (X2 - M2), Y2 - M2], "");
-      pool.push({ q: `C=${C2}, I=${I2}, G=${G2}, eksport=${X2}, import=${M2}. Hva er BNP fra utgiftssiden?`, options: o.options, answer: o.answer, why: `Y = C+I+G+(X−M) = ${C2}+${I2}+${G2}+(${X2}−${M2}) = ${Y2}.` });
-    });
-    return pool;
+    return (D().hode || []).map((it) => {
+      if (Array.isArray(it.options)) return it;
+      const opts = shuffle([it.correct, ...(it.distractors || [])]);
+      return { q: it.q, options: opts, answer: opts.indexOf(it.correct), why: it.why, ch: it.ch };
+    }).filter((it) => Array.isArray(it.options) && it.options.length >= 2 && it.answer >= 0);
   }
   function runHode(done) {
     const rounds = shuffle(hodePool()).slice(0, 8);

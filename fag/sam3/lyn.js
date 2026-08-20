@@ -11,3 +11,309 @@ window.EDU_DATA.lyn = {
 };
 /* Opp eller ned (komparativ statikk), forfattet fra manualen. */
 window.EDU_DATA.lyn.updown = [{"q":"Kostnadssjokk ō > 0 treffer økonomien. Hva skjer med produksjonsgapet Ỹ på kort sikt?","dir":"ned","why":"AS skifter opp; sentralbanken møter høyere inflasjon med høyere realrente (MP), og bevegelsen langs AD gir Ỹ < 0. Stagflasjon: π opp og produksjon ned.","ch":17},{"q":"Spareraten s̄ øker varig. Hva skjer med steady state-nivået y* i Solow-modellen?","dir":"opp","why":"s̄y-kurven roterer opp: investering overstiger avskrivning ved gammelt k*, kapitalen vokser til nytt høyere k*, og y* = A(k*)^α stiger.","ch":8},{"q":"Norges Bank hever renten over utlandets. Hva skjer med kronekursen εₜ (NOK per euro)?","dir":"ned","why":"UIP: høyere norsk rente trekker kapital inn og kronen styrkes. Da trengs færre kroner per euro, så εₜ faller (εₜ↓ = sterkere krone).","ch":19},{"q":"Separasjonsraten s øker, flere mister jobben per periode. Hva skjer med den naturlige ledigheten u*?","dir":"opp","why":"Badekaret: u* = s/(f+s). Større innstrøm til ledighet hever vannstanden, så den naturlige ledighetsraten stiger.","ch":11},{"q":"Et jordskjelv ødelegger halve kapitalbeholdningen K̄. Hva skjer med lønnen w* i produksjonsmodellen?","dir":"ned","why":"Hver arbeider har mindre kapital å jobbe med: MPL = (1−α)A(K/L)^α faller når K faller, og i likevekt er w = MPL.","ch":7},{"q":"Sentralbanken øker pengeveksten gM varig, mens gY er uendret. Hva skjer med langsiktig inflasjon π*?","dir":"opp","why":"Kvantitetsteorien: π* = gM − gY. På lang sikt slår høyere pengevekst én-til-én ut i inflasjonen (Friedman).","ch":12},{"q":"Fruktbarheten faller så befolkningsveksten n̄ synker varig. Hva skjer med vekstraten g*y i Romer-modellen?","dir":"ned","why":"g*y = γn̄: færre nye forskere over tid gir lavere kunnskapsvekst. Dette er en vekstrateeffekt, ikke en nivåeffekt.","ch":9},{"q":"Produksjonsgapet blir negativt, Ỹ = −4 %. Hva skjer med arbeidsledigheten u ifølge Okuns lov?","dir":"opp","why":"Okun: u − ū = −0,5·Ỹ. Med Ỹ = −4 % blir syklisk ledighet +2 prosentpoeng, så u stiger over sitt naturlige nivå ū.","ch":13},{"q":"Sentralbanken senker inflasjonsmålet π̄ under adaptive forventninger. Hva skjer med Ỹ på kort sikt?","dir":"ned","why":"AD skifter ned: lavere mål krever høyere realrente ved gitt inflasjon. Forventningene (πₜ₋₁) henger igjen, så gapet blir midlertidig negativt.","ch":17},{"q":"Et jordskjelv ødelegger halve kapitalbeholdningen K̄. Hva skjer med realrenten r* i produksjonsmodellen?","dir":"opp","why":"Kapital blir knapp: MPK = αA(L/K)^(1−α) stiger når K faller, og i likevekt er r = MPK.","ch":7},{"q":"Avskrivningsraten d̄ øker varig. Hva skjer med steady state-kapitalen k* i Solow?","dir":"ned","why":"d̄k-linjen blir brattere og krysser s̄y ved lavere kapital: k* = (s̄A/d̄)^(1/(1−α)) faller.","ch":8},{"q":"Oljeprisen hopper opp, et prissjokk ō > 0. Hva skjer med inflasjonen π i sjokkperioden?","dir":"opp","why":"Phillips: πₜ = πₜ₋₁ + v̄Ỹₜ + ō. Kostnadssjokket løfter AS direkte, så inflasjonen stiger selv om produksjonen faller.","ch":16},{"q":"Norges Bank hever styringsrenten. Hva skjer med nettoeksporten NX?","dir":"ned","why":"Høyere rente styrker kronen (real appresiering): norsk eksport blir dyrere ute og import billigere, så NX faller. Valutakanalen.","ch":19},{"q":"Krig ødelegger kapital slik at k faller under k*. Hva skjer med k i periodene etterpå?","dir":"opp","why":"Ingen kurver skifter: under k* er s̄y > d̄k, nettoinvesteringen er positiv, og kapitalen vokser tilbake mot samme k*.","ch":8},{"q":"Inflasjonen π stiger mens nominell rente i holdes uendret. Hva skjer med realrenten R?","dir":"ned","why":"Fisher: R = i − π. Høyere inflasjon spiser av den nominelle avkastningen, så kjøpekraftsavkastningen faller.","ch":12},{"q":"Myndighetene subsidierer forskning så forskerandelen ℓ̄ øker moderat. Hva skjer med BGP-nivået y*?","dir":"opp","why":"y* = C·(z̄ℓ̄Nₜ)^γ: flere forskere gir mer kunnskap og en høyere bane. Nivåeffekt; vekstraten er fortsatt γn̄.","ch":9},{"q":"Et boligkrakk gir negativt etterspørselssjokk, ā < 0. Hva skjer med produksjonsgapet Ỹ ved uendret rente?","dir":"ned","why":"IS skifter innover: lavere konsum- og investeringsetterspørsel gir Ỹ = ā − b̄(R − r̄) < 0 når renten holdes uendret.","ch":14},{"q":"Sentralbanken hever nominell rente i mens inflasjonen er treg. Hva skjer med realrenten R?","dir":"opp","why":"R = i − π: fordi π er treg på kort sikt, følger realrenten den nominelle opp. Derfor kan sentralbanken styre R på kort sikt.","ch":15},{"q":"Bedre matching i arbeidsmarkedet øker jobbfinneraten f. Hva skjer med den naturlige ledigheten u*?","dir":"ned","why":"u* = s/(f+s): raskere utstrøm fra ledighet tømmer badekaret fortere, så steady state-ledigheten faller.","ch":11},{"q":"Produktiviteten A øker i produksjonsmodellen. Hva skjer med lønnen w*?","dir":"opp","why":"Høyere A løfter marginalproduktet av arbeid: w* = (1−α)A(K̄/L̄)^α stiger, og i likevekt er w = MPL.","ch":7},{"q":"Finansuro øker risikopremien f̄. Hva skjer med produksjonsgapet Ỹ?","dir":"ned","why":"Lånerenten R = R_ff + f̄ stiger selv med uendret styringsrente: AD skifter innover (leddet −b̄f̄), som et negativt etterspørselssjokk.","ch":17},{"q":"Utenlandsk realrente R^W øker mens norsk rente er uendret. Hva skjer med norsk produksjonsgap Ỹ?","dir":"opp","why":"Kronen depresierer (εₜ↑), norsk eksport blir mer konkurransedyktig, NX øker og AD skifter ut: positivt etterspørselssjokk.","ch":19},{"q":"Befolkningsveksten n̄ øker varig i Solow-modellen. Hva skjer med y* per innbygger?","dir":"ned","why":"Mer investering går med til å utstyre nye arbeidere (capital widening): k* = (s̄A/(n̄+d̄))^(1/(1−α)) faller, og y* faller.","ch":8},{"q":"Finanspolitisk ekspansjon gir positivt etterspørselssjokk ā > 0. Hva skjer med inflasjonen π?","dir":"opp","why":"AD skifter ut og økonomien beveger seg langs AS: kapasitetspresset øker, så både Ỹ og π stiger (v̄Ỹ-leddet).","ch":17},{"q":"Høykonjunktur gir positivt produksjonsgap, Ỹ > 0. Hva skjer med arbeidsledigheten u?","dir":"ned","why":"Okuns lov: u − ū = −0,5·Ỹ. Positivt gap gir negativ syklisk ledighet, så u faller under den naturlige raten ū.","ch":13},{"q":"Arbeidsstyrken L̄ øker varig (innvandring). Hva skjer med realrenten r* i produksjonsmodellen?","dir":"opp","why":"Flere arbeidere per kapitalenhet hever kapitalens marginalprodukt: r = αA(L/K)^(1−α) stiger når L øker.","ch":7},{"q":"Forskerproduktiviteten z̄ faller varig. Hva skjer med BGP-nivået y* i Romer-modellen?","dir":"ned","why":"z̄ inngår i nivået y* = C·(z̄ℓ̄Nₜ)^γ, så banen forskyves ned. Vekstraten γn̄ er uendret: en ren nivåeffekt.","ch":9},{"q":"Utenlandske sentralbanker hever renten mens norsk rente er uendret. Hva skjer med kronekursen εₜ?","dir":"opp","why":"Kapital strømmer ut mot høyere avkastning ute, kronen svekkes, og εₜ stiger (flere kroner per euro). εₜ↑ = svakere krone.","ch":19},{"q":"Inflasjonen er over målet, og sentralbanken øker reaksjonsparameteren m̄. Hva skjer med Ỹ?","dir":"ned","why":"MP: R = m̄(π − π̄) + r̄. Med π > π̄ gir større m̄ høyere realrente; via IS faller investering og konsum, og gapet trekkes ned.","ch":15},{"q":"TFP-nivået A øker varig. Hva skjer med steady state-konsumet c* i Solow?","dir":"opp","why":"A virker dobbelt: direkte på y og indirekte via høyere k*. y* stiger, og med uendret s̄ stiger c* = (1−s̄)y*.","ch":8}];
+
+/* ---------- hoderegning: eksamensmatte uten kalkulator ----------
+   Flyttet hit fra motoren 2026-08-19. Motoren blander alternativene ved kjøring,
+   så rekkefølgen under er uten betydning. */
+window.EDU_DATA.lyn.hode = [
+  {
+    "q": "Økonomien vokser 1 % i året. Omtrent hvor lang er doblingstiden?",
+    "correct": "70 år",
+    "distractors": [
+      "35 år",
+      "85 år",
+      "105 år"
+    ],
+    "why": "Regelen om 70: 70/1 = 70 år."
+  },
+  {
+    "q": "Økonomien vokser 2 % i året. Omtrent hvor lang er doblingstiden?",
+    "correct": "35 år",
+    "distractors": [
+      "140 år",
+      "18 år",
+      "50 år"
+    ],
+    "why": "Regelen om 70: 70/2 = 35 år."
+  },
+  {
+    "q": "Økonomien vokser 5 % i året. Omtrent hvor lang er doblingstiden?",
+    "correct": "14 år",
+    "distractors": [
+      "350 år",
+      "7 år",
+      "29 år"
+    ],
+    "why": "Regelen om 70: 70/5 = 14 år."
+  },
+  {
+    "q": "Økonomien vokser 7 % i året. Omtrent hvor lang er doblingstiden?",
+    "correct": "10 år",
+    "distractors": [
+      "490 år",
+      "5 år",
+      "25 år"
+    ],
+    "why": "Regelen om 70: 70/7 = 10 år."
+  },
+  {
+    "q": "Produksjonsgapet er +4 %. Hva sier Okuns lov (koeff. 0,5) om ledigheten?",
+    "correct": "2 pp under ū",
+    "distractors": [
+      "2 pp over ū",
+      "4 pp under ū",
+      "Uendret ledighet"
+    ],
+    "why": "u − ū = −0,5·(4) = -2 prosentpoeng."
+  },
+  {
+    "q": "Produksjonsgapet er -4 %. Hva sier Okuns lov (koeff. 0,5) om ledigheten?",
+    "correct": "2 pp over ū",
+    "distractors": [
+      "2 pp under ū",
+      "4 pp over ū",
+      "Uendret ledighet"
+    ],
+    "why": "u − ū = −0,5·(-4) = +2 prosentpoeng."
+  },
+  {
+    "q": "Produksjonsgapet er +6 %. Hva sier Okuns lov (koeff. 0,5) om ledigheten?",
+    "correct": "3 pp under ū",
+    "distractors": [
+      "3 pp over ū",
+      "6 pp under ū",
+      "Uendret ledighet"
+    ],
+    "why": "u − ū = −0,5·(6) = -3 prosentpoeng."
+  },
+  {
+    "q": "Produksjonsgapet er -2 %. Hva sier Okuns lov (koeff. 0,5) om ledigheten?",
+    "correct": "1 pp over ū",
+    "distractors": [
+      "1 pp under ū",
+      "2 pp over ū",
+      "Uendret ledighet"
+    ],
+    "why": "u − ū = −0,5·(-2) = +1 prosentpoeng."
+  },
+  {
+    "q": "Badekarmodellen: s = 2 %, f = 18 %. Hva er naturlig ledighet u*?",
+    "correct": "10 %",
+    "distractors": [
+      "90 %",
+      "2 %",
+      "20 %"
+    ],
+    "why": "u* = s/(f+s) = 2/20 = 10 %."
+  },
+  {
+    "q": "Badekarmodellen: s = 1 %, f = 19 %. Hva er naturlig ledighet u*?",
+    "correct": "5 %",
+    "distractors": [
+      "95 %",
+      "1 %",
+      "10 %"
+    ],
+    "why": "u* = s/(f+s) = 1/20 = 5 %."
+  },
+  {
+    "q": "Badekarmodellen: s = 2 %, f = 8 %. Hva er naturlig ledighet u*?",
+    "correct": "20 %",
+    "distractors": [
+      "80 %",
+      "2 %",
+      "40 %"
+    ],
+    "why": "u* = s/(f+s) = 2/10 = 20 %."
+  },
+  {
+    "q": "Badekarmodellen: s = 3 %, f = 17 %. Hva er naturlig ledighet u*?",
+    "correct": "15 %",
+    "distractors": [
+      "85 %",
+      "3 %",
+      "30 %"
+    ],
+    "why": "u* = s/(f+s) = 3/20 = 15 %."
+  },
+  {
+    "q": "Pengeveksten er 7 %, produksjonsveksten 2 %. Hva blir langsiktig inflasjon π*?",
+    "correct": "5 %",
+    "distractors": [
+      "9 %",
+      "-5 %",
+      "7 %"
+    ],
+    "why": "π* = g_M − g_Y = 7 − 2 = 5 %."
+  },
+  {
+    "q": "Pengeveksten er 9 %, produksjonsveksten 3 %. Hva blir langsiktig inflasjon π*?",
+    "correct": "6 %",
+    "distractors": [
+      "12 %",
+      "-6 %",
+      "9 %"
+    ],
+    "why": "π* = g_M − g_Y = 9 − 3 = 6 %."
+  },
+  {
+    "q": "Pengeveksten er 5 %, produksjonsveksten 2 %. Hva blir langsiktig inflasjon π*?",
+    "correct": "3 %",
+    "distractors": [
+      "7 %",
+      "-3 %",
+      "5 %"
+    ],
+    "why": "π* = g_M − g_Y = 5 − 2 = 3 %."
+  },
+  {
+    "q": "Pengeveksten er 10 %, produksjonsveksten 3 %. Hva blir langsiktig inflasjon π*?",
+    "correct": "7 %",
+    "distractors": [
+      "13 %",
+      "-7 %",
+      "10 %"
+    ],
+    "why": "π* = g_M − g_Y = 10 − 3 = 7 %."
+  },
+  {
+    "q": "Nominell rente i = 5 %, inflasjon π = 2 %. Hva er realrenten R?",
+    "correct": "3 %",
+    "distractors": [
+      "7 %",
+      "-3 %",
+      "5 %"
+    ],
+    "why": "Fisher: R = i − π = 5 − 2 = 3 %."
+  },
+  {
+    "q": "Nominell rente i = 4 %, inflasjon π = 3 %. Hva er realrenten R?",
+    "correct": "1 %",
+    "distractors": [
+      "7 %",
+      "-1 %",
+      "4 %"
+    ],
+    "why": "Fisher: R = i − π = 4 − 3 = 1 %."
+  },
+  {
+    "q": "Nominell rente i = 6 %, inflasjon π = 2 %. Hva er realrenten R?",
+    "correct": "4 %",
+    "distractors": [
+      "8 %",
+      "-4 %",
+      "6 %"
+    ],
+    "why": "Fisher: R = i − π = 6 − 2 = 4 %."
+  },
+  {
+    "q": "Nominell rente i = 3 %, inflasjon π = 4 %. Hva er realrenten R?",
+    "correct": "-1 %",
+    "distractors": [
+      "7 %",
+      "1 %",
+      "3 %"
+    ],
+    "why": "Fisher: R = i − π = 3 − 4 = -1 %."
+  },
+  {
+    "q": "Nominelt BNP = 1200, reelt BNP = 1000. Hva er BNP-deflatoren?",
+    "correct": "120",
+    "distractors": [
+      "100",
+      "130",
+      "110"
+    ],
+    "why": "Deflator = (nominelt/reelt)·100 = 1200/1000·100 = 120."
+  },
+  {
+    "q": "Nominelt BNP = 660, reelt BNP = 600. Hva er BNP-deflatoren?",
+    "correct": "110",
+    "distractors": [
+      "100",
+      "120",
+      "165"
+    ],
+    "why": "Deflator = (nominelt/reelt)·100 = 660/600·100 = 110."
+  },
+  {
+    "q": "Nominelt BNP = 520, reelt BNP = 400. Hva er BNP-deflatoren?",
+    "correct": "130",
+    "distractors": [
+      "100",
+      "140",
+      "120"
+    ],
+    "why": "Deflator = (nominelt/reelt)·100 = 520/400·100 = 130."
+  },
+  {
+    "q": "g_Y = 4 %, g_K = 3 %, g_L = 0 %, α = 1/3. Hva er TFP-veksten g_A?",
+    "correct": "3 %",
+    "distractors": [
+      "1 %",
+      "4 %",
+      "5 %"
+    ],
+    "why": "g_A = 4 − (1/3)·3 − (2/3)·0 = 3 % (Solow-residualen)."
+  },
+  {
+    "q": "g_Y = 5 %, g_K = 3 %, g_L = 3 %, α = 1/3. Hva er TFP-veksten g_A?",
+    "correct": "2 %",
+    "distractors": [
+      "5 %",
+      "3 %",
+      "1 %"
+    ],
+    "why": "g_A = 5 − (1/3)·3 − (2/3)·3 = 2 % (Solow-residualen)."
+  },
+  {
+    "q": "g_Y = 6 %, g_K = 6 %, g_L = 3 %, α = 1/3. Hva er TFP-veksten g_A?",
+    "correct": "2 %",
+    "distractors": [
+      "0 %",
+      "3 %",
+      "6 %"
+    ],
+    "why": "g_A = 6 − (1/3)·6 − (2/3)·3 = 2 % (Solow-residualen)."
+  },
+  {
+    "q": "g_Y = 3 %, g_K = 3 %, g_L = 3 %, α = 1/3. Hva er TFP-veksten g_A?",
+    "correct": "0 %",
+    "distractors": [
+      "3 %",
+      "1 %",
+      "-1 %"
+    ],
+    "why": "g_A = 3 − (1/3)·3 − (2/3)·3 = 0 % (Solow-residualen)."
+  },
+  {
+    "q": "C=600, I=200, G=150, eksport=120, import=90. Hva er BNP fra utgiftssiden?",
+    "correct": "980",
+    "distractors": [
+      "1070",
+      "950",
+      "890"
+    ],
+    "why": "Y = C+I+G+(X−M) = 600+200+150+(120−90) = 980."
+  },
+  {
+    "q": "C=500, I=250, G=100, eksport=80, import=60. Hva er BNP fra utgiftssiden?",
+    "correct": "870",
+    "distractors": [
+      "930",
+      "850",
+      "810"
+    ],
+    "why": "Y = C+I+G+(X−M) = 500+250+100+(80−60) = 870."
+  },
+  {
+    "q": "C=700, I=150, G=200, eksport=90, import=70. Hva er BNP fra utgiftssiden?",
+    "correct": "1070",
+    "distractors": [
+      "1140",
+      "1050",
+      "1000"
+    ],
+    "why": "Y = C+I+G+(X−M) = 700+150+200+(90−70) = 1070."
+  }
+];
