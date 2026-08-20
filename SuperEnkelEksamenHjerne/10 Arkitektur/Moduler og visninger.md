@@ -89,6 +89,33 @@ Dagens økt er 3 spill (~4 min) og gir **+25 bonus-XP**. Nivåene:
 Fersking (0) → Student (120) → Gruppelærer (320) → Seminarleder (650) →
 Foreleser (1100) → Sensor (1700) → Nobelkandidat (2600).
 
+## Lynlæringens fremdriftsport
+
+Uten port henter minispillene fra hele pensum fra dag én, så du kan få M&A-spørsmål
+i modul 3. Fag som setter **`lynFollowsProgress: true`** i manifestet får i stedet
+bare kapitler de har nådd:
+
+> alt i modulene til og med den du står i, **pluss** alt du selv har huket av som lest
+
+Alle pooler går gjennom den samme porten: sant/usant, skift, kjeder, opp/ned,
+hoderegning, lynquiz, «Forklar!», «Dagens bit», og ordlisten (symboler og økonomer
+filtreres på `chapters`-feltet sitt). Elementer uten kapittelmerking slipper gjennom.
+
+**Formeltabellene er et unntak som måtte løses særskilt.** De bærer ingen
+kapittelmerking i seg selv, så manifestet oppgir den med
+`formulaTableChapters` — én liste per tabell, i samme rekkefølge som de står i
+manualen. Uten kartet slipper alle formler gjennom, som før. Merk at rekkefølgen
+allerede er bundet av at flashcard-id-ene er posisjonsbaserte: endres den ene, må
+den andre følge med. Se [[Fallgruver]].
+
+Et spill som ikke har nok åpnet innhold faller ut av rutenettet med teksten
+«Åpnes når du har lest mer», og en boks over rutenettet sier hvor mange kapitler
+som er låst opp og hvor mange spill som gjenstår. Det skiller «faget mangler dette
+innholdet» fra «du har ikke kommet dit ennå».
+
+For [[FIE402 Corporate Finance]] betyr det 3 spill i modul 1 og alle 13 fra modul 6.
+[[SAM3 Makroøkonomi]] har ikke flagget og er uendret.
+
 ## Dybdetrening
 
 `bundle-dybde.js`. Tre banker, filtrerbare på nivå og tema, med

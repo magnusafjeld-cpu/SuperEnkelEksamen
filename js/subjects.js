@@ -50,6 +50,8 @@ window.EDU_SUBJECTS = [
     problems: {
       candidates: ["SAM3_Alle_oppgaver_med_fasit.html", "fag/sam3/oppgaver.html", "../SAM3_Alle_oppgaver_med_fasit.html"],
     },
+    /* SAM3 har både manual og oppgavebank, så fotnoten under lynøkta sier begge. */
+    copy: { lynFoot: "Alt innhold er hentet fra eksamensmanualen og oppgavebanken. Feil svar viser alltid forklaringen, det er der læringen skjer. Tips: legg siden til på Hjem-skjermen for app-følelse." },
     modules: null,
   },
   {
@@ -81,6 +83,24 @@ window.EDU_SUBJECTS = [
       { id: 6, tag: "Part VI", name: "Transactions and governance", chapters: [26, 27] },
       { id: 7, tag: "Part VII", name: "Exam craft", chapters: [28] },
       { id: 8, tag: "Reference", name: "Formula reference", chapters: [29] },
+    ],
+    /* Lynøkta henter bare fra kapitler du har nådd — se js/bundle-lyn.js.
+       Uten dette ville minispillene servert M&A-spørsmål i modul 3. */
+    lynFollowsProgress: true,
+    /* Formeltabellene i k29 har ingen kapittelmerking i seg selv, så porten
+       trenger å få vite hvor de hører hjemme. Rekkefølgen følger dokumentet og
+       er den samme som flashcard-id-ene bygger på — endres den, må begge deler
+       følge med. */
+    formulaTableChapters: [
+      [1, 2],                       // 29.1 Time value and cash flow
+      [3, 4],                       // 29.2 Risk and cost of capital
+      [6, 7, 8],                    // 29.3 Capital structure and the tax shield
+      [9, 10, 11, 12, 13],          // 29.4 Agency and information
+      [17, 18, 19, 20],             // 29.5 Valuation with leverage
+      [21, 22, 23],                 // 29.6 Options
+      [5, 24],                      // 29.7 Credit risk
+      [25],                         // 29.8 Real options
+      [26],                         // 29.9 Mergers and acquisitions
     ],
     dybdeBanks: [
       { key: "foundations", label: "Foundations", sub: "Fri kontantstrøm, CAPM, kapitalkostnad, unlever/relever og kredittrisiko (kapittel 1–5).",

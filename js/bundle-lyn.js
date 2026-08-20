@@ -10,6 +10,48 @@ window.EDU_DATA = window.EDU_DATA || {};
   const sh = () => S.views.shared;
   const D = () => window.EDU_DATA.lyn || { tf: [], shift: [], chains: [] };
 
+  /* ---------- fremdriftsport ----------
+     Uten dette serverer lynøkta spørsmål fra hele pensum fra dag én, så du kan
+     få M&A i modul 3. Fag som setter lynFollowsProgress i manifestet får i
+     stedet bare kapitler de har nådd: alt i modulene til og med den du står i,
+     pluss alt du selv har huket av som lest. Låser du opp for lite til at et
+     spill har nok innhold, faller spillet ut av rutenettet i stedet for å fylle
+     opp med stoff du ikke har sett. */
+  const følgerFremdrift = () => !!(window.EDU_SUBJECT || {}).lynFollowsProgress;
+  function åpneKapitler() {
+    if (!følgerFremdrift()) return null;                       // null = ingen port
+    const åpne = new Set();
+    const st = S.store.get();
+    Object.keys(st.chapters || {}).forEach((n) => { if (st.chapters[n] && st.chapters[n].read) åpne.add(+n); });
+    const nå = S.data.activeDayIndex();
+    (S.data.days() || []).forEach((d) => { if (d.day <= nå) (d.chapters || []).forEach((c) => åpne.add(c)); });
+    return åpne;
+  }
+  /* Elementer uten kapittelmerking slipper gjennom — de hører ikke til noe sted. */
+  function port(liste, hentCh) {
+    const åpne = åpneKapitler();
+    if (!åpne) return liste || [];
+    return (liste || []).filter((it) => {
+      const ch = hentCh(it);
+      if (ch == null) return true;
+      return Array.isArray(ch) ? (ch.length === 0 || ch.some((c) => åpne.has(c))) : åpne.has(ch);
+    });
+  }
+  const bank = (navn) => port(D()[navn] || [], (it) => (it.ch == null ? null : it.ch));
+  const mcqPool = () => port((S.data.raw.quizzes || []).filter((q) => q.type === "mcq"), (q) => q.ch);
+  const symbolPool = () => port(S.data.glossary.symbols || [], (e) => e.chapters);
+  const okonomPool = () => port(S.data.glossary.economists || [], (e) => e.chapters);
+  const kapittelPool = () => port(S.data.chapters(), (c) => c.num);
+  /* Formeltabellene bærer ingen kapittelmerking selv; manifestet sier hvor de
+     hører hjemme, i samme rekkefølge som de står i manualen. Uten kartet slipper
+     alle gjennom, som før. */
+  function formelTabeller() {
+    const kart = (window.EDU_SUBJECT || {}).formulaTableChapters;
+    const tabeller = S.data.reference.formulaTables || [];
+    if (!kart) return tabeller;
+    return port(tabeller.map((t, i) => Object.assign({ _ch: kart[i] || null }, t)), (t) => t._ch);
+  }
+
   /* ---------- persistent lyn-state (xp, streak, spill) ---------- */
   function L() { const st = S.store.get(); if (!st.lyn) st.lyn = { xp: 0, days: {}, plays: 0, best: {} }; return st.lyn; }
   function save() { S.store.emit(); }
@@ -40,19 +82,19 @@ window.EDU_DATA = window.EDU_DATA || {};
 
   /* ---------- spillregister ---------- */
   const GAMES = {
-    blitz: { name: "Lynquiz", emoji: "⚡", desc: "8 spørsmål mot klokka", ready: () => S.data.raw.quizzes.filter((q) => q.type === "mcq").length >= 8, run: runBlitz },
-    tf: { name: "Sant eller usant", emoji: "🎯", desc: "Avslør eksamensmytene", ready: () => D().tf.length >= 10, run: runTF },
+    blitz: { name: "Lynquiz", emoji: "⚡", desc: "8 spørsmål mot klokka", ready: () => mcqPool().length >= 8, run: runBlitz },
+    tf: { name: "Sant eller usant", emoji: "🎯", desc: "Avslør eksamensmytene", ready: () => bank("tf").length >= 10, run: runTF },
     formel: { name: "Formel-lyn", emoji: "🧮", desc: "Finn riktig formel", ready: () => flatFormulas().length >= 12, run: runFormel },
-    par: { name: "Par-sprint", emoji: "🃏", desc: "Match symboler og begreper", ready: () => (S.data.glossary.symbols || []).length >= 6, run: runPar },
-    skift: { name: "Skift eller glid?", emoji: "📈", desc: "Kurveskift vs. bevegelse langs", ready: () => D().shift.length >= 10, run: runSkift },
-    kjede: { name: "Kjede", emoji: "🔗", desc: "Bygg mekanismen steg for steg", ready: () => D().chains.length >= 3, run: runKjede },
-    hode: { name: "Hoderegning", emoji: "🔢", desc: "Eksamensmatte uten kalkulator", ready: () => (D().hode || []).length >= 8, run: runHode },
-    updown: { name: "Opp eller ned?", emoji: "↕️", desc: "Hvilken vei går størrelsen?", ready: () => (D().updown || []).length >= 10, run: runUpDown },
+    par: { name: "Par-sprint", emoji: "🃏", desc: "Match symboler og begreper", ready: () => symbolPool().length >= 6, run: runPar },
+    skift: { name: "Skift eller glid?", emoji: "📈", desc: "Kurveskift vs. bevegelse langs", ready: () => bank("shift").length >= 10, run: runSkift },
+    kjede: { name: "Kjede", emoji: "🔗", desc: "Bygg mekanismen steg for steg", ready: () => bank("chains").length >= 3, run: runKjede },
+    hode: { name: "Hoderegning", emoji: "🔢", desc: "Eksamensmatte uten kalkulator", ready: () => bank("hode").length >= 8, run: runHode },
+    updown: { name: "Opp eller ned?", emoji: "↕️", desc: "Hvilken vei går størrelsen?", ready: () => bank("updown").length >= 10, run: runUpDown },
     forklar: { name: "Forklar!", emoji: "🎙️", desc: "45 sekunder per mekanisme", ready: () => forklarPool().length >= 3, run: runForklar },
-    oddone: { name: "En skiller seg ut", emoji: "🕵️", desc: "Finn inntrengeren", ready: () => (S.data.reference.formulaTables || []).filter((t) => t.rows.length >= 3).length >= 2, run: runOddOne },
-    memory: { name: "Memory", emoji: "🧠", desc: "Finn skjulte par", ready: () => (S.data.glossary.symbols || []).length >= 6, run: runMemory },
-    okonom: { name: "Hvem er økonomen?", emoji: "🧑‍🏫", desc: "Koble navn til bidrag", ready: () => (S.data.glossary.economists || []).length >= 6, run: runOkonom },
-    bit: { name: "Dagens bit", emoji: "☕", desc: "To innsikter og én sjekk", ready: () => S.data.chapters().length > 0, run: runBit },
+    oddone: { name: "En skiller seg ut", emoji: "🕵️", desc: "Finn inntrengeren", ready: () => formelTabeller().filter((t) => t.rows.length >= 3).length >= 2, run: runOddOne },
+    memory: { name: "Memory", emoji: "🧠", desc: "Finn skjulte par", ready: () => symbolPool().length >= 6, run: runMemory },
+    okonom: { name: "Hvem er økonomen?", emoji: "🧑‍🏫", desc: "Koble navn til bidrag", ready: () => okonomPool().length >= 6, run: runOkonom },
+    bit: { name: "Dagens bit", emoji: "☕", desc: "To innsikter og én sjekk", ready: () => kapittelPool().length > 0, run: runBit },
   };
   function availableGames() { return Object.keys(GAMES).filter((k) => { try { return GAMES[k].ready(); } catch (e) { return false; } }); }
 
@@ -121,20 +163,19 @@ window.EDU_DATA = window.EDU_DATA || {};
   }
 
   function runBlitz(done) {
-    const rounds = shuffle(S.data.raw.quizzes.filter((q) => q.type === "mcq")).slice(0, 8)
+    const rounds = shuffle(mcqPool()).slice(0, 8)
       .map((q) => ({ q: q.q, options: q.options, answer: q.answer, why: q.explanation, id: q.id, kicker: "K" + q.ch }));
     return mcqRunner({ rounds, secs: 18, xpPer: 10, title: "Lynquiz", record: (id, ok) => S.store.recordAnswer(id, ok) }, done);
   }
   function runSkift(done) {
-    const rounds = shuffle(D().shift).slice(0, 10).map((it) => ({ q: it.q, options: it.options, answer: it.answer, why: it.why, kicker: "K" + it.ch }));
+    const rounds = shuffle(bank("shift")).slice(0, 10).map((it) => ({ q: it.q, options: it.options, answer: it.answer, why: it.why, kicker: "K" + it.ch }));
     return mcqRunner({ rounds, xpPer: 12, title: "Skift eller glid" }, done);
   }
-  let _flat = null;
+  /* Ikke bufret: hvilke tabeller som er åpne endrer seg med fremdriften. */
   function flatFormulas() {
-    if (_flat) return _flat;
-    _flat = [];
-    (S.data.reference.formulaTables || []).forEach((t) => t.rows.forEach((r) => { if (r.formula && r.formula.length > 2) _flat.push(r); }));
-    return _flat;
+    const ut = [];
+    formelTabeller().forEach((t) => t.rows.forEach((r) => { if (r.formula && r.formula.length > 2) ut.push(r); }));
+    return ut;
   }
   function runFormel(done) {
     const all = flatFormulas();
@@ -148,7 +189,7 @@ window.EDU_DATA = window.EDU_DATA || {};
 
   /* ---------- sant eller usant ---------- */
   function runTF(done) {
-    const items = shuffle(D().tf).slice(0, 10);
+    const items = shuffle(bank("tf")).slice(0, 10);
     const box = el(".lyn-game");
     let i = 0, correct = 0, xp = 0;
     function step() {
@@ -180,11 +221,11 @@ window.EDU_DATA = window.EDU_DATA || {};
 
   /* ---------- par-sprint (matching) ---------- */
   function runPar(done) {
-    const useEco = Math.random() < 0.3 && (S.data.glossary.economists || []).length >= 6;
+    const useEco = Math.random() < 0.3 && okonomPool().length >= 6;
     const short = (s) => { const t = s.split(/[.;]/)[0]; return t.length > 58 ? t.slice(0, 55) + "…" : t; };
     const pairs = useEco
-      ? shuffle(S.data.glossary.economists).slice(0, 6).map((e, ix) => ({ k: ix, a: e.name.split(" ").slice(-1)[0], b: short(e.note) }))
-      : shuffle(S.data.glossary.symbols).slice(0, 6).map((e, ix) => ({ k: ix, a: e.sym, b: short(e.name) }));
+      ? shuffle(okonomPool()).slice(0, 6).map((e, ix) => ({ k: ix, a: e.name.split(" ").slice(-1)[0], b: short(e.note) }))
+      : shuffle(symbolPool()).slice(0, 6).map((e, ix) => ({ k: ix, a: e.sym, b: short(e.name) }));
     const tiles = shuffle(pairs.flatMap((p) => [{ k: p.k, t: p.a }, { k: p.k, t: p.b }]));
     const box = el(".lyn-game");
     box.appendChild(el(".lyn-q", useEco ? "Match økonom og bidrag" : "Match symbol og betydning"));
@@ -221,7 +262,7 @@ window.EDU_DATA = window.EDU_DATA || {};
 
   /* ---------- kjede (rekkefølge) ---------- */
   function runKjede(done) {
-    const chains = shuffle(D().chains).slice(0, 2);
+    const chains = shuffle(bank("chains")).slice(0, 2);
     const box = el(".lyn-game");
     let ci = 0, xp = 0;
     function step() {
@@ -264,9 +305,9 @@ window.EDU_DATA = window.EDU_DATA || {};
   /* ---------- dagens bit (mikro-lesing + sjekk) ---------- */
   function runBit(done) {
     const mechs = [];
-    S.data.chapters().forEach((c) => (c.mechanisms || []).forEach((m) => { if (m.heading) mechs.push({ ch: c.num, heading: m.heading, html: m.html }); }));
+    kapittelPool().forEach((c) => (c.mechanisms || []).forEach((m) => { if (m.heading) mechs.push({ ch: c.num, heading: m.heading, html: m.html }); }));
     const picks = shuffle(mechs).slice(0, 2);
-    const check = D().tf.length ? shuffle(D().tf)[0] : null;
+    const check = bank("tf").length ? shuffle(bank("tf"))[0] : null;
     const box = el(".lyn-game");
     let i = 0, xp = 15;
     function step() {
@@ -303,7 +344,7 @@ window.EDU_DATA = window.EDU_DATA || {};
 
   /* ---------- opp eller ned (komparativ statikk) ---------- */
   function runUpDown(done) {
-    const items = shuffle(D().updown || []).slice(0, 10);
+    const items = shuffle(bank("updown")).slice(0, 10);
     const box = el(".lyn-game");
     let i = 0, correct = 0, xp = 0;
     function step() {
@@ -336,7 +377,7 @@ window.EDU_DATA = window.EDU_DATA || {};
      { q, options, answer, why } ferdig satt, eller { q, correct, distractors, why }
      der motoren bygger og blander alternativene ved hver kjøring. */
   function hodePool() {
-    return (D().hode || []).map((it) => {
+    return bank("hode").map((it) => {
       if (Array.isArray(it.options)) return it;
       const opts = shuffle([it.correct, ...(it.distractors || [])]);
       return { q: it.q, options: opts, answer: opts.indexOf(it.correct), why: it.why, ch: it.ch };
@@ -352,7 +393,7 @@ window.EDU_DATA = window.EDU_DATA || {};
     const AL = window.EDU_DATA.activeLearning || {};
     const out = [];
     Object.keys(AL).forEach((ch) => AL[ch].forEach((p) => { const sol = p.solution || p.hint; if (sol) out.push({ ch: +ch, q: p.q, sol }); }));
-    return out;
+    return port(out, (it) => it.ch);
   }
   function runForklar(done) {
     const items = shuffle(forklarPool()).slice(0, 3);
@@ -383,7 +424,7 @@ window.EDU_DATA = window.EDU_DATA || {};
 
   /* ---------- en skiller seg ut (generert fra formelsamlingen) ---------- */
   function runOddOne(done) {
-    const tables = (S.data.reference.formulaTables || []).filter((t) => t.rows.length >= 3);
+    const tables = formelTabeller().filter((t) => t.rows.length >= 3);
     const rounds = [];
     let guard = 0;
     while (rounds.length < 8 && guard++ < 40 && tables.length >= 2) {
@@ -400,7 +441,7 @@ window.EDU_DATA = window.EDU_DATA || {};
   /* ---------- memory (skjulte par) ---------- */
   function runMemory(done) {
     const short = (s) => { const t = s.split(/[.;(]/)[0].trim(); return t.length > 40 ? t.slice(0, 37) + "…" : t; };
-    const pairs = shuffle(S.data.glossary.symbols).slice(0, 6).map((e, ix) => ({ k: ix, a: e.sym, b: short(e.name) }));
+    const pairs = shuffle(symbolPool()).slice(0, 6).map((e, ix) => ({ k: ix, a: e.sym, b: short(e.name) }));
     const tiles = shuffle(pairs.flatMap((p) => [{ k: p.k, t: p.a }, { k: p.k, t: p.b }]));
     const box = el(".lyn-game");
     box.appendChild(el(".lyn-q", "Memory: finn parene (symbol ↔ betydning)"));
@@ -433,7 +474,7 @@ window.EDU_DATA = window.EDU_DATA || {};
 
   /* ---------- hvem er økonomen? ---------- */
   function runOkonom(done) {
-    const eco = S.data.glossary.economists || [];
+    const eco = okonomPool();
     const rounds = shuffle(eco).slice(0, 8).map((e) => {
       const others = shuffle(eco.filter((x) => x.name !== e.name)).slice(0, 3).map((x) => x.name);
       const options = shuffle([e.name, ...others]);
@@ -488,16 +529,33 @@ window.EDU_DATA = window.EDU_DATA || {};
     // game tiles
     wrap.appendChild(el(".section-title", el("h3", "Velg spill")));
     const grid = el(".lyn-grid");
+    const portÅpen = åpneKapitler();
     Object.keys(GAMES).forEach((k) => {
       const g = GAMES[k]; const ok = g.ready();
+      /* Skiller «faget har ikke dette innholdet» fra «du har ikke kommet dit ennå». */
+      const låstAvFremdrift = !ok && portÅpen;
       const tile = el("button.lyn-tile", { disabled: !ok, onclick: () => ok && startSession([k], false) },
-        el(".em", g.emoji), el(".nm", g.name), el(".ds", ok ? g.desc : "Kommer snart"));
+        el(".em", g.emoji), el(".nm", g.name),
+        el(".ds", ok ? g.desc : låstAvFremdrift ? "Åpnes når du har lest mer" : "Kommer snart"));
       grid.appendChild(tile);
     });
     wrap.appendChild(grid);
 
+    /* Fortell hvor mye som er låst opp, ellers ser et halvtomt rutenett ut som en feil. */
+    if (portÅpen) {
+      const kap = kapittelPool().length, alle = S.data.chapters().length;
+      const klare = Object.keys(GAMES).filter((k) => GAMES[k].ready()).length;
+      wrap.appendChild(el(".card", { style: { marginTop: "16px", background: "var(--accent-soft)", border: "1px solid var(--accent-soft-2)" } },
+        el("p", { style: { margin: 0, fontSize: "14px", lineHeight: 1.55 } },
+          el("b", `Lynøkta følger fremdriften din. `),
+          `Den henter bare fra de ${kap} av ${alle} kapitlene du har nådd, så du slipper spørsmål om stoff du ikke har lest. `,
+          klare < Object.keys(GAMES).length
+            ? `${Object.keys(GAMES).length - klare} spill åpner seg etter hvert som du kommer lenger.`
+            : `Alle ${klare} spillene er åpne.`)));
+    }
+
     wrap.appendChild(el("p.tiny.muted.center", { style: { marginTop: "18px", lineHeight: 1.5 } },
-      "Alt innhold er hentet fra eksamensmanualen og oppgavebanken. Feil svar viser alltid forklaringen, det er der læringen skjer. Tips: legg siden til på Hjem-skjermen for app-følelse."));
+      sh().copy("lynFoot", "Alt innhold er hentet fra pensummanualen. Feil svar viser alltid forklaringen, det er der læringen skjer. Tips: legg siden til på Hjem-skjermen for app-følelse.")));
     return wrap;
   }
 
