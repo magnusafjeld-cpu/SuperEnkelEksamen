@@ -8,7 +8,11 @@
   :root{ --ink:#1a1a1a; --paper:#fbf9f4; --plum:#4630ab; --rule:#d8d0c0; --box:#f2eefb; }
   body{ margin:0; background:var(--paper); color:var(--ink); font-family:Georgia,serif; line-height:1.62; font-size:18px; }
   .wrap{ max-width:860px; margin:0 auto; padding:0 28px 120px; }
-  h2.part{ font-variant:small-caps; letter-spacing:.14em; color:var(--plum); border-bottom:2px solid var(--plum); margin-top:64px; }
+  .cover{ min-height:70vh; display:flex; flex-direction:column; justify-content:center; border-bottom:3px double var(--plum); padding:60px 0 40px; }
+  .cover h1{ font-size:3rem; line-height:1.08; margin:.2em 0 .15em; }
+  .cover .tagline{ font-style:italic; color:#444; font-size:1.2rem; max-width:34em; }
+  .cover .meta{ margin-top:34px; font-size:.92rem; color:#555; border-top:1px solid var(--rule); padding-top:16px; }
+  h2.part{ font-variant:small-caps; letter-spacing:.14em; color:var(--plum); border-bottom:2px solid var(--plum); margin-top:64px; padding-bottom:6px; }
   h2.chap{ font-size:1.9rem; margin:.4em 0 .6em; }
   h3{ color:var(--plum); margin-top:1.7em; }
   .lead-in{ font-style:italic; color:#3a3a3a; }
@@ -16,18 +20,45 @@
   .formula .eq{ font-family:"Iowan Old Style",Georgia,serif; font-size:1.05rem; }
   .formula .where{ font-size:.9rem; color:#4a4a4a; margin-top:8px; }
   .callout{ background:var(--box); border-radius:8px; padding:14px 18px; margin:18px 0; }
+  .callout .h{ display:block; font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; margin-bottom:.35em; color:var(--plum); }
+  .worked{ background:#fff; border:1px dashed #c9bfae; border-radius:8px; padding:14px 18px; margin:18px 0; }
+  .worked .wh{ display:block; text-transform:uppercase; letter-spacing:.05em; font-size:.75rem; font-weight:700; color:var(--plum); margin-bottom:.4em; }
   table.data{ border-collapse:collapse; width:100%; margin:18px 0; font-size:.95rem; }
-  table.data th, table.data td{ border-bottom:1px solid var(--rule); padding:7px 10px; text-align:left; }
+  table.data th, table.data td{ border-bottom:1px solid var(--rule); padding:7px 10px; text-align:left; vertical-align:top; }
   table.data td.n, table.data th.n{ text-align:right; font-variant-numeric:tabular-nums; }
+  blockquote{ border-left:3px solid var(--plum); margin:18px 0; padding:2px 0 2px 18px; color:#3a3a3a; }
+  .backtotop{ float:right; font-size:.75rem; color:#8a8070; text-decoration:none; margin-top:8px; }
+  #toc ol{ columns:2; column-gap:38px; font-size:.95rem; }
   hr.sec{ border:0; border-top:1px solid var(--rule); margin:40px 0; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
+<div class="cover">
+  <h1>Caseintervju</h1>
+  <p class="tagline">Hele veien fra prompt til anbefaling — struktur, hoderegning, figurlesing og fit, trent på ekte caser.</p>
+  <div class="meta">Manualen er referanse, ikke pensum. Arbeidet ligger i drillene: 34 struktureringsprompter,
+  sju hele caser, 34 finn-feilen-oppgaver, 24 figurer, 14 estimeringskjeder og 70 mock-intervjuer.</div>
+</div>
+<nav id="toc">
+<h2 class="part">Innhold</h2>
+<ol>
+<li style="list-style:none;margin-top:.7em"><b>Del 0 · Grunnlaget</b></li>
+<li><a href="#k0">0 · Slik bruker du kurset</a></li>
+<li><a href="#k1">1 · Hva caseintervjuet faktisk måler</a></li>
+<li><a href="#k2">2 · Husene og prosessene</a></li>
+<li style="list-style:none;margin-top:.7em"><b>Del I · Struktur</b></li>
+<li><a href="#k3">3 · Å bryte ned et problem</a></li>
+<li style="list-style:none;margin-top:.7em"><b>Referanse · Tall og formler</b></li>
+<li><a href="#k15">15 · Tallarket</a></li>
+</ol>
+</nav>
+
 <h2 class="part">Del 0 — Grunnlaget</h2>
 
 <section id="k0">
+<a class="backtotop" href="#toc">↑ innhold</a>
 <h2 class="chap">0 · Slik bruker du kurset</h2>
 
 <p class="lead-in">Et caseintervju er ikke en kunnskapsprøve. Det er en arbeidsprøve: intervjueren later som du allerede er ansatt, gir deg et problem en klient kunne hatt, og ser hvordan du tenker mens du løser det. Derfor kan ikke dette kurset leses. Det må gjøres.</p>
@@ -68,6 +99,7 @@
 <hr class="sec">
 
 <section id="k1">
+<a class="backtotop" href="#toc">↑ innhold</a>
 <h2 class="chap">1 · Hva caseintervjuet faktisk måler</h2>
 
 <p class="lead-in">Kandidater tror de blir målt på om de finner riktig svar. De blir målt på om de er til å stole på med en klient i rommet. Det er en annen prøve, og den har andre vinnere.</p>
@@ -109,6 +141,324 @@
   <div class="eq">Resultat = (Pris × Volum + andre inntekter) − (variable kostnader + faste kostnader)</div>
   <div class="where">Denne er MECE av seg selv, fordi den er en identitet. Derfor er den et tryggere utgangspunkt enn enhver temaliste — og derfor begynner nesten alle sterke lønnsomhetsstrukturer her, for så å bli klientens egne grener.</div>
 </div>
+</section>
+
+<hr class="sec">
+
+<section id="k2">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">2 · Husene og prosessene</h2>
+
+<p class="lead-in">Husene tester ikke det samme, og de tester det ikke på samme tid. Det første avgjør hva du trener på. Det andre avgjør om du i det hele tatt får bruke treningen — og derfor kommer fristene først.</p>
+
+<h3>2.1 Kalenderen: vinduet er september</h3>
+
+<p>Norsk konsulentrekruttering til sommerinternship 2027 og fast stilling med oppstart 2027 har ett hovedvindu, og det ligger i de to første ukene av høstsemesteret. Datoene under sto slik på NHHs næringslivsportal og selskapenes egne utlysninger den 30. august 2026.</p>
+
+<table class="data">
+  <tr><th>Frist</th><th>Hus</th><th>Stilling</th></tr>
+  <tr><td class="n">30.08.2026</td><td><b>Arkwright</b></td><td>Internship 2027</td></tr>
+  <tr><td class="n">30.08.2026</td><td><b>Implement</b></td><td>Junior Consultant + Graduate, Oslo</td></tr>
+  <tr><td class="n">06.09.2026</td><td><b>McKinsey</b></td><td>Associate Intern + Junior Associate</td></tr>
+  <tr><td class="n">08.–09.09.2026</td><td>EY-Parthenon / EY Consulting</td><td>Summer Internship 2027</td></tr>
+  <tr><td class="n">13.09.2026</td><td><b>Bain</b></td><td>Associate Consultant</td></tr>
+  <tr><td class="n">13.09.2026</td><td><b>Arkwright</b></td><td>«Arkwright Preview», 2-dagers program</td></tr>
+  <tr><td class="n">04.10.2026</td><td><b>Accenture</b></td><td>Summer Internship 2027</td></tr>
+  <tr><td>Rullerende</td><td><b>BCG</b></td><td>Visiting Associate · portalfrist 31.12.2026</td></tr>
+</table>
+
+<p>PwC, Deloitte og KPMGs konsulentspor har allerede lukket i denne syklusen; Deloittes neste vindu er januar. Kearney lyser ikke ut noen egen norsk graduate-frist på portalen, så der går veien via kontorets egen side. Konsekvensen av tabellen er enkel: <b>BCG er den eneste som tåler å bli utsatt.</b> Søk først, tren mens du venter.</p>
+
+<div class="callout warn">
+<span class="h">Datoene er ferskvare</span>
+<p>Listen er en kartlegging fra én dag. NHH NU oppdateres løpende, og enkelte hus flytter frister uten varsel. Dobbeltsjekk mot portalen samme dag du søker — dette er det ene i kapitlet du ikke skal stole på at er riktig om to uker.</p>
+</div>
+
+<h3>2.2 Kartet: hva som faktisk skiller husene</h3>
+
+<p>Kildene bak dette kapitlet har tre svært ulike kvaliteter, og de er merket deretter: <b>[D]</b> = dokumentert av selskapet selv, <b>[K]</b> = kandidatrapport eller rykte, <b>[P]</b> = prep-bransjens beskrivelse — ofte riktig på hovedtrekk, men de selger kurs og overdriver presisjonen.</p>
+
+<table class="data">
+  <tr><th>Hus</th><th>Case-stil</th><th>Digital screening</th><th>Runder</th></tr>
+  <tr><td><b>McKinsey</b></td><td>Interviewer-led [P]</td><td>Solve [P]</td><td>2 runder, 2–3 intervjuer hver [P]</td></tr>
+  <tr><td><b>BCG</b></td><td>Candidate-led [P]</td><td>Norden: logisk resonnement, 80 spm / 30 min [D]</td><td>R1: 2 caser · finale: 1 case med partner [D]</td></tr>
+  <tr><td><b>Bain</b></td><td>Candidate-led, dreier mot interviewer-led [P]</td><td>TestGorilla <i>eller</i> SOVA [P]</td><td>2–3 runder over 4–6 uker [P]</td></tr>
+  <tr><td><b>Arkwright</b></td><td>Candidate-led [K]</td><td>Ingen funnet</td><td>2 runder, én senior + én junior i hver [K]</td></tr>
+  <tr><td><b>Kearney</b></td><td>Candidate-led, matte-tung [P]</td><td>Recruitment Test, 40 spm / 60 min [P]</td><td>2 runder [P]</td></tr>
+  <tr><td><b>Accenture</b></td><td>Track-intervju, ikke strategicase [D]</td><td>Kognitiv test + innspilt video [D]</td><td>Test → video → track → assessment centre [D]</td></tr>
+  <tr><td><b>Implement</b></td><td>Ikke dokumentert</td><td>Ikke dokumentert</td><td>Junior-rollene: snitt ~60 dager [K]</td></tr>
+</table>
+
+<p>Fit-delens vekt varierer mer enn case-stilen. Hos McKinsey er den en <b>egen økt med eget navn</b> og halvparten av tiden. Hos BCG og Bain er den vevd inn i case-intervjuene som samtale før og etter casen. Hos Arkwright rapporteres den å åpne <i>hvert</i> intervju [K]. Hos Accenture og de norske husene <i>er</i> den i praksis hele prøven.</p>
+
+<h3>2.3 McKinsey: det eneste økosystemet du må trene særskilt for</h3>
+
+<p>Casen er interviewer-led fordi den er skrevet av et sentralt team og distribuert med manus — alle kandidater globalt får de samme spørsmålene i samme rekkefølge [P]. Du eier innholdet i hvert delsvar, ikke prosessen. Å be om et minutt og så kjøre ditt eget løp er å bomme på formatet.</p>
+
+<p><b>Solve</b> er spillbasert screening med modulene Redrock, Sea Wolf og eventuelt Sustainable Futures Lab. En 65-minutters invitasjon betyr typisk to moduler, 85 minutter at den tredje er med [P]. Den måler ikke forretningskunnskap, men strukturering, prioritering og beslutning under tidspress. Det overførbare er diagramlesing, prosentlogikk med riktig nevner og evidenssjekk. Mekanikken i hvert spill står i k13.</p>
+
+<p><b>PEI</b> — Personal Experience Interview — har fire dimensjoner. McKinsey døpte om alle fire sommeren 2025 uten å endre innholdet [P]:</p>
+
+<table class="data">
+  <tr><th>Gammelt navn</th><th>Nytt navn</th><th>Hva de leter etter</th></tr>
+  <tr><td>Inclusive Leadership</td><td>Leadership</td><td>Å løfte andre uten formell autoritet</td></tr>
+  <tr><td>Entrepreneurial Drive</td><td>Drive</td><td>Initiativ og utholdenhet mot motstand</td></tr>
+  <tr><td>Courageous Change</td><td>Growth</td><td>Læring i usikkerhet; hva du gjorde da det gikk galt</td></tr>
+  <tr><td>Personal Impact</td><td>Connection</td><td>Overtalelse, konflikt, konsensus</td></tr>
+</table>
+
+<p>Formatet er <b>én historie per økt</b>, etterfulgt av 10–25 oppfølgingsspørsmål som graver i beslutningene dine, ikke i utfallet [P]. Det er en hard designbeskrankning på historieporteføljen i k11: få historier, svært dypt gjennomarbeidet, slår mange grunne.</p>
+
+<h3>2.4 BCG og Bain: samme familie, to ulike skjær</h3>
+
+<p>BCG dokumenterer selv rundene: runde 1 er to case-intervjuer, finalen ett case-intervju med en partner i samme format [D]. BCG dokumenterer også testen i Norden, og den er <b>ikke</b> Casey-chatboten: logisk resonnement, 80 spørsmål på 30 minutter, kalkulator ikke tillatt [D]. Det er 22,5 sekunder per spørsmål — ren hastighetsdrill, ikke casetrening. Casey og Pymetrics brukes i andre geografier [P]. Søknaden krever karakterutskrifter helt fra videregående [D].</p>
+
+<p>Bain har to særtrekk. Screeningen er <i>enten</i> TestGorilla <i>eller</i> SOVA, og invitasjonsmailen sier hvilken [P]. Og den skriftlige casen er den europeiske jokeren: rundt 55 minutter, sikt mot 3–5 slides, kalkulator ikke tillatt [P]. Det er en egen ferdighet. Case-stilen er dessuten i bevegelse mot interviewer-led og «answer first» [P], så tren begge modi.</p>
+
+<div class="callout mistake">
+<span class="h">Å trene på feil test</span>
+<p>Den vanligste bortkastede uka i hele prosessen. Bain sender én av to tester. BCG Norden sender en logikktest, ikke Casey. Åpne invitasjonsmailen og les hva som faktisk står der før du kjøper et kurs eller bruker en helg.</p>
+</div>
+
+<h3>2.5 Arkwright: mest relevant, minst dokumentert</h3>
+
+<p>Det som er dokumentert, er selskapet, ikke prosessen [D]: Oslo-kontor på Aker Brygge, rundt 60–65 konsulenter i Oslo og 120–150 i konsernet (Oslo, Stockholm, Hamburg, London), grunnlagt 1987, med tyngdepunkt i strategi, profit improvement, M&amp;A og private equity. Det betyr korte, analytisk harde prosjekter — og det former casene.</p>
+
+<p>Kandidatrapporter [K] beskriver to runder, med én mer senior og én mer junior kollega i hver. Hvert intervju åpner med personlighets- og motivasjonsspørsmål, deretter to caser. Casen er candidate-led: kandidaten forventes å drive den fremover, ikke ha en diskusjon. Ett rapportert forløp hadde en enkel P&amp;L-case først og en M&amp;A-case etterpå, der kandidaten fikk <b>20 minutter alene til å forberede en presentasjon</b>.</p>
+
+<div class="callout warn">
+<span class="h">Alt om Arkwrights prosess er ubekreftet</span>
+<p>Arkwright publiserer ikke prosessen sin noe sted — verken på karrieresidene i Norge, Sverige eller Tyskland, i jobbportalen eller på NHH-profilen. Beskrivelsen over stammer fra en håndfull Glassdoor-rapporter, altså få kandidater, ikke et statistisk bilde. Antall caser, om internship avviker fra fast stilling, og språket i rommet er <b>ikke</b> dokumentert. Særlig: det finnes <b>ingen dokumentasjon og ingen kandidatrapport</b> på at Arkwright bruker en numerisk screeningtest. Ryktet om «den beryktede mattetesten» lar seg ikke bekrefte. Ikke tren mot en test som kanskje ikke finnes — ring eller mail og spør (<i>recruiting@arkwright.no</i>). Det er raskere enn mer research.</p>
+</div>
+
+<p>Det som <i>er</i> konsistent på tvers av kildene, og som derfor bør styre treningen: candidate-led, PE- og M&amp;A-tungt, og minst én case som sannsynligvis er en selvforberedt presentasjon med solo-tid. Tren P&amp;L-mekanikk, enkel verdsettelsestenkning, og det å bygge og fremføre en egen anbefaling på tjue minutter. Overlappen med BCG- og Bain-trening er stor; solo-presentasjonen er det som ikke overlapper.</p>
+
+<h3>2.6 Kearney, Accenture og Implement</h3>
+
+<p><b>Kearney</b> har den hardeste online-screeningen på listen: 40 GMAT-lignende spørsmål på 60 minutter over seks seksjoner, uten kalkulator. Kandidater rapporterer konsekvent minuspoeng for feil svar, og Kearney publiserer ikke scoringsreglene — så blankt slår gjetning [P/K]. Testens plassering varierer: pre-screening hos noen kontorer, inne i runde 1 hos andre. Casene er candidate-led og matte-tunge, med overvekt av drift, supply chain og innkjøp. Oslo-kontor finnes.</p>
+
+<p><b>Accenture</b> er ikke et case-hus i norsk studentrekruttering. Prosessen er dokumentert av dem selv: kognitiv test → innspilt videointervju → track-intervju → virtuelt assessment centre [D], og internshipet markedsføres teknologi- og transformasjonsrettet. Ikke tren McKinsey-case for Accenture; tren struktur, forretningsforståelse og selvpresentasjon på video. Til gjengjeld er 4. oktober den seneste fristen blant de store — et reelt sikkerhetsnett hvis september går galt.</p>
+
+<p><b>Implement</b> kjører et Junior Consultant Accelerator Programme der du jobber deltid ved siden av studiene [D]. Prosessen er ikke dokumentert noe sted. Glassdoor-aggregatet [K] viser snitt 25 dager totalt, men rundt 60 for junior consultant-rollene, hvilket tyder på flere runder eller kohortbasert opptak. Mer enn det vet ingen.</p>
+
+<h3>2.7 Språket i rommet</h3>
+
+<p>Ingen av MBB-kontorene publiserer språkpolicy for intervjuer i Norge, så dette er dårligere belagt enn det burde være. Dokumentert norsk hele veien: PwC, Deloitte, KPMG, Accenture, Bekk, BearingPoint, Sopra Steria og Capgemini Invent [D]. Sannsynlig engelsk: McKinsey, BCG, Bain, Kearney — portalene, testene og alt skriftlig materiale er utelukkende engelsk [D]. At selve intervjuet i Oslo ofte glir over i norsk når begge parter er norske, er [K], ikke dokumentert. Arkwright: ikke dokumentert.</p>
+
+<p>Praktisk følger to ting av dette. Tren casen på engelsk, fordi tallene, termene og materialet er engelske. Men øv på å bytte til norsk uten å miste presisjon — særlig fit-historiene, som blir stive og oversatte hvis de bare er innøvd på ett språk.</p>
+
+<div class="callout link">
+<span class="h">Der dette trenes</span>
+<p>Kapitlet har én øvelse og én handling. <b>Øvelsen</b> er i Casetrening: kjør neste case candidate-led og den etter interviewer-led, på samme prompt hvis du orker — det er byttet mellom modi som er ferdigheten, ikke å beherske den ene. De digitale testene har sitt eget kapittel og sin egen drill i k13. <b>Handlingen</b> er ikke en øvelse: åpne NHH NU og send søknadene før du åpner neste kapittel. Du kan trene case etter fristen. Du kan ikke søke.</p>
+</div>
+</section>
+
+<h2 class="part">Del I — Struktur</h2>
+
+<section id="k3">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">3 · Å bryte ned et problem</h2>
+
+<p class="lead-in">En struktur er ikke en liste over temaer du kunne snakket om. Den er en påstand om hvordan klientens resultat faktisk blir til — og en påstand kan være feil, mens en liste bare kan være lang. Dette kapitlet handler om å bygge påstander.</p>
+
+<h3>3.1 Identiteten og verdikjeden: MECE av konstruksjon</h3>
+
+<p>En temaliste kan aldri bevises uttømmende. Sier du «marked, konkurranse, intern drift, regulering», må du argumentere for at ingenting mangler, og det argumentet finnes ikke. En identitet slipper unna hele problemet: er leddene lik svaret, kan ingenting utenfor leddene flytte svaret. Det er ikke retorikk, det er aritmetikk, og det er grunnen til at nesten alle sterke strukturer starter der.</p>
+
+<div class="formula">
+  <div class="eq">Resultat per klinikk = (Stoler × Åpne timer × Utnyttelsesgrad × Pris per behandlet time) − Variable kostnader − Faste klinikkostnader</div>
+  <div class="where">Tannhelsekjeden. Hver krone kjeden tjener må passere alle fire faktorene i parentesen, så en driver som ikke står der, kan ikke bære problemet. Legg merke til hvem som <i>ikke</i> er med: behandleren. Det er stolen som er den knappe ressursen, og identiteten sier det før du har stilt et eneste spørsmål.</div>
+</div>
+
+<p>Det samme grepet virker langt utenfor forretningslivet. En kirkeverge med gravplasser til rundt 2033 og ingen ledige arealer i byen har et problem som ser ut som arealpolitikk, helt til du skriver det:</p>
+
+<div class="formula">
+  <div class="eq">Arealbehov = Gravlegginger per år × Areal per grav × Antall år før graven kan gjenbrukes</div>
+  <div class="where">Tre faktorer, alle multiplikative. Det betyr at kremasjonsandelen (som halverer areal per grav) og oppfølging av utløpte festeavtaler (som kutter det tredje leddet) er verdt like mye som nytt areal — og virker mange år tidligere. En temaliste med «regulering», «gjenbruk» og «kremasjon» som tre kulepunkter kan ikke fortelle deg det, fordi en liste ikke har regnearter.</div>
+</div>
+
+<p>Verdikjeder og prosesser er MECE på samme måte, bare i tid i stedet for i tall: går sekvensen fra start til slutt, må hver krone og hvert minutt passere ett av leddene. Rundturen til en hurtigbåt er fortøyning, avstigning, påstigning, avgang, seiling og bunkring. Sju minutters forsinkelse ligger nødvendigvis i ett av dem.</p>
+
+<div class="callout mistake"><span class="h">Temalisten som ser MECE ut</span>
+<p>«Marked, konkurranse, intern drift, regulering» har ingen synlig overlapp, og består derfor overfladisk testen. Prøv den ordentlige testen i stedet: <b>kan du sette likhetstegn mellom grenene og resultatet?</b> Kan du ikke det, er det en innholdsfortegnelse. Og innholdsfortegnelser har alltid hull du ikke kan se — her mangler for eksempel miks, som er den vanligste årsaken til fallende margin i det hele tatt.</p></div>
+
+<h3>3.2 De fem måtene å være MECE på</h3>
+
+<p>Det finnes fem snittflater som gir garantert dekning, og de er verktøy, ikke maler. Ett eksempel på hver, alle hentet fra prompter du kommer til å møte i drillen:</p>
+
+<table class="data">
+  <tr><th>Måte</th><th>Hva du deler etter</th><th>Eksempel</th></tr>
+  <tr><td><b>Algebra</b></td><td>En ligning der leddene til sammen <i>er</i> svaret</td><td>Avfallsforbrenning: resultat = portinntekt per tonn × tonn + solgt varme og strøm − drift − kvoter − asketransport. Fortegnet på første ledd er hele poenget: her betaler leverandøren av råvaren for å bli kvitt den.</td></tr>
+  <tr><td><b>Prosess</b></td><td>En sekvens med start, midt og slutt</td><td>Netthandelslageret: mottak → innlagring → plukk → pakking → sortering → utlevering. Kapasiteten i systemet er kapasiteten i det svakeste leddet, og prosessen gir deg leddene å måle.</td></tr>
+  <tr><td><b>Konseptuelt</b></td><td>Idékategorier du lager for akkurat dette problemet</td><td>Eliteserieklubben: inntekt klubben <i>kontrollerer</i> (kampdag), <i>halvkontrollerer</i> (sponsor) og <i>ikke kontrollerer</i> (europacup, som er binær). Ingen regnskapslinje deler slik — men beslutningen gjør det.</td></tr>
+  <tr><td><b>Segmentering</b></td><td>Skiver av samme populasjon</td><td>Byggevarekjeden: dekningsgrad for proffkunde og privatkunde hver for seg, over tid. Er begge flate mens totalen faller, er hele fallet miks, og ikke én pris er endret.</td></tr>
+  <tr><td><b>Motsatte ord</b></td><td>Et begrep og komplementet</td><td>Oppdrettsselskapet: er EBIT-fallet markedet eller oss? Laksepris er lik for alle, så noe som er felles kan ikke forklare at bare vi faller.</td></tr>
+</table>
+
+<p>Motsatte ord er den raskeste og den svakeste av de fem, fordi «internt mot eksternt» sjelden gjør noe arbeid alene. I oppdrettscasen er den likevel riktig, av én grunn: styret stilte nøyaktig det spørsmålet. Verktøyet velges av problemet, ikke av vanen.</p>
+
+<p>I praksis er det kombinasjonen algebra + prosess + segmentering som produserer driverbaserte trær. Dagligvarekjeden med fallende margin bruker alle tre samtidig: algebra deler i bruttomargin og kostnad, segmentering deler bruttomarginen på varekategori, og prosess deler volumet i kurvmekanikk — trafikk, kurvstørrelse, varelinjer per kurv. Ingen av de tre grenene kunne vært gjettet fra en mal.</p>
+
+<div class="callout tip"><span class="h">Konseptuelt er det vanskeligste — og det firmaene aldri navngir</span>
+<p>Konseptuelle kategorier er det mest allsidige verktøyet og det som lettest degenererer til malbruk, fordi 3C og 4P er nettopp konseptuelle kategorier laget av noen andre, til noe annet. Legg merke til hva som står på BCGs og Bains egne rekrutteringssider: de beskriver en <i>arbeidsmåte</i> — strukturere tilnærmingen, stille gjennomtenkte spørsmål, analysere data, regne raskt, finne de viktigste faktorene — og BCG sier rett ut at det ikke alltid finnes «a single &lsquo;right&rsquo; answer». <b>Ingen av de to sidene nevner ett eneste navngitt rammeverk.</b> Ikke 3C, ikke 4P, ikke Porter. Det er ikke en tolkning av hva husene mener; det er hva de skriver. Kategoriene skal du altså lage selv, til dette problemet.</p></div>
+
+<h3>3.3 Hvordan man velger akse</h3>
+
+<p>Grenene følger av aksen du deler langs, og aksen er det egentlige valget. Fire regler, i denne rekkefølgen:</p>
+
+<p><b>Start med målfunksjonen.</b> Hva maksimeres, under hvilken beskrankning? Kommunen som overskrider hjemmetjenestebudsjettet med 40 millioner maksimerer levert tjenestetid av forsvarlig kvalitet, under to beskrankninger: kroner og tilgang på fagfolk. Importerer du profittreet, finnes det ingen inntektsside å fylle, og du ender med å foreslå å ta betalt eller å kutte i tjenesten — som er nøyaktig det oppdraget forbyr.</p>
+
+<p><b>Velg aksen der du venter spredning.</b> Hotellkjeden har 40 hoteller. Deler du per hotell, får du 40 grener som ser like ut. Deler du per kanal — direkte booking mot portal — får du to som er systematisk forskjellige i netto pris. En akse uten spredning er en akse uten informasjon.</p>
+
+<p><b>Én akse per nivå.</b> Dette er den vanligste kilden til overlapp. Setter du «ferskvare» og «kampanjesalg» ved siden av hverandre, hører en laksefilet på tilbud hjemme i begge, og treet er ikke lenger gjensidig utelukkende. Del først på kategori, og la kampanjeandel være en driver <i>inne i</i> hver kategori.</p>
+
+<p><b>Velg aksen klienten kan handle på.</b> «Kostnad per kilo» er et tall. «Fôrfaktor per lokalitet og generasjon» er et tall noen kan gjøre noe med i morgen, og det er den som hører hjemme nederst i treet.</p>
+
+<div class="callout tip"><span class="h">Spør hva som binder, før du deler</span>
+<p>Ofte er den bindende beskrankningen en annen enn den prompten peker på. En lavpriskjede som vurderer Norge har ikke et etterspørselsproblem — den har et tilgangsproblem: tomter, regulering og lokasjoner som allerede er bundet. Kirkevergen har ikke et arealproblem, men et ledetidsproblem, siden en reguleringsprosess på åtte til ti år ikke rekker fram til 2033. Er beskrankningen tid eller tilgang, skal treet bygges rundt den, ikke rundt markedet.</p></div>
+
+<h3>3.4 Hvor dypt treet skal gå</h3>
+
+<p>Regelen er enkel og hard: <b>gå ned til grenen navngir noe et menneske kan endre, eller et tall som finnes i klientens egne systemer.</b> «Kostnader» er ingen av delene. «Lønnstimer per åpningstime på ferskvaredisken» er begge.</p>
+
+<p>Tre eller fire hovedgrener holder. Fem eller flere leses som manglende prioritering. Men — og dette er det som skiller trærne fra hverandre — <b>et godt tre er asymmetrisk</b>. Du utvikler ikke alle grenene like langt. Du går tre nivåer ned i den du mistenker og ett nivå i resten:</p>
+
+<ul>
+<li><b>Bruttomargin per kategori</b> ← her ligger mistanken
+  <ul><li>Ferskvare: svinn og nedskrivning i kroner per omsatt krone</li>
+  <li>Ferskvare: kampanjeandel, og realisert pris etter kampanje mot listepris</li>
+  <li>Kolonial, frukt og grønt, non-food: samme to tall, som sammenlikningsgrunnlag</li></ul></li>
+<li><b>Kurvmekanikk per format:</b> trafikk, kurvstørrelse, varelinjer per kurv</li>
+<li><b>Kostnad som skalerer med åpningstid:</b> lønnstimer per omsatt krone</li>
+</ul>
+
+<p>Et perfekt symmetrisk tre der alle grener er utviklet like dypt, forteller intervjueren én ting: at du ikke har en mistanke. Asymmetrien <i>er</i> prioriteringen, gjort synlig.</p>
+
+<h3>3.5 Hvordan man sier strukturen høyt</h3>
+
+<p>Et tre som bare finnes på blokka, teller ikke. Fire krav til framføringen, og de tar til sammen under to minutter:</p>
+
+<ol>
+<li><b>Top-down.</b> Si alle overskriftene først, så dybden. Intervjueren skal vite hvor mange grener som kommer før du begynner på den første.</li>
+<li><b>Si hva du legger bort, og hvorfor.</b> Det er den billigste måten å vise dømmekraft på, og den eneste måten å bevise at utelatelsen er et valg.</li>
+<li><b>Avslutt med hypotese, startgren og datauttrekk.</b> Uten dette er strukturen ferdig, men casen har ikke begynt.</li>
+<li><b>Snakk i hele setninger.</b> Grener lest opp som stikkord høres ut som en huskeliste, uansett hvor god nedbrytningen er.</li>
+</ol>
+
+<div class="callout mech"><span class="h">De 25 første sekundene, ordrett</span>
+<p>«Jeg vil bryte dette i tre. Ett: bruttomargin per varekategori, og hvor mye hver kategori har flyttet på seg i andel av kurven. To: kurvmekanikken per butikkformat — trafikk, kurvstørrelse og varelinjer per kurv. Tre: kostnadene som skalerer med åpningstid, altså lønnstimer og svinn. Husleie og distribusjon lar jeg ligge i første omgang; de har ikke endret seg på to år og kan ikke forklare et fall på 1,3 marginpoeng. Jeg starter i den første, og skal jeg si hvorfor, er det fordi …»</p>
+<p>Legg merke til at ingenting her er et rammeverk, og at hver eneste gren er et tall kjeden allerede har i systemet sitt.</p></div>
+
+<div class="callout link"><span class="h">Her trener du dette</span>
+<p>Lynlæring · <b>Strukturer!</b> har 34 prompter, fra dagligvare og oppdrett til kirkegårdskapasitet. Du får fasitgrenene, hypotesen og fellen etterpå — men først når du har skrevet ditt eget tre. Målet er ikke å treffe fasiten, men å ha bygget fra en identitet eller en verdikjede før du ser den, og å kjenne igjen hvilken av de fem måtene du brukte. Ta åtte prompter før neste hele case. I <b>casebiblioteket</b> møter du de samme problemene i full lengde, der strukturen bare er de fire første minuttene.</p></div>
+</section>
+
+<h2 class="part">Referanse — Tall og formler</h2>
+
+<section id="k15">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">15 · Tallarket</h2>
+
+<p class="lead-in">Alt du må kunne uten å tenke, på én side. Bruk det som en selvtest og ikke som et oppslagsverk: dekk til de to høyre kolonnene, les begrepet, og si formelen og når den gjelder høyt. I rommet har du ingen kalkulator og ingen ark — forskjellen på å kjenne igjen en formel og å ha den i hodet er hele forskjellen på å bruke tjue sekunder og å bruke to minutter.</p>
+
+<div class="callout tip"><span class="h">Slik brukes arket</span>
+Radene her mater flashcards og to av minispillene automatisk. Du trenger altså ikke pugge dem herfra — de kommer til deg i repetisjonskøen. Men les gjennom hele arket én gang først, så du vet hva som finnes.</div>
+
+<h3>15.1 Lønnsomhet og marginer</h3>
+
+<table class="data">
+<tr><th>Begrep</th><th>Formel</th><th>Når du bruker den</th></tr>
+<tr><td>Resultatidentiteten</td><td>Resultat = inntekter − kostnader</td><td>Startpunktet i enhver lønnsomhetscase. MECE av konstruksjon, i motsetning til enhver temaliste.</td></tr>
+<tr><td>Inntektsnedbrytning</td><td>Inntekt = pris × volum</td><td>Første forgrening. Er volumet oppgitt som flatt, har du eliminert halve treet på ett sekund.</td></tr>
+<tr><td>Driftsmargin</td><td>Driftsresultat / omsetning</td><td>Merk nevneren: omsetning, aldri en kostnadspost. Å dele på feil nevner er den vanligste metodefeilen i caseregning.</td></tr>
+<tr><td>Dekningsbidrag per enhet</td><td>Pris − variabel kostnad per enhet</td><td>Alt som handler om én enhet til eller én mindre.</td></tr>
+<tr><td>Dekningsgrad</td><td>Dekningsbidrag / pris</td><td>Andelen av hver krone som blir igjen til å dekke faste kostnader.</td></tr>
+<tr><td>Operasjonell giring</td><td>Høy andel faste kostnader gir store resultatutslag av små volumendringer</td><td>Forklarer hvorfor fly, hotell og industri svinger så kraftig.</td></tr>
+</table>
+
+<h3>15.2 Vekst og endring</h3>
+
+<table class="data">
+<tr><th>Begrep</th><th>Formel</th><th>Når du bruker den</th></tr>
+<tr><td>Prosentendring</td><td>(ny − gammel) / gammel</td><td>Alltid mot det gamle tallet. Går det motsatt vei, blir prosenten en annen.</td></tr>
+<tr><td>Prosentpoeng mot prosent</td><td>45 % til 50 % er 5 prosentpoeng, men 11 % relativ økning</td><td>Blandes de sammen, blir svaret typisk en faktor 10 feil. Si alltid hvilken du mener.</td></tr>
+<tr><td>Sammensatt endring</td><td>Endringer multipliseres: 0,85 × 1,05 = 0,89</td><td>Prosenter kan ikke legges sammen. Omsetning ned 15 % med pris opp 5 % betyr volum ned 19 %, ikke 10 %.</td></tr>
+<tr><td>CAGR</td><td>(slutt / start)<sup>1/n</sup> − 1</td><td>Fra 100 til 150 på tre år er 14,5 % i året — ikke 50/3.</td></tr>
+<tr><td>72-regelen</td><td>Doblingstid ≈ 72 / vekstrate i prosent</td><td>6 % dobler på 12 år, 9 % på 8. Virker begge veier, og er god mellom 4 og 15 %.</td></tr>
+<tr><td>Volumeffekten bak et omsetningsfall</td><td>Volumindeks = omsetningsindeks / prisindeks</td><td>Skiller om det er kundene eller prisen som forsvant.</td></tr>
+</table>
+
+<h3>15.3 Prising og nullpunkt</h3>
+
+<table class="data">
+<tr><th>Begrep</th><th>Formel</th><th>Når du bruker den</th></tr>
+<tr><td>Nullpunkt i enheter</td><td>Faste kostnader / dekningsbidrag per enhet</td><td>Del på dekningsbidraget, aldri på prisen. Faste 200 og dekningsbidrag 20 gir 10 enheter, ikke 4.</td></tr>
+<tr><td>Nullpunkt i omsetning</td><td>Faste kostnader / dekningsgrad</td><td>Faste 18 millioner ved 40 % dekningsgrad gir 45 millioner i omsetning.</td></tr>
+<tr><td>Volum som kreves etter et priskutt</td><td>Nødvendig volumøkning = p / (m − p)</td><td>p er priskuttet og m dekningsgraden, begge i prosent. Kutter du prisen 3 % på 30 % margin, må volumet opp 11 %.</td></tr>
+<tr><td>Prisgulv</td><td>Variabel kostnad per enhet</td><td>Under dette taper du penger på hver enhet du selger.</td></tr>
+<tr><td>Pristak</td><td>Kundens verdi av alternativet</td><td>Prising handler om kundens alternativ, ikke om din kostnad. Kostnaden gir gulvet, aldri taket.</td></tr>
+<tr><td>Betalingsvillighet i praksis</td><td>Verdien du skaper, delt mellom deg og kunden</td><td>Skaper du verdi hos noen som ikke betaler regningen, får du den ikke igjen i pris.</td></tr>
+</table>
+
+<h3>15.4 Verdsetting, investering og oppkjøp</h3>
+
+<table class="data">
+<tr><th>Begrep</th><th>Formel</th><th>Når du bruker den</th></tr>
+<tr><td>Tilbakebetalingstid</td><td>Investering / årlig kontantstrøm</td><td>Grovt, men det intervjueren oftest spør om. Under to år er nesten alltid et ja.</td></tr>
+<tr><td>Avkastning på investering</td><td>Gevinst / investering</td><td>Oppgi alltid over hvilken periode.</td></tr>
+<tr><td>Evigvarende verdi</td><td>Kontantstrøm / avkastningskrav</td><td>Ved vekst g: kontantstrøm / (r − g).</td></tr>
+<tr><td>Multippelverdsetting</td><td>Verdi = EBITDA × multippel</td><td>Den eneste verdsettingen som er rask nok i et caseintervju.</td></tr>
+<tr><td>Verdi for kjøperen</td><td>(målets EBITDA + synergier) × multippel</td><td>Skiller seg fra målets egenverdi. Dette skillet <b>er</b> ofte hele M&amp;A-casen.</td></tr>
+<tr><td>Budpremie</td><td>(budpris − børskurs) / børskurs</td><td>Premien betales til selgeren; synergiene er det eneste som kan forsvare den.</td></tr>
+</table>
+
+<h3>15.5 Kunder og enhetsøkonomi</h3>
+
+<table class="data">
+<tr><th>Begrep</th><th>Formel</th><th>Når du bruker den</th></tr>
+<tr><td>Markedsandel</td><td>Vår omsetning / hele markedets omsetning</td><td>Sjekk at teller og nevner måler det samme — volum mot volum, kroner mot kroner.</td></tr>
+<tr><td>Frafall og levetid</td><td>Gjennomsnittlig kundelevetid ≈ 1 / frafallsrate</td><td>10 % frafall i året gir ti års levetid.</td></tr>
+<tr><td>Kundelivstidsverdi</td><td>Inntekt per kunde × margin / frafallsrate</td><td>Bransjeverktøy for abonnement, ikke case-kanon. Bruk den når forretningsmodellen er gjentakende, ikke ellers.</td></tr>
+<tr><td>Anskaffelseskost mot verdi</td><td>Levetidsverdi delt på anskaffelseskost</td><td>Under 1 betyr at vekst gjør selskapet fattigere.</td></tr>
+<tr><td>Kapasitetsutnyttelse</td><td>Faktisk volum / teoretisk kapasitet</td><td>I en flaskehalscase er det bare flaskehalsens utnyttelse som betyr noe.</td></tr>
+<tr><td>Flaskehalsregelen</td><td>Systemets kapasitet = den svakeste lenkens kapasitet</td><td>Å øke kapasiteten noe annet sted enn i flaskehalsen gir null effekt.</td></tr>
+</table>
+
+<h3>15.6 Norske ankertall</h3>
+
+<p>Disse skal sitte. De er avrundet med vilje — i en estimeringsoppgave er det nedbrytningen som vurderes, ikke om du husket tredje siffer. Tallene er SSBs størrelsesordener for midten av 2020-tallet.</p>
+
+<table class="data">
+<tr><th>Anker</th><th>Drilltall</th><th>Slik bruker du det</th></tr>
+<tr><td>Befolkning</td><td>5,6 millioner</td><td>1 % er 56 000. Bygg alle andre prosenter fra det.</td></tr>
+<tr><td>Husholdninger</td><td>2,65 millioner</td><td>2,1 personer per husholdning. Bruk husholdning som enhet for alt som kjøpes én gang per hjem.</td></tr>
+<tr><td>Én krone per nordmann per dag</td><td>≈ 2 milliarder i året</td><td>Det mest brukbare ankeret som finnes. Koster noe «en kaffe i uka», er markedet noen milliarder.</td></tr>
+<tr><td>Hundre kroner per husholdning per måned</td><td>≈ 3,2 milliarder i året</td><td>Samme grep, for abonnementer og faste utgifter.</td></tr>
+<tr><td>Dagligvaremarkedet</td><td>≈ 230 milliarder</td><td>Referansen alle forbrukermarkeder måles mot. Nesten alle skal ligge godt under.</td></tr>
+<tr><td>Fastlands-BNP</td><td>≈ 4 400 milliarder</td><td>Taket. Et marked som nærmer seg noen prosent av dette, er blant landets aller største.</td></tr>
+<tr><td>Sysselsatte</td><td>≈ 2,9 millioner</td><td>Grunnlaget for alt B2B som selges per ansatt.</td></tr>
+<tr><td>Gjennomsnittlig månedslønn</td><td>≈ 62 000 kroner</td><td>Rundt 745 000 i året, og et årsverk koster arbeidsgiveren betydelig mer.</td></tr>
+<tr><td>Personbiler</td><td>2,9 millioner, hvorav ≈ 0,95 millioner elektriske</td><td>Levetid rundt 17 år gir omtrent 170 000 utrangerte i året.</td></tr>
+<tr><td>Boliger i småhus</td><td>≈ 1,4 millioner</td><td>Nevneren for alt som monteres i en enebolig. Rundt 12 000 nye ferdigstilles årlig.</td></tr>
+</table>
+
+<h3>15.7 Bransjemarginer og hva de betyr</h3>
+
+<p>Nettomarginen forteller deg hvilken knapp som finnes å skru på. Tallene er størrelsesordener fra åpne bransjekilder, ikke presise årstall.</p>
+
+<table class="data">
+<tr><th>Bransje</th><th>Nettomargin</th><th>Hva det betyr for anbefalingen</th></tr>
+<tr><td>Dagligvare, flyselskap, stål, bilforhandler</td><td>under 3 %</td><td>Volum og kapasitetsutnyttelse er løftestangen. Et priskutt på to prosent kan utradere hele resultatet.</td></tr>
+<tr><td>Industri, bygg, transport</td><td>3–8 %</td><td>Både pris og kostnad er i spill. Se etter miks og utnyttelsesgrad.</td></tr>
+<tr><td>Detaljhandel med merkevare, telekom, bank</td><td>8–20 %</td><td>Kundelojalitet og prissetting betyr mer enn kostnadskutt.</td></tr>
+<tr><td>Farmasi, programvare, halvledere</td><td>over 25 %</td><td>Pris og markedsandel er svaret. Kostnadskutt er nesten aldri den riktige anbefalingen her.</td></tr>
+</table>
+
+<div class="callout mistake"><span class="h">Den sanity-sjekken som redder flest svar</span>
+Sammenlign alltid sluttsvaret med noe du kan utenat. Et norsk forbrukermarked på 400 milliarder er nesten dobbelt så stort som dagligvare — det er nesten alltid en tierpotens på avveie, ikke en oppdagelse. Og et marked på 20 millioner er så lite at knapt én bedrift kunne levd av det.</div>
+
+<div class="callout link"><span class="h">Der du trener dette</span>
+Radene over blir automatisk til flashcards, og de mater både Hoderegning og Bygg estimatet i lynlæringen. Ankertallene i 15.6 er de eneste i hele kurset som er verdt å pugge ordrett — resten skal du kunne utlede.</div>
 </section>
 
 </div>

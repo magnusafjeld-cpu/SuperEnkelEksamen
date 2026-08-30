@@ -137,7 +137,25 @@ window.EDU_SUBJECTS = [
       candidates: ["Case_Manual.html", "fag/case/manual.html", "../Case_Manual.html"],
       label: "Case_Manual.html",
       hint: "hele pensum lastes inn og lagres lokalt (du slipper å velge igjen)",
+      /* Tallarket ligger sist, ikke i k22 som i SAM3. De 44 radene der blir
+         automatisk til flashcards, og rekkefølgen er permanent — id-ene er
+         posisjonsbaserte, så en omstokking forskyver hele SRS-historikken. */
+      refSections: { formulas: "k15" },
     },
+    /* k15 er ren referanse og teller ikke som pensum i fremdriften. */
+    coreChapters: { from: 0, to: 14 },
+    /* Uten denne arver faget SAM3s makrodeler i stillhet — k6 ville havnet under
+       «Oppgave 2: Vekst på lang sikt». Deltitlene i manualen brukes IKKE til
+       tilordning; det er utelukkende denne tabellen som gjelder. */
+    parts: [
+      { id: 0, tag: "Del 0", name: "Grunnlaget", chapters: [0, 1, 2] },
+      { id: 1, tag: "Del I", name: "Struktur", chapters: [3, 4, 5] },
+      { id: 2, tag: "Del II", name: "Tall", chapters: [6, 7, 8] },
+      { id: 3, tag: "Del III", name: "Framføring", chapters: [9, 10] },
+      { id: 4, tag: "Del IV", name: "Fit", chapters: [11, 12] },
+      { id: 5, tag: "Del V", name: "Håndverk", chapters: [13, 14] },
+      { id: 6, tag: "Referanse", name: "Tall og formler", chapters: [15] },
+    ],
     /* Casetrening har ingen eksamen og ingen oppgavebank — den har caser. */
     modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/caser", "/mock", "/historier", "/review", "/search", "/progress"],
   },
