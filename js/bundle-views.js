@@ -641,11 +641,47 @@ window.EDU.views = window.EDU.views || {};
     left.slice(0, 8).forEach((c) => remain.appendChild(el(".task-row", { style: { cursor: "pointer" }, onclick: sh().go(`#/chapter/${c.num}`) }, el(".chip.slate", "K" + c.num), el("div", el(".tt", c.title)))));
     if (left.length > 8) remain.appendChild(el(".tiny.muted", { style: { padding: "8px 4px" } }, `+ ${left.length - 8} til`));
     cols.appendChild(remain); wrap.appendChild(cols);
+    /* Øvingskortet vises bare for fag som faktisk har disse modulene. Uten det
+       ville et fag der arbeidet er å GJØRE noe, sett ut som om ingenting var
+       gjort — fremdrift målt i leste kapitler er feil målestokk for casetrening. */
+    wrap.appendChild(øvingskort());
     const sessions = S.store.get().quiz.sessions;
     if (sessions.length) { wrap.appendChild(sh().sectionTitle("Quiz-historikk")); const hist = el(".card", { style: { padding: "6px 0" } }); sessions.slice(0, 8).forEach((s) => { const pct = Math.round((s.score / s.total) * 100); hist.appendChild(el(".task-row", el(".chip." + (pct >= 80 ? "green" : pct >= 50 ? "amber" : "rose"), pct + "%"), el("div", el(".tt", `${s.score}/${s.total} riktige`), el(".td", s.mode)))); }); wrap.appendChild(hist); }
     wrap.appendChild(el(".card", { style: { marginTop: "30px", display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" } }, el("div", { style: { flex: "1 1 240px" } }, el("div", { style: { fontWeight: 560 } }, "Nullstill fremdrift"), el(".tiny.muted", "Sletter lesestatus, quiz, flashcards og dagsfullføring — for dette faget.")), el("button.btn.ghost", { onclick: () => { if (confirm("Nullstille all fremdrift i dette faget? Kan ikke angres.")) { S.store.resetAll(); if (S.account) S.account.push(); S.u.toast("Fremdrift nullstilt"); S.app.refresh(); } } }, "Nullstill fremdrift"), el("button.btn.ghost", { onclick: () => { S.clearContentCache(); S.u.toast("Bufret innhold tømt, laster på nytt…"); setTimeout(() => location.reload(), 600); } }, "Last innhold på nytt")));
     return wrap;
   }
+  /* Teller det som gjøres, ikke det som leses. Returnerer tom node for fag uten
+     disse modulene, så SAM3 og FIE402 er upåvirket. */
+  function øvingskort() {
+    const rader = [];
+    const cs = S.views.caser && S.views.caser.stats && S.views.caser.stats();
+    if (cs && cs.totalt) rader.push({
+      navn: "Caser kjørt", val: `${cs.kjørt}/${cs.totalt}`, pct: Math.round((cs.kjørt / cs.totalt) * 100),
+      note: cs.snitt == null ? "ingen vurdert ennå" : `snitt ${cs.snitt.toFixed(1).replace(".", ",")} av 3 — ${cs.skala[Math.round(cs.snitt)]}`,
+    });
+    const ms = S.views.mock && S.views.mock.stats && S.views.mock.stats();
+    if (ms && ms.totalt) rader.push({
+      navn: "Mock-intervjuer sett", val: `${ms.sett}/${ms.totalt}`, pct: Math.round((ms.sett / ms.totalt) * 100), note: null,
+    });
+    const hs = S.views.historier && S.views.historier.stats && S.views.historier.stats();
+    if (hs && hs.dims) rader.push({
+      navn: "Dimensjoner dekket", val: `${hs.dekket}/${hs.dims}`, pct: Math.round((hs.dekket / hs.dims) * 100),
+      note: `${hs.antall} historier skrevet, ${hs.klare} tåler sondetesten`,
+    });
+    if (!rader.length) return el("div");
+
+    const kort = el(".card.pad-lg", { style: { marginTop: "24px" } });
+    kort.appendChild(el("h3", { style: { fontSize: "16px", marginBottom: "4px" } }, "Trening"));
+    kort.appendChild(el("p.tiny.muted", { style: { marginTop: 0, marginBottom: "16px" } },
+      "Det du har gjort, ikke det du har lest. Det er denne raden som avgjør hvordan et intervju går."));
+    rader.forEach((r) => {
+      kort.appendChild(el(".row", el(".tiny", { style: { fontWeight: 560 } }, r.navn), el(".spacer"), el(".tiny.muted", r.val)));
+      kort.appendChild(el("div", { style: { marginTop: "6px", marginBottom: r.note ? "3px" : "14px" } }, bar(r.pct, { thin: true, green: r.pct === 100 })));
+      if (r.note) kort.appendChild(el(".tiny.muted", { style: { marginBottom: "14px" } }, r.note));
+    });
+    return kort;
+  }
+
   function barRow(label, val, pct, green) { return el("div", { style: { marginBottom: "14px" } }, el(".row", el(".tiny", { style: { fontWeight: 560 } }, label), el(".spacer"), el(".tiny.muted", val)), el("div", { style: { marginTop: "6px" } }, bar(pct, { thin: true, green }))); }
   S.views.progress = { render };
 })(window.EDU);

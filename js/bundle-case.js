@@ -464,5 +464,17 @@ window.EDU = window.EDU || {};
     return CASES().filter((c) => { const r = kjør(c.id); return r.startedAt && !r.submittedAt && !erFerdig(c); }).length;
   }
 
-  S.views.caser = { render, activeCount };
+  /* Fremdriftsvisningen spør etter dette — casetrening er arbeid som skal telles. */
+  function stats() {
+    const alle = CASES();
+    const kjørt = alle.filter((c) => erFerdig(c));
+    const snitt = kjørt.map((c) => snittScore(c)).filter((x) => x != null);
+    return {
+      kjørt: kjørt.length, totalt: alle.length,
+      snitt: snitt.length ? snitt.reduce((a, b) => a + b, 0) / snitt.length : null,
+      skala: SKALA,
+    };
+  }
+
+  S.views.caser = { render, activeCount, stats };
 })(window.EDU);

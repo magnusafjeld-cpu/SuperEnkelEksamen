@@ -162,5 +162,7 @@ window.EDU = window.EDU || {};
     return renderVideo(m);
   }
 
-  S.views.mock = { render, uSettCount: () => MOCKS().filter((m) => !st(m.id).sett).length };
+  const stats = () => ({ sett: MOCKS().filter((m) => st(m.id).sett).length, totalt: MOCKS().length });
+
+  S.views.mock = { render, uSettCount: () => MOCKS().filter((m) => !st(m.id).sett).length, stats };
 })(window.EDU);

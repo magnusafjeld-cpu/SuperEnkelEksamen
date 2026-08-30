@@ -250,5 +250,16 @@ window.EDU = window.EDU || {};
     return DIMS().filter((d) => h.filter((x) => (x.dims || []).indexOf(d.id) > -1).length < R.minPerDim).length;
   }
 
-  S.views.historier = { render, hullCount };
+  function stats() {
+    const h = alle(), R = KONF().regler || { minPerDim: 2, sondeTerskel: 8 };
+    const dims = DIMS();
+    return {
+      antall: h.length,
+      klare: h.filter((x) => (x.sonder || []).length >= (R.sondeTerskel || 8)).length,
+      dekket: dims.filter((d) => h.filter((x) => (x.dims || []).indexOf(d.id) > -1).length >= R.minPerDim).length,
+      dims: dims.length,
+    };
+  }
+
+  S.views.historier = { render, hullCount, stats };
 })(window.EDU);
