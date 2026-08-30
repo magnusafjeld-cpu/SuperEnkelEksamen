@@ -1,0 +1,1392 @@
+[
+  {
+    "id": "ZqouKTczJSc",
+    "tittel": "Mock Case Interview at Bain & Company | Full Example with Feedback",
+    "kanal": "Bain & Company",
+    "type": "mock",
+    "casetype": null,
+    "stil": "candidate-led",
+    "firma": "Bain",
+    "nivå": "middels",
+    "minutter": 28,
+    "harLøsning": true,
+    "hvorfor": "Bains egen mock fra prompt til anbefaling med intervjuerens feedback til slutt — fasiten på hva firmaet selv mener er bra."
+  },
+  {
+    "id": "e6XlxFnNt6w",
+    "tittel": "Remote Mock Case Interview at Bain",
+    "kanal": "Bain & Company",
+    "type": "mock",
+    "casetype": null,
+    "stil": "candidate-led",
+    "firma": "Bain",
+    "nivå": "middels",
+    "minutter": 27,
+    "harLøsning": true,
+    "hvorfor": "Bains offisielle demo av virtuelt caseintervju — trener formatet du faktisk møter på video."
+  },
+  {
+    "id": "XByqDlkpjoM",
+    "tittel": "McKinsey Case Interview (with ex-McKinsey manager) - Profitability Case",
+    "kanal": "IGotAnOffer: Consulting",
+    "type": "mock",
+    "casetype": "lønnsomhet",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 27,
+    "harLøsning": true,
+    "hvorfor": "Klassisk lønnsomhetscase der kostnadsgrenen og inntektsgrenen bygges hver for seg — mønstergyldig for kostnad-vs-inntekt-splitten.",
+    "stopp": [
+      {
+        "sek": 288,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 452,
+        "be": "Tolk grafen selv før du fortsetter"
+      },
+      {
+        "sek": 922,
+        "be": "Regn ut selv før du ser fasiten"
+      },
+      {
+        "sek": 1395,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "OxUkRbzAfRI",
+    "tittel": "Bain case interview mock with ex-Bain Manager (learn from his approach)",
+    "kanal": "IGotAnOffer: Consulting",
+    "type": "mock",
+    "casetype": "lønnsomhet",
+    "stil": "candidate-led",
+    "firma": "Bain",
+    "nivå": "middels",
+    "minutter": 35,
+    "harLøsning": true,
+    "hvorfor": "Lang, uklippet lønnsomhetscase med et 18-minutters matteparti — trener utholdenhet i regningen.",
+    "stopp": [
+      {
+        "sek": 220,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 545,
+        "be": "Regn ut selv før du ser fasiten"
+      },
+      {
+        "sek": 1645,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "dYN3iBB5ACM",
+    "tittel": "BCG mock Case Interview (Revenue Business Case) with ex-BCG consultant",
+    "kanal": "IGotAnOffer: Consulting",
+    "type": "mock",
+    "casetype": "vekst",
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 31,
+    "harLøsning": true,
+    "hvorfor": "To separate mattespørsmål etter hverandre pluss brainstorming — god test på om du holder strukturen når casen forgrener seg.",
+    "stopp": [
+      {
+        "sek": 375,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 818,
+        "be": "Regn ut selv før du ser fasiten"
+      },
+      {
+        "sek": 1215,
+        "be": "Ta neste utregning selv"
+      },
+      {
+        "sek": 1368,
+        "be": "List opp ideene dine selv først"
+      },
+      {
+        "sek": 1597,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "VMakBWg4Hs8",
+    "tittel": "BCG Mock Case Interview (Public Sector Case) with ex-BCG Associate Director",
+    "kanal": "IGotAnOffer: Consulting",
+    "type": "mock",
+    "casetype": "annet",
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 28,
+    "harLøsning": true,
+    "hvorfor": "Offentlig sektor uten profittmål — tvinger deg til å bygge struktur uten å lene deg på inntekt-minus-kostnad.",
+    "stopp": [
+      {
+        "sek": 218,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 745,
+        "be": "Regn ut selv før du ser fasiten"
+      },
+      {
+        "sek": 1174,
+        "be": "Svar på det kvalitative spørsmålet selv"
+      },
+      {
+        "sek": 1395,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "bJaBubQ6Zao",
+    "tittel": "Bain Mock Case Interview: Classic Growth Case (with 2 ex-Bain consultants)",
+    "kanal": "IGotAnOffer: Consulting",
+    "type": "mock",
+    "casetype": "vekst",
+    "stil": "candidate-led",
+    "firma": "Bain",
+    "nivå": "middels",
+    "minutter": 25,
+    "harLøsning": true,
+    "hvorfor": "Dekker hele kjeden oppklaring → struktur → datatolkning → brainstorming → anbefaling, med coach-refleksjon til slutt.",
+    "stopp": [
+      {
+        "sek": 255,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 604,
+        "be": "Tolk dataene selv før du fortsetter"
+      },
+      {
+        "sek": 882,
+        "be": "List opp ideene dine selv først"
+      },
+      {
+        "sek": 1109,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "1Dt6dzu82CQ",
+    "tittel": "Case interview basics - An introduction to consulting interviews",
+    "kanal": "IGotAnOffer: Consulting",
+    "type": "teori",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 8,
+    "harLøsning": true,
+    "hvorfor": "Grunnkurset: hva et caseintervju er og hvordan det bedømmes — start her hvis alt er nytt."
+  },
+  {
+    "id": "dlozAlvJTls",
+    "tittel": "CASE INTERVIEW WITH FORMER MCKINSEY INTERVIEWER: CANADIAN WILDLIFE FEDERATION",
+    "kanal": "CaseCoach",
+    "type": "mock",
+    "casetype": "annet",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 30,
+    "harLøsning": true,
+    "hvorfor": "Ekte McKinsey-intervjuer kjører en non-profit-case med både ekshibit, matte og kreativitetsspørsmål — og gir feedback til slutt.",
+    "stopp": [
+      {
+        "sek": 200,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 550,
+        "be": "Tolk ekshibitet selv før du fortsetter"
+      },
+      {
+        "sek": 808,
+        "be": "Regn ut selv før du ser fasiten"
+      },
+      {
+        "sek": 868,
+        "be": "List opp ideene dine selv først"
+      },
+      {
+        "sek": 1571,
+        "be": "Formuler syntesen selv"
+      }
+    ]
+  },
+  {
+    "id": "M0-c7rXzhwk",
+    "tittel": "BCG Case Interview Example - CookieCo",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": null,
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 25,
+    "harLøsning": true,
+    "hvorfor": "Kandidatstyrt CookieCo-case ledet av tidligere Bain-intervjuere — du må selv drive casen framover."
+  },
+  {
+    "id": "P8rzuzJQM3Q",
+    "tittel": "BCG First Round Case Interview Given by Former BCG Consultant",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": null,
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 40,
+    "harLøsning": true,
+    "hvorfor": "Førsterunde i full lengde — realistisk tempo og forventningsnivå for første runde."
+  },
+  {
+    "id": "Lyyy6KiEnS8",
+    "tittel": "BCG Healthcare Case Interview Example",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": null,
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "avansert",
+    "minutter": 60,
+    "harLøsning": true,
+    "hvorfor": "En time i helsesektoren — tyngste enkeltcasen i settet, god for å bygge utholdenhet."
+  },
+  {
+    "id": "vIUs4HUxw-E",
+    "tittel": "BCG Sustainability Case Interview Example",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": "annet",
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 28,
+    "harLøsning": true,
+    "hvorfor": "Bærekraftcase der målet ikke bare er profitt — trener å veie flere mål mot hverandre."
+  },
+  {
+    "id": "EyrjbA6KDHM",
+    "tittel": "Consulting Case Interview Example - Led by Former BCG Consultant",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": null,
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 48,
+    "harLøsning": true,
+    "hvorfor": "Rammeverket bygges på 3:38 og casen løper helt til 34:23 før anbefalingen — trener lange, selvdrevne analyser.",
+    "stopp": [
+      {
+        "sek": 218,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 2063,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "xgJxzud5Jm4",
+    "tittel": "McKinsey First Round Case Interview Example (Singapore Art Museum)",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": "annet",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 49,
+    "harLøsning": true,
+    "hvorfor": "Kulturinstitusjon som case — ikke-kommersiell problemstilling i klassisk McKinsey-format."
+  },
+  {
+    "id": "Uj2GIU8edXI",
+    "tittel": "McKinsey Public Sector Case Interview Example: Academic Performance of Students in Schools",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": "annet",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 48,
+    "harLøsning": true,
+    "hvorfor": "Skoleresultater som case — 25 minutter innenfor rammeverket før anbefalingen, altså mye dybde per gren.",
+    "stopp": [
+      {
+        "sek": 307,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 1855,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "Y-XimYNZD2k",
+    "tittel": "Bain Mock Case Interview: Miner's Dilemma",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": null,
+    "stil": "candidate-led",
+    "firma": "Bain",
+    "nivå": "middels",
+    "minutter": 47,
+    "harLøsning": true,
+    "hvorfor": "Gruvecase i full lengde med intervjuer-feedback på slutten.",
+    "stopp": [
+      {
+        "sek": 389,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 2191,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "kAtQBBTwyyQ",
+    "tittel": "Bain Case Interview Example | M&A Case – Sam’s Peanuts Co",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": "M&A",
+    "stil": "candidate-led",
+    "firma": "Bain",
+    "nivå": "middels",
+    "minutter": 26,
+    "harLøsning": true,
+    "hvorfor": "Kompakt oppkjøpscase — trener due diligence-strukturen på 26 minutter."
+  },
+  {
+    "id": "MRR4duTP2v8",
+    "tittel": "Watch a McKinsey Case Interview in Real Time (Interviewer-Led)",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": "vekst",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "avansert",
+    "minutter": 51,
+    "harLøsning": true,
+    "hvorfor": "Luksushotell-ekspansjon i sanntid med to separate matteblokker — det nærmeste du kommer et helt intervju uendret.",
+    "stopp": [
+      {
+        "sek": 741,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 1296,
+        "be": "Estimer etterspørselen selv"
+      },
+      {
+        "sek": 2227,
+        "be": "Regn kostnader og tilbakebetaling selv"
+      },
+      {
+        "sek": 2825,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "47BCwcHITJM",
+    "tittel": "BCG Case Interview (Candidate-led): Internet Service Provider Revenue Growth",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": "vekst",
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "avansert",
+    "minutter": 53,
+    "harLøsning": true,
+    "hvorfor": "Eksplisitt kandidatstyrt: 30 minutter der du selv må velge hva som undersøkes neste — den beste testen på egendriv.",
+    "stopp": [
+      {
+        "sek": 284,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 2052,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "YmcbMGt0e_Q",
+    "tittel": "Profitability Case Walkthrough: BCG Style - with ex-Bridgespan Consultant",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": "lønnsomhet",
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 27,
+    "harLøsning": true,
+    "hvorfor": "Lønnsomhet i BCG-stil med tydelig markert oppklaringsfase før strukturen — god modell for hvilke spørsmål du bør stille først.",
+    "stopp": [
+      {
+        "sek": 243,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 1278,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "DPVUP1WKaSE",
+    "tittel": "Mergers and Acquisitions Case Interview Walkthrough: McKinsey-Style",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": "M&A",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "avansert",
+    "minutter": 68,
+    "harLøsning": true,
+    "hvorfor": "68 minutter M&A — den mest grundige oppkjøpscasen i settet, med 36 minutter ren analyse.",
+    "stopp": [
+      {
+        "sek": 614,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 2813,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "oujkpD3vLRU",
+    "tittel": "Market Entry Strategy Case Interview - McKinsey Case Study Example",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": "markedsinngang",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 51,
+    "harLøsning": true,
+    "hvorfor": "Rendyrket markedsinngangsrammeverk bygget fra bunnen på 3:32 — bruk den som mal.",
+    "stopp": [
+      {
+        "sek": 212,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 2073,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "HYGIoe-QXhU",
+    "tittel": "McKinsey Case Interview: Market Sizing Walkthrough",
+    "kanal": "Management Consulted",
+    "type": "mock",
+    "casetype": "estimering",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 26,
+    "harLøsning": true,
+    "hvorfor": "Estimering i McKinsey-format — trener antakelser du kan forsvare høyt."
+  },
+  {
+    "id": "rPTlkVAUJW0",
+    "tittel": "S15E4: The 4 case interview chart mistakes to avoid",
+    "kanal": "Management Consulted",
+    "type": "exhibit",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 6,
+    "harLøsning": true,
+    "hvorfor": "Seks minutter om de fire vanligste grafblunderne — rask sjekkliste før du tolker et ekshibit."
+  },
+  {
+    "id": "uIRAWWCRtsU",
+    "tittel": "Math Drills",
+    "kanal": "Management Consulted",
+    "type": "matte",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 4,
+    "harLøsning": true,
+    "hvorfor": "Fire minutter om hvordan du drilller matte riktig: øv på det du er dårlig i, i caseformat, med presisjon som mål."
+  },
+  {
+    "id": "-d3-FWKHrco",
+    "tittel": "Bain Case Interview With Ex-Bain Interviewers (With Feedback & Exhibits)",
+    "kanal": "Leland",
+    "type": "mock",
+    "casetype": null,
+    "stil": "candidate-led",
+    "firma": "Bain",
+    "nivå": "middels",
+    "minutter": 34,
+    "harLøsning": true,
+    "hvorfor": "Full Bain-mock der ekshibits inngår og to tidligere Bain-intervjuere gir feedback."
+  },
+  {
+    "id": "5TDuf69bsNM",
+    "tittel": "McKinsey Case Interview Workshop: Questions, Process, & Examples (From Ex-McKinsey Interviewers)",
+    "kanal": "Leland",
+    "type": "mock",
+    "casetype": null,
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 57,
+    "harLøsning": true,
+    "hvorfor": "57 minutter workshop med tidligere McKinsey-intervjuere — prosess og eksempler i ett."
+  },
+  {
+    "id": "nkGI_Ih8Zv0",
+    "tittel": "McKinsey PEI Questions, Tips, & Examples (From McKinsey Alumni)",
+    "kanal": "Leland",
+    "type": "fit",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 54,
+    "harLøsning": true,
+    "hvorfor": "Har en ekte live-PEI fra 24:55 — den sjeldne sjansen til å se fit-delen faktisk kjørt, ikke bare forklart.",
+    "stopp": [
+      {
+        "sek": 1495,
+        "be": "Svar på PEI-spørsmålet selv før du hører hennes historie"
+      }
+    ]
+  },
+  {
+    "id": "pHa8BEYCC1A",
+    "tittel": "Mock McKinsey Interview Analysis: Watch a Candidate Ace the Case",
+    "kanal": "Case Interview Hub",
+    "type": "mock",
+    "casetype": null,
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 36,
+    "harLøsning": true,
+    "hvorfor": "Tre spørsmål på rad etter struktureringen — trener overgangene mellom delene av en case.",
+    "stopp": [
+      {
+        "sek": 313,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 789,
+        "be": "Svar på spørsmål 1 selv"
+      },
+      {
+        "sek": 1139,
+        "be": "Svar på spørsmål 2 selv"
+      },
+      {
+        "sek": 1484,
+        "be": "Svar på spørsmål 3 selv"
+      },
+      {
+        "sek": 1847,
+        "be": "Formuler syntesen selv"
+      }
+    ]
+  },
+  {
+    "id": "orsNS3YG_KE",
+    "tittel": "McKinsey Case Interview Example - Solved by ex-McKinsey Consultant",
+    "kanal": "CraftingCases",
+    "type": "mock",
+    "casetype": null,
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 29,
+    "harLøsning": true,
+    "hvorfor": "Hvert spørsmål stilles først og besvares etterpå i egne kapitler — bygget for å pause og svare selv.",
+    "stopp": [
+      {
+        "sek": 201,
+        "be": "Svar på casespørsmålet selv før du hører Brunos svar"
+      },
+      {
+        "sek": 629,
+        "be": "Brainstorm selv før du hører svaret"
+      },
+      {
+        "sek": 1168,
+        "be": "Svar på det analytiske spørsmålet selv"
+      },
+      {
+        "sek": 1591,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "iPg7-NO97FU",
+    "tittel": "Profitability Case Study Interview Example - Solved by Ex-McKinsey Consultant",
+    "kanal": "CraftingCases",
+    "type": "mock",
+    "casetype": "lønnsomhet",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 31,
+    "harLøsning": true,
+    "hvorfor": "Avsluttes med eksplisitt «hva var bra» og «hva kunne vært bedre» — feedbacken er selve poenget.",
+    "stopp": [
+      {
+        "sek": 47,
+        "be": "Svar på casespørsmålet selv før du hører Brunos svar"
+      },
+      {
+        "sek": 1056,
+        "be": "Svar på oppfølgingsspørsmålet selv"
+      }
+    ]
+  },
+  {
+    "id": "N5SLtfVoZAM",
+    "tittel": "HARD Market Sizing Example + Breakdown - Ex-Bain Consultant Interviews ex-McKinsey",
+    "kanal": "CraftingCases",
+    "type": "mock",
+    "casetype": "estimering",
+    "stil": "interviewer-led",
+    "firma": "generisk",
+    "nivå": "avansert",
+    "minutter": 58,
+    "harLøsning": true,
+    "hvorfor": "Vanskelig estimering fulgt av seks navngitte leksjoner — det grundigste estimeringsstoffet i settet.",
+    "stopp": [
+      {
+        "sek": 89,
+        "be": "Estimer selv før du hører Brunos to tilnærminger"
+      },
+      {
+        "sek": 238,
+        "be": "Strukturer estimeringen selv"
+      },
+      {
+        "sek": 728,
+        "be": "Velg dine egne antakelser først"
+      },
+      {
+        "sek": 1182,
+        "be": "Regn ut selv før du ser fasiten"
+      },
+      {
+        "sek": 1695,
+        "be": "Svar på oppfølgingsspørsmålet selv"
+      }
+    ]
+  },
+  {
+    "id": "75NidVjCIh0",
+    "tittel": "Beginner Market Sizing Example With Walkthrough",
+    "kanal": "CraftingCases",
+    "type": "mock",
+    "casetype": "estimering",
+    "stil": "interviewer-led",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 30,
+    "harLøsning": true,
+    "hvorfor": "Nybegynnerversjonen av samme metode: strukturer, velg antakelser, regn, virkelighetssjekk.",
+    "stopp": [
+      {
+        "sek": 70,
+        "be": "Estimer selv før du fortsetter"
+      },
+      {
+        "sek": 244,
+        "be": "Strukturer estimeringen selv"
+      },
+      {
+        "sek": 1143,
+        "be": "Regn ut selv før du ser fasiten"
+      },
+      {
+        "sek": 1367,
+        "be": "Virkelighetssjekk tallet ditt selv"
+      }
+    ]
+  },
+  {
+    "id": "n-yVA56L2Jg",
+    "tittel": "The 5 Ways To Be MECE In Case Interviews",
+    "kanal": "CraftingCases",
+    "type": "struktur",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "middels",
+    "minutter": 25,
+    "harLøsning": true,
+    "hvorfor": "Fem navngitte MECE-teknikker med hvert sitt kapittel — det mest konkrete struktureringsstoffet som finnes gratis."
+  },
+  {
+    "id": "_-ZQkVuAhCE",
+    "tittel": "Issue Tree Example (Unusual Case Interview Problem)",
+    "kanal": "CraftingCases",
+    "type": "struktur",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "middels",
+    "minutter": 16,
+    "harLøsning": true,
+    "hvorfor": "Issue tree på et problem som ikke passer noen standardramme — trener å bygge struktur fra bunnen."
+  },
+  {
+    "id": "SyThS7iJyA4",
+    "tittel": "McKinsey Case Interview with a McKinsey Consultant: Profitability",
+    "kanal": "Prepmatter",
+    "type": "mock",
+    "casetype": "lønnsomhet",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 35,
+    "harLøsning": true,
+    "hvorfor": "Feedback gis underveis på 6:12 og 19:52, ikke bare til slutt — du ser rettelsene i sanntid.",
+    "stopp": [
+      {
+        "sek": 203,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 487,
+        "be": "Brainstorm kostnadspostene selv"
+      },
+      {
+        "sek": 828,
+        "be": "Analyser svinnkostnaden selv"
+      },
+      {
+        "sek": 1262,
+        "be": "Analyser overtidskostnaden selv"
+      },
+      {
+        "sek": 1835,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "gTi8qAVGeCo",
+    "tittel": "Consulting Case Interview: A Profitability Case Study with ex-BCG Consultants",
+    "kanal": "Prepmatter",
+    "type": "mock",
+    "casetype": "lønnsomhet",
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 29,
+    "harLøsning": true,
+    "hvorfor": "Lønnsomhet i BCG-stil med to tidligere BCG-konsulenter — nyttig kontrast til McKinsey-versjonen."
+  },
+  {
+    "id": "LTkKeR2hQ9A",
+    "tittel": "Consulting Case Interview: A Market Entry Case Study with BCG Consultants",
+    "kanal": "Prepmatter",
+    "type": "mock",
+    "casetype": "markedsinngang",
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 36,
+    "harLøsning": true,
+    "hvorfor": "Markedsinngang kandidatstyrt — du må selv bestemme rekkefølgen på analysen."
+  },
+  {
+    "id": "uO5AwUC5IYo",
+    "tittel": "McKinsey PEI 2026: Drive Example by McKinsey Consultant",
+    "kanal": "Prepmatter",
+    "type": "fit",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 8,
+    "harLøsning": true,
+    "hvorfor": "En hel PEI-historie på Drive levert av en McKinsey-konsulent, med feedback — mal for din egen historie.",
+    "stopp": [
+      {
+        "sek": 33,
+        "be": "Fortell din egen Drive-historie før du hører hennes"
+      }
+    ]
+  },
+  {
+    "id": "1bM21wlxssQ",
+    "tittel": "McKinsey PEI 2026: Leadership Example by McKinsey Consultant",
+    "kanal": "Prepmatter",
+    "type": "fit",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 8,
+    "harLøsning": true,
+    "hvorfor": "Samme mal for Leadership-dimensjonen — sammenlign strukturen med Drive-historien.",
+    "stopp": [
+      {
+        "sek": 44,
+        "be": "Fortell din egen Leadership-historie før du hører hennes"
+      }
+    ]
+  },
+  {
+    "id": "cxLE0MTDU08",
+    "tittel": "McKinsey PEI 2026: Growth Example by McKinsey Consultant",
+    "kanal": "Prepmatter",
+    "type": "fit",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "McKinsey",
+    "nivå": "middels",
+    "minutter": 9,
+    "harLøsning": true,
+    "hvorfor": "Tredje PEI-dimensjonen, Personal Growth — fullfører settet med fit-historier.",
+    "stopp": [
+      {
+        "sek": 49,
+        "be": "Fortell din egen Growth-historie før du hører hennes"
+      }
+    ]
+  },
+  {
+    "id": "etrQE1CY2q0",
+    "tittel": "Market entry consulting case interview (w/ two ex-BCG consultants)",
+    "kanal": "rocketblocks",
+    "type": "mock",
+    "casetype": "markedsinngang",
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 25,
+    "harLøsning": true,
+    "hvorfor": "Kort case som likevel dekker graf, brainstorming, kvantitativ del og syntese — mest trening per minutt i settet.",
+    "stopp": [
+      {
+        "sek": 109,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 397,
+        "be": "Tolk grafen selv før du fortsetter"
+      },
+      {
+        "sek": 688,
+        "be": "List opp ideene dine selv først"
+      },
+      {
+        "sek": 826,
+        "be": "Regn ut selv før du ser fasiten"
+      },
+      {
+        "sek": 1376,
+        "be": "Formuler syntesen selv"
+      }
+    ]
+  },
+  {
+    "id": "m4-nYDCLeI0",
+    "tittel": "Pricing & market entry case interview (w/ McKinsey and EY Consultants)",
+    "kanal": "rocketblocks",
+    "type": "mock",
+    "casetype": "prising",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "avansert",
+    "minutter": 36,
+    "harLøsning": true,
+    "hvorfor": "Intervjuerfeedback etter hver eneste delsvar — den mest pedagogiske strukturen for å lære av feil.",
+    "stopp": [
+      {
+        "sek": 255,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 569,
+        "be": "Estimer markedet selv"
+      },
+      {
+        "sek": 1144,
+        "be": "Sett prisen selv før du hører svaret"
+      },
+      {
+        "sek": 1563,
+        "be": "Vurder konkurranseposisjonen selv"
+      },
+      {
+        "sek": 1980,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "ZuMeqn-LM3Y",
+    "tittel": "M&A consulting case interview: buying a baseball team (w/ ex-BCG Consultant & Darden MBA)",
+    "kanal": "rocketblocks",
+    "type": "mock",
+    "casetype": "M&A",
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 22,
+    "harLøsning": true,
+    "hvorfor": "Uvant bransje (idrettslag) i M&A-format — tester om rammeverket ditt tåler noe annet enn fabrikker.",
+    "stopp": [
+      {
+        "sek": 230,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 600,
+        "be": "Regn ut selv før du ser fasiten"
+      },
+      {
+        "sek": 1040,
+        "be": "Brainstorm selv før du fortsetter"
+      },
+      {
+        "sek": 1200,
+        "be": "Formuler syntesen selv"
+      }
+    ]
+  },
+  {
+    "id": "mlIuLzBww2o",
+    "tittel": "M&A consulting case interview: Airline acquisition (w/ Bain and McKinsey consultants)",
+    "kanal": "rocketblocks",
+    "type": "mock",
+    "casetype": "M&A",
+    "stil": "candidate-led",
+    "firma": "Bain",
+    "nivå": "middels",
+    "minutter": 30,
+    "harLøsning": true,
+    "hvorfor": "Oppkjøp med kannibalisering og risikodrøfting — den mest komplette M&A-strukturen i mellomlengde.",
+    "stopp": [
+      {
+        "sek": 335,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 550,
+        "be": "Estimer marked og kannibalisering selv"
+      },
+      {
+        "sek": 831,
+        "be": "Regn inntekt og profitt selv"
+      },
+      {
+        "sek": 1490,
+        "be": "List opp risikoene selv"
+      },
+      {
+        "sek": 1639,
+        "be": "Formuler anbefalingen selv"
+      }
+    ]
+  },
+  {
+    "id": "ItVdF2s-3fs",
+    "tittel": "Consulting case interview review: profitability case",
+    "kanal": "rocketblocks",
+    "type": "mock",
+    "casetype": "lønnsomhet",
+    "stil": "interviewer-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 25,
+    "harLøsning": true,
+    "hvorfor": "Bygget som eksempel-så-analyse i tre runder (struktur, matte, syntese) — perfekt pauseformat.",
+    "stopp": [
+      {
+        "sek": 55,
+        "be": "Strukturer casen selv før du ser eksempelet"
+      },
+      {
+        "sek": 612,
+        "be": "Regn ut selv før du ser eksempelet"
+      },
+      {
+        "sek": 1076,
+        "be": "Formuler syntesen selv"
+      }
+    ]
+  },
+  {
+    "id": "RKrLeGbckpM",
+    "tittel": "Consulting mock case interview: market entry (part I)",
+    "kanal": "rocketblocks",
+    "type": "mock",
+    "casetype": "markedsinngang",
+    "stil": "interviewer-led",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 14,
+    "harLøsning": true,
+    "hvorfor": "Viser samme spørsmål besvart svakt, greit og godt — den raskeste måten å se hva som skiller nivåene.",
+    "stopp": [
+      {
+        "sek": 149,
+        "be": "Svar selv før du hører det svake svaret"
+      }
+    ]
+  },
+  {
+    "id": "8exEEeSvfQw",
+    "tittel": "Consulting mock case interview: market entry (part II)",
+    "kanal": "rocketblocks",
+    "type": "mock",
+    "casetype": "markedsinngang",
+    "stil": "interviewer-led",
+    "firma": "generisk",
+    "nivå": "middels",
+    "minutter": 15,
+    "harLøsning": true,
+    "hvorfor": "Del II av svak/grei/god-serien — neste ledd i samme markedsinngangscase.",
+    "stopp": [
+      {
+        "sek": 148,
+        "be": "Svar selv før du hører det svake svaret"
+      }
+    ]
+  },
+  {
+    "id": "BokBw_HI8wE",
+    "tittel": "Consulting mock case interview: market entry (part III)",
+    "kanal": "rocketblocks",
+    "type": "mock",
+    "casetype": "markedsinngang",
+    "stil": "interviewer-led",
+    "firma": "generisk",
+    "nivå": "middels",
+    "minutter": 20,
+    "harLøsning": true,
+    "hvorfor": "Del III avslutter serien og har den lengste kritikkdelen — les den som karakterskala.",
+    "stopp": [
+      {
+        "sek": 164,
+        "be": "Svar selv før du hører det svake svaret"
+      }
+    ]
+  },
+  {
+    "id": "3iVgBJlSmt0",
+    "tittel": "How to interpret charts in case interviews",
+    "kanal": "rocketblocks",
+    "type": "exhibit",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 9,
+    "harLøsning": true,
+    "hvorfor": "Tre steg for grafttolkning og deretter et konkret eksempel — kortest vei til en ekshibit-rutine.",
+    "stopp": [
+      {
+        "sek": 272,
+        "be": "Tolk grafen selv før du hører svaret"
+      }
+    ]
+  },
+  {
+    "id": "uA8KuM67lEw",
+    "tittel": "Full Interactive Consulting Interview Case (Market Entry) | Case Interview Prep - \"Mike Apparel\"",
+    "kanal": "CaseBinge",
+    "type": "mock",
+    "casetype": "markedsinngang",
+    "stil": "interviewer-led",
+    "firma": "generisk",
+    "nivå": "middels",
+    "minutter": 21,
+    "harLøsning": true,
+    "hvorfor": "Laget for å svare høyt underveis — videoen pauser for deg i stedet for at du må gjøre det selv."
+  },
+  {
+    "id": "yqekcFN7XxI",
+    "tittel": "Full Interactive Consulting Interview Case (M&A) | Case Interview Prep - \"NewSports\"",
+    "kanal": "CaseBinge",
+    "type": "mock",
+    "casetype": "M&A",
+    "stil": "interviewer-led",
+    "firma": "generisk",
+    "nivå": "middels",
+    "minutter": 26,
+    "harLøsning": true,
+    "hvorfor": "Interaktiv M&A-case — samme format, oppkjøpsvinkel."
+  },
+  {
+    "id": "EM1_-giG-xs",
+    "tittel": "Full Interactive Consulting Interview Case (Cost Reduction) | Case Interview Prep - \"Midwest News\"",
+    "kanal": "CaseBinge",
+    "type": "mock",
+    "casetype": "ops",
+    "stil": "interviewer-led",
+    "firma": "generisk",
+    "nivå": "middels",
+    "minutter": 26,
+    "harLøsning": true,
+    "hvorfor": "Ren kostnadskuttcase — den eneste rendyrkede ops-casen i settet."
+  },
+  {
+    "id": "Z7hyiIOihyQ",
+    "tittel": "ADVANCED CONSULTING CASE! Full Interactive Profitability Case - Consulting Interview Prep",
+    "kanal": "CaseBinge",
+    "type": "mock",
+    "casetype": "lønnsomhet",
+    "stil": "interviewer-led",
+    "firma": "generisk",
+    "nivå": "avansert",
+    "minutter": 26,
+    "harLøsning": true,
+    "hvorfor": "Merket avansert av kanalen selv — bruk den som prøve når de vanlige lønnsomhetscasene føles enkle."
+  },
+  {
+    "id": "XD-Irl3YPPs",
+    "tittel": "BCG Interactive Case Interview Practice #1: Airline Profitability",
+    "kanal": "Hacking the Case Interview",
+    "type": "mock",
+    "casetype": "lønnsomhet",
+    "stil": "candidate-led",
+    "firma": "BCG",
+    "nivå": "middels",
+    "minutter": 45,
+    "harLøsning": true,
+    "hvorfor": "45 minutter interaktiv flyselskapslønnsomhet — lengste interaktive casen i settet."
+  },
+  {
+    "id": "ZaVBHRn-ZRQ",
+    "tittel": "Case Interview Math | Everything You Need to Know in 20 Minutes",
+    "kanal": "Hacking the Case Interview",
+    "type": "matte",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "middels",
+    "minutter": 25,
+    "harLøsning": true,
+    "hvorfor": "Samlet gjennomgang av regnetypene som faktisk dukker opp — grunnmuren før du drilller."
+  },
+  {
+    "id": "mD9mseCYub0",
+    "tittel": "Case Interview Math: Instantly Reduce Your Errors by 80%",
+    "kanal": "Hacking the Case Interview",
+    "type": "matte",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 7,
+    "harLøsning": true,
+    "hvorfor": "Sju minutter om feilkilder i hoderegning — billigste poengene å hente."
+  },
+  {
+    "id": "Xlwe2KmWIhs",
+    "tittel": "Case Interview Math: 10 Charts and Graphs You Should Know",
+    "kanal": "Hacking the Case Interview",
+    "type": "exhibit",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 9,
+    "harLøsning": true,
+    "hvorfor": "Katalog over de ti graftypene du møter — gjør at ingen ekshibit overrasker deg."
+  },
+  {
+    "id": "UZivOkyCa7Y",
+    "tittel": "Learn Issue Trees for Case Interviews in 8 Minutes",
+    "kanal": "Hacking the Case Interview",
+    "type": "struktur",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 9,
+    "harLøsning": true,
+    "hvorfor": "Issue tree forklart raskt — teorien bak struktureringen på åtte minutter."
+  },
+  {
+    "id": "zObw5jwmUnk",
+    "tittel": "Make 100% MECE Case Interview Frameworks in Under 30 Seconds",
+    "kanal": "Hacking the Case Interview",
+    "type": "struktur",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 6,
+    "harLøsning": true,
+    "hvorfor": "Trener tempoet i struktureringen, ikke bare kvaliteten — det er de 30 sekundene som teller i rommet."
+  },
+  {
+    "id": "QZnt7K42_98",
+    "tittel": "Deloitte Case Interview Practice: Recreation Unlimited (Strategy Case)",
+    "kanal": "My Consulting Offer",
+    "type": "mock",
+    "casetype": "annet",
+    "stil": "candidate-led",
+    "firma": "annet",
+    "nivå": "intro",
+    "minutter": 17,
+    "harLøsning": true,
+    "hvorfor": "Eneste ikke-MBB-firmacasen i settet (Deloitte) — nyttig hvis du søker bredere enn MBB."
+  },
+  {
+    "id": "N84jv8FIhRo",
+    "tittel": "Interviewee-Led Case (What it is and how to PASS!)",
+    "kanal": "My Consulting Offer",
+    "type": "teori",
+    "casetype": null,
+    "stil": "candidate-led",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 9,
+    "harLøsning": true,
+    "hvorfor": "Forklarer hva kandidatstyrt format krever av deg — les den før du prøver BCG- og Bain-mockene."
+  },
+  {
+    "id": "nhNjFaGMpJk",
+    "tittel": "Yale SOM Consulting Club: Playworks Case, Yale SOM",
+    "kanal": "Elaine Dang",
+    "type": "mock",
+    "casetype": "annet",
+    "stil": "candidate-led",
+    "firma": "generisk",
+    "nivå": "middels",
+    "minutter": 35,
+    "harLøsning": true,
+    "hvorfor": "Studentdrevet klubbmock — realistisk bilde av nivået jevnaldrende faktisk holder, ikke coach-perfeksjon."
+  },
+  {
+    "id": "c9qGU9KhwzY",
+    "tittel": "Consulting Case Interview: Profitability",
+    "kanal": "The Consulting & Strategy Club, IIM Lucknow",
+    "type": "mock",
+    "casetype": "lønnsomhet",
+    "stil": "candidate-led",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 14,
+    "harLøsning": true,
+    "hvorfor": "Kort klubbcase på 14 minutter — fin for en rask lønnsomhetsrunde."
+  },
+  {
+    "id": "9sa3GpJUFIk",
+    "tittel": "Case interview example: an M&A case with ex-McKinsey consultant (with English subtitles)",
+    "kanal": "MConsultingPrep Official Channel",
+    "type": "mock",
+    "casetype": "M&A",
+    "stil": "interviewer-led",
+    "firma": "McKinsey",
+    "nivå": "avansert",
+    "minutter": 79,
+    "harLøsning": true,
+    "hvorfor": "Halvannen time: full case og deretter seks navngitte feedback-bolker (rammeverk, regning, datatolkning, brainstorming, framføring).",
+    "stopp": [
+      {
+        "sek": 221,
+        "be": "Strukturer casen selv før du fortsetter"
+      },
+      {
+        "sek": 851,
+        "be": "Regn ut selv før du ser fasiten"
+      },
+      {
+        "sek": 1680,
+        "be": "Tolk dataene selv før du fortsetter"
+      },
+      {
+        "sek": 2191,
+        "be": "Brainstorm selv før du fortsetter"
+      },
+      {
+        "sek": 2356,
+        "be": "Formuler konklusjonen selv"
+      }
+    ]
+  },
+  {
+    "id": "6R5bT4cJh0A",
+    "tittel": "Case Interview 101 - Watch This Before Anything Else!",
+    "kanal": "MConsultingPrep Official Channel",
+    "type": "teori",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "intro",
+    "minutter": 11,
+    "harLøsning": true,
+    "hvorfor": "Definerer format, vurderingskriterier (MECE, rammeverk, hypoteser) og flyten i en case — riktig første video."
+  },
+  {
+    "id": "f7FQe4bt3Ro",
+    "tittel": "Consulting Math Examples, Practice, & Tips (From a Bain Consultant)",
+    "kanal": "Leland",
+    "type": "matte",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "Bain",
+    "nivå": "middels",
+    "minutter": 29,
+    "harLøsning": true,
+    "hvorfor": "29 minutter med regneeksempler fra en Bain-konsulent — nok materiale til en hel matteøkt."
+  },
+  {
+    "id": "MgrN19JKGGw",
+    "tittel": "Building Hypotheses From Data Exhibits (Case Interview & Management Consulting classics)",
+    "kanal": "firmsconsulting",
+    "type": "exhibit",
+    "casetype": null,
+    "stil": "n/a",
+    "firma": "generisk",
+    "nivå": "middels",
+    "minutter": 12,
+    "harLøsning": true,
+    "hvorfor": "Går fra å lese grafen til å danne hypotese ut av den — steget de fleste hopper over."
+  },
+  {
+    "id": "vtT2MAoMRhc",
+    "tittel": "Case Interview Example With Solution — Pricing & Evaluation, Market-Sizing (in-flight Broadband)",
+    "kanal": "PrepLounge - Case Interview Preparation Videos",
+    "type": "mock",
+    "casetype": "prising",
+    "stil": "candidate-led",
+    "firma": "generisk",
+    "nivå": "middels",
+    "minutter": 23,
+    "harLøsning": true,
+    "hvorfor": "Kombinerer prising og markedsestimering i én case — sjelden kombinasjon, og begge deler har fasit."
+  }
+]

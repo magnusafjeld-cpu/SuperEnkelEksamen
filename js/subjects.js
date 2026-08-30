@@ -123,6 +123,23 @@ window.EDU_SUBJECTS = [
     },
     modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress"],
   },
+  {
+    id: "case",
+    name: "Caseintervju",
+    short: "Caseintervju",
+    tagline: "Konsulentrekruttering",
+    logo: "CI",
+    blurb: "Hele caseintervjuet som kurs: struktur, hoderegning, figurlesing og fit — med ekte caser spilt trinn for trinn og mock-intervjuer på video.",
+    accent: "#5b3fd6", accentInk: "#4630ab", accentSoft: "#efebff", accentSoft2: "#ded5ff",
+    scripts: ["fag/case/data.js", "fag/case/lyn.js", "fag/case/dybde.js", "fag/case/caser.js", "fag/case/mock.js"],
+    manual: {
+      candidates: ["Case_Manual.html", "fag/case/manual.html", "../Case_Manual.html"],
+      label: "Case_Manual.html",
+      hint: "hele pensum lastes inn og lagres lokalt (du slipper å velge igjen)",
+    },
+    /* Casetrening har ingen eksamen og ingen oppgavebank — den har caser. */
+    modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/caser", "/mock", "/review", "/search", "/progress"],
+  },
 ];
 
 /* Oppslag + valgt fag. window.EDU_SUBJECT settes av js/picker.js ved oppstart. */

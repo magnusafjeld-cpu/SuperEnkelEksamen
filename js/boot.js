@@ -20,6 +20,8 @@ window.EDU = window.EDU || {};
       { route: "#/oppgaver", match: "/oppgaver", label: "Oppgavebank", ico: "book" },
       { route: "#/exam", match: "/exam", label: "Eksamenstrening", ico: "exam" },
       { route: "#/sett", match: "/sett", label: "Eksamenssett", ico: "clock", badge: () => (S.views.sett && S.views.sett.activeCount()) || null },
+      { route: "#/caser", match: "/caser", label: "Casetrening", ico: "target", badge: () => (S.views.caser && S.views.caser.activeCount()) || null },
+      { route: "#/mock", match: "/mock", label: "Mock-intervjuer", ico: "flag" },
       { route: "#/review", match: "/review", label: "Repetisjon", ico: "repeat", badge: () => S.repetition.suggest(20).filter((s) => s.priority === "high").length || null },
     ]},
     { group: "Verktøy", items: [
@@ -45,6 +47,8 @@ window.EDU = window.EDU || {};
     /* modules: null betyr «alle moduler faget har data for». Eksamenssett er den
        eneste modulen som er helt tom uten egne data, så den skjules da. */
     if (match === "/sett") return ((window.EDU_DATA.sets || []).length > 0);
+    if (match === "/caser") return ((window.EDU_DATA.cases || []).length > 0);
+    if (match === "/mock") return ((window.EDU_DATA.mocks || []).length > 0);
     return true;
   }
   function nav() { return NAV.map((g) => ({ group: g.group, items: g.items.filter((i) => has(i.match)) })).filter((g) => g.items.length); }
@@ -120,6 +124,8 @@ window.EDU = window.EDU || {};
     when("/oppgaver", "/oppgaver", (p, q) => setView(() => V.problems.render(q.doc || null)));
     when("/exam", "/exam", () => setView(() => V.exam.render()));
     when("/sett", "/sett", () => setView(() => V.sett.render()));
+    when("/caser", "/caser", () => setView(() => V.caser.render()));
+    when("/mock", "/mock", () => setView(() => V.mock.render()));
     when("/review", "/review", () => setView(() => V.review.render()));
     when("/search", "/search", (p, q) => setView(() => V.search.render(q.q || "")));
     when("/progress", "/progress", () => setView(() => V.progress.render()));

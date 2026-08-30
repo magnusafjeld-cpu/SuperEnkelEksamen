@@ -27,12 +27,14 @@ alt på nytt, bor her.
 - [[Pensumparseren]] — hvordan HTML-manualen blir til strukturert pensum
 - [[Moduler og visninger]] — de 15 modulene, rutene og læringslogikken
 - [[Eksamenssett-modulen]] — hele eksamenssett, i øvingsmodus eller på tid
+- [[Case-spilleren]] — ett caseintervju spilt trinn for trinn
 - [[Designsystem]] — CSS-variabler og visuelle regler
 
 **Fag og innhold**
 - [[Fagregisteret]] — hvordan motoren finner ut hvilket fag den kjører
 - [[SAM3 Makroøkonomi]] — makrofaget, med innholdstall
 - [[FIE402 Corporate Finance]] — corporate finance på engelsk, modulbasert plan
+- [[Caseintervju]] — konsulentintervjuer: struktur, hoderegning, caser og mock-video
 - [[Legge til nytt fag]] — oppskriften
 
 **Drift**

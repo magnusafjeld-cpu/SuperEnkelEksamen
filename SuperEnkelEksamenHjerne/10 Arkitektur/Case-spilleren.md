@@ -1,0 +1,69 @@
+---
+tags: [arkitektur, moduler, case]
+oppdatert: 2026-08-30
+---
+
+# Case-spilleren
+
+`js/bundle-case.js`, rute `/caser`. Kjører ett caseintervju som en sekvens av
+trinn. Fagnøytral: ethvert fag som fyller `EDU_DATA.cases` får modulen.
+
+## Hvorfor den ikke er [[Eksamenssett-modulen]]
+
+En case er en samtale, ikke et oppgavesett. Rekkefølgen *er* poenget: leser du
+intervjuerens struktur før du har skrevet din egen, har du ikke trent, du har
+lest en fasit. Derfor er hvert trinn låst til du selv har forsøkt, og derfor kan
+ikke settmodulen brukes — den viser alle oppgavene samtidig.
+
+## De seks trinnartene
+
+| `art` | Hva som skjer | Vurdering |
+|---|---|---|
+| `oppklaring` | Hvilke spørsmål ville du stilt? | selvvurdert |
+| `struktur` | Skriv nedbrytningen før intervjuerens vises | selvvurdert |
+| `exhibit` | Les figuren og si hva den betyr | selvvurdert |
+| `regne` | Regn på papir, skriv tallet — sjekkes automatisk | maskinelt |
+| `ide` | Idémyldring mot klokka, kryss så av hva du fikk | telt |
+| `syntese` | Anbefalingen, topp-ned, på tid | selvvurdert |
+
+Skalaen er **Bom / Delvis / Solid / Distinkt**, ikke poeng. «Bestått» og
+«distinkt» er to forskjellige ting, og det er nettopp det skillet som trenes.
+
+## Tallsjekken er enhetsbevisst
+
+Fasiten oppgis i trinnets egen `enhet`, så «78» og «78 mill» er samme svar når
+enheten er millioner. Sjekken sammenligner derfor i grunnenheter:
+
+- **med suffiks** — tallet betyr det suffikset sier (`78 mill` → 78 000 000)
+- **uten suffiks** — tallet betyr det enheten sier (`78` → 78 000 000)
+- **alltid også** — tallet tatt bokstavelig (`78000000`)
+
+Da godtas riktig svar uansett skrivemåte, mens `78 mrd` fortsatt avvises.
+Standard slingringsmonn er 2 %, overstyrbart per trinn med `toleranse`.
+
+> [!warning] Dette var en ekte feil
+> Første versjon ganget alltid opp suffikset, så **«78 mill» ble avvist** på en
+> oppgave med fasit `78` og enhet «millioner kroner» — altså riktig svar skrevet
+> på den mest naturlige måten. Fanget i nettlesertesten, ikke i kodelesningen.
+
+## Lagring
+
+| Nøkkel | Innhold |
+|---|---|
+| `state.exams["case:<id>:run"]` | `{ startedAt, submittedAt }` |
+| `state.exams["case:<id>:t<n>"]` | `{ svar, vist, score, tikk }` per trinn |
+
+`state.exams` er en generisk bøtte som allerede synkes og slås sammen per nøkkel,
+så modulen trengte **ingen migrering**. Se [[Datamodell og lagring]].
+
+Fritekstsvar kappes på 2 000 tegn, fordi de ligger i fremdriften som synkes.
+
+## Ting å vite hvis du endrer den
+
+- **Svar lagres ved `blur` og ved avdekking, aldri per tastetrykk.** En
+  `S.app.refresh()` midt i skrivingen ville tatt både markøren og halve setningen.
+- `åpen` og `steg` er lokal modultilstand, ikke lagret. Nullstiller du
+  fremdriften mens en case er åpen, står du fortsatt inne i den — det er riktig,
+  men det forvirret testingen.
+- Trinnklokka teller oppover mot måltiden og blir rød over. Den stopper
+  ingenting; den er der for å bygge tidsfølelse.
