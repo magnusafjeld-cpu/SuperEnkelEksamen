@@ -28,6 +28,7 @@ alt på nytt, bor her.
 - [[Moduler og visninger]] — de 15 modulene, rutene og læringslogikken
 - [[Eksamenssett-modulen]] — hele eksamenssett, i øvingsmodus eller på tid
 - [[Case-spilleren]] — ett caseintervju spilt trinn for trinn
+- [[Historieporteføljen]] — dine egne fit-historier, med dekningsmatrise
 - [[Designsystem]] — CSS-variabler og visuelle regler
 
 **Fag og innhold**

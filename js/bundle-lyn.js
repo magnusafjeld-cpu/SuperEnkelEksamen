@@ -95,6 +95,10 @@ window.EDU_DATA = window.EDU_DATA || {};
     memory: { name: "Memory", emoji: "🧠", desc: "Finn skjulte par", ready: () => symbolPool().length >= 6, run: runMemory },
     okonom: { name: "Hvem er økonomen?", emoji: "🧑‍🏫", desc: "Koble navn til bidrag", ready: () => okonomPool().length >= 6, run: runOkonom },
     bit: { name: "Dagens bit", emoji: "☕", desc: "To innsikter og én sjekk", ready: () => kapittelPool().length > 0, run: runBit },
+    struktur: { name: "Strukturer!", emoji: "🌳", desc: "90 sekunder per prompt", ready: () => bank("struktur").length >= 3, run: runStruktur },
+    feil: { name: "Finn feilen", emoji: "🔍", desc: "Hvor går utregningen galt?", ready: () => bank("feil").length >= 6, run: runFinnFeilen },
+    graf: { name: "Les grafen", emoji: "📊", desc: "Exhibit-tolkning på tid", ready: () => bank("graf").length >= 6, run: runGraf },
+    estimat: { name: "Bygg estimatet", emoji: "📐", desc: "Markedsstørrelse steg for steg", ready: () => bank("estimat").length >= 2, run: runEstimat },
   };
   function availableGames() { return Object.keys(GAMES).filter((k) => { try { return GAMES[k].ready(); } catch (e) { return false; } }); }
 
@@ -129,6 +133,9 @@ window.EDU_DATA = window.EDU_DATA || {};
       let barSpan = null;
       if (cfg.secs) { const bar = el(".lyn-timer", el("span")); barSpan = bar.firstChild; box.appendChild(bar); }
       if (r.kicker) box.appendChild(el(".tiny.muted", { style: { marginBottom: "4px" } }, r.kicker));
+      /* Figuren er rå HTML — exhibit-spillene trenger tabeller og SVG. Alt annet
+         i lynmodulen escapes, så dette er det ene bevisste unntaket. */
+      if (r.figur) box.appendChild(el(".card.flat", { style: { margin: "0 0 12px", overflowX: "auto" } }, el(".prose", S.u.frag(r.figur))));
       box.appendChild(el(".lyn-q", r.q));
       if (combo >= 2) box.appendChild(el(".lyn-combo", "🔥 " + combo + " på rad"));
       const opts = []; let answered = false;
@@ -481,6 +488,140 @@ window.EDU_DATA = window.EDU_DATA || {};
       return { q: "Hvem forbindes med: " + e.note, options, answer: options.indexOf(e.name), why: e.name + ". " + e.note };
     });
     return mcqRunner({ rounds, xpPer: 8, title: "Hvem er økonomen" }, done);
+  }
+
+
+  /* ---------- strukturer på 90 sekunder (selvrettet) ----------
+     Den viktigste ferdigheten i hele faget, og den som tåler mest mengde:
+     mange forskjellige prompter slår én prompt gjort grundig. Formen er
+     bevisst den samme som Forklar! — skriv i hodet eller på papir, avslør,
+     vurder deg selv. Fasiten er en modellstruktur, ikke ett riktig svar. */
+  function runStruktur(done) {
+    const items = shuffle(bank("struktur")).slice(0, 3);
+    const box = el(".lyn-game");
+    let i = 0, xp = 0;
+    function step() {
+      clearTick(); S.u.clear(box);
+      if (i >= items.length) { done(xp, `Struktur: ${items.length} prompter`); return; }
+      const it = items[i];
+      box.appendChild(progBar(items.length, i));
+      box.appendChild(el(".tiny.muted", "Bryt ned problemet. Skriv på papir — og avslutt med hypotesen din."));
+      box.appendChild(el(".lyn-statement", it.prompt));
+      const bar = el(".lyn-timer", el("span")); box.appendChild(bar);
+
+      const fasit = el(".explain", { style: { display: "none" } });
+      const grener = el("ul", { style: { margin: "8px 0 0", paddingLeft: "20px", lineHeight: 1.6 } });
+      (it.grener || []).forEach((g) => grener.appendChild(el("li", g)));
+      fasit.appendChild(el("b", "En modellstruktur:"));
+      fasit.appendChild(grener);
+      if (it.hypotese) fasit.appendChild(el("p", { style: { margin: "10px 0 0" } }, el("b", "Hypotesen: "), it.hypotese));
+      if (it.felle) fasit.appendChild(el("p", { style: { margin: "8px 0 0", color: "var(--ink-3)" } }, el("b", "Felle: "), it.felle));
+
+      const rate = el(".fc-rate", { style: { display: "none", marginTop: "12px" } });
+      const mk = (cls, label, pts) => el("button." + cls, { onclick: () => { xp += pts; i++; step(); } }, label);
+      rate.appendChild(mk("again", "Bommet", 0));
+      rate.appendChild(mk("hard", "Delvis (+10)", 10));
+      rate.appendChild(mk("good", "Traff (+18)", 18));
+
+      const reveal = el("button.btn.primary", { onclick: show }, "Vis modellstrukturen");
+      function show() { clearTick(); bar.style.display = "none"; reveal.style.display = "none"; fasit.style.display = "block"; rate.style.display = "flex"; }
+      box.appendChild(el(".center", reveal));
+      box.appendChild(fasit); box.appendChild(rate);
+
+      const t0 = Date.now(); const span = bar.firstChild; const secs = it.sek || 90;
+      tick = setInterval(() => {
+        if (!box.isConnected) { clearTick(); return; }
+        const left = 1 - (Date.now() - t0) / (secs * 1000);
+        if (left <= 0) show(); else span.style.width = (left * 100) + "%";
+      }, 120);
+    }
+    step(); return box;
+  }
+
+  /* ---------- finn feilen ----------
+     Trener den vanligste tapsposten i caseregning: å regne videre på et tall
+     som allerede er galt. Noen runder har ingen feil i det hele tatt — uten
+     dem lærer man bare å lete til man finner noe. */
+  function runFinnFeilen(done) {
+    const items = shuffle(bank("feil")).slice(0, 6);
+    const box = el(".lyn-game");
+    let i = 0, riktige = 0, xp = 0;
+    function step() {
+      clearTick(); S.u.clear(box);
+      if (i >= items.length) { done(xp, `Finn feilen: ${riktige}/${items.length} riktige`); return; }
+      const it = items[i];
+      box.appendChild(progBar(items.length, i));
+      box.appendChild(el(".lyn-q", it.oppg));
+      box.appendChild(el(".tiny.muted", { style: { marginBottom: "8px" } }, "Klikk linjen der det går galt — eller si at alt stemmer."));
+
+      const fasitIdx = it.feil == null ? -1 : it.feil;
+      let svart = false;
+      const rader = [];
+      const explain = el(".explain", { style: { display: "none" } });
+
+      function avgjør(valgt) {
+        if (svart) return; svart = true; clearTick();
+        rader.forEach((b, j) => {
+          if (j === fasitIdx) b.classList.add("correct");
+          else if (j === valgt) b.classList.add("wrong");
+          else b.classList.add("dim");
+          b.disabled = true;
+        });
+        ingen.disabled = true;
+        /* Er fasiten «ingen feil», skal det valget lyse grønt uansett hva som ble
+           klikket — ellers får du vite at alt stemmer, uten å se hvor svaret lå. */
+        if (fasitIdx === -1) ingen.classList.add("correct");
+        else if (valgt === -1) ingen.classList.add("wrong");
+        else ingen.classList.add("dim");
+        const ok = valgt === fasitIdx;
+        if (ok) { riktige++; xp += 14; }
+        explain.innerHTML = "<b>" + (ok ? "Riktig! " : "Feil. ") + "</b>"
+          + (fasitIdx === -1 ? "Utregningen er korrekt hele veien. " : "Feilen er i linje " + (fasitIdx + 1) + ". ")
+          + S.u.escapeHtml(it.why || "");
+        explain.style.display = "block";
+        box.appendChild(el(".center", { style: { marginTop: "14px" } },
+          el("button.btn.primary", { onclick: () => { i++; step(); } }, i + 1 >= items.length ? "Se resultat" : "Neste")));
+      }
+
+      it.linjer.forEach((linje, j) => {
+        const b = el("button.opt.mono", el(".key", String(j + 1)), el("span", linje));
+        b.addEventListener("click", () => avgjør(j));
+        rader.push(b); box.appendChild(b);
+      });
+      const ingen = el("button.opt", el(".key", "✓"), el("span", "Alt stemmer — ingen feil her"));
+      ingen.addEventListener("click", () => avgjør(-1));
+      box.appendChild(ingen);
+      box.appendChild(explain);
+    }
+    step(); return box;
+  }
+
+  /* ---------- les grafen ----------
+     Exhibit-tolkning er en egen ferdighet, og aksekutt-fellen forsvinner
+     ikke med erfaring. Derfor drilles den mekanisk i stedet for å forklares. */
+  function runGraf(done) {
+    const rounds = shuffle(bank("graf")).slice(0, 6)
+      .map((it) => ({ q: it.q, figur: it.figur, options: it.options, answer: it.answer, why: it.why }));
+    return mcqRunner({ rounds, xpPer: 13, title: "Les grafen" }, done);
+  }
+
+  /* ---------- bygg estimatet ----------
+     Markedsstørrelse steg for steg, med sanity-sjekken som obligatorisk siste
+     trinn. Den er nettopp det kandidater hopper over. */
+  function runEstimat(done) {
+    const items = shuffle(bank("estimat")).slice(0, 2);
+    const rounds = [];
+    items.forEach((it) => {
+      (it.steg || []).forEach((s, n) => rounds.push({
+        kicker: it.oppg + "  ·  steg " + (n + 1) + " av " + (it.steg.length + 1),
+        q: s.sp, options: s.options, answer: s.answer, why: s.why,
+      }));
+      if (it.sanity) rounds.push({
+        kicker: it.oppg + "  ·  sanity-sjekk",
+        q: it.sanity.sp, options: it.sanity.options, answer: it.sanity.answer, why: it.sanity.why,
+      });
+    });
+    return mcqRunner({ rounds, xpPer: 12, title: "Bygg estimatet" }, done);
   }
 
   /* ---------- visninger ---------- */

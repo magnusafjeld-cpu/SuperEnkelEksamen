@@ -138,7 +138,7 @@ window.EDU_SUBJECTS = [
       hint: "hele pensum lastes inn og lagres lokalt (du slipper å velge igjen)",
     },
     /* Casetrening har ingen eksamen og ingen oppgavebank — den har caser. */
-    modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/caser", "/mock", "/review", "/search", "/progress"],
+    modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/caser", "/mock", "/historier", "/review", "/search", "/progress"],
   },
 ];
 

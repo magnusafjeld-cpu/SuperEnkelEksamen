@@ -40,6 +40,13 @@ samtale og ikke et oppgavesett. Derfor to nye moduler i motoren:
 
 - **[[Case-spilleren]]** (`/caser`) — én case spilt trinn for trinn
 - **Mock-intervjuer** (`/mock`) — 70 verifiserte YouTube-videoer med stopp-punkter
+- **[[Historieporteføljen]]** (`/historier`) — dine egne fit-historier
+
+Og fire nye minispill i lynmodulen, fordi «mer enn bare tekst» var beskjeden:
+**Strukturer!** (90 sekunder per prompt, selvrettet mot en modellstruktur),
+**Finn feilen** (klikk linjen der utregningen ryker — noen runder har ingen feil),
+**Les grafen** (exhibit-tolkning med ekte figurer) og **Bygg estimatet**
+(markedsstørrelse steg for steg, med sanity-sjekk som obligatorisk siste trinn).
 
 ## Kildegrunnlaget
 

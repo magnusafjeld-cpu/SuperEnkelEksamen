@@ -103,3 +103,43 @@ window.EDU_DATA.glossary = {
     { sym: "Exhibit", name: "Figuren eller tabellen intervjueren gir deg midtveis", chapters: [1] },
   ],
 };
+
+/* ===================== HISTORIEPORTEFØLJEN =====================
+   Dimensjonene er McKinseys, med navnene de fikk sommeren 2025. De gamle står
+   i beskrivelsen, fordi alt skriftlig materiale der ute fortsatt bruker dem.
+   BCG og Bain spør etter det samme, bare uten navn på dimensjonene — så
+   matrisen er nyttig uansett hvem du søker.
+
+   Sondene er den rekonstruerte tolvpunktslisten ex-MBB-coacher opererer med.
+   Den er ikke publisert av firmaet; se docs/case-research/05-fit-og-framforing.md
+   for kildeklassifiseringen. Terskelen på 8 av 12 kommer fra samme sted.
+   =============================================================== */
+window.EDU_DATA.historier = {
+  intro: "Fit-delen kan ikke leses inn. Den krever seks til ti historier som er skrevet ned, som dekker alle dimensjonene, og som tåler å bli boret i. Det er en kveldsjobb, og den redder et helt intervju hvis den er gjort.",
+  sondeIntro: "Svar høyt på hver enkelt, uten å skrive noe. Kryss av bare der du faktisk hadde et svar du ville sagt til en partner — ikke der du tror du kunne funnet på noe.",
+  regler: { minPerDim: 2, maksPerHistorie: 2, minKontekster: 4, sondeTerskel: 8 },
+  dimensjoner: [
+    { id: "leadership", navn: "Leadership", kort: "Leader",
+      beskrivelse: "Het Inclusive Leadership. Du fikk mennesker til å trekke sammen — særlig noen som ikke rapporterte til deg og ikke måtte høre på deg." },
+    { id: "connection", navn: "Connection", kort: "Connect",
+      beskrivelse: "Het Personal Impact. Du overbeviste noen som var uenig, og du forsto hvorfor de var uenige. Dette er en menneske-test, ikke en problemløsningstest — det er her flest svar blir for tynne." },
+    { id: "drive", navn: "Drive", kort: "Drive",
+      beskrivelse: "Het Entrepreneurial Drive. Du satte i gang noe selv, uten at noen ba deg, og drev det gjennom motstand." },
+    { id: "growth", navn: "Growth", kort: "Growth",
+      beskrivelse: "Het Courageous Change. Du tok en risiko, gjorde en feil eller endret kurs — og kan si nøyaktig hva du lærte. Historier uten refleksjon er særlig dødelige her." },
+  ],
+  sonder: [
+    "Hva var den hardeste beslutningen, og hvorfor var den hard?",
+    "Hvilke alternativer vurderte du, og hvorfor forkastet du dem?",
+    "Hva gjorde du som andre ikke gjorde? Skill ditt bidrag fra gruppens.",
+    "Hvem motsatte seg, og hvorfor mente de det de mente?",
+    "Hva sa du nøyaktig til den personen? Gjengi replikken.",
+    "Hvordan reagerte de, og hva skjedde umiddelbart etterpå?",
+    "Hvordan justerte du da forutsetningene endret seg underveis?",
+    "Hvilken tilbakemelding fikk du etterpå, fra hvem?",
+    "Hva ville du gjort annerledes i dag?",
+    "Hva skjedde nedstrøms — hvilke ringvirkninger fikk det?",
+    "Hvordan ville den andre personen beskrevet din rolle?",
+    "Hvilke avveininger godtok du bevisst, og hva kostet de?",
+  ],
+};
