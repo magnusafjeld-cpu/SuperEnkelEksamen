@@ -19,8 +19,14 @@
   .formula{ background:var(--box); border-left:3px solid var(--plum); padding:14px 18px; margin:18px 0; }
   .formula .eq{ font-family:"Iowan Old Style",Georgia,serif; font-size:1.05rem; }
   .formula .where{ font-size:.9rem; color:#4a4a4a; margin-top:8px; }
-  .callout{ background:var(--box); border-radius:8px; padding:14px 18px; margin:18px 0; }
+  .callout{ background:var(--box); border-radius:8px; padding:14px 18px; margin:18px 0; border:1px solid transparent; }
   .callout .h{ display:block; font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; margin-bottom:.35em; color:var(--plum); }
+  /* Variantene, så den frittstående filen leses like godt som i appen. */
+  .callout.tip{ background:#e9f6ee; border-color:#cdeed8; } .callout.tip .h{ color:#1d7a47; }
+  .callout.mistake{ background:#fdf3e3; border-color:#f2dcb6; } .callout.mistake .h{ color:#9a630f; }
+  .callout.warn{ background:#fdecef; border-color:#f6d5dc; } .callout.warn .h{ color:#a32741; }
+  .callout.link{ background:#eef0fd; border-color:#dcdefb; } .callout.link .h{ color:#4044c9; }
+  .callout.mech{ background:var(--box); border-color:#ded5ff; }
   .worked{ background:#fff; border:1px dashed #c9bfae; border-radius:8px; padding:14px 18px; margin:18px 0; }
   .worked .wh{ display:block; text-transform:uppercase; letter-spacing:.05em; font-size:.75rem; font-weight:700; color:var(--plum); margin-bottom:.4em; }
   table.data{ border-collapse:collapse; width:100%; margin:18px 0; font-size:.95rem; }
@@ -50,6 +56,21 @@
 <li><a href="#k2">2 · Husene og prosessene</a></li>
 <li style="list-style:none;margin-top:.7em"><b>Del I · Struktur</b></li>
 <li><a href="#k3">3 · Å bryte ned et problem</a></li>
+<li><a href="#k4">4 · Hypotesedrevet arbeid</a></li>
+<li><a href="#k5">5 · Casetypene og hva hver av dem egentlig spør om</a></li>
+<li style="list-style:none;margin-top:.7em"><b>Del II · Tall</b></li>
+<li><a href="#k6">6 · Hoderegning: teknikkene, og hvordan tallet sies høyt</a></li>
+<li><a href="#k7">7 · Estimering og den norske tallbanken</a></li>
+<li><a href="#k8">8 · Figurlesing og de ni fellene</a></li>
+<li style="list-style:none;margin-top:.7em"><b>Del III · Framføring</b></li>
+<li><a href="#k9">9 · Å snakke mens du tenker</a></li>
+<li><a href="#k10">10 · Syntesen</a></li>
+<li style="list-style:none;margin-top:.7em"><b>Del IV · Fit</b></li>
+<li><a href="#k11">11 · Historiene</a></li>
+<li><a href="#k12">12 · Why consulting, why this firm</a></li>
+<li style="list-style:none;margin-top:.7em"><b>Del V · Håndverk</b></li>
+<li><a href="#k13">13 · De digitale testene</a></li>
+<li><a href="#k14">14 · Uka før, dagen før, i rommet</a></li>
 <li style="list-style:none;margin-top:.7em"><b>Referanse · Tall og formler</b></li>
 <li><a href="#k15">15 · Tallarket</a></li>
 </ol>
@@ -141,6 +162,9 @@
   <div class="eq">Resultat = (Pris × Volum + andre inntekter) − (variable kostnader + faste kostnader)</div>
   <div class="where">Denne er MECE av seg selv, fordi den er en identitet. Derfor er den et tryggere utgangspunkt enn enhver temaliste — og derfor begynner nesten alle sterke lønnsomhetsstrukturer her, for så å bli klientens egne grener.</div>
 </div>
+
+<div class="callout link"><span class="h">Der du trener dette</span>
+De fire tingene måles ikke hver for seg. Casetreningen er stedet der de møtes: strukturen i trinn 2, regningen i trinn 4, dømmekraften i figuren, og kommunikasjonen i anbefalingen til slutt. Begynn med kinocasen.</div>
 </section>
 
 <hr class="sec">
@@ -153,7 +177,7 @@
 
 <h3>2.1 Kalenderen: vinduet er september</h3>
 
-<p>Norsk konsulentrekruttering til sommerinternship 2027 og fast stilling med oppstart 2027 har ett hovedvindu, og det ligger i de to første ukene av høstsemesteret. Datoene under sto slik på NHHs næringslivsportal og selskapenes egne utlysninger den 30. august 2026.</p>
+<p>Norsk konsulentrekruttering til internship og fast stilling med oppstart 2027 har ett hovedvindu, og det ligger i de to første ukene av høstsemesteret. Datoene under sto slik på NHH NU og selskapenes egne utlysninger 30. august 2026.</p>
 
 <table class="data">
   <tr><th>Frist</th><th>Hus</th><th>Stilling</th></tr>
@@ -167,16 +191,16 @@
   <tr><td>Rullerende</td><td><b>BCG</b></td><td>Visiting Associate · portalfrist 31.12.2026</td></tr>
 </table>
 
-<p>PwC, Deloitte og KPMGs konsulentspor har allerede lukket i denne syklusen; Deloittes neste vindu er januar. Kearney lyser ikke ut noen egen norsk graduate-frist på portalen, så der går veien via kontorets egen side. Konsekvensen av tabellen er enkel: <b>BCG er den eneste som tåler å bli utsatt.</b> Søk først, tren mens du venter.</p>
+<p>PwC, Deloitte og KPMGs konsulentspor har allerede lukket i denne syklusen; Deloittes neste vindu er januar. Kearney lyser ikke ut egen norsk graduate-frist på portalen. Konsekvensen er enkel: <b>BCG er den eneste som tåler å bli utsatt.</b> Søk først, tren mens du venter.</p>
 
 <div class="callout warn">
 <span class="h">Datoene er ferskvare</span>
-<p>Listen er en kartlegging fra én dag. NHH NU oppdateres løpende, og enkelte hus flytter frister uten varsel. Dobbeltsjekk mot portalen samme dag du søker — dette er det ene i kapitlet du ikke skal stole på at er riktig om to uker.</p>
+<p>Listen er en kartlegging fra én dag, og hus flytter frister uten varsel. Dobbeltsjekk mot portalen samme dag du søker — dette er det ene i kapitlet du ikke skal stole på at er riktig om to uker.</p>
 </div>
 
 <h3>2.2 Kartet: hva som faktisk skiller husene</h3>
 
-<p>Kildene bak dette kapitlet har tre svært ulike kvaliteter, og de er merket deretter: <b>[D]</b> = dokumentert av selskapet selv, <b>[K]</b> = kandidatrapport eller rykte, <b>[P]</b> = prep-bransjens beskrivelse — ofte riktig på hovedtrekk, men de selger kurs og overdriver presisjonen.</p>
+<p>Kildene har tre ulike kvaliteter og er merket deretter: <b>[D]</b> = dokumentert av selskapet selv, <b>[K]</b> = kandidatrapport eller rykte, <b>[P]</b> = prep-bransjen, som ofte har hovedtrekkene riktig, men selger kurs og overdriver presisjonen.</p>
 
 <table class="data">
   <tr><th>Hus</th><th>Case-stil</th><th>Digital screening</th><th>Runder</th></tr>
@@ -189,11 +213,11 @@
   <tr><td><b>Implement</b></td><td>Ikke dokumentert</td><td>Ikke dokumentert</td><td>Junior-rollene: snitt ~60 dager [K]</td></tr>
 </table>
 
-<p>Fit-delens vekt varierer mer enn case-stilen. Hos McKinsey er den en <b>egen økt med eget navn</b> og halvparten av tiden. Hos BCG og Bain er den vevd inn i case-intervjuene som samtale før og etter casen. Hos Arkwright rapporteres den å åpne <i>hvert</i> intervju [K]. Hos Accenture og de norske husene <i>er</i> den i praksis hele prøven.</p>
+<p>Fit-delens vekt varierer mer enn case-stilen. Hos McKinsey er den en <b>egen økt med eget navn</b> og halvparten av tiden. Hos BCG og Bain er den vevd inn i case-intervjuene. Hos Arkwright rapporteres den å åpne <i>hvert</i> intervju [K]. Hos Accenture og de norske husene <i>er</i> den i praksis hele prøven.</p>
 
 <h3>2.3 McKinsey: det eneste økosystemet du må trene særskilt for</h3>
 
-<p>Casen er interviewer-led fordi den er skrevet av et sentralt team og distribuert med manus — alle kandidater globalt får de samme spørsmålene i samme rekkefølge [P]. Du eier innholdet i hvert delsvar, ikke prosessen. Å be om et minutt og så kjøre ditt eget løp er å bomme på formatet.</p>
+<p>Casen er interviewer-led fordi den er skrevet av et sentralt team og distribuert med manus — alle kandidater globalt får de samme spørsmålene i samme rekkefølge [P]. Du eier innholdet i hvert delsvar, ikke prosessen. Å kjøre ditt eget løp er å bomme på formatet.</p>
 
 <p><b>Solve</b> er spillbasert screening med modulene Redrock, Sea Wolf og eventuelt Sustainable Futures Lab. En 65-minutters invitasjon betyr typisk to moduler, 85 minutter at den tredje er med [P]. Den måler ikke forretningskunnskap, men strukturering, prioritering og beslutning under tidspress. Det overførbare er diagramlesing, prosentlogikk med riktig nevner og evidenssjekk. Mekanikken i hvert spill står i k13.</p>
 
@@ -213,7 +237,7 @@
 
 <p>BCG dokumenterer selv rundene: runde 1 er to case-intervjuer, finalen ett case-intervju med en partner i samme format [D]. BCG dokumenterer også testen i Norden, og den er <b>ikke</b> Casey-chatboten: logisk resonnement, 80 spørsmål på 30 minutter, kalkulator ikke tillatt [D]. Det er 22,5 sekunder per spørsmål — ren hastighetsdrill, ikke casetrening. Casey og Pymetrics brukes i andre geografier [P]. Søknaden krever karakterutskrifter helt fra videregående [D].</p>
 
-<p>Bain har to særtrekk. Screeningen er <i>enten</i> TestGorilla <i>eller</i> SOVA, og invitasjonsmailen sier hvilken [P]. Og den skriftlige casen er den europeiske jokeren: rundt 55 minutter, sikt mot 3–5 slides, kalkulator ikke tillatt [P]. Det er en egen ferdighet. Case-stilen er dessuten i bevegelse mot interviewer-led og «answer first» [P], så tren begge modi.</p>
+<p>Bain har to særtrekk. Screeningen er <i>enten</i> TestGorilla <i>eller</i> SOVA, og invitasjonsmailen sier hvilken [P]. Og den skriftlige casen er den europeiske jokeren: rundt 55 minutter, sikt mot 3–5 slides, kalkulator ikke tillatt [P]. Case-stilen er dessuten i bevegelse mot interviewer-led og «answer first» [P], så tren begge modi.</p>
 
 <div class="callout mistake">
 <span class="h">Å trene på feil test</span>
@@ -222,16 +246,16 @@
 
 <h3>2.5 Arkwright: mest relevant, minst dokumentert</h3>
 
-<p>Det som er dokumentert, er selskapet, ikke prosessen [D]: Oslo-kontor på Aker Brygge, rundt 60–65 konsulenter i Oslo og 120–150 i konsernet (Oslo, Stockholm, Hamburg, London), grunnlagt 1987, med tyngdepunkt i strategi, profit improvement, M&amp;A og private equity. Det betyr korte, analytisk harde prosjekter — og det former casene.</p>
+<p>Det som er dokumentert, er selskapet, ikke prosessen [D]: Oslo-kontor på Aker Brygge, rundt 60–65 konsulenter i Oslo og 120–150 i konsernet, med tyngdepunkt i strategi, profit improvement, M&amp;A og private equity. Det betyr korte, analytisk harde prosjekter — og det former casene.</p>
 
 <p>Kandidatrapporter [K] beskriver to runder, med én mer senior og én mer junior kollega i hver. Hvert intervju åpner med personlighets- og motivasjonsspørsmål, deretter to caser. Casen er candidate-led: kandidaten forventes å drive den fremover, ikke ha en diskusjon. Ett rapportert forløp hadde en enkel P&amp;L-case først og en M&amp;A-case etterpå, der kandidaten fikk <b>20 minutter alene til å forberede en presentasjon</b>.</p>
 
 <div class="callout warn">
 <span class="h">Alt om Arkwrights prosess er ubekreftet</span>
-<p>Arkwright publiserer ikke prosessen sin noe sted — verken på karrieresidene i Norge, Sverige eller Tyskland, i jobbportalen eller på NHH-profilen. Beskrivelsen over stammer fra en håndfull Glassdoor-rapporter, altså få kandidater, ikke et statistisk bilde. Antall caser, om internship avviker fra fast stilling, og språket i rommet er <b>ikke</b> dokumentert. Særlig: det finnes <b>ingen dokumentasjon og ingen kandidatrapport</b> på at Arkwright bruker en numerisk screeningtest. Ryktet om «den beryktede mattetesten» lar seg ikke bekrefte. Ikke tren mot en test som kanskje ikke finnes — ring eller mail og spør (<i>recruiting@arkwright.no</i>). Det er raskere enn mer research.</p>
+<p>Arkwright publiserer ikke prosessen sin noe sted — verken på karrieresidene i Norge, Sverige eller Tyskland, i jobbportalen eller på NHH-profilen. Beskrivelsen over stammer fra en håndfull Glassdoor-rapporter, altså få kandidater, ikke et statistisk bilde. Antall caser, om internship avviker fra fast stilling, og språket i rommet er <b>ikke</b> dokumentert. Særlig: det finnes <b>ingen dokumentasjon og ingen kandidatrapport</b> på at Arkwright bruker en numerisk screeningtest. Ryktet om «den beryktede mattetesten» lar seg ikke bekrefte. Ikke tren mot en test som kanskje ikke finnes — spør dem (<i>recruiting@arkwright.no</i>). Det er raskere enn mer research.</p>
 </div>
 
-<p>Det som <i>er</i> konsistent på tvers av kildene, og som derfor bør styre treningen: candidate-led, PE- og M&amp;A-tungt, og minst én case som sannsynligvis er en selvforberedt presentasjon med solo-tid. Tren P&amp;L-mekanikk, enkel verdsettelsestenkning, og det å bygge og fremføre en egen anbefaling på tjue minutter. Overlappen med BCG- og Bain-trening er stor; solo-presentasjonen er det som ikke overlapper.</p>
+<p>Det konsistente på tvers av kildene, og som derfor bør styre treningen: candidate-led, PE- og M&amp;A-tungt, og minst én case som sannsynligvis er en selvforberedt presentasjon med solo-tid. Tren P&amp;L-mekanikk, enkel verdsettelsestenkning, og det å bygge og fremføre en egen anbefaling på tjue minutter. Overlappen med BCG- og Bain-trening er stor; solo-presentasjonen er det som ikke overlapper.</p>
 
 <h3>2.6 Kearney, Accenture og Implement</h3>
 
@@ -243,13 +267,13 @@
 
 <h3>2.7 Språket i rommet</h3>
 
-<p>Ingen av MBB-kontorene publiserer språkpolicy for intervjuer i Norge, så dette er dårligere belagt enn det burde være. Dokumentert norsk hele veien: PwC, Deloitte, KPMG, Accenture, Bekk, BearingPoint, Sopra Steria og Capgemini Invent [D]. Sannsynlig engelsk: McKinsey, BCG, Bain, Kearney — portalene, testene og alt skriftlig materiale er utelukkende engelsk [D]. At selve intervjuet i Oslo ofte glir over i norsk når begge parter er norske, er [K], ikke dokumentert. Arkwright: ikke dokumentert.</p>
+<p>Ingen MBB-kontorer publiserer språkpolicy for intervjuer i Norge. Dokumentert norsk: PwC, Deloitte, KPMG, Accenture, Bekk, BearingPoint, Sopra Steria og Capgemini Invent [D]. Sannsynlig engelsk: McKinsey, BCG, Bain, Kearney — portaler, tester og alt skriftlig materiale er utelukkende engelsk [D]. At intervjuet i Oslo ofte glir over i norsk når begge parter er norske, er [K], ikke dokumentert. Arkwright: ikke dokumentert.</p>
 
-<p>Praktisk følger to ting av dette. Tren casen på engelsk, fordi tallene, termene og materialet er engelske. Men øv på å bytte til norsk uten å miste presisjon — særlig fit-historiene, som blir stive og oversatte hvis de bare er innøvd på ett språk.</p>
+<p>Praktisk: tren casen på engelsk, fordi tallene, termene og materialet er engelske, men øv på å bytte til norsk uten å miste presisjon — særlig fit-historiene, som blir stive hvis de bare er innøvd på ett språk.</p>
 
 <div class="callout link">
 <span class="h">Der dette trenes</span>
-<p>Kapitlet har én øvelse og én handling. <b>Øvelsen</b> er i Casetrening: kjør neste case candidate-led og den etter interviewer-led, på samme prompt hvis du orker — det er byttet mellom modi som er ferdigheten, ikke å beherske den ene. De digitale testene har sitt eget kapittel og sin egen drill i k13. <b>Handlingen</b> er ikke en øvelse: åpne NHH NU og send søknadene før du åpner neste kapittel. Du kan trene case etter fristen. Du kan ikke søke.</p>
+<p>Kapitlet har én øvelse og én handling. <b>Øvelsen</b> er i Casetrening: kjør neste case candidate-led og den etter interviewer-led — det er byttet mellom modi som er ferdigheten, ikke å beherske den ene. De digitale testene har sin egen drill i k13. <b>Handlingen</b> er ikke en øvelse: åpne NHH NU og send søknadene før du åpner neste kapittel. Du kan trene case etter fristen. Du kan ikke søke.</p>
 </div>
 </section>
 
@@ -263,7 +287,7 @@
 
 <h3>3.1 Identiteten og verdikjeden: MECE av konstruksjon</h3>
 
-<p>En temaliste kan aldri bevises uttømmende. Sier du «marked, konkurranse, intern drift, regulering», må du argumentere for at ingenting mangler, og det argumentet finnes ikke. En identitet slipper unna hele problemet: er leddene lik svaret, kan ingenting utenfor leddene flytte svaret. Det er ikke retorikk, det er aritmetikk, og det er grunnen til at nesten alle sterke strukturer starter der.</p>
+<p>En temaliste kan aldri bevises uttømmende. Sier du «marked, konkurranse, intern drift, regulering», må du argumentere for at ingenting mangler, og det argumentet finnes ikke. En identitet slipper unna problemet: er leddene lik svaret, kan ingenting utenfor leddene flytte svaret. Det er aritmetikk, ikke retorikk, og det er grunnen til at sterke strukturer starter der.</p>
 
 <div class="formula">
   <div class="eq">Resultat per klinikk = (Stoler × Åpne timer × Utnyttelsesgrad × Pris per behandlet time) − Variable kostnader − Faste klinikkostnader</div>
@@ -277,7 +301,7 @@
   <div class="where">Tre faktorer, alle multiplikative. Det betyr at kremasjonsandelen (som halverer areal per grav) og oppfølging av utløpte festeavtaler (som kutter det tredje leddet) er verdt like mye som nytt areal — og virker mange år tidligere. En temaliste med «regulering», «gjenbruk» og «kremasjon» som tre kulepunkter kan ikke fortelle deg det, fordi en liste ikke har regnearter.</div>
 </div>
 
-<p>Verdikjeder og prosesser er MECE på samme måte, bare i tid i stedet for i tall: går sekvensen fra start til slutt, må hver krone og hvert minutt passere ett av leddene. Rundturen til en hurtigbåt er fortøyning, avstigning, påstigning, avgang, seiling og bunkring. Sju minutters forsinkelse ligger nødvendigvis i ett av dem.</p>
+<p>Verdikjeder og prosesser er MECE på samme måte, bare i tid i stedet for i tall: går sekvensen fra start til slutt, må hvert minutt og hver krone passere ett av leddene. Hurtigbåtens rundtur er fortøyning, avstigning, påstigning, avgang, seiling og bunkring — sju minutters forsinkelse ligger nødvendigvis i ett av dem.</p>
 
 <div class="callout mistake"><span class="h">Temalisten som ser MECE ut</span>
 <p>«Marked, konkurranse, intern drift, regulering» har ingen synlig overlapp, og består derfor overfladisk testen. Prøv den ordentlige testen i stedet: <b>kan du sette likhetstegn mellom grenene og resultatet?</b> Kan du ikke det, er det en innholdsfortegnelse. Og innholdsfortegnelser har alltid hull du ikke kan se — her mangler for eksempel miks, som er den vanligste årsaken til fallende margin i det hele tatt.</p></div>
@@ -343,14 +367,1257 @@
 <li><b>Si hva du legger bort, og hvorfor.</b> Det er den billigste måten å vise dømmekraft på, og den eneste måten å bevise at utelatelsen er et valg.</li>
 <li><b>Avslutt med hypotese, startgren og datauttrekk.</b> Uten dette er strukturen ferdig, men casen har ikke begynt.</li>
 <li><b>Snakk i hele setninger.</b> Grener lest opp som stikkord høres ut som en huskeliste, uansett hvor god nedbrytningen er.</li>
+
 </ol>
 
 <div class="callout mech"><span class="h">De 25 første sekundene, ordrett</span>
 <p>«Jeg vil bryte dette i tre. Ett: bruttomargin per varekategori, og hvor mye hver kategori har flyttet på seg i andel av kurven. To: kurvmekanikken per butikkformat — trafikk, kurvstørrelse og varelinjer per kurv. Tre: kostnadene som skalerer med åpningstid, altså lønnstimer og svinn. Husleie og distribusjon lar jeg ligge i første omgang; de har ikke endret seg på to år og kan ikke forklare et fall på 1,3 marginpoeng. Jeg starter i den første, og skal jeg si hvorfor, er det fordi …»</p>
-<p>Legg merke til at ingenting her er et rammeverk, og at hver eneste gren er et tall kjeden allerede har i systemet sitt.</p></div>
+<p>Hver eneste gren er et tall kjeden allerede har i systemet sitt.</p></div>
 
 <div class="callout link"><span class="h">Her trener du dette</span>
-<p>Lynlæring · <b>Strukturer!</b> har 34 prompter, fra dagligvare og oppdrett til kirkegårdskapasitet. Du får fasitgrenene, hypotesen og fellen etterpå — men først når du har skrevet ditt eget tre. Målet er ikke å treffe fasiten, men å ha bygget fra en identitet eller en verdikjede før du ser den, og å kjenne igjen hvilken av de fem måtene du brukte. Ta åtte prompter før neste hele case. I <b>casebiblioteket</b> møter du de samme problemene i full lengde, der strukturen bare er de fire første minuttene.</p></div>
+<p>Lynlæring · <b>Strukturer!</b> har 34 prompter, fra dagligvare og oppdrett til kirkegårdskapasitet. Fasitgrenene, hypotesen og fellen låses opp først når du har skrevet ditt eget tre. Målet er ikke å treffe fasiten, men å ha bygget fra en identitet eller en verdikjede før du ser den — og å kunne si hvilken av de fem måtene du brukte. Ta åtte prompter før neste hele case. I <b>casebiblioteket</b> møter du de samme problemene i full lengde, der strukturen bare er de fire første minuttene.</p></div>
+</section>
+
+<hr class="sec">
+
+<section id="k4">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">4 · Hypotesedrevet arbeid</h2>
+
+<p class="lead-in">Strukturen forteller hvor svaret <i>kan</i> ligge. Hypotesen forteller hvor du <i>tror</i> det ligger, og hvilket tall som ville fått deg til å ombestemme deg. Uten den er de neste ti minuttene en rundtur i eget tre.</p>
+
+<h3>4.1 Hva en hypotese er — og hva den ikke er</h3>
+
+<p>En hypotese er en påstand om hvilken gren som bærer problemet, formulert så den kan vise seg å være feil. Tre ting som stadig sies i stedet, og som ikke er hypoteser:</p>
+
+<table class="data">
+  <tr><th>Sagt i rommet</th><th>Hva det egentlig er</th></tr>
+  <tr><td>«Jeg starter på inntektssiden og går deretter til kostnadssiden.»</td><td>En <i>rekkefølge</i>. Den sier hva du skal gjøre, ikke hva du tror om verden, og den kan ikke bli motbevist av noe tall.</td></tr>
+  <tr><td>«Marginfallet kan skyldes pris, volum eller miks.»</td><td>En <i>mulighetsliste</i> — treet ditt lest baklengs. Den utelukker ingenting, og er derfor sann uansett hva dataene viser.</td></tr>
+  <tr><td>«Jeg tror dette er et lønnsomhetsproblem.»</td><td>En <i>omformulering av prompten</i>. Intervjueren fortalte deg nettopp det.</td></tr>
+</table>
+
+<p>Slik ser den ut når den er ekte, fra dagligvarecasen: <i>«Marginfallet ligger i ferskvare og ikke i prisbildet: økt svinn og en større kampanjeandel har senket realisert bruttomargin i nettopp de kategoriene som vokser i andel av kurven.»</i> Den navngir én gren, utelukker en annen i samme setning, og den kan tape.</p>
+
+<div class="callout mech"><span class="h">To-delt test på om det er en hypotese</span>
+<p><b>Peker den på én gren og bort fra minst én annen?</b> «Det ligger i ferskvare og ikke i prisbildet» gjør begge deler. «Det kan være flere ting» gjør ingen av dem.<br>
+<b>Kan noen levere deg et tall i morgen som gjør den usann?</b> Kan du ikke navngi det tallet, har du skrevet en formulering, ikke en hypotese.</p></div>
+
+<h3>4.2 Falsifiserbarhet, og datauttrekket som følger med</h3>
+
+<p>Enhver hypotese skal etterfølges av en setning som begynner med <b>«Testen er …»</b>, og den setningen skal navngi en tabell et menneske faktisk kunne trekke ut av klientens systemer. Det tredje feltet — hva som ville avkreftet den — er det som gjør de to første ærlige:</p>
+
+<table class="data">
+  <tr><th>Hypotese</th><th>Testen er …</th><th>… og den faller hvis</th></tr>
+  <tr><td>Oppdrett: fallet er biologisk, ikke kommersielt</td><td>Kostnad per kilo og dødelighet per lokalitet og generasjon, mot bransjesnittet</td><td>dødeligheten ligger på bransjesnitt og fôrfaktoren er uendret</td></tr>
+  <tr><td>Sparebanken: fallet ligger på fundingsiden, ikke i utlånsprisen</td><td>Utlånsrente og fundingrente hver for seg over 24 måneder — ikke marginen som ett tall</td><td>fundingrenten er flat og hele bevegelsen ligger i utlånsrenten</td></tr>
+  <tr><td>Netthandel: flaskehalsen er pakkebordene i tre ettermiddagstimer, ikke lageret</td><td>Kapasitetsutnyttelse per prosesstrinn per time, gjennom en normaluke og en toppuke</td><td>pakking ligger under taket i alle timer mens plukk ligger på det</td></tr>
+</table>
+
+<div class="callout warn"><span class="h">Hypotesen er en søkeretning, ikke et standpunkt du skal forsvare</span>
+<p>Den vanligste måten å ødelegge en god hypotese på, er å bli glad i den. Poenget er ikke å ha rett i minutt sju; poenget er å ha <i>tatt feil raskt</i> i minutt elleve, slik at de siste ti minuttene brukes riktig sted. En kandidat som forkaster hypotesen sin på et tall og sier hva hun gjør i stedet, scorer høyere enn en som fikk rett uten å ha risikert noe.</p></div>
+
+<h3>4.3 A mot C på samme prompt</h3>
+
+<p>Dette er kursets viktigste enkeltside. Samme prompt, samme fakta, to svar. <b>Prompten:</b> en norsk hotellkjede med 40 hoteller, halvparten i by og halvparten i distrikt. Beleggsprosenten er tilbake på nivået før pandemien, men driftsresultatet ligger 30 prosent lavere. Eieren spør hvorfor fulle hoteller ikke gir penger.</p>
+
+<div class="formula">
+  <div class="eq">RevPAR = Belegg × Snittpris per solgte rom</div>
+  <div class="eq">Driftsresultat = RevPAR × Tilgjengelige romdøgn + Andre inntekter − Kostnad per solgte rom × Solgte rom − Faste kostnader</div>
+  <div class="where">Belegget er oppgitt i prompten, og det er tilbake på gammelt nivå. Da er den ene faktoren matematisk utelukket før du har åpnet munnen — og en struktur som ikke sier det høyt, kaster bort den eneste gaven prompten ga deg.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: to strukturer på hotellprompten</span>
+<p><b>C-svaret.</b> «Jeg vil se på fire ting. <i>Marked:</i> hvor stort er hotellmarkedet, hvordan vokser det, og hvilke reguleringer gjelder. <i>Konkurranse:</i> hvem er de andre kjedene, hva er markedsandelene, og finnes det inngangsbarrierer. <i>Inntekt:</i> pris og volum. <i>Kostnad:</i> faste og variable kostnader. Så setter jeg det sammen til en anbefaling.»</p>
+<p>Dette er ikke tull. Det er MECE nok, det er rolig framført, og det ville fått ståkarakter på et skoleprøve i rammeverk. Men det er ordrett det samme treet som for et stålverk, en strømmetjeneste og et aluminiumsverk — og det bruker <b>ingen</b> av de fem faktaene intervjueren nettopp ga fra seg.</p>
+<p><b>A-svaret.</b> «Belegget er tilbake, så volumet er ikke problemet. Da må enten prisen per solgte rom, inntekten utenom rommet eller kostnaden per solgte rom ha flyttet seg. Jeg bryter det i tre.</p>
+<p><i>Ett — prisen.</i> RevPAR er belegg ganger snittpris, og siden belegget er kjent, er hele spørsmålet snittprisen. Den vil jeg dele på to akser: segment — forretning midtuke, kurs og konferanse, gruppe, fritid i helgen — og kanal, altså direkte booking mot bookingportal. Kanalen er den jeg mistenker, fordi netto snittpris etter provisjon kan falle uten at listeprisen er rørt én krone.</p>
+<p><i>To — inntekten utenom rommet.</i> Mat og drikke per gjestedøgn, med dekningsbidraget på frokost, restaurant og møtemat hver for seg. Konferansevolumet er den delen som kom senest tilbake, og den bærer mest per gjest.</p>
+<p><i>Tre — kostnaden per solgte rom.</i> Lønnstimer i renhold og resepsjon, og hvor stor andel av bemanningen som er innleid, siden en innleid time koster mer enn en fast.</p>
+<p>Husleie og energi lar jeg ligge i første omgang. De er faste per tilgjengelig rom, og forklarer ikke at et fullt hotell tjener mindre enn et like fullt hotell gjorde før.</p>
+<p><b>Hypotesen min</b> er at fallet er kanaldrevet: listeprisen står, men portalandelen har steget, slik at netto snittpris etter provisjon har falt selv med fullt hus. <b>Testen er</b> netto snittpris per kanal over tre år, holdt mot listepris i samme periode. Er netto snittpris flat innenfor hver kanal, tar jeg feil — og da går jeg rett til bemanningen.»</p>
+</div>
+
+<p>Forskjellen er ikke veltalenhet, og den er ikke lengde. Den er punkt for punkt målbar:</p>
+
+<table class="data">
+  <tr><th></th><th>C-svaret</th><th>A-svaret</th></tr>
+  <tr><td>Utgangspunkt</td><td>Fire temaoverskrifter</td><td>En identitet, med den ene faktoren allerede kjent</td></tr>
+  <tr><td>Bruk av prompten</td><td>Null av de oppgitte faktaene</td><td>Belegget brukes til å utelukke volum <i>før</i> første gren</td></tr>
+  <tr><td>Grenene</td><td>Ville passet et stålverk like godt</td><td>Kanal, segment, mat og drikke, innleid bemanning — hotelldrift og ingenting annet</td></tr>
+  <tr><td>Utelatelser</td><td>Ingen; alt er med, ingenting er prioritert</td><td>Husleie og energi nevnes og legges bort, med begrunnelse</td></tr>
+  <tr><td>Hypotese</td><td>Ingen</td><td>Én, med navngitt gren og navngitt utelukket forklaring</td></tr>
+  <tr><td>Datauttrekk</td><td>Ingen</td><td>Netto snittpris per kanal, tre år, mot listepris</td></tr>
+  <tr><td>Hvis hypotesen ryker</td><td>Udefinert</td><td>Neste trekk er oppgitt på forhånd</td></tr>
+  <tr><td>Første innsikt kommer</td><td>Etter at alle fire grenene er lest opp</td><td>I setning én</td></tr>
+</table>
+
+<p>Bain skriver på sin egen side at de ikke er ute etter ett riktig svar, men etter hvordan du tenker og bygger videre mens samtalen utvikler seg. A-svaret gir dem noe å bygge videre <i>på</i>: en påstand som kan angripes. En innholdsfortegnelse kan ikke utvikles, bare leses opp.</p>
+
+<h3>4.4 Tidsbudsjettet for en case</h3>
+
+<p>Wharton Consulting Clubs casebok oppgir denne fordelingen for en case på 20 til 25 minutter. Den er ikke en regel fra husene, men den er den mest brukbare kalibreringen som finnes:</p>
+
+<table class="data">
+  <tr><th>Fase</th><th class="n">Tid</th><th>Det som avgjøres her</th></tr>
+  <tr><td>Bakgrunn, oppsett, gjentakelse</td><td class="n">2–3 min</td><td>Aktiv lytting, oppsummere problemet med egne ord, avklare mål, to–tre spørsmål som <i>endrer</i> strukturen</td></tr>
+  <tr><td>Struktur og forklaring</td><td class="n">4–5 min</td><td>Under to minutter på selve framføringen; overskrifter først, så dybden; hypotese og prioritert gren til slutt</td></tr>
+  <tr><td>Løsningsbygging</td><td class="n">8–10 min</td><td>Grave etter tall, teste hypotesen, gruppere brainstorming</td></tr>
+  <tr><td>Matte og eksponater</td><td class="n">3–5 min</td><td>Si oppsettet høyt før du regner, sanity-sjekk, «so what» umiddelbart etter</td></tr>
+  <tr><td>Syntese og anbefaling</td><td class="n">2–3 min</td><td>Svar først, to–tre grunner med harde tall, risiko, neste steg</td></tr>
+</table>
+
+<p>To konsekvenser er verdt å ta med seg. For det første: strukturen har et hardt tak på rundt to minutter, og bruker du fire, stjeler du dem fra løsningsbyggingen, ikke fra pausen. For det andre: hypotesen faller i minutt sju og skal leve i de neste ti. Den er ikke sluttproduktet — den er det som gjør de ti minuttene målrettede i stedet for utforskende.</p>
+
+<h3>4.5 Når intervjueren dytter</h3>
+
+<p>Et motargument midt i casen er nesten alltid informasjon, ikke en felle. BCG lister på sin egen side «ignorér tilbakemelding» blant tingene man ikke skal gjøre — i praksis et krav om å <i>snu</i> når du blir dyttet på. Bain ber deg dele resonnement og utregninger selv når du er usikker. Kandidater som blir tause når hypotesen slår sprekker, gir vurdereren ingenting å vurdere.</p>
+
+<p>Setningen som redder situasjonen er kort og skal øves inn: <i>«Da faller hypotesen min. Det betyr at netto pris ikke er kilden, og at kostnad per solgte rom er det eneste leddet igjen som er stort nok. Jeg vil derfor se på lønnstimer per solgte rom, splittet på fast og innleid.»</i> Tre deler: erkjenn, si hva det utelukker, oppgi neste trekk. Det tar elleve sekunder, og det er hele forskjellen på en kandidat som ble motbevist og en som ble stoppet.</p>
+
+<div class="callout link"><span class="h">Her trener du dette</span>
+<p>Lynlæring · <b>Strukturer!</b> gir deg hypotesen og fellen etter hver av de 34 promptene. Fra og med nå skal du skrive begge deler før du åpner fasiten: hypotesen i én setning som utelukker noe, og «testen er …» i én til. Sammenlign så din test med fasitens — det er der forskjellen på A og C er lettest å se hos deg selv. I <b>casebiblioteket</b> holder du hypotesen levende gjennom en hel case, og øver på å forkaste den høyt når tallet motsier den.</p></div>
+</section>
+
+<hr class="sec">
+
+<section id="k5">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">5 · Casetypene og hva hver av dem egentlig spør om</h2>
+
+<p class="lead-in">En casetype er ikke en mal du henter fram. Den er en påstand om hvilket spørsmål klienten egentlig stiller, og dermed om hvilke drivere som må stå i treet for at svaret skal kunne finnes. Dette er et oppslagsverk: kjenn igjen typen, sjekk driverne, unngå fellen.</p>
+
+<h3>5.1 De sju spørsmålene</h3>
+
+<table class="data">
+  <tr><th>Casetype</th><th>Spørsmålet bak</th><th>Der de fleste ryker</th></tr>
+  <tr><td><b>Lønnsomhet</b></td><td>Hvilken gren bærer matematisk fallet?</td><td>Regner på totaler uten å segmentere</td></tr>
+  <tr><td><b>Markedsinngang</b></td><td>Er markedet attraktivt — og hvorfor akkurat oss?</td><td>Regner på markedet, glemmer kapabilitet</td></tr>
+  <tr><td><b>M&amp;A</b></td><td>Er A+B verdt mer enn A og B hver for seg, og klarer vi å hente det ut?</td><td>Teller synergier uten kostnaden ved å realisere dem</td></tr>
+  <tr><td><b>Prising</b></td><td>Hvor ligger gulvet, taket — og hva er egentlig målet?</td><td>Hopper til et tall før målet er avklart</td></tr>
+  <tr><td><b>Vekst</b></td><td>Hvilke vekstveier er store nok til å bety noe?</td><td>Lister ideer uten å prioritere</td></tr>
+  <tr><td><b>Kostnad / operations</b></td><td>Hvor er flaskehalsen, og er kuttet strukturelt?</td><td>Optimaliserer et trinn som ikke er flaskehalsen</td></tr>
+  <tr><td><b>Estimering</b></td><td>Hvilken kjede av kjente størrelser lander på dette tallet?</td><td>Begynner å regne før enheten er definert</td></tr>
+</table>
+
+<div class="callout warn">
+<span class="h">Ingen vet hvor vanlig hver type er</span>
+<p>Tall som «lønnsomhet er 30–40 % av alle caser» sirkulerer i prep-bransjen, men <b>ingen av kildene oppgir metode eller datagrunnlag</b>, og ingen av MBB publiserer slik statistikk. Wharton-casebooken lister typene helt uten frekvens. Bruk listen som gjenkjenningsverktøy, aldri som en oddstabell. Kildemerkene er de samme som i 2.2, med ett tillegg: <b>[U]</b> = studentdrevet casebook.</p>
+</div>
+
+<h3>5.2 Lønnsomhet</h3>
+
+<p>Identiteten fra 1.3 er startpunktet, ikke ferdigheten. Ferdigheten er <b>isolering</b>: finne grenen som matematisk bærer skiftet, og grave der til du treffer en driver noen kan handle på. Oppskriften er tre steg [P]: segmentér tallet mot historikk, isolér hoveddriveren, utforsk løsninger.</p>
+
+<table class="data">
+  <tr><th>Gren</th><th>Drivere som må med</th></tr>
+  <tr><td>Inntekt</td><td>Pris per enhet · volum (kunder × frekvens × mengde per kjøp) · realisert pris etter rabatt</td></tr>
+  <tr><td>Miks</td><td>Forskyvning mellom høy- og lavmarginprodukter, kanaler eller kundetyper</td></tr>
+  <tr><td>Kostnad</td><td>Variabel kostnad per enhet langs verdikjeden (råvare → produksjon → distribusjon → kunde) · faste kostnader</td></tr>
+  <tr><td>Utenfor selskapet</td><td>Bransjens utvikling og konkurrentenes tall — avgjør om problemet er ditt eller markedets [U]</td></tr>
+</table>
+
+<p>Segmenteringsakser: produkt, kanal, region, kundetype (ny mot gammel, stor mot liten), vertikal.</p>
+
+<div class="worked">
+<span class="wh">Gjennomregnet</span>
+<p>År 1: 100 enheter — 80 av produkt A (10 kr margin) og 20 av B (40 kr) = 800 + 800 = <b>1 600 kr</b>. År 2: fortsatt 100 enheter, uendrede priser, men miksen er blitt 90/10 = 900 + 400 = <b>1 300 kr</b>. Volum flatt, pris urørt, margin ned 19 %. Et rent pris/volum-tre fanger ingenting av dette — derfor står miks som egen gren.</p>
+</div>
+
+<div class="callout mistake">
+<span class="h">Diagnosen som aldri sjekket bransjen</span>
+<p>Faller klientens margin mens hele kategorien faller, er det en annen sykdom og en annen medisin. Be om ett konkurrent- eller kategoritall <i>før</i> du anbefaler noe. Den nest vanligste: å hoppe rett på kostnadskutt fordi det er lettest å strukturere.</p>
+</div>
+
+<h3>5.3 Markedsinngang</h3>
+
+<p>Fire spørsmål i rekkefølge, og rekkefølgen er poenget: er markedet attraktivt, kan vi vinne der, lønner det seg, og hvordan går vi inn [U].</p>
+
+<table class="data">
+  <tr><th>Lag</th><th>Drivere som må med</th></tr>
+  <tr><td>Attraktivitet</td><td>Størrelse, vekst, kundesegmenter, konsentrasjon, regulering, inngangsbarrierer</td></tr>
+  <tr><td>Kan vi vinne</td><td>Forretningsmessig og teknisk kapabilitet, differensiering, konkurrentenes sannsynlige respons</td></tr>
+  <tr><td>Lønner det seg</td><td>Marked × oppnåelig andel × margin − inngangskostnad · breakeven · tilbakebetalingstid · alternativkostnad</td></tr>
+  <tr><td>Hvordan</td><td>Bygge selv, kjøpe eller joint venture · timing · pilot</td></tr>
+</table>
+
+<div class="callout mistake">
+<span class="h">Markedsandelen plukket ut av lufta</span>
+<p>«Vi tar 10 %» er ikke en forutsetning, det er en gjetning med to sifre. Begrunn den: hvor mange spillere finnes, hva tar en ny aktør realistisk år 1 mot år 3, hva sier kapasiteten? Og avklar hva <i>suksess</i> betyr for klienten — andel, profitt eller strategisk fotfeste gir tre ulike anbefalinger.</p>
+</div>
+
+<h3>5.4 M&amp;A og due diligence</h3>
+
+<table class="data">
+  <tr><th>Lag</th><th>Drivere som må med</th></tr>
+  <tr><td>Standalone</td><td>Målets inntekter, marginer, vekst og kompetanse — hva selskapet er verdt uten deg</td></tr>
+  <tr><td>Synergi</td><td>Kostnadssynergier (overlappende funksjoner, innkjøpsmakt), inntektssynergier (kryssalg, kanaltilgang), teknologi — alltid med realiseringskostnad og tid</td></tr>
+  <tr><td>Realisering</td><td>Premien du betaler, finansiering, integrasjon (PMI), kulturell fit, kunderespons, kjøpers oppkjøpserfaring</td></tr>
+</table>
+
+<p>Den klareste A-mot-C-markøren i M&amp;A er å si hvilket av to ulike spørsmål du er i [P]. Er A og B <b>ulike</b>, er spørsmålet om akkurat dette målet passer — det forutsetter at oppkjøp allerede er riktig grep. Er A og B <b>like</b> (kjøp av direkte konkurrent), er spørsmålet i realiteten hva som skjer med markedsklarerende pris når kapasitet konsolideres. Å navngi hvilket du svarer på, gjør mer enn en gren til.</p>
+
+<div class="callout mistake">
+<span class="h">Synergien som allerede er betalt for</span>
+<p>Kjøper betaler en premie. Er prisen høy nok, tilfaller hele synergien selger, og en teknisk korrekt synergianalyse fører til et tapsbringende kjøp. Spør alltid hva som betales, ikke bare hva som skapes.</p>
+</div>
+
+<h3>5.5 Prising</h3>
+
+<div class="formula">
+  <div class="eq">Gulv = variabel kostnad per enhet · Tak = kundens betalingsvillighet · Pris = et valg mellom dem, gitt målet</div>
+  <div class="where">Gulvet settes av kostnad, taket av kundens neste-beste alternativ pluss verdien av differansen, og konkurrentprisene sier hvor i intervallet markedet forventer deg. Avstanden gulv–tak <i>er</i> prisingsmakten — er den liten, er casen egentlig en kostnadscase.</div>
+</div>
+
+<table class="data">
+  <tr><th>Metode</th><th>Hva den gir deg</th></tr>
+  <tr><td>Kostnadsbasert</td><td>Gulvet: variabel kostnad pluss påslag</td></tr>
+  <tr><td>Verdibasert</td><td>Taket: kundens neste-beste alternativ pluss verdien av differansen, kvantifisert</td></tr>
+  <tr><td>Konkurrentbasert</td><td>Posisjoneringen mellom gulv og tak</td></tr>
+</table>
+
+<div class="callout mistake">
+<span class="h">Prisen uten målet</span>
+<p>Å prise for margin og å prise for markedsandel gir motsatt svar på samme case. Avklar målet før tallet. Og ta med elastisitet og konkurrentrespons: en prisreduksjon som utløser priskrig gjør alle fattigere, inkludert klienten som «vant».</p>
+</div>
+
+<h3>5.6 Vekst</h3>
+
+<p>Todelingen samme mot nytt marked × samme mot nytt produkt, med et kapabilitets- og risikolag under [U]:</p>
+
+<table class="data">
+  <tr><th>Kvadrant</th><th>Drivere som må med</th></tr>
+  <tr><td>Samme marked, samme produkt</td><td>Flere kunder, høyere penetrasjon, høyere frekvens, lojalitet, pris</td></tr>
+  <tr><td>Samme marked, nytt produkt</td><td>Kryssalg, utviklingskostnad, kannibalisering</td></tr>
+  <tr><td>Nytt marked, samme produkt</td><td>Ny geografi, nytt segment, ny kanal — med CAGE-avstand: kulturell, administrativ, geografisk, økonomisk</td></tr>
+  <tr><td>Nytt marked, nytt produkt</td><td>Høyest risiko; krever sin egen begrunnelse for å stå i treet</td></tr>
+</table>
+
+<div class="callout mistake">
+<span class="h">Idélista uten prioritering</span>
+<p>En vekstcase avgjøres i prioriteringen, ikke i idémyldringen. Hver idé skal ha et grovt størrelsesanslag og en gjennomførbarhetsvurdering. To ting glemmes systematisk: at vekst koster kapital og folk, og at nytt produkt kan spise det gamle.</p>
+</div>
+
+<h3>5.7 Kostnad og operations</h3>
+
+<p>To beslektede, men ulike caser. Den ene spør hvor pengene ligger, den andre hvor systemet stopper.</p>
+
+<table class="data">
+  <tr><th>Variant</th><th>Drivere som må med</th></tr>
+  <tr><td>Kostnadskutt</td><td>Fast mot variabel · kostnad per trinn i verdikjeden · benchmark mot bransjen · strukturelt mot kosmetisk kutt · tidshorisont og menneskelige konsekvenser</td></tr>
+  <tr><td>Kapasitet</td><td>Throughput, syklustid, ledetid, flaskehals, utnyttelse = faktisk output / maksimal output</td></tr>
+</table>
+
+<p>Flaskehalsen bestemmer gjennomstrømningen for hele systemet, og du finner den ved å sammenligne hvert trinns kapasitet mot etterspørselen inn i trinnet — ikke ved å lete etter trinnet som ser tregest ut.</p>
+
+<div class="callout mistake">
+<span class="h">Kuttet som kostet inntekt</span>
+<p>Den vanligste fellen er å kutte i salg, kundeoppfølging eller markedsføring fordi de er lette å strukturere. To til: å behandle lønn som fast når den er variabel over tid, og å regne med 100 % utnyttelse, som ingen anlegg har.</p>
+</div>
+
+<h3>5.8 Estimering</h3>
+
+<table class="data">
+  <tr><th>Retning</th><th>Kjeden</th><th>Sterkest for</th></tr>
+  <tr><td>Top-down</td><td>Befolkning → husholdninger → andel med behovet → frekvens → enhet</td><td>Brede konsumentmarkeder</td></tr>
+  <tr><td>Bottom-up</td><td>Én enhet (butikk, maskin, kunde) → produksjon per enhet → antall enheter</td><td>B2B, infrastruktur, kapasitetsbegrensede markeder</td></tr>
+</table>
+
+<p>Fire regler bærer nesten hele karakteren: definér enheten før du regner (kroner eller stykk, per år eller per dag), aldri 0 % eller 100 %, hold modellen grov, og sanity-sjekk mot noe du vet fra før.</p>
+
+<div class="callout mistake">
+<span class="h">Modellen som ble finere enn forutsetningene</span>
+<p>Fem steg med to godt begrunnede antakelser slår tolv steg med ti gjettede. Feilen ligger alltid i forutsetningene, aldri i desimalene — og det er forutsetningene du sier høyt som vurderes, ikke tallet du lander på.</p>
+</div>
+
+<h3>5.9 De som ikke passer i en boks</h3>
+
+<table class="data">
+  <tr><th>Case</th><th>Slik brytes den ned</th></tr>
+  <tr><td>Turnaround</td><td>Lønnsomhetstreet pluss en tidsakse: stopp blødningen (likviditet), diagnostisér om problemet er strukturelt eller operasjonelt, og skill hva som må gjøres innen 90 dager fra hva som tar tre år</td></tr>
+  <tr><td>PE-vurdering</td><td>Vokser markedet · kan målet fortsette å vinne · holder enhetsøkonomien · hva kan velte dealen — pluss verdiskapingsplan, holdingperiode på 3–5 år og exit-rute</td></tr>
+  <tr><td>Offentlig sektor / NGO</td><td>Målfunksjonen er ikke profitt. Si eksplisitt hva som maksimeres, og under hvilken budsjettbeskrankning — typisk effekt per krone, rekkevidde, kvalitet, gjennomførbarhet</td></tr>
+</table>
+
+<div class="callout link">
+<span class="h">Der dette trenes</span>
+<p>Kapitlet skal slås opp i, ikke leses gjennom. Ferdigheten er å kjenne igjen typen på en prompt du aldri har sett, og den trenes to steder. I <b>struktureringsdrillen</b> (Lynlæring · Strukturer!): kjør åtte prompter i strekk, og si typen høyt <i>før</i> du bygger treet — også når prompten er en hybrid, som de fleste ekte caser er. I <b>casebiblioteket</b> i Casetrening: ta én hel case av hver type, fra prompt til anbefaling. Fallgruvene over lærer du ikke ved å lese dem, men ved å gå i hver av dem nøyaktig én gang.</p>
+</div>
+</section>
+
+<h2 class="part">Del II — Tall</h2>
+
+<section id="k6">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">6 · Hoderegning: teknikkene, og hvordan tallet sies høyt</h2>
+
+<p class="lead-in">Kalkulator er forbudt i det levende caseintervjuet hos MBB, og begrunnelsen husene selv gir er at en konsulent må kunne gi klienten et holdbart tall uten hjelpemidler. Men presisjon er ikke kravet. Et retningsriktig svar levert raskt, med framgangsmåten sagt høyt, slår et perfekt tall regnet i stillhet.</p>
+
+<h3>6.1 Tre ting vurderes samtidig</h3>
+
+<p>Oppsettet: velger du riktig formel. Utførelsen: regner du riktig nok. Formidlingen: sier du hva du gjør mens du gjør det, så intervjueren kan stoppe deg før du har bygget fem ledd på en feil. De to første er teknikk og står i 6.2–6.8. Den tredje står i 6.9, og den er den som oftest mangler hos folk som regner godt.</p>
+
+<h3>6.2 Strip nullene, fest dem tilbake</h3>
+
+<p>Del hvert tall i sifre og tierpotens, regn de to som atskilte regnestykker, og sett dem sammen først til slutt. Teknikken forebygger flest katastrofer, fordi den gjør størrelsesorden til noe du kontrollerer bevisst.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet</span>
+<p><b>32 × 25 000.</b> Sifrene: 32 × 25 = 800. Nullene: tre stykker, altså 10<sup>3</sup>. Svar: 800 000.</p>
+<p><b>1,4 mrd × 350 kr.</b> Mantissene: 1,4 × 3,5 = 4,9. Potensene: 10<sup>9</sup> × 10<sup>2</sup> = 10<sup>11</sup>. Svar: 490 mrd kr.</p>
+<p><b>96 × 1 300 000.</b> Ekspander rundt et rundt tall: (100 − 4) × 1,3 mill. = 130 mill. − 5,2 mill. = 124,8 mill.</p>
+</div>
+
+<div class="callout mistake"><span class="h">Å miste en tierpotens</span>
+<p>Kildene er samstemte om at dette er <i>den</i> vanligste feilen. Symptomet er at svaret er tusen ganger for stort eller for lite, mens kandidaten regner videre uanfektet. Motgiften er mekanisk: skriv potensen som eget tall i margen, og kontroller den før du kontrollerer sifrene.</p></div>
+
+<h3>6.3 Regn i enheter, ikke i siffer</h3>
+
+<p>Skriv <b>250M + 300M + 150M = 700M</b>. Aldri skriv ut nullene. Enheten — kr, mill., per måned, per husholdning — skal stå på <i>hver eneste linje</i>. Å droppe den er den nest vanligste feilkilden, og den gir feil som ser helt plausible ut: «30 klasserom per elev» i stedet for «30 elever per klasserom», eller en månedsinntekt levert som årsinntekt.</p>
+
+<h3>6.4 Prosentankere: bygg alt fra 10 % og 1 %</h3>
+
+<p>Ingen prosentregning gjøres direkte. Alt bygges av to ankere: 10 % er å dele på 10, 1 % er å dele på 100. Resten er addisjon og subtraksjon.</p>
+
+<table class="data">
+  <tr><th>Vil ha</th><th>Bygg som</th><th>Eksempel</th><th class="n">Svar</th></tr>
+  <tr><td>5 %</td><td>halvparten av 10 %</td><td>5 % av 2,9 mill.</td><td class="n">145 000</td></tr>
+  <tr><td>15 %</td><td>10 % + 5 %</td><td>15 % av 800</td><td class="n">120</td></tr>
+  <tr><td>18 %</td><td>20 % − 2 %</td><td>18 % av 250</td><td class="n">45</td></tr>
+  <tr><td>0,5 %</td><td>halvparten av 1 %</td><td>0,5 % av 2,9 mill.</td><td class="n">14 500</td></tr>
+  <tr><td>35 %</td><td>25 % + 10 %</td><td>35 % av 40 mrd</td><td class="n">14 mrd</td></tr>
+</table>
+
+<p>To reverseringer må sitte som refleks, fordi begge ligger som ferdig utregnet feilsvar i enhver flervalgstest:</p>
+
+<div class="formula">
+  <div class="eq">Opprinnelig verdi = ny verdi / (1 − fallet)&nbsp;&nbsp;&nbsp;— ikke ny verdi × (1 + fallet)</div>
+  <div class="where">Prisen falt 20 % til 1 200 kr. Riktig: 1 200 / 0,8 = 1 500 kr. Feilsvaret 1 200 × 1,2 = 1 440 kr avsløres av kontrollen: 240 / 1 440 = 16,7 %, ikke 20 %. Prosenten ble regnet av det gamle tallet, så du må dele deg tilbake.</div>
+</div>
+
+<div class="callout warn"><span class="h">Prosentpoeng er ikke prosent</span>
+<p>Marginen gikk fra 8 % til 10 %. Det er +2 <i>prosentpoeng</i>, og +25 % relativt (2 / 8). Begge tall ligger i svaralternativene. Si ordet «prosentpoeng» høyt hver gang du sammenligner to prosenttall.</p></div>
+
+<h3>6.5 Rund av — og rund i motsatt retning</h3>
+
+<p>Avrunding er ikke slurv, det er metode, men den har en regel: <b>rund én faktor opp og den andre ned</b>, så feilene motvirker hverandre. Runder du begge samme vei, dobler du feilen i stedet for å nulle den ut. Tommelfingerregelen fra flere kilder er å ikke runde mer enn 10 % på ett enkelt ledd.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet</span>
+<p><b>19 × 41.</b> Rund én opp og én ned: 20 × 40 = 800. Fasit er 779, altså 2,7 % bom. Godt nok.</p>
+<p><b>19 × 39.</b> Her fristes du til samme grep: 20 × 40 = 800. Men fasit er 741 — 8 % bom, fordi begge ble rundet opp. Riktig her: 20 × 39 = 780, minus 39 = 741 eksakt.</p>
+<p><b>18 % av 250, med etterkorreksjon.</b> Ta 20 % av 250 = 50. Du rundet 18 opp til 20, altså 10 % for mye (2 / 20). Trekk fra 10 %: 50 − 5 = 45. Fasit 45.</p>
+</div>
+
+<h3>6.6 Halver og doble, omorganiser, faktoriser</h3>
+
+<p>Seks grep som gjør stygge regnestykker til pene. De koster ingenting å lære, og sparer sekunder hver gang.</p>
+
+<table class="data">
+  <tr><th>Grep</th><th>Regel</th><th>Eksempel</th><th class="n">Svar</th></tr>
+  <tr><td>Halver og doble</td><td>halver den ene, doble den andre</td><td>160 × 350 → 80 × 700</td><td class="n">56 000</td></tr>
+  <tr><td>Omorganiser</td><td>ta det pene paret først</td><td>125 × 2,5 × 4 → (125 × 4) × 2,5</td><td class="n">1 250</td></tr>
+  <tr><td>Faktoriser 25</td><td>× 25 = × 100 / 4</td><td>84 × 25 → 8 400 / 4</td><td class="n">2 100</td></tr>
+  <tr><td>Faktoriser 5</td><td>× 5 = × 10 / 2, og / 5 = × 2 / 10</td><td>860 × 5 → 8 600 / 2</td><td class="n">4 300</td></tr>
+  <tr><td>Del på 8</td><td>halver tre ganger</td><td>4 400 → 2 200 → 1 100</td><td class="n">550</td></tr>
+  <tr><td>Del på 6</td><td>del på 3, så halver</td><td>1 800 → 600</td><td class="n">300</td></tr>
+</table>
+
+<h3>6.7 Divisjon er oppslag, ikke lang divisjon</h3>
+
+<p>Gjør aldri lang divisjon i et intervju — gjenkjenn brøken. Tabellen skal sitte begge veier, for det er den som gjør «hvor mange prosent er 55 av 440» til et oppslag: 440 / 55 = 8, altså 1/8, altså 12,5 %.</p>
+
+<table class="data">
+  <tr><th>Brøk</th><th class="n">%</th><th>Brøk</th><th class="n">%</th><th>Brøk</th><th class="n">%</th></tr>
+  <tr><td>1/2</td><td class="n">50</td><td>1/7</td><td class="n">14,3</td><td>1/12</td><td class="n">8,3</td></tr>
+  <tr><td>1/3</td><td class="n">33,3</td><td>1/8</td><td class="n">12,5</td><td>1/13</td><td class="n">7,7</td></tr>
+  <tr><td>1/4</td><td class="n">25</td><td>1/9</td><td class="n">11,1</td><td>1/14</td><td class="n">7,1</td></tr>
+  <tr><td>1/5</td><td class="n">20</td><td>1/10</td><td class="n">10</td><td>1/15</td><td class="n">6,7</td></tr>
+  <tr><td>1/6</td><td class="n">16,7</td><td>1/11</td><td class="n">9,1</td><td>2/3</td><td class="n">66,7</td></tr>
+  <tr><td>3/4</td><td class="n">75</td><td>3/8</td><td class="n">37,5</td><td>5/8</td><td class="n">62,5</td></tr>
+</table>
+
+<div class="callout tip"><span class="h">Snarveiene som følger av tabellen</span>
+<p>Å dele på 9 er å dele på 10 og legge til rundt 11 %: 4 500 / 10 = 450, pluss 11 % = 499,5, fasit 500. Å dele på 7 er å gange med 0,143. Begge er raskere enn divisjonen, og begge gir deg et tall du kan si høyt med én gang.</p></div>
+
+<h3>6.8 Regel om 72 — begge veier</h3>
+
+<p>Framover gir regelen doblingstid. <b>Baklengs er den CAGR-trikset</b>, og det er den retningen som faktisk kommer: du får to tall og et antall år, og skal si en vekstrate uten å ta n-te rot av noe.</p>
+
+<div class="formula">
+  <div class="eq">Doblingstid ≈ 72 / vekstrate&nbsp;&nbsp;&nbsp;⇔&nbsp;&nbsp;&nbsp;CAGR ≈ 72 / antall år til dobling</div>
+  <div class="where">Tredobling bruker 114 i stedet for 72, firedobling bruker 144. Regelen er en tilnærming, og den er best mellom rundt 5 % og 15 %.</div>
+</div>
+
+<table class="data">
+  <tr><th>Spørsmål</th><th>72-svaret</th><th class="n">Fasit</th></tr>
+  <tr><td>8 % vekst — når er det doblet?</td><td>72 / 8 = 9 år</td><td class="n">9,0 år</td></tr>
+  <tr><td>12 % vekst — når er det doblet?</td><td>72 / 12 = 6 år</td><td class="n">6,1 år</td></tr>
+  <tr><td>Doblet på 10 år — hva er CAGR?</td><td>72 / 10 = 7,2 %</td><td class="n">7,2 %</td></tr>
+  <tr><td>100 mill. til 200 mill. på 5 år?</td><td>72 / 5 ≈ 14 %</td><td class="n">14,9 %</td></tr>
+  <tr><td>10 % vekst — når er det tredoblet?</td><td>114 / 10 = 11,4 år</td><td class="n">11,5 år</td></tr>
+</table>
+
+<p>På kort horisont og lav rate kan du droppe regelen og gange lineært, men da må du si hvorfor: 4 % i 6 år er «litt over 25 %, fordi renters rente». Fasit er 26,5 %. Tre vekstfaktorer er verdt å kunne som oppslag: 1,1<sup>2</sup> = 1,21, 1,1<sup>3</sup> = 1,331 og 1,1<sup>7</sup> ≈ 2.</p>
+
+<h3>6.9 Slik sier du tallet høyt</h3>
+
+<p>Dette scores, ikke bare regningen: kandidater som snakker gjennom utregningen får høyere uttelling på den kvantitative dimensjonen enn like nøyaktige kandidater som regner stille. Rekkefølgen er den samme hver gang:</p>
+
+<ol>
+<li><b>Si formelen før tallene.</b> «Jeg tar markedet ganger andelen vår, så trekker fra variable kostnader.» Nå kan intervjueren korrigere oppsettet før du har brukt tid på feil regnestykke.</li>
+<li><b>Be om lov til å runde.</b> «Er det greit at jeg runder til nærmeste million?» Svaret er nesten alltid ja, og du har flagget presisjonsnivået gratis.</li>
+<li><b>Si størrelsesorden først.</b> «Dette lander i milliarder, ikke millioner — la meg finne sifrene.» Da har intervjueren et grovsvar allerede etter tre sekunder.</li>
+<li><b>Si enheten hver gang.</b> «Åttehundre — <i>millioner kroner</i> — <i>per år</i>.»</li>
+<li><b>Aldri stille i mer enn 15–20 sekunder.</b> Si «jeg regner 24 ganger 125 millioner nå» i stedet for å gå i svart. Stillhet er selvskading: ingen kan redde deg gjennom den.</li>
+<li><b>Flagg retningen på avrundingen.</b> «Jeg rundet opp, så det virkelige tallet ligger litt under 600 millioner — rundt 585.»</li>
+<li><b>Lever hodetallet først, konteksten etterpå.</b> «Cirka 45 millioner. Det er rundt en tredjedel av dagens omsetning, så dette er materielt og bør forfølges.» Et tall uten tolkning er et halvt svar.</li>
+</ol>
+
+<div class="callout mech"><span class="h">Sanity-sjekken er en del av utregningen</span>
+<p>Det er ikke regnefeilen som feller kandidaten — det er at hun ikke oppdager at svaret er absurd. Å regne riktig, men ikke fange et urimelig tall, leses som svak konsulentintuisjon. Legg derfor til ett siste ledd i hver eneste utregning: del svaret på noe du har erfaring med, og si høyt om det er troverdig.</p></div>
+
+<div class="callout link"><span class="h">Nå trener du det</span>
+<p><b>Lynlæring · Hoderegning</b> driller teknikkene i 6.2–6.8 til de går av seg selv: prosentankere, brøkoppslag, tierpotenser og 72-regelen begge veier, på tid. <b>Lynlæring · Finn feilen</b> tar den andre halvparten — du får en ferdig utregning og skal peke på linjen der den ryker. Distraktorene er de faktiske feilene fra dette kapitlet: reversert prosent, prosentpoeng lest som prosent, snudd enhet og tapt tierpotens. Kjør hoderegningskort daglig i korte økter; det er den eneste ferdigheten i kurset som blir målbart bedre av ren mengde.</p></div>
+</section>
+
+<hr class="sec">
+
+<section id="k7">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">7 · Estimering og den norske tallbanken</h2>
+
+<p class="lead-in">En estimeringsoppgave måler ikke om du kjenner tallet. Den måler om du kan bygge en ligning av forutsetninger du selv våger å sette, si hvor hver av dem kommer fra, og oppdage selv når svaret er absurd. Tallbanken nedenfor er det eneste i dette kapitlet som skal pugges — resten er en framgangsmåte.</p>
+
+<h3>7.1 Topp-ned mot bunn-opp</h3>
+
+<table class="data">
+  <tr><th></th><th>Topp-ned</th><th>Bunn-opp</th></tr>
+  <tr><td>Start</td><td>En makrostørrelse: befolkning, husholdninger, BNP</td><td>Én liten enhet: én butikk, én dag, én maskin, én bil</td></tr>
+  <tr><td>Retning</td><td>Segmenter nedover til målgruppen</td><td>Skaler oppover til hele markedet</td></tr>
+  <tr><td>Passer</td><td>Forbrukermarkeder</td><td>B2B, infrastruktur, kapasitetsbegrensede markeder</td></tr>
+  <tr><td>Typisk feil</td><td>For mange segmenteringssteg — du mister sporet</td><td>Enheten du bygger på er ikke representativ</td></tr>
+</table>
+
+<p>Valget begrunnes høyt, og begrunnelsen er nesten alltid den samme: har markedet en naturlig makrostørrelse over seg, går du topp-ned; er det <i>kapasitet</i> som setter grensen, går du bunn-opp, fordi et markedstall ikke gir deg noen ligning å regne i. Best praksis er å gjøre den ene og krysspeile med den andre.</p>
+
+<p>Den vanligste svakheten er ikke å velge feil, men å velge uten å si at man valgte. Intervjueren kan ikke skille en kandidat som traff fra en som gjettet, hvis begrunnelsen aldri ble uttalt. Og segmenter du for langt ned, mister du sporet: tre filtre er som regel nok, fire er ett for mye, og hvert filter du legger på må gjøre svaret <i>mer</i> presist, ikke bare mer detaljert.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet</span>
+<p><b>Krysspeiling.</b> «Jeg fikk 2,8 mrd topp-ned. La meg sjekke bunn-opp: 3 800 butikker × 1 900 kr per dag × 310 åpningsdager ≈ 2,2 mrd. Samme størrelsesorden — jeg lander på 2–3 milliarder.» Kravet er ikke at de to møtes, kravet er at de havner i samme tierpotens.</p>
+</div>
+
+<h3>7.2 Strukturen intervjueren vil se</h3>
+
+<p>Fem til sju steg, uttalt <i>før</i> du regner et eneste tall:</p>
+
+<ol>
+<li>Avklar hva som skal måles: enheter eller kroner? Per år? Hvilken geografi?</li>
+<li>Velg tilnærming, og si hvorfor.</li>
+<li>Skriv ligningen i symboler: <b>befolkning × andel × frekvens × pris</b>.</li>
+<li>Segmenter langs <b>én</b> akse om gangen.</li>
+<li>Sett tall på hver forutsetning, og si hvor tallet kommer fra.</li>
+<li>Regn, med avrundingen flagget.</li>
+<li>Sanity-sjekk, og oppgi svaret med enhet og et usikkerhetsspenn.</li>
+</ol>
+
+<h3>7.3 Segmenteringsakser som betaler seg</h3>
+
+<ul>
+<li><b>Alder</b> — barn, yrkesaktive, pensjonister. Tallbanken er delt langs denne aksen, så du slipper å gjette på grensene.</li>
+<li><b>Husholdning mot individ</b> — den akselen som koster mest å bomme på. TV, bil, vaskemaskin, hund og strømmeabonnement er per <i>husholdning</i>. Teller du dem per person, dobler du svaret.</li>
+<li><b>By mot land</b> — Oslo kommune er rundt 13 % av befolkningen.</li>
+<li><b>Bruker mot ikke-bruker</b>, og deretter tung mot lett bruker.</li>
+<li><b>Nysalg mot erstatningssalg</b> — se 7.4.</li>
+</ul>
+
+<h3>7.4 Levetidstrikset</h3>
+
+<p>Grepet som løser en påfallende stor andel av alle sizing-oppgaver, og det snur oppgaven: i stedet for å gjette hvor mange som kjøper i år, teller du hvor mange som eier, og lar levetiden fortelle deg hvor mange av dem som må skiftes ut. Et modent marked selger nesten bare erstatninger. Eierskap er dessuten noe du har egen erfaring med, mens kjøpsfrekvens ikke er det — derfor er dette den tryggeste forutsetningen du kan bygge på.</p>
+
+<div class="formula">
+  <div class="eq">Årlig marked = installert base / gjennomsnittlig levetid&nbsp;&nbsp;(+ vekst i basen)</div>
+  <div class="where">Vekstleddet skilles ut fordi de to oppfører seg helt ulikt: erstatningsvolumet er stabilt og forutsigbart, mens veksten svinger med konjunktur og befolkning.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet</span>
+<p><b>Nye personbiler i Norge per år.</b> Basen er 2,9 mill. biler, og en norsk bil lever rundt 17 år. Erstatning: 2,9 mill. / 17 ≈ 170 000. Bilparken vokser rundt 0,5 % i året: 1 % av 2,9 mill. er 29 000, halvparten er ~15 000. Sum: 185 000 biler. Faktisk førstegangsregistrert i 2025: 184 705.</p>
+<p><b>Oppvaskmaskiner.</b> Riktig akse er husholdning: 2,65 mill. × 75 % dekning ≈ 1,99 mill. maskiner. Levetid ~12 år gir 1,99 mill. / 12 ≈ 165 000 enheter i året, og til ~7 000 kr stykket blir markedet ~1,2 mrd kr.</p>
+</div>
+
+<h3>7.5 Tallbanken</h3>
+
+<p>Alle tall er fra SSB der ikke annet er nevnt, med årstall i venstre kolonne. <b>Lær kolonnen til høyre.</b> Poenget er ikke å ha rett desimal — det er å ha tallet tilgjengelig uten oppslag, som et anker du kan si høyt mens du tegner ligningen. Et drilltall du må lete etter, koster mer tid enn det sparer.</p>
+
+<p>Si alltid hvor tallet kommer fra når du bruker det: «befolkningen er 5,6 millioner» er et faktum du kan stå for, mens «anta at 40 % går på kafé» er et skjønn du selv har satt. Å holde de to fra hverandre høyt er noe av det som skiller en sterk estimeringsbesvarelse fra en middels.</p>
+
+<table class="data">
+  <tr><th>Størrelse</th><th class="n">Faktisk</th><th class="n">Drilltall</th></tr>
+  <tr><td>Befolkning (1.1.2026)</td><td class="n">5 627 400</td><td class="n"><b>5,6 mill.</b></td></tr>
+  <tr><td>Husholdninger (2025)</td><td class="n">2 649 395</td><td class="n"><b>2,65 mill.</b></td></tr>
+  <tr><td>Personer per husholdning</td><td class="n">2,1</td><td class="n"><b>~2,1</b></td></tr>
+  <tr><td>Barn 0–12 år</td><td class="n">omtrent 761 000</td><td class="n"><b>0,75 mill.</b></td></tr>
+  <tr><td>Ungdom 13–19 år</td><td class="n">omtrent 478 000</td><td class="n"><b>0,5 mill.</b></td></tr>
+  <tr><td>20–44 år</td><td class="n">1 865 473</td><td class="n"><b>1,9 mill.</b></td></tr>
+  <tr><td>45–66 år</td><td class="n">1 563 660</td><td class="n"><b>1,55 mill.</b></td></tr>
+  <tr><td>67 år og eldre</td><td class="n">omtrent 960 000</td><td class="n"><b>1,0 mill.</b></td></tr>
+  <tr><td>Fødsler per år</td><td class="n">omtrent 55 000</td><td class="n"><b>55 000</b></td></tr>
+  <tr><td>Dødsfall per år</td><td class="n">omtrent 43 000</td><td class="n"><b>43 000</b></td></tr>
+  <tr><td>Sysselsatte (juli 2026)</td><td class="n">2 929 000</td><td class="n"><b>2,9 mill.</b></td></tr>
+  <tr><td>Arbeidsstyrken</td><td class="n">omtrent 3 067 000</td><td class="n"><b>3,1 mill.</b></td></tr>
+  <tr><td>Aktive bedrifter (2026)</td><td class="n">656 500</td><td class="n"><b>0,65 mill.</b></td></tr>
+  <tr><td>— av dem med ansatte</td><td class="n">207 800</td><td class="n"><b>0,2 mill.</b></td></tr>
+  <tr><td>BNP (2025)</td><td class="n">5 518 mrd kr</td><td class="n"><b>5 500 mrd</b></td></tr>
+  <tr><td>Fastlands-BNP (2025)</td><td class="n">4 400 mrd kr</td><td class="n"><b>4 400 mrd</b></td></tr>
+  <tr><td>BNP per innbygger</td><td class="n">omtrent 980 000 kr</td><td class="n"><b>~1 mill. kr</b></td></tr>
+  <tr><td>Gj.sn. månedslønn (2025)</td><td class="n">62 070 kr</td><td class="n"><b>62 000 kr</b></td></tr>
+  <tr><td>Medianlønn (2025)</td><td class="n">55 800 kr</td><td class="n"><b>56 000 kr</b></td></tr>
+  <tr><td>Medianinntekt husholdning etter skatt (2024)</td><td class="n">676 100 kr</td><td class="n"><b>~675 000 kr</b></td></tr>
+  <tr><td>Boutgift per husholdning (2022)</td><td class="n">136 000 kr/år</td><td class="n"><b>~135 000 kr</b></td></tr>
+  <tr><td>Transportutgift per husholdning (2022)</td><td class="n">82 000 kr/år</td><td class="n"><b>~80 000 kr</b></td></tr>
+  <tr><td>Personbiler (2025)</td><td class="n">2 944 403</td><td class="n"><b>2,9 mill.</b></td></tr>
+  <tr><td>— av dem elbiler</td><td class="n">945 185</td><td class="n"><b>0,95 mill. (32 %)</b></td></tr>
+  <tr><td>Nyregistrerte personbiler (2025)</td><td class="n">184 705</td><td class="n"><b>~185 000</b></td></tr>
+  <tr><td>Oslo kommune</td><td class="n">728 714</td><td class="n"><b>0,73 mill.</b></td></tr>
+  <tr><td>Bergen / Trondheim</td><td class="n">294 860 / 218 460</td><td class="n"><b>0,3 / 0,22 mill.</b></td></tr>
+  <tr><td>Dagligvaremarkedet (2024, Konkurransetilsynet)</td><td class="n">227 mrd kr</td><td class="n"><b>~230 mrd</b></td></tr>
+</table>
+
+<h3>7.6 De avledede ankerne</h3>
+
+<p>Disse er viktigere enn rådataene, fordi de er ferdig regnet. Et anker du må regne ut i rommet er ikke et anker.</p>
+
+<table class="data">
+  <tr><th>Anker</th><th>Utregning</th><th class="n">Husk som</th></tr>
+  <tr><td><b>Én krone per nordmann per dag</b></td><td>5,6 mill. × 365</td><td class="n"><b>~2 mrd kr/år</b></td></tr>
+  <tr><td>Dagligvare per husholdning</td><td>230 mrd / 2,65 mill.</td><td class="n">~87 000 kr/år</td></tr>
+  <tr><td>Dagligvare per uke</td><td>87 000 / 52</td><td class="n">~1 700 kr</td></tr>
+  <tr><td>Dagligvare per innbygger</td><td>230 mrd / 5,6 mill.</td><td class="n">~41 000 kr/år</td></tr>
+  <tr><td>Ett prosentpoeng av dagligvare</td><td>1 % av 230 mrd</td><td class="n">2,3 mrd kr</td></tr>
+  <tr><td>Samlet lønnssum i Norge</td><td>2,9 mill. × 62 000 × 12</td><td class="n">~2 160 mrd kr</td></tr>
+  <tr><td>— som andel av fastlands-BNP</td><td>2 160 / 4 400</td><td class="n">~halvparten</td></tr>
+</table>
+
+<div class="callout tip"><span class="h">Kronen per dag er det nyttigste ankeret som finnes</span>
+<p>Fordi nesten alle norske forbruksestimater kan sies i den enheten. To kroner per nordmann per dag er ~4 mrd i året. Ti kroner er ~20 mrd. Hundre kroner er ~200 mrd, altså på nivå med hele dagligvaremarkedet — og det er umiddelbart absurd for ett enkelt produkt. Du får en øyeblikkelig plausibilitetssjekk uten å regne.</p></div>
+
+<p>Internasjonalt holder det med grovtallene: verden 8,0 mrd, Kina og India 1,4 mrd hver, EU 450 mill., USA 335 mill. med 130 mill. husholdninger, Tyskland 84 mill., Frankrike og Storbritannia 68 mill. hver, Japan 125 mill., Norden ~28 mill. Tidsankere: 8 760 timer i året, 250 arbeidsdager, 104 helgedager, 16 våkne timer i døgnet, 3 måltider per dag.</p>
+
+<h3>7.7 De fem sanity-grepene</h3>
+
+<p>Estimeringen er ikke ferdig når tallet foreligger. Sluttsteget er obligatorisk, og det er der oppgaven faktisk avgjøres. Det er nemlig ikke regnefeilen som feller kandidaten — det er at hun ikke oppdager at svaret er urimelig, og bygger en anbefaling på det. Bruk minst to av de fem grepene, og si begge høyt.</p>
+
+<ol>
+<li><b>Størrelsesorden.</b> Sjekk potensen før sifrene. Ganger du 125 millioner med 24, skal svaret havne i milliarder.</li>
+<li><b>Per capita eller per husholdning.</b> Del på 5,6 mill. eller 2,65 mill. «Det ble 56 mrd — altså 10 000 kr per nordmann per år på hundefôr. Åpenbart for høyt; jeg har gått galt på frekvensen.»</li>
+<li><b>Benchmark mot noe kjent.</b> Dagligvare 230 mrd er den beste norske målestokken, fordi nesten alle forbrukermarkeder skal ligge under den. Et norsk forbrukermarked over ~50 mrd er stort; over 200 mrd er nesten sikkert feil.</li>
+<li><b>Retningssjekk.</b> Endre én forutsetning og se om svaret beveger seg riktig vei. Dobler du kapasiteten per lader, skal antall ladere halveres. Går det motsatt vei, har du snudd en brøk.</li>
+<li><b>Baklengs til én forutsetning.</b> Det sterkeste grepet. «2,2 mrd fordelt på 3 800 butikker er 580 000 kr per butikk per år — altfor lite for en dagligvarebutikk, så noe skurrer.» Når baklengsregningen gjenskaper en forutsetning du selv satte, vet du at ingen tierpotens har falt ut underveis.</li>
+</ol>
+
+<div class="worked"><span class="wh">Gjennomregnet</span>
+<p><b>Kopper kaffe kjøpt på norske kafeer per år.</b> 5,6 mill. × 40 % kafégjengere = 2,24 mill. brukere. Frekvens: 1,5 kopp per uke × 52 = 78 kopper per år. Volum: 2,24 mill. × 78 ≈ 175 mill. kopper. Sanity: 175 / 5,6 ≈ 31 kopper per nordmann per år, altså én annenhver uke når også de som aldri går på kafé regnes med. Lavt nok til å være troverdig — anslaget står.</p>
+<p><b>Det norske frisørmarkedet.</b> Bygg snittet av segmenter i stedet for å gjette på totalen: ~4 klipp per innbygger per år. 5,6 mill. × 4 = 22,4 mill. klipp, à ~550 kr ≈ 12 mrd kr. Kapasitetssjekk baklengs: 22,4 mill. / 8 500 frisører / 250 arbeidsdager ≈ 10,5 klipp per frisør per dag. Det er i overkant av en normal arbeidsdag, så anslaget ligger i øvre kant — og <i>det</i> sier du høyt.</p>
+</div>
+
+<div class="callout link"><span class="h">Nå trener du det</span>
+<p><b>Lynlæring · Bygg estimatet</b> kjører hele kjeden i 7.2 steg for steg: du velger tilnærming, så segmenteringsakse, så settes forutsetningene én og én — og sanity-sjekken er et obligatorisk sluttsteg, ikke en høflighetsfrase. Minst halvparten av trinnene har ett svaralternativ som ligger nøyaktig én tierpotens fra fasit. Pugg drilltallene i 7.5 og ankerne i 7.6 <i>før</i> du starter; drillen forutsetter dem, og et anker du må slå opp er ikke et anker.</p></div>
+</section>
+
+<hr class="sec">
+
+<section id="k8">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">8 · Figurlesing og de ni fellene</h2>
+
+<p class="lead-in">Du får et ark, og de neste tretti sekundene avgjør mye. Figuren er nesten alltid konstruert slik at den nærmeste tolkningen er den gale — ikke for å lure deg, men fordi det er nettopp den forskjellen intervjueren vil se. Dette kapitlet er kort, fordi ferdigheten ikke er en innsikt. Den er en vane.</p>
+
+<h3>8.1 Åpningsrutinen</h3>
+
+<p>Rekkefølgen er nesten alltid den samme, og den er i seg selv en drillbar ferdighet. Gjør den i denne rekkefølgen hver eneste gang, også når figuren ser enkel ut.</p>
+
+<ol>
+<li><b>Be om et halvt minutt.</b> «Kan jeg få tretti sekunder til å lese dette?» Det er forventet, og det teller positivt.</li>
+<li><b>Les tittelen høyt.</b> Bokstavelig.</li>
+<li><b>Les aksene, enhetene og fotnoten høyt.</b> Det er her fellen ligger, hver gang. Si y-aksens <i>startverdi</i> som eget ord.</li>
+<li><b>Parafraser hva figuren viser, og be om bekreftelse.</b> «Dette er omsetning per region, i millioner kroner, for 2023 og 2025, med regionene stablet. Stemmer det?»</li>
+<li><b>Én observasjon, deretter én implikasjon.</b> Ikke les opp alle tallene. «Totalen er flat, men miksen har snudd — og det er poenget.»</li>
+<li><b>Koble tilbake til spørsmålet du stilte før du fikk arket.</b></li>
+<li><b>Si hva du vil vite videre.</b></li>
+</ol>
+
+<p>Pyramideprinsippet gjelder også her: konklusjonen først, tallene som støtte etterpå.</p>
+
+<h3>8.2 Diagramtypene og hva som leses først</h3>
+
+<table class="data">
+  <tr><th>Type</th><th>Hva den skal si</th><th>Det som må leses først</th></tr>
+  <tr><td>Stablet søyle</td><td>Total <i>og</i> sammensetning</td><td>Totalen først, så miksendringen over tid</td></tr>
+  <tr><td>100 % stablet</td><td>Bare miks — ingen nivåer</td><td>Aldri les nivå ut av denne. Spør etter totalen</td></tr>
+  <tr><td>Klynget søyle</td><td>Direkte sammenligning innad i kategori</td><td>Hvilken dimensjon er gruppert, hvilken er farget</td></tr>
+  <tr><td>Linje / tidsserie</td><td>Trend og vendepunkt</td><td>Er y-aksen absolutt eller indeksert? Hvor starter den?</td></tr>
+  <tr><td>Vannfall / bro</td><td>Hvordan A ble til B, ledd for ledd</td><td>Fortegn og rekkefølge. Kontroller at broen går opp</td></tr>
+  <tr><td>Pris-, volum- og mikseffekt</td><td>De tre driverne hver for seg</td><td>Hvilken effekt er størst i absoluttverdi — det er svaret</td></tr>
+  <tr><td>Spredningsplott</td><td>Samvariasjon mellom to variabler</td><td>Uteliggere og klynger, ikke trendlinjen</td></tr>
+  <tr><td>Boblediagram</td><td>Tre dimensjoner samtidig</td><td>Hva boblestørrelsen faktisk måler</td></tr>
+  <tr><td>Mekko / markedskart</td><td>Segmentstørrelse × vår andel</td><td>Areal er kroner. Bredeste søyle er ikke størst</td></tr>
+  <tr><td>Kakediagram</td><td>Andel av en helhet, ett tidspunkt</td><td>Hva er totalen i kroner? Står den noe sted?</td></tr>
+  <tr><td>Indeksert tidsserie</td><td>Relativ utvikling fra et basisår</td><td>Basisåret, og at 120 ikke er 120 enheter</td></tr>
+</table>
+
+<h3>8.3 Aksekuttet, og hvorfor det må drilles mekanisk</h3>
+
+<p>Y-aksen starter på 90 i stedet for på 0. Verdiene er 94 og 98. Den plottede høyden går fra fire til åtte enheter over grunnlinjen, så søylen ser dobbelt så høy ut. Den faktiske veksten er (98 − 94) / 94 = 4,3 %.</p>
+
+<p>Dette er den best dokumenterte fellen som finnes i figurlesing, og funnene er ubehagelige. Effekten <b>vedvarer etter at folk er opplært i den</b>. Grafkompetanse beskytter ikke — de som leser figurer godt påvirkes også. Over fem studier ble 83,5 % av deltakerne påvirket.</p>
+
+<p>Konklusjonen skal sies rett ut, fordi den styrer hvordan du øver: <b>du kan ikke forstå deg ut av denne fellen.</b> Å vite at aksekutt finnes hjelper deg ikke i rommet. Det eneste som virker er en mekanisk vane som utløses av synet av en y-akse, før du har rukket å danne deg et inntrykk: <i>les startverdien høyt, og regn endringen som prosent av startverdien.</i> Ikke fordi du er dum, men fordi persepsjonen din leverer svaret sitt før tenkningen får slippe til.</p>
+
+<div class="callout mech"><span class="h">Vanen, ordrett</span>
+<p>«Y-aksen starter på 90, ikke på null, så jeg leser tallene og ikke høyden. Fra 94 til 98 er 4 av 94, altså 4,3 prosent.» Én setning, hver gang, også når aksen faktisk starter på null — da er den gratis og tar to sekunder.</p></div>
+
+<h3>8.4 De ni fellene</h3>
+
+<ol>
+<li><b>Aksekutt.</b> Se 8.3. Den kommer ofte sammen med en annen felle: en andel som går fra 24,2 % til 24,8 % på en akse fra 24 til 25 ser firedoblet ut, men er +0,6 prosentpoeng, altså 2,5 % relativt.</li>
+<li><b>Indeks forvekslet med absolutt.</b> Segment A går fra indeks 100 til 130, segment B fra 100 til 110. Det sier <i>ingenting</i> om hvem som er størst. Med 200 mill. kr i basisåret vokser A med 60 mill.; med 3 000 mill. kr vokser B med 300 mill. Den bratteste kurven kan tilhøre det minste segmentet.</li>
+<li><b>Prosent av prosent.</b> 20 % andel i et segment som utgjør 30 % av markedet er 6 % av markedet, ikke 20 %. Og en margin som «økte 2 prosent» er noe helt annet enn en som økte 2 prosentpoeng.</li>
+<li><b>Miksendring skjult bak flat total.</b> Klassikeren: 100 000 kunder begge år, men nye kunder gikk fra 25 % til 50 % mens lojale falt fra 30 % til 20 %, altså ned en tredjedel. Selskapet vokser ikke — det løper på tredemølle og betaler dobbelt for å stå stille.</li>
+<li><b>Korrelasjon lest som årsak.</b> Spredningsplott inviterer til «X driver Y». Riktig svar: «Det er en positiv sammenheng. Før jeg konkluderer om årsak vil jeg vite om det finnes en tredje variabel — her er butikkstørrelse den mest nærliggende — og hva som kom først.»</li>
+<li><b>Enhet i overskrift eller fotnote.</b> «Alle tall i 1 000 kr», og svaralternativene er i millioner. En sum på 2 807 400 er 2 807,4 mill. kr, ikke 2,8 millioner og ikke 2 807 400 millioner. Dette er den oppgitte hovedårsaken til feilsvar på aggregeringsoppgaver.</li>
+<li><b>Betinget informasjon i spørsmålet.</b> «Snitt for de kvartalene der omsetningen oversteg 500 mill. kr.» Regner du snittet av alle åtte kvartalene, får du 8,0 % — et fullt plausibelt tall som ligger klart som svaralternativ. Snittet av de fem kvartalene som faktisk oppfyller betingelsen er 10,0 %. Marker radene før du regner.</li>
+<li><b>Areal-illusjon i Mekko.</b> Bredde er markedsstørrelse, høyde er vår andel, og <i>arealet</i> er kroner. Et byggsegment på 18 mrd der vi har 8 % gir 1,44 mrd; et industrisegment på 10 mrd der vi har 22 % gir 2,20 mrd. Den bredeste søylen er nest minst i kroner.</li>
+<li><b>Manglende data.</b> Riktig svar er noen ganger: «Det kan jeg ikke svare på med det som står her — jeg trenger driftsresultat per land.» Omsetning per ansatt er ikke lønnsomhet. Å be om tallet du faktisk mangler scorer bedre enn å gjette, og å gjette straffes.</li>
+</ol>
+
+<div class="callout mistake"><span class="h">Vekstrate er ikke vekstbidrag</span>
+<p>Den fellen som glir lettest gjennom, fordi begge tall er riktige. En region som vokser 240 mill. fra en base på 800 har en vekstrate på 30 %, men står for 240 av 520 mill. i samlet vekst, altså 46 % av veksten. En annen region vokser 55 %, men bidrar bare 220 mill. Spør alltid hvilken nevner spørsmålet ber om: veksten i regionen, eller regionens andel av veksten.</p></div>
+
+<h3>8.5 Én observasjon, én implikasjon</h3>
+
+<p>Den vanligste svake besvarelsen er ikke feil — den er en oppramsing. Kandidaten leser høyt det figuren allerede sier, og stopper der. Sanne, men trivielle observasjoner ligger derfor alltid som svaralternativ i figurdrillen: «nye kunder er doblet» er halve observasjonen uten implikasjonen, og skårer nesten ingenting.</p>
+
+<div class="formula">
+  <div class="eq">observasjon → implikasjon → hva du vil vite videre</div>
+  <div class="where">«Totalen er uendret, men lojale kunder er ned en tredjedel <i>[observasjon]</i>. Vi lekker kunder like fort som vi skaffer dem, så anskaffelseskostnaden er doblet uten at basen har vokst <i>[implikasjon]</i>. Jeg vil se churn per kohort før jeg konkluderer <i>[neste steg]</i>.»</div>
+</div>
+
+<div class="callout link"><span class="h">Nå trener du det</span>
+<p><b>Lynlæring · Les grafen</b> gir deg én figur, ett spørsmål og tretti sekunder. Oppgavene er av tre typer: ren avlesning, felle — der spørsmålet er utformet nettopp for å utløse en av de ni i 8.4 — og innsikt, der ett alternativ er riktig, to er sanne men trivielle, og ett er den klassiske feiltolkningen. Kjør den til aksekutt-refleksen i 8.3 utløses uten at du tenker på den. Det er hele poenget: den skal ikke gå gjennom hodet.</p></div>
+</section>
+
+<h2 class="part">Del III — Framføring</h2>
+
+<section id="k9">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">9 · Å snakke mens du tenker</h2>
+
+<p class="lead-in">Intervjueren kan ikke se inn i hodet ditt. Hun kan bare vurdere det som kommer ut av munnen din, og hun vurderer det i sanntid. Dette kapitlet handler om håndverket i det: hvilke setninger du sier, hvordan arkene ligger på bordet, og hva du gjør når noen sier at du tar feil.</p>
+
+<h3>9.1 Den ene regelen: svaret først, hver gang</h3>
+
+<p>Bain skriver selv at de vil ha resonnementet og utregningene dine <b>også når du er usikker</b>. BCG har «ikke bli taus» på sin egen liste over ting du ikke skal gjøre. Dette er det nærmeste husene kommer å si rett ut hva de måler i framføringen: en kandidat som blir stille, kan ikke vurderes. Det finnes ingenting å sette en karakter på.</p>
+
+<p>Men «tenk høyt» betyr ikke at hver halvtenkte idé skal ut. Karrieresentrene sier det motsatte, og de har rett: ta en pause, velg hva som er verdt å dele, og del det ferdig formet. Regelen som holder begge deler sammen, er topp-ned. Hver gang du åpner munnen, kommer konklusjonen først.</p>
+
+<div class="callout mech">
+<span class="h">Samme innhold, motsatt rekkefølge</span>
+<p>Bunn-opp: «Det er kaldt, og de fleste har gått, så jeg tror vi bør dra.» Topp-ned: «Jeg mener vi bør dra. For det første er det kaldt, for det andre har de fleste gått.» Ex-McKinsey-kilder bruker akkurat dette eksemplet: rekkefølgen er den <i>eneste</i> forskjellen. En lytter som får konklusjonen først, kan sortere alt som kommer etterpå. En som får den sist, gjetter.</p>
+</div>
+
+<h3>9.2 Skiltingen — frasene, på begge språk</h3>
+
+<p>Hos MBB i Oslo kan intervjuet gå på engelsk uten forvarsel. Frasene under skal sitte på begge språk — den engelske er ikke noe du rekker å oversette i rommet.</p>
+
+<table class="data">
+  <tr><th>Når</th><th>Norsk</th><th>English</th></tr>
+  <tr><td>Presentere strukturen</td><td>«Jeg vil se på tre ting. Først X, så Y, så Z. Jeg starter med den første, fordi …»</td><td>“I'd like to look at three things. First X, then Y, then Z. I'll start with the first, because …”</td></tr>
+  <tr><td>Åpne en figur</td><td>«Jeg ser tre ting i denne figuren. Det viktigste er …»</td><td>“There are three things I see in this exhibit. The most important one is …”</td></tr>
+  <tr><td>Før et regnestykke</td><td>«Jeg gjør dette i tre steg: volumet, så marginen, så sammenligning med i fjor.»</td><td>“I'll do this in three steps: volume, then margin, then a comparison with last year.”</td></tr>
+  <tr><td>Etter et tall</td><td>«Det gir 34 millioner. Det betyr at hele fallet ligger her.»</td><td>“That gives us 34 million. What that means is that the whole decline sits here.”</td></tr>
+  <tr><td>Lukke en gren</td><td>«Da har jeg det jeg trenger fra prisgrenen: prisen er ikke problemet. Nå går jeg over til kostnadene.»</td><td>“I have what I need from the pricing branch. I'd now like to move to costs.”</td></tr>
+  <tr><td>Lande</td><td>«Jeg anbefaler at klienten gjør X, av to grunner. For det første …»</td><td>“I'd recommend the client does X, for two reasons. First …”</td></tr>
+</table>
+
+<div class="callout tip">
+<span class="h">Tell før du lister</span>
+<p>Si tallet før du navngir grenene: «Det er tre ting jeg vil se på.» Denne ene vanen gjør at intervjueren opplever deg som MECE selv når innholdet strengt tatt ikke er det. Og bruk navnet hver gang du kommer tilbake — «kostnadsgrenen», ikke «det første vi snakket om».</p>
+</div>
+
+<h3>9.3 Notatene: tre ark med hver sin jobb</h3>
+
+<p>Systemet ex-MBB-kilder beskriver, læres på ti minutter. Snu arkene i <b>landskapsformat</b> — trær og tabeller får plass — og hold tre ark med faste roller:</p>
+
+<ul>
+<li><b>Innsiktsarket.</b> Klientnavn, prompt og mål øverst til venstre; alt du får vite underveis, på høyre side. Dette arket forlater du aldri, og det er dette du synteserer fra.</li>
+<li><b>Strukturarket.</b> Issue-treet. Dette er arket du eventuelt snur mot intervjueren.</li>
+<li><b>Regnearket.</b> Nytt ark for hvert regnestykke. Ikke et hjørne av et gammelt.</li>
+</ul>
+
+<div class="worked">
+<span class="wh">Slik ser regnearket ut</span>
+<p>Øverst, i ord, før du rører et tall: <i>Filmleie = billettinntekt × sats.</i> Under: billettinntekt 1 240, sats i fjor 43 prosent, i år 48. Så én linje per steg, hver merket. Nederst: svaret, innrammet.</p>
+<p>Og du sier oppsettet høyt før du regner: «Filmleien er billettinntekten ganget med satsen. Jeg regner den for begge år og tar differansen.» Er oppsettet feil, får du vite det <i>før</i> du har regnet.</p>
+</div>
+
+<p>Skriv forutsetningene ned, ikke bare si dem — du blir spurt om dem. Verdien viser seg til slutt: kandidater som mister tråden i anbefalingen, mistet den i notatene, ikke i hodet.</p>
+
+<h3>9.4 Å be om tid uten å miste kontrollen</h3>
+
+<p>Å ta tid er forventet. Å ta tid uten å varsle er å bli stille. Forskjellen er én setning med to deler: hvor lenge, og hva du kommer tilbake med.</p>
+
+<blockquote><p>«Kan jeg få tretti sekunder? Da kommer jeg tilbake med tre grener og hvilken jeg vil starte i.»<br>
+“Could I take thirty seconds? I'll come back with three branches and where I want to start.”</p></blockquote>
+
+<p>Normene som sirkulerer — 60 til 120 sekunder til den første strukturen, 30 til 60 før et regnestykke — er rekonstruksjon fra ex-MBB-coacher, ikke publisert av noe firma. Behandle dem som størrelsesorden. Sikkert er det at fem minutters stillhet i et intervjuerledet McKinsey-case ender med at du blir avbrutt.</p>
+
+<p>Den mest brukte måten å kjøpe tid på lovlig, er å <b>rekapitulere</b>: gjenta målet og de viktigste tallene høyt før du svarer.</p>
+
+<blockquote><p>«La meg gjenta, så jeg er sikker: resultatet har falt fra 111 til 78 millioner på tre år, mens besøket er flatt. Spørsmålet er hvorfor, og hva de skal gjøre. Er det riktig oppfattet?»</p></blockquote>
+
+<p>Det kjøper deg femten sekunder og fanger misforståelser før de vokser.</p>
+
+<div class="callout mistake">
+<span class="h">Stillhet du har varslet, er greit. «Ehm» i tolv sekunder er det ikke.</span>
+<p>Fyll aldri en pause med lyd. Har du bedt om et halvminutt, skriver du i et halvminutt og ser opp. Trenger du mer: «Jeg trenger et halvminutt til — er det greit?» Det er bedre enn å levere en halv struktur.</p>
+</div>
+
+<h3>9.5 Når intervjueren er uenig</h3>
+
+<p>Avbrytelser hos McKinsey er normalen, ikke et faresignal — formatet er intervjuerledet. Tren derfor på å bli avbrutt: de fleste øver på uforstyrrede monologer og blir kastet ut av kurs første gang noen bryter inn.</p>
+
+<p>Når hun sier at du tar feil, gjør du tre ting i denne rekkefølgen:</p>
+
+<ol>
+<li><b>Ikke svar refleksivt.</b> Ta ett sekund. Refleksivt forsvar leses som defensivt, refleksiv kapitulasjon som ryggradsløst.</li>
+<li><b>Still ett spørsmål til deg selv: kom det et faktum jeg ikke hadde?</b> Det er hele skillet. Ny informasjon betyr at du skal snu — og si høyt hvorfor. Ingen ny informasjon betyr press-testing, og da skal du bli stående.</li>
+<li><b>Er du fortsatt uenig, be om plass før du tar den</b>, og ram uenigheten som risikovurdering, ikke som avvisning.</li>
+</ol>
+
+<div class="worked">
+<span class="wh">Slik høres de to grenene ut</span>
+<p><b>Ny informasjon:</b> «Med den kostnadsstrukturen faller argumentet mitt. Jeg reviderer til at problemet ligger på volumsiden.» — “With that cost structure my argument doesn't hold. I'd revise to …”</p>
+<p><b>Press-testing:</b> «Jeg har tenkt på det, og jeg blir stående — av to grunner. For det første … For det andre …» — “I've considered that, and I'd still hold my position, for two reasons.”</p>
+<p><b>Uenighet med plass:</b> «Jeg ser dette annerledes — kan jeg dele mitt perspektiv? Den veien fungerer, men den gir de to største leverandørene all makten. Er det en risiko klienten kan bære?» — “I see this differently — may I share my perspective?”</p>
+</div>
+
+<div class="callout warn">
+<span class="h">Skillet i én setning</span>
+<p>Å endre mening på grunnlag av data er styrke. Å endre mening fordi intervjueren løftet et øyenbryn, er svakhet. Samme handling utenfra, motsatt vurdering.</p>
+</div>
+
+<h3>9.6 Å rette en egen feil</h3>
+
+<p>Å fange sin egen feil er <b>bedre</b> enn ikke å gjøre feil, fordi det viser at du kvalitetssikrer eget arbeid. Å bli tatt er verre. Å skjule er verst — intervjueren vet nesten alltid, og det leses som manglende selvinnsikt, ikke som dårlig hoderegning.</p>
+
+<p>Regelen er: <b>én anerkjennelse, ikke tre unnskyldninger.</b></p>
+
+<blockquote><p><b>Slik ikke:</b> «Åh, unnskyld, det var dumt, jeg beklager — jeg skulle sett det, beklager, jeg tar det på nytt …»</p>
+<p><b>Slik:</b> «Jeg har brukt fjorårets volum her. Riktig tall gir en margin på 6 prosent, ikke 8. Det endrer tallet fra 40 til 34 millioner, men ikke konklusjonen.»</p></blockquote>
+
+<p>Legg merke til siste ledd: du <b>kalibrerer betydningen høyt</b>. Det viser at du vet hva som er materielt. Og senk tempoet i ett minutt etterpå — andreordensfeilen er at kandidater som mister fotfestet, forserer neste del og gjør feil nummer to.</p>
+
+<p>De rekonstruerte scoringsskjemaene fra ex-MBB-hold — ingen firmaer bekrefter dem — har «modenhet og fremtoning» som egen akse. Den aksen blir først <i>synlig</i> når noe går galt: feilhåndtering og press er ikke forstyrrelser i evalueringen, de er evalueringen.</p>
+
+<div class="callout link">
+<span class="h">Tren dette her</span>
+<p>Gå til <b>mock-intervjuene med stopp-punkter</b>. Pausene ligger på nøyaktig de stedene dette kapitlet handler om: før struktureringen, før et regnestykke, og rett før anbefalingen. Du pauser, gjør trinnet selv og sier det <i>høyt</i>, før du hører fortsettelsen. Noter én formulering, ett grep og én feil per video.</p>
+</div>
+</section>
+
+<hr class="sec">
+
+<section id="k10">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">10 · Syntesen</h2>
+
+<p class="lead-in">De siste seksti sekundene er den delen av casen som huskes, og den eneste delen der du står helt alene. Det er også det leddet flest kandidater improviserer. Denne teksten handler om hvorfor rekkefølgen anbefaling, grunner, risiko, neste steg ikke kan byttes om — og hvordan du lander et standpunkt når analysen ikke ga deg et.</p>
+
+<h3>10.1 Oppsummering mot syntese, på samme case</h3>
+
+<p>Klienten er en kinokjede. Resultatet har falt fra 111 til 78 millioner på tre år, mens besøket har stått flatt på 12 millioner billetter. Du har brukt 25 minutter og funnet at inntektene faktisk vokste, mens filmleien — distributørens prosentandel av hver billettkrone — har steget fra 43 til 48 prosent. Her er de to måtene å avslutte på.</p>
+
+<div class="worked">
+<span class="wh">Slik høres en oppsummering ut</span>
+<p>«Vi begynte med å se på inntektene, som har vokst litt. Så gikk vi over til kostnadssiden, og der så vi på lønn, husleie og filmleie. Filmleien har steget en del. Vi så også på kiosk og reklame, som ser greie ut. Så det ser ut som filmleien er en viktig faktor her.»</p>
+</div>
+
+<div class="worked">
+<span class="wh">Slik høres en syntese ut</span>
+<p>«Resultatet faller fordi distributørene har tatt fem prosentpoeng mer av hver billettkrone. Det koster dere 78 millioner i året — mer enn hele resultatfallet. Jeg anbefaler at dere angriper filmleien direkte, og reforhandler med de to største distributørene først.»</p>
+</div>
+
+<p>Fire forskjeller, og ingen av dem handler om hvor mye arbeid som ligger bak:</p>
+
+<ul>
+<li><b>Verbene.</b> Oppsummeringen forteller hva <i>du</i> gjorde. Syntesen sier hva <i>klienten</i> skal gjøre.</li>
+<li><b>Rekkefølgen.</b> Oppsummeringen er kronologisk. Klienten var med hele veien; hun trenger ikke referatet.</li>
+<li><b>Tallene.</b> «Steget en del» mot «fem prosentpoeng, 78 millioner i året». Det andre er etterprøvbart.</li>
+<li><b>Standpunktet.</b> «Det ser ut som» er ikke et svar. «Jeg anbefaler» er.</li>
+</ul>
+
+<div class="callout tip">
+<span class="h">Testen</span>
+<p>Kan første setning stå alene i et styrereferat, uten resten? Da er det syntese. Må den ha med seg de fem foregående setningene for å bety noe, er det oppsummering.</p>
+</div>
+
+<h3>10.2 RRRN — og hvorfor rekkefølgen er ufravikelig</h3>
+
+<p>Wharton-casebooken kaller strukturen <b>RRRN</b>: Recommendation, Reasoning, Risks, Next steps. Det er Minto-pyramiden anvendt på ett minutt. Rekkefølgen er ikke smak, og hvert ledd står der det står av en grunn:</p>
+
+<ul>
+<li><b>Anbefalingen først</b>, fordi den bestemmer hvordan alt annet blir hørt. Får lytteren konklusjonen først, sorterer hun resten inn under den. Får hun den sist, bruker hun minuttet på å bygge sin egen hypotese om hvor du skal — og halve tiden gjetter hun feil.</li>
+<li><b>Grunnene etter</b>, fordi et funn ikke betyr noe før man vet hva det skal bære.</li>
+<li><b>Risikoen etter grunnene, ikke før.</b> Et forbehold sagt før standpunktet leses som at du ikke tør. Det samme forbeholdet sagt etter leses som dømmekraft. Ordene er de samme.</li>
+<li><b>Neste steg til slutt</b>, fordi det er det eneste leddet som krever noe av <i>henne</i> — og fordi det siste du sier, er det som blir sittende.</li>
+</ul>
+
+<h3>10.3 Seksti sekunder, fordelt</h3>
+
+<table class="data">
+  <tr><th>Ledd</th><th class="n">Sek.</th><th>Kravet</th></tr>
+  <tr><td>Anbefaling</td><td class="n">10–15</td><td>Ett verb og ett objekt. «Kjøp Sørbakst.» Ingen «det avhenger av».</td></tr>
+  <tr><td>Grunner, 2–3</td><td class="n">25–30</td><td>Ett tall fra casen per grunn. Nummerert høyt: «For det første …»</td></tr>
+  <tr><td>Risiko, 1–2</td><td class="n">10</td><td>Risikoen anbefalingen din skaper — ikke en generisk risiko.</td></tr>
+  <tr><td>Neste steg, 1–2</td><td class="n">10</td><td>Noe klienten kan gjøre denne uken.</td></tr>
+</table>
+
+<p>Anslaget på 60–90 sekunder kommer fra prep-bransjen og er ikke publisert av noe firma. Behandle det som en ramme du velger: ett minutt er kort nok til å tvinge fram prioritering, og det er prioriteringen som vurderes.</p>
+
+<div class="callout tip">
+<span class="h">Skriv den ned først</span>
+<p>Be om tretti sekunder før du leverer: «Kan jeg få et halvminutt til å samle dette?» Skriv så to–tre stikkord — ikke setninger — for hvert av de fire leddene. Å improvisere syntesen er unødvendig risiko på det tidspunktet i intervjuet som teller mest.</p>
+</div>
+
+<div class="worked">
+<span class="wh">Slik høres et helt minutt ut</span>
+<p><b>«Ja til Sverige, men ikke til 60 stasjoner nå. Jeg anbefaler at dere bygger 20 stasjoner i sør først, og sikrer opsjon på tomtene til de resterende 40.»</b></p>
+<p>Tre grunner. For det første er markedet reelt: 1,2 milliarder i dag, 1,9 milliarder om tre år. For det andre krever full utbygging 7,5 prosent markedsandel bare for å dekke de faste kostnadene — fra null, mot tre etablerte som holder 80 prosent. For det tredje faller det kravet til 4,7 prosent om tre år, så tiden jobber for dere.</p>
+<p>Den store risikoen er at konkurrentene tar de beste plasseringene mens dere venter — det er tomtene, ikke laderne, som er den knappe ressursen. Det første jeg ville gjort, er å kartlegge hvor de tre etablerte har søkt om nettilknytning de siste tolv månedene.</p>
+</div>
+
+<h3>10.4 Grunnene: funn, ikke sannheter</h3>
+
+<p>Hver grunn må være noe du faktisk fant i de siste 25 minuttene. Dette er «så derfor»-leddet, og det er der de fleste svarene tynnes ut, fordi generelle sannheter er lettere å si enn tall man må ha regnet ut.</p>
+
+<table class="data">
+  <tr><th>Sannhet om verden</th><th>Funn fra casen</th></tr>
+  <tr><td>«Markedet vokser raskt.»</td><td>«Markedet er 1,2 milliarder i dag og 1,9 om tre år.»</td></tr>
+  <tr><td>«Kostnadene har økt betydelig.»</td><td>«Filmleien er opp 132 millioner; ingen annen post har flyttet seg mer enn 10.»</td></tr>
+  <tr><td>«Det er synergier å hente.»</td><td>«44 av de 60 synergimillionene ligger i én post: 55 stillinger.»</td></tr>
+</table>
+
+<p>Tre praktiske regler: si tallet som tall, ikke som adjektiv. Stopp på tre grunner — fire signaliserer at du ikke har prioritert. Og nummerer dem høyt, «for det første … for det andre …», så lytteren vet når du er ferdig med én.</p>
+
+<h3>10.5 Risiko og neste steg — de to leddene folk dropper</h3>
+
+<p>Å ta med risiko og neste steg skiller deg fra flertallet, men bare hvis de er ekte. Testen på risikoen er enkel: <b>hvis den slår til, ville anbefalingen din endret seg?</b> Er svaret nei, er det pynt.</p>
+
+<blockquote><p>«Den store risikoen er kundeoverlappet: kjedene liker ikke å gå fra to leverandører til én, og et volumfall på ti prosent spiser en tredjedel av synergien.»</p></blockquote>
+
+<p>Legg merke til at risikoen er <i>kvantifisert</i>, og at den er skapt av anbefalingen — den finnes ikke hvis klienten lar være å kjøpe. Neste steg skal på samme måte være konkret nok til å settes i gang i morgen, og helst bruke data klienten allerede sitter på: «Det første jeg ville gjort, er å ringe tjue av de tapte kundene denne uken.»</p>
+
+<div class="callout mistake">
+<span class="h">«Forutsatt at synergiene realiseres»</span>
+<p>Alle synergier er forutsatt. En setning som er sann uansett hva svaret er, tilfører ingenting. Det som er verdt å si, er hvilken <i>mekanisme</i> som gjør at de blir realisert — en earn-out knyttet til at stillingene faktisk er ute, for eksempel. Samme sak gjelder «det avhenger av gjennomføringen» og «kulturell fit blir viktig».</p>
+</div>
+
+<h3>10.6 Når analysen ikke er entydig</h3>
+
+<p>Ofte peker tallene begge veier. Du skal likevel ta et standpunkt — «det avhenger» er ikke et svar, det er en beskrivelse av at du ikke har tatt stilling. Men standpunktet trenger ikke være et rent ja. Tre måter å lande nyansert uten å bli vag:</p>
+
+<ul>
+<li><b>Betinget anbefaling med navngitt terskel.</b> «Ja, hvis frafallet holder seg under ti prosent. Det jeg har sett i dag, peker mot at det gjør det.»</li>
+<li><b>Trinnvis anbefaling.</b> «Ja til 20 stasjoner nå, opsjon på de neste 40.» Du reduserer innsatsen i stedet for å utsette beslutningen.</li>
+<li><b>Anbefal testen som avgjør.</b> «Ikke bevilg de 90 millionene ennå. Bruk seks uker på å måle oppetiden på fileteringslinja — er den over 90 prosent, blir dette et ja.»</li>
+</ul>
+
+<div class="callout mech">
+<span class="h">Regelen som gjør nyansert til skarpt</span>
+<p>Navngi <b>tallet som ville snudd deg</b>. «Jeg lander på ja, og det som ville endret det, er hvis kundeoverlappet er over 30 prosent.» En kandidat som kan si hva som ville gjort ham uenig med seg selv, har vist dømmekraft. En som sier «det avhenger av flere faktorer», har vist at han ikke vet hvilke.</p>
+</div>
+
+<p>Og lever det som en beslutning, også når det er en betinget en. Tonen bærer halve budskapet: samme setning sagt spørrende blir et forbehold, sagt rolig blir det et råd.</p>
+
+<div class="callout link">
+<span class="h">Tren dette her</span>
+<p>Hver av de sju casene i <b>casebiblioteket</b> avsluttes med et <b>syntesetrinn</b> på 90 sekunder, der du skriver anbefalingen slik du ville sagt den — ikke som notater. Fasiten er skrevet som en replikk nettopp for at du skal kunne sammenligne setning for setning med din egen. Kjør trinnet på tid, og les kravene etterpå.</p>
+</div>
+</section>
+
+<h2 class="part">Del IV — Fit</h2>
+
+<section id="k11">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">11 · Historiene</h2>
+
+<p class="lead-in">Fit-delen er den eneste delen av intervjuet du kan gjøre ferdig på forhånd. Seks til ti nedskrevne historier dekker alt McKinsey, BCG og Bain vil spørre om. Det er en kveldsjobb — og den er ikke gjort før historiene tåler å bli boret i.</p>
+
+<h3>11.1 De fire dimensjonene, og de gamle navnene</h3>
+
+<p>McKinsey deler fit-delen — internt kalt PEI, <i>Personal Experience Interview</i> — i fire dimensjoner, og døpte om alle fire sommeren 2025. Substansen er uendret; det er etiketter. Du trenger begge settene, fordi materialet der ute bruker de gamle:</p>
+
+<table class="data">
+<tr><th>Nytt navn (2025→)</th><th>Gammelt navn</th><th>Hva de leter etter</th></tr>
+<tr><td><b>Leadership</b></td><td>Inclusive Leadership</td><td>Du fikk folk til å trekke sammen — særlig noen som ikke måtte høre på deg</td></tr>
+<tr><td><b>Connection</b></td><td>Personal Impact</td><td>Du overbeviste noen som var uenig, og forsto hvorfor</td></tr>
+<tr><td><b>Drive</b></td><td>Entrepreneurial Drive</td><td>Du satte i gang noe selv og drev det gjennom motstand</td></tr>
+<tr><td><b>Growth</b></td><td>Courageous Change</td><td>Du tok en risiko eller feilet — og vet hva du lærte</td></tr>
+</table>
+
+<p>Du får <b>én dimensjon per intervju</b>, og intervjueren graver i <b>én historie</b> i hele tidsvinduet. Tre intervjuer betyr tre ulike dimensjoner, så du trenger dekning på alle fire. BCG og Bain spør etter det samme, uten navn på dimensjonene.</p>
+
+<div class="callout warn"><span class="h">Si aldri dimensjonsnavnet høyt</span>
+Verken «dette er min courageous change-historie» eller den nye etiketten. Firmaets interne taksonomi som overskrift på ditt eget svar avslører prep-materialet.</div>
+
+<h3>11.2 De sju feltene historien må ha</h3>
+
+<p>Historieporteføljen krever sju felter. Fire er de vanlige — navn, situasjon, handling, resultat. De tre andre er dem flertallet hopper over, og de avgjør om historien overlever oppfølging nummer tre:</p>
+
+<ul>
+<li><b>Hva sto på spill.</b> Ikke oppgaven, men konsekvensen: hva ville gått galt hvis ingen gjorde noe?</li>
+<li><b>Hvem var uenig, og hvorfor mente de det.</b> Halve jobben ligger i siste ledd. Vet du bare <i>at</i> noen var uenig, har du ikke undersøkt historien.</li>
+<li><b>Så derfor.</b> Én setning om hva utfallet betydde utover deg selv. Ble rutinen beholdt året etter?</li>
+</ul>
+
+<p>Feltet «Hva DU gjorde» skrives i jeg-form. McKinsey advarer mot «vi» på sin egen karriereside — dette er sjansen din til å skryte litt.</p>
+
+<div class="callout tip"><span class="h">Start «Situasjonen» med konteksten</span>
+Verktøyet teller ulike kontekster på de første tegnene i «Situasjonen». Skriv «NHHS Consulting, våren 2026 …», ikke «Det var en gang jeg …» — ellers ser matrisen fire historier fra samme sted.</div>
+
+<h3>11.3 Den samme historien, svak og sterk</h3>
+
+<p>Samme hendelse, samme spørsmål — <i>«Fortell om en gang du overbeviste noen som var uenig med deg.»</i></p>
+
+<div class="worked"><span class="wh">Slik høres det ut</span>
+<p><b>Svak.</b></p>
+<blockquote>Jeg satt i en komité i studentforeningen som arrangerte en karrieredag. Vi var uenige om budsjettet, og det ble litt fram og tilbake. Jeg klarte å overbevise de andre om min løsning, og til slutt gikk arrangementet veldig bra. Jeg lærte mye om kommunikasjon.</blockquote>
+<p>Den er ikke gal, den er tom: ingen tall, ingen motpart med en grunn, ingen replikk, ingen mekanisme, og en læring som kunne stått under hvilken som helst historie. Intervjueren har ingenting å grave i.</p>
+<p><b>Sterk.</b></p>
+<blockquote>Jeg hadde sponsoransvaret for en karrieredag med 600 påmeldte og et budsjett på 240 000. Seks uker før ville økonomiansvarlig kutte de to dyreste standene. Jeg skjønte ikke hvorfor hun sto så hardt på det, så jeg tok en kaffe med henne — hun hadde sittet alene med underskuddet året før og fryktet å stå med regningen igjen. Da byttet jeg argument: i stedet for å forsvare standene foreslo jeg å flytte risikoen, med 60 prosent forskuddsfaktura og en klausul som dekket oss hvis sponsorene trakk seg. Jeg sa at slik det lå nå, ga vi fra oss 80 000 sikre inntekter for å unngå en risiko på 30 000. Hun sa ja samme kveld. Vi endte 96 000 over budsjett, og forskuddsmodellen ble brukt av komiteen året etter.</blockquote>
+<p><b>Forskjellen:</b> innsats i kroner og uker, en motpart hvis grunn ble undersøkt, en replikk du husker, en navngitt mekanisme — du flyttet risiko, du argumenterte ikke hardere — tall på utfallet, og en «så derfor» som varte.</p>
+</div>
+
+<h3>11.4 Hvorfor de fleste svar blir for tynne</h3>
+
+<p>Diagnosen fra ex-McKinsey-intervjuere er entydig: <b>kandidaten svarer på HVA, intervjueren spør om HVORFOR.</b> Kjernen er ikke handlingen, men beslutningsgrunnlaget.</p>
+
+<div class="callout mistake"><span class="h">Analyse i stedet for empati</span>
+Feilen faktiske intervjuere nevner oftest: historier om mennesker fortalt som problemløsningsøvelser. Kandidaten forklarer hva hun analyserte seg fram til, men viser aldri at hun forsøkte å forstå <i>hvorfor</i> den andre var mot henne. Connection er en menneske-test.</div>
+
+<p>De øvrige er kortere: for lang oppbygging, «vi» for «jeg», ingen ekte friksjon, ingen refleksjon på Growth. Mot den første hjelper tidsbudsjettet for åpningssvaret på rundt to minutter:</p>
+
+<table class="data">
+<tr><th>Ledd</th><th class="n">Sekunder</th><th>Hva som hører hjemme</th></tr>
+<tr><td>Situasjon</td><td class="n">15</td><td>Hvor, når, hvem — ikke hva studentforeningen er</td></tr>
+<tr><td>Oppgave</td><td class="n">10</td><td>Ditt ansvar, og hva som sto på spill</td></tr>
+<tr><td><b>Handling</b></td><td class="n"><b>60–75</b></td><td>Det du gjorde, sa og valgte bort</td></tr>
+<tr><td>Resultat</td><td class="n">15–25</td><td>Tall, og «så derfor»</td></tr>
+</table>
+
+<p>Så stopper du og lar dem grave. Begrunnelsene er ammunisjon til oppfølgingene, ikke til åpningen.</p>
+
+<h3>11.5 Sondetesten: tolv spørsmål, terskel åtte</h3>
+
+<p>Oppfølgingene kommer i tre faser: åpne sonder, så spisse og mikroskopiske — hva sa du nøyaktig, hvordan reagerte de, hvilke alternativer hadde du — og til slutt kontrafaktiske. Fase to er autentisitetstesten: en pyntet historie kollapser der, fordi oppdiktede historier ikke har replikker.</p>
+
+<p>Appens sondetest er tolvpunktslisten som dekker alle tre. Du leser hver sonde, svarer <i>høyt</i>, og krysser av bare der du hadde et svar du ville sagt til en partner. Terskelen er <b>åtte av tolv</b>. Under den er historien en reserve, og grunnen er alltid én av tre: for vag, for kollektiv, eller for langt fra atferden som testes.</p>
+
+<div class="callout warn"><span class="h">Kildestatus: rekonstruksjon, ikke firmaets skjema</span>
+Ingen av husene publiserer scoringsskjema, vekting eller terskler. Alt om «sju dimensjoner», «fempunkts skala» og «10–25 oppfølgingsspørsmål» er rekonstruert av ex-MBB-coacher. Det samme gjelder tolvpunkts sondelista og terskelen på åtte: nyttige treningsmål fordi flere uavhengige kilder sier det samme, men <b>ikke</b> McKinseys egne. Bygg historien for å tåle boring, ikke for å score på en liste.</div>
+
+<div class="callout tip"><span class="h">Nytt og ubekreftet: «Client Conversation»</span>
+Én prep-kilde melder at McKinsey piloterer et «Client Conversation»-intervju — rundt 20 minutter simulert samtale med en fiktiv klientinteressent, som erstatter én PEI i sluttrunden og foreløpig skal være ikke-evaluerende. Bare den ene kilden, ikke bekreftet av McKinsey. Spør rekruttereren hvis du når sluttrunden.</div>
+
+<h3>11.6 Dekningsreglene</h3>
+
+<p>Matrisen dømmer porteføljen mot fire tall, og de tvinger fram bredden du sannsynligvis mangler:</p>
+
+<table class="data">
+<tr><th>Regel</th><th class="n">Krav</th><th>Hvorfor</th></tr>
+<tr><td>Historier per dimensjon</td><td class="n">≥ 2</td><td>Intervjuer to spør av og til om samme dimensjon som intervjuer én</td></tr>
+<tr><td>Dimensjoner per historie</td><td class="n">≤ 2</td><td>Merker du én historie med alt, dekker den ingenting</td></tr>
+<tr><td>Ulike kontekster</td><td class="n">≥ 4</td><td>Fire historier fra samme verv leses som ett liv med én erfaring</td></tr>
+<tr><td>Sonder besvart</td><td class="n">≥ 8 av 12</td><td>Under terskelen finner dybdeintervjuet bunnen før tiden er ute</td></tr>
+</table>
+
+<p>Mål: åtte distinkte historier, hvorav to gjerne er tvillinger med ulikt fokus, pluss to reserver.</p>
+
+<h3>11.7 Når du ikke har lang yrkeserfaring</h3>
+
+<p>Dette er avsnittet som betyr mest. <b>Skalaen betyr mindre enn tettheten.</b> Kandidater undervurderer systematisk egne erfaringer og leter etter dramatikk i stedet for å ramme inn det de har. Seks grep gjør en studentopplevelse tung nok:</p>
+
+<ol>
+<li><b>Sett en teller på alt.</b> Ikke «jeg ledet en komité», men «11 frivillige, 240 000 i budsjett, seks ukers frist».</li>
+<li><b>Løft fram innsatsen, ikke oppgaven.</b> Hva ville gått galt uten deg?</li>
+<li><b>Finn mennesket som sa nei.</b> En medstudent som ikke leverte, en styreleder som var uenig. Uten motstand er det ingen historie.</li>
+<li><b>Vis at du forsto motparten</b> — ikke bare at du vant fram.</li>
+<li><b>Innflytelse uten autoritet slår tittel.</b> Å få medstudenter til å gjøre noe du ikke kan pålegge dem, ligger nærmere konsulenthverdagen enn et internship med tildelte oppgaver.</li>
+<li><b>Én setning «så derfor».</b> Hva ble varig etter at du gikk?</li>
+</ol>
+
+<p>Tøm disse kildene først: styreverv i NHHS, klientarbeid i studentkonsulentselskap, gruppearbeid der gruppen fungerte <i>dårlig</i> (gull for Connection og Growth, og de fleste kaster det), deltidsjobben med den vanskelige kunden, og utveksling — fire nasjonaliteter i én gruppe er det som het Inclusive Leadership.</p>
+
+<div class="callout mistake"><span class="h">Ikke unnskyld skalaen</span>
+«Det var jo bare en studentforening, men …» er den raskeste måten å devaluere en god historie. Du har bedt intervjueren om å score den lavt, og hun gjør som du sier.</div>
+
+<div class="callout link"><span class="h">Nå gjør du det</span>
+Åpne <b>Historieporteføljen</b> og skriv fire historier med alle sju feltene utfylt — særlig «hvem var uenig, og hvorfor». Merk hver med høyst to dimensjoner, og les dommen matrisen gir. Skriv fire til når hullene er synlige, og kjør <b>sondetesten</b> høyt på hver eneste.</div>
+</section>
+
+<hr class="sec">
+
+<section id="k12">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">12 · Why consulting, why this firm</h2>
+
+<p class="lead-in">To spørsmål, tre minutter til sammen, og de er de eneste i hele prosessen du vet ordlyden på på forhånd. Likevel er det her flest sterke kandidater leverer noe som kunne vært sagt av hvem som helst, om hvem som helst.</p>
+
+<h3>12.1 Hvor tungt det veier, hos hvem</h3>
+
+<p>Vekten varierer dramatisk mellom husene, og det avgjør hvor mye tid du bør legge i det:</p>
+
+<table class="data">
+<tr><th>Hus</th><th>Vekt på motivasjon</th><th>Hvor det kommer</th></tr>
+<tr><td>McKinsey</td><td>Lav</td><td>Nesten fraværende i PEI. Kan komme løst i partnerintervjuet.</td></tr>
+<tr><td>BCG</td><td><b>Tung</b></td><td>Fit-delen er organisert rundt «de tre hvorfor»: why you, why consulting, why BCG. Kommer også i et one-way videointervju tidlig i prosessen.</td></tr>
+<tr><td>Bain</td><td>Middels</td><td>Knyttet til <i>operating principles</i>, som de eksplisitt ber deg forberede.</td></tr>
+<tr><td>Big-4 og norske hus</td><td>Middels–høy</td><td>EY Norge beskriver runde 1 som et personlighetsintervju om motivasjon og bakgrunn.</td></tr>
+</table>
+
+<div class="callout warn"><span class="h">Hva som er firmaets egne ord, og hva som ikke er det</span>
+BCG, Bain og EY publiserer selv at de vurderer motivasjon, og Bain ber deg konkret komme forberedt på sine operating principles. Alt som er tallfestet i dette kapitlet — «tre hvorfor», 60–90 sekunder, hvor mye det veier — er ex-MBB-coachers rekonstruksjon. Ingen firma publiserer vekting. Bruk tallene som ramme, ikke som fasit.</div>
+
+<h3>12.2 Why consulting: tre grunner, hver med en hendelse under</h3>
+
+<p>Kravet er enkelt å formulere og krevende å oppfylle: <b>tre grunner, hver forankret i en konkret hendelse fra ditt eget liv.</b> Ikke tre adjektiver. Sikt på 60–90 sekunder, og la det høres ferdig ut — ikke som om du gikk tom.</p>
+
+<div class="worked"><span class="wh">Slik høres det ut</span>
+<p><b>Svak.</b></p>
+<blockquote>Jeg vil jobbe i konsulentbransjen fordi jeg liker variasjon og komplekse problemer. Læringskurven er bratt, man jobber med veldig flinke folk, og man får se mange bransjer. Jeg tror det er en god start på karrieren.</blockquote>
+<p>Fire setninger, null informasjon om personen som sier dem. Alt kunne vært skrevet før du hadde en eneste erfaring.</p>
+<p><b>Sterk.</b></p>
+<blockquote>Tre grunner. Den første er at jeg liker å bli kastet inn i noe jeg ikke kan: i NHHS Consulting fikk jeg et logistikkprosjekt for en grossist, og det jeg husker best er de fire dagene før jeg forsto hvordan lageret deres faktisk fungerte. Den andre er at jeg vil jobbe der beslutningen tas — i deltidsjobben min laget jeg en bemanningsmodell som butikksjefen faktisk brukte, og forskjellen mellom å analysere og å bli brukt ble veldig tydelig. Den tredje er tempoet i tilbakemelding: jeg fikk mer konkret kritikk på åtte uker i det prosjektet enn på to år med gruppearbeid, og jeg vil ha mer av det.</blockquote>
+<p><b>Forskjellen:</b> tre navngitte grunner i stedet for adjektiver, hver med én hendelse som bare du kan fortelle, og en tydelig slutt.</p>
+</div>
+
+<h3>12.3 Byttetesten</h3>
+
+<div class="callout mistake"><span class="h">Fungerer svaret ditt på «Why BCG» ordrett på «Why McKinsey», er det ikke et svar</span>
+Dette er den mest siterte enkeltdiagnosen i hele materialet, og den er lett å selvteste: skriv svaret ned, bytt firmanavnet, les det høyt. Overlever det byttet, har du beskrevet konsulentbransjen — ikke firmaet.</div>
+
+<p>De fire ordene som avslører raskest, fordi alle bruker dem og ingen skiller: <i>bratt læringskurve</i>, <i>smarte kolleger</i>, <i>utfordrende problemer</i>, <i>globalt fotavtrykk</i>. Tre andre avslørere er verdt å kjenne:</p>
+
+<ul>
+<li><b>Å lede med exit options, prestisje eller lønn.</b> Greit å verdsette privat; å lede med det leses som at du ikke blir. Intervjueren vurderer reelt om investeringen i deg lønner seg.</li>
+<li><b>Uorganisert svar rett etter en strukturert case.</b> Er du skarp i casen og rotete på «why consulting», skaper det tvil om at strukturen var ekte.</li>
+<li><b>For polert.</b> Et svar som høres ut som en pitch og ikke som noe du ville sagt over en kaffe, feiler autentisitetstesten — verst hos BCG og Bain, der uformaliteten <i>er</i> testen.</li>
+</ul>
+
+<h3>12.4 Den sterkeste enkeltmarkøren: en navngitt samtale</h3>
+
+<p>Flere uavhengige kilder peker på det samme: det som skiller «why this firm» mest, er å referere til <b>en faktisk samtale med en ansatt</b> — hvem, hvilket prosjekt, og hva de sa som festet seg. En samtale kan ikke googles, og den kan ikke kopieres til neste firma. Den består byttetesten av seg selv.</p>
+
+<blockquote>Jeg snakket med Marte på Oslo-kontoret på karrieredagen i februar. Hun hadde nettopp vært på et prosjekt for et oppdrettsselskap, og det hun sa som ble hengende var at halve jobben gikk med til å få to avdelinger som ikke stolte på hverandre til å bruke samme tall. Det var ikke slik jeg hadde tenkt på konsulentarbeid, og det gjorde meg mer interessert, ikke mindre.</blockquote>
+
+<p>Har du ingen slik samtale, er den fortsatt mulig å skaffe: kontordager, bedriftspresentasjoner i NHHS, alumninettverket, eller en høflig melding til en analytiker som gikk ut to år før deg. Én kaffe er verdt mer enn ti timer på karrieresidene.</p>
+
+<div class="callout tip"><span class="h">Andrevalget: noe etterprøvbart og lokalt</span>
+Får du ikke tak i noen, koble deg til noe konkret firmaet gjør: en praksisgruppe, en rapport du faktisk har lest, eller hvordan Oslo-kontoret jobber mot norsk energi, offentlig sektor eller sjømat. Det er svakere enn en samtale, men det består byttetesten. Og si at det er førstevalget ditt, uten forbehold.</div>
+
+<h3>12.5 Bain og BCG: to konkrete forberedelser</h3>
+
+<p><b>Bain</b> ber deg selv komme «ready to talk about our operating principles». Det er en direkte oppfordring, og få følger den. Ha én forberedt kobling mellom egen erfaring og minst to av de fem: <i>Guided by True North · Passion for Results · Practical and at Cause · Diverse Teams, One Bain · A Bainie Never Lets Another Bainie Fail.</i></p>
+
+<p><b>BCG</b> bruker ofte et one-way videointervju tidlig: to til fire spørsmål, ett til tre minutter per svar, og ingen mulighet til å ta opp igjen. Innholdet er fit og motivasjon. Det betyr at «why BCG» må sitte i en versjon du kan si til et kamera uten publikum — øv den høyt, på tid, med opptak.</p>
+
+<h3>12.6 Spørsmålene du selv stiller</h3>
+
+<p>De siste fem minuttene er det siste inntrykket. Tre typer sløser dem bort: <b>googlebare</b> spørsmål («hva slags prosjekter jobber dere med?»), <b>selvsentrerte og for tidlige</b> (lønn, arbeidstid, forfremmelsestempo — vent til du har tilbud), og <b>ritualspørsmål</b> («hvordan ser en typisk dag ut?»), som intervjueren har besvart femti ganger og svarer på autopilot. Du lærer ingenting, og etterlater ingenting.</p>
+
+<p>Ha to til fire klare, én fra hver av disse familiene:</p>
+
+<ul>
+<li><b>Om personen foran deg.</b> «Hvem var den beste analytikeren som har jobbet for deg, og hva gjorde henne så god?» «Hva liker du best her — og hva liker du minst?» «Har du vært på et prosjekt som gikk galt?» De kan ikke googles og ikke besvares på autopilot, og de bryter det automatiske «alt er flott»-svaret.</li>
+<li><b>Om firmaet som virksomhet.</b> «Hva tror dere gjorde riktig for å komme dit dere er?» Eller noe kontorspesifikt: «Oslo-kontoret jobber mye mot sjømat — endrer det hva slags analytiker som lykkes her?»</li>
+</ul>
+
+<p>EY Norge sier eksplisitt at det telles positivt å stille spørsmål — i norske hus er dette poeng du kan hente, ikke en formalitet. Tilpass nivået: firma- og markedsspørsmål til partneren, hverdagsspørsmål og ærlige spørsmål om det som er hardt til den ferske analytikeren. Og still aldri et spørsmål du allerede vet svaret på for å vise at du har lest deg opp — det gjennomskues.</p>
+
+<div class="callout tip"><span class="h">Spørsmålet få stiller</span>
+Be om tilbakemelding, eller spør hva som ville gjort deg sterkere til neste runde. Det fungerer fordi det er ekte — og fordi svakheter som blir flagget i runde 1, granskes hardt i runde 2.</div>
+
+<div class="callout link"><span class="h">Nå gjør du det</span>
+Skriv «why consulting» og «why firm» inn i <b>Historieporteføljen</b> som to egne historier, med hendelsene i handlingsfeltet og den navngitte samtalen i kontekstfeltet. Kjør deretter <b>sondetesten</b> på dem: klarer du ikke å svare på hvorfor du valgte som du gjorde og hvilke alternativer du forkastet, er motivasjonssvaret ditt like tynt som en historie under terskelen.</div>
+</section>
+
+<h2 class="part">Del V — Håndverk</h2>
+
+<section id="k13">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">13 · De digitale testene</h2>
+
+<p class="lead-in">Testen kommer før intervjuet, og den er den eneste delen av prosessen der ingen kan redde deg med et oppfølgingsspørsmål. Den gode nyheten er at ingen av testene måler forretningskunnskap. De måler filtrering, prosentlogikk og tempo — tre ting du kan drille.</p>
+
+<h3>13.1 Hva du faktisk kan møte</h3>
+
+<table class="data">
+<tr><th>Test</th><th>Hvem</th><th class="n">Minutter</th><th class="n">Spørsmål</th><th>Kalkulator</th></tr>
+<tr><td>Solve: Redrock + Sea Wolf</td><td>McKinsey</td><td class="n">65</td><td class="n">—</td><td>På skjermen, i analysedelen</td></tr>
+<tr><td>Logisk resonnement</td><td>BCG Norden</td><td class="n">30</td><td class="n">80</td><td><b>Nei</b></td></tr>
+<tr><td>Casey / Online Case</td><td>BCG, andre land</td><td class="n">25–35</td><td class="n">8–10</td><td>Ja</td></tr>
+<tr><td>TestGorilla</td><td>Bain (fra 2024)</td><td class="n">45–50</td><td class="n">—</td><td>Står i invitasjonen</td></tr>
+<tr><td>SOVA</td><td>Bain (EMEA, eldre)</td><td class="n">30–50</td><td class="n">25–30</td><td>Står i invitasjonen</td></tr>
+<tr><td>Numerisk resonnement (SHL-typen)</td><td>Big-4, norske hus</td><td class="n">20–30</td><td class="n">~21</td><td>Står i invitasjonen</td></tr>
+</table>
+
+<p>Merk hvor forskjellige de er. Én av dem er et spill, én er en ren hastighetstest, én er en case i chat-form, og én er tabell-lesing. Å trene feil er den vanligste sløsingen i denne fasen — <b>invitasjonsmailen sier hvilken du får</b>.</p>
+
+<h3>13.2 McKinsey Solve</h3>
+
+<p>Solve, tidligere Imbellus, består i 2026 av <b>Redrock</b> og <b>Sea Wolf</b>, av og til med et tredje spill, Sustainable Futures Lab. En 65-minutters invitasjon betyr typisk de to første; 85 minutter betyr at det tredje er med. <b>Ecosystem Building — spillet med 39 arter som går igjen i alle eldre guider — er i praksis faset ut</b> av standardoppsettet. Trener du på det, trener du på fjorårets test.</p>
+
+<p><b>Redrock</b> (~35 min, med klokke som løper gjennom alle delene) er den mest matte-tunge og den kandidatene synes er hardest. Den har fire deler: <i>investigation</i>, der du drar relevante data inn i en forskningsjournal og hvert datapunkt er et binært behold-eller-forkast-valg; <i>analysis</i>, med tre til fem kvantitative spørsmål; <i>report</i>, der du fyller ut en mal og velger riktig diagramtype; og til slutt seks frittstående <b>mini-cases</b> med hvert sitt diagram, beskrevet som GMAT-aktige. Rådet som går igjen fra kandidater: <b>spar 10–15 minutter til mini-casene.</b></p>
+
+<p><b>Sea Wolf</b> (~30 min) er en optimeringsoppgave: kategorisér mikrober, bygg en kandidatpool, og velg endelig behandling ved å snitte attributtverdier inn i målintervaller, med krav om at minst én bærer ønsket egenskap og ingen bærer uønsket. Det reelle matteinnholdet er vektede og uvektede gjennomsnitt pluss intervallsjekk, under tidspress.</p>
+
+<div class="callout mech"><span class="h">Hvorfor feilene sjelden er aritmetiske</span>
+I analysedelen har du kalkulator på skjermen. Feilene kandidatene gjør, kommer likevel — de kommer fra <b>enhets- og tidsperiodemismatch</b>: en månedsrate ganget med et årstall, eller en verdi i tusen mot en i hele kroner. Solve straffer altså ikke regnehastighet, men slurv i oppsettet. Det er samme feil som feller folk i casen.</div>
+
+<h3>13.3 BCG i Norden er ikke Casey</h3>
+
+<p>Dette er det viktigste enkeltpunktet i kapitlet for en NHH-student. BCG dokumenterer selv testen som brukes i Norden, og den er <b>logisk resonnement: 80 spørsmål på 30 minutter, kalkulator ikke tillatt</b>. Det er <b>22,5 sekunder per spørsmål</b>. Ingen case, ingen chatbot, ingen anbefaling — bare mønstre og fart.</p>
+
+<p>Konsekvensen for forberedelsen er absolutt: dette er en ren hastighetsdrill, ikke case-trening. Casey — chatboten som kjører åtte til ti spørsmål gjennom én klientcase og avsluttes med en 60-sekunders innspilt videoanbefaling — brukes i andre BCG-geografier. Pymetrics forekommer fortsatt på enkelte kontorer, men er ikke lenger standardantakelsen. Forbered begge deler bare hvis invitasjonen sier det.</p>
+
+<h3>13.4 Bain: leverandøren varierer</h3>
+
+<p>Bain innførte <b>TestGorilla</b> i 2024 (45–50 minutter: numerisk resonnement, forretningsvurdering, problemløsning, lederskap) ved siden av den eldre <b>SOVA</b>-pakken, brukt i EMEA siden rundt 2019: situasjonsvurdering, evnetest med numerisk, verbal og logisk del, personlighet, og av og til et videointervju. Evnedelen er 25–30 flervalg. SOVA har ingen synlig klokke, men <b>tidsbruken registreres</b> og inngår i vurderingen sammen med treffsikkerheten — så «ta god tid» er dårlig råd der.</p>
+
+<div class="callout warn"><span class="h">Ikke tren på feil test</span>
+Hvilken av de to du får, står i innkallingen. Dette er det ene punktet der alle kildene er samstemte, og det ene punktet der en kandidat lett bruker en hel uke feil.</div>
+
+<h3>13.5 Feilalternativene er konstruert fra dine egne feil</h3>
+
+<p>De klassiske numeriske resonnementstestene — SHL, Kenexa, cut-e, Talent Q — brukes bredt av Big-4 og norske hus, ofte tidligere i trakten enn MBB-testene. Formatet er alltid det samme: en tabell eller et diagram, to til tre spørsmål per datasett, flervalg, rundt 21 spørsmål på 30 minutter.</p>
+
+<p>Og her ligger det praktisk nyttigste funnet i hele kartleggingen: <b>feilalternativene er ikke tilfeldige.</b> De er regnet ut fra de vanligste feilene — reversert prosent, prosentpoeng forvekslet med prosent, feil enhet, snitt av alle rader i stedet for de betingede. Distraktoren er altså din egen slurv, ferdig utregnet og lagt fram som et alternativ som ser rimelig ut.</p>
+
+<div class="worked"><span class="wh">Slik høres det ut</span>
+<p><b>Spørsmålet.</b> Prisen falt 20 % til 1 200 kr. Hva var opprinnelig pris? A) 1 440 B) 1 500 C) 960</p>
+<p><b>Svak framgangsmåte.</b> «Den falt 20 %, så jeg legger til 20 %: 1 200 × 1,2 = 1 440.» Alternativ A står der, ser riktig ut, og velges. Feilen er at 20 % ble regnet av <i>ny</i> pris i stedet for gammel.</p>
+<p><b>Sterk framgangsmåte.</b> «1 200 er 80 % av det opprinnelige, altså 1 200 / 0,8 = <b>1 500</b>. Sjekk: 20 % av 1 500 er 300, og 1 500 − 300 = 1 200. ✓» Alternativ B.</p>
+<p>Samme mekanikk i den andre klassikeren: marginen gikk fra 8 % til 10 %. Økningen er <b>25 %</b> — men 2 står som alternativ, fordi det er økningen i <i>prosentpoeng</i>. Å øve mot slike alternativer er å øve mot din egen slurv, ikke mot testen.</p>
+</div>
+
+<div class="callout tip"><span class="h">Les spørsmålet før tabellen</span>
+Standardrådet, og det som sparer mest tid: gå til spørsmålet først, og hent så nøyaktig de to–tre tallene du trenger. Leser du tabellen først, bruker du tjue sekunder på kolonner ingen spør om. Sjekk alltid enheten i overskriften eller fotnoten — «tall i 1 000 kr» mot svaralternativer i hele kroner er den vanligste feilkilden på aggregeringsoppgaver.</div>
+
+<div class="callout warn"><span class="h">Kildestatus</span>
+At Solve brukes som screening, og at BCG Norden kjører logikktesten på 80 spørsmål, er dokumentert av firmaene selv. Detaljene om spillene — modulenes lengder, delene i Redrock, poengsummene — kommer fra kandidatrapporter og prep-nettsteder. McKinsey publiserer verken vekting eller terskel; scoringen beskrives som to komponenter, <i>product score</i> (traff du målet) og <i>process score</i> (hvordan du kom dit), og anslagene på bestått-rate er rykter. Prep-nettsteder daterer dessuten alt til inneværende år uansett alder. Verifiser i invitasjonsmailen din.</div>
+
+<div class="callout link"><span class="h">Nå gjør du det</span>
+Alle disse testene belønner det samme håndverket, og du trener det to steder i appen: <b>Lynlæring · Hoderegning</b> for prosent, reversering og størrelsesorden uten kalkulator — det er BCGs 22,5 sekunder per spørsmål i praksis — og <b>Finn feilen</b>, som er bygget på nøyaktig de feilene distraktorene er laget av. Kjør Finn feilen til du kjenner igjen den reverserte prosenten før du regner.</div>
+</section>
+
+<hr class="sec">
+
+<section id="k14">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">14 · Uka før, dagen før, i rommet</h2>
+
+<p class="lead-in">Den siste uka kan ikke gjøre deg vesentlig bedre, men den kan gjøre deg vesentlig dårligere. Dette kapitlet er logistikk og nerver: hva som fortsatt flytter noe, hva du har med, hvordan du åpner — og hva du gjør når du står helt fast midt i casen.</p>
+
+<div class="callout warn">
+<span class="h">Om kildene i dette kapitlet</span>
+<p>Det meste her er praktisk erfaring, ikke firmapolicy. De to stedene et hus har sagt noe selv, er merket i teksten: BCGs egen liste over ting du ikke skal gjøre, og Bains egen liste over hva de vil se.</p>
+</div>
+
+<h3>14.1 Uka før</h3>
+
+<table class="data">
+  <tr><th>Verdt tiden</th><th>Ikke verdt tiden</th></tr>
+  <tr><td>Hoderegning hver dag, femten minutter. Den eneste ferdigheten som blir målbart bedre av ren mengde.</td><td>Et nytt rammeverk. Lært på fredag, brukt på mandag — sikreste måten å høres resitert ut.</td></tr>
+  <tr><td>Én hel case høyt, med en person, annenhver dag. Med syntese. På tid.</td><td>Enda en casebok. Du rekker ikke å gjøre noe med den.</td></tr>
+  <tr><td>Fit-historiene sagt <i>høyt</i>, ikke lest. De faller sammen først når man hører seg selv.</td><td>Bransjekunnskap i bredden. Ingen taper på å ikke kunne marginen i flybransjen.</td></tr>
+  <tr><td>Egne notater fra tidligere caser: hvilken svakhet gjentar seg?</td><td>Passiv video. Å se noen andre gjøre det, teller ikke som trening.</td></tr>
+  <tr><td>To til fire spørsmål du selv vil stille, tilpasset nivået på den du møter.</td><td>Å pugge tall du ikke allerede kan.</td></tr>
+</table>
+
+<p>Ett spørsmål er verdt å sende rekruttereren, og få gjør det: <b>hva slags format er det?</b> Intervjuerledet eller kandidatledet, norsk eller engelsk, og er det en skriftlig case i runden. Svaret endrer hva du bør trene på de siste dagene.</p>
+
+<h3>14.2 Dagen før</h3>
+
+<p>Én case, tidlig på dagen. Så stopper du. Kvelden før er hviletid: en dårlig case klokka 21 gjør mer skade på selvtilliten enn den gjør nytte på ferdigheten.</p>
+
+<p>Les gjennom ditt eget ene ark: skiltefrasene, RRRN-rekkefølgen, de norske ankertallene, og <i>titlene</i> på de åtte historiene dine. Ikke innholdet. Du skal kunne finne dem, ikke resitere dem.</p>
+
+<p>Så det praktiske: adresse, etasje, navnet på den du skal møte, og telefonnummeret til rekruttereren i tilfelle du blir forsinket. Er intervjuet digitalt, tester du kamera, mikrofon og plattform <i>i dag</i>, ikke ti minutter før. Lad alt. Ikke legg noe etter intervjuet i kalenderen — du vil ikke sitte og se på klokka.</p>
+
+<h3>14.3 Hva du har med</h3>
+
+<ul>
+<li><b>Ti til femten blanke A4-ark.</b> Egne, selv om de sier at de har papir. Landskapsformat fra første ark.</li>
+<li><b>To penner som virker.</b> Ikke blyant: du blir fristet til å viske ut, og det koster tid du ikke har.</li>
+<li><b>En klokke på bordet</b> du kan se uten å snu hodet. Å måtte lete etter tiden midt i en syntese er unødvendig støy.</li>
+<li><b>Ingen kalkulator før du har spurt.</b> Anta at svaret er nei. Spør i stedet: «Er kalkulator greit, eller regner jeg for hånd?»</li>
+<li><b>To utskrifter av CV-en</b>, og de fire spørsmålene dine skrevet ned. Det er helt greit å se på arket når du stiller dem.</li>
+<li><b>Vann.</b> Å drikke er den mest legitime pausen som finnes.</li>
+</ul>
+
+<h3>14.4 De første nitti sekundene</h3>
+
+<p>Åpningen er ikke oppvarming — den er første datapunkt på det de rekonstruerte scoringsskjemaene kaller fremtoning. Gjør den enkel og ferdig på forhånd: hils, sett deg, legg arkene i landskapsformat, penn ned, se opp. Én setning, og så stopper du: «Takk for at du tar deg tid — jeg har sett fram til dette.»</p>
+
+<p>Når prompten kommer, skal pennen ligge stille de første sekundene. Se på personen, ikke på papiret. Skriv så tre ting og bare tre: <b>målet, tallet og spørsmålet</b>. Deretter gjentar du det tilbake:</p>
+
+<blockquote><p>«La meg gjenta, så jeg er sikker på at jeg har forstått oppdraget: klienten driver 40 kinoer, resultatet har falt fra 111 til 78 millioner på tre år, mens besøket er flatt. Dere vil vite hvorfor, og hva de skal gjøre. Er det riktig oppfattet?»</p></blockquote>
+
+<p>Er formatet uklart, avklarer du det med ett spørsmål: «Vil du at jeg driver casen fremover, eller foretrekker du å lede meg gjennom?» Det tar to sekunder og avgjør hvordan du skal oppføre deg i tjue minutter.</p>
+
+<h3>14.5 Når du står helt fast</h3>
+
+<p>Det skjer, og det skjer også for de som får tilbud. Det eneste trekket som ikke lar seg redde, er å bli stille: BCG har «ikke bli taus» på sin egen liste, og Bain skriver selv at de vil ha resonnementet ditt <b>også når du er usikker</b>. Utgangen av en blindvei er per definisjon noe du sier høyt. Gi deg selv en grense på rundt tretti sekunder, og gå så gjennom disse fire trekkene i rekkefølge.</p>
+
+<p><b>1. Si hvor du er.</b> Ikke at du er fast — <i>hvor</i>. Beskriv kanten av det du vet, og navngi hullet.</p>
+
+<blockquote><p>«Jeg står litt fast, så la meg si hvor jeg er. Jeg vet at marginen har falt og at volumet er flatt, så fallet må ligge i kostnadene. Det jeg mangler, er kostnadene fordelt på post. Uten den fordelingen kan jeg ikke velge gren.»</p>
+<p>“Let me say where I am. I know the margin has fallen and volume is flat, so the decline has to sit in costs. What I'm missing is the cost breakdown by line item.”</p></blockquote>
+
+<p>Dette ene trekket løser situasjonen oftere enn noe annet, fordi du viser intervjueren nøyaktig hvilket hull hun kan fylle. Og selv når hun ikke fyller det, har du nettopp demonstrert at du vet forskjellen på å mangle data og å mangle retning.</p>
+
+<p><b>2. Gå tilbake til målet.</b> Les det høyt fra øverste venstre hjørne av innsiktsarket. Å stå fast betyr nesten alltid at du har drevet bort fra spørsmålet. «Målet var å forklare et fall på 33 millioner. Da er det egentlige spørsmålet mitt: hvilke poster har flyttet seg med minst 33 millioner? Alt som er mindre, kan jeg legge bort.» Målet er også en filtreringsregel, ikke bare en overskrift.</p>
+
+<p><b>3. Gå tilbake til identiteten.</b> Resultat er inntekter minus kostnader. Hvilken gren har jeg ikke rørt? Et tre kan gås gjennom systematisk; en temaliste kan ikke. Dette er hele grunnen til at strukturen ble tegnet: den er ikke bare noe du presenterte i minutt fem, den er kartet du finner tilbake med i minutt nitten.</p>
+
+<p><b>4. Be om et tall.</b> En konkret dataforespørsel er aldri et dårlig trekk. «Har dere kostnadene fordelt på post for de tre siste årene?» er et sterkt spørsmål. «Er det noe annet jeg burde se på?» er det ikke — det ber intervjueren om å gjøre jobben din.</p>
+
+<div class="callout mistake">
+<span class="h">De to trekkene som gjør det verre</span>
+<p><b>Å gjette et tall for å fylle stillheten.</b> Nå må du forsvare noe du ikke tror på.<br>
+<b>Å starte en ny struktur fra bunnen.</b> Det er det dyreste du kan gjøre i rommet: du kaster fem minutters arbeid, mister alt intervjueren allerede har akseptert, og bruker tiden du hadde igjen. Bygg videre på treet du har, selv om det ikke er perfekt.</p>
+</div>
+
+<div class="callout tip">
+<span class="h">Skill de to måtene å stå fast på</span>
+<p>Står du fast i <b>regningen</b>, går du tilbake til formelen i ord øverst på regnearket og sier oppsettet høyt på nytt. Feilen ligger nesten alltid i oppsettet, ikke i multiplikasjonen.<br>
+Står du fast i <b>retningen</b>, går du til målet. Å behandle et retningsproblem som et regneproblem er grunnen til at folk regner videre på noe som ikke betyr noe.</p>
+</div>
+
+<p>Det er også lov å lese intervjueren — Bain sier selv at de ser etter kandidater som fanger opp signaler og justerer. «Er dette en retning du synes er verdt å forfølge, eller vil du at jeg ser et annet sted?» er et legitimt spørsmål, én gang. Å ignorere et hint er derimot på BCGs egen liste over feil.</p>
+
+<p>Og husk hvordan dette faktisk vurderes: tjue sekunder fast, etterfulgt av en ryddig vei ut, er et <i>bedre</i> datapunkt enn aldri å komme i klemma. Det er nettopp der modenhet blir synlig.</p>
+
+<h3>14.6 Etter intervjuet</h3>
+
+<p>Innen ti minutter skriver du ned: prompten, tallene du fikk, hva du ble spurt om, hvor du nølte, og hva du faktisk sa i syntesen. Dette er den eneste treningsdataen fra virkeligheten du får, og den er borte om en time.</p>
+
+<p>Spør om tilbakemelding, eller om hva som ville gjort deg sterkere til neste runde. Få gjør det, og det virker: er noe flagget i runde 1, blir det gransket hardt i runde 2. Mellom runder fikser du <b>den ene tingen</b> som ble nevnt — ikke alt.</p>
+
+<p>Takkemelding: kort, eller la det være. Norsk praksis er lavmælt. Og ikke vurder deg selv samme kveld — følelsen av hvordan det gikk, er notorisk upålitelig i begge retninger.</p>
+
+<div class="callout link">
+<span class="h">Tren dette her</span>
+<p>Siste modul i studieplanen er <b>generalprøven</b>: hel case pluss fit, uten pauser mellom delene, på tid, med papir og penn som på ekte. Poenget er ikke å score bra — det er å kjenne hvordan hodet oppfører seg i minutt førti, og å oppdage hvilke trinn som gjentar seg som svake i fremdriftsvisningen. Kjør den én gang tidlig nok til at du rekker å gjøre noe med svaret, og gjerne én gang til dagen etter.</p>
+</div>
 </section>
 
 <h2 class="part">Referanse — Tall og formler</h2>

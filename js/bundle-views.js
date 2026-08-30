@@ -28,8 +28,10 @@ window.EDU.views = window.EDU.views || {};
   function copy(key, fallback) { return (((window.EDU_SUBJECT || {}).copy) || {})[key] || fallback; }
   function chapterMeta(ch) {
     const c = ch.counts; const bits = [];
-    if (c.sections) bits.push(`${c.sections} seksjoner`);
-    if (c.formulas) bits.push(`${c.formulas} formler`);
+    /* Entall når det er én. «1 formler» sto i chipen på hvert kapittel med
+       nøyaktig én formel, og det er den slags som får resten til å se slurvete ut. */
+    if (c.sections) bits.push(`${c.sections} ${c.sections === 1 ? "seksjon" : "seksjoner"}`);
+    if (c.formulas) bits.push(`${c.formulas} ${c.formulas === 1 ? "formel" : "formler"}`);
     if (c.figures) bits.push(`${c.figures} figur${c.figures > 1 ? "er" : ""}`);
     bits.push(`~${Math.max(4, Math.round(c.words / 180))} min`);
     return bits.join(" · ");

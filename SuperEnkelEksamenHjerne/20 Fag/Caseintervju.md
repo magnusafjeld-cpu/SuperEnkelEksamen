@@ -80,7 +80,7 @@ De skarpeste funnene:
 | | |
 |---|---|
 | Motor | **ferdig** — fem moduler, alle verifisert i nettleseren |
-| Manual | **2 av 16 kapitler** (k0, k1) — se `docs/case-kursplan.md` |
+| Manual | **16 av 16 kapitler · 21 300 ord** — 96 seksjoner, 43 tabeller, 15 gjennomregnede eksempler |
 | Studieplan | **10 moduler · 10 timer**, navngitt etter det du gjør |
 | Caser | **7** · 42 trinn · alle sju casetypene · 230 minutter trening |
 | Struktureringsprompter | **34**, hver med modellstruktur, hypotese og felle |
@@ -92,9 +92,12 @@ De skarpeste funnene:
 | Lynelementer totalt | **152** |
 | Quiz / flashcards / dybde | 4 / 4 / 3 |
 
-**Det som gjenstår er manualen.** Alt apparatet og all drillen er på plass; 14
-kapitler skal skrives, og de skal være korte. Kursplanen setter taket til 20 000
-ord totalt, mot FIE402s 109 000, fordi arbeidet ligger et annet sted.
+**Manualen er ferdig.** 21 300 ord mot kursplanens tak på 20 000 — litt over, men
+forholdet holder: rundt 110 minutters lesing mot 625 minutter drill i studieplanen,
+altså under en femdel av tiden, som var det ordtaket egentlig skulle sikre.
+
+`tools/case-bygg-manual.py` setter manualen sammen av kapittelfragmenter og
+normaliserer deltitlene. Manualen er sannhetskilden når den først er bygget.
 
 ## Aritmetikken er kontrollert uavhengig
 

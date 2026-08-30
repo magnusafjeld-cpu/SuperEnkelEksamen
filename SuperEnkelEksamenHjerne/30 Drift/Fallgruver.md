@@ -125,6 +125,18 @@ Merk at tallet **563 → 296 KB** som sto her tidligere, gjaldt FIE402 før manu
 vokste til 109 000 ord. Trimmingen virker fortsatt; det er innholdet som er
 større. Blir det trangt, er det FIE402 som må trimmes videre, ikke motoren.
 
+## 7f. Deltitler leses fra manifestet, ikke fra manualen
+
+`<h2 class="part">` i manualen brukes **ikke** til å bestemme hvilken del et
+kapittel hører til. Parseren fjerner dem, og `partFor()` slår opp i
+`manifest.parts` — med SAM3s makrotabell som stille fallback.
+
+Caseintervju manglet en slik tabell og arvet derfor SAM3s deler: k2 sto som
+«Oppgave 1: Nasjonalregnskap og måling». Det så riktig ut helt til det tredje
+kapitlet kom, fordi k0 og k1 tilfeldigvis traff SAM3s Del 0.
+
+**Legger du til et fag med flere enn to kapitler, må `parts` settes.**
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden

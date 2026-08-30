@@ -48,8 +48,14 @@ HODE = """<!DOCTYPE html>
   .formula{ background:var(--box); border-left:3px solid var(--plum); padding:14px 18px; margin:18px 0; }
   .formula .eq{ font-family:"Iowan Old Style",Georgia,serif; font-size:1.05rem; }
   .formula .where{ font-size:.9rem; color:#4a4a4a; margin-top:8px; }
-  .callout{ background:var(--box); border-radius:8px; padding:14px 18px; margin:18px 0; }
+  .callout{ background:var(--box); border-radius:8px; padding:14px 18px; margin:18px 0; border:1px solid transparent; }
   .callout .h{ display:block; font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; margin-bottom:.35em; color:var(--plum); }
+  /* Variantene, så den frittstående filen leses like godt som i appen. */
+  .callout.tip{ background:#e9f6ee; border-color:#cdeed8; } .callout.tip .h{ color:#1d7a47; }
+  .callout.mistake{ background:#fdf3e3; border-color:#f2dcb6; } .callout.mistake .h{ color:#9a630f; }
+  .callout.warn{ background:#fdecef; border-color:#f6d5dc; } .callout.warn .h{ color:#a32741; }
+  .callout.link{ background:#eef0fd; border-color:#dcdefb; } .callout.link .h{ color:#4044c9; }
+  .callout.mech{ background:var(--box); border-color:#ded5ff; }
   .worked{ background:#fff; border:1px dashed #c9bfae; border-radius:8px; padding:14px 18px; margin:18px 0; }
   .worked .wh{ display:block; text-transform:uppercase; letter-spacing:.05em; font-size:.75rem; font-weight:700; color:var(--plum); margin-bottom:.4em; }
   table.data{ border-collapse:collapse; width:100%; margin:18px 0; font-size:.95rem; }

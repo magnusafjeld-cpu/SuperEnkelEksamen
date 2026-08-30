@@ -43,7 +43,7 @@ window.EDU_DATA.lyn.estimat = [
         why: "Riktig akse først: hvitevarer telles per husholdning. 2,65 × 0,75 ≈ 2,0 mill. maskiner. 4,2 mill. er det du får om du bruker befolkningen (5,6 × 0,75), og det er den klassiske feilen på hvitevarer, TV og bil." },
       { sp: "Snittlevetiden på en oppvaskmaskin er ~12 år. Hvor mange maskiner må erstattes per år?",
         options: ["24 mill.", "1,65 mill.", "165 000", "17 000"], answer: 2,
-        why: "Levetidstrikset: årlig marked = installert base / levetid. 2,0 mill. / 12 ≈ 165 000. Dette er selve grepet i «hvor mange enheter»-oppgaver — et modent marked selger erstatninger, ikke nysalg." },
+        why: "Levetidstrikset: årlig marked = installert base / levetid. Regn på det urundede grunnlaget: 1,99 mill. / 12 ≈ 165 000. (Bruker du det avrundede 2,0, får du 167 000 — samme størrelsesorden, og i en estimeringsoppgave er begge greie.) Dette er selve grepet i «hvor mange enheter»-oppgaver — et modent marked selger erstatninger, ikke nysalg." },
       { sp: "Snittprisen på en oppvaskmaskin er ~7 000 kr. Hvor stort er markedet i kroner?",
         options: ["115 mill. kr", "1,2 mrd. kr", "2,3 mrd. kr", "12 mrd. kr"], answer: 1,
         why: "165 000 × 7 000: strip nullene — 165 × 7 = 1 155, og 10^3 × 10^3 = 10^6 → ~1,16 mrd., som jeg runder til 1,2 mrd. kr. Nullene føres som eget tall i margen og festes tilbake til slutt." },
