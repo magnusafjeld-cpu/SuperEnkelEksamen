@@ -131,7 +131,7 @@ window.EDU_SUBJECTS = [
     logo: "CI",
     blurb: "Hele caseintervjuet som kurs: struktur, hoderegning, figurlesing og fit — med ekte caser spilt trinn for trinn og mock-intervjuer på video.",
     accent: "#5b3fd6", accentInk: "#4630ab", accentSoft: "#efebff", accentSoft2: "#ded5ff",
-    scripts: ["fag/case/data.js", "fag/case/lyn.js", "fag/case/lyn-feil.js", "fag/case/lyn-graf.js",
+    scripts: ["fag/case/data.js", "fag/case/lyn.js", "fag/case/lyn-feil.js", "fag/case/lyn-graf.js", "fag/case/lyn-struktur.js",
               "fag/case/lyn-estimat.js", "fag/case/dybde.js", "fag/case/caser.js", "fag/case/mock.js"],
     manual: {
       candidates: ["Case_Manual.html", "fag/case/manual.html", "../Case_Manual.html"],

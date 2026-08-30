@@ -79,12 +79,42 @@ De skarpeste funnene:
 
 | | |
 |---|---|
-| Motor | **ferdig** — begge modulene virker og er verifisert i nettleseren |
-| Manual | **2 av ~25 kapitler** (k0, k1) |
-| Caser | **1** ferdig (kinokjeden), alle seks trinntyper i bruk |
-| Mock-videoer | **70**, alle dobbeltverifisert · 103 stopp-punkter · 34 timer |
-| Lynlæring | 46 elementer |
-| Dybdetrening | 3 spørsmål i én bank |
-| Quiz / flashcards | 4 / 4 |
+| Motor | **ferdig** — fem moduler, alle verifisert i nettleseren |
+| Manual | **2 av 16 kapitler** (k0, k1) — se `docs/case-kursplan.md` |
+| Studieplan | **10 moduler · 10 timer**, navngitt etter det du gjør |
+| Caser | **7** · 42 trinn · alle sju casetypene · 230 minutter trening |
+| Struktureringsprompter | **34**, hver med modellstruktur, hypotese og felle |
+| Finn feilen | **34** utregninger, 7 av dem uten feil |
+| Les grafen | **24** figurer — 18 SVG, 6 tabeller, 17 med innebygd felle |
+| Bygg estimatet | **14** kjeder · 57 runder |
+| Mock-videoer | **70**, dobbeltverifisert · 103 stopp-punkter · 34 timer |
+| Historieporteføljen | 4 dimensjoner, 12 sonder, terskel 8 |
+| Lynelementer totalt | **152** |
+| Quiz / flashcards / dybde | 4 / 4 / 3 |
 
-Innholdet er altså **så vidt begynt**. Motoren er den ferdige delen.
+**Det som gjenstår er manualen.** Alt apparatet og all drillen er på plass; 14
+kapitler skal skrives, og de skal være korte. Kursplanen setter taket til 20 000
+ord totalt, mot FIE402s 109 000, fordi arbeidet ligger et annet sted.
+
+## Aritmetikken er kontrollert uavhengig
+
+Alt tallinnhold er regnet gjennom på nytt etter at agentene leverte:
+
+- 67 uttrekkbare regnestykker i Finn feilen — null feil
+- alle sju casenes figurer, regnetrinn og sanity-sjekker, for hånd — null feil
+- tabellsummer og andeler i figurbanken — null feil
+- tre estimeringskjeder regnet helt gjennom — null feil
+
+> [!warning] Kontrollskript kan lyve begge veier
+> De to første kontrollskriptene mine ga 21 og 25 «avvik». Alle var falske:
+> uttrekkeren forsto ikke enheter (`= 120 mill.`), prosent (`= 20 %`) eller
+> kjedede ledd (`a × b × c = d = e`). Tredje versjon, som sammenligner mot flere
+> skalaer samtidig, ga null. **Et kontrollskript som finner feil, må selv
+> kontrolleres før man tror på det.**
+
+## Fasitposisjon er en gjenganger
+
+Estimeringsbanken hadde fasiten på alternativ B i 40 av 57 runder. `mcqRunner`
+stokker ikke alternativene, så drillen ville vært gjettbar på posisjon — nøyaktig
+samme skjevhet som ble funnet i [[FIE402 Corporate Finance]]. Sjekk fordelingen
+hver gang det produseres flervalgsinnhold.

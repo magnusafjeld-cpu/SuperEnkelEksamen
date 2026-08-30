@@ -6,7 +6,8 @@
    Ingen HTML-tagger — motoren escaper tekst, så alt skrives som ren tekst.
    ============================================================================ */
 window.EDU_DATA = window.EDU_DATA || {};
-window.EDU_DATA._struktur = [
+window.EDU_DATA.lyn = window.EDU_DATA.lyn || {};
+window.EDU_DATA.lyn.struktur = [
 
   /* ================= LØNNSOMHET ================= */
 
@@ -345,3 +346,129 @@ window.EDU_DATA._struktur = [
     hypotese: "Inntekten per abonnent faller ved fornyelse og ikke ved førstegangskjøp, så gevinsten ligger i å bygge gjerder som gjør nedgradering mindre attraktiv — ikke i å heve listeprisen. Testen er nedgraderingsrate per kohort ved fornyelse, brutt ned på hvilken funksjon kunden ga fra seg.",
     felle: "Å teste prisen mot nye kunder alene. De fleste kronene ligger i basen, og elastisiteten ved fornyelse i en lojal base er en helt annen enn ved førstegangskjøp.",
     sek: 90 },
+
+  /* ================= KOSTNAD OG OPERATIONS ================= */
+
+  { prompt: "Klienten driver et hurtigbåtsamband med ni anløp hver vei og har vunnet anbudet med fast kontraktspris. Rutetabellen holder ikke: båten er i snitt sju minutter forsinket ved endestasjonen, og bøtene spiser marginen. Operatøren spør hva de skal gjøre før neste sesong.",
+    grener: [
+      "Rundturen som prosess, ledd for ledd: fortøyning, avstigning, påstigning, avgang, seiling mellom anløp, og bunkring",
+      "Hvor tiden faktisk går: målt liggetid per anløp mot planlagt, for å finne de to eller tre anløpene som spiser bufferen",
+      "Farten som spak: forbruket vokser langt raskere enn farten, så å ta igjen tid ved å øke farten er den dyreste løsningen som finnes",
+      "Bemanning: sertifikatkrav og hviletid setter et gulv for hvor mange skift rutetabellen krever, uavhengig av passasjertall",
+      "Fartøytilgjengelighet: verkstedopphold, reservefartøy, og hva som skjer med hele tabellen når ett fartøy faller ut",
+      "Kontrakten: hvordan bøtene utløses, og om rutetabellen i det hele tatt er kjørbar med det fartøyet som er satt inn"
+    ],
+    hypotese: "Flaskehalsen er liggetiden ved de to anløpene der billettering skjer om bord, ikke fartøyets fart — og da er tiltaket billettering før ombordstigning, ikke et raskere fartøy eller mer drivstoff. Testen er målt liggetid per anløp mot plan, over 30 avganger.",
+    felle: "Å optimalisere noe som ikke er flaskehalsen. Kutter du i drivstoff eller bemanning når det er rundturtiden som binder, faller kostnaden litt og punktligheten ikke i det hele tatt.",
+    sek: 90 },
+
+  { prompt: "Klienten er et norsk aluminiumsverk som produserer 190 000 tonn i året. Verket ligger i tredje kvartil på bransjens kostnadskurve, og konsernet vurderer om det skal moderniseres eller legges ned. Du skal si hvor kostnadsgapet ligger, og om det kan lukkes.",
+    grener: [
+      "Kraft: forbruk i megawattimer per tonn ganger kontraktspris, og hvilket prisområde verket ligger i",
+      "Kraftkontrakten som avtale: hvor mye som er sikret, hvor lenge, og hva som skjer når den løper ut",
+      "Råvarer: alumina og anoder prises på indeks, altså ikke påvirkbare — bare sikringsbare",
+      "Prosessutbyttet: strømutbytte og celledrift, der et halvt prosentpoeng er større enn hele vedlikeholdsbudsjettet",
+      "Faste kostnader per tonn: bemanning og vedlikehold i et anlegg som ikke kan skrus ned, siden cellene fryser",
+      "Produktmiks og premie: støperiprodukter oppnår et påslag over metallbørsen, og det er den eneste rent kommersielle spaken"
+    ],
+    hypotese: "Kostnadsgapet mot beste kvartil er kraftkontrakten og ikke driften, og stemmer det, finnes det ikke et driftstiltak som er stort nok til å lukke det. Testen er kostnad per tonn mot beste kvartil, post for post, med spørsmålet hvor mange av kronene som ligger i kraft og råvare.",
+    felle: "Å angripe det som en vanlig kostnadskuttcase med bemanning og innkjøp. I en kraftkrevende prosess er over halvparten av kostnaden bundet i to indekserte kontrakter, og den eneste driftsspaken som monner er utbyttet i selve prosessen.",
+    sek: 120 },
+
+  { prompt: "Klienten er en nordisk netthandelsaktør med ett sentrallager. Volumet har vokst 25 prosent på ett år, leveringstiden har gått fra to til fire dager, og overtidsbruken er tredoblet. Logistikkdirektøren vil ha et nytt lager, og styret vil vite om det er nødvendig.",
+    grener: [
+      "Kapasiteten per trinn i prosessen: mottak, innlagring, plukk, pakking, sortering og utlevering — målt i ordrelinjer per time",
+      "Sammenlign hvert trinns kapasitet mot etterspørselen inn i det trinnet, og finn hvilket som først går tomt",
+      "Etterspørselens form: ordrene kommer ikke jevnt, så dimensjonering må skje mot mandagstoppen og førjulsuken, ikke mot dagsgjennomsnittet",
+      "Plukketiden dekomponert: gangavstand utgjør mesteparten, så vareplassering etter omløpshastighet er tiltaket, ikke flere plukkere",
+      "Returstrømmen, som koster mer per enhet å ta inn enn en ordre koster å sende ut, og som konkurrerer om de samme hendene",
+      "Utjevningsspaker før investering: kuttid for bestilling, skiftplan, og å flytte noe volum til leverandørdirekte"
+    ],
+    hypotese: "Flaskehalsen er pakkebordene i tre ettermiddagstimer, ikke lageret som helhet — og den kan flyttes med kuttid og skiftplan uten å bygge nytt. Testen er kapasitetsutnyttelse per trinn per time gjennom en normaluke og en toppuke.",
+    felle: "Å blande kapasitet og volum. At lageret pakker 12 000 ordrer om dagen sier ingenting om hvor mange det kan pakke i den timen ordrene faktisk kommer — og det er den timen som skaper leveringstiden.",
+    sek: 90 },
+
+  { prompt: "Klienten er en norsk bygg- og anleggsentreprenør med 3 milliarder i omsetning. Ordreboken er full, men fjorårets resultat var minus 90 millioner, drevet av noen få prosjekter. Konsernsjefen vil vite hvor tapene oppstår, og hvordan de stanses.",
+    grener: [
+      "Segmentér prosjektporteføljen: fastpris mot regningsarbeid, offentlig anbud mot privat, og etter prosjektstørrelse",
+      "Avviket mellom kalkyle og sluttoppgjør per prosjekt, og hvilken post i kalkylen avviket faktisk oppstår i",
+      "Kalkylefasen: mengdegrunnlag, timepriser, og hvor stort påslag for uforutsett som lå i vinnende bud",
+      "Gjennomføringen på plass: andel av arbeidstiden som er verdiskapende, omarbeid, og venting på underentreprenør",
+      "Innkjøp og underentreprenører: hvor stor andel av kostnaden som er kjøpt inn, og hvem som bærer risikoen nedover i kjeden",
+      "Endringsordrehåndtering: arbeid utført uten skriftlig godkjent endring, som aldri blir betalt"
+    ],
+    hypotese: "Tapene er konsentrert i fastpriskontrakter over en viss størrelse, og de oppstår ikke i kalkylen, men i endringshåndteringen underveis. Testen er kalkulert mot realisert dekningsbidrag per prosjekt, sortert på kontraktstype og størrelse, med endringsordrer som egen kolonne.",
+    felle: "Å lete etter kostnadskutt i administrasjonen. I entreprenørdrift oppstår avviket i prosjektene, og et prosjekt som taper 8 prosent kan ikke reddes av en innkjøpsavtale som gir 1.",
+    sek: 90 },
+
+  /* ================= OFFENTLIG OG IDEELL SEKTOR ================= */
+
+  { prompt: "Klienten er en norsk kommune med 55 000 innbyggere. Hjemmetjenesten overskrider budsjettet med 40 millioner i året, og kommunedirektøren har fått beskjed om at rammen ikke økes. Oppdraget er å lukke gapet uten å svekke tilbudet til brukerne.",
+    grener: [
+      "Start med målfunksjonen: det som maksimeres er levert tjenestetid av forsvarlig kvalitet, under to beskrankninger — kroner og tilgang på fagpersonell",
+      "Brukersiden: antall vedtak ganger tildelte timer per vedtak, og hvor mye vedtakspraksisen varierer mellom saksbehandlere",
+      "Leveransesiden: hvor stor andel av arbeidstiden som faktisk er hos bruker, mot kjøretid, dokumentasjon, møter og vaktskifte",
+      "Bemanningsstruktur: deltidsstillinger, vikarbruk og innleie, som er dyrere per levert time enn fast bemanning",
+      "Tiltak som reduserer framtidig behov: hverdagsrehabilitering, velferdsteknologi, og korttidsplasser som avlaster",
+      "Gjennomførbarhet og interessenter: hva som lar seg gjøre innen budsjettåret mot hva som tar tre år, og hvem som må med på det"
+    ],
+    hypotese: "Gapet lukkes ikke ved å kutte tildelte timer, men ved å heve andelen ansikt-til-ansikt-tid fra rundt halvparten av arbeidstiden — kjøretid og dokumentasjon er der pengene går. Testen er en tidsmåling av én uke i to soner, brutt ned på aktivitet.",
+    felle: "Å importere profittreet. Det finnes ingen inntektsside her, og gjør du strukturen om til inntekter og kostnader, ender du med å foreslå å ta betalt eller å kutte i selve tjenesten — som er nettopp det oppdraget forbyr.",
+    sek: 120 },
+
+  { prompt: "Klienten er en norsk humanitær organisasjon med 240 millioner i årlige inntekter. Antall faste givere har falt fire år på rad, mens enkeltgaver etter katastrofer har holdt totalen oppe. Generalsekretæren vil vite hvordan de sikrer stabile midler til formålet.",
+    grener: [
+      "Bygg fra identiteten: midler til formålet er innsamlet beløp ganger formålsandelen, og effekt er det igjen ganger effekt per krone i felt",
+      "Giverkanalene hver for seg: faste månedsgivere, engangsgivere ved katastrofe, testamentariske gaver, bedriftsavtaler og offentlige tilskudd",
+      "Anskaffelseskostnad per vervet fastgiver mot forventet levetidsverdi, per vervekanal — gateverving og telefonverving oppfører seg helt ulikt",
+      "Churn i fastgiverbasen: hvor lenge en giver blir, og hvor i giverforholdet folk faller fra",
+      "Bindinger i inntekten: offentlige tilskudd og øremerkede gaver kan ikke brukes fritt, så andelen fri inntekt er en egen størrelse",
+      "Formålsandelen som beskrankning: den brukes som kvalitetsstempel utad, og kan blokkere nettopp de investeringene som gir flere givere"
+    ],
+    hypotese: "Stabiliteten kommer fra å senke churn blant fastgiverne og ikke fra å verve flere: en giver som blir ett år lenger er langt billigere enn en ny, og fastgiverne er den eneste kanalen som er uavhengig av nyhetsbildet. Testen er levetidsverdi og churn per vervekanal og kohort.",
+    felle: "Å bruke formålsandelen som suksessmål. En organisasjon som slutter å verve får høy formålsandel og fallende midler til formålet — det er kroner levert over tid som teller, ikke prosenten i årsrapporten.",
+    sek: 90 },
+
+  /* ================= UKONVENSJONELT ================= */
+
+  { prompt: "Klienten er kirkevergen i en større norsk by. Loven krever ledige graver tilsvarende tre prosent av innbyggertallet, og byen har kapasitet til rundt 2033. Det finnes ingen ledige egnede arealer innenfor bygrensen. Du skal si hva de skal gjøre, og i hvilken rekkefølge.",
+    grener: [
+      "Bygg identiteten: arealbehov er gravlegginger per år ganger areal per grav ganger antall år før graven kan gjenbrukes",
+      "Etterspørselssiden: dødsfall per år framskrevet med aldersstrukturen, som er kjent flere tiår i forveien",
+      "Areal per grav: kistegrav og urnegrav skiller med en faktor, så kremasjonsandelen er den mest kraftfulle enkeltvariabelen",
+      "Gjenbruk: hvor mange gravsteder som har utløpt festeavtale, og hva som er juridisk mulig mot hva som er sosialt akseptabelt",
+      "Nytt areal: fortetting av eksisterende felt mot regulering av nytt, med regulering og opparbeidelse på 8 til 10 år",
+      "Ledetid som beskrankning: sorter tiltakene etter når de først virker, ikke etter hvor mange plasser de gir"
+    ],
+    hypotese: "Kapasiteten løses med kremasjonsandel og systematisk oppfølging av utløpte festeavtaler, ikke med areal, fordi begge virker innen få år mens en reguleringsprosess ikke rekker fram til 2033. Testen er antall plasser hvert tiltak frigjør, plottet mot året tiltaket først gir effekt.",
+    felle: "Å strukturere det som tilbud mot etterspørsel uten å tallfeste ledetid. Her er tiden den bindende beskrankningen — et tiltak som gir tusen plasser i 2036 løser ingenting av problemet i 2033.",
+    sek: 120 },
+
+  { prompt: "Klienten er styret i en norsk eliteserieklubb. Klubben har spilt europacup to av de tre siste årene og har aldri hatt høyere sportslig nivå, men går med 30 millioner i underskudd. Styret vil vite om de skal kutte, vokse eller endre modell.",
+    grener: [
+      "Del inntektene etter hvor mye klubben faktisk kontrollerer dem, ikke etter regnskapslinje",
+      "Det kontrollerbare: kampdagsinntekt som er tilskuere ganger snittpris ganger antall hjemmekamper, med stadionkapasiteten som tak",
+      "Det halvkontrollerbare: sponsorater og partnerskap, som følger av synlighet og forventning like mye som av tabellplass",
+      "Det ukontrollerbare og binære: europacupdeltakelse, der beløpet per runde er kjent, men sannsynligheten ikke er det",
+      "Spillersalg, som i praksis bærer norsk klubbøkonomi, men som er en kapitalhendelse ført som driftsinntekt",
+      "Kostnadssiden, som nesten utelukkende er lønn, og som stiger sikkert med sportslig ambisjon"
+    ],
+    hypotese: "Underskuddet er strukturelt: lønnsbudsjettet er dimensjonert for en europacupinntekt som bare inntreffer annethvert år, altså budsjetteres det med forventningsverdien av noe binært. Testen er lønnskostnaden satt mot inntektene i det året klubben ikke kvalifiserer seg.",
+    felle: "Å behandle sportslig suksess som inntektsdriveren. Suksess hever kostnadene med sikkerhet og inntektene med sannsynlighet, så strukturen må skille de kronene klubben kan planlegge med fra dem den bare kan håpe på.",
+    sek: 90 },
+
+  { prompt: "Klienten er et interkommunalt avfallsforbrenningsanlegg. De får betalt for å ta imot avfall, og selger fjernvarme og strøm ut. Bedre kildesortering gjør at avfallsmengden faller, samtidig som forbrenning nå er kvotepliktig. Styret vil vite hva som skal gjøres med anlegget.",
+    grener: [
+      "Bygg identiteten med riktig fortegn: resultatet er portinntekt per tonn ganger tonn, pluss varme og strøm solgt, minus drift, kvoter og asketransport",
+      "Avfallstilgangen: kommunale kontrakter med lang løpetid, næringsavfall i konkurranse, og importert avfall som marginalvolum",
+      "Konkurransen om det samme tonnet: svenske og danske anlegg med ledig kapasitet setter i praksis taket på portprisen",
+      "Energisiden: fjernvarmeetterspørselen er værdrevet og faller med bedre isolerte bygg, mens strømprisen følger prisområdet",
+      "Kvoteplikten: den treffer hvert tonn som brennes, og kan ikke sendes videre i en kommunal kontrakt som løper i ti år til",
+      "Kapasitetsøkonomien: anlegget må gå kontinuerlig, så ledig kapasitet fylles med hva som helst over marginalkostnad",
+      "Strategiske valg: karbonfangst, nedskalering, eller å konkurrere om importvolum"
+    ],
+    hypotese: "Fallende avfallsmengde er ikke hovedproblemet — kvoteplikten er, fordi den påføres hvert tonn mens portprisen er låst i langsiktige kommunale kontrakter. Testen er kvotekostnad per tonn mot kontraktsfestet portpris og gjenstående løpetid.",
+    felle: "Å lete etter kunden på vanlig måte. Her betaler leverandøren av råvaren for å bli kvitt den, og et tre bygget på pris ganger volum i vanlig retning gir feil fortegn med en gang.",
+    sek: 120 },
+
+];

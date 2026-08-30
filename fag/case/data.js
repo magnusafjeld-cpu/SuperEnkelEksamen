@@ -10,29 +10,104 @@ window.EDU_DATA = window.EDU_DATA || {};
 
 window.EDU_DATA.plan = {
   mode: "modules",
-  totalDays: 2,
+  totalDays: 10,
   startDate: "2026-08-30",
-  phaseColors: { "Grunnlaget": "slate", "Struktur": "indigo", "Tall": "amber", "Casetypene": "teal", "Framføring og fit": "rose" },
+  phaseColors: { "Grunnlaget": "slate", "Struktur": "indigo", "Tall": "amber", "Fit": "rose", "Hele caser": "teal" },
+  /* Modulene er navngitt etter det du GJØR. Rekkefølgen følger hva som feller
+     folk, ikke fagets egen logikk: strukturering og hoderegning først, fit før
+     første søknadsfrist, lesing underveis og i små doser.
+     Planen vokser når manualen får flere kapitler — se docs/case-kursplan.md. */
   days: [
-    { day: 1, phase: "Grunnlaget", title: "Slik brukes kurset, og hva intervjuet faktisk måler",
-      chapters: [0, 1], estMinutes: 55,
+    { day: 1, phase: "Grunnlaget", title: "Kjør din første case, og se hva som faktisk måles",
+      chapters: [0, 1], estMinutes: 65,
       goals: [
-        "Gjøre rede for de fire tingene som vurderes: struktur, kvantitativt håndverk, dømmekraft og kommunikasjon",
-        "Skille interviewer-led fra candidate-led, og si hvordan oppførselen din skal endres mellom dem",
-        "Forklare hvorfor ferdige rammeverk er blitt et negativt signal, og hva som har erstattet dem",
-        "Bygge en struktur fra en identitet i stedet for fra en huskeliste",
+        "Kjøre kinocasen fra prompt til anbefaling, med papir og penn ved siden av",
+        "Gjøre rede for de fire tingene som vurderes: struktur, regning, dømmekraft og kommunikasjon",
+        "Skille interviewer-led fra candidate-led, og si hvordan oppførselen din endres",
+        "Forklare hvorfor ferdige rammeverk er blitt et negativt signal",
       ],
-      keyConcepts: ["MECE", "Issue tree", "Interviewer-led", "Candidate-led", "Hypotesedrevet", "Topp-ned"],
-    },
-    { day: 2, phase: "Tall", title: "Første hele case, og hoderegningen som bærer den",
-      chapters: [], estMinutes: 60,
+      keyConcepts: ["MECE", "Issue tree", "Candidate-led", "Profitt-tre", "Topp-ned"] },
+
+    { day: 2, phase: "Struktur", title: "Åtte struktureringsprompter på rad",
+      chapters: [], estMinutes: 45,
       goals: [
-        "Kjøre en hel lønnsomhetscase fra prompt til anbefaling, på tid",
-        "Regne prosentpoeng mot riktig grunnlag, uten å miste en tierpotens",
+        "Bryte ned åtte ulike problemer på 90 sekunder hver",
+        "Bygge hver struktur fra en identitet eller en verdikjede, ikke fra en temaliste",
+        "Avslutte hver eneste med en hypotese du kan si hva som ville avkreftet",
+      ],
+      keyConcepts: ["Driver tree", "Identitet", "Verdikjede", "Falsifiserbar hypotese"] },
+
+    { day: 3, phase: "Tall", title: "Finn feilen, og tjue hoderegningskort",
+      chapters: [], estMinutes: 40,
+      goals: [
+        "Finne feilen i utregninger under tidspress — også når det ikke er noen",
+        "Regne prosentpoeng mot riktig grunnlag uten å miste en tierpotens",
         "Si framgangsmåten høyt før tallet, og oppgi enhet hver gang",
       ],
-      keyConcepts: ["Profitt-tre", "Prosentpoeng", "Dekningsbidrag", "Nullpunkt", "Sanity-sjekk"],
-    },
+      keyConcepts: ["Prosentpoeng", "Dekningsbidrag", "Nullpunkt", "Tierpotens", "72-regelen"] },
+
+    { day: 4, phase: "Fit", title: "Skriv de fire første historiene dine",
+      chapters: [], estMinutes: 70,
+      goals: [
+        "Skrive fire historier med alle sju feltene utfylt — særlig hvem som var uenig, og hvorfor",
+        "Merke hver historie med høyst to dimensjoner, og se hullene i matrisen",
+        "Sette tall på utfallet i minst tre av dem",
+      ],
+      keyConcepts: ["Leadership", "Connection", "Drive", "Growth", "Så derfor"] },
+
+    { day: 5, phase: "Hele caser", title: "Markedsinngang, og figurlesing",
+      chapters: [], estMinutes: 60,
+      goals: [
+        "Kjøre ladecasen på tid, og lande en anbefaling på under ett minutt",
+        "Lese seks figurer og si hovedbudskapet før detaljene",
+        "Sjekke hvor y-aksen starter, hver eneste gang",
+      ],
+      keyConcepts: ["Aksekutt", "Indeksert serie", "Prosent av prosent", "Miks bak flat total"] },
+
+    { day: 6, phase: "Tall", title: "Bygg estimatet, og puggetallene",
+      chapters: [], estMinutes: 45,
+      goals: [
+        "Bygge to markedsestimater leddvis, med sanity-sjekk til slutt",
+        "Kunne de norske ankerne utenat: 5,6 mill. innbyggere, 2,65 mill. husholdninger, 230 mrd. dagligvare",
+        "Bruke levetidstrikset: installert base delt på levetid",
+      ],
+      keyConcepts: ["Topp-ned", "Bunn-opp", "Installert base", "Sanity-sjekk", "Per capita"] },
+
+    { day: 7, phase: "Fit", title: "Fire historier til, og sondetesten",
+      chapters: [], estMinutes: 60,
+      goals: [
+        "Fylle hullene matrisen viste, så hver dimensjon har minst to historier",
+        "Kjøre sondetesten høyt på alle historiene — terskelen er åtte av tolv",
+        "Ha minst fire ulike kontekster representert",
+      ],
+      keyConcepts: ["Sondetest", "Dekningsmatrise", "Reservehistorie"] },
+
+    { day: 8, phase: "Hele caser", title: "M&A og prising, back-to-back",
+      chapters: [], estMinutes: 75,
+      goals: [
+        "Kjøre bakericasen: hva målselskapet er verdt for OSS, ikke i seg selv",
+        "Kjøre prisingscasen: finne kundens alternativ, og prise mot det",
+        "Holde syntesen innenfor ett minutt i begge",
+      ],
+      keyConcepts: ["Synergier", "Multippel", "Betalingsvillighet", "Kundens alternativ"] },
+
+    { day: 9, phase: "Hele caser", title: "Se andre gjøre det — aktivt",
+      chapters: [], estMinutes: 60,
+      goals: [
+        "Se to mock-intervjuer og stoppe ved hvert stopp-punkt for å gjøre trinnet selv",
+        "Notere én formulering, ett grep og én feil å unngå per video",
+        "Sammenligne din egen struktur med kandidatens før du hører fasiten",
+      ],
+      keyConcepts: ["Signposting", "Å be om tid", "Å bli motsagt"] },
+
+    { day: 10, phase: "Hele caser", title: "Vekst, operations og estimering — generalprøve",
+      chapters: [], estMinutes: 105,
+      goals: [
+        "Kjøre de tre siste casene uten pause mellom dem",
+        "Score deg selv strengt: distinkt betyr distinkt",
+        "Se hvilke trinn som gjentar seg som svake i fremdriftsvisningen",
+      ],
+      keyConcepts: ["Flaskehals", "Miks-effekt", "RRRN", "Selvvurdering"] },
   ],
 };
 

@@ -115,6 +115,16 @@ lik Exercise N. Ikke «rett» dem — formatstrengen deres sier «no multiple ch
 og et regex-søk etter «multiple choice» treffer den. Avgjør på om settet faktisk
 *har* en flervalgsblokk som oppgave 1, ikke på formatteksten.
 
+## 7e. Pensumbufferen vokser med manualen
+
+`localStorage` ligger nå på **2,3 MB** med tre fag installert: FIE402 1 513 KB,
+SAM3 566 KB pluss 202 KB oppgavebank, Caseintervju 14 KB. Grensen i de fleste
+nettlesere er 5 MB.
+
+Merk at tallet **563 → 296 KB** som sto her tidligere, gjaldt FIE402 før manualen
+vokste til 109 000 ord. Trimmingen virker fortsatt; det er innholdet som er
+større. Blir det trangt, er det FIE402 som må trimmes videre, ikke motoren.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden
