@@ -6,7 +6,10 @@
    som er lettest å trene systematisk og oftest velter kandidater.
    =================================================================== */
 window.EDU_DATA = window.EDU_DATA || {};
-window.EDU_DATA.lyn = {
+/* Object.assign, ikke tilordning: bankene ligger i egne filer (lyn-feil.js,
+   lyn-graf.js, lyn-estimat.js), og da skal ikke lastrekkefølgen kunne slette
+   noen av dem. */
+window.EDU_DATA.lyn = Object.assign(window.EDU_DATA.lyn || {}, {
 
   /* ================= SANT ELLER USANT ================= */
   tf: [
@@ -77,4 +80,4 @@ window.EDU_DATA.lyn = {
     { q: "Driftsmargin når resultatet er 78 og omsetningen 2 200", correct: "3,5 prosent", distractors: ["2,8 prosent", "3,9 prosent", "28 prosent"], why: "78 / 2 200. Ti prosent av 2 200 er 220, så 78 er litt over en tredjedel av det: omtrent 3,5 prosent. Å gå via ti prosent er raskere enn å dele direkte.", ch: 3 },
     { q: "Omsetning ned 15 prosent, pris opp 5 prosent — endring i volum", correct: "ned 19 prosent", distractors: ["ned 10 prosent", "ned 20 prosent", "ned 15 prosent"], why: "0,85 / 1,05 = 0,81, altså ned omtrent 19 prosent. Prosentendringer multipliseres; de kan ikke trekkes fra hverandre.", ch: 3 },
   ],
-};
+});
