@@ -90,7 +90,9 @@ De skarpeste funnene:
 | Mock-videoer | **70**, dobbeltverifisert · 103 stopp-punkter · 34 timer |
 | Historieporteføljen | 4 dimensjoner, 12 sonder, terskel 8 |
 | Lynelementer totalt | **152** |
-| Quiz / flashcards / dybde | 4 / 4 / 3 |
+| Quiz | **50** (41 flervalg / 9 kortsvar), alle 16 kapitler dekket |
+| Flashcards | **64** forfattet + 44 auto-genererte fra tallarket |
+| Dybdetrening | **95** i tre banker: struktur 25, tall 40, framføring 30 |
 
 **Manualen er ferdig.** 21 300 ord mot kursplanens tak på 20 000 — litt over, men
 forholdet holder: rundt 110 minutters lesing mot 625 minutter drill i studieplanen,

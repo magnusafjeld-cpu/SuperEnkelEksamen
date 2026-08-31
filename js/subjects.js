@@ -132,7 +132,9 @@ window.EDU_SUBJECTS = [
     blurb: "Hele caseintervjuet som kurs: struktur, hoderegning, figurlesing og fit — med ekte caser spilt trinn for trinn og mock-intervjuer på video.",
     accent: "#5b3fd6", accentInk: "#4630ab", accentSoft: "#efebff", accentSoft2: "#ded5ff",
     scripts: ["fag/case/data.js", "fag/case/lyn.js", "fag/case/lyn-feil.js", "fag/case/lyn-graf.js", "fag/case/lyn-struktur.js",
-              "fag/case/lyn-estimat.js", "fag/case/dybde.js", "fag/case/caser.js", "fag/case/mock.js"],
+              "fag/case/lyn-estimat.js", "fag/case/dybde.js", "fag/case/dybde-struktur.js", "fag/case/dybde-tall.js",
+              "fag/case/quiz.js",
+              "fag/case/flashcards.js", "fag/case/caser.js", "fag/case/mock.js"],
     manual: {
       candidates: ["Case_Manual.html", "fag/case/manual.html", "../Case_Manual.html"],
       label: "Case_Manual.html",
@@ -156,6 +158,22 @@ window.EDU_SUBJECTS = [
       { id: 5, tag: "Del V", name: "Håndverk", chapters: [13, 14] },
       { id: 6, tag: "Referanse", name: "Tall og formler", chapters: [15] },
     ],
+    /* Uten denne arver faget SAM3s tre hardkodede banker («Kort sikt», «Lang
+       sikt», «Eksamensoppgaver») og viser tre tomme knapper. */
+    dybdeBanks: [
+      { key: "struktur", label: "Struktur", sub: "Nedbrytning, MECE, hypoteser og de sju casetypene (kapittel 3–5).",
+        tip: "Nivå 1–2 er definisjoner og anvendelse. Nivå 3–4 er hele strukturer bygget fra bunnen — gjør dem på papir og si dem høyt, ellers trener du på noe annet enn det som måles." },
+      { key: "tall", label: "Tall", sub: "Hoderegning, estimering og figurlesing (kapittel 6–8 og tallarket).",
+        tip: "Skriv utregningen ferdig før du åpner fasiten, og si framgangsmåten høyt. Et riktig svar du ikke kan forklare, gir ingen uttelling i rommet." },
+      { key: "framforing", label: "Framføring og fit", sub: "Kommunikasjon, syntese og historiene (kapittel 9–12 og 14).",
+        tip: "Ti av spørsmålene ber om en formulering, ikke en forklaring. Si dem faktisk høyt — det er den delen som føles rarest å øve på alene, og som betyr mest." },
+    ],
+    copy: {
+      planEyebrow: "Studieplan · 10 moduler",
+      planIntro: "Modulene er navngitt etter det du gjør, ikke etter hva du leser. Rekkefølgen følger hva som faktisk feller folk: strukturering og hoderegning først, historieporteføljen før første søknadsfrist, og lesing underveis i små doser.",
+      dybdeIntro: "Selvrettet trening i tre bolker. Velg bank, filtrer på nivå, og skriv eller si svaret ferdig før du åpner fasiten. Fasitene sier hva som skiller et sterkt svar fra et middels — det er det skillet som avgjør om du går videre.",
+      lynFoot: "Alt innhold er hentet fra manualen og fra kartleggingen av hvordan husene faktisk rekrutterer. Feil svar viser alltid forklaringen, det er der læringen skjer. Tips: legg siden til på Hjem-skjermen for app-følelse.",
+    },
     /* Casetrening har ingen eksamen og ingen oppgavebank — den har caser. */
     modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/caser", "/mock", "/historier", "/review", "/search", "/progress"],
   },

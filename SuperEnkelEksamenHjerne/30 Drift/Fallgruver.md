@@ -137,6 +137,32 @@ kapitlet kom, fordi k0 og k1 tilfeldigvis traff SAM3s Del 0.
 
 **Legger du til et fag med flere enn to kapitler, må `parts` settes.**
 
+## 7g. I dybdebankene er `n` nivået, ikke et løpenummer
+
+Feltnavnene i `EDU_DATA.dybde` er ikke selvforklarende, og jeg leste dem feil:
+
+| Felt | Hva det faktisk er |
+|---|---|
+| `n` | **nivået**, 1–4 — må finnes som nøkkel i bankens `lvl` |
+| `id` | unik nøkkel innenfor banken, og **lagringsnøkkel** for vurderingene |
+| `k` | kategori, må finnes i bankens `cats` |
+
+`visible()` filtrerer på `fLevels.has(q.n)`. Bruker du `n` som løpenummer og
+`lvl` som nivå, forsvinner alt med `n` over 4 — og banken viser «Ingen spørsmål
+matcher filteret» selv om tellingen på knappen er riktig, siden den teller
+`items.length` direkte.
+
+Det ble ikke oppdaget med én gang, fordi den første banken hadde nøyaktig tre
+spørsmål nummerert 1–3, som alle tilfeldigvis er gyldige nivåer.
+
+**Sjekk mot `fag/fie402/dybde.js` når du lager en ny bank.** Den er riktig.
+
+## 7h. `dybdeBanks` må settes, ellers arves SAM3s tre banker
+
+Samme mønster som deltabellen i 7f: `js/bundle-dybde.js` faller tilbake på
+SAM3s hardkodede «Kort sikt / Lang sikt / Eksamensoppgaver» hvis manifestet
+mangler `dybdeBanks`. Faget viser da tre knapper som ikke har data.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden
