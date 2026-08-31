@@ -10,7 +10,7 @@ window.EDU_DATA = window.EDU_DATA || {};
 
 window.EDU_DATA.plan = {
   mode: "modules",
-  totalDays: 12,
+  totalDays: 11,
   startDate: "2026-08-30",
   phaseColors: { "Grunnlaget": "slate", "Struktur": "indigo", "Tall": "amber", "Fit": "rose", "Framføring": "teal", "Generalprøve": "green" },
   /* Modulene er navngitt etter det du GJØR, og hver av dem har en arbeidsliste
@@ -18,64 +18,53 @@ window.EDU_DATA.plan = {
      strukturering og hoderegning først, historiene før første søknadsfrist,
      lesing underveis i små doser. Se docs/case-kursplan.md. */
   days: [
-    { day: 1, phase: "Grunnlaget", title: "Kjør din første case, og se hva som faktisk måles",
-      chapters: [0, 1], estMinutes: 75,
+    { day: 1, phase: "Grunnlaget", title: "Lær å bryte ned et problem — så kjør din første case",
+      chapters: [0, 1, 3], estMinutes: 90,
       tasks: [
+        { t: "Les kapittel 3 FØR du starter casen", sub: "Pensum · nedbrytning fra identiteter og verdikjeder · ~10 min", rute: "#/chapter/3" },
         { t: "Kjør kinocasen fra prompt til anbefaling", sub: "Casetrening · 30 min · ha penn og papir klart", rute: "#/caser" },
         { t: "Ta en runde hoderegning", sub: "Lynlæring · 12 kort mot klokka", rute: "#/lyn" },
-        { t: "Quiz deg på de to første kapitlene", sub: "Quiz · sjekk at det sitter", rute: "#/quiz" },
+        { t: "Quiz deg på de tre kapitlene", sub: "Quiz · sjekk at det sitter", rute: "#/quiz" },
       ],
       goals: [
-        "Kjøre en hel case fra prompt til anbefaling, med papir ved siden av",
+        "Bygge en nedbrytning fra en identitet eller en verdikjede, ikke fra en temaliste",
         "Gjøre rede for de fire tingene som vurderes: struktur, regning, dømmekraft og kommunikasjon",
+        "Kjøre en hel case fra prompt til anbefaling, med papir ved siden av",
         "Skille interviewer-led fra candidate-led, og si hvordan oppførselen din endres",
       ],
-      keyConcepts: ["MECE", "Issue tree", "Candidate-led", "Profitt-tre", "Topp-ned"],
-      tip: "Snakk høyt mens du løser casen, også når du sitter alene. Det føles rart, og det er nettopp derfor det må øves — i rommet er tenkningen din bare verdt noe hvis noen kan høre den." },
+      keyConcepts: ["MECE", "Issue tree", "Identitet", "Verdikjede", "Candidate-led", "Topp-ned"],
+      tip: "Rekkefølgen i denne modulen er ikke tilfeldig. Casen har et struktureringstrinn, og kapittel 3 er det som lærer deg å lage en. Hopper du over lesingen, trener du på å gjette." },
 
-    { day: 2, phase: "Struktur", title: "Åtte struktureringsprompter på rad",
-      chapters: [3], estMinutes: 60,
+    { day: 2, phase: "Struktur", title: "Hypotesen, og ni struktureringsprompter",
+      chapters: [4], estMinutes: 65,
       tasks: [
         { t: "Kjør «Strukturer!» tre ganger", sub: "Lynlæring · 90 sekunder per prompt, ni prompter totalt", rute: "#/lyn" },
         { t: "Dybdetrening: struktur, nivå 1 og 2", sub: "Dybdetrening · definisjoner og anvendelse", rute: "#/dybde" },
       ],
       goals: [
         "Bryte ned ni ulike problemer på 90 sekunder hver",
-        "Bygge hver struktur fra en identitet eller en verdikjede, ikke fra en temaliste",
-        "Avslutte hver eneste med en hypotese du kan si hva som ville avkreftet",
-      ],
-      keyConcepts: ["Driver tree", "Identitet", "Verdikjede", "MECE", "Segmentering"],
-      tip: "Kvantitet slår dybde her. Ni ulike prompter gjør mer for deg enn én prompt gjort perfekt — det er gjenkjennelsen av nye problemer du trener, ikke løsningen av et gammelt." },
-
-    { day: 3, phase: "Struktur", title: "Hypotesen — og hva som skiller A fra C",
-      chapters: [4], estMinutes: 60,
-      tasks: [
-        { t: "Kjør «Strukturer!» tre ganger til", sub: "Lynlæring · si hypotesen høyt hver gang", rute: "#/lyn" },
-        { t: "Dybdetrening: struktur, nivå 3 og 4", sub: "Dybdetrening · bygg hele trær fra bunnen", rute: "#/dybde" },
-      ],
-      goals: [
         "Formulere en hypotese som kan vise seg gal, og si hvilket tall som ville avkreftet den",
         "Kjenne igjen forskjellen på et A-svar og et C-svar på samme prompt",
-        "Holde struktureringen innenfor fire til fem minutter",
       ],
-      keyConcepts: ["Falsifiserbar hypotese", "Datauttrekk", "Tidsbudsjett", "Skreddersøm"],
-      tip: "Les 4.3 to ganger. C-svaret der er ikke en stråmann — det er et plausibelt flinkt svar, og det er nettopp derfor det er nyttig å se hva som mangler i det." },
+      keyConcepts: ["Falsifiserbar hypotese", "Datauttrekk", "Driver tree", "Segmentering"],
+      tip: "Les 4.3 før du driller. Der står A-svaret og C-svaret skrevet ut på samme prompt, og C-svaret er ikke en stråmann — det er et plausibelt flinkt svar. Å se hva som mangler i det, er verdt mer enn ti prompter uten." },
 
-    { day: 4, phase: "Struktur", title: "Casetypene, og en case om markedsinngang",
-      chapters: [5], estMinutes: 65,
+    { day: 3, phase: "Struktur", title: "Casetypene, og en case om markedsinngang",
+      chapters: [5], estMinutes: 80,
       tasks: [
+        { t: "Kjør «Strukturer!» tre ganger til", sub: "Lynlæring · si hypotesen høyt hver gang", rute: "#/lyn" },
         { t: "Kjør ladecasen: skal Nordlys til Sverige?", sub: "Casetrening · 35 min · markedsinngang, candidate-led", rute: "#/caser" },
-        { t: "Dybdetrening: casetyper", sub: "Dybdetrening · filtrer på temaet Casetyper", rute: "#/dybde" },
+        { t: "Dybdetrening: struktur, nivå 3 og 4", sub: "Dybdetrening · bygg hele trær fra bunnen", rute: "#/dybde" },
       ],
       goals: [
         "Si kjernespørsmålet i hver av de sju casetypene på én setning",
         "Kjøre en markedsinngangscase og huske det tredje spørsmålet: er det verdt det mot alternativene?",
         "Definere etterspørselen riktig — ikke hele markedet, men den delen som faktisk er kunde",
       ],
-      keyConcepts: ["Markedsinngang", "Inngangsform", "Enhetsøkonomi", "Nullpunkt"],
+      keyConcepts: ["Markedsinngang", "Inngangsform", "Enhetsøkonomi", "Nullpunkt", "Casetyper"],
       tip: "Legg merke til hvordan ladecasen straffer å bruke elbilandelen som markedsstørrelse. Kunden er bilisten uten hjemmelading — bruker du hele bilparken, får du et marked som er flere ganger for stort." },
 
-    { day: 5, phase: "Tall", title: "Hoderegning, og å finne feilen",
+    { day: 4, phase: "Tall", title: "Hoderegning, og å finne feilen",
       chapters: [6], estMinutes: 55,
       tasks: [
         { t: "Kjør «Finn feilen»", sub: "Lynlæring · seks utregninger, og noen er helt riktige", rute: "#/lyn" },
@@ -90,7 +79,7 @@ window.EDU_DATA.plan = {
       keyConcepts: ["Prosentpoeng", "Kompenserende avrunding", "72-regelen", "Brøktabellen", "Tierpotens"],
       tip: "De sju rundene uten feil er de viktigste. Uten dem lærer du bare å lete til du finner noe — og det er nøyaktig den vanen som får deg til å «rette» et riktig tall i rommet." },
 
-    { day: 6, phase: "Tall", title: "Estimering, og tallene du skal kunne utenat",
+    { day: 5, phase: "Tall", title: "Estimering, og tallene du skal kunne utenat",
       chapters: [7, 15], estMinutes: 70,
       tasks: [
         { t: "Kjør «Bygg estimatet» to ganger", sub: "Lynlæring · fire kjeder med sanity-sjekk", rute: "#/lyn" },
@@ -105,7 +94,7 @@ window.EDU_DATA.plan = {
       keyConcepts: ["Topp-ned", "Bunn-opp", "Installert base", "Sanity-sjekk", "Per capita"],
       tip: "Ett anker er verdt mer enn de andre til sammen: én krone per nordmann per dag er omtrent to milliarder i året. Har du det, kan du prise nesten et hvilket som helst forbrukermarked på ti sekunder." },
 
-    { day: 7, phase: "Tall", title: "Figurlesing — og fellene som ikke forsvinner med erfaring",
+    { day: 6, phase: "Tall", title: "Figurlesing — og fellene som ikke forsvinner med erfaring",
       chapters: [8], estMinutes: 50,
       tasks: [
         { t: "Kjør «Les grafen» to ganger", sub: "Lynlæring · tolv figurer, de fleste med en felle", rute: "#/lyn" },
@@ -119,7 +108,7 @@ window.EDU_DATA.plan = {
       keyConcepts: ["Aksekutt", "Indeksert serie", "Prosent av prosent", "Miks bak flat total"],
       tip: "Aksekutt-fella er den ene i hele kurset du ikke kan tenke deg ut av. Forskningen viser at effekten består etter opplæring, og at grafkompetanse ikke beskytter. Derfor drilles den mekanisk: les startverdien høyt, hver gang." },
 
-    { day: 8, phase: "Fit", title: "Skriv de fire første historiene dine",
+    { day: 7, phase: "Fit", title: "Skriv de fire første historiene dine",
       chapters: [11], estMinutes: 80, milestone: "Halve porteføljen",
       tasks: [
         { t: "Skriv fire historier med alle sju feltene", sub: "Historier · ta deg tid på «hvem var uenig, og hvorfor»", rute: "#/historier" },
@@ -133,7 +122,7 @@ window.EDU_DATA.plan = {
       keyConcepts: ["Leadership", "Connection", "Drive", "Growth", "Så derfor"],
       tip: "Begynn med den historien du allerede forteller når noen spør hva du har fått til. Den er nesten alltid godt nok råstoff — den mangler bare tall, en motpart og en «så derfor»." },
 
-    { day: 9, phase: "Framføring", title: "Å snakke mens du tenker, og å lande anbefalingen",
+    { day: 8, phase: "Framføring", title: "Å snakke mens du tenker, og å lande anbefalingen",
       chapters: [9, 10], estMinutes: 85,
       tasks: [
         { t: "Kjør bakericasen", sub: "Casetrening · 40 min · M&A, interviewer-led", rute: "#/caser" },
@@ -148,7 +137,7 @@ window.EDU_DATA.plan = {
       keyConcepts: ["Signposting", "RRRN", "Syntese mot oppsummering", "Én anerkjennelse"],
       tip: "Sett telefonen på opptak når du gjør syntesen. Å høre seg selv er ubehagelig og lærerikt — særlig de tre sekundene du bruker på «eh» før hver setning." },
 
-    { day: 10, phase: "Fit", title: "Fire historier til, sondetesten, og «why this firm»",
+    { day: 9, phase: "Fit", title: "Fire historier til, sondetesten, og «why this firm»",
       chapters: [12], estMinutes: 75, milestone: "Porteføljen ferdig",
       tasks: [
         { t: "Skriv fire historier til", sub: "Historier · fyll hullene matrisen viste", rute: "#/historier" },
@@ -163,7 +152,7 @@ window.EDU_DATA.plan = {
       keyConcepts: ["Sondetest", "Dekningsmatrise", "Byttetesten", "Navngitt samtale"],
       tip: "Byttetesten er brutal og tar ti sekunder: fungerer «Why BCG» ordrett som «Why McKinsey», har du ikke svart på spørsmålet. Da mangler du en navngitt samtale med noen som jobber der." },
 
-    { day: 11, phase: "Grunnlaget", title: "Husene, prosessene og de digitale testene",
+    { day: 10, phase: "Grunnlaget", title: "Husene, prosessene og de digitale testene",
       chapters: [2, 13], estMinutes: 60,
       tasks: [
         { t: "Se to mock-intervjuer, ett av hver stilart", sub: "Mock · filtrer på interviewer-led og candidate-led", rute: "#/mock" },
@@ -178,7 +167,7 @@ window.EDU_DATA.plan = {
       keyConcepts: ["Interviewer-led", "Candidate-led", "Solve", "Redrock", "Logisk resonnement"],
       tip: "Distraktorene i numeriske tester er bygget av de vanligste feilene. Det betyr at når du bommer på en, har du sannsynligvis gjort nøyaktig den feilen testen var laget for å fange — noter hvilken." },
 
-    { day: 12, phase: "Generalprøve", title: "Tre caser på rad, uten pause",
+    { day: 11, phase: "Generalprøve", title: "Tre caser på rad, uten pause",
       chapters: [14], estMinutes: 120, milestone: "Generalprøve",
       tasks: [
         { t: "Kjør prisingscasen", sub: "Casetrening · 30 min · verdien må lande i samme lomme som betaler", rute: "#/caser" },

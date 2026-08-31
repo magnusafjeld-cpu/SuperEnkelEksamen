@@ -503,6 +503,26 @@ window.EDU_DATA = window.EDU_DATA || {};
     const items = shuffle(bank("struktur")).slice(0, 3);
     const box = el(".lyn-game");
     let i = 0, xp = 0;
+
+    /* Drillen ba om produksjon uten å ha vist ett eneste eksempel. Har du aldri
+       sett en god struktur, er de første nitti sekundene bortkastet — du kan
+       ikke lage det du ikke har sett. Faget kan derfor levere ett gjennomgått
+       eksempel som vises først, og som kan hoppes over med ett trykk. */
+    function visEksempel(fortsett) {
+      const e = (window.EDU_DATA.lyn || {}).strukturIntro;
+      if (!e) return fortsett();
+      S.u.clear(box);
+      box.appendChild(el(".tiny.muted", "Slik ser en god nedbrytning ut — les den før du prøver selv"));
+      box.appendChild(el(".lyn-statement", e.prompt));
+      const ul = el("ul", { style: { margin: "10px 0 0", paddingLeft: "20px", lineHeight: 1.6 } });
+      (e.grener || []).forEach((g) => ul.appendChild(el("li", g)));
+      box.appendChild(el(".explain", el("b", "Grenene:"), ul,
+        e.hypotese ? el("p", { style: { margin: "10px 0 0" } }, el("b", "Hypotesen: "), e.hypotese) : null,
+        e.poeng ? el("p", { style: { margin: "8px 0 0", color: "var(--ink-3)" } }, el("b", "Legg merke til: "), e.poeng) : null));
+      box.appendChild(el(".center", { style: { marginTop: "14px" } },
+        el("button.btn.primary", { onclick: fortsett }, "Jeg har lest den — start")));
+    }
+
     function step() {
       clearTick(); S.u.clear(box);
       if (i >= items.length) { done(xp, `Struktur: ${items.length} prompter`); return; }
@@ -538,7 +558,7 @@ window.EDU_DATA = window.EDU_DATA || {};
         if (left <= 0) show(); else span.style.width = (left * 100) + "%";
       }, 120);
     }
-    step(); return box;
+    visEksempel(step); return box;
   }
 
   /* ---------- finn feilen ----------

@@ -33,17 +33,6 @@ window.EDU_DATA.quizzes = (window.EDU_DATA.quizzes || []).concat([
     answer: 2,
     explanation: "En løsning føles opplagt i det man leser den. Den følelsen er gjenkjennelse, og den forsvinner i rommet. Forsøket først er det eneste som skiller trening fra lesing." },
 
-  { id: "q12", ch: 1, oppg: 1, type: "mcq",
-    q: "Hva er den farligste feilen i en candidate-led case?",
-    options: [
-      "Å vente på at intervjueren gir deg neste spørsmål",
-      "Å stille for mange oppklarende spørsmål i starten",
-      "Å bruke for lang tid på struktureringen",
-      "Å regne feil på et enkelt regnestykke",
-    ],
-    answer: 0,
-    explanation: "I en candidate-led case er det du som driver den fremover. Sitter du og venter, leses det som at du ikke vet hvor du vil. Hos interviewer-led hus er den farlige feilen den motsatte — å vandre av gårde i egen retning — og derfor er det verdt å avklare hvilken type det er." },
-
   { id: "q13", ch: 1, oppg: 1, type: "mcq",
     q: "Hvilken av disse er IKKE en av de fire tingene som vurderes?",
     options: [
@@ -103,12 +92,15 @@ window.EDU_DATA.quizzes = (window.EDU_DATA.quizzes || []).concat([
     explanation: "Overlapp kan du sjekke ved å lese treet ditt. Hull kan du ikke, for de er per definisjon det du ikke tenkte på. Den praktiske testen: «hvis alle grenene mine var uendret, kunne resultatet likevel ha falt?» Er svaret ja, mangler du en gren." },
 
   { id: "q19", ch: 3, oppg: 1, type: "mcq",
-    q: "Hvorfor er en identitet et tryggere utgangspunkt enn en temaliste?",
+    q: "Du skal skjære et problem etter én akse. Hvilken velger du?",
     options: [
-      "Fordi den er MECE av konstruksjon — leddene kan ikke overlappe eller etterlate hull", "Fordi den gjør regningen enklere senere i casen", "Fordi identiteter er raskere å skrive ned", "Fordi intervjuerne forventer å se en formel",
+      "Den som er lettest å forklare",
+      "Den du tror variasjonen er størst langs",
+      "Den som gir flest grener",
+      "Den bransjen vanligvis bruker",
     ],
-    answer: 0,
-    explanation: "Resultat = inntekter − kostnader er sant per definisjon, så nedbrytningen arver MECE gratis. «Marked, konkurrenter, kunder, kostnader» har ingen slik garanti, og det er nettopp der hullene oppstår." },
+    answer: 1,
+    explanation: "Skjærer du etter noe der alle skivene oppfører seg likt, har du delt opp uten å lære noe. Aksen må dessuten være målbar og mulig å handle på — en inndeling som ikke peker mot et tiltak, gir en pen analyse og ingen anbefaling." },
 
   { id: "q20", ch: 3, oppg: 1, type: "mcq",
     q: "Hvilken av disse er IKKE en av de fem måtene å være MECE på?",
@@ -399,15 +391,6 @@ window.EDU_DATA.quizzes = (window.EDU_DATA.quizzes || []).concat([
     explanation: "Dekningsbidraget per enhet er 50 − 30 = 20, og 200 / 20 = 10 enheter. Å dele på prisen gir 4 og er den klassiske feilen: du deler alltid på dekningsbidraget, aldri på prisen." },
 
   /* ---------- kortsvar ---------- */
-  { id: "q48", ch: 1, oppg: 1, type: "short",
-    q: "Nevn de fire tingene som vurderes i et caseintervju, og si i én linje hva hver av dem egentlig spør om.",
-    model: [
-      "Struktur — klarer du å dele et ukjent problem i biter som verken overlapper eller etterlater hull, og er bitene dette problemets biter?",
-      "Kvantitativt håndverk — regner du riktig og raskt nok, og sier du framgangsmåten høyt så noen kan følge deg?",
-      "Dømmekraft — ser du hva tallet betyr, skiller du symptom fra årsak, og vet du når du har nok til å konkludere?",
-      "Kommunikasjon — kommer svaret først, tåler du å bli motsagt, og ville du sluppet inn til en klient i morgen?",
-    ] },
-
   { id: "q49", ch: 3, oppg: 1, type: "short",
     q: "Nevn de fem måtene å være MECE på, med ett eksempel hver.",
     model: [

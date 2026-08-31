@@ -81,7 +81,7 @@ De skarpeste funnene:
 |---|---|
 | Motor | **ferdig** — fem moduler, alle verifisert i nettleseren |
 | Manual | **16 av 16 kapitler · 21 300 ord** — 96 seksjoner, 43 tabeller, 15 gjennomregnede eksempler |
-| Studieplan | **12 moduler · 14 timer** · 32 arbeidsoppgaver med lenke inn i øvelsen |
+| Studieplan | **11 moduler · 14 timer** · arbeidsoppgaver med lenke inn i øvelsen |
 | Caser | **7** · 42 trinn · alle sju casetypene · 230 minutter trening |
 | Struktureringsprompter | **34**, hver med modellstruktur, hypotese og felle |
 | Finn feilen | **34** utregninger, 7 av dem uten feil |
@@ -90,7 +90,7 @@ De skarpeste funnene:
 | Mock-videoer | **70**, dobbeltverifisert · 103 stopp-punkter · 34 timer |
 | Historieporteføljen | 4 dimensjoner, 12 sonder, terskel 8 |
 | Lynelementer totalt | **152** |
-| Quiz | **50** (41 flervalg / 9 kortsvar), alle 16 kapitler dekket |
+| Quiz | **48** (40 flervalg / 8 kortsvar), alle 16 kapitler dekket |
 | Flashcards | **64** forfattet + 44 auto-genererte fra tallarket |
 | Dybdetrening | **115** i fire banker: grunnlaget 20, struktur 25, tall 40, framføring 30 |
 
@@ -100,6 +100,25 @@ altså under en femdel av tiden, som var det ordtaket egentlig skulle sikre.
 
 `tools/case-bygg-manual.py` setter manualen sammen av kapittelfragmenter og
 normaliserer deltitlene. Manualen er sannhetskilden når den først er bygget.
+
+## Rekkefølgen: undervis før du krever
+
+Første versjon av planen ba deg kjøre en hel case i modul 1 — med et
+struktureringstrinn — mens bare k0 og k1 var lest. Ingen av dem lærer deg å
+strukturere. **Det aller første kurset ba om, var det det ikke hadde undervist i.**
+
+k3 er derfor flyttet til modul 1, og arbeidslista sier eksplisitt «Les kapittel 3
+FØR du starter casen». Planen gikk fra 12 til 11 moduler da modul 3 og 4 ble slått
+sammen.
+
+«Strukturer!» hadde samme problem i det små: den ba om produksjon uten å ha vist
+ett eneste eksempel. Den åpner nå med én gjennomgått nedbrytning fra
+`lyn.strukturIntro`, som kan hoppes over med ett trykk.
+
+> [!warning] Sjekk dette for hvert nytt fag
+> Gå gjennom planen modul for modul og spør: **krever denne modulen en ferdighet
+> som ennå ikke er undervist?** Det er lett å bygge planen etter fagets logikk i
+> stedet for etter leserens.
 
 ## Aritmetikken er kontrollert uavhengig
 

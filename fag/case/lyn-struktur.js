@@ -472,3 +472,18 @@ window.EDU_DATA.lyn.struktur = [
     sek: 120 },
 
 ];
+
+/* Vises som første skjerm i «Strukturer!». Uten den ber drillen om produksjon
+   av noe leseren aldri har sett — og de første nitti sekundene er bortkastet. */
+window.EDU_DATA.lyn.strukturIntro = {
+  prompt: "Klienten er en norsk hotellkjede med 23 hoteller. Belegget er tilbake på nivået fra før pandemien, men driftsresultatet er 40 prosent lavere. Hvorfor?",
+  grener: [
+    "Belegget er oppgitt som tilbake, så volumleddet er utelukket — si det høyt, og bruk tiden på resten",
+    "Pris per solgte rom: segmentmiks (forretning midtuke, kurs og konferanse, gruppe, fritid i helgen) og kanalmiks (direkte booking mot bookingportal med provisjon)",
+    "Inntekt utenom rommet: mat og drikke per gjestedøgn, og dekningsbidraget på frokost, restaurant og møtemat hver for seg",
+    "Kostnad per solgte rom: bemanning per rom, energi, renhold og vedlikehold",
+    "Faste kostnader: husleie eller kapitalkostnad, som ikke faller når marginen gjør det",
+  ],
+  hypotese: "Kanalmiksen har forskjøvet seg mot bookingportaler. Netto snittpris etter provisjon kan falle uten at listeprisen er rørt én krone — og da ser prisen uendret ut i alle interne rapporter.",
+  poeng: "Grenene er hotellets egne, ikke «inntekter og kostnader». Legg merke til at den første grenen brukes til å utelukke, ikke til å undersøke — det er der de fleste kaster bort tiden sin.",
+};
