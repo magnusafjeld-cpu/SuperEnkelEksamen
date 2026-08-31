@@ -183,7 +183,12 @@ svg.ico{width:1.05em;height:1.05em;flex:0 0 auto;}
 .u-picker button{border:1px solid var(--hairline-strong);background:#fff;border-radius:var(--r-pill);padding:5px 12px;font-size:12.5px;font-weight:560;cursor:pointer;color:var(--ink-2);}
 .u-picker button.on.understood{background:var(--accent);color:#fff;border-color:var(--accent);}
 .u-picker button.on.unsure{background:var(--amber);color:#fff;border-color:var(--amber);}
-.article-wrap{display:grid;grid-template-columns:1fr 232px;gap:36px;align-items:start;}
+.article-wrap{display:grid;grid-template-columns:minmax(0,1fr) 232px;gap:36px;align-items:start;}
+/* min-width:auto er standard for grid-barn, og hindrer dem i å krympe
+   under innholdets bredde. Uten denne dikterer den bredeste tabellen
+   bredden på hele kapitlet. */
+.article-wrap>*{min-width:0;}
+.prose{min-width:0;}
 .article-toc{position:sticky;top:24px;}
 .article-toc .tlabel{font-size:11.5px;font-weight:650;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-4);margin-bottom:10px;padding-left:12px;}
 .article-toc a{display:block;padding:6px 12px;font-size:13px;color:var(--ink-3);border-left:2px solid var(--hairline);border-radius:0 6px 6px 0;}
@@ -220,6 +225,10 @@ svg.ico{width:1.05em;height:1.05em;flex:0 0 auto;}
 .prose .callout.warn:before{content:"❗";}.prose .callout.warn .h{color:#b8324b;}
 .prose .worked{background:#fff;border:1px dashed var(--hairline-strong);border-radius:var(--r-md);padding:16px 20px;margin:1.3em 0;}
 .prose .worked .wh{text-transform:uppercase;letter-spacing:.05em;color:var(--accent-ink);font-weight:700;font-size:12.5px;display:block;margin-bottom:.4em;}
+/* Brede tabeller skal rulle for seg selv. Uten dette strekker de hele
+   artikkelen bredere enn skjermen, og all brødteksten blir uleselig på mobil. */
+.tabell-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.3em 0;}
+.tabell-scroll table.data{margin:0;}
 .prose table.data{border-collapse:separate;border-spacing:0;width:100%;margin:1.3em 0;font-size:14px;background:#fff;border:1px solid var(--hairline);border-radius:var(--r-md);overflow:hidden;}
 .prose table.data th,.prose table.data td{border-bottom:1px solid var(--hairline);padding:9px 13px;text-align:left;}
 .prose table.data tr:last-child td{border-bottom:none;}
@@ -432,6 +441,20 @@ textarea{font-family:inherit;}
 .linkbtn:hover{text-decoration:underline;}
 .acct-steps{margin:12px 0 0;padding-left:20px;color:var(--ink-2);font-size:14.5px;line-height:1.7;}
 .acct-steps code{font-family:var(--mono);font-size:12.5px;background:var(--bg-sunken);padding:1px 6px;border-radius:6px;}
+/* På mobil klemmes kapitteltittelen til 56 px mens «Forstått»-knappene
+   beholder full bredde. Flytt dem ned på egen linje i stedet. */
+@media (max-width:560px){
+  .chap-row{grid-template-columns:34px minmax(0,1fr) auto;gap:6px 12px;padding:12px 14px;}
+  .chap-row>.row{grid-column:1 / -1;justify-content:flex-end;}
+  /* Sidetoppen har tittel til venstre og knapper til høyre i samme flexrad.
+     En lang kapitteltittel dyttet knappene ut av skjermen — la dem brekke
+     ned på egen linje i stedet. */
+  .page-head .row{flex-wrap:wrap;row-gap:10px;}
+  .page-head h1{font-size:27px;}
+  /* Chips som faktisk er knapper — filtre og trinnvelgere — var 24 px høye.
+     Etikett-chips er div-er og treffes ikke av denne. */
+  button.chip{padding-top:7px;padding-bottom:7px;}
+}
 @media (max-width:1080px){.article-wrap{grid-template-columns:1fr;}.article-toc{display:none;}.grid.cols-4{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:860px){
   .grid.cols-3,.grid.cols-2{grid-template-columns:1fr;}
@@ -497,8 +520,8 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=23"></script>
-<script src="js/config.js?v=23"></script>
+<script src="js/subjects.js?v=26"></script>
+<script src="js/config.js?v=26"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
@@ -510,16 +533,16 @@ window.EDU_DATA = {};
      account      = Supabase-innlogging og synk av fremdrift (valgfritt)
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=23"></script>
-<script src="js/bundle-views.js?v=23"></script>
-<script src="js/bundle-lyn.js?v=23"></script>
-<script src="js/bundle-dybde.js?v=23"></script>
-<script src="js/bundle-sett.js?v=23"></script>
-<script src="js/bundle-case.js?v=23"></script>
-<script src="js/bundle-mock.js?v=23"></script>
-<script src="js/bundle-historier.js?v=23"></script>
-<script src="js/account.js?v=23"></script>
-<script src="js/picker.js?v=23"></script>
-<script src="js/boot.js?v=23"></script>
+<script src="js/bundle-core.js?v=26"></script>
+<script src="js/bundle-views.js?v=26"></script>
+<script src="js/bundle-lyn.js?v=26"></script>
+<script src="js/bundle-dybde.js?v=26"></script>
+<script src="js/bundle-sett.js?v=26"></script>
+<script src="js/bundle-case.js?v=26"></script>
+<script src="js/bundle-mock.js?v=26"></script>
+<script src="js/bundle-historier.js?v=26"></script>
+<script src="js/account.js?v=26"></script>
+<script src="js/picker.js?v=26"></script>
+<script src="js/boot.js?v=26"></script>
 </body>
 </html>

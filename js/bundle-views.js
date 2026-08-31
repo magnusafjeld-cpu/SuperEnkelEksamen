@@ -237,6 +237,7 @@ window.EDU.views = window.EDU.views || {};
     const layout = el(".article-wrap"); const article = el("div"); const prose = el(".prose");
     prose.appendChild(frag(c.html));
     merkKapittelhenvisninger(prose, num);
+    rullTabeller(prose);
     const heads = [...prose.querySelectorAll("h3")]; heads.forEach((h, i) => { h.id = `s-${num}-${i}`; });
     article.appendChild(prose);
     article.appendChild(activeLearning(num, c));
@@ -301,6 +302,18 @@ window.EDU.views = window.EDU.views || {};
      igjen. Her byttes koden ut med kapitlets tittel, og henvisninger framover
      merkes som nettopp det — så «k17» blir «k17 · The WACC method · senere».
      Bare tekstnoder røres, og aldri inne i SVG, kode eller lenker. */
+  /* Pakker brede tabeller i en egen rullebeholder. Gjøres ved visning og ikke i
+     manualen, så fagene slipper å tenke på det — og så det virker for de tre
+     fagene som allerede er skrevet. */
+  function rullTabeller(rot) {
+    rot.querySelectorAll("table.data").forEach((t) => {
+      if (t.parentElement && t.parentElement.classList.contains("tabell-scroll")) return;
+      const boks = el(".tabell-scroll");
+      t.parentNode.insertBefore(boks, t);
+      boks.appendChild(t);
+    });
+  }
+
   function merkKapittelhenvisninger(rot, denne) {
     const åpne = leseposisjon();
     const hopp = { SVG: 1, CODE: 1, PRE: 1, A: 1, SCRIPT: 1, STYLE: 1 };

@@ -163,6 +163,29 @@ Samme mønster som deltabellen i 7f: `js/bundle-dybde.js` faller tilbake på
 SAM3s hardkodede «Kort sikt / Lang sikt / Eksamensoppgaver» hvis manifestet
 mangler `dybdeBanks`. Faget viser da tre knapper som ikke har data.
 
+## 7i. Tre mobilfeil som lå i motoren, ikke i innholdet
+
+Funnet ved å måle `scrollWidth − clientWidth` på hver rute i 375 px bredde.
+Alle tre rammet også [[FIE402 Corporate Finance]] og [[SAM3 Makroøkonomi]].
+
+**Brede tabeller strakk hele kapitlet.** Et grid-barn har `min-width:auto` som
+standard og kan derfor ikke krympe under innholdets bredde — så den bredeste
+tabellen bestemte bredden på all brødteksten. Rettet med `minmax(0,1fr)` og
+`min-width:0`, pluss at `rullTabeller()` i `bundle-views.js` nå pakker hver
+`table.data` i en `.tabell-scroll` ved visning. Gjøres ved visning og ikke i
+manualen, så det virker for alle tre fagene uten å røre innholdet.
+
+**Pensumlisten klemte tittelen til 56 px.** `.chap-row` er et grid med fire
+kolonner der to er `auto`. På mobil vant «Forstått / Usikker»-knappene med sine
+182 px, og kapitteltittelen fikk resten. Under 560 px flyttes de ned på egen
+linje.
+
+**Sidetoppen dyttet knappene ut av skjermen.** Tittel og knapper ligger i samme
+flexrad uten `flex-wrap`. Lange kapitteltitler skjøv «Usikker» utenfor kanten.
+
+I tillegg var chips som fungerer som knapper 24 px høye. `button.chip` får nå
+mer luft under 560 px — etikett-chips er `div` og treffes ikke av regelen.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden
