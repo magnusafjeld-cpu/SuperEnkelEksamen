@@ -81,7 +81,7 @@ De skarpeste funnene:
 |---|---|
 | Motor | **ferdig** — fem moduler, alle verifisert i nettleseren |
 | Manual | **16 av 16 kapitler · 21 300 ord** — 96 seksjoner, 43 tabeller, 15 gjennomregnede eksempler |
-| Studieplan | **10 moduler · 10 timer**, navngitt etter det du gjør |
+| Studieplan | **12 moduler · 14 timer** · 32 arbeidsoppgaver med lenke inn i øvelsen |
 | Caser | **7** · 42 trinn · alle sju casetypene · 230 minutter trening |
 | Struktureringsprompter | **34**, hver med modellstruktur, hypotese og felle |
 | Finn feilen | **34** utregninger, 7 av dem uten feil |

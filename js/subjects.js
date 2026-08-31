@@ -169,7 +169,7 @@ window.EDU_SUBJECTS = [
         tip: "Ti av spørsmålene ber om en formulering, ikke en forklaring. Si dem faktisk høyt — det er den delen som føles rarest å øve på alene, og som betyr mest." },
     ],
     copy: {
-      planEyebrow: "Studieplan · 10 moduler",
+      planEyebrow: "Studieplan · 12 moduler",
       planIntro: "Modulene er navngitt etter det du gjør, ikke etter hva du leser. Rekkefølgen følger hva som faktisk feller folk: strukturering og hoderegning først, historieporteføljen før første søknadsfrist, og lesing underveis i små doser.",
       dybdeIntro: "Selvrettet trening i tre bolker. Velg bank, filtrer på nivå, og skriv eller si svaret ferdig før du åpner fasiten. Fasitene sier hva som skiller et sterkt svar fra et middels — det er det skillet som avgjør om du går videre.",
       lynFoot: "Alt innhold er hentet fra manualen og fra kartleggingen av hvordan husene faktisk rekrutterer. Feil svar viser alltid forklaringen, det er der læringen skjer. Tips: legg siden til på Hjem-skjermen for app-følelse.",

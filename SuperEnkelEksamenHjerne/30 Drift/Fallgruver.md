@@ -186,6 +186,38 @@ flexrad uten `flex-wrap`. Lange kapitteltitler skjøv «Usikker» utenfor kanten
 I tillegg var chips som fungerer som knapper 24 px høye. `button.chip` får nå
 mer luft under 560 px — etikett-chips er `div` og treffes ikke av regelen.
 
+## 7j. `el()` svelget tall som eneste barn
+
+`el(spec, attrs, ...children)` avgjør om andre argument er et barn eller et
+attributt-objekt slik:
+
+```js
+if (attrs && (attrs.nodeType || Array.isArray(attrs) || typeof attrs === "string"))
+```
+
+Et **tall** passerer ingen av testene og ble derfor behandlet som attributter.
+`for (const k in 3)` itererer ingenting, så tallet forsvant uten feilmelding.
+
+`el(".cnum", 3)` ga altså en tom sirkel — og kapittelnumrene i pensumlisten har
+vært blanke i **alle tre fagene** siden motoren ble skrevet. Ingen la merke til
+det, fordi en tom grå sirkel ser ut som design.
+
+`typeof attrs === "number"` er nå med i testen.
+
+**Lærdom:** en `el()`-hjelper som stilltiende kaster bort argumenter, feiler
+usynlig. Er du i tvil, send barn som eksplisitt tredje argument.
+
+## 7k. Studieplanen må peke på arbeidet, ikke bare beskrive det
+
+Dagvisningen kunne vise «Les og forstå» (fra `day.chapters`) og «Oppgaver i dag»
+(fra `day.problems`, og bare for fag med oppgavebank). Et fag der arbeidet er å
+kjøre en case eller en drill, hadde ingen måte å si det på — modulen viste mål og
+begreper, og lot deg stå igjen uten en vei inn i noe.
+
+`day.tasks` løser det: en liste med `{ t, sub, rute }` som rendres som «Gjør
+dette», med avkryssing per linje og lenke rett inn i øvelsen. Avkryssingen ligger
+i `state.active` under `dag-<n>-<i>`.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden

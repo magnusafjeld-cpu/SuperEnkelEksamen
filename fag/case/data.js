@@ -10,104 +10,189 @@ window.EDU_DATA = window.EDU_DATA || {};
 
 window.EDU_DATA.plan = {
   mode: "modules",
-  totalDays: 10,
+  totalDays: 12,
   startDate: "2026-08-30",
-  phaseColors: { "Grunnlaget": "slate", "Struktur": "indigo", "Tall": "amber", "Fit": "rose", "Hele caser": "teal" },
-  /* Modulene er navngitt etter det du GJØR. Rekkefølgen følger hva som feller
-     folk, ikke fagets egen logikk: strukturering og hoderegning først, fit før
-     første søknadsfrist, lesing underveis og i små doser.
-     Planen vokser når manualen får flere kapitler — se docs/case-kursplan.md. */
+  phaseColors: { "Grunnlaget": "slate", "Struktur": "indigo", "Tall": "amber", "Fit": "rose", "Framføring": "teal", "Generalprøve": "green" },
+  /* Modulene er navngitt etter det du GJØR, og hver av dem har en arbeidsliste
+     med lenke rett inn i øvelsen. Rekkefølgen følger hva som feller folk:
+     strukturering og hoderegning først, historiene før første søknadsfrist,
+     lesing underveis i små doser. Se docs/case-kursplan.md. */
   days: [
     { day: 1, phase: "Grunnlaget", title: "Kjør din første case, og se hva som faktisk måles",
-      chapters: [0, 1], estMinutes: 65,
+      chapters: [0, 1], estMinutes: 75,
+      tasks: [
+        { t: "Kjør kinocasen fra prompt til anbefaling", sub: "Casetrening · 30 min · ha penn og papir klart", rute: "#/caser" },
+        { t: "Ta en runde hoderegning", sub: "Lynlæring · 12 kort mot klokka", rute: "#/lyn" },
+        { t: "Quiz deg på de to første kapitlene", sub: "Quiz · sjekk at det sitter", rute: "#/quiz" },
+      ],
       goals: [
-        "Kjøre kinocasen fra prompt til anbefaling, med papir og penn ved siden av",
+        "Kjøre en hel case fra prompt til anbefaling, med papir ved siden av",
         "Gjøre rede for de fire tingene som vurderes: struktur, regning, dømmekraft og kommunikasjon",
         "Skille interviewer-led fra candidate-led, og si hvordan oppførselen din endres",
-        "Forklare hvorfor ferdige rammeverk er blitt et negativt signal",
       ],
-      keyConcepts: ["MECE", "Issue tree", "Candidate-led", "Profitt-tre", "Topp-ned"] },
+      keyConcepts: ["MECE", "Issue tree", "Candidate-led", "Profitt-tre", "Topp-ned"],
+      tip: "Snakk høyt mens du løser casen, også når du sitter alene. Det føles rart, og det er nettopp derfor det må øves — i rommet er tenkningen din bare verdt noe hvis noen kan høre den." },
 
     { day: 2, phase: "Struktur", title: "Åtte struktureringsprompter på rad",
-      chapters: [], estMinutes: 45,
+      chapters: [3], estMinutes: 60,
+      tasks: [
+        { t: "Kjør «Strukturer!» tre ganger", sub: "Lynlæring · 90 sekunder per prompt, ni prompter totalt", rute: "#/lyn" },
+        { t: "Dybdetrening: struktur, nivå 1 og 2", sub: "Dybdetrening · definisjoner og anvendelse", rute: "#/dybde" },
+      ],
       goals: [
-        "Bryte ned åtte ulike problemer på 90 sekunder hver",
+        "Bryte ned ni ulike problemer på 90 sekunder hver",
         "Bygge hver struktur fra en identitet eller en verdikjede, ikke fra en temaliste",
         "Avslutte hver eneste med en hypotese du kan si hva som ville avkreftet",
       ],
-      keyConcepts: ["Driver tree", "Identitet", "Verdikjede", "Falsifiserbar hypotese"] },
+      keyConcepts: ["Driver tree", "Identitet", "Verdikjede", "MECE", "Segmentering"],
+      tip: "Kvantitet slår dybde her. Ni ulike prompter gjør mer for deg enn én prompt gjort perfekt — det er gjenkjennelsen av nye problemer du trener, ikke løsningen av et gammelt." },
 
-    { day: 3, phase: "Tall", title: "Finn feilen, og tjue hoderegningskort",
-      chapters: [], estMinutes: 40,
+    { day: 3, phase: "Struktur", title: "Hypotesen — og hva som skiller A fra C",
+      chapters: [4], estMinutes: 60,
+      tasks: [
+        { t: "Kjør «Strukturer!» tre ganger til", sub: "Lynlæring · si hypotesen høyt hver gang", rute: "#/lyn" },
+        { t: "Dybdetrening: struktur, nivå 3 og 4", sub: "Dybdetrening · bygg hele trær fra bunnen", rute: "#/dybde" },
+      ],
       goals: [
-        "Finne feilen i utregninger under tidspress — også når det ikke er noen",
-        "Regne prosentpoeng mot riktig grunnlag uten å miste en tierpotens",
+        "Formulere en hypotese som kan vise seg gal, og si hvilket tall som ville avkreftet den",
+        "Kjenne igjen forskjellen på et A-svar og et C-svar på samme prompt",
+        "Holde struktureringen innenfor fire til fem minutter",
+      ],
+      keyConcepts: ["Falsifiserbar hypotese", "Datauttrekk", "Tidsbudsjett", "Skreddersøm"],
+      tip: "Les 4.3 to ganger. C-svaret der er ikke en stråmann — det er et plausibelt flinkt svar, og det er nettopp derfor det er nyttig å se hva som mangler i det." },
+
+    { day: 4, phase: "Struktur", title: "Casetypene, og en case om markedsinngang",
+      chapters: [5], estMinutes: 65,
+      tasks: [
+        { t: "Kjør ladecasen: skal Nordlys til Sverige?", sub: "Casetrening · 35 min · markedsinngang, candidate-led", rute: "#/caser" },
+        { t: "Dybdetrening: casetyper", sub: "Dybdetrening · filtrer på temaet Casetyper", rute: "#/dybde" },
+      ],
+      goals: [
+        "Si kjernespørsmålet i hver av de sju casetypene på én setning",
+        "Kjøre en markedsinngangscase og huske det tredje spørsmålet: er det verdt det mot alternativene?",
+        "Definere etterspørselen riktig — ikke hele markedet, men den delen som faktisk er kunde",
+      ],
+      keyConcepts: ["Markedsinngang", "Inngangsform", "Enhetsøkonomi", "Nullpunkt"],
+      tip: "Legg merke til hvordan ladecasen straffer å bruke elbilandelen som markedsstørrelse. Kunden er bilisten uten hjemmelading — bruker du hele bilparken, får du et marked som er flere ganger for stort." },
+
+    { day: 5, phase: "Tall", title: "Hoderegning, og å finne feilen",
+      chapters: [6], estMinutes: 55,
+      tasks: [
+        { t: "Kjør «Finn feilen»", sub: "Lynlæring · seks utregninger, og noen er helt riktige", rute: "#/lyn" },
+        { t: "Kjør hoderegning to ganger", sub: "Lynlæring · prosentankere og tierpotenser", rute: "#/lyn" },
+        { t: "Dybdetrening: tall, nivå 1 og 2", sub: "Dybdetrening · teknikkene, ett regnestykke hver", rute: "#/dybde" },
+      ],
+      goals: [
+        "Bruke prosentankere fra 10 og 1 prosent i stedet for å regne rått",
+        "Finne feilen i en utregning under tidspress — også når det ikke er noen",
         "Si framgangsmåten høyt før tallet, og oppgi enhet hver gang",
       ],
-      keyConcepts: ["Prosentpoeng", "Dekningsbidrag", "Nullpunkt", "Tierpotens", "72-regelen"] },
+      keyConcepts: ["Prosentpoeng", "Kompenserende avrunding", "72-regelen", "Brøktabellen", "Tierpotens"],
+      tip: "De sju rundene uten feil er de viktigste. Uten dem lærer du bare å lete til du finner noe — og det er nøyaktig den vanen som får deg til å «rette» et riktig tall i rommet." },
 
-    { day: 4, phase: "Fit", title: "Skriv de fire første historiene dine",
-      chapters: [], estMinutes: 70,
+    { day: 6, phase: "Tall", title: "Estimering, og tallene du skal kunne utenat",
+      chapters: [7, 15], estMinutes: 70,
+      tasks: [
+        { t: "Kjør «Bygg estimatet» to ganger", sub: "Lynlæring · fire kjeder med sanity-sjekk", rute: "#/lyn" },
+        { t: "Kjør varmepumpecasen", sub: "Casetrening · 25 min · ren estimering", rute: "#/caser" },
+        { t: "Gå gjennom flashcardene fra tallarket", sub: "Flashcards · dekket «formel» · 44 kort", rute: "#/flashcards" },
+      ],
       goals: [
-        "Skrive fire historier med alle sju feltene utfylt — særlig hvem som var uenig, og hvorfor",
-        "Merke hver historie med høyst to dimensjoner, og se hullene i matrisen",
+        "Bygge et markedsestimat leddvis, med enhet på hvert ledd",
+        "Kunne de norske ankerne utenat: 5,6 millioner, 2,65 millioner husholdninger, 230 milliarder i dagligvare",
+        "Avslutte hvert estimat med en sanity-sjekk mot noe du kjenner",
+      ],
+      keyConcepts: ["Topp-ned", "Bunn-opp", "Installert base", "Sanity-sjekk", "Per capita"],
+      tip: "Ett anker er verdt mer enn de andre til sammen: én krone per nordmann per dag er omtrent to milliarder i året. Har du det, kan du prise nesten et hvilket som helst forbrukermarked på ti sekunder." },
+
+    { day: 7, phase: "Tall", title: "Figurlesing — og fellene som ikke forsvinner med erfaring",
+      chapters: [8], estMinutes: 50,
+      tasks: [
+        { t: "Kjør «Les grafen» to ganger", sub: "Lynlæring · tolv figurer, de fleste med en felle", rute: "#/lyn" },
+        { t: "Dybdetrening: figurlesing", sub: "Dybdetrening · filtrer på temaet Figurlesing", rute: "#/dybde" },
+      ],
+      goals: [
+        "Lese tittel, akser og enhet høyt før du sier noe om formen",
+        "Fange en avkuttet y-akse hver gang, mekanisk",
+        "Si observasjon, implikasjon og neste steg — i den rekkefølgen",
+      ],
+      keyConcepts: ["Aksekutt", "Indeksert serie", "Prosent av prosent", "Miks bak flat total"],
+      tip: "Aksekutt-fella er den ene i hele kurset du ikke kan tenke deg ut av. Forskningen viser at effekten består etter opplæring, og at grafkompetanse ikke beskytter. Derfor drilles den mekanisk: les startverdien høyt, hver gang." },
+
+    { day: 8, phase: "Fit", title: "Skriv de fire første historiene dine",
+      chapters: [11], estMinutes: 80, milestone: "Halve porteføljen",
+      tasks: [
+        { t: "Skriv fire historier med alle sju feltene", sub: "Historier · ta deg tid på «hvem var uenig, og hvorfor»", rute: "#/historier" },
+        { t: "Merk hver historie med høyst to dimensjoner", sub: "Historier · se hullene i matrisen", rute: "#/historier" },
+      ],
+      goals: [
+        "Skrive fire historier der alle sju feltene er fylt ut",
         "Sette tall på utfallet i minst tre av dem",
+        "Se hvilke dimensjoner som fortsatt er tomme i dekningsmatrisen",
       ],
-      keyConcepts: ["Leadership", "Connection", "Drive", "Growth", "Så derfor"] },
+      keyConcepts: ["Leadership", "Connection", "Drive", "Growth", "Så derfor"],
+      tip: "Begynn med den historien du allerede forteller når noen spør hva du har fått til. Den er nesten alltid godt nok råstoff — den mangler bare tall, en motpart og en «så derfor»." },
 
-    { day: 5, phase: "Hele caser", title: "Markedsinngang, og figurlesing",
-      chapters: [], estMinutes: 60,
-      goals: [
-        "Kjøre ladecasen på tid, og lande en anbefaling på under ett minutt",
-        "Lese seks figurer og si hovedbudskapet før detaljene",
-        "Sjekke hvor y-aksen starter, hver eneste gang",
+    { day: 9, phase: "Framføring", title: "Å snakke mens du tenker, og å lande anbefalingen",
+      chapters: [9, 10], estMinutes: 85,
+      tasks: [
+        { t: "Kjør bakericasen", sub: "Casetrening · 40 min · M&A, interviewer-led", rute: "#/caser" },
+        { t: "Se ett mock-intervju med stopp-punkter", sub: "Mock · pause og gjør trinnet selv før du hører fortsettelsen", rute: "#/mock" },
+        { t: "Dybdetrening: framføring og fit", sub: "Dybdetrening · ti av spørsmålene ber om en formulering", rute: "#/dybde" },
       ],
-      keyConcepts: ["Aksekutt", "Indeksert serie", "Prosent av prosent", "Miks bak flat total"] },
+      goals: [
+        "Bruke skiltingsfraser som gjør resonnementet mulig å følge",
+        "Håndtere å bli motsagt: skille ny informasjon fra press-testing",
+        "Levere anbefaling, grunner, risiko og neste steg på under ett minutt",
+      ],
+      keyConcepts: ["Signposting", "RRRN", "Syntese mot oppsummering", "Én anerkjennelse"],
+      tip: "Sett telefonen på opptak når du gjør syntesen. Å høre seg selv er ubehagelig og lærerikt — særlig de tre sekundene du bruker på «eh» før hver setning." },
 
-    { day: 6, phase: "Tall", title: "Bygg estimatet, og puggetallene",
-      chapters: [], estMinutes: 45,
-      goals: [
-        "Bygge to markedsestimater leddvis, med sanity-sjekk til slutt",
-        "Kunne de norske ankerne utenat: 5,6 mill. innbyggere, 2,65 mill. husholdninger, 230 mrd. dagligvare",
-        "Bruke levetidstrikset: installert base delt på levetid",
+    { day: 10, phase: "Fit", title: "Fire historier til, sondetesten, og «why this firm»",
+      chapters: [12], estMinutes: 75, milestone: "Porteføljen ferdig",
+      tasks: [
+        { t: "Skriv fire historier til", sub: "Historier · fyll hullene matrisen viste", rute: "#/historier" },
+        { t: "Kjør sondetesten på alle historiene", sub: "Historier · svar høyt, terskelen er åtte av tolv", rute: "#/historier" },
+        { t: "Skriv «why consulting» og «why firm» som egne historier", sub: "Historier · og bruk byttetesten på dem", rute: "#/historier" },
       ],
-      keyConcepts: ["Topp-ned", "Bunn-opp", "Installert base", "Sanity-sjekk", "Per capita"] },
+      goals: [
+        "Ha minst to historier per dimensjon og minst fire ulike kontekster",
+        "Vite hvilke historier som er hovedhistorier og hvilke som er reserver",
+        "Ha et «why firm»-svar som ikke fungerer på et annet hus",
+      ],
+      keyConcepts: ["Sondetest", "Dekningsmatrise", "Byttetesten", "Navngitt samtale"],
+      tip: "Byttetesten er brutal og tar ti sekunder: fungerer «Why BCG» ordrett som «Why McKinsey», har du ikke svart på spørsmålet. Da mangler du en navngitt samtale med noen som jobber der." },
 
-    { day: 7, phase: "Fit", title: "Fire historier til, og sondetesten",
-      chapters: [], estMinutes: 60,
-      goals: [
-        "Fylle hullene matrisen viste, så hver dimensjon har minst to historier",
-        "Kjøre sondetesten høyt på alle historiene — terskelen er åtte av tolv",
-        "Ha minst fire ulike kontekster representert",
+    { day: 11, phase: "Grunnlaget", title: "Husene, prosessene og de digitale testene",
+      chapters: [2, 13], estMinutes: 60,
+      tasks: [
+        { t: "Se to mock-intervjuer, ett av hver stilart", sub: "Mock · filtrer på interviewer-led og candidate-led", rute: "#/mock" },
+        { t: "Kjør «Finn feilen» og hoderegning", sub: "Lynlæring · de digitale testene er hastighetstester", rute: "#/lyn" },
+        { t: "Quiz deg på husene og testene", sub: "Quiz · sjekk at du husker hvem som tester hva", rute: "#/quiz" },
       ],
-      keyConcepts: ["Sondetest", "Dekningsmatrise", "Reservehistorie"] },
+      goals: [
+        "Vite hvilken caseform hvert hus bruker, og endre oppførsel deretter",
+        "Kjenne forskjellen på Solve, BCGs logikktest og en numerisk resonnementstest",
+        "Vite hvilke frister som gjelder, og ha søkt på dem",
+      ],
+      keyConcepts: ["Interviewer-led", "Candidate-led", "Solve", "Redrock", "Logisk resonnement"],
+      tip: "Distraktorene i numeriske tester er bygget av de vanligste feilene. Det betyr at når du bommer på en, har du sannsynligvis gjort nøyaktig den feilen testen var laget for å fange — noter hvilken." },
 
-    { day: 8, phase: "Hele caser", title: "M&A og prising, back-to-back",
-      chapters: [], estMinutes: 75,
-      goals: [
-        "Kjøre bakericasen: hva målselskapet er verdt for OSS, ikke i seg selv",
-        "Kjøre prisingscasen: finne kundens alternativ, og prise mot det",
-        "Holde syntesen innenfor ett minutt i begge",
+    { day: 12, phase: "Generalprøve", title: "Tre caser på rad, uten pause",
+      chapters: [14], estMinutes: 120, milestone: "Generalprøve",
+      tasks: [
+        { t: "Kjør prisingscasen", sub: "Casetrening · 30 min · verdien må lande i samme lomme som betaler", rute: "#/caser" },
+        { t: "Kjør vekstcasen", sub: "Casetrening · 30 min · omsetningen er flat, kundene vokste", rute: "#/caser" },
+        { t: "Kjør slakterikasen", sub: "Casetrening · 40 min · flaskehals, avansert", rute: "#/caser" },
+        { t: "Se på treningsraden i fremdriften", sub: "Fremdrift · hvilke trinn er gjentatt svake?", rute: "#/progress" },
       ],
-      keyConcepts: ["Synergier", "Multippel", "Betalingsvillighet", "Kundens alternativ"] },
-
-    { day: 9, phase: "Hele caser", title: "Se andre gjøre det — aktivt",
-      chapters: [], estMinutes: 60,
       goals: [
-        "Se to mock-intervjuer og stoppe ved hvert stopp-punkt for å gjøre trinnet selv",
-        "Notere én formulering, ett grep og én feil å unngå per video",
-        "Sammenligne din egen struktur med kandidatens før du hører fasiten",
+        "Kjøre tre caser etter hverandre uten pause, slik en intervjudag faktisk er",
+        "Score deg selv strengt — distinkt betyr distinkt",
+        "Finne det ene trinnet som gjentatt er svakest, og trene bare det etterpå",
       ],
-      keyConcepts: ["Signposting", "Å be om tid", "Å bli motsagt"] },
-
-    { day: 10, phase: "Hele caser", title: "Vekst, operations og estimering — generalprøve",
-      chapters: [], estMinutes: 105,
-      goals: [
-        "Kjøre de tre siste casene uten pause mellom dem",
-        "Score deg selv strengt: distinkt betyr distinkt",
-        "Se hvilke trinn som gjentar seg som svake i fremdriftsvisningen",
-      ],
-      keyConcepts: ["Flaskehals", "Miks-effekt", "RRRN", "Selvvurdering"] },
+      keyConcepts: ["Flaskehals", "Mikseffekt", "Betalingsvillighet", "Selvvurdering"],
+      tip: "Ikke se på fasiten mellom casene. Hele poenget med å ta dem på rad er at du kjenner hvordan konsentrasjonen faller — og det er den følelsen du skal ha møtt før du møter den hos McKinsey." },
   ],
 };
 

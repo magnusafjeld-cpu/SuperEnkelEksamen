@@ -13,7 +13,9 @@ window.EDU = window.EDU || {};
     const node = document.createElement(tag);
     if (id) node.id = id;
     if (classes.length) node.className = classes.join(" ");
-    if (attrs && (attrs.nodeType || Array.isArray(attrs) || typeof attrs === "string")) { children.unshift(attrs); attrs = null; }
+    /* Et tall som eneste barn ble tolket som attributt-objekt og forsvant i
+       stillhet — el(".cnum", 3) ga en tom sirkel. Tall må derfor med her. */
+    if (attrs && (attrs.nodeType || Array.isArray(attrs) || typeof attrs === "string" || typeof attrs === "number")) { children.unshift(attrs); attrs = null; }
     if (attrs) {
       for (const k in attrs) {
         const v = attrs[k];
