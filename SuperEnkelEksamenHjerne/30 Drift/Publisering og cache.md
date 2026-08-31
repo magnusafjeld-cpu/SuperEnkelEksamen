@@ -42,3 +42,30 @@ gamle. Da må også dette oppdateres:
 - [[Prosjektoversikt]] i denne hjernen
 
 Dette skjedde 19. august 2026 da repoet gikk fra `SAM3` til `SuperEnkelEksamen`.
+
+## Byggnummeret buster JS — ikke pensum
+
+Dette er den viktigste enkeltfellen i hele oppsettet, og den kostet en dag.
+
+`?v=N` på script-taggene gjør at nettleseren henter ny **kode**. Den parsede
+manualen ligger et helt annet sted: i `localStorage`, under en nøkkel som
+tidligere het `edu.<id>.manual.v1` — **uten versjon**.
+
+Konsekvensen: en telefon som åpnet appen mens pensum var halvferdig, lagret den
+halvferdige versjonen og hentet **aldri** en ny. Byggnummeret ble bumpet tjue
+ganger uten at pensum ble oppdatert på den enheten. Symptomet var at «Pensum ser
+fortsatt nesten tom ut» lenge etter at manualen var ferdig — og ingenting i
+utviklerens egen nettleser avslørte det, fordi den hadde fått tømt bufferen
+underveis.
+
+**Rettet 31. august 2026:** nøkkelen er nå `edu.<id>.manual.b<byggnummer>`, lest
+fra script-taggene ved oppstart. Et bygg-bump ugyldiggjør dermed pensum
+automatisk. `ryddGamleBuffere()` sletter buffere fra tidligere bygg, ellers ville
+localStorage vokst med én kopi av hvert pensum per bygg mot et tak på ~5 MB.
+
+De gamle `sam3.*`-nøklene fra før fag-velgeren migreres nå **én gang og slettes**.
+Uten slettingen ville de servert utdatert pensum ved hver senere endring.
+
+> [!warning] Når du endrer en manual
+> Bump byggnummeret. Det er nå nok — men bare fordi nøkkelen inneholder det.
+> Legger noen tilbake en uversjonert bufferkonstant, er fella tilbake.

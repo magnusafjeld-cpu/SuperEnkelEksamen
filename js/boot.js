@@ -148,9 +148,31 @@ window.EDU = window.EDU || {};
 /* ---------------- innholdslaster: fag -> datafiler -> pensum -> oppgaver ---------------- */
 (function (S) {
   let SUB = null;
-  const manKey = () => "edu." + SUB.id + ".manual.v1";
-  const probKey = () => "edu." + SUB.id + ".problems.v1";
+  /* Byggnummeret fra script-taggene i index.html. Bufferen MÅ nøkles på det:
+     uten versjon i nøkkelen ble den parsede manualen liggende for alltid, og en
+     telefon som lastet appen mens pensum var halvferdig, viste den halvferdige
+     versjonen i det uendelige. ?v=N buster JS-filene, ikke localStorage. */
+  const BYGG = (function () {
+    const m = [...document.querySelectorAll("script[src]")]
+      .map((s) => (s.getAttribute("src") || "").match(/\?v=(\d+)/)).find(Boolean);
+    return m ? m[1] : "0";
+  })();
+  const manKey = () => "edu." + SUB.id + ".manual.b" + BYGG;
+  const probKey = () => "edu." + SUB.id + ".problems.b" + BYGG;
+  /* Rydd bort buffere fra tidligere bygg, ellers vokser localStorage med én
+     kopi av hvert pensum per bygg — og taket er rundt 5 MB. */
+  function ryddGamleBuffere() {
+    const behold = [manKey(), probKey()];
+    const mønster = new RegExp("^edu\\." + SUB.id + "\\.(manual|problems)\\.");
+    try {
+      Object.keys(localStorage).forEach((k) => {
+        if (mønster.test(k) && behold.indexOf(k) === -1) localStorage.removeItem(k);
+      });
+    } catch (e) {}
+  }
   /* nøklene het "sam3.*" før fag-velgeren; les dem én gang så ingenting må parses på nytt */
+  /* Nøklene het "sam3.*" før fag-velgeren. De migreres én gang og slettes så —
+     uten slettingen ville de servert utdatert pensum ved hver senere endring. */
   const legacy = (k) => (SUB && SUB.id === "sam3" ? { man: "sam3.manual.v1", prob: "sam3.problems.v1" }[k] : null);
 
   function setSplash(html) { const sp = S.picker.ensureSplash(); const c = sp.querySelector(".splash-card"); c.classList.remove("wide"); c.innerHTML = html; }
@@ -161,7 +183,12 @@ window.EDU = window.EDU || {};
   function hideSplash() { const s = document.getElementById("splash"); if (s) s.remove(); }
   function lsGet(key) { try { const c = localStorage.getItem(key); return c ? JSON.parse(c) : null; } catch (e) { return null; } }
   function lsSet(key, d) { try { localStorage.setItem(key, JSON.stringify(d)); } catch (e) {} }
-  function cached(key, legacyKey) { const d = lsGet(key); if (d) return d; const old = legacyKey ? lsGet(legacyKey) : null; if (old) { lsSet(key, old); return old; } return null; }
+  function cached(key, legacyKey) {
+    const d = lsGet(key); if (d) return d;
+    const old = legacyKey ? lsGet(legacyKey) : null;
+    if (old) { lsSet(key, old); try { localStorage.removeItem(legacyKey); } catch (e) {} return old; }
+    return null;
+  }
 
   async function loadProblems() {
     const c = cached(probKey(), legacy("prob"));
@@ -227,6 +254,7 @@ window.EDU = window.EDU || {};
     try { await S.picker.loadScripts(sub.scripts); }
     catch (e) { status(`<p class="muted">${e.message}</p><p class="tiny muted">Sjekk stiene i <code>js/subjects.js</code>.</p>`); return; }
 
+    ryddGamleBuffere();
     const c = cached(manKey(), legacy("man"));
     if (c && c.curriculum && c.curriculum.length) { try { await finish(c); return; } catch (e) { console.error(e); } }
     let fetched = null; try { fetched = await tryFetch(); } catch (e) {}
