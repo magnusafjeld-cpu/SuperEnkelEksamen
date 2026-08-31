@@ -15,7 +15,12 @@ window.EDU = window.EDU || {};
     if (classes.length) node.className = classes.join(" ");
     /* Et tall som eneste barn ble tolket som attributt-objekt og forsvant i
        stillhet — el(".cnum", 3) ga en tom sirkel. Tall må derfor med her. */
-    if (attrs && (attrs.nodeType || Array.isArray(attrs) || typeof attrs === "string" || typeof attrs === "number")) { children.unshift(attrs); attrs = null; }
+    /* Tallet 0 er falsy, så `attrs &&` slapp det aldri gjennom til tall-grenen —
+       og det havnet i attributt-slissen der `if (attrs)` også er falsy og kastet
+       det. el(".cnum", 0) ga derfor tom sirkel på kapittel 0 i alle tre fagene,
+       selv etter at tall ellers var fikset. Test typen først, ikke sannheten. */
+    const erBarn = (v) => v != null && (v.nodeType || Array.isArray(v) || typeof v === "string" || typeof v === "number");
+    if (erBarn(attrs)) { children.unshift(attrs); attrs = null; }
     if (attrs) {
       for (const k in attrs) {
         const v = attrs[k];
@@ -171,9 +176,13 @@ window.EDU = window.EDU || {};
   function tableRows(table) { return [...table.querySelectorAll("tr")].map((tr) => [...tr.querySelectorAll("th,td")].map((c) => norm(c.textContent))); }
   /* Hvilke seksjoner som er referansekapitler er fagspesifikt. Manifestet kan
      overstyre via manual.refSections; defaultene er SAM3s k21/k22/k23. */
+  /* Erklærer faget refSections i det hele tatt, gjelder bare det som står der.
+     Ellers arvet FIE402 SAM3s #k21 og #k23 for rollene det ikke satte — og siden
+     det ER ekte kapitler hos FIE402, ble examPatterns fylt med opsjonsutbetalinger
+     og coverage med binomiske tall. Feilen var usynlig fordi ingen leser dem. */
   function refSection(doc, role, fallbackId) {
-    const cfg = (((window.EDU_SUBJECT || {}).manual || {}).refSections) || {};
-    const id = cfg[role] || fallbackId;
+    const cfg = ((window.EDU_SUBJECT || {}).manual || {}).refSections;
+    const id = cfg ? cfg[role] : fallbackId;
     return id ? doc.querySelector("#" + id) : null;
   }
   function parseReference(doc) {
@@ -434,7 +443,10 @@ window.EDU = window.EDU || {};
     if (freq >= 2) { s += freq * 9; reasons.push(`Sentralt eksamenstema (i ${freq} tidligere oppgaver)`); } else if (freq === 1) s += 6;
     const acc = quizAccuracy(num);
     if (acc.answered >= 1 && acc.ratio != null && acc.ratio < 0.7) { s += Math.round((1 - acc.ratio) * 30); reasons.push(`Svak quizscore (${acc.correct}/${acc.answered})`); }
-    if (num >= 13 && num <= 19) { s += 6; reasons.push("Oppgave 3 — historisk svakest, høyest utbytte"); }
+    /* Var hardkodet til SAM3s kapittel 13–19 og gjaldt ubetinget i alle fag.
+       Nå fagets eget: manifest.repetition.boost = { from, to, why }. */
+    const b = ((window.EDU_SUBJECT || {}).repetition || {}).boost;
+    if (b && b.why && b.from != null && b.to != null && num >= b.from && num <= b.to) { s += (b.vekt || 6); reasons.push(b.why); }
     return { num, score: s, reasons };
   }
   /* Hvilke kapitler som er "pensum" er fagspesifikt. To knapper fordi SAM3 har hatt
@@ -459,7 +471,14 @@ window.EDU = window.EDU || {};
   function coreChapters() { const r = coreRange(); return S.data.chapters().filter((c) => c.num >= r.from && c.num <= r.to); }
   function readPct() { const core = coreChapters(); const st = S.store.get(); const read = core.filter((c) => st.chapters[c.num] && st.chapters[c.num].read).length; return { read, total: core.length || 1, pct: Math.round((read / (core.length || 1)) * 100) }; }
   function understoodCount() { const st = S.store.get(); let understood = 0, unsure = 0; coreChapters().forEach((c) => { const v = st.chapters[c.num] && st.chapters[c.num].understanding; if (v === "understood") understood++; else if (v === "unsure") unsure++; }); return { understood, unsure }; }
-  function daysPct() { const st = S.store.get(); const done = Object.values(st.days).filter((d) => d && d.completed).length; return { done, total: S.data.plan.totalDays, pct: Math.round((done / S.data.plan.totalDays) * 100) }; }
+  /* Mangler totalDays, ble hele beredskapsringen «NaN % klar» — på hver eneste
+     side, siden sidepanelet viser den samme verdien. Del aldri på noe et fag kan
+     glemme å sette. */
+  function daysPct() {
+    const st = S.store.get(); const done = Object.values(st.days).filter((d) => d && d.completed).length;
+    const total = (S.data.plan && S.data.plan.totalDays) || (S.data.plan && (S.data.plan.days || []).length) || 0;
+    return { done, total, pct: total ? Math.round((done / total) * 100) : 0 };
+  }
   function quizStats() { const ans = S.store.get().quiz.answered; const ids = Object.keys(ans); const correct = ids.filter((k) => ans[k].correct).length; const acc = ids.length ? Math.round((correct / ids.length) * 100) : null; return { answered: ids.length, correct, accuracy: acc, total: (S.data.raw.quizzes || []).length }; }
   function readiness() {
     // Coverage-based: every component measures how much is DONE, not a rate.

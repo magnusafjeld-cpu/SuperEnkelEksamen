@@ -218,6 +218,38 @@ begreper, og lot deg stå igjen uten en vei inn i noe.
 dette», med avkryssing per linje og lenke rett inn i øvelsen. Avkryssingen ligger
 i `state.active` under `dag-<n>-<i>`.
 
+## 7l. Gjennomgangen som fant ni feller til
+
+Etter at tre feil av samme slag dukket opp i det nye faget, ble hele motoren gått
+gjennom systematisk. Ni til ble funnet, og alle er nå rettet.
+
+**Aktive feil, i alvorlighetsrekkefølge:**
+
+| Feil | Hva som skjedde |
+|---|---|
+| Quizmodus «Oppgave 2/3» | Hardkodet for alle fag. Caseintervju har alt på `oppg: 1`, så pool ble tom og `runScreen()` krasjet på `questions[0].ch`. To av fem moduser døde med «⚠️ Noe gikk galt» |
+| `el()` og tallet 0 | Førstefiksen testet `attrs &&`, og 0 er falsy. `el(".cnum", 0)` ga fortsatt tom sirkel på kapittel 0 i alle tre fagene |
+| Repetisjonsvekting 13–19 | `if (num >= 13 && num <= 19)` var **ubetinget** hardkodet, ikke en fallback. Alle fag fikk «Oppgave 3 — historisk svakest» |
+| Død lenke til `/exam` | «Åpne eksamenstrening» rendret uten `hasModule`-vakt. FIE402 har `pastExam` på 23 av 25 moduler, men ikke ruten — klikket landet på dashbordet |
+| Milepælkortet | Dagvisningens chip ble vaktet, dashbordkortet ikke. Caseintervju fikk en tom fet linje i 9 av 12 moduler |
+| Synlig markup i escapede felt | 38 SAM3-dybdespørsmål, 28 FIE402-symboler, 8 flashcard-forsider, 17 kriterier |
+| Dekkfilteret | «Mekanismer» og «Intuisjon» var hardkodet og ga tom kø i fag uten dem |
+| XP-stigen | Endte på «Sensor» og «Nobelkandidat» også i et kurs om jobbintervjuer |
+| «Dager fullført» | Sto slik også i fag som teller moduler |
+
+**Latent, også rettet:** `daysPct()` delte på `plan.totalDays` uten vakt, og
+`NaN` forplantet seg til beredskapsringen — «NaN % klar» på hver eneste side.
+
+> [!warning] To lærdommer om kontrollen selv
+> **Min egen verifisering var feil to ganger.** Regexen `<[a-z]` fanger ikke
+> `</b>`, siden det kommer en skråstrek etter vinkelparentesen — så en opprydding
+> som bare fjernet åpningstagger ble godkjent som fullført. Bruk
+> `</?[a-zA-Z][^>]*>`.
+>
+> **`textContent` inkluderer skjulte elementer.** En sveip som leter etter
+> lekkasjer i teksten vil se innhold bak `display:none` — quizens modellsvar så
+> ut til å lekke før avsløring, men gjorde det ikke.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden

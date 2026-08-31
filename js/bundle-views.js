@@ -21,6 +21,9 @@ window.EDU.views = window.EDU.views || {};
      og verken ukedag eller dato skal vises. */
   const byModule = () => S.data.planMode() === "modules";
   function unitName(cap) { const w = byModule() ? "modul" : "dag"; return cap ? w[0].toUpperCase() + w.slice(1) : w; }
+  /* Flertall: «moduler», ikke «modulr». Egen funksjon fordi norsk bøyning ikke
+     lar seg gjøre ved å henge en r på slutten. */
+  function unitPlural(cap) { const w = byModule() ? "moduler" : "dager"; return cap ? w[0].toUpperCase() + w.slice(1) : w; }
   function dayStamp(d) {
     if (byModule() || !d || !d.date) return "";
     return ` · ${d.weekday || ""} ${S.u.formatDate(d.date)}`.replace(/\s+/g, " ");
@@ -49,7 +52,7 @@ window.EDU.views = window.EDU.views || {};
     return c;
   }
   function empty(emoji, title, sub, action) { const e = el(".empty", el(".ei", emoji), el("h3", title), el("p.muted", sub)); if (action) e.appendChild(el("div", { style: { marginTop: "18px" } }, action)); return e; }
-  S.views.shared = { pageHead, sectionTitle, stat, phaseColor, chapterMeta, go, understandingPicker, readCheck, empty, unitName, dayStamp, byModule, copy };
+  S.views.shared = { pageHead, sectionTitle, stat, phaseColor, chapterMeta, go, understandingPicker, readCheck, empty, unitName, unitPlural, dayStamp, byModule, copy };
 })(window.EDU);
 
 /* ---------------- dashboard ---------------- */
@@ -109,7 +112,9 @@ window.EDU.views = window.EDU.views || {};
     S.repetition.suggest(3).forEach((s) => repCard.appendChild(el(".task-row", { style: { cursor: "pointer" }, onclick: sh().go(`#/chapter/${s.num}`) }, el(".priority-tag." + s.priority, { style: { marginTop: "1px" } }, s.priority === "high" ? "Høy" : s.priority === "med" ? "Med" : "Lav"), el("div", el(".tt", `K${s.num} · ${s.chapter.title}`), el(".td", s.reasons[0] || "Repetisjon")))));
     col.appendChild(repCard);
     const ms = S.metrics.nextMilestone();
-    col.appendChild(el(".card", el(".row", el("div", { style: { width: "44px", height: "44px", borderRadius: "12px", background: "var(--accent-soft)", display: "grid", placeItems: "center", color: "var(--accent-ink)" }, html: icon("flag") }), el("div", el(".tiny.muted", "Neste milepæl"), el("div", { style: { fontWeight: 620, marginTop: "2px" } }, ms.label), el(".tiny.muted", { style: { marginTop: "2px" } }, `${sh().unitName(true)} ${ms.day}${sh().dayStamp(ms)}`)))));
+    /* Uten vakt fikk fag som ikke setter milestone på hver modul et kort med en
+       tom fet linje. Dagvisningens chip ble vaktet; dette kortet ble glemt. */
+    if (ms && ms.label) col.appendChild(el(".card", el(".row", el("div", { style: { width: "44px", height: "44px", borderRadius: "12px", background: "var(--accent-soft)", display: "grid", placeItems: "center", color: "var(--accent-ink)" }, html: icon("flag") }), el("div", el(".tiny.muted", "Neste milepæl"), el("div", { style: { fontWeight: 620, marginTop: "2px" } }, ms.label), el(".tiny.muted", { style: { marginTop: "2px" } }, `${sh().unitName(true)} ${ms.day}${sh().dayStamp(ms)}`)))));
     const upCard = el(".card"); upCard.appendChild(el("h3", { style: { fontSize: "16px", marginBottom: "10px" } }, "Kommende temaer"));
     const nextDays = S.data.days().filter((dd) => dd.day > day.day).slice(0, 3);
     if (!nextDays.length) upCard.appendChild(el(".tiny.muted", `Du er på siste ${sh().unitName()} — tid for mock-eksamen!`));
@@ -198,7 +203,7 @@ window.EDU.views = window.EDU.views || {};
     kcCard.appendChild(el(".row.wrap", { style: { gap: "8px" } }, ...d.keyConcepts.map((k) => el(".concept-pill", { onclick: S.hasModule("/search") ? () => S.router.navigate(`#/search?q=${encodeURIComponent(k)}`) : null }, k))));
     col.appendChild(kcCard);
     if (d.review && d.review.length) { const rc = el(".card"); rc.appendChild(el("h3", { style: { fontSize: "15px", marginBottom: "10px" } }, "Repeter fra før (spaced)")); d.review.forEach((num) => { const c = S.data.chapter(num); rc.appendChild(el(".task-row", { style: { cursor: "pointer" }, onclick: sh().go(`#/chapter/${num}`) }, el(".chip.slate", "K" + num), el("div", el(".tt", c ? c.title : "K" + num)))); }); col.appendChild(rc); }
-    if (d.pastExam) col.appendChild(el(".card", { style: { borderColor: "var(--amber-soft)", background: "var(--amber-soft)" } }, el(".row", el("div", { style: { fontSize: "20px" } }, "📝"), el("h3", { style: { fontSize: "15px", color: "#9a630f" } }, "Eksamenstrening i dag")), el("p", { style: { margin: "8px 0 12px", fontSize: "14.5px" } }, `${d.pastExam.exam} ${d.pastExam.task}: ${d.pastExam.topic}`), el("a.btn.sm", { href: "#/exam" }, "Åpne eksamenstrening →")));
+    if (d.pastExam && S.hasModule("/exam")) col.appendChild(el(".card", { style: { borderColor: "var(--amber-soft)", background: "var(--amber-soft)" } }, el(".row", el("div", { style: { fontSize: "20px" } }, "📝"), el("h3", { style: { fontSize: "15px", color: "#9a630f" } }, "Eksamenstrening i dag")), el("p", { style: { margin: "8px 0 12px", fontSize: "14.5px" } }, `${d.pastExam.exam} ${d.pastExam.task}: ${d.pastExam.topic}`), el("a.btn.sm", { href: "#/exam" }, "Åpne eksamenstrening →")));
     if (d.pdfs && d.pdfs.length) {
       const pdfCard = el(".card");
       pdfCard.appendChild(el("h3", { style: { fontSize: "15px", marginBottom: "6px" } }, "Sett å åpne lokalt (PDF)"));
@@ -407,8 +412,13 @@ window.EDU.views = window.EDU.views || {};
 /* ---------------- quiz ---------------- */
 (function (S) {
   const { el, ring } = S.u; const sh = () => S.views.shared; let session = null;
-  function render() { if (session && !session.done) return runScreen(); if (session && session.done) return resultScreen(); return setupScreen(); }
+  function render() {
+    /* En økt uten spørsmål ville krasjet på session.questions[0]. Slipp den aldri gjennom. */
+    if (session && !session.done && !(session.questions || []).length) session = null;
+    if (session && !session.done) return runScreen(); if (session && session.done) return resultScreen(); return setupScreen();
+  }
   function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+  const flereOppgaver = () => new Set((S.data.raw.quizzes || []).map((q) => q.oppg).filter((o) => o != null)).size > 1;
   function pool(mode) {
     const all = S.data.raw.quizzes;
     if (mode === "1" || mode === "2" || mode === "3") return all.filter((q) => q.oppg === parseInt(mode, 10));
@@ -425,7 +435,16 @@ window.EDU.views = window.EDU.views || {};
     card.appendChild(el("p.muted", { style: { marginTop: 0, fontSize: "14.5px" } }, "Blandet anbefales for eksamenstrening."));
     let mode = "mix", len = "10";
     const modeSeg = el(".seg", { style: { flexWrap: "wrap", marginTop: "12px" } });
-    [["mix", "Blandet"], ["1", "Oppgave 1"], ["2", "Oppgave 2"], ["3", "Oppgave 3"], ["svak", "Svake temaer"]].forEach(([k, l]) => modeSeg.appendChild(el("button" + (mode === k ? ".on" : ""), { onclick: (e) => { mode = k; [...modeSeg.children].forEach((c) => c.classList.remove("on")); e.target.classList.add("on"); } }, l)));
+    /* «Oppgave 1/2/3» er SAM3s eksamensinndeling. Andre fag har alle spørsmål på
+       samme oppg, og da var to av fem knapper døde — de ga tom pool og krasjet
+       runScreen() på session.questions[0].ch. Knappene bygges nå av dataene. */
+    /* oppg 0 betyr «ikke knyttet til en eksamensoppgave» — SAM3 bruker det på
+       rammeverkskapitlene. En knapp som heter «Oppgave 0» gir ingen mening. */
+    const oppgaver = [...new Set((S.data.raw.quizzes || []).map((q) => q.oppg))].filter((o) => o > 0).sort((a, b) => a - b);
+    const modi = [["mix", "Blandet"]];
+    if (oppgaver.length > 1) oppgaver.forEach((o) => modi.push([String(o), "Oppgave " + o]));
+    modi.push(["svak", "Svake temaer"]);
+    modi.forEach(([k, l]) => modeSeg.appendChild(el("button" + (mode === k ? ".on" : ""), { onclick: (e) => { mode = k; [...modeSeg.children].forEach((c) => c.classList.remove("on")); e.target.classList.add("on"); } }, l)));
     card.appendChild(el("div", { style: { marginTop: "8px" } }, modeSeg));
     card.appendChild(el(".nav-section", { style: { paddingLeft: 0 } }, "Antall spørsmål"));
     const lenSeg = el(".seg");
@@ -437,7 +456,7 @@ window.EDU.views = window.EDU.views || {};
   function runScreen() {
     const wrap = el(".fade-in"); const q = session.questions[session.idx]; const card = el(".card.pad-lg.quiz-card");
     const prog = el(".q-progress"); session.questions.forEach((_, i) => prog.appendChild(el("span" + (i < session.idx ? ".done" : i === session.idx ? ".cur" : "")))); card.appendChild(prog);
-    card.appendChild(el(".row", el(".tiny.muted", `Spørsmål ${session.idx + 1} av ${session.questions.length}`), el(".spacer"), el(".chip.slate", "K" + q.ch + (q.oppg ? " · Oppgave " + q.oppg : ""))));
+    card.appendChild(el(".row", el(".tiny.muted", `Spørsmål ${session.idx + 1} av ${session.questions.length}`), el(".spacer"), el(".chip.slate", "K" + q.ch + (q.oppg && flereOppgaver() ? " · Oppgave " + q.oppg : ""))));
     card.appendChild(el(".q-stem", q.q));
     card.appendChild(q.type === "mcq" ? mcqBody(q) : shortBody(q));
     wrap.appendChild(card); return wrap;
@@ -500,7 +519,11 @@ window.EDU.views = window.EDU.views || {};
     wrap.appendChild(grid);
     const card = el(".card.pad-lg"); card.appendChild(el("h3", { style: { marginBottom: "12px" } }, "Velg kortstokk"));
     const seg = el(".seg", { style: { flexWrap: "wrap" } });
-    [["alle", "Alle"], ["formel", "Formler"], ["begrep", "Begreper"], ["mekanisme", "Mekanismer"], ["intuisjon", "Intuisjon"]].forEach(([k, l]) => seg.appendChild(el("button" + (deckFilter === k ? ".on" : ""), { onclick: (e) => { deckFilter = k; [...seg.children].forEach((c) => c.classList.remove("on")); e.target.classList.add("on"); } }, l)));
+    /* Dekkene bygges av kortene som finnes. «Mekanismer» og «Intuisjon» ga en tom
+       kø i fag som ikke bruker dem, og køen falt rett til «Økt fullført». */
+    const NAVN = { formel: "Formler", begrep: "Begreper", mekanisme: "Mekanismer", intuisjon: "Intuisjon" };
+    const dekk = [...new Set(S.srs.deck().map((c) => c.deck).filter(Boolean))].sort();
+    [["alle", "Alle"], ...dekk.map((d) => [d, NAVN[d] || d[0].toUpperCase() + d.slice(1)])].forEach(([k, l]) => seg.appendChild(el("button" + (deckFilter === k ? ".on" : ""), { onclick: (e) => { deckFilter = k; [...seg.children].forEach((c) => c.classList.remove("on")); e.target.classList.add("on"); } }, l)));
     card.appendChild(seg);
     card.appendChild(el(".row", { style: { marginTop: "22px", gap: "10px" } }, el("button.btn.primary.lg", { onclick: startDue }, `Repeter forfalte (${S.srs.dueCards(deckFilter).length})`), el("button.btn.lg", { onclick: startAll }, "Øv alle")));
     wrap.appendChild(card); return wrap;
@@ -592,7 +615,7 @@ window.EDU.views = window.EDU.views || {};
       wrap.appendChild(sh().sectionTitle(pri === "high" ? "Høy prioritet" : pri === "med" ? "Middels prioritet" : "Lav prioritet — vedlikehold"));
       const card = el(".card", { style: { padding: "6px 0" } }); items.forEach((s) => card.appendChild(reviewRow(s))); wrap.appendChild(card);
     });
-    wrap.appendChild(el(".card", { style: { marginTop: "24px" } }, el("h4", { style: { marginBottom: "10px" } }, "Slik prioriterer motoren"), el("ul", { style: { margin: 0, paddingLeft: "18px", color: "var(--ink-3)", fontSize: "14.5px", lineHeight: 1.6 }, html: "<li>Temaer markert <b>usikker</b> løftes høyest.</li><li>Temaer du <b>ikke har sett på lenge</b> stiger gradvis.</li><li><b>Sentrale eksamenstemaer</b> (ofte testet i tidligere eksamener) vektes opp.</li><li><b>Svak quizscore</b> på et tema øker prioriteten.</li><li><b>Oppgave 3</b> (kort sikt) vektes ekstra — historisk størst rom for å hente poeng.</li>" })));
+    wrap.appendChild(el(".card", { style: { marginTop: "24px" } }, el("h4", { style: { marginBottom: "10px" } }, "Slik prioriterer motoren"), el("ul", { style: { margin: 0, paddingLeft: "18px", color: "var(--ink-3)", fontSize: "14.5px", lineHeight: 1.6 }, html: "<li>Temaer markert <b>usikker</b> løftes høyest.</li><li>Temaer du <b>ikke har sett på lenge</b> stiger gradvis.</li><li><b>Sentrale eksamenstemaer</b> (ofte testet i tidligere eksamener) vektes opp.</li><li><b>Svak quizscore</b> på et tema øker prioriteten.</li>" + ((((window.EDU_SUBJECT || {}).repetition || {}).boost || {}).why ? `<li>${S.u.escapeHtml((window.EDU_SUBJECT.repetition.boost.why))} — vektes ekstra.</li>` : "") })));
     return wrap;
   }
   function reviewRow(s) {
@@ -657,7 +680,7 @@ window.EDU.views = window.EDU.views || {};
     ov.appendChild(el("div", ring(readiness, 140, readiness + "%", "klar"), el(".center.tiny.muted", { style: { marginTop: "8px" } }, "Eksamensberedskap")));
     const bars = el("div", { style: { flex: "1 1 320px", minWidth: "260px" } });
     bars.appendChild(barRow("Kapitler lest", `${r.read}/${r.total}`, r.pct, false));
-    bars.appendChild(barRow("Dager fullført", `${d.done}/${d.total}`, d.pct, true));
+    bars.appendChild(barRow(sh().unitPlural(true) + " fullført", `${d.done}/${d.total}`, d.pct, true));
     bars.appendChild(barRow("Flashcards mestret", `${srs.mastered}/${srs.total}`, srs.masteredPct, false));
     bars.appendChild(barRow("Quiz-treffsikkerhet", q.accuracy != null ? q.accuracy + "%" : "ingen ennå", q.accuracy || 0, true));
     ov.appendChild(bars); overview.appendChild(ov); wrap.appendChild(overview);

@@ -2272,10 +2272,10 @@ window.EDU_DATA.sets = [
             "body": "<p>What is the free cash-flow of Meatballs Inc next year (t=1)?</p>",
             "solution": "<p>Build it from EBIT. All figures in $ millions.</p><table class=\"data\"><tr><th>Line</th><th>Value</th></tr><tr><td>Revenues</td><td class=\"n\">400.00</td></tr><tr><td>Operating expenses (60% of sales)</td><td class=\"n\">&minus;240.00</td></tr><tr><td>Depreciation</td><td class=\"n\">&minus;40.00</td></tr><tr><td><b>EBIT</b></td><td class=\"n\"><b>120.00</b></td></tr><tr><td>Taxes at 30%</td><td class=\"n\">&minus;36.00</td></tr><tr><td>EBIT(1 &minus; &tau;<sub>c</sub>)</td><td class=\"n\">84.00</td></tr><tr><td>+ Depreciation</td><td class=\"n\">+40.00</td></tr><tr><td>&minus; CapEx</td><td class=\"n\">&minus;50.00</td></tr><tr><td>&minus; &Delta;NWC</td><td class=\"n\">&minus;10.00</td></tr><tr><td><b>FCF<sub>1</sub></b></td><td class=\"n\"><b>64.00</b></td></tr></table><p>The working capital step is the one that is missed. NWC<sub>1</sub> = 25% &times; 400 = 100.00, and NWC<sub>0</sub> is given as 90.00, so &Delta;NWC = <b>10.00</b>, a cash outflow.</p><p><b>FCF<sub>1</sub> = 64.00</b>. Note what does not appear: interest. The $600 million of debt changes nothing in this line, because financing enters through the discount rate and through the tax shield, never through the numerator.</p>",
             "criteria": [
-              "Depreciation subtracted before tax and added back after &mdash; not simply ignored.",
-              "&Delta;NWC = 0.25 &times; 400 &minus; 90 = 10, subtracted. Using the level (100) instead of the change is the standard error.",
+              "Depreciation subtracted before tax and added back after — not simply ignored.",
+              "ΔNWC = 0.25 × 400 − 90 = 10, subtracted. Using the level (100) instead of the change is the standard error.",
               "No interest anywhere in the free cash flow.",
-              "FCF<sub>1</sub> = 64.00."
+              "FCF1 = 64.00."
             ]
           },
           {
@@ -2284,10 +2284,10 @@ window.EDU_DATA.sets = [
             "body": "<p>What is the unlevered cost of capital of Meatballs Inc?</p>",
             "solution": "<p>The quoted equity beta of 1.0 is the beta of the <b>whole</b> equity claim, and that claim holds two things: the operating business and $300 million of cash. Cash is risk free, so it has a beta of zero and it drags the measured beta down. Strip it out before using it.</p><div class=\"formula\"><div class=\"eq\">&beta;<sub>E</sub> &times; E = &beta;<sub>ops</sub> &times; V<sub>ops</sub> + &beta;<sub>cash</sub> &times; Cash</div></div><p>Equity = $90 &times; 10 million shares = <b>900</b>. Operations = 900 &minus; 300 = <b>600</b>. With &beta;<sub>cash</sub> = 0:</p><p>1.0 &times; 900 = &beta;<sub>ops</sub> &times; 600 &nbsp;&rArr;&nbsp; &beta;<sub>ops</sub> = 900/600 = <b>1.5000</b></p><p>The firm has no debt, so this asset beta <i>is</i> the unlevered beta. CAPM forwards:</p><p>r<sub>U</sub> = 0.05 + 1.5000 &times; 0.06 = <b>0.1400 = 14.00%</b></p><p>Taking &beta;<sub>U</sub> = 1.0 straight off the quote gives r<sub>U</sub> = 11.00%, which undervalues the business by understating its risk. The cash is not part of what you are discounting.</p>",
             "criteria": [
-              "Excess cash netted out before unlevering: &beta;<sub>ops</sub> = &beta;<sub>E</sub> &times; E/(E &minus; Cash).",
-              "&beta;<sub>ops</sub> = 1.5000 and r<sub>U</sub> = 14.00%.",
+              "Excess cash netted out before unlevering: βops = βE × E/(E − Cash).",
+              "βops = 1.5000 and rU = 14.00%.",
               "Recognising that with zero debt the asset beta and the unlevered beta are the same thing.",
-              "Using &beta; = 1.0 directly (r<sub>U</sub> = 11%) is the error the question is built to catch."
+              "Using β = 1.0 directly (rU = 11%) is the error the question is built to catch."
             ]
           },
           {
@@ -2296,9 +2296,9 @@ window.EDU_DATA.sets = [
             "body": "<p>What is tax shield of Meatballs Inc next year (t=1)?</p>",
             "solution": "<p>The shield is the tax saved on the interest deduction:</p><div class=\"formula\"><div class=\"eq\">TS = &tau;<sub>c</sub> &times; r<sub>D</sub> &times; D = 0.30 &times; 0.10 &times; 600 = <b>18.00</b></div></div><p>State the timing assumption, because the wording is loose: the debt is described as taken on at t=1, and the question asks for the shield at t=1, so the intended reading is that the $600 million is in place for that year and the first shield of 18.00 accrues then. It then grows with the debt at 4% per year.</p>",
             "criteria": [
-              "TS = &tau;<sub>c</sub> &middot; r<sub>D</sub> &middot; D, not &tau;<sub>c</sub> &middot; D.",
+              "TS = τc · rD · D, not τc · D.",
               "18.00.",
-              "Stating the timing assumption explicitly &mdash; the question invites it."
+              "Stating the timing assumption explicitly — the question invites it."
             ]
           },
           {
@@ -2307,11 +2307,11 @@ window.EDU_DATA.sets = [
             "body": "<p>Use the APV method to determine the value of Meatballs Inc today (t=0). If you find it necessary to make additional assumptions, state them clearly.</p>",
             "solution": "<p>APV values the business as if unlevered, then adds the financing side effects, then adds assets that are not part of operations.</p><p><b>Step 1 &mdash; the unlevered business.</b> FCF<sub>1</sub> = 64.00 growing at 4% forever, discounted at r<sub>U</sub> = 14.00%:</p><p>V<sup>U</sup> = 64.00/(0.14 &minus; 0.04) = <b>640.00</b></p><p><b>Step 2 &mdash; the tax shield.</b> TS<sub>1</sub> = 18.00, growing at 4% forever. <b>Assumption, stated:</b> the debt grows at the same 4% as the firm's cash flows, so the debt-to-value ratio is constant. Under a rebalanced policy the shield carries the risk of the assets, so it is discounted at r<sub>U</sub>:</p><p>PV(TS) = 18.00/(0.14 &minus; 0.04) = <b>180.00</b></p><p><b>Step 3 &mdash; the excess cash.</b> It was excluded from operations in part b), so it must be added back here, at face value: <b>300.00</b>.</p><p><b>Step 4 &mdash; add up.</b></p><table class=\"data\"><tr><th>Component</th><th>Value</th></tr><tr><td>V<sup>U</sup>, operations</td><td class=\"n\">640.00</td></tr><tr><td>+ PV(tax shield)</td><td class=\"n\">180.00</td></tr><tr><td>+ Excess cash</td><td class=\"n\">300.00</td></tr><tr><td><b>V<sup>L</sup> at t=0</b></td><td class=\"n\"><b>1 120.00</b></td></tr></table><p><b>Sanity check against the market.</b> MBI trades at 900, of which 300 is cash, so the market prices the operations at 600 against your 640. The fund's case is that leverage adds a further 180. Both numbers are close enough to the market to be credible, which is what you want from a valuation.</p><p><b>The alternative assumption.</b> If instead you read the 4% debt growth as a fixed, predetermined schedule rather than a rebalancing rule, the shield is as safe as the debt and is discounted at r<sub>D</sub> = 10%: PV(TS) = 18.00/(0.10 &minus; 0.04) = 300.00 and V<sup>L</sup> = 1 240.00. Either answer earns full marks <b>if the assumption is stated and used consistently</b>. What loses marks is discounting at r<sub>D</sub> while calling the policy a constant ratio, or switching rate between parts.</p>",
             "criteria": [
-              "V<sup>U</sup> = 64.00/(0.14 &minus; 0.04) = 640.00, using the growing perpetuity with FCF<sub>1</sub> in the numerator.",
-              "The discount rate for the tax shield is chosen <i>and justified</i> by a stated debt policy. Both 180.00 (at r<sub>U</sub>) and 300.00 (at r<sub>D</sub>) are acceptable when argued.",
+              "V^U = 64.00/(0.14 − 0.04) = 640.00, using the growing perpetuity with FCF1 in the numerator.",
+              "The discount rate for the tax shield is chosen and justified by a stated debt policy. Both 180.00 (at rU) and 300.00 (at rD) are acceptable when argued.",
               "Excess cash of 300.00 added back, since it was removed when unlevering the beta.",
-              "V<sup>L</sup> = 1 120.00 under the rebalanced reading, or 1 240.00 under the fixed-schedule reading.",
-              "Not discounting FCF at the WACC and then adding a tax shield as well &mdash; that double counts the financing benefit."
+              "V^L = 1 120.00 under the rebalanced reading, or 1 240.00 under the fixed-schedule reading.",
+              "Not discounting FCF at the WACC and then adding a tax shield as well — that double counts the financing benefit."
             ]
           }
         ]
@@ -2335,8 +2335,8 @@ window.EDU_DATA.sets = [
             "solution": "<p>Twenty payments of $1 million starting at date 1, discounted at 5%:</p><div class=\"formula\"><div class=\"eq\">PV = (1/r)[1 &minus; (1 + r)<sup>&minus;T</sup>] &times; C = (1/0.05)[1 &minus; 1.05<sup>&minus;20</sup>] &times; 1</div></div><p>1.05<sup>20</sup> = 2.653298, so 1.05<sup>&minus;20</sup> = 0.376889 and the annuity factor is 20 &times; (1 &minus; 0.376889) = <b>12.4622</b>.</p><p>PV = <b>$12.4622 million</b>, against an outlay of $15 million:</p><p>NPV = 12.4622 &minus; 15 = <b>&minus;$2.5378 million</b></p><p>Negative, so under a now-or-never rule you do not invest, and the patent is worth <b>$0</b>. A patent you would never exercise is worthless &mdash; but only because the rule forbids waiting, which is exactly what the rest of the question relaxes.</p>",
             "criteria": [
               "Annuity factor 12.4622 for 20 years at 5%.",
-              "NPV = &minus;2.5378, so do not invest.",
-              "Concluding that the patent is worth 0, not &minus;2.5378. You are never forced to exercise."
+              "NPV = −2.5378, so do not invest.",
+              "Concluding that the patent is worth 0, not −2.5378. You are never forced to exercise."
             ]
           },
           {
@@ -2347,7 +2347,7 @@ window.EDU_DATA.sets = [
             "criteria": [
               "Nineteen payments, not twenty. Using 20 gives 8.5136 and 16.3514 and is the single most common error here.",
               "Annuity factors 8.3649 and 15.6785.",
-              "Value 0 in the high-rate state, because you decline &mdash; not the negative NPV.",
+              "Value 0 in the high-rate state, because you decline — not the negative NPV.",
               "Value 0.6785 in the low-rate state."
             ]
           },
@@ -2360,7 +2360,7 @@ window.EDU_DATA.sets = [
               "Using the traded 20-year annuity as the underlying asset, since that is the only observed price.",
               "Including the date-1 coupon of 1 on the right-hand side.",
               "Discounting at the one-year rate of 3%, not at 5%.",
-              "&rho; = 0.5254 (52.54%), and stating that it is a risk-neutral, not a real-world, probability."
+              "ρ = 0.5254 (52.54%), and stating that it is a risk-neutral, not a real-world, probability."
             ]
           },
           {
@@ -2371,7 +2371,7 @@ window.EDU_DATA.sets = [
             "criteria": [
               "Risk-neutral weighting of the two date-1 values, discounted at 3%.",
               "Using 0 rather than the negative NPV in the high-rate branch.",
-              "V<sub>0</sub> = 0.3126 (about $313 000).",
+              "V0 = 0.3126 (about $313 000).",
               "A comment that identifies the value as flexibility and names the asymmetry: unlimited participation on the upside, the right to walk away on the downside.",
               "Bonus for noting that waiting costs a year of patent life, so the option is not free."
             ]

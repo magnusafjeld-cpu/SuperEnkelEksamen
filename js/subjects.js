@@ -51,6 +51,8 @@ window.EDU_SUBJECTS = [
       candidates: ["SAM3_Alle_oppgaver_med_fasit.html", "fag/sam3/oppgaver.html", "../SAM3_Alle_oppgaver_med_fasit.html"],
     },
     /* SAM3 har både manual og oppgavebank, så fotnoten under lynøkta sier begge. */
+    /* Var hardkodet i motoren og gjaldt alle fag. Nå SAM3s eget. */
+    repetition: { boost: { from: 13, to: 19, vekt: 6, why: "Oppgave 3 (kort sikt) — historisk størst rom for å hente poeng" } },
     copy: { lynFoot: "Alt innhold er hentet fra eksamensmanualen og oppgavebanken. Feil svar viser alltid forklaringen, det er der læringen skjer. Tips: legg siden til på Hjem-skjermen for app-følelse." },
     modules: null,
   },
@@ -133,6 +135,7 @@ window.EDU_SUBJECTS = [
     accent: "#5b3fd6", accentInk: "#4630ab", accentSoft: "#efebff", accentSoft2: "#ded5ff",
     scripts: ["fag/case/data.js", "fag/case/lyn.js", "fag/case/lyn-feil.js", "fag/case/lyn-graf.js", "fag/case/lyn-struktur.js",
               "fag/case/lyn-estimat.js", "fag/case/dybde.js", "fag/case/dybde-struktur.js", "fag/case/dybde-tall.js",
+              "fag/case/dybde-grunnlag.js",
               "fag/case/quiz.js",
               "fag/case/flashcards.js", "fag/case/caser.js", "fag/case/mock.js"],
     manual: {
@@ -160,7 +163,13 @@ window.EDU_SUBJECTS = [
     ],
     /* Uten denne arver faget SAM3s tre hardkodede banker («Kort sikt», «Lang
        sikt», «Eksamensoppgaver») og viser tre tomme knapper. */
+    /* Standardstigen ender på «Sensor» og «Nobelkandidat», som passer et
+       universitetsfag og ikke et jobbintervju. */
+    lynLevels: [[0, "Fersking"], [120, "Søker"], [320, "Kandidat"], [650, "Til andre runde"],
+                [1100, "Analyst"], [1700, "Consultant"], [2600, "Partnerklar"]],
     dybdeBanks: [
+      { key: "grunnlag", label: "Grunnlaget", sub: "Hva som måles, interviewer-led mot candidate-led, og husene (kapittel 0–2).",
+        tip: "Kortest av bankene, og den du bør ta først. Vet du ikke hva som vurderes, trener du i blinde." },
       { key: "struktur", label: "Struktur", sub: "Nedbrytning, MECE, hypoteser og de sju casetypene (kapittel 3–5).",
         tip: "Nivå 1–2 er definisjoner og anvendelse. Nivå 3–4 er hele strukturer bygget fra bunnen — gjør dem på papir og si dem høyt, ellers trener du på noe annet enn det som måles." },
       { key: "tall", label: "Tall", sub: "Hoderegning, estimering og figurlesing (kapittel 6–8 og tallarket).",

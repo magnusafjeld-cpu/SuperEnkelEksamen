@@ -67,11 +67,14 @@ window.EDU_DATA = window.EDU_DATA || {};
     }
     return n;
   }
-  const LEVELS = [[0, "Fersking"], [120, "Student"], [320, "Gruppelærer"], [650, "Seminarleder"], [1100, "Foreleser"], [1700, "Sensor"], [2600, "Nobelkandidat"]];
+  /* Nivånavnene er fagets, ikke motorens. Standarden er SAM3s akademiske stige,
+     som ga «Sensor» og «Nobelkandidat» også til et kurs om jobbintervjuer. */
+  const DEFAULT_LEVELS = [[0, "Fersking"], [120, "Student"], [320, "Gruppelærer"], [650, "Seminarleder"], [1100, "Foreleser"], [1700, "Sensor"], [2600, "Nobelkandidat"]];
+  const LEVELS_FOR = () => { const m = (window.EDU_SUBJECT || {}).lynLevels; return (Array.isArray(m) && m.length) ? m : DEFAULT_LEVELS; };
   function levelInfo() {
     const xp = L().xp; let i = 0;
-    while (i < LEVELS.length - 1 && xp >= LEVELS[i + 1][0]) i++;
-    return { idx: i, name: LEVELS[i][1], xp, prev: LEVELS[i][0], next: i < LEVELS.length - 1 ? LEVELS[i + 1][0] : null };
+    while (i < LEVELS_FOR().length - 1 && xp >= LEVELS_FOR()[i + 1][0]) i++;
+    return { idx: i, name: LEVELS_FOR()[i][1], xp, prev: LEVELS_FOR()[i][0], next: i < LEVELS_FOR().length - 1 ? LEVELS_FOR()[i + 1][0] : null };
   }
 
   /* ---------- utils ---------- */
@@ -654,7 +657,7 @@ window.EDU_DATA = window.EDU_DATA || {};
       el(".spacer"),
       el("div", { style: { textAlign: "right" } }, el(".tiny.muted", "XP"), el("div", { style: { fontWeight: 700, fontSize: "17px" } }, String(lv.xp)))));
     lvCard.appendChild(el("div", { style: { marginTop: "10px" } }, S.u.bar(lv.next ? Math.round((into / span) * 100) : 100, { thin: true })));
-    if (lv.next) lvCard.appendChild(el(".tiny.muted", { style: { marginTop: "5px" } }, (lv.next - lv.xp) + " XP til " + LEVELS[lv.idx + 1][1]));
+    if (lv.next) lvCard.appendChild(el(".tiny.muted", { style: { marginTop: "5px" } }, (lv.next - lv.xp) + " XP til " + LEVELS_FOR()[lv.idx + 1][1]));
     wrap.appendChild(lvCard);
 
     // daily CTA
