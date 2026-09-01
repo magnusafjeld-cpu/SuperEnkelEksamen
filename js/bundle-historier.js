@@ -167,6 +167,11 @@ window.EDU = window.EDU || {};
       t.value = x[f.k] || "";
       felter[f.k] = t;
       kort.appendChild(t);
+      /* Historiene skal fortelles, ikke skrives. Dikter dem inn slik du ville
+         sagt dem, og rydd etterpå — det gir et mer troverdig språk enn å
+         formulere seg skriftlig først. */
+      const mik = S.u.diktering(t, () => lagre(id, { [f.k]: t.value.slice(0, 1500) }));
+      if (mik) { mik.style.marginBottom = "14px"; kort.appendChild(mik); }
     });
 
     kort.appendChild(el(".field-l", "Hvilke dimensjoner dekker den?"));

@@ -60,6 +60,35 @@ det skulle vært nyttig.
 Den frosne verdien er mer verdt enn bare en stoppet klokke: den er tallet du
 sammenligner med måltiden når du vurderer deg selv.
 
+## Diktering
+
+`S.u.diktering(textarea, onEndring, språk)` i `js/bundle-core.js` gir en
+mikrofonknapp under skrivefeltene i både case-spilleren og
+[[Historieporteføljen]]. Den bruker nettleserens egen `SpeechRecognition` og
+**returnerer null der API-et mangler**, så knappen forsvinner i stedet for å
+ligge død.
+
+Hele kurset insisterer på at du skal si svaret høyt. Da er det rart å tvinge deg
+til å skrive det — særlig i historiene, der talespråk gir et mer troverdig
+resultat enn å formulere seg skriftlig først.
+
+| Detalj | Valg |
+|---|---|
+| Språk | `nb-NO` |
+| Modus | `continuous`, med `interimResults` |
+| Foreløpig tekst | vises som grå forhåndsvisning, skrives **ikke** inn |
+| Endelig tekst | legges til i feltet og lagres med én gang |
+| Chrome stopper av seg selv | startes på nytt automatisk, med mindre du trykket stopp |
+| Feltet forsvinner fra DOM | mikrofonen lukkes av en vakt hvert andre sekund |
+
+> [!warning] To ting brukeren må få vite, og som står i teksten under knappen
+> Lyden går til **nettleserleverandørens servere** — Google i Chrome, Apple i
+> Safari. Og norsk diktering setter **ikke tegnsetting**, så den egner seg til
+> stikkord, ikke til prosa.
+
+På iPhone finnes dessuten mikrofonen på selve tastaturet, som virker i alle felt
+uten at appen gjør noe. Knappen er bare raskere.
+
 ## Lagring
 
 | Nøkkel | Innhold |

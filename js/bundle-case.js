@@ -315,16 +315,20 @@ window.EDU = window.EDU || {};
       onblur: (e) => lagreSvar(c.id, i, e.target.value),
     });
     ta.value = st.svar || "";
-    return ta;
+    /* Kurset ber deg si svaret høyt. Da skal du kunne gjøre nettopp det.
+       Hjelperen returnerer null i nettlesere uten taleoppkjenning. */
+    const mik = S.u.diktering(ta, (tekst) => lagreSvar(c.id, i, tekst));
+    return mik ? el("div", ta, mik) : ta;
   }
 
   function skrivefelt(c, t, i, vist, st) {
     const boks = el("div", { style: { marginTop: "14px" } });
-    const plass = t.art === "ide" ? "Én idé per linje…" : t.art === "struktur"
-      ? "Skriv nedbrytningen. Gjerne som punkter med undernivåer — og si hypotesen din til slutt."
-      : "Skriv svaret ditt her…";
-    const ta = tekstfelt(c, i, st, plass, t.art === "struktur" ? 10 : 6);
-    boks.appendChild(ta);
+    const plass = t.art === "ide" ? "Én idé per linje… eller si dem høyt med mikrofonen" : t.art === "struktur"
+      ? "Skriv nedbrytningen — eller si den høyt med mikrofonen. Gjerne punkter med undernivåer, og hypotesen til slutt."
+      : "Skriv svaret ditt her — eller si det høyt med mikrofonen…";
+    const felt = tekstfelt(c, i, st, plass, t.art === "struktur" ? 10 : 6);
+    const ta = felt.tagName === "TEXTAREA" ? felt : felt.querySelector("textarea");
+    boks.appendChild(felt);
 
     if (!vist) {
       boks.appendChild(el(".card", { style: { marginTop: "14px", background: "var(--amber-soft)", border: "1px solid #f2dcb6" } },

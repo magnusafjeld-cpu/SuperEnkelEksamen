@@ -99,7 +99,88 @@ window.EDU = window.EDU || {};
     flag: 'M5 21V4M5 4h12l-2 4 2 4H5',
   };
   function icon(name, cls) { const p = ICONS[name] || ICONS.home; return `<svg class="ico ${cls || ""}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="${p}"></path></svg>`; }
-  S.u = { el, frag, clear, mount, escapeHtml, todayISO, parseISO, daysBetween, formatDate, clamp, nowTs, debounce, toast, ring, bar, icon, ICONS };
+
+  /* ---------- diktering ----------
+     Hele kurset insisterer på at du skal si svaret høyt. Da er det rart å tvinge
+     deg til å skrive det. Denne bruker nettleserens egen taleoppkjenning, som
+     finnes i Chrome, Edge og Safari fra 14.1 — og returnerer null der den ikke
+     gjør det, så knappen forsvinner i stedet for å ligge død.
+
+     To ting å vite: lyden går til nettleserleverandørens servere (Google i
+     Chrome, Apple i Safari), og norsk diktering setter ikke tegnsetting. Det
+     første står i teksten under knappen; det andre spiller liten rolle når du
+     skriver stikkord, som er det du skal.
+
+     På iPhone finnes dessuten mikrofonen på selve tastaturet, som virker i alle
+     felt uten at appen gjør noe. Denne knappen er bare raskere. */
+  function diktering(ta, onEndring, språk) {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) return null;
+
+    let r = null, aktiv = false, stoppetAvBruker = false;
+    const knapp = el("button.btn.sm", { type: "button", title: "Diktér svaret i stedet for å skrive det" }, "🎙 Diktér");
+    const live = el(".tiny.muted", { style: { minHeight: "1.2em", fontStyle: "italic" } });
+
+    const settTilstand = (på) => {
+      aktiv = på;
+      knapp.textContent = på ? "⏹ Stopp diktering" : "🎙 Diktér";
+      knapp.className = "btn sm" + (på ? " primary" : "");
+      if (!på) live.textContent = "";
+    };
+
+    function leggTil(tekst) {
+      const t = tekst.trim();
+      if (!t) return;
+      const skille = ta.value && !/\s$/.test(ta.value) ? " " : "";
+      ta.value = ta.value + skille + t;
+      ta.scrollTop = ta.scrollHeight;
+      if (onEndring) onEndring(ta.value);
+    }
+
+    function start() {
+      r = new SR();
+      r.lang = språk || "nb-NO";
+      r.continuous = true;
+      r.interimResults = true;
+      r.onresult = (e) => {
+        let foreløpig = "";
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+          const res = e.results[i];
+          if (res.isFinal) leggTil(res[0].transcript); else foreløpig += res[0].transcript;
+        }
+        live.textContent = foreløpig ? "… " + foreløpig : "";
+      };
+      r.onerror = (e) => {
+        stoppetAvBruker = true;
+        settTilstand(false);
+        const m = { "not-allowed": "Mikrofonen er ikke tillatt. Gi tilgang i nettleserens innstillinger.",
+                    "service-not-allowed": "Nettleseren tillater ikke taleoppkjenning her.",
+                    "audio-capture": "Fant ingen mikrofon.",
+                    "no-speech": "Hørte ingenting — prøv igjen." }[e.error];
+        if (m) toast(m);
+      };
+      /* Chrome stopper av seg selv etter en pause. Start på nytt så lenge
+         brukeren ikke har trykket stopp, ellers avbrytes du midt i en setning. */
+      r.onend = () => { if (aktiv && !stoppetAvBruker) { try { r.start(); } catch (e) { settTilstand(false); } } };
+      try { r.start(); settTilstand(true); } catch (e) { settTilstand(false); }
+    }
+
+    knapp.addEventListener("click", () => {
+      if (aktiv) { stoppetAvBruker = true; settTilstand(false); if (r) try { r.stop(); } catch (e) {} return; }
+      stoppetAvBruker = false; start();
+    });
+
+    /* Stopp om feltet forsvinner fra skjermen — ellers ligger mikrofonen åpen. */
+    const vakt = setInterval(() => {
+      if (!document.body.contains(ta)) { clearInterval(vakt); if (r) try { r.abort(); } catch (e) {} }
+    }, 2000);
+
+    const rad = el(".row.wrap", { style: { gap: "10px", alignItems: "center", marginTop: "8px" } },
+      knapp, el(".tiny.muted", "Lyden går til nettleserleverandøren. Diktering setter ikke tegnsetting — skriv stikkord."));
+    return el("div", rad, live);
+  }
+
+  S.u = { el, frag, clear, mount, escapeHtml, todayISO, parseISO, daysBetween, formatDate, clamp, nowTs, debounce, toast, ring, bar, icon, ICONS, diktering };
 })(window.EDU);
 
 /* ---------------- parse-manual ---------------- */
