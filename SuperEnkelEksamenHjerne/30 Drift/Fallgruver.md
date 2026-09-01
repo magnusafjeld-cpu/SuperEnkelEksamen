@@ -299,6 +299,24 @@ Alle tre fagene har nå **13 fliser hver**, og ingen av dem er døde.
 > avgjør». Første forsøk het «Hva skjer med tallet?», men banken har også fire
 > rene vurderingsspørsmål, så navnet dekket bare seks av ti.
 
+## 7o. Ikke rediger en fil en agent fortsatt eier
+
+Under utvidelsen av struktureringsbanken rettet jeg to for lange rotnoder i
+`_str-a.js` mens agenten som skrev filen fortsatt jobbet. Den oppdaget
+endringene som ekstern korrupsjon og **gjenopprettet originalene** — helt riktig
+av den, men rettelsene var borte, og de lange nodene ble med inn i banken.
+
+Fanget fordi validatoren ble kjørt på nytt etter sammenslåingen og flagget de
+samme to igjen.
+
+**Regelen:** rediger aldri en fil mens en agent skriver til den. Vent til
+notifikasjonen, eller gjør rettelsen i målfilen etter sammenslåing. Det samme
+gjelder delte mellomkataloger — en av agentene meldte at scratchpad-en ble
+overskrevet av en søsteragent midtveis.
+
+Se også 7p om samme mønster: k9 og k14 ble skrevet om fire minutter etter at
+manualen var bygget.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden

@@ -83,13 +83,13 @@ De skarpeste funnene:
 | Manual | **16 av 16 kapitler · 21 300 ord** — 96 seksjoner, 43 tabeller, 15 gjennomregnede eksempler |
 | Studieplan | **11 moduler · 14 timer** · arbeidsoppgaver med lenke inn i øvelsen |
 | Caser | **7** · 42 trinn · alle sju casetypene · 230 minutter trening |
-| Struktureringsprompter | **37** i åtte casetyper, med modellstruktur som tre, hypotese og felle |
+| Struktureringsprompter | **84** i åtte casetyper (9–15 hver), med modellstruktur som tre, hypotese og felle |
 | Finn feilen | **34** utregninger, 7 av dem uten feil |
 | Les grafen | **24** figurer — 18 SVG, 6 tabeller, 17 med innebygd felle |
 | Bygg estimatet | **14** kjeder · 57 runder |
 | Mock-videoer | **70**, dobbeltverifisert · 103 stopp-punkter · 34 timer |
 | Historieporteføljen | 4 dimensjoner, 12 sonder, terskel 8 |
-| Lynelementer totalt | **160** |
+| Lynelementer totalt | **207** |
 | Quiz | **48** (40 flervalg / 8 kortsvar), alle 16 kapitler dekket |
 | Flashcards | **64** forfattet + 44 auto-genererte fra tallarket |
 | Dybdetrening | **115** i fire banker: grunnlaget 20, struktur 25, tall 40, framføring 30 |
