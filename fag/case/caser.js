@@ -1555,6 +1555,7 @@ window.EDU_DATA.cases = [
      ============================================================ */
   {
     id: "estimering-varmepumper",
+    kategori: "Market sizing",
     label: "Hvor stort er varmepumpemarkedet i Norge?",
     type: "Estimering",
     nivå: "Intro",
@@ -1807,6 +1808,155 @@ window.EDU_DATA.cases = [
         ],
         felle: "Å presentere et tall med fire siffer. «3,18 milliarder» signaliserer at du ikke har forstått hvor usikkerheten ligger. «Rundt 3 milliarder, spenn 2,5 til 3,5» signaliserer at du har.",
       },
+    ],
+  },
+
+  {
+    id: "ms-bensinstasjoner-usa",
+    kategori: "Market sizing",
+    label: "Hvor mange bensinstasjoner finnes i USA?",
+    type: "Estimering", nivå: "Avansert", firma: "Implement", stil: "interviewer-led",
+    minutter: 30, ch: [7, 15],
+    blurb: "Arketypen for tilbud møter etterspørsel. Regn behovet, regn kapasiteten per stasjon, og del. Hele casen avgjøres av ett tall folk setter altfor høyt.",
+    prompt: `<p>Intervjueren gir deg én setning og ingen tall:</p>
+      <p><b>«Hvor mange bensinstasjoner finnes det i USA?»</b></p>
+      <p>Du har papir og penn. Ingen bransjerapport, ingenting å slå opp i — bare det du vet om et land med drøyt tre hundre millioner innbyggere.</p>`,
+    bakgrunn: `<p>Dette er en ekte intervjucase, gitt hos Implement. Den er verdt å kunne fordi den tvinger fram
+      <b>begge sider av regnestykket</b>: hvor mange fyllinger som trengs, og hvor mange én stasjon rekker over.
+      De fleste estimeringsoppgaver kan løses ved å multiplisere seg nedover fra befolkningen. Denne kan ikke det.</p>
+      <p>Det virkelige antallet er <b>omtrent 145 000</b> stasjoner. En godt bygget kjede lander innenfor ti prosent
+      av det — men bare hvis man setter utnyttelsesgraden riktig, og det er der nesten alle bommer.</p>`,
+    trinn: [
+      { art: "oppklaring", sek: 60, tittel: "Hva teller vi?",
+        sp: `<p>Før du regner ett tall: hva må avklares?</p>`,
+        fasit: `<p>Tre spørsmål, og de tar tjue sekunder til sammen:</p>
+          <ul>
+            <li><b>Hva er en bensinstasjon?</b> Teller vi bare bemannede stasjoner, eller også ubemannede automater? Teller vi truckstops langs motorveien? Sier intervjueren ingenting, definer selv og si det høyt: «Jeg teller alle utsalgssteder der en personbil kan fylle drivstoff.»</li>
+            <li><b>Bensin alene, eller alt drivstoff?</b> Diesel og elbillading endrer bildet.</li>
+            <li><b>Hele USA, i dag?</b> Geografi og tidspunkt.</li>
+          </ul>
+          <p><b>Og så det viktigste — si framgangsmåten før du begynner:</b> «Jeg vil regne dette fra to sider.
+          Først hvor mange fyllinger som etterspørres i året, så hvor mange fyllinger én stasjon rekker over.
+          Antall stasjoner er den ene delt på den andre.»</p>`,
+        krav: [
+          "Du definerer enheten før du regner, og sier definisjonen høyt.",
+          "Du sier at du skal møtes fra to sider — det er selve strukturen, og den skal komme først.",
+          "Du bruker under et minutt. Oppklaring er ikke en øvelse i å stille mange spørsmål.",
+          "Du setter en definisjon selv når intervjueren ikke gir deg en.",
+        ],
+        felle: "Å begynne på befolkningstallet med en gang. Uten en definisjon av hva som telles, vet verken du eller intervjueren hva svaret betyr." },
+
+      { art: "struktur", sek: 120, tittel: "Legg opp begge sidene",
+        sp: `<p>Skriv kjeden for begge sider. Hvilke ledd må du sette forutsetninger for?</p>`,
+        fasit: `<p><b>Etterspørselssiden</b> — fra folk til fyllinger:</p>
+          <div class="formula"><div class="eq">Befolkning → biler → kjørelengde per bil → rekkevidde per tank → fyllinger per bil per år → fyllinger totalt</div></div>
+          <p><b>Tilbudssiden</b> — fra én stasjon til kapasitet:</p>
+          <div class="formula"><div class="eq">Pumper per stasjon × fyllinger per pumpe per time × åpningstimer × <b>utnyttelsesgrad</b> × 365</div></div>
+          <p>Og til slutt: <b>antall stasjoner = fyllinger totalt / fyllinger per stasjon</b>.</p>
+          <p>Legg merke til hvilket ledd som bærer mest usikkerhet. Det er ikke antall biler, og det er ikke
+          hvor lang tid en fylling tar. Det er <b>utnyttelsesgraden</b> — hvor stor del av åpningstiden pumpene
+          faktisk er i bruk. Si det høyt allerede nå, så vet intervjueren at du vet hvor det gjør vondt.</p>`,
+        krav: [
+          "Begge kjedene er skrevet ut, ikke bare den ene.",
+          "Utnyttelsesgraden står som et eget ledd — den er ikke gjemt inne i «kapasitet».",
+          "Du sier hvilket ledd som er mest usikkert før du begynner å regne.",
+          "Du sier hvordan de to sidene settes sammen til slutt.",
+        ],
+        felle: "Å regne tilbudssiden som ren teoretisk kapasitet. En stasjon med åtte pumper åpen seksten timer kan i teorien betjene halvannet tusen biler i døgnet. Ingen stasjon gjør det." },
+
+      { art: "regne", sek: 120, tittel: "Etterspørselssiden", kort: "Etterspørsel",
+        sp: `<p>Hvor mange fyllinger etterspørres i USA i løpet av et år? Svar i milliarder.</p>
+          <p class="tiny">Sett forutsetningene selv, og si hver av dem høyt.</p>`,
+        svar: 8.25, enhet: "milliarder fyllinger per år", toleranse: 0.2,
+        fasit: `<div class="worked"><span class="wh">Gjennomregnet</span>
+          <p><b>Biler:</b> 330 millioner innbyggere. USA har omtrent én bil per 1,3 innbygger, så rundt
+          <b>250 millioner</b> personbiler. Rundt tall, og godt nok.</p>
+          <p><b>Fyllinger per bil per år:</b> en amerikansk bil kjører grovt 20 000 km i året. En tank rekker
+          omtrent 600 km. Det gir 20 000 / 600 ≈ <b>33 fyllinger</b> i året, altså i overkant av annenhver uke.
+          Det høres riktig ut, og den sjekken er verdt å si høyt.</p>
+          <div class="formula"><div class="eq">250 millioner × 33 = <b>8,25 milliarder fyllinger per år</b></div></div>
+          </div>
+          <p><b>Sterkt mot middels:</b> et middels svar gjetter «fyller en gang i uka» og lander på 13 milliarder.
+          Et sterkt svar utleder frekvensen av kjørelengde og rekkevidde, som begge er størrelser man kan noe om
+          — og sier deretter «det blir omtrent annenhver uke, som stemmer med hvordan folk faktisk fyller».</p>`,
+        krav: [
+          "Frekvensen utledes av kjørelengde og rekkevidde, ikke gjettes direkte.",
+          "Du sier hver forutsetning høyt, med enhet.",
+          "Du runder til vennlige tall og sier at du gjør det.",
+          "Du sanity-sjekker frekvensen mot egen erfaring: annenhver uke er troverdig, hver dag er det ikke.",
+        ],
+        felle: "Å bruke antall førerkort i stedet for antall biler. Det er bilen som fylles, ikke sjåføren, og i USA er det flere biler enn husholdninger." },
+
+      { art: "regne", sek: 120, tittel: "Tilbudssiden — og tallet alle setter for høyt", kort: "Tilbud",
+        sp: `<p>Hvor mange fyllinger rekker <b>én</b> bensinstasjon over i løpet av et år?</p>
+          <p class="tiny">Dette leddet avgjør hele svaret. Tenk på en stasjon du har stått på.</p>`,
+        svar: 56000, enhet: "fyllinger per stasjon per år", toleranse: 0.25,
+        fasit: `<div class="worked"><span class="wh">Gjennomregnet</span>
+          <p><b>Teoretisk kapasitet:</b> 8 pumper. En fylling tar rundt 5 minutter med betaling, altså 12 per pumpe
+          per time. Åpent 16 timer.</p>
+          <div class="formula"><div class="eq">8 × 12 × 16 = 1 536 fyllinger per døgn — i teorien</div></div>
+          <p><b>Og her ligger hele casen.</b> Ingen bensinstasjon har kø fra morgen til kveld. Den står tom mesteparten
+          av dagen, med rush om morgenen og ettermiddagen. En realistisk utnyttelsesgrad er <b>rundt 10 prosent</b>,
+          ikke 25 og slett ikke 100.</p>
+          <div class="formula">
+            <div class="eq">1 536 × 10 % ≈ 154 fyllinger per døgn</div>
+            <div class="eq">154 × 365 ≈ <b>56 000 fyllinger per stasjon per år</b></div>
+          </div>
+          <p><b>Hvorfor så lavt?</b> Fordi en bensinstasjon ikke er en gjennomstrømningsbedrift. Den er en
+          <b>dekningsbedrift</b> — den ligger der den ligger fordi noen kjører forbi, ikke fordi den skal utnyttes
+          maksimalt. Det er derfor det er så mange av dem.</p>
+          </div>
+          <p><b>Sterkt mot middels:</b> middels regner teoretisk kapasitet og lander på 25 prosent fordi det
+          «høres forsiktig ut». Sterkt sier at stasjonen er tom store deler av døgnet, setter 10 prosent, og
+          <i>begrunner det med forretningsmodellen</i>.</p>`,
+        krav: [
+          "Utnyttelsesgraden settes eksplisitt, ikke gjemt bort i et rundt tall.",
+          "Du begrunner den lave graden med hva slags bedrift dette er.",
+          "Du regner per døgn før du ganger opp til år — det gjør tallet sjekkbart.",
+          "Du sier at dette er leddet med størst usikkerhet.",
+        ],
+        felle: "Å sette utnyttelsen til 50 prosent eller mer. Da får du fire ganger for få stasjoner, og hele svaret ryker på ett tall." },
+
+      { art: "regne", sek: 60, tittel: "Sett de to sammen", kort: "Svar",
+        sp: `<p>Hvor mange bensinstasjoner finnes det i USA?</p>`,
+        svar: 147000, enhet: "bensinstasjoner", toleranse: 0.25,
+        fasit: `<div class="formula">
+            <div class="eq">8,25 milliarder / 56 000 ≈ <b>147 000 bensinstasjoner</b></div>
+            <div class="where">Regn det som 8,25 × 10<sup>9</sup> delt på 5,6 × 10<sup>4</sup>: mantissen gir
+              8,25 / 5,6 ≈ 1,47, og tierpotensen 10<sup>9−4</sup> = 10<sup>5</sup>. Altså 1,47 × 10<sup>5</sup>.</div>
+          </div>
+          <p><b>Fasit fra virkeligheten:</b> det faktiske tallet er omtrent <b>145 000</b>. Kjeden treffer innenfor
+          halvannen prosent — ikke fordi hvert ledd var riktig, men fordi feilene er små og går i hver sin retning.</p>
+          <p>Det er verdt å si høyt at presisjonen er tilfeldig. Du har bygget et forsvarlig anslag i riktig
+          størrelsesorden. At det traff så godt, er flaks — men <i>strukturen</i> var ikke flaks.</p>`,
+        krav: [
+          "Du regner mantisse og tierpotens hver for seg.",
+          "Du oppgir enheten.",
+          "Du sier at svaret er en størrelsesorden, ikke en måling.",
+          "Du gjør delingen riktig vei: totalt behov delt på kapasitet per enhet.",
+        ],
+        felle: "Å snu brøken. Fyllinger per stasjon delt på totale fyllinger gir et tall nær null, og det burde stoppe deg umiddelbart — sjekk alltid at svaret har en rimelig størrelsesorden." },
+
+      { art: "syntese", sek: 60, tittel: "Si svaret",
+        sp: `<p>Intervjueren spør: «Så hva er svaret ditt?» Du har ett minutt.</p>`,
+        fasit: `<blockquote><p><b>«Rundt 150 000 bensinstasjoner.</b> Jeg kom fram til det ved å møte tallet fra to sider.</p>
+          <p>På etterspørselssiden: 250 millioner biler som fyller omtrent 33 ganger i året, altså 8 milliarder
+          fyllinger. Frekvensen utledet jeg av 20 000 kilometer i året og 600 kilometer på tanken.</p>
+          <p>På tilbudssiden: en stasjon med åtte pumper kunne i teorien tatt 1 500 biler i døgnet, men står tom
+          mesteparten av tiden. Med ti prosent utnyttelse blir det rundt 56 000 fyllinger i året per stasjon.</p>
+          <p><b>Det tallet jeg er minst sikker på, er utnyttelsesgraden.</b> Halverer jeg den, dobles antallet
+          stasjoner. Så hvis jeg skulle sjekke én ting med ekte data, ville det vært hvor mange biler en
+          gjennomsnittsstasjon faktisk betjener i døgnet.»</p></blockquote>
+          <p><b>Sterkt mot middels:</b> middels sier tallet. Sterkt sier tallet, hvilken forutsetning som bærer
+          det, og hva som ville endret svaret mest — på under ett minutt.</p>`,
+        krav: [
+          "Tallet kommer først, avrundet til noe man kan huske.",
+          "Begge sider av regnestykket oppsummeres på én setning hver.",
+          "Du navngir det mest usikre leddet uoppfordret.",
+          "Du sier hva du ville sjekket først med ekte data.",
+          "Du holder deg innenfor ett minutt.",
+        ],
+        felle: "Å ramse opp alle mellomregningene på nytt. Intervjueren så deg gjøre dem — det de vil vite er svaret og hvor skjørt det er." },
     ],
   }
 ];

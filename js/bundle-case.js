@@ -33,7 +33,7 @@ window.EDU = window.EDU || {};
   let steg = 0;
   let ticker = null;
   let stegStart = 0;        // når inneværende trinn ble åpnet — bare en treningsklokke
-  let filtre = { type: "alle", nivå: "alle", firma: "alle" };
+  let filtre = { kategori: "alle", type: "alle", nivå: "alle", firma: "alle" };
 
   function stopp() { if (ticker) { clearInterval(ticker); ticker = null; } }
   const caseById = (id) => CASES().find((c) => c.id === id) || null;
@@ -119,9 +119,38 @@ window.EDU = window.EDU || {};
 
     if (!alle.length) { wrap.appendChild(sh().empty("🧩", "Ingen caser ennå", "Faget har ikke lagt inn noe i EDU_DATA.cases.")); return wrap; }
 
+    /* To hoveddeler når faget bruker dem: vanlige intervjucaser og market sizing.
+       De to er ulike øvelser — den ene diagnostiserer et problem, den andre
+       bygger et tall av forutsetninger — og bør derfor ikke ligge i samme haug. */
+    const bolker = [...new Set(alle.map((c) => c.kategori || "Intervjucaser"))];
+    const flerBolk = bolker.length > 1;
+    if (flerBolk) {
+      const rad = el(".seg", { style: { flexWrap: "wrap", marginBottom: "14px" } });
+      [["alle", "Alle"], ...bolker.map((b) => [b, b])].forEach(([k, navn]) =>
+        rad.appendChild(el("button" + (filtre.kategori === k ? ".on" : ""),
+          { onclick: () => { filtre.kategori = k; S.app.refresh(); } },
+          navn + (k === "alle" ? "" : " · " + alle.filter((c) => (c.kategori || "Intervjucaser") === k).length))));
+      wrap.appendChild(rad);
+    }
+
     wrap.appendChild(filterrad(alle));
     const vist = alle.filter(passerer);
     if (!vist.length) { wrap.appendChild(sh().empty("🔍", "Ingen caser med disse filtrene", "Løsne på et av dem.")); return wrap; }
+
+    /* Grupper under overskrifter når begge bolkene vises samtidig. */
+    if (flerBolk && filtre.kategori === "alle") {
+      bolker.forEach((b) => {
+        const i = vist.filter((c) => (c.kategori || "Intervjucaser") === b);
+        if (!i.length) return;
+        wrap.appendChild(sh().sectionTitle(`${b} · ${i.length} ${i.length === 1 ? "case" : "caser"}`));
+        if (b === "Market sizing") wrap.appendChild(el("p.tiny.muted", { style: { margin: "-6px 0 12px" } },
+          "Bygg tallet av forutsetninger du selv setter. Flere av dem møtes fra to sider — etterspørselen mot kapasiteten per enhet — og det er den formen som skiller."));
+        const liste = el(".stack", { style: { gap: "14px", marginBottom: "26px" } });
+        i.forEach((c) => liste.appendChild(caseKort(c)));
+        wrap.appendChild(liste);
+      });
+      return wrap;
+    }
 
     const liste = el(".stack", { style: { gap: "14px" } });
     vist.forEach((c) => liste.appendChild(caseKort(c)));
@@ -130,6 +159,7 @@ window.EDU = window.EDU || {};
   }
 
   const passerer = (c) =>
+    (filtre.kategori === "alle" || (c.kategori || "Intervjucaser") === filtre.kategori) &&
     (filtre.type === "alle" || c.type === filtre.type) &&
     (filtre.nivå === "alle" || c.nivå === filtre.nivå) &&
     (filtre.firma === "alle" || c.firma === filtre.firma);
@@ -242,8 +272,10 @@ window.EDU = window.EDU || {};
     liste.forEach((t, i) => {
       const vist = erVist(c.id, i);
       const cls = i === steg ? "button.chip.sett-nav.on" : vist ? "button.chip.green.sett-nav" : "button.chip.sett-nav";
+      /* Trinnet kan gi sin egen korttittel. Uten den sto det «Regning» tre ganger
+         på rad i casene som møtes fra to sider, og raden sa ingenting om hvor du var. */
       rad.appendChild(el(cls, { onclick: () => { steg = i; stegStart = S.u.nowTs(); S.app.refresh(); } },
-        ARTNAVN[t.art] ? ARTNAVN[t.art].kort : String(i + 1)));
+        t.kort || (ARTNAVN[t.art] ? ARTNAVN[t.art].kort : String(i + 1))));
     });
     return rad;
   }
