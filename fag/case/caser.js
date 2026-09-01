@@ -214,10 +214,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     1 · MARKEDSINNGANG — Nordlys Lading inn i Sverige
-     ============================================================ */
   {
     id: "marked-lading-sverige",
     label: "Ladeoperatøren som vil til Sverige",
@@ -495,10 +491,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     2 · M&A — Nordbake kjøper Sørbakst
-     ============================================================ */
   {
     id: "ma-bakeri-kapasitet",
     label: "Bakeriet som kjøper et tak, ikke et selskap",
@@ -762,10 +754,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     3 · PRISING — Trygg Sans mot kommunen
-     ============================================================ */
   {
     id: "prising-velferdsteknologi",
     label: "Sensoren som er priset som maskinvare",
@@ -1036,10 +1024,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     4 · VEKST — Kontodata, veksten som ikke ble til omsetning
-     ============================================================ */
   {
     id: "vekst-regnskapsprogram",
     label: "Veksten som ikke ble til omsetning",
@@ -1284,10 +1268,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     5 · OPERATIONS — Nordfisk Slakteri
-     ============================================================ */
   {
     id: "ops-lakseslakteri",
     label: "Slakteriet som må si nei til fisk",
@@ -1549,10 +1529,3719 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     6 · ESTIMERING — varmepumpemarkedet i Norge
-     ============================================================ */
+  {
+    id: "lonn-apotek-varemiks",
+    label: "Marginen som ikke rørte seg",
+    type: "Lønnsomhet",
+    nivå: "Middels",
+    firma: "Generisk",
+    stil: "candidate-led",
+    minutter: 30,
+    ch: [],
+    blurb: "Bruttomarginen er identisk to år på rad, og likevel forsvinner resultatet. Trener det vektede snittet: en flat prosent kan skjule to store bevegelser som opphever hverandre.",
+    prompt: `<p>Klienten er <b>Bergli Apotek</b>, en kjede med 90 apotek i Trøndelag og Nord-Norge.
+      Selskapet er familieeid i andre generasjon.</p>
+      <p>På tre år har omsetningen vokst fra <b>1 600 til 2 000 millioner kroner</b> — 25 prosent —
+      og <b>bruttomarginen har vært helt uendret på 27,5 prosent begge år</b>. Likevel har
+      driftsresultatet falt fra <b>80 til 50 millioner</b>.</p>
+      <p>Daglig leder oppsummerer det slik: «Marginen står jo stille. Da må problemet ligge i
+      kostnadene — vi har åpnet tolv nye apotek på tre år.»</p>
+      <p><b>Stemmer den diagnosen? Hvorfor faller resultatet, og hva bør klienten gjøre?</b></p>`,
+    bakgrunn: `<p>Casen er konstruert, men mekanismen er den mest reelle som finnes i norsk
+      apotekdrift. Et apotek selger tre helt ulike ting med tre helt ulike marginer:
+      <b>reseptbelagte legemidler</b>, der avansen er fastsatt i forskrift og er lav;
+      <b>reseptfrie legemidler</b>; og <b>handelsvarer</b> — hudpleie, kosttilskudd,
+      sykepleieartikler — som prises fritt og er den klart mest lønnsomme delen.</p>
+      <p>Bruttomarginen kjeden rapporterer, er derfor <i>ikke en margin</i>. Den er et vektet
+      snitt over tre forretninger, og et vektet snitt har to bevegelige deler: <b>satsene</b> og
+      <b>vektene</b>. Nesten alle kandidater ser bare på satsene.</p>
+      <p>Vektene beveger seg dessuten av grunner kjeden ikke rår over. En eldre befolkning og
+      dyrere legemidler skyver reseptandelen oppover av seg selv. Samtidig har generisk bytte
+      faktisk løftet apotekets margin <i>på</i> resept de siste årene. Da kan det oppstå akkurat
+      det som skjer her: hver enkelt varegruppe blir bedre, og summen står bom stille.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva vil du vite før du begynner?",
+        sp: `<p>Du har hørt prompten. <b>Hvilke spørsmål stiller du før du strukturerer?</b></p>`,
+        fasit: `<p>Ett spørsmål er verdt mer enn alle de andre til sammen her, og det er dette:</p>
+          <p><b>«Er bruttomarginen på 27,5 prosent ett tall, eller et snitt over varegrupper med
+          ulik margin?»</b></p>
+          <p>Svaret avgjør om ordet «uendret» betyr noe i det hele tatt. Er det ett produkt, er
+          marginen faktisk stabil og hele casen ligger i kostnadene. Er det et snitt, kan alt ha
+          flyttet på seg under overflaten. <i>Å stille det spørsmålet først er selve skillet
+          mellom en sterk og en middels åpning</i> — og det tar ti sekunder.</p>
+          <p>Deretter to eller tre til, valgt med hensikt:</p>
+          <ul>
+            <li><b>Kommer veksten på 25 prosent fra volum, pris eller nye apotek?</b> Tolv nye
+              apotek av 78 er 15 prosent flere utsalg. Da er mesteparten av veksten kjøpt, ikke
+              tjent, og det endrer hva vi skal forvente av kostnadene.</li>
+            <li><b>Hva gjør sammenlignbare apotek — de som var med begge år?</b> Uten
+              like-for-like blander vi to spørsmål: driver de eksisterende apotekene dårligere,
+              eller er de nye ennå ikke modne?</li>
+            <li><b>Hva er målet?</b> Tilbake til 80 millioner, eller en bestemt margin? Skal
+              kjeden vokse videre, eller konsolidere? Anbefalingen blir en annen.</li>
+          </ul>
+          <p>Legg merke til hva du <b>ikke</b> bør spørre om ennå: detaljer om enkeltkostnader.
+          Du vet ikke om kostnadene er problemet, og daglig leder har allerede gitt deg sin
+          hypotese. Å begynne der er å arve konklusjonen hans.</p>`,
+        krav: [
+          "Du spør om bruttomarginen er ett tall eller et vektet snitt, og gjør det tidlig.",
+          "Du sier hvorfor du spør — at svaret bestemmer hvor du leter videre.",
+          "Du skiller vekst fra nye apotek fra vekst i eksisterende apotek.",
+          "Du spør om målet, ikke bare om tallene.",
+          "Du overtar ikke daglig leders hypotese om at problemet er kostnadene.",
+        ],
+        felle: "Å ta imot «marginen står stille» som et faktum og gå rett til kostnadssiden. Setningen er ikke et faktum, den er en sammenveiing — og i denne casen er den nøyaktig feil vei å begynne.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Strukturer problemet",
+        sp: `<p>Bryt ned hvorfor driftsresultatet kan ha falt når omsetningen vokser og
+          bruttomarginen står stille. <b>Avslutt med hypotesen din.</b></p>`,
+        fasit: `<p>Start i identiteten, og skriv den med <b>summetegnet synlig</b>. Det er
+          summetegnet som er hele poenget i denne casen:</p>
+          <div class="formula">
+            <div class="eq">Driftsresultat = Σᵢ (Omsetningᵢ × Bruttomarginᵢ) − Lønn − Husleie − Andre driftskostnader</div>
+            <div class="where">i = varegruppe: reseptbelagt, reseptfritt, handelsvarer</div>
+          </div>
+          <p>Og skriv så opp hvordan en endring i den samlede bruttofortjenesten alltid kan
+          deles i to:</p>
+          <div class="formula">
+            <div class="eq">Δ Bruttofortjeneste = <b>Satseffekt</b> (marginen i hver varegruppe) + <b>Mikseffekt</b> (vektene mellom dem)</div>
+          </div>
+          <p>Det gir tre grener, og du kan si høyt hva du forventer i hver:</p>
+          <ul>
+            <li><b>Satsene per varegruppe.</b> Innkjøpspris, apotekavanse på resept, egen
+              prissetting på handelsvarer, andel generika.</li>
+            <li><b>Miksen mellom varegruppene.</b> Reseptvolum vokser demografisk;
+              handelsvarer konkurrerer med dagligvare og nett. Retningen er gitt på forhånd.</li>
+            <li><b>Kostnadsbasen.</b> Lønn (farmasøyter er dyre og lovpålagte), husleie,
+              og etableringskostnader for de tolv nye apotekene.</li>
+          </ul>
+          <p><b>Hypotesen:</b> når snittmarginen står helt stille i en bransje der reseptandelen
+          stiger av seg selv, er den mest sannsynlige forklaringen ikke at ingenting har skjedd —
+          det er at <i>to ting har skjedd samtidig og går opp i opp</i>. Jeg vil be om omsetning
+          og margin per varegruppe for begge år, og regne bruttofortjenesten i kroner.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar deler i «inntekter og kostnader» og går
+          videre. Et sterkt svar sier eksplisitt at det trenger <i>begge</i> tallene for
+          <i>begge</i> år — omsetning og margin per gruppe — og begrunner hvorfor bare marginer
+          ikke holder: uten omsetningen kan du ikke regne vektene.</p>`,
+        krav: [
+          "Du skriver bruttofortjenesten som en sum over varegrupper, ikke som ett produkt.",
+          "Du deler endringen eksplisitt i en satseffekt og en mikseffekt.",
+          "Du ber om omsetning og margin per varegruppe for begge år, og sier hvorfor begge trengs.",
+          "Grenene er apotekets egne — resept, reseptfritt, handelsvarer — ikke generiske bokser.",
+          "Du avslutter med en hypotese som kan vise seg å være feil.",
+        ],
+        felle: "Å tegne et profitt-tre med «pris × volum» på toppen og stoppe der. Et apotek har ikke én pris og ett volum, det har tre forretninger i samme lokale, og treet må forgrene seg før du multipliserer.",
+      },
+      {
+        art: "exhibit",
+        sek: 150,
+        tittel: "Varegruppene, begge år",
+        kort: "Varemiks",
+        sp: `<p>Intervjueren gir deg omsetning og bruttomargin per varegruppe for begge år, og
+          resultatoppstillingen under. Millioner kroner. <b>Hva ser du?</b></p>`,
+        figur: `<table class="data">
+            <tr><th>Millioner kroner</th><th class="n">Oms. år 1</th><th class="n">Margin år 1</th><th class="n">Bruttofortj. år 1</th><th class="n">Oms. år 3</th><th class="n">Margin år 3</th><th class="n">Bruttofortj. år 3</th></tr>
+            <tr><td>Reseptbelagte legemidler</td><td class="n">960</td><td class="n">17,5 %</td><td class="n">168</td><td class="n">1 400</td><td class="n">20,0 %</td><td class="n">280</td></tr>
+            <tr><td>Reseptfrie legemidler</td><td class="n">320</td><td class="n">40,0 %</td><td class="n">128</td><td class="n">300</td><td class="n">43,0 %</td><td class="n">129</td></tr>
+            <tr><td>Handelsvarer</td><td class="n">320</td><td class="n">45,0 %</td><td class="n">144</td><td class="n">300</td><td class="n">47,0 %</td><td class="n">141</td></tr>
+            <tr><td><b>Sum</b></td><td class="n"><b>1 600</b></td><td class="n"><b>27,5 %</b></td><td class="n"><b>440</b></td><td class="n"><b>2 000</b></td><td class="n"><b>27,5 %</b></td><td class="n"><b>550</b></td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Millioner kroner</th><th class="n">År 1</th><th class="n">År 3</th><th class="n">Endring</th></tr>
+            <tr><td>Bruttofortjeneste</td><td class="n">440</td><td class="n">550</td><td class="n">+110</td></tr>
+            <tr><td>Lønn</td><td class="n">250</td><td class="n">350</td><td class="n">+100</td></tr>
+            <tr><td>Husleie</td><td class="n">60</td><td class="n">80</td><td class="n">+20</td></tr>
+            <tr><td>Andre driftskostnader</td><td class="n">50</td><td class="n">70</td><td class="n">+20</td></tr>
+            <tr><td><b>Driftsresultat</b></td><td class="n"><b>80</b></td><td class="n"><b>50</b></td><td class="n"><b>−30</b></td></tr>
+            <tr><td>Driftsmargin</td><td class="n">5,0 %</td><td class="n">2,5 %</td><td class="n">−2,5 pp</td></tr>
+            <tr><td>Antall apotek</td><td class="n">78</td><td class="n">90</td><td class="n">+12</td></tr>
+          </table>`,
+        fasit: `<p>Overskriften først, og den skal treffe hardt:</p>
+          <p><i>«Marginen står ikke stille. Den gjør to store ting samtidig, og de går tilfeldigvis
+          opp i opp. Hver eneste varegruppe har fått bedre margin — resept opp 2,5 prosentpoeng,
+          reseptfritt 3,0, handelsvarer 2,0. Samtidig har reseptandelen gått fra 60 til 70 prosent
+          av omsetningen, og resept er den gruppen som tjener minst per krone.»</i></p>
+          <p>Regn vektene høyt, det tar femten sekunder:</p>
+          <ul>
+            <li><b>År 1:</b> 960 / 1 600 = <b>60 %</b> resept, 20 % reseptfritt, 20 % handelsvarer.</li>
+            <li><b>År 3:</b> 1 400 / 2 000 = <b>70 %</b> resept, 15 % og 15 %.</li>
+          </ul>
+          <p>Og se hva som skjer i kroner, ikke i prosent: <b>reseptfritt og handelsvarer har
+          faktisk krympet</b>, fra 320 til 300 millioner hver. Hele veksten på 400 millioner er
+          resept — den gruppen som legger igjen 20 øre per krone mot handelsvarenes 47.</p>
+          <p>Så den andre halvdelen av bildet, som også er ekte: <b>kostnadene vokste 140
+          millioner mens bruttofortjenesten vokste 110.</b> Det er 39 prosent kostnadsvekst mot
+          25 prosent omsetningsvekst. Daglig leder har altså ikke helt feil — men han har feil om
+          årsaksrekkefølgen, og han overser at resept er den varegruppen som krever mest
+          arbeid per omsatt krone.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar leser at alle tre marginene er opp og
+          konkluderer at varemiksen er uskyldig. Et sterkt svar ser at nettopp det er umulig å
+          forene med en flat sumlinje uten at vektene har flyttet seg — og sier: «Da må jeg
+          kvantifisere hva miksen kostet, i kroner.»</p>`,
+        krav: [
+          "Du regner andelene per varegruppe for begge år før du sier noe om marginene.",
+          "Du ser at reseptfritt og handelsvarer har krympet i kroner, ikke bare i andel.",
+          "Du sier at alle tre marginene er opp, og at det gjør den flate sumlinjen umulig uten en miksforskyvning.",
+          "Du merker deg at kostnadene vokste 39 prosent mot omsetningens 25.",
+          "Du sier hva du vil regne videre, i stedet for å konkludere fra tabellen.",
+        ],
+        felle: "Å konkludere fra sumlinjen. Sumlinjen er den eneste raden i tabellen som ikke inneholder informasjon — den er et vektet snitt, og et vektet snitt kan stå bom stille mens begge delene beveger seg kraftig i hver sin retning.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Hva kostet miksforskyvningen?",
+        kort: "Mikskost",
+        sp: `<p>Regn hva miksforskyvningen kostet klienten i år 3, målt i <b>millioner kroner
+          bruttofortjeneste</b>.</p>
+          <p class="tiny">Bruk år 3 sin omsetning på 2 000 millioner og år 3 sine marginer, men
+          år 1 sin varemiks. Si framgangsmåten høyt før du sier tallet.</p>`,
+        svar: 50,
+        enhet: "millioner kroner",
+        toleranse: 0.02,
+        fasit: `<p>Legg år 1 sine vekter — 60 / 20 / 20 — på år 3 sin omsetning, og bruk år 3 sine
+          marginer:</p>
+          <div class="formula">
+            <div class="eq">Resept: 60 % × 2 000 = 1 200, ganger 20,0 % = 240</div>
+            <div class="eq">Reseptfritt: 20 % × 2 000 = 400, ganger 43,0 % = 172</div>
+            <div class="eq">Handelsvarer: 20 % × 2 000 = 400, ganger 47,0 % = 188</div>
+            <div class="eq">Sum = 600, altså en blandet margin på <b>30,0 %</b></div>
+            <div class="eq">Faktisk bruttofortjeneste: 550. Differanse: 600 − 550 = <b>50 millioner</b></div>
+            <div class="where">Snarveien er den samme regningen sagt kortere: 30,0 % − 27,5 % =
+              2,5 prosentpoeng, ganger 2 000 millioner = 50. Det er slik du bør si den høyt.</div>
+          </div>
+          <p><b>Og her ligger poenget de fleste går glipp av.</b> Regn den motsatte veien også,
+          det tar ti sekunder: med år 3 sin miks, men år 1 sine marginer, blir bruttofortjenesten
+          1 400 × 17,5 % + 300 × 40,0 % + 300 × 45,0 % = <b>500 millioner</b>. Marginarbeidet var
+          altså verdt <b>+50 millioner</b>, og miksforskyvningen kostet <b>−50 millioner</b>.
+          <i>De to er nøyaktig like store.</i> Det er derfor sumlinjen ikke rørte seg.</p>
+          <p>Sett det opp mot resultatfallet: <b>miksen kostet 50 millioner, mens hele
+          resultatfallet er 30.</b> Uten miksforskyvningen ville driftsresultatet i år 3 vært
+          600 − 500 = <b>100 millioner</b> — altså høyere enn år 1, til tross for at
+          kostnadsbasen vokste 140 millioner. Organisasjonen har levert et ekte marginløft på
+          50 millioner og gitt hver eneste krone av det bort til en forskyvning den ikke rår
+          over.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar leverer 50 og sier «miksen er problemet».
+          Et sterkt svar sier hva det betyr for hva klienten skal gjøre: <i>marginen per
+          varegruppe er ikke lenger det interessante løftet — det arbeidet er allerede gjort og
+          gjort godt. Løftet ligger enten i å endre selve miksen, eller i å ta ned kostnaden per
+          omsatt reseptkrone. Å be innkjøpsavdelingen om enda en runde med marginforbedring er å
+          be om mer av det som allerede har blitt spist opp.</i></p>`,
+        krav: [
+          "Du regner mot år 3 sin omsetning, ikke år 1 sin.",
+          "Du sier framgangsmåten før tallet, og oppgir enhet.",
+          "Du regner også den motsatte veien, og ser at satseffekten er +50 mot miksens −50.",
+          "Du ser at 50 er større enn resultatfallet på 30, og trekker den riktige slutningen.",
+          "Du sier hva funnet gjør med hvilke tiltak som er verdt noe.",
+        ],
+        felle: "Å regne mikseffekten mot år 1 sin omsetning på 1 600 millioner. Mikseffekten er et spørsmål om hvordan dagens omsetning er fordelt, og skal alltid måles på dagens grunnlag — ellers svarer du på hva miksen ville kostet i fortiden.",
+      },
+      {
+        art: "ide",
+        sek: 120,
+        tittel: "Hva kan klienten gjøre?",
+        sp: `<p>Du vet nå hvor pengene forsvinner. <b>List så mange tiltak du klarer på to
+          minutter.</b> Én per linje. Få dem ut først, sorter etterpå.</p>`,
+        liste: [
+          "Øke handelsvaresalget per reseptkunde: plassering, tilbud i kassa, farmasøytens anbefaling ved utlevering",
+          "Bygge helsetjenester i apotek — vaksinering, inhalasjonsveiledning, medisinstart — som prises fritt",
+          "Automatisere reseptekspedisjonen: robotlager, e-resept, forhåndsplukk og hentehyller",
+          "Flytte reseptvolum til nett og postutlevering, der kostnaden per ekspedisjon er lavere",
+          "Øke andelen generika ytterligere der byttelisten tillater det",
+          "Reforhandle innkjøpsavtalene på handelsvarer, der marginen faktisk er fri",
+          "Utvide egne merkevarer i handelsvaresortimentet",
+          "Prise handelsvarer aktivt etter etterspørsel i stedet for fast påslag",
+          "Kutte sortiment som binder plass og lager uten å bidra til bruttofortjenesten",
+          "Bemanne etter reseptrush i stedet for flat åpningstidsbemanning",
+          "Reforhandle husleie, eventuelt til omsetningsbasert leie",
+          "Stanse eller reversere åpningsprogrammet til de tolv nye apotekene er modne",
+          "Måle og styre på bruttofortjeneste i kroner per apotek, ikke på bruttomargin i prosent",
+          "Bygge multidose- og sykehjemsavtaler, der volumet er forutsigbart og bemanningen kan planlegges",
+        ],
+        fasit: `<p>Si oppdelingen din <b>før</b> du lister. Analysen gir den nesten gratis, og en
+        god deling her er tredelt:</p>
+          <ul>
+            <li><b>Endre miksen:</b> selg mer av det som tjener penger, til de kundene som
+              allerede står i lokalet.</li>
+            <li><b>Ta ned kostnaden per reseptekspedisjon:</b> resept er 70 prosent av
+              omsetningen og kommer til å bli mer, så kostnaden per ekspedisjon er den varige
+              kampen.</li>
+            <li><b>Rydde i kostnadsbasen:</b> lønn, husleie og åpningstakten.</li>
+          </ul>
+          <p>Avslutt med å prioritere. <b>Den ene idéen som følger direkte av analysen</b>, er å
+          slutte å styre på bruttomargin i prosent. Den tallstørrelsen ga ledelsen feil svar i tre
+          år på rad. Bruttofortjeneste i kroner per apotek ville sagt sannheten hele veien.</p>`,
+        krav: [
+          "Du sier oppdelingen din før du begynner å liste.",
+          "Idéene treffer både miksen og kostnaden per reseptekspedisjon, ikke bare den ene.",
+          "Minst én idé angriper styringsparameteren selv — at kjeden måler feil størrelse.",
+          "Du prioriterer til slutt og sier hvilke to som betyr mest.",
+        ],
+        felle: "Å foreslå «bedre innkjøpsavtaler» som hovedtiltak. Analysen viste at marginene allerede er løftet 2 til 3 prosentpoeng i alle tre gruppene. Den brønnen er tømt, og en anbefaling som går dit, viser at du ikke tok inn hva regnestykket faktisk sa.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Daglig leder kommer inn og har <b>ett minutt</b>. Gi anbefalingen din.</p>
+          <p class="tiny">Skriv den slik du ville sagt den — og husk at han allerede har uttalt
+          en diagnose du er uenig i.</p>`,
+        fasit: `<p>Topp-ned. Svaret først, og i dette tilfellet må første setning også korrigere
+          en feil premiss — høflig, men tydelig.</p>
+          <blockquote><p><b>«Marginen har ikke stått stille. Den har gjort to store ting som går
+          opp i opp, og den viktigste av dem koster dere 50 millioner i året — mer enn hele
+          resultatfallet på 30.»</b></p>
+          <p>Tre grunner. For det første er marginen bedre i hver eneste varegruppe: opp 2,5
+          prosentpoeng på resept, 3,0 på reseptfritt, 2,0 på handelsvarer. Det arbeidet er verdt
+          50 millioner, og det er gjort godt. For det andre har reseptandelen gått fra 60 til 70
+          prosent, og resept legger igjen 20 øre per krone mot handelsvarenes 47. Den
+          forskyvningen spiser nøyaktig opp hele marginløftet. For det tredje har kostnadene
+          vokst 39 prosent mot omsetningens 25 — det er reelt, men det er den andre halvparten,
+          ikke den første.</p>
+          <p>Konkret anbefaler jeg to ting. Slutt å styre på bruttomargin i prosent; styr på
+          bruttofortjeneste i kroner per apotek. Og angrip miksen der dere faktisk kan: hver
+          reseptkunde står allerede i lokalet, og handelsvaresalget per kunde er den eneste
+          hendelen som gjør demografien til penger i stedet for til en kostnad.</p>
+          <p>Den store risikoen er at apotekavansen på resept er politisk bestemt. Mye av de 2,5
+          prosentpoengene kan tas tilbake med et forskriftsvedtak, og da forsvinner marginløftet
+          uten at miksen snur. Neste steg jeg ville tatt, er å skille de tolv nye apotekene ut av
+          tallene og se om sammenlignbare apotek forteller den samme historien.»</p></blockquote>`,
+        krav: [
+          "Første setning korrigerer premissen og gir svaret, uten å bli belærende.",
+          "Du bruker casens egne tall: 50 mot 30, 60 til 70 prosent, 20 øre mot 47.",
+          "Du sier hva klienten skal gjøre, og at styringsparameteren selv må byttes.",
+          "Du nevner reguleringsrisikoen på apotekavansen.",
+          "Du holder deg innenfor ett minutt.",
+        ],
+        felle: "Å gi daglig leder rett for å være hyggelig — «du har helt rett i at kostnadene er høye, og i tillegg …». Han hadde ikke rett i det som betyr mest, og en anbefaling som ikke sier det, endrer ingenting.",
+      },
+    ],
+  },
+  {
+    id: "kostnadskutt-skadeforsikring",
+    label: "Forsikringsselskapet som skal kutte 15 prosent",
+    type: "Kostnadskutt",
+    nivå: "Middels",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 30,
+    ch: [],
+    blurb: "Kostnadsbasen brutt ned per funksjon. Trener skillet mellom kutt som fjerner arbeid og kutt som bare flytter det — og hva et kutt faktisk gir netto.",
+    prompt: `<p>Klienten er <b>Varde Forsikring</b>, et norsk skadeforsikringsselskap med 1,1 millioner
+      kunder og 5 800 millioner kroner i premieinntekt. Selskapet ble kjøpt opp av et nordisk finanskonsern
+      i fjor.</p>
+      <p>Den nye eieren har satt ett tall på bordet: <b>kostnadsandelen skal fra 20 til 17 prosent av
+      premieinntekten innen 18 måneder</b> — 174 millioner kroner ut av en driftskostnadsbase på
+      1 160 millioner. Ledelsen har allerede levert sitt forslag: kutt 60 årsverk i skadeoppgjøret.</p>
+      <p><b>Er det forslaget en besparelse, og hvor bør de 174 millionene egentlig hentes?</b></p>`,
+    bakgrunn: `<p>Casen er konstruert, men mekanikken er ekte. Et skadeforsikringsselskap måles på
+      <i>combined ratio</i> = erstatningsandel + kostnadsandel. Varde ligger på 78 + 20 = 98, altså
+      tjener de 2 øre per premiekrone på selve forsikringen. Det er en helt vanlig norsk posisjon, og det
+      forklarer hvorfor eieren går rett på kostnadsandelen: tre prosentpoeng der dobler resultatet.</p>
+      <p>Kostnadskutt-casen er god trening fordi den ser triviell ut — «finn 15 prosent» — og fordi den
+      vanligste feilen ikke er regnefeil, men kategorifeil. Halvparten av en forsikringsbedrifts
+      driftskostnad er <b>kapasitet satt til å møte et arbeidsvolum</b>: skader som meldes, kunder som
+      ringer. Fjerner du kapasiteten uten å fjerne arbeidet, kjøper du arbeidet tilbake til høyere pris.
+      Det er nøyaktig det regnetrinnet i denne casen viser.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        kort: "Spørsmål",
+        tittel: "Hva vil du vite før du begynner?",
+        sp: `<p>Du har hørt oppdraget. <b>Hvilke spørsmål stiller du før du strukturerer?</b>
+          To til fire er nok — og si hvorfor du spør.</p>`,
+        fasit: `<p>I en kostnadscase er de gode avklaringene de som avgjør <i>hvilken type kutt</i> som teller.
+          Et spørsmål som ikke endrer det, er bortkastet tid.</p>
+          <ul>
+            <li><b>Er kravet en varig årlig kostnad, eller holder det å treffe tallet ett år?</b> Dette er det
+              viktigste spørsmålet i hele casen. Et engangskutt kan tas med ansettelsesstopp og utsatte
+              prosjekter. Et varig kutt må fjerne arbeid.</li>
+            <li><b>Gjelder kravet driftskostnadene alene, eller teller erstatningskostnadene med?</b>
+              Erstatningene er 4 524 millioner. Ett prosentpoeng der er 45 millioner — mer enn noe
+              bemanningskutt kan gi. Er de innenfor scope, ligger halve svaret et helt annet sted.</li>
+            <li><b>Skal telleren ned eller nevneren opp?</b> Kostnadsandelen er en brøk. 17 prosent av en
+              voksende premieinntekt er en helt annen oppgave enn 17 prosent av dagens.</li>
+            <li><b>Hvilke bindinger finnes?</b> Oppsigelsestid, tariffavtaler, IT-kontrakter med restløpetid,
+              agentavtaler. De avgjør hva som i det hele tatt er mulig innen 18 måneder.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar spør om tallene — «hvordan fordeler kostnadene seg?».
+          Det får du uansett i neste trinn. Et sterkt svar spør om <i>rammene rundt tallet</i>: varighet,
+          scope og nevner. De tre svarene bestemmer hvilke kutt som i det hele tatt kan telles.</p>`,
+        krav: [
+          "Du spør om kuttet skal være varig eller bare treffe ett år. Uten det svaret vet du ikke hva som teller.",
+          "Du avklarer om erstatningskostnadene er innenfor oppdraget — de er fire ganger større enn driftskostnadene.",
+          "Du ser at kostnadsandelen er en brøk, og spør hva som skjer med nevneren.",
+          "Du sier hvorfor du spør, slik at intervjueren ser at svaret endrer strukturen din.",
+        ],
+        felle: "Å be om kostnadstabellen med en gang. Den kommer uansett, og spørsmålet forteller intervjueren at du vil lete i tallene i stedet for å tenke på hva slags kutt oppdraget faktisk krever.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        kort: "Struktur",
+        tittel: "Strukturer kostnadsbasen",
+        sp: `<p>Bryt ned de 1 160 millionene slik at du etterpå kan si <b>hvilke kutt som er varige</b>.
+          Skriv nedbrytningen slik du ville tegnet den, og avslutt med hypotesen din.</p>`,
+        fasit: `<p>En kostnadsstruktur som bare lister funksjoner, er en innholdsfortegnelse. Den som teller,
+          krysser <b>to akser</b>: hvor pengene ligger, og <i>hva kostnaden følger</i>.</p>
+          <div class="formula">
+            <div class="eq">Driftskostnad = Arbeidsvolum × Kostnad per enhet arbeid + Salgsdrevne kostnader + Fast struktur</div>
+            <div class="where">Arbeidsvolum = antall skader og antall henvendelser. Salgsdrevne = provisjon som
+              følger premien. Fast struktur = ledd og systemer som finnes uansett volum.</div>
+          </div>
+          <p>Den andre aksen er det som gjør strukturen brukbar, fordi den gir <b>tre helt ulike kuttyper</b>:</p>
+          <ul>
+            <li><b>Strukturelt kutt — fjerner arbeidet.</b> Færre henvendelser fordi årsaken til dem er borte,
+              færre systemer, færre ledd. Varig, og treffer kostnaden per definisjon.</li>
+            <li><b>Produktivitetskutt — samme arbeid, færre timer per enhet.</b> Automatisering, standardisering.
+              Varig hvis mekanismen er reell, men må kunne pekes på konkret.</li>
+            <li><b>Kapasitetskutt — samme arbeid, færre hender.</b> Kommer tilbake som overtid, innleie, kø og
+              kvalitetstap. Ser ut som en besparelse i budsjettet og er det ikke i regnskapet.</li>
+          </ul>
+          <p>Legg til et <b>gjennomførbarhetslag</b> til slutt: tid til effekt, engangskostnad før varig gevinst,
+          og hvem som rammes. Uten det er en kostnadsplan bare aritmetikk.</p>
+          <p><b>Hypotesen:</b> ledelsens forslag er av tredje type. Skadeoppgjøret er dimensjonert mot et
+          arbeidsvolum som ikke endrer seg av at 60 mennesker slutter — så jeg vil først teste om kuttet
+          i det hele tatt er en besparelse, og deretter lete etter de varige kronene i fast struktur.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar deler i «faste og variable kostnader» og stopper der.
+          Et sterkt svar sier hva kostnaden <i>følger</i> — skader, henvendelser, solgt premie eller ingenting —
+          fordi det er den inndelingen som avgjør om et kutt holder.</p>`,
+        krav: [
+          "Du krysser funksjon med kostnadsdriver, ikke bare fast mot variabel.",
+          "Du navngir de tre kuttypene: fjerne arbeid, gjøre arbeidet billigere, fjerne hender.",
+          "Du har et gjennomførbarhetslag med tid til effekt og engangskostnad.",
+          "Du avslutter med en hypotese om ledelsens forslag, ikke bare en oversikt.",
+          "Grenene overlapper ikke og dekker til sammen hele basen på 1 160 millioner.",
+        ],
+        felle: "Å behandle lønn som en fast kostnad. Lønn er fast i et kvartal og variabel over atten måneder gjennom naturlig avgang — og det er nettopp forskjellen mellom en sluttpakke og et kutt som ikke koster noe.",
+      },
+      {
+        art: "exhibit",
+        sek: 120,
+        kort: "Figur",
+        tittel: "Kostnadsbasen per funksjon",
+        sp: `<p>Intervjueren gir deg kostnadsbasen brutt ned per funksjon.
+          <b>Hva ser du, og hva betyr det for hvor pengene kan hentes?</b></p>`,
+        figur: `<table class="data">
+            <tr><th>Funksjon</th><th class="n">Kostnad (mill. kr)</th><th class="n">Årsverk</th><th>Hva kostnaden følger</th></tr>
+            <tr><td>Skadeoppgjør</td><td class="n">330</td><td class="n">300</td><td>Antall skader (240 000 i året)</td></tr>
+            <tr><td>Kundesenter og salg</td><td class="n">250</td><td class="n">230</td><td>Antall henvendelser</td></tr>
+            <tr><td>IT og systemdrift</td><td class="n">240</td><td class="n">85</td><td>Antall systemer og lisenser</td></tr>
+            <tr><td>Distribusjon og provisjon</td><td class="n">160</td><td class="n">15</td><td>Solgt premievolum</td></tr>
+            <tr><td>Aktuar, produkt og pris</td><td class="n">80</td><td class="n">55</td><td>Fast struktur</td></tr>
+            <tr><td>Konsernstab og ledelse</td><td class="n">100</td><td class="n">75</td><td>Fast struktur</td></tr>
+            <tr><td><b>Sum driftskostnader</b></td><td class="n"><b>1 160</b></td><td class="n"><b>760</b></td><td><b>20 % av premien</b></td></tr>
+          </table>
+          <p class="tiny">Premieinntekt 5 800 mill. kr. Erstatningskostnader 4 524 mill. kr (78 %).
+          Combined ratio 98. Kravet fra eier: 174 mill. kr, altså 15 % av basen.</p>`,
+        fasit: `<p>Si overskriften først, ikke rad for rad:</p>
+          <p><i>«Halvparten av basen — 580 av 1 160 — er kapasitet satt til å møte et arbeidsvolum. Der kan
+          jeg ikke kutte uten å endre volumet. De varige kronene må ligge i de andre 580.»</i></p>
+          <p>Deretter to nivå-2-innsikter som ikke står i tabellen, men som følger av å dele to kolonner
+          på hverandre:</p>
+          <ul>
+            <li><b>Kostnad per årsverk avslører hva posten egentlig er.</b> Skadeoppgjør 330/300 = 1,1 millioner
+              per årsverk — det er lønn. IT 240/85 = 2,8 millioner og distribusjon 160/15 = 10,7 millioner —
+              det er <i>ikke</i> lønn. Det er lisenser, konsulenter og provisjon. Å telle hoder i IT er å lete
+              på feil sted.</li>
+            <li><b>Distribusjonens 160 millioner er den farligste posten i tabellen.</b> Den følger solgt
+              premie. Kutter du der, faller premieinntekten — og siden kostnadsandelen er en brøk, kan tallet
+              eieren måler deg på bli verre av at nevneren krymper.</li>
+          </ul>
+          <p>Hvor de strukturelle kronene faktisk ligger: IT (systemer, ikke folk — selskapet har arvet tre
+          kjernesystemer gjennom oppkjøp), konsernstab (ledd, ikke kapasitet), og i å <b>fjerne årsaken</b> til
+          henvendelser og skadebehandling i de to store kapasitetspostene.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar rangerer postene etter størrelse og peker på den
+          største. Et sterkt svar deler kostnad på årsverk, ser at tre av seks poster ikke er lønnskostnader
+          i det hele tatt, og sier hvilken post som er farlig å røre.</p>`,
+        krav: [
+          "Du sier konklusjonen først, ikke en opplesning av tabellen.",
+          "Du grupperer de seks postene i kapasitet, salgsdrevet og fast struktur før du peker.",
+          "Du regner kostnad per årsverk og ser at IT og distribusjon ikke er lønnskostnader.",
+          "Du peker ut distribusjonen som farlig å kutte, og begrunner det med at kostnadsandelen er en brøk.",
+        ],
+        felle: "Å gå rett på den største posten fordi den er størst. Skadeoppgjøret er 330 millioner nettopp fordi det gjør 240 000 skader i året — størrelsen er et mål på arbeidsmengde, ikke på sløsing.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        kort: "Regning",
+        tittel: "Hva gir ledelsens kutt netto?",
+        sp: `<p>Ledelsens forslag er å kutte <b>60 av 300 årsverk i skadeoppgjøret</b>. Intervjueren gir deg
+          det du trenger:</p>
+          <ul>
+            <li>Lønnskostnad per årsverk i skadeoppgjør: <b>900 000 kroner</b></li>
+            <li>Skadeoppgjøret behandler <b>240 000 skader</b> i året, og kapasiteten er i dag akkurat
+              <b>800 skader per årsverk</b></li>
+            <li>Av skadene som ikke lenger får plass, kan <b>18 000</b> flyttes til selvbetjent skademelding.
+              Resten må kjøpes som overtid og innleide takstmenn til <b>1 500 kroner per skade</b></li>
+            <li>En skade behandlet av innleide uten kundehistorikk utbetaler i snitt <b>900 kroner mer</b>
+              enn en skade behandlet internt</li>
+          </ul>
+          <p><b>Hva blir den varige årlige nettoeffekten av kuttet, i millioner kroner?</b></p>
+          <p class="tiny">Si framgangsmåten høyt før du regner. Svar med fortegn — tallet kan være negativt.</p>`,
+        svar: -18,
+        enhet: "millioner kroner",
+        toleranse: 0.02,
+        fasit: `<p>Regn kapasiteten før du regner kronene. Det er den rekkefølgen som gjør svaret riktig.</p>
+          <div class="formula">
+            <div class="eq">Brutto lønnsbesparelse: 60 × 900 000 = 54,0 mill.</div>
+            <div class="eq">Kapasitet etter kuttet: (300 − 60) × 800 = 192 000 skader</div>
+            <div class="eq">Arbeidsvolum: 240 000 skader → kapasitetsgap 48 000</div>
+            <div class="eq">Til selvbetjening 18 000 → 30 000 skader må kjøpes</div>
+            <div class="eq">Overtid og innleie: 30 000 × 1 500 = 45,0 mill.</div>
+            <div class="eq">Merutbetaling: 30 000 × 900 = 27,0 mill.</div>
+            <div class="eq">Netto: 54,0 − 45,0 − 27,0 = <b>−18,0 millioner</b></div>
+          </div>
+          <p><b>Poenget er ikke tallet, men hva det avslører.</b> Kuttet sparer ikke 54 millioner. Det koster
+          18. Sammenlign enhetskostnadene og se hvorfor: internt koster én skade 900 000 / 800 =
+          <b>1 125 kroner</b>. Kjøpt utenfra koster den 1 500 + 900 = <b>2 400 kroner</b> — mer enn dobbelt.
+          Så snart kapasiteten faller under arbeidsvolumet, kjøper selskapet tilbake nøyaktig det arbeidet
+          det nettopp sa opp, til dobbel pris. Det er ikke et kutt. Det er en byttehandel til dårlig kurs.</p>
+          <p>To ting til, som begge trekker i samme retning:</p>
+          <ul>
+            <li><b>Sluttpakker kommer i tillegg.</b> 60 × 250 000 = 15 millioner det første året. Regnestykket
+              er altså verre enn −18 før det i det hele tatt blir bedre.</li>
+            <li><b>Den eneste ekte kronen i forslaget krever ingen oppsigelser.</b> De 18 000 skadene som
+              flyttes til selvbetjening, frigjør 18 000 / 800 = 22,5 årsverk, verdt 20,3 millioner. Den
+              gevinsten er tilgjengelig <i>uten</i> kuttet — fordi den fjerner arbeid, ikke hender.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar regner 60 × 900 000 = 54 millioner og stopper. Det er
+          tallet ledelsen allerede har. Et sterkt svar regner kapasiteten mot etterspørselen først, trekker fra
+          det som kommer tilbake, og sier setningen som avgjør casen: <i>et kutt som senker kapasiteten under
+          arbeidsvolumet, er ikke en besparelse.</i></p>`,
+        krav: [
+          "Du regner kapasiteten før kronene: 240 årsverk ganger 800 skader er første linje, ikke siste.",
+          "Du trekker fra det som kommer tilbake som innleie, overtid og høyere utbetalinger.",
+          "Du oppgir fortegn og enhet — minus 18 millioner kroner, ikke bare 18.",
+          "Du sammenligner enhetskostnaden internt mot kjøpt: 1 125 mot 2 400 kroner per skade.",
+          "Du sier hva tallet betyr for anbefalingen, ikke bare hva det er.",
+        ],
+        felle: "Å stoppe ved bruttotallet: «60 årsverk à 900 000 er 54 millioner». Det er svaret ledelsen allerede har levert, og det er nettopp derfor de trenger deg.",
+      },
+      {
+        art: "ide",
+        sek: 150,
+        kort: "Idéer",
+        tittel: "Hvor kommer de 174 millionene fra?",
+        sp: `<p>Kravet står fast. <b>List tiltak som faktisk kan gi varige kutt</b> — men si først hvordan du
+          deler dem opp.</p>
+          <p class="tiny">Én per linje. Få dem ut først, prioriter til slutt.</p>`,
+        liste: [
+          "Fjerne årsaken til henvendelsene: de fem vanligste grunnene folk ringer om, løst i selvbetjening",
+          "Automatisk oppgjør for småskader under en beløpsgrense, uten manuell behandling",
+          "Konsolidere de tre kjernesystemene selskapet har arvet gjennom oppkjøp, og avvikle to av dem",
+          "Reforhandle IT-lisenser og bytte innleide konsulenter mot færre, faste utviklere",
+          "Ta ut ett ledelsesledd og samle stab — HR, økonomi, juridisk — i én enhet for hele konsernet",
+          "Digital skademelding med bilde og automatisk taksering på de enkleste bilskadene",
+          "Rydde i produktporteføljen: færre varianter gir færre unntak, færre spørsmål og færre systemregler",
+          "Flytte enkel skadebehandling til et felles nordisk oppgjørssenter i konsernet",
+          "Endre provisjonsmodellen fra volum til lønnsomhet, slik at distribusjonen betaler for seg selv",
+          "Kjøpe verksted- og reparasjonstjenester på færre og større avtaler — det treffer erstatningssiden",
+          "Bruke naturlig avgang framfor oppsigelse: 760 årsverk gir plasser hvert år uten sluttpakker",
+          "Bedre risikoseleksjon og prisdifferensiering, som senker erstatningsandelen i stedet for kostnadsandelen",
+          "Outsource utskrift, post og arkiv — små poster, men fullt ut strukturelle",
+        ],
+        fasit: `<p>Si oppdelingen før du lister. Den som virker her, er den samme som i strukturen:
+          <b>fjern arbeidet · gjør arbeidet billigere per enhet · fjern struktur som ikke gjør arbeid.</b></p>
+          <p>Avslutt med å tallfeste, ikke bare å prioritere. En kostnadsplan uten tall er en ønskeliste:</p>
+          <ul>
+            <li><b>Kundesenter:</b> fjern årsaken til henvendelsene og flytt resten til selvbetjening →
+              <b>55 av 250</b> (22 %), effekt innen 18 måneder.</li>
+            <li><b>IT:</b> konsolider tre kjernesystemer til ett og avvikle to → <b>60 av 240</b> (25 %), men
+              krever investering først og treffer først i år to.</li>
+            <li><b>Skadeoppgjør:</b> automatisk oppgjør for småskader og digital skademelding → <b>30 av 330</b>
+              (9 %). Merk at dette fjerner arbeid, ikke hender — derfor holder det.</li>
+            <li><b>Konsernstab:</b> ett ledd ut, samlede stabsfunksjoner → <b>25 av 100</b> (25 %).</li>
+          </ul>
+          <p>Sum: <b>170 millioner av 174</b>. Si det høyt. Du kommer ikke helt fram, og de siste fire må
+          enten hentes i provisjonsmodellen eller diskuteres med eieren. Å påstå at du treffer tallet på
+          kronen er mindre troverdig enn å si nøyaktig hvor du stopper.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar lister tiltak. Et sterkt svar setter et beløp og en
+          tidshorisont på hvert av de fire største, summerer, og innrømmer gapet.</p>`,
+        krav: [
+          "Du sier oppdelingen din før du lister, og gruppene er casens egne.",
+          "Minst halvparten av idéene fjerner arbeid i stedet for å fjerne hender.",
+          "Du setter beløp og tidshorisont på de største tiltakene og summerer dem.",
+          "Du sier hvor mye du ikke får til, i stedet for å tvinge summen til å treffe 174.",
+          "Du nevner at IT-konsolidering koster penger før den sparer penger.",
+        ],
+        felle: "Å foreslå kutt i distribusjonsprovisjonen fordi den er stor og har få årsverk. De 160 millionene følger salget. Kutter du der, faller premieinntekten — og kostnadsandelen, som er en brøk, kan bli verre av at nevneren krymper.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        kort: "Anbefaling",
+        tittel: "Anbefalingen",
+        sp: `<p>Konserndirektøren fra den nye eieren har <b>ett minutt</b> før neste møte. Gi anbefalingen din.</p>
+          <p class="tiny">Skriv den slik du ville sagt den — ikke som notater.</p>`,
+        fasit: `<p>Svaret først, så tallene, så risiko og neste steg.</p>
+          <blockquote><p><b>«Ikke gjennomfør bemanningskuttet i skadeoppgjøret. Det sparer ikke 54 millioner —
+          det koster 18. De 174 millionene finnes, men de ligger i systemer og ledd, ikke i hender.»</b></p>
+          <p>Tre grunner. For det første er skadeoppgjøret dimensjonert mot 240 000 skader i året. Kutter dere
+          60 årsverk, faller kapasiteten til 192 000, og de 30 000 skadene som ikke kan flyttes til
+          selvbetjening, må kjøpes til 2 400 kroner stykket mot 1 125 internt. For det andre er halve
+          kostnadsbasen — 580 av 1 160 millioner — av samme type: kapasitet mot et arbeidsvolum. For det
+          tredje er de tre postene som ikke er det, IT på 240 millioner med bare 85 årsverk, konsernstab på
+          100, og et kundesenter der halvparten av henvendelsene skyldes noe dere selv kan fjerne.</p>
+          <p>Konkret: konsolider de tre kjernesystemene og avvikl to, ta ut ett ledelsesledd og samle staben,
+          og fjern årsaken til de vanligste henvendelsene. Det gir 170 av 174 millioner. De siste fire vil
+          jeg ta i provisjonsmodellen, ikke i volumet — for kutter dere salget, krymper nevneren og
+          kostnadsandelen blir verre.</p>
+          <p>Risikoen er tid og rekkefølge: systemkonsolideringen koster penger i år én og sparer først i år
+          to, så dere trenger en bro. Neste steg jeg ville tatt, er å telle henvendelsene i kundesenteret
+          etter årsak i fire uker. Det avgjør om de 55 millionene der er reelle — og det er den eneste av de
+          fire postene jeg ennå ikke har hardt tallgrunnlag for.»</p></blockquote>
+          <p><b>Sterkt mot middels:</b> et middels svar sier «kutt heller i IT og stab». Et sterkt svar sier
+          <i>hvorfor de postene er annerledes</i> — de er struktur, ikke kapasitet — og legger til rekkefølgen,
+          broen og det ene tallet som fortsatt mangler.</p>`,
+        krav: [
+          "Første setning avviser forslaget og gir tallet: kuttet koster 18 millioner, det sparer dem ikke.",
+          "Du bruker casens egne tall, ikke generelle utsagn om kostnadsprogrammer.",
+          "Du sier hvor de 174 millionene skal komme fra, med beløp per post.",
+          "Du nevner risikoen i rekkefølgen — systemkuttet koster før det sparer.",
+          "Du holder deg innenfor ett minutt og avslutter med ett konkret neste steg.",
+        ],
+        felle: "Å love hele beløpet fordi eieren ba om det. En plan som summerer til nøyaktig 174 uten at postene tåler etterprøving, faller sammen i første styremøte — og da er det du som satte tallet.",
+      },
+    ],
+  },
+  {
+    id: "hurtigmat-kanalmetning",
+    label: "Hurtigmatkjeden som åpner seg til ro",
+    type: "Vekst",
+    nivå: "Intro",
+    firma: "Generisk",
+    stil: "candidate-led",
+    minutter: 30,
+    ch: [],
+    blurb: "Kjeden har åpnet 30 nye utsalg. Besøkene har knapt rørt seg. Trener samme-butikk-analyse, kannibalisering mellom egne enheter, og forskjellen på brutto og netto vekst.",
+    prompt: `<p>Klienten er <b>Svingen Hurtigmat</b>, en gatekjøkkenkjede med 114 utsalg i Norge.
+      Kjeden eies av et nordisk oppkjøpsfond som kjøpte den for fire år siden med én uttalt plan:
+      å vokse gjennom nyetableringer.</p>
+      <p>Planen er fulgt. På tre år har kjeden åpnet <b>30 nye utsalg</b> — fra 84 til 114, altså
+      36 prosent flere. <b>Kundebesøkene har i samme periode vokst fra 12,6 til 13,9 millioner,
+      altså 10 prosent.</b> Driftsresultatet har falt fra 91 til 55 millioner kroner.</p>
+      <p>Etableringssjefen har nå lagt fram en plan for 30 nye utsalg til.
+      <b>Skal styret si ja?</b></p>`,
+    bakgrunn: `<p>Casen er konstruert, men mekanismen er den vanligste feilen i kjededrift:
+      selskapet forveksler <i>utsalgssteder</i> med <i>etterspørsel</i>. Et gatekjøkken selger ikke
+      til Norge, det selger til et nedslagsfelt — noen kvartaler, et kjøpesenter, en bussholdeplass.
+      Legger du et nytt utsalg inni et nedslagsfelt du allerede dekker, flytter du kunder mellom
+      egne kasser i stedet for å hente nye.</p>
+      <p>Det som gjør feilen seig, er at den er <b>usynlig i regnskapet til hvert enkelt
+      utsalg</b>. Det nye utsalgets egne bøker viser omsetning og overskudd. Kundene det tok fra
+      naboutsalget, dukker ikke opp noe sted som en kostnad. Etableringsavdelingen måles på antall
+      åpninger og på det nye utsalgets eget resultat, og begge tallene ser fine ut helt til noen
+      summerer kjeden.</p>
+      <p>Verktøyet mot dette er dagligvarehandelens eget: <b>samme-butikk-vekst</b>. Del alltid
+      veksten i to — det som kommer fra utsalg som fantes i fjor, og det som kommer fra nye. Og
+      finn et område der du <i>ikke</i> åpnet noe, så du har en kontrollgruppe å måle markedet med.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        kort: "Avklaring",
+        sek: 90,
+        tittel: "Hva vil du vite før du begynner?",
+        sp: `<p>Du har hørt prompten. Før du strukturerer: hvilke spørsmål stiller du?</p>`,
+        fasit: `<p>Du har allerede fått den viktigste opplysningen gratis: kjeden vokser kraftig i
+          antall utsalg og nesten ikke i kundebesøk. Bruk avklaringene på det som avgjør
+          <i>hvorfor</i>.</p>
+          <ul>
+            <li><b>Hva skjer med markedet rundt oss?</b> Vokser hurtigmatmarkedet, står det stille,
+              eller taper det til leveringsappene? Uten dette vet du ikke om et fall er selvpåført
+              eller tidevann. Det aller beste spørsmålet er en variant: <b>finnes det områder der
+              vi ikke har åpnet noe?</b> Da har du en kontrollgruppe.</li>
+            <li><b>Hvor ligger de nye utsalgene i forhold til de gamle?</b> Nytt kjøpesenter i en
+              by vi allerede dekker, eller et tettsted vi ikke var i? Det er hele casen.</li>
+            <li><b>Har vi samme-butikk-tall?</b> Altså: hvordan går det med de 84 utsalgene som
+              fantes i år 1, isolert fra de 30 nye?</li>
+            <li><b>Hva er fondets mål og tidshorisont?</b> Et salg om to år belønner antall utsalg
+              i prospektet. Da er ikke dette bare en analysefeil, det er et insentivproblem.</li>
+          </ul>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar spør om kostnadene i de
+          nye utsalgene, og det er et fornuftig spørsmål. <b>Et sterkt svar ber om en
+          kontrollgruppe før det ber om noe annet</b> — fordi uten den kan man ikke skille
+          markedets bevegelse fra kjedens egen.</p>`,
+        krav: [
+          "Du spør om markedet rundt, ikke bare om kjedens egne tall.",
+          "Du ber eksplisitt om et område der kjeden ikke har åpnet noe — en kontrollgruppe.",
+          "Du spør hvor de nye utsalgene ligger i forhold til de gamle.",
+          "Du ber om samme-butikk-tall, altså de gamle utsalgene isolert.",
+          "Du sier hva svaret ville endre i strukturen din.",
+        ],
+        felle: "Å spørre om kostnadene i de nye utsalgene først. Det er et regnskapsspørsmål, og det kommer senere. Problemet er foreløpig at 36 prosent flere utsalg bare ga 10 prosent flere besøk, og det er et etterspørselsspørsmål.",
+      },
+      {
+        art: "struktur",
+        kort: "Nedbrytning",
+        sek: 150,
+        tittel: "Strukturer problemet",
+        sp: `<p>Bryt ned hvorfor 36 prosent flere utsalg bare ga 10 prosent flere kundebesøk.
+          Skriv nedbrytningen slik du ville tegnet den på arket, og <b>avslutt med hypotesen
+          din</b>.</p>`,
+        fasit: `<p>Start i identiteten, ikke i et vekstrammeverk:</p>
+          <div class="formula">
+            <div class="eq">Kundebesøk = Antall utsalg × Besøk per utsalg</div>
+            <div class="eq">Utsalg +36 %. Besøk +10 %. Altså har besøk per utsalg falt rundt 19 %.</div>
+            <div class="where">Fordi 1,36 × 0,81 = 1,10. Å si dette høyt før du får ett eneste tall
+              til, er det sterkeste enkelttrekket i casen.</div>
+          </div>
+          <p>Men den viktige delen kommer nå, og den er spesifikk for kjeder: <b>«besøk per
+          utsalg» er et gjennomsnitt over to helt forskjellige populasjoner.</b> Del det i to:</p>
+          <ul>
+            <li><b>De 84 gamle utsalgene (samme butikk):</b> hva skjedde med dem? Faller de, har
+              noen tatt kundene deres.</li>
+            <li><b>De 30 nye:</b> hvor mye omsetter de? Nye utsalg er ofte mindre, så et lavere
+              snitt kan være helt uskyldig — eller det motsatte.</li>
+          </ul>
+          <p>Faller de gamle, er det bare tre mulige tyver, og de må skilles:</p>
+          <ul>
+            <li><b>Markedet:</b> leveringsapper, dagligvare som tok over ferdigmaten, færre besøk
+              per innbygger. Rammer alle, også der vi ikke åpnet.</li>
+            <li><b>Konkurrentene:</b> en annen kjede åpnet i våre nedslagsfelt.</li>
+            <li><b>Oss selv:</b> vi åpnet i våre egne nedslagsfelt. Kannibalisering.</li>
+          </ul>
+          <p><b>Hypotesen:</b> de nye utsalgene ligger for tett på de gamle, og mesteparten av
+          besøkene deres er flyttet, ikke skapt. Jeg vil se besøk fordelt på område, med de gamle
+          og de nye utsalgene i hver sin kolonne.</p>`,
+        krav: [
+          "Du skriver identiteten og regner 1,36 × 0,81 = 1,10 før du ber om mer data.",
+          "Du deler besøk per utsalg i gamle og nye utsalg — det er selve grepet i en kjedecase.",
+          "Du lister de tre mulige årsakene til at gamle utsalg faller, og de overlapper ikke.",
+          "Du sier at markedet må måles et sted der kjeden ikke har åpnet.",
+          "Du ber om en konkret tabell, ikke om mer informasjon generelt.",
+        ],
+        felle: "Å hente fram Ansoff eller et generisk vekstrammeverk med nye markeder, nye produkter og nye kanaler. Klienten vokser allerede i kanalen — problemet er at veksten er tom. Rammeverket svarer på et spørsmål ingen har stilt.",
+      },
+      {
+        art: "exhibit",
+        kort: "Samme butikk",
+        sek: 120,
+        tittel: "Besøkene fordelt på område",
+        sp: `<p>Du får tabellen du ba om. Kundebesøk i tusen. <b>Hva ser du, og hva betyr
+          det?</b></p>`,
+        figur: `<table class="data">
+            <tr><th>Område</th><th class="n">Utsalg år 1</th><th class="n">Nye</th><th class="n">Utsalg år 3</th><th class="n">Besøk år 1</th><th class="n">Besøk år 3, de gamle</th><th class="n">Besøk år 3, de nye</th><th class="n">Sum år 3</th></tr>
+            <tr><td>Storbyene</td><td class="n">36</td><td class="n">18</td><td class="n">54</td><td class="n">5 400</td><td class="n">4 320</td><td class="n">1 440</td><td class="n">5 760</td></tr>
+            <tr><td>Mellomstore byer</td><td class="n">30</td><td class="n">6</td><td class="n">36</td><td class="n">4 500</td><td class="n">4 320</td><td class="n">450</td><td class="n">4 770</td></tr>
+            <tr><td>Nye tettsteder</td><td class="n">0</td><td class="n">6</td><td class="n">6</td><td class="n">0</td><td class="n">0</td><td class="n">660</td><td class="n">660</td></tr>
+            <tr><td>Distriktet (ingen åpninger)</td><td class="n">18</td><td class="n">0</td><td class="n">18</td><td class="n">2 700</td><td class="n">2 700</td><td class="n">0</td><td class="n">2 700</td></tr>
+            <tr><td><b>Sum</b></td><td class="n"><b>84</b></td><td class="n"><b>30</b></td><td class="n"><b>114</b></td><td class="n"><b>12 600</b></td><td class="n"><b>11 340</b></td><td class="n"><b>2 550</b></td><td class="n"><b>13 890</b></td></tr>
+          </table>
+          <p class="tiny">Kundebesøk i tusen. «De gamle» er de 84 utsalgene som fantes i år 1.</p>
+          <table class="data">
+            <tr><th>Økonomi</th><th class="n">Kroner</th></tr>
+            <tr><td>Dekningsbidrag per kundebesøk</td><td class="n">60</td></tr>
+            <tr><td>Faste kostnader, nytt utsalg per år</td><td class="n">3 600 000</td></tr>
+            <tr><td>Faste kostnader, etablert utsalg per år</td><td class="n">7 200 000</td></tr>
+          </table>`,
+        fasit: `<p>Overskriften først, og den ligger i den nederste raden:</p>
+          <p><i>«Distriktet, der dere ikke åpnet et eneste utsalg, er helt flatt — 2,7 millioner
+          besøk begge år. Markedet er altså ikke problemet. Og likevel har de 84 gamle utsalgene
+          mistet 1,26 millioner besøk. Det er dere selv som har tatt dem.»</i></p>
+          <ul>
+            <li><b>Kontrollgruppen er hele beviset.</b> Uten distriktsraden kunne fallet i storby
+              like gjerne vært leveringsappene eller en konkurrent. Med den er tolkningen entydig.</li>
+            <li><b>Fallet er nøyaktig der åpningene er.</b> Storbyene fikk 18 nye utsalg og mistet
+              20 prosent av samme-butikk-besøkene (5 400 til 4 320). Mellomstore byer fikk 6 nye og
+              mistet 4 prosent. Distriktet fikk null og mistet null. Sammenhengen er ikke til å
+              ta feil av — jo flere åpninger, jo større fall.</li>
+            <li><b>Én rad er ren vekst.</b> Nye tettsteder: seks utsalg, 660 000 besøk, ingenting
+              tatt fra noen. Og de er større enn de andre nyåpningene — 110 000 besøk mot 80 000 i
+              storby. Der kjeden ikke var fra før, er det fortsatt marked.</li>
+            <li><b>De nye utsalgene er ikke dårlige.</b> Et nytt storbyutsalg gjør 80 000 besøk mot
+              150 000 i et etablert. Det ser ut som et svakt utsalg. Det er ikke svakt — det er
+              plassert oppå et utsalg kjeden allerede eide.</li>
+          </ul>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar leser at besøk per
+          utsalg har falt fra 150 000 til 122 000 og konkluderer med at de nye utsalgene er svake.
+          Det er å lese gjennomsnittet. <b>Et sterkt svar bruker distriktsraden som kontrollgruppe,
+          kobler fallet i de gamle utsalgene til antall åpninger i samme område, og sier ordet
+          kannibalisering før intervjueren gjør det.</b></p>`,
+        krav: [
+          "Du finner kontrollgruppen selv og sier hva den beviser: markedet er flatt.",
+          "Du kobler størrelsen på samme-butikk-fallet til antall åpninger per område.",
+          "Du ser at raden med nye tettsteder er ren vekst, uten kannibalisering.",
+          "Du sier at de nye utsalgene ikke er svake, men feilplassert.",
+          "Du sier konklusjonen først, ikke en rad-for-rad-opplesning.",
+        ],
+        felle: "Å konkludere med at de nye utsalgene underpresterer fordi de gjør færre besøk enn de gamle. Et nytt utsalg skal gjøre færre besøk enn et innarbeidet. Spørsmålet er ikke hvor mange besøk det har, men hvor besøkene kom fra.",
+      },
+      {
+        art: "regne",
+        kort: "Nettobidrag",
+        sek: 90,
+        tittel: "Hva bidrar et nytt storbyutsalg med?",
+        sp: `<p>Markedet er flatt — distriktet beviser det — så hele fallet i de gamle
+          storbyutsalgene er kannibalisering fra kjedens egne nyåpninger.</p>
+          <p><b>Hvor mye svekker et gjennomsnittlig av de 18 nye storbyutsalgene kjedens
+          driftsresultat per år? Svar i millioner kroner.</b></p>
+          <p class="tiny">Regn det på papir, og si framgangsmåten høyt før du sier tallet.</p>`,
+        svar: 2.4,
+        enhet: "millioner kroner per utsalg per år",
+        toleranse: 0.02,
+        fasit: `<p>Regn i besøk først, kroner etterpå:</p>
+          <div class="formula">
+            <div class="eq">Brutto per nytt storbyutsalg: 1 440 000 / 18 = 80 000 besøk</div>
+            <div class="eq">Tatt fra de gamle: (5 400 000 − 4 320 000) / 18 = 60 000 besøk</div>
+            <div class="eq">Netto for kjeden: 80 000 − 60 000 = 20 000 besøk</div>
+            <div class="eq">Dekningsbidrag: 20 000 × 60 = 1 200 000 kroner</div>
+            <div class="eq">Minus faste kostnader: 1 200 000 − 3 600 000 = <b>−2,4 millioner kroner</b></div>
+            <div class="where">Tre av fire besøk i et nytt storbyutsalg er tatt fra et av kjedens
+              egne utsalg. Kannibaliseringsgraden er 75 prosent.</div>
+          </div>
+          <p><b>Og her ligger poenget de fleste går glipp av.</b> Sett opp det samme regnestykket
+          slik restaurantsjefen ser det, uten kannibaliseringsleddet:</p>
+          <div class="formula">
+            <div class="eq">80 000 × 60 = 4 800 000 − 3 600 000 = <b>+1,2 millioner kroner</b></div>
+          </div>
+          <p>Utsalgets egne bøker viser altså <b>pluss 1,2 millioner</b>, mens kjeden taper
+          <b>2,4 millioner</b> på det samme utsalget. Forskjellen er nøyaktig 3,6 millioner —
+          de 60 000 besøkene som ble flyttet fra naboen, ganget med 60 kroner. <b>Det er derfor
+          ingen har stoppet dette:</b> hver eneste åpning har blitt godkjent på et regnestykke som
+          var riktig for utsalget og feil for eieren.</p>
+          <p>Gjør du det samme for de to andre områdene, får du hele bildet:</p>
+          <ul>
+            <li><b>Storbyene:</b> 75 prosent kannibalisering, −2,4 millioner per utsalg, 18 utsalg
+              — til sammen −43,2 millioner.</li>
+            <li><b>Mellomstore byer:</b> 40 prosent kannibalisering, −0,9 millioner per utsalg —
+              til sammen −5,4 millioner. Bedre, men fortsatt tapsbringende.</li>
+            <li><b>Nye tettsteder:</b> ingen kannibalisering, 110 000 besøk, <b>+3,0 millioner per
+              utsalg</b> — til sammen +18,0 millioner.</li>
+          </ul>
+          <p>Summen er <b>−30,6 millioner</b>. Sammen med et hovedkontor som har vokst med
+          5,4 millioner, forklarer det hele resultatfallet fra 91 til 55 millioner — 36 på
+          kronen.
+          <b>Ekspansjonen er ikke en del av problemet — den er hele problemet.</b></p>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar regner 80 000 × 60
+          minus 3,6 millioner, får +1,2 millioner og sier at utsalget tjener penger. Regnestykket
+          er riktig; grunnlaget er feil. <b>Et sterkt svar trekker fra det som ble tatt fra
+          naboen, og sier deretter uoppfordret at de to regnestykkene spriker med 3,6 millioner —
+          fordi det er den forskjellen som forklarer hvorfor selskapet har gjort dette 24 ganger.</b></p>`,
+        krav: [
+          "Du trekker kannibaliseringen fra bruttobesøkene før du regner kroner.",
+          "Du regner mot antall nye utsalg i området, ikke mot hele kjeden.",
+          "Du setter opp utsalgets eget regnestykke ved siden av kjedens, og ser at de spriker.",
+          "Du forklarer spriket som insentivproblemet det er, ikke bare som en regnefeil.",
+          "Du oppgir enhet — millioner kroner per utsalg per år.",
+        ],
+        felle: "Å regne kannibaliseringen mot hele kjeden i stedet for mot området. Storbyfallet på 1,08 millioner besøk skal fordeles på de 18 nye storbyutsalgene, ikke på alle 30. Feil nevner er den vanligste regnefeilen i denne casen.",
+      },
+      {
+        art: "ide",
+        kort: "Tiltak",
+        sek: 120,
+        tittel: "Hva kan klienten gjøre?",
+        sp: `<p>Du vet nå at kanalen er mettet der kjeden allerede er. <b>List så mange tiltak du
+          klarer på to minutter.</b> Én per linje. Si oppdelingen din først.</p>`,
+        liste: [
+          "Stanse etableringsplanen i storby og mellomstore byer der kjeden allerede dekker nedslagsfeltet",
+          "Gjennomføre resten av åpningene bare i tettsteder der kjeden ikke er til stede fra før",
+          "Innføre nedslagsfelt, ikke utsalg, som styringsenhet i etableringsbeslutningene",
+          "Kreve et netto-estimat med kannibalisering i hver eneste etableringssak til styret",
+          "Endre bonusen til etableringsavdelingen fra antall åpninger til netto besøksvekst i området",
+          "Legge ned eller slå sammen utsalg der to av kjedens egne overlapper i samme nedslagsfelt",
+          "Reforhandle husleien i overlappende utsalg, eller la kontraktene løpe ut uten fornyelse",
+          "Differensiere de overlappende utsalgene på meny, så de slutter å slåss om samme kunde",
+          "Spre åpningstidene mellom naboutsalg, så kjeden dekker flere timer i stedet for samme time",
+          "Vokse på besøk per kunde i stedet for antall utsalg: frokostmeny, kaffeabonnement, catering",
+          "Bygge egen leveringsapp med hjemkjøring, som henter etterspørsel utenfor nedslagsfeltene",
+          "Kjøpe opp frittstående gatekjøkken i områder kjeden ikke dekker, i stedet for å bygge nytt ved siden av seg selv",
+          "Etablere utsalg i tilknytning til bensinstasjoner og kollektivknutepunkt, der besøksstrømmen er ny og ikke delt",
+          "Måle og rapportere samme-butikk-vekst hver måned, slik dagligvarekjedene gjør",
+        ],
+        fasit: `<p>Oppdelingen selger seg selv her, og du bør si den før du lister: <b>stopp det
+          som ødelegger, fiks systemet som tillot det, og finn veksten et annet sted.</b></p>
+          <ul>
+            <li><b>Stopp:</b> ingen flere åpninger i mettede nedslagsfelt.</li>
+            <li><b>Fiks systemet:</b> netto i stedet for brutto, både i beslutningsunderlaget og i
+              bonusen. Uten dette gjentar feilen seg neste år med ny etableringssjef.</li>
+            <li><b>Finn veksten:</b> hvite flekker på kartet, nye tilbud per kunde, og kanaler
+              som ikke deler nedslagsfelt med utsalgene.</li>
+          </ul>
+          <p>Avslutt med å <b>prioritere</b>. Det ene tiltaket som er verdt mest, er det kjedeligste:
+          å kreve et nettoestimat i hver etableringssak. Det koster ingenting og fjerner årsaken.</p>`,
+        krav: [
+          "Du sier oppdelingen din før du lister, ikke en usortert strøm.",
+          "Minst ett tiltak angriper insentivet, ikke bare beslutningen som allerede er tatt.",
+          "Du foreslår vekst utenfor kanalen, ikke bare at kjeden skal slutte å åpne.",
+          "Du tar med muligheten for å legge ned eller slå sammen overlappende utsalg.",
+          "Du prioriterer til slutt i stedet for å la listen ligge flat.",
+        ],
+        felle: "Å bare foreslå å stanse åpningene. Fondet kjøpte selskapet for å vokse, og en anbefaling som bare sier nei, svarer ikke på det. Analysen viste også hvor veksten faktisk finnes — de nye tettstedene ga 3 millioner per utsalg.",
+      },
+      {
+        art: "syntese",
+        kort: "Anbefaling",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Fondets partner kommer inn i rommet og har <b>ett minutt</b>. Gi anbefalingen
+          din.</p>
+          <p class="tiny">Skriv den slik du ville sagt den — ikke som notater.</p>`,
+        fasit: `<p>Topp-ned. Svaret først, så beviset, så hva som må skje.</p>
+          <blockquote><p><b>«Nei til planen slik den ligger — men ja til seks av de tretti.
+          Tre av fire kunder i et nytt storbyutsalg er tatt fra deres eget naboutsalg, og hver
+          åpning der svekker resultatet med 2,4 millioner i året. Det er ekspansjonen som har
+          spist resultatfallet fra 91 til 55 millioner.»</b></p>
+          <p>Tre grunner. For det første er markedet uskyldig: i distriktet, der dere ikke åpnet
+          noe, er besøkene helt flate. For det andre følger fallet åpningene område for område —
+          storby fikk 18 nye utsalg og mistet 20 prosent samme-butikk, mellomstore byer fikk 6 og
+          mistet 4, distriktet fikk null og mistet null. For det tredje er det ett sted dette
+          fungerer: de seks utsalgene i tettsteder dere ikke var i fra før, tok ingenting fra
+          noen og bidrar med 3 millioner hver.</p>
+          <p>Konkret: stans storbyåpningene i planen, og flytt kapitalen til tettsteder og
+          oppkjøp av frittstående gatekjøkken utenfor deres eksisterende nedslagsfelt. Og endre
+          beslutningsunderlaget — hver etableringssak skal vise netto besøk etter kannibalisering,
+          ikke brutto. I dag godkjennes åpninger på et regnestykke som viser pluss 1,2 millioner
+          når sannheten er minus 2,4.</p>
+          <p>Den store risikoen er at konkurrentene tar de gode tettstedene mens dere venter, så
+          dette haster. Neste steg jeg ville tatt, er å kjøre de samme tallene på nedslagsfeltnivå
+          for de fem største byene — det avgjør hvilke av de eksisterende utsalgene som bør slås
+          sammen.»</p></blockquote>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar sier «nei, ikke åpne
+          flere, dere kannibaliserer dere selv». Det er riktig diagnose og et ubrukelig råd, fordi
+          eieren kjøpte selskapet for å vokse. <b>Et sterkt svar deler planen i to — nei til de
+          mettede områdene, ja til de hvite flekkene — kvantifiserer begge deler, og fikser
+          beslutningsregelen som slapp feilen gjennom 24 ganger.</b></p>`,
+        krav: [
+          "Svaret kommer i første setning, og det er delt — ikke et rent nei.",
+          "Du bruker tall fra casen: 75 prosent, 2,4 millioner, 3 millioner.",
+          "Du peker på kontrollgruppen som beviset for at markedet ikke er skyld i noe.",
+          "Du fikser beslutningsregelen, ikke bare den enkelte beslutningen.",
+          "Du nevner risiko og neste steg, og holder deg innenfor ett minutt.",
+        ],
+        felle: "Å anbefale full stopp i all ekspansjon. Tabellen viste at seks av åpningene var ren vekst. En anbefaling som ikke skiller mellom de mettede områdene og de tomme, kaster den ene delen av planen som faktisk virket.",
+      },
+    ],
+  },
+  {
+    id: "lansering-frossenpizza",
+    label: "Pizzaen som selger godt og tjener dårlig",
+    type: "Ny lansering",
+    nivå: "Middels",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 35,
+    ch: [],
+    blurb: "Nyheten treffer 6 millioner pakninger første år og ser ut som en suksess. Trener kannibalisering: det relevante tallet er aldri nytt volum, men netto nytt dekningsbidrag.",
+    prompt: `<p>Klienten er <b>Nordpizza</b>, Norges største produsent av frossenpizza. De selger
+      36 millioner pakninger i året i norsk dagligvare, fordelt på tre varianter, og har vært
+      merkevareleder i tretti år.</p>
+      <p>De siste to årene har <b>kjedenes egne merker</b> vokst fra 5 til 9 millioner pakninger,
+      og Nordpizza har mistet omtrent like mye. Markedsavdelingen vil svare med <b>Nordpizza
+      Grill</b> — en rimeligere variant til 26 kroner ut av fabrikk, mot 32 for hovedproduktet.
+      Testpanelet anslår 6 millioner pakninger første år.</p>
+      <p><b>Bør Nordpizza lansere Grill?</b></p>`,
+    bakgrunn: `<p>Casen er konstruert, men grepet er ekte og har et navn: et <i>fighter brand</i>
+      — en billigere variant du lanserer for å stoppe en lavprisutfordrer uten å røre prisen på
+      hovedproduktet. Det er en av de vanligste svarene på press fra kjedenes egne merker, og en
+      av de vanligste måtene å ødelegge sin egen margin på.</p>
+      <p>Mekanikken er verdt å ha i fingrene. En lansering i en eksisterende portefølje er aldri
+      en vurdering av det nye produktet alene. Kunden som legger en Grill i kurven, la kanskje en
+      Original der før — og da er ikke gevinsten dekningsbidraget på Grill, men <b>differansen</b>.
+      Selger du en vare med 11 kroner i dekningsbidrag i stedet for en med 14, taper du tre kroner
+      på hver enhet du «vinner».</p>
+      <p>Samtidig er den motsatte feilen like vanlig: å avvise en lansering <i>bare</i> fordi den
+      kannibaliserer. Hvis volumet forsvinner til konkurrenten uansett, er det bedre å kannibalisere
+      seg selv enn å la noen andre gjøre det. Begge feilene skal du kunne unngå i denne casen.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        kort: "Avklar",
+        tittel: "Hva vil du vite før du begynner?",
+        sp: `<p>Du har hørt prompten. Hvilke spørsmål stiller du før du strukturerer?</p>`,
+        fasit: `<p>I en lanseringscase er de tre avklaringene som betyr mest: <b>hva er målet</b>,
+          <b>hva er beslutningskriteriet</b>, og <b>hva skjer hvis vi lar være</b>. Det siste er
+          det som oftest glemmes, og det er det viktigste her.</p>
+          <ul>
+            <li><b>Hva er målet — volum, andel eller resultat?</b> Skal Grill forsvare hylleplass
+              og markedsandel, eller skal den tjene penger? De to gir motsatt anbefaling, og
+              markedsavdelingen og økonomisjefen mener sjelden det samme.</li>
+            <li><b>Hva skjer med Original-volumet hvis vi ikke lanserer?</b> Faller det videre til
+              kjedenes egne merker? Da er ikke alternativet «dagens situasjon», og hele
+              kannibaliseringsregnestykket ser annerledes ut.</li>
+            <li><b>Hvor mye av Grill-volumet er ventet å komme fra vår egen portefølje?</b> Uten
+              den andelen kan lanseringen ikke vurderes i det hele tatt.</li>
+            <li><b>Har vi kapasitet, eller må vi investere?</b> En ny linje er en fast kostnad som
+              skal dekkes av <i>netto</i> bidrag, ikke av brutto salg.</li>
+            <li><b>Hvilken horisont vurderer vi på?</b> År 1 alene straffer alle lanseringer, siden
+              markedsføringen er størst da.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar spør om produktet — smak, emballasje,
+          navn. Et sterkt svar spør om <i>beslutningen</i>: hva sammenlignes lanseringen mot, og
+          hvem eier tallet som avgjør.</p>`,
+        krav: [
+          "Du spør hva som skjer hvis de lar være å lansere. Uten et nullalternativ finnes ingen målestokk.",
+          "Du spør etter kannibaliseringsandelen tidlig — den er selve variabelen casen dreier om.",
+          "Du spør om målet er volum eller resultat, og sier hvorfor det endrer svaret.",
+          "Du spør om kapasitet og investering, ikke bare om salg.",
+          "Du holder deg til fire–fem spørsmål og sier hva hvert av dem skal brukes til.",
+        ],
+        felle: "Å spørre om produktegenskaper — smak, størrelse, emballasje — i stedet for om beslutningen. Det er interessant for markedsavdelingen, men det flytter ikke go/no-go-svaret en millimeter.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        kort: "Struktur",
+        tittel: "Strukturer beslutningen",
+        sp: `<p>Bryt ned hva som må være sant for at Nordpizza bør lansere Grill. Skriv
+          nedbrytningen slik du ville tegnet den på arket, og <b>avslutt med hva du vil sjekke
+          først</b>.</p>`,
+        fasit: `<p>En lanseringscase er en go/no-go, og strukturen bør speile det: fire ting må
+          holde samtidig, og de kan sjekkes i rekkefølge.</p>
+          <div class="formula">
+            <div class="eq">Netto bidrag = Nytt volum × DB(ny) − Kannibalisert volum × DB(gammel) − Nye faste kostnader</div>
+            <div class="where">DB = dekningsbidrag per enhet, altså pris minus variabel kostnad.
+              Legg merke til at det er den <i>gamle</i> varens dekningsbidrag som står i
+              midtleddet — det er der hele casen ligger.</div>
+          </div>
+          <ul>
+            <li><b>Er det et marked?</b> Lavprissegmentet vokser — 5 til 9 millioner pakninger på
+              to år. Behovet er dokumentert, og det er kjedenes egne merker som dekker det i dag.</li>
+            <li><b>Holder økonomien?</b> Pris, variabel kostnad, volum, <i>kannibaliseringsgrad</i>,
+              og de nye faste kostnadene. Dette er grenen som avgjør, og den er tallfestbar.</li>
+            <li><b>Kan vi levere?</b> Kapasitet, ny linje, og hylleplass hos kjedene — som er en
+              hardere beskrankning enn produksjonen. Får Grill hylleplass på bekostning av
+              Original, er kannibaliseringen bygget inn i distribusjonen.</li>
+            <li><b>Hva kan gå galt?</b> Kannibalisering høyere enn antatt, kjedene som presser
+              prisen på Original ned mot Grill, og at merkevaren tar skade av å stå i
+              lavprishyllen.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar setter opp fire like store bokser. Et
+          sterkt svar sier hvilken boks som avgjør, og hvorfor: <i>«Markedet finnes åpenbart. Jeg
+          vil bruke tiden på økonomien, og der er kannibaliseringsgraden den ene variabelen som
+          kan snu svaret helt.»</i></p>`,
+        krav: [
+          "Du setter opp netto bidrag som en formel med et kannibaliseringsledd, ikke bare pris ganger volum.",
+          "Du bruker den gamle varens dekningsbidrag i kannibaliseringsleddet, ikke den nyes.",
+          "Du skiller nye faste kostnader fra de variable, siden bare de nye er relevante.",
+          "Du peker på hvilken gren som avgjør, i stedet for å behandle alle fire likt.",
+          "Du nevner hylleplass som en egen beskrankning, ikke bare produksjonskapasitet.",
+        ],
+        felle: "Å bygge et rent profitt-tre for Grill alene. Da får du et lønnsomt produkt og et feil svar, fordi treet ikke har noe sted å plassere volumet som forsvinner fra Original.",
+      },
+      {
+        art: "exhibit",
+        sek: 150,
+        kort: "Tallene",
+        tittel: "Porteføljen, nyheten og markedet",
+        sp: `<p>Intervjueren legger fram tre ark: dagens portefølje, forutsetningene bak Grill, og
+          utviklingen i markedet. <b>Hva ser du?</b></p>`,
+        figur: `<p><b>Ark 1 · Dagens portefølje, siste år</b></p>
+          <table class="data">
+            <tr><th>Produkt</th><th class="n">Pris ut av fabrikk (kr)</th><th class="n">Variabel kostnad (kr)</th><th class="n">DB per pakning (kr)</th><th class="n">Volum (mill. stk)</th><th class="n">DB (mill. kr)</th></tr>
+            <tr><td>Nordpizza Original</td><td class="n">32</td><td class="n">18</td><td class="n">14</td><td class="n">24,0</td><td class="n">336</td></tr>
+            <tr><td>Nordpizza Fullkorn</td><td class="n">36</td><td class="n">21</td><td class="n">15</td><td class="n">4,0</td><td class="n">60</td></tr>
+            <tr><td>Nordpizza Mini</td><td class="n">19</td><td class="n">12</td><td class="n">7</td><td class="n">8,0</td><td class="n">56</td></tr>
+            <tr><td><b>Sum</b></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n"><b>36,0</b></td><td class="n"><b>452</b></td></tr>
+          </table>
+          <p><b>Ark 2 · Nordpizza Grill, forutsetninger fra markedsavdelingen</b></p>
+          <table class="data">
+            <tr><th>Forutsetning</th><th class="n">Verdi</th></tr>
+            <tr><td>Pris ut av fabrikk</td><td class="n">26 kr</td></tr>
+            <tr><td>Variabel kostnad</td><td class="n">15 kr</td></tr>
+            <tr><td>DB per pakning</td><td class="n">11 kr</td></tr>
+            <tr><td>Forventet volum, år 1</td><td class="n">6,0 mill. stk</td></tr>
+            <tr><td>Brutto DB, år 1</td><td class="n">66 mill. kr</td></tr>
+            <tr><td>Andel av volumet som tas fra Original (testpanel)</td><td class="n">55 %</td></tr>
+            <tr><td>Ny produksjonslinje, årlig avskrivning</td><td class="n">14 mill. kr</td></tr>
+            <tr><td>Lansering og markedsføring, år 1</td><td class="n">10 mill. kr</td></tr>
+            <tr><td><b>Sum nye faste kostnader, år 1</b></td><td class="n"><b>24 mill. kr</b></td></tr>
+          </table>
+          <p><b>Ark 3 · Frossenpizza i norsk dagligvare (mill. pakninger)</b></p>
+          <table class="data">
+            <tr><th>Millioner pakninger</th><th class="n">År −2</th><th class="n">År −1</th><th class="n">I år</th></tr>
+            <tr><td>Nordpizza Original</td><td class="n">26,0</td><td class="n">25,0</td><td class="n">24,0</td></tr>
+            <tr><td>Nordpizza Fullkorn</td><td class="n">3,0</td><td class="n">3,5</td><td class="n">4,0</td></tr>
+            <tr><td>Nordpizza Mini</td><td class="n">9,0</td><td class="n">8,5</td><td class="n">8,0</td></tr>
+            <tr><td><b>Sum Nordpizza</b></td><td class="n"><b>38,0</b></td><td class="n"><b>37,0</b></td><td class="n"><b>36,0</b></td></tr>
+            <tr><td>Kjedenes egne merker</td><td class="n">5,0</td><td class="n">7,0</td><td class="n">9,0</td></tr>
+            <tr><td>Andre merkevarer</td><td class="n">7,0</td><td class="n">7,0</td><td class="n">7,0</td></tr>
+            <tr><td><b>Sum marked</b></td><td class="n"><b>50,0</b></td><td class="n"><b>51,0</b></td><td class="n"><b>52,0</b></td></tr>
+          </table>`,
+        fasit: `<p>Overskriften først, så beviset:</p>
+          <p><i>«Markedet vokser med to millioner pakninger, men hele veksten og litt til går til
+          kjedenes egne merker. Nordpizza taper to millioner pakninger på to år, og det er Original
+          som blør. Grill er altså riktig diagnose — men den er priset slik at kuren kan bli dyrere
+          enn sykdommen.»</i></p>
+          <ul>
+            <li><b>Markedsandelen faller fra 76 til 69 prosent</b> (38 av 50, mot 36 av 52), mens
+              egne merker går fra 10 til 17 prosent. Det er ikke tilfeldig støy, det er en trend
+              over to år i samme retning.</li>
+            <li><b>Original er hele tapet.</b> 26 til 24 millioner. Fullkorn vokser litt, Mini
+              faller litt — netto er de to omtrent uendret.</li>
+            <li><b>Grill har lavere dekningsbidrag enn Original: 11 mot 14 kroner.</b> Det er det
+              ene tallet som gjør denne casen vanskelig. Grill er ikke bare billigere, den er
+              tynnere per enhet, og den skal ta 55 prosent av volumet sitt fra nettopp den varen
+              som tjener mest.</li>
+            <li><b>Mini er verdt et sideblikk:</b> 7 kroner i DB på 8 millioner pakninger. Nordpizza
+              har allerede et lavprisprodukt i porteføljen. Hvorfor er ikke <i>det</i> svaret på
+              egne merker?</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar konstaterer at egne merker vokser og at
+          lansering derfor er fornuftig. Et sterkt svar setter de to arkene mot hverandre med én
+          gang: <i>«Vi bytter 14-kronersvolum mot 11-kronersvolum. Da er spørsmålet ikke om Grill
+          selger, men hvor mye av den som er ekte nytt salg.»</i></p>`,
+        krav: [
+          "Du sier konklusjonen først i stedet for å lese tabellene rad for rad.",
+          "Du regner markedsandeler, ikke bare volumendringer i pakninger.",
+          "Du ser at Original alene står for hele Nordpizzas tap, og sier det.",
+          "Du sammenligner dekningsbidraget på Grill med Original før du regner noe som helst.",
+          "Du legger merke til at Mini allerede dekker lavprissegmentet.",
+        ],
+        felle: "Å se de 66 millionene i brutto dekningsbidrag på ark 2 og behandle dem som lanseringens gevinst. De 66 millionene er bruttotallet — og casen handler om alt som skal trekkes fra.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        kort: "Regn",
+        tittel: "Hva er lanseringen egentlig verdt?",
+        sp: `<p>Grill selger 6,0 millioner pakninger i år 1, og 55 prosent av volumet tas fra
+          Original.</p>
+          <p><b>Hvor mye ekstra dekningsbidrag gir lanseringen i år 1, når kannibaliseringen er
+          regnet inn? Svar i millioner kroner.</b></p>
+          <p class="tiny">Ikke trekk fra de faste kostnadene ennå. Si framgangsmåten høyt før du
+          sier tallet.</p>`,
+        svar: 19.8,
+        enhet: "millioner kroner",
+        toleranse: 0.02,
+        fasit: `<p>To ledd, ikke ett:</p>
+          <div class="formula">
+            <div class="eq">Brutto DB fra Grill: 6,0 × 11 = 66 mill. kr</div>
+            <div class="eq">Kannibalisert volum: 0,55 × 6,0 = 3,3 mill. pakninger Original</div>
+            <div class="eq">Tapt DB på Original: 3,3 × 14 = 46,2 mill. kr</div>
+            <div class="eq">Netto nytt DB: 66 − 46,2 = <b>19,8 millioner kroner</b></div>
+          </div>
+          <p>Den andre veien til samme tall er mer opplysende, og den bør du si høyt:</p>
+          <div class="formula">
+            <div class="eq">Ekte nytt volum: 6,0 − 3,3 = 2,7 mill. × 11 kr = 29,7</div>
+            <div class="eq">Kannibalisert volum: 3,3 mill. × (11 − 14) = −9,9</div>
+            <div class="eq">Sum: 29,7 − 9,9 = <b>19,8</b></div>
+            <div class="where">På de 3,3 millionene som bare bytter etikett, <i>taper</i> Nordpizza
+              3 kroner per pakning. Det er ikke en mindre gevinst — det er et minustall.</div>
+          </div>
+          <p><b>Og her ligger poenget:</b> de nye faste kostnadene er 24 millioner. Netto bidrag er
+          19,8. <b>Lanseringen går 4,2 millioner i minus i år 1</b> — samtidig som volumet i
+          porteføljen vokser fra 36,0 til 38,7 millioner pakninger, altså 7,5 prosent. Nordpizza
+          selger mer og tjener mindre. Det er hele casen i én setning.</p>
+          <p>To tall til, som gjør deg presis i stedet for bare negativ:</p>
+          <ul>
+            <li><b>Netto DB per solgt Grill er 3,30 kroner</b>, ikke 11: 11 − 0,55 × 14 = 3,30.
+              Det betyr at breakeven-volumet er 24 / 3,30 = <b>7,3 millioner pakninger</b> — 21
+              prosent over anslaget.</li>
+            <li><b>Lanseringen tåler maksimalt 50 prosent kannibalisering</b> ved 6 millioner
+              pakninger: 66 − 24 = 42, og 42 / (6,0 × 14) = 50 %. Testpanelet sier 55. Beslutningen
+              står og faller på fem prosentpoeng i et testpanel — det er en langt viktigere
+              observasjon enn minustallet i seg selv.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar lander på 19,8 og sier «altså ulønnsomt».
+          Et sterkt svar sier hvor følsomt svaret er, hvilken forutsetning som bærer det, og
+          hvilket tall klienten må gå tilbake og etterprøve.</p>`,
+        krav: [
+          "Du bruker Originals dekningsbidrag på 14 kroner i kannibaliseringsleddet, ikke Grills 11.",
+          "Du regner kannibalisert volum av Grills volum, ikke av Originals.",
+          "Du sammenligner de 19,8 millionene med de 24 millionene i nye faste kostnader.",
+          "Du ser at porteføljevolumet stiger mens resultatet faller, og sier det høyt.",
+          "Du oppgir enhet, og sier framgangsmåten før tallet.",
+        ],
+        felle: "Å regne 55 prosent av 46,2 eller av Originals 24 millioner pakninger i stedet for av Grills 6,0. Kannibaliseringsandelen er alltid en andel av det nye produktets volum — den sier hvor kundene kom fra, ikke hvor mye av den gamle varen som forsvinner.",
+      },
+      {
+        art: "ide",
+        sek: 120,
+        kort: "Idéer",
+        tittel: "Hvordan kan lanseringen reddes?",
+        sp: `<p>Slik den er satt opp, går Grill i minus. <b>List så mange grep du klarer på to
+          minutter</b> som enten gjør lanseringen lønnsom eller erstatter den. Én per linje.</p>
+          <p class="tiny">Tenk på pris, kanal, kapasitet — og på hva som ville fått deg til å
+          droppe lanseringen helt.</p>`,
+        liste: [
+          "Prise Grill høyere, for eksempel 28 kroner: da gir lanseringen 7,8 millioner i pluss, hvis volumet holder",
+          "Redusere kannibaliseringen ved å differensiere produktet tydelig: annen størrelse, annen fylling, annen anledning",
+          "Legge Grill i en annen kanal enn Original: kiosk, bensin, storhusholdning eller kun lavpriskjedene",
+          "Selge Grill som kjedenes eget merke i stedet for under Nordpizza-navnet, og slippe merkevareskaden",
+          "Lansere regionalt i ett år først, måle faktisk kannibalisering, og skalere bare hvis den er under 50 prosent",
+          "Bruke ledig kapasitet på eksisterende linje i stedet for å bygge ny, og fjerne 14 millioner i avskrivning",
+          "Reforhandle hylleplass slik at Grill kommer i tillegg til Original, ikke i stedet for",
+          "Kutte variabel kostnad på Grill: tynnere bunn, enklere topping, billigere emballasje",
+          "Reposisjonere Mini som lavprissvaret i stedet, siden produktet og linjen allerede finnes",
+          "Forsvare Original med kampanjer og volumrabatt i stedet for å lansere noe nytt",
+          "Prise Original opp der merkevaren er sterkest, og finansiere lavprisforsvaret med det",
+          "Fase markedsføringen over to år i stedet for å ta 10 millioner i år 1",
+          "Droppe lanseringen hvis testpanelets 55 prosent ikke lar seg etterprøve i en ekte butikktest",
+          "Droppe lanseringen hvis kjedene krever at Grill erstatter en Original-frontplass",
+        ],
+        fasit: `<p>Si oppdelingen før du lister. Her er en som virker: <b>grep som øker bidraget
+          per enhet</b> (pris, kostnad), <b>grep som reduserer kannibaliseringen</b> (produkt,
+          kanal, kunde), <b>grep som fjerner de faste kostnadene</b> (kapasitet, fasing), og
+          <b>alternativer til å lansere i det hele tatt</b>.</p>
+          <p>Legg merke til at de to første gruppene angriper hvert sitt ledd i regnestykket ditt.
+          Det er det som gjør idémyldringen troverdig: den følger av analysen i stedet for å være
+          en liste med gode råd.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar lister tiltak. Et sterkt svar tallfester
+          minst ett av dem underveis — «28 kroner i stedet for 26 flytter lanseringen fra 4,2 i
+          minus til 7,8 i pluss, forutsatt at volumet holder» — og sier eksplisitt hva som ville
+          fått det til å stoppe lanseringen. Å kunne formulere sitt eget no-go-kriterium er
+          sjeldnere enn det burde være.</p>`,
+        krav: [
+          "Du sier oppdelingen din før du begynner å liste.",
+          "Idéene treffer minst tre av leddene: bidrag per enhet, kannibalisering, faste kostnader.",
+          "Minst én idé handler om kanal eller kunde, ikke bare om pris og produkt.",
+          "Du nevner minst ett forhold som ville fått deg til å ikke lansere.",
+          "Du tallfester effekten av minst én idé i stedet for å la listen ligge flat.",
+        ],
+        felle: "Å bare foreslå å selge mer av Grill. Volum er problemet, ikke løsningen: hver ekstra pakning gir 3,30 kroner netto, ikke 11, og med 55 prosent kannibalisering skal det 7,3 millioner pakninger til før lanseringen er i null.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        kort: "Svar",
+        tittel: "Anbefalingen",
+        sp: `<p>Administrerende direktør stikker hodet inn og har <b>ett minutt</b>. Gi anbefalingen
+          din.</p>
+          <p class="tiny">Skriv den slik du ville sagt den — ikke som notater.</p>`,
+        fasit: `<p>Svaret først, så de tre grunnene, så hva som må skje. Og i en lanseringscase:
+          si tydelig hva som ville endret svaret.</p>
+          <blockquote><p><b>«Ikke lanser Grill slik den er satt opp nå. Den gir 19,8 millioner i
+          netto dekningsbidrag mot 24 millioner i nye faste kostnader — 4,2 millioner i minus i år
+          1, samtidig som dere selger 7,5 prosent flere pakninger.»</b></p>
+          <p>Tre grunner. For det første er Grill tynnere enn varen den erstatter: 11 kroner mot 14.
+          Hver pakning som bare bytter etikett, koster dere tre kroner. For det andre bærer hele
+          regnestykket på ett tall fra et testpanel — 55 prosent kannibalisering — og
+          lanseringen tåler maksimalt 50. For det tredje har dere allerede et lavprisprodukt i
+          Mini, uten ny linje og uten 24 millioner i nye faste kostnader.</p>
+          <p>Konkret ville jeg gjort to ting. Kjør en ekte butikktest i én region i seks måneder
+          og mål faktisk kannibalisering — ikke i panel, men i kassa. Og gjør om på oppsettet
+          i mellomtiden: 28 kroner i stedet for 26 flytter lanseringen til 7,8 millioner i pluss,
+          og produseres den på eksisterende linje, forsvinner 14 millioner av de faste kostnadene.</p>
+          <p>Det som ville snudd anbefalingen min, er nullalternativet. Hvis Original taper to
+          millioner pakninger til de egne merkene uansett — som er nøyaktig det som har skjedd de
+          to siste årene — så er to tredeler av kannibaliseringen volum dere mister uansett, og da
+          er lanseringen 23,8 millioner i pluss i stedet for 4,2 i minus. Det er tallet jeg ville
+          brukt neste uke på: hvor mye av Original-volumet som forsvinner hvis dere ikke gjør
+          noe.»</p></blockquote>
+          <p><b>Sterkt mot middels:</b> et middels svar sier nei og begrunner det med tallet. Et
+          sterkt svar sier nei <i>til dette oppsettet</i>, navngir forutsetningen som bærer
+          konklusjonen, og viser at det finnes et realistisk tilfelle der svaret er ja. Det er
+          forskjellen på en kandidat som har regnet og en som har tenkt.</p>`,
+        krav: [
+          "Svaret kommer i første setning, med tallet.",
+          "Du bruker tall fra casen, ikke generelle utsagn om kannibalisering.",
+          "Du sier hva klienten skal gjøre, ikke bare at lanseringen er ulønnsom.",
+          "Du navngir forutsetningen konklusjonen hviler på, og hva som ville snudd den.",
+          "Du holder deg innenfor et minutt.",
+        ],
+        felle: "Å avvise lanseringen fordi den kannibaliserer, punktum. Kannibalisering er ikke et argument i seg selv — hadde nettobidraget vært 40 millioner, ville svaret vært ja med nøyaktig samme kannibaliseringsgrad.",
+      },
+    ],
+  },
+  {
+    id: "lonn-vaskeri-prisetterslep",
+    label: "Marginen som allerede har rettet seg",
+    type: "Lønnsomhet",
+    nivå: "Intro",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 25,
+    ch: [],
+    blurb: "Et kostnadssjokk og en prisøkning som kom seks måneder for sent. Trener den viktigste skillelinjen i lønnsomhetsanalyse: hva er varig, og hva er bare tidsforskyvning?",
+    prompt: `<p>Klienten er <b>Fjordvask</b>, et industrivaskeri med fire anlegg i Midt-Norge.
+      De vasker sengetøy, håndklær og arbeidstøy for hoteller, sykehus og sykehjem på
+      løpende kontrakter. Selskapet er familieeid.</p>
+      <p>Fra år 0 til år 1 falt driftsresultatet fra <b>30 til 22 millioner kroner</b>, og
+      driftsmarginen fra <b>7,5 til 5,3 prosent</b>. Volumet — antall tonn tekstil vasket —
+      var uendret.</p>
+      <p>Banken har bedt om en plan, og styret vurderer å <b>legge ned ett av de fire
+      anleggene</b>. Daglig leder har bedt dere se på tallene først.</p>
+      <p><b>Er marginfallet varig? Og bør de kutte?</b></p>
+      <p class="tiny">Dette er en interviewer-led case. Intervjueren stiller ett spørsmål av
+      gangen og gir deg tall underveis. Svar på det som blir spurt om, og ikke mer.</p>`,
+    bakgrunn: `<p>Casen er konstruert, men mekanismen er hverdagen i alle kontraktsbaserte
+      tjenester: renhold, vaskeri, kantine, transport, bemanning. <b>Prisen mot kunden står
+      i en kontrakt</b>, og kontrakten har som regel en varslingsfrist — tre, seks eller
+      tolv måneder — før en prisendring kan tre i kraft.</p>
+      <p>Konsekvensen er at et kostnadssjokk <i>alltid</i> gir et marginfall, og at
+      <b>dybden på fallet bestemmes av varslingsfristen, ikke av hvor godt selskapet
+      drives</b>. Et selskap med tolv måneders frist ser dobbelt så sykt ut som et med seks,
+      selv om de har nøyaktig samme kostnader og samme kunder.</p>
+      <p>Derfor er den viktigste analysen i en slik case ikke å finne kostnaden som steg.
+      Det er å <b>skille den varige effekten fra tidsforskyvningen</b> — og det gjør du ved
+      å regne på det siste halvårets nivå i stedet for på hele året. Konsulenter kaller det
+      run-rate. Det er ikke et triks; det er den eneste måten å svare på om et selskap
+      tjener penger <i>nå</i>, i motsetning til i gjennomsnitt over en periode der
+      forutsetningene skiftet midtveis.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Intervjueren åpner",
+        sp: `<p>Intervjueren sier: <i>«Før jeg gir deg noen tall — hvilke tre ting vil du vite
+          først, og hvorfor akkurat de tre?»</i></p>`,
+        fasit: `<p>Rekkefølgen er svaret. To spørsmål må komme først fordi de avgjør om resten
+          i det hele tatt er interessant:</p>
+          <ul>
+            <li><b>«Hvilken kostnad steg, og er økningen varig eller midlertidig?»</b> Et
+              vaskeri har tre store poster: lønn, strøm og vaskemiddel. Strøm er den som
+              beveger seg voldsomt fra år til år i Norge. Er dette et prissjokk som kan gå
+              tilbake, eller et nytt nivå?</li>
+            <li><b>«Har dere justert prisen mot kundene — og fra hvilken dato?»</b> Dette er
+              spørsmålet hele casen henger på. Et kostnadssjokk som er priset inn, er ikke et
+              lønnsomhetsproblem; det er en periode med dårlige tall på vei mot normalen.
+              <i>Datoen betyr mer enn prosenten.</i></li>
+            <li><b>«Er volum og kundemiks uendret, og mistet dere kunder etter
+              prisøkningen?»</b> Prompten sier at volumet er flatt, så her bekrefter du bare
+              — men frafall etter en prisjustering ville vært en helt annen historie.</li>
+          </ul>
+          <p>Og ett spørsmål til som er verdt å ha i lomma: <b>«Kan jeg få tallene fordelt på
+          halvår i stedet for helår?»</b> Hvis prisen ble endret midt i året, er årstallet et
+          gjennomsnitt av to forskjellige selskaper.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar spør «hva har skjedd med kostnadene?»
+          og venter. Et sterkt svar spør etter <i>datoen</i> for prisjusteringen og etter
+          halvårstall, fordi det allerede har en hypotese om at året inneholder to ulike
+          regimer. Det er tre setninger som sparer ti minutter senere.</p>`,
+        krav: [
+          "Du spør om kostnadsøkningen er varig eller midlertidig, ikke bare hvor stor den er.",
+          "Du spør om prisen er justert og fra hvilken dato — datoen, ikke bare prosenten.",
+          "Du ber om tall fordelt på halvår, og sier hvorfor helårstallet kan være misvisende.",
+          "Du sjekker at volum og kundemiks er uendret, slik at marginen er sammenlignbar.",
+          "Du begrunner rekkefølgen på spørsmålene i stedet for å lese opp en liste.",
+        ],
+        felle: "Å begynne med markedet og konkurrentene. Volumet er flatt og kundene er på kontrakt — problemet er per definisjon internt i regnskapet, og en runde om konkurransebildet er tid du ikke får igjen.",
+      },
+      {
+        art: "struktur",
+        sek: 120,
+        tittel: "Intervjueren ber om nedbrytningen",
+        sp: `<p>Intervjueren sier: <i>«Godt. Tegn meg regnestykket du vil fylle ut — og si
+          hvordan du vil dele opp året.»</i></p>`,
+        fasit: `<p>To ting skal på arket, og den andre er den som skiller.</p>
+          <p><b>Først identiteten</b>, med kostnadene delt i variable og faste, fordi volumet
+          er flatt og det gjør skillet lettere å tolke:</p>
+          <div class="formula">
+            <div class="eq">Driftsresultat = Omsetning − Strøm − Andre variable kostnader − Lønn − Andre faste kostnader</div>
+            <div class="where">Omsetning = Tonn tekstil × Pris per tonn. Volumet er oppgitt flatt, så all bevegelse i omsetningen er pris.</div>
+          </div>
+          <p><b>Så tidsaksen</b>, og si den høyt som en egen beslutning:</p>
+          <div class="formula">
+            <div class="eq">År 1 = Første halvår (gammel pris, ny kostnad) + Andre halvår (ny pris, ny kostnad)</div>
+          </div>
+          <p>Det er her casen løses. Hvis kostnaden steg ved årsskiftet og prisen først ble
+          justert midt i året, inneholder år 1 <b>to selskaper i ett tall</b>: ett halvår der
+          klienten bærer hele kostnadsøkningen alene, og ett halvår der kunden er med. Å legge
+          dem sammen og kalle summen «marginen» er å beskrive en overgang som om den var en
+          tilstand.</p>
+          <p>Si også hva du skal ende med: <b>«Jeg vil bygge en bro fra 30 til 22 millioner
+          med tre ledd — varig kostnadseffekt, varig priseffekt, og engangseffekten av at
+          prisen kom sent. Og så vil jeg regne hva et helt år på dagens nivå gir.»</b></p>
+          <p><b>Sterkt mot middels:</b> et middels svar tegner en riktig kostnadsnedbrytning
+          og stopper. Et sterkt svar legger til tidsdimensjonen <i>uoppfordret</i>, og
+          begrunner den: en margin er alltid målt over en periode, og hvis forutsetningene
+          skiftet midt i perioden, er snittet et tall som ikke beskriver noe som helst
+          tidspunkt.</p>`,
+        krav: [
+          "Du skiller variable fra faste kostnader og navngir vaskeriets egne poster.",
+          "Du bruker at volumet er flatt til å si at all bevegelse i omsetningen er pris.",
+          "Du deler året i to halvår og begrunner hvorfor helårssnittet ikke beskriver noen tilstand.",
+          "Du sier på forhånd at du skal bygge en bro fra 30 til 22 og regne et helårsnivå.",
+          "Du skiller varige effekter fra engangseffekter allerede i strukturen.",
+        ],
+        felle: "Å strukturere bare i kostnadskategorier. Uten tidsaksen ender du med å finne strømregningen — som er riktig og helt utilstrekkelig, fordi den ikke sier om problemet er over.",
+      },
+      {
+        art: "exhibit",
+        sek: 150,
+        tittel: "Tallene, fordelt på halvår",
+        kort: "Halvårene",
+        sp: `<p>Intervjueren legger fram to ark: <i>«Her er resultatet, og her er det du spurte
+          om. Hva ser du?»</i></p>`,
+        figur: `<table class="data">
+            <tr><th>Millioner kroner</th><th class="n">År 0</th><th class="n">År 1 · 1. halvår</th><th class="n">År 1 · 2. halvår</th><th class="n">År 1 totalt</th></tr>
+            <tr><td>Omsetning</td><td class="n">400</td><td class="n">200</td><td class="n">216</td><td class="n">416</td></tr>
+            <tr><td>Strøm</td><td class="n">40</td><td class="n">32</td><td class="n">32</td><td class="n">64</td></tr>
+            <tr><td>Andre variable kostnader</td><td class="n">60</td><td class="n">30</td><td class="n">30</td><td class="n">60</td></tr>
+            <tr><td>Lønn</td><td class="n">200</td><td class="n">100</td><td class="n">100</td><td class="n">200</td></tr>
+            <tr><td>Andre faste kostnader</td><td class="n">70</td><td class="n">35</td><td class="n">35</td><td class="n">70</td></tr>
+            <tr><td><b>Driftsresultat</b></td><td class="n"><b>30</b></td><td class="n"><b>3</b></td><td class="n"><b>19</b></td><td class="n"><b>22</b></td></tr>
+            <tr><td>Driftsmargin</td><td class="n">7,5 %</td><td class="n">1,5 %</td><td class="n">8,8 %</td><td class="n">5,3 %</td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Det intervjueren legger til</th><th class="n">Verdi</th></tr>
+            <tr><td>Vasket volum per halvår, tonn tekstil — likt i alle periodene</td><td class="n">10 000</td></tr>
+            <tr><td>Strømpris i år 1 mot år 0</td><td class="n">+60 %</td></tr>
+            <tr><td>Strømforbruk i kilowattimer</td><td class="n">uendret</td></tr>
+            <tr><td>Prisjustering mot kunde, iverksatt 1. juli i år 1</td><td class="n">+8 %</td></tr>
+            <tr><td>Varslingsfrist for prisendring i kundekontraktene</td><td class="n">6 måneder</td></tr>
+            <tr><td>Kunder mistet etter prisjusteringen</td><td class="n">ingen</td></tr>
+          </table>`,
+        fasit: `<p>Det står én ting i denne tabellen som gjør resten av casen enkel, og den
+          står nederst til høyre i den fjerde kolonnen. Si den først:</p>
+          <p><i>«Marginen i andre halvår er 8,8 prosent. Det er høyere enn de 7,5 prosentene
+          i år 0. Problemet dere ber meg løse, har allerede løst seg — det ligger i første
+          halvår, og første halvår kommer ikke tilbake.»</i></p>
+          <p>Les så mekanikken, som henger sammen rad for rad:</p>
+          <ul>
+            <li><b>Strømmen:</b> 40 → 64 millioner, altså 60 prosent opp, akkurat som
+              prisen. Forbruket er uendret. Dette er rent en prisøkning på en innsatsfaktor,
+              ikke sløsing.</li>
+            <li><b>Omsetningen:</b> 200 i første halvår, 216 i andre. De 16 millionene er
+              8 prosent av 200 — hele forskjellen er prisjusteringen 1. juli. Volumet er likt.</li>
+            <li><b>Alt annet står stille:</b> lønn 100 og 100, faste 35 og 35, andre variable
+              30 og 30. Det er ingen driftsforverring her å finne.</li>
+          </ul>
+          <p>Og legg merke til hvorfor prisen kom 1. juli og ikke 1. januar: <b>kontraktene
+          har seks måneders varslingsfrist</b>. Strømsjokket kom ved årsskiftet, varselet gikk
+          ut umiddelbart, og prisen kunne først tre i kraft et halvår senere. Fallet er altså
+          ikke et symptom på at selskapet drives dårlig. Det er en mekanisk konsekvens av en
+          kontraktsklausul.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar peker på strømregningen og sier
+          «kostnadene steg 24 millioner». Det er riktig og det er halve bildet. Et sterkt svar
+          går til andre halvår først, ser at marginen der er <i>bedre enn før sjokket</i>, og
+          formulerer spørsmålet om: ikke «hvorfor falt marginen», men <b>«hvor mye av fallet
+          er tidsforskyvning, og hva tjener vi nå?»</b></p>`,
+        krav: [
+          "Du går til andre halvår først, ikke til årskolonnen.",
+          "Du ser at marginen i andre halvår er høyere enn i år 0, og sier det høyt.",
+          "Du kobler de 16 millionene i omsetningsvekst til de 8 prosentene fra 1. juli.",
+          "Du sjekker at lønn, faste og andre variable står stille, slik at ingen annen forklaring gjenstår.",
+          "Du forklarer datoen 1. juli med varslingsfristen på seks måneder.",
+        ],
+        felle: "Å lese årskolonnen og konkludere at marginen falt 2,2 prosentpoeng. Årskolonnen er et gjennomsnitt av to halvår med helt ulike forutsetninger, og den beskriver ingen tilstand selskapet noensinne har vært i.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Hva tjener de på dagens nivå?",
+        kort: "Helårsnivå",
+        sp: `<p>Intervjueren spør: <i>«Anta at pris- og kostnadsnivået fra andre halvår holder
+          seg gjennom et helt år, med samme volum. Hva blir driftsresultatet, i millioner
+          kroner?»</i></p>
+          <p class="tiny">Og etterpå: si hvor mye av fallet fra 30 til 22 som er
+          tidsforskyvning.</p>`,
+        svar: 38,
+        enhet: "millioner kroner",
+        toleranse: 0.02,
+        fasit: `<p>To veier, og begge tar under tjue sekunder:</p>
+          <div class="formula">
+            <div class="eq">Kort vei: 2 × 19 = <b>38 millioner</b></div>
+            <div class="eq">Lang vei: Omsetning 2 × 216 = 432, minus 64 strøm, 60 andre variable, 200 lønn og 70 faste</div>
+            <div class="eq">432 − 394 = <b>38 millioner</b>, altså en margin på 8,8 %</div>
+          </div>
+          <p><b>Bygg så broen fra 30 til 22.</b> Det er den som gjør tallet til en innsikt:</p>
+          <div class="formula">
+            <div class="eq">Utgangspunkt, år 0: <b>30</b></div>
+            <div class="eq">Varig kostnadseffekt: 60 % × 40 = <b>−24</b> (strøm på helårsbasis)</div>
+            <div class="eq">Varig priseffekt: 8 % × 400 = <b>+32</b> (prisjustering på helårsbasis)</div>
+            <div class="eq">Engangseffekt: prisøkningen manglet i første halvår, 8 % × 200 = <b>−16</b></div>
+            <div class="eq">30 − 24 + 32 − 16 = <b>22 millioner</b> ✓</div>
+          </div>
+          <p><b>Og der ligger poenget.</b> Den varige effekten av hele historien er
+          −24 + 32 = <b>+8 millioner</b>. Prisøkningen på 8 prosent er større enn den trengte
+          å være: for å dekke 24 millioner i økt strømkostnad holdt det med 6 prosent.
+          Klienten har altså <i>overkompensert</i>, og tjener nå 8 millioner mer i året enn
+          før sjokket, på nøyaktig samme volum.</p>
+          <p>Hele resultatfallet på 8 millioner er med andre ord en <b>engangseffekt på 16
+          millioner</b> minus en <b>varig forbedring på 8</b>. Fallet er ikke bare
+          forbigående — det dekker over at selskapet er blitt mer lønnsomt.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar leverer 38 og sier «det ordner seg».
+          Et sterkt svar leverer 38 og stiller straks de to spørsmålene som kan velte
+          konklusjonen. <b>Er halvårene sammenlignbare?</b> Et vaskeri for hotell har normalt
+          langt mer å gjøre om sommeren — her er volumet oppgitt likt per halvår, og det er
+          nettopp derfor annualiseringen er lov. <b>Blir strømprisen liggende?</b> Faller den
+          tilbake mens prisen mot kunde står, vokser de 8 millionene. Har kontraktene en
+          energiindeks, faller prisen tilbake sammen med strømmen, og da er 38 en topp og ikke
+          et nivå. Det er den forskjellen som avgjør om tallet kan brukes til noe.</p>`,
+        krav: [
+          "Du regner helårsnivået på andre halvårs tall, ikke på årsgjennomsnittet.",
+          "Du bygger broen fra 30 til 22 med varig kostnadseffekt, varig priseffekt og engangseffekt.",
+          "Du ser at den varige nettoeffekten er positiv, ikke negativ, og sier hvor mye.",
+          "Du sjekker at halvårene er sammenlignbare før du ganger med to.",
+          "Du oppgir enhet og sier framgangsmåten før tallet.",
+        ],
+        felle: "Å regne engangseffekten som 8 prosent av hele årsomsetningen på 416 og få 33 millioner. Tidsforskyvningen gjelder bare det halvåret prisen manglet, og grunnlaget er derfor første halvårs omsetning på 200 — ikke året.",
+      },
+      {
+        art: "ide",
+        sek: 120,
+        tittel: "Hva bør klienten gjøre?",
+        sp: `<p>Intervjueren sier: <i>«Styret sitter og venter på en handlingsplan. List det du
+          ville satt på den.»</i> <b>Én per linje, to minutter.</b></p>`,
+        liste: [
+          "Legge inn energiindeks i kundekontraktene, så strømendringer slår gjennom automatisk uten varslingsfrist",
+          "Forhandle ned varslingsfristen fra seks til tre måneder ved neste fornyelse",
+          "Prissikre deler av strømforbruket med fastprisavtale eller kraftsikring",
+          "Investere i varmegjenvinning fra avløpsvann og tørketromler",
+          "Senke vasketemperatur og optimalisere programvalg der tekstilkravet tillater det",
+          "Øke fyllingsgraden per vask, som er den billigste energibesparelsen som finnes",
+          "Flytte energitunge kjøringer til timer med lav spotpris der driften tillater det",
+          "Vurdere egen solproduksjon eller varmepumpe på anleggstakene",
+          "Gå gjennom kundeporteføljen og prise opp kontrakter som ligger under snittmarginen",
+          "Selge merverdi i stedet for pris: sporing av tekstiler, leiepool, automatisk etterfylling",
+          "Utnytte ledig kapasitet på anleggene før man vurderer å legge ned noe",
+          "Bygge en enkel run-rate-rapportering til styret, slik at neste sjokk ikke leses som en trend",
+          "Kartlegge hvilke kontrakter som forfaller når, så prisjusteringer kan planlegges før neste sjokk",
+        ],
+        fasit: `<p>Del listen i tre før du begynner, og si delingen høyt:
+          <b>kontraktene</b>, <b>energien</b> og <b>driften</b>.</p>
+          <p>Og prioriter tydelig til slutt, for analysen peker på ett tiltak framfor alle
+          andre: <b>energiindeks i kontraktene</b>. Det er det eneste tiltaket som fjerner
+          selve mekanismen som skapte problemet. Alt annet gjør neste sjokk mindre; en
+          indeksklausul gjør at neste sjokk ikke rammer resultatet i det hele tatt.</p>
+          <p>Merk også hva som <b>ikke</b> hører hjemme på listen: nedleggelse av et anlegg.
+          Analysen viste at driften er sunn og at kapasiteten er lønnsom. Å foreslå kutt her
+          er å behandle et tidsforskyvningsproblem med et strukturtiltak.</p>`,
+        krav: [
+          "Du sier oppdelingen din før du lister.",
+          "Minst ett tiltak angriper selve mekanismen — varslingsfristen eller indeksklausulen.",
+          "Listen dekker både kontraktssiden og den fysiske energibruken.",
+          "Du prioriterer til slutt og sier hvilket tiltak som er viktigst, og hvorfor.",
+          "Du sier eksplisitt at nedleggelse ikke hører hjemme på listen, og begrunner det.",
+        ],
+        felle: "Å levere en generisk kostnadskuttliste. Klienten har ikke et kostnadsproblem — de har et gjennomslagsproblem, og de har allerede løst det. Tiltakene skal handle om hvor raskt prisen følger kostnaden neste gang.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Intervjueren sier: <i>«Daglig leder og bankforbindelsen sitter i møterommet.
+          Du har ett minutt.»</i></p>`,
+        fasit: `<p>Svaret først, og det er et nei til det styret allerede hadde bestemt seg for.
+          Si det rett ut.</p>
+          <blockquote><p><b>«Ikke legg ned anlegget. Marginfallet var tidsforskyvning, ikke
+          drift — og på dagens nivå tjener dere 38 millioner i året, mer enn de 30 dere tjente
+          før strømprisen steg.»</b></p>
+          <p>Tre grunner. For det første steg strømmen 60 prosent ved årsskiftet, men
+          kontraktene har seks måneders varslingsfrist, så prisjusteringen kunne først tre i
+          kraft 1. juli. Det halvåret uten dekning kostet 16 millioner, én gang. For det andre
+          er de 8 prosentene dere tok, større enn de 6 prosentene som trengtes for å dekke
+          kostnaden — den varige effekten er pluss 8 millioner i året, ikke minus. For det
+          tredje: driftsmarginen i andre halvår er 8,8 prosent mot 7,5 før sjokket, med
+          uendret volum og uten at dere mistet en eneste kunde.</p>
+          <p>Konkret anbefaler jeg to ting. Få en energiindeks inn i kundekontraktene, så
+          neste kostnadssjokk slår gjennom med én gang i stedet for om et halvår. Og
+          rapporter til styret og banken på siste halvårs nivå, ikke på året — det var
+          årstallet som fikk dere til å vurdere å legge ned et sunt anlegg.</p>
+          <p>Den store risikoen er strømprisen selv. Faller den tilbake, øker gevinsten
+          deres, men da vil kundene be om å få prisøkningen reversert, og da er 38 en topp og
+          ikke et nivå. Neste steg jeg ville tatt, er å gå gjennom kontraktsporteføljen og se
+          hvilke som forfaller når — det avgjør hvor raskt en indeksklausul kan innføres.»</p></blockquote>`,
+        krav: [
+          "Første setning er en beslutning: ikke legg ned anlegget.",
+          "Du bruker casens tall: 38 mot 30, 16 millioner engang, 8,8 mot 7,5 prosent.",
+          "Du forklarer hvorfor prisen kom 1. juli, altså varslingsfristen.",
+          "Du nevner risikoen for at strømprisen faller tilbake og at prisøkningen da kan reverseres.",
+          "Du holder deg innenfor ett minutt.",
+        ],
+        felle: "Å presentere funnet som «det går bedre enn dere tror» uten å si hva de skal gjøre. Klienten hadde en plan om å kutte; en anbefaling som bare beroliger, etterlater den planen i live.",
+      },
+    ],
+  },
+  {
+    id: "konkurrent-treningssenter",
+    label: "Konkurrenten som kuttet prisen med en tredel",
+    type: "Konkurrentrespons",
+    nivå: "Intro",
+    firma: "Generisk",
+    stil: "candidate-led",
+    minutter: 30,
+    ch: [],
+    blurb: "Konkurrenten kutter prisen fra 450 til 300 kroner, og daglig leder vil matche i morgen. Trener det viktigste grepet i en konkurrentcase: å finne ut hvorfor de gjorde det, før du svarer.",
+    prompt: `<p>Klienten er <b>Puls Trening</b>, en norsk treningssenterkjede med 62 sentre og
+      150 000 medlemmer. Medlemsprisen er 450 kroner i måneden, og sentrene er fullservice: bemannet
+      resepsjon, gruppetimer, personlig trening.</p>
+      <p>Forrige uke kuttet konkurrenten <b>Tempo</b> medlemsprisen sin <b>fra 450 til 300 kroner</b>
+      — en tredel — og annonserte det med helsides annonser. Tempo har 41 sentre, hvorav 22 ligger
+      innenfor gangavstand fra et Puls-senter.</p>
+      <p>Daglig leder i Puls vil matche prisen fra mandag. <b>Hva bør Puls gjøre?</b></p>`,
+    bakgrunn: `<p>Casen er konstruert, men situasjonen er en av de vanligste i næringslivet, og en
+      av dem der magefølelsen er mest pålitelig feil. Den instinktive responsen på et priskutt er å
+      matche. Det er nesten alltid det dyreste svaret som finnes, av en enkel grunn: <b>du kutter
+      prisen på alle kundene dine for å beholde de få som faktisk vurderte å gå.</b></p>
+      <p>Treningssenterøkonomi gjør regnestykket ekstra brutalt. Kostnadsbasen er nesten helt fast —
+      husleie, instruktører, utstyr — mens den variable kostnaden per medlem er liten. Et priskutt
+      går derfor rett på bunnlinjen krone for krone, uten noe sted å hente det inn.</p>
+      <p>Det som skiller en god konkurrentcase fra en dårlig, er rekkefølgen. Spørsmålet er ikke
+      «hva gjør vi» først, men <b>«hvorfor gjorde de det»</b>. Et priskutt kan være et angrep på
+      deg, et forsøk på å fylle ledig kapasitet, en ny eiers krav om volum, eller et signal om at
+      konkurrenten er i trøbbel. De fire krever helt forskjellige svar — og du kan ikke velge svar
+      før du har stilt spørsmålet.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        kort: "Avklar",
+        tittel: "Hva vil du vite før du begynner?",
+        sp: `<p>Du har hørt prompten. Hvilke spørsmål stiller du før du strukturerer?</p>`,
+        fasit: `<p>I en konkurrentcase er det ett spørsmål som er viktigere enn alle andre, og det
+          bør være det første du stiller: <b>hvorfor gjorde de det?</b> Alt annet følger av svaret.</p>
+          <ul>
+            <li><b>Hva vet vi om hvorfor Tempo kuttet?</b> Har de fått ny eier? Har de bygget ut og
+              står med tomme sentre? Taper de medlemmer? Er kuttet permanent eller en kampanje med
+              utløpsdato? Et kutt for å fylle egen ledig kapasitet er ikke et angrep på Puls, og
+              skal ikke besvares som ett.</li>
+            <li><b>Har Puls allerede mistet medlemmer?</b> Det er en uke siden. Hvis avgangen ikke
+              har begynt, er det ingen hast — og hastverk er den dyreste rådgiveren i denne
+              situasjonen.</li>
+            <li><b>Hva er Tempos kostnadsbase per medlem?</b> Hvis de driver ubemannet og uten
+              gruppetimer, kan 300 kroner være lønnsomt for dem og tapsbringende for Puls. Da er
+              matching ikke bare dyrt, det er umulig.</li>
+            <li><b>Hva er målet vårt — medlemstall, omsetning eller resultat?</b> Å forsvare
+              markedsandel og å forsvare bunnlinjen er to forskjellige oppdrag.</li>
+            <li><b>Hvor overlappende er kundegruppene?</b> Er det de samme menneskene som velger
+              mellom de to kjedene, eller er dette to segmenter som bare deler nabolag?</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar spør hvor mange medlemmer Puls kan tape. Et
+          sterkt svar starter med motivet: <i>«Før jeg vurderer hva vi skal gjøre, vil jeg vite hva
+          de prøver å oppnå — for hvis dette handler om deres egen ledige kapasitet, er det ikke
+          engang rettet mot oss.»</i></p>`,
+        krav: [
+          "Ditt første spørsmål handler om hvorfor konkurrenten kuttet, ikke om hva dere skal gjøre.",
+          "Du spør om kuttet er permanent eller en tidsavgrenset kampanje.",
+          "Du spør om konkurrentens kostnadsbase, ikke bare om prisen deres.",
+          "Du spør om Puls faktisk har mistet medlemmer ennå, altså om det haster.",
+          "Du spør etter målet: medlemstall, omsetning eller resultat.",
+        ],
+        felle: "Å gå rett på responsalternativene fordi daglig leder har hastverk. Hastverket er en del av problemet: et priskutt virker akutt, men det tar måneder før medlemmer faktisk bytter, og du har tid til å finne ut hva som skjer.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        kort: "Struktur",
+        tittel: "Strukturer responsen",
+        sp: `<p>Bryt ned hvordan du vil komme fram til et svar. Skriv nedbrytningen slik du ville
+          tegnet den, og <b>si hvilken rekkefølge du vil ta grenene i</b>.</p>`,
+        fasit: `<p>En konkurrentcase har en naturlig rekkefølge, og rekkefølgen <i>er</i> strukturen.
+          Fire trinn:</p>
+          <ul>
+            <li><b>1 · Hvorfor gjorde de det?</b> Fyller de ledig kapasitet? Har de en ny eier som
+              vil ha volum? Har de en lavere kostnadsbase og tar ut en varig fordel? Er de i
+              trøbbel og kjøper likviditet? Hver forklaring peker mot sitt eget svar.</li>
+            <li><b>2 · Hva er eksponeringen vår?</b> Hvor mange av våre medlemmer kan faktisk bytte
+              — altså bor eller jobber nær et Tempo-senter — og hvor lett er det å bytte? Alle
+              150 000 er ikke i spill.</li>
+            <li><b>3 · Hva koster hvert svar?</b> Matche, ignorere, eller svare på en annen akse.
+              Alle tre har en pris, også det å gjøre ingenting, og de skal settes opp mot
+              hverandre i kroner.</li>
+            <li><b>4 · Hva gjør de så?</b> Et priskutt som besvares med et priskutt, blir besvart
+              med et nytt priskutt. Vurder trekket ditt to trekk fram, ikke ett.</li>
+          </ul>
+          <div class="formula">
+            <div class="eq">Kostnad ved å matche = Eksponerte medlemmer × Priskutt × 12</div>
+            <div class="eq">Kostnad ved å ikke matche = Tapte medlemmer × DB per medlem per år</div>
+            <div class="where">Legg merke til asymmetrien: den første regnes på <i>alle</i> som får
+              lavere pris, den andre bare på dem som faktisk går. Det er derfor matching nesten
+              alltid taper.</div>
+          </div>
+          <p><b>Sterkt mot middels:</b> et middels svar lister tre handlingsalternativer med fordeler
+          og ulemper. Et sterkt svar sier at valget ikke kan tas før motivet er forstått, og setter
+          opp de to kostnadene som skal sammenlignes før det ser et eneste tall.</p>`,
+        krav: [
+          "Motivet til konkurrenten står som første gren, ikke som en fotnote.",
+          "Du skiller eksponerte medlemmer fra hele medlemsmassen.",
+          "Du setter opp kostnaden ved å matche og kostnaden ved å la være som to sammenlignbare størrelser.",
+          "Du har med at det å gjøre ingenting også har en pris.",
+          "Du tenker minst ett trekk videre: hva konkurrenten gjør etter vårt svar.",
+        ],
+        felle: "Å bygge en prisingsstruktur — elastisitet, betalingsvilje, prispunkter. Dette er ikke en prisingscase. Prisen er allerede satt av noen andre, og spørsmålet er hvordan man svarer på et trekk, ikke hva den optimale prisen er i et vakuum.",
+      },
+      {
+        art: "exhibit",
+        sek: 150,
+        kort: "Tallene",
+        tittel: "Puls, Tempo og alternativene",
+        sp: `<p>Du får tre ark: Puls sitt eget regnskap, utviklingen hos Tempo, og en grov
+          kostnadsberegning av fire alternativer. <b>Hva ser du?</b></p>`,
+        figur: `<p><b>Ark 1 · Puls Trening, siste år (mill. kr)</b></p>
+          <table class="data">
+            <tr><th>Millioner kroner</th><th class="n">Beløp</th></tr>
+            <tr><td>Medlemsinntekt (150 000 medlemmer × 450 kr × 12)</td><td class="n">810</td></tr>
+            <tr><td>Personlig trening og varesalg</td><td class="n">90</td></tr>
+            <tr><td><b>Sum inntekter</b></td><td class="n"><b>900</b></td></tr>
+            <tr><td>Variabel kostnad per medlem (150 000 × 50 kr × 12)</td><td class="n">90</td></tr>
+            <tr><td>Lønn og instruktører</td><td class="n">320</td></tr>
+            <tr><td>Husleie</td><td class="n">250</td></tr>
+            <tr><td>Markedsføring</td><td class="n">60</td></tr>
+            <tr><td>Andre faste kostnader</td><td class="n">80</td></tr>
+            <tr><td><b>EBITDA</b></td><td class="n"><b>100</b></td></tr>
+            <tr><td>Pulsmedlemmer i de 22 overlappsområdene</td><td class="n">60 000</td></tr>
+          </table>
+          <p><b>Ark 2 · Tempo, de to siste årene</b></p>
+          <table class="data">
+            <tr><th>Tempo</th><th class="n">I fjor</th><th class="n">I år</th></tr>
+            <tr><td>Antall sentre</td><td class="n">32</td><td class="n">41</td></tr>
+            <tr><td>Medlemmer</td><td class="n">71 000</td><td class="n">78 000</td></tr>
+            <tr><td>Medlemmer per senter</td><td class="n">2 219</td><td class="n">1 902</td></tr>
+            <tr><td>Medlemspris per måned</td><td class="n">450 kr</td><td class="n">300 kr</td></tr>
+            <tr><td>Bemannet resepsjon</td><td class="n">Ja</td><td class="n">Nei</td></tr>
+            <tr><td>Gruppetimer og personlig trening</td><td class="n">Ja</td><td class="n">Nei</td></tr>
+          </table>
+          <p><b>Ark 3 · Grov kostnad ved fire responser, per år</b></p>
+          <table class="data">
+            <tr><th>Alternativ</th><th class="n">EBITDA-effekt, mill. kr</th></tr>
+            <tr><td>A · Matche 300 kr i de 22 overlappssentrene (60 000 medlemmer)</td><td class="n">−108,0</td></tr>
+            <tr><td>B · Matche 300 kr i hele kjeden (150 000 medlemmer)</td><td class="n">−270,0</td></tr>
+            <tr><td>C · Eget avstrippet lavprismerke i 8 sentre (12 000 medlemmer over på 300 kr)</td><td class="n">−21,6</td></tr>
+            <tr><td>D · Gjøre ingenting og tape 15 % av de eksponerte medlemmene</td><td class="n">−43,2</td></tr>
+          </table>`,
+        fasit: `<p>Overskriften først, og den ligger på ark 2:</p>
+          <p><i>«Tempo har bygget ni nye sentre på ett år — 28 prosent flere — men bare fått 10
+          prosent flere medlemmer. Belegget per senter har falt fra 2 219 til 1 902. De sitter med
+          rundt 13 000 tomme plasser. Dette priskuttet handler om deres egen ledige kapasitet, ikke
+          om oss.»</i></p>
+          <ul>
+            <li><b>Tempo har også byttet forretningsmodell.</b> De har fjernet resepsjon,
+              gruppetimer og personlig trening. Det er ikke en kampanje, det er en ny
+              kostnadsbase — og en som gjør 300 kroner mulig for dem. Puls har 320 millioner i
+              lønn og instruktører og kan ikke kopiere prisen uten å kopiere modellen.</li>
+            <li><b>Puls har 100 millioner i EBITDA på 900 millioner i inntekt.</b> Marginen er 11
+              prosent. Det er hele marginen som står på spill i alternativ A.</li>
+            <li><b>Bare 60 000 av 150 000 medlemmer er i spill.</b> To tredeler av medlemsmassen bor
+              ikke i nærheten av et Tempo-senter. Alternativ B kutter prisen for 90 000 mennesker
+              som ikke har noe alternativ.</li>
+            <li><b>Ark 3 er avslørende alene:</b> å matche i overlappsområdene koster mer enn å tape
+              15 prosent av de eksponerte medlemmene — 108 mot 43,2. Og et eget lavprismerke koster
+              en femtedel av det å matche.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar leser at Tempo er blitt billigere. Et sterkt
+          svar leser at Tempo er blitt et <i>annet selskap</i> — ubemannet, uten tjenester, med
+          tomme sentre å fylle — og trekker den slutningen som følger: dette er en
+          segmenteringsbevegelse, ikke et priskrig-angrep, og skal besvares deretter.</p>`,
+        krav: [
+          "Du regner medlemmer per senter hos Tempo og ser at belegget har falt.",
+          "Du kobler priskuttet til Tempos ledige kapasitet i stedet for til et angrep på Puls.",
+          "Du legger merke til at Tempo har fjernet bemanning og tjenester, altså endret kostnadsbase.",
+          "Du ser at bare 60 000 av 150 000 medlemmer er eksponert.",
+          "Du sammenligner alternativene på ark 3 mot Puls sin EBITDA på 100 millioner.",
+        ],
+        felle: "Å lese Tempos 41 sentre og 78 000 medlemmer som vekst. Sentrene vokser 28 prosent og medlemmene 10 — det er ikke vekst, det er overkapasitet, og det er den enkeltopplysningen som forklarer hele priskuttet.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        kort: "Regn",
+        tittel: "Hva koster det å matche?",
+        sp: `<p>Puls vurderer å matche Tempos pris på 300 kroner i de 22 overlappsområdene, der
+          60 000 av medlemmene deres hører hjemme.</p>
+          <p><b>Hva koster det Puls per år, i millioner kroner?</b></p>
+          <p class="tiny">Si framgangsmåten høyt før du sier tallet.</p>`,
+        svar: 108,
+        enhet: "millioner kroner",
+        toleranse: 0.02,
+        fasit: `<p>Regnestykket er enkelt. Det er sammenligningen som er poenget.</p>
+          <div class="formula">
+            <div class="eq">Priskutt per medlem: 450 − 300 = 150 kr per måned</div>
+            <div class="eq">60 000 × 150 × 12 = <b>108 millioner kroner per år</b></div>
+            <div class="where">Og siden den variable kostnaden per medlem ikke endrer seg når prisen
+              gjør det, går hele beløpet rett på EBITDA.</div>
+          </div>
+          <p><b>Sett det mot bunnlinjen:</b> Puls tjener 100 millioner. Å matche i bare en tredel av
+          kjeden koster 108. <b>Matchingen spiser hele resultatet og litt til</b> — og alternativ B,
+          å matche overalt, koster 270 millioner, altså nesten tre ganger hele EBITDA-en.</p>
+          <p><b>Så snu regnestykket, for det er her innsikten ligger.</b> Hvor mange medlemmer må
+          Puls tape før det å <i>ikke</i> matche blir like dyrt?</p>
+          <div class="formula">
+            <div class="eq">DB per medlem per år: (450 − 50) × 12 = 4 800 kr</div>
+            <div class="eq">108 000 000 / 4 800 = <b>22 500 medlemmer</b></div>
+            <div class="where">Regner du også med tapt salg av personlig trening og varer — 90
+              millioner fordelt på 150 000 medlemmer er 600 kroner per medlem per år, altså 5 400
+              totalt — blir svaret 20 000 medlemmer. Begge tallene forteller det samme.</div>
+          </div>
+          <p><b>22 500 medlemmer er 37,5 prosent av de 60 000 eksponerte.</b> Puls må altså miste
+          mer enn hver tredje eksponerte medlem før matching lønner seg. Treningssentre mister ikke
+          en tredel av medlemsmassen til en konkurrent på ett år — realistisk avgang ligger på 10
+          til 15 prosent, som ark 3 tallfester til mellom 29 og 43 millioner.</p>
+          <p>Det er den generelle regelen, og den er verdt å huske: <b>du matcher på hundre prosent
+          av kundene dine for å redde de femten prosentene som faktisk ville gått.</b> Derfor er
+          matching nesten alltid det dyreste svaret som finnes.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar regner 108 og sier at det er mye. Et sterkt
+          svar regner videre til breakeven-avgangen, sammenligner den med hva som er realistisk, og
+          gjør dermed om et stort tall til en beslutning.</p>`,
+        krav: [
+          "Du regner på de 60 000 eksponerte medlemmene, ikke på alle 150 000.",
+          "Du husker å gange med tolv måneder.",
+          "Du ser at 108 millioner er mer enn hele EBITDA-en på 100 millioner.",
+          "Du regner videre til hvor mange medlemmer de kan tape før matching lønner seg.",
+          "Du bruker dekningsbidraget per medlem, ikke prisen, når du regner kostnaden ved avgang.",
+        ],
+        felle: "Å regne kostnaden ved avgang med full pris på 450 kroner i stedet for dekningsbidraget på 400. Et medlem som slutter, tar med seg inntekten sin, men sparer også den variable kostnaden — og i en case der svaret avgjøres av en sammenligning, er det den slags upresishet som velter konklusjonen.",
+      },
+      {
+        art: "ide",
+        sek: 120,
+        kort: "Idéer",
+        tittel: "Hva kan Puls gjøre i stedet?",
+        sp: `<p>Matching koster 108 millioner. <b>List så mange andre svar du klarer på to
+          minutter.</b> Én per linje.</p>
+          <p class="tiny">Tenk på hva som kan gjøres på en annen akse enn prisen — og hva som taler
+          for å ikke gjøre noe i det hele tatt.</p>`,
+        liste: [
+          "Ikke gjøre noe i tre måneder, men måle avgangen senter for senter og handle først når tallene tilsier det",
+          "Lansere et eget avstrippet lavprismerke i de mest utsatte sentrene, uten resepsjon og gruppetimer",
+          "Innføre et rimeligere medlemskap med begrenset tilgang, for eksempel bare på dagtid",
+          "Beholde prisen, men gi målrettet rabatt kun til medlemmer som faktisk sier opp",
+          "Binde medlemmer med lengre avtale mot en lavere månedspris, og få forutsigbarhet i tillegg",
+          "Konkurrere på det Tempo har fjernet: flere gruppetimer, bedre instruktører, bemannet resepsjon",
+          "Legge til tjenester som ikke koster mye per medlem, som barnepass, sauna eller treningsprogram i app",
+          "Selge mer personlig trening og varer til de medlemmene som blir, og heve inntekten per hode",
+          "Kutte kostnader i de 22 utsatte sentrene så de tåler et lavere prispunkt hvis det blir nødvendig",
+          "Markedsføre på kvalitet og bredde i stedet for pris, og gjøre sammenligningen vanskeligere",
+          "Skjerpe salget mot bedriftsavtaler, der pris betyr mindre enn tilbud og beliggenhet",
+          "Forbedre oppfølging av nye medlemmer de første ukene, siden det er da folk faller fra",
+          "Åpne senter i områder der Tempo ikke er, og flytte veksten dit i stedet for å slåss",
+          "Vurdere om Tempos kutt er så aggressivt at de selv går tom for penger, og bare vente dem ut",
+        ],
+        fasit: `<p>Si oppdelingen først. En som fungerer her: <b>gjøre ingenting og observere</b>,
+          <b>svare på pris, men målrettet</b>, <b>svare på en annen akse enn pris</b>, og
+          <b>flytte kampen et annet sted</b>.</p>
+          <p>Det viktigste med denne listen er hva den <i>ikke</i> starter med. Å matche er ikke
+          nevnt, fordi analysen allerede har vist at det koster mer enn det redder. Og legg merke
+          til hvor billig alternativ C er: 21,6 millioner for et eget lavprismerke — en femtedel av
+          matchingen — fordi det bare treffer de 12 000 som faktisk er prisfølsomme, og lar de andre
+          48 000 betale full pris.</p>
+          <p>Det er hele kunsten i en konkurrentrespons: <b>å gi rabatt bare til dem som ellers
+          hadde gått.</b> Alt annet er å betale folk for å bli der de allerede var.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar lister tiltak. Et sterkt svar har med at det
+          å gjøre ingenting er et reelt alternativ med en pris, og skiller mellom målrettet rabatt
+          og generell prisnedgang. Den forskjellen er verdt 86 millioner i denne casen.</p>`,
+        krav: [
+          "Du sier oppdelingen din før du lister.",
+          "Du har med å gjøre ingenting som et reelt alternativ, ikke som en unnvikelse.",
+          "Minst tre idéer svarer på en annen akse enn pris.",
+          "Du skiller målrettet rabatt fra generell prisnedgang.",
+          "Du knytter minst én idé til et tall fra ark 3.",
+        ],
+        felle: "Å foreslå en generell kampanje eller velkomstrabatt for alle. Det er matching med et annet navn: kostnaden treffer alle 60 000, mens gevinsten bare finnes hos de få tusen som faktisk vurderte å bytte.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        kort: "Svar",
+        tittel: "Anbefalingen",
+        sp: `<p>Daglig leder står i døra og vil ha svaret nå. Hun har <b>ett minutt</b>.</p>
+          <p class="tiny">Skriv anbefalingen slik du ville sagt den — ikke som notater.</p>`,
+        fasit: `<p>Svaret først, og i denne casen er svaret et nei til det sjefen allerede har
+          bestemt seg for. Da må tallet komme tidlig.</p>
+          <blockquote><p><b>«Ikke match. Å matche i overlappsområdene koster 108 millioner i året —
+          mer enn hele EBITDA-en deres på 100 — og dere måtte mistet 22 500 medlemmer, mer enn hver
+          tredje eksponerte, før det lønte seg. Lanser i stedet et eget lavprismerke i de mest
+          utsatte sentrene, til en femtedel av kostnaden.»</b></p>
+          <p>Tre grunner. For det første handler ikke Tempos kutt om dere: de har bygget ni nye
+          sentre på ett år og fått bare ti prosent flere medlemmer. Belegget har falt fra 2 219 til
+          1 902 per senter. De fyller egen ledig kapasitet. For det andre har de fjernet resepsjon,
+          gruppetimer og personlig trening — de har ikke bare senket prisen, de har byttet
+          forretningsmodell. Dere kan ikke matche prisen uten å matche kostnadsbasen, og den er
+          320 millioner i lønn. For det tredje er bare 60 000 av 150 000 medlemmer i det hele tatt
+          eksponert. Å matche i hele kjeden ville kostet 270 millioner, og 90 000 av dem har ikke
+          noe sted å gå.</p>
+          <p>Konkret: lanser et avstrippet medlemskap til 300 kroner i de åtte hardest utsatte
+          sentrene — 21,6 millioner i året — og gi rabatt ellers bare til medlemmer som faktisk sier
+          opp. Bruk markedsføringen på det Tempo nettopp har kuttet: instruktører, gruppetimer,
+          bemanning. Og mål avgangen ukentlig, senter for senter.</p>
+          <p>Risikoen er at Tempo går lenger ned, eller at avgangen blir større enn 15 prosent. Da
+          har dere fortsatt handlingsrom, for dere har ikke brukt opp prisvåpenet. Det jeg ville
+          gjort først i morgen, er å hente ut oppsigelsestallene fra de 22 overlappssentrene — det
+          er de tallene, ikke annonsen i avisen, som skal utløse et større svar.»</p></blockquote>
+          <p><b>Sterkt mot middels:</b> et middels svar sier at man ikke bør matche fordi det er
+          dyrt. Et sterkt svar sier hva klienten skal gjøre i stedet, hva det koster, hva som ville
+          fått anbefalingen til å endre seg, og hvilket tall som skal utløse den endringen. Å gi
+          sjefen et motsvar på hennes eget forslag krever at du har et alternativ klart — ellers er
+          du bare i veien.</p>`,
+        krav: [
+          "Svaret kommer i første setning, med tallet, selv om det motsier daglig leder.",
+          "Du forklarer konkurrentens motiv som en del av begrunnelsen, ikke bare kostnaden.",
+          "Du gir et konkret alternativ med en prislapp, ikke bare et nei.",
+          "Du sier hva som ville fått deg til å endre anbefalingen, og hvilket tall som utløser det.",
+          "Du holder deg innenfor et minutt.",
+        ],
+        felle: "Å anbefale å avvente uten å si hva man venter på og hva som skal utløse handling. «La oss følge med litt» er ikke en anbefaling — det er en utsettelse, og det er akkurat det en leder med hastverk kommer til å overkjøre.",
+      },
+    ],
+  },
+  {
+    id: "ops-veihjelp",
+    label: "Veihjelpen som har nok biler i snitt",
+    type: "Operations",
+    nivå: "Middels",
+    firma: "Generisk",
+    stil: "candidate-led",
+    minutter: 40,
+    ch: [],
+    blurb: "Kapasiteten er 60 prosent over snittetterspørselen, og likevel brytes responskravet. Trener variabilitet mot kapasitet, og hvorfor man kjøper snittet og leier toppen.",
+    prompt: `<p>Klienten er <b>Bergingsvakten</b>, som leverer veihjelp på Østlandet på kontrakt for
+      et stort forsikringsselskap. De rykker ut ved startvansker, punktering, feilfylling og
+      utforkjøring, med <b>28 bergingsbiler</b>.</p>
+      <p>Kontrakten har ett bindende krav: <b>90 prosent av oppdragene skal ha bil på stedet innen
+      60 minutter.</b> Sist vintersesong klarte de <b>82 prosent</b>. Forsikringsselskapet har
+      varslet at kontrakten går på anbud til våren.</p>
+      <p>Driftslederen avviser å kjøpe flere biler: «Vi har nok kapasitet. Bilene våre kjører
+      62 prosent belegg — vi har ledig kapasitet hver eneste uke.»
+      <b>Har han rett, og hva bør klienten gjøre?</b></p>`,
+    bakgrunn: `<p>Casen er konstruert, men den handler om det mest kontraintuitive i
+      driftsfaget: <b>et system kan ha rikelig kapasitet i gjennomsnitt og likevel ha kø hele
+      tiden.</b> Ventetid oppstår ikke bare når kapasiteten er for liten — den oppstår av
+      <i>variasjon</i>, i etterspørselen, i arbeidstiden per oppdrag, eller i begge.</p>
+      <p>Veihjelp er en ekstrem utgave fordi variasjonen er værstyrt. En mild uke i januar gir
+      knapt noe å gjøre. Den første skikkelige kuldenatten gir ti ganger så mange oppdrag, fordi
+      alle de svake batteriene i regionen dør samtidig. Etterspørselen er ikke jevn med litt støy
+      — den er klumpete, og klumpene er korrelerte.</p>
+      <p>Og tjenesten kan ikke lagres. Et verksted kan produsere mot lager i stille uker; en
+      bergingsbil kan ikke rykke ut på forskudd. Derfor blir dette den klassiske avveiningen i
+      kapasitetsstyring: <b>skal du eie kapasitet for toppen, eller eie for snittet og leie
+      toppen?</b> Svaret er nesten alltid det andre, og casen er god trening fordi den lar deg
+      regne på nøyaktig hvor mye det andre er verdt.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        kort: "Avklaring",
+        sek: 90,
+        tittel: "Hva vil du vite før du begynner?",
+        sp: `<p>Du har hørt prompten. Før du strukturerer: hvilke spørsmål stiller du?</p>`,
+        fasit: `<p>Driftslederen har gitt deg et gjennomsnitt og en konklusjon i samme setning.
+          De avklarende spørsmålene skal angripe nettopp det.</p>
+          <ul>
+            <li><b>Hvordan fordeler oppdragene seg over sesongen?</b> Dette er det avgjørende
+              spørsmålet. 62 prosent belegg kan bety jevn drift på 62 prosent, eller halvparten av
+              døgnene på 20 og resten på 200. Det er to helt forskjellige selskaper.</li>
+            <li><b>Måles de 90 prosentene per oppdrag eller per døgn, og over hvilken periode?</b>
+              Et krav som måles per oppdrag over en hel sesong, er noe helt annet enn et krav som
+              måles per måned. Kontraktsteksten avgjør regnestykket.</li>
+            <li><b>Hva er straffen for å bomme, og hva er kontrakten verdt?</b> Uten det kan ingen
+              vurdere hvor mye det er verdt å investere for å nå kravet.</li>
+            <li><b>Hvor mange oppdrag rekker en bil per døgn, og hva består tiden av?</b>
+              Kjøretid, jobbtid eller venting? Klarer vi flere per bil, trenger vi færre biler.</li>
+            <li><b>Er toppene forutsigbare?</b> Vet vi et døgn i forveien at det kommer kuldegrader?
+              Da er dette et bemanningsproblem, ikke et investeringsproblem.</li>
+          </ul>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar spør hvorfor bilene
+          bruker lang tid, og leter etter en effektivitetsfeil. <b>Et sterkt svar angriper
+          gjennomsnittet i driftslederens påstand med en gang, og spør etter fordelingen — fordi
+          hvis fordelingen er skjev, er hele hans argument ugyldig uten at ett eneste tall er
+          feil.</b></p>`,
+        krav: [
+          "Du ber om fordelingen over sesongen, ikke bare snittet driftslederen oppga.",
+          "Du spør om kravet måles per oppdrag eller per døgn — det avgjør regnestykket.",
+          "Du spør hva kontrakten er verdt og hva bruddet koster.",
+          "Du spør om toppene er varslet på forhånd.",
+          "Du sier hvorfor du spør, og hva svaret ville endre i strukturen din.",
+        ],
+        felle: "Å akseptere de 62 prosentene som et gyldig argument og lete etter feilen et annet sted. Et gjennomsnittlig belegg sier ingenting om ventetid når etterspørselen svinger, og hele casen ligger i den setningen.",
+      },
+      {
+        art: "struktur",
+        kort: "Nedbrytning",
+        sek: 150,
+        tittel: "Strukturer problemet",
+        sp: `<p>Bryt ned hvorfor bare 82 prosent av oppdragene nås innen 60 minutter, når
+          kapasiteten i snitt er rikelig. <b>Avslutt med hypotesen din.</b></p>`,
+        fasit: `<p>Ikke start i et rammeverk. Start i det som faktisk skaper ventetid:</p>
+          <div class="formula">
+            <div class="eq">Ventetid = f(kapasitet, etterspørsel, variasjon i begge)</div>
+            <div class="where">Tre ledd, ikke to. Driftslederen har regnet på de to første og
+              utelatt det tredje — og det tredje er det som lager kø i et system som har nok
+              kapasitet i snitt.</div>
+          </div>
+          <p>Bygg så ut hvert ledd med klientens egne størrelser:</p>
+          <ul>
+            <li><b>Etterspørselen:</b> nivå, og like viktig, formen. Hvor mange oppdrag kommer på
+              de verste døgnene mot de rolige? Er toppene værstyrte og dermed korrelerte, slik at
+              alt skjer samtidig? Klumper de seg også innenfor døgnet, typisk mellom 06 og 09?</li>
+            <li><b>Kapasiteten:</b> antall biler ganger oppdrag per bil per døgn. Oppdrag per bil
+              er i seg selv kjøretid pluss jobbtid, så geografi og plassering hører hjemme her.</li>
+            <li><b>Koblingen mellom dem:</b> hvordan oppdragene tildeles, om de prioriteres etter
+              hastegrad, og om en bil kan stå ledig i ett område mens køen bygger seg i et annet.</li>
+            <li><b>Kravet selv:</b> 90 prosent innen 60 minutter er en parameter i en kontrakt, ikke
+              en naturlov. Å ta med kontrakten som en gren er ikke å pynte på svaret — det er ofte
+              det billigste stedet å løse problemet.</li>
+          </ul>
+          <p>Og si den avgjørende innsikten høyt, gjerne før du får data: <b>et snitt betjener
+          ingen.</b> Kunden ringer på et bestemt tidspunkt, og da er det kapasiteten <i>den
+          dagen</i> som avgjør om bilen kommer. Ledig kapasitet i en mild uke i februar kan ikke
+          spares til den første kuldenatten.</p>
+          <p><b>Hypotesen:</b> etterspørselen er svært ujevn, og en stor andel av oppdragene faller
+          på et lite antall værstyrte døgn der etterspørselen langt overstiger kapasiteten.
+          Jeg vil se oppdragene fordelt på døgn, sortert etter volum.</p>`,
+        krav: [
+          "Du har med variasjon som eget ledd, ikke bare kapasitet og etterspørsel.",
+          "Du deler kapasiteten i antall biler og oppdrag per bil, og knytter det siste til kjøretid og jobbtid.",
+          "Du sier eksplisitt at ledig kapasitet på rolige døgn ikke kan spares til travle.",
+          "Du tar med selve kontraktskravet som en gren du kan angripe.",
+          "Du ber om fordelingen av oppdrag per døgn, ikke om mer data generelt.",
+        ],
+        felle: "Å bygge en ren flaskehalsanalyse med utnyttelsesgrad per ledd, slik man ville gjort i en fabrikk. Her finnes det ingen flaskehals å finne — kapasiteten er rikelig i snitt. Verktøyet som passer, er fordelingen, ikke flaskehalsen.",
+      },
+      {
+        art: "exhibit",
+        kort: "Døgnprofil",
+        sek: 120,
+        tittel: "Sesongen fordelt på døgntype",
+        sp: `<p>Du får tabellen du ba om: alle 150 døgn i forrige vintersesong, gruppert etter
+          hvor mange oppdrag som kom inn. <b>Hva ser du, og hva betyr det?</b></p>`,
+        figur: `<table class="data">
+            <tr><th>Døgntype</th><th class="n">Døgn</th><th class="n">Oppdrag per døgn</th><th class="n">Oppdrag i sesongen</th><th class="n">Andel</th></tr>
+            <tr><td>Mildt og tørt</td><td class="n">60</td><td class="n">55</td><td class="n">3 300</td><td class="n">15,7 %</td></tr>
+            <tr><td>Normalt vintervær</td><td class="n">60</td><td class="n">120</td><td class="n">7 200</td><td class="n">34,3 %</td></tr>
+            <tr><td>Kaldt eller glatt føre</td><td class="n">21</td><td class="n">260</td><td class="n">5 460</td><td class="n">26,0 %</td></tr>
+            <tr><td>Snøfall eller kuldebølge</td><td class="n">9</td><td class="n">560</td><td class="n">5 040</td><td class="n">24,0 %</td></tr>
+            <tr><td><b>Sum</b></td><td class="n"><b>150</b></td><td class="n"><b>140 i snitt</b></td><td class="n"><b>21 000</b></td><td class="n"><b>100 %</b></td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Kapasitet og kontrakt</th><th class="n">Tall</th></tr>
+            <tr><td>Bergingsbiler i drift</td><td class="n">28</td></tr>
+            <tr><td>Oppdrag per bil per døgn innenfor 60 minutter</td><td class="n">8</td></tr>
+            <tr><td><b>Kapasitet per døgn</b></td><td class="n"><b>224</b></td></tr>
+            <tr><td>Betaling per oppdrag fra forsikringsselskapet</td><td class="n">1 500</td></tr>
+            <tr><td>Kostnad for en egen bil i drift, per år</td><td class="n">2 000 000</td></tr>
+            <tr><td>Døgnpris for innleid bil med sjåfør</td><td class="n">12 000</td></tr>
+          </table>
+          <p class="tiny">Oppdrag utover døgnkapasiteten blir liggende i kø og faller utenfor 60-minutterskravet. Beløp i kroner.</p>`,
+        fasit: `<p>Overskriften først, og den er ett tall:</p>
+          <p><i>«Halvparten av oppdragene kommer på 30 av 150 døgn. Driftslederen har rett i at
+          dere har ledig kapasitet — dere har det bare på de døgnene ingen ringer.»</i></p>
+          <ul>
+            <li><b>Regn det ut og si det:</b> 5 460 pluss 5 040 er 10 500 oppdrag, altså nøyaktig
+              halvparten av 21 000, og de kommer på 20 prosent av døgnene. Fordelingen er ikke litt
+              skjev, den er ekstremt skjev.</li>
+            <li><b>Kapasiteten er 224, og to døgntyper ligger over.</b> På kalde døgn kommer 260 —
+              36 oppdrag mer enn dere rekker. På toppdøgn kommer 560, altså to og en halv gang
+              kapasiteten. Da hjelper det ikke hva snittet er.</li>
+            <li><b>Du kan regne ut de 82 prosentene selv, og bør gjøre det.</b> På døgn under
+              kapasitet nås alle: 3 300 pluss 7 200. På de 30 døgnene over kapasitet nås 224:
+              30 ganger 224 er 6 720. Til sammen 17 220 av 21 000 — <b>82,0 prosent</b>. Det
+              stemmer nøyaktig med det rapporterte, og det betyr at hele SLA-bruddet er forklart av
+              døgnfordelingen alene.</li>
+            <li><b>Snittet er 140 mot en kapasitet på 224.</b> Klienten har 60 prosent mer kapasitet
+              enn gjennomsnittlig etterspørsel og bryter likevel kravet. Det er hele poenget med
+              casen, og det er verdt å si eksplisitt.</li>
+          </ul>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar sier at fordelingen er
+          skjev og at toppene er problemet. Det er riktig og for vagt. <b>Et sterkt svar regner
+          seg fram til de 82 prosentene fra tabellen og bekrefter at tallet stemmer — for da har
+          man bevist at forklaringen er fullstendig, og kan utelukke at det også ligger et
+          effektivitetsproblem i bunnen.</b></p>`,
+        krav: [
+          "Du regner ut at halvparten av oppdragene kommer på 20 prosent av døgnene.",
+          "Du sammenligner kapasiteten på 224 mot hver døgntype, ikke mot snittet.",
+          "Du regner deg fram til de 82 prosentene selv og bekrefter at de stemmer.",
+          "Du sier eksplisitt at kapasiteten er 60 prosent over snittetterspørselen og likevel utilstrekkelig.",
+          "Du sier konklusjonen først, ikke en rad-for-rad-opplesning av tabellen.",
+        ],
+        felle: "Å regne snittetterspørselen til 140 og konkludere med at 28 biler holder. Det er nøyaktig driftslederens feil, gjort en gang til med tabellen foran seg. Ingen kunde ringer på et gjennomsnittsdøgn.",
+      },
+      {
+        art: "regne",
+        kort: "Biler",
+        sek: 120,
+        tittel: "Hvor mange biler kreves for kravet?",
+        sp: `<p>Kontrakten krever at <b>90 prosent av oppdragene i sesongen</b> nås innen
+          60 minutter. Hver bil rekker 8 oppdrag per døgn, og alt utover døgnkapasiteten faller
+          utenfor kravet.</p>
+          <p><b>Hvor mange bergingsbiler må Bergingsvakten ha for å klare kravet?</b></p>
+          <p class="tiny">Si oppsettet høyt før du regner. Svar i antall biler.</p>`,
+        svar: 41,
+        enhet: "bergingsbiler",
+        toleranse: 0.02,
+        fasit: `<p>Start med hvor mange oppdrag kravet faktisk gjelder, og jobb bakover:</p>
+          <div class="formula">
+            <div class="eq">Kravet: 0,90 × 21 000 = 18 900 oppdrag innen 60 minutter</div>
+            <div class="eq">Med nok biler nås alle de tre laveste døgntypene: 3 300 + 7 200 + 5 460 = 15 960</div>
+            <div class="eq">Resten må komme fra de 9 toppdøgnene: 18 900 − 15 960 = 2 940</div>
+            <div class="eq">Per toppdøgn: 2 940 / 9 = 326,7 oppdrag</div>
+            <div class="eq">Biler: 326,7 / 8 = 40,8 → <b>41 bergingsbiler</b></div>
+            <div class="where">Kontroll: 41 biler gir 328 per døgn. Det dekker de kalde døgnene
+              med 260 helt, og gir 15 960 + 9 × 328 = 18 912, altså 90,1 prosent. Med 40 biler blir
+              det 18 840, som er 89,7 prosent — og da er kontrakten brutt.</div>
+          </div>
+          <p><b>Og her ligger poenget som avgjør casen.</b> Sett de tre kapasitetsnivåene ved
+          siden av hverandre:</p>
+          <ul>
+            <li>For <b>snittetterspørselen</b> på 140 oppdrag trengs 18 biler.</li>
+            <li>For <b>dagens 82 prosent</b> har klienten 28 biler.</li>
+            <li>For <b>kravet på 90 prosent</b> trengs 41 biler.</li>
+          </ul>
+          <p>De siste åtte prosentpoengene koster altså <b>13 biler til, en økning på 46 prosent</b>
+          — og de bringer beleggsgraden ned fra 62 til 43 prosent. Kjøpt som egne biler koster det
+          <b>13 × 2 millioner = 26 millioner kroner i året</b>, mot en sesonginntekt på
+          21 000 × 1 500 = 31,5 millioner. <b>Å eie seg til kravet spiser nesten hele kontrakten.</b>
+          Det er svaret på om driftslederen har rett: han tar feil om at kapasiteten holder, men
+          han har helt rett i at det ikke er flere egne biler som er løsningen.</p>
+          <p>Regn så alternativet, for det er der anbefalingen ligger. Klienten mangler
+          18 900 − 17 220 = 1 680 oppdrag, og de mangler bare på 30 døgn:</p>
+          <div class="formula">
+            <div class="eq">Kalde døgn: 36 oppdrag for lite, altså 5 innleide biler × 21 døgn</div>
+            <div class="eq">Toppdøgn: resterende 924 oppdrag over 9 døgn = 103 per døgn, altså 13 innleide biler × 9 døgn</div>
+            <div class="eq">Til sammen 222 bil-døgn × 12 000 = <b>2,7 millioner kroner</b></div>
+          </div>
+          <p><b>Samme kontraktsoppfyllelse, en tiendedel av kostnaden.</b> Å eie kapasitet som
+          brukes 30 døgn i året, er å betale for 335 døgn med stillstand.</p>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar regner riktig fram til
+          41 biler og stopper der. <b>Et sterkt svar prissetter de 13 bilene, ser at 26 millioner
+          er uforsvarlig mot en kontrakt på 31,5, og regner deretter den innleide løsningen —
+          fordi spørsmålet aldri var hvor mye kapasitet som trengs, men hvordan man skaffer den.</b></p>`,
+        krav: [
+          "Du regner kravet om til antall oppdrag, ikke til antall døgn.",
+          "Du ser at bare toppdøgnene fortsatt ligger over kapasitet ved løsningen, og bruker det.",
+          "Du kontrollerer svaret ved å regne SLA-en tilbake for 40 og 41 biler.",
+          "Du priser de ekstra bilene og sammenligner med kontraktens verdi.",
+          "Du regner på innleid kapasitet som alternativ, og oppgir forholdet mellom de to.",
+        ],
+        felle: "Å finne døgnet som ligger på 90-persentilen og dimensjonere etter det. Det er et kaldt døgn med 260 oppdrag, altså 33 biler — men kravet gjelder 90 prosent av oppdragene, ikke av døgnene, og toppdøgnene bærer langt flere oppdrag hver. 33 biler gir bare 87,3 prosent, og kontrakten er fortsatt brutt.",
+      },
+      {
+        art: "ide",
+        kort: "Tiltak",
+        sek: 120,
+        tittel: "Hvordan når de kravet?",
+        sp: `<p>Du vet nå at problemet er 30 døgn, ikke 150. <b>List så mange tiltak du klarer på
+          to minutter.</b> Én per linje. Si oppdelingen din først.</p>`,
+        liste: [
+          "Inngå beredskapsavtaler med lokale bilbergere og verksteder som kalles inn på toppdøgn",
+          "Bemanne etter værvarselet: kall inn ekstra mannskap og biler et døgn før kuldebølgen",
+          "Betale egne sjåfører for tilkallingsberedskap i vintermånedene, ikke for fast vakt",
+          "Prioritere oppdragene etter hastegrad: utforkjøring i veibanen foran startvansker i garasje",
+          "Reforhandle kontrakten til differensiert krav: 60 minutter på trafikkfarlige oppdrag, lengre på resten",
+          "Reforhandle måleperioden, slik at kravet gjelder per sesong og ikke straffes døgn for døgn",
+          "Løse flere oppdrag uten utrykning: telefonstøtte, startveiledning i app, henvisning til nærmeste verksted",
+          "Korte ned tiden per oppdrag med bedre utstyr i bilen og digital oppdragsflyt uten papirarbeid",
+          "Plassere bilene etter forventet etterspørsel og trafikk, ikke jevnt utover geografien",
+          "Kjøre forebyggende batterikampanje i oktober, som fjerner en del av startvanskene i toppene",
+          "Inngå gjensidig overflytsavtale med en konkurrent, der begge tar den andres topper",
+          "Leie inn sesongbiler og sesongsjåfører for vintermånedene i stedet for å eie hele året",
+          "Ta betalt for topper i neste kontrakt, slik at prisen per oppdrag følger belastningen",
+          "Måle og rapportere responstid per døgntype, så samtalen med kunden handler om de 30 døgnene",
+        ],
+        fasit: `<p>Oppdelingen er halve poenget her, og den følger direkte av analysen. Si den før
+          du lister: <b>skaff fleksibel kapasitet til toppene, reduser etterspørselen i toppene,
+          eller endre kravet.</b></p>
+          <ul>
+            <li><b>Fleksibel kapasitet:</b> innleie, beredskap, sesongbiler, overflytsavtaler. Dette
+              er hovedsporet, og det er det analysen peker på.</li>
+            <li><b>Mindre etterspørsel i toppene:</b> forebygging, telefonløsning, prioritering.
+              Hvert oppdrag som forsvinner fra et toppdøgn, er verdt langt mer enn ett som
+              forsvinner fra et mildt døgn.</li>
+            <li><b>Endre kravet:</b> differensiert SLA og lengre måleperiode. Dette er ofte det
+              billigste tiltaket av alle, og det blir nesten alltid glemt.</li>
+          </ul>
+          <p>Avslutt med å <b>prioritere</b>: beredskapsavtalene først, fordi de alene lukker gapet
+          for 2,7 millioner og kan være på plass før neste sesong.</p>`,
+        krav: [
+          "Du sier oppdelingen først, og den skiller kapasitet, etterspørsel og kontraktskrav.",
+          "Du foreslår fleksibel kapasitet, ikke bare flere egne biler.",
+          "Minst ett tiltak reduserer etterspørselen på toppdøgnene spesielt.",
+          "Du tar med å reforhandle selve kravet som et reelt alternativ.",
+          "Du prioriterer til slutt, og begrunner rekkefølgen.",
+        ],
+        felle: "Å foreslå generell effektivisering — raskere oppdrag, bedre ruteplanlegging — som hovedgrep. Det hjelper litt på alle 150 døgn, men problemet finnes bare på 30 av dem, og der er gapet så stort at effektivisering alene ikke lukker det.",
+      },
+      {
+        art: "syntese",
+        kort: "Anbefaling",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Daglig leder har <b>ett minutt</b> før han skal møte forsikringsselskapet.
+          Gi anbefalingen din.</p>
+          <p class="tiny">Skriv den slik du ville sagt den — ikke som notater.</p>`,
+        fasit: `<p>Topp-ned. Svaret først, så beviset, så hva som skal skje før neste sesong.</p>
+          <blockquote><p><b>«Ikke kjøp flere biler — kjøp beredskap. Dere mangler kapasitet på
+          30 av 150 døgn, og det gapet kan lukkes for 2,7 millioner i året. Å eie seg til det
+          samme kravet koster 26 millioner, av en kontrakt som er verdt 31,5.»</b></p>
+          <p>Tre grunner. For det første er driftslederen halvveis riktig: kapasiteten er
+          60 prosent over snittetterspørselen. Men halvparten av oppdragene kommer på 20 prosent av
+          døgnene, og et snitt betjener ingen. For det andre forklarer døgnfordelingen alene
+          nøyaktig de 82 prosentene dere leverte — det er ikke et effektivitetsproblem i bunnen.
+          For det tredje ville 90 prosent med egne biler krevd 41 biler mot dagens 28, og de ville
+          stått ubrukt 43 prosent av tiden.</p>
+          <p>Konkret: inngå beredskapsavtaler med lokale bergere om 5 biler på kalde døgn og
+          13 på de verste, kalt inn på værvarsel et døgn i forveien. Parallelt tar dere ned
+          etterspørselen i toppene med telefonstøtte og en batterikampanje i oktober. Og i
+          anbudet ber dere om differensiert responskrav — 60 minutter der bilen står trafikkfarlig,
+          lengre der den står i egen garasje.</p>
+          <p>Den store risikoen er at de innleide bergerne er opptatt nøyaktig når dere trenger
+          dem, siden været rammer alle samtidig — så avtalene må være betalte beredskapsavtaler med
+          eksklusivitet, ikke løse intensjoner. Neste steg jeg ville tatt, er å sjekke hvordan
+          oppdragene fordeler seg innenfor toppdøgnene; kommer de fleste mellom 06 og 09, kan en
+          del av gapet lukkes med vaktskifte i stedet for med biler.»</p></blockquote>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar sier «dere trenger
+          41 biler for å nå kravet». Det er riktig regnet og feil anbefaling, fordi det svarer på
+          hvor mye kapasitet som trengs i stedet for hvordan man skaffer den. <b>Et sterkt svar
+          setter de to måtene å skaffe kapasitet på opp mot hverandre i kroner, velger den
+          fleksible, og navngir risikoen ved den — at værstyrte topper rammer underleverandørene
+          samtidig.</b></p>`,
+        krav: [
+          "Første setning er beslutningen, og den avviser flere egne biler.",
+          "Du setter 2,7 millioner opp mot 26 millioner og mot kontraktens verdi.",
+          "Du sier at halvparten av oppdragene kommer på 20 prosent av døgnene.",
+          "Du gir konkrete tiltak med antall biler og utløser, ikke bare prinsippet om innleie.",
+          "Du navngir risikoen ved innleie og gir et neste steg, innenfor ett minutt.",
+        ],
+        felle: "Å anbefale 41 biler fordi det var svaret på regnestykket. Regnestykket viste hvor mye kapasitet kravet krever, ikke hvordan den bør eies. En kapasitet som trengs 30 døgn i året, skal nesten aldri kjøpes.",
+      },
+    ],
+  },
+  {
+    id: "offentlig-arbeidsmarkedstiltak",
+    label: "300 millioner til arbeidsmarkedstiltak",
+    type: "Offentlig",
+    nivå: "Intro",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 25,
+    ch: [],
+    blurb: "En klient uten bunnlinje. Trener effekt per krone mot en sammenligningsgruppe — og hva du gjør når to legitime mål peker i hver sin retning.",
+    prompt: `<p>Klienten er <b>arbeids- og inkluderingsavdelingen i et av landets største fylker</b>.
+      Avdelingen disponerer <b>300 millioner kroner i året</b> til arbeidsmarkedstiltak, fordelt på fem
+      tiltakstyper og 9 150 deltakerplasser. I fylket står omtrent 14 000 mennesker registrert som
+      arbeidssøkere eller med nedsatt arbeidsevne.</p>
+      <p>Departementet har strammet inn: bevilgningen ligger fast i tre år, men avdelingen skal dokumentere
+      <b>hva den får igjen for pengene</b>.</p>
+      <p>Fylkesdirektøren spør: <b>Bruker vi de 300 millionene riktig, og hva ville du endret?</b></p>`,
+    bakgrunn: `<p>Casen er konstruert, men mekanismen er den sentrale i all offentlig tiltaksevaluering:
+      et tiltak måles mot <i>hva som ville skjedd uten det</i>. Andelen deltakere som ville kommet i jobb
+      uansett, kalles dødvekt, og den er hele forskjellen mellom et tiltak som <i>ser</i> billig ut og et som
+      <i>er</i> billig.</p>
+      <p>Det som gjør offentlig sektor til en egen sjanger, er at målfunksjonen ikke er gitt. En privat klient
+      maksimerer profitt. Denne klienten skal både få flest mulig i arbeid for pengene <b>og</b> hjelpe dem som
+      står lengst fra arbeidslivet — og de to målene peker mot motsatte prioriteringer. En kandidat som
+      importerer profitt-treet, oppdager aldri at konflikten finnes.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        kort: "Spørsmål",
+        tittel: "Hva betyr «riktig»?",
+        sp: `<p>Fylkesdirektøren spurte om pengene brukes riktig. <b>Hva spør du om før du svarer?</b></p>`,
+        fasit: `<p>Hos en privat klient er målfunksjonen gitt. Her er den ikke det, og derfor er den første
+          avklaringen alltid den samme: <b>hva maksimeres, og under hvilken skranke?</b></p>
+          <ul>
+            <li><b>Betyr «riktig» flest mulig i jobb totalt, eller flest mulig av dem som ellers ikke ville
+              kommet i jobb?</b> De to gir motsatt rangering av tiltakene. Dette er det viktigste spørsmålet
+              i casen.</li>
+            <li><b>Er rammen virkelig fast, og kan penger flyttes mellom tiltakstypene?</b> Hvis ikke, er ikke
+              omfordeling et mulig svar, og casen handler om noe annet.</li>
+            <li><b>Hvor lenge skal effekten vare — jobb etter 12 måneder, eller varig tilknytning?</b>
+              Et tiltak som ser best ut på 12 måneder, kan være det svakeste på 36.</li>
+            <li><b>Finnes det tall for en sammenlignbar gruppe som ikke fikk tiltak?</b> Uten det er all
+              effektmåling gjetning, uansett hvor presise de andre tallene er.</li>
+            <li><b>Har avdelingen andre mål enn sysselsetting — fordeling, geografi, hvem tiltakene skal
+              nå?</b> Still dette tidlig. Det er her konflikten ligger.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar spør om budsjettet og deltakertallene. Et sterkt svar
+          spør hva som maksimeres, og oppdager i samme åndedrag at klienten har <i>to</i> mål som ikke kan
+          maksimeres samtidig. Å navngi målkonflikten allerede i avklaringen er det som skiller her.</p>`,
+        krav: [
+          "Du spør hva som maksimeres, i stedet for å anta at målet er flest mulig i jobb.",
+          "Du avklarer om penger kan flyttes mellom tiltakstypene, siden det avgjør hva et svar kan være.",
+          "Du spør etter en sammenligningsgruppe — uten den kan ingen effekt måles.",
+          "Du spør om avdelingen har andre mål enn sysselsetting, og navngir dermed målkonflikten tidlig.",
+        ],
+        felle: "Å behandle fylket som en bedrift med kostnader og «inntekter» i form av folk i jobb. En offentlig klient har flere legitime mål samtidig, og en anbefaling som later som det bare finnes ett, blir avvist i første politiske behandling.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        kort: "Struktur",
+        tittel: "Hva måler du, og mot hva?",
+        sp: `<p>Anta at målet er å få flest mulig i varig arbeid innenfor en fast ramme, men at avdelingen
+          også har et mandat om å nå dem som står lengst unna. <b>Strukturer oppdraget.</b></p>`,
+        fasit: `<p>Bygg ligningen først. Den er hele forskjellen på denne casen og en lønnsomhetscase.</p>
+          <div class="formula">
+            <div class="eq">Kroner per ekstra person i jobb = Kostnad / (Deltakere × (Andel i jobb med tiltak − Andel i jobb uten tiltak))</div>
+            <div class="where">Nevneren er ikke «antall i jobb». Den er antall som er i jobb <i>på grunn av</i>
+              tiltaket. Differansen mot en sammenlignbar gruppe er selve effekten.</div>
+          </div>
+          <p>Tre grener, og de er ikke likeverdige — si hvilken du starter i:</p>
+          <ul>
+            <li><b>Effekt per krone per tiltakstype.</b> Teller: ekstra personer i jobb. Nevner: total kostnad.
+              Dette er der de raske pengene ligger, fordi omfordeling er gratis.</li>
+            <li><b>Kapasitet mot behov.</b> 9 150 plasser mot rundt 14 000 mennesker er en dekningsgrad på
+              65 prosent. Prioritering <i>mellom</i> tiltak er da bare halve spørsmålet — dekningsgraden er
+              også et valg, og den kan ikke løses innenfor rammen.</li>
+            <li><b>Fordeling og mandat.</b> Hvem når hvert tiltak? Et tiltak kan ha lav effekt per krone og
+              likevel være det eneste tilbudet til dem som ellers ikke har noe.</li>
+          </ul>
+          <p>Legg til et lag med <b>det som kan gjøre analysen feil</b>, for i offentlig sektor er det ikke en
+          pliktbullet: <i>seleksjon</i> (de mest motiverte havner i de beste tiltakene og skaper falsk effekt),
+          <i>fortrengning</i> (den som får jobb gjennom lønnstilskudd, tar den fra en annen ledig, slik at
+          nettoeffekten for samfunnet er mindre enn for deltakeren), og <i>varighet</i> (jobb etter 12 måneder
+          er ikke det samme som varig tilknytning).</p>
+          <p><b>Hypotesen:</b> med fast ramme ligger den største gevinsten i omfordeling mellom tiltak, ikke i
+          å kutte noe. Jeg vil derfor regne kroner per ekstra person i jobb per tiltakstype først — og
+          behandle mandatgrenen som en skranke, ikke som en gren jeg optimerer.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar setter opp «kostnad per deltaker i jobb» og kaller det
+          effekt per krone. Et sterkt svar bygger nevneren med en sammenligningsgruppe, og sier eksplisitt at
+          mandatet er en skranke som ikke kan måles med samme linjal.</p>`,
+        krav: [
+          "Du bygger en ligning der nevneren er ekstra personer i jobb, ikke personer i jobb.",
+          "Du har med kapasitet mot behov, ikke bare fordeling mellom tiltakene.",
+          "Du behandler mandatet om de vanskeligste som en egen skranke, ikke som en fotnote.",
+          "Du navngir minst to feilkilder — seleksjon, fortrengning eller varighet.",
+          "Du sier hvilken gren du starter i, og hvorfor.",
+        ],
+        felle: "Å importere profitt-treet: behandle kostnad per deltaker som kostnadssiden og antall i jobb som inntektssiden, og maksimere differansen. Da rangerer du tiltakene etter hvor lette deltakerne var, ikke etter hva tiltaket gjorde.",
+      },
+      {
+        art: "exhibit",
+        sek: 150,
+        kort: "Figur",
+        tittel: "De fem tiltakene",
+        sp: `<p>Avdelingen har fått en ekstern evaluering som også følger sammenlignbare grupper som ikke fikk
+          tiltak. <b>Hva ser du i tabellen?</b></p>`,
+        figur: `<table class="data">
+            <tr><th>Tiltak</th><th class="n">Plasser</th><th class="n">Kr per plass</th><th class="n">Sum (mill. kr)</th><th class="n">I jobb etter 12 mnd</th><th class="n">Sammenlignbar gruppe</th></tr>
+            <tr><td>Digitalt jobbsøkerkurs</td><td class="n">4 000</td><td class="n">5 000</td><td class="n">20,0</td><td class="n">51 %</td><td class="n">50 %</td></tr>
+            <tr><td>Lønnstilskudd, 6 måneder</td><td class="n">1 200</td><td class="n">60 000</td><td class="n">72,0</td><td class="n">64 %</td><td class="n">44 %</td></tr>
+            <tr><td>Fagkurs (AMO), 5 måneder</td><td class="n">900</td><td class="n">90 000</td><td class="n">81,0</td><td class="n">57 %</td><td class="n">43 %</td></tr>
+            <tr><td>Arbeidsforberedende trening</td><td class="n">650</td><td class="n">140 000</td><td class="n">91,0</td><td class="n">26 %</td><td class="n">11 %</td></tr>
+            <tr><td>Ekstern oppfølging</td><td class="n">2 400</td><td class="n">15 000</td><td class="n">36,0</td><td class="n">47 %</td><td class="n">42 %</td></tr>
+            <tr><td><b>Sum</b></td><td class="n"><b>9 150</b></td><td class="n">–</td><td class="n"><b>300,0</b></td><td class="n">–</td><td class="n">–</td></tr>
+          </table>
+          <p class="tiny">Sammenlignbar gruppe: andelen i jobb etter 12 måneder blant mennesker med tilsvarende
+          bakgrunn som ikke fikk plass på tiltaket.</p>`,
+        fasit: `<p>Orientér deg først, og si det høyt: <b>den siste kolonnen er det viktigste tallet i tabellen,
+          og den er også den de fleste hopper over.</b> Den forteller hva som ville skjedd uten tiltaket.</p>
+          <p>Overskriften:</p>
+          <p><i>«Det billigste tiltaket per hode er nesten uten effekt. Jobbsøkerkurset får 51 prosent i jobb —
+          mot 50 prosent i den sammenlignbare gruppen. Ett prosentpoeng.»</i></p>
+          <p>Deretter tre observasjoner som til sammen snur hele rangeringen:</p>
+          <ul>
+            <li><b>Lønnstilskudd har den klart største effekten:</b> 64 mot 44, altså 20 prosentpoeng. Det er
+              også det nest dyreste tiltaket per plass — de to tingene henger sammen, og det er hele poenget.</li>
+            <li><b>Arbeidsforberedende trening ser dårligst ut og er det ikke.</b> 26 prosent i jobb er lavest i
+              tabellen, helt til du ser at den sammenlignbare gruppen ligger på 11. Effekten er 15 prosentpoeng
+              — større enn fagkursets 14. Å rangere tiltak etter <i>resultat</i> i stedet for etter
+              <i>effekt</i> straffer systematisk de tiltakene som tar imot de vanskeligste deltakerne.</li>
+            <li><b>Sammenligningsgruppene er ikke like:</b> 50 prosent mot 11 prosent forteller at deltakerne i
+              de fem tiltakene er helt forskjellige mennesker. Nettopp derfor kan du ikke sammenligne
+              «andel i jobb» på tvers — bare effekten.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar rangerer kolonnen «i jobb etter 12 måneder» og peker på
+          lønnstilskudd fordi det topper den. Et sterkt svar leser de to siste kolonnene sammen, ser at
+          differansen er tallet som betyr noe, og sier at spriket fra 50 til 11 i sammenligningsgruppene er
+          bevis på at tiltakene ikke er sammenlignbare uten den korreksjonen.</p>`,
+        krav: [
+          "Du peker på sammenligningskolonnen først og sier hva den er.",
+          "Du regner differansen for minst tre av tiltakene i hodet før du konkluderer.",
+          "Du ser at arbeidsforberedende trening har større effekt enn fagkurset, tross lavest andel i jobb.",
+          "Du sier at spriket fra 50 til 11 betyr at tiltakene ikke kan sammenlignes på resultat alene.",
+        ],
+        felle: "Å rangere kolonnen «i jobb etter 12 måneder» og anbefale tiltaket som topper den. Da anbefaler du det tiltaket som tok inn de deltakerne som klarte seg best fra før.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        kort: "Regning",
+        tittel: "Hva koster jobbsøkerkurset egentlig?",
+        sp: `<p>Ta det digitale jobbsøkerkurset: 4 000 plasser à 5 000 kroner, 51 prosent i jobb etter
+          12 måneder mot 50 prosent i den sammenlignbare gruppen.</p>
+          <p><b>Hva koster kurset per ekstra person i jobb?</b> Med «ekstra» menes personer som ikke ville vært
+          i jobb uten tiltaket.</p>
+          <p class="tiny">Svar i kroner. Si oppsettet høyt før du regner.</p>`,
+        svar: 500000,
+        enhet: "kroner per ekstra person i jobb",
+        toleranse: 0.02,
+        fasit: `<p>Effekten først, kronene etterpå.</p>
+          <div class="formula">
+            <div class="eq">Effekt: 51 % − 50 % = 1 prosentpoeng</div>
+            <div class="eq">Ekstra i jobb: 4 000 × 1 % = 40 personer</div>
+            <div class="eq">Kostnad: 4 000 × 5 000 = 20 000 000 kroner</div>
+            <div class="eq">Kroner per ekstra person i jobb: 20 000 000 / 40 = <b>500 000 kroner</b></div>
+          </div>
+          <p><b>Og her ligger poenget.</b> Regn nå tallet forvaltningen faktisk rapporterer — kroner per
+          deltaker i jobb: 20 000 000 / (4 000 × 51 %) = 20 000 000 / 2 040 = <b>9 804 kroner</b>. Det er
+          <b>51 ganger billigere enn sannheten</b>, og det er tallet som står i årsrapporten.</p>
+          <p>Sammenlign så med lønnstilskudd: 72 000 000 / 768 = <b>93 750 kroner</b> per deltaker i jobb,
+          altså nesten ti ganger dyrere enn kurset. Men per <i>ekstra</i> person i jobb:
+          72 000 000 / (1 200 × 20 %) = 72 000 000 / 240 = <b>300 000 kroner</b> — 40 prosent
+          <i>billigere</i> enn kurset. Rangeringen snur fullstendig når du bytter nevner.</p>
+          <p>Gjør så det regnestykket som blir anbefalingen: flytter du kursets 20 millioner til lønnstilskudd,
+          kjøper du 20 000 000 / 60 000 = <b>333 nye plasser</b>. De gir 333 × 20 prosentpoeng =
+          <b>67 ekstra i jobb</b>, mot 40 i dag. Samme krone, 27 flere mennesker i arbeid.</p>
+          <p><b>Sanity-sjekk:</b> 500 000 kroner er mer enn en norsk årslønn. Et tiltak som koster mer enn den
+          jobben det skaper, må begrunnes med noe annet enn effektivitet — og for et to ukers jobbsøkerkurs
+          finnes ingen slik begrunnelse. Merk også at ett prosentpoeng på 4 000 deltakere er 40 mennesker;
+          det er innenfor det man ikke kan skille fra tilfeldig variasjon, så det ærlige svaret er at kurset
+          kanskje ikke har effekt i det hele tatt.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar deler 20 millioner på 2 040 og får 9 804 kroner.
+          Et sterkt svar deler på 40, får 500 000, og sier deretter selv hva forvaltningens eget tall ville
+          vært og hvor mye det bommer.</p>`,
+        krav: [
+          "Du trekker fra sammenligningsgruppen før du deler. Det er hele regnestykket.",
+          "Du regner også tallet forvaltningen ville rapportert, og sier hvor mye det bommer.",
+          "Du oppgir enheten: kroner per ekstra person i jobb, ikke bare 500 000.",
+          "Du sanity-sjekker mot en årslønn og ser at tallet ikke lar seg forsvare på effektivitet.",
+          "Du sier at 40 personer av 4 000 er innenfor feilmarginen, i stedet for å behandle 1 prosentpoeng som sikker effekt.",
+        ],
+        felle: "Å dele på 2 040 i stedet for 40 — altså å bruke antall deltakere som er i jobb, i stedet for antall som er i jobb på grunn av tiltaket. Det er den enkeltfeilen som gjør flest offentlige evalueringer verdiløse.",
+      },
+      {
+        art: "ide",
+        sek: 150,
+        kort: "Idéer",
+        tittel: "Hva ville du endret?",
+        sp: `<p>Fylkesdirektøren spør hva du ville gjort. <b>List tiltak — men si først hvilke hensyn du veier
+          mot hverandre.</b></p>
+          <p class="tiny">Rammen ligger fast i tre år. Penger kan flyttes mellom tiltakstypene.</p>`,
+        liste: [
+          "Flytte midlene fra jobbsøkerkurset til lønnstilskudd og ekstern oppfølging, som har lavest kostnad per ekstra person i jobb",
+          "Beholde arbeidsforberedende trening uendret, og begrunne det med mandatet i stedet for med effekt per krone",
+          "Skille budsjettet i to potter: én som styres på effekt per krone, og én som styres på mandat",
+          "Kreve sammenligningsgruppe i alle nye leverandørkontrakter, slik at effekten faktisk kan måles",
+          "Måle jobb etter 24 og 36 måneder, ikke bare 12, siden varighet er en del av målet",
+          "Betale leverandørene etter oppnådd resultat, men justert for hvem de tar inn, så de ikke velger de letteste",
+          "Teste om lønnstilskudd fortrenger andre ledige, ved å måle på arbeidsgivernivå og ikke bare på deltakernivå",
+          "Sette et tak på hvor mange lønnstilskuddsplasser som kan skaleres før effekten faller",
+          "Flytte de svakeste deltakerne fra kurs til oppfølging, som virker på en gruppe som ligner mer på dem",
+          "Kutte antall tiltakstyper fra fem til tre og bruke administrasjonsgevinsten på flere plasser",
+          "Øke dekningsgraden fra 65 prosent for de gruppene der effekten er best dokumentert",
+          "Kjøpe tiltaksplasser sammen med nabofylkene for å få lavere pris per plass",
+          "Publisere effekt per krone per tiltak åpent, slik at debatten flyttes fra volum til virkning",
+        ],
+        fasit: `<p>Si hensynene før du lister. Her er de to, og de peker i hver sin retning — <b>det er selve
+          casen.</b></p>
+          <p><b>Ren effekt per krone</b> sier: legg ned arbeidsforberedende trening. Den koster
+          91 000 000 / 97,5 = <b>933 000 kroner</b> per ekstra person i jobb, tre ganger så mye som
+          lønnstilskudd, og de 91 millionene er nesten en tredjedel av budsjettet.</p>
+          <p><b>Mandatet</b> sier det motsatte. Sammenligningsgruppen for de deltakerne ligger på 11 prosent.
+          Det er de eneste menneskene i tabellen som ikke har noe alternativ. Legger du ned tiltaket, forsvinner
+          ikke de — de flytter over på uføretrygd, kommunale tjenester og helsevesen. Den regningen kommer et
+          annet sted i det offentlige, og den varer i tiår.</p>
+          <p>Rangeringen for de øvrige, som beslutningen bør bygge på: lønnstilskudd og ekstern oppfølging
+          300 000 kroner per ekstra person, jobbsøkerkurs 500 000, fagkurs 643 000, arbeidsforberedende
+          trening 933 000.</p>
+          <p><b>Anbefalingen som faktisk holder, er å dele rammen i to:</b> én pott som styres hardt på effekt
+          per krone, og én pott som styres på mandat og ikke måles med samme linjal. Da kan du optimere den
+          første uten å bruke den andre som salderingspost — og du slipper å late som konflikten ikke finnes.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar rangerer alt på effekt per krone og anbefaler å legge
+          ned det dyreste — eller sier «begge hensyn er viktige» uten å foreslå noe. Et sterkt svar tar
+          stilling, sier hvilken målfunksjon det bruker for hvilke penger, og løser konflikten strukturelt i
+          stedet for retorisk.</p>`,
+        krav: [
+          "Du sier hvilke hensyn du veier mot hverandre før du lister idéene.",
+          "Du tallfester målkonflikten: 933 000 kroner per ekstra person mot en sammenligningsgruppe på 11 prosent.",
+          "Du foreslår noe som faktisk løser konflikten, ikke bare beskriver den.",
+          "Minst tre idéer handler om å måle bedre, ikke bare om å flytte penger.",
+          "Du nevner fortrengning eller skaleringsgrense for lønnstilskudd, i stedet for å anta at effekten holder ved dobbelt volum.",
+        ],
+        felle: "Å anbefale at alt styres på effekt per krone. Da legger du ned det eneste tiltaket for dem som står lengst unna, og du gir samtidig leverandørene en grunn til å velge de letteste deltakerne — som over tid ødelegger nettopp den målingen du bygget anbefalingen på.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        kort: "Anbefaling",
+        tittel: "Anbefalingen",
+        sp: `<p>Fylkesdirektøren skal inn i fylkesutvalget om <b>ett minutt</b> og trenger én setning å åpne med,
+          og tre å forsvare den med.</p>
+          <p class="tiny">Skriv den slik du ville sagt den — ikke som notater.</p>`,
+        fasit: `<p>Svaret først. I offentlig sektor betyr det også: si hvilket mål svaret er målt mot.</p>
+          <blockquote><p><b>«Dere bruker 300 millioner og får drøyt 620 mennesker i arbeid som ellers ikke ville
+          vært det. Jeg vil ikke kutte noe — jeg vil flytte 20 millioner, og jeg vil at 91 av de 300 skal styres
+          etter et annet mål enn resten.»</b></p>
+          <p>Tre grunner. For det første er det digitale jobbsøkerkurset uten målbar effekt: 51 prosent i jobb
+          mot 50 i den sammenlignbare gruppen. Det er 40 mennesker for 20 millioner, altså 500 000 kroner per
+          person — mer enn en årslønn — og de 40 er innenfor feilmarginen. For det andre gir lønnstilskudd og
+          ekstern oppfølging samme resultat for 300 000. Flytter jeg kursets 20 millioner til lønnstilskudd,
+          kjøper jeg 333 plasser og 67 ekstra i jobb i stedet for 40.</p>
+          <p>For det tredje: arbeidsforberedende trening er det dyreste tiltaket per ekstra person,
+          933 000 kroner, og jeg foreslår likevel ikke å røre det. Det er det eneste tiltaket som når mennesker
+          der alternativet er 11 prosent i jobb. Det hører hjemme i en egen pott med sitt eget mål, ikke i
+          samme rangering som de andre.</p>
+          <p>Risikoen er at lønnstilskudd ikke skalerer: 333 nye plasser krever 333 arbeidsgivere, og de 20
+          prosentpoengene er målt på dagens volum. Jeg ville derfor flyttet halvparten først og målt før jeg
+          flyttet resten. Neste steg er å få sammenligningsgruppe inn i alle leverandørkontraktene, slik at
+          dere kan gjøre dette regnestykket hvert år i stedet for hvert femte.»</p></blockquote>
+          <p><b>Sterkt mot middels:</b> et middels svar sier hvilket tiltak som er best og hvilket som er verst.
+          Et sterkt svar sier hvor mange mennesker de 300 millionene faktisk flytter, foreslår én konkret
+          omdisponering med tall, og forsvarer eksplisitt hvorfor det dyreste tiltaket likevel skal stå — fordi
+          det måles mot et annet mål.</p>`,
+        krav: [
+          "Første setning sier hva de 300 millionene gir i dag, målt som ekstra personer i arbeid.",
+          "Du foreslår én konkret omdisponering med beløp og antall mennesker.",
+          "Du forsvarer eksplisitt hvorfor det dyreste tiltaket ikke skal legges ned.",
+          "Du nevner skaleringsrisikoen for lønnstilskudd i stedet for å anta lineær effekt.",
+          "Du avslutter med ett neste steg som gjør neste års analyse mulig.",
+        ],
+        felle: "Å avslutte med at «det trengs mer forskning». Det er sant og ubrukelig. Fylkesutvalget skal vedta et budsjett i denne perioden, og en anbefaling uten et tall å vedta er ingen anbefaling.",
+      },
+    ],
+  },
+  {
+    id: "prising-padel",
+    label: "Padelhallen med én pris til alle",
+    type: "Prising",
+    nivå: "Avansert",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 35,
+    ch: [],
+    blurb: "Kveldene er utsolgt, dagene er tomme, og prisen er den samme. Trener prisstruktur mot prisnivå, og innsikten om at utsolgt betyr for billig.",
+    prompt: `<p>Klienten er <b>Rally Padel</b>, som driver fem padelhaller i norske byer med til
+      sammen <b>40 baner</b>. Hallene er åpne fra 07 til 23 alle dager.</p>
+      <p>Prisen er <b>400 kroner per bane per time</b> — samme pris hele døgnet, alle ukedager,
+      for alle kunder. Daglig leder er stolt av det: «Det er enkelt og rettferdig, og ingen
+      trenger å regne.» Omsetningen er 48 millioner kroner og har stått stille i to år.
+      Driftsresultatet er 7 millioner.</p>
+      <p>Styret vil sette prisen opp til 450 kroner, fordi hallene er billigere enn konkurrentene.
+      <b>Er det riktig grep?</b></p>`,
+    bakgrunn: `<p>Casen er konstruert, men feilen er blant de vanligste i norsk tjenestenæring:
+      selskapet diskuterer <i>prisnivået</i> når problemet er <i>prisstrukturen</i>. Én pris til
+      alle er en påstand om at alle kunder er like — og i en anleggsbransje er de aldri det.
+      Han som må spille etter jobb klokken 19 på en tirsdag, og hun som kan spille klokken 11 på
+      en onsdag, har helt ulik betalingsvilje for nøyaktig samme bane.</p>
+      <p>Den underliggende ferdigheten er å lese <b>utnyttelsesgrad som et prissignal</b>. Et
+      tidsvindu som er utsolgt uker i forveien, er ikke en suksess — det er rasjonering, og køen
+      er penger noen andre ville betalt. Et tidsvindu som står tomt, er ikke en kapasitetsfeil —
+      det er en pris som er satt for høyt for det som skal selges der.</p>
+      <p>Casen har også den vrien som gjør prisstruktur mer verdt enn prisnivå: <b>en banetime som
+      går usolgt, er tapt for alltid.</b> Marginalkostnaden ved å selge den er nesten null. Derfor
+      henter en struktur som fyller de tomme timene inn mer enn en prisøkning som tømmer de
+      fulle.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        kort: "Avklaring",
+        sek: 90,
+        tittel: "Hva vil du vite før du begynner?",
+        sp: `<p>Intervjueren har gitt deg prompten og venter. <b>Hvilke spørsmål stiller du før du
+          strukturerer?</b></p>`,
+        fasit: `<p>I en prisingscase er den ene avklaringen som alltid må komme først:
+          <b>hva er målet?</b> Deretter, og spesifikt for et anlegg med fast kapasitet:
+          <b>hvordan fordeler salget seg over tid?</b></p>
+          <ul>
+            <li><b>Er målet omsetning, resultat eller belegg?</b> De tre gir ulike svar. Med nesten
+              null marginalkostnad per banetime er omsetning og dekningsbidrag nesten det samme
+              her — men belegg er ikke det, og et anlegg som styrer etter belegg, priser seg
+              systematisk for lavt.</li>
+            <li><b>Hvordan fordeler de solgte banetimene seg over uken og døgnet?</b> Dette er det
+              avgjørende spørsmålet. Et snittbelegg forteller ingenting hvis kveldene er fulle og
+              dagene tomme.</li>
+            <li><b>Hvem er kundene, og booker de fast eller sporadisk?</b> Faste partier på samme
+              tid hver uke er et helt annet produkt enn en enkelttime, og kan prises som det.</li>
+            <li><b>Hvor mye koster en solgt banetime oss?</b> Er marginalkostnaden nær null, er
+              hver tomme time et rent tap, og det endrer hele regnestykket.</li>
+            <li><b>Hva er kapasiteten?</b> 40 baner ganger 16 timer ganger 7 dager er 4 480
+              banetimer i uken. Å regne det selv, uoppfordret, viser at du forstår at dette er en
+              kapasitetsforretning.</li>
+          </ul>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar spør hva konkurrentene
+          tar, fordi styret nevnte det. <b>Et sterkt svar spør etter fordelingen over tid før det
+          spør om noe annet</b> — fordi hvis fordelingen er skjev, er spørsmålet om prisnivå
+          allerede feil stilt.</p>`,
+        krav: [
+          "Du spør om målet før du spør om tallene.",
+          "Du ber om fordelingen av salget over uke og døgn, ikke bare et snittbelegg.",
+          "Du regner ut kapasiteten selv fra baner, åpningstid og dager.",
+          "Du spør om marginalkostnaden per banetime.",
+          "Du sier hvorfor du spør, og hva svaret ville endre.",
+        ],
+        felle: "Å starte med konkurrentenes priser fordi styret gjorde det. Konkurrentprisen er relevant, men den forteller deg bare noe om nivået — og i denne casen er nivået omtrent riktig. Det er formen på prisen som er feil.",
+      },
+      {
+        art: "struktur",
+        kort: "Struktur",
+        sek: 150,
+        tittel: "Strukturer prisspørsmålet",
+        sp: `<p>Intervjueren spør direkte: <b>«Hvordan vil du avgjøre om 450 kroner er riktig
+          pris?»</b> Skriv strukturen, og si hva du tror svaret blir.</p>`,
+        fasit: `<p>Det sterke svaret begynner med å <b>avvise premisset i spørsmålet</b>, høflig og
+          med en gang: prisen har to dimensjoner, og styret diskuterer bare den ene.</p>
+          <div class="formula">
+            <div class="eq">Prisnivå = hvor høyt snittet ligger</div>
+            <div class="eq">Prisstruktur = hvordan prisen varierer mellom kunder, tider og kjøpsformer</div>
+            <div class="where">Med én pris til alle er strukturen ikke valgt — den er bare aldri
+              stilt spørsmål ved. Og det er der pengene ligger.</div>
+          </div>
+          <p>Bygg så strukturen på de tre aksene en pris kan variere langs:</p>
+          <ul>
+            <li><b>Etter tid:</b> hverdagskveld mot formiddag mot helg. Betalingsviljen for en
+              bane klokken 19 på tirsdag er en annen enn klokken 11 på onsdag, og kapasiteten er
+              den samme.</li>
+            <li><b>Etter kunde:</b> bedrift mot privat, medlem mot ikke-medlem, senior og student
+              mot full pris. Det krever et gjerde som gjør at segmentene ikke lekker.</li>
+            <li><b>Etter kjøpsform:</b> enkelttime mot klippekort mot fast bane hele sesongen mot
+              månedskort. Dette er fastpris mot forbruk, og det avgjør hvem som binder seg.</li>
+          </ul>
+          <p>Og legg til målestokken som avgjør hvor prisen skal endres: <b>utnyttelsesgraden per
+          tidsvindu</b>. Er den nær 100, er prisen for lav. Er den nær null, er den for høy. Det er
+          et prissignal, ikke et driftstall.</p>
+          <p><b>Hypotesen:</b> snittprisen er omtrent riktig, men den er feil fordelt. Kveldene er
+          underpriset og dagene overpriset, og en flat økning til 450 vil gjøre det tomme enda
+          tommere. Jeg vil se solgte banetimer og kapasitet per tidsvindu.</p>`,
+        krav: [
+          "Du skiller prisnivå fra prisstruktur eksplisitt, og sier at styret bare diskuterer nivået.",
+          "Strukturen din har alle tre akser: tid, kunde og kjøpsform.",
+          "Du tar med fastpris mot forbruk som en egen dimensjon, ikke bare rabatter.",
+          "Du peker på utnyttelsesgrad per tidsvindu som målestokken som avgjør hvor prisen skal flyttes.",
+          "Du avslutter med en hypotese som er testbar mot data du ber om.",
+        ],
+        felle: "Å svare på spørsmålet som ble stilt, og bare regne på om 450 gir mer enn 400. Da har du låst deg til én pris for alle før analysen har begynt, og hele gevinsten i casen er utenfor rammen du selv tegnet.",
+      },
+      {
+        art: "exhibit",
+        kort: "Utnyttelse",
+        sek: 120,
+        tittel: "Banetimene fordelt på tidsvindu",
+        sp: `<p>Intervjueren gir deg to tabeller: dagens salg fordelt på tidsvindu, og hva
+          markedsavdelingen anslår at etterspørselen ville vært ved tre ulike priser.
+          <b>Hva ser du?</b></p>`,
+        figur: `<table class="data">
+            <tr><th>Tidsvindu (per uke)</th><th class="n">Banetimer</th><th class="n">Solgt i dag</th><th class="n">Utnyttelse</th><th class="n">Omsetning</th></tr>
+            <tr><td>Hverdag dag, man–fre 07–16</td><td class="n">1 800</td><td class="n">360</td><td class="n">20 %</td><td class="n">144 000</td></tr>
+            <tr><td>Hverdag kveld, man–fre 16–23</td><td class="n">1 400</td><td class="n">1 330</td><td class="n">95 %</td><td class="n">532 000</td></tr>
+            <tr><td>Helg dag, lør–søn 07–16</td><td class="n">720</td><td class="n">540</td><td class="n">75 %</td><td class="n">216 000</td></tr>
+            <tr><td>Helg kveld, lør–søn 16–23</td><td class="n">560</td><td class="n">280</td><td class="n">50 %</td><td class="n">112 000</td></tr>
+            <tr><td><b>Sum</b></td><td class="n"><b>4 480</b></td><td class="n"><b>2 510</b></td><td class="n"><b>56 %</b></td><td class="n"><b>1 004 000</b></td></tr>
+          </table>
+          <p class="tiny">Omsetning i kroner per uke, ved dagens pris på 400 kroner per banetime. Hallene regner 48 driftsuker i året.</p>
+          <table class="data">
+            <tr><th>Anslått etterspørsel, banetimer per uke</th><th class="n">Kapasitet</th><th class="n">Ved 250 kr</th><th class="n">Ved 400 kr</th><th class="n">Ved 550 kr</th></tr>
+            <tr><td>Hverdag dag</td><td class="n">1 800</td><td class="n">700</td><td class="n">360</td><td class="n">180</td></tr>
+            <tr><td>Hverdag kveld</td><td class="n">1 400</td><td class="n">1 400</td><td class="n">1 330</td><td class="n">1 190</td></tr>
+            <tr><td>Helg dag</td><td class="n">720</td><td class="n">720</td><td class="n">540</td><td class="n">380</td></tr>
+            <tr><td>Helg kveld</td><td class="n">560</td><td class="n">480</td><td class="n">280</td><td class="n">150</td></tr>
+          </table>
+          <p class="tiny">Hverdag kveld og helg dag ved 250 kroner er begrenset av kapasiteten — etterspørselen er høyere enn tallet. Marginalkostnaden per solgte banetime er rundt 40 kroner i strøm og renhold.</p>`,
+        fasit: `<p>Implikasjonen først, og den er én setning:</p>
+          <p><i>«Dere har ikke ett prisproblem, dere har fire — og de peker i motsatt retning.
+          Hverdagskvelden er utsolgt til 95 prosent, og hverdagsdagen står 80 prosent tom. Én pris
+          kan ikke være riktig for begge.»</i></p>
+          <ul>
+            <li><b>95 prosent utnyttelse er ikke suksess, det er rasjonering.</b> Når et tidsvindu
+              er fullt uker i forveien, betyr det at noen som ville betalt mer, ikke fikk plass —
+              og at prisen er for lav. Å si dette høyt er markøren i casen.</li>
+            <li><b>20 prosent på hverdagsdagen er ikke en kapasitetsfeil.</b> Banene finnes,
+              lyset står på og husleien løper. Det er 1 440 tomme banetimer i uken med
+              marginalkostnad 40 kroner, og prisen 400 er satt for høyt for det som skal selges
+              der.</li>
+            <li><b>Etterspørselstabellen viser at elastisiteten er helt ulik.</b> På hverdagskveld
+              faller volumet bare 10 prosent når prisen stiger 38 prosent — nesten uelastisk. På
+              hverdagsdagen dobler volumet seg nesten når prisen faller fra 400 til 250. Det er to
+              forskjellige markeder i samme bygg.</li>
+            <li><b>Styrets forslag går feil vei i tre av fire vinduer.</b> En flat økning tar mer
+              betalt der det er fullt, men tømmer også de tre vinduene som allerede har ledig
+              kapasitet.</li>
+          </ul>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar sier at snittbelegget er
+          56 prosent og at det er lavt, og foreslår markedsføring for å fylle hallene. Det er å
+          lese snittet av to motsatte problemer. <b>Et sterkt svar sier at 95 prosent er et signal
+          om for lav pris — ikke om suksess — og at de to ytterpunktene krever hver sin pris, ikke
+          mer markedsføring.</b></p>`,
+        krav: [
+          "Du tolker 95 prosent utnyttelse som rasjonering og for lav pris, ikke som suksess.",
+          "Du ser at snittbelegget på 56 prosent skjuler to motsatte problemer.",
+          "Du leser elastisiteten ut av etterspørselstabellen og ser at den er ulik per vindu.",
+          "Du sier at styrets flate økning går feil vei i vinduene som har ledig kapasitet.",
+          "Du kobler den lave marginalkostnaden til hvorfor de tomme timene er så dyre å la stå.",
+        ],
+        felle: "Å behandle 56 prosent snittbelegg som tallet casen handler om. Snittet er gjennomsnittet av et vindu som er utsolgt og et som står tomt, og det finnes ikke ett tiltak som er riktig for begge.",
+      },
+      {
+        art: "regne",
+        kort: "Gevinsten",
+        sek: 120,
+        tittel: "Hva henter strukturen inn?",
+        sp: `<p>Anta at Rally Padel setter <b>én pris per tidsvindu</b>, valgt blant de tre
+          prispunktene i tabellen, og velger den som gir mest omsetning i hvert vindu.</p>
+          <p><b>Hvor mye mer omsetning gir det per uke enn dagens ene pris på 400 kroner?</b></p>
+          <p class="tiny">Si framgangsmåten høyt før du regner. Svar i kroner per uke.</p>`,
+        svar: 161500,
+        enhet: "kroner per uke",
+        toleranse: 0.02,
+        fasit: `<p>Regn omsetning for hvert prispunkt i hvert vindu, og velg det største per rad:</p>
+          <div class="formula">
+            <div class="eq">Hverdag dag:   250 × 700 = 175 000   ·   400 × 360 = 144 000   ·   550 × 180 = 99 000</div>
+            <div class="eq">Hverdag kveld: 250 × 1 400 = 350 000   ·   400 × 1 330 = 532 000   ·   550 × 1 190 = 654 500</div>
+            <div class="eq">Helg dag:      250 × 720 = 180 000   ·   400 × 540 = 216 000   ·   550 × 380 = 209 000</div>
+            <div class="eq">Helg kveld:    250 × 480 = 120 000   ·   400 × 280 = 112 000   ·   550 × 150 = 82 500</div>
+            <div class="eq">Beste per vindu: 175 000 + 654 500 + 216 000 + 120 000 = <b>1 165 500</b></div>
+            <div class="eq">I dag: 1 004 000. Differanse: <b>161 500 kroner per uke</b></div>
+            <div class="where">Over 48 driftsuker: 7,8 millioner kroner i året. Trekk fra
+              marginalkostnaden på de 400 ekstra banetimene i uken — 400 × 40 × 48 er 0,8
+              millioner — og du står igjen med <b>rundt 7 millioner i økt resultat</b>. Klienten
+              tjener 7 millioner i dag. Strukturen dobler resultatet.</div>
+          </div>
+          <p><b>Og her ligger poenget som avgjør casen.</b> Regn ut snittprisen i den nye
+          strukturen:</p>
+          <div class="formula">
+            <div class="eq">Nytt volum: 700 + 1 190 + 540 + 480 = 2 910 banetimer</div>
+            <div class="eq">Snittpris: 1 165 500 / 2 910 = <b>400,52 kroner</b></div>
+          </div>
+          <p>Snittprisen er altså <b>praktisk talt uendret</b> — 400,52 mot 400,00. Hele gevinsten på
+          16 prosent kommer fra formen på prisen, ikke fra nivået. Samtidig stiger utnyttelsen fra
+          56 til 65 prosent: <b>klienten selger mer, tjener mer, og tar i snitt nøyaktig det samme
+          som før.</b></p>
+          <p>Sammenlign så med det styret foreslo. Den <i>beste mulige enkeltprisen</i> av de tre
+          er 550, som gir 1 045 000 — bare 41 000 mer i uken, og med volumet ned fra 2 510 til
+          1 900 banetimer. <b>Strukturen henter fire ganger så mye som det beste prisnivået, og
+          gjør det uten å tømme hallene.</b></p>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar regner riktig og sier
+          161 500 kroner i uken. <b>Et sterkt svar legger til at snittprisen ikke har flyttet seg,
+          at det beste enkeltprisalternativet bare henter en fjerdedel, og at 654 500 fortsatt
+          stiger med prisen på hverdagskveld — så 550 er trolig ikke toppen. Neste steg er å teste
+          650 der, ikke å låse strukturen.</b></p>`,
+        krav: [
+          "Du regner omsetning per prispunkt per vindu, og velger maksimum per rad — ikke per kolonne.",
+          "Du ser at ett av fire vinduer skal beholde dagens pris.",
+          "Du regner ut snittprisen i den nye strukturen og ser at den er uendret.",
+          "Du sammenligner med den beste mulige enkeltprisen, ikke bare med dagens.",
+          "Du sier at 550 kroner på hverdagskveld trolig ikke er toppen, og at det bør testes videre.",
+        ],
+        felle: "Å velge prisen som fyller hallene mest. Setter du 250 kroner overalt, stiger utnyttelsen til 74 prosent og omsetningen faller til 825 000 — 18 prosent ned. Belegg er ikke målet; det er bare et signal om hvor prisen står feil.",
+      },
+      {
+        art: "ide",
+        kort: "Tiltak",
+        sek: 120,
+        tittel: "Hvordan bygges strukturen i praksis?",
+        sp: `<p>Intervjueren spør: <b>«Fint. Hvordan ser den nye prislisten faktisk ut?»</b>
+          List så mange grep du klarer på to minutter. Si oppdelingen din først.</p>`,
+        liste: [
+          "Innfør faste prisvinduer: lav pris 07–16 på hverdager, høy pris 16–23 på hverdager",
+          "Selg månedskort som bare gjelder på dagtid, til en fast pris uavhengig av antall timer",
+          "Lag klippekort på ti timer med rabatt, gyldig alle tider unntatt hverdagskveld",
+          "Selg fast bane på fast tid hele sesongen på hverdagskveld, med påslag for garantien",
+          "Tilby bedriftsavtaler med fast månedsbeløp for garantert banetid midt på dagen",
+          "Sett opp formiddagspartier for seniorer og skiftarbeidere til fast lav pris",
+          "Innfør medlemskap med årsavgift og lavere timepris, som skiller faste fra sporadiske spillere",
+          "Prøv dynamisk prising der prisen følger belegget i sanntid, slik hoteller og flyselskap gjør",
+          "Innfør avbestillingsfrist og gebyr for uteblitt booking, så rasjonerte kveldstimer ikke går tapt",
+          "Selg dagtimer som pakke med instruktør, der betalingsviljen er høyere enn for bare banen",
+          "Gi studentpris mot legitimasjon, men bare i vinduene som står tomme",
+          "Lei ut hele hallen til firmaturneringer og arrangementer på lavtidspunkter",
+          "Test 650 kroner på hverdagskveld i én hall før strukturen rulles ut i alle fem",
+          "Rydd i gjerdene mellom segmentene, så en bedriftsavtale ikke kan brukes til å kjøpe kveldstimer billig",
+        ],
+        fasit: `<p>Si oppdelingen før du lister, og bruk de tre aksene fra strukturen din:
+          <b>pris etter tid, pris etter kunde, pris etter kjøpsform.</b> Da får listen din en form
+          intervjueren kan følge.</p>
+          <p>Det viktigste å få med, og det som skiller, er <b>gjerdene</b>. En segmentert
+          prisstruktur er verdiløs hvis kundene fritt kan velge det billigste segmentet. Et
+          dagtidsmånedskort som også virker klokken 19, er bare en rabatt til dem som allerede
+          betalte full pris. Nevn dette uoppfordret.</p>
+          <p>Avslutt med å <b>prioritere</b>: prisvinduene først, fordi de alene henter det meste
+          av de 7 millionene og kan innføres på en uke. Medlemskap og dynamisk prising er
+          neste bølge.</p>`,
+        krav: [
+          "Du sier oppdelingen først, og den følger de tre aksene fra strukturtrinnet.",
+          "Idéene dekker både tid, kundetype og kjøpsform — ikke bare rabatter på dagtid.",
+          "Du tar opp gjerdene mellom segmentene uoppfordret.",
+          "Minst ett grep tester prisen videre i stedet for å låse den.",
+          "Du prioriterer til slutt, og begrunner rekkefølgen med effekt og gjennomføringstid.",
+        ],
+        felle: "Å foreslå en lang liste rabatter uten å si hvem som skal hindres i å bruke dem. Uten gjerder lekker de fulle kveldene ned i de billige segmentene, og en struktur som skulle hentet 7 millioner, ender som et priskutt.",
+      },
+      {
+        art: "syntese",
+        kort: "Anbefaling",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Styrelederen har <b>ett minutt</b>, og han er den som foreslo 450 kroner.
+          Gi anbefalingen din.</p>
+          <p class="tiny">Skriv den slik du ville sagt den — ikke som notater.</p>`,
+        fasit: `<p>Topp-ned, og med et klart svar på styrelederens eget forslag.</p>
+          <blockquote><p><b>«Ikke sett prisen opp til 450. Sett fire priser i stedet for én. Det
+          henter 7,8 millioner i året, mot under 2 millioner for den beste enkeltprisen som finnes —
+          og det med en snittpris som er praktisk talt uendret, 400,52 mot 400 kroner.»</b></p>
+          <p>Tre grunner. For det første er ikke nivået feil: en flat økning til 450 tar mer betalt
+          der det allerede er fullt, men tømmer de tre vinduene som står halvtomme. For det andre
+          er hverdagskvelden utsolgt til 95 prosent — det er ikke suksess, det er rasjonering, og
+          der bør prisen opp til 550. For det tredje står hverdagsdagen 80 prosent tom med en
+          marginalkostnad på 40 kroner; der bør prisen ned til 250, og volumet dobler seg nesten.</p>
+          <p>Konkret: fire prisvinduer fra neste måned — 250 på hverdager før 16, 550 på hverdager
+          etter 16, 400 i helgene på dagtid, 250 i helgene på kveldstid. Beskytt strukturen med
+          gjerder, slik at et dagtidskort ikke kan brukes på tirsdag kveld. Etter det bygger dere
+          medlemskap og faste sesongbaner oppå.</p>
+          <p>Den store risikoen er at faste kunder opplever 550 som et løftebrudd, så
+          kveldsøkningen bør fases inn og kobles til at de kan sikre seg fast bane hele sesongen.
+          Neste steg jeg ville tatt, er å teste 650 på hverdagskveld i én hall — tallene deres
+          tyder på at 550 ikke er toppen.»</p></blockquote>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar sier «nei til 450, dere
+          bør heller ha ulike priser på ulike tider» og stopper der. Det er riktig retning uten
+          pris. <b>Et sterkt svar oppgir de fire prisene, setter gevinsten opp mot styrelederens
+          eget alternativ i kroner, og sier eksplisitt at snittprisen ikke endres — for det er den
+          setningen som gjør at en styreleder som ville heve prisen, kan si ja uten å tape
+          ansikt.</b></p>`,
+        krav: [
+          "Første setning svarer på styrelederens forslag, og gir alternativet.",
+          "Du oppgir de faktiske prisene per vindu, ikke bare prinsippet.",
+          "Du setter gevinsten opp mot den beste mulige enkeltprisen i kroner, ikke bare mot dagens.",
+          "Du sier at snittprisen er uendret — det er argumentet som gjør forslaget spiselig.",
+          "Du nevner risiko og neste steg, og holder deg innenfor ett minutt.",
+        ],
+        felle: "Å bruke minuttet på å forklare hvorfor styrelederen tar feil. Han har allerede foreslått noe offentlig, og en anbefaling som bare motsier ham, blir en diskusjon i stedet for en beslutning. Gi ham et bedre forslag med større tall.",
+      },
+    ],
+  },
+  {
+    id: "lonn-mobel-segment",
+    label: "Segmentet som taper penger — og som du ikke kan kutte",
+    type: "Lønnsomhet",
+    nivå: "Avansert",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 35,
+    ch: [],
+    blurb: "Ett segment taper 30 millioner. Legger du det ned, taper du 30 millioner. Trener forskjellen på fordelte og unngåelige kostnader — den feilen som koster mest i virkelige beslutninger.",
+    prompt: `<p>Klienten er <b>Vollan Møbel</b>, en møbelprodusent på Sunnmøre med egen fabrikk
+      og tre salgskanaler: <b>forhandlere</b> (møbelkjedene), <b>egne butikker</b>, og
+      <b>prosjekt og kontrakt</b> — møblering av hoteller, kontorbygg og offentlige bygg,
+      som regel vunnet i anbud.</p>
+      <p>I fjor omsatte selskapet for <b>900 millioner kroner</b> med et driftsresultat på
+      <b>30 millioner</b>, altså 3,3 prosent. Bransjesnittet for norske møbelprodusenter
+      ligger rundt <b>7 prosent</b>. Omsetningen har vokst jevnt i flere år.</p>
+      <p>Eierne, tredje generasjon i familien, spør: <b>hvorfor ligger vi under bransjen, og
+      hva skal vi gjøre med det?</b></p>
+      <p class="tiny">Dette er en interviewer-led case. Intervjueren gir deg tall når du ber
+      om dem, og stiller ett spørsmål av gangen.</p>`,
+    bakgrunn: `<p>Casen er konstruert, men både mekanismen og fella er hentet rett fra
+      virkeligheten. Når et selskap ligger under bransjen på margin, er svaret nesten alltid
+      at <b>snittet skjuler et sprik</b> — én kanal, ett produkt eller én geografi som ligger
+      langt under de andre. Segmenteringen er ikke et skritt på veien til svaret; den
+      <i>er</i> svaret.</p>
+      <p>Så kommer fella, og den er dyr. Et segmentregnskap fordeler alltid felleskostnadene
+      ut på segmentene, fordi regnskapet skal gå opp. Men <b>en fordelt kostnad er ikke en
+      unngåelig kostnad</b>. Fabrikkbygget, maskinene, ledelsen og systemene forsvinner ikke
+      fordi en salgskanal legges ned — de blir liggende og må bæres av de som er igjen.</p>
+      <p>Derfor har et segmentregnskap med full kostnadsfordeling en innebygd egenskap:
+      <b>det får ethvert lavmarginsegment til å se ut som en pengesluk</b>. Spørsmålet et
+      slikt regnskap svarer på, er «hvordan fordeler resultatet seg?». Spørsmålet eierne
+      stiller, er «hva skjer hvis vi slutter?». Det er to forskjellige regnestykker, og
+      forskjellen mellom dem er hele denne casen.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Intervjueren åpner",
+        sp: `<p>Intervjueren sier: <i>«Du har omsetningen, resultatet og bransjesnittet.
+          Hva vil du vite før du begynner å tenke?»</i></p>`,
+        fasit: `<p>Ett spørsmål før alle andre, og det er nesten alltid det samme når et snitt
+          ligger under bransjen:</p>
+          <p><b>«Kan jeg få resultatet brutt ned per salgskanal — omsetning, variable
+          kostnader og faste kostnader hver for seg?»</b></p>
+          <p>Begrunnelsen er verdt å si høyt: <i>et konsernresultat på 3,3 prosent kan bety at
+          alt er middelmådig, eller at to av tre deler er glimrende og den tredje blør. De to
+          krever helt motsatte tiltak, og jeg kan ikke skille dem uten nedbrytningen.</i></p>
+          <p>Deretter tre til, valgt fordi de kommer til å bestemme hva anbefalingen kan
+          inneholde:</p>
+          <ul>
+            <li><b>«Hvor mye ledig kapasitet har fabrikken?»</b> Dette avgjør alt senere. Er
+              fabrikken full, er ethvert lavmarginsegment en fortrengning av noe bedre. Er den
+              ikke full, er det motsatt: lavmarginvolum er bedre enn ingenting.</li>
+            <li><b>«Hvordan er felleskostnadene fordelt mellom kanalene?»</b> Fordelingsnøkkelen
+              er ikke en naturlov, den er et valg noen har tatt — og den bestemmer hvilket
+              segment som ser lønnsomt ut.</li>
+            <li><b>«Er de 7 prosentene i bransjen målt på sammenlignbare selskaper?»</b> En
+              produsent som selger direkte gjennom egne butikker, har både høyere margin og
+              høyere kostnader enn en ren fabrikk. Sammenligningen kan være skjev.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar ber om nedbrytningen. Et sterkt svar
+          ber om nedbrytningen <i>og</i> spør om kapasitetsutnyttelsen i samme åndedrag, fordi
+          det allerede vet at svaret på det andre spørsmålet bestemmer hva man kan gjøre med
+          funnet fra det første.</p>`,
+        krav: [
+          "Du ber om resultatet brutt ned per salgskanal, og sier hvorfor snittet ikke kan tolkes.",
+          "Du spør om fabrikkens kapasitetsutnyttelse, og sier hva svaret vil bety for anbefalingen.",
+          "Du spør hvordan felleskostnadene er fordelt, ikke bare hvor store de er.",
+          "Du utfordrer om bransjesnittet er sammenlignbart med klientens forretningsmodell.",
+          "Du ber om variable og faste kostnader hver for seg, ikke bare et segmentresultat.",
+        ],
+        felle: "Å be om et segmentresultat per kanal uten å be om kostnadene delt i variable og faste. Da får du et tall du ikke kan bruke til noen beslutning — bare til å peke på en skyldig.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Intervjueren ber om regnestykket",
+        sp: `<p>Intervjueren sier: <i>«Skriv opp hvordan du vil sette sammen konsernresultatet
+          fra kanalene. Vær presis på nivåene.»</i></p>`,
+        fasit: `<p>Tre nivåer, og det er hele poenget at de er tre og ikke to:</p>
+          <div class="formula">
+            <div class="eq">Driftsresultat = Σᵢ (Omsetningᵢ − Variable kostnaderᵢ) − Σᵢ Direkte faste kostnaderᵢ − Felleskostnader</div>
+            <div class="where">Nivå 1: dekningsbidrag per kanal · Nivå 2: faste kostnader som bare finnes fordi kanalen finnes · Nivå 3: kostnader som finnes uansett</div>
+          </div>
+          <p>Si hva som hører hjemme hvor, med klientens egne poster:</p>
+          <ul>
+            <li><b>Variable kostnader:</b> materialer, direkte lønn i produksjonen, frakt,
+              provisjon. Følger hver enkelt enhet.</li>
+            <li><b>Direkte faste kostnader:</b> butikkleie og butikkbemanning for egne
+              butikker, anbudsavdeling og prosjektledere for kontraktsmarkedet, key
+              account-apparatet mot kjedene. Forsvinner hvis kanalen forsvinner.</li>
+            <li><b>Felleskostnader:</b> fabrikkbygg, maskiner, produksjonsledelse,
+              administrasjon, systemer. Finnes uansett hvem som kjøper møblene.</li>
+          </ul>
+          <p><b>Og si den avgjørende setningen nå, ikke senere:</b> <i>«Nivå tre er ikke en
+          segmentkostnad. Den kan fordeles, men den kan ikke tilskrives. Hvis vi senere skal
+          vurdere å legge ned noe, er det bare nivå én og to som er relevante — pluss den lille
+          delen av nivå tre som faktisk lar seg ta bort.»</i></p>
+          <p><b>Hypotesen:</b> med tre kanaler som selger samme produkt til svært ulike kunder,
+          ligger spriket mellom kanalene, ikke i kostnadsbasen. Kontraktsmarkedet vinnes i
+          anbud, og anbud vinnes på pris — så jeg forventer å finne den laveste dekningsgraden
+          der.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar setter opp to nivåer — omsetning minus
+          kostnader per segment. Et sterkt svar insisterer på tre, og forklarer <i>før det har
+          sett tallene</i> hvorfor det tredje nivået ikke kan brukes i en nedleggelsesbeslutning.
+          Da er du immun mot fella som kommer om to trinn.</p>`,
+        krav: [
+          "Du setter opp tre nivåer: dekningsbidrag, direkte faste kostnader og felleskostnader.",
+          "Du plasserer klientens egne kostnadsposter på riktig nivå, ikke bare generiske kategorier.",
+          "Du sier at fordelte felleskostnader ikke kan brukes i en nedleggelsesbeslutning, før du har sett tallene.",
+          "Du avslutter med en hypotese om hvilken kanal som ligger lavest, og hvorfor.",
+          "Nivåene overlapper ikke, og til sammen dekker de hele driftsresultatet.",
+        ],
+        felle: "Å slå direkte faste kostnader og felleskostnader sammen til «faste kostnader». Det er akkurat den sammenslåingen som gjør at et segmentregnskap ser ut som en beslutningsmodell, og det er den dyreste forenklingen i hele lønnsomhetsanalysen.",
+      },
+      {
+        art: "exhibit",
+        sek: 180,
+        tittel: "Segmentregnskapet",
+        kort: "Kanalene",
+        sp: `<p>Intervjueren legger fram controllerens segmentregnskap og et ark om
+          produksjonen. <i>«Vær så god. Hva ser du?»</i></p>`,
+        figur: `<table class="data">
+            <tr><th>Millioner kroner</th><th class="n">Forhandlere</th><th class="n">Egne butikker</th><th class="n">Prosjekt og kontrakt</th><th class="n">Sum</th></tr>
+            <tr><td>Omsetning</td><td class="n">450</td><td class="n">150</td><td class="n">300</td><td class="n">900</td></tr>
+            <tr><td>Variable kostnader</td><td class="n">297</td><td class="n">78</td><td class="n">234</td><td class="n">609</td></tr>
+            <tr><td><b>Dekningsbidrag</b></td><td class="n"><b>153</b></td><td class="n"><b>72</b></td><td class="n"><b>66</b></td><td class="n"><b>291</b></td></tr>
+            <tr><td>Dekningsgrad</td><td class="n">34,0 %</td><td class="n">48,0 %</td><td class="n">22,0 %</td><td class="n">32,3 %</td></tr>
+            <tr><td>Direkte faste kostnader</td><td class="n">15</td><td class="n">30</td><td class="n">16</td><td class="n">61</td></tr>
+            <tr><td>Fordelte felleskostnader</td><td class="n">90</td><td class="n">30</td><td class="n">80</td><td class="n">200</td></tr>
+            <tr><td><b>Segmentresultat</b></td><td class="n"><b>48</b></td><td class="n"><b>12</b></td><td class="n"><b>−30</b></td><td class="n"><b>30</b></td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Produksjon</th><th class="n">Forhandlere</th><th class="n">Egne butikker</th><th class="n">Prosjekt og kontrakt</th><th class="n">Sum</th></tr>
+            <tr><td>Produserte enheter</td><td class="n">90 000</td><td class="n">30 000</td><td class="n">80 000</td><td class="n">200 000</td></tr>
+            <tr><td>Andel av fabrikkvolum</td><td class="n">45 %</td><td class="n">15 %</td><td class="n">40 %</td><td class="n">100 %</td></tr>
+            <tr><td>Snittpris per enhet</td><td class="n">5 000 kr</td><td class="n">5 000 kr</td><td class="n">3 750 kr</td><td class="n">4 500 kr</td></tr>
+            <tr><td>Fabrikkens kapasitet</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">250 000</td></tr>
+            <tr><td>Kapasitetsutnyttelse</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">80 %</td></tr>
+          </table>
+          <p class="tiny">Felleskostnadene er fordelt etter produserte enheter.</p>`,
+        fasit: `<p>Overskriften først, og den skal binde de to tabellene sammen:</p>
+          <p><i>«Prosjekt og kontrakt er en tredjedel av omsetningen, men leverer bare 23
+          prosent av dekningsbidraget — og bruker 40 prosent av fabrikken. Hele gapet mot
+          bransjen ligger i den ene kanalen.»</i></p>
+          <p>Regn de to tallene som forklarer hvorfor, og gjør det per enhet — det er der
+          fabrikkøkonomien blir synlig:</p>
+          <ul>
+            <li><b>Dekningsbidrag per produsert enhet:</b> Forhandlere 153 / 90 000 =
+              <b>1 700 kr</b>. Egne butikker 72 / 30 000 = <b>2 400 kr</b>. Prosjekt
+              66 / 80 000 = <b>825 kr</b>.</li>
+            <li><b>Felleskostnad per enhet:</b> 200 millioner / 200 000 = <b>1 000 kr</b>.
+              Prosjekt dekker altså 825 av en fordelt kostnad på 1 000. <i>Det er nøyaktig
+              derfor segmentet viser minus.</i></li>
+          </ul>
+          <p>Og se hvorfor: prosjektmøbler selges til <b>3 750 kroner per enhet mot 5 000 i de
+          andre kanalene</b> — 25 prosent lavere — for enheter som beslaglegger like mye
+          fabrikk. Kombinert med en dekningsgrad på 22 mot 34 og 48 prosent, betyr det at
+          prosjekt både prises lavere <i>og</i> koster mer å lage. Det er signaturen til
+          spesialtilpasning solgt i anbud.</p>
+          <p><b>Men stopp før du konkluderer, og si hvorfor du stopper.</b> Det åpenbare
+          neste steget ser ut til å være «legg ned prosjekt, så tjener dere 60 millioner».
+          Det spørsmålet kan ikke besvares fra denne tabellen, og en sterk kandidat sier det
+          rett ut: <i>«Før jeg vurderer nedleggelse må jeg vite hvor mye av de 80 millionene i
+          fordelte felleskostnader som faktisk forsvinner. Fabrikkbygget forsvinner ikke.»</i></p>
+          <p>Legg også merke til to ting som peker motsatt vei av nedleggelse. <b>Prosjekt
+          bidrar med 66 − 16 = 50 millioner</b> etter sine egne direkte kostnader — det er ekte
+          penger inn i fabrikken. Og <b>fabrikken går på 80 prosent</b>: det er ikke kapasitet
+          det er knapphet på, det er etterspørsel.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar leser segmentresultatet på −30 og
+          foreslår å kutte. Et sterkt svar leser de samme tallene, ser at konklusjonen ligger
+          og lokker, og nekter å ta den før fordelingsnøkkelen er skilt fra virkeligheten.</p>`,
+        krav: [
+          "Du kobler de to tabellene: 33 prosent av omsetningen, 23 prosent av dekningsbidraget, 40 prosent av fabrikken.",
+          "Du regner dekningsbidrag per produsert enhet for alle tre kanalene.",
+          "Du ser at prosjekt prises 25 prosent lavere per enhet, og kobler det til anbudsmodellen.",
+          "Du nekter å konkludere om nedleggelse før du vet hvor mye av felleskostnaden som er unngåelig.",
+          "Du merker deg at fabrikken går på 80 prosent, og sier hva det betyr.",
+        ],
+        felle: "Å behandle raden «fordelte felleskostnader» som en kostnad prosjektsegmentet påfører selskapet. Den raden er en fordelingsnøkkel valgt av en controller. Bytt nøkkel fra enheter til omsetning, og prosjektsegmentet går fra minus 30 til minus 13 uten at én eneste krone har flyttet seg i virkeligheten.",
+      },
+      {
+        art: "regne",
+        sek: 150,
+        tittel: "Hva skjer hvis dere legger ned prosjekt?",
+        kort: "Uten prosjekt",
+        sp: `<p>Intervjueren sier: <i>«Godt spørsmål. Her er svaret: legger dere ned
+          prosjektsegmentet ved neste årsskifte, forsvinner de 16 millionene i direkte faste
+          kostnader. Av de 80 millionene i fordelte felleskostnader klarer vi å ta bort 20 —
+          én produksjonslinje og fire årsverk. Resten er fabrikkbygg, maskiner,
+          produksjonsledelse og systemer, og de blir liggende.»</i></p>
+          <p><b>Hvor mye faller konsernets driftsresultat, i millioner kroner?</b></p>`,
+        svar: 30,
+        enhet: "millioner kroner",
+        toleranse: 0.02,
+        fasit: `<p>Bare tre linjer, og de må være de riktige tre:</p>
+          <div class="formula">
+            <div class="eq">Tapt dekningsbidrag: <b>−66</b></div>
+            <div class="eq">Spart direkte faste kostnader: <b>+16</b></div>
+            <div class="eq">Spart felleskostnader, det som faktisk forsvinner: <b>+20</b></div>
+            <div class="eq">Netto: −66 + 16 + 20 = <b>−30 millioner</b></div>
+          </div>
+          <p>Kontrollregn det andre veien, direkte på det som blir igjen:</p>
+          <div class="formula">
+            <div class="eq">153 + 72 (dekningsbidrag) − 15 − 30 (direkte faste) − 180 (gjenværende felles)</div>
+            <div class="eq">= 225 − 225 = <b>0</b></div>
+          </div>
+          <p><b>Og der er casen.</b> Segmentet «taper» 30 millioner. Legger dere det ned, taper
+          dere 30 millioner. Konsernet går fra 30 millioner i pluss til <b>null</b> — fra 3,3
+          prosent margin til ingenting.</p>
+          <p>Se hva som skjedde med de andre: <b>felleskostnaden per enhet går fra 1 000 til
+          1 500 kroner</b> (180 millioner delt på 120 000 enheter). Forhandlere og egne
+          butikker får femti prosent mer overhead på hver eneste stol, uten at de har gjort
+          noe galt. De 30 millionene som sto som tap på prosjekt, var aldri et tap — det var en
+          fordeling.</p>
+          <p><b>Regelen, sagt generelt:</b> et segment skal måles på <i>hva som forsvinner
+          hvis det forsvinner</i> — dekningsbidrag minus unngåelige kostnader. På det målet
+          bidrar prosjekt med 66 − 16 − 20 = <b>+30 millioner i året</b> til å bære fabrikken.
+          Segmentregnskapet sa minus 30. Beslutningsregnskapet sier pluss 30. Samme tall,
+          motsatt fortegn, og forskjellen er utelukkende fordelingsnøkkelen.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar regner riktig og stopper ved 30. Et
+          sterkt svar sier <i>betingelsen som ville snudd konklusjonen</i>: hvis de 80 000
+          frigjorte enhetene kunne selges gjennom forhandlerkanalen til 1 700 kroner i
+          dekningsbidrag, ville det vært 136 millioner, og nedleggelse ville vært åpenbart
+          riktig. Men fabrikken går på 80 prosent — de har allerede ledig kapasitet og selger
+          den ikke. Det er ikke plass det mangler, det er etterspørsel. <b>Alternativkostnaden
+          ved prosjektvolumet er derfor null, og da er 825 kroner per enhet 825 kroner mer enn
+          en tom maskin gir.</b></p>`,
+        krav: [
+          "Du bruker bare unngåelige kostnader i regnestykket, ikke de fordelte.",
+          "Du kontrollregner andre veien på det som blir igjen, og får null.",
+          "Du sier hva som skjer med felleskostnad per enhet for de gjenværende kanalene.",
+          "Du formulerer regelen generelt: dekningsbidrag minus unngåelige kostnader.",
+          "Du navngir betingelsen som ville snudd svaret, og avviser den med kapasitetstallet.",
+        ],
+        felle: "Å legge segmentets underskudd rett til konsernresultatet: 30 pluss 30 er 60. Det forutsetter at hver krone fordelt felleskostnad forsvinner sammen med segmentet. Fabrikkbygget legges ikke ned fordi anbudsavdelingen gjør det, og denne feilen er den vanligste dyre feilen i virkelige styrerom.",
+      },
+      {
+        art: "ide",
+        sek: 120,
+        tittel: "Hva bør klienten gjøre i stedet?",
+        sp: `<p>Intervjueren sier: <i>«Enig, vi legger det ikke ned. Hva gjør vi da?»</i>
+          <b>List tiltakene, én per linje, to minutter.</b></p>`,
+        liste: [
+          "Innføre et gulv for dekningsbidrag per enhet i anbud, og la avdelingen si nei under gulvet",
+          "Standardisere prosjektsortimentet: færre spesialtilpasninger, flere hyllevarer i prosjektfarger",
+          "Prise spesialtilpasning separat i stedet for å legge den inn i enhetsprisen",
+          "Måle og styre prosjekt på dekningsbidrag per fabrikktime, ikke på omsetning",
+          "Bytte fordelingsnøkkel eller slutte å fordele felleskostnader i segmentrapporteringen",
+          "Gå etter prosjekter med gjenkjøp og påfyll, der marginen ligger i ettermarkedet",
+          "Selge de siste 20 prosentene av fabrikkapasiteten før noe som helst kuttes",
+          "Bygge lengre rammeavtaler med hotellkjeder, som gir volum uten anbudspress hver gang",
+          "Øke andelen egne butikker, der dekningsbidraget per enhet er 2 400 kroner",
+          "Redusere variable kostnader i prosjekt gjennom serielengde og felles komponenter",
+          "Bruke prosjektvolum bevisst som lastutjevning i lavsesong, og prise det deretter",
+          "Gå gjennom anbudsporteføljen og avslutte de kontraktene som ligger under gulvet ved fornyelse",
+          "Vurdere eksport av forhandlervolum for å fylle fabrikken med høyere dekningsbidrag",
+        ],
+        fasit: `<p>Del i tre og si delingen først: <b>få mer betalt</b>, <b>bruke mindre
+          fabrikk per krone</b>, og <b>fylle den ledige kapasiteten med noe bedre</b>.</p>
+          <p>Prioriter så, og la analysen bestemme. Prosjekt må løfte dekningsbidraget fra 825
+          til 1 000 kroner per enhet for å bære sin fordelte andel. Det kan skje på to måter,
+          og de er <i>ikke</i> like realistiske:</p>
+          <ul>
+            <li><b>Prisen opp 4,7 prosent</b> — 175 kroner på en pris på 3 750. I et marked
+              der kontraktene vinnes i anbud, betyr det som regel at volumet forsvinner.</li>
+            <li><b>Variable kostnader ned 6 prosent</b> — 175 kroner av en variabel kostnad på
+              2 925 kroner per enhet. Det er nøyaktig samme beløp per enhet, 14 millioner
+              i året, og det er fullt oppnåelig gjennom standardisering og serielengde.</li>
+          </ul>
+          <p>Samme kroner, helt ulik gjennomførbarhet. <b>Å si det er hele forskjellen på en
+          idéliste og en anbefaling.</b></p>`,
+        krav: [
+          "Du sier oppdelingen din før du lister.",
+          "Idéene treffer både prisen, kostnaden per enhet og kapasitetsutnyttelsen.",
+          "Minst én idé angriper styringen selv — gulv for dekningsbidrag eller endret fordelingsnøkkel.",
+          "Du prioriterer til slutt og sammenligner prisveien med kostnadsveien.",
+          "Du sier hvorfor kostnadsveien er mer realistisk enn prisveien i et anbudsmarked.",
+        ],
+        felle: "Å foreslå at prosjektvolum erstattes av forhandlervolum. Fabrikken går på 80 prosent — hvis det fantes forhandleretterspørsel å ta, ville den allerede vært tatt. Tiltaket forutsetter et problem klienten ikke har.",
+      },
+      {
+        art: "syntese",
+        sek: 120,
+        tittel: "Anbefalingen",
+        sp: `<p>Intervjueren sier: <i>«Familien sitter samlet i styrerommet, og de har allerede
+          bestemt seg for å legge ned prosjekt. Du har ett minutt.»</i></p>`,
+        fasit: `<p>Svaret først, og det må rive ned beslutningen de allerede har tatt — med et
+          tall, ikke med et forbehold.</p>
+          <blockquote><p><b>«Ikke legg ned prosjekt. Segmentet ser ut til å tape 30 millioner,
+          men legger dere det ned, faller konsernresultatet fra 30 millioner til null.»</b></p>
+          <p>Grunnen er at de 80 millionene som er belastet prosjekt, er fordelte
+          felleskostnader, ikke unngåelige. Bare 20 av dem forsvinner med segmentet. Resten er
+          fabrikk, maskiner og ledelse, og de blir liggende og må bæres av de to andre
+          kanalene — felleskostnaden per enhet går fra 1 000 til 1 500 kroner. Målt på det
+          eneste som betyr noe i en slik beslutning, dekningsbidrag minus unngåelige kostnader,
+          <b>bidrar prosjekt med pluss 30 millioner i året</b> til å bære fabrikken. Og
+          fabrikken går på 80 prosent, så det er ingen bedre bruk av kapasiteten som står og
+          venter.</p>
+          <p>Men dere har et ekte problem, og det er ikke at prosjekt finnes — det er at
+          prosjekt gir 825 kroner i dekningsbidrag per enhet mot 1 700 og 2 400 i de andre
+          kanalene, på enheter som bruker like mye fabrikk. Der ligger hele gapet mot
+          bransjens 7 prosent.</p>
+          <p>Konkret anbefaler jeg to ting. Sett et gulv for dekningsbidrag per enhet i anbud,
+          og gi avdelingen lov til å si nei under gulvet. Og ta variable kostnader i prosjekt
+          ned 6 prosent gjennom standardisering — det er 175 kroner per enhet, 14 millioner i
+          året, og nøyaktig samme beløp som en prisøkning på knapt 5 prosent ville gitt, men
+          uten å miste volumet.</p>
+          <p>Den store risikoen er at et gulv koster dere volum på kort sikt, og at fabrikken
+          da går fra 80 prosent og nedover. Neste steg jeg ville tatt, er å gå gjennom
+          anbudsporteføljen kontrakt for kontrakt og se hvor mange som faktisk ligger under
+          gulvet — det avgjør om dette er en justering eller en omstilling.»</p></blockquote>`,
+        krav: [
+          "Første setning avviser beslutningen familien har tatt, og gjør det med et tall.",
+          "Du forklarer forskjellen på fordelte og unngåelige kostnader uten å bruke fagsjargong.",
+          "Du sier hva det ekte problemet er: 825 kroner mot 1 700 og 2 400 per enhet.",
+          "Du gir to konkrete tiltak, ikke bare en avvisning av nedleggelsen.",
+          "Du nevner risikoen ved et dekningsbidragsgulv og sier hva neste steg er.",
+        ],
+        felle: "Å vinne argumentet og glemme oppdraget. Eierne spurte hvorfor de ligger under bransjen. Svarer du bare at nedleggelse er feil, har du reddet dem fra en dyr beslutning og latt dem stå igjen uten en eneste ting å gjøre på mandag.",
+      },
+    ],
+  },
+  {
+    id: "turnaround-entreprenor",
+    label: "Entreprenøren som har tre måneder igjen",
+    type: "Turnaround",
+    nivå: "Avansert",
+    firma: "Generisk",
+    stil: "candidate-led",
+    minutter: 40,
+    ch: [],
+    blurb: "Selskapet taper penger og har dårlig tid. Trener den ene rekkefølgen som avgjør en turnaround: stopp blødningen, diagnostiser, og skill det som virker på uker fra det som virker på år.",
+    prompt: `<p>Klienten er <b>Løvaas Entreprenør</b>, en familieeid byggentreprenør på Østlandet med
+      1 800 millioner kroner i omsetning og 620 ansatte. I fjor tapte selskapet <b>145 millioner</b> på driften.</p>
+      <p>Banken har varslet at trekkrettigheten på 250 millioner <b>ikke fornyes automatisk</b> når den
+      forfaller om fire måneder, og at den vil se en troverdig plan først. Egenkapitalandelen er nede i
+      14 prosent mot et lånevilkår på 20.</p>
+      <p>Styret stiller deg ett spørsmål, som egentlig er to: <b>Hva gjør vi de neste tre månedene, og
+      finnes selskapet om tre år?</b></p>`,
+    bakgrunn: `<p>Casen er konstruert, men mønsteret er det vanligste i norsk entreprenørbransje: selskaper
+      går konkurs med full ordrereserve. Grunnen er at en entreprenør bygger ferdig lenge før den får betalt.
+      Arbeid som er utført, men ikke fakturert, står i balansen som <i>opptjent, ikke fakturert produksjon</i>,
+      og hver krone der er en krone som er betalt ut i lønn og materialer uten å ha kommet inn igjen.</p>
+      <p>Derfor er turnaround en egen sjanger og ikke en lønnsomhetscase med hastverk. Resultatregnskapet
+      sier hvor godt selskapet driver. Kontantstrømmen sier hvor lenge det får lov til å fortsette. En
+      kandidat som starter med profitt-treet, svarer på feil spørsmål — og casen er bygget for å avsløre
+      nøyaktig det.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        kort: "Spørsmål",
+        tittel: "Hva må du vite først?",
+        sp: `<p>Styret har gitt deg oppdraget. <b>Hva spør du om før du strukturerer?</b>
+          Tenk på hva som må være avklart før noe annet gir mening.</p>`,
+        fasit: `<p>Den avgjørende avklaringen i en turnaround er ikke <i>hvorfor</i> selskapet taper penger.
+          Det er <b>hvor lenge det har på seg</b>. En plan som virker om ni måneder, er verdiløs hvis kassen
+          er tom om tre.</p>
+          <ul>
+            <li><b>Hvor mye likviditet finnes i dag, og hvor mye av trekkrettigheten er allerede brukt?</b>
+              Ingenting annet betyr noe før dette tallet ligger på bordet.</li>
+            <li><b>Er tapet konsentrert i noen få prosjekter, eller ligger det jevnt utover porteføljen?</b>
+              Dette ene spørsmålet skiller et strukturelt problem fra et operasjonelt, og dermed to helt
+              ulike anbefalinger.</li>
+            <li><b>Hvor stor del av ordrereserven er fastpris inngått før kostnadsinflasjonen, og finnes det
+              indeksklausuler eller endringskrav som ikke er fremmet?</b> Ufremmede krav er kontanter som
+              ligger og venter.</li>
+            <li><b>Hva er eierens mål og evne?</b> Friske penger, salg, eller styrt avvikling. De tre gir
+              motsatt anbefaling, og familien har ikke nødvendigvis samme svar som banken.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar spør om kostnadene og marginene — de spørsmålene hører
+          hjemme i en lønnsomhetscase. Et sterkt svar spør om <i>tid og penger på konto</i> først, og sier
+          hvorfor: rekkefølgen i en turnaround er gitt av hvor lenge selskapet får lov til å leve.</p>`,
+        krav: [
+          "Ditt første spørsmål handler om likviditet, ikke om lønnsomhet.",
+          "Du spør om tapet er konsentrert eller spredt, fordi det avgjør diagnosen.",
+          "Du avklarer eierens mål og evne til å skyte inn penger.",
+          "Du sier hvorfor rekkefølgen er slik: en plan som virker for sent, er ingen plan.",
+        ],
+        felle: "Å starte med profitt-treet. Et selskap som går tom for penger, dør før marginen rekker å bli bedre — og intervjueren leser det umiddelbart som at du ikke har forstått hva slags case dette er.",
+      },
+      {
+        art: "struktur",
+        sek: 180,
+        kort: "Struktur",
+        tittel: "Strukturer oppdraget",
+        sp: `<p>Intervjueren gir deg én opplysning før du strukturerer: <b>av fjorårets tap på 145 millioner
+          kom 110 fra to fastpriskontrakter. Resten av porteføljen tjente 15 millioner før felleskostnader
+          på 50.</b></p>
+          <p>Strukturer nå oppdraget. Husk at styret stilte to spørsmål, ikke ett — og avslutt med hypotesen din.</p>`,
+        fasit: `<p>Den strukturen som virker, er <b>tidsdelt</b>. Det er ikke en pen detalj, det er selve
+          logikken: hver horisont har sitt eget spørsmål, sin egen måleenhet og sine egne tiltak.</p>
+          <div class="formula">
+            <div class="eq">Horisont 1 · 0–13 uker · Overleve</div>
+            <div class="where">Måleenhet: kontanter. Kontantstrøm = innbetalinger − utbetalinger − binding i
+              arbeidskapital − renter, avdrag og investeringer. Spørsmålet er ikke «tjener vi penger», men
+              «rekker vi fram til neste beslutning».</div>
+            <div class="eq">Horisont 2 · 3–12 måneder · Stoppe tapet</div>
+            <div class="where">Måleenhet: sluttprognose per kontrakt. Er tapet i noen få kontrakter, eller i
+              måten selskapet utfører prosjekter på?</div>
+            <div class="eq">Horisont 3 · 1–3 år · Er modellen levedyktig</div>
+            <div class="where">Måleenhet: kontraktsform, segmentmiks, kapitalstruktur og eierskap.</div>
+          </div>
+          <p><b>Diagnosen som binder dem sammen</b> er skillet strukturelt mot operasjonelt:</p>
+          <ul>
+            <li><b>Strukturelt:</b> prisingen av kontraktene er feil — fastpris uten indeksregulering i et
+              marked med kostnadsinflasjon — eller selskapet er for lite til å bære risikoen det tar.</li>
+            <li><b>Operasjonelt:</b> prosjektstyring, innkjøp, bemanning og håndtering av endringsordrer.</li>
+            <li><b>Testen som skiller dem:</b> er tapet konsentrert eller spredt? Opplysningen du nettopp fikk
+              svarer på det. 110 av 145 ligger i to kontrakter, og resten av porteføljen tjener 15 millioner.
+              Det peker mot kontraktsproblem, ikke driftsproblem — og felleskostnadene på 50 millioner er da
+              den neste tingen å teste, for de er for høye for det som er igjen.</li>
+          </ul>
+          <p><b>Hypotesen:</b> Løvaas har et akutt likviditetsproblem og et avgrenset kontraktsproblem, ikke
+          et driftsproblem. Jeg vil derfor først regne rekkevidden i uker, og deretter se sluttprognosen på de
+          to kontraktene. Jeg ser <i>ikke</i> på generelle kostnadskutt nå — de virker for sent og koster penger
+          først.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar deler i inntekter og kostnader og legger på «likviditet»
+          som en fjerde gren. Et sterkt svar gjør <i>tid</i> til den øverste aksen, sier hva som måles i hver
+          horisont, og bruker de 110 av 145 til å ta stilling allerede i strukturen.</p>`,
+        krav: [
+          "Tid er den øverste aksen i strukturen din, ikke en gren nederst.",
+          "Du skiller eksplisitt mellom strukturelt og operasjonelt problem, og sier hvilken test som skiller dem.",
+          "Du bruker opplysningen om at 110 av 145 ligger i to kontrakter til å ta stilling.",
+          "Du sier hva du ikke skal se på nå, og hvorfor det er for tidlig.",
+          "Du avslutter med hypotese og hvilket tall du vil ha først.",
+        ],
+        felle: "Å behandle turnaround som en kostnadscase. Casen har en tidsdimensjon som er hele poenget: spørsmålet er ikke bare hva som må gjøres, men hva som må gjøres innen 90 dager mot innen tre år.",
+      },
+      {
+        art: "exhibit",
+        sek: 150,
+        kort: "Figur",
+        tittel: "Kontantstrømbroen",
+        sp: `<p>Økonomidirektøren gir deg prognosen for de neste fire månedene, sammen med hva selskapet
+          faktisk har å gå på. <b>Hva ser du?</b></p>`,
+        figur: `<table class="data">
+            <tr><th>Millioner kroner</th><th class="n">Neste fire måneder</th></tr>
+            <tr><td>Driftsresultat før avskrivning (EBITDA)</td><td class="n">−8</td></tr>
+            <tr><td>Endring i opptjent, ikke fakturert produksjon</td><td class="n">−44</td></tr>
+            <tr><td>Endring i kundefordringer</td><td class="n">−22</td></tr>
+            <tr><td>Endring i leverandørgjeld</td><td class="n">+16</td></tr>
+            <tr><td>Renter og avdrag</td><td class="n">−24</td></tr>
+            <tr><td>Investeringer i maskiner (allerede bestilt)</td><td class="n">−14</td></tr>
+            <tr><td><b>Netto kontantstrøm</b></td><td class="n"><b>−96</b></td></tr>
+            <tr><td>Kontanter i banken i dag</td><td class="n">24</td></tr>
+            <tr><td>Ubenyttet trekkrettighet (ramme 250, brukt 202)</td><td class="n">48</td></tr>
+            <tr><td><b>Tilgjengelig likviditet</b></td><td class="n"><b>72</b></td></tr>
+          </table>`,
+        fasit: `<p>Overskriften først, og den er ikke den man venter:</p>
+          <p><i>«Driften er nesten i balanse. Bare 8 av de 96 millionene som forsvinner, er driftstap. Over
+          halvparten — 50 millioner — er arbeidskapital: arbeid selskapet allerede har utført og betalt for,
+          men ikke fått penger for.»</i></p>
+          <p>Regnestykket bak den setningen: 44 i ufakturert produksjon pluss 22 i ubetalte fordringer, minus
+          16 i leverandørgjeld som strekkes, er <b>50 millioner</b> bundet på fire måneder. Driftstapet er
+          <b>8</b>, altså 8 prosent av kontantunderskuddet.</p>
+          <p>Tre nivå-2-innsikter som avgjør anbefalingen:</p>
+          <ul>
+            <li><b>Leverandørgjelden vokser 16 millioner.</b> Selskapet finansierer seg allerede på
+              underleverandørene sine. Det er en lånekilde som tar slutt brått — og som varsles gjennom hele
+              bransjen i det øyeblikket noen ikke får betalt.</li>
+            <li><b>Det kjøpes maskiner for 14 millioner mens kassen tømmes.</b> Dette er den enkleste kronen i
+              hele casen, og den ligger fullt ut innenfor selskapets egen kontroll.</li>
+            <li><b>De 48 millionene i ubenyttet trekkrettighet er bankens penger</b>, i en bank som nettopp har
+              varslet at den vurderer å trekke dem. Regn med dem, men si høyt at de ikke er sikre.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar leser −96 og konkluderer at selskapet blør. Et sterkt
+          svar deler de 96 i drift, arbeidskapital, finansiering og investering — og ser at bare 8 er drift.
+          Den delingen snur hele anbefalingen fra kostnadskutt til kontantinnhenting.</p>`,
+        krav: [
+          "Du deler de 96 millionene i drift, arbeidskapital, finansiering og investering før du konkluderer.",
+          "Du ser at bare 8 av 96 er driftstap, og sier hva det betyr for hvilke tiltak som virker.",
+          "Du legger merke til at leverandørgjelden vokser, og kaller det det det er: en lånekilde.",
+          "Du sier at den ubenyttede trekkrettigheten ikke er sikre penger.",
+        ],
+        felle: "Å lese −96 som at selskapet taper 96 millioner. Det taper 8 og binder 88. Blander du resultat og kontantstrøm i en turnaround, foreskriver du kostnadskutt mot et arbeidskapitalproblem.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        kort: "Regning",
+        tittel: "Hvor lenge holder likviditeten?",
+        sp: `<p>Legg til grunn at kontantstrømmen fordeler seg jevnt over de fire månedene.</p>
+          <p><b>Hvor lenge holder den tilgjengelige likviditeten? Svar i måneder.</b></p>
+          <p class="tiny">Si oppsettet høyt før du regner, og sanity-sjekk tallet etterpå.</p>`,
+        svar: 3,
+        enhet: "måneder",
+        toleranse: 0.02,
+        fasit: `<p>Rekkevidde er tilgjengelig likviditet delt på forbruk per periode. Ikke noe mer.</p>
+          <div class="formula">
+            <div class="eq">Kontantforbruk per måned: 96 / 4 = 24 millioner</div>
+            <div class="eq">Tilgjengelig likviditet: 24 + 48 = 72 millioner</div>
+            <div class="eq">Rekkevidde: 72 / 24 = <b>3,0 måneder</b>, altså rundt 13 uker</div>
+          </div>
+          <p><b>Her ligger poenget:</b> trekkrettigheten forfaller om <i>fire</i> måneder. Kassen er tom om
+          <i>tre</i>. Selskapet møter altså veggen før banken i det hele tatt rekker å ta stilling til
+          fornyelsen. Det betyr at forhandlingen med banken må starte nå, ikke ved forfall — og det er en
+          konklusjon du bare kommer til ved å holde rekkevidden opp mot forfallsdatoen.</p>
+          <p><b>Sanity-sjekk:</b> 24 millioner i måneden mot en omsetning på 1 800 / 12 = 150 millioner i
+          måneden er 16 prosent av omsetningen som forsvinner ut av kassen. Ingen entreprenør overlever den
+          raten lenge, og tallet er dermed troverdig som krisetall.</p>
+          <p><b>Og så det viktigste — regn baklengs, for det er der anbefalingen ligger.</b> Stopper selskapet
+          maskininvesteringen (14) og henter inn halvparten av arbeidskapitalen (25 av 50), faller forbruket
+          til (96 − 39) / 4 = <b>14,25 millioner i måneden</b>, og rekkevidden går fra 3,0 til
+          72 / 14,25 = <b>5,1 måneder</b>. To tiltak, ingen oppsigelser, og selskapet lever forbi
+          bankforfallet.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar regner 3 måneder og stopper. Et sterkt svar regner
+          3 måneder, holder det opp mot fire måneder til forfall, og regner deretter hva to konkrete tiltak
+          gjør med tallet. Det er forskjellen på en observasjon og en plan.</p>`,
+        krav: [
+          "Du regner rekkevidde, ikke margin. Spørsmålet var hvor lenge, ikke hvor mye.",
+          "Du bruker kontanter pluss ubenyttet trekkrettighet som tilgjengelig likviditet.",
+          "Du holder de tre månedene opp mot bankforfallet på fire — det er hele poenget.",
+          "Du sanity-sjekker mot omsetningen: 24 av 150 millioner i måneden.",
+          "Du regner baklengs på hva ett eller to tiltak gjør med rekkevidden.",
+        ],
+        felle: "Å regne rekkevidden på kontantbeholdningen alene (24 / 24 = én måned) eller på hele trekkrammen på 250, som forlengst er delvis brukt. Tilgjengelig likviditet er kontanter pluss det som faktisk kan trekkes — verken mer eller mindre.",
+      },
+      {
+        art: "ide",
+        sek: 150,
+        kort: "Idéer",
+        tittel: "Hva gjør dere, og når",
+        sp: `<p><b>List tiltak — men del dem etter når de virker</b>, ikke etter hva de handler om.
+          Si oppdelingen først.</p>
+          <p class="tiny">Denne uken · dette kvartalet · de neste tre årene.</p>`,
+        liste: [
+          "Stoppe den bestilte maskininvesteringen på 14 millioner, eller be om leasing i stedet for kjøp",
+          "Fakturere alt opptjent arbeid som ligger ufakturert, og gå fra månedlig til ukentlig fakturering",
+          "Sette én person på innkreving av de ti største forfalte fordringene, med daglig oppfølging",
+          "Fremme endringskrav og tilleggsvederlag som prosjektlederne har utsatt fordi de er ubehagelige",
+          "Innføre en rullerende likviditetsprognose på 13 uker som styres ukentlig av daglig leder",
+          "Stanse all rekruttering og alle innkjøp som ikke er kontraktsfestet, med umiddelbar virkning",
+          "Gå til banken denne uken med åpen bok og be om avdragsutsettelse mot ukentlig rapportering",
+          "Lage sluttprognose for hvert enkelt prosjekt, og skille tapsprosjektene fra resten",
+          "Selge maskinparken og lease den tilbake for å frigjøre bundet kapital",
+          "Avvikle eller reforhandle de to største tapskontraktene, om nødvendig ved å kjøpe seg ut",
+          "Redusere administrasjonen i takt med at ordrereserven krymper, ikke før",
+          "Slutte å ta fastpriskontrakter over en viss størrelse uten indeksregulering",
+          "Spisse porteføljen mot segmentene der selskapet faktisk tjener penger, og forlate resten",
+          "Hente egenkapital fra familien eller ny investor, eller fusjonere med en aktør som tåler risikoen",
+        ],
+        fasit: `<p>Oppdelingen <i>er</i> svaret her. Si den før du lister: <b>uker · kvartal · år.</b>
+          Et tiltak som virker om ni måneder, er ikke feil — det er bare ikke først.</p>
+          <ul>
+            <li><b>Uker (kontanter):</b> stopp investeringen, fakturer det opptjente, krev inn fordringene,
+              fremm endringskravene, innfør 13-ukersprognosen, gå til banken. Alt sammen henter penger som
+              allerede tilhører selskapet.</li>
+            <li><b>Kvartal (stoppe tapet):</b> sluttprognose per prosjekt, håndtere de to tapskontraktene,
+              sale-leaseback på maskiner, tilpasse administrasjonen.</li>
+            <li><b>År (modellen):</b> kontraktsform med indeksregulering, spisset segmentmiks, ny
+              kapitalstruktur eller ny eier.</li>
+          </ul>
+          <p><b>Legg merke til hva som ikke står i ukesbunken: oppsigelser.</b> Det er kontraintuitivt og det
+          skiller. Oppsigelser koster penger før de sparer penger — sluttpakker, oppsigelsestid og tapt
+          produksjonskapasitet i prosjektene som fortsatt går. I en likviditetskrise er nedbemanning derfor et
+          kvartalstiltak, ikke et uketiltak.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar grupperer etter tema — kostnader, inntekter, finans.
+          Et sterkt svar grupperer etter <i>virkningstidspunkt</i>, og kan begrunne hvorfor det mest åpenbare
+          kostnadstiltaket havner i andre bunke.</p>`,
+        krav: [
+          "Du deler etter når tiltaket virker, ikke etter hva det handler om.",
+          "Ukesbunken består av tiltak som henter kontanter selskapet allerede har krav på.",
+          "Du plasserer nedbemanning i kvartalsbunken og begrunner hvorfor den ikke hører hjemme i uker.",
+          "Minst ett tiltak angriper kontraktsformen, som er den strukturelle årsaken.",
+          "Du prioriterer til slutt i stedet for å la de tre bunkene ligge like tunge.",
+        ],
+        felle: "Å blande målene: «vi må kutte 15 prosent av kostnadene» er et lønnsomhetstiltak i en likviditetskrise. Det virker om tre kvartaler og koster penger de tre første — akkurat de tre selskapet har igjen.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        kort: "Anbefaling",
+        tittel: "Anbefalingen",
+        sp: `<p>Styrelederen og bankens kunderådgiver sitter i samme rom. Du har <b>ett minutt</b>.</p>
+          <p class="tiny">Skriv den slik du ville sagt den — ikke som notater.</p>`,
+        fasit: `<p>Svaret først, og i en turnaround er svaret alltid en rekkefølge.</p>
+          <blockquote><p><b>«Løvaas har tre måneder på seg, ikke fire. Kassen tømmes før trekkrettigheten
+          forfaller. Derfor er det første dere gjør, å kjøpe tid — ikke å kutte kostnader.»</b></p>
+          <p>Tre grunner. For det første er driften nesten i balanse: bare 8 av de 96 millionene som forsvinner
+          i kvartalet, er driftstap. For det andre ligger 50 millioner i arbeid dere allerede har utført, men
+          ikke fakturert eller fått betalt — det er deres egne penger, ikke bankens. For det tredje kjøper dere
+          maskiner for 14 millioner mens kassen tømmes.</p>
+          <p>Stopper dere investeringen og henter inn halvparten av arbeidskapitalen, faller forbruket fra 24
+          til 14 millioner i måneden, og rekkevidden går fra tre til fem måneder — forbi bankforfallet. Det er
+          tiden dere trenger for å gjøre det egentlige arbeidet: to fastpriskontrakter står for 110 av
+          fjorårets tap på 145, mens resten av porteføljen tjener penger. Dette er et kontraktsproblem, ikke
+          et driftsproblem, og løsningen er å avslutte eller reforhandle de to — og aldri signere en tredje
+          uten indeksregulering.</p>
+          <p>Den største risikoen er at banken trekker de 48 millionene i ubenyttet kreditt før dere rekker å
+          bruke dem. Derfor bør dere gå dit denne uken med en 13-ukers prognose og åpen bok, i stedet for å
+          vente til forfall. Neste steg er sluttprognose på hvert enkelt prosjekt — det avgjør om tapet er to
+          kontrakter eller tjue, og dermed om dette er en redning eller en avvikling.»</p></blockquote>
+          <p><b>Sterkt mot middels:</b> et middels svar sier «skaff mer likviditet og kutt kostnader». Et
+          sterkt svar sier <i>hvor mange måneder</i> selskapet har, <i>hvor mange det får</i> av to navngitte
+          tiltak, og hvorfor kostnadskutt ikke står først. Og det tør å nevne at avvikling er et mulig utfall.</p>`,
+        krav: [
+          "Første setning gir tidsfristen og rekkefølgen, ikke en oppsummering av analysen.",
+          "Du bruker de harde tallene: 8 av 96 er drift, 50 er arbeidskapital, 110 av 145 er to kontrakter.",
+          "Du sier hva rekkevidden blir etter tiltakene, ikke bare hva den er i dag.",
+          "Du adresserer banken direkte, siden den sitter i rommet og eier utfallet.",
+          "Du nevner risiko og ett konkret neste steg, og utelukker ikke at svaret kan bli avvikling.",
+        ],
+        felle: "Å love styret at selskapet er reddet. Du vet at 110 av 145 ligger i to kontrakter, men ikke om sluttprognosene på de resterende prosjektene holder. En turnaround-anbefaling som ikke sier hva den ennå ikke vet, er ikke troverdig for en bank.",
+      },
+    ],
+  },
+  {
+    id: "pe-brannsikring",
+    label: "Plattformen fondet må tro på i fem år",
+    type: "PE-vurdering",
+    nivå: "Avansert",
+    firma: "Generisk",
+    stil: "candidate-led",
+    minutter: 40,
+    ch: [],
+    blurb: "Et oppkjøpsfond stiller tre spørsmål: er inntjeningen varig, finnes det en verdiskapingsplan utover multippelekspansjon, og finnes det en exit. Trener avkastningsregning med gjeld.",
+    prompt: `<p>Klienten er <b>Kleiven Kapital</b>, et nordisk oppkjøpsfond som investerer i
+      mellomstore selskaper. De ser på <b>Sikring Nord</b>, en familieeid leverandør av brann- og
+      sikkerhetsservice: lovpålagte årskontroller av slokkeutstyr, sprinkleranlegg, nødlys og
+      brannalarm for næringsbygg, sykehjem og skoler.</p>
+      <p>Sikring Nord omsetter for 580 millioner kroner med 90 millioner i EBITDA. Familien vil ha
+      <b>10 ganger EBITDA — 900 millioner kroner</b>. Fondet finansierer med 540 millioner i gjeld
+      og 360 millioner i egenkapital, og har et avkastningskrav på <b>2,5 ganger innskutt
+      egenkapital over fem år</b>.</p>
+      <p>Kleiven Kapital vil bruke Sikring Nord som <b>plattform</b> og kjøpe opp mindre lokale
+      aktører rundt den. <b>Bør de investere?</b></p>`,
+    bakgrunn: `<p>Casen er konstruert, men både bransjen og strukturen er hentet fra virkeligheten.
+      Brann- og sikkerhetsservice er en klassisk nordisk plattformsektor: etterspørselen er
+      <i>lovpålagt</i> og dermed lite konjunkturfølsom, inntektene er abonnementslignende
+      årskontroller, markedet består av hundrevis av små lokale aktører, og en kjøper kan legge
+      dem inn på egen ruteplanlegging og eget administrasjonsapparat. Det er oppskriften på en
+      buy-and-build.</p>
+      <p>Det som gjør PE-casen til en egen sjanger, er at tre spørsmål stilles i rekkefølge, og at
+      de ikke er de samme som i en vanlig M&amp;A-case. <b>Er inntjeningen varig?</b> — altså tåler
+      EBITDA-en de neste fem årene uten dagens eier. <b>Finnes det en verdiskapingsplan?</b> — noe
+      som gjør selskapet mer verdt, uavhengig av at multipler kan stige. <b>Finnes det en exit?</b>
+      — en kjøper som vil betale om fem år, av en annen grunn enn at hun også håper på
+      multippelekspansjon.</p>
+      <p>Og over det hele ligger gjelden. Med 540 av 900 millioner lånt er egenkapitalen 40 prosent
+      av selskapsverdien. Det gjør at både oppside og nedside treffer eierne med to og en halv
+      gangs kraft. En kandidat som ikke sier det høyt, har ikke forstått hva som skiller en
+      PE-vurdering fra en industriell.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        kort: "Avklar",
+        tittel: "Hva vil du vite før du begynner?",
+        sp: `<p>Du har hørt prompten. Hvilke spørsmål stiller du før du strukturerer?</p>`,
+        fasit: `<p>De tre avklaringene som betyr mest i en PE-case er <b>holdeperioden</b>,
+          <b>exit-ruten</b> og <b>kvaliteten på EBITDA-tallet</b>. De to første definerer hva
+          fondet faktisk kjøper; det tredje avgjør om prisen er regnet på noe ekte.</p>
+          <ul>
+            <li><b>Hva er holdeperioden, og hvem er den tenkte kjøperen ved exit?</b> Fem år er
+              oppgitt, men ikke hvem som skal kjøpe. En industriell kjøper, et større fond, eller
+              børs — de tre betaler for forskjellige ting, og det bestemmer hva planen bør
+              inneholde.</li>
+            <li><b>Er de 90 millionene i EBITDA rapportert eller justert?</b> Familieeide selskaper
+              har normaliseringer: eierlønn, husleie til eierens eiendomsselskap, engangsposter.
+              Hele prisen er 10 ganger dette tallet, så et avvik på 5 millioner er 50 millioner i
+              pris.</li>
+            <li><b>Hvor mye av veksten er organisk?</b> Hvis EBITDA har vokst fordi selskapet har
+              kjøpt opp små aktører, er den underliggende veksten en annen — og da er
+              verdiskapingsplanen delvis allerede tatt ut.</li>
+            <li><b>Hva slags kontrakter er årskontrollene?</b> Løpetid, oppsigelsestid,
+              prisreguleringsklausul, og fornyelsesgrad. Det er dette som avgjør om inntjeningen
+              er varig.</li>
+            <li><b>Er 540 millioner i gjeld faktisk kommittert av en bank?</b> Seks ganger EBITDA er
+              i overkant. Får de ikke lånet, er hele avkastningsregnestykket et annet.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar ber om en due diligence-liste. Et sterkt
+          svar spør om de fire–fem tingene som kan endre <i>prisen fondet kan betale</i>, og sier
+          det: «Jeg spør fordi hvert av disse svarene flytter maksprisen.»</p>`,
+        krav: [
+          "Du spør om holdeperiode og exit-rute, ikke bare om selskapet.",
+          "Du spør om EBITDA er justert, siden hele prisen er en multippel av det tallet.",
+          "Du spør om hvor mye av veksten som er organisk mot oppkjøpt.",
+          "Du spør om kontraktsvilkår og fornyelse, ikke bare om omsetningsvekst.",
+          "Du knytter spørsmålene til prisen fondet kan betale, ikke til nysgjerrighet.",
+        ],
+        felle: "Å be om en standard due diligence-liste. Det er ikke en avklaring, det er en utsettelse — og i en PE-case signaliserer det at du ikke vet hvilke tre eller fire forhold som faktisk avgjør en investeringsbeslutning.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        kort: "Struktur",
+        tittel: "Strukturer investeringsbeslutningen",
+        sp: `<p>Bryt ned hva Kleiven Kapital må tro på for å gå inn. Skriv nedbrytningen slik du ville
+          tegnet den, og <b>si hvilken gren du vil teste først</b>.</p>`,
+        fasit: `<p>En PE-vurdering har fire grener, og de tre første er de tre spørsmålene et fond
+          faktisk stiller. Den fjerde er der de møtes.</p>
+          <ul>
+            <li><b>1 · Er inntjeningen varig?</b> Er markedet stabilt eller voksende — her
+              lovregulert, altså lite konjunkturfølsomt. Er inntektene gjentakende, og hva er
+              fornyelsesgraden? Er de justerte 90 millionene ekte, eller pyntet? Hvor konsentrert
+              er kundemassen? Hva skjer når familien går ut av døra — sitter kunderelasjonene i
+              selskapet eller i eieren?</li>
+            <li><b>2 · Finnes det en verdiskapingsplan?</b> Fire kilder, og bare tre av dem er
+              fondets eget arbeid: <i>vekst</i> (organisk og oppkjøp), <i>marginforbedring</i>
+              (pris, ruteplanlegging, innkjøp, administrasjon), <i>gjeldsnedbetaling</i> (kontanter
+              som flytter verdi fra långiver til eier), og <i>multippelekspansjon</i> — som er
+              markedets gave, ikke en plan.</li>
+            <li><b>3 · Finnes det en exit?</b> Hvem kjøper om fem år, hvorfor, og til hvilken
+              multippel? Er selskapet stort nok til å være interessant for en industriell kjøper,
+              og er det ryddet slik at det kan selges?</li>
+            <li><b>4 · Går regnestykket opp?</b> Prisen, gjelden, kontantstrømmen og
+              avkastningskravet. Det er her de tre andre grenene blir til ett tall.</li>
+          </ul>
+          <div class="formula">
+            <div class="eq">EK ved exit = Exit-multippel × EBITDA(exit) − Netto gjeld ved exit</div>
+            <div class="eq">Avkastning = EK ved exit / Innskutt egenkapital</div>
+            <div class="where">Legg merke til hva gjelden gjør: den står med minus i telleren og
+              gjør nevneren mindre. Begge deler forsterker utslaget av at EBITDA og multippel
+              bommer, i begge retninger.</div>
+          </div>
+          <p><b>Sterkt mot middels:</b> et middels svar sier «marked, selskap, konkurrenter,
+          finansiering». Et sterkt svar skiller de fire verdikildene fra hverandre og sier at
+          multippelekspansjon ikke er en plan, og starter der: <i>«Jeg vil først teste om
+          inntjeningen er varig, for hvis fornyelsesgraden faller, spiller resten ingen
+          rolle.»</i></p>`,
+        krav: [
+          "Du har varighet, verdiskapingsplan og exit som tre egne grener, ikke ett punkt om selskapet.",
+          "Du deler verdiskapingen i vekst, margin, gjeldsnedbetaling og multippel, og skiller multippelen ut.",
+          "Du skriver opp hvordan avkastningen faktisk regnes, med netto gjeld ved exit.",
+          "Du nevner eieravhengighet og kundekonsentrasjon under varighet.",
+          "Du sier hvilken gren du starter med, og hvorfor.",
+        ],
+        felle: "Å lage en verdsettelse i stedet for en investeringsvurdering. Spørsmålet er ikke hva Sikring Nord er verdt, men om 900 millioner gir 2,5 ganger pengene på fem år — det er to forskjellige regnestykker med to forskjellige svar.",
+      },
+      {
+        art: "exhibit",
+        sek: 150,
+        kort: "Tallene",
+        tittel: "Datarommet",
+        sp: `<p>Fondet har fått tre ark fra datarommet: historikken, transaksjonsstrukturen, og
+          fondets eget utkast til verdiskapingsplan. <b>Hva ser du?</b></p>`,
+        figur: `<p><b>Ark 1 · Sikring Nord, tre år (mill. kr)</b></p>
+          <table class="data">
+            <tr><th>Millioner kroner</th><th class="n">År −2</th><th class="n">År −1</th><th class="n">Siste 12 mnd</th></tr>
+            <tr><td>Serviceavtaler, årskontroller</td><td class="n">310</td><td class="n">336</td><td class="n">358</td></tr>
+            <tr><td>Prosjekt og installasjon</td><td class="n">190</td><td class="n">214</td><td class="n">222</td></tr>
+            <tr><td><b>Sum omsetning</b></td><td class="n"><b>500</b></td><td class="n"><b>550</b></td><td class="n"><b>580</b></td></tr>
+            <tr><td>Varekost og underleverandør</td><td class="n">195</td><td class="n">215</td><td class="n">226</td></tr>
+            <tr><td>Lønn, montører</td><td class="n">155</td><td class="n">168</td><td class="n">176</td></tr>
+            <tr><td>Salg og administrasjon</td><td class="n">78</td><td class="n">84</td><td class="n">88</td></tr>
+            <tr><td><b>EBITDA</b></td><td class="n"><b>72</b></td><td class="n"><b>83</b></td><td class="n"><b>90</b></td></tr>
+            <tr><td>EBITDA-margin</td><td class="n">14,4 %</td><td class="n">15,1 %</td><td class="n">15,5 %</td></tr>
+            <tr><td>Serviceavtaler som andel av omsetning</td><td class="n">62 %</td><td class="n">61 %</td><td class="n">62 %</td></tr>
+            <tr><td>Fornyelsesgrad på serviceavtaler</td><td class="n">94 %</td><td class="n">93 %</td><td class="n">91 %</td></tr>
+            <tr><td>De fem største kundene, andel av omsetning</td><td class="n">21 %</td><td class="n">26 %</td><td class="n">33 %</td></tr>
+            <tr><td>Små aktører kjøpt opp i året</td><td class="n">0</td><td class="n">2</td><td class="n">3</td></tr>
+          </table>
+          <p><b>Ark 2 · Transaksjonen</b></p>
+          <table class="data">
+            <tr><th>Post</th><th class="n">Verdi</th></tr>
+            <tr><td>EBITDA siste 12 måneder</td><td class="n">90 mill. kr</td></tr>
+            <tr><td>Prisforlangende, multippel</td><td class="n">10 ×</td></tr>
+            <tr><td>Selskapsverdi (EV)</td><td class="n">900 mill. kr</td></tr>
+            <tr><td>Gjeld ved oppkjøp</td><td class="n">540 mill. kr</td></tr>
+            <tr><td>Egenkapital fra fondet</td><td class="n">360 mill. kr</td></tr>
+            <tr><td>Gjeld / EBITDA</td><td class="n">6,0 ×</td></tr>
+            <tr><td>Planlagt gjeldsnedbetaling over fem år</td><td class="n">240 mill. kr</td></tr>
+            <tr><td>Netto gjeld ved exit</td><td class="n">300 mill. kr</td></tr>
+            <tr><td>Fondets avkastningskrav</td><td class="n">2,5 × på fem år</td></tr>
+          </table>
+          <p><b>Ark 3 · Fondets utkast til verdiskapingsplan</b></p>
+          <table class="data">
+            <tr><th>Tiltak</th><th class="n">EBITDA-effekt, mill. kr per år</th></tr>
+            <tr><td>Prisøkning på serviceavtaler, 3 % over to år</td><td class="n">12</td></tr>
+            <tr><td>Ruteplanlegging: ett oppdrag mer per montør per dag</td><td class="n">9</td></tr>
+            <tr><td>Innkjøp: felles avtale på slokkemateriell</td><td class="n">4</td></tr>
+            <tr><td>Kutt i administrasjon etter systembytte</td><td class="n">5</td></tr>
+            <tr><td><b>Sum identifiserte tiltak</b></td><td class="n"><b>30</b></td></tr>
+          </table>`,
+        fasit: `<p>Overskriften først:</p>
+          <p><i>«Selskapet ser ut som en god plattform — 62 prosent gjentakende inntekt, stigende
+          margin, lovpålagt etterspørsel. Men de tre linjene nederst på ark 1 forteller en annen
+          historie enn de tre øverste: fornyelsesgraden faller, kundekonsentrasjonen stiger raskt,
+          og veksten er delvis kjøpt.»</i></p>
+          <ul>
+            <li><b>Fornyelsesgraden faller fra 94 til 91 prosent.</b> Det høres lite ut. Det er
+              det ikke. Tre prosentpoeng på en serviceportefølje på 358 millioner er om lag 11
+              millioner i årlig inntekt som lekker ut, og på servicekontrakter er marginen høyere
+              enn snittet. Den lekkasjen løper hvert år, og den løper motsatt vei av
+              verdiskapingsplanen.</li>
+            <li><b>De fem største kundene har gått fra 21 til 33 prosent.</b> Én tapt storkunde
+              flytter EBITDA-en flere millioner. Dette er den klassiske PE-fella: konsentrasjon
+              vokser stille mens topplinjen ser sunn ut.</li>
+            <li><b>Veksten er delvis kjøpt.</b> Fem oppkjøp på to år. Da er ikke 90 millioner
+              resultatet av organisk kraft — og det betyr både at den underliggende veksten er
+              svakere, og at en del av buy-and-build-gevinsten allerede er tatt ut av selgeren.</li>
+            <li><b>Marginforbedringen er ekte, men liten:</b> 14,4 til 15,5 prosent. Det er drøyt
+              ett prosentpoeng på to år, og ark 3 ber om ytterligere fem prosentpoeng i effekt.</li>
+            <li><b>Ark 3 summerer til nøyaktig 30 millioner</b> — og 90 pluss 30 er 120. Merk deg
+              det tallet før du regner. Det kommer tilbake.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar leser marginforbedringen og kaller selskapet
+          attraktivt. Et sterkt svar leser de tre nøkkeltallene under EBITDA-linjen og sier at de
+          alle peker samme vei: <i>«Inntjeningen ser varig ut på overflaten, men de tre
+          kvalitetsmålene har forverret seg hvert år. Det er nøyaktig de tre jeg ville brukt
+          due diligence-budsjettet på.»</i></p>`,
+        krav: [
+          "Du leser nøkkeltallene under EBITDA-linjen, ikke bare omsetning og margin.",
+          "Du kobler fallende fornyelsesgrad til et beløp, ikke bare til prosentpoeng.",
+          "Du ser at kundekonsentrasjonen har steget fra 21 til 33 prosent og sier hva risikoen er.",
+          "Du merker at veksten delvis er kjøpt gjennom fem oppkjøp på to år.",
+          "Du legger merke til at planen på ark 3 summerer til 30 og at 90 pluss 30 er 120.",
+        ],
+        felle: "Å behandle 62 prosent gjentakende inntekt som bevis på at inntjeningen er varig. Gjentakende inntekt er bare varig så lenge den fornyes — og fornyelsesgraden her har falt tre år på rad.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        kort: "Regn",
+        tittel: "Hva må EBITDA være ved exit?",
+        sp: `<p>Fondet skyter inn 360 millioner og krever 2,5 ganger pengene på fem år. Netto gjeld
+          ved exit er 300 millioner. Anta at selskapet selges på <b>samme multippel som det
+          kjøpes for — 10 ganger</b>, altså ingen multippelekspansjon.</p>
+          <p><b>Hvor stor må EBITDA være ved exit? Svar i millioner kroner.</b></p>
+          <p class="tiny">Jobb bakover fra avkastningskravet. Si oppsettet høyt før du regner.</p>`,
+        svar: 120,
+        enhet: "millioner kroner",
+        toleranse: 0.02,
+        fasit: `<p>Fire linjer, bakover:</p>
+          <div class="formula">
+            <div class="eq">Nødvendig egenkapital ved exit: 2,5 × 360 = 900 mill. kr</div>
+            <div class="eq">Nødvendig selskapsverdi: 900 + 300 (netto gjeld) = 1 200 mill. kr</div>
+            <div class="eq">Nødvendig EBITDA ved 10 ×: 1 200 / 10 = <b>120 millioner kroner</b></div>
+            <div class="eq">Nødvendig vekst: 120 / 90 = +33 % på fem år ≈ <b>5,9 % i året</b></div>
+          </div>
+          <p><b>Og nå kommer poenget.</b> Verdiskapingsplanen på ark 3 summerer til nøyaktig 30
+          millioner. 90 pluss 30 er 120. <b>Planen leverer akkurat det som kreves — og ikke en
+          krone mer.</b> Det betyr tre ting på én gang:</p>
+          <ul>
+            <li>Det finnes <b>ingen sikkerhetsmargin</b>. Hvert eneste tiltak må lykkes fullt ut,
+              i tide, for at fondet skal nå minimumskravet sitt.</li>
+            <li>Planen forutsetter implisitt <b>null organisk vekst og null erosjon</b>. Men
+              fornyelsesgraden faller: tre prosentpoeng på 358 millioner er om lag 11 millioner i
+              inntekt i året som lekker ut. Går noe av det på EBITDA, spiser lekkasjen tiltakene.</li>
+            <li>Alt som skal til for å komme <i>over</i> 2,5 ganger, må komme fra
+              <b>multippelekspansjon</b> — altså fra at markedet er villigere til å betale om fem
+              år enn i dag. Det er ikke en plan, det er en forhåpning.</li>
+          </ul>
+          <p><b>Gjelden forsterker begge veier, og det er verdt å tallfeste:</b></p>
+          <ul>
+            <li>Uten gjeld ville de samme 900 millionene i EV blitt 1 200 — en avkastning på
+              <b>1,33 ganger, altså 5,9 prosent i året</b>. Med 60 prosent gjeld blir nøyaktig
+              samme utvikling til 2,5 ganger og 20 prosent. Det er gjelden som skaper avkastningen,
+              ikke driften.</li>
+            <li>Men den virker like sterkt nedover. Exit på <b>9 ganger</b> i stedet for 10 gir
+              EV 1 080, egenkapital 780, altså <b>2,17 ganger</b> og en internrente på knapt 17
+              prosent — under kravet. Exit på 11 ganger gir 2,83 ganger og 23 prosent.
+              <b>Én multippeltrinn i hver retning svinger avkastningen med om lag en tredels
+              gang pengene.</b></li>
+            <li>Og hvis gjeldsnedbetalingen svikter — 240 millioner på fem år er 48 i året, drøyt
+              40 prosent av gjennomsnittlig EBITDA — faller egenkapitalen ved exit fra 900 til
+              660, altså <b>1,83 ganger</b>. Da er halvparten av avkastningen borte uten at
+              driften har gjort noe galt.</li>
+          </ul>
+          <p><b>Sterkt mot middels:</b> et middels svar lander på 120 og sier at det krever seks
+          prosent vekst. Et sterkt svar ser at planen treffer 120 på kronen, kaller det ut som en
+          plan uten margin, og viser med ett tall hva gjeldsgraden gjør med utslaget begge veier.</p>`,
+        krav: [
+          "Du jobber bakover fra avkastningskravet i stedet for å framskrive EBITDA og håpe.",
+          "Du legger til netto gjeld ved exit for å komme fra egenkapital til selskapsverdi.",
+          "Du bruker uendret multippel når oppgaven sier det, og kaller multippelekspansjon en forutsetning og ikke en plan.",
+          "Du ser at verdiskapingsplanen på 30 millioner treffer kravet nøyaktig, uten margin.",
+          "Du tallfester hva ett multippeltrinn eller sviktende gjeldsnedbetaling gjør med avkastningen.",
+        ],
+        felle: "Å trekke fra gjelden på 540 i stedet for netto gjeld ved exit på 300. Gjeldsnedbetaling er en av de fire verdikildene i en oppkjøpsstruktur — glemmer du den, får du 133 millioner i nødvendig EBITDA og avviser en investering som faktisk kunne gått opp.",
+      },
+      {
+        art: "ide",
+        sek: 120,
+        kort: "Idéer",
+        tittel: "Hva må fondet gjøre før de byr?",
+        sp: `<p>Regnestykket går akkurat opp, uten margin. <b>List så mange grep du klarer på to
+          minutter</b> — i due diligence, i budet, i verdiskapingsplanen og i exit-forberedelsen.
+          Én per linje.</p>`,
+        liste: [
+          "Etterprøve fornyelsesgraden kontrakt for kontrakt, og finne ut om de tapte kundene er små eller store",
+          "Kjøre en kvalitetskontroll av EBITDA: eierlønn, husleie til eiers eiendomsselskap, engangsposter",
+          "Skille organisk vekst fra oppkjøpt vekst i alle tre årene, og prise bare den organiske",
+          "Møte de fem største kundene og sjekke kontraktslengde, oppsigelsestid og hvem relasjonen sitter hos",
+          "Sjekke om prisreguleringsklausulene faktisk tillater prisøkningen på 12 millioner i planen",
+          "Teste ruteplanleggingsgevinsten mot data: hvor mange oppdrag per montør per dag er det i dag",
+          "Senke budet fra 10 til 9 ganger, som gir 90 millioner lavere pris og et helt annet utfallsrom",
+          "Legge inn en earn-out slik at familien bærer risikoen for at fornyelsesgraden holder",
+          "Binde selger og nøkkelpersoner med bonus og karensklausul, siden relasjonene kan sitte hos dem",
+          "Bygge en pipeline av oppkjøpskandidater før signering, og prise dem inn i planen",
+          "Kartlegge de industrielle kjøperne som finnes ved exit, og hva de betaler for i dag",
+          "Sikre at gjelden faktisk er kommittert på 6 ganger EBITDA, og hva covenantene tåler",
+          "Stresste planen: hva blir avkastningen ved 9 ganger exit og halv effekt av tiltakene",
+          "Gå fra saken hvis kvalitetskontrollen tar mer enn fem millioner av de 90",
+        ],
+        fasit: `<p>Si oppdelingen først. En som fungerer: <b>hva vi må vite før vi byr</b>
+          (due diligence), <b>hvordan vi strukturerer budet</b> (pris, earn-out, gjeld),
+          <b>hva vi gjør de fem årene</b> (verdiskapingsplan), og <b>hvordan vi kommer ut</b>
+          (exit). Det speiler strukturen din fra trinn to, og det merkes.</p>
+          <p>Legg merke til hva som er det mest kraftfulle grepet i hele listen: <b>å betale
+          mindre</b>. Ett multippeltrinn ned på inngangen — 9 i stedet for 10 — er 90 millioner
+          lavere pris. Med samme gjeld er egenkapitalen 270 i stedet for 360, og hele
+          avkastningsregnestykket får den marginen planen mangler. PE-kandidater glemmer ofte at
+          prisen er en variabel de kontrollerer, mens driften er noe de bare kan håpe på.</p>
+          <p><b>Sterkt mot middels:</b> et middels svar lister due diligence-punkter. Et sterkt svar
+          har grep i alle fire gruppene, kobler minst ett av dem til et tall fra casen, og tør å ha
+          et walk-away-punkt på listen.</p>`,
+        krav: [
+          "Du sier oppdelingen din før du lister, og den følger strukturen din.",
+          "Du har grep i både due diligence, budstruktur, verdiskaping og exit.",
+          "Minst ett grep angriper prisen, ikke bare driften.",
+          "Du foreslår en strukturell risikodeling, som earn-out eller binding av nøkkelpersoner.",
+          "Du formulerer et walk-away-kriterium i stedet for å forutsette at handelen skal skje.",
+        ],
+        felle: "Å bare foreslå operative forbedringer. Verdiskapingsplanen på ark 3 er allerede full av dem, og den treffer akkurat kravet — marginen må komme fra prisen, strukturen eller risikodelingen, ikke fra enda et tiltak på samme liste.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        kort: "Svar",
+        tittel: "Anbefalingen til investeringskomiteen",
+        sp: `<p>Du står foran investeringskomiteen og har <b>ett minutt</b>. Gi anbefalingen din.</p>
+          <p class="tiny">Skriv den slik du ville sagt den — ikke som notater.</p>`,
+        fasit: `<p>Topp-ned, med tallet i første setning, og med et tydelig skille mellom
+          «investér» og «investér til denne prisen».</p>
+          <blockquote><p><b>«Sikring Nord er riktig type selskap, men 10 ganger er feil pris. På
+          900 millioner må EBITDA opp fra 90 til 120 på fem år bare for å treffe kravet på 2,5
+          ganger — og verdiskapingsplanen deres leverer nøyaktig 30 millioner. Det er null
+          margin. Jeg anbefaler et bud på 9 ganger, med earn-out.»</b></p>
+          <p>Tre grunner. For det første er inntjeningen mindre varig enn den ser ut: fornyelsesgraden
+          har falt fra 94 til 91 prosent, og de fem største kundene har gått fra 21 til 33 prosent
+          av omsetningen. For det andre er verdiskapingsplanen troverdig, men uten slakk — og en
+          plan som må lykkes hundre prosent for å nå minimumsavkastningen, er ikke en plan, det er
+          en forutsetning. For det tredje bærer strukturen mye gjeld: seks ganger EBITDA. Det er
+          derfor 2,5 ganger i det hele tatt er mulig — ugearet ville de samme tallene gitt 1,33
+          ganger — men det er også derfor ett multippeltrinn ned ved exit tar avkastningen fra 2,5
+          til 2,17, altså under kravet.</p>
+          <p>Konkret: by 9 ganger, altså 810 millioner. Legg 60 millioner av prisen i en earn-out
+          knyttet til fornyelsesgraden, så familien bærer den risikoen. Og bruk to uker på tre
+          ting før signering: en kvalitetskontroll av EBITDA, en gjennomgang av de fem største
+          kontraktene, og en bekreftelse på at prisreguleringsklausulene faktisk hjemler
+          prisøkningen på 12 millioner.</p>
+          <p>Exit-ruten ser jeg som et salg til en større europeisk aktør eller et sekundærsalg til
+          et større fond. Går ikke prisen ned, ville jeg gått fra saken — det er ingen skam i å
+          tape en auksjon på et selskap der hele oppsiden ligger i at multippelen skal stige.»</p></blockquote>
+          <p><b>Sterkt mot middels:</b> et middels svar sier ja eller nei til investeringen. Et
+          sterkt svar sier <i>ja til selskapet, nei til prisen</i>, og oppgir prisen det ville sagt
+          ja til. I PE er det nesten alltid det riktige svaret, og det er også det svaret en
+          investeringskomité faktisk kan handle på.</p>`,
+        krav: [
+          "Svaret kommer i første setning, og skiller mellom selskapet og prisen.",
+          "Du oppgir en pris eller multippel du ville budt, ikke bare at prisen er for høy.",
+          "Du bruker tall fra casen: 120 millioner, planens 30, fornyelsesgraden, multippelfølsomheten.",
+          "Du sier hva gjeldsgraden gjør både opp og ned.",
+          "Du nevner exit-rute og et walk-away-punkt, og holder deg innenfor et minutt.",
+        ],
+        felle: "Å konkludere med at investeringen er attraktiv fordi markedet er lovregulert og inntektene gjentakende. Det gjør selskapet til en god plattform, men sier ingenting om avkastningen — og fondets spørsmål er aldri om selskapet er godt, men om prisen gir 2,5 ganger pengene.",
+      },
+    ],
+  },
   {
     id: "estimering-varmepumper",
     kategori: "Market sizing",
@@ -1810,7 +5499,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
   {
     id: "ms-bensinstasjoner-usa",
     kategori: "Market sizing",
@@ -1959,11 +5647,6 @@ window.EDU_DATA.cases = [
         felle: "Å ramse opp alle mellomregningene på nytt. Intervjueren så deg gjøre dem — det de vil vite er svaret og hvor skjørt det er." },
     ],
   },
-
-
-  /* ============================================================
-     A1 · Bensinstasjoner i Norge — malen, i norsk utgave
-     ============================================================ */
   {
     id: "ms-bensinstasjoner-norge",
     kategori: "Market sizing",
@@ -2254,10 +5937,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     A2 · Frisørsalonger i Norge — kapasitet målt i klipp per stol
-     ============================================================ */
   {
     id: "ms-frisorsalonger-norge",
     kategori: "Market sizing",
@@ -2531,10 +6210,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     A3 · Ladepunkter langs E6 Oslo–Trondheim — geografisk avgrenset
-     ============================================================ */
   {
     id: "ms-ladepunkter-e6",
     kategori: "Market sizing",
@@ -2827,10 +6502,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     A4 · Sykehussenger i Tyskland — kapasitet målt i liggedøgn
-     ============================================================ */
   {
     id: "ms-sykehussenger-tyskland",
     kategori: "Market sizing",
@@ -3102,11 +6773,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-
-  /* ============================================================
-     B1 · KJØKKEN — levetidstrikset i sin reneste form
-     ============================================================ */
   {
     id: "estimering-kjokken",
     kategori: "Market sizing",
@@ -3411,10 +7077,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     B2 · BRILLER — segmentering på alder avgjør svaret
-     ============================================================ */
   {
     id: "estimering-briller",
     kategori: "Market sizing",
@@ -3718,10 +7380,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     B3 · LØNNSSYSTEM — B2B, nevneren er ansatte og bedrifter
-     ============================================================ */
   {
     id: "estimering-lonnssystem",
     kategori: "Market sizing",
@@ -4033,10 +7691,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     B4 · BREDBÅND — hele casen ligger i nevnervalget
-     ============================================================ */
   {
     id: "estimering-bredband",
     kategori: "Market sizing",
@@ -4354,12 +8008,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-
-  /* ============================================================
-     C1 · INFRASTRUKTUR — heisparken i Norge
-     Bunn-opp er eneste farbare vei: det finnes ingen makrostørrelse over.
-     ============================================================ */
   {
     id: "ms-heisservice",
     kategori: "Market sizing",
@@ -4659,11 +8307,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     C2 · B2B-TJENESTE — utsatt IT-drift til norske SMB-er
-     Bygget fra én typisk kunde og antall kunder som finnes.
-     ============================================================ */
   {
     id: "ms-it-drift-smb",
     kategori: "Market sizing",
@@ -4951,11 +8594,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     C3 · NÅR VEIENE SPRIKER — bruktbilmarkedet i Norge
-     Den ene veien teller noe den andre ikke gjør. Avviket er svaret.
-     ============================================================ */
   {
     id: "ms-bruktbil-sprik",
     kategori: "Market sizing",
@@ -5269,11 +8907,6 @@ window.EDU_DATA.cases = [
       },
     ],
   },
-
-  /* ============================================================
-     C4 · ESTIMATET SOM STEG I EN BESLUTNING — nettdagligvare i Oslo
-     Klienten skal velge, og trenger et tall ingen har gitt dem.
-     ============================================================ */
   {
     id: "ms-nettdagligvare-beslutning",
     kategori: "Market sizing",
@@ -5603,5 +9236,5 @@ window.EDU_DATA.cases = [
         felle: "Å svare «nei, markedet er for lite». Det er svaret på dagens volum, og lageret er en investering som lever i femten år. En beslutning som avhenger av et volum i vekst, har ikke et ja eller et nei som svar — den har et tidspunkt og en utløser.",
       },
     ],
-  }
+  },
 ];

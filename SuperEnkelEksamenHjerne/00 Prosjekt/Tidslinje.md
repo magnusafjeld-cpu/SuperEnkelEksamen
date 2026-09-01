@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-01
 ---
 
 # Tidslinje
@@ -30,5 +30,9 @@ ikke står i commit-meldingene.
 | 19. august 2026 | `plan.mode = "modules"` — progresjonsdrevet plan uten datoer | For fag man tar «litt her og der» i stedet for etter en kalender |
 | 19. august 2026 | [[FIE402 Corporate Finance]] lagt inn som fag nummer to | Engelsk innhold i en norsk app, 24 moduler, elleve eksamenssett |
 | 19. august 2026 | Den bufrede pensumparsingen halvert | To felter som ble lagret men aldri lest, ble fjernet. Se [[Datamodell og lagring]] |
+| 30. august 2026 | [[Caseintervju]] lagt inn som fag nummer tre | Første fag uten eksamen. To nye moduler: [[Case-spilleren]] og [[Historieporteføljen]] |
+| 1. september 2026 | Casebiblioteket delt i intervjucaser og market sizing | Feltet `kategori` styrer bolkene |
+| 1. september 2026 | Intervjucasene fra 6 til 18 — alle tolv arketypene dekket | Lønnsomhet, prising, vekst og operations har nå flere caser med **ulik mekanisme**. Se [[Caseintervju]] |
+| 1. september 2026 | `parseTall` leser ekte minustegn | Lå urørt til første case med negativ fasit. Se [[Case-spilleren]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

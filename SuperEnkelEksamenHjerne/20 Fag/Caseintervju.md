@@ -1,6 +1,6 @@
 ---
 tags: [fag, case, innhold]
-oppdatert: 2026-08-30
+oppdatert: 2026-09-01
 ---
 
 # Caseintervju
@@ -82,7 +82,7 @@ De skarpeste funnene:
 | Motor | **ferdig** — fem moduler, alle verifisert i nettleseren |
 | Manual | **16 av 16 kapitler · 21 300 ord** — 96 seksjoner, 43 tabeller, 15 gjennomregnede eksempler |
 | Studieplan | **11 moduler · 14 timer** · arbeidsoppgaver med lenke inn i øvelsen |
-| Caser | **20** i to bolker: 6 intervjucaser og **14 market sizing** · 120 trinn · 555 minutter |
+| Caser | **32** i to bolker: **18 intervjucaser** og 14 market sizing · 192 trinn · 950 minutter |
 | Struktureringsprompter | **84** i åtte casetyper (9–15 hver), med modellstruktur som tre, hypotese og felle |
 | Finn feilen | **34** utregninger, 7 av dem uten feil |
 | Les grafen | **24** figurer — 18 SVG, 6 tabeller, 17 med innebygd felle |
@@ -100,6 +100,31 @@ altså under en femdel av tiden, som var det ordtaket egentlig skulle sikre.
 
 `tools/case-bygg-manual.py` setter manualen sammen av kapittelfragmenter og
 normaliserer deltitlene. Manualen er sannhetskilden når den først er bygget.
+
+## Intervjucasene dekker hele arketypekartet
+
+De seks første casene dekket seks typer. Kartleggingen i
+`docs/case-research/01-kanon.md` lister tolv, og de resterende seks — kostnadskutt,
+ny lansering, turnaround, PE-vurdering, konkurrentrespons og offentlig sektor —
+manglet helt. Nå finnes alle, og de tre mest testede typene har flere enn én.
+
+| Type | Antall | Mekanismene som skilles |
+|---|---|---|
+| Lønnsomhet | 4 | prisøkning · **miksforskyvning** · **forsinket prisgjennomslag** · **ett tapssegment** |
+| Prising | 2 | alternativkostnad som tak · **struktur framfor nivå** |
+| Vekst | 2 | inntekt per kunde faller · **kanalen er mettet** |
+| Operations | 2 | flaskehals i linja · **variabilitet og kø** |
+| Markedsinngang · M&A · Kostnadskutt · Ny lansering · Konkurrentrespons · Offentlig · Turnaround · PE-vurdering | 1 hver | — |
+
+Regelen ved påfyll: **en ny case av en type som finnes, må ha en annen mekanisme.**
+En tredje lønnsomhetscase der marginen faller fordi prisen falt, lærer ingenting
+den første ikke lærte. Derfor står mekanismen, ikke bare typen, i tabellen over.
+
+Regnetrinnet skal bære en innsikt utover tallet. Noen eksempler på formen:
+kuttet av 60 årsverk *koster* 18 millioner fordi kapasiteten faller under
+arbeidsvolumet; segmentet som «taper 30 millioner» bidrar med *pluss* 30 når man
+måler på det som faktisk forsvinner; PE-fondets verdiskapingsplan summerer til
+nøyaktig det avkastningskravet krever, og har dermed null margin.
 
 ## Market sizing er en egen bolk
 
@@ -175,6 +200,18 @@ Alt tallinnhold er regnet gjennom på nytt etter at agentene leverte:
 - alle sju casenes figurer, regnetrinn og sanity-sjekker, for hånd — null feil
 - tabellsummer og andeler i figurbanken — null feil
 - tre estimeringskjeder regnet helt gjennom — null feil
+- de tolv nye intervjucasene, ~150 kontroller i Python — **tre feil**, alle i
+  fasittekst som agentenes egne kontroller hadde godkjent: to påstander om at to
+  ulike tiltak ga «samme kroner» når de ikke gjorde det, og «halvparten» om noe
+  som var to tredeler
+
+**Strukturen sjekkes maskinelt.** `tools/case-sjekk-caser.js` laster
+casefil(ene), teller opp fordelingen på type, nivå og stil, og stopper på det
+motoren ellers bare ville tegnet feil i stillhet: manglende `sp`/`fasit`/`felle`,
+regnetrinn uten `svar` eller `enhet`, exhibit uten `table.data`, markup i felter
+som escapes, for korte idélister, dupliserte id-er og feil trinnrekkefølge.
+Rekkefølgekravet er ulikt for de to bolkene — market sizing kjører legitimt tre
+regnetrinn på rad og tåler videre `toleranse` (tak 0,3 mot 0,05).
 
 > [!warning] Kontrollskript kan lyve begge veier
 > De to første kontrollskriptene mine ga 21 og 25 «avvik». Alle var falske:

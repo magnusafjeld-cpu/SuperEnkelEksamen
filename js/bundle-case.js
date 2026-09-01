@@ -87,8 +87,12 @@ window.EDU = window.EDU || {};
     for (const [re, mult] of tabell) if (re.test(String(tekst || ""))) return mult;
     return null;
   }
+  /* Appen skriver selv negative tall med ekte minustegn (−, U+2212), så det er
+     det tegnet brukeren kopierer og som telefontastaturet setter inn. Uten
+     normaliseringen her leses «−18» som 18, og et riktig svar blir underkjent. */
   function parseTall(s) {
-    const t = String(s == null ? "" : s).replace(/[\s ]/g, "").replace(/%/g, "").replace(",", ".");
+    const t = String(s == null ? "" : s).replace(/[\s ]/g, "").replace(/%/g, "")
+      .replace(/[\u2212\u2013]/g, "-").replace(",", ".");
     const m = t.match(/-?\d+(\.\d+)?/);
     return m ? parseFloat(m[0]) : null;
   }

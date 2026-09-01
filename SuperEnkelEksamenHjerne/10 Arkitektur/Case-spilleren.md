@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, case]
-oppdatert: 2026-08-30
+oppdatert: 2026-09-01
 ---
 
 # Case-spilleren
@@ -41,10 +41,22 @@ enheten er millioner. Sjekken sammenligner derfor i grunnenheter:
 Da godtas riktig svar uansett skrivemåte, mens `78 mrd` fortsatt avvises.
 Standard slingringsmonn er 2 %, overstyrbart per trinn med `toleranse`.
 
-> [!warning] Dette var en ekte feil
+`parseTall` stripper mellomrom (også harde), prosenttegn og gjør komma til
+punktum — og normaliserer **ekte minustegn (−, U+2212) og tankestrek til vanlig
+bindestrek** før tallet leses ut.
+
+> [!warning] To ekte feil, begge funnet i nettleseren
 > Første versjon ganget alltid opp suffikset, så **«78 mill» ble avvist** på en
 > oppgave med fasit `78` og enhet «millioner kroner» — altså riktig svar skrevet
-> på den mest naturlige måten. Fanget i nettlesertesten, ikke i kodelesningen.
+> på den mest naturlige måten.
+>
+> Den andre lå urørt til september 2026, fordi ingen case hadde negativ fasit før
+> `kostnadskutt-skadeforsikring` kom med **−18**. `parseTall` matchet bare
+> `-?\d+` med ASCII-bindestrek, mens appen selv skriver minus som U+2212 overalt
+> — i fasittekst, i tabeller, i regnestykker. Skrev du av tegnet du så, eller
+> brukte et telefontastatur som setter inn ekte minus, ble **«−18» lest som 18**
+> og riktig svar underkjent. Ingen kodelesning ville avslørt det; det krevde at
+> en case faktisk hadde et negativt svar.
 
 ## Klokka fryses når fasiten åpnes
 
