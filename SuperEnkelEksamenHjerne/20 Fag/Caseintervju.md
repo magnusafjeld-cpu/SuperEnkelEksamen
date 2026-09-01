@@ -83,7 +83,7 @@ De skarpeste funnene:
 | Manual | **16 av 16 kapitler · 21 300 ord** — 96 seksjoner, 43 tabeller, 15 gjennomregnede eksempler |
 | Studieplan | **11 moduler · 14 timer** · arbeidsoppgaver med lenke inn i øvelsen |
 | Caser | **7** · 42 trinn · alle sju casetypene · 230 minutter trening |
-| Struktureringsprompter | **34**, hver med modellstruktur, hypotese og felle |
+| Struktureringsprompter | **37** i åtte casetyper, med modellstruktur som tre, hypotese og felle |
 | Finn feilen | **34** utregninger, 7 av dem uten feil |
 | Les grafen | **24** figurer — 18 SVG, 6 tabeller, 17 med innebygd felle |
 | Bygg estimatet | **14** kjeder · 57 runder |
@@ -100,6 +100,23 @@ altså under en femdel av tiden, som var det ordtaket egentlig skulle sikre.
 
 `tools/case-bygg-manual.py` setter manualen sammen av kapittelfragmenter og
 normaliserer deltitlene. Manualen er sannhetskilden når den først er bygget.
+
+## Struktureringsdrillen: velg type, se treet
+
+Drillen åpner med en typevelger — de åtte casetypene med antall bak hver — og ett
+gjennomgått eksempel. Da kan man trene målrettet på den typen man er svakest på,
+i stedet for å ta det som tilfeldig kommer.
+
+**Modellstrukturen tegnes som et tre**, ikke som en punktliste. Poenget med
+øvelsen er å bygge en nedbrytning, så fasiten må vise en nedbrytning. Rotnoden er
+siste setning i prompten, som alltid er klientens spørsmål; grenene splittes på
+«Etikett: forklaring», en form 176 av 208 grener allerede hadde. Treet er loddrett
+med stamme til venstre, så det også holder på 277 piksler.
+
+Klassifiseringen avdekket at **estimering hadde null prompter** av 34. Tre er
+skrevet til: varmepumpemarkedet, treningssentre og ladepunkter. Ti av de 34 er
+merket som skjønn, og fire av dem ligger i grenselandet Offentlig mot Lønnsomhet
+— den ene grensen kapittel 5 selv er vagest på.
 
 ## Rekkefølgen: undervis før du krever
 

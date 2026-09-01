@@ -23,7 +23,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Marginfallet ligger i ferskvare og ikke i prisbildet: økt svinn og en større kampanjeandel har senket realisert bruttomargin i nettopp de kategoriene som vokser i andel. Testen er bruttomargin per kategori mot i fjor, holdt opp mot kategorienes andel av kurven.",
     felle: "Å regne på kjedens totale bruttomargin. Både pris og innkjøp kan være uendret i hver enkelt kategori mens totalen faller, fordi vekten har flyttet seg — miks-effekten er usynlig i snittet.",
-    sek: 90 },
+    sek: 90, type: "Lønnsomhet" },
 
   { prompt: "Klienten er et norsk oppdrettsselskap med 28 konsesjoner i Trøndelag og Nordland. EBIT per kilo har falt fra 21 til 9 kroner på ett år, mens to sammenliknbare konkurrenter har holdt seg over 18. Styret vil vite om dette er markedet eller dem selv.",
     grener: [
@@ -36,7 +36,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Fallet er biologisk og ikke kommersielt: økt dødelighet og flere behandlinger har hevet fôrfaktoren og senket superior-andelen, slik at både kostnad og pris per kilo forverres samtidig. Testen er kostnad per kilo og dødelighet per lokalitet og generasjon, mot bransjesnittet.",
     felle: "Å forklare fallet med laksepris. Alle aktørene selger i samme marked, så en pris som er lik for alle kan ikke forklare at klienten faller og konkurrentene ikke gjør det.",
-    sek: 120 },
+    sek: 120, type: "Lønnsomhet" },
 
   { prompt: "Klienten driver 14 fly på det norske kortbanenettet. Halvparten av rutene er statlig kjøpte anbudsruter, resten er kommersielle. Selskapet gikk fra overskudd til å tape 180 millioner i fjor, og eierne vil vite hvilke ruter som skal bort.",
     grener: [
@@ -49,7 +49,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Tapet er konsentrert i de kommersielle rutene der kabinfaktoren ligger under nivået som dekker variable kostnader, mens anbudsrutene dekker sitt. Testen er dekningsbidrag per rute rangert stigende, sammenholdt med hvilke faste kostnader som blir liggende igjen.",
     felle: "Å kutte rutene med lavest fullfordelt margin. Flyene, basene og administrasjonen blir igjen, så de faste kostnadene flytter bare over på de gjenværende rutene og gjør flere av dem ulønnsomme.",
-    sek: 90 },
+    sek: 90, type: "Lønnsomhet" },
 
   { prompt: "Klienten er en nordisk treningskjede med 190 sentre. Medlemstallet har vokst fire prosent i året, men resultatet per senter har falt tre år på rad. Daglig leder tror prisene er for lave og vil ha en prisøkning.",
     grener: [
@@ -62,7 +62,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Problemet er retensjon og ikke pris: churn har steget i de sentrene som har passert kapasitetstaket mellom 16 og 19, slik at kjeden betaler for å verve inn igjen de medlemmene den nettopp mistet. Testen er churn per senter holdt opp mot belegg i rushtiden.",
     felle: "Å lese medlemsvekst som inntektsvekst. Med høy churn kan bestanden vokse mens gjennomsnittlig medlemslevetid faller, og da synker inntekten per vervet krone selv om medlemstallet peker oppover.",
-    sek: 90 },
+    sek: 90, type: "Lønnsomhet" },
 
   { prompt: "Klienten er en norsk byggevarekjede med 60 varehus som selger både til håndverksbedrifter og til privatpersoner. Omsetningen er flat, men dekningsgraden har falt 2,3 prosentpoeng på halvannet år. Ledelsen mistenker at selgerne gir for mye rabatt til proffkundene.",
     grener: [
@@ -75,7 +75,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Dekningsgraden faller på grunn av miks og ikke rabatt: privatsalget med høy margin har falt med boligmarkedet mens proffvolumet står, slik at snittmarginen synker uten at én eneste pris er endret. Testen er dekningsgrad per kundetype over tid — er begge flate, er hele fallet miks.",
     felle: "Å behandle en fallende snittmargin som et prisproblem. Strammer man rabattene til proff mens det er privatvolumet som er borte, kutter man i den kanalen som fortsatt leverer, og problemet blir større.",
-    sek: 90 },
+    sek: 90, type: "Lønnsomhet" },
 
   { prompt: "Klienten er en norsk hotellkjede med 40 hoteller, halvparten i by og halvparten i distrikt. Beleggsprosenten er tilbake på nivået før pandemien, men driftsresultatet ligger 30 prosent lavere. Eieren spør hvorfor fulle hoteller ikke gir penger.",
     grener: [
@@ -88,7 +88,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Fallet er kanaldrevet: listeprisen står, men andelen som bookes via portaler har steget, slik at netto snittpris etter provisjon har falt selv med fullt hus. Testen er netto snittpris per kanal over tre år, mot listepris i samme periode.",
     felle: "Å bruke belegg som suksessmål. Et hotell kan alltid fylles ved å senke prisen, og hvert ekstra rom koster renhold og frokost — det er netto snittpris og RevPAR som avgjør, ikke hvor mange nøkler som er ute.",
-    sek: 90 },
+    sek: 90, type: "Lønnsomhet" },
 
   { prompt: "Klienten er en norsk regionsparebank med 60 milliarder i utlån. Egenkapitalavkastningen har falt fra 12 til 7,5 prosent på to år, i en periode der styringsrenten har vært stabil. Styret vil vite hva som har skjedd, og hva de kan gjøre med det.",
     grener: [
@@ -101,7 +101,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Fallet ligger på fundingsiden og ikke i utlånsprisen: innskuddsdekningen har falt fordi kundene har flyttet penger til høyrentekonto og fond, slik at en større del av utlånene finansieres dyrere i markedet. Testen er utlånsrente og fundingrente hver for seg over 24 måneder, ikke marginen som ett tall.",
     felle: "Å bygge et vanlig pris ganger volum-tre. En bank har ingen enhetspris og ingen varekostnad — inntekten er en rentedifferanse, og resultatet avgjøres like mye av tap og av kostnad i forhold til inntekt som av volumet.",
-    sek: 120 },
+    sek: 120, type: "Lønnsomhet" },
 
   { prompt: "Klienten er en privat tannhelsekjede med 45 klinikker og 210 behandlingsstoler. Omsetningen per behandler har steget, men resultatet er svakere enn i fjor. Eieren, et oppkjøpsfond, vil vite hvor lekkasjen er.",
     grener: [
@@ -114,7 +114,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Lekkasjen er stolutnyttelse og ikke pris: omsetningen per behandler stiger fordi behandlerne jobber mer, mens stolene står tomme deler av dagen og bærer full leie og leasing uansett. Testen er dekningsbidrag per stoltime per klinikk, ikke omsetning per behandler.",
     felle: "Å måle på behandler når det er stolen som er den knappe ressursen. Og å anta at en prisøkning går rett på bunnlinjen — når behandleren har prosentlønn, deles påslaget umiddelbart.",
-    sek: 90 },
+    sek: 90, type: "Lønnsomhet" },
 
   /* ================= MARKEDSINNGANG ================= */
 
@@ -130,7 +130,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Etterspørselen finnes, men kostnadsfordelen lar seg ikke importere: tollvern og norsk lønnsnivå spiser prisgapet før første butikk åpner, og uten et synlig prisgap har lavprismodellen ingen inngang. Testen er en prissammenlikning på en identisk kurv der importandelen er kjent.",
     felle: "Å regne markedet ovenfra og gange med en antatt andel. I Norge er tomter og regulering den bindende beskrankningen, ikke etterspørselen — strukturen må starte med hvor butikkene fysisk kan stå.",
-    sek: 120 },
+    sek: 120, type: "Markedsinngang" },
 
   { prompt: "Klienten er en nordisk operatør av hurtigladere for elbil med 900 ladepunkter hjemme. De vurderer å gå inn i Polen, der elbilandelen er lav, men vokser raskt. Ledelsen vil vite om markedet er verdt det, og hvordan de eventuelt kommer inn.",
     grener: [
@@ -143,7 +143,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Markedet er attraktivt, men ikke inngangsbart organisk: de lokasjonene som gir høy utnyttelse er allerede bundet, så eneste realistiske vei inn er oppkjøp eller et lokasjonspartnerskap. Testen er å kartlegge de 200 mest trafikkerte lokasjonene og telle hvor mange som er bundet i eksklusivavtale.",
     felle: "Å bruke elbilandelen som markedsstørrelse. Kunden er bilisten uten hjemmelading eller på langtur — brukes hele elbilparken som nevner, får du et marked som er flere ganger for stort og en utnyttelsesgrad som aldri inntreffer.",
-    sek: 120 },
+    sek: 120, type: "Markedsinngang" },
 
   { prompt: "Klienten er en stor internasjonal strømmetjeneste som vurderer full lansering i Norden med eget lokalprodusert innhold. De har i dag en liten abonnentbase som kom av seg selv, uten markedsføring. Spørsmålet er om de skal investere for alvor, og med hvilken modell.",
     grener: [
@@ -156,7 +156,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Markedet er for lite til å bære lokal innholdsproduksjon på egen hånd, så eneste modell med positiv nåverdi er distribusjon gjennom teleoperatørenes pakker. Testen er kostnaden for én lokal dramaserie per marked, delt på hvor mange abonnenter den må holde og hvor lenge.",
     felle: "Å bruke total betalingsvilje for underholdning som markedet. Den er allerede fordelt på eksisterende abonnementer, så det relevante spørsmålet er hvilken tjeneste du erstatter — ikke hvor mange som har råd.",
-    sek: 90 },
+    sek: 90, type: "Markedsinngang" },
 
   { prompt: "Klienten er en europeisk togoperatør som vurderer å by på en norsk persontogpakke. Materiellet leies av et statlig selskap, og dagens personale følger med gjennom virksomhetsoverdragelse. Ledelsen spør om de skal bruke seks måneder og et tosifret millionbeløp på å levere bud.",
     grener: [
@@ -169,7 +169,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Det finnes ingen strukturell kostnadsfordel å hente når materiell og personale er låst, så et vinnende bud vinner ved å prise risiko lavere enn de andre — ikke ved å drifte billigere. Testen er å dekomponere forrige vinnerbud i poster og telle hvor mange kroner som i det hele tatt er påvirkelige.",
     felle: "Å strukturere det som en vanlig markedsinngang med markedsstørrelse og markedsandel. Her er andelen null eller hundre, avgjort på én dag av én kjøper — strukturen må være en budkalkyle med risikopåslag, ikke en attraktivitetsanalyse.",
-    sek: 120 },
+    sek: 120, type: "Markedsinngang" },
 
   { prompt: "Klienten er en amerikansk produsent av kirurgisk utstyr som vil inn i det norske og nordiske sykehusmarkedet. Produktet er CE-merket og koster 40 prosent mer per inngrep enn det som brukes i dag. Spørsmålet er om og hvordan de skal gå inn.",
     grener: [
@@ -182,7 +182,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Barrieren er innkjøpssyklusen og ikke produktet: er avtalen nettopp fornyet, er markedet stengt i fire år, og riktig trekk er å gå via distributør nå og bygge helseøkonomiske data til neste utlysning. Testen er utløpsdatoene på gjeldende rammeavtaler i hver helseregion.",
     felle: "Å estimere markedet som antall inngrep ganger pris. Innkjøpsstrukturen bestemmer hvor mye av det som er tilgjengelig og når — et stort marked som er kontraktsbundet i fire år er null marked i planperioden.",
-    sek: 90 },
+    sek: 90, type: "Markedsinngang" },
 
   /* ================= VEKST OG INNTEKT ================= */
 
@@ -197,7 +197,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Veksten ligger i å flytte eksisterende kunder oppover i prisplanene, ikke i å ta kunder fra konkurrentene: i et tremannsmarked koster en portert kunde mer i rabatt enn hun bidrar med over kontraktstiden. Testen er dekningsbidrag over 24 måneder for en oppgradert kunde mot en nyvervet.",
     felle: "Å telle engrossalg og vekst hos egne lavprismerker som inntektsvekst. Mye av det er kannibalisering, og konsernets tjenesteinntekt kan falle mens hvert enkelt merke rapporterer vekst.",
-    sek: 90 },
+    sek: 90, type: "Vekst" },
 
   { prompt: "Klienten er en programvareleverandør med 40 millioner euro i årlig gjentakende inntekt, solgt både som selvbetjening til småbedrifter og som avtalesalg til større kunder. Eierne vil doble inntekten på tre år. Du skal si hvor doblingen realistisk kan komme fra.",
     grener: [
@@ -210,7 +210,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Doblingen kommer fra ekspansjon i basen og ikke fra nysalg: å løfte netto inntektsretensjon fra 105 til 120 prosent gir mer enn å doble salgsapparatet, og binder mindre kapital. Testen er to kohortmodeller stilt opp mot hverandre, med kroner investert per krone ny inntekt.",
     felle: "Å planlegge veksten som ansettelser. En selger ansatt i mars leverer først året etter, så en bemanningsplan uten opplæringstid og oppnåelsesgrad gir en inntektskurve som er forskjøvet et helt år.",
-    sek: 90 },
+    sek: 90, type: "Vekst" },
 
   { prompt: "Klienten er en norsk sjømateksportør som selger 95 prosent av volumet som hel, fersk laks til foredlingsanlegg i Polen og Danmark. Styret vil vokse i verdi og ikke i volum, og spør om selskapet skal flytte seg oppover i verdikjeden. Du skal si om det er riktig, og hvor de i så fall skal stoppe.",
     grener: [
@@ -223,7 +223,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Verdiøkningen finnes, men er allerede beskattet bort: tollsatsen på bearbeidede produkter inn i EU er større enn foredlingsmarginen, så et steg opp lønner seg bare hvis anlegget står inne i EU. Testen er marginen per ledd regnet med og uten toll, for de tre viktigste produktformene.",
     felle: "Å lese høyere pris per kilo som høyere margin. Foredling er en lavmarginindustri med høy kapitalbinding og mye svinn — prisen stiger, men kostnaden og risikoen stiger raskere.",
-    sek: 120 },
+    sek: 120, type: "Vekst" },
 
   { prompt: "Klienten er en norsk bilforhandlerkjede med 22 anlegg. Importøren legger om til agentmodell, der forhandleren får en fast provisjon per bil i stedet for å eie bilen selv, og nybilmarginen forsvinner nesten helt. Eierne vil vite hvor inntjeningen skal komme fra i stedet.",
     grener: [
@@ -236,7 +236,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Inntjeningen må flyttes fra transaksjonen til eierperioden, og den er truet fra to kanter samtidig: elbiler krever færre servicetimer, så veksten må komme fra å holde en større andel av bilene i eget verksted lenger. Testen er dekningsbidrag over fem års eierskap for en kunde med serviceavtale mot en uten.",
     felle: "Å måle vekst i antall solgte biler når marginen per bil er kontraktsfestet av importøren. Volumet kan vokse betydelig uten at én krone treffer bunnlinjen.",
-    sek: 90 },
+    sek: 90, type: "Vekst" },
 
   /* ================= M&A ================= */
 
@@ -252,7 +252,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Avkastningen ligger i multippelforskjellen og i innkjøpssynergi, ikke i organisk vekst — dermed står dealen og faller på om det finnes nok mål til vesentlig lavere multippel enn plattformen. Testen er å kartlegge de 50 største uavhengige og telle hvor mange som har eier over 60 år uten arvefølge.",
     felle: "Å prise synergiene inn i budet. Betaler du for dem, har du gitt dem til selger — og en oppkjøpsstrategi gir bare avkastning så lenge kjøpsmultippelen faktisk er lavere enn den du selv verdsettes til.",
-    sek: 120 },
+    sek: 120, type: "M&A" },
 
   { prompt: "Klienten er det nest største rederiet i norsk fergedrift og vurderer å slå seg sammen med den tredje største. Begge lever av anbud fra fylkeskommuner og staten, og de møtes i budrunder flere ganger i året. Styret vil vite hva sammenslåingen faktisk er verdt.",
     grener: [
@@ -265,7 +265,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Den reelle verdien er høyere flåteutnyttelse og felles mannskapspool, ikke markedsmakt — og lå mesteparten av verdien i markedsmakt, ville dealen uansett bli stoppet, siden kjøperen er en offentlig oppdragsgiver med full innsikt i budhistorikken. Testen er å regne synergien med og uten antatt høyere budpriser.",
     felle: "Å behandle en sammenslåing av to like aktører som et spørsmål om selskapene passer sammen. Når A og B er direkte konkurrenter om de samme kontraktene, er hovedspørsmålet hva som skjer med prisen når kapasitet konsolideres.",
-    sek: 120 },
+    sek: 120, type: "M&A" },
 
   { prompt: "Klienten er et industrikonsern med fire divisjoner. Den minste leverer 12 prosent av omsetningen og 4 prosent av driftsresultatet, og en investeringsbank har uoppfordret levert et indikativt bud. Konsernsjefen vil vite om de skal selge, og hva de i så fall bør kreve.",
     grener: [
@@ -278,7 +278,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Divisjonen er verdt mer for en industriell kjøper enn for oss, men de gjenværende faste kostnadene spiser en betydelig del av gevinsten — så minsteprisen er divisjonens verdi pluss hullet den etterlater. Testen er restkonsernets kostnadsbase satt opp med og uten divisjonen.",
     felle: "Å verdsette divisjonen på dens rapporterte driftsresultat. Det tallet er beregnet med internpriser og konsernallokeringer, og både allokeringen og de fastlåste kostnadene må fram i lyset før tallet betyr noe.",
-    sek: 120 },
+    sek: 120, type: "M&A" },
 
   { prompt: "Klienten er en nordisk bank som vurderer å kjøpe en leverandør av regnskapsprogramvare for småbedrifter, med 90 000 kunder. Prisen tilsvarer 14 ganger årlig gjentakende inntekt, og hele budsjettet er begrunnet med kryssalg av bankprodukter. Ledelsen vil vite om det er en god handel.",
     grener: [
@@ -291,7 +291,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Hele verdien avhenger av overlappet i kundebasen: er halvparten allerede våre kunder, halveres kryssalgssynergien og prisen er for høy. Testen er en samkjøring av organisasjonsnumre i de to basene før budet leveres.",
     felle: "Å telle inntektssynergier uten å si hvem som skal selge dem og hva det koster å realisere dem. Inntektssynergier svikter langt oftere enn kostnadssynergier, og bør prises med langt større rabatt.",
-    sek: 90 },
+    sek: 90, type: "M&A" },
 
   /* ================= PRISING ================= */
 
@@ -306,7 +306,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Betalingsviljen for prissikring er høyere enn sikringskostnaden hos kunder med jevnt og lite forbruk, og lavere hos dem med varmepumpe og elbil — så prisen må differensieres på forbruksprofil i stedet for å settes som ett påslag. Testen er sikringskostnad og betalingsvilje regnet ut for hver av de tre profilene.",
     felle: "Å prise fastpris som gjennomsnittlig terminpris pluss margin. Profil- og volumrisiko er reelle kostnader som ikke synes i gjennomsnittet, og de treffer akkurat i de månedene avtalen er verdt mest for kunden.",
-    sek: 120 },
+    sek: 120, type: "Prising" },
 
   { prompt: "Klienten er et internasjonalt legemiddelselskap som skal sette norsk pris på en ny behandling. Behandlingen erstatter et forløp som i dag krever gjentatte sykehusinnleggelser. Prisen skal forhandles med det offentlige, og selskapet spør hvor den bør ligge.",
     grener: [
@@ -319,7 +319,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Den optimale norske prisen er ikke den som maksimerer norsk inntjening, men den laveste listeprisen selskapet trygt kan bli referert på i de store markedene — derfor bør rabatten være konfidensiell og ligge under listeprisen. Testen er tapt inntekt i referanselandene regnet ut for hvert norsk prisnivå.",
     felle: "Å prise mot kostnad. Nesten hele kostnaden er allerede pådratt forskning og marginalkostnaden er nær null, så et kostnadspluss-tall er meningsløst i begge retninger — her er alternativkostnaden hos betaleren hele grunnlaget.",
-    sek: 120 },
+    sek: 120, type: "Prising" },
 
   { prompt: "Klienten produserer maskineri til offshore- og skipsindustrien og selger 14 000 ulike reservedeler. Alle deler prises i dag som produksjonskostnad pluss et fast påslag. Ledelsen mistenker at ordningen koster dem penger, og vil vite hvordan porteføljen bør prises.",
     grener: [
@@ -332,7 +332,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Dagens prisspredning følger produksjonskostnad, mens den burde følge nedetidskostnad — det betyr at de kritiske og ikke-kopierbare delene er systematisk underpriset og de enkle overpriset. Testen er å plotte dagens pris mot en grov klassifisering på kritikalitet og kopierbarhet, og se om det finnes noen sammenheng i det hele tatt.",
     felle: "Å behandle det som én prisbeslutning. En reservedelsportefølje er tusenvis av beslutninger, og strukturen må være en segmentering som gjør dem til en håndfull regler noen faktisk kan innføre.",
-    sek: 90 },
+    sek: 90, type: "Prising" },
 
   { prompt: "Klienten er et norsk mediehus med 210 000 abonnenter fordelt på papir, digitalt og en kombinasjonsavtale. Antall abonnenter er stabilt, men inntekten per abonnent faller fordi flere nedgraderer ved fornyelse. Kommersiell direktør vil ha en ny pakking, og spør hvordan den bør se ut.",
     grener: [
@@ -345,7 +345,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Inntekten per abonnent faller ved fornyelse og ikke ved førstegangskjøp, så gevinsten ligger i å bygge gjerder som gjør nedgradering mindre attraktiv — ikke i å heve listeprisen. Testen er nedgraderingsrate per kohort ved fornyelse, brutt ned på hvilken funksjon kunden ga fra seg.",
     felle: "Å teste prisen mot nye kunder alene. De fleste kronene ligger i basen, og elastisiteten ved fornyelse i en lojal base er en helt annen enn ved førstegangskjøp.",
-    sek: 90 },
+    sek: 90, type: "Prising" },
 
   /* ================= KOSTNAD OG OPERATIONS ================= */
 
@@ -360,7 +360,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Flaskehalsen er liggetiden ved de to anløpene der billettering skjer om bord, ikke fartøyets fart — og da er tiltaket billettering før ombordstigning, ikke et raskere fartøy eller mer drivstoff. Testen er målt liggetid per anløp mot plan, over 30 avganger.",
     felle: "Å optimalisere noe som ikke er flaskehalsen. Kutter du i drivstoff eller bemanning når det er rundturtiden som binder, faller kostnaden litt og punktligheten ikke i det hele tatt.",
-    sek: 90 },
+    sek: 90, type: "Operations" },
 
   { prompt: "Klienten er et norsk aluminiumsverk som produserer 190 000 tonn i året. Verket ligger i tredje kvartil på bransjens kostnadskurve, og konsernet vurderer om det skal moderniseres eller legges ned. Du skal si hvor kostnadsgapet ligger, og om det kan lukkes.",
     grener: [
@@ -373,7 +373,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Kostnadsgapet mot beste kvartil er kraftkontrakten og ikke driften, og stemmer det, finnes det ikke et driftstiltak som er stort nok til å lukke det. Testen er kostnad per tonn mot beste kvartil, post for post, med spørsmålet hvor mange av kronene som ligger i kraft og råvare.",
     felle: "Å angripe det som en vanlig kostnadskuttcase med bemanning og innkjøp. I en kraftkrevende prosess er over halvparten av kostnaden bundet i to indekserte kontrakter, og den eneste driftsspaken som monner er utbyttet i selve prosessen.",
-    sek: 120 },
+    sek: 120, type: "Operations" },
 
   { prompt: "Klienten er en nordisk netthandelsaktør med ett sentrallager. Volumet har vokst 25 prosent på ett år, leveringstiden har gått fra to til fire dager, og overtidsbruken er tredoblet. Logistikkdirektøren vil ha et nytt lager, og styret vil vite om det er nødvendig.",
     grener: [
@@ -386,7 +386,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Flaskehalsen er pakkebordene i tre ettermiddagstimer, ikke lageret som helhet — og den kan flyttes med kuttid og skiftplan uten å bygge nytt. Testen er kapasitetsutnyttelse per trinn per time gjennom en normaluke og en toppuke.",
     felle: "Å blande kapasitet og volum. At lageret pakker 12 000 ordrer om dagen sier ingenting om hvor mange det kan pakke i den timen ordrene faktisk kommer — og det er den timen som skaper leveringstiden.",
-    sek: 90 },
+    sek: 90, type: "Operations" },
 
   { prompt: "Klienten er en norsk bygg- og anleggsentreprenør med 3 milliarder i omsetning. Ordreboken er full, men fjorårets resultat var minus 90 millioner, drevet av noen få prosjekter. Konsernsjefen vil vite hvor tapene oppstår, og hvordan de stanses.",
     grener: [
@@ -399,7 +399,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Tapene er konsentrert i fastpriskontrakter over en viss størrelse, og de oppstår ikke i kalkylen, men i endringshåndteringen underveis. Testen er kalkulert mot realisert dekningsbidrag per prosjekt, sortert på kontraktstype og størrelse, med endringsordrer som egen kolonne.",
     felle: "Å lete etter kostnadskutt i administrasjonen. I entreprenørdrift oppstår avviket i prosjektene, og et prosjekt som taper 8 prosent kan ikke reddes av en innkjøpsavtale som gir 1.",
-    sek: 90 },
+    sek: 90, type: "Lønnsomhet" },
 
   /* ================= OFFENTLIG OG IDEELL SEKTOR ================= */
 
@@ -414,7 +414,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Gapet lukkes ikke ved å kutte tildelte timer, men ved å heve andelen ansikt-til-ansikt-tid fra rundt halvparten av arbeidstiden — kjøretid og dokumentasjon er der pengene går. Testen er en tidsmåling av én uke i to soner, brutt ned på aktivitet.",
     felle: "Å importere profittreet. Det finnes ingen inntektsside her, og gjør du strukturen om til inntekter og kostnader, ender du med å foreslå å ta betalt eller å kutte i selve tjenesten — som er nettopp det oppdraget forbyr.",
-    sek: 120 },
+    sek: 120, type: "Offentlig" },
 
   { prompt: "Klienten er en norsk humanitær organisasjon med 240 millioner i årlige inntekter. Antall faste givere har falt fire år på rad, mens enkeltgaver etter katastrofer har holdt totalen oppe. Generalsekretæren vil vite hvordan de sikrer stabile midler til formålet.",
     grener: [
@@ -427,7 +427,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Stabiliteten kommer fra å senke churn blant fastgiverne og ikke fra å verve flere: en giver som blir ett år lenger er langt billigere enn en ny, og fastgiverne er den eneste kanalen som er uavhengig av nyhetsbildet. Testen er levetidsverdi og churn per vervekanal og kohort.",
     felle: "Å bruke formålsandelen som suksessmål. En organisasjon som slutter å verve får høy formålsandel og fallende midler til formålet — det er kroner levert over tid som teller, ikke prosenten i årsrapporten.",
-    sek: 90 },
+    sek: 90, type: "Offentlig" },
 
   /* ================= UKONVENSJONELT ================= */
 
@@ -442,7 +442,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Kapasiteten løses med kremasjonsandel og systematisk oppfølging av utløpte festeavtaler, ikke med areal, fordi begge virker innen få år mens en reguleringsprosess ikke rekker fram til 2033. Testen er antall plasser hvert tiltak frigjør, plottet mot året tiltaket først gir effekt.",
     felle: "Å strukturere det som tilbud mot etterspørsel uten å tallfeste ledetid. Her er tiden den bindende beskrankningen — et tiltak som gir tusen plasser i 2036 løser ingenting av problemet i 2033.",
-    sek: 120 },
+    sek: 120, type: "Offentlig" },
 
   { prompt: "Klienten er styret i en norsk eliteserieklubb. Klubben har spilt europacup to av de tre siste årene og har aldri hatt høyere sportslig nivå, men går med 30 millioner i underskudd. Styret vil vite om de skal kutte, vokse eller endre modell.",
     grener: [
@@ -455,7 +455,7 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Underskuddet er strukturelt: lønnsbudsjettet er dimensjonert for en europacupinntekt som bare inntreffer annethvert år, altså budsjetteres det med forventningsverdien av noe binært. Testen er lønnskostnaden satt mot inntektene i det året klubben ikke kvalifiserer seg.",
     felle: "Å behandle sportslig suksess som inntektsdriveren. Suksess hever kostnadene med sikkerhet og inntektene med sannsynlighet, så strukturen må skille de kronene klubben kan planlegge med fra dem den bare kan håpe på.",
-    sek: 90 },
+    sek: 90, type: "Lønnsomhet" },
 
   { prompt: "Klienten er et interkommunalt avfallsforbrenningsanlegg. De får betalt for å ta imot avfall, og selger fjernvarme og strøm ut. Bedre kildesortering gjør at avfallsmengden faller, samtidig som forbrenning nå er kvotepliktig. Styret vil vite hva som skal gjøres med anlegget.",
     grener: [
@@ -469,13 +469,53 @@ window.EDU_DATA.lyn.struktur = [
     ],
     hypotese: "Fallende avfallsmengde er ikke hovedproblemet — kvoteplikten er, fordi den påføres hvert tonn mens portprisen er låst i langsiktige kommunale kontrakter. Testen er kvotekostnad per tonn mot kontraktsfestet portpris og gjenstående løpetid.",
     felle: "Å lete etter kunden på vanlig måte. Her betaler leverandøren av råvaren for å bli kvitt den, og et tre bygget på pris ganger volum i vanlig retning gir feil fortegn med en gang.",
-    sek: 120 },
+    sek: 120, type: "Lønnsomhet" },
 
+
+  { prompt: "Klienten er en produsent av varmepumper som vurderer å etablere seg i Norge. Før de tar stilling til noe annet, vil de vite hvor stort det norske markedet for boligvarmepumper faktisk er. Du har ingen bransjerapport, bare det du kan om Norge.",
+    grener: [
+      "Enheten det telles i: dette er en husholdningsgjenstand knyttet til boligen, ikke til personen — så nevneren er boliger, ikke innbyggere",
+      "Installert base: antall småhus ganger dagens dekningsgrad, siden en varmepumpe monteres i en bolig som allerede finnes",
+      "Erstatningssalget: installert base delt på levetid, som er det bærende leddet i et modent marked",
+      "Vekstsalget: økt dekningsgrad ganger antall boliger, altså de som skaffer seg pumpe for første gang",
+      "Nybyggsalget: antall boliger ferdigstilt i året, som er lite mot de to andre",
+      "Fra enheter til kroner: snittpris per anlegg, og om installasjon skal med i markedstallet eller ikke",
+    ],
+    hypotese: "Erstatningssalget dominerer, fordi dekningsgraden allerede er høy. Da er markedet stabilt og lite følsomt for kampanjer — og det endrer hele inngangsargumentet. Testen er å regne begge ledd hver for seg og se hvilket som er størst.",
+    felle: "Å bruke befolkningen som nevner. Varmepumper telles per bolig, og 5,6 millioner innbyggere gir et marked som er flere ganger for stort. Sjekk alltid om gjenstanden hører til personen eller til hjemmet.",
+    sek: 90, type: "Estimering" },
+
+  { prompt: "En kjede av treningssentre vurderer å kjøpe opp en konkurrent, men vil først vite hvor stort det norske treningssentermarkedet er i kroner. Ledelsen har bare interne tall for sine egne 40 sentre.",
+    grener: [
+      "Toppen ned eller bunnen opp: befolkning ganger medlemsandel, mot antall sentre ganger snittomsetning per senter — gjør begge og se om de møtes",
+      "Medlemsmassen: andel av befolkningen med medlemskap, som varierer kraftig med alder, så segmenter på aldersgruppe",
+      "Pris per medlem: månedspris ganger tolv, men korriger for at mange betaler for måneder de ikke bruker",
+      "Frafall og hvilende medlemskap, som gjør at betalende medlemmer er flere enn aktive brukere",
+      "Inntekt utenom medlemskapet: personlig trener, kurs, salg — en reell del av omsetningen som er lett å glemme",
+      "Sanity-sjekken: kroner per innbygger per år, holdt opp mot noe du kjenner størrelsen på",
+    ],
+    hypotese: "Bunnen-opp gir det mest troverdige tallet her, fordi klienten kjenner omsetningen per senter fra egne bøker og bare trenger antall sentre i markedet. Toppen-ned brukes som kontroll, ikke som svar.",
+    felle: "Å gange medlemstall med listepris. Kampanjepriser, bindingstid og hvilende medlemskap gjør realisert pris per medlem lavere enn listeprisen, ofte med god margin.",
+    sek: 90, type: "Estimering" },
+
+  { prompt: "En leverandør av ladeinfrastruktur vil vite hvor mange hurtigladepunkter Norge trenger når hele bilparken er elektrisk. De har ingen prognose, bare dagens tall.",
+    grener: [
+      "Etterspørselen i kilowattimer: antall elbiler ganger årlig kjørelengde delt på forbruk per mil",
+      "Andelen som må hurtiglades: bare de uten hjemmelading, pluss langturkjøring for alle andre — dette er hele skillet",
+      "Kapasiteten per ladepunkt: effekt ganger realistisk utnyttelsesgrad over døgnet, ikke teoretisk maksimum",
+      "Fra energi til punkter: samlet hurtigladebehov delt på kapasitet per punkt",
+      "Toppbelastning mot snitt: påsketrafikk og fredagsutfart dimensjonerer anlegget, ikke årsgjennomsnittet",
+      "Geografi: behovet er ikke jevnt fordelt, så et nasjonalt tall skjuler at korridorene er bindende",
+    ],
+    hypotese: "Andelen uten hjemmelading er den følsomste forutsetningen, og den varierer fra nær null i eneboligstrøk til det meste i bykjerner. Det tallet avgjør svaret mer enn noe annet ledd — og det er det jeg vil se først.",
+    felle: "Å dimensjonere etter årsgjennomsnittet. Ladeinfrastruktur bygges for toppene; et anlegg som holder i snitt, står i kø hver påske.",
+    sek: 120, type: "Estimering" },
 ];
 
 /* Vises som første skjerm i «Strukturer!». Uten den ber drillen om produksjon
    av noe leseren aldri har sett — og de første nitti sekundene er bortkastet. */
 window.EDU_DATA.lyn.strukturIntro = {
+  rot: "Belegget er tilbake, men driftsresultatet er 40 prosent lavere. Hvorfor?",
   prompt: "Klienten er en norsk hotellkjede med 23 hoteller. Belegget er tilbake på nivået fra før pandemien, men driftsresultatet er 40 prosent lavere. Hvorfor?",
   grener: [
     "Belegget er oppgitt som tilbake, så volumleddet er utelukket — si det høyt, og bruk tiden på resten",

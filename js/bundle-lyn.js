@@ -515,53 +515,102 @@ window.EDU_DATA = window.EDU_DATA || {};
   }
 
 
+
+  /* Deler «Etikett: forklaring» i to nivåer. 176 av 208 grener i casefaget er
+     skrevet slik allerede, så treet får hierarki uten at innholdet må skrives om.
+     Resten rendres som ren gren uten underlinje. */
+  function delGren(g) {
+    const m = String(g).match(/^([^:—]{6,52})(?::|\s—\s)\s*([\s\S]+)$/);
+    return m ? { etikett: m[1].trim(), detalj: m[2].trim() } : { etikett: null, detalj: String(g) };
+  }
+  /* Rotnoden er siste setning i prompten — den er alltid klientens spørsmål. */
+  function rotAv(it) {
+    if (it.rot) return it.rot;
+    const s = String(it.prompt || "").trim().split(/(?<=[.!?])\s+/).filter(Boolean);
+    if (!s.length) return "Problemet";
+    /* «Hvorfor?» alene er ingen rotnode. Er siste setning veldig kort, ta med
+       den foran, så noden faktisk sier hva som skal brytes ned. */
+    const siste = s[s.length - 1];
+    return (siste.length < 25 && s.length > 1) ? s[s.length - 2] + " " + siste : siste;
+  }
+  function byggTre(it) {
+    const tre = el(".tre");
+    tre.appendChild(el(".tre-rot", rotAv(it)));
+    const stamme = el(".tre-stamme");
+    (it.grener || []).forEach((g) => {
+      const d = delGren(g);
+      const gren = el(".tre-gren");
+      gren.appendChild(el(".tre-etikett", d.etikett || d.detalj));
+      if (d.etikett) gren.appendChild(el(".tre-detalj", d.detalj));
+      stamme.appendChild(gren);
+    });
+    tre.appendChild(stamme);
+    const slutt = el(".tre-slutt");
+    if (it.hypotese) slutt.appendChild(el(".explain", { style: { margin: "0 0 8px" } }, el("b", "Hypotesen: "), it.hypotese));
+    if (it.felle) slutt.appendChild(el(".explain", { style: { margin: 0, background: "var(--amber-soft)", border: "1px solid #f2dcb6" } }, el("b", "Felle: "), it.felle));
+    tre.appendChild(slutt);
+    return tre;
+  }
+
   /* ---------- strukturer på 90 sekunder (selvrettet) ----------
      Den viktigste ferdigheten i hele faget, og den som tåler mest mengde:
      mange forskjellige prompter slår én prompt gjort grundig. Formen er
      bevisst den samme som Forklar! — skriv i hodet eller på papir, avslør,
      vurder deg selv. Fasiten er en modellstruktur, ikke ett riktig svar. */
   function runStruktur(done) {
-    const items = shuffle(bank("struktur")).slice(0, 3);
+    const alle = bank("struktur");
+    const typer = [...new Set(alle.map((x) => x.type).filter(Boolean))].sort();
+    let valgt = "alle";
+    let items = [], i = 0, xp = 0;
     const box = el(".lyn-game");
-    let i = 0, xp = 0;
 
-    /* Drillen ba om produksjon uten å ha vist ett eneste eksempel. Har du aldri
-       sett en god struktur, er de første nitti sekundene bortkastet — du kan
-       ikke lage det du ikke har sett. Faget kan derfor levere ett gjennomgått
-       eksempel som vises først, og som kan hoppes over med ett trykk. */
-    function visEksempel(fortsett) {
+    const utvalg = () => (valgt === "alle" ? alle : alle.filter((x) => x.type === valgt));
+
+    /* Åpningsskjermen gjør to ting: lar deg velge hva slags case du vil trene
+       på, og viser ett gjennomgått tre. Uten det siste ber drillen om produksjon
+       av noe du aldri har sett — de første nitti sekundene blir bortkastet. */
+    function visStart() {
+      clearTick(); S.u.clear(box);
+
+      if (typer.length > 1) {
+        box.appendChild(el(".tiny.muted", { style: { marginBottom: "6px" } }, "Hva slags case vil du trene på?"));
+        const rad = el(".row.wrap", { style: { gap: "6px", marginBottom: "16px" } });
+        [["alle", "Alle"], ...typer.map((t) => [t, t])].forEach(([k, navn]) => {
+          const n = k === "alle" ? alle.length : alle.filter((x) => x.type === k).length;
+          rad.appendChild(el("button.chip" + (valgt === k ? ".accent" : ".slate"),
+            { style: { cursor: "pointer" }, onclick: () => { valgt = k; visStart(); } }, `${navn} · ${n}`));
+        });
+        box.appendChild(rad);
+      }
+
       const e = (window.EDU_DATA.lyn || {}).strukturIntro;
-      if (!e) return fortsett();
-      S.u.clear(box);
-      box.appendChild(el(".tiny.muted", "Slik ser en god nedbrytning ut — les den før du prøver selv"));
-      box.appendChild(el(".lyn-statement", e.prompt));
-      const ul = el("ul", { style: { margin: "10px 0 0", paddingLeft: "20px", lineHeight: 1.6 } });
-      (e.grener || []).forEach((g) => ul.appendChild(el("li", g)));
-      box.appendChild(el(".explain", el("b", "Grenene:"), ul,
-        e.hypotese ? el("p", { style: { margin: "10px 0 0" } }, el("b", "Hypotesen: "), e.hypotese) : null,
-        e.poeng ? el("p", { style: { margin: "8px 0 0", color: "var(--ink-3)" } }, el("b", "Legg merke til: "), e.poeng) : null));
-      box.appendChild(el(".center", { style: { marginTop: "14px" } },
-        el("button.btn.primary", { onclick: fortsett }, "Jeg har lest den — start")));
+      if (e) {
+        box.appendChild(el(".tiny.muted", "Slik ser en god nedbrytning ut — les den før du prøver selv"));
+        box.appendChild(byggTre(e));
+      }
+      box.appendChild(el(".center", { style: { marginTop: "16px" } },
+        el("button.btn.primary", {
+          onclick: () => { items = shuffle(utvalg()).slice(0, 3); i = 0; step(); },
+        }, utvalg().length ? `Start · ${Math.min(3, utvalg().length)} prompter` : "Ingen prompter av denne typen")));
     }
 
     function step() {
       clearTick(); S.u.clear(box);
-      if (i >= items.length) { done(xp, `Struktur: ${items.length} prompter`); return; }
+      if (!items.length) { visStart(); return; }
+      if (i >= items.length) { done(xp, `Struktur: ${items.length} prompter${valgt === "alle" ? "" : " · " + valgt}`); return; }
       const it = items[i];
       box.appendChild(progBar(items.length, i));
-      box.appendChild(el(".tiny.muted", "Bryt ned problemet. Skriv på papir — og avslutt med hypotesen din."));
+      box.appendChild(el(".row.wrap", { style: { gap: "8px", marginBottom: "4px" } },
+        el(".tiny.muted", "Bryt ned problemet. Skriv på papir — og avslutt med hypotesen din."),
+        el(".spacer"), it.type ? el(".chip.slate", { style: { fontSize: "11px" } }, it.type) : null));
       box.appendChild(el(".lyn-statement", it.prompt));
       const bar = el(".lyn-timer", el("span")); box.appendChild(bar);
 
-      const fasit = el(".explain", { style: { display: "none" } });
-      const grener = el("ul", { style: { margin: "8px 0 0", paddingLeft: "20px", lineHeight: 1.6 } });
-      (it.grener || []).forEach((g) => grener.appendChild(el("li", g)));
-      fasit.appendChild(el("b", "En modellstruktur:"));
-      fasit.appendChild(grener);
-      if (it.hypotese) fasit.appendChild(el("p", { style: { margin: "10px 0 0" } }, el("b", "Hypotesen: "), it.hypotese));
-      if (it.felle) fasit.appendChild(el("p", { style: { margin: "8px 0 0", color: "var(--ink-3)" } }, el("b", "Felle: "), it.felle));
+      const fasit = el("div", { style: { display: "none" } });
+      fasit.appendChild(el(".tiny.muted", { style: { margin: "4px 0 2px" } }, "En modellstruktur:"));
+      fasit.appendChild(byggTre(it));
 
-      const rate = el(".fc-rate", { style: { display: "none", marginTop: "12px" } });
+      const rate = el(".fc-rate", { style: { display: "none", marginTop: "14px" } });
       const mk = (cls, label, pts) => el("button." + cls, { onclick: () => { xp += pts; i++; step(); } }, label);
       rate.appendChild(mk("again", "Bommet", 0));
       rate.appendChild(mk("hard", "Delvis (+10)", 10));
@@ -579,9 +628,9 @@ window.EDU_DATA = window.EDU_DATA || {};
         if (left <= 0) show(); else span.style.width = (left * 100) + "%";
       }, 120);
     }
-    visEksempel(step); return box;
-  }
 
+    visStart(); return box;
+  }
   /* ---------- finn feilen ----------
      Trener den vanligste tapsposten i caseregning: å regne videre på et tall
      som allerede er galt. Noen runder har ingen feil i det hele tatt — uten

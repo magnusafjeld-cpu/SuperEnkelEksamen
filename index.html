@@ -320,6 +320,17 @@ details.card[open]>summary{border-bottom:1px solid var(--hairline);border-radius
 .lyn-tile .em{font-size:24px;}
 .lyn-tile .nm{font-weight:680;font-size:14.5px;letter-spacing:-.01em;}
 .lyn-tile .ds{font-size:12px;color:var(--ink-3);}
+/* Modellstrukturen tegnes som et tre, ikke en punktliste. Poenget med drillen
+   er å bygge en nedbrytning — da må fasiten vise en nedbrytning. Loddrett stamme
+   så det også holder på 277 px. */
+.tre{margin:10px 0 0;}
+.tre-rot{background:var(--accent-soft);border:1px solid var(--accent-soft-2);border-radius:var(--r-md);padding:10px 13px;font-weight:620;font-size:14px;line-height:1.45;color:var(--accent-ink);}
+.tre-stamme{margin-left:13px;padding-left:16px;border-left:2px solid var(--accent-soft-2);padding-top:4px;}
+.tre-gren{position:relative;padding:7px 0 7px 14px;}
+.tre-gren:before{content:"";position:absolute;left:-16px;top:17px;width:14px;height:2px;background:var(--accent-soft-2);}
+.tre-etikett{font-weight:620;font-size:14px;line-height:1.4;}
+.tre-detalj{font-size:13px;line-height:1.5;color:var(--ink-3);margin-top:2px;}
+.tre-slutt{margin:12px 0 0 13px;padding-left:16px;border-left:2px solid transparent;}
 .lyn-game{min-height:280px;}
 .lyn-prog{display:flex;gap:4px;margin-bottom:12px;}
 .lyn-prog span{flex:1;height:4px;border-radius:99px;background:var(--bg-sunken);}
@@ -520,8 +531,8 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=44"></script>
-<script src="js/config.js?v=44"></script>
+<script src="js/subjects.js?v=47"></script>
+<script src="js/config.js?v=47"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
@@ -533,16 +544,16 @@ window.EDU_DATA = {};
      account      = Supabase-innlogging og synk av fremdrift (valgfritt)
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=44"></script>
-<script src="js/bundle-views.js?v=44"></script>
-<script src="js/bundle-lyn.js?v=44"></script>
-<script src="js/bundle-dybde.js?v=44"></script>
-<script src="js/bundle-sett.js?v=44"></script>
-<script src="js/bundle-case.js?v=44"></script>
-<script src="js/bundle-mock.js?v=44"></script>
-<script src="js/bundle-historier.js?v=44"></script>
-<script src="js/account.js?v=44"></script>
-<script src="js/picker.js?v=44"></script>
-<script src="js/boot.js?v=44"></script>
+<script src="js/bundle-core.js?v=47"></script>
+<script src="js/bundle-views.js?v=47"></script>
+<script src="js/bundle-lyn.js?v=47"></script>
+<script src="js/bundle-dybde.js?v=47"></script>
+<script src="js/bundle-sett.js?v=47"></script>
+<script src="js/bundle-case.js?v=47"></script>
+<script src="js/bundle-mock.js?v=47"></script>
+<script src="js/bundle-historier.js?v=47"></script>
+<script src="js/account.js?v=47"></script>
+<script src="js/picker.js?v=47"></script>
+<script src="js/boot.js?v=47"></script>
 </body>
 </html>
