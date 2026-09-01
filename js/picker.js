@@ -20,8 +20,14 @@ window.EDU = window.EDU || {};
   function remember(id) { try { localStorage.setItem(CHOICE_KEY, id); } catch (e) {} }
   function fromUrl() { try { return new URLSearchParams(location.search).get("fag"); } catch (e) { return null; } }
 
+  /* ?fag=alle tvinger fram velgeren selv om et fag er husket. Uten den fantes
+     ingen adresse som gikk til oversikten — bare knappen «Alle fag» nederst i
+     sidepanelet — og en bokmerket toppadresse gikk rett inn i sist brukte fag. */
+  const vilVelge = () => { const v = fromUrl(); return v === "alle" || v === "velg"; };
+
   /* Valgt fag, eller null hvis brukeren ennå ikke har valgt. */
   function resolve() {
+    if (vilVelge()) return null;
     return window.EDU_SUBJECT_BY_ID(fromUrl()) || window.EDU_SUBJECT_BY_ID(stored()) || null;
   }
 

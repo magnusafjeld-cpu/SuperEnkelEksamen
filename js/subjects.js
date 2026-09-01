@@ -62,7 +62,7 @@ window.EDU_SUBJECTS = [
     short: "FIE402",
     tagline: "NHH · exam prep",
     logo: "CF",
-    blurb: "Hele mastermaualen på engelsk: kapitalstruktur, verdsetting med gjeld, opsjoner, M&A og eierstyring — med elleve tidligere eksamenssett.",
+    blurb: "Hele mastermanualen på engelsk: kapitalstruktur, verdsetting med gjeld, opsjoner, M&A og eierstyring — med seks tidligere eksamenssett.",
     accent: "#12805c", accentInk: "#0b6448", accentSoft: "#e3f4ee", accentSoft2: "#cfeade",
     scripts: ["fag/fie402/data.js", "fag/fie402/lyn.js", "fag/fie402/dybde.js", "fag/fie402/sett.js"],
     manual: {
