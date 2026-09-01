@@ -240,7 +240,7 @@ window.EDU_DATA.lyn.struktur = [
 
   /* ================= M&A ================= */
 
-  { prompt: "Klienten er et nordisk oppkjøpsfond som vurderer å kjøpe en norsk elektroinstallatør med 600 millioner i omsetning, som plattform for å kjøpe opp 15 til 20 mindre lokale installatører. Selger vil ha ni ganger driftsresultat. Fondet spør om planen holder.",
+  { prompt: "Klienten er et nordisk oppkjøpsfond som vurderer å kjøpe en norsk elektroinstallatør med 600 millioner i omsetning, som plattform for å kjøpe opp 15 til 20 mindre lokale installatører. Selger vil ha ni ganger driftsresultat. Fondet spør om buy-and-build-planen holder til den prisen.",
     grener: [
       "Plattformens egen inntjening: andel prosjekt mot service, fakturerbar grad per montør, og utviklingen i timepris",
       "Etterspørselsbildet: nybygg mot rehabilitering, elbilladning og oppgradering av eldre anlegg — og hvilke av dem som er sykliske",
