@@ -89,7 +89,7 @@ De skarpeste funnene:
 | Bygg estimatet | **14** kjeder · 57 runder |
 | Mock-videoer | **70**, dobbeltverifisert · 103 stopp-punkter · 34 timer |
 | Historieporteføljen | 4 dimensjoner, 12 sonder, terskel 8 |
-| Lynelementer totalt | **152** |
+| Lynelementer totalt | **160** |
 | Quiz | **48** (40 flervalg / 8 kortsvar), alle 16 kapitler dekket |
 | Flashcards | **64** forfattet + 44 auto-genererte fra tallarket |
 | Dybdetrening | **115** i fire banker: grunnlaget 20, struktur 25, tall 40, framføring 30 |

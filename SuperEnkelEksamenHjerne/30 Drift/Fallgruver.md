@@ -250,6 +250,33 @@ gjennom systematisk. Ni til ble funnet, og alle er nå rettet.
 > lekkasjer i teksten vil se innhold bak `display:none` — quizens modellsvar så
 > ut til å lekke før avsløring, men gjorde det ikke.
 
+## 7m. Drillen var kalibrert hardere enn faget den trener til
+
+Meldt fra bruk: hoderegningen føltes for vanskelig. Den var det, og
+sammenligningen mot kursets eget materiale viste hvorfor.
+
+| | Drillen før | Casene i samme kurs |
+|---|---|---|
+| Tid per regnestykke | 25 sekunder, fast | **90–120 sekunder** |
+| Antall ledd | 1 til 3, uten skille | 2 til 4 |
+| Krav til presisjon | eksakt | avrundet, med retning oppgitt |
+
+Verst var `19 × 41`, som krevde nøyaktig 779. **Det motsier kapittel 6**, som
+lærer bort kompenserende avrunding: rund én opp og én ned, 20 × 40 = 800, juster.
+Drillen straffet altså teknikken kurset nettopp hadde undervist i.
+
+**Rettet:** `mcqRunner` leser nå tid per runde (`r.sek`) og faller tilbake på
+`cfg.secs`. Banken er kalibrert i tre nivåer — 15–20 s for ettrinns ankere,
+25–30 s for to ledd, 40–45 s for flere — og utvidet fra 12 til 20 oppgaver så det
+finnes en stigning. Ingen oppgave krever lenger et eksakt tall der en case ville
+tålt avrunding.
+
+> [!warning] Sjekk dette for hver drill
+> Sammenlign drillens tidspress og presisjonskrav mot det materialet den trener
+> til. En drill som er hardere enn virkeligheten på **en annen akse** enn den
+> skal trene, lærer bort feil vane — her: å jage desimaler i stedet for å runde
+> av og gå videre.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden

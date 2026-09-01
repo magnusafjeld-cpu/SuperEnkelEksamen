@@ -65,19 +65,64 @@ window.EDU_DATA.lyn = Object.assign(window.EDU_DATA.lyn || {}, {
       steps: ["Les tittelen og si hva figuren måler", "Les aksene, inkludert hvor y-aksen starter", "Sjekk enheten og om serien er indeksert eller absolutt", "Si hva som er den største enkeltobservasjonen", "Knytt observasjonen til hypotesen din", "Si hva den betyr for anbefalingen"] },
   ],
 
-  /* ================= HODEREGNING ================= */
+  /* ================= HODEREGNING =================
+     Tiden er kalibrert per oppgave, ikke felles for banken. Grunnlaget er hva
+     casene selv gir: 90 til 120 sekunder på et regnetrinn med to–fire ledd. Et
+     ettrinns prosentanker skal gå på 15–20 sekunder; et nullpunkt med tre ledd
+     får 40. Ett fast tall for alt gjorde de enkle for lette og de sammensatte
+     urealistisk harde.
+
+     Ingen oppgave krever et eksakt tall der en case ville tålt avrunding.
+     Kapittel 6 lærer bort kompenserende avrunding — da kan ikke drillen straffe
+     deg for å bruke den. */
   hode: [
-    { q: "5 prosentpoeng av 1 560 millioner", correct: "78", distractors: ["39", "156", "7,8"], why: "0,05 × 1 560 = 78. Halvparten av 156, som er 10 prosent. Merk at 39 er svaret på et annet spørsmål — fem prosent av 780.", ch: 3 },
-    { q: "648 / 1 440, som prosent", correct: "45", distractors: ["40", "50", "44"], why: "1 440 delt på 10 er 144, og 648 / 144 = 4,5. Altså 45 prosent. Å dele opp i tiendedeler først gjør brøken håndterbar.", ch: 3 },
-    { q: "12 millioner × 130 kroner", correct: "1 560 millioner", distractors: ["156 millioner", "15,6 milliarder", "1 560 milliarder"], why: "12 × 13 = 156, så fest nullene tilbake: 12 millioner × 130 = 1,56 milliarder = 1 560 millioner. Regn med sifrene først, tierpotensen for seg.", ch: 3 },
-    { q: "Nullpunkt ved faste kostnader 200, pris 50, variabel kostnad 30", correct: "10", distractors: ["4", "6,7", "20"], why: "Dekningsbidrag per enhet = 50 − 30 = 20. Nullpunkt = 200 / 20 = 10 enheter. Del på dekningsbidraget, ikke på prisen.", ch: 3 },
-    { q: "Doblingstid ved 9 prosent årlig vekst", correct: "8 år", distractors: ["6 år", "11 år", "14 år"], why: "72-regelen: 72 / 9 = 8 år. Regelen er god mellom omtrent 4 og 15 prosent, som dekker nesten alt du møter.", ch: 3 },
-    { q: "1 prosent av 5,6 millioner nordmenn", correct: "56 000", distractors: ["5 600", "560 000", "56"], why: "Flytt kommaet to plasser: 5 600 000 / 100 = 56 000. Prosentankere fra 1 prosent og 10 prosent er de to du bygger alle andre prosenter av.", ch: 4 },
-    { q: "2,65 millioner husholdninger × 400 kroner i måneden × 12", correct: "12,7 milliarder", distractors: ["1,27 milliarder", "127 milliarder", "10,6 milliarder"], why: "400 × 12 = 4 800 per husholdning i året. 2,65 millioner × 4 800: regn 2,65 × 4,8 = 12,72, og fest på milliardene. Gjør årsbeløpet ferdig før du ganger med antallet.", ch: 4 },
-    { q: "Hva er 1/8 uttrykt i prosent?", correct: "12,5", distractors: ["8", "16,7", "11,1"], why: "1/8 = 12,5 prosent. Brøktabellen er verdt å pugge: 1/6 = 16,7, 1/7 = 14,3, 1/8 = 12,5, 1/9 = 11,1, 1/12 = 8,3.", ch: 3 },
-    { q: "19 × 41", correct: "779", distractors: ["760", "800", "819"], why: "Kompenserende avrunding: 20 × 40 = 800, så juster. 19 × 41 = (20 − 1)(40 + 1) = 800 + 20 − 40 − 1 = 779. Rund én opp og én ned, så blir feilen liten og lett å rette.", ch: 3 },
-    { q: "En krone per nordmann per dag, i året", correct: "2 milliarder", distractors: ["200 millioner", "20 milliarder", "560 millioner"], why: "5,6 millioner × 365 ≈ 2,04 milliarder. Dette er et av de mest brukbare norske ankerne: hver gang noe koster «en krone per person per dag», er markedet omtrent 2 milliarder i året.", ch: 4 },
-    { q: "Driftsmargin når resultatet er 78 og omsetningen 2 200", correct: "3,5 prosent", distractors: ["2,8 prosent", "3,9 prosent", "28 prosent"], why: "78 / 2 200. Ti prosent av 2 200 er 220, så 78 er litt over en tredjedel av det: omtrent 3,5 prosent. Å gå via ti prosent er raskere enn å dele direkte.", ch: 3 },
-    { q: "Omsetning ned 15 prosent, pris opp 5 prosent — endring i volum", correct: "ned 19 prosent", distractors: ["ned 10 prosent", "ned 20 prosent", "ned 15 prosent"], why: "0,85 / 1,05 = 0,81, altså ned omtrent 19 prosent. Prosentendringer multipliseres; de kan ikke trekkes fra hverandre.", ch: 3 },
+    /* ---- ettrinns: ankere og oppslag, 15–20 sekunder ---- */
+    { q: "1 prosent av 5,6 millioner nordmenn", sek: 15, correct: "56 000", distractors: ["5 600", "560 000", "56"],
+      why: "Flytt kommaet to plasser: 5 600 000 / 100 = 56 000. Prosentankere fra 1 og 10 prosent er de to du bygger alle andre prosenter av." },
+    { q: "Hva er 1/8 uttrykt i prosent?", sek: 15, correct: "12,5", distractors: ["8", "16,7", "11,1"],
+      why: "1/8 = 12,5 prosent. Brøktabellen er verdt å pugge: 1/6 = 16,7, 1/7 = 14,3, 1/8 = 12,5, 1/9 = 11,1, 1/12 = 8,3." },
+    { q: "Hva er 3/8 uttrykt i prosent?", sek: 15, correct: "37,5", distractors: ["30", "33,3", "35"],
+      why: "1/8 er 12,5, så 3/8 er tre ganger det: 37,5 prosent. Å gange en kjent brøk er raskere enn å dele 3 på 8." },
+    { q: "Doblingstid ved 9 prosent årlig vekst", sek: 15, correct: "8 år", distractors: ["6 år", "11 år", "14 år"],
+      why: "72-regelen: 72 delt på vekstraten. 72 / 9 = 8 år. Regelen treffer godt mellom omtrent 4 og 15 prosent, og virker begge veier." },
+    { q: "10 prosent av 2,65 millioner husholdninger", sek: 15, correct: "265 000", distractors: ["26 500", "2,65 millioner", "2 650 000"],
+      why: "Ti prosent er å flytte kommaet én plass. Bygg alltid de andre prosentene fra 10 og 1 i stedet for å gange med desimaltall." },
+    { q: "En krone per nordmann per dag, i året", sek: 20, correct: "2 milliarder", distractors: ["200 millioner", "20 milliarder", "560 millioner"],
+      why: "5,6 millioner × 365 ≈ 2,04 milliarder. Det mest brukbare norske ankeret som finnes: koster noe «en kaffe i uka», er markedet noen milliarder." },
+    { q: "18 prosent av 250", sek: 20, correct: "45", distractors: ["40", "50", "36"],
+      why: "Rund opp og korriger: 20 prosent av 250 er 50, og du rundet omtrent 11 prosent for høyt, så svaret er cirka 45. Si begge deler høyt — det er selve teknikken." },
+
+    /* ---- to ledd: 25–30 sekunder ---- */
+    { q: "5 prosentpoeng av 1 560 millioner", sek: 25, correct: "78", distractors: ["39", "156", "7,8"],
+      why: "0,05 × 1 560 = 78, altså halvparten av 156 som er ti prosent. Merk at 39 er svaret på et annet spørsmål — fem prosent av 780." },
+    { q: "12 millioner × 130 kroner", sek: 25, correct: "1 560 millioner", distractors: ["156 millioner", "15,6 milliarder", "1 560 milliarder"],
+      why: "12 × 13 = 156, så fest nullene tilbake: 1,56 milliarder = 1 560 millioner. Regn med sifrene først og tierpotensen for seg." },
+    { q: "En kjede har 19 butikker som omsetter for 41 millioner hver. Omtrent hvor stor er omsetningen?", sek: 25,
+      correct: "cirka 780 millioner", distractors: ["cirka 600 millioner", "cirka 1,2 milliarder", "cirka 240 millioner"],
+      why: "Kompenserende avrunding: 20 × 40 = 800, og siden du rundet én opp og én ned, ligger svaret litt under. «Cirka 780» er godt nok — i en case sier du 800 og går videre. Ingen ber deg om 779." },
+    { q: "Marginen gikk fra 8 til 10 prosent. Hvor mange prosent økte den?", sek: 25, correct: "25 prosent", distractors: ["2 prosent", "20 prosent", "12,5 prosent"],
+      why: "2 prosentpoeng på et grunnlag av 8 er 2/8 = 25 prosent relativ vekst. Å svare 2 er å forveksle prosentpoeng med prosent — den vanligste feilen i caseregning." },
+    { q: "2,9 millioner personbiler, snittlevetid 17 år. Nybilsalg per år?", sek: 25, correct: "cirka 170 000", distractors: ["cirka 17 000", "cirka 1,7 millioner", "cirka 500 000"],
+      why: "Installert base delt på levetid. 17 × 17 = 289, så 2,9 / 17 ≈ 0,17, og tierpotensen gir 170 000. Her holder det å treffe størrelsesorden." },
+    { q: "648 / 1 440, som prosent", sek: 30, correct: "45", distractors: ["40", "50", "44"],
+      why: "1 440 delt på 10 er 144, og 648 / 144 = 4,5. Altså 45 prosent. Å dele opp i tiendedeler først gjør brøken håndterbar." },
+    { q: "Driftsmargin når resultatet er 78 og omsetningen 2 200", sek: 30, correct: "3,5 prosent", distractors: ["2,8 prosent", "3,9 prosent", "28 prosent"],
+      why: "Ti prosent av 2 200 er 220, så 78 er litt over en tredjedel av det: omtrent 3,5 prosent. Å gå via ti prosent er raskere enn å dele direkte." },
+    { q: "Prisen falt 20 prosent, til 1 200 kroner. Hva var den før?", sek: 30, correct: "1 500 kroner", distractors: ["1 440 kroner", "1 400 kroner", "1 250 kroner"],
+      why: "Del på 0,8, ikke gang med 1,2. 1 200 / 0,8 = 1 500. Feilsvaret 1 440 er nettopp fella: å legge 20 prosent til det nye tallet i stedet for å reversere." },
+
+    /* ---- flere ledd: 40–45 sekunder, som casene selv gir ---- */
+    { q: "Nullpunkt ved faste kostnader 200, pris 50, variabel kostnad 30", sek: 40, correct: "10", distractors: ["4", "6,7", "20"],
+      why: "Dekningsbidrag per enhet = 50 − 30 = 20. Nullpunkt = 200 / 20 = 10 enheter. Del på dekningsbidraget, aldri på prisen — 4 er svaret du får hvis du deler på prisen." },
+    { q: "Omsetning ned 15 prosent, pris opp 5 prosent — endring i volum", sek: 40, correct: "ned 19 prosent", distractors: ["ned 10 prosent", "ned 20 prosent", "ned 15 prosent"],
+      why: "0,85 / 1,05 = 0,81, altså ned omtrent 19 prosent. Prosentendringer multipliseres; de kan ikke trekkes fra hverandre. Svaret 10 er nettopp den subtraksjonen." },
+    { q: "Faste kostnader 36 millioner, dekningsbidrag 2,40 kroner per enhet. Nullpunkt i volum?", sek: 45,
+      correct: "15 millioner enheter", distractors: ["86 millioner enheter", "1,5 millioner enheter", "150 millioner enheter"],
+      why: "36 / 2,4 = 15. Regn det som 36 / 24 = 1,5 og flytt tierpotensen, i stedet for å slite med desimalen. Dette er nøyaktig regnetrinnet i ladecasen." },
+    { q: "2,65 millioner husholdninger × 400 kroner i måneden × 12", sek: 45, correct: "12,7 milliarder", distractors: ["1,27 milliarder", "127 milliarder", "10,6 milliarder"],
+      why: "400 × 12 = 4 800 per husholdning i året. Så 2,65 × 4,8 = 12,72, og fest på milliardene. Gjør årsbeløpet ferdig før du ganger med antallet." },
+    { q: "Et selskap har 12 prosent margin på 400 millioner. Omsetningen vokser 25 prosent, marginen faller til 10. Nytt driftsresultat?", sek: 45,
+      correct: "50 millioner", distractors: ["48 millioner", "40 millioner", "60 millioner"],
+      why: "Før: 0,12 × 400 = 48. Etter: 0,10 × 500 = 50. Det stiger, om enn lite — trening i å motstå refleksen om at lavere margin alltid betyr dårligere." },
   ],
 });

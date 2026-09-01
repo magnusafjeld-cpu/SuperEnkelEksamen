@@ -134,7 +134,11 @@ window.EDU_DATA = window.EDU_DATA || {};
       const r = cfg.rounds[i];
       box.appendChild(progBar(cfg.rounds.length, i));
       let barSpan = null;
-      if (cfg.secs) { const bar = el(".lyn-timer", el("span")); barSpan = bar.firstChild; box.appendChild(bar); }
+      /* Tiden er per runde når oppgaven sier det. Ett fast tall for hele banken
+         ga 25 sekunder både til «hva er 1/8 i prosent» og til et nullpunkt med
+         tre ledd — og casene selv gir 90 til 120 sekunder på det siste. */
+      const sek = r.sek || cfg.secs;
+      if (sek) { const bar = el(".lyn-timer", el("span")); barSpan = bar.firstChild; box.appendChild(bar); }
       if (r.kicker) box.appendChild(el(".tiny.muted", { style: { marginBottom: "4px" } }, r.kicker));
       /* Figuren er rå HTML — exhibit-spillene trenger tabeller og SVG. Alt annet
          i lynmodulen escapes, så dette er det ene bevisste unntaket. */
@@ -160,11 +164,11 @@ window.EDU_DATA = window.EDU_DATA || {};
         opts.push(b); box.appendChild(b);
       });
       box.appendChild(explain);
-      if (cfg.secs) {
+      if (sek) {
         const t0 = Date.now();
         tick = setInterval(() => {
           if (!box.isConnected) { clearTick(); return; }
-          const left = 1 - (Date.now() - t0) / (cfg.secs * 1000);
+          const left = 1 - (Date.now() - t0) / (sek * 1000);
           if (left <= 0) finish(-1); else barSpan.style.width = (left * 100) + "%";
         }, 100);
       }
@@ -390,12 +394,14 @@ window.EDU_DATA = window.EDU_DATA || {};
     return bank("hode").map((it) => {
       if (Array.isArray(it.options)) return it;
       const opts = shuffle([it.correct, ...(it.distractors || [])]);
-      return { q: it.q, options: opts, answer: opts.indexOf(it.correct), why: it.why, ch: it.ch };
+      return { q: it.q, options: opts, answer: opts.indexOf(it.correct), why: it.why, ch: it.ch, sek: it.sek };
     }).filter((it) => Array.isArray(it.options) && it.options.length >= 2 && it.answer >= 0);
   }
   function runHode(done) {
     const rounds = shuffle(hodePool()).slice(0, 8);
-    return mcqRunner({ rounds, secs: 25, xpPer: 12, title: "Hoderegning" }, done);
+    /* 30 s er standarden for et ettrinnsspørsmål. Oppgaver med flere ledd setter
+       sin egen tid, kalibrert mot hva casene faktisk gir. */
+    return mcqRunner({ rounds, secs: 30, xpPer: 12, title: "Hoderegning" }, done);
   }
 
   /* ---------- forklar! (mekanisme mot fasit, selvrettet) ---------- */
