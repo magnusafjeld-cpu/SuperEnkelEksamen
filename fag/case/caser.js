@@ -1693,7 +1693,7 @@ window.EDU_DATA.cases = [
       {
         art: "regne",
         sek: 120,
-        tittel: "Regn markedet",
+        tittel: "Regn markedet", kort: "Markedet",
         sp: `<p>Bruk tallene fra faktaarket. <b>Hvor stort er det norske markedet for varmepumper
           til bolig, i millioner kroner per år?</b></p>
           <p class="tiny">Bygg det leddvis og si hvert delresultat høyt. Rund av åpent.</p>`,
@@ -1957,6 +1957,3651 @@ window.EDU_DATA.cases = [
           "Du holder deg innenfor ett minutt.",
         ],
         felle: "Å ramse opp alle mellomregningene på nytt. Intervjueren så deg gjøre dem — det de vil vite er svaret og hvor skjørt det er." },
+    ],
+  },
+
+
+  /* ============================================================
+     A1 · Bensinstasjoner i Norge — malen, i norsk utgave
+     ============================================================ */
+  {
+    id: "ms-bensinstasjoner-norge",
+    kategori: "Market sizing",
+    label: "Hvor mange bensinstasjoner finnes det i Norge?",
+    type: "Estimering",
+    nivå: "Intro",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 20,
+    ch: [],
+    blurb: "Grunnformen: bygg etterspørselen i fyllinger per år, bygg kapasiteten til én stasjon, og del. Den norske vrien er at en tredjedel av bilparken er elektrisk og ikke fyller i det hele tatt.",
+    prompt: `<p>Du sitter i andregangsintervju. Intervjueren legger fra seg pennen og sier:</p>
+      <p><b>«Hvor mange bensinstasjoner finnes det i Norge?»</b></p>
+      <p class="tiny">Ingen kalkulator, ingen faktaark. Du får de tallene du ber om, hvis du sier
+      hvorfor du trenger dem. Tenk høyt.</p>`,
+    bakgrunn: `<p>Dette er den mest kjente formen for market sizing, og den som skiller best,
+      fordi den ikke kan løses med én kjede av multiplikasjoner. Du må bygge <b>to
+      regnestykker</b> og la dem møtes:</p>
+      <div class="formula">
+        <div class="eq">Etterspørsel: hvor mange fyllinger trenger landet i året?</div>
+        <div class="eq">Tilbud: hvor mange fyllinger rekker én stasjon i året?</div>
+        <div class="eq">Antall stasjoner = Etterspørsel / Kapasitet per stasjon</div>
+      </div>
+      <p>Kapasitetssiden er den som skiller. Der må du forlate befolkningstallene og se for deg
+      <i>én pumpe i drift</i>: hvor lang tid tar en fylling, hvor mange pumper står det, hvor
+      mange timer er det åpent, og — det avgjørende — <b>hvor stor del av tiden står pumpa
+      faktisk i bruk?</b></p>
+      <p>Den norske versjonen har en felle den amerikanske ikke har: <b>rundt en tredjedel av
+      personbilene er elbiler</b>, og de fyller ikke bensin. Kandidater som starter på 2,9
+      millioner biler og glemmer det, overvurderer etterspørselen med nesten femti prosent.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva er det egentlig vi teller?",
+        sp: `<p>Før du regner noe som helst: hvilke spørsmål stiller du, og hva velger du å
+          holde utenfor?</p>`,
+        fasit: `<p>I en estimeringscase er avklaringene <b>definisjonsspørsmål</b>. Regner du på
+          feil størrelse, er alle mellomregninger bortkastet.</p>
+          <ul>
+            <li><b>Hva er en «bensinstasjon»?</b> Et bemannet anlegg med butikk, eller teller vi
+              også ubemannede automatstasjoner som Uno-X? De to gir svar som skiller seg med
+              nesten det dobbelte. Jeg teller <i>alle steder der en privatbil kan fylle
+              drivstoff</i>, bemannet eller ikke.</li>
+            <li><b>Geografi:</b> hele Norge, fastland og øyer. Ikke Svalbard.</li>
+            <li><b>Tidsrom:</b> antall stasjoner i drift i dag, ikke et gjennomsnitt over tid og
+              ikke en framskrivning.</li>
+            <li><b>Hva holdes utenfor?</b> Rene ladestasjoner uten drivstoffpumpe — de er et annet
+              marked. Marinaer og flyplasser også. Og jeg regner på <i>personbiler</i>: varebiler,
+              lastebiler og busser fyller i stor grad på egne dieselanlegg og truckstopp, så jeg
+              lar dem ligge og flagger at svaret mitt da blir litt for lavt.</li>
+          </ul>
+          <p>Si deretter avgrensningen i én setning: <b>«Jeg teller alle drivstoffstasjoner i
+          Norge i dag som betjener personbiler, bemannet og ubemannet, og jeg holder tunge
+          kjøretøy og rene ladepunkter utenfor.»</b> Det er selve avgrensningen intervjueren
+          vurderer deg på — ikke tallet.</p>`,
+        krav: [
+          "Du definerer enheten: hva som teller som én stasjon, og at automatstasjoner er med.",
+          "Du setter geografi og tidsrom eksplisitt — Norge i dag, ikke et snitt over år.",
+          "Du sier hva som holdes utenfor, og hvilken vei det trekker svaret ditt.",
+          "Du oppsummerer avgrensningen i én setning før du begynner å regne.",
+          "Du bruker maks halvannet minutt. Avklaringene skal rydde, ikke utsette.",
+        ],
+        felle: "Å stille åtte spørsmål på rad uten å si hva svaret skal brukes til. To til tre spørsmål med begrunnelse leses som struktur; åtte uten begrunnelse leses som at du utsetter å tenke.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Legg opp begge sider",
+        sp: `<p>Skriv opp regnestykket <b>i symboler, før du har et eneste tall</b>. Legg opp
+          begge sider — etterspørsel og kapasitet — og si <b>hvilken av dem du tror er
+          bindende</b>.</p>`,
+        fasit: `<p>Dette er hele casen. Et sterkt oppsett har to ligninger som møtes i en tredje:</p>
+          <div class="formula">
+            <div class="eq"><b>Etterspørsel</b> = Fossilbiler × Kilometer per år × Liter per km / Liter per fylling</div>
+            <div class="eq"><b>Kapasitet per stasjon</b> = Pumper × Fyllinger per pumpe per time × Åpningstimer per år × Utnyttelsesgrad</div>
+            <div class="eq"><b>Antall stasjoner</b> = Etterspørsel / Kapasitet per stasjon</div>
+          </div>
+          <p>Tre grep gjør oppsettet sterkt:</p>
+          <ul>
+            <li><b>Riktig enhet på etterspørselssiden.</b> Ikke personer — <i>biler</i>. Og ikke
+              alle biler: bare de som faktisk fyller flytende drivstoff. Elbilene skal ut av
+              grunnlaget før du ganger med noe som helst.</li>
+            <li><b>Fyllinger, ikke liter, som fellesvaluta.</b> Det er fyllinger som opptar en
+              pumpe, og det er pumpetid som er kapasiteten. Velger du liter, må du konvertere
+              likevel.</li>
+            <li><b>Utnyttelsesgrad som eget ledd.</b> Dette er leddet nesten alle glemmer, og det
+              er det som avgjør svaret. En pumpe som var i bruk hver eneste åpningstime, ville
+              hatt kø hele dagen. Legg leddet inn i ligningen med én gang, så husker du å sette
+              tall på det.</li>
+          </ul>
+          <p><b>Hvilken side er bindende?</b> Si det høyt, for svaret er ikke opplagt.
+          Etterspørselen er hard: nordmenn kjører det de kjører. Kapasiteten per stasjon er myk:
+          en stasjon <i>kunne</i> tatt mange ganger så mange biler. Det betyr at antallet
+          bensinstasjoner i praksis ikke settes av kapasitet, men av <b>dekning</b> — folk vil ha
+          en stasjon i nærheten. Jeg regner likevel kapasitetsveien, fordi den gir meg et gulv, og
+          så sier jeg til slutt at det virkelige tallet ligger over.</p>`,
+        krav: [
+          "Du skriver begge ligningene i symboler før du setter inn tall.",
+          "Du velger bil som enhet, ikke person, og trekker ut elbilene med begrunnelse.",
+          "Du har utnyttelsesgrad som eget ledd i kapasitetsligningen, ikke gjemt i et anslag.",
+          "Du tar stilling til hvilken side som binder, og sier hvorfor du likevel regner kapasitetsveien.",
+          "Du sier avrundingsregelen din høyt før du begynner: «Jeg runder til vennlige tall og flagger retningen.»",
+        ],
+        felle: "Å bare bygge etterspørselssiden og så gjette antall fyllinger per stasjon i ett jafs. Da har du ikke løst oppgaven, du har flyttet den. Kapasiteten skal bygges nedenfra fra én pumpe, akkurat som etterspørselen bygges nedenfra fra én bil.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Etterspørselssiden", kort: "Etterspørsel",
+        sp: `<p>Norge har <b>2,9 millioner personbiler</b>, hvorav <b>0,95 millioner er
+          elbiler</b>. En bil kjører rundt <b>12 000 km i året</b> og bruker <b>0,6 liter per
+          mil</b>. Folk fyller i snitt <b>36 liter</b> om gangen.</p>
+          <p><b>Hvor mange fyllinger gjør norske personbiler til sammen i året, i millioner?</b></p>
+          <p class="tiny">Bygg det leddvis og si enheten på hvert delresultat høyt.</p>`,
+        svar: 40,
+        enhet: "millioner fyllinger per år",
+        toleranse: 0.15,
+        fasit: `<p>Fire ledd, hvert med sin enhet:</p>
+          <div class="formula">
+            <div class="eq">Fossilbiler: 2,9 mill − 0,95 mill = 1,95 mill ≈ <b>2,0 millioner biler</b></div>
+            <div class="eq">Drivstoff per bil: 12 000 km × 0,06 l/km = <b>720 liter per år</b></div>
+            <div class="eq">Fyllinger per bil: 720 / 36 = <b>20 fyllinger per år</b></div>
+            <div class="eq">Totalt: 2,0 mill × 20 = <b>40 millioner fyllinger per år</b></div>
+          </div>
+          <p><b>Avrundingen:</b> jeg rundet 1,95 opp til 2,0 millioner — det er 2,6 prosent opp, og
+          jeg sier det høyt. Til gjengjeld gjør det hele resten av regnestykket til hoderegning:
+          2 ganger 20 er 40. Det er hele poenget med avrunding, og det er derfor jeg gjør den
+          <i>tidlig</i>, på et ledd som skal ganges videre.</p>
+          <p><b>Dette skiller et sterkt svar fra et middels:</b></p>
+          <ul>
+            <li><b>Middels</b> starter på 2,9 millioner biler og får 58 millioner fyllinger. Feilen
+              er ikke aritmetisk, den er strukturell: nesten en tredjedel av norske personbiler
+              fyller ikke drivstoff i det hele tatt. Et sterkt svar trekker ut elbilene <i>uten å
+              bli minnet på det</i>, og sier hvorfor.</li>
+            <li><b>Middels</b> gjetter «folk fyller en gang i uka» og lander på 52 fyllinger.
+              Sterkt bygger frekvensen fra kjørelengde og forbruk, slik at tallet er
+              <i>utledet</i> og ikke husket. 20 fyllinger i året er én hver tredje uke — sjekk det
+              mot din egen erfaring før du går videre.</li>
+            <li><b>Sterkt</b> sier retningen på det som er utelatt: varebiler og lastebiler er ikke
+              med, så 40 millioner er et gulv. «Jeg tror det virkelige tallet ligger 10–20 prosent
+              over.»</li>
+          </ul>`,
+        krav: [
+          "Du trekker elbilene ut av bilparken før du ganger, og sier hvorfor.",
+          "Du utleder fyllefrekvensen fra kjørelengde og forbruk i stedet for å gjette den.",
+          "Du sier enheten på hvert delresultat — biler, liter, fyllinger, per år.",
+          "Du runder tidlig og flagger retningen: «1,95 opp til 2,0, altså litt for høyt.»",
+          "Du sier at tunge kjøretøy er utelatt, og at 40 millioner derfor er et gulv.",
+        ],
+        felle: "Å bruke 2,9 millioner biler fordi det er drilltallet du kan utenat. Drilltallet er riktig — det er bare ikke grunnlaget for denne oppgaven. Det er nettopp slike tall som er farligst: de er lette å hente, og derfor får de gå ubehandlet.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Tilbudssiden: hva rekker én stasjon?", kort: "Tilbud",
+        sp: `<p>Nå glemmer du hele landet og ser for deg <b>én bensinstasjon</b>. Den har
+          <b>4 pumper</b>. En fylling tar <b>5 minutter</b> fra bilen kjører inn til den kjører
+          ut. Stasjonen har reell trafikk <b>16 timer i døgnet, 365 dager i året</b>.</p>
+          <p><b>Hvor mange fyllinger betjener én stasjon i året?</b></p>
+          <p class="tiny">Regn først taket, og korriger så for hvor mye av tiden pumpene faktisk
+          er i bruk. Si begge tallene høyt.</p>`,
+        svar: 30000,
+        enhet: "fyllinger per stasjon per år",
+        toleranse: 0.15,
+        fasit: `<p>Fire ledd, og det siste er det som betyr noe:</p>
+          <div class="formula">
+            <div class="eq">Per pumpe per time: 60 / 5 = <b>12 fyllinger</b></div>
+            <div class="eq">Åpningstimer: 16 × 365 = 5 840 ≈ <b>6 000 timer per år</b></div>
+            <div class="eq">Teoretisk tak: 4 pumper × 12 × 6 000 = <b>288 000 fyllinger per år</b></div>
+            <div class="eq">Ved 10 % utnyttelse: 288 000 × 0,10 = 28 800 ≈ <b>30 000 fyllinger per år</b></div>
+          </div>
+          <p><b>Hvor kommer de 10 prosentene fra?</b> Fra å se for deg stasjonen du kjørte forbi
+          i går. Fire pumper, og som regel står det én bil ved én av dem. I rushtiden er alle
+          fire opptatt og det står kø; klokka elleve på formiddagen er stasjonen tom. Et snitt
+          rundt ti prosent er det du observerer. Femti prosent ville betydd kø ved to av fire
+          pumper døgnet rundt — det finnes ikke.</p>
+          <p><b>Dette skiller et sterkt svar fra et middels:</b></p>
+          <ul>
+            <li><b>Middels</b> leverer de 288 000 som svar. Det er ikke kapasiteten en stasjon
+              <i>har</i>, det er kapasiteten den ville hatt hvis det sto kø hvert sekund den var
+              åpen. Å levere et teoretisk tak som om det var et driftstall er den vanligste feilen
+              på tilbudssiden, i alle varianter av denne casen.</li>
+            <li><b>Sterkt</b> sier utnyttelsesgraden høyt <i>som en forutsetning</i>, ikke som et
+              faktum, og oppgir følsomheten: «Ved 5 prosent utnyttelse får jeg 2 800 stasjoner, ved
+              10 prosent 1 400, ved 20 prosent 700. Dette leddet bærer hele svaret, så det er her
+              jeg ville brukt tid hvis vi skulle blitt presise.»</li>
+            <li><b>Sterkt</b> krysspeiler mot noe fysisk: 30 000 fyllinger i året er 82 i døgnet,
+              altså én bil hvert tolvte minutt gjennom 16 timer. Det er nøyaktig det tempoet du
+              ser på en norsk stasjon. Da vet du at forutsetningen holder.</li>
+          </ul>`,
+        krav: [
+          "Du regner det teoretiske taket først og sier eksplisitt at det er et tak, ikke et driftstall.",
+          "Du setter en utnyttelsesgrad, begrunner den med noe du kan observere, og kaller den en forutsetning.",
+          "Du oppgir følsomheten: hva svaret blir ved halvparten og ved det dobbelte.",
+          "Du krysspeiler til fyllinger per døgn og sjekker at tempoet er gjenkjennelig.",
+          "Du runder 5 840 timer til 6 000 og sier at du gjorde det.",
+        ],
+        felle: "Å hoppe over utnyttelsesgraden fordi tallet føles vilkårlig. Det er vilkårlig — og det er derfor det må sies høyt og testes med et spenn. Et ledd du ikke nevner, kan intervjueren ikke korrigere deg på; et ledd du nevner med et spenn, viser at du vet hvor usikkerheten sitter.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        tittel: "La sidene møtes", kort: "Svar",
+        sp: `<p>Du har <b>40 millioner fyllinger</b> i etterspørsel og <b>30 000 fyllinger</b> i
+          kapasitet per stasjon.</p>
+          <p><b>Hvor mange bensinstasjoner finnes det i Norge?</b></p>`,
+        svar: 1300,
+        enhet: "bensinstasjoner",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">40 000 000 / 30 000 = 1 333 ≈ <b>rundt 1 300 bensinstasjoner</b></div>
+          </div>
+          <p>Sjekk enhetene før du sier tallet: fyllinger per år delt på fyllinger per stasjon per
+          år gir stasjoner. Det går opp. Går det ikke opp, har du blandet et ledd.</p>
+          <p><b>Nå kommer delen som skiller et sterkt svar fra et middels: sanity-sjekken.</b>
+          Gjør minst to, og si dem høyt.</p>
+          <ul>
+            <li><b>Mot kommunekartet:</b> Norge har 357 kommuner. 1 300 stasjoner er 3,6 per
+              kommune. Små distriktskommuner har én eller to, Oslo har flere titalls. Det henger
+              sammen.</li>
+            <li><b>Mot dagligvare:</b> Norge har rundt 3 900 dagligvarebutikker, altså én per
+              1 400 innbyggere. Vårt svar gir én bensinstasjon per 4 300 innbyggere — en stasjon
+              er altså tre ganger sjeldnere enn en matbutikk. Det stemmer med det du ser: alle
+              nabolag har butikk, ikke alle har pumpe.</li>
+            <li><b>Baklengs til kroner:</b> 40 millioner fyllinger à 36 liter er 1,44 milliarder
+              liter. Til 20 kroner literen er det et drivstoffmarked på <b>rundt 29 milliarder
+              kroner</b>, altså 12 prosent av dagligvaremarkedet på 230 milliarder. Fordelt på
+              2,65 millioner husholdninger blir det 11 000 kroner i året. SSB oppgir transport til
+              rundt 80 000 kroner per husholdning i året — drivstoff som en syvendedel av det, med
+              bilkjøp, forsikring og kollektivreiser i resten, er helt plausibelt. Denne
+              sjekken er uavhengig av alt i regnestykket, og det er derfor den er den beste.</li>
+          </ul>
+          <p><b>Og så det ærlige forbeholdet, som er selve innsikten:</b> 1 300 er et gulv, ikke et
+          anslag. Det virkelige tallet ligger i størrelsesorden 1 500 til 1 800, og grunnen er
+          strukturell: <i>bensinstasjoner bygges ikke etter kapasitetsbehov, de bygges etter
+          dekningsbehov.</i> I et langt og tynt befolket land må det stå en stasjon i Lom selv om
+          den bare har tolv kunder om dagen. Kapasitetsregnestykket forteller deg hvor mange
+          stasjoner landet trenger; geografien forteller deg hvor mange det faktisk har. En
+          kandidat som sier akkurat det, har forstått mer enn en kandidat som treffer tallet.</p>`,
+        krav: [
+          "Du sjekker at enhetene går opp før du sier tallet.",
+          "Du gjør minst to sanity-sjekker, og minst én av dem er uavhengig av regnestykket.",
+          "Du oppgir svaret som et spenn, ikke som ett tall med fire siffer.",
+          "Du sier at kapasitetsmetoden gir et gulv, og forklarer hvorfor dekning trumfer kapasitet.",
+          "Du bruker mindre enn halvannet minutt på hele delen — divisjonen er den enkle biten.",
+        ],
+        felle: "Å levere 1 333 stasjoner. Fire siffer signaliserer at du ikke har forstått at inngangstallene dine er anslag med tjue prosents usikkerhet. «Rundt 1 300, la oss si 1 200 til 1 600» signaliserer at du har.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Svaret på ett minutt",
+        sp: `<p>Intervjueren har <b>ett minutt</b>. Gi tallet, den største usikkerheten, og
+          sanity-sjekken.</p>`,
+        fasit: `<p>Tallet først, metoden på tjue sekunder, usikkerheten og sjekken til slutt.</p>
+          <blockquote><p><b>«Rundt 1 300 bensinstasjoner, og jeg vil si spennet er 1 200 til
+          1 600. Jeg tror det virkelige tallet ligger i overkant av mitt, og jeg skal si
+          hvorfor.»</b></p>
+          <p>Jeg bygde det fra to sider. Etterspørselen: Norge har 2,9 millioner personbiler, men
+          nesten en million er elbiler, så 2 millioner fyller drivstoff. De kjører 12 000 kilometer
+          i året på 0,6 liter mila, altså 720 liter, og fyller 36 om gangen — 20 fyllinger per bil,
+          40 millioner fyllinger totalt.</p>
+          <p>Kapasiteten: fire pumper, fem minutter per fylling, 16 timer om dagen året rundt gir
+          et tak på 288 000 fyllinger. Men en pumpe står ikke i bruk hele tiden — utnyttelsen er
+          nærmere ti prosent, så en stasjon betjener rundt 30 000 fyllinger i året. Det er 82 biler
+          i døgnet, én hvert tolvte minutt. Førti millioner delt på tretti tusen er 1 300.</p>
+          <p><b>Den største usikkerheten er utnyttelsesgraden.</b> Ved fem prosent får jeg 2 800
+          stasjoner, ved tjue prosent 700. Alt annet i regnestykket er tall jeg står inne for; dette
+          ene leddet spenner over en faktor fire.</p>
+          <p>Sanity-sjekken holder: 1 300 stasjoner er 3,6 per kommune, og det gir 29 milliarder
+          kroner i drivstoffsalg — 11 000 kroner per husholdning i året, mot 80 000 kroner i samlede
+          transportutgifter. Riktig størrelsesorden.</p>
+          <p>Og det viktigste, hvis dette skulle brukes til noe: <i>antallet stasjoner styres ikke
+          av kapasitet, det styres av dekning.</i> Kapasiteten per stasjon er rikelig — det er
+          kravet om at det skal stå en pumpe i hver bygd som setter tallet. Det betyr også at når
+          elbilandelen fortsetter å stige, er det ikke kapasitet nettet mister først, det er
+          <i>lønnsomhet per stasjon</i>. De tynneste distriktsstasjonene faller ut lenge før
+          etterspørselen tilsier det.»</p></blockquote>`,
+        krav: [
+          "Du sier tallet med spenn i første setning, og hvilken vei du tror du bommer.",
+          "Du gjengir begge sider av regnestykket på tjue sekunder — ikke hvert mellomledd.",
+          "Du peker ut ett ledd som den største usikkerheten, og kvantifiserer det.",
+          "Du sier sanity-sjekken høyt som en del av svaret, ikke som en ettertanke.",
+          "Du trekker en konsekvens av strukturen — dekning slår kapasitet — og holder ett minutt.",
+        ],
+        felle: "Å presentere tallet uten å si hvilken forutsetning som bærer det. Intervjueren vet at estimatet er grovt; det hun tester, er om du vet hvor det er grovt. Å peke på utnyttelsesgraden selv er verdt mer enn å treffe tallet.",
+      },
+    ],
+  },
+
+  /* ============================================================
+     A2 · Frisørsalonger i Norge — kapasitet målt i klipp per stol
+     ============================================================ */
+  {
+    id: "ms-frisorsalonger-norge",
+    kategori: "Market sizing",
+    label: "Hvor mange frisørsalonger finnes det i Norge?",
+    type: "Estimering",
+    nivå: "Intro",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 20,
+    ch: [],
+    blurb: "Samme mønster, men enheten er en stol og kapasiteten er klipp per stol per dag. Trener segmentering på to grupper og forskjellen på en fullbooket dag og en normal dag.",
+    prompt: `<p>Klienten er et oppkjøpsfond som ser på en kjede av frisørsalonger. Før de bruker
+      penger på en markedsanalyse, vil de vite om markedet i det hele tatt er stort nok.</p>
+      <p><b>Hvor mange frisørsalonger finnes det i Norge?</b></p>
+      <p class="tiny">Ingen kalkulator. Bygg begge sider av regnestykket og sanity-sjekk svaret.</p>`,
+    bakgrunn: `<p>Casen er den samme formen som bensinstasjonene, men med to endringer som gjør
+      den vanskeligere:</p>
+      <ul>
+        <li><b>Etterspørselen må segmenteres.</b> Menn og kvinner har helt ulik frekvens og helt
+          ulik behandlingstid. Et snitt over hele befolkningen skjuler begge deler og gir et
+          tilfeldig svar.</li>
+        <li><b>Kapasitetsenheten er ikke bedriften, den er stolen.</b> En salong kan ha én stol
+          eller ti. Regner du kapasitet per salong, må du gjette salongstørrelsen først, og da har
+          du flyttet usikkerheten i stedet for å fjerne den. Regn per stol, og gang opp til
+          salonger helt til slutt.</li>
+      </ul>
+      <p>Det er en generell regel verdt å ta med seg: <b>velg den minste enheten du har intuisjon
+      om.</b> Du vet omtrent hvor lang tid en klipp tar. Du vet ikke hvor mange kunder en salong
+      har i året.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva er det egentlig vi teller?",
+        sp: `<p>Hvilke spørsmål stiller du, og hva holder du utenfor?</p>`,
+        fasit: `<p>Fire avklaringer, og alle fire flytter svaret:</p>
+          <ul>
+            <li><b>Salonger eller stoler?</b> Det er to helt ulike tall — Norge har rundt tre
+              ganger så mange stoler som salonger. Jeg regner meg fram til <i>stoler</i>, fordi det
+              er den enheten kapasiteten faktisk sitter i, og deler på stoler per salong til
+              slutt.</li>
+            <li><b>Hva teller som en frisørsalong?</b> Bare virksomheter som klipper hår, eller
+              også skjønnhetssalonger, negle- og hudpleiestudioer? Jeg avgrenser til <i>hår</i>, og
+              sier det.</li>
+            <li><b>Er hjemmefrisører med?</b> Enkeltpersonforetak som klipper på kjøkkenet regnes
+              ikke som salong. Jeg holder dem utenfor på tilbudssiden, og trekker dem tilsvarende
+              ut av etterspørselen.</li>
+            <li><b>Geografi og tidsrom:</b> Norge, i drift i dag.</li>
+          </ul>
+          <p>Én setning før du regner: <b>«Jeg teller frisørsalonger i Norge i dag som klipper hår
+          kommersielt, jeg regner meg dit via antall stoler, og jeg holder rene skjønnhetssalonger
+          og hjemmefrisører utenfor.»</b></p>`,
+        krav: [
+          "Du skiller stol fra salong med én gang, og velger stolen som regneenhet med begrunnelse.",
+          "Du avgrenser bransjen — hår, ikke all skjønnhetspleie.",
+          "Du sier hva som holdes utenfor på begge sider, slik at etterspørsel og tilbud er konsistente.",
+          "Du setter geografi og tidsrom eksplisitt.",
+          "Du oppsummerer i én setning før du regner.",
+        ],
+        felle: "Å holde hjemmefrisører utenfor tilbudet, men la kundene deres bli stående i etterspørselen. Da presser du kunder som ikke finnes inn i stolene som finnes, og svaret blir for høyt. Avgrensningen må gjelde begge sider av regnestykket samtidig.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Legg opp begge sider",
+        sp: `<p>Skriv ligningene i symboler. Si <b>hvilken akse du segmenterer på</b>, og
+          <b>hvilken side du tror er bindende</b>.</p>`,
+        fasit: `<div class="formula">
+            <div class="eq"><b>Etterspørsel</b> = Σ (Segment × Andel som bruker frisør × Besøk per år)</div>
+            <div class="eq"><b>Kapasitet per stol</b> = Timer åpent per år / Behandlingstid × Utnyttelsesgrad</div>
+            <div class="eq"><b>Antall stoler</b> = Etterspørsel / Kapasitet per stol</div>
+            <div class="eq"><b>Antall salonger</b> = Antall stoler / Stoler per salong</div>
+          </div>
+          <p><b>Segmentér på én akse, og velg den som betyr mest.</b> Her er det kjønn, og det er
+          ikke en tilfeldig oppdeling: menn går ofte og kort, kvinner går sjelden og lenge. Det er
+          to helt forskjellige mønstre, og et snitt over begge er et tall som ikke beskriver noen.
+          Alder er en dårligere akse her — den flytter frekvensen mindre enn kjønn gjør.</p>
+          <p>Merk hvordan behandlingstiden løses: den varierer fra 20 minutter for en herreklipp
+          til to timer for farge. Jeg kunne segmentert kapasiteten også, men da får jeg fire
+          regnestykker i stedet for to. I stedet bruker jeg <b>ett vektet snitt for
+          behandlingstiden</b> og sier høyt at det er en forenkling. Regel: segmentér på den siden
+          der forskjellen er størst, og bruk snitt på den andre.</p>
+          <p><b>Hvilken side er bindende?</b> Kapasiteten, denne gangen — og det er forskjellen fra
+          bensinstasjonene. En stol som står tom, koster frisøren lønn i timen; ingen driver salong
+          med ledig kapasitet lenge. Tilbudet tilpasser seg etterspørselen ganske raskt, så
+          kapasitetsutnyttelsen bør være <i>høy</i>, ikke lav. Det er et tall du kan sette med
+          langt større trygghet her enn på en bensinstasjon.</p>`,
+        krav: [
+          "Du skriver alle fire ligningene i symboler før du setter inn tall.",
+          "Du segmenterer på kjønn og begrunner hvorfor den aksen slår alder.",
+          "Du bruker vektet snitt på behandlingstiden i stedet for å segmentere begge sider.",
+          "Du sier at kapasitetsutnyttelsen skal være høy her, og begrunner det med at ledig stol koster lønn.",
+          "Du har stoler per salong som et eget, siste ledd — ikke gjemt inne i kapasiteten.",
+        ],
+        felle: "Å segmentere på både kjønn, alder og geografi samtidig. Tolv segmenter er ikke mer presist enn to — feilen ligger i forutsetningene, ikke i oppdelingen, og tolv segmenter betyr bare tolv gjetninger i stedet for to.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Etterspørselssiden", kort: "Etterspørsel",
+        sp: `<p>Norge har <b>5,6 millioner innbyggere</b>, grovt halvparten av hvert kjønn. Anta at
+          <b>60 prosent av menn</b> bruker frisør, og at de går <b>6 ganger i året</b>. For
+          <b>kvinner</b>: <b>80 prosent</b>, og <b>3 ganger i året</b>.</p>
+          <p><b>Hvor mange frisørbesøk blir det i Norge i året, i millioner?</b></p>`,
+        svar: 17,
+        enhet: "millioner frisørbesøk per år",
+        toleranse: 0.15,
+        fasit: `<p>To segmenter, to ledd hver, og én avrunding helt til slutt:</p>
+          <div class="formula">
+            <div class="eq">Menn som bruker frisør: 2,8 mill × 60 % = <b>1,7 millioner</b></div>
+            <div class="eq">Herrebesøk: 1,7 mill × 6 = <b>10,2 millioner besøk</b></div>
+            <div class="eq">Kvinner som bruker frisør: 2,8 mill × 80 % = <b>2,2 millioner</b></div>
+            <div class="eq">Damebesøk: 2,2 mill × 3 = <b>6,6 millioner besøk</b></div>
+            <div class="eq">Sum: 10,2 + 6,6 = 16,8 ≈ <b>17 millioner besøk per år</b></div>
+          </div>
+          <p><b>Avrundingen:</b> legg merke til at jeg <i>ikke</i> rundet 6,6 opp til 7 underveis.
+          Det ville vært seks prosent på ett ledd, og det er for mye når leddet skal legges til et
+          annet. Jeg summerer først og runder én gang til slutt — 16,8 til 17 er 1,2 prosent.
+          Tommelfingerregelen er å runde tidlig på ledd som skal <i>ganges</i>, og sent på ledd som
+          skal <i>legges sammen</i>.</p>
+          <p><b>Dette skiller et sterkt svar fra et middels:</b></p>
+          <ul>
+            <li><b>Middels</b> tar 5,6 millioner ganger «fire klipp i året» og får 22 millioner.
+              Tallet er ikke langt unna, men det er tilfeldig at det ikke er det, og kandidaten kan
+              ikke svare på hva som skjer hvis frekvensen endrer seg for én gruppe. Segmenteringen
+              er ikke pynt — den er det som gjør modellen brukbar til noe etterpå.</li>
+            <li><b>Sterkt</b> sanity-sjekker delresultatet med én gang: 17 millioner besøk delt på
+              5,6 millioner innbyggere er <b>3 besøk per nordmann per år</b>. Det er et tall du kan
+              kjenne på — inkludert spedbarn og skallede menn. Det stemmer.</li>
+            <li><b>Sterkt</b> sier hvilken forutsetning som er skjørest. Her er det herrefrekvensen
+              på 6: den alene står for 10 av de 17 millionene. Går den til 4, faller etterspørselen
+              til 13 millioner og hele svaret med den.</li>
+          </ul>`,
+        krav: [
+          "Du regner segmentene hver for seg og holder enhetene fra hverandre.",
+          "Du summerer før du runder, og sier hvorfor du ikke rundet 6,6 til 7 underveis.",
+          "Du sanity-sjekker delresultatet mot besøk per innbygger med én gang.",
+          "Du peker ut herrefrekvensen som det mest følsomme leddet, og sier hva den er verdt.",
+          "Du sier enheten på hvert delresultat — personer, besøk, per år.",
+        ],
+        felle: "Å bruke antall husholdninger som grunnlag fordi det er det mest kjente tallet. Man går til frisøren som person, ikke som husholdning. Sjekk alltid om enheten i oppgaven er individ, husholdning eller bolig før du griper et drilltall.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Tilbudssiden: hva rekker én stol?", kort: "Tilbud",
+        sp: `<p>Se for deg <b>én stol</b>. En behandling tar i snitt <b>én time</b> inkludert
+          rigging mellom kundene. Salongen er åpen <b>8 timer om dagen, 300 dager i året</b>.
+          Boka er ikke full — regn med <b>75 prosent utnyttelse</b>.</p>
+          <p><b>Hvor mange behandlinger tar én stol i året?</b></p>`,
+        svar: 1800,
+        enhet: "behandlinger per stol per år",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">Åpne stoltimer: 8 × 300 = <b>2 400 timer per år</b></div>
+            <div class="eq">Ved full booking: 2 400 / 1 time = <b>2 400 behandlinger</b></div>
+            <div class="eq">Ved 75 % utnyttelse: 2 400 × 0,75 = <b>1 800 behandlinger per år</b></div>
+          </div>
+          <p><b>Krysspeil med én gang:</b> 1 800 delt på 300 dager er <b>6 behandlinger per stol
+          per dag</b>. Det er en frisør som klipper seks hoder på en åttetimersdag. Det kjenner du
+          igjen fra en salong du har vært i — og det er slik du vet at forutsetningene henger
+          sammen. Hadde du fått 15 i døgnet, måtte noe vært galt.</p>
+          <p><b>Dette skiller et sterkt svar fra et middels:</b></p>
+          <ul>
+            <li><b>Middels</b> setter utnyttelsen til 100 prosent fordi «frisører har alltid fullt».
+              De har det på lørdag. En tirsdag i februar klokka to står boka halvtom, og salongen er
+              åpen likevel. 75 prosent er allerede høyt — det er nesten det maksimale en
+              timebestilt virksomhet klarer, fordi avbestillinger og huller mellom timer aldri kan
+              fylles helt.</li>
+            <li><b>Sterkt</b> sier hvorfor tallet er høyt her og lavt hos en bensinstasjon:
+              <i>frisørkapasitet er timebestilt, drivstoffkapasitet er selvbetjent og
+              tilfeldig.</i> Man booker en klipp; man booker ikke en fylling. Det er derfor
+              utnyttelsen er 75 prosent i det ene tilfellet og 10 prosent i det andre. Å kunne
+              begrunne forskjellen er verdt mer enn å treffe prosenten.</li>
+            <li><b>Sterkt</b> flagger at ett vektet snitt på behandlingstiden er en forenkling:
+              en herreklipp tar 20–30 minutter, en farge to timer. Miksen mellom dem flytter
+              kapasiteten mer enn utnyttelsesgraden gjør.</li>
+          </ul>`,
+        krav: [
+          "Du regner det åpne timetallet først og korrigerer så for utnyttelse.",
+          "Du krysspeiler til behandlinger per dag og sjekker at tallet er gjenkjennelig.",
+          "Du begrunner hvorfor utnyttelsen er høy her — timebestilling, ikke selvbetjening.",
+          "Du sier at snittet på behandlingstiden er en forenkling, og hvilken vei miksen trekker.",
+          "Du sier enheten hver gang — timer, behandlinger, per stol, per år.",
+        ],
+        felle: "Å regne kapasitet per salong i stedet for per stol. Da må du gjette salongstørrelsen midt i regnestykket, og gjetningen forsvinner inn i et tall du ikke kan diskutere etterpå. Hold stoler per salong som et eget, synlig ledd helt til slutt.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        tittel: "La sidene møtes", kort: "Svar",
+        sp: `<p>Du har <b>17 millioner besøk</b> og <b>1 800 behandlinger per stol</b>. En norsk
+          salong har i snitt <b>3 stoler</b>.</p>
+          <p><b>Hvor mange frisørsalonger finnes det i Norge?</b></p>`,
+        svar: 3200,
+        enhet: "frisørsalonger",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">Stoler: 17 000 000 / 1 800 = 9 444 ≈ <b>9 500 stoler</b></div>
+            <div class="eq">Salonger: 9 500 / 3 = 3 167 ≈ <b>rundt 3 200 salonger</b></div>
+          </div>
+          <p>Enhetssjekk: besøk per år delt på besøk per stol per år gir stoler; stoler delt på
+          stoler per salong gir salonger. Det går opp.</p>
+          <p><b>Sanity-sjekkene — gjør minst to, og si dem høyt:</b></p>
+          <ul>
+            <li><b>Mot arbeidsstyrken:</b> 9 500 stoler i drift betyr grovt 9 500 frisører i full
+              stilling. Norge har 2,9 millioner sysselsatte, så det er <b>én av 300
+              yrkesaktive</b> — 0,33 prosent. For et yrke som finnes i hver eneste bygd, men bare
+              har noen få utøvere hvert sted, er det riktig størrelsesorden. Dette er den beste
+              sjekken, fordi den er helt uavhengig av regnestykket.</li>
+            <li><b>Mot dagligvare:</b> 3 200 salonger mot rundt 3 900 dagligvarebutikker. Altså
+              omtrent like vanlig som en matbutikk, litt sjeldnere. Tenk på et kjøpesenter: det har
+              gjerne to matbutikker og én frisør. Konsistent.</li>
+            <li><b>Baklengs til kroner:</b> 17 millioner besøk à 500 kroner i vektet snitt — mange
+              herreklipp til 400, noen fargebehandlinger til 1 500 — gir et marked på
+              <b>8,5 milliarder kroner</b>. Det er 3,7 prosent av dagligvaremarkedet på 230
+              milliarder, og 3 200 kroner per husholdning i året. Per stol blir det 900 000 kroner
+              i omsetning, som med femti prosent lønnsandel gir 450 000 kroner i årslønn til
+              frisøren. <i>Det er omtrent riktig frisørlønn</i>, og det er den skarpeste sjekken i
+              hele casen: den knytter markedstallet til en lønn du kan vurdere.</li>
+          </ul>
+          <p><b>Dette skiller et sterkt svar fra et middels:</b> et middels svar sier «rundt 3 000
+          salonger» og stopper. Et sterkt svar tar den baklengse sjekken helt ned til lønn per
+          frisør — og hvis lønnen hadde kommet ut på 1,2 millioner, ville det sterke svaret sagt
+          «da er noe galt, sannsynligvis snittprisen min», og justert. Sanity-sjekken er ikke en
+          seremoni du utfører etter at svaret er ferdig; den er sjansen din til å oppdage at det
+          ikke er det.</p>`,
+        krav: [
+          "Du sjekker at enhetene går opp gjennom begge divisjonene.",
+          "Du gjør minst to sanity-sjekker, og minst én er uavhengig av regnestykket.",
+          "Du tar den baklengse sjekken helt ned til omsetning per stol og lønn per frisør.",
+          "Du sier hva du ville gjort hvis sjekken ikke hadde gått opp.",
+          "Du oppgir svaret som et spenn, ikke som ett presist tall.",
+        ],
+        felle: "Å gjøre sanity-sjekken uten å være villig til å endre svaret. Hvis du sier «det virker rimelig» uansett hva tallet ble, har du ikke sjekket noe. En ekte sjekk har en terskel: si på forhånd hva som ville fått deg til å regne om.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Svaret på ett minutt",
+        sp: `<p>Klienten har <b>ett minutt</b>. Gi tallet, usikkerheten og sjekken.</p>`,
+        fasit: `<blockquote><p><b>«Rundt 3 200 frisørsalonger i Norge, med et spenn på 2 500 til
+          4 000. Bak dem ligger rundt 9 500 stoler, og det er stolene som er det interessante
+          tallet for dere.»</b></p>
+          <p>Slik kom jeg dit. Etterspørselen delte jeg på kjønn, fordi mønstrene er så ulike:
+          1,7 millioner menn går seks ganger i året, 2,2 millioner kvinner går tre ganger. Det gir
+          17 millioner besøk, altså tre per nordmann i året. Kapasiteten regnet jeg per stol: 8
+          timer i 300 dager er 2 400 timer, og med 75 prosents utnyttelse og en time per behandling
+          blir det 1 800 behandlinger i året — seks om dagen. 17 millioner delt på 1 800 er 9 500
+          stoler, og med tre stoler per salong blir det 3 200 salonger.</p>
+          <p><b>Den største usikkerheten er stoler per salong.</b> Bransjen har mange
+          enmannssalonger og noen få store kjedesalonger, så snittet på tre kan lett være to eller
+          fire — og salongtallet svinger mellom 2 400 og 4 800 med det. Stoltallet på 9 500 står
+          derimot ganske stødig, fordi det er utledet fra to sider som begge er sanity-sjekket.</p>
+          <p>Sjekken: 9 500 frisører er én av 300 yrkesaktive nordmenn. Og markedet blir 8,5
+          milliarder kroner, som gir 900 000 i omsetning per stol og rundt 450 000 i frisørlønn.
+          Det er riktig lønn, så kjeden henger sammen.</p>
+          <p>Det som betyr noe for dere: markedet er <i>kapasitetsbestemt og fullt utnyttet</i>.
+          Vekst kan ikke komme fra flere stoler, for stolene fylles bare hvis folk klipper seg
+          oftere, og det gjør de ikke. Vekst må komme fra <b>kroner per besøk</b> — behandling,
+          farge, produktsalg — eller fra å ta stoler fra andre. Det er en helt annen investeringstese
+          enn en volumtese, og det er det jeg ville testet først.»</p></blockquote>`,
+        krav: [
+          "Du gir salongtallet og stoltallet, og sier hvilket av dem som er mest robust.",
+          "Du gjengir segmenteringen og kapasitetsregnestykket på tjue sekunder.",
+          "Du peker ut stoler per salong som den største usikkerheten, og kvantifiserer spennet.",
+          "Du sier sanity-sjekken høyt, inkludert lønnen per frisør.",
+          "Du trekker en investeringsrelevant konsekvens: verdi per besøk, ikke flere stoler.",
+        ],
+        felle: "Å svare på spørsmålet som ble stilt og ikke på spørsmålet som ble ment. Fondet spurte om antall salonger, men de skal kjøpe en kjede — da er stoler, utnyttelse og kroner per besøk det som avgjør, og salongtallet er bare inngangen.",
+      },
+    ],
+  },
+
+  /* ============================================================
+     A3 · Ladepunkter langs E6 Oslo–Trondheim — geografisk avgrenset
+     ============================================================ */
+  {
+    id: "ms-ladepunkter-e6",
+    kategori: "Market sizing",
+    label: "Hvor mange hurtigladepunkter trengs langs E6 mellom Oslo og Trondheim?",
+    type: "Estimering",
+    nivå: "Middels",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 25,
+    ch: [],
+    blurb: "Geografisk avgrenset sizing. Etterspørselen bygges fra trafikkarbeid på to ulike strekninger, kapasiteten fra ladetid per bil — og hele poenget er at et ladenett ikke dimensjoneres for gjennomsnittsdagen.",
+    prompt: `<p>Klienten er en ladeoperatør som vurderer å bygge ut korridoren
+      <b>E6 mellom Oslo og Trondheim</b>, en strekning på rundt 500 kilometer. De vil vite hvor
+      mange hurtigladepunkter strekningen trenger før de setter et investeringsbudsjett.</p>
+      <p><b>Hvor mange hurtigladepunkter trengs det langs E6 Oslo–Trondheim?</b></p>
+      <p class="tiny">Ett ladepunkt er én kontakt én bil kan stå ved. En ladestasjon har flere.</p>`,
+    bakgrunn: `<p>Denne casen er den vanskeligste av de fire, av tre grunner:</p>
+      <ul>
+        <li><b>Etterspørselen er ikke befolkning, den er trafikk.</b> Du kan ikke gå via
+          innbyggertall — du må gå via <i>trafikkarbeid</i>, altså kjøretøykilometer per døgn. Det
+          er årsdøgntrafikk ganger strekningslengde, og det er den riktige valutaen så snart
+          oppgaven er geografisk avgrenset til en veistrekning.</li>
+        <li><b>Bare en del av trafikken lader underveis.</b> De aller fleste elbilturer i Norge er
+          korte, og de lades hjemme. Bare turer som er lengre enn bilens rekkevidde skaper
+          etterspørsel etter hurtiglading langs vei. Å filtrere bort resten er selve
+          strukturgrepet.</li>
+        <li><b>Gjennomsnittsdagen er feil dimensjoneringsgrunnlag.</b> Et ladenett som holder i
+          november, står i timeslang kø palmesøndag. Å si det høyt er det som skiller et sterkt
+          svar fra et middels her — og det er også det klienten faktisk skal betale for.</li>
+      </ul>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva er det egentlig vi teller?",
+        sp: `<p>Hvilke spørsmål stiller du før du regner?</p>`,
+        fasit: `<ul>
+            <li><b>Ladepunkt eller ladestasjon?</b> Klienten sier punkt, altså én kontakt. Én
+              stasjon har typisk 6–12 punkter, så tallene skiller seg med nesten en tiendedel. Jeg
+              regner punkter og oppgir stasjoner som avledet tall.</li>
+            <li><b>Hurtiglading eller all lading?</b> Bare hurtiglading — 150 kW og oppover. En
+              vanlig 22 kW-lader ved et hotell løser ikke en langtur og skal ikke telles.</li>
+            <li><b>Hvor bredt er «langs E6»?</b> Jeg regner ladepunkter som betjener
+              gjennomgangstrafikken på selve korridoren, ikke hele fylkene den går gjennom. Ladere
+              inne i Oslo og Trondheim holdes utenfor — de dekker byenes egen trafikk.</li>
+            <li><b>Personbiler, eller også tungtransport?</b> Elektriske vogntog trenger helt andre
+              effektnivåer og egne plasser. Jeg holder dem utenfor og flagger at det er et eget
+              regnestykke.</li>
+            <li><b>Dimensjonere for hvilken dag?</b> Dette er det viktigste spørsmålet, og det bør
+              stilles nå og ikke til slutt: skal nettet holde en vanlig onsdag, eller skal det
+              holde palmesøndag? Trafikken skiller seg med en faktor tre til fire.</li>
+          </ul>
+          <p>Én setning: <b>«Jeg regner antall hurtigladepunkter for personbiler som betjener
+          gjennomgangstrafikken på de 500 kilometerne mellom Oslo og Trondheim, dimensjonert for en
+          normal dag — og så sier jeg hva topplasten gjør med tallet.»</b></p>`,
+        krav: [
+          "Du skiller ladepunkt fra ladestasjon i første setning.",
+          "Du avgrenser til hurtiglading og sier hvorfor vanlige ladere ikke teller.",
+          "Du avgrenser geografien til korridoren, ikke fylkene, og holder bylading utenfor.",
+          "Du stiller dimensjoneringsspørsmålet — normal dag eller topplast — før du regner, ikke etter.",
+          "Du oppsummerer avgrensningen i én setning.",
+        ],
+        felle: "Å ta topplastspørsmålet til slutt som en ettertanke. Det avgjør hele svaret — en faktor tre — og en kandidat som stiller det først, viser at hun forstår at dette er en dimensjoneringsoppgave og ikke en tellejobb.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Legg opp begge sider",
+        sp: `<p>Skriv ligningene i symboler. Si <b>hvorfor trafikkarbeid og ikke befolkning</b> er
+          riktig inngang, og <b>hvilken side du tror er bindende</b>.</p>`,
+        fasit: `<div class="formula">
+            <div class="eq"><b>Trafikkarbeid</b> = Σ (Strekningslengde × Årsdøgntrafikk) per delstrekning</div>
+            <div class="eq"><b>Langturkilometer</b> = Trafikkarbeid × Andel langtur</div>
+            <div class="eq"><b>Etterspørsel</b> = Langturkilometer × Elbilandel / Rekkevidde mellom lading</div>
+            <div class="eq"><b>Kapasitet per punkt</b> = 24 t / Ladetid per bil × Utnyttelsesgrad</div>
+            <div class="eq"><b>Antall ladepunkter</b> = Ladeøkter per døgn / Kapasitet per punkt</div>
+          </div>
+          <p><b>Hvorfor trafikkarbeid?</b> Fordi oppgaven er avgrenset til en <i>strekning</i>, ikke
+          til en befolkning. Ladebehovet oppstår av kjørte kilometer, ikke av mennesker: én bil som
+          kjører hele strekningen skaper like mye ladebehov som fem biler som kjører en femtedel
+          hver. Kjøretøykilometer per døgn er den eneste størrelsen som fanger begge deler. Så snart
+          en sizing-oppgave er geografisk avgrenset til vei, jernbane eller ledningsnett, er
+          <b>lengde ganger intensitet</b> riktig inngang.</p>
+          <p><b>Segmentér strekningen.</b> E6 er ikke én vei — den er en firefelts pendlerkorridor
+          de første 100 kilometerne ut av Oslo, og en tofelts fjellvei over Dovre. Trafikken skiller
+          seg med en faktor fire, og andelen langtur skiller seg enda mer. To delstrekninger er nok;
+          fem er overpresisjon.</p>
+          <p><b>Hvilken side er bindende?</b> Kapasiteten, og det er poenget med hele oppgaven. En
+          bil som lader, står ved kontakten i en halvtime — det er hundre ganger lengre enn en
+          bensinfylling, og det er derfor et ladenett er et kapasitetsproblem der et bensinnett er
+          et dekningsproblem. Det er også hele grunnen til at klienten har et beslutningsproblem:
+          hver kontakt koster penger, og for få kontakter gir kø, ikke bare ulempe.</p>`,
+        krav: [
+          "Du skriver alle leddene i symboler før du setter inn tall.",
+          "Du begrunner trafikkarbeid som inngang, og sier at lengde × intensitet er regelen ved geografisk avgrensning.",
+          "Du deler strekningen i to og begrunner delingen med at trafikkbildet er kvalitativt ulikt.",
+          "Du har «andel langtur» som eget ledd — filtreringen bort fra hjemmelading er strukturgrepet.",
+          "Du sier at kapasitet binder her, og hvorfor lading er et kapasitetsproblem der fylling ikke er det.",
+        ],
+        felle: "Å bygge etterspørselen fra antall elbiler i Norge. 0,95 millioner elbiler sier ingenting om hvor mange av dem som er på E6 over Dovre akkurat nå. Geografisk avgrensede oppgaver skal bygges fra geografien, ikke fra landstallene.",
+      },
+      {
+        art: "regne",
+        sek: 150,
+        tittel: "Etterspørselssiden", kort: "Etterspørsel",
+        sp: `<p>Del strekningen i to. <b>200 km</b> er bynært (rundt Oslo og Trondheim) med
+          <b>ÅDT 20 000</b>, hvorav bare <b>15 prosent</b> er langtur. <b>300 km</b> er innland og
+          fjell med <b>ÅDT 5 000</b>, hvorav <b>80 prosent</b> er langtur. <b>40 prosent</b> av
+          trafikken er elbil, og en elbil kjører <b>250 km</b> mellom hver hurtiglading på
+          langtur.</p>
+          <p><b>Hvor mange ladeøkter blir det på strekningen per døgn?</b></p>`,
+        svar: 3000,
+        enhet: "ladeøkter per døgn",
+        toleranse: 0.15,
+        fasit: `<p>Fem ledd. Hold enhetene stramt — det er her folk mister sporet:</p>
+          <div class="formula">
+            <div class="eq">Bynært trafikkarbeid: 200 km × 20 000 = <b>4,0 mill kjøretøykm/døgn</b></div>
+            <div class="eq">Innland trafikkarbeid: 300 km × 5 000 = <b>1,5 mill kjøretøykm/døgn</b></div>
+            <div class="eq">Langtur bynært: 4,0 mill × 15 % = <b>0,6 mill km</b></div>
+            <div class="eq">Langtur innland: 1,5 mill × 80 % = <b>1,2 mill km</b></div>
+            <div class="eq">Sum langtur: 0,6 + 1,2 = <b>1,8 mill kjøretøykm/døgn</b></div>
+            <div class="eq">Elbil: 1,8 mill × 40 % = <b>720 000 elbilkm/døgn</b></div>
+            <div class="eq">Ladeøkter: 720 000 / 250 km = 2 880 ≈ <b>3 000 ladeøkter per døgn</b></div>
+          </div>
+          <p><b>Avrundingen:</b> 2 880 til 3 000 er 4 prosent opp, og jeg sier det. Til gjengjeld
+          blir divisjonen i neste trinn hoderegning.</p>
+          <p><b>Legg merke til hva segmenteringen gjorde.</b> De bynære 200 kilometerne har mer enn
+          dobbelt så mye trafikkarbeid som fjellstrekningen — 4,0 mot 1,5 millioner kilometer — men
+          bidrar bare halvparten så mye til ladebehovet, fordi nesten alt er pendling som lades
+          hjemme. <i>Uten segmenteringen hadde du fått feil svar med riktig metode.</i> Det er den
+          typen innsikt som skiller: si den høyt når du ser den, ikke bare noter tallet.</p>
+          <p><b>Dette skiller et sterkt svar fra et middels:</b></p>
+          <ul>
+            <li><b>Middels</b> ganger 500 km med en gjennomsnitts-ÅDT og filtrerer ikke bort
+              hjemmeladingen. Da får du 5,5 millioner kjøretøykilometer, 2,2 millioner elbilkm og
+              8 800 ladeøkter — nesten tre ganger for høyt, og et ladenett som er tre ganger for
+              dyrt.</li>
+            <li><b>Sterkt</b> sanity-sjekker underveis: 3 000 ladeøkter per døgn på en strekning
+              med rundt 2 000 langturbiler betyr at de fleste lader én gang, noen to. Det stemmer
+              med at 500 kilometer er dobbelt så langt som rekkevidden.</li>
+            <li><b>Sterkt</b> flagger at 250 km rekkevidde er et vinterhalvårstall. Om sommeren i
+              flatt terreng er det 350; på Dovre i januar med kupévarme er det 180. Rekkevidden er
+              en av to forutsetninger som bærer svaret.</li>
+          </ul>`,
+        krav: [
+          "Du regner trafikkarbeid som lengde × ÅDT for hver delstrekning, med enheten sagt høyt.",
+          "Du filtrerer bort korttursrafikken før du ganger med elbilandelen.",
+          "Du legger merke til at den bynære strekningen dominerer trafikken, men ikke ladebehovet — og sier det.",
+          "Du runder 2 880 til 3 000 og flagger retningen.",
+          "Du sier at rekkevidden på 250 km er et vintertall, og hvilken vei det trekker.",
+        ],
+        felle: "Å blande ÅDT og trafikkarbeid. ÅDT er biler per døgn gjennom ett snitt av veien; trafikkarbeid er kjøretøykilometer per døgn på hele strekningen. Ganger du ÅDT direkte med noe som helst uten å gange inn lengden først, mister du kilometeren, og da går ikke divisjonen på rekkevidde opp.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Tilbudssiden: hva rekker ett ladepunkt?", kort: "Tilbud",
+        sp: `<p>Se for deg <b>ett ladepunkt</b>. En ladeøkt tar <b>30 minutter</b> inkludert inn-
+          og utkjøring og betaling. Lading skjer ikke jevnt over døgnet — regn med at nesten alt
+          skjer innenfor <b>14 dagtimer</b>, og at et punkt du kan planlegge med, ikke bør ha mer
+          enn <b>40 prosent</b> belegg i de timene.</p>
+          <p><b>Hvor mange ladeøkter betjener ett ladepunkt per døgn?</b></p>`,
+        svar: 12,
+        enhet: "ladeøkter per ladepunkt per døgn",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">Per time: 60 / 30 = <b>2 økter</b></div>
+            <div class="eq">Tak i dagtimene: 2 × 14 = <b>28 økter per døgn</b></div>
+            <div class="eq">Ved 40 % belegg: 28 × 0,40 = 11,2</div>
+            <div class="eq">Pluss litt nattlading: ≈ <b>12 ladeøkter per punkt per døgn</b></div>
+          </div>
+          <p><b>Hvorfor bare 40 prosent?</b> Dette er det viktigste å kunne begrunne i hele casen.
+          I et system med tilfeldig ankomst — biler kommer når de kommer, ikke etter timeavtale —
+          <i>vokser køen eksponentielt når belegget nærmer seg hundre prosent</i>. Ved 80 prosent
+          belegg må en typisk bilist vente en halvtime på å komme til. Ved 40 prosent kommer nesten
+          alle rett til. Å dimensjonere en tjeneste med tilfeldig ankomst for høyt belegg er ikke
+          effektivt, det er ødeleggende: en halvtimes kø etter fire timers kjøring er forskjellen
+          på en fornøyd og en rasende kunde.</p>
+          <p><b>Dette skiller et sterkt svar fra et middels:</b></p>
+          <ul>
+            <li><b>Middels</b> regner 24 timer delt på 30 minutter og leverer 48 økter. Det er
+              taket for et punkt med kø døgnet rundt, og det gir et svar som er fire ganger for
+              lavt i antall ladepunkter. Å bruke det teoretiske taket som driftstall er den samme
+              feilen som på bensinstasjonen — bare enda dyrere her, fordi kapasiteten faktisk
+              binder.</li>
+            <li><b>Sterkt</b> knytter beleggsgraden til <i>kø</i> og ikke til «effektivitet», og
+              sier at akseptabel ventetid er en <b>tjenestenivåbeslutning klienten må ta</b>, ikke
+              en teknisk forutsetning analytikeren skal gjette. Det er å gi klienten en spak i
+              stedet for et tall.</li>
+            <li><b>Sterkt</b> nevner at ladetiden faller raskt: 30 minutter i dag, og med 350
+              kW-ladere og nyere biler nærmere 20. Det er en <i>kapasitetsøkning på femti prosent
+              uten en eneste ny kontakt</i>, og for en investor som skal binde kapital i tolv år,
+              er det kanskje det viktigste enkeltmomentet i hele analysen.</li>
+          </ul>`,
+        krav: [
+          "Du regner taket først og sier eksplisitt at det ikke er et driftstall.",
+          "Du begrunner beleggsgraden med kødannelse ved tilfeldig ankomst, ikke med «effektivitet».",
+          "Du kaller ventetiden en tjenestenivåbeslutning som tilhører klienten.",
+          "Du nevner at fallende ladetid øker kapasiteten uten nye kontakter, og hva det er verdt.",
+          "Du sier enheten hver gang — økter per time, per døgn, per punkt.",
+        ],
+        felle: "Å bruke 24 timer i nevneren. Ingen lader klokka tre om natten på Dovre, og et anlegg dimensjonert som om de gjorde det, får kø hele dagen. Døgnprofilen — når på døgnet etterspørselen faktisk kommer — er en del av kapasitetsregnestykket, ikke en detalj.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        tittel: "La sidene møtes", kort: "Svar",
+        sp: `<p>Du har <b>3 000 ladeøkter per døgn</b> og <b>12 økter per ladepunkt per døgn</b>.</p>
+          <p><b>Hvor mange hurtigladepunkter trengs langs E6 Oslo–Trondheim?</b></p>`,
+        svar: 250,
+        enhet: "ladepunkter",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">3 000 / 12 = <b>250 ladepunkter</b></div>
+          </div>
+          <p>Enhetssjekk: økter per døgn delt på økter per punkt per døgn gir punkter. Det går opp.</p>
+          <p><b>Sanity-sjekkene:</b></p>
+          <ul>
+            <li><b>Mot geografien — den beste her:</b> 250 punkter fordelt på ladestasjoner med 8
+              punkter hver gir <b>rundt 31 ladestasjoner</b>, altså én hver 16. kilometer. Det er
+              nøyaktig slik E6 ser ut når du kjører den: en ladestasjon ved omtrent annenhver
+              tettsted. Hadde vi fått én stasjon hver 80. kilometer, ville en elbil med 250 km
+              rekkevidde vært helt avhengig av at akkurat den ene virket — og det holder ikke.</li>
+            <li><b>Mot energi:</b> 3 000 økter à 50 kWh er 150 MWh per døgn, altså 55 GWh i året.
+              Norges samlede elbilforbruk er rundt 2,4 TWh — 0,95 millioner elbiler à 2 500 kWh —
+              så én veistrekning står for 2,3 prosent av all elbillading i landet. For hovedåren
+              mellom landets to største byområder er det plausibelt.</li>
+            <li><b>Mot penger:</b> 250 punkter à en halv million kroner installert er 125 millioner
+              kroner. Det er en investering en ladeoperatør faktisk kan bære, og størrelsesordenen
+              stemmer med det Enova har delt ut til korridorutbygging. Hadde vi landet på 12
+              milliarder, ville noe vært galt.</li>
+          </ul>
+          <p><b>Og så det som skiller et sterkt svar fra et middels — dimensjoneringen:</b>
+          250 punkter holder på en <i>normal dag</i>. Palmesøndag og i fellesferien er
+          langturtrafikken tre ganger så høy: 9 000 økter. Fordelt på 250 punkter blir det 36 økter
+          per punkt per døgn, mot et tak på 28 i dagtimene. <b>Etterspørselen overstiger taket —
+          det betyr ikke lang kø, det betyr sammenbrudd.</b> Skulle nettet holdt samme
+          tjenestenivå i toppen, måtte det hatt 750 punkter.</p>
+          <p>Ingen bygger for 750. Svaret et sterkt lys gir, er: <b>bygg rundt 400, ta køen de
+          femten verste dagene i året, og gjør de tre travleste stasjonene dobbelt så store i
+          stedet for å spre kapasiteten jevnt.</b> Det er en anbefaling, ikke et estimat — og det
+          er det klienten betaler for.</p>`,
+        krav: [
+          "Du sjekker at enhetene går opp før du sier tallet.",
+          "Du regner om til ladestasjoner og kilometer mellom dem — det er sanity-sjekken alle kan kjenne igjen.",
+          "Du gjør minst én sjekk til som er uavhengig av regnestykket, energi eller investering.",
+          "Du regner topplasten eksplisitt og viser at den bryter taket, ikke bare at den er høy.",
+          "Du lander på en dimensjonering med begrunnet påslag, ikke på gjennomsnittstallet alene.",
+        ],
+        felle: "Å levere 250 og la det stå. Et ladenett dimensjonert for gjennomsnittsdagen fungerer 350 dager i året og kollapser de 15 dagene alle husker. Kunden dømmer nettet på påskedagen, ikke på en onsdag i november — og et estimat som ikke sier det, har svart på feil spørsmål.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Svaret på ett minutt",
+        sp: `<p>Ladeoperatøren har <b>ett minutt</b>. Gi tallet, usikkerheten og sjekken.</p>`,
+        fasit: `<blockquote><p><b>«Rundt 250 hurtigladepunkter dekker en normal dag. Men jeg ville
+          bygget nærmere 400, og jeg skal si hvorfor tallet ikke er det samme som svaret.»</b></p>
+          <p>Etterspørselen bygde jeg fra trafikkarbeid, ikke fra befolkning, fordi oppgaven er
+          knyttet til en strekning. De 500 kilometerne gir 5,5 millioner kjøretøykilometer i
+          døgnet, men bare 1,8 millioner av dem tilhører turer lange nok til å trenge lading
+          underveis — resten er pendling som lades hjemme. Med 40 prosent elbil og 250 kilometer
+          mellom hver lading blir det <b>3 000 ladeøkter i døgnet</b>.</p>
+          <p>Kapasiteten: en økt tar en halvtime, og et punkt kan ikke planlegges med mer enn 40
+          prosent belegg uten at køen løper løpsk. Det gir 12 økter per punkt per døgn, og 3 000
+          delt på 12 er 250 punkter — rundt 31 ladestasjoner, én hver 16. kilometer. Det er slik
+          E6 faktisk ser ut, så sjekken holder.</p>
+          <p><b>Den største usikkerheten er andelen langtur.</b> Den bestemmer to tredjedeler av
+          etterspørselen, og jeg har anslått den, ikke målt den — Vegvesenets snittdata ville
+          avgjort den på en ettermiddag. Det er det første jeg ville hentet inn.</p>
+          <p>Men det viktigste for dere er ikke gjennomsnittstallet, det er <b>topplasten</b>.
+          Palmesøndag er langturtrafikken tre ganger så høy: 9 000 økter mot en kapasitet på 250
+          punkter ganger 28 økter, altså 7 000. <i>Etterspørselen bryter taket</i> — det gir ikke
+          kø, det gir sammenbrudd, og det er den dagen hele merkevaren deres avgjøres. Å bygge for
+          toppen ville krevd 750 punkter, som ingen kan forsvare. Jeg ville bygget 400 og lagt
+          påslaget der trafikken faktisk klumper seg: dobbel størrelse på de tre stasjonene rundt
+          Dovre, ikke jevn fordeling langs hele strekningen.</p>
+          <p>Og én ting til, fordi dere binder kapital i tolv år: <i>ladetiden faller.</i> Går den
+          fra 30 til 20 minutter, øker kapasiteten femti prosent uten en eneste ny kontakt. Det
+          taler for å bygge færre punkter nå og sikre seg <b>tomtene og nettkapasiteten</b> til
+          resten. Det er de to tingene som ikke blir billigere med tiden.»</p></blockquote>`,
+        krav: [
+          "Du skiller estimatet fra anbefalingen i første setning, og sier at de ikke er samme tall.",
+          "Du gjengir begge sider på tjue sekunder, og sier hvorfor trafikkarbeid var riktig inngang.",
+          "Du peker ut andelen langtur som den største usikkerheten, og hvordan den kan avklares.",
+          "Du viser at topplasten bryter kapasitetstaket, og gir en dimensjonering med begrunnet påslag.",
+          "Du sier noe om hva som endrer seg over investeringens levetid — ladetid, tomter, nettkapasitet.",
+        ],
+        felle: "Å levere estimatet som om det var anbefalingen. Klienten spurte hvor mange punkter strekningen trenger; det riktige svaret er «250 i snitt, 750 i toppen, bygg 400 og plasser dem skjevt». Et enkelt tall skjuler nettopp den avveiningen de skal ta en beslutning om.",
+      },
+    ],
+  },
+
+  /* ============================================================
+     A4 · Sykehussenger i Tyskland — kapasitet målt i liggedøgn
+     ============================================================ */
+  {
+    id: "ms-sykehussenger-tyskland",
+    kategori: "Market sizing",
+    label: "Hvor mange sykehussenger finnes det i Tyskland?",
+    type: "Estimering",
+    nivå: "Middels",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 20,
+    ch: [],
+    blurb: "Internasjonal variant der kapasitetsenheten er en seng og ikke en tidsluke. Trener liggedøgn som fellesvaluta, hvorfor 100 prosent belegg er umulig, og den mest presise sanity-sjekken som finnes: senger per tusen innbyggere.",
+    prompt: `<p>Klienten er en europeisk leverandør av sykehusutstyr. De skal prioritere mellom
+      markedene sine, og starter med det største.</p>
+      <p><b>Hvor mange sykehussenger finnes det i Tyskland?</b></p>
+      <p class="tiny">Ingen kalkulator, ingen faktaark. Du får tallene du ber om.</p>`,
+    bakgrunn: `<p>Denne casen bruker samme mønster som de tre foregående, men kapasitetsenheten er
+      ikke en tidsluke på noen minutter — den er en <b>seng som er opptatt i døgn av gangen</b>.
+      Fellesvalutaen blir dermed <i>liggedøgn</i>, og det er et grep som løser mange oppgaver:
+      hotellrom, fengselsplasser, sykehjemsplasser, containere på et lager, biler i en bilpool. Så
+      snart kapasiteten holdes opptatt over tid, skal du regne i <b>enhet-døgn</b>.</p>
+      <p>Casen har to grunner til å være internasjonal. Den ene er at Tyskland med 84 millioner
+      innbyggere er et av de få tallene enhver kandidat bør kunne. Den andre er at helsevesen har
+      en <b>sanity-sjekk som er så god at den nesten er et fasitoppslag</b>: senger per tusen
+      innbyggere er en OECD-statistikk alle land måles på, og den ligger mellom 2 og 8. Får du et
+      svar utenfor det intervallet, har du regnet feil — og du vet det uten å slå opp.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva er det egentlig vi teller?",
+        sp: `<p>Hvilke spørsmål stiller du, og hva holder du utenfor?</p>`,
+        fasit: `<ul>
+            <li><b>Hva er en «sykehusseng»?</b> En godkjent, bemannet plass for innlagte pasienter.
+              Ikke undersøkelsesbenker, ikke oppvåkningssenger, ikke senger på lager. Definisjonen
+              betyr noe: forskjellen på «senger som finnes» og «senger i drift» er ti prosent i de
+              fleste land.</li>
+            <li><b>Somatikk alene, eller også psykiatri og rehabilitering?</b> Psykiatri har helt
+              andre liggetider — uker mot dager — og vil ødelegge et snitt hvis den blandes inn
+              ubemerket. Jeg regner <i>somatiske senger på akuttsykehus</i>, og sier at psykiatri
+              og rehabilitering kommer i tillegg.</li>
+            <li><b>Er sykehjem og pleiehjem med?</b> Nei. De er en helt annen sektor med helt annen
+              liggetid, og i Tyskland er de flere ganger så mange som sykehussengene. Å blande dem
+              inn er den største enkeltfeilen man kan gjøre i denne oppgaven.</li>
+            <li><b>Tidsrom:</b> senger i drift i dag.</li>
+          </ul>
+          <p>Én setning: <b>«Jeg teller somatiske sykehussenger i drift i Tyskland i dag, og jeg
+          holder psykiatri, rehabilitering og hele pleiesektoren utenfor.»</b></p>`,
+        krav: [
+          "Du definerer sengen som en bemannet plass i drift, ikke som en fysisk seng.",
+          "Du skiller somatikk fra psykiatri med liggetid som begrunnelse, ikke bare som kategori.",
+          "Du holder sykehjem utenfor eksplisitt, og sier hvorfor det er den farligste sammenblandingen.",
+          "Du setter geografi og tidsrom.",
+          "Du oppsummerer avgrensningen i én setning før du regner.",
+        ],
+        felle: "Å la pleiesektoren gli med. Tyskland har flere sykehjemsplasser enn sykehussenger, og de har liggetider målt i år. Blander du inn én sektor med tusen ganger lengre liggetid, blir gjennomsnittet meningsløst — og du oppdager det ikke, fordi svaret fortsatt ser plausibelt ut.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Legg opp begge sider",
+        sp: `<p>Skriv ligningene i symboler. Si <b>hvilken fellesvaluta du velger</b> og
+          <b>hvilken side du tror er bindende</b>.</p>`,
+        fasit: `<div class="formula">
+            <div class="eq"><b>Etterspørsel</b> = Befolkning × Innleggelser per innbygger per år × Liggetid</div>
+            <div class="eq"><b>Kapasitet per seng</b> = 365 døgn × Beleggsprosent</div>
+            <div class="eq"><b>Antall senger</b> = Liggedøgn per år / Liggedøgn per seng per år</div>
+          </div>
+          <p><b>Fellesvalutaen er liggedøgn</b>, og det er hele grepet. Verken pasienter eller
+          innleggelser kan sammenlignes med senger, fordi en seng ikke har en «kunde per gang» — den
+          har en <i>okkupasjonstid</i>. Så snart du ganger innleggelser med liggetid, har begge
+          sider samme enhet, og divisjonen gir mening. Samme grep gjelder hotellrom (romdøgn),
+          fengselsplasser (plassdøgn) og utleiebiler (bildøgn).</p>
+          <p><b>Kapasitetssiden er merkelig enkel:</b> en seng har 365 døgn i året, punktum. Det
+          eneste leddet som betyr noe, er <b>beleggsprosenten</b> — og den er ikke et
+          effektivitetsmål, den er en <i>beredskapsbeslutning</i>. Et sykehus som kjører hundre
+          prosent belegg, har ingen seng ledig når det kommer en bilulykke. Å reservere en åttendedel
+          av kapasiteten til det som ikke er planlagt, er ikke sløsing; det er hele poenget med et
+          akuttsykehus.</p>
+          <p><b>Hvilken side binder?</b> Her er svaret uvanlig, og det er verdt å si høyt:
+          <i>kapasiteten skaper sin egen etterspørsel.</i> Land med mange senger legger inn flere
+          pasienter og holder dem lenger, for tilstander som andre land behandler poliklinisk. Det
+          er en veldokumentert sammenheng i helseøkonomi. Etterspørselssiden er altså ikke uavhengig
+          av tilbudssiden — så jeg regner den, men jeg sier at forutsetningene mine om
+          innleggelsesrate og liggetid egentlig er <b>observasjoner av det tyske systemet</b>, ikke
+          av et medisinsk behov.</p>`,
+        krav: [
+          "Du skriver ligningene i symboler og velger liggedøgn som fellesvaluta, med begrunnelse.",
+          "Du sier at grepet generaliserer til alt som holdes opptatt over tid — hotellrom, plasser, biler.",
+          "Du behandler beleggsprosenten som en beredskapsbeslutning, ikke som et effektivitetsmål.",
+          "Du sier at tilbudet påvirker etterspørselen, og hva det betyr for tolkningen av svaret.",
+          "Du sier avrundingsregelen din før du begynner.",
+        ],
+        felle: "Å regne «pasienter per seng per år» i stedet for liggedøgn. Det ser ut som det samme, men det tvinger deg til å gjette omløpshastigheten direkte — og da har du gjettet svaret i stedet for å utlede det. Liggetid er noe du har intuisjon om; omløp per seng per år er det ikke.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Etterspørselssiden", kort: "Etterspørsel",
+        sp: `<p>Tyskland har <b>84 millioner innbyggere</b>. Anta at <b>én av fem</b> legges inn på
+          sykehus i løpet av et år, og at et opphold varer <b>8 døgn</b> i snitt.</p>
+          <p><b>Hvor mange liggedøgn blir det i Tyskland i året, i millioner?</b></p>`,
+        svar: 135,
+        enhet: "millioner liggedøgn per år",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">Innleggelser: 84 mill × 0,2 = 16,8 ≈ <b>17 millioner innleggelser</b></div>
+            <div class="eq">Liggedøgn: 17 mill × 8 døgn = 136 ≈ <b>135 millioner liggedøgn</b></div>
+          </div>
+          <p><b>Avrundingen:</b> 16,8 opp til 17 er 1,2 prosent, og 136 ned til 135 er 0,7 prosent.
+          Begge er små, og de peker i hver sin retning — det er den beste typen avrunding, fordi
+          feilene spiser hverandre.</p>
+          <p><b>Sanity-sjekk delresultatet med én gang.</b> 17 millioner innleggelser i året er 20
+          per 100 innbyggere. Det betyr at en tysker i snitt legges inn på sykehus hvert femte år.
+          Det høres høyt ut for en nordmann — og det <i>er</i> høyt. Tyskland har en av verdens
+          høyeste innleggelsesrater, fordi mye som andre land gjør poliklinisk, gjøres med
+          innleggelse der. Sier du «jeg vet at dette er høyt, og jeg tror det er riktig for akkurat
+          Tyskland», har du vist noe mer enn regneferdighet.</p>
+          <p><b>Dette skiller et sterkt svar fra et middels:</b></p>
+          <ul>
+            <li><b>Middels</b> setter liggetiden til 3–4 døgn, fordi det er det man hører om
+              moderne sykehus. Det er tallet for et planlagt inngrep, ikke for snittet — og snittet
+              trekkes opp av eldre pasienter med lungebetennelse og hoftebrudd som ligger i to uker.
+              <i>Liggetiden alene er en faktor to i svaret.</i></li>
+            <li><b>Sterkt</b> sier at både innleggelsesraten og liggetiden er <b>landsspesifikke og
+              korrelerte</b>: land som legger inn mange, legger dem gjerne inn kortere. De to
+              forutsetningene trekker altså i hver sin retning, og produktet er mer stabilt enn hver
+              av dem. Det er en presis observasjon, og den er verdt å si.</li>
+            <li><b>Sterkt</b> holder enheten stram: innleggelser er hendelser, liggedøgn er
+              seng-døgn. Det er først når man ganger dem at tallet kan sammenlignes med en seng.</li>
+          </ul>`,
+        krav: [
+          "Du ganger innleggelser med liggetid for å komme til liggedøgn, og sier hvorfor det er nødvendig.",
+          "Du sanity-sjekker innleggelsesraten mot din egen erfaring og tar stilling til at den er høy.",
+          "Du sier at liggetiden er snittet inkludert lange opphold, ikke tiden for et planlagt inngrep.",
+          "Du runder små og i hver sin retning, og sier det.",
+          "Du sier enheten på hvert delresultat.",
+        ],
+        felle: "Å bruke sin egen erfaring med norsk sykehusvesen som mal. Norge har blant Europas laveste sengetall og korteste liggetider; Tyskland har blant de høyeste av begge. Når oppgaven er internasjonal, må du spørre deg om ankeret ditt er landsspesifikt — og her er begge forutsetningene det.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        tittel: "Tilbudssiden: hva rekker én seng?", kort: "Tilbud",
+        sp: `<p>Se for deg <b>én seng</b>. Den er tilgjengelig <b>365 døgn i året</b>. Et sykehus
+          kan ikke kjøre fullt belegg — regn med <b>80 prosent</b>.</p>
+          <p><b>Hvor mange liggedøgn leverer én seng i året?</b></p>`,
+        svar: 290,
+        enhet: "liggedøgn per seng per år",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">365 × 0,80 = 292 ≈ <b>290 liggedøgn per seng per år</b></div>
+          </div>
+          <p>Regnestykket er trivielt. <b>Begrunnelsen er ikke</b>, og det er den som vurderes.</p>
+          <p><b>Hvorfor ikke 100 prosent?</b> Tre grunner, og de er verdt å si i rekkefølge:</p>
+          <ul>
+            <li><b>Beredskap.</b> Et akuttsykehus må ha en ledig seng når ambulansen kommer. Full
+              belegg betyr at neste pasient sendes videre, og da er kapasiteten null når den trengs
+              mest.</li>
+            <li><b>Friksjon.</b> En seng står tom mellom to pasienter — utskrivning om formiddagen,
+              rengjøring, ny innleggelse om kvelden. Noen timer per opphold blir noen prosent per
+              år.</li>
+            <li><b>Kø ved tilfeldig ankomst.</b> Akkurat som med ladepunktene: når ankomsten er
+              tilfeldig, eksploderer ventetiden når belegget nærmer seg taket. Over 85 prosent
+              regnes internasjonalt som kritisk grense for et akuttsykehus.</li>
+          </ul>
+          <p><b>Dette skiller et sterkt svar fra et middels:</b> et middels svar sier 365 og går
+          videre — og får dermed et sengetall som er tjue prosent for lavt, med en begrunnelse som
+          er hundre prosent fraværende. Et sterkt svar bruker tjue sekunder på å si at
+          beleggsprosenten er en <i>politisk og faglig beslutning</i>, ikke et måltall: Tyskland har
+          historisk ligget lavt fordi systemet er dimensjonert for beredskap, mens land som styrer
+          hardt på kostnad presser mot nitti og betaler for det i korridorpasienter. <b>Dette ene
+          leddet er hele forskjellen mellom to helsesystemfilosofier</b> — og det er en langt mer
+          interessant setning å si i et intervju enn «365 ganger 0,8».</p>`,
+        krav: [
+          "Du gir tre distinkte grunner til at belegget ikke kan være 100 prosent.",
+          "Du kobler kødannelsen til tilfeldig ankomst, samme mekanisme som ved en kø av kunder.",
+          "Du kaller beleggsprosenten en beslutning, ikke et måltall, og sier hvem som tar den.",
+          "Du oppgir følsomheten: hva svaret blir ved 70 og ved 90 prosent belegg.",
+          "Du bruker mindre enn ett minutt — regnestykket er lett, begrunnelsen er poenget.",
+        ],
+        felle: "Å levere 365 fordi kapasiteten «er der uansett». Å ha en seng er ikke det samme som å kunne fylle den: bemanningen, ikke møbelet, er kapasiteten. En seng uten sykepleier på nattevakt leverer null liggedøgn.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        tittel: "La sidene møtes", kort: "Svar",
+        sp: `<p>Du har <b>135 millioner liggedøgn</b> og <b>290 liggedøgn per seng</b>.</p>
+          <p><b>Hvor mange sykehussenger finnes det i Tyskland?</b></p>`,
+        svar: 470000,
+        enhet: "sykehussenger",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">135 000 000 / 290 = 465 517 ≈ <b>rundt 470 000 senger</b></div>
+          </div>
+          <p>Enhetssjekk: liggedøgn per år delt på liggedøgn per seng per år gir senger.</p>
+          <p><b>Sanity-sjekkene — og den første er den beste som finnes i market sizing:</b></p>
+          <ul>
+            <li><b>Senger per tusen innbyggere:</b> 470 000 / 84 millioner er <b>5,6 senger per
+              1 000</b>. Dette er den ene helsestatistikken alle land rapporterer, og skalaen er
+              kjent: rike land ligger mellom 2 og 8, Norge og Sverige rundt 2–3, Japan og Tyskland i
+              toppen. At Tyskland havner høyt, er riktig — det er det landet i Vest-Europa som er
+              mest sengeintensivt. <b>At vi lander på 5,6 og ikke på 0,5 eller 50, er selve
+              sjekken</b>, og den koster ti sekunder.</li>
+            <li><b>Mot Norge:</b> Norge ligger rundt 3 per 1 000. Med 5,6 millioner innbyggere blir
+              det rundt 17 000 senger. Tyskland skulle da hatt omtrent dobbelt så mange senger per
+              innbygger som Norge — og det stemmer med at norske sykehus er kjent for å skrive ut
+              raskt og operere dagkirurgisk der tyske legger inn.</li>
+            <li><b>Baklengs til kroner:</b> 135 millioner liggedøgn à 800 euro er <b>rundt 110
+              milliarder euro</b> i sykehuskostnader. Tysk BNP er rundt 4 500 milliarder euro, så
+              det er 2,4 prosent. Samlede helseutgifter ligger rundt 12 prosent av BNP, altså 540
+              milliarder — sykehusdrift som en femtedel av det er riktig størrelsesorden, siden
+              legemidler, fastleger, tannhelse og pleie utgjør resten. Denne sjekken bruker ingen av
+              tallene i regnestykket og er derfor virkelig uavhengig.</li>
+          </ul>
+          <p><b>Det som skiller et sterkt svar fra et middels her, er å si hvor du sannsynligvis
+          bommer.</b> Fasit ligger nærmere 8 senger per 1 000 for Tyskland, altså i overkant av
+          600 000 senger. Vi er tjue til tretti prosent lave — helt akseptabelt for et estimat, men
+          <i>et sterkt svar peker på hvilket ledd som er skyldig</i>: innleggelsesraten. Tyskland
+          ligger nærmere 25 innleggelser per 100 innbyggere enn 20. Setter du inn 21 millioner
+          innleggelser i stedet for 17, får du 580 000 senger og treffer nesten. Å kunne si «hvis
+          jeg bommer, bommer jeg på innleggelsesraten, og da bommer jeg lavt» er mer imponerende enn
+          å treffe.</p>`,
+        krav: [
+          "Du regner om til senger per tusen innbyggere og sjekker mot den kjente skalaen 2 til 8.",
+          "Du sammenligner mot et land du kjenner, og forklarer hvorfor forskjellen gir mening.",
+          "Du gjør minst én sjekk som ikke bruker tall fra regnestykket.",
+          "Du sier hvilken vei du tror du bommer, og hvilket ledd som er ansvarlig.",
+          "Du oppgir svaret som en størrelsesorden med spenn, ikke som seks siffer.",
+        ],
+        felle: "Å presentere 465 517 senger. Seks siffer på et tall bygget av to gjetninger er ikke presisjon, det er mangel på selvinnsikt. «Rundt en halv million, la oss si 400 000 til 600 000» er både ærligere og mer nyttig.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Svaret på ett minutt",
+        sp: `<p>Utstyrsleverandøren har <b>ett minutt</b>. Gi tallet, usikkerheten og sjekken.</p>`,
+        fasit: `<blockquote><p><b>«Rundt en halv million sykehussenger i Tyskland — jeg regner meg
+          til 470 000, og vil si spennet er 400 000 til 600 000. Jeg tror jeg ligger i underkant,
+          og jeg vet hvorfor.»</b></p>
+          <p>Jeg bygde det i liggedøgn, fordi en seng ikke har kunder per time, den har
+          okkupasjonstid. 84 millioner tyskere, én av fem legges inn i året, åtte døgn per opphold
+          — det er 135 millioner liggedøgn. En seng leverer 365 døgn ganger 80 prosent belegg,
+          altså 290 liggedøgn i året, fordi et akuttsykehus må ha ledig kapasitet når ambulansen
+          kommer. 135 millioner delt på 290 er 470 000 senger.</p>
+          <p>Sanity-sjekken er den beste som finnes i denne typen oppgaver: det er <b>5,6 senger
+          per tusen innbyggere</b>. Skalaen er kjent — rike land ligger mellom 2 og 8, Norge rundt
+          3, Tyskland i toppen av Europa. Vi lander riktig side av midten.</p>
+          <p><b>Den største usikkerheten er innleggelsesraten.</b> Jeg satte den til 20 per 100
+          innbyggere, og Tyskland ligger sannsynligvis nærmere 25 — verdens høyeste. Med 25 får jeg
+          580 000 senger, og det er nok nærmere sannheten. Liggetiden er den andre usikkerheten,
+          men de to henger sammen og trekker i hver sin retning, så produktet er stødigere enn
+          leddene.</p>
+          <p>Det som betyr noe for dere: <b>Tyskland er ikke et vekstmarked for senger, det er et
+          erstatningsmarked i et krympende system.</b> Tyske senger per innbygger har falt i tjue
+          år, og sykehusreformen presser videre nedover — så volumet deres kommer fra
+          <i>utskifting</i>, ikke fra utbygging. Med en levetid på ti til femten år per seng er det
+          i størrelsesorden 40 000 senger i året, og de kjøpes av innkjøpsfellesskap som forhandler
+          hardt. Det jeg ville regnet på videre, er ikke antall senger, men <b>kroner per seng og
+          hvem som faktisk tar innkjøpsbeslutningen</b> — det avgjør om markedet er attraktivt, ikke
+          størrelsen.»</p></blockquote>`,
+        krav: [
+          "Du gir tallet som en størrelsesorden med spenn, og sier hvilken vei du tror du bommer.",
+          "Du gjengir liggedøgn-grepet på tjue sekunder, inkludert hvorfor belegget ikke er 100 prosent.",
+          "Du sier senger per tusen innbyggere høyt som sanity-sjekk.",
+          "Du peker ut innleggelsesraten som den bærende usikkerheten og kvantifiserer den.",
+          "Du trekker en kommersiell konsekvens — erstatningsmarked, ikke vekstmarked — og holder ett minutt.",
+        ],
+        felle: "Å svare med sengetallet alene når kunden selger utstyr. Den installerte basen er interessant først når den deles på levetiden — det er erstatningsvolumet som er markedet deres, akkurat som i varmepumpecasen. Levetidstrikset hører hjemme i syntesen selv når det ikke trengtes i regnestykket.",
+      },
+    ],
+  },
+
+
+  /* ============================================================
+     B1 · KJØKKEN — levetidstrikset i sin reneste form
+     ============================================================ */
+  {
+    id: "estimering-kjokken",
+    kategori: "Market sizing",
+    label: "Hvor stort er kjøkkenmarkedet i Norge?",
+    type: "Estimering",
+    nivå: "Intro",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 25,
+    ch: [],
+    blurb: "Levetidstrikset i sin reneste form: fire av fem kjøkken selges til noen som allerede har ett. Trener topp-ned segmentering på boligtype, og følsomheten i den ene forutsetningen som bærer hele svaret.",
+    prompt: `<p>Klienten er et dansk kjøkkenkonsern med 200 butikker i Danmark, Sverige og
+      Tyskland. De vurderer å åpne i Norge, og styret vil ha ett tall før resten av analysen
+      settes i gang.</p>
+      <p><b>Hvor stort er det norske markedet for kjøkken til bolig, målt i kroner per år?</b></p>
+      <p class="tiny">Ingen kalkulator. Si forutsetningene høyt, rund av åpent, og sanity-sjekk
+      svaret til slutt.</p>`,
+    bakgrunn: `<p>Kjøkken er den reneste treningen som finnes på <b>levetidstrikset</b>:
+      <i>årlig marked = installert base / levetid</i>. Nesten hver eneste bolig i Norge har
+      allerede et kjøkken, og det bygges bare rundt 25 000 nye boliger i året. Alt det andre
+      salget går til noen som allerede har et kjøkken. Prøver du å gjette «hvor mange pusser opp
+      kjøkken i år», gjetter du på et tall ingen har intuisjon for. Installert base og
+      utskiftingstakt har man derimot en formening om.</p>
+      <p>Det andre casen trener er <b>topp-ned segmentering</b>: du starter på en makrostørrelse
+      — antall boliger — og filtrerer nedover langs én akse. Aksen her er boligtype, fordi et
+      kjøkken i enebolig og et kjøkken i leilighet er to ulike produkter til to ulike priser.
+      Segmenterer du på noe annet, som inntekt eller landsdel, får du ikke tak i den forskjellen
+      som faktisk flytter svaret.</p>
+      <p>Den tredje tingen — og den de fleste hopper over — er <b>følsomheten</b>. Levetiden på
+      et kjøkken er ikke en slitasjegrense, det er en oppussingsbeslutning. Den er derfor det
+      mest usikre tallet i hele kjeden, og trinn 5 handler om å si nøyaktig hvor mye den
+      usikkerheten er verdt.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva teller vi?",
+        sp: `<p>Før du setter opp et eneste ledd: <b>hvilke spørsmål stiller du for å avgrense
+          hva som skal telles?</b></p>`,
+        fasit: `<p>I en estimeringscase er avklaringene <b>definisjonsspørsmål</b>. De handler om
+          fire ting, og du bør dekke alle fire på under et halvt minutt.</p>
+          <ul>
+            <li><b>Enhet:</b> kroner eller antall kjøkken? Og hvilket ledd — skrog og fronter fra
+              fabrikk, eller komplett kjøkken med hvitevarer, benkeplate og montering til
+              sluttkunde? De to skiller seg med mer enn en faktor to.</li>
+            <li><b>Geografi:</b> Norge, hele landet. Sagt høyt så det ikke ligger som en uuttalt
+              antakelse.</li>
+            <li><b>Tidsrom:</b> per år. Et marked uten tidsenhet er ikke et marked.</li>
+            <li><b>Avgrensning:</b> bare bolig, eller også hytter, næringsbygg og
+              institusjonskjøkken? Prompten sier bolig — bekreft det, og si at du holder resten
+              utenfor.</li>
+          </ul>
+          <p>Ett spørsmål til er verdt tiden: <b>teller vi hele kjøkkenet eller bare
+          innredningen?</b> Hvitevarer er en tredjedel av prisen og selges av helt andre aktører.
+          For en kjede som vurderer inngang, er det avgjørende.</p>
+          <p>Så oppsummerer du valget ditt i én setning: «Jeg regner komplette kjøkken til bolig
+          i Norge, inkludert hvitevarer og montering, målt i kroner per år.» Det er den setningen
+          intervjueren vurderer deg på — ikke antallet spørsmål.</p>
+          <p><b>Middels svar:</b> stiller tre gode spørsmål og venter på svar.
+          <b>Sterkt svar:</b> stiller tre gode spørsmål, og lukker dem selv med en avgrensning
+          intervjueren bare trenger å nikke til.</p>`,
+        krav: [
+          "Du dekker enhet, geografi, tidsrom og avgrensning — alle fire, kort.",
+          "Du spør hvilket ledd i verdikjeden vi måler: fabrikk eller sluttkunde.",
+          "Du sier hva du holder utenfor — hytter, næring, institusjon — i stedet for å la det ligge.",
+          "Du lukker avklaringen med én setning som definerer hva du nå skal regne.",
+        ],
+        felle: "Å spørre om ting som ikke endrer regnestykket. «Hvem er konkurrentene?» er et godt spørsmål i en lønnsomhetscase og bortkastet tid i en estimeringscase. Still bare spørsmål der svaret endrer et ledd i kjeden din.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Velg retning, og skriv ligningen",
+        sp: `<p>Si <b>topp-ned eller bunn-opp, og hvorfor</b>. Skriv så regnestykket i symboler,
+          før du har fått et eneste tall, og si hvilken akse du segmenterer langs.</p>`,
+        fasit: `<p><b>Topp-ned.</b> Begrunnelsen skal være konkret, ikke en refleks: kjøkken er et
+          forbrukermarked der den relevante makrostørrelsen — antall boliger — er kjent, rund og
+          lett å filtrere nedover. Bunn-opp ville krevd at du gjettet antall kjøkkenbutikker og
+          hvor mange kjøkken hver av dem selger, og der er begge tallene svakere enn
+          boligtallet. <i>Bunn-opp brukes i stedet til å krysspeile til slutt</i> — det er beste
+          praksis: gjør den ene veien, sjekk med den andre.</p>
+          <div class="formula">
+            <div class="eq">Marked (kr/år) = Σ over boligtype [ Antall kjøkken solgt per år × Snittpris ]</div>
+            <div class="eq">Kjøkken per år = Erstatningssalg + Nybygg</div>
+            <div class="eq">Erstatningssalg = Installert base / Levetid</div>
+            <div class="eq">Installert base = Antall boliger (ett kjøkken per bolig)</div>
+          </div>
+          <p><b>Levetidstrikset</b> er hele grepet. Du vet ikke hvor mange som pusser opp kjøkken
+          i år. Du vet omtrent hvor mange boliger det er, og du har en formening om hvor ofte et
+          kjøkken byttes. De to tallene gir deg det tredje.</p>
+          <p><b>Segmenteringsaksen er boligtype: småhus mot leilighet.</b> Begrunn den. Et
+          kjøkken i enebolig er større, dyrere og oftere en full ombygging; et leilighetskjøkken
+          er mindre og billigere. Prisforskjellen er den eneste som er stor nok til å flytte
+          svaret. Alder, inntekt og landsdel er også ekte akser, men de deler markedet uten å
+          endre det — og en modell med tolv segmenter er ikke mer presis enn en med to.</p>
+          <p>Merk nevneren mens du er her: <b>bolig, ikke person og ikke husholdning</b>. Ett
+          kjøkken per bolig. I Norge er boliger og husholdninger nesten samme tall — rundt 2,65
+          millioner begge to — så her spiller valget lite. Si det høyt likevel: «de to faller sammen her,
+          så jeg bruker boliger.» Det viser at du vet at de ikke alltid gjør det.</p>
+          <p>Til slutt avrundingsregelen: «Jeg runder til nærmeste tusen underveis og flagger
+          retningen.» Det er en kvalitetsmarkør, ikke en unnskyldning.</p>
+          <p><b>Middels svar:</b> riktig ligning. <b>Sterkt svar:</b> riktig ligning, pluss en
+          setning om hvorfor topp-ned og hvorfor akkurat den segmenteringsaksen — og at
+          bunn-opp holdes igjen som krysspeiling.</p>`,
+        krav: [
+          "Du sier topp-ned og begrunner det med at boligtallet er sterkere enn butikktallet.",
+          "Du skriver ligningen i symboler før du ser et eneste tall.",
+          "Du bruker levetidstrikset i stedet for å gjette en årlig kjøpsrate.",
+          "Du velger boligtype som segmenteringsakse og sier hvorfor akkurat den flytter svaret.",
+          "Du sier at bunn-opp holdes igjen som krysspeiling, ikke som hovedvei.",
+        ],
+        felle: "Å gjette direkte: «la oss si at 1 av 20 husholdninger pusser opp kjøkken i år». Legg merke til hva du egentlig har sagt — 1 av 20 er en levetid på 20 år. Du har gjort en levetidsantakelse uten å vite det, og derfor kan du ikke forsvare den. Levetidstrikset gjør den samme antakelsen eksplisitt og diskuterbar.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Volumleddet — hvor mange kjøkken?", kort: "Volum",
+        sp: `<p>Intervjueren gir deg tallene. <b>Hvor mange kjøkken selges i Norge per år?</b></p>
+          <p class="tiny">Bygg det leddvis og si hvert delresultat høyt.</p>`,
+        figur: `<table class="data">
+            <tr><th>Norske referansetall (SSB)</th><th class="n">Verdi</th></tr>
+            <tr><td>Befolkning</td><td class="n">5,6 mill.</td></tr>
+            <tr><td>Husholdninger</td><td class="n">2,65 mill.</td></tr>
+            <tr><td>Boliger i småhus (enebolig, rekkehus, tomannsbolig)</td><td class="n">1,4 mill.</td></tr>
+            <tr><td>Boliger i leilighet og blokk</td><td class="n">1,25 mill.</td></tr>
+            <tr><td>Nye småhus ferdigstilt per år</td><td class="n">12 000</td></tr>
+            <tr><td>Nye leiligheter ferdigstilt per år</td><td class="n">13 000</td></tr>
+            <tr><td>Boutgift per husholdning per år</td><td class="n">135 000 kr</td></tr>
+            <tr><td>Dagligvaremarkedet</td><td class="n">230 mrd kr</td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Bransjetall oppgitt av intervjueren</th><th class="n">Verdi</th></tr>
+            <tr><td>Hvor ofte et kjøkken byttes</td><td class="n">hvert 25. år</td></tr>
+            <tr><td>Snittpris kjøkken i småhus, komplett montert</td><td class="n">120 000 kr</td></tr>
+            <tr><td>Snittpris kjøkken i leilighet, komplett montert</td><td class="n">80 000 kr</td></tr>
+            <tr><td>Antall kjøkkenbutikker i Norge</td><td class="n">ca. 700</td></tr>
+          </table>`,
+        svar: 131000,
+        enhet: "kjøkken per år",
+        toleranse: 0.15,
+        fasit: `<p>Fire ledd, hvert med sin enhet:</p>
+          <div class="formula">
+            <div class="eq">Installert base: 1 400 000 småhus + 1 250 000 leiligheter = 2 650 000 kjøkken</div>
+            <div class="eq">Utskifting småhus: 1 400 000 / 25 år = 56 000 per år</div>
+            <div class="eq">Utskifting leilighet: 1 250 000 / 25 år = 50 000 per år</div>
+            <div class="eq">Nybygg: 12 000 + 13 000 = 25 000 per år</div>
+            <div class="eq">Sum: 56 000 + 50 000 + 25 000 = <b>131 000 kjøkken per år</b></div>
+          </div>
+          <p>Si sammensetningen høyt med én gang, for den er selve innsikten:
+          <b>106 000 av 131 000 — 81 prosent — er erstatningssalg.</b> Fire av fem kjøkken selges
+          til en bolig som allerede har ett. Nybygget, som er det de fleste tenker på først når de
+          hører «kjøkkenmarked», er en femtedel.</p>
+          <p>Legg også merke til at 700 kjøkkenbutikker og de to prisene ikke ble brukt her. De
+          skal brukes senere — prisene i trinn 4, butikkene til krysspeiling. Å si hvilke tall du
+          <i>ikke</i> bruker ennå, og hvorfor, er en billig måte å vise kontroll på.</p>
+          <p><b>Middels svar:</b> 131 000. <b>Sterkt svar:</b> 131 000, og setningen «fire av fem
+          er erstatning» — før intervjueren spør.</p>`,
+        krav: [
+          "Du sier enheten på hvert delresultat: boliger, år, kjøkken per år.",
+          "Du deler i erstatning og nybygg, og holder de to fra hverandre hele veien.",
+          "Du sier at 81 prosent er erstatningssalg, uten å bli spurt.",
+          "Du sier hvilke tall på arket du ennå ikke har brukt, og hva du skal bruke dem til.",
+        ],
+        felle: "Å slå de to boligtypene sammen med én gang fordi levetiden er lik. Da mister du segmentene, og du får dem ikke tilbake i trinn 4 — der prisene er forskjellige. Hold segmentene atskilt til kronene er regnet.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Verdileddet — hvor mange kroner?", kort: "Kroner",
+        sp: `<p><b>Hvor stort er markedet i millioner kroner per år?</b></p>
+          <p class="tiny">Rund av åpent, og sanity-sjekk før du leverer.</p>`,
+        svar: 13200,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<p>Nå betaler segmenteringen seg. Samle volumet per boligtype først, gang så med
+          prisen som hører til:</p>
+          <div class="formula">
+            <div class="eq">Småhus: 56 000 + 12 000 = 68 000 kjøkken × 120 000 kr = 8 160 mill</div>
+            <div class="eq">Leilighet: 50 000 + 13 000 = 63 000 kjøkken × 80 000 kr = 5 040 mill</div>
+            <div class="eq">Marked: 8 160 + 5 040 = <b>13 200 millioner kroner = 13,2 milliarder</b></div>
+          </div>
+          <p>Rund det til <b>13 milliarder</b> når du sier det høyt. Tre sifre er mer presisjon
+          enn forutsetningene tåler.</p>
+          <p><b>Så sanity-sjekken — det er her et middels svar og et sterkt svar skiller lag.</b>
+          Gjør minst to, og si dem høyt.</p>
+          <ul>
+            <li><b>Mot noe kjent:</b> 13,2 milliarder er 5,7 prosent av dagligvaremarkedet på 230
+              milliarder. For en varig innretning i hjemmet som byttes hvert 25. år, er det en
+              plausibel størrelsesorden — stort, men ikke urimelig.</li>
+            <li><b>Per husholdning:</b> 13 200 millioner fordelt på 2,65 millioner husholdninger
+              er rundt 4 980 kroner i året. Det er 3,7 prosent av boutgiften på 135 000 kroner.
+              Konsistent.</li>
+            <li><b>Baklengs på erstatningsdelen:</b> erstatningssalget alene er
+              56 000 × 120 000 + 50 000 × 80 000 = 6 720 + 4 000 = 10 720 millioner, altså 4 045
+              kroner per bolig per år. Krysspeil mot prisen delt på levetiden: 120 000 / 25 = 4 800
+              for et småhus og 80 000 / 25 = 3 200 for en leilighet. Vektet med 1,4 mot 1,25
+              millioner boliger gir det 4 045. Stemmer på kronen.</li>
+            <li><b>Bunn-opp som krysspeiling:</b> 700 kjøkkenbutikker som selger rundt 190 kjøkken
+              i året — fire i uka — gir 133 000 kjøkken. Samme størrelsesorden som de 131 000 vi
+              regnet ovenfra. To uavhengige veier til samme tall er det sterkeste du kan si i en
+              estimeringscase.</li>
+          </ul>
+          <p><b>Middels svar:</b> 13,2 milliarder. <b>Sterkt svar:</b> «rundt 13 milliarder», med
+          én sanity-sjekk mot dagligvare og én krysspeiling bunn-opp — begge sagt på under tjue
+          sekunder.</p>`,
+        krav: [
+          "Du ganger hvert segment med sin egen pris i stedet for å bruke ett snitt.",
+          "Du runder til to sifre når du sier tallet høyt, og sier at du gjør det.",
+          "Du sanity-sjekker mot minst én kjent norsk størrelse, med tallet sagt høyt.",
+          "Du krysspeiler baklengs: markedet per bolig skal stemme med pris delt på levetid.",
+          "Du krysspeiler bunn-opp mot antall butikker, og sier at det er en uavhengig vei.",
+        ],
+        felle: "Å bruke ett gjennomsnittlig kjøkken på 100 000 kroner for alle 131 000. Det gir 13,1 milliarder — praktisk talt riktig svar. Og det er nettopp problemet: du fikk riktig tall ved et sammentreff, og du har ingenting å si om hvor forskjellen mellom småhus og leilighet ligger. Riktig svar uten struktur er et middels svar.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Følsomhet — hva er tallet verdt?", kort: "Følsomhet",
+        sp: `<p>Levetiden på 25 år er den mest usikre forutsetningen i hele kjeden. Et kjøkken
+          slites ikke ut — det byttes fordi noen bestemmer seg for å pusse opp.</p>
+          <p><b>Hva blir markedet hvis levetiden egentlig er 50 prosent lengre, altså rundt 38 år?
+          Svar i millioner kroner.</b></p>`,
+        svar: 9630,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<p>Det avgjørende grepet er å <b>splitte markedet i den delen som rører seg og
+          den som ikke gjør det</b>, før du regner. Nybygget avhenger ikke av levetiden i det
+          hele tatt.</p>
+          <div class="formula">
+            <div class="eq">Erstatningsdelen: 56 000 × 120 000 + 50 000 × 80 000 = 6 720 + 4 000 = 10 720 mill</div>
+            <div class="eq">Nybyggdelen: 12 000 × 120 000 + 13 000 × 80 000 = 1 440 + 1 040 = 2 480 mill</div>
+            <div class="eq">Kontroll: 10 720 + 2 480 = 13 200 mill ✓</div>
+            <div class="eq">50 % lengre levetid ⇒ erstatningsvolumet ganges med 1 / 1,5 = 2/3</div>
+            <div class="eq">10 720 × 2/3 = 7 147 mill</div>
+            <div class="eq">Nytt marked: 7 147 + 2 480 = <b>9 627 mill ≈ 9,6 milliarder</b></div>
+            <div class="eq">Endring: 9 627 / 13 200 − 1 = <b>−27 prosent</b></div>
+          </div>
+          <p>Lær deg omregningen i midten som et oppslag: <b>50 prosent lengre levetid betyr to
+          tredjedeler av volumet</b>, ikke halvparten. 1 / 1,5 = 2/3. Den forveksles konstant, og
+          den koster deg 17 prosentpoeng hvis du bommer.</p>
+          <p>Nå kommer selve poenget, og det er ikke tallet 9 627. Det er dette: <b>50 prosent
+          feil i den viktigste forutsetningen gir 27 prosent feil i svaret, ikke 50.</b>
+          Nybygget på 2 480 millioner demper hele slaget, fordi det ikke rører seg når levetiden
+          endres. Et marked med en fast, levetidsuavhengig komponent er mer robust enn det ser
+          ut.</p>
+          <p>Og motsatt vei, som du bør si i samme åndedrag: hvis levetiden er 50 prosent
+          <i>kortere</i> — 17 år i stedet for 25 — øker erstatningsdelen med 50 prosent, og markedet
+          går til rundt 18,5 milliarder. <b>Det ærlige spennet på dette estimatet er derfor
+          10 til 18 milliarder, ikke 13,2.</b> Presisjonen i svaret er begrenset av den svakeste
+          forutsetningen, ikke av regningen.</p>
+          <p><b>Middels svar:</b> regner riktig og sier 9,6 milliarder. <b>Sterkt svar:</b> deler
+          i bevegelig og fast del før det regner, sier at 50 prosent feil bare gir 27 prosent
+          utslag, og trekker konsekvensen: spennet er 10 til 18, og det er levetiden som må
+          verifiseres først.</p>`,
+        krav: [
+          "Du splitter i erstatningsdel og nybyggdel før du regner, i stedet for å skalere hele markedet.",
+          "Du bruker 1 / 1,5 = 2/3, ikke 0,5, og sier det høyt.",
+          "Du sier at 50 prosent feil i forutsetningen gir 27 prosent feil i svaret, og hvorfor.",
+          "Du nevner motsatt retning også, og konverterer følsomheten til et ærlig spenn.",
+          "Du konkluderer med hvilken forutsetning som må verifiseres først med ekte data.",
+        ],
+        felle: "Å gange hele markedet med 2/3 og svare 8 800 millioner. Da har du sagt at nybygget også faller når folk pusser opp sjeldnere, og det gir ingen mening — det bygges like mange boliger uansett. Følsomhetsanalyse handler om å vite hvilke ledd forutsetningen faktisk berører.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Klienten har <b>ett minutt</b>. Gi tallet, usikkerheten, og hva du ville sjekket
+          først med ekte data.</p>`,
+        fasit: `<p>Tallet først, spennet med, så det som gjør deg interessant å snakke med.</p>
+          <blockquote><p><b>«Det norske kjøkkenmarkedet er rundt 13 milliarder kroner i året —
+          omtrent 130 000 kjøkken til en snittpris rundt 100 000 kroner montert. Spennet er
+          10 til 18 milliarder, og hele usikkerheten ligger i én forutsetning: hvor ofte et
+          kjøkken faktisk byttes.»</b></p>
+          <p>Slik kom jeg dit: 2,65 millioner boliger, ett kjøkken i hver, byttet hvert 25. år
+          gir 106 000 kjøkken i erstatningssalg. Legg til 25 000 nye boliger, og du er på 131 000.
+          Delt i småhus til 120 000 og leilighet til 80 000 blir det 13,2 milliarder.</p>
+          <p>Sanity-sjekken holder fra to kanter: det er 5,7 prosent av dagligvaremarkedet, og
+          bunn-opp gir 700 butikker × 190 kjøkken = 133 000 — samme tall fra motsatt retning.</p>
+          <p>Det viktigste for dere er ikke størrelsen, men <b>sammensetningen: fire av fem
+          kjøkken selges til en bolig som allerede har ett.</b> Dette er ikke et vekstmarked
+          drevet av boligbygging — det er et oppussingsmarked drevet av hvor lenge folk holder ut
+          med kjøkkenet sitt. Det betyr at etterspørselen svinger med rente, boligpriser og
+          konsumentenes optimisme, ikke med igangsettingstall. Det flytter hele markedsføringen:
+          dere selger en oppussingsbeslutning, ikke en boligkomponent.</p>
+          <p>Det jeg ville sjekket først, er nettopp den 25-årige utskiftingstakten — den bærer
+          81 prosent av markedet alene. Den finnes i Prognosesenterets oppussingsundersøkelser og
+          kan krysspeiles mot importstatistikk på kjøkkeninnredning fra SSB. Deretter ville jeg
+          delt de 13 milliardene i innredning, hvitevarer og montering, for de har tre helt ulike
+          konkurransebilder — og det avgjør hvor dere skal inn.»</p></blockquote>
+          <p><b>Middels svar:</b> tallet, spennet og regnestykket. <b>Sterkt svar:</b> det samme,
+          pluss at oppussingsmarkedet er konjunkturdrevet — en strategisk konsekvens av
+          sammensetningen, ikke av størrelsen.</p>`,
+        krav: [
+          "Du gir tallet med et spenn og sier hvilken forutsetning spennet kommer fra.",
+          "Du gjengir kjeden på tjue sekunder, ikke hele utregningen.",
+          "Du sier sanity-sjekken høyt som en del av svaret.",
+          "Du trekker en strategisk konsekvens av at markedet er erstatningsdrevet.",
+          "Du navngir konkret hva du ville verifisert først, og hvor du ville funnet det.",
+        ],
+        felle: "Å si «13,2 milliarder» og stoppe. Klienten kan ikke gjøre noe med et tall. Innsikten er at 81 prosent er oppussing, og at et oppussingsmarked svinger med renta — det er den setningen som avgjør om de tar deg med videre.",
+      },
+    ],
+  },
+
+  /* ============================================================
+     B2 · BRILLER — segmentering på alder avgjør svaret
+     ============================================================ */
+  {
+    id: "estimering-briller",
+    kategori: "Market sizing",
+    label: "Hvor stort er brillemarkedet i Norge?",
+    type: "Estimering",
+    nivå: "Middels",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 25,
+    ch: [],
+    blurb: "Fire aldersgrupper der andel, kjøpsfrekvens og pris alle stiger med alderen. Trener segmenteringen som avgjør svaret — og viser hvorfor et anslag bygget på ditt eget liv bommer med en faktor fire.",
+    prompt: `<p>Klienten er et nordisk oppkjøpsfond. De har fått tilbud om å kjøpe en norsk
+      optikerkjede, og vil ha en uavhengig vurdering av hvor stort markedet er før de går videre
+      med due diligence.</p>
+      <p><b>Hvor stort er det norske markedet for synskorrigerende briller, målt i kroner per
+      år?</b></p>
+      <p class="tiny">Ingen kalkulator. Segmenter langs én akse, si forutsetningene høyt, og
+      sanity-sjekk svaret til slutt.</p>`,
+    bakgrunn: `<p>Briller er casen som lærer deg <b>hvorfor segmentering ikke er pynt</b>. Tre
+      forutsetninger — hvor stor andel som bruker briller, hvor ofte de kjøper nye, og hva de
+      betaler — stiger alle sammen med alderen. En 25-åring som estimerer fra sitt eget liv
+      treffer ikke i nærheten, fordi hele markedet ligger i en aldersgruppe han ikke tilhører.</p>
+      <p>Casen trener også <b>levetidstrikset per segment</b>: hver aldersgruppe har sin egen
+      installerte base av brillebrukere og sitt eget utskiftingsintervall. Det er den samme
+      formelen som i alle andre estimeringscaser — installert base delt på levetid — men brukt
+      fire ganger i stedet for én.</p>
+      <p>Og det gir en ren kontrast til kjøkkencasen: her er <b>alt</b> erstatningssalg. Det
+      finnes ikke noe «nybygg» av mennesker som demper følsomheten. Derfor slår en feil i
+      utskiftingstakten rett gjennom til svaret, en-til-en. Den forskjellen er trinn 5.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva teller vi?",
+        sp: `<p><b>Hvilke spørsmål stiller du før du setter opp regnestykket?</b></p>`,
+        fasit: `<p>Avgrensningen er hardere her enn den ser ut, fordi «brillemarkedet» dekker fire
+          ganske ulike produkter.</p>
+          <ul>
+            <li><b>Enhet og ledd:</b> kroner til sluttkunde, altså det kunden betaler i butikken
+              for innfatning og glass samlet? Eller engrosverdien til optikerkjeden? Marginen i
+              optikk er høy, så de to skiller seg med mer enn en faktor to.</li>
+            <li><b>Bare synskorrigerende briller?</b> Kontaktlinser, solbriller uten styrke og
+              synsundersøkelser er tre separate markeder som optikeren selger i samme lokale.
+              Prompten sier synskorrigerende briller — bekreft, og si at du holder de andre
+              utenfor.</li>
+            <li><b>Geografi og tidsrom:</b> Norge, per år.</li>
+            <li><b>Teller vi briller eller brillebrukere?</b> Mange har to par — lese og
+              avstand. Jeg regner <i>brillekjøp</i> per år, ikke antall personer.</li>
+          </ul>
+          <p>Så lukker du: «Jeg regner det nordmenn bruker på synskorrigerende briller til
+          sluttkundepris, innfatning og glass samlet, per år. Kontaktlinser, solbriller og
+          synsundersøkelser holder jeg utenfor og kan legge til etterpå.»</p>
+          <p><b>Middels svar:</b> spør om avgrensning. <b>Sterkt svar:</b> spør om avgrensning og
+          legger til at de utelatte segmentene kan legges tilbake senere — det signaliserer at du
+          har en modell, ikke et regnestykke.</p>`,
+        krav: [
+          "Du dekker enhet, geografi, tidsrom og avgrensning — alle fire, kort.",
+          "Du skiller synskorrigerende briller fra linser, solbriller og synsundersøkelser.",
+          "Du avklarer om vi teller briller eller personer, siden mange har flere par.",
+          "Du lukker med én setning, og sier at de utelatte segmentene kan legges til etterpå.",
+        ],
+        felle: "Å godta «brillemarkedet» som en definisjon. Optikerbransjen i Norge omsetter for langt mer enn synskorrigerende briller alene, og hvis intervjueren senere sammenligner tallet ditt med bransjetall, må du kunne si nøyaktig hva du har utelatt.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Velg retning, og velg aksen",
+        sp: `<p>Si <b>topp-ned eller bunn-opp, og hvorfor</b>. Skriv ligningen i symboler, og si
+          hvilken akse du segmenterer langs — og hvorfor akkurat den.</p>`,
+        fasit: `<p><b>Topp-ned.</b> Begrunnelsen: befolkningen er den sikreste makrostørrelsen som
+          finnes, og briller er et rent forbrukerprodukt der veien fra befolkning til kjøp er
+          kort. Bunn-opp — antall optikerbutikker ganger omsetning per butikk — er mulig, men
+          begge de to tallene er svakere enn befolkningstallet. Behold bunn-opp til
+          krysspeilingen.</p>
+          <div class="formula">
+            <div class="eq">Marked (kr/år) = Σ over aldersgruppe [ Brillekjøp per år × Snittpris ]</div>
+            <div class="eq">Brillekjøp per år = Brillebrukere i gruppen / Utskiftingsintervall</div>
+            <div class="eq">Brillebrukere = Antall personer i gruppen × Andel med briller</div>
+          </div>
+          <p>Legg merke til at midterste linje er <b>levetidstrikset igjen</b>, bare brukt per
+          segment: installert base av brillebrukere delt på hvor ofte de kjøper nye.</p>
+          <p><b>Aksen er alder.</b> Og her må begrunnelsen være skarp, for det er hele casen:
+          <i>alle tre forutsetningene beveger seg samme vei med alderen.</i> Andelen som bruker
+          briller går fra rundt 15 prosent blant barn til rundt 90 prosent blant de eldste.
+          Kjøpsfrekvensen stiger igjen etter 45, når aldersynthet setter inn og styrken endrer
+          seg. Og prisen stiger, fordi progressive glass koster langt mer enn enstyrkeglass. Tre
+          faktorer som forsterker hverandre — <b>det er akkurat da segmentering betyr noe.</b>
+          Var én av dem konstant på tvers av alder, kunne du regnet med et snitt.</p>
+          <p>Si også hvorfor du <i>ikke</i> velger andre akser: kjønn deler befolkningen i to
+          nesten like halvdeler uten å endre noen av de tre forutsetningene, og inntekt påvirker
+          bare prisen. Alder påvirker alle tre. En akse er verdt å bruke når den flytter flere
+          ledd samtidig.</p>
+          <p>Enheten er <b>person, ikke husholdning</b>. Briller kjøpes per par øyne. Si det
+          høyt — det er den samme sjekken som redder deg i markeder der svaret er motsatt.</p>
+          <p><b>Middels svar:</b> «Jeg segmenterer på alder.» <b>Sterkt svar:</b> «Jeg segmenterer
+          på alder fordi andel, frekvens og pris alle stiger med den — tre forutsetninger, én
+          akse. Kjønn ville delt uten å forklare.»</p>`,
+        krav: [
+          "Du sier topp-ned og begrunner valget, i stedet for å ta det som gitt.",
+          "Du skriver ligningen i symboler, med levetidstrikset som midterste ledd.",
+          "Du begrunner aldersaksen med at den flytter tre forutsetninger samtidig.",
+          "Du sier hvorfor du forkaster de andre aksene — det viser at du valgte, ikke gjettet.",
+          "Du sier at enheten er person, ikke husholdning, og hvorfor.",
+        ],
+        felle: "Å segmentere på fire akser samtidig — alder, kjønn, by/land og inntekt — fordi det føles grundig. Da får du seksten celler du må gjette tall for, og hver eneste gjetning legger til støy. Én akse, valgt fordi den flytter flest ledd, slår fire akser hver gang.",
+      },
+      {
+        art: "regne",
+        sek: 150,
+        tittel: "Volumleddet — hvor mange briller?", kort: "Volum",
+        sp: `<p>Intervjueren gir deg tallene. <b>Hvor mange synskorrigerende briller selges i
+          Norge per år?</b></p>
+          <p class="tiny">Regn segment for segment. Sjekk befolkningssummen først.</p>`,
+        figur: `<table class="data">
+            <tr><th>Aldersgruppe</th><th class="n">Personer</th><th class="n">Andel med briller</th><th class="n">Nye briller hvert</th><th class="n">Snittpris</th></tr>
+            <tr><td>0–19 år</td><td class="n">1,25 mill.</td><td class="n">15 %</td><td class="n">3. år</td><td class="n">3 000 kr</td></tr>
+            <tr><td>20–44 år</td><td class="n">1,85 mill.</td><td class="n">35 %</td><td class="n">5. år</td><td class="n">4 000 kr</td></tr>
+            <tr><td>45–66 år</td><td class="n">1,55 mill.</td><td class="n">80 %</td><td class="n">4. år</td><td class="n">5 000 kr</td></tr>
+            <tr><td>67 år og eldre</td><td class="n">0,95 mill.</td><td class="n">90 %</td><td class="n">3. år</td><td class="n">4 500 kr</td></tr>
+            <tr><td><b>Sum befolkning</b></td><td class="n"><b>5,6 mill.</b></td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Til sanity-sjekk</th><th class="n">Verdi</th></tr>
+            <tr><td>Dagligvaremarkedet</td><td class="n">230 mrd kr</td></tr>
+            <tr><td>Dagligvare per innbygger per år</td><td class="n">41 000 kr</td></tr>
+            <tr><td>Nyregistrerte personbiler per år</td><td class="n">185 000</td></tr>
+            <tr><td>Gjennomsnittspris ny personbil</td><td class="n">450 000 kr</td></tr>
+          </table>`,
+        svar: 787000,
+        enhet: "briller per år",
+        toleranse: 0.15,
+        fasit: `<p>Første grep, før noe annet: <b>sjekk at aldersgruppene summerer til
+          befolkningen.</b> 1,25 + 1,85 + 1,55 + 0,95 = 5,6 millioner. Det gjør de. Ti sekunder
+          som fanger den vanligste tabellfeilen av alle.</p>
+          <p>Så to ledd per segment — først brukere, så kjøp per år:</p>
+          <div class="formula">
+            <div class="eq">0–19: 1 250 000 × 15 % = 187 500 brukere → / 3 år = 62 500 briller</div>
+            <div class="eq">20–44: 1 850 000 × 35 % = 647 500 brukere → / 5 år = 129 500 briller</div>
+            <div class="eq">45–66: 1 550 000 × 80 % = 1 240 000 brukere → / 4 år = 310 000 briller</div>
+            <div class="eq">67+: 950 000 × 90 % = 855 000 brukere → / 3 år = 285 000 briller</div>
+            <div class="eq">Brillebrukere: 187 500 + 647 500 + 1 240 000 + 855 000 = 2 930 000</div>
+            <div class="eq">Briller per år: 62 500 + 129 500 + 310 000 + 285 000 = <b>787 000</b></div>
+          </div>
+          <p>Krysspeil brukertallet med én gang: <b>2,93 millioner av 5,6 millioner — 52 prosent
+          av befolkningen bruker briller.</b> Det er et tall du kan kjenne på. Hadde det kommet ut
+          på 20 prosent eller 85 prosent, hadde en av andelene i tabellen vært feillest.</p>
+          <p>Legg merke til fordelingen allerede nå: <b>45-åringene og oppover står for 595 000 av
+          de 787 000 brillene — 76 prosent av volumet fra 45 prosent av befolkningen.</b></p>
+          <p><b>Middels svar:</b> 787 000. <b>Sterkt svar:</b> 787 000, med befolkningssummen
+          sjekket først og penetrasjonen på 52 prosent brukt som mellomliggende sanity-sjekk — før
+          man går videre til kroner.</p>`,
+        krav: [
+          "Du sjekker at aldersgruppene summerer til befolkningen før du regner noe som helst.",
+          "Du regner brukere og kjøp per år som to atskilte ledd i hvert segment.",
+          "Du krysspeiler at 52 prosent av befolkningen bruker briller — et tall du kan kjenne på.",
+          "Du sier hvor tyngden ligger, at 45+ står for tre firedeler av volumet.",
+        ],
+        felle: "Å gange andel og frekvens i ett hopp: «15 prosent delt på 3». Det gir riktig svar her, men du mister brukertallet — og brukertallet er den eneste mellomstørrelsen i hele kjeden du har ekte intuisjon for. Regn det ut, og bruk det som sjekkpunkt.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Verdileddet — hvor mange kroner?", kort: "Kroner",
+        sp: `<p><b>Hvor stort er markedet i millioner kroner per år?</b></p>
+          <p class="tiny">Hvert segment har sin egen pris. Sanity-sjekk før du leverer.</p>`,
+        svar: 3538,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">0–19: 62 500 × 3 000 kr = 187,5 mill</div>
+            <div class="eq">20–44: 129 500 × 4 000 kr = 518 mill</div>
+            <div class="eq">45–66: 310 000 × 5 000 kr = 1 550 mill</div>
+            <div class="eq">67+: 285 000 × 4 500 kr = 1 282,5 mill</div>
+            <div class="eq">Marked: 187,5 + 518 + 1 550 + 1 282,5 = <b>3 538 mill ≈ 3,5 milliarder</b></div>
+          </div>
+          <p><b>Nå kommer tallet som er verdt hele casen:</b> segmentene over 45 år står for
+          1 550 + 1 282,5 = 2 832 millioner, altså <b>80 prosent av markedet fra 45 prosent av
+          befolkningen</b>. Under 45 er 55 prosent av befolkningen og 20 prosent av kronene. Det
+          er den slags setning som gjør at intervjueren husker deg.</p>
+          <p>Sanity-sjekkene, minst to, sagt høyt:</p>
+          <ul>
+            <li><b>Per innbygger:</b> 3 538 millioner / 5,6 millioner = 632 kroner per nordmann
+              per år på briller. Mot 41 000 kroner på dagligvarer er det 1,5 prosent. Plausibelt
+              for et produkt de fleste kjøper hvert tredje til femte år.</li>
+            <li><b>Per bruker:</b> 3 538 millioner / 2,93 millioner brillebrukere = 1 208 kroner
+              per bruker per år. Krysspeil mot ett segment: 45–66-åringen betaler 5 000 kroner
+              hvert fjerde år, altså 1 250 i året. Konsistent.</li>
+            <li><b>Mot noe kjent:</b> 1,5 prosent av dagligvaremarkedet, og 4 prosent av
+              nybilsalget på 185 000 × 450 000 ≈ 83 milliarder. Riktig størrelsesorden for et
+              lite, men stabilt forbrukermarked.</li>
+          </ul>
+          <p><b>Og her er hvorfor aksen var verdt bryet.</b> Hadde du estimert usegmentert, fra
+          ditt eget liv — «rundt 30 prosent bruker briller, de kjøper nye hvert femte år, og en
+          brille koster 2 500» — ville du fått
+          5,6 mill × 30 % / 5 år × 2 500 kr = <b>840 millioner</b>. Det er en fjerdedel av riktig
+          svar; du hadde bommet med en faktor på over fire. Ikke fordi gjennomsnitt er ulovlig,
+          men fordi <i>du har ingen intuisjon for befolkningsgjennomsnitt av noe som henger på
+          alder</i> — du har bare intuisjon for din egen aldersgruppe. Segmenteringen er det som
+          tvinger deg til å tenke på de andres.</p>
+          <p><b>Middels svar:</b> 3,5 milliarder med én sanity-sjekk. <b>Sterkt svar:</b> 3,5
+          milliarder, pluss «80 prosent av markedet er over 45» — og en setning om at et
+          usegmentert anslag ville bommet med en faktor fire.</p>`,
+        krav: [
+          "Du bruker segmentets egen pris, ikke ett snitt over hele befolkningen.",
+          "Du sier at 80 prosent av markedet ligger over 45 år, uten å bli spurt.",
+          "Du sanity-sjekker per innbygger og krysspeiler per bruker mot ett segment.",
+          "Du sier hva et usegmentert anslag ville gitt, og hvorfor det bommer.",
+          "Du runder når du sier tallet: «rundt 3,5 milliarder», ikke «3 538».",
+        ],
+        felle: "Å bruke gjennomsnittsprisen 4 125 kroner (snittet av de fire) på alle 787 000 brillene. Det gir 3,25 milliarder — 8 prosent for lavt, fordi de dyre brillene også er de som kjøpes oftest. Når pris og volum henger sammen, er et uveid snitt alltid feil vei.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Følsomhet — hva er tallet verdt?", kort: "Følsomhet",
+        sp: `<p>Utskiftingsintervallene er de svakeste tallene i tabellen. Ingen vet egentlig hvor
+          lenge folk går med de samme brillene, og optikerkjedene har all interesse av at tallet
+          skal være lavt.</p>
+          <p><b>Hvor mange prosent faller markedet hvis folk går 50 prosent lengre med brillene
+          sine enn antatt?</b></p>
+          <p class="tiny">Oppgi fallet som et positivt tall.</p>`,
+        svar: 33,
+        enhet: "prosent",
+        toleranse: 0.15,
+        fasit: `<p>Her er svaret enklere enn i de fleste andre estimeringscaser, og
+          <b>nettopp derfor er innsikten større.</b></p>
+          <div class="formula">
+            <div class="eq">Alle fire intervallene ganges med 1,5: 3 → 4,5 år, 5 → 7,5 år, 4 → 6 år</div>
+            <div class="eq">Volum i hvert segment ganges dermed med 1 / 1,5 = 2/3</div>
+            <div class="eq">Hele markedet ganges med 2/3: 3 538 × 2/3 = 2 359 mill</div>
+            <div class="eq">Endring: 2 359 / 3 538 − 1 = <b>−33 prosent</b></div>
+          </div>
+          <p>Legg merke til at du ikke måtte regne segmentene om igjen. Når <i>alle</i> segmentene
+          skaleres med samme faktor, kan du skalere totalen direkte. Å se det sparer deg et helt
+          minutt — og å si at du ser det, viser at du forstår strukturen i din egen modell.</p>
+          <p><b>Sammenlign nå med kjøkkencasen, for det er hele poenget:</b> der ga 50 prosent
+          lengre levetid bare 27 prosent utslag, fordi nybygget på 2,5 milliarder ikke rørte seg.
+          Her er <b>hele markedet erstatningssalg</b> — det finnes ingen nybygde mennesker som
+          demper slaget. Feilen slår derfor rett gjennom, en-til-en.</p>
+          <div class="formula">
+            <div class="eq">Rent erstatningsmarked: 50 % lengre levetid ⇒ −33 % marked</div>
+            <div class="eq">Med 19 % fast nybyggandel: 50 % lengre levetid ⇒ −27 % marked</div>
+          </div>
+          <p>Den generelle regelen er verdt å ta med seg: <b>følsomheten for levetid er lik
+          erstatningssalgets andel av markedet.</b> Jo mer av markedet som er gjenkjøp, jo mer
+          skjørt er estimatet ditt for utskiftingstakten.</p>
+          <p>Konsekvensen for klienten: det ærlige spennet er ikke 3,4 til 3,7 milliarder. Det er
+          <b>2,4 til 5 milliarder</b>, og fondet kan ikke prise en optikerkjede på et estimat med
+          det spennet. Det første de må kjøpe, er kassadata — faktisk gjenkjøpsintervall per
+          aldersgruppe fra kjedens eget system.</p>
+          <p><b>Middels svar:</b> −33 prosent. <b>Sterkt svar:</b> −33 prosent, med observasjonen
+          at hele markedet skalerer fordi det ikke finnes en fast komponent, og konklusjonen at
+          gjenkjøpsintervallet er det eneste tallet det er verdt å kjøpe data på.</p>`,
+        krav: [
+          "Du ser at alle segmentene skaleres likt, og skalerer totalen i stedet for å regne om.",
+          "Du bruker 1 / 1,5 = 2/3, ikke 0,5.",
+          "Du sier hvorfor utslaget er større her enn i et marked med nybygg.",
+          "Du oversetter følsomheten til et ærlig spenn, og sier at det er for bredt til å prise på.",
+          "Du navngir det ene tallet klienten bør kjøpe data på, i stedet for å liste fem.",
+        ],
+        felle: "Å svare −50 prosent. 50 prosent lengre levetid gir 1 / 1,5 = to tredjedeler av volumet, altså et fall på en tredjedel. Feilen er den samme som å tro at en prisøkning på 25 prosent reverseres av et kutt på 25 prosent — brøken snus ikke ved å bytte fortegn.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Fondet har <b>ett minutt</b>. Gi tallet, usikkerheten, og hva du ville sjekket
+          først med ekte data.</p>`,
+        fasit: `<blockquote><p><b>«Det norske markedet for synskorrigerende briller er rundt 3,5
+          milliarder kroner i året — omtrent 790 000 briller til rundt 4 500 kroner i snitt.
+          Spennet er 2,5 til 5 milliarder, og usikkerheten ligger nesten i sin helhet i hvor ofte
+          folk faktisk kjøper nye briller.»</b></p>
+          <p>Slik kom jeg dit: 5,6 millioner nordmenn, delt i fire aldersgrupper. 2,9 millioner
+          bruker briller — 52 prosent av befolkningen — og hver av dem kjøper nye hvert tredje til
+          femte år. Det gir 790 000 briller, til priser fra 3 000 for barn til 5 000 for
+          progressive glass.</p>
+          <p>Sanity-sjekken holder: 630 kroner per nordmann per år, som er 1,5 prosent av det vi
+          bruker på mat.</p>
+          <p>Det viktigste for dere er ikke størrelsen, men <b>hvor den ligger: 80 prosent av
+          markedet er kunder over 45 år, som er 45 prosent av befolkningen.</b> Dette er ikke et
+          ungdomsmarked med moteinnfatninger — det er et helsemarked for progressive glass. Og det
+          har to konsekvenser for kjøpet dere vurderer. For det første er markedet strukturelt
+          voksende, fordi den aldersgruppen vokser raskere enn befolkningen. For det andre er
+          verdien i kjeden lokalisert til synsundersøkelsen og glassleveransen, ikke til
+          innfatningen — det er der en netthandelskonkurrent ikke kommer til.</p>
+          <p>Det jeg ville sjekket først, er gjenkjøpsintervallet i kjedens egne kassadata, per
+          aldersgruppe. Det ene tallet bestemmer 100 prosent av estimatet mitt. Deretter ville jeg
+          lagt til kontaktlinser, solbriller og synsundersøkelser, som jeg har holdt utenfor — for
+          en optikerkjede kan de være halvparten av omsetningen.»</p></blockquote>
+          <p><b>Middels svar:</b> tallet, spennet og kjeden. <b>Sterkt svar:</b> det samme, pluss
+          at aldersprofilen gjør markedet strukturelt voksende og flytter verdien fra innfatning
+          til glass — en konsekvens av segmenteringen, ikke av størrelsen.</p>`,
+        krav: [
+          "Du gir tallet med spenn og navngir den ene forutsetningen spennet kommer fra.",
+          "Du gjengir segmenteringen på tjue sekunder, ikke alle fire utregningene.",
+          "Du sier sanity-sjekken høyt som en del av svaret.",
+          "Du trekker en strategisk konsekvens av aldersprofilen, ikke bare av størrelsen.",
+          "Du minner om hva du utelot, og hvor stort det kan være.",
+        ],
+        felle: "Å ikke nevne det du utelot. Fondet får et bransjetall på 7 milliarder fra selgeren, og hvis du ikke har sagt at ditt tall er briller alene — uten linser, solbriller og synsundersøkelser — ser det ut som du bommet med en faktor to.",
+      },
+    ],
+  },
+
+  /* ============================================================
+     B3 · LØNNSSYSTEM — B2B, nevneren er ansatte og bedrifter
+     ============================================================ */
+  {
+    id: "estimering-lonnssystem",
+    kategori: "Market sizing",
+    label: "Hvor stort er markedet for lønnssystemer til norske bedrifter?",
+    type: "Estimering",
+    nivå: "Middels",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 25,
+    ch: [],
+    blurb: "B2B: nevneren er ansatte i bedrifter med ansatte, ikke innbyggere — og to av tre norske bedrifter har ingen. Trener segmentering på bedriftsstørrelse, og følsomheten som viser at den mest usikre forutsetningen ikke alltid er den viktigste.",
+    prompt: `<p>Klienten er en svensk leverandør av skybasert lønns- og HR-programvare. De har
+      200 millioner kroner i omsetning i Sverige og vurderer å etablere seg i Norge. Styret vil
+      ha markedsstørrelsen før de bevilger noe som helst.</p>
+      <p><b>Hvor stort er det norske markedet for skybaserte lønns- og HR-systemer, målt i kroner
+      per år?</b></p>
+      <p class="tiny">Ingen kalkulator. Vær særlig nøye med hva nevneren er.</p>`,
+    bakgrunn: `<p>B2B-estimering er der flest kandidater går i den samme grøfta: de starter på
+      befolkningen fordi det er tallet de kan. Men <b>et B2B-marked har ikke innbyggere i
+      nevneren</b> — det har bedrifter, eller ansatte, eller maskiner, eller kvadratmeter. Å
+      finne den riktige tellenheten er hele første halvdel av casen.</p>
+      <p>Norge har en felle innebygd i tallene her, og den er ekte: det finnes rundt 650 000
+      aktive bedrifter, men bare rundt 200 000 av dem har en eneste ansatt. To av tre norske
+      «bedrifter» er enkeltpersonforetak og holdingselskaper uten lønnsutbetaling. Bruker du
+      650 000 som nevner i et marked som handler om å kjøre lønn, overvurderer du markedet med
+      en faktor tre — og det er en feil intervjueren kjenner igjen umiddelbart.</p>
+      <p>Casen trener også en av de nyttigste sanity-sjekkene i norsk sammenheng:
+      <b>lønnssummen</b>. 2,9 millioner sysselsatte à 62 000 kroner i måneden er rundt 2 150
+      milliarder i året, omtrent halve Fastlands-BNP. Et system som administrerer lønn kan måles
+      som en promilleandel av lønnen det administrerer.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva teller vi?",
+        sp: `<p><b>Hvilke spørsmål stiller du før du setter opp regnestykket?</b> Vær særlig
+          konkret på hva tellenheten skal være.</p>`,
+        fasit: `<p>I en B2B-case er det viktigste avklaringsspørsmålet alltid det samme:
+          <b>hva er kundeenheten?</b> Er det bedriften som kjøper, eller er det den ansatte som
+          prises?</p>
+          <ul>
+            <li><b>Tellenhet:</b> selges dette per bedrift, per ansatt, eller per lønnskjøring?
+              Nesten all HR-programvare prises per ansatt per måned, og da er det <i>ansatte</i>
+              som er nevneren — men bedriften er den som bestemmer.</li>
+            <li><b>Avgrensning av kjøperne:</b> bare private bedrifter, eller også kommuner,
+              helseforetak og staten? Offentlig sektor er nesten en tredel av alle sysselsatte i
+              Norge og kjøper gjennom helt andre kanaler — offentlige anbud, ikke selvbetjening.
+              Jeg tar med begge deler her og flagger at kanalen er ulik.</li>
+            <li><b>Produktavgrensning:</b> bare lønn, eller også ferie, fravær, rekruttering og
+              kompetansestyring? De ligger ofte i samme abonnement, men prisen dobles med
+              modulene.</li>
+            <li><b>Geografi og tidsrom:</b> Norge, per år, målt som årlig abonnementsinntekt.</li>
+          </ul>
+          <p>Lukk: «Jeg regner årlig abonnementsinntekt for skybaserte lønns- og HR-systemer til
+          norske arbeidsgivere, priset per ansatt per måned.»</p>
+          <p><b>Middels svar:</b> spør om avgrensning. <b>Sterkt svar:</b> spør eksplisitt om
+          tellenheten, og legger merke til at kjøperen (bedriften) og prisenheten (den ansatte)
+          er to forskjellige ting — det er det som styrer hele segmenteringen etterpå.</p>`,
+        krav: [
+          "Du spør eksplisitt hva tellenheten er: bedrift, ansatt eller transaksjon.",
+          "Du skiller kjøperen fra prisenheten, og sier at de er to forskjellige ting.",
+          "Du tar stilling til om offentlig sektor er med, og sier hvorfor det betyr noe.",
+          "Du lukker med én setning som definerer hva du regner, med tidsenhet.",
+        ],
+        felle: "Å hoppe rett til «hvor mange bedrifter er det i Norge». Det er et tall, ikke en tellenhet. Spør først om produktet prises per bedrift eller per ansatt — svaret bestemmer hvilken nevner du skal lete etter, og de to gir ulike svar.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Velg retning, og finn riktig nevner",
+        sp: `<p>Si <b>topp-ned eller bunn-opp, og hvorfor</b>. Skriv ligningen i symboler, og si
+          hvilken makrostørrelse du starter på — og hvilken du forkaster.</p>`,
+        fasit: `<p><b>Topp-ned, men fra arbeidslivet, ikke fra befolkningen.</b> Det er
+          begrunnelsen som teller: makrostørrelsen må være den som faktisk genererer behovet.
+          Behovet for et lønnssystem oppstår når noen får lønn — altså hos <i>ansatte i bedrifter
+          med ansatte</i>. Befolkningen på 5,6 millioner er feil nevner med nesten en faktor to,
+          og antall aktive bedrifter er feil nevner med en faktor tre.</p>
+          <div class="formula">
+            <div class="eq">Marked (kr/år) = Σ over bedriftsstørrelse [ Ansatte × Dekningsgrad × Pris per ansatt per mnd × 12 ]</div>
+            <div class="eq">Ansatte i segmentet = Antall bedrifter × Gjennomsnittlig antall ansatte</div>
+          </div>
+          <p><b>Segmenteringsaksen er bedriftsstørrelse.</b> Begrunn den med at den flytter to ting
+          samtidig, akkurat som aldersaksen gjorde i brillecasen — men motsatt vei:</p>
+          <ul>
+            <li><b>Dekningsgraden stiger med størrelsen.</b> Et selskap med 300 ansatte
+              <i>må</i> ha et system. Et med to ansatte kan la regnskapsføreren kjøre lønn i sitt
+              eget system, og betaler da ingenting selv.</li>
+            <li><b>Prisen per ansatt faller med størrelsen.</b> Det er standard i all B2B-
+              programvare: volumrabatt og forhandlingsmakt. En kunde med 500 ansatte betaler ikke
+              samme sats per hode som en med tre.</li>
+          </ul>
+          <p>De to trekker i hver sin retning, og det er nettopp derfor du <b>ikke</b> kan regne
+          med et gjennomsnitt. Bruker du én pris for alle, får du et tall som er feil i begge
+          ender og tilfeldig riktig i midten — og du kan ikke si et ord om hvilket segment som
+          faktisk er verdt å gå etter.</p>
+          <p>Si også hvilken størrelse du skal <i>lete</i> etter i faktaarket, før du får det:
+          «Jeg trenger antall bedrifter med minst én ansatt, ikke antall registrerte foretak.»
+          Å be om riktig tall er en sterkere markør enn å regne riktig med feil tall.</p>
+          <p><b>Middels svar:</b> segmenterer på bedriftsstørrelse. <b>Sterkt svar:</b> segmenterer
+          på bedriftsstørrelse <i>og</i> sier at dekningsgrad og pris beveger seg motsatt vei langs
+          aksen — som er selve grunnen til at aksen er riktig.</p>`,
+        krav: [
+          "Du forkaster befolkningen som nevner eksplisitt, og sier hvorfor.",
+          "Du ber om antall bedrifter med ansatte, ikke antall registrerte foretak.",
+          "Du skriver ligningen med dekningsgrad som eget ledd, ikke bakt inn i prisen.",
+          "Du begrunner bedriftsstørrelse med at dekningsgrad og pris beveger seg motsatt vei.",
+          "Du sier at ansatte er prisenheten mens bedriften er kjøperen, og holder de to fra hverandre.",
+        ],
+        felle: "Å utelate dekningsgraden fordi «alle må jo kjøre lønn». Alle må kjøre lønn — men ikke alle kjøper et eget system for det. I mikrobedrifter ligger lønnskjøringen hos regnskapsføreren, og da er kunden regnskapsføreren, ikke bedriften. Uten et dekningsgradsledd har du ikke noe sted å håndtere den forskjellen.",
+      },
+      {
+        art: "regne",
+        sek: 150,
+        tittel: "Volumleddet — hvor mange ansatte betales det for?", kort: "Volum",
+        sp: `<p>Intervjueren gir deg tallene. <b>Hvor mange ansatte ligger på et betalt skybasert
+          lønns- og HR-system i Norge?</b></p>
+          <p class="tiny">Sjekk at antall ansatte i segmentene stemmer med sysselsettingstallet
+          før du går videre.</p>`,
+        figur: `<table class="data">
+            <tr><th>Norske referansetall (SSB)</th><th class="n">Verdi</th></tr>
+            <tr><td>Befolkning</td><td class="n">5,6 mill.</td></tr>
+            <tr><td>Sysselsatte</td><td class="n">2,9 mill.</td></tr>
+            <tr><td>Aktive bedrifter</td><td class="n">0,65 mill.</td></tr>
+            <tr><td>— av dem med minst én ansatt</td><td class="n">0,2 mill.</td></tr>
+            <tr><td>Gjennomsnittlig månedslønn</td><td class="n">62 000 kr</td></tr>
+            <tr><td>Fastlands-BNP</td><td class="n">4 400 mrd kr</td></tr>
+            <tr><td>Dagligvaremarkedet</td><td class="n">230 mrd kr</td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Bedrifter med ansatte, etter størrelse</th><th class="n">Bedrifter</th><th class="n">Snitt ansatte</th><th class="n">På betalt skysystem</th><th class="n">Pris per ansatt/mnd</th></tr>
+            <tr><td>1–4 ansatte</td><td class="n">120 000</td><td class="n">2</td><td class="n">40 %</td><td class="n">250 kr</td></tr>
+            <tr><td>5–19 ansatte</td><td class="n">60 000</td><td class="n">10</td><td class="n">70 %</td><td class="n">150 kr</td></tr>
+            <tr><td>20–99 ansatte</td><td class="n">16 000</td><td class="n">40</td><td class="n">85 %</td><td class="n">100 kr</td></tr>
+            <tr><td>100 ansatte og over</td><td class="n">4 000</td><td class="n">350</td><td class="n">90 %</td><td class="n">50 kr</td></tr>
+          </table>`,
+        svar: 2320000,
+        enhet: "ansatte",
+        toleranse: 0.15,
+        fasit: `<p>Sjekk tabellen mot makrotallene <i>først</i>. To kontroller, ti sekunder:</p>
+          <div class="formula">
+            <div class="eq">Bedrifter: 120 000 + 60 000 + 16 000 + 4 000 = 200 000 ✓ (SSB: 0,2 mill. med ansatte)</div>
+            <div class="eq">Ansatte: 240 000 + 600 000 + 640 000 + 1 400 000 = 2 880 000 ✓ (SSB: 2,9 mill. sysselsatte)</div>
+          </div>
+          <p>Begge stemmer. Nå vet du at tabellen er konsistent med makrotallene, og du kan regne
+          videre uten å lure på om du har mistet en gruppe.</p>
+          <div class="formula">
+            <div class="eq">1–4: 120 000 × 2 = 240 000 ansatte × 40 % = 96 000</div>
+            <div class="eq">5–19: 60 000 × 10 = 600 000 ansatte × 70 % = 420 000</div>
+            <div class="eq">20–99: 16 000 × 40 = 640 000 ansatte × 85 % = 544 000</div>
+            <div class="eq">100+: 4 000 × 350 = 1 400 000 ansatte × 90 % = 1 260 000</div>
+            <div class="eq">Sum: 96 000 + 420 000 + 544 000 + 1 260 000 = <b>2 320 000 ansatte</b></div>
+          </div>
+          <p>Si strukturen høyt med én gang: <b>4 000 bedrifter — 2 prosent av alle med ansatte —
+          har 1,4 millioner av de 2,9 millionene, altså nesten halvparten av arbeidsstyrken.</b>
+          Norsk næringsliv er ikke et hav av små bedrifter når man teller hoder; det er noen få
+          store og veldig mange bittesmå. Den observasjonen kommer til å bære hele anbefalingen i
+          trinn 6.</p>
+          <p><b>Middels svar:</b> 2,32 millioner. <b>Sterkt svar:</b> 2,32 millioner, med begge
+          makrokontrollene gjort først og observasjonen om at 2 prosent av bedriftene har 49
+          prosent av de ansatte.</p>`,
+        krav: [
+          "Du kontrollerer både bedriftssummen og ansattsummen mot SSB-tallene før du regner.",
+          "Du bruker antall bedrifter med ansatte, ikke de 650 000 registrerte foretakene.",
+          "Du regner ansatte og dekkede ansatte som to atskilte ledd.",
+          "Du sier at 2 prosent av bedriftene har halvparten av de ansatte, uten å bli spurt.",
+        ],
+        felle: "Å regne ansatte som 2,9 millioner delt på 200 000 bedrifter = 14,5 i snitt, og bruke det på alle. Gjennomsnittet på 14,5 finnes ikke i virkeligheten — det ligger mellom to segmenter som begge er langt fra det. Det er hele grunnen til at aksen finnes.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Verdileddet — hvor mange kroner?", kort: "Kroner",
+        sp: `<p><b>Hvor stort er markedet i millioner kroner per år?</b></p>
+          <p class="tiny">Husk at prisen er per måned. Sanity-sjekk mot lønnssummen før du
+          leverer.</p>`,
+        svar: 2453,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<p>Prisen er per ansatt per <i>måned</i>. Gang med 12 én gang per segment, eller
+          gang totalen til slutt — men si hvilken av delene du gjør, for det er her folk mister
+          en faktor tolv.</p>
+          <div class="formula">
+            <div class="eq">1–4: 96 000 × 250 kr × 12 = 96 000 × 3 000 = 288 mill</div>
+            <div class="eq">5–19: 420 000 × 150 kr × 12 = 420 000 × 1 800 = 756 mill</div>
+            <div class="eq">20–99: 544 000 × 100 kr × 12 = 544 000 × 1 200 = 653 mill</div>
+            <div class="eq">100+: 1 260 000 × 50 kr × 12 = 1 260 000 × 600 = 756 mill</div>
+            <div class="eq">Marked: 288 + 756 + 653 + 756 = <b>2 453 mill ≈ 2,5 milliarder</b></div>
+          </div>
+          <p><b>Se hva som skjedde med de store.</b> 100+-segmentet har 49 prosent av de ansatte,
+          men bare 31 prosent av kronene — fordi prisen per hode er en femtedel av
+          mikrosegmentets. Og 1–4-segmentet har 8 prosent av de ansatte, men 12 prosent av
+          kronene. Volumandel og verdiandel er ikke det samme, og forskjellen er hele grunnen til
+          at prislisten ser ut som den gjør.</p>
+          <p>Sanity-sjekkene, og den første her er en av de beste norske ankrene som finnes:</p>
+          <ul>
+            <li><b>Mot lønnssummen:</b> 2,9 millioner sysselsatte × 62 000 kroner × 12 måneder
+              ≈ 2 150 milliarder kroner i lønn per år — omtrent halve Fastlands-BNP på 4 400
+              milliarder, som er en kjent tommelfingerregel. Vårt marked på 2,45 milliarder er da
+              <b>rundt én promille av lønnen systemet administrerer.</b> Det er en helt plausibel
+              pris for administrasjonen av noe.</li>
+            <li><b>Per ansatt:</b> 2 453 millioner / 2,88 millioner ansatte = 852 kroner per
+              ansatt per år, altså rundt 71 kroner i måneden i snitt. Det ligger mellom
+              mikrosegmentets 250 og storsegmentets 50, tyngdepunkt mot de store. Konsistent.</li>
+            <li><b>Mot noe kjent:</b> 2,45 milliarder er 1,1 prosent av dagligvaremarkedet. For et
+              nisje-B2B-marked i Norge er det riktig størrelsesorden — norske B2B-
+              programvaremarkeder ligger typisk i milliardklassen, ikke i titallsmilliardklassen.</li>
+          </ul>
+          <p><b>Middels svar:</b> 2,5 milliarder med én sanity-sjekk. <b>Sterkt svar:</b> 2,5
+          milliarder, med promillesjekken mot lønnssummen — og observasjonen at de store har
+          halvparten av hodene og en tredel av pengene.</p>`,
+        krav: [
+          "Du ganger med 12 og sier eksplisitt at prisen var oppgitt per måned.",
+          "Du sammenligner volumandel og verdiandel per segment, og sier at de ikke er like.",
+          "Du sanity-sjekker mot lønnssummen og uttrykker markedet som en promilleandel.",
+          "Du krysspeiler snittprisen per ansatt mot ytterpunktene i tabellen.",
+          "Du runder: «rundt 2,5 milliarder», ikke «2 452,8».",
+        ],
+        felle: "Å glemme de tolv månedene. Da får du 204 millioner og et marked som er mindre enn klientens egen svenske omsetning — og det burde utløst en alarm i seg selv. Sanity-sjekken er ikke bare pynt til slutt; den er det som fanger en faktor tolv.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Følsomhet — hvilken usikkerhet er verdt å bry seg om?", kort: "Følsomhet",
+        sp: `<p>Den forutsetningen du er minst sikker på, er at 40 prosent av mikrobedriftene
+          betaler for et eget skysystem. Ingen vet dette; det kunne like gjerne vært 20 prosent,
+          fordi regnskapsføreren ofte tar lønnskjøringen i sitt eget system.</p>
+          <p><b>Hvor mange millioner kroner faller markedet hvis dekningsgraden i 1–4-segmentet
+          er 20 prosent, ikke 40?</b></p>`,
+        svar: 144,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<p>Regningen er triviell, og det er hele poenget.</p>
+          <div class="formula">
+            <div class="eq">1–4-segmentet bidrar med 288 mill</div>
+            <div class="eq">Dekningsgrad halveres ⇒ bidraget halveres: 288 × 0,5 = 144 mill</div>
+            <div class="eq">Fall: <b>144 millioner kroner</b></div>
+            <div class="eq">Nytt marked: 2 453 − 144 = 2 309 mill</div>
+            <div class="eq">Endring: 144 / 2 453 = <b>−5,9 prosent</b></div>
+          </div>
+          <p><b>Konklusjonen er det som skiller et sterkt svar fra et middels her:</b> den
+          forutsetningen du var mest usikker på, kan være 50 prosent feil og likevel flytte svaret
+          med under 6 prosent. Den er, med andre ord, ikke verdt mer tid.</p>
+          <p>Sammenlign med en forutsetning du følte deg tryggere på — prisen på 50 kroner per
+          ansatt i 100+-segmentet:</p>
+          <div class="formula">
+            <div class="eq">100+-segmentet bidrar med 756 mill</div>
+            <div class="eq">50 % feil på prisen: 756 × 0,5 = 378 mill, altså <b>±15,4 prosent</b> av markedet</div>
+          </div>
+          <p>Prisen til de store er nesten <b>tre ganger så viktig</b> som mikrodekningen, selv om
+          du var mindre i tvil om den. Den generelle regelen er verdt å skrive ned:</p>
+          <blockquote><p><b>Ranger forutsetningene etter usikkerhet <i>ganger</i> bidrag — ikke
+          etter usikkerhet alene.</b> En vill gjetning på et lite ledd er ufarlig. Et kvalifisert
+          anslag på et stort ledd er der estimatet ditt faktisk står og faller.</p></blockquote>
+          <p>Det gjør også noe med anbefalingen: klienten skal ikke bruke penger på å kartlegge
+          mikrobedrifter. De skal ringe fem store norske arbeidsgivere og spørre hva de betaler per
+          ansatt. Fem telefoner løser 15 prosentpoeng av usikkerheten; en spørreundersøkelse blant
+          120 000 mikrobedrifter løser 6.</p>
+          <p><b>Middels svar:</b> 144 millioner. <b>Sterkt svar:</b> 144 millioner, med
+          rangeringsregelen sagt høyt og en konkret konsekvens for hvor klienten skal bruke
+          undersøkelsesbudsjettet sitt.</p>`,
+        krav: [
+          "Du regner utslaget på segmentet, ikke på hele markedet.",
+          "Du oversetter kronefallet til en prosent av totalen, så det blir sammenlignbart.",
+          "Du sammenligner mot en annen forutsetning, og finner at den betyr mer.",
+          "Du sier regelen: ranger etter usikkerhet ganger bidrag, ikke usikkerhet alene.",
+          "Du trekker en konsekvens for hva klienten faktisk skal undersøke først.",
+        ],
+        felle: "Å konkludere at estimatet er skjørt fordi én forutsetning er usikker. Et estimat er ikke like skjørt i alle retninger. Uten å regne på bidraget vet du ikke om usikkerheten er verdt seks prosent eller seksti — og det er forskjellen på å berolige klienten og å skremme ham uten grunn.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Styret har <b>ett minutt</b>. Gi tallet, usikkerheten, og hva du ville sjekket
+          først med ekte data.</p>`,
+        fasit: `<blockquote><p><b>«Det norske markedet for skybaserte lønns- og HR-systemer er
+          rundt 2,5 milliarder kroner i året — 2,3 millioner ansatte på et betalt system, til rundt
+          70 kroner per ansatt per måned i snitt. Spennet er 2 til 3 milliarder, og det aller
+          meste av usikkerheten sitter i prisen til de største kundene.»</b></p>
+          <p>Slik kom jeg dit: Norge har 2,9 millioner sysselsatte fordelt på 200 000 bedrifter med
+          ansatte — ikke 650 000, for to av tre norske foretak har ingen ansatte og ingen lønn å
+          kjøre. Av de 2,9 millionene ligger 2,3 på et betalt system. Priset per ansatt per måned,
+          fallende fra 250 kroner i de minste til 50 i de største, gir det 2,5 milliarder.</p>
+          <p>Sanity-sjekken: norsk lønnssum er rundt 2 150 milliarder i året, så dette markedet er
+          én promille av lønnen det administrerer. Det høres riktig ut.</p>
+          <p>Det viktigste for dere er ikke størrelsen, men at <b>dette ikke er ett marked — det er
+          to.</b> 4 000 bedrifter har halvparten av alle ansatte og en tredel av kronene, og de
+          vinnes én for én med selgere, anbud og integrasjonsprosjekter. 120 000 mikrobedrifter har
+          8 prosent av de ansatte og 12 prosent av kronene, og de kan bare nås gjennom
+          regnskapsførerne — som i praksis er distribusjonskanalen, ikke sluttkunden. Dere har
+          200 millioner i Sverige, som tilsier at dere er bygget for den ene av de to. Hvilken?
+          Det er spørsmålet tallet stiller.</p>
+          <p>Det jeg ville sjekket først, er faktisk pris per ansatt hos store norske
+          arbeidsgivere. Fem telefoner flytter estimatet mitt 15 prosent — mer enn noen annen
+          enkeltopplysning. Deretter ville jeg sjekket hvor mye av markedet Visma allerede har,
+          for i et marked på 2,5 milliarder med én dominerende aktør er markedsandelen viktigere
+          enn markedsstørrelsen.»</p></blockquote>
+          <p><b>Middels svar:</b> tallet, spennet og kjeden. <b>Sterkt svar:</b> det samme, pluss
+          at markedet er to markeder med hver sin salgskanal — og at klientens svenske størrelse
+          allerede sier hvilket av dem de er bygget for.</p>`,
+        krav: [
+          "Du gir tallet med spenn og sier hvilken forutsetning spennet kommer fra.",
+          "Du sier eksplisitt at nevneren er 200 000 bedrifter med ansatte, ikke 650 000 foretak.",
+          "Du sier promillesjekken mot lønnssummen høyt som en del av svaret.",
+          "Du deler markedet i to salgskanaler og knytter det til klientens egen situasjon.",
+          "Du navngir de fem telefonene som ville flyttet estimatet mest.",
+        ],
+        felle: "Å levere markedsstørrelsen alene i et marked med én dominerende aktør. 2,5 milliarder er meningsløst for klienten hvis Visma har 70 prosent av det. I konsentrerte B2B-markeder er det oppnåelige markedet, ikke det totale, som er tallet beslutningen tas på — og det bør du si selv om ingen spør.",
+      },
+    ],
+  },
+
+  /* ============================================================
+     B4 · BREDBÅND — hele casen ligger i nevnervalget
+     ============================================================ */
+  {
+    id: "estimering-bredband",
+    kategori: "Market sizing",
+    label: "Hvor stort er bredbåndsmarkedet i Norge?",
+    type: "Estimering",
+    nivå: "Middels",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 25,
+    ch: [],
+    blurb: "Samme bransje, to nevnere: mobil selges per person, fast bredbånd per husholdning. Trener nevnervalget — den feilen som mer enn dobler svaret før du har regnet et eneste ledd.",
+    prompt: `<p>Klienten er et europeisk infrastrukturfond. De vurderer å by på et norsk
+      fibernett, og trenger et uavhengig anslag på hvor stort inntektsgrunnlaget er før de setter
+      en pris.</p>
+      <p><b>Hvor stort er det norske markedet for fast bredbånd til hjemmet, målt i kroner per
+      år?</b></p>
+      <p class="tiny">Ingen kalkulator. Vær nøye med hva du deler på.</p>`,
+    bakgrunn: `<p>Denne casen har bare én felle, og den ligger i første ledd: <b>hva er
+      nevneren?</b> Fast bredbånd selges per bolig, ikke per person. Én linje inn i huset dekker
+      alle som bor der. Bruker du befolkningen på 5,6 millioner i stedet for husholdningene på
+      2,65 millioner, overvurderer du markedet med en faktor på over to — og ingenting du gjør
+      senere i regnestykket kan rette det opp.</p>
+      <p>Det som gjør fella ekte og ikke bare pedagogisk, er at <b>nabomarkedet har motsatt
+      nevner</b>. Mobilabonnementer selges per person: en firebarnsfamilie har seks mobiler og
+      ett bredbånd. Samme bransje, samme kunde, samme faktura — to helt ulike nevnere. Den som
+      ikke stopper og spør «per hva?» kommer til å bomme på det ene av de to markedene hver
+      gang.</p>
+      <p>Casen trener også et tredje ledd som ofte glemmes i abonnementsmarkeder: <b>hvem som
+      betaler er ikke alltid den som bruker.</b> I norske borettslag og sameier ligger bredbåndet
+      ofte i felleskostnadene, forhandlet av styret til en helt annen pris enn den en
+      enkelthusholdning betaler. Det er den kjøpsenheten som avgjør hvem klienten faktisk
+      selger til.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva teller vi?",
+        sp: `<p><b>Hvilke spørsmål stiller du før du setter opp regnestykket?</b> Ett av dem er
+          viktigere enn alle de andre til sammen.</p>`,
+        fasit: `<p>Det ene spørsmålet som betyr noe: <b>hva er kjøpsenheten?</b> Alt annet er
+          finpuss.</p>
+          <ul>
+            <li><b>Kjøpsenhet:</b> selges bredbånd per person eller per bolig? Svaret er per bolig
+              — én linje dekker husstanden. Si det høyt som en avklaring, ikke som en antakelse,
+              for det halverer svaret.</li>
+            <li><b>Avgrensning:</b> bare privatmarkedet, eller også bedrifter og offentlige bygg?
+              Prompten sier «til hjemmet» — bekreft det, og hold bedriftsmarkedet utenfor.</li>
+            <li><b>Produkt:</b> bare bredbåndslinjen, eller også TV-pakker og strømmetjenester som
+              selges i samme abonnement? Det er ofte samme faktura, og det kan doble beløpet.
+              Jeg regner bredbåndsdelen alene.</li>
+            <li><b>Geografi og tidsrom:</b> Norge, per år, målt som det husholdningene betaler.</li>
+          </ul>
+          <p>Lukk: «Jeg regner det norske husholdninger betaler for fast bredbånd til hjemmet per
+          år, uten TV-pakker, uten bedriftsmarkedet, og uten mobilt bredbånd.»</p>
+          <p><b>Middels svar:</b> spør om avgrensning. <b>Sterkt svar:</b> stiller
+          kjøpsenhetsspørsmålet først og eksplisitt, og legger til at nabomarkedet — mobil — har
+          motsatt nevner. Det viser at du sjekker nevneren av vane, ikke fordi denne casen tilfeldigvis
+          handler om det.</p>`,
+        krav: [
+          "Du spør om kjøpsenheten før alt annet, og sier at svaret er bolig, ikke person.",
+          "Du avgrenser bort bedriftsmarkedet og mobilt bredbånd eksplisitt.",
+          "Du tar stilling til om TV-pakker er med, siden de ligger på samme faktura.",
+          "Du lukker med én setning som definerer hva du regner, med tidsenhet.",
+        ],
+        felle: "Å si «alle har jo internett» og begynne på befolkningen. Alle har internett — men ikke alle kjøper det. Spørsmålet er aldri hvem som bruker produktet, det er hvem som betaler regningen, og hvor mange regninger som sendes.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Velg retning, og velg nevneren bevisst",
+        sp: `<p>Si <b>topp-ned eller bunn-opp, og hvorfor</b>. Skriv ligningen i symboler, og si
+          hvilken nevner du velger — og hvilken du forkaster, med begrunnelse.</p>`,
+        fasit: `<p><b>Topp-ned.</b> Begrunnelsen: husholdningstallet er blant de sikreste tallene
+          SSB har, og veien fra husholdning til abonnement er kort — én filtrering på om de har
+          fast bredbånd i det hele tatt. Bunn-opp — antall operatører ganger kunder per operatør —
+          krever at du kan markedsandeler, og det kan du ikke. Behold bunn-opp som krysspeiling
+          mot mobilmarkedet til slutt.</p>
+          <div class="formula">
+            <div class="eq">Marked (kr/år) = Σ over kjøpstype [ Antall abonnement × Månedspris × 12 ]</div>
+            <div class="eq">Antall abonnement = Husholdninger × Andel med fast bredbånd</div>
+          </div>
+          <p><b>Nevneren er husholdning — 2,65 millioner — ikke befolkning.</b> Si begrunnelsen
+          som en regel, ikke som en observasjon: <i>alt som leveres til en bygning, telles per
+          bygning.</i> Bredbånd, strøm, forsikring på innbo, vaskemaskin, kabel-TV og
+          søppeltømming er alle husholdningsprodukter. Mobil, briller, klær og kaffe er
+          personprodukter. Å plassere produktet i riktig kategori er første ledd i enhver
+          sizing-oppgave, og det er der flest svar dør.</p>
+          <p><b>Segmenteringsaksen er hvem som betaler, ikke hvem som bor.</b> Det er valget som
+          gjør denne casen mer enn en multiplikasjon:</p>
+          <ul>
+            <li><b>Husholdning i småhus:</b> kjøper sitt eget abonnement, høy dekning, høyest pris
+              — de vil ha fiber og hastighet.</li>
+            <li><b>Husholdning i blokk med eget abonnement:</b> noe lavere dekning, fordi mobilt
+              bredbånd er et reelt alternativ når du bor alene i en liten leilighet. Lavere pris.</li>
+            <li><b>Husholdning i blokk der bredbåndet ligger i felleskostnadene:</b> borettslaget
+              er kunden, ikke beboeren. Volumavtale, mye lavere pris per bolig.</li>
+          </ul>
+          <p>Den tredje gruppen er den som skiller et sterkt svar fra et middels her. Den finnes i
+          virkeligheten, den har helt annen pris, og den forteller klienten noe de trenger: i
+          blokkmarkedet selger man til styrer, ikke til forbrukere.</p>
+          <p>Si også hvordan du vil sanity-sjekke, før du får tallene: «Jeg vil krysspeile mot
+          mobilmarkedet, som har motsatt nevner. Hvis forholdet mellom de to blir urimelig, har
+          jeg tatt feil et sted.»</p>
+          <p><b>Middels svar:</b> husholdning som nevner. <b>Sterkt svar:</b> husholdning som
+          nevner, formulert som en generell regel om at bygningsleveranser telles per bygning — og
+          en segmentering på hvem som betaler, ikke bare på hvor de bor.</p>`,
+        krav: [
+          "Du forkaster befolkningen som nevner eksplisitt, og sier hvorfor.",
+          "Du formulerer nevnervalget som en regel du kan bruke igjen, ikke som en enkeltobservasjon.",
+          "Du segmenterer på hvem som betaler, og får med borettslagsavtalene som egen gruppe.",
+          "Du sier at prisen er per måned og at markedet skal oppgis per år.",
+          "Du sier på forhånd at du vil krysspeile mot mobilmarkedet, og hvorfor det er en god sjekk.",
+        ],
+        felle: "Å segmentere på hastighet — fiber, kabel, DSL — fordi det er den inndelingen bransjen selv bruker. Den forteller deg noe om teknologi og ingenting om hvem som betaler eller hvor mye. Velg aksen som flytter prisen og kjøpsbeslutningen, ikke den som står i produktkatalogen.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Volumleddet — hvor mange abonnement?", kort: "Volum",
+        sp: `<p>Intervjueren gir deg tallene. <b>Hvor mange faste bredbåndsabonnement finnes det i
+          Norge?</b></p>`,
+        figur: `<table class="data">
+            <tr><th>Norske referansetall (SSB)</th><th class="n">Verdi</th></tr>
+            <tr><td>Befolkning</td><td class="n">5,6 mill.</td></tr>
+            <tr><td>Husholdninger</td><td class="n">2,65 mill.</td></tr>
+            <tr><td>Personer per husholdning</td><td class="n">2,1</td></tr>
+            <tr><td>— husholdninger i småhus</td><td class="n">1,4 mill.</td></tr>
+            <tr><td>— husholdninger i leilighet og blokk</td><td class="n">1,25 mill.</td></tr>
+            <tr><td>Boutgift per husholdning per år</td><td class="n">135 000 kr</td></tr>
+            <tr><td>Dagligvaremarkedet</td><td class="n">230 mrd kr</td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Bransjetall oppgitt av intervjueren</th><th class="n">Verdi</th></tr>
+            <tr><td>Andel småhushusholdninger med fast bredbånd</td><td class="n">90 %</td></tr>
+            <tr><td>Andel blokkhusholdninger med fast bredbånd</td><td class="n">80 %</td></tr>
+            <tr><td>— av disse: andel der bredbåndet ligger i felleskostnadene</td><td class="n">40 %</td></tr>
+            <tr><td>Snittpris eget abonnement, småhus</td><td class="n">550 kr/mnd</td></tr>
+            <tr><td>Snittpris eget abonnement, blokk</td><td class="n">450 kr/mnd</td></tr>
+            <tr><td>Snittpris per bolig i borettslagsavtale</td><td class="n">300 kr/mnd</td></tr>
+            <tr><td>Snittpris mobilabonnement (per person)</td><td class="n">300 kr/mnd</td></tr>
+          </table>`,
+        svar: 2260000,
+        enhet: "abonnement",
+        toleranse: 0.15,
+        fasit: `<p>Legg merke til at befolkningen på 5,6 millioner og personer per husholdning på
+          2,1 står i tabellen. <b>De er ikke der for å brukes — de er der for å friste.</b> Si det
+          høyt: «Jeg bruker husholdninger, ikke personer. De to øverste tallene er felle-tall.»</p>
+          <div class="formula">
+            <div class="eq">Småhus: 1 400 000 × 90 % = 1 260 000 abonnement</div>
+            <div class="eq">Blokk totalt: 1 250 000 × 80 % = 1 000 000 abonnement</div>
+            <div class="eq">— av dem i borettslagsavtale: 1 000 000 × 40 % = 400 000</div>
+            <div class="eq">— av dem eget abonnement: 1 000 000 × 60 % = 600 000</div>
+            <div class="eq">Sum: 1 260 000 + 1 000 000 = <b>2 260 000 abonnement</b></div>
+          </div>
+          <p>Krysspeil med én gang: <b>2,26 millioner abonnement på 2,65 millioner husholdninger
+          er 85 prosent dekning.</b> Det er et tall du kan kjenne på — høyt, som det skal være i
+          Norge, men ikke 100 prosent, fordi mobilt bredbånd finnes. Hadde du fått 4 millioner,
+          ville du hatt flere abonnement enn boliger, og det er umulig.</p>
+          <p><b>Det er nettopp den sjekken nevnervalget gir deg gratis.</b> Med personer som nevner
+          hadde du fått et abonnementstall du ikke kunne kontrollert mot noe som helst, fordi det
+          ikke finnes et tak på hvor mange abonnement en person kan ha. Med boliger som nevner har
+          du et hardt tak: ett per bolig. Riktig nevner gir deg ikke bare riktig svar, den gir deg
+          en sanity-sjekk du ellers ikke ville hatt.</p>
+          <p><b>Middels svar:</b> 2,26 millioner. <b>Sterkt svar:</b> 2,26 millioner, med
+          dekningsgraden på 85 prosent regnet ut som kontroll og felle-tallene i tabellen navngitt
+          som felle-tall.</p>`,
+        krav: [
+          "Du bruker husholdninger som nevner, og sier eksplisitt at du forkaster befolkningen.",
+          "Du peker ut hvilke tall i tabellen som ikke skal brukes, og hvorfor de står der.",
+          "Du deler blokksegmentet i eget abonnement og borettslagsavtale før du går videre.",
+          "Du krysspeiler dekningsgraden på 85 prosent mot antall husholdninger.",
+        ],
+        felle: "Å bruke 5,6 millioner personer. Selv med 85 prosent dekning gir det 4,8 millioner abonnement — flere enn det finnes boliger i Norge. Sjekken tar tre sekunder og fanger hele feilen, men bare hvis du har en nevner det finnes et tak på.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Verdileddet — hvor mange kroner?", kort: "Kroner",
+        sp: `<p><b>Hvor stort er markedet i millioner kroner per år?</b></p>
+          <p class="tiny">Tre priser, tre segmenter. Krysspeil mot mobilmarkedet før du
+          leverer.</p>`,
+        svar: 12996,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<p>Gjør om månedsprisene til årspriser først — det er ett regnestykke i stedet for
+          tre, og det er der folk mister faktoren tolv:</p>
+          <div class="formula">
+            <div class="eq">550 kr/mnd = 6 600 kr/år · 450 kr/mnd = 5 400 kr/år · 300 kr/mnd = 3 600 kr/år</div>
+            <div class="eq">Småhus: 1 260 000 × 6 600 = 8 316 mill</div>
+            <div class="eq">Blokk, eget abonnement: 600 000 × 5 400 = 3 240 mill</div>
+            <div class="eq">Blokk, borettslagsavtale: 400 000 × 3 600 = 1 440 mill</div>
+            <div class="eq">Marked: 8 316 + 3 240 + 1 440 = <b>12 996 mill ≈ 13 milliarder</b></div>
+          </div>
+          <p>Si «rundt 13 milliarder». Fem sifre er absurd når tre av forutsetningene er anslag.</p>
+          <p><b>Og nå den sanity-sjekken som er hele poenget med casen:</b></p>
+          <ul>
+            <li><b>Mot mobilmarkedet, som har motsatt nevner:</b> mobil selges per person — 5,6
+              millioner nordmenn à 300 kroner i måneden gir 5,6 mill × 3 600 = <b>20 milliarder</b>.
+              Så det norske mobilmarkedet er rundt 20 milliarder og bredbåndsmarkedet rundt 13,
+              selv om «alle» har begge deler. <i>Hele forskjellen er nevneren.</i> Hadde du regnet
+              bredbånd per person, ville du fått 30 milliarder — større enn mobilmarkedet — og det
+              er åpenbart galt, for de fleste betaler mer for mobilene i husstanden til sammen enn
+              for linja inn i huset.</li>
+            <li><b>Per husholdning:</b> 12 996 millioner / 2,65 millioner = rundt 4 900 kroner per
+              husholdning per år, altså 410 kroner i måneden i snitt over <i>alle</i>
+              husholdninger, også de 15 prosentene uten. Snittet blant dem som faktisk har
+              abonnement er 12 996 mill / 2,26 mill = 5 750 kroner, altså 479 kroner i måneden.
+              Det ligger mellom 300 og 550, med tyngdepunkt mot småhusene. Konsistent.</li>
+            <li><b>Mot noe kjent:</b> 13 milliarder er 5,7 prosent av dagligvaremarkedet, og 3,6
+              prosent av boutgiften på 135 000 kroner per husholdning. Riktig størrelsesorden for
+              en fast månedsregning i norske hjem.</li>
+          </ul>
+          <p><b>Middels svar:</b> 13 milliarder med én sanity-sjekk. <b>Sterkt svar:</b> 13
+          milliarder, krysspeilet mot mobilmarkedets 20 — og setningen om at hele forskjellen
+          mellom de to tallene er nevneren, ikke produktet.</p>`,
+        krav: [
+          "Du regner om månedspris til årspris i ett steg, i stedet for å gange med 12 tre ganger.",
+          "Du bruker hvert segments egen pris, inkludert den lave borettslagsprisen.",
+          "Du krysspeiler mot mobilmarkedet og sier at forskjellen er nevneren, ikke produktet.",
+          "Du krysspeiler snittet per abonnement mot ytterpunktene i prislisten.",
+          "Du runder til to sifre når du sier tallet høyt.",
+        ],
+        felle: "Å bruke 450 kroner som gjennomsnittspris på alle 2,26 millioner abonnement. Det gir 12,2 milliarder — bare 6 prosent feil, så du slipper unna med det. Men da har du ikke sett at 1,4 milliarder av markedet er borettslagsavtaler til halv pris, og det er den observasjonen klienten faktisk betaler for.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Følsomhet — hva er tallet verdt?", kort: "Følsomhet",
+        sp: `<p>Husholdningstallet er sikkert; SSB teller det. Den virkelig usikre forutsetningen
+          er at 80 prosent av blokkhusholdningene har fast bredbånd. Mobilt bredbånd er blitt godt
+          nok for én person i en liten leilighet, og den substitusjonen skjer akkurat der.</p>
+          <p><b>Hva blir markedet hvis bare 40 prosent av blokkhusholdningene har fast bredbånd?
+          Svar i millioner kroner.</b></p>`,
+        svar: 10656,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<p>Igjen: <b>del i den delen som rører seg og den som står stille før du regner.</b>
+          Småhusene berøres ikke — der finnes ikke substitusjonen, fordi et hus med fire personer
+          og strømmet TV ikke lever på mobilt bredbånd.</p>
+          <div class="formula">
+            <div class="eq">Småhus, uendret: 8 316 mill</div>
+            <div class="eq">Blokk, ny dekning: 1 250 000 × 40 % = 500 000 abonnement (var 1 000 000)</div>
+            <div class="eq">— eget abonnement: 500 000 × 60 % = 300 000 × 5 400 = 1 620 mill</div>
+            <div class="eq">— borettslagsavtale: 500 000 × 40 % = 200 000 × 3 600 = 720 mill</div>
+            <div class="eq">Nytt marked: 8 316 + 1 620 + 720 = <b>10 656 mill ≈ 10,7 milliarder</b></div>
+            <div class="eq">Endring: 10 656 / 12 996 − 1 = <b>−18 prosent</b></div>
+          </div>
+          <p>Snarveien, hvis du ser den: blokksegmentet bidro med 4 680 millioner, og halveres til
+          2 340. Fallet er 2 340 millioner, som er 18 prosent av 12 996. Ett regnestykke i stedet
+          for fire.</p>
+          <p><b>Innsikten er at 50 prosent feil gir 18 prosent utslag</b>, fordi blokksegmentet
+          bare er 36 prosent av markedet. Sammenlign med kjøkkencasen, der samme prosentvise feil
+          ga 27 prosent, og brillecasen, der den ga 33. Regelen er den samme i alle tre:
+          <b>utslaget er feilen ganger segmentets andel av markedet.</b> En halvering av et segment
+          som er en tredel, koster deg en sjettedel.</p>
+          <p>Men her er det som gjør denne følsomheten mer enn aritmetikk, og som skiller et sterkt
+          svar fra et middels: <b>substitusjonen er ikke en usikkerhet, den er en trend.</b> Et
+          infrastrukturfond kjøper kontantstrøm i tjue år. Da er ikke spørsmålet om tallet er 13
+          eller 10,7 milliarder i år — det er hvilken vei det beveger seg. En følsomhetsanalyse som
+          peker i én bestemt retning over tid, er ikke et usikkerhetsintervall lenger. Det er en
+          prognose, og den hører hjemme i prisingen.</p>
+          <p><b>Middels svar:</b> 10 656 millioner. <b>Sterkt svar:</b> 10 656 millioner, med
+          regelen «utslag = feil × segmentets andel», og observasjonen at nedsiden er ensidig —
+          fordi substitusjonen bare går én vei.</p>`,
+        krav: [
+          "Du holder småhussegmentet fast, og begrunner hvorfor substitusjonen ikke rammer det.",
+          "Du ser at hele blokksegmentet halveres, og skalerer det i ett steg.",
+          "Du sier regelen: utslaget er feilen ganger segmentets andel av markedet.",
+          "Du skiller en toveis usikkerhet fra en ensidig trend, og sier at dette er det siste.",
+          "Du knytter det til hva klienten skal med tallet: en kontantstrøm over tjue år.",
+        ],
+        felle: "Å halvere hele markedet fordi «dekningen halveres». Dekningen halveres i ett av to segmenter, og det segmentet er 36 prosent av kronene. Å skalere totalen når bare en del beveger seg, er den vanligste feilen i hele følsomhetsanalysen — og den gir svar som er dobbelt så gale som de trenger å være.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Fondet har <b>ett minutt</b>. Gi tallet, usikkerheten, og hva du ville sjekket
+          først med ekte data.</p>`,
+        fasit: `<blockquote><p><b>«Det norske markedet for fast bredbånd til hjemmet er rundt 13
+          milliarder kroner i året — 2,3 millioner abonnement til rundt 480 kroner i måneden.
+          Spennet er 10 til 14 milliarder, og usikkerheten er ensidig nedover: den ligger i hvor
+          mange leilighetshusholdninger som klarer seg med mobilt bredbånd.»</b></p>
+          <p>Slik kom jeg dit: 2,65 millioner husholdninger — ikke 5,6 millioner personer, for
+          bredbånd leveres til en bolig, ikke til et menneske. 85 prosent av dem har fast bredbånd,
+          altså 2,26 millioner abonnement, til priser fra 300 kroner i en borettslagsavtale til 550
+          i en enebolig.</p>
+          <p>Sanity-sjekken er den beste delen: mobilmarkedet, som har motsatt nevner, er rundt 20
+          milliarder — 5,6 millioner personer à 300 kroner i måneden. At bredbånd er mindre enn
+          mobil, selv om alle har begge deler, er nettopp fordi den ene selges per person og den
+          andre per bolig. Hadde jeg regnet bredbånd per person — 5,6 millioner à 450 kroner i måneden — hadde jeg fått 30 milliarder og
+          et marked større enn mobil. Det ville vært åpenbart galt.</p>
+          <p>Det viktigste for dere er ikke størrelsen, men <b>hvem kunden er.</b> 8,3 av de 13
+          milliardene ligger i småhus, der husholdningen kjøper selv, betaler mest og har få
+          alternativer — det er en stabil kontantstrøm. 1,4 milliarder ligger i borettslagsavtaler,
+          der styret forhandler og prisen er halvparten, og 3,2 milliarder ligger i
+          blokkleiligheter der mobilt bredbånd er en reell konkurrent. Verdien i nettet dere
+          vurderer avhenger derfor helt av hvor mange av linjene som går til hus og hvor mange som
+          går til blokk.</p>
+          <p>Det er også det jeg ville sjekket først: fordelingen av selskapets faktiske
+          tilknytninger mellom småhus og blokk, og utviklingen i oppsigelser blant
+          leilighetskunder de siste tre årene. Det ene tallet forteller dere om dere kjøper en
+          annuitet eller en avtakende inntektsstrøm.»</p></blockquote>
+          <p><b>Middels svar:</b> tallet, spennet og kjeden. <b>Sterkt svar:</b> det samme, pluss
+          krysspeilingen mot mobilmarkedet som beviser nevnervalget — og oversettelsen fra
+          markedsstørrelse til kontantstrømkvalitet, som er det fondet faktisk kjøper.</p>`,
+        krav: [
+          "Du sier nevnervalget som en del av svaret, ikke som en fotnote.",
+          "Du bruker mobilmarkedet som krysspeiling og forklarer hvorfor forskjellen er nevneren.",
+          "Du gir spennet og sier at usikkerheten er ensidig nedover.",
+          "Du deler markedet i tre kundetyper og knytter dem til kontantstrømmens kvalitet.",
+          "Du navngir de to opplysningene du ville hentet først fra selskapets egne data.",
+        ],
+        felle: "Å levere 13 milliarder som ett tall. For et infrastrukturfond er markedsstørrelsen nesten uinteressant — de kjøper en kontantstrøm med en varighet. Sammensetningen mellom hus, blokk og borettslag er det som avgjør prisen, og den kommer gratis ut av segmenteringen du allerede har gjort. Ikke la den bli liggende i kladden.",
+      },
+    ],
+  },
+
+
+  /* ============================================================
+     C1 · INFRASTRUKTUR — heisparken i Norge
+     Bunn-opp er eneste farbare vei: det finnes ingen makrostørrelse over.
+     ============================================================ */
+  {
+    id: "ms-heisservice",
+    kategori: "Market sizing",
+    label: "Hvor stort er heismarkedet i Norge?",
+    type: "Estimering",
+    nivå: "Middels",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 25,
+    ch: [],
+    blurb: "Et infrastrukturmarked uten noen makrostørrelse over seg. Du må bygge det fra én heis, og kryssjekken må komme fra tilbudssiden — for topp-ned finnes ikke.",
+    prompt: `<p>Klienten er en europeisk heisprodusent. De eier ikke noe i Norge i dag, og
+      vurderer å kjøpe opp en norsk servicevirksomhet. Før de går videre vil de vite én ting:</p>
+      <p><b>Hvor stort er det norske markedet for heiser og heisservice, målt i kroner per år?</b></p>
+      <p class="tiny">Ingen kalkulator. Si forutsetningene høyt, rund av åpent, og kryssjekk
+      svaret før du leverer.</p>`,
+    bakgrunn: `<p>De fleste estimeringscaser kan gjøres begge veier: du kan starte fra befolkningen
+      og filtrere nedover, eller fra én enhet og skalere oppover. Denne kan ikke.</p>
+      <p>Grunnen er at <b>det ikke finnes en makrostørrelse over heismarkedet</b>. Heiser er ikke
+      en andel av et publisert forbruksmarked, ikke en post i nasjonalregnskapet, ikke en linje
+      i noe husholdningsbudsjett. Å prøve seg topp-ned her betyr å gjette på en andel av en
+      størrelse som ikke måler noe i nærheten av det du vil ha.</p>
+      <p>Det er derfor infrastrukturmarkeder er sin egen kategori: <b>vann- og avløpsnett,
+      basestasjoner, ladepunkter, heiser, kjøletårn, broer</b>. De består av <i>tellbare fysiske
+      enheter med en driftskostnad og en levetid</i>, og det er den eneste inngangen. Kryssjekken
+      må da komme fra tilbudssiden — hvor mange folk jobber i bransjen, og hva omsetter de for.
+      Det er ikke en dårligere kryssjekk. Det er en <i>uavhengig</i> kryssjekk, og det er hele
+      kravet.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva teller vi, og hvilken enhet bygger vi fra?",
+        sp: `<p>Hvilke spørsmål stiller du før du setter opp regnestykket — og hvilken enhet
+          bestemmer du deg for å bygge fra?</p>`,
+        fasit: `<p>To ting må ut av veien: <b>avgrensningen</b> og <b>enheten</b>. Begge er
+          definisjonsspørsmål, og begge må sies høyt.</p>
+          <ul>
+            <li><b>Nysalg, service, eller begge?</b> En heisprodusent tjener mest på service —
+              kontrakten løper i tiår etter at heisen er montert. Klienten skal kjøpe en
+              servicevirksomhet, så service må i hvert fall være med. Bekreft at nysalg og
+              modernisering også teller.</li>
+            <li><b>Bare personheiser, eller også rulletrapper, vareheiser og løfteplattformer?</b>
+              Jeg holder meg til registrerte heiser og sier det.</li>
+            <li><b>Hele Norge, og alle byggtyper — bolig, næring, offentlig?</b> Ja, ellers
+              mister vi mesteparten av parken.</li>
+            <li><b>Hvilken enhet bygger vi fra?</b> Dette er det viktigste spørsmålet. Ikke person,
+              ikke husholdning, ikke bygg — <b>én heis</b>. En heis har en eier, en servicekontrakt
+              og en levetid, og markedet er ikke annet enn summen av det alle heisene koster
+              i året.</li>
+          </ul>
+          <p>Og så det som gjør deg interessant allerede i første trinn: si høyt <b>hvorfor
+          topp-ned ikke går her</b>. «Jeg finner ingen makrostørrelse å filtrere ned fra —
+          heiser er ikke en andel av et forbruksmarked. Jeg bygger bunn-opp fra én heis, og
+          kryssjekker mot bransjens egen bemanning.» Det er en observasjon, ikke en unnskyldning,
+          og den forteller intervjueren at du vet hva slags oppgave du har fått.</p>`,
+        krav: [
+          "Du sier hvilken fysisk enhet du bygger fra — én heis — og begrunner valget.",
+          "Du avklarer om service, nysalg og modernisering alle skal telle med.",
+          "Du sier høyt at det ikke finnes en makrostørrelse over dette markedet, og hva det betyr for metoden.",
+          "Du sier på forhånd hva du vil kryssjekke mot, siden en vanlig topp-ned ikke er tilgjengelig.",
+          "Du stiller tre til fire spørsmål, ikke en sjekkliste.",
+        ],
+        felle: "Å lete etter en makrostørrelse likevel — «byggenæringen omsetter for 600 milliarder, heis er kanskje en halv prosent av det». Den halve prosenten er ren gjetning, og hele svaret hviler da på et tall du fant på. Bunn-opp er ikke andrevalget her; det er eneste valg.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Enhetsøkonomien i én heis",
+        sp: `<p>Skriv opp hva <b>én heis</b> koster eieren i løpet av ett år, i symboler, før du
+          setter inn tall. Si deretter hvordan du skalerer opp.</p>`,
+        figur: `<table class="data">
+            <tr><th>Oppgitt av intervjueren</th><th class="n">Verdi</th></tr>
+            <tr><td>Registrerte heiser i Norge</td><td class="n">65 000</td></tr>
+            <tr><td>Forebyggende servicebesøk per heis per år</td><td class="n">4 à 2 timer</td></tr>
+            <tr><td>Feilutrykninger per heis per år</td><td class="n">2 à 3 timer</td></tr>
+            <tr><td>Timepris, heismontør ut mot kunde</td><td class="n">1 400 kr</td></tr>
+            <tr><td>Deler og komponenter per heis per år</td><td class="n">4 000 kr</td></tr>
+            <tr><td>Kostnad ved å skifte ut en heis</td><td class="n">600 000 kr</td></tr>
+            <tr><td>Levetid før utskifting eller full modernisering</td><td class="n">25 år</td></tr>
+            <tr><td>Sysselsatte i heisbransjen i Norge</td><td class="n">1 800</td></tr>
+            <tr><td>Omsetning per sysselsatt i bransjen</td><td class="n">1,6 mill. kr</td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Norske referansetall (SSB)</th><th class="n">Verdi</th></tr>
+            <tr><td>Befolkning</td><td class="n">5,6 mill.</td></tr>
+            <tr><td>Husholdninger</td><td class="n">2,65 mill.</td></tr>
+            <tr><td>Dagligvaremarkedet</td><td class="n">230 mrd kr</td></tr>
+            <tr><td>Arbeidstimer per årsverk</td><td class="n">~1 600</td></tr>
+          </table>`,
+        fasit: `<p>Enhetsøkonomien har <b>to deler med helt ulik karakter</b>, og et sterkt svar
+          skiller dem:</p>
+          <div class="formula">
+            <div class="eq">Årskostnad per heis = Drift + Annualisert utskifting</div>
+            <div class="eq">Drift = (Servicetimer + Utrykningstimer) × Timepris + Deler</div>
+            <div class="eq">Annualisert utskifting = Utskiftingskostnad / Levetid</div>
+            <div class="eq">Marked = Årskostnad per heis × Antall heiser</div>
+          </div>
+          <p><b>Levetidstrikset brukes her på kostnadssiden, ikke på volumsiden.</b> I en vanlig
+          sizing deler du installert base på levetid for å få antall <i>enheter</i> solgt i år.
+          Her deler du utskiftingskostnaden på levetiden for å få hvor mange <i>kroner</i>
+          utskifting én heis genererer i et gjennomsnittsår. Det er samme grep speilvendt, og det
+          gjør at du slipper å gjette hvor mange heiser som tilfeldigvis byttes akkurat i år.</p>
+          <p>Del arket i to og si det høyt: <b>sju tall skal inn i regnestykket, to er kryssjekk.</b>
+          De to nederste i første tabell — 1 800 sysselsatte og 1,6 millioner i omsetning per
+          hode — skal ikke røres før i trinn fem. Rører du dem tidligere, har du ingen uavhengig
+          kryssjekk igjen.</p>
+          <p>Si også avrundingsregelen: «Jeg runder til nærmeste tusen på enhetsnivå og til
+          nærmeste hundre millioner på markedsnivå, og flagger retningen.»</p>`,
+        krav: [
+          "Du skriver ligningen i symboler før du setter inn ett eneste tall.",
+          "Du deler årskostnaden i drift og annualisert utskifting, og forklarer hvorfor de er ulike.",
+          "Du bruker levetiden til å annualisere utskiftingen i stedet for å gjette årets utskiftingsvolum.",
+          "Du peker ut hvilke tall på arket som er kryssjekk og lover å ikke bruke dem før til slutt.",
+          "Du sier avrundingsregelen din høyt før du begynner.",
+        ],
+        felle: "Å ta med servicekontrakten og glemme utskiftingen. Utskiftingen er 24 000 kroner per heis per år — over halve markedet. Et estimat som bare teller service, halverer svaret og kommer til å bomme mot enhver kryssjekk.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        tittel: "Regn én heis", kort: "Én enhet",
+        sp: `<p>Hva koster <b>én heis</b> eieren per år, i kroner?</p>
+          <p class="tiny">Bygg det leddvis og si hvert delresultat høyt med enhet.</p>`,
+        svar: 48000,
+        enhet: "kroner",
+        toleranse: 0.15,
+        fasit: `<p>Fire ledd:</p>
+          <div class="formula">
+            <div class="eq">Timer: 4 × 2 + 2 × 3 = 8 + 6 = 14 timer per heis per år</div>
+            <div class="eq">Arbeid: 14 × 1 400 kr = 19 600 kr</div>
+            <div class="eq">Deler: 4 000 kr → Drift = 23 600 kr</div>
+            <div class="eq">Annualisert utskifting: 600 000 / 25 = 24 000 kr</div>
+            <div class="eq">Sum: 23 600 + 24 000 = <b>47 600 kr ≈ 48 000 kr per heis per år</b></div>
+          </div>
+          <p><b>Legg merke til balansen:</b> drift og utskifting er nesten nøyaktig like store.
+          Det er ikke tilfeldig — det er hvordan heisbransjen faktisk ser ut, og det er verdt å
+          si høyt: «Halvparten av kronene ligger i den løpende kontrakten, halvparten i
+          kapitalutskiftingen. Det er to helt forskjellige forretninger, med ulike kunder og
+          ulike beslutningstakere.»</p>
+          <p><b>Sanity-sjekk enheten før du skalerer.</b> Dette er grepet som skiller et sterkt
+          svar fra et middels: sjekk enhetstallet mot noe du kjenner, <i>før</i> du ganger opp
+          med 65 000 og feilen blir stor.</p>
+          <ul>
+            <li><b>Mot felleskostnadene:</b> en blokk med 24 leiligheter og én heis betaler
+              47 600 / 24 ≈ <b>2 000 kroner per leilighet per år</b> for heisen. Felleskostnadene
+              i en slik blokk ligger typisk på 40 000–50 000 kroner i året per leilighet, så
+              heisen er rundt fire prosent av dem. Det er akkurat der man skulle vente å finne
+              den — under strøm, forsikring og vedlikehold av bygget, men over
+              trappevask.</li>
+            <li><b>Mot arbeidsinnsatsen:</b> 14 timer i året per heis er én dag med montør per
+              heis. For en maskin som beveger seg tusen ganger i uka og har mennesker inni, er én
+              dag i året lite, men ikke urimelig lite.</li>
+          </ul>
+          <p>Hvis enhetstallet ikke tåler denne sjekken, er det her du oppdager det — ikke etter
+          at du har ganget med 65 000.</p>`,
+        krav: [
+          "Du sier enheten på hvert delresultat — timer, kroner, per år.",
+          "Du har både drift og annualisert utskifting med, ikke bare den ene.",
+          "Du sanity-sjekker enhetstallet før du skalerer opp, ikke bare etterpå.",
+          "Du kommenterer at drift og utskifting er omtrent like store, og hva det betyr.",
+          "Du runder åpent og sier hvilken vei du rundet.",
+        ],
+        felle: "Å hoppe rett til oppskaleringen. Feil i enhetstallet ganges med 65 000. Tjue sekunder på å sjekke at 2 000 kroner per leilighet per år er plausibelt, er den billigste forsikringen i hele casen.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        tittel: "Skalér opp", kort: "Skalér opp",
+        sp: `<p>Hvor stort blir det norske heismarkedet, <b>i millioner kroner per år</b>?</p>`,
+        svar: 3100,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<p>Ett ledd, men skriv det i tierpotenser så størrelsesordenen sjekkes for seg:</p>
+          <div class="formula">
+            <div class="eq">65 000 heiser × 47 600 kr = 6,5 × 4,76 = 30,9, og 10⁴ × 10⁴ = 10⁸</div>
+            <div class="eq">→ 30,9 × 10⁸ = 3 094 millioner kroner ≈ <b>3,1 milliarder kroner per år</b></div>
+          </div>
+          <p>Del gjerne opp i to tall med én gang, for det er den delingen klienten skal bruke:</p>
+          <ul>
+            <li><b>Servicemarkedet:</b> 65 000 × 23 600 = <b>1,53 milliarder</b></li>
+            <li><b>Utskifting og modernisering:</b> 65 000 × 24 000 = <b>1,56 milliarder</b></li>
+          </ul>
+          <p><b>Sanity-sjekk mot noe kjent, og gjør to.</b></p>
+          <ul>
+            <li><b>Mot dagligvaremarkedet:</b> 3,1 av 230 milliarder er 1,3 prosent. For en
+              usynlig infrastrukturtjeneste er det plausibelt — den skal være liten, men ikke
+              forsvinnende.</li>
+            <li><b>Mot énkroneankeret:</b> én krone per nordmann per dag er 2 milliarder i året.
+              3,1 milliarder er da <b>1,50 kroner per nordmann per dag</b>. Kjenner du deg igjen i
+              at heiser koster halvannen krone om dagen per hode? For en tjeneste omtrent
+              halvparten av landet bruker jevnlig, er det riktig størrelsesorden.</li>
+            <li><b>Volumsjekk:</b> 65 000 / 25 år betyr at <b>2 600 heiser skiftes ut i året</b>.
+              Det er ti heiser hver arbeidsdag i Norge. Det høres mye ut første gang man sier det,
+              men det følger direkte av parkens størrelse og levetid — og det er derfor tallet er
+              verdt å si høyt.</li>
+          </ul>`,
+        krav: [
+          "Du regner i tierpotenser og sjekker størrelsesordenen for seg før du sjekker sifrene.",
+          "Du deler markedet i service og utskifting, fordi klienten skal kjøpe det ene av dem.",
+          "Du sanity-sjekker mot minst to kjente norske størrelser og sier tallene høyt.",
+          "Du oversetter minst én gang til noe et menneske kan kjenne igjen — per dag, per leilighet, per arbeidsdag.",
+          "Du runder til 3,1 milliarder, ikke til 3 094 millioner.",
+        ],
+        felle: "Å levere 3 094 millioner. Fire signifikante siffer på et tall som hviler på et anslag om fire servicebesøk i året, sier at du ikke vet hvor usikkerheten ligger. «Rundt 3 milliarder» sier at du vet.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Kryssjekken — regn det motsatt vei", kort: "Kryssjekk",
+        sp: `<p>Nå bruker du de to tallene du har spart. <b>Hvor stort blir markedet regnet fra
+          tilbudssiden, i millioner kroner per år?</b></p>
+          <p class="tiny">Og si etterpå: møtes de to veiene, og hva betyr det?</p>`,
+        svar: 2900,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<p>En ekte topp-ned finnes ikke her — det var poenget fra første trinn. Erstatningen
+          er å regne markedet fra <b>bransjens egen kapasitet</b>:</p>
+          <div class="formula">
+            <div class="eq">1 800 sysselsatte × 1,6 mill. kr per hode = <b>2 880 millioner kroner ≈ 2,9 milliarder</b></div>
+          </div>
+          <p><b>Bunn-opp ga 3,1 milliarder. Tilbudssiden gir 2,9 milliarder. Avviket er 7 prosent.</b></p>
+          <p>Nå kommer det som faktisk skiller et sterkt svar fra et middels: <b>å si hvorfor
+          dette styrker tilliten, i stedet for bare å konstatere at tallene ligner.</b> Tre
+          grunner, og de er alle verdt tjue sekunder hver:</p>
+          <ul>
+            <li><b>De to veiene deler ingen forutsetning.</b> Bunn-opp bygget på antall heiser,
+              servicefrekvens, timepris, delekostnad og levetid. Tilbudssiden bygget på antall
+              ansatte og omsetning per ansatt. Ikke ett tall går igjen. Hadde de delt en
+              forutsetning, ville enigheten vært innbilt — to regnestykker som gjentar samme
+              gjetning, kommer selvsagt fram til det samme.</li>
+            <li><b>Avviket er mindre enn usikkerheten i det svakeste leddet.</b> Anslaget på fire
+              servicebesøk i året er neppe bedre enn ±25 prosent alene. Når to uavhengige veier
+              likevel lander innenfor 7 prosent av hverandre, er det sterkere bevis enn hver av
+              dem er verdt hver for seg.</li>
+            <li><b>Retningen på avviket gir mening.</b> Bunn-opp ligger litt høyest, og det er
+              forventet: en del av utskiftingene gjøres av byggentreprenører og elektrikere som
+              ikke telles blant de 1 800 i heisbransjen. Et avvik som peker <i>feil</i> vei ville
+              vært langt mer bekymringsfullt enn ett som peker riktig vei.</li>
+          </ul>
+          <p><b>Og den tredje sjekken, som binder de to sammen:</b> bunn-opp sa 65 000 heiser à
+          14 timer = <b>910 000 servicetimer</b> i året. Fordelt på 1 800 ansatte blir det
+          <b>505 timer per hode</b>, av rundt 1 600 arbeidstimer i året. Altså går en tredjedel av
+          bransjens tid til løpende service, og to tredjedeler til montasje, modernisering,
+          reise og administrasjon. <i>Det er en helt normal fordeling for en servicebransje med
+          utrykning.</i> Hadde regnestykket krevd 1 800 timer per hode, hadde bunn-opp vært umulig
+          — og da hadde du visst det, i stedet for å levere et tall som ikke går opp.</p>
+          <p>Landingen: <b>rundt 3 milliarder, spenn 2,7 til 3,4.</b></p>`,
+        krav: [
+          "Du regner kryssjekken uten å bruke ett eneste tall fra bunn-opp-kjeden.",
+          "Du sier eksplisitt at de to veiene ikke deler noen forutsetning, og hvorfor det er hele poenget.",
+          "Du forklarer retningen på avviket, ikke bare størrelsen.",
+          "Du gjør timesjekken: bunn-oppens timer fordelt på bransjens folk skal gi et plausibelt årsverk.",
+          "Du lander på et spenn, ikke på ett tall.",
+        ],
+        felle: "Å si «samme størrelsesorden, altså stemmer det» og gå videre. To veier som møtes fordi de deler en forutsetning, beviser ingenting. Kryssjekken er bare verdt noe hvis du kan si hvilke tall den ikke har til felles med den første.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Klienten har <b>ett minutt</b>. Gi tallet, si hvilken vei du stoler mest på, og
+          hvorfor.</p>`,
+        fasit: `<p>Tallet først, spennet med, så hvilken vei du stoler på — og til slutt det
+          klienten skal gjøre med det.</p>
+          <blockquote><p><b>«Det norske heismarkedet er rundt 3 milliarder kroner i året. Jeg vil
+          si 2,7 til 3,4 milliarder. Og det er omtrent likt delt: 1,5 milliarder i løpende
+          service, 1,6 milliarder i utskifting og modernisering.»</b></p>
+          <p>Slik kom jeg dit: 65 000 heiser i Norge. Hver koster eieren rundt 48 000 kroner i
+          året — halvparten i servicekontrakt og deler, halvparten i utskifting fordelt over 25
+          års levetid.</p>
+          <p><b>Jeg stoler mest på bunn-opp-tallet</b>, og grunnen er ikke at det er større.
+          Grunnen er at det hviler på <i>tellbare fysiske ting</i>: antall heiser, antall
+          servicebesøk, en timepris. Kryssjekken fra tilbudssiden ga 2,9 milliarder, og den bruker
+          ikke ett eneste av de tallene — den bygger på 1 800 ansatte og omsetning per hode. At to
+          uavhengige veier lander innenfor 7 prosent av hverandre, er så nær bekreftelse som et
+          estimat kommer.</p>
+          <p>Tilbudssidetallet er samtidig det svakeste av de to, fordi «heisbransjen» er en
+          uskarp avgrensning — en del av utskiftingsarbeidet gjøres av entreprenører som ikke
+          telles der. Det forklarer også at det ligger litt lavere.</p>
+          <p><b>Det viktigste for dere er ikke størrelsen, men delingen.</b> Dere vurderer å kjøpe
+          en servicevirksomhet, og servicedelen er 1,5 milliarder — ikke 3. Til gjengjeld er den
+          delen langt bedre: en servicekontrakt løper i tiår, kunden er et borettslag som ikke
+          bytter leverandør uten grunn, og volumet henger på parken, ikke på konjunkturen.
+          Utskiftingsdelen på 1,6 milliarder er større, men den er prosjektsalg mot anbud, og den
+          svinger med byggemarkedet. Det jeg ville gjort videre, er å finne ut hvor mange av de
+          65 000 heisene som allerede er bundet i kontrakt hos de tre store — for det, og ikke
+          markedsstørrelsen, avgjør hva et oppkjøp faktisk kjøper.»</p></blockquote>`,
+        krav: [
+          "Du gir tallet med spenn og sier hvor usikkerheten sitter.",
+          "Du sier eksplisitt hvilken av de to veiene du stoler mest på, og begrunner med metoden — ikke med tallet.",
+          "Du navngir svakheten i den veien du stoler minst på.",
+          "Du deler markedet i de to delene klienten faktisk skal velge mellom.",
+          "Du trekker en strategisk konsekvens av sammensetningen og holder deg innenfor ett minutt.",
+        ],
+        felle: "Å si «rundt 3 milliarder» og stoppe. Klienten skal kjøpe en servicevirksomhet, og servicemarkedet er halvparten. Å levere totalen uten delingen er å svare på et annet spørsmål enn det som ble stilt.",
+      },
+    ],
+  },
+
+  /* ============================================================
+     C2 · B2B-TJENESTE — utsatt IT-drift til norske SMB-er
+     Bygget fra én typisk kunde og antall kunder som finnes.
+     ============================================================ */
+  {
+    id: "ms-it-drift-smb",
+    kategori: "Market sizing",
+    label: "Hvor stort er markedet for utsatt IT-drift til norske SMB-er?",
+    type: "Estimering",
+    nivå: "Middels",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 25,
+    ch: [],
+    blurb: "Den klassiske B2B-strukturen: én typisk kunde ganger antall kunder som finnes. Kryssjekken går via de ansatte i stedet for via bedriftene, og gapet mellom de to har et navn.",
+    prompt: `<p>Klienten er et nordisk oppkjøpsfond. De ser på å bygge en plattform av norske
+      IT-driftsleverandører — selskapene som tar over servere, brukerstøtte, sikkerhet og
+      lisenser for bedrifter som ikke vil ha egen IT-avdeling. Før de går videre vil de vite
+      hvor stor kaka er.</p>
+      <p><b>Hvor stort er det norske markedet for utsatt IT-drift til små og mellomstore
+      bedrifter, målt i kroner per år?</b></p>
+      <p class="tiny">Ingen kalkulator. Bygg fra én typisk kunde, og kryssjekk til slutt.</p>`,
+    bakgrunn: `<p>B2B-markeder er nesten alltid enklere å estimere enn forbrukermarkeder, og
+      grunnen er at <b>kundene er tellbare</b>. Det finnes 5,6 millioner nordmenn og ingen liste
+      over hvem som kjøper hva. Det finnes rundt 200 000 norske bedrifter med ansatte, og
+      SSB publiserer hvor mange av dem som har fem ansatte, tjue, hundre. Kundegrunnlaget er
+      ikke et anslag — det er et oppslag.</p>
+      <p>Derfor har B2B-sizing en fast form: <b>marked = antall kunder som finnes × andel som
+      kjøper × hva én kunde betaler i året</b>. All usikkerheten flytter seg til de to siste
+      leddene, og det er der du skal bruke tiden din.</p>
+      <p>Casen er valgt fordi den har en <b>ekte kryssjekk med et lærerikt gap</b>. Bunn-opp
+      teller bedrifter. Topp-ned teller ansatte. De to lander ikke helt likt — og forskjellen er
+      ikke støy, den er en identifiserbar kostnadspost som ligger utenfor driftsavtalen. Å
+      navngi den er hele oppgaven.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva teller vi, og hvem er kunden?",
+        sp: `<p>Hvilke spørsmål stiller du før du regner — og hvordan definerer du «én kunde»?</p>`,
+        fasit: `<p>I B2B er avklaringene <b>hvem som er i kundegrunnlaget</b> og <b>hva som ligger
+          inne i avtalen</b>. Begge flytter svaret med titalls prosent.</p>
+          <ul>
+            <li><b>Hva er «SMB» her?</b> Bedrifter uten ansatte har ingen IT-avtale, og bedrifter
+              over hundre ansatte har egen IT-avdeling. Jeg avgrenser til <b>5–100 ansatte</b> og
+              sier det høyt — det er der en utsatt driftsavtale faktisk er den naturlige
+              løsningen.</li>
+            <li><b>Hva ligger inne i «drift»?</b> Løpende drift, brukerstøtte, overvåkning og
+              sikkerhet — eller også maskinvare, lisenser og prosjekter? Dette er avgjørende, og
+              jeg velger å regne <b>tjenesteavtalen alene</b>, siden det er den klienten skal
+              kjøpe selskaper som selger.</li>
+            <li><b>Privat sektor alene, eller også kommuner og offentlige virksomheter?</b>
+              Kommuner kjøper via rammeavtaler med helt andre priser. Jeg holder dem utenfor.</li>
+            <li><b>Hvilken enhet bygger jeg fra?</b> <b>Én bedrift</b>, ikke én ansatt. Avtalen
+              signeres av en bedrift, prisen settes per bruker, og en bedrift som først har satt
+              ut IT-driften, setter ut hele den.</li>
+          </ul>
+          <p>Oppsummer i én setning før du begynner: «Jeg regner markedet for løpende
+          IT-driftsavtaler solgt til private norske bedrifter med 5 til 100 ansatte, per år,
+          uten maskinvare, lisenser og prosjekter.» Den setningen er halve karakteren.</p>`,
+        krav: [
+          "Du avgrenser bedriftsstørrelsen i begge ender, og begrunner begge grensene.",
+          "Du sier hva som er inne i avtalen og hva som er utenfor — særlig maskinvare og lisenser.",
+          "Du velger bedrift som enhet, ikke ansatt, og sier hvorfor.",
+          "Du holder offentlig sektor utenfor eller inne bevisst, ikke ved forglemmelse.",
+          "Du oppsummerer avgrensningen i én setning før du regner.",
+        ],
+        felle: "Å ta med alle 650 000 aktive norske bedrifter. De fleste av dem er enkeltpersonforetak uten ansatte, og de kjøper ingen driftsavtale. Bruker du det tallet, blir markedet ti ganger for stort før du har regnet ett ledd.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Enhetsøkonomien i én kunde",
+        sp: `<p>Skriv opp hva <b>én typisk SMB-kunde</b> betaler i året, i symboler, og si hvordan
+          du skalerer opp til hele markedet.</p>`,
+        figur: `<table class="data">
+            <tr><th>Oppgitt av intervjueren</th><th class="n">Verdi</th></tr>
+            <tr><td>Private bedrifter i Norge med 5–100 ansatte</td><td class="n">60 000</td></tr>
+            <tr><td>Andel som setter IT-driften ut til ekstern leverandør</td><td class="n">60 %</td></tr>
+            <tr><td>Ansatte i en typisk bedrift i dette sjiktet</td><td class="n">18</td></tr>
+            <tr><td>Pris per bruker per måned, drift og brukerstøtte</td><td class="n">900 kr</td></tr>
+            <tr><td>Sysselsatte i private bedrifter med 5–100 ansatte</td><td class="n">1,1 mill.</td></tr>
+            <tr><td>Benchmark: samlet ekstern IT-kostnad per ansatt per år i sjiktet</td><td class="n">12 000 kr</td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Norske referansetall (SSB)</th><th class="n">Verdi</th></tr>
+            <tr><td>Aktive bedrifter</td><td class="n">0,65 mill.</td></tr>
+            <tr><td>— av dem med ansatte</td><td class="n">0,2 mill.</td></tr>
+            <tr><td>Sysselsatte</td><td class="n">2,9 mill.</td></tr>
+            <tr><td>Fastlands-BNP</td><td class="n">4 400 mrd kr</td></tr>
+            <tr><td>Dagligvaremarkedet</td><td class="n">230 mrd kr</td></tr>
+          </table>`,
+        fasit: `<p>Standardformen for B2B, i tre ledd:</p>
+          <div class="formula">
+            <div class="eq">Marked = Antall kunder × Årlig kontraktsverdi per kunde</div>
+            <div class="eq">Antall kunder = Bedrifter i sjiktet × Andel som setter ut</div>
+            <div class="eq">Årlig kontraktsverdi = Brukere per bedrift × Pris per bruker per måned × 12</div>
+          </div>
+          <p><b>Merk hvorfor prisen er per bruker og ikke per bedrift.</b> Det er ikke en
+          detalj — det er slik bransjen faktisk selger, og det betyr at kontraktsverdien skalerer
+          med bedriftsstørrelsen. Derfor må du velge et gjennomsnittlig antall brukere, og derfor
+          må du si høyt at gjennomsnittet er skjevt: de fleste bedriftene i sjiktet har rundt ti
+          ansatte, noen få har åtti, og de få trekker snittet opp til atten. Et vektet snitt er
+          riktig her, og det er verdt å nevne at du vet det.</p>
+          <p>Del arket i to. <b>Fire tall skal inn i regnestykket</b> — 60 000 bedrifter,
+          60 prosent, 18 brukere, 900 kroner. <b>To er kryssjekk</b> — 1,1 millioner sysselsatte
+          og benchmarken på 12 000 kroner per ansatt. Ikke rør de to før i trinn fem.</p>
+          <p>Og si på forhånd hva kryssjekken skal gjøre: «Bunn-opp teller <i>bedrifter</i>.
+          Kryssjekken teller <i>ansatte</i>. Hvis de to ikke møtes, ligger forklaringen enten i
+          bedriftsstørrelsen eller i hva som er inne i prisen — og begge deler er verdt å
+          vite.»</p>`,
+        krav: [
+          "Du skriver ligningen i symboler i tre ledd før du setter inn tall.",
+          "Du forklarer hvorfor prisen er per bruker, og hva det gjør med kontraktsverdien.",
+          "Du sier at gjennomsnittsbedriften på 18 ansatte er et skjevt snitt, ikke en typisk bedrift.",
+          "Du skiller regnetall fra kryssjekktall og lover å spare de siste.",
+          "Du sier på forhånd hva et eventuelt avvik i kryssjekken vil bety.",
+        ],
+        felle: "Å gange antall bedrifter med en pris per bedrift i stedet for per bruker. Da mister du koblingen til bedriftsstørrelsen, og kryssjekken mot ansatte blir umulig å tolke — for du har ikke lenger noe brukertall å sammenligne med.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        tittel: "Regn én kunde", kort: "Én enhet",
+        sp: `<p>Hva betaler <b>én typisk SMB-kunde</b> for IT-drift per år, i kroner?</p>`,
+        svar: 195000,
+        enhet: "kroner",
+        toleranse: 0.15,
+        fasit: `<p>To ledd, og det lønner seg å ta månedstallet først:</p>
+          <div class="formula">
+            <div class="eq">Per måned: 18 brukere × 900 kr = 16 200 kr</div>
+            <div class="eq">Per år: 16 200 × 12 = <b>194 400 kr ≈ 195 000 kr per kunde per år</b></div>
+          </div>
+          <p><b>Sanity-sjekk enhetstallet før du skalerer.</b> Det er her et sterkt svar skiller
+          seg — det middels svaret ganger opp med én gang og oppdager først på slutten at
+          kundeøkonomien var urimelig.</p>
+          <ul>
+            <li><b>Mot en lønn:</b> 194 400 kroner i året er rundt en fjerdedel av en norsk
+              IT-lønn med sosiale kostnader. Bedriften kjøper altså et kvart årsverk IT-kompetanse
+              for prisen. For atten ansatte høres det riktig ut — en bedrift på atten trenger
+              åpenbart mer enn null IT-folk og mindre enn én.</li>
+            <li><b>Mot alternativet:</b> nettopp derfor kjøpes tjenesten. En egen IT-ansatt ville
+              kostet 800 000 kroner og vært underbeskjeftiget. Fire ganger billigere er akkurat
+              den marginen som gjør at utsetting vinner — hadde vi regnet oss fram til 600 000
+              kroner i året, ville bedriften ansatt i stedet, og markedet ville ikke
+              eksistert.</li>
+            <li><b>Mot bedriftens omsetning:</b> en bedrift med atten ansatte omsetter typisk for
+              30–40 millioner kroner. 194 400 er da rundt 0,5 prosent av omsetningen. IT-drift
+              som en halv prosent av omsetningen er en velkjent størrelsesorden.</li>
+          </ul>
+          <p>Den midterste sjekken er den beste, fordi den ikke bare bekrefter tallet — den
+          forklarer <i>hvorfor markedet finnes</i>. Det er den typen observasjon som får
+          intervjueren til å notere.</p>`,
+        krav: [
+          "Du regner månedstallet først, så årstallet — det er lettere å sanity-sjekke.",
+          "Du sier enheten på hvert delresultat.",
+          "Du sjekker kundeøkonomien mot alternativet: å ansette noen selv.",
+          "Du sjekker mot minst én andre målestokk, for eksempel andel av kundens omsetning.",
+          "Du gjør sjekken før oppskaleringen, ikke etter.",
+        ],
+        felle: "Å glemme å gange med tolv. «900 kroner per bruker» er en månedspris, og 18 × 900 = 16 200 er et månedstall. Å levere 16 200 som årstall er en av de vanligste feilene i B2B-sizing, og den gir et marked som er tolv ganger for lite.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        tittel: "Skalér opp", kort: "Skalér opp",
+        sp: `<p>Hvor stort er markedet, <b>i millioner kroner per år</b>?</p>`,
+        svar: 7000,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<p>To ledd:</p>
+          <div class="formula">
+            <div class="eq">Kunder: 60 000 bedrifter × 60 % = 36 000 kunder</div>
+            <div class="eq">Marked: 36 000 × 194 400 kr = 3,6 × 1,944 = 7,0, og 10⁴ × 10⁵ = 10⁹</div>
+            <div class="eq">→ <b>6 998 millioner kroner ≈ 7 milliarder kroner per år</b></div>
+          </div>
+          <p><b>Sanity-sjekk mot noe kjent.</b></p>
+          <ul>
+            <li><b>Mot dagligvaremarkedet:</b> 7 av 230 milliarder er 3 prosent. En
+              B2B-tjeneste som er tre prosent av det nordmenn bruker på mat, er stort — men
+              IT-drift er heller ikke en liten post.</li>
+            <li><b>Mot fastlands-BNP:</b> 7 milliarder av 4 400 er 0,16 prosent. For én tjeneste
+              til ett bedriftssjikt er det plausibelt.</li>
+            <li><b>Baklengs, per bruker:</b> markedet dekker 36 000 × 18 = <b>648 000 brukere</b>.
+              7 milliarder fordelt på dem er 10 800 kroner per bruker per år — som er nøyaktig
+              900 × 12, altså prisen vi startet med. Den sjekken er sirkulær og beviser ingenting,
+              og det er verdt å si høyt at man vet det: <i>«det er bare regnestykket mitt
+              baklengs.»</i> Den ekte sjekken kommer nå.</li>
+          </ul>
+          <p>Legg merke til hva 648 000 brukere betyr: markedet dekker <b>22 prosent av alle
+          sysselsatte i Norge</b>. Det tallet er ikke sirkulært — det kan sjekkes mot noe utenfor
+          modellen, og det gjør vi i neste trinn.</p>`,
+        krav: [
+          "Du regner kundeantallet som eget delresultat før du ganger med kontraktsverdien.",
+          "Du regner i tierpotenser så størrelsesordenen kontrolleres for seg.",
+          "Du sanity-sjekker mot minst to kjente norske størrelser.",
+          "Du gjenkjenner at «per bruker»-sjekken er sirkulær, og sier det høyt i stedet for å telle den som bevis.",
+          "Du regner ut hvor mange brukere modellen dekker, fordi det er tallet kryssjekken skal treffe.",
+        ],
+        felle: "Å telle en sirkulær sjekk som bekreftelse. Deler du svaret på antall brukere og får prisen du selv satte inn, har du bekreftet at multiplikasjon virker — ingenting annet. En sanity-sjekk må hente inn et tall som ikke allerede står i regnestykket.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Kryssjekken — regn det motsatt vei", kort: "Kryssjekk",
+        sp: `<p>Bruk de to tallene du sparte. <b>Hvor stort blir markedet regnet topp-ned fra de
+          ansatte, i millioner kroner per år?</b></p>
+          <p class="tiny">Og forklar etterpå hvorfor de to veiene ikke lander helt likt.</p>`,
+        svar: 7900,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<p>Topp-ned starter fra menneskene i stedet for fra bedriftene:</p>
+          <div class="formula">
+            <div class="eq">Brukere: 1 100 000 sysselsatte × 60 % utsettingsandel = 660 000 brukere</div>
+            <div class="eq">Marked: 660 000 × 12 000 kr = <b>7 920 millioner ≈ 7,9 milliarder kroner</b></div>
+          </div>
+          <p><b>Bunn-opp ga 7,0 milliarder. Topp-ned gir 7,9. Avviket er 12 prosent.</b> Samme
+          størrelsesorden — men et sterkt svar stopper ikke der. <b>Det dekomponerer gapet.</b>
+          Det er to ledd, og de er ulikt viktige:</p>
+          <ul>
+            <li><b>Ledd A — brukertallet, 130 millioner kroner av gapet.</b> Bunn-opp dekket
+              648 000 brukere, topp-ned 660 000. Forskjellen er 12 000 brukere, altså under to
+              prosent. Det er avrunding i snittbedriften på atten ansatte, og det er ikke verdt
+              mer enn én setning. <b>Men det er i seg selv en sterk bekreftelse:</b> at
+              bedriftsveien og ansattveien uavhengig av hverandre kommer fram til nesten samme
+              antall brukere, betyr at snittbedriften på atten ansatte var riktig valgt.</li>
+            <li><b>Ledd B — prisen, 790 millioner kroner av gapet.</b> Vi regnet 900 kroner per
+              bruker per måned, altså 10 800 i året. Benchmarken sier 12 000. Differansen er
+              <b>1 200 kroner per bruker per år</b>, og 660 000 × 1 200 = 792 millioner — nesten
+              hele gapet.</li>
+          </ul>
+          <p><b>Og nå kommer poenget: de 1 200 kronene har et navn.</b> Det er maskinvare,
+          lisenser og prosjekter — akkurat det vi bevisst holdt utenfor i oppklaringstrinnet.
+          Benchmarken måler samlet ekstern IT-kostnad, driftsavtalen måler bare tjenesten.
+          <i>Gapet er ikke feil. Gapet er avgrensningen vår, målt i kroner.</i></p>
+          <p>Det er derfor kryssjekken er verdt noe her: den bekrefter volumet (brukertallet
+          stemmer), og den setter en prislapp på definisjonsvalget vårt. Klienten vet nå at det
+          ligger nesten <b>800 millioner kroner i tilstøtende salg</b> rundt driftsavtalene — et
+          tall ingen av de to regnestykkene ga alene.</p>
+          <p>Landingen: <b>markedet for selve driftsavtalene er rundt 7 milliarder, med et
+          tilstøtende marked på 0,8 milliarder. Totalt rundt 8.</b></p>`,
+        krav: [
+          "Du regner topp-ned fra ansatte uten å bruke kundeantallet fra bunn-opp.",
+          "Du deler avviket i to ledd — volum og pris — i stedet for å oppgi ett samlet avvik.",
+          "Du ser at brukertallene nesten møtes, og sier at det bekrefter valget av snittbedrift.",
+          "Du navngir prisdifferansen: 1 200 kroner per bruker er maskinvare og lisenser utenfor avtalen.",
+          "Du lander på to tall — avtalemarkedet og det tilstøtende — ikke ett.",
+        ],
+        felle: "Å konstatere «12 prosent avvik, godt nok» og gå videre. Et avvik du kan dekomponere, er verdt mer enn en enighet du ikke kan forklare — her ligger det 800 millioner kroner med et navn inne i de tolv prosentene.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Fondet har <b>ett minutt</b>. Gi tallet, si hvilken vei du stoler mest på, og
+          hvorfor.</p>`,
+        fasit: `<p>Tallet, spennet, valget mellom de to veiene, og så det som betyr noe for
+          investeringen.</p>
+          <blockquote><p><b>«Markedet for utsatte IT-driftsavtaler til norske bedrifter med 5 til
+          100 ansatte er rundt 7 milliarder kroner i året — 36 000 kunder som betaler i snitt
+          195 000 hver. Jeg vil si 6 til 8 milliarder. I tillegg ligger det rundt 800 millioner i
+          maskinvare, lisenser og prosjekter rundt de samme avtalene.»</b></p>
+          <p>Slik kom jeg dit: 60 000 bedrifter i sjiktet, 60 prosent har satt ut driften. En
+          typisk kunde har atten brukere til 900 kroner per bruker per måned, altså 195 000 i
+          året.</p>
+          <p><b>Jeg stoler mest på bunn-opp-tallet</b>, av to grunner. Den ene er at
+          kundegrunnlaget er tellbart — 60 000 bedrifter i sjiktet er et oppslag, ikke et anslag,
+          og det er sjelden i sizing. Den andre er at bunn-opp måler <i>akkurat det dere skal
+          kjøpe</i>: tjenesteavtalen. Topp-ned-tallet på 7,9 milliarder er ikke feil, men det
+          måler en videre kurv — samlet ekstern IT-kostnad, maskinvare og lisenser inkludert.</p>
+          <p>Kryssjekken er likevel den mest nyttige delen av analysen, og det er verdt tjue
+          sekunder: de to veiene kom fram til nesten nøyaktig samme antall brukere — 648 000 mot
+          660 000 — helt uavhengig av hverandre. Volumet er altså trygt. Hele avviket ligger i
+          prisen, og det er 1 200 kroner per bruker per år som ligger utenfor driftsavtalen.</p>
+          <p><b>Det er den observasjonen jeg ville bygget investeringsteksten på.</b> Dere ser på
+          en plattform av driftsleverandører i et marked på 7 milliarder. Men de samme kundene,
+          med de samme avtalene, kjøper allerede 800 millioner i tilstøtende varer og tjenester
+          — fra noen andre. En plattform som tar den delen med, vokser 11 prosent uten å skaffe
+          én ny kunde. Det jeg ville sjekket først, er hvor mye av de 800 millionene
+          driftsleverandørene allerede formidler i dag, og hvilken margin de tar på det.»</p></blockquote>`,
+        krav: [
+          "Du gir tallet med spenn og skiller avtalemarkedet fra det tilstøtende.",
+          "Du sier hvilken vei du stoler mest på, og begrunner det med metoden — tellbart kundegrunnlag, riktig avgrensning.",
+          "Du sier hva den andre veien måler i stedet, i stedet for å kalle den feil.",
+          "Du bruker kryssjekkens innsikt — at volumet stemmer og at avviket er pris — som en del av anbefalingen.",
+          "Du trekker en investeringsmessig konsekvens av gapet, og holder deg innenfor ett minutt.",
+        ],
+        felle: "Å oppgi ett tall og la fondet velge selv mellom 7 og 7,9. To tall uten en forklaring på forskjellen er verre enn ett tall — du overlater analysen til dem. Si hvilket som svarer på deres spørsmål, og hva det andre måler.",
+      },
+    ],
+  },
+
+  /* ============================================================
+     C3 · NÅR VEIENE SPRIKER — bruktbilmarkedet i Norge
+     Den ene veien teller noe den andre ikke gjør. Avviket er svaret.
+     ============================================================ */
+  {
+    id: "ms-bruktbil-sprik",
+    kategori: "Market sizing",
+    label: "Bruktbilmarkedet der de to veiene ikke møtes",
+    type: "Estimering",
+    nivå: "Avansert",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 30,
+    ch: [],
+    blurb: "Bunn-opp gir 46 milliarder, topp-ned gir 96. Faktor to. Hele casen handler om å forklare avviket i stedet for å gjennomsnitte det bort — og forklaringen er verdt mer enn tallet.",
+    prompt: `<p>Klienten er et forsikringsselskap. De vurderer å lansere en <b>bruktbilgaranti</b>
+      — en forsikring kjøperen tegner ved eierskifte. De trenger å vite hvor stort markedet er
+      før de bestemmer seg for om produktet skal selges gjennom forhandlere eller direkte til
+      forbruker.</p>
+      <p><b>Hvor stort er det norske bruktbilmarkedet, målt i kroner per år?</b></p>
+      <p class="tiny">Ingen kalkulator. Gjør begge veier, og ta avviket alvorlig.</p>`,
+    bakgrunn: `<p>De fleste sizing-caser slutter når du har ett tall. Denne begynner der.</p>
+      <p>Bunn-opp og topp-ned gir sjelden identiske svar, og prep-bransjens standardråd er
+      «samme størrelsesorden, altså greit». Det rådet er riktig når avviket er tjue prosent. Det
+      er <b>feil når avviket er en faktor to</b> — for da er det ikke avrundingsstøy, da er det
+      et systematisk avvik, og et systematisk avvik betyr alltid at <b>den ene veien teller noe
+      den andre ikke gjør</b>.</p>
+      <p>Kandidater gjør da nesten alltid en av to feil: de gjennomsnitter de to tallene, eller
+      de velger det som passer historien de allerede har begynt på. Begge deler kaster bort den
+      mest verdifulle informasjonen i hele casen. <b>Avviket er ikke et problem med
+      regnestykket. Avviket er funnet.</b></p>
+      <p>Bruktbil er valgt fordi avviket her har to helt ulike årsaker samtidig — én i volumet og
+      én i prisen — og fordi løsningen er direkte beslutningsrelevant: den avgjør hvilken kanal
+      klienten skal selge gjennom.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hva er egentlig «bruktbilmarkedet»?",
+        sp: `<p>Ordet «bruktbilmarkedet» betyr minst tre forskjellige ting. Hvilke spørsmål
+          stiller du?</p>`,
+        fasit: `<p>Dette er en case der <b>hele avviket senere kan spores tilbake til
+          avklaringstrinnet</b>. Stiller du de riktige spørsmålene nå, er du ikke overrasket i
+          trinn fem.</p>
+          <ul>
+            <li><b>Verdien av bilene som skifter eier, eller forhandlernes omsetning?</b> To vidt
+              forskjellige tall. En bil som selges privat, har en verdi, men gir ingen
+              forhandleromsetning. Jeg spør, og velger <b>verdien av bilene som skifter
+              eier</b> — for klientens produkt selges ved eierskifte, uansett hvem som
+              formidler.</li>
+            <li><b>Teller privatsalg mellom to personer med?</b> Dette er det avgjørende
+              spørsmålet, og hvis intervjueren svarer «hva tror du?», er svaret ja — men da må
+              du telle dem, ikke bare nevne dem.</li>
+            <li><b>Teller leasingbiler som går tilbake til leasingselskapet? Arv og gaver innad
+              i familien?</b> Ikke alle eierskifter er salg. Jeg avgrenser til eierskifter der
+              det faktisk betales.</li>
+            <li><b>Hvilken enhet bygger jeg fra?</b> Her ligger fella: <b>bunn-opp og topp-ned
+              har ikke samme enhet.</b> Bunn-opp bygger fra <i>én forhandler</i>. Topp-ned bygger
+              fra <i>ett eierskifte</i>. En forhandler formidler bare noen av eierskiftene, og det
+              er nettopp derfor de to veiene ikke kan bli like. Si det høyt allerede nå.</li>
+          </ul>
+          <p>Den siste kulen er hele casen, og den kandidaten som ser den i minutt to i stedet
+          for i minutt tjue, har allerede vunnet.</p>`,
+        krav: [
+          "Du skiller verdien av bilene som skifter eier fra forhandlernes omsetning.",
+          "Du spør eksplisitt om privatsalg mellom personer teller med.",
+          "Du merker at bunn-opp og topp-ned vil ha ulik enhet — forhandler mot eierskifte — og sier det høyt.",
+          "Du avgrenser hva som ikke er et salg: arv, gaver, leasingretur.",
+          "Du sier hvilken definisjon du velger, og kobler den til hva klienten skal bruke tallet til.",
+        ],
+        felle: "Å ta «bruktbilmarkedet» for gitt som ett entydig begrep. Det finnes tre tall som alle med rette kalles bruktbilmarkedet, de spriker med en faktor to, og hvilket som er riktig avhenger utelukkende av hva klienten skal gjøre med det.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "To veier med to ulike enheter",
+        sp: `<p>Skriv opp <b>begge</b> regnestykkene i symboler, før du får tall. Si hvilken enhet
+          hver av dem bygger fra, og hvor de kan komme til å sprike.</p>`,
+        figur: `<table class="data">
+            <tr><th>Bunn-opp: forhandlerleddet</th><th class="n">Verdi</th></tr>
+            <tr><td>Bilforhandlere i Norge</td><td class="n">1 400</td></tr>
+            <tr><td>Bruktbiler solgt per forhandler per år</td><td class="n">150</td></tr>
+            <tr><td>Snittpris på bruktbil solgt gjennom forhandler</td><td class="n">220 000 kr</td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Topp-ned: bilparken</th><th class="n">Verdi</th></tr>
+            <tr><td>Personbiler registrert i Norge</td><td class="n">2,9 mill.</td></tr>
+            <tr><td>Gjennomsnittlig eiertid per eier</td><td class="n">6 år</td></tr>
+            <tr><td>Antatt snittpris på en bruktbil, alle kanaler</td><td class="n">200 000 kr</td></tr>
+            <tr><td>Snittpris på bil solgt privat, person til person</td><td class="n">120 000 kr</td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Norske referansetall (SSB)</th><th class="n">Verdi</th></tr>
+            <tr><td>Nyregistrerte personbiler per år</td><td class="n">185 000</td></tr>
+            <tr><td>Gjennomsnittspris ny personbil</td><td class="n">450 000 kr</td></tr>
+            <tr><td>Levetid på en personbil før vraking</td><td class="n">18 år</td></tr>
+            <tr><td>Husholdninger</td><td class="n">2,65 mill.</td></tr>
+            <tr><td>Transportutgift per husholdning per år</td><td class="n">82 000 kr</td></tr>
+          </table>`,
+        fasit: `<p>Skriv begge, og skriv dem ved siden av hverandre:</p>
+          <div class="formula">
+            <div class="eq"><b>Bunn-opp:</b> Marked = Forhandlere × Biler per forhandler × Snittpris forhandlerbil</div>
+            <div class="eq"><b>Topp-ned:</b> Marked = Eierskifter per år × Snittpris</div>
+            <div class="eq">Eierskifter per år = Bilpark / Gjennomsnittlig eiertid</div>
+          </div>
+          <p><b>Levetidstrikset dukker opp i to former her, og det er verdt å skille dem.</b>
+          Bilparken delt på <i>levetid</i> (18 år) gir hvor mange biler som vrakes i året.
+          Bilparken delt på <i>eiertid</i> (6 år) gir hvor mange eierskifter som skjer i året.
+          Det er eiertiden vi trenger, og de to henger sammen på en måte du kan si høyt: en bil
+          som lever i 18 år og har tre eiere, gir seks år per eier. <i>De to tallene bekrefter
+          hverandre.</i></p>
+          <p><b>Og nå det som er selve casen: si på forhånd hvor du venter sprik.</b> Et sterkt
+          svar predikerer avviket før det regner det:</p>
+          <ul>
+            <li><b>Volum:</b> bunn-opp teller bare biler som går gjennom en forhandler. Topp-ned
+              teller alle eierskifter. Alt privatsalg finnes bare i den ene av dem.</li>
+            <li><b>Pris:</b> forhandlerbiler er nyere og dyrere enn snittbilen. Å bruke én
+              snittpris på begge kanaler er en forutsetning som nesten sikkert er gal.</li>
+          </ul>
+          <p>Merk hvor ubrukelig gjennomsnittet av de to svarene kommer til å være. Når du på
+          forhånd vet at den ene mangler et helt segment og den andre priser to segmenter likt,
+          er middelverdien mellom dem uten mening. <b>Planen er ikke å velge mellom dem, men å
+          bygge det tredje tallet som forklarer begge.</b> Si den planen høyt nå.</p>`,
+        krav: [
+          "Du skriver begge ligningene i symboler, side ved side.",
+          "Du skiller eiertid fra levetid, og viser at 18 år og tre eiere gir 6 år.",
+          "Du predikerer hvor spriket vil komme — i volum og i pris — før du regner.",
+          "Du sier at du ikke har tenkt å gjennomsnitte de to svarene, og hvorfor ikke.",
+          "Du sier hva du faktisk har tenkt å levere: et tredje tall som forklarer begge.",
+        ],
+        felle: "Å velge én vei og la den andre ligge fordi «man skal bare gjøre den ene og sanity-sjekke med den andre». Her er kryssjekken hele oppgaven. Gjør du bare bunn-opp, leverer du 46 milliarder og aner ikke at du har utelatt 56 prosent av bilene.",
+      },
+      {
+        art: "regne",
+        sek: 60,
+        tittel: "Regn én forhandler", kort: "Én enhet",
+        sp: `<p>Hva omsetter <b>én bilforhandler</b> for på bruktbil per år, i millioner kroner?</p>`,
+        svar: 33,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">150 biler × 220 000 kr = 15 × 22 = 330, og 10¹ × 10⁴ = 10⁵</div>
+            <div class="eq">→ 330 × 10⁵ = <b>33 millioner kroner per forhandler per år</b></div>
+          </div>
+          <p><b>Sanity-sjekk enheten før du skalerer.</b></p>
+          <ul>
+            <li><b>Mot arbeidsdagene:</b> 150 biler i året er tre biler i uka, eller én bil hver
+              tredje dag samlet for hele forhandleren. For en middels norsk bilforhandler med
+              kanskje fem selgere er det lavt per selger, men husk at snittet inkluderer mange
+              små brukthandlere med to ansatte og noen få store kjedeforhandlere med
+              femhundre biler. <i>Snittet er skjevt, og det er verdt å si.</i></li>
+            <li><b>Mot bemanningen:</b> 33 millioner i bruktbilomsetning med kanskje 8 prosent
+              bruttomargin er 2,6 millioner i dekningsbidrag. Det holder til to til tre selgere
+              — som er en plausibel bruktbilavdeling.</li>
+          </ul>
+          <p>Legg merke til at 220 000 kroner er <i>forhandlerbilens</i> snittpris, ikke
+          bruktbilens generelt. Du fikk to prisanslag på arket, og at du bruker det riktige her
+          er halve poenget med at det står to der.</p>`,
+        krav: [
+          "Du bruker forhandlerprisen på 220 000, ikke den blandede prisen på 200 000.",
+          "Du regner i tierpotenser og sjekker størrelsesordenen for seg.",
+          "Du oversetter 150 biler til noe menneskelig — biler per uke — for å kjenne på om det er plausibelt.",
+          "Du sier at snittforhandleren er et skjevt snitt mellom små brukthandlere og store kjeder.",
+          "Du sier enheten på svaret: millioner kroner per forhandler per år.",
+        ],
+        felle: "Å gripe 200 000 fordi det er det mest «typiske» tallet på arket. Arket gir deg tre priser med vilje: 220 000 for forhandlerbil, 120 000 for privatsalg, 200 000 som en blandet antakelse. Å bruke feil pris her forplanter seg gjennom hele casen.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        tittel: "Skalér opp forhandlerleddet", kort: "Skalér opp",
+        sp: `<p>Hvor stort blir <b>forhandlermarkedet</b>, i milliarder kroner per år?</p>
+          <p class="tiny">Regn også ut hvor mange biler det er, du får bruk for det.</p>`,
+        svar: 46,
+        enhet: "milliarder kroner",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">Biler: 1 400 forhandlere × 150 = 210 000 bruktbiler per år</div>
+            <div class="eq">Kroner: 210 000 × 220 000 kr = 21 × 22 = 462, og 10⁴ × 10⁴ = 10⁸</div>
+            <div class="eq">→ 462 × 10⁸ = <b>46,2 milliarder kroner per år</b></div>
+          </div>
+          <p><b>Skriv opp 210 000 biler like tydelig som du skriver 46 milliarder.</b> Det er
+          volumtallet som gjør avstemmingen i neste trinn mulig, og kandidater som bare noterer
+          kronetallet, må regne det på nytt under press.</p>
+          <p><b>Sanity-sjekk:</b> 46 milliarder er 55 prosent av nybilmarkedet, som er 185 000
+          biler à 450 000 kroner = 83 milliarder. At forhandlernes brukthandel er litt over
+          halvparten av nybilomsetningen, er plausibelt — de fleste bilforhandlere sier selv at
+          brukt er omtrent like stort som nytt i antall biler, men mindre i kroner fordi bilene
+          er billigere. Her er det 210 000 brukte mot 185 000 nye i antall, altså <i>flere</i>
+          brukte enn nye, og 55 prosent av verdien. Det henger sammen.</p>
+          <p>Si samtidig hva du <b>ikke</b> har telt: alt som skifter eier utenom en forhandler.
+          Ikke gjett på hvor mye det er ennå — neste trinn måler det.</p>`,
+        krav: [
+          "Du noterer volumtallet 210 000 biler like tydelig som kronetallet.",
+          "Du sanity-sjekker mot nybilmarkedet på 83 milliarder og kommenterer forholdet.",
+          "Du sammenligner både i antall og i kroner, og forklarer hvorfor de gir ulike forholdstall.",
+          "Du sier eksplisitt hva som ikke er med i dette tallet, uten å gjette størrelsen ennå.",
+          "Du kaller tallet forhandlermarkedet, ikke bruktbilmarkedet.",
+        ],
+        felle: "Å kalle 46 milliarder for «bruktbilmarkedet» og gå videre til syntesen. Det er forhandlermarkedet. Å levere det under feil navn er ikke en regnefeil, men det er den feilen som ville kostet klienten mest — de ville designet produktet for feil halvdel av markedet.",
+      },
+      {
+        art: "regne",
+        sek: 150,
+        tittel: "Kryssjekken — regn det motsatt vei", kort: "Kryssjekk",
+        sp: `<p>Regn markedet <b>topp-ned</b> fra bilparken. Hvor stort blir det, i milliarder
+          kroner per år?</p>
+          <p class="tiny">Og så det som er hele casen: forklar avviket. Ikke gjennomsnitt det.</p>`,
+        svar: 96,
+        enhet: "milliarder kroner",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">Eierskifter: 2 900 000 / 6 år = 483 000 ≈ 480 000 per år</div>
+            <div class="eq">Marked: 480 000 × 200 000 kr = 48 × 2 = 96, og 10⁴ × 10⁵ = 10⁹</div>
+            <div class="eq">→ <b>96 milliarder kroner per år</b></div>
+          </div>
+          <p><b>Bunn-opp ga 46 milliarder. Topp-ned gir 96. Faktor 2,1.</b> Nå begynner arbeidet,
+          og det er her casen vinnes eller tapes.</p>
+          <p><b>Steg 1 — avstem volumet først, ikke kronene.</b> Volum er alltid lettere å
+          forklare enn verdi, og det gir deg fotfeste:</p>
+          <div class="formula">
+            <div class="eq">480 000 eierskifter − 210 000 gjennom forhandler = <b>270 000 privatsalg</b></div>
+            <div class="eq">Privatandel: 270 000 / 480 000 = <b>56 prosent av alle eierskifter</b></div>
+          </div>
+          <p>Volumsiden går altså opp umiddelbart, og forklaringen er akkurat den vi predikerte i
+          strukturtrinnet: <b>over halvparten av norske bruktbiler skifter eier uten at en
+          forhandler er involvert.</b> Bunn-opp kunne aldri sett dem — en forhandlerbasert
+          modell teller per definisjon bare det som går gjennom en forhandler. <i>Den ene veien
+          teller noe den andre ikke gjør, og nå vet vi nøyaktig hvor mange.</i></p>
+          <p><b>Steg 2 — og nå den delen de fleste hopper over: kronene går likevel ikke opp.</b>
+          Hvis privatbilene også var verdt 200 000, ville privatsalget vært 54 milliarder, og
+          46 + 54 = 100 ≈ 96. Men arket sier at en privatsolgt bil koster <b>120 000</b>, ikke
+          200 000 — og det gir mening, for private selger eldre biler:</p>
+          <div class="formula">
+            <div class="eq">Privatsalg: 270 000 × 120 000 kr = 32,4 milliarder</div>
+            <div class="eq">Forhandler: 210 000 × 220 000 kr = 46,2 milliarder</div>
+            <div class="eq">Sum: 32,4 + 46,2 = <b>78,6 ≈ 79 milliarder kroner</b></div>
+          </div>
+          <p><b>Så avviket har to helt ulike årsaker, og et sterkt svar navngir begge:</b></p>
+          <ul>
+            <li><b>Bunn-opp var for lav fordi den manglet et helt segment.</b> 270 000 biler,
+              32 milliarder kroner, som aldri var med i modellen. Det er en <i>dekningsfeil</i>.</li>
+            <li><b>Topp-ned var for høy fordi den brukte én pris på to ulike populasjoner.</b>
+              Den antatte snittprisen på 200 000 var forhandlerprisen i forkledning. Den ekte
+              blandede snittprisen er 78,6 mrd / 480 000 = <b>163 750 kroner</b>. Det er en
+              <i>miksfeil</i>, og den er den vanligste feilen i all topp-ned-sizing.</li>
+          </ul>
+          <p><b>Fasit: rundt 79 milliarder, ikke 46 og ikke 96.</b> Legg merke til at ingen av
+          de to opprinnelige tallene var riktige, og at gjennomsnittet av dem — 71 milliarder —
+          heller ikke ville vært det. Du kommer ikke fram ved å midle. Du kommer fram ved å
+          <b>splitte populasjonen og prise hver del for seg</b>.</p>
+          <p><b>Sanity-sjekken, og den skal du ta på alvor:</b> 79 milliarder fordelt på
+          2,65 millioner husholdninger er <b>29 700 kroner per husholdning per år</b> på bruktbil
+          alene. SSB sier at hele transportbudsjettet er 82 000 kroner per husholdning, og det
+          skal også dekke drivstoff, forsikring, verksted og kollektivtransport — pluss nybil.
+          Legger vi nybilmarkedet på 83 milliarder oppå, blir bilkjøp alene 61 000 av 82 000.
+          <b>Det går ikke opp,</b> og det skal du si høyt. To forklaringer, og begge er delvis
+          sanne: en betydelig del av nybilene kjøpes av bedrifter og leasingselskaper og treffer
+          aldri et husholdningsbudsjett, og SSBs forbruksundersøkelse fanger store, sjeldne
+          kjøp dårlig. Men det betyr også at <b>79 milliarder trolig ligger i overkant</b>, og
+          det hører hjemme i spennet.</p>`,
+        krav: [
+          "Du avstemmer volumet før du avstemmer kronene, og finner 270 000 privatsalg.",
+          "Du navngir dekningsfeilen i bunn-opp og miksfeilen i topp-ned som to ulike feil.",
+          "Du bygger det tredje tallet ved å prise de to segmentene hver for seg.",
+          "Du regner ut den implisitte blandede snittprisen og viser at 200 000 var feil.",
+          "Du sier eksplisitt at gjennomsnittet av de to opprinnelige tallene ville vært galt.",
+          "Du gjør per-husholdning-sjekken, ser at den er stram, og lar den justere spennet.",
+        ],
+        felle: "Å stoppe etter volumavstemmingen. 270 000 privatbiler forklarer hvorfor bunn-opp var lav, men ikke hvorfor topp-ned var høy. Prises de 270 000 til 200 000 kroner, får du 100 milliarder og tror alt stemmer — mens den ekte feilen, at private biler er en tredjedel billigere, står uoppdaget.",
+      },
+      {
+        art: "syntese",
+        sek: 90,
+        tittel: "Anbefalingen",
+        sp: `<p>Forsikringsselskapet har <b>ett minutt</b>. Gi tallet, si hvilken vei du stoler
+          mest på, og hva avviket betyr for kanalvalget deres.</p>`,
+        fasit: `<p>Her er tallet nesten det minst interessante. <b>Avviket er anbefalingen.</b></p>
+          <blockquote><p><b>«Det norske bruktbilmarkedet er rundt 79 milliarder kroner i året, og
+          jeg vil si 70 til 85. Men det tallet er ikke det viktigste jeg har til dere: markedet
+          er delt i to nesten like halvdeler som oppfører seg helt forskjellig. 210 000 biler til
+          46 milliarder går gjennom forhandler. 270 000 biler til 32 milliarder skifter eier
+          privat.»</b></p>
+          <p>Slik kom jeg dit: 2,9 millioner biler med seks års eiertid gir 480 000 eierskifter i
+          året. Av dem går 210 000 gjennom de 1 400 forhandlerne. Resten — 56 prosent av bilene —
+          går fra person til person, og de bilene er eldre og en tredjedel billigere.</p>
+          <p><b>Jeg stoler mest på den avstemte modellen, ikke på noen av de to enkeltveiene.</b>
+          Bunn-opp ga 46 milliarder og var for lav, fordi den bare kan se biler som går gjennom
+          en forhandler. Topp-ned ga 96 og var for høy, fordi den priset alle 480 000 bilene som
+          om de var forhandlerbiler. <i>Ingen av dem var riktig, og gjennomsnittet — 71
+          milliarder — ville heller ikke vært det.</i> Tallet kommer først når man deler
+          populasjonen i to og priser hver del for seg.</p>
+          <p><b>Og nå det som avgjør kanalvalget deres.</b> Dere spurte om produktet skal selges
+          gjennom forhandler eller direkte. Svaret ligger i avviket: gjennom forhandler når dere
+          44 prosent av bilene, men 58 prosent av kronene — de nyeste og dyreste bilene, som er
+          lettest å forsikre og har lavest skadefrekvens. Direkte til forbruker når dere de
+          resterende 270 000, men det er eldre biler til 120 000 kroner, der garantien koster mer
+          og betaler mindre.</p>
+          <p>Min anbefaling er derfor <b>å starte i forhandlerkanalen, men ikke fordi den er
+          størst — fordi den er den eneste med et distribusjonsledd</b>. 1 400 forhandlere er en
+          liste dere kan ringe. 270 000 privatpersoner er ikke en kanal, det er et
+          markedsføringsproblem. Det jeg ville gjort videre, er å sjekke hvor mange av de 270 000
+          privatsalgene som allerede går gjennom en nettmarkedsplass — for hvis de gjør det, har
+          den andre halvdelen likevel et distribusjonsledd, og da endrer regnestykket seg
+          fullstendig.»</p></blockquote>`,
+        krav: [
+          "Du gir tallet med spenn, men gjør det tydelig at delingen er den egentlige leveransen.",
+          "Du sier at du ikke stoler på noen av enkeltveiene, og hvorfor hver av dem var feil.",
+          "Du sier eksplisitt at gjennomsnittet av de to ville vært galt.",
+          "Du oppgir delingen både i antall biler og i kroner, og bruker at de to andelene er ulike.",
+          "Du kobler avviket direkte til kanalvalget klienten faktisk skal ta.",
+          "Du holder deg innenfor ett minutt.",
+        ],
+        felle: "Å levere «mellom 46 og 96 milliarder» som om spennet var svaret. Det er ikke usikkerhet — det er to ulike definisjoner, og begge er presise innenfor sin egen. Å presentere dem som et spenn skjuler nøyaktig den innsikten klienten betalte for.",
+      },
+    ],
+  },
+
+  /* ============================================================
+     C4 · ESTIMATET SOM STEG I EN BESLUTNING — nettdagligvare i Oslo
+     Klienten skal velge, og trenger et tall ingen har gitt dem.
+     ============================================================ */
+  {
+    id: "ms-nettdagligvare-beslutning",
+    kategori: "Market sizing",
+    label: "Tallet som avgjør om lageret skal bygges",
+    type: "Estimering",
+    nivå: "Avansert",
+    firma: "Generisk",
+    stil: "interviewer-led",
+    minutter: 30,
+    ch: [],
+    blurb: "Slik estimering faktisk opptrer i arbeidslivet: klienten skal ta et valg, og tallet ingen har gitt dem er inngangsverdien. Syntesen er ikke markedsstørrelsen — den er beslutningen.",
+    prompt: `<p>Klienten er en av de store norske dagligvarekjedene. De plukker i dag
+      nettbestillinger manuelt i vanlige butikker i Oslo, og vurderer å bygge et
+      <b>eget plukklager</b> — et «dark store» som bare betjener nettordrer.</p>
+      <p>Investeringen koster <b>30 millioner kroner i året</b> i faste kostnader. Til gjengjeld
+      faller plukkekostnaden fra <b>190 kroner per ordre i butikk til 90 kroner per ordre på
+      lageret</b> — en besparelse på 100 kroner per ordre.</p>
+      <p>De har 25 prosent av dagligvaremarkedet i Oslo. <b>Skal de bygge lageret?</b></p>
+      <p class="tiny">Ingen har fortalt dem hvor mange nettordrer som finnes i Oslo. Det tallet
+      må du lage — og så bruke det.</p>`,
+    bakgrunn: `<p>Estimeringscasene i casebøkene ender nesten alltid med et tall. Sånn er det
+      nesten aldri i virkeligheten. <b>I virkeligheten er estimatet et mellomsteg</b>: klienten
+      skal ta et valg, valget avhenger av en størrelse ingen har målt, og konsulentens jobb er å
+      lage den størrelsen godt nok til at valget kan tas.</p>
+      <p>Det endrer to ting ved hvordan du jobber. <b>For det første kan du regne baklengs fra
+      beslutningen:</b> du trenger ikke å vite markedet nøyaktig, du trenger å vite om det er
+      over eller under et bestemt nivå. Det nivået kan du regne ut <i>før</i> du estimerer
+      noe som helst, og da vet du hvor presis du må være. <b>For det andre er svaret ditt aldri
+      et tall alene</b> — det er en anbefaling med tallet som begrunnelse.</p>
+      <p>Denne casen er bygget slik at nullpunktet kan regnes ut på tjue sekunder, mens estimatet
+      tar ti minutter. Kandidater som regner nullpunktet først, vet hele veien hva de leter
+      etter. Kandidater som ikke gjør det, leverer et markedstall og oppdager først i syntesen
+      at de mangler halve svaret.</p>`,
+    trinn: [
+      {
+        art: "oppklaring",
+        sek: 90,
+        tittel: "Hvilket tall trenger beslutningen egentlig?",
+        sp: `<p>Klienten spør om de skal bygge et lager. <b>Hvilket tall må du lage for å svare
+          — og hva er det ikke?</b></p>`,
+        fasit: `<p>Første grep er å oversette spørsmålet fra klientens språk til et regnestykke.
+          Klienten sa «skal vi bygge». Det de trenger, er:</p>
+          <div class="formula">
+            <div class="eq">Klientens nettordrer per uke ⋛ Nullpunktet der besparelsen dekker de faste kostnadene</div>
+          </div>
+          <p>Og legg merke til hva det <b>ikke</b> er. Det er ikke dagligvaremarkedet i Oslo i
+          kroner. Det er ikke nettdagligvaremarkedet i Norge. Det er <b>klientens eget antall
+          ordrer per uke i Oslo</b> — og for å komme dit må du gå veien om markedet, men markedet
+          er mellomsteget, ikke svaret.</p>
+          <ul>
+            <li><b>Hvilken geografi?</b> Lageret betjener Oslo. Da er det Oslo som skal
+              estimeres, ikke Norge. En kandidat som estimerer Norge og deler på befolkningen til
+              slutt, har gjort dobbelt arbeid.</li>
+            <li><b>Ordrer eller kroner?</b> Kostnadene er per ordre. Da må svaret til slutt være
+              i ordrer. Jeg regner i kroner underveis fordi markedstall er lettere å
+              sanity-sjekke i kroner, og konverterer til slutt.</li>
+            <li><b>Hvilket år?</b> Lageret er en investering med lang levetid. Beslutningen kan
+              ikke tas på dagens volum alene — jeg må ha en vekstbane. Spør om hvor fort
+              nettandelen vokser, for uten det er svaret bare halvferdig.</li>
+            <li><b>Er de 25 prosentene markedsandel i nett, eller i dagligvare totalt?</b> Ikke
+              det samme. Kjeder med sterk nettsatsing har høyere andel på nett enn i butikk. Jeg
+              antar at nettandelen er lik den totale andelen, og <b>flagger det som en
+              forutsetning jeg vil teste</b>.</li>
+          </ul>
+          <p>Og det grepet som skiller et sterkt svar: <b>si at du vil regne nullpunktet
+          først.</b> «Før jeg estimerer noe, regner jeg ut hvor mange ordrer i uka lageret må ha
+          for å lønne seg. Da vet jeg hvilken presisjon estimatet mitt trenger.» Det tar tjue
+          sekunder og styrer hele resten av casen.</p>`,
+        krav: [
+          "Du oversetter «skal vi bygge» til en sammenligning mellom to tall.",
+          "Du sier hva estimatet ikke er — markedet er mellomsteget, ikke svaret.",
+          "Du ser at kostnadene er per ordre, og at svaret derfor må ende i ordrer.",
+          "Du spør om vekstbanen, fordi en investeringsbeslutning ikke kan tas på dagens volum.",
+          "Du sier at du vil regne nullpunktet før du estimerer, og hvorfor det styrer presisjonskravet.",
+        ],
+        felle: "Å behandle dette som en ren sizing-oppgave og levere «nettdagligvaremarkedet i Oslo er rundt 900 millioner kroner». Det er riktig, og det svarer ikke på spørsmålet. Klienten kan ikke bygge eller la være å bygge et lager på grunnlag av et kronetall de ikke kan sammenligne med noe.",
+      },
+      {
+        art: "struktur",
+        sek: 150,
+        tittel: "Enhetsøkonomien i én husholdning — og nullpunktet",
+        sp: `<p>Skriv opp <b>begge</b> regnestykkene i symboler: hva én netthandlende husholdning
+          bruker i året, og hvor nullpunktet for lageret ligger. Regn nullpunktet med én gang.</p>`,
+        figur: `<table class="data">
+            <tr><th>Oppgitt av intervjueren</th><th class="n">Verdi</th></tr>
+            <tr><td>Husholdninger i Oslo</td><td class="n">380 000</td></tr>
+            <tr><td>Andel som handler dagligvarer på nett</td><td class="n">8 %</td></tr>
+            <tr><td>Nettbestillinger per netthandlende husholdning per måned</td><td class="n">2</td></tr>
+            <tr><td>Snittkurv per nettordre</td><td class="n">1 250 kr</td></tr>
+            <tr><td>Nettandel av dagligvare i Oslo i dag</td><td class="n">3 %</td></tr>
+            <tr><td>Ventet nettandel om tre år</td><td class="n">7 %</td></tr>
+            <tr><td>Klientens andel av dagligvaremarkedet i Oslo</td><td class="n">25 %</td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Lagerets økonomi</th><th class="n">Verdi</th></tr>
+            <tr><td>Faste kostnader per år</td><td class="n">30 mill. kr</td></tr>
+            <tr><td>Plukkekostnad per ordre, i butikk</td><td class="n">190 kr</td></tr>
+            <tr><td>Plukkekostnad per ordre, på lager</td><td class="n">90 kr</td></tr>
+          </table>
+          <table class="data">
+            <tr><th>Norske referansetall (SSB)</th><th class="n">Verdi</th></tr>
+            <tr><td>Befolkning</td><td class="n">5,6 mill.</td></tr>
+            <tr><td>Oslo kommune</td><td class="n">0,73 mill.</td></tr>
+            <tr><td>Husholdninger i Norge</td><td class="n">2,65 mill.</td></tr>
+            <tr><td>Personer per husholdning, Norge / Oslo</td><td class="n">2,1 / 1,9</td></tr>
+            <tr><td>Dagligvaremarkedet</td><td class="n">230 mrd kr</td></tr>
+          </table>`,
+        fasit: `<p>To ligninger, og den korte skal regnes ferdig med én gang:</p>
+          <div class="formula">
+            <div class="eq"><b>Estimatet:</b> Marked = Husholdninger × Nettandel × Ordrer per år × Snittkurv</div>
+            <div class="eq"><b>Beslutningen:</b> Nullpunkt = Faste kostnader / Besparelse per ordre</div>
+            <div class="eq">Nullpunkt = 30 000 000 / 100 = 300 000 ordrer per år = <b>5 800 ordrer per uke</b></div>
+          </div>
+          <p><b>Der er tallet du leter etter, og det tok tjue sekunder.</b> Nå vet du noe
+          uvurderlig: du trenger ikke å treffe markedet på ti prosent. Du trenger å vite om
+          klientens ukevolum er over eller under 5 800 — og hvis estimatet ditt lander langt fra
+          den grensen, spiller presisjonen nesten ingen rolle. <i>Det er slik profesjonelle
+          estimerer: presisjonskravet settes av beslutningen, ikke av ambisjonen.</i></p>
+          <p><b>Merk enhetsvalget i estimatet.</b> Enheten er <b>husholdning</b>, ikke person. En
+          dagligvarehandel gjøres for en husholdning; to samboere gjør ikke to bestillinger. Og
+          det er ikke alle husholdninger — det er <i>de som allerede handler mat på nett</i>, som
+          er en helt annen og mye mer intens kunde enn gjennomsnittet. Den todelingen er hele
+          grunnen til at bunn-opp gir mer innsikt enn topp-ned her: topp-ned gir deg <i>3 prosent
+          nettandel</i>, bunn-opp gir deg <i>hvem de 3 prosentene er</i>.</p>
+          <p>Del arket: sju tall til estimatet og vekstbanen, tre til beslutningen, fem til
+          sanity-sjekk. Og si hva du skal ende med: <b>«Jeg leverer klientens ordrer per uke i
+          dag og om tre år, målt mot 5 800.»</b></p>`,
+        krav: [
+          "Du regner nullpunktet før du estimerer noe som helst, og sier hvorfor.",
+          "Du sier hva nullpunktet betyr for presisjonskravet i estimatet.",
+          "Du velger husholdning som enhet, ikke person, og begrunner det.",
+          "Du skiller de netthandlende husholdningene fra alle husholdninger, som to ulike populasjoner.",
+          "Du sier på forhånd nøyaktig hvilket tall du skal levere, og mot hvilken grense.",
+        ],
+        felle: "Å spare nullpunktet til slutt fordi «det hører hjemme i syntesen». Regnet først styrer det hele casen: det forteller deg om du trenger ett eller tre desimaler, om vekstbanen er avgjørende, og hva du skal kryssjekke hardest. Regnet sist er det bare aritmetikk.",
+      },
+      {
+        art: "regne",
+        sek: 60,
+        tittel: "Regn én husholdning", kort: "Én enhet",
+        sp: `<p>Hva handler <b>én netthandlende husholdning i Oslo</b> for på nett per år, i
+          kroner?</p>`,
+        svar: 30000,
+        enhet: "kroner",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">Ordrer: 2 per måned × 12 = 24 ordrer per år</div>
+            <div class="eq">Beløp: 24 × 1 250 kr = <b>30 000 kroner per år</b></div>
+          </div>
+          <p><b>Sanity-sjekk enheten, og gjør det her — den er uvanlig sterk i denne casen.</b></p>
+          <ul>
+            <li><b>Mot matbudsjettet:</b> hva bruker en Oslo-husholdning på mat i alt? Oslos
+              dagligvaremarked er 30 milliarder (det regner vi i trinn fem), fordelt på 380 000
+              husholdninger blir det <b>79 000 kroner i året</b>. Vår netthusholdning kjøper
+              30 000 av dem på nett — altså <b>38 prosent av matbudsjettet sitt</b>. Er det
+              plausibelt? Ja: den som først har lagt om til nett, gjør storhandelen der og
+              suppleringshandelen i butikk. 38 prosent er akkurat mønsteret man ser hos folk som
+              faktisk bruker tjenesten.</li>
+            <li><b>Mot frekvensen:</b> to bestillinger i måneden er annenhver uke. For en
+              storhandel med levering hjem er det den naturlige rytmen — ukentlig ville krevd et
+              annet kundesegment, månedlig ville betydd at bilen fortsatt gjør jobben.</li>
+            <li><b>Mot kurven:</b> 1 250 kroner per ordre mot en vanlig butikkhandel på 300–400
+              kroner. Tre til fire ganger større, som er nøyaktig det man skulle vente av en
+              storhandel med fraktgrense.</li>
+          </ul>
+          <p>Den midterste og siste sjekken henger sammen og bekrefter hverandre: <b>store
+          kurver sjeldnere.</b> Hvis du hadde regnet deg fram til 1 250 kroner <i>ukentlig</i>,
+          ville husholdningen kjøpt 65 000 av et matbudsjett på 79 000 på nett, og da hadde
+          modellen sagt at nettkundene nesten ikke går i butikk. Det er den typen implikasjon
+          som avslører en feil forutsetning — og du finner den bare ved å sjekke enheten mot
+          totalen.</p>`,
+        krav: [
+          "Du regner ordrer per år som eget delresultat før du ganger med kurven.",
+          "Du sjekker hva 30 000 kroner utgjør av husholdningens hele matbudsjett.",
+          "Du tolker de 38 prosentene som et atferdsmønster, ikke bare som et tall.",
+          "Du kobler frekvens og kurvstørrelse: store kurver sjeldnere, og forklarer hvorfor det henger sammen.",
+          "Du sier enheten på svaret: kroner per netthandlende husholdning per år.",
+        ],
+        felle: "Å sjekke 30 000 kroner mot landsgjennomsnittet for dagligvare per husholdning på 87 000 og si «greit nok». Oslo-husholdninger er mindre — 1,9 mot 2,1 personer — og bruker derfor mindre. Riktig referanse er 79 000, ikke 87 000, og forskjellen på ti prosent er akkurat forskjellen i husholdningsstørrelse.",
+      },
+      {
+        art: "regne",
+        sek: 90,
+        tittel: "Skalér opp til Oslo", kort: "Skalér opp",
+        sp: `<p>Hvor stort er nettdagligvaremarkedet i Oslo, <b>i millioner kroner per år</b>?</p>`,
+        svar: 910,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<div class="formula">
+            <div class="eq">Netthandlende husholdninger: 380 000 × 8 % = 30 400</div>
+            <div class="eq">Marked: 30 400 × 30 000 kr = 3,04 × 3 = 9,1, og 10⁴ × 10⁴ = 10⁸</div>
+            <div class="eq">→ 9,1 × 10⁸ = <b>912 millioner ≈ 910 millioner kroner per år</b></div>
+          </div>
+          <p><b>Konverter til beslutningens enhet med én gang</b>, mens tallene er varme:</p>
+          <div class="formula">
+            <div class="eq">Ordrer i Oslo: 912 mill. / 1 250 kr = 730 000 ordrer per år</div>
+            <div class="eq">Per uke: 730 000 / 52 = <b>14 000 ordrer per uke i hele Oslo</b></div>
+            <div class="eq">Klientens andel: 14 000 × 25 % = <b>3 500 ordrer per uke</b></div>
+          </div>
+          <p><b>Og der har du svaret på beslutningen, foreløpig: 3 500 mot et nullpunkt på
+          5 800.</b> Klienten er 40 prosent unna. Si det høyt med én gang — ikke vent til
+          syntesen. Å levere delkonklusjonen i det øyeblikket den finnes, er kjernen i
+          hypotesedrevet arbeid.</p>
+          <p><b>Sanity-sjekk:</b> 14 000 ordrer i uka i Oslo er 2 000 om dagen. Med tretti
+          varebiler som rekker tjue leveringer hver på en dag, er det 600 leveringer per bil-dag
+          fordelt på... nei, regn den riktig vei: 2 000 leveringer om dagen delt på 20 leveringer
+          per bil gir <b>100 varebiler i sving i Oslo hver dag</b> for hele bransjen samlet. Det
+          er et tall du kan holde opp mot noe du har sett: hundre dagligvarebiler i Oslo-trafikken
+          er mye, men ikke absurd — det er omtrent én per gate i indre by. Størrelsesordenen
+          holder.</p>`,
+        krav: [
+          "Du regner antall netthandlende husholdninger som eget delresultat.",
+          "Du konverterer til ordrer per uke med en gang, fordi det er beslutningens enhet.",
+          "Du regner klientens egen andel ut, ikke bare markedets.",
+          "Du sier delkonklusjonen — 3 500 mot 5 800 — i det øyeblikket den finnes.",
+          "Du sanity-sjekker volumet mot noe fysisk, for eksempel antall varebiler i sving.",
+        ],
+        felle: "Å levere 910 millioner kroner og gå videre til kryssjekken. Kronetallet kan ikke sammenlignes med nullpunktet, som er i ordrer. Konverteringen tar ti sekunder nå og er tungvint senere — og uten den vet du fortsatt ikke om klienten skal bygge.",
+      },
+      {
+        art: "regne",
+        sek: 120,
+        tittel: "Kryssjekken — regn det motsatt vei", kort: "Kryssjekk",
+        sp: `<p>Regn nettdagligvaremarkedet i Oslo <b>topp-ned</b>, i millioner kroner per år.</p>
+          <p class="tiny">Og si etterpå hva kryssjekken faktisk gir deg som bunn-opp ikke ga.</p>`,
+        svar: 900,
+        enhet: "millioner kroner",
+        toleranse: 0.15,
+        fasit: `<p>Topp-ned går fra det norske dagligvaremarkedet og ned:</p>
+          <div class="formula">
+            <div class="eq">Oslos andel av befolkningen: 0,73 / 5,6 = 13 prosent</div>
+            <div class="eq">Oslos dagligvaremarked: 230 mrd × 13 % = 29,9 ≈ 30 milliarder</div>
+            <div class="eq">Nettdelen: 30 mrd × 3 % = <b>900 millioner kroner per år</b></div>
+          </div>
+          <p><b>Bunn-opp ga 912 millioner. Topp-ned gir 900. Avviket er 1,3 prosent.</b></p>
+          <p>Så nær enighet skal gjøre deg litt mistenksom, og et sterkt svar sier det høyt:
+          <b>deler de to veiene en forutsetning?</b> Gå gjennom dem. Bunn-opp brukte 380 000
+          husholdninger, 8 prosent penetrasjon, 24 ordrer og 1 250 kroner. Topp-ned brukte
+          230 milliarder, 13 prosent befolkningsandel og 3 prosent nettandel. <i>Ikke ett tall
+          går igjen.</i> Enigheten er ekte.</p>
+          <p><b>Og her kommer det kryssjekken faktisk gir deg, som er langt mer enn en
+          bekreftelse.</b> Legg de to ved siden av hverandre:</p>
+          <div class="formula">
+            <div class="eq">Topp-ned: nettandelen er <b>3 prosent</b> — ett tall</div>
+            <div class="eq">Bunn-opp: 8 % av husholdningene × 38 % av deres matbudsjett = <b>3,0 prosent</b></div>
+          </div>
+          <p>De to veiene dekomponerer nøyaktig samme tre prosent på to ulike måter, og
+          <b>bunn-opp forteller deg hvilken av de to faktorene som kan bevege seg.</b> Det er
+          hele forskjellen på et tall og en modell. Skal nettandelen fra 3 til 7 prosent, må
+          enten <i>flere husholdninger begynne</i> — 8 prosent til 18 prosent — eller <i>de som
+          allerede handler på nett flytte mer av budsjettet dit</i> — 38 prosent til 88 prosent.
+          Den siste er nesten umulig; ingen kjøper 88 prosent av maten sin på nett. <b>Veksten
+          må altså komme fra nye husholdninger, ikke fra dypere penetrasjon hos dagens
+          kunder.</b> Det er en prognose ingen av de to regnestykkene ga alene.</p>
+          <p><b>Og så den ekte sanity-sjekken, den som kunne felt hele modellen:</b> Oslos
+          dagligvaremarked på 30 milliarder fordelt på 380 000 husholdninger er 79 000 kroner
+          per husholdning. Landssnittet er 230 mrd / 2,65 mill = <b>87 000 kroner</b>. Oslo
+          ligger altså 9 prosent lavere. Er det riktig? Ja, og av en grunn som kan etterprøves:
+          Oslo-husholdninger har 1,9 personer mot 2,1 i landet, altså <b>10 prosent færre
+          munner</b>. <i>De to avvikene er 9 og 10 prosent — de forklarer hverandre.</i> Hadde
+          Oslo kommet ut 30 prosent lavere, ville modellen hatt en feil et sted, og da hadde vi
+          visst det nå i stedet for i møtet.</p>
+          <p>Landingen: <b>rundt 900 millioner kroner, spenn 800 til 1 000 — og 3 500 ordrer per
+          uke for klienten.</b></p>`,
+        krav: [
+          "Du regner topp-ned uten å bruke ett tall fra bunn-opp-kjeden.",
+          "Du kontrollerer aktivt om de to veiene deler en forutsetning, i stedet for å ta enigheten for gitt.",
+          "Du viser at bunn-opp dekomponerer de samme 3 prosentene i to faktorer.",
+          "Du bruker dekomponeringen til å si hvilken faktor veksten må komme fra.",
+          "Du sjekker Oslo mot landssnittet og forklarer avviket med husholdningsstørrelse.",
+        ],
+        felle: "Å juble over at de to veiene traff hverandre på én prosent. Nær enighet er like ofte et tegn på at to regnestykker deler en gjetning, som et tegn på at begge er riktige. Sjekk overlappen først — og hvis den ikke finnes, da har du grunn til å juble.",
+      },
+      {
+        art: "syntese",
+        sek: 120,
+        tittel: "Beslutningen",
+        sp: `<p>Klienten har <b>ett minutt</b>. De spurte ikke om markedsstørrelsen. De spurte om
+          de skal bygge lageret. <b>Svar på det.</b></p>`,
+        fasit: `<p>Her er hele forskjellen på en sizing-case og en ekte oppdragsleveranse:
+          <b>første setning er en beslutning, ikke et tall.</b> Tallet kommer som begrunnelse.</p>
+          <blockquote><p><b>«Ikke bygg lageret nå — men bind opp tomten, og bygg om omtrent to
+          år. Dere har 3 500 nettordrer i uka i Oslo i dag. Lageret trenger 5 800 for å gå i
+          null. Bygger dere nå, taper dere rundt 12 millioner kroner i året til volumet har tatt
+          igjen.»</b></p>
+          <p>Slik kom jeg dit: Oslo har 380 000 husholdninger, 8 prosent handler mat på nett, og
+          de gjør 24 bestillinger i året til 1 250 kroner. Det gir et nettdagligvaremarked i Oslo
+          på rundt 900 millioner kroner, eller 14 000 ordrer i uka. Med deres 25 prosent blir det
+          3 500. Jeg har kryssjekket topp-ned fra dagligvaremarkedet på 230 milliarder og fikk
+          900 millioner der også, uten å dele en eneste forutsetning — så volumtallet er trygt.</p>
+          <p><b>Regnestykket for beslutningen er kort.</b> Lageret sparer 100 kroner per ordre og
+          koster 30 millioner i året. Nullpunktet er 300 000 ordrer i året, altså 5 800 i uka.
+          I dag: 3 500 ordrer i uka gir 18 millioner i besparelse mot 30 millioner i kostnad —
+          <b>12 millioner i årlig tap</b>. Om tre år, når nettandelen går fra 3 til 7 prosent,
+          er dere på 8 200 ordrer i uka: 43 millioner i besparelse mot 30 i kostnad, altså
+          <b>13 millioner i årlig gevinst</b>. Krysningspunktet ligger på 5 800 ordrer, og med
+          den vekstbanen treffer dere det etter <b>rundt tjue måneder</b>.</p>
+          <p><b>Det er derfor svaret er «ikke nå, men snart» og ikke «nei».</b> Å bygge i dag
+          koster dere rundt 11 millioner kroner samlet før volumet har tatt igjen — tapet er
+          størst det første året og krymper mot null fram mot krysningen. Å vente for lenge koster
+          13 millioner i året i tapt besparelse, pluss at plukking i butikk begynner å ødelegge
+          butikkdriften ved høye volumer. Det er en tidfestet beslutning, ikke en
+          ja-eller-nei-beslutning.</p>
+          <p><b>Og til slutt det dere skal følge med på.</b> Ikke markedsstørrelsen — den er nå
+          estimert og trenger ikke oppdateres. Følg <i>deres egne ordrer per uke</i>, og sett en
+          utløser: <b>når dere passerer 5 000 i uka, start byggingen</b>, siden det tar et halvt
+          år å få lageret i drift og 5 000 vokser til rundt 5 800 i løpet av den byggetiden —
+          dere treffer altså nullpunktet omtrent når dørene åpner. Den ene
+          forutsetningen jeg ville testet først, er at nettandelen deres er lik butikkandelen
+          deres på 25 prosent. Er dere sterkere på nett enn i butikk, flytter hele tidslinjen seg
+          nærmere — og det er det eneste tallet i analysen dere allerede har i egne
+          systemer.»</p></blockquote>
+          <p><b>Hva skiller dette fra et middels svar?</b> Et middels svar sier «markedet er
+          900 millioner, og med 25 prosent andel har dere 3 500 ordrer i uka, som er under
+          nullpunktet på 5 800, så ikke bygg». Det er riktig regnet og likevel halvferdig, fordi
+          det behandler en investeringsbeslutning som et øyeblikksbilde. <b>Et sterkt svar
+          tidfester den, kvantifiserer kostnaden ved å ta feil i begge retninger, og gir klienten
+          en utløser de kan handle på uten å ringe deg igjen.</b></p>`,
+        krav: [
+          "Første setning er beslutningen — ikke bygg nå, bygg om to år — ikke markedstallet.",
+          "Du oppgir tapet ved å bygge i dag og gevinsten ved å bygge om tre år, begge i kroner.",
+          "Du tidfester krysningspunktet i stedet for å svare ja eller nei.",
+          "Du gir klienten en utløser i deres egen enhet — ordrer per uke — og justerer den for byggetiden.",
+          "Du navngir den ene forutsetningen som ville flyttet konklusjonen mest, og sier at klienten selv sitter på tallet.",
+          "Du holder deg innenfor ett minutt.",
+        ],
+        felle: "Å svare «nei, markedet er for lite». Det er svaret på dagens volum, og lageret er en investering som lever i femten år. En beslutning som avhenger av et volum i vekst, har ikke et ja eller et nei som svar — den har et tidspunkt og en utløser.",
+      },
     ],
   }
 ];

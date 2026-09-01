@@ -82,7 +82,7 @@ De skarpeste funnene:
 | Motor | **ferdig** — fem moduler, alle verifisert i nettleseren |
 | Manual | **16 av 16 kapitler · 21 300 ord** — 96 seksjoner, 43 tabeller, 15 gjennomregnede eksempler |
 | Studieplan | **11 moduler · 14 timer** · arbeidsoppgaver med lenke inn i øvelsen |
-| Caser | **7** · 42 trinn · alle sju casetypene · 230 minutter trening |
+| Caser | **20** i to bolker: 6 intervjucaser og **14 market sizing** · 120 trinn · 555 minutter |
 | Struktureringsprompter | **84** i åtte casetyper (9–15 hver), med modellstruktur som tre, hypotese og felle |
 | Finn feilen | **34** utregninger, 7 av dem uten feil |
 | Les grafen | **24** figurer — 18 SVG, 6 tabeller, 17 med innebygd felle |
@@ -100,6 +100,36 @@ altså under en femdel av tiden, som var det ordtaket egentlig skulle sikre.
 
 `tools/case-bygg-manual.py` setter manualen sammen av kapittelfragmenter og
 normaliserer deltitlene. Manualen er sannhetskilden når den først er bygget.
+
+## Market sizing er en egen bolk
+
+Casebiblioteket er delt i **Intervjucaser** og **Market sizing**, styrt av feltet
+`kategori`. De to er ulike øvelser: den ene diagnostiserer et problem, den andre
+bygger et tall av forutsetninger man setter selv.
+
+Market sizing-casene har en annen trinnrekkefølge enn de vanlige — tre
+regnetrinn på rad i stedet for ett — og trinnene bærer egne korttitler, siden
+raden ellers sa «Regning» tre ganger.
+
+**Tre former, alle representert:**
+
+| Form | Tredje regnetrinn er | Antall |
+|---|---|---|
+| Tilbud møter etterspørsel | kombinasjonen | 5 |
+| Topp-ned med segmentering | en **følsomhetssjekk** | 4 |
+| Bunn-opp fra én enhet | en **kryssjekk motsatt vei** | 4 |
+
+> [!info] Arketypen er brukerens egen intervjucase
+> «Hvor mange bensinstasjoner finnes i USA?» fra Implement. Hele casen avgjøres
+> av utnyttelsesgraden: åtte pumper åpent seksten timer kan i teorien ta 1 536
+> biler i døgnet, men en stasjon tar rundt 154. Den er en **dekningsbedrift**,
+> ikke en gjennomstrømningsbedrift — og det er nettopp derfor det finnes så mange
+> av dem. Ved ti prosent lander kjeden på 147 000 mot et faktisk antall på
+> omtrent 145 000.
+
+Den beste av de nye er `ms-bruktbil-sprik`, der bunn-opp gir 46 milliarder og
+topp-ned 96. Riktig svar er 79 — hverken det ene, det andre eller snittet — og
+hele casen er å forklare hvorfor de to veiene teller ulike ting.
 
 ## Struktureringsdrillen: velg type, se treet
 
