@@ -57,7 +57,13 @@ window.EDU = window.EDU || {};
   /* Lagring skjer ved blur og ved avdekking, aldri per tastetrykk: en refresh
      midt i skrivingen ville tatt både markøren og halve setningen. */
   function lagreSvar(id, i, tekst) { S.store.setExam(stegKey(id, i), { svar: String(tekst || "").slice(0, MAKS_SVAR) }); }
-  function avdekk(id, i) { S.store.setExam(stegKey(id, i), { vist: true }); }
+  /* Tiden fryses i det fasiten åpnes. Uten dette telte klokka videre mens du
+     leste løsningen, og et trinn du brukte halvannet minutt på, endte rødt på
+     «+05:23» fordi fasiten er lang. Det er lesetid, ikke tenketid. */
+  function avdekk(id, i) {
+    const brukt = stegStart ? S.u.nowTs() - stegStart : null;
+    S.store.setExam(stegKey(id, i), brukt == null ? { vist: true } : { vist: true, brukt: brukt });
+  }
   function settScore(id, i, s) { S.store.setExam(stegKey(id, i), { score: s }); }
   function settTikk(id, i, liste) { S.store.setExam(stegKey(id, i), { tikk: liste }); }
 
@@ -261,7 +267,7 @@ window.EDU = window.EDU || {};
       el(".chip.accent", `Trinn ${i + 1}`),
       el("h3", { style: { fontSize: "18px" } }, t.tittel || navn.full),
       el(".spacer"),
-      t.sek ? stegKlokke(t) : null));
+      t.sek ? (vist ? bruktKlokke(t, st) : stegKlokke(t)) : null));
 
     kort.appendChild(el("p.tiny.muted", { style: { margin: "0 0 14px" } }, t.ledd || navn.ledd));
     if (t.sp) kort.appendChild(el(".prose", { style: { fontSize: "15.5px" } }, frag(t.sp)));
@@ -279,6 +285,17 @@ window.EDU = window.EDU || {};
 
   /* Klokka teller oppover mot måltiden og blir rød når du går over. Den stopper
      ingenting — den er der for å bygge tidsfølelse, som er halve ferdigheten. */
+  /* Frosset klokke: hva du faktisk brukte før du åpnet fasiten. Mer nyttig enn
+     bare å stoppe den, fordi tallet er det du skal sammenligne med måltiden. */
+  function bruktKlokke(t, st) {
+    if (st.brukt == null) return el(".chip.slate", { style: { fontVariantNumeric: "tabular-nums" } }, `mål ${mmss(t.sek * 1000)}`);
+    const over = st.brukt - t.sek * 1000;
+    const farge = over <= 0 ? "green" : over < t.sek * 500 ? "amber" : "rose";
+    return el(".chip." + farge, { style: { fontVariantNumeric: "tabular-nums" },
+      title: `Måltid ${mmss(t.sek * 1000)}` },
+      `brukte ${mmss(st.brukt)}` + (over > 0 ? ` · ${Math.round(over / 1000)} s over` : ""));
+  }
+
   function stegKlokke(t) {
     const boks = el(".chip.slate", { style: { fontVariantNumeric: "tabular-nums" } }, mmss(t.sek * 1000));
     ticker = setInterval(() => {

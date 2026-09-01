@@ -46,12 +46,26 @@ Standard slingringsmonn er 2 %, overstyrbart per trinn med `toleranse`.
 > oppgave med fasit `78` og enhet «millioner kroner» — altså riktig svar skrevet
 > på den mest naturlige måten. Fanget i nettlesertesten, ikke i kodelesningen.
 
+## Klokka fryses når fasiten åpnes
+
+Trinnklokka teller ned mot måltiden mens du jobber. I det du trykker «vis
+fasiten», festes tiden: `avdekk()` lagrer `brukt` i millisekunder, og chipen blir
+statisk — «brukte 01:42», grønn under måltiden, gul like over, rød godt over.
+
+Uten dette telte klokka videre mens du **leste** løsningen, og et trinn du brukte
+halvannet minutt på å tenke gjennom, endte rødt på «+05:23» fordi fasiten er
+lang. Det er lesetid, ikke tenketid, og tallet ble dermed misvisende akkurat der
+det skulle vært nyttig.
+
+Den frosne verdien er mer verdt enn bare en stoppet klokke: den er tallet du
+sammenligner med måltiden når du vurderer deg selv.
+
 ## Lagring
 
 | Nøkkel | Innhold |
 |---|---|
 | `state.exams["case:<id>:run"]` | `{ startedAt, submittedAt }` |
-| `state.exams["case:<id>:t<n>"]` | `{ svar, vist, score, tikk }` per trinn |
+| `state.exams["case:<id>:t<n>"]` | `{ svar, vist, brukt, score, tikk }` per trinn |
 
 `state.exams` er en generisk bøtte som allerede synkes og slås sammen per nøkkel,
 så modulen trengte **ingen migrering**. Se [[Datamodell og lagring]].
