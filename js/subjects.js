@@ -51,6 +51,10 @@ window.EDU_SUBJECTS = [
       candidates: ["SAM3_Alle_oppgaver_med_fasit.html", "fag/sam3/oppgaver.html", "../SAM3_Alle_oppgaver_med_fasit.html"],
     },
     /* SAM3 har både manual og oppgavebank, så fotnoten under lynøkta sier begge. */
+    /* De fire casespesifikke spillene finnes ikke i dette faget, og ville stått
+       som «Kommer snart» for alltid. */
+    lynGames: ["blitz", "tf", "formel", "par", "skift", "kjede", "hode", "updown",
+               "forklar", "oddone", "memory", "okonom", "bit"],
     /* Var hardkodet i motoren og gjaldt alle fag. Nå SAM3s eget. */
     repetition: { boost: { from: 13, to: 19, vekt: 6, why: "Oppgave 3 (kort sikt) — historisk størst rom for å hente poeng" } },
     copy: { lynFoot: "Alt innhold er hentet fra eksamensmanualen og oppgavebanken. Feil svar viser alltid forklaringen, det er der læringen skjer. Tips: legg siden til på Hjem-skjermen for app-følelse." },
@@ -86,6 +90,10 @@ window.EDU_SUBJECTS = [
       { id: 7, tag: "Part VII", name: "Exam craft", chapters: [28] },
       { id: 8, tag: "Reference", name: "Formula reference", chapters: [29] },
     ],
+    /* De fire casespesifikke spillene finnes ikke i dette faget, og ville stått
+       som «Kommer snart» for alltid. */
+    lynGames: ["blitz", "tf", "formel", "par", "skift", "kjede", "hode", "updown",
+               "forklar", "oddone", "memory", "okonom", "bit"],
     /* Lynøkta henter bare fra kapitler du har nådd — se js/bundle-lyn.js.
        Uten dette ville minispillene servert M&A-spørsmål i modul 3. */
     lynFollowsProgress: true,
@@ -163,6 +171,20 @@ window.EDU_SUBJECTS = [
     ],
     /* Uten denne arver faget SAM3s tre hardkodede banker («Kort sikt», «Lang
        sikt», «Eksamensoppgaver») og viser tre tomme knapper. */
+    /* Bare spillene faget faktisk har. Uten denne fikk Caseintervju «Skift eller
+       glid?» — kurveskift mot bevegelse langs kurven, som er ren makroøkonomi —
+       pluss fire fliser som aldri kunne åpne seg, siden faget verken har
+       symbolliste, økonomer eller aktiv læring. */
+    lynGames: ["blitz", "tf", "skift", "kjede", "hode", "updown", "bit",
+               "struktur", "feil", "graf", "estimat", "formel", "oddone"],
+    /* «Skift eller glid?» beskriver et makrofenomen. Innholdet i banken er ekte
+       casematte — volumeffekt, priskutt, 72-regelen, nullpunkt — så den beholdes
+       under en merkelapp som stemmer. */
+    lynLabels: {
+      skift: { name: "Regn eller avgjør", emoji: "🔢", desc: "Tall og dømmekraft på tid" },
+      formel: { name: "Match formelen", emoji: "🧮", desc: "Fra tallarket i kapittel 15" },
+      oddone: { name: "En skiller seg ut", emoji: "🕵️", desc: "Hvilken hører ikke hjemme?" },
+    },
     /* Standardstigen ender på «Sensor» og «Nobelkandidat», som passer et
        universitetsfag og ikke et jobbintervju. */
     lynLevels: [[0, "Fersking"], [120, "Søker"], [320, "Kandidat"], [650, "Til andre runde"],

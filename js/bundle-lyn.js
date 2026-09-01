@@ -103,7 +103,22 @@ window.EDU_DATA = window.EDU_DATA || {};
     graf: { name: "Les grafen", emoji: "📊", desc: "Exhibit-tolkning på tid", ready: () => bank("graf").length >= 6, run: runGraf },
     estimat: { name: "Bygg estimatet", emoji: "📐", desc: "Markedsstørrelse steg for steg", ready: () => bank("estimat").length >= 2, run: runEstimat },
   };
-  function availableGames() { return Object.keys(GAMES).filter((k) => { try { return GAMES[k].ready(); } catch (e) { return false; } }); }
+  /* Hvilke spill faget i det hele tatt har. Uten dette fikk Caseintervju både
+     «Skift eller glid?» (kurveskift mot bevegelse langs kurven — ren makro) og
+     fem fliser som aldri kunne åpne seg, fordi faget ikke har formelsamling,
+     symbolliste eller økonomer. Utelates feltet, gjelder alle spill som før. */
+  function spillKeys() {
+    const m = (window.EDU_SUBJECT || {}).lynGames;
+    const alle = Object.keys(GAMES);
+    return (Array.isArray(m) && m.length) ? alle.filter((k) => m.indexOf(k) > -1) : alle;
+  }
+  /* Navn og undertekst kan overstyres per fag, så et spill kan gjenbrukes med
+     en merkelapp som gir mening i faget. */
+  function spillInfo(k) {
+    const o = ((window.EDU_SUBJECT || {}).lynLabels || {})[k] || {};
+    return Object.assign({}, GAMES[k], o);
+  }
+  function availableGames() { return spillKeys().filter((k) => { try { return GAMES[k].ready(); } catch (e) { return false; } }); }
 
   /* ---------- økt-tilstand ---------- */
   let sess = null; // {plan:[keys], idx, daily, xp, summaries:[], stage}
@@ -700,8 +715,8 @@ window.EDU_DATA = window.EDU_DATA || {};
     wrap.appendChild(el(".section-title", el("h3", "Velg spill")));
     const grid = el(".lyn-grid");
     const portÅpen = åpneKapitler();
-    Object.keys(GAMES).forEach((k) => {
-      const g = GAMES[k]; const ok = g.ready();
+    spillKeys().forEach((k) => {
+      const g = spillInfo(k); const ok = GAMES[k].ready();
       /* Skiller «faget har ikke dette innholdet» fra «du har ikke kommet dit ennå». */
       const låstAvFremdrift = !ok && portÅpen;
       const tile = el("button.lyn-tile", { disabled: !ok, onclick: () => ok && startSession([k], false) },
@@ -714,13 +729,13 @@ window.EDU_DATA = window.EDU_DATA || {};
     /* Fortell hvor mye som er låst opp, ellers ser et halvtomt rutenett ut som en feil. */
     if (portÅpen) {
       const kap = kapittelPool().length, alle = S.data.chapters().length;
-      const klare = Object.keys(GAMES).filter((k) => GAMES[k].ready()).length;
+      const klare = availableGames().length;
       wrap.appendChild(el(".card", { style: { marginTop: "16px", background: "var(--accent-soft)", border: "1px solid var(--accent-soft-2)" } },
         el("p", { style: { margin: 0, fontSize: "14px", lineHeight: 1.55 } },
           el("b", `Lynøkta følger fremdriften din. `),
           `Den henter bare fra de ${kap} av ${alle} kapitlene du har nådd, så du slipper spørsmål om stoff du ikke har lest. `,
-          klare < Object.keys(GAMES).length
-            ? `${Object.keys(GAMES).length - klare} spill åpner seg etter hvert som du kommer lenger.`
+          klare < spillKeys().length
+            ? `${spillKeys().length - klare} spill åpner seg etter hvert som du kommer lenger.`
             : `Alle ${klare} spillene er åpne.`)));
     }
 
@@ -731,7 +746,7 @@ window.EDU_DATA = window.EDU_DATA || {};
 
   function gameView() {
     const wrap = el(".fade-in.lyn-wrap");
-    const key = sess.plan[sess.idx]; const g = GAMES[key];
+    const key = sess.plan[sess.idx]; const g = spillInfo(key);
     wrap.appendChild(el(".row", { style: { marginBottom: "10px" } },
       el("button.iconbtn", { onclick: () => { if (confirm("Avslutte økten?")) endSession(); }, title: "Avslutt" }, "✕"),
       el("div", { style: { fontWeight: 700, fontSize: "16px" } }, g.emoji + " " + g.name),

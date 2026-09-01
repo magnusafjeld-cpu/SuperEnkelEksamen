@@ -277,6 +277,28 @@ tålt avrunding.
 > skal trene, lærer bort feil vane — her: å jage desimaler i stedet for å runde
 > av og gå videre.
 
+## 7n. Spillregisteret var felles for alle fag
+
+De sytten minispillene i `js/bundle-lyn.js` ble vist til alle fag, uansett om
+faget hadde data til dem. Konsekvensen gikk begge veier:
+
+- **Caseintervju** fikk «Skift eller glid? — kurveskift vs. bevegelse langs», som
+  er ren makroøkonomi, pluss fire fliser som aldri kunne åpne seg fordi faget
+  verken har symbolliste, økonomer eller aktiv læring.
+- **SAM3 og FIE402** fikk de fire casespesifikke spillene som «Kommer snart».
+  FIE402 lovet «14 spill åpner seg etter hvert» — fire av dem fantes ikke.
+
+`manifest.lynGames` er nå en hviteliste, og `manifest.lynLabels` kan overstyre
+navn, emoji og undertekst per spill. Utelates feltene, gjelder alle spill som før.
+
+Alle tre fagene har nå **13 fliser hver**, og ingen av dem er døde.
+
+> [!info] Gjenbruk av en bank under et annet navn
+> Caseintervjus `shift`-bank inneholder ekte casematte — volumeffekt, priskutt,
+> 72-regelen, nullpunkt — så spillet er beholdt under merkelappen «Regn eller
+> avgjør». Første forsøk het «Hva skjer med tallet?», men banken har også fire
+> rene vurderingsspørsmål, så navnet dekket bare seks av ti.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden
