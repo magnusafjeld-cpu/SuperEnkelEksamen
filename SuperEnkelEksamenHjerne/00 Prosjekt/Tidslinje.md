@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-09-01
+oppdatert: 2026-09-03
 ---
 
 # Tidslinje
@@ -34,5 +34,6 @@ ikke står i commit-meldingene.
 | 1. september 2026 | Casebiblioteket delt i intervjucaser og market sizing | Feltet `kategori` styrer bolkene |
 | 1. september 2026 | Intervjucasene fra 6 til 18 — alle tolv arketypene dekket | Lønnsomhet, prising, vekst og operations har nå flere caser med **ulik mekanisme**. Se [[Caseintervju]] |
 | 1. september 2026 | `parseTall` leser ekte minustegn | Lå urørt til første case med negativ fasit. Se [[Case-spilleren]] |
+| 3. september 2026 | Eksamenssettene retter flervalg automatisk, med valgfrie minuspoeng | Forberedelse til FIE432, der eksamen er flervalg i Wiseflow. Se [[Eksamenssett-modulen]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

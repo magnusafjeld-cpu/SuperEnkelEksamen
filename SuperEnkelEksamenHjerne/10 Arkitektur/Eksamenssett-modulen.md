@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-03
 ---
 
 # Eksamenssett-modulen
@@ -53,12 +53,55 @@ det er derfor matematikken kan settes ordentlig med `<sub>`, `<sup>` og
 `<table class="data">`. `criteria` er en liste over hva som må være med for full
 uttelling; den vises som punktliste under løsningen.
 
+## Flervalg rettes automatisk
+
+Lagt til 3. september 2026 for [[FIE432 Personlig økonomi]], der alle
+eksamener siden 2020 er ren flervalg. En oppgave eller deloppgave med `options`
+og `answer` tegnes med quizens alternativknapper og rettes ved avsløring
+(øving) eller levering (eksamen):
+
+```js
+{ n: 1, title: "Skjerming", points: 1, body: "<p>…</p>",
+  options: ["<p>100</p>", "200", "300"],   // rå HTML, som body
+  answer: 1,                                // indeks — eller [0, 1] når fasiten godtar flere
+  solution: "<p>…</p>" }
+```
+
+Poeng: riktig gir oppgavens poeng, galt gir poeng × `wrongFactor`, ubesvart 0.
+Faktoren er 0 der feil svar ikke straffes, og −1/3 i formatet med minuspoeng
+(3 for rett, −1 for feil, fire alternativer — forventet verdi av å gjette
+blindt er null). Settet setter forvalget i `set.mc.wrongFactor`; i
+eksamensmodus velges den per økt med en avkrysning på startkortet, så et eldre
+sett uten straff kan kjøres slik eksamen faktisk blir. Valget lagres i
+`<settId>-run.wrongFactor`.
+
+Valgene lagres i `<settId>-e<n>.valg` som `{ "<deletikett>": indeks }` (nøkkel
+`""` for en oppgave uten deler). Å klikke det valgte alternativet en gang til
+fjerner svaret — med minuspoeng er «blankt» en ekte strategi. Den automatiske
+poengsummen skrives inn som oppgavens `score`, så sum, ring og settkort
+trenger ikke vite om flervalg. Åpne oppgaver i samme sett vurderes fortsatt selv.
+
+Resultatkortet viser også hva settet ville gitt under den *andre* regelen —
+så du ser hva gjettingen kostet eller ville kostet.
+
+> [!warning] Eksamensstart nullstiller oppgavene
+> `startRun()` sletter `valg`, `revealed` og `score` for hele settet. Før dette
+> ble valg og poeng fra øvingsmodus med inn i eksamensresultatet, og et
+> flervalg du alt hadde sett fasiten på, telte som riktig. Nullstill-knappen på
+> settkortet vises nå også når settet bare er rørt i øvingsmodus.
+
+> [!warning] Startkortets faktalinjer var FIE402s
+> «Penn og papir», «formelarket utleveres» og «skriv på engelsk» sto hardkodet
+> i motoren og ville blitt vist til et fag med digital flervalg på norsk.
+> `set.facts` overstyrer listen; `set.practiceNote` overstyrer nøkkelsetningen
+> i øvingsmodus. Uten feltene gjelder FIE402s tekst som før.
+
 ## Lagring
 
 | Nøkkel | Innhold |
 |---|---|
-| `state.exams["<settId>-run"]` | `{ mode, startedAt, submittedAt }` — selve økta |
-| `state.exams["<settId>-e<n>"]` | `{ revealed, score, scoredAt }` per oppgave |
+| `state.exams["<settId>-run"]` | `{ mode, startedAt, submittedAt, wrongFactor }` — selve økta |
+| `state.exams["<settId>-e<n>"]` | `{ revealed, score, scoredAt, valg }` per oppgave |
 
 Alt går gjennom `S.store.setExam()`, så det synkes som all annen fremdrift.
 **Nedtellingen regnes ut fra `startedAt`, ikke fra en teller i minnet** — derfor
