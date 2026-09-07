@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-09-03
+oppdatert: 2026-09-07
 ---
 
 # Fallgruver
@@ -351,6 +351,31 @@ Oppdaget da FIE432 ble registrert med `/sett` i lista mens `sett.js` ennå var t
 Datasjekken kjører nå **først**, uansett hva manifestet sier: en eksplisitt liste
 er en ønskeliste, ikke en garanti. SAM3, FIE402 og Caseintervju er upåvirket —
 alle har data for det de lister.
+
+## 7q. En agent som melder en feil, kan ta feil selv
+
+Agenten som skrev dybdebanken «finans» meldte to regnefeil i k16. **Den ene var
+ekte, den andre var ikke det** — og forskjellen er verdt å kjenne igjen.
+
+*Den falske:* «Manualen skriver 280 000 × 11,2578 = 3 152 184, men eksakt
+annuitetsfaktor gir 3 152 179.» Manualen oppgir selv faktoren avrundet til
+11,2578, og 280 000 × 11,2578 **er** 3 152 184. Femkronersavviket er avrundingen
+av den oppgitte faktoren, ikke en feil. Å «rette» summen til 3 152 179 ville
+gjort det viste regnestykket galt for leseren som taster det inn.
+
+*Den ekte:* `12 × 16 104,65 − 150 000 = 43 256` som avdrag første år. Riktig
+regnet, men 150 000 er 5 % av hele lånet, og saldoen faller for hver termin.
+Rentene er 148 995, avdraget 44 261.
+
+Skillet: den falske klaget på **presisjon i et tall manualen selv har avrundet**,
+den ekte på **en premiss som er feil**. Regn alltid om selv før du retter — og
+regn om med manualens egne oppgitte mellomtall, ikke bare med full presisjon.
+
+> [!tip] Den ekte feilen ble avslørt av at kapitlet motsa seg selv
+> 16.1 advarer eksplisitt mot at 150 000 «bare er renten på et evig lån», mens
+> 16.5 brukte akkurat det tallet som første års renter. Når to steder i samme
+> kapittel er uenige, er minst ett av dem galt — og det er en sjekk ingen
+> aritmetikkontroll kan gjøre, fordi begge regnestykkene er riktig regnet.
 
 ## 8. Filer som ikke er koblet til noe
 

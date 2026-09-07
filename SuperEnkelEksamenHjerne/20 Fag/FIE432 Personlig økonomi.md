@@ -174,13 +174,27 @@ Kontrolleres med `tools/sjekk-manual.py`.
 | Studieplan | **21 moduler · 57 timer**, estimatene regnet av faktisk innhold |
 | Eksamenssett | **3 sett · 98 flervalgsledd**, rettet automatisk |
 | Flashcards | **100** auto-genererte formelkort fra k20 |
-| Quiz, dybde, lyn | ikke skrevet — modulene er avslått til de har data |
+| Quiz | **164 spørsmål** · 133 flervalg / 31 kortsvar · alle 20 kapitler dekket |
+| Dybdetrening | **299 spørsmål** i fire banker: 72 · 77 · 72 · 78 |
+| Lynlæring | ikke skrevet — modulen er avslått til den har data |
 
-**Aritmetikken er kontrollert maskinelt.** `tools/sjekk-aritmetikk.py` fant 839
+**Aritmetikken er kontrollert maskinelt.** `tools/sjekk-aritmetikk.py` fant 841
 regnekjeder i manualen og fem utslag, alle notasjon verktøyet ikke leser
 (absoluttverditegn, «60/40» som forholdstall, «1,1 % *av* (…)», algebra som
-«3 − 2Q»). Hver enkelt er kontrollert for hånd. **Ingen regnefeil** gjennom fire
-bølger og nitten agentskrevne kapitler.
+«3 − 2Q»). Hver enkelt er kontrollert for hånd.
+
+Verktøyet fant ingen regnefeil gjennom fire bølger og nitten agentskrevne
+kapitler. **Én slapp likevel gjennom**, og den sier noe om hva verktøyet ikke
+kan se: 16.5 skrev `12 × 16 104,65 − 150 000 = 43 256` som avdraget første år
+på et annuitetslån. Regnestykket er riktig regnet — derfor gikk det fri — men
+150 000 er 5 % av *hele* lånet, og saldoen faller for hver termin. Rentene er
+148 995 og avdraget 44 261. Kapitlet motsa seg selv: 16.1 advarer eksplisitt
+mot at 150 000 «bare er renten på et evig lån».
+
+> [!tip] Aritmetikkontrollen ser bare om et regnestykke er riktig regnet
+> Den kan ikke se om det er *riktig oppstilt*. En feil premisse som regnes
+> feilfritt, passerer. Det er derfor et kapittel som motsier et annet er en
+> egen sjekk — og den må gjøres av noen som leser.
 
 > [!warning] Kapitlene ble lengre enn spesifikasjonen ba om
 > Målet var 1 200–2 200 ord; snittet ble 3 900, og lengdeføringen ble strammet
@@ -191,5 +205,5 @@ bølger og nitten agentskrevne kapitler.
 > fag på 7,5 studiepoeng. Skal noe trimmes, er det prosaen rundt de
 > gjennomregnede eksemplene, ikke eksemplene.
 
-Neste steg: quiz, flashcards forfattet for hånd, dybdetrening og lynlæring —
-de fire modulene som fortsatt er avslått.
+Neste steg: lynlæring, som er den siste avslåtte modulen, og eventuelt
+håndforfattede flashcards i tillegg til de auto-genererte formelkortene.
