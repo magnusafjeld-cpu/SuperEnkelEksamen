@@ -1,6 +1,6 @@
 ---
 tags: [hjerne, moc]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-07
 ---
 
 # Hjernen — Super Enkel Eksamen
@@ -36,6 +36,7 @@ alt på nytt, bor her.
 - [[SAM3 Makroøkonomi]] — makrofaget, med innholdstall
 - [[FIE402 Corporate Finance]] — corporate finance på engelsk, modulbasert plan
 - [[Caseintervju]] — konsulentintervjuer: struktur, hoderegning, caser og mock-video
+- [[FIE432 Personlig økonomi]] — skatt og husholdningsfinans, flervalg med minuspoeng
 - [[Legge til nytt fag]] — oppskriften
 
 **Drift**
