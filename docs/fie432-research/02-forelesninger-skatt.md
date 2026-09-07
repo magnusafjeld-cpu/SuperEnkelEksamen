@@ -1751,3 +1751,248 @@ illustrerer, og hva CRS faktisk gjør (og ikke gjør).
 - **Feil som står i begge versjoner:** lysbilde 43 siterer «NOU 2009: 10», mens
   lysbilde 35 riktig skriver NOU 2009:19 (*Skatteparadis og utvikling*). Det er
   samme utredning begge steder.
+
+---
+
+## 8. Regnerutiner som går igjen
+
+Tolv oppsett dekker praktisk talt all regning i skattedelen. De går på tvers av
+forelesningene: skjermingstabellen er den samme i F4, i oppgavene til F5 og på
+eksamen H2021, og etter-skatt-omregningen dukker opp i F1, F2, F3, F6 og F10.
+Manualen bør lære dem som *rutiner* med faste steg, ikke som enkeltformler.
+
+**R1 — Etter-skatt-omregning, indifferens og implisitt skatt.**
+1. Gjør om hver plassering til etter-skatt-avkastning: X(1 − t) med *riktig* t
+   (22 % på renter og leie, 37,84 % på utbytte og aksjegevinst, marginalskatt på
+   lønn). 2. Sett de to like og løs for det du mangler. 3. Er den ene
+   skattefri, gir likevekten r = R(1 − t), og den implisitte skatten er
+   T = (R − r)/R = 1 − r/R. 4. Valgregel: velg det skattefrie hvis egen
+   marginalskatt > T.
+*Eksempel:* E1.4 (100 000 rente = 125 483 aksjegevinst), E6.6 (8 % skattlagt mot
+6 % skattefri → T = 25 %), Benedicte (10 % × 0,78 = 7,8 % → T = 22 %).
+*Fella:* å sammenligne før-skatt-tall, eller å bruke sin egen marginalskatt som
+den implisitte skatten. Den implisitte satsen er markedets, ikke din.
+
+**R2 — Totalavkastning, realavkastning og superprofitt.**
+1. R = (P₁ − P₀ + Y₁)/P₀, alltid delt på *inngangsverdien*. 2. Del opp i
+kapitalgevinst og direkteavkastning. 3. Skatt: multipliser den nominelle
+avkastningen med (1 − t). 4. Deflater: 1 + r = (1 + i)/(1 + π), approksimert
+r ≈ i − π. 5. Superprofitt = avkastning − risikofri rente.
+*Eksempel:* E2.1 (3 % nominelt, 0 % realt), E2.2, Norske Furutrær (15 % → 11,7 %
+→ 9,7 %), Milla (2,5 % → −3,3 %).
+*Fella:* å dele yield på sluttprisen; å deflatere før skatten er trukket fra
+(rekkefølgen er: nominelt → etter skatt → realt); og å blande nominell risikofri
+rente med real avkastning slik lysbildet selv gjør.
+
+**R3 — Annuitetslån, rentekostnad etter skatt og stresstest.**
+1. Maks lån = 5 × bruttoinntekt. 2. Månedsrente m = r/12, terminbeløp
+= L·m/(1 − (1 + m)^−n) med n i *måneder*. 3. Renter første måned = L·r/12.
+4. Etter skatt: × (1 − 0,22). 5. Stresstest: gjenta med r + 3 pp.
+*Eksempel:* E3.1 (3 mill., 5 %, 20 år → 19 799 kr/mnd; renter 12 500 → 9 750
+etter skatt; ved 8 %: 20 000 → 15 600).
+*Fella:* å bruke årsrenten i annuitetsformelen, eller å glemme at bare *renten*
+— ikke avdraget — gir fradrag.
+
+**R4 — Nåverdi med skatt, EK-rentabilitet og break-even.**
+1. Sett opp den årlige kontantstrømmen etter skatt (leie − kostnader − renter
+etter skatt). 2. Diskonter med etter-skatt-renten når strømmen er skattlagt.
+3. Legg til salgssummen minus gevinstskatt, diskontert. 4. Er investeringen
+gearet: trekk fra lånet diskontert til innfrielsestidspunktet, og bruk *bare*
+egenkapitalen som investering i år 0. 5. EK-rentabilitet = NV/investert EK.
+6. Break-even: sett NV = 0 og løs for salgsprisen.
+*Eksempel:* E3.3–E3.9 (8,3 % ugearet med skatt, 12 % ugearet skattefritt,
+70 % gearet ved 3,5 %, 45 % ved 6 %, −21,2 % uten prisstigning; break-even
+6 355 000 = +4,2 %).
+*Fella:* å diskontere en skattefri strøm med etter-skatt-renten (det er
+appendiksfeilen i E3.13: riktig rente løfter tallet fra 3 % til 4,4 % og senker
+avkastningen), og å glemme at lånet må betales tilbake i år 3.
+
+**R5 — Evig kontantstrøm med skatt på begge sider.**
+1. V = CF/r. 2. Med skatt: både telleren og nevneren justeres,
+V = CF(1 − t)/(r(1 − t)) = CF/r — skatten kansellerer. 3. Er bare den ene
+siden skattlagt, må du regne eksplisitt.
+*Eksempel:* Anita (240 000/0,08 = 3 mill.; ved 4 %: 6 mill.), E2.4
+(ekspropriasjon 1 mill./0,04 = 25 mill.).
+*Fella:* å skattlegge bare leien og beholde avkastningskravet før skatt. Det er
+nettopp den inkonsistensen som gjør at lysbildets fasit 2 925 000 ikke lar seg
+reprodusere.
+
+**R6 — Formuesskattegrunnlaget.**
+1. Finn formuesverdien: børsnotert = kurs 1.1. i skattefastsettingsåret;
+unotert = bokført verdi (eiendeler − gjeld); primærbolig = 25 % av verdien under
+10 mill.; sekundærbolig = full verdi. 2. Trekk fra verdsettingsrabatten (20 %
+på aksjer). 3. Trekk fra bunnfradraget (1,7 mill.). 4. Multipliser med satsen
+(1 %, 1,1 % over 20 mill.).
+*Eksempel:* E1.1 (4,5 mill. bokført → (3,6 − 1,7) × 1 % = 19 000, ikke 495 000),
+E4.5 ((10 mill. × 0,8 − 1,7 mill.) × 1 % = 63 000).
+*Fella:* å bruke markedsverdi på et unotert selskap; å glemme bunnfradraget; og
+— i oppgaven til F4 — å ikke avklare om «formuesverdi = 35 % av markedsverdi»
+allerede *inkluderer* rabatten. Gjør den det, blir svaret 4,81; legges rabatten
+på toppen, blir det 3,85.
+
+**R7 — Skjermingstabellen.**
+Én rad per år, fem kolonner: 1. grunnlag = kostpris + ubenyttet skjerming fra
+31.12 i fjor. 2. fradrag = grunnlag × årets skjermingsrente. 3. skattepliktig
+utbytte = max(0, utbytte − fradrag − framført ubenyttet). 4. ny ubenyttet
+= max(0, framført + fradrag − utbytte). 5. Ved salg: gevinst = salgspris −
+kostpris − ubenyttet skjerming, skatt = gevinst × 37,84 %.
+*Eksempel:* E4.3 (Olsen 2014–2019), E4.11 (Sindre), oppgave 2 til F5 (Martine).
+*Fella:* å glemme at ubenyttet skjerming *legges til grunnlaget* neste år (så
+grunnlaget vokser fra 1 000 til 1 030 til 1 040,6, og faller tilbake til 1 000
+når den er brukt opp); å la skattepliktig utbytte bli negativt i stedet for
+null; og å glemme årsskifteregelen — selges aksjen før 31.12, gis ingen
+skjerming det året (F5 spm. 6, der gevinsten dermed blir null).
+
+**R8 — Oppjustering, eierskatt og «utbytte som dekker en utgift».**
+1. Skattepliktig beløp × oppjusteringsfaktor y × alminnelig sats. Med y = 1,72
+og 22 % er produktet 37,84 %. 2. Skal utbyttet dekke en utgift F (typisk
+formuesskatten), må bruttoutbyttet være U = F/(1 − t_e). 3. Utbytteskatten er
+U · t_e, og U − U·t_e = F går kontroll.
+*Eksempel:* E4.12 (F = 1, t_e = 37,8 % → U = 1,608), oppgave F4 spm. 2
+(4,81/0,6216 = 7,74), E4.10 (7,2/0,6216 = 11,6).
+*Fella:* å gange F med (1 − t_e) i stedet for å dele; å bruke faktoren 1,72
+*og* 37,84 % samtidig (dobbel oppjustering); og å bruke en annen y enn årets
+(oppgavene bruker 1,6 med 25 % for 2020-regler).
+
+**R9 — Effektiv sats, AERT og skattekaskaden.**
+1. Effektiv sats = betalt skatt / brutto inntekt før skatt. 2. For en eier
+legges selskapsskatt, eierskatt og formuesskatt i telleren og selskapets
+overskudd før skatt i nevneren. 3. To skatter etter hverandre *adderes ikke*:
+samlet sats = t₁ + (1 − t₁)·t₂. 4. Med AERT i stedet for nominell selskapsskatt
+brukes den faktiske satsen i første ledd.
+*Eksempel:* E4.8 (22 % + 78 % × 37,84 % = 51,5 %; med AERT 14 %: 46,5 %),
+E4.10 (24,7 % børs, 18,1 % unotert, ca. 20 % portefølje), E4.9 (printeren:
+14,7 % ved full avskrivning, 19,8 % ved 30 % saldo), E1.3.
+*Fella:* å addere satsene (22 + 37,84 = 59,84 % er feil), og å sette
+*utbetalt* utbytte i nevneren når spørsmålet gjelder skatt på selskapets
+overskudd.
+
+**R10 — Forventet verdi med og uten tapsfradrag.**
+1. Sett opp forventningen før skatt: E = p·R − (1 − p)·I, eller G − L.
+2. Med fullt tapsfradrag: multipliser *hele* forventningen med (1 − t).
+3. Uten tapsfradrag: bare oppsiden skattlegges, E = (1 − t)G − L = E − t·G.
+4. Break-even-rente uten fradrag: R\* = (1 − p)·I/(p·(1 − t)).
+*Eksempel:* E3.11–E3.12 (crowdlending: 6,24 % med fradrag mot 4,04 % uten;
+break-even 32 % ved 80 % suksess), E6.2–E6.3 (Domar–Musgrave: 12 000 mot
+15 000).
+*Fella:* å tro at skatten rammer begge alternativene likt når tapsfradraget
+mangler — det er hele poenget at asymmetrien straffer det risikable prosjektet.
+Og motsatt: med fullt tapsfradrag *kan* ikke rangeringen snu, uansett hvor høy
+satsen er.
+
+**R11 — Skattekreditt: V1, V2 og V3.**
+1. Løpende beskatning: V1 = Y(1 + r(1 − t))ⁿ — det er etter-skatt-renten som
+forrentes. 2. Utsatt skatt: V2 = Y[(1 − t)(1 + r)ⁿ + t] — hele bruttoavkastningen
+forrentes, skatten tas til slutt. 3. Fradrag og utsatt skatt:
+V3 = Y(1 + r)ⁿ ved konstant sats, og Y(1 − t_n)/(1 − t₀)·(1 + r)ⁿ ellers.
+4. Rangering ved konstant sats: V1 ≤ V2 < V3.
+*Eksempel:* E6.5 (100 000, 5 %, 10 år, 22 %: 146 607 / 149 054 / 162 889; med
+fradrag ved 40 % og uttak ved 22 %: 211 756).
+*Fella:* å regne V2 som Y(1 + r)ⁿ(1 − t) — det skattlegger også innskuddet.
+Skatten treffer bare *avkastningen*: (1 + r)ⁿ − 1.
+
+**R12 — Insidens: hvem bærer skatten.**
+1. Skriv likevekten som funksjon av produsentprisen: D(p + t) = S(p).
+2. Deriver: D′(∂p/∂t + 1) = S′·∂p/∂t. 3. Løs: ∂p/∂t = D′/(S′ − D′) og
+∂P/∂t = S′/(S′ − D′). 4. Kontroller fortegnene: D′ < 0, S′ > 0, nevner > 0, så
+∂p/∂t ∈ [−1, 0] og ∂P/∂t ∈ [0, 1], og de to summerer til 1. 5. I elastisiteter:
+konsumentens andel = ε_S/(ε_S + |ε_D|). 6. Monopol med lineære funksjoner:
+∂p/∂t = ½.
+*Eksempel:* E5.1 (5 → 5,60, 100 → 90: konsumenten 0,60, produsenten 0,40;
+implisitte helninger D′ = −16,7, S′ = 25; elastisiteter −0,83 og 1,25).
+*Fella:* fortegnsfeil. Feilalternativene på eksamen bytter teller og nevner
+eller skriver D′ − S′ i nevneren. Test alltid med grensetilfellene: D′ = 0 skal
+gi ∂P/∂t = 1 (konsumenten bærer alt), S′ = 0 skal gi ∂p/∂t = −1.
+
+---
+
+## 9. Kontrollregning
+
+Alle regneeksempler i avsnitt 3–7 er kjørt i
+`docs/fie432-research/kontroll.py`. Skriptet skriver én linje per eksempel og
+sammenligner med tallet i dette dokumentet. Kolonnen «status» under skiller tre
+ting: **✓** = lysbildets eget tall reproduseres; **⟨rek⟩** = formelen eller
+tallet var et bilde, og rekonstruksjonen reproduserer det som *står* i
+lysbildet; **✗** = lysbildets eller fasitens tall lar seg ikke reprodusere.
+
+| Eksempel | Innhold | Status |
+|---|---|---|
+| E3.1 | Annuitet 19 799, renter 12 500 → 9 750, stresstest 20 000 → 15 600 | ✓ |
+| E3.2 | Netto leie 109 808 → 85 650 etter skatt | ✓ |
+| E3.3 | Case 1: salg 7 198 000, gevinstskatt 241 560, NV 508 399, 8,3 % | ⟨rek⟩ NV-summen var bilde; reproduserer 8,3 % |
+| E3.4 | Case 2 (ett rom, EK): NV 733 279, 12,0 % | ⟨rek⟩ ✓ |
+| E3.5 | Gearing 3,5 %: renter 136 500, NV 771 465, 70,1 % | ⟨rek⟩ ✓ («70 %») |
+| E3.6 | Gearing 6 %: NV **495 675**, 45,1 % | ⟨rek⟩ ✓ **eksakt lysbildets tall** |
+| E3.7 | Ingen prisstigning, gearet: NV −233 360, −21,2 % | ⟨rek⟩ ✓ |
+| E3.8 | Ingen prisstigning, EK: NV **−271 547**, −4,5 % | ⟨rek⟩ ✓ **eksakt** |
+| E3.9 | Break-even 6 355 000 = +4,2 % | ⟨rek⟩ ✓ |
+| E3.10 | Regnearkets fjerde case: NV 546 597, 49,7 % | ✗ regnearkets tredje ledd 46 523 skal være 46 535 (12 kr) |
+| E3.11 | Tapsfradrag 62 400 (6,24 %) mot 40 400 (4,04 %), forhold 1,545 | ✓ |
+| E3.12 | Break-even-rente 320 513 ≈ 32 %; ved 40 %: 49 600 | ✓ / ⟨rek⟩ (49 600 var bilde) |
+| E3.13 | Appendiks, 4,4 % før skatt: NV 465 337 = 7,63 % | ✓ men lysbilde 64 sier 7,5 % og lysbilde 66 sier 7,6 % |
+| E3.14 | Alternativkostnad i case 1: NV 262 309, 4,3 % | ⟨rek⟩ eget eksempel |
+| E3.15 | Dok.avgift 152 500, formuesskatt 61 000 | ✓ |
+| Anita 1 | 240 000 × 0,78/(0,08 × 0,78) = 3 000 000 | ✗ **fasit 2 925 000 lar seg ikke reprodusere** (krever 6,4 %, altså 20 % skatt på renten og 22 % på leien) |
+| Anita 3 | 187 200/0,0312 = 6 000 000 | ✓ |
+| E4.1 | Delingsmodellen: 100 − 60 = 40 | ✓ |
+| E4.2 | Skjermingsrente (4,1 + 0,5) × 0,78 = 3,59 ≈ 3,6 % | ⟨rek⟩ ✓ |
+| E4.3 | Olsen 2014–2019, alle fem rader + gevinst 70 → skatt 26,49 | ✓ alle rader |
+| E4.4 | Treprosentregelen 0,66 | ✓ |
+| E4.5 | Formuesskatt 63 000, utbytteskatt 90 816, igjen 446 184, eff. 25,6 % | ✗ lysbildet skriver **90 186** (talltransposisjon) og 25,5 % |
+| E4.7 | y = 2,20 / 1,84 / 1,48 ved a = 12,4 / 6,2 / 0 pp | ⟨rek⟩ ✓ — men ✗ **ligningen balanserer ikke med dagens y = 1,72 og full overvelting**: 1,72 svarer til a ≈ 4,1 pp |
+| E4.8 | 22 % + 78 % × 37,84 % = 51,5 %; med AERT 14 %: 46,5 % | ✓ |
+| E4.9 | Printeren: full avskrivning 14,67 %, saldo 30 % 19,8 % | ✗ lysbildet skriver **14,6 %** i tabellen og **15,4 %** i noten |
+| E4.10 | V = 818, unotert 286,3; børs 24,7 %, unotert 18,1 %, portefølje 20,3 % | ⟨rek⟩ ✓ — men bare 1,1 %-satsen reproduserer 11,6 og 4,4 |
+| E4.11 | Sindre 2018–2021: 1, 2, 0, 0 med 2,04 framført | ✓ |
+| E4.12 | Leah: U = 1/(1 − 0,378) = 1,608, skatt 0,608 | ✓ |
+| E4.13 | BS-modellen: 0,3927 mot 0,3886 → vent med utbyttet | ⟨rek⟩ eget eksempel |
+| Oppg. F4 | 4,81 / 10,63 → 7,74 / 16,10 → 2,93 / 5,47 | ⟨rek⟩ fasitformlene var bilder; tallene er mine og er internt konsistente |
+| Oppg. F5 | Lugano: 33 000, 25 000, 36 800, 31,5 %, 46,5 %, gevinst 0 | ✓ alle seks |
+| E5.1 | Stykkskatt: P = 5,60, x = 90, deling 0,60/0,40, proveny 90, dødvekt 5 | ✓; helninger og elastisiteter ⟨rek⟩ ✓ (0,60 begge veier) |
+| E5.2 | Moms på melk | ingen tall |
+| E5.3 | Monopol: ∂p/∂t = ½ | ⟨rek⟩ ✓ |
+| E6.1 | A 20 000 sikkert mot B 25 000 forventet | ✓ (står i teksten) |
+| E6.2 | Skatt 40 % uten tapsfradrag: A 12 000; B krever G > 32 500 | ⟨rek⟩ — **B-fordelingen var bilde og finnes ikke**; grensen G > 32 500 er utledet, illustrasjonen (±100 000/−50 000 → 5 000) er min |
+| E6.3 | Fullt tapsfradrag: B = 15 000 > A = 12 000 | ✓ (begge står i teksten) |
+| E6.4 | x\* = z\*/(1 − t): 60 000 → 100 000 når t går fra 0 til 40 % | ⟨rek⟩ eget eksempel |
+| E6.5 | V1 146 607 < V2 149 054 < V3 162 889; satsendring 211 756 / 125 300 | ⟨rek⟩ eget eksempel; rangeringen kontrollert for n = 1, 5, 10, 20, 30 |
+| E6.6 | Implisitt skatt 25 %; 5,6 % mot 6 % mot 6,4 % | ✓ alle tre |
+| E6.7 | Sharpe 0,30; CE 4 % (A = 3) og 8 % (A = 1); CAPM 11,2 % | ✓ alle fire |
+| E6.8 | Etter skatt: 3,12 % / 6,216 % / σ 12,43 %; Sharpe 0,249; CE 3,90 % | ⟨rek⟩ — og ✗ **mot lysbildets påstand**: skatten svekker aksjen målt med Sharpe, men styrker den målt med sikkerhetsekvivalent |
+| Benedicte | 7,8 %; T = 22 %; flyfrakt 5,5 % | ✓ spm. 1–2; ✗ **fasitens 6,5 % skal være 5,5 %** (konklusjonen står likevel) |
+| E7.1 | BVI: 29 selskaper per innbygger; 30 000/48 200 = 62,2 % | ✓ — bekrefter at lysbildets «$30 0000» er 30 000 |
+| E7.2 | 4 000/365 = 11 styremøter per dag | ✓ |
+| E7.3 | 4+8+4+6+17+8 = 47 p; 13 + 47 = 60 p | ✓ ⟨rek⟩ summen står ikke i lysbildet |
+| E7.4–E7.5 | AJZ-andelene, institusjonell kvalitet | ingen regning |
+
+### De sju som ikke går opp
+
+1. **Anita spm. 1** (F3-oppgaven): fasit 2 925 000 krever 6,4 % etter skatt, som
+   er 8 % × 0,80 — altså 20 % skatt på avkastningskravet og 22 % på leien.
+   Konsistente satser gir 3 000 000. Formelen var et bilde.
+2. **E4.5 / lysbilde 60:** utbytteskatten er 90 816, ikke 90 186. Effektiv sats
+   25,6 %, ikke 25,5 %. Ren talltransposisjon; konklusjonen (på nivå med en
+   lønnstaker på 700 000) står.
+3. **E4.9 / printereksempelet:** 44 000/300 000 = 14,67 %. Lysbildet oppgir både
+   14,6 % (tabellen) og 15,4 % (noten). Ingen av dem er riktig; 15,4 % ser ut
+   som en transposisjon av 14,5.
+4. **E4.7 / inntektsskiftningsligningen:** med full overvelting av
+   arbeidsgiveravgiften krever ligningen y = 2,20, ikke 1,72. Dagens faktor
+   svarer til at bare ca. 4,1 av 12,4 prosentpoeng overveltes. Det er ikke en
+   regnefeil, men forelesningens eget poeng — verdt å kunne som argument.
+5. **E3.10 / regnearket:** tredje diskonterte ledd er ført som 46 523; riktig er
+   46 535. NV blir 546 585, ikke 546 597. 12 kroner.
+6. **Benedicte spm. 3:** fasiten regner 10 % × (100 % − 45 %) = 6,5 %. Riktig er
+   5,5 %. Anbefalingen (velg shipping) er den samme uansett, siden 7,8 % slår
+   begge tall. Fasiten kaller henne dessuten «Pernille».
+7. **E6.8 / lysbilde 36:** påstanden om at skatt «forsterker valget av
+   obligasjonen» holder for Sharpe-raten (0,30 → 0,249), men ikke for
+   sikkerhetsekvivalenten (CE 3,90 % mot risikofri 3,12 % etter skatt). Fordi
+   forventningen krymper lineært og variansen kvadratisk, flytter vippepunktet
+   seg fra A = 3,0 til A = 4,0. Det er Domar–Musgrave-effekten i
+   porteføljespråk, og den motsier lysbildets konklusjon for en investor med
+   A ≤ 4.
+
+To mindre avvik i tillegg: **E3.13** er 7,63 %, som lysbilde 64 runder til 7,5 %
+og lysbilde 66 til 7,6 % (samme tall, ulik avrunding), og **E4.10** krever
+formuesskattesatsen 1,1 % — ikke 1 % — for å reprodusere 11,6 og 4,4.

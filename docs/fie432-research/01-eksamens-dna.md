@@ -1092,3 +1092,334 @@ maks én side, H2019 oppgave 9f og 9h maks 250 ord, H2021 oppgave 6c og 6d maks 
 må bli lik den høyeste marginalskatten på lønn (46,7 %). Innsikten i hvorfor tallet må bli slik,
 vurderes altså høyere enn selve regningen — nøyaktig den ferdigheten som gir eliminering i et
 flervalgsformat.
+
+---
+
+## 6. De eldre åpne settene (2016–2019) som manual-eksempler
+
+*H2016, H2017, H2018 og H2019 testet det samme pensumet i åpen form. De er derfor den beste kilden
+til gjennomregnede eksempler: der flervalgssettene bare viser sluttsvaret, viser de gamle
+sensorveiledningene hele oppstillingen — hvilke mellomtall som skal fram, i hvilken rekkefølge, og
+hvilken kontroll faglæreren selv bruker for å se at svaret er rimelig.*
+
+### 6.1 Temaene i de fire settene
+
+| Sett | Oppg | Tema | Form | Finnes tilsvarende i flervalgsæraen? |
+|---|---|---|---|---|
+| H2016 | 1 | Stykkskatt-insidens, utledning + to grensetilfeller | Utledning | Ja — H2024 8, H2025 8 (som formelvalg/talleksempel) |
+| H2016 | 2 | Formuesskatt før/etter regelendring, forholdsmessig gjeldsfordeling | Regne + drøfte | Ja — H2024 6, H2025 2 |
+| H2016 | 3 | Boligprisindeks/CAGR, to annuitetslån sammenlignet, belåningsgrad, bankens forretningsmodell, System 1/2 | Regne + drøfte | Delvis — H2022 6 (annuitet/effektiv rente); bankdelen aldri gjentatt |
+| H2016 | 4 | Samboer vs ekteskap, arv, folketrygd, skatt på pensjon og AFP, omsorgsopptjening, levealdersjustering | Regne + fakta | Nei — jus- og trygdedelen forsvant med gjesteforeleseren |
+| H2017 | 1 | Formuesskatt i to regelverk + valget mellom bankinnskudd og nedbetaling | Regne + beslutning | Delvis — verdsetting og gjeldsfordeling, men aldri som valg |
+| H2017 | 2 | Justeringsfaktoren, oppjustert utbytte, samlet effektiv skattesats | Regne | Ja — H2022 1, H2025 5 |
+| H2018 | 1 | Utleie av egen bolig, formuesskatt, progressivitetsdefinisjon | Fakta + regne + begrep | Ja — H2024 4 (progressivitet) |
+| H2018 | 2 | Selskapsskatt → utbytte → oppjustering → samlet sats 46,7 % | Regne | Ja — H2022 1.5 |
+| H2018 | 3 | Stykkskatt i figur, effektivitetstap | Figur | Nei — figuroppgaver passer ikke flervalg |
+| H2018 | 4 | Stykkskatt-insidens, utledning + full overvelting | Utledning | Ja |
+| H2018 | 5 | Humankapital som voksende annuitet, CRRA-nyttevalg, skattens virkning, arv, Merton med og uten humankapital | Regne + drøfte | Delvis — Merton-delen i H2022 7 og H2025 11; humankapital som *nåverdiberegning* aldri gjentatt |
+| H2018 | 6 | Forsikringsmarkedets tre problemer (diversifisering, moral hazard, ugunstig utvalg) | Drøfte | Delvis — H2019 7b/7c som flervalg |
+| H2018 | 7 | Folketrygd ved tre uttaksaldre, innskudd vs ytelse, IPS mot fondssparing | Regne + drøfte | Delvis — H2024 13, H2025 17 som ren fakta |
+| H2019 | 1–8 | Flervalgsdelen: fritaksmetode, aksjonærmodell, formuesskatt, utbytte/gevinst, implisitt skatt, insidens, pensjon, forsikring, lån | Flervalg | Ja — dette settet er prototypen på H2022/H2024/H2025 |
+| H2019 | 9 | Sparing: CAGR, forventet sluttverdi, ln-nytte, subjektive sannsynligheter, overconfidence, tapsaversjon, prospektteoriens verdifunksjon | Regne + drøfte | Ja — gjenbrukt nesten ordrett som H2022 oppgave 5 |
+
+**Temaer som bare finnes i de gamle settene:** samboer- og ektefelleoppgjør, arv, skatt på
+alderspensjon og AFP, omsorgsopptjening, levealdersjustering (alle H2016, gjesteforeleser i
+jus/trygd); bankens forretningsmodell og forbrukslånsmarkedet (H2016); effektivitetstapet tegnet i
+figur (H2018); humankapital regnet som nåverdi av en voksende lønnsstrøm (H2018); og
+prospektteoriens verdifunksjon forklart i ord (H2019). De to første er trolig borte for godt —
+gjesteforeleseren i jus har ikke vært tilbake siden 2016, og 2026-planen har ingen slik slot. De tre
+siste ligger fortsatt i pensum og kan komme igjen i flervalgsform.
+
+### 6.2 Gjenbruksmønsteret: en åpen oppgave blir en flervalgsoppgave
+
+H2019 oppgave 9 og H2022 oppgave 5 er samme oppgave med nye tall. Strukturen er identisk, ledd for
+ledd: (1) finn bankrenten som CAGR av sluttverdien, (2) regn forventet sluttverdi av aksjer over to
+scenarioer, (3) sammenlign ln-nytte, (4) endre til 50/50 subjektive sannsynligheter, (5) sjekk om
+konklusjonen snur, (6) legg på tapsaversjonsfaktoren 1/1,03 og sjekk igjen. Bare tallene er byttet:
+1 mill over 10 år og 40/60 i H2019 mot 500 000 over 20 år og samme 40/60 i H2022.
+
+Det samme gjelder H2018 oppgave 2 → H2022 oppgave 1 (selskapsskatt → utbytte → oppjustering →
+effektiv sats), H2017 oppgave 1 → H2019 oppgave 2 → H2024 oppgave 6 (formuesskatt med forholdsmessig
+gjeldsfordeling), og H2018 oppgave 4 → H2019 oppgave 5 → H2024 oppgave 8 (insidensutledningen som
+blir formelgjenkjenning). **De gamle åpne oppgavene er altså ikke bare øvingsstoff — de er malen
+flervalgsspørsmålene lages fra.**
+
+### 6.3 De ni regneoppgavene som bør bli gjennomregnede eksempler
+
+Rangert etter hvor mye de lærer per side. Begrunnelsen står i klartekst fordi den bestemmer
+hvilken rolle eksempelet skal spille i en manual.
+
+**1. H2017 oppgave 2 — justeringsfaktor, oppjustert utbytte, samlet skattesats.**
+Tre ledd som bygger på hverandre: løs y ut av t_w = t_A + (1 − t_A)·t_e·y (y = 1,3), bruk y på
+utbyttet etter selskapsskatt (7 600 × 1,3 × 0,23 = 2 272), og summer skattene som andel av
+bruttooverskuddet ((2 272 + 2 400)/10 000 = 46,7 %). **Hvorfor:** eksempelet har en innebygd
+kontroll — sluttsvaret *må* bli t_w, ellers er noe galt, og sensorveiledningen gir full uttelling til
+den som ser det uten å regne. Det er den enkleste måten å lære en student å sjekke sitt eget svar.
+
+**2. H2016 oppgave 2 — formuesskatt før og etter en regelendring.**
+Regn nettoformuen under gammelt regelverk (20·0,25 + 10·0,8 − 10 = 3,0 mill → 25 500), fordel så
+gjelden forholdsmessig etter markedsverdi (2/3 på primær, 1/3 på sekundær), avkort bare
+sekundærgjelden, og regn på nytt (3,67 mill → 31 196). Vurder til slutt om politikerens påstand
+holder. **Hvorfor:** flertrinnet, og det eneste eksempelet i materialet som stiller to regelverk
+side om side — det gjør *hvorfor*-en ved gjeldsfordelingen synlig i stedet for å bare drille
+oppskriften. Bonus: eksempelet demonstrerer at negativ nettoverdi på én eiendel motregnes mot
+positiv på en annen, som er nøyaktig det H2024 oppgave 6 og H2025 oppgave 2 tester.
+
+**3. H2019 oppgave 9 — sparing, ln-nytte, subjektive sannsynligheter, tapsaversjon.**
+Sju ledd fra CAGR til prospektteori. **Hvorfor:** dekker hele den finansielle psykologidelen i én
+sammenhengende historie, og har en dokumentert flervalgstvilling (H2022 oppgave 5) å kontrollere
+tallene mot. Merk at fasiten i H2019-fila er et bilde som mangler — men alle tallene kan
+rekonstrueres, og H2022-veiledningen bekrefter metoden ledd for ledd.
+
+**4. H2016 oppgave 3 — to lån sammenlignet over ti år.**
+Boligindeks → CAGR (7,63 %), annuitet på forbrukslån (88 492) og rammelån (58 615), rentesum for
+begge, belåningsgrad (41,7 %), og til slutt en følsomhetsanalyse: hva om rammelånet løfter renten på
+den gamle gjelden med ett prosentpoeng (78 615, fortsatt billigst)? **Hvorfor:** dette er den eneste
+komplette lånesammenligningen i materialet, med en nedbetalingstabell i fasiten. Den dekker
+`lån-annuitet`, `lån-rentesum`, `lån-belåningsgrad` og `boligpris-cagr` i ett eksempel, og
+sensorveiledningen viser eksplisitt at nåverdiberegning er unødvendig når den ene betalingsstrømmen
+ligger under den andre hvert eneste år — et resonnement som gir eliminering i flervalg.
+
+**5. H2018 oppgave 5 — humankapital og karrierevalg.**
+Regn humankapitalen som en voksende annuitet over 40 år for tre lønnsbaner (450 000 → 10,90 mill;
+575 000 → 13,93 mill; 350 000 → 8,48 mill ved 4 % vekst og 7 % diskonteringsrente), sammenlign
+CRRA-nytte med γ = 3, og bruk resultatet i Mertons formel med og uten humankapital.
+**Hvorfor:** eneste sted i materialet der humankapitalen faktisk *regnes ut* i stedet for å bli
+oppgitt. Det gjør Merton-oppgavene i H2022 og H2025 langt mindre mystiske, siden studenten da
+forstår hvor tallet «2 000′ i humankapital» kommer fra. Advarsel til den som bygger eksempelet:
+fasiten i fila er bilder som mangler, så alle tall må regnes selv (gjort i del 7).
+
+**6. H2017 oppgave 1 — formuesskatt som beslutning, ikke bare tall.**
+Fire delsvar som ender i spørsmålet «lønner det seg å bruke bankinnskuddet til å redusere lånet?».
+Svaret er ja: nettoformuen faller fra 1,87 til 1,8 mill fordi gjeldsavkortingen på sekundærboligen
+blir mindre skadelig når gjelden er mindre. **Hvorfor:** viser at formuesskattereglene har
+atferdskonsekvenser, som er hele kursets premiss. Det er også et rent eksempel på avrundingskravet
+(del 5.1): fasiten runder 1,87 til 1,9 fordi oppgaven ber om det.
+
+**7. H2016 oppgave 4c–f — folketrygd, pensjonsskatt og AFP.**
+Pensjonsbeholdning med tak på 7,1 G (651 354 × 18,1 % × 30 + 500 000 × 18,1 % × 10 = 4 441 852),
+delingstall 21,37 → 207 855 i året, deretter skatten på pensjonen med trygdeavgift, trinnskatt,
+alminnelig inntekt og nedtrappet skattefradrag (58 452, altså 28,1 %), og marginalskatten på AFP
+(59 %). **Hvorfor:** det eneste eksempelet som viser hele kjeden fra opptjening til utbetalt beløp
+etter skatt, og det eneste som regner ut nedtrappingen av skattefradraget for pensjonsinntekt.
+Temaet er underrepresentert i de nye settene (H2024 og H2025 har bare begrepsspørsmål om
+delingstall), men står fortsatt i pensum.
+
+**8. H2019 oppgave 2 — kvadratmetersats til nettoformue null.**
+Skatteetatens kvm-satser gir markedsverdier (16 mill og 6,3 mill), rabattene gir ligningsverdier
+(4 mill og 5,67 mill), gjelden fordeles 71,7/28,3 % og avkortes bare på sekundærboligen, og
+nettoformuen blir null. **Hvorfor:** sluttsvaret er nøyaktig null, som er den beste tenkelige
+kontrollen — enhver feil i ett av de fem leddene flytter svaret bort fra null. Eksempelet viser
+dessuten kvadratmetersats-leddet, som ingen av flervalgssettene fra 2022 og senere har med.
+
+**9. H2018 oppgave 7a — folketrygd ved tre uttaksaldre.**
+Samme beholdning, tre delingstall (62, 67, 72 år). **Hvorfor:** gjør nøytralt uttak og
+levealdersjustering konkret, og er direkte forberedelse til begrepsspørsmålet i H2025 oppgave 14
+(«delingstallet synker, årlig utbetaling øker»). Krever at delingstallstabellen fra NAV legges ved —
+den er et bilde i fila og må hentes utenfra.
+
+**Ikke prioriter:** H2018 oppgave 3 (figuroppgave — kan ikke gjenbrukes i flervalg), H2016 oppgave
+4a–b (jus, gjesteforeleser som ikke har vært tilbake på ni år), og H2016 oppgave 3i–j (bankens
+forretningsmodell og System 1/2 — rene drøftingsspørsmål uten regning).
+
+---
+
+## 7. Kontrollregning av fasitene
+
+*109 fasitsvar fra alle ni sett er regnet om fra oppgavetekstens egne tall i Python, prioritert
+etter antall regneledd. Skriptene ligger ikke i repoet; hver enkelt utregning står i tabellene
+under, slik at de kan etterprøves. Formålet er å skille ekte feil fra avrunding, slik at et
+treningsprogram ikke lærer bort en trykkfeil.*
+
+### 7.1 Oppsummering per sett
+
+| Sett | Kontrollert | Stemmer eksakt | Avvik fra avrunding | Feil i fasitteksten | Ikke kontrollerbart |
+|---|---|---|---|---|---|
+| H2016 | 14 | 11 | 2 | 1 | — |
+| H2017 | 8 | 7 | 1 | — | — |
+| H2018 | 4 | 4 | — | — | 6 (fasit er bilder) |
+| H2019 | 14 | 11 | 2 | — | 1 (delingstall er bilde) |
+| H2020 | 7 | 6 | — | 1 | 14 (fasit er bilder) |
+| H2021 | 8 | 7 | 1 | — | 10 (fasit er bilder) |
+| H2022 | 21 | 20 | — | 1 (bare i nynorskversjonen) | 1 (σ mangler i tabellen) |
+| H2024 | 15 | 13 | — | 2 | — |
+| H2025 | 18 | 17 | — | 1 | — |
+| **Sum** | **109** | **96** | **6** | **6** | **32** |
+
+«Avvik fra avrunding» betyr at fasiten er riktig gitt oppgavens eget avrundingskrav, men at eksakt
+regning gir et annet tall. «Feil i fasitteksten» betyr en trykkfeil eller regnefeil i selve
+veiledningen; i fem av seks tilfeller er *svaralternativet* likevel riktig, slik at studenten som
+regner riktig får rett.
+
+### 7.2 Avvikstabellen
+
+| # | Sett/oppgave | Fasit | Kontrollregnet | Avvik | Diagnose |
+|---|---|---|---|---|---|
+| 1 | H2024 5 (gjennomsnittsskatt, individ X) | Alternativet: **17,2 %**. Utregningsteksten: 17,1 % | 65 400/380 000 = **17,2105 %** | 0,1 pp i teksten | **Trykkfeil i utregningsteksten. Alternativet 17,2 % er riktig.** Skatten 65 400 og inntekten 380 000 er begge korrekt utledet i samme avsnitt; bare siste desimal er skrevet feil. Kandidaten som regner selv, treffer riktig rute |
+| 2 | H2025 1 (utbytte etter eier- og formuesskatt) | Setningen: «henholdsvis kr 200 000 og kr **120 000**». Tabellen og sluttsvaret: 160 000 og **740 000** | Formuesskatt = 10 mill × 0,8 × 1 % × 2 år = **160 000**; 1 100 000 − 200 000 − 160 000 = **740 000** | 40 000 i én setning | **Trykkfeil. 160 000 og 740 000 er riktig.** Avsnittet over regner eksplisitt 80 000 per år i to år; «120 000» er inkonsistent med både utregningen og sluttsvaret |
+| 3 | H2016 2a (formuesskatt etter regelendring) | 31 196, økning 5 695 | Nettoformue 3,6667 mill → **31 167**, økning **5 667** | 29 kr / 28 kr | Fasiten runder nettoformuen til 3,67 mill før den ganger med 0,85 %. Ingen feil i metoden; forskjellen er ren avrunding |
+| 4 | H2016 4c (pensjonsbeholdning) | 4 441 **842** | 651 354 × 18,1 % × 30 + 500 000 × 18,1 % × 10 = 4 441 **852** | 10 kr | Sifferfeil i fasitens sum. Uten betydning: begge tall delt på 21,37 gir 207 855 |
+| 5 | H2016 4b (samboerarv, 4 G) | «ca. 370 000» | 4 × 91 740 (snitt-G 2016) = **366 960**; 4 × 92 576 (G fra 1.5.2016) = **370 304** | 3 344 kr | Fasiten bruker G-satsen fra mai 2016, mens 4c bruker gjennomsnittlig G. Inkonsistent G-bruk i samme oppgave, men «ca.» dekker begge |
+| 6 | H2017 1d (formuesskatt 2017) | 16 150 (nettoformue 1,9 mill) | Nettoformue 2 + 3,6 − 2,4 − 1,3333 = **1,8667 mill** → **15 867** | 283 kr | Oppgaven sier eksplisitt at man kan runde til én desimal. Fasiten følger sitt eget krav |
+| 7 | H2019 2b (ligningsverdi sekundærbolig) | 5,7 mill (alternativ e) | 6,3 mill × 0,9 = **5,67 mill** | 30 000 kr | Oppgaven ber om avrunding til én desimal; alternativet er formulert avrundet |
+| 8 | H2019 2c (nettoformue) | 0 | Med avrundede tall: 4 + 5,7 − 7,2 − 2,5 = **0**. Eksakt: 4 + 5,67 − 7,1749 − 2,5426 = **−47 489** | 47 489 kr | Avrundingen er *nødvendig* for at svaret skal bli null. Fasiten er riktig etter oppgavens instruks, men eksakt regning treffer ingen av alternativene — bruk avrunding først |
+| 9 | H2021 1c (skattepliktig nettoformue) | 285 027 | Andeler eksakt 80 %/16⅔ %/3⅓ %: fradragsberettiget gjeld **1 665 000**, nettoformue **285 000** | 27 kr | Fasiten bruker 0,1667 og 0,033 i stedet for 1/6 og 1/30. Metoden er identisk |
+| 10 | H2020 1c (skattepliktig utbytte) | 78 000 «(= 100 000 × 0,22)» | 100 000 × **0,78** = 78 000; × 1,4 = 109 200 | 0 kr, men formelen er feil skrevet | Trykkfeil i formelen; tallet og sluttsvaret er riktige |
+| 11 | H2022 1.5, nynorskversjonen (samlet effektiv sats) | 46,8 % | (33 000 + 36 800)/150 000 = **46,533 %** → 46,5 % | 0,3 pp | **Reell feil i nynorskfasiten.** Bokmålsversjonen har 46,5 %, som er riktig |
+| 12 | H2022 oppgave 2, nynorskversjonen (skattbart utbytte 2021) | 0,96 kr, utledet fra utbytte 6 | Oppgåveteksten i tabellen oppgir utbytte **3** i 2021, som gir 0 kr og akkumulert skjerming 2,04 | Ulikt tallgrunnlag | Nynorskfasiten regner på et annet utbytte enn nynorskoppgaven oppgir. Bokmålsversjonen er konsistent (0 kr). Bruk bokmålsversjonen |
+| 13 | H2024 4c (gjennomsnittsskatt, Per) | 22,42 % | (1 000 − 200) × 28 %/1 000 = **22,40 %** | 0,02 pp | Trykkfeil i veiledningen. Konklusjonen (sterkere progressivitet) er uansett riktig |
+| 14 | H2021 6f (sluttverdi av årlig sparing) | 1 222 537 | Med uavrundet r = 5,2517 %: **1 222 537**. Med avrundet 5,25 %: **1 222 316** | 221 kr ved avrunding | Fasiten forutsetter uavrundet mellomregning. Verdt å merke seg for oppgaveproduksjon: kravet må stå i teksten |
+| 15 | H2016 3c og 3e (rentesum) | 384 921 og 86 153 | 10·A − L = **384 920,82** og **86 152,53** | under 1 kr | Fasiten summerer rentekolonnen i regnearket; forskjellen er avrunding i siste ledd |
+| 16 | H2019 8a (gjeldsbelastning) | «ca 7,5» | 3 000 000/(650 000 × 0,8 − 120 000) = **7,50** | 0 | **Stemmer, men definisjonen står ingen steder** i verken oppgavetekst, fasit eller forelesningsnotater. Alternativene inneholder også gjeld/bruttoinntekt (4,6) og gjeld/inntekt etter skatt (5,77). Definisjonen må oppgis eksplisitt i et treningsprogram |
+
+### 7.3 De to kjente kandidatene — konklusjon
+
+**H2024 oppgave 5 er bekreftet:** 65 400/380 000 = 17,2105 %, som med oppgavens eget krav om én
+desimal blir 17,2 %. Svaralternativet er riktig; setningen «den effektive skattesatsen for Individ X
+vil være 17,1 %» er en trykkfeil i utregningsteksten. Samme avsnitt regner individ A til
+85 000/450 000 = 18,889 % → 18,9 %, som stemmer.
+
+**H2025 oppgave 1 er bekreftet:** formuesskatten er 160 000 (10 mill × 80 % × 1 % × to år), som
+veiledningen selv regner ut i avsnittet over. Setningen som oppgir «200 000 og 120 000» er
+inkonsistent med både utregningen og sluttsvaret 740 000. Riktig alternativ (740 000) er ikke berørt.
+
+### 7.4 Fasiter som ikke lot seg kontrollere
+
+32 fasitsvar kunne ikke sammenlignes fordi fasiten i tekstfila er et bilde som mangler:
+H2018 oppgave 5a, 5b, 5d, 5e, 5f og 7a; H2019 oppgave 9 (hele); H2020 oppgave 4, 5 og 6; H2021
+oppgave 5, 6 og 7. Alle er likevel rekonstruert fra oppgaveteksten, og tallene under er de som et
+treningsprogram bør bruke:
+
+| Sett/oppgave | Rekonstruert svar |
+|---|---|
+| H2018 5a | Humankapital ved 4 % vekst og 7 % rente over 40 år: sykepleier **10 904 146**; megler autorisert **13 933 075**; megler assistent **8 481 002**; forventet **11 752 246** |
+| H2018 5b | CRRA med γ = 3: sykepleier gir høyest forventet nytte (sikkerhetsekvivalent for megler ≈ **10 750 907** < 10 904 146) ⇒ **velg sykepleier** |
+| H2018 5e | α = (0,06 − 0,02)/(3 × 0,15²) = **59,26 %** |
+| H2018 5f | Med F = 2 mill arv, forventet H = 11,75 mill, σ_H = 10 %, ρ = 1: α_F = w(F+H)/F − (H/F)(σ_H/σ) = **15,7 %** |
+| H2019 9a–9g | 2,0 %; 1 353 814; ln-nytte bank **14,0135** > aksjer **14,0021** ⇒ bank; 50/50 gir aksjer **14,0993** ⇒ aksjer; tapsaversjon gir aksjer **13,7642** ⇒ bank igjen |
+| H2020 4a–4c | 224 000; 2 800 000 − studielån; stresstest ved 8 % over 30 år: **2 521 743** |
+| H2020 5a | 0,181 × 500 000 × 43/18,02 = 215 954 i året ⇒ kompensasjonsgrad **43,2 %** |
+| H2020 6a | Lån 2 125 000, annuitet **122 034**; første fem år: renter **300 732**, avdrag **309 439**, restgjeld **1 815 561** |
+| H2020 6c–6e | EK 375 000 → 1 226 071 etter fem år. Geometrisk EK-avkastning før renter **26,7 %**; etter renter **19,8 %**; etter skatt **21,5 %**; med avdragsfrihet **12,2 %** (lavere fordi egenkapitalen ikke bygges opp) |
+| H2020 6g | Leie-til-eie med avtalt 4 % prisvekst: **2 658 244** mot 2 500 000 ved direktekjøp |
+| H2021 5a–5c | 260 000; 3 250 000 − studielån; stresstest **2 927 024** |
+| H2021 6a–6b | γ = 3: **85,03 %**; γ = 4: 63,78 %; γ = 5: 51,02 %; γ = 6: 42,52 %. Med 0,5 pp høyere premie, γ = 3: **93,54 %** |
+| H2021 6e–6f | Porteføljeavkastning **5,2517 %**; sluttverdi **1 222 537** |
+| H2021 7a | 0,181 × 40/18,02 = **40,18 %** |
+
+Ett fasitsvar er ikke rekonstruerbart: **H2019 oppgave 6a** (kompensasjonsgrad ca. 59 %). Med lik
+individuell og samfunnsmessig lønnsvekst og lønn under 7,1 G blir beholdningen 0,181 × 50 år =
+9,05 ganger sluttlønn, slik at svaret er 9,05/delingstall. 59 % krever delingstall ≈ 15,3 ved uttak
+i en alder av 73 år, som er plausibelt, men NAV-tabellen i oppgaven er et bilde som mangler.
+Tilsvarende mangler σ i H2022 oppgave 7 (tabellen har tom celle); at fasitens 50 % forutsetter
+σ = 20 % følger av utregningen 4 %/(2 × 20 %²).
+
+---
+
+## 8. Oppsummering
+
+### 8.1 De fem hyppigste temaene
+
+Rangeringen avhenger av om man teller spørsmål eller poeng. Begge listene er relevante: antall
+spørsmål sier hvor ofte du møter temaet, poengandelen sier hva det koster å bomme.
+
+| # | Etter antall spørsmål (227 totalt) | Etter poengandel (snitt over ni sett) |
+|---|---|---|
+| 1 | Stykkskatt-insidens — 17 spørsmål, 8 av 9 sett | Stykkskatt-insidens — **11,6 %** |
+| 2 | Merton-aksjeandel med humankapital — 15 spørsmål, 5 sett | Oppjustering/eierskatt på utbytte og gevinst — **7,7 %** |
+| 3 | Internasjonal skatt og exit-skatt — 14 spørsmål, 4 sett | Formuesskatt, gjeldsfordeling — **7,6 %** |
+| 4 | Sparing med ln-nytte, subjektive sannsynligheter, tapsaversjon — 14 spørsmål, 3 sett | Folketrygdpensjon — **6,2 %** |
+| 5 | Folketrygdpensjon — 14 spørsmål, 6 sett | Internasjonal skatt — **5,4 %** |
+
+Forskjellen mellom listene forteller noe: internasjonal skatt og sparing/ln-nytte kommer sjelden,
+men når de kommer, kommer de i klaser på 5–8 spørsmål og tar 14–19 % av settet. Stykkskatt-insidens
+er derimot jevnt fordelt — det kommer *hvert* år, med 1–3 spørsmål.
+
+Ser man bare på flervalgsæraen (H2022, H2024, H2025), som ligner mest på 2026, snevres bildet inn
+til fire temaer som er med i alle tre sett: **stykkskatt-insidens, skjermingskjeden,
+oppjustering/effektiv sats, og utbytte for å dekke formuesskatt.**
+
+### 8.2 Hva et treningsprogram må prioritere
+
+**Nivå 1 — må sitte perfekt (til sammen ca. 40 % av poengene i de tre siste settene):**
+
+1. **Stykkskatt-insidens** (rutine R9). Både formelgjenkjenningen (H2024) og talleksemplene med
+   grensetilfeller (H2025). Kravet er å kunne skrive ned ∂p/∂t = D′/(S′ − D′) og ∂P/∂t = S′/(S′ − D′)
+   uten å tenke, og å vite at de summerer til 1.
+2. **Skjerming → oppjustering → effektiv sats som én sammenhengende kjede** (R1, R2, R3). Trenes ikke
+   som tre temaer, men som én oppgave med fire til seks delspørsmål, slik settene faktisk gjør det.
+3. **Formuesskatt i to former:** forholdsmessig gjeldsfordeling med verdsettingsrabatt (R4) *og*
+   formuesskatt som avkastningsskatt med verdsetting av evig kontantstrøm (R6). Den siste var 17 % av
+   H2025 og bygger på pensumartiklene BS4 og BS5, som begge står i 2026-planen (BS5 er ny fra 2026).
+4. **Utbytte som skal dekke formuesskatt og eierskatt** (R5). Liten, men i to av de tre siste settene,
+   og den har en fast felle (legge skatten oppå i stedet for å brutto-regne).
+
+**Nivå 2 — kommer annethvert år, må trenes jevnlig:**
+
+5. **Mertons aksjeandel med humankapital** (R14). 14 % av poengene i både H2022 og H2025, fraværende
+   i H2024. Det avgjørende er at w gjelder totalformuen, ikke finansformuen.
+6. **Forventet nytte og forsikring** (R13). Stigende kurve: 8 % i H2024, 14 % i H2025. Både √W- og
+   ln W-versjonen, og både «bør du kjøpe», «hva er maks premie» og «hva er terskelsannsynligheten».
+7. **Gjennomsnittsskatt, progressivitet, implisitt skatt og tidsverdi av fradrag** (R7, R8, R10).
+   Samlet 14 % av H2024, null i H2025 — typiske «kommer tilbake»-temaer.
+8. **Førsteordensbetingelsen for kapitalbruk og gjeld mot egenkapital** (R11). 10 % av H2025, 14 % av
+   H2020.
+
+**Nivå 3 — beredskap:**
+
+9. **Internasjonal skatt og exit-skatt** (R12). 15–19 % av poengene i H2022 og H2024, men helt
+   fraværende i H2025 fordi skatterett-gjesten uteble. 2026-planen har ingen skatterett-gjest, men
+   Schjelderup tar «Skatt/emigrasjon» selv 9.9 og «Skatteparadiser» 23.9, og HK-slotten 9.10 er
+   fortsatt uten oppgitt tema. Temaet må derfor trenes — men på begrepsnivå (unntak, kredit, kredittak,
+   ingen avtale) framfor de detaljerte paragrafspørsmålene gjesteforeleseren stilte.
+10. **Lån og boliglånsforskrift** (R17, R18), **folketrygdpensjon som regnestykke** (R19), og
+    **sparing med ln-nytte og tapsaversjon** (R15). Se 8.3.
+
+**Metodetrening som gjelder på tvers:** eliminering. Under minuspoeng er det nok å utelukke ett av
+fire alternativer for å få positiv forventning (del 3). Feilalternativene i disse settene lages av tre
+faste mekanismer — mellomregningen, nabospørsmålets svar, og «ett ledd hoppet over» — og et
+treningsprogram som lærer bort disse mønstrene, ikke bare fasitene, hever forventet poengsum
+uavhengig av om studenten kan regne oppgaven ferdig.
+
+### 8.3 Underrepresentert i H2024 og H2025, men fortsatt i pensum
+
+Disse temaene ga null eller nesten null poeng i de to nyeste settene, men står i 2026-planen. De er
+de mest sannsynlige gjengangerne, og et treningsprogram som utelater dem, tar en unødvendig risiko.
+
+| Tema | Sist regnet på eksamen | Hjemmel i 2026-planen | Risikovurdering |
+|---|---|---|---|
+| Sparing over scenarioer: ln-nytte, subjektive sannsynligheter, tapsaversjon, prospektteori | H2022 (6 spørsmål, 14 % av settet) | Forelesning 16, «Finansiell psykologi», TD kap. 6 og 12 | **Høy.** Oppgaven finnes i to nesten identiske utgaver (H2019 åpen, H2022 flervalg) og er lett å produsere med nye tall |
+| Lån: annuitet, effektiv rente med gebyrer, kredittkostnad | H2022 (3 spørsmål, 9 %) | Forelesning 15, «Lån og risikostyring», TD kap. 8 og 10 | **Høy.** H2024 og H2025 har kun ett begrepsspørsmål om avdragsfrihet mellom seg |
+| Boliglånsforskriften: betjeningsevne, femgangeren, stresstest med +5 pp | H2021 | Samme forelesning | **Middels–høy.** Rutinen er kort og passer flervalg godt |
+| Folketrygdpensjon som regnestykke (beholdning, delingstall, kompensasjonsgrad) | H2021 | Forelesning 13, «Sparing og pensjon», TD kap. 1–5 og 11 | **Middels–høy.** H2024 og H2025 har bare begreps- og faktaspørsmål, men rutinen har vært regnet i seks av ni sett |
+| Skatt, tapsfradrag og risikotaking (staten som medinvestor på opp- og nedside) | **Aldri** i de ni settene | Forelesning 10, «Skatt, aksjer og risiko», pensum AS2 (Sandmo) og SW | **Middels.** Har egen forelesning *og* eget oppgavesett, men er aldri eksaminert. Et regneeksempel med og uten tapsfradrag passer perfekt som flervalgsspørsmål |
+| Realavkastning og superprofitt (nominell vs. real avkastning, avkastning utover statskasseveksler) | H2016 (som boligprisindeks/CAGR) | Forelesning 2, «Avkastningen på ulike aktiva over tid», pensum J (Jordà et al.) | **Middels.** Egne øvingsoppgaver finnes; rutinen er kort og entydig |
+| Verdsetting av utleiebolig: evig kontantstrøm justert for skatt | Beslektet i H2025 3c–3d | Forelesning 3, «Investeringer og skatt: eiendom, aksjer, obl. og folkefinansiering» | **Middels.** Øvingssettet til forelesning 3 er nøyaktig denne rutinen, uten formuesskattleddet |
+| Humankapital regnet som nåverdi av voksende lønnsstrøm | H2018 | Forelesning 13, TD kap. 1–5 | **Lav–middels.** Regnetungt for flervalg, men kan komme som ett ledd |
+| Aksjonærmodellen og fritaksmetoden som definisjonsspørsmål | H2019 | Forelesning 4 og 5 (to hele forelesninger, pensum BS1–BS3, HBS) | **Middels.** To forelesninger og fire pensumartikler tilsier at faktaspørsmål er billige poeng for faglæreren å lage |
+| Bolig: egenkapitalavkastning, gearing, avdragsfrihet, leie-til-eie | H2020 | Forelesning 3 og 15 | **Lav–middels.** Krever mange ledd og passer dårlig i flervalg, men enkeltledd kan hentes ut |
+
+**Nesten sikkert borte:** familierett og arverett (samboer mot ekteskap, skjevdeling, arv) og
+trygderettens skattesider (skatt på alderspensjon, AFP, omsorgsopptjening). Temaene ble bare
+eksaminert i H2016 med egen gjesteforeleser i jus, og selv om læringsutbyttet i 2026-planen fortsatt
+nevner familierett, arverett og trygderett, finnes det ingen forelesning som dekker dem.
+Effektivitetstapet tegnet i figur (H2018 oppgave 3) er også praktisk talt utelukket i et
+flervalgsformat.
+
+### 8.4 Den viktigste enkeltobservasjonen for oppgaveproduksjon
+
+**Øvingsoppgavene til forelesningene er eksamen.** H2022 oppgave 1 og oppgave 2 er ordrett det samme
+som oppgave 1 og 2 i øvingssettet til forelesning 5 — samme navn (Kjell Inge og Lugano AS, Martine og
+LAX), samme tall, samme fasit, ned til den samme avrundingsregelen om at 1,45 blir 1,5.
+Øvingssettet til forelesning 4 stiller nøyaktig rutine R5 (utbytte som skal dekke formuesskatten),
+som dukket opp i H2024 oppgave 7 og H2025 oppgave 6. Øvingssettet til forelesning 9 stiller rutine
+R10 (implisitt skatt), som ble H2019 oppgave 4 og H2024 oppgave 9.
+
+For et treningsprogram betyr det to ting. For det første: øvingsoppgavene skal inn i pensumbasen med
+samme vekt som eksamensoppgavene. For det andre: de øvingsoppgavene som **ennå ikke** har vært
+eksaminert — tapsfradrag og risikotaking (forelesning 9/10), realavkastning og superprofitt
+(forelesning 1/2), og verdsetting av utleiebolig med skatt (forelesning 3) — er de beste
+kandidatene for hva som kommer i 2026.
+
+*(Én advarsel til den som bruker øvingssettene direkte: fasiten til forelesning 3 diskonterer
+med 8 % × 0,8 i første delspørsmål og 4 % × 0,78 i tredje. Regn selv før du gjenbruker tallene.)*
