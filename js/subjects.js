@@ -219,7 +219,7 @@ window.EDU_SUBJECTS = [
     logo: "PØ",
     blurb: "Skattesystemet, aksjonær- og formuesbeskatningen, skatteteorien og husholdningens finansbeslutninger — med ni tidligere eksamener rettet automatisk.",
     accent: "#a8521c", accentInk: "#8a4116", accentSoft: "#fbf0e8", accentSoft2: "#f4dcc9",
-    scripts: ["fag/fie432/data.js", "fag/fie432/sett.js"],
+    scripts: ["fag/fie432/data.js", "fag/fie432/quiz.js", "fag/fie432/dybde.js", "fag/fie432/sett.js"],
     manual: {
       candidates: ["FIE432_Manual.html", "fag/fie432/manual.html", "../FIE432_Manual.html"],
       label: "FIE432_Manual.html",
@@ -264,7 +264,7 @@ window.EDU_SUBJECTS = [
        flervalgssett, som kjøres i /sett. Flashcards er med fordi de 100 radene i
        formelsamlingen k20 blir til kort automatisk; quiz, dybde og lyn legges
        til når de dataene er skrevet. */
-    modules: ["/plan", "/curriculum", "/flashcards", "/sett", "/review", "/search", "/progress"],
+    modules: ["/plan", "/curriculum", "/quiz", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress"],
   },
 ];
 

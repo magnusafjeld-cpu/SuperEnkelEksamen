@@ -60,6 +60,10 @@ function dataFor(sub) {
 
 const HTML = /<\/?[a-zA-Z][^>]*>/;
 const norm = (s) => String(s || "").replace(/\s+/g, " ").trim().toLowerCase();
+/* Alternativer sammenlignes med store og små bokstaver intakt: i «(R − r)/R» mot
+   «(R − r)/r» er nettopp bokstavstørrelsen forskjellen mellom før og etter skatt.
+   Senkes de, ser de to ut som duplikater. */
+const normAlt = (s) => String(s || "").replace(/\s+/g, " ").trim();
 
 function sjekkFag(sub) {
   const feil = [], advarsel = [], notat = [];
@@ -103,7 +107,7 @@ function sjekkFag(sub) {
           if (!String(t || "").trim()) si(feil, hvor, `alternativ ${i + 1} er tomt`);
           if (HTML.test(t)) si(feil, hvor, `alternativ ${i + 1} inneholder markup`);
         });
-        if (new Set(o.map(norm)).size !== o.length) si(feil, hvor, "to like alternativer");
+        if (new Set(o.map(normAlt)).size !== o.length) si(feil, hvor, "to like alternativer");
         if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= o.length)
           si(feil, hvor, `answer ${q.answer} er utenfor 0…${o.length - 1}`);
         else posisjon.push(q.answer);
