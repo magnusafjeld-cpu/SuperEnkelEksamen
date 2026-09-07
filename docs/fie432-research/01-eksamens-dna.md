@@ -969,3 +969,126 @@ aksjemarkedet). To av ni sett.
 σ_B²/(σ_A² + σ_B²) = 0,09/0,13 = 69,2 %. Alternativet er altså laget for dem som bruker
 minimum-varians-formelen mekanisk uten å se hva ρ = 1 gjør med den. Elimineringsknep: ved ρ = 1
 må svaret være et hjørne (0 % eller 100 %), aldri en indre løsning.
+
+---
+
+## 5. Hva sensorveiledningene belønner og avviser
+
+*Gjengitt med egne ord fra de ni veiledningene. Reglene er samlet i fire grupper: presisjon og
+avrunding, alternative løsninger som godtas, antakelser som må skrives ned, og hva som faktisk
+gir uttelling i de åpne oppgavene. Alt er relevant også for flervalgsformatet, fordi det forteller
+hvor faglæreren mener grensen mellom «riktig» og «nesten riktig» går.*
+
+### 5.1 Presisjon og avrunding — oppgaven sier alltid fra
+
+Avrundingskravet er aldri underforstått; det står i oppgaveteksten, og kravene varierer per sett
+og per oppgave:
+
+| Sett | Oppgave | Krav | Konsekvens |
+|---|---|---|---|
+| H2017 | 1 (formuesskatt) | «rund av til én desimal» (millioner) | Nettoformuen 1,8667 mill. rundes til 1,9 og gir 16 150 i skatt; eksakt regning gir 15 867 |
+| H2019 | 2c (nettoformue) | «avrund dine svar til én desimal» | Gjeldsandelene rundes til 7,2 og 2,5 mill.; svaret blir eksakt 0 i stedet for −17 489 |
+| H2019 | 3c (effektiv sats) | «rund av til én desimal» | 46,71 % → 46,7 % |
+| H2020 | 1e (effektiv eierskatt) | «ingen desimaler; 35,2 % blir 35 %, 35,5 % blir 36 %» | 32,05 % → 32 % |
+| H2022 | 1 (nynorsk) | Numerisk innfylling; desimaltall rundes til én desimal (eksempelet er 1,45 → 1,5) | Eneste innfyllingsspørsmål i hele materialet |
+| H2024 | 5 og 7 | «rund av til én desimal» | 18,889 % → 18,9 %; 1,6077 → 1,6 |
+| H2025 | 4 | «benytt to desimaler» | 12,36 — og alternativene skiller seg først i andre desimal |
+
+**Lærdommen for treningen:** avrundingen er en del av oppgaven, ikke en detalj. I H2017 og H2019
+gir *eksakt* regning et annet tall enn fasiten, fordi fasiten følger oppgavens eget avrundingskrav.
+Et treningsprogram må derfor oppgi avrundingskravet sammen med spørsmålet, og godta det avrundede
+svaret som det riktige. Motsatt vei: der oppgaven ber om to desimaler (H2025 4), må mellomregningene
+gjøres uavrundet — 103,50 × 4 % = 4,14 er eksakt, men runder du grunnlaget til 104 får du 4,16 og
+bommer på andre desimal.
+
+### 5.2 Alternative løsninger som godtas — og hvorfor
+
+**Flere veier til samme tall godtas alltid, så lenge svaret stemmer.**
+
+- *H2019 oppgave 3b.* Sensorveiledningen viser to veier til 1 267 200: oppjuster utbyttet
+  (4 mill × 1,44 = 5,76 mill) og gang med 22 %, eller gang gevinsten direkte med den effektive
+  satsen 31,68 %. Begge er likestilt.
+- *H2025 oppgave 10.* Samme poeng med 2025-satsene: 50 × 1,72 × 22 % eller 50 × 37,84 %.
+  Veiledningen kaller den siste «alternativ løsning» — den er altså ikke en snarvei som trekker.
+- *H2017 oppgave 2b.* Justeringsfaktoren kan hentes fra forrige delspørsmål eller utledes på nytt
+  fra formelen. Veiledningen kaller det å hente den «godt», ikke lat.
+- *H2024 oppgave 11a.* Konklusjonen om at en risikoavers person alltid kjøper forsikring til
+  aktuarisk rettferdig pris kan begrunnes teoretisk **eller** ved å sette inn tall i nyttefunksjonen.
+- *H2025 oppgave 13.2 og 13.3.* **Prøve-og-feile er eksplisitt godkjent metode.** Veiledningen sier
+  at studentene enten kan løse ligningen (1 − p)·√9 000 000 = √8 840 000 eller sette inn
+  svaralternativene og se hvilket som gir likhet. Den viser i tillegg elimineringen: siden p = 1 %
+  gjør forsikringen lønnsom, må terskelen ligge under 1 %, og de to alternativene over 1 % kan
+  strykes uten regning. Dette er den eneste stedet i hele materialet der faglæreren beskriver en
+  ren flervalgsstrategi, og den er direkte overførbar til 2026-formatet med minuspoeng.
+
+**To ulike svar godtas når oppgaveteksten er tvetydig.** Dette er den viktigste enkeltobservasjonen
+i hele del 5, og den gjelder to av spørsmålene i det ferskeste settet:
+
+- *H2025 oppgave 2 (formuesskatt, gjeldsfordeling).* Fasiten er 750 000, regnet med
+  gjeldsreduksjon for aksjefondsandelenes rabatt. Men **250 000 godtas også**, fordi oppgaveteksten
+  ikke sa at gjelden skulle avkortes. Begge tallene lå som alternativer. Merk hva dette betyr for et
+  treningsprogram: regelen om at gjeld tilordnet rabatterte eiendeler skal avkortes er *ikke* noe
+  kandidaten kan forutsette uten at oppgaven ber om det — og motsatt, når oppgaven *sier* det (H2024
+  oppgave 6, H2021 oppgave 1c), er det den eneste riktige framgangsmåten.
+- *H2025 oppgave 11.4 (livssyklus og aksjeandel).* Fasiten er (B): lavere aksjeandel fordi
+  humankapitalen er mindre verdt. Men **(C) «lik aksjeandel» godtas også**, fordi «aksjeandel» kan
+  leses som andel av *totalformuen* — og den er uendret når Mertons formel holdes fast. Poenget er
+  at spørsmålet ikke presiserte hvilken nevner som mentes.
+
+**Toleranse for rimelige tilleggsantakelser i de åpne settene:**
+
+- *H2016 oppgave 2a.* Studenter som mener at negativ ligningsverdi på primærboligen ikke kan
+  motregnes mot positiv verdi på sekundærboligen, skal **ikke trekkes** for antakelsen.
+- *H2016 oppgave 4a.* Å behandle bilen på 300 000 som skjevdelingsmidler kan aksepteres **hvis det
+  begrunnes**; utgangspunktet er likevel likedeling av felleseiet.
+- *H2018 oppgave 5c(ii).* Svaret «progressiv skatt favoriserer sykepleieren» er hovedsvaret, men
+  veiledningen åpner for at man kan konstruere innslagspunkter der progressiviteten er flat i det
+  relevante intervallet og derfor ikke får betydning.
+- *H2021 oppgave 4.* Kandidaten *bør forutsette* at Irland og USA har begrenset beskatningsrett til
+  de 200 000 opptjent der. Forutsetningen er ikke gitt i teksten, men forventes formulert.
+
+### 5.3 Antakelser som må skrives ned
+
+Hjemmeeksamenene H2020 og H2021 hadde **kandidatnummer-avhengige tall**: studielånets størrelse,
+forventet avkastning på tjenestepensjonen, risikoaversjonsparameteren og boligprisfallet i år 1 ble
+utledet av siffer i kandidatnummeret. Konsekvensen for sensuren er at fasiten ikke er ett tall, men
+en metode. Besvarelsen må derfor eksplisitt oppgi hvilket tall som er brukt og hvor det kom fra.
+Samme logikk gjelder H2020 oppgave 4d og H2021 oppgave 5d, der svaret på hvilket krav i
+boliglånsforskriften som binder, avhenger av det egne studielånet — veiledningen kaller svaret
+«kandidatavhengig».
+
+To relaterte regler:
+
+- *H2021 oppgave 6f.* Har du ikke kommet fram til forventet avkastning i forrige delspørsmål, kan du
+  regne videre med 10 %. Du får da uttelling for metoden, men **ikke full uttelling** selv med
+  korrekt regning på den forutsetningen. Delvis kreditt for videreført feil er altså formalisert.
+- *H2020 oppgave 2.* Selv om svaralternativene er oppgitt, krever oppgaveteksten at du **viser
+  hvordan du kommer fram til svaret**. Å krysse riktig uten utregning gir ikke full uttelling i det
+  formatet.
+
+### 5.4 Hva som skiller «godt» fra «bestått» i de åpne settene
+
+Veiledningene bruker en fast trapp: *besvarelsen må*, *gode besvarelser*, *de beste besvarelsene*.
+
+| Nivå | Eksempel | Hva som kreves |
+|---|---|---|
+| Må | H2018 4a | Uttrykke tilbud og etterspørsel i produsentpris før derivasjon — ellers blir fortegnet feil |
+| Må | H2019 3c | Finne overskuddet *før* selskapsskatt ved å løse x(1 − 0,22) = 4 mill, ikke bruke 4 mill som nevner |
+| Godt | H2016 1b | Sette opp forholdet (∂P/∂t)/(∂p/∂t) = S′/D′ og konkludere at helningene avgjør fordelingen |
+| Godt | H2018 1c | Definere gjennomsnittsskatten t = T/Y først, og deretter vise ∂t/∂Y > 0 |
+| Godt | H2020 3a | Peke på at skattemessig og virkelig overskudd faller sammen — det er *derfor* skatten er nøytral |
+| Godt | H2020 3c | Ha **ett** poeng: egenkapitalens alternativkostnad er ikke fradragsberettiget, derfor favoriseres gjeld |
+| Best | H2018 1c | I tillegg si at et progressivt system omfordeler fra rike til fattige |
+| Best | H2016 3g | Henvise til boliglånsforskriften når belåningsgraden på 41,7 % vurderes |
+| Best | H2022 4.7 | Se at selskapet forblir hjemmehørende i Norge fordi det er stiftet her og det mangler skatteavtale — veiledningen sier eksplisitt at spørsmålet er der for at de beste skal utmerke seg |
+
+**Det som avvises:** svar uten regnestykke der oppgaven ber om utregning (H2020 oppgave 2); å bruke
+sluttresultatet som nevner i effektiv-sats-spørsmål; å likedele felleseiet uten å vurdere
+skjevdeling, eller å skjevdele uten begrunnelse (H2016 4a); og lengdebrudd — H2018 oppgave 6 setter
+maks én side, H2019 oppgave 9f og 9h maks 250 ord, H2021 oppgave 6c og 6d maks 150 ord.
+
+**Én unntaksregel verdt å merke seg:** H2017 oppgave 2c gir full uttelling til besvarelser som
+*ikke* viser utregningen, dersom de har forstått at summen av selskaps- og eierskatt per konstruksjon
+må bli lik den høyeste marginalskatten på lønn (46,7 %). Innsikten i hvorfor tallet må bli slik,
+vurderes altså høyere enn selve regningen — nøyaktig den ferdigheten som gir eliminering i et
+flervalgsformat.

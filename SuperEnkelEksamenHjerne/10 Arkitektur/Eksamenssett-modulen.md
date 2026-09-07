@@ -96,6 +96,24 @@ så du ser hva gjettingen kostet eller ville kostet.
 > `set.facts` overstyrer listen; `set.practiceNote` overstyrer nøkkelsetningen
 > i øvingsmodus. Uten feltene gjelder FIE402s tekst som før.
 
+## Kontrollen
+
+`tools/sjekk-sett.js` går gjennom `EDU_DATA.sets` og ser etter det modulen ellers
+bare tegner feil:
+
+```bash
+node tools/sjekk-sett.js                    # alle fag/<id>/sett.js
+node tools/sjekk-sett.js fag/fie432/sett.js
+```
+
+Den sjekker dupliserte sett-id-er og oppgavenumre (begge er lagringsnøkler),
+at oppgavene summerer til settets `points` og deloppgavene til oppgavens,
+at `answer` peker på et alternativ som finnes, at ikke alle alternativer er
+markert riktige, at flervalg har `solution`, at selvvurderte oppgaver har det,
+at `criteria` er ren tekst, at `mc.wrongFactor` ligger i [−1, 0], og at
+`chapters` peker på kapitler manualen faktisk har. Testet mot et bevisst
+ødelagt sett: fjorten feil, alle funnet.
+
 ## Lagring
 
 | Nøkkel | Innhold |

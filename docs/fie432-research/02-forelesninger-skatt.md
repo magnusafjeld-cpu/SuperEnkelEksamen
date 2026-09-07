@@ -1458,3 +1458,296 @@ Det finnes bare én fil for denne forelesningen (`..._Rev`), uten et
   finansdelen** (forelesning 12–16, Døskeland). Det er den eneste stedet i
   skattedelen der CAPM og sikkerhetsekvivalent dukker opp, og lysbilde 36 er
   den eneste koblingen mellom risikojustering og skattesatser i hele kurset.
+
+---
+
+## 7. Forelesning 11 — Skatteparadiser
+
+Filer: `Nye_oppgaver_Forelesning_11_GS_SkatteparadisREV.txt` (53 lysbilder,
+primær) og gammel `Forelesninger_Forelesning_10GS_Skatteparadis.txt` (54
+lysbilder). Kursets eneste rent institusjonelle forelesning: nesten ingen
+formler, men mange definisjoner, mekanismer og tall som er lette å lage
+flervalgsspørsmål av. Fem deler: hva et skatteparadis *er* (og hvorfor ingen vil
+definere det offisielt); hvordan lovgivningen er skrudd sammen (inngjerding,
+selskapsregistre, stråmenn); hva lekkasjene har vist; **sju kanaler** for hvordan
+skatteparadisene skader utvikling (nummerert 1–7 i lysbildene); og til slutt
+tiltakene (CRS/Global Forum) og hvorfor de virker dårlig. Ingen oppgavefil,
+ingen regneeksempler i lysbildene — men fire av tallrekkene *kan* kontrolleres,
+og alle fire går opp (avsnitt 9).
+
+Pensum er GS1 (Schjelderup 2016, *Secrecy Jurisdictions*) og SS
+(Schjelderup & Sævold 2021, *I sentralbankens blindsoner*). Lysbildene bærer
+råstoffet til begge: begrepsparet secrecy jurisdiction/tax haven, og
+Oljefondet–Jersey-saken med Norges Banks brev.
+
+### Begreper
+
+| Begrep | Definisjon slik forelesningen gir den |
+|---|---|
+| **Skatteparadis / Offshore Financial Centre (OFC)** | To navn på samme type jurisdiksjon. Ingen offisiell definisjon: IMF og OECD hadde lister, men gikk bort fra dem av politiske årsaker (medlemslandene har vetorett). Oxfam og Tax Justice Network lager egne. |
+| **Secrecy jurisdiction / sekretessestat** | Betegnelsen forelesningen selv glir over til når hemmeligholdet, ikke skattesatsen, er det avgjørende. Norges Banks definisjon («liten grad av åpenhet og innsyn *i kombinasjon med* ingen eller svært lave skattesatser») er den vanlige tokriterie-varianten. |
+| **Tax avoidance** | Skatteplanlegging. **Lovlig.** |
+| **Tax evasion** | Skatteunndragelse. **Ulovlig.** |
+| **Inngjerdet (to-delt) lovgivning** | Ett regelsett for dem som bor og driver i jurisdiksjonen, og ett svært gunstig for utenlandske investorer — som til gjengjeld ikke får drive fysisk virksomhet der. |
+| **«Revealed preference»-argumentet** | Var den gunstige lovgivningen vekstfremmende, ville paradiset brukt den på egen økonomi også. At den er forbeholdt utlendinger, avslører at den ikke er ment å skape verdier, men å hente inntekter fra andre land. |
+| **Skallselskap / postkasseselskap** | Selskap uten reell aktivitet, opprettet for å eie eller kanalisere verdier. Ugland House på Caymanøyene: 12 748 selskaper i ett lite bygg. |
+| **Selskapsregister uten regnskap** | Registre uten regnskapsplikt, revisjonskontroll, oppdaterte aksjonærlister eller sanksjoner ved regelbrudd. Kypros: 10 år på etterskudd med registrering (DN 2012). |
+| **Stråmann / nominee** | Registrert eier eller styremedlem «in name only», som signerer bort all beslutningsmyndighet til den reelle eieren. |
+| **Reell rettighetshaver (beneficial owner)** | Den som faktisk kontrollerer og nyter godt av verdiene, i motsetning til den registrerte eieren. |
+| **Trust / stiftelse** | Rettsfigur som skiller formell eier fra begunstiget. I mange paradiser kan truster eie selskaper og sitte i styrer, og aksjeselskaper kan være styremedlemmer i aksjeselskaper. |
+| **Avgifter i stedet for skatt** | Utenlandske investorer betaler registreringsavgift, årsavgift, avgift for bankkonto og for «lokale styremedlemmer». Ilegges det skatt, kan «foreign investors» søke fritak — og får det som regel. |
+| **Bekvemmelighetsflagg (flag of convenience)** | Skipsregistrering i en sekretessestat; kobles av OECD (2004) direkte til ulovlig fiske. |
+| **Kildeprinsippet / bostedsprinsippet** | Hovedregelen i internasjonal skatterett: inntekt skattlegges der den er opptjent, og skattyter der han bor. Skatteparadisene er bygget for å undergrave begge. |
+| **Parasittargumentet** | Paradisene lager lovgivning rettet mot *andre lands* skattytere og stjeler dermed andre lands skatteinntekter. |
+| **Informasjonsasymmetri og moralsk hasard** | Akerlof, Spence og Stiglitz (nobelprisen 2001): asymmetrisk informasjon gir ugunstige handlinger og transaksjonskostnader. Hemmeligholdet i paradisene *produserer* slik asymmetri. |
+| **Bøttediagrammet** | Figuren der inntekten er stigende i antall produktive og fallende i antall uproduktive aktører. Paradisene hever avkastningen på bandittvirksomhet → flere blir banditter → lavere samlet inntekt → alle taper, også de private. |
+| **Rikdommens paradoks** | Ressursrikdom gir i snitt *lavere* vekst (negativ regresjonslinje). Utfallet avhenger av institusjonell kvalitet (Mehlum mfl. 2006, Boschini mfl. 2007). |
+| **Institusjonell kvalitet** | Rettsvesen, byråkrati, demokratiske prosesser. Empirisk avgjørende for vekst — og noe maktelitene har egeninteresse av å svekke når paradisene finnes. |
+| **CRS (Common Reporting Standard)** | OECD Global Forums program for automatisk informasjonsutveksling mellom skattemyndigheter i ca. 160 land. Fire etterlevelseskriterier; nederste nivå = «non-compliant». |
+| **Etterlevelse uten sanksjon** | Landene *kan* bøtelegge manglende etterlevelse, men gjør det sjelden, og bøtene er svært lave. |
+
+### Formler og regler
+
+Ingen ligninger i denne forelesningen. Det som skal kunnes er definisjonene,
+kriteriene og kanalene:
+
+1. **Skillet som alltid testes:** *avoidance* = planlegging = lovlig;
+   *evasion* = unndragelse = ulovlig. Skatteparadis brukes til begge.
+2. **Kjennetegn ved en slik jurisdiksjon** (lysbilde 6–9): liten stat, liten
+   befolkning (Hines 2010); anglosaksisk rett med sterk investorbeskyttelse;
+   engelsk forretningsspråk; lovgivning rettet mot «foreign investors»; to-delt
+   regelverk; selskapsregistre uten regnskap, revisjonskontroll eller
+   sanksjoner; hemmelighold om eier og styre.
+3. **Kontrasten mot vanlige stater:** like regler for alle, offentlige registre
+   med regnskap, regnskaps- og revisjonsplikt, oppbevaringsplikt, lovgivning
+   som balanserer samfunnshensyn, og straff for regelbrudd.
+4. **Revealed preference-testen:** brukes regelverket lokalt? Nei → det er ikke
+   ment å skape vekst, men å tiltrekke registreringer.
+5. **Forretningsmodellen:** inntekt = antall registrerte selskaper × avgifter.
+   Derfor tjener *små* land mest: inntekten per innbygger blir enorm.
+6. **De sju kanalene** (lysbilde 28–46, nummerert i lysbildene):
+   1. parasitt på andre lands suverenitet (stjeler skattegrunnlag);
+   2. skader finansmarkedenes virkemåte (skjult gjeld og eierskap → høyere
+      risikopremie og håndhevingskostnader);
+   3. svekker andre lands skattesystem og øker effektivitetstapet ved
+      skattlegging (særlig i fattige land, der kapitalskatt er viktigst);
+   4. svekker økonomisk vekst (kapitalen går dit etter-skatt-avkastningen er
+      høyest, ikke dit før-skatt-avkastningen er høyest, pluss ressurssløsing
+      på advokater og revisorer);
+   5. gjør kriminalitet mer lønnsom (utbyttet kan skjules og sikres);
+   6. reduserer privat inntekt for alle (bøttediagrammet);
+   7. svekker institusjonell kvalitet i fattige land (maktelitens
+      egeninteresse i svake institusjoner og presidentstyre).
+7. **Kanal 4 er F1s lærepunkt i internasjonal drakt:** privat rangering etter
+   etter-skatt-avkastning ≠ samfunnsøkonomisk rangering etter
+   før-skatt-avkastning.
+8. **Tiltakene som faktisk står i lysbildene:** OECD Global Forum og
+   CRS-avtalene, med fire etterlevelseskriterier og en «non-compliant»-liste
+   (des. 2020: bare Dominica, Niue, Saint Martin og Trinidad og Tobago).
+9. **Hvorfor tiltakene virker dårlig** (lysbilde 52): ubrukelige eller forsinkede
+   data; kostbar prosessering; ulike skatteår; de fattigste landene mangler
+   teknologi til å delta; USA deltar ikke; over 100 identifiserte metoder for å
+   unngå å bli rapportert, med en egen industri rundt; manglende kapasitet
+   eller vilje til å bruke dataene. **Og:** avtalene gir ikke innsyn for
+   tredjepart — bare skattemyndighetene får informasjonen.
+10. **Hvorfor paradisene ikke stenges** (lysbilde 53): de rikeste bruker dem;
+    korrupsjonsutsatte land bruker dem til hvitvasking; internasjonale
+    investorer foretrekker dem fordi etterlevelseskravene er fraværende; og de
+    store landene vil ikke, fordi deres egne makteliter bruker dem — Hongkong
+    (Kina) og USA står øverst på TJNs liste.
+
+**Mekanismer som lysbildene *ikke* har egne definisjoner av.** Manualen bør
+merke seg dette før den skriver kapittelet:
+- **Internprising** vises som mekanisme i bananeksempelet (E7.3), men ordet,
+  armlengdeprinsippet og internprisingsreglene nevnes ikke.
+- **Gjennomstrømningsselskap** er nøyaktig det bananeksempelet og
+  Juris Ltd-strukturen viser, men begrepet brukes ikke.
+- **Tynn kapitalisering** (konsernintern gjeld som flytter overskudd via
+  rentefradrag) finnes **ikke** i noen av de to filene.
+- **BEPS** nevnes bare én gang, i den gamle filens lysbilde 2, og er tatt ut av
+  den nye. **Global minimumsskatt på 15 % (pilar 2) finnes ikke i noen av
+  filene.** Skal manualen dekke dagens tiltakspakke, må stoffet hentes fra GS1
+  eller fra annet pensum — nøyaktig samme situasjon som for forelesning 6–8
+  (avsnitt 0.2).
+
+### Regneeksempler
+
+Lysbildene presenterer ingen regnestykker, men fire tallrekker lar seg
+kontrollere, og alle går opp.
+
+**E7.1 De engelske jomfruøyene (lysbilde 12).** 31 000 innbyggere og 900 000
+offshore-selskaper i 2021 = **29 selskaper per innbygger** ⟨rekonstruert
+forholdstall⟩ (Norge hadde under 250 000 selskaper i alt). Avgifter 2023: **550 USD** for selskaper med under 50 000 aksjer,
+**1 350 USD** over, **50 USD** per styremedlem, **350 USD** for «good standing
+certificate» — som må til for å åpne bankkonto. Anslått avgiftsinntekt
+**30 000 USD per innbygger** mot BNP per innbygger **48 200 USD** →
+30 000/48 200 = **62,2 %** av BNP fra avgifter. ✓ (Lysbildet skriver «$30 0000»
+— kontrollregningen viser at det skal være 30 000, siden bare det gir de 62 %
+lysbildet selv oppgir.)
+
+**E7.2 Stråmennene i Panama Papers (lysbilde 16).** Carmen Wong, George Allen og
+Jaqueline Alexander stod som styremedlemmer for **4 000 selskaper** DNB hadde
+satt opp på Seychellene. Ett styremøte i året per selskap gir
+4 000/365 = **11 styremøter hver dag året rundt**. ✓ De hadde i tillegg andre
+styreverv. Poenget: tallet er i seg selv beviset på at vervene er fiktive.
+
+**E7.3 Bananen (lysbilde 32).** Produsert i Latin-Amerika, eksportpris **13 p**,
+fordelt på 1,5 p lønn + 10,5 p produksjonskostnad + **1 p skattbart overskudd**.
+Importpris i Storbritannia **60 p**, med **1 p skattbart overskudd** der.
+Underveis belastes: Isle of Man 4 p (forsikring), Caymanøyene 8 p
+(innkjøpsnettverk), Irland 4 p (varemerke), Jersey 6 p (managementtjenester),
+Bermuda 17 p (distribusjonsnettverk), Luxembourg 8 p (finanstjenester).
+- Summen av de seks gebyrene: 4 + 8 + 4 + 6 + 17 + 8 = **47 p**, og
+  13 + 47 = **60 p** = importprisen. ✓ ⟨rekonstruert sum; lysbildet oppgir bare
+  leddene⟩ Hele påslaget fra eksport til import bokføres altså i
+  lavskattejurisdiksjoner.
+- Igjen i produksjons- og forbrukerlandet: **1 p + 1 p av 60 p** = 3,3 % av
+  importprisen. ✓ Det er internprising demonstrert uten at ordet brukes.
+
+**E7.4 Norge og skatteparadisene (lysbilde 25).** Alstadsæter, Johannesen og
+Zucman: de **0,01 % rikeste** unndrar **25 %** av skatten de skulle betalt ved å
+skjule inntekt og formue; **halvparten** av all formue nordmenn skjuler i
+skatteparadis tilhører den **rikeste 1 %**. (Samme forfattergruppe som i F1s
+empiritabell, der tallet er at topp 0,01 % — ca. 300 husholdninger — skjuler
+ca. 20 % av formuen sin. De to tallene måler ulike ting: andel av *skatten*
+unndratt mot andel av *formuen* skjult. Lysbildet daterer artikkelen til 2017,
+F1 til 2019 — det er samme AER-artikkel, arbeidsversjon 2017.)
+
+**E7.5 Institusjonell kvalitet (lysbilde 43).** Forelesningens gjengivelse av
+litteraturen: en **tredobling** av institusjonell kvalitet kan **sjudoble**
+BNP-veksten. Ingen kilde oppgitt for akkurat dette tallet; det brukes som
+premiss for kanal 7.
+
+### Argumenter
+
+- **Ingen offisiell definisjon → IMF og OECD hadde lister, men medlemslandene
+  har vetorett → listene ble politisk umulige og ble skrinlagt → definisjonen
+  overlates til sivilsamfunnet (Oxfam, TJN) → selve fraværet av en definisjon
+  er en del av problemet.**
+- **To-delt lovgivning → den gunstige delen gjelder bare dem som *ikke* driver
+  virksomhet lokalt → «revealed preference»: hadde reglene vært vekstfremmende,
+  ville de vært brukt hjemme → regelverket er en eksportvare, ikke en
+  næringspolitikk.**
+- **Selskapene driver ikke lokalt → paradiset har ingen egeninteresse av tilsyn
+  → ingen oppdaterte aksjonærlister, ingen revisjonskontroll, ingen straff →
+  hemmeligholdet er ikke en bieffekt, det er produktet.**
+- **Stråmenn og truster → registrert eier ≠ reell eier → skatteunndragelse,
+  omgåelse av sanksjoner og reguleringer, og straffrihet blir mulig →
+  kriminalitet blir mer lønnsom (kanal 5).**
+- **Kildeprinsippet og bostedsprinsippet er bærebjelkene i internasjonal
+  skatterett → paradisene lager lovgivning rettet mot andre lands skattytere →
+  de stjeler andre lands skatteinntekter (kanal 1).**
+- **Skjult gjeld og skjulte eierposisjoner (Enron, finanskrisen 2008,
+  innsidehandel) → investorer kan ikke prise risiko riktig → asymmetrisk
+  informasjon hever risikopremien og håndhevingskostnadene (kanal 2, med
+  Akerlof–Spence–Stiglitz som teorigrunnlag).**
+- **Fattige land er mest avhengige av kapitalbeskatning → de svarer på
+  inntektstapet med høyere kapitalskatt → som gir *mer* overskuddsflytting →
+  ond sirkel som svekker både skattesystemet og institusjonene (kanal 3).**
+- **Kapitalen går dit avkastningen *etter* skatt er høyest → skatteparadisene
+  forsterker avviket fra der avkastningen før skatt er høyest → svakere vekst i
+  verdensøkonomien, pluss ren ressurssløsing på advokater og revisorer
+  (kanal 4).**
+- **«Skatteparadis gir private økte inntektsmuligheter, altså høyere privat
+  inntekt» → nei: i land med mye bandittvirksomhet hever paradisene
+  avkastningen på å stjele, fordi utbyttet kan sikres mot at andre tar det fra
+  deg → flere forlater produktiv virksomhet → samlet inntekt faller → også de
+  private taper (kanal 6, bøttediagrammet).**
+- **Makteliten i fattige land kan plyndre lettere når institusjonene er svake →
+  paradisene gir dem både motiv til å svekke institusjonene *og* til å endre
+  styreform → 24 av 27 land sør for Sahara hadde presidentstyre i 2009, mot 5
+  ved uavhengigheten (kanal 7).**
+- **Rikdommens paradoks → ressursrikdom gir i snitt lavere vekst, men ikke i
+  land med gode institusjoner → siden paradisene gir insentiver til å svekke
+  institusjonene, er de en del av forklaringen (Mehlum, Boschini, Andersen &
+  Aslaksen: de blå — velfungerende — landene er parlamentariske, de røde
+  presidentstyrte).**
+- **Norges Banks forsvar: «Jersey og Caymanøyene er medlemmer av OECDs Global
+  Forum» → medlemskapet sier bare at skattemyndigheter utveksler informasjon
+  seg imellom, ikke at eierskap er kjent for andre → sentralbanken bruker et
+  etterlevelseskriterium som ikke måler det den investerer i.** Dette er
+  koblingen til pensumartikkelen SS, *I sentralbankens blindsoner*: Oljefondet
+  kjøpte i 2012 aksjer for 1,8 mrd. kr i Delta Topco (Formula 1), holdt «in
+  trust» av Juris Ltd på Jersey — et selskap DNs journalister ikke kunne finne
+  verken styre, regnskap eller kontaktperson for, og som US Senate-utvalget
+  hadde koblet til fiktive transaksjoner og skjult gjeld i Enron.
+- **CRS ser bra ut på papiret (160 land, nesten alle tidligere «paradiser» med)
+  → men USA og de fattigste landene står utenfor, sanksjonene brukes ikke,
+  dataene er ofte ubrukelige, og over 100 omgåelsesmetoder er identifisert →
+  formell etterlevelse er ikke reell transparens.**
+- **Alle vet hva som skulle til → men de store landenes makteliter bruker selv
+  paradisene (USA og Hongkong på topp hos TJN) → nedstenging er et
+  politisk-økonomisk problem, ikke et teknisk.**
+
+### Empiri
+
+| Fakta | Verdi | Kilde |
+|---|---|---|
+| Ugland House, Caymanøyene | 12 748 selskaper registrert i ett lite bygg (bl.a. Coca-Cola, Intel); Obama: «enten verdens største bygning eller verdens største skattefusk» (5.1.2008) | forelesningen |
+| BVI 2021 | 31 000 innbyggere, 900 000 offshore-selskaper (Norge: under 250 000 selskaper) | forelesningen |
+| BVI-avgifter 2023 | 550 / 1 350 USD registrering, 50 USD per styremedlem, 350 USD «good standing» | forelesningen |
+| BVI, avgiftsinntekt | ca. 30 000 USD per innbygger; BNP per innbygger 48 200 USD → ca. 62 % av BNP | forelesningen |
+| Kypros' selskapsregister (2012) | 10 år på etterskudd; innleverte dokumenter kontrolleres ikke; ingen straff; DN måtte ha rettsordre for innsyn i et *offentlig* register | Dagens Næringsliv |
+| DNB på Seychellene | 3 stråmenn stod som styremedlemmer i 4 000 selskaper (≈ 11 styremøter per dag) | Panama Papers 2016 |
+| Superyachten Scheherazade | registrert på Caymanøyene, eid av Bielor Asset Ltd (Marshalløyene); antatt reell eier Putin via Khudainatov; mannskapet fra den russiske sikkerhetstjenesten | forelesningen |
+| Oljefondet og Jersey | 1,8 mrd. kr i Delta Topco (Formula 1) i 2012, holdt «in trust» av Juris Ltd; intet styre, ingen regnskaper, ingen kontaktperson; koblet til Enron av US Senate-utvalget | DN / SS |
+| «My brief career as a tax pirate» | stråmenn eier og kontrollerer selskapet på papiret, men signerer all beslutningsmyndighet til den reelle eieren | Financial Times 8.4.2016 |
+| Sju store lekkasjer | UBS/LGT, HSBC Suisse, Julius Baer, British Haven Leaks, LuxLeaks, Panama Papers, Bahamas Leaks | forelesningen |
+| Brukerne | politisk og økonomisk elite pluss kriminelle: dronning Elizabeth, Bono, Messi, Putin, Trump-kretsen; hemmelige skatteavtaler (Irland) | lekkasjene |
+| Norge, topp 0,01 % | unndrar 25 % av skatten de skulle betalt | Alstadsæter, Johannesen & Zucman (AER) |
+| Norge, skjult formue | halvparten tilhører den rikeste 1 % | samme |
+| Bananen | eksportpris 13 p → importpris 60 p; 47 p tas ut i seks lavskattejurisdiksjoner; 1 p skattbart overskudd i hver ende | avissitat datert 6.11.2007 (avisen navngis ikke i uttrekket) / TJN |
+| Scandinavian Star | 160 omkomne; eier ikke holdt ansvarlig fordi eierskapet var skjult i skatteparadis | NOU 2009:19 |
+| Annen kriminalitet | finansiering av 9/11 og ISIS; Breivik hadde konto i Antigua; «the Washington sniper» kom inn i USA på pass kjøpt i et skatteparadis (noen stater selger pass og statsborgerskap); Elektron-saken (2005) | NOU 2009:19 |
+| Ulovlig fiske (IUU) | 13–31 % av globale fangster; bekvemmelighetsflagg og sekretessestater «integral to the problem» | FAO 2010 / OECD 2004 |
+| Menneskerettigheter | 49 intervjuede kambodsjanske sjøfolk: 59 % hadde sett kapteinen drepe et besetningsmedlem; 39 burmesiske fiskere døde av matmangel fordi kapteinen ikke torde gå til land | UNIAP 2009 |
+| Statstyveri | Mobutu (Kongo) stjal 15–20 % av statsbudsjettet årlig på 70-tallet — inntekt per innbygger i 1992 var halvparten av 1960-nivået; Abacha (Nigeria) 3 mrd. USD hentet tilbake fra Sveits; Suharto-familien 15–35 mrd. USD; Zardari (Pakistan) 500 mill. USD (laveste anslag) | Transparency International |
+| Styreform sør for Sahara | 27 land: 5 med presidentstyre ved uavhengigheten, 24 i 2009 (unntak: Mauritius, Sør-Afrika, Botswana). Samme mønster i Latin-Amerika | forelesningen |
+| Institusjonell kvalitet og vekst | tredobling av institusjonell kvalitet kan sjudoble BNP-veksten; ressursrike land blir vinnere eller tapere avhengig av institusjonene | Mehlum mfl. 2006 a,b; Boschini mfl. 2007; Andersen & Aslaksen 2008 |
+| Norges Banks hovedstyre, brev 29.4.2020 | «vesentlige forskjeller» mellom jurisdiksjonene; Jersey og Caymanøyene er medlemmer av OECDs Global Forum | Norges Bank |
+| CRS | ca. 160 land; fire etterlevelseskriterier; des. 2020 var bare Dominica, Niue, Saint Martin og Trinidad og Tobago «non-compliant»; USA deltar ikke | OECD Global Forum |
+| Omgåelse av CRS | over 100 identifiserte metoder; egen industri; avtalene gir ikke innsyn for tredjepart | forelesningen |
+| TJNs toppliste | Hongkong (Kina) og USA blant de øverste | TJN |
+
+### Oppgavene
+
+Ingen oppgavefil, og ingen av eksamensfasitene i mappa har en ren
+skatteparadisoppgave. Den nærmeste er **H2021 oppgave om Kjell Inge**
+(internasjonal skatterett, ikke GS' pensum): lønn opptjent i «et skatteparadis»
+Norge ikke har skatteavtale med → **dobbeltbeskatning**, fordi det ikke gis
+kredit for skatt betalt der (200 000 skattlegges både med 46,4 % i Norge og
+15 % i paradiset; kredit = 0). H2024 oppgave 10 bruker British Virgin Islands
+på samme måte: fast driftssted uten skatteavtale → ingen kredit. Begge tester
+kredit-/unntaksmetoden, som hører til de manglende forelesningene 6–8, men de
+er de eneste stedene skatteparadis dukker opp med tall.
+
+Denne forelesningen eksamineres derfor mest sannsynlig som **flervalg på
+definisjoner og mekanismer**: avoidance vs evasion, hva som kjennetegner et
+skatteparadis, hvem som bærer kostnaden, hvilken kanal et gitt eksempel
+illustrerer, og hva CRS faktisk gjør (og ikke gjør).
+
+### Nytt / fjernet mot gammel versjon
+
+- **Nytt:** definisjonslysbildet (OFC, avoidance/evasion) er flyttet helt fram
+  til lysbilde 1; rammelysbildet «Denne rapporten startet debatten om
+  skatteparadiser og fikk EU til å endre politikk» (lysbilde 3); tallet fra
+  Alstadsæter, Johannesen og Zucman om at **topp 0,01 % unndrar 25 %** av
+  skatten sin (lysbilde 25); og skarpere formulering av kanal 1 («de har laget
+  lovgivning rettet mot andre land for å gi andre lands skattyter mulighetene
+  til å unngå skatt ved kilden»).
+- **Fjernet:** det engelske oversiktslysbildet **«Seven ways in which tax havens
+  hamper development»** — punktlisten som bandt de sju kanalene sammen, og som
+  også hadde med det åttende punktet om at summen kan være «an insurmountable
+  hindrance to economic development in poor countries». Det er et tap for
+  strukturen, og manualen bør gjenskape listen. Videre er **BEPS-sitatet**
+  (gammelt lysbilde 2) tatt ut, kulepunktet om at det var vanskelig å finne
+  eierne av **luksusyachter under Ukraina-sanksjonene** er borte, og setningen
+  i «revealed preference»-lysbildet om at lovgivningen er innrettet «for å
+  skape inntekter til skatteparadiset på bekostning av andre land» er kortet
+  vekk.
+- **Endret:** «**Ingen** kontroll av regeletterlevelse» er myknet til «**Svak**
+  kontroll av regeletterlevelse» (lysbilde 7). Rekkefølgen er lagt om, slik at
+  det manglende tilsynet nå kommer *før* Ugland House.
+- **Feil som står i begge versjoner:** lysbilde 43 siterer «NOU 2009: 10», mens
+  lysbilde 35 riktig skriver NOU 2009:19 (*Skatteparadis og utvikling*). Det er
+  samme utredning begge steder.
