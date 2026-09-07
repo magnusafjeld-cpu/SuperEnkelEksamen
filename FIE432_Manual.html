@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIE432 Personlig økonomi — hele kurset</title>
+<style>
+  :root{ --ink:#1a1a1a; --paper:#fbf9f4; --plum:#9a4a1e; --rule:#d8d0c0; --box:#fbf1e8; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:Georgia,serif; line-height:1.62; font-size:18px; }
+  .wrap{ max-width:860px; margin:0 auto; padding:0 28px 120px; }
+  .cover{ min-height:70vh; display:flex; flex-direction:column; justify-content:center; border-bottom:3px double var(--plum); padding:60px 0 40px; }
+  .cover h1{ font-size:3rem; line-height:1.08; margin:.2em 0 .15em; }
+  .cover .tagline{ font-style:italic; color:#444; font-size:1.2rem; max-width:34em; }
+  .cover .meta{ margin-top:34px; font-size:.92rem; color:#555; border-top:1px solid var(--rule); padding-top:16px; }
+  h2.part{ font-variant:small-caps; letter-spacing:.14em; color:var(--plum); border-bottom:2px solid var(--plum); margin-top:64px; padding-bottom:6px; }
+  h2.chap{ font-size:1.9rem; margin:.4em 0 .6em; }
+  h3{ color:var(--plum); margin-top:1.7em; }
+  .lead-in{ font-style:italic; color:#3a3a3a; }
+  .formula{ background:var(--box); border-left:3px solid var(--plum); padding:14px 18px; margin:18px 0; }
+  .formula .eq{ font-family:"Iowan Old Style",Georgia,serif; font-size:1.05rem; }
+  .formula .where{ font-size:.9rem; color:#4a4a4a; margin-top:8px; }
+  .callout{ background:var(--box); border-radius:8px; padding:14px 18px; margin:18px 0; border:1px solid transparent; }
+  .callout .h{ display:block; font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; margin-bottom:.35em; color:var(--plum); }
+  /* Variantene, så den frittstående filen leses like godt som i appen. */
+  .callout.tip{ background:#e9f6ee; border-color:#cdeed8; } .callout.tip .h{ color:#1d7a47; }
+  .callout.mistake{ background:#fdf3e3; border-color:#f2dcb6; } .callout.mistake .h{ color:#9a630f; }
+  .callout.warn{ background:#fdecef; border-color:#f6d5dc; } .callout.warn .h{ color:#a32741; }
+  .callout.link{ background:#eef0fd; border-color:#dcdefb; } .callout.link .h{ color:#4044c9; }
+  .callout.mech{ background:var(--box); border-color:#f0d9c4; }
+  .worked{ background:#fff; border:1px dashed #c9bfae; border-radius:8px; padding:14px 18px; margin:18px 0; }
+  .worked .wh{ display:block; text-transform:uppercase; letter-spacing:.05em; font-size:.75rem; font-weight:700; color:var(--plum); margin-bottom:.4em; }
+  table.data{ border-collapse:collapse; width:100%; margin:18px 0; font-size:.95rem; }
+  table.data th, table.data td{ border-bottom:1px solid var(--rule); padding:7px 10px; text-align:left; vertical-align:top; }
+  table.data td.n, table.data th.n{ text-align:right; font-variant-numeric:tabular-nums; }
+  blockquote{ border-left:3px solid var(--plum); margin:18px 0; padding:2px 0 2px 18px; color:#3a3a3a; }
+  .backtotop{ float:right; font-size:.75rem; color:#8a8070; text-decoration:none; margin-top:8px; }
+  #toc ol{ columns:2; column-gap:38px; font-size:.95rem; }
+  hr.sec{ border:0; border-top:1px solid var(--rule); margin:40px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cover">
+  <h1>FIE432 Personlig økonomi</h1>
+  <p class="tagline">Skattesystemet, aksjonær- og formuesbeskatningen, skatteteorien og husholdningens finansbeslutninger — hele pensum, skrevet for å stå alene.</p>
+  <div class="meta">NHH, høsten 2026. Kursansvarlig Guttorm Schjelderup; finansdelen ved Ole-Andreas Næss.
+  Eksamen er fire timers flervalg i Wiseflow med minuspoeng for feil svar. Manualen er sannhetskilden for
+  studieplanen, quizen, flashcardene og drillene i appen.</div>
+</div>
+<nav id="toc">
+<h2 class="part">Innhold</h2>
+<ol>
+<li style="list-style:none;margin-top:.7em"><b>Del 0 · Grunnlaget</b></li>
+<li><a href="#k0">0 · Kurset, eksamen og hvordan du bruker manualen</a></li>
+</ol>
+</nav>
+
+<h2 class="part">Del 0 — Grunnlaget</h2>
+
+<section id="k0">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">0 · Kurset, eksamen og hvordan du bruker manualen</h2>
+
+<p class="lead-in">Eksamen i dette kurset er fire timer flervalg med fire alternativer, og fra høsten 2026 trekker et feil svar poeng. Det endrer hva du skal trene på. Å regne fram riktig svar er halve ferdigheten; den andre halvparten er å se hvilken feil hvert galt alternativ er laget av, fordi det er den som avgjør om du bør svare eller la stå blankt. Dette kapitlet setter reglene for begge deler.</p>
+
+<h3>0.1 Hva personlig økonomi spør om</h3>
+
+<p>Kurset handler om hvordan skattesystemet og de finansielle rammene former beslutninger du og en bedriftseier faktisk tar: hvor du plasserer sparepengene, hvordan et selskap finansieres, når du tar utbytte, hvor mye du låner, hva du forsikrer, og hvordan du sparer til pensjon. Faget er halvt skatterett og skatteøkonomi, halvt husholdningsfinans.</p>
+
+<p>Kursets eget lærepunkt, formulert av foreleseren i første time, er verdt å lære utenat fordi det er premisset under nesten alle regneoppgavene:</p>
+
+<blockquote><p>Vi investerer der avkastningen <b>etter</b> skatt er høyest. Samfunnet ville at kapitalen skulle gå dit avkastningen <b>før</b> skatt er høyest. Når de to ikke er samme sted, er det skattesystemet som har flyttet den.</p></blockquote>
+
+<p>Konsekvensen går begge veier. En investering som gir høy avkastning etter skatt kan ha lav avkastning før skatt, og da er den samfunnsøkonomisk dårlig selv om den er privatøkonomisk riktig. Det er dette som ligger under begrepene <i>nøytralitet</i> (kapittel 9), <i>implisitt skatt</i> (kapittel 12) og <i>skattefavorisering</i> som går igjen i hele skattedelen.</p>
+
+<div class="callout mech"><span class="h">Hvorfor beskattes rente og aksjegevinst ulikt?</span>
+Renteinntekt beskattes med 22 %, aksjegevinst med 37,84 %. Det ser vilkårlig ut, men er det ikke: aksjegevinsten er allerede beskattet én gang, som overskudd i selskapet. Selskapet betaler 22 %, og av de 78 prosentene som er igjen tar eieren 37,84 % til. Samlet blir det 22 + 78 × 37,84 = <b>51,52 %</b>, som skal ligne på den høyeste marginalskatten på lønn — 47,4 %. Uten den oppjusteringen ville enhver med eget selskap tatt lønnen sin som utbytte i stedet. Hele aksjonærmodellen i kapittel 5 er bygget rundt denne ene sammenligningen.</div>
+
+<h3>0.2 Eksamen: fire timer, flervalg, minuspoeng</h3>
+
+<p>Eksamen er en <b>fire timers digital skoleeksamen i Wiseflow</b>. Kalkulator og én tospråklig ordbok er tillatt. Karakterskalaen er A–F på totalsummen. Formatet har endret seg tre ganger på ti år, og endres igjen i år:</p>
+
+<table class="data">
+<tr><th>Periode</th><th>Form</th><th class="n">Poeng</th><th>Minuspoeng</th></tr>
+<tr><td>H2016–H2019</td><td>Skoleeksamen, åpne regne- og drøftingsoppgaver</td><td class="n">varierende</td><td>—</td></tr>
+<tr><td>H2020–H2022</td><td>Hjemmeeksamen, flervalg</td><td class="n">varierende</td><td>nei</td></tr>
+<tr><td>H2024–H2025</td><td>Skoleeksamen i Wiseflow, flervalg</td><td class="n">48 · 29</td><td>nei</td></tr>
+<tr><td><b>H2026</b></td><td><b>Skoleeksamen i Wiseflow, flervalg, fire alternativer</b></td><td class="n">—</td><td><b>ja</b></td></tr>
+</table>
+
+<p>Minuspoengene er det nye. Foreleseren begrunner dem slik: en flervalgseksamen skal ikke gi positiv forventet uttelling av å gjette. Med fire alternativer der ett er riktig, betyr det at et feil svar må koste en tredel av det et riktig svar gir. Derfor <b>3 poeng for rett og −1 for feil</b>, eller 6 og −2 om oppgaven veier dobbelt. Et ubesvart spørsmål gir null.</p>
+
+<div class="callout warn"><span class="h">Tidspresset er lavt, presisjonskravet er høyt</span>
+De tre siste settene hadde 29 til 38 spørsmål på fire timer. Det er <b>6 til 8 minutter per spørsmål</b>. Til sammenligning gir NHHs corporate finance-eksamen 1,8 minutter per poeng. Du kommer altså ikke til å tape på tiden i dette faget. Du taper på å regne fort og feil. Regn ferdig, og kontroller ett tall før du velger.</div>
+
+<h3>0.3 Slik er et FIE432-spørsmål bygget</h3>
+
+<p>De gale alternativene er ikke tilfeldige tall. I dette kurset svarer hvert av dem nesten alltid til <b>én bestemt feil</b>, og de samme feilene går igjen sett etter sett:</p>
+
+<table class="data">
+<tr><th>Feilen alternativet er laget av</th><th>Hvor den slår til</th></tr>
+<tr><td>Ubenyttet skjerming ikke framført, eller ikke lagt til grunnlaget</td><td>Aksjonærmodellen, kapittel 5</td></tr>
+<tr><td>Oppjusteringen utelatt, eller gjort to ganger</td><td>Utbytte og gevinst, kapittel 5</td></tr>
+<tr><td>Gjeld ikke redusert med rabatten — eller redusert også for primærbolig</td><td>Formuesskatt, kapittel 7</td></tr>
+<tr><td>Markedsverdi brukt der formuesverdi skal brukes</td><td>Formuesskatt, kapittel 7</td></tr>
+<tr><td>Effektiv sats regnet av skattepliktig i stedet for brutto inntekt</td><td>Effektiv skattesats, kapittel 1</td></tr>
+<tr><td>Konsumentpris og produsentpris forvekslet, eller fortegn snudd i nevneren</td><td>Insidens, kapittel 11</td></tr>
+<tr><td>Før-skatt-tall sammenlignet med etter-skatt-tall</td><td>Overalt</td></tr>
+</table>
+
+<p>Det er derfor hvert gjennomregnede eksempel i denne manualen avsluttes med hvilke <i>gale</i> tall de vanligste feilene ville gitt. Kjenner du feilene, gjenkjenner du alternativene — og det er nettopp gjenkjenningen som gjør gjetting lønnsom.</p>
+
+<div class="callout tip"><span class="h">Slik spørres det</span>
+Spørsmålene kommer i fire former, og de krever ulike ting av deg. <b>Regnespørsmål</b> gir tall og fire beløp: regn ferdig, ikke gjenkjenn. <b>Formelgjenkjenning</b> gir fire uttrykk og spør hvilket som er riktig — H2024 oppgave 8 spør hvilket uttrykk som er ∂p/∂t. Der hjelper det ikke å huske formelen omtrent; du må kunne utlede den eller kjenne fortegnene. <b>Begrepsspørsmål</b> spør hva noe er, eller hvilken påstand som er feil. <b>Faktaspørsmål</b> spør om tall fra pensumartiklene — hvilket aktivum som har hatt høyest realavkastning, hva Forbrukerrådet fant om aktive fond. De siste to typene tar under ett minutt hver. Ta dem først.</div>
+
+<h3>0.4 Gjettestrategien, regnet ut</h3>
+
+<p>Med 3 poeng for rett og −1 for feil er forventet uttelling av å gjette avhengig av hvor mange alternativer du har klart å utelukke. Sannsynligheten for å treffe blant <i>n</i> gjenværende er 1/<i>n</i>:</p>
+
+<div class="formula">
+  <div class="eq">E[poeng] = (1/n) × 3 − (1 − 1/n) × 1</div>
+  <div class="where">n er antall alternativer du fortsatt vurderer som mulige. Nullpunktet ligger der sannsynligheten for å treffe er p* = 1/(3 + 1) = 25 %, altså nøyaktig ett av fire.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: når lønner det seg å svare?</span>
+<table class="data">
+<tr><th class="n">Alternativer igjen</th><th class="n">P(rett)</th><th>Regnestykket</th><th class="n">E[poeng]</th><th class="n">Standardavvik</th></tr>
+<tr><td class="n">4 (rent blindt)</td><td class="n">0,25</td><td>0,25 × 3 − 0,75 × 1</td><td class="n">0,00</td><td class="n">1,73</td></tr>
+<tr><td class="n">3</td><td class="n">0,33</td><td>0,33 × 3 − 0,67 × 1</td><td class="n">+0,33</td><td class="n">1,89</td></tr>
+<tr><td class="n">2</td><td class="n">0,50</td><td>0,50 × 3 − 0,50 × 1</td><td class="n">+1,00</td><td class="n">2,00</td></tr>
+<tr><td class="n">1 (sikker)</td><td class="n">1,00</td><td>1,00 × 3</td><td class="n">+3,00</td><td class="n">0,00</td></tr>
+</table>
+<p><b>Steg 1 — les den øverste raden.</b> Å gjette blindt blant fire gir nøyaktig null i forventning. Det er ikke en tilfeldighet, det er hele poenget med å velge −1: straffen er kalibrert slik at ren gjetting verken lønner seg eller straffer seg.</p>
+<p><b>Steg 2 — se hva ett utelukket alternativ gjør.</b> Klarer du å stryke ett eneste alternativ, går forventningen fra 0 til <b>+0,33</b>. Stryker du to, til <b>+1,00</b>. Regelen følger direkte: <b>svar så snart du kan utelukke minst ett alternativ.</b></p>
+<p><b>Steg 3 — merk at satsen ikke betyr noe.</b> Med 6 for rett og −2 for feil blir tallene 0, +0,67 og +2,00 — dobbelt, men med samme fortegn og samme nullpunkt. Strategien er den samme uansett hva oppgaven veier.</p>
+<p><b>Kontroll:</b> nullpunktet skal ligge på p* = F/(R + F) = 1/(3 + 1) = 0,25, altså ett av fire. Det stemmer med at raden med fire alternativer gir null. ✓</p>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor er standardavviket verdt et blikk?</span>
+Forventningen er null når du gjetter blindt, men spredningen er ikke null — den er 1,73 poeng per spørsmål. Gjetter du blindt på ti spørsmål, er forventningen fortsatt null, men utfallet svinger med rundt 5,5 poeng. Er du komfortabelt over en karaktergrense, er den variansen bare risiko uten gevinst. Ligger du under, er den din eneste sjanse. Det er det eneste argumentet for å gjette blindt, og det er situasjonsbestemt.</div>
+
+<div class="callout mistake"><span class="h">Vanen fra 2024 og 2025 er nå feil</span>
+Begge de to siste settene sa uttrykkelig at ubesvarte spørsmål og feil svar <i>ikke</i> ga minuspoeng. Da var det gratis å svare på alt, og det var riktig å gjøre det. Regn på hva den vanen koster nå: en kandidat som er sikker på 20 av 30 spørsmål, nede i to alternativer på 6, og blank på 4, får 60 + 6 = <b>66 av 90 poeng</b> med minuspoeng. Under den gamle regelen ville de samme fire blindgjettene vært verdt 3 poeng gratis. De poengene finnes ikke lenger — og svarer du blindt på dem nå, er forventningen null, ikke +3.</div>
+
+<h3>0.5 Kursgodkjenningen</h3>
+
+<p>For å gå opp til eksamen må du ha bestått en <b>flervalgstest på Canvas</b>. Den legges ut når forelesningene er over, krever <b>17 av 20 riktige</b>, og du har tre forsøk. Samarbeid er tillatt, men besvarelsen leveres individuelt, og fasit deles ikke ut.</p>
+
+<div class="callout warn"><span class="h">Fristen er den samme som oppmeldingsfristen</span>
+Siste frist for å ta testen sammenfaller med siste frist for å melde seg opp til eksamen, og den som glemmer den, får <b>ikke</b> et nytt forsøk. Sett datoen i kalenderen den dagen testen legges ut.</div>
+
+<h3>0.6 Slik bruker du manualen</h3>
+
+<p>Manualen er skrevet for å stå alene. Du har ikke læreboka, og pensumartiklene er tolv i tallet — det som betyr noe fra dem, står gjengitt her. Rekkefølgen følger forelesningene, og kapitlene bygger på hverandre: kapittel 5 forutsetter kapittel 1, kapittel 8 forutsetter kapittel 7.</p>
+
+<p>Tre ting er verdt å vite om hvordan den er lagt opp:</p>
+
+<ul>
+<li><b>De gjennomregnede eksemplene er der arbeidet ligger.</b> Regn dem på papir før du leser løsningen. Å lese en utregning du ikke har forsøkt gir gjenkjennelse, ikke ferdighet — og gjenkjennelse er akkurat det som svikter når alternativene er utformet for å ligne på hverandre.</li>
+<li><b>Satsene er merket.</b> Der en sats er dagens regel, står den som det. Der den bare er et tall i et eksempel, står den som det. Skillet er ikke pedantisk: eksamensoppgaver oppgir satsene selv, og de er ofte ikke dagens. Aksjerabatten var 45 % i 2021 og er 20 % nå; oppjusteringsfaktoren var 1,6 i 2020 og er 1,72 nå. Les oppgaveteksten, ikke hukommelsen.</li>
+<li><b>Kapittel 20 er formelsamlingen.</b> Radene der blir automatisk til repetisjonskort i appen. Bruk den som oppslag underveis, ikke som lesestoff.</li>
+</ul>
+
+<div class="callout link"><span class="h">Hvor du begynner</span>
+Kapittel 1 og 2 er grunnlaget alt annet hviler på: satsene, progressivitet, effektiv skattesats, og forskjellen på nominell, real og etter-skatt-avkastning. Kapittel 5, 7 og 11 er de tre tyngste og mest eksaminerte — aksjonærmodellen, formuesskatten og skatteinsidens. Har du dårlig tid, er det de tre du ikke kan hoppe over.</div>
+
+</section>
+
+</div>
+</body>
+</html>
