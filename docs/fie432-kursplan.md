@@ -4,10 +4,9 @@ Leses sammen med `docs/fie432-forfatterspek.md`. Denne fila sier hva kapitlet di
 hva leseren allerede kan når han kommer dit, og hvilke ekte eksamensspørsmål det må forberede
 ham på. Råstoffet ligger i `docs/fie432-research/`.
 
-> Status 3. september 2026: kapittelkartet og kursfakta er endelige. Frekvenstabellen i
-> avsnittet «Hva som faktisk kommer» og eksamenshenvisningene i kapittelbeskrivelsene
-> oppdateres fra `01-eksamens-dna.md` når kartleggingen er ferdig. Bruk bare henvisninger
-> som står her eller der.
+> Status 3. september 2026: komplett. Kartleggingen i `docs/fie432-research/` er ferdig —
+> 85 000 ord over seks dokumenter. Bruk bare eksamenshenvisninger som står her eller i
+> `01-eksamens-dna.md`; dikt aldri opp en.
 
 ---
 
@@ -39,39 +38,70 @@ blankt når du ikke kan.** Kapittel 19 lærer dette som en rutine.
 
 ### Hva som faktisk kommer
 
-*(Frekvenstabellen over alle ni settene 2016–2025 fylles inn fra
-`01-eksamens-dna.md`. Det som står under er lest direkte ut av H2024 og H2025, de to
-settene i dagens format, og er sikkert.)*
+Alle ni sett med fasit (2016–2025) er registrert spørsmål for spørsmål i
+`docs/fie432-research/01-eksamens-dna.md`: **227 spørsmål**, hvert merket med tema,
+type og regnerutine, og poengvektet per sett. Tabellene under er sammendraget.
+Bruk registeret når du trenger et konkret eksempel til et kapittel.
 
-**Skattedelen (GS) — omtrent to tredeler av poengene:**
+#### Etter poengvekt over alle ni sett
 
-| Tema | H2024 | H2025 |
-|---|---|---|
-| Skjermingsfradrag: utbytte, ubenyttet skjerming framført og lagt til grunnlaget | oppg. 1 (4 p) | oppg. 1, 4 |
-| Gevinst ved salg: kostpris, ubenyttet skjerming, oppjustering × eierskatt | oppg. 2 | oppg. 10 |
-| Formuesskatt: verdsettingsrabatt, forholdsmessig gjeldsfordeling, primærbolig unntatt | oppg. 6 (4 p) | oppg. 2 |
-| «Utbytte for å betale formuesskatten» — utbyttet må også dekke eierskatten | oppg. 7 | oppg. 6 |
-| Formuesskatt som avkastningsskatt: avkastning etter formuesskatt, verdsetting av evig kontantstrøm under formuesskatt | — | oppg. 3 (4 p), oppg. 9 |
-| Effektiv skattesats: betalt skatt / bruttoinntekt; avskrivning senker den | — | oppg. 5 |
-| Progressivitet: bunnfradrag gjør flat sats progressiv; gjennomsnittsskatt i trinnsystem | oppg. 4 (3 p), oppg. 5 (2 p) | — |
-| Tidsverdien av fradrag: ta avskrivningen med en gang | oppg. 3 (2 p) | — |
-| Insidens: stykkskatt, ∂p/∂t og ∂P/∂t, perfekt uelastisk/elastisk etterspørsel | oppg. 8 (9 p) | oppg. 8 (3 p) |
-| Bedriftens tilpasning under skatt: F′(K) med fradrag for rentene, gjeld vs egenkapital | — | oppg. 7 (3 p) |
-| Implisitt skatt: skattefri obligasjon har lavere nominell rente; t* = 1 − r_A/r_B | oppg. 9 (2 p) | — |
-| Internasjonal skatt: globalskatteplikt, fast driftssted, unntaks- vs kreditmetode, dobbeltbeskatning, exit-skatt ved gave til utlandet, utflytting av selskap | oppg. 10 (10 delspørsmål) | — |
+| Tema | Sett med temaet | Snitt % av poengene | Kapittel |
+|---|---|---|---|
+| **Stykkskatt-incidens** — formelen, elastisitetsgrensene | **8/9** | **11,6 %** | k11 |
+| Oppjustering og eierskatt på utbytte/gevinst | 7/9 | 7,7 % | k5 |
+| Formuesskatt: forholdsmessig gjeldsfordeling | 7/9 | 7,6 % | k7 |
+| Effektiv skattesats og gjennomsnittsskatt | 7/9 | 5,3 % | k1 |
+| Pensjon: folketrygd, delingstall, kompensasjonsgrad | 6/9 | 6,2 % | k15 |
+| Pensjon: innskudd mot ytelse, IPS | 6/9 | 4,2 % | k15 |
+| Merton-aksjeandel med humankapital | 5/9 | 5,1 % | k14 |
+| Skjerming: utbytte, ubenyttet, gevinst | 5/9 | 4,7 % | k5 |
+| Internasjonal skatt: unntak, kredit, bosted | 4/9 | 5,4 % | k13 |
+| Forventet nytte og forsikring | 4/9 | 4,1 % | k17 |
+| Lån: boliglånsforskrift, gjeldsgrad, betjeningsevne | 4/9 | 4,1 % | k16 |
+| Sparing: ln-nytte, subjektive sannsynligheter, tapsaversjon | 3/9 | 4,4 % | k14, k18 |
+| Lån: annuitet, effektiv rente, gebyr | 3/9 | 3,4 % | k16 |
+| Formuesskatt: verdsetting | 3/9 | 3,0 % | k7 |
+| Portefølje: indeksfond, kapitalmarkedslinjen, varians, valuta | 3/9 | 2,8 % | k14 |
+| Formuesskatt som avkastningsskatt | 2/9 | 3,3 % | k8 |
+| Bedriftens tilpasning: FOC, gjeld mot egenkapital | 2/9 | 2,7 % | k9 |
+| Exit-skatt | 2/9 | 1,6 % | k6 |
+| Utbytte for å betale formuesskatten | 3/9 | 1,4 % | k8 |
+| Progressivitet · tidsverdi av fradrag · implisitt skatt · atferdsfinans | 2/9 hver | 0,7–1,2 % | k1, k2, k12, k18 |
 
-**Finansdelen (OA) — omtrent en tredel:**
+#### Flervalgsæraen alene — den beste prediktoren for 2026
 
-| Tema | H2024 | H2025 |
-|---|---|---|
-| Forventet nytte og forsikring: U = √W, kjøp til aktuarisk pris, maksimal premie, delvis dekning | oppg. 11 (4 p) | oppg. 13 (3 p) |
-| Mertons formel w* = (μ − r_f)/(γσ²); humankapital som sikker eller risikabel; alder | — | oppg. 11 (4 p) |
-| Porteføljeteori: minimum-varians med korrelasjon 1, kapitalmarkedslinjen og giring | oppg. 12d | oppg. 15 |
-| Indeksfond: diversifisering, kostnader, USA-andel ca. 70 %, Forbrukerrådets funn | oppg. 12a–b | oppg. 16 |
-| Valutasikring når lønnen samvarierer med kronen | oppg. 12c | — |
-| Pensjon: innskudd vs ytelse, IPS som skattekreditt, delingstall ved utsatt uttak | oppg. 13 (2 p) | oppg. 14, 17 |
-| Lån: avdragsfrihet ved midlertidig likviditetsproblem | oppg. 14 | — |
-| Lovpålagt forsikring (ansvarsforsikring bil) | — | oppg. 12 |
+H2022, H2024 og H2025 er de tre flervalgssettene. Andel av settets poeng:
+
+| Tema | H2022 | H2024 | H2025 |
+|---|---|---|---|
+| Stykkskatt-incidens | 9 % | 19 % | 10 % |
+| Skjerming (utbytte, ubenyttet, gevinst) | 20 % | 8 % | 5 % |
+| Oppjustering / eierskatt / effektiv sats | 18 % | 6 % | 6 % |
+| Internasjonal skatt og exit-skatt | 17 % | 19 % | — |
+| Formuesskatt som avkastningsskatt, verdsetting | — | — | 17 % |
+| Merton med humankapital | 14 % | — | 14 % |
+| Sparing: ln-nytte, tapsaversjon | 14 % | — | — |
+| Forventet nytte og forsikring | — | 8 % | 14 % |
+| Bedriftens tilpasning (FOC, gjeld mot EK) | — | — | 10 % |
+| Lån: annuitet, effektiv rente | 9 % | — | — |
+| Formuesskatt: gjeldsfordeling | — | 8 % | 3 % |
+| Portefølje: indeksfond, kapitalmarkedslinjen | — | 8 % | 7 % |
+| Pensjon (delingstall, innskudd mot ytelse, IPS) | — | 4 % | 6 % |
+
+**Tre ting å lese ut av dette:**
+
+1. **Stykkskatt-incidens er kursets mest testede enkelttema**, i åtte av ni sett og
+   nesten 12 % av poengene. Både som formelgjenkjenning (H2024 oppgave 8 spør hvilket
+   uttrykk som er ∂p/∂t) og som talleksempel med grensetilfeller (H2025 oppgave 8).
+   k11 må kunne begge, og må utlede formelen, ikke bare oppgi den.
+2. **Formuesskatt som avkastningsskatt er ny og tung.** Fraværende før H2021, 17 % av
+   poengene i H2025, og pensum for forelesning 8 i 2026-planen (BS4, BS5, AM). Skriv k8
+   som om det kommer igjen.
+3. **Internasjonal skatt er den store usikkerheten.** 17–19 % av poengene i H2022 og
+   H2024, men helt fraværende i H2025 — og 2026-planen navngir **ingen gjesteforeleser i
+   skatterett**. Guttorm Schjelderup tar «Skatt/emigrasjon» selv 9. september, og
+   Kvadsheim-timen 9. oktober står som «tema kommer senere». Dekk k13, men prioriter
+   den under k5, k7, k8 og k11.
 
 ### Det sensorveiledningene belønner og avviser
 
@@ -85,9 +115,19 @@ settene i dagens format, og er sikkert.)*
    oppgaven ikke sa at gjeldsreduksjon skulle brukes — sensor er presis på hva oppgaven faktisk
    forutsetter.
 4. **Desimaler når oppgaven ber om det** («benytt to desimaler», «rund av til en desimal»).
-5. **Fasitene kan ha regnefeil.** H2024 oppgave 5 gir 17,1 % for individ X i utregningen og
-   17,2 % i alternativet; 65 400 / 380 000 = 17,2 %. Leseren skal lære å stole på sitt eget
-   regnestykke og velge nærmeste alternativ.
+   Avrundingen er noen ganger *nødvendig*: H2019 oppgave 2c gir nøyaktig null bare hvis man
+   runder først; eksakt regning gir −47 489 og treffer ingen av alternativene.
+7. **Satsene i eldre sett er ikke dagens.** Aksjerabatten var 45 % i 2021 og 20 % nå;
+   oppjusteringsfaktoren 1,6 i 2020 og 1,72 nå. Oppgaveteksten oppgir dem alltid — les den,
+   ikke hukommelsen. `05-satser-2026.md` § 6 lister hva som har endret seg.
+5. **Fasitene har regnefeil, og de er kartlagt.** Alle 109 kontrollerbare fasitsvar er regnet
+   om (`01-eksamens-dna.md` § 7): 96 stemmer eksakt, 6 avviker bare på avrunding, og **6 er
+   feil i selve veiledningsteksten** — men i fem av seks tilfeller er *svaralternativet*
+   likevel riktig. De to viktigste: H2024 oppgave 5 skriver 17,1 % for individ X i teksten mens
+   alternativet sier 17,2 %, og 65 400/380 000 = 17,2105 %, så alternativet er riktig. H2025
+   oppgave 1 skriver «200 000 og 120 000» i én setning mens tabellen og sluttsvaret bruker
+   160 000 og 740 000, som er riktig. Leseren skal lære å stole på sitt eget regnestykke og
+   velge nærmeste alternativ.
 6. I finansdelen: **prøve-og-feile er en godkjent metode** for forventet-nytte-oppgaver (sett
    alternativene inn i nyttefunksjonen), og flere svar godtas når spørsmålet kan tolkes på
    to måter (H2025 oppgave 11d).
