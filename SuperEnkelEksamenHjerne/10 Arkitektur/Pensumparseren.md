@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, pensum, parser]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-03
 ---
 
 # Pensumparseren
@@ -63,5 +63,38 @@ navn som «Oppgave 2: Vekst på lang sikt».
 `class="doc"`, utleder oppgavetype fra id-en og merker temaer med regelbaserte
 tekstsøk (`TOPIC_RULES`). Finner den ingenting, kjører appen videre med tom
 oppgavebank — modulen tåler det.
+
+## Kontrollen
+
+`tools/sjekk-manual.py` speiler reglene over og kjører dem mot en manual:
+
+```bash
+python3 tools/sjekk-manual.py                      # alle manualer i repoet
+python3 tools/sjekk-manual.py FIE432_Manual.html
+```
+
+Den bygger sin egen lille DOM med `html.parser` (ingen avhengigheter) og ser
+etter nøyaktig det parseren mister i stillhet: `section`-er som ikke matcher
+`^k\d+$`, kapittel som er `div` i stedet for `section`, manglende eller
+feilnummerert `h2.chap`, innhold før `h2.chap`, `h3` nøstet i en `div`,
+`h3` uten `N.M`-prefiks eller med feil kapittelnummer, hull i
+kapittelnummereringen, `.formula` uten `.eq` og `.where`, `.callout` uten type
+eller uten `span.h`, `div.figure` i stedet for `figure`, rå `<` i teksten, og
+nøstede `section`-er. Referansekapitlet slås opp i `js/subjects.js` via
+manualens filnavn.
+
+> [!info] Hva den fant første gang
+> **SAM3 hadde seks figurer skrevet som `<div class="figure">`** med
+> `<div class="cap">` som tekst. De ble ikke telt i `counts.figures` — men
+> verre: appens CSS styler `.prose figure svg` med hvitt kort, ramme og skygge,
+> og `.prose figcaption` i kursiv. De seks fikk ingenting av det og lå som bar
+> SVG rett på sidebakgrunnen. Manualen brukte allerede `<figure>` riktig for de
+> fire andre. Rettet 3. september 2026; figurtallet gikk fra 4 til 10.
+>
+> **Caseintervju hadde to `.callout` uten type og uten `span.h`.** De vises,
+> siden rå-HTML-en beholdes, men de telles ikke som tips og havner ikke i
+> hurtigoppsummeringen. Rettet til `.callout.tip`.
+>
+> FIE402 var ren.
 
 Se [[Legge til nytt fag]] for hvordan en ny manual må se ut i praksis.

@@ -1170,3 +1170,291 @@ D′ < 0, S′ > 0, nevner > 0.
 Ingen gammel fil i mappa. Forelesningen er ny i denne formen (H2026-planen
 har «Hvem betaler egentlig skatten» som egen forelesning 9 med Stiglitz som
 pensum).
+
+---
+
+## 6. Forelesning 10 — Skatt, aksjer og risiko
+
+Fil: `Forelesning_9GS_Skatt,_aksjer_og_risikotaking_Rev.txt` (36 lysbilder).
+Filnavnet sier forelesning 9, planen sier 10, og lysbilde 1 har en tredje tittel:
+«Skatt, Risiko og Ulike Spareformer». Fire deler pluss appendiks:
+tapsfradrag og prosjektvalg (Domar–Musgrave); porteføljemodellen som viser at
+høyere skatt gir *mer* i den risikable aksjen; tre spareprodukter (V1 bank,
+V2 skattekreditt/ASK, V3 pensjon); implisitt skatt (Scholes–Wolfson); og et
+appendiks om risikojustering (risikopremie, Sharpe, sikkerhetsekvivalent, CAPM)
+og hva som skjer når man regner etter skatt. Dette er den mest formeltunge
+forelesningen i kurset, og **så godt som hver eneste formel og hvert eneste
+prosjekttall var bilder**. Alt under er rekonstruert fra standardteori
+(Domar–Musgrave 1944, Mossin/Stiglitz-porteføljemodellen, Scholes–Wolfson) og
+kontrollert mot de tallene som *står* i teksten: 12 000, 15 000, 25 %, 5,6 %,
+6,4 %, 0,30, 4 %, 8 % og 11,2 % reproduseres alle eksakt.
+
+### Begreper
+
+| Begrep | Definisjon slik forelesningen gir den |
+|---|---|
+| **Tapsfradrag** | Retten til å trekke tapet fra mot skattbar inntekt. Fullt tapsfradrag betyr at staten dekker andelen t av tapet, ikke bare av gevinsten. |
+| **Symmetrisk beskatning** | Staten er med på både opp- og nedsiden med samme sats. Da er staten en «stille partner» som eier andelen t av prosjektet. |
+| **Domar–Musgrave-resultatet** | Med proporsjonal skatt og fullt tapsfradrag påvirker ikke skatten investeringsvalget: alle prosjekter skaleres med (1 − t), og rangeringen står. |
+| **Asymmetrisk beskatning** | Skatt på gevinst uten fradrag for tap. Da vris valget mot det sikre prosjektet. |
+| **Start-up-problemet** | En oppstartsbedrift har ingen annen inntekt å avskrive tapet mot, og fremtidig inntekt er usikker → i praksis asymmetrisk beskatning. Etablerte selskaper med inntekt fra andre prosjekter kan føre tapet mot den, og har derfor en skattefordel i risikable prosjekter. |
+| **Startformue A** | Investorens formue, fordelt på et sikkert og et risikabelt aktivum. |
+| **x₁** | Beløpet plassert i det risikable aktivumet. Modellens valgvariabel. |
+| **Sluttformue** | Formuen etter at avkastningen er realisert og skattlagt. Investoren maksimerer forventet nytte av sluttformuen. |
+| **Replisering av fordelingen** | Intuisjonen bak resultatet: investoren vil ha samme sannsynlighetsfordeling for sluttnytten som før skatten. Siden skatten krymper den risikable posisjonen med (1 − t), må x₁ blåses opp med 1/(1 − t) for å gjenskape den. |
+| **Nulls risikofri avkastning** | Modellens sentrale forutsetning. Gjør at nyttefunksjonens form (risikoholdningen) ikke trengs for å bestemme fortegnet. |
+| **Inntektseffekt (positiv risikofri rente)** | Med r_f > 0 endrer skatten også den sikre delen av sluttformuen. Da avhenger svaret av r_f og av risikoholdningen, og fortegnet er ubestemt. |
+| **Løpende beskatning (V1)** | Banksparing/obligasjon med kupong: renten skattlegges hvert år, så det er etter-skatt-renten som forrentes. |
+| **Skattekreditt / skatteutsettelse (V2)** | ASK-kontoen: avkastningen skattlegges først når kontrakten avsluttes. Hele bruttoavkastningen forrentes underveis. |
+| **Fradrag pluss skattekreditt (V3)** | Pensjonssparing: fradrag i investeringsåret gjør at du kan sette inn Y/(1 − t), og hele utbetalingen (innskudd + avkastning) skattlegges til slutt. |
+| **Implisitt skatt** | Fallet i *før-skatt*-avkastning på et skattefavorisert aktivum, målt mot et like risikabelt skattlagt aktivum. Ingen betaler den inn til staten; den tas ut i lavere avkastning. |
+| **Eksplisitt skatt** | Den skatten som faktisk kreves inn og gir staten inntekt. |
+| **Likevektsbetingelsen** | To like risikable aktiva må gi samme avkastning *etter skatt*: r = R(1 − t). |
+| **Skattefavorisering → prisøkning** | Skattefritaket øker etterspørselen etter aktivumet, prisen stiger og avkastningen (f.eks. utbytte/kostpris) faller. Fallet *er* den implisitte skatten. |
+| **Hvem tjener på skattefritaket** | Utstederen av det skattefrie papiret: han slipper unna med lavere rente enn på et like risikabelt skattlagt papir. Kjøperen sitter igjen med omtrent det samme som før. |
+| **Vippepunktet** | Egen marginalskatt mot den implisitte skatten. Høyere marginalskatt gjør det skattefrie alternativet mer attraktivt. |
+| **Risikopremie** | Forventet avkastning ut over risikofri rente, E[r] − r_f. |
+| **Sharpe-rate (SR)** | Meravkastning per enhet risiko, (E[r] − r_f)/σ. Tolkning: 0–1 moderat, 1–2 god, > 2 svært god risikojustert avkastning. |
+| **Sikkerhetsekvivalent (CE)** | Den sikre avkastningen investoren er villig til å bytte den usikre mot: CE = E[r] − ½Aσ². Subjektiv, fordi A er investorens egen risikoaversjon. |
+| **Risikoaversjonsparameter A** | Høy A = risikoavers (A = 3 i eksempelet), lav A = risikovillig (A = 1). |
+| **CAPM** | Avkastningskravet som følger av *systematisk* risiko: r_f + β(E[r_m] − r_f). Objektivt, markedsbasert — i motsetning til CE, som er investorspesifikk. |
+| **Beta (β)** | Aksjens svingning relativt til markedet. β = 1,2 betyr 20 % mer enn markedet. |
+
+### Formler og regler
+
+1. **Domar–Musgrave, fullt tapsfradrag** ⟨rekonstruert⟩: etter-skatt-verdien av
+   et hvilket som helst prosjekt er (1 − t) × forventet før-skatt-verdi. Begge
+   prosjekter skaleres med samme faktor → **rangeringen er uendret**, og skatten
+   påvirker ikke valget. Staten eier andelen t av både opp- og nedsiden.
+2. **Uten tapsfradrag** ⟨rekonstruert⟩: la G være forventet bruttogevinst i de
+   gode utfallene og L forventet brutto tap i de dårlige, slik at
+   E = G − L er forventet avkastning før skatt. Da er
+   **E_etter = (1 − t)G − L = E − t·G**. Skatten trekkes fra hele oppsiden, men
+   ingenting legges tilbake på nedsiden. Jo mer spredning (høyere G for gitt E),
+   jo hardere rammes det risikable prosjektet.
+3. **Vippepunktet mellom to prosjekter uten tapsfradrag** ⟨rekonstruert⟩: det
+   sikre prosjektet med avkastning S velges når E − t·G < (1 − t)S, altså når
+   G > (E − (1 − t)S)/t.
+4. **Porteføljemodellen, r_f = 0** ⟨rekonstruert⟩: sluttformue
+   Y = A + (1 − t)·x₁·r̃, der r̃ er den stokastiske avkastningen og tap gir
+   refusjon t·x₁r̃ (fullt tapsfradrag). Investoren maksimerer E[U(Y)].
+   Førsteordensbetingelsen er E[U′(Y)·(1 − t)·r̃] = 0; (1 − t) er ikke
+   stokastisk og kan divideres bort:
+   **E[U′(A + (1 − t)x₁r̃) · r̃] = 0**.
+5. **Resultatet** ⟨rekonstruert⟩: sett z = (1 − t)x₁. Betingelsen i punkt 4
+   bestemmer z alene — skatten er borte fra ligningen. Altså er z\* konstant, og
+   **x₁\* = z\*/(1 − t)** ⇒ **∂x₁\*/∂t = x₁\*/(1 − t) > 0**. Økt skatt gir
+   *større* beløp i den risikable aksjen. Nyttefunksjonens form trengs ikke.
+6. **Med positiv risikofri rente** ⟨rekonstruert⟩:
+   Y = A(1 + r_f(1 − t)) + (1 − t)x₁(r̃ − r_f). Skatten treffer nå også den
+   sikre basen. Med W₀ = A(1 + r_f(1 − t)) og z = (1 − t)x₁ blir
+   **∂x₁\*/∂t = x₁\*/(1 − t) − (A·r_f/(1 − t)) · ∂z\*/∂W₀**.
+   Første ledd er repliseringseffekten fra punkt 5, andre ledd en inntektseffekt
+   med motsatt fortegn under avtakende absolutt risikoaversjon. **Netto fortegn
+   er ubestemt** — nøyaktig det lysbilde 14 sier.
+7. **Modellens tre forutsetninger:** proporsjonal skatt, fullt tapsfradrag
+   (symmetri), og null avkastning på det sikre aktivumet. Faller én av dem,
+   faller det entydige resultatet.
+8. **V1 — banksparing** ⟨rekonstruert⟩: **V1 = Y·(1 + r(1 − t))ⁿ**.
+9. **V2 — skattekreditt (ASK)** ⟨rekonstruert⟩:
+   **V2 = Y·[(1 + r)ⁿ − t((1 + r)ⁿ − 1)] = Y·[(1 − t)(1 + r)ⁿ + t]**.
+   Skatten betales bare på den akkumulerte avkastningen, og først i år n.
+10. **V3 — pensjonssparing** ⟨rekonstruert⟩: fradraget gjør at Y/(1 − t) kan
+    settes inn; hele beløpet skattlegges ved uttak:
+    **V3 = [Y/(1 − t)]·(1 + r)ⁿ·(1 − t) = Y·(1 + r)ⁿ**. Med satsen t₀ ved
+    innskudd og t_n ved uttak: **V3 = Y·(1 − t_n)/(1 − t₀)·(1 + r)ⁿ**.
+11. **Rangeringen ved konstant t:** **V1 ≤ V2 < V3**, med likhet V1 = V2 bare for
+    n = 1. Faller satsen fram til uttaket (t_n < t₀), øker V3 ytterligere;
+    stiger den, faller V3 — og rangeringen er ikke lenger gitt.
+12. **Implisitt skatt — likevekt:** to like risikable aktiva må gi samme
+    avkastning etter skatt, **r = R(1 − t)**, der R er før-skatt-avkastningen på
+    det skattlagte og r på det skattefrie. Derfor er alltid **r < R**.
+13. **Implisitt skattesats** ⟨rekonstruert; identisk med eksamensfasit H2024
+    oppg. 9b⟩: **T = (R − r)/R = 1 − r/R**.
+14. **Valgregelen:** velg det skattefavoriserte aktivumet hvis egen marginalskatt
+    > T, det skattlagte hvis marginalskatt < T. Ved marginalskatt = T er man
+    likegyldig. Investoren tjener bare på skattefavoriseringen i den grad hans
+    egen sats overstiger den implisitte.
+15. **Sharpe-rate:** SR = (E[r] − r_f)/σ.
+16. **Sikkerhetsekvivalent:** CE = E[r] − ½·A·σ². Velg aksjen hvis CE > r_f.
+17. **CAPM:** E[r] = r_f + β(E[r_m] − r_f). Er aksjens *forventede* avkastning
+    lavere enn CAPM-kravet, er aksjen trolig overvurdert.
+18. **Etter skatt** ⟨rekonstruert⟩: obligasjonen gir r_f(1 − t_r) med
+    t_r = 22 %; aksjen gir E[r](1 − t_e) og standardavvik σ(1 − t_e) med
+    t_e = 37,84 %. Både forventning og spredning skaleres med samme faktor —
+    det er Domar–Musgrave om igjen, nå i porteføljespråk.
+
+### Regneeksempler
+
+**E6.1 Prosjektvalg uten skatt (lysbilde 3).** 100 000 investeres. Prosjekt A
+gir sikkert **20 000** (20 %), prosjekt B er usikkert med forventning
+**25 000**. Risikonøytral investor velger B: 25 000 > 20 000. ✓ (Tallene 20 000
+og 25 000 står i teksten; B-fordelingen var bilde.)
+
+**E6.2 Skatt 40 % uten tapsfradrag (lysbilde 4).** **[eksempeltall]**
+- A: (1 − 0,40) × 20 000 = **12 000**. ✓ (står i teksten)
+- B: forventningen etter skatt er 25 000 − 0,40·G ⟨rekonstruert⟩. For at
+  konklusjonen «vi velger nå A» skal holde, må 25 000 − 0,4G < 12 000, altså
+  **G > 32 500** — forventet bruttogevinst i de gode utfallene må overstige
+  32 500, tilsvarende et forventet brutto tap på over 7 500. ✓
+- Illustrasjon med en 50/50-fordeling (+100 000 / −50 000, forventning
+  25 000): 0,5 × 0,6 × 100 000 − 0,5 × 50 000 = 30 000 − 25 000 = **5 000**,
+  langt under 12 000. ✓ ⟨fordelingen er min; lysbildets egne tall var bilde⟩
+
+**E6.3 Fullt tapsfradrag (lysbilde 5).** Staten tar 40 % av både opp- og
+nedside → B = 0,60 × 25 000 = **15 000** > A = **12 000**. ✓ (begge står i
+teksten) Vi velger B, akkurat som før skatten. Generelt: begge prosjekter
+multipliseres med 0,60, så rangeringen kan ikke snu.
+
+**E6.4 Porteføljemodellen numerisk** ⟨eget eksempel⟩. Er z\* = 60 000 det
+optimale *risikoeksponerte* beløpet (målt etter skatt), blir
+x₁\* = 60 000/(1 − t): **60 000** ved t = 0, **75 000** ved 20 %, **100 000**
+ved 40 % og **120 000** ved 50 %. ✓ Investoren gearer opp posisjonen nøyaktig
+nok til at fordelingen for sluttformuen blir den samme.
+
+**E6.5 De tre spareproduktene numerisk** ⟨eget eksempel; lysbildene har bare
+formlene⟩. Y = 100 000, r = 5 %, n = 10 år, t = 22 %:
+- V1 = 100 000 × (1 + 0,05 × 0,78)¹⁰ = 100 000 × 1,039¹⁰ = **146 607**. ✓
+- V2 = 100 000 × [0,78 × 1,05¹⁰ + 0,22] = **149 054**. ✓ (+1,7 % mot V1)
+- V3 = 100 000 × 1,05¹⁰ = **162 889**. ✓ (+9,3 % mot V2)
+- Rangeringen V1 < V2 < V3 er kontrollert for n = 1, 5, 10, 20 og 30. Ved
+  n = 1 er V1 = V2 = 103 900 — skattekreditten er verdiløs på ett år. ✓
+- Satsendring: fradrag ved 40 % marginalskatt, uttak ved 22 %:
+  100 000/0,60 × 1,05¹⁰ × 0,78 = **211 756**. Motsatt vei (fradrag 22 %,
+  uttak 40 %): **125 300**, altså dårligere enn V2. ✓ Dette er hele poenget i
+  lysbilde 20.
+
+**E6.6 Implisitt skatt på to obligasjoner (lysbilde 25–26).** A skattlagt med
+nominell avkastning **8 %**, B skattefri med **6 %** **[eksempeltall]**.
+- T = (8 % − 6 %)/8 % = **25 %**. ✓
+- Marginalskatt 30 %: A gir 8 % × 0,70 = **5,6 %**, B gir **6 %** → velg B. ✓
+- Marginalskatt 20 %: A gir 8 % × 0,80 = **6,4 %**, B gir 6 % → velg A. ✓
+- Vippepunktet er marginalskatt = 25 % = den implisitte skatten. ⟨rekonstruert;
+  lysbildet sier det ikke, men det følger av tallene⟩
+
+**E6.7 Appendiks — risikojustering (lysbilde 28–35).** r_f = 4 %, E[r] = 10 %,
+σ = 20 %, β = 1,2, markedspremie 6 % **[eksempeltall]**.
+- Risikonøytral: 10 % > 4 % → aksjen.
+- Sharpe = (10 − 4)/20 = **0,30**. ✓ «Bare litt over risikofri.»
+- CE med A = 3: 0,10 − ½ × 3 × 0,20² = **4,0 %**. ✓ Med A = 1:
+  0,10 − ½ × 1 × 0,04 = **8,0 %**. ✓
+- CAPM: 4 % + 1,2 × 6 % = **11,2 %**. ✓ Aksjens forventede 10 % < 11,2 % →
+  overvurdert.
+- Merk: CE = 4,0 % er *nøyaktig lik* r_f = 4 %, så den risikoaverse investoren
+  er strengt tatt likegyldig, ikke «foretrekker obligasjonen» slik lysbilde 33
+  sier. A = 3 er akkurat vippepunktet ⟨rekonstruert: A\* = 2(E[r] − r_f)/σ² =
+  2 × 0,06/0,04 = 3,0⟩.
+
+**E6.8 Samme regnestykke etter skatt (lysbilde 36)** ⟨rekonstruert; lysbildet
+har bare formlene⟩. t_r = 22 % på renter, t_e = 37,84 % på aksjegevinst:
+- Obligasjon: 4 % × 0,78 = **3,12 %**. Aksje: 10 % × 0,6216 = **6,216 %**,
+  σ = 20 % × 0,6216 = **12,432 %**.
+- Sharpe etter skatt = (6,216 − 3,12)/12,432 = **0,249** — ned fra 0,30. Under
+  dette målet forsterkes valget av obligasjonen, slik lysbildet sier. ✓
+- **Men sikkerhetsekvivalenten går motsatt vei:** CE = 6,216 % − ½ × 3 ×
+  0,12432² = **3,90 %** > 3,12 %. Etter skatt foretrekker A = 3-investoren
+  *aksjen*. Grunnen er at forventningen krymper lineært med (1 − t_e) mens
+  variansen krymper kvadratisk — Domar–Musgrave-effekten. Vippepunktet flytter
+  seg fra A = 3,0 til **A = 4,01**. **Går ikke opp** mot lysbildets påstand om
+  at skatt «forsterker valget av obligasjonen»: det gjelder for Sharpe, ikke
+  for CE. Merk også at etter-skatt-tallene bygger på fullt tapsfradrag og at
+  σ skaleres med (1 − t_e).
+
+### Argumenter
+
+- **Skatt på gevinst uten fradrag for tap → staten tar del i oppsiden, men ikke
+  nedsiden → det risikable prosjektet straffes og investoren velger det sikre
+  (25 000 → under 12 000, mot 12 000 for det sikre).**
+- **Fullt tapsfradrag → staten blir stille partner med eierandel t i både
+  gevinst og tap → alle prosjekter skaleres med (1 − t) og rangeringen står →
+  skatten er nøytral for risikotakingen.**
+- **Start-up mangler inntekt å føre tapet mot, og framtidig inntekt er usikker
+  → tapsfradraget er reelt sett verdt mindre enn t → etablerte selskaper med
+  andre inntektskilder har en skattefordel i risikable prosjekter → skatten
+  favoriserer store og etablerte framfor nye.** (Samme asymmetri som i
+  gråmarkeds- og crowdlending-eksempelet i F3, og i BS' innvending mot
+  aksjonærmodellen i F4.)
+- **«Høyere gevinstskatt → investor selger seg ned i aksjer» → nei: med fullt
+  tapsfradrag og null risikofri rente øker det optimale beløpet i aksjen med
+  1/(1 − t) → investoren repliserer fordelingen for sluttnytten → intuisjonen
+  om at skatt demper risikotaking er feil under disse forutsetningene.**
+- **Resultatet hviler på tre forutsetninger (proporsjonal skatt, fullt
+  tapsfradrag, r_f = 0) → med positiv risikofri rente kommer en inntektseffekt
+  inn → fortegnet er ubestemt og risikoholdningen betyr noe igjen → modellen
+  er et argument om mekanisme, ikke en prognose.**
+- **Løpende skatt spiser renters rente → skattekreditt (ASK) er bedre enn
+  løpende beskatning, og fradrag pluss skattekreditt (pensjon) er best så lenge
+  satsen er konstant → V1 < V2 < V3.**
+- **Endres satsen over tid, snus rangeringen av V3 → pensjonssparing er en
+  veddemål på framtidig skattesats: gunstig hvis uttakssatsen er lavere enn
+  fradragssatsen, ugunstig ellers.** (Samme «gratis opsjon»-logikk som ASK i F3
+  og BS-modellen i F4.)
+- **Skattefavorisering → økt etterspørsel → høyere pris → lavere
+  før-skatt-avkastning → den skattefrie plasseringen bærer en implisitt skatt →
+  investoren tjener bare på fritaket hvis hans egen marginalskatt er høyere enn
+  den implisitte.**
+- **Utstederen av det skattefrie papiret er den egentlige vinneren → han
+  betaler lavere rente enn på et like risikabelt skattlagt papir → skattefritak
+  som virkemiddel havner hos den som utsteder, ikke hos den som kjøper.**
+  (Dette er den generelle versjonen av lærepunktet fra F1: vi investerer der
+  etter-skatt-avkastningen er høyest, mens samfunnet vil ha investeringene der
+  før-skatt-avkastningen er høyest.)
+- **CE er subjektiv, CAPM objektiv → CE svarer på «vil *jeg* ha den?», CAPM på
+  «hva krever markedet?» → de kan peke i hver sin retning, og Sharpe er et
+  tredje mål som rangerer, men ikke avgjør.**
+- **Risikojusteringen burde vært gjort etter skatt → rentene skattlegges med
+  22 %, aksjegevinsten med 37,84 % → obligasjonen taper relativt sett minst →
+  skattesystemet favoriserer renteinntekt.** (Med det forbeholdet E6.8 viser:
+  konklusjonen gjelder Sharpe-raten, ikke sikkerhetsekvivalenten.)
+
+### Empiri
+
+| Fakta | Verdi | Kilde |
+|---|---|---|
+| Tolkning av Sharpe-raten | 0–1 moderat, 1–2 god, > 2 svært god risikojustert avkastning | forelesningen |
+| Sharpe 0,30 | «bare litt over risikofri»; moderat risikoavers investor velger obligasjonen | forelesningen |
+| Skattesats renteinntekt / aksjegevinst | 22 % / 37,84 % | **[dagens regel]** |
+| Tapsfradrag i praksis | start-ups mangler inntekt å føre tapet mot; etablerte selskaper kan avskrive mot andre prosjekter | forelesningen |
+| Teorigrunnlag | Domar–Musgrave (proporsjonal skatt og risikotaking); Sandmo (1989) om differensiert beskatning; Scholes–Wolfson om implisitt skatt | AS2, SW |
+
+### Oppgavene (`Nye_oppgaver_Oppgaver_aksjer_skatt_og_risiko_(forelesning_9)`)
+
+**Oppgave 1 — Benedicte.** Shipping og flyfrakt er like risikable; begge gir
+nominelt **10 %** som skattlegges med **22 %**. Rederinæringen fritas for skatt.
+- **Spm. 1:** likevekten krever 10 % × (1 − 0,22) = X → X = **7,8 %**. Den
+  nominelle avkastningen på shippingaksjer faller fra 10 % til 7,8 %. ✓
+- **Spm. 2:** implisitt skatt T = (10 % − 7,8 %)/10 % = **22 %**. ✓ (Den
+  implisitte skatten er lik den eksplisitte satsen — slik den alltid blir når
+  fritaket er fullstendig og risikoen lik.)
+- **Spm. 3:** med marginalskatt 45 % gir flyfrakt 10 % × 0,55 = **5,5 %**, mot
+  7,8 % på shipping → velg shipping. **Fasiten regner feil**: den skriver
+  «10 %(100 % − 45 %) = 6,5 %». Riktig er 5,5 %. Konklusjonen står uansett,
+  siden 7,8 % > 6,5 % > 5,5 %. Fasiten kaller henne også «Pernille» i siste
+  kulepunkt.
+- Merk at 45 % > 22 % = T, som er hele valgregelen i punkt 14.
+
+**Eksamen er den egentlige oppgavesamlingen for denne forelesningen.**
+- **H2019 oppgave 4** (1 poeng): to like risikable prosjekter, prosjekt 1
+  skattefritt. Riktig svar: R₁ < R₂, «fordi R₁ = R₂(1 − t) i likevekt».
+- **H2024 oppgave 9** (2 poeng): (a) skattefri obligasjon A mot skattlagt B →
+  r < R; (b) formelen for implisitt skatt → t = (R − r)/R. Feilalternativene er
+  (R − r)/r, R − r og (R − r·22 %)/R — kjenn igjen at nevneren er
+  **før-skatt-avkastningen på det skattlagte papiret**.
+- Ingen eksamensoppgave i mappa tester Domar–Musgrave, porteføljemodellen eller
+  V1/V2/V3 direkte, men de tre er skreddersydde for kortsvar («forklar hvorfor
+  økt skatt kan øke risikotakingen»).
+
+### Nytt / fjernet mot gammel versjon
+
+Det finnes bare én fil for denne forelesningen (`..._Rev`), uten et
+`NYE_`-motstykke, så en versjonssammenligning er ikke mulig. To ting er verdt
+å merke seg for manualen:
+
+- **Nummereringen spriker i tre retninger:** filnavnet sier forelesning 9,
+  H2026-planen sier 10, og oppgavefilen heter «forelesning 9». Innholdet er
+  entydig: dette er planens forelesning 10 (AS2 + SW), mens planens forelesning
+  9 er «Hvem betaler skatten» (avsnitt 5).
+- **Appendikset (lysbilde 27–36) om Sharpe, CE og CAPM overlapper med
+  finansdelen** (forelesning 12–16, Døskeland). Det er den eneste stedet i
+  skattedelen der CAPM og sikkerhetsekvivalent dukker opp, og lysbilde 36 er
+  den eneste koblingen mellom risikojustering og skattesatser i hele kurset.

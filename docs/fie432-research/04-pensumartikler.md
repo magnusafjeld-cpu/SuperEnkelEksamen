@@ -422,3 +422,44 @@ Ekvivalens mellom formuesskatt og kapitalinntektsskatt: τ_w · W = t · r · W 
 
 **Praktisk råd til eksamenslesing:** dette er ikke en risiko å ta. BS5 (seksjon 13) er uansett obligatorisk pensum, og Moene (Del C) er ett avsnitt. Les begge — så er «M» dekket uansett hvilken av dem foreleseren mente.
 
+---
+
+### 11. (AJB) Brudvik (2007) — *Skatterett for næringsdrivende*, del III kap. 1–2.2.9 (s. 59–73)
+
+**Kilde:** **Ikke lest.** Boken er ikke fritt tilgjengelig; Nasjonalbibliotekets digitaliserte eksemplar er låst til Feide-innlogging (fire samtidige lisenser). Metadata verifisert mot NBs katalog-API, URN:NBN:no-nb_digibok_2012111406018.
+
+**Presisering om tittelen.** Forelesningsplanen skriver «*Skatterett for selvstendig næringsdrivende*». **Det finnes ingen bok med den tittelen.** Riktig referanse er **Arthur J. Brudvik, *Skatterett for næringsdrivende*, 30. utgave 2007, Cappelen Akademisk Forlag, 761 sider, ISBN 978-82-02-26787-2** (1.–7. utgave ved Leiv Vårdal, fra 8. utgave ved Brudvik). Boken kommer i ny utgave hvert år og brukes både som lærebok og oppslagsverk. Del III kap. 1–2.2.9 er s. 59–73, altså **ca. 15 sider helt i starten av del III**.
+
+**Pensum til:** forelesning 7 («Skatt/emigrasjon, rettferdig skattesystem, flat skatt»). Dette er den eneste rene juss-referansen i kurset.
+
+#### Hva sidene dekker — rekonstruert, ikke verifisert
+
+Jeg får ikke bekreftet innholdsfortegnelsen, så det følgende er en slutning, ikke et referat. Den bygger på tre ting: (1) hvilken forelesning boken er ført opp under, (2) hva de tidligere skatterett-gjesteforelesningene faktisk testet på eksamen (H2020–H2024), og (3) hvordan norske skatterettslærebøker er bygget opp.
+
+**Konklusjonen: s. 59–73 dekker etter alt å dømme skattesubjektene og skattepliktens omfang** — hvem som er skattepliktig til Norge, globalinntektsprinsippet, når skattemessig bosted oppstår og opphører (utflytting), begrenset skatteplikt for personer og selskaper uten bosted her, og forholdet til skatteavtalene. Underpunktene 2.2.1–2.2.9 er trolig oppregningen av de enkelte tilfellene av **begrenset skatteplikt** etter skatteloven § 2-3 (lønn opptjent i Norge, virksomhet drevet eller bestyrt herfra, fast eiendom, styrehonorar, pensjon, artist- og sokkelinntekt osv.).
+
+**Grunnene til at det er den mest sannsynlige lesningen:**
+- Temaet for forelesning 7 er *emigrasjon*. De øvrige tre kildene der (AS3, AM, M) er økonomifaglige; AJB er det juridiske beinet, og det eneste juridiske spørsmålet ved emigrasjon er nettopp når og hvordan skatteplikten til Norge opphører.
+- I 2020–2024 hadde kurset en egen gjesteforeleser i skatterett som stod for 12–19 % av eksamenspoengene. Den delen testet konsekvent: dobbelt bosted etter intern rett, skatteavtalens hjemstatsbestemmelse (OECDs mønsteravtale art. 4 og «sentrum for livsinteresser»), vanlig kreditmetode, treårsregelen for opphør av norsk bosted, exit-skatt på aksjonær- og selskapsnivå. I H2026 er den gjesteforeleseren borte, og GS tar «Skatt/emigrasjon» selv — med AJB som pensum. Boken erstatter altså gjesteforelesningen.
+- Sidetallet passer: 15 sider tidlig i en systematisk framstilling er akkurat omfanget av et kapittel om skattesubjekt og skattepliktens omfang.
+
+#### Det du faktisk må kunne (fra eksamensfasitene, ikke fra boken)
+
+Disse reglene er testet direkte i H2022 oppgave 4 og H2024 oppgave 10, og er det operative innholdet uansett hvordan Brudvik ordner stoffet. Dagens satser og terskler står i `05-satser-2026.md`.
+
+**a) Alminnelig skatteplikt (globalskatteplikt), sktl. § 2-1.** Er du skattemessig bosatt i Norge, er *all* inntekt skattepliktig hit, uansett hvor i verden den er opptjent.
+
+**b) Opphør av bosted ved utflytting.** For en som har vært bosatt i Norge i **mer enn ti år** før utflyttingen, opphører statusen som skattemessig bosatt først etter **tre hele mellomliggende inntektsår** etter utflyttingsåret. Flytter du i 2022, er du skattemessig utflyttet **fra og med 2026**. (Har du bodd her kortere enn ti år, gjelder en mildere regel.) Vilkårene er dessuten at du ikke disponerer bolig i Norge og ikke oppholder deg her mer enn 61 dager i året.
+
+**c) Selskaper: hjemmehørende, sktl. § 2-2.** Et selskap **stiftet i Norge** er hjemmehørende her, og statusen opphører ikke selv om den reelle ledelsen flyttes ut — **med mindre selskapet blir hjemmehørende i en stat Norge har skatteavtale med**. Flytter ledelsen til et land uten skatteavtale (Dubai i eksamensoppgaven), forblir selskapet norsk skattyter.
+
+**d) Begrenset skatteplikt, sktl. § 2-3.** Personer og selskaper uten bosted/hjemsted i Norge er likevel skattepliktige hit for inntekt med norsk kilde. Dette er trolig underpunktene 2.2.1–2.2.9 hos Brudvik.
+
+**e) Skatteavtalene løser dobbelt bosted.** Er du bosatt i to land etter landenes interne rett, peker skatteavtalen ut hjemstaten etter **OECDs mønsteravtale art. 4 nr. 2**, i en fast rangordning: fast bolig → **sentrum for livsinteresser** → vanlig opphold → statsborgerskap → gjensidig avtale. Finnes ingen skatteavtale, er det ingen begrensning i det hele tatt — da kan tre land skattlegge samme lønn samtidig (trippelbeskatning, H2022 spm. 5–6).
+
+**f) Metodene mot dobbeltbeskatning.** *Kreditmetoden* (vanlig kredit): hjemstaten skattlegger hele globalinntekten, men gir fradrag i egen skatt for skatt betalt ute, **begrenset oppad til den norske skatten på samme inntekt**. Er utenlandssatsen lavere enn den norske, gis fullt fradrag og du ender på norsk nivå; er den høyere, gis fradrag bare opp til den norske skatten, og det overskytende går tapt. *Unntaksmetoden*: hjemstaten holder inntekten utenfor grunnlaget (eventuelt med progresjonsforbehold). Norge gir bare lettelse når landet er forpliktet til det etter skatteavtale.
+
+**g) Exit-skatt, sktl. § 10-70 og § 10-71.** Latent aksjegevinst anses realisert **dagen før** utflyttingen. Det er poenget i den ene eksamensoppgaven som flest svarer feil på: **skatteavtalen beskytter ikke mot exit-skatten**, fordi skatteplikten utløses før avtalebeskyttelsen inntrer. Flytter *selskapet* ut (§ 10-71), utløses skatt på **begge nivåer** samtidig — urealiserte merverdier på selskapets eiendeler *og* aksjonærens latente gevinst — og aksjonæren får ingen utsettelsesregel i det tilfellet. Merk at femårsregelen som gjaldt i H2022-oppgaven er opphevet; dagens ordning er tolv år, med bunnfradrag 3 mill. kr — se `05-satser-2026.md`.
+
+**Vurdering av eksamensrisiko:** internasjonal skatt og exit-skatt utgjorde 17 % (H2022) og 19 % (H2024) av poengene, men **0 % i H2025**. Med AJB tilbake på pensumlisten for H2026 og GS som selv tar temaet, bør stoffet regnes som beredskap: reglene i (b), (e), (f) og (g) er få og skarpe, og lar seg lære på en halvtime.
+

@@ -460,3 +460,512 @@ Praktisk konsekvens for treningen: programmet bør trene *eliminering* like mye 
 
 Regneeksempel på hva minuspoeng gjør med resultatet: 30 spørsmål à 3 poeng (90 mulige). En kandidat som er sikker på 20, kan redusere til to alternativer på 6, og er blank på 4, får forventet 60 + 6 + 0 = 66 poeng (73 %, C mot H2022-skalaen) enten hun hopper over de fire eller gjetter blindt — men gjettingen legger til et standardavvik på ca. 3,5 poeng. En kandidat som svarer på alt uten å eliminere, som var rasjonelt i 2024/2025, taper i snitt 1 poeng per rent gjettet spørsmål relativt til den gamle ordningen (der gjetting ga +0,75 i forventning).
 
+
+---
+
+## 4. De faste regnerutinene
+
+*Rutinene er hentet ut av registeret i del 1, ikke av pensumlista: alle 20 forekommer i minst
+to sett, og til sammen dekker de hvert eneste regnespørsmål i de ni settene. Alle eksempler er
+kontrollregnet i Python (del 7). «Fella» beskriver hvordan de gale svaralternativene faktisk er
+konstruert i settene — det er den kunnskapen som gir eliminering, og dermed positiv forventning
+under minuspoeng.*
+
+**Ett fellesmønster over alle rutinene:** distraktorene er nesten aldri tilfeldige tall. De er
+(1) mellomregningene i din egen utregning, (2) svaret på nabospørsmålet i samme oppgave, eller
+(3) resultatet av å hoppe over nøyaktig ett ledd i rutinen. H2024 oppgave 1d er ren type (1):
+riktig svar er 98, mens 302 er årets samlede skjermingsfradrag og 100 er den ubenyttede
+skjermingen fra året før — begge tall du skriver ned underveis. H2019 oppgave 3a er type (2):
+alternativet 1 267 355 ligger 155 kroner fra 1 267 200, som er fasiten på 3b. Konsekvens for
+trening: **skriv aldri av et mellomtall som sluttsvar**, og sjekk om et alternativ er svaret på
+forrige delspørsmål før du krysser.
+
+### R1. Skjermingskjeden over flere år (ubenyttet skjerming framført)
+
+1. Skjermingsgrunnlag år 1 = aksjens kostpris (anskaffelsesverdi).
+2. Årets skjermingsfradrag = skjermingsgrunnlag × skjermingsrente.
+3. Skattepliktig utbytte = utbytte − skjermingsfradrag, men **aldri negativt**.
+4. Er skjermingen større enn utbyttet, framføres differansen som *ubenyttet skjerming*.
+5. Neste års skjermingsgrunnlag = kostpris + akkumulert ubenyttet skjerming.
+6. Neste års samlede fradrag = (nytt grunnlag × ny skjermingsrente) + akkumulert ubenyttet
+   skjerming. Den ubenyttede skjermingen brukes altså **to ganger**: den løfter grunnlaget *og*
+   trekkes fra i tillegg.
+
+**Eksempel (H2024 oppgave 1, fire delspørsmål à 1 poeng).** Kostpris 10 000, skjermingsrente 2 %
+alle år. År 1: fradrag 200, utbytte 500 → skattepliktig 300. År 2: utbytte 100 < 200 →
+skattepliktig 0, ubenyttet 100. År 3: grunnlag 10 100 → 202, pluss framført 100 = 302; utbytte
+400 → skattepliktig **98**.
+
+**Forekommer i:** H2019 (1c definisjon), H2021 (1a–b), H2022 (1.2, oppgave 2 firårstabell),
+H2024 (1a–d), H2025 (1, 4). Fem av ni sett, og alle tre flervalgssettene.
+
+**Vanlig felle:** distraktorene er de tre mellomtallene (årets skjerming, samlet skjerming, den
+ubenyttede saldoen). Den ene ekte regnefeilen alternativene fanger er å legge ubenyttet skjerming
+til grunnlaget *uten* også å trekke den fra — da får du 400 − 202 = 198 i stedet for 98. Andre
+retning: å trekke fra ubenyttet skjerming to ganger uten å oppjustere grunnlaget.
+
+### R2. Oppjustering: eierskatt på utbytte og gevinst
+
+1. Finn skattegrunnlaget: utbytte − skjerming, eller gevinst = salgspris − kostpris − ubenyttet
+   skjerming.
+2. Multipliser med oppjusteringsfaktoren (1,44 i 2019-settene, 1,6 i H2022, 1,72 i H2024/H2025).
+3. Multipliser med den nominelle eierskattesatsen (22 % eller 25 %).
+4. Snarvei: effektiv eierskattesats = faktor × sats (1,72 × 22 % = 37,84 %). Sensorveiledningen i
+   H2025 oppgave 10 nevner begge veier eksplisitt.
+5. I salgsåret gis det **ingen** ny skjerming — bare framført ubenyttet skjerming (H2022 1.6).
+
+**Eksempel (H2025 oppgave 10, 1 poeng).** Kjøpt for 100, solgt for 160, ubenyttet skjerming 10.
+Gevinst 160 − 100 − 10 = 50. Skatt = 50 × 1,72 × 0,22 = **18,92** (= 50 × 37,84 %).
+
+**Forekommer i:** H2017 (2b), H2018 (2b), H2019 (3b), H2020 (1c), H2022 (1.3, 1.6), H2024 (2),
+H2025 (10). Sju av ni sett — den mest gjenbrukte enkeltrutinen på skattesiden.
+
+**Vanlig felle:** alternativet «glemt oppjusteringen» er alltid med. H2025 oppgave 10 har 11 kroner
+som distraktor — nøyaktig 50 × 22 %. H2024 oppgave 2 har 3,89, som ligger på 3,78 = (60 − 50) ×
+37,84 %, altså gevinsten uten fradrag for ubenyttet skjerming. Tredje variant: å oppjustere
+*etter* å ha ganget med skattesatsen (samme tall, men gir feil når det kombineres med skjerming).
+
+### R3. Effektiv skattesats og justeringsfaktoren
+
+**3a — effektiv sats på selskap og eier under ett.**
+1. Selskapsskatt = overskudd × t_A.
+2. Utbytte til utdeling = overskudd × (1 − t_A).
+3. Eierskatt etter R2.
+4. Effektiv sats = (selskapsskatt + eierskatt)/bruttooverskudd, eller direkte
+   t = t_A + (1 − t_A)·t_e·y.
+
+**3b — justeringsfaktoren y** løses ut av samme ligning når t_w (høyeste marginalskatt på lønn)
+er gitt: y = (t_w − t_A)/((1 − t_A)·t_e).
+
+**3c — effektiv sats på bedriftsnivå alene** (H2025 oppgave 5): betalt skatt delt på *brutto*
+inntekt, ikke på skattepliktig overskudd.
+
+**Eksempel (H2022 oppgave 1, spm. 3–5).** Overskudd 150 000, t_A = 22 %, skjermingsrente 5 % på
+kostpris 500 000, eierskatt 25 %, faktor 1,6. Selskapsskatt 33 000; utbytte 117 000; grunnlag
+117 000 − 25 000 = 92 000; eierskatt 92 000 × 1,6 × 0,25 = **36 800**. Effektiv skatt på utbyttet
+36 800/117 000 = **31,5 %**; samlet (33 000 + 36 800)/150 000 = **46,5 %**.
+
+**Eksempel (H2025 oppgave 5).** Driftsinntekt 100 000, avskrivning 25 000, sats 22 %. Betalt skatt
+16 500; effektiv sats = 16 500/100 000 = **16,5 %** — ikke 22 %.
+
+**Forekommer i:** H2017 (2a, 2c), H2018 (2c), H2019 (3c), H2020 (1d, 1e), H2022 (1.4, 1.5),
+H2024 (5), H2025 (5). Sju av ni sett.
+
+**Vanlig felle:** nevneren. Alternativene inneholder alltid både «skatt/skattepliktig overskudd»
+(22 % i H2025 oppgave 5) og «skatt/bruttoinntekt» (det riktige, 16,5 %). Samme mønster i H2022:
+31,5 % er eierskatt delt på utbytte, 46,5 % er begge skattene delt på bruttooverskuddet, og begge
+står som alternativer i hvert sitt delspørsmål — bytter du dem om, taper du to poeng, ikke ett.
+
+### R4. Formuesskatt: verdsettingsrabatt og forholdsmessig gjeldsfordeling
+
+1. Sett opp én kolonne per eiendel med markedsverdi.
+2. Andel av bruttoformue = markedsverdi_i / sum markedsverdi.
+3. Skattemessig formuesverdi_i = markedsverdi_i × (1 − rabatt_i).
+4. Gjeld fordeles etter **markedsverdiandelen** (steg 2), ikke etter den rabatterte verdien.
+5. Fradragsberettiget gjeld_i = tildelt gjeld_i × (1 − rabatt_i) — **unntatt primærbolig**, der
+   gjelden aldri avkortes.
+6. Nettoformue = Σ (formuesverdi_i − fradragsberettiget gjeld_i). Negative poster i én kolonne
+   motregnes mot positive i en annen (H2016 presiserer at studenter som ikke motregner ikke skal
+   trekkes).
+7. Formuesskatt = nettoformue × sats.
+
+**Eksempel (H2024 oppgave 6, to delspørsmål à 2 poeng).** Gjeld 1,8 mill. Primærbolig 4,8 mill
+(rabatt 75 %), aksjer 1 mill (20 %), bank 0,2 mill (0 %). Andeler 80/16,67/3,33 %. Formuesverdier
+1 200 000 + 800 000 + 200 000 = 2 200 000. Gjeld 1 440 000 + 300 000 + 60 000; fradragsberettiget
+1 440 000 + 240 000 + 60 000 = 1 740 000 → gjelden reduseres med **60 000** og nettoformuen blir
+**460 000**.
+
+**Forekommer i:** H2016 (2a), H2017 (1c–e), H2018 (1b), H2019 (2a–c), H2021 (1c), H2024 (6a–b),
+H2025 (2). Sju av ni sett — den tyngste enkeltrutinen målt i poeng per spørsmål.
+
+**Vanlig felle:** tre klassikere, alle representert som alternativer. (i) Fordele gjelden etter
+*ligningsverdi* i stedet for markedsverdi. (ii) Avkorte gjelden på primærboligen. (iii) Hoppe over
+gjeldsavkortingen helt — det gir 250 000 i stedet for 750 000 i H2025 oppgave 2, og der ble begge
+godkjent fordi oppgaveteksten ikke sa fra (se del 5). De negative alternativene (−250 000,
+−750 000 i H2025) er fortegnsspeilinger og kan strykes umiddelbart når du ser at formuesverdien
+(5 250 000) overstiger gjelden (5 000 000).
+
+### R5. Utbytte som skal dekke både formuesskatt og eierskatt
+
+1. Regn formuesskatten F = formuesverdi × formuesskattesats (etter eventuell aksjerabatt).
+2. Finn den effektive eierskattesatsen t_e^eff (nominell sats × oppjusteringsfaktor, eller oppgitt
+   direkte).
+3. Løs D·(1 − t_e^eff) = F ⇒ **D = F/(1 − t_e^eff)**.
+4. Kontroll: D − D·t_e^eff skal være nøyaktig F.
+
+**Eksempel (H2025 oppgave 6).** Formuesverdi 100 000, formuesskatt 1 % → F = 1 000. Eierskatt 50 %.
+D = 1 000/0,5 = **2 000**; eieren betaler 1 000 i utbytteskatt og har 1 000 igjen til formuesskatten.
+
+**Forekommer i:** H2019 (3a, 3 poeng), H2024 (7), H2025 (6). Tre av ni sett, men i to av de tre
+siste — liten og fast.
+
+**Vanlig felle:** å legge skatten *oppå* i stedet for å brutto-regne. Med F = 1 000 og 50 % sats
+gir feilen 1 000 + 500 = 1 500, som står som alternativ i H2025. Andre felle: å bruke nominell
+eierskatt uten oppjustering — i H2019 gir det 850 000/0,78 = 1 089 744 mot riktig 1 244 145, og
+alternativene ligger tett nok (1 244 145, 1 247 100, 1 267 355) til at avrunding underveis flytter
+deg til feil rute.
+
+### R6. Formuesskatt som avkastningsskatt, og verdsetting av evig kontantstrøm
+
+1. **Ekvivalens.** Faller formuesskatten på formue ved periodens *slutt*: W(1+r)τ = Wtr ⇒
+   τ = tr/(1+r). Faller den på formue ved periodens *begynnelse*: WT = Wrt ⇒ T = rt, altså
+   t = T/r.
+2. **Avkastning etter formuesskatt.** r_etter = (kontantstrøm − formuesskatt)/investert beløp.
+3. **Verdsetting uten formuesskatt.** V = CF/r.
+4. **Verdsetting med formuesskatt.** Alternativkostnaden er avkastningen etter formuesskatt
+   (steg 2), og skatten beregnes av markedsverdien fra steg 3: V = (CF − τ·V_marked)/r_etter.
+
+**Eksempel (H2025 oppgave 3, fire delspørsmål).** Investering 200 mill gir 10 mill og selges for
+200 mill: avkastning 10/200 = **5 %**. Med 1 % formuesskatt (2 mill): (10 − 2)/200 = **4 %**. En evig
+strøm på 5 mill verdsettes uten formuesskatt til 5/0,05 = **100 mill**. Med formuesskatt:
+(5 − 0,01·100)/0,04 = **100 mill** — verdien er uendret, som er hele poenget.
+
+**Eksempel (H2025 oppgave 9).** W = 100, r = 5 %, formuesskatt T = 1 % på inngående formue:
+100·0,01 = 100·0,05·t ⇒ t = 1 %/5 % = **20 %**.
+
+**Forekommer i:** H2021 (3a–b), H2025 (3a–d, 9). Bare to sett — men 17 % av poengene i H2025, og
+temaet står i 2026-planen. Høyrisikotema for gjenbruk.
+
+**Vanlig felle:** å bruke feil tidspunkt for formuesgrunnlaget. τ = tr/(1+r) og T = rt gir svært
+ulike tall (0,64 % mot 0,66 % i H2021, men 20 % mot 21 % i H2025 oppgave 9, der alternativene er
+20/21/22/23 %). Andre felle i verdsettingsspørsmålet: å diskontere med 5 % *og* trekke fra
+formuesskatten — det gir 80 mill, som ligger som alternativ i H2025 3c.
+
+### R7. Gjennomsnittsskatt: trinnsystem og bunnfradrag
+
+1. **Trinnsystem:** legg sammen skatten trinn for trinn på *intervallene*, ikke på hele inntekten.
+2. Gjennomsnittsskatt t = samlet betalt skatt / bruttoinntekt.
+3. **Progressivitet:** systemet er progressivt hvis ∂t/∂Y > 0. Flat sats uten bunnfradrag er
+   proporsjonalt; flat sats *med* bunnfradrag er progressivt; større bunnfradrag ⇒ sterkere
+   progressivitet.
+4. Vis progressiviteten ved å regne gjennomsnittsskatten for to inntektsnivåer og sammenligne.
+
+**Eksempel (H2024 oppgave 5, 2 poeng).** Satser 12 % (0–100 000), 18 % (100 000–350 000), 28 %
+(over 350 000). Individ A med 450 000: 12 000 + 45 000 + 28 000 = 85 000 → **18,9 %**. Individ X med
+380 000: 12 000 + 45 000 + 8 400 = 65 400 → **17,2 %**.
+
+**Eksempel (H2024 oppgave 4).** 28 % flat sats, bunnfradrag 50: Kari (500) 25,2 %, Per (1 000)
+26,6 % ⇒ progressivt. Bunnfradrag 200: 16,8 % mot 22,4 % ⇒ sterkere progressivitet.
+
+**Forekommer i:** H2018 (1c), H2020 (1d), H2024 (4a–c, 5). Tre av ni sett, men fire spørsmål og 14 %
+av poengene i H2024.
+
+**Vanlig felle:** å bruke marginalsatsen på hele inntekten (450 000 × 28 % = 28 %) eller å regne
+skatten av inntekt over grensen med *alle* satsene. I H2024 oppgave 5 har alle fire alternativene
+A > X, så du kan ikke eliminere på rekkefølgen — begge tallene må regnes. Merk også at
+sensorveiledningen kaller 17,2 % både «gjennomsnittsskatt» og «effektiv skattesats»; det er samme
+størrelse her.
+
+### R8. Nåverdi av fradrag og avskrivning
+
+1. Skattebesparelse ved å ta hele fradraget nå = fradrag × skattesats.
+2. Skattebesparelse ved å fordele = årlig avskrivning × skattesats, diskontert:
+   NV = a·t·[1 − (1+r)^−T]/r.
+3. Sammenlign. Så lenge det finnes inntekt å avskrive mot og r > 0, vinner alltid alternativ 1.
+4. Prinsippet generaliserer: ta fradrag tidligst mulig, utsett skattepliktig inntekt lengst mulig.
+
+**Eksempel (H2024 oppgave 3, 2 poeng).** Leieinntekt 100 000 i året i ti år, avskrivning enten
+10 000 årlig i ti år eller 100 000 med én gang, sats 22 %, rente 10 %. Umiddelbart:
+100 000 × 0,22 = **22 000**. Fordelt: 2 200 × 6,1446 = **13 518**. Svar: alt med én gang.
+
+**Forekommer i:** H2020 (1a), H2024 (3). To av ni sett, men rutinen er en direkte anvendelse av
+tidsverdi og dukker opp som begrunnelse i IPS-spørsmålene («utsatt skatt = rentefritt lån fra
+staten», H2024 13b).
+
+**Vanlig felle:** alternativet «det spiller ingen rolle» er alltid med, og er riktig bare hvis
+renten er null. Motsatt felle: å tro at raskest avskrivning alltid lønner seg *uansett* — forbeholdet
+i sensorveiledningen er «så lenge man har inntekt å skrive den av mot».
+
+### R9. Stykkskatt-insidens
+
+1. Skriv likevekten med skatten inne: D(p + t) = S(p) hvis du skal finne produsentprisen,
+   D(P) = S(P − t) hvis du skal finne konsumentprisen.
+2. Deriver implisitt med hensyn på t.
+3. Produsentpris: ∂p/∂t = D′/(S′ − D′) < 0.
+4. Konsumentpris: ∂P/∂t = ∂p/∂t + 1 = S′/(S′ − D′) > 0.
+5. Forholdet mellom dem: (∂P/∂t)/(∂p/∂t) = S′/D′ — helningene bestemmer fordelingen.
+6. Grensetilfellene: D′ = 0 (uelastisk etterspørsel) ⇒ ∂P/∂t = 1, ∂p/∂t = 0, konsumenten bærer alt.
+   S′ = 0 (uelastisk tilbud) ⇒ ∂p/∂t = −1, produsenten bærer alt. S′ = ∞ (horisontalt tilbud)
+   ⇒ ∂P/∂t = 1.
+7. **Monopolvarianten:** skatten legges til grensekostnaden, MR = MC + t, og deles typisk mellom
+   partene (H2021: pris fra 2 til 2,5 ved t = 1).
+
+**Eksempel (H2025 oppgave 8, tre delspørsmål).** Likevektspris 1,50, stykkskatt 0,50 på selger.
+Perfekt uelastisk etterspørsel: konsumentpris **2,00**. Perfekt elastisk etterspørsel: konsumentpris
+**1,50** uendret, produsentpris **1,00**.
+
+**Forekommer i:** H2016 (1a–c), H2018 (3, 4a–b), H2019 (5), H2020 (1b), H2021 (2a–b), H2022 (3),
+H2024 (8a–c), H2025 (8a–c). **Åtte av ni sett** — den soleklart hyppigste rutinen, 11,6 % av
+poengene i snitt.
+
+**Vanlig felle:** de gale formlene er laget ved å (i) bytte om S′ og D′ i telleren, (ii) snu
+fortegnet i nevneren til D′ − S′, eller (iii) sløyfe hele nevneren (D′/S′). H2024 oppgave 8a har
+alle tre variantene som alternativer. I talleksemplene er fella å forveksle konsument- og
+produsentpris: i H2025 8b og 8c er svarene 1,50 og 1,00, og de står som alternativer i hverandres
+spørsmål. Huskeregel som eliminerer halvparten av alternativene på ett sekund: **∂p/∂t er alltid
+negativ, ∂P/∂t alltid positiv, og de summerer til 1.**
+
+### R10. Implisitt skatt
+
+1. I likevekt i et effisient marked gir to like risikable aktiva samme avkastning etter skatt:
+   r = R(1 − t), der r er den skattefavoriserte og R den fullt skattlagte.
+2. Følgelig r < R: det skattefrie papiret har *lavere* nominell avkastning.
+3. Den implisitte skatten er t = (R − r)/R.
+
+**Eksempel (H2024 oppgave 9, to delspørsmål).** Obligasjon A skattefri med rente r, obligasjon B
+skattlagt med 22 % og rente R. Riktig påstand: **r < R**. Formelen for implisitt skatt:
+**t = (R − r)/R**.
+
+**Forekommer i:** H2019 (4), H2024 (9a–b). To av ni sett.
+
+**Vanlig felle:** nevneren. Alternativet t = (R − r)/r er alltid med, og er den naturlige feilen når
+man tenker «prosentvis forskjell fra det laveste tallet». Andre felle: å konkludere r > R fordi
+«skattefritt må være bedre» — likevektsargumentet sier det motsatte.
+
+### R11. Førsteordensbetingelsen for bedriftens kapitalbruk
+
+1. Skriv verdien etter skatt: V = F(K) − rK − t[F(K) − A·rK], der A er andelen av rentene som kan
+   trekkes fra.
+2. Deriver med hensyn på K og sett lik null.
+3. Resultat: **F′(K) = r(1 − At)/(1 − t)**.
+4. A = 1 (full fradragsrett) ⇒ F′(K) = r: overskuddsskatten er nøytral.
+5. A < 1 ⇒ (1 − At)/(1 − t) > 1 ⇒ kapitalen blir dyrere og bedriften investerer mindre.
+6. Splitt på finansieringsform: gjeldsrenter er fradragsberettiget ⇒ F′_G = r; egenkapitalens
+   alternativkostnad er det ikke ⇒ **F′_E = r/(1 − t)**. Dermed E* < G*.
+
+**Eksempel (H2025 oppgave 7, tre delspørsmål).** Riktige svar: F′(K) = r(1 − At)/(1 − t);
+F′_G = r og F′_E = r/(1 − t); E* < G*.
+
+**Forekommer i:** H2020 (3a–c, åpen utledning), H2025 (7a–c, formelgjenkjenning). To av ni sett,
+men 10–14 % av poengene begge ganger.
+
+**Vanlig felle:** alternativene bytter om teller og nevner — r·A/(1 − t) og r/((1 − t)A) står side om
+side med det riktige uttrykket. Kontroll som fjerner dem: sett A = 1 og se om uttrykket kollapser
+til r. Gjør det ikke det, er alternativet feil.
+
+### R12. Internasjonal skatt: unntak, kredit, ingen avtale
+
+1. Start med globalskatteplikt: hele inntekten er skattepliktig til Norge etter intern rett.
+2. **Unntaksmetoden (fullstendig unntak):** hjemstaten ser bort fra inntekten. Total skatt =
+   kildestatens sats × inntekt. Skattlegger ikke kildestaten, blir resultatet dobbelt
+   *ikke*-beskatning.
+3. **Ordinær kreditmetode:** Norge skattlegger, men gir fradrag for utenlandsk skatt **begrenset til
+   den norske skatten på samme inntekt**: kredit = min(utenlandsk skatt; norsk sats × inntekt).
+   Er utenlandsk sats høyere, blir differansen stående som dobbeltbeskatning.
+4. **Ingen skatteavtale:** begge land skattlegger fullt ut etter intern rett. Er skattyter bosatt i
+   tre land etter intern rett, blir det trippelbeskatning.
+5. Summer per land og trekk kreditene fra den norske globalskatten.
+
+**Eksempel (H2021 oppgave 4).** Lønn 1,6 mill, norsk marginalsats 46,4 %. Global skatt 742 400.
+Irland: 200 000 × 35 % = 70 000, full kredit. USA: 200 000 × 55 % = 110 000, kredit begrenset til
+200 000 × 46,4 % = 92 800. Skatteparadis uten avtale: ingen kredit. **Betalbar til Norge = 742 400 −
+70 000 − 92 800 = 579 600.**
+
+**Forekommer i:** H2020 (2a–c), H2021 (4), H2022 (4.1–4.8), H2024 (10a–i). Fire av ni sett, men
+15–19 % av poengene når det først kommer. **Ikke i H2025**, og 2026-planen navngir ingen
+skatterett-gjest (se del 2b).
+
+**Vanlig felle:** kredittaket. Alternativene tilbyr alltid «full kredit for all utenlandsk skatt»
+ved siden av det riktige «kredit opp til hjemstatens skatt». Andre felle: å tro at fravær av
+skatteavtale betyr at bare kildestaten skattlegger — det er motsatt, fravær av avtale gir
+dobbeltbeskatning.
+
+### R13. Forventet nytte og maksimal forsikringspremie
+
+1. Skriv opp formuen i hver tilstand, med og uten forsikring.
+2. Forventet nytte uten forsikring: (1 − p)·U(W) + p·U(W − tap).
+3. Forventet nytte med full dekning: U(W − premie) — sikkert utfall.
+4. Kjøp hvis (3) > (2).
+5. **Maksimal premie X:** løs U(W − X) = E[U uten forsikring].
+6. **Laveste sannsynlighet p\*:** løs samme ligning for p i stedet.
+7. **Delvis dekning:** forsikringen fjerner ikke risikoen, så begge sider må regnes med
+   sannsynligheter: (1 − p)·U(W − premie) + p·U(W − tap + erstatning − premie).
+
+**Eksempel (H2025 oppgave 13, tre delspørsmål).** Hus 9 mill, brannsannsynlighet 1 %,
+U(W) = √W, premie 160 000. Med forsikring: √8 840 000 = **2 973,2**. Uten: 0,99·√9 000 000 = **2 970**.
+Kjøp. Laveste sannsynlighet: (1 − p)·3 000 = 2 973,2 ⇒ p = **0,89 %**. Halv dekning til samme premie:
+0,99·√8 840 000 + 0,01·√4 340 000 = **2 964,3** < 2 970 ⇒ ikke kjøp.
+
+**Eksempel (H2019 oppgave 7a, ln-nytte).** Formue 6 mill, hus 3 mill, brannrisiko 1,1 %.
+ln(6 000 000 − π) = 0,989·ln(6 000 000) + 0,011·ln(3 000 000) ⇒ π = **45 574**, altså intervallet
+40 000–50 000.
+
+**Forekommer i:** H2018 (6, begrepsversjonen), H2019 (7a–c), H2024 (11a–d), H2025 (12, 13.1–13.3).
+Fire av ni sett, og stigende: 8 % av poengene i H2024, 14 % i H2025.
+
+**Vanlig felle:** å sammenligne forventet *formue* i stedet for forventet *nytte* — det gir alltid
+«ikke kjøp», siden premien overstiger forventet erstatning. Alternativet «Nei, fordi premien er
+høyere enn forventet skade» er med i H2024 11c nettopp for å fange dette. I premie-spørsmålet er
+distraktorene lagt symmetrisk rundt riktig svar (19 900 / 23 100 / 27 100 / 29 900), så du må faktisk
+løse ligningen. Elimineringsknep som sensorveiledningen selv anbefaler i H2025 13.2: siden p = 1 %
+gjør forsikringen lønnsom, må terskelen ligge *under* 1 %, og de to alternativene over 1 % kan
+strykes uten regning.
+
+### R14. Mertons aksjeandel, med og uten humankapital
+
+1. Grunnformel: **w = (E(R) − R_f)/(γσ²)** — andelen av **totalformuen** i aksjer.
+2. Kan løses baklengs for γ når w er oppgitt.
+3. Beløpet i aksjer = w × totalformue, der totalformue = finanskapital + humankapital.
+4. Er humankapitalen risikofri, teller den som et implisitt bankinnskudd: aksjebeløpet skal fortsatt
+   være w × (F + H), men det må plasseres innenfor finanskapitalen.
+5. Andel av **finanskapitalen**: α = w·(F + H)/F, med tak på 100 % uten giring.
+6. Er humankapitalen aksjelignende (β = 1), er den allerede «aksjer»: da skal finanskapitalen være
+   risikofri, α = 0.
+7. Livssyklus: H faller med alderen ⇒ α faller.
+
+**Eksempel (H2022 oppgave 7, seks delspørsmål).** Aksjepremie 4 %, γ = 2, σ = 20 % ⇒ w = 0,04/(2 ·
+0,04) = **50 %**. Finansformue 2 000′ alene: 1 000′ i aksjer. Med risikofri humankapital på 2 000′:
+totalformue 4 000′ ⇒ **2 000′** i aksjer, altså α = **100 %**. Ti år senere, F = 3 000′ og H = 1 000′:
+fortsatt 2 000′ i aksjer, α = **66,7 %**.
+
+**Eksempel (H2025 oppgave 11).** Meravkastning 0,05, varians 0,10, w = 50 % ⇒ γ = 0,05/(0,5·0,10)
+= **1**. F = H = 1 mill, risikofri H ⇒ **100 %** av finansformuen i aksjer. Med β = 1 på
+humankapitalen ⇒ **0 %**.
+
+**Forekommer i:** H2018 (5e–f), H2019 (6d), H2021 (6a–b), H2022 (7.1–7.6), H2025 (11.1–11.4).
+Fem av ni sett, og 14 % av poengene i både H2022 og H2025 — annethvert år.
+
+**Vanlig felle:** å bruke w på finanskapitalen alene. I H2022 7.3 er 1 000′ (= 50 % av 2 000′) et
+alternativ, og det er nøyaktig denne feilen. Andre felle: å bruke standardavviket der formelen
+krever variansen — i H2025 11.1 er 0,10 *variansen*, og gjør du den om til σ² = 0,01 får du γ = 10,
+som står som alternativ (C).
+
+### R15. Log-nytte over scenarioer: sluttverdi, subjektive sannsynligheter, tapsaversjon
+
+1. Forventet sluttverdi = Σ p_i · W_i. (Sannsynlighetene endrer *ikke* selve sluttverdiene.)
+2. Forventet nytte = Σ p_i · ln(W_i); sikre alternativer gir ln(W) direkte.
+3. Velg det høyeste. Med log-nytte taper det risikable alternativet ofte selv når forventet
+   sluttverdi er høyere.
+4. Subjektive sannsynligheter: bytt ut p og regn på nytt — konklusjonen kan snu.
+5. Tapsaversjon: multipliser ln(W_i) med en faktor < 1 (1/1,03 = 0,970874) for utfall under
+   referansepunktet. Det forsterker valget av det trygge alternativet.
+
+**Eksempel (H2022 oppgave 5, seks delspørsmål).** Bank: 903 056 (= 500 000 vokst med **3,0 %** i
+20 år). Aksjer: 2 330 479 med p = 40 %, 333 804 med p = 60 % ⇒ forventet sluttverdi **1 132 474**.
+Nytte: ln(903 056) = **13,714** mot 0,4·ln(2 330 479) + 0,6·ln(333 804) = **13,496** ⇒ bank. Med
+50/50: aksjenytten stiger til **13,690**, fortsatt under bank. Med tapsaversjon: **13,273**.
+
+**Forekommer i:** H2019 (9a–h, hele den åpne oppgaven), H2021 (6f delvis), H2022 (5.1–5.6).
+Tre av ni sett — men H2022-oppgaven er en nesten ordrett flervalgsversjon av H2019-oppgave 9.
+Den beste enkeltindikatoren på at gamle åpne oppgaver blir gjenbrukt som flervalg.
+
+**Vanlig felle:** spørsmål 4 i H2022 er en ren lesefelle — alternativene endrer sluttverdiene når
+sannsynlighetene endres. Riktig svar er at sluttverdiene står stille. Ellers er distraktorene
+kryss-koblinger av de fire nyttetallene (13,714 / 13,690 / 13,496 / 13,273): alle alternativene har
+samme *konklusjon* (bank), så du må lese hvilke to tall som sammenlignes.
+
+### R16. Tidsverdi: CAGR, sluttverdi og annuitetsfaktor
+
+1. **CAGR:** r = (W_T/W_0)^(1/T) − 1. Husk å bruke faktisk antall år, ikke antall observasjoner.
+2. **Sluttverdi av engangsbeløp:** W_T = W_0(1 + r)^T.
+3. **Sluttverdi av årlig sparing:** S = a·[(1 + r)^T − 1]/r.
+4. **Nåverdifaktor (annuitetsfaktor):** A_(r,T) = [1 − (1 + r)^−T]/r. Sluttverdien er A × (1 + r)^T.
+5. Ved kandidatavhengige tall (H2020, H2021) må forutsetningen skrives eksplisitt.
+
+**Eksempel (H2021 oppgave 6e–f).** γ = 3 gir w = 0,05/(3·0,14²) = 85,03 %; forventet
+porteføljeavkastning = 0,01 + 0,8503·0,05 = **5,2517 %**. Sparing 36 000 i året i 20 år:
+36 000·[(1,052517)^20 − 1]/0,052517 = **1 222 537**.
+
+**Eksempel (H2016 oppgave 3a).** Boligindeks 100 → 273,1 over 13,67 år: 2 197 × 2,731 = **6 000**
+(tusen kr), og (2,731)^(1/13,67) − 1 = **7,63 %** p.a.
+
+**Forekommer i:** H2016 (3a), H2019 (9a), H2020 (5b–c, 6b), H2021 (6f, 7b–c), H2022 (5.1).
+Seks av ni sett, nesten alltid som ett ledd i en større oppgave.
+
+**Vanlig felle:** avrundet rente. Regner du med 5,25 % i stedet for 5,2517 % i H2021 6f, får du
+1 222 316 — 221 kroner unna. I flervalg med tett spredte alternativer er det nok til å velge feil.
+Andre felle: å blande sluttverdifaktoren [(1+r)^T − 1]/r med nåverdifaktoren [1 − (1+r)^−T]/r.
+
+### R17. Annuitetslån: annuitet, rentesum, effektiv rente og kredittkostnad
+
+1. **Annuitet:** A = L·r/(1 − (1 + r)^−T).
+2. **Renter og avdrag år for år:** rente_t = restgjeld_{t−1}·r; avdrag_t = A − rente_t.
+3. **Samlet rentesum:** T·A − L (eller summen av rentekolonnen).
+4. **Effektiv rente med gebyrer:** sett opp kontantstrømmen — utbetalt beløp = L − etableringsgebyr,
+   årlige utbetalinger = A + termingebyr — og finn internrenten.
+5. **Kredittkostnad:** summen av alle betalinger og gebyrer minus lånebeløpet, **udiskontert**.
+
+**Eksempel (H2022 oppgave 6, tre delspørsmål).** Lån 400 000, nominell rente 4,99 %, 5 år.
+A = **92 364**. Med etableringsgebyr 5 990 og termingebyr 1 020: kontantstrøm +394 010 mot
+5 × 93 384 ⇒ effektiv rente **5,94 %**. Kredittkostnad = 5 × 93 384 + 5 990 − 400 000 = **72 912**.
+
+**Eksempel (H2016 oppgave 3b–e).** 500 000 over 10 år: ved 12 % blir annuiteten **88 492** og
+rentesummen **384 921**; ved 3 % blir de **58 615** og **86 153**.
+
+**Forekommer i:** H2016 (3b–e, 3h), H2020 (6a), H2022 (6.1–6.3). Tre av ni sett.
+
+**Vanlig felle:** i kredittkostnadsspørsmålet er alternativet 472 912 med — det er summen av alle
+betalinger *uten* å trekke fra lånebeløpet. I effektiv rente-spørsmålet er den nominelle renten
+(4,99 %) alltid et alternativ, og fanger dem som glemmer gebyrene.
+
+### R18. Boliglånsforskriften: betjeningsevne, femgangeren og stresstesten
+
+1. **Betjeningsevne:** disponibelt til lån = bruttolønn × (1 − andel til skatt, konsum og annen
+   gjeld).
+2. **Gjeldsgradskravet:** samlet gjeld ≤ 5 × årsinntekt; trekk fra eksisterende gjeld for å finne
+   nytt lån.
+3. **Stresstesten:** legg 5 prosentpoeng på dagens rente, og krev at lånet kan betjenes som et
+   annuitetslån over 30 år: L_maks = disponibelt × [1 − (1 + r + 0,05)^−30]/(r + 0,05).
+4. Bindende krav er det laveste av 2 og 3.
+
+**Eksempel (H2021 oppgave 5).** Bruttolønn 650 000, 60 % går til skatt, konsum og studielån ⇒
+disponibelt **260 000**. Femgangeren: 3 250 000 minus studielån. Stresstest ved 3 % + 5 pp = 8 %:
+260 000 × 11,2578 = **2 927 024**. (H2020 oppgave 4, med 560 000 i lønn: 224 000 og **2 521 743**.)
+
+**Forekommer i:** H2019 (8a, gjeldsbelastning), H2020 (4a–d), H2021 (5a–d). Tre av ni sett, alle
+med Nordahl som foreleser.
+
+**Vanlig felle:** å stresse med rentenivået i stedet for rente + 5 pp, eller å bruke 25 års løpetid.
+I H2019 8a er gjeldsbelastningen definert som gjeld delt på inntekt etter skatt og renter
+(3 mill/400 000 = 7,5); alternativene inneholder både gjeld/bruttoinntekt (4,6) og
+gjeld/nettoinntekt (5,7), som begge er «nesten riktige» definisjoner.
+
+### R19. Folketrygdpensjon: beholdning, delingstall og kompensasjonsgrad
+
+1. Årlig opptjening = 18,1 % × min(pensjonsgivende inntekt; 7,1 G).
+2. Beholdningen reguleres årlig med samfunnets lønnsvekst før neste års opptjening legges til:
+   B_t = B_{t−1}·(1 + g) + 0,181·min(lønn_t; 7,1 G_t).
+3. Årlig pensjon = pensjonsbeholdning / delingstall ved uttaksalder.
+4. Kompensasjonsgrad = årlig pensjon / sluttlønn.
+5. Snarvei når egen lønnsvekst = samfunnets og lønnen ligger under taket:
+   beholdning/sluttlønn = 0,181 × antall år, så kompensasjonsgraden er 0,181·n/delingstall.
+6. Utsatt uttak ⇒ lavere delingstall ⇒ høyere årlig utbetaling.
+
+**Eksempel (H2019 oppgave 6c).** Beholdning 1.1: 1 200 000. Lønn 840 000, G = 100 000, lønnsvekst
+3 %. Beholdning ved årsslutt = 1 200 000 × 1,03 + 0,181 × 710 000 = **1 364 510** (taket på 7,1 G
+binder).
+
+**Eksempel (H2021 oppgave 7a).** 40 år i arbeid, delingstall 18,02:
+0,181 × 40/18,02 = **40,2 %** av sluttlønn.
+
+**Eksempel (H2016 oppgave 4c).** 30 år over taket (7,1 × 91 740 = 651 354) og 10 år på 500 000:
+0,181 × 651 354 × 30 + 0,181 × 500 000 × 10 = **4 441 852**; delt på delingstall 21,37 gir
+**207 855** i året.
+
+**Forekommer i:** H2016 (4c), H2018 (7a), H2019 (6a–c), H2020 (5a, 5d), H2021 (7a, 7d),
+H2025 (14, begrepsversjonen). Seks av ni sett.
+
+**Vanlig felle:** å glemme taket på 7,1 G (i H2019 6c gir det 1 200 000·1,03 + 0,181·840 000 =
+1 388 040, som ikke er blant alternativene — men i andre år er den varianten det). Andre felle: å
+regulere beholdningen *etter* å ha lagt til årets opptjening. Og i begrepsspørsmålene: delingstallet
+**synker** ved utsatt uttak, det stiger ikke.
+
+### R20. Minimum varians med korrelasjon 1
+
+1. Porteføljevariansen: σ_p² = w²σ_A² + (1 − w)²σ_B² + 2w(1 − w)ρσ_Aσ_B.
+2. Ved ρ = 1 blir standardavviket lineært: σ_p = wσ_A + (1 − w)σ_B.
+3. Da finnes ingen diversifiseringsgevinst: minimum nås ved 100 % i aksjen med lavest
+   standardavvik.
+4. Generelt (ρ < 1): w_A = (σ_B² − ρσ_Aσ_B)/(σ_A² + σ_B² − 2ρσ_Aσ_B).
+
+**Eksempel (H2024 oppgave 12d).** Aksje A: E(R) = 10 %, σ = 20 %. Aksje B: E(R) = 2 %, σ = 30 %.
+ρ = 1 ⇒ **100 % i A**. (Her er A dessuten best på forventet avkastning, så konklusjonen er ekstra
+åpenbar.)
+
+**Forekommer i:** H2024 (12d), og som forutsetning i H2018 (5f, humankapital med ρ = 1 mot
+aksjemarkedet). To av ni sett.
+
+**Vanlig felle:** distraktoren 69 % er nøyaktig minimum-varians-vekten hvis du setter ρ = 0:
+σ_B²/(σ_A² + σ_B²) = 0,09/0,13 = 69,2 %. Alternativet er altså laget for dem som bruker
+minimum-varians-formelen mekanisk uten å se hva ρ = 1 gjør med den. Elimineringsknep: ved ρ = 1
+må svaret være et hjørne (0 % eller 100 %), aldri en indre løsning.
