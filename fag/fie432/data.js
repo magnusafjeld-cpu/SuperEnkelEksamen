@@ -59,7 +59,7 @@ window.EDU_DATA.plan = {
 
     { day: 2, phase: "Grunnlaget",
       title: "Avkastning før og etter skatt, og tidsverdien av et fradrag",
-      chapters: [2], estMinutes: 105,
+      chapters: [2], estMinutes: 130,
       goals: [
         "Dekomponere totalavkastning i kapitalgevinst og direkteavkastning, alltid delt på inngangsverdien",
         "Gå fra nominell til etter skatt til realavkastning — i den rekkefølgen",
@@ -94,7 +94,7 @@ window.EDU_DATA.plan = {
 
     { day: 4, phase: "Aktiva og avkastning",
       title: "Investeringscaser: bolig, utleie, aksjer og folkefinansiering",
-      chapters: [4], estMinutes: 120,
+      chapters: [4], estMinutes: 150,
       goals: [
         "Regne en boliginvestering med lån, skatt på leie og egenkapitalavkastning",
         "Bruke fritakene: halvparten-regelen for egen bolig, bo- og eiertid ved salg",
@@ -132,7 +132,7 @@ window.EDU_DATA.plan = {
 
     { day: 6, phase: "Aksjonær- og formuesbeskatning",
       title: "Fritaksmetoden, aksjonærlån og exit-skatt",
-      chapters: [6], estMinutes: 110,
+      chapters: [6], estMinutes: 125,
       goals: [
         "Forklare fritaksmetoden og regne treprosentregelen: 3 % × 22 % = 0,66 % effektiv skatt",
         "Begrunne holdingselskap som utsettelse, ikke som fritak",

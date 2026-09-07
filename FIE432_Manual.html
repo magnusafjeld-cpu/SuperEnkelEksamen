@@ -54,11 +54,17 @@
 <li style="list-style:none;margin-top:.7em"><b>Del 0 · Grunnlaget</b></li>
 <li><a href="#k0">0 · Kurset, eksamen og hvordan du bruker manualen</a></li>
 <li><a href="#k1">1 · Skattesystemet i Norge: satser, progressivitet og effektiv skatt</a></li>
+<li><a href="#k2">2 · Avkastning før og etter skatt, og tidsverdien av et fradrag</a></li>
+<li style="list-style:none;margin-top:.7em"><b>Del I · Aktiva og avkastning</b></li>
+<li><a href="#k3">3 · Avkastningen på ulike aktiva over tid, og hvem som eier hva</a></li>
+<li><a href="#k4">4 · Investeringscaser: bolig, utleie, aksjer og folkefinansiering</a></li>
 <li style="list-style:none;margin-top:.7em"><b>Del II · Aksjonær- og formuesbeskatning</b></li>
 <li><a href="#k5">5 · Aksjonærmodellen: skjerming, utbytte og gevinst</a></li>
+<li><a href="#k6">6 · Fritaksmetoden, selskapsaksjonærer, aksjonærlån og exit-skatt</a></li>
 <li><a href="#k7">7 · Formuesskatten: verdsetting, rabatter og gjeldsfordeling</a></li>
 <li><a href="#k8">8 · Formuesskatt som avkastningsskatt: verdsetting, utbytte og de rikeste</a></li>
 <li style="list-style:none;margin-top:.7em"><b>Del III · Skatteteori</b></li>
+<li><a href="#k9">9 · Nøytralitet, skattearbitrasje og bedriftens tilpasning</a></li>
 <li><a href="#k11">11 · Hvem betaler skatten: insidens og elastisiteter</a></li>
 <li style="list-style:none;margin-top:.7em"><b>Del V · Eksamenshåndverk</b></li>
 <li><a href="#k19">19 · Flervalg med minuspoeng: rutinene og rekkefølgen</a></li>
@@ -393,6 +399,583 @@ Tre ting er nok å ha med videre. <b>Verdsettingsregelen bestemmer alt</b>: bør
 
 </section>
 
+<hr class="sec">
+
+<section id="k2">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">2 · Avkastning før og etter skatt, og tidsverdien av et fradrag</h2>
+
+<p class="lead-in">Dette er verktøykapitlet. Temaet er lite eksaminert i seg selv: tidsverdien av et fradrag har gitt poeng i to av ni sett (H2020 oppgave 1a og H2024 oppgave 3), og realavkastning er sist regnet direkte i H2016. Men fire senere rutiner står og faller på det som læres her, og eksamens-DNA-et flagger «realavkastning og superprofitt» som et øvingssett som ennå ikke er eksaminert, altså en god kandidat for 2026. Regningen er kort. Rekkefølgen feller folk.</p>
+
+<h3>2.1 Totalavkastning: gevinsten pluss det som kom inn underveis</h3>
+
+<p>Et aktivum gir penger på to måter: prisen kan endre seg, og det kan komme kontanter underveis — utbytte fra en aksje, husleie fra en bolig, kupong fra en obligasjon. Totalavkastningen er begge deler, målt mot det du la ut.</p>
+
+<div class="formula">
+  <div class="eq">R = (P<sub>1</sub> − P<sub>0</sub> + Y<sub>1</sub>) / P<sub>0</sub></div>
+  <div class="eq">R = (P<sub>1</sub> − P<sub>0</sub>)/P<sub>0</sub> + Y<sub>1</sub>/P<sub>0</sub> = kapitalgevinst + direkteavkastning</div>
+  <div class="where">P<sub>0</sub> er inngangsverdien, P<sub>1</sub> utgangsverdien, Y<sub>1</sub> kontantstrømmen i perioden. <b>Nevneren er alltid P<sub>0</sub></b>, aldri P<sub>1</sub> og aldri gjennomsnittet: avkastning måler hva kapitalen du bandt opp har gitt deg. Direkteavkastningen kalles også <i>yield</i>, og for eiendom er den husleie minus vedlikehold og utgifter, ikke brutto leie.</div>
+</div>
+
+<p>Delingen i to komponenter er ikke pynt. Leddene skattlegges ofte ulikt og har ofte ulikt fortegn: en bolig kan falle i verdi og likevel gi positiv avkastning fordi leien dekker verdifallet.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet: Norske Furutrær (øvingsoppgave til forelesning 2)</span>
+<p>Aksjen ble kjøpt 1. januar 2022 for kr 100, solgt 1. januar 2023 for kr 110, og ga kr 5 i utbytte underveis. Tre måneders statskasseveksel var 2 % <b>[eksempeltall fra oppgaveteksten]</b>. Inflasjonstallet står på et lysbilde som mangler i kildematerialet, så her regnes med π = 3 % og π = 5 % <b>[eksempeltall]</b>.</p>
+<p><b>Steg 1 — nominell totalavkastning.</b> (110 − 100 + 5)/100 = 15/100 = <b>15 %</b>.</p>
+<p><b>Steg 2 — komponentene.</b> Kapitalgevinst 10/100 = <b>10 %</b>, direkteavkastning 5/100 = <b>5 %</b>. Summen er 15 %. ✓</p>
+<p><b>Steg 3 — realavkastning, eksakt og approksimert.</b> Ved π = 3 %: 1,15/1,03 − 1 = <b>0,1165</b>, mot approksimasjonen 15 % − 3 % = <b>12 %</b>. Ved π = 5 %: 1,15/1,05 − 1 = <b>0,0952</b>, mot 15 % − 5 % = <b>10 %</b>. Approksimasjonen ligger 0,35 og 0,48 prosentpoeng for høyt.</p>
+<p><b>Steg 4 — etter skatt, i riktig rekkefølge.</b> Både utbytte og gevinst treffes av eierskatten 37,84 % <b>[dagens regel]</b>; skjermingsfradraget kommer i kapittel 5. Nominelt etter skatt: 15 % × 0,6216 = <b>9,324 %</b>. Realt etter skatt ved π = 3 %: 1,09324/1,03 − 1 = <b>0,0614</b>, altså 6,14 %.</p>
+<p><b>Kontroll:</b> realavkastningen faller fra 11,65 % til 6,14 %, altså med 47,3 % av seg selv, og formelen for effektiv skatt på realavkastningen gir samme tall: 37,84 % × 15 %/(15 % − 3 %) = <b>0,473</b>. ✓ Med 37,84 % nominell sats betaler du reelt 47,3 % av realavkastningen, fordi Norge skattlegger den nominelle gevinsten uten fradrag for inflasjon.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Delt på salgskursen: 15/110 = <b>13,64 %</b>. Utbyttet glemt: <b>10 %</b>. Kapitalgevinsten glemt: <b>5 %</b>. Skatten lagt på realavkastningen i stedet for på den nominelle: 11,65 % × 0,6216 = <b>7,24 %</b>, altså 1,10 prosentpoeng for høyt.</p>
+</div>
+
+<h3>2.2 Rekkefølgen: nominelt, så etter skatt, så realt</h3>
+
+<p>Tre justeringer skal gjøres på et nominelt bruttotall: skatten trekkes fra, og inflasjonen deles ut. Rekkefølgen er ikke en smakssak.</p>
+
+<div class="formula">
+  <div class="eq">1 + r = (1 + i)/(1 + π) &nbsp;⟺&nbsp; r = (i − π)/(1 + π)</div>
+  <div class="eq">Approksimasjon: r ≈ i − π</div>
+  <div class="eq">Etter skatt: i<sub>etter</sub> = i(1 − t) &nbsp;og&nbsp; r<sub>etter</sub> = (1 + i(1 − t))/(1 + π) − 1</div>
+  <div class="eq">Effektiv skatt på realavkastningen: t<sub>real</sub> = t × i/(i − π)</div>
+  <div class="where">i er nominell avkastning, π inflasjon, t satsen som treffer avkastningen. Siste linje følger av å sette realavkastningene opp mot hverandre: tellerne (i(1 − t) − π) og (i − π) står begge over (1 + π), som forkortes bort. Er π = 0, faller uttrykket tilbake til t; går π mot i, går det mot uendelig, og skatten spiser hele realavkastningen.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor må skatten trekkes fra før inflasjonen deles ut?</span>
+Fordi skatten faktisk beregnes av det nominelle beløpet. Skattekontoret spør hva du fikk i kroner, ikke hva kronene var verdt: selger du en aksje kjøpt for 100 og solgt for 115, skattlegges gevinsten på 15, uansett om 12 av dem bare er inflasjon. Den nominelle avkastningen er derfor det eneste grunnlaget skatten kan regnes av, og deflateringen kommer etterpå. Snur du rekkefølgen, later du som om staten gir fradrag for prisstigning, og overvurderer alltid det du sitter igjen med. Konsekvensen er verdt å kunne: <b>inflasjon øker den reelle skatten på kapital uten at noen sats er endret</b>, og mest for aktiva med lav realavkastning. Et bankinnskudd med 3 % rente og 3 % inflasjon har null realavkastning før skatt og negativ etter.</div>
+
+<div class="callout warn"><span class="h">Approksimasjonen r ≈ i − π svikter der det betyr noe</span>
+Feilen er ikke omtrentlig, den er nøyaktig <b>r × π</b>: det approksimerte tallet ligger r × π over det eksakte. Ved i = 15 % og π = 3 % blir det 0,35 prosentpoeng for høyt, ved π = 8 % blir det 0,52, og er realavkastningen negativ, snur fortegnet. To regler følger. <b>Ber oppgaven om desimaler, bruk den eksakte formelen.</b> Og <b>sjekk fortegnet på i − π først</b>: er i mindre enn π, er realavkastningen negativ uansett formel, og alle positive alternativer kan strykes med en gang.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: Milla og sekundærboligen (øvingsoppgave til forelesning 2)</span>
+<p>Milla kjøpte en sekundærbolig for kr 4 000 000 og solgte den ett år senere for kr 3 900 000. Leieinntekten etter skatt var kr 200 000, og inflasjonen 6 % <b>[eksempeltall fra oppgaveteksten]</b>.</p>
+<p><b>Steg 1 — nominell totalavkastning.</b> (3 900 000 − 4 000 000 + 200 000)/4 000 000 = 100 000/4 000 000 = <b>2,5 %</b>.</p>
+<p><b>Steg 2 — komponentene.</b> Kapitalgevinsten er negativ, −100 000/4 000 000 = <b>−2,5 %</b>, direkteavkastningen 200 000/4 000 000 = <b>5,0 %</b>. De summerer til 2,5 %. ✓ Boligen falt i verdi og gav likevel positiv nominell avkastning.</p>
+<p><b>Steg 3 — realavkastning.</b> Eksakt: 1,025/1,06 − 1 = <b>−0,0330</b>, altså −3,30 %. Approksimert: 2,5 % − 6 % = <b>−3,5 %</b>, som bommer 0,20 prosentpoeng, denne gangen for lavt fordi realavkastningen er negativ.</p>
+<p><b>Kontroll:</b> gjør regnestykket om til kroner målt i fjorårets penger. Milla sitter ved årets slutt med 3 900 000 + 200 000 = 4 100 000, som i fjorårets kjøpekraft er 4 100 000/1,06 = <b>3 867 925</b>. Mot innskutt 4 000 000 er det et tap på 132 075, altså 132 075/4 000 000 = <b>3,30 %</b> av kapitalen. ✓ Samme tall, uavhengig vei.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Delt på salgssummen: 100 000/3 900 000 = <b>2,56 %</b>. Leien glemt, så bare prisfallet deflateres: 0,975/1,06 − 1 = <b>−8,02 %</b>. Prisfallet glemt: 1,05/1,06 − 1 = <b>−0,94 %</b>. Approksimasjonen brukt der oppgaven ber om to desimaler: <b>−3,50 %</b> mot riktige −3,30 %. Merk også at oppgaven lar tapet stå ubehandlet: et tap på sekundærbolig er i realiteten fradragsberettiget i alminnelig inntekt, og med 22 % <b>[dagens regel]</b> koster tapet bare −100 000 × 0,78 = <b>−78 000</b>, slik at avkastningen blir (−78 000 + 200 000)/4 000 000 = <b>3,05 %</b> nominelt. Konklusjonen står, men et oversett skatteledd flytter svaret et halvt prosentpoeng.</p>
+</div>
+
+<h3>2.3 Superprofitt, og en inkonsistens du bør kjenne igjen</h3>
+
+<p>Avkastning uten sammenligningsgrunnlag sier lite. <b>Superprofitt</b>, på engelsk <i>excess return</i>, er avkastningen ut over den risikofrie renten: <b>superprofitt = r − r<sub>f</sub></b>. Over mange perioder og aktiva er dette risikopremien, historisk 6–8 prosentpoeng hos Jordà et al. R<sub>f</sub> operasjonaliseres i kurset som tre måneders statskasseveksel.</p>
+
+<p>Her ligger en felle, og den ligger i forelesningen selv: lysbildet definerer superprofitten som <b>realavkastning minus en sikker rente merket «nominell!»</b>, med forelesningens eget utropstegn. Det er å trekke et nominelt tall fra et realt. I Furutrær-oppgaven gir den definisjonen 11,65 % − 2 % = <b>9,65 %</b>. De konsistente regnemåtene gir andre svar: nominell mot nominell er 15 % − 2 % = <b>13 %</b>, og real mot real krever at statskassevekselen deflateres, 1,02/1,03 − 1 = <b>−0,97 %</b>, altså 11,65 % − (−0,97 %) = <b>12,62 %</b>. Tre lovlige tall for samme oppgave. Gjør nøyaktig det oppgaveteksten sier, og noter hvilken enhet begge ledd er i før du trekker fra.</p>
+
+<h3>2.4 Nåverdien av et fradrag: ta det med en gang</h3>
+
+<p>Et skattefradrag er ikke penger, det er en <i>skattebesparelse</i>: fradraget ganget med satsen det virker mot. Og en skattebesparelse er en kontantstrøm som alle andre, så den skal diskonteres.</p>
+
+<div class="formula">
+  <div class="eq">Skattebesparelse ved å ta hele fradraget nå = D × t</div>
+  <div class="eq">Nåverdi av å fordele det over T år = a × t × [1 − (1 + ρ)<sup>−T</sup>]/ρ, der a = D/T</div>
+  <div class="where">D er fradraget, t satsen det virker mot, ρ diskonteringsrenten og T antall år; klammen er annuitetsfaktoren. Nominelt er beløpene identiske, siden T × a × t = D × t, så det er utelukkende <b>tidspunktene</b> som skiller alternativene. Derfor: så lenge ρ &gt; 0, vinner alltid å ta fradraget først; ved ρ = 0 er de like gode.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor er et fradrag i dag verdt mer enn samme fradrag om tre år?</span>
+Fordi et fradrag som tas tidlig er et rentefritt lån fra staten. Du betaler mindre skatt nå og mer senere, og differansen forrenter seg i mellomtiden. Skatten forsvinner ikke, den blir <i>utsatt</i>, men utsettelsen er verdt renten på beløpet. Speilbildet gjelder inntekt: skattepliktig inntekt skal utsettes lengst mulig. Prinsippet forklarer mer senere i manualen enn noe annet i kapitlet — hvorfor et holdingselskap er verdt noe selv om skatten kommer til slutt, hvorfor lock-in oppstår når gevinstskatten først utløses ved salg, og hvorfor IPS kalles et rentefritt lån fra staten.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: Pia og minstefradraget, og H2024 oppgave 3</span>
+<p><b>Del A — Pia og Listhaug (forelesning 1).</b> Pia har kr 600 000 i inntekt i hvert av tre år og et minstefradrag på kr 100 000 per år. Satsen er 34 % og diskonteringsrenten 4 % <b>[eksempeltall]</b>. Forslaget er å la henne ta alle tre årenes fradrag, kr 300 000, i år 1.</p>
+<p><b>Steg 1 — dagens ordning.</b> Årlig besparelse 100 000 × 34 % = <b>34 000</b>, diskontert fra hvert sitt år: 34 000/1,04 + 34 000/1,04² + 34 000/1,04³ = <b>94 353</b>.</p>
+<p><b>Steg 2 — alt i år 1.</b> Besparelse 300 000 × 34 % = <b>102 000</b>, nåverdi 102 000/1,04 = <b>98 077</b>.</p>
+<p><b>Steg 3 — differansen.</b> 98 077 − 94 353 = <b>3 724</b>, altså forelesningens «ca. 3 700».</p>
+<p><b>Kontroll:</b> udiskontert er alternativene identiske, 3 × 34 000 = 102 000. Gevinsten er derfor ren tidsverdi, og må være mindre enn ett års rente på hele beløpet, 102 000 × 4 % = 4 080. 3 724 ligger like under. ✓ Merk at forelesningen diskonterer <i>alle tre</i> årene; regner du år 1 som i dag, blir nåverdiene 98 127 og 102 000 og differansen 3 873. Begge oppsett er forsvarlige — å blande dem er det ikke.</p>
+<p><b>Del B — eksamensutgaven (H2024 oppgave 3, 2 poeng).</b> Turid har et forretningsbygg med leieinntekt kr 100 000 i året i ti år, og kan avskrive kr 10 000 i året i ti år eller utgiftsføre hele kr 100 000 med en gang. Satsen er 22 % og hun diskonterer med 10 % <b>[eksempeltall fra oppgaveteksten]</b>.</p>
+<p><b>Steg 1 — alt nå.</b> 100 000 × 22 % = <b>22 000</b>, mottatt i dag.</p>
+<p><b>Steg 2 — fordelt.</b> Årlig besparelse 10 000 × 22 % = <b>2 200</b>. Annuitetsfaktoren ved 10 % over ti år er 6,1446, så nåverdien blir 2 200 × 6,1446 = <b>13 518</b>.</p>
+<p><b>Steg 3 — svaret.</b> 22 000 − 13 518 = <b>8 482</b> i favør av å ta alt med en gang.</p>
+<p><b>Kontroll:</b> summen av de udiskonterte besparelsene er 10 × 2 200 = <b>22 000</b>, nøyaktig det samme som å ta alt nå. Er alternativene like i kroner og ulike i nåverdi, må det være renten som skiller dem, og da kan «det spiller ingen rolle» aldri være riktig når renten er positiv. ✓</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Oppgaven hadde tre alternativer, ikke fire. «<b>Det spiller ingen rolle</b>» er svaret du får ved å sammenligne udiskonterte kroner, 22 000 mot 22 000, og er riktig bare ved ρ = 0. «<b>Ta avskrivningene årlig</b>» krever negativ rente. Bruker du sluttverdifaktoren i stedet for annuitetsfaktoren, får du 2 200 × 15,937 = <b>35 062</b> og velger feil. Og oppgaveteksten oppgir oppjusteringsfaktoren 1,72 uten at den skal brukes: den lokker fram 100 000 × 22 % × 1,72 = <b>37 840</b>. Eksamen i dette faget oppgir jevnlig satser du ikke skal bruke.</p>
+</div>
+
+<div class="callout warn"><span class="h">De to forbeholdene som kan snu konklusjonen</span>
+Regelen «ta fradraget først» hviler på to forutsetninger, og forelesningen nevner begge. <b>(1) Du må ha inntekt å føre fradraget mot.</b> Er fradraget større enn årets inntekt, blir en del liggende ubrukt, og uten framføringsrett er den tapt. I H2024 oppgave 3 dekker leieinntekten i år 1 avskrivningen presis — ingen tilfeldighet. <b>(2) Marginalskatten kan være lavere i år 1 enn senere.</b> Fradraget er verdt satsen det virker mot, og 22 % er ikke samme sak som 47,4 %. Er satsforskjellen stor nok, slår den tidsverdien. Et alternativ som sier «det kommer an på om hun har inntekt å avskrive mot» er ikke en avledningsmanøver, det er forbeholdet.</div>
+
+<div class="callout tip"><span class="h">Slik spørres det</span>
+Temaet har kommet to ganger, begge som begrepsspørsmål med et regnestykke bak. H2020 oppgave 1a spurte hvilken avskrivningsprofil som gir høyest nåverdi av skattebesparelsen; svaret var «avskriv alt i år 1, siden inntekten overstiger investeringen». H2024 oppgave 3 er samme oppgave med tall, to poeng, tre alternativer. Mønsteret er stabilt nok til å pugges: alternativet «det spiller ingen rolle» er <b>alltid</b> med, og er riktig bare hvis renten er null. Sjekk derfor om fortegnet alene svarer, før du regner annuiteten.</div>
+
+<h3>2.5 Evig kontantstrøm, og ekspropriasjonsstriden</h3>
+
+<p>Går kontantstrømmen for alltid og er konstant, kollapser nåverdien til én brøk. Den brukes til å verdsette en utleiebolig, et forretningsbygg, en tomt og en erstatning.</p>
+
+<div class="formula">
+  <div class="eq">V = CF / r</div>
+  <div class="where">CF er den årlige kontantstrømmen og r kapitaliseringsrenten. Formelen er ekstremt følsom for r der rentene faktisk ligger: halverer du r fra 8 % til 4 %, dobles verdien. Enhetene <b>må</b> stemme — en nominelt fast strøm diskonteres med nominell rente, en strøm som vokser med prisene med realrente. Kapittel 8 utvider brøken med formuesskatt.</div>
+</div>
+
+<p>Ved ekspropriasjon skal erstatningen gjenskape kontantstrømmen eieren mistet, og kapitaliseringsrenten avgjør beløpet. Høyesterett har lagt til grunn at den <b>ikke skal være lavere enn 4 % realt</b>, og i praksis brukes også 7 %. En leieinntekt på kr 1 000 000 i året gir 1 000 000/0,04 = <b>25 000 000</b> ved 4 % og 1 000 000/0,07 = <b>14 285 714</b> ved 7 %. Renten alene flytter erstatningen over ti millioner.</p>
+
+<p>Forelesningens innvending, gjengitt som argument, har to ledd. <b>Enhetene blandes:</b> husleien er nominell, renten er en realrente. Regner du konsistent, med 4 % realrente og 2,5 % inflasjon <b>[eksempeltall]</b>, er nominell rente 1,04 × 1,025 − 1 = <b>0,066</b>, og en nominelt fast leie verdt 1 000 000/0,066 = <b>15 151 515</b>. De 25 millionene forutsetter altså stilltiende at leien vokser med prisene. <b>Skadesløsheten er tvilsom:</b> skal 25 millioner gjenskape en million i året for alltid, må den eksproprierte oppnå 4 % realavkastning hvert eneste år, og Oljefondet har over tid oppnådd i underkant av 4 % realt. Han må altså slå oljefondet for å komme skadesløs fra det, og 7 % gjør det verre. «Juristene kan ikke regne» er polemisk; poenget under er det du nå kan sjekke selv, at en real rente og en nominell kontantstrøm ikke hører sammen i samme brøk.</p>
+
+<h3>2.6 To-periodemodellen: hva skatten gjør med budsjettlinjen</h3>
+
+<p>Rammen som knytter skatt til atferd. Du har inntekt Y<sub>1</sub> i dag og Y<sub>2</sub> neste periode, og velger konsum C<sub>1</sub> og C<sub>2</sub>. Det du ikke bruker, sparer du til renten r; det du bruker ut over inntekten, låner du til samme rente. Skatten treffer renteinntekten, og rentefradraget virker med samme sats, så begge veier gjelder <b>r(1 − t)</b>.</p>
+
+<div class="formula">
+  <div class="eq">Periode 1: C<sub>1</sub> + S = Y<sub>1</sub> &nbsp;·&nbsp; Periode 2: C<sub>2</sub> = Y<sub>2</sub> + S(1 + r(1 − t))</div>
+  <div class="eq">Slått sammen: C<sub>2</sub> = Y<sub>2</sub> + (Y<sub>1</sub> − C<sub>1</sub>)(1 + r(1 − t))</div>
+  <div class="eq">Stigningstall: dC<sub>2</sub>/dC<sub>1</sub> = −(1 + r(1 − t))</div>
+  <div class="where">S = Y<sub>1</sub> − C<sub>1</sub> er sparingen, negativ for en låntaker. Budsjettlinjen går alltid gjennom <b>utstyrspunktet</b> E = (Y<sub>1</sub>, Y<sub>2</sub>), som er tilgjengelig uansett rente, og vipper om det når renten eller skatten endres. Høyere r eller lavere t gir brattere linje og gjør sparing mer lønnsomt. Det er hele innholdet i <b>«skatt opp virker som rente ned»</b>.</div>
+</div>
+
+<p>Tallene gjør det konkret. Med r = 5 % og t = 22 % <b>[dagens regel for alminnelig inntekt]</b> er renten etter skatt 5 % × (1 − 22 %) = <b>3,9 %</b>, og stigningstallet −1,039 mot −1,05 uten skatt. En som har Y<sub>1</sub> = 300 000 og Y<sub>2</sub> = 500 000 kan i ytterste fall konsumere 300 000 + 500 000/1,039 = <b>781 232</b> i dag, eller 500 000 + 300 000 × 1,039 = <b>811 700</b> neste periode.</p>
+
+<figure>
+<svg viewBox="0 0 560 348" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Budsjettlinjen i to-periodemodellen. En rett linje gjennom utstyrspunktet E med stigningstall minus én pluss renten etter skatt. En renteøkning vipper linjen om E slik at den blir brattere: området til høyre for E, der personen låner, krymper, mens området til venstre, der personen sparer, utvides."
+     font-family="Georgia,serif" font-size="13">
+  <line x1="60" y1="290" x2="520" y2="290" stroke="#333" stroke-width="1.4"/>
+  <line x1="60" y1="290" x2="60"  y2="40"  stroke="#333" stroke-width="1.4"/>
+
+  <line x1="60"  y1="180" x2="250" y2="180" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="250" y1="180" x2="250" y2="290" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+  <path d="M110,110 L440,275" stroke="#6b1f2a" stroke-width="2.3" fill="none"/>
+  <path d="M141,60 L330,268"  stroke="#2f5a3f" stroke-width="2.1" fill="none" stroke-dasharray="5 4"/>
+
+  <circle cx="250" cy="180" r="3.8" fill="#333"/>
+  <text x="258" y="174" fill="#333" font-size="12">E = (Y₁, Y₂)</text>
+
+  <text x="446" y="279" fill="#6b1f2a" font-size="11" font-weight="bold">r</text>
+  <text x="334" y="264" fill="#2f5a3f" font-size="11" font-weight="bold">r opp</text>
+  <text x="300" y="270" fill="#6b1f2a" font-size="11">stigningstall −(1 + r(1 − t))</text>
+  <text x="290" y="52"  fill="#b06000" font-size="11">renteøkningen vipper linjen om E</text>
+
+  <text x="52"  y="184" text-anchor="end" fill="#555" font-size="11">Y₂</text>
+  <text x="250" y="306" text-anchor="middle" fill="#555" font-size="11">Y₁</text>
+  <text x="145" y="306" text-anchor="middle" fill="#555" font-size="10">långiver: C₁ &lt; Y₁</text>
+  <text x="368" y="306" text-anchor="middle" fill="#555" font-size="10">låntaker: C₁ &gt; Y₁</text>
+
+  <text x="290" y="332" text-anchor="middle" fill="#333">Konsum i dag, C₁</text>
+  <text x="22"  y="165" text-anchor="middle" transform="rotate(-90 22 165)" fill="#333">Konsum neste periode, C₂</text>
+</svg>
+<figcaption>Figur 2.1 — Budsjettlinjen i to-periodemodellen, med stigningstall −(1 + r(1 − t)) gjennom utstyrspunktet E. Til høyre for E konsumerer du mer enn dagens inntekt og er låntaker; til venstre sparer du og er långiver. Den stiplede linjen viser en renteøkning: linjen vipper om E og blir brattere. Til høyre for E ligger den nye linjen lavere, så låntakerens muligheter krymper; til venstre ligger den høyere, så långiverens utvides. Helningene er overdrevet for lesbarhet — med r = 5 % og t = 22 % er stigningstallet −1,039, altså nesten 45 grader.</figcaption>
+</figure>
+
+<div class="callout mech"><span class="h">Hvorfor senker en renteøkning låntakerens konsum entydig, men ikke långiverens?</span>
+Fordi de to effektene peker samme vei bare for den ene. <b>Substitusjonseffekten</b> er lik for begge: dagens konsum er blitt dyrere målt i framtidig konsum, så begge vil bruke mindre i dag. <b>Inntektseffekten</b> avhenger av fortegnet på Y<sub>1</sub> − C<sub>1</sub>. Låntakeren har Y<sub>1</sub> − C<sub>1</sub> &lt; 0, betaler mer i renter og er blitt fattigere, og en fattigere person bruker mindre i dag: begge effektene trekker ned, og resultatet er entydig. Långiveren har Y<sub>1</sub> − C<sub>1</sub> &gt; 0, får mer i renteinntekt og er blitt rikere: inntektseffekten trekker opp, substitusjonseffekten ned, og totalvirkningen er <b>ubestemt uten flere antakelser</b>. Påstanden «sparingen øker når renten øker» er derfor gal som generell regel. Forelesningens makropoeng: flertallet av norske husholdninger er låntakere, så virkningen på samlet konsum er entydig negativ selv om den ikke er det for hver enkelt.</div>
+
+<div class="callout link"><span class="h">Hvor de fem verktøyene brukes videre</span>
+<b>Totalavkastning delt i gevinst og yield</b> er språket i kapittel 3, der Jordà et al. rapporterer 7,3 % real på eiendom og 6,7 % på aksjer 1870–2015. <b>Rekkefølgen nominelt, skatt, real</b> er rutinen i kapittel 4. <b>r(1 − t)</b> går igjen som avkastning etter skatt i kapittel 9 og som rentefradraget i kapittel 16. <b>V = CF/r</b> blir V = (CF − τ<sub>w</sub>V)/r<sub>etter</sub> i kapittel 8, som er H2025 oppgave 3. Og <b>nåverdien av et fradrag</b> er begrunnelsen bak både holdingselskapet i kapittel 6 og IPS i kapittel 15.</div>
+
+</section>
+
+<h2 class="part">Del I — Aktiva og avkastning</h2>
+
+<section id="k3">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">3 · Avkastningen på ulike aktiva over tid, og hvem som eier hva</h2>
+
+<p class="lead-in">Her spør eksamen om tall, ikke om utledninger. Stoffet er to obligatoriske lesestykker: Jordà, Knoll, Kuvshinov, Schularick og Taylor (2019) om hva de fire aktivaklassene har gitt siden 1870, og de to SSB-arbeidene om hvem som eier formuen i Norge. Regnedelen er kort: eksamens-DNA-et fører realavkastning og superprofitt som «middels» sannsynlig, sist regnet i H2016 oppgave 3a, men med egne øvingsoppgaver til forelesning 2 — og øvingsoppgavene har vist seg å bli eksamensoppgaver. Lær tallene som par: hvert tall her har en nabo som ligner, og naboen er alternativ B.</p>
+
+<h3>3.1 De fire aktivaklassene, og tallene du skal kunne</h3>
+
+<p>Datagrunnlaget er 16 industriland med årlige tall fra 1870 til 2015, altså 145 år, og fire aktivaklasser: to risikable (bolig og aksjer) og to sikre (statsobligasjoner og statssertifikater). Det nye er <b>totalavkastningen på bolig</b>: den største posten i husholdningenes balanse, men den minst målte, fordi leieavkastningen aldri kom med. Jordà setter leien inn, og bildet endrer seg.</p>
+
+<div class="formula">
+  <div class="eq">R = (P<sub>1</sub> − P<sub>0</sub>)/P<sub>0</sub> + Y<sub>1</sub>/P<sub>0</sub> = kapitalgevinst + direkteavkastning</div>
+  <div class="where">Y<sub>1</sub> er utbyttet for en aksje og netto leie for en bolig. Begge ledd deles på <b>inngangsverdien</b> P<sub>0</sub>, aldri på sluttprisen. En tredel av brutto leie er trukket fra som vedlikehold, drift og avskrivning.</div>
+  <div class="eq">Realavkastning, eksakt: 1 + r = (1 + i)/(1 + π) &nbsp;·&nbsp; approksimert: r ≈ i − π</div>
+  <div class="eq">Superprofitt (meravkastning) = avkastning − risikofri rente</div>
+  <div class="where">Rekkefølgen er alltid nominelt → etter skatt → realt. Den risikofrie renten er statssertifikatrenten, i praksis 3-måneders statskasseveksel.</div>
+</div>
+
+<table class="data">
+<tr><th>Aktivaklasse, real p.a. 1870–2015</th><th class="n">Avkastning</th><th class="n">Standardavvik</th></tr>
+<tr><td><b>Bolig</b> (leie + prisstigning)</td><td class="n"><b>7,3 %</b></td><td class="n">ca. 10</td></tr>
+<tr><td><b>Aksjer</b> (utbytte + kursgevinst)</td><td class="n"><b>6,7 %</b></td><td class="n">ca. 24</td></tr>
+<tr><td>Statsobligasjoner</td><td class="n">ca. 2,5 %</td><td class="n">ca. 11</td></tr>
+<tr><td>Statssertifikater</td><td class="n">ca. 1,0 %</td><td class="n">ca. 6</td></tr>
+<tr><td>Realprisstigning bolig alene</td><td class="n">ca. 1 %</td><td class="n">—</td></tr>
+<tr><td>Risikopremie</td><td class="n">6–8 %</td><td class="n">—</td></tr>
+</table>
+
+<p>Rangeringen er <b>bolig &gt; aksjer &gt; obligasjoner &gt; sertifikater</b>, og den skal sitte uten at du tenker. Merk den nest siste raden: av boligens 7,3 % er bare rundt ett prosentpoeng realprisstigning. Resten er leie, så den som setter boligavkastning lik boligprisvekst, bommer med en faktor sju.</p>
+
+<div class="callout warn"><span class="h">Tre tallpar som ligner, og som brukes mot hverandre</span>
+<b>(1)</b> Forelesningen oppgir 7,3 % og 6,7 %, fra artikkelens landsnitt; artikkelens globale snitt gir 7,05 % og 6,89 %. Begge er riktige, men velg forelesningens. <b>(2)</b> Forelesningen kaller 6–8 % «risikopremien». I artikkelen er 6–8 % den <i>risikable avkastningen</i>, mens risikopremien over sikre aktiva er 4–5 % i fredstid. <b>(3)</b> Standardavviket på aksjer er «ca. 24» hos forelesningen og 21,94 i artikkelen. Det robuste poenget bak alle tre: aksjer svinger omtrent <b>dobbelt så mye</b> som bolig.</div>
+
+<h3>3.2 Fra nominelle komponenter til realavkastning</h3>
+
+<p>Rutinen er kort, og lettest å lære på Jordàs Norge-tall: de er oppgitt både nominelt og realt, så du kan snu regnestykket og bruke det som kontroll.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet: realavkastningen på norsk bolig 1870–2015</span>
+<p>Norge-tallene for hele perioden: bolig <b>4,62 %</b> nominell prisstigning og <b>6,72 %</b> nominell leie, real total <b>8,03 %</b>. Aksjer: <b>5,00 %</b> kursgevinst og <b>4,28 %</b> utbytte, nominell total <b>9,22 %</b>, real <b>5,95 %</b>. Alt er artikkelens egne tall, ikke eksempeltall.</p>
+<p><b>Steg 1 — nominell totalavkastning på bolig.</b> Kapitalgevinst pluss direkteavkastning: 4,62 % + 6,72 % = <b>11,34 %</b>. Direkteavkastningen er det største leddet; for bolig er det leien som bærer avkastningen.</p>
+<p><b>Steg 2 — hvilken inflasjon ligger bak?</b> Snu realformelen: π = 1,1134/1,0803 − 1 = <b>3,06 %</b>. Det er gjennomsnittlig norsk inflasjon over 145 år, og den skal være den samme uansett hvilket aktivum du regner den ut av.</p>
+<p><b>Steg 3 — approksimasjonen.</b> r ≈ i − π gir 11,34 − 3,06 = <b>8,28 %</b> mot eksakt 8,03 %, altså 8,28 − 8,03 = <b>0,25 prosentpoeng</b> for høyt. Den bommer alltid <i>oppover</i>, fordi den utelater leddet i × π.</p>
+<p><b>Kontroll:</b> regn samme inflasjon ut av aksjetallene: π = 1,0922/1,0595 − 1 = <b>3,09 %</b>. To uavhengige aktivaklasser, samme land og periode, gir 3,06 % og 3,09 % — avrundingsstøy. ✓ Får du to helt ulike tall, har du blandet et real- og et nominelltall. Merk også at 5,00 % + 4,28 % = 9,28 % mens tabellen oppgir 9,22 %: komponentene er avrundet hver for seg.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Bare prisstigningen deflatert: 1,0462/1,0306 − 1 = <b>1,51 %</b>. Bare leien deflatert: 1,0672/1,0306 − 1 = <b>3,55 %</b>. Approksimasjonen der oppgaven ber om det eksakte tallet: <b>8,28 %</b>. Superprofitt forvekslet med avkastning: med sertifikatrenten 1,10 % blir 8,03 − 1,10 = <b>6,93 %</b>.</p>
+</div>
+
+<h3>3.3 Rangeringen skifter over tid, og r &gt; g</h3>
+
+<p>Snittet over 145 år skjuler et skifte som er direkte eksaminerbart: <b>bolig slo aksjer før andre verdenskrig, aksjer har slått bolig etter</b>. Etter 1950 er aksjer 8,28 % og bolig 7,44 %; etter 1980 er avstanden mye større, 10,68 % mot 6,42 %. Over hele perioden er forskjellen liten — derfor snur rangeringen når du bytter vindu.</p>
+
+<p>Norge følger mønsteret med sterkere utslag. Norsk bolig ga 8,03 % realt over hele perioden, over landsnittet, mens norske aksjer med 5,95 % ligger under. Etter 1980 snur det: aksjer 12,22 % mot bolig 9,81 %. Norge er ett av få land der statssertifikater ga <b>negativ</b> realavkastning etter 1950, −0,26 %. Og 1980–2015 slo svenske (15,74 %), finske (16,17 %) og danske (12,57 %) aksjer de norske. Konklusjonen er ikke «kjøp nordisk indeks», men at historiske tall kalibrerer forventninger, ikke landvalg.</p>
+
+<div class="formula">
+  <div class="eq">r &gt; g</div>
+  <div class="where">r er avkastningen på samlet formue (vektet snitt av alle fire klassene), g er BNP-veksten. Uvektet snitt hele perioden: r = 6,28 % mot g = 2,87 %, et gap på 3,41 prosentpoeng. Gapet var rundt 5 pp før andre verdenskrig, rundt 2 pp under oljekrisene, og er i dag 3–4 pp.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor betyr r &gt; g noe for fordelingen?</span>
+Fordi formuen da vokser raskere enn økonomien den er en andel av. Lar du avkastningen bli stående, vokser posisjonen din med r mens lønnsinntektene i snitt vokser med g, og kapitaleiernes andel av totalen stiger av seg selv. Dette er Pikettys mekanisme, og Jordàs bidrag er at den holder i <b>hvert eneste land og hver eneste periode</b> unntatt årene i og rundt krig. Men r − g varierer ikke systematisk med veksten, så «lavere vekst gir automatisk større gap» er ikke bekreftet.</div>
+
+<h3>3.4 Risikojustert vinner bolig — men ikke for deg som eier ett hus</h3>
+
+<p>Bolig har gitt litt høyere avkastning enn aksjer og under halvparten så høy svingning. Målt som Sharpe-brøk er bolig bedre enn aksjer i <b>hvert eneste av de 16 landene</b>, i snitt mer enn dobbelt så godt. Det er «boliggåten»: lik avkastning, halve risikoen.</p>
+
+<div class="formula">
+  <div class="eq">Sharpe-brøk = (r̄<sub>i</sub> − r̄<sub>sertifikater</sub>) / σ<sub>i</sub></div>
+  <div class="where">Med forelesningens tall: bolig (7,3 − 1,0)/10 = <b>0,63</b>, aksjer (6,7 − 1,0)/24 = <b>0,24</b>. Brøken måler meravkastning per enhet risiko, og forutsetter at du holder <i>hele</i> aktivaklassen, ikke ett objekt fra den.</div>
+</div>
+
+<figure>
+<svg viewBox="0 0 560 350" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Punktdiagram med standardavvik langs x-aksen og real avkastning langs y-aksen. Statssertifikater ligger på standardavvik 6 og avkastning 1 prosent, statsobligasjoner på 11 og 2,5 prosent, bolig på 10 og 7,3 prosent, aksjer på 24 og 6,7 prosent. Bolig og aksjer ligger nesten like høyt, men bolig ligger mye lenger til venstre. Bolig og obligasjoner ligger på nesten samme standardavvik, men bolig ligger tre ganger så høyt."
+     font-family="Georgia,serif" font-size="13">
+  <line x1="70" y1="229" x2="530" y2="229" stroke="#999" stroke-width="0.6"/>
+  <line x1="70" y1="168" x2="530" y2="168" stroke="#999" stroke-width="0.6"/>
+  <line x1="70" y1="106" x2="530" y2="106" stroke="#999" stroke-width="0.6"/>
+  <line x1="70" y1="45"  x2="530" y2="45"  stroke="#999" stroke-width="0.6"/>
+  <text x="62" y="233" text-anchor="end" fill="#555" font-size="11">2 %</text>
+  <text x="62" y="172" text-anchor="end" fill="#555" font-size="11">4 %</text>
+  <text x="62" y="110" text-anchor="end" fill="#555" font-size="11">6 %</text>
+  <text x="62" y="49"  text-anchor="end" fill="#555" font-size="11">8 %</text>
+
+  <line x1="243" y1="66" x2="243" y2="213" stroke="#b06000" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="243" y1="66" x2="485" y2="85" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+
+  <line x1="70" y1="290" x2="530" y2="290" stroke="#333" stroke-width="1.4"/>
+  <line x1="70" y1="290" x2="70"  y2="35"  stroke="#333" stroke-width="1.4"/>
+
+  <circle cx="243" cy="66"  r="5" fill="#6b1f2a"/>
+  <circle cx="485" cy="85"  r="5" fill="#1f3a5f"/>
+  <circle cx="260" cy="213" r="5" fill="#2f5a3f"/>
+  <circle cx="174" cy="259" r="5" fill="#2f5a3f"/>
+
+  <text x="234" y="60"  text-anchor="end" fill="#6b1f2a" font-weight="bold">Bolig 7,3 %</text>
+  <text x="476" y="79"  text-anchor="end" fill="#1f3a5f" font-weight="bold">Aksjer 6,7 %</text>
+  <text x="270" y="217" fill="#2f5a3f">Statsobligasjoner 2,5 %</text>
+  <text x="184" y="263" fill="#2f5a3f">Statssertifikater 1,0 %</text>
+  <text x="250" y="145" fill="#b06000" font-size="11">samme risiko,</text>
+  <text x="250" y="159" fill="#b06000" font-size="11">tre ganger avkastningen</text>
+
+  <text x="70"  y="307" text-anchor="middle" fill="#555" font-size="11">0</text>
+  <text x="157" y="307" text-anchor="middle" fill="#555" font-size="11">5</text>
+  <text x="243" y="307" text-anchor="middle" fill="#555" font-size="11">10</text>
+  <text x="330" y="307" text-anchor="middle" fill="#555" font-size="11">15</text>
+  <text x="416" y="307" text-anchor="middle" fill="#555" font-size="11">20</text>
+  <text x="503" y="307" text-anchor="middle" fill="#555" font-size="11">25</text>
+  <text x="300" y="331" text-anchor="middle" fill="#333">Standardavvik (prosentpoeng)</text>
+  <text x="24" y="160" text-anchor="middle" transform="rotate(-90 24 160)" fill="#333">Realavkastning p.a.</text>
+</svg>
+<figcaption>Figur 3.1 — De fire aktivaklassene 1870–2015, med forelesningens tall. Den grå streken mellom bolig og aksjer er nesten vannrett: samme avkastning, men aksjer ligger 14 standardavvikspoeng lenger til høyre. Den oransje streken er det andre poenget: statsobligasjoner svinger omtrent like mye som bolig og gir under en tredel. «Sikre» aktiva har vært lave og likevel volatile, med bunnpunkter i verdenskrigene og i 1970-tallets inflasjon.</figcaption>
+</figure>
+
+<div class="callout mistake"><span class="h">«Bolig gir like mye som aksjer til halve risikoen, altså bør jeg kjøpe hus»</span>
+Kapitlets store felle, og forelesningens eget spørsmål. Jordàs boligtall er avkastningen på en <b>portefølje</b> av all bolig i 16 land over 145 år. Den som eier ett hus, holder ett objekt i én kommune med ett lokalt arbeidsmarked, og bærer <b>idiosynkratisk risiko</b> som ikke finnes i statistikken. Gjerdrum-skredet er standardeksempelet, og boligåret 2020 ga god snittavkastning med stor lokal spredning. Slik risiko kan diversifiseres bort i et fond, men ikke ved å eie én bolig. Standardavviket på 10 gjelder porteføljen, ikke huset ditt.</div>
+
+<div class="callout mech"><span class="h">Hvorfor er det likevel klokt å eie både bolig og aksjer?</span>
+Fordi kovariansen mellom dem er lav. To aktiva som svinger i utakt gir lavere samlet risiko enn hvert av dem alene, og gevinsten er størst når samvariasjonen er svak. Jordà legger til at aksjeavkastningen har blitt stadig mer korrelert på tvers av land etter 1945, mens boligavkastningen forblir nesten ukorrelert mellom land. Den ideelle investoren ville derfor holdt en internasjonalt spredt <i>bolig</i>portefølje — og at det er praktisk umulig, er nettopp derfor tabellen ikke er en handleliste. Mekanikken står i kapittel 14.</div>
+
+<p>Ett forbehold til: transaksjonskostnadene er <b>ikke</b> trukket fra. Tur-retur koster rundt 7,7 % av boligverdien mot rundt 2 % for aksjer, men målt per år over faktiske eiertider blir forskjellen liten.</p>
+
+<h3>3.5 Hvem eier hva: husholdningenes formue og de rikestes</h3>
+
+<p>Norske husholdninger har formuen sin i bolig. Bruttoformuen i 2025 <b>[dagens tall]</b> forklarer resten av kapitlet:</p>
+
+<table class="data">
+<tr><th>Formuespost, norske husholdninger brutto 2025</th><th class="n">Andel</th></tr>
+<tr><td>Primærbolig</td><td class="n">52 %</td></tr>
+<tr><td>Sekundærbolig og annen eiendom</td><td class="n">14 %</td></tr>
+<tr><td>Bankinnskudd</td><td class="n">13 %</td></tr>
+<tr><td>Aksjer og verdipapirer</td><td class="n">11 %</td></tr>
+<tr><td>Annen finanskapital</td><td class="n">5 %</td></tr>
+<tr><td>Næringseiendeler</td><td class="n">5 %</td></tr>
+</table>
+
+<p>Topp 1 prosent ser helt annerledes ut: de eier først og fremst aksjer, <b>to tredeler av dem unoterte</b>, og relativt lite eiendom. Toppens andel av samlet formue gikk fra 14,8 % i 1995 til 21 % i 2016, drevet av aksjekonsentrasjon. Nederste halvdel eier 5 % av nettoformuen.</p>
+
+<div class="formula">
+  <div class="eq">Formuesverdi, unotert aksje = (bokførte eiendeler − gjeld) × (1 − ρ)</div>
+  <div class="eq">Formuesskatt = (Σ formuesverdier − B) × τ<sub>w</sub></div>
+  <div class="where">Unoterte aksjer verdsettes til selskapets <b>bokførte</b> egenkapital, børsnoterte til kursen; rabatten ρ er 20 % for begge. Formuesverdien blir i praksis 40–50 % av markedsverdien før rabatt og 32–40 % etter, for de aller rikeste ned mot 10 %. Bunnfradraget B er 1 900 000 kr, satsen τ<sub>w</sub> 1,0 % opp til 21 500 000 kr <b>[dagens regel, 2026]</b>. Apparatet står i kapittel 7.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor eier de rikeste unoterte aksjer?</span>
+Fordi verdsettingsregelen er en rabatt på flere titalls prosent, gitt av loven og uavhengig av hvor godt selskapet går. Bokført egenkapital er historisk kost minus avskrivninger; markedsverdien er nåverdien av framtidige overskudd. For et selskap som tjener penger, er den andre langt større, og differansen er formuesskattefri. På børs forsvinner rabatten, for da finnes det en kurs — derfor tar smarte eiere selskaper <i>av</i> børs. Prisen er reell: unoterte aksjer er illikvide og dominert av innsidere. Svaret på «bør vi kopiere de rikeste?» er ja for formuesskattens del, men vanskelig for en småsparer.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: hvorfor hardere beskatning av eiendom øker ulikheten</span>
+<p>To husholdninger uten gjeld. Satser <b>[dagens regel, 2026]</b>: bunnfradrag kr 1 900 000, sats 1,0 %, primærbolig verdsettes til 25 %, aksjer med 20 % rabatt.</p>
+<table class="data">
+<tr><th>Post, markedsverdi</th><th class="n">Husholdning A</th><th class="n">Husholdning B (topp 1 %)</th></tr>
+<tr><td>Primærbolig</td><td class="n">8 000 000</td><td class="n">8 000 000</td></tr>
+<tr><td>Bankinnskudd</td><td class="n">700 000</td><td class="n">0</td></tr>
+<tr><td>Unoterte aksjer</td><td class="n">0</td><td class="n">30 000 000</td></tr>
+</table>
+<p><b>Steg 1 — formuesverdiene i dag.</b> Boligen: 8 000 000 × 25 % = <b>2 000 000</b> for begge. Bankinnskudd teller fullt. Aksjene bokføres til halve markedsverdien <b>[eksempeltall, midt i intervallet 40–50 %]</b>: 30 000 000 × 50 % = 15 000 000, etter rabatt 15 000 000 × 80 % = <b>12 000 000</b>.</p>
+<p><b>Steg 2 — skatten i dag.</b> A: (2 000 000 + 700 000 − 1 900 000) × 1,0 % = <b>8 000 kr</b>. B: (12 000 000 + 2 000 000 − 1 900 000) × 1,0 % = <b>121 000 kr</b>, altså drøyt femten ganger så mye.</p>
+<p><b>Steg 3 — reformen.</b> Primærbolig verdsettes til full omsetningsverdi <b>[hypotetisk regel]</b>, ellers uendret. A: (8 000 000 + 700 000 − 1 900 000) × 1,0 % = <b>68 000 kr</b>. B: (12 000 000 + 8 000 000 − 1 900 000) × 1,0 % = <b>181 000 kr</b>.</p>
+<p><b>Steg 4 — hvem tok støyten.</b> A gikk fra 8 000 til 68 000, <b>8,5 ganger</b> så mye. B gikk fra 121 000 til 181 000, altså 1,5 ganger. Målt mot faktisk formue, 8 700 000 for A og 38 000 000 for B, blir den effektive formuesskattesatsen:</p>
+<table class="data">
+<tr><th>Effektiv sats av markedsformuen</th><th class="n">A</th><th class="n">B</th></tr>
+<tr><td>Dagens regler</td><td class="n">0,09 %</td><td class="n">0,32 %</td></tr>
+<tr><td>Primærbolig til full verdi</td><td class="n">0,78 %</td><td class="n">0,48 %</td></tr>
+</table>
+<p>I dag betaler den rikeste husholdningen den høyeste andelen; etter reformen betaler den minst rike den høyeste. Skatten er gått fra progressiv til regressiv i disse to punktene uten at én eneste sats er endret.</p>
+<p><b>Kontroll:</b> økningen må være lik for begge, siden de har samme hus og bare boligregelen ble endret. 68 000 − 8 000 = <b>60 000</b> og 181 000 − 121 000 = <b>60 000</b>. ✓ Den kan også regnes som den bortfalte rabatten: 8 000 000 × 75 % × 1,0 % = <b>60 000</b>. ✓ Poenget i én linje: en eiendomsskjerpelse er et likt kronebeløp for like hus, og et likt kronebeløp veier tyngst for den som eier minst av alt annet.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Unoterte aksjer verdsatt til markedsverdi: (30 000 000 + 2 000 000 − 1 900 000) × 1,0 % = <b>301 000 kr</b> for B, altså 2,5 ganger for mye, og nøyaktig feilen i Anine-eksempelet i kapittel 1. Rabatten trukket fra to ganger: <b>97 000</b>. Bunnfradraget glemt: <b>27 000</b> og <b>140 000</b>. Satsen 1,1 % brukt: <b>8 800</b> og <b>133 100</b>.</p>
+</div>
+
+<h3>3.6 Ulikheten når tilbakeholdt overskudd regnes med</h3>
+
+<p>Offisiell inntektsstatistikk bygger på skattemeldingen, og skattemeldingen ser bare overskudd som faktisk er tatt ut som utbytte. Da utbytteskatten kom i 2006, sluttet eierne å ta det ut: utbyttene til personlige aksjonærer falt fra <b>99 mrd. kr i 2005 til 7,4 mrd. kr i 2006</b>. Etter det måler statistikken først og fremst når eierne <i>velger</i> å ta ut penger. SSBs grep er å erstatte mottatt utbytte med eierens andel av årsresultatet.</p>
+
+<table class="data">
+<tr><th>Mål</th><th class="n">Offisielt</th><th class="n">Justert</th></tr>
+<tr><td>Topp 1 %-andel av markedsinntekt, 2018</td><td class="n">8,8 %</td><td class="n">19,0 %</td></tr>
+<tr><td>Topp 1 %-andel, 2006 (største avvik)</td><td class="n">8,2 %</td><td class="n">22,5 %</td></tr>
+<tr><td>Topp 0,01 %-andel, 2018</td><td class="n">0,9 %</td><td class="n">6,0 %</td></tr>
+<tr><td>Gini, inntekt etter skatt, 2001</td><td class="n">0,23</td><td class="n">0,26</td></tr>
+<tr><td>Gini, inntekt etter skatt, 2018</td><td class="n">0,25</td><td class="n">0,35</td></tr>
+<tr><td>Vekst i Gini 2001–2018</td><td class="n">+9 %</td><td class="n">+35 %</td></tr>
+</table>
+
+<p>Tre ting. Justert topp 1 %-andel i 2018 er <b>2,2 ganger</b> den offisielle, en forskjell på 10,2 prosentpoeng. Justert Gini stiger fra 0,26 til 0,35 mens den offisielle knapt rører seg. Og finanskrisen er nesten usynlig offisielt i 2008 (8,3 %), mens justert faller fra 22,2 % i 2007 til 14,4 %. Et mål som ikke ser finanskrisen, måler ikke inntekt.</p>
+
+<p>Den andre SSB-rapporten legger til boligtjenester og kapitalgevinster og finner samme mønster: topp 1 % går fra 10 % til 15 % av bruttoinntekten 2001–2018, og justert Gini er 36 % høyere enn offisiell i 2018. Eierinntekt utgjør 58 % av bruttoinntekten mellom 99. og 99,9. prosentil og 97 % for topp 0,01 %.</p>
+
+<div class="callout warn"><span class="h">Ikke bland de to SSB-tallene for topp 1 %</span>
+<b>19,0 %</b> er første rapports tall for 2018 og gjelder <i>markedsinntekt</i> for personer over 25 år. <b>15 %</b> er andre rapports tall for samme år og gjelder <i>bruttoinntekt</i> med overføringer, boligtjenester og kapitalgevinster. Begge er riktige og svarer på hvert sitt spørsmål. Tilsvarende: «36 % høyere Gini» gjelder andre rapport i 2018, mens «+35 %» er <i>veksten</i> i justert Gini i den første.</div>
+
+<p>Det siste laget er skatten. Med merverdiavgift, arbeidsgiveravgift, selskapsskatt og eiendomsskatt regnet inn stiger samlet skatte- og avgiftsprosent i 2018 fra <b>41 %</b> for nederste halvdel til <b>53 %</b> for 95.–99. prosentil, og faller så til <b>8 %</b> for topp 0,01 %. Topp 1 % mottar 15 % av inntekten og betaler 10 % av skattene: progressivt opp til 99. prosentil, sterkt regressivt over den.</p>
+
+<div class="callout link"><span class="h">Hvor dette møter resten av manualen</span>
+Den fallende kurven har to årsaker. <b>Målingen</b> av effektiv skattesats, med selskapets skatt i telleren og overskuddet i nevneren, står i kapittel 1 med figur 1.1. <b>Verdsettingen</b> står i kapittel 7 og 8, der den effektive satsen blir 24,7 % for en børsnotert eier og 18,2 % for en unotert. At de rikeste eier to tredeler unotert, er grunnen til at snittet deres lander rundt 20 %.</div>
+
+<p>Sammenligningen med USA går motsatt vei av det de fleste venter, og er lysbilde 27–30 i forelesning 1. Fra 2001 til 2018 vokste inntekten etter skatt for gjennomsnittshusholdningen med <b>50 % i Norge mot 25 % i USA</b> — men for topp 1 % var veksten <b>187 % i Norge mot 45 % i USA</b>. For nederste 20 % var det omvendt: <b>35 % i USA mot 21 % i Norge</b>. På toppen ligger den amerikanske skatteprosenten flat rundt 30 %, mens den norske faller fra 50 % (95.–99. prosentil) til 40 %, 17 % og 8 % for topp 0,01 %. Setningen du skal kunne: <b>USA er progressivt på toppen, Norge er regressivt</b>.</p>
+
+<div class="callout tip"><span class="h">Slik spørres det</span>
+Fordelingsstoffet har ikke vært eget regnespørsmål i noen av de ni registrerte settene, men er obligatorisk pensum til forelesning 1. Faktaspørsmål lages på tre måter. <b>(1) Tallpar byttet om:</b> «nederste 20 % vokste mest i Norge» er fasitsetningen med landene byttet. Regelen: Norge vinner i midten og på toppen, USA i bunnen. <b>(2) Riktig tall, feil mål:</b> 19,0 mot 15 % for topp 1 %, eller offisiell mot justert Gini — les hvilket begrep spørsmålet bruker. <b>(3) Retningsspørsmål uten tall:</b> «hva skjer med ulikheten hvis eiendom beskattes hardere?» Den øker, og regnestykket i 3.5 er begrunnelsen. Retningsspørsmål kan besvares fra mekanismen alene, uten et eneste tall.</div>
+
+<table class="data">
+<tr><th>Tallet</th><th class="n">Verdi</th><th>Hva det gjelder</th></tr>
+<tr><td>Realavkastning bolig / aksjer 1870–2015</td><td class="n">7,3 % / 6,7 %</td><td>Jordà, forelesningens tall</td></tr>
+<tr><td>Standardavvik bolig / aksjer</td><td class="n">ca. 10 / ca. 24</td><td>aksjer svinger dobbelt så mye</td></tr>
+<tr><td>r mot g, hele perioden</td><td class="n">6,28 % mot 2,87 %</td><td>r &gt; g i alle land og perioder</td></tr>
+<tr><td>Primærbolig av brutto husholdningsformue</td><td class="n">52 %</td><td>med annen eiendom 66 %; topp 1 % eier to tredeler unotert</td></tr>
+<tr><td>Utbytte til personlige eiere 2005 / 2006</td><td class="n">99 / 7,4 mrd. kr</td><td>utbytteskatten innføres</td></tr>
+<tr><td>Topp 1 %-andel 2018, offisiell / justert</td><td class="n">8,8 % / 19,0 %</td><td>markedsinntekt</td></tr>
+<tr><td>Skatte- og avgiftsprosent 2018</td><td class="n">41 % → 53 % → 8 %</td><td>nederste halvdel, 95.–99., topp 0,01 %</td></tr>
+<tr><td>Inntektsvekst topp 1 % 2001–2018</td><td class="n">Norge 187 %, USA 45 %</td><td>nederste 20 %: USA 35 %, Norge 21 %</td></tr>
+</table>
+
+</section>
+
+<hr class="sec">
+
+<section id="k4">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">4 · Investeringscaser: bolig, utleie, aksjer og folkefinansiering</h2>
+
+<p class="lead-in">Her settes k1, k2 og k3 sammen til det kurset egentlig handler om: rangeringen mellom to investeringer avgjøres av skattesatsen, ikke av avkastningen. Temaet er spredt utover settene i småbiter, og bitene er billige. Utleiereglene har kommet som rene faktaspørsmål (H2018 oppgave 1a og H2021 oppgave 1d, begge med svaret «skattefritt»). Lånereglene er regnet i fire av ni sett (H2020 oppgave 4a–d og H2021 oppgave 5a–d, samme rutine begge steder, pluss belåningsgraden i H2016 oppgave 3g). Egenkapitalavkastningen på en giret bolig er hele H2020 oppgave 6. Ingen av dem er vanskelige. Alle er lette å regne feil på, fordi de krever at du husker hvilken skattesats som treffer hvilken krone.</p>
+
+<h3>4.1 Boligkjøpet: prisen er ikke kjøpesummen</h3>
+
+<p>Det første tallet du trenger, er ikke prisantydningen. Ved tinglysing av skjøte på selveierbolig betales <b>dokumentavgift på 2,5 % av salgsverdien</b> <b>[dagens regel]</b>. Den er ikke fradragsberettiget mot noe som helst, og den kan ikke lånefinansieres innenfor belåningsgrensen, fordi grensen regnes av boligens verdi og ikke av det du faktisk legger ut. To unntak er verdt å kunne: ved kjøp av <b>borettslagsandel</b> betales ingen dokumentavgift, bare et registreringsgebyr, og ved førstegangsoverføring av nyoppført bygning betales avgiften bare av tomteverdien.</p>
+
+<div class="formula">
+  <div class="eq">Anskaffelseskost = kjøpesum P + 2,5 % × P + øvrige omkostninger</div>
+  <div class="eq">Belåningsgrad = L / P &nbsp;·&nbsp; Egenkapital = anskaffelseskost − L</div>
+  <div class="where">Legg merke til asymmetrien: lånet måles mot P, mens egenkapitalen må dekke alt over lånet. Med maksimalt lån blir egenkapitalen derfor større enn egenkapitalkravet i prosent skulle tilsi. På en bolig til kr 4 000 000 er dokumentavgiften 4 000 000 × 2,5 % = <b>100 000</b>, maksimalt lån 90 % × 4 000 000 = <b>3 600 000</b>, og nødvendig egenkapital 4 100 000 − 3 600 000 = <b>500 000</b>, altså 12,5 % av kjøpesummen og ikke 10 %.</div>
+</div>
+
+<p>Ved salg er speilbildet at <b>meglerutgiftene</b>, typisk 150 000 til 170 000 kr, <i>er</i> fradragsberettigede mot en skattepliktig salgsgevinst. Forelesningen lar dokumentavgiften ved kjøp og megleren ved salg utligne hverandre, men det gjør de bare når gevinsten er skattepliktig: selger du en primærbolig skattefritt, er megleren en ren kostnad uten skattevirkning.</p>
+
+<h3>4.2 Utlånsforskriften: de fire skrankene</h3>
+
+<p>Hvor mye du får låne, avgjøres ikke av banken alene. Utlånsforskriften setter fire krav, og <b>det strengeste binder</b> <b>[dagens regel, gjeldende fra 1. januar 2025]</b>:</p>
+
+<div class="formula">
+  <div class="eq">(1) Gjeldsgrad: samlet gjeld ≤ 5 × brutto årsinntekt</div>
+  <div class="eq">(2) Belåningsgrad: L ≤ 90 % av boligens verdi, altså minst 10 % egenkapital</div>
+  <div class="eq">(3) Stresstest: kunden må tåle renten + 3 prosentpoeng, minst 7 %</div>
+  <div class="eq">(4) Avdragskrav: minst 2,5 % avdrag per år når belåningsgraden overstiger 60 %</div>
+  <div class="where">Samlet gjeld i (1) er all gjeld, også studielån og billån — derfor er H2020 oppgave 4b og H2021 oppgave 5b formulert som «5 × inntekt minus eget studielån» og har kandidatavhengig svar. Rammelån har egen grense på 60 %. Bankene kan fravike kravene for 10 % av utlånsvolumet per kvartal, 8 % i Oslo; det er denne fleksibilitetskvoten som gjør at forskriften i praksis er en hovedregel og ikke et absolutt tak.</div>
+</div>
+
+<div class="callout warn"><span class="h">Tallene i forskriften er endret, og eldre sett bruker de gamle</span>
+Egenkapitalkravet var <b>15 %</b> til og med 2024 og er <b>10 %</b> fra 2025 <b>[dagens regel]</b>. På en bolig til kr 4 000 000 er det forskjellen mellom 600 000 og 400 000 kr i egenkapital fra belåningsgrensen alene. Og enda viktigere for regningen: stresstesten i H2020 oppgave 4c og H2021 oppgave 5c legger på <b>5 prosentpoeng</b>, som var kravet den gangen <b>[eksempeltall]</b>, mens dagens forskrift krever <b>3 prosentpoeng, minst 7 % rente</b>. Bruker du dagens påslag på et gammelt sett, får du et lån som er flere hundre tusen for stort. Les alltid hvilket påslag oppgaveteksten oppgir.</div>
+
+<h3>4.3 Giring: brekkstangen virker begge veier</h3>
+
+<p>Lånefinansiering endrer ikke avkastningen på boligen. Den endrer hvor stor del av den avkastningen som tilfaller din egenkapital, og forholdstallet er gjeldsgraden:</p>
+
+<div class="formula">
+  <div class="eq">R<sub>E</sub> = R<sub>A</sub> + (R<sub>A</sub> − R<sub>G</sub>) × G/E</div>
+  <div class="where">R<sub>A</sub> er avkastningen på totalkapitalen (verdistigning pluss netto leie, delt på hele det investerte beløpet), R<sub>G</sub> er lånerenten <b>etter skatt</b>, G er gjeld og E egenkapital. Er R<sub>A</sub> høyere enn R<sub>G</sub>, løfter hver lånekrone egenkapitalavkastningen; er den lavere, trekker den ned. Faktoren G/E avgjør hvor mye. Med 10 % egenkapital er G/E = 9, og hvert prosentpoeng differanse blir til ni på egenkapitalen.</div>
+  <div class="eq">R<sub>G</sub> = r × (1 − t) = r × 0,78</div>
+  <div class="where">Renter på boliglån er fradragsberettiget i alminnelig inntekt, så staten dekker 22 øre av hver rentekrone <b>[dagens regel]</b>. Fradraget virker bare mot 22-prosenten, aldri mot trinnskatt eller trygdeavgift, så det er verdt 22 % uansett hvor høy marginalskatten din er.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor forsterker giring tapet like mye som gevinsten?</span>
+Fordi lånet er et fast krav, ikke en andel. Boligen kan falle 10 % i verdi, men gjelden faller ikke med. Hele verdiendringen, opp eller ned, treffer den delen av balansen som er din, og den delen er liten. Kjøper du for kr 4 000 000 med 500 000 i egenkapital, blir en prisbevegelse på fire prosentpoeng 160 000 kr, altså 32 prosentpoeng på egenkapitalen. Multiplikatoren er boligverdien delt på egenkapitalen, her 8, og den er den samme begge veier. Derfor er sensitivitetsanalysen poenget i hele forelesningens case: salgsprisen er den kritiske variabelen, og giringen bestemmer hvor hardt den slår.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: første året i en giret bolig, etter skatt</span>
+<p>Du kjøper en selveierleilighet til kr 4 000 000 og låner så mye forskriften tillater. Brutto årsinntekt kr 800 000. Lånerente 5 %, avdragsfritt det første året for enkelhets skyld. Du bor selv og leier ut ett rom for kr 8 000 i måneden. Løpende kostnader (felleskostnader, kommunale avgifter, forsikring) kr 60 000. Boligprisene stiger 4 % <b>[eksempeltall, men dokumentavgift, egenkapitalkrav og skattesatser er dagens regler]</b>.</p>
+<p><b>Steg 1 — hva forskriften tillater.</b> Gjeldsgrad: 5 × 800 000 = <b>4 000 000</b>. Belåningsgrad: 90 % × 4 000 000 = <b>3 600 000</b>. Det laveste binder, altså <b>3 600 000</b> i lån. Belåningsgraden blir 90 %, som er over 60 %, så avdragskravet slår inn: minst 3 600 000 × 2,5 % = <b>90 000</b> i avdrag per år. Stresstesten: med påslaget på 3 prosentpoeng skal lånet kunne betjenes til <b>8 %</b> rente, og et annuitetslån over 30 år til 8 % har annuitetsfaktor 11,2578, så et lån på 3 600 000 krever 3 600 000/11,2578 = <b>319 779</b> kr i årlig betjeningsevne. Har du 320 000 disponibelt etter skatt og forbruk, tåler du 320 000 × 11,2578 = <b>3 602 496</b>, og alle tre kravene er akkurat oppfylt.</p>
+<p><b>Steg 2 — egenkapitalen du faktisk må ha.</b> Dokumentavgift 4 000 000 × 2,5 % = <b>100 000</b>. Anskaffelseskost 4 000 000 + 100 000 = <b>4 100 000</b>. Egenkapital 4 100 000 − 3 600 000 = <b>500 000</b>.</p>
+<p><b>Steg 3 — kontantstrømmen, linje for linje.</b></p>
+<table class="data">
+<tr><th>Linje, år 1</th><th class="n">Før skatt</th><th class="n">Etter skatt</th><th>Skatteregel</th></tr>
+<tr><td>Leie av ett rom i egen bolig</td><td class="n">96 000</td><td class="n">96 000</td><td>skattefri, halvparten-regelen</td></tr>
+<tr><td>Løpende kostnader</td><td class="n">−60 000</td><td class="n">−60 000</td><td>ikke fradragsberettiget for primærbolig</td></tr>
+<tr><td>Renter på lånet</td><td class="n">−180 000</td><td class="n">−140 400</td><td>fradrag i alminnelig inntekt, 22 %</td></tr>
+<tr><td>Verdistigning 4 %</td><td class="n">160 000</td><td class="n">160 000</td><td>skattefri ved salg når eier- og botid er oppfylt</td></tr>
+<tr><td><b>Netto til egenkapitalen</b></td><td class="n">−84 000</td><td class="n"><b>55 600</b></td><td></td></tr>
+</table>
+<p>Rentene: 3 600 000 × 5 % = <b>180 000</b>, og etter fradraget 180 000 × 0,78 = <b>140 400</b>. Netto blir 160 000 + 96 000 − 140 400 − 60 000 = <b>55 600</b>.</p>
+<p><b>Steg 4 — egenkapitalavkastningen.</b> 55 600/500 000 = <b>11,12 %</b>.</p>
+<p><b>Kontroll:</b> regn samme tall med brekkstangformelen. Avkastning på totalkapitalen: (160 000 + 96 000 − 60 000)/4 100 000 = 196 000/4 100 000 = <b>4,78 %</b>. Lånerenten etter skatt: 140 400/3 600 000 = <b>3,90 %</b>. Gjeldsgraden: 3 600 000/500 000 = <b>7,2</b>. Da er R<sub>E</sub> = 4,78 % + (4,78 % − 3,90 %) × 7,2 = <b>11,12 %</b>. ✓ De 0,88 prosentpoengene som skiller boligen fra lånerenten, blir til drøyt seks prosentpoeng fordi de ganges med 7,2.</p>
+<p><b>Kontroll nummer to — nedsiden, som er den forelesningen bruker mest tid på.</b> Med uendret pris: (96 000 − 140 400 − 60 000)/500 000 = <b>−20,88 %</b>. Med et prisfall på 4 %: (−160 000 + 96 000 − 140 400 − 60 000)/500 000 = <b>−52,88 %</b>. Prisen må stige (140 400 + 60 000 − 96 000)/4 000 000 = 104 400/4 000 000 = <b>2,61 %</b> bare for at året skal gå i null. Uten giring, altså kjøpt kontant for 4 100 000, ville de tre tallene vært 4,78 %, 0,88 % og −3,02 %. Samme bolig, samme marked, helt ulik risiko.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Dokumentavgiften glemt, så egenkapitalen settes til 400 000: 55 600/400 000 = <b>13,90 %</b>. Rentefradraget glemt: (160 000 + 96 000 − 180 000 − 60 000)/500 000 = <b>3,20 %</b>. Avdraget på 90 000 ført som kostnad: det er en overføring fra kontanter til egenkapital og senker ikke avkastningen, men tas det med, blir svaret −6,88 %. Og hele giringen oversett, altså totalkapitalavkastningen svart der egenkapitalavkastningen spørres: <b>4,78 %</b>. Alle fire er tall du kan komme til å regne ut underveis, og det er nettopp derfor de brukes som alternativer.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Egenkapitalavkastning som funksjon av boligprisendringen i første år. Den girede linjen er svært bratt og går fra minus 85 prosent ved et prisfall på 8 prosent til pluss 43 prosent ved en prisoppgang på 8 prosent. Den ugirede linjen er nesten flat og går fra minus 7 prosent til pluss 9 prosent over det samme intervallet. De to krysser nullinjen ved henholdsvis pluss 2,6 prosent og minus 0,9 prosent."
+     font-family="Georgia,serif" font-size="13">
+  <line x1="70" y1="281.4" x2="520" y2="281.4" stroke="#999" stroke-width="0.6"/>
+  <line x1="70" y1="207.1" x2="520" y2="207.1" stroke="#999" stroke-width="0.6"/>
+  <line x1="70" y1="58.6" x2="520" y2="58.6" stroke="#999" stroke-width="0.6"/>
+  <text x="62" y="285" text-anchor="end" fill="#555" font-size="11">−80 %</text>
+  <text x="62" y="211" text-anchor="end" fill="#555" font-size="11">−40 %</text>
+  <text x="62" y="137" text-anchor="end" fill="#555" font-size="11">0</text>
+  <text x="62" y="62" text-anchor="end" fill="#555" font-size="11">+40 %</text>
+  <line x1="70" y1="132.9" x2="530" y2="132.9" stroke="#333" stroke-width="1.4"/>
+  <line x1="70" y1="310" x2="70" y2="40" stroke="#333" stroke-width="1.4"/>
+  <path d="M70,290.5 L520,52.8" stroke="#6b1f2a" stroke-width="2.3" fill="none"/>
+  <path d="M70,145.7 L520,116.7" stroke="#2f5a3f" stroke-width="2.3" fill="none"/>
+  <line x1="407.5" y1="112.2" x2="407.5" y2="132.9" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <circle cx="407.5" cy="112.2" r="3.4" fill="#6b1f2a"/>
+  <circle cx="407.5" cy="124.0" r="3.4" fill="#2f5a3f"/>
+  <circle cx="295" cy="171.6" r="3.4" fill="#6b1f2a"/>
+  <text x="415" y="106" fill="#6b1f2a" font-weight="bold" font-size="12">+11,1 %</text>
+  <text x="415" y="140" fill="#2f5a3f" font-weight="bold" font-size="12">+4,8 %</text>
+  <text x="300" y="186" fill="#b06000" font-size="11">−20,9 % ved uendret pris</text>
+  <text x="486" y="46" fill="#6b1f2a" font-weight="bold" font-size="12">giret</text>
+  <text x="466" y="110" fill="#2f5a3f" font-weight="bold" font-size="12">ugiret</text>
+  <text x="70" y="325" text-anchor="middle" fill="#555" font-size="11">−8 %</text>
+  <text x="182.5" y="325" text-anchor="middle" fill="#555" font-size="11">−4 %</text>
+  <text x="295" y="325" text-anchor="middle" fill="#555" font-size="11">0</text>
+  <text x="407.5" y="325" text-anchor="middle" fill="#555" font-size="11">+4 %</text>
+  <text x="520" y="325" text-anchor="middle" fill="#555" font-size="11">+8 %</text>
+  <text x="295" y="348" text-anchor="middle" fill="#333">Boligprisendring i år 1</text>
+  <text x="18" y="170" text-anchor="middle" transform="rotate(-90 18 170)" fill="#333">Egenkapitalavkastning</text>
+</svg>
+<figcaption>Figur 4.1 — Egenkapitalavkastningen i eksempelet over, tegnet mot boligprisendringen. Den girede posisjonen (90 % lån) er åtte ganger så bratt som den ugirede, fordi hele verdiendringen på 4 millioner treffer en egenkapital på en halv million. Linjene krysser nullinjen på hver sin side: den ugirede taper først når prisen faller mer enn 0,9 %, den girede allerede når prisen stiger mindre enn 2,6 %. Poenget er ikke at giring er lønnsomt eller ulønnsomt, men at helningen er den samme begge veier: giring forstørrer markedsrisikoen, den skaper ingen meravkastning.</figcaption>
+</figure>
+
+<h3>4.4 Skattereglene for bolig: utleie, salg og formue</h3>
+
+<p>Fire regler avgjør hele forskjellen mellom et boligkjøp som lønner seg og et som ikke gjør det, og de er alle terskelregler du kan tilpasse deg til.</p>
+
+<p><b>Utleie av egen bolig, langtidsutleie</b> (utleieforhold på 30 dager eller mer). Leieinntekten er <b>skattefri når du selv bruker minst halvparten av boligen, regnet etter utleieverdi</b> og ikke etter areal <b>[dagens regel]</b>. Leier du ut mer enn halvparten, er inntekten skattefri bare hvis den samlet er inntil kr 20 000 i året; over den grensen blir <b>hele</b> beløpet skattepliktig fra første krone. Til gjengjeld gir skattefri utleie ingen fradragsrett for kostnadene.</p>
+
+<p><b>Korttidsutleie</b> (utleieforhold under 30 dager, typisk Airbnb). Her er inntekten skattepliktig uansett hvor mye du bruker selv, men de første kr 10 000 er skattefrie, og av det overskytende regnes <b>85 % som skattepliktig kapitalinntekt</b> til 22 %. Effektiv sats på kronene over grensen er dermed 85 % × 22 % = <b>18,7 %</b>. Samme regel gjelder fritidsbolig du bruker selv.</p>
+
+<p><b>Sekundærbolig.</b> Leier du ut en bolig du ikke bor i, er netto leieinntekt skattepliktig med 22 %, og du får fradrag for kommunale avgifter, eiendomsskatt, forsikring, vedlikehold (men ikke standardheving), felleskostnader og annonsering. Blir utleien omfattende nok til å regnes som virksomhet, tommelfingerregelen er rundt fem boenheter, skattlegges overskuddet som næringsinntekt: 22 % + 10,8 % + 17,8 % = <b>50,6 %</b> på toppen <b>[dagens regel]</b>.</p>
+
+<p><b>Salg.</b> Gevinst ved salg av bolig er <b>skattefri når du har eid boligen i mer enn ett år og har bodd i den minst 12 av de siste 24 månedene</b>. Botiden trenger ikke være sammenhengende, og brukshindring du ikke kjente til ved kjøpet (jobb, utdanning, sykdom) gir fortsatt botid. Er vilkårene ikke oppfylt, er gevinsten skattepliktig med 22 % og et tap tilsvarende fradragsberettiget.</p>
+
+<div class="callout mech"><span class="h">Hvorfor måles halvparten-regelen etter utleieverdi og ikke etter areal?</span>
+Fordi det er verdien av bruken loven vil treffe, ikke kvadratmeterne. Et hus der eieren bor i hovedetasjen og leier ut en kjellerleilighet som er like stor i areal, er typisk en situasjon der eierens del har klart høyest utleieverdi: den har bedre lys, egen inngang, hage. Da bruker eieren mer enn halvparten målt i verdi, og leien er skattefri selv om arealene er like. Det var nettopp dette H2021 oppgave 1d spurte om, og fasitsvaret var <b>0 kr</b> i skattepliktig leieinntekt. Regelen er samtidig kursets tydeligste eksempel på en skattekile en privatperson kan flytte seg over ved å endre bruken: samme bolig, samme leietaker, og forskjellen mellom 0 % og 22 % skatt ligger i hvilken del du selv bor i.</div>
+
+<div class="callout link"><span class="h">Sekundærbolig har ingen verdsettingsrabatt — det er halve poenget</span>
+Primærboligen verdsettes til <b>25 %</b> av omsetningsverdien opp til terskelen på 14 mill. kr <b>[dagens regel for 2026; terskelen var 10 mill. i alle eksamenssett til og med H2025]</b>. Sekundærboligen verdsettes til <b>100 %</b>, uten rabatt av noe slag. På en utleiebolig verdt kr 4 000 000 er forskjellen 3 000 000 i formuesskattegrunnlag, altså 30 000 kr i året ved satsen 1,0 %. Fordi sekundærboligen ikke har rabatt, utløser den heller ingen forholdsmessig gjeldsreduksjon. Hele mekanikken, med gjeldsfordelingen som gjør H2024 oppgave 6 og H2025 oppgave 2 til settenes vanskeligste regnespørsmål, står i kapittel 7.</div>
+
+<p>Forelesningens eiendomscase er bygget for å vise hva de fire reglene er verdt. Samme leilighet i Sandviken til kr 6 100 000, samme prisstigning på 18 % over tre år, samme diskonteringsrente på 3 % etter skatt, men fire ulike måter å eie og finansiere den på <b>[eksempeltall fra forelesning 3]</b>:</p>
+
+<table class="data">
+<tr><th>Variant</th><th>Finansiering</th><th>Skatt på leie og gevinst</th><th class="n">Nåverdi</th><th class="n">Avkastning på EK</th></tr>
+<tr><td>Leier ut hele</td><td>egenkapital 6,1 mill.</td><td>22 % på begge deler</td><td class="n">508 399</td><td class="n">8,3 %</td></tr>
+<tr><td>Bor selv, leier ut ett rom</td><td>egenkapital 6,1 mill.</td><td>ingen</td><td class="n">733 279</td><td class="n">12,0 %</td></tr>
+<tr><td>Bor selv, leier ut ett rom</td><td>EK 1,1 mill. + lån 5 mill. til 3,5 %</td><td>ingen</td><td class="n">771 465</td><td class="n">70,1 %</td></tr>
+<tr><td>Bor selv, leier ut ett rom</td><td>EK 1,1 mill. + lån 5 mill. til 6 %</td><td>ingen</td><td class="n">495 675</td><td class="n">45,1 %</td></tr>
+<tr><td>Som over, men ingen prisstigning</td><td>EK 1,1 mill. + lån 5 mill. til 3,5 %</td><td>ingen</td><td class="n">−233 360</td><td class="n">−21,2 %</td></tr>
+</table>
+
+<p>Les tabellen i tre trekk. <b>Rad 1 mot rad 2</b> skiller seg bare på skattereglene, og forskjellen mellom 8,3 og 12,0 % kommer utelukkende av at leien og salget er skattefrie i den andre. <b>Rad 2 mot rad 3</b> er bare giring: 12 mot 70 %, fordi lånerenten etter skatt er 3,5 % × 0,78 = <b>2,73 %</b> og boligen leverer langt mer. <b>Rad 3 mot rad 5</b> er den samme giringen uten prisstigning, og da er svaret −21,2 %. Den egenkapitalfinansierte varianten faller i samme scenario bare til −4,5 %: når det går dårlig, går det mindre dårlig uten lån.</p>
+
+<h3>4.5 Aksjefond mot eiendom: rangeringen som snur</h3>
+
+<p>Nå til kapitlets bindende poeng. To investeringer med hver sin skattesats kan bytte plass i rangeringen når du går fra før skatt til etter skatt, og de kan bytte plass én gang til når formuesskatten legges på. Grunnen er den samme indifferansen som i kapittel 1: kr 100 000 i inntekt beskattet med 22 % er like mye verdt som 100 000 × 0,78/0,6216 = <b>125 483</b> kr i aksjegevinst beskattet med 37,84 %.</p>
+
+<div class="formula">
+  <div class="eq">r<sub>etter</sub> = r × (1 − t) for renter, netto leie og gevinst på bolig (t = 22 %)</div>
+  <div class="eq">r<sub>etter</sub> = r × (1 − t<sub>e</sub>) for utbytte og gevinst på aksjer og aksjefond (t<sub>e</sub> = 37,84 %)</div>
+  <div class="eq">Indifferanse: r<sub>aksje</sub> / r<sub>eiendom</sub> = (1 − t)/(1 − t<sub>e</sub>) = 0,78/0,6216 = 1,2548</div>
+  <div class="where">Et aksjefond må levere <b>25,5 % høyere avkastning før skatt</b> enn en direkte eiet utleiebolig for at de to skal være like gode etter inntektsskatt. Merk at satsen følger <i>innpakningen</i>, ikke det underliggende: et børsnotert eiendomsfond er et aksjefond og beskattes med 37,84 %, selv om det bare eier bygninger. Formuesskatten går motsatt vei, siden aksjer og aksjefond verdsettes til 80 % og sekundærbolig til 100 %.</div>
+</div>
+
+<p>Én ting kan flytte aksjesiden av den sammenligningen: <b>aksjesparekonto</b>. Kjøp og salg inne på kontoen utløser ingen skatt, og skatten kommer først når du tar ut mer enn du har skutt inn. Satsen er den samme 37,84 %, så fordelen er ikke lavere skatt, men <b>skattekreditt</b> — pengene som ellers ville gått til skatt ved hver rebalansering, blir stående og forrenter seg for deg, og du velger selv realisasjonsåret. Detaljene hører til kapittel 14, men konklusjonen kan du ta med nå: sparer du i børsnoterte aksjer eller aksjefond som privatperson, gjør du det på aksjesparekonto.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet: kr 1 000 000 i aksjefond eller i utleiebolig</span>
+<p>Du har kr 1 000 000 å plassere for ett år. Aksjefondet forventes å gi <b>8,0 %</b>, alt som kursgevinst du realiserer ved årets slutt. Utleieboligen forventes å gi <b>6,5 %</b> samlet, som netto leie og verdistigning. Du er godt over bunnfradraget i formuesskatten. Avkastningstallene er <b>[eksempeltall]</b>; alle skattesatser er <b>[dagens regel]</b>: t = 22 %, t<sub>e</sub> = 22 % × 1,72 = 37,84 %, τ<sub>w</sub> = 1,0 %.</p>
+<p><b>Steg 1 — før skatt.</b> Fondet gir <b>80 000</b>, boligen <b>65 000</b>. Fondet vinner med 15 000 kr, altså 1,5 prosentpoeng.</p>
+<p><b>Steg 2 — etter inntektsskatt.</b> Fondet: 80 000 × 37,84 % = <b>30 272</b> i skatt, igjen 80 000 − 30 272 = <b>49 728</b>, altså <b>4,9728 %</b>. Boligen: 65 000 × 22 % = <b>14 300</b> i skatt, igjen 65 000 − 14 300 = <b>50 700</b>, altså <b>5,07 %</b>. <b>Rangeringen har snudd:</b> boligen vinner med 50 700 − 49 728 = <b>972</b> kr.</p>
+<p><b>Steg 3 — formuesskatten, som snur den tilbake.</b> Fondet verdsettes til 80 %: 800 000 × 1,0 % = <b>8 000</b>. Boligen er sekundærbolig og verdsettes til 100 %: 1 000 000 × 1,0 % = <b>10 000</b>. Netto blir 49 728 − 8 000 = <b>41 728</b> for fondet og 50 700 − 10 000 = <b>40 700</b> for boligen. Fondet vinner igjen, med 41 728 − 40 700 = <b>1 028</b> kr.</p>
+<table class="data">
+<tr><th>Trinn</th><th class="n">Aksjefond</th><th class="n">Utleiebolig</th><th>Vinner</th></tr>
+<tr><td>Før skatt</td><td class="n">80 000</td><td class="n">65 000</td><td>fondet</td></tr>
+<tr><td>Etter inntektsskatt</td><td class="n">49 728</td><td class="n">50 700</td><td>boligen</td></tr>
+<tr><td>Etter formuesskatt</td><td class="n">41 728</td><td class="n">40 700</td><td>fondet</td></tr>
+</table>
+<p><b>Kontroll:</b> regn indifferansepunktet i stedet for å sammenligne to tall. Etter inntektsskatt må fondet gi 50 700/0,6216 = <b>81 564</b> kr før skatt for å matche boligen, altså 8,16 %. Fondets 8,0 % er under det, og derfor taper det på trinn to. Etter at formuesskatten er lagt på, må boligen gi (41 728 + 10 000)/0,78 = <b>66 318</b> kr, altså 6,63 %, for å matche fondet — og 6,5 % er under det. ✓ Begge veier gir samme rangering som kronesammenligningen.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Oppjusteringen glemt, så fondet skattlegges med 22 %: 80 000 × 0,78 = <b>62 400</b>, og fondet vinner alle tre trinn. Verdsettingsrabatten glemt, så fondet også får 10 000 i formuesskatt: <b>39 728</b>, og boligen vinner. Formuesskatten helt utelatt: boligen vinner med 972 kr. Bare avkastningen sammenlignet: fondet vinner med 15 000. Fire regnemåter, fire ulike vinnere — og det er nøyaktig det kurset vil at du skal se. Marginene er små, og det er poenget: når to plasseringer ligger nær hverandre før skatt, er det <b>skattereglene og ikke avkastningen</b> som avgjør rangeringen.</p>
+</div>
+
+<div class="callout tip"><span class="h">Slik spørres det</span>
+Tre former. <b>Faktaspørsmål om utleiereglene</b>, som H2018 oppgave 1a og H2021 oppgave 1d: begge spurte hva som er skattepliktig ved utleie av del av egen bolig, og begge har svaret «ingenting» fordi eieren bruker mest selv målt etter utleieverdi. Alternativene er hele leien, halve leien og leien minus kostnadene. <b>Lånespørsmål</b>, som H2020 oppgave 4a–d og H2021 oppgave 5a–d: regn femgangeren og stresstesten hver for seg, svar med det laveste, og les hvilket rentepåslag oppgaven oppgir. H2016 oppgave 3g er den enkleste varianten: belåningsgrad 2 500/6 000 = <b>41,7 %</b>, godt innenfor. <b>Sammenligningsspørsmål</b>, der to plasseringer skal rangeres: regn alltid ferdig til etter skatt før du velger, og sjekk om formuesskatten er nevnt i oppgaveteksten. Er den det, er den der fordi den snur svaret.</div>
+
+<p>Én rutine til hører hjemme her, fordi øvingsoppgaven til forelesning 3 er nøyaktig den. Skal du verdsette en <b>evig netto leiestrøm</b>, må du justere både telleren og nevneren for skatt, og da kansellerer skatten: V = CF × (1 − t)/(r × (1 − t)) = <b>CF/r</b>. Anita kjøper en leilighet for kr 5 000 000 med sikker netto leie på 240 000 i året i evig tid og et avkastningskrav på 8 % før skatt <b>[eksempeltall]</b>. Etter skatt er leien 240 000 × 0,78 = <b>187 200</b> og kravet 8 % × 0,78 = <b>6,24 %</b>, som gir 187 200/0,0624 = <b>3 000 000</b>. Hun betalte fem millioner for noe som er verdt tre. Faller kravet til 4 %, blir det etter skatt 3,12 % og verdien 187 200/0,0312 = <b>6 000 000</b>, og kjøpet er godt. Fasitlysbildet oppgir 2 925 000, et tall som forutsetter 20 % skatt på avkastningskravet og 22 % på leien; med konsistente satser er svaret 3 000 000. Poenget står uansett: <b>kriteriet er nåverdi mot pris, ikke leieavkastningen alene</b>.</p>
+
+<h3>4.6 Obligasjoner og folkefinansiering: lovet rente er ikke forventet avkastning</h3>
+
+<p>Siste bolk, og den med den største enkeltfellen i kapitlet. En høyrenteobligasjon eller et crowdlending-lån lover 10 til 20 % rente. Den renten er <b>betinget</b>: du får den hvis låntakeren betaler. Forventet avkastning må vekte inn at han kanskje ikke gjør det.</p>
+
+<div class="formula">
+  <div class="eq">E[avkastning] = p × R − (1 − p) × I &nbsp;&nbsp;(før skatt)</div>
+  <div class="eq">Med tapsfradrag: E = p × R × (1 − t) − (1 − p) × I × (1 − t) = (1 − t) × E[før skatt]</div>
+  <div class="eq">Uten tapsfradrag: E = p × R × (1 − t) − (1 − p) × I</div>
+  <div class="where">I er investert beløp, R den lovede renteinntekten i kroner, p sannsynligheten for at lånet betjenes, og t = 22 %. Ved mislighold antas hele hovedstolen tapt. Legg merke til den midterste linjen: når både gevinst og tap treffes av samme sats, kan (1 − t) settes utenfor parentes, og skatten reduserer forventningen proporsjonalt uten å endre rangeringen. Det er staten som stille partner, og resonnementet kommer igjen som Domar–Musgrave i kapittel 12.</div>
+  <div class="eq">Break-even-rente uten tapsfradrag: R* = (1 − p) × I / (p × (1 − t))</div>
+</div>
+
+<div class="callout mistake"><span class="h">«Kameo lover 12 %, så forventet avkastning er 12 %»</span>
+Kapitlets store misforståelse, og den er verdt å formulere skarpt: <b>en lovet rente er en pris på risiko, ikke et anslag på avkastning</b>. Jo høyere renten er, desto mer forteller den deg om misligholdsrisikoen. Med kr 1 000 000 utlånt til 20 % blir forventet avkastning null allerede når sannsynligheten for full betaling faller til 1 000 000/(1 000 000 + 200 000) = <b>83,33 %</b>. Forelesningens empiri sier det samme: norske høyrenteobligasjoner med 10 til 20 % kupong ga <b>0,51 % annualisert</b> i perioden 2005 til 2011, fordi misligholdene spiste kupongene. Ved konvertering til aksjer, som i DOF Subsea-saken, byttes både hovedstol og rente mot et håp om kursstigning.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: crowdlending med og uten tapsfradrag</span>
+<p>Du låner ut kr 1 000 000 via en folkefinansieringsplattform til <b>20 % rente</b>, altså R = kr 200 000. Sannsynligheten for at lånet betjenes fullt ut er <b>90 %</b>; ellers taper du hele hovedstolen. Skattesatsen er 22 % <b>[dagens regel]</b>, tallene ellers er <b>[eksempeltall fra forelesning 3]</b>. Du er risikonøytral, altså bryr du deg bare om forventningen.</p>
+<p><b>Steg 1 — forventet avkastning før skatt.</b> 0,9 × 200 000 − 0,1 × 1 000 000 = 180 000 − 100 000 = <b>80 000</b>, altså <b>8,0 %</b>. Den lovede renten var 20 %. Halvparten er borte allerede før skatt.</p>
+<p><b>Steg 2 — med fullt tapsfradrag</b>, som er situasjonen på en registrert crowdlending-plattform der tapet er fradragsberettiget og plattformen tredjepartsrapporterer. Renteinntekten: 0,9 × 200 000 × 0,78 = <b>140 400</b>. Tapet, som gir fradrag: 0,1 × 1 000 000 × 0,78 = <b>78 000</b>. Forventet resultat 140 400 − 78 000 = <b>62 400</b>, altså <b>6,24 %</b>.</p>
+<p><b>Steg 3 — uten tapsfradrag</b>, som er situasjonen i gråmarkedslån og i belønningsbasert folkefinansiering: gevinsten skattlegges, tapet gir ingenting. 140 400 − 100 000 = <b>40 400</b>, altså <b>4,04 %</b>.</p>
+<p><b>Steg 4 — hva fradraget er verdt.</b> 62 400/40 400 = <b>1,545</b>, altså <b>54,5 %</b> høyere forventet avkastning med fradragsrett enn uten. Forelesningen runder til «55 % høyere».</p>
+<p><b>Kontroll:</b> steg 2 kan regnes uten å splitte i to ledd, fordi begge sider treffes av samme sats: 80 000 × 0,78 = <b>62 400</b>. ✓ Det bekrefter samtidig at fradragsretten er det eneste som gjør skatten proporsjonal. Uten den bærer du hele tapet selv og deler bare gevinsten, og asymmetrien koster deg 2,2 prosentpoeng.</p>
+<p><b>Steg 5 — hva renten må være når risikoen øker.</b> Faller sannsynligheten til 80 % og tapet ikke er fradragsberettiget, må R* = 0,2 × 1 000 000/(0,8 × 0,78) = <b>320 513</b> kr bare for at forventet avkastning skal bli null: en rente på <b>32 %</b>. Med 40 % rente blir forventningen 0,8 × 400 000 × 0,78 − 0,2 × 1 000 000 = 249 600 − 200 000 = <b>49 600</b>, altså 4,96 % — omtrent det samme som 20 %-lånet ga med 90 % suksess og fradragsrett. Det er risikoen, ikke skatten, som dominerer.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Den lovede renten svart direkte: <b>20 %</b>. Renten skattlagt, men misligholdet oversett: 200 000 × 0,78 = 156 000, altså <b>15,6 %</b>. Misligholdet regnet inn, men bare på renten og ikke på hovedstolen: 0,9 × 200 000 × 0,78 = 140 400, altså <b>14,04 %</b>. Skatten lagt på nettoresultatet uten fradragsrett, altså steg 2-tallet brukt der steg 3 gjelder: <b>6,24 %</b> i stedet for 4,04 %. Alle fire er større enn det riktige svaret, og det er systematisk: hver enkeltfeil her er en utelatt kostnad.</p>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor er plattformens insentiver et problem du må prise inn?</span>
+Plattformen tar gebyr for å formidle lånet, men bærer ikke tapet på hovedstolen. Den har inntekt av volum og ingen kostnad ved mislighold, så kredittvurderingen du støtter deg på, er gjort av noen uten egen kapital i spill — og låntakerens kreditthistorikk ser du ikke selv. I gråmarkedslån, direkte avtaler mellom långiver og låntaker, kommer to problemer i tillegg: lånet har typisk annen eller tredje prioritet, og du vet ikke hvor mange andre som ligger på samme prioritet. Sammen med den skattemessige asymmetrien forklarer det hvorfor rentene der er så høye: de må dekke en tapsrisiko du verken kan måle eller få fradrag for.</div>
+
+<p>Det som binder kapitlet sammen, er at ingenting i de tre eksemplene endret den underliggende investeringen. Samme leilighet ga 8,3 og 12,0 %. Aksjefondet slo utleieboligen før skatt, tapte etter inntektsskatt og vant igjen etter formuesskatt. Crowdlendingen ga 6,24 eller 4,04 % avhengig av fradragsretten. <b>Rangeringen mellom investeringer avhenger av skattesatsen, ikke bare av avkastningen</b>, og det er derfor kapitalen ikke nødvendigvis havner der avkastningen før skatt er høyest. Det er den kilen kapittel 9 kaller manglende nøytralitet og kapittel 12 kaller implisitt skatt.</p>
+
+</section>
+
 <h2 class="part">Del II — Aksjonær- og formuesbeskatning</h2>
 
 <section id="k5">
@@ -598,6 +1181,190 @@ Formuesverdien og rabattene er kapittel 7: der lærer du at aksjer og aksjefond 
 
 <div class="callout warn"><span class="h">Satsen i oppgaveteksten går alltid foran hukommelsen</span>
 Med minuspoeng koster en gammel sats dobbelt. Tre ting å sjekke i teksten før du regner: <b>hvilken skjermingsrente</b> som gjelder hvert år, om <b>eierskatten</b> er oppgitt som en faktor og en sats som skal ganges sammen eller som én ferdig prosent, og om oppgaven ber om <b>skattepliktig grunnlag eller skattebeløp</b>. Det siste er den billigste feilen som finnes: H2024 oppgave 1b spør om skattepliktig utbytte og har kr 300 som riktig svar, mens skatten av det samme beløpet er 113,52. Er ingen av alternativene skattebeløp, ber oppgaven om grunnlaget.</div>
+
+</section>
+
+<hr class="sec">
+
+<section id="k6">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">6 · Fritaksmetoden, selskapsaksjonærer, aksjonærlån og exit-skatt</h2>
+
+<p class="lead-in">Kapittel 5 lærte deg hva den personlige aksjonæren betaler. Dette kapitlet handler om veiene rundt den regningen, og hvorfor de fleste er stengt. Fritaksmetoden er pensum til forelesning 4 og 5 og premisset for argumentet om de rikestes effektive skatt i kapittel 8. Exit-skatt er testet i to av ni sett: H2022 oppgave 4 ga seks av 35 poeng til fem spørsmål om utflytting, og H2024 oppgave 10 ga ni av 48, der de to siste delspørsmålene er gave til nærstående i utlandet og utflytting av selskapet. Regningen er kort. Faktaene er mange, og det er de som gir poengene.</p>
+
+<h3>6.1 Fritaksmetoden: hva selskapet slipper, og hva det mister</h3>
+
+<p>Regelen står i skatteloven § 2-38: <b>et aksjeselskap betaler ikke skatt på utbytte og gevinst på aksjer</b> i selskap hjemmehørende i EØS, og utenfor EØS bare på vilkår. Motstykket står i samme bestemmelse: <b>tap på slike aksjer er ikke fradragsberettiget</b>. Både oppsiden og nedsiden er tatt ut av selskapets skatteregnskap.</p>
+
+<table class="data">
+<tr><th>Hvem eier aksjen</th><th>Utbytte</th><th>Gevinst</th><th>Tap</th><th>Regel</th></tr>
+<tr><td>Personlig aksjonær</td><td>37,84 % over skjermingen</td><td>37,84 %</td><td>fradragsberettiget</td><td>aksjonærmodellen</td></tr>
+<tr><td>Selskapsaksjonær</td><td>fritatt, men 3 % inntektsføres</td><td>helt fritatt</td><td><b>ikke</b> fradragsberettiget</td><td>fritaksmetoden § 2-38</td></tr>
+</table>
+
+<p>Satsene er <b>[dagens regel]</b> for 2026. Legg merke til symmetrien: personen beskattes symmetrisk for gevinst og tap, selskapet for ingen av delene.</p>
+
+<div class="callout mech"><span class="h">Hvorfor skal utbytte mellom selskaper være skattefritt?</span>
+Fordi alternativet er <i>kjedebeskatning</i>. I en kjede på tre selskaper betaler driftsselskapet 22, mellomselskapet 22 % av de 78 som kommer inn, holdingselskapet 22 % av resten, og til slutt kommer eierskatten: samme krone treffes fire ganger, og resultatet avhenger bare av hvor mange ledd konsernet tilfeldigvis har. Fritaksmetoden beskatter i stedet <b>én gang i selskapssektoren og én gang hos personen</b>.</div>
+
+<div class="callout warn"><span class="h">Fritaket gjelder tapet også</span>
+Et selskap som taper 10 mill. kr på en aksjepost, får ingenting igjen på skatten; en personlig aksjonær får fradrag verdt 10 mill. × 37,84 % = <b>3 784 000</b>. Påstanden «fritaksmetoden er en fordel i alle tilfeller» er derfor gal.</div>
+
+<h3>6.2 Treprosentregelen: 0,66 %, og hvorfor den bare treffer utbytte</h3>
+
+<p>Fritaket for utbytte er ikke helt fullt. Etter § 2-38 sjette ledd skal <b>3 % av mottatt utbytte inntektsføres</b> som alminnelig inntekt hos det mottakende selskapet:</p>
+
+<div class="formula">
+  <div class="eq">Effektiv skatt på konsernutbytte = 3 % × t = 3 % × 22 % = <b>0,66 %</b> av utbyttet</div>
+  <div class="where">t er satsen på alminnelig inntekt. Regelen gjelder <b>bare utbytte</b>, ikke gevinst, og <b>ikke</b> når mottakeren eier mer enn 90 % av det utdelende selskapet og har mer enn 90 % av stemmene; innenfor et slikt konsern er utbyttet fullt skattefritt. Alle tre tallene er <b>[dagens regel]</b> og har stått uendret gjennom hele eksamensarkivet.</div>
+</div>
+
+<p>Regn den én gang, så sitter den. Mottar holdingselskapet kr 100 i utbytte og eier under 90 %, inntektsføres 100 × 3 % = <b>3</b>, og skatten blir 3 × 22 % = <b>0,66</b>. Forelesningens kommentar er at «i praksis kan vi glemme den» — for liten til å styre en beslutning, men ikke til å droppe på eksamen.</p>
+
+<p>Begrunnelsen forklarer hvorfor regelen ser så rar ut. Den er ikke en skatt på inntekt, men en sjablong for <i>kostnader</i>: selskapet får trekke fra kostnadene ved å eie aksjene — forvaltning, rådgivning, renter på lånet som finansierer posten — samtidig som inntekten fra dem er skattefri. I stedet for å fordele hver kostnad mellom skattefri og skattepliktig virksomhet, tilbakefører lovgiveren sjablongmessig 3 % av utbyttet. Gevinster er holdt utenfor fordi de kommer sjeldnere og i større klumper, og over 90 % eierskap finnes ingen tredjepart å skyve kostnader til.</p>
+
+<h3>6.3 Holdingselskapet er en utsettelse, ikke et fritak</h3>
+
+<p>Dette er kapitlets viktigste poeng. Legger du et holdingselskap mellom deg og driftsselskapet, endres ikke den samlede skatten på en krone som til slutt havner i lommeboka di — bare <i>når</i> den betales.</p>
+
+<div class="formula">
+  <div class="eq">Samlet skatt på utdelt overskudd = τ<sub>c</sub> + (1 − τ<sub>c</sub>) × t<sub>e</sub> = 22 % + 78 % × 37,84 % = <b>51,52 %</b></div>
+  <div class="where">τ<sub>c</sub> er selskapsskatten og t<sub>e</sub> eierskatten. Uttrykket inneholder <b>ingen ledd for antall selskaper i kjeden</b> — det er nettopp det fritaksmetoden sørger for. Satsen 51,52 % er den samme som i kapittel 1 og 5, og referansen er toppmarginalskatten på lønn, 47,4 % <b>[dagens regel]</b>.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet 1: kjeden drift → holding → person, med og uten konsernunntaket</span>
+<p>Driftsselskapet tjener kr 1 000 000 og deler alt ut til holdingselskapet, som deler alt videre til den personlige eieren. Satsene er <b>[dagens regel]</b>: selskapsskatt 22 %, eierskatt 37,84 %. Skjermingsfradraget er brukt opp.</p>
+<p><b>Steg 1 — selskapsskatten.</b> 1 000 000 × 22 % = <b>220 000</b>. Til utdeling: 1 000 000 − 220 000 = <b>780 000</b>.</p>
+<p><b>Steg 2a — holdingselskapet eier over 90 % (konsern).</b> Utbyttet er fullt skattefritt, og treprosentregelen gjelder ikke. Holdingselskapet mottar og videresender <b>780 000</b>.</p>
+<p><b>Steg 3a — eierskatten.</b> 780 000 × 37,84 % = <b>295 152</b>. Eieren sitter igjen med 780 000 − 295 152 = <b>484 848</b>.</p>
+<p><b>Steg 4a — samlet skatt.</b> 220 000 + 295 152 = <b>515 152</b>, altså 515 152/1 000 000 = <b>51,52 %</b> — nøyaktig som ved direkte eie. Holdingselskapet flyttet ingen skatt, bare tidspunktet.</p>
+<p><b>Steg 2b og 3b — holdingselskapet eier 80 %.</b> Treprosentregelen slår inn: inntektsført 780 000 × 3 % = <b>23 400</b>, skatt 23 400 × 22 % = <b>5 148</b>, som er det samme som 780 000 × 0,66 % = 5 148. Igjen: 780 000 − 5 148 = <b>774 852</b>, og eierskatten 774 852 × 37,84 % = <b>293 204</b>.</p>
+<p><b>Steg 4b — samlet skatt.</b> 220 000 + 5 148 + 293 204 = <b>518 352</b>, altså 518 352/1 000 000 = <b>51,84 %</b>.</p>
+<p><b>Kontroll:</b> forskjellen mellom variantene er treprosentskatten minus den eierskatten den sparer deg for, siden den krymper utbyttegrunnlaget: 5 148 × 62,16 % = <b>3 200</b>, og 515 152 + 3 200 = <b>518 352</b>. ✓ Treprosentregelen kostet 0,32 prosentpoeng, ikke 3 %.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Holdingselskapet skattlagt ordinært: 780 000 × 22 % = 171 600 i tillegg, samlet sats <b>62,18 %</b>. Fritaksmetoden lest som endelig fritak for eieren: <b>22 %</b>. «3 %» lest som skattesats: <b>23 400</b> i stedet for 5 148. Og treprosentregelen brukt på en gevinst gir en skatt som ikke finnes.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 660 290" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Kjede av tre bokser. Driftsselskapet tjener en million og betaler 220 000 i selskapsskatt. Utbyttet på 780 000 går skattefritt til holdingselskapet etter fritaksmetoden. Holdingselskapet deler ut de samme 780 000 til den personlige eieren, som betaler 295 152 i eierskatt og sitter igjen med 484 848. Samlet skatt er 515 152, altså 51,52 prosent."
+     font-family="Georgia,serif" font-size="12">
+  <rect x="10" y="60" width="180" height="96" fill="#fff" stroke="#6b1f2a" stroke-width="1.6" rx="6"/>
+  <rect x="240" y="60" width="180" height="96" fill="#fff" stroke="#2f5a3f" stroke-width="1.6" rx="6"/>
+  <rect x="470" y="60" width="180" height="96" fill="#fff" stroke="#1f3a5f" stroke-width="1.6" rx="6"/>
+
+  <text x="100" y="80" text-anchor="middle" fill="#6b1f2a" font-weight="bold">Driftsselskapet</text>
+  <text x="100" y="102" text-anchor="middle" fill="#333">Overskudd 1 000 000</text>
+  <text x="100" y="122" text-anchor="middle" fill="#333">selskapsskatt 22 %</text>
+  <text x="100" y="142" text-anchor="middle" fill="#b06000" font-weight="bold">− 220 000</text>
+
+  <text x="330" y="80" text-anchor="middle" fill="#2f5a3f" font-weight="bold">Holdingselskapet</text>
+  <text x="330" y="102" text-anchor="middle" fill="#333">Mottar 780 000</text>
+  <text x="330" y="122" text-anchor="middle" fill="#333">Fritaksmetoden</text>
+  <text x="330" y="142" text-anchor="middle" fill="#b06000" font-weight="bold">− 0 (konsern)</text>
+
+  <text x="560" y="80" text-anchor="middle" fill="#1f3a5f" font-weight="bold">Personlig eier</text>
+  <text x="560" y="102" text-anchor="middle" fill="#333">Mottar 780 000</text>
+  <text x="560" y="122" text-anchor="middle" fill="#333">Eierskatt 37,84 %</text>
+  <text x="560" y="142" text-anchor="middle" fill="#b06000" font-weight="bold">− 295 152</text>
+
+  <line x1="192" y1="108" x2="234" y2="108" stroke="#333" stroke-width="1.4"/>
+  <path d="M234,108 L226,104 L226,112 Z" fill="#333"/>
+  <text x="213" y="46" text-anchor="middle" fill="#555" font-size="10">utbytte</text>
+  <text x="213" y="58" text-anchor="middle" fill="#555" font-size="10">780 000</text>
+
+  <line x1="422" y1="108" x2="464" y2="108" stroke="#333" stroke-width="1.4"/>
+  <path d="M464,108 L456,104 L456,112 Z" fill="#333"/>
+  <text x="443" y="46" text-anchor="middle" fill="#555" font-size="10">utbytte</text>
+  <text x="443" y="58" text-anchor="middle" fill="#555" font-size="10">780 000</text>
+
+  <line x1="10" y1="196" x2="650" y2="196" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <text x="330" y="220" text-anchor="middle" fill="#6b1f2a" font-weight="bold" font-size="13">Samlet skatt 220 000 + 295 152 = 515 152, altså 51,52 %</text>
+  <text x="330" y="244" text-anchor="middle" fill="#333">Eieren sitter igjen med 484 848 — det samme som ved direkte eie.</text>
+  <text x="330" y="266" text-anchor="middle" fill="#555" font-size="11">Med eierandel under 90 % legger treprosentregelen på 5 148, og satsen blir 51,84 %.</text>
+</svg>
+<figcaption>Figur 6.1 — Kjeden fra overskudd til lommebok. Fritaksmetoden gjør mellomleddet gjennomsiktig: selskapsskatt én gang, eierskatt én gang, uansett hvor mange ledd som ligger imellom. Ta med deg at sluttsatsen 51,52 % er uavhengig av kjedens lengde, og at holdingselskapets eneste virkning er at eieren selv bestemmer <i>når</i> den siste pilen tegnes.</figcaption>
+</figure>
+
+<div class="callout mistake"><span class="h">«Med holdingselskap slipper du utbytteskatten»</span>
+Halvveis sant, og derfor farlig. Du slipper ikke skatten, du velger tidspunktet: står pengene i holdingselskapet, reinvesterer du hele beløpet i stedet for 62,16 % av det, men tar du dem ut, kommer 37,84 % som før. Det som er verdt penger er <b>utsettelsen</b>. Dagens Næringsliv anslo i 2019 ca. 400 mrd. kr opptjent i selskapene til de 650 rikeste, med ca. 125 mrd. kr i utsatt skatt.</div>
+
+<h3>6.4 Et to-hodet troll: hva utsettelsen er verdt</h3>
+
+<p>Bjerksund og Schjelderup kaller kombinasjonen av aksjonærmodellen og fritaksmetoden et to-hodet troll (BS2, 2021). Sammen gir de to reglene en <b>skattekreditt</b> til den som eier gjennom selskap: fritaksmetoden lar kapitalen omplasseres uten skatt, og aksjonærmodellen lar eieren bestemme når skatten utløses.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet 2: samme omplassering, to eierformer</span>
+<p>En investor har aksjer verdt kr 10 000 000 med inngangsverdi kr 2 000 000 og vil bytte til et annet selskap. Verdien dobler seg fram til han vil ha pengene ut <b>[eksempeltall; om lag 7 % i året i ti år]</b>. Eierskatten er 37,84 % <b>[dagens regel]</b>, og skjermingsfradraget holdes utenfor.</p>
+<p><b>Steg 1 — personlig eie, salget nå.</b> Gevinst 10 000 000 − 2 000 000 = 8 000 000, skatt 8 000 000 × 37,84 % = <b>3 027 200</b>, igjen å reinvestere 10 000 000 − 3 027 200 = <b>6 972 800</b>.</p>
+<p><b>Steg 2 — personlig eie, fram til slutten.</b> 6 972 800 × 2 = <b>13 945 600</b>. Ny gevinst 13 945 600 − 6 972 800 = 6 972 800, skatt 6 972 800 × 37,84 % = <b>2 638 508</b>, netto 13 945 600 − 2 638 508 = <b>11 307 092</b>.</p>
+<p><b>Steg 3 — holding, salget nå.</b> Fritaksmetoden gjør gevinsten skattefri, og hele <b>10 000 000</b> reinvesteres.</p>
+<p><b>Steg 4 — holding, fram til slutten.</b> 10 000 000 × 2 = <b>20 000 000</b>, og selskapet tømmes. Inngangsverdien på holdingaksjene er 2 000 000, så skattepliktig beløp er 20 000 000 − 2 000 000 = 18 000 000 og skatten 18 000 000 × 37,84 % = <b>6 811 200</b>. Netto: 20 000 000 − 6 811 200 = <b>13 188 800</b>.</p>
+<table class="data">
+<tr><th>Post</th><th class="n">Personlig eie</th><th class="n">Holding</th></tr>
+<tr><td>Reinvestert</td><td class="n">6 972 800</td><td class="n">10 000 000</td></tr>
+<tr><td>Verdi ved slutten</td><td class="n">13 945 600</td><td class="n">20 000 000</td></tr>
+<tr><td>Skatt til slutt</td><td class="n">2 638 508</td><td class="n">6 811 200</td></tr>
+<tr><td><b>Igjen etter all skatt</b></td><td class="n"><b>11 307 092</b></td><td class="n"><b>13 188 800</b></td></tr>
+</table><p><b>Kontroll:</b> fordelen er 13 188 800 − 11 307 092 = <b>1 881 708</b>, og den skal være avkastningen på skatten du <i>ikke</i> betalte i dag, etter at avkastningen selv er beskattet: den utsatte skatten 3 027 200 dobler seg og gir like mye i avkastning, hvorav 62,16 % overlever. 3 027 200 × 62,16 % = <b>1 881 708</b>. ✓</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Glemt tømming av holdingselskapet: <b>20 000 000</b>. Fordelen satt lik den utsatte skatten selv: <b>3 027 200</b>, for høyt, siden skatten kommer tilbake og bare avkastningen på den beholdes. Glemt andre gevinstbeskatning i alternativ 1: <b>13 945 600</b>. Og 22 % i stedet for 37,84 % gir tall som ligger 58 % feil, akkurat som i kapittel 5.</p>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor er en utsatt skatt verdt penger i det hele tatt?</span>
+Fordi utsatt skatt er et rentefritt lån fra staten som du får investere for egen regning, og fordelen vokser med horisonten og avkastningen. Bjerksund og Schjelderup viser at kreditten er <b>størst for den som alt har et etablert selskap</b>: med 15 års horisont er forventet eierskattekreditt kr 0,36 per krone i et nystartet selskap og kr 0,60 i et etablert. Systemet bryter dermed både effektivitetsprinsippet og evneprinsippet.</div>
+
+<p>Grunnartikkelen er BS3, <i>Er den norske aksjonærbeskatningen nøytral?</i> Svaret er nei, i to trinn du bør kunne som påstander. <b>Modellen er asymmetrisk</b>: gevinst over skjermingen skattlegges, mens ubenyttet skjermingsfradrag går tapt ved realisasjon, så staten tar del i oppsiden, men ikke i nedsiden. <b>Og den er ikke nøytral selv under full symmetri</b>: det krever at investoren kan låne til skjermingsrenten, og lånerenten er høyere. Empirien: tilbakeholdt overskudd i norske aksjeselskaper vokste fra ca. 760 mrd. kr i 2000–2004 til ca. 2 486 mrd. kr i 2016. Internasjonalt kalles dette <b>lock-in</b>: når skatten utløses ved realisasjon, blir det å la være å realisere en kilde til avkastning i seg selv. To klassiske posisjoner hører med. <b>Old view</b>: utbytteskatt øker kapitalkostnaden og reduserer investeringene. <b>New view</b>: ikke for selskaper som finansierer seg med tilbakeholdt overskudd, siden skatten treffer likt om pengene tas ut nå eller senere. Kapittel 8 tar tråden videre: lav verdsetting av unoterte aksjer pluss utsatt eierskatt er hovedforklaringen på at effektiv skattesats faller for topp 1 % i figur 1.1.</p>
+
+
+<h3>6.5 Aksjonærlån: omveien som ble stengt i 2015</h3>
+
+<p>Er eierskatten 37,84 % og pengene står i selskapet, ligger en enkel idé snublende nær: la selskapet <i>låne</i> deg pengene i stedet for å dele dem ut. Et lån er ingen inntekt, og det trenger aldri å bli innfridd. Fram til 2015 fungerte det. Siden 2015 skattlegges <b>lån fra selskap til personlig aksjonær som utbytte</b> på utbetalingstidspunktet.</p>
+
+<p>Låner du kr 500 000 av ditt eget selskap, skattlegges beløpet som utbytte: 500 000 × 37,84 % = <b>189 200</b> <b>[dagens regel]</b>, i den grad du ikke har skjerming å trekke fra. Du skylder fortsatt selskapet pengene, så du sitter igjen med kontantene, en skatteregning <i>og</i> en gjeld — strengt dårligere enn utbytte. <b>Unntaket</b> er lån under kr 100 000 som tilbakebetales innen <b>60 dager</b>. Regelen omfatter også lån til aksjonærens nærstående og sikkerhetsstillelse fra selskapet.</p>
+
+<div class="callout mech"><span class="h">Hvorfor skattlegges et lån som om det var en utdeling?</span>
+Fordi realiteten er den samme når låntakeren kontrollerer långiveren: en eier som selv bestemmer rente, avdragsplan og om lånet noen gang blir krevd inn, har i praksis fått pengene utdelt. Prinsippet er <i>substans over form</i>. Regelen er ingen ekstraskatt — den gjør låneveien like dyr som utbytteveien.</div>
+
+<h3>6.6 Ut av landet og over til neste generasjon: exit-skatt, gave og arv</h3>
+
+<p>Den siste veien rundt eierskatten er å flytte. Fram til 29. november 2022 kunne latente gevinster realiseres uten norsk skatt etter mer enn fem år i utlandet — <b>femårsregelen</b>. Den er opphevet. Etter innstrammingen med virkning fra <b>20. mars 2024</b> er hovedregelen i skatteloven § 10-70 denne:</p>
+
+<div class="formula">
+  <div class="eq">Exit-skatt = (markedsverdi − inngangsverdi − bunnfradrag) × t<sub>e</sub></div>
+  <div class="where">Latent gevinst på aksjer, egenkapitalbevis, fondsandeler, aksjesparekonto og fondskonto anses <b>realisert dagen før utflytting</b>, med bunnfradrag <b>3 mill. kr</b> og eierskatt 37,84 % <b>[dagens regel]</b>. Bare verdistigningen mens du var bosatt i Norge teller. Skatten fastsettes <b>endelig</b>: faller aksjene senere i verdi, settes den ikke ned.</div>
+</div>
+
+<p>Så velger du én av <b>tre betalingsmåter</b>: (1) rentefrie årlige rater over <b>12 år</b>, (2) hele beløpet etter 12 år, med renter, eller (3) alt med en gang. Utsettelse forutsetter sikkerhet; pant i aksjene godtas. Tar du utbytte etter utflyttingen, forfaller et beløp lik utdelingen ganget med 0,7. Flytter du tilbake innen 12 år med aksjene i behold, faller skatten bort.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet 3: exit-skatten og de tre betalingsvalgene</span>
+<p>En aksjonær flytter til Sveits. Aksjene er verdt kr 25 000 000 dagen før utflytting, inngangsverdien er kr 5 000 000, og alt er opptjent mens han bodde i Norge. Satsene er <b>[dagens regel]</b>: bunnfradrag 3 mill. kr, eierskatt 37,84 %.</p>
+<p><b>Steg 1 og 2 — latent gevinst og grunnlag.</b> 25 000 000 − 5 000 000 = <b>20 000 000</b>, og etter bunnfradraget 20 000 000 − 3 000 000 = <b>17 000 000</b>.</p>
+<p><b>Steg 3 — skatten.</b> 17 000 000 × 37,84 % = <b>6 432 800</b>, og tallet er nå låst uansett hva aksjene senere er verdt.</p>
+<p><b>Steg 4 — valg 1, tolv rentefrie rater.</b> 6 432 800/12 = <b>536 067</b> i året. Med alternativavkastning 5 % <b>[eksempeltall]</b> er annuitetsfaktoren for tolv år 8,8633, så nåverdien er 536 067 × 8,8633 = <b>4 751 323</b>.</p>
+<p><b>Steg 5 — valg 3, betale straks.</b> Nåverdi <b>6 432 800</b>. Ratene sparer 6 432 800 − 4 751 323 = <b>1 681 477</b>, altså 1 681 477/6 432 800 = <b>26,14 %</b> av skatten.</p>
+<p><b>Steg 6 — valg 2, alt etter tolv år med renter.</b> Krever staten samme rente som du selv oppnår, er nåverdien nøyaktig <b>6 432 800</b> — det samme som å betale straks. Valget lønner seg bare hvis din avkastning overstiger statens rentesats.</p>
+<p><b>Kontroll:</b> rangeringen følger av rentefriheten alene. Valg 1 er den eneste med <i>rentefri</i> kreditt og må være best så lenge avkastningen din er positiv; valg 2 er forrentet og i beste fall like god som å betale straks. Sjekk også at ratene summerer: 12 × 536 067 = 6 432 804, altså 6 432 800 pluss fire kroner avrunding. ✓</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Glemt bunnfradrag: 20 000 000 × 37,84 % = <b>7 568 000</b>. Glemt oppjustering, altså 22 % brukt: 17 000 000 × 22 % = <b>3 740 000</b>. Regnet av markedsverdien i stedet for gevinsten: 25 000 000 × 37,84 % = <b>9 460 000</b>. Bunnfradraget trukket fra markedsverdien i stedet for fra gevinsten: 22 000 000 × 37,84 % = <b>8 324 800</b>. Fire feil, fire tall, og alle fire ser ut som ekte skattebeløp.</p>
+</div>
+
+<p>To utvidelser er testet direkte. <b>Gave til nærstående bosatt i utlandet utløser exit-skatt</b> når netto gevinst overstiger kr 100 000 i året, og tolvårsregelen gjelder ikke gavemottakeren: du trenger ikke flytte selv, det holder at aksjene gjør det. <b>Flytter selskapet ut</b>, gjøres det opp på <b>begge nivåer</b> etter § 10-71, som om selskapet var likvidert: selskapet for eiendelene, aksjonærene for aksjene.</p>
+
+<div class="callout warn"><span class="h">Femårsregelen i H2022 er ikke gjeldende rett</span>
+H2022 oppgave 4 har et spørsmål der riktig svar er at exit-skatten bortfaller hvis aksjene ikke selges innen fem år etter utflytting. Det var riktig da settet ble laget, men femårsregelen ble opphevet 29. november 2022, og innstrammingen fra 20. mars 2024 erstattet den med tolvårsordningen og bunnfradraget på 3 mill. kr. En foreldet regel koster like mye som en glemt.</div>
+
+<div class="callout tip"><span class="h">Slik spørres det</span>
+Exit-skatt kommer nesten alltid som <b>faktaspørsmål</b>, og fem former er dokumentert. <b>(1) Når utløses skatten?</b> Dagen før utflytting, og en skatteavtale beskytter deg ikke (H2022 oppgave 4). <b>(2) Når opphører skattemessig bosted?</b> Etter utflyttingsåret pluss tre hele mellomliggende år — flytter du i 2022, er du ute først i 2026 (H2022 oppgave 4). <b>(3) Gave til nærstående i utlandet?</b> Utløser exit-skatt over 100 000 kr i året (H2024 oppgave 10). <b>(4) Selskapet flytter ut?</b> Realisasjonsbeskatning på begge nivåer (H2022 oppgave 4 og H2024 oppgave 10). <b>(5) Selskap stiftet i Norge, ingen skatteavtale — fortsatt hjemmehørende her?</b> Ja (H2022 oppgave 4). Fem fakta, tre minutter å repetere, og temaet tok 19 % av poengene i H2024.</div>
+
+<p>Til slutt et faktum det spørres om fordi de fleste tror det motsatte. <b>Arveavgiften er avskaffet</b> fra 1. januar 2014, men arv og gave er ikke skattefritt: samtidig ble <b>kontinuitetsprinsippet</b> innført i skatteloven § 9-7, slik at mottakeren overtar giverens inngangsverdi og øvrige skatteposisjoner. Den latente gevinsten følger med gaven, og skatten kommer når mottakeren selger.</p>
+
+<table class="data">
+<tr><th>Objekt</th><th>Mottakerens inngangsverdi</th><th>Virkning</th></tr>
+<tr><td>Aksjer og fondsandeler</td><td>giverens inngangsverdi (kontinuitet)</td><td>latent gevinst arves; skatten kommer ved salg</td></tr>
+<tr><td>Bolig, fritidsbolig og gårdsbruk giveren kunne solgt skattefritt</td><td>antatt salgsverdi på ervervstidspunktet (diskontinuitet)</td><td>den latente gevinsten forsvinner</td></tr>
+</table>
+
+<p>Unntaket er logisk: kunne giveren solgt boligen skattefritt etter bo- og eiertidsreglene, ville det vært vilkårlig om gaven skapte en skatt salget ikke ville gjort. For aksjer finnes ingen slik skattefrihet. Konsekvensen er også et typisk påstandsalternativ: <b>å gi bort aksjer til barna fjerner ikke skatten, den flytter den</b> — og går gaven til et barn i utlandet, utløses i tillegg exit-skatt over 100 000 kr i året.</p>
+
+<div class="callout link"><span class="h">Videre til kapittel 13</span>
+Bosted, skatteavtaler og unntaks- mot kreditmetoden hører til kapittel 13. Der finner du resten av H2024 oppgave 10: sju delspørsmål om globalskatteplikt, fast driftssted, unntak og kredit, før den lander på de to exit-spørsmålene du nå kan. Øv på dem samlet — det er slik oppgaven er bygget.</div>
 
 </section>
 
@@ -1056,6 +1823,178 @@ Adam og Miller deler avkastningen i fire kilder: normalavkastning (kompensasjon 
 </section>
 
 <h2 class="part">Del III — Skatteteori</h2>
+
+<section id="k9">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">9 · Nøytralitet, skattearbitrasje og bedriftens tilpasning</h2>
+
+<p class="lead-in">Kapitlet bærer én formel som har gitt poeng i to av ni sett, begge ganger 10–14 % av settet: F′(K) = r(1 − At)/(1 − t). H2025 oppgave 7 ga tre poeng for å kjenne den igjen blant fire nesten like brøker, og H2020 oppgave 3a–c ba om selve utledningen. Resten er begrepene som gjør formelen forståelig: hva nøytralitet betyr, hva skattearbitrasje er, og hvorfor selskapsoverskudd skattlegges to ganger. Forelesning 6 finnes ikke som lysbilder i kursmaterialet, så stoffet er hentet fra pensumartikkelen — Sandmos vedlegg om nøytralitet i bedrifts- og kapitalbeskatningen i NOU 1989:14 — og fra eksamensoppgavene. Det står eksplisitt hver gang noe kommer fra artikkelen og ikke fra auditoriet.</p>
+
+<h3>9.1 Hva nøytralitet betyr</h3>
+
+<p>Et skattesystem er <b>nøytralt</b> når det ikke endrer rangeringen mellom private alternativer: det som var mest lønnsomt før skatt, er fortsatt mest lønnsomt etter skatt. Sandmos formulering er strengere: full nøytralitet betyr at skatten ikke har <i>substitusjonsvirkninger</i> på noen beslutning, og det kan bare oppnås med lumpsumskatt på personer og skatt på bedriftens nåverdi. Alt annet vrir noe.</p>
+
+<div class="formula">
+  <div class="eq">Nøytralitet: r<sub>A</sub> &gt; r<sub>B</sub> før skatt ⟺ r<sub>A</sub> &gt; r<sub>B</sub> etter skatt</div>
+  <div class="where">Kravet gjelder i tre retninger samtidig, og det er de tre du skal kunne ramse opp: like <b>effektive</b> skattesatser på tvers av <b>aktiva</b> (bank, aksjer, bolig), på tvers av <b>finansieringsformer</b> (gjeld mot egenkapital) og på tvers av <b>organisasjonsformer</b> (lønn mot utbytte, personlig eierskap mot holdingselskap). Det er den effektive satsen som må være lik, ikke den som står i loven: et aktivum med lav sats og bredt grunnlag kan være hardere beskattet enn et med høy sats og sjenerøse fradrag.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor er et nøytralitetsbrudd et samfunnsøkonomisk problem?</span>
+Fordi kapitalen flytter seg etter avkastningen <i>etter</i> skatt, mens det er avkastningen <i>før</i> skatt som måler hva investeringen er verdt for samfunnet. Har bolig effektiv sats 10 % og næringskapital 30 % <b>[eksempeltall]</b>, blir en bolig som gir 5 % før skatt valgt foran en bedriftsinvestering som gir 6 %, fordi 4,5 % er mer enn 4,2 % etter skatt. Samfunnet taper det ene prosentpoenget, og ingen har gjort noe galt: begge parter følger prisene de faktisk møter. Dette er kursets lærepunkt fra kapittel 0, sagt presist.</div>
+
+<p>Artikkelen er nøktern om hvor langt kravet rekker. Full nøytralitet er uoppnåelig med et skattenivå rundt halvparten av bruttonasjonalproduktet, og nestbest-teorien sier at det ikke engang er opplagt ønskelig: skal et gitt proveny hentes inn med minst mulig effektivitetstap, skal satsen være høyest der tilbud eller etterspørsel er minst elastisk. Det er Ramsey-regelen, og den taler <i>mot</i> like satser. Sandmos svar er pragmatisk: vi kjenner ikke elastisitetene godt nok til å begrunne bestemte avvik, og aktiva i samme risikoklasse er så nære substitutter at små satsforskjeller gir store tilpasninger. Lik beskatning er da regelen med minst risiko for alvorlige feil, og den er dessuten et vern mot særinteresser: skal en aktivitet støttes, bør det skje med direkte tilskudd, ikke med egen sats eller gunstig avskrivningsregel.</p>
+
+<div class="callout warn"><span class="h">Nøytralitet er verken lav skatt eller rettferdig skatt</span>
+Tre forvekslinger, og de er nettopp de gale alternativene på et begrepsspørsmål. «Nøytralt» sier ingenting om <i>nivået</i>: en overskuddsskatt på 50 % kan være helt nøytral, fordi å maksimere halve overskuddet er det samme som å maksimere hele. Det sier ingenting om <i>fordeling</i> heller; Paretooptimalitet og rettferdighet er uavhengige egenskaper, og kapittel 10 handler om den andre. Og et nøytralt system er ikke et system uten skattekile: også en nøytral kapitalinntektsskatt legger en kile mellom r og r(1 − t) og vrir valget mellom konsum i dag og i morgen.</div>
+
+<h3>9.2 Skattearbitrasje: låne med fradrag, plassere skattefritt</h3>
+
+<p><b>Skattearbitrasje</b> er å utnytte at to sider av samme transaksjon behandles ulikt: du låner der rentene er fradragsberettigede og plasserer der avkastningen er lavt eller ikke beskattet. Er renten den samme på begge sider, koster posisjonen ingenting, krever ingen egenkapital og bærer ingen risiko, men gir likevel en positiv strøm etter skatt.</p>
+
+<div class="formula">
+  <div class="eq">Årlig gevinst = r × L × (t<sub>fradrag</sub> − t<sub>avkastning</sub>)</div>
+  <div class="where">L er lånet og r renten. Gevinsten er utelukkende <b>satsdifferansen</b>; er de to satsene like, er den null uansett hvor stort lånet er. Det er nøytralitetsbetingelsen på finansieringssiden, skrevet som én linje.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: arbitrasjen, og de to reglene som stenger den</span>
+<p>Du låner kr 1 000 000 til 5 % og plasserer hele beløpet i et papir med samme risiko som lånet, også til 5 %. Rentefradraget gis mot alminnelig inntekt med 22 % <b>[dagens regel]</b>; renten på 5 % er et <b>[eksempeltall]</b>.</p>
+<p><b>Steg 1 — rentekostnaden etter fradrag.</b> Renten er 1 000 000 × 5 % = <b>50 000</b>. Fradraget er verdt 50 000 × 22 % = 11 000, så kostnaden etter skatt er 50 000 × (1 − 0,22) = <b>39 000</b>.</p>
+<p><b>Steg 2 — plassér i noe skattefritt.</b> Gir papiret 5 % skattefritt, mottar du 50 000 uavkortet. Netto: 50 000 − 39 000 = <b>11 000</b> hvert år, uten innskutt kapital og uten risiko. Det er 1,1 % av lånebeløpet i ren satsdifferanse.</p>
+<p><b>Steg 3 — første regel som stenger den: symmetri.</b> Skattlegges avkastningen som alminnelig inntekt, får du 50 000 × (1 − 0,22) = 39 000, og netto blir 39 000 − 39 000 = <b>0</b>. Dette er konstruksjonen i det norske duale systemet: renteinntekt og rentefradrag ligger begge i alminnelig inntekt med samme sats. Sandmos andre nøytralitetsresultat sier akkurat dette, og det var teorigrunnlaget for at 1992-reformen ga selskap og kapitalinntekt samme sats, den gang 28 %.</p>
+<p><b>Steg 4 — andre regel: markedet stenger den selv.</b> Finnes det likevel et skattefritt papir med samme risiko, vil alle ha det, prisen bys opp, og avkastningen faller til 5 % × (1 − 0,22) = <b>3,9 %</b>. Da gir plasseringen 1 000 000 × 3,9 % = 39 000 skattefritt mot 39 000 i kostnad, altså netto <b>0</b> igjen. Fallet fra 5 til 3,9 % er den <i>implisitte skatten</i>, (5 − 3,9)/5 = <b>22 %</b>, som er kapittel 12.</p>
+<p><b>Kontroll:</b> formelen skal gi de samme svarene. Skattefritt papir med opprettholdt avkastning: 50 000 × (0,22 − 0) = <b>11 000</b>. ✓ Symmetrisk beskatning: 50 000 × (0,22 − 0,22) = <b>0</b>. ✓ I steg 4 er det ikke satsen, men avkastningen på den ene siden som er justert ned, med nøyaktig 22 % — samme tall sett fra prissiden.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Rentefradraget regnet som gevinst uten at rentekostnaden betales: <b>50 000</b>. Marginalskatten på lønn brukt som fradragsverdi: 50 000 × 47,4 % = <b>23 700</b> — den store fella, for i Norge er et rentefradrag verdt 22 øre per krone uansett hvor høy marginalskatten din er (kapittel 1). Og å overse at også det skattefrie papiret er blitt priset: <b>11 000</b> der svaret skulle vært 0.</p>
+</div>
+
+<p>Arbitrasjen finnes i to former. <b>Organisasjonsformarbitrasje</b> flytter aktiviteten til den juridiske formen med lavest sats, som holdingselskapet i kapittel 6. <b>Klientellbasert arbitrasje</b> skjer mellom investorer med ulik marginalskatt: det favoriserte aktivumet havner hos den med høyest sats. At arbitrasjen ikke er ubegrenset, skyldes <b>restriksjoner</b> i skattelovgivningen, som begrensninger i rentefradraget og i adgangen til å føre tap mot annen inntekt, og <b>friksjoner</b>: transaksjonskostnader, informasjonsasymmetri, agentkostnader og risiko.</p>
+
+<div class="callout mech"><span class="h">Hvor arbitrasjen faktisk er åpen i Norge: formuesskatten</span>
+Gjelden trekkes fra med full verdi, men aktivumet du kjøper for pengene teller ofte med redusert verdi. Kjøper du en primærbolig til kr 4 000 000 fullt lånefinansiert, teller boligen med 4 000 000 × 25 % = 1 000 000 mens hele gjelden trekkes fra, siden primærbolig ikke utløser forholdsmessig gjeldsreduksjon: 1 000 000 − 4 000 000 = <b>−3 000 000</b> i grunnlag. Setter du de samme lånte kronene i banken, teller de 100 %, og nettoen blir null. Har du annen formue over bunnfradraget, er forskjellen 3 000 000 × 1,0 % = <b>30 000 kr</b> spart formuesskatt hvert år <b>[dagens regel]</b>. Et rent nøytralitetsbrudd mellom to aktiva, og en av grunnene til at nordmenn har mye gjeld og mye bolig. Reglene står i kapittel 7.</div>
+
+<h3>9.3 Dobbeltbeskatning, og hva aksjonærmodellen svarer</h3>
+
+<p>Et selskapsoverskudd som deles ut til en personlig eier, skattlegges to ganger: først i selskapet med 22 %, så hos eieren med 37,84 % av resten <b>[dagens regel]</b>. Samlet blir det 22 % + 78 % × 37,84 % = <b>51,52 %</b>, regnet i kapittel 1. Renteinntekt hos den samme personen skattlegges én gang, med 22 %. Det ser ut som et grovt brudd, og svaret har to deler.</p>
+
+<p><b>Nivået</b> skal ikke sammenlignes med 22 %, men med høyeste marginalskatt på lønn, 47,4 %. En eier som arbeider i eget selskap velger selv om avlønningen kommer som lønn eller utbytte, og er satsene svært ulike, velger alle den laveste. Oppjusteringsfaktoren 1,72 er kalibrert for å lukke gapet: 51,52 − 47,4 = <b>4,12 prosentpoeng</b>. Det er nøytralitet på tvers av organisasjonsformer, og hele den historiske begrunnelsen for aksjonærmodellen. <b>Skjermingsfradraget</b> gjør så at dobbeltbeskatningen ikke rammer hele avkastningen: skjermingsrenten er risikofri rente etter skatt, så normalavkastningen slipper eierskatt, og bare meravkastningen treffes av begge skattene.</p>
+
+<div class="formula">
+  <div class="eq">Samlet effektiv sats = t<sub>c</sub> + (utdelt − skjermingsfradrag)/overskudd × t<sub>e</sub></div>
+  <div class="where">t<sub>c</sub> er selskapsskatten (22 %) og t<sub>e</sub> eierskatten (37,84 %). Dekker skjermingsfradraget hele utdelingen, faller det andre leddet bort og samlet sats er 22 %. Er skjermingen null, får du 51,52 %. Systemet ligger alltid mellom disse to.</div>
+</div>
+
+<p>Et tall gjør poenget konkret. Aksjonæren har kostpris kr 1 000 000, selskapet tjener kr 100 000 før skatt og deler ut alt som kan deles ut, og skjermingsrenten er 3,6 % <b>[2025-sats]</b>. Skjermingsfradraget er 1 000 000 × 3,6 % = 36 000. Selskapsskatten er 100 000 × 22 % = 22 000, så utbyttet er 78 000, og skattepliktig utbytte 78 000 − 36 000 = 42 000. Eierskatten blir 42 000 × 37,84 % = 15 892,80, samlet skatt 22 000 + 15 892,80 = 37 892,80, altså 37 892,80/100 000 = <b>37,89 %</b> effektivt, ikke 51,52 %. Kontroll med satsformelen: 22 % + 42 % × 37,84 % = <b>37,89 %</b>. ✓</p>
+
+<p>Mekanismen i klartekst: en investor som bare får normalavkastning, betaler null eierskatt uansett hvor mye han investerer, så utbytteskatten treffer ikke marginalprosjektet og driver ikke avkastningskravet i selskapssektoren over kravet utenfor. Det er konstruksjonstanken bak modellen (Sørensen 2003 og 2005). Forbeholdet er verdt å kunne: Lindhe og Södersten viste i 2012 at argumentet forutsetter en lukket økonomi der skjermingen kapitaliseres i aksjekursene, så settes prisen av en utenlandsk eier uten skjerming, forsvinner nøytraliteten. Det tredje leddet, <b>kjedebeskatning</b> når overskuddet passerer flere selskaper i en eierkjede, løses av fritaksmetoden i kapittel 6, med unntak av treprosentregelen som gir 3 % × 22 % = 0,66 % effektiv skatt.</p>
+
+<h3>9.4 Bedriftens tilpasning: førsteordensbetingelsen</h3>
+
+<p>Bedriften bruker kapital K, har inntektsfunksjon F(K) med F′(K) &gt; 0 og F″(K) &lt; 0, og betaler renten r på all kapital. Bare andelen A av rentene kan trekkes fra, med 0 &lt; A &lt; 1. Merk at rentekostnaden opptrer to ganger med to roller: hele rK som faktisk utbetaling, bare ArK som fradrag.</p>
+
+<div class="formula">
+  <div class="eq">V = F(K) − rK − t[F(K) − A·rK]</div>
+  <div class="eq">dV/dK = F′(K) − r − t[F′(K) − rA] = 0</div>
+  <div class="eq">F′(K)(1 − t) = r − trA = r(1 − At)</div>
+  <div class="eq"><b>F′(K) = r(1 − At)/(1 − t)</b></div>
+  <div class="where">Deriver, samle alle ledd med F′(K) på venstre side og faktoriser ut (1 − t). Uttrykket er avkastningskravet <b>før skatt</b>: det marginalproduktet den siste kapitalkronen må gi for å være verdt å bruke.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor er en overskuddsskatt nøytral når A = 1?</span>
+Fordi den da treffer selve overskuddet. Sett A = 1: F′(K) = r(1 − t)/(1 − t) = r, nøyaktig betingelsen uten skatt. Å maksimere andelen (1 − t) av overskuddet er det samme som å maksimere overskuddet, så lenge <i>alle</i> kostnader ved kapitalen er fradragsberettigede. Sett A = 0: F′(K) = r/(1 − t) &gt; r. Nå beskattes inntekten uten at kapitalkostnaden gir fradrag, grunnlaget er blitt for bredt, og resultatet er underinvestering. Sandmo gjør samme poeng om avskrivninger: er skattemessig avskrivning mindre enn faktisk kapitalslit, oppstår den samme kilen.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: H2025 oppgave 7a, med grensetesten som eliminerer tre alternativer</span>
+<p>Oppgaven gir P = F(K) − rK, opplyser at 0 &lt; A &lt; 1 av rentene er fradragsberettiget, og spør hvordan bedriften tilpasser kapitalbruken. De fire alternativene er F′(K) = r, rA/(1 − t), r(1 − At)/(1 − t) og r/[(1 − t)A]. Sett t = 22 % <b>[dagens regel]</b>, r = 6 % og A = 0,5 <b>[eksempeltall]</b>.</p>
+<p><b>Steg 1 — regn det riktige uttrykket.</b> Faktoren er (1 − 0,5 × 0,22)/(1 − 0,22) = 0,89/0,78 = <b>1,141</b>, og kravet 6 % × 0,89/0,78 = <b>6,85 %</b>: 14,1 % høyere marginalprodukt enn de 6 % som kreves uten skatt.</p>
+<p><b>Steg 2 — grensetesten, som er hele utelukkingsrutinen.</b> Sett A = 1 og se om uttrykket kollapser til r. Gjør det ikke det, er alternativet feil.</p>
+<table class="data">
+<tr><th>Alternativ</th><th class="n">A = 1</th><th class="n">A = 0</th><th>Dom</th></tr>
+<tr><td>F′(K) = r</td><td class="n">6 %</td><td class="n">6 %</td><td>Riktig bare når A = 1, og oppgaven sier A &lt; 1</td></tr>
+<tr><td>F′(K) = rA/(1 − t)</td><td class="n">7,69 %</td><td class="n">0</td><td>Begge grensene snudd: svaret for <i>ingen</i> fradragsrett når fradraget er fullt, og null krav når det er borte</td></tr>
+<tr><td><b>F′(K) = r(1 − At)/(1 − t)</b></td><td class="n"><b>6 %</b></td><td class="n"><b>7,69 %</b></td><td>Riktig: kollapser til r ved full fradragsrett</td></tr>
+<tr><td>F′(K) = r/[(1 − t)A]</td><td class="n">7,69 %</td><td>→ ∞</td><td>Kravet vokser når fradragsretten bedres. Feil vei</td></tr>
+</table>
+<p><b>Steg 3 — les retningen ut av formelen.</b> Uttrykket faller i A: jo mer av renten som kan trekkes fra, jo lavere krav, og jo mer kapital brukes, siden F″(K) &lt; 0. Kravet ligger alltid mellom r og r/(1 − t).</p>
+<p><b>Kontroll:</b> A = 0,5 skal treffe midt mellom grensene, fordi uttrykket er lineært i A. Midtpunktet er (6,00 + 7,69)/2 = 13,69/2 = <b>6,845 %</b>. ✓</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Med de samme parameterne gir alternativ to 6 % × 0,5/0,78 = <b>3,85 %</b>, et krav <i>lavere</i> enn renten, som ingen ufullstendig fradragsrett kan produsere. Alternativ fire gir 6 %/(0,78 × 0,5) = <b>15,38 %</b>, mer enn det dobbelte av renten. Begge er utelukket på størrelsesorden alene, uten at du har utledet noe.</p>
+</div>
+
+<h3>9.5 Gjeld mot egenkapital: F′<sub>G</sub> = r og F′<sub>E</sub> = r/(1 − t)</h3>
+
+<p>Deloppgave b splitter kapitalen i gjeld G og egenkapital E, slik at K = E + G. Gjeldsrenten er r og gir fradrag. Egenkapitalen har samme alternativkostnad r — eieren kunne plassert pengene til r et annet sted — men den kostnaden gir ikke fradrag, fordi den ikke er en utbetaling.</p>
+
+<div class="formula">
+  <div class="eq">V = F(E + G) − r(G + E) − t[F(E + G) − rG]</div>
+  <div class="eq">∂V/∂G = F′<sub>G</sub> − r − t(F′<sub>G</sub> − r) = (1 − t)(F′<sub>G</sub> − r) = 0 ⟹ <b>F′<sub>G</sub> = r</b></div>
+  <div class="eq">∂V/∂E = F′<sub>E</sub> − r − t·F′<sub>E</sub> = 0 ⟹ F′<sub>E</sub>(1 − t) = r ⟹ <b>F′<sub>E</sub> = r/(1 − t)</b></div>
+  <div class="where">Forskjellen er leddet trG, som mangler i derivasjonen etter E. For gjeld stryker de to t-ene hverandre: inntekten fra den lånefinansierte kronen beskattes med t, og renten på samme krone gir fradrag med t. For egenkapital beskattes inntekten uten at noe motvirker den. Siden 1/(1 − t) &gt; 1 for enhver t mellom 0 og 1, er F′<sub>E</sub> &gt; F′<sub>G</sub> alltid.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: H2025 oppgave 7b og 7c — prosjektet som er lønnsomt bare med gjeld</span>
+<p>Sett r = 6 % og t = 22 % <b>[dagens regel]</b>. Et prosjekt binder kr 1 000 000 og gir kr 70 000 i årlig inntekt før renter og skatt, altså 7 % <b>[eksempeltall]</b>.</p>
+<p><b>Steg 1 — de to kravene.</b> F′<sub>G</sub> = <b>6,00 %</b>. F′<sub>E</sub> = 6 %/0,78 = <b>7,69 %</b>. Egenkapitalkronen må tjene 1/0,78 = 1,282, altså 28,2 % mer enn gjeldskronen.</p>
+<p><b>Steg 2 — finansiert med gjeld.</b> Inntekt 1 000 000 × 7 % = 70 000. Rentekostnad 1 000 000 × 6 % = 60 000, fullt fradragsberettiget, så grunnlaget er 70 000 − 60 000 = 10 000 og skatten 10 000 × 22 % = 2 200. Igjen: 70 000 − 60 000 − 2 200 = <b>7 800</b>. Lønnsomt.</p>
+<p><b>Steg 3 — finansiert med egenkapital.</b> Inntekt 70 000, skatt 70 000 × 22 % = 15 400, etter skatt 70 000 − 15 400 = 54 600. Alternativkostnaden er fortsatt 60 000, men uten fradrag: 54 600 − 60 000 = <b>−5 400</b>. Samme prosjekt, samme rente, samme sats, motsatt konklusjon.</p>
+<p><b>Steg 4 — deloppgave c.</b> F er konkav, så et høyere krevd marginalprodukt betyr at mindre brukes av innsatsfaktoren. Siden F′<sub>E</sub> = 7,69 % &gt; 6,00 % = F′<sub>G</sub>, følger <b>E* &lt; G*</b>.</p>
+<p><b>Kontroll:</b> finn nullpunktet direkte. Inntekten må etter 22 % skatt akkurat dekke alternativkostnaden på 60 000, altså 60 000/0,78 = <b>76 923</b>, som er 7,69 % av 1 000 000 og forklarer hvorfor 70 000 ikke holdt. ✓ Kontroller så a mot b: les A som gjeldsandelen G/K. Da gir a at F′(K) = r(1 − (G/K)t)/(1 − t), som blir r ved bare gjeld og r/(1 − t) ved bare egenkapital. ✓ De to delspørsmålene er samme modell sett fra to kanter.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Alternativet F′<sub>G</sub> = r(1 − t) gir 6 % × 0,78 = <b>4,68 %</b>: gjeldens kostnad <i>etter</i> skatt, som ikke skal sammenlignes med et marginalprodukt <i>før</i> skatt. Det er den ene feilen som går igjen i hele skattedelen av kurset. Alternativet med de to snudd, F′<sub>G</sub> = r/(1 − t) og F′<sub>E</sub> = r(1 − t), sier at egenkapital er billigst, stikk i strid med at bare renter gir fradrag. Og i c står «(1/2)E* &gt; G*», som påstår et bestemt forholdstall: modellen gir bare en ulikhet, aldri en faktor, så alternativet strykes uten regning.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 620 340" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Fallende kurve for marginalproduktet av kapital, med tre vannrette avkastningskrav. Kravet r ved fullt rentefradrag ligger lavest og gir det største kapitalnivået G stjerne, kravet r ganger 1 minus A t delt på 1 minus t ligger i midten, og kravet r delt på 1 minus t ved bare egenkapital ligger høyest og gir det minste kapitalnivået E stjerne."
+     font-family="Georgia,serif" font-size="13">
+  <line x1="72" y1="290" x2="560" y2="290" stroke="#333" stroke-width="1.4"/>
+  <line x1="72" y1="290" x2="72" y2="40" stroke="#333" stroke-width="1.4"/>
+
+  <path d="M80,61L95,84L111,103L126,120L141,134L157,147L172,158L188,168L203,177L218,186L234,193L249,200L264,207L280,213L295,218L310,224L326,228L341,233L356,237L372,242L387,245L402,249L418,253L433,256L449,259L464,262L479,265L495,268L510,270" stroke="#6b1f2a" stroke-width="2.3" fill="none"/>
+  <text x="516" y="272" fill="#6b1f2a" font-weight="bold" font-size="12">F′(K)</text>
+
+  <line x1="72" y1="136" x2="144" y2="136" stroke="#1f3a5f" stroke-width="1.8"/>
+  <line x1="72" y1="171" x2="193" y2="171" stroke="#b06000" stroke-width="1.8"/>
+  <line x1="72" y1="207" x2="264" y2="207" stroke="#2f5a3f" stroke-width="1.8"/>
+
+  <line x1="144" y1="136" x2="144" y2="290" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="193" y1="171" x2="193" y2="290" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="264" y1="207" x2="264" y2="290" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+  <circle cx="144" cy="136" r="3.2" fill="#1f3a5f"/>
+  <circle cx="193" cy="171" r="3.2" fill="#b06000"/>
+  <circle cx="264" cy="207" r="3.2" fill="#2f5a3f"/>
+
+  <text x="300" y="131" fill="#1f3a5f" font-size="12">r/(1 − t) = 7,69 % · bare egenkapital, A = 0</text>
+  <text x="300" y="166" fill="#b06000" font-size="12">r(1 − At)/(1 − t) = 6,85 % · delvis fradrag</text>
+  <text x="300" y="202" fill="#2f5a3f" font-size="12">r = 6,00 % · fullt rentefradrag, gjeld</text>
+
+  <text x="67" y="140" text-anchor="end" fill="#555" font-size="11">7,69</text>
+  <text x="67" y="175" text-anchor="end" fill="#555" font-size="11">6,85</text>
+  <text x="67" y="211" text-anchor="end" fill="#555" font-size="11">6,00</text>
+
+  <text x="144" y="306" text-anchor="middle" fill="#555" font-size="11">E*</text>
+  <text x="193" y="306" text-anchor="middle" fill="#555" font-size="11">K(A)</text>
+  <text x="264" y="306" text-anchor="middle" fill="#555" font-size="11">G*</text>
+  <text x="300" y="328" text-anchor="middle" fill="#333">Kapitalinnsats K</text>
+  <text x="24" y="165" text-anchor="middle" transform="rotate(-90 24 165)" fill="#333">Marginalprodukt F′(K), prosent</text>
+</svg>
+<figcaption>Figur 9.1 — Kapitalbruken leses av der marginalproduktkurven krysser avkastningskravet. Fordi F″(K) &lt; 0 faller kurven, så et høyere krav gir et lavere kapitalnivå. Med r = 6 % og t = 22 % krever den gjeldsfinansierte kronen 6,00 % og den egenkapitalfinansierte 7,69 %, mens delvis fradragsrett (A = 0,5) gir 6,85 % imellom. Det er hele begrunnelsen for E* &lt; G*, og ingenting i figuren handler om risiko eller långiveres krav — bare om hvilke kostnader som er fradragsberettigede.</figcaption>
+</figure>
+
+<div class="callout tip"><span class="h">Slik spørres det</span>
+To former, begge dokumentert. <b>Formelgjenkjenning:</b> H2025 oppgave 7a–c ga tre poeng, ett per delspørsmål, med fire nesten like uttrykk i a og b og en ulikhet i c. Rutinen er alltid den samme: sett A = 1 og A = 0 og se hvilke alternativer som gir henholdsvis r og r/(1 − t). Fellene er teller og nevner byttet om, og i b uttrykket r(1 − t), et etter-skatt-tall satt inn i en før-skatt-sammenligning. <b>Åpen utledning:</b> H2020 oppgave 3a–c ba om derivasjonen, først uten begrensning (svar: F′(K) = r, overskuddsskatten er nøytral), så med andelen A, og til slutt om hvorfor gjeld favoriseres. Den formen kommer neppe tilbake på flervalg, men utledningen tar tre linjer og gjør deg immun mot alternativene.</div>
+
+<h3>9.6 Hjørneløsningen, og hvorfor dette er en brist og ikke en naturlov</h3>
+
+<p>Modellen har en ubehagelig egenskap. F avhenger av K = E + G alene, så marginalproduktet er det samme uansett hvilken krone som finansierer det, og de to betingelsene kan ikke holde samtidig: modellen peker mot en hjørneløsning med mest mulig gjeld. Eksamenssvaret er likevel den relative sammenligningen E* &lt; G*, som følger av rangeringen mellom kravene.</p>
+
+<div class="callout mistake"><span class="h">«Gjeld er billigere enn egenkapital» er en skatteregel, ikke en finansiell lov</span>
+Resultatet kommer utelukkende av at rentekostnaden er fradragsberettiget og egenkapitalens alternativkostnad ikke er det. Gir systemet fradrag også for en beregnet egenkapitalrente, blir F′<sub>E</sub> = F′<sub>G</sub> = r og finansieringsvalget nøytralt; skjermingsfradraget gjør noe beslektet på eierens hånd. Sandmo gjør samme poeng om kontantstrømskatter: både R-skatten, som bare teller reelle inn- og utbetalinger uten rentefradrag, og S-skatten, som også tar med de finansielle transaksjonene, er nøytrale, fordi grunnlaget deres er nåverdien. Og det som stopper hjørneløsningen i virkeligheten er ikke skatt i det hele tatt, men konkurskostnader, långivernes krav om egenkapital og rentebegrensningsregler.</div>
+
+<p>Sandmos konklusjon er at nøytralitetskravet ofte er vilkårlig begrunnet, men at to varianter holder: en nøytral skatt på bedriftens nåverdi, og lik beskatning av ulike aktiva hos personer, fordi substitusjonsmulighetene mellom dem er så gode. Det siste kan ikke begrunnes fra teorien alene — lik sats på alle aktiva er ikke nødvendigvis optimalt — men aktiva i samme risikoklasse er nære nok substitutter til å beskattes likt. Han advarer også om at forventede framtidige skatteendringer i seg selv virker vridende: en ellers nøytral kontantstrømskatt slutter å være nøytral hvis satsen ventes å stige, noe som er et argument for å gjennomføre reformer raskt.</p>
+
+<div class="callout link"><span class="h">Hvor dette henger sammen med resten</span>
+Nestbest-argumentet om at satsen skal være høyest der elastisiteten er lavest, er baksiden av insidensregelen i <b>kapittel 11</b>: den minst elastiske siden bærer skatten <i>og</i> gir minst dødvektstap. Mekanismen der markedet priser inn en skattefordel, slik at det favoriserte papiret får lavere avkastning før skatt, er <b>implisitt skatt</b> i <b>kapittel 12</b>, og det er den som lukker arbitrasjen i steg 4. Hva et «rettferdig» skattesystem er, som nøytralitet ikke svarer på, er <b>kapittel 10</b>. Og gjeldsfordelingen som gjør formuesskattearbitrasjen mulig, står i <b>kapittel 7</b>.</div>
+
+</section>
+
+<hr class="sec">
 
 <section id="k11">
 <a class="backtotop" href="#toc">↑ innhold</a>
