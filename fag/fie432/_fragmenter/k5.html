@@ -1,0 +1,206 @@
+<section id="k5">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="part">Del II — Aksjonær- og formuesbeskatning</h2>
+<h2 class="chap">5 · Aksjonærmodellen: skjerming, utbytte og gevinst</h2>
+
+<p class="lead-in">Ingen annen rutine i kurset gir like mange poeng. Skjerming er testet i fem av de ni settene i arkivet og tok 20 % av poengene i H2022; oppjustering og eierskatt går igjen i sju av ni. H2024 åpner med en firedelt skjermingskjede over tre år, H2025 har skjermingsfellen i oppgave 4 og gevinstregningen i oppgave 10, og H2025 oppgave 1 legger utbytteskatt og formuesskatt oppå hverandre. Regnestykket er det samme hver gang, og det har ett ledd som feller folk: ubenyttet skjerming framføres <i>og</i> legges til neste års skjermingsgrunnlag.</p>
+
+<h3>5.1 Modellen, og hvorfor satsen er 37,84 %</h3>
+
+<p>Aksjonærmodellen gjelder <b>personlig</b> aksjonær. Eier du aksjen gjennom et selskap, gjelder fritaksmetoden i stedet, og da er utbyttet i praksis skattefritt. For deg som privatperson skattlegges utbytte og aksjegevinst i to steg: først trekkes et <b>skjermingsfradrag</b> fra, så beskattes resten. Resten kalles <i>eierinntekt</i>, og beskatningen gjøres ved at grunnlaget først ganges med en <b>oppjusteringsfaktor</b> f og deretter med den alminnelige satsen t.</p>
+
+<div class="formula">
+  <div class="eq">t<sub>e</sub> = f × t = 1,72 × 22 % = 37,84 %</div>
+  <div class="eq">Skatt = skattepliktig grunnlag × f × t = skattepliktig grunnlag × t<sub>e</sub></div>
+  <div class="where">f er oppjusteringsfaktoren og t skatten på alminnelig inntekt; begge er dagens regel for 2026. De to linjene er samme regning: du kan oppjustere <i>grunnlaget</i> og bruke 22 %, eller oppjustere <i>satsen</i> til 37,84 % og bruke grunnlaget som det er. Regn begge veier, alltid. Får du to ulike svar, har du oppjustert to ganger et sted.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor finnes oppjusteringsfaktoren i det hele tatt?</span>
+En krone tjent i et selskap og delt ut til eieren beskattes to ganger: 22 % i selskapet, og 37,84 % av de 78 ørene som er igjen. Samlet blir det 22 % + 78 % × 37,84 % = <b>51,52 %</b>. Det skal ligne på den høyeste marginalskatten på lønn, som er <b>47,4 %</b> [dagens regel]. Uten oppjusteringen ville samlet sats vært 22 % + 78 % × 22 % = 39,16 %, altså åtte prosentpoeng under lønn, og enhver som eide sitt eget selskap ville tatt lønnen sin som utbytte i stedet. Det er dette som kalles <i>inntektsskifting</i>, og faktoren finnes for å stenge døra.</div>
+
+<p>Faktoren er ikke plukket ut av lufta. Den løses ut av en likevektsbetingelse som forelesningen kaller inntektsskiftningsligningen, og som eksamensfasitene i H2017 og H2020 skriver ut i tekst:</p>
+
+<div class="formula">
+  <div class="eq">t<sub>w</sub> + a = t + (1 − t) × t × f</div>
+  <div class="eq">f = (t<sub>w</sub> + a − t) / ((1 − t) × t)</div>
+  <div class="where">t<sub>w</sub> er høyeste marginalskatt på lønn (47,4 %), t den alminnelige satsen (22 %), og a den delen av arbeidsgiveravgiften som veltes over på arbeidstakeren gjennom lavere lønn. Venstresiden er den samlede skatten på en lønnskrone, høyresiden den samlede skatten på en utbyttekrone.</div>
+</div>
+
+<p>Sett inn tallene. Bærer bedriften hele arbeidsgiveravgiften, er a = 0, og f = (0,474 − 0,22)/(0,78 × 0,22) = 0,254/0,1716 = <b>1,48</b>, som gir en eierskatt på 1,48 × 22 % = 32,6 %. Veltes hele avgiften over på arbeidstakeren, er a = 12,4 prosentpoeng, og f = 0,378/0,1716 = <b>2,20</b>, altså en eierskatt på 48,4 %. Dagens f = 1,72 ligger mellom dem og svarer til a ≈ 4,1 prosentpoeng, om lag en tredel av avgiften. Forelesningens påstand er at empirien om overvelting spriker (norske studier finner 15–30 %, én finsk finner ingen), og at satsen derfor hviler på en antakelse som ikke er avklart; motargumentet er at 51,52 % mot 47,4 % uansett er den sammenligningen lovgiveren har villet ha. Du skal kjenne argumentet, ikke ta parti.</p>
+
+<h3>5.2 Skjermingsrenten: formelen, satsene og året den gjelder</h3>
+
+<p>Skjermingsfradraget er skjermingsgrunnlaget ganget med årets skjermingsrente. Grunnlaget starter som aksjens <b>kostpris</b>, altså inngangsverdien, ikke markedsverdien. Skyter du inn ny egenkapital, øker grunnlaget; skrives egenkapitalen ned, faller det.</p>
+
+<div class="formula">
+  <div class="eq">r<sub>s</sub> = (gjennomsnittlig 3-måneders statskasseveksel + 0,5 prosentpoeng) × (1 − t)</div>
+  <div class="where">Skattedirektoratet fastsetter renten i <b>januar året etter</b> inntektsåret og runder den av til nærmeste tidel. Nedjusteringen med 22 % gjør den til en rente <i>etter</i> skatt, som er riktig sammenligningsgrunnlag når selve skjermingen er skattefri.</div>
+</div>
+
+<table class="data">
+<tr><th>Inntektsår</th><th class="n">Statskasseveksel, 3 mnd</th><th>Regnestykket</th><th class="n">Skjermingsrente</th></tr>
+<tr><td>2023</td><td class="n">3,657 %</td><td>(3,657 + 0,5) × 0,78 = 3,24</td><td class="n">3,2 %</td></tr>
+<tr><td>2024</td><td class="n">4,4498 %</td><td>(4,4498 + 0,5) × 0,78 = 3,86</td><td class="n">3,9 %</td></tr>
+<tr><td>2025</td><td class="n">4,1480 %</td><td>(4,1480 + 0,5) × 0,78 = 3,63</td><td class="n">3,6 %</td></tr>
+<tr><td>2026</td><td class="n">—</td><td>fastsettes i januar 2027</td><td class="n">ikke kjent</td></tr>
+</table>
+
+<p>Merk den siste raden. <b>Skjermingsrenten for 2026 finnes ikke ennå</b>, og kan ikke stå i noen formelsamling. Det er derfor eksamen alltid oppgir renten i oppgaveteksten, og derfor et flerårseksempel må bruke én rente per år: H2025 oppgave 4 bruker 3,5 % i 2023 og 4 % i 2024, mens H2024 oppgave 1 forenkler og setter 2 % i alle år.</p>
+
+<div class="callout mech"><span class="h">Hvorfor skal normalavkastningen være skattefri?</span>
+Et selskap som finansierer seg med gjeld, får trekke fra rentene. Et selskap som finansierer seg med egenkapital, får ikke trekke fra eierens alternativkostnad, selv om den er like reell. Uten en korreksjon ville skattesystemet dermed gjøre egenkapital dyrere enn gjeld og presse avkastningskravet opp. Skjermingsfradraget er korreksjonen: det fritar en <i>risikofri</i> normalavkastning på det eieren har skutt inn, slik at eierskatten bare treffer meravkastningen. I teorien gjør det staten til passiv medinvestor i den risikable delen av avkastningen, verken mer eller mindre.</div>
+
+<h3>5.3 Skjermingsrutinen: én rad per år</h3>
+
+<p>Rutinen er fire linjer, og de skal skrives i denne rekkefølgen hvert eneste år. Bruk år-indeks t, utbytte D og skjermingsgrunnlag S:</p>
+
+<div class="formula">
+  <div class="eq">S<sub>t</sub> = kostpris + ubenyttet skjerming<sub>t−1</sub></div>
+  <div class="eq">Skjermingsfradrag<sub>t</sub> = S<sub>t</sub> × r<sub>s,t</sub></div>
+  <div class="eq">Skattepliktig utbytte<sub>t</sub> = maks(0; D<sub>t</sub> − skjermingsfradrag<sub>t</sub> − ubenyttet skjerming<sub>t−1</sub>)</div>
+  <div class="eq">Ubenyttet skjerming<sub>t</sub> = maks(0; ubenyttet skjerming<sub>t−1</sub> + skjermingsfradrag<sub>t</sub> − D<sub>t</sub>)</div>
+  <div class="where">Legg merke til at «ubenyttet skjerming fra i fjor» står i tre av de fire linjene. Den øker grunnlaget, den trekkes fra utbyttet i tillegg til årets fradrag, og den er utgangspunktet for neste års rest. Skjermingen kan aldri gjøre skattepliktig utbytte negativt, og et ubrukt fradrag gir aldri tap; det framføres.</div>
+</div>
+
+<figure>
+<svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Eierskatt som funksjon av utbyttets størrelse: null skatt opp til skjermingsfradraget, deretter en rett linje med helning 37,84 prosent"
+     font-family="Georgia,serif" font-size="13">
+  <line x1="70" y1="270" x2="500" y2="270" stroke="#333" stroke-width="1.4"/>
+  <line x1="70" y1="270" x2="70" y2="40" stroke="#333" stroke-width="1.4"/>
+  <text x="285" y="303" text-anchor="middle">Utbytte i året (kr)</text>
+  <text x="22" y="155" text-anchor="middle" transform="rotate(-90 22 155)">Eierskatt (kr)</text>
+  <text x="70" y="288" text-anchor="middle" fill="#555">0</text>
+  <text x="238" y="288" text-anchor="middle" fill="#555">200</text>
+  <text x="490" y="288" text-anchor="middle" fill="#555">500</text>
+  <text x="62" y="274" text-anchor="end" fill="#555">0</text>
+  <text x="62" y="162" text-anchor="end" fill="#555">100</text>
+  <text x="62" y="49" text-anchor="end" fill="#555">200</text>
+  <line x1="70" y1="157" x2="500" y2="157" stroke="#999" stroke-width="0.7" stroke-dasharray="3 4"/>
+  <line x1="238" y1="270" x2="238" y2="255" stroke="#999" stroke-width="1"/>
+  <path d="M70,270 L490,57" stroke="#1f3a5f" stroke-width="2" fill="none" stroke-dasharray="5 4"/>
+  <path d="M70,270 L238,270 L490,142" stroke="#6b1f2a" stroke-width="2.4" fill="none"/>
+  <text x="486" y="48" text-anchor="end" fill="#1f3a5f">Uten skjerming</text>
+  <text x="486" y="133" text-anchor="end" fill="#6b1f2a" font-weight="bold">Med skjerming</text>
+  <text x="250" y="228" fill="#b06000">Knekk ved skjermingsfradraget</text>
+  <line x1="247" y1="234" x2="240" y2="264" stroke="#b06000" stroke-width="1"/>
+</svg>
+<figcaption>Figur 5.1 — Eierskatten på et års utbytte, med skjermingsgrunnlag kr 10 000 og skjermingsrente 2 %, altså et skjermingsfradrag på kr 200. Skatten er null helt opp til fradraget, og stiger deretter med 37,84 øre per krone. Den stiplede linjen viser hva skatten ville vært uten skjerming. Avstanden mellom kurvene er konstant så snart utbyttet passerer fradraget, og lik skjermingsfradraget × 37,84 % — her kr 75,68. Skjermingen er altså et <i>bunnfradrag</i> i utbyttet, ikke en lavere sats.</figcaption>
+</figure>
+
+<div class="callout mech"><span class="h">Hvorfor teller ubenyttet skjerming to ganger?</span>
+Fordi den gjør to forskjellige ting. For det første er den et fradrag som ikke ble brukt, og som derfor skal trekkes fra et senere utbytte. For det andre legges den til skjermingsgrunnlaget, slik at <i>neste års</i> fradrag beregnes av et større beløp. Konsekvensen er at framført skjerming forrenter seg: kr 100 ubrukt skjerming gir neste år 100 × 2 % = kr 2 i tillegg, oppå de 100 kronene selv. Glemmer du den andre virkningen, blir svaret systematisk for høyt, og det er nøyaktig det ene av de gale alternativene i H2024 oppgave 1d.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet 1: skjermingskjeden over tre år (H2024 oppgave 1)</span>
+<p>Kaia eier én aksje kjøpt for kr 10 000. Skjermingsrenten er 2 % i alle år <b>[eksempeltall]</b>. Hun mottar kr 500 i utbytte i år 1, kr 100 i år 2 og kr 400 i år 3. Oppgaven har fire deler, én per spørsmål, og de bygger på hverandre.</p>
+<table class="data">
+<tr><th>År</th><th class="n">Grunnlag S</th><th class="n">Årets fradrag</th><th class="n">Framført inn</th><th class="n">Samlet fradrag</th><th class="n">Utbytte</th><th class="n">Skattepliktig</th><th class="n">Framført ut</th></tr>
+<tr><td>1</td><td class="n">10 000</td><td class="n">200</td><td class="n">0</td><td class="n">200</td><td class="n">500</td><td class="n">300</td><td class="n">0</td></tr>
+<tr><td>2</td><td class="n">10 000</td><td class="n">200</td><td class="n">0</td><td class="n">200</td><td class="n">100</td><td class="n">0</td><td class="n">100</td></tr>
+<tr><td>3</td><td class="n">10 100</td><td class="n">202</td><td class="n">100</td><td class="n">302</td><td class="n">400</td><td class="n">98</td><td class="n">0</td></tr>
+</table>
+<p><b>Steg 1 — år 1, fradraget (deloppgave a).</b> I det første året er grunnlaget kostprisen alene, for ingenting er framført ennå: 10 000 × 2 % = <b>kr 200</b>.</p>
+<p><b>Steg 2 — år 1, skattepliktig utbytte (deloppgave b).</b> 500 − 200 = <b>kr 300</b>. Utbyttet var større enn fradraget, så hele fradraget er brukt opp og det framføres <b>ingenting</b>. Skriv den nullen ned; den er premisset for deloppgave c. Merk at spørsmålet ber om grunnlaget, ikke om skatten. Skatten ville vært 300 × 37,84 % = 113,52.</p>
+<p><b>Steg 3 — år 2 (deloppgave c).</b> Grunnlaget er fortsatt 10 000, og fradraget igjen 200. Skattepliktig utbytte blir 100 − 200 = −100, men skjermingen kan ikke gjøre inntekten negativ, så svaret er <b>kr 0</b>. De 100 kronene som ikke ble brukt, framføres.</p>
+<p><b>Steg 4 — år 3 (deloppgave d).</b> Nå slår begge virkningene inn. Grunnlaget: 10 000 + 100 = kr 10 100. Årets fradrag: 10 100 × 2 % = kr 202. Samlet fradrag: 202 + 100 = kr 302. Skattepliktig utbytte: 400 − 302 = <b>kr 98</b>, som gir en skatt på 98 × 37,84 % = 37,08 dersom oppgaven hadde spurt om det.</p>
+<p><b>Kontroll 1 — den framførte skjermingen forrenter seg.</b> Samlet fradrag i år 3 kan regnes som 100 × 1,02 + 10 000 × 2 % = 102 + 200 = <b>302</b>. Samme tall, annen vei. ✓</p>
+<p><b>Kontroll 2 — delene skal summere til helheten.</b> Utbyttene er 500 + 100 + 400 = 1 000. Skattepliktig utbytte er 300 + 0 + 98 = 398, og brukt skjerming er 200 + 100 + 302 = 602. 398 + 602 = <b>1 000</b>. ✓ Går ikke den summen opp, har du enten mistet eller doblet et fradrag.</p>
+<p><b>Hvilke gale tall feilene gir.</b> Glemmer du framføringen helt, får du 400 − 200 = <b>200</b>. Legger du den bare til grunnlaget uten å trekke den fra i tillegg, får du 400 − 202 = <b>198</b>. Skriver du ned årets fradrag alene, får du <b>202</b>; skriver du ned det samlede fradraget, får du <b>302</b>; skriver du ned den framførte resten, får du <b>100</b>. De tre siste sto som alternativ på eksamen sammen med det riktige 98 — hvert av dem er et korrekt mellomresultat plassert på feil linje.</p>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet 2: to år, to renter, to desimaler (H2025 oppgave 4)</span>
+<p>Sindre kjøpte en aksje i februar 2023 for kr 100 og hadde rett til utbytte i 2023, men selskapet betalte ingenting det året. Skjermingsrenten var 3,5 % i 2023 og 4 % i 2024 <b>[eksempeltall; de faktiske satsene var 3,2 % og 3,9 %]</b>. I 2024 mottok han kr 20 i utbytte. Hva er skattepliktig utbytte i 2024?</p>
+<p><b>Steg 1 — fradraget i 2023.</b> Grunnlaget er kostprisen kr 100. Fradrag: 100 × 3,5 % = <b>3,50</b>. Ingen utbytte, så hele beløpet framføres.</p>
+<p><b>Steg 2 — grunnlaget i 2024.</b> 100 + 3,50 = <b>103,50</b>. Dette leddet er hele oppgaven.</p>
+<p><b>Steg 3 — fradraget i 2024.</b> 103,50 × 4 % = <b>4,14</b>.</p>
+<table class="data">
+<tr><th>Post</th><th class="n">Beløp</th></tr>
+<tr><td>Utbytte 2024</td><td class="n">20,00</td></tr>
+<tr><td>− framført ubenyttet skjerming fra 2023</td><td class="n">−3,50</td></tr>
+<tr><td>− skjermingsfradrag 2024 (103,50 × 4 %)</td><td class="n">−4,14</td></tr>
+<tr><td><b>Skattepliktig utbytte</b></td><td class="n"><b>12,36</b></td></tr>
+</table>
+<p><b>Kontroll — la grunnlaget vokse.</b> I et år uten utbytte vokser grunnlaget med skjermingsrenten: 100 × 1,035 × 1,04 = 107,64. Samlet skjerming til disposisjon i 2024 er da 107,64 − 100 = <b>7,64</b>, som er nøyaktig 3,50 + 4,14. Og 20 − 7,64 = 12,36. ✓</p>
+<p><b>Hvilke gale tall feilene gir.</b> Regner du årets fradrag på kostprisen i stedet for på det oppjusterte grunnlaget, får du 100 × 4 % = 4,00 og svaret <b>12,50</b> — den vanligste feilen i hele temaet. Trekker du bare fra den framførte skjermingen, får du <b>16,50</b>; trekker du bare fra årets fradrag, får du <b>15,86</b>. På eksamen sto alternativene 16,12, 13,64 og 11,50 rundt det riktige svaret, plassert nettopp i disse klyngene.</p>
+</div>
+
+<div class="callout mistake"><span class="h">Ubenyttet skjerming er ikke penger på bok</span>
+Det er lett å lese den framførte resten som et tilgodehavende hos staten. Den er det ikke. Den er en <i>fradragsrett knyttet til den enkelte aksjen</i>, og den har bare verdi hvis den aksjen senere gir utbytte eller gevinst. Går selskapet konkurs, eller selger du med tap, går den ubenyttede skjermingen tapt uten kompensasjon. Den kan redusere en gevinst til null, men kan verken skape eller øke et fradragsberettiget tap. Det er denne asymmetrien Bjerksund og Schjelderup peker på når de hevder at aksjonærmodellen ikke er nøytral: staten tar del i oppsiden, men ikke fullt ut i nedsiden, og da lønner det seg å holde kapitalen i selskapet i stedet for å ta den ut.</div>
+
+<h3>5.4 Gevinst ved salg</h3>
+
+<p>Ved salg byttes utbyttet ut med en gevinst, men resten av rutinen er den samme. Framført ubenyttet skjerming trekkes fra gevinsten, og det som blir igjen oppjusteres én gang.</p>
+
+<div class="formula">
+  <div class="eq">Skattepliktig gevinst = salgspris − inngangsverdi − ubenyttet skjerming</div>
+  <div class="eq">Skatt = gevinst × f × t = gevinst × t<sub>e</sub></div>
+  <div class="where">Inngangsverdien er kostprisen, justert for innskutt eller nedskrevet egenkapital. I salgsåret gis det <i>ikke</i> noe nytt skjermingsfradrag dersom du ikke eier aksjen ved årsskiftet; bare den allerede framførte skjermingen kan brukes.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet 3: gevinst med framført skjerming (H2025 oppgave 10)</span>
+<p>Runar kjøpte en aksje for kr 100 i år 1 og selger den mot slutten av år 2 for kr 160. Han har kr 10 i ubenyttet skjermingsfradrag fra år 1. Oppgaven oppgir eierskatten som 22 % og oppjusteringsfaktoren som 1,72 <b>[samme som dagens regel]</b>.</p>
+<table class="data">
+<tr><th>Post</th><th class="n">Beløp</th></tr>
+<tr><td>Salgspris</td><td class="n">160</td></tr>
+<tr><td>− inngangsverdi</td><td class="n">−100</td></tr>
+<tr><td>− ubenyttet skjerming fra år 1</td><td class="n">−10</td></tr>
+<tr><td><b>Skattepliktig gevinst</b></td><td class="n"><b>50</b></td></tr>
+</table>
+<p><b>Steg 1 — gevinsten.</b> 160 − 100 − 10 = <b>50</b>.</p>
+<p><b>Steg 2 — oppjuster grunnlaget.</b> 50 × 1,72 = 86, og 86 × 22 % = <b>18,92</b>.</p>
+<p><b>Steg 3 — oppjuster satsen i stedet.</b> 1,72 × 22 % = 37,84 %, og 50 × 37,84 % = <b>18,92</b>. ✓ De to veiene skal gi identisk svar, og det er den billigste kontrollen i hele kapitlet.</p>
+<p><b>Kontroll.</b> Runar sitter igjen med 50 − 18,92 = 31,08, altså 62,16 % av gevinsten, som er nøyaktig 1 − 37,84 %. ✓</p>
+<p><b>Hvilke gale tall feilene gir.</b> Glemmer du oppjusteringen, får du 50 × 22 % = <b>11,00</b> — og 11 sto som alternativ på eksamen. Kjenn den igjen på formen: et glemt oppjusteringssvar er alltid 22/37,84 = <b>58 %</b> av det riktige. Ser du to alternativer der det ene er knapt seks tideler av det andre, er det oppjusteringsparet, og det høyeste av dem er som regel riktig. Glemmer du i stedet den ubenyttede skjermingen, blir gevinsten 60 og skatten 60 × 37,84 % = <b>22,70</b>. Bruker du en gammel faktor, gir 1,6 svaret 17,60 og 1,66 svaret 18,26; alternativet <b>18,2</b> ligger nettopp der, og fanger den som husker en faktor fra et annet år i stedet for å lese den som står i teksten. Og skatter du av selve skjermingen, 10 × 37,84 % = 3,78, lander du på lokkealternativet 3,89.</p>
+<p><b>Samme rutine, andre tall.</b> H2024 oppgave 2 er identisk bygget: kjøpt for 50, solgt for 60, ubenyttet skjerming 5. Gevinst 60 − 50 − 5 = 5; skatt 5 × 1,72 × 22 % = <b>1,89</b>. Der er fella at et glemt skjermingsfradrag dobler gevinsten fra 5 til 10 og gir 3,78, som ligger rett ved alternativet 3,89.</p>
+</div>
+
+<div class="callout warn"><span class="h">Årsskifteregelen: selger du før 31.12, får du ingen skjerming det året</span>
+Både utbytte og skjermingsfradrag tilordnes den som eier aksjen ved utgangen av året. Selger du i november, får du altså <i>ikke</i> årets skjermingsfradrag, bare den skjermingen som allerede er framført fra tidligere år. H2022 oppgave 1 tester nøyaktig dette: aksjen er kjøpt for kr 500 000, i 2022 er skjermingsrenten 10 % og det betales ikke utbytte, så 500 000 × 10 % = kr 50 000 framføres, og i 2023 selges aksjen for kr 550 000 før årsskiftet. Gevinsten blir 550 000 − 500 000 − 50 000 = <b>0</b>, og skatten null. Legger du på et skjermingsfradrag for salgsåret også, får du et negativt tall og velger feil alternativ.</div>
+
+<div class="callout tip"><span class="h">Slik spørres det</span>
+Skjerming og gevinst kommer i tre former. <b>Ett år, ett tall:</b> «hva er skjermingsfradraget i år 1» (H2024 oppgave 1a) — gratis poeng, bare les renten riktig. <b>Flere år med framføring:</b> H2024 oppgave 1c og 1d, H2025 oppgave 4, H2022 oppgave 2 — her er alle de gale alternativene korrekte mellomresultater eller regnestykker med ett ledd utelatt, så skriv ned grunnlag, årets fradrag og framført rest hver for seg før du subtraherer. <b>Gevinst med oppjustering:</b> H2024 oppgave 2, H2025 oppgave 10 — regn begge veier, og se etter 58 %-paret blant alternativene. I alle tre formene lønner det seg å regne ferdig før du ser på alternativene: tallene er lagt tett, og et halvferdig svar treffer nesten alltid et av dem.</div>
+
+<h3>5.5 Utbytte og formuesskatt i samme regnestykke</h3>
+
+<p>Eksamen liker å legge to skatter oppå den samme aksjeposten, fordi de har hvert sitt grunnlag og fristelsen er å blande dem. Eierskatten treffer <b>utbyttet minus skjermingsfradraget</b>. Formuesskatten treffer <b>aksjenes formuesverdi</b>, altså markedsverdien etter verdsettingsrabatt, og den løper én gang per år du eier dem. Skjermingsfradraget har ingenting med formuesskatten å gjøre, og rabatten har ingenting med eierskatten å gjøre.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet 4: to skatter over to år (H2025 oppgave 1)</span>
+<p>Per kjøpte børsnoterte aksjer i 2023 for kr 10 000 000, som er kostprisen. Han har rett til utbytte i 2023 og 2024. I 2023 mottar han kr 500 000 i utbytte og skjermingsrenten er 2 %; i 2024 kr 600 000 og skjermingsrenten er 4 %. Oppgaven oppgir <b>eierskatten som 40 %</b>, formuesskatten som 1 % og aksjerabatten som 20 % <b>[eksempeltall — dagens eierskatt er 37,84 %]</b>. Børsverdien er uendret. Se bort fra bunnfradrag. Hvor mye sitter Per igjen med av utbyttene?</p>
+<p><b>Steg 1 — skjermingsgrunnlaget begge år.</b> Utbyttet er i begge år større enn skjermingsfradraget, så det oppstår <b>ingen</b> ubenyttet skjerming å framføre. Grunnlaget er kr 10 000 000 begge år. Det er verdt å slå fast eksplisitt, for det er her flerårsfellen fra 5.3 ellers ville slått inn.</p>
+<p><b>Steg 2 — eierskatten i 2023.</b> Fradrag 10 000 000 × 2 % = 200 000. Skattepliktig utbytte 500 000 − 200 000 = 300 000. Skatt 300 000 × 40 % = <b>120 000</b>.</p>
+<p><b>Steg 3 — eierskatten i 2024.</b> Fradrag 10 000 000 × 4 % = 400 000. Skattepliktig utbytte 600 000 − 400 000 = 200 000. Skatt 200 000 × 40 % = <b>80 000</b>. Samlet eierskatt 120 000 + 80 000 = <b>200 000</b>.</p>
+<p><b>Steg 4 — formuesskatten.</b> Formuesverdi 10 000 000 × (1 − 20 %) = 8 000 000. Skatt per år 8 000 000 × 1 % = 80 000, og over to år <b>160 000</b>.</p>
+<table class="data">
+<tr><th>Post</th><th class="n">Beløp</th></tr>
+<tr><td>Mottatt utbytte 2023 + 2024</td><td class="n">1 100 000</td></tr>
+<tr><td>− eierskatt</td><td class="n">−200 000</td></tr>
+<tr><td>− formuesskatt, to år</td><td class="n">−160 000</td></tr>
+<tr><td><b>Igjen</b></td><td class="n"><b>740 000</b></td></tr>
+</table>
+<p><b>Kontroll.</b> Samlet skatt er 360 000 av 1 100 000, altså 32,73 %. Regnet motsatt vei: 1 100 000 × (1 − 0,3273) = <b>740 000</b>. ✓ At den samlede satsen ligger under den oppgitte eierskatten på 40 %, er også et rimelighetstegn: skjermingen tok 600 000 av utbyttet ut av grunnlaget og sparte 600 000 × 40 % = 240 000 i eierskatt, mer enn formuesskatten på 160 000 la til.</p>
+<p><b>Hvilke gale tall feilene gir.</b> Bruker du skjermingsfradraget bare i det første året, får du 1 100 000 − 360 000 − 160 000 = <b>580 000</b>, som sto som alternativ. Glemmer du formuesskatten helt, får du <b>900 000</b>. Regner du formuesskatten av full børsverdi uten rabatten, får du <b>700 000</b>. De to siste sto <i>ikke</i> blant alternativene, og det er et signal du skal lære å bruke: treffer tallet ditt ingen av de fire, har du gjort en feil, og da skal du regne om, ikke velge det nærmeste.</p>
+<p><b>En trykkfeil du bør kjenne.</b> Sensorveiledningen skriver i én setning at utbytteskatt og formuesskatt er «200 000 og 120 000». De 120 000 er eierskatten for 2023 som har havnet på feil linje; avsnittet over regner selv 80 000 per år i to år, og sluttsvaret 740 000 forutsetter 160 000. Riktig alternativ er ikke berørt.</p>
+</div>
+
+<div class="callout link"><span class="h">Videre til kapittel 7 og 8</span>
+Formuesverdien og rabattene er kapittel 7: der lærer du at aksjer og aksjefond verdsettes til 80 %, primærbolig til 25 % under terskelen, og hvordan gjelden fordeles forholdsmessig etter bruttoverdi og avkortes med rabatten for aksjer, men ikke for primærbolig. Kapittel 8 tar det neste spørsmålet: hvor stort utbytte må du ta for å <i>betale</i> formuesskatten når utbyttet selv beskattes. Svaret er D = τ<sub>w</sub>W/(1 − t<sub>e</sub>), og med formuesskatt kr 1 000 og eierskatt 50 % gir det 1 000/0,5 = kr 2 000, som er H2025 oppgave 6. Feilen som gir alternativet er å legge skatten oppå i stedet for å brutto-regne, altså 1 000 × 1,5 = 1 500.</div>
+
+<h3>5.6 Når oppgaven oppgir andre satser enn dagens</h3>
+
+<p>Satsene har endret seg, og eksamensoppgavene bruker satsene som gjaldt da settet ble laget, eller rene eksempeltall valgt for å gjøre regningen pen. Oppgaveteksten oppgir dem nesten alltid, og da er det oppgavens tall som gjelder, ikke det du husker.</p>
+
+<table class="data">
+<tr><th>Sett og oppgave</th><th class="n">Faktor f</th><th class="n">Sats t</th><th class="n">Eierskatt t<sub>e</sub></th><th>Merknad</th></tr>
+<tr><td>H2022 oppgave 1</td><td class="n">1,6</td><td class="n">25 %</td><td class="n">40,0 %</td><td>Oppgitt i teksten som «2020-regler»</td></tr>
+<tr><td>H2024 oppgave 2</td><td class="n">1,72</td><td class="n">22 %</td><td class="n">37,84 %</td><td>Som i dag</td></tr>
+<tr><td>H2025 oppgave 10</td><td class="n">1,72</td><td class="n">22 %</td><td class="n">37,84 %</td><td>Som i dag</td></tr>
+<tr><td>H2025 oppgave 1</td><td class="n">—</td><td class="n">—</td><td class="n">40 %</td><td>Eierskatten oppgitt direkte</td></tr>
+<tr><td><b>2026</b></td><td class="n"><b>1,72</b></td><td class="n"><b>22 %</b></td><td class="n"><b>37,84 %</b></td><td><b>[dagens regel]</b></td></tr>
+</table>
+
+<p>H2022 oppgave 1 er verdt å kjenne fordi den er den samme regnekjeden med andre tall: selskapet tjener kr 150 000 og betaler 22 % i selskapsskatt, altså kr 33 000. Utbyttet blir 150 000 − 33 000 = kr 117 000. Skjermingen er 500 000 × 5 % = kr 25 000, så skattepliktig utbytte er kr 92 000. Oppjustert: 92 000 × 1,6 = 147 200, og eierskatten 147 200 × 25 % = <b>kr 36 800</b>. Kontrollen den andre veien: 92 000 × 40 % = 36 800. ✓ Effektiv skatt på utbyttet er 36 800/117 000 = <b>31,5 %</b>, og samlet skatt på selskapets overskudd (33 000 + 36 800)/150 000 = <b>46,5 %</b>. Med dagens satser ville det siste tallet vært 51,52 %.</p>
+
+<div class="callout warn"><span class="h">Satsen i oppgaveteksten går alltid foran hukommelsen</span>
+Med minuspoeng koster en gammel sats dobbelt. Tre ting å sjekke i teksten før du regner: <b>hvilken skjermingsrente</b> som gjelder hvert år, om <b>eierskatten</b> er oppgitt som en faktor og en sats som skal ganges sammen eller som én ferdig prosent, og om oppgaven ber om <b>skattepliktig grunnlag eller skattebeløp</b>. Det siste er den billigste feilen som finnes: H2024 oppgave 1b spør om skattepliktig utbytte og har kr 300 som riktig svar, mens skatten av det samme beløpet er 113,52. Er ingen av alternativene skattebeløp, ber oppgaven om grunnlaget.</div>
+
+</section>

@@ -1,0 +1,252 @@
+<section id="k11">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="part">Del III — Skatteteori</h2>
+<h2 class="chap">11 · Hvem betaler skatten: insidens og elastisiteter</h2>
+
+<p class="lead-in">Dette er kursets mest testede enkelttema. Åtte av ni eksamenssett har hatt minst ett spørsmål om stykkskatt-insidens, og temaet tar 11,6 % av poengene i snitt — mer enn skjerming, mer enn formuesskatt, mer enn noe annet. Det kommer i to former på flervalg, og du må beherske begge: H2024 oppgave 8 ga ni poeng for å kjenne igjen tre uttrykk blant fire nesten like brøker, og H2025 oppgave 8 ga tre poeng for å regne to grensetilfeller i hodet på under et minutt. Til gjengjeld hviler alt på én derivasjon på fire linjer og én kontroll som avslører feil svar på ti sekunder. Lær de to, og du har trolig kursets billigste poeng.</p>
+
+<h3>11.1 Formell og reell insidens, og hvorfor de er to forskjellige ting</h3>
+
+<p>Butikken krever inn momsen på melk. Arbeidsgiveren betaler inn arbeidsgiveravgiften. Selskapet betaler inn selskapsskatten. Dette er den <b>formelle</b> insidensen: hvem loven pålegger å overføre pengene til staten. Den <b>reelle</b> insidensen er noe helt annet — hvem som til slutt får lavere velferd fordi skatten finnes. De to trenger ikke være i nærheten av hverandre.</p>
+
+<p>Forelesningens innfallsvinkel er et spørsmål du kan svare på uten algebra: legges det et momspåslag på 25 % på melk som koster kr 20, går prisen da til kr 25? Nei. Butikken ville tapt for mange kunder på å velte hele avgiften over, så den tar en del av den selv, og hvor stor delen er avhenger av hvor prisfølsomme kundene er. Det gjelder i motsatt retning også: redusert matmoms gir ikke tilsvarende lavere matpriser. [eksempeltall: prisen kr 20 og påslaget på 25 % er forelesningens egne illustrasjonstall, ikke en avgiftssats du skal lære.]</p>
+
+<p>Oppsettet du skal regne på er en <b>stykkskatt</b>: t kroner per enhet solgt, innkrevd av produsentene. Konsumentprisen P er det kjøperen betaler; produsentprisen p er det selgeren sitter igjen med etter at t er sendt til staten. Skatten er kilen mellom dem:</p>
+
+<div class="formula">
+  <div class="eq">P = p + t</div>
+  <div class="eq">Likevekt: D(P) = S(p) &nbsp;⟺&nbsp; D(p + t) = S(p)</div>
+  <div class="where">D er etterspurt mengde som funksjon av prisen kjøperen møter, S er tilbudt mengde som funksjon av prisen selgeren møter. Skriv likevekten på formen D(p + t) = S(p) når du skal finne produsentprisen, og på formen D(P) = S(P − t) når du skal finne konsumentprisen. De to er samme ligning.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor spiller det ingen rolle hvem som betaler inn skatten?</span>
+Legg skatten på kjøperen i stedet. Da er det kjøperen som betaler p til selgeren og t til staten, altså P = p + t igjen, og likevektsbetingelsen blir bokstavelig talt den samme ligningen: D(p + t) = S(p). Ingenting i utledningen refererer til hvem som fyller ut skjemaet. Det er derfor forelesningens nøkkelsetning lyder at hvem som krever inn skatten på vegne av staten ikke betyr noe for hvem som reelt sett betaler den. Det eneste som avgjør fordelingen, er <b>helningene</b> på tilbuds- og etterspørselskurven. Standardeksempelet er den amerikanske arbeidsgiveravgiften, som formelt deles likt mellom arbeidsgiver og arbeidstaker, mens standardsynet i faget er at arbeidstakeren bærer hele skatten.</div>
+
+<h3>11.2 Utledningen, steg for steg</h3>
+
+<p>Nå deriverer du likevekten. Poenget er å finne ut hvor mye produsentprisen p endrer seg når skatten t øker med én krone. Start med likevekten skrevet i produsentprisen, og deriver begge sider med hensyn på t. Venstresiden er en sammensatt funksjon: argumentet p + t endrer seg med (∂p/∂t + 1) når t øker med én enhet, fordi p selv beveger seg.</p>
+
+<div class="formula">
+  <div class="eq">D(p + t) = S(p)</div>
+  <div class="eq">D′(P) × (∂p/∂t + 1) = S′(p) × ∂p/∂t</div>
+  <div class="eq">D′ × ∂p/∂t + D′ = S′ × ∂p/∂t</div>
+  <div class="eq">D′ = (S′ − D′) × ∂p/∂t</div>
+  <div class="eq"><b>∂p/∂t = D′(P) / (S′(p) − D′(P))</b></div>
+  <div class="eq">∂P/∂t = ∂p/∂t + 1 = D′/(S′ − D′) + (S′ − D′)/(S′ − D′)</div>
+  <div class="eq"><b>∂P/∂t = S′(p) / (S′(p) − D′(P))</b></div>
+  <div class="where">Flytt alle leddene med ∂p/∂t over på én side, faktoriser, og del. Nevneren ble S′ − D′ og ikke D′ − S′, fordi leddet D′ × ∂p/∂t byttet fortegn da det ble flyttet. Konsumentprisen krever ingen ny derivasjon: den følger av kilen P = p + t, som gir ∂P/∂t = ∂p/∂t + 1, og du legger til 1 ved å skrive 1 som (S′ − D′)/(S′ − D′). Telleren i D′ + S′ − D′ er S′. De to uttrykkene er altså identiske bortsett fra telleren — D′ gir produsentprisen, S′ gir konsumentprisen — og på eksamen står de som alternativer i hverandres spørsmål.</div>
+</div>
+
+<h3>11.3 Fortegnene, og kontrollen som avslører alt</h3>
+
+<p>Algebraen er ferdig. Nå kommer den delen som faktisk gir poeng på flervalg, for du skal sjelden regne ut brøken — du skal kjenne igjen den riktige blant fire. To fortegn er gitt av økonomien og forandrer seg aldri: <b>D′ &lt; 0</b>, fordi etterspurt mengde faller når prisen kjøperen møter stiger, og <b>S′ &gt; 0</b>, fordi tilbudt mengde stiger når prisen selgeren får stiger. Da følger tre ting, og de tre er hele filteret ditt:</p>
+
+<ul>
+<li><b>Nevneren er alltid strengt positiv.</b> S′ − D′ = S′ + |D′|, en positiv pluss en positiv. Den kan aldri bli null eller negativ, og du trenger aldri bekymre deg for fortegnsskifte i brøken.</li>
+<li><b>∂p/∂t ligger mellom −1 og 0.</b> Negativ teller, positiv nevner, og |D′| er mindre enn S′ + |D′|. Produsentprisen faller, men aldri med mer enn hele skatten.</li>
+<li><b>∂P/∂t ligger mellom 0 og 1.</b> Positiv teller, positiv nevner, teller mindre enn nevner. Konsumentprisen stiger, men aldri med mer enn hele skatten.</li>
+</ul>
+
+<p>Og så kommer kontrollen. Den er den beste i hele faget, fordi den er en identitet: den holder uansett hvordan kurvene ser ut, og den tar ti sekunder.</p>
+
+<div class="formula">
+  <div class="eq">∂P/∂t − ∂p/∂t = S′/(S′ − D′) − D′/(S′ − D′) = (S′ − D′)/(S′ − D′) = 1</div>
+  <div class="where">Differansen mellom konsumentprisen og produsentprisen <i>er</i> skatten, per definisjon: P − p = t. Da må den deriverte av differansen være nøyaktig 1. Konsumentens andel av skatten er S′/(S′ − D′), produsentens er |D′|/(S′ − D′), og de to summerer alltid til én. Skatten fordeles fullt ut mellom de to sidene — aldri mer, aldri mindre.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: fortegnene, kontrollen og de fire alternativene fra H2024 oppgave 8</span>
+<p>Sett D′ = −2 og S′ = 3. Det er ikke ekte tall fra noen oppgave, bare to lovlige helninger [eksempeltall], og hele poenget er at kontrollen skal virke uansett hvilke lovlige tall du velger.</p>
+<p><b>Steg 1 — nevneren.</b> S′ − D′ = 3 − (−2) = <b>5</b>. Positiv, som den alltid er. Merk at et minus foran et negativt tall ble et pluss; det er her de fleste fortegnsfeilene oppstår.</p>
+<p><b>Steg 2 — produsentprisen.</b> ∂p/∂t = D′/(S′ − D′) = −2/5 = <b>−0,40</b>. Produsenten sitter igjen med 40 øre mindre per enhet for hver krone skatt.</p>
+<p><b>Steg 3 — konsumentprisen.</b> ∂P/∂t = S′/(S′ − D′) = 3/5 = <b>+0,60</b>. Kjøperen betaler 60 øre mer. Byrden deles 60/40, og delingen kommer utelukkende av at tilbudet reagerer sterkere på pris enn etterspørselen gjør: S′ = 3 mot |D′| = 2. Den siden som reagerer minst, er etterspørselen, og den bærer mest.</p>
+<p><b>Steg 4 — kontrollen.</b> 0,60 − (−0,40) = <b>1,00</b>. ✓ Hele skatten er fordelt.</p>
+<p><b>Steg 5 — kjør de gale alternativene gjennom samme kontroll.</b> Dette er selve ferdigheten oppgaven tester. H2024 oppgave 8a hadde fire uttrykk for ∂p/∂t, og med D′ = −2 og S′ = 3 gir de:</p>
+<table class="data">
+<tr><th>Alternativ</th><th class="n">Verdi</th><th>Hva som avslører det</th></tr>
+<tr><td>(D′ − S′)/(S′ − D′)</td><td class="n">−1,00</td><td>Telleren er minus nevneren, så brøken er identisk lik −1 <i>uansett</i> kurver. Et generelt insidensuttrykk kan ikke være en konstant</td></tr>
+<tr><td><b>D′/(S′ − D′)</b></td><td class="n"><b>−0,40</b></td><td>Riktig: negativ, mellom −1 og 0</td></tr>
+<tr><td>D′/S′</td><td class="n">−0,67</td><td>Nevneren mangler leddet fra etterspørselen. Paret blir da −0,67 og S′/S′ = 1, med differanse 1,67 ≠ 1</td></tr>
+<tr><td>S′/(S′ − D′)</td><td class="n">+0,60</td><td>Positiv. En skatt på produsentene kan ikke løfte produsentprisen. Dette er svaret på 8b</td></tr>
+</table>
+<p><b>Steg 6 — samme filter på 8b.</b> Der var distraktoren (S′ − D′)/S′ = 5/3 = <b>1,67</b>, altså over 1. Konsumentprisen kan ikke stige med mer enn skatten, så alternativet strykes uten regning.</p>
+<p><b>En annen parametrisering, for å se at delingen er helningene og ingenting annet.</b> Sett D′ = −8 og S′ = 2, altså mye mer prisfølsomme kjøpere og lite prisfølsomme selgere. Nevneren blir 2 − (−8) = 10. Da er ∂p/∂t = −8/10 = <b>−0,80</b> og ∂P/∂t = 2/10 = <b>+0,20</b>: produsenten bærer 80 % av skatten. <b>Kontroll:</b> 0,20 − (−0,80) = 1,00. ✓ Samme formel, motsatt fordeling, fordi den minst prisfølsomme siden byttet plass.</p>
+</div>
+
+<div class="callout warn"><span class="h">Store P og lille p er ikke det samme spørsmålet</span>
+Fasitene til H2025 oppgave 8b og 8c er henholdsvis kr 1,50 og kr 1,00, og hvert av de to tallene står som alternativ i det <i>andre</i> spørsmålet. Det samme gjelder H2024 8a og 8b, der riktig svar på det ene er et av alternativene i det andre. Skriv derfor ned hvilken pris oppgaven spør om <i>før</i> du regner: P er prisen kjøperen betaler, p er prisen selgeren beholder. Med minuspoengene fra 2026 er avstanden mellom rett og galt fire poeng, ikke tre.</div>
+
+<h3>11.4 De fire grensetilfellene, og elastisitetsregelen</h3>
+
+<p>Grensetilfellene er der flervalgsspørsmålene faktisk lander, fordi de kan regnes uten kalkulator. Sett helningen til 0 eller la den gå mot uendelig, og brøkene kollapser. Alle fire følger av de to formlene alene:</p>
+
+<table class="data">
+<tr><th>Tilfelle</th><th>Helning</th><th class="n">∂P/∂t</th><th class="n">∂p/∂t</th><th>Hvem bærer</th><th>Typisk eksempel</th></tr>
+<tr><td>Perfekt uelastisk etterspørsel</td><td>D′ = 0</td><td class="n">1</td><td class="n">0</td><td>konsumenten alt</td><td>insulin</td></tr>
+<tr><td>Perfekt elastisk tilbud</td><td>S′ → ∞</td><td class="n">1</td><td class="n">0</td><td>konsumenten alt</td><td>gitt verdensmarkedspris</td></tr>
+<tr><td>Perfekt uelastisk tilbud</td><td>S′ = 0</td><td class="n">0</td><td class="n">−1</td><td>produsenten alt</td><td>fast tomtegrunn</td></tr>
+<tr><td>Perfekt elastisk etterspørsel</td><td>D′ → −∞</td><td class="n">0</td><td class="n">−1</td><td>produsenten alt</td><td>perfekte substitutter</td></tr>
+</table>
+
+<p>Regn dem én gang selv, så slipper du å pugge tabellen. D′ = 0 gir ∂p/∂t = 0/(S′ − 0) = 0 og ∂P/∂t = S′/S′ = 1. S′ = 0 gir ∂P/∂t = 0/(0 − D′) = 0 og ∂p/∂t = D′/(−D′) = −1. Grensene S′ → ∞ og D′ → −∞ er de samme to utfallene sett fra motsatt side: det er alltid <i>forholdet</i> mellom helningene som teller, så en uendelig bratt kurve og en flat motpart gir samme svar.</p>
+
+<p>Skriver du det samme i elastisiteter, blir regelen mulig å si i én setning. Elastisitetene er ε<sub>D</sub> = D′ × P/x og ε<sub>S</sub> = S′ × p/x, og i utgangspunktet er P = p, så faktoren P/x er felles og forkortes bort:</p>
+
+<div class="formula">
+  <div class="eq">Konsumentens andel av skatten = ε<sub>S</sub> / (ε<sub>S</sub> + |ε<sub>D</sub>|)</div>
+  <div class="eq">Produsentens andel av skatten = |ε<sub>D</sub>| / (ε<sub>S</sub> + |ε<sub>D</sub>|)</div>
+  <div class="where">Andelene summerer til 1, som de må. Regelen i én setning: <b>den minst elastiske siden bærer skatten</b>, fordi den har færrest alternativer å rømme til. Er ε<sub>D</sub> = 0, blir konsumentens andel ε<sub>S</sub>/ε<sub>S</sub> = 1. Er ε<sub>S</sub> = 0, blir den 0.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor bærer den minst prisfølsomme siden mest?</span>
+Fordi prisfølsomhet er det samme som å ha et alternativ. Kan kjøperen droppe varen eller kjøpe noe annet uten særlig tap, forsvinner omsetningen hvis prisen stiger, og selgeren tør ikke velte skatten over. Må kjøperen ha varen uansett — insulin er standardeksempelet — koster det ingenting å velte hele skatten over, for kvantumet faller likevel ikke. Symmetrien er eksakt på tilbudssiden: kan produsenten flytte kapitalen sin til en annen næring, må prisen kjøperen betaler bære skatten; kan han ikke, som med en fast tomt, må han bære den selv. Insidens er derfor et spørsmål om mobilitet, ikke om moral eller lovtekst.</div>
+
+<figure>
+<svg viewBox="0 0 720 350" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="To diagrammer med tilbud og etterspørsel. Venstre panel viser en stykkskatt på 1 krone som løfter tilbudskurven, slik at konsumentprisen stiger fra 5,00 til 5,60 og produsentprisen faller til 4,60, kvantumet fra 100 til 90, med en dødvektstapstrekant mellom de to likevektene. Høyre panel viser perfekt uelastisk etterspørsel som en loddrett kurve: konsumentprisen stiger med hele skatten fra 5,00 til 6,00, produsentprisen er uendret og kvantumet er uendret, så det finnes ingen dødvektstapstrekant."
+     font-family="Georgia,serif" font-size="13">
+
+  <text x="200" y="26" text-anchor="middle" fill="#333" font-weight="bold">Frikonkurranse: skattekilen</text>
+  <text x="565" y="26" text-anchor="middle" fill="#333" font-weight="bold">Perfekt uelastisk etterspørsel</text>
+
+  <line x1="60" y1="290" x2="345" y2="290" stroke="#333" stroke-width="1.4"/>
+  <line x1="60" y1="290" x2="60"  y2="45"  stroke="#333" stroke-width="1.4"/>
+
+  <path d="M177,155 L230,200 L177,230 Z" fill="#b06000" fill-opacity="0.14"/>
+
+  <line x1="60" y1="155" x2="177" y2="155" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="60" y1="200" x2="230" y2="200" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="60" y1="230" x2="177" y2="230" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="177" y1="155" x2="177" y2="290" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="230" y1="200" x2="230" y2="290" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+  <path d="M70,65 L310,268" stroke="#6b1f2a" stroke-width="2.3" fill="none"/>
+  <path d="M97,275 L310,155" stroke="#2f5a3f" stroke-width="2.3" fill="none"/>
+  <path d="M97,200 L310,80" stroke="#2f5a3f" stroke-width="2.1" fill="none" stroke-dasharray="5 4"/>
+
+  <line x1="177" y1="155" x2="177" y2="230" stroke="#b06000" stroke-width="4"/>
+  <text x="185" y="197" fill="#b06000" font-size="12">t = 1</text>
+
+  <circle cx="230" cy="200" r="3.4" fill="#333"/>
+  <circle cx="177" cy="155" r="3.4" fill="#333"/>
+  <circle cx="177" cy="230" r="3.4" fill="#333"/>
+
+  <text x="314" y="272" fill="#6b1f2a" font-weight="bold">D</text>
+  <text x="314" y="158" fill="#2f5a3f" font-weight="bold">S</text>
+  <text x="300" y="72"  fill="#2f5a3f" font-weight="bold">S + t</text>
+
+  <text x="55" y="159" text-anchor="end" fill="#555" font-size="11">5,60</text>
+  <text x="55" y="204" text-anchor="end" fill="#555" font-size="11">5,00</text>
+  <text x="55" y="234" text-anchor="end" fill="#555" font-size="11">4,60</text>
+  <text x="177" y="306" text-anchor="middle" fill="#555" font-size="11">90</text>
+  <text x="230" y="306" text-anchor="middle" fill="#555" font-size="11">100</text>
+  <text x="200" y="330" text-anchor="middle" fill="#555" font-size="12">Kvantum</text>
+  <text x="26" y="170" text-anchor="middle" fill="#555" font-size="12" transform="rotate(-90 26 170)">Pris</text>
+
+  <line x1="245" y1="270" x2="232" y2="205" stroke="#b06000" stroke-width="0.8"/>
+  <text x="240" y="283" fill="#b06000" font-size="10">dødvektstap</text>
+
+  <line x1="430" y1="290" x2="700" y2="290" stroke="#333" stroke-width="1.4"/>
+  <line x1="430" y1="290" x2="430" y2="45"  stroke="#333" stroke-width="1.4"/>
+
+  <line x1="430" y1="125" x2="560" y2="125" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="430" y1="200" x2="560" y2="200" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="560" y1="200" x2="560" y2="290" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+  <path d="M560,52 L560,290" stroke="#6b1f2a" stroke-width="2.3" fill="none"/>
+  <path d="M470,263 L670,123" stroke="#2f5a3f" stroke-width="2.3" fill="none"/>
+  <path d="M470,188 L670,48"  stroke="#2f5a3f" stroke-width="2.1" fill="none" stroke-dasharray="5 4"/>
+
+  <line x1="560" y1="125" x2="560" y2="200" stroke="#b06000" stroke-width="4"/>
+  <text x="568" y="167" fill="#b06000" font-size="12">t = 1</text>
+
+  <circle cx="560" cy="125" r="3.4" fill="#333"/>
+  <circle cx="560" cy="200" r="3.4" fill="#333"/>
+
+  <text x="566" y="62"  fill="#6b1f2a" font-weight="bold">D</text>
+  <text x="676" y="122" fill="#2f5a3f" font-weight="bold">S</text>
+  <text x="600" y="60"  fill="#2f5a3f" font-weight="bold">S + t</text>
+
+  <text x="425" y="129" text-anchor="end" fill="#555" font-size="11">6,00</text>
+  <text x="425" y="204" text-anchor="end" fill="#555" font-size="11">5,00</text>
+  <text x="560" y="306" text-anchor="middle" fill="#555" font-size="11">100</text>
+  <text x="565" y="330" text-anchor="middle" fill="#555" font-size="12">Kvantum</text>
+  <text x="634" y="252" text-anchor="middle" fill="#b06000" font-size="11">kvantum uendret,</text>
+  <text x="634" y="266" text-anchor="middle" fill="#b06000" font-size="11">ingen trekant</text>
+</svg>
+<figcaption>Figur 11.1 — Til venstre: en stykkskatt på 1 krone løfter tilbudskurven med nøyaktig t. Konsumentprisen går fra 5,00 til 5,60 og produsentprisen ned til 4,60, mens kvantumet faller fra 100 til 90. Den oransje loddrette streken er skattekilen, og hele lengden er t; den fordeler seg 0,60 over og 0,40 under den gamle prisen, fordi etterspørselskurven her er den bratteste av de to og altså den minst prisfølsomme. Trekanten mellom de to likevektene er dødvektstapet, som seksjon 11.5 setter tall på. Til høyre: samme skatt, men etterspørselen er loddrett. Da flytter tilbudsskiftet ingenting annet enn prisen — konsumentprisen stiger med hele kronen til 6,00, produsentprisen står stille på 5,00, kvantumet er uendret, og det finnes ingen trekant å tegne.</figcaption>
+</figure>
+
+<div class="worked"><span class="wh">Gjennomregnet: H2025 oppgave 8 — to grensetilfeller med tall</span>
+<p>Oppgaven gir et frikonkurransemarked med likevektspris <b>kr 1,50</b> og en stykkskatt på <b>kr 0,50</b> ilagt tilbyderne [eksempeltall fra oppgaveteksten]. Tre delspørsmål, ett poeng hver, og ingen av dem krever kalkulator.</p>
+<p><b>Steg 1 — skriv ned kilen først.</b> P = p + t med t = 0,50. Uansett hva elastisitetene er, må de tre tallene til slutt gå opp: det kjøperen betaler, minus det staten får, er det selgeren beholder.</p>
+<p><b>Steg 2 — delspørsmål a: perfekt uelastisk etterspørsel, elastisk tilbud.</b> D′ = 0 gir ∂P/∂t = S′/(S′ − 0) = <b>1</b> og ∂p/∂t = 0/(S′ − 0) = <b>0</b>. Konsumentprisen stiger med hele skatten: P = 1,50 + 0,50 = <b>kr 2,00</b>. Produsentprisen er uendret på kr 1,50 — selgeren tar imot 2,00, betaler 0,50 til staten og beholder 1,50, akkurat som før.</p>
+<p><b>Steg 3 — delspørsmål b: perfekt elastisk etterspørsel.</b> Nå er etterspørselskurven vannrett i kr 1,50: kjøperne tar alt til den prisen og ingenting over. D′ → −∞ gir ∂P/∂t = S′/(S′ + ∞) = <b>0</b>. Konsumentprisen er <b>uendret på kr 1,50</b>.</p>
+<p><b>Steg 4 — delspørsmål c: hva produsenten sitter igjen med i tilfelle b.</b> Bruk kilen: p = P − t = 1,50 − 0,50 = <b>kr 1,00</b>. Formelen sier det samme: ∂p/∂t = D′/(S′ − D′) → −∞/(+∞) = −1, altså faller produsentprisen med hele skatten.</p>
+<p><b>Kontroll:</b> konsumentens andel ∂P/∂t og produsentens andel |∂p/∂t| skal summere til 1 — i a er det 1 + 0, i b og c er det 0 + 1. Og i alle tre går kronene opp: 2,00 − 0,50 = 1,50 i a, og 1,50 − 0,50 = 1,00 i b og c. ✓ Legg merke til at skatten ble lagt på tilbyderne i <i>begge</i> tilfellene, og at de likevel bærer 0 i det ene og alt i det andre.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Alternativene i 8a var kr 2,00, kr 2,50, kr 3,00 og kr 3,50. <b>2,50</b> er skatten lagt på to ganger (1,50 + 0,50 + 0,50). <b>3,00</b> er likevektsprisen doblet. <b>3,50</b> er begge feilene sammen. Alle tre bryter den samme øvre grensen: med stigende tilbudskurve kan konsumentprisen aldri stige med mer enn t, så P kan ikke overstige 1,50 + 0,50 = 2,00. Du kan altså krysse av riktig svar uten å regne. I 8b og 8c er fella en annen: <b>2,00</b> er svaret fra forrige delspørsmål, som du drar med deg hvis du overser den ene setningen som byttet elastisitetene, og <b>1,50</b> og <b>1,00</b> står som alternativer i hverandres spørsmål.</p>
+</div>
+
+<div class="callout tip"><span class="h">Slik spørres det</span>
+Temaet kommer i tre former, og alle tre er dokumentert i settene. <b>(1) Formelgjenkjenning.</b> Fire nesten like brøker, og du skal peke på ∂p/∂t eller ∂P/∂t: H2024 oppgave 8a, 8b og 8c, ni poeng til sammen; tidligere H2019 oppgave 5, der riktig svar var ∂P/∂t = S′/(S′ − D′). Fella er alltid en av tre: teller og nevner byttet om, D′ − S′ i telleren, eller nevneren forkortet til S′ alene. <b>(2) Grensetilfellet med tall.</b> H2025 oppgave 8a–c og H2020 oppgave 1b, der D′ = 0 gir ∂P/∂t = 1 og insulinprisen stiger med hele skatten; H2022 oppgave 3 kombinerer loddrett etterspørsel og vannrett tilbud og spør hva som skjer med kvantum og konsumentpris. <b>(3) Utledningen skriftlig</b>, fra de åpne settene: H2016 oppgave 1a–c og H2018 oppgave 4a–b ba om selve derivasjonen pluss ett grensetilfelle, og H2016 1b ba om forholdet (∂P/∂t)/(∂p/∂t) = S′/D′. Den kommer neppe tilbake i den formen, men den som kan utlede, gjenkjenner også.</div>
+
+<h3>11.5 Dødvektstapet: hvorfor skatten koster mer enn den innbringer</h3>
+
+<p>Insidensen sier hvem som bærer skatten. Dødvektstapet sier hvor mye som forsvinner underveis. Skatten flytter t kroner per enhet fra markedet til staten, men den flytter også kvantumet: noen handler som begge parter ville tjent på, blir ikke gjennomført, og gevinsten fra dem tilfaller ingen. Det er dét tapet trekanten i figur 11.1 måler.</p>
+
+<div class="formula">
+  <div class="eq">Proveny = t × x<sub>t</sub></div>
+  <div class="eq">Dødvektstap ≈ ½ × t × (x<sub>0</sub> − x<sub>t</sub>) = ½ × t<sup>2</sup> × |S′ × D′| / (S′ − D′)</div>
+  <div class="eq">I elastisiteter: Dødvektstap = ½ × (t/P)<sup>2</sup> × (P × x) × ε<sub>S</sub>|ε<sub>D</sub>| / (ε<sub>S</sub> + |ε<sub>D</sub>|)</div>
+  <div class="where">x<sub>0</sub> er kvantumet før skatten, x<sub>t</sub> etter. Kvantumsfallet er ∂x/∂t = S′ × ∂p/∂t = S′D′/(S′ − D′), som er negativt. Den siste formen viser hvor tapet kommer fra: det vokser med <b>kvadratet</b> av skattesatsen målt i prosent av prisen, med omsetningen P × x, og med begge elastisitetene gjennom leddet ε<sub>S</sub>|ε<sub>D</sub>|/(ε<sub>S</sub> + |ε<sub>D</sub>|). Er én av dem null, er hele produktet null.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor gir en skatt på noe helt uelastisk ikke noe dødvektstap i det hele tatt?</span>
+Fordi dødvektstapet er en pris på <i>tilpasning</i>, ikke på skattebetaling. Trekanten består av handler som ikke lenger skjer. Er etterspørselen perfekt uelastisk, faller kvantumet ikke: alle handlene skjer som før, staten henter inn t per enhet, og det eneste som har skjedd er at penger har flyttet seg fra kjøper til stat. Fordelingen kan man mislike, men effektivitetstapet er null. Det er det samme resonnementet som ligger under <b>Ramsey-regelen</b> hos Sandmo, som sier at et gitt proveny kreves inn med minst mulig vridning når satsen settes høyest der tilbudet eller etterspørselen er mest uelastisk. Merk at insidens og effektivitet da trekker i hver sin retning: den skatten som gir minst dødvektstap, er også den som treffer kjøperen hardest.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: forelesningens stykkskatt på 1 krone, med hele regnskapet</span>
+<p>Markedet har likevektspris <b>5</b> og kvantum <b>100</b> før skatt. Myndighetene legger en stykkskatt på <b>1</b> krone på produsentene. Ny likevekt blir P = <b>5,60</b> og x = <b>90</b> [eksempeltall fra forelesning 9].</p>
+<table class="data">
+<tr><th>Størrelse</th><th class="n">Før skatt</th><th class="n">Etter skatt</th></tr>
+<tr><td>Konsumentpris P</td><td class="n">5,00</td><td class="n">5,60</td></tr>
+<tr><td>Produsentpris p</td><td class="n">5,00</td><td class="n">4,60</td></tr>
+<tr><td>Kvantum x</td><td class="n">100</td><td class="n">90</td></tr>
+</table>
+<p><b>Steg 1 — delingen, direkte fra tallene.</b> Konsumenten betaler 5,60 − 5,00 = <b>0,60</b> mer. Produsenten sitter igjen med 5,60 − 1 = 4,60 og bærer 5,00 − 4,60 = <b>0,40</b>. Delingen er 60/40, og 0,60 + 0,40 = 1,00 = t. ✓</p>
+<p><b>Steg 2 — les helningene ut av tallene, og sjekk mot formelen.</b> Langs etterspørselen: D′ = Δx/ΔP = (90 − 100)/(5,60 − 5,00) = −10/0,60 = <b>−16,67</b>. Langs tilbudet: S′ = Δx/Δp = (90 − 100)/(4,60 − 5,00) = −10/(−0,40) = <b>25</b>. Nevneren blir 25 − (−16,67) = <b>41,67</b>, og</p>
+<p>∂p/∂t = −16,67/41,67 = <b>−0,40</b> &nbsp;og&nbsp; ∂P/∂t = 25/41,67 = <b>+0,60</b>. ✓ Formelen gjenskaper delingen fra steg 1.</p>
+<p><b>Steg 3 — samme svar i elastisiteter.</b> ε<sub>D</sub> = D′ × P/x = −16,67 × 5/100 = <b>−0,83</b>, og ε<sub>S</sub> = 25 × 5/100 = <b>1,25</b>. Konsumentens andel = 1,25/(1,25 + 0,83) = 1,25/2,08 = <b>0,60</b>. ✓ Tilbudet er halvannen gang så elastisk som etterspørselen, og kjøperen bærer derfor halvannen gang så mye.</p>
+<p><b>Steg 4 — provenyet.</b> t × x<sub>t</sub> = 1 × 90 = <b>90</b>. Merk at det er det <i>nye</i> kvantumet som gjelder; regner du med 100, overvurderer du provenyet med 10.</p>
+<p><b>Steg 5 — dødvektstapet.</b> ½ × 1 × (100 − 90) = <b>5</b>. Formelen gir det samme: ½ × 1<sup>2</sup> × |25 × (−16,67)|/41,67 = ½ × 416,7/41,67 = ½ × 10 = <b>5</b>. Og i elastisitetsform: ½ × (1/5)<sup>2</sup> × 500 × (1,25 × 0,83)/2,08 = ½ × 0,04 × 500 × 0,50 = <b>5</b>. ✓ Tre veier, samme tall.</p>
+<p><b>Kontroll — hele velferdsregnskapet skal gå opp.</b> Konsumentene taper 0,60 på hver av de 90 enhetene de fortsatt kjøper, pluss trekanten på de ti som forsvant: 0,60 × 90 + ½ × 0,60 × 10 = 54 + 3 = <b>57</b>. Produsentene taper 0,40 × 90 + ½ × 0,40 × 10 = 36 + 2 = <b>38</b>. Samlet tap 57 + 38 = <b>95</b>, hvorav staten får 90. Differansen 95 − 90 = <b>5</b> er dødvektstapet, og den stemmer med steg 5. ✓ Dette er den grundigste kontrollen i kapitlet: den knytter insidens, proveny og effektivitetstap sammen i ett regnskap.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Proveny regnet med gammelt kvantum: <b>100</b> i stedet for 90. Dødvektstap uten halvparten: <b>10</b> i stedet for 5. Konsumentens tap regnet som ren prisøkning uten trekanten: <b>54</b> i stedet for 57. Og den klassiske: produsentens byrde satt til 5,60 − 4,60 = 1,00, altså hele skatten, fordi man forveksler kilen med byrden. Kilen er alltid t; <i>byrden</i> er hvor mye hver side har flyttet seg fra den opprinnelige prisen 5,00.</p>
+</div>
+
+<h3>11.6 Når frikonkurransen ikke holder: monopol, plattformer og tid</h3>
+
+<p>Alt over forutsetter frikonkurranse. Slipper du den forutsetningen, endres svarene, og forelesningen bruker siste halvdel på nettopp det. Fire utvidelser er verdt å kunne som begrepsspørsmål.</p>
+
+<p><b>Monopol.</b> Monopolisten tilpasser seg der grenseinntekt er lik grensekostnad, og en stykkskatt løfter grensekostnaden med t. Han overvelter <b>aldri hele skatten</b>, fordi full overvelting ville koste ham for mange kunder. Med lineær etterspørsel p = a − bx og kostnad (c + t)x er profitten π = (a − bx − c − t)x, førsteordensbetingelsen a − 2bx − c − t = 0 gir x* = (a − c − t)/(2b) og p* = (a + c + t)/2, altså <b>∂p/∂t = ½</b>: prisen stiger med nøyaktig halve skatten. Med ikke-lineære funksjoner veltes mer over jo mindre prisfølsomt markedet er, men aldri alt.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet: monopolisten som deler skatten på midten (H2021 oppgave 2)</span>
+<p>Invers etterspørsel P = 3 − Q, grensekostnad 1 [eksempeltall fra oppgaveteksten].</p>
+<p><b>Steg 1 — uten skatt.</b> Grenseinntekt til lineær etterspørsel har dobbelt så bratt helning: MR = 3 − 2Q. Sett MR = MC: 3 − 2Q = 1 → <b>Q = 1</b>, og P = 3 − 1 = <b>2</b>.</p>
+<p><b>Steg 2 — med stykkskatt t = 1.</b> Skatten legges til grensekostnaden: MC + t = 2. Da er 3 − 2Q = 2 → <b>Q = 0,5</b>, og P = 3 − 0,5 = <b>2,50</b>.</p>
+<p><b>Steg 3 — delingen.</b> Konsumentprisen steg med 2,50 − 2,00 = <b>0,50</b>. Produsenten sitter igjen med 2,50 − 1 = 1,50, altså <b>0,50</b> mindre enn før. Skatten deles nøyaktig på midten.</p>
+<p><b>Kontroll:</b> 0,50 + 0,50 = 1,00 = t. ✓ Samme identitet som under frikonkurranse — kilen fordeles fullt ut — men fordelingen er nå 50/50 uansett elastisiteter, fordi funksjonene er lineære. <b>Felle:</b> å tro at monopolisten velter over hele skatten fordi «han har markedsmakt». Han har markedsmakt, men han bruker den allerede før skatten kommer; alternativet 3,00 er nettopp den feilen.</p>
+</div>
+
+<p><b>Oligopol.</b> Rangeringen er verdt å huske: overveltingen er lavest under frikonkurranse, høyest under monopol, og oligopolet ligger imellom uten noen entydig regel: svaret avhenger av om konkurransen er i pris eller kvantum, av antall bedrifter og av funksjonsformene. Er alternativet «under oligopol veltes andelen X over», er det galt av prinsipp. Merk samtidig hvor båndet 0 &lt; ∂P/∂t &lt; 1 kommer fra. Det er et resultat av frikonkurransemodellen med stigende tilbudskurve, ikke en naturlov: i modeller med markedsmakt og krum etterspørsel kjenner litteraturen tilfeller av <i>over</i>velting, der prisen stiger med mer enn skatten. Når oppgaven skriver likevekten som D(p + t) = S(p), står du i frikonkurransemodellen, og da gjelder båndet.</p>
+
+<p><b>Tosidige markeder.</b> En plattform betjener to gjensidig avhengige kundegrupper — avisen har lesere og annonsører, det sosiale mediet har brukere og annonsører — og «pris lik grensekostnad» gjelder ikke. Da kan en skatt på den ene siden få plattformen til å <i>senke</i> prisen der, fordi flere lesere er verdt mer i annonsemarkedet enn abonnementet koster. Merverdiavgift på aviser kan altså gi lavere avispris, og en skatt på datainnsamling kan gi månedsavgift for brukerne. Kortversjonen, som er nettopp den slags påstand flervalg tester: <b>en vare som skattlegges kan falle i pris.</b></p>
+
+<div class="callout mistake"><span class="h">«Selskapsskatten betales av selskapene»</span>
+Dette er den vanligste feilslutningen på hele temaet, og den er formell insidens forkledd som reell. Den generelle likevektsanalysen etter Harberger (1962) gir at kapitalen bærer det meste av selskapsskatten, og fordi kapitalen er mobil mellom sektorer, bæres den av <i>all</i> kapital, ikke bare den i selskapssektoren. Over tid blir det verre: faller sparingen nok til at kapitalbeholdningen krymper, presses avkastningen tilbake opp og lønningene ned, og arbeidskraften kan i prinsippet bære mer enn hele skatten. Forelesningens tallversjon av samme poeng er at det amerikanske Congressional Budget Office legger til grunn at <b>50 %</b> av selskapsskatten overveltes på lønninger og produktpriser. Konklusjonen du skal kunne formulere: hvem som betaler, er et empirisk spørsmål om elastisiteter, ikke et juridisk spørsmål om hvem skattekravet rettes mot.</div>
+
+<p><b>Kapitalisering og dynamisk insidens.</b> Så langt har alt handlet om <i>direkte</i> insidens: prisendringen når skatten innføres. Den dynamiske varianten spør hva som skjer før og etter. En <b>ventet</b> framtidig skatt slår inn i prisen på aktivumet allerede i dag. Kjøper du hytte i en kommune uten eiendomsskatt, må du regne med at skatten kommer, blant annet fordi hytteeierne ikke stemmer ved lokalvalget der, og at prisen faller når den innføres. Om du bør vente med kjøpet avhenger av hva ventingen koster mot hvor mye prisen faller; forelesningen lar spørsmålet stå åpent. Empirien er magrere enn teorien: Oates (1969) målte kapitaliseringen av eiendomsskatt i boligpriser først, graden er fortsatt omstridt, og Carroll og Yinger (1994) fant at nesten <b>halvparten</b> av forskjeller i eiendomsskatt i leiemarkedet bæres av utleieren og ikke av leietakeren. Den andre halvdelen er <b>tidsinkonsistens</b>: en politikk som er optimal å love i dag, er ikke optimal å holde i morgen. Bompengefritaket for elbil ble reversert da nok kjørte elbil. Det skaper et <b>hold-up-problem</b> — folk lar være å investere fordi de vet at lettelsen er midlertidig — og løsningen er <b>troverdig binding</b>, som Ulysses bundet til masten eller Norges Banks uavhengige rentesetting. Personlig økonomi-poenget, som er hele grunnen til at temaet er i dette kurset: unngå å bli låst fast i et marked eller en posisjon der en ny skatt havner på deg.</p>
+
+<p><b>Livsløpsinsidens.</b> Måler du insidens på ett års inntekt, ser skattesystemet mer regressivt ut enn det er, fordi lav årsinntekt ofte betyr «tidlig eller sent i livsløpet» og ikke «fattig». Pechman og Okner (1974) beregnet effektive satser for 72 000 amerikanske husholdninger under ulike antakelser om overvelting: systemet er omtrent <b>proporsjonalt</b> over de midterste åtte desilene, og de mest og de minst progressive antakelsene ga påfallende like resultater.</p>
+
+<div class="callout link"><span class="h">Hvor dette henger sammen med resten</span>
+Elastisitetsregelen her er baksiden av Sandmos nestbest-prinsipper om nøytralitet og effektivitet, som kapittel 9 bygger ut: minst vridning får du ved å beskatte hardest der etterspørselen er mest uelastisk, altså nøyaktig der konsumenten bærer mest. Kapitaliseringslogikken, at en skattefordel eller skatteulempe slår inn i prisen på aktivumet, er den samme mekanismen som ligger under <b>implisitt skatt</b> i kapittel 12, der et skattefritt papir har lavere avkastning før skatt nettopp fordi fordelen er priset inn. Og rutinen med stegene og kontrollen står som R12 i sjekklisten i kapittel 19.</div>
+
+</section>

@@ -97,4 +97,50 @@ manualens filnavn.
 >
 > FIE402 var ren.
 
+## Aritmetikken kontrolleres maskinelt
+
+`tools/sjekk-aritmetikk.py` trekker regnestykkene ut av den ferdige manualen og
+regner dem om. Manualene lærer bort regning, så et galt tall er verre enn ingen
+manual.
+
+```bash
+python3 tools/sjekk-aritmetikk.py                    # alle manualer
+python3 tools/sjekk-aritmetikk.py FIE432_Manual.html
+python3 tools/sjekk-aritmetikk.py --selvtest
+```
+
+Teksten tokeniseres og parses med rekursiv nedstigning, så parenteser,
+presedens, implisitt multiplikasjon (`0,25(0,96 − 0,00)`), prosent, promille,
+brøktegn, superskrift og enhetene «mill.» og «mrd.» håndteres. **Skrivemåten
+oppdages per fil** — norsk desimalkomma eller engelsk desimalpunktum — ved å
+telle tall med minst to desimaler; ett siffer treffer seksjonsnumrene («5.2»)
+og fikk de norske manualene til å se engelske ut.
+
+Kjeder kontrolleres ledd for ledd: i «100 × 1,02 + 200 = 102 + 200 = 302» er
+mellomleddet en omskrivning, ikke et svar.
+
+> [!warning] Toleransen er den vanskeligste delen
+> Tre modeller ble prøvd. **Relativ prosent** godtok et avvik på tusen kroner i
+> et sekssifret tall. **Summen av hvert talls avrundingsrom** ble så vidt at
+> «50 × 1,72 × 22 % = 18,93» slapp gjennom. Det som virker er *halve enheten på
+> siste skrevne plass* — «494 000» er avrundet til nærmeste tusen og tåler 500,
+> «302» tåler en halv — pluss et lite relativt ledd på 0,01 % for avrunding som
+> har hopet seg opp gjennom flere ledd.
+
+**Selvtesten er ikke pynt.** `--selvtest` kjører 27 tilfeller der halvparten er
+bevisst gale. Tre av dem avslørte ekte feil i verktøyet mens det ble skrevet,
+blant annet at skaleringen for prosentpoeng lå på toleransen i stedet for på
+verdien, slik at «½ × 0,60 × 10 = 4» ble godkjent.
+
+> [!info] Hva den fant
+> **FIE432, 278 regnekjeder:** fem utslag, alle notasjon verktøyet ikke leser
+> (absoluttverditegn, «60/40» som forholdstall, «1,1 % **av** (…)», algebra som
+> «3 − 2Q»). Hver enkelt kontrollert for hånd. Ingen regnefeil.
+> **FIE402, 1 035 kjeder:** 71 utslag, alle notasjon — kvadratrottegn og
+> superskrift på parentes. **SAM3 og Caseintervju:** fire utslag, alle
+> Solow-eksponenter skrevet som brøk og ett miksforhold.
+>
+> Én ekte feil ble funnet, og den var min egen: k0 skrev «22 + 78 × 37,84 =
+> 51,52 %» der de to leddene er prosent og ikke rene tall.
+
 Se [[Legge til nytt fag]] for hvordan en ny manual må se ut i praksis.

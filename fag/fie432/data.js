@@ -41,7 +41,7 @@ window.EDU_DATA.plan = {
   days: [
     { day: 1, phase: "Grunnlaget",
       title: "Eksamens-DNA og skattesystemets satser",
-      chapters: [0, 1], estMinutes: 120,
+      chapters: [0, 1], estMinutes: 215,
       goals: [
         "Gjøre rede for eksamensformatet — 4 timer, flervalg, fire alternativer, minuspoeng — og regne ut når det lønner seg å svare",
         "Skille progressivt fra proporsjonalt: et system er progressivt når gjennomsnittsskatten stiger med inntekten, ikke når de rike betaler flere kroner",
@@ -111,7 +111,7 @@ window.EDU_DATA.plan = {
 
     { day: 5, phase: "Aksjonær- og formuesbeskatning",
       title: "Aksjonærmodellen: skjerming, utbytte og gevinst",
-      chapters: [5], estMinutes: 150,
+      chapters: [5], estMinutes: 155,
       goals: [
         "Kjøre skjermingsrutinen: skjermingsgrunnlag → skjermingsfradrag → skattepliktig utbytte → ubenyttet rest framført OG lagt til grunnlaget",
         "Regne flere år på rad, der ubenyttet skjerming akkumulerer",
@@ -151,7 +151,7 @@ window.EDU_DATA.plan = {
 
     { day: 7, phase: "Aksjonær- og formuesbeskatning",
       title: "Formuesskatten: verdsetting, rabatter og gjeldsfordeling",
-      chapters: [7], estMinutes: 145,
+      chapters: [7], estMinutes: 170,
       goals: [
         "Verdsette hver aktivaklasse riktig: børsnoterte aksjer og fond 80 %, primærbolig 25 % under terskelen, sekundærbolig 100 %, unoterte til bokført verdi",
         "Fordele gjeld forholdsmessig etter bruttoverdi, og redusere den henførte gjelden med rabatten — men ikke for primærbolig",
@@ -170,7 +170,7 @@ window.EDU_DATA.plan = {
 
     { day: 8, phase: "Aksjonær- og formuesbeskatning",
       title: "Formuesskatt som avkastningsskatt",
-      chapters: [8], estMinutes: 130,
+      chapters: [8], estMinutes: 160,
       goals: [
         "Vise at en formuesskatt som faller på inngående formue tilsvarer en avkastningsskatt τ_w/r",
         "Regne avkastning etter formuesskatt, og verdsette en evig kontantstrøm under formuesskatt",
@@ -208,7 +208,7 @@ window.EDU_DATA.plan = {
 
     { day: 10, phase: "Skatteteori",
       title: "Hvem betaler skatten: insidens og elastisiteter",
-      chapters: [11], estMinutes: 120,
+      chapters: [11], estMinutes: 165,
       goals: [
         "Utlede ∂p/∂t = D′/(S′ − D′) og ∂P/∂t = S′/(S′ − D′) fra likevekten D(P) = S(p + t)",
         "Bruke fortegnene: D′ < 0, S′ > 0, så nevneren er positiv og de to derivertene har motsatt fortegn",
@@ -360,7 +360,7 @@ window.EDU_DATA.plan = {
 
     { day: 18, phase: "Eksamenshåndverk",
       title: "Flervalg med minuspoeng, og formelarket",
-      chapters: [19, 20], estMinutes: 100,
+      chapters: [19, 20], estMinutes: 80,
       goals: [
         "Bruke utelukkingsrutinen: svar når du kan utelukke minst ett alternativ, la stå blankt ellers",
         "Kjenne igjen hvordan de tre gale alternativene lages i dette kurset",
