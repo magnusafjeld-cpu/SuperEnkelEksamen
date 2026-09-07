@@ -1,6 +1,6 @@
 ---
 tags: [fag, arkitektur]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-03
 ---
 
 # Fagregisteret
@@ -56,7 +56,8 @@ oppførsel som default**, så et manifest uten dem er uendret.
 | `dybdeBanks` `[{key,label,sub,tip}]` | de hardkodede bankene i dybdetrening | SAM3s tre banker |
 | `manual.refSections` `{formulas,patterns,coverage}` | de hardkodede id-ene `#k22`/`#k21`/`#k23` | k22 / k21 / k23 |
 | `problems.topicRules` / `.typeRules` | de norske regexene i oppgaveparseren | SAM3s regler |
-| `copy` `{planEyebrow,planIntro,dybdeIntro}` | faste SAM3-setninger i sidetoppene | SAM3s tekst |
+| `copy` `{planEyebrow,planIntro,dybdeIntro,lynFoot}` | faste SAM3-setninger i sidetoppene | SAM3s tekst |
+| `copy.searchTerms` | SAM3s makrobegreper som søkeforslag | utledes av ordlisten, ellers av kapitteltitlene |
 
 > [!warning] `parts` og cachen
 > Delinndelingen skrives inn i den bufrede pensumparsingen. Endrer du `parts` i

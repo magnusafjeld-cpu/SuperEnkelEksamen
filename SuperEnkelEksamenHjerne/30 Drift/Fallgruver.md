@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-03
 ---
 
 # Fallgruver
@@ -37,11 +37,19 @@ verdi som default — se [[Fagregisteret]]:
 `srs.deck()` sin `oppgLabel`-liste ble bare slettet — tabelltittelen fra manualen
 var allerede riktig oppførsel.
 
-**De ni som står igjen** er kosmetiske, men synlige for et annet fag:
-søkeforslagene («Solow, steady state, MPK …»), deck-etikettene i flashcards,
-«Ingen kalkulator»-chippen som ignorerer `exams.format`, «Oppgave 1/2/3» som fast
-akse i quizfiltre og eksamensvisning, og de faste SAM3-setningene i
-oppgavebankens sidetopp. FIE402 unngår dem ved å slå av `/oppgaver` og `/exam`.
+**De ni som sto igjen** var kosmetiske, men synlige for et annet fag. Fem er nå
+lukket — fire i gjennomgangen 31. august (se 7l) og tre til 3. september 2026,
+da et fjerde fag skulle inn:
+
+| Lukket 3. sept. | Var |
+|---|---|
+| `copy.searchTerms` | søkeforslagene var SAM3s makrobegreper for alle fag. **Caseintervju tilbød «Solow, steady state, MPK» til en som trener til konsulentintervju.** Manifestet kan nå sette en kuratert liste; uten den utledes forslagene av fagets ordliste (etternavn og symboler vekselvis), og ellers av de korteste kapitteltitlene. Søkefeltets plassholder bruker de fire første |
+| `exams.format.aids` | «Ingen kalkulator»-chippen sto hardkodet i eksamensvisningen. SAM3 setter den nå selv; et fag der kalkulator er tillatt, slipper å få beskjed om det motsatte |
+| `deckLabel()` | ukjente kortstokker fikk etiketten «Kort». Nå brukes dekkets eget navn med stor forbokstav, slik kortstokkvelgeren allerede gjorde |
+
+**Igjen står** «Oppgave 1/2/3» som fast akse i eksamensvisningen og de faste
+SAM3-setningene i oppgavebankens sidetopp. Begge unngås ved å slå av `/oppgaver`
+og `/exam`, som FIE402, Caseintervju og FIE432 gjør.
 
 ## 4. `id` i fagregisteret er en lagringsnøkkel
 

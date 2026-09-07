@@ -351,3 +351,74 @@ Lave inntekter får høyere både marginal- og gjennomsnittsskatt; midlere får 
 
 **k) Konklusjoner:** teori gir ingen klare hypoteser; empiri heller mot beskjeden positiv arbeidstilbudseffekt og klar effektivitetsgevinst; flat skatt stimulerer ikke sparing; kan gi mindre omfordeling; forenklingsgevinsten avhenger av hva annet som reformeres; Røed (1998): progresjon kan gi *lavere* likevektsledighet via lønnsdannelsen; Atkinsons «regnbuekoalisjon» — venstresiden liker bunnfradraget, høyresiden de lave toppsatsene.
 
+---
+
+### 9. (AM) Adam & Miller (2021) — *The economic arguments for and against a wealth tax*
+
+**Kilde:** Fiscal Studies 42(3–4), 457–483 (open access hos Wiley, men Wiley blokkerer maskinlesing). Jeg leste i stedet **arbeidsversjonen i fulltekst**: Wealth Tax Commission, Evidence Paper no. 3, *The economics of a wealth tax*, https://www.wealthandpolicy.com/wp/EP3_Economics.pdf (34 s.). Den er identisk i argumentasjon og struktur med tidsskriftartikkelen; sammendraget i Fiscal Studies er ordrett det samme. Britiske eksempler (ISA, council tax, arveavgift), men argumentene er generelle.
+
+**Pensum til:** forelesning 7 og 8.
+
+#### Hovedpåstand
+
+En **engangs** formuesskatt som kommer uventet og troverdig bare én gang er en økonomisk effektiv måte å skaffe proveny på, fordi ingen kan gjøre noe for å redusere den; om den er *ønskelig* er et rettferdighetsspørsmål folk kan være rimelig uenige om. En **årlig** formuesskatt er mye vanskeligere å forsvare: den beskatter normalavkastningen (altså straffer den som sparer lenge) og treffer *ikke* meravkastning, som er nettopp det man har gode grunner til å beskatte — så den er en dårlig erstatning for å reparere kapitalinntektsskatten og arveavgiften.
+
+#### Testbare punkter
+
+**a) Nøkkeleksempelet (innledningen) — formuesskatt vs. kapitalinntektsskatt.** To personer eier hver et aktivum på 100 £. Normalavkastning gir 5 £. Da er **20 % kapitalinntektsskatt = 1 % formuesskatt**: begge gir 1 £ i skatt. Får den ene i stedet 20 £ (meravkastning), tar formuesskatten fortsatt bare 1 £ = 20 % av normalavkastningen, men bare **5 %** av den faktiske avkastningen, mens kapitalinntektsskatten tar 4 £ (20 %). Poenget i én setning: **formuesskatt beskatter normalavkastning hardt og meravkastning ikke i det hele tatt — stikk motsatt av det teorien anbefaler.**
+
+**b) Ekvivalensen generelt.** En årlig formuesskatt med sats τ_w er ekvivalent med en skatt på normalavkastningen med sats t = τ_w/r. Ved r = 5 % tilsvarer 1 % formuesskatt 20 % kapitalinntektsskatt; ved r = 3 % tilsvarer den 33 %; ved r = 2 % hele 50 %. **Jo lavere avkastning, jo høyere effektiv skatt** — derfor rammer formuesskatt hardest i lavrenteperioder og på lavtavkastende aktiva.
+
+**c) Kumulasjonseffekten (det viktigste tallet i artikkelen).** For en som sparer i **40 år** med **5 % årlig avkastning** reduserer en **1 % årlig formuesskatt sluttverdien med omtrent en tredjedel**, og **2 % med mer enn halvparten** — *i tillegg* til all skatt som allerede ligger på avkastningen. (Kontrollregnet: 0,99⁴⁰ = 0,669 → −33,1 %; 0,98⁴⁰ = 0,446 → −55,4 %.) Den effektive skatten på konsum stiger jo lenger konsumet utsettes, fordi samme formue beskattes om og om igjen.
+
+**d) Referansetilfellet uten rolle for formuesskatt (avsnitt 4.1).** Anta lik startformue, ingen arv, alle får samme (normal-)avkastning. Da skyldes formuesforskjeller bare *når* folk tjener og bruker pengene. Å beskatte sparing treffer da ikke de som er best stilt over livsløpet, bare de som bruker pengene i morgen framfor i dag — «både urettferdig og ineffektivt». Å utvide grunnlaget til sparing svekker dessuten arbeidsinsentivene like mye som lønnsskatt gjør, siden man jobber for framtidig konsum. Klassikerne bak: **Atkinson & Stiglitz (1976), Chamley (1985), Judd (1987)**.
+
+**e) Fire kilder til avkastning (avsnitt 2), som avgjør hva som bør beskattes:** (i) *normalavkastning* — kompensasjon for å utsette konsum; (ii) *flaks/risiko* — risikopremie og utfall; (iii) *renprofitt (economic rents)* — avkastning utover det som trengs, fra knapphet, markedsmakt eller privat informasjon; (iv) *innsats og dyktighet*, inkludert forkledd arbeidsinntekt (eiere som tar ut utbytte i stedet for lønn). Alt utenom (i) kalles **meravkastning (excess returns)**.
+
+**f) Tre grunner til å beskatte meravkastning (avsnitt 4.2).** (1) Renprofitt kan beskattes med *vilkårlig høy* sats uten vridning, siden skattyter fortsatt foretrekker samme anvendelse (forbehold: renprofitt som er mobil over landegrenser). (2) Skatt på risikopremien vrir ikke aktiviteten **så lenge tap kan fradragsføres like fritt som gevinst beskattes — Domar & Musgrave (1944)**; empirisk støtte hos Cullen & Gordon (2007). (3) I den grad meravkastning er forkledd arbeidsinntekt, tilsier både rettferdighet og effektivitet **samme sats som på lønn**. Konklusjon: å beskatte meravkastning er *den beste begrunnelsen for i det hele tatt å ha kapitalinntektsskatt*.
+
+**g) Arv (avsnitt 4.3).** Om arv bør beskattes er uavklart, og forfatterne tar ikke stilling. Men *hvis* man vil beskatte arv, er en reformert arveavgift bedre enn formuesskatt, fordi formuesskatten (a) beskatter arvet formue mer jo lenger den holdes før og etter overføringen, og (b) også rammer formue spart av lønn. Britisk arveavgift er lett å omgå (fritak for nærings- og landbrukseiendom, og gaver gitt mer enn syv år før død er skattefrie).
+
+**h) Andrebest-argumentet *for* årlig formuesskatt (avsnitt 4.4) — «to ufullkomne skatter kan slå én stor ufullkommen skatt».** Effektivitetstapet ved en skatt vokser **mer enn proporsjonalt** med satsen. Hvis tilpasningene til formuesskatt *ikke* spiser av grunnlaget til de andre skattene (inntekt, forbruk, arv), er det en gevinst i å spre provenyet på flere skatter så ingen enkelt sats blir for høy. Motvekt: ekstra administrasjons- og etterlevelseskostnader. Og jo bedre de øvrige skattene er utformet, jo mindre er dette argumentet verdt.
+
+**i) Tre prinsipielle argumenter *for* årlig formuesskatt (avsnitt 4.5):**
+- **(i) Sparing avslører skatteevne.** Hvis sparenivået sier noe om inntektsevne utover det lønnen sier — det er dokumentert at folk med høyere kognitiv evne, særlig tallforståelse, sparer mer for gitt inntekt (Banks & Diamond 2010) — kan skatt på sparing omfordele fra de med høy inntektsevne *uten* å øke lønnsskatten, og dermed lette avveiningen mellom omfordeling og arbeidsinsentiver.
+- **(ii) Formue gir nytte utover kjøpekraften.** Trygghet, fleksibilitet, prestisje. Da er de formuende bedre stilt enn andre med samme livsløpsinntekt og kan rimeligvis betale mer. Forfatterne påpeker at dette er begrepsmessig vrient (kanskje er nettopp fleksibiliteten *en del av* hva én krone er verdt) og **tar ikke stilling**.
+- **(iii) Negative eksternaliteter.** Status er et nullsumspill (Veblen 1899, Hirsch 1977), og rikdom kan kjøpe politisk innflytelse. Motargument: klassikerne knytter status til *forbruk*, ikke til å sitte på formuen; og hvis problemet er politiske donasjoner, ville en formuesskatt perverst nok *oppmuntre* til å gi mer bort. Riktig framgangsmåte: identifiser eksternaliteten presist, velg riktig virkemiddel (skatt er ikke det eneste — f.eks. tak på partidonasjoner), og sjekk at nytten overstiger kostnaden.
+
+**j) Guvenen m.fl. (2019) — det ene argumentet for at normalavkastning bør beskattes *hardere* enn meravkastning.** I en modell der all meravkastning skapes av produktive entreprenører og kredittmarkedet er ufullkomment, flytter formuesskatt byrden bort fra de produktive og over på dem som bare sparer, slik at entreprenørene beholder mer kapital å reinvestere. Adam & Miller avviser den: forutsetningene er for langt fra virkeligheten, og de tviler på at det å omfordele fra dem som sparer mest til dem som *rapporterer* mest kapitalinntekt er en god måte å lette kredittskranker på.
+
+**k) Engangsskatten (avsnitt 5).** Er den uventet og troverdig én gang, vrir den ingenting — den kan i prinsippet settes helt opp til **100 %** hvis effektivitet var eneste hensyn, og kan kreves inn i avdrag over flere år. Kravet er at **verdsettingsdatoen ikke er senere enn kunngjøringsdatoen**. Troverdigheten er hovedproblemet: parlamentet kan ikke binde sine etterfølgere. Hjelpemidler: en tydelig offentlig lovnad (omdømmekostnad ved å bryte den) og en unik begrunnelse (krig, koronaregningen, retting av en tidligere urett). **Verst tenkelige utfall: at folk *tror* formuen kan bli beskattet senere, uten at skatten faktisk innføres — all vridningen, ingen av inntektene.**
+
+**l) IGM-panelet (2019) om Warrens formuesskatt** — brukbart flervalgsstoff: **73 %** av de amerikanske toppøkonomene mente den ville redusere topp 0,1 %-andelen av formuen vesentlig etter 20 år; **82 %** mente den ville bli mye vanskeligere å håndheve enn eksisterende føderale skatter (verdsetting og underrapportering); på spørsmålet om målet like gjerne kunne nås ved å endre eksisterende skatter var **60 % enige, 27 % uenige**. (Tallene er tillitsvektede; uvektet 56 %, 73 %, 44 %, 27 %.)
+
+**m) Alternativer til engangsformuesskatt (avsnitt 5.3):** en **forbruksskatt** (mva. eller personlig kontantstrømskatt) treffer eksisterende formue én gang, når den brukes, uten å kreve verdsetting — unntatt for varige goder (bolig, bil, kunst) der en verdsetting likevel trengs. Poeng som lett blir flervalgsspørsmål: **mva. er progressiv, ikke regressiv**, i et livsløpsperspektiv, nettopp fordi den innebærer en engangsskatt på eksisterende formue; misforståelsen kommer av å måle mva. mot årsinntekt i stedet for mot forbruk eller livsløpsressurser. Fordelene med engangsformuesskatt over forbruksskatt: den treffer bare *eksisterende* formue (ikke framtidige inntekter), og den kan lettere målrettes mot de aller rikeste eller mot bestemte aktiva.
+
+**n) Hvorfor årlig formuesskatt taper mot begge alternativene:** (1) du betaler mindre hvis du bruker opp eller gir bort formuen raskt — vanskelig å forsvare at samme formue skattlegges igjen og igjen hvis du beholder den, men bare én gang hvis du bruker den opp etter et år; (2) den kan ikke begrenses til eksisterende formue, så den svekker arbeids- og sparelysten framover.
+
+**o) Konklusjon og satser.** Forfatternes eget syn: **best å ikke beskatte normalavkastningen i det hele tatt** — beskatt lønn, meravkastning, kanskje arv og eventuelt eksisterende formue. Ikke fordi null er teoretisk optimalt (optimum er ukjent, trolig positivt), men fordi hele den teoretiske gevinsten uansett ikke kan realiseres, mens en virkelig formuesskatt påfører ekstra kostnader. Til slutt: **å beskatte millionærer, milliardærer og vanlige folks boliger og pensjoner er tre helt forskjellige ting**. Europeiske bunnfradrag har ligget i titusener av pund; Warren og Sanders foreslo terskler i titalls millioner dollar, med toppsatser på **6 % og 8 %** over henholdsvis 1 og 10 mrd. dollar — «langt over alt man har sett i Europa».
+
+#### Formelen
+
+Ekvivalens mellom formuesskatt og kapitalinntektsskatt: τ_w · W = t · r · W ⟹ **t = τ_w / r**. Sluttverdi etter T år med avkastning r og årlig formuesskatt τ_w: W₀·[(1 + r)(1 − τ_w)]^T, som i forhold til skattefritt er (1 − τ_w)^T — derav «en tredjedel på 40 år ved 1 %».
+
+---
+
+### 10. (M) — hva forkortelsen viser til
+
+**Konklusjon: «M» er BS5, Magma-artikkelen om formuesskatten** (*Formuesskatten i Norge: Fordeling og effektivitet*, Magma 2026 nr. 2) — «M» for *Magma*. Se seksjon 13. Sekundærkandidaten er Moene (2015), som er kartlagt i Del C.
+
+**Begrunnelsen, i den rekkefølgen argumentene veier:**
+
+**a) Bijeksjonen mellom listen og planen.** Forelesningsplanen har to lister: rader med pensumkoder per forelesning, og en liste over obligatorisk litteratur der hver kode er definert. Krysser man dem av mot hverandre, er **BS5 den eneste obligatoriske artikkelen som ikke står i noen rad**, og **M den eneste koden i radene som ikke er definert i listen**. Alle de nitten andre kodene (J, SSB1, SSB2, GS1, SS, SW, AS1, AS2, AS3, AJB, S, AS4, BS4, TD, BS1, BS2, AM, BS3, HBS) står begge steder. Én kode uten artikkel og én artikkel uten kode er nesten sikkert samme sak.
+
+**b) Supplerende litteratur står aldri i radene.** Moene, Zimmer, Skatteetatens notat, Kvaløy-kronikken, FT-rapporten og Sandbu-kronikken er alle ført opp under «SUPPLERENDE LITTERATUR», og ingen av dem har fått kode eller plass i pensumkolonnen. Skulle Moene være «M», ville han vært det eneste unntaket.
+
+**c) Temaet passer.** «M» står ved forelesning 7 (*Skatt/emigrasjon, «rettferdig skattesystem», flat skatt*) og 8 (*Formuesskatt og eiendomsskatt*) — begge sammen med AM. AM gir den internasjonale teorien for og mot formuesskatt; BS5 gir den norske anvendelsen (fordeling **og** effektivitet), og verdsettingsrabatten og utflyttingsmotivet hører hjemme i begge forelesningene. Paret AM + BS5 er den naturlige lesningen: teori og norsk case.
+
+**d) Hvorfor ikke «M» = Moene.** Kodene i kurset er forfatterinitialer (J = Jordà, S = Stiglitz, AS = Anders Sandmo, GS = Guttorm Schjelderup, AJB = A. J. Brudvik, BS = Bjerksund & Schjelderup, TD = Trond Døskeland, HBS = Hopland/Bjerksund/Schjelderup), så Kalle Moene ville mest nærliggende blitt «KM» — men det er ikke avgjørende, «M» ville også gått. Det avgjørende er (a) og (b). I tillegg er Moene-lysbildet («fire ganger så mange rike, dobbelt så mange superrike») **fjernet** fra den nye versjonen av forelesning 1, uten at det er dukket opp i noen ny fil; det peker mot at Moene er tonet ned, ikke oppgradert til pensumkode.
+
+**e) Hvorfor ikke «M» = Sandbu-kronikken om Sveits.** Temamessig passer den utmerket til forelesning 8, og også til «emigrasjon» i forelesning 7. Men den er supplerende litteratur (punkt b), og en avisartikkel på fire tusen tegn får sjelden pensumkode ved siden av en fagfellevurdert artikkel. Forfatteren heter dessuten Sandbu, og «S» er allerede opptatt av Stiglitz.
+
+**Praktisk råd til eksamenslesing:** dette er ikke en risiko å ta. BS5 (seksjon 13) er uansett obligatorisk pensum, og Moene (Del C) er ett avsnitt. Les begge — så er «M» dekket uansett hvilken av dem foreleseren mente.
+

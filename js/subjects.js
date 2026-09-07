@@ -57,7 +57,8 @@ window.EDU_SUBJECTS = [
                "forklar", "oddone", "memory", "okonom", "bit"],
     /* Var hardkodet i motoren og gjaldt alle fag. Nå SAM3s eget. */
     repetition: { boost: { from: 13, to: 19, vekt: 6, why: "Oppgave 3 (kort sikt) — historisk størst rom for å hente poeng" } },
-    copy: { lynFoot: "Alt innhold er hentet fra eksamensmanualen og oppgavebanken. Feil svar viser alltid forklaringen, det er der læringen skjer. Tips: legg siden til på Hjem-skjermen for app-følelse." },
+    copy: { searchTerms: ["Solow", "steady state", "Romer", "MPK", "badekarmodell", "Phillips", "IS-MP", "UIP", "trilemma", "kvantitetsteori", "produksjonsgap", "Okun"],
+            lynFoot: "Alt innhold er hentet fra eksamensmanualen og oppgavebanken. Feil svar viser alltid forklaringen, det er der læringen skjer. Tips: legg siden til på Hjem-skjermen for app-følelse." },
     modules: null,
   },
   {
@@ -127,6 +128,8 @@ window.EDU_SUBJECTS = [
         tip: "Eierstyring er garantert egen oppgave. Ha minst åtte tiltak du kan forklare på tre setninger hver." },
     ],
     copy: {
+      searchTerms: ["unlever", "APV", "WACC", "MM II", "tax shield", "risk shifting", "debt overhang",
+                    "Myers-Majluf", "put-call parity", "risk-neutral", "real options", "exchange ratio"],
       planEyebrow: "Studieplan · 25 moduler",
       planIntro: "Modul 1–21 bygger faget fra bunnen: grunnlaget, kapitalstruktur, informasjon og utbytte, verdsetting med gjeld, opsjoner, og til slutt M&A og eierstyring. Modul 22–25 er ren eksamenstrening på ekte sett. Innleveringene HW1 og HW2 har egne milepæler underveis.",
       dybdeIntro: "Selvrettet trening i seks bolker som følger kursets deler. Velg bank, filtrer på nivå og tema, og skriv svaret på papir før du åpner fasiten — eksamen er penn og papir.",

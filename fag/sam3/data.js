@@ -363,7 +363,7 @@ window.EDU_DATA.activeLearning = {
 
 /* ---------- Exam-training data ---------- */
 window.EDU_DATA.exams = {
-  format:{ duration:"3 timer", tasks:3, note:"Alle tre oppgaver må bestås. Ingen kalkulator (tospråklig ordbok tillatt).",
+  format:{ duration:"3 timer", tasks:3, aids:"Ingen kalkulator", note:"Alle tre oppgaver må bestås. Ingen kalkulator (tospråklig ordbok tillatt).",
     weights:["Oppgave 1 ≈ 30 %","Oppgave 2 ≈ 30–40 %","Oppgave 3 ≈ 30–40 %"],
     keyInsight:"Tema-til-oppgave-koblingen er IKKE fast. Alle temaer kan dukke opp hvor som helst. Oppgave 3 er likevel alltid kortsiktsmodellen, nesten alltid med norsk/åpen-økonomi-vri." },
   tasks:[

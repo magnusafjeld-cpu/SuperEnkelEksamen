@@ -552,7 +552,12 @@ window.EDU.views = window.EDU.views || {};
     card.appendChild(el(".row", { style: { justifyContent: "center", gap: "10px", marginTop: "10px" } }, el("button.btn.primary", { onclick: () => { fc = null; S.app.refresh(); } }, "Tilbake"), S.srs.dueCards(deckFilter).length ? el("button.btn", { onclick: startDue }, "Fortsett med forfalte") : null));
     wrap.appendChild(card); fc = null; return wrap;
   }
-  function deckLabel(d) { return ({ formel: "Formel", begrep: "Begrep", mekanisme: "Mekanisme", intuisjon: "Intuisjon" })[d] || "Kort"; }
+  /* Ukjente dekk fikk «Kort». Nå brukes dekkets eget navn med stor forbokstav, slik
+     kortstokkvelgeren over allerede gjør. */
+  function deckLabel(d) {
+    if (!d) return "Kort";
+    return ({ formel: "Formel", begrep: "Begrep", mekanisme: "Mekanisme", intuisjon: "Intuisjon" })[d] || d[0].toUpperCase() + d.slice(1);
+  }
   S.views.flashcards = { render };
 })(window.EDU);
 
@@ -563,7 +568,10 @@ window.EDU.views = window.EDU.views || {};
     const wrap = el(".fade-in"); const ex = S.data.exams;
     wrap.appendChild(sh().pageHead("Eksamenstrening", "Tidligere eksamener, koblet til pensum", "Hver tidligere oppgave er koblet til kapitlene den tester, et modellsvar der det finnes, og hva du bør repetere hvis du står fast."));
     const fmt = el(".card", { style: { marginBottom: "20px" } });
-    fmt.appendChild(el(".row.wrap", { style: { gap: "10px" } }, el(".chip.accent", icon("clock"), ex.format.duration), el(".chip.accent", `${ex.format.tasks} oppgaver`), ...ex.format.weights.map((w) => el(".chip", w)), el(".chip.rose", "Ingen kalkulator")));
+    fmt.appendChild(el(".row.wrap", { style: { gap: "10px" } }, el(".chip.accent", icon("clock"), ex.format.duration), el(".chip.accent", `${ex.format.tasks} oppgaver`), ...ex.format.weights.map((w) => el(".chip", w)),
+      /* Sto hardkodet og gjaldt alle fag. Fag der kalkulator er tillatt, fikk beskjed
+         om det motsatte. Settes nå i fagets exams.format.aids. */
+      el(".chip." + (ex.format.aidsTone || "rose"), ex.format.aids || "Ingen kalkulator")));
     const note = el("div", { style: { marginTop: "14px", background: "var(--amber-soft)", border: "1px solid #f2dcb6", borderRadius: "14px", padding: "13px 16px", fontSize: "14.5px", lineHeight: 1.55 } });
     note.appendChild(frag("<b>⚠️ Kritisk innsikt:</b> " + ex.format.keyInsight)); fmt.appendChild(note); wrap.appendChild(fmt);
     const dayIdx = S.data.activeDayIndex();
@@ -634,7 +642,8 @@ window.EDU.views = window.EDU.views || {};
     const wrap = el(".fade-in");
     wrap.appendChild(sh().pageHead("Søk", "Finn begreper, modeller, formler, økonomer og variabler", "Søk på tvers av hele pensum."));
     const box = el(".searchbox", { style: { marginBottom: "16px" } }); box.innerHTML = icon("search");
-    const input = el("input", { type: "text", placeholder: "Søk … (f.eks. Solow, steady state, MPK, badekar, Romer, π)", value: query || "" });
+    const eks = searchTerms().slice(0, 4);
+    const input = el("input", { type: "text", placeholder: eks.length ? `Søk … (f.eks. ${eks.join(", ")})` : "Søk i hele pensum …", value: query || "" });
     box.appendChild(input); box.appendChild(el("button.iconbtn", { onclick: () => { input.value = ""; doSearch(""); input.focus(); }, title: "Tøm" }, "✕")); wrap.appendChild(box);
     const filt = el(".row.wrap", { style: { gap: "7px", marginBottom: "20px" } });
     [["alle", "Alle"], ["kap", "Kapitler"], ["sec", "Seksjoner"], ["formel", "Formler"], ["begrep", "Begreper"], ["okonom", "Økonomer"], ["var", "Variabler"], ["fig", "Figurer"]].forEach(([k, l]) => filt.appendChild(el(".chip" + (typeFilter === k ? ".accent" : ""), { style: { cursor: "pointer" }, onclick: () => { typeFilter = k; doSearch(input.value); } }, l)));
@@ -660,9 +669,36 @@ window.EDU.views = window.EDU.views || {};
     row.appendChild(body); return row;
   }
   function highlight(text, q) { let out = escapeHtml(text); q.trim().split(/\s+/).filter(Boolean).forEach((t) => { const rx = new RegExp("(" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi"); out = out.replace(rx, "<mark>$1</mark>"); }); return out; }
+  /* Forslagene var SAM3s makrobegreper for alle fag — «Solow, steady state, MPK» i
+     et kurs om personlig økonomi. Nå hentes de fra fagets eget innhold: en kuratert
+     liste i manifestet om den finnes, ellers ordlistens økonomer og symboler, ellers
+     kapitteltitlene. Finner vi ingenting, vises ingen forslagsboks. */
+  function searchTerms() {
+    const sub = window.EDU_SUBJECT || {};
+    if (sub.copy && sub.copy.searchTerms && sub.copy.searchTerms.length) return sub.copy.searchTerms.slice(0, 12);
+    /* Symboler og etternavn er bedre søkeord enn fulle navn: «Solow» treffer alt
+       «Robert Solow» treffer, og mer til. Vekselvis, så begge slag kommer med. */
+    const g = S.data.glossary;
+    const sym = (g.symbols || []).map((e) => e.sym).filter(Boolean);
+    const navn = (g.economists || []).map((e) => (e.name || "").split(/\s+/).pop()).filter((x) => x && x.length > 2);
+    const fra = [];
+    for (let i = 0; i < Math.max(sym.length, navn.length); i++) {
+      if (navn[i]) fra.push(navn[i]);
+      if (sym[i]) fra.push(sym[i]);
+    }
+    if (fra.length >= 6) return fra.slice(0, 12);
+    /* Uten ordliste: de korteste kapitteltitlene, som oftest er de mest
+       begrepsaktige («Realopsjoner» framfor «En full verdsetting, ende til annen»). */
+    return S.data.chapters()
+      .map((c) => (c.title || "").replace(/^\d+\s*[·.]\s*/, "").trim())
+      .filter((t) => t && t.length <= 34)
+      .sort((a, b) => a.length - b.length)
+      .slice(0, 10);
+  }
   function suggestions(input) {
+    const terms = searchTerms();
+    if (!terms.length) return el("div");
     const box = el("div", { style: { padding: "10px 12px" } }); box.appendChild(el(".tiny.muted", { style: { marginBottom: "10px" } }, "Populære søk"));
-    const terms = ["Solow", "steady state", "Romer", "MPK", "badekarmodell", "Phillips", "IS-MP", "UIP", "trilemma", "kvantitetsteori", "produksjonsgap", "Okun"];
     box.appendChild(el(".row.wrap", { style: { gap: "8px" } }, ...terms.map((t) => el(".concept-pill", { onclick: () => { input.value = t; input.dispatchEvent(new Event("input")); } }, t)))); return box;
   }
   S.views.search = { render };
