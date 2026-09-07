@@ -107,6 +107,20 @@ const m=window.EDU_DATA.quizzes.filter(q=>q.type==="mcq");const t=[0,0,0,0];
 m.forEach(q=>t[q.answer]++);console.log(t,"av",m.length)'
 ```
 
+> [!warning] SAM3 hadde samme skjevhet, og ble ikke oppdaget før september 2026
+> Fellen ble funnet i FIE402 og rettet der, men **SAM3 ble aldri kontrollert**:
+> 35 av 44 riktige svar sto på alternativ B, altså 80 prosent. En quiz du kan
+> gjette deg gjennom ved å trykke B.
+>
+> Rettingen var enkel her, fordi ingen av SAM3s forklaringer refererer til en
+> bokstav eller en posisjon — det ble kontrollert først. Alternativene ble
+> stokket deterministisk til 11/11/11/11, og resultatet verifisert mot en
+> sikkerhetskopi: samme alternativsett og samme riktige svar i alle 44, bare ny
+> rekkefølge.
+>
+> Lærdommen er ikke om quizen, men om kontrollen: en feil som rettes i ett fag
+> må sjekkes i alle. `tools/sjekk-drill.js` gjør det nå automatisk.
+
 ## 7d. Eksamenssettenes oppgavenummer er ikke papirets
 
 De fire eldre settene har en flervalgsdel som ligger som **oppgave 1** i appen.
