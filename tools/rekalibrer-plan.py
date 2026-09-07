@@ -26,8 +26,32 @@ MIN_PER_EKSEMPEL = 15
 DRILL_MIN = 30
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-MANUAL = ROOT / "FIE402_Manual.html"
-DATA = ROOT / "fag" / "fie402" / "data.js"
+FAG = next((a for a in sys.argv[1:] if not a.startswith("--")), None)
+if not FAG:
+    sys.exit("bruk: python3 tools/rekalibrer-plan.py <fag-id> [--skriv]")
+
+DATA = ROOT / "fag" / FAG / "data.js"
+if not DATA.exists():
+    sys.exit(f"fant ikke {DATA}")
+
+
+def finn_manual(fag):
+    """Leser manual.candidates for faget ut av js/subjects.js."""
+    reg = (ROOT / "js" / "subjects.js").read_text()
+    i = reg.find(f'id: "{fag}"')
+    if i < 0:
+        sys.exit(f"faget «{fag}» står ikke i js/subjects.js")
+    m = re.search(r"candidates:\s*\[(.*?)\]", reg[i:i + 2500], re.S)
+    if not m:
+        sys.exit(f"fant ingen manual.candidates for «{fag}»")
+    for kand in re.findall(r'"([^"]+)"', m.group(1)):
+        p = ROOT / kand
+        if p.exists():
+            return p
+    sys.exit(f"ingen av manualkandidatene for «{fag}» finnes på disk")
+
+
+MANUAL = finn_manual(FAG)
 
 
 def kapitler():
@@ -57,6 +81,7 @@ def estimat(dag, ch):
 
 
 def main():
+    print(f"Fag: {FAG} · manual: {MANUAL.name}\n")
     ch = kapitler()
     dager = plan()
     mangler = sorted({c for d in dager for c in d["chapters"] if c not in ch})
@@ -78,7 +103,7 @@ def main():
     print(f"\nSum: {gammel} min ({gammel/60:.0f} t) → {ny} min ({ny/60:.0f} t)")
 
     if "--skriv" not in sys.argv:
-        print("\n(kjør med --skriv for å oppdatere fag/fie402/data.js)")
+        print(f"\n(kjør med --skriv for å oppdatere {DATA.relative_to(ROOT)})")
         return 0
 
     src = DATA.read_text()

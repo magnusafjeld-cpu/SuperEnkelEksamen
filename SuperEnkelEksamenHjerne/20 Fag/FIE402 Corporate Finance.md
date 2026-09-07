@@ -158,7 +158,7 @@ det en stille lenke, framover får den tittelen og merket «senere». Se
 beskjeden *«pass først og fremst på at pensum er dekket»*. Spesifikasjonen sier nå at
 et kapittel som er kort fordi det utelot stoff, er mislykket.
 
-**Studieplanens tidsestimater regnes av innholdet**, ikke gjettes: `tools/fie402-rekalibrer-plan.py`
+**Studieplanens tidsestimater regnes av innholdet**, ikke gjettes: `tools/rekalibrer-plan.py fie402`
 leser manualen og setter `estMinutes` av ordantall (60 ord/min), antall gjennomregnede
 eksempler (15 min hver) og en fast drillpost. Kjør den på nytt hvis kapitler endres.
 Det var den som avslørte at M&A og eierstyring hadde havnet i samme modul på 405
