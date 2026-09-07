@@ -211,6 +211,60 @@ window.EDU_SUBJECTS = [
     /* Casetrening har ingen eksamen og ingen oppgavebank — den har caser. */
     modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/caser", "/mock", "/historier", "/review", "/search", "/progress"],
   },
+  {
+    id: "fie432",
+    name: "FIE432 Personlig økonomi",
+    short: "FIE432",
+    tagline: "NHH · eksamenstrening",
+    logo: "PØ",
+    blurb: "Skattesystemet, aksjonær- og formuesbeskatningen, skatteteorien og husholdningens finansbeslutninger — med ni tidligere eksamener rettet automatisk.",
+    accent: "#a8521c", accentInk: "#8a4116", accentSoft: "#fbf0e8", accentSoft2: "#f4dcc9",
+    scripts: ["fag/fie432/data.js", "fag/fie432/sett.js"],
+    manual: {
+      candidates: ["FIE432_Manual.html", "fag/fie432/manual.html", "../FIE432_Manual.html"],
+      label: "FIE432_Manual.html",
+      hint: "hele pensum lastes inn og lagres lokalt (du slipper å velge igjen)",
+      /* Satser og formler ligger sist. Radene der blir automatisk til flashcards,
+         og rekkefølgen er permanent — id-ene er posisjonsbaserte. */
+      refSections: { formulas: "k20" },
+    },
+    /* k0 er kurs- og eksamensintroduksjon, k20 er ren referanse — ingen av dem
+       teller som pensum i fremdriften. */
+    coreChapters: { from: 1, to: 19 },
+    /* Uten denne arver faget SAM3s makrodeler i stillhet. Deltitlene i manualen
+       brukes IKKE til tilordning; det er utelukkende denne tabellen som gjelder. */
+    parts: [
+      { id: 0, tag: "Del 0", name: "Grunnlaget", chapters: [0, 1, 2] },
+      { id: 1, tag: "Del I", name: "Aktiva og avkastning", chapters: [3, 4] },
+      { id: 2, tag: "Del II", name: "Aksjonær- og formuesbeskatning", chapters: [5, 6, 7, 8] },
+      { id: 3, tag: "Del III", name: "Skatteteori", chapters: [9, 10, 11, 12, 13] },
+      { id: 4, tag: "Del IV", name: "Personlig finans", chapters: [14, 15, 16, 17, 18] },
+      { id: 5, tag: "Del V", name: "Eksamenshåndverk", chapters: [19] },
+      { id: 6, tag: "Referanse", name: "Satser og formler", chapters: [20] },
+    ],
+    dybdeBanks: [
+      { key: "grunnlag", label: "Grunnlaget", sub: "Satser, progressivitet, effektiv skattesats og avkastning før og etter skatt (kapittel 1–4).",
+        tip: "Ta denne først. Nesten hver eneste regneoppgave i faget hviler på at du vet hvilken sats som gjelder hvilken inntekt." },
+      { key: "aksjonar", label: "Aksjonær og formue", sub: "Skjerming, oppjustering, fritaksmetoden, verdsettingsrabatter og gjeldsfordeling (kapittel 5–8).",
+        tip: "Kursets tyngste del, og den mest eksaminerte. Sett opp tabellen på papir hver gang — skjermingskjeden og gjeldsfordelingen går galt i hodet." },
+      { key: "skatteteori", label: "Skatteteori", sub: "Nøytralitet, progressivitet, insidens, risiko og internasjonal skatt (kapittel 9–13).",
+        tip: "Insidens er i åtte av ni eksamenssett. Kan du utlede ∂p/∂t, ser du et feil fortegn på et blunk." },
+      { key: "finans", label: "Personlig finans", sub: "Portefølje, Merton, pensjon, lån, forsikring og atferd (kapittel 14–18).",
+        tip: "Halvparten av spørsmålene her er faktakunnskap om ordninger — folketrygd, IPS, BSU, utlånsforskriften. Den andre halvparten er tre formler." },
+    ],
+    copy: {
+      searchTerms: ["skjerming", "oppjustering", "eierskatt", "formuesskatt", "gjeldsfordeling",
+                    "insidens", "implisitt skatt", "fritaksmetoden", "exit-skatt", "Merton",
+                    "delingstall", "forventet nytte"],
+      planEyebrow: "Studieplan · 21 moduler",
+      planIntro: "Modul 1–18 bygger faget fra bunnen: grunnlaget, aktiva og avkastning, aksjonær- og formuesbeskatningen, skatteteorien og personlig finans. Modul 19–21 er hele eksamenssett, det siste som generalprøve på tid med minuspoeng slått på. Vektingen følger hva som faktisk har kommet på eksamen.",
+      dybdeIntro: "Selvrettet trening i fire bolker som følger kursets deler. Velg bank, filtrer på nivå, og regn ferdig på papir før du åpner fasiten — eksamen er flervalg, og et tall du ikke har regnet selv, gjenkjenner du ikke blant fire som ligner.",
+    },
+    /* Faget har verken oppgavebank eller åpne eksamensoppgaver — det har ni
+       flervalgssett, som kjøres i /sett. Moduler uten innhold ennå (lyn, quiz,
+       flashcards, dybde) legges til etter hvert som dataene skrives. */
+    modules: ["/plan", "/curriculum", "/sett", "/review", "/search", "/progress"],
+  },
 ];
 
 /* Oppslag + valgt fag. window.EDU_SUBJECT settes av js/picker.js ved oppstart. */

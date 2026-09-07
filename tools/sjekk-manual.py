@@ -299,6 +299,11 @@ def sjekk_manual(sti, ref_id=None):
                     break
         if n > best:
             best, ref = n, sec.attrs["id"]
+    if ref and not any(x.attrs["id"] == ref for x in seksjoner):
+        # Manifestet peker på et referansekapittel som ikke er skrevet ennå.
+        # Vanlig under bygging; ikke en feil i det som finnes.
+        r.a("manualen", f"manifestet oppgir {ref} som referansekapittel, men det finnes ikke i manualen")
+        ref = None
     if ref:
         sec = next((s for s in seksjoner if s.attrs["id"] == ref), None)
         rader = 0

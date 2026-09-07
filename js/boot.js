@@ -41,17 +41,22 @@ window.EDU = window.EDU || {};
 
   /* Faget kan slå av moduler (manifest.modules). Dashboard er alltid med. */
   const sub = () => window.EDU_SUBJECT || {};
+  /* Fire moduler er helt tomme uten egne data. De skjules uansett hva manifestet
+     sier: en eksplisitt modules-liste er en ønskeliste, ikke en garanti for at
+     dataene finnes. Uten dette fikk et fag under bygging en menyoppføring som
+     bare kunne vise «ingen sett ennå» — samme døde flis som lynspillene hadde. */
+  const DATASTYRT = {
+    "/sett": () => (window.EDU_DATA.sets || []).length > 0,
+    "/caser": () => (window.EDU_DATA.cases || []).length > 0,
+    "/mock": () => (window.EDU_DATA.mocks || []).length > 0,
+    "/historier": () => !!window.EDU_DATA.historier,
+  };
   function has(match) {
     const m = sub().modules;
     if (match === "/") return true;                       // Dashboard er alltid med
+    if (DATASTYRT[match] && !DATASTYRT[match]()) return false;
     if (Array.isArray(m)) return m.indexOf(match) > -1;   // eksplisitt liste vinner
-    /* modules: null betyr «alle moduler faget har data for». Eksamenssett er den
-       eneste modulen som er helt tom uten egne data, så den skjules da. */
-    if (match === "/sett") return ((window.EDU_DATA.sets || []).length > 0);
-    if (match === "/caser") return ((window.EDU_DATA.cases || []).length > 0);
-    if (match === "/mock") return ((window.EDU_DATA.mocks || []).length > 0);
-    if (match === "/historier") return !!window.EDU_DATA.historier;
-    return true;
+    return true;                                          // modules: null = alle
   }
   function nav() { return NAV.map((g) => ({ group: g.group, items: g.items.filter((i) => has(i.match)) })).filter((g) => g.items.length); }
   function mobileNav() { const m = MOBILE.filter((i) => has(i.match)); return m.length > 1 ? m : []; }

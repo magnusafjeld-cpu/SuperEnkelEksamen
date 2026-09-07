@@ -325,6 +325,19 @@ overskrevet av en søsteragent midtveis.
 Se også 7p om samme mønster: k9 og k14 ble skrevet om fire minutter etter at
 manualen var bygget.
 
+## 7p. En eksplisitt `modules`-liste garanterte ikke at dataene fantes
+
+`has()` i `js/boot.js` returnerte tidlig når faget listet modulene sine
+eksplisitt, og hoppet dermed over datasjekken for `/sett`, `/caser`, `/mock` og
+`/historier`. Et fag som **listet** en av dem uten å ha data, fikk en
+menyoppføring som bare kunne vise «ingen sett ennå» — samme døde flis som
+lynspillene hadde i 7n.
+
+Oppdaget da FIE432 ble registrert med `/sett` i lista mens `sett.js` ennå var tom.
+Datasjekken kjører nå **først**, uansett hva manifestet sier: en eksplisitt liste
+er en ønskeliste, ikke en garanti. SAM3, FIE402 og Caseintervju er upåvirket —
+alle har data for det de lister.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden
