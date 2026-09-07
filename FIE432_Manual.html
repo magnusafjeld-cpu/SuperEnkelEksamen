@@ -72,8 +72,13 @@
 <li style="list-style:none;margin-top:.7em"><b>Del IV · Personlig finans</b></li>
 <li><a href="#k14">14 · Sparing og porteføljevalg</a></li>
 <li><a href="#k15">15 · Pensjon: folketrygd, tjenestepensjon og IPS</a></li>
+<li><a href="#k16">16 · Lån og risikostyring</a></li>
+<li><a href="#k17">17 · Forsikring og forventet nytte</a></li>
+<li><a href="#k18">18 · Finansiell psykologi</a></li>
 <li style="list-style:none;margin-top:.7em"><b>Del V · Eksamenshåndverk</b></li>
 <li><a href="#k19">19 · Flervalg med minuspoeng: rutinene og rekkefølgen</a></li>
+<li style="list-style:none;margin-top:.7em"><b>Referanse · Satser og formler</b></li>
+<li><a href="#k20">20 · Satser og formler</a></li>
 </ol>
 </nav>
 
@@ -3266,6 +3271,538 @@ Risikoprofilen i innskuddspensjonen er Mertons formel fra <b>kapittel 14</b> bru
 
 </section>
 
+<hr class="sec">
+
+<section id="k16">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">16 · Lån og risikostyring</h2>
+
+<p class="lead-in">Lån er to eksamenstemaer som deler ett kapittel. Annuitet og effektiv rente er regnet i tre av ni sett og tok 9 % av poengene i H2022, der oppgave 6 var tre delspørsmål på rad om det samme billånet. Lånereglene, altså betjeningsevne, femgangeren og stresstesten, er regnet i fire sett: H2020 oppgave 4a–d, H2021 oppgave 5a–d, H2019 oppgave 8a og belåningsgraden i H2016 oppgave 3g. I flervalgsæraen har temaet vist seg som ett rent begrepsspørsmål, H2024 oppgave 14 om avdragsfrihet, og det er det billigste poenget i hele finansdelen når du først vet hva avdragsfrihet faktisk er. Alt hviler på én formel og én kontroll: annuitetsformelen, og nedbetalingsplanen som må treffe null i siste termin.</p>
+
+<h3>16.1 Annuitetslånet: én formel, og renten som må passe terminen</h3>
+
+<p>Et <b>annuitetslån</b> har fast terminbeløp. Hver termin dekker først renten på restgjelden, og det som blir til overs er avdrag. Fordi restgjelden faller, faller rentedelen og stiger avdragsdelen, mens summen står stille. Terminbeløpet er den betalingen som gjør at restgjelden treffer nøyaktig null i siste termin:</p>
+
+<div class="formula">
+  <div class="eq">A = L × m / (1 − (1 + m)<sup>−n</sup>)</div>
+  <div class="where">L er lånebeløpet, m er renten <i>per termin</i> og n er <i>antall terminer</i>. Ved månedlige terminer er m = r/12 og n = antall år × 12. Nevneren er den samme størrelsen som annuitetsfaktoren, bare uten m: A<sub>m,n</sub> = (1 − (1 + m)<sup>−n</sup>)/m er nåverdien av én krone per termin, så A = L/A<sub>m,n</sub>. De to skrivemåtene gir samme tall og kontrollerer hverandre.</div>
+  <div class="eq">Sum renter = n × A − L &nbsp;·&nbsp; Rente<sub>t</sub> = restgjeld<sub>t−1</sub> × m &nbsp;·&nbsp; Avdrag<sub>t</sub> = A − rente<sub>t</sub></div>
+  <div class="where">Rentesummen er alt du betaler minus det du fikk låne. Avdragene summerer alltid til L, så differansen <i>er</i> rentene. Dette er også kontrollen: bygger du nedbetalingsplanen og restgjelden ikke treffer null, har du regnet feil.</div>
+</div>
+
+<div class="callout warn"><span class="h">Renten må matche terminen, og n telles i terminer</span>
+Dette er den enkeltfeilen som ødelegger flest lånesvar. Har du månedlige terminer, skal <b>m = r/12</b> og <b>n = år × 12</b> stå sammen. Setter du inn årsrenten sammen med antall måneder, får du et absurd høyt tall; setter du inn månedsrenten sammen med antall år, får du et absurd lavt. Begge feilene har sitt eget svaralternativ. En tredje variant er å regne årsannuiteten og dele på tolv, som gir et tall som ser riktig ut, men er noen hundrelapper for høyt, fordi månedlige terminer betyr at renten kapitaliseres tolv ganger i året. Les alltid oppgaveteksten: H2016, H2020 og H2022 regnet alle med <b>årlige, etterskuddsvise</b> terminer, og da er m = r og n = antall år.</div>
+
+<div class="callout mech"><span class="h">Hvorfor faller rentedelen og stiger avdragsdelen, når terminbeløpet står stille?</span>
+Fordi renten alltid regnes av det som fortsatt står ubetalt. I første termin er restgjelden hele lånet, så renten er maksimal og avdraget minimalt. Hver krone i avdrag krymper grunnlaget for neste termins rente, så neste termin frigjør litt mer til avdrag, som krymper grunnlaget litt mer. Prosessen er selvforsterkende, og det er derfor nedbetalingen er så treg i starten: på et boliglån over 25 år går knapt en tredel av den første terminen til å gjøre gjelden mindre. Det er også svaret på hvorfor et kort lån er så mye billigere enn et langt. Du betaler ikke en høyere rentesats, du eksponerer bare et mindre beløp i færre år.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: boliglån på 3 millioner, månedlige terminer</span>
+<p>Lån kr 3 000 000, nominell rente 5,0 % <b>[eksempeltall]</b>, løpetid 25 år, månedlige etterskuddsvise terminer.</p>
+<p><b>Steg 1 — sett terminstørrelsene.</b> Månedsrenten m = 5 %/12 = <b>0,416667 %</b>, og n = 25 × 12 = <b>300</b> terminer.</p>
+<p><b>Steg 2 — telleren.</b> 3 000 000 × 0,416667 % = <b>12 500</b>. Dette er også rentedelen av aller første termin, siden restgjelden ennå er hele lånet.</p>
+<p><b>Steg 3 — nevneren.</b> 1,00416667 opphøyd i −300 er 0,287250, så nevneren blir 1 − 0,287250 = <b>0,712750</b>.</p>
+<p><b>Steg 4 — terminbeløpet.</b> A = 12 500/0,712750 = <b>17 537,70 kr per måned</b>.</p>
+<p><b>Steg 5 — hva den første terminen består av.</b> Renter 12 500, avdrag 17 537,70 − 12 500 = <b>5 037,70</b>. Etter tolv terminer er restgjelden 2 938 143, altså har du betalt ned 3 000 000 − 2 938 143 = <b>61 857</b> kr på et helt år, mens 12 × 17 537,70 − 61 857 = <b>148 595</b> kr gikk til renter.</p>
+<p><b>Steg 6 — samlet kostnad.</b> 300 × 17 537,70 = <b>5 261 310</b> betalt i alt, og 5 261 310 − 3 000 000 = <b>2 261 310</b> kr i renter. Du betaler altså tre fjerdedeler av lånebeløpet én gang til, i renter alene.</p>
+<p><b>Kontroll:</b> regn den andre veien, med annuitetsfaktoren. A<sub>m,n</sub> = 0,712750/0,416667 % = <b>171,06</b>, og 17 537,70 × 171,06 = <b>3 000 000</b>. ✓ Nåverdien av de 300 terminbeløpene er nøyaktig lånet, som den må være. Den siste terminen er den harde kontrollen: da er restgjelden 17 465, renten 73 og avdraget 17 465, og gjelden treffer null.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Årsannuiteten delt på tolv: 3 000 000 til 5 % over 25 <i>år</i> gir 212 857,37, og 212 857,37/12 = <b>17 738,11</b> — 200 kroner for høyt, og et alternativ det er umulig å utelukke med øyemål. Månedsrenten satt sammen med 25 terminer: <b>126 608</b>. Årsrenten satt sammen med 300 terminer: <b>150 000</b>, som bare er renten på et evig lån. Avdraget alene, uten renter: 3 000 000/300 = <b>10 000</b>. Det siste tallet er verdt å regne uansett, fordi det er en <b>nedre grense</b>: et terminbeløp kan aldri være mindre enn lånet delt på antall terminer, så alt under 10 000 kan strykes uten regning.</p>
+</div>
+
+<h3>16.2 Serielånet, og hvorfor terminbeløpet faller</h3>
+
+<p>Et <b>serielån</b> snur de to størrelsene: avdraget er fast, og terminbeløpet er det som varierer. Du betaler L/n i avdrag hver termin, pluss renten på det som står igjen.</p>
+
+<div class="formula">
+  <div class="eq">Avdrag = L/n (konstant) &nbsp;·&nbsp; Termin<sub>t</sub> = L/n + restgjeld<sub>t−1</sub> × m</div>
+  <div class="eq">Sum renter = m × L × (n + 1)/2</div>
+  <div class="where">Restgjelden faller lineært, så rentedelen faller lineært, og terminbeløpet faller derfor med et fast beløp hver termin. Rentesummen er renten på gjennomsnittlig restgjeld gjennom hele løpetiden, og gjennomsnittet av en rett linje fra L ned til L/n er L × (n + 1)/(2n) — ganget med n terminer gir det formelen over.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: samme lån som serielån</span>
+<p>Samme kr 3 000 000, samme 5,0 % <b>[eksempeltall]</b>, samme 300 månedlige terminer.</p>
+<p><b>Steg 1 — avdraget.</b> 3 000 000/300 = <b>10 000</b> kr hver måned, hele veien.</p>
+<p><b>Steg 2 — første og siste termin.</b> Første: 10 000 + 12 500 = <b>22 500</b> kr. Siste: restgjelden er da 10 000, renten 10 000 × 0,416667 % = 41,67, og terminen 10 000 + 41,67 = <b>10 041,67</b> kr.</p>
+<p><b>Steg 3 — rentesummen.</b> 12 500 × 301/2 = <b>1 881 250</b> kr, og samlet betalt 3 000 000 + 1 881 250 = <b>4 881 250</b> kr.</p>
+<p><b>Steg 4 — sammenligningen.</b> 2 261 310 − 1 881 250 = <b>380 060</b> kr mindre i renter enn annuitetslånet. Prisen er en tyngre start: 22 500 mot 17 537,70 i første måned, altså nesten 5 000 kroner mer i måneden det første året.</p>
+<p><b>Kontroll:</b> serielånets rentesum kan regnes som renten på gjennomsnittlig restgjeld. Gjennomsnittet av 3 000 000 og 10 000 er 1 505 000, og 1 505 000 × 5 % × 25 = <b>1 881 250</b>. ✓ Samme tall, helt annen vei. Kontroller også at avdragene summerer: 300 × 10 000 = 3 000 000. ✓</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Renter regnet av hele lånet i alle terminer: 300 × 12 500 = <b>3 750 000</b>, altså dobbelt så mye som riktig. Rentesummen satt til halvparten av lånet ganger renten uten løpetid: 12 500 × 300/2 = <b>1 875 000</b>, som mangler det ene leddet i (n + 1)/2 og bommer med 6 250. Og den vanligste av alle: serielånets første termin oppgitt som svar på hva et <i>annuitetslån</i> koster, eller motsatt. Les hvilken lånetype oppgaven beskriver før du regner.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 620 370" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Terminbeløp per måned over 25 år for et lån på tre millioner til fem prosent. Annuitetslånet er en vannrett linje på 17 538 kroner. Serielånet starter på 22 500 kroner og faller rett ned til 10 042 kroner, og krysser annuitetslinjen etter ti år. En tredje, stiplet kurve viser rentedelen av annuitetsterminen, som faller fra 12 500 til nesten null."
+     font-family="Georgia,serif" font-size="13">
+  <line x1="70" y1="191.7" x2="570" y2="191.7" stroke="#999" stroke-width="0.6"/>
+  <line x1="70" y1="137.5" x2="570" y2="137.5" stroke="#999" stroke-width="0.6"/>
+  <line x1="70" y1="83.3" x2="570" y2="83.3" stroke="#999" stroke-width="0.6"/>
+  <text x="62" y="196" text-anchor="end" fill="#555" font-size="11">10 000</text>
+  <text x="62" y="142" text-anchor="end" fill="#555" font-size="11">15 000</text>
+  <text x="62" y="88" text-anchor="end" fill="#555" font-size="11">20 000</text>
+  <line x1="70" y1="300" x2="570" y2="300" stroke="#333" stroke-width="1.4"/>
+  <line x1="70" y1="300" x2="70" y2="45" stroke="#333" stroke-width="1.4"/>
+  <path d="M70,110 L570,110" stroke="#6b1f2a" stroke-width="2.3" fill="none"/>
+  <path d="M70,56 L570,191" stroke="#2f5a3f" stroke-width="2.3" fill="none"/>
+  <path d="M71,165 L172,180 L272,200 L372,225 L472,258 L570,299" stroke="#1f3a5f" stroke-width="2" fill="none" stroke-dasharray="5 4"/>
+  <circle cx="272" cy="110" r="3.6" fill="#b06000"/>
+  <line x1="272" y1="110" x2="272" y2="300" stroke="#b06000" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <text x="279" y="102" fill="#b06000" font-size="11">krysning etter 10 år</text>
+  <text x="470" y="103" fill="#6b1f2a" font-weight="bold" font-size="12">Annuitet 17 538</text>
+  <text x="330" y="146" fill="#2f5a3f" font-weight="bold" font-size="12">Serielån</text>
+  <text x="300" y="215" fill="#1f3a5f" font-size="12">rentedel av annuiteten</text>
+  <text x="74" y="50" fill="#2f5a3f" font-size="11">22 500</text>
+  <text x="70" y="318" text-anchor="middle" fill="#555" font-size="11">0</text>
+  <text x="170" y="318" text-anchor="middle" fill="#555" font-size="11">5</text>
+  <text x="270" y="318" text-anchor="middle" fill="#555" font-size="11">10</text>
+  <text x="370" y="318" text-anchor="middle" fill="#555" font-size="11">15</text>
+  <text x="470" y="318" text-anchor="middle" fill="#555" font-size="11">20</text>
+  <text x="570" y="318" text-anchor="middle" fill="#555" font-size="11">25</text>
+  <text x="320" y="343" text-anchor="middle" fill="#333">År siden opptak</text>
+  <text x="24" y="170" text-anchor="middle" transform="rotate(-90 24 170)" fill="#333">Terminbeløp per måned</text>
+</svg>
+<figcaption>Figur 16.1 — Kr 3 000 000 til 5,0 % over 25 år, månedlige terminer. Annuitetslånet ligger flatt på 17 537,70 kr hele veien. Serielånet starter 4 962 kroner høyere, faller lineært, og krysser annuitetslinjen i måned 121, altså etter nøyaktig ti år. Arealet under hver kurve er samlet betaling, og serielånets areal er 380 060 kr mindre, fordi gjelden nedbetales raskere. Den stiplede kurven er rentedelen av annuitetsterminen: den starter på 12 500 og ender på 73, og avstanden opp til den vannrette linjen er avdraget. Det er den avstanden som vokser, og det er hele forskjellen mellom å eie og å leie penger.</figcaption>
+</figure>
+
+<div class="callout mech"><span class="h">Hvorfor er serielånet billigst i sum, men annuitetslånet det folk velger?</span>
+Serielånet er billigere av én grunn alene: gjelden er mindre til enhver tid, så det er mindre å betale rente av. Rentesatsen er den samme, og ingen av lånene er «gunstigere» i noen annen forstand. Sammenligningen er derfor ikke gratis: du kjøper de 380 060 kronene ved å binde deg til høyere utbetalinger i de ti første årene, altså nettopp i den perioden en fersk boligeier har minst slakk. Annuitetslånet er valgt fordi kontantstrømmen er forutsigbar og lav i starten, og fordi et lån som er lettere å betjene er et lån du faktisk klarer å betjene. Vil du ha serielånets profil uten dets bindende krav, kan du ta et annuitetslån og betale ekstra avdrag frivillig: da får du samme rentebesparelse med retten til å slutte når som helst.</div>
+
+<h3>16.3 Effektiv rente: internrenten i hele kontantstrømmen</h3>
+
+<p>Den <b>nominelle</b> renten er den satsen renten regnes med per termin. Den <b>effektive</b> renten er den satsen som gjør nåverdien av alt du faktisk betaler lik alt du faktisk mottar. Det er to ting som skiller dem: kapitalisering oftere enn én gang i året, og gebyrer.</p>
+
+<div class="formula">
+  <div class="eq">Bare kapitalisering: r<sub>eff</sub> = (1 + r/k)<sup>k</sup> − 1</div>
+  <div class="where">k er antall kapitaliseringer per år. En nominell rente på 5,0 % med månedlige terminer gir en effektiv årsrente på 5,12 %, fordi renten i februar også forrentes resten av året.</div>
+  <div class="eq">Med gebyrer: L − etableringsgebyr = Σ<sub>t</sub> (A + termingebyr)/(1 + r<sub>eff</sub>)<sup>t</sup></div>
+  <div class="where">Etableringsgebyret trekkes fra beløpet du <i>mottar</i> i år 0. Termingebyret legges til hver <i>betaling</i>. Effektiv rente er internrenten i den strømmen, og den kan ikke løses eksplisitt. På flervalg løser du den ved å sette alternativene inn i annuitetsformelen baklengs, ikke ved å iterere.</div>
+</div>
+
+<div class="callout warn"><span class="h">Effektiv rente er ikke nominell rente pluss gebyrprosenten</span>
+Gebyrene er kroner, ikke prosentpoeng, og de betales på bestemte tidspunkter. Etableringsgebyret virker sterkest fordi det tas i sin helhet i år 0, mens termingebyret spres utover. Legger du gebyrene sammen, deler på lånebeløpet og legger resultatet på den nominelle renten, får du systematisk feil svar, og på H2022 oppgave 6 var nettopp et slikt tall satt opp som alternativ. Den andre standardfellen er å ta med bare <i>ett</i> av gebyrene: i det settet gir termingebyret alene 5,39 % og etableringsgebyret alene 5,54 %, mens begge sammen gir 5,94 %. Alle fire alternativene lå 0,45 til 0,5 prosentpoeng fra hverandre, så øyemål hjelper ikke. Med minuspoeng koster den feilen fire poeng.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: billånet med gebyrer (H2022 oppgave 6)</span>
+<p>Bilen koster 500 000, og selgeren tilbyr et annuitetslån på <b>400 000</b> til nominell rente <b>4,99 %</b> over <b>5 år</b>, årlige etterskuddsvise terminer. Etableringsgebyr <b>5 990</b>, termingebyr <b>1 020</b> per år. Alle tall er <b>[eksempeltall fra oppgaveteksten]</b>; skatt er holdt utenfor.</p>
+<p><b>Steg 1 — terminbeløpet uten gebyrer.</b> Telleren: 400 000 × 4,99 % = <b>19 960</b>. Nevneren: 1,0499 opphøyd i −5 er 0,783899, altså 1 − 0,783899 = <b>0,216101</b>. A = 19 960/0,216101 = <b>92 364 kr</b> i året.</p>
+<p><b>Steg 2 — rentesummen.</b> 5 × 92 364,38 − 400 000 = <b>61 822</b> kr. Nedbetalingsplanen bekrefter den: rentedelen faller fra 19 960 i år 1 til 4 390 i år 5, og restgjelden treffer null.</p>
+<p><b>Steg 3 — kontantstrømmen med gebyrer.</b> I år 0 mottar du 400 000 − 5 990 = <b>394 010</b>. I hvert av de fem årene betaler du 92 364 + 1 020 = <b>93 384</b>.</p>
+<table class="data">
+<tr><th>År</th><th class="n">0</th><th class="n">1</th><th class="n">2</th><th class="n">3</th><th class="n">4</th><th class="n">5</th></tr>
+<tr><td>Kontantstrøm</td><td class="n">+394 010</td><td class="n">−93 384</td><td class="n">−93 384</td><td class="n">−93 384</td><td class="n">−93 384</td><td class="n">−93 384</td></tr>
+</table>
+<p><b>Steg 4 — internrenten.</b> Prøv alternativene i stedet for å iterere. Ved 5,94 % er annuitetsfaktoren over fem år 4,2192, og 394 010/4,2192 = <b>93 384</b>, som er nøyaktig terminbeløpet. ✓ Effektiv rente er <b>5,94 %</b>. Ved den nominelle 4,99 % er faktoren 4,3307, og 394 010/4,3307 = 90 981, altså for lite: den strømmen ville betjent et mindre lån enn du faktisk har fått.</p>
+<p><b>Steg 5 — kredittkostnaden, som er noe annet.</b> Kredittkostnad er alt du betaler minus det du fikk låne, <b>udiskontert</b>: 5 × 92 364,38 + 5 × 1 020 + 5 990 = 461 822 + 5 100 + 5 990 = <b>472 912</b>, og 472 912 − 400 000 = <b>72 912</b> kr.</p>
+<p><b>Kontroll:</b> kredittkostnaden er også renter pluss gebyrer, siden avdragene bare er tilbakebetaling: 61 822 + 5 100 + 5 990 = <b>72 912</b>. ✓ Kontroller så størrelsesordenen på den effektive renten. Gebyrene er 5 990 + 5 100 = 11 090 kr over fem år, altså 11 090/5 = <b>2 218</b> kr i året. Gjennomsnittlig restgjeld ved inngangen til de fem årene er 1 238 916/5 = <b>247 783</b> kr, og 2 218/247 783 = <b>0,90 %</b>. Effektiv rente må derfor ligge rundt den nominelle 4,99 % pluss vel 0,9 prosentpoeng, altså nær 5,9 %. Det utelukker både 4,99 % og 6,44 % på ti sekunder.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> I terminbeløpet: 400 000/5 = <b>80 000</b> er avdragene uten renter, den nedre grensen. På effektiv rente er <b>4,99 %</b> svaret til den som ikke gjør noe med gebyrene, og effektiv rente er per definisjon høyere enn nominell når det finnes gebyrer i det hele tatt. På kredittkostnaden er <b>472 912</b> den farligste: summen er helt riktig, men de 400 000 du fikk låne er ikke trukket fra. <b>61 822</b> er rentene alene, uten gebyrer, og <b>5 100</b> er termingebyrene alene. Alle tre er ekte mellomresultater du regner ut underveis, og det er nøyaktig derfor de står som alternativer.</p>
+</div>
+
+<p>Den eldste versjonen av samme rutine er H2016 oppgave 3b–e, som er ren renteregning uten gebyrer, med årlige terminer. Et lån på <b>500 000 over 10 år</b>: til 12 % blir annuiteten <b>88 492</b> og rentesummen 10 × 88 492,08 − 500 000 = <b>384 921</b>; til 3 % blir de <b>58 615</b> og 10 × 58 615,25 − 500 000 = <b>86 153</b>. Legg merke til forholdet. Renten firedobles, men rentesummen blir mer enn fire ganger så stor, fordi en høyere rente også gjør at gjelden nedbetales langsommere. Oppgave 3h utvidet sammenligningen: et rammelån på 2 000 000 med ett prosentpoeng høyere rente koster 20 000 mer i året, og 58 615 + 20 000 = <b>78 615</b> er fortsatt lavere enn 88 492, så konklusjonen står.</p>
+
+<h3>16.4 Rentefradraget: bare renten, og bare 22 %</h3>
+
+<p>Renter på gjeld er fradragsberettiget i alminnelig inntekt. <b>Avdrag er det ikke</b>, og det er ikke en teknikalitet: et avdrag er ingen kostnad i det hele tatt, bare en flytting av penger fra kontanter til egenkapital.</p>
+
+<div class="formula">
+  <div class="eq">Rentekostnad etter skatt = renter × (1 − t) = renter × 0,78</div>
+  <div class="eq">Effektiv lånerente etter skatt = r × (1 − t)</div>
+  <div class="where">t er skattesatsen på alminnelig inntekt, 22 % <b>[dagens regel]</b>. En nominell lånerente på 5,0 % koster deg 5 % × (1 − 0,22) = <b>3,90 %</b> etter skatt. Fradraget er en ren satsreduksjon fordi renter trekkes fra i alminnelig inntekt, aldri i grunnlaget for trygdeavgift eller trinnskatt.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor gjør rentefradraget lånet 22 % billigere, men ikke gunstig?</span>
+Staten dekker 22 øre av hver rentekrone, uansett hvor høy marginalskatten din er, fordi renten treffer alminnelig inntekt og ikke personinntekten. Det er en subsidie på å låne, og den er hele forklaringen på at gjeld er skattemessig gunstigere enn egenkapital både for husholdninger og selskaper. Men den snur ingen regnestykker alene: 78 øre av hver rentekrone er fortsatt din. Feilen som gjør skade er å tro at fradraget gjelder terminbeløpet. På det første terminbeløpet i eksempelet over, 17 537,70 kr, er bare 12 500 renter, så fradraget er 12 500 × 22 % = <b>2 750</b> kr og den reelle kostnaden 17 537,70 − 2 750 = <b>14 787,70</b>. Regner du fradrag av hele terminen, får du 17 537,70 × 22 % = <b>3 858,29</b> og overvurderer statens bidrag med over 40 %. Over det første året er rentene 148 595, fradraget 148 595 × 22 % = <b>32 691</b> og nettokostnaden 148 595 × 78 % = <b>115 904</b> kr.</div>
+
+<h3>16.5 Utlånsforskriften: fire skranker, og lånetaket</h3>
+
+<p>Hvor mye du får låne, er ikke ditt valg alene. Utlånsforskriften setter fire krav, og <b>det strengeste binder</b>. Forelesningens poeng om <i>hvorfor</i> de finnes, er at begrunnelsen er <b>systemrisiko</b> og ikke forbrukerbeskyttelse: hadde hensikten vært å beskytte den enkelte, ville forbrukslånsrenter på 20 % vært regulert også. Frislipp av boligkreditt har historisk gitt finanskriser, og det er bankene i flertall, ikke låntakeren i entall, forskriften er skrevet mot.</p>
+
+<div class="formula">
+  <div class="eq">(1) Gjeldsgrad: samlet gjeld ≤ 5 × brutto årsinntekt</div>
+  <div class="eq">(2) Belåningsgrad: lån ≤ 90 % av boligens verdi (rammelån 60 %)</div>
+  <div class="eq">(3) Stresstest: kunden må tåle renten pluss 3 prosentpoeng, minst 7 %</div>
+  <div class="eq">(4) Avdragskrav: minst 2,5 % av innvilget lån per år når belåningsgraden er over 60 %, alternativt avdraget i et annuitetslån over 30 år</div>
+  <div class="where">Alle fire er <b>[dagens regel]</b>, gjeldende fra 1. januar 2025. <b>Fleksibilitetskvoten</b> ligger over dem alle: banken kan bryte kravene for <b>10 %</b> av utlånsvolumet per kvartal, <b>8 %</b> i Oslo. Kravene binder altså porteføljen, ikke den enkelte søknaden, og det er derfor et avslag alltid kan ankes til en annen bank. Gjeldsgraden regnes av <i>samlet</i> gjeld: studielån, billån og kredittkortramme teller med, så nytt boliglån er femgangeren minus det du allerede skylder.</div>
+</div>
+
+<div class="callout warn"><span class="h">Satsene i forskriften er endret, og eksamenssettene bruker de gamle</span>
+Egenkapitalkravet var <b>15 %</b> til og med 2024 og er <b>10 %</b> fra 2025 <b>[dagens regel]</b>. Viktigere for regningen: stresstesten i H2020 oppgave 4c og H2021 oppgave 5c legger på <b>5 prosentpoeng</b>, som var kravet den gangen <b>[eksempeltall]</b>, mens dagens forskrift krever 3 prosentpoeng og minst 7 % rente. Med disponibelt 260 000 kr gir det gamle påslaget H2021-svaret 260 000 × 11,2578 = <b>2 927 024</b> kr, mens dagens påslag på samme rentenivå ville gitt et vesentlig større lån. Bruk alltid påslaget oppgaveteksten oppgir, og bruk 30 års løpetid i stresstesten med mindre noe annet står.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: lånetaket med stresstest</span>
+<p>Du har brutto årsinntekt kr <b>700 000</b> og studielån kr <b>500 000</b>. Boligen koster kr <b>4 000 000</b>. Lånerenten er 5,0 %, og 60 % av bruttolønnen går til skatt, forbruk og studielån <b>[eksempeltall; forskriftens krav er dagens regler]</b>.</p>
+<p><b>Steg 1 — betjeningsevnen.</b> 700 000 × 40 % = <b>280 000</b> kr i året er disponibelt til boliglån.</p>
+<p><b>Steg 2 — gjeldsgraden.</b> 5 × 700 000 = <b>3 500 000</b> i samlet gjeld. Studielånet teller med, så nytt boliglån kan være 3 500 000 − 500 000 = <b>3 000 000</b>.</p>
+<p><b>Steg 3 — belåningsgraden.</b> 90 % × 4 000 000 = <b>3 600 000</b>.</p>
+<p><b>Steg 4 — stresstesten.</b> Renten skal stresses med 3 prosentpoeng, altså til 8 %, som er over minstekravet på 7 %. Annuitetsfaktoren over 30 år ved 8 % er <b>11,2578</b>, og maksimalt lån blir 280 000 × 11,2578 = <b>3 152 184</b>.</p>
+<table class="data">
+<tr><th>Skranke</th><th class="n">Maksimalt lån</th><th>Binder?</th></tr>
+<tr><td>Gjeldsgrad, 5 × inntekt minus studielån</td><td class="n">3 000 000</td><td><b>ja</b></td></tr>
+<tr><td>Stresstest, 8 % over 30 år</td><td class="n">3 152 184</td><td>nei</td></tr>
+<tr><td>Belåningsgrad, 90 % av boligverdien</td><td class="n">3 600 000</td><td>nei</td></tr>
+</table>
+<p><b>Steg 5 — svaret og det som følger av det.</b> Lånetaket er <b>3 000 000</b> kr. Belåningsgraden blir 3 000 000/4 000 000 = <b>75 %</b>, altså over 60 %, så avdragskravet slår inn: 2,5 % × 3 000 000 = <b>75 000</b> kr i året, eller alternativt det avdraget et 30-års annuitetslån gir, som her er 12 × 16 104,65 − 150 000 = <b>43 256</b> kr det første året. Egenkapitalen du trenger er kjøpesummen pluss dokumentavgiften på 2,5 % × 4 000 000 = 100 000, minus lånet: 4 100 000 − 3 000 000 = <b>1 100 000</b> kr, altså 27,5 % av kjøpesummen og ikke 10 %.</p>
+<p><b>Kontroll:</b> snu stresstesten. Et lån på 3 000 000 over 30 år til 8 % krever 3 000 000/11,2578 = <b>266 482</b> kr i året, og du har 280 000, altså 280 000 − 266 482 = <b>13 518</b> kr i slakk. ✓ Kontroller så mot virkeligheten: ved dagens 5 % over 30 år er terminbeløpet 16 104,65 kr i måneden, altså 12 × 16 104,65 = <b>193 256</b> kr i året. Du bruker to tredeler av betjeningsevnen din, og stresstesten er nettopp det den ser ut som — en test på om du fortsatt klarer deg om renten går 60 % opp.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Studielånet glemt i femgangeren: <b>3 500 000</b>, og da ville stresstesten sett ut til å binde i stedet. Gammelt påslag på 5 prosentpoeng, altså 10 %: 280 000 × 9,4269 = <b>2 639 532</b>. Ustresset rente på 5 %: 280 000 × 15,3725 = <b>4 304 300</b>, som er over alle tre skrankene og altså umulig. Løpetid 25 år i stedet for 30: 280 000 × 10,6748 = <b>2 988 944</b>, som ligger uhyggelig nær det riktige svaret på 3 000 000 og er nøyaktig derfor et alternativ. Og egenkapitalen satt til 10 % av boligverdien, altså 400 000, som glemmer både dokumentavgiften og at gjeldsgraden bandt.</p>
+</div>
+
+<div class="callout tip"><span class="h">Slik spørres det</span>
+Tre former, alle dokumentert. <b>Regnespørsmål om terminbeløp</b> (H2016 oppgave 3b og 3d, H2020 oppgave 6a med 2 125 000 til 3 % over 25 år, H2022 oppgave 6 spørsmål 1): svaret ligger alltid mellom lånet delt på antall terminer og et tall du kan overslå, så to grenser eliminerer ofte to alternativer. <b>Effektiv rente og kredittkostnad</b> (H2022 oppgave 6 spørsmål 2 og 3): kjenn igjen at nominell rente og «sum av alle betalinger» begge er alternativer, og at de er de to mest fristende. <b>Lånetak</b> (H2020 oppgave 4a–d, H2021 oppgave 5a–d, H2016 oppgave 3g med belåningsgrad 2 500/6 000 = 41,7 %): regn hver skranke for seg og svar med den laveste. H2019 oppgave 8a er varianten der <i>definisjonen</i> er hele oppgaven: gjeldsbelastning på 3 000 000 kan bli 4,6 med bruttoinntekt i nevneren, 5,8 med nettoinntekt, eller 7,5 med inntekt etter skatt og renter, og alle tre stod som alternativer. Les nevneren oppgaven ber om.</div>
+
+<h3>16.6 Avdragsfrihet, fast rente og rekkefølgen på gjelden</h3>
+
+<p><b>Avdragsfrihet</b> betyr at du i en periode betaler bare renter. Lånet blir ikke mindre, og renten løper på hele hovedstolen hele tiden. Det er en <i>likviditetsordning</i>, ikke en rabatt.</p>
+
+<p>Tallene på lånet fra 16.1: to års avdragsfrihet senker terminen fra 17 537,70 til 12 500 kr i måneden, altså 5 037,70 kr frigjort per måned og 24 × 5 037,70 = <b>120 905</b> kr i alt. Skal lånet fortsatt være ferdig etter 25 år, må de resterende 276 terminene dekke hele hovedstolen, og terminbeløpet stiger til <b>18 312,18</b> kr. Samlet betaling blir da 24 × 12 500 + 276 × 18 312,18 = 300 000 + 5 054 162 = <b>5 354 162</b> kr, mot 5 261 310 uten avdragsfrihet, altså <b>92 852</b> kr dyrere. Forlenges løpetiden i stedet med to år, er merkostnaden nøyaktig de rentene du betalte uten å nedbetale: 24 × 12 500 = <b>300 000</b> kr.</p>
+
+<div class="callout mistake"><span class="h">«Avdragsfrihet er et rentefritt lån» (H2024 oppgave 14)</span>
+Riktig alternativ er at avdragsfrihet <b>kan være lurt ved midlertidige likviditetsproblemer</b>: permittering, sykdom, foreldrepermisjon, en uventet regning. Da frigjør du kontantstrøm langt billigere enn med forbrukslån eller kredittkort, og den betingede formuleringen «kan være lurt hvis» er selv et signal om hvilket alternativ som er riktig. De tre gale er hver sin misforståelse. <b>«Rentefritt lån fra banken»</b> er motsatt av sant: du betaler <i>mer</i> renter, 92 852 kr i regnestykket over, fordi hovedstolen står uendret lenger. <b>«Staten betaler avdragene»</b> er ren fantasi; staten har ingen rolle i avtalen, og det eneste staten faktisk gjør er å dekke 22 % av rentene gjennom rentefradraget, uansett om du har avdragsfrihet eller ikke. <b>«Kostnaden blir den samme uansett, så bare ikke-rasjonelle ber om det»</b> feiler dobbelt: kostnaden er ikke den samme, den er høyere, og likviditet har verdi i seg selv når alternativet er dyrere kreditt. Merk at ordningen er en unntaksadgang: over 60 % belåningsgrad krever forskriften normalt avdrag, så avdragsfrihet må innvilges innenfor bankens fleksibilitetskvote.</div>
+
+<p><b>Fast eller flytende rente</b> er ikke et veddemål om hvor renten går. Spørsmålet «lønner det seg med fast rente?» er feil stilt, for banken priser fastrenten ut fra markedets forventninger, og i gjennomsnitt er fastrenten litt høyere nettopp fordi den inneholder en <b>forsikringspremie</b>. Det du kjøper er ikke en lav rente, men <b>visshet om terminbeløpet</b>, og det er verdt noe presis i den grad du er sårbar for en renteøkning. Vurderingen er derfor den samme som for enhver forsikring: hvor mye faller nytten din hvis renten stiger tre prosentpoeng, og hvor mye koster det å slippe å finne det ut? Er du nyetablert med maksimalt lån og ingen buffer, er svaret gjerne ja. Har du lav belåningsgrad og solid margin, betaler du for en trygghet du allerede har. Prisen for fastrenten er dessuten ikke bare premien: du binder deg, og innfrir du lånet tidlig eller vil flytte det, kan overkursen bli betydelig.</p>
+
+<p>Til slutt <b>rekkefølgen</b>, som er kursets enkleste og mest lønnsomme regel: <b>betal ned lånet med høyest rente først</b>. Lån er flytting av penger over tid, og det gjøres billigst der prisen er høyest. Rangeringen blir kredittkort og forbrukslån, deretter bil- og båtlån, deretter boliglån, og til sist studielånet, som er billigst og i tillegg slettes ved dødsfall og har rentefritak ved sykdom. Det eneste legitime unntaket er ulike konsekvenser ved mislighold. Selvhjelpslitteraturens <b>snøballmetode</b>, som sier at du skal betale ned det <i>minste</i> lånet først for å få raske seire, er et atferdsargument om motivasjon, ikke et økonomisk argument, og et alternativ som presenterer den som den økonomisk riktige regelen er galt. At regelen brytes systematisk er godt dokumentert: folk betaler lik andel på hvert lån i stedet for å prioritere, og rundt 30 % av amerikanske husholdninger har dyr kredittkortgjeld samtidig som de har midler stående til lav rente. Forklaringene er mental regnskapsføring og nåtidsskjevhet, og de hører hjemme i kapittel 18.</p>
+
+<div class="callout link"><span class="h">Hvor dette henger sammen med resten</span>
+Utlånsforskriften er også regnet i <b>kapittel 4</b>, der lånetaket brukes til å finne egenkapitalavkastningen på en giret bolig, og der dokumentavgiften og belåningsgraden står i detalj. Rentefradraget bygger på skatten på alminnelig inntekt fra <b>kapittel 1</b> og på nåverdien av et fradrag fra <b>kapittel 2</b>; at gjeld er skattemessig favorisert framfor egenkapital er bedriftens versjon av samme mekanisme i <b>kapittel 9</b>. Fast rente som forsikring er nøyaktig oppsettet i <b>kapittel 17</b>: du betaler en premie for å fjerne varians, og spørsmålet er om risikoaversjonen din gjør premien verdt det. Avdragskravet på boliglån er tvungen sparing og hører derfor også hjemme i pensjonskapitlet, <b>kapittel 15</b>. Rutinene her er R7 i sjekklisten i <b>kapittel 19</b>.</div>
+
+</section>
+
+<hr class="sec">
+
+<section id="k17">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">17 · Forsikring og forventet nytte</h2>
+
+<p class="lead-in">Temaet vokser. Det var borte fra H2022, tok 8 % av poengene i H2024 (oppgave 11a–d) og 14 % i H2025 (oppgave 12 og 13.1–13.3), og det har vært innom fire av de ni gamle settene. Grunnen til at det egner seg så godt til flervalg er at hele temaet hviler på én ligning med fire tall i, og at de tre gale alternativene lages av tre navngitte feil: sammenligne kroner i stedet for nytte, glemme at premien betales også når skaden inntreffer, og dra konklusjonen fra forrige delspørsmål videre uten å regne på nytt. Mønsteret i oppgavene er nesten skjematisk: U(W) = √W, tapssannsynlighet 1 %, tapet er hele formuen, og premien ligger rundt dobbelt så høyt som den aktuarisk riktige. Kan du rutinen, tar hvert delspørsmål under to minutter.</p>
+
+<h3>17.1 Risikoaversjon er krumningen i nyttefunksjonen</h3>
+
+<p>En nyttefunksjon U(W) rangerer formuesnivåer. To egenskaper avgjør alt i dette kapitlet. <b>U′(W) &gt; 0</b>: mer formue er bedre. <b>U″(W) &lt; 0</b>: funksjonen er <b>konkav</b>, og det er dette som er risikoaversjon. Konkavitet betyr at den siste kronen er verdt mindre enn den forrige, altså avtakende grensenytte.</p>
+
+<div class="formula">
+  <div class="eq">U(W) = √W &nbsp;⟹&nbsp; U′ = ½W<sup>−½</sup> &gt; 0, &nbsp; U″ = −¼W<sup>−3/2</sup> &lt; 0</div>
+  <div class="eq">U(W) = ln W &nbsp;⟹&nbsp; U′ = 1/W &gt; 0, &nbsp; U″ = −1/W<sup>2</sup> &lt; 0</div>
+  <div class="where">Begge er strengt konkave, altså begge risikoaverse. De hører til samme familie: U(W) = W<sup>1−γ</sup>/(1 − γ), der γ er den relative risikoaversjonen fra Mertons formel i kapittel 14. √W svarer til γ = 0,5, ln W til γ = 1. ln W er altså den <i>mer</i> risikoaverse av de to, og det gir seg utslag i tall, som 17.5 viser.</div>
+</div>
+
+<p>Fra konkaviteten følger <b>Jensens ulikhet</b>: for et usikkert utfall er E[U(W)] &lt; U(E[W]). Nytten av det du får i gjennomsnitt er høyere enn gjennomsnittet av nyttene. Sagt uten matematikk: <b>et sikkert beløp slår et usikkert beløp med samme forventning</b>. Det er hele grunnlaget for at forsikring finnes.</p>
+
+<div class="formula">
+  <div class="eq">Sikkerhetsekvivalent: U(CE) = E[U(W)] &nbsp;⟹&nbsp; for U = √W: CE = (E[U])²</div>
+  <div class="eq">Risikopremie = E[W] − CE</div>
+  <div class="where">CE er den <b>sikre</b> formuen som er nøyaktig like god som lotteriet. Risikopremien er hva du er villig til å gi opp i forventning for å slippe risikoen. Regn deg alltid tilbake til kroner: nyttetallene i seg selv betyr ingenting, forskjellen mellom 2 970 og 2 973 sier deg ikke om den er stor eller liten, men 19 100 kroner sier det.</div>
+</div>
+
+<figure>
+<svg viewBox="0 0 620 380" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Konkav nyttefunksjon rot av W. En 50/50-sjanse mellom formue 10 000 og 90 000 har forventet formue 50 000, men forventet nytte 200, som ligger på korden under kurven. Sikkerhetsekvivalenten er 40 000, og risikopremien er avstanden 10 000 mellom 40 000 og 50 000."
+     font-family="Georgia,serif" font-size="13">
+  <line x1="70" y1="310" x2="595" y2="310" stroke="#333" stroke-width="1.4"/>
+  <line x1="70" y1="310" x2="70" y2="45" stroke="#333" stroke-width="1.4"/>
+
+  <polyline points="70,310 80,275.1 95,254.8 120,231.9 145,214.3 170,199.5 220,174.7 270,153.8 320,135.3 370,118.6 420,103.3 470,89.0 520,75.6 570,62.9"
+            fill="none" stroke="#6b1f2a" stroke-width="2.4"/>
+  <line x1="120" y1="231.9" x2="520" y2="75.6" stroke="#1f3a5f" stroke-width="1.8" stroke-dasharray="5 4"/>
+
+  <line x1="70" y1="153.8" x2="320" y2="153.8" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="70" y1="135.3" x2="320" y2="135.3" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="270" y1="153.8" x2="270" y2="310" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="320" y1="135.3" x2="320" y2="310" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="120" y1="231.9" x2="120" y2="310" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="520" y1="75.6" x2="520" y2="310" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+  <circle cx="120" cy="231.9" r="3.4" fill="#6b1f2a"/>
+  <circle cx="520" cy="75.6" r="3.4" fill="#6b1f2a"/>
+  <circle cx="320" cy="153.8" r="3.8" fill="#1f3a5f"/>
+  <circle cx="320" cy="135.3" r="3.4" fill="#6b1f2a"/>
+  <circle cx="270" cy="153.8" r="3.8" fill="#2f5a3f"/>
+
+  <line x1="270" y1="330" x2="320" y2="330" stroke="#b06000" stroke-width="3"/>
+  <text x="295" y="349" text-anchor="middle" fill="#b06000" font-size="11">risikopremie 10 000</text>
+
+  <text x="540" y="60" fill="#6b1f2a" font-weight="bold" font-size="12">U(W)</text>
+  <text x="352" y="158" fill="#1f3a5f" font-size="11">forventet nytte 200</text>
+  <text x="352" y="130" fill="#6b1f2a" font-size="11">nytte av sikre 50 000: 223,6</text>
+  <text x="120" y="326" text-anchor="middle" fill="#555" font-size="11">10 000</text>
+  <text x="264" y="326" text-anchor="end" fill="#2f5a3f" font-size="11">40 000</text>
+  <text x="326" y="326" text-anchor="start" fill="#555" font-size="11">50 000</text>
+  <text x="520" y="326" text-anchor="middle" fill="#555" font-size="11">90 000</text>
+  <text x="64" y="158" text-anchor="end" fill="#555" font-size="11">200</text>
+  <text x="64" y="236" text-anchor="end" fill="#555" font-size="11">100</text>
+  <text x="64" y="80" text-anchor="end" fill="#555" font-size="11">300</text>
+  <text x="330" y="372" text-anchor="middle" fill="#333">Formue W</text>
+  <text x="24" y="180" text-anchor="middle" transform="rotate(-90 24 180)" fill="#333">Nytte U</text>
+</svg>
+<figcaption>Figur 17.1 — Nyttefunksjonen U(W) = √W med et 50/50-lotteri mellom formue 10 000 og 90 000 <b>[eksempeltall]</b>. Nyttene i de to utfallene er 100 og 300, så forventet nytte er 200. Det tallet leses av på den stiplede blå <i>korden</i> mellom de to punktene, midt mellom endepunktene, og korden ligger under kurven fordi funksjonen er konkav. Nytten av å få forventningen 50 000 sikkert er derimot √50 000 = 223,6, altså høyere. Går du vannrett fra forventet nytte 200 inn til kurven, treffer du sikkerhetsekvivalenten 40 000: det sikre beløpet som er akkurat like godt som lotteriet. Avstanden 50 000 − 40 000 = 10 000 er risikopremien, og den er hele grunnen til at du er villig til å betale mer enn forventet skade for en forsikring. Jo mer krum kurven er, jo lenger under kurven ligger korden, og jo større er risikopremien.</figcaption>
+</figure>
+
+<div class="callout mech"><span class="h">Hvorfor betyr konkav nyttefunksjon at du vil unngå risiko?</span>
+Fordi tap og gevinst av samme størrelse ikke veier likt. Har du 50 000 og kan vinne eller tape 40 000 med lik sannsynlighet, er de 40 000 du kan tape hentet fra de <i>første</i> kronene dine, som er de mest verdifulle, mens de 40 000 du kan vinne legges oppå toppen, der hver krone er verdt minst. I figuren: fallet fra 223,6 til 100 er mye større enn oppgangen fra 223,6 til 300. Snittet av de to nyttene blir derfor lavere enn nytten av å bli stående. Legg merke til hva som <i>ikke</i> kreves: du trenger ingen antakelse om at risiko er ubehagelig i seg selv. Avtakende grensenytte alene gir risikoaversjon.</div>
+
+<h3>17.2 Beslutningsregelen: sammenlign nytter, ikke formuer</h3>
+
+<p>Oppsettet er alltid det samme. Du har formue W. Med sannsynlighet p inntreffer en skade som koster deg L. Forsikringsselskapet tilbyr full dekning mot premien P. Skriv opp formuen i hver tilstand først, og sett så inn i nyttefunksjonen.</p>
+
+<div class="formula">
+  <div class="eq">E[U uten] = (1 − p) × U(W) + p × U(W − L)</div>
+  <div class="eq">E[U med] = U(W − P)</div>
+  <div class="eq">Kjøp forsikringen når E[U med] er større enn E[U uten].</div>
+  <div class="where">Med <b>full</b> dekning er formuen W − P i begge tilstander: brenner huset, får du L utbetalt, men premien er betalt uansett. Derfor har E[U med] ingen sannsynlighet i seg. Det er nettopp det som gjør forsikringen verdt noe, og som gjør at svaret ikke kan leses av forventet formue.</div>
+  <div class="eq">Aktuarisk («riktig», «rettferdig») premie: P<sub>rett</sub> = p × L</div>
+  <div class="eq">Delvis dekning av andelen α av tapet, premie P: E[U delvis] = (1 − p) × U(W − P) + p × U(W − L + αL − P)</div>
+  <div class="where">Ved aktuarisk premie går selskapet i null i forventning. Merk siste linje: ved <b>delvis</b> dekning er premien P trukket fra i <b>begge</b> tilstander, og risikoen er ikke borte, bare dempet. Å glemme premien i skadetilfellet er den nest vanligste feilen på temaet.</div>
+</div>
+
+<div class="callout mistake"><span class="h">«Premien er høyere enn forventet skade, altså er forsikringen ikke verdt det»</span>
+Dette er den store misforståelsen, og den har sitt eget svaralternativ i H2024 oppgave 11c: «Nei, fordi man aldri bør kjøpe forsikring hvis premien er høyere enn den forventede skaden.» Det gir riktig konklusjon i akkurat den oppgaven og er likevel en gal regel. En risikoavers person betaler <i>gjerne</i> mer enn forventet skade, opp til maksimalpremien. Kontrollen som avslører regelen: med de samme tallene (formue 1 mill., p = 1 %, altså forventet skade 10 000) og en premie på 15 000 er √985 000 = 992,47, som er større enn 990, altså <b>kjøp</b> — med premien fortsatt 50 % over forventet skade. Sammenligner du forventet <i>formue</i>, får du «ikke kjøp» hver eneste gang premien overstiger forventet skade, og det er alltid feil metode.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: aktuarisk pris, og hvorfor full dekning slår halv dekning</span>
+<p>Du har kr 90 000 i formue, hvorav en elsykkel til kr 50 000. Sannsynligheten for tyveri i løpet av året er 20 %, og du får ingenting igjen for sykkelen hvis den blir stjålet. U(W) = √W. Alle tall her er <b>[eksempeltall]</b>, valgt for å gi glatte kvadratrøtter. Selskapet selger dekning til <b>aktuarisk pris</b>, altså premie lik forventet utbetaling.</p>
+<p><b>Steg 1 — premiene.</b> Full dekning: 20 % × 50 000 = <b>10 000</b>. Halv dekning (25 000 utbetalt): 20 % × 25 000 = <b>5 000</b>.</p>
+<p><b>Steg 2 — formuen i hver tilstand.</b></p>
+<table class="data">
+<tr><th>Dekning</th><th class="n">Premie</th><th class="n">Sykkel i behold (80 %)</th><th class="n">Sykkel stjålet (20 %)</th></tr>
+<tr><td>Ingen</td><td class="n">0</td><td class="n">90 000</td><td class="n">40 000</td></tr>
+<tr><td>Halv</td><td class="n">5 000</td><td class="n">85 000</td><td class="n">60 000</td></tr>
+<tr><td>Full</td><td class="n">10 000</td><td class="n">80 000</td><td class="n">80 000</td></tr>
+</table>
+<p><b>Steg 3 — forventet formue er den samme i alle tre.</b> Uten: 0,80 × 90 000 + 0,20 × 40 000 = 72 000 + 8 000 = <b>80 000</b>. Halv: 0,80 × 85 000 + 0,20 × 60 000 = 68 000 + 12 000 = <b>80 000</b>. Full: <b>80 000</b> med sikkerhet. Dekningsgraden flytter altså ikke en eneste krone i forventning, og det er nøyaktig det aktuarisk pris betyr.</p>
+<p><b>Steg 4 — forventet nytte skiller dem likevel.</b> Uten: 0,80 × √90 000 + 0,20 × √40 000 = 0,80 × 300 + 0,20 × 200 = 240 + 40 = <b>280,0000</b>. Halv: 0,80 × √85 000 + 0,20 × √60 000 = 0,80 × 291,5476 + 0,20 × 244,9490 = 233,2381 + 48,9898 = <b>282,2279</b>. Full: √80 000 = <b>282,8427</b>.</p>
+<p><b>Steg 5 — oversett til kroner.</b> Kvadrer nyttetallene og du får sikkerhetsekvivalenten: 280² = <b>78 400</b> uten forsikring og 282,8427² = <b>80 000</b> med full dekning. Halv dekning gir 79 653.</p>
+<table class="data">
+<tr><th>Dekning</th><th class="n">Forventet formue</th><th class="n">Forventet nytte</th><th class="n">Sikkerhetsekvivalent</th></tr>
+<tr><td>Ingen</td><td class="n">80 000</td><td class="n">280,0000</td><td class="n">78 400</td></tr>
+<tr><td>Halv</td><td class="n">80 000</td><td class="n">282,2279</td><td class="n">79 653</td></tr>
+<tr><td>Full</td><td class="n">80 000</td><td class="n">282,8427</td><td class="n">80 000</td></tr>
+</table>
+<p><b>Kontroll:</b> risikopremien uten forsikring er 80 000 − 78 400 = <b>1 600</b>, og maksimal premie for full dekning er 90 000 − 78 400 = <b>11 600</b>. Det er nøyaktig aktuarisk premie pluss risikopremie: 10 000 + 1 600 = <b>11 600</b>. ✓ Selskapet ber om 10 000, du ville betalt 11 600, og forskjellen 1 600 er gevinsten din. Full dekning til aktuarisk pris er alltid strengt best, og rangeringen ingen–halv–full er monoton: hver krone ekstra dekning er gratis i forventning og fjerner litt risiko.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Sammenligner du forventet formue, får du 80 000 mot 80 000 mot 80 000 og konkluderer «indifferent» — som er svaralternativet for den som ikke bruker nyttefunksjonen i det hele tatt. Glemmer du å trekke premien i skadetilfellet ved halv dekning, regner du 0,80 × √85 000 + 0,20 × √65 000 = 233,2381 + 50,9902 = 284,2283 og får halv dekning til å slå full, som er umulig til aktuarisk pris. Og bruker du utbetalingen 25 000 i stedet for sluttformuen 60 000 i skadetilstanden, faller hele oppsettet fra hverandre: nyttefunksjonen tar <b>formue</b>, ikke kontantstrøm.</p>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor er full dekning optimalt til aktuarisk pris, men ikke med påslag?</span>
+Til aktuarisk pris koster hver ekstra krone dekning nøyaktig det den forventes å gi tilbake, så forventet formue er uavhengig av dekningsgraden, mens risikoen faller monotont og blir null først ved 100 %. En risikoavers person tar all risikoreduksjon som er gratis, og svaret er derfor 100 % uansett hvor stor eiendelen er og uansett hvilken konkav nyttefunksjon du har. Dette er <i>Mossins resultat</i>, og det er svaret på H2024 oppgave 11b. Legger selskapet på et påslag over aktuarisk pris, snur konklusjonen i kanten: den siste kronen dekning koster nå mer enn den er verdt, og det blir optimalt med en <b>egenandel</b>. Det er forklaringen på at ekte forsikringer har egenandel, for ekte premier ligger alltid over aktuarisk pris. Merk at dette ikke motsier 17.4: der er dekningsgraden gitt utenfra, og spørsmålet er bare om det som tilbys er verdt prisen.</div>
+
+<h3>17.3 Maksimal premie er sikkerhetsekvivalenten snudd</h3>
+
+<p>«Hva er det meste du er villig til å betale?» er den ene av de to regnevariantene. Sett nytten med forsikring lik forventet nytte uten, og løs for premien:</p>
+
+<div class="formula">
+  <div class="eq">U(W − P<sub>maks</sub>) = E[U uten] &nbsp;⟹&nbsp; P<sub>maks</sub> = W − CE</div>
+  <div class="eq">For U = √W: P<sub>maks</sub> = W − (E[U uten])²</div>
+  <div class="eq">Dekomponering: P<sub>maks</sub> = aktuarisk premie + risikopremie</div>
+  <div class="where">Siste linje er kontrollen. Maksimalpremien er alltid <i>større</i> enn den aktuariske og <i>mindre</i> enn hele tapet, og differansen mot den aktuariske er nøyaktig risikopremien fra 17.1. Kvadreringen gjelder bare for √W; for ln W tar du eksponentialen i stedet, som i 17.5.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: H2024 oppgave 11c og 11d — huset til 1 million</span>
+<p>Huset er din eneste eiendel av større verdi og er verdt kr 1 000 000. Med sannsynlighet <b>1 %</b> brenner det ned og mister <i>all</i> verdi. U(W) = √W. Premien er kr 25 000. Tallene er <b>[eksempeltall fra oppgaveteksten]</b>.</p>
+<p><b>Steg 1 — forventet nytte uten forsikring.</b> Formuen er 1 000 000 med 99 % og 0 med 1 %:</p>
+<p>E[U uten] = 0,99 × √1 000 000 + 0,01 × √0 = 0,99 × 1 000 + 0 = <b>990,00</b>.</p>
+<p><b>Steg 2 — forventet nytte med forsikring.</b> Full dekning gir sikker formue 1 000 000 − 25 000 = 975 000, og √975 000 = <b>987,42</b>.</p>
+<p><b>Steg 3 — sammenlign (deloppgave c).</b> 987,42 er mindre enn 990,00, altså <b>nei, ikke kjøp</b>. Aktuarisk premie er 1 % × 1 000 000 = <b>10 000</b>, så selskapet tar 2,5 ganger riktig pris, og det er for mye for deg.</p>
+<p><b>Steg 4 — maksimalpremien (deloppgave d).</b> Løs √(1 000 000 − P) = 990. Kvadrer begge sider: 1 000 000 − P = 990² = <b>980 100</b>, altså P = 1 000 000 − 980 100 = <b>19 900</b>.</p>
+<p><b>Kontroll:</b> 980 100 er sikkerhetsekvivalenten. Forventet formue uten forsikring er 0,99 × 1 000 000 = <b>990 000</b>, så risikopremien er 990 000 − 980 100 = <b>9 900</b>. Dekomponeringen skal da gi maksimalpremien: aktuarisk 10 000 pluss risikopremie 9 900 = <b>19 900</b>. ✓ To uavhengige veier, samme tall. Legg merke til at maksimalpremien er nesten nøyaktig <i>dobbelt</i> så høy som den aktuariske. Det mønsteret gjentar seg i H2025-oppgaven, og det er verdt å ha som grov peiling: med √W, 1 % sannsynlighet og hele formuen i spill, ligger smertegrensen rundt to ganger forventet skade.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Alternativene var 19 900, 23 100, 27 100 og 29 900. Fra deloppgave c vet du at du takket <i>nei</i> til 25 000, så maksimalpremien må ligge under 25 000: <b>27 100</b> og <b>29 900</b> stryker seg selv uten en eneste utregning. Motsatt vei er du risikoavers, så den må ligge over aktuariske 10 000. Da står 19 900 og 23 100 igjen, og den siste må du faktisk regne: √(1 000 000 − 23 100) = √976 900 = <b>988,38</b>, fortsatt under 990, altså for høyt. Med minuspoeng er dette forskjellen mellom å svare med 25 % og med 50 % treffsjanse før siste regnestykke — og med 100 % etterpå.</p>
+</div>
+
+<div class="callout tip"><span class="h">Prøve-og-feile er en godkjent metode, og ofte den raskeste</span>
+Sensorveiledningen i finansdelen sier eksplisitt at du kan <b>sette alternativene inn i nyttefunksjonen</b> i stedet for å løse ligningen. På flervalg er det som regel raskere, fordi du slipper å snu formelen: i H2024 oppgave 11d er det to kvadratrøtter mot én kvadrering, og du får samtidig sjekket at svaret faktisk ligger på riktig side. Rutinen er: (1) regn E[U uten] én gang, det er ankeret ditt; (2) stryk alternativene som bryter en grense du allerede kjenner — under aktuarisk premie, over en premie du nettopp avviste, over 1 % når 1 % allerede ga kjøp; (3) sett inn det som er igjen. Fungerer like godt på maksimalpremie som på kritisk sannsynlighet, og det er den samme utelukkingsrutinen som styrer gjettereglen i kapittel 19.</div>
+
+<h3>17.4 Kritisk skadesannsynlighet, og delvis dekning til samme premie</h3>
+
+<p>Den andre regnevarianten snur ligningen: premien er gitt, og du skal finne den <b>laveste sannsynligheten</b> som gjør forsikringen lønnsom. Det er samme indifferansebetingelse løst for p i stedet for for P.</p>
+
+<div class="formula">
+  <div class="eq">(1 − p*) × U(W) + p* × U(W − L) = U(W − P)</div>
+  <div class="eq">Når tapet er hele formuen og U(0) = 0: p* = 1 − U(W − P)/U(W)</div>
+  <div class="where">Forsikringen lønner seg for alle p som er større enn p*, fordi høyresiden ikke avhenger av p mens venstresiden faller når p vokser. Kontroller alltid retningen: hvis oppgaven allerede har fastslått at forsikringen lønner seg ved en bestemt p, må terskelen ligge <b>under</b> den. Det stryker som regel to av fire alternativer.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: H2025 oppgave 13, alle tre delspørsmålene</span>
+<p>Huset er verdt kr 9 000 000 og du har ingen annen formue. Det brenner ned og mister hele verdien med sannsynlighet <b>1 %</b>. U(W) = √W. Full dekning koster kr 160 000. <b>[eksempeltall fra oppgaveteksten]</b></p>
+<p><b>Steg 1 — ankeret: forventet nytte uten forsikring.</b> 0,99 × √9 000 000 + 0,01 × √0 = 0,99 × 3 000 = <b>2 970,0000</b>. Sikkerhetsekvivalenten er 2 970² = <b>8 820 900</b>.</p>
+<p><b>Steg 2 — delspørsmål 1: full dekning.</b> Formuen blir 9 000 000 − 160 000 = 8 840 000 sikkert, og √8 840 000 = <b>2 973,2137</b>. Siden 2 973,2137 er større enn 2 970,0000: <b>ja, kjøp</b>.</p>
+<p><b>Kontroll i kroner.</b> Forsikringen løfter deg fra sikkerhetsekvivalenten 8 820 900 til sikre 8 840 000, altså 8 840 000 − 8 820 900 = <b>19 100</b> kroner bedre. Maksimalpremien er 9 000 000 − 8 820 900 = <b>179 100</b>, og selskapet ber om 160 000. ✓ Merk at aktuarisk premie er 1 % × 9 000 000 = 90 000, så du betaler 160 000/90 000 = <b>1,78</b> ganger riktig pris og sier likevel ja. En risikonøytral person ville sagt nei; det er akkurat forskjellen mellom kroner og nytte.</p>
+<p><b>Steg 3 — delspørsmål 2: laveste sannsynlighet.</b> Sett de to nyttene like. Høyresiden er uavhengig av p:</p>
+<p>(1 − p) × 3 000 = 2 973,2137 &nbsp;⟹&nbsp; 1 − p = 0,9910712 &nbsp;⟹&nbsp; p = <b>0,0089288</b>, altså <b>0,89 %</b>.</p>
+<p><b>Kontroll:</b> ved p = 0,89 % skal sikkerhetsekvivalenten uten forsikring være lik formuen med forsikring. 0,9910712² × 9 000 000 = <b>8 840 000</b>. ✓ Alternativene var 0,52 %, 0,89 %, 1,52 % og 2,01 %. De to siste er logisk uforenlige med delspørsmål 1: hadde terskelen ligget over 1 %, ville du sagt nei ved 1 %. Igjen står to, og du tester den ene: ved 0,52 % er E[U uten] = 0,9948 × 3 000 = <b>2 984,40</b>, som er større enn 2 973,2137, altså ville du <i>ikke</i> kjøpt. 0,52 % ligger under terskelen, og svaret er 0,89 %.</p>
+<p><b>Steg 4 — delspørsmål 3: 50 % dekning til samme premie.</b> Selskapet utbetaler nå 4 500 000 og krever fortsatt 160 000. Premien betales i begge tilstander, og risikoen er ikke borte:</p>
+<table class="data">
+<tr><th>Tilstand</th><th class="n">Sannsynlighet</th><th class="n">Formue</th></tr>
+<tr><td>Huset står</td><td class="n">99 %</td><td class="n">9 000 000 − 160 000 = 8 840 000</td></tr>
+<tr><td>Huset brenner</td><td class="n">1 %</td><td class="n">4 500 000 − 160 000 = 4 340 000</td></tr>
+</table>
+<p>E[U delvis] = 0,99 × 2 973,2137 + 0,01 × 2 083,2667 = 2 943,4816 + 20,8327 = <b>2 964,3143</b>, der 2 083,2667 er √4 340 000. Det er <i>mindre</i> enn 2 970,0000, altså <b>nei, ikke kjøp</b>.</p>
+<p><b>Kontroll i kroner.</b> Sikkerhetsekvivalenten er 2 964,3143² = <b>8 787 159</b>, mot 8 820 900 uten forsikring: den halve dekningen gjør deg 8 820 900 − 8 787 159 = <b>33 741</b> kroner fattigere målt i sikre kroner. Tredje vei: maksimalpremien for 50 % dekning er <b>126 302</b>, og selskapet krever 160 000. ✓ Alle tre veiene sier nei.</p>
+<p><b>Hvorfor svaret snur.</b> Premien står stille mens det du får for den halveres. Aktuarisk pris for halv dekning er 1 % × 4 500 000 = <b>45 000</b>, og 160 000/45 000 = <b>3,6</b> ganger riktig pris, mot 1,78 ved full dekning. Påslaget per krone dekning er altså doblet, og da rekker ikke risikoaversjonen din til. Terskelsannsynligheten for halv dekning til denne premien er <b>1,27 %</b>, og brannrisikoen er bare 1 %.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Glemmer du premien i brannscenariet og regner 0,99 × 2 973,2137 + 0,01 × √4 500 000 = 2 943,4816 + 21,2132 = <b>2 964,6948</b>, får du fortsatt nei, men med feil tall — og i en variant med lavere påslag ville den feilen snudd konklusjonen. Bruker du 4 500 000 som <i>tapet</i> i stedet for utbetalingen, ender du på 4 340 000 fra feil retning. Og det farligste alternativet i delspørsmål 3 er «ja»: det er konklusjonen fra delspørsmål 1 dratt videre uten ny regning, og hele spørsmålet er bygget for å fange nettopp det.</p>
+</div>
+
+<div class="callout warn"><span class="h">Premien betales også når skaden inntreffer</span>
+Ved <b>full</b> dekning ser du det ikke, fordi formuen er W − P uansett. Ved <b>delvis</b> dekning er det avgjørende: formuen i skadetilstanden er W − L + αL − P, ikke W − L + αL. Skriver du 4 500 000 i stedet for 4 340 000 i H2025 oppgave 13.3, blir forventet nytte 2 964,69 i stedet for 2 964,31, og du har regnet på en forsikring som ikke finnes. Samme felle ligger i egenandelsoppgaver. Skriv alltid opp tilstandstabellen med to kolonner før du setter inn noe som helst.</div>
+
+<h3>17.5 Andre nyttefunksjoner, og tap som ikke tar hele formuen</h3>
+
+<p>Eksamensmalen er √W og «tapet er alt», men begge deler kan variere, og da må rutinen tåle det. Med U = ln W kvadrerer du ikke lenger for å komme tilbake til kroner: du tar eksponentialen. Og er tapet bare en del av formuen, står du igjen med et positivt formuesnivå i skadetilstanden, som er helt uproblematisk for √W og helt <i>nødvendig</i> for ln W, siden ln 0 ikke finnes.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet: H2019 oppgave 7a — logaritmisk nytte og delvis tap</span>
+<p>Du har en formue på kr 6 000 000, hvorav huset utgjør kr 3 000 000. Huset brenner ned med sannsynlighet <b>1,1 %</b> og du sitter da igjen med kr 3 000 000. Nyttefunksjonen er U(W) = ln W. Hva er den høyeste premien du vil betale for full dekning? <b>[eksempeltall fra oppgaveteksten]</b></p>
+<p><b>Steg 1 — nytten i de to tilstandene.</b> ln 6 000 000 = <b>15,6073</b> og ln 3 000 000 = <b>14,9141</b>.</p>
+<p><b>Steg 2 — forventet nytte uten forsikring.</b> 0,989 × 15,6073 + 0,011 × 14,9141 = 15,4356 + 0,1641 = <b>15,5997</b>.</p>
+<p><b>Steg 3 — sikkerhetsekvivalenten.</b> Nå er det eksponentialen som snur nyttetallet tilbake til kroner: CE er det tallet som har logaritme 15,5996454, altså <b>5 954 426</b>.</p>
+<p><b>Steg 4 — maksimalpremien.</b> 6 000 000 − 5 954 426 = <b>45 574</b>. Svaralternativet var intervallet 40 000–50 000.</p>
+<p><b>Kontroll:</b> dekomponeringen fra 17.3 må stemme. Aktuarisk premie er 1,1 % × 3 000 000 = <b>33 000</b>. Forventet formue er 0,989 × 6 000 000 + 0,011 × 3 000 000 = 5 934 000 + 33 000 = <b>5 967 000</b>, så risikopremien er 5 967 000 − 5 954 426 = <b>12 574</b>. Til sammen 33 000 + 12 574 = <b>45 574</b>. ✓</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Bruker du √W av gammel vane, blir E[U uten] = 0,989 × 2 449,4897 + 0,011 × 1 732,0508 = 2 422,5453 + 19,0526 = 2 441,5979, sikkerhetsekvivalenten 2 441,5979² = 5 961 400 og maksimalpremien 6 000 000 − 5 961 400 = <b>38 600</b> — et helt annet svaralternativ. Forskjellen er ikke en regnefeil, den er innholdet: ln W har relativ risikoaversjon 1 mot 0,5 for √W, altså er du <i>mer</i> risikoavers med ln W og betaler mer for å bli kvitt risikoen. Den andre klassiske feilen er å sette formuen i skadetilstanden til 0 fordi «huset er borte»: da er tapet 6 mill. i stedet for 3 mill., og ln 0 finnes ikke, så kalkulatoren stopper. Får du en feilmelding, har du som regel forvekslet tapet med formuen etter tapet.</p>
+</div>
+
+<h3>17.6 Forsikringsmarkedet: hva som er lovpålagt, og hvorfor egenandelen finnes</h3>
+
+<p>Rundt regnestykkene ligger et sett faktaspørsmål som er billige poeng hvis du har lest dem, og bortkastede hvis ikke. H2025 oppgave 12 er malen: «Hvilke av følgende forsikringer er lovpålagt i Norge?» med alternativene boligforsikring, uføreforsikring, ansvarsforsikring på bil og «ingen av dem». Riktig svar er <b>ansvarsforsikring på bil</b>, og det er den eneste av de vanlige privatforsikringene som er lovpålagt.</p>
+
+<table class="data">
+<tr><th>Forsikring</th><th>Status</th><th>Hvorfor</th></tr>
+<tr><td>Ansvarsforsikring, bil</td><td><b>Lovpålagt</b></td><td>Skaden rammer tredjepart, ikke bare eieren</td></tr>
+<tr><td>Boligforsikring</td><td>Frivillig, men avtalepålagt</td><td>Banken krever den som vilkår for boliglånet</td></tr>
+<tr><td>Uføreforsikring</td><td>Frivillig</td><td>Grunndekningen ligger i folketrygdens uføretrygd</td></tr>
+<tr><td>Obligatorisk tjenestepensjon</td><td>Lovpålagt for arbeidsgiver</td><td>Ikke det samme som uføreforsikring for deg</td></tr>
+</table>
+
+<p>Skillet er prinsipielt: forsikring mot skade du påfører <b>andre</b> er ofte lovpålagt, fordi den skadelidte ellers står uten dekning. Forsikring mot skade på deg selv og dine egne ting er frivillig. «Ingen av dem» kan du stryke så snart du husker bilansvaret.</p>
+
+<p>Tre markedssvikter er navngitt i kurset, og de er testet både som begrepsspørsmål (H2018 oppgave 6) og som enkeltspørsmål (H2019 oppgave 7b og 7c). <b>Moralsk hasard</b>: den som er fullt forsikret, passer dårligere på tingene sine, og selskapet kan ikke observere det. Svaret er egenandelen, som gir deg en andel av tapet og dermed en grunn til å låse sykkelen. <b>Ugunstig utvalg</b>: den som vet at han har høy risiko, kjøper forsikringen, og den med lav risiko lar være, så premien må settes etter de dårlige risikoene og markedet kan bryte sammen. Løsningen er tvang eller obligatorisk medlemskap, som i folketrygden. <b>Manglende diversifisering</b>: forsikring virker fordi selskapet kan spre uavhengige risikoer over mange kunder, og det bryter sammen når risikoen rammer alle samtidig. Arbeidsledighet er standardsvaret her, og var riktig alternativ i H2019 oppgave 7c: konjunkturene treffer hele kundemassen på én gang, så et privat selskap kan ikke bære den. Derfor ligger arbeidsledighetsdekning i folketrygden og ikke i markedet.</p>
+
+<div class="callout tip"><span class="h">Slik spørres det: faktahalvdelen av temaet</span>
+Fire former går igjen, og alle fire er dokumentert. <b>Lovpålagt eller ikke</b> (H2025 oppgave 12, 1 poeng): les alternativene og let etter tredjepartsskaden. <b>Prinsippspørsmål om aktuarisk pris</b> (H2024 oppgave 11a og 11b): svaret er alltid «ja» og «100 %», og fella i 11a er alternativet som påstår at svaret ville vært et annet med ln W — det ville det ikke, begge er konkave. <b>Markedssvikt-spørsmål</b> (H2019 oppgave 7b og 7c, H2018 oppgave 6): koble mekanismen til navnet, ikke omvendt. <b>Hva bør du forsikre</b>: regelen fra kurset er at du forsikrer det du ikke kan bære selv. Huset og ansvaret, ikke mobilen — ikke fordi teorien sier at små tap ikke bør forsikres til riktig pris, for det gjør den ikke, men fordi ekte premier på små gjenstander har svært høyt påslag.</div>
+
+<div class="callout link"><span class="h">Forsikring er et gjennomgangstema, ikke bare dette kapitlet</span>
+Tre andre steder i kurset er det samme resonnementet i annen innpakning. <b>Folketrygdens alderspensjon</b> i kapittel 15 er en obligatorisk livsvarig forsikring mot å leve lenge, og obligatorisk nettopp for å hindre ugunstig utvalg. <b>Fast rente</b> i kapittel 16 er en forsikring mot renteoppgang, med en premie i form av høyere forventet rentekostnad. Og <b>valutasikring</b> i kapittel 14 er den forsikringen du oftest <i>ikke</i> skal kjøpe, fordi kronekursen allerede samvarierer med arbeidsinntekten din. Risikoaversjonen γ i Mertons formel er den samme parameteren som krummer nyttefunksjonen her: √W svarer til γ = 0,5. Selve rutinen står som R5 i sjekklisten i kapittel 19.</div>
+
+</section>
+
+<hr class="sec">
+
+<section id="k18">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">18 · Finansiell psykologi</h2>
+
+<p class="lead-in">De sytten kapitlene foran sier hva du <i>bør</i> gjøre. Dette sier hvorfor du ikke gjør det. Temaet er testet i to av ni sett, og alltid som begreper og påstander, aldri som tung regning: H2019 oppgave 9f ba om overconfidence, 9g regnet tapsaversjon inn i et sparevalg og 9h ba om prospektteoriens verdifunksjon; H2022 oppgave 5.4–5.6 er den samme oppgaven gjort om til flervalg; H2016 oppgave 3j spurte om Kahnemans system 1 og 2. Finansdelen i H2024 og H2025 hadde ingen psykologispørsmål i det hele tatt. Det gjør kapitlet til kursets billigste og kortest lærte: du kan ikke regne deg fram til svarene, men du kan kunne dem. Med minuspoeng er det nettopp begrepsspørsmålene som avgjør om du svarer eller lar stå blankt.</p>
+
+<h3>18.1 Bias, støy og målestokken de måles mot</h3>
+
+<p>Et <b>avvik</b> (bias) er en systematisk skjevhet: du bommer i én bestemt retning, gang på gang. <b>Støy</b> er feil uten retning. Skillet er ikke akademisk, for de to har hver sin motgift. Avvik rettes med en regel som peker motsatt vei; støy dempes av at du bruker samme framgangsmåte hver gang.</p>
+
+<div class="callout mech"><span class="h">Hvorfor er «feil» meningsløst uten en målestokk?</span>
+Fordi et avvik alltid måles mot noe. Forelesningens målestokk er finansteorien i kapittel 14 og 17: eie indeks framfor enkeltaksjer, diversifisere globalt, la være å time markedet, unngå dyr gjeld, og la bare <i>framtidig</i> forventet avkastning bestemme om du skal eie noe. Uten den referansen er «folk gjør feil» bare en påstand om smak. Med den kan du si nøyaktig hva feilen er og hva den koster. Kahnemans støyeksempel viser hvor stor den andre halvdelen er: saksbehandlere i et forsikringsselskap satte premie på de samme seks sakene, ledelsen ventet rundt 10 % uenighet, og funnet var nærmere 50 %. På én sak sa den ene 700 og den andre 1 250. Ingen av dem har et avvik i én retning; de har bare ustabile vurderinger, og enkle modeller og faste vurderingsskjemaer slår da magefølelsen.</div>
+
+<h3>18.2 De åtte avvikene: mekanisme og pris</h3>
+
+<table class="data">
+<tr><th>Avvik</th><th>Mekanismen</th><th>Hva den koster</th><th>Type</th></tr>
+<tr><td>Overkonfidens</td><td>Du tror du vet mer om selskapet enn markedet gjør</td><td>Handelsfrekvens, og dermed kurtasje</td><td>feilslutning</td></tr>
+<tr><td>Disposisjonseffekten</td><td>Kjøpskursen blir referansepunkt, og å realisere tap gjør vondt</td><td>Skattekreditt gitt bort, tapere beholdt</td><td>feilslutning bygget på en preferanse</td></tr>
+<tr><td>Hjemmebias</td><td>Du kjenner de norske selskapene, og det føles tryggere</td><td>Dobbel eksponering mot AS Norge</td><td>feilslutning</td></tr>
+<tr><td>Mental regnskapsføring</td><td>Penger merkes etter kilde og formål i stedet for å telles som én formue</td><td>Dyr gjeld og sparepenger samtidig</td><td>feilslutning</td></tr>
+<tr><td>Tapsaversjon</td><td>Et tap veier tyngre enn en like stor gevinst, målt fra et referansepunkt</td><td>For lav aksjeandel, forsikring av småtap</td><td>preferanse</td></tr>
+<tr><td>Flokkatferd</td><td>Du følger mengden i stedet for egen analyse</td><td>Kjøper på topp, selger på bunn</td><td>feilslutning</td></tr>
+<tr><td>Forankring</td><td>Det første tallet du så, styrer vurderingen</td><td>Kjøpskurs og prisantydning som «riktig» pris</td><td>feilslutning</td></tr>
+<tr><td>Eksponentiell vekst-bias</td><td>Intuisjonen framskriver lineært</td><td>Undervurderer både gjeld og sparing grovt</td><td>feilslutning</td></tr>
+</table>
+
+<p><b>Overkonfidens</b> er hovedforklaringen på hyppig handel. Den er dokumentert i selve grunnformen: 93 % av amerikanske bilførere mener de kjører bedre enn snittet, og 94 % av universitetsprofessorer mener de foreleser bedre enn snittet. Odean (1999) fant at de som handler oftest, sitter igjen med lavere avkastning; Barber og Odean (2001) fant at menn handler mer enn kvinner og taper mer på det; Grinblatt og Keloharju (2009) fant på finske data at høy selvtillit gir mest handel.</p>
+
+<div class="callout mech"><span class="h">Hvorfor taper den som handler mye, selv om han velger like godt som alle andre?</span>
+Fordi markedet <i>er</i> gjennomsnittet av alle investorer før kostnader. Velger du tilfeldig, får du snittet minus det du betaler for å velge. Kurtasjen kommer altså oppå et nullspill, og den er proporsjonal med hvor ofte du handler. Forelesningens regnestykke: 3 600 handler à kr 79 i kurtasje er 79 × 3 600 = <b>kr 284 400</b> i ren kostnad. (Foilene skriver 288 000, som svarer til kr 80 per handel; regn selv og velg nærmeste alternativ.) Ingenting i det tallet forutsetter at du var uheldig med aksjevalget. Konklusjonen er hele kapittel 14 i én setning: handle sjelden, eie indeks.</div>
+
+<p><b>Hjemmebias.</b> Norge er 0,2 % av verdens aksjemarked, og likevel eier mange nordmenn nesten bare norsk. Døskeland og Hvide finner i tillegg at nordmenn i snitt har rundt 32 % av porteføljen i sin egen bransje, og at de får omtrent 3 prosentpoeng lavere avkastning der enn ellers. Det ekstra kjennskapet betaler seg altså ikke, og eksponeringen er dobbel.</p>
+
+<div class="callout warn"><span class="h">Hjemmebias er et diversifiseringsproblem, ikke en preferanse</span>
+Argumentet er det samme som valutasikringen i 14.6. Går det bra med AS Norge, går det bra i arbeidsmarkedet ditt <i>og</i> i porteføljen; går det dårlig, mister du jobben samtidig som aksjene faller. Humankapitalen din er allerede en stor, udiversifisert posisjon i norsk økonomi, og norske aksjer legger mer av det samme oppå. Et globalt fond gjør det nesten like bra i gode norske år og langt bedre i dårlige. Derfor er det <b>galt</b> å svare at hjemmebias er en legitim preferanse for «det man kjenner»: den øker samvariasjonen med resten av formuen din, og det er nøyaktig det kapittel 14 sier at du skal unngå. Et forsøk fra forelesningen skjerper poenget: folk <i>forsto</i> at en Norge-tung portefølje er mer risikabel, og endret den likevel ikke.</div>
+
+<p><b>Flokkatferd og forankring</b> henger sammen, og Norwegian-caset fra januar 2021 viser begge. Aksjen sto i kr 60 mens en emisjon var varslet til kr 6–10; det rasjonelle var å selge og eventuelt kjøpe tilbake billig. Prisen falt likevel ikke, over halvparten av eierne trodde på oppgang det neste året, og først da en ekspertvideo kom, solgte 21 % dagen etter. Kursen kollapset til slutt. To ting skal du kunne herfra: at feilprising kan vare lenge når aksjen er vanskelig å shorte (tre meglerhus nektet å låne ut aksjer), og at store, likvide markeder derfor er langt mer effisiente enn små.</p>
+
+<div class="callout mistake"><span class="h">«Folk eier ikke aksjer fordi de er risikoaverse»</span>
+Under halvparten eier aksjer i nesten alle land. Forklaringen kan <i>ikke</i> være risikoaversjon alene, og resonnementet er verdt å kunne presist: for små beløp er praktisk talt enhver nyttefunksjon tilnærmet lineær, altså tilnærmet risikonøytral. Den <i>første</i> tusenlappen i aksjer er derfor nesten gratis risiko med positiv forventet premie, og en risikoavers person burde likevel kjøpe den. At mange ikke gjør det, peker på faste kostnader ved å komme i gang, manglende kunnskap og treghet, ikke på preferanser. Det er også derfor standardvalg virker så godt: hindringen er terskelen, ikke smaken.</div>
+
+<h3>18.3 Disposisjonseffekten: dyrere enn den ser ut</h3>
+
+<p>Du selger dem som har steget, og beholder dem som har falt. Teorien sier at kjøpskursen er en sunk cost: bare framtidig forventet avkastning skal avgjøre om du eier noe. Med norsk skatt er avviket verre enn som så, for skattereglene peker <i>motsatt</i> vei av atferden.</p>
+
+<div class="formula">
+  <div class="eq">Skattepliktig gevinst = salgssum − inngangsverdi − ubenyttet skjerming</div>
+  <div class="eq">Skatt (eller fradrag) = grunnlaget × f × t = grunnlaget × 37,84 %</div>
+  <div class="where">Et realisert <b>tap</b> på aksjer er fradragsberettiget og oppjusteres med den samme faktoren f = 1,72, så tapet er verdt 37,84 øre per krone i redusert skatt <b>[dagens regel]</b>. Ubenyttet skjerming kan derimot bare redusere en gevinst til null; den kan verken skape eller øke et tap (kapittel 5). Å realisere en gevinst er å betale skatt tidlig; å realisere et tap er å få fradraget tidlig. Disposisjonseffekten gjør begge deler feil vei.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: hva disposisjonseffekten koster i skatt</span>
+<p>Kari trenger kr 160 000 i kontanter og skal selge én av to poster. <b>Aksje A</b> er kjøpt for kr 100 000 og er verdt kr 160 000 i dag; den har delt ut utbytte hvert år som oversteg skjermingsfradraget, så ingen skjerming er framført. <b>Aksje B</b> er kjøpt for kr 220 000 for tre år siden, er verdt kr 160 000 i dag og har aldri betalt utbytte. Skjermingsrenten settes til 3,6 % alle tre år <b>[satsen for inntektsåret 2025; renten for 2026 fastsettes først i januar 2027]</b>, og eierskatten er 37,84 % <b>[dagens regel]</b>.</p>
+<p><b>Steg 1 — de to latente resultatene.</b> A: 160 000 − 100 000 = <b>60 000</b> i gevinst. B: 160 000 − 220 000 = <b>−60 000</b>, altså kr 60 000 i tap.</p>
+<p><b>Steg 2 — disposisjonseffekten sier selg vinneren.</b> Skatt: 60 000 × 1,72 × 22 % = <b>22 704</b>. Kari sitter igjen med 160 000 − 22 704 = <b>137 296</b>.</p>
+<p><b>Steg 3 — skattefornuften sier selg taperen.</b> Tapet gir fradrag med samme sats: 60 000 × 37,84 % = <b>22 704</b> i redusert skatt. Kari sitter igjen med 160 000 + 22 704 = <b>182 704</b>.</p>
+<p><b>Steg 4 — forskjellen i år.</b> 182 704 − 137 296 = <b>45 408</b>. <b>Kontroll:</b> forskjellen i realisert resultat er 60 000 − (−60 000) = 120 000, og 120 000 × 37,84 % = <b>45 408</b>. ✓ Samme tall, annen vei.</p>
+<p><b>Steg 5 — hva utsettelsen er verdt.</b> Dette er en ren tidsforskyvning: selger Kari den andre posten senere, snur kontantstrømmen. Men i mellomtiden har hun 45 408 kroner mer å forrente, altså et rentefritt lån fra staten. Beholder hun den andre i fem år og får 5 % i året <b>[eksempeltall]</b>, vokser beløpet med 27,63 % over perioden: 45 408 × 0,27628 = <b>kr 12 545</b> i ren gevinst av rekkefølgen alene.</p>
+<p><b>Steg 6 — skjermingen på taperen, som ingen ser.</b> B har aldri betalt utbytte, så skjermingen er framført og forrenter seg: 220 000 × 3,6 % = 7 920 første år, 227 920 × 3,6 % = 8 205,12 det andre og 236 125,12 × 3,6 % = 8 500,50 det tredje, til sammen <b>24 625,62</b>. <b>Kontroll:</b> 220 000 × (1,036³ − 1) = <b>24 625,62</b>. ✓ Men den skjermingen kan bare trekkes fra en <i>gevinst</i> på nettopp denne aksjen. Skal én krone av den gjøre nytte, må salgssummen over 220 000 + 24 625,62 = <b>244 625,62</b>, altså 52,9 % over dagens kurs på 160 000. Holder Kari på taperen «til den tar seg opp igjen», er kr 24 626 i opptjent skjerming død kapital, og den dør helt om hun til slutt selger med tap.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Glemt oppjustering: 60 000 × 22 % = <b>13 200</b> per post, altså en forskjell på 26 400 i stedet for 45 408. Oppjustert to ganger: 60 000 × 1,72 × 1,72 × 22 % = <b>39 051</b>. Trodd at aksjetap ikke er fradragsberettiget: forskjellen krymper til <b>22 704</b>. Og den fella kapittel 5 advarer mot, trukket den ubenyttede skjermingen fra tapet: 84 625,62 × 37,84 % = <b>32 022</b> i fradrag, som er for mye, fordi skjermingen ikke kan øke et tap.</p>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor er disposisjonseffekten irrasjonell, og ikke bare uheldig?</span>
+Fordi den bruker en opplysning som ikke inneholder informasjon om framtiden. Kjøpskursen din sier hva <i>du</i> betalte, ikke hva aksjen er verdt eller vil bli verdt. To personer som eier samme aksje til samme kurs i dag, skal ta samme beslutning, selv om den ene er i gevinst og den andre i tap. Mekanismen bak er tapsaversjon: å realisere tapet gjør det endelig, og så lenge posisjonen er urealisert, kan du fortelle deg selv at det ikke er et tap ennå. Skatten forsterker dommen i stedet for å mildne den: den atferden som føles best, er også den som betaler skatt tidligst og henter fradraget senest.</div>
+
+<h3>18.4 Eksponentiell vekst-bias: gjett først, regn etterpå</h3>
+
+<p>Gjør dette før du leser videre, og skriv ned svarene. <b>(1)</b> Du har kr 50 000 i kredittkortgjeld til 20 % rente og betaler ingenting på ti år. Hvor stor er gjelden? <b>(2)</b> Du sparer kr 36 000 i året i tjue år til 5,25 % avkastning. Hvor mye står det til slutt?</p>
+
+<div class="formula">
+  <div class="eq">Gjeld etter T år: L<sub>T</sub> = L × (1 + r)<sup>T</sup></div>
+  <div class="eq">Årlig sparing S i T år: FV = S × [(1 + r)<sup>T</sup> − 1] / r</div>
+  <div class="where">Den første er ren rentes rente. Den andre er summen av T innskudd som hver har fått forrente seg ulikt lenge: det siste i null år, det første i T − 1 år. Begge er konvekse i T, og det er nettopp konveksiteten intuisjonen ikke fanger.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: de to tallene du nettopp gjettet</span>
+<p><b>Steg 1 — kredittkortgjelden.</b> Faktoren 1,20 opphøyd i tiende er 6,19174, altså 50 000 × 6,19174 = <b>kr 309 587</b>. Den vanlige gjetningen er den lineære: 20 % av 50 000 er 10 000 i året, og 50 000 + 10 × 10 000 = <b>150 000</b>. Fasiten er 309 587/150 000 = <b>2,06</b> ganger så stor.</p>
+<p><b>Kontroll:</b> tenk i doblinger i stedet for i renter. Til 20 % dobler gjelden seg hvert 3,80 år, og på ti år rekker den 10/3,80 = <b>2,63</b> doblinger. To opphøyd i 2,63 er 6,19. ✓ Samme faktor, uten kalkulator. Forelesningens ytterpunkt er den samme mekanismen gjort absurd: én krone til 1 % <i>daglig</i> rente i ti år blir nesten seks millioner milliarder kroner, nok til å gi hvert menneske på jorden om lag kr 732 000.</p>
+<p><b>Steg 2 — sparingen.</b> Annuitetsfaktoren for tjue år til 5,25 % er 33,95323, altså 36 000 × 33,95323 = <b>kr 1 222 316</b>. Du har lagt inn 36 000 × 20 = <b>720 000</b>, så avkastningen er 1 222 316 − 720 000 = <b>502 316</b>, og sluttbeløpet er 1 222 316/720 000 = <b>1,70</b> ganger innskuddene. Nesten en tredjedel av formuen er noe du aldri sparte.</p>
+<p><b>Kontroll:</b> regn den andre veien om, fra nåverdi. Nåverdien av tjue innbetalinger på 36 000 til 5,25 % er 36 000 × 12,20222 = <b>439 280</b>, og forrentet i tjue år: 439 280 × 2,782544 = <b>1 222 316</b>. ✓ Merk at sensorveiledningen til H2021 oppgave 6f svarer <b>1 222 537</b> på nøyaktig dette regnestykket. Differansen på rundt 200 kroner kommer av at avkastningen der er 5,2517 % uavrundet, hentet fra Mertons formel i samme oppgave. Regn selv, og velg nærmeste alternativ.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> På gjelden: <b>150 000</b> hvis du legger på enkel rente, og <b>600 000</b> hvis du ganger med rentefaktoren og årene i stedet for å opphøye, 50 000 × 1,20 × 10 = 600 000. På sparingen: <b>720 000</b> hvis du bare summerer innskuddene, <b>2 003 400</b> hvis du forrenter hele 720 000 i tjue år som om alt var satt inn på dag én (720 000 × 2,7825), og <b>100 170</b> hvis du bare forrenter ett innskudd (36 000 × 2,7825). Alle fire er tall du kan produsere med riktig formel og feil oppsett, og det er nøyaktig slik alternativene lages.</p>
+</div>
+
+<h3>18.5 Preferanse eller feilslutning, og reglene som beskytter</h3>
+
+<p>Kolonnen «type» i tabellen i 18.2 er den delen av kapitlet som gir mest igjen, for den avgjør hva du kan gjøre med et avvik. En <b>feilslutning</b> er en tankefeil, og informasjon kan i prinsippet rette den. En <b>preferanse</b> kan ikke være feil, bare dyr, og den må omgås med en regel i stedet.</p>
+
+<p>Skillet er testet i praksis. Et randomisert forsøk på rundt 590 norske fondskunder ga halvparten Forbrukerrådets tall for aktive fond mot indeks. Indeksandelen steg fra 11 % til 15 %, altså 4 prosentpoeng eller drøyt en tredjedel relativt, effekten holdt seg i to år, og andelen som trodde de kunne slå markedet falt med 12 %. Rådet var konkret og enkelt å følge. Hjemmebias-forsøket i samme forelesning gikk motsatt vei: deltakerne forsto argumentet og endret ingenting. Generell finansundervisning gir også lite; Fernandes og medforfattere (2014) finner at slike programmer forklarer omtrent 0,1 % av variasjonen i atferd. Standardvalg virker derimot: automatisk pensjonssparing øker sannsynligheten for at folk sparer med rundt 50 %.</p>
+
+<figure>
+<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Prospektteoriens verdifunksjon: en S-formet kurve gjennom referansepunktet i origo, konkav og slak for gevinster til høyre, konveks og bratt for tap til venstre, med en stiplet speiling av gevinstkurven som viser hvor mye brattere tapsgrenen er"
+     font-family="Georgia,serif" font-size="13">
+  <line x1="45" y1="152" x2="480" y2="152" stroke="#333" stroke-width="1.3"/>
+  <line x1="262" y1="30" x2="262" y2="278" stroke="#333" stroke-width="1.3"/>
+  <path d="M262,152 C 300,112 372,86 470,74" stroke="#6b1f2a" stroke-width="2.4" fill="none"/>
+  <path d="M262,152 C 240,214 190,246 58,258" stroke="#6b1f2a" stroke-width="2.4" fill="none"/>
+  <path d="M262,152 C 224,192 152,218 54,230" stroke="#999" stroke-width="1.6" fill="none" stroke-dasharray="5 4"/>
+  <circle cx="262" cy="152" r="3.6" fill="#b06000"/>
+  <text x="270" y="144" fill="#b06000" font-size="11">Referansepunkt</text>
+  <text x="418" y="290" text-anchor="middle" fill="#555" font-size="12">Gevinst</text>
+  <text x="110" y="290" text-anchor="middle" fill="#555" font-size="12">Tap</text>
+  <text x="272" y="42" fill="#555" font-size="12">Verdi</text>
+  <text x="404" y="66" fill="#6b1f2a" font-size="11" font-weight="bold">konkav, slak</text>
+  <text x="66" y="276" fill="#6b1f2a" font-size="11" font-weight="bold">konveks, bratt</text>
+  <text x="60" y="222" fill="#555" font-size="10">speiling av gevinstgrenen</text>
+</svg>
+<figcaption>Figur 18.1 — Prospektteoriens verdifunksjon, som H2019 oppgave 9h ba om. Tre egenskaper skal du kunne navngi. <b>Referansepunktet:</b> nytten måles fra der du startet, ikke fra formuens absolutte nivå. <b>Knekken:</b> kurven er brattere for tap enn for gevinster rett ved referansepunktet, og det er tapsaversjonen; den stiplede linjen er gevinstgrenen speilet over i tapsområdet, og avstanden ned til den heltrukne viser hvor mye ekstra vondt tapet gjør. <b>Avtakende følsomhet:</b> begge grenene flater ut, så den tiende tusenlappen i gevinst eller tap merkes mindre enn den første. Legg merke til konsekvensen for disposisjonseffekten: fordi tapsgrenen er konveks, føles det billigere å risikere et enda større tap enn å realisere det du har.</figcaption>
+</figure>
+
+<p>De fire reglene under er forelesningens praktiske svar, og hver av dem er knyttet til et bestemt avvik.</p>
+
+<ul>
+<li><b>Globalt indeksfond</b> mot overkonfidens og hjemmebias. Fondet fjerner både aksjeplukkingen du ikke er god nok til og Norge-konsentrasjonen du ikke ser. Du kan ikke være overkonfident på vegne av et fond som per konstruksjon leverer gjennomsnittet.</li>
+<li><b>Automatisk månedlig sparing</b> mot forankring og flokkatferd. Beslutningen tas én gang, i ro, og prisen den enkelte dagen får aldri bli et anker eller en anledning til å følge stemningen. Du slutter samtidig å time markedet, som kapittel 14 sier at du uansett ikke kan.</li>
+<li><b>IPS og obligatorisk tjenestepensjon</b> mot manglende selvkontroll. Pengene er innelåst, og innlåsingen er hele poenget: du kan ikke bruke dem selv om du vil. Skattekreditten i IPS er en bonus oppå bindingen, ikke begrunnelsen (kapittel 15).</li>
+<li><b>Skriftlig investeringsplan</b> mot alt det andre. En plan skrevet ned på forhånd gjør avvik synlige: du ser at du er i ferd med å bryte din egen regel, og du må begrunne det. Det er troverdig binding, samme mekanisme som Ulysses ved masten i kapittel 11, og den er nødvendig nettopp der avviket er en preferanse og ikke en tankefeil.</li>
+</ul>
+
+<div class="callout tip"><span class="h">Slik spørses det</span>
+Alle psykologispørsmålene i settene er begrepsspørsmål, og de er bygget likt: én korrekt definisjon og tre som blander sammen to avvik. H2019 oppgave 9f ba om overconfidence og 9h om verdifunksjonens tre egenskaper; H2016 oppgave 3j handlet om Kahnemans raske system 1 mot det langsomme system 2, altså betenkningstid mot impulskjøp. De naturlige flervalgskandidatene for 2026 er definisjonen av disposisjonseffekten, begrunnelsen for hvorfor hjemmebias er feil (humankapitalen, ikke «norske selskaper er dårlige»), hvorfor lav aksjeeierandel <i>ikke</i> forklares av risikoaversjon, hva standardvalg gjør, og funnet i fondseksperimentet. Ett tallspørsmål finnes også i ekte form: H2022 oppgave 5.6 legger tapsaversjonsvekten 1/1,03 på utfall under referansepunktet og spør hvilket alternativ som velges. Fella der er at alle fire alternativene har samme <i>konklusjon</i>, så du må lese hvilke to nyttetall som sammenlignes. Og 5.4 er en ren lesefelle: endrede sannsynligheter endrer forventet nytte, aldri selve sluttverdiene.</div>
+
+<div class="callout link"><span class="h">Hvor dette henger sammen med resten</span>
+<b>Tapsaversjon regnes</b> i kapittel 17, der vekten under referansepunktet settes inn i ln-nytten og kan snu valget mellom bank og aksjer. <b>Motgiftene</b> er kapittel 14 (indeksfond, global diversifisering, ikke time markedet) og kapittel 15 (IPS og pensjon som binding). <b>Skattesiden av disposisjonseffekten</b> er kapittel 5: oppjusteringen, den framførte skjermingen og asymmetrien som gjør at skjermingen dør med et tap. Og et siste råd forelesningen gir eksplisitt: bankrådgiveren din er ikke uavhengig. Nedbetaling av lån gir banken null produkter, et aktivt fond gir to, og det er den skjevheten du skal ha i bakhodet når rådet kommer gratis.</div>
+
+</section>
+
 <h2 class="part">Del V — Eksamenshåndverk</h2>
 
 <section id="k19">
@@ -3401,6 +3938,166 @@ H2025 oppgave 11 oppgir «markedets varians er 0,10» og spør om risikoaversjon
 
 <div class="callout link"><span class="h">Det siste kvarteret</span>
 Gå gjennom de blanke. Ett utelukket alternativ er verdt +0,33 poeng, to er verdt +1. Har du fem blanke igjen der du kan stryke ett alternativ på hver, er det 1,7 poeng du legger igjen ved å la dem stå. Er du derimot helt blank på et spørsmål, gir gjetting null i forventning — og da er det bare varians. Se kapittel 0, avsnitt 0.4.</div>
+
+</section>
+
+<h2 class="part">Referanse — Satser og formler</h2>
+
+<section id="k20">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="chap">20 · Satser og formler</h2>
+
+<p class="lead-in">Dette er oppslaget, ikke lesestoffet. Hver rad er én ting du må kunne uten å slå opp, og hver rad står alene: begrepet til venstre, formelen eller satsen i midten, og lengst til høyre den ene setningen som skiller den fra naboen sin, betingelsen den bare gjelder under, eller fella den er laget for å fange. Satsene er 2026-satser der ingenting annet er sagt; der en eldre sats fortsatt går igjen i eksamensoppgavene, står den i poeng-kolonnen. Les kolonnen til høyre først når du repeterer. Det er der forskjellen mellom et riktig og et nesten riktig alternativ ligger.</p>
+
+<h3>20.1 Inntektsskatt og satser 2026</h3>
+<table class="data">
+<tr><th>Begrep</th><th>Formel eller sats</th><th>Poeng</th></tr>
+<tr><td>Skatt på alminnelig inntekt</td><td class="n">22 %</td><td>Samme sats for person og selskap [dagens regel]. Grunnlaget er all inntekt minus alle fradrag. Renter, netto leieinntekt og gevinst utenom aksjer skattlegges her, uten oppjustering.</td></tr>
+<tr><td>Personinntekt</td><td>Brutto arbeids- og pensjonsinntekt, uten fradrag av noe slag</td><td>Grunnlaget for trygdeavgift og trinnskatt. Skiller seg fra alminnelig inntekt ved at fradragene ikke trekkes fra, og derfor senker et ekstra fradrag bare 22-prosenten: et fradrag er verdt 22 øre per krone uansett hvor høy marginalskatten din er.</td></tr>
+<tr><td>Trygdeavgift</td><td class="n">Lønn 7,6 % · næring 10,8 % · pensjon 5,1 %</td><td>2026-satser, av personinntekten. Nedre grense 99 650 kr. Lønnssatsen er satt ned 0,2 pp siden 2024, samtidig som trinn 5 er satt opp like mye, så toppmarginalskatten står stille.</td></tr>
+<tr><td>Trinnskattens fem trinn (2026)</td><td class="n">1,7 % fra 226 100 · 4,0 % fra 318 300 · 13,7 % fra 725 050 · 16,8 % fra 980 100 · 17,8 % fra 1 467 200</td><td>Satsen gjelder bare inntekten inne i trinnet, aldri hele inntekten. Å bruke toppsatsen på hele lønnen er den vanligste enkeltfeilen på gjennomsnittsskattespørsmål og har alltid sitt eget svaralternativ.</td></tr>
+<tr><td>Personfradrag og minstefradrag i lønn</td><td class="n">114 540 kr · 46 % av lønnen, maks 95 700 kr</td><td>2026-tall. Taket på minstefradraget binder fra en lønn på 208 043 kr. Merk retningen: personfradraget er opp 29,8 % siden 2024, mens minstefradragets tak er satt ned fra 104 450 kr. Ikke alle grenser går oppover.</td></tr>
+<tr><td>Samlet skatt på en lønn</td><td>T(Y) = 22 % × (Y − minstefradrag − personfradrag) + 7,6 % × Y + Σ<sub>trinn</sub> sats<sub>i</sub> × (inntekt inne i trinn i)</td><td>Tre skatter, to grunnlag. Fradragene trekkes bare fra alminnelig inntekt, aldri fra grunnlaget for trygdeavgift eller trinnskatt.</td></tr>
+<tr><td>Kortformen for lønnsskatten</td><td>T(Y) = 29,6 % × Y − 22 % × (samlede fradrag) + trinnskatt</td><td>22 % og 7,6 % slås sammen fordi begge treffer brutto lønn; fradragene virker bare mot 22-prosenten. Raskere enn den lange veien, og den beste kontrollen av den.</td></tr>
+<tr><td>Høyeste marginalskatt på lønn</td><td class="n">47,4 % = 22 + 7,6 + 17,8</td><td>Uendret i 2024, 2025 og 2026. Dette er tallet oppjusteringsfaktoren er kalibrert mot: samlet skatt på utdelt selskapsoverskudd skal ligne på det.</td></tr>
+<tr><td>Marginalskatt og gjennomsnittsskatt</td><td>Marginalskatt = ΔT/ΔY · Gjennomsnittsskatt t̄(Y) = T(Y)/Y</td><td>To ulike spørsmål. I et system med fradrag kan de aldri være like, fordi gjennomsnittet også inneholder de første kronene dine, som er skattlagt lavere enn de siste.</td></tr>
+<tr><td>Effektiv skattesats</td><td>betalt skatt / <b>brutto</b> inntekt</td><td>Aldri delt på skattepliktig inntekt: da får du den nominelle satsen tilbake uansett hvor mange fradrag som er brukt. H2025 oppgave 5: 16 500/100 000 = 16,5 %, mens 16 500/75 000 = 22 % er det alternativet oppgaven er laget for å fange.</td></tr>
+<tr><td>Eierens effektive skattesats</td><td>t<sub>eff</sub> = (α × selskapets skatt + eierens skatt) / (α × selskapets bruttoinntekt + eierens andre inntekter)</td><td>α er eierandelen. Både teller og nevner utvides. Uten denne utvidelsen registreres en eier som ikke tar utbytte som en person uten inntekt, og det er hele måleproblemet i SSBs ulikhetstall.</td></tr>
+<tr><td>Samlet skatt på utdelt selskapsoverskudd</td><td>τ<sub>c</sub> + (1 − τ<sub>c</sub>) × t<sub>e</sub> = 22 % + 78 % × 37,84 % = 51,52 %</td><td>Ligger 4,12 prosentpoeng over toppmarginalskatten på lønn. Det gale alternativet som frister mest er 59,84 %, altså satsene lagt sammen uten å ta hensyn til at eierskatten treffer et allerede redusert grunnlag.</td></tr>
+<tr><td>Progressivt, proporsjonalt, regressivt</td><td>t̄ stiger med Y · t̄ er konstant · t̄ faller med Y</td><td>Det er <b>andelen</b> som avgjør, aldri kronebeløpet. En flat sats gir alltid flere kroner fra den som tjener mest og er likevel ikke progressiv. «De rike betaler mest» er sant og irrelevant på én gang (H2024 oppgave 4a).</td></tr>
+<tr><td>Flat sats med bunnfradrag</td><td>t̄(Y) = t × (1 − B/Y) &nbsp;·&nbsp; t̄(Y<sub>høy</sub>) − t̄(Y<sub>lav</sub>) = t × B × (1/Y<sub>lav</sub> − 1/Y<sub>høy</sub>)</td><td>Ett bunnfradrag gjør en flat sats progressiv. Spredningen i gjennomsnittsskatt er proporsjonal med B: firedobles bunnfradraget, firedobles progressiviteten (H2024 oppgave 4c). Svar på fortegnet, ikke på tallene.</td></tr>
+</table>
+
+<h3>20.2 Aksjonærmodellen</h3>
+<table class="data">
+<tr><th>Begrep</th><th>Formel eller sats</th><th>Poeng</th></tr>
+<tr><td>Selskapsskatt τ<sub>c</sub></td><td class="n">22 % (finansforetak 25 %)</td><td>Samme sats som alminnelig inntekt for personer, og uendret gjennom alle ni eksamenssettene. Finansforetak betaler i tillegg 5 % ekstra arbeidsgiveravgift på lønn.</td></tr>
+<tr><td>Oppjusteringsfaktor for utbytte og gevinst</td><td class="n">f = 1,72</td><td>Gjelder 2024, 2025 og 2026. Var 1,6 i H2022-settet og 1,44 i 2019-settene. Oppgaveteksten oppgir alltid faktoren selv; les den i stedet for å hente den fra hukommelsen.</td></tr>
+<tr><td>Effektiv eierskatt t<sub>e</sub></td><td>t<sub>e</sub> = f × t = 1,72 × 22 % = 37,84 %</td><td>Oppjuster enten grunnlaget eller satsen, aldri begge. Begge veier godtas som svar, men to oppjusteringer og ingen oppjustering gir hvert sitt gale alternativ i samme oppgave.</td></tr>
+<tr><td>Skjermingsrenten, definisjonen</td><td>r<sub>s</sub> = (gjennomsnittlig 3-måneders statskasseveksel + 0,5 prosentpoeng) × (1 − t)</td><td>Fastsettes av Skattedirektoratet i januar året etter inntektsåret og rundes av til nærmeste tidel. Nedjusteringen med 22 % gjør den til en rente etter skatt. Renten for 2026 finnes ikke før januar 2027.</td></tr>
+<tr><td>Skjermingsrenten, faktiske satser</td><td class="n">2023: 3,2 % · 2024: 3,9 % · 2025: 3,6 %</td><td>Årsspesifikk, så et flerårseksempel skal bruke én rente per år. H2025 oppgave 4 oppgir 3,5 % og 4 %; H2024 oppgave 1 forenkler til 2 % i alle år.</td></tr>
+<tr><td>Skjermingsgrunnlag S<sub>t</sub></td><td>S<sub>t</sub> = kostpris + ubenyttet skjerming<sub>t−1</sub></td><td>Kostpris, altså inngangsverdien, aldri markedsverdien. Skjermingen er personlig og aksjevis, og følger den enkelte aksjen.</td></tr>
+<tr><td>Skjermingsfradrag</td><td>Skjermingsfradrag<sub>t</sub> = S<sub>t</sub> × r<sub>s,t</sub></td><td>Den framførte skjermingen brukes <b>to ganger</b>: den løfter grunnlaget, og den trekkes i tillegg fra utbyttet. Å bare gjøre det ene er nøyaktig den feilen H2024 oppgave 1d er bygget rundt.</td></tr>
+<tr><td>Skattepliktig utbytte</td><td>maks(0; D<sub>t</sub> − skjermingsfradrag<sub>t</sub> − ubenyttet skjerming<sub>t−1</sub>)</td><td>Aldri negativt. Er skjermingen større enn utbyttet, blir skattepliktig utbytte null og resten framføres.</td></tr>
+<tr><td>Ubenyttet skjerming</td><td>maks(0; ubenyttet skjerming<sub>t−1</sub> + skjermingsfradrag<sub>t</sub> − D<sub>t</sub>)</td><td>Framføres på den enkelte aksjen og legges til neste års grunnlag. Distraktorene i skjermingsoppgavene er alltid dine egne mellomtall: årets fradrag, samlet fradrag og den framførte saldoen.</td></tr>
+<tr><td>Skattepliktig aksjegevinst</td><td>salgspris − inngangsverdi − ubenyttet skjerming</td><td>I salgsåret gis det <b>ingen</b> ny skjerming, bare den framførte. Skjermingen kan ikke skape eller øke et tap.</td></tr>
+<tr><td>Skatt på utbytte og gevinst</td><td>grunnlag × f × t = grunnlag × 37,84 %</td><td>H2025 oppgave 10: kjøpt for 100, solgt for 160, ubenyttet skjerming 10, altså 50 × 1,72 × 22 % = 18,92. Distraktoren 11 er 50 × 22 %, altså oppjusteringen glemt.</td></tr>
+<tr><td>Fritaksmetoden</td><td>Selskapsaksjonær: 100 % skattefri gevinst, 97 % skattefritt utbytte</td><td>Gjelder aksjer i selskap hjemmehørende i EØS. Prisen er symmetrien: tap er heller ikke fradragsberettiget. Fritaket er en <i>utsettelse</i> til pengene når en personlig eier, ikke et endelig fritak.</td></tr>
+<tr><td>Treprosentregelen</td><td>3 % av mottatt utbytte inntektsføres: 3 % × 22 % = 0,66 %</td><td>Treffer bare <b>utbytte</b>, ikke gevinst, og faller bort i konsern med over 90 % eierskap. Alternativet «0,66 % også på gevinsten» er den faste fella.</td></tr>
+<tr><td>Aksjonærlån</td><td>Lån fra selskapet til personlig aksjonær skattlegges som utbytte (fra oktober 2015)</td><td>Omveien rundt utbytteskatten er stengt. Tilbakebetaling gir ikke skatten tilbake; den øker inngangsverdien på aksjene i stedet.</td></tr>
+<tr><td>Exit-skatt</td><td>(markedsverdi − inngangsverdi − bunnfradrag 3 mill. kr) × t<sub>e</sub></td><td>Latent gevinst regnes som realisert dagen før utflytting og fastsettes endelig da, så senere verdifall reduserer den ikke. Betaling: tolv rentefrie årsrater, alt etter tolv år med renter, eller straks. Gave til nærstående i utlandet utløser skatten når netto gevinst overstiger 100 000 kr i året.</td></tr>
+</table>
+
+<h3>20.3 Formuesskatt</h3>
+<table class="data">
+<tr><th>Begrep</th><th>Formel eller sats</th><th>Poeng</th></tr>
+<tr><td>Formuesskattesatser 2026</td><td class="n">1,0 % opp til 21 500 000 kr · 1,1 % over</td><td>Samlet sats. Den kommunale andelen er halvert fra 0,7 % i 2024 til 0,35 % i 2026, men samlet sats er uendret, så fordelingen stat/kommune endrer ingen skatteregning. Den kan komme som rent faktaspørsmål.</td></tr>
+<tr><td>Bunnfradrag i formuesskatten</td><td class="n">1 900 000 kr enslig · 3 800 000 kr for ektefeller (2026)</td><td>Var 1 700 000 kr i 2024 og 1 760 000 kr i 2025. Eldre eksamenssett bruker sitt eget års fradrag, og differansen slår rett inn i svaret.</td></tr>
+<tr><td>Formuesskatt, hele regnestykket</td><td>τ<sub>w,1</sub> × [min(W, K) − B] + τ<sub>w,2</sub> × maks(0; W − K)</td><td>W er nettoformuen etter rabatter og gjeldsfradrag, K innslagspunktet for høyeste sats, B bunnfradraget. Regn aldri formuesskatt av markedsverdi; grunnlaget er formuesverdien.</td></tr>
+<tr><td>Verdsettingsrabatt for aksjer og aksjefond</td><td class="n">Verdsettes til 80 %, altså rabatt ρ = 20 %</td><td>Gjelder børsnoterte og unoterte aksjer, aksjeandelen i verdipapirfond, næringseiendom, varelager og driftsmidler. Rabatten var 45 % i 2021-settene, så les oppgaveteksten.</td></tr>
+<tr><td>Verdsetting av unoterte aksjer</td><td>Eierandel av selskapets skattemessige formuesverdi (bokførte eiendeler minus gjeld), deretter 80 %</td><td>Ikke markedsverdi, og ikke det siste emisjonskurset. Anine-regnestykket: avisens 45 mill. × 1,1 % = 495 000, mens riktig regel gir (3 600 000 − 1 900 000) × 1,0 % = 17 000. Avstanden er en faktor 26, ikke en avrunding.</td></tr>
+<tr><td>Verdsetting av primærbolig</td><td>Formuesverdi = 0,25 × min(M, T) + 0,70 × maks(0; M − T)</td><td>M er omsetningsverdien og T terskelen. T er <b>14 mill. kr fra inntektsåret 2026</b>, men 10 mill. kr i alle eksamenssett til og med H2025. Regner du et gammelt sett med 14 mill., får du feil svar på en ellers riktig løst oppgave.</td></tr>
+<tr><td>Verdsetting av øvrige aktiva</td><td class="n">Sekundærbolig, bankinnskudd og obligasjoner: 100 % · fritidsbolig: settes ned til maks 30 % av dokumentert omsetningsverdi etter krav</td><td>Ingen rabatt betyr også ingen gjeldsreduksjon. Sekundærbolig og primærbolig behandles motsatt av hverandre i begge ledd, og det er der oppgavene skiller kandidatene.</td></tr>
+<tr><td>Forholdsmessig gjeldsfordeling, per aktivum</td><td>Fradragsberettiget gjeld<sub>i</sub> = G × (BV<sub>i</sub>/ΣBV) × (1 − ρ<sub>i</sub>)</td><td>Gjelden fordeles etter <b>bruttoverdi før rabatt</b>, ikke etter formuesverdi. Å fordele etter ligningsverdi er den første av de tre klassiske feilene i H2024 oppgave 6.</td></tr>
+<tr><td>Forholdsmessig gjeldsfordeling, samlet</td><td>Fradragsberettiget gjeld = G × [1 − Σ<sub>rabatterte</sub>(BV<sub>i</sub> × ρ<sub>i</sub>) / ΣBV]</td><td>Gir nøyaktig samme svar som rad-for-rad-metoden. Regn begge veier: det er kontrollen som avslører at du har avkortet feil post.</td></tr>
+<tr><td>Hvilke aktiva som utløser gjeldsreduksjon</td><td>Næringseiendom, aksjer og aksjefond, varelager, driftsmidler og andeler i selskap med deltakerfastsetting</td><td><b>Primærbolig og fritidsbolig gjør det ikke</b> (skatteloven § 4-19 tredje ledd), så rabatten på primærboligen kommer skattyter fullt til gode. Å avkorte boliggjelden er den dyreste enkeltfeilen i formuesskattoppgavene.</td></tr>
+<tr><td>Eiendomsskatt</td><td>(beregnet omsetningsverdi × 0,7 − bunnfradrag) × promillesats, maks 4 ‰ for bolig og fritidsbolig</td><td>Maks 7 ‰ for næring; kommunal og valgfri, første år maks 1 ‰ og maks 1 ‰ økning per år. Formuesskattens 25 %-verdsetting gjelder <b>ikke</b> her: reduksjonsfaktoren er 0,7.</td></tr>
+</table>
+
+<h3>20.4 Avkastning og tidsverdi</h3>
+<table class="data">
+<tr><th>Begrep</th><th>Formel eller sats</th><th>Poeng</th></tr>
+<tr><td>Totalavkastning</td><td>R = (P<sub>1</sub> − P<sub>0</sub>)/P<sub>0</sub> + Y<sub>1</sub>/P<sub>0</sub> = kapitalgevinst + direkteavkastning</td><td>Y er utbytte for en aksje og netto leie for en bolig. Begge ledd deles på inngangsverdien P<sub>0</sub>, aldri på sluttprisen. Den som setter boligavkastning lik boligprisvekst, mister leien og bommer med en faktor sju.</td></tr>
+<tr><td>Realavkastning</td><td>1 + r = (1 + i)/(1 + π), altså r = (i − π)/(1 + π) &nbsp;·&nbsp; approksimert r ≈ i − π</td><td>Approksimasjonen er grei ved lav inflasjon og for grov ved høy. Oppgaven sier som regel hvilken den vil ha.</td></tr>
+<tr><td>Rekkefølgen nominelt, skatt, realt</td><td>Nominelt → etter skatt → realt</td><td>Skatten regnes av den <b>nominelle</b> avkastningen, altså også av inflasjonskompensasjonen. Bytter du om på de to siste leddene, får du et annet og galt tall.</td></tr>
+<tr><td>Effektiv skatt på realavkastningen</td><td>t<sub>real</sub> = t × i/(i − π)</td><td>Med i = 4 %, π = 3 % og t = 22 % blir den 88 %. Inflasjon gjør en moderat nominell sats brutal realt, og det er hele poenget med skillet mellom nominell og real skattlegging.</td></tr>
+<tr><td>Avkastning etter skatt</td><td>r<sub>etter</sub> = r(1 − t) for renter og netto leie · r(1 − t<sub>e</sub>) for utbytte og aksjegevinst</td><td>0,78 mot 0,6216. Skatt opp virker nøyaktig som rente ned, og det er derfor rangeringen mellom aktiva kan snu etter skatt.</td></tr>
+<tr><td>Indifferansen rente mot aksjeavkastning</td><td>r<sub>aksje</sub>/r<sub>rente</sub> = (1 − t)/(1 − t<sub>e</sub>) = 0,78/0,6216 = 1,2548</td><td>Renteinntekt på 100 000 kr gir samme beløp etter skatt som en aksjegevinst på 125 482 kr. Regnestykket fra forelesning 1, og begrunnelsen for at de to satsene ikke kan sammenlignes direkte.</td></tr>
+<tr><td>Nåverdien av et fradrag</td><td>Hele fradraget nå: D × t · fordelt over T år: (D/T) × t × [1 − (1 + ρ)<sup>−T</sup>]/ρ</td><td>Ta fradraget tidligst mulig så lenge det finnes inntekt å trekke det fra. H2024 oppgave 3: 22 000 nå mot 13 518 fordelt. Alternativet «det spiller ingen rolle» er riktig bare når renten er null.</td></tr>
+<tr><td>Annuitetsfaktor og sluttverdifaktor</td><td>Nåverdifaktor A(r,T) = [1 − (1 + r)<sup>−T</sup>]/r &nbsp;·&nbsp; sluttverdi av årlig sparing = a × [(1 + r)<sup>T</sup> − 1]/r</td><td>Å bytte dem om er en fast felle. Kontroll: nåverdifaktoren er alltid mindre enn T, sluttverdifaktoren alltid større. Bruk uavrundet rente — 36 000 kr i året i 20 år til 5,2517 % gir 1 222 537 kr, og med 5,25 % bommer du med 221 kr.</td></tr>
+<tr><td>CAGR og evig kontantstrøm</td><td>r = (W<sub>T</sub>/W<sub>0</sub>)<sup>1/T</sup> − 1 &nbsp;·&nbsp; V = CF/r</td><td>CAGR bruker faktisk antall år, ikke antall observasjoner. V = CF/r er grunnlaget i ekspropriasjonsstriden: hele uenigheten er hvilken r som skal stå i nevneren.</td></tr>
+<tr><td>To-periodemodellen</td><td>C<sub>2</sub> = Y<sub>2</sub> + (Y<sub>1</sub> − C<sub>1</sub>)(1 + r(1 − t)), stigningstall −(1 + r(1 − t))</td><td>Skatt på renteinntekt gjør budsjettlinjen slakere og roterer den om endowmentpunktet. Långiveren taper på det, låntakeren med fradragsrett vinner, og substitusjons- og inntektseffekten trekker i hver sin retning for spareren.</td></tr>
+<tr><td>Realavkastning 1870–2015 (Jordà m.fl.)</td><td class="n">Bolig 7,3 % · aksjer 6,7 % · statsobligasjoner ca. 2,5 % · statssertifikater ca. 1,0 %</td><td>Standardavvik ca. 10 for bolig og ca. 24 for aksjer: aksjer svinger omtrent dobbelt så mye. Av boligens 7,3 % er bare rundt ett prosentpoeng realprisstigning, resten er leie. Rangeringen bolig &gt; aksjer &gt; obligasjoner &gt; sertifikater skal sitte.</td></tr>
+</table>
+
+<h3>20.5 Skatteteori</h3>
+<table class="data">
+<tr><th>Begrep</th><th>Formel eller sats</th><th>Poeng</th></tr>
+<tr><td>Stykkskatt: kilen og likevekten</td><td>P = p + t &nbsp;·&nbsp; D(p + t) = S(p)</td><td>P er prisen kjøperen betaler, p prisen selgeren beholder. Ingenting i utledningen refererer til hvem som krever inn skatten, og derfor er den formelle insidensen uten betydning for den reelle.</td></tr>
+<tr><td>Insidens på produsentprisen</td><td>∂p/∂t = D′/(S′ − D′)</td><td>Ligger alltid mellom −1 og 0. Nevneren S′ − D′ er alltid strengt positiv fordi D′ er negativ, så brøken skifter aldri fortegn. Et alternativ som er positivt, er utelukket uten regning.</td></tr>
+<tr><td>Insidens på konsumentprisen</td><td>∂P/∂t = S′/(S′ − D′)</td><td>Ligger alltid mellom 0 og 1. Skiller seg fra ∂p/∂t bare i telleren, og de to står som alternativer i hverandres spørsmål (H2024 oppgave 8a og 8b). Skriv ned hvilken pris oppgaven spør om før du regner.</td></tr>
+<tr><td>Kontrollen på insidensuttrykkene</td><td>∂P/∂t − ∂p/∂t = 1</td><td>Følger av at P − p = t. Andelene summerer alltid til én, uansett hvordan kurvene ser ut. Kandidatuttrykk som ikke oppfyller identiteten, kan strykes på ti sekunder, og et uttrykk som er identisk lik en konstant kan ikke være et generelt insidensuttrykk.</td></tr>
+<tr><td>Insidens i elastisiteter</td><td>Konsumentens andel = ε<sub>S</sub>/(ε<sub>S</sub> + |ε<sub>D</sub>|) · produsentens andel = |ε<sub>D</sub>|/(ε<sub>S</sub> + |ε<sub>D</sub>|)</td><td>Regelen i én setning: <b>den minst elastiske siden bærer skatten</b>, fordi den har færrest alternativer å rømme til. Grensetilfellene følger direkte: D′ = 0 eller S′ → ∞ gir konsumenten alt, S′ = 0 eller D′ → −∞ gir produsenten alt.</td></tr>
+<tr><td>Proveny og dødvektstap</td><td>Proveny = t × x<sub>t</sub> &nbsp;·&nbsp; dødvektstap ≈ ½ × t × (x<sub>0</sub> − x<sub>t</sub>) = ½ × t<sup>2</sup> × |S′ × D′|/(S′ − D′)</td><td>Provenyet regnes av det <b>nye</b> kvantumet. Tapet vokser med kvadratet av satsen og er null hvis én av sidene er perfekt uelastisk: det er en pris på tilpasning, ikke på skattebetaling. Derav Ramsey-regelen, og derav at effektivitet og fordeling trekker i hver sin retning.</td></tr>
+<tr><td>Monopolistens overvelting</td><td>Med lineær etterspørsel: ∂p/∂t = ½</td><td>H2021 oppgave 2: P = 3 − Q og grensekostnad 1 gir pris 2,00 uten skatt og 2,50 med t = 1. Monopolisten velter <b>aldri</b> hele skatten over; markedsmakten er allerede brukt før skatten kom. Under oligopol finnes ingen entydig regel.</td></tr>
+<tr><td>Nøytralitet (Sandmo)</td><td>Rangeringen mellom prosjekter før skatt = rangeringen etter skatt</td><td>Brytes nøytraliteten, flyttes kapitalen etter skattereglene i stedet for etter avkastning. Nøytralitet krever like <i>effektive</i> satser på tvers av aktiva og finansieringsformer, ikke like nominelle satser.</td></tr>
+<tr><td>Skattearbitrasje</td><td>Årlig gevinst = r × L × (t<sub>fradrag</sub> − t<sub>avkastning</sub>)</td><td>Låne med full fradragsrett og plassere skattefavorisert. Gevinsten er ren satsdifferanse, ikke meravkastning: den finnes selv om lånerenten er nøyaktig lik plasseringsrenten.</td></tr>
+<tr><td>Bedriftens førsteordensbetingelse</td><td>F′(K) = r(1 − At)/(1 − t)</td><td>A er andelen av rentene som kan trekkes fra. Kontrollen som stryker de gale alternativene: sett A = 1 og se om uttrykket kollapser til r. Gjør det ikke det, er alternativet feil. A &lt; 1 gjør kapitalen dyrere og senker investeringen.</td></tr>
+<tr><td>Gjeld mot egenkapital</td><td>F′<sub>G</sub> = r &nbsp;og&nbsp; F′<sub>E</sub> = r/(1 − t), altså E* &lt; G*</td><td>Bare gjeldsrenter er fradragsberettiget, mens egenkapitalens alternativkostnad ikke er det. Egenkapitalfinansiert kapital blir derfor dyrere, og bedriften investerer mindre av den (H2025 oppgave 7).</td></tr>
+<tr><td>Domar–Musgrave</td><td>Med full symmetrisk tapsdekning: z = (1 − t)x<sub>1</sub> er bestemt av førsteordensbetingelsen alene, så x<sub>1</sub>* = z*/(1 − t)</td><td>Investoren øker den risikable posisjonen nøyaktig nok til å gjenopprette eksponeringen etter skatt. Staten blir stille partner. Betingelsene er fullt tapsfradrag, ingen skatt på den risikofrie renten og ingen skranker; faller én av dem, faller resultatet.</td></tr>
+<tr><td>Implisitt skatt</td><td>Likevekt r = R(1 − t) ⟹ t* = (R − r)/R = 1 − r/R</td><td>Nevneren er R, avkastningen på det fullt skattlagte aktivumet; (R − r)/r er det faste gale alternativet. Merk retningen: det skattefavoriserte papiret har <b>lavere</b> avkastning før skatt, fordi fordelen er priset inn.</td></tr>
+<tr><td>Valgregelen ved implisitt skatt</td><td>Egen marginalskatt &gt; t*: velg det skattefavoriserte · &lt; t*: velg det skattlagte · = t*: likegyldig</td><td>Det er de med høy marginalskatt som tjener på skattefavorisering, og det er derfor et fritak sjelden treffer den det var ment for.</td></tr>
+</table>
+
+<h3>20.6 Internasjonal skatt</h3>
+<table class="data">
+<tr><th>Begrep</th><th>Formel eller sats</th><th>Poeng</th></tr>
+<tr><td>Globalskatteplikt og kildeskatt</td><td>Bosted i Norge eller hjemmehørende selskap: skattepliktig hit for <b>all</b> inntekt, uansett hvor den er opptjent</td><td>Kildestaten skattlegger i tillegg det som har kilde der. Dobbeltbeskatningen oppstår nettopp fordi de to prinsippene treffer samme krone; skatteavtalen er redskapet som fordeler den.</td></tr>
+<tr><td>Fast driftssted</td><td>Kildestatens terskel for å kunne skattlegge et utenlandsk foretaks virksomhetsinntekt</td><td>Uten fast driftssted skattlegger bare hjemstaten. Terskelen er derfor det første du sjekker i en internasjonal oppgave, før du velger metode.</td></tr>
+<tr><td>Ingen skatteavtale</td><td>T = (t<sub>hjem</sub> + t<sub>kilde</sub>) × Y</td><td>Fravær av avtale gir <b>dobbeltbeskatning</b>, ikke skattefrihet. Å tro at bare kildestaten skattlegger, er den faste feilen. Bosted i tre land etter intern rett gir trippelbeskatning.</td></tr>
+<tr><td>Unntaksmetoden (fullstendig unntak)</td><td>T = t<sub>kilde</sub> × Y</td><td>Hjemstaten ser helt bort fra inntekten. Skattlegger ikke kildestaten, blir resultatet dobbelt <i>ikke</i>-beskatning, og det er både metodens svakhet og eksamensspørsmålet den gir.</td></tr>
+<tr><td>Ordinær kreditmetode</td><td>Kredit = min(t<sub>kilde</sub> × Y; t<sub>hjem</sub> × Y), så T = maks(t<sub>hjem</sub>; t<sub>kilde</sub>) × Y</td><td>Kreditten er begrenset til hjemstatens egen skatt på samme inntekt; overskytende utenlandsk skatt blir stående som dobbeltbeskatning. «Full kredit for all utenlandsk skatt» er alltid med som alternativ og er alltid galt.</td></tr>
+<tr><td>Overskuddsflytting og minimumsskatt</td><td>Flyttet overskudd = (internpris − armlengdepris) × volum · besparelse = flyttet overskudd × (t<sub>høy</sub> − t<sub>lav</sub>) · toppskatt = maks(0; 15 % − effektiv sats) × overskudd</td><td>Mekanismene er internprising, tynn kapitalisering og skallselskap; tiltakene er CRS, BEPS og den globale minimumsskatten på 15 %. Omfanget: Alstadsæter m.fl. anslår at topp 0,01 % skjuler rundt 20 % av formuen sin.</td></tr>
+</table>
+
+<h3>20.7 Portefølje og Merton</h3>
+<table class="data">
+<tr><th>Begrep</th><th>Formel eller sats</th><th>Poeng</th></tr>
+<tr><td>Forventet porteføljeavkastning</td><td>E(r<sub>p</sub>) = sμ<sub>1</sub> + (1 − s)μ<sub>2</sub></td><td>Lineær i andelene, og bare den. Risikoen er det ikke, og hele diversifiseringsgevinsten ligger i forskjellen mellom de to.</td></tr>
+<tr><td>Porteføljevarians med to aktiva</td><td>σ<sub>p</sub><sup>2</sup> = s<sup>2</sup>σ<sub>1</sub><sup>2</sup> + (1 − s)<sup>2</sup>σ<sub>2</sub><sup>2</sup> + 2s(1 − s)ρσ<sub>1</sub>σ<sub>2</sub></td><td>Krysleddet bruker kovariansen ρσ<sub>1</sub>σ<sub>2</sub>, ikke ρ alene. Diversifisering hjelper for enhver ρ mindre enn 1.</td></tr>
+<tr><td>Minimum-varians-andelen</td><td>s* = (σ<sub>2</sub><sup>2</sup> − ρσ<sub>1</sub>σ<sub>2</sub>)/(σ<sub>1</sub><sup>2</sup> + σ<sub>2</sub><sup>2</sup> − 2ρσ<sub>1</sub>σ<sub>2</sub>)</td><td>Ved ρ = 1 finnes ingen indre løsning: legg alt i aksjen med lavest standardavvik (H2024 oppgave 12d). Ved ρ = −1 er s* = σ<sub>2</sub>/(σ<sub>1</sub> + σ<sub>2</sub>), <b>ikke</b> 0,5. Distraktoren er som regel den samme formelen med ρ satt til 0.</td></tr>
+<tr><td>Kapitalmarkedslinjen</td><td>E(r<sub>p</sub>) = r<sub>f</sub> + [(E(r<sub>M</sub>) − r<sub>f</sub>)/σ<sub>M</sub>] × σ<sub>p</sub></td><td>Stigningstallet er Sharpe-forholdet. Separasjonsteoremet følger: alle holder markedsporteføljen, og risikoviljen bestemmer bare blandingen med bank. Vil du ha mer risiko enn M, låner du og kjøper mer M, ikke mer volatile enkeltaksjer (H2025 oppgave 15).</td></tr>
+<tr><td>Sharpe-forholdet og CAPM</td><td>Sharpe = (E(r<sub>M</sub>) − r<sub>f</sub>)/σ<sub>M</sub> &nbsp;·&nbsp; r<sub>i</sub> = r<sub>f</sub> + β<sub>i</sub>(r<sub>M</sub> − r<sub>f</sub>)</td><td>Bare systematisk risiko betales. Usystematisk risiko er stor risiko uten betaling, og det er hele argumentet mot å sette formuen i én enkeltaksje.</td></tr>
+<tr><td>Mertons aksjeandel</td><td>w* = (μ − r<sub>f</sub>)/(γσ<sup>2</sup>)</td><td>σ<sup>2</sup> er <b>variansen</b>. Får du standardavviket oppgitt, må du kvadrere; får du variansen oppgitt, må du la være. H2025 oppgave 11: premie 0,05 og varians 0,10 med w* = 0,5 gir γ = 1, mens den som kvadrerer 0,10 får 10, som står som alternativ.</td></tr>
+<tr><td>Merton med humankapital</td><td>Ønsket aksjebeløp = w* × (F + H) · andel av finansformuen = [w*(F + H) − β<sub>H</sub> × H]/F</td><td>β<sub>H</sub> = 0 for sikker humankapital, 1 for aksjelignende. Å bruke w* direkte på finansformuen F er den faste fella. Over 100 % betyr lånefinansiering; under 0 % settes til null. Eldre skal ha lavere andel fordi humankapitalen er mindre, ikke fordi risiko forsvinner med tiden.</td></tr>
+<tr><td>Aksjesparekonto</td><td>Gevinst og utbytte inne på kontoen er skattefrie; uttak utover innskutt beløp skattlegges med 37,84 %</td><td>Krever aksjer eller fond med over 80 % aksjeandel innenfor EØS. Uttak regnes først som tilbakebetaling av innskudd. Formuesverdien er 80 %, som for aksjer ellers.</td></tr>
+</table>
+
+<h3>20.8 Pensjon og sparing</h3>
+<table class="data">
+<tr><th>Begrep</th><th>Formel eller sats</th><th>Poeng</th></tr>
+<tr><td>Grunnbeløpet G</td><td class="n">136 549 kr per 1. mai 2026 (gjennomsnitt for året 134 419 kr)</td><td>124 028 kr i 2024 og 130 160 kr i 2025. Oppgaven oppgir som regel G selv, og eldre sett bruker runde tall som 100 000 kr. Bruk oppgavens G.</td></tr>
+<tr><td>Opptjening i folketrygden</td><td>opptjening<sub>t</sub> = 18,1 % × min(pensjonsgivende inntekt<sub>t</sub>; 7,1 G<sub>t</sub>)</td><td>Alleårsregel: alle år med inntekt teller, fra 1963-kullet fullt ut. Taket 7,1 G er ca. 969 500 kr i 2026, som gir maks årlig opptjening 175 479 kr. Å glemme taket er den vanligste feilen i beholdningsoppgaver.</td></tr>
+<tr><td>Pensjonsbeholdningen</td><td>B<sub>t</sub> = B<sub>t−1</sub> × (1 + g) + opptjening<sub>t</sub></td><td>Reguler den gamle beholdningen med lønnsveksten <b>først</b>, legg årets opptjening til etterpå. Motsatt rekkefølge gir et tall som ofte ikke finnes blant alternativene.</td></tr>
+<tr><td>Årlig alderspensjon og delingstall</td><td>Årlig pensjon = pensjonsbeholdning / delingstall</td><td>Delingstallet <b>synker</b> ved utsatt uttak, så den årlige utbetalingen stiger (H2025 oppgave 14). Det fastsettes endelig det året kullet fyller 61 år, og levealdersjusteringen løfter det for yngre kull. Valget er nøytralt i forventning.</td></tr>
+<tr><td>Kompensasjonsgrad</td><td>Årlig pensjon / sluttlønn · snarvei når lønnen ligger under taket og vokser som G: 18,1 % × n / delingstall</td><td>40 år og delingstall 18,02 gir 40,2 % av sluttlønn. Snarveien svarer på hele spørsmålet uten at du regner en eneste beholdning.</td></tr>
+<tr><td>OTP og innskuddspensjon</td><td class="n">Minimum 2 % av lønn 0–12 G fra første krone · maks 7 % av lønn 0–12 G pluss 18,1 % av lønn mellom 7,1 og 12 G</td><td>Innskuddsordning: arbeidstakeren bærer avkastningsrisikoen og velger profil. Ytelsesordning: arbeidsgiveren garanterer en andel av lønnen og bærer risikoen. Ved jobbytte blir innskudd til pensjonskapitalbevis, ytelse til fripolise.</td></tr>
+<tr><td>IPS</td><td class="n">Maks innskudd 25 000 kr i 2026 (15 000 kr i 2024 og 2025), fradrag i alminnelig inntekt</td><td>Uttak skattlegges som <b>alminnelig inntekt</b>, 22 %, ikke som pensjonsinntekt, så ingen trygdeavgift og ingen trinnskatt. Fritatt for formuesskatt. Bundet til minst 62 år, utbetaling over minst ti år.</td></tr>
+<tr><td>Hvorfor utsatt skatt er verdt noe</td><td>Netto ut = innskudd × (1 + r)<sup>n</sup> × (1 − t) = [innskudd × (1 − t)] × (1 + r)<sup>n</sup></td><td>Du får avkastning på statens andel også, helt til du tar pengene ut: et rentefritt lån fra staten (H2024 oppgave 13b). Fordelen er <b>utsettelsen pluss formuesskattefritaket</b>, ikke en lavere sats.</td></tr>
+<tr><td>BSU</td><td class="n">Maks 27 500 kr per år og 300 000 kr samlet, fradrag 10 % av årets sparing (maks 2 750 kr)</td><td>Til og med året du fyller 33, og bare for den som <b>ikke</b> eier bolig. Brudd på bindingen utløser tillegg i skatt lik tidligere fradrag.</td></tr>
+</table>
+
+<h3>20.9 Lån</h3>
+<table class="data">
+<tr><th>Begrep</th><th>Formel eller sats</th><th>Poeng</th></tr>
+<tr><td>Annuitetslån</td><td>A = L × r/(1 − (1 + r)<sup>−n</sup>) &nbsp;·&nbsp; samlet rentesum = n × A − L</td><td>Rente og antall terminer må gjelde samme periode: et månedlig lån bruker r/12 og n × 12. Rentedelen synker og avdragsdelen stiger over lånets liv.</td></tr>
+<tr><td>Serielån</td><td>Avdrag = L/n hver termin, rente av restgjelden</td><td>Høyere terminbeløp i starten og lavere til slutt, og lavere samlet rentesum enn annuitetslånet, fordi hovedstolen nedbetales raskere.</td></tr>
+<tr><td>Effektiv rente</td><td>Internrenten i kontantstrømmen: utbetalt lån minus etableringsgebyr mot terminbeløp pluss termingebyr</td><td>Ikke nominell rente pluss gebyrprosent, og den nominelle renten står alltid som alternativ. H2022 oppgave 6: 400 000 kr til 4,99 % over fem år gir annuitet 92 364 kr og effektiv rente 5,94 % med gebyrene inne.</td></tr>
+<tr><td>Kredittkostnad</td><td>Summen av alle betalinger og gebyrer minus lånebeløpet, <b>udiskontert</b></td><td>I H2022-oppgaven blir den 72 912 kr. Distraktoren 472 912 kr er den samme summen uten å trekke fra lånet, og den fanger alle som leser fort.</td></tr>
+<tr><td>Utlånsforskriften</td><td class="n">Gjeld maks 5 × brutto årsinntekt · belåningsgrad maks 90 % · stresstest 3 pp renteøkning, minst 7 % · avdrag minst 2,5 % per år over 60 % belåningsgrad</td><td>Egenkapitalkravet er senket fra 15 % til 10 % fra 2025 [dagens regel]. Eksamenssett fra 2020 og 2021 bruker 5 pp stresstest og annuitet over 30 år [eksempeltall]; bindende krav er alltid det laveste av femgangeren og betjeningsevnen.</td></tr>
+<tr><td>Rentefradraget og nedbetalingsrekkefølgen</td><td>Effektiv lånerente = r × (1 − t) = r × 0,78 &nbsp;·&nbsp; betal alltid ned lånet med høyest rente først</td><td>Fradraget er verdt 22 øre per krone uansett marginalskatt, fordi renter bare reduserer alminnelig inntekt. Snøballmetoden (minste lån først) er et atferdsargument, ikke et økonomisk. Avdragsfrihet gir likviditet, ikke rentefordel (H2024 oppgave 14), og fast rente er en forsikring, ikke et veddemål.</td></tr>
+</table>
+
+<h3>20.10 Forsikring og forventet nytte</h3>
+<table class="data">
+<tr><th>Begrep</th><th>Formel eller sats</th><th>Poeng</th></tr>
+<tr><td>Forventet nytte</td><td>E[U] = Σ p<sub>i</sub> × U(W<sub>i</sub>)</td><td>Sammenlign <b>nytte</b>, aldri forventet formue. Sammenligner du formue, konkluderer du alltid med «ikke kjøp», siden premien overstiger forventet erstatning, og nettopp det alternativet står i settet (H2024 oppgave 11c).</td></tr>
+<tr><td>Forsikring, uten og med full dekning</td><td>E[U<sub>uten</sub>] = (1 − p)U(W) + pU(W − L) &nbsp;·&nbsp; E[U<sub>med</sub>] = U(W − P)</td><td>Med full dekning er utfallet sikkert, så det står ingen sannsynlighet igjen på den siden. H2025 oppgave 13: 2 973,2 mot 2 970,0, altså kjøp, selv om premien er 1,78 ganger den aktuariske.</td></tr>
+<tr><td>Delvis dekning av andelen α</td><td>E[U] = (1 − p)U(W − P) + pU(W − L + αL − P)</td><td>Premien betales <b>også</b> i skadetilfellet. Å glemme det er den vanligste regnefeilen her. Halv dekning til full premie avvises: 2 964,3 er lavere enn 2 970,0 (H2025 oppgave 13.3).</td></tr>
+<tr><td>Aktuarisk premie og Mossins resultat</td><td>P<sub>fair</sub> = p × L</td><td>Til aktuarisk pris kjøper en risikoavers <b>full</b> dekning, uansett om nyttefunksjonen er √W eller ln W og uansett hvor liten eiendelen er. Er premien høyere enn aktuarisk, er delvis dekning optimalt.</td></tr>
+<tr><td>Sikkerhetsekvivalent og maksimal premie</td><td>U(CE) = E[U<sub>uten</sub>], P<sub>maks</sub> = W − CE · med U = √W er CE = (E[U<sub>uten</sub>])<sup>2</sup></td><td>H2024 oppgave 11d: 990<sup>2</sup> = 980 100, altså maksimal premie 19 900 kr. Risikopremien er E[W] − CE. I begge eksamenseksemplene ligger maksimal premie rundt det dobbelte av den aktuariske.</td></tr>
+<tr><td>Kritisk sannsynlighet</td><td>p* = 1 − U(W − P)/U(W) når tapet er hele formuen</td><td>H2025 oppgave 13.2 gir 0,89 %. Elimineringsknepet sensor selv anbefaler: er forsikringen lønnsom ved p = 1 %, må terskelen ligge <b>under</b> 1 %, og alternativene over 1 % strykes uten regning. Bare ansvarsforsikring på bil er lovpålagt for privatpersoner; bolig og uføre er frivillige.</td></tr>
+</table>
 
 </section>
 

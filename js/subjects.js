@@ -260,10 +260,11 @@ window.EDU_SUBJECTS = [
       planIntro: "Modul 1–18 bygger faget fra bunnen: grunnlaget, aktiva og avkastning, aksjonær- og formuesbeskatningen, skatteteorien og personlig finans. Modul 19–21 er hele eksamenssett, det siste som generalprøve på tid med minuspoeng slått på. Vektingen følger hva som faktisk har kommet på eksamen.",
       dybdeIntro: "Selvrettet trening i fire bolker som følger kursets deler. Velg bank, filtrer på nivå, og regn ferdig på papir før du åpner fasiten — eksamen er flervalg, og et tall du ikke har regnet selv, gjenkjenner du ikke blant fire som ligner.",
     },
-    /* Faget har verken oppgavebank eller åpne eksamensoppgaver — det har ni
-       flervalgssett, som kjøres i /sett. Moduler uten innhold ennå (lyn, quiz,
-       flashcards, dybde) legges til etter hvert som dataene skrives. */
-    modules: ["/plan", "/curriculum", "/sett", "/review", "/search", "/progress"],
+    /* Faget har verken oppgavebank eller åpne eksamensoppgaver — det har tre
+       flervalgssett, som kjøres i /sett. Flashcards er med fordi de 100 radene i
+       formelsamlingen k20 blir til kort automatisk; quiz, dybde og lyn legges
+       til når de dataene er skrevet. */
+    modules: ["/plan", "/curriculum", "/flashcards", "/sett", "/review", "/search", "/progress"],
   },
 ];
 

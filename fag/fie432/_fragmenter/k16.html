@@ -1,0 +1,189 @@
+<section id="k16">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="part">Del IV — Personlig finans</h2>
+<h2 class="chap">16 · Lån og risikostyring</h2>
+
+<p class="lead-in">Lån er to eksamenstemaer som deler ett kapittel. Annuitet og effektiv rente er regnet i tre av ni sett og tok 9 % av poengene i H2022, der oppgave 6 var tre delspørsmål på rad om det samme billånet. Lånereglene, altså betjeningsevne, femgangeren og stresstesten, er regnet i fire sett: H2020 oppgave 4a–d, H2021 oppgave 5a–d, H2019 oppgave 8a og belåningsgraden i H2016 oppgave 3g. I flervalgsæraen har temaet vist seg som ett rent begrepsspørsmål, H2024 oppgave 14 om avdragsfrihet, og det er det billigste poenget i hele finansdelen når du først vet hva avdragsfrihet faktisk er. Alt hviler på én formel og én kontroll: annuitetsformelen, og nedbetalingsplanen som må treffe null i siste termin.</p>
+
+<h3>16.1 Annuitetslånet: én formel, og renten som må passe terminen</h3>
+
+<p>Et <b>annuitetslån</b> har fast terminbeløp. Hver termin dekker først renten på restgjelden, og det som blir til overs er avdrag. Fordi restgjelden faller, faller rentedelen og stiger avdragsdelen, mens summen står stille. Terminbeløpet er den betalingen som gjør at restgjelden treffer nøyaktig null i siste termin:</p>
+
+<div class="formula">
+  <div class="eq">A = L × m / (1 − (1 + m)<sup>−n</sup>)</div>
+  <div class="where">L er lånebeløpet, m er renten <i>per termin</i> og n er <i>antall terminer</i>. Ved månedlige terminer er m = r/12 og n = antall år × 12. Nevneren er den samme størrelsen som annuitetsfaktoren, bare uten m: A<sub>m,n</sub> = (1 − (1 + m)<sup>−n</sup>)/m er nåverdien av én krone per termin, så A = L/A<sub>m,n</sub>. De to skrivemåtene gir samme tall og kontrollerer hverandre.</div>
+  <div class="eq">Sum renter = n × A − L &nbsp;·&nbsp; Rente<sub>t</sub> = restgjeld<sub>t−1</sub> × m &nbsp;·&nbsp; Avdrag<sub>t</sub> = A − rente<sub>t</sub></div>
+  <div class="where">Rentesummen er alt du betaler minus det du fikk låne. Avdragene summerer alltid til L, så differansen <i>er</i> rentene. Dette er også kontrollen: bygger du nedbetalingsplanen og restgjelden ikke treffer null, har du regnet feil.</div>
+</div>
+
+<div class="callout warn"><span class="h">Renten må matche terminen, og n telles i terminer</span>
+Dette er den enkeltfeilen som ødelegger flest lånesvar. Har du månedlige terminer, skal <b>m = r/12</b> og <b>n = år × 12</b> stå sammen. Setter du inn årsrenten sammen med antall måneder, får du et absurd høyt tall; setter du inn månedsrenten sammen med antall år, får du et absurd lavt. Begge feilene har sitt eget svaralternativ. En tredje variant er å regne årsannuiteten og dele på tolv, som gir et tall som ser riktig ut, men er noen hundrelapper for høyt, fordi månedlige terminer betyr at renten kapitaliseres tolv ganger i året. Les alltid oppgaveteksten: H2016, H2020 og H2022 regnet alle med <b>årlige, etterskuddsvise</b> terminer, og da er m = r og n = antall år.</div>
+
+<div class="callout mech"><span class="h">Hvorfor faller rentedelen og stiger avdragsdelen, når terminbeløpet står stille?</span>
+Fordi renten alltid regnes av det som fortsatt står ubetalt. I første termin er restgjelden hele lånet, så renten er maksimal og avdraget minimalt. Hver krone i avdrag krymper grunnlaget for neste termins rente, så neste termin frigjør litt mer til avdrag, som krymper grunnlaget litt mer. Prosessen er selvforsterkende, og det er derfor nedbetalingen er så treg i starten: på et boliglån over 25 år går knapt en tredel av den første terminen til å gjøre gjelden mindre. Det er også svaret på hvorfor et kort lån er så mye billigere enn et langt. Du betaler ikke en høyere rentesats, du eksponerer bare et mindre beløp i færre år.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: boliglån på 3 millioner, månedlige terminer</span>
+<p>Lån kr 3 000 000, nominell rente 5,0 % <b>[eksempeltall]</b>, løpetid 25 år, månedlige etterskuddsvise terminer.</p>
+<p><b>Steg 1 — sett terminstørrelsene.</b> Månedsrenten m = 5 %/12 = <b>0,416667 %</b>, og n = 25 × 12 = <b>300</b> terminer.</p>
+<p><b>Steg 2 — telleren.</b> 3 000 000 × 0,416667 % = <b>12 500</b>. Dette er også rentedelen av aller første termin, siden restgjelden ennå er hele lånet.</p>
+<p><b>Steg 3 — nevneren.</b> 1,00416667 opphøyd i −300 er 0,287250, så nevneren blir 1 − 0,287250 = <b>0,712750</b>.</p>
+<p><b>Steg 4 — terminbeløpet.</b> A = 12 500/0,712750 = <b>17 537,70 kr per måned</b>.</p>
+<p><b>Steg 5 — hva den første terminen består av.</b> Renter 12 500, avdrag 17 537,70 − 12 500 = <b>5 037,70</b>. Etter tolv terminer er restgjelden 2 938 143, altså har du betalt ned 3 000 000 − 2 938 143 = <b>61 857</b> kr på et helt år, mens 12 × 17 537,70 − 61 857 = <b>148 595</b> kr gikk til renter.</p>
+<p><b>Steg 6 — samlet kostnad.</b> 300 × 17 537,70 = <b>5 261 310</b> betalt i alt, og 5 261 310 − 3 000 000 = <b>2 261 310</b> kr i renter. Du betaler altså tre fjerdedeler av lånebeløpet én gang til, i renter alene.</p>
+<p><b>Kontroll:</b> regn den andre veien, med annuitetsfaktoren. A<sub>m,n</sub> = 0,712750/0,416667 % = <b>171,06</b>, og 17 537,70 × 171,06 = <b>3 000 000</b>. ✓ Nåverdien av de 300 terminbeløpene er nøyaktig lånet, som den må være. Den siste terminen er den harde kontrollen: da er restgjelden 17 465, renten 73 og avdraget 17 465, og gjelden treffer null.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Årsannuiteten delt på tolv: 3 000 000 til 5 % over 25 <i>år</i> gir 212 857,37, og 212 857,37/12 = <b>17 738,11</b> — 200 kroner for høyt, og et alternativ det er umulig å utelukke med øyemål. Månedsrenten satt sammen med 25 terminer: <b>126 608</b>. Årsrenten satt sammen med 300 terminer: <b>150 000</b>, som bare er renten på et evig lån. Avdraget alene, uten renter: 3 000 000/300 = <b>10 000</b>. Det siste tallet er verdt å regne uansett, fordi det er en <b>nedre grense</b>: et terminbeløp kan aldri være mindre enn lånet delt på antall terminer, så alt under 10 000 kan strykes uten regning.</p>
+</div>
+
+<h3>16.2 Serielånet, og hvorfor terminbeløpet faller</h3>
+
+<p>Et <b>serielån</b> snur de to størrelsene: avdraget er fast, og terminbeløpet er det som varierer. Du betaler L/n i avdrag hver termin, pluss renten på det som står igjen.</p>
+
+<div class="formula">
+  <div class="eq">Avdrag = L/n (konstant) &nbsp;·&nbsp; Termin<sub>t</sub> = L/n + restgjeld<sub>t−1</sub> × m</div>
+  <div class="eq">Sum renter = m × L × (n + 1)/2</div>
+  <div class="where">Restgjelden faller lineært, så rentedelen faller lineært, og terminbeløpet faller derfor med et fast beløp hver termin. Rentesummen er renten på gjennomsnittlig restgjeld gjennom hele løpetiden, og gjennomsnittet av en rett linje fra L ned til L/n er L × (n + 1)/(2n) — ganget med n terminer gir det formelen over.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: samme lån som serielån</span>
+<p>Samme kr 3 000 000, samme 5,0 % <b>[eksempeltall]</b>, samme 300 månedlige terminer.</p>
+<p><b>Steg 1 — avdraget.</b> 3 000 000/300 = <b>10 000</b> kr hver måned, hele veien.</p>
+<p><b>Steg 2 — første og siste termin.</b> Første: 10 000 + 12 500 = <b>22 500</b> kr. Siste: restgjelden er da 10 000, renten 10 000 × 0,416667 % = 41,67, og terminen 10 000 + 41,67 = <b>10 041,67</b> kr.</p>
+<p><b>Steg 3 — rentesummen.</b> 12 500 × 301/2 = <b>1 881 250</b> kr, og samlet betalt 3 000 000 + 1 881 250 = <b>4 881 250</b> kr.</p>
+<p><b>Steg 4 — sammenligningen.</b> 2 261 310 − 1 881 250 = <b>380 060</b> kr mindre i renter enn annuitetslånet. Prisen er en tyngre start: 22 500 mot 17 537,70 i første måned, altså nesten 5 000 kroner mer i måneden det første året.</p>
+<p><b>Kontroll:</b> serielånets rentesum kan regnes som renten på gjennomsnittlig restgjeld. Gjennomsnittet av 3 000 000 og 10 000 er 1 505 000, og 1 505 000 × 5 % × 25 = <b>1 881 250</b>. ✓ Samme tall, helt annen vei. Kontroller også at avdragene summerer: 300 × 10 000 = 3 000 000. ✓</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Renter regnet av hele lånet i alle terminer: 300 × 12 500 = <b>3 750 000</b>, altså dobbelt så mye som riktig. Rentesummen satt til halvparten av lånet ganger renten uten løpetid: 12 500 × 300/2 = <b>1 875 000</b>, som mangler det ene leddet i (n + 1)/2 og bommer med 6 250. Og den vanligste av alle: serielånets første termin oppgitt som svar på hva et <i>annuitetslån</i> koster, eller motsatt. Les hvilken lånetype oppgaven beskriver før du regner.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 620 370" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Terminbeløp per måned over 25 år for et lån på tre millioner til fem prosent. Annuitetslånet er en vannrett linje på 17 538 kroner. Serielånet starter på 22 500 kroner og faller rett ned til 10 042 kroner, og krysser annuitetslinjen etter ti år. En tredje, stiplet kurve viser rentedelen av annuitetsterminen, som faller fra 12 500 til nesten null."
+     font-family="Georgia,serif" font-size="13">
+  <line x1="70" y1="191.7" x2="570" y2="191.7" stroke="#999" stroke-width="0.6"/>
+  <line x1="70" y1="137.5" x2="570" y2="137.5" stroke="#999" stroke-width="0.6"/>
+  <line x1="70" y1="83.3" x2="570" y2="83.3" stroke="#999" stroke-width="0.6"/>
+  <text x="62" y="196" text-anchor="end" fill="#555" font-size="11">10 000</text>
+  <text x="62" y="142" text-anchor="end" fill="#555" font-size="11">15 000</text>
+  <text x="62" y="88" text-anchor="end" fill="#555" font-size="11">20 000</text>
+  <line x1="70" y1="300" x2="570" y2="300" stroke="#333" stroke-width="1.4"/>
+  <line x1="70" y1="300" x2="70" y2="45" stroke="#333" stroke-width="1.4"/>
+  <path d="M70,110 L570,110" stroke="#6b1f2a" stroke-width="2.3" fill="none"/>
+  <path d="M70,56 L570,191" stroke="#2f5a3f" stroke-width="2.3" fill="none"/>
+  <path d="M71,165 L172,180 L272,200 L372,225 L472,258 L570,299" stroke="#1f3a5f" stroke-width="2" fill="none" stroke-dasharray="5 4"/>
+  <circle cx="272" cy="110" r="3.6" fill="#b06000"/>
+  <line x1="272" y1="110" x2="272" y2="300" stroke="#b06000" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <text x="279" y="102" fill="#b06000" font-size="11">krysning etter 10 år</text>
+  <text x="470" y="103" fill="#6b1f2a" font-weight="bold" font-size="12">Annuitet 17 538</text>
+  <text x="330" y="146" fill="#2f5a3f" font-weight="bold" font-size="12">Serielån</text>
+  <text x="300" y="215" fill="#1f3a5f" font-size="12">rentedel av annuiteten</text>
+  <text x="74" y="50" fill="#2f5a3f" font-size="11">22 500</text>
+  <text x="70" y="318" text-anchor="middle" fill="#555" font-size="11">0</text>
+  <text x="170" y="318" text-anchor="middle" fill="#555" font-size="11">5</text>
+  <text x="270" y="318" text-anchor="middle" fill="#555" font-size="11">10</text>
+  <text x="370" y="318" text-anchor="middle" fill="#555" font-size="11">15</text>
+  <text x="470" y="318" text-anchor="middle" fill="#555" font-size="11">20</text>
+  <text x="570" y="318" text-anchor="middle" fill="#555" font-size="11">25</text>
+  <text x="320" y="343" text-anchor="middle" fill="#333">År siden opptak</text>
+  <text x="24" y="170" text-anchor="middle" transform="rotate(-90 24 170)" fill="#333">Terminbeløp per måned</text>
+</svg>
+<figcaption>Figur 16.1 — Kr 3 000 000 til 5,0 % over 25 år, månedlige terminer. Annuitetslånet ligger flatt på 17 537,70 kr hele veien. Serielånet starter 4 962 kroner høyere, faller lineært, og krysser annuitetslinjen i måned 121, altså etter nøyaktig ti år. Arealet under hver kurve er samlet betaling, og serielånets areal er 380 060 kr mindre, fordi gjelden nedbetales raskere. Den stiplede kurven er rentedelen av annuitetsterminen: den starter på 12 500 og ender på 73, og avstanden opp til den vannrette linjen er avdraget. Det er den avstanden som vokser, og det er hele forskjellen mellom å eie og å leie penger.</figcaption>
+</figure>
+
+<div class="callout mech"><span class="h">Hvorfor er serielånet billigst i sum, men annuitetslånet det folk velger?</span>
+Serielånet er billigere av én grunn alene: gjelden er mindre til enhver tid, så det er mindre å betale rente av. Rentesatsen er den samme, og ingen av lånene er «gunstigere» i noen annen forstand. Sammenligningen er derfor ikke gratis: du kjøper de 380 060 kronene ved å binde deg til høyere utbetalinger i de ti første årene, altså nettopp i den perioden en fersk boligeier har minst slakk. Annuitetslånet er valgt fordi kontantstrømmen er forutsigbar og lav i starten, og fordi et lån som er lettere å betjene er et lån du faktisk klarer å betjene. Vil du ha serielånets profil uten dets bindende krav, kan du ta et annuitetslån og betale ekstra avdrag frivillig: da får du samme rentebesparelse med retten til å slutte når som helst.</div>
+
+<h3>16.3 Effektiv rente: internrenten i hele kontantstrømmen</h3>
+
+<p>Den <b>nominelle</b> renten er den satsen renten regnes med per termin. Den <b>effektive</b> renten er den satsen som gjør nåverdien av alt du faktisk betaler lik alt du faktisk mottar. Det er to ting som skiller dem: kapitalisering oftere enn én gang i året, og gebyrer.</p>
+
+<div class="formula">
+  <div class="eq">Bare kapitalisering: r<sub>eff</sub> = (1 + r/k)<sup>k</sup> − 1</div>
+  <div class="where">k er antall kapitaliseringer per år. En nominell rente på 5,0 % med månedlige terminer gir en effektiv årsrente på 5,12 %, fordi renten i februar også forrentes resten av året.</div>
+  <div class="eq">Med gebyrer: L − etableringsgebyr = Σ<sub>t</sub> (A + termingebyr)/(1 + r<sub>eff</sub>)<sup>t</sup></div>
+  <div class="where">Etableringsgebyret trekkes fra beløpet du <i>mottar</i> i år 0. Termingebyret legges til hver <i>betaling</i>. Effektiv rente er internrenten i den strømmen, og den kan ikke løses eksplisitt. På flervalg løser du den ved å sette alternativene inn i annuitetsformelen baklengs, ikke ved å iterere.</div>
+</div>
+
+<div class="callout warn"><span class="h">Effektiv rente er ikke nominell rente pluss gebyrprosenten</span>
+Gebyrene er kroner, ikke prosentpoeng, og de betales på bestemte tidspunkter. Etableringsgebyret virker sterkest fordi det tas i sin helhet i år 0, mens termingebyret spres utover. Legger du gebyrene sammen, deler på lånebeløpet og legger resultatet på den nominelle renten, får du systematisk feil svar, og på H2022 oppgave 6 var nettopp et slikt tall satt opp som alternativ. Den andre standardfellen er å ta med bare <i>ett</i> av gebyrene: i det settet gir termingebyret alene 5,39 % og etableringsgebyret alene 5,54 %, mens begge sammen gir 5,94 %. Alle fire alternativene lå 0,45 til 0,5 prosentpoeng fra hverandre, så øyemål hjelper ikke. Med minuspoeng koster den feilen fire poeng.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: billånet med gebyrer (H2022 oppgave 6)</span>
+<p>Bilen koster 500 000, og selgeren tilbyr et annuitetslån på <b>400 000</b> til nominell rente <b>4,99 %</b> over <b>5 år</b>, årlige etterskuddsvise terminer. Etableringsgebyr <b>5 990</b>, termingebyr <b>1 020</b> per år. Alle tall er <b>[eksempeltall fra oppgaveteksten]</b>; skatt er holdt utenfor.</p>
+<p><b>Steg 1 — terminbeløpet uten gebyrer.</b> Telleren: 400 000 × 4,99 % = <b>19 960</b>. Nevneren: 1,0499 opphøyd i −5 er 0,783899, altså 1 − 0,783899 = <b>0,216101</b>. A = 19 960/0,216101 = <b>92 364 kr</b> i året.</p>
+<p><b>Steg 2 — rentesummen.</b> 5 × 92 364,38 − 400 000 = <b>61 822</b> kr. Nedbetalingsplanen bekrefter den: rentedelen faller fra 19 960 i år 1 til 4 390 i år 5, og restgjelden treffer null.</p>
+<p><b>Steg 3 — kontantstrømmen med gebyrer.</b> I år 0 mottar du 400 000 − 5 990 = <b>394 010</b>. I hvert av de fem årene betaler du 92 364 + 1 020 = <b>93 384</b>.</p>
+<table class="data">
+<tr><th>År</th><th class="n">0</th><th class="n">1</th><th class="n">2</th><th class="n">3</th><th class="n">4</th><th class="n">5</th></tr>
+<tr><td>Kontantstrøm</td><td class="n">+394 010</td><td class="n">−93 384</td><td class="n">−93 384</td><td class="n">−93 384</td><td class="n">−93 384</td><td class="n">−93 384</td></tr>
+</table>
+<p><b>Steg 4 — internrenten.</b> Prøv alternativene i stedet for å iterere. Ved 5,94 % er annuitetsfaktoren over fem år 4,2192, og 394 010/4,2192 = <b>93 384</b>, som er nøyaktig terminbeløpet. ✓ Effektiv rente er <b>5,94 %</b>. Ved den nominelle 4,99 % er faktoren 4,3307, og 394 010/4,3307 = 90 981, altså for lite: den strømmen ville betjent et mindre lån enn du faktisk har fått.</p>
+<p><b>Steg 5 — kredittkostnaden, som er noe annet.</b> Kredittkostnad er alt du betaler minus det du fikk låne, <b>udiskontert</b>: 5 × 92 364,38 + 5 × 1 020 + 5 990 = 461 822 + 5 100 + 5 990 = <b>472 912</b>, og 472 912 − 400 000 = <b>72 912</b> kr.</p>
+<p><b>Kontroll:</b> kredittkostnaden er også renter pluss gebyrer, siden avdragene bare er tilbakebetaling: 61 822 + 5 100 + 5 990 = <b>72 912</b>. ✓ Kontroller så størrelsesordenen på den effektive renten. Gebyrene er 5 990 + 5 100 = 11 090 kr over fem år, altså 11 090/5 = <b>2 218</b> kr i året. Gjennomsnittlig restgjeld ved inngangen til de fem årene er 1 238 916/5 = <b>247 783</b> kr, og 2 218/247 783 = <b>0,90 %</b>. Effektiv rente må derfor ligge rundt den nominelle 4,99 % pluss vel 0,9 prosentpoeng, altså nær 5,9 %. Det utelukker både 4,99 % og 6,44 % på ti sekunder.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> I terminbeløpet: 400 000/5 = <b>80 000</b> er avdragene uten renter, den nedre grensen. På effektiv rente er <b>4,99 %</b> svaret til den som ikke gjør noe med gebyrene, og effektiv rente er per definisjon høyere enn nominell når det finnes gebyrer i det hele tatt. På kredittkostnaden er <b>472 912</b> den farligste: summen er helt riktig, men de 400 000 du fikk låne er ikke trukket fra. <b>61 822</b> er rentene alene, uten gebyrer, og <b>5 100</b> er termingebyrene alene. Alle tre er ekte mellomresultater du regner ut underveis, og det er nøyaktig derfor de står som alternativer.</p>
+</div>
+
+<p>Den eldste versjonen av samme rutine er H2016 oppgave 3b–e, som er ren renteregning uten gebyrer, med årlige terminer. Et lån på <b>500 000 over 10 år</b>: til 12 % blir annuiteten <b>88 492</b> og rentesummen 10 × 88 492,08 − 500 000 = <b>384 921</b>; til 3 % blir de <b>58 615</b> og 10 × 58 615,25 − 500 000 = <b>86 153</b>. Legg merke til forholdet. Renten firedobles, men rentesummen blir mer enn fire ganger så stor, fordi en høyere rente også gjør at gjelden nedbetales langsommere. Oppgave 3h utvidet sammenligningen: et rammelån på 2 000 000 med ett prosentpoeng høyere rente koster 20 000 mer i året, og 58 615 + 20 000 = <b>78 615</b> er fortsatt lavere enn 88 492, så konklusjonen står.</p>
+
+<h3>16.4 Rentefradraget: bare renten, og bare 22 %</h3>
+
+<p>Renter på gjeld er fradragsberettiget i alminnelig inntekt. <b>Avdrag er det ikke</b>, og det er ikke en teknikalitet: et avdrag er ingen kostnad i det hele tatt, bare en flytting av penger fra kontanter til egenkapital.</p>
+
+<div class="formula">
+  <div class="eq">Rentekostnad etter skatt = renter × (1 − t) = renter × 0,78</div>
+  <div class="eq">Effektiv lånerente etter skatt = r × (1 − t)</div>
+  <div class="where">t er skattesatsen på alminnelig inntekt, 22 % <b>[dagens regel]</b>. En nominell lånerente på 5,0 % koster deg 5 % × (1 − 0,22) = <b>3,90 %</b> etter skatt. Fradraget er en ren satsreduksjon fordi renter trekkes fra i alminnelig inntekt, aldri i grunnlaget for trygdeavgift eller trinnskatt.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor gjør rentefradraget lånet 22 % billigere, men ikke gunstig?</span>
+Staten dekker 22 øre av hver rentekrone, uansett hvor høy marginalskatten din er, fordi renten treffer alminnelig inntekt og ikke personinntekten. Det er en subsidie på å låne, og den er hele forklaringen på at gjeld er skattemessig gunstigere enn egenkapital både for husholdninger og selskaper. Men den snur ingen regnestykker alene: 78 øre av hver rentekrone er fortsatt din. Feilen som gjør skade er å tro at fradraget gjelder terminbeløpet. På det første terminbeløpet i eksempelet over, 17 537,70 kr, er bare 12 500 renter, så fradraget er 12 500 × 22 % = <b>2 750</b> kr og den reelle kostnaden 17 537,70 − 2 750 = <b>14 787,70</b>. Regner du fradrag av hele terminen, får du 17 537,70 × 22 % = <b>3 858,29</b> og overvurderer statens bidrag med over 40 %. Over det første året er rentene 148 595, fradraget 148 595 × 22 % = <b>32 691</b> og nettokostnaden 148 595 × 78 % = <b>115 904</b> kr.</div>
+
+<h3>16.5 Utlånsforskriften: fire skranker, og lånetaket</h3>
+
+<p>Hvor mye du får låne, er ikke ditt valg alene. Utlånsforskriften setter fire krav, og <b>det strengeste binder</b>. Forelesningens poeng om <i>hvorfor</i> de finnes, er at begrunnelsen er <b>systemrisiko</b> og ikke forbrukerbeskyttelse: hadde hensikten vært å beskytte den enkelte, ville forbrukslånsrenter på 20 % vært regulert også. Frislipp av boligkreditt har historisk gitt finanskriser, og det er bankene i flertall, ikke låntakeren i entall, forskriften er skrevet mot.</p>
+
+<div class="formula">
+  <div class="eq">(1) Gjeldsgrad: samlet gjeld ≤ 5 × brutto årsinntekt</div>
+  <div class="eq">(2) Belåningsgrad: lån ≤ 90 % av boligens verdi (rammelån 60 %)</div>
+  <div class="eq">(3) Stresstest: kunden må tåle renten pluss 3 prosentpoeng, minst 7 %</div>
+  <div class="eq">(4) Avdragskrav: minst 2,5 % av innvilget lån per år når belåningsgraden er over 60 %, alternativt avdraget i et annuitetslån over 30 år</div>
+  <div class="where">Alle fire er <b>[dagens regel]</b>, gjeldende fra 1. januar 2025. <b>Fleksibilitetskvoten</b> ligger over dem alle: banken kan bryte kravene for <b>10 %</b> av utlånsvolumet per kvartal, <b>8 %</b> i Oslo. Kravene binder altså porteføljen, ikke den enkelte søknaden, og det er derfor et avslag alltid kan ankes til en annen bank. Gjeldsgraden regnes av <i>samlet</i> gjeld: studielån, billån og kredittkortramme teller med, så nytt boliglån er femgangeren minus det du allerede skylder.</div>
+</div>
+
+<div class="callout warn"><span class="h">Satsene i forskriften er endret, og eksamenssettene bruker de gamle</span>
+Egenkapitalkravet var <b>15 %</b> til og med 2024 og er <b>10 %</b> fra 2025 <b>[dagens regel]</b>. Viktigere for regningen: stresstesten i H2020 oppgave 4c og H2021 oppgave 5c legger på <b>5 prosentpoeng</b>, som var kravet den gangen <b>[eksempeltall]</b>, mens dagens forskrift krever 3 prosentpoeng og minst 7 % rente. Med disponibelt 260 000 kr gir det gamle påslaget H2021-svaret 260 000 × 11,2578 = <b>2 927 024</b> kr, mens dagens påslag på samme rentenivå ville gitt et vesentlig større lån. Bruk alltid påslaget oppgaveteksten oppgir, og bruk 30 års løpetid i stresstesten med mindre noe annet står.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: lånetaket med stresstest</span>
+<p>Du har brutto årsinntekt kr <b>700 000</b> og studielån kr <b>500 000</b>. Boligen koster kr <b>4 000 000</b>. Lånerenten er 5,0 %, og 60 % av bruttolønnen går til skatt, forbruk og studielån <b>[eksempeltall; forskriftens krav er dagens regler]</b>.</p>
+<p><b>Steg 1 — betjeningsevnen.</b> 700 000 × 40 % = <b>280 000</b> kr i året er disponibelt til boliglån.</p>
+<p><b>Steg 2 — gjeldsgraden.</b> 5 × 700 000 = <b>3 500 000</b> i samlet gjeld. Studielånet teller med, så nytt boliglån kan være 3 500 000 − 500 000 = <b>3 000 000</b>.</p>
+<p><b>Steg 3 — belåningsgraden.</b> 90 % × 4 000 000 = <b>3 600 000</b>.</p>
+<p><b>Steg 4 — stresstesten.</b> Renten skal stresses med 3 prosentpoeng, altså til 8 %, som er over minstekravet på 7 %. Annuitetsfaktoren over 30 år ved 8 % er <b>11,2578</b>, og maksimalt lån blir 280 000 × 11,2578 = <b>3 152 184</b>.</p>
+<table class="data">
+<tr><th>Skranke</th><th class="n">Maksimalt lån</th><th>Binder?</th></tr>
+<tr><td>Gjeldsgrad, 5 × inntekt minus studielån</td><td class="n">3 000 000</td><td><b>ja</b></td></tr>
+<tr><td>Stresstest, 8 % over 30 år</td><td class="n">3 152 184</td><td>nei</td></tr>
+<tr><td>Belåningsgrad, 90 % av boligverdien</td><td class="n">3 600 000</td><td>nei</td></tr>
+</table>
+<p><b>Steg 5 — svaret og det som følger av det.</b> Lånetaket er <b>3 000 000</b> kr. Belåningsgraden blir 3 000 000/4 000 000 = <b>75 %</b>, altså over 60 %, så avdragskravet slår inn: 2,5 % × 3 000 000 = <b>75 000</b> kr i året, eller alternativt det avdraget et 30-års annuitetslån gir, som her er 12 × 16 104,65 − 150 000 = <b>43 256</b> kr det første året. Egenkapitalen du trenger er kjøpesummen pluss dokumentavgiften på 2,5 % × 4 000 000 = 100 000, minus lånet: 4 100 000 − 3 000 000 = <b>1 100 000</b> kr, altså 27,5 % av kjøpesummen og ikke 10 %.</p>
+<p><b>Kontroll:</b> snu stresstesten. Et lån på 3 000 000 over 30 år til 8 % krever 3 000 000/11,2578 = <b>266 482</b> kr i året, og du har 280 000, altså 280 000 − 266 482 = <b>13 518</b> kr i slakk. ✓ Kontroller så mot virkeligheten: ved dagens 5 % over 30 år er terminbeløpet 16 104,65 kr i måneden, altså 12 × 16 104,65 = <b>193 256</b> kr i året. Du bruker to tredeler av betjeningsevnen din, og stresstesten er nettopp det den ser ut som — en test på om du fortsatt klarer deg om renten går 60 % opp.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Studielånet glemt i femgangeren: <b>3 500 000</b>, og da ville stresstesten sett ut til å binde i stedet. Gammelt påslag på 5 prosentpoeng, altså 10 %: 280 000 × 9,4269 = <b>2 639 532</b>. Ustresset rente på 5 %: 280 000 × 15,3725 = <b>4 304 300</b>, som er over alle tre skrankene og altså umulig. Løpetid 25 år i stedet for 30: 280 000 × 10,6748 = <b>2 988 944</b>, som ligger uhyggelig nær det riktige svaret på 3 000 000 og er nøyaktig derfor et alternativ. Og egenkapitalen satt til 10 % av boligverdien, altså 400 000, som glemmer både dokumentavgiften og at gjeldsgraden bandt.</p>
+</div>
+
+<div class="callout tip"><span class="h">Slik spørres det</span>
+Tre former, alle dokumentert. <b>Regnespørsmål om terminbeløp</b> (H2016 oppgave 3b og 3d, H2020 oppgave 6a med 2 125 000 til 3 % over 25 år, H2022 oppgave 6 spørsmål 1): svaret ligger alltid mellom lånet delt på antall terminer og et tall du kan overslå, så to grenser eliminerer ofte to alternativer. <b>Effektiv rente og kredittkostnad</b> (H2022 oppgave 6 spørsmål 2 og 3): kjenn igjen at nominell rente og «sum av alle betalinger» begge er alternativer, og at de er de to mest fristende. <b>Lånetak</b> (H2020 oppgave 4a–d, H2021 oppgave 5a–d, H2016 oppgave 3g med belåningsgrad 2 500/6 000 = 41,7 %): regn hver skranke for seg og svar med den laveste. H2019 oppgave 8a er varianten der <i>definisjonen</i> er hele oppgaven: gjeldsbelastning på 3 000 000 kan bli 4,6 med bruttoinntekt i nevneren, 5,8 med nettoinntekt, eller 7,5 med inntekt etter skatt og renter, og alle tre stod som alternativer. Les nevneren oppgaven ber om.</div>
+
+<h3>16.6 Avdragsfrihet, fast rente og rekkefølgen på gjelden</h3>
+
+<p><b>Avdragsfrihet</b> betyr at du i en periode betaler bare renter. Lånet blir ikke mindre, og renten løper på hele hovedstolen hele tiden. Det er en <i>likviditetsordning</i>, ikke en rabatt.</p>
+
+<p>Tallene på lånet fra 16.1: to års avdragsfrihet senker terminen fra 17 537,70 til 12 500 kr i måneden, altså 5 037,70 kr frigjort per måned og 24 × 5 037,70 = <b>120 905</b> kr i alt. Skal lånet fortsatt være ferdig etter 25 år, må de resterende 276 terminene dekke hele hovedstolen, og terminbeløpet stiger til <b>18 312,18</b> kr. Samlet betaling blir da 24 × 12 500 + 276 × 18 312,18 = 300 000 + 5 054 162 = <b>5 354 162</b> kr, mot 5 261 310 uten avdragsfrihet, altså <b>92 852</b> kr dyrere. Forlenges løpetiden i stedet med to år, er merkostnaden nøyaktig de rentene du betalte uten å nedbetale: 24 × 12 500 = <b>300 000</b> kr.</p>
+
+<div class="callout mistake"><span class="h">«Avdragsfrihet er et rentefritt lån» (H2024 oppgave 14)</span>
+Riktig alternativ er at avdragsfrihet <b>kan være lurt ved midlertidige likviditetsproblemer</b>: permittering, sykdom, foreldrepermisjon, en uventet regning. Da frigjør du kontantstrøm langt billigere enn med forbrukslån eller kredittkort, og den betingede formuleringen «kan være lurt hvis» er selv et signal om hvilket alternativ som er riktig. De tre gale er hver sin misforståelse. <b>«Rentefritt lån fra banken»</b> er motsatt av sant: du betaler <i>mer</i> renter, 92 852 kr i regnestykket over, fordi hovedstolen står uendret lenger. <b>«Staten betaler avdragene»</b> er ren fantasi; staten har ingen rolle i avtalen, og det eneste staten faktisk gjør er å dekke 22 % av rentene gjennom rentefradraget, uansett om du har avdragsfrihet eller ikke. <b>«Kostnaden blir den samme uansett, så bare ikke-rasjonelle ber om det»</b> feiler dobbelt: kostnaden er ikke den samme, den er høyere, og likviditet har verdi i seg selv når alternativet er dyrere kreditt. Merk at ordningen er en unntaksadgang: over 60 % belåningsgrad krever forskriften normalt avdrag, så avdragsfrihet må innvilges innenfor bankens fleksibilitetskvote.</div>
+
+<p><b>Fast eller flytende rente</b> er ikke et veddemål om hvor renten går. Spørsmålet «lønner det seg med fast rente?» er feil stilt, for banken priser fastrenten ut fra markedets forventninger, og i gjennomsnitt er fastrenten litt høyere nettopp fordi den inneholder en <b>forsikringspremie</b>. Det du kjøper er ikke en lav rente, men <b>visshet om terminbeløpet</b>, og det er verdt noe presis i den grad du er sårbar for en renteøkning. Vurderingen er derfor den samme som for enhver forsikring: hvor mye faller nytten din hvis renten stiger tre prosentpoeng, og hvor mye koster det å slippe å finne det ut? Er du nyetablert med maksimalt lån og ingen buffer, er svaret gjerne ja. Har du lav belåningsgrad og solid margin, betaler du for en trygghet du allerede har. Prisen for fastrenten er dessuten ikke bare premien: du binder deg, og innfrir du lånet tidlig eller vil flytte det, kan overkursen bli betydelig.</p>
+
+<p>Til slutt <b>rekkefølgen</b>, som er kursets enkleste og mest lønnsomme regel: <b>betal ned lånet med høyest rente først</b>. Lån er flytting av penger over tid, og det gjøres billigst der prisen er høyest. Rangeringen blir kredittkort og forbrukslån, deretter bil- og båtlån, deretter boliglån, og til sist studielånet, som er billigst og i tillegg slettes ved dødsfall og har rentefritak ved sykdom. Det eneste legitime unntaket er ulike konsekvenser ved mislighold. Selvhjelpslitteraturens <b>snøballmetode</b>, som sier at du skal betale ned det <i>minste</i> lånet først for å få raske seire, er et atferdsargument om motivasjon, ikke et økonomisk argument, og et alternativ som presenterer den som den økonomisk riktige regelen er galt. At regelen brytes systematisk er godt dokumentert: folk betaler lik andel på hvert lån i stedet for å prioritere, og rundt 30 % av amerikanske husholdninger har dyr kredittkortgjeld samtidig som de har midler stående til lav rente. Forklaringene er mental regnskapsføring og nåtidsskjevhet, og de hører hjemme i kapittel 18.</p>
+
+<div class="callout link"><span class="h">Hvor dette henger sammen med resten</span>
+Utlånsforskriften er også regnet i <b>kapittel 4</b>, der lånetaket brukes til å finne egenkapitalavkastningen på en giret bolig, og der dokumentavgiften og belåningsgraden står i detalj. Rentefradraget bygger på skatten på alminnelig inntekt fra <b>kapittel 1</b> og på nåverdien av et fradrag fra <b>kapittel 2</b>; at gjeld er skattemessig favorisert framfor egenkapital er bedriftens versjon av samme mekanisme i <b>kapittel 9</b>. Fast rente som forsikring er nøyaktig oppsettet i <b>kapittel 17</b>: du betaler en premie for å fjerne varians, og spørsmålet er om risikoaversjonen din gjør premien verdt det. Avdragskravet på boliglån er tvungen sparing og hører derfor også hjemme i pensjonskapitlet, <b>kapittel 15</b>. Rutinene her er R7 i sjekklisten i <b>kapittel 19</b>.</div>
+
+</section>

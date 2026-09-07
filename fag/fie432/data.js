@@ -189,7 +189,7 @@ window.EDU_DATA.plan = {
 
     { day: 9, phase: "Skatteteori",
       title: "Nøytralitet, skattearbitrasje, progressivitet og flat skatt",
-      chapters: [9, 10], estMinutes: 230,
+      chapters: [9, 10], estMinutes: 225,
       goals: [
         "Forklare hva nøytral kapitalbeskatning betyr, og hvorfor brudd på den flytter kapital etter skatt i stedet for etter avkastning",
         "Sette opp bedriftens førsteordensbetingelse med delvis rentefradrag: F′(K) = r(1 − At)/(1 − t)",
@@ -247,7 +247,7 @@ window.EDU_DATA.plan = {
 
     { day: 12, phase: "Skatteteori",
       title: "Internasjonal skatt og skatteparadiser",
-      chapters: [13], estMinutes: 155,
+      chapters: [13], estMinutes: 150,
       goals: [
         "Skille globalskatteplikt fra kildeskatt, og forklare når et fast driftssted oppstår",
         "Bruke unntaksmetoden og kreditmetoden på samme inntekt, og se hva som skiller dem",
@@ -305,7 +305,7 @@ window.EDU_DATA.plan = {
 
     { day: 15, phase: "Personlig finans",
       title: "Lån og risikostyring",
-      chapters: [16], estMinutes: 110,
+      chapters: [16], estMinutes: 165,
       goals: [
         "Regne terminbeløp på annuitetslån med månedsrente, og skille renter fra avdrag",
         "Regne effektiv rente med gebyrer, og forklare hvorfor den avviker fra nominell",
@@ -324,7 +324,7 @@ window.EDU_DATA.plan = {
 
     { day: 16, phase: "Personlig finans",
       title: "Forsikring og forventet nytte",
-      chapters: [17], estMinutes: 115,
+      chapters: [17], estMinutes: 160,
       goals: [
         "Regne forventet nytte med og uten forsikring for U = √W og U = ln W",
         "Vise at en risikoavers person fullforsikrer til aktuarisk pris",
@@ -343,7 +343,7 @@ window.EDU_DATA.plan = {
 
     { day: 17, phase: "Personlig finans",
       title: "Finansiell psykologi",
-      chapters: [18], estMinutes: 85,
+      chapters: [18], estMinutes: 115,
       goals: [
         "Navngi atferdsfeilene og si hva hver av dem koster",
         "Forklare disposisjonseffekten og hvorfor den er dyrere enn den ser ut",
@@ -360,7 +360,7 @@ window.EDU_DATA.plan = {
 
     { day: 18, phase: "Eksamenshåndverk",
       title: "Flervalg med minuspoeng, og formelarket",
-      chapters: [19, 20], estMinutes: 80,
+      chapters: [19, 20], estMinutes: 165,
       goals: [
         "Bruke utelukkingsrutinen: svar når du kan utelukke minst ett alternativ, la stå blankt ellers",
         "Kjenne igjen hvordan de tre gale alternativene lages i dette kurset",

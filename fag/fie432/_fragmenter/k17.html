@@ -1,0 +1,209 @@
+<section id="k17">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="part">Del IV — Personlig finans</h2>
+<h2 class="chap">17 · Forsikring og forventet nytte</h2>
+
+<p class="lead-in">Temaet vokser. Det var borte fra H2022, tok 8 % av poengene i H2024 (oppgave 11a–d) og 14 % i H2025 (oppgave 12 og 13.1–13.3), og det har vært innom fire av de ni gamle settene. Grunnen til at det egner seg så godt til flervalg er at hele temaet hviler på én ligning med fire tall i, og at de tre gale alternativene lages av tre navngitte feil: sammenligne kroner i stedet for nytte, glemme at premien betales også når skaden inntreffer, og dra konklusjonen fra forrige delspørsmål videre uten å regne på nytt. Mønsteret i oppgavene er nesten skjematisk: U(W) = √W, tapssannsynlighet 1 %, tapet er hele formuen, og premien ligger rundt dobbelt så høyt som den aktuarisk riktige. Kan du rutinen, tar hvert delspørsmål under to minutter.</p>
+
+<h3>17.1 Risikoaversjon er krumningen i nyttefunksjonen</h3>
+
+<p>En nyttefunksjon U(W) rangerer formuesnivåer. To egenskaper avgjør alt i dette kapitlet. <b>U′(W) &gt; 0</b>: mer formue er bedre. <b>U″(W) &lt; 0</b>: funksjonen er <b>konkav</b>, og det er dette som er risikoaversjon. Konkavitet betyr at den siste kronen er verdt mindre enn den forrige, altså avtakende grensenytte.</p>
+
+<div class="formula">
+  <div class="eq">U(W) = √W &nbsp;⟹&nbsp; U′ = ½W<sup>−½</sup> &gt; 0, &nbsp; U″ = −¼W<sup>−3/2</sup> &lt; 0</div>
+  <div class="eq">U(W) = ln W &nbsp;⟹&nbsp; U′ = 1/W &gt; 0, &nbsp; U″ = −1/W<sup>2</sup> &lt; 0</div>
+  <div class="where">Begge er strengt konkave, altså begge risikoaverse. De hører til samme familie: U(W) = W<sup>1−γ</sup>/(1 − γ), der γ er den relative risikoaversjonen fra Mertons formel i kapittel 14. √W svarer til γ = 0,5, ln W til γ = 1. ln W er altså den <i>mer</i> risikoaverse av de to, og det gir seg utslag i tall, som 17.5 viser.</div>
+</div>
+
+<p>Fra konkaviteten følger <b>Jensens ulikhet</b>: for et usikkert utfall er E[U(W)] &lt; U(E[W]). Nytten av det du får i gjennomsnitt er høyere enn gjennomsnittet av nyttene. Sagt uten matematikk: <b>et sikkert beløp slår et usikkert beløp med samme forventning</b>. Det er hele grunnlaget for at forsikring finnes.</p>
+
+<div class="formula">
+  <div class="eq">Sikkerhetsekvivalent: U(CE) = E[U(W)] &nbsp;⟹&nbsp; for U = √W: CE = (E[U])²</div>
+  <div class="eq">Risikopremie = E[W] − CE</div>
+  <div class="where">CE er den <b>sikre</b> formuen som er nøyaktig like god som lotteriet. Risikopremien er hva du er villig til å gi opp i forventning for å slippe risikoen. Regn deg alltid tilbake til kroner: nyttetallene i seg selv betyr ingenting, forskjellen mellom 2 970 og 2 973 sier deg ikke om den er stor eller liten, men 19 100 kroner sier det.</div>
+</div>
+
+<figure>
+<svg viewBox="0 0 620 380" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Konkav nyttefunksjon rot av W. En 50/50-sjanse mellom formue 10 000 og 90 000 har forventet formue 50 000, men forventet nytte 200, som ligger på korden under kurven. Sikkerhetsekvivalenten er 40 000, og risikopremien er avstanden 10 000 mellom 40 000 og 50 000."
+     font-family="Georgia,serif" font-size="13">
+  <line x1="70" y1="310" x2="595" y2="310" stroke="#333" stroke-width="1.4"/>
+  <line x1="70" y1="310" x2="70" y2="45" stroke="#333" stroke-width="1.4"/>
+
+  <polyline points="70,310 80,275.1 95,254.8 120,231.9 145,214.3 170,199.5 220,174.7 270,153.8 320,135.3 370,118.6 420,103.3 470,89.0 520,75.6 570,62.9"
+            fill="none" stroke="#6b1f2a" stroke-width="2.4"/>
+  <line x1="120" y1="231.9" x2="520" y2="75.6" stroke="#1f3a5f" stroke-width="1.8" stroke-dasharray="5 4"/>
+
+  <line x1="70" y1="153.8" x2="320" y2="153.8" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="70" y1="135.3" x2="320" y2="135.3" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="270" y1="153.8" x2="270" y2="310" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="320" y1="135.3" x2="320" y2="310" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="120" y1="231.9" x2="120" y2="310" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="520" y1="75.6" x2="520" y2="310" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+  <circle cx="120" cy="231.9" r="3.4" fill="#6b1f2a"/>
+  <circle cx="520" cy="75.6" r="3.4" fill="#6b1f2a"/>
+  <circle cx="320" cy="153.8" r="3.8" fill="#1f3a5f"/>
+  <circle cx="320" cy="135.3" r="3.4" fill="#6b1f2a"/>
+  <circle cx="270" cy="153.8" r="3.8" fill="#2f5a3f"/>
+
+  <line x1="270" y1="330" x2="320" y2="330" stroke="#b06000" stroke-width="3"/>
+  <text x="295" y="349" text-anchor="middle" fill="#b06000" font-size="11">risikopremie 10 000</text>
+
+  <text x="540" y="60" fill="#6b1f2a" font-weight="bold" font-size="12">U(W)</text>
+  <text x="352" y="158" fill="#1f3a5f" font-size="11">forventet nytte 200</text>
+  <text x="352" y="130" fill="#6b1f2a" font-size="11">nytte av sikre 50 000: 223,6</text>
+  <text x="120" y="326" text-anchor="middle" fill="#555" font-size="11">10 000</text>
+  <text x="264" y="326" text-anchor="end" fill="#2f5a3f" font-size="11">40 000</text>
+  <text x="326" y="326" text-anchor="start" fill="#555" font-size="11">50 000</text>
+  <text x="520" y="326" text-anchor="middle" fill="#555" font-size="11">90 000</text>
+  <text x="64" y="158" text-anchor="end" fill="#555" font-size="11">200</text>
+  <text x="64" y="236" text-anchor="end" fill="#555" font-size="11">100</text>
+  <text x="64" y="80" text-anchor="end" fill="#555" font-size="11">300</text>
+  <text x="330" y="372" text-anchor="middle" fill="#333">Formue W</text>
+  <text x="24" y="180" text-anchor="middle" transform="rotate(-90 24 180)" fill="#333">Nytte U</text>
+</svg>
+<figcaption>Figur 17.1 — Nyttefunksjonen U(W) = √W med et 50/50-lotteri mellom formue 10 000 og 90 000 <b>[eksempeltall]</b>. Nyttene i de to utfallene er 100 og 300, så forventet nytte er 200. Det tallet leses av på den stiplede blå <i>korden</i> mellom de to punktene, midt mellom endepunktene, og korden ligger under kurven fordi funksjonen er konkav. Nytten av å få forventningen 50 000 sikkert er derimot √50 000 = 223,6, altså høyere. Går du vannrett fra forventet nytte 200 inn til kurven, treffer du sikkerhetsekvivalenten 40 000: det sikre beløpet som er akkurat like godt som lotteriet. Avstanden 50 000 − 40 000 = 10 000 er risikopremien, og den er hele grunnen til at du er villig til å betale mer enn forventet skade for en forsikring. Jo mer krum kurven er, jo lenger under kurven ligger korden, og jo større er risikopremien.</figcaption>
+</figure>
+
+<div class="callout mech"><span class="h">Hvorfor betyr konkav nyttefunksjon at du vil unngå risiko?</span>
+Fordi tap og gevinst av samme størrelse ikke veier likt. Har du 50 000 og kan vinne eller tape 40 000 med lik sannsynlighet, er de 40 000 du kan tape hentet fra de <i>første</i> kronene dine, som er de mest verdifulle, mens de 40 000 du kan vinne legges oppå toppen, der hver krone er verdt minst. I figuren: fallet fra 223,6 til 100 er mye større enn oppgangen fra 223,6 til 300. Snittet av de to nyttene blir derfor lavere enn nytten av å bli stående. Legg merke til hva som <i>ikke</i> kreves: du trenger ingen antakelse om at risiko er ubehagelig i seg selv. Avtakende grensenytte alene gir risikoaversjon.</div>
+
+<h3>17.2 Beslutningsregelen: sammenlign nytter, ikke formuer</h3>
+
+<p>Oppsettet er alltid det samme. Du har formue W. Med sannsynlighet p inntreffer en skade som koster deg L. Forsikringsselskapet tilbyr full dekning mot premien P. Skriv opp formuen i hver tilstand først, og sett så inn i nyttefunksjonen.</p>
+
+<div class="formula">
+  <div class="eq">E[U uten] = (1 − p) × U(W) + p × U(W − L)</div>
+  <div class="eq">E[U med] = U(W − P)</div>
+  <div class="eq">Kjøp forsikringen når E[U med] er større enn E[U uten].</div>
+  <div class="where">Med <b>full</b> dekning er formuen W − P i begge tilstander: brenner huset, får du L utbetalt, men premien er betalt uansett. Derfor har E[U med] ingen sannsynlighet i seg. Det er nettopp det som gjør forsikringen verdt noe, og som gjør at svaret ikke kan leses av forventet formue.</div>
+  <div class="eq">Aktuarisk («riktig», «rettferdig») premie: P<sub>rett</sub> = p × L</div>
+  <div class="eq">Delvis dekning av andelen α av tapet, premie P: E[U delvis] = (1 − p) × U(W − P) + p × U(W − L + αL − P)</div>
+  <div class="where">Ved aktuarisk premie går selskapet i null i forventning. Merk siste linje: ved <b>delvis</b> dekning er premien P trukket fra i <b>begge</b> tilstander, og risikoen er ikke borte, bare dempet. Å glemme premien i skadetilfellet er den nest vanligste feilen på temaet.</div>
+</div>
+
+<div class="callout mistake"><span class="h">«Premien er høyere enn forventet skade, altså er forsikringen ikke verdt det»</span>
+Dette er den store misforståelsen, og den har sitt eget svaralternativ i H2024 oppgave 11c: «Nei, fordi man aldri bør kjøpe forsikring hvis premien er høyere enn den forventede skaden.» Det gir riktig konklusjon i akkurat den oppgaven og er likevel en gal regel. En risikoavers person betaler <i>gjerne</i> mer enn forventet skade, opp til maksimalpremien. Kontrollen som avslører regelen: med de samme tallene (formue 1 mill., p = 1 %, altså forventet skade 10 000) og en premie på 15 000 er √985 000 = 992,47, som er større enn 990, altså <b>kjøp</b> — med premien fortsatt 50 % over forventet skade. Sammenligner du forventet <i>formue</i>, får du «ikke kjøp» hver eneste gang premien overstiger forventet skade, og det er alltid feil metode.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: aktuarisk pris, og hvorfor full dekning slår halv dekning</span>
+<p>Du har kr 90 000 i formue, hvorav en elsykkel til kr 50 000. Sannsynligheten for tyveri i løpet av året er 20 %, og du får ingenting igjen for sykkelen hvis den blir stjålet. U(W) = √W. Alle tall her er <b>[eksempeltall]</b>, valgt for å gi glatte kvadratrøtter. Selskapet selger dekning til <b>aktuarisk pris</b>, altså premie lik forventet utbetaling.</p>
+<p><b>Steg 1 — premiene.</b> Full dekning: 20 % × 50 000 = <b>10 000</b>. Halv dekning (25 000 utbetalt): 20 % × 25 000 = <b>5 000</b>.</p>
+<p><b>Steg 2 — formuen i hver tilstand.</b></p>
+<table class="data">
+<tr><th>Dekning</th><th class="n">Premie</th><th class="n">Sykkel i behold (80 %)</th><th class="n">Sykkel stjålet (20 %)</th></tr>
+<tr><td>Ingen</td><td class="n">0</td><td class="n">90 000</td><td class="n">40 000</td></tr>
+<tr><td>Halv</td><td class="n">5 000</td><td class="n">85 000</td><td class="n">60 000</td></tr>
+<tr><td>Full</td><td class="n">10 000</td><td class="n">80 000</td><td class="n">80 000</td></tr>
+</table>
+<p><b>Steg 3 — forventet formue er den samme i alle tre.</b> Uten: 0,80 × 90 000 + 0,20 × 40 000 = 72 000 + 8 000 = <b>80 000</b>. Halv: 0,80 × 85 000 + 0,20 × 60 000 = 68 000 + 12 000 = <b>80 000</b>. Full: <b>80 000</b> med sikkerhet. Dekningsgraden flytter altså ikke en eneste krone i forventning, og det er nøyaktig det aktuarisk pris betyr.</p>
+<p><b>Steg 4 — forventet nytte skiller dem likevel.</b> Uten: 0,80 × √90 000 + 0,20 × √40 000 = 0,80 × 300 + 0,20 × 200 = 240 + 40 = <b>280,0000</b>. Halv: 0,80 × √85 000 + 0,20 × √60 000 = 0,80 × 291,5476 + 0,20 × 244,9490 = 233,2381 + 48,9898 = <b>282,2279</b>. Full: √80 000 = <b>282,8427</b>.</p>
+<p><b>Steg 5 — oversett til kroner.</b> Kvadrer nyttetallene og du får sikkerhetsekvivalenten: 280² = <b>78 400</b> uten forsikring og 282,8427² = <b>80 000</b> med full dekning. Halv dekning gir 79 653.</p>
+<table class="data">
+<tr><th>Dekning</th><th class="n">Forventet formue</th><th class="n">Forventet nytte</th><th class="n">Sikkerhetsekvivalent</th></tr>
+<tr><td>Ingen</td><td class="n">80 000</td><td class="n">280,0000</td><td class="n">78 400</td></tr>
+<tr><td>Halv</td><td class="n">80 000</td><td class="n">282,2279</td><td class="n">79 653</td></tr>
+<tr><td>Full</td><td class="n">80 000</td><td class="n">282,8427</td><td class="n">80 000</td></tr>
+</table>
+<p><b>Kontroll:</b> risikopremien uten forsikring er 80 000 − 78 400 = <b>1 600</b>, og maksimal premie for full dekning er 90 000 − 78 400 = <b>11 600</b>. Det er nøyaktig aktuarisk premie pluss risikopremie: 10 000 + 1 600 = <b>11 600</b>. ✓ Selskapet ber om 10 000, du ville betalt 11 600, og forskjellen 1 600 er gevinsten din. Full dekning til aktuarisk pris er alltid strengt best, og rangeringen ingen–halv–full er monoton: hver krone ekstra dekning er gratis i forventning og fjerner litt risiko.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Sammenligner du forventet formue, får du 80 000 mot 80 000 mot 80 000 og konkluderer «indifferent» — som er svaralternativet for den som ikke bruker nyttefunksjonen i det hele tatt. Glemmer du å trekke premien i skadetilfellet ved halv dekning, regner du 0,80 × √85 000 + 0,20 × √65 000 = 233,2381 + 50,9902 = 284,2283 og får halv dekning til å slå full, som er umulig til aktuarisk pris. Og bruker du utbetalingen 25 000 i stedet for sluttformuen 60 000 i skadetilstanden, faller hele oppsettet fra hverandre: nyttefunksjonen tar <b>formue</b>, ikke kontantstrøm.</p>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor er full dekning optimalt til aktuarisk pris, men ikke med påslag?</span>
+Til aktuarisk pris koster hver ekstra krone dekning nøyaktig det den forventes å gi tilbake, så forventet formue er uavhengig av dekningsgraden, mens risikoen faller monotont og blir null først ved 100 %. En risikoavers person tar all risikoreduksjon som er gratis, og svaret er derfor 100 % uansett hvor stor eiendelen er og uansett hvilken konkav nyttefunksjon du har. Dette er <i>Mossins resultat</i>, og det er svaret på H2024 oppgave 11b. Legger selskapet på et påslag over aktuarisk pris, snur konklusjonen i kanten: den siste kronen dekning koster nå mer enn den er verdt, og det blir optimalt med en <b>egenandel</b>. Det er forklaringen på at ekte forsikringer har egenandel, for ekte premier ligger alltid over aktuarisk pris. Merk at dette ikke motsier 17.4: der er dekningsgraden gitt utenfra, og spørsmålet er bare om det som tilbys er verdt prisen.</div>
+
+<h3>17.3 Maksimal premie er sikkerhetsekvivalenten snudd</h3>
+
+<p>«Hva er det meste du er villig til å betale?» er den ene av de to regnevariantene. Sett nytten med forsikring lik forventet nytte uten, og løs for premien:</p>
+
+<div class="formula">
+  <div class="eq">U(W − P<sub>maks</sub>) = E[U uten] &nbsp;⟹&nbsp; P<sub>maks</sub> = W − CE</div>
+  <div class="eq">For U = √W: P<sub>maks</sub> = W − (E[U uten])²</div>
+  <div class="eq">Dekomponering: P<sub>maks</sub> = aktuarisk premie + risikopremie</div>
+  <div class="where">Siste linje er kontrollen. Maksimalpremien er alltid <i>større</i> enn den aktuariske og <i>mindre</i> enn hele tapet, og differansen mot den aktuariske er nøyaktig risikopremien fra 17.1. Kvadreringen gjelder bare for √W; for ln W tar du eksponentialen i stedet, som i 17.5.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: H2024 oppgave 11c og 11d — huset til 1 million</span>
+<p>Huset er din eneste eiendel av større verdi og er verdt kr 1 000 000. Med sannsynlighet <b>1 %</b> brenner det ned og mister <i>all</i> verdi. U(W) = √W. Premien er kr 25 000. Tallene er <b>[eksempeltall fra oppgaveteksten]</b>.</p>
+<p><b>Steg 1 — forventet nytte uten forsikring.</b> Formuen er 1 000 000 med 99 % og 0 med 1 %:</p>
+<p>E[U uten] = 0,99 × √1 000 000 + 0,01 × √0 = 0,99 × 1 000 + 0 = <b>990,00</b>.</p>
+<p><b>Steg 2 — forventet nytte med forsikring.</b> Full dekning gir sikker formue 1 000 000 − 25 000 = 975 000, og √975 000 = <b>987,42</b>.</p>
+<p><b>Steg 3 — sammenlign (deloppgave c).</b> 987,42 er mindre enn 990,00, altså <b>nei, ikke kjøp</b>. Aktuarisk premie er 1 % × 1 000 000 = <b>10 000</b>, så selskapet tar 2,5 ganger riktig pris, og det er for mye for deg.</p>
+<p><b>Steg 4 — maksimalpremien (deloppgave d).</b> Løs √(1 000 000 − P) = 990. Kvadrer begge sider: 1 000 000 − P = 990² = <b>980 100</b>, altså P = 1 000 000 − 980 100 = <b>19 900</b>.</p>
+<p><b>Kontroll:</b> 980 100 er sikkerhetsekvivalenten. Forventet formue uten forsikring er 0,99 × 1 000 000 = <b>990 000</b>, så risikopremien er 990 000 − 980 100 = <b>9 900</b>. Dekomponeringen skal da gi maksimalpremien: aktuarisk 10 000 pluss risikopremie 9 900 = <b>19 900</b>. ✓ To uavhengige veier, samme tall. Legg merke til at maksimalpremien er nesten nøyaktig <i>dobbelt</i> så høy som den aktuariske. Det mønsteret gjentar seg i H2025-oppgaven, og det er verdt å ha som grov peiling: med √W, 1 % sannsynlighet og hele formuen i spill, ligger smertegrensen rundt to ganger forventet skade.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Alternativene var 19 900, 23 100, 27 100 og 29 900. Fra deloppgave c vet du at du takket <i>nei</i> til 25 000, så maksimalpremien må ligge under 25 000: <b>27 100</b> og <b>29 900</b> stryker seg selv uten en eneste utregning. Motsatt vei er du risikoavers, så den må ligge over aktuariske 10 000. Da står 19 900 og 23 100 igjen, og den siste må du faktisk regne: √(1 000 000 − 23 100) = √976 900 = <b>988,38</b>, fortsatt under 990, altså for høyt. Med minuspoeng er dette forskjellen mellom å svare med 25 % og med 50 % treffsjanse før siste regnestykke — og med 100 % etterpå.</p>
+</div>
+
+<div class="callout tip"><span class="h">Prøve-og-feile er en godkjent metode, og ofte den raskeste</span>
+Sensorveiledningen i finansdelen sier eksplisitt at du kan <b>sette alternativene inn i nyttefunksjonen</b> i stedet for å løse ligningen. På flervalg er det som regel raskere, fordi du slipper å snu formelen: i H2024 oppgave 11d er det to kvadratrøtter mot én kvadrering, og du får samtidig sjekket at svaret faktisk ligger på riktig side. Rutinen er: (1) regn E[U uten] én gang, det er ankeret ditt; (2) stryk alternativene som bryter en grense du allerede kjenner — under aktuarisk premie, over en premie du nettopp avviste, over 1 % når 1 % allerede ga kjøp; (3) sett inn det som er igjen. Fungerer like godt på maksimalpremie som på kritisk sannsynlighet, og det er den samme utelukkingsrutinen som styrer gjettereglen i kapittel 19.</div>
+
+<h3>17.4 Kritisk skadesannsynlighet, og delvis dekning til samme premie</h3>
+
+<p>Den andre regnevarianten snur ligningen: premien er gitt, og du skal finne den <b>laveste sannsynligheten</b> som gjør forsikringen lønnsom. Det er samme indifferansebetingelse løst for p i stedet for for P.</p>
+
+<div class="formula">
+  <div class="eq">(1 − p*) × U(W) + p* × U(W − L) = U(W − P)</div>
+  <div class="eq">Når tapet er hele formuen og U(0) = 0: p* = 1 − U(W − P)/U(W)</div>
+  <div class="where">Forsikringen lønner seg for alle p som er større enn p*, fordi høyresiden ikke avhenger av p mens venstresiden faller når p vokser. Kontroller alltid retningen: hvis oppgaven allerede har fastslått at forsikringen lønner seg ved en bestemt p, må terskelen ligge <b>under</b> den. Det stryker som regel to av fire alternativer.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: H2025 oppgave 13, alle tre delspørsmålene</span>
+<p>Huset er verdt kr 9 000 000 og du har ingen annen formue. Det brenner ned og mister hele verdien med sannsynlighet <b>1 %</b>. U(W) = √W. Full dekning koster kr 160 000. <b>[eksempeltall fra oppgaveteksten]</b></p>
+<p><b>Steg 1 — ankeret: forventet nytte uten forsikring.</b> 0,99 × √9 000 000 + 0,01 × √0 = 0,99 × 3 000 = <b>2 970,0000</b>. Sikkerhetsekvivalenten er 2 970² = <b>8 820 900</b>.</p>
+<p><b>Steg 2 — delspørsmål 1: full dekning.</b> Formuen blir 9 000 000 − 160 000 = 8 840 000 sikkert, og √8 840 000 = <b>2 973,2137</b>. Siden 2 973,2137 er større enn 2 970,0000: <b>ja, kjøp</b>.</p>
+<p><b>Kontroll i kroner.</b> Forsikringen løfter deg fra sikkerhetsekvivalenten 8 820 900 til sikre 8 840 000, altså 8 840 000 − 8 820 900 = <b>19 100</b> kroner bedre. Maksimalpremien er 9 000 000 − 8 820 900 = <b>179 100</b>, og selskapet ber om 160 000. ✓ Merk at aktuarisk premie er 1 % × 9 000 000 = 90 000, så du betaler 160 000/90 000 = <b>1,78</b> ganger riktig pris og sier likevel ja. En risikonøytral person ville sagt nei; det er akkurat forskjellen mellom kroner og nytte.</p>
+<p><b>Steg 3 — delspørsmål 2: laveste sannsynlighet.</b> Sett de to nyttene like. Høyresiden er uavhengig av p:</p>
+<p>(1 − p) × 3 000 = 2 973,2137 &nbsp;⟹&nbsp; 1 − p = 0,9910712 &nbsp;⟹&nbsp; p = <b>0,0089288</b>, altså <b>0,89 %</b>.</p>
+<p><b>Kontroll:</b> ved p = 0,89 % skal sikkerhetsekvivalenten uten forsikring være lik formuen med forsikring. 0,9910712² × 9 000 000 = <b>8 840 000</b>. ✓ Alternativene var 0,52 %, 0,89 %, 1,52 % og 2,01 %. De to siste er logisk uforenlige med delspørsmål 1: hadde terskelen ligget over 1 %, ville du sagt nei ved 1 %. Igjen står to, og du tester den ene: ved 0,52 % er E[U uten] = 0,9948 × 3 000 = <b>2 984,40</b>, som er større enn 2 973,2137, altså ville du <i>ikke</i> kjøpt. 0,52 % ligger under terskelen, og svaret er 0,89 %.</p>
+<p><b>Steg 4 — delspørsmål 3: 50 % dekning til samme premie.</b> Selskapet utbetaler nå 4 500 000 og krever fortsatt 160 000. Premien betales i begge tilstander, og risikoen er ikke borte:</p>
+<table class="data">
+<tr><th>Tilstand</th><th class="n">Sannsynlighet</th><th class="n">Formue</th></tr>
+<tr><td>Huset står</td><td class="n">99 %</td><td class="n">9 000 000 − 160 000 = 8 840 000</td></tr>
+<tr><td>Huset brenner</td><td class="n">1 %</td><td class="n">4 500 000 − 160 000 = 4 340 000</td></tr>
+</table>
+<p>E[U delvis] = 0,99 × 2 973,2137 + 0,01 × 2 083,2667 = 2 943,4816 + 20,8327 = <b>2 964,3143</b>, der 2 083,2667 er √4 340 000. Det er <i>mindre</i> enn 2 970,0000, altså <b>nei, ikke kjøp</b>.</p>
+<p><b>Kontroll i kroner.</b> Sikkerhetsekvivalenten er 2 964,3143² = <b>8 787 159</b>, mot 8 820 900 uten forsikring: den halve dekningen gjør deg 8 820 900 − 8 787 159 = <b>33 741</b> kroner fattigere målt i sikre kroner. Tredje vei: maksimalpremien for 50 % dekning er <b>126 302</b>, og selskapet krever 160 000. ✓ Alle tre veiene sier nei.</p>
+<p><b>Hvorfor svaret snur.</b> Premien står stille mens det du får for den halveres. Aktuarisk pris for halv dekning er 1 % × 4 500 000 = <b>45 000</b>, og 160 000/45 000 = <b>3,6</b> ganger riktig pris, mot 1,78 ved full dekning. Påslaget per krone dekning er altså doblet, og da rekker ikke risikoaversjonen din til. Terskelsannsynligheten for halv dekning til denne premien er <b>1,27 %</b>, og brannrisikoen er bare 1 %.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Glemmer du premien i brannscenariet og regner 0,99 × 2 973,2137 + 0,01 × √4 500 000 = 2 943,4816 + 21,2132 = <b>2 964,6948</b>, får du fortsatt nei, men med feil tall — og i en variant med lavere påslag ville den feilen snudd konklusjonen. Bruker du 4 500 000 som <i>tapet</i> i stedet for utbetalingen, ender du på 4 340 000 fra feil retning. Og det farligste alternativet i delspørsmål 3 er «ja»: det er konklusjonen fra delspørsmål 1 dratt videre uten ny regning, og hele spørsmålet er bygget for å fange nettopp det.</p>
+</div>
+
+<div class="callout warn"><span class="h">Premien betales også når skaden inntreffer</span>
+Ved <b>full</b> dekning ser du det ikke, fordi formuen er W − P uansett. Ved <b>delvis</b> dekning er det avgjørende: formuen i skadetilstanden er W − L + αL − P, ikke W − L + αL. Skriver du 4 500 000 i stedet for 4 340 000 i H2025 oppgave 13.3, blir forventet nytte 2 964,69 i stedet for 2 964,31, og du har regnet på en forsikring som ikke finnes. Samme felle ligger i egenandelsoppgaver. Skriv alltid opp tilstandstabellen med to kolonner før du setter inn noe som helst.</div>
+
+<h3>17.5 Andre nyttefunksjoner, og tap som ikke tar hele formuen</h3>
+
+<p>Eksamensmalen er √W og «tapet er alt», men begge deler kan variere, og da må rutinen tåle det. Med U = ln W kvadrerer du ikke lenger for å komme tilbake til kroner: du tar eksponentialen. Og er tapet bare en del av formuen, står du igjen med et positivt formuesnivå i skadetilstanden, som er helt uproblematisk for √W og helt <i>nødvendig</i> for ln W, siden ln 0 ikke finnes.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet: H2019 oppgave 7a — logaritmisk nytte og delvis tap</span>
+<p>Du har en formue på kr 6 000 000, hvorav huset utgjør kr 3 000 000. Huset brenner ned med sannsynlighet <b>1,1 %</b> og du sitter da igjen med kr 3 000 000. Nyttefunksjonen er U(W) = ln W. Hva er den høyeste premien du vil betale for full dekning? <b>[eksempeltall fra oppgaveteksten]</b></p>
+<p><b>Steg 1 — nytten i de to tilstandene.</b> ln 6 000 000 = <b>15,6073</b> og ln 3 000 000 = <b>14,9141</b>.</p>
+<p><b>Steg 2 — forventet nytte uten forsikring.</b> 0,989 × 15,6073 + 0,011 × 14,9141 = 15,4356 + 0,1641 = <b>15,5997</b>.</p>
+<p><b>Steg 3 — sikkerhetsekvivalenten.</b> Nå er det eksponentialen som snur nyttetallet tilbake til kroner: CE er det tallet som har logaritme 15,5996454, altså <b>5 954 426</b>.</p>
+<p><b>Steg 4 — maksimalpremien.</b> 6 000 000 − 5 954 426 = <b>45 574</b>. Svaralternativet var intervallet 40 000–50 000.</p>
+<p><b>Kontroll:</b> dekomponeringen fra 17.3 må stemme. Aktuarisk premie er 1,1 % × 3 000 000 = <b>33 000</b>. Forventet formue er 0,989 × 6 000 000 + 0,011 × 3 000 000 = 5 934 000 + 33 000 = <b>5 967 000</b>, så risikopremien er 5 967 000 − 5 954 426 = <b>12 574</b>. Til sammen 33 000 + 12 574 = <b>45 574</b>. ✓</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Bruker du √W av gammel vane, blir E[U uten] = 0,989 × 2 449,4897 + 0,011 × 1 732,0508 = 2 422,5453 + 19,0526 = 2 441,5979, sikkerhetsekvivalenten 2 441,5979² = 5 961 400 og maksimalpremien 6 000 000 − 5 961 400 = <b>38 600</b> — et helt annet svaralternativ. Forskjellen er ikke en regnefeil, den er innholdet: ln W har relativ risikoaversjon 1 mot 0,5 for √W, altså er du <i>mer</i> risikoavers med ln W og betaler mer for å bli kvitt risikoen. Den andre klassiske feilen er å sette formuen i skadetilstanden til 0 fordi «huset er borte»: da er tapet 6 mill. i stedet for 3 mill., og ln 0 finnes ikke, så kalkulatoren stopper. Får du en feilmelding, har du som regel forvekslet tapet med formuen etter tapet.</p>
+</div>
+
+<h3>17.6 Forsikringsmarkedet: hva som er lovpålagt, og hvorfor egenandelen finnes</h3>
+
+<p>Rundt regnestykkene ligger et sett faktaspørsmål som er billige poeng hvis du har lest dem, og bortkastede hvis ikke. H2025 oppgave 12 er malen: «Hvilke av følgende forsikringer er lovpålagt i Norge?» med alternativene boligforsikring, uføreforsikring, ansvarsforsikring på bil og «ingen av dem». Riktig svar er <b>ansvarsforsikring på bil</b>, og det er den eneste av de vanlige privatforsikringene som er lovpålagt.</p>
+
+<table class="data">
+<tr><th>Forsikring</th><th>Status</th><th>Hvorfor</th></tr>
+<tr><td>Ansvarsforsikring, bil</td><td><b>Lovpålagt</b></td><td>Skaden rammer tredjepart, ikke bare eieren</td></tr>
+<tr><td>Boligforsikring</td><td>Frivillig, men avtalepålagt</td><td>Banken krever den som vilkår for boliglånet</td></tr>
+<tr><td>Uføreforsikring</td><td>Frivillig</td><td>Grunndekningen ligger i folketrygdens uføretrygd</td></tr>
+<tr><td>Obligatorisk tjenestepensjon</td><td>Lovpålagt for arbeidsgiver</td><td>Ikke det samme som uføreforsikring for deg</td></tr>
+</table>
+
+<p>Skillet er prinsipielt: forsikring mot skade du påfører <b>andre</b> er ofte lovpålagt, fordi den skadelidte ellers står uten dekning. Forsikring mot skade på deg selv og dine egne ting er frivillig. «Ingen av dem» kan du stryke så snart du husker bilansvaret.</p>
+
+<p>Tre markedssvikter er navngitt i kurset, og de er testet både som begrepsspørsmål (H2018 oppgave 6) og som enkeltspørsmål (H2019 oppgave 7b og 7c). <b>Moralsk hasard</b>: den som er fullt forsikret, passer dårligere på tingene sine, og selskapet kan ikke observere det. Svaret er egenandelen, som gir deg en andel av tapet og dermed en grunn til å låse sykkelen. <b>Ugunstig utvalg</b>: den som vet at han har høy risiko, kjøper forsikringen, og den med lav risiko lar være, så premien må settes etter de dårlige risikoene og markedet kan bryte sammen. Løsningen er tvang eller obligatorisk medlemskap, som i folketrygden. <b>Manglende diversifisering</b>: forsikring virker fordi selskapet kan spre uavhengige risikoer over mange kunder, og det bryter sammen når risikoen rammer alle samtidig. Arbeidsledighet er standardsvaret her, og var riktig alternativ i H2019 oppgave 7c: konjunkturene treffer hele kundemassen på én gang, så et privat selskap kan ikke bære den. Derfor ligger arbeidsledighetsdekning i folketrygden og ikke i markedet.</p>
+
+<div class="callout tip"><span class="h">Slik spørres det: faktahalvdelen av temaet</span>
+Fire former går igjen, og alle fire er dokumentert. <b>Lovpålagt eller ikke</b> (H2025 oppgave 12, 1 poeng): les alternativene og let etter tredjepartsskaden. <b>Prinsippspørsmål om aktuarisk pris</b> (H2024 oppgave 11a og 11b): svaret er alltid «ja» og «100 %», og fella i 11a er alternativet som påstår at svaret ville vært et annet med ln W — det ville det ikke, begge er konkave. <b>Markedssvikt-spørsmål</b> (H2019 oppgave 7b og 7c, H2018 oppgave 6): koble mekanismen til navnet, ikke omvendt. <b>Hva bør du forsikre</b>: regelen fra kurset er at du forsikrer det du ikke kan bære selv. Huset og ansvaret, ikke mobilen — ikke fordi teorien sier at små tap ikke bør forsikres til riktig pris, for det gjør den ikke, men fordi ekte premier på små gjenstander har svært høyt påslag.</div>
+
+<div class="callout link"><span class="h">Forsikring er et gjennomgangstema, ikke bare dette kapitlet</span>
+Tre andre steder i kurset er det samme resonnementet i annen innpakning. <b>Folketrygdens alderspensjon</b> i kapittel 15 er en obligatorisk livsvarig forsikring mot å leve lenge, og obligatorisk nettopp for å hindre ugunstig utvalg. <b>Fast rente</b> i kapittel 16 er en forsikring mot renteoppgang, med en premie i form av høyere forventet rentekostnad. Og <b>valutasikring</b> i kapittel 14 er den forsikringen du oftest <i>ikke</i> skal kjøpe, fordi kronekursen allerede samvarierer med arbeidsinntekten din. Risikoaversjonen γ i Mertons formel er den samme parameteren som krummer nyttefunksjonen her: √W svarer til γ = 0,5. Selve rutinen står som R5 i sjekklisten i kapittel 19.</div>
+
+</section>

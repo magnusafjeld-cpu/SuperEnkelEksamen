@@ -170,9 +170,26 @@ Kontrolleres med `tools/sjekk-manual.py`.
 | | |
 |---|---|
 | Kartlegging | **ferdig** — 84 000 ord, 227 eksamensspørsmål registrert, 109 fasiter kontrollregnet |
-| Manual | **2 av 21 kapitler** — k0 (kurset og eksamen) og k19 (eksamenshåndverk) |
-| Studieplan | **21 moduler · 46 timer** |
-| Eksamenssett | **3 sett · 98 flervalgsledd**, alle med egne løsninger |
-| Quiz, flashcards, dybde, lyn | ikke skrevet — modulene er avslått til de har data |
+| Manual | **21 av 21 kapitler · 81 500 ord** — strukturelt feilfri |
+| Studieplan | **21 moduler · 57 timer**, estimatene regnet av faktisk innhold |
+| Eksamenssett | **3 sett · 98 flervalgsledd**, rettet automatisk |
+| Flashcards | **100** auto-genererte formelkort fra k20 |
+| Quiz, dybde, lyn | ikke skrevet — modulene er avslått til de har data |
 
-Neste steg: de nitten gjenstående kapitlene, i bølger på fem.
+**Aritmetikken er kontrollert maskinelt.** `tools/sjekk-aritmetikk.py` fant 839
+regnekjeder i manualen og fem utslag, alle notasjon verktøyet ikke leser
+(absoluttverditegn, «60/40» som forholdstall, «1,1 % *av* (…)», algebra som
+«3 − 2Q»). Hver enkelt er kontrollert for hånd. **Ingen regnefeil** gjennom fire
+bølger og nitten agentskrevne kapitler.
+
+> [!warning] Kapitlene ble lengre enn spesifikasjonen ba om
+> Målet var 1 200–2 200 ord; snittet ble 3 900, og lengdeføringen ble strammet
+> for hver bølge uten at det bet. Årsaken er at spesifikasjonen selv sier at
+> **dekning er den bindende betingelsen** og at et kapittel som er kort fordi
+> det utelot stoff, er mislykket — samme mekanisme som tok FIE402 fra 35 000 til
+> 109 000 ord. Manualen er lesbar og kontrollert, men 57 timer er mye for et
+> fag på 7,5 studiepoeng. Skal noe trimmes, er det prosaen rundt de
+> gjennomregnede eksemplene, ikke eksemplene.
+
+Neste steg: quiz, flashcards forfattet for hånd, dybdetrening og lynlæring —
+de fire modulene som fortsatt er avslått.
