@@ -1,0 +1,189 @@
+<section id="k12">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="part">Del III — Skatteteori</h2>
+<h2 class="chap">12 · Skatt, risiko og implisitte skatter</h2>
+
+<p class="lead-in">Kapitlet har to halvdeler med hver sin eksamensprofil. Den implisitte skatten er testet to ganger, og likt begge ganger: H2019 oppgave 4 spurte hvilket av to like risikable prosjekter som har høyest avkastning før skatt når det ene er skattefritt, og H2024 oppgave 9a–b ga to poeng for likevekten r = R(1 − t) og for å peke ut t = (R − r)/R blant fire nesten like brøker. Billige poeng, og fella er alltid nevneren. Den andre halvdelen, Domar–Musgrave om tapsfradrag og risikotaking, har aldri vært prøvd i de ni settene, men har egen forelesning, eget øvingssett og to pensumartikler bak seg, og eksamensregisteret gir den middels sannsynlighet for 2026. Påstanden er kontraintuitiv nok til å lage fire alternativer av: <b>høyere skatt kan gi mer risikotaking, ikke mindre.</b></p>
+
+<h3>12.1 Staten som stille partner</h3>
+
+<p>Den folkelige forestillingen er at høy gevinstskatt straffer risikotaking. Domar og Musgrave viste i 1944 at den bare ser på oppsiden. Skatten tar andelen t av gevinsten, men med <b>fullt tapsfradrag</b> dekker den også andelen t av tapet. Staten er da en stille partner med andelen t av prosjektet, med i oppturen og nedturen med samme brøk. La G være forventet bruttogevinst i de gode utfallene og L forventet bruttotap i de dårlige, slik at forventningen før skatt er E = G − L.</p>
+
+<div class="formula">
+  <div class="eq">Fullt tapsfradrag: E<sub>etter</sub> = (1 − t)G − (1 − t)L = <b>(1 − t) × E</b></div>
+  <div class="eq">Uten tapsfradrag: E<sub>etter</sub> = (1 − t)G − L = <b>E − t × G</b></div>
+  <div class="where">Med fullt tapsfradrag multipliseres <i>alle</i> prosjekter med den samme faktoren (1 − t). Rangeringen kan derfor ikke snu, og skatten er nøytral for prosjektvalget. Uten tapsfradrag trekkes t × G fra, og G måler hvor stor oppsiden er. To prosjekter med samme forventning, men ulik spredning, straffes da ulikt, og valget vris mot det sikre.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor gjør tapsfradraget staten til partner og ikke til skatteoppkrever?</span>
+Fordi et fullt tapsfradrag er en <i>utbetaling</i> i dårlige utfall, ikke bare et bortfall av skatt. Taper du 100 og fører tapet mot annen skattepliktig inntekt, sparer du t × 100 i skatt du ellers hadde betalt: netto har staten båret t av tapet, akkurat som den tok t av gevinsten. Derfor blir kontantstrømmen din, utfall for utfall, nøyaktig (1 − t) ganger den den var uten skatt. Betingelsen krever noe konkret: du må ha annen inntekt å føre tapet mot.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: prosjektvalget med og uten tapsfradrag</span>
+<p>Forelesningens eksempel. Du investerer kr 100 000. <b>Prosjekt A</b> gir sikkert kr 20 000 (20 %). <b>Prosjekt B</b> er usikkert med forventet avkastning kr 25 000, her modellert som <b>+100 000</b> eller <b>−50 000</b> med like stor sannsynlighet. Skattesatsen er 40 % <b>[eksempeltall fra forelesning 10, ikke en norsk sats]</b>.</p>
+<p><b>Steg 1 — uten skatt.</b> ½ × 100 000 + ½ × (−50 000) = <b>25 000</b>, med G = ½ × 100 000 = <b>50 000</b> og L = ½ × 50 000 = <b>25 000</b>. Siden 25 000 er mer enn de 20 000 prosjekt A gir, velger du <b>B</b>.</p>
+<p><b>Steg 2 — 40 % skatt, ingen tapsfradrag.</b> A er sikker og treffes helt: 0,60 × 20 000 = <b>12 000</b>. B beskattes bare i det gode utfallet: ½ × 0,60 × 100 000 − ½ × 50 000 = 30 000 − 25 000 = <b>5 000</b>. Formelen gir det samme: 25 000 − 0,40 × 50 000 = <b>5 000</b> ✓. Valget snur til <b>A</b>.</p>
+<p><b>Steg 3 — hvor grensen går.</b> B taper mot A når 25 000 − 0,40G er mindre enn 12 000, altså når G er større enn (25 000 − 12 000)/0,40 = <b>32 500</b>. Her er G = 50 000, godt over. Forventningen alene avgjør altså ikke: to prosjekter med samme E rangeres ulikt avhengig av spredningen.</p>
+<p><b>Steg 4 — 40 % skatt med fullt tapsfradrag.</b> Nå refunderes 40 % av tapet: 30 000 − 15 000 = <b>15 000</b>, som er 0,60 × 25 000 ✓. A gir fortsatt 12 000, og valget er tilbake på <b>B</b>, akkurat som før skatten.</p>
+<p><b>Kontroll — statens side.</b> Av B tar staten 0,40 × 25 000 = 10 000 og du beholder 15 000; sum 25 000 = forventningen før skatt ✓. Av A: 8 000 + 12 000 = 20 000 ✓. Begge er krympet med samme faktor, og derfor kan rangeringen ikke snu.</p>
+<p><b>Hvilke gale tall feilene ville gitt.</b> <b>5 000</b> er regningen uten tapsfradrag brukt der oppgaven sier fullt tapsfradrag, og omvendt; det er standardparet her. <b>25 000</b> er B uten skatt, <b>20 000</b> er A uten skatt. Og den mest lærerike: regne B riktig til 15 000, glemme at A faller til 12 000, og velge A fordi 20 000 er større enn 15 000.</p>
+</div>
+
+<h3>12.2 Repliseringen: hvorfor skatten øker den risikable posisjonen</h3>
+
+<p>Porteføljemodellen sier noe sterkere: investoren vil <i>øke</i> beløpet i det risikable aktivumet når skatten stiger. Oppsettet er Mossins og Stiglitz' standardmodell, som Sandmo bygger på. Formuen A fordeles på penger med sikker avkastning null og et risikabelt aktivum med beløp x<sub>1</sub> og stokastisk avkastning r̃, og skatten er proporsjonal med fullt tapsfradrag.</p>
+
+<div class="formula">
+  <div class="eq">Sluttformue: Y = A + (1 − t) × x<sub>1</sub> × r̃</div>
+  <div class="eq">Førsteordensbetingelse: E[U′(Y) × (1 − t) × r̃] = 0 &nbsp;⟺&nbsp; E[U′(A + (1 − t)x<sub>1</sub>r̃) × r̃] = 0</div>
+  <div class="eq">Med z = (1 − t)x<sub>1</sub> bestemmer betingelsen <b>z alene</b>, og z* er uavhengig av t</div>
+  <div class="eq"><b>x<sub>1</sub>* = z*/(1 − t)</b> &nbsp;⟹&nbsp; <b>∂x<sub>1</sub>*/∂t = x<sub>1</sub>*/(1 − t) &gt; 0</b></div>
+  <div class="where">Faktoren (1 − t) er ikke stokastisk og kan divideres bort. Igjen står en ligning i produktet (1 − t)x<sub>1</sub> som ikke inneholder t: investoren holder den <i>risikoeksponerte posisjonen etter skatt</i> konstant og blåser opp beløpet med 1/(1 − t), uansett nyttefunksjon.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor er nettopp 1/(1 − t) den riktige oppskaleringen?</span>
+Fordi investoren ikke er ute etter et kronebeløp, men etter en bestemt <b>sannsynlighetsfordeling for sluttformuen</b>. Skatten med fullt tapsfradrag krymper hvert eneste utfall med (1 − t), de gode som de dårlige. Ganges beløpet med 1/(1 − t), forsvinner krympingen utfall for utfall, og hele fordelingen er gjenopprettet: samme forventning, samme standardavvik, samme skjevhet. Fordelingen var optimal før skatten, så den er optimal etterpå. Sandmos formulering er at risikosubsidiet gjennom tapsfradraget nøyaktig oppveier skatten på forventet avkastning, og derfor trengs ingen antakelse om risikoholdningen.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: samme forventning og samme standardavvik etter skatt</span>
+<p>Det risikable aktivumet gir <b>+28 %</b> eller <b>−12 %</b> med like stor sannsynlighet <b>[eksempeltall]</b>: forventning ½ × 28 % + ½ × (−12 %) = <b>8 %</b>, standardavvik (28 + 12)/2 = <b>20 prosentpoeng</b>. Uten skatt plasserer du kr 600 000 der. Så innføres 40 % skatt med fullt tapsfradrag.</p>
+<p><b>Steg 1 — uten skatt.</b> 600 000 × 28 % = <b>+168 000</b> og 600 000 × (−12 %) = <b>−72 000</b>, altså forventning <b>48 000</b> og standardavvik (168 000 + 72 000)/2 = <b>120 000</b>.</p>
+<p><b>Steg 2 — skatten kommer, og du gjør ingenting.</b> Hvert utfall krymper med 0,60: <b>+100 800</b> og <b>−43 200</b>. Dette ser ut som «skatten dempet risikotakingen», og det er her de fleste stopper.</p>
+<p><b>Steg 3 — repliseringen.</b> x<sub>1</sub>* = 600 000/0,60 = <b>1 000 000</b>. Brutto +280 000 og −120 000, etter skatt 0,60 × 280 000 = <b>+168 000</b> og 0,60 × (−120 000) = <b>−72 000</b>.</p>
+<table class="data">
+<tr><th>Tilstand</th><th class="n">I aksjen</th><th class="n">Godt utfall</th><th class="n">Dårlig utfall</th><th class="n">Forventning</th><th class="n">Standardavvik</th></tr>
+<tr><td>Uten skatt</td><td class="n">600 000</td><td class="n">168 000</td><td class="n">−72 000</td><td class="n">48 000</td><td class="n">120 000</td></tr>
+<tr><td>40 % skatt, uendret beløp</td><td class="n">600 000</td><td class="n">100 800</td><td class="n">−43 200</td><td class="n">28 800</td><td class="n">72 000</td></tr>
+<tr><td><b>40 % skatt, replisert</b></td><td class="n"><b>1 000 000</b></td><td class="n"><b>168 000</b></td><td class="n"><b>−72 000</b></td><td class="n"><b>48 000</b></td><td class="n"><b>120 000</b></td></tr>
+</table>
+<p><b>Kontroll 1.</b> Rad 1 og rad 3 er identiske <i>utfall for utfall</i>, ikke bare i forventning og standardavvik. Derfor gir de identisk forventet nytte for enhver U, og svaret avhenger ikke av risikoholdningen ✓</p>
+<p><b>Kontroll 2 — statens regnskap.</b> Brutto forventning på 1 000 000 er 1 000 000 × 8 % = <b>80 000</b>; staten tar 0,40 × 80 000 = <b>32 000</b>, du beholder <b>48 000</b>, og 32 000 + 48 000 = 80 000 ✓. I det dårlige utfallet betaler staten deg 0,40 × 120 000 = 48 000, og det er grunnen til at du turte å skalere opp. Med samme z* er x<sub>1</sub>* <b>600 000</b>, <b>750 000</b>, <b>1 000 000</b> og <b>1 200 000</b> ved t = 0, 20, 40 og 50 %.</p>
+<p><b>Hvilke gale tall feilene ville gitt.</b> <b>28 800</b> og <b>72 000</b> er steg 2, altså at investoren står stille; det er alternativet spørsmålet er bygget rundt. <b>360 000</b> er 600 000 × 0,60, altså gange i stedet for å dele. <b>840 000</b> er 600 000 × 1,40, som ligger nær det riktige og derfor er et effektivt alternativ.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Tre søylepar som viser godt og dårlig utfall i kroner. Uten skatt med 600 000 i aksjen er utfallene pluss 168 000 og minus 72 000. Med 40 prosent skatt og uendret beløp krymper de til pluss 100 800 og minus 43 200. Med 40 prosent skatt og beløpet skalert opp til 1 000 000 er utfallene igjen pluss 168 000 og minus 72 000, altså identiske med det første søyleparet."
+     font-family="Georgia,serif" font-size="13">
+
+  <line x1="40" y1="185" x2="700" y2="185" stroke="#333" stroke-width="1.4"/>
+  <text x="34" y="189" text-anchor="end" fill="#555" font-size="11">0</text>
+
+  <text x="130" y="26" text-anchor="middle" fill="#333" font-weight="bold" font-size="12">Uten skatt</text>
+  <text x="130" y="42" text-anchor="middle" fill="#555" font-size="11">600 000 i aksjen</text>
+  <rect x="75" y="95" width="46" height="90" fill="#6b1f2a"/>
+  <rect x="140" y="185" width="46" height="39" fill="#1f3a5f"/>
+  <text x="98" y="88" text-anchor="middle" fill="#6b1f2a" font-size="11" font-weight="bold">168 000</text>
+  <text x="163" y="238" text-anchor="middle" fill="#1f3a5f" font-size="11" font-weight="bold">−72 000</text>
+  <text x="130" y="278" text-anchor="middle" fill="#555" font-size="11">Forventning 48 000</text>
+  <text x="130" y="294" text-anchor="middle" fill="#555" font-size="11">Standardavvik 120 000</text>
+
+  <text x="360" y="26" text-anchor="middle" fill="#333" font-weight="bold" font-size="12">40 % skatt, gjør ingenting</text>
+  <text x="360" y="42" text-anchor="middle" fill="#555" font-size="11">fortsatt 600 000 i aksjen</text>
+  <rect x="305" y="131" width="46" height="54" fill="#6b1f2a" fill-opacity="0.42"/>
+  <rect x="370" y="185" width="46" height="23" fill="#1f3a5f" fill-opacity="0.42"/>
+  <text x="328" y="124" text-anchor="middle" fill="#b06000" font-size="11" font-weight="bold">100 800</text>
+  <text x="393" y="222" text-anchor="middle" fill="#b06000" font-size="11" font-weight="bold">−43 200</text>
+  <text x="360" y="278" text-anchor="middle" fill="#b06000" font-size="11">Forventning 28 800</text>
+  <text x="360" y="294" text-anchor="middle" fill="#b06000" font-size="11">Standardavvik 72 000</text>
+
+  <text x="590" y="26" text-anchor="middle" fill="#333" font-weight="bold" font-size="12">40 % skatt, replisert</text>
+  <text x="590" y="42" text-anchor="middle" fill="#555" font-size="11">1 000 000 i aksjen</text>
+  <rect x="535" y="95" width="46" height="90" fill="#6b1f2a"/>
+  <rect x="600" y="185" width="46" height="39" fill="#1f3a5f"/>
+  <text x="558" y="88" text-anchor="middle" fill="#6b1f2a" font-size="11" font-weight="bold">168 000</text>
+  <text x="623" y="238" text-anchor="middle" fill="#1f3a5f" font-size="11" font-weight="bold">−72 000</text>
+  <text x="590" y="278" text-anchor="middle" fill="#555" font-size="11">Forventning 48 000</text>
+  <text x="590" y="294" text-anchor="middle" fill="#555" font-size="11">Standardavvik 120 000</text>
+
+  <line x1="196" y1="150" x2="296" y2="150" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="426" y1="150" x2="526" y2="150" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="246" y="143" text-anchor="middle" fill="#555" font-size="10">× (1 − t)</text>
+  <text x="476" y="143" text-anchor="middle" fill="#555" font-size="10">× 1/(1 − t)</text>
+
+  <text x="360" y="318" text-anchor="middle" fill="#333" font-size="12">Utfall i kroner etter skatt</text>
+</svg>
+<figcaption>Figur 12.1 — Domar–Musgrave i tre bilder. Fra venstre til midten krymper skatten hvert utfall med (1 − t): både gevinsten og tapet blir 60 % av det de var. Skaleres beløpet opp med 1/(1 − t), er hvert utfall tilbake der det startet, og de to ytterste søyleparene er identiske: det investoren gjenoppretter er en sannsynlighetsfordeling, ikke et kronebeløp.</figcaption>
+</figure>
+
+<h3>12.3 Betingelsene, og hva som skjer når de faller</h3>
+
+<p>Resultatet er skarpt fordi forutsetningene er strenge, og Sandmos anliggende i AS2 er å presisere dem. Fire betingelser bærer alt: <b>proporsjonal skatt</b> (med progresjon treffes de gode utfallene hardere enn de dårlige), <b>fullt tapsfradrag</b>, <b>null avkastning på det sikre aktivumet</b> eller ekvivalent at bare meravkastningen beskattes, og <b>ett risikabelt aktivum</b> med gitt sparing.</p>
+
+<p>Faller tapsfradraget, snur konklusjonen: staten er partner i oppturen og ikke i nedturen, uttrykket blir E − t × G, og det er oppsiden som straffes. Sandmo refererer Mossin og Stiglitz på at effekten da generelt er tvetydig, men at etterspørselen etter det risikable aktivumet <b>må</b> falle når satsen blir høy nok.</p>
+
+<div class="callout warn"><span class="h">Fullt tapsfradrag er en modellforutsetning, ikke en beskrivelse av Norge</span>
+Oppstartsbedriften er standardeksempelet: den har ingen annen skattepliktig inntekt å føre tapet mot, og framtidig inntekt er usikker, så fradraget er verdt mindre enn t krone for krone. Et etablert selskap med overskudd fra andre prosjekter kan føre det mot dem umiddelbart. Skattesystemet favoriserer altså <i>etablerte</i> framfor <i>nye</i> i risikable prosjekter, det motsatte av hva man ofte tror; samme asymmetri som ubenyttet skjerming som går tapt ved realisasjon (kapittel 5). På flervalg er «staten deler tapet» bare riktig når oppgaven <i>sier</i> at tapsfradraget er fullt.</div>
+
+<p>Faller forutsetningen om null risikofri avkastning, kommer det an på hva skatten treffer, og her ligger Sandmos avgjørende sondring. Under <b>nettobeskatning</b>, der bare meravkastningen x<sub>1</sub>(r̃ − r<sub>f</sub>) skattlegges, holder repliseringsresultatet uendret selv med positiv risikofri rente. Under <b>bruttobeskatning</b>, der begge aktiva skattlegges, treffer skatten også den sikre basen, og en inntektseffekt kommer inn.</p>
+
+<div class="formula">
+  <div class="eq">Bruttobeskatning: Y = A[1 + r<sub>f</sub>(1 − t)] + x<sub>1</sub>(r̃ − r<sub>f</sub>)(1 − t)</div>
+  <div class="eq">(∂x<sub>1</sub>/∂t)(t/x<sub>1</sub>) = − [t·r<sub>f</sub>/(1 + r<sub>f</sub>(1 − t))] × ε<sub>x,A</sub> + t/(1 − t)</div>
+  <div class="eq">Kritisk formueselastisitet: ε* = [1 + r<sub>f</sub>(1 − t)] / [r<sub>f</sub>(1 − t)]</div>
+  <div class="where">Andre ledd er repliseringseffekten fra 12.2 og er positivt. Første ledd er en inntektseffekt med motsatt fortegn: skatten gjør deg fattigere gjennom den sikre delen. <b>Netto fortegn er ubestemt</b>, og uttrykket blir negativt først når formueselastisiteten ε<sub>x,A</sub> overstiger ε*.</div>
+</div>
+
+<p>Terskelen er tallfestbar, og det er den mest testbare detaljen hos Sandmo. Med t = 0,5 og r<sub>f</sub> = 0,05 <b>[eksempeltall]</b> er ε* = 1,025/0,025 = <b>41</b>, urealistisk høyt; med månedlig horisont (r<sub>f</sub> ≈ 0,004) blir den 1,002/0,002 = <b>501</b>, og først med 23 års horisont (r<sub>f</sub> ≈ 2) faller den til <b>2</b>. For korte og mellomlange horisonter dominerer altså repliseringseffekten. Sandmo advarer likevel mot å slutte derfra til at «risikable næringer» bør ha skatterabatt: med flere risikable aktiva forskyves porteføljen ikke nødvendigvis mot de <i>mest</i> risikable, store selskaper kan diversifisere selv, og med velfungerende risikomarkeder er allokeringen effisient uten selektive lettelser.</p>
+
+<h3>12.4 Implisitt skatt: prisen spiser fordelen</h3>
+
+<p>Andre halvdel skifter fra én investors valg til markedets likevekt, og bygger på Scholes og Wolfson. Mekanismen møtte du i kapittel 9: gir et aktivum bedre avkastning etter skatt enn et annet med samme risiko, vil alle ha det, prisen bys opp, og fordelen forsvinner ut av <i>avkastningen før skatt</i>.</p>
+
+<div class="formula">
+  <div class="eq">Likevekt mellom to like risikable aktiva: <b>r = R(1 − t)</b> &nbsp;⟹&nbsp; <b>r &lt; R</b></div>
+  <div class="eq">Implisitt skattesats: <b>t* = (R − r)/R = 1 − r/R</b></div>
+  <div class="where">R er avkastningen før skatt på det fullt skattlagte aktivumet, r avkastningen på det skattefavoriserte. Nevneren er <b>R</b>, fordi en skattesats alltid måles mot grunnlaget før skatt. Legg merke til at t* leses rett ut av to markedspriser uten at du kjenner noen skattesats; det er hele grunnen til at begrepet er nyttig.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor betyr et skattefritak lavere avkastning før skatt?</span>
+Fordi avkastningen er et forholdstall med prisen i nevneren: kupong delt på kurs, utbytte delt på kostpris, leie delt på kjøpesum. Fritaket gjør papiret mer attraktivt, etterspørselen stiger, og prisen stiger til ingen vil kjøpe mer. Når nevneren har vokst og telleren står stille, har avkastningen falt. <b>Fallet er den implisitte skatten.</b> Ingen krever den inn, og staten får ingen inntekt av den. Det er samme kapitaliseringslogikk som i kapittel 11, bare med motsatt fortegn.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: H2024 oppgave 9 — to statsobligasjoner med samme risiko</span>
+<p>Finansministeren utsteder to statsobligasjoner med <b>samme risiko</b>. Obligasjon A har rente r og er <b>fritatt for skatt</b> på rentene; obligasjon B har rente R og skattlegges med 22 % <b>[oppgaven oppgir satsen selv; den er også dagens sats på alminnelig inntekt]</b>. Markedet er velfungerende, og nominell avkastning betyr avkastning før skatt.</p>
+<p><b>Steg 1 — deloppgave a.</b> Lik risiko krever lik avkastning <i>etter</i> skatt, ellers finnes det en pengemaskin. A gir r, B gir R(1 − 0,22) = 0,78R. Sett dem like: r = 0,78R, og siden 0,78 er mindre enn 1, er <b>r mindre enn R</b>. Det skattefrie papiret har lavest nominell avkastning, og det er likevekt, ikke en anomali.</p>
+<p><b>Steg 2 — sett tall på det.</b> Er R = <b>10 %</b>, er r = 0,78 × 10 % = <b>7,8 %</b>. Begge gir 7,8 % etter skatt. Kjøperen av A gir avkall på 2,2 prosentpoeng nominelt, og det er prisen for skattefriheten.</p>
+<p><b>Steg 3 — deloppgave b.</b> Løs likevekten for t: r = R(1 − t) gir 1 − t = r/R, altså <b>t = 1 − r/R = (R − r)/R</b>.</p>
+<p><b>Kontroll:</b> (10 − 7,8)/10 = <b>22,0 %</b>, nøyaktig den eksplisitte satsen obligasjon B bærer. Slik blir det alltid når risikoen er lik og fritaket fullstendig. Kontrollen tar fem sekunder og avslører hver gale brøk.</p>
+<p><b>Hvilke gale tall de tre distraktorene gir.</b> <b>(R − r)/r</b> setter etter-skatt-avkastningen i nevneren og gir 2,2/7,8 = <b>28,21 %</b>; det er samme feil som å regne en rabatt i prosent av prisen <i>etter</i> rabatt. <b>R − r</b> gir <b>2,2</b>, en differanse i prosentpoeng og ikke en sats. <b>(R − r × 22 %)/R</b> gir (10 − 1,716)/10 = <b>82,84 %</b>, åpenbart urimelig, og blander dessuten den eksplisitte satsen inn i en formel som skal kunne leses ut av markedsprisene alene.</p>
+</div>
+
+<h3>12.5 Valgregelen: din marginalskatt mot markedets</h3>
+
+<p>Den implisitte satsen er <b>markedets</b>, ikke din. Den settes av den marginale investoren, den som akkurat er indifferent, og i likevekt er t* lik hans marginalskatt. Din egen sats kan ligge over eller under, og det er differansen som avgjør hva du bør eie.</p>
+
+<div class="formula">
+  <div class="eq">Egen marginalskatt større enn t* ⟹ velg det <b>skattefavoriserte</b> &nbsp;·&nbsp; mindre enn t* ⟹ velg det <b>skattlagte</b> &nbsp;·&nbsp; lik t* ⟹ likegyldig</div>
+  <div class="eq">Samlet skattebyrde på et aktivum = eksplisitt + implisitt = 1 − (avkastning etter din skatt)/R</div>
+  <div class="where">Et papir kan ha null eksplisitt skatt og likevel høy total belastning, fordi den implisitte er stor. Å måle skattetrykket på et aktivum bare ved satsen i loven er derfor systematisk misvisende.</div>
+</div>
+
+<p>Forelesningens tall: obligasjon A er fullt skattlagt og gir <b>8 %</b>, obligasjon B er skattefri og gir <b>6 %</b>, med samme risiko <b>[eksempeltall]</b>. Den implisitte satsen er t* = (8 − 6)/8 = <b>25 %</b>. Regn så ut hva A gir etter <i>din</i> sats, og sammenlign med Bs 6 %:</p>
+
+<table class="data">
+<tr><th class="n">Din marginalskatt</th><th class="n">A etter skatt</th><th class="n">B (skattefri)</th><th>Valg</th></tr>
+<tr><td class="n">30 %</td><td class="n">5,60 %</td><td class="n">6,00 %</td><td>B, det skattefrie</td></tr>
+<tr><td class="n">25 % = t*</td><td class="n">6,00 %</td><td class="n">6,00 %</td><td>likegyldig — den marginale investoren</td></tr>
+<tr><td class="n">20 %</td><td class="n">6,40 %</td><td class="n">6,00 %</td><td>A, det skattlagte</td></tr>
+</table>
+
+<p>Radene er 8 % × 0,70 = <b>5,60 %</b>, 8 % × 0,75 = <b>6,00 %</b> og 8 % × 0,80 = <b>6,40 %</b>, og rangeringen følger differansen mot t* i hver rad, akkurat som regelen sier. <b>Kontroller gevinsten to veier.</b> Med 40 % marginalskatt gir B 6 % mot A på 8 % × 0,60 = 4,8 %, altså <b>1,2 prosentpoeng</b> i favør av B. Via satsene: han bærer samlet 25 % i stedet for sin egen 40 %, og (40 % − 25 %) × 8 % = <b>1,2 prosentpoeng</b> ✓. Gevinsten er differansen mellom din sats og markedets ganget med avkastningen før skatt, og den er negativ for den med lavere sats enn markedet. <b>De gale svarene:</b> <b>33,33 %</b> er t* med feil nevner, (8 − 6)/6; <b>2 prosentpoeng</b> er differansen presentert som en sats; og «velg alltid det skattefrie» fanger den som ikke har forstått at fordelen er priset inn.</p>
+
+<p>Øvingssettet til forelesning 10 kjører samme rutine. Shipping og flyfrakt er like risikable og gir begge <b>10 %</b>, skattlagt med 22 %, og så fritas rederinæringen. Likevekten krever 10 % × 0,78 = <b>7,8 %</b> på shipping, og t* = (10 − 7,8)/10 = <b>22 %</b>. Med 45 % marginalskatt gir flyfrakt 10 % × 0,55 = <b>5,5 %</b> mot 7,8 %: velg shipping, og 45 % er større enn 22 %, som regelen krever. Fasiten skriver «10 % × (100 % − 45 %)» og lander på 6,5 %, som er regnefeil; riktig er 5,5 %, og konklusjonen står uansett. Stol på ditt eget regnestykke.</p>
+
+<div class="callout mech"><span class="h">Hvem tjener egentlig på et skattefritak?</span>
+<b>Utstederen.</b> Han låner til 6 % i stedet for de 8 % han måtte betalt på et like risikabelt skattlagt papir. Kjøperen sitter igjen med omtrent det samme som før, fordi konkurransen om papiret spiste opp fordelen i det øyeblikket den ble innført. Et skattefritak er derfor et dårlig virkemiddel hvis hensikten var å hjelpe spareren: fordelen havner hos utstederen og hos den som eide papiret da fritaket kom. Prinsippet kjenner du fra kapittel 11: den <i>reelle</i> insidensen avgjøres av markedet, ikke av hvem loven peker på.</div>
+
+<div class="callout tip"><span class="h">Slik spørres det</span>
+Implisitt skatt kommer i to former, begge dokumentert. <b>(1) Rangeringen som begrepsspørsmål:</b> H2019 oppgave 4 og H2024 oppgave 9a stiller samme spørsmål med ulike bokstaver, og svaret er alltid at det skattefrie papiret har <i>lavest</i> avkastning før skatt. Alternativet som frister er «ikke sammenlignbare», og det er utelukket av at oppgaven sier lik risiko og velfungerende marked. <b>(2) Formelgjenkjenning:</b> H2024 oppgave 9b, fire brøker der bare nevneren skiller. Filteret er tredelt og tar ti sekunder: satsen må være dimensjonsløs (stryk R − r), måles mot avkastningen før skatt (stryk (R − r)/r), og kunne leses ut av to avkastningstall alene (stryk alt med 22 % i). For Domar–Musgrave finnes ingen eksamenshenvisning: temaet har aldri vært prøvd. Regn med et begrepsspørsmål om aksjeposisjonen når satsen øker med fullt tapsfradrag, eller et talleksempel som i 12.1.</div>
+
+<h3>12.6 Hvor du ser implisitt skatt i resten av kurset</h3>
+
+<p><b>Boligen</b> er det tydeligste tilfellet. Primærbolig er kraftig skattefavorisert: ingen skatt på fordelen ved å bo i egen bolig, skattefri gevinst etter oppfylt bo- og eiertid, og 75 % verdsettingsrabatt i formuesskatten <b>[dagens regel]</b>. Alle tre er kjent for alle som byr, så de er priset inn i kjøpesummen, og den lave direkteavkastningen på egen bolig <i>er</i> den implisitte skatten. Det er en del av svaret på «boliggåten» i kapittel 3: Jordàs målte boligavkastning gjelder et skattefavorisert aktivum.</p>
+
+<p><b>Unoterte aksjer</b> er samme mekanisme. De verdsettes til 80 % av selskapets skattemessige formuesverdi og ikke til markedsverdi (kapittel 7), som ofte gir et formuesskattegrunnlag langt under det aksjen er verdt. Fordelen bys inn i prisen, så forventet avkastning før skatt blir lavere enn risikoen alene skulle tilsi. Generelt ender skattefavoriserte aktiva hos investorene med høyest marginalsats, mens alle med lavere sats taper på å eie dem. Scholes og Wolfson kaller det <i>skatteklienteller</i>.</p>
+
+<p>Til slutt kobles kapitlets to halvdeler sammen i porteføljeteorien. Skatt med fullt tapsfradrag krymper forventet meravkastning med (1 − t) og variansen med (1 − t)², så Mertons optimale aksjeandel w* = (μ − r<sub>f</sub>)/(γσ²) blir (μ − r<sub>f</sub>)(1 − t)/[γσ²(1 − t)²] = <b>w*/(1 − t)</b> — samme replisering som i 12.2, uttrykt i formelen fra kapittel 14. Med μ = 10 %, r<sub>f</sub> = 4 %, σ = 20 % og risikoaversjon γ = 3 <b>[eksempeltall]</b> er w* = 0,06/(3 × 0,04) = <b>0,50</b>, og med t = 37,84 % <b>[dagens regel for aksjeinntekt]</b> blir den 0,50/0,6216 = <b>0,804</b>.</p>
+
+<div class="callout link"><span class="h">Hvor dette henger sammen med resten</span>
+Repliseringen er regningen fra <b>kapittel 2</b> om at skatt på avkastning virker som lavere rente, nå med spredningen tatt med. Likevekten r = R(1 − t) lukker skattearbitrasjen i <b>kapittel 9</b>, der det skattefrie papirets avkastning ble bydd ned fra 5 til 3,9 % og fallet var en implisitt skatt på 22 %. Verdsettingsreglene bak de norske fordelene står i <b>kapittel 7</b>, Mertons formel med humankapital i <b>kapittel 14</b>. Rutinen står som R10 i <b>kapittel 19</b>: skriv r = R(1 − t), løs for t, kontroller med tall, og sjekk at nevneren er R.</div>
+
+</section>

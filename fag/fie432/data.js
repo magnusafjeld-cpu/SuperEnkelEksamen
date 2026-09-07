@@ -189,7 +189,7 @@ window.EDU_DATA.plan = {
 
     { day: 9, phase: "Skatteteori",
       title: "Nøytralitet, skattearbitrasje, progressivitet og flat skatt",
-      chapters: [9, 10], estMinutes: 135,
+      chapters: [9, 10], estMinutes: 230,
       goals: [
         "Forklare hva nøytral kapitalbeskatning betyr, og hvorfor brudd på den flytter kapital etter skatt i stedet for etter avkastning",
         "Sette opp bedriftens førsteordensbetingelse med delvis rentefradrag: F′(K) = r(1 − At)/(1 − t)",
@@ -228,7 +228,7 @@ window.EDU_DATA.plan = {
 
     { day: 11, phase: "Skatteteori",
       title: "Skatt, risiko og implisitte skatter",
-      chapters: [12], estMinutes: 105,
+      chapters: [12], estMinutes: 135,
       goals: [
         "Forklare Domar–Musgrave: proporsjonal skatt med fullt tapsfradrag gjør staten til stille partner, og investoren øker den risikable andelen",
         "Oppgi betingelsen for at resultatet holder, og hva som skjer uten fullt tapsfradrag",
@@ -247,7 +247,7 @@ window.EDU_DATA.plan = {
 
     { day: 12, phase: "Skatteteori",
       title: "Internasjonal skatt og skatteparadiser",
-      chapters: [13], estMinutes: 125,
+      chapters: [13], estMinutes: 155,
       goals: [
         "Skille globalskatteplikt fra kildeskatt, og forklare når et fast driftssted oppstår",
         "Bruke unntaksmetoden og kreditmetoden på samme inntekt, og se hva som skiller dem",
@@ -266,7 +266,7 @@ window.EDU_DATA.plan = {
 
     { day: 13, phase: "Personlig finans",
       title: "Sparing og porteføljevalg",
-      chapters: [14], estMinutes: 135,
+      chapters: [14], estMinutes: 140,
       goals: [
         "Regne forventning og varians for en portefølje av to aktiva, og se hva korrelasjonen gjør",
         "Bruke Mertons formel w* = (μ − r_f)/(γσ²) og løse den for hvilken som helst av variablene",
@@ -286,7 +286,7 @@ window.EDU_DATA.plan = {
 
     { day: 14, phase: "Personlig finans",
       title: "Pensjon: folketrygd, tjenestepensjon og IPS",
-      chapters: [15], estMinutes: 120,
+      chapters: [15], estMinutes: 140,
       goals: [
         "Regne pensjonsbeholdning: 18,1 prosent av inntekt opp til 7,1 G, alle år",
         "Forklare delingstallet og levealdersjusteringen, og hvorfor utsatt uttak gir høyere årlig pensjon",

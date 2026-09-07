@@ -1,0 +1,209 @@
+<section id="k14">
+<a class="backtotop" href="#toc">↑ innhold</a>
+<h2 class="part">Del IV — Personlig finans</h2>
+<h2 class="chap">14 · Sparing og porteføljevalg</h2>
+
+<p class="lead-in">Finansdelen er drøyt førti prosent av eksamen: Ole-Andreas Næss hadde oppgave 11–17 i H2025, tolv av 29 poeng, og oppgave 11–14 i H2024. Mertons aksjeandel med humankapital har vært i fem av ni sett og tok 14 % av poengene i både H2022 og H2025, med nesten samme oppsett hver gang; porteføljestoffet rundt tok 8 % i H2024 og 7 % i H2025. Alt hviler på tre formler og én vane: sjekk om tallet du fikk oppgitt er varians eller standardavvik, og om «andel» betyr andel av finansformuen eller av alt du eier. Begge forvekslingene har sitt eget svaralternativ.</p>
+
+<h3>14.1 Forventningen er lineær, risikoen er det ikke</h3>
+
+<p>Du har to aktiva og skal fordele formuen mellom dem. Kall andelen i aktivum 1 for s, slik at 1 − s ligger i aktivum 2. Aktivum i har forventet avkastning μ<sub>i</sub> og standardavvik σ<sub>i</sub>, og samvariasjonen måles med korrelasjonen ρ mellom −1 og 1. (ρ betyr korrelasjon i hele dette kapitlet, ikke verdsettingsrabatten fra kapittel 7.)</p>
+
+<div class="formula">
+  <div class="eq">E(r<sub>p</sub>) = sμ<sub>1</sub> + (1 − s)μ<sub>2</sub></div>
+  <div class="eq">σ<sub>p</sub><sup>2</sup> = s<sup>2</sup>σ<sub>1</sub><sup>2</sup> + (1 − s)<sup>2</sup>σ<sub>2</sub><sup>2</sup> + 2s(1 − s)ρσ<sub>1</sub>σ<sub>2</sub></div>
+  <div class="where">Forventningen er et rent vektet snitt: legger du 30 % i den ene, får du 30 % av dens forventning. Variansen er det ikke, og hele porteføljeteorien ligger i den forskjellen. Merk krysleddet: det inneholder <b>ρσ<sub>1</sub>σ<sub>2</sub></b>, altså <b>kovariansen</b>, ikke ρ alene. Glemmer du de to standardavvikene der, blir svaret feil selv om alt annet er riktig. Merk også at s kan gå utenfor intervallet 0 til 1 hvis shortsalg er tillatt; står det «du kan kun investere i disse to aksjene», er s låst.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor er diversifisering «the only free lunch in finance»?</span>
+Fordi forventningen og variansen reagerer ulikt når du flytter en liten andel over. Forventningen faller proporsjonalt, mens variansen faller <i>raskere</i> enn et vektet snitt så lenge ρ er mindre enn 1: kvadratene s<sup>2</sup> og (1 − s)<sup>2</sup> krymper fortere enn s og 1 − s, mens krysleddet bare vokser fullt ut når korrelasjonen er perfekt. Utslaget er at en aksje som er <i>dårligere på både forventning og risiko</i> likevel kan gjøre porteføljen bedre. Det er ikke en regnefeil, det er hele poenget: selvhjelpsbøkene snakker om enkeltaksjer og aldri om kovarians, og det er kovariansen markedet betaler for.</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: to aksjer, og aksjen som forbedrer porteføljen ved å være dårligere</span>
+<p>Forelesningens tall <b>[eksempeltall]</b>: aksje 1 har μ<sub>1</sub> = 2 og σ<sub>1</sub> = 1, aksje 2 har μ<sub>2</sub> = 1 og σ<sub>2</sub> = 2, og ρ = 0. Aksje 2 er altså dårligere på begge dimensjoner. s er andelen i aksje 1.</p>
+<p><b>Steg 1 — alt i den gode aksjen.</b> s = 1 gir E = 2,00 og σ<sub>p</sub> = <b>1,000</b>. Referansepunktet.</p>
+<p><b>Steg 2 — halvparten i hver.</b> E = 0,5 × 2 + 0,5 × 1 = <b>1,50</b>. Variansen: 0,25 × 1 + 0,25 × 4 + 0 = <b>1,25</b>, altså σ<sub>p</sub> = <b>1,118</b>. En halv enhet mindre forventning og mer risiko: dårlig bytte.</p>
+<p><b>Steg 3 — bare fem prosent i den dårlige aksjen.</b> s = 0,95 gir E = <b>1,95</b> og varians 0,9025 + 0,0100 = <b>0,9125</b>, altså σ<sub>p</sub> = <b>0,955</b>. Forventningen falt fra 2,00 til 1,95, standardavviket fra 1,000 til 0,955: <i>mindre</i> risiko enn med alt i den beste aksjen.</p>
+<p><b>Steg 4 — hvor langt bør du gå?</b> s = 0,8 gir E = <b>1,80</b> og varians 0,64 + 0,16 = <b>0,80</b>, altså σ<sub>p</sub> = <b>0,894</b>, det laveste som finnes med disse to aksjene. 14.2 viser hvorfor.</p>
+<table class="data">
+<tr><th class="n">s (andel i aksje 1)</th><th class="n">E(r<sub>p</sub>)</th><th class="n">σ<sub>p</sub><sup>2</sup></th><th class="n">σ<sub>p</sub></th></tr>
+<tr><td class="n">0,50</td><td class="n">1,50</td><td class="n">1,250</td><td class="n">1,118</td></tr>
+<tr><td class="n">0,80</td><td class="n">1,80</td><td class="n">0,800</td><td class="n">0,894</td></tr>
+<tr><td class="n">0,95</td><td class="n">1,95</td><td class="n">0,913</td><td class="n">0,955</td></tr>
+<tr><td class="n">1,00</td><td class="n">2,00</td><td class="n">1,000</td><td class="n">1,000</td></tr>
+</table>
+<p><b>Kontroll:</b> med ρ under 1 må variansen være mindre enn det vektede snittet av de to variansene. Ved s = 0,8 er snittet 0,8 × 1 + 0,2 × 4 = 1,60 mot faktisk varians 0,80, altså halvparten. ✓ Forventningen faller dessuten lineært fra 2,00 til 1,00 når s går fra 1 til 0, mens standardavviket først faller og så stiger. Den U-formen <i>er</i> diversifiseringsgevinsten.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Krysleddet med ρ i stedet for ρσ<sub>1</sub>σ<sub>2</sub> slår ut så snart ρ ikke er null: med ρ = 0,5 og s = 0,5 er riktig varians 0,25 + 1,00 + 0,50 = 1,75 og σ<sub>p</sub> = <b>1,323</b>, mens ρ alene gir 1,50 og σ<sub>p</sub> = <b>1,225</b>. Å veie sammen standardavvikene, 0,5 × 1 + 0,5 × 2 = <b>1,500</b>, er svaret ved ρ = 1. Å glemme kvadratene på vektene gir 1 + 4 = 5, altså <b>2,236</b>, høyere enn begge aksjene hver for seg og derfor umulig.</p>
+</div>
+
+<h3>14.2 Minimum varians, og de to grensetilfellene som testes</h3>
+
+<p>Deriverer du variansen med hensyn på s og setter lik null, får du andelen som gir lavest mulig risiko:</p>
+
+<div class="formula">
+  <div class="eq">s* = (σ<sub>2</sub><sup>2</sup> − ρσ<sub>1</sub>σ<sub>2</sub>) / (σ<sub>1</sub><sup>2</sup> + σ<sub>2</sub><sup>2</sup> − 2ρσ<sub>1</sub>σ<sub>2</sub>)</div>
+  <div class="where">s* er andelen i aktivum 1 i <b>minimum-varians-porteføljen</b>: valget til den maksimalt risikoaverse når det ikke finnes bankkonto, og nedre ende av de <b>effisiente</b> porteføljene. Ingen bør ligge under s*, for hver portefølje der har en tvilling over s* med både høyere forventning og lavere risiko. Kontroll: med tallene fra 14.1 gir formelen (4 − 0)/(1 + 4 − 0) = 0,8, som steg 4 fant ved å prøve seg fram.</div>
+</div>
+
+<p>To grensetilfeller kollapser formelen, og det er dem eksamen spør om. Ved <b>ρ = 1</b> blir standardavviket lineært, σ<sub>p</sub> = sσ<sub>1</sub> + (1 − s)σ<sub>2</sub>: ingen diversifiseringsgevinst, og uten shortsalg minimerer du risikoen ved å legge <b>alt i aksjen med lavest σ</b>. Svaret må da være et hjørne, aldri en indre løsning. Ved <b>ρ = −1</b> kan risikoen fjernes helt, men ikke ved 50/50: s* = σ<sub>2</sub>/(σ<sub>1</sub> + σ<sub>2</sub>), som bare er 0,5 når de to standardavvikene er like store. For aksjene i 14.1 er den 2/3. Foilene fra 2024 påstod 50/50; påstanden er strøket i 2025-utgaven.</p>
+
+<div class="worked"><span class="wh">Gjennomregnet: de to grensetilfellene, med H2024 oppgave 12d som mal</span>
+<p>Aksje A har E(R) = 10 % og σ<sub>A</sub> = 20 %, aksje B har E(R) = 2 % og σ<sub>B</sub> = 30 %, korrelasjonen er 1, og du kan bare investere i disse to <b>[eksempeltall fra oppgaveteksten]</b>. Hvilken kombinasjon gir lavest standardavvik?</p>
+<p><b>Steg 1 — bruk lineariteten.</b> Med ρ = 1 er σ<sub>p</sub> = w × 0,20 + (1 − w) × 0,30 = 0,30 − 0,10w, der w er andelen i A. Uttrykket faller monotont i w, så minimum ligger ved største lovlige w: <b>100 % i A</b>, med σ<sub>p</sub> = <b>20,0 %</b>.</p>
+<p><b>Steg 2 — sjekk de andre alternativene.</b> w = 0,99 gir <b>20,1 %</b>, w = 0,69 gir <b>23,1 %</b>, w = 0,51 gir <b>24,9 %</b>. Alle høyere.</p>
+<p><b>Steg 3 — hvorfor formelen ser ut til å svikte.</b> Setter du ρ = 1 rett inn i s*-formelen, blir nevneren (σ<sub>A</sub> − σ<sub>B</sub>)<sup>2</sup> = 0,01 og telleren σ<sub>B</sub>(σ<sub>B</sub> − σ<sub>A</sub>) = 0,03, altså s* = <b>3</b>. Ikke tull: 300 % i A og −200 % i B gir 3 × 0,20 − 2 × 0,30 = <b>0</b> i standardavvik. Men det krever shortsalg, som oppgaven forbød, og da er svaret hjørnet.</p>
+<p><b>Steg 4 — det motsatte grensetilfellet, ρ = −1.</b> Med samme to aksjer blir s* = σ<sub>B</sub>/(σ<sub>A</sub> + σ<sub>B</sub>) = 0,30/0,50 = <b>60 % i A</b>, og σ<sub>p</sub> = 0,6 × 0,20 − 0,4 × 0,30 = <b>0</b>. Her er risikofri portefølje mulig uten å shorte noe.</p>
+<p><b>Kontroll:</b> ved ρ = 1 må σ<sub>p</sub> ligge mellom 20 % og 30 % for enhver w mellom 0 og 1. Alle fire alternativene gjør det, men bare ett er nede ved 20 %. Raskere ennå: A har både høyest forventning og lavest risiko, så alt annet enn 100 % i A er dominert.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Distraktoren <b>69 %</b> er minimum-varians-vekten hvis du setter ρ = 0: σ<sub>B</sub><sup>2</sup>/(σ<sub>A</sub><sup>2</sup> + σ<sub>B</sub><sup>2</sup>) = 0,09/0,13 = 69,2 %. Den er laget for den som kjører formelen mekanisk uten å se hva ρ = 1 gjør med den. <b>51 %</b> er «omtrent halvparten i hver», gjetningen til den som husker at diversifisering er bra og ikke leser korrelasjonen.</p>
+</div>
+
+<h3>14.3 Kapitalmarkedslinjen: én risikabel portefølje for alle</h3>
+
+<p>Legg til et risikofritt aktivum, altså bankkonto til renten r<sub>f</sub>, og bildet forenkles. Alle kombinasjoner av bank og én bestemt risikabel portefølje ligger på en <b>rett linje</b> i (σ, E)-planet, fordi bankinnskuddet verken har varians eller kovarians. Den beste linjen er den bratteste, og den tangerer de effisiente porteføljene i ett eneste punkt: <b>markedsporteføljen M</b>, i praksis et bredt globalt indeksfond.</p>
+
+<div class="formula">
+  <div class="eq">E(r<sub>p</sub>) = r<sub>f</sub> + [(E(r<sub>M</sub>) − r<sub>f</sub>)/σ<sub>M</sub>] × σ<sub>p</sub></div>
+  <div class="eq">Sharpe-forholdet = (E(r<sub>M</sub>) − r<sub>f</sub>)/σ<sub>M</sub></div>
+  <div class="where">Stigningstallet er markedets Sharpe-forhold, meravkastning per enhet risiko, og det er det høyest oppnåelige. Med forelesningens tall <b>[eksempeltall]</b> r<sub>f</sub> = 3 %, markedspremie 5 prosentpoeng og σ<sub>M</sub> = 15 % blir Sharpe 0,05/0,15 = 0,333 og linjen E(r<sub>p</sub>) = 3 % + 0,333 × σ<sub>p</sub>. Vil du ha σ<sub>p</sub> = 22,5 %, låner du 50 % av egenkapitalen til r<sub>f</sub> og plasserer 1,5 × M: 3 % + 1,5 × 5 % = <b>10,5 %</b>, nøyaktig det linjen gir (3 + 0,333 × 22,5). Lånt andel = σ<sub>p</sub>/σ<sub>M</sub> − 1.</div>
+</div>
+
+<div class="callout mech"><span class="h">Hvorfor gir ikke mer risikable enkeltaksjer mer forventet avkastning?</span>
+Fordi markedet bare betaler for risiko du <i>ikke</i> kan bli kvitt. Kjøper du hundre uavhengige oppstartsselskaper i ulike land, forsvinner nesten all selskapsspesifikk risiko, og siden alle kan gjøre det gratis, kan ingen kreve betaling for å bære den. Igjen står samvariasjonen med markedet, målt ved β, og det er den CAPM priser: avkastningskrav = r<sub>f</sub> + β(r<sub>M</sub> − r<sub>f</sub>). En volatil enkeltaksje gir mye <i>total</i> risiko, men bare den systematiske delen betales, så du havner under kapitalmarkedslinjen. Konsekvensen er <b>separasjonsteoremet</b>: <i>hvilken</i> risikabel portefølje du eier er den samme for alle, og risikoviljen bestemmer bare hvor mye bank eller lån du blander inn.</div>
+
+<figure>
+<svg viewBox="0 0 720 350" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="To diagrammer. Venstre panel viser forventet avkastning mot standardavvik for to aksjer ved tre korrelasjoner: ved korrelasjon 1 er kurven en rett linje uten diversifiseringsgevinst, ved korrelasjon 0 buer den innover med minste standardavvik 0,89 ved 80 prosent i den gode aksjen, og ved korrelasjon minus 1 knekker den helt inn til null standardavvik ved to tredeler i den gode aksjen. Høyre panel viser kapitalmarkedslinjen fra risikofri rente 3 prosent gjennom markedsporteføljen ved 15 prosent standardavvik og 8 prosent forventet avkastning, videre til giret posisjon ved 22,5 prosent risiko og 10,5 prosent forventning, med de effisiente porteføljene som en stiplet kurve som tangerer linjen i markedsporteføljen."
+     font-family="Georgia,serif" font-size="13">
+
+  <text x="195" y="24" text-anchor="middle" fill="#333" font-weight="bold">Korrelasjonen former kurven</text>
+  <text x="555" y="24" text-anchor="middle" fill="#333" font-weight="bold">Kapitalmarkedslinjen og giring</text>
+
+  <line x1="60" y1="280" x2="330" y2="280" stroke="#333" stroke-width="1.4"/>
+  <line x1="60" y1="280" x2="60"  y2="45"  stroke="#333" stroke-width="1.4"/>
+
+  <path d="M305.5,260.8 L182.7,69.2" stroke="#1f3a5f" stroke-width="2.1" fill="none"/>
+  <path d="M305.5,260.8 L60,133.1 L182.7,69.2" stroke="#2f5a3f" stroke-width="2.1" fill="none" stroke-dasharray="5 4"/>
+  <path d="M305.5,260.8 L281.2,241.7 L257.9,222.5 L235.7,203.3 L215.2,184.2 L197.2,165.0 L182.7,145.8 L173.1,126.7 L169.8,107.5 L173.1,88.3 L182.7,69.2" stroke="#6b1f2a" stroke-width="2.3" fill="none"/>
+
+  <circle cx="169.8" cy="107.5" r="3.6" fill="#6b1f2a"/>
+  <circle cx="60" cy="133.1" r="3.6" fill="#2f5a3f"/>
+  <circle cx="305.5" cy="260.8" r="3.2" fill="#333"/>
+  <circle cx="182.7" cy="69.2" r="3.2" fill="#333"/>
+
+  <text x="176" y="103" fill="#6b1f2a" font-size="11">min. varians, s = 0,8</text>
+  <text x="66" y="128" fill="#2f5a3f" font-size="11">σ = 0 ved s = 2/3</text>
+  <text x="190" y="63" fill="#333" font-size="11">alt i aksje 1</text>
+  <text x="290" y="275" text-anchor="middle" fill="#333" font-size="11">alt i aksje 2</text>
+  <text x="243" y="112" fill="#1f3a5f" font-weight="bold" font-size="12">ρ = 1</text>
+  <text x="203" y="150" fill="#6b1f2a" font-weight="bold" font-size="12">ρ = 0</text>
+  <text x="98" y="168" fill="#2f5a3f" font-weight="bold" font-size="12">ρ = −1</text>
+
+  <text x="55" y="264" text-anchor="end" fill="#555" font-size="11">1,0</text>
+  <text x="55" y="169" text-anchor="end" fill="#555" font-size="11">1,5</text>
+  <text x="55" y="73" text-anchor="end" fill="#555" font-size="11">2,0</text>
+  <text x="121.4" y="296" text-anchor="middle" fill="#555" font-size="11">0,5</text>
+  <text x="182.7" y="296" text-anchor="middle" fill="#555" font-size="11">1,0</text>
+  <text x="244.1" y="296" text-anchor="middle" fill="#555" font-size="11">1,5</text>
+  <text x="305.5" y="296" text-anchor="middle" fill="#555" font-size="11">2,0</text>
+  <text x="195" y="318" text-anchor="middle" fill="#333" font-size="12">Standardavvik σ</text>
+  <text x="24" y="165" text-anchor="middle" fill="#333" font-size="12" transform="rotate(-90 24 165)">Forventning</text>
+
+  <line x1="420" y1="280" x2="700" y2="280" stroke="#333" stroke-width="1.4"/>
+  <line x1="420" y1="280" x2="420" y2="45"  stroke="#333" stroke-width="1.4"/>
+
+  <path d="M521.2,241.7 L513.5,232.1 L508.5,222.5 L506.8,212.9 L508.5,203.3 L513.5,193.8 L521.2,184.2 L531.1,174.6 L542.7,165.0 L555.6,155.4 L569.3,145.8 L583.7,136.2 L598.7,126.7 L614.0,117.1" stroke="#2f5a3f" stroke-width="2.0" fill="none" stroke-dasharray="5 4"/>
+  <path d="M420,260.8 L665.5,69.2" stroke="#6b1f2a" stroke-width="2.3" fill="none"/>
+
+  <line x1="542.7" y1="165" x2="542.7" y2="280" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="604.1" y1="117.1" x2="604.1" y2="280" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="420" y1="165" x2="542.7" y2="165" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="420" y1="117.1" x2="604.1" y2="117.1" stroke="#999" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+  <circle cx="420" cy="260.8" r="3.4" fill="#333"/>
+  <circle cx="542.7" cy="165" r="4" fill="#6b1f2a"/>
+  <circle cx="604.1" cy="117.1" r="3.6" fill="#b06000"/>
+
+  <text x="428" y="257" fill="#333" font-size="11">r<tspan font-size="9" baseline-shift="sub">f</tspan> = 3 %</text>
+  <text x="549" y="162" fill="#6b1f2a" font-weight="bold" font-size="12">M</text>
+  <text x="610" y="113" fill="#b06000" font-size="11">1,5 × M (lånt 50 %)</text>
+  <text x="626" y="86" fill="#6b1f2a" font-size="11">CML</text>
+  <text x="500" y="205" text-anchor="end" fill="#2f5a3f" font-size="11">effisiente</text>
+  <text x="500" y="219" text-anchor="end" fill="#2f5a3f" font-size="11">porteføljer</text>
+
+  <text x="415" y="169" text-anchor="end" fill="#555" font-size="11">8 %</text>
+  <text x="415" y="121" text-anchor="end" fill="#555" font-size="11">10,5 %</text>
+  <text x="542.7" y="296" text-anchor="middle" fill="#555" font-size="11">15 %</text>
+  <text x="604.1" y="296" text-anchor="middle" fill="#555" font-size="11">22,5 %</text>
+  <text x="560" y="318" text-anchor="middle" fill="#333" font-size="12">Standardavvik σ<tspan font-size="9" baseline-shift="sub">p</tspan></text>
+</svg>
+<figcaption>Figur 14.1 — Til venstre: aksjene fra 14.1 (μ<sub>1</sub> = 2, σ<sub>1</sub> = 1 og μ<sub>2</sub> = 1, σ<sub>2</sub> = 2) ved tre korrelasjoner. Ved ρ = 1 er kurven en rett linje uten diversifiseringsgevinst, og laveste risiko ligger i hjørnet med alt i aksje 1. Ved ρ = 0 buer den innover til minimum 0,894 ved s = 0,8, lavere enn begge aksjene hver for seg. Ved ρ = −1 knekker den inn til σ = 0 ved s = 2/3, ikke ved 0,5. Til høyre: én rett linje fra r<sub>f</sub> dominerer hele den stiplede kurven av effisiente porteføljer, og punktene til høyre for M nås ved å låne og kjøpe mer av M.</figcaption>
+</figure>
+
+<div class="callout tip"><span class="h">Slik spørres det: kapitalmarkedslinjen</span>
+H2025 oppgave 15 spurte hva du bør gjøre om du ønsker høyere risiko og forventet avkastning enn markedsporteføljen. Riktig svar er å <b>låne og gire markedsporteføljen</b>. De gale er de samme hver gang: «kjøp de mest risikable enkeltaksjene» (mer total risiko, men den ekstra biten er usystematisk og ubetalt), «sett alt i én oppstartsbedrift» og «ta aldri mer risiko enn M» (teorien rangerer ikke punktene på linjen). To av dem kan utelukkes på ti sekunder, og da skal du svare selv med minuspoeng.</div>
+
+<h3>14.4 Mertons formel: hvor mye av formuen i aksjer</h3>
+
+<p>Separasjonsteoremet sier <i>hvilken</i> risikabel portefølje. Mertons formel sier <i>hvor mye</i>:</p>
+
+<div class="formula">
+  <div class="eq">w* = (μ − r<sub>f</sub>) / (γσ<sup>2</sup>)</div>
+  <div class="where">w* er den optimale aksjeandelen av <b>totalformuen</b>. μ − r<sub>f</sub> er meravkastningen over risikofri rente, σ<sup>2</sup> er markedets <b>varians</b>, og γ er risikoaversjonen. Tre drivere med hvert sitt fortegn: høyere premie gir mer i aksjer, høyere varians og høyere risikoaversjon gir mindre. Legg merke til hva som <i>ikke</i> står der: tidshorisont. Formelen gir samme svar for ett år og for tretti.</div>
+</div>
+
+<p>Med forelesningens typiske tall <b>[eksempeltall]</b>, meravkastning 4 %, σ = 20 % og γ = 3, blir σ<sup>2</sup> = 0,04 og w* = 0,04/(3 × 0,04) = <b>33,3 %</b>. Har du 2 mill. kr og ingenting annet, skal 666 667 kr stå i aksjer. Formelen løses like gjerne baklengs: er tre av de fire størrelsene oppgitt, er den fjerde entydig bestemt, og «umulig å avgjøre» er derfor nesten alltid feil svar.</p>
+
+<div class="callout warn"><span class="h">σ<sup>2</sup> er varians. Les nøye hva oppgaven oppgir</span>
+Dette er den dyreste enkeltfeilen i finansdelen, og den er bygget inn i alternativene. H2025 oppgave 11 oppgir «markedets varians er 0,10» og ber om γ når meravkastningen er 0,05 og w* = 50 %. Riktig: γ = 0,05/(0,5 × 0,10) = <b>1</b>. Leser du 0,10 som standardavvik og kvadrerer til 0,01, får du γ = <b>10</b>, som står som eget alternativ. Motsatt vei: oppgis σ = 20 % og du glemmer å kvadrere, blir w* = 6,7 % i stedet for 33,3 %. Skriv ned om tallet er σ eller σ<sup>2</sup> <i>før</i> du setter inn.</div>
+
+<h3>14.5 Humankapitalen: eiendelen som ikke står i skattemeldingen</h3>
+
+<p>Merton gjelder totalformuen, og den er mer enn bankkontoen. <b>Humankapitalen H</b> er nåverdien av all framtidig arbeidsinntekt, og for en ung arbeidstaker er den den desidert største posten på balansen. Finansformuen F er bare den delen du kan flytte rundt på. Rutinen har fire steg, og alle fire testes.</p>
+
+<div class="formula">
+  <div class="eq">Totalformue = F + H &nbsp;·&nbsp; Ønsket aksjebeløp = w* × (F + H)</div>
+  <div class="eq">Aksjebeløp i finansformuen = w*(F + H) − β<sub>H</sub> × H</div>
+  <div class="eq">Andel av finansformuen: α<sub>F</sub> = [w*(F + H) − β<sub>H</sub> × H] / F</div>
+  <div class="where">β<sub>H</sub> er humankapitalens samvariasjon med aksjemarkedet. Er jobben trygg, er β<sub>H</sub> = 0: humankapitalen er et implisitt bankinnskudd, og hele aksjeeksponeringen må hentes fra F. Samvarierer lønnen én-til-én med markedet (β<sub>H</sub> = 1), <i>eier</i> du allerede aksjer for H, og finansformuen skal være tilsvarende tryggere. Andelen kappes ved 0 nedenfra; over 100 % betyr at teorien anbefaler lånefinansiering.</div>
+</div>
+
+<div class="worked"><span class="wh">Gjennomregnet: H2025 oppgave 11, alle fire delspørsmål</span>
+<p>Meravkastningen over risikofri rente er 0,05 og markedets <b>varians</b> er 0,10 <b>[eksempeltall fra oppgaveteksten]</b>. Kari bør ifølge Merton ha 50 % av formuen i aksjer.</p>
+<p><b>Steg 1 — delspørsmål 1: finn γ.</b> 0,50 = 0,05/(γ × 0,10) gir γ × 0,05 = 0,05, altså γ = <b>1</b>. Kontroll: sett tilbake inn, 0,05/(1 × 0,10) = 0,50. ✓ γ = 1 svarer til logaritmisk nytte, og empiriske anslag ligger gjerne på 2–5, så 50 % er en <i>lav</i> aksjeandel her.</p>
+<p><b>Steg 2 — delspørsmål 2: F = 1 mill. kr og risikofri humankapital H = 1 mill. kr.</b> Totalformue 2 mill. Ønsket aksjebeløp 0,50 × 2 mill. = <b>1 mill. kr</b>. Humankapitalen er risikofri og kan ikke omplasseres, så hele beløpet må tas i finansformuen: 1 mill. av 1 mill. = <b>100 %</b>.</p>
+<p><b>Steg 3 — delspørsmål 3: samme tall, men β<sub>H</sub> = 1.</b> Ønsket aksjebeløp er fortsatt 1 mill. kr, men humankapitalen leverer allerede aksjeeksponering for 1 mill. Aksjebeløp i F: 1 mill. − 1 mill. = 0, altså <b>0 %</b>. Hele finansformuen skal stå risikofritt.</p>
+<p><b>Steg 4 — delspørsmål 4: Anne er nær pensjonsalder.</b> Da er H nesten null, og α<sub>F</sub> = w*(F + 0)/F = w* = <b>50 %</b>: <b>lavere andel av finansformuen</b> enn Karis 100 %, fordi humankapitalen er mindre verdt. Sensor godtok her <b>to svar</b>, for leser du «aksjeandel» som andel av <i>totalformuen</i>, er den uendret 50 % for begge, og «lik andel» er også riktig. Les hvilken nevner spørsmålet bruker.</p>
+<table class="data">
+<tr><th>Situasjon</th><th class="n">F</th><th class="n">H</th><th class="n">Aksjebeløp</th><th class="n">Andel av F</th></tr>
+<tr><td>Bare finansformue</td><td class="n">1 mill.</td><td class="n">0</td><td class="n">0,5 mill.</td><td class="n">50 %</td></tr>
+<tr><td>Risikofri humankapital</td><td class="n">1 mill.</td><td class="n">1 mill.</td><td class="n">1,0 mill.</td><td class="n">100 %</td></tr>
+<tr><td>Humankapital med β = 1</td><td class="n">1 mill.</td><td class="n">1 mill.</td><td class="n">0</td><td class="n">0 %</td></tr>
+</table>
+<p><b>Kontroll:</b> sett opp den samlede balansen etterpå og sjekk at aksjeandelen av <i>alt</i> er w*. Steg 2: 1 mill. i aksjer og 1 mill. i risikofri humankapital, altså 50/50. ✓ Steg 3: 1 mill. aksjelignende humankapital og 1 mill. risikofri bank, også 50/50. ✓ To helt ulike svar på «andel av finansformuen», men samme totalportefølje.</p>
+<p><b>Hvilke gale tall de vanligste feilene ville gitt.</b> Den store er å bruke w* direkte på finansformuen: 50 % av 1 mill. = 500 000 kr, altså <b>50 %</b>, som ligger som alternativ i både delspørsmål 2 og 3. Det gir bare 25 % aksjer av totalformuen og er langt for defensivt. Å dra svaret fra forrige delspørsmål videre gir <b>100 %</b> i delspørsmål 3 og <b>0 %</b> i delspørsmål 2. I delspørsmål 1 er variansfeilen <b>10</b>, og en snudd brøk, 0,10/0,05, ville gitt <b>2</b>.</p>
+</div>
+
+<div class="callout mistake"><span class="h">«Aksjer blir mindre risikable på lang sikt»</span>
+Dette er tidsdiversifiseringsfeilslutningen, og kurset avviser den uttrykkelig. Standardavviket til den <i>årlige gjennomsnittsavkastningen</i> faller riktignok med horisonten, men standardavviket til <b>sluttformuen</b> vokser omtrent med kvadratroten av antall år. Aksjer blir ikke trygge av å eies lenge, og Mertons formel inneholder ikke tid i det hele tatt. Grunnen til at unge bør ha høyere aksjeandel er humankapitalen, en stor obligasjonslignende post i ryggen som ikke kan selges, og det er også økonomenes eneste forsvar for «100 minus alder». Farlig på flervalg, fordi det gale alternativet har <i>riktig konklusjon</i> med galt argument: «lavere aksjeandel, fordi risikoen forsvinner over tid». Les hele setningen.</div>
+
+<p>Oppsettet er gjenbrukt nesten ordrett. H2022 oppgave 7 hadde seks delspørsmål med meravkastning 4 %, γ = 2 og σ = 20 %, altså w* = 50 %: finansformue 2 000′ alene gir 1 000′ i aksjer; med risikofri humankapital på 2 000′ blir totalformuen 4 000′ og aksjebeløpet 2 000′, altså 100 % av F; ti år senere, med F = 3 000′ og H = 1 000′, er beløpet fortsatt 2 000′, men andelen 66,7 %. H2021 oppgave 6a ga premie 5 %, σ = 14 % og γ = 3, altså w* = 0,05/(3 × 0,0196) = 85,03 %. H2018 oppgave 5e–f og H2019 oppgave 6d er samme familie.</p>
+
+<h3>14.6 Indeksfond, kostnader, valuta og aksjesparekonto</h3>
+
+<p>Resten er fakta- og begrepsspørsmål, og de er billige poeng. Et <b>indeksfond</b> eier alle aksjene i en indeks i markedsverdivekter og leverer per definisjon det verdivektede gjennomsnittet av dem, minus gebyret. Påstanden «indeksfond gir høyere avkastning enn et vektet snitt av enkeltaksjene» er derfor feil av ren aritmetikk, og var akkurat den H2024 oppgave 12a ba deg peke ut.</p>
+
+<p>Kostnadene er hovedargumentet. Indeksfond tar typisk 0,1–0,3 % i året, aktive fond 1–2 %, hedgefond 2 % pluss 20 % av avkastningen. <b>Forbrukerrådets</b> gjennomgang av norske forvalteres aktive fond mot indeks over tjue år fram til 2018 fant en årlig differanseavkastning på <b>−0,89</b> prosentpoeng for globale fond, <b>−1,08</b> for europeiske, <b>−3,48</b> for nordiske og <b>+0,86</b> for norske aksjer: aktive taper i alle kategorier unntatt hjemmemarkedet, som var riktig svar i H2025 oppgave 16. Buffetts tiårsveddemål fra 2008 peker samme vei: indeksen opp 85 %, hedgefondene opp 22 %.</p>
+
+<div class="callout mech"><span class="h">Hvorfor er ett prosentpoeng i gebyr så mye?</span>
+Fordi det trekkes hvert eneste år og dermed rammer renters rente. Sett kr 100 000 i tjue år <b>[eksempeltall]</b>: 7 % i året gir 386 968 kr, 6 % gir 320 714 kr. Differansen er 66 255 kr, altså <b>17,1 % lavere sluttverdi</b> av ett prosentpoeng i gebyr; over tretti år er tapet 24,6 %. Legg til aritmetikken: markedet <i>er</i> gjennomsnittet av alle investorer før kostnader, så aktive forvaltere kan ikke som gruppe slå det etterpå. Berk og DeMarzo skjerper poenget: aktive fond slår gjerne indeks <i>før</i> gebyrer, men gevinsten går til forvalteren. Og statistikken lyver i de aktives favør, fordi de dårligste fondene legges ned og forsvinner ut av snittet, <i>survivorship bias</i>.</div>
+
+<div class="callout tip"><span class="h">Slik spørses det: faktaspørsmålene i porteføljeblokken</span>
+Tre former går igjen. <b>(1) Regionfordelingen.</b> H2024 oppgave 12b: et globalt indeksfond er omtrent <b>70 % USA</b> og har lite eller ingen Kina, fordi standardindeksene dekker utviklede markeder. Et «globalt» fond er i praksis en stor amerikansk posisjon med dollareksponering; Norge er 0,2 % av verdens aksjemarked. <b>(2) Forbrukerrådets mønster</b> (H2025 oppgave 16): svakere på globale, europeiske og nordiske, bedre på norske. Det farligste gale alternativet er «dårligere i alle kategorier», som er nærmest sannheten og derfor dyrest med minuspoeng. <b>(3) Indeksfondets definisjon</b> (H2024 oppgave 12a): alt som påstår at indeksfondet gir <i>mer</i> enn markedet, er galt per konstruksjon.</div>
+
+<p><b>Valutasikring</b> er det mest lærerike spørsmålet i blokken (H2024 oppgave 12c). Du eier et globalt indeksfond i utenlandsk valuta, og arbeidsinntekten din er høyere når kronen er sterk. Bør du sikre? <b>Nei.</b> Er kronen svak, er fondet mer verdt i kroner, men lønnen din lav; er kronen sterk, er det motsatt. Den usikrede posisjonen betaler mest når du trenger den mest. Sikrer du, fjerner du den negative samvariasjonen og gjør samlet inntekt mer usikker, selv om fondets eget standardavvik faller. Regelen bærer hele kapitlet: vurder et aktivum etter hvordan det samvarierer med resten av formuen din, humankapitalen inkludert, aldri etter sitt eget standardavvik alene. Det er også argumentet mot å eie aksjer i selskapet du jobber i.</p>
+
+<p><b>Aksjesparekonto</b>, kort <b>[dagens regel]</b>. Kontoen kan inneholde børsnoterte aksjer og aksjefond med over 80 % aksjeandel innenfor EØS. Gevinst og utbytte <i>inne på</i> kontoen utløser ingen skatt, og uttak regnes først som skattefri tilbakebetaling av innskuddet; bare uttak utover det er skattepliktig, med skjermingsfradrag og oppjusteringsfaktor 1,72, altså effektivt 37,84 %. Formuesverdien settes til 80 % av aksjeandelen. Poenget er skattekreditten: hele bruttoavkastningen forrentes videre i stedet for at skatten tas løpende.</p>
+
+<div class="callout link"><span class="h">Hvor dette henger sammen med resten</span>
+<b>Oppjusteringen og skjermingsfradraget</b> på aksjesparekontoen er maskineriet fra kapittel 5, der satsene 1,72 og 37,84 % er utledet. <b>Risikopremien og standardavvikene</b> du setter inn i Merton, er de historiske tallene fra kapittel 3: 5–8 prosentpoeng over sikre plasseringer, og rundt 15 % svingning i året for et globalt indeksfond. <b>Risikoaversjonen γ</b> er samme parameter som i nyttefunksjonene i kapittel 17. Og <b>humankapitalen</b> binder kapitlet til kapittel 15: den faller mot null gjennom yrkeslivet, og derfor endrer både aksjeandelen og pensjonssparingen karakter med alderen.</div>
+
+</section>
