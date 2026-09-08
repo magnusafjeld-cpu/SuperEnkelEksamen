@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-09-07
+oppdatert: 2026-09-08
 ---
 
 # FIE432 Personlig økonomi
@@ -176,6 +176,7 @@ Kontrolleres med `tools/sjekk-manual.py`.
 | Flashcards | **100** auto-genererte formelkort fra k20 |
 | Quiz | **164 spørsmål** · 133 flervalg / 31 kortsvar · alle 20 kapitler dekket |
 | Dybdetrening | **299 spørsmål** i fire banker: 72 · 77 · 72 · 78 |
+| Kapitteloppgaver | **117 oppgaver** i eksamensformat over alle 19 kapitler · 351 poeng |
 | Lynlæring | ikke skrevet — modulen er avslått til den har data |
 
 **Aritmetikken er kontrollert maskinelt.** `tools/sjekk-aritmetikk.py` fant 841
@@ -204,6 +205,39 @@ mot at 150 000 «bare er renten på et evig lån».
 > 109 000 ord. Manualen er lesbar og kontrollert, men 57 timer er mye for et
 > fag på 7,5 studiepoeng. Skal noe trimmes, er det prosaen rundt de
 > gjennomregnede eksemplene, ikke eksemplene.
+
+## Kapitteloppgaver
+
+Hvert kapittel har sitt eget sett flervalgsoppgaver i eksamensformat, å ta rett
+etter lesingen. **117 oppgaver over 19 kapitler, 351 poeng.** Kapittel 5, 7 og 11
+har sju hver; de er kursets tyngst eksaminerte temaer. Se
+[[Moduler og visninger]] for datamodellen.
+
+Fasitfordelingen er **29/29/30/29**. Den er ikke stokket i etterkant: hver
+forfatter fikk en pålagt liste over hvilket alternativ fasiten skulle ligge på i
+hver oppgave, trukket fra en fast seed. De siste atten posisjonene ble regnet ut
+mot fordelingen som alt lå der, siden ingen forfatter ser helheten.
+
+**761 regnekjeder kontrollert maskinelt, 17 utslag, alle notasjon** verktøyet
+ikke leser: hakeparentes rundt en brøk, potenser som `(0,50/0,40)²`, «60/40» som
+forholdstall, algebra med variabler, og avkortede setninger i `traps`-tekster.
+Hvert enkelt er regnet om for hånd. I tillegg regnet jeg om uavhengig de kjedene
+der en innlært feil ville vært dyrest: giringen i k4, framført skjerming i k5,
+konsernkjeden i k6, insidensfortegnene i k11, Domar–Musgrave-repliseringen i k12,
+kreditmetodens to utfall i k13, IPS-identiteten i k15, amortiseringen i k16 og
+forventet nytte i k17.
+
+> [!tip] Feilen fra manualen ble til en distraktor
+> Rentefeilen jeg fant i 16.5 samme dag — renten ganget med hele lånet i stedet
+> for saldoen som faller — står nå som **alternativ** i k16-3, med 352 kroners
+> avstand til riktig svar (24 992 mot 25 344). Det er den beste bruken av en
+> rettet feil: den som gjør den, kjenner den igjen neste gang.
+
+> [!info] En agent overprøvde briefen min, og hadde rett
+> Jeg skrev i oppdraget at IPS-uttak skattlegges som pensjonsinntekt. Kapittel 15
+> sier alminnelig inntekt med 22 %, uten trygdeavgift og trinnskatt, og har en
+> egen boks om nettopp den forvekslingen. Agenten fulgte kilden framfor
+> instruksen. Det er riktig prioritering, og verdt å be om eksplisitt.
 
 Neste steg: lynlæring, som er den siste avslåtte modulen, og eventuelt
 håndforfattede flashcards i tillegg til de auto-genererte formelkortene.

@@ -214,7 +214,7 @@ window.EDU = window.EDU || {};
       const r = resultat(c.num); antOpp += r.antall; antPoeng += r.maks; if (erLevert(c.num)) levert++;
     }));
     wrap.appendChild(sh().pageHead("Øving", "Kapitteloppgaver",
-      `${antOpp} oppgaver over ${antKap} kapitler · ${antPoeng} poeng · ${levert} kapitler levert`));
+      `${antOpp} oppgaver over ${tellord(antKap, "kapittel", "kapitler")} · ${antPoeng} poeng · ${tellord(levert, "kapittel", "kapitler")} levert`));
     wrap.appendChild(el("p.sub", { style: { maxWidth: "62ch", margin: "0 0 22px" } },
       "Ta settet rett etter at du har lest kapitlet, mens stoffet er ferskt. Samme format som eksamen: "
       + "fire alternativer, ett riktig, og minuspoeng for feil. Fasiten sier hvilken feil hvert gale alternativ er laget av."));
