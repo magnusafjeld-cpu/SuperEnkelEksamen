@@ -1,6 +1,6 @@
-/* ===================== KILDER — pensum som ren tekst =====================
-   Gjør kapitlene i manualen om til ren tekst, én bolk per del, klar til å limes
-   inn i et verktøy som bare leser tekst (NotebookLM, en språkmodell, et notat).
+/* ================== NOTEBOOKLM — pensum som ren tekst ==================
+   Gjør kapitlene i manualen om til ren tekst, ETT KAPITTEL OM GANGEN, klart til
+   å limes inn i NotebookLM eller noe annet som bare leser tekst.
 
    Hvorfor dette ligger i motoren og ikke som en ferdig fil: teksten genereres av
    manualen som er lastet NÅ. Rettes en regnefeil i et kapittel, følger eksporten
@@ -18,9 +18,9 @@
                    som markdown blir det tusen stjernepar støy.
      sub, sup   -> _ og ^, så A_(m,n) og x^2 fortsatt kan leses
 
-   Delene kommer fra manifestets parts, og kapitler utenfor coreChapters holdes
+   Delene grupperer bare visningen. Kapitler utenfor coreChapters holdes
    utenfor — for FIE432 er det kursintroduksjonen i k0 og referansekapitlet k20,
-   som ingen av delene har bruk for som kilde.                                  */
+   som ingen har bruk for som kilde.                                            */
 window.EDU = window.EDU || {};
 (function (S) {
   const { el, icon } = S.u;
@@ -142,14 +142,14 @@ window.EDU = window.EDU || {};
     return !k || typeof k.from !== "number" ? true : (num >= k.from && num <= k.to);
   }
 
-  function innledning(del, kapitler) {
+  function innledning(del, c, antall) {
     const s = sub();
+    const sted = [del.tag, del.name].filter(Boolean).join(" — ");
     const linjer = [
-      (s.name || "Pensum").toUpperCase(),
-      [del.tag, del.name].filter(Boolean).join(" — ").toUpperCase(), "",
-      "Innhold: " + kapitler.map((c) => c.fullTitle).join(". ") + ".", "",
-      "Dette er én del av en lærebok. Henvisninger til kapitler utenfor denne",
-      "teksten peker på deler som ikke er med her.", "",
+      (s.name || "Pensum").toUpperCase(), "",
+      "KAPITTEL " + c.num + " · " + (c.title || "").toUpperCase(), "",
+      (sted ? sted + ". " : "") + `Ett kapittel av ${antall} i læreboka.`,
+      "Henvisninger til andre kapitler peker på tekst som ikke er med her.", "",
       "Slik leses notasjonen:",
       "- Tall skrives på norsk: mellomrom som tusenskille og komma som desimaltegn.",
       "  «1 467 200» er én million; «37,84 %» er trettisyv komma åtti fire prosent.",
@@ -157,7 +157,7 @@ window.EDU = window.EDU || {};
       "- «_» betyr senket skrift og «^» hevet skrift: A_(m,n) er A med fotskrift m,n.",
     ];
     /* Fagets egne notasjonskonvensjoner hører hjemme i manifestet, ikke i motoren. */
-    (sh().copy("kilderNotasjon", []) || []).forEach((l) => linjer.push("- " + l));
+    (sh().copy("notebooklmNotasjon", []) || []).forEach((l) => linjer.push("- " + l));
     linjer.push(
       "- FORMEL / GJENNOMREGNET EKSEMPEL / MEKANISME / ADVARSEL / VANLIG FEIL / TIPS /",
       "  KOBLING er blokktyper fra originalen, beholdt som etiketter.",
@@ -168,19 +168,25 @@ window.EDU = window.EDU || {};
 
   /* Teksten bygges én gang per økt. Hele FIE432 er ~82 000 ord, og å parse det
      på nytt for hvert klikk er unødvendig — men å bygge det på forhånd er
-     nødvendig, for kortene viser ordtellingen før du trykker på noe. */
+     nødvendig, for radene viser ordtellingen før du trykker på noe.
+
+     Enheten er KAPITLET, ikke delen. Et kapittel er 2 000–5 000 ord og handler om
+     én ting; en hel del er opptil 20 000 og handler om fem. Skal teksten brukes
+     som kilde et sted som svarer på spørsmål, er det kapitlet som gir presise
+     treff — og det er kapitlet du selv tenker i når du leter. */
   let bufret = null;
   function bolker() {
     if (bufret) return bufret;
+    const alle = S.data.parts().flatMap((d) => d.chapters.filter((c) => kjerneFilter(c.num)));
     bufret = S.data.parts().map((del) => {
-      const kapitler = del.chapters.filter((c) => kjerneFilter(c.num));
-      if (!kapitler.length) return null;
-      let linjer = innledning(del, kapitler);
-      kapitler.forEach((c) => { linjer = linjer.concat(kapittelTekst(c)); });
-      const tekst = linjer.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
-      return { del, kapitler, tekst, ord: tekst.split(/\s+/).filter(Boolean).length,
-               eks: (tekst.match(/GJENNOMREGNET EKSEMPEL/g) || []).length,
-               form: (tekst.match(/FORMEL:/g) || []).length };
+      const kapitler = del.chapters.filter((c) => kjerneFilter(c.num)).map((c) => {
+        const tekst = innledning(del, c, alle.length).concat(kapittelTekst(c))
+          .join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
+        return { kap: c, tekst, ord: tekst.split(/\s+/).filter(Boolean).length,
+                 eks: (tekst.match(/GJENNOMREGNET EKSEMPEL/g) || []).length,
+                 form: (tekst.match(/FORMEL:/g) || []).length };
+      });
+      return kapitler.length ? { del, kapitler } : null;
     }).filter(Boolean);
     return bufret;
   }
@@ -202,64 +208,73 @@ window.EDU = window.EDU || {};
     pre.scrollIntoView({ block: "center" });
   }
 
-  /* Entall når det er én. «1 kapitler» og «1 formler» er den slags som får
-     resten til å se slurvete ut — samme grunn som i chapterMeta. */
+  /* Entall når det er én. «1 formler» er den slags som får resten til å se
+     slurvete ut — samme grunn som i chapterMeta. */
   const tellord = (n, ental, flertall) => `${n} ${n === 1 ? ental : flertall}`;
 
-  function kort(b) {
-    const k = el(".card.pad-lg.kilder-kort");
-    k.appendChild(el(".eyebrow", [b.del.tag, tellord(b.kapitler.length, "kapittel", "kapitler")].filter(Boolean).join(" · ")));
-    k.appendChild(el("h3.kilder-tittel", b.del.name || "Del"));
-    const liste = el("ul.kilder-kap");
-    b.kapitler.forEach((c) => liste.appendChild(el("li", c.fullTitle)));
-    k.appendChild(liste);
-    const tall = el(".kilder-tall", el("span", el("b", b.ord.toLocaleString("nb-NO")), " ord"));
-    if (b.eks) tall.appendChild(el("span", el("b", String(b.eks)),
-      b.eks === 1 ? " gjennomregnet eksempel" : " gjennomregnede eksempler"));
-    if (b.form) tall.appendChild(el("span", el("b", String(b.form)), b.form === 1 ? " formel" : " formler"));
-    k.appendChild(tall);
+  function rad(k) {
+    const r = el(".nlm-rad");
+    const venstre = el(".nlm-radtekst",
+      el(".nlm-radnavn", k.kap.fullTitle),
+      el(".nlm-radtall", [
+        k.ord.toLocaleString("nb-NO") + " ord",
+        k.eks ? tellord(k.eks, "gjennomregnet eksempel", "gjennomregnede eksempler") : null,
+        k.form ? tellord(k.form, "formel", "formler") : null,
+      ].filter(Boolean).join(" · ")));
 
-    const pre = el("pre.kilder-full", { hidden: true });
-    const kopi = el("button.btn.primary", "Kopier teksten");
-    const vis = el("button.btn.ghost.sm", "Vis hele teksten");
+    const pre = el("pre.nlm-full", { hidden: true });
+    const kopi = el("button.btn.primary.sm", "Kopier");
+    const vis = el("button.btn.ghost.sm", "Vis");
 
     let tilbake = null;
     kopi.onclick = async () => {
       clearTimeout(tilbake);
-      const ok = await tilUtklipp(b.tekst);
-      kopi.textContent = ok ? "Kopiert ✓" : "Merket — trykk ⌘C";
+      const ok = await tilUtklipp(k.tekst);
+      kopi.textContent = ok ? "Kopiert ✓" : "Merket — ⌘C";
       if (!ok) { if (pre.hidden) vis.onclick(); merk(pre); }
-      tilbake = setTimeout(() => { kopi.textContent = "Kopier teksten"; }, ok ? 2600 : 9000);
+      tilbake = setTimeout(() => { kopi.textContent = "Kopier"; }, ok ? 2400 : 9000);
     };
     vis.onclick = () => {
-      if (!pre.textContent) pre.textContent = b.tekst;
+      if (!pre.textContent) pre.textContent = k.tekst;
       pre.hidden = !pre.hidden;
-      vis.textContent = pre.hidden ? "Vis hele teksten" : "Skjul teksten";
+      vis.textContent = pre.hidden ? "Vis" : "Skjul";
     };
 
-    k.appendChild(el(".row.kilder-knapper", kopi, vis));
-    k.appendChild(pre);
+    r.appendChild(el(".nlm-radtopp", venstre, el(".nlm-radknapper", kopi, vis)));
+    r.appendChild(pre);
+    return r;
+  }
+
+  function delkort(b) {
+    const k = el(".card.pad-lg.nlm-kort");
+    const ord = b.kapitler.reduce((a, x) => a + x.ord, 0);
+    k.appendChild(el(".eyebrow", [b.del.tag, tellord(b.kapitler.length, "kapittel", "kapitler"),
+      ord.toLocaleString("nb-NO") + " ord"].filter(Boolean).join(" · ")));
+    k.appendChild(el("h3.nlm-tittel", b.del.name || "Del"));
+    const liste = el(".nlm-liste");
+    b.kapitler.forEach((x) => liste.appendChild(rad(x)));
+    k.appendChild(liste);
     return k;
   }
 
   function render() {
     const wrap = el(".fade-in");
     const bs = bolker();
-    if (!bs.length) return wrap.appendChild(sh().empty("Ingen kapitler å eksportere ennå.")), wrap;
-    const sumOrd = bs.reduce((a, b) => a + b.ord, 0);
-    wrap.appendChild(sh().pageHead(
-      "Verktøy", "Kilder",
-      `${sumOrd.toLocaleString("nb-NO")} ord i ${bs.length} deler`,
-      null));
-    wrap.appendChild(el("p.sub.kilder-intro", sh().copy("kilderIntro",
-      "Pensum som ren tekst, én bolk per del. Trykk «Kopier teksten» og lim inn som "
-      + "kilde i NotebookLM, en språkmodell eller et notat. Teksten lages av manualen "
-      + "som er lastet nå, så den er alltid i takt med kapitlene du leser.")));
-    const rutenett = el(".kilder-rutenett");
-    bs.forEach((b) => rutenett.appendChild(kort(b)));
+    if (!bs.length) { wrap.appendChild(sh().empty("Ingen kapitler å eksportere ennå.")); return wrap; }
+    const antKap = bs.reduce((a, b) => a + b.kapitler.length, 0);
+    const sumOrd = bs.reduce((a, b) => a + b.kapitler.reduce((x, k) => x + k.ord, 0), 0);
+    wrap.appendChild(sh().pageHead("Verktøy", "NotebookLM",
+      `${antKap} kapitler · ${sumOrd.toLocaleString("nb-NO")} ord`, null));
+    wrap.appendChild(el("p.sub.nlm-intro", sh().copy("notebooklmIntro",
+      "Pensum som ren tekst, ett kapittel om gangen. Trykk «Kopier» og lim inn som "
+      + "kilde i NotebookLM, en språkmodell eller et notat. Hvert kapittel er en hel "
+      + "kilde for seg, med leseveiledningen øverst. Teksten lages av manualen som er "
+      + "lastet nå, så den er alltid i takt med kapitlene du leser.")));
+    const rutenett = el(".nlm-rutenett");
+    bs.forEach((b) => rutenett.appendChild(delkort(b)));
     wrap.appendChild(rutenett);
     return wrap;
   }
 
-  S.views.kilder = { render };
+  S.views.notebooklm = { render };
 })(window.EDU);

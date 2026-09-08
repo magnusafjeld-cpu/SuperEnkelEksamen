@@ -23,7 +23,7 @@ oppdatert: 2026-09-08
 | Repetisjon | `/review` | Hva du bør repetere nå |
 | Søk | `/search` | På tvers av begreper, formler, figurer, økonomer, variabler |
 | Fremdrift | `/progress` | Statistikk, svakeste temaer, nullstilling, «last innhold på nytt» |
-| Kilder | `/kilder` | Pensum som ren tekst, én bolk per del, med kopiknapp — se under |
+| NotebookLM | `/notebooklm` | Pensum som ren tekst, ett kapittel per kilde, med kopiknapp — se under |
 | Konto | `/konto` | Innlogging og synkstatus |
 
 Sidepanelet grupperer dem som *Studieløp* / *Øving* / *Verktøy*. Mobilnavigasjonen
@@ -34,11 +34,17 @@ topplinja — på mobil er sidepanelet skjult, og da ville Konto vært uten inng
 dybdetrening, antall høyprioriterte repetisjonsforslag, og ⚡ hvis dagens lynøkt
 ikke er tatt.
 
-## Kilder — pensum som ren tekst
+## NotebookLM — pensum som ren tekst
 
-`/kilder` gjør de lastede kapitlene om til ren tekst, én bolk per del i
-manifestets `parts`, med en kopiknapp per bolk. Bruken er å lime pensum inn i noe
-som bare leser tekst: NotebookLM, en språkmodell, et notat.
+`/notebooklm` gjør de lastede kapitlene om til ren tekst med en kopiknapp per
+kapittel. Bruken er å lime pensum inn i noe som bare leser tekst: NotebookLM, en
+språkmodell, et notat.
+
+**Enheten er kapitlet, ikke delen.** Et kapittel er 2 000–5 000 ord og handler om
+één ting; en hel del er opptil 20 000 og handler om fem. Skal teksten brukes som
+kilde et sted som svarer på spørsmål, er det kapitlet som gir presise treff — og
+det er kapitlet du selv tenker i når du leter. Delene grupperer bare visningen.
+Hvert kapittel bærer sin egen leseveiledning, så det står på egne ben som kilde.
 
 **Teksten genereres av manualen som er lastet nå.** Det er hele poenget med at
 den bor i motoren og ikke som ferdige filer i repoet: rettes en regnefeil i et
@@ -59,7 +65,7 @@ Konverteringen er en oversettelse, ikke en stripping av tagger:
 
 Kapitler utenfor `coreChapters` holdes utenfor. For FIE432 er det k0
 (kursintroduksjonen) og k20 (referansekapitlet), som ingen av delene har bruk for
-som kilde. Fagets egne notasjonskonvensjoner legges i `copy.kilderNotasjon` og
+som kilde. Fagets egne notasjonskonvensjoner legges i `copy.notebooklmNotasjon` og
 havner i innledningen til hver bolk — FIE432 forklarer der hva `[dagens regel]`
 og `[eksempeltall]` betyr.
 

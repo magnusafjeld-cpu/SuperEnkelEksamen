@@ -134,7 +134,7 @@ window.EDU_SUBJECTS = [
       planIntro: "Modul 1–21 bygger faget fra bunnen: grunnlaget, kapitalstruktur, informasjon og utbytte, verdsetting med gjeld, opsjoner, og til slutt M&A og eierstyring. Modul 22–25 er ren eksamenstrening på ekte sett. Innleveringene HW1 og HW2 har egne milepæler underveis.",
       dybdeIntro: "Selvrettet trening i seks bolker som følger kursets deler. Velg bank, filtrer på nivå og tema, og skriv svaret på papir før du åpner fasiten — eksamen er penn og papir.",
     },
-    modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress", "/kilder"],
+    modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress", "/notebooklm"],
   },
   {
     id: "case",
@@ -209,7 +209,7 @@ window.EDU_SUBJECTS = [
       lynFoot: "Alt innhold er hentet fra manualen og fra kartleggingen av hvordan husene faktisk rekrutterer. Feil svar viser alltid forklaringen, det er der læringen skjer. Tips: legg siden til på Hjem-skjermen for app-følelse.",
     },
     /* Casetrening har ingen eksamen og ingen oppgavebank — den har caser. */
-    modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/caser", "/mock", "/historier", "/review", "/search", "/progress", "/kilder"],
+    modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/caser", "/mock", "/historier", "/review", "/search", "/progress", "/notebooklm"],
   },
   {
     id: "fie432",
@@ -261,7 +261,7 @@ window.EDU_SUBJECTS = [
       dybdeIntro: "Selvrettet trening i fire bolker som følger kursets deler. Velg bank, filtrer på nivå, og regn ferdig på papir før du åpner fasiten — eksamen er flervalg, og et tall du ikke har regnet selv, gjenkjenner du ikke blant fire som ligner.",
       /* Hakeparentesene er FIE432s egen konvensjon, og en leser som bare får
          teksten har ingen mulighet til å gjette hva de betyr. */
-      kilderNotasjon: [
+      notebooklmNotasjon: [
         "[dagens regel] merker en sats som faktisk gjelder for inntektsåret 2026.",
         "[eksempeltall] merker et oppdiktet tall, eller et hentet fra en eksamensoppgave — altså ikke gjeldende rett.",
       ],
@@ -270,7 +270,7 @@ window.EDU_SUBJECTS = [
        flervalgssett, som kjøres i /sett. Flashcards er med fordi de 100 radene i
        formelsamlingen k20 blir til kort automatisk; quiz, dybde og lyn legges
        til når de dataene er skrevet. */
-    modules: ["/plan", "/curriculum", "/quiz", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress", "/kilder"],
+    modules: ["/plan", "/curriculum", "/quiz", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress", "/notebooklm"],
   },
 ];
 
