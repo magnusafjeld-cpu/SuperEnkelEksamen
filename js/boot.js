@@ -28,6 +28,7 @@ window.EDU = window.EDU || {};
     { group: "Verktøy", items: [
       { route: "#/search", match: "/search", label: "Søk", ico: "search" },
       { route: "#/progress", match: "/progress", label: "Fremdrift", ico: "chart" },
+      { route: "#/kilder", match: "/kilder", label: "Kilder", ico: "copy" },
     ]},
   ];
   const MOBILE = [
@@ -50,6 +51,8 @@ window.EDU = window.EDU || {};
     "/caser": () => (window.EDU_DATA.cases || []).length > 0,
     "/mock": () => (window.EDU_DATA.mocks || []).length > 0,
     "/historier": () => !!window.EDU_DATA.historier,
+    /* Kildeeksporten lager teksten av manualen. Uten kapitler er den tom. */
+    "/kilder": () => (window.EDU_DATA.curriculum || []).length > 0,
   };
   function has(match) {
     const m = sub().modules;
@@ -137,6 +140,7 @@ window.EDU = window.EDU || {};
     when("/review", "/review", () => setView(() => V.review.render()));
     when("/search", "/search", (p, q) => setView(() => V.search.render(q.q || "")));
     when("/progress", "/progress", () => setView(() => V.progress.render()));
+    when("/kilder", "/kilder", () => setView(() => V.kilder.render()));
     if (S.account) R.on("/konto", () => setView(() => S.account.render()));
     R.setNotFound(() => setView(() => V.dashboard.render()));
   }

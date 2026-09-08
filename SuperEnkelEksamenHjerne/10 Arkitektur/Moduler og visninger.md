@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-08
 ---
 
 # Moduler og visninger
@@ -23,6 +23,7 @@ oppdatert: 2026-08-19
 | Repetisjon | `/review` | Hva du bør repetere nå |
 | Søk | `/search` | På tvers av begreper, formler, figurer, økonomer, variabler |
 | Fremdrift | `/progress` | Statistikk, svakeste temaer, nullstilling, «last innhold på nytt» |
+| Kilder | `/kilder` | Pensum som ren tekst, én bolk per del, med kopiknapp — se under |
 | Konto | `/konto` | Innlogging og synkstatus |
 
 Sidepanelet grupperer dem som *Studieløp* / *Øving* / *Verktøy*. Mobilnavigasjonen
@@ -32,6 +33,54 @@ topplinja — på mobil er sidepanelet skjult, og da ville Konto vært uten inng
 **Merker** i navigasjonen: antall forfalte flashcards, «må øve»-tellingen fra
 dybdetrening, antall høyprioriterte repetisjonsforslag, og ⚡ hvis dagens lynøkt
 ikke er tatt.
+
+## Kilder — pensum som ren tekst
+
+`/kilder` gjør de lastede kapitlene om til ren tekst, én bolk per del i
+manifestets `parts`, med en kopiknapp per bolk. Bruken er å lime pensum inn i noe
+som bare leser tekst: NotebookLM, en språkmodell, et notat.
+
+**Teksten genereres av manualen som er lastet nå.** Det er hele poenget med at
+den bor i motoren og ikke som ferdige filer i repoet: rettes en regnefeil i et
+kapittel, følger eksporten med av seg selv. En ferdigbygget tekstfil ville vært
+utdatert fra første retting, og ingen ville oppdaget det.
+
+Konverteringen er en oversettelse, ikke en stripping av tagger:
+
+| I manualen | I teksten |
+|---|---|
+| `.formula` | `FORMEL:` ligningen, så `der:` |
+| `.worked` | `GJENNOMREGNET EKSEMPEL — tittel` |
+| `.callout mech/warn/tip/link/mistake` | `MEKANISME` / `ADVARSEL` / `TIPS` / `KOBLING` / `VANLIG FEIL` |
+| `table.data` | pipe-tabell |
+| `figure` | figurteksten pluss svg-ens `aria-label` |
+| `<b>`, `<i>` | droppes — manualen utheder hvert svartall, og som markdown blir det tusen stjernepar støy |
+| `<sub>`, `<sup>` | `_` og `^` |
+
+Kapitler utenfor `coreChapters` holdes utenfor. For FIE432 er det k0
+(kursintroduksjonen) og k20 (referansekapitlet), som ingen av delene har bruk for
+som kilde. Fagets egne notasjonskonvensjoner legges i `copy.kilderNotasjon` og
+havner i innledningen til hver bolk — FIE432 forklarer der hva `[dagens regel]`
+og `[eksempeltall]` betyr.
+
+`tools/manual-til-kilde.py` gjør det samme fra kommandolinjen og skriver til fil:
+
+```
+python3 tools/manual-til-kilde.py FIE432_Manual.html 5-8 ut.md
+python3 tools/manual-til-kilde.py FIE432_Manual.html 0.1,1-2 ut.md
+```
+
+Spesifikasjonen er en kommaliste av kapitler, spenn og enkeltseksjoner. En
+enkeltseksjon som `0.1` tas uten kapitteltittelen rundt seg, så en innledning kan
+hentes ut av et kapittel man ellers ikke vil ha med. De to implementasjonene ble
+sammenlignet tegn for tegn på Del I og Del II og er identiske.
+
+> [!bug] Verktøyet kastet mellomrom, appen gjorde det ikke
+> `html.parser`-versjonen droppet tekstnoder som bare var mellomrom. Manualen
+> skriver `salgsverdien</b> <b>[dagens regel]</b>`, og mellomrommet mellom de to
+> taggene er nettopp en slik node — resultatet ble `salgsverdien[dagens regel]`.
+> Nettleserens DOM beholder den, så feilen fantes bare i Python-verktøyet, og den
+> ble bare synlig fordi de to ble sammenlignet. Tre steder i Del II alene.
 
 ## De fire læringsmotorene
 

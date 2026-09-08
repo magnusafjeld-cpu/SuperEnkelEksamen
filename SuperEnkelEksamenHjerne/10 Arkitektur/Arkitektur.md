@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, kode]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-08
 ---
 
 # Arkitektur
@@ -17,7 +17,12 @@ js/
   bundle-views.js          alle visninger (dashboard, plan, pensum, kapittel,
                            quiz, flashcards, eksamen, repetisjon, søk, fremdrift)
   bundle-lyn.js            lynlæring: 13 minispill + XP/nivå/streak
-  bundle-dybde.js          dybdetrening: de tre spørsmålsbankene
+  bundle-dybde.js          dybdetrening: spørsmålsbankene (fra manifestet)
+  bundle-sett.js           eksamenssett: øvingsmodus og eksamensmodus
+  bundle-case.js           casetrening
+  bundle-mock.js           mock-intervjuer
+  bundle-historier.js      historiebank
+  bundle-kilder.js         pensum som ren tekst, én bolk per del, med kopiknapp
   account.js               Supabase-innlogging + synk (mergeState bor her)
   picker.js                fag-velger, tema, byggnummer, dynamisk lasting av fagdata
   boot.js                  app-skall, navigasjon, ruting, innholdslaster
