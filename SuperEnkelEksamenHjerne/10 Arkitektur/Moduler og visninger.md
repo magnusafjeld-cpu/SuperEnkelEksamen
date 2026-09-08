@@ -41,7 +41,7 @@ kapittel. Bruken er å lime pensum inn i noe som bare leser tekst: NotebookLM, e
 språkmodell, et notat.
 
 **Enheten er kapitlet, ikke delen.** Et kapittel er 2 000–5 000 ord og handler om
-één ting; en hel del er opptil 20 000 og handler om fem. Skal teksten brukes som
+én ting; en hel del er opptil 20 000 og handler om fem. Skal teksten brukes som
 kilde et sted som svarer på spørsmål, er det kapitlet som gir presise treff — og
 det er kapitlet du selv tenker i når du leter. Delene grupperer bare visningen.
 Hvert kapittel bærer sin egen leseveiledning, så det står på egne ben som kilde.
