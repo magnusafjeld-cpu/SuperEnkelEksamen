@@ -23,6 +23,7 @@ oppdatert: 2026-09-08
 | Repetisjon | `/review` | Hva du bør repetere nå |
 | Søk | `/search` | På tvers av begreper, formler, figurer, økonomer, variabler |
 | Fremdrift | `/progress` | Statistikk, svakeste temaer, nullstilling, «last innhold på nytt» |
+| Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num` | Flervalg i eksamensformat per kapittel, med minuspoeng — se under |
 | NotebookLM | `/notebooklm` | Pensum som ren tekst, ett kapittel per kilde, med kopiknapp — se under |
 | Konto | `/konto` | Innlogging og synkstatus |
 
@@ -33,6 +34,66 @@ topplinja — på mobil er sidepanelet skjult, og da ville Konto vært uten inng
 **Merker** i navigasjonen: antall forfalte flashcards, «må øve»-tellingen fra
 dybdetrening, antall høyprioriterte repetisjonsforslag, og ⚡ hvis dagens lynøkt
 ikke er tatt.
+
+## Kapitteloppgaver — eksamensformatet, ett kapittel om gangen
+
+`/kapitteloppgaver` gir et lite sett flervalgsoppgaver per kapittel, å ta rett
+etter lesingen. Fire alternativer, ett riktig, og **minuspoeng for feil**: rett
+gir full poengsum, galt gir `wrongFactor` × poengsummen (standard −1/3, altså
+3 og −1), ubesvart gir 0.
+
+**Hvorfor dette ikke er quizen om igjen.** Quizen trekker fra hele pensum og
+sjekker om du husker. Dette sjekker om du kan *regne*, på ett kapittel, mens det
+fortsatt er ferskt: flertrinns oppgaver med tall, der de tre gale alternativene
+er laget av hver sin konkrete feil.
+
+**Minuspoengene er poenget.** Fra 2026 koster et feil svar. Å la et alternativ
+stå blankt er derfor en ekte strategi, og settet må trene den: et valgt
+alternativ kan velges bort igjen, resultatet teller ubesvarte for seg, og
+resultatkortet viser hva samme besvarelse ville gitt uten minuspoeng.
+
+Datamodellen ligger i `EDU_DATA.chapterTasks`, med kapittelnummer som nøkkel:
+
+```js
+window.EDU_DATA.chapterTasks[5] = {
+  minutes: 25,
+  tasks: [{
+    id: "k5-1",              // lagringsnøkkel — må aldri endres
+    topic: "Skjerming", points: 3,
+    body: "<p>…</p>",        // HTML
+    options: ["…", "…", "…", "…"],   // nøyaktig fire
+    answer: 2,
+    solution: "<p><b>Steg 1 — …</b> …</p>",
+    traps: [ "…", "…", null, "…" ],  // parallelt med options, null på fasiten
+  }],
+};
+```
+
+`traps` er den viktigste delen og den som skiller modulen fra en vanlig quiz:
+én setning per galt alternativ som sier hvilken konkret feil alternativet er
+laget av. Uten den lærer et galt svar deg ingenting.
+
+Settet vises tre steder: i menyen under Øving, som liste over alle kapitler, og
+som **et kort nederst på selve kapittelsiden** — oppgavene skal tas rett etter
+lesingen, og da må de ligge der kapitlet slutter, ikke bare i en meny brukeren
+må huske å oppsøke.
+
+Kapitlene skrives hver for seg i `fag/<id>/_kapoppg/kN.js` og settes sammen med
+`python3 tools/bygg-kapoppgaver.py <fag>`. Kontrolleres med
+`node tools/sjekk-kapitteloppgaver.js <fag>`.
+
+> [!warning] Fasitposisjonen styres på forhånd, ikke i etterkant
+> Fallgruve 7c gjelder her mer enn noe annet sted, fordi dette *er*
+> eksamensformatet. Da FIE402s drill ble skrevet av parallelle agenter, endte
+> 161 av 246 riktige svar på indeks 1. Derfor får hver agent en **pålagt** liste
+> over hvilket alternativ fasiten skal ligge på i hver oppgave, trukket fra en
+> fast seed så fordelingen er jevn globalt og variert innad i kapitlet.
+> Kontrollen avviser settet hvis fordelingen likevel skjever mer enn 35 %.
+
+> [!info] Fire alternativer er ikke kosmetikk
+> Kontrollen krever nøyaktig fire. Med tre er forventet verdi av blindt gjett
+> +0,33 i stedet for 0, og hele gjettestrategien kapittel 19 lærer bort, blir
+> feil.
 
 ## NotebookLM — pensum som ren tekst
 

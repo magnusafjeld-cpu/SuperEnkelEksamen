@@ -22,6 +22,7 @@ js/
   bundle-case.js           casetrening
   bundle-mock.js           mock-intervjuer
   bundle-historier.js      historiebank
+  bundle-kapitteloppgaver.js  flervalg i eksamensformat per kapittel
   bundle-notebooklm.js     pensum som ren tekst, ett kapittel per kilde
   account.js               Supabase-innlogging + synk (mergeState bor her)
   picker.js                fag-velger, tema, byggnummer, dynamisk lasting av fagdata

@@ -271,6 +271,12 @@ window.EDU.views = window.EDU.views || {};
     article.appendChild(prose);
     article.appendChild(activeLearning(num, c));
     article.appendChild(recap(c));
+    /* Kapitteloppgavene skal tas RETT etter lesingen, så de ligger her og ikke
+       bare i menyen. Modulen kan være avslått eller mangle data for kapitlet;
+       da returnerer den null og kortet uteblir. */
+    const oppg = S.views.kapitteloppgaver && S.hasModule("/kapitteloppgaver")
+      ? S.views.kapitteloppgaver.kapittelkort(num) : null;
+    if (oppg) article.appendChild(oppg);
     article.appendChild(prevNext(num));
     layout.appendChild(article);
     const toc = el(".article-toc");

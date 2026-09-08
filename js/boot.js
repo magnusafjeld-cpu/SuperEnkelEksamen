@@ -15,6 +15,7 @@ window.EDU = window.EDU || {};
     { group: "Øving", items: [
       { route: "#/lyn", match: "/lyn", label: "Lynlæring", ico: "bolt", badge: () => (S.views.lyn && !S.views.lyn.dailyDone()) ? "⚡" : null },
       { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
+      { route: "#/kapitteloppgaver", match: "/kapitteloppgaver", label: "Kapitteloppgaver", ico: "check" },
       { route: "#/flashcards", match: "/flashcards", label: "Flashcards", ico: "cards", badge: () => S.srs.stats().due || null },
       { route: "#/dybde", match: "/dybde", label: "Dybdetrening", ico: "layers", badge: () => (S.views.dybde && S.views.dybde.weakCount()) || null },
       { route: "#/oppgaver", match: "/oppgaver", label: "Oppgavebank", ico: "book" },
@@ -53,6 +54,7 @@ window.EDU = window.EDU || {};
     "/historier": () => !!window.EDU_DATA.historier,
     /* Teksteksporten lager kildene av manualen. Uten kapitler er den tom. */
     "/notebooklm": () => (window.EDU_DATA.curriculum || []).length > 0,
+    "/kapitteloppgaver": () => Object.keys(window.EDU_DATA.chapterTasks || {}).length > 0,
   };
   function has(match) {
     const m = sub().modules;
@@ -140,6 +142,8 @@ window.EDU = window.EDU || {};
     when("/review", "/review", () => setView(() => V.review.render()));
     when("/search", "/search", (p, q) => setView(() => V.search.render(q.q || "")));
     when("/progress", "/progress", () => setView(() => V.progress.render()));
+    when("/kapitteloppgaver", "/kapitteloppgaver", () => setView(() => V.kapitteloppgaver.render()));
+    when("/kapitteloppgaver", "/kapitteloppgaver/:num", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num)));
     when("/notebooklm", "/notebooklm", () => setView(() => V.notebooklm.render()));
     if (S.account) R.on("/konto", () => setView(() => S.account.render()));
     R.setNotFound(() => setView(() => V.dashboard.render()));

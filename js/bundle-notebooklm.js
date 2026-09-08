@@ -260,7 +260,7 @@ window.EDU = window.EDU || {};
   function render() {
     const wrap = el(".fade-in");
     const bs = bolker();
-    if (!bs.length) { wrap.appendChild(sh().empty("Ingen kapitler å eksportere ennå.")); return wrap; }
+    if (!bs.length) { wrap.appendChild(sh().empty("📄", "Ingen kapitler ennå", "Manualen er ikke lastet, eller den har ingen kapitler innenfor coreChapters.")); return wrap; }
     const antKap = bs.reduce((a, b) => a + b.kapitler.length, 0);
     const sumOrd = bs.reduce((a, b) => a + b.kapitler.reduce((x, k) => x + k.ord, 0), 0);
     wrap.appendChild(sh().pageHead("Verktøy", "NotebookLM",
