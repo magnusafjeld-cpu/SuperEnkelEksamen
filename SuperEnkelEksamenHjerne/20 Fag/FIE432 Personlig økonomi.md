@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-09-08
+oppdatert: 2026-09-09
 ---
 
 # FIE432 Personlig økonomi
@@ -212,6 +212,17 @@ Hvert kapittel har sitt eget sett flervalgsoppgaver i eksamensformat, å ta rett
 etter lesingen. **117 oppgaver over 19 kapitler, 351 poeng.** Kapittel 5, 7 og 11
 har sju hver; de er kursets tyngst eksaminerte temaer. Se
 [[Moduler og visninger]] for datamodellen.
+
+**Fasiten kommer med en gang.** Velger du et alternativ, låses oppgaven og
+fasiten åpner seg der og da, med utregningen og hvilken feil hvert gale
+alternativ er laget av. Grunnen er at dette ikke er en eksamenssimulering — den
+ligger i `/sett`, med nedtelling og fasit først ved levering. Her er poenget å
+lære mens regnestykket ennå er i hodet.
+
+Minuspoengene trenes likevel: hver oppgave har en **«Stå over»**-knapp som fører
+den som ubesvart, 0 poeng i stedet for minus. Det er nettopp valget eksamen
+krever når du ikke kan utelukke minst ett alternativ. Resultatkortet viser i
+tillegg hva besvarelsen ville gitt under den gamle regelen uten minuspoeng.
 
 Fasitfordelingen er **29/29/30/29**. Den er ikke stokket i etterkant: hver
 forfatter fikk en pålagt liste over hvilket alternativ fasiten skulle ligge på i

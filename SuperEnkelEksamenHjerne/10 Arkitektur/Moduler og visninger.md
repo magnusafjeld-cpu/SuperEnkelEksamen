@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-09-08
+oppdatert: 2026-09-09
 ---
 
 # Moduler og visninger
@@ -23,7 +23,7 @@ oppdatert: 2026-09-08
 | Repetisjon | `/review` | Hva du bør repetere nå |
 | Søk | `/search` | På tvers av begreper, formler, figurer, økonomer, variabler |
 | Fremdrift | `/progress` | Statistikk, svakeste temaer, nullstilling, «last innhold på nytt» |
-| Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num` | Flervalg i eksamensformat per kapittel, med minuspoeng — se under |
+| Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num` | Flervalg i eksamensformat per kapittel, med fasit med en gang |
 | NotebookLM | `/notebooklm` | Pensum som ren tekst, ett kapittel per kilde, med kopiknapp — se under |
 | Konto | `/konto` | Innlogging og synkstatus |
 
