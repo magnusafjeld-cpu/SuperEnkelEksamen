@@ -17,7 +17,7 @@
    ============================================================================ */
 window.EDU = window.EDU || {};
 (function (S) {
-  const { el, icon, frag } = S.u;
+  const { el, icon, frag, tellord } = S.u;
   const sh = () => S.views.shared;
 
   const ALLE = () => window.EDU_DATA.chapterTasks || {};

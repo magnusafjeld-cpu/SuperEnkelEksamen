@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-09-07
+oppdatert: 2026-09-09
 ---
 
 # Fallgruver
@@ -376,6 +376,40 @@ regn om med manualens egne oppgitte mellomtall, ikke bare med full presisjon.
 > 16.5 brukte akkurat det tallet som første års renter. Når to steder i samme
 > kapittel er uenige, er minst ett av dem galt — og det er en sjekk ingen
 > aritmetikkontroll kan gjøre, fordi begge regnestykkene er riktig regnet.
+
+## 7r. `node --check` er en syntakssjekk, ikke en referansesjekk
+
+Hver bundle er sin egen IIFE. En hjelper deklarert med `const` inni én av dem er
+usynlig for de andre — men `node --check` sier ingenting, fordi filen er
+syntaktisk feilfri. Feilen dukker først opp når linjen faktisk kjøres.
+
+Slik skjedde det: `tellord()` ble skrevet i `bundle-notebooklm.js`, og en senere
+retting av entallsformen i `bundle-kapitteloppgaver.js` kalte den derfra.
+`node --check` var grønn på begge filene. Listevisningen krasjet med
+«Can't find variable: tellord» så snart den ble åpnet.
+
+Hjelperen bor nå i `S.u` i `bundle-core.js`, som er stedet for akkurat dette.
+
+> [!warning] Testing av feil skjerm er ikke testing
+> Jeg åpnet `/kapitteloppgaver/19` etter rettingen og så at den virket. Feilen lå
+> i `/kapitteloppgaver`, listevisningen, som jeg ikke åpnet. En modul har ofte to
+> visninger, og den ene kan være hel mens den andre er knust.
+
+**Rutinen som fanger det:** gå gjennom hver rute etter en endring i `js/`, ikke
+bare den du nettopp rørte. Det tar sekunder i konsollen:
+
+```js
+for (const r of [...new Set([...document.querySelectorAll('[data-match]')].map(n => n.dataset.match))]) {
+  location.hash = '#' + r;
+  await new Promise(x => setTimeout(x, 380));
+  const t = (document.querySelector('.content').innerText || '').trim();
+  if (t.includes('Noe gikk galt') || t.length < 40) console.warn('BREKKER:', r);
+}
+```
+
+Kjør den for **alle fire fagene**. En endring i `bundle-core.js` treffer alle, og
+fag-id-ene er `sam3`, `fie402`, `case` og `fie432` — merk at Caseintervju heter
+`case`, ikke `caseintervju`.
 
 ## 8. Filer som ikke er koblet til noe
 

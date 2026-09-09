@@ -23,7 +23,7 @@
    som ingen har bruk for som kilde.                                            */
 window.EDU = window.EDU || {};
 (function (S) {
-  const { el, icon } = S.u;
+  const { el, icon, tellord } = S.u;
   const sh = () => S.views.shared;
 
   const CALLOUT = { mech: "MEKANISME", warn: "ADVARSEL", tip: "TIPS", link: "KOBLING", mistake: "VANLIG FEIL", info: "MERK" };
@@ -207,10 +207,6 @@ window.EDU = window.EDU || {};
     const v = window.getSelection(); v.removeAllRanges(); v.addRange(r);
     pre.scrollIntoView({ block: "center" });
   }
-
-  /* Entall når det er én. «1 formler» er den slags som får resten til å se
-     slurvete ut — samme grunn som i chapterMeta. */
-  const tellord = (n, ental, flertall) => `${n} ${n === 1 ? ental : flertall}`;
 
   function rad(k) {
     const r = el(".nlm-rad");

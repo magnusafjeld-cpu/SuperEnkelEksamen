@@ -79,6 +79,11 @@ window.EDU = window.EDU || {};
     b.appendChild(el("span", { style: { width: clamp(percent, 0, 100) + "%" } }));
     return b;
   }
+  /* «1 kapitler» og «1 formler» er den slags som får resten til å se slurvete
+     ut. Hjelperen bor her fordi flere moduler trenger den, og en privat kopi
+     per modul er nettopp det som gjorde at én av dem krasjet på den andres. */
+  const tellord = (n, ental, flertall) => `${n} ${n === 1 ? ental : flertall}`;
+
   const ICONS = {
     home: 'M3 11.5 12 4l9 7.5M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9',
     user: 'M12 11.5a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5M4.5 20.5a7.5 7.5 0 0 1 15 0',
@@ -181,7 +186,7 @@ window.EDU = window.EDU || {};
     return el("div", rad, live);
   }
 
-  S.u = { el, frag, clear, mount, escapeHtml, todayISO, parseISO, daysBetween, formatDate, clamp, nowTs, debounce, toast, ring, bar, icon, ICONS, diktering };
+  S.u = { el, frag, clear, mount, escapeHtml, todayISO, parseISO, daysBetween, formatDate, clamp, nowTs, debounce, toast, ring, bar, icon, ICONS, diktering, tellord };
 })(window.EDU);
 
 /* ---------------- parse-manual ---------------- */
