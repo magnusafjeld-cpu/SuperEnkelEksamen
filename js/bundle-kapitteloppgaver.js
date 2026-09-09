@@ -56,6 +56,18 @@ window.EDU = window.EDU || {};
     valg[id] = i;
     S.store.setExam(nøkkel(num), { valg: valg });
   }
+  /* Angre ÉN oppgave. Den finnes for bomklikk, ikke for å prøve seg fram: har
+     du sett fasiten, måler et nytt forsøk ingenting. Men et alternativ truffet
+     ved et uhell skal ikke låse oppgaven for godt. */
+  function angre(num, id) {
+    const valg = Object.assign({}, valgene(num));
+    delete valg[id];
+    const st = S.store.get();
+    /* Gammel tilstand avslører alt via levertAt. Angrer du på én oppgave der,
+       må flagget bort, ellers står den avslørt uansett hva valg sier. */
+    if (st.exams[nøkkel(num)]) delete st.exams[nøkkel(num)].levertAt;
+    S.store.setExam(nøkkel(num), { valg: valg });
+  }
   function nullstill(num) { const st = S.store.get(); delete st.exams[nøkkel(num)]; S.store.emit(); }
 
   /* ---------- retting ---------- */
@@ -95,8 +107,12 @@ window.EDU = window.EDU || {};
       const blank = valgt == null || valgt === BLANK;
       const fikk = blank ? 0 : (valgt === t.answer ? p : Math.round(p * wfFor(forKap(num)) * 100) / 100);
       const farge = blank ? "var(--ink-3)" : (valgt === t.answer ? "var(--green)" : "var(--rose)");
-      boks.appendChild(el(".tiny", { style: { marginTop: "6px", fontWeight: 620, color: farge } },
-        blank ? "Stod over · 0 poeng" : (valgt === t.answer ? `Riktig · ${pts(fikk)} poeng` : `Feil · ${pts(fikk)} poeng`)));
+      boks.appendChild(el(".row", { style: { marginTop: "8px", gap: "10px", alignItems: "center" } },
+        el(".tiny", { style: { fontWeight: 620, color: farge } },
+          blank ? "Stod over · 0 poeng" : (valgt === t.answer ? `Riktig · ${pts(fikk)} poeng` : `Feil · ${pts(fikk)} poeng`)),
+        el(".spacer"),
+        el("button.btn.ghost.sm", { title: "Nullstiller bare denne oppgaven",
+          onclick: () => { angre(num, t.id); S.app.refresh(); } }, "Angre svaret")));
     } else {
       /* «Stå over» er ikke en snarvei forbi oppgaven, det er svaret på eksamen
          når du ikke kan utelukke noe. Den skal derfor være like tilgjengelig som

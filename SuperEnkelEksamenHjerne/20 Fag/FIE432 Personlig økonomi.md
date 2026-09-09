@@ -219,6 +219,11 @@ alternativ er laget av. Grunnen er at dette ikke er en eksamenssimulering — de
 ligger i `/sett`, med nedtelling og fasit først ved levering. Her er poenget å
 lære mens regnestykket ennå er i hodet.
 
+Hver oppgave har også **«Angre svaret»**, som låser opp bare den ene oppgaven.
+Den finnes for bomklikk, ikke for å prøve seg fram — har du sett fasiten, måler
+et nytt forsøk ingenting — men et alternativ truffet ved et uhell skal ikke låse
+oppgaven for godt.
+
 Minuspoengene trenes likevel: hver oppgave har en **«Stå over»**-knapp som fører
 den som ubesvart, 0 poeng i stedet for minus. Det er nettopp valget eksamen
 krever når du ikke kan utelukke minst ett alternativ. Resultatkortet viser i
