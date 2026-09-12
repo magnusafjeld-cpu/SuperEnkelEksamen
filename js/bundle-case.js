@@ -51,8 +51,26 @@ window.EDU = window.EDU || {};
   function nullstill(id) {
     const st = S.store.get(), c = caseById(id);
     delete st.exams[kjørKey(id)];
+    delete st.exams[enkeltKey(id)];
     trinnene(c || {}).forEach((_, i) => delete st.exams[stegKey(id, i)]);
     S.store.emit();
+  }
+
+  /* ---------- enkeltmodus ----------
+     Estimeringscaser spilles ikke trinn for trinn. I rommet får du ett spørsmål,
+     og så sitter du med arket i fem minutter og bygger hele regnestykket selv.
+     Deler man det i seks trinn, deler man samtidig ut strukturen — og strukturen
+     er nettopp det som vurderes. Derfor: spørsmålet, tenketid, og hele
+     gjennomgangen når du selv sier fra.
+
+     Egen lagringsnøkkel, ikke trinn 0, så en case som alt er kjørt trinnvis ikke
+     ser ut som avdekket i enkeltmodus. */
+  const erEnkelt = (c) => !!c && c.format === "ett-spørsmål";
+  const enkeltKey = (id) => "case:" + id + ":enkelt";
+  const enkeltSt = (id) => les(enkeltKey(id));
+  function avdekkEnkelt(id) {
+    const brukt = stegStart ? S.u.nowTs() - stegStart : null;
+    S.store.setExam(enkeltKey(id), brukt == null ? { vist: true } : { vist: true, brukt: brukt });
   }
   /* Lagring skjer ved blur og ved avdekking, aldri per tastetrykk: en refresh
      midt i skrivingen ville tatt både markøren og halve setningen. */
@@ -191,22 +209,26 @@ window.EDU = window.EDU || {};
 
   function caseKort(c) {
     const r = kjør(c.id);
-    const antall = trinnene(c).length;
-    const gjort = trinnene(c).filter((_, i) => erVist(c.id, i)).length;
-    const ferdig = !!r.submittedAt || (antall && gjort === antall);
+    const enkelt = erEnkelt(c);
+    const antall = enkelt ? 1 : trinnene(c).length;
+    const gjort = enkelt ? (enkeltSt(c.id).vist ? 1 : 0)
+                         : trinnene(c).filter((_, i) => erVist(c.id, i)).length;
+    const ferdig = enkelt ? gjort === 1 : (!!r.submittedAt || (antall && gjort === antall));
 
     const kort = el(".card.pad-lg");
     kort.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline" } },
       el("h3", { style: { fontSize: "19px" } }, c.label),
       el(".spacer"),
-      ferdig ? el(".chip.green", el(".dot"), "Kjørt") : r.startedAt ? el(".chip.amber", el(".dot"), `${gjort}/${antall}`) : null));
+      ferdig ? el(".chip.green", el(".dot"), "Kjørt")
+             : r.startedAt ? el(".chip.amber", el(".dot"), enkelt ? "Påbegynt" : `${gjort}/${antall}`) : null));
 
     kort.appendChild(el(".row.wrap", { style: { gap: "8px", margin: "8px 0 12px" } },
       c.minutter ? el(".chip", icon("clock"), `${c.minutter} min`) : null,
       c.type ? el(".chip.indigo", c.type) : null,
       c.nivå ? el(".chip.slate", c.nivå) : null,
       c.firma ? el(".chip.teal", c.firma) : null,
-      c.stil ? el(".chip.slate", { style: { fontSize: "11px" } }, c.stil) : null));
+      c.stil ? el(".chip.slate", { style: { fontSize: "11px" } }, c.stil) : null,
+      enkelt ? el(".chip.slate", { style: { fontSize: "11px" } }, "ett spørsmål") : null));
 
     if (c.blurb) kort.appendChild(el("p.tiny.muted", { style: { margin: "0 0 14px" } }, c.blurb));
 
@@ -214,7 +236,8 @@ window.EDU = window.EDU || {};
       const snitt = snittScore(c);
       kort.appendChild(el(".explain", { style: { marginBottom: "14px" } },
         el("b", snitt == null ? "Påbegynt" : `Din vurdering: ${snitt.toFixed(1).replace(".", ",")} av 3`),
-        snitt == null ? "" : ` — ${SKALA[Math.round(snitt)]} i snitt over ${gjort} trinn.`));
+        snitt == null ? "" : (enkelt ? ` — ${SKALA[Math.round(snitt)]}.`
+                                     : ` — ${SKALA[Math.round(snitt)]} i snitt over ${gjort} trinn.`)));
     }
 
     kort.appendChild(el(".row.wrap", { style: { gap: "8px" } },
@@ -229,6 +252,8 @@ window.EDU = window.EDU || {};
     return i === -1 ? 0 : i;
   }
   function snittScore(c) {
+    /* I enkeltmodus finnes bare én vurdering, og den er hele casens. */
+    if (erEnkelt(c)) { const v = enkeltSt(c.id).score; return typeof v === "number" ? v : null; }
     const s = trinnene(c).map((_, i) => stegSt(c.id, i).score).filter((x) => typeof x === "number");
     return s.length ? s.reduce((a, b) => a + b, 0) / s.length : null;
   }
@@ -236,6 +261,7 @@ window.EDU = window.EDU || {};
   /* ================= selve casen ================= */
   function renderCase(c) {
     stopp();
+    if (erEnkelt(c)) return renderEnkelt(c);
     const wrap = el(".fade-in");
     const liste = trinnene(c);
     if (steg >= liste.length) steg = Math.max(0, liste.length - 1);
@@ -249,6 +275,83 @@ window.EDU = window.EDU || {};
     wrap.appendChild(bunnRad(c, liste));
     if (erFerdig(c)) wrap.appendChild(oppsummering(c));
     return wrap;
+  }
+
+  /* ---------- enkeltmodus: ett spørsmål, så hele fasiten ---------- */
+  function renderEnkelt(c) {
+    const wrap = el(".fade-in");
+    const st = enkeltSt(c.id);
+    const vist = !!st.vist;
+    if (!vist && !stegStart) stegStart = S.u.nowTs();
+
+    wrap.appendChild(toppRad(c));
+    wrap.appendChild(promptKort(c));
+
+    const arbeid = el(".card.pad-lg", { style: { marginBottom: "16px" } });
+    arbeid.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline", marginBottom: "10px" } },
+      el("h3", { style: { fontSize: "17px" } }, vist ? "Det du kom fram til" : "Regn på papir"),
+      el(".spacer"),
+      c.minutter ? (vist ? bruktKlokke({ sek: c.minutter * 60 }, st) : stegKlokke({ sek: c.minutter * 60 })) : null));
+    arbeid.appendChild(el("p.tiny.muted", { style: { margin: "0 0 12px" } },
+      vist ? "Sammenlign med gjennomgangen under. Det som teller er oppsettet og forutsetningene, ikke at tallet stemmer."
+           : "Bygg hele regnestykket selv: si forutsetningene, rund av åpent, og sanity-sjekk svaret. "
+             + "Noter gjerne tallet ditt her, så har du det å sammenligne med."));
+
+    const felt = el("textarea.dyb-ansin", { rows: vist ? 3 : 4, maxlength: MAKS_SVAR,
+      placeholder: "Tallet ditt og de viktigste forutsetningene (valgfritt)",
+      onblur: (e) => S.store.setExam(enkeltKey(c.id), { svar: String(e.target.value || "").slice(0, MAKS_SVAR) }) });
+    felt.value = st.svar || "";
+    arbeid.appendChild(felt);
+
+    if (!vist) {
+      arbeid.appendChild(el(".row", { style: { marginTop: "14px" } },
+        el("button.btn.primary.lg", { onclick: () => {
+          const v = felt.value;
+          S.store.setExam(enkeltKey(c.id), { svar: String(v || "").slice(0, MAKS_SVAR) });
+          avdekkEnkelt(c.id); stopp(); S.app.refresh(); window.scrollTo({ top: 0 });
+        } }, "Jeg er klar — vis fasiten")));
+    }
+    wrap.appendChild(arbeid);
+
+    if (vist) {
+      wrap.appendChild(gjennomgang(c));
+      wrap.appendChild(enkeltScore(c, st));
+      wrap.appendChild(oppsummering(c));
+    }
+    return wrap;
+  }
+
+  /* Hele løsningen som én gjennomgang. Trinnene finnes fortsatt i dataene og
+     brukes som avsnitt, så innholdet er det samme; det er bare oppdelingen i
+     seks klikk som er borte. */
+  function gjennomgang(c) {
+    const boks = el("div");
+    trinnene(c).forEach((t, i) => {
+      const kort = el(".card.pad-lg", { style: { marginBottom: "14px" } });
+      const navn = ARTNAVN[t.art] || { full: "Trinn" };
+      kort.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline", marginBottom: "10px" } },
+        el(".chip.accent", String(i + 1)),
+        el("h3", { style: { fontSize: "17px" } }, t.tittel || navn.full)));
+      if (t.sp) kort.appendChild(el(".prose.tiny", { style: { marginBottom: "10px", color: "var(--ink-3)" } }, frag(t.sp)));
+      if (t.figur) kort.appendChild(el(".card.flat", { style: { margin: "0 0 12px", overflowX: "auto" } }, el(".prose", frag(t.figur))));
+      kort.appendChild(fasitPanel(t));
+      boks.appendChild(kort);
+    });
+    return boks;
+  }
+
+  function enkeltScore(c, st) {
+    const kort = el(".card.pad-lg", { style: { marginBottom: "16px" } });
+    kort.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "center" } },
+      el(".tiny.muted", "Hvor godt traff oppsettet ditt?"),
+      ...SKALA.map((navn, v) => el("button.btn.sm" + (st.score === v ? ".primary" : ""), {
+        onclick: () => { S.store.setExam(enkeltKey(c.id), { score: v }); S.app.refresh(); } }, navn))));
+    kort.appendChild(el(".row", { style: { gap: "8px", marginTop: "14px" } },
+      el("button.btn.ghost.sm", { onclick: () => {
+        const s2 = S.store.get(); delete s2.exams[enkeltKey(c.id)]; S.store.emit();
+        stegStart = S.u.nowTs(); S.app.refresh(); window.scrollTo({ top: 0 });
+      } }, "Ta casen på nytt")));
+    return kort;
   }
 
   function toppRad(c) {

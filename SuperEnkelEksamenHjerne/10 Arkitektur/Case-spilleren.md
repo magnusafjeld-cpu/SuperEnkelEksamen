@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, case]
-oppdatert: 2026-09-01
+oppdatert: 2026-09-12
 ---
 
 # Case-spilleren
@@ -28,6 +28,27 @@ ikke settmodulen brukes — den viser alle oppgavene samtidig.
 
 Skalaen er **Bom / Delvis / Solid / Distinkt**, ikke poeng. «Bestått» og
 «distinkt» er to forskjellige ting, og det er nettopp det skillet som trenes.
+
+## Enkeltmodus: estimeringscasene har bare ett spørsmål
+
+En case med `format: "ett-spørsmål"` spilles ikke trinn for trinn. Den viser
+prompten, en klokke mot `minutter`, et fritekstfelt for ditt eget tall, og
+knappen **«Jeg er klar — vis fasiten»**. Da åpner hele gjennomgangen seg på én
+gang, med trinnenes egne titler som avsnitt.
+
+Alle 14 market sizing-casene er satt slik. Grunnen er faglig, ikke teknisk:
+**estimering vurderes på oppsettet**, og deler man casen i seks trinn, deler man
+samtidig ut strukturen som skulle vurderes. I rommet får du ett spørsmål og fem
+minutter med arket.
+
+Trinnene ligger urørt i dataene og brukes som avsnitt i gjennomgangen, så
+innholdet er nøyaktig det samme. Det er bare oppdelingen i seks klikk som er
+borte, og det er derfor omleggingen ikke kostet noe innhold.
+
+Enkeltmodus har **egen lagringsnøkkel** (`case:<id>:enkelt`), ikke trinn 0. Uten
+det ville en case som alt var kjørt trinnvis sett avdekket ut i enkeltmodus.
+`nullstill()` sletter begge. `snittScore()` leser den ene vurderingen direkte når
+casen er i enkeltmodus, siden det ikke finnes trinn å ta snittet over.
 
 ## Tallsjekken er enhetsbevisst
 

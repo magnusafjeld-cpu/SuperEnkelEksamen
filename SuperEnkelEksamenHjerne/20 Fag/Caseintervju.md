@@ -1,6 +1,6 @@
 ---
 tags: [fag, case, innhold]
-oppdatert: 2026-09-01
+oppdatert: 2026-09-12
 ---
 
 # Caseintervju
@@ -38,7 +38,8 @@ strukturering først, teori underveis — ikke motsatt.
 Casetrening lot seg ikke presse inn i eksamensformatet, fordi en case er en
 samtale og ikke et oppgavesett. Derfor to nye moduler i motoren:
 
-- **[[Case-spilleren]]** (`/caser`) — én case spilt trinn for trinn
+- **[[Case-spilleren]]** (`/caser`) — én case spilt trinn for trinn, unntatt de
+  14 market sizing-casene, som er ett spørsmål med fasit når du selv sier fra
 - **Mock-intervjuer** (`/mock`) — 70 verifiserte YouTube-videoer med stopp-punkter
 - **[[Historieporteføljen]]** (`/historier`) — dine egne fit-historier
 

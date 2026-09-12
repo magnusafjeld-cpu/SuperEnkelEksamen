@@ -5245,6 +5245,10 @@ window.EDU_DATA.cases = [
   {
     id: "estimering-varmepumper",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor stort er varmepumpemarkedet i Norge?",
     type: "Estimering",
     nivå: "Intro",
@@ -5502,6 +5506,10 @@ window.EDU_DATA.cases = [
   {
     id: "ms-bensinstasjoner-usa",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor mange bensinstasjoner finnes i USA?",
     type: "Estimering", nivå: "Avansert", firma: "Implement", stil: "interviewer-led",
     minutter: 30, ch: [7, 15],
@@ -5650,6 +5658,10 @@ window.EDU_DATA.cases = [
   {
     id: "ms-bensinstasjoner-norge",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor mange bensinstasjoner finnes det i Norge?",
     type: "Estimering",
     nivå: "Intro",
@@ -5940,6 +5952,10 @@ window.EDU_DATA.cases = [
   {
     id: "ms-frisorsalonger-norge",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor mange frisørsalonger finnes det i Norge?",
     type: "Estimering",
     nivå: "Intro",
@@ -6213,6 +6229,10 @@ window.EDU_DATA.cases = [
   {
     id: "ms-ladepunkter-e6",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor mange hurtigladepunkter trengs langs E6 mellom Oslo og Trondheim?",
     type: "Estimering",
     nivå: "Middels",
@@ -6505,6 +6525,10 @@ window.EDU_DATA.cases = [
   {
     id: "ms-sykehussenger-tyskland",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor mange sykehussenger finnes det i Tyskland?",
     type: "Estimering",
     nivå: "Middels",
@@ -6776,6 +6800,10 @@ window.EDU_DATA.cases = [
   {
     id: "estimering-kjokken",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor stort er kjøkkenmarkedet i Norge?",
     type: "Estimering",
     nivå: "Intro",
@@ -7080,6 +7108,10 @@ window.EDU_DATA.cases = [
   {
     id: "estimering-briller",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor stort er brillemarkedet i Norge?",
     type: "Estimering",
     nivå: "Middels",
@@ -7383,6 +7415,10 @@ window.EDU_DATA.cases = [
   {
     id: "estimering-lonnssystem",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor stort er markedet for lønnssystemer til norske bedrifter?",
     type: "Estimering",
     nivå: "Middels",
@@ -7694,6 +7730,10 @@ window.EDU_DATA.cases = [
   {
     id: "estimering-bredband",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor stort er bredbåndsmarkedet i Norge?",
     type: "Estimering",
     nivå: "Middels",
@@ -8011,6 +8051,10 @@ window.EDU_DATA.cases = [
   {
     id: "ms-heisservice",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor stort er heismarkedet i Norge?",
     type: "Estimering",
     nivå: "Middels",
@@ -8310,6 +8354,10 @@ window.EDU_DATA.cases = [
   {
     id: "ms-it-drift-smb",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Hvor stort er markedet for utsatt IT-drift til norske SMB-er?",
     type: "Estimering",
     nivå: "Middels",
@@ -8597,6 +8645,10 @@ window.EDU_DATA.cases = [
   {
     id: "ms-bruktbil-sprik",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Bruktbilmarkedet der de to veiene ikke møtes",
     type: "Estimering",
     nivå: "Avansert",
@@ -8910,6 +8962,10 @@ window.EDU_DATA.cases = [
   {
     id: "ms-nettdagligvare-beslutning",
     kategori: "Market sizing",
+    /* Ett spørsmål, tenketid på papir, så hele gjennomgangen. Estimering
+       vurderes på oppsettet, og deler man det i seks trinn deler man ut
+       nettopp det som skal vurderes. */
+    format: "ett-spørsmål",
     label: "Tallet som avgjør om lageret skal bygges",
     type: "Estimering",
     nivå: "Avansert",
