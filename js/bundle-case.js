@@ -57,11 +57,14 @@ window.EDU = window.EDU || {};
   }
 
   /* ---------- enkeltmodus ----------
-     Estimeringscaser spilles ikke trinn for trinn. I rommet får du ett spørsmål,
-     og så sitter du med arket i fem minutter og bygger hele regnestykket selv.
-     Deler man det i seks trinn, deler man samtidig ut strukturen — og strukturen
-     er nettopp det som vurderes. Derfor: spørsmålet, tenketid, og hele
-     gjennomgangen når du selv sier fra.
+     Market sizing er ikke en case på linje med de andre. Det er en liten,
+     kandidatledet komponent, typisk noen minutter i et førstegangsintervju: du
+     får ett spørsmål, stiller et par avklaringer, og snakker deg gjennom
+     regnestykket selv mens intervjueren hører på.
+
+     Derfor spilles den ikke trinn for trinn. Deler man den i seks trinn, deler
+     man samtidig ut strukturen — og strukturen er nettopp det som vurderes.
+     Derfor: spørsmålet, tenketid, og hele gjennomgangen når du selv sier fra.
 
      Egen lagringsnøkkel, ikke trinn 0, så en case som alt er kjørt trinnvis ikke
      ser ut som avdekket i enkeltmodus. */
@@ -289,13 +292,14 @@ window.EDU = window.EDU || {};
 
     const arbeid = el(".card.pad-lg", { style: { marginBottom: "16px" } });
     arbeid.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline", marginBottom: "10px" } },
-      el("h3", { style: { fontSize: "17px" } }, vist ? "Det du kom fram til" : "Regn på papir"),
+      el("h3", { style: { fontSize: "17px" } }, vist ? "Det du kom fram til" : "Din tur"),
       el(".spacer"),
       c.minutter ? (vist ? bruktKlokke({ sek: c.minutter * 60 }, st) : stegKlokke({ sek: c.minutter * 60 })) : null));
     arbeid.appendChild(el("p.tiny.muted", { style: { margin: "0 0 12px" } },
       vist ? "Sammenlign med gjennomgangen under. Det som teller er oppsettet og forutsetningene, ikke at tallet stemmer."
-           : "Bygg hele regnestykket selv: si forutsetningene, rund av åpent, og sanity-sjekk svaret. "
-             + "Noter gjerne tallet ditt her, så har du det å sammenligne med."));
+           : "Du driver dette selv. Still avklaringene du trenger først, si oppsettet høyt før du regner, "
+             + "rund av åpent, og sanity-sjekk svaret til slutt. Snakk hele veien — det er resonnementet "
+             + "intervjueren vurderer, ikke tallet. Noter gjerne tallet ditt her."));
 
     const felt = el("textarea.dyb-ansin", { rows: vist ? 3 : 4, maxlength: MAKS_SVAR,
       placeholder: "Tallet ditt og de viktigste forutsetningene (valgfritt)",

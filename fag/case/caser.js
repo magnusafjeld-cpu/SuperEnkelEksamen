@@ -5253,8 +5253,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Intro",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 25,
+    stil: "candidate-led",
+    minutter: 5,
     ch: [],
     blurb: "Bygges nedenfra med levetidstrikset: installert base delt på levetid, pluss vekst og nybygg. Trener oppsettet, avrundingen og sanity-sjekken.",
     prompt: `<p>Klienten er et europeisk industrikonsern som lager varmepumper. De vurderer å
@@ -5511,8 +5511,8 @@ window.EDU_DATA.cases = [
        nettopp det som skal vurderes. */
     format: "ett-spørsmål",
     label: "Hvor mange bensinstasjoner finnes i USA?",
-    type: "Estimering", nivå: "Avansert", firma: "Implement", stil: "interviewer-led",
-    minutter: 30, ch: [7, 15],
+    type: "Estimering", nivå: "Avansert", firma: "Implement", stil: "candidate-led",
+    minutter: 8, ch: [7, 15],
     blurb: "Arketypen for tilbud møter etterspørsel. Regn behovet, regn kapasiteten per stasjon, og del. Hele casen avgjøres av ett tall folk setter altfor høyt.",
     prompt: `<p>Intervjueren gir deg én setning og ingen tall:</p>
       <p><b>«Hvor mange bensinstasjoner finnes det i USA?»</b></p>
@@ -5666,8 +5666,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Intro",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 20,
+    stil: "candidate-led",
+    minutter: 5,
     ch: [],
     blurb: "Grunnformen: bygg etterspørselen i fyllinger per år, bygg kapasiteten til én stasjon, og del. Den norske vrien er at en tredjedel av bilparken er elektrisk og ikke fyller i det hele tatt.",
     prompt: `<p>Du sitter i andregangsintervju. Intervjueren legger fra seg pennen og sier:</p>
@@ -5960,8 +5960,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Intro",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 20,
+    stil: "candidate-led",
+    minutter: 5,
     ch: [],
     blurb: "Samme mønster, men enheten er en stol og kapasiteten er klipp per stol per dag. Trener segmentering på to grupper og forskjellen på en fullbooket dag og en normal dag.",
     prompt: `<p>Klienten er et oppkjøpsfond som ser på en kjede av frisørsalonger. Før de bruker
@@ -6237,8 +6237,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Middels",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 25,
+    stil: "candidate-led",
+    minutter: 6,
     ch: [],
     blurb: "Geografisk avgrenset sizing. Etterspørselen bygges fra trafikkarbeid på to ulike strekninger, kapasiteten fra ladetid per bil — og hele poenget er at et ladenett ikke dimensjoneres for gjennomsnittsdagen.",
     prompt: `<p>Klienten er en ladeoperatør som vurderer å bygge ut korridoren
@@ -6533,8 +6533,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Middels",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 20,
+    stil: "candidate-led",
+    minutter: 6,
     ch: [],
     blurb: "Internasjonal variant der kapasitetsenheten er en seng og ikke en tidsluke. Trener liggedøgn som fellesvaluta, hvorfor 100 prosent belegg er umulig, og den mest presise sanity-sjekken som finnes: senger per tusen innbyggere.",
     prompt: `<p>Klienten er en europeisk leverandør av sykehusutstyr. De skal prioritere mellom
@@ -6808,8 +6808,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Intro",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 25,
+    stil: "candidate-led",
+    minutter: 5,
     ch: [],
     blurb: "Levetidstrikset i sin reneste form: fire av fem kjøkken selges til noen som allerede har ett. Trener topp-ned segmentering på boligtype, og følsomheten i den ene forutsetningen som bærer hele svaret.",
     prompt: `<p>Klienten er et dansk kjøkkenkonsern med 200 butikker i Danmark, Sverige og
@@ -7116,8 +7116,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Middels",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 25,
+    stil: "candidate-led",
+    minutter: 6,
     ch: [],
     blurb: "Fire aldersgrupper der andel, kjøpsfrekvens og pris alle stiger med alderen. Trener segmenteringen som avgjør svaret — og viser hvorfor et anslag bygget på ditt eget liv bommer med en faktor fire.",
     prompt: `<p>Klienten er et nordisk oppkjøpsfond. De har fått tilbud om å kjøpe en norsk
@@ -7423,8 +7423,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Middels",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 25,
+    stil: "candidate-led",
+    minutter: 6,
     ch: [],
     blurb: "B2B: nevneren er ansatte i bedrifter med ansatte, ikke innbyggere — og to av tre norske bedrifter har ingen. Trener segmentering på bedriftsstørrelse, og følsomheten som viser at den mest usikre forutsetningen ikke alltid er den viktigste.",
     prompt: `<p>Klienten er en svensk leverandør av skybasert lønns- og HR-programvare. De har
@@ -7738,8 +7738,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Middels",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 25,
+    stil: "candidate-led",
+    minutter: 6,
     ch: [],
     blurb: "Samme bransje, to nevnere: mobil selges per person, fast bredbånd per husholdning. Trener nevnervalget — den feilen som mer enn dobler svaret før du har regnet et eneste ledd.",
     prompt: `<p>Klienten er et europeisk infrastrukturfond. De vurderer å by på et norsk
@@ -8059,8 +8059,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Middels",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 25,
+    stil: "candidate-led",
+    minutter: 6,
     ch: [],
     blurb: "Et infrastrukturmarked uten noen makrostørrelse over seg. Du må bygge det fra én heis, og kryssjekken må komme fra tilbudssiden — for topp-ned finnes ikke.",
     prompt: `<p>Klienten er en europeisk heisprodusent. De eier ikke noe i Norge i dag, og
@@ -8362,8 +8362,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Middels",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 25,
+    stil: "candidate-led",
+    minutter: 6,
     ch: [],
     blurb: "Den klassiske B2B-strukturen: én typisk kunde ganger antall kunder som finnes. Kryssjekken går via de ansatte i stedet for via bedriftene, og gapet mellom de to har et navn.",
     prompt: `<p>Klienten er et nordisk oppkjøpsfond. De ser på å bygge en plattform av norske
@@ -8653,8 +8653,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Avansert",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 30,
+    stil: "candidate-led",
+    minutter: 8,
     ch: [],
     blurb: "Bunn-opp gir 46 milliarder, topp-ned gir 96. Faktor to. Hele casen handler om å forklare avviket i stedet for å gjennomsnitte det bort — og forklaringen er verdt mer enn tallet.",
     prompt: `<p>Klienten er et forsikringsselskap. De vurderer å lansere en <b>bruktbilgaranti</b>
@@ -8970,8 +8970,8 @@ window.EDU_DATA.cases = [
     type: "Estimering",
     nivå: "Avansert",
     firma: "Generisk",
-    stil: "interviewer-led",
-    minutter: 30,
+    stil: "candidate-led",
+    minutter: 8,
     ch: [],
     blurb: "Slik estimering faktisk opptrer i arbeidslivet: klienten skal ta et valg, og tallet ingen har gitt dem er inngangsverdien. Syntesen er ikke markedsstørrelsen — den er beslutningen.",
     prompt: `<p>Klienten er en av de store norske dagligvarekjedene. De plukker i dag

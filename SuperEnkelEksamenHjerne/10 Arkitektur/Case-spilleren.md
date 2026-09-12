@@ -36,10 +36,17 @@ prompten, en klokke mot `minutter`, et fritekstfelt for ditt eget tall, og
 knappen **«Jeg er klar — vis fasiten»**. Da åpner hele gjennomgangen seg på én
 gang, med trinnenes egne titler som avsnitt.
 
-Alle 14 market sizing-casene er satt slik. Grunnen er faglig, ikke teknisk:
-**estimering vurderes på oppsettet**, og deler man casen i seks trinn, deler man
-samtidig ut strukturen som skulle vurderes. I rommet får du ett spørsmål og fem
-minutter med arket.
+Alle 14 market sizing-casene er satt slik. Grunnen er at **market sizing ikke er
+en case på linje med de andre.** Det er en liten, kandidatledet komponent, typisk
+noen minutter i et førstegangsintervju: du får ett spørsmål, stiller et par
+avklaringer, og snakker deg gjennom regnestykket selv mens intervjueren hører på.
+Deler man den i seks trinn, deler man samtidig ut strukturen som skulle vurderes.
+
+Derfor er de også satt til **5 minutter (Intro), 6 (Middels) og 8 (Avansert)**, og
+`stil: "candidate-led"`. De lå opprinnelig på 20–30 minutter og «interviewer-led»,
+som er lengden og formatet på en hel case. Det var feil på begge punkter: en
+market sizing tar noen få minutter, og det er kandidaten som driver. De 18 andre
+casene ligger fortsatt på 30–35 minutter.
 
 Trinnene ligger urørt i dataene og brukes som avsnitt i gjennomgangen, så
 innholdet er nøyaktig det samme. Det er bare oppdelingen i seks klikk som er
