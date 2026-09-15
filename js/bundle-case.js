@@ -168,8 +168,10 @@ window.EDU = window.EDU || {};
         const i = vist.filter((c) => (c.kategori || "Intervjucaser") === b);
         if (!i.length) return;
         wrap.appendChild(sh().sectionTitle(`${b} · ${i.length} ${i.length === 1 ? "case" : "caser"}`));
-        if (b === "Market sizing") wrap.appendChild(el("p.tiny.muted", { style: { margin: "-6px 0 12px" } },
-          "Bygg tallet av forutsetninger du selv setter. Flere av dem møtes fra to sider — etterspørselen mot kapasiteten per enhet — og det er den formen som skiller."));
+        /* Introen til hver bolk er innhold, ikke motor. Den lå hardkodet på
+           «Market sizing», og en tredje bolk ville dermed stått uten. */
+        const intro = (window.EDU_DATA.caseKategorier || {})[b];
+        if (intro) wrap.appendChild(el("p.tiny.muted", { style: { margin: "-6px 0 12px" } }, intro));
         const liste = el(".stack", { style: { gap: "14px", marginBottom: "26px" } });
         i.forEach((c) => liste.appendChild(caseKort(c)));
         wrap.appendChild(liste);

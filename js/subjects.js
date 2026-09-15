@@ -148,7 +148,10 @@ window.EDU_SUBJECTS = [
               "fag/case/lyn-estimat.js", "fag/case/dybde.js", "fag/case/dybde-struktur.js", "fag/case/dybde-tall.js",
               "fag/case/dybde-grunnlag.js",
               "fag/case/quiz.js",
-              "fag/case/flashcards.js", "fag/case/caser.js", "fag/case/mock.js"],
+              "fag/case/flashcards.js", "fag/case/caser.js",
+              /* EY-Parthenon-bolken bygges av tools/bygg-eyp-caser.py og lastes
+                 etter caser.js, siden den pusher inn i samme EDU_DATA.cases. */
+              "fag/case/caser-eyp.js", "fag/case/mock.js"],
     manual: {
       candidates: ["Case_Manual.html", "fag/case/manual.html", "../Case_Manual.html"],
       label: "Case_Manual.html",

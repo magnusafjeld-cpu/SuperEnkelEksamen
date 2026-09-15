@@ -8,6 +8,12 @@
    ========================================================================= */
 window.EDU_DATA = window.EDU_DATA || {};
 
+/* Introtekst per bolk i casebiblioteket. Motoren henter den herfra, så en ny
+   bolk kan legges til uten å røre js/. */
+window.EDU_DATA.caseKategorier = {
+  "Market sizing": "Bygg tallet av forutsetninger du selv setter. Flere av dem møtes fra to sider — etterspørselen mot kapasiteten per enhet — og det er den formen som skiller.",
+};
+
 window.EDU_DATA.cases = [
   {
     id: "kino-lonnsomhet",

@@ -1,6 +1,6 @@
 ---
 tags: [fag, case, innhold]
-oppdatert: 2026-09-12
+oppdatert: 2026-09-15
 ---
 
 # Caseintervju
@@ -39,7 +39,9 @@ Casetrening lot seg ikke presse inn i eksamensformatet, fordi en case er en
 samtale og ikke et oppgavesett. Derfor to nye moduler i motoren:
 
 - **[[Case-spilleren]]** (`/caser`) — én case spilt trinn for trinn, unntatt de
-  14 market sizing-casene, som er ett spørsmål med fasit når du selv sier fra
+  14 market sizing-casene, som er ett spørsmål med fasit når du selv sier fra.
+  Tre bolker: **Intervjucaser** (18), **Market sizing** (14) og
+  **EY-Parthenon** (5, se under)
 - **Mock-intervjuer** (`/mock`) — 70 verifiserte YouTube-videoer med stopp-punkter
 - **[[Historieporteføljen]]** (`/historier`) — dine egne fit-historier
 
@@ -49,9 +51,49 @@ Og fire nye minispill i lynmodulen, fordi «mer enn bare tekst» var beskjeden:
 **Les grafen** (exhibit-tolkning med ekte figurer) og **Bygg estimatet**
 (markedsstørrelse steg for steg, med sanity-sjekk som obligatorisk siste trinn).
 
+
+## EY-Parthenon-bolken
+
+Fem caser rettet mot **Strategy and Execution (S&E)** i Oslo, bygget etter
+EY-Parthenons **egen kandidatpakke**, som ligger offentlig. Begge EYs øvingscaser
+er PE-investeringsvurderinger med samme form, og den formen er malen her:
+
+> estimer markedet → finn vekstdriverne → les et eksibit → vei muligheter mot
+> risiko → anbefaling med **pris eller betingelse** i seg
+
+Grunnspørsmålet i en CDD er ikke «er dette et bra selskap?» men **«holder planen
+vi betaler for?»**. Derfor er «ja, kjøp» uten prispunkt ikke en ferdig anbefaling,
+og hver syntese krever et tall eller en betingelse.
+
+`krav`-feltene er skrevet mot **EYs egne fire vurderingskriterier**: problemløsning,
+tallforståelse (deres ord: «uten unødig teknisk komplekshet»), kreativitet, og
+kommunikasjon — der de uttrykkelig nevner **å svare konstruktivt på motstand og ny
+informasjon**. Oljeservicecasen er bygget rundt det siste: partneren snur arket
+midt i casen og velter bevisgrunnlaget for hypotesen.
+
+| Case | Type | Hvorfor akkurat den |
+|---|---|---|
+| SaaS til 6× ARR | CDD, Intro | TMT er **41 %** av norsk PE-dealflow, EYs egne tall |
+| Plattformen som skal doble seg | Buy-and-build, Middels | EY-P valgte selv teknisk installasjon som «case study of the quarter» |
+| Leverandøren til oppdretterne | Markedsattraktivitet, Middels | EY-P har egen havbruksanalyse og partner i Bergen |
+| Brønnteknologien | CDD med motstand, Avansert, 40 min | Amerikansk oppkjøpsbølge i norsk oljeservice |
+| Forsvarsplattformen som har kjøpt | Synergi og PMI, Middels | «Verdirealisering ved oppkjøp eller salg» er S&E-lederens egen beskrivelse |
+
+Settingene er norske og hentet fra EY-Parthenon Oslos egen kvartalsrapport
+*Transaction Trends*. Kildene ligger i `docs/case-research/06–09`.
+
+> [!tip] Norge er lite nok til at bunn-opp faktisk fungerer
+> 5,63 mill. innbyggere, 2,65 mill. husholdninger, 207 800 bedrifter med ansatte,
+> og 70–75 % av transaksjonene under 50 mill. USD. Et «stort» norsk nisjemarked er
+> 2–5 mrd. kr. Det er den strukturelle forskjellen fra en amerikansk case, og det
+> er derfor estimatet kan etterprøves i rommet.
+
+Bygges med `tools/bygg-eyp-caser.py` fra fragmenter i `fag/case/_eyp/`, fordi
+casene skrives parallelt. Kontrolleres med `tools/sjekk-caser.js`.
+
 ## Kildegrunnlaget
 
-Fem parallelle kartlegginger ligger i `docs/case-research/`. De er verdt å lese
+De parallelle kartleggingene ligger i `docs/case-research/`. De er verdt å lese
 før du skriver innhold, og de er **kildemerket**: hva firmaene selv sier, mot hva
 prep-industrien påstår. Det skillet finnes ikke i noen av de kommersielle kildene.
 
@@ -66,10 +108,23 @@ De skarpeste funnene:
   30 minutter uten kalkulator. Det er hastighetsdrill, ikke casetrening.
 - **Ingen casetype-frekvensstatistikk er etterprøvbar.** «Lønnsomhet = 30–40 %»
   sirkulerer overalt uten metode. Behandles som folklore.
+- **EY-Parthenon Oslo: EY Norge og EY UK beskriver to ulike prosesser.** UK
+  dokumenterer 2×25 min ren case i R1 og to caser i finalen; EY Norges egen
+  karriereblogg beskriver personlighetsdel + case i R1 og en samtale med en
+  partner i finalen. Uavklart hvilken som gjelder Oslo — `06-ey-parthenon-prosess.md`.
 - **Arkwright publiserer ingenting** om prosessen. Det som finnes er
   Glassdoor-rapporter: to runder, to caser i hver, candidate-led. Ryktet om en
   beryktet numerisk test **lot seg ikke bekrefte** — ikke tren mot den uten å ha
   ringt `recruiting@arkwright.no` først.
+- **EY-Parthenon Oslos eget marked er kartlagt** i
+  `08-ey-parthenon-norge-marked.md`. Hovedkilden er EY-Parthenons egen
+  kvartalspublikasjon **Transaction Trends**, som er offentlig og skrevet av det
+  teamet Magnus skal inn til. Den gir bransjefordelingen svart på hvitt:
+  **industri/AM&M 31 %, forbruker 21 %, TMT 18 %** av norske transaksjoner —
+  og **TMT er 41 % av PE-dealflowen**. Olje og gass er bare 6 %.
+  **~70 % av norske deals er under 50 mill. USD.** EY-P valgte selv **teknisk
+  installasjon** (rør, elektro, PE-drevet buy-and-build) som kvartalscase.
+  Notatet ender i ti norske case-settinger som er kalibrert mot dette.
 
 > [!warning] Tre selskaper på den opprinnelige lista er blindveier
 > **Oliver Wyman, Roland Berger og Simon-Kucher har ikke Oslo-kontor.**
