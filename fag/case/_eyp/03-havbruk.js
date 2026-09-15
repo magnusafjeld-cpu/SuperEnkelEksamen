@@ -7,7 +7,6 @@
 {
   id: "eyp-havbruk-leverandor",
   label: "Leverandøren til lakseoppdretterne",
-  kategori: "EY-Parthenon",
   type: "PE-vurdering",
   nivå: "Middels",
   firma: "EY-Parthenon",

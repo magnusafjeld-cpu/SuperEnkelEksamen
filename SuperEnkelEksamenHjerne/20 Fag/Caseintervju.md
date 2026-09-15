@@ -40,8 +40,8 @@ samtale og ikke et oppgavesett. Derfor to nye moduler i motoren:
 
 - **[[Case-spilleren]]** (`/caser`) — én case spilt trinn for trinn, unntatt de
   14 market sizing-casene, som er ett spørsmål med fasit når du selv sier fra.
-  Tre bolker: **Intervjucaser** (18), **Market sizing** (14) og
-  **EY-Parthenon** (5, se under)
+  To bolker: **Intervjucaser** (23) og **Market sizing** (14). EY-Parthenon-casene
+  ligger blant intervjucasene og finnes via **Stilart**-filteret, ikke som egen bolk
 - **Mock-intervjuer** (`/mock`) — 70 verifiserte YouTube-videoer med stopp-punkter
 - **[[Historieporteføljen]]** (`/historier`) — dine egne fit-historier
 
@@ -52,7 +52,13 @@ Og fire nye minispill i lynmodulen, fordi «mer enn bare tekst» var beskjeden:
 (markedsstørrelse steg for steg, med sanity-sjekk som obligatorisk siste trinn).
 
 
-## EY-Parthenon-bolken
+## EY-Parthenon-casene
+
+> [!info] De har ingen egen fane
+> «Stilart»-filteret i casebiblioteket filtrerer på `firma`, og de fem har
+> `firma: "EY-Parthenon"`. Det er der de finnes. En egen kategori-fane ble
+> prøvd og forkastet: byråaksen fantes allerede, og en tredje bolk splittet
+> biblioteket uten å gi noe den ikke gir.
 
 Fem caser rettet mot **Strategy and Execution (S&E)** i Oslo, bygget etter
 EY-Parthenons **egen kandidatpakke**, som ligger offentlig. Begge EYs øvingscaser
@@ -90,6 +96,9 @@ Settingene er norske og hentet fra EY-Parthenon Oslos egen kvartalsrapport
 
 Bygges med `tools/bygg-eyp-caser.py` fra fragmenter i `fag/case/_eyp/`, fordi
 casene skrives parallelt. Kontrolleres med `tools/sjekk-caser.js`.
+
+Vil du gi dem en egen bolk igjen, er det ett felt: `kategori: "EY-Parthenon"` på
+hver case, pluss en tekst i `caseKategorier`. Motoren lager fanen selv.
 
 ## Kildegrunnlaget
 

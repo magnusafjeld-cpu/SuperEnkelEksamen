@@ -19,7 +19,6 @@
 */
 {
   id: "eyp-oljeservice-exit",
-  kategori: "EY-Parthenon",
   label: "Brønnteknologien amerikaneren vil kjøpe",
   type: "M&A",
   nivå: "Avansert",

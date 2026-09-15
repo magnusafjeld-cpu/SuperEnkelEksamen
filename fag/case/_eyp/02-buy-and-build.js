@@ -6,7 +6,6 @@
 {
   id: "eyp-buy-and-build",
   label: "Plattformen som skal doble seg på tre år",
-  kategori: "EY-Parthenon",
   type: "M&A",
   nivå: "Middels",
   firma: "EY-Parthenon",

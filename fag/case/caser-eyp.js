@@ -13,15 +13,14 @@
    Settingene er norske og hentet fra EY-Parthenon Oslos egen kvartalsrapport
    Transaction Trends. Se docs/case-research/06–09.
 
+   Casene har ingen egen kategori. De ligger blant de vanlige intervjucasene og
+   finnes via Stilart-filteret, som filtrerer på `firma`.
+
    BYGGET FIL — ikke rediger. Kilden er fag/case/_eyp/, bygget med
    tools/bygg-eyp-caser.py.
    ============================================================== */
 window.EDU_DATA = window.EDU_DATA || {};
 window.EDU_DATA.cases = window.EDU_DATA.cases || [];
-
-window.EDU_DATA.caseKategorier = Object.assign(window.EDU_DATA.caseKategorier || {}, {
-  "EY-Parthenon": "Commercial due diligence for en oppkjøper, i EY-Parthenons egen form: estimer markedet, finn driverne, les eksibitet, og lever en anbefaling som har en pris eller en betingelse i seg. Du driver selv \u2014 de venter ikke på at du skal spørre om lov.",
-});
 
 window.EDU_DATA.cases.push(
 /* Buy-side commercial due diligence på et nordisk B2B-SaaS-selskap.
@@ -32,7 +31,6 @@ window.EDU_DATA.cases.push(
 {
   id: "eyp-saas-cdd",
   label: "SaaS-selskapet til seks ganger ARR",
-  kategori: "EY-Parthenon",
   type: "PE-vurdering",
   nivå: "Intro",
   firma: "EY-Parthenon",
@@ -384,7 +382,6 @@ window.EDU_DATA.cases.push(
 {
   id: "eyp-buy-and-build",
   label: "Plattformen som skal doble seg på tre år",
-  kategori: "EY-Parthenon",
   type: "M&A",
   nivå: "Middels",
   firma: "EY-Parthenon",
@@ -800,7 +797,6 @@ window.EDU_DATA.cases.push(
 {
   id: "eyp-havbruk-leverandor",
   label: "Leverandøren til lakseoppdretterne",
-  kategori: "EY-Parthenon",
   type: "PE-vurdering",
   nivå: "Middels",
   firma: "EY-Parthenon",
@@ -1184,7 +1180,6 @@ window.EDU_DATA.cases.push(
 */
 {
   id: "eyp-oljeservice-exit",
-  kategori: "EY-Parthenon",
   label: "Brønnteknologien amerikaneren vil kjøpe",
   type: "M&A",
   nivå: "Avansert",
@@ -1631,7 +1626,6 @@ window.EDU_DATA.cases.push(
 {
   id: "eyp-synergi-pmi",
   label: "Forsvarsplattformen som har kjøpt",
-  kategori: "EY-Parthenon",
   type: "M&A",
   nivå: "Middels",
   firma: "EY-Parthenon",

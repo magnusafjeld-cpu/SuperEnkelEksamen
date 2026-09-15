@@ -6,7 +6,6 @@
 {
   id: "eyp-saas-cdd",
   label: "SaaS-selskapet til seks ganger ARR",
-  kategori: "EY-Parthenon",
   type: "PE-vurdering",
   nivå: "Intro",
   firma: "EY-Parthenon",

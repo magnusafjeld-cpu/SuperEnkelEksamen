@@ -28,15 +28,14 @@ HODE = '''/* ============== CASETRENING · EY-PARTHENON (S&E) ==============
    Settingene er norske og hentet fra EY-Parthenon Oslos egen kvartalsrapport
    Transaction Trends. Se docs/case-research/06–09.
 
+   Casene har ingen egen kategori. De ligger blant de vanlige intervjucasene og
+   finnes via Stilart-filteret, som filtrerer på `firma`.
+
    BYGGET FIL — ikke rediger. Kilden er fag/case/_eyp/, bygget med
    tools/bygg-eyp-caser.py.
    ============================================================== */
 window.EDU_DATA = window.EDU_DATA || {};
 window.EDU_DATA.cases = window.EDU_DATA.cases || [];
-
-window.EDU_DATA.caseKategorier = Object.assign(window.EDU_DATA.caseKategorier || {}, {
-  "EY-Parthenon": "Commercial due diligence for en oppkjøper, i EY-Parthenons egen form: estimer markedet, finn driverne, les eksibitet, og lever en anbefaling som har en pris eller en betingelse i seg. Du driver selv \\u2014 de venter ikke på at du skal spørre om lov.",
-});
 
 window.EDU_DATA.cases.push(
 '''

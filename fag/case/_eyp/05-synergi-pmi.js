@@ -6,7 +6,6 @@
 {
   id: "eyp-synergi-pmi",
   label: "Forsvarsplattformen som har kjøpt",
-  kategori: "EY-Parthenon",
   type: "M&A",
   nivå: "Middels",
   firma: "EY-Parthenon",
