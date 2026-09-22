@@ -12,13 +12,13 @@
 import sys, os, re, glob
 
 HODE = """/* ================== {navn} · KAPITTELOPPGAVER ==================
-   Flervalgsoppgaver i eksamensformat, ett sett per kapittel, å ta rett etter at
-   kapitlet er lest. Fire alternativer, ett riktig, minuspoeng for feil.
+   Oppgaver i fagets eget eksamensformat, ett sett per kapittel, å ta rett etter
+   at kapitlet er lest.
 
-   `traps` står parallelt med `options`: én tekst per galt alternativ som sier
-   hvilken konkret feil det alternativet er laget av, og null på fasiten. Det er
-   halve ferdigheten flervalg krever, og den eneste måten et galt svar lærer deg
-   noe på.
+   Flervalg (FIE432): options/answer/traps. `traps` står parallelt med `options`,
+   én tekst per galt alternativ som sier hvilken feil det er laget av, null på
+   fasiten. Åpne oppgaver (FIE402): open: true, solution og criteria — du skriver
+   svaret, åpner løsningen og vurderer deg selv mot kriteriene, som i /sett.
 
    id-ene er lagringsnøkler for svarene. De må aldri endres.
 

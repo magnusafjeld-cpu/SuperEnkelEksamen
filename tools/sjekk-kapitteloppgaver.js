@@ -10,7 +10,11 @@
 
    Fallgruve 7c gjelder her mer enn noe annet sted: dette ER eksamensformatet.
    Samler fasiten seg på ett alternativ, lærer leseren posisjonen i stedet for
-   faget — og det er den eneste ferdigheten som ikke overføres til eksamen.   */
+   faget — og det er den eneste ferdigheten som ikke overføres til eksamen.
+
+   To oppgavetyper: flervalg (options/answer/traps) og ÅPNE (open: true,
+   solution, criteria). Åpne oppgaver kontrolleres på det de faktisk har —
+   løsning og kriterier — og holdes utenfor fasitposisjonstellingen.          */
 
 const fs = require("fs");
 const path = require("path");
@@ -95,6 +99,26 @@ function sjekk(sub) {
         if (n.length < 40) si(advarsel, hvor, "oppgaveteksten er svært kort for en eksamensoppgave");
       }
 
+      if (t.points != null && (typeof t.points !== "number" || t.points <= 0))
+        si(feil, hvor, `points ${t.points} må være et positivt tall`);
+      if (!t.solution || !norm(t.solution)) si(feil, hvor, "mangler solution");
+      else if (norm(t.solution).length < 80) si(advarsel, hvor, "solution er kort — den skal vise hele regnestykket");
+
+      /* Åpen oppgave: kriteriene ER fasiten. Uten dem kan leseren ikke vurdere
+         seg selv, og oppgaven blir en lesing i stedet for en øvelse. */
+      if (t.open) {
+        if (!Array.isArray(t.criteria) || t.criteria.length < 2)
+          si(feil, hvor, "åpen oppgave trenger criteria med minst to punkter");
+        else t.criteria.forEach((c, j) => {
+          if (!norm(c)) si(feil, hvor, `criteria ${j + 1} er tomt`);
+          if (/<\/?[a-zA-Z][^>]*>/.test(String(c))) si(feil, hvor, `criteria ${j + 1} inneholder markup — feltet escapes`);
+        });
+        if (t.options || t.answer != null || t.traps) si(feil, hvor, "åpen oppgave skal ikke ha options/answer/traps");
+        if (t.points == null) si(advarsel, hvor, "åpen oppgave uten points — standarden 6 brukes");
+        sumPoeng += t.points || 6;
+        return;
+      }
+
       const o = t.options || [];
       /* Eksamen har fire alternativer. Et sett med tre trener feil sannsynlighet:
          blindt gjett er da +0,33 forventet i stedet for 0, og hele
@@ -106,12 +130,6 @@ function sjekk(sub) {
       if (!Number.isInteger(t.answer) || t.answer < 0 || t.answer >= o.length)
         si(feil, hvor, `answer ${t.answer} er utenfor 0…${o.length - 1}`);
       else posisjon.push(t.answer);
-
-      if (t.points != null && (typeof t.points !== "number" || t.points <= 0))
-        si(feil, hvor, `points ${t.points} må være et positivt tall`);
-
-      if (!t.solution || !norm(t.solution)) si(feil, hvor, "mangler solution");
-      else if (norm(t.solution).length < 80) si(advarsel, hvor, "solution er kort — den skal vise hele regnestykket");
 
       /* traps står parallelt med options. Er den i utakt, peker forklaringen på
          feil bokstav, og leseren lærer at riktig svar er en felle. */
@@ -128,7 +146,9 @@ function sjekk(sub) {
       sumPoeng += t.points || 3;
     });
     sumOppg += tasks.length;
-    notat.push(`  k${num}: ${tasks.length} oppgaver · ${tasks.reduce((a, t) => a + (t.points || 3), 0)} poeng`);
+    const åpne = tasks.filter((t) => t.open).length;
+    notat.push(`  k${num}: ${tasks.length} oppgaver · ${tasks.reduce((a, t) => a + (t.points || (t.open ? 6 : 3)), 0)} poeng`
+      + (åpne ? (åpne === tasks.length ? " · åpne" : ` · ${åpne} åpne`) : ""));
   }
 
   /* Fallgruve 7c — fasitposisjon. */

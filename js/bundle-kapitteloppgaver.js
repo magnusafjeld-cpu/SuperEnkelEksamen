@@ -19,6 +19,12 @@
    ubesvart. Et valgt alternativ låses, for et svar du kan ombestemme deg om
    etter å ha sett fasiten, måler ingenting.
 
+   To oppgavetyper, fordi fagene eksamineres ulikt. Flervalg (options/answer/
+   traps) for FIE432, der eksamen er flervalg med minuspoeng. ÅPNE oppgaver
+   (open: true, solution, criteria) for FIE402, der eksamen er seks åpne
+   oppgaver med poeng per deloppgave: du skriver svaret, åpner løsningen, og
+   vurderer deg selv mot kriteriene — samme rutine som øvingsmodus i /sett.
+
    Data: EDU_DATA.chapterTasks = { <kapittelnr>: { minutes, wrongFactor, tasks: [] } }
    Oppgavenes id-er er lagringsnøkler. De må aldri endres.
    ============================================================================ */
@@ -49,6 +55,31 @@ window.EDU = window.EDU || {};
   /* Eldre lagret tilstand har levertAt fra da hele settet ble levert samlet.
      Den regnes som at alt er avslørt, så gamle besvarelser fortsatt viser fasit. */
   const erÅpen = (num, id) => (id in valgene(num)) || !!økt(num).levertAt;
+  const erOpen = (t) => !!t.open;
+  /* Et sett er «åpent» når alle oppgavene er det. Da gjelder ikke minuspoeng-
+     regelen, og all tekst om den skjules. */
+  const settErOpen = (b) => !!b && (b.tasks || []).length > 0 && (b.tasks || []).every(erOpen);
+  /* Åpen oppgave lagrer { svar, score } under samme nøkkel som flervalg lagrer
+     indeksen. score er null til leseren har vurdert seg selv. */
+  const openSt = (num, id) => { const v = valgene(num)[id]; return (v && typeof v === "object") ? v : null; };
+  function lagreSvar(num, id, tekst) {
+    const valg = Object.assign({}, valgene(num));
+    const cur = openSt(num, id) || {};
+    if (!(id in valg)) return;                // svaret lagres bare når løsningen er åpnet
+    valg[id] = Object.assign({}, cur, { svar: String(tekst || "").slice(0, 4000) });
+    S.store.setExam(nøkkel(num), { valg: valg });
+  }
+  function visLøsning(num, id, tekst) {
+    if (erÅpen(num, id)) return;
+    const valg = Object.assign({}, valgene(num));
+    valg[id] = { svar: String(tekst || "").slice(0, 4000), score: null };
+    S.store.setExam(nøkkel(num), { valg: valg });
+  }
+  function settScore(num, id, v) {
+    const valg = Object.assign({}, valgene(num));
+    valg[id] = Object.assign({}, openSt(num, id) || { svar: "" }, { score: v });
+    S.store.setExam(nøkkel(num), { valg: valg });
+  }
 
   function svar(num, id, i) {
     if (erÅpen(num, id)) return;              // et låst svar kan ikke endres
@@ -77,15 +108,22 @@ window.EDU = window.EDU || {};
     const b = forKap(num);
     if (!b) return null;
     const valg = valgene(num), wf = wfFor(b);
-    let rett = 0, galt = 0, blank = 0, poeng = 0, maks = 0;
+    let rett = 0, galt = 0, blank = 0, poeng = 0, maks = 0, vurdert = 0, uvurdert = 0;
     (b.tasks || []).forEach((t) => {
       const p = t.points || 3;
       maks += p;
       const v = valg[t.id];
+      if (erOpen(t)) {
+        /* Åpen: poengene er leserens egen vurdering. Åpnet men uvurdert teller
+           som 0 så langt, og rapporteres for seg. */
+        if (v == null) return;
+        if (typeof v.score === "number") { vurdert++; poeng += v.score; } else uvurdert++;
+        return;
+      }
       if (v == null || v === BLANK) { if (v === BLANK) blank++; return; }
       if (v === t.answer) { rett++; poeng += p; } else { galt++; poeng += p * wf; }
     });
-    return { rett, galt, blank, poeng: Math.round(poeng * 100) / 100, maks, antall: (b.tasks || []).length };
+    return { rett, galt, blank, vurdert, uvurdert, poeng: Math.round(poeng * 100) / 100, maks, antall: (b.tasks || []).length };
   }
   const besvart = (num) => Object.keys(valgene(num)).length;
   const ferdig = (num) => { const b = forKap(num); return !!b && (b.tasks || []).every((t) => erÅpen(num, t.id)); }
@@ -142,6 +180,60 @@ window.EDU = window.EDU || {};
     return p;
   }
 
+  /* Åpen oppgave, FIE402-formatet. Du skriver svaret først, så åpnes løsningen
+     og kriterielisten, og du gir deg selv poeng i fire trinn av maks — samme
+     skala som øvingsmodus i /sett. Skrivefeltet lagres ved blur, aldri per
+     tastetrykk: en refresh midt i setningen ville tatt markøren. */
+  function åpenOppgave(num, t) {
+    const åpent = erÅpen(num, t.id);
+    const st = openSt(num, t.id) || {};
+    const p = t.points || 6;
+    const boks = el("div", { style: { marginTop: "12px" } });
+
+    const felt = el("textarea.dyb-ansin", { rows: åpent ? 4 : 7, maxlength: 4000,
+      placeholder: åpent ? "" : "Skriv svaret ditt her — metode, utregning, mekanisme, kontroll. Som på arket.",
+      onblur: (e) => { if (åpent) lagreSvar(num, t.id, e.target.value); } });
+    felt.value = st.svar || "";
+    boks.appendChild(el("p.tiny.muted", { style: { margin: "0 0 6px" } },
+      åpent ? "Det du skrev:" : (t.hint || "Vis utregningen og navngi mekanismen. Uten utregning, ingen poeng.")));
+    boks.appendChild(felt);
+
+    if (!åpent) {
+      boks.appendChild(el(".row", { style: { marginTop: "12px", gap: "10px", alignItems: "center" } },
+        el("button.btn.primary", { onclick: () => { visLøsning(num, t.id, felt.value); S.app.refresh(); } }, "Vis løsningen"),
+        el("span.tiny.muted", "Løsningen låses opp, og svaret ditt blir stående ved siden av.")));
+      return boks;
+    }
+
+    /* Løsning + kriterier, i samme form som eksamenssettene. */
+    const sol = el(".sol-panel", { style: { marginTop: "14px" } });
+    sol.appendChild(el(".sol-h", icon("check"), el("span", "Løsning")));
+    if (t.solution) sol.appendChild(el(".prose", frag(t.solution)));
+    if ((t.criteria || []).length) {
+      sol.appendChild(el(".nav-section", { style: { paddingLeft: 0 } }, "Dette må være med"));
+      const ul = el("ul.sol-crit");
+      t.criteria.forEach((c) => ul.appendChild(el("li", c)));
+      sol.appendChild(ul);
+    }
+    boks.appendChild(sol);
+
+    /* Selvvurdering i fire trinn av maks. Kriteriene over er det du måler mot. */
+    const cur = st.score;
+    const rad = el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "14px" } },
+      el(".tiny.muted", "Poengene du gir deg selv:"));
+    const trinn = [...new Set([0, Math.round(p * 0.25), Math.round(p * 0.5), Math.round(p * 0.75), p])].sort((a, b) => a - b);
+    trinn.forEach((v) => rad.appendChild(el("button.btn.sm" + (cur === v ? ".primary" : ""), {
+      onclick: () => { settScore(num, t.id, v); S.app.refresh(); } }, String(v))));
+    rad.appendChild(el(".tiny.muted", `av ${p}`));
+    rad.appendChild(el(".spacer"));
+    rad.appendChild(el("button.btn.ghost.sm", { title: "Nullstiller bare denne oppgaven",
+      onclick: () => { angre(num, t.id); S.app.refresh(); } }, "Angre"));
+    boks.appendChild(rad);
+    if (typeof cur !== "number") boks.appendChild(el("p.tiny.muted", { style: { margin: "8px 0 0" } },
+      "Vurder ærlig mot kriteriene. Trekk der du regnet uten å si metoden, der mekanismen ikke ble navngitt, og der kontrollen mangler."));
+    return boks;
+  }
+
   function oppgave(num, t, i) {
     const åpent = erÅpen(num, t.id);
     const kort = el(".card.pad-lg", { style: { marginBottom: "14px" } });
@@ -151,6 +243,7 @@ window.EDU = window.EDU || {};
       el(".spacer"),
       el(".chip.indigo", { style: { fontWeight: 620 } }, (t.points || 3) + " poeng")));
     kort.appendChild(el(".prose", frag(t.body || "")));
+    if (erOpen(t)) { kort.appendChild(åpenOppgave(num, t)); return kort; }
     kort.appendChild(alternativer(num, t));
     if (åpent) kort.appendChild(fasit(t));
     return kort;
@@ -175,14 +268,24 @@ window.EDU = window.EDU || {};
       kap ? kap.fullTitle : "Kapittel " + num,
       `${r.antall} oppgaver · ${r.maks} poeng · ${b.minutes || Math.max(10, r.antall * 3)} minutter`));
 
-    const wf = wfFor(b);
-    wrap.appendChild(el(".card", { style: { marginBottom: "18px" } },
-      el("p.tiny", { style: { margin: 0 } },
-        el("b", "Eksamensregelen: "),
-        `rett svar gir full poengsum, feil svar ${pts(wf)} × poengsummen, ubesvart 0. `,
-        "Svar når du kan utelukke minst ett alternativ; stå over ellers. ",
-        el("b", "Fasiten kommer med en gang"),
-        ", så svaret låses når du har valgt.")));
+    const åpentSett = settErOpen(b);
+    if (åpentSett) {
+      wrap.appendChild(el(".card", { style: { marginBottom: "18px" } },
+        el("p.tiny", { style: { margin: 0 } },
+          el("b", "Eksamensformatet: "),
+          "åpne oppgaver med poeng per deloppgave, som på eksamen. Skriv svaret ferdig på papir eller i feltet ",
+          el("b", "før"), " du åpner løsningen — å lese en løsning du ikke har prøvd på gir gjenkjennelse, ikke kunnskap. ",
+          "Vurder deg så mot kriteriene. Sensor gir poeng for metode, vist utregning, navngitt mekanisme og kontrollen til slutt.")));
+    } else {
+      const wf = wfFor(b);
+      wrap.appendChild(el(".card", { style: { marginBottom: "18px" } },
+        el("p.tiny", { style: { margin: 0 } },
+          el("b", "Eksamensregelen: "),
+          `rett svar gir full poengsum, feil svar ${pts(wf)} × poengsummen, ubesvart 0. `,
+          "Svar når du kan utelukke minst ett alternativ; stå over ellers. ",
+          el("b", "Fasiten kommer med en gang"),
+          ", så svaret låses når du har valgt.")));
+    }
 
     (b.tasks || []).forEach((t, i) => wrap.appendChild(oppgave(num, t, i)));
 
@@ -190,8 +293,10 @@ window.EDU = window.EDU || {};
       const n = besvart(num);
       wrap.appendChild(el(".card", { style: { textAlign: "center" } },
         el("p.tiny.muted", { style: { margin: 0 } },
-          n === 0 ? "Velg et alternativ, så åpner fasiten seg med en gang."
-                  : `${n} av ${r.antall} besvart · ${pts(r.poeng)} poeng så langt`)));
+          n === 0 ? (åpentSett ? "Skriv svaret på første oppgave, og åpne løsningen når du er ferdig."
+                                : "Velg et alternativ, så åpner fasiten seg med en gang.")
+                  : `${n} av ${r.antall} ${åpentSett ? "åpnet" : "besvart"} · ${pts(r.poeng)} poeng så langt`
+                    + (åpentSett && r.uvurdert ? ` · ${tellord(r.uvurdert, "uvurdert", "uvurderte")}` : ""))));
     } else {
       wrap.appendChild(resultatkort(num, r, b));
     }
@@ -202,14 +307,23 @@ window.EDU = window.EDU || {};
     const kort = el(".card.pad-lg", { style: { textAlign: "center" } });
     const andel = r.maks ? Math.max(0, r.poeng) / r.maks : 0;
     kort.appendChild(el("h3", { style: { fontSize: "26px", marginBottom: "6px" } }, `${pts(r.poeng)} av ${r.maks} poeng`));
-    kort.appendChild(el("p.tiny.muted", { style: { margin: "0 0 14px" } },
-      [tellord(r.rett, "riktig", "riktige"), tellord(r.galt, "galt", "gale"),
-       tellord(r.blank, "ubesvart", "ubesvarte")].join(" · ")));
-    /* Uten minuspoeng ville samme besvarelse gitt dette. Forskjellen er hele
-       grunnen til at gjettestrategien må trenes. */
-    const utenMinus = (b.tasks || []).reduce((a, t) => a + (valgene(num)[t.id] === t.answer ? (t.points || 3) : 0), 0);
-    if (utenMinus !== r.poeng) kort.appendChild(el("p.tiny.muted", { style: { margin: "0 0 14px" } },
-      `Uten minuspoeng ville det samme gitt ${utenMinus} poeng. Differansen er ${pts(r.poeng - utenMinus)}.`));
+    if (settErOpen(b)) {
+      kort.appendChild(el("p.tiny.muted", { style: { margin: "0 0 14px" } },
+        `${tellord(r.vurdert, "oppgave vurdert", "oppgaver vurdert")}`
+        + (r.uvurdert ? ` · ${tellord(r.uvurdert, "uvurdert", "uvurderte")}` : "")
+        + ` · ${r.maks ? Math.round(Math.max(0, r.poeng) / r.maks * 100) : 0} % av maks`));
+      kort.appendChild(el("p.tiny.muted", { style: { margin: "0 0 14px", maxWidth: "52ch", marginLeft: "auto", marginRight: "auto" } },
+        "Vurderingen er din egen. Den er bare verdt noe hvis du trakk der metoden ikke ble sagt, der mekanismen ikke ble navngitt, og der kontrollen manglet."));
+    } else {
+      kort.appendChild(el("p.tiny.muted", { style: { margin: "0 0 14px" } },
+        [tellord(r.rett, "riktig", "riktige"), tellord(r.galt, "galt", "gale"),
+         tellord(r.blank, "ubesvart", "ubesvarte")].join(" · ")));
+      /* Uten minuspoeng ville samme besvarelse gitt dette. Forskjellen er hele
+         grunnen til at gjettestrategien må trenes. */
+      const utenMinus = (b.tasks || []).reduce((a, t) => a + (valgene(num)[t.id] === t.answer ? (t.points || 3) : 0), 0);
+      if (utenMinus !== r.poeng) kort.appendChild(el("p.tiny.muted", { style: { margin: "0 0 14px" } },
+        `Uten minuspoeng ville det samme gitt ${utenMinus} poeng. Differansen er ${pts(r.poeng - utenMinus)}.`));
+    }
     /* S.u.bar tegner den; den bruker <span>, ikke <i>, og klamper selv. */
     const linje = S.u.bar(andel * 100, { green: andel >= 0.6 });
     linje.style.marginBottom = "16px";
