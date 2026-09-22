@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-22
 ---
 
 # FIE402 Corporate Finance
@@ -99,6 +99,47 @@ Samlet estimat ~82 timer.
 **Seks dybdetreningsbanker** som følger delene: `foundations` · `capital` ·
 `information` · `valuation` · `options` · `transactions`.
 
+## Kapitteloppgaver
+
+Ett sett per kapittel, å ta rett etter lesingen. **50 oppgaver over ti kapitler,
+404 poeng.** Kapitlene er valgt etter eksamensfrekvens: k4, k17 og k18 (11/11
+sett), k25 og k26 (20–32 poeng i begge Kurbatov-settene), k6, k9, k12, k22 og k27.
+
+> [!important] Formatet er åpent, ikke flervalg
+> FIE432 bruker samme modul med flervalg og minuspoeng. FIE402 eksamineres som
+> seks åpne oppgaver, så oppgavene er `open: true` med `solution` og `criteria`:
+> du skriver svaret, åpner løsningen, og gir deg selv poeng i fire trinn av maks.
+> Motoren skifter regelkort, fremdriftslinje og resultatkort når hele settet er
+> åpent. Se [[Moduler og visninger]].
+
+Kriteriene er skrevet mot det sensorveiledningene faktisk belønner: metoden sagt,
+utregningen vist («no calculation, no points»), mekanismen navngitt, og
+konsistenssjekken kjørt. Deloppgavene har poeng i parentes som på eksamen, og de
+verbale har setningsbudsjett.
+
+**Hver oppgave er kontrollregnet to ganger** — av forfatteren, og av meg
+uavhengig etterpå. De tre kontrollene som betydde mest:
+
+- **k4** har β<sub>D</sub> = 0-fellen riktig vei (spek 9.4): den understater
+  β<sub>U</sub>, senker WACC og **overvurderer** firmaet, 700.93 mot 655.02.
+- **k12** har I i nevneren (spek 9.4): α = 90/444 = 0.2027, ikke 90/354 = 0.2542,
+  og overføringsidentiteten q × tap = (1−q) × gevinst går opp. Pooling flytter
+  verdi, separating ødelegger den, ikke omvendt (spek 9.2c).
+- **k9-4** viser at reforhandling **ikke** løser risikoskifting: i hele
+  intervallet K′ ∈ [67.5, 72.5] foretrekker aksjonærene fortsatt det risikable
+  prosjektet, så det trengs en håndhevbar covenant.
+
+> [!tip] En agent fant en feil i manualen
+> 22.2 sa at B = −40.00 i stedet for −38.4615 «overpriser callen med 1.5385».
+> Retningen var snudd: 50.0000 − 40.0000 = 10.0000 ligger *under* 11.5385, så den
+> underpriser. Rettet, og verifisert uavhengig før rettingen.
+
+Bygges med `tools/bygg-kapoppgaver.py fie402` fra fragmenter i
+`fag/fie402/_kapoppg/`, fordi kapitlene skrives parallelt. Kontrolleres med
+`tools/sjekk-kapitteloppgaver.js fie402`, som godtar begge oppgavetypene.
+
+**Gjenstår:** k1–k3, k5, k7, k8, k10, k11, k13–k16, k19–k21, k23, k24, k28.
+
 ## Kildene
 
 Alt ligger i `FIE402_Corp_course_files/`: 20 PDF-er med eksamener og
@@ -138,6 +179,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver |
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **268** forfattet + 80 auto-genererte formelkort |
+| Kapitteloppgaver | **50 åpne oppgaver** over 10 kapitler · 404 poeng |
 | Aktiv læring | **208** oppgaver |
 | Dybdetrening | **458** i seks banker |
 | Lynlæring | **233** elementer, med fremdriftsport |
