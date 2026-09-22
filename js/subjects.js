@@ -79,6 +79,47 @@ window.EDU_SUBJECTS = [
     },
     /* Kapittel 0 er kurs- og eksamensintroduksjon, k29 er ren referanse —
        ingen av dem teller som pensum i fremdriften. */
+    /* EKSAMENSVEKT PER KAPITTEL, 1–5.
+       Utledet av frekvenstabellen i docs/fie402-kursplan.md, men vektet mot
+       KURBATOV-settene (H2024 og H2025), siden han setter eksamen i 2026. Et
+       tema som er 8 av 11 historisk, men fraværende hos Kurbatov, får derfor
+       lavere vekt enn treffene alene skulle tilsi — og omvendt for et tema han
+       har løftet fram.
+
+       Brukes av /kapitteloppgaver til å vise hvor tiden er verdt å bruke, og
+       styrer hvor mange oppgaver hvert kapittel har fått. */
+    examWeights: {
+      0:  [1, "Kursintroduksjon og eksamensformat. Setter vaner, testes ikke."],
+      1:  [1, "Tidsverdi og NPV. Forutsetning for alt, men aldri en oppgave for seg."],
+      2:  [3, "Fri kontantstrøm bygges i hver eneste verdsettingsoppgave. 2021 P3, 2022 P3, 2017V P4."],
+      3:  [2, "CAPM er i hvert sett, men testes gjennom tvillingkjeden i k4, ikke alene."],
+      4:  [5, "Unlever/relever med tvillingfirma: 11 av 11 sett. Kursets mest eksaminerte ferdighet."],
+      5:  [2, "Kredittmargin og forventet avkastning på risikabel gjeld. 2021 MC7–9, V2024 P3. Setter opp k24."],
+      6:  [5, "MM I og II med rekapitalisering: 11 av 11. H2024 E3 og H2025 E3, 18 poeng hver."],
+      7:  [4, "Skatteskjoldet bærer hele APV-siden. 2022 P1, 2023 P1, 2021 MC3, 2015 P3."],
+      8:  [2, "Konkurskostnader og trade-off: 3 av 11, og fraværende hos Kurbatov."],
+      9:  [4, "Risikoskifting: 5 av 11, men H2024 E4 er nøyaktig dette, og V2024 P1 ga 52 poeng."],
+      10: [3, "Debt overhang og reforhandling: 5 av 11. 2017V P3, 2017H P1 og P4, 2021 P2."],
+      11: [2, "Teoriene satt sammen. Verbal syntese, sjelden en egen oppgave."],
+      12: [3, "Myers-Majluf: 8 av 11 historisk, men FRAVÆRENDE i begge Kurbatov-settene. Fortsatt pensum."],
+      13: [2, "Hakkeorden, signalisering og markedstiming. Samme klynge som k12, samme forbehold."],
+      14: [2, "Emisjon, IPO og SEO: 4 av 11. V2024 hentet seks av ti flervalg herfra, men flervalg er avskaffet."],
+      15: [3, "Utbytte mot tilbakekjøp i perfekt marked. Payout er 7 av 11, og H2025 E3 hadde utbytte inne."],
+      16: [2, "Payout med friksjoner. Del av de samme 7 av 11, men den mindre eksaminerte halvdelen."],
+      17: [5, "WACC-metoden: 11 av 11, og vanligvis den største enkeltoppgaven i settet."],
+      18: [5, "APV-metoden: 11 av 11 sammen med WACC. Regelen for skjoldrenten kom i hvert flervalgssett."],
+      19: [4, "FTE og gjeldsjustering. H2025 E4(f) er steget nesten alle bommer på."],
+      20: [3, "Full verdsetting ende til ende. Formen på H2025 E4, men trenes best gjennom hele sett."],
+      21: [3, "Opsjonsgrunnlag og put-call-paritet: 4 av 11, og forutsetning for k22 og k24."],
+      22: [4, "Binomisk og risikonøytral verdsetting: 7 av 11. H2024 E6 bygger direkte på den."],
+      23: [4, "Black-Scholes. Bare 2 av 11 numerisk, MEN H2025 E1 var nøyaktig dette verbalt, 12 poeng."],
+      24: [3, "Gjeld og EK som opsjoner: 8 av 11 historisk, 90 poeng i 2015 P4, men fraværende hos Kurbatov."],
+      25: [5, "Realopsjoner: fast post siden 2017, og 20 poeng i BEGGE Kurbatov-settene."],
+      26: [5, "M&A: 8 av 11, og 20–32 poeng i begge Kurbatov-settene. H2025 E6 er implisitt dealsannsynlighet."],
+      27: [5, "Eierstyring: garantert 12-poengs verbal oppgave i det nye formatet. H2024 E2, H2025 E2."],
+      28: [3, "Eksamenshåndverk. Viktig, men trenes ved å kjøre ekte sett på tid, ikke med egne oppgaver."],
+      29: [1, "Formelsamling. Referanse, ikke pensum å øve på."],
+    },
     coreChapters: { from: 1, to: 28 },
     parts: [
       { id: 0, tag: "Part 0", name: "Foundations", chapters: [0, 1, 2, 3, 4, 5] },

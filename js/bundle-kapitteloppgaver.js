@@ -56,6 +56,17 @@ window.EDU = window.EDU || {};
      Den regnes som at alt er avslørt, så gamle besvarelser fortsatt viser fasit. */
   const erÅpen = (num, id) => (id in valgene(num)) || !!økt(num).levertAt;
   const erOpen = (t) => !!t.open;
+  /* Eksamensvekt 1–5 fra manifestet: [score, begrunnelse]. Uten tabellen vises
+     ingenting, så fag som ikke har vektet kapitlene sine er upåvirket. */
+  const vektFor = (num) => ((window.EDU_SUBJECT || {}).examWeights || {})[num] || null;
+  function vektmerke(num) {
+    const v = vektFor(num);
+    if (!v) return null;
+    const [score, hvorfor] = v;
+    const boks = el(".kap-vekt", { title: `Eksamensvekt ${score} av 5. ${hvorfor}` });
+    for (let i = 1; i <= 5; i++) boks.appendChild(el("i" + (i <= score ? ".p\u00e5" : "")));
+    return boks;
+  }
   /* Et sett er «åpent» når alle oppgavene er det. Da gjelder ikke minuspoeng-
      regelen, og all tekst om den skjules. */
   const settErOpen = (b) => !!b && (b.tasks || []).length > 0 && (b.tasks || []).every(erOpen);
@@ -340,7 +351,8 @@ window.EDU = window.EDU || {};
     const levert = ferdig(num), påbegynt = !levert && besvart(num) > 0;
     const rd = el(".kap-rad");
     rd.appendChild(el(".kap-radtekst",
-      el(".kap-radnavn", kap ? kap.fullTitle : "Kapittel " + num),
+      el(".row", { style: { gap: "10px", alignItems: "center" } },
+        el(".kap-radnavn", kap ? kap.fullTitle : "Kapittel " + num), vektmerke(num)),
       el(".kap-radtall", `${r.antall} oppgaver · ${r.maks} poeng`
         + (levert ? ` · ${pts(r.poeng)} poeng oppnådd` : påbegynt ? ` · ${besvart(num)} av ${r.antall} besvart · ${pts(r.poeng)} så langt` : ""))));
     rd.appendChild(el(".kap-radhoyre",
@@ -369,6 +381,10 @@ window.EDU = window.EDU || {};
       "Ta settet rett etter at du har lest kapitlet, mens stoffet er ferskt. Samme format som eksamen: "
       + "fire alternativer, ett riktig, og minuspoeng for feil. Fasiten kommer med en gang, og sier hvilken "
       + "feil hvert gale alternativ er laget av. Vil du ha eksamensforhold med fasit først til slutt, ligger det i Eksamenssett."));
+    /* Vektene er det eneste stedet i appen som sier hvor tiden faktisk er verdt
+       å bruke. Uten forklaringen ser prikkene ut som pynt. */
+    if (Object.keys(((window.EDU_SUBJECT || {}).examWeights || {})).length) wrap.appendChild(el("p.tiny.muted", { style: { maxWidth: "62ch", margin: "-14px 0 22px" } },
+      el("b", "Prikkene er eksamensvekt"), " fra 1 til 5, utledet av hvor ofte temaet faktisk har kommet, vektet mot de to siste settene siden samme sensor lager eksamen i år. Hold musepekeren over for begrunnelsen. Antall oppgaver per kapittel følger vekten."));
 
     deler.forEach((x) => {
       const kort = el(".card.pad-lg", { style: { marginBottom: "18px" } });
@@ -388,8 +404,9 @@ window.EDU = window.EDU || {};
     if (!harOppgaver(num)) return null;
     const r = resultat(num), levert = ferdig(num), påbegynt = !levert && besvart(num) > 0;
     const kort = el(".card.pad-lg", { style: { marginTop: "30px" } });
-    kort.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline" } },
+    kort.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "center" } },
       el("h3", { style: { fontSize: "18px" } }, "Kapitteloppgaver"),
+      vektmerke(num),
       el(".spacer"),
       levert ? el(".chip.green", el(".dot"), `${pts(r.poeng)} av ${r.maks}`) : påbegynt ? el(".chip.amber", el(".dot"), "Påbegynt") : null));
     kort.appendChild(el("p.tiny.muted", { style: { margin: "8px 0 14px" } },
