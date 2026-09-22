@@ -277,7 +277,7 @@ window.EDU = window.EDU || {};
 
     wrap.appendChild(sh().pageHead("Kapitteloppgaver",
       kap ? kap.fullTitle : "Kapittel " + num,
-      `${r.antall} oppgaver · ${r.maks} poeng · ${b.minutes || Math.max(10, r.antall * 3)} minutter`));
+      `${tellord(r.antall, "oppgave", "oppgaver")} · ${r.maks} poeng · ${b.minutes || Math.max(10, r.antall * 3)} minutter`));
 
     const åpentSett = settErOpen(b);
     if (åpentSett) {
@@ -353,7 +353,7 @@ window.EDU = window.EDU || {};
     rd.appendChild(el(".kap-radtekst",
       el(".row", { style: { gap: "10px", alignItems: "center" } },
         el(".kap-radnavn", kap ? kap.fullTitle : "Kapittel " + num), vektmerke(num)),
-      el(".kap-radtall", `${r.antall} oppgaver · ${r.maks} poeng`
+      el(".kap-radtall", `${tellord(r.antall, "oppgave", "oppgaver")} · ${r.maks} poeng`
         + (levert ? ` · ${pts(r.poeng)} poeng oppnådd` : påbegynt ? ` · ${besvart(num)} av ${r.antall} besvart · ${pts(r.poeng)} så langt` : ""))));
     rd.appendChild(el(".kap-radhoyre",
       levert ? el(".chip.green", el(".dot"), "Ferdig") : påbegynt ? el(".chip.amber", el(".dot"), "Påbegynt") : null,
@@ -376,11 +376,20 @@ window.EDU = window.EDU || {};
       const r = resultat(c.num); antOpp += r.antall; antPoeng += r.maks; if (ferdig(c.num)) levert++;
     }));
     wrap.appendChild(sh().pageHead("Øving", "Kapitteloppgaver",
-      `${antOpp} oppgaver over ${tellord(antKap, "kapittel", "kapitler")} · ${antPoeng} poeng · ${tellord(levert, "kapittel", "kapitler")} ferdig`));
+      `${tellord(antOpp, "oppgave", "oppgaver")} over ${tellord(antKap, "kapittel", "kapitler")} · ${antPoeng} poeng · ${tellord(levert, "kapittel", "kapitler")} ferdig`));
+    /* Fagene har ulikt eksamensformat, og introen må si hva DETTE faget møter.
+       FIE432 er flervalg med minuspoeng, FIE402 er åpne oppgaver med penn og
+       papir. Én felles tekst ville vært feil for det ene av dem. */
+    const heltÅpent = deler.every((x) => x.kap.every((c) => settErOpen(forKap(c.num))));
     wrap.appendChild(el("p.sub", { style: { maxWidth: "62ch", margin: "0 0 22px" } },
-      "Ta settet rett etter at du har lest kapitlet, mens stoffet er ferskt. Samme format som eksamen: "
-      + "fire alternativer, ett riktig, og minuspoeng for feil. Fasiten kommer med en gang, og sier hvilken "
-      + "feil hvert gale alternativ er laget av. Vil du ha eksamensforhold med fasit først til slutt, ligger det i Eksamenssett."));
+      heltÅpent
+        ? "Ta settet rett etter at du har lest kapitlet, mens stoffet er ferskt. Samme format som eksamen: "
+          + "åpne oppgaver med penn og papir, poeng per deloppgave. Skriv svaret ditt, og hent løsningen når "
+          + "du er ferdig — den kommer med sensorkriteriene, så du ser hva som faktisk gir poeng. "
+          + "Vil du ha eksamensforhold, seks oppgaver på tre timer, ligger det i Eksamenssett."
+        : "Ta settet rett etter at du har lest kapitlet, mens stoffet er ferskt. Samme format som eksamen: "
+          + "fire alternativer, ett riktig, og minuspoeng for feil. Fasiten kommer med en gang, og sier hvilken "
+          + "feil hvert gale alternativ er laget av. Vil du ha eksamensforhold med fasit først til slutt, ligger det i Eksamenssett."));
     /* Vektene er det eneste stedet i appen som sier hvor tiden faktisk er verdt
        å bruke. Uten forklaringen ser prikkene ut som pynt. */
     if (Object.keys(((window.EDU_SUBJECT || {}).examWeights || {})).length) wrap.appendChild(el("p.tiny.muted", { style: { maxWidth: "62ch", margin: "-14px 0 22px" } },

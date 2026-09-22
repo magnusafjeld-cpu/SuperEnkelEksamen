@@ -88,8 +88,13 @@ function sjekk(sub) {
     const vekt = ((sub.examWeights || {})[num] || [])[0];
     const MIN = { 5: 5, 4: 3, 3: 3, 2: 2, 1: 1 };
     const forventet = vekt ? MIN[vekt] : 4;
-    if (tasks.length < forventet)
-      si(advarsel, hvorK, `${tasks.length} oppgaver, men eksamensvekt ${vekt || "?"} tilsier minst ${forventet}`);
+    /* Et kapittel kan innfri vekten med færre, men lengre oppgaver. k20 er hele
+       verdsettingskjeden i to oppgaver à ni og sju deloppgaver, og det er mer
+       arbeid enn tre korte. Derfor teller poengsummen også, ikke bare antallet. */
+    const MINP = { 5: 36, 4: 28, 3: 24, 2: 14, 1: 8 };
+    const poeng = tasks.reduce((a, t) => a + (t.points || (t.open ? 6 : 3)), 0);
+    if (tasks.length < forventet && poeng < (vekt ? MINP[vekt] : 24))
+      si(advarsel, hvorK, `${tasks.length} oppgaver og ${poeng} poeng, men eksamensvekt ${vekt || "?"} tilsier minst ${forventet} oppgaver eller ${vekt ? MINP[vekt] : 24} poeng`);
     if (b.wrongFactor != null && (typeof b.wrongFactor !== "number" || b.wrongFactor > 0))
       si(feil, hvorK, `wrongFactor ${b.wrongFactor} må være et tall ≤ 0`);
 

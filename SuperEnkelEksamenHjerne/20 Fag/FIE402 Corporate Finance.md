@@ -101,8 +101,8 @@ Samlet estimat ~82 timer.
 
 ## Kapitteloppgaver
 
-Ett sett per kapittel, å ta rett etter lesingen. **72 oppgaver over 17 kapitler,
-617 poeng, 18,5 timer.**
+Ett sett per kapittel, å ta rett etter lesingen. **92 oppgaver over 27 kapitler,
+817 poeng, 24,5 timer.** Alle kapitler med fagstoff er ferdige.
 
 > [!important] Antall oppgaver følger eksamensvekt, ikke en fast norm
 > `examWeights` i manifestet gir hvert kapittel 1–5 med begrunnelse, utledet av
@@ -154,11 +154,22 @@ uavhengig etterpå. De tre kontrollene som betydde mest:
 > Retningen var snudd: 50.0000 − 40.0000 = 10.0000 ligger *under* 11.5385, så den
 > underpriser. Rettet, og verifisert uavhengig før rettingen.
 
+Introteksten på `/kapitteloppgaver` følger formatet: er alle settene i faget
+åpne, sier den penn og papir og sensorkriterier; ellers står flervalgsteksten
+FIE432 trenger. Ett felles avsnitt ville vært feil for det ene av fagene.
+
 Bygges med `tools/bygg-kapoppgaver.py fie402` fra fragmenter i
 `fag/fie402/_kapoppg/`, fordi kapitlene skrives parallelt. Kontrolleres med
 `tools/sjekk-kapitteloppgaver.js fie402`, som godtar begge oppgavetypene.
 
-**Gjenstår:** k1, k3, k5, k8, k11, k13, k14, k16, k20, k24, k28 — alle vekt 1–3.
+**k28 får ingen oppgaver med vilje.** Eksamenshåndverk trenes ved å kjøre ekte
+sett på klokka, ikke ved å lese om det, og det ligger i Eksamenssett.
+
+> [!note] Kontrollen teller poeng i tillegg til antall
+> k20 er hele verdsettingskjeden i to lange oppgaver — 37 poeng, mer enn noe
+> femoppgaverskapittel — og ble meldt som for tynt fordi kontrollen bare talte
+> oppgaver. Nå innfrir et kapittel vekten sin med enten antallet eller
+> poengsummen, så færre og lengre oppgaver er et lovlig valg.
 
 ## Kildene
 
@@ -199,7 +210,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver |
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **268** forfattet + 80 auto-genererte formelkort |
-| Kapitteloppgaver | **72 åpne oppgaver** over 17 kapitler · 617 poeng · 18,5 t |
+| Kapitteloppgaver | **92 åpne oppgaver** over 27 kapitler · 817 poeng · 24,5 t |
 | Aktiv læring | **208** oppgaver |
 | Dybdetrening | **458** i seks banker |
 | Lynlæring | **233** elementer, med fremdriftsport |
