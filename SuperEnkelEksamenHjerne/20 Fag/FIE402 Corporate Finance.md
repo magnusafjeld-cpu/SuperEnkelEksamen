@@ -101,9 +101,24 @@ Samlet estimat ~82 timer.
 
 ## Kapitteloppgaver
 
-Ett sett per kapittel, å ta rett etter lesingen. **50 oppgaver over ti kapitler,
-404 poeng.** Kapitlene er valgt etter eksamensfrekvens: k4, k17 og k18 (11/11
-sett), k25 og k26 (20–32 poeng i begge Kurbatov-settene), k6, k9, k12, k22 og k27.
+Ett sett per kapittel, å ta rett etter lesingen. **72 oppgaver over 17 kapitler,
+617 poeng, 18,5 timer.**
+
+> [!important] Antall oppgaver følger eksamensvekt, ikke en fast norm
+> `examWeights` i manifestet gir hvert kapittel 1–5 med begrunnelse, utledet av
+> frekvenstabellen i kursplanen men **vektet mot Kurbatov-settene**, siden han
+> setter eksamen i 2026. Vekt 5 gir fem oppgaver, vekt 4 gir tre til fire, vekt 3
+> gir tre. `tools/sjekk-kapitteloppgaver.js` leser tabellen, så et kapittel med
+> vekt 3 og tre oppgaver ikke lenger meldes som for tynt.
+>
+> Vektingen flytter to kapitler tydelig: **k23 Black-Scholes** er bare 2 av 11
+> numerisk, men H2025 E1 var nøyaktig dette verbalt (12 poeng), så vekt 4.
+> **k24 gjeld og EK som opsjoner** er 8 av 11 historisk og ga 90 poeng i 2015 P4,
+> men er fraværende hos Kurbatov, så vekt 3. Samme forbehold på k12.
+
+Uten vekting ville fem oppgaver på alle 28 kapitlene blitt ~34 timer, altså 44 %
+av hele studieplanen på én modul, oppå 338 quizspørsmål, 458 dybdespørsmål og
+20 timer eksamenssett. Det var begrunnelsen for å vekte.
 
 > [!important] Formatet er åpent, ikke flervalg
 > FIE432 bruker samme modul med flervalg og minuspoeng. FIE402 eksamineres som
@@ -125,6 +140,11 @@ uavhengig etterpå. De tre kontrollene som betydde mest:
 - **k12** har I i nevneren (spek 9.4): α = 90/444 = 0.2027, ikke 90/354 = 0.2542,
   og overføringsidentiteten q × tap = (1−q) × gevinst går opp. Pooling flytter
   verdi, separating ødelegger den, ikke omvendt (spek 9.2c).
+- **k19** fant at **feilens fortegn er fortegnet på netto låneopptak**: glemmer du
+  gjeldsjusteringen på et selskap som nedbetaler, overvurderer du egenkapitalen
+  med 34 %; på et som låner mer, undervurderer du den med 18 %. Det river bort
+  forsvaret «det går omtrent opp i opp». Og den lille feilen er den farlige: å
+  fryse gjelden på D₀ koster bare 0,59 %, innenfor det som leses som avrunding.
 - **k9-4** viser at reforhandling **ikke** løser risikoskifting: i hele
   intervallet K′ ∈ [67.5, 72.5] foretrekker aksjonærene fortsatt det risikable
   prosjektet, så det trengs en håndhevbar covenant.
@@ -138,7 +158,7 @@ Bygges med `tools/bygg-kapoppgaver.py fie402` fra fragmenter i
 `fag/fie402/_kapoppg/`, fordi kapitlene skrives parallelt. Kontrolleres med
 `tools/sjekk-kapitteloppgaver.js fie402`, som godtar begge oppgavetypene.
 
-**Gjenstår:** k1–k3, k5, k7, k8, k10, k11, k13–k16, k19–k21, k23, k24, k28.
+**Gjenstår:** k1, k3, k5, k8, k11, k13, k14, k16, k20, k24, k28 — alle vekt 1–3.
 
 ## Kildene
 
@@ -179,7 +199,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver |
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **268** forfattet + 80 auto-genererte formelkort |
-| Kapitteloppgaver | **50 åpne oppgaver** over 10 kapitler · 404 poeng |
+| Kapitteloppgaver | **72 åpne oppgaver** over 17 kapitler · 617 poeng · 18,5 t |
 | Aktiv læring | **208** oppgaver |
 | Dybdetrening | **458** i seks banker |
 | Lynlæring | **233** elementer, med fremdriftsport |

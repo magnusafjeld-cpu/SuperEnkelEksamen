@@ -81,7 +81,15 @@ function sjekk(sub) {
 
     const tasks = b.tasks || [];
     if (!tasks.length) { si(feil, hvorK, "ingen oppgaver"); continue; }
-    if (tasks.length < 4) si(advarsel, hvorK, `bare ${tasks.length} oppgaver — et sett bør være minst 4`);
+    /* Antall oppgaver følger eksamensvekten, ikke en fast norm. Et kapittel med
+       vekt 3 SKAL ha færre enn et med vekt 5; terskelen må derfor leses av
+       manifestets examWeights, ellers roper kontrollen ulv på hver bevisste
+       prioritering. Uten vekttabell faller den tilbake på den gamle normen. */
+    const vekt = ((sub.examWeights || {})[num] || [])[0];
+    const MIN = { 5: 5, 4: 3, 3: 3, 2: 2, 1: 1 };
+    const forventet = vekt ? MIN[vekt] : 4;
+    if (tasks.length < forventet)
+      si(advarsel, hvorK, `${tasks.length} oppgaver, men eksamensvekt ${vekt || "?"} tilsier minst ${forventet}`);
     if (b.wrongFactor != null && (typeof b.wrongFactor !== "number" || b.wrongFactor > 0))
       si(feil, hvorK, `wrongFactor ${b.wrongFactor} må være et tall ≤ 0`);
 
@@ -148,6 +156,7 @@ function sjekk(sub) {
     sumOppg += tasks.length;
     const åpne = tasks.filter((t) => t.open).length;
     notat.push(`  k${num}: ${tasks.length} oppgaver · ${tasks.reduce((a, t) => a + (t.points || (t.open ? 6 : 3)), 0)} poeng`
+      + (vekt ? ` · vekt ${vekt}` : "")
       + (åpne ? (åpne === tasks.length ? " · åpne" : ` · ${åpne} åpne`) : ""));
   }
 
