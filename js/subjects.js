@@ -265,7 +265,11 @@ window.EDU_SUBJECTS = [
        H2025, fordi 2026-eksamen også er flervalg. Et tema som var stort i de åpne
        settene før 2020 og har forsvunnet siden, veier derfor mindre enn treffene
        alene skulle tilsi. Samme bruk som i FIE402. */
-    examWeightsNote: "utledet av alle 227 spørsmål i de ni settene siden 2016, vektet mot flervalgssettene H2022–H2025, siden eksamen i år også er flervalg.",
+    examWeightsNote: "utledet av alle 227 spørsmål i de ni settene siden 2016, vektet mot flervalgssettene H2022–H2025, siden eksamen i år også er flervalg. Antall kapitteloppgaver følger vekten.",
+    /* Hvor mange kapitteloppgaver hver vekt skal ha. Flervalgsoppgavene er korte
+       (3–7 minutter), så tallene er langt høyere enn FIE402s lange åpne
+       oppgaver, der standarden i tools/sjekk-kapitteloppgaver.js gjelder. */
+    kapoppgPerVekt: { 5: 20, 4: 15, 3: 10, 2: 8, 1: 6 },
     examWeights: {
       0:  [1, "Kursintroduksjon og eksamensformat. Testes ikke."],
       1:  [4, "Effektiv skattesats og gjennomsnittsskatt: 7 av 9 sett, 5,3 % av poengene."],
