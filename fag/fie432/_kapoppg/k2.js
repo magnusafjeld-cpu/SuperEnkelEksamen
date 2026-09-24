@@ -1,6 +1,6 @@
 /* Kapittel 2 — Avkastning før og etter skatt, og tidsverdien av et fradrag */
 window.EDU_DATA.chapterTasks[2] = {
-  minutes: 20,
+  minutes: 29,
   tasks: [
     {
       id: "k2-1",
@@ -59,7 +59,7 @@ window.EDU_DATA.chapterTasks[2] = {
         "Kr 55 000",
       ],
       answer: 2,
-      solution: "<p>Et fradrag er ikke penger, det er en skattebesparelse: fradraget ganget med satsen det virker mot. Og en skattebesparelse er en kontantstrøm som alle andre, så den skal diskonteres.</p><p><b>Steg 1 — alt med en gang.</b> 250 000 × 22 % = <b>55 000</b>, mottatt i dag, altså nåverdi 55 000.</p><p><b>Steg 2 — fordelt over fem år.</b> Årlig besparelse 50 000 × 22 % = <b>11 000</b>. Annuitetsfaktoren ved 8 % over fem år er [1 − 1,08<sup>−5</sup>]/0,08 = <b>3,9927</b>. Nåverdi: 11 000 × 3,9927 = <b>43 920</b>.</p><p><b>Steg 3 — differansen.</b> 55 000 − 43 920 = <b>kr 11 080</b> i favør av å ta alt med en gang.</p><p><b>Kontroll år for år:</b> 10 185 + 9 431 + 8 732 + 8 085 + 7 486 = 43 920. ✓</p><p><b>Kontroll den andre veien:</b> udiskontert er alternativene identiske, 5 × 11 000 = 55 000 = 250 000 × 22 %. Det er utelukkende tidspunktene som skiller dem. Nåverdien av den fordelte strømmen er 3,9927/5 = 79,85 % av den umiddelbare, så tapet er 55 000 × (1 − 0,7985) = 11 080. ✓</p><p>Regelen er verdt å kunne som regel: så lenge diskonteringsrenten er positiv, vinner alltid å ta fradraget først, og speilbildet gjelder inntekt, som skal utsettes lengst mulig. To forbehold kan snu den. Du må ha inntekt å føre fradraget mot, og marginalsatsen kan være lavere i år 1 enn senere. Temaet har vært eksaminert som H2020 oppgave 1a og H2024 oppgave 3, begge ganger som begrepsspørsmål med et regnestykke bak.</p>",
+      solution: "<p>Et fradrag er ikke penger, det er en skattebesparelse: fradraget ganget med satsen det virker mot. Og en skattebesparelse er en kontantstrøm som alle andre, så den skal diskonteres.</p><p><b>Steg 1 — alt med en gang.</b> 250 000 × 22 % = <b>55 000</b>, mottatt i dag, altså nåverdi 55 000.</p><p><b>Steg 2 — fordelt over fem år.</b> Årlig besparelse 50 000 × 22 % = <b>11 000</b>. Annuitetsfaktoren ved 8 % over fem år er [1 − 1,08<sup>−5</sup>]/0,08 = <b>3,9927</b>. Nåverdi: 11 000 × 3,9927 = <b>43 920</b>.</p><p><b>Steg 3 — differansen.</b> 55 000 − 43 920 = <b>kr 11 080</b> i favør av å ta alt med en gang.</p><p><b>Kontroll år for år:</b> 10 185,2 + 9 430,7 + 8 732,2 + 8 085,3 + 7 486,4 = 43 919,8 ≈ 43 920. ✓</p><p><b>Kontroll den andre veien:</b> udiskontert er alternativene identiske, 5 × 11 000 = 55 000 = 250 000 × 22 %. Det er utelukkende tidspunktene som skiller dem. Nåverdien av den fordelte strømmen er 3,9927/5 = 79,85 % av den umiddelbare, så tapet er 55 000 × (1 − 0,798542) = 11 080. ✓</p><p>Regelen er verdt å kunne som regel: så lenge diskonteringsrenten er positiv, vinner alltid å ta fradraget først, og speilbildet gjelder inntekt, som skal utsettes lengst mulig. To forbehold kan snu den. Du må ha inntekt å føre fradraget mot, og marginalsatsen kan være lavere i år 1 enn senere. Temaet har vært eksaminert som H2020 oppgave 1a og H2024 oppgave 3, begge ganger som begrepsspørsmål med et regnestykke bak.</p>",
       traps: [
         "Alternativene sammenlignet i udiskonterte kroner, 55 000 mot 5 × 11 000. Riktig bare hvis diskonteringsrenten er null, og dette alternativet er nesten alltid med.",
         "Også den umiddelbare besparelsen diskontert ett år, slik at begge strømmene starter i år 1: 55 000/1,08 − 43 920. To ulike tidskonvensjoner blandet i samme regnestykke.",
@@ -95,6 +95,46 @@ window.EDU_DATA.chapterTasks[2] = {
         "Periode 1-inntekten diskontert i stedet for forrentet: 420 000 + 250 000/1,0468. Sparing flytter kroner framover i tid, og da skal de ganges med 1 + r(1 − t).",
         "Rentene glemt: 250 000 + 420 000. Det er summen av inntektene, ikke endepunktet på budsjettlinjen.",
         null,
+      ],
+    },
+    {
+      id: "k2-7",
+      topic: "Fradrag uten inntekt",
+      points: 3,
+      body: "<p>Maria eier et næringslokale gjennom Lokale AS. Selskapet har kr 180 000 i leieinntekt i hvert av de neste fem årene, og ingen andre kostnader og ingen annen inntekt. Nå må ventilasjonsanlegget skiftes for kr 250 000, og som i H2024 oppgave 3 kan selskapet velge mellom to måter å føre det på: utgiftsføre hele beløpet i år 1, eller avskrive kr 50 000 i året i fem år. Den delen av et fradrag som overstiger årets leieinntekt, går tapt: den kan verken føres mot annen inntekt eller framføres [forutsetning i oppgaven].</p><p>Satsen er selskapsskatten, 22 % [dagens regel], og selskapet diskonterer med 10 % [eksempeltall]. Skattebesparelsen kommer ved slutten av det året fradraget føres, altså om ett år for år 1. Annuitetsfaktoren for fem år ved 10 % er 3,7908.</p><p>Hvilket alternativ gir høyest nåverdi av skattebesparelsen, og med hvor mye?</p>",
+      options: [
+        "Avskrive over fem år, med kr 2 099",
+        "Avskrive over fem år, med kr 5 699",
+        "Utgiftsføre alt i år 1, med kr 8 301",
+        "Avskrive over fem år, med kr 15 400",
+      ],
+      answer: 1,
+      solution: "<p>Regelen «ta fradraget med en gang» har et forbehold, og sensorveiledningen til H2024 oppgave 3 sier det selv: den gjelder så lenge du har inntekt å føre fradraget mot. Det har ikke Lokale AS i år 1.</p><p><b>Steg 1 — hvor mye av fradraget som virker i år 1.</b> Leieinntekten er 180 000, så bare 180 000 av de 250 000 kan føres. Resten, 70 000, går tapt. Skattebesparelsen blir 180 000 × 22 % = <b>39 600</b>, mottatt om ett år: 39 600 / 1,10 = <b>36 000</b>.</p><p><b>Steg 2 — avskrivningen.</b> 50 000 i året er godt under leieinntekten, så hele fradraget virker hvert år. Årlig besparelse 50 000 × 22 % = 11 000, og nåverdien er 11 000 × 3,7908 = <b>41 699</b>.</p><p><b>Steg 3 — sammenlign.</b> 41 699 − 36 000 = <b>kr 5 699</b> i favør av å avskrive over fem år.</p><p><b>Kontroll via det tapte fradraget:</b> uten inntektsbegrensningen ville utgiftsføringen vært verdt 55 000 / 1,10 = 50 000, altså 50 000 − 41 699 = 8 301 <i>mer</i> enn avskrivningen. Begrensningen koster 70 000 × 22 % = 15 400 om ett år, som er 15 400 / 1,10 = 14 000 i nåverdi. 8 301 − 14 000 = −5 699, altså 5 699 i favør av avskrivningen. ✓ Samme tall, regnet via det som går tapt i stedet for det som blir igjen.</p><p>Tidsverdien virker fortsatt, den er bare mindre enn tapet. Et fradrag tatt tidlig er et rentefritt lån fra staten, men et fradrag som ikke kan brukes, er ikke et lån, det er et tap. Hadde leieinntekten vært minst 250 000, ville utgiftsføringen vunnet med 8 301, slik som i H2024-oppgaven. Og hadde de 70 000 kunnet framføres til år 2, ville utgiftsføringen vært verdt 36 000 + 15 400 / 1,21 = 36 000 + 12 727 = 48 727, og vunnet igjen. Les derfor alltid hva oppgaven sier om inntekten fradraget skal føres mot.</p>",
+      traps: [
+        "Besparelsen ved utgiftsføring behandlet som om den kom i dag: 41 699 − 39 600 = 2 099. Teksten sier at den kommer ved slutten av år 1, så 39 600 skal diskonteres ett år, akkurat som avskrivningene.",
+        null,
+        "Inntektsbegrensningen oversett, så hele 250 000 × 22 % = 55 000 regnes som brukbart i år 1: 55 000 / 1,10 − 41 699 = 8 301. Det er svaret når inntekten dekker fradraget, men her går 70 000 av det tapt.",
+        "Udiskonterte kroner sammenlignet: 5 × 11 000 − 39 600 = 15 400. Retningen blir riktig, men beløpet er ingen nåverdi, og spørsmålet gjelder nåverdien.",
+      ],
+    },
+    {
+      id: "k2-8",
+      topic: "Skatt og låntakeren",
+      points: 3,
+      body: "<p>Kari er låntaker i to-periodemodellen: hun konsumerer mer enn inntekten i periode 1 og betaler tilbake med renter i periode 2. Lånerenten er 5 %, og renteutgiftene gir fradrag med 22 % [dagens regel]. Anta at satsen som treffer renteinntekter og rentefradrag, økes til 28 % [eksempeltall]. Karis inntekter Y<sub>1</sub> og Y<sub>2</sub> etter skatt er uendret, og konsum i begge perioder er normale goder.</p><p>Hva skjer med Karis konsum i periode 1, C<sub>1</sub>?</p>",
+      options: [
+        "Renten etter skatt faller fra 3,90 % til 3,60 %. Substitusjonseffekten trekker C<sub>1</sub> opp og inntektseffekten trekker den ned, så virkningen er ubestemt.",
+        "Ingenting: skatten treffer renteinntekter, ikke renteutgifter, så en låntakers budsjettlinje er uendret.",
+        "Renten etter skatt faller fra 3,90 % til 3,60 %. Både substitusjons- og inntektseffekten trekker C<sub>1</sub> opp, så hun låner mer.",
+        "Renten etter skatt stiger fordi skatten øker. Både substitusjons- og inntektseffekten trekker C<sub>1</sub> ned, så hun låner mindre.",
+      ],
+      answer: 2,
+      solution: "<p><b>Steg 1 — renten etter skatt.</b> Før: 5 % × (1 − 0,22) = <b>3,90 %</b>. Etter: 5 % × (1 − 0,28) = <b>3,60 %</b>. For en låntaker er skatten et fradrag, så en høyere sats gjør hver rentekrone billigere. Skatt opp virker som rente ned.</p><p><b>Steg 2 — budsjettlinjen.</b> Stigningstallet −(1 + r(1 − t)) går fra −1,039 til −1,036. Linjen blir flatere og vipper om utstyrspunktet E = (Y<sub>1</sub>, Y<sub>2</sub>). Til høyre for E, der Kari er, ligger den nye linjen høyere, så mulighetene hennes utvides.</p><p><b>Steg 3 — substitusjonseffekten.</b> Konsum i dag er blitt billigere målt i konsum i morgen: én krone ekstra i periode 1 koster nå 1,036 i periode 2, mot 1,039 før. Hun flytter konsum mot periode 1, så C<sub>1</sub> <b>opp</b>.</p><p><b>Steg 4 — inntektseffekten.</b> Fortegnet følger Y<sub>1</sub> − C<sub>1</sub>. Kari har Y<sub>1</sub> − C<sub>1</sub> &lt; 0: hun betaler renter, og de er blitt billigere etter skatt. Hun er blitt rikere, og med normale goder bruker hun mer i begge perioder, så C<sub>1</sub> <b>opp</b>.</p><p><b>Steg 5 — samlet.</b> Begge effektene peker samme vei, så C<sub>1</sub> øker entydig. Siden Y<sub>1</sub> er uendret, øker også lånet C<sub>1</sub> − Y<sub>1</sub>.</p><p><b>Kontroll mot resultatet i kapitlet:</b> en renteøkning senker låntakerens C<sub>1</sub> entydig, fordi begge effektene trekker ned. Her faller renten etter skatt, og speilbildet må da gjelde: begge effektene trekker opp. ✓ Det høyeste mulige konsumet i periode 1, Y<sub>1</sub> + Y<sub>2</sub>/(1 + r(1 − t)), stiger også for enhver Y<sub>2</sub> &gt; 0 når nevneren går fra 1,039 til 1,036.</p><p>Samme skatteøkning ville gitt ubestemt virkning for en långiver: hun taper renteinntekt etter skatt og blir fattigere, så inntektseffekten trekker C<sub>1</sub> ned mens substitusjonseffekten trekker opp. Hvilken side av E du står på, avgjør svaret.</p>",
+      traps: [
+        "Långiverens tilfelle brukt på en låntaker. Inntektseffekten har fortegnet til Y₁ − C₁: den som sparer, blir fattigere når renten etter skatt faller, men Kari låner og betaler mindre i renter etter skatt, så hun blir rikere.",
+        "Rentefradraget glemt. Renteinntekt og renteutgift treffes av samme sats, så r(1 − t) gjelder både for den som sparer og for den som låner.",
+        null,
+        "Skatten lest som en ekstra kostnad på lånet. For en låntaker virker satsen gjennom fradraget, så høyere sats senker renten etter skatt. Konklusjonen blir speilbildet av den riktige.",
       ],
     },
   ],

@@ -1,6 +1,6 @@
 /* Kapittel 18 — Finansiell psykologi */
 window.EDU_DATA.chapterTasks[18] = {
-  minutes: 20,
+  minutes: 30,
   tasks: [
     {
       id: "k18-1",
@@ -109,7 +109,47 @@ window.EDU_DATA.chapterTasks[18] = {
         "Feilen er å lese 4 prosentpoeng som en liten effekt. Utgangspunktet var 11 %, så økningen er drøyt en tredjedel relativt, og den holdt seg i to år.",
         null,
         "Forsøket ga ett konkret råd om ett bestemt valg, ikke undervisning. Fernandes og medforfattere finner at generelle programmer forklarer omtrent 0,1 % av variasjonen i atferd.",
-        "Hjemmebias er en feilslutning, ikke en preferanse: den øker samvariasjonen med humankapitalen din, og det er nøyaktig det diversifisering skal fjerne. At et råd ikke virker, gjør ikke avviket legitimt.",
+        "Forsøket skiller ikke mellom de to tolkningene forelesningen gir, feilslutning eller preferanse, og D slår fast den ene. Også som preferanse gjelder det at den øker samvariasjonen med humankapitalen din, og det er nøyaktig det diversifisering skal fjerne. At et råd ikke virker, gjør ikke avviket legitimt.",
+      ],
+    },
+    {
+      id: "k18-7",
+      topic: "Verdifunksjonen",
+      points: 3,
+      body: "<p>Prospektteoriens verdifunksjon skiller seg fra en vanlig konkav nyttefunksjon av formuen på tre punkter. Nytten måles fra et <b>referansepunkt</b>, ikke fra formuens nivå. Kurven har en <b>knekk</b> i referansepunktet, fordi den er brattere for tap enn for gevinster; det er tapsaversjonen. Og den viser <b>avtakende følsomhet</b>: begge grenene flater ut jo lenger fra referansepunktet du kommer. Tre observasjoner [eksempeltall]:</p><p>(i) Per har kr 2 000 000 i formue. Han avslår et myntkast der han vinner kr 1 100 eller taper kr 1 000.</p><p>(ii) Kari kjenner forskjellen mellom å tape kr 0 og å tape kr 10 000 langt sterkere enn forskjellen mellom å tape kr 100 000 og å tape kr 110 000.</p><p>(iii) Ola og Siri har begge kr 900 000 i formue i dag. For ett år siden hadde Ola kr 1 000 000 og Siri kr 800 000. Ola er misfornøyd, Siri er fornøyd.</p><p>Hva forklarer hver av observasjonene?</p>",
+      options: [
+        "(i) knekken, (ii) avtakende følsomhet, (iii) referansepunktet",
+        "(i) avtakende følsomhet, (ii) knekken, (iii) referansepunktet",
+        "(i) vanlig risikoaversjon, altså en konkav nyttefunksjon av formuen, (ii) avtakende følsomhet, (iii) referansepunktet",
+        "(i) knekken, (ii) avtakende følsomhet, (iii) vanlig risikoaversjon, altså en konkav nyttefunksjon av formuen",
+      ],
+      answer: 0,
+      solution: "<p><b>(i) er knekken.</b> Myntkastet har positiv forventning: ½ × 1 100 − ½ × 1 000 = <b>kr 50</b>. Innsatsen er 0,05 % av Pers formue, og for så små beløp er enhver glatt nyttefunksjon tilnærmet lineær. Med U(W) = ln W er forventet nytte av å si ja ½ × ln 2 001 100 + ½ × ln 1 999 000, som er 0,0000249 <i>høyere</i> enn ln 2 000 000. Vanlig risikoaversjon sier altså ja. Et nei krever at tapet på 1 000 veier tyngre enn gevinsten på 1 100 allerede rett ved referansepunktet, og det er knekken.</p><p><b>(ii) er avtakende følsomhet.</b> Begge intervallene ligger på tapsgrenen, så det er ikke tap mot gevinst som sammenlignes, og knekken sier ingenting. Det Kari beskriver, er at tapsgrenen flater ut: de første 10 000 i tap merkes mer enn de 10 000 mellom 100 000 og 110 000. En konkav nyttefunksjon av formuen sier det motsatte: grensenytten er høyest der formuen er lavest, så de siste 10 000 i tap skulle gjort <i>mest</i> vondt.</p><p><b>(iii) er referansepunktet.</b> Ola og Siri har samme formue, så enhver nyttefunksjon av formuen gir dem samme nytte. Forskjellen kan bare komme fra at nytten måles fra der de startet: for Ola er 900 000 et tap på 100 000, for Siri en gevinst på 100 000.</p><p><b>Kontroll:</b> hver observasjon utelukker vanlig risikoaversjon av sin egen grunn, (i) fordi innsatsen er for liten, (ii) fordi fortegnet blir feil og (iii) fordi formuen er lik, og hver av de tre egenskapene brukes nøyaktig én gang. Det er de tre avvikene fra standard nyttefunksjon som H2019 oppgave 9h ba om, og som figur 18.1 tegner.</p>",
+      traps: [
+        null,
+        "Knekken og avtakende følsomhet byttet om. Begge handler om hvor bratt kurven er, men knekken sammenligner tap med gevinst rett ved referansepunktet, mens (ii) sammenligner to tapsintervaller med hverandre. Der er det utflatingen som virker.",
+        "Myntkastet forklart med vanlig risikoaversjon. For en innsats på 0,05 % av formuen er ln-nytten tilnærmet lineær og gir 0,0000249 høyere forventet nytte av å si ja; bare knekken ved referansepunktet får Per til å si nei.",
+        "Olas misnøye forklart med vanlig risikoaversjon. Ola og Siri har samme formue, og en nyttefunksjon av formuen gir dem da samme nytte; bare et referansepunkt i fjorårets formue skiller dem.",
+      ],
+    },
+    {
+      id: "k18-8",
+      topic: "Tapsaversjon og referansepunkt",
+      points: 3,
+      body: "<p>Sofie skal plassere kr 600 000 i 12 år og velger ett av to alternativer fullt ut [eksempeltall, se bort fra skatt].</p><p><b>Bankinnskudd:</b> sikker rente 2,5 % per år.</p><p><b>Aksjefond:</b> verdt kr 1 800 000 om 12 år med sannsynlighet 40 %, kr 700 000 med sannsynlighet 30 % og kr 380 000 med sannsynlighet 30 %.</p><p>Sofie har nyttefunksjonen U(W) = ln W, der W er sluttverdien, og hun er tapsavers. Referansepunktet er innskuddet på kr 600 000. Nytten av et utfall <i>under</i> referansepunktet ganges med tapsvekten 1/1,03 = 0,970874; nytten av et utfall på eller over referansepunktet får vekt 1.</p><p>Hvilket alternativ velger Sofie, og hvilke nyttetall avgjør valget? Nyttetallene er rundet av til tre desimaler.</p>",
+      options: [
+        "Aksjefondet: nytten 13,644 er høyere enn 13,601 for bank",
+        "Aksjefondet: nytten 13,653 er høyere enn 13,601 for bank",
+        "Bank: nytten 13,601 er høyere enn 13,423 for aksjefondet",
+        "Bank: nytten 13,601 er høyere enn 13,541 for aksjefondet",
+      ],
+      answer: 3,
+      solution: "<p><b>Steg 1 — banken.</b> 600 000 × 1,025<sup>12</sup> = 600 000 × 1,344889 = <b>kr 806 933</b>. Det er over referansepunktet, så vekten er 1: ln 806 933 = <b>13,6010</b>.</p><p><b>Steg 2 — hvilke utfall er tap?</b> Sammenlign hvert utfall med <i>innskuddet</i>, ikke med banken. kr 1 800 000 og kr 700 000 ligger over 600 000 og får vekt 1. Bare kr 380 000 ligger under og får tapsvekten 0,970874.</p><p><b>Steg 3 — nytten av hvert utfall.</b> ln 1 800 000 = 14,40330. ln 700 000 = 13,45884. ln 380 000 = 12,84793, vektet 0,970874 × 12,84793 = <b>12,47372</b>.</p><p><b>Steg 4 — forventet nytte av fondet.</b> 0,40 × 14,40330 + 0,30 × 13,45884 + 0,30 × 12,47372 = 5,7613 + 4,0377 + 3,7421 = <b>13,5411</b>.</p><p><b>Steg 5 — valget.</b> 13,601 er høyere enn 13,541, og Sofie velger <b>banken</b>. Uten tapsvekten hadde fondet gitt 13,6533 og vunnet, så tapsaversjonen snur valget.</p><p><b>Kontroll:</b> tapsvekten skal trekke forventet nytte ned med sannsynligheten for tap × (1 − 0,970874) × nytten i tapsutfallet: 0,30 × 0,029126 × 12,848 = 0,112, og 13,653 − 0,112 = 13,541 ✓. Kontrollen er en identitet, så den fanger regnefeil, men ikke et utfall som er vektet feil; det sjekker du i steg 2.</p><p>Forventet sluttverdi i fondet er 0,40 × 1 800 000 + 0,30 × 700 000 + 0,30 × 380 000 = kr 1 044 000, langt over bankens 806 933, og likevel velger Sofie banken. Metoden er den fra H2019 oppgave 9g og H2022 oppgave 5.6, med samme tapsvekt 1/1,03 og samme referansepunkt, innskuddet. Utfallet på kr 700 000 er fella: det er dårligere enn banken, men det er ikke et tap.</p>",
+      traps: [
+        "Tapsvekten lagt på kronebeløpet før logaritmen: ln(0,970874 × 380 000) = 12,81837 i stedet for 0,970874 × ln 380 000 = 12,47372. Da trekkes nytten ned med bare 0,30 × ln 1,03 = 0,0089, og fondet ser ut til å vinne. Tapsvekten virker på nytten, ikke på formuen.",
+        "Tapsaversjonen ikke brukt: 0,40 × 14,40330 + 0,30 × 13,45884 + 0,30 × 12,84793 = 13,653. Det er valget til en vanlig ln-investor.",
+        "Bankens sluttverdi brukt som referansepunkt, slik at også kr 700 000 er vektet: 0,40 × 14,40330 + 0,30 × 0,970874 × 13,45884 + 0,30 × 12,47372 = 13,423. Konklusjonen blir riktig, men tallet er feil: 700 000 er under banken, men over innskuddet, og er derfor ikke et tap.",
+        null,
       ],
     },
   ],

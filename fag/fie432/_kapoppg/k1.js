@@ -21,7 +21,7 @@ window.EDU_DATA.chapterTasks[1] = {
       id: "k1-2",
       topic: "Marginalskatt",
       points: 3,
-      body: "<p>Samme situasjon som over: Ida har kr 900 000 i lønn, 2026-satser, og trinnskattens tredje trinn på 13,7 % gjelder fra 725 050.</p><p>Hva er Idas marginalskatt på den neste kronen hun tjener?</p>",
+      body: "<p>Ida har kr 900 000 i lønn og ingen andre inntekter eller fradrag. Bruk 2026-satsene: skatt på alminnelig inntekt 22 % og trygdeavgift 7,6 % av personinntekt. Minstefradraget står på taket på kr 95 700. Trinnskattens tredje trinn på 13,7 % gjelder fra 725 050, og fjerde trinn begynner først på 980 100.</p><p>Hva er Idas marginalskatt på den neste kronen hun tjener?</p>",
       options: ["29,11 %", "35,70 %", "43,30 %", "47,40 %"],
       answer: 2,
       solution: "<p>Marginalskatten er summen av de satsene som treffer den <i>neste</i> kronen. En krone til i lønn øker alminnelig inntekt med én krone (minstefradraget står på taket og vokser ikke lenger), øker personinntekten med én krone, og faller i trinn 3.</p><p>22 % + 7,6 % + 13,7 % = <b>43,3 %</b>.</p><p><b>Kontroll:</b> regn skatten ved 900 001 og trekk fra skatten ved 900 000. Differansen er 0,433 kr. ✓</p><p>Legg merke til avstanden til gjennomsnittsskatten på 29,11 %. De to kan aldri være like i et system med fradrag, fordi gjennomsnittet også inneholder de første kronene, og de er skattlagt lavere.</p>",

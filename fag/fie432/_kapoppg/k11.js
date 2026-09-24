@@ -26,7 +26,7 @@ window.EDU_DATA.chapterTasks[11] = {
       id: "k11-2",
       topic: "Konsumentprisen",
       points: 3,
-      body: "<p>Samme marked som over: stykkskatt t per enhet, P = p + t, likevekt D(P) = S(P − t), D′(P) &lt; 0 og S′(p) &gt; 0.</p><p>Hvilket uttrykk er ∂P/∂t?</p>",
+      body: "<p>Et frikonkurransemarked får en stykkskatt t per enhet, P = p + t, likevekt D(P) = S(P − t), D′(P) &lt; 0 og S′(p) &gt; 0.</p><p>Hvilket uttrykk er ∂P/∂t?</p>",
       options: [
         "S′(p) / (S′(p) − D′(P))",
         "(S′(p) − D′(P)) / S′(p)",

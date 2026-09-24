@@ -1,6 +1,6 @@
 /* Kapittel 4 — Investeringscaser: bolig, utleie, aksjer og folkefinansiering */
 window.EDU_DATA.chapterTasks[4] = {
-  minutes: 22,
+  minutes: 33,
   tasks: [
     {
       id: "k4-1",
@@ -24,7 +24,7 @@ window.EDU_DATA.chapterTasks[4] = {
       body: "<p>Du kjøper en selveierleilighet til kr 5 000 000 og låner 90 % av kjøpesummen, altså kr 4 500 000. Lånet er avdragsfritt det første året, og renten er 4,5 %. Dokumentavgiften er 2,5 % av salgsverdien [dagens regel], og det er ingen andre omkostninger. Du bor selv i leiligheten og leier ut ett rom på ettårskontrakt for kr 7 000 i måneden; du bruker klart mer enn halvparten selv målt etter utleieverdi. Løpende kostnader er kr 55 000 i året. Boligprisene stiger 5 % det første året [eksempeltall].</p><p>Renter på boliglån er fradragsberettiget i alminnelig inntekt til 22 % [dagens regel]. Hva blir avkastningen på egenkapitalen det første året?</p>",
       options: ["5,44 %", "12,24 %", "16,41 %", "19,37 %"],
       answer: 3,
-      solution: "<p><b>Steg 1 — egenkapitalen, som er større enn 10 %.</b> Dokumentavgift: 5 000 000 × 2,5 % = 125 000. Anskaffelseskost: 5 000 000 + 125 000 = 5 125 000. Lånet måles mot kjøpesummen, egenkapitalen må dekke resten: 5 125 000 − 4 500 000 = <b>625 000</b>, altså 12,5 % av kjøpesummen.</p><p><b>Steg 2 — kontantstrømmen til egenkapitalen, linje for linje.</b> Leie 7 000 × 12 = 84 000, skattefri. Løpende kostnader −55 000, og de er <i>ikke</i> fradragsberettigede når leien er skattefri. Renter: 4 500 000 × 4,5 % = 202 500, og etter rentefradraget 202 500 × 0,78 = 157 950. Verdistigning: 5 % × 5 000 000 = 250 000, skattefri ved salg når eier- og botid er oppfylt.</p><p>Netto: 250 000 + 84 000 − 157 950 − 55 000 = <b>121 050</b>.</p><p><b>Steg 3 — avkastningen.</b> 121 050 / 625 000 = <b>19,37 %</b>.</p><p><b>Kontroll med brekkstangformelen.</b> Totalkapitalavkastning: (250 000 + 84 000 − 55 000)/5 125 000 = 179 000/5 125 000 = 5,4439 %. Lånerenten etter skatt: 157 950/4 500 000 = 3,51 %. Gjeldsgrad: 4 500 000/625 000 = 7,2. Da er R<sub>E</sub> = 5,4439 % + (5,4439 % − 3,51 %) × 7,2 = 5,4439 % + 13,924 % = <b>19,37 %</b>. ✓</p><p>De 1,93 prosentpoengene som skiller boligen fra lånerenten, blir til nesten fjorten fordi de ganges med 7,2. Brekkstangen virker begge veier: prisen må stige (157 950 + 55 000 − 84 000)/5 000 000 = 2,58 % bare for at året skal gå i null.</p><p>Merk at renten her kan ganges med hele lånet fordi lånet er avdragsfritt. På et annuitetslån faller saldoen for hver termin, og første års renter blir <i>lavere</i> enn renten ganget med hele lånet.</p>",
+      solution: "<p><b>Steg 1 — egenkapitalen, som er større enn 10 %.</b> Dokumentavgift: 5 000 000 × 2,5 % = 125 000. Anskaffelseskost: 5 000 000 + 125 000 = 5 125 000. Lånet måles mot kjøpesummen, egenkapitalen må dekke resten: 5 125 000 − 4 500 000 = <b>625 000</b>, altså 12,5 % av kjøpesummen.</p><p><b>Steg 2 — kontantstrømmen til egenkapitalen, linje for linje.</b> Leie 7 000 × 12 = 84 000, skattefri. Løpende kostnader −55 000, og de er <i>ikke</i> fradragsberettigede når leien er skattefri. Renter: 4 500 000 × 4,5 % = 202 500, og etter rentefradraget 202 500 × 0,78 = 157 950. Verdistigning: 5 % × 5 000 000 = 250 000, skattefri ved salg når eier- og botid er oppfylt.</p><p>Netto: 250 000 + 84 000 − 157 950 − 55 000 = <b>121 050</b>.</p><p><b>Steg 3 — avkastningen.</b> 121 050 / 625 000 = <b>19,37 %</b>.</p><p><b>Kontroll med brekkstangformelen.</b> Totalkapitalavkastning: (250 000 + 84 000 − 55 000)/5 125 000 = 279 000/5 125 000 = 5,4439 %. Lånerenten etter skatt: 157 950/4 500 000 = 3,51 %. Gjeldsgrad: 4 500 000/625 000 = 7,2. Da er R<sub>E</sub> = 5,4439 % + (5,4439 % − 3,51 %) × 7,2 = 5,4439 % + 13,924 % = <b>19,37 %</b>. ✓</p><p>De 1,93 prosentpoengene som skiller boligen fra lånerenten, blir til nesten fjorten fordi de ganges med 7,2. Brekkstangen virker begge veier: prisen må stige (157 950 + 55 000 − 84 000)/5 000 000 = 2,58 % bare for at året skal gå i null.</p><p>Merk at renten her kan ganges med hele lånet fordi lånet er avdragsfritt. På et annuitetslån faller saldoen for hver termin, og første års renter blir <i>lavere</i> enn renten ganget med hele lånet.</p>",
       traps: [
         "Avkastningen på totalkapitalen. Den svarer på hvordan boligen gjør det, ikke hvordan din egenkapital gjør det, og giringen er dermed oversett.",
         "Rentefradraget glemt: (250 000 + 84 000 − 202 500 − 55 000)/625 000.",
@@ -95,6 +95,46 @@ window.EDU_DATA.chapterTasks[4] = {
         "Skatten utelatt: 0,15/0,85. Det er samtidig svaret hvis tapet <i>hadde</i> vært fradragsberettiget, for da står (1 − t) utenfor parentes og kansellerer seg bort.",
         "Delt på (1 − t), men ikke på sannsynligheten: 0,15/0,78. Renten mottar du bare i de 85 % av tilfellene der lånet betjenes.",
         null,
+      ],
+    },
+    {
+      id: "k4-7",
+      topic: "Sekundærbolig med lån",
+      points: 3,
+      body: "<p>Ola kjøper en leilighet i Bergen til kr 3 000 000 som han bare skal leie ut; selv bor han et annet sted. Dokumentavgiften er 2,5 % av kjøpesummen [dagens regel], og det er ingen andre omkostninger. Han låner kr 2 400 000 til 5 % rente, avdragsfritt det første året, og egenkapitalen er alt han må legge ut selv ved kjøpet. Leiligheten er utleid hele året for kr 14 000 i måneden, og felleskostnader, kommunale avgifter, forsikring og vedlikehold koster til sammen kr 36 000 i året. Tolv måneder etter kjøpet selger han leiligheten for kr 3 150 000, uten salgskostnader [eksempeltall].</p><p>Alt som er skattepliktig eller fradragsberettiget, treffes av satsen på alminnelig inntekt, 22 % [dagens regel]. Er gevinsten skattepliktig, inngår dokumentavgiften i inngangsverdien.</p><p>Hva blir avkastningen på egenkapitalen etter skatt for året? Rund av til to desimaler.</p>",
+      options: [
+        "6,14 %",
+        "8,88 %",
+        "10,05 %",
+        "12,50 %",
+      ],
+      answer: 2,
+      solution: "<p>Samme giring som på en primærbolig, men nå treffer skatten nesten hver linje. En sekundærbolig har ingen av fritakene: leien er skattepliktig, kostnadene er fradragsberettiget, og gevinsten er skattepliktig når botidskravet ikke er oppfylt.</p><p><b>Steg 1 — egenkapitalen.</b> Dokumentavgift: 3 000 000 × 2,5 % = 75 000. Anskaffelseskost: 3 000 000 + 75 000 = 3 075 000. Egenkapital: 3 075 000 − 2 400 000 = <b>675 000</b>.</p><p><b>Steg 2 — hvilke regler som gjelder.</b> Ola bor ikke i leiligheten, så halvparten-regelen hjelper ikke: netto leie er skattepliktig, og felleskostnader, kommunale avgifter, forsikring og vedlikehold er fradragsberettiget. Rentene er fradragsberettiget som alltid. Salget er skattefritt bare når du har eid boligen i mer enn ett år <i>og</i> bodd i den minst 12 av de siste 24 månedene. Ola har aldri bodd der, så gevinsten er skattepliktig.</p><p><b>Steg 3 — skattegrunnlaget.</b> Leie 14 000 × 12 = 168 000. Renter 2 400 000 × 5 % = 120 000. Gevinst 3 150 000 − 3 075 000 = 75 000. Grunnlag: 168 000 − 36 000 − 120 000 + 75 000 = <b>87 000</b>, og skatten 87 000 × 22 % = <b>19 140</b>.</p><p><b>Steg 4 — netto til egenkapitalen.</b> 75 000 + 168 000 − 36 000 − 120 000 − 19 140 = <b>67 860</b>. De 75 000 er prisstigningen på 150 000 minus dokumentavgiften.</p><p><b>Steg 5 — avkastningen.</b> 67 860 / 675 000 = <b>10,05 %</b>.</p><p><b>Kontroll i kontanter:</b> ved årets slutt har Ola 3 150 000 fra salget, minus 2 400 000 til banken, pluss 168 000 − 36 000 − 120 000 − 19 140 fra driften, altså 742 860. Han la inn 675 000, og 742 860 / 675 000 − 1 = 10,05 %. ✓</p><p><b>Kontroll med brekkstangformelen:</b> totalkapitalavkastningen etter skatt er (75 000 + 168 000 − 36 000) × 0,78 / 3 075 000 = 161 460 / 3 075 000 = 5,2507 %. Lånerenten etter skatt er 5 % × 0,78 = 3,90 %, og gjeldsgraden 2 400 000 / 675 000 = 3,5556. R<sub>E</sub> = 5,2507 % + (5,2507 % − 3,90 %) × 3,5556 = 5,2507 % + 4,8026 % = 10,0533 %. ✓ Formelen er en omskrivning av samme regnestykke, så den kontrollerer regningen, ikke reglene.</p><p>Sammenlign med en primærbolig: der ville leie av ett rom vært skattefri og salget skattefritt, men du hadde mistet fradraget for kostnadene. Her tar staten 22 % av leie og gevinst, men dekker også 22 % av kostnadene, og gjennom gevinstberegningen 22 % av dokumentavgiften.</p>",
+      traps: [
+        "Rentefradraget glemt: skatten blir 22 % × (168 000 − 36 000 + 75 000) = 45 540, og (75 000 + 168 000 − 36 000 − 120 000 − 45 540) / 675 000 = 6,14 %.",
+        "Kostnadene holdt utenfor skattegrunnlaget, som om primærboligens regel gjaldt: skatten blir 22 % × (168 000 − 120 000 + 75 000) = 27 060, og 59 940 / 675 000 = 8,88 %. Leier du ut en bolig du ikke bor i, er kostnadene fradragsberettiget.",
+        null,
+        "Gevinsten behandlet som skattefri, slik den er for en bolig du bor i: skatten blir bare 22 % × 12 000 = 2 640, og 84 360 / 675 000 = 12,50 %. Fritaket krever at du har bodd i boligen minst 12 av de siste 24 månedene.",
+      ],
+    },
+    {
+      id: "k4-8",
+      topic: "Verdien av leiestrømmen",
+      points: 3,
+      body: "<p>Henrik vurderer å kjøpe en utleieleilighet han ikke skal bo i og aldri skal selge. Den gir en sikker netto leie, etter alle løpende kostnader, på kr 210 000 i året i all framtid. Det sikre alternativet hans er en plassering som gir 6 % rente før skatt [eksempeltall]. Både netto leie og renteinntekt skattlegges med 22 % [dagens regel]. Ved kjøpet kommer dokumentavgift på 2,5 % av kjøpesummen i tillegg [dagens regel]. Se bort fra formuesskatt og alle andre kostnader.</p><p>Hva er den høyeste kjøpesummen Henrik kan betale uten at kjøpet får negativ nåverdi?</p>",
+      options: [
+        "Kr 2 663 415",
+        "Kr 3 414 634",
+        "Kr 3 500 000",
+        "Kr 4 377 736",
+      ],
+      answer: 1,
+      solution: "<p><b>Steg 1 — leien etter skatt.</b> 210 000 × (1 − 0,22) = <b>163 800</b>.</p><p><b>Steg 2 — avkastningskravet etter skatt.</b> Det sikre alternativet gir 6 % før skatt, og renteinntekten skattlegges også med 22 %: 6 % × 0,78 = <b>4,68 %</b>. Teller og nevner skal begge være etter skatt.</p><p><b>Steg 3 — verdien av leiestrømmen.</b> V = 163 800 / 0,0468 = <b>3 500 000</b>. Det er det samme som 210 000 / 0,06: når leien og alternativet skattlegges med samme sats, forkortes (1 − t) bort, V = CF × (1 − t) / (r × (1 − t)) = CF / r.</p><p><b>Steg 4 — dokumentavgiften.</b> Henrik legger ut kjøpesummen P pluss 2,5 % av P, og det samlede beløpet kan ikke overstige verdien: P × 1,025 = 3 500 000, altså P = 3 500 000 / 1,025 = <b>kr 3 414 634</b>.</p><p><b>Kontroll:</b> dokumentavgiften blir 3 414 634 × 2,5 % = 85 366, og 3 414 634 + 85 366 = 3 500 000. ✓ Med 3 500 000 lagt ut gir leien 163 800 / 3 500 000 = 4,68 % etter skatt, nøyaktig det alternativet gir. ✓ Nåverdien er altså null, slik den skal være ved den høyeste prisen.</p><p>To ting er verdt å ta med. Kriteriet er nåverdi mot pris, ikke leieavkastningen alene: 210 000 / 3 414 634 = 6,15 % før skatt ser ut som mer enn 6 %, men dokumentavgiften spiser forskjellen. Og ikke trekk 2,5 % fra verdien: 3 500 000 × 0,975 = 3 412 500 er feil, fordi avgiften regnes av kjøpesummen og ikke av totalbeløpet.</p>",
+      traps: [
+        "Bare leien skattlagt, kravet brukt før skatt: 163 800 / 0,06 = 2 730 000, og 2 730 000 / 1,025 = 2 663 415. Alternativet skattlegges også, så kravet etter skatt er 4,68 %.",
+        null,
+        "Dokumentavgiften glemt. 3 500 000 er hva leiestrømmen er verdt, men avgiften kommer på toppen av kjøpesummen og må dekkes innenfor den verdien.",
+        "Bare kravet skattlagt, leien brukt før skatt: 210 000 / 0,0468 = 4 487 179, og 4 487 179 / 1,025 = 4 377 736. En kontantstrøm før skatt diskontert med en rente etter skatt blander to enheter.",
       ],
     },
   ],

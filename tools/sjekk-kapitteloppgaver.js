@@ -115,6 +115,10 @@ function sjekk(sub) {
         if (tekster.has(n)) si(feil, hvor, `samme oppgavetekst som ${tekster.get(n)}`);
         else tekster.set(n, t.id);
         if (n.length < 40) si(advarsel, hvor, "oppgaveteksten er svært kort for en eksamensoppgave");
+        /* Oppgavene vises én om gangen, så «som over» peker ikke på noe. Hver
+           oppgave må gjenta dataene den trenger. */
+        const henv = n.match(/\b(som over|som ovenfor|forrige oppgave|oppgaven over|samme (?:situasjon|marked) som|as above|same (?:firm|setting) as|previous (?:task|question))\b/i);
+        if (henv) si(feil, hvor, `viser til en annen oppgave («${henv[0]}»), men oppgavene vises én om gangen`);
       }
 
       if (t.points != null && (typeof t.points !== "number" || t.points <= 0))

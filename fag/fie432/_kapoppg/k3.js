@@ -24,10 +24,10 @@ window.EDU_DATA.chapterTasks[3] = {
       body: "<p>Jordàs Norge-tall for 1870–2015: boligprisene steg 4,62 % nominelt per år, og netto leie utgjorde 6,72 % av boligverdien per år. Gjennomsnittlig inflasjon i perioden var 3,06 %.</p><p>Hva var den <b>eksakte</b> reelle totalavkastningen på norsk bolig?</p>",
       options: ["8,03 %", "8,28 %", "3,55 %", "1,51 %"],
       answer: 0,
-      solution: "<p><b>Steg 1 — nominell totalavkastning.</b> 4,62 % + 6,72 % = <b>11,34 %</b>. Deflater alltid totalen, ikke ett av leddene.</p><p><b>Steg 2 — den eksakte realformelen.</b> 1 + r = (1 + i) / (1 + π) = 1,1134 / 1,0306 = 1,080342, altså r = <b>8,03 %</b>.</p><p><b>Steg 3 — hvorfor ikke 8,28 %.</b> Approksimasjonen r ≈ i − π gir 11,34 − 3,06 = 8,28 %, altså 0,25 prosentpoeng for høyt. Den bommer alltid oppover, fordi den utelater leddet r × π. Med inflasjon på tre prosent over 145 år er avviket ikke støy.</p><p><b>Kontroll, gang tilbake:</b> 1,0803 × 1,0306 = 1,1134, som er den nominelle avkastningen vi startet med. ✓</p><p>Rekkefølgen er alltid nominelt, så etter skatt, så realt. Bytter du om, deflaterer du et beløp som ennå ikke er skattlagt.</p>",
+      solution: "<p><b>Steg 1 — nominell totalavkastning.</b> 4,62 % + 6,72 % = <b>11,34 %</b>. Deflater alltid totalen, ikke ett av leddene.</p><p><b>Steg 2 — den eksakte realformelen.</b> 1 + r = (1 + i) / (1 + π) = 1,1134 / 1,0306 = 1,080342, altså r = <b>8,03 %</b>.</p><p><b>Steg 3 — hvorfor ikke 8,28 %.</b> Approksimasjonen r ≈ i − π gir 11,34 − 3,06 = 8,28 %, altså 0,25 prosentpoeng for høyt. Avviket er leddet r × π, så når realavkastningen er positiv, som her, ligger tilnærmingen for høyt. Med inflasjon på tre prosent over 145 år er avviket ikke støy.</p><p><b>Kontroll, gang tilbake:</b> 1,0803 × 1,0306 = 1,1134, som er den nominelle avkastningen vi startet med. ✓</p><p>Rekkefølgen er alltid nominelt, så etter skatt, så realt. Bytter du om, deflaterer du et beløp som ennå ikke er skattlagt.</p>",
       traps: [
         null,
-        "Approksimasjonen r ≈ i − π brukt der oppgaven ber om det eksakte tallet. Den ligger alltid for høyt, her med 0,25 prosentpoeng.",
+        "Approksimasjonen r ≈ i − π brukt der oppgaven ber om det eksakte tallet. Med positiv realavkastning ligger den for høyt, her med 0,25 prosentpoeng.",
         "Bare leien deflatert: 1,0672 / 1,0306 − 1. Kapitalgevinsten mangler.",
         "Bare prisstigningen deflatert: 1,0462 / 1,0306 − 1. Dette er realprisstigningen på bolig, ikke avkastningen på den.",
       ],

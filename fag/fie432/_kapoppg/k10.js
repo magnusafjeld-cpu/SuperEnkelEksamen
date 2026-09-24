@@ -1,6 +1,6 @@
 /* Kapittel 10 — Progressivitet, flat skatt og rettferdighet */
 window.EDU_DATA.chapterTasks[10] = {
-  minutes: 20,
+  minutes: 28,
   tasks: [
     {
       id: "k10-1",
@@ -115,6 +115,46 @@ window.EDU_DATA.chapterTasks[10] = {
         "Fortegnet på elastisitetsbetingelsen snudd. Dette er den vanligste feilversjonen: et elastisk grunnlag rømmer, og det er nettopp derfor det skal skattlegges lavere, ikke høyere.",
         "Overdrivelsen kapitlet advarer mot. En provenynøytral overgang hever marginalskatten for de laveste inntektene, og virkningen er ubestemt for både lave og høye. Teorien gir ingen slik hypotese.",
         "Kapitlets viktigste enkeltpåstand snudd. Reell progresjon er mindre enn formell, siden grunnlaget uthules, insidensen flytter byrden og tilpasningen er lettest der inntekten er mest bevegelig.",
+      ],
+    },
+    {
+      id: "k10-7",
+      topic: "Sterkere eller svakere",
+      points: 3,
+      body: "<p>Kari tjener kr 400 000 og Per kr 1 000 000. I dag skattlegges inntekt med en flat sats på 30 % over et bunnfradrag på kr 150 000. Et parti foreslår å senke satsen til 20 % og samtidig heve bunnfradraget til kr 200 000 [eksempeltall]. Ingen av dem har andre fradrag.</p><p>Mål progresjonen som forskjellen mellom Pers og Karis gjennomsnittsskatt, i prosentpoeng: blir forskjellen større, er progresjonen sterkere. Hvilket utsagn om forslaget er riktig?</p>",
+      options: [
+        "Progresjonen er uendret: begge systemene har én sats og er derfor proporsjonale",
+        "Progresjonen blir sterkere: forskjellen i gjennomsnittsskatt øker fra 6,75 til 9,00 prosentpoeng",
+        "Progresjonen blir sterkere: Karis gjennomsnittsskatt faller med 8,75 prosentpoeng, fra 18,75 % til 10,00 %",
+        "Progresjonen blir svakere: forskjellen i gjennomsnittsskatt faller fra 6,75 til 6,00 prosentpoeng",
+      ],
+      answer: 3,
+      solution: "<p><b>Steg 1 — dagens system.</b> Bunnfradraget trekkes fra inntekten. Kari: (400 000 − 150 000) × 30 % = 75 000, altså 75 000 / 400 000 = <b>18,75 %</b>. Per: (1 000 000 − 150 000) × 30 % = 255 000, altså 255 000 / 1 000 000 = <b>25,50 %</b>. Forskjellen er 25,50 − 18,75 = <b>6,75 prosentpoeng</b>.</p><p><b>Steg 2 — forslaget.</b> Kari: (400 000 − 200 000) × 20 % = 40 000, altså <b>10,00 %</b>. Per: (1 000 000 − 200 000) × 20 % = 160 000, altså <b>16,00 %</b>. Forskjellen er 16,00 − 10,00 = <b>6,00 prosentpoeng</b>.</p><p><b>Steg 3 — sammenlign.</b> Forskjellen faller fra 6,75 til 6,00 prosentpoeng, så progresjonen blir <b>svakere</b>, selv om bunnfradraget øker. Begge systemene er fortsatt progressive, for gjennomsnittsskatten stiger fra Kari til Per i begge.</p><p><b>Kontroll med formelen fra kapittel 1.</b> Forskjellen er t × B × (1/Y<sub>lav</sub> − 1/Y<sub>høy</sub>), og 1/400 000 − 1/1 000 000 = 1,5 per million. I dag: 0,30 × 150 000 = 45 000, og 45 000 × 1,5 / 1 000 000 = 0,0675 ✓. Forslaget: 0,20 × 200 000 = 40 000, og 40 000 × 1,5 / 1 000 000 = 0,0600 ✓. Det er <b>produktet t × B</b> som bestemmer progresjonen, og det faller fra 45 000 til 40 000.</p><p>Regelen «større bunnfradrag gir sterkere progresjon» gjelder når satsen står stille, slik den gjorde i H2024 oppgave 4c. Endres begge, må du regne. Legg også merke til at provenyet faller fra 330 000 til 200 000, men det er en annen sak: progresjon handler om hvordan skatten fordeles, ikke om hvor mye som kreves inn.</p>",
+      traps: [
+        "«Flat» lest som «proporsjonal». Med bunnfradrag stiger gjennomsnittsskatten med inntekten i begge systemene, fra 18,75 % til 25,50 % i dag og fra 10,00 % til 16,00 % med forslaget. Bare en flat sats uten bunnfradrag er proporsjonal.",
+        "Satsendringen glemt: det nye bunnfradraget brukt med den gamle satsen, 30 % × 200 000 / 400 000 = 15,00 % og 30 % × 800 000 / 1 000 000 = 24,00 %, altså en forskjell på 9,00. Da ser det ut som om bare bunnfradraget endres.",
+        "Bare den lave inntekten er sett på. Per får en enda større lettelse, 25,50 − 16,00 = 9,50 prosentpoeng, så avstanden mellom dem krymper.",
+        null,
+      ],
+    },
+    {
+      id: "k10-8",
+      topic: "Skattyteren som flytter",
+      points: 3,
+      body: "<p>En kommentator skriver: «Toppskatten i Norge er formelt høy, men den som kan flytte, betaler den ikke.» Kapitlet behandler utflytting som en grunn til at reell progresjon kan være mindre enn formell.</p><p>Hvilket utsagn gjengir kapitlets resonnement riktig?</p>",
+      options: [
+        "Påstanden er et empirisk faktum: utflyttingselastisiteten er målt, og den er høy nok til at en lavere toppsats ville gitt staten mer proveny",
+        "Påstanden treffer ikke renprofitt: Adam og Miller viser at renprofitt kan beskattes med vilkårlig høy sats uten vridning, uansett om eieren kan flytte",
+        "Det er elastisitetsregelen brukt på mennesker: et grunnlag som kan krysse en landegrense, er svært elastisk og bærer lite av skatten, og en exit-skatt gjør grunnlaget mindre elastisk og progresjonen på toppen mer reell",
+        "Det er et spørsmål om horisontal likhet: to med samme inntekt betaler ulik skatt avhengig av bosted, og evneprinsippet krever derfor at toppsatsen senkes",
+      ],
+      answer: 2,
+      solution: "<p><b>Mekanismen.</b> Insidensregelen fra kapittel 11 sier at skatten bæres av den minst elastiske siden. Brukt på mennesker: en inntekt eller formue som kan krysse en landegrense, er et svært elastisk grunnlag. Satsen står i loven, men den treffer bare dem som blir værende, og progresjonen på toppen blir mer formell enn reell. Kapitlet kaller dette den mest omdiskuterte grunnen til at reell progresjon er mindre enn formell, ved siden av grunnlaget, insidensen og tilpasningen, som alle virker sterkest på toppen.</p><p><b>Motsvaret i regelverket.</b> En exit-skatt gjør det dyrere å ta den latente gevinsten med seg ut, og gjør dermed grunnlaget mindre elastisk. Femårsregelen falt bort 29. november 2022, og exit-skatten ble strammet inn fra 20. mars 2024 [dagens regel]. Samme logikk ligger bak informasjonsutvekslingen og den globale minimumsskatten i kapittel 13.</p><p><b>Hva kapitlet ikke påstår.</b> Hvor stor utflyttingselastisiteten er, er ikke avgjort empirisk, så utsagnet er et argument og ikke et faktum. Adam og Millers resultat om renprofitt har et forbehold som er hele poenget her: renprofitt kan beskattes med vilkårlig høy sats uten vridning bare så lenge den ikke er mobil over landegrensene. Og argumentet handler om elastisitet og insidens, ikke om rettferdighet: evneprinsippet sier at den med større evne skal betale mer, aldri hvor mye mer, og kan derfor ikke kreve en bestemt toppsats.</p><p><b>Kontroll:</b> hold hvert alternativ opp mot de tre ordene kapitlet bruker om utflytting: <i>elastisitet</i> (mekanismen), <i>argument</i> (ikke målt faktum) og <i>exit-skatt</i> (motsvaret). Bare det riktige alternativet har alle tre, og ingen av de andre har mekanismen.</p>",
+      traps: [
+        "Overdrivelsen kapitlet advarer mot. Hvor stor utflyttingselastisiteten er, er ikke avgjort empirisk. Utflytting er et argument for at reell progresjon kan være mindre enn formell, ikke et målt tall for hva en lavere toppsats ville gitt i proveny.",
+        "Forbeholdet er strøket. Adam og Miller skriver at renprofitt kan beskattes med vilkårlig høy sats uten vridning bare så lenge den ikke er mobil over landegrensene, og mobiliteten er nettopp det kommentatoren snakker om.",
+        null,
+        "Horisontal likhet og evneprinsippet blandet inn i et elastisitetsargument. Utflytting handler om hvor bevegelig grunnlaget er, og evneprinsippet sier bare at den med større evne skal betale mer, aldri hvor mye mer.",
       ],
     },
   ],

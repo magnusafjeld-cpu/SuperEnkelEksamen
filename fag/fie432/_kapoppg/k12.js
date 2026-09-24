@@ -1,6 +1,6 @@
 /* Kapittel 12 — Skatt, risiko og implisitte skatter */
 window.EDU_DATA.chapterTasks[12] = {
-  minutes: 22,
+  minutes: 31,
   tasks: [
     {
       id: "k12-1",
@@ -36,7 +36,7 @@ window.EDU_DATA.chapterTasks[12] = {
       answer: 1,
       solution: "<p><b>Steg 1 — hva skatten gjør med et uendret beløp.</b> Med 480 000 i aksjen er utfallene før skatt +115 200 og −76 800. Med 25 % skatt og fullt tapsfradrag krymper begge med 0,75: +86 400 og −57 600. Forventningen faller fra 19 200 til 14 400, og standardavviket fra 96 000 til 72 000. Her stopper de fleste og konkluderer at skatten dempet risikotakingen.</p><p><b>Steg 2 — repliseringen.</b> Sluttformuen er Y = A + (1 − t) × x<sub>1</sub> × r̃. Faktoren (1 − t) er ikke stokastisk, så det er produktet (1 − t)x<sub>1</sub> som bestemmer fordelingen. Skal produktet være det samme som før, må x<sub>1</sub>* = 480 000 / (1 − 0,25) = 480 000 / 0,75 = <b>kr 640 000</b>. Du deler på (1 − t), du ganger ikke.</p><p><b>Steg 3 — kontroll utfall for utfall.</b> 640 000 × 24 % = +153 600 og 640 000 × (−16 %) = −102 400. Etter skatt: 0,75 × 153 600 = <b>+115 200</b> og 0,75 × (−102 400) = <b>−76 800</b>. Identisk med utfallene uten skatt ✓ Ikke bare i forventning og standardavvik, men utfall for utfall, og derfor gir de identisk forventet nytte for enhver nyttefunksjon. Svaret avhenger ikke av hvor risikoavers Marte er.</p><p><b>Kontroll — statens regnskap.</b> Brutto forventning på 640 000 er 640 000 × 4 % = 25 600. Staten tar 0,25 × 25 600 = 6 400, Marte beholder 19 200, og 6 400 + 19 200 = 25 600 ✓ I det dårlige utfallet betaler staten henne 0,25 × 102 400 = 25 600, og det er nettopp derfor hun tør å skalere opp.</p>",
       traps: [
-        "Ganget med (1 − t) i stedet for å dele: 480 000 × 0,75. Det er beløpet som gir halvert risiko, ikke uendret risiko.",
+        "Ganget med (1 − t) i stedet for å dele: 480 000 × 0,75. Det gir 0,75 × 360 000/480 000 = 56 % av den opprinnelige risikoen, ikke uendret risiko.",
         null,
         "Nøytralitet forvekslet med uendret beløp. Skatten er nøytral for hvilken fordeling hun ender med, men bare fordi hun endrer beløpet.",
         "Ganget med (1 + t) i stedet for å dele på (1 − t): 480 000 × 1,25. Nær riktig svar, men oppskaleringen er 1/(1 − t) = 1,333, ikke 1,25.",
@@ -66,7 +66,7 @@ window.EDU_DATA.chapterTasks[12] = {
       id: "k12-4",
       topic: "Valgregelen",
       points: 3,
-      body: "<p>Samme to obligasjoner som over: A er fullt skattlagt og gir 12 %, B er skattefri og gir 9 %, og risikoen er den samme. Jonas har en marginalskatt på <b>40 %</b> på renteinntekter [eksempeltall].</p><p>Hvilken obligasjon bør Jonas eie, og hvor mye bedre er det valget målt i årlig avkastning etter skatt?</p>",
+      body: "<p>Staten har utstedt to obligasjoner: A er fullt skattlagt og gir 12 %, B er skattefri og gir 9 %, og risikoen er den samme. Jonas har en marginalskatt på <b>40 %</b> på renteinntekter [eksempeltall].</p><p>Hvilken obligasjon bør Jonas eie, og hvor mye bedre er det valget målt i årlig avkastning etter skatt?</p>",
       options: [
         "A, den skattlagte, med 3,0 prosentpoeng",
         "A, den skattlagte, med 1,8 prosentpoeng",
@@ -114,12 +114,52 @@ window.EDU_DATA.chapterTasks[12] = {
         "Ingenting, den tjener tvert imot 1,6 prosentpoeng, fordi den slipper skatten det andre papiret bærer",
       ],
       answer: 2,
-      solution: "<p><b>Steg 1 — markedets implisitte sats.</b> t* = (8 − 6,4)/8 = 1,6/8 = <b>20 %</b>. Kontroll: 8 % × (1 − 0,20) = 6,4 % ✓ Den marginale investoren har 20 % marginalskatt og er indifferent.</p><p><b>Steg 2 — hva stiftelsen faktisk får.</b> Den skattlagte obligasjonen gir henne hele <b>8 %</b>, for hun betaler ingen skatt på renten. Den skattefrie gir <b>6,4 %</b>, og der er det ingenting å slippe unna: papiret gir bare 6,4 % til alle.</p><p><b>Steg 3 — tapet.</b> 8 − 6,4 = <b>1,6 prosentpoeng</b> i året.</p><p><b>Kontroll med valgregelen.</b> Gevinsten ved å velge det skattefavoriserte papiret er (egen sats − t*) × R = (0 % − 20 %) × 8 % = <b>−1,6 prosentpoeng</b> ✓ Negativ, fordi hennes egen sats ligger under markedets. Regelen sier at hun skal eie det fullt skattlagte papiret, og differansen er nøyaktig det hun taper om hun lar være.</p><p>Poenget er at skattefordelen ligger i prisen, ikke i loven. Den skattefrie obligasjonen bærer 20 % implisitt skatt, og stiftelsen betaler den fullt ut selv om hun ikke sender en krone til skattemyndighetene. Derfor havner skattefavoriserte aktiva hos investorene med høyest marginalsats, og alle med lavere sats taper på å eie dem. Scholes og Wolfson kaller det skatteklienteller.</p>",
+      solution: "<p><b>Steg 1 — markedets implisitte sats.</b> t* = (8 − 6,4)/8 = 1,6/8 = <b>20 %</b>. Kontroll: 8 % × (1 − 0,20) = 6,4 % ✓ Den marginale investoren har 20 % marginalskatt og er indifferent.</p><p><b>Steg 2 — hva stiftelsen faktisk får.</b> Den skattlagte obligasjonen gir den hele <b>8 %</b>, for den betaler ingen skatt på renten. Den skattefrie gir <b>6,4 %</b>, og der er det ingenting å slippe unna: papiret gir bare 6,4 % til alle.</p><p><b>Steg 3 — tapet.</b> 8 − 6,4 = <b>1,6 prosentpoeng</b> i året.</p><p><b>Kontroll med valgregelen.</b> Gevinsten ved å velge det skattefavoriserte papiret er (egen sats − t*) × R = (0 % − 20 %) × 8 % = <b>−1,6 prosentpoeng</b> ✓ Negativ, fordi dens egen sats ligger under markedets. Regelen sier at den skal eie det fullt skattlagte papiret, og differansen er nøyaktig det den taper om den lar være.</p><p>Poenget er at skattefordelen ligger i prisen, ikke i loven. Den skattefrie obligasjonen bærer 20 % implisitt skatt, og stiftelsen betaler den fullt ut selv om den ikke sender en krone til skattemyndighetene. Derfor havner skattefavoriserte aktiva hos investorene med høyest marginalsats, og alle med lavere sats taper på å eie dem. Scholes og Wolfson kaller det skatteklienteller.</p>",
       traps: [
         "Bare den eksplisitte skatten talt. Den implisitte skatten på 20 % betales gjennom lavere avkastning før skatt, og den treffer også den som er fritatt.",
         "t* ganget med r: 20 % × 6,4 %. Tapet måles mot avkastningen på det skattlagte papiret, 8 %, ikke mot det skattefrie.",
         null,
         "Fortegnet snudd. Stiftelsen slipper uansett skatten på det skattlagte papiret og får hele 8 %; det skattefrie gir henne mindre, ikke mer.",
+      ],
+    },
+    {
+      id: "k12-7",
+      topic: "Rangering før skatt",
+      points: 3,
+      body: "<p>Du kan investere i to prosjekter med nøyaktig samme risiko. Avkastningen på <b>prosjekt 1</b> er fritatt for skatt, fordi myndighetene har gjort det til et satsingsområde. Avkastningen på <b>prosjekt 2</b> skattlegges med 22 % [dagens sats på alminnelig inntekt]. Kapitalmarkedet er velfungerende, og prisene har satt seg. Prosjekt 2 gir 9,00 % før skatt [eksempeltall].</p><p>Hva gir prosjekt 1 før skatt i likevekt? Rund av til to desimaler.</p>",
+      options: [
+        "7,02 %, altså lavere enn prosjekt 2",
+        "7,38 %, altså lavere enn prosjekt 2",
+        "9,00 %, altså det samme som prosjekt 2",
+        "11,54 %, altså høyere enn prosjekt 2",
+      ],
+      answer: 0,
+      solution: "<p><b>Steg 1 — likevektsbetingelsen.</b> To prosjekter med lik risiko må gi lik avkastning <i>etter</i> skatt, ellers flytter alle kapitalen til det som gir mest. Prosjekt 1 er skattefritt og gir R<sub>1</sub> etter skatt. Prosjekt 2 gir R<sub>2</sub>(1 − t). Likevekten er R<sub>1</sub> = R<sub>2</sub>(1 − t).</p><p><b>Steg 2 — sett inn.</b> R<sub>1</sub> = 9,00 % × (1 − 0,22) = 9,00 % × 0,78 = <b>7,02 %</b>.</p><p><b>Steg 3 — rangeringen.</b> Siden 1 − t er mindre enn 1, er R<sub>1</sub> &lt; R<sub>2</sub>: det skattefrie prosjektet har <b>lavest</b> avkastning før skatt. Fritaket gjorde det attraktivt, prisen ble bydd opp, og når prisen i nevneren stiger, faller avkastningen. Fallet fra 9,00 % til 7,02 % er den implisitte skatten. Ingen krever den inn, og staten får ingenting av den.</p><p><b>Kontroll:</b> t* = (R<sub>2</sub> − R<sub>1</sub>)/R<sub>2</sub> = (9,00 − 7,02)/9,00 = 1,98/9,00 = <b>22,0 %</b>, nøyaktig den eksplisitte satsen på prosjekt 2 ✓. Og etter skatt gir begge 7,02 %: prosjekt 2 gir 9,00 % × 0,78 = 7,02 % ✓. Kontrollen er en identitet når risikoen er lik og fritaket fullt, men den avslører straks et tall som er regnet med feil faktor: 7,38 % gir 18,0 %, ikke 22 %.</p><p>Dette er H2019 oppgave 4 og H2024 oppgave 9a med tall på. Begge gangene var riktig svar at det skattefavoriserte har lavest avkastning før skatt, og begge gangene sto «like store» blant alternativene; i H2024 også «kan ikke sammenlignes».</p>",
+      traps: [
+        null,
+        "Skatten lagt på med (1 + t) i stedet for (1 − t): R<sub>2</sub> = 1,22 × R<sub>1</sub> gir R<sub>1</sub> = 9,00 % / 1,22 = 7,38 %. Retningen er riktig, men den implisitte skatten blir da (9,00 − 7,38)/9,00 = 18,0 %, ikke 22 %.",
+        "Lik risiko lest som lik avkastning <i>før</i> skatt. Da gir prosjekt 1 9,00 % etter skatt mot prosjekt 2s 7,02 %, og alle ville kjøpt prosjekt 1 til prisen hadde steget og avkastningen falt.",
+        "Skatten lagt på feil prosjekt: R<sub>1</sub> × 0,78 = R<sub>2</sub> gir R<sub>1</sub> = 9,00 % / 0,78 = 11,54 %. Det er prosjekt 2 som skattlegges, så det er avkastningen der som skal ganges med 0,78.",
+      ],
+    },
+    {
+      id: "k12-8",
+      topic: "Merton med skatt",
+      points: 3,
+      body: "<p>Ingrid har kr 1 000 000 i finansformue fordelt på et globalt aksjefond og bankinnskudd. Aksjefondet har forventet meravkastning μ − r<sub>f</sub> = 4,5 prosentpoeng over bankrenten og standardavvik σ = 25 %, og Ingrids risikoaversjon er γ = 2 [eksempeltall]. Hun velger aksjeandelen med Mertons formel w* = (μ − r<sub>f</sub>)/(γσ²).</p><p>Så skattlegges meravkastningen med t = 37,84 % [dagens sats på aksjeinntekt, 22 % × 1,72], og tap gir fradrag med samme sats, altså fullt tapsfradrag [modellforutsetning].</p><p>Hvor stor andel av finansformuen bør Ingrid ha i aksjefondet etter at skatten er innført? Rund av til én desimal.</p>",
+      options: [
+        "22,4 %",
+        "36,0 %",
+        "57,9 %",
+        "93,2 %",
+      ],
+      answer: 2,
+      solution: "<p><b>Steg 1 — uten skatt.</b> w* = 0,045/(2 × 0,25²) = 0,045/(2 × 0,0625) = 0,045/0,125 = <b>36,0 %</b>, altså kr 360 000 i fondet.</p><p><b>Steg 2 — hva skatten gjør med forventningen.</b> Staten tar 37,84 % av meravkastningen: 4,5 % × (1 − 0,3784) = 4,5 % × 0,6216 = <b>2,7972 %</b>.</p><p><b>Steg 3 — hva skatten gjør med risikoen.</b> Med fullt tapsfradrag krymper hvert utfall med faktoren 0,6216, de gode som de dårlige. Standardavviket blir 25 % × 0,6216 = 15,54 %, og variansen 0,1554² = <b>0,024149</b>, altså σ² × (1 − t)². Variansen krymper med kvadratet av faktoren, fordi den er et kvadrert avvik.</p><p><b>Steg 4 — ny andel.</b> w = 0,027972/(2 × 0,024149) = 0,027972/0,048298 = <b>57,9 %</b>, altså kr 579 151 i fondet.</p><p><b>Kontroll med kortformen.</b> (μ − r<sub>f</sub>)(1 − t)/[γσ²(1 − t)²] = w*/(1 − t) = 0,36/0,6216 = 0,5792 ✓. Og i kroner etter skatt: forventet meravkastning 579 151 × 4,5 % × 0,6216 = <b>16 200</b>, nøyaktig 360 000 × 4,5 % uten skatt, og standardavvik 579 151 × 25 % × 0,6216 = <b>90 000</b>, nøyaktig 360 000 × 25 % ✓. Ingrid har gjenskapt fordelingen hun hadde uten skatt.</p><p>Dette er Domar–Musgrave fra 12.2 skrevet i formelen fra kapittel 14. Staten tar 37,84 % av oppsiden og bærer 37,84 % av nedsiden, og investoren svarer med å skalere posisjonen opp med 1/(1 − t). At bare meravkastningen skattlegges, er Sandmos nettobeskatning fra 12.3; da holder resultatet også når bankrenten er positiv.</p>",
+      traps: [
+        "Bare forventningen er skattlagt, risikoen står urørt: 0,027972/(2 × 0,0625) = 22,4 %. Det er den folkelige feilen Domar og Musgrave rettet: med fullt tapsfradrag deler staten nedsiden også, og da krymper variansen.",
+        "Variansen skalert med (1 − t) i stedet for (1 − t)², slik at skatten forkortes bort: 0,027972/(2 × 0,0625 × 0,6216) = 36,0 %. Nøytraliteten gjelder fordelingen etter skatt, ikke andelen: standardavviket krymper med (1 − t), variansen med (1 − t)².",
+        null,
+        "Variansen er skalert med (1 − t)², men meravkastningen er ikke skattlagt: 0,045/(2 × 0,024149) = 93,2 %. Staten tar sin andel av oppsiden også, så telleren skal ganges med 0,6216.",
       ],
     },
   ],

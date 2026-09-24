@@ -21,7 +21,7 @@ window.EDU_DATA.chapterTasks[17] = {
       id: "k17-2",
       topic: "Sikkerhetsekvivalent",
       points: 3,
-      body: "<p>Samme situasjon: Mia har kr 2 250 000, med 10 % sannsynlighet faller formuen til kr 250 000, og U(W) = √W. Forventet nytte uten forsikring er 1 400,00 [eksempeltall].</p><p>Hva er sikkerhetsekvivalenten til denne formuesposisjonen?</p>",
+      body: "<p>Mia har kr 2 250 000, med 10 % sannsynlighet faller formuen til kr 250 000, og U(W) = √W. Forventet nytte uten forsikring er 1 400,00 [eksempeltall].</p><p>Hva er sikkerhetsekvivalenten til denne formuesposisjonen?</p>",
       options: ["kr 1 000 000", "kr 1 822 500", "kr 1 960 000", "kr 2 050 000"],
       answer: 2,
       solution: "<p>Sikkerhetsekvivalenten er det <b>sikre</b> beløpet som gir nøyaktig samme nytte som lotteriet: U(CE) = E[U].</p><p><b>Steg 1 — sett opp ligningen.</b> Med U = √W blir den √CE = 1 400.</p><p><b>Steg 2 — snu nyttetallet tilbake til kroner.</b> For kvadratrotnytte er det kvadrering som snur: CE = 1 400<sup>2</sup> = <b>kr 1 960 000</b>.</p><p><b>Kontroll, sett tallet tilbake inn:</b> √1 960 000 = 1 400,00, som er den forventede nytten vi startet med. ✓</p><p><b>Kontroll på plasseringen:</b> sikkerhetsekvivalenten må ligge mellom det dårligste utfallet og forventet formue, altså mellom 250 000 og 2 050 000, og nær det siste fordi skaden bare inntreffer med 10 % sannsynlighet. 1 960 000 gjør begge deler.</p><p>Nyttetallene i seg selv sier ingenting om hvor stor risikoen er. Forskjellen mellom 1 400 og 1 431,78 er umulig å tolke. Regn deg alltid tilbake til kroner, for der ser du at usikkerheten koster henne 90 000.</p>",

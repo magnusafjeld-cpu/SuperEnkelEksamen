@@ -1,6 +1,6 @@
 /* Kapittel 6 — Fritaksmetoden, selskapsaksjonærer, aksjonærlån og exit-skatt */
 window.EDU_DATA.chapterTasks[6] = {
-  minutes: 20,
+  minutes: 30,
   tasks: [
     {
       id: "k6-1",
@@ -21,10 +21,10 @@ window.EDU_DATA.chapterTasks[6] = {
       id: "k6-2",
       topic: "Samlet skatt i kjeden",
       points: 3,
-      body: "<p>Drift AS har et overskudd på kr 1 000 000 før skatt og deler ut alt som er igjen etter selskapsskatt som utbytte. Holding AS eier 80 % av Drift AS, altså står kr 800 000 av overskuddet bak Holding AS' eierandel. Holding AS deler straks ut alt den mottar videre til sin personlige eier.</p><p>Satsene er [dagens regel]: selskapsskatt 22 %, eierskatt på utbytte 37,84 %, og 3 % av mottatt konsernutbytte inntektsføres når eierandelen er under 90 %. Skjermingsfradraget er brukt opp.</p><p>Hvor stor andel av de kr 800 000 forsvinner i skatt til sammen?</p>",
+      body: "<p>Drift AS har et overskudd på kr 1 000 000 før skatt og deler ut alt som er igjen etter selskapsskatt som utbytte. Holding AS eier 80 % av Drift AS, altså står kr 800 000 av overskuddet bak Holding AS' eierandel. Holding AS deler straks ut alt den har igjen etter egen skatt til sin personlige eier.</p><p>Satsene er [dagens regel]: selskapsskatt 22 %, eierskatt på utbytte 37,84 %, og 3 % av mottatt konsernutbytte inntektsføres når eierandelen er under 90 %. Skjermingsfradraget er brukt opp.</p><p>Hvor stor andel av de kr 800 000 forsvinner i skatt til sammen?</p>",
       options: ["51,52 %", "51,84 %", "52,97 %", "59,84 %"],
       answer: 1,
-      solution: "<p><b>Steg 1 — selskapsskatten.</b> 1 000 000 × 22 % = 220 000, og 780 000 deles ut. Holding AS' andel er 780 000 × 80 % = <b>624 000</b>.</p><p><b>Steg 2 — treprosentregelen.</b> Inntektsført: 624 000 × 3 % = 18 720. Skatt: 18 720 × 22 % = <b>4 118,40</b>, som er det samme som 624 000 × 0,66 %.</p><p><b>Steg 3 — det Holding AS kan dele ut.</b> 624 000 − 4 118,40 = <b>619 881,60</b>.</p><p><b>Steg 4 — eierskatten.</b> 619 881,60 × 37,84 % = <b>234 563,20</b>. Eieren sitter igjen med 619 881,60 − 234 563,20 = <b>385 318,40</b>.</p><p><b>Steg 5 — samlet.</b> Bak eierandelen sto 800 000. Skatt: 800 000 − 385 318,40 = 414 681,60, altså 414 681,60 / 800 000 = <b>51,84 %</b>.</p><p><b>Kontroll med satsene alene:</b> 22 % + 78 % × (0,66 % + 99,34 % × 37,84 %) = 51,84 %. ✓ Uttrykket inneholder ingen ledd for antall selskaper i kjeden, og eierandelen forsvinner ut av brøken. Det er nettopp det fritaksmetoden sørger for.</p><p>Uten treprosentregelen ville satsen vært 51,52 %. Regelen kostet altså 0,32 prosentpoeng, ikke 3.</p>",
+      solution: "<p><b>Steg 1 — selskapsskatten.</b> 1 000 000 × 22 % = 220 000, og 780 000 deles ut. Holding AS' andel er 780 000 × 80 % = <b>624 000</b>.</p><p><b>Steg 2 — treprosentregelen.</b> Inntektsført: 624 000 × 3 % = 18 720. Skatt: 18 720 × 22 % = <b>4 118,40</b>, som er det samme som 624 000 × 0,66 %.</p><p><b>Steg 3 — det Holding AS kan dele ut.</b> 624 000 − 4 118,40 = <b>619 881,60</b>.</p><p><b>Steg 4 — eierskatten.</b> 619 881,60 × 37,84 % = <b>234 563,20</b>. Eieren sitter igjen med 619 881,60 − 234 563,20 = <b>385 318,40</b>.</p><p><b>Steg 5 — samlet.</b> Bak eierandelen sto 800 000. Skatt: 800 000 − 385 318,40 = 414 681,60, altså 414 681,60 / 800 000 = <b>51,84 %</b>.</p><p><b>Kontroll med satsene alene:</b> 22 % + 78 % × (0,66 % + 99,34 % × 37,84 %) = 51,84 %. ✓ Eierandelen forsvinner ut av brøken, og bare 0,66 %-leddet kommer i tillegg én gang for hvert holdingselskap i kjeden som eier under 90 %. Det er nettopp det fritaksmetoden sørger for.</p><p>Uten treprosentregelen ville satsen vært 51,52 %. Regelen kostet altså 0,32 prosentpoeng, ikke 3.</p>",
       traps: [
         "Konsernunntaket antatt. Det gjelder først ved mer enn 90 % eierskap og stemmer; med 80 % slår treprosentregelen inn.",
         null,
@@ -90,6 +90,46 @@ window.EDU_DATA.chapterTasks[6] = {
         "22 % brukt uten oppjustering på riktig gevinst: 6 800 000 × 22 %.",
         null,
         "Skatten regnet av hele salgssummen: 8 000 000 × 37,84 %. Inngangsverdien er glemt helt.",
+      ],
+    },
+    {
+      id: "k6-7",
+      topic: "Exit-skatt i rater",
+      points: 3,
+      body: "<p>Ingrid flyttet til Norge i 2014. Hun eide da en aksjepost som hun hadde kjøpt for kr 1 500 000, og som var verdt kr 4 000 000 den dagen hun ble bosatt her. Høsten 2026 flytter hun til Spania, og dagen før utflyttingen er posten verdt kr 19 000 000. Hun har verken kjøpt eller solgt aksjer i mellomtiden.</p><p>Reglene for exit-skatt [dagens regel]: aksjene anses realisert dagen før utflytting, bare verdistigningen mens hun var bosatt i Norge skattlegges, bunnfradraget er kr 3 000 000, og eierskatten er 37,84 %. Skatten kan betales med en gang, eller i tolv like, rentefrie årlige rater der den første forfaller ett år etter utflyttingen. Ingrid kan plassere pengene til 6 % [eksempeltall], og annuitetsfaktoren for tolv år ved 6 % er 8,3838.</p><p>Hvor mye er det verdt for Ingrid, målt i nåverdi, å betale i rentefrie rater i stedet for å betale alt med en gang?</p>",
+      options: [
+        "Kr 1 368 370",
+        "Kr 1 653 447",
+        "Kr 1 710 463",
+        "Kr 3 172 430",
+      ],
+      answer: 0,
+      solution: "<p><b>Steg 1 — gevinsten som er opptjent i Norge.</b> Exit-skatten treffer bare verdistigningen mens Ingrid var bosatt her, så utgangspunktet er verdien da hun flyttet inn, ikke kjøpesummen: 19 000 000 − 4 000 000 = <b>15 000 000</b>.</p><p><b>Steg 2 — bunnfradraget.</b> Det trekkes fra gevinsten: 15 000 000 − 3 000 000 = <b>12 000 000</b>.</p><p><b>Steg 3 — skatten.</b> 12 000 000 × 37,84 % = <b>4 540 800</b>. Kontroll med oppjustering på grunnlaget: 12 000 000 × 1,72 = 20 640 000, og 20 640 000 × 22 % = 4 540 800. ✓ Beløpet er nå låst: faller aksjene senere i verdi, settes skatten ikke ned.</p><p><b>Steg 4 — nåverdien av ratene.</b> Hver rate er 4 540 800 / 12 = 378 400, og nåverdien er 378 400 × 8,3838 = <b>3 172 430</b>.</p><p><b>Steg 5 — verdien av å betale i rater.</b> 4 540 800 − 3 172 430 = <b>kr 1 368 370</b>.</p><p><b>Kontroll:</b> tolv rater på 378 400 er 12 × 378 400 = 4 540 800, altså hele skatten, så forskjellen skyldes bare tidspunktene. ✓ Andelen spart er 1 − 8,3838 / 12 = 30,135 %, og 4 540 800 × 30,135 % = 1 368 370. Det er samme regnestykke skrevet om, så det fanger regnefeil, ikke metodefeil. En uavhengig grovkontroll: ratene betales i snitt etter 6,5 år, og 1 − 1 / 1,06<sup>6,5</sup> ≈ 31,5 %, nær 30,1 %. ✓</p><p>Ratene er et rentefritt lån fra staten, akkurat som et fradrag tatt tidlig i kapittel 2. Det tredje valget, hele beløpet etter tolv år, er forrentet: krever staten samme rente som Ingrid selv oppnår, er det like mye verdt som å betale straks. Utsettelsen forutsetter sikkerhet, og pant i aksjene godtas. Flytter hun tilbake innen tolv år med aksjene i behold, faller skatten bort.</p>",
+      traps: [
+        null,
+        "Kjøpesummen brukt som inngangsverdi: (19 000 000 − 1 500 000 − 3 000 000) × 37,84 % = 5 486 800, og 5 486 800 × (1 − 8,3838 / 12) = 1 653 447. Verdistigningen fra 1,5 til 4 mill. skjedde før hun ble bosatt i Norge og skal holdes utenfor.",
+        "Bunnfradraget glemt: 15 000 000 × 37,84 % = 5 676 000, og 5 676 000 × (1 − 8,3838 / 12) = 1 710 463.",
+        "Nåverdien av ratene svart i stedet for besparelsen: 378 400 × 8,3838 = 3 172 430. Det er hva ratene koster i dag, ikke hva de sparer henne for.",
+      ],
+    },
+    {
+      id: "k6-8",
+      topic: "Exit-skatt: reglene",
+      points: 3,
+      body: "<p>Nora er bosatt i Norge og eier alle aksjene i Nora Invest AS, et norsk aksjeselskap. Aksjene har inngangsverdi kr 2 000 000 og er verdt kr 9 000 000. Hun eier også en aksjepost i et børsnotert selskap med en latent gevinst på kr 3 500 000. Datteren hennes bor i Danmark.</p><p>Hvilken påstand er riktig etter reglene som gjelder i 2026?</p>",
+      options: [
+        "Gir Nora den børsnoterte aksjeposten til datteren, utløses exit-skatt hos Nora, selv om hun selv blir boende i Norge.",
+        "Flytter Nora til Portugal og lar være å selge aksjene i Nora Invest AS i mer enn fem år, faller exit-skatten bort.",
+        "Flytter Nora til Portugal og aksjene i Nora Invest AS deretter faller til halv verdi, settes exit-skatten ned tilsvarende.",
+        "Flytter Nora Invest AS til Portugal, slik at selskapet blir skattemessig hjemmehørende der, utløses ingen norsk skatt så lenge Nora selv blir boende i Norge.",
+      ],
+      answer: 0,
+      solution: "<p>Fire påstander, fire regler. Ta dem én for én.</p><p><b>Steg 1 — gaven (A).</b> Exit-skatten er ikke bare en skatt på å flytte selv. Gir du aksjer til en nærstående som bor i utlandet, utløses exit-skatt hos deg når netto gevinst overstiger kr 100 000 i året. Den latente gevinsten er her 3 500 000, godt over grensen. Du trenger ikke flytte, det holder at aksjene gjør det. Påstanden er <b>riktig</b>, og det var nettopp dette H2024 oppgave 10 spurte om.</p><p><b>Steg 2 — femårsregelen (B).</b> Fram til 29. november 2022 falt exit-skatten bort hvis aksjene ikke var solgt innen fem år etter utflyttingen. Regelen er opphevet, og den står som fasit i H2022 oppgave 4 fordi settet ble laget før det. I dag faller skatten bare bort hvis du flytter tilbake innen tolv år med aksjene i behold. <b>Gal.</b></p><p><b>Steg 3 — verdifall etter utflyttingen (C).</b> Skatten fastsettes endelig ut fra verdien dagen før utflytting. Faller aksjene senere, settes den ikke ned. <b>Gal.</b></p><p><b>Steg 4 — selskapet flytter (D).</b> Blir selskapet hjemmehørende i utlandet, gjøres det opp etter § 10-71 som om selskapet var likvidert, på to nivåer: selskapet for eiendelene og aksjonærene for aksjene. Nora slipper ikke unna ved å bli boende, for hun beskattes som aksjonær. Dette var det andre exit-spørsmålet i H2024 oppgave 10. <b>Gal.</b></p><p><b>Kontroll:</b> A er den eneste påstanden som beskriver gjeldende rett. B bygger på en opphevet regel, C strider mot at skatten fastsettes endelig, og D overser aksjonærnivået i § 10-71. ✓ Merk også hvorfor Nora Invest AS har tall: med en latent gevinst på 7 000 000 er hun godt over bunnfradraget på 3 000 000, så en utflytting ville faktisk utløst skatt, og B og C handler om en skatt som finnes.</p>",
+      traps: [
+        null,
+        "Femårsregelen, som er fasit i H2022 oppgave 4, ble opphevet 29. november 2022. I dag faller skatten bare bort hvis hun flytter tilbake innen tolv år med aksjene i behold.",
+        "Exit-skatten fastsettes endelig ut fra verdien dagen før utflytting. Senere verdifall setter den ikke ned.",
+        "Utflytting av selskapet gjøres opp på begge nivåer etter § 10-71, som om selskapet var likvidert: selskapet for eiendelene og aksjonærene for aksjene. Nora beskattes som aksjonær selv om hun blir boende.",
       ],
     },
   ],
