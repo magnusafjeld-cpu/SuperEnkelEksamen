@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-09-09
+oppdatert: 2026-09-24
 ---
 
 # Moduler og visninger
@@ -23,7 +23,7 @@ oppdatert: 2026-09-09
 | Repetisjon | `/review` | Hva du bør repetere nå |
 | Søk | `/search` | På tvers av begreper, formler, figurer, økonomer, variabler |
 | Fremdrift | `/progress` | Statistikk, svakeste temaer, nullstilling, «last innhold på nytt» |
-| Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num` | Flervalg i eksamensformat per kapittel, med fasit med en gang |
+| Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num` | Oppgaver i fagets eksamensformat per kapittel: flervalg med fasit med en gang (FIE432) eller åpne oppgaver med løsning og sensorkriterier (FIE402) |
 | NotebookLM | `/notebooklm` | Pensum som ren tekst, ett kapittel per kilde, med kopiknapp — se under |
 | Konto | `/konto` | Innlogging og synkstatus |
 
@@ -77,6 +77,26 @@ Settet vises tre steder: i menyen under Øving, som liste over alle kapitler, og
 som **et kort nederst på selve kapittelsiden** — oppgavene skal tas rett etter
 lesingen, og da må de ligge der kapitlet slutter, ikke bare i en meny brukeren
 må huske å oppsøke.
+
+### Åpen oppgavetype
+
+FIE402 eksamineres som åpne oppgaver, så en oppgave med `open: true` har ingen
+`options`, `answer` eller `traps`. Den har i stedet `solution` og minst to
+`criteria` i ren tekst. Du skriver svaret, åpner løsningen og gir deg selv poeng
+i fire trinn av maks. Svaret lagres som `{ svar, score }` under oppgavens id, der
+`score` er `null` til du har vurdert deg selv. Er *alle* settene i faget åpne,
+bytter listevisningen introtekst, fordi én felles tekst ville vært feil for det
+ene faget.
+
+To ting motoren gjør som innholdet ikke skal tenke på:
+
+- **Tabeller pakkes i en rullboks** ved visning, med `S.u.rullTabeller()`, samme
+  hjelper som kapittelvisningen bruker. Uten den kunne en løsningstabell med
+  sju kolonner dra hele siden sidelengs på telefon (fallgruve 7i).
+- **«Besvart» teller bare oppgaver som finnes nå.** Fjernes en oppgave eller får
+  den ny id, blir det gamle svaret liggende i lagringen. Da sto kapitlet som
+  påbegynt uten at noen av dagens oppgaver var besvart (fallgruve 7s). En
+  oppgave som skrives om, får derfor ny id i stedet for å arve den gamle.
 
 Kapitlene skrives hver for seg i `fag/<id>/_kapoppg/kN.js` og settes sammen med
 `python3 tools/bygg-kapoppgaver.py <fag>`. Kontrolleres med

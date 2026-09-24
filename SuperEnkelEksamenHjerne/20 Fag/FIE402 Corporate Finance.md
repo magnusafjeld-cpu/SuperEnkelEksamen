@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-09-22
+oppdatert: 2026-09-24
 ---
 
 # FIE402 Corporate Finance
@@ -101,8 +101,8 @@ Samlet estimat ~82 timer.
 
 ## Kapitteloppgaver
 
-Ett sett per kapittel, å ta rett etter lesingen. **92 oppgaver over 27 kapitler,
-817 poeng, 24,5 timer.** Alle kapitler med fagstoff er ferdige.
+Ett sett per kapittel, å ta rett etter lesingen. **94 oppgaver over 27 kapitler,
+866 poeng, 26 timer.** Alle kapitler med fagstoff er ferdige.
 
 > [!important] Antall oppgaver følger eksamensvekt, ikke en fast norm
 > `examWeights` i manifestet gir hvert kapittel 1–5 med begrunnelse, utledet av
@@ -132,19 +132,20 @@ utregningen vist («no calculation, no points»), mekanismen navngitt, og
 konsistenssjekken kjørt. Deloppgavene har poeng i parentes som på eksamen, og de
 verbale har setningsbudsjett.
 
-**Hver oppgave er kontrollregnet to ganger** — av forfatteren, og av meg
-uavhengig etterpå. De tre kontrollene som betydde mest:
+**Hver oppgave er kontrollregnet tre ganger**: av forfatteren, av meg
+uavhengig etterpå, og i en blind gjennomgang (se under). Noen kontroller som betydde mye:
 
 - **k4** har β<sub>D</sub> = 0-fellen riktig vei (spek 9.4): den understater
   β<sub>U</sub>, senker WACC og **overvurderer** firmaet, 700.93 mot 655.02.
 - **k12** har I i nevneren (spek 9.4): α = 90/444 = 0.2027, ikke 90/354 = 0.2542,
   og overføringsidentiteten q × tap = (1−q) × gevinst går opp. Pooling flytter
   verdi, separating ødelegger den, ikke omvendt (spek 9.2c).
-- **k19** fant at **feilens fortegn er fortegnet på netto låneopptak**: glemmer du
-  gjeldsjusteringen på et selskap som nedbetaler, overvurderer du egenkapitalen
-  med 34 %; på et som låner mer, undervurderer du den med 18 %. Det river bort
-  forsvaret «det går omtrent opp i opp». Og den lille feilen er den farlige: å
-  fryse gjelden på D₀ koster bare 0,59 %, innenfor det som leses som avrunding.
+- **k19**: å glemme gjeldsjusteringen i FCFE flytter egenkapitalen med **minus
+  nåverdien av netto låneopptak**. Et selskap som nedbetaler blir overvurdert
+  (34 % i k19-2), et som låner blir undervurdert (18 % i k19-3). Feilen går altså
+  *mot* fortegnet på låneopptaket. Oppgavene sa det motsatte fram til
+  gjennomgangen. Den lille feilen er den farlige: å fryse gjelden på D₀ er bare
+  en tidsforskyvning og koster under 1 %.
 - **k9-4** viser at reforhandling **ikke** løser risikoskifting: i hele
   intervallet K′ ∈ [67.5, 72.5] foretrekker aksjonærene fortsatt det risikable
   prosjektet, så det trengs en håndhevbar covenant.
@@ -170,6 +171,60 @@ sett på klokka, ikke ved å lese om det, og det ligger i Eksamenssett.
 > femoppgaverskapittel — og ble meldt som for tynt fordi kontrollen bare talte
 > oppgaver. Nå innfrir et kapittel vekten sin med enten antallet eller
 > poengsummen, så færre og lengre oppgaver er et lovlig valg.
+
+## Gjennomgangen, september 2026
+
+Alle 92 oppgavene ble gått gjennom på nytt etter at settet var ferdig. Fem
+agenter løste hver sin del **blindt**, fra oppgaveteksten alene, før de fikk se
+løsningen. Samtidig gikk en maskinell sveip over alle oppgavene: poeng mot
+deloppgaver, sjekknumre, eksamenssitater mot PDF-ene, tall i kriteriene mot
+løsningen, HTML og mobilbredde.
+
+**Regnestykkene holdt nesten overalt. Feilene lå i påstandene om dem**, akkurat
+som i manualrevisjonene (forfatterspek §9). De viktigste:
+
+- **Sjekker solgt som uavhengige som er identiteter.** Et eksempel er
+  S − premie når målselskapet handles til budprisen (k26-3). Et annet er å
+  verdsette egenkapitalen fra egen kontantstrøm når r<sub>E</sub> kom fra MM II
+  (k6-5): det er MM II omskrevet, og det holder for enhver r<sub>D</sub>.
+- **Lokale «Check 1/2»** (k16-1, k22-4) som kolliderer med de fem faste
+  sjekkene. k6-1 kalte pre-tax WACC = r<sub>U</sub> for «check 1».
+- **Amerikansk selskapsrett på norske ASA-er** (k27-1, k27-3). Daglig leder kan
+  ikke sitte i styret (asal § 6-1), generalforsamlingen kan avsette styremedlemmer
+  når som helst (§ 6-7), og en styrevedtatt giftpille etter et varslet bud er
+  forbudt (vphl § 6-17). Sjekket på Lovdata. k27-3 er flyttet til Delaware, med
+  den norske regelen som et eget poeng.
+- **Et spørsmål som ikke stemte med sitt eget svar** (k6-4c: proratarisk tender
+  der alle kan tilby, men svaret forutsatte ulik deltakelse) og **en oppgavetekst
+  som tillot to svar** (k20-1: skal gjelden som trekkes fra være 700 eller
+  837?). Rettet i teksten, ikke i svaret.
+- **Halen etter år 20 kalt en opsjonsverdi** (k1-1). Den er det avkortingen
+  koster.
+
+**Fire agentpåstander ble avvist** etter at kildene var sjekket. H2025 E4(a)
+*er* gjeldsbetaen. 2015 P4 *er* den kjeden k24-2 sier. H2025 E5(b) *er* en
+umiddelbar markedsundersøkelse der uinformert beslutning er å avslå. Og
+q × tap = (1 − q) × gevinst i k12-3 er nullprofittbetingelsen, ikke en identitet.
+Se [[Fallgruver]] 7t.
+
+**Fire nye oppgaver fyller hull med eksamensbelegg:**
+
+| Oppgave | Hvorfor |
+|---|---|
+| **k6-6** (18 p) erstatter k6-1 og k6-2 | H2024 E3 og H2025 E3 starter begge fra et firma som *allerede* har gjeld. Det gjorde ingen av de gamle |
+| **k20-3** (18 p) | Kursplanen sier k20 skal ha H2025 E4s ni steg. Ingen oppgave hadde det. Denne låner i år 1 der H2025 nedbetalte, så «repay» på rams feiler |
+| **k24-4** (10 p) | CDS hadde null oppgaver, men V2024 P3 var 28 poeng på nettopp det |
+| **k10-4** (8 p) | Feilen fasitene navngir, at aksjonærer tror de tjener på å redusere gjeld, var ikke testet |
+
+k1-1 gikk fra 10 til 20 poeng (arbeidet var 40 minutter, ikke 18), k7-4 fra 6 til
+8 og k8-2 fra 8 til 9.
+
+**Manualen hadde de samme feilene på 22 steder**, og de ble rettet samtidig
+for at oppgave og manual ikke skal motsi hverandre. k20 og k19 kalte
+WACC = APV «a real one» og «genuinely independent», i strid med spek §9.2b.
+§18.6 sa at APV-delen gir få poeng, men H2024 E5(e) gir 6 av 20. Lokale
+sjekknavn i k5, k22 og k23 ble rettet, og amerikanske styreregler i k27 fikk
+jurisdiksjon.
 
 ## Kildene
 
@@ -210,7 +265,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver |
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **268** forfattet + 80 auto-genererte formelkort |
-| Kapitteloppgaver | **92 åpne oppgaver** over 27 kapitler · 817 poeng · 24,5 t |
+| Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
 | Aktiv læring | **208** oppgaver |
 | Dybdetrening | **458** i seks banker |
 | Lynlæring | **233** elementer, med fremdriftsport |

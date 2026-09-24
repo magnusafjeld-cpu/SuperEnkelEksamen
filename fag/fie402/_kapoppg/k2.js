@@ -31,7 +31,7 @@ window.EDU_DATA.chapterTasks[2] = {
         "Names the mechanism: a fall in net working capital is a release of cash already spent, a balance-sheet effect with no effect on profit.",
         "Verifies the changes against the levels: 10.00 + 10.00 − 27.20 = −7.20 = 72.80 − 80.00.",
         "EBITDA form reproduces 70.00 (112.50 + 12.50 − 45.00 − 10.00), and identifies τ_c × Dep = 12.50 as the depreciation tax shield, so FCF1 would be 57.50 without the deduction. Distinguishes it from the interest tax shield, which is excluded from FCF.",
-        "Normalises year 4 from components (95.6250 + 51.0000 − 45.9000 − 1.4560 = 99.2690) instead of growing FCF_3: TV_3 = 1,654.4833 against the shortcut's 2,141.1500, a 486.6667 overstatement caused by capitalising a one-off release."
+        "Normalises year 4 from components (95.6250 + 51.0000 − 45.9000 − 1.4560 = 99.2690) instead of growing FCF_3: TV_3 = 1,654.4833 against the shortcut's 2,141.1500, a 486.6667 overstatement = (27.7440 + 1.4560)/0.06: the one-off release grown forever (462.4000) plus the omitted growth in NWC, ΔNWC_4 (24.2667)."
       ]
     },
     {

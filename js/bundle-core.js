@@ -46,6 +46,17 @@ window.EDU = window.EDU || {};
     });
   }
   function frag(html) { const t = document.createElement("template"); t.innerHTML = html; return t.content.cloneNode(true); }
+  /* En bred tabell i et grid-barn strekker hele spalten, og på telefon kan siden
+     da dras sidelengs (fallgruve 7i). Hver table.data pakkes i en boks som ruller
+     selv. Brukes av kapittelvisningen og kapitteloppgavene, derfor her i S.u. */
+  function rullTabeller(rot) {
+    rot.querySelectorAll("table.data").forEach((t) => {
+      if (t.parentElement && t.parentElement.classList.contains("tabell-scroll")) return;
+      const boks = el(".tabell-scroll");
+      t.parentNode.insertBefore(boks, t);
+      boks.appendChild(t);
+    });
+  }
   function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); return node; }
   function mount(node, ...children) { clear(node); appendChildren(node, children); return node; }
   function escapeHtml(s) { return String(s).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m])); }
@@ -186,7 +197,7 @@ window.EDU = window.EDU || {};
     return el("div", rad, live);
   }
 
-  S.u = { el, frag, clear, mount, escapeHtml, todayISO, parseISO, daysBetween, formatDate, clamp, nowTs, debounce, toast, ring, bar, icon, ICONS, diktering, tellord };
+  S.u = { el, frag, clear, mount, escapeHtml, todayISO, parseISO, daysBetween, formatDate, clamp, nowTs, debounce, toast, ring, bar, icon, ICONS, diktering, tellord, rullTabeller };
 })(window.EDU);
 
 /* ---------------- parse-manual ---------------- */

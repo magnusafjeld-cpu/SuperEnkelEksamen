@@ -32,6 +32,9 @@ window.EDU = window.EDU || {};
 (function (S) {
   const { el, icon, frag, tellord } = S.u;
   const sh = () => S.views.shared;
+  /* Oppgaver og løsninger har tabeller med opptil sju kolonner. Uten rullboksen
+     strakk de kortet og gjorde hele siden sidelengs på telefon. */
+  const prosa = (html) => { const n = el(".prose", frag(html)); S.u.rullTabeller(n); return n; };
 
   const ALLE = () => window.EDU_DATA.chapterTasks || {};
   const forKap = (num) => ALLE()[num] || null;
@@ -136,7 +139,10 @@ window.EDU = window.EDU || {};
     });
     return { rett, galt, blank, vurdert, uvurdert, poeng: Math.round(poeng * 100) / 100, maks, antall: (b.tasks || []).length };
   }
-  const besvart = (num) => Object.keys(valgene(num)).length;
+  /* Tell bare svar på oppgaver som finnes nå. Når en oppgave fjernes eller får ny
+     id, blir det gamle svaret liggende i lagringen, og da sto kapitlet som
+     påbegynt uten at noen av dagens oppgaver var besvart. */
+  const besvart = (num) => { const v = valgene(num); return ((forKap(num) || {}).tasks || []).filter((t) => t.id in v).length; };
   const ferdig = (num) => { const b = forKap(num); return !!b && (b.tasks || []).every((t) => erÅpen(num, t.id)); }
 
   /* ---------- én oppgave ---------- */
@@ -175,7 +181,7 @@ window.EDU = window.EDU || {};
 
   function fasit(t) {
     const p = el(".explain", { style: { marginTop: "14px" } });
-    if (t.solution) p.appendChild(el(".prose", frag(t.solution)));
+    if (t.solution) p.appendChild(prosa(t.solution));
     /* traps står parallelt med options: én tekst per galt alternativ, null på
        fasiten. Det er halve ferdigheten flervalg krever — å se hvilken feil
        hvert gale alternativ er laget av. */
@@ -219,7 +225,7 @@ window.EDU = window.EDU || {};
     /* Løsning + kriterier, i samme form som eksamenssettene. */
     const sol = el(".sol-panel", { style: { marginTop: "14px" } });
     sol.appendChild(el(".sol-h", icon("check"), el("span", "Løsning")));
-    if (t.solution) sol.appendChild(el(".prose", frag(t.solution)));
+    if (t.solution) sol.appendChild(prosa(t.solution));
     if ((t.criteria || []).length) {
       sol.appendChild(el(".nav-section", { style: { paddingLeft: 0 } }, "Dette må være med"));
       const ul = el("ul.sol-crit");
@@ -253,7 +259,7 @@ window.EDU = window.EDU || {};
       t.topic ? el(".chip.slate", { style: { fontSize: "11px" } }, t.topic) : null,
       el(".spacer"),
       el(".chip.indigo", { style: { fontWeight: 620 } }, (t.points || 3) + " poeng")));
-    kort.appendChild(el(".prose", frag(t.body || "")));
+    kort.appendChild(prosa(t.body || ""));
     if (erOpen(t)) { kort.appendChild(åpenOppgave(num, t)); return kort; }
     kort.appendChild(alternativer(num, t));
     if (åpent) kort.appendChild(fasit(t));

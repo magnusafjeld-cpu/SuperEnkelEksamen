@@ -309,9 +309,17 @@ intermediate figures you print must sum to the total you print.** If
 ## 9.6 Never invent an exam reference
 
 Only cite sittings and exercises that docs/fie402-kursplan.md actually lists. Wave 1 produced
-exactly one fabricated citation ("2017H MC6"), and it was indistinguishable from
-the twenty real ones. If you want to say something is heavily examined but cannot
-point to a listed instance, say it in general terms instead.
+one citation that was believed to be fabricated ("2017H MC6"), and it was
+indistinguishable from the twenty real ones. If you want to say something is
+heavily examined but cannot point to a listed instance, say it in general terms
+instead.
+
+*Correction, September 2026:* 2017H MC6 exists. `FIE402_Corp_course_files/2017F.pdf`
+is the autumn 2017 paper, and its question 6 is a twin-firm relevering with a
+debt beta of 0.4. The rule for authors stands. A reviewer, though, checks the
+PDFs before calling a citation fabricated, because the course plan is a map, not
+the source. Note that `2024 - S.pdf` is the spring 2024 paper, while
+`2025 - S.pdf` is the key to autumn 2025.
 
 ## 9.7 Claims that overreach
 
@@ -322,6 +330,41 @@ point to a listed instance, say it in general terms instead.
   than the market portfolio leaves you holding idiosyncratic risk. It is an
   equilibrium argument that assumes diversified, mean-variance investors — state
   the CAPM's assumptions rather than implying they are unnecessary.
+
+## 9.7b Lessons from the chapter-task review (September 2026)
+
+A blind re-solve of all 92 chapter tasks found almost no arithmetic errors.
+What it found were the same kinds of claim errors as the manual audits, plus a
+few new ones:
+
+- **Never call a local check "Check 1" or "Check 2".** Those numbers belong to
+  the five in k0 § 0.5. Write "First check" and "Second check".
+- **Name the identities you meet most often.** S − premium equals the acquirer's
+  price change whenever the target trades at the offer. Valuing equity from its
+  own cash flow, (FCF − r<sub>D</sub>D)/r<sub>E</sub>, holds for *any*
+  r<sub>D</sub> once r<sub>E</sub> came from MM II. FTE with
+  D<sub>t</sub> = d·V<sup>L</sup><sub>t</sub> is a fixed point like WACC = APV.
+  Say what each one can and cannot catch.
+- **Governance claims are jurisdiction claims.** In a Norwegian ASA:
+  - The CEO cannot sit on the board (allmennaksjeloven § 6-1).
+  - The general meeting can remove directors at any time (§ 6-7), so staggered
+    terms delay nothing.
+  - A target board may not issue shares against a notified bid without prior
+    general-meeting authority (verdipapirhandelloven § 6-17).
+
+  Staggered boards and board-adopted poison pills belong in a US firm, or must
+  be labelled "under US law".
+- **The tail you give up by truncating a perpetuity is a cost, not an option
+  value.** An exit option is worth something only where the tail is negative.
+- **Dropping net borrowing from FCFE shifts equity by minus PV(ΔD)**, at
+  r<sub>E</sub>. A repaying firm is overstated and a borrowing firm understated,
+  so the error runs *against* the sign of net borrowing.
+- **The question must admit only the answer you wrote.** If the solution needs
+  unequal participation in a tender, the question says so. If a debt figure is a
+  book value, say whether the market value is at target.
+- **A model answer obeys the sentence budget it sets**, and points follow the
+  work at about 1.8 minutes per point. A task that takes 40 minutes is worth
+  20 points, not 10.
 
 ## 9.8 Length
 

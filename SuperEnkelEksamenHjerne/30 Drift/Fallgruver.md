@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-09-09
+oppdatert: 2026-09-24
 ---
 
 # Fallgruver
@@ -196,6 +196,14 @@ tabellen bestemte bredden på all brødteksten. Rettet med `minmax(0,1fr)` og
 `min-width:0`, pluss at `rullTabeller()` i `bundle-views.js` nå pakker hver
 `table.data` i en `.tabell-scroll` ved visning. Gjøres ved visning og ikke i
 manualen, så det virker for alle tre fagene uten å røre innholdet.
+
+> [!warning] Samme feil kom tilbake i en ny modul
+> Kapitteloppgavene rendret sin egen HTML og kalte aldri `rullTabeller()`, som da
+> lå privat i kapittelvisningen. En løsningstabell på 379 px i en spalte på
+> 277 px gjorde at siden kunne dras 53 px sidelengs. Hjelperen ligger nå i
+> `S.u.rullTabeller`. **Enhver modul som setter inn innholds-HTML, skal kalle
+> den.** Mål `scrollWidth − clientWidth` på 375 px med løsningene *åpne*, ikke
+> bare på oppgaveteksten.
 
 **Pensumlisten klemte tittelen til 56 px.** `.chap-row` er et grid med fire
 kolonner der to er `auto`. På mobil vant «Forstått / Usikker»-knappene med sine
@@ -410,6 +418,37 @@ for (const r of [...new Set([...document.querySelectorAll('[data-match]')].map(n
 Kjør den for **alle fire fagene**. En endring i `bundle-core.js` treffer alle, og
 fag-id-ene er `sam3`, `fie402`, `case` og `fie432` — merk at Caseintervju heter
 `case`, ikke `caseintervju`.
+
+## 7s. Svar på oppgaver som ikke finnes lenger
+
+Oppgave-id-en er lagringsnøkkelen. Da k6-1 og k6-2 i FIE402 ble erstattet av
+k6-6, ble eventuelle gamle svar liggende i `exams["kapoppg-6"].valg`, og
+`besvart()` talte alle nøklene der. Kapitlet sto som «Påbegynt · 2 av 4
+besvart» uten at noen av dagens fire oppgaver var rørt.
+
+Nå teller `besvart()` bare id-er som finnes i settet. `ferdig()` og `resultat()`
+gikk allerede over dagens oppgaver. **Regelen:** en oppgave som skrives om, får
+ny id. Den arver aldri den gamle, for da ville et gammelt svar og en gammel
+poengsum havne på en ny oppgave.
+
+## 7t. Kursplanen er ikke fasiten, PDF-ene er det
+
+Forfatterspeken §9.6 sa at «2017H MC6» var oppdiktet, fordi kursplanen bare
+lister 2017H MC1–5. Men 2017F.pdf *er* høsten 2017, og spørsmål 6 finnes: et
+tvillingfirma med gjeldsbeta 0.4. Revisjonen målte sitatene mot kursplanen,
+ikke mot kilden.
+
+Det samme gjorde agentene i gjennomgangen av kapitteloppgavene. Fire av deres
+påstander falt da de ble sjekket mot `FIE402_Corp_course_files/`: H2025 E4(a),
+2015 P4, H2025 E5(b) og en påstått identitet i k12-3. Motsatt var de juridiske
+påstandene om norske ASA-er riktige, og de ble bekreftet ordrett på Lovdata før
+noe ble endret.
+
+**Rutinen:** et eksamenssitat sjekkes mot PDF-en, en lovpåstand mot Lovdata, og
+en påstått feil i et regnestykke regnes om med oppgavens egne mellomtall (7q).
+Kursplanen er et kart, ikke kilden. Merk også at `2024 - S.pdf` er
+**vårsettet** 2024, mens `2025 - S.pdf` er **fasiten** til høsten 2025. Navnene
+betyr ikke det samme.
 
 ## 8. Filer som ikke er koblet til noe
 
