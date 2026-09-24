@@ -23,7 +23,7 @@ oppdatert: 2026-09-24
 | Repetisjon | `/review` | Hva du bør repetere nå |
 | Søk | `/search` | På tvers av begreper, formler, figurer, økonomer, variabler |
 | Fremdrift | `/progress` | Statistikk, svakeste temaer, nullstilling, «last innhold på nytt» |
-| Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num` | Oppgaver i fagets eksamensformat per kapittel: flervalg med fasit med en gang (FIE432) eller åpne oppgaver med løsning og sensorkriterier (FIE402) |
+| Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num`, `/kapitteloppgaver/:num/:oppg` | Oppgaver i fagets eksamensformat per kapittel: flervalg med fasit med en gang (FIE432) eller åpne oppgaver med løsning og sensorkriterier (FIE402) |
 | NotebookLM | `/notebooklm` | Pensum som ren tekst, ett kapittel per kilde, med kopiknapp — se under |
 | Konto | `/konto` | Innlogging og synkstatus |
 
@@ -72,6 +72,13 @@ window.EDU_DATA.chapterTasks[5] = {
 `traps` er den viktigste delen og den som skiller modulen fra en vanlig quiz:
 én setning per galt alternativ som sier hvilken konkret feil alternativet er
 laget av. Uten den lærer et galt svar deg ingenting.
+
+**Én oppgave om gangen.** `/kapitteloppgaver/:num` er en velger: hver oppgave
+med tema, poeng og status (ikke startet, løsning åpnet, vurdert, eller riktig og
+galt for flervalg). Selve oppgaven løses på `/kapitteloppgaver/:num/:oppg`
+(1-basert), med forrige og neste og «oppgave 2 av 4» øverst. Før lå alle
+oppgavene under hverandre, og da var det vanskelig å se hvilken man var på.
+Resultatkortet ligger på velgeren når settet er ferdig.
 
 Settet vises tre steder: i menyen under Øving, som liste over alle kapitler, og
 som **et kort nederst på selve kapittelsiden** — oppgavene skal tas rett etter

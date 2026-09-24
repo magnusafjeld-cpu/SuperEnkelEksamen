@@ -144,6 +144,7 @@ window.EDU = window.EDU || {};
     when("/progress", "/progress", () => setView(() => V.progress.render()));
     when("/kapitteloppgaver", "/kapitteloppgaver", () => setView(() => V.kapitteloppgaver.render()));
     when("/kapitteloppgaver", "/kapitteloppgaver/:num", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num)));
+    when("/kapitteloppgaver", "/kapitteloppgaver/:num/:oppg", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num, p.oppg)));
     when("/notebooklm", "/notebooklm", () => setView(() => V.notebooklm.render()));
     if (S.account) R.on("/konto", () => setView(() => S.account.render()));
     R.setNotFound(() => setView(() => V.dashboard.render()));

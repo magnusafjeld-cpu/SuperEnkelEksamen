@@ -314,7 +314,43 @@ window.EDU = window.EDU || {};
   }
 
   /* ---------- ett kapittels sett ---------- */
-  function renderKap(numStr) {
+  /* Status for én oppgave, til velgeren. Åpne oppgaver: ikke startet, løsning
+     åpnet, vurdert. Flervalg: ikke besvart, riktig, galt, stått over. */
+  function oppgStatus(num, t) {
+    if (!erÅpen(num, t.id)) return { tekst: "Ikke startet", farge: "", knapp: "Løs" };
+    if (erOpen(t)) {
+      const st = openSt(num, t.id) || {};
+      return typeof st.score === "number"
+        ? { tekst: `Vurdert · ${pts(st.score)} av ${t.points || 6}`, farge: ".green", knapp: "Se igjen" }
+        : { tekst: "Løsning åpnet · ikke vurdert", farge: ".amber", knapp: "Fortsett" };
+    }
+    const v = valgene(num)[t.id];
+    if (v === BLANK || v === undefined) return { tekst: "Stått over", farge: "", knapp: "Se igjen" };
+    return v === t.answer ? { tekst: "Riktig", farge: ".green", knapp: "Se igjen" } : { tekst: "Galt", farge: ".amber", knapp: "Se igjen" };
+  }
+
+  /* Oppgavevelgeren. Man jobber med én oppgave om gangen på sin egen side, så de
+     andre ikke ligger synlige og det alltid er klart hvilken man er på. */
+  function velger(num, b) {
+    const kort = el(".card.pad-lg", { style: { marginBottom: "18px" } });
+    kort.appendChild(el(".eyebrow", "Velg en oppgave"));
+    const liste = el(".kap-liste", { style: { marginTop: "10px" } });
+    (b.tasks || []).forEach((t, i) => {
+      const s = oppgStatus(num, t);
+      const href = `#/kapitteloppgaver/${num}/${i + 1}`;
+      liste.appendChild(el(".kap-rad",
+        el("a.kap-radtekst", { href: href, style: { color: "inherit", textDecoration: "none" } },
+          el(".kap-radnavn", `Oppgave ${i + 1}` + (t.topic ? ` · ${t.topic}` : "")),
+          el(".kap-radtall", `${t.points || 3} poeng`)),
+        el(".kap-radhoyre",
+          el(".chip" + s.farge, el(".dot"), s.tekst),
+          el("a.btn.sm" + (s.knapp === "Løs" || s.knapp === "Fortsett" ? ".primary" : ".ghost"), { href: href }, s.knapp))));
+    });
+    kort.appendChild(liste);
+    return kort;
+  }
+
+  function renderKap(numStr, oppgStr) {
     const num = parseInt(numStr, 10);
     const b = forKap(num), kap = S.data.chapter(num);
     const wrap = el(".fade-in");
@@ -323,6 +359,23 @@ window.EDU = window.EDU || {};
       return wrap;
     }
     const r = resultat(num);
+    const antall = b.tasks.length;
+
+    if (oppgStr !== undefined) {
+      const i = Math.min(Math.max(parseInt(oppgStr, 10) || 1, 1), antall) - 1;
+      const t = b.tasks[i];
+      wrap.appendChild(el(".row.wrap", { style: { gap: "10px", marginBottom: "16px", alignItems: "center" } },
+        el("a.btn.ghost.sm", { href: "#/kapitteloppgaver/" + num }, "← Alle oppgaver i kapitlet"),
+        el(".spacer"),
+        el("span.tiny.muted", `Kapittel ${num} · oppgave ${i + 1} av ${antall}`)));
+      wrap.appendChild(oppgave(num, t, i));
+      const forrige = i > 0 ? el("a.btn.ghost", { href: `#/kapitteloppgaver/${num}/${i}` }, "← Forrige oppgave") : null;
+      const neste = i < antall - 1
+        ? el("a.btn" + (erÅpen(num, t.id) ? ".primary" : ".ghost"), { href: `#/kapitteloppgaver/${num}/${i + 2}` }, "Neste oppgave →")
+        : el("a.btn" + (erÅpen(num, t.id) ? ".primary" : ".ghost"), { href: "#/kapitteloppgaver/" + num }, "Tilbake til oversikten");
+      wrap.appendChild(el(".row.wrap", { style: { gap: "10px", marginTop: "4px" } }, forrige, el(".spacer"), neste));
+      return wrap;
+    }
 
     wrap.appendChild(el(".row.wrap", { style: { gap: "10px", marginBottom: "16px", alignItems: "center" } },
       el("a.btn.ghost.sm", { href: "#/kapitteloppgaver" }, "← Alle kapitler"),
@@ -351,14 +404,14 @@ window.EDU = window.EDU || {};
           ", så svaret låses når du har valgt.")));
     }
 
-    (b.tasks || []).forEach((t, i) => wrap.appendChild(oppgave(num, t, i)));
+    wrap.appendChild(velger(num, b));
 
     if (!ferdig(num)) {
       const n = besvart(num);
       wrap.appendChild(el(".card", { style: { textAlign: "center" } },
         el("p.tiny.muted", { style: { margin: 0 } },
-          n === 0 ? (åpentSett ? "Skriv svaret på første oppgave, og åpne løsningen når du er ferdig."
-                                : "Velg et alternativ, så åpner fasiten seg med en gang.")
+          n === 0 ? (åpentSett ? "Velg en oppgave, skriv svaret, og åpne løsningen når du er ferdig."
+                                : "Velg en oppgave. Fasiten åpner seg så snart du har svart.")
                   : `${n} av ${r.antall} ${åpentSett ? "åpnet" : "besvart"} · ${pts(r.poeng)} poeng så langt`
                     + (åpentSett && r.uvurdert ? ` · ${tellord(r.uvurdert, "uvurdert", "uvurderte")}` : ""))));
     } else {
