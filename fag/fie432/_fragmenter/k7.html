@@ -11,16 +11,19 @@
 
 <div class="formula">
   <div class="eq">Formuesskatt = τ<sub>w,1</sub> × [min(W, K) − B] + τ<sub>w,2</sub> × max(0, W − K)</div>
-  <div class="where">W er nettoformuen, B bunnfradraget og K innslagspunktet for den høyeste satsen. For 2026 <b>[dagens regel]</b>: τ<sub>w,1</sub> = 1,0 %, τ<sub>w,2</sub> = 1,1 %, B = 1 900 000 kr for enslige og 3 800 000 kr samlet for ektefeller, K = 21 500 000 kr. Både B og K måles på nettoformuen selv, ikke på et grunnlag som allerede er redusert.</div>
+  <div class="where">W er nettoformuen, B bunnfradraget og K innslagspunktet for den høyeste satsen. For 2026 <b>[dagens regel]</b>: τ<sub>w,1</sub> = 1,0 %, τ<sub>w,2</sub> = 1,1 %, B = 1 900 000 kr og K = 21 500 000 kr for enslige. For ektefeller som skattlegges under ett, er begge innslagspunktene doblet og regnes på parets samlede nettoformue: B = 3 800 000 kr og K = 43 000 000 kr. Både B og K måles på nettoformuen selv, ikke på et grunnlag som allerede er redusert.</div>
 </div>
 
 <p>Ett eksempel så du ser trinnene: en enslig med nettoformue 30 000 000 kr betaler 1,0 % av (21 500 000 − 1 900 000) = 196 000 kr, pluss 1,1 % av (30 000 000 − 21 500 000) = 93 500 kr, til sammen <b>289 500 kr</b>. Kontrollen går den enkle veien: 1,0 % av hele grunnlaget (30 000 000 − 1 900 000) er 281 000 kr, og det ekstra tiendedels prosentpoenget over innslagspunktet er 0,1 % × 8 500 000 = 8 500 kr. 281 000 + 8 500 = 289 500. ✓</p>
+
+<p>Et ektepar med samme samlede nettoformue, 30 000 000 kr, ligger helt under sitt innslagspunkt på 43 000 000 kr og betaler bare den laveste satsen: 1,0 % av (30 000 000 − 3 800 000) = <b>262 000 kr</b>. Dobler du bunnfradraget, men glemmer å doble K, legger du på 0,1 % × (30 000 000 − 21 500 000) = 8 500 kr for mye og får 270 500 kr.</p>
 
 <table class="data">
 <tr><th>Parameter</th><th class="n">2024</th><th class="n">2025</th><th class="n">2026</th></tr>
 <tr><td>Samlet sats, trinn 1</td><td class="n">1,0 %</td><td class="n">1,0 %</td><td class="n">1,0 %</td></tr>
 <tr><td>Samlet sats, trinn 2</td><td class="n">1,1 %</td><td class="n">1,1 %</td><td class="n">1,1 %</td></tr>
-<tr><td>Innslagspunkt trinn 2</td><td class="n">20 000 000</td><td class="n">20 700 000</td><td class="n">21 500 000</td></tr>
+<tr><td>Innslagspunkt trinn 2, enslig</td><td class="n">20 000 000</td><td class="n">20 700 000</td><td class="n">21 500 000</td></tr>
+<tr><td>Innslagspunkt trinn 2, ektefeller samlet</td><td class="n">40 000 000</td><td class="n">41 400 000</td><td class="n">43 000 000</td></tr>
 <tr><td>— herav kommunal sats (maks)</td><td class="n">0,70 %</td><td class="n">0,525 %</td><td class="n">0,35 %</td></tr>
 <tr><td>— herav statlig sats, trinn 1 / trinn 2</td><td class="n">0,30 / 0,40 %</td><td class="n">0,475 / 0,575 %</td><td class="n">0,65 / 0,75 %</td></tr>
 <tr><td>Bunnfradrag, enslig</td><td class="n">1 700 000</td><td class="n">1 760 000</td><td class="n">1 900 000</td></tr>
@@ -39,6 +42,7 @@
 <table class="data">
 <tr><th>Aktivum</th><th class="n">Verdsettes til</th><th class="n">Rabatt ρ</th><th>Utløser gjeldsreduksjon?</th></tr>
 <tr><td>Børsnoterte aksjer og aksjeandel i verdipapirfond</td><td class="n">80 %</td><td class="n">20 %</td><td>Ja</td></tr>
+<tr><td>Renteandel i verdipapirfond (rentefond, og rentedelen av et kombinasjonsfond)</td><td class="n">100 %</td><td class="n">0 %</td><td>—</td></tr>
 <tr><td>Unoterte aksjer (av selskapets skattemessige formuesverdi)</td><td class="n">80 %</td><td class="n">20 %</td><td>Ja</td></tr>
 <tr><td>Næringseiendom</td><td class="n">80 %</td><td class="n">20 %</td><td>Ja</td></tr>
 <tr><td>Varebeholdning, driftsmidler, andel i deltakerfastsatt selskap</td><td class="n">80 %</td><td class="n">20 %</td><td>Ja</td></tr>
@@ -49,11 +53,12 @@
 <tr><td>Bankinnskudd, obligasjoner, annen formue</td><td class="n">100 %</td><td class="n">0 %</td><td>—</td></tr>
 </table>
 
-<p>Alle tallene er <b>[dagens regel]</b> for 2026, og med unntak av primærboligterskelen har de vært uendret siden 2023. To presiseringer du trenger:</p>
+<p>Alle tallene er <b>[dagens regel]</b> for 2026, og med unntak av primærboligterskelen har de vært uendret siden 2023. Tre presiseringer du trenger:</p>
 
 <ul>
 <li><b>Unoterte aksjer verdsettes ikke til markedsverdi.</b> Grunnlaget er selskapets egen skattemessige formuesverdi, altså bokførte eiendeler minus gjeld, målt 1. januar året før. Først på det tallet legges de 20 prosentene i rabatt. Et selskap markedet priser til 100 mill., men som har 10 mill. i bokførte eiendeler og ingen gjeld, har formuesverdi 10 mill. før rabatt.</li>
 <li><b>Sekundærbolig og bankinnskudd har ingen rabatt</b>, og de utløser derfor heller ingen reduksjon av gjelden. Det gjør dem til de «dyre» aktivaene i formuesskatten, og det er nettopp derfor de brukes i oppgavene: de er kontrollposten som avslører om du har regnet rabattene riktig andre steder.</li>
+<li><b>Et kombinasjonsfond deles i to.</b> Andelsverdien 1. januar i skattefastsettingsåret splittes etter fondets aksjeandel: aksjedelen verdsettes til 80 %, resten til 100 % (skatteloven § 4-12 sjette ledd). Et fond verdt 1 000 000 kr med 70 % aksjer teller altså med 700 000 × 80 % + 300 000 × 100 % = <b>860 000 kr</b>, eller 86 % av andelsverdien, ikke 80 %. Bare aksjedelen har rabatt, og det er bare den rabatten, 700 000 × 20 % = 140 000 kr, som trekker gjelden ned i gjeldsreduksjonen.</li>
 </ul>
 
 <div class="callout mech"><span class="h">Hvorfor er unotert så mye billigere enn børsnotert?</span>

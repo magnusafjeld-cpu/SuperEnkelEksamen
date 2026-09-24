@@ -322,8 +322,8 @@ Hvert utslag er regnet om for hånd. Ett av dem avslørte et fortegn skrevet slu
 
 Oppgaveforfatterne og de blinde løserne leste manualen tett, og fant 21 punkter,
 pluss tre i den siste gjennomgangen. Hvert ble sjekket mot lov, forelesning eller
-regning før det ble rettet. 21 er rettet helt, ett delvis og to ikke. Blant de
-rettede:
+regning før det ble rettet. Alle 24 er nå rettet. De siste, 7.1, 7.2 og 6.6, ble
+tatt i en egen runde samme dag, sammen med to hull i k13 og k18. Blant dem:
 
 - **13.1 og 13.3:** «uten avtale blir det dobbeltbeskatning» — sktl § 16-20 gir
   ensidig kreditfradrag.
@@ -337,6 +337,15 @@ rettede:
 - **5.4:** utbytte følger eieren ved vedtak, skjermingen eieren 31.12.
 - **6.6:** § 10-71 som over, og at sikkerhet ved utsatt exit-skatt bare kreves
   ved reell risiko når man flytter innen EØS (§ 10-70 sjuende ledd).
+- **6.6:** «utdelingen × 0,7» er et skattebeløp som forfaller, ikke et grunnlag,
+  og gavegrensen på 100 000 er en terskel: over den skattlegges hele gevinsten.
+- **7.1 og 7.2:** innslagspunktet for trinn 2 er doblet for ektefeller (43 mill.),
+  og renteandelen i et kombinasjonsfond verdsettes til 100 %.
+- **13.1 og 18.5:** bostedsreglene i § 2-1 og Kahnemans system 1 og 2.
+
+De samme uklarhetene sto i dybdebanken, i k20 og i H2022-forklaringen i
+eksamenssettet (som skrev «mer enn ti år» der loven sier «minst ti år»), og er
+rettet der også.
 
 **18.2 har fått et nytt gjennomregnet eksempel.** Sparerutinen fra H2019
 oppgave 9 og H2022 oppgave 5 — ln-nytte, subjektive sannsynligheter og
