@@ -98,7 +98,9 @@ ene faget.
 **Løsningen åpnes én deloppgave om gangen.** Etter «Vis løsningen» ser du bare
 (a), og «Vis (b)» åpner neste, så du kan rette hver del før du ser den neste.
 Kriteriene og poenggivingen kommer først når alt er vist; «Vis hele løsningen»
-hopper dit. Motoren deler løsnings-HTML-en ved avsnitt som *begynner* med fet
+hopper dit. «Angre (b)» skjuler bare den siste delen som ble vist, også etter
+«Vis hele», så lenge du ikke har gitt deg poeng. «Nullstill oppgaven» fjerner
+svar, løsning og poeng. Motoren deler løsnings-HTML-en ved avsnitt som *begynner* med fet
 «(a)», «(b)» … **i rekkefølge**. «(a)(ii)» er fortsatt (a), og et romertall som
 «(i)» inne i (c) starter ingen ny del. Tekst før (a) følger (a). Derfor må hver
 deloppgave i en løsning åpne med `<p><b>(x) …` — ellers slås den sammen med

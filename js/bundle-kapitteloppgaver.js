@@ -266,11 +266,14 @@ window.EDU = window.EDU || {};
       sol.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "14px" } },
         el("button.btn.primary.sm", { onclick: () => { visteDeler.set(nøkkelV, vist + 1); S.app.refresh(); } }, `Vis (${neste})`),
         el("button.btn.ghost.sm", { onclick: () => { visteDeler.set(nøkkelV, deler.length); S.app.refresh(); } }, "Vis hele løsningen"),
+        /* Angre ett steg: skjuler bare den siste delen som ble vist. */
+        vist > 1 ? el("button.btn.ghost.sm", { title: "Skjul den siste delen du åpnet",
+          onclick: () => { visteDeler.set(nøkkelV, vist - 1); S.app.refresh(); } }, `Angre (${deler[vist - 1].bokstav})`) : null,
         el("span.tiny.muted", `${tellord(vist, "deloppgave", "deloppgaver")} av ${deler.length} vist · rett denne før du går videre`)));
       boks.appendChild(sol);
       boks.appendChild(el(".row", { style: { marginTop: "10px" } }, el(".spacer"),
         el("button.btn.ghost.sm", { title: "Nullstiller bare denne oppgaven",
-          onclick: () => { visteDeler.delete(nøkkelV); angre(num, t.id); S.app.refresh(); } }, "Angre")));
+          onclick: () => { visteDeler.delete(nøkkelV); angre(num, t.id); S.app.refresh(); } }, "Nullstill oppgaven")));
       return boks;
     }
     if ((t.criteria || []).length) {
@@ -290,8 +293,10 @@ window.EDU = window.EDU || {};
       onclick: () => { settScore(num, t.id, v); S.app.refresh(); } }, String(v))));
     rad.appendChild(el(".tiny.muted", `av ${p}`));
     rad.appendChild(el(".spacer"));
+    if (deler.length > 1 && typeof cur !== "number") rad.appendChild(el("button.btn.ghost.sm", { title: "Skjul den siste delen du åpnet",
+      onclick: () => { visteDeler.set(nøkkelV, deler.length - 1); S.app.refresh(); } }, `Angre (${deler[deler.length - 1].bokstav})`));
     rad.appendChild(el("button.btn.ghost.sm", { title: "Nullstiller bare denne oppgaven",
-      onclick: () => { visteDeler.delete(nøkkelV); angre(num, t.id); S.app.refresh(); } }, "Angre"));
+      onclick: () => { visteDeler.delete(nøkkelV); angre(num, t.id); S.app.refresh(); } }, "Nullstill oppgaven"));
     boks.appendChild(rad);
     if (typeof cur !== "number") boks.appendChild(el("p.tiny.muted", { style: { margin: "8px 0 0" } },
       "Vurder ærlig mot kriteriene. Trekk der du regnet uten å si metoden, der mekanismen ikke ble navngitt, og der kontrollen mangler."));
