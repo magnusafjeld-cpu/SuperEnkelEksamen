@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, oppgaver]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-24
 ---
 
 # Åpne spørsmål og neste steg
@@ -53,7 +53,27 @@ Det som gjenstår er ikke innhold, men bruk:
 - [ ] Vurder om lynlæringen bør begrenses til kapitler du har lest. Den dekker hele
       pensum fra dag én, så den kan servere M&A-spørsmål i modul 3.
 
-## Åpne spørsmål## Åpne spørsmål
+## FIE432 — manualpunkter som står igjen
+
+Funnet under kapitteloppgavearbeidet 24. september 2026, ikke rettet fordi de
+ikke er kontrollert mot kilden ennå, eller er uklarheter snarere enn feil. Se
+[[FIE432 Personlig økonomi]].
+
+- [ ] **7.1** oppgir ikke innslagspunktet for trinn 2 i formuesskatten for
+      ektefeller. Må sjekkes mot Skatteetatens satsside før det skrives inn.
+- [ ] **7.2** sier ikke at renteandelen i et kombinasjonsfond verdsettes til
+      100 %.
+- [ ] **6.6** har to uklarheter: om utbytte etter utflytting «× 0,7» er
+      grunnlaget eller skatten, og om gavegrensen på 100 000 er en terskel eller
+      et fradrag.
+- [ ] **k13** forklarer de interne bostedsreglene i skatteloven § 2-1 tynt
+      (avtalens bostedsregel i artikkel 4 er lagt inn 24. september 2026), og
+      **k18** forklarer ikke system 1 og system 2.
+- [ ] Studieplanen regner ikke med tiden til kapitteloppgavene, i FIE432 heller
+      ikke i FIE402. Med 229 oppgaver à 2–6 minutter er det mange timer som ikke
+      står i planen.
+
+## Åpne spørsmål
 
 - Hvilket fag blir nummer to? Det avgjør hvor hardt fagnøytraliteten må ryddes.
 - Skal flere personer bruke plattformen? Alt er per i dag bygget for én bruker;

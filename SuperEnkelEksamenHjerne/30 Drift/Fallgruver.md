@@ -461,6 +461,62 @@ Nå bruker motoren `examWeights` når faget har dem. **Et løfte i UI-teksten er
 påstand om data.** Sjekk at dataene faktisk finnes i hvert fag teksten vises i,
 som i 7p.
 
+## 7v. Én om gangen brøt oppgaver som viste til hverandre
+
+Da kapitteloppgavene gikk fra én lang side til én oppgave om gangen, sluttet
+seks FIE432-oppgaver å gi mening. De skrev «samme marked som over» eller «som i
+forrige oppgave» og hentet tallene sine derfra. På en side der bare én oppgave
+vises, peker det på ingenting, og oppgaven kan ikke løses.
+
+Ingen kontroll fanget det, fordi hver oppgave var gyldig hver for seg. Den blinde
+gjennomgangen gjorde det, fordi den som løser uten fasit merker at et tall mangler.
+Nå avviser `sjekk-kapitteloppgaver.js` slike henvisninger.
+
+**Regelen:** en visningsendring kan gjøre innhold ugyldig. Når motoren endrer
+*hvordan* noe vises, søk gjennom innholdet etter det den gamle visningen tok for
+gitt.
+
+## 7w. Lovpåstander sjekkes på Lovdata, også de som står i manualen
+
+Tre juridiske feil i FIE432 sto likt i manualen og i oppgavene, fordi oppgavene
+var skrevet fra manualen:
+
+- **Kreditfradrag uten skatteavtale.** Manualen sa at uten avtale blir det
+  dobbeltbeskatning. Skatteloven § 16-20 gir ensidig kreditfradrag også uten
+  avtale. Det rammet 13.1, 13.3 og k13-3/k13-4.
+- **Ektefeller i giftermålsåret.** k7-15 behandlet et par som giftet seg i
+  fjor, som om de var gift hele året. Etter sktl § 2-12 bokstav a skattlegges
+  ektefellene hver for seg det året de gifter seg. Oppgaven er skrevet om.
+- **Utbytte tilordnes den som eier aksjen når utdelingen vedtas**, ikke den som
+  eier den 31.12. Det er skjermingsfradraget som følger eieren 31.12. 5.4 og
+  k5-5 blandet de to sammen.
+
+Alle tre ble oppdaget av agenter og kontrollert mot kilden før noe ble endret: de
+to første ordrett på Lovdata, utbytteregelen i Skatte-ABC slik
+Skatteklagenemnda siterer den («på det tidspunktet utdelingen ble besluttet»). Det motsatte skjedde også: to påstander fra agenter falt da de ble sjekket
+mot kilden (7q, 7t). **Rutinen:** en regel som står i manualen, er ikke bevist av
+at den står der. Oppgaver som skrives fra manualen, arver feilene dens, og en
+blind gjennomgang av oppgavene er også en gjennomgang av manualen.
+
+**Kursfasiten kan også avvike fra loven.** Sensorveiledningene til H2022 og H2024
+sier at § 10-71 gir oppgjør på både selskaps- og aksjonærnivå når et selskap
+flytter ut. Lovteksten nevner bare selskapets eiendeler. Da gjelder samme regel
+som for femårsregelen: fasitsvaret står der eksamen gir poeng for det, men
+forklaringen sier hva loven sier, og en øvingsoppgave lages slik at svaret er
+riktig under begge lesingene.
+
+## 7x. FIE432-manualen bygges fra fragmenter — rett i fragmentene
+
+`FIE432_Manual.html` lages av `tools/fie432-bygg-manual.py` fra
+`fag/fie432/_fragmenter/kN.html`, og byggingen overskriver hele fila. Rettinger
+gjort direkte i den bygde fila forsvinner ved neste bygging uten at noen merker
+det. Det skjedde nesten 24. september 2026: 22 rettinger og et nytt gjennomregnet
+eksempel lå bare i den bygde fila før de ble overført.
+
+**Kontrollen:** bygg til en kladdefil og sammenlign med `FIE432_Manual.html`. Er
+diffen tom, er fragmentene og manualen i takt. FIE402 og SAM3 har ingen
+fragmenter; der er manualfila selve kilden.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden

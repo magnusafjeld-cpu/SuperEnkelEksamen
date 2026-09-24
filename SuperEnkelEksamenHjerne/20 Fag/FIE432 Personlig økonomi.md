@@ -198,7 +198,7 @@ Kontrolleres med `tools/sjekk-manual.py`.
 | Flashcards | **100** auto-genererte formelkort fra k20 |
 | Quiz | **164 spørsmål** · 133 flervalg / 31 kortsvar · alle 20 kapitler dekket |
 | Dybdetrening | **299 spørsmål** i fire banker: 72 · 77 · 72 · 78 |
-| Kapitteloppgaver | **117 oppgaver** i eksamensformat over alle 19 kapitler · 351 poeng |
+| Kapitteloppgaver | **229 oppgaver** i eksamensformat over alle 19 kapitler · 687 poeng · antallet følger eksamensvekten |
 | Lynlæring | ikke skrevet — modulen er avslått til den har data |
 
 **Aritmetikken er kontrollert maskinelt.** `tools/sjekk-aritmetikk.py` fant 841
@@ -231,9 +231,26 @@ mot at 150 000 «bare er renten på et evig lån».
 ## Kapitteloppgaver
 
 Hvert kapittel har sitt eget sett flervalgsoppgaver i eksamensformat, å ta rett
-etter lesingen. **117 oppgaver over 19 kapitler, 351 poeng.** Kapittel 5, 7 og 11
-har sju hver; de er kursets tyngst eksaminerte temaer. Se
+etter lesingen. **229 oppgaver over 19 kapitler, 687 poeng.** Se
 [[Moduler og visninger]] for datamodellen.
+
+**Antallet følger eksamensvekten**, via `kapoppgPerVekt` i manifestet:
+
+| Vekt | Oppgaver per kapittel | Kapitler |
+|---|---|---|
+| 5 | 20 | k5, k11, k14 |
+| 4 | 15 | k1, k7, k8, k15, k17 |
+| 3 | 10 | k9, k13, k16, k19 |
+| 2 | 8 | k2, k4, k6, k10, k12, k18 |
+| 1 | 6 | k3 |
+
+Første versjon hadde 6–7 per kapittel, 117 i alt. Det holder i FIE402, der én
+oppgave er en halvtime med deloppgaver. Her er en oppgave 2–6 minutter, og da ga
+de tyngste temaene knapt en halvtimes trening. De 112 nye ble skrevet mot hull:
+først en kartlegging av hva de gamle dekket i hvert kapittel, så oppgaver på det
+som manglet, som monopol og kapitalisering i k11, kapitalmarkedslinjen og
+Sharpe-forholdet i k14, hele eierperioden i k5 og brutto opp med både
+bunnfradrag og skjerming i k8.
 
 **Fasiten kommer med en gang.** Velger du et alternativ, låses oppgaven og
 fasiten åpner seg der og da, med utregningen og hvilken feil hvert gale
@@ -251,19 +268,88 @@ den som ubesvart, 0 poeng i stedet for minus. Det er nettopp valget eksamen
 krever når du ikke kan utelukke minst ett alternativ. Resultatkortet viser i
 tillegg hva besvarelsen ville gitt under den gamle regelen uten minuspoeng.
 
-Fasitfordelingen er **29/29/30/29**. Den er ikke stokket i etterkant: hver
+Fasitfordelingen er **58/57/57/57**. Den er ikke stokket i etterkant: hver
 forfatter fikk en pålagt liste over hvilket alternativ fasiten skulle ligge på i
-hver oppgave, trukket fra en fast seed. De siste atten posisjonene ble regnet ut
-mot fordelingen som alt lå der, siden ingen forfatter ser helheten.
+hver oppgave, trukket fra en fast seed og regnet mot fordelingen som alt lå der.
 
-**761 regnekjeder kontrollert maskinelt, 17 utslag, alle notasjon** verktøyet
-ikke leser: hakeparentes rundt en brøk, potenser som `(0,50/0,40)²`, «60/40» som
-forholdstall, algebra med variabler, og avkortede setninger i `traps`-tekster.
-Hvert enkelt er regnet om for hånd. I tillegg regnet jeg om uavhengig de kjedene
-der en innlært feil ville vært dyrest: giringen i k4, framført skjerming i k5,
-konsernkjeden i k6, insidensfortegnene i k11, Domar–Musgrave-repliseringen i k12,
-kreditmetodens to utfall i k13, IPS-identiteten i k15, amortiseringen i k16 og
-forventet nytte i k17.
+### Blind gjennomgang av alle 229
+
+Hver oppgave ble løst av en agent som bare så spørsmålet og alternativene, og
+som skrev ned svaret sitt før den så fasiten. Så sjekket den hver distraktor og
+hver påstand. **229 av 229 blinde valg stemte.** Likevel fant gjennomgangen feil i
+mange av dem, fordi en riktig fasitbokstav ikke betyr at teksten rundt er riktig:
+
+- **Én fasit var gal på tross av at den blinde løseren var enig.** k7-15 lot et
+  par som giftet seg i fjor, bli skattlagt sammen for hele året. Etter sktl
+  § 2-12 bokstav a skattlegges ektefeller hver for seg det året de gifter seg.
+  Løseren regnet med samme premiss som forfatteren. Blind enighet beviser
+  regningen, ikke regelen.
+- **Tre regler var gale i manualen, og oppgavene arvet dem**: kreditfradrag uten
+  skatteavtale (sktl § 16-20, k13-3/k13-4), utbyttets tilordning ved eierskifte
+  (k5-5) og fritidsbolig i gjeldsfordelingen (§ 4-19, k7-9). Se fallgruve 7w.
+- **Seks oppgaver viste til «oppgaven over»**, som ikke finnes når oppgavene
+  vises én om gangen. Se fallgruve 7v.
+- **Kontroller som ikke kan feile, men som ble solgt som uavhengige**, for
+  eksempel at skattepliktig utbytte pluss brukt skjerming går opp i utbyttet. Det
+  er definisjonen, ikke en sjekk. De er merket ærlig, og k5-2/k5-3 har fått en
+  kontroll som kan feile.
+- **Fire nye oppgaver var nesten kopier av andre** og fikk nye tall: k5-14
+  (samme år og renter som k5-2), k14-7 (samme γ som k14-2), k13-7 (samme land og
+  satser som k13-1/k13-2) og k18-8 (samme rutine som k14-12, der tapsvekten snur
+  valget). Den siste viser nå det H2019 9g og H2022 5.6 faktisk testet, at vekten
+  bare forsterker et bankvalg som alt er tatt. Omskrevne oppgaver fikk ny id
+  (k5-21, k14-21, k13-11, k18-9, og k7-16 for k7-15), etter fallgruve 7s.
+- **k13-9 forutsatte en regel manualen ikke lærte**, rekkefølgen i
+  bostedsregelen i OECDs mønsteravtale artikkel 4. Regelen står nå både i
+  oppgaveteksten og i manualen 13.4.
+
+**1 870 regnekjeder kontrollert maskinelt, 44 utslag, alle notasjon** verktøyet
+ikke leser: hakeparenteser, potenser, algebra med variabler og «3 prosentpoeng».
+Hvert utslag er regnet om for hånd. Ett av dem avslørte et fortegn skrevet slurvete
+(k18-2), som er rettet.
+
+> [!warning] Kursfasiten og loven spriker om selskaper som flytter ut
+> Sensorveiledningene til H2022 oppgave 4 og H2024 oppgave 10 sier at
+> skatteloven § 10-71 gir oppgjør «på både aksjonær- og selskapsnivå». Lovteksten
+> på Lovdata skattlegger bare gevinst på selskapets eiendeler, og bare ved
+> flytting ut av EØS eller til et lavskatteland uten reell etablering. Samme
+> mønster som femårsregelen: fasitsvaret står i eksamenssettet, fordi det er det
+> som har gitt poeng, men manualen 6.6, k6-8 og forklaringene i settet sier nå
+> hva loven sier. k6-8 er skrevet om slik at det gale alternativet er galt under
+> begge lesingene.
+
+### Manualen ble rettet av det samme arbeidet
+
+Oppgaveforfatterne og de blinde løserne leste manualen tett, og fant 21 punkter,
+pluss tre i den siste gjennomgangen. Hvert ble sjekket mot lov, forelesning eller
+regning før det ble rettet. 21 er rettet helt, ett delvis og to ikke. Blant de
+rettede:
+
+- **13.1 og 13.3:** «uten avtale blir det dobbeltbeskatning» — sktl § 16-20 gir
+  ensidig kreditfradrag.
+- **11.6:** overveltingen var rangert etter markedsform. Forelesningen rangerer
+  etter markedsmakt, og kapitlets egne resultater motsa rangeringen.
+- **8.5:** kumulasjonen regnet formuesskatt på utgående formue. Kursets
+  konvensjon er inngående, som gir (1,04/1,05)⁴⁰ = 0,682.
+- **9.3:** en faktor som skulle «lukke gapet», gjorde det ikke.
+- **16.6 og H2024-boksen:** avdragsfrihet koster flere kroner, men ikke mer i
+  nåverdi. Forelesningen sier det siste.
+- **5.4:** utbytte følger eieren ved vedtak, skjermingen eieren 31.12.
+- **6.6:** § 10-71 som over, og at sikkerhet ved utsatt exit-skatt bare kreves
+  ved reell risiko når man flytter innen EØS (§ 10-70 sjuende ledd).
+
+**18.2 har fått et nytt gjennomregnet eksempel.** Sparerutinen fra H2019
+oppgave 9 og H2022 oppgave 5 — ln-nytte, subjektive sannsynligheter og
+tapsaversjon — ble ikke lært noe sted, og k18 viste til et avsnitt i k17 som ikke
+fantes. To agenter fant hullet uavhengig av hverandre.
+
+Det som står igjen, står i [[Åpne spørsmål og neste steg]].
+
+> [!danger] Rett manualen i fragmentene, ikke i `FIE432_Manual.html`
+> Alle manualrettingene over ble først gjort i den bygde fila, og ville forsvunnet
+> ved neste kjøring av `tools/fie432-bygg-manual.py`. De er overført til
+> `fag/fie432/_fragmenter/`, og en ny bygging gir nå en byte-lik manual. Se
+> fallgruve 7x.
 
 > [!tip] Feilen fra manualen ble til en distraktor
 > Rentefeilen jeg fant i 16.5 samme dag — renten ganget med hele lånet i stedet

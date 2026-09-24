@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-09-03
+oppdatert: 2026-09-24
 ---
 
 # Tidslinje
@@ -38,5 +38,7 @@ ikke står i commit-meldingene.
 | 7. september 2026 | [[FIE432 Personlig økonomi]] lagt inn som fag nummer fire | Første fag der eksamen er ren flervalg — og der feil svar koster poeng |
 | 7. september 2026 | `tools/sjekk-manual.py` og `tools/sjekk-sett.js` | Kontroller som speiler parserens og settmodulens egne regler. Fant seks feilskrevne figurer i SAM3 |
 | 3. september 2026 | Eksamenssettene retter flervalg automatisk, med valgfrie minuspoeng | Forberedelse til FIE432, der eksamen er flervalg i Wiseflow. Se [[Eksamenssett-modulen]] |
+| 24. september 2026 | Kapitteloppgaver én om gangen med trinnvis løsning, og eksamensvekt i hele pensum | Vekten styrer prikkene, repetisjonen og hvor mange oppgaver et kapittel får. Se [[Moduler og visninger]] |
+| 24. september 2026 | FIE432-kapitteloppgavene fra 117 til 229, alle løst blindt | 229 av 229 blinde valg stemte, men gjennomgangen fant tre lovfeil som også sto i manualen. Se [[FIE432 Personlig økonomi]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

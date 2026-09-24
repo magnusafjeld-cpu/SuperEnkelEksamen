@@ -134,6 +134,17 @@ Kapitlene skrives hver for seg i `fag/<id>/_kapoppg/kN.js` og settes sammen med
 `python3 tools/bygg-kapoppgaver.py <fag>`. Kontrolleres med
 `node tools/sjekk-kapitteloppgaver.js <fag>`.
 
+**Hvor mange oppgaver et kapittel skal ha, følger eksamensvekten.** Kontrollen
+advarer når et kapittel har færre enn målet for vekten sin. Standardmålet er
+5/3/3/2/1 for vekt 5 til 1, laget for lange åpne oppgaver som i FIE402, og et
+kapittel kan også innfri det med poeng. Et fag med korte flervalgsoppgaver setter
+`kapoppgPerVekt` i manifestet. FIE432 har `{ 5: 20, 4: 15, 3: 10, 2: 8, 1: 6 }`,
+og der teller bare antallet, siden alle oppgavene er på 3 poeng.
+
+**En oppgave kan ikke vise til en annen.** Kontrollen avviser «som over»,
+«forrige oppgave», «samme marked som», «as above» og lignende, fordi oppgavene
+vises én om gangen (fallgruve 7v). Hver oppgave gjentar tallene den trenger.
+
 > [!warning] Fasitposisjonen styres på forhånd, ikke i etterkant
 > Fallgruve 7c gjelder her mer enn noe annet sted, fordi dette *er*
 > eksamensformatet. Da FIE402s drill ble skrevet av parallelle agenter, endte
