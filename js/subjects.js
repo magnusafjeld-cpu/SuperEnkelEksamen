@@ -86,8 +86,10 @@ window.EDU_SUBJECTS = [
        lavere vekt enn treffene alene skulle tilsi — og omvendt for et tema han
        har løftet fram.
 
-       Brukes av /kapitteloppgaver til å vise hvor tiden er verdt å bruke, og
-       styrer hvor mange oppgaver hvert kapittel har fått. */
+       Vises som prikker i pensum, på kapittelsidene, i studieplanen og i
+       kapitteloppgavene, løfter tunge kapitler i repetisjonsmotoren, og styrer
+       hvor mange kapitteloppgaver hvert kapittel har fått. */
+    examWeightsNote: "utledet av hvor ofte temaet har kommet i elleve sett siden 2015, vektet mot de to siste settene, siden samme sensor lager eksamen i år. Antall kapitteloppgaver følger vekten.",
     examWeights: {
       0:  [1, "Kursintroduksjon og eksamensformat. Setter vaner, testes ikke."],
       1:  [1, "Tidsverdi og NPV. Forutsetning for alt, men aldri en oppgave for seg."],
@@ -257,6 +259,36 @@ window.EDU_SUBJECTS = [
   },
   {
     id: "fie432",
+    /* EKSAMENSVEKT PER KAPITTEL, 1–5. Utledet av registeret over alle 227
+       spørsmål i de ni settene (docs/fie432-research/01-eksamens-dna.md, oppsummert
+       i docs/fie432-kursplan.md), men vektet mot FLERVALGSSETTENE H2022, H2024 og
+       H2025, fordi 2026-eksamen også er flervalg. Et tema som var stort i de åpne
+       settene før 2020 og har forsvunnet siden, veier derfor mindre enn treffene
+       alene skulle tilsi. Samme bruk som i FIE402. */
+    examWeightsNote: "utledet av alle 227 spørsmål i de ni settene siden 2016, vektet mot flervalgssettene H2022–H2025, siden eksamen i år også er flervalg.",
+    examWeights: {
+      0:  [1, "Kursintroduksjon og eksamensformat. Testes ikke."],
+      1:  [4, "Effektiv skattesats og gjennomsnittsskatt: 7 av 9 sett, 5,3 % av poengene."],
+      2:  [2, "Avkastning etter skatt og tidsverdien av et fradrag: 2 av 9 sett, rundt 1 % av poengene. Verktøy for senere kapitler."],
+      3:  [1, "Avkastning over tid og hvem som eier hva. Forelest, men ikke et eget tema i noen av de ni settene."],
+      4:  [2, "Investeringscasene bruker reglene fra k5 og k7 på bolig og aksjer. Ikke et eget tema i settene, men regnerutinene går igjen."],
+      5:  [5, "Aksjonærmodellen: oppjustering og eierskatt i 7 av 9 sett (7,7 %), skjerming i 5 av 9 (4,7 %). Skjerming alene var 20 % av H2022."],
+      6:  [2, "Fritaksmetoden og exit-skatt: exit-skatt i 2 av 9 sett, 1,6 % av poengene. Resten av den internasjonale delen ligger i k13."],
+      7:  [4, "Formuesskatt: gjeldsfordeling i 7 av 9 sett (7,6 %), verdsetting i 3 av 9. Med i både H2024 og H2025."],
+      8:  [4, "Formuesskatt som avkastningsskatt: fraværende før H2021, men 17 % av poengene i H2025, og eget pensum i 2026-planen."],
+      9:  [3, "Bedriftens tilpasning, gjeld mot egenkapital: bare 2 av 9 sett, men 10 % av H2025."],
+      10: [2, "Progressivitet, flat skatt og rettferdighet: 2 av 9 sett, under 1,2 % av poengene."],
+      11: [5, "Stykkskatt-incidens: 8 av 9 sett og 11,6 % av poengene, kursets mest testede enkelttema. 19 % av H2024."],
+      12: [2, "Skatt, risiko og implisitte skatter: 2 av 9 sett, rundt 1 % av poengene."],
+      13: [3, "Internasjonal skatt: 17–19 % av H2022 og H2024, men borte i H2025 og uten gjesteforeleser i 2026. Usikker."],
+      14: [5, "Sparing og portefølje: Merton med humankapital i 5 av 9 sett, 14 % av både H2022 og H2025, pluss ln-nytte, tapsaversjon og kapitalmarkedslinjen."],
+      15: [4, "Pensjon: to temaer i 6 av 9 sett hver, over 10 % av poengene samlet, men bare 4–6 % i de to siste settene."],
+      16: [3, "Lån: boliglånsforskrift i 4 av 9 sett, annuitet og effektiv rente i 3 av 9. 9 % av H2022, borte siden."],
+      17: [4, "Forsikring og forventet nytte: 4 av 9 sett, og stigende: 8 % av H2024 og 14 % av H2025."],
+      18: [2, "Finansiell psykologi: atferdsfinans i 2 av 9 sett. Tapsaversjon testes ellers via k14."],
+      19: [3, "Minuspoeng fra 2026: rutinen for når du svarer og når du står over gjelder hvert spørsmål. Trenes gjennom sett på tid."],
+      20: [1, "Satser og formler. Referanse, ikke pensum å øve på."],
+    },
     name: "FIE432 Personlig økonomi",
     short: "FIE432",
     tagline: "NHH · eksamenstrening",

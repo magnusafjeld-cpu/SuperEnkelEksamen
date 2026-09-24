@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-09-09
+oppdatert: 2026-09-24
 ---
 
 # FIE432 Personlig økonomi
@@ -57,6 +57,28 @@ effektiv skattesats (7/9) · folketrygdpensjon (6/9).
 3. **Internasjonal skatt er den store usikkerheten.** 17–19 % av poengene i
    H2022 og H2024, helt fraværende i H2025 — og årets plan navngir **ingen
    gjesteforeleser i skatterett**. Dekkes, men prioriteres under de andre.
+
+### Eksamensvekt per kapittel
+
+`examWeights` i manifestet gir hvert kapittel 1–5 med begrunnelse, utledet av
+tabellene over, men **vektet mot flervalgssettene** H2022, H2024 og H2025. Årets
+eksamen er også flervalg, og et tema som var stort i de åpne settene og siden
+har forsvunnet, sier lite om 2026.
+
+| Vekt | Kapitler |
+|---|---|
+| 5 | k5 aksjonærmodellen · k11 stykkskatt-incidens · k14 sparing og portefølje |
+| 4 | k1 effektiv skatt · k7 formuesskatt · k8 formuesskatt som avkastningsskatt · k15 pensjon · k17 forventet nytte |
+| 3 | k9 bedriftens tilpasning · k13 internasjonal skatt · k16 lån · k19 minuspoeng |
+| 1–2 | resten |
+
+Tre av vektene er skjønn og bør revurderes etter årets forelesninger. **k8** har
+vekt 4 på ett eneste sett (17 % av H2025) pluss 2026-planen. **k13** har vekt 3
+fordi den var 17–19 % av to sett, men forsvant i H2025 og mangler gjesteforeleser
+i 2026. **k17** har vekt 4 fordi andelen stiger (8 % og så 14 %).
+
+Vektene vises som prikker i pensum, på kapittelsidene, i studieplanen og i
+kapitteloppgavene, og repetisjonsmotoren bruker dem. Se [[Moduler og visninger]].
 
 ## Fasitene har feil, og de er kartlagt
 

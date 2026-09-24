@@ -49,6 +49,19 @@ window.EDU = window.EDU || {};
   /* En bred tabell i et grid-barn strekker hele spalten, og på telefon kan siden
      da dras sidelengs (fallgruve 7i). Hver table.data pakkes i en boks som ruller
      selv. Brukes av kapittelvisningen og kapitteloppgavene, derfor her i S.u. */
+  /* Eksamensvekt 1–5 fra manifestet (examWeights: { kap: [score, begrunnelse] }).
+     Fem prikker, begrunnelsen i title. Fag uten tabellen får null og ingenting
+     vises. Delt fordi prikkene står i pensum, på kapittelsiden, i studieplanen
+     og i kapitteloppgavene. */
+  const vektFor = (num) => ((window.EDU_SUBJECT || {}).examWeights || {})[num] || null;
+  function vektmerke(num) {
+    const v = vektFor(num);
+    if (!v) return null;
+    const [score, hvorfor] = v;
+    const boks = el(".kap-vekt", { title: `Eksamensvekt ${score} av 5. ${hvorfor}` });
+    for (let i = 1; i <= 5; i++) boks.appendChild(el("i" + (i <= score ? ".på" : "")));
+    return boks;
+  }
   function rullTabeller(rot) {
     rot.querySelectorAll("table.data").forEach((t) => {
       if (t.parentElement && t.parentElement.classList.contains("tabell-scroll")) return;
@@ -197,7 +210,7 @@ window.EDU = window.EDU || {};
     return el("div", rad, live);
   }
 
-  S.u = { el, frag, clear, mount, escapeHtml, todayISO, parseISO, daysBetween, formatDate, clamp, nowTs, debounce, toast, ring, bar, icon, ICONS, diktering, tellord, rullTabeller };
+  S.u = { el, frag, clear, mount, escapeHtml, todayISO, parseISO, daysBetween, formatDate, clamp, nowTs, debounce, toast, ring, bar, icon, ICONS, diktering, tellord, rullTabeller, vektFor, vektmerke };
 })(window.EDU);
 
 /* ---------------- parse-manual ---------------- */
@@ -538,7 +551,11 @@ window.EDU = window.EDU || {};
     if (ch.understanding === "unsure") { s += 55; reasons.push("Markert som usikker"); }
     if (ch.read && ch.lastSeen) { const d = S.u.daysBetween(ch.lastSeen, S.u.todayISO()); if (d >= 2) { s += Math.min(d * 4, 32); reasons.push(`Ikke sett på ${d} dager`); } }
     else if (!ch.read) { s += 8; reasons.push("Ikke lest ennå"); }
-    if (freq >= 2) { s += freq * 9; reasons.push(`Sentralt eksamenstema (i ${freq} tidligere oppgaver)`); } else if (freq === 1) s += 6;
+    /* Har faget eksamensvekter, er de bedre enn frekvensen: FIE402 og FIE432 har
+       ingen eksamensoppgaver koblet til kapitler, så frekvensen var null overalt. */
+    const vekt = S.u.vektFor(num);
+    if (vekt) { const [v] = vekt; s += [0, 0, 4, 12, 22, 32][v] || 0; if (v >= 4) reasons.push(`Tungt på eksamen (vekt ${v} av 5)`); }
+    else if (freq >= 2) { s += freq * 9; reasons.push(`Sentralt eksamenstema (i ${freq} tidligere oppgaver)`); } else if (freq === 1) s += 6;
     const acc = quizAccuracy(num);
     if (acc.answered >= 1 && acc.ratio != null && acc.ratio < 0.7) { s += Math.round((1 - acc.ratio) * 30); reasons.push(`Svak quizscore (${acc.correct}/${acc.answered})`); }
     /* Var hardkodet til SAM3s kapittel 13–19 og gjaldt ubetinget i alle fag.

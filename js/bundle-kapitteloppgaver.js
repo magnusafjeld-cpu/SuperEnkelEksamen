@@ -61,15 +61,7 @@ window.EDU = window.EDU || {};
   const erOpen = (t) => !!t.open;
   /* Eksamensvekt 1–5 fra manifestet: [score, begrunnelse]. Uten tabellen vises
      ingenting, så fag som ikke har vektet kapitlene sine er upåvirket. */
-  const vektFor = (num) => ((window.EDU_SUBJECT || {}).examWeights || {})[num] || null;
-  function vektmerke(num) {
-    const v = vektFor(num);
-    if (!v) return null;
-    const [score, hvorfor] = v;
-    const boks = el(".kap-vekt", { title: `Eksamensvekt ${score} av 5. ${hvorfor}` });
-    for (let i = 1; i <= 5; i++) boks.appendChild(el("i" + (i <= score ? ".p\u00e5" : "")));
-    return boks;
-  }
+  const vektmerke = (num) => S.u.vektmerke(num);
   /* Et sett er «åpent» når alle oppgavene er det. Da gjelder ikke minuspoeng-
      regelen, og all tekst om den skjules. */
   const settErOpen = (b) => !!b && (b.tasks || []).length > 0 && (b.tasks || []).every(erOpen);
@@ -504,7 +496,7 @@ window.EDU = window.EDU || {};
     /* Vektene er det eneste stedet i appen som sier hvor tiden faktisk er verdt
        å bruke. Uten forklaringen ser prikkene ut som pynt. */
     if (Object.keys(((window.EDU_SUBJECT || {}).examWeights || {})).length) wrap.appendChild(el("p.tiny.muted", { style: { maxWidth: "62ch", margin: "-14px 0 22px" } },
-      el("b", "Prikkene er eksamensvekt"), " fra 1 til 5, utledet av hvor ofte temaet faktisk har kommet, vektet mot de to siste settene siden samme sensor lager eksamen i år. Hold musepekeren over for begrunnelsen. Antall oppgaver per kapittel følger vekten."));
+      el("b", "Prikkene er eksamensvekt"), " fra 1 til 5, " + ((window.EDU_SUBJECT || {}).examWeightsNote || "utledet av hvor ofte temaet har kommet på eksamen.") + " Hold musepekeren over for begrunnelsen."));
 
     deler.forEach((x) => {
       const kort = el(".card.pad-lg", { style: { marginBottom: "18px" } });

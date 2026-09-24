@@ -450,6 +450,17 @@ Kursplanen er et kart, ikke kilden. Merk også at `2024 - S.pdf` er
 **vårsettet** 2024, mens `2025 - S.pdf` er **fasiten** til høsten 2025. Navnene
 betyr ikke det samme.
 
+## 7u. «Sentrale eksamenstemaer» var null i to fag
+
+Repetisjonsmotoren løftet kapitler etter hvor mange tidligere eksamensoppgaver
+som var koblet til dem, via `S.data.exams.tasks`. Bare SAM3 har den koblingen.
+I FIE402 og FIE432 var frekvensen null for hvert kapittel, så faktoren gjorde
+ingenting, mens repetisjonssiden lovet at sentrale eksamenstemaer ble vektet opp.
+
+Nå bruker motoren `examWeights` når faget har dem. **Et løfte i UI-teksten er en
+påstand om data.** Sjekk at dataene faktisk finnes i hvert fag teksten vises i,
+som i 7p.
+
 ## 8. Filer som ikke er koblet til noe
 
 - `SAM3_oppgavebank_2.html` — frittstående side, ikke referert fra koden

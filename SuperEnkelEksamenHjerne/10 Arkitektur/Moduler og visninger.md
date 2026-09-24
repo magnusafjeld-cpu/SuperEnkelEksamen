@@ -85,6 +85,19 @@ som **et kort nederst på selve kapittelsiden** — oppgavene skal tas rett ette
 lesingen, og da må de ligge der kapitlet slutter, ikke bare i en meny brukeren
 må huske å oppsøke.
 
+### Eksamensvekt i hele appen
+
+Fag med `examWeights` i manifestet får fem prikker ved hvert kapittel i pensum,
+i studieplanens kapittelrader og i kapitteloppgavene. På kapittelsiden står
+vekten og begrunnelsen som tekst, fordi mobil ikke har hover. `examWeightsNote`
+i manifestet er forklaringen som vises over prikkene. Den er fagspesifikk, fordi
+FIE402 vekter mot sensor og FIE432 mot flervalgsæraen. Hjelperen er
+`S.u.vektmerke(num)`.
+
+**Repetisjonsmotoren bruker vekten** når den finnes: vekt 5 gir +32, 4 gir +22,
+3 gir +12 og 2 gir +4, og vekt 4–5 gir grunnen «Tungt på eksamen». Fag uten
+vekter bruker fortsatt frekvensen fra koblede eksamensoppgaver (fallgruve 7u).
+
 ### Åpen oppgavetype
 
 FIE402 eksamineres som åpne oppgaver, så en oppgave med `open: true` har ingen

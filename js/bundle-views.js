@@ -164,7 +164,7 @@ window.EDU.views = window.EDU.views || {};
     left.appendChild(goalCard);
     if (d.chapters && d.chapters.length) {
       const studyCard = el(".card"); studyCard.appendChild(el("h3", { style: { fontSize: "16px", marginBottom: "12px" } }, "Les og forstå"));
-      d.chapters.forEach((num) => { const c = S.data.chapter(num); const cst = S.store.get().chapters[num] || {}; studyCard.appendChild(el(".chap-row", { onclick: sh().go(`#/chapter/${num}`) }, el(".cnum" + (cst.read ? ".read" : ""), cst.read ? "✓" : num), el("div", el(".ctitle", c ? c.title : "K" + num), el(".cmeta", c ? sh().chapterMeta(c) : "")), el("div", { html: icon("arrow"), style: { color: "var(--ink-4)" } }))); });
+      d.chapters.forEach((num) => { const c = S.data.chapter(num); const cst = S.store.get().chapters[num] || {}; studyCard.appendChild(el(".chap-row", { onclick: sh().go(`#/chapter/${num}`) }, el(".cnum" + (cst.read ? ".read" : ""), cst.read ? "✓" : num), el("div", el(".ctitle", c ? c.title : "K" + num, S.u.vektmerke(num) ? " " : null, S.u.vektmerke(num)), el(".cmeta", c ? sh().chapterMeta(c) : "")), el("div", { html: icon("arrow"), style: { color: "var(--ink-4)" } }))); });
       left.appendChild(studyCard);
     }
     /* «Gjør dette» — den konkrete arbeidslista for modulen, med lenke til hvor
@@ -224,6 +224,8 @@ window.EDU.views = window.EDU.views || {};
   function render() {
     const wrap = el(".fade-in"); const r = S.metrics.readPct(); const u = S.metrics.understoodCount();
     wrap.appendChild(sh().pageHead("Pensumoversikt", "Hele pensum på ett sted", "Marker hvert kapittel som lest, forstått eller usikker. Statusen mater repetisjonsmotoren."));
+    if (Object.keys((window.EDU_SUBJECT || {}).examWeights || {}).length) wrap.appendChild(el("p.tiny.muted", { style: { maxWidth: "62ch", margin: "-8px 0 18px" } },
+      el("b", "Prikkene er eksamensvekt"), " fra 1 til 5, " + (window.EDU_SUBJECT.examWeightsNote || "") + " Hold musepekeren over prikkene, eller åpne kapitlet, for begrunnelsen."));
     const summary = el(".card", { style: { marginBottom: "20px" } });
     summary.appendChild(el(".row.wrap", { style: { gap: "30px" } }, sh().stat(`${r.read}/${r.total}`, "Kapitler lest"), sh().stat(u.understood, "Forstått"), sh().stat(u.unsure, "Usikker"), sh().stat(r.total - r.read, "Gjenstår å lese")));
     summary.appendChild(el("div", { style: { marginTop: "16px" } }, bar(r.pct, { green: true }))); wrap.appendChild(summary);
@@ -244,7 +246,7 @@ window.EDU.views = window.EDU.views || {};
   function chapRow(c) {
     const st = S.store.get().chapters[c.num] || {}; const row = el(".chap-row" + (st.read ? ".read" : ""));
     row.appendChild(el(".cnum", { onclick: sh().go(`#/chapter/${c.num}`), style: { cursor: "pointer" } }, st.read ? "✓" : c.num));
-    row.appendChild(el("div", { onclick: sh().go(`#/chapter/${c.num}`), style: { cursor: "pointer" } }, el(".ctitle", c.title), el(".cmeta", sh().chapterMeta(c))));
+    row.appendChild(el("div", { onclick: sh().go(`#/chapter/${c.num}`), style: { cursor: "pointer" } }, el(".ctitle", c.title, S.u.vektmerke(c.num) ? " " : null, S.u.vektmerke(c.num)), el(".cmeta", sh().chapterMeta(c))));
     row.appendChild(el(".status-dots", el(".sdot" + (st.read ? ".read" : ""), { title: "Lest" }), el(".sdot" + (st.understanding === "understood" ? ".understood" : (st.understanding === "unsure" ? ".unsure" : "")), { title: "Forståelse" })));
     row.appendChild(el(".row", { style: { gap: "8px" } }, sh().readCheck(c.num, () => S.app.refresh()), sh().understandingPicker(c.num)));
     return row;
@@ -262,6 +264,9 @@ window.EDU.views = window.EDU.views || {};
     const wrap = el(".fade-in");
     const right = el(".row", { style: { gap: "8px" } }, sh().readCheck(num, () => S.app.refresh()), sh().understandingPicker(num));
     wrap.appendChild(sh().pageHead(`${c.partTag} · Kapittel ${num}`, c.title, null, right));
+    const vekt = S.u.vektFor(num);
+    if (vekt) wrap.appendChild(el(".row", { style: { gap: "10px", alignItems: "center", margin: "-6px 0 14px" } },
+      S.u.vektmerke(num), el("span.tiny.muted", `Eksamensvekt ${vekt[0]} av 5 · ${vekt[1]}`)));
     wrap.appendChild(el(".row.wrap", { style: { gap: "8px", marginBottom: "18px" } }, el(".chip." + sh().phaseColor(phaseForChapter(num)), c.partName), el(".chip", sh().chapterMeta(c)), el(".chip", { onclick: sh().go("#/flashcards"), style: { cursor: "pointer" } }, "🎴 Øv på formler"), el(".chip", { onclick: sh().go("#/quiz"), style: { cursor: "pointer" } }, "❓ Quiz dette temaet")));
     const layout = el(".article-wrap"); const article = el("div"); const prose = el(".prose");
     prose.appendChild(frag(c.html));
