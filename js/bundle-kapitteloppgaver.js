@@ -197,6 +197,30 @@ window.EDU = window.EDU || {};
     return p;
   }
 
+  /* Løsningen deles i deloppgaver, så du kan rette (a) før du ser (b). En ny del
+     starter ved et avsnitt som begynner med fet «(a)», «(b)» osv. i rekkefølge;
+     «(a)(ii)» er fortsatt (a). Tekst før (a), som «Convention», hører til (a). Har løsningen
+     under to deler, vises den hel. */
+  function delOpp(html) {
+    const deler = [];
+    let cur = null;
+    [...frag(html || "").childNodes].forEach((n) => {
+      const b = (n.nodeType === 1 && n.tagName === "P" && n.firstChild && n.firstChild.nodeName === "B") ? n.firstChild.textContent : "";
+      const m = /^\s*\(([a-i])\)/.exec(b);
+      /* Bare neste bokstav i rekken starter en ny del: «(i)» inne i (c) er et
+         romertall, ikke deloppgave i. */
+      const neste = cur && cur.bokstav ? String.fromCharCode(cur.bokstav.charCodeAt(0) + 1) : "a";
+      if (m && m[1] === neste) { cur = { bokstav: m[1], noder: [] }; deler.push(cur); }
+      if (!cur) { cur = { bokstav: null, noder: [] }; deler.push(cur); }
+      cur.noder.push(n);
+    });
+    if (deler.length > 1 && deler[0].bokstav === null) { deler[1].noder = deler[0].noder.concat(deler[1].noder); deler.shift(); }
+    return deler;
+  }
+  /* Hvor mange deler som er vist, per oppgave. Bare i minnet: kommer du tilbake
+     til en oppgave du ikke har vurdert, starter du på (a) igjen. */
+  const visteDeler = new Map();
+
   /* Åpen oppgave, FIE402-formatet. Du skriver svaret først, så åpnes løsningen
      og kriterielisten, og du gir deg selv poeng i fire trinn av maks — samme
      skala som øvingsmodus i /sett. Skrivefeltet lagres ved blur, aldri per
@@ -222,10 +246,33 @@ window.EDU = window.EDU || {};
       return boks;
     }
 
-    /* Løsning + kriterier, i samme form som eksamenssettene. */
+    /* Løsning + kriterier, i samme form som eksamenssettene. Løsningen åpnes én
+       deloppgave om gangen; kriteriene og poengene kommer når alt er vist. */
     const sol = el(".sol-panel", { style: { marginTop: "14px" } });
     sol.appendChild(el(".sol-h", icon("check"), el("span", "Løsning")));
-    if (t.solution) sol.appendChild(prosa(t.solution));
+    const deler = delOpp(t.solution);
+    const nøkkelV = num + ":" + t.id;
+    const vist = (deler.length < 2 || typeof st.score === "number") ? deler.length
+      : Math.min(visteDeler.get(nøkkelV) || 1, deler.length);
+    if (deler.length < 2) { if (t.solution) sol.appendChild(prosa(t.solution)); }
+    else deler.slice(0, vist).forEach((d) => {
+      const bit = el(".prose");
+      d.noder.forEach((n) => bit.appendChild(n));
+      S.u.rullTabeller(bit);
+      sol.appendChild(bit);
+    });
+    if (vist < deler.length) {
+      const neste = deler[vist].bokstav;
+      sol.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "14px" } },
+        el("button.btn.primary.sm", { onclick: () => { visteDeler.set(nøkkelV, vist + 1); S.app.refresh(); } }, `Vis (${neste})`),
+        el("button.btn.ghost.sm", { onclick: () => { visteDeler.set(nøkkelV, deler.length); S.app.refresh(); } }, "Vis hele løsningen"),
+        el("span.tiny.muted", `${tellord(vist, "deloppgave", "deloppgaver")} av ${deler.length} vist · rett denne før du går videre`)));
+      boks.appendChild(sol);
+      boks.appendChild(el(".row", { style: { marginTop: "10px" } }, el(".spacer"),
+        el("button.btn.ghost.sm", { title: "Nullstiller bare denne oppgaven",
+          onclick: () => { visteDeler.delete(nøkkelV); angre(num, t.id); S.app.refresh(); } }, "Angre")));
+      return boks;
+    }
     if ((t.criteria || []).length) {
       sol.appendChild(el(".nav-section", { style: { paddingLeft: 0 } }, "Dette må være med"));
       const ul = el("ul.sol-crit");
@@ -244,7 +291,7 @@ window.EDU = window.EDU || {};
     rad.appendChild(el(".tiny.muted", `av ${p}`));
     rad.appendChild(el(".spacer"));
     rad.appendChild(el("button.btn.ghost.sm", { title: "Nullstiller bare denne oppgaven",
-      onclick: () => { angre(num, t.id); S.app.refresh(); } }, "Angre"));
+      onclick: () => { visteDeler.delete(nøkkelV); angre(num, t.id); S.app.refresh(); } }, "Angre"));
     boks.appendChild(rad);
     if (typeof cur !== "number") boks.appendChild(el("p.tiny.muted", { style: { margin: "8px 0 0" } },
       "Vurder ærlig mot kriteriene. Trekk der du regnet uten å si metoden, der mekanismen ikke ble navngitt, og der kontrollen mangler."));

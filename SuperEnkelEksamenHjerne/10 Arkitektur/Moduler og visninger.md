@@ -88,6 +88,16 @@ i fire trinn av maks. Svaret lagres som `{ svar, score }` under oppgavens id, de
 bytter listevisningen introtekst, fordi én felles tekst ville vært feil for det
 ene faget.
 
+**Løsningen åpnes én deloppgave om gangen.** Etter «Vis løsningen» ser du bare
+(a), og «Vis (b)» åpner neste, så du kan rette hver del før du ser den neste.
+Kriteriene og poenggivingen kommer først når alt er vist; «Vis hele løsningen»
+hopper dit. Motoren deler løsnings-HTML-en ved avsnitt som *begynner* med fet
+«(a)», «(b)» … **i rekkefølge**. «(a)(ii)» er fortsatt (a), og et romertall som
+«(i)» inne i (c) starter ingen ny del. Tekst før (a) følger (a). Derfor må hver
+deloppgave i en løsning åpne med `<p><b>(x) …` — ellers slås den sammen med
+forrige. Hvor langt du har klikket, huskes bare i minnet; en oppgave du har gitt
+deg poeng på, vises hel.
+
 To ting motoren gjør som innholdet ikke skal tenke på:
 
 - **Tabeller pakkes i en rullboks** ved visning, med `S.u.rullTabeller()`, samme
