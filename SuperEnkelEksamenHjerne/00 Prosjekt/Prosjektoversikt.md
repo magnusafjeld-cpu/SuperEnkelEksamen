@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, oversikt]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-24
 ---
 
 # Prosjektoversikt
@@ -50,6 +50,8 @@ Pages-adressen (`.../SAM3/`) er død — GitHub videresender ikke.
 
 ## Status
 
-Plattformen er ferdig og i bruk. SAM3 Makroøkonomi er eneste registrerte fag;
-motoren ble gjort fagnøytral i august 2026 nettopp for å kunne ta flere.
+Plattformen er ferdig og i bruk med fem fag: [[SAM3 Makroøkonomi]],
+[[FIE402 Corporate Finance]], [[Caseintervju]], [[FIE432 Personlig økonomi]] og
+[[FIE459 Sustainable Finance]]. Motoren ble gjort fagnøytral i august 2026 for å
+kunne ta flere, og fagene er registrert i [[Fagregisteret]].
 Se [[Åpne spørsmål og neste steg]].

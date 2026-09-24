@@ -352,6 +352,48 @@ window.EDU_SUBJECTS = [
        til når de dataene er skrevet. */
     modules: ["/plan", "/curriculum", "/quiz", "/kapitteloppgaver", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress", "/notebooklm"],
   },
+  {
+    id: "fie459",
+    /* Bevisst kort fag: én kapittel per forelesning, skrevet for å gi en grei
+       forståelse av temaene (docs/fie459-forfatterspek.md). Engelsk fagtekst som
+       FIE402, fordi eksamen besvares på engelsk. Ingen examWeights: det finnes
+       ingen tidligere eksamener å vekte etter, og syllabusen gir ingen vekter. */
+    name: "FIE459 Sustainable Finance",
+    short: "FIE459",
+    tagline: "NHH · eksamenstrening",
+    logo: "SF",
+    blurb: "Etikk, eksternaliteter, eierstyring, rapportering og ESG-investering, kort og konsist, med quiz i eksamensformatet: flervalg og sant/usant.",
+    /* Mosegrønn: gulgrønn, så den skilles fra FIE402s blågrønne smaragd i velgeren. */
+    accent: "#5b7a19", accentInk: "#465f12", accentSoft: "#f2f6e6", accentSoft2: "#e0eac4",
+    scripts: ["fag/fie459/data.js", "fag/fie459/quiz.js"],
+    manual: {
+      candidates: ["FIE459_Manual.html", "fag/fie459/manual.html", "../FIE459_Manual.html"],
+      label: "FIE459_Manual.html",
+      hint: "hele pensum lastes inn og lagres lokalt (du slipper å velge igjen)",
+      /* Faget har ingen formelsamling. Tomt objekt, ikke utelatt: uten feltet
+         arves SAM3s #k21–#k23, og FIE459 har ingen slike kapitler. */
+      refSections: {},
+    },
+    /* k0 er kurs og eksamen og teller ikke som pensum i fremdriften. */
+    coreChapters: { from: 1, to: 13 },
+    /* Syllabusens tre deler. Deltitlene i manualen brukes ikke til tilordning. */
+    parts: [
+      { id: 0, tag: "Part 0", name: "The course", chapters: [0] },
+      { id: 1, tag: "Part I", name: "Sustainable finance and business ethics", chapters: [1, 2, 3] },
+      { id: 2, tag: "Part II", name: "Sustainability challenges to corporates", chapters: [4, 5, 6, 7] },
+      { id: 3, tag: "Part III", name: "Investing and financing sustainability", chapters: [8, 9, 10, 11, 12, 13] },
+    ],
+    copy: {
+      searchTerms: ["externality", "double materiality", "stakeholder", "CSRD", "EU taxonomy", "SFDR",
+                    "ESG integration", "stewardship", "greenium", "integrated value", "SF 2.0"],
+      planEyebrow: "Studieplan · 8 moduler",
+      planIntro: "Modul 1–6 følger forelesningene: grunnlaget, etikk og eksternaliteter, selskapet og investering. Modul 7 er de foreløpige kapitlene om obligasjoner, bank, forsikring og myndighetene, og modul 8 er repetisjon i eksamensformatet. Faget er bevisst kort: målet er en grei forståelse av hvert tema.",
+    },
+    /* Ingen dybdetrening, lynlæring eller eksamenssett: det finnes ingen
+       tidligere eksamener, og faget skal være kort. Eksamen er flervalg og
+       sant/usant, og det er nøyaktig formatet quizen har. */
+    modules: ["/plan", "/curriculum", "/quiz", "/flashcards", "/review", "/search", "/progress", "/notebooklm"],
+  },
 ];
 
 /* Oppslag + valgt fag. window.EDU_SUBJECT settes av js/picker.js ved oppstart. */

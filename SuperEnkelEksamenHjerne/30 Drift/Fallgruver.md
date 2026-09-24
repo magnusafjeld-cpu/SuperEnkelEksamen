@@ -514,8 +514,9 @@ det. Det skjedde nesten 24. september 2026: 22 rettinger og et nytt gjennomregne
 eksempel lå bare i den bygde fila før de ble overført.
 
 **Kontrollen:** bygg til en kladdefil og sammenlign med `FIE432_Manual.html`. Er
-diffen tom, er fragmentene og manualen i takt. FIE402 og SAM3 har ingen
-fragmenter; der er manualfila selve kilden.
+diffen tom, er fragmentene og manualen i takt. FIE459 er bygget på samme måte, med
+`tools/fie459-bygg-manual.py`. FIE402, SAM3 og Caseintervju har ingen fragmenter;
+der er manualfila selve kilden.
 
 ## 8. Filer som ikke er koblet til noe
 

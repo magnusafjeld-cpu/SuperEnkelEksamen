@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIE459 Sustainable Finance — the whole course</title>
+<style>
+  :root{ --ink:#1a1a1a; --paper:#fbf9f4; --plum:#465f12; --rule:#d8d0c0; --box:#f2f6e6; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:Georgia,serif; line-height:1.62; font-size:18px; }
+  .wrap{ max-width:860px; margin:0 auto; padding:0 28px 120px; }
+  .cover{ min-height:70vh; display:flex; flex-direction:column; justify-content:center; border-bottom:3px double var(--plum); padding:60px 0 40px; }
+  .cover h1{ font-size:3rem; line-height:1.08; margin:.2em 0 .15em; }
+  .cover .tagline{ font-style:italic; color:#444; font-size:1.2rem; max-width:34em; }
+  .cover .meta{ margin-top:34px; font-size:.92rem; color:#555; border-top:1px solid var(--rule); padding-top:16px; }
+  h2.part{ font-variant:small-caps; letter-spacing:.14em; color:var(--plum); border-bottom:2px solid var(--plum); margin-top:64px; padding-bottom:6px; }
+  h2.chap{ font-size:1.9rem; margin:.4em 0 .6em; }
+  h3{ color:var(--plum); margin-top:1.7em; }
+  .lead-in{ font-style:italic; color:#3a3a3a; }
+  .formula{ background:var(--box); border-left:3px solid var(--plum); padding:14px 18px; margin:18px 0; }
+  .formula .eq{ font-family:"Iowan Old Style",Georgia,serif; font-size:1.05rem; }
+  .formula .where{ font-size:.9rem; color:#4a4a4a; margin-top:8px; }
+  .callout{ background:var(--box); border-radius:8px; padding:14px 18px; margin:18px 0; border:1px solid transparent; }
+  .callout .h{ display:block; font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; margin-bottom:.35em; color:var(--plum); }
+  /* Variantene, så den frittstående filen leses like godt som i appen. */
+  .callout.tip{ background:#e9f6ee; border-color:#cdeed8; } .callout.tip .h{ color:#1d7a47; }
+  .callout.mistake{ background:#fdf3e3; border-color:#f2dcb6; } .callout.mistake .h{ color:#9a630f; }
+  .callout.warn{ background:#fdecef; border-color:#f6d5dc; } .callout.warn .h{ color:#a32741; }
+  .callout.link{ background:#eef0fd; border-color:#dcdefb; } .callout.link .h{ color:#4044c9; }
+  .callout.mech{ background:var(--box); border-color:#dde6c6; }
+  .worked{ background:#fff; border:1px dashed #c9bfae; border-radius:8px; padding:14px 18px; margin:18px 0; }
+  .worked .wh{ display:block; text-transform:uppercase; letter-spacing:.05em; font-size:.75rem; font-weight:700; color:var(--plum); margin-bottom:.4em; }
+  table.data{ border-collapse:collapse; width:100%; margin:18px 0; font-size:.95rem; }
+  table.data th, table.data td{ border-bottom:1px solid var(--rule); padding:7px 10px; text-align:left; vertical-align:top; }
+  table.data td.n, table.data th.n{ text-align:right; font-variant-numeric:tabular-nums; }
+  blockquote{ border-left:3px solid var(--plum); margin:18px 0; padding:2px 0 2px 18px; color:#3a3a3a; }
+  .backtotop{ float:right; font-size:.75rem; color:#8a8070; text-decoration:none; margin-top:8px; }
+  #toc ol{ columns:2; column-gap:38px; font-size:.95rem; }
+  hr.sec{ border:0; border-top:1px solid var(--rule); margin:40px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cover">
+  <h1>FIE459 Sustainable Finance</h1>
+  <p class="tagline">Ethics, externalities, governance, reporting and ESG investing: the whole course in short chapters, one per lecture, written to give a clear grip on every topic.</p>
+  <div class="meta">NHH, autumn 2026. Textbook: Schoenmaker &amp; Schramade, <i>Principles of Sustainable Finance</i> (Oxford University Press).
+  The exam is a 3-hour closed-book digital school exam with multiple-choice and true/false questions (70 %); the group report counts 30 %.</div>
+</div>
+<nav id="toc">
+<h2 class="part">Contents</h2>
+<ol>
+<li style="list-style:none;margin-top:.7em"><b>Part 0 · The course</b></li>
+<li><a href="#k0">0 · The course and the exam</a></li>
+<li style="list-style:none;margin-top:.7em"><b>Part I · Sustainable finance and business ethics</b></li>
+<li><a href="#k1">1 · Sustainable finance and ESG issues</a></li>
+<li><a href="#k2">2 · Business ethics</a></li>
+<li><a href="#k3">3 · Externalities: when prices leave out the damage</a></li>
+<li style="list-style:none;margin-top:.7em"><b>Part II · Sustainability challenges to corporates</b></li>
+<li><a href="#k4">4 · Shareholder vs stakeholder theory: whose firm is it?</a></li>
+<li><a href="#k5">5 · Governance and behaviour: keeping managers accountable</a></li>
+<li><a href="#k6">6 · Business models and materiality: can the cash flows last?</a></li>
+<li><a href="#k7">7 · Metrics and reporting: who is the report for?</a></li>
+<li style="list-style:none;margin-top:.7em"><b>Part III · Investing and financing sustainability</b></li>
+<li><a href="#k8">8 · Investing for long-term value creation</a></li>
+<li><a href="#k9">9 · ESG integration and asset prices</a></li>
+<li><a href="#k10">10 · Beyond equity: bonds, loans and other asset classes</a></li>
+<li><a href="#k11">11 · Sustainability in banking</a></li>
+<li><a href="#k12">12 · Sustainability in insurance</a></li>
+<li><a href="#k13">13 · Governments, transition management and integrated thinking</a></li>
+</ol>
+</nav>
+
+<h2 class="part">Part 0 — The course</h2>
+
+<section id="k0">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">0 · The course and the exam</h2>
+
+<p class="lead-in">FIE459 is graded on a closed-book exam of multiple-choice and true/false questions (70%) and a group report (30%). Both reward the same skill: telling apart concepts that sound alike and applying them to a short case. This chapter sets out what is assessed and how to use the rest of this manual.</p>
+
+<h3>0.1 How the course is built</h3>
+<p>Thirteen lectures in three parts, following the textbook, Schoenmaker &amp; Schramade (2019), <i>Principles of Sustainable Finance</i>. Each chapter here covers one lecture.</p>
+
+<table class="data">
+<tr><th>Part</th><th>Lectures</th><th>Chapters</th></tr>
+<tr><td>I · Sustainable finance and business ethics</td><td>ESG issues, business ethics, externalities</td><td>1–3</td></tr>
+<tr><td>II · Sustainability challenges to corporates</td><td>Shareholder vs stakeholder theory, governance, business models and materiality, metrics and reporting</td><td>4–7</td></tr>
+<tr><td>III · Investing and financing sustainability</td><td>Long-term value creation, ESG integration and asset prices, non-equity asset classes, banking, insurance, governments and transition</td><td>8–13</td></tr>
+</table>
+
+<p>Six guest lectures bring in practice: PwC (September), Folketrygdfondet (29/9), Fonds Finans (6/10), DNB (13/10), Sustainability Hub (date to be announced) and Heidelberg Materials (23/10). Regular lectures are recorded; guest lectures are not.</p>
+
+<h3>0.2 The exam</h3>
+<ul>
+<li>3-hour digital school exam, <b>closed book</b>, 16 December 2026, 70% of the grade.</li>
+<li><b>Multiple-choice and true/false</b> questions, answered in English.</li>
+<li>The lecturer (Jiaying Li) puts the focus on «economic intuition, not calculation» and warns that memorising definitions is not the best strategy. Instead, attend, discuss, and relate news stories to the course concepts.</li>
+</ul>
+
+<div class="callout mech"><span class="h">How a true/false statement is built</span>
+A false statement is usually correct except for one swapped element: the wrong side of a distinction (outside-in for inside-out, action for measurement, moral hazard for adverse selection), or a qualifier such as «always» or «only». Read every clause. One wrong word makes the whole statement false.</div>
+
+<h3>0.3 The group project</h3>
+<p>Groups of five (sign up on Canvas before 1 October), deadline 12 November, at most 5 pages plus one page of references. Your group acts as equity analysts for a manager with a sustainability mandate. You choose <b>one of five industries</b> (retail and consumer goods; food and beverages; transport and mobility; energy and utilities; housing, buildings and construction), adopt <b>one strategy from Lecture 8</b> (exclusionary screening, best-in-class screening, thematic investing, ESG integration or stewardship) and recommend <b>five listed stocks</b> with weights summing to 100%, no short selling. It must work financially and on sustainability grounds. The last question comes from Lecture 9: <i>is the sustainability story already priced?</i></p>
+
+<table class="data">
+<tr><th>Part of the report</th><th class="n">Points</th></tr>
+<tr><td>Mandate and strategy</td><td class="n">20</td></tr>
+<tr><td>Five stock recommendations</td><td class="n">30</td></tr>
+<tr><td>Evidence</td><td class="n">15</td></tr>
+<tr><td>Portfolio</td><td class="n">20</td></tr>
+<tr><td>Pricing and critical reflection</td><td class="n">15</td></tr>
+<tr><td>Breach of format requirements</td><td class="n">−10</td></tr>
+</table>
+
+<p>No technical work is required: a simple, well-supported analysis can earn full marks, and equal weights are acceptable if justified.</p>
+
+<div class="callout mistake"><span class="h">Past returns are not expected returns</span>
+The marking scheme penalises «claiming that sustainable stocks always outperform/underperform» and using past returns as proof of future returns. Green stocks can earn high realised returns because good news arrived unexpectedly; that says little about expected returns from today's price (chapter 9).</div>
+
+<h3>0.4 How to use this manual</h3>
+<p>Read chapter 1 first: its Schoenmaker &amp; Schramade table (finance as usual, SF 1.0, 2.0, 3.0) returns in chapters 5, 8 and 9. In every chapter, the <b>mistake</b> boxes are the traps a true/false question is built from, and the <b>mech</b> boxes give the mechanism you need for an unfamiliar case. After each chapter, take its quiz and review the flashcards. Chapters chapters 10–13 were written before their lectures and are marked provisional.</p>
+
+<div class="callout tip"><span class="h">What the exam rewards</span>
+Distinctions and applications, not recalled numbers. For every concept, ask: what is it most easily confused with, and what separates the two?</div>
+</section>
+
+<h2 class="part">Part I — Sustainable finance and business ethics</h2>
+
+<section id="k1">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">1 · Sustainable finance and ESG issues</h2>
+
+<p class="lead-in">Sustainable finance keeps the toolkit of ordinary finance but widens what counts as value and lengthens the horizon. This chapter gives the vocabulary for the whole course: how CSR, SRI and ESG relate, what double materiality means, why investors want ESG (value or values), and the Schoenmaker &amp; Schramade ladder from finance as usual to SF 3.0. Expect exam questions that ask you to place a short case in one of these boxes.</p>
+
+<h3>1.1 Finance in a nutshell</h3>
+<p>Sustainable finance changes the inputs to ordinary finance, not its logic, so start with the logic.</p>
+
+<p><b>Investment decisions.</b> A firm invests in real assets, tangible and intangible, when the net present value is positive. Shareholders own the firm, and the standard objective is to maximise their value, the present value of future dividends.</p>
+
+<div class="formula"><div class="eq">NPV = Σ<sub>i=1</sub><sup>n</sup> CF<sub>i</sub> / (1 + r)<sup>i</sup> − I &nbsp;&nbsp;&nbsp; P<sub>0</sub> = Σ<sub>i=1</sub><sup>∞</sup> D<sub>i</sub> / (1 + r)<sup>i</sup></div>
+<div class="where">CF<sub>i</sub> = cash flow in period i, I = investment, r = required return (cost of capital), P<sub>0</sub> = share price, D<sub>i</sub> = dividend per share in period i.</div></div>
+
+<p><b>Financing decisions.</b> Investment is funded by retained earnings, debt (bank loans, bonds) or equity. In a perfect capital market, firm value does not depend on the mix (Modigliani–Miller Proposition I), and the cost of equity rises linearly with leverage to compensate shareholders for the added risk (Proposition II). In reality, taxes, bankruptcy costs and information asymmetry make financing matter. Those frictions are the opening for sustainability: if ESG changes a firm's risk or what investors know about it, it can change the cost of capital (chapter 9).</p>
+
+<p><b>Risk and return.</b> Higher expected returns usually come only with greater risk. The CAPM, E(R<sub>i</sub>) = R<sub>f</sub> + β<sub>i</sub>[E(R<sub>m</sub>) − R<sub>f</sub>], prices systematic risk, and obvious bargains are rare: no free lunch. Meet any claim that ESG is a free source of extra return with the same suspicion.</p>
+
+<p><b>The principal–agent problem.</b> Managers (agents) act for investors (principals), and their priorities can differ. Information asymmetry is the core. <i>Adverse selection</i> is taking advantage of undisclosed information in a contract; <i>moral hazard</i> is one party taking on extra risk that falls on the other. Remedies include corporate governance, disclosure requirements, regulation, auditing and ratings, among them ESG ratings (chapters 5 and 7).</p>
+
+<h3>1.2 What sustainable finance is</h3>
+<ul>
+<li>Schoenmaker &amp; Schramade (2019): sustainable finance «looks at how Finance (investing and lending) interacts with economic, social, and environmental issues».</li>
+<li>European Commission: taking environmental, social and governance (ESG) considerations into account when making investment decisions, «leading to more long-term investments in sustainable economic activities and projects».</li>
+</ul>
+<p>The first is broad and runs both ways: finance affects society and nature, and they affect finance. The second is a process (ESG in the decision) with an intended result (long-term, sustainable investment).</p>
+
+<p>ESG issues reach a valuation through the usual lines: revenues, costs, depreciation and taxation. The course's tools for getting them in are externalities (chapter 3), intangibles, business models, stakeholder analysis, materiality (chapter 6), scenario and sensitivity analysis, and real options. For banks, asset managers and insurers, ESG shapes asset classes, instruments, risks, opportunities and investment strategies (chapters 8–12).</p>
+
+<table class="data">
+<tr><th>Traditional finance</th><th>Sustainable finance</th></tr>
+<tr><td>Efficient resource and capital allocation</td><td>Allocation for long-term sustainability</td></tr>
+<tr><td>Diversification and risk sharing</td><td>Sometimes less diversification for good reasons, e.g. avoiding «sin stocks»</td></tr>
+<tr><td>Shareholder value maximisation</td><td>Stakeholder welfare maximisation</td></tr>
+</table>
+
+<h3>1.3 CSR, SRI and ESG: the concept chain</h3>
+<p>Starks (2023) notes there is no clear consensus on what these acronyms mean. The lecture fixes their relation in a chain:</p>
+
+<div class="callout mech"><span class="h">From sustainability to measurement</span>
+Sustainability requires that the interests of the firm's stakeholders are taken care of → <b>stakeholder management</b> → put into practice through <b>CSR</b> (corporate social responsibility, the corporate side) and <b>SRI</b> (socially responsible investing, the investor side) → the outcomes, stakeholder welfare, are what <b>ESG metrics</b> try to measure.</div>
+
+<div class="callout mistake"><span class="h">ESG is not something you do</span>
+CSR and SRI are actions; ESG is measurement. A firm cutting emissions does CSR, a fund excluding coal does SRI, and a rating agency's score of either is ESG. Most empirical difficulties arise at the measurement step (chapter 7): different raters can score the same firm very differently.</div>
+
+<h3>1.4 Why now: the drivers</h3>
+<ul>
+<li><b>Science.</b> Planetary boundaries (Steffen et al. 2015) and doughnut economics (Raworth 2017) frame the economy as operating within environmental limits (general background, not from the lecture).</li>
+<li><b>Global agreements.</b> The Sustainable Development Goals and the Paris Climate Agreement (both 2015), and the Kunming-Montreal Global Biodiversity Framework (2022).</li>
+<li><b>Regulation.</b> A significant increase in ESG regulation (chapters 7 and 8).</li>
+<li><b>Public, employees and consumers.</b> Increasingly aware and critical of misconduct, which makes firms realise that ESG issues are financially material.</li>
+<li><b>Investor demand.</b> Over USD 37.5 trillion in SRI assets globally by 2021 (UN PRI); most investment companies claim to integrate ESG.</li>
+</ul>
+
+<p>These pressures also changed what firms report. Under <b>double materiality</b>, an issue can matter in two directions:</p>
+<table class="data">
+<tr><th></th><th>Financial materiality</th><th>Impact materiality</th></tr>
+<tr><td>Direction</td><td>Outside-in: how sustainability issues affect the firm</td><td>Inside-out: how the firm affects people and planet</td></tr>
+<tr><td>Climate example</td><td>Climate change hits the company</td><td>The company's activities affect the climate</td></tr>
+<tr><td>Primary audience</td><td>Investors</td><td>Consumers, civil society, employees, investors</td></tr>
+</table>
+<p>The two are linked: a firm's impact can become financially material, for example once regulation or customers make it pay for the harm. Chapters 6 and 7 build on this.</p>
+
+<h3>1.5 Do investors expect ESG to pay?</h3>
+<p>Giglio et al. (2025) surveyed roughly 30,000 US individual investors (Vanguard clients) about their main motive:</p>
+<table class="data">
+<tr><th>Main motive</th><th class="n">Share</th></tr>
+<tr><td>No reason at all to invest in ESG</td><td class="n">48%</td></tr>
+<tr><td>Ethical considerations</td><td class="n">24%</td></tr>
+<tr><td>Climate hedging: ESG as insurance against climate risk</td><td class="n">22%</td></tr>
+<tr><td>Return expectations</td><td class="n">6%</td></tr>
+</table>
+<p>On average, respondents expect ESG investments to <i>underperform</i> by around 2% a year, with large differences across investors. Demand for ESG is driven far more by values than by expected value. (Starks cites an earlier version of the survey with slightly different shares; use the lecture's.)</p>
+
+<h3>1.6 Value versus values (Starks 2023)</h3>
+<p>Starks argues that most confusion about ESG comes from mixing two motives:</p>
+<ul>
+<li><b>Value:</b> ESG matters because it is financially material. It sheds light on risks (environmental, reputation, human capital, litigation, regulatory, corruption, climate) and return opportunities. Value investors use it in stock selection and engage management to lower risk or raise returns.</li>
+<li><b>Values:</b> nonpecuniary preferences. The investor does not want to supply capital to, or profit from, firms tied to objectionable products or conduct, or wants to back firms that reflect their own, for example religious, values.</li>
+</ul>
+<p>Many investors hold both. Starks reads the Vanguard survey this way: the ethical group are values investors, the return group are value investors, and the climate hedgers could be either. Her spectrum of approaches (Figure 1):</p>
+
+<table class="data">
+<tr><th>Approach</th><th>Typical motivation</th><th>Typical expected return</th></tr>
+<tr><td>Impact investing</td><td>Intentional focus on E or S outcomes</td><td>Some accept lower returns for impact; some expect risk-adjusted market returns</td></tr>
+<tr><td>Socially responsible investing</td><td>Usually nonpecuniary; avoid firms that conflict with one's values (negative screening)</td><td>Closer to risk-adjusted market returns, some willing to accept lower</td></tr>
+<tr><td>Classic ESG investing</td><td>Some nonpecuniary preferences, some value motivations</td><td>Spans both neighbours: from «some accept lower» to market returns or more</td></tr>
+<tr><td>Traditional investing</td><td>Risk and return alone</td><td>Risk-adjusted market returns or more</td></tr>
+</table>
+
+<div class="callout mech"><span class="h">Why «does ESG pay?» has no single answer</span>
+Studies of ESG funds lump together funds with different objectives: some screen on religious values, others integrate ESG to manage risk. A values fund may knowingly give up return; a value fund aims to earn more. The average describes neither, so Starks argues performance cannot be judged until the motives are separated. The same split explains why ESG ratings can disappoint: most are designed for value investors and assess firms' business processes and risk management, while values investors care about the outcomes for the environment and communities.</div>
+
+<div class="callout mistake"><span class="h">ESG investing does not imply sacrificing return</span>
+Only part of the spectrum accepts lower returns, and even impact investors are split. A value investor uses ESG precisely to improve risk and return. The mirror trap: negative screening is not proof of values. It is the main tool of values investors, but value investors can use it too (Starks 2023).</div>
+
+<h3>1.7 The Schoenmaker &amp; Schramade framework</h3>
+<p>The course's backbone classifies finance by the value it creates and how it ranks financial (F), social (S) and environmental (E) value.</p>
+
+<table class="data">
+<tr><th>Typology</th><th>Value created</th><th>Ranking</th><th>Optimisation</th><th>Horizon</th></tr>
+<tr><td>Finance as usual</td><td>Shareholder value</td><td>F</td><td>Max F</td><td>Short term</td></tr>
+<tr><td>SF 1.0</td><td>Refined shareholder value</td><td>F » S and E</td><td>Max F subject to S and E</td><td>Short term</td></tr>
+<tr><td>SF 2.0</td><td>Stakeholder value (triple bottom line)</td><td>I = F + S + E</td><td>Optimise I</td><td>Medium term</td></tr>
+<tr><td>SF 3.0</td><td>Common good value</td><td>S and E &gt; F</td><td>Optimise S and E subject to F</td><td>Long term</td></tr>
+</table>
+
+<p>Read it top to bottom as a shift in the objective. <b>SF 1.0</b> still maximises F; S and E enter only as minor constraints, such as excluding the worst offenders. <b>SF 2.0</b> optimises integrated value I, so a unit of S or E counts like a unit of F, and a project with lower profit can win if it creates more S and E. <b>SF 3.0</b> reverses the ranking: it optimises S and E, subject to earning enough F. The horizon lengthens from short term (finance as usual and SF 1.0) to long term (SF 3.0).</p>
+
+<div class="worked"><span class="wh">Case: place the strategy</span>
+<p>A fund maximises return but excludes tobacco and weapons makers: <b>SF 1.0</b>. A utility picks the cleaner of two plants although it earns less, because F + S + E is higher: <b>SF 2.0</b>. An investor funds clean-water projects for their social effect and requires only that capital is preserved: <b>SF 3.0</b>.</p>
+</div>
+
+<div class="callout link"><span class="h">Where the table returns</span>
+Chapter 5 discusses the challenges of SF 1.0 and SF 2.0, chapter 8 contrasts traditional (SF 1.0) and long-term value creation (SF 2.0) investing, and chapter 9 maps portfolio objectives onto it: exclusionary screening is SF 1.0, ESG integration SF 2.0, impact investing SF 3.0.</div>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Label the parts of a case as CSR, SRI or ESG; classify an investor's motive as value or values; say which direction of materiality a disclosure covers; and place an objective in the S&amp;S table. A likely trap is SF 1.0: it is still profit maximisation, only with constraints.</div>
+</section>
+
+<hr class="sec">
+
+<section id="k2">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">2 · Business ethics</h2>
+
+<p class="lead-in">Before a firm or investor can act responsibly, someone has to see a problem as a moral one and decide what is right. Business ethics offers two kinds of theory: normative theories say what is right, descriptive theories explain how people actually decide. The exam typically quotes a short argument or case and asks which theory, stage, factor or tactic it shows.</p>
+
+<h3>2.1 What business ethics is</h3>
+<p>Business ethics is «the rules, principles, and standards of deciding what is morally right or wrong when working» (Cambridge Dictionary). The lecture opens with a case: Elon Musk reopening a Tesla factory in 2020 in violation of state orders. Three questions run through the chapter: was the decision morally right (normative theories), what influenced it (descriptive theories), and how should a shareholder react (chapters 4 and 5)?</p>
+
+<h3>2.2 Normative theories: what is right?</h3>
+<p>The first split is whether morality is universal. <b>Ethical absolutism</b> holds that there are eternal, universally applicable moral principles. <b>Ethical relativism</b> holds that morality is context-dependent and subjective. Absolutist theories split again by what they judge:</p>
+
+<table class="data">
+<tr><th>Type</th><th>Theory</th><th>Focus</th><th>Guiding tenet</th></tr>
+<tr><td>Consequentialist (outcomes)</td><td>Ethical egoism</td><td>Individual desires or interests</td><td>Maximise one's own self-interest</td></tr>
+<tr><td>Consequentialist (outcomes)</td><td>Utilitarianism</td><td>Outcomes and collective welfare</td><td>Best total outcome for all affected; act or rule utilitarianism</td></tr>
+<tr><td>Non-consequentialist (principles)</td><td>Ethics of duty</td><td>Duties</td><td>Kant's categorical imperative: act only on principles that could become universal law</td></tr>
+<tr><td>Non-consequentialist (principles)</td><td>Rights and justice</td><td>Rights and the nature of justice</td><td>Universalisable rules of justice; respect for human dignity</td></tr>
+</table>
+
+<p>Act utilitarianism judges each action by its consequences; rule utilitarianism follows the rules that produce the best consequences in general (general background, not from the lecture).</p>
+
+<div class="callout mech"><span class="h">Outcomes or principles: one act, two verdicts</span>
+Consequentialist theories judge an act by its results; non-consequentialist theories judge it by the principle behind it. So one act can pass one test and fail the other. A utilitarian judges Tesla's reopening by adding up the benefits (output, jobs, the firm's survival) and the harms the orders were meant to prevent. A Kantian asks whether the rule «a firm may ignore orders it disagrees with» could hold for every firm. It could not, so the act is wrong whatever the outcome.</div>
+
+<p>The lecture groups four contemporary theories under relativism:</p>
+<table class="data">
+<tr><th>Theory</th><th>Focus</th><th>Guiding tenet</th></tr>
+<tr><td>Virtue ethics</td><td>Character</td><td>Strive to be a good person; learn virtuous traits to lead a good life</td></tr>
+<tr><td>Ethics of care</td><td>Relationships</td><td>Our first responsibility is to our significant relationships</td></tr>
+<tr><td>Discourse ethics</td><td>Deliberation</td><td>Resolve conflicts through honest, open exchange and argument</td></tr>
+<tr><td>Postmodern ethics</td><td>Moral impulse</td><td>Ethics is specific to context and individual; an innate internal guide</td></tr>
+</table>
+
+<div class="callout mistake"><span class="h">Egoism is consequentialist</span>
+Ethical egoism and utilitarianism both judge by outcomes; they differ only in <i>whose</i> outcomes count (one's own or everyone's). Kant's categorical imperative is not about outcomes at all. A statement that calls egoism non-consequentialist, or says Kant maximises welfare, is false.</div>
+
+<h3>2.3 Descriptive theories: how decisions are made</h3>
+<p>Descriptive theories explain how ethical decisions are actually made in business and what influences them. Schwartz (2016) contrasts the <b>rationalist</b> perspective, the common assumption of logical reasoning, like a calculation, before a judgement, with the <b>intuitionist/sentimentalist</b> perspective, which stresses intuition, emotion and quick moral intuitions.</p>
+
+<div class="callout mech"><span class="h">Four stages, and each can fail</span>
+The course's framework (Crane et al. 2019, based on Rest 1986 and Jones 1991): recognise the moral issue → make a moral judgement → establish moral intent → engage in moral behaviour. <b>Individual</b> and <b>situational</b> factors influence every stage. A person can fail at any link: not see the issue, judge correctly but not intend to act, or intend to act but not follow through. The model is a simple way to present a complex process, not a definitive account.</div>
+
+<h3>2.4 Individual factors</h3>
+<table class="data">
+<tr><th>Factor</th><th>Evidence on its influence (Crane et al. 2019)</th></tr>
+<tr><td>Age and gender</td><td>Very mixed, unclear</td></tr>
+<tr><td>National and cultural characteristics</td><td>Significant</td></tr>
+<tr><td>Education and employment</td><td>Somewhat unclear</td></tr>
+<tr><td>Cognitive moral development</td><td>Small but significant</td></tr>
+<tr><td>Locus of control: how far you believe you control events in your life</td><td>At most limited, but can matter for how blame is apportioned</td></tr>
+<tr><td>Personal values</td><td>Significant</td></tr>
+<tr><td>Personal integrity</td><td>Likely significant, but rarely included in models and tests</td></tr>
+<tr><td>Moral imagination: a sense of the possibilities and moral consequences of your decisions</td><td>New; potential, but largely untested</td></tr>
+</table>
+
+<p><b>Cognitive moral development</b> (Kohlberg) describes how moral reasoning matures through three levels of two stages each. What changes is what defines right: first rewards and punishment, then the expectations of peers and society, finally principles.</p>
+
+<table class="data">
+<tr><th>Level</th><th>Stage</th><th>Right is what…</th></tr>
+<tr><td>Pre-conventional</td><td>1 Obedience and punishment</td><td>authority figures reward and do not punish</td></tr>
+<tr><td>Pre-conventional</td><td>2 Instrumental purpose and exchange</td><td>serves my immediate interests, in fair deals</td></tr>
+<tr><td>Conventional</td><td>3 Interpersonal accord and conformity</td><td>my immediate peers expect of me</td></tr>
+<tr><td>Conventional</td><td>4 Social accord and system maintenance</td><td>society more broadly expects</td></tr>
+<tr><td>Post-conventional</td><td>5 Social contract and individual rights</td><td>upholds the basic rights, values and contracts of society</td></tr>
+<tr><td>Post-conventional</td><td>6 Universal ethical principles</td><td>follows self-chosen universal principles such as justice and equality</td></tr>
+</table>
+
+<div class="worked"><span class="wh">Case: place the reasoning</span>
+<p>«I won't inflate the valuation; compliance would catch me» is stage 1. «I'll approve your numbers if you approve mine next quarter» is stage 2. «Everyone on the desk does it» is stage 3. «We disclose the risk because investors have a right to know, though no law requires it» is stage 5.</p>
+</div>
+
+<p>Personal integrity shows most clearly in <b>whistleblowing</b>: an employee intentionally exposing perceived ethical or legal violations by the company. It is an important way such issues are reported and policed, but it needs protection. The Sarbanes-Oxley Act requires US-listed companies to provide channels for anonymous reporting, and several countries have specific whistleblower protection laws.</p>
+
+<h3>2.5 Situational factors</h3>
+<p><b>Issue-related</b> factors belong to the problem itself: moral intensity and moral framing. <b>Context-related</b> factors belong to the setting: rewards, authority, bureaucracy, work roles, organisational culture and national context. The evidence is strong for rewards, authority (superiors and top management) and organisational culture, and thinner for bureaucracy, work roles and national context.</p>
+
+<p><b>Moral intensity</b> (Jones 1991) varies with six factors. The one-line questions are general background, not from the lecture:</p>
+<table class="data">
+<tr><th>Factor</th><th>Question it asks</th></tr>
+<tr><td>Magnitude of consequences</td><td>How much harm or benefit?</td></tr>
+<tr><td>Social consensus</td><td>How widely do people agree it is wrong?</td></tr>
+<tr><td>Probability of effect</td><td>How likely is the harm?</td></tr>
+<tr><td>Temporal immediacy</td><td>How soon will it happen?</td></tr>
+<tr><td>Proximity</td><td>How close are those affected to the decision maker?</td></tr>
+<tr><td>Concentration of effect</td><td>Does the harm fall heavily on a few or thinly on many?</td></tr>
+</table>
+
+<div class="callout mech"><span class="h">Why climate harm feels morally weak</span>
+One firm's emissions score low on temporal immediacy (decades away), proximity (distant people) and concentration (spread thinly over millions), and their link to any specific harm is uncertain. Low intensity means the issue is less likely to be recognised as moral at all, which is the first stage of the Rest model. It is one reason externalities (chapter 3) persist even among well-meaning managers.</div>
+
+<p><b>Moral framing.</b> The same dilemma is perceived very differently depending on how it is framed, and moral language is more likely to trigger moral thinking: «tax optimisation» and «dodging tax» describe the same act. The opposite is <b>moral muteness</b> (Bird &amp; Walters 1989): managers avoid moral talk because they see it as a threat to harmony, to efficiency, and to their image of power and effectiveness.</p>
+
+<p><b>Rationalisation tactics</b> redescribe an act so it no longer looks wrong:</p>
+<table class="data">
+<tr><th>Tactic</th><th>Sounds like</th></tr>
+<tr><td>Denial of responsibility</td><td>«I had no choice; head office set the targets.»</td></tr>
+<tr><td>Denial of injury</td><td>«No customer actually lost money.»</td></tr>
+<tr><td>Denial of victim</td><td>«They knew the risks when they signed.»</td></tr>
+<tr><td>Social weighting</td><td>«Who are you to judge? Our rivals are far worse.»</td></tr>
+<tr><td>Appeal to higher loyalties</td><td>«I did it to protect the team.»</td></tr>
+<tr><td>Metaphor of the ledger</td><td>«After all my unpaid overtime, I've earned this.»</td></tr>
+</table>
+
+<div class="callout mistake"><span class="h">Individual or situational?</span>
+Cognitive moral development, locus of control, personal values and integrity are <b>individual</b> factors. Moral intensity and moral framing are <b>situational</b> (issue-related); rewards, authority and culture are situational (context-related). An item that lists moral intensity among the individual factors is false.</div>
+
+<h3>2.6 From ethics to economics: three views of CSR</h3>
+<p>Bénabou and Tirole (2010) ask who wants the CSR and whose money pays for it:</p>
+<table class="data">
+<tr><th>View</th><th>Whose values drive it</th><th>What it is</th></tr>
+<tr><td>Win-win: doing well by doing good</td><td>None needed; CSR pays for itself through reputation, employee retention and lower risk</td><td>Long-run value maximisation, no ethical tension</td></tr>
+<tr><td>Delegated philanthropy</td><td>Stakeholders' prosocial preferences (customers, employees, shareholders)</td><td>The firm as an agent for others' values</td></tr>
+<tr><td>Insider-initiated corporate philanthropy</td><td>Management's own values</td><td>Spending other people's money: an agency problem, not an ethical achievement</td></tr>
+</table>
+<p>The same donation can be any of the three: win-win if it lifts the brand, delegated if customers and shareholders want it, insider-initiated if only the CEO wants it and shareholders pay. Win-win matches the value motive from chapter 1, delegated philanthropy the values motive. The agency view returns in chapters 4 and 5.</p>
+
+<h3>2.7 Case: Telenor in Myanmar</h3>
+<table class="data">
+<tr><th>When</th><th>What happened</th></tr>
+<tr><td>2013–2014</td><td>Telenor launches and expands fast. In 2012 fewer than one in ten people in Myanmar had a mobile phone; by 2021 the whole population had access.</td></tr>
+<tr><td>Feb 2021</td><td>Military coup, surveillance pressures, ethical conflict. Telenor's mission on entering in 2014 had been «to help build society».</td></tr>
+<tr><td>Aug 2021</td><td>Telenor sells: it will not be possible to operate according to its values and international laws and standards.</td></tr>
+<tr><td>Aug 2021</td><td>Criticised for «irresponsible disengagement»: accused of sharing sensitive user data with the junta after the coup, and of selling to a company closely linked to the junta.</td></tr>
+<tr><td>Later</td><td>Telenor publishes learning outcomes from its Myanmar engagement.</td></tr>
+</table>
+
+<div class="worked"><span class="wh">Case: stay or leave?</span>
+<p>A <b>utilitarian</b> compares total welfare: staying keeps a network many people rely on but may mean serving surveillance; leaving ends Telenor's own role but hands the network, and its user data, to the junta's side. A <b>rights and justice</b> view centres on users' privacy and safety, which both options may violate. <b>Ethics of care</b> asks what Telenor owes local employees and customers. On <b>moral intensity</b>, the harm is large, immediate and concentrated on identifiable users, so it is hard to overlook. The critics' point: exit is not automatically responsible if the buyer continues the harm.</p>
+</div>
+
+<div class="callout link"><span class="h">Exit that moves the harm</span>
+Selling a problem to a less scrutinised owner returns in chapter 3 (public firms selling polluting assets to less-monitored private firms) and in chapter 5 (exit versus voice).</div>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Classify a quoted argument (egoism, utilitarianism, duty, rights, virtue, care, discourse, postmodern); order the four Rest/Jones stages; place a statement on Kohlberg's ladder; name the moral intensity factor or rationalisation tactic in a quote; decide whether a factor is individual or situational; and say which Bénabou–Tirole view a CSR decision reflects.</div>
+</section>
+
+<hr class="sec">
+
+<section id="k3">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">3 · Externalities: when prices leave out the damage</h2>
+
+<p class="lead-in">An externality is a cost or benefit that lands on someone outside the deal, so the price ignores it and the market makes the wrong amount. This chapter covers why, how externalities get internalised and what blocks it, and how to measure the effect on a firm. The exam tests classifications, the direction of the distortion, the limitations and the logic of the cases.</p>
+
+<h3>3.1 What an externality is</h3>
+<p>An <b>externality</b> is a positive or negative effect on agents who are not involved in the production or consumption of the product or service. In a <b>free-market economy</b>, prices are set by supply and demand without government intervention. When those prices leave out an effect, the result is a <b>market failure</b>: the free market allocates resources at a level that is not socially optimal, and social welfare is lost.</p>
+
+<div class="worked"><span class="wh">Example: two firms and toxic wastewater</span>
+<p>Firms A and B each choose a technology. Option 1: revenue 100, cost 20, and a cost of 10 to the other firm (toxic water waste). Option 2: revenue 100, cost 25, and no cost to anyone else.</p>
+<p><b>Private choice.</b> Option 1 profit = 100 − 20 = 80. Option 2 profit = 100 − 25 = 75. Both firms choose option 1, because the 10 lands on someone else.</p>
+<p><b>Social welfare.</b> Option 1: (100 − 20 − 10) × 2 = 140. Option 2: (100 − 25) × 2 = 150. Society loses 150 − 140 = 10.</p>
+<p><b>Why.</b> Polluting saves each firm 5 but costs the other 10. With both on option 1, each ends up with 100 − 20 − 10 = 70, less than 75. Make firm A pay the 10 it imposes on B, and option 1 earns it 70, so it switches: internalisation in one line.</p>
+</div>
+
+<h3>3.2 Why the market makes too much</h3>
+<p>In the lecture's diagram, supply is the <b>marginal production cost</b> (MPC) and demand is the <b>marginal production benefit</b>, here equal to the marginal societal benefit. With a <b>negative production externality</b>, the <b>marginal societal cost</b> (MSC) curve lies above supply. The market settles where demand meets MPC, at quantity Q<sub>e</sub> and price P<sub>e</sub>. The social optimum is where demand meets MSC, at Q<sub>so</sub> and P<sub>so</sub>.</p>
+
+<div class="callout mech"><span class="h">Why the free market overproduces</span>
+The producer prices only its own cost. The gap between MSC and MPC, the external cost per unit, appears in nobody's price. So the good is too cheap (P<sub>e</sub> &lt; P<sub>so</sub>) and buyers take too much of it (Q<sub>e</sub> &gt; Q<sub>so</sub>). Every unit between Q<sub>so</sub> and Q<sub>e</sub> costs society more than it is worth to the buyer.</div>
+
+<p>The lecture's 2×2 of externality types:</p>
+
+<table class="data">
+<tr><th></th><th>Negative</th><th>Positive</th></tr>
+<tr><td>Production</td><td>Pollution</td><td>R&amp;D</td></tr>
+<tr><td>Consumption</td><td>Smoking</td><td>Vaccines</td></tr>
+</table>
+
+<p>By the same logic, a positive externality leads the market to make too little, because nobody is paid for the benefit to others (general background, not from the lecture, which draws only the negative case).</p>
+
+<div class="callout mistake"><span class="h">Trap: which way the price is wrong</span>
+A negative production externality makes the market price <i>too low</i> and the quantity <i>too high</i>. The polluter's price is low precisely because someone else pays part of the cost. And an externality falls on a party <i>outside</i> the transaction: a cost that the firm or its own customers bear is not one.</div>
+
+<h3>3.3 The root cause: effects the product does not carry</h3>
+<p>The neoclassical production function Q = F(K, L) turns capital and labour into output. The <b>enlarged production function</b>, based on ecological economics, adds what that leaves out:</p>
+
+<div class="formula">
+  <div class="eq">q + w = F(K, L, N, S, H; r, e)</div>
+  <div class="where">q = output and w = waste (flows out); K = financial capital, L = labour, N = natural capital, S = social capital, H = human capital (funds used); r and e = flows of natural resources and energy.</div>
+</div>
+
+<p>Waste and the use of natural, social and human capital are <b>not physically embodied in the product</b>, so they do not show up in its price. That is the root cause of externalities.</p>
+
+<div class="worked"><span class="wh">Case: Velsicol</span>
+<p>The lecture's discussion case: the chemical manufacturer Velsicol, sued for knowingly polluting water with cancer-causing pesticides. A negative production externality, since the harm falls on people who neither make nor buy the product. The lawsuit internalises it by turning the damage into a cost for the firm.</p>
+</div>
+
+<h3>3.4 Internalisation: making the polluter pay</h3>
+<p><b>Internalisation</b> is the process of bringing the costs or benefits of external effects into the decisions and prices of the parties involved, so that those responsible bear the costs, or enjoy the benefits, of their actions. Five groups can push it:</p>
+<ul>
+<li><b>Government:</b> taxes, quotas, subsidies, awareness campaigns.</li>
+<li><b>Civil society:</b> media attention.</li>
+<li><b>Investors:</b> externalities in investment and lending strategy, engagement with companies.</li>
+<li><b>Corporates:</b> the cost of externalities built into business practices.</li>
+<li><b>Consumers:</b> buying sustainable products and services.</li>
+</ul>
+<p>Competition can force it too: innovation by competitors (the lecture's illustration is Tesla) can make a firm's externalities a commercial problem before any law does.</p>
+
+<p>Internalisation is a spectrum, not a switch (Unerman, Bebbington &amp; O'Dwyer 2018): an unrecognised externality; risks and opportunities recognised as values and science change; voluntary initiatives (mitigation costs, but also cost savings and new income); mandatory internalisation of part of the impact (taxes, fines); and full internalisation through a legislative ban.</p>
+
+<h3>3.5 Why internalisation stalls</h3>
+<p>If EU climate policy (the EU Emissions Trading System) tightens and you run plants in the EU, one answer is to relocate or outsource. That is the first of three limitations:</p>
+
+<table class="data">
+<tr><th>Limitation</th><th>Mechanism</th><th>Evidence in the lecture</th></tr>
+<tr><td>Territoriality of jurisdiction</td><td>Firms shift production to regions with weaker regulation</td><td>After California adopted cap-and-trade in 2013, firms shifted production and GHG emissions to other states (Bartram, Hou &amp; Kim 2022)</td></tr>
+<tr><td>Information asymmetry: greenwashing</td><td>Outsiders cannot verify how green a firm is</td><td>The UK Advertising Standards Authority banned Shell adverts shown in 2022 that left out its more polluting fossil-fuel work. Public firms get "greener" by selling polluting assets to much less monitored private firms (Duchin, Gao &amp; Xu 2024)</td></tr>
+<tr><td>Political frictions</td><td>Policy uncertainty and lobbying</td><td>Firms spend on average USD 277k a year on anti-climate lobbying and USD 185k on pro-climate lobbying (Leippold, Sautner &amp; Yu 2024)</td></tr>
+</table>
+
+<div class="callout mistake"><span class="h">Trap: a greener firm, the same planet</span>
+When a public firm sells a polluting plant, its own footprint shrinks, but the plant keeps running under a less monitored private owner. Relocation works the same way: emissions move rather than fall. A statement that equates a greener firm with lower total emissions is usually false.</div>
+
+<h3>3.6 Measuring the effect: integrated value</h3>
+<p>Schoenmaker &amp; Schramade measure a production process by its <b>integrated value</b>, I = F + S + E: the sum of financial, social and environmental value. External costs enter S and E as negative numbers. Optimising I is the SF 2.0 objective (section 1.7).</p>
+
+<div class="worked"><span class="wh">Example: from financial value to integrated value (S&amp;S Figure 2.3)</span>
+<table class="data">
+<tr><th>Process</th><th class="n">F</th><th class="n">S</th><th class="n">E</th><th class="n">I</th></tr>
+<tr><td>Original</td><td class="n">15</td><td class="n">−3</td><td class="n">−3</td><td class="n">9</td></tr>
+<tr><td>Optimised</td><td class="n">14</td><td class="n">−1</td><td class="n">−1</td><td class="n">12</td></tr>
+</table>
+<p>Original: I = 15 − 3 − 3 = 9. Optimised: I* = 14 − 1 − 1 = 12. Switching lowers financial value by 15 − 14 = 1 and raises integrated value by 12 − 9 = 3.</p>
+</div>
+
+<div class="callout mech"><span class="h">Why a firm would give up financial value</span>
+Read I as what the firm would be worth if every externality were charged to it. Once government (taxation, regulation), employees (strikes, talent drain) or the public (reputation, customer strikes) make it pay, the old process becomes obsolete and its assets become <b>stranded assets</b> that lose financial value. To avoid that, a firm and its financiers may internalise before others force them to.</div>
+
+<h3>3.7 Uncertainty: scenarios and stress tests</h3>
+<p>Nobody knows when, or how hard, an externality will be internalised. The lecture names three sources of uncertainty: <b>technology</b>, <b>policy</b>, and <b>consumer behaviour and preferences</b>. Two tools handle them:</p>
+<ul>
+<li><b>Scenario analysis:</b> determine the most important uncertainties, elaborate scenarios (developments, trends, possible external actions), present them, and weigh the probability of each.</li>
+<li><b>Stress testing:</b> ask "what if everything goes wrong?", that is, how the company would fare in a drastic scenario.</li>
+</ul>
+<p>Scenario analysis weighs several outcomes; a stress test looks only at the severe one. For climate, the lecture uses the scenarios of the Network for Greening the Financial System (NGFS).</p>
+
+<h3>3.8 Case: Air France-KLM and a carbon price</h3>
+<p>An airline's large negative externality is its environmental impact. The case (Schoenmaker &amp; Schramade, with the airline's 2017 annual report) makes it visible by putting a price on it.</p>
+
+<div class="worked"><span class="wh">Case: what a carbon charge would do to Air France-KLM</span>
+<p><b>Data (2017).</b> Scope 1 and 2 CO₂ emissions: 32.7 million tonnes. Sales: EUR 25,784 million. EBIT: EUR 1,423 million. Net income: EUR −274 million.</p>
+<p><b>Step 1: the charge.</b> Apply a carbon price to the emissions, whether or not such a tax is in place: CO₂ charge = carbon price × emissions. At EUR 100 per tonne, in EUR million: 32.7 × 100 = 3,270, about EUR 3.3 billion. That is 3,270 / 1,423 = 2.30 times EBIT, or 3,270 / 25,784 = 12.7% of sales against an EBIT margin of 1,423 / 25,784 = 5.5%.</p>
+<p><b>Step 2: pass-on.</b> The EBIT hit depends on how much of the charge the airline can pass on to customers through higher fares: EBIT hit = charge × (1 − pass-on rate). At 0% pass-on the hit is the full charge; at 100% it is zero. In EUR billion, with EBIT of 1.42 before the charge:</p>
+<table class="data">
+<tr><th>Pass-on</th><th class="n">Hit at EUR 50/t</th><th class="n">Hit at EUR 100/t</th><th class="n">Hit at EUR 200/t</th><th class="n">EBIT left at EUR 100/t</th></tr>
+<tr><td>0%</td><td class="n">1.64</td><td class="n">3.27</td><td class="n">6.54</td><td class="n">−1.85</td></tr>
+<tr><td>20%</td><td class="n">1.31</td><td class="n">2.62</td><td class="n">5.23</td><td class="n">−1.19</td></tr>
+<tr><td>40%</td><td class="n">0.98</td><td class="n">1.96</td><td class="n">3.92</td><td class="n">−0.54</td></tr>
+<tr><td>60%</td><td class="n">0.65</td><td class="n">1.31</td><td class="n">2.62</td><td class="n">0.12</td></tr>
+<tr><td>80%</td><td class="n">0.33</td><td class="n">0.65</td><td class="n">1.31</td><td class="n">0.77</td></tr>
+<tr><td>100%</td><td class="n">0.00</td><td class="n">0.00</td><td class="n">0.00</td><td class="n">1.42</td></tr>
+</table>
+<p>Example: at 40% pass-on and EUR 100/t, the hit is 3.27 × 0.60 = 1.96, leaving 1.42 − 1.96 = −0.54.</p>
+<p><b>Reading it.</b> At EUR 100/t the airline keeps a positive EBIT only if it passes on more than 1 − 1,423 / 3,270 = 56.5% of the charge. With no pass-on, EBIT is gone from a carbon price of 1,423 / 32.7 = 43.5 euros per tonne. Pass-on is likely low in a price-competitive industry, and net income was already negative. Peer data, which might show how rivals fare, are incomplete and hard to compare.</p>
+</div>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Classify an externality in the 2×2; say which way price and quantity are wrong; match a case to one of the three limitations; reason with integrated value and pass-on. Know directions, not arithmetic: the charge scales with carbon price × emissions, pass-on shrinks the EBIT hit, and early internalisation protects against stranded assets.</div>
+</section>
+
+<h2 class="part">Part II — Sustainability challenges to corporates</h2>
+
+<section id="k4">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">4 · Shareholder vs stakeholder theory: whose firm is it?</h2>
+
+<p class="lead-in">On whose behalf should a company be run? This chapter sets Friedman's shareholder view against stakeholder theory, follows the fight over the Business Roundtable statement, and ends with two ways out: Hart and Zingales's shareholder welfare and Edmans's growing pie. Exam questions match critiques to their authors and test when Friedman's separation argument holds.</p>
+
+<h3>4.1 Two answers to the purpose of business</h3>
+<p>The <b>shareholder theory</b>, the old view, is Friedman (1970): "The Social Responsibility of Business Is to Increase Its Profits". Managers should make decisions that maximise shareholder value. The <b>stakeholder theory</b>, the new view associated with Edward Freeman, holds that firms are also responsible to employees, creditors, customers, suppliers, the community and the environment, and serve the greater good best when their actions reflect what is best for all of them. The catch: stakeholders' interests may be misaligned.</p>
+
+<p>In 2019 about 200 CEOs signed the <b>Business Roundtable</b> statement that a corporation's purpose is to serve all its stakeholders. Notice how the signatories argued: investing in workers and communities is "the only way to be successful over the long term" (Jamie Dimon, JPMorgan). The case was made in terms of long-term value. Critics also saw hypocrisy: some signatories fund major fossil fuel development, which is hard to reconcile with a commitment to stakeholders.</p>
+
+<div class="callout mistake"><span class="h">Trap: what Friedman actually said</span>
+Friedman did not say firms may do anything for profit. As Hart and Zingales quote him, managers should make as much money as possible "while conforming to the basic rules of the society", both law and ethical custom. A statement that the shareholder view permits breaking the law is false.</div>
+
+<h3>4.2 The case against the stakeholder statement</h3>
+<p>The critics' core argument is about <b>accountability</b>:</p>
+
+<table class="data">
+<tr><th>Critic</th><th>Argument</th></tr>
+<tr><td>Jensen (2002)</td><td>Stakeholder theory lets managers design their own objective function and run the firm in their own interest. Replacing a measurable objective (shareholder value) with a less measurable one (stakeholder value) can raise agency costs.</td></tr>
+<tr><td>Mehrotra &amp; Morck (2017)</td><td>Shareholder value is a "bright line" for judging performance; stakeholder welfare is an "ill-defined charge" that gives self-interested insiders more room to extract private benefits.</td></tr>
+<tr><td>Bebchuk &amp; Tallarita (2020)</td><td>A stakeholder orientation insulates management from shareholders, reduces accountability and harms performance. Stakeholderists avoid saying which groups count, overlook the many trade-offs with long-term shareholder value, and give no method to aggregate or balance interests, leaving all three to corporate leaders.</td></tr>
+<tr><td>Harvard Law School Forum on Corporate Governance</td><td>Under Delaware law, where many US public companies are incorporated, directors owe a fiduciary duty to the shareholders, so the statement is legally incorrect. It is also unnecessary: the business judgement rule already protects directors' decisions if they meet their duties of care and loyalty, so they can pursue what the statement intends without it.</td></tr>
+</table>
+
+<div class="callout mech"><span class="h">Why a vaguer objective raises agency costs</span>
+An objective disciplines a manager only if some outcome can show it was missed. "Maximise shareholder value" can be checked against the share price. "Serve all stakeholders", with no list of stakeholders and no weights, can justify almost any decision: a lower dividend helps employees, a lower wage helps shareholders. When every choice is defensible, nobody is accountable. This is the principal–agent problem of chapter 5, made worse.</div>
+
+<h3>4.3 Stakeholders in law: charters and codetermination</h3>
+<p>Some want stakeholder duties written into law. The US <b>Accountable Capitalism Act</b> proposal would require very large corporations to obtain a federal charter as a "United States corporation", obliging directors to consider all stakeholders; let workers elect at least 40% of the board; restrict share sales by directors and officers; require approval by 75% of directors and shareholders for political spending; and let the federal government revoke the charter after repeated, egregious illegal conduct.</p>
+
+<p>Parts of Europe already mandate worker representation on boards:</p>
+<table class="data">
+<tr><th>Country</th><th>Rule</th></tr>
+<tr><td>Germany</td><td>Above 500 employees, one-third of the supervisory board are worker representatives; above 2,000, half.</td></tr>
+<tr><td>Norway</td><td>Under the Companies Acts, employees may elect board representatives in firms with more than 30 employees; mandatory above 200, unless the firm has a corporate assembly.</td></tr>
+<tr><td>Sweden</td><td>The Board Representation (Private Sector Employees) Act.</td></tr>
+</table>
+
+<h3>4.4 A test case: Klarna and AI</h3>
+<p>The lecture asks: should a company replace workers with AI if the AI genuinely does the job just as well? (It also shows a survey of what CFOs think, Graham 2022.)</p>
+
+<div class="worked"><span class="wh">Case: Klarna's AI workforce decision</span>
+<p><b>February 2024.</b> Klarna's OpenAI-based assistant handles two-thirds of customer-service chats in its first month; the CEO says it does the work of 700 full-time agents.</p>
+<p><b>December 2024.</b> Klarna stopped hiring a year earlier; the workforce shrinks from about 5,000 towards 3,000 (−40%) through attrition and the hiring freeze.</p>
+<p><b>May 2025.</b> "We went too far": the CEO admits cost was weighted too heavily over quality, and Klarna begins rehiring human agents so customers can always reach a person.</p>
+<p><b>Reading it.</b> A shareholder-value view says automate if it raises profit; a stakeholder view weighs the employees who lose their jobs. The reversal adds a third point: the premise "just as well" failed for another stakeholder, the customers, and the firm itself changed course.</p>
+</div>
+
+<h3>4.5 Hart and Zingales: shareholder welfare, not market value</h3>
+<p>Hart &amp; Zingales (2017) keep Friedman's premise that the firm should serve its shareholders. They reject one step: equating shareholder <i>welfare</i> with market <i>value</i>. Shareholders are ordinary people who care about money, but not only about money. In private life they internalise externalities, buying an electric car or fair-trade coffee. If someone is willing to spend $100 to reduce pollution by $120, why would she not want a company she owns to do the same?</p>
+
+<p>Friedman's reply is <b>separation</b>: let companies make money, and let individuals and governments deal with externalities. Hart and Zingales accept this when the social activity is <b>separable</b> from money-making, as with charity: paying out profit for shareholders to donate is as good as the firm donating. It fails when profit and damage are <b>non-separable</b>, tied together by the firm's technology so that shareholders cannot undo the damage themselves. Their example is Walmart selling high-capacity magazines of the kind used in mass killings: giving shareholders the profit to spend on gun control might not be as efficient as not selling the magazines at all. Friedman's second argument, leave externalities to government, fails when the political process is inefficient or a goal (treat workers with dignity) is hard to write into regulation.</p>
+
+<div class="worked"><span class="wh">Example: the clean-or-dirty vote (Hart &amp; Zingales's numbers)</span>
+<table class="data">
+<tr><th>Action</th><th class="n">Profit</th><th class="n">Damage to others</th><th class="n">Social surplus</th></tr>
+<tr><td>Clean</td><td class="n">100</td><td class="n">0</td><td class="n">100</td></tr>
+<tr><td>Dirty</td><td class="n">150</td><td class="n">60</td><td class="n">90</td></tr>
+</table>
+<p>Social surplus of dirty = 150 − 60 = 90. A market-value maximiser picks dirty (150 &gt; 100); society is better off with clean (100 &gt; 90). A shareholder who puts weight λ on damage he feels responsible for votes clean if 100 &gt; 150 − 60λ, that is if λ &gt; 50/60 = 5/6. If clean were no more efficient than dirty (profit lower by exactly the damage avoided, as with a donation to charity), every shareholder would vote dirty: that separable case is Friedman's result.</p>
+</div>
+
+<div class="callout mech"><span class="h">Amoral drift: why public firms slide towards indifference</span>
+In the model, people weigh damage only when they feel responsible for it. A bidder offers a premium for a clean firm, planning to make it dirty. Each small shareholder is almost never pivotal, so he does not feel responsible and tenders, even if a majority would have voted against the switch. The reverse deal does not happen: a prosocial buyer who pays the market price for a dirty firm and cleans it up takes a loss. Unrestricted, public firms drift towards putting little weight on their externalities. A vote fixes this, because a voter who might be pivotal feels responsible.</div>
+
+<p>Their remedy is to let shareholders <b>vote on the broad outlines of corporate policy</b>. If activities are separable, government has internalised the externality, or shareholders are not prosocial, the vote simply returns Friedman's answer. They also prefer <b>invest and engage</b> to divestment: unless prosocial investors hold vastly more wealth than selfish ones, others buy the shares and restore the price, and any divested stock ends up with the least prosocial investors. Their own caveat: if shareholders' social preferences are too heterogeneous for a vote to aggregate, market value may survive as a second-best objective.</p>
+
+<div class="callout mistake"><span class="h">Trap: Hart and Zingales are not stakeholder theorists</span>
+They keep shareholders as the principal and widen what shareholders want. "Maximise shareholder welfare" means follow shareholders' preferences, including social ones; it does not mean balance all stakeholders. Nor do they reject Friedman outright: for separable activities such as corporate charity they agree with him.</div>
+
+<h3>4.6 Edmans: grow the pie</h3>
+<p>Edmans (2020) contrasts a <b>pie-splitting</b> mentality, where value is treated as fixed so that whatever stakeholders gain, shareholders lose, with a <b>pie-growing</b> mentality, where companies deliver both purpose and profit. He defines purpose as the answer to "how is the world a better place by your company being here?"</p>
+
+<p>The lecture's own position: sustainable finance analyses business decisions from the perspective of shareholders, other stakeholders and ethics. These sometimes overlap and reinforce each other, but often involve trade-offs.</p>
+
+<table class="data">
+<tr><th>View</th><th>Objective</th><th>Where it breaks down</th></tr>
+<tr><td>Friedman</td><td>Profit, within law and ethical custom</td><td>Non-separable damage that government does not internalise (Hart &amp; Zingales)</td></tr>
+<tr><td>Stakeholder theory</td><td>Value for all stakeholders</td><td>No list and no weights, so managers escape accountability (Jensen; Bebchuk &amp; Tallarita)</td></tr>
+<tr><td>Hart &amp; Zingales</td><td>Shareholder welfare: money and values</td><td>Preferences too heterogeneous for a vote to aggregate (their own caveat)</td></tr>
+</table>
+
+<h3>4.7 Stakeholders in practice: employees and supply chains</h3>
+<p><b>Employees.</b> In a field experiment shown in the lecture, the mean wage bid was significantly higher in the control group than in the CSR treatment group: applicants are willing to be paid less to take the same job at a socially responsible firm. Serving a social cause can lower a cost that shareholders bear.</p>
+
+<p><b>Supply chains.</b> Problems travel along the chain:</p>
+<ul>
+<li>Nestlé, aiming to eliminate deforestation from its supply chain, stopped buying Brazilian soybeans from Cargill after a review could not trace them to specific plantations, raising concerns they came from converted land.</li>
+<li>When a firm's exposure to heat increases, its performance suffers, and its customers' operating income drops too.</li>
+<li>After E&amp;S incidents at foreign suppliers, US firms cut their imports by around 30% (Bisetti et al. 2024).</li>
+</ul>
+<p>The lecture points to the EU Corporate Sustainability Due Diligence Directive as the regulatory answer.</p>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Match each critique to its author (Jensen: own objective function; Mehrotra &amp; Morck: bright line; Bebchuk &amp; Tallarita: who counts, trade-offs, aggregation; Harvard Law School Forum: Delaware and the business judgement rule). Know when Friedman's separation works and when it fails, what amoral drift is, and how pie-growing differs from pie-splitting.</div>
+</section>
+
+<hr class="sec">
+
+<section id="k5">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">5 · Governance and behaviour: keeping managers accountable</h2>
+
+<p class="lead-in">Corporate governance exists because owners hand control to managers who know more than they do. This chapter covers the agency problem, the tools shareholders have, why governing sustainability pays, and why each step from finance as usual towards SF 2.0 makes managers harder to hold to account. Expect questions on adverse selection versus moral hazard, voice versus exit, EMH versus AMH and ESG-linked pay.</p>
+
+<h3>5.1 The agency problem</h3>
+<p>Corporate governance issues arise from the <b>separation of ownership and control</b>. In a <b>principal–agent</b> relationship, the principal (the owner) delegates authority to an agent (the manager) to act on her behalf. <b>Agency costs</b> are the costs principals incur to make sure their agents act in their interest. The problem arises because:</p>
+<ul>
+<li>the agent often has superior information and expertise, which may be why she was hired;</li>
+<li>the agent chooses her behaviour after the contract is set, and can often conceal the outcome;</li>
+<li>the agent cannot be monitored efficiently or costlessly.</li>
+</ul>
+<p>Between CEO and shareholders the conflict takes three forms: effort is privately costly to the CEO; the CEO may use company resources for personal benefit (private jets); and the CEO may be more short-termist than shareholders. The fix is to align interests: pay the CEO in stocks or options, or condition pay on a measure such as EBIT.</p>
+
+<h3>5.2 Adverse selection and moral hazard</h3>
+<table class="data">
+<tr><th></th><th>Adverse selection</th><th>Moral hazard</th></tr>
+<tr><td>When</td><td>Before the transaction</td><td>After the transaction</td></tr>
+<tr><td>What happens</td><td>Asymmetric information is exploited: those who gain most at others' expense are the keenest to take part</td><td>A party alters its behaviour because others bear the cost of its risk-taking</td></tr>
+<tr><td>Examples</td><td>The borrowers most likely to produce bad outcomes are the most likely to seek loans; the lemons problem (Akerlof 1970)</td><td>Debt overhang; asset substitution</td></tr>
+</table>
+
+<p>In the lemons problem, buyers who cannot tell good used cars from bad ones pay only an average price, so owners of good cars withdraw. In debt overhang, a heavily indebted firm passes up good projects because much of the gain would go to creditors. In asset substitution, shareholders of a levered firm switch to riskier assets, keeping the upside while creditors bear the downside. (These three explanations are general background, not from the lecture.)</p>
+
+<div class="callout mistake"><span class="h">Trap: the timing is the test</span>
+Adverse selection is about hidden <i>information</i> before the contract; moral hazard is about hidden <i>action</i> after it. A firm that switches to a riskier project after getting a loan is moral hazard, even though information is asymmetric in both cases.</div>
+
+<h3>5.3 What governance is, and what shareholders can do</h3>
+<p><b>Corporate governance</b> is the system of controls, regulations and incentives designed to minimise agency costs between managers (agents) and investors (principals) and to prevent corporate fraud. It should mitigate the conflict of interest without unduly burdening managers with the firm's risk. It is a system of checks and balances that trades off costs and benefits, and good governance is value enhancing. The OECD states its purpose as building an environment of "trust, transparency and accountability" for long-term investment, financial stability and business integrity.</p>
+
+<p>Shareholders have two forms of <b>direct action</b>:</p>
+<ul>
+<li><b>Voice:</b> voting at the annual meeting, and engagement with the company ("jawboning").</li>
+<li><b>Exit:</b> selling the shares. If the manager destroys value, selling pushes down the price and hurts the manager ex post.</li>
+</ul>
+
+<div class="callout mech"><span class="h">Why exit works even when nobody sells</span>
+The manager knows that destroying value would trigger selling and a lower share price. Ex ante, the threat of exit therefore induces him to maximise value. Exit disciplines through the price, not through the sale itself. A passive investor, who cannot sell, loses this tool and keeps only voice (chapter 8).</div>
+
+<h3>5.4 Governance practices</h3>
+<table class="data">
+<tr><th>Practice</th><th>What it involves</th></tr>
+<tr><td>Board monitoring</td><td>CEO not also chair (otherwise a lead independent director); board independence and diversity; remuneration, audit and nominating committees</td></tr>
+<tr><td>Compensation</td><td>Stock- and option-based executive pay</td></tr>
+<tr><td>Shareholder rights</td><td>Avoid dual-class shares; the right to propose resolutions</td></tr>
+<tr><td>Corporate culture</td><td>Compliance and ethics policies; anti-bribery and corruption policies; a whistleblowing procedure</td></tr>
+<tr><td>Transparency and accountability</td><td>Reporting (chapter 7)</td></tr>
+</table>
+
+<div class="worked"><span class="wh">Case: child labour in cocoa</span>
+<p>The lecture's discussion case is a child slavery lawsuit against Nestlé and Cargill that reached the US Supreme Court, with press quotes from a proposed class action against seven companies. There a US district judge found that the plaintiffs lacked standing because they had not shown a "traceable connection" between the defendants and the plantations where they worked. The defendants argued the theory was so broad it could make consumers and retailers liable too, and said they strongly condemn forced labour.</p>
+<p>Apply the chapter. Incentive: cheap labour lowers costs, and a long supply chain spreads responsibility thin. Direct action: voice or exit. Prevention: board oversight, compliance and ethics policies, whistleblowing, transparency. Financial value: litigation and reputation. Note the contrast with chapter 4: the lack of traceability that helped in court is the reason Nestlé stopped buying Cargill soy.</p>
+</div>
+
+<h3>5.5 Why governing sustainability pays</h3>
+<ul>
+<li><b>Better decision making:</b> understanding stakeholders, risks and opportunities leads to better decisions and, all else equal, higher firm value.</li>
+<li><b>Risk mitigation:</b> fewer controversies, which in severe cases bring penalties or legal action.</li>
+<li><b>Improved capital flow:</b> banks and investors gain confidence from risk management and public reporting, which may improve access to capital and lower its cost.</li>
+</ul>
+
+<h3>5.6 Governance challenges along the SF typology</h3>
+<div class="callout link"><span class="h">The framework from chapter 1</span>
+This section follows Schoenmaker &amp; Schramade's typology (Table 1.3, set out in section 1.7): finance as usual maximises F; SF 1.0 maximises F subject to S and E; SF 2.0 optimises integrated value I = F + S + E. Each step broadens the objective, and each brings its own governance problem.</div>
+
+<p><b>Finance as usual</b> faces three challenges. <i>Business ethics:</i> a narrow focus on shareholder value leaves room for morally dubious decisions. <i>Public policy:</i> major externalities are not fully incorporated in public policy. <i>Contracts:</i> no contract can cover every circumstance, externalities included. Three forces maintain the status quo: lobbying by incumbent companies, agency problems between companies and investors, and investors' behavioural biases (chasing returns, herding). The lecture pairs this with data on climate change litigation (Setzer &amp; Higham, LSE).</p>
+
+<p>Finance as usual also rests on the <b>efficient markets hypothesis</b>:</p>
+<table class="data">
+<tr><th></th><th>Efficient markets hypothesis (Fama 1970)</th><th>Adaptive markets hypothesis (Lo 2017)</th></tr>
+<tr><td>Core claim</td><td>Stock prices incorporate all relevant information and on average reflect long-term fundamental value</td><td>The degree of efficiency depends on individuals adapting to a changing environment</td></tr>
+<tr><td>What prices reflect</td><td>All relevant information, so the price guides asset selection and measures investor performance</td><td>As much information as the number and nature of distinct groups of market participants allow</td></tr>
+<tr><td>New risks such as carbon</td><td>Already in the price</td><td>With few groups or a new risk the market is less efficient, so carbon may not yet be fully priced</td></tr>
+</table>
+
+<p>The two sustainable models bring new problems:</p>
+<table class="data">
+<tr><th>Refined shareholder model (SF 1.0)</th><th>Stakeholder model (SF 2.0)</th></tr>
+<tr><td>Leaves managers unaccountable, since optimising several objectives at once is hard to measure and control</td><td>How to balance the interests of all stakeholders?</td></tr>
+<tr><td>Fails to resolve many conflicts of interest between shareholders and stakeholders</td><td>Increased subjectivity, with the potential to raise agency costs</td></tr>
+<tr><td>How to measure social and environmental value?</td><td>How to measure integrated value?</td></tr>
+</table>
+
+<div class="callout mech"><span class="h">The recurring trade-off</span>
+The broader the objective, the harder it is to check whether managers met it. That is the agency problem of 5.1 again, and the critique of Jensen and of Bebchuk &amp; Tallarita in chapter 4.</div>
+
+<h3>5.7 Guidelines and ESG-linked pay</h3>
+<p>Schoenmaker &amp; Schramade's guidelines for governing sustainable finance:</p>
+<ol>
+<li><b>Company perspective:</b> from a shareholder to a stakeholder focus, striving for long-term value creation (LTVC), reflected in executive contracts.</li>
+<li><b>Longer horizons</b> for executives and investors: longer-term reporting and incentives (for example, paying chief executives in shares they must hold after they leave), transparent social and environmental reporting, longer-term investment performance reporting.</li>
+<li><b>Investor engagement:</b> investor coalitions for LTVC and engagement on social and environmental issues.</li>
+<li><b>Market efficiency and liquidity:</b> challenge the EMH with the AMH, which better reflects newly recognised risks.</li>
+<li><b>Supervisory treatment:</b> less regulatory focus on liquid (listed) assets, room for buy-and-hold investment, and stress tests of financial institutions' exposure to carbon-intensive assets under alternative climate scenarios.</li>
+</ol>
+
+<p>Tying executive pay to ESG targets is the obvious tool, and the lecture is sceptical. It shows a PwC (2021) survey on linking pay to climate performance, and a <b>weak correlation between ESG pay and ESG performance, which is not causal</b>. The concerns: targets concentrate on tactical, short-term goals such as operational efficiency rather than strategic, long-term ones such as emissions reductions; they rely on vague discretionary measures ("improving sustainability"), sometimes mixed with other qualitative goals; and they lack transparency.</p>
+
+<div class="worked"><span class="wh">Case: Starbucks moves sustainability into long-term pay</span>
+<p>Starbucks removed sustainability from its short-term annual bonus and made it a three-year modifier of executives' performance-based equity awards. That answers the first concern: sustainability incentives shift from short-term to long-term compensation, the direction guideline 2 asks for.</p>
+</div>
+
+<div class="callout mistake"><span class="h">Trap: ESG pay is not proof of ESG performance</span>
+The correlation between ESG-linked pay and ESG performance is weak and not causal. A statement that tying pay to ESG targets has been shown to improve ESG performance overstates the evidence.</div>
+
+<h3>5.8 The bottom line</h3>
+<p>The lecture concludes in three steps. Focusing on stakeholder value can help firms create shareholder value, for example by internalising externalities ex ante (chapter 3). Defining the firm's objective as stakeholder value maximisation can increase agency costs, because it adds subjectivity and room for manipulation (moral hazard, greenwashing). So the transition requires careful rethinking of governance practices to ensure shareholder protection.</p>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Classify a case as adverse selection or moral hazard by its timing; explain how exit disciplines ex ante; name the governance challenges of each SF model; contrast EMH and AMH on whether carbon risk is priced; judge ESG-linked pay. The key distinction: a stakeholder <i>focus</i> can create shareholder value, while stakeholder value as the <i>objective</i> can raise agency costs.</div>
+</section>
+
+<hr class="sec">
+
+<section id="k6">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">6 · Business models and materiality: can the cash flows last?</h2>
+
+<p class="lead-in">Before you can say how sustainability affects a company's value, you need to know how the company makes money. The lecture works through one company, Oatly, in four steps: business model, sustainability analysis, impact, and long-term value creation. The exam tests the distinctions: financial versus impact materiality, intangible assets versus intangible resources, material versus immaterial issues, and what each DuPont ratio measures.</p>
+
+<h3>6.1 The goal: free cash flow that lasts</h3>
+<p>The lecture's goal is to <b>assess a company's ability to sustainably generate free cash flows</b>. This is the first stage of ESG integration for valuation; the textbook appendix (pp. 247–51) is a checklist of questions for it. The order is deliberate. First understand how the business earns money, then ask which sustainability issues can hit that business, then what the business does to the world, and only then forecast the cash flows.</p>
+
+<h3>6.2 Business model and competitive position</h3>
+<p>A <b>business model</b> "describes the rationale of how an organization creates, delivers and captures value" (Osterwalder and Pigneur, 2010). Johnson et al. (2008) give a successful one three parts:</p>
+<ul>
+<li><b>Customer value proposition:</b> helps customers do a "job" that alternative offerings do not address.</li>
+<li><b>Profit formula:</b> how the firm earns money, through its revenue model, cost structure, margins and inventory turnover.</li>
+<li><b>Key resources and processes:</b> people, products, facilities, equipment and brand.</li>
+</ul>
+<p><b>Competitive position</b> (Porter, 1985) asks whether the firm can keep those profits against rivals. The sources of advantage are resources (natural resources, data), knowledge (technology, processes), human capital and culture, and networks or access (regulation, switching costs, scale).</p>
+
+<div class="worked"><span class="wh">Case: Oatly's competitive edge</span>
+<p>Oatly sells oat-based alternatives to dairy milk. The lecture's sources run from a video on how Oatly built "a $100 million oat milk empire" to headlines that competition in oat milk was getting fierce and that Oatly was losing market share. The lesson: a brand and a head start are an advantage only while switching costs, scale or access keep rivals out. A product that competitors can match puts the margin under pressure, however good the story.</p>
+</div>
+
+<h3>6.3 Intangibles</h3>
+<p>As economies shift from agriculture and basic industry to services, value moves from tangible assets (land, buildings, materials) to intangibles (human capital, processes, data, innovation). That is why most listed firms are priced above book value, especially in R&amp;D-intense sectors such as healthcare and IT, and in services such as consultancy.</p>
+<p>The key distinction: <b>intangible assets</b> (e.g. goodwill) show up on the balance sheet; <b>intangible resources</b> (e.g. human capital) do not. Goodwill is the price paid in an acquisition above the book value of the assets, and it need not reflect the value of the intangible resources. Haskel and Westlake (2017) list four economic characteristics of intangibles: they are a <b>sunk cost</b>, they generate <b>spillovers</b>, they are often <b>scalable</b>, and they have <b>synergies</b> with each other.</p>
+
+<div class="callout mech"><span class="h">Why sustainability lives in the intangibles</span>
+Much of what sustainability changes, such as brand trust, employee motivation and know-how, consists of intangible resources. They are missing from the balance sheet, so an analysis of the accounts alone misses them. The lecture illustrates the point with evidence on employee satisfaction and stock returns.</div>
+
+<h3>6.4 Strategy and business model innovation</h3>
+<p>Hambrick and Fredrickson (2001) list what a strategy must contain. ESG megatrends (the lecture shows CESGA's overview) can change the answer to every row.</p>
+<table class="data">
+<tr><th>Element</th><th>Question it answers</th></tr>
+<tr><td>Arenas</td><td>In which markets will the company be active?</td></tr>
+<tr><td>Vehicles</td><td>How will it get there?</td></tr>
+<tr><td>Differentiators</td><td>How can it win in the marketplace?</td></tr>
+<tr><td>Staging</td><td>What is the speed and sequence of moves?</td></tr>
+<tr><td>Economic logic</td><td>How will returns be obtained?</td></tr>
+</table>
+<p>The business-model part ends with <b>sustainable business model innovation</b>: redesigning how the firm creates, delivers and captures value so that the model itself becomes sustainable.</p>
+
+<h3>6.5 Value drivers and the DuPont formula</h3>
+<p>The value drivers are <b>sales growth</b> (volume versus price, short- versus long-term drivers), <b>margins</b> (gross, EBIT, EBITDA or net, and how fixed the cost base is), <b>invested capital and return on capital</b>, the <b>cost of capital</b>, and <b>cash flow</b>: how much operating cash flow (OCF) the firm generates, and how much becomes free cash flow (FCF) once the investment the business needs is paid.</p>
+<div class="formula">
+<div class="eq">ROE = (Net profit / Sales) × (Sales / Assets) × (Assets / Equity)</div>
+<div class="where">The DuPont formula: net profit margin × asset turnover × financial leverage. The sales and assets terms cancel, so the product is net profit / equity.</div>
+</div>
+
+<div class="worked"><span class="wh">Case: Oatly's DuPont, 2021 and 2022 (USD billion)</span>
+<table class="data">
+<tr><th></th><th class="n">2021</th><th class="n">2022</th></tr>
+<tr><td>Assets</td><td class="n">1.6</td><td class="n">1.2</td></tr>
+<tr><td>Revenues</td><td class="n">0.6</td><td class="n">0.7</td></tr>
+<tr><td>Net profit</td><td class="n">−0.2</td><td class="n">−0.4</td></tr>
+<tr><td>Equity</td><td class="n">1.2</td><td class="n">0.8</td></tr>
+<tr><td>Net profit margin</td><td class="n">−33%</td><td class="n">−57%</td></tr>
+<tr><td>Asset turnover</td><td class="n">0.38</td><td class="n">0.58</td></tr>
+<tr><td>Financial leverage</td><td class="n">1.33</td><td class="n">1.50</td></tr>
+<tr><td>ROE</td><td class="n">−17%</td><td class="n">−50%</td></tr>
+</table>
+<p>2022: −0.4/0.7 × 0.7/1.2 × 1.2/0.8 = −57% × 0.58 × 1.5 = −50%.</p>
+<p><b>Reading it.</b> Sales grew while assets shrank, so turnover rose. Losses ate equity, so leverage rose. With a negative margin, both multiply the loss: higher turnover and leverage make ROE <i>more</i> negative. The margin is the root problem. Later, gross margin improved from 19.4% (2023) to 28.7% (2024), but gross margin comes before operating costs, interest and tax, so it does not by itself show a profit.</p>
+</div>
+
+<div class="callout mistake"><span class="h">Trap: 0.58 is not a return</span>
+The lecture slide labels 0.58 "return on assets". It is <b>asset turnover</b>: sales per dollar of assets, with no profit in it. Return on assets is net profit / assets = margin × turnover, which for 2022 is −0.4/1.2 = −33%. A statement that asset turnover measures profitability is false.</div>
+
+<h3>6.6 Purpose and stakeholders</h3>
+<p>The sustainability analysis starts with <b>purpose</b>, the company's raison d'être: how does it create value for society, and how does it get paid for that value? <b>Stakeholder analysis</b> then has three steps: <b>identify</b> everyone affected by the product or project, <b>categorise</b> them (internal versus external, by type), and <b>prioritise</b> them with an interest–power matrix. The <b>stakeholder impact map</b> (Schoenmaker and Schramade, 2017) lists the main stakeholders, their short- and long-term goals, and how the company helps or hurts each one.</p>
+<p>Where the map shows the company hurting a stakeholder with power, you have found a likely candidate for internalisation (chapter 3), and so a candidate material issue.</p>
+
+<h3>6.7 Materiality: financial, impact and double</h3>
+<p>Materiality decides which sustainability issues count. The two standard-setters answer differently:</p>
+<table class="data">
+<tr><th></th><th>Financial materiality</th><th>Impact materiality</th></tr>
+<tr><td>Definition</td><td>SASB: information "reasonably likely to be important to investors in making investment decisions"</td><td>GRI: topics that affect the organisation's ability to "create, preserve or erode economic, environmental and social value for itself, its stakeholders and society at large"</td></tr>
+<tr><td>Direction</td><td>Outside-in: how sustainability affects the firm</td><td>Inside-out: how the firm affects the economy, environment and people</td></tr>
+<tr><td>Audience</td><td>Investors</td><td>All stakeholders</td></tr>
+</table>
+<p>The lecture's conclusion is <b>double materiality</b>: look through both lenses. An issue can be material because it moves the firm's cash flows, because of the firm's effect on the world, or both. SASB judges an issue by its potential to affect growth, cost or trust, and by how important it is to stakeholders; the SASB Materiality Map sets out the result.</p>
+<p>Why bother? <b>Khan, Serafeim and Yoon (2016)</b> find that firms performing well on <i>material</i> sustainability issues outperform, while performance on <i>immaterial</i> issues does not matter. Materiality also moves: Rogers and Serafeim describe the <b>pathways</b> by which sustainability issues become financially material to firms and investors. The CCBJH case shows the practice. The firm identified its material issues in 2023 and keeps reviewing them "while monitoring for new issues that may arise with changing social conditions". Firms often show the result as a <b>materiality matrix</b> (the lecture's example is Unilever), and the SDGs can help identify material issues.</p>
+<p>The checklist also asks whether the firm generates serious externalities, how likely they are to be internalised, and which ethical dilemmas it faces (chapters 2 and 3). For each material ESG factor, the analyst records how the company performs on it, whether it gives a competitive (dis)advantage, and which value drivers it affects. The company is then rated 1 (very weak) to 5 (very well positioned) on <b>top-down</b> sustainability (exposure of its sector) and <b>bottom-up</b> sustainability (how well the company itself manages the issues).</p>
+
+<div class="callout mistake"><span class="h">Trap: "good ESG pays"</span>
+Only performance on <b>material</b> issues is linked to outperformance (Khan, Serafeim and Yoon, 2016). And materiality is not fixed: an issue that is immaterial today can become material, which is why firms review their assessments.</div>
+
+<h3>6.8 Impact</h3>
+<p>The impact step asks which SDGs the company helps achieve, which negative SDG exposures it has, and how its impact scores on three criteria:</p>
+<table class="data">
+<tr><th>Criterion</th><th>Question</th></tr>
+<tr><td>Material</td><td>How relevant is the impact to the company's value drivers: sales, profits, investment and cost of capital?</td></tr>
+<tr><td>Intentional</td><td>Is the impact a deliberate choice, part of strategy and purpose?</td></tr>
+<tr><td>Transformational</td><td>Does the company drive major change for the better through its business model, technology, scale or standards?</td></tr>
+</table>
+<p>Finally: can the impact be measured, does the company report on it, and how could the reporting improve? That question leads into chapter 7.</p>
+
+<div class="worked"><span class="wh">Case: Oatly on the three criteria</span>
+<p>Oatly presents the switch from cow's milk to its oat drinks as its main mechanism for impact, citing lower emissions, land use and energy use. <b>Material:</b> yes, since the impact and the revenue come from the same litre sold. <b>Intentional:</b> yes, the company presents a shift from dairy to plant-based diets as a central ambition. <b>Transformational:</b> only if it shifts diets at scale, and the lost market share in 6.2 is exactly that risk. A strong impact story does not guarantee sustainable free cash flow.</p>
+</div>
+
+<h3>6.9 Long-term value creation</h3>
+<p>Schoenmaker and Schramade (2019) give seven guidelines for a company pursuing long-term value creation (LTVC):</p>
+<ol>
+<li>Make the company's purpose a key part of corporate strategy.</li>
+<li>Integrate sustainability and externalities in all functional business areas.</li>
+<li>Communicate long-term goals clearly with all stakeholders.</li>
+<li>Deliver on what you promise.</li>
+<li>Build and maintain the key long-term intangibles needed for transformational change.</li>
+<li>Focus performance measurement on the long term and on meeting the purpose.</li>
+<li>Base incentives for management and employees on meeting long-term objectives, and get rid of short-term variable pay.</li>
+</ol>
+<p>The analysis closes by asking whether the strategy addresses the most material ESG issues and fits the purpose, and then forecasting sales growth, margins and capital spending for ten years.</p>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+SASB (financial) versus GRI (impact), and double materiality as both. Material issues pay, immaterial ones do not. Intangible assets versus resources. The three impact criteria applied to a short case. What each DuPont ratio measures. The seven guidelines, especially long-term incentives instead of short-term variable pay.</div>
+
+<div class="callout link"><span class="h">Connections</span>
+Double materiality returns in chapter 7, where CSRD and ESRS require both lenses, GRI serves impact materiality and ISSB serves financial materiality. Internalisation of externalities is chapter 3; long-term incentives echo chapter 5; investing for LTVC is chapter 8.</div>
+</section>
+
+<hr class="sec">
+
+<section id="k7">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">7 · Metrics and reporting: who is the report for?</h2>
+
+<p class="lead-in">Reporting turns the analysis of chapter 6 into public information, and every framework first answers one question: who is the reader? Investors want to know how sustainability affects the firm; other stakeholders want to know how the firm affects the world. The EU's CSRD asks for both. The exam tests which framework does what, the three tests of the EU Taxonomy, why ESG ratings disagree, and the PwC guest lecture's message that reporting is only worth it when it feeds strategy.</p>
+
+<h3>7.1 The voluntary frameworks</h3>
+<p>Companies report under a mix of voluntary standards and mandatory rules. The voluntary frameworks differ mainly in their reader and their lens:</p>
+<table class="data">
+<tr><th>Framework</th><th>Covers</th><th>Lens and reader</th></tr>
+<tr><td>GRI (Global Reporting Initiative)</td><td>Impacts on the economy, environment and people, topic by topic (e.g. GRI 305 Emissions, 2016)</td><td>Impact materiality; all stakeholders</td></tr>
+<tr><td>Integrated Reporting (&lt;IR&gt;)</td><td>How the firm creates value using six capitals, in one report</td><td>Links financial and sustainability information</td></tr>
+<tr><td>TCFD</td><td>Climate-related risks and opportunities and their governance, disclosed in annual financial filings</td><td>Financial materiality, "consistent with how companies determine the materiality of other information"; investors and companies</td></tr>
+<tr><td>CDP (Carbon Disclosure Project)</td><td>GHG emissions, water, forests and supply chain, via CDP's online platform; aligned with TCFD</td><td>Investors, companies, cities, states and regions</td></tr>
+<tr><td>ISSB (IFRS)</td><td>Investor-focused sustainability standards, aligned with TCFD</td><td>Financial materiality; investors</td></tr>
+</table>
+
+<div class="callout mech"><span class="h">One question sorts the frameworks</span>
+Ask who the report is for. If it is investors, the framework asks how sustainability issues affect the firm's cash flows and risk (outside-in, financial materiality): SASB, ISSB and TCFD. If it is all stakeholders, it asks how the firm affects people and planet (inside-out, impact materiality): GRI. CSRD in the EU requires both lenses at once, which is double materiality from chapter 6.</div>
+
+<h3>7.2 Integrated Reporting and the six capitals</h3>
+<p>&lt;IR&gt; widens the view from the two capitals firms usually report on, financial and manufactured, to six.</p>
+<table class="data">
+<tr><th>Capital</th><th>What it is</th></tr>
+<tr><td>Financial</td><td>Funds available to the firm: debt, equity, grants, retained earnings</td></tr>
+<tr><td>Manufactured</td><td>Physical objects used in production: buildings, equipment, infrastructure</td></tr>
+<tr><td>Intellectual</td><td>Knowledge-based intangibles: patents, copyrights, software, systems, procedures</td></tr>
+<tr><td>Human</td><td>People's competencies, capabilities, experience and motivation to innovate</td></tr>
+<tr><td>Social and relationship</td><td>Relationships within and between communities and stakeholders</td></tr>
+<tr><td>Natural</td><td>Renewable and non-renewable environmental resources and processes</td></tr>
+</table>
+<p>The evidence in the lecture sorts firms into four groups: no ESG reporting, stand-alone ESG reporting, ESG reporting in the annual report, and &lt;IR&gt;. &lt;IR&gt; beats no ESG reporting and ESG reporting in the annual report, but firms gain nothing by switching from a stand-alone ESG report to &lt;IR&gt;. One reading: a dedicated ESG report already puts the information in front of users, so repackaging it adds little.</p>
+
+<h3>7.3 TCFD and CDP</h3>
+<p>The Task Force on Climate-related Financial Disclosures (TCFD, 2017) asks for disclosure in four pillars:</p>
+<table class="data">
+<tr><th>Pillar</th><th>What the firm discloses</th></tr>
+<tr><td>Governance</td><td>The board's oversight of climate-related risks and opportunities, and management's role</td></tr>
+<tr><td>Strategy</td><td>The actual and potential impact of these risks and opportunities on the business, strategy and financial planning over the short, medium and long term, and the strategy's resilience under climate scenarios, including a 2°C or lower scenario</td></tr>
+<tr><td>Risk management</td><td>How climate risks are identified, assessed and managed, and how this fits overall risk management</td></tr>
+<tr><td>Metrics and targets</td><td>The metrics used, Scope 1, Scope 2 and, if appropriate, Scope 3 emissions, and targets with performance against them</td></tr>
+</table>
+<p>Its seven principles for effective disclosure say disclosures should be relevant; specific and complete; clear, balanced and understandable; consistent over time; comparable within a sector, industry or portfolio; reliable, verifiable and objective; and timely. <b>CDP</b> collects carbon, water and forest data through an online platform and, unlike TCFD, also covers cities, states and regions.</p>
+
+<h3>7.4 Mandatory reporting in the EU</h3>
+<p>The EU has three instruments: the <b>EU Taxonomy</b>; the Non-Financial Reporting Directive (<b>NFRD</b>, about 12,000 companies), replaced by the Corporate Sustainability Reporting Directive (<b>CSRD</b>, about 50,000); and the <b>SFDR</b> for asset managers, pension funds and insurers (chapter 8).</p>
+<p>The <b>Taxonomy</b> defines which economic activities count as environmentally sustainable. Its goals include meeting the EU's 2030 climate and energy targets, protecting investors from greenwashing, and shifting investment to where it is most needed. An activity is <b>taxonomy-aligned</b> only if it passes all three tests, measured by technical screening criteria per activity and objective:</p>
+<ol>
+<li><b>Substantial contribution</b> to at least one of six environmental objectives: climate change mitigation, climate change adaptation, water and marine resources, circular economy, pollution prevention and control, biodiversity and ecosystems.</li>
+<li><b>Do no significant harm</b> (DNSH) to any of the other five.</li>
+<li><b>Minimum safeguards:</b> the OECD Guidelines for Multinational Enterprises and the UN Guiding Principles on Business and Human Rights.</li>
+</ol>
+
+<div class="worked"><span class="wh">Illustration: a wind farm on a wetland</span>
+<p>A utility builds a wind farm, a substantial contribution to climate change mitigation, and meets the minimum safeguards. But construction drains a protected wetland, significant harm to biodiversity and ecosystems. It fails test 2, so the activity is <b>not</b> taxonomy-aligned. One strong contribution cannot buy off harm elsewhere.</p>
+</div>
+
+<p><b>CSRD</b> companies report under the European Sustainability Reporting Standards (<b>ESRS</b>), based on <b>double materiality</b> and on their <b>IROs</b>: impacts, risks and opportunities. PwC showed the resulting structure: general disclosures (ESRS 2), then environmental (e.g. E1 Climate change), social (e.g. S1 Own workforce) and governance (G1 Business conduct) standards, plus the Taxonomy disclosures. The management report moves from vague lines such as "We do not pollute the external environment more than the norm in our industry" to a standardised structure based on mandatory standards.</p>
+<p>On 26 February 2025 the Commission adopted the <b>Omnibus</b> simplification package, which PwC described as a drastic change in scope:</p>
+<table class="data">
+<tr><th>Pre-Omnibus</th><th>Who reports</th></tr>
+<tr><td>Wave 1</td><td>Large public-interest listed companies, banks, insurers and credit institutions with at least 500 employees and turnover above EUR 50m or balance sheet above EUR 25m</td></tr>
+<tr><td>Wave 2</td><td>Companies meeting two of three: 250 employees, turnover above EUR 50m, balance sheet above EUR 25m</td></tr>
+<tr><td>Wave 3</td><td>Listed SMEs meeting two of three: 10–250 employees, turnover EUR 10–50m, balance sheet EUR 5–25m</td></tr>
+<tr><th>Post-Omnibus</th><th></th></tr>
+<tr><td>From financial year 2027</td><td>At least 1,000 employees and net turnover above EUR 450m. The Commission estimates that 80% of the companies previously covered fall outside.</td></tr>
+</table>
+<p>These rules are still moving; the table is the state as PwC presented it in September 2026.</p>
+
+<h3>7.5 Does reporting work?</h3>
+<p>A review of greenwashing research in the lecture finds that an <b>entirely voluntary</b> CSR approach facilitates greenwashing, and proposes a <b>combination of voluntary and mandatory</b> elements to prevent it. Krueger, Sautner, Tang and Zhong (2021) study the effects of mandatory ESG disclosure.</p>
+<p>The HBR article "Overselling Sustainability Reporting" lists the problems. For reporting: no mandates or auditing, specious targets, opaque supply chains, complexity, confusing information, and inattention to developing countries. For sustainable investing: unhelpful definitions of "sustainable", unreliable ratings, lack of comparability, and difficulty judging and scaling real impact. Its remedy starts with <b>"measure less, better"</b>: fewer frameworks, with reports mandated and audited by an empowered referee.</p>
+
+<h3>7.6 ESG ratings</h3>
+<p>The lecture follows ESG data from companies to data providers and investors, with MSCI's rating calculation as an example. Kotsantonis (2019) lists what goes wrong:</p>
+<ul>
+<li>Companies report in varied and inconsistent ways.</li>
+<li><b>Benchmarking</b>, the choice of peers, largely decides a company's ranking.</li>
+<li>ESG data providers disagree a lot, and the <b>disagreement increases with the quantity of publicly available information</b>.</li>
+</ul>
+<p>A critique quoted in the lecture sums it up: the ratings "are too subjective, and the industry overpromises and underdelivers". New developments include open-data initiatives such as OS-Climate and the Terravera Foundation.</p>
+
+<div class="callout mistake"><span class="h">Traps for true/false</span>
+"More disclosure makes ESG ratings converge" is false: disagreement <i>increases</i> with more public information, since raters have more to interpret differently. "A taxonomy-aligned activity must contribute to all six objectives" is false: at least one, with no significant harm to the rest. "Voluntary reporting is the best defence against greenwashing" is false: purely voluntary reporting facilitates it.</div>
+
+<h3>7.7 PwC guest lecture: from reporting to steering</h3>
+<p><b>The trust gap.</b> 94% of investors think corporate reporting contains unsupported sustainability claims, i.e. greenwashing (PwC Global Investor Survey 2023). CSRD's mandatory, assured reporting is meant to close it.</p>
+<p><b>"It's really not about the reporting."</b> PwC treats three approaches as equally important: reporting- and compliance-driven, strategy-driven and transformation-driven. The work must run all the way from strategy to reporting. Sustainability should be part of the core strategy, not a separate sustainability strategy beside it, and "fluffy" targets no longer stand: a target needs a base year and a long-term target state. CSRD also makes the requirements for a climate transition plan more explicit.</p>
+<p><b>"You can't manage what you don't measure"</b> (the slide credits Peter Drucker). Data move up a ladder: <b>reporting</b> (what has happened?), <b>monitoring</b> (what happens right now?) and <b>steering</b> (what will happen?), from regulatory compliance through operational decisions to strategic decisions. PwC's reporting survey links the value firms get from reporting to using it to inform other business operations.</p>
+<p><b>Climate risk is a today issue.</b> Global losses from natural disasters were estimated at USD 417 billion in 2024. Physical impacts will worsen exponentially rather than linearly, hitting both the balance sheet (assets) and the P&amp;L (supply chains). A firm's carbon footprint is irrelevant to its exposure: physical risk arrives through own operations, supply chains and customer markets. Myths to bust include "it is ages away, 2050", "it will happen somewhere else" and "the financial impact will be immaterial".</p>
+<p><b>First years of CSRD.</b> The first 250 reports show material topics differing across sectors, so the materiality assessment made reports relevant for their sector. About 30% of the CSRD reports were voluntary, from countries that had not transposed the directive or had delayed it. The Norwegian cost estimates (NOU 2023:15) point to significant costs. Data quality is the practical weak spot: unclear indicator definitions, little standardisation across borders, many contributors, fragmented systems, manual spreadsheets and weak documentation. PwC's advice: keep financial and sustainability reporting consistent from the start, focus on material matters, use digital tools critically and build multidisciplinary teams. The goal is a just transition, "not the sustainability statement in itself".</p>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Which framework serves which reader and lens (GRI impact; SASB, ISSB and TCFD financial; CSRD double). The three Taxonomy tests applied to a case. The four TCFD pillars. NFRD to CSRD, and the Omnibus narrowing of scope. Why ESG ratings disagree. From PwC: the trust gap, and why a low carbon footprint does not mean low physical climate risk.</div>
+
+<div class="callout link"><span class="h">Connections</span>
+Double materiality and the SASB/GRI split come from chapter 6; the six capitals echo the enlarged production function in chapter 3. SFDR and investors' use of ratings are chapter 8; how ESG information reaches prices is chapter 9.</div>
+</section>
+
+<h2 class="part">Part III — Investing and financing sustainability</h2>
+
+<section id="k8">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">8 · Investing for long-term value creation</h2>
+
+<p class="lead-in">This chapter moves from companies to the investors who own them: what an ESG constraint does to a portfolio, how the investment industry earns its money, the six strategies of sustainable investing, and why sustainability struggles to enter mainstream portfolios. Expect short fund descriptions on the exam, with the question which strategy, SFDR article or barrier they illustrate.</p>
+
+<h3>8.1 Portfolio optimisation with an ESG constraint</h3>
+<p>Markowitz (1952) frames investing as a trade-off: maximise expected return for a given level of risk. The portfolios that do this form the <b>efficient frontier</b>, and diversification pushes it outwards. In the lecture's example, stock A returns 10% with 7% volatility, stock B returns 5% with 3% volatility, and their correlation is 0.5. The investor maximises expected return subject to a risk tolerance.</p>
+<p>Now add emissions: A emits 30 tons, B 20 tons, and the weighted emissions of the portfolio must stay below an emission tolerance. That is one more constraint in the same problem. Pedersen, Fitzgibbons &amp; Pomorski (2021) trace out the result, the <b>ESG-efficient frontier</b>: the best attainable Sharpe ratio for each level of portfolio ESG.</p>
+
+<div class="callout mech"><span class="h">Why a constraint can never raise the best Sharpe ratio</span>
+A constrained investor chooses from a smaller menu, and the best item on a smaller menu cannot beat the best on the full menu. If the constraint does not bind, it costs nothing; if it binds, it costs return or adds risk. With a cap of 25 tons (an illustrative number, not from the lecture), at most half the portfolio can be in A, since 0.5 × 30 + 0.5 × 20 = 25. If ESG information instead helps predict returns, it belongs in the forecasts, not in a constraint: that is ESG integration (chapter 9).</div>
+
+<h3>8.2 The investment industry</h3>
+<p>Investors' money reaches companies through an <b>investment chain</b>. <b>Beneficiaries or clients</b> own a proportionate share of the assets held by <b>asset owners</b> (pension funds, insurers, investment funds). Asset owners hire <b>asset managers</b> to manage portfolios on their behalf, and the managers buy the shares and bonds of <b>companies</b>. The two biggest managers on the lecture's 2020 list ran USD 7.4 and 6.2 trillion, against USD 1.4 trillion for Norges Bank Investment Management (NBIM).</p>
+<p>An investment company lives on <b>fees</b> (management, performance, distribution, transaction, advisory and others), and its costs are mainly staff, distribution, marketing and technology. Income grows with assets under management, not with what the investments achieve in the real economy. Its <b>material issues</b> follow: selling practices and product labelling, employee engagement and diversity, product design, business ethics and systemic risk management. On top come the material issues of every company it holds, so an asset manager's materiality depends on its portfolio.</p>
+
+<h3>8.3 SFDR: Article 8 and Article 9 funds</h3>
+<p>The EU <b>Sustainable Finance Disclosure Regulation (SFDR)</b> is the investor-side counterpart to the corporate reporting rules in chapter 7.</p>
+
+<table class="data">
+<tr><th></th><th>Article 8</th><th>Article 9</th></tr>
+<tr><td>What the fund does</td><td>Promotes, «among other characteristics», environmental or social characteristics</td><td>Has sustainable investment as its objective: companies whose products contribute positively, that do no significant harm and follow good governance</td></tr>
+<tr><td>Typical strategies</td><td>Exclusions + ESG integration + engagement</td><td>Mostly thematic or impact focus aligned with the SDGs, often with active engagement</td></tr>
+</table>
+
+<p>Article 8 and 9 funds held EUR 7.1 trillion, 58.8% of the EU fund universe (Morningstar, December 2025). Recently many funds have been reclassified from Article 9 to Article 8, to avoid accusations of greenwashing.</p>
+
+<div class="callout mistake"><span class="h">Trap: which article is stricter?</span>
+Article 9: sustainability is the fund's objective, not one characteristic among others. A fund moving from 9 to 8 lowers its claim; it does not raise its ambition. SFDR is a disclosure regulation, so the article reflects what the fund claims about itself, which is why funds downgraded when the claims became hard to defend.</div>
+
+<h3>8.4 Sustainable and responsible investing (SRI)</h3>
+<p><b>SRI</b> considers both financial return and social or environmental good, to bring about positive change. It favours practices such as environmental stewardship and human rights, and avoids «sin» industries such as tobacco, gambling, weapons and fossil fuels. It spans asset classes: listed and private equity, debt (green, social, sustainability and sustainability-linked bonds), infrastructure, real estate, and real assets such as forests.</p>
+<p>Global ESG assets passed USD 30 trillion in 2022 and are on track to pass USD 40 trillion by 2030 (Bloomberg Intelligence). Why do investors buy? Riedl &amp; Smeets (2017) point to social preferences and signalling. Hartzmark &amp; Sussman (2019) find that fund flows respond to Morningstar's sustainability ratings. In the survey of Amel-Zadeh &amp; Serafeim (2018), 82.1% of investors consider ESG information. Chapter 1's split again: much of the demand is about <i>values</i>, not only <i>value</i>.</p>
+
+<h3>8.5 The six SRI strategies</h3>
+<p>SRI is mostly done by institutional investors. The lecture uses the CFA Institute and GSIA definitions; BlackRock groups the styles into <b>avoid</b> (screen out) and <b>advance</b> (ESG, thematic, impact). This is the one table to know.</p>
+
+<table class="data">
+<tr><th>Strategy</th><th>What it does</th><th>Lecture example</th><th>Avoid or advance</th></tr>
+<tr><td><b>Negative / exclusionary screening</b></td><td>Excludes investments that meet «undesirable» criteria set by ethics or norms; also avoids risk-prone sectors (tobacco regulation, fossil stranded assets)</td><td>BlackRock ICS Euro Liquid Environmentally Aware Fund</td><td>Avoid</td></tr>
+<tr><td><b>Positive / best-in-class screening</b></td><td>Admits only firms that clear an ESG ranking hurdle <i>within their own sector</i>, usually scored with ESG ratings</td><td>iShares MSCI World SRI UCITS ETF (negative and positive screens)</td><td>Advance</td></tr>
+<tr><td><b>Thematic investing</b></td><td>Top-down: picks assets expected to benefit from medium- to long-term trends, such as clean technology or sustainable agriculture</td><td>Xtrackers MSCI Global SDG 6 Clean Water &amp; Sanitation ETF</td><td>Advance</td></tr>
+<tr><td><b>ESG integration</b></td><td>Seeks ESG information, judges its materiality and feeds the material part into cash-flow forecasts and cost-of-capital estimates</td><td>BlackRock's process</td><td>Advance</td></tr>
+<tr><td><b>Stewardship</b> (active ownership)</td><td>Uses investor rights and influence (engagement, voting) to protect and enhance long-term value, including shared social and environmental assets</td><td>LGIM and Glencore (below)</td><td>Not in the grid: voice, not selection</td></tr>
+<tr><td><b>Impact investing</b></td><td>Intends positive, measurable social or environmental impact alongside a financial return, and measures it; mostly private equity, concentrated and long-horizon</td><td>Vital Capital</td><td>Advance</td></tr>
+</table>
+
+<div class="callout mistake"><span class="h">Trap: screening, best-in-class and integration are not the same</span>
+Best-in-class ranks firms <i>within</i> each sector, so the best oil producer can make the cut; it does not exclude sectors. Thematic investing works top-down from a trend, not from a ranking. ESG integration excludes nothing by itself: it changes the forecast cash flows and discount rate, so a low-ESG firm can still be bought if its price is low enough.</div>
+
+<div class="worked"><span class="wh">Case: LGIM's stewardship of Glencore</span>
+<p>Legal &amp; General Investment Management (LGIM) engaged with the miner Glencore on climate from 2016, asking for transparency on thermal coal and alignment with net zero. In 2023 it filed a shareholder resolution asking Glencore to disclose how its projected thermal-coal production aligned with the Paris goals. LGIM judged progress insufficient, and in 2024 Glencore went on the divestment list of selected LGIM funds, around GBP 176 billion.</p>
+<p>The lesson: voice first, then a resolution, and exit as the final escalation. The threat of exit gives voice its force (chapter 5). Dimson, Karakaş &amp; Li study active ownership (2015) and engagements coordinated among investors (2020).</p>
+</div>
+
+<div class="callout link"><span class="h">Link: the group project</span>
+The project asks for one primary strategy from this table, and allows a combination if it is coherent. The brief lists five: impact investing is left out. Presumably because it is mostly done in private markets, while the portfolio must hold listed stocks.</div>
+
+<h3>8.6 Three barriers to integrating sustainability</h3>
+<p><b>1. Overreliance on market metrics.</b> Schoenmaker &amp; Schramade argue that current practice leaves no role for E and S. Three layers reinforce each other. <i>Pricing</i>: the efficient market hypothesis (EMH) says all relevant information is in prices and arbitrage keeps them right, so superior insight cannot pay and everyone should invest passively. <i>Allocation</i>: modern portfolio theory and CAPM measure risk by the volatility of past returns, which implies diversification and passive investing. <i>Performance measurement</i>: benchmarking to a market index. Anomalies challenge these ideas, yet they still dominate thinking, and the lecture's chart shows money moving from active to passive funds.</p>
+
+<div class="callout mech"><span class="h">Why passive investing sidelines sustainability</span>
+Active investing always means holding a different view on risks or cash flows than the market, and a sustainability view is such a view. A benchmark investor sees any deviation for sustainability reasons as relative risk. A passive investor also loses a governance tool: it can vote, its room to engage is uncertain, and it cannot exit (the «Wall Street Walk»), because it must hold the index.</div>
+
+<p><b>2. Long investment chains.</b> The stylised chain looks simple, but every link is a principal–agent relationship with its own horizon and incentives (chapter 5). NBIM alone has 111 external mandates, including BNY Mellon and BlackRock.</p>
+<p><b>3. Limits of ESG tools.</b> ESG ratings and indices are add-ons that do not address core issues. By design they give little weight to materiality, rely on reported data and policies only, are industry-neutral and focus on operations rather than products. They also favour large companies, produce intuitively wrong scores and miss material weaknesses.</p>
+
+<h3>8.7 Long-term value creation (LTVC)</h3>
+<p>Schoenmaker &amp; Schramade contrast traditional investing with investing for long-term value creation: SF 1.0 against SF 2.0 (chapter 1).</p>
+
+<table class="data">
+<tr><th>Dimension</th><th>Traditional investing</th><th>Long-term value creation</th></tr>
+<tr><td>Typology</td><td>SF 1.0</td><td>SF 2.0</td></tr>
+<tr><td>Market framework</td><td>Efficient markets hypothesis</td><td>Adaptive markets hypothesis</td></tr>
+<tr><td>Pricing of S and E</td><td>Irrelevant or already priced</td><td>Priced as market participants learn</td></tr>
+<tr><td>Value maximisation</td><td>Max F</td><td>Max IV = F + S + E</td></tr>
+<tr><td>Value indicator</td><td>Information ratio, Sharpe, alpha</td><td>DCF with scenarios for internalisation</td></tr>
+<tr><td>Investment chain</td><td>Long and complicated</td><td>Short and simple</td></tr>
+<tr><td>Portfolio</td><td>Extremely diversified</td><td>More concentrated</td></tr>
+<tr><td>Dialogue with companies</td><td>Limited</td><td>Deep</td></tr>
+<tr><td>Performance horizon</td><td>12 months</td><td>Years or a decade</td></tr>
+</table>
+
+<p>The <b>six conditions for LTVC</b> answer the barriers: (1) long investment horizons; (2) active management in a concentrated portfolio; (3) effective engagement; (4) performance analysis of value added in the real economy; (5) long-term alignment of the mandate between asset owner and asset manager; (6) keep the investment chain short. Conditions 1, 2 and 4 counter the reliance on market metrics, 3 restores voice, and 5 and 6 fix the chain.</p>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Match a fund description to a strategy (best-in-class versus exclusion versus integration is the favourite trap). Know Article 8 from Article 9, and why funds were reclassified. Know that an ESG constraint can never raise the best Sharpe ratio, why a passive investor cannot exit, and the LTVC profile: concentrated, not diversified; years, not 12 months.</div>
+
+<h3>8.8 The UN Principles for Responsible Investment</h3>
+<p>The <b>UN PRI</b> works towards a sustainable global financial system by encouraging adoption of its Principles and collaboration on them, by fostering good governance, integrity and accountability, and by addressing obstacles in market practices, structures and regulation.</p>
+</section>
+
+<hr class="sec">
+
+<section id="k9">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">9 · ESG integration and asset prices</h2>
+
+<p class="lead-in">ESG reaches a stock price through expected cash flows and through the discount rate. This chapter follows both channels and asks what they imply for returns, which leads to the most important distinction in the course: a lower expected return can come with a higher realised return. It ends by linking investor objectives to strategies, and strategies to types of investor.</p>
+
+<h3>9.1 Two channels from ESG to firm value</h3>
+<p>Externalities, intangibles and material ESG issues (chapters 3 and 6) reach firm value through two channels. The <b>cash-flow channel</b> runs through revenues, costs (including litigation), capital expenditures and stranded assets. The <b>cost-of-capital channel</b> runs through the discount rate. In a DCF, value is the present value of free cash flows discounted at the cost of capital, so ESG integration means asking which value driver each material issue moves: sales growth, margins, capital expenditures or the cost of capital. The lecture's materiality table does this issue by issue: how the company performs on it, whether it gives a competitive advantage or disadvantage, and which value driver it affects. Part 2 of the group project asks for exactly this, stock by stock.</p>
+
+<div class="worked"><span class="wh">Case: a DCF with ESG adjustments (CESGA example)</span>
+<p>The analyst takes an ordinary five-year forecast and corrects three lines. Revenues fall in the first years because of litigation over poor treatment of employees (S), then rise as better products win market share (E). Taxes rise with additional payments linked to tax avoidance (G). Capex rises to develop better electric batteries (E). The ESG-adjusted equity value is 16 per share, against 20 without the corrections.</p>
+<p>Each ESG issue lands in a specific line of the model. That is what integration means, as opposed to an ESG score placed next to the valuation.</p>
+</div>
+
+<h3>9.2 The cost-of-capital channel</h3>
+<p>The evidence points one way. Firms with better CSR scores have a lower implied cost of capital (El Ghoul, Guedhami, Kwok &amp; Mishra 2011). Firms with good CSR performance see their cost of capital fall after they start disclosing CSR activities (Dhaliwal, Li, Tsang &amp; Yang 2011). Superior CSR performance brings better access to finance (Cheng, Ioannou &amp; Serafeim 2014). Firms with better environmental risk management have a lower cost of capital, shift from equity to debt and gain larger tax benefits from the extra debt (Sharfman &amp; Fernando 2008).</p>
+<p>That sets up a puzzle. A lower cost of capital means investors demand a lower return. Yet headlines claim that ESG stocks outperform the market. Can both be true?</p>
+
+<h3>9.3 Expected versus realised returns</h3>
+<p>Pástor, Stambaugh &amp; Taylor (2022), «Dissecting green returns», say yes. Green assets should have <b>lower expected returns</b> than brown ones, for two reasons:</p>
+<ul>
+<li><b>Taste premium.</b> Investors like green assets. Higher demand pushes prices up and returns down.</li>
+<li><b>Risk premium.</b> Greener assets are a better hedge against climate risk. Safer assets earn lower returns.</li>
+</ul>
+<p>But green assets can have <b>higher realised returns</b> when demand shifts unexpectedly towards green. Investors may want more green assets, which drives up their prices directly. Or consumers may want more green products, for example because of regulation, which raises green firms' profits and so their prices. Falling demand for brown assets or products works the same way. Eventually a correction happens: once the shift is in the price, green stocks earn their lower expected return again.</p>
+<p>The evidence: a green-minus-brown (GMB) portfolio earned a cumulative realised return of 174%, with a monthly Sharpe ratio of 0.33 against 0.30 for the stock market in the same bull market. The authors then purge the unanticipated shocks to climate concerns from the realised return, to estimate what green stocks were expected to earn. This counterfactual GMB is essentially flat: without strengthening climate concerns, green would not have beaten brown. Bonds show the same pattern: the greenium, the lower yield on green bonds, widened.</p>
+
+<div class="callout mistake"><span class="h">Trap: high past returns are not high expected returns</span>
+Realised return = expected return + surprise. Green beat brown because of a surprise, a repricing as climate concerns grew, not because green carries a higher expected return. The repricing itself lowers future expected returns, since the same cash flows now cost more. So «green outperformed, so green is a free lunch» and «ESG lowers the cost of capital, so ESG stocks should earn more» are both false. This is also part 5 of the group project: is the sustainability story already priced? If it is, today's buyer gets the lower expected return.</div>
+
+<div class="worked"><span class="wh">Illustration: one repricing, two answers (made-up numbers)</span>
+<p>A green stock pays 5 a year forever. Investors discount it at 10%, so it costs 5 / 0.10 = 50. Climate concerns rise and investors now accept 8%: the price jumps to 5 / 0.08 = 62.5. That year's realised return is (62.5 − 50 + 5) / 50 = 35%. From then on the expected return is 8%, below the 10% on a comparable brown stock. High realised return, low expected return, same stock.</p>
+</div>
+
+<h3>9.4 CAPM, APT and whether ESG is a factor</h3>
+<p>Asset pricing models give the discount rate: the cost of capital for an NPV, and the expected return used to price a share. In the <b>CAPM</b>, expected return is R<sub>f</sub> + β(E(R<sub>m</sub>) − R<sub>f</sub>), which traces the <b>security market line (SML)</b>. An asset whose expected return is too low for its beta lies below the line: it is <b>overpriced (α &lt; 0)</b>. Its price falls, which raises its expected return back to the SML. The <b>APT</b> generalises this to several systematic factors: expected return is the risk-free rate plus, for each factor, the asset's sensitivity (β) times the factor's premium (λ). Only undiversifiable risk earns a premium.</p>
+<p>ESG could matter for prices through <b>risk</b> (are better-ESG stocks less exposed to market risk, or is ESG a separate systematic factor?) or through <b>mispricing</b> (are better-ESG stocks overpriced, α &lt; 0, or underpriced, α &gt; 0?). Either way, measuring ESG is the first challenge.</p>
+<p>Research Affiliates sets three tests for a factor: it should be grounded in a long and deep academic literature, robust across definitions and robust across geographies. ESG does not clearly pass. Some studies find that ESG adds to returns (Clark, Feiner &amp; Viehs 2015; Friede, Busch &amp; Bassen 2015; Khan, Serafeim &amp; Yoon 2016), others that it detracts (Brammer, Brooks &amp; Pavelin 2006; Fabozzi, Ma &amp; Oliphant 2008; Hong &amp; Kacperczyk 2009), and there is no agreed risk-based or behavioural explanation. Their own long-short strategies in Europe, July 2009 to June 2020:</p>
+
+<table class="data">
+<tr><th>Long-short strategy</th><th class="n">Average return per year</th></tr>
+<tr><td>ESG</td><td class="n">−0.1%</td></tr>
+<tr><td>Environmental</td><td class="n">2.2%</td></tr>
+<tr><td>Social</td><td class="n">−0.9%</td></tr>
+<tr><td>Governance</td><td class="n">−1.9%</td></tr>
+</table>
+
+<p>None is statistically significant. The debate is still open.</p>
+
+<h3>9.5 From investor objectives to strategies</h3>
+<p>ESG portfolio management combines investor preferences, asset pricing models and ESG strategies. Schoenmaker &amp; Schramade turn preferences into four objectives, with FV = financial value, SEV = social-environmental value and IV = integrated value.</p>
+
+<table class="data">
+<tr><th>Objective</th><th>Strategy</th><th>Typology (chapter 1)</th></tr>
+<tr><td>Max FV</td><td>Risk/return optimisation</td><td>Finance as usual</td></tr>
+<tr><td>Max FV subject to SEV ≥ minimum</td><td>Exclusionary screening</td><td>SF 1.0</td></tr>
+<tr><td>Max IV = FV + SEV</td><td>ESG integration</td><td>SF 2.0</td></tr>
+<tr><td>Max SEV subject to FV ≥ minimum</td><td>Impact investing</td><td>SF 3.0</td></tr>
+</table>
+
+<div class="callout link"><span class="h">Link: the same ladder as chapter 1</span>
+This is chapter 1's typology applied to a portfolio. SF 1.0 maximises F subject to S and E: here, Max FV subject to a minimum SEV, which is the emission-constrained portfolio of chapter 8. SF 2.0 optimises I = F + S + E: here, Max IV. SF 3.0 optimises S and E subject to F: here, Max SEV subject to a minimum FV. Down the ladder, social and environmental value moves from a constraint, to an equal term, to the goal, while financial value moves from the goal to a constraint. Part 1 of the group project asks which of these objectives your strategy serves.</div>
+
+<p>In practice, the survey of Amel-Zadeh &amp; Serafeim (2018) finds engagement most used (37.1%), then full integration into stock valuation (34.4%), negative screening (30.0%) and thematic investment (20.8%); 16.6% do not use ESG information at all. The lecture also counts overlay or portfolio tilt, and risk factor investing, as variants of thematic investing.</p>
+
+<h3>9.6 Engage or divest?</h3>
+<p>Gollier &amp; Pouget (2014) contrast two ways investors can change firms. They can <b>vote with their feet</b>: responsible investors avoid polluters, which raises the polluters' cost of capital. Or they can use <b>activism</b>. Their «washing machine» result: a large activist investor can earn positive abnormal returns by buying non-responsible companies and turning them into responsible ones. It works only with a long horizon and a credible pro-social orientation.</p>
+
+<div class="callout mech"><span class="h">Why the washing machine pays</span>
+A polluter has a higher cost of capital, so it trades cheaply relative to its cash flows. An activist who buys it and makes it responsible removes the reason for the discount, and the price rises. The gain is a realised return from a repricing, the mechanism of 9.3, except that the investor causes the shift instead of waiting for it.</div>
+
+<p><b>Does divestment work?</b> Cohen, Gurun &amp; Nguyen (2020), «The ESG-Innovation Disconnect», find that oil, gas and energy firms, with low ESG scores and often excluded from ESG funds, are key green innovators: they produce more and higher-quality green patents. Blanket exclusion may cut capital from the firms doing the most green innovation, and reward-based incentives may work better.</p>
+
+<h3>9.7 Which method suits which investor?</h3>
+<p>Public equity investors come in three types: <b>fundamental</b> (choose on business fundamentals), <b>quant</b> (choose on quantitative factors) and <b>passive</b> (choose an index). Schoenmaker &amp; Schramade rate each method for each type.</p>
+
+<table class="data">
+<tr><th>Method</th><th>Fundamental</th><th>Quant</th><th>Passive</th><th>Why</th></tr>
+<tr><td>Exclusionary screening</td><td>High</td><td>Medium–high</td><td>Medium–high</td><td>Can be done on scores</td></tr>
+<tr><td>Best in class</td><td>High</td><td>Medium</td><td>Medium–low</td><td>On scores, to a degree</td></tr>
+<tr><td>Thematic investing</td><td>High</td><td>Medium</td><td>Low</td><td>Needs fundamental analysis</td></tr>
+<tr><td>Active ownership</td><td>High</td><td>Low</td><td>Low</td><td>Needs fundamental analysis; can be bought externally, with loss of quality</td></tr>
+<tr><td>Impact investing</td><td>High</td><td>Very low</td><td>Very low</td><td>Needs fundamental analysis</td></tr>
+<tr><td>ESG integration</td><td>High</td><td>Very low</td><td>Not at all</td><td>Needs fundamental analysis</td></tr>
+</table>
+
+<p>Only screening can run on scores; everything else needs fundamental analysis. The fundamental investor can use all six methods, while the passive investor is essentially limited to screening. For impact investing, the lecture points to the Global Impact Investing Network (GIIN).</p>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Expected versus realised returns above all: why green can outperform while having a lower expected return. Also: sort an ESG issue into the cash-flow or the cost-of-capital channel; read α &lt; 0 as overpriced; know that the evidence on ESG as a factor is mixed; match each portfolio objective to its strategy and SF typology; know which methods suit a passive investor; and know the washing machine and the case against blanket divestment.</div>
+</section>
+
+<hr class="sec">
+
+<section id="k10">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">10 · Beyond equity: bonds, loans and other asset classes</h2>
+
+<p class="lead-in">A lender looks at sustainability from the downside: can an ESG problem stop the borrower from repaying? This chapter explains that credit-risk view, separates the two families of labelled bonds (use of proceeds versus sustainability-linked), and covers the greenium, private equity and real assets. The labelled-bond distinction is the likeliest exam question.</p>
+
+<div class="callout warn"><span class="h">Provisional chapter</span>
+Written before the lecture slides for this topic were available, from the
+syllabus and the textbook chapter's standard content. It will be revised when
+the lecture is out. Treat the concepts as reliable and the emphasis as a guess.</div>
+
+<h3>10.1 Why debt investors see ESG as downside risk</h3>
+<p>A bondholder or lender is promised fixed coupons and the principal back. If the firm thrives, the lender still gets only what was promised; if it fails, the lender loses. The payoff is <b>asymmetric</b>: capped upside, full downside. Sustainability therefore enters debt analysis mainly as <b>credit risk</b>. Does an ESG issue raise the probability of default, or cut what the lender recovers after a default, for example because the collateral is a coal plant nobody wants?</p>
+
+<div class="callout mech"><span class="h">When ESG matters most for a bond</span>
+Stranded assets, litigation or a carbon price take time to hit cash flows, and they only hurt a lender if they push the borrower towards default. So ESG matters most for <b>long maturities</b> (the risk has time to materialise before repayment) and <b>weak credit quality</b> (the issuer is already close to default). For a short bond from a strong issuer, even a serious ESG problem rarely threatens repayment.</div>
+
+<p>Bondholders do not vote, so their leverage comes when the issuer needs new money: at issuance and refinancing they set the price and the covenants. For <b>sovereign bonds</b> the same logic applies to countries: governance (institutions, corruption, rule of law), social stability and exposure to climate change or fossil-fuel revenues all affect a state's ability to repay.</p>
+
+<h3>10.2 Use-of-proceeds bonds: green, social and sustainability</h3>
+<p>A <b>green bond</b> is an ordinary bond whose proceeds are earmarked for eligible green projects, such as renewable energy, energy efficiency, clean transport or green buildings. A <b>social bond</b> earmarks the money for social projects (affordable housing, access to health care or education), and a <b>sustainability bond</b> finances a mix of the two. The label says where the money goes. In the standard case the bond is still a claim on the whole issuer, so its credit risk is the issuer's credit risk, not the project's.</p>
+<p>The market runs on voluntary guidelines, chiefly ICMA's Green Bond Principles (use of proceeds, project selection, management of proceeds, reporting), usually checked by an external reviewer. The EU's voluntary European Green Bond Standard ties the proceeds mainly to taxonomy-aligned activities (chapter 7; general background, not from the lecture).</p>
+
+<div class="callout mistake"><span class="h">Trap: a green label is not a greener firm</span>
+Money is fungible: a firm can fund green projects it would have done anyway with a green bond and spend the freed-up money on anything. The label proves allocation, not additionality; an oil company can issue a green bond without changing its overall emissions. Judge the issuer, not just the bond.</div>
+
+<h3>10.3 Sustainability-linked bonds</h3>
+<p>A <b>sustainability-linked bond (SLB)</b> turns the logic around. The proceeds can be used for <b>general corporate purposes</b>. What is tied to sustainability is the bond's terms: the issuer chooses key performance indicators (KPIs), such as emission intensity, and sets sustainability performance targets. If a target is missed by the observation date, the coupon usually <b>steps up</b>, so the issuer pays a penalty. SLBs suit firms in transition, such as cement or steel producers, which have few separable green projects but can commit to firm-level targets. Their weak spots are easy targets, small step-ups and late test dates.</p>
+
+<table class="data">
+<tr><th></th><th>Green, social or sustainability bond</th><th>Sustainability-linked bond</th></tr>
+<tr><td>Tied to sustainability</td><td>The use of the money</td><td>The coupon, via KPIs and targets</td></tr>
+<tr><td>Use of proceeds</td><td>Earmarked for eligible projects</td><td>Free: general corporate purposes</td></tr>
+<tr><td>Investors monitor</td><td>Allocation and impact reports on the projects</td><td>The issuer's performance on the KPIs</td></tr>
+<tr><td>Typical weakness</td><td>Fungibility, no additionality</td><td>Unambitious targets, small penalty</td></tr>
+</table>
+
+<p>Loans come in the same two families: green loans and sustainability-linked loans (chapter 11).</p>
+
+<h3>10.4 The greenium</h3>
+<p>The <b>greenium</b> is the lower yield on a green bond compared with an otherwise identical conventional bond from the same issuer (same maturity and seniority). Because both bonds carry the same credit risk, a greenium cannot be a reward for lower default risk. It reflects demand: investors with green tastes or green mandates accept a slightly lower return for the label. Most studies find the bond greenium small (general background, not from the lecture), so the issuer's main gains are a broader investor base and a public signal of commitment, not cheap money.</p>
+
+<div class="callout link"><span class="h">Link: chapters 8 and 9</span>
+The greenium is the bond version of the taste premium in chapter 9 (Pástor, Stambaugh &amp; Taylor 2022): green assets should have lower <i>expected</i> returns. Chapter 8 listed these bonds, private equity and real assets among the asset classes of SRI.</div>
+
+<h3>10.5 Private equity and real assets</h3>
+<p><b>Private equity</b> gives investors concentrated ownership, board seats and a longer horizon than a typical listed holding, which is why chapter 8 called it the usual route for impact investing. The cost is less transparency and a fixed exit date. <b>Real assets</b> carry sustainability in the asset itself: energy efficiency and flood exposure in <b>real estate</b>, renewables versus fossil plants in <b>infrastructure</b>, and natural capital in <b>forests and land</b>. Because these assets last for decades, they are exposed to both physical climate risk and stranded-asset risk (chapter 3).</p>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Classify a bond from its description: earmarked money means use of proceeds; a coupon tied to KPIs means sustainability-linked. Expect traps on who bears a green bond's credit risk (the issuer), on the direction of the greenium (a lower yield) and on why ESG is a downside story for debt.</div>
+</section>
+
+<hr class="sec">
+
+<section id="k11">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">11 · Sustainability in banking</h2>
+
+<p class="lead-in">Banks decide who gets credit, so they sit at the centre of financing the transition, and climate change reaches them through the firms and homes they lend to. This chapter separates physical from transition risk, shows how both reach a loan book, and covers the bank's tools: stress tests, sustainable lending and financed emissions. Classifying a risk in a short case is the likely exam task.</p>
+
+<div class="callout warn"><span class="h">Provisional chapter</span>
+Written before the lecture slides for this topic were available, from the
+syllabus and the textbook chapter's standard content. It will be revised when
+the lecture is out. Treat the concepts as reliable and the emphasis as a guess.</div>
+
+<h3>11.1 Why banks matter for the transition</h3>
+<p>Banks turn short-term deposits into longer-term loans and finance many firms, especially small and medium-sized ones, that cannot issue bonds. Through long relationships they hold private information about borrowers and meet them each time a loan is renewed. A bank therefore faces two sustainability questions, which mirror double materiality: <b>risk</b> (outside-in: how does climate change affect the value of my loans?) and <b>impact</b> (inside-out: what does my lending finance in the real economy?).</p>
+<p>A bank's own offices emit little. Its real footprint is the loan book: its <b>financed emissions</b>, meaning the borrowers' emissions attributed to the bank in proportion to its share of their financing (general background, not from the lecture).</p>
+
+<h3>11.2 Physical and transition risk</h3>
+<table class="data">
+<tr><th></th><th>Physical risk</th><th>Transition risk</th></tr>
+<tr><td>Source</td><td>Climate change itself: acute events (floods, storms, wildfires) and chronic shifts (heat, drought, sea-level rise)</td><td>The move to a low-carbon economy: policy and carbon prices, technology, consumer preferences, litigation</td></tr>
+<tr><td>Who is exposed</td><td>Borrowers and collateral in exposed locations, and their supply chains</td><td>Carbon-intensive borrowers: coal, oil and gas, fossil power, heavy industry</td></tr>
+<tr><td>Largest when</td><td>Climate policy stays weak</td><td>The transition is fast or abrupt</td></tr>
+</table>
+<p>The two risks trade off, as the NGFS scenarios show. An <b>orderly</b> transition keeps both relatively contained; a <b>disorderly</b> one, late and abrupt, brings high transition risk; a <b>hot house world</b> with no new policy keeps transition risk low but lets physical risk grow. Note also that a borrower's carbon footprint says nothing about its physical risk (PwC guest lecture): a low-carbon firm with a factory in a flood zone is still exposed.</p>
+<p><b>Stranded assets</b> are assets that lose their value before the end of their economic life because of the transition: coal plants closed early, fossil reserves that can never be burnt. A borrower whose main assets strand may default, and the collateral behind the loan loses value at the same moment.</p>
+
+<div class="callout mech"><span class="h">How a carbon price reaches a bank</span>
+A carbon price raises the borrower's costs. If it cannot pass them on, cash flows fall: at EUR 100 per tonne, Air France-KLM's carbon bill would have been more than twice its EBIT (chapter 3). Lower cash flows raise the <b>probability of default</b>; a stranded plant as collateral raises the <b>loss given default</b>. Expected losses rise, so the bank sets aside provisions, holds more capital and charges more for new loans. Climate risk is therefore not a separate risk category but a driver of the credit, market and operational risks banks already manage.</div>
+
+<h3>11.3 Scenario analysis and climate stress tests</h3>
+<p>Historical loan losses say little about climate risk, because most of it has not happened yet. Banks and supervisors therefore use <b>scenario analysis</b> and <b>climate stress tests</b>: pick scenarios (typically from the NGFS), translate them into carbon prices, energy prices, GDP and property values, map those onto each borrower's probability of default and loss given default, and add up the losses. Schoenmaker and Schramade's guidelines (chapter 5) ask for exactly this: stress-testing financial institutions' exposure to carbon-intensive assets under alternative climate scenarios.</p>
+<p>A stress test is not a forecast. It asks how the loan book fares in severe but plausible worlds, because nobody knows which path will happen. It must also bridge a horizon gap: banks plan over a few years, while climate risk unfolds over decades.</p>
+
+<div class="callout link"><span class="h">Link: chapters 3 and 7</span>
+NGFS scenarios, stress testing ("what if everything goes wrong?") and stranded assets were introduced in chapter 3. The risk-versus-impact split is the double materiality of chapter 7.</div>
+
+<h3>11.4 Sustainable lending</h3>
+<p>A bank acts on sustainability at the moment it lends:</p>
+<ul>
+<li><b>Sector policies and exclusions</b>, such as no new financing of coal.</li>
+<li><b>ESG in credit assessment</b> and due diligence. For large projects, the voluntary Equator Principles give banks a shared framework for environmental and social risk (general background, not from the lecture).</li>
+<li><b>Green loans</b>: use of proceeds, such as a green mortgage for an energy-efficient home or a loan for a solar park.</li>
+<li><b>Sustainability-linked loans</b>: the money is free to use, but the interest margin moves with the borrower's KPIs, typically falling when targets are met. They are the loan counterpart of the sustainability-linked bond in chapter 10.</li>
+<li><b>Engagement</b>: the relationship and the renewal of credit lines give a lender more leverage than a bondholder has.</li>
+</ul>
+
+<div class="callout mistake"><span class="h">Trap: lower financed emissions are not lower real emissions</span>
+A bank can cut its financed emissions fast by dropping its most polluting clients. The emissions do not disappear if another, often less-monitored, lender finances the same plant; chapter 3 showed public firms selling polluting assets to private firms (Duchin, Gao &amp; Xu 2024). Financing a credible transition plan may cut more real emissions, just as chapter 9 found that excluding energy firms can cut capital from important green innovators.</div>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Classify a risk in a case: flood or drought damage is physical; a carbon tax, a cheaper clean technology or a climate lawsuit is transition. Know what a stranded asset is and how it reaches a lender (higher default probability, lower collateral value), why stress tests use scenarios rather than history, and how a green loan differs from a sustainability-linked loan.</div>
+</section>
+
+<hr class="sec">
+
+<section id="k12">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">12 · Sustainability in insurance</h2>
+
+<p class="lead-in">An insurer does two jobs: it prices and carries risk (underwriting), and it invests the premiums until claims are paid (investing). Climate change hits both sides of its balance sheet, sometimes at the same time. The exam is likely to test which side a risk hits, what the protection gap is, and why insurers cannot simply price climate risk away.</p>
+
+<div class="callout warn"><span class="h">Provisional chapter</span>
+Written before the lecture slides for this topic were available, from the
+syllabus and the textbook chapter's standard content. It will be revised when
+the lecture is out. Treat the concepts as reliable and the emphasis as a guess.</div>
+
+<h3>12.1 Two sides of the balance sheet</h3>
+<p>On the <b>liability side</b>, the insurer pools risk: many policyholders pay premiums, and the few who suffer a loss are paid. Profit depends on pricing each risk correctly. <b>Non-life</b> insurers cover property, motor and liability, mostly with one-year contracts; <b>life</b> insurers cover life, health and pensions, with obligations that run for decades. <b>Reinsurers</b> insure the insurers and spread catastrophe risk worldwide.</p>
+<p>On the <b>asset side</b>, premiums arrive before claims, so the insurer invests them, mainly in bonds but also in equities and real estate. Long liabilities make life insurers natural long-term investors and large asset owners in the investment chain of chapter 8.</p>
+
+<table class="data">
+<tr><th></th><th>Underwriting (liabilities)</th><th>Investing (assets)</th></tr>
+<tr><td>Main climate risk</td><td>Physical: more and larger claims from storms, floods, wildfires and drought</td><td>Transition: fossil-fuel holdings that strand; also physical damage to real estate held</td></tr>
+<tr><td>Other risks</td><td>Liability claims against insured firms; reputational risk from insuring coal or oil projects</td><td>Losses in markets hit by a disorderly transition</td></tr>
+<tr><td>Opportunities</td><td>Cover for renewables and new technology; lower premiums for resilience</td><td>Long-term green assets: green bonds, infrastructure</td></tr>
+</table>
+
+<h3>12.2 Climate risk on the underwriting side</h3>
+<p>Physical climate risk is already large. The PwC guest lecture put global losses from natural disasters at USD 417 billion in 2024 and argued that physical impacts will worsen exponentially rather than linearly. That creates a pricing problem. Premiums are set from historical loss data, and when the climate changes, the past becomes a poor guide to future claims. Losses are also more <b>correlated</b>: one storm or flood hits thousands of policyholders in the same region at once, which undermines the diversification that pooling depends on.</p>
+<p>A second channel is <b>liability risk</b>: parties harmed by pollution or climate change seek compensation from the firms they hold responsible, and liability insurers pay part of the bill. The Velsicol pollution case in chapter 3 is the pattern. Some frameworks treat liability as a third risk category, while the TCFD counts it as part of transition risk (general background, not from the lecture).</p>
+
+<div class="callout mistake"><span class="h">Trap: "one-year contracts protect the insurer"</span>
+A non-life insurer can reprice every year, so a rising risk rarely sinks it in the short run. But repricing does not remove the risk; it moves it. When premiums rise beyond what people can pay, or insurers withdraw from high-risk areas, the loss falls on households, firms and governments, and the insurer's market shrinks. Annual contracts protect today's balance sheet, not the business model.</div>
+
+<h3>12.3 Insurability and the protection gap</h3>
+<p>A risk is <b>insurable</b> when losses can be estimated, are spread across many independent policyholders, and can be covered at a premium people can afford. Climate change strains all three. The <b>protection gap</b> is the part of economic losses from disasters that is not insured. It widens as cover becomes unaffordable or unavailable, and the uninsured loss lands on households and firms, and ultimately on taxpayers when the government becomes the insurer of last resort. Public-private schemes close part of the gap; in Norway, natural-perils cover is bundled with fire insurance on buildings. Insurers can also pass extreme risk to investors through catastrophe bonds, whose holders lose principal if a defined disaster occurs (both general background, not from the lecture).</p>
+
+<div class="callout mech"><span class="h">The premium as a price signal</span>
+A risk-based premium makes a hidden cost visible: a house on a flood plain becomes expensive to insure, and an owner who installs flood protection pays less. That is internalisation through the price (chapter 3), for physical rather than transition risk. The signal breaks in two ways. If premiums are capped or subsidised, people keep building where they should not. And if insurance covers every loss in full, policyholders have less reason to adapt: the moral hazard of chapter 5.</div>
+
+<h3>12.4 Insurers as long-term investors</h3>
+<p>On the asset side, insurers face the same transition risk as other investors: fossil-fuel bonds and shares can strand. The danger is the <b>double hit</b>, where one scenario raises claims and lowers asset values at the same time, so climate scenarios have to cover both sides of the balance sheet together. Insurers offering investment products also fall under the SFDR, which chapter 7 lists for insurers alongside asset managers and pension funds. And their long horizon suits them to hold green bonds and infrastructure and to act as stewards of the firms they own.</p>
+
+<div class="callout link"><span class="h">Link: chapters 3, 8, 10 and 11</span>
+Physical versus transition risk and the NGFS scenarios come from chapter 3 and chapter 11. Insurers are asset owners in the investment chain of chapter 8, and green bonds (chapter 10) suit their long liabilities.</div>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Place a risk on the right side: more storm claims are physical risk in underwriting; coal bonds losing value after a carbon tax are transition risk in investing. Know the protection gap (uninsured share of economic losses, not premiums minus claims), why annual repricing shifts rather than removes the risk, and how premiums can act as a price signal.</div>
+</section>
+
+<hr class="sec">
+
+<section id="k13">
+<a class="backtotop" href="#toc">↑ contents</a>
+<h2 class="chap">13 · Governments, transition management and integrated thinking</h2>
+
+<p class="lead-in">Externalities are a market failure, and the strongest tools for correcting them belong to governments. This chapter covers carbon pricing, regulation and disclosure rules, the supranational bodies and voluntary associations around them, and the course's closing idea: the transition is a system change over decades, and integrated thinking is how firms and investors manage financial, social and environmental value together.</p>
+
+<div class="callout warn"><span class="h">Provisional chapter</span>
+Written before the lecture slides for this topic were available, from the
+syllabus and the textbook chapter's standard content. It will be revised when
+the lecture is out. Treat the concepts as reliable and the emphasis as a guess.</div>
+
+<h3>13.1 Why governments are needed</h3>
+<p>Chapter 3 showed that a firm causing an externality has no private reason to stop. Investors, consumers and firms can push, but each bears the cost of acting while everyone shares the benefit: a <b>free-rider problem</b>. Climate, a global commons, is the extreme case, hence international agreements such as the Paris Agreement (2015).</p>
+<p>Governments have three kinds of tools: <b>pricing</b> (carbon taxes, emissions trading), <b>regulation</b> (standards, bans, disclosure mandates) and <b>public spending</b> (subsidies, research, infrastructure). Chapter 7's HBR critique wants that spending on R&amp;D for carbon capture, building retrofits and renewable infrastructure, not biofuel subsidies.</p>
+
+<table class="data">
+<tr><th></th><th>Carbon tax</th><th>Cap-and-trade (e.g. EU ETS)</th></tr>
+<tr><td>Government fixes</td><td>The price per tonne</td><td>The total quantity of emissions</td></tr>
+<tr><td>Market determines</td><td>How much is emitted</td><td>The price of an allowance</td></tr>
+<tr><td>Main uncertainty</td><td>Whether the emission target is met</td><td>How high the carbon price will be</td></tr>
+</table>
+
+<p>Chapter 3's limits remain: firms move production to weaker jurisdictions, greenwash and lobby (on average USD 277k a year against climate policy versus 185k for it; Leippold, Sautner &amp; Yu 2024). Policy uncertainty is itself a transition risk for firms and lenders (chapter 11).</p>
+
+<h3>13.2 Rules for the financial system</h3>
+<p>The EU framework is a chain. The <b>Taxonomy</b> defines what counts as green; the <b>CSRD</b> makes companies report with double materiality; the <b>SFDR</b> makes financial market participants disclose how their products handle sustainability. Investors can only report on their portfolios if companies report first. Disclosure attacks information asymmetry, the root of greenwashing; a mix of voluntary and mandatory rules works better than voluntary reporting alone. The Omnibus simplification of 26 February 2025 shows that the rules move with politics. Central banks and supervisors add prudential tools such as climate stress tests (chapter 11).</p>
+
+<h3>13.3 Supranational bodies and voluntary associations</h3>
+<table class="data">
+<tr><th>Body</th><th>Binding?</th><th>Role</th></tr>
+<tr><td>EU institutions</td><td>Yes, law</td><td>Taxonomy, CSRD, SFDR</td></tr>
+<tr><td>Paris Agreement (UN)</td><td>A treaty between states</td><td>Countries set their own national targets</td></tr>
+<tr><td>NGFS</td><td>No, a network of central banks and supervisors</td><td>Climate scenarios and supervisory guidance</td></tr>
+<tr><td>ISSB, building on the TCFD</td><td>Only where a jurisdiction adopts it</td><td>Investor-focused disclosure standards</td></tr>
+<tr><td>UN PRI</td><td>No, investor signatories</td><td>Six principles for responsible investment</td></tr>
+<tr><td>ICMA, UNEP FI</td><td>No, industry initiatives</td><td>Green bond principles; principles for responsible banking and sustainable insurance</td></tr>
+</table>
+
+<div class="callout mistake"><span class="h">Trap: a voluntary initiative is not regulation</span>
+The PRI, the Green Bond Principles and the banking and insurance principles set norms and help members act together, which reduces free-riding. But missing a target carries no legal penalty, and members can leave. Before calling something mandatory, check who issued it: a lawmaker or supervisor, or an association.</div>
+
+<h3>13.4 Transition management</h3>
+<p>The low-carbon transition is a <b>system change</b> in energy, mobility, food and buildings that unfolds over decades. Transition studies describe it as an S-curve: a long phase in which alternatives stay niche, then take-off and acceleration, then stabilisation in a new system (general background, not from the lecture). For finance the point is non-linearity: value shifts slowly, then fast, from incumbents to challengers. That is when stranded assets appear (chapter 3), and why markets may not price the risk early (the adaptive markets hypothesis, chapter 5). The transition must also be <b>just</b>: workers and regions tied to carbon-intensive industries bear concentrated costs, the point the PwC guest lecture ended on.</p>
+
+<div class="callout mech"><span class="h">Why transitions accelerate</span>
+Adoption lowers costs through learning and scale, lower costs raise adoption, and a larger green industry makes stricter policy politically easier. These loops reinforce each other, so change looks slow for years and then fast. Investors who wait for proof act late, and may still hold the incumbents' assets when they strand.</div>
+
+<h3>13.5 Integrated thinking</h3>
+<p><b>Integrated thinking</b> means managing financial, social and environmental value together in core decisions (strategy, capital allocation, pay) rather than treating sustainability as a side project. It is the management practice behind <b>integrated reporting</b> (&lt;IR&gt;): the report describes the six capitals; integrated thinking is how the firm manages them. It is also Schoenmaker and Schramade's framework in action: SF 1.0 maximises F subject to S and E, SF 2.0 optimises integrated value I = F + S + E, and SF 3.0 optimises S and E subject to F.</p>
+
+<div class="callout link"><span class="h">Link: chapters 1, 3, 7 and 8</span>
+The SF 1.0–3.0 table is from chapter 1, the integrated value example from chapter 3, the Taxonomy, CSRD and &lt;IR&gt; from chapter 7, and the SFDR from chapter 8.</div>
+
+<div class="worked"><span class="wh">Illustration: integrated value once the costs are charged</span>
+<p>Chapter 3's firm has an original process (F 15, S −3, E −3, so I = 9) and an optimised one (F 14, S −1, E −1, so I = 12). Maximising F, it picks the original process. Now assume the government charges the firm for every social and environmental cost. Financial value becomes 15 − 3 − 3 = 9 for the original process and 14 − 1 − 1 = 12 for the optimised one. Under full internalisation, financial value equals integrated value and the ranking flips. The firm that thought in integrated terms made that choice early; the other now holds a process that may strand.</p>
+</div>
+
+<div class="callout tip"><span class="h">What the exam is likely to ask</span>
+Carbon tax versus cap-and-trade (which fixes price, which fixes quantity); binding rules versus voluntary initiatives; who the Taxonomy, CSRD and SFDR apply to; integrated thinking versus integrated reporting; and which SF stage an objective belongs to.</div>
+</section>
+
+</div>
+</body>
+</html>

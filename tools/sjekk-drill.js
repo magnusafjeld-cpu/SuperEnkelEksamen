@@ -79,6 +79,7 @@ function sjekkFag(sub) {
     const tekster = new Map();
     const perKap = new Map();
     const posisjon = [];
+    const santUsant = [];   // fasit for sant/usant, målt for seg
 
     for (const q of quiz) {
       const hvor = `quiz ${q.id || "(uten id)"}`;
@@ -102,7 +103,10 @@ function sjekkFag(sub) {
 
       if (q.type === "mcq") {
         const o = q.options || [];
-        if (o.length < 3) si(feil, hvor, `bare ${o.length} alternativer`);
+        /* Sant/usant er et eget eksamensformat (FIE459), ikke et flervalg med ett
+           alternativ for lite. Det godtas bare med nøyaktig disse to alternativene. */
+        const tf = o.length === 2 && /^(true|sant)$/i.test(String(o[0]).trim()) && /^(false|usant)$/i.test(String(o[1]).trim());
+        if (o.length < 3 && !tf) si(feil, hvor, `bare ${o.length} alternativer`);
         o.forEach((t, i) => {
           if (!String(t || "").trim()) si(feil, hvor, `alternativ ${i + 1} er tomt`);
           if (HTML.test(t)) si(feil, hvor, `alternativ ${i + 1} inneholder markup`);
@@ -110,7 +114,7 @@ function sjekkFag(sub) {
         if (new Set(o.map(normAlt)).size !== o.length) si(feil, hvor, "to like alternativer");
         if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= o.length)
           si(feil, hvor, `answer ${q.answer} er utenfor 0…${o.length - 1}`);
-        else posisjon.push(q.answer);
+        else (tf ? santUsant : posisjon).push(q.answer);
         if (!q.explanation) si(feil, hvor, "mangler explanation");
         else if (HTML.test(q.explanation)) si(feil, hvor, "explanation inneholder markup — feltet escapes");
       } else if (q.type === "short") {
@@ -133,6 +137,16 @@ function sjekkFag(sub) {
       const linje = `fasitposisjon ${tell.join(" / ")} av ${n} (jevnt ville vært ${forventet.toFixed(0)} hver)`;
       if (verst > 0.35) si(feil, "quiz", `${linje} — skjevt nok til at posisjonen kan læres i stedet for faget`);
       else if (verst > 0.2) si(advarsel, "quiz", linje);
+      else notat.push(`  ${linje}`);
+    }
+
+    /* Sant/usant: andelen sanne utsagn. Et sett der nesten alt er sant, lærer
+       leseren å svare «True» — samme felle som 7c, bare med to posisjoner. */
+    if (santUsant.length >= 10) {
+      const sanne = santUsant.filter((a) => a === 0).length;
+      const andel = sanne / santUsant.length;
+      const linje = `sant/usant ${sanne} sanne / ${santUsant.length - sanne} usanne`;
+      if (Math.abs(andel - 0.5) > 0.2) si(feil, "quiz", `${linje} — skjevt nok til at svaret kan gjettes`);
       else notat.push(`  ${linje}`);
     }
 

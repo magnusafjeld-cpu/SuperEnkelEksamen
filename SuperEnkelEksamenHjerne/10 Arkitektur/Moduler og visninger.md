@@ -14,7 +14,7 @@ oppdatert: 2026-09-24
 | Studieplan | `/plan`, `/day/:n` | Dagene bygget pedagogisk: rammeverk → måling → vekst → kort sikt → repetisjon |
 | Pensum | `/curriculum`, `/chapter/:num` | Kapitlene som rene artikler; marker *lest* / *forstått* / *usikker* |
 | Lynlæring | `/lyn` | 13 minispill for mobil, 2–5 min |
-| Quiz | `/quiz` | Trekker fra hele pensum, blander gammelt og nytt |
+| Quiz | `/quiz` | Trekker fra hele pensum, blander gammelt og nytt. Flervalg, kortsvar og sant/usant (et flervalg med nøyaktig alternativene «True» og «False», som i FIE459) |
 | Flashcards | `/flashcards` | Spaced repetition |
 | Dybdetrening | `/dybde` | Selvrettede spørsmålsbanker |
 | Oppgavebank | `/oppgaver` | Alle oppgaver med fasit, søk- og filtrerbare |

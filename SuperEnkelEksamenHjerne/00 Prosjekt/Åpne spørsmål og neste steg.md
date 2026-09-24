@@ -75,6 +75,20 @@ kontrollert mot Lovdata, Skatteetaten eller kursets egne fasiter. Se
       ikke i FIE402. Med 229 oppgaver à 2–6 minutter er det mange timer som ikke
       står i planen.
 
+## FIE459 — det som gjenstår
+
+Faget ble lagt inn 24. september 2026. Se [[FIE459 Sustainable Finance]].
+
+- [ ] **Skriv om k10–k13 når foilene til forelesning 10–13 kommer.** Kapitlene er
+      foreløpige og skrevet fra syllabus og lærebokas tema. Legg de nye foilene i
+      kildemappen, hent ut teksten, og skriv om kapitlene og quizen deres.
+- [ ] **Gjesteforelesningene** (Folketrygdfondet, Fonds Finans, DNB,
+      Sustainability Hub, Heidelberg Materials) er ikke med. Foilene publiseres
+      bare med foreleserens samtykke og tas ikke opp. Kommer de, hører de til k8,
+      k9, k11 og k13.
+- [ ] Vurder kapitteloppgaver i flervalgsformat, som i FIE432, hvis Magnus vil ha
+      mer eksamenstrening enn quizen gir.
+
 ## Åpne spørsmål
 
 - Hvilket fag blir nummer to? Det avgjør hvor hardt fagnøytraliteten må ryddes.

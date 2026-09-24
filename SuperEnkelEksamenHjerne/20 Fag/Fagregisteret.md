@@ -1,6 +1,6 @@
 ---
 tags: [fag, arkitektur]
-oppdatert: 2026-09-03
+oppdatert: 2026-09-24
 ---
 
 # Fagregisteret
@@ -58,6 +58,12 @@ oppførsel som default**, så et manifest uten dem er uendret.
 | `problems.topicRules` / `.typeRules` | de norske regexene i oppgaveparseren | SAM3s regler |
 | `copy` `{planEyebrow,planIntro,dybdeIntro,lynFoot}` | faste SAM3-setninger i sidetoppene | SAM3s tekst |
 | `copy.searchTerms` | SAM3s makrobegreper som søkeforslag | utledes av ordlisten, ellers av kapitteltitlene |
+
+> [!info] `refSections: {}` er ikke det samme som å utelate feltet
+> Utelates `manual.refSections`, arver faget SAM3s `#k21`–`#k23`. Et tomt objekt
+> betyr at faget uttrykkelig ikke har formelsamling eller eksamensmønstre
+> (FIE459). Parseren og `tools/sjekk-manual.py` behandler det likt; før
+> 24. september 2026 gjettet kontrollen seg fram til et referansekapittel.
 
 > [!warning] `parts` og cachen
 > Delinndelingen skrives inn i den bufrede pensumparsingen. Endrer du `parts` i

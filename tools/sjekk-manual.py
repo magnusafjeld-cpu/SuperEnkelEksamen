@@ -116,6 +116,9 @@ def rå_vinkelparenteser(kilde):
     return ut
 
 
+INGEN = "(ingen)"   # manifestet sier uttrykkelig at faget ikke har referansekapittel
+
+
 def ref_fra_manifest(sti):
     """Slår opp fagets refSections.formulas i js/subjects.js, via manualfilnavnet."""
     reg = pathlib.Path(__file__).resolve().parent.parent / "js" / "subjects.js"
@@ -127,8 +130,16 @@ def ref_fra_manifest(sti):
     if i < 0:
         return None
     # nærmeste refSections etter treffet, innenfor samme manifestobjekt
-    m = re.search(r"refSections:\s*\{[^}]*?formulas:\s*[\"']([^\"']+)[\"']", kilde[i:i + 1200])
-    return m.group(1) if m else None
+    vindu = kilde[i:i + 1200]
+    m = re.search(r"refSections:\s*\{[^}]*?formulas:\s*[\"']([^\"']+)[\"']", vindu)
+    if m:
+        return m.group(1)
+    # refSections uten formulas (f.eks. `refSections: {}`) er et bevisst valg:
+    # faget har ingen formelsamling, og appen lager ingen formelkort. Da skal
+    # kontrollen heller ikke gjette seg fram til et referansekapittel.
+    if re.search(r"refSections:\s*\{", vindu):
+        return INGEN
+    return None
 
 
 def sjekk_manual(sti, ref_id=None):
@@ -284,6 +295,8 @@ def sjekk_manual(sti, ref_id=None):
     # js/subjects.js). Gjett bare når manifestet ikke sier noe — ellers ville
     # kontrollen klaget på tabeller i et helt annet kapittel.
     ref = ref_id or ref_fra_manifest(sti)
+    if ref == INGEN:
+        return r, kap, None
     best = 0
     for sec in ([] if ref else seksjoner):
         n = 0

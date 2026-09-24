@@ -1,9 +1,27 @@
 ---
 tags: [fag, oppskrift]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-24
 ---
 
 # Legge til nytt fag
+
+> [!tip] Den oppdaterte oppskriften (FIE432 og FIE459)
+> Stegene under er fra august og gjelder fortsatt, men de tre siste fagene er
+> bygget slik, og [[FIE459 Sustainable Finance]] er det korteste eksempelet:
+> 1. Legg kildemappen i `.gitignore` (opphavsrett og størrelse), og hent teksten
+>    ut til en `_tekst/`-mappe. pptx kan leses med standardbiblioteket.
+> 2. Les kildene og skriv en spesifikasjon i `docs/<fag>-forfatterspek.md`: format,
+>    stil, kapittelkart og hva hvert kapittel skal dekke. Rammeverk som bare finnes
+>    som bilder, transkriberes dit.
+> 3. Skriv kapitlene som fragmenter i `fag/<fag>/_fragmenter/`, og bygg manualen
+>    med et eget byggeverktøy (kopi av `tools/fie459-bygg-manual.py`). Rett alltid i
+>    fragmentene (fallgruve 7x).
+> 4. Trekk fasitposisjonene for quiz på forhånd fra en fast seed (fallgruve 7c).
+> 5. Registrer faget i `js/subjects.js` med `parts`, `coreChapters`,
+>    `refSections` og en eksplisitt `modules`-liste, og kalibrer planen med
+>    `tools/rekalibrer-plan.py <fag>`.
+> 6. Kontroller med `tools/sjekk-manual.py`, `tools/sjekk-drill.js <fag>` og
+>    `tools/sjekk-aritmetikk.py`, og sveip alle ruter i nettleseren.
 
 Fire steg. Malen i `fag/_mal/data.js` forklarer hvert felt.
 

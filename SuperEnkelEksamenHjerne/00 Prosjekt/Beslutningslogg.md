@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-24
 ---
 
 # Beslutningslogg
@@ -47,6 +47,19 @@ noen få riktige quizsvar. Ikke gå tilbake til rate-basert måling.
 For SAM3 er ingen tekst funnet på utenfor `SAM3_Eksamensmanual.html`. Stoffet er
 omstrukturert for å bli lettere å forstå, men ikke utvidet med nytt innhold.
 Dette er et pedagogisk prinsipp, ikke en teknisk begrensning.
+
+## Fagteksten følger eksamensspråket
+FIE402 og FIE459 undervises og eksamineres på engelsk, og der er fagteksten,
+quizen og kortene på engelsk. Begrepene må være de samme som i eksamensoppgavene.
+Grensesnittet, studieplanen og alt rundt er fortsatt norsk. SAM3, FIE432 og
+Caseintervju er på norsk. Se [[FIE402 Corporate Finance]] og
+[[FIE459 Sustainable Finance]].
+
+## FIE459 er bevisst kort
+Magnus ba om et fag han kan gå «raskt igjennom for å ha en grei forståelse for
+temaene». Derfor én kort kapittel per forelesning, quiz og flashcards, og ingen
+dybdetrening, lynlæring, kapitteloppgaver eller eksamenssett. Det er et valg, ikke
+et hull; mer eksamenstrening kan legges til senere. Se [[FIE459 Sustainable Finance]].
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på

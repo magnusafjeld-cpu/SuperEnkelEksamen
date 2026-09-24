@@ -1,6 +1,6 @@
 ---
 tags: [hjerne, moc]
-oppdatert: 2026-09-07
+oppdatert: 2026-09-24
 ---
 
 # Hjernen — Super Enkel Eksamen
@@ -37,6 +37,7 @@ alt på nytt, bor her.
 - [[FIE402 Corporate Finance]] — corporate finance på engelsk, modulbasert plan
 - [[Caseintervju]] — konsulentintervjuer: struktur, hoderegning, caser og mock-video
 - [[FIE432 Personlig økonomi]] — skatt og husholdningsfinans, flervalg med minuspoeng
+- [[FIE459 Sustainable Finance]] — bærekraftig finans på engelsk, bevisst kort, flervalg og sant/usant
 - [[Legge til nytt fag]] — oppskriften
 
 **Drift**
