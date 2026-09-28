@@ -587,29 +587,14 @@ window.EDU = window.EDU || {};
   function coreChapters() { const r = coreRange(); return S.data.chapters().filter((c) => c.num >= r.from && c.num <= r.to); }
   function readPct() { const core = coreChapters(); const st = S.store.get(); const read = core.filter((c) => st.chapters[c.num] && st.chapters[c.num].read).length; return { read, total: core.length || 1, pct: Math.round((read / (core.length || 1)) * 100) }; }
   function understoodCount() { const st = S.store.get(); let understood = 0, unsure = 0; coreChapters().forEach((c) => { const v = st.chapters[c.num] && st.chapters[c.num].understanding; if (v === "understood") understood++; else if (v === "unsure") unsure++; }); return { understood, unsure }; }
-  /* Mangler totalDays, ble hele beredskapsringen «NaN % klar» — på hver eneste
-     side, siden sidepanelet viser den samme verdien. Del aldri på noe et fag kan
-     glemme å sette. */
+  /* Mangler totalDays, ble prosenten NaN (den gang i beredskapsringen på hver
+     eneste side). Del aldri på noe et fag kan glemme å sette. */
   function daysPct() {
     const st = S.store.get(); const done = Object.values(st.days).filter((d) => d && d.completed).length;
     const total = (S.data.plan && S.data.plan.totalDays) || (S.data.plan && (S.data.plan.days || []).length) || 0;
     return { done, total, pct: total ? Math.round((done / total) * 100) : 0 };
   }
   function quizStats() { const ans = S.store.get().quiz.answered; const ids = Object.keys(ans); const correct = ids.filter((k) => ans[k].correct).length; const acc = ids.length ? Math.round((correct / ids.length) * 100) : null; return { answered: ids.length, correct, accuracy: acc, total: (S.data.raw.quizzes || []).length }; }
-  function readiness() {
-    // Coverage-based: every component measures how much is DONE, not a rate.
-    // (A single correct quiz answer must not move the needle much.)
-    const r = readPct(), d = daysPct(), c = S.srs.stats(), q = quizStats();
-    const quizCoverage = q.total ? Math.round((q.correct / q.total) * 100) : 0;
-    const parts = [
-      { v: r.pct, w: 0.45 },
-      { v: d.pct, w: 0.25 },
-      { v: c.masteredPct, w: 0.18 },
-      { v: quizCoverage, w: 0.12 },
-    ];
-    const wsum = parts.reduce((a, p) => a + p.w, 0);
-    return Math.round(parts.reduce((a, p) => a + p.v * p.w, 0) / wsum);
-  }
   function nextMilestone() { const st = S.store.get(); const ds = S.data.days(); for (const day of ds) { if (!(st.days[day.day] && st.days[day.day].completed)) return { day: day.day, label: day.milestone, date: day.date }; } const last = ds[ds.length - 1]; return { day: last.day, label: last.milestone, date: last.date }; }
   function streak() {
     const st = S.store.get(); const dates = new Set();
@@ -619,7 +604,7 @@ window.EDU = window.EDU || {};
     for (let i = 0; i < 30; i++) { const d = new Date(Date.now() - i * 86400000); const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; if (dates.has(iso)) n++; else if (i > 0) break; }
     return n;
   }
-  S.metrics = { coreChapters, readPct, understoodCount, daysPct, quizStats, readiness, nextMilestone, streak };
+  S.metrics = { coreChapters, readPct, understoodCount, daysPct, quizStats, nextMilestone, streak };
 })(window.EDU);
 
 /* ---------------- router ---------------- */

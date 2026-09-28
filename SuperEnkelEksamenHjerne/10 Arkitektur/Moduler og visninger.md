@@ -5,13 +5,13 @@ oppdatert: 2026-09-28
 
 # Moduler og visninger
 
-16 moduler + Konto. Faget kan slå av hvilke som helst via `modules` i
+15 moduler + Konto. Faget kan slå av hvilke som helst via `modules` i
 [[Fagregisteret]]; Dashboard er alltid med.
 
 | Modul | Rute | Hva den gjør |
 |---|---|---|
-| Dashboard | `/` | Dagens økt, prosent klar, fremdriftslinjer, neste milepæl, dagens konsepter |
-| Studieplan | `/plan`, `/day/:n` | Dagene bygget pedagogisk: rammeverk → måling → vekst → kort sikt → repetisjon |
+| Dashboard | `/` | Dagens økt, kjernepensum, repetisjon i dag, neste milepæl, kommende temaer. Ingen samlet fremdrift |
+| Studieplan | `/plan`, `/day/:n` | Dagene bygget pedagogisk: rammeverk → måling → vekst → kort sikt → repetisjon. «X av N fullført» øverst |
 | Pensum | `/curriculum`, `/chapter/:num` | Kapitlene som rene artikler; marker *lest* / *forstått* / *usikker* |
 | Kjernepensum | `/kjerne`, `/kjerne/:num`, `/kjerne/husk` | Det viktigste i faget på én kveld, i deler bygd rundt eksamensblokkene, med sjekker og en minicase etter hver del |
 | Lynlæring | `/lyn` | 13 minispill for mobil, 2–5 min |
@@ -23,10 +23,9 @@ oppdatert: 2026-09-28
 | Eksamenssett | `/sett` | Hele sett, i øvingsmodus eller på tid — se [[Eksamenssett-modulen]] |
 | Repetisjon | `/review` | Hva du bør repetere nå |
 | Søk | `/search` | På tvers av begreper, formler, figurer, økonomer, variabler |
-| Fremdrift | `/progress` | Statistikk, svakeste temaer, nullstilling, «last innhold på nytt» |
 | Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num`, `/kapitteloppgaver/:num/:oppg` | Oppgaver i fagets eksamensformat per kapittel: flervalg med fasit med en gang (FIE432) eller åpne oppgaver med løsning og sensorkriterier (FIE402) |
 | NotebookLM | `/notebooklm` | Pensum som ren tekst, ett kapittel per kilde, med kopiknapp — se under |
-| Konto | `/konto` | Innlogging og synkstatus |
+| Konto | `/konto` | Innlogging, synkstatus, «Nullstill fremdrift» og «Last innhold på nytt» |
 
 Sidepanelet grupperer dem som *Studieløp* / *Øving* / *Verktøy*. Mobilnavigasjonen
 nederst viser seks: Hjem, Lyn, Plan, Quiz, Kort, Dybde. Konto-knappen ligger i
@@ -340,16 +339,15 @@ begrunnelse som vises i grensesnittet — motoren forklarer alltid seg selv.
 
 > Kapittel 13–19-regelen er SAM3-spesifikk og ligger i motoren. Se [[Fallgruver]].
 
-### Fremdriftsmålet (`S.metrics.readiness`)
-Vektet **dekning**, ikke treffprosent:
+### Fremdrift: i hver modul, ikke samlet
+Det finnes ikke lenger et samlet fremdriftstall. `S.metrics.readiness`, ringen
+«% klar» på dashbordet og i sidemenyen, og Fremdrift-siden ble fjernet
+28. september 2026. Hver modul viser sin egen fremdrift; se [[Beslutningslogg]]
+for hvor den står. Quiz-historikken står nederst på Quiz-startsiden.
 
-- 45 % kapitler lest
-- 25 % dager fullført
-- 18 % andel mestrede flashcards
-- 12 % quizdekning (*riktige svar / totalt antall spørsmål* — ikke treffprosent)
-
-Dette var en bevisst fiks: se [[Beslutningslogg]]. `streak()` teller
-sammenhengende dager bakover der enten en dag ble fullført eller et kapittel sett.
+`S.metrics` har fortsatt `readPct`, `daysPct`, `quizStats`, `understoodCount`,
+`nextMilestone` og `streak`. `streak()` teller sammenhengende dager bakover der
+enten en dag ble fullført eller et kapittel sett.
 
 ### Søkeindeksen (`S.search`)
 Bygges én gang og cachet. Indekserer kapitler (vekt 3), formler (2,2), begreper

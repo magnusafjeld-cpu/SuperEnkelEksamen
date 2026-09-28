@@ -39,7 +39,10 @@ fag-velgeren og sidetittelen viser når intet fag er valgt.
 
 Gyldige moduler: `/plan` `/curriculum` `/kjerne` `/lyn` `/quiz`
 `/kapitteloppgaver` `/flashcards` `/dybde` `/oppgaver` `/exam` `/sett` `/caser`
-`/mock` `/historier` `/review` `/search` `/progress` `/notebooklm`
+`/mock` `/historier` `/review` `/search` `/notebooklm`
+
+`/progress` (Fremdrift) finnes ikke lenger: hver modul viser sin egen fremdrift.
+Se [[Beslutningslogg]].
 
 Moduler som er tomme uten egne data, skjules uansett hva lista sier (fallgruve
 7p): `/sett` uten `EDU_DATA.sets`, `/kapitteloppgaver` uten `chapterTasks`,

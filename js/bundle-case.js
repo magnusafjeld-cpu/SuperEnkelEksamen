@@ -139,7 +139,10 @@ window.EDU = window.EDU || {};
   function renderListe() {
     const wrap = el(".fade-in");
     const alle = CASES();
-    wrap.appendChild(sh().pageHead("Casetrening", `${alle.length} caser`,
+    /* Casetreningens egen fremdrift. Den sto før bare på Fremdrift-siden. */
+    const st = stats();
+    const fremdrift = st.kjørt ? ` · ${st.kjørt} kjørt` + (st.snitt == null ? "" : ` · snitt ${st.snitt.toFixed(1).replace(".", ",")} av 3`) : "";
+    wrap.appendChild(sh().pageHead("Casetrening", `${alle.length} caser${fremdrift}`,
       "Hver case spilles trinn for trinn, slik den ville gått i rommet. Du skriver ditt eget svar før intervjuerens vises — det er hele poenget. Ta notater på papir, og si resonnementet høyt mens du jobber."));
 
     if (!alle.length) { wrap.appendChild(sh().empty("🧩", "Ingen caser ennå", "Faget har ikke lagt inn noe i EDU_DATA.cases.")); return wrap; }

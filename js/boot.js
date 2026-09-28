@@ -5,7 +5,7 @@ window.EDU = window.EDU || {};
 
 /* ---------------- app shell, navigation, routing ---------------- */
 (function (S) {
-  const { el, icon, ring } = S.u; const V = S.views;
+  const { el, icon } = S.u; const V = S.views;
   const NAV = [
     { group: "Studieløp", items: [
       { route: "#/", match: "/", label: "Dashboard", ico: "home" },
@@ -29,7 +29,6 @@ window.EDU = window.EDU || {};
     ]},
     { group: "Verktøy", items: [
       { route: "#/search", match: "/search", label: "Søk", ico: "search" },
-      { route: "#/progress", match: "/progress", label: "Fremdrift", ico: "chart" },
       { route: "#/notebooklm", match: "/notebooklm", label: "NotebookLM", ico: "copy" },
     ]},
   ];
@@ -81,7 +80,6 @@ window.EDU = window.EDU || {};
     const sb = el(".sidebar"); sb.appendChild(brand());
     nav().forEach((g) => { sb.appendChild(el(".nav-section", g.group)); g.items.forEach((it) => sb.appendChild(navButton(it))); });
     const foot = el(".sidebar-foot");
-    foot.appendChild(el(".mini-ring", el("div", { id: "mini-ring" }), el(".mt", { id: "mini-mt" })));
     foot.appendChild(el("div", { id: "account-slot" }));
     foot.appendChild(el("button.foot-link", { onclick: () => S.picker.show({ cancel: true }) }, "Alle fag"));
     sb.appendChild(foot); return sb;
@@ -114,8 +112,6 @@ window.EDU = window.EDU || {};
     document.querySelectorAll(".nav-item").forEach((n) => n.classList.toggle("active", n.dataset.match === activeMatch));
     document.querySelectorAll(".mobile-nav button").forEach((n) => n.classList.toggle("active", n.dataset.match === activeMatch));
     nav().forEach((g) => g.items.forEach((it) => { if (!it.badge) return; const b = document.querySelector(`[data-badge="${it.match}"]`); if (b) { const v = it.badge(); b.textContent = v || ""; b.style.display = v ? "" : "none"; } }));
-    const mr = document.getElementById("mini-ring"); if (mr) S.u.mount(mr, ring(S.metrics.readiness(), 46));
-    const mt = document.getElementById("mini-mt"); if (mt) { const r = S.metrics.readPct(); mt.innerHTML = `<b>${S.metrics.readiness()}% klar</b><br>${r.read}/${r.total} kapitler`; }
   }
   function setView(thunk) { currentView = thunk; render(true); }
   function render(isNav) {
@@ -145,7 +141,6 @@ window.EDU = window.EDU || {};
     when("/historier", "/historier", () => setView(() => V.historier.render()));
     when("/review", "/review", () => setView(() => V.review.render()));
     when("/search", "/search", (p, q) => setView(() => V.search.render(q.q || "")));
-    when("/progress", "/progress", () => setView(() => V.progress.render()));
     when("/kapitteloppgaver", "/kapitteloppgaver", () => setView(() => V.kapitteloppgaver.render()));
     when("/kapitteloppgaver", "/kapitteloppgaver/:num", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num)));
     when("/kapitteloppgaver", "/kapitteloppgaver/:num/:oppg", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num, p.oppg)));
@@ -155,6 +150,8 @@ window.EDU = window.EDU || {};
     when("/kjerne", "/kjerne/husk", () => setView(() => V.kjerne.renderHusk()));
     when("/kjerne", "/kjerne/:num", (p) => setView(() => V.kjerne.renderDel(p.num)));
     if (S.account) R.on("/konto", () => setView(() => S.account.render()));
+    /* Også gamle lenker til #/progress havner her. Fremdrift-siden ble fjernet
+       28. september 2026: fremdriften vises inne i hver modul. */
     R.setNotFound(() => setView(() => V.dashboard.render()));
   }
   function init() {
@@ -260,7 +257,7 @@ window.EDU = window.EDU || {};
     drop.addEventListener("drop", (e) => { e.preventDefault(); drop.classList.remove("over"); const f = e.dataTransfer.files[0]; if (f) readFile(f); });
   }
 
-  /* Tømmer bufret pensum/oppgaver for gjeldende fag (knappen på Fremdrift). */
+  /* Tømmer bufret pensum/oppgaver for gjeldende fag (knappen på Konto). */
   S.clearContentCache = function () {
     [manKey(), probKey(), legacy("man"), legacy("prob")].forEach((k) => { if (k) { try { localStorage.removeItem(k); } catch (e) {} } });
   };

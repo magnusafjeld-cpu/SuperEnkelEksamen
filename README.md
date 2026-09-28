@@ -68,7 +68,7 @@ Selve plattformnavnet, logoen og undertittelen settes ett sted: `EDU_PLATFORM`
 
 | Modul | Hva den gjør |
 |---|---|
-| **Dashboard** | Dagens oppgaver og mål, prosent fullført, fremdriftslinjer, neste milepæl, estimert studietid, dagens viktigste konsepter og kommende temaer. |
+| **Dashboard** | Dagens oppgaver og mål, neste milepæl, estimert studietid, dagens viktigste konsepter og kommende temaer. Fremdriften står inne i hver modul, ikke samlet her. |
 | **Studieplan** | Dagene bygget pedagogisk: rammeverk → måling → vekst → kort sikt → repetisjon. Stigende vanskelighetsgrad, innebygd repetisjon, de siste dagene = tidligere eksamener + integrering. |
 | **Pensum** | Hele pensum. Marker hvert kapittel som *lest*, *forstått* eller *usikker*. |
 | **Temaartikler** | Hvert kapittel som en ren artikkel med forklaringer, modeller, grafer, formler, eksempler, eksamenstips og vanlige feil — rett fra manualen, men pent restylet. |
@@ -82,8 +82,7 @@ Selve plattformnavnet, logoen og undertittelen settes ett sted: `EDU_PLATFORM`
 | **Oppgavebank** | Alle oppgaver med fasit, søkbare og filtrerbare. |
 | **Eksamenssett** | Hele tidligere eksamener. Øvingsmodus låser fasiten til du har skrevet svaret; eksamensmodus viser hele settet med nedtelling og åpner ingen fasit før du leverer. |
 | **Søk** | Søk på begreper, modeller, formler, økonomer, variabler og figurer på tvers av hele pensum. |
-| **Fremdrift** | Dager fullført, kapitler lest, quizscore, flashcard-status, svakeste temaer og hva som gjenstår. |
-| **Konto** | Valgfri innlogging (e-post + passord) med synk av fremdrift mellom enheter. |
+| **Konto** | Valgfri innlogging (e-post + passord) med synk av fremdrift mellom enheter, pluss «Nullstill fremdrift» og «Last innhold på nytt». |
 
 ---
 
@@ -175,5 +174,5 @@ flashcardene og eksamenskoblingene er forfattet på toppen av dette stoffet.
 For SAM3 er ingen tekst funnet på utenfor manualen — men den er omstrukturert
 for å gjøre den lettere å forstå, huske og anvende.
 
-Endrer du pensumfilen, trykk **«Last innhold på nytt»** nederst på
-Fremdrift-siden for å parse den på nytt.
+Endrer du pensumfilen, trykk **«Last innhold på nytt»** på Konto-siden for å
+parse den på nytt.

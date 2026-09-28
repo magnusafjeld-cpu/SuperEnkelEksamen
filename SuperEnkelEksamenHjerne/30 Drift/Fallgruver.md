@@ -66,7 +66,8 @@ migreringskoden, mister eksisterende installasjoner historikken sin.
 ## 6. Endret pensum vises ikke
 
 Parset pensum ligger i `localStorage`. Endrer du manual-HTML-en, må
-**«Last innhold på nytt»** nederst på Fremdrift-siden trykkes.
+**«Last innhold på nytt»** på Konto-siden trykkes (Fremdrift-siden, der den
+lå før, ble fjernet 28. september 2026).
 
 ## 7. Studieplanen kan gå ut på dato
 
@@ -269,6 +270,8 @@ gjennom systematisk. Ni til ble funnet, og alle er nå rettet.
 
 **Latent, også rettet:** `daysPct()` delte på `plan.totalDays` uten vakt, og
 `NaN` forplantet seg til beredskapsringen — «NaN % klar» på hver eneste side.
+(Ringen ble fjernet 28. september 2026, men vakten i `daysPct()` står, fordi
+Studieplan viser prosenten.)
 
 > [!warning] To lærdommer om kontrollen selv
 > **Min egen verifisering var feil to ganger.** Regexen `<[a-z]` fanger ikke

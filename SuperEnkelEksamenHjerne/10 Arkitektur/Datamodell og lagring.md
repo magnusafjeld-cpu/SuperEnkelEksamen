@@ -126,7 +126,7 @@ dekningen er bedre enn det høres ut som, men den er ikke fullstendig.
 Skulle cachen likevel sprenge kvoten, feiler `lsSet` stille i en `try/catch`.
 Appen fortsetter da å virke, men parser pensum på nytt ved hver innlasting.
 Endrer du manual-HTML-en, må cachen tømmes: knappen **«Last innhold på nytt»**
-nederst på Fremdrift-siden kaller `S.clearContentCache()` og laster siden på nytt.
+på Konto-siden kaller `S.clearContentCache()` og laster siden på nytt.
 Den fjerner også de gamle `sam3.*`-nøklene.
 
 Se [[Pensumparseren]].

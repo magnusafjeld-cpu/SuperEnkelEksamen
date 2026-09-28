@@ -57,19 +57,22 @@ window.EDU.views = window.EDU.views || {};
 
 /* ---------------- dashboard ---------------- */
 (function (S) {
-  const { el, icon, ring, bar, formatDate } = S.u; const sh = () => S.views.shared;
+  const { el, icon, formatDate } = S.u; const sh = () => S.views.shared;
+  /* Dashbordet viser hva du skal gjøre nå, ikke hvor langt du har kommet. Et
+     samlet «% klar» og tallkort for kapitler, moduler, kort og quiz sto her til
+     28. september 2026. De målte bare lesing, plan, flashcards og quiz, så
+     kjernepensum, kapitteloppgaver og eksamenssett telte null. Fremdriften står
+     nå inne i hver modul. */
   function render() {
     const wrap = el(".fade-in");
     const day = S.data.day(S.data.activeDayIndex());
-    const until = S.data.daysUntilStart(); const readiness = S.metrics.readiness();
-    const r = S.metrics.readPct(), d = S.metrics.daysPct(), srs = S.srs.stats(), q = S.metrics.quizStats();
-    wrap.appendChild(hero(day, until, readiness));
-    wrap.appendChild(statRow(r, d, srs, q));
+    const until = S.data.daysUntilStart();
+    wrap.appendChild(hero(day, until));
     const cols = el(".grid.cols-2", { style: { marginTop: "22px", alignItems: "start" } });
     cols.appendChild(todayCard(day)); cols.appendChild(sideColumn(day));
     wrap.appendChild(cols); return wrap;
   }
-  function hero(day, until, readiness) {
+  function hero(day, until) {
     const h = el(".hero"); const left = el("div", { style: { position: "relative", zIndex: 1, flex: "1 1 320px" } });
     const greeting = until > 0
       ? `Studiestart om ${until} dag${until > 1 ? "er" : ""}`
@@ -78,21 +81,8 @@ window.EDU.views = window.EDU.views || {};
     left.appendChild(el("h2", day.title));
     left.appendChild(el("p", until > 0 ? `Planen starter ${formatDate(S.data.plan.startDate, { year: true })}. Bruk gjerne dag 1 som forhåndstitt allerede nå.` : day.tip));
     left.appendChild(el(".hero-cta", S.hasModule("/plan") && el("a.btn.primary", { href: `#/day/${day.day}` }, sh().byModule() ? "Start denne modulen →" : "Start dagens økt →"), S.hasModule("/lyn") && el("a.btn.ghost", { href: "#/lyn" }, (S.views.lyn && S.views.lyn.dailyDone()) ? "⚡ Lynøkt fullført" : "⚡ Lynøkt (4 min)"), S.hasModule("/quiz") && el("a.btn.ghost", { href: "#/quiz" }, "Ta en quiz")));
-    const right = el("div", { style: { position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" } });
-    const rg = ring(readiness, 132, `${readiness}%`, "klar", "#ffffff"); rg.querySelector(".ring-bg").style.stroke = "rgba(255,255,255,.22)";
-    right.appendChild(rg); right.appendChild(el(".tiny", { style: { color: "rgba(255,255,255,.8)" } }, "Eksamensberedskap"));
-    h.appendChild(el(".row.wrap", { style: { alignItems: "center", gap: "30px" } }, left, right)); return h;
+    h.appendChild(left); return h;
   }
-  function statRow(r, d, srs, q) {
-    const grid = el(".grid.cols-4", { style: { marginTop: "20px" } });
-    const tile = (node) => el(".card", { style: { padding: "18px 20px" } }, node);
-    grid.appendChild(tile(withBar(sh().stat(`${r.read}/${r.total}`, "Kapitler lest"), r.pct)));
-    grid.appendChild(tile(withBar(sh().stat(`${d.done}/${d.total}`, sh().unitName(true) + "er fullført"), d.pct, true)));
-    grid.appendChild(tile(sh().stat(srs.mastered, `Kort mestret · ${srs.due} forfaller`)));
-    grid.appendChild(tile(sh().stat(q.accuracy != null ? q.accuracy + "%" : "—", `Quiz · ${q.answered} svart`)));
-    return grid;
-  }
-  function withBar(statNode, pct, green) { const w = el("div", statNode); w.appendChild(el("div", { style: { marginTop: "12px" } }, bar(pct, { thin: true, green }))); return w; }
   function todayCard(day) {
     const card = el(".card.pad-lg");
     card.appendChild(el(".row", el("h3", { style: { fontSize: "18px" } }, sh().byModule() ? "Denne modulen" : "Dagens plan"), el(".spacer"), el(".chip." + sh().phaseColor(day.phase), el(".dot"), day.phase)));
@@ -137,6 +127,12 @@ window.EDU.views = window.EDU.views || {};
       sh().copy("planEyebrow", sh().byModule() ? `Studieplan · ${total} moduler` : "3-ukers studieplan"),
       sh().byModule() ? "Hele løpet, modul for modul" : "Hele løpet, dag for dag",
       sh().copy("planIntro", "Uke 1–2: pensum (rammeverk → måling → vekst → kort sikt → repetisjon). Uke 3: ren oppgavetrening med tidligere eksamener og fasit, sortert fra tema-fokus til hele sett på tid og generalprøve.")));
+    /* Planens egen fremdrift. Den sto før på dashbordet og Fremdrift-siden. */
+    const fullført = S.metrics.daysPct();
+    wrap.appendChild(el("div", { style: { maxWidth: "420px", margin: "-4px 0 18px" } },
+      el(".row", el(".tiny", { style: { fontWeight: 560 } }, `${fullført.done} av ${fullført.total} ${sh().unitPlural()} fullført`),
+        el(".spacer"), el(".tiny.muted", fullført.pct + " %")),
+      el("div", { style: { marginTop: "6px" } }, bar(fullført.pct, { thin: true, green: fullført.pct === 100 }))));
     const phases = [...new Set(S.data.days().map((d) => d.phase))];
     wrap.appendChild(el(".row.wrap", { style: { gap: "8px", marginBottom: "18px" } }, ...phases.map((p) => el(".chip." + sh().phaseColor(p), el(".dot"), p))));
     const list = el(".grid", { style: { gap: "12px" } });
@@ -433,7 +429,7 @@ window.EDU.views = window.EDU.views || {};
     const wrap = el(".fade-in");
     wrap.appendChild(sh().pageHead("Quiz", "Test deg på tvers av pensum", "Spørsmål trekkes fra hele pensum og blander gamle og nye temaer. Du får forklaring på hvert svar."));
     const last = S.store.get().quiz.sessions[0];
-    if (last) wrap.appendChild(el(".card", { style: { marginBottom: "18px", background: "var(--accent-soft)", borderColor: "var(--accent-soft-2)" } }, el(".row", el("div", { style: { fontSize: "22px" } }, "📊"), el("div", el("div", { style: { fontWeight: 600 } }, `Forrige quiz: ${last.score}/${last.total} riktige`), el(".tiny.muted", `${Math.round((last.score / last.total) * 100)}% · ${last.mode}`)))));
+    if (last) wrap.appendChild(el(".card", { style: { marginBottom: "18px", background: "var(--accent-soft)", borderColor: "var(--accent-soft-2)" } }, el(".row", el("div", { style: { fontSize: "22px" } }, "📊"), el("div", el("div", { style: { fontWeight: 600 } }, `Forrige quiz: ${last.score}/${last.total} riktige`), el(".tiny.muted", `${Math.round((last.score / last.total) * 100)}% · ${modusNavn(last.mode)}`)))));
     const card = el(".card.pad-lg"); card.appendChild(el("h3", { style: { marginBottom: "4px" } }, "Velg modus"));
     card.appendChild(el("p.muted", { style: { marginTop: 0, fontSize: "14.5px" } }, "Blandet anbefales for eksamenstrening."));
     let mode = "mix", len = "10";
@@ -454,7 +450,28 @@ window.EDU.views = window.EDU.views || {};
     [["5", "5"], ["10", "10"], ["all", "Alle"]].forEach(([k, l]) => lenSeg.appendChild(el("button" + (len === k ? ".on" : ""), { onclick: (e) => { len = k; [...lenSeg.children].forEach((c) => c.classList.remove("on")); e.target.classList.add("on"); } }, l)));
     card.appendChild(lenSeg);
     card.appendChild(el("div", { style: { marginTop: "22px" } }, el("button.btn.primary.lg", { onclick: () => start(mode, len) }, "Start quiz →")));
-    wrap.appendChild(card); return wrap;
+    wrap.appendChild(card);
+    wrap.appendChild(historikk());
+    return wrap;
+  }
+  /* Quizens egen fremdrift. Den lå på Fremdrift-siden til siden ble fjernet. */
+  const modusNavn = (m) => m === "mix" ? "Blandet" : m === "svak" ? "Svake temaer" : /^\d+$/.test(String(m)) ? "Oppgave " + m : String(m || "");
+  function historikk() {
+    const økter = S.store.get().quiz.sessions;
+    if (!økter.length) return el("div");
+    const q = S.metrics.quizStats();
+    const boks = el("div", { style: { marginTop: "24px" } });
+    boks.appendChild(sh().sectionTitle("Quiz-historikk"));
+    if (q.answered) boks.appendChild(el("p.tiny.muted", { style: { margin: "-6px 0 12px" } },
+      `${q.answered} av ${q.total} spørsmål besvart · ${q.accuracy} % riktige`));
+    const kort = el(".card", { style: { padding: "6px 0" } });
+    økter.slice(0, 8).forEach((s) => {
+      const pct = Math.round((s.score / s.total) * 100);
+      kort.appendChild(el(".task-row", el(".chip." + (pct >= 80 ? "green" : pct >= 50 ? "amber" : "rose"), pct + "%"),
+        el("div", el(".tt", `${s.score}/${s.total} riktige`), el(".td", modusNavn(s.mode)))));
+    });
+    boks.appendChild(kort);
+    return boks;
   }
   function runScreen() {
     const wrap = el(".fade-in"); const q = session.questions[session.idx]; const card = el(".card.pad-lg.quiz-card");
@@ -705,86 +722,6 @@ window.EDU.views = window.EDU.views || {};
     box.appendChild(el(".row.wrap", { style: { gap: "8px" } }, ...terms.map((t) => el(".concept-pill", { onclick: () => { input.value = t; input.dispatchEvent(new Event("input")); } }, t)))); return box;
   }
   S.views.search = { render };
-})(window.EDU);
-
-/* ---------------- progress ---------------- */
-(function (S) {
-  const { el, ring, bar } = S.u; const sh = () => S.views.shared;
-  function render() {
-    const wrap = el(".fade-in"); const readiness = S.metrics.readiness();
-    const r = S.metrics.readPct(), d = S.metrics.daysPct(), srs = S.srs.stats(), q = S.metrics.quizStats(); const u = S.metrics.understoodCount();
-    wrap.appendChild(sh().pageHead("Fremdrift", "Hele bildet av hvor du står"));
-    const overview = el(".card.pad-lg", { style: { marginBottom: "20px" } });
-    const ov = el(".row.wrap", { style: { gap: "34px", alignItems: "center" } });
-    ov.appendChild(el("div", ring(readiness, 140, readiness + "%", "klar"), el(".center.tiny.muted", { style: { marginTop: "8px" } }, "Eksamensberedskap")));
-    const bars = el("div", { style: { flex: "1 1 320px", minWidth: "260px" } });
-    bars.appendChild(barRow("Kapitler lest", `${r.read}/${r.total}`, r.pct, false));
-    bars.appendChild(barRow(sh().unitPlural(true) + " fullført", `${d.done}/${d.total}`, d.pct, true));
-    bars.appendChild(barRow("Flashcards mestret", `${srs.mastered}/${srs.total}`, srs.masteredPct, false));
-    bars.appendChild(barRow("Quiz-treffsikkerhet", q.accuracy != null ? q.accuracy + "%" : "ingen ennå", q.accuracy || 0, true));
-    ov.appendChild(bars); overview.appendChild(ov); wrap.appendChild(overview);
-    const grid = el(".grid.cols-4", { style: { marginBottom: "24px" } });
-    grid.appendChild(el(".card", sh().stat(S.metrics.streak(), "Dagers streak 🔥"))); grid.appendChild(el(".card", sh().stat(u.understood, "Forstått"))); grid.appendChild(el(".card", sh().stat(u.unsure, "Usikker"))); grid.appendChild(el(".card", sh().stat(q.answered, "Quizspørsmål svart")));
-    wrap.appendChild(grid);
-    wrap.appendChild(sh().sectionTitle("Fremdrift per del"));
-    const partCard = el(".card");
-    S.data.parts().forEach((p) => { const read = p.chapters.filter((c) => { const st = S.store.get().chapters[c.num]; return st && st.read; }).length; const pct = Math.round((read / p.chapters.length) * 100); partCard.appendChild(el("div", { style: { padding: "10px 0", borderBottom: "1px solid var(--hairline)" } }, el(".row", el("div", { style: { fontWeight: 560, fontSize: "14.5px" } }, p.tag + " — " + p.name), el(".spacer"), el(".tiny.muted", `${read}/${p.chapters.length}`)), el("div", { style: { marginTop: "8px" } }, bar(pct, { thin: true, green: pct === 100 })))); });
-    wrap.appendChild(partCard);
-    const cols = el(".grid.cols-2", { style: { marginTop: "24px", alignItems: "start" } });
-    const weak = el(".card"); weak.appendChild(el("h3", { style: { fontSize: "16px", marginBottom: "10px" } }, "Svakeste temaer"));
-    const weakItems = S.repetition.suggest(5).filter((s) => s.score >= 20);
-    if (!weakItems.length) weak.appendChild(el(".tiny.muted", "Ingen svake temaer registrert ennå — fortsett å lese og ta quizer."));
-    weakItems.forEach((s) => weak.appendChild(el(".task-row", { style: { cursor: "pointer" }, onclick: sh().go(`#/chapter/${s.num}`) }, el(".priority-tag." + s.priority, s.priority === "high" ? "Høy" : s.priority === "med" ? "Med" : "Lav"), el("div", el(".tt", `K${s.num} · ${s.chapter.title}`), el(".td", s.reasons[0] || "")))));
-    cols.appendChild(weak);
-    const remain = el(".card"); remain.appendChild(el("h3", { style: { fontSize: "16px", marginBottom: "10px" } }, "Gjenstår å lese"));
-    const left = S.metrics.coreChapters().filter((c) => { const st = S.store.get().chapters[c.num]; return !(st && st.read); });
-    if (!left.length) remain.appendChild(el(".tiny.muted", "🎉 Alt er lest! Nå er det repetisjon som gjelder."));
-    left.slice(0, 8).forEach((c) => remain.appendChild(el(".task-row", { style: { cursor: "pointer" }, onclick: sh().go(`#/chapter/${c.num}`) }, el(".chip.slate", "K" + c.num), el("div", el(".tt", c.title)))));
-    if (left.length > 8) remain.appendChild(el(".tiny.muted", { style: { padding: "8px 4px" } }, `+ ${left.length - 8} til`));
-    cols.appendChild(remain); wrap.appendChild(cols);
-    /* Øvingskortet vises bare for fag som faktisk har disse modulene. Uten det
-       ville et fag der arbeidet er å GJØRE noe, sett ut som om ingenting var
-       gjort — fremdrift målt i leste kapitler er feil målestokk for casetrening. */
-    wrap.appendChild(øvingskort());
-    const sessions = S.store.get().quiz.sessions;
-    if (sessions.length) { wrap.appendChild(sh().sectionTitle("Quiz-historikk")); const hist = el(".card", { style: { padding: "6px 0" } }); sessions.slice(0, 8).forEach((s) => { const pct = Math.round((s.score / s.total) * 100); hist.appendChild(el(".task-row", el(".chip." + (pct >= 80 ? "green" : pct >= 50 ? "amber" : "rose"), pct + "%"), el("div", el(".tt", `${s.score}/${s.total} riktige`), el(".td", s.mode)))); }); wrap.appendChild(hist); }
-    wrap.appendChild(el(".card", { style: { marginTop: "30px", display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" } }, el("div", { style: { flex: "1 1 240px" } }, el("div", { style: { fontWeight: 560 } }, "Nullstill fremdrift"), el(".tiny.muted", "Sletter lesestatus, quiz, flashcards og dagsfullføring — for dette faget.")), el("button.btn.ghost", { onclick: () => { if (confirm("Nullstille all fremdrift i dette faget? Kan ikke angres.")) { S.store.resetAll(); if (S.account) S.account.push(); S.u.toast("Fremdrift nullstilt"); S.app.refresh(); } } }, "Nullstill fremdrift"), el("button.btn.ghost", { onclick: () => { S.clearContentCache(); S.u.toast("Bufret innhold tømt, laster på nytt…"); setTimeout(() => location.reload(), 600); } }, "Last innhold på nytt")));
-    return wrap;
-  }
-  /* Teller det som gjøres, ikke det som leses. Returnerer tom node for fag uten
-     disse modulene, så SAM3 og FIE402 er upåvirket. */
-  function øvingskort() {
-    const rader = [];
-    const cs = S.views.caser && S.views.caser.stats && S.views.caser.stats();
-    if (cs && cs.totalt) rader.push({
-      navn: "Caser kjørt", val: `${cs.kjørt}/${cs.totalt}`, pct: Math.round((cs.kjørt / cs.totalt) * 100),
-      note: cs.snitt == null ? "ingen vurdert ennå" : `snitt ${cs.snitt.toFixed(1).replace(".", ",")} av 3 — ${cs.skala[Math.round(cs.snitt)]}`,
-    });
-    const ms = S.views.mock && S.views.mock.stats && S.views.mock.stats();
-    if (ms && ms.totalt) rader.push({
-      navn: "Mock-intervjuer sett", val: `${ms.sett}/${ms.totalt}`, pct: Math.round((ms.sett / ms.totalt) * 100), note: null,
-    });
-    const hs = S.views.historier && S.views.historier.stats && S.views.historier.stats();
-    if (hs && hs.dims) rader.push({
-      navn: "Dimensjoner dekket", val: `${hs.dekket}/${hs.dims}`, pct: Math.round((hs.dekket / hs.dims) * 100),
-      note: `${hs.antall} historier skrevet, ${hs.klare} tåler sondetesten`,
-    });
-    if (!rader.length) return el("div");
-
-    const kort = el(".card.pad-lg", { style: { marginTop: "24px" } });
-    kort.appendChild(el("h3", { style: { fontSize: "16px", marginBottom: "4px" } }, "Trening"));
-    kort.appendChild(el("p.tiny.muted", { style: { marginTop: 0, marginBottom: "16px" } },
-      "Det du har gjort, ikke det du har lest. Det er denne raden som avgjør hvordan et intervju går."));
-    rader.forEach((r) => {
-      kort.appendChild(el(".row", el(".tiny", { style: { fontWeight: 560 } }, r.navn), el(".spacer"), el(".tiny.muted", r.val)));
-      kort.appendChild(el("div", { style: { marginTop: "6px", marginBottom: r.note ? "3px" : "14px" } }, bar(r.pct, { thin: true, green: r.pct === 100 })));
-      if (r.note) kort.appendChild(el(".tiny.muted", { style: { marginBottom: "14px" } }, r.note));
-    });
-    return kort;
-  }
-
-  function barRow(label, val, pct, green) { return el("div", { style: { marginBottom: "14px" } }, el(".row", el(".tiny", { style: { fontWeight: 560 } }, label), el(".spacer"), el(".tiny.muted", val)), el("div", { style: { marginTop: "6px" } }, bar(pct, { thin: true, green }))); }
-  S.views.progress = { render };
 })(window.EDU);
 
 /* ---------------- oppgavebank ---------------- */

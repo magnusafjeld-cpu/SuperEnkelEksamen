@@ -1,6 +1,6 @@
 ---
 tags: [drift, oppsett]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-28
 ---
 
 # Kjøre lokalt
@@ -40,5 +40,5 @@ Port kan overstyres: `python3 tools/serve.py 5000`.
 
 - Endret du `js/` eller `fag/`: **bump byggnummeret** før du pusher. Se
   [[Publisering og cache]].
-- Endret du pensum-HTML-en: trykk **«Last innhold på nytt»** nederst på
-  Fremdrift-siden, ellers viser appen den bufrede versjonen.
+- Endret du pensum-HTML-en: trykk **«Last innhold på nytt»** på Konto-siden
+  (person-ikonet øverst), ellers viser appen den bufrede versjonen.

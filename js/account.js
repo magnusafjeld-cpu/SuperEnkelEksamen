@@ -228,6 +228,20 @@ window.EDU = window.EDU || {};
         el("div", { style: { fontWeight: 560 } }, "Fag: " + ((window.EDU_SUBJECT || {}).name || "")),
         el(".tiny.muted", "Hvert fag har sin egen fremdrift og synkes for seg.")),
       el("button.btn.ghost", { onclick: () => S.picker.show({ cancel: true }) }, "Alle fag")));
+
+    /* Bodde på Fremdrift-siden til den ble fjernet 28. september 2026. Begge
+       gjelder bare faget som er åpent. */
+    wrap.appendChild(el(".card", { style: { marginTop: "20px", display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" } },
+      el("div", { style: { flex: "1 1 240px" } },
+        el("div", { style: { fontWeight: 560 } }, "Nullstill fremdrift"),
+        el(".tiny.muted", "Sletter all fremdrift i dette faget: lesestatus, planen, quiz, flashcards, kjernepensum, kapitteloppgaver og eksamenssett. «Last innhold på nytt» henter pensum og oppgaver på nytt uten å røre fremdriften.")),
+      el("button.btn.ghost", { onclick: () => {
+        if (!confirm("Nullstille all fremdrift i dette faget? Kan ikke angres.")) return;
+        S.store.resetAll(); push(); S.u.toast("Fremdrift nullstilt"); S.app.refresh();
+      } }, "Nullstill fremdrift"),
+      el("button.btn.ghost", { onclick: () => {
+        S.clearContentCache(); S.u.toast("Bufret innhold tømt, laster på nytt…"); setTimeout(() => location.reload(), 600);
+      } }, "Last innhold på nytt")));
     return wrap;
   }
 

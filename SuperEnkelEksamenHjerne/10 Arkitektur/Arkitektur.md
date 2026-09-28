@@ -15,7 +15,7 @@ js/
   bundle-core.js           utils, pensumparser, oppgaveparser, store, srs,
                            søk, repetisjonsmotor, metrics, ruter
   bundle-views.js          alle visninger (dashboard, plan, pensum, kapittel,
-                           quiz, flashcards, eksamen, repetisjon, søk, fremdrift)
+                           quiz, flashcards, eksamen, repetisjon, søk)
   bundle-lyn.js            lynlæring: 13 minispill + XP/nivå/streak
   bundle-dybde.js          dybdetrening: spørsmålsbankene (fra manifestet)
   bundle-sett.js           eksamenssett: øvingsmodus og eksamensmodus
@@ -94,8 +94,8 @@ bruker den samme funksjonen så de ikke lenker til avslåtte moduler.
 
 Rutene: `/`, `/plan`, `/day/:n`, `/curriculum`, `/chapter/:num`, `/quiz`,
 `/flashcards`, `/dybde`, `/lyn`, `/oppgaver`, `/exam`, `/review`, `/search`,
-`/progress`, `/kjerne`, `/kjerne/husk`, `/kjerne/:num`, `/konto`. Ukjent rute →
-dashboard. Ruteren tar første treff, så `/kjerne/husk` må registreres før
+`/kjerne`, `/kjerne/husk`, `/kjerne/:num`, `/konto`. Ukjent rute →
+dashboard, også gamle lenker til `/progress`. Ruteren tar første treff, så `/kjerne/husk` må registreres før
 `/kjerne/:num`.
 
 ## Rendering

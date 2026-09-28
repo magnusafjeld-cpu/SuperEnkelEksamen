@@ -19,8 +19,10 @@
      manual     { candidates: [stier prøvd i tur], label, hint } — pensumkilden
      problems   { candidates: [...] } — oppgavebanken (valgfri; tom = modulen tom)
      modules    hvilke moduler faget har. null = alle. Dashboard er alltid med.
-                gyldige: /plan /curriculum /lyn /quiz /flashcards /dybde
-                         /oppgaver /exam /review /search /progress
+                gyldige: /plan /curriculum /kjerne /lyn /quiz /kapitteloppgaver
+                         /flashcards /dybde /oppgaver /exam /sett /caser /mock
+                         /historier /review /search /notebooklm
+                Det finnes ingen samlet fremdriftsside: hver modul viser sin egen.
    ======================================================= */
 /* Plattformen selv — navnet over fagene. Brukes i velgeren, sidetittelen og
    ikonet. Fagene under har sine egne navn og farger. */
@@ -180,7 +182,7 @@ window.EDU_SUBJECTS = [
          delene henger sammen i DETTE faget. */
       kjerneIntro: "Det viktigste i FIE402 på én kveld, i tolv korte deler bygd rundt det eksamen spør om, ikke rundt kapitlene. Del 1–4 er verdsettingsmaskinen og hører sammen; resten kan leses i hvilken som helst rekkefølge. Svar på sjekkene etter hver del, og løs minicasen på papir før du går videre. Teksten er på engelsk, som eksamen.",
     },
-    modules: ["/plan", "/curriculum", "/kjerne", "/lyn", "/quiz", "/kapitteloppgaver", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress", "/notebooklm"],
+    modules: ["/plan", "/curriculum", "/kjerne", "/lyn", "/quiz", "/kapitteloppgaver", "/flashcards", "/dybde", "/sett", "/review", "/search", "/notebooklm"],
   },
   {
     id: "case",
@@ -258,7 +260,7 @@ window.EDU_SUBJECTS = [
       lynFoot: "Alt innhold er hentet fra manualen og fra kartleggingen av hvordan husene faktisk rekrutterer. Feil svar viser alltid forklaringen, det er der læringen skjer. Tips: legg siden til på Hjem-skjermen for app-følelse.",
     },
     /* Casetrening har ingen eksamen og ingen oppgavebank — den har caser. */
-    modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/caser", "/mock", "/historier", "/review", "/search", "/progress", "/notebooklm"],
+    modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/flashcards", "/dybde", "/caser", "/mock", "/historier", "/review", "/search", "/notebooklm"],
   },
   {
     id: "fie432",
@@ -355,7 +357,7 @@ window.EDU_SUBJECTS = [
        flervalgssett, som kjøres i /sett. Flashcards er med fordi de 100 radene i
        formelsamlingen k20 blir til kort automatisk; quiz, dybde og lyn legges
        til når de dataene er skrevet. */
-    modules: ["/plan", "/curriculum", "/kjerne", "/quiz", "/kapitteloppgaver", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress", "/notebooklm"],
+    modules: ["/plan", "/curriculum", "/kjerne", "/quiz", "/kapitteloppgaver", "/flashcards", "/dybde", "/sett", "/review", "/search", "/notebooklm"],
   },
   {
     id: "fie459",
@@ -397,7 +399,7 @@ window.EDU_SUBJECTS = [
     /* Ingen dybdetrening, lynlæring eller eksamenssett: det finnes ingen
        tidligere eksamener, og faget skal være kort. Eksamen er flervalg og
        sant/usant, og det er nøyaktig formatet quizen har. */
-    modules: ["/plan", "/curriculum", "/quiz", "/flashcards", "/review", "/search", "/progress", "/notebooklm"],
+    modules: ["/plan", "/curriculum", "/quiz", "/flashcards", "/review", "/search", "/notebooklm"],
   },
 ];
 

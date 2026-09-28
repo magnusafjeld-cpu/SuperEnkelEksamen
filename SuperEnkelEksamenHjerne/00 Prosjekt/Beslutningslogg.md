@@ -18,7 +18,7 @@ prosjektet fungerer om fem år uten å oppdatere noe som helst, og at man kan
 ## Pensum parses i nettleseren, ikke på forhånd
 `DOMParser` kjører på manual-HTML-en ved første oppstart, og resultatet caches i
 `localStorage`. Endres manualen, trykker man «Last innhold på nytt» på
-Fremdrift-siden. Alternativet — å generere en JSON-fil på forhånd — ville
+Konto-siden. Alternativet — å generere en JSON-fil på forhånd — ville
 innført et byggesteg. Se [[Pensumparseren]].
 
 ## Fagbytte er en full sidelasting
@@ -38,10 +38,27 @@ Se [[Supabase]].
 slås lokal og fjern stat **sammen** (`mergeState`) før noe skrives tilbake, så
 to enheter aldri overskriver hverandre. Se [[Datamodell og lagring]].
 
-## Fremdrift måles som dekning, ikke treffprosent
-`readiness()` vekter *hvor mye som er gjort*, ikke *hvor godt det gikk*. Dette
-var en eksplisitt fiks 29. juni 2026 — den gamle beregningen ble oppblåst av
-noen få riktige quizsvar. Ikke gå tilbake til rate-basert måling.
+## Ingen samlet fremdrift: hver modul viser sin egen
+28. september 2026 fjernet vi Fremdrift-siden (`/progress`), ringen «% klar» og
+tallkortene på dashbordet og «% klar» nederst i sidemenyen. Magnus syntes det
+samlede tallet ble rart når appen har så mange ulike deler. Tallet
+(`readiness()`) målte bare lesing, plan, flashcards og quiz, så kjernepensum,
+kapitteloppgaver og eksamenssett telte null: du kunne være ferdig med alt det og
+likevel stå på «0 % klar».
+
+Nå står fremdriften inne i modulen den gjelder: Pensum (lest og forstått),
+Kjernepensum (deler ferdig), Kapitteloppgaver (per kapittel), Flashcards
+(mestret), Studieplan («X av N fullført»), Quiz (historikk og treffsikkerhet),
+Casetrening (kjørt og snitt), Mock-intervjuer (sett), Historier (matrisen) og
+Lynlæring (XP og streak). «Nullstill fremdrift» og «Last innhold på nytt» ligger
+på Konto.
+
+**Konsekvens:** ikke lag et nytt samlet tall eller en ny samleside uten at
+Magnus ber om det. Vil du vise mer fremdrift, legg det i modulen det gjelder.
+
+*Forrige beslutning, nå uten betydning:* `readiness()` målte dekning, ikke
+treffprosent (fiks 29. juni 2026), fordi noen få riktige quizsvar blåste opp
+tallet.
 
 ## All fagtekst kommer fra manualen
 For SAM3 er ingen tekst funnet på utenfor `SAM3_Eksamensmanual.html`. Stoffet er
