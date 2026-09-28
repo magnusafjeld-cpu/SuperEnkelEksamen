@@ -1,6 +1,6 @@
 ---
 tags: [fag, arkitektur]
-oppdatert: 2026-09-24
+oppdatert: 2026-09-28
 ---
 
 # Fagregisteret
@@ -37,11 +37,14 @@ fag-velgeren og sidetittelen viser når intet fag er valgt.
 | `problems` | `{ candidates: [...] }` — oppgavebanken; tom = modulen står tom |
 | `modules` | hvilke moduler faget har. `null` = alle. Dashboard er alltid med |
 
-Gyldige moduler: `/plan` `/curriculum` `/lyn` `/quiz` `/flashcards` `/dybde`
-`/oppgaver` `/exam` `/sett` `/review` `/search` `/progress`
+Gyldige moduler: `/plan` `/curriculum` `/kjerne` `/lyn` `/quiz`
+`/kapitteloppgaver` `/flashcards` `/dybde` `/oppgaver` `/exam` `/sett` `/caser`
+`/mock` `/historier` `/review` `/search` `/progress` `/notebooklm`
 
-`/sett` er et unntak: med `modules: null` vises den bare hvis faget faktisk har
-`EDU_DATA.sets`. Uten data ville den vært en tom side.
+Moduler som er tomme uten egne data, skjules uansett hva lista sier (fallgruve
+7p): `/sett` uten `EDU_DATA.sets`, `/kapitteloppgaver` uten `chapterTasks`,
+`/kjerne` uten `EDU_DATA.kjerne`, og tilsvarende for casene, mockene og
+historiene.
 
 ## Feltene som gjør motoren fagnøytral
 
@@ -58,6 +61,7 @@ oppførsel som default**, så et manifest uten dem er uendret.
 | `problems.topicRules` / `.typeRules` | de norske regexene i oppgaveparseren | SAM3s regler |
 | `copy` `{planEyebrow,planIntro,dybdeIntro,lynFoot}` | faste SAM3-setninger i sidetoppene | SAM3s tekst |
 | `copy.searchTerms` | SAM3s makrobegreper som søkeforslag | utledes av ordlisten, ellers av kapitteltitlene |
+| `copy.kjerneIntro` | ingen; ny med kjernepensum | en generell tekst om å lese delene i rekkefølge |
 
 > [!info] `refSections: {}` er ikke det samme som å utelate feltet
 > Utelates `manual.refSections`, arver faget SAM3s `#k21`–`#k23`. Et tomt objekt

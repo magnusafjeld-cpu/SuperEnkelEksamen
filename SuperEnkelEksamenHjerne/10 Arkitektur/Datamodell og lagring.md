@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, data, synk]
-oppdatert: 2026-08-19
+oppdatert: 2026-09-28
 ---
 
 # Datamodell og lagring
@@ -43,10 +43,13 @@ Supabase-sesjonen lagres i tillegg av Supabase-SDK-en selv, under sine egne
 `understanding` er `"understood"`, `"unsure"` eller `null`. Å velge samme verdi
 to ganger nullstiller den.
 
-`exams` brukes av to moduler samtidig. `/exam` lagrer under oppgavens egen id,
-mens [[Eksamenssett-modulen]] bruker `"<settId>-run"` for selve økta og
-`"<settId>-e<n>"` for selvvurdering per oppgave. Nøkkelrommet er delt, så
-sett-id-er og oppgave-id-er må ikke kollidere.
+`exams` brukes av flere moduler samtidig. `/exam` lagrer under oppgavens egen
+id, mens [[Eksamenssett-modulen]] bruker `"<settId>-run"` for selve økta og
+`"<settId>-e<n>"` for selvvurdering per oppgave. Kapitteloppgavene bruker
+`"kapoppg-<kapittel>"`, og kjernepensum `"kjerne-<del-id>"` med `lest`, `sjekk`
+og `valg` inni (se [[Moduler og visninger]]). Nøkkelrommet er delt, så id-ene
+må ikke kollidere. Synken slår sammen `exams` nøkkel for nøkkel, der den nyeste
+siden vinner per felt.
 
 ## To plantyper
 

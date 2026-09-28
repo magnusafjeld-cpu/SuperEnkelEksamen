@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, oppgaver]
-oppdatert: 2026-09-24
+oppdatert: 2026-09-28
 ---
 
 # Åpne spørsmål og neste steg
@@ -52,6 +52,26 @@ Det som gjenstår er ikke innhold, men bruk:
       du står, og den eneste som avslører om tidsbudsjettet i k28 holder.
 - [ ] Vurder om lynlæringen bør begrenses til kapitler du har lest. Den dekker hele
       pensum fra dag én, så den kan servere M&A-spørsmål i modul 3.
+
+## Kjernepensum — neste fag
+
+Lagt inn for FIE402 28. september 2026. Magnus ba om det for «fagene jeg har
+dette året», FIE402 først. Se [[Moduler og visninger]].
+
+- [ ] **FIE432 Personlig økonomi.** Eksamen er flervalg med minuspoeng, så
+      minicasen bør trolig være flervalg der, ikke en åpen oppgave. Avklar med
+      Magnus før det skrives.
+- [ ] **FIE459 Sustainable Finance.** Faget er allerede kort (20 900 ord). Et
+      kjernepensum gir mest mening etter at k10–k13 er skrevet om.
+- [ ] **Les FIE402-kjernepensum og si fra om nivået treffer.** Tidsestimatet er
+      ~2 timer lesing og ~4 t 30 min med alle sjekker og minicaser, over de
+      3 timene som var målet. Er det for mye, er minicasene det naturlige å
+      korte.
+- [ ] **H2024 E6(c) i FIE402-eksamenssettet:** løsningen gir ρ = 0,7197 fra to
+      ulike kontantstrømmer; konsistente oppsett gir rundt 0,46. Undersøk mot
+      2021 P4 og rett om det holder. Se [[FIE402 Corporate Finance]].
+- [ ] **Quizene i SAM3, FIE402 og Caseintervju har fasiten som lengste
+      alternativ** i 53–66 % av spørsmålene (fallgruve 7y). Egen oppgave.
 
 ## FIE432 — manualpunkter fra kapitteloppgavearbeidet
 

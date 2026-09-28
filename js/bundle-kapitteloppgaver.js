@@ -48,7 +48,10 @@ window.EDU = window.EDU || {};
   /* ---------- lagring ---------- */
   /* Hele kapittelsettet er én økt: ett oppslag med alle valgene. id-ene inni er
      oppgavenes egne, så en omstokking av rekkefølgen ikke flytter svarene. */
-  const nøkkel = (num) => "kapoppg-" + num;
+  /* Kjernepensum låner den åpne oppgaven og sender da inn sin egen nøkkel
+     («kjerne-kj3») i stedet for et kapittelnummer. Et kapittelnummer er alltid
+     et tall eller en sifferstreng, så de to kan ikke forveksles. */
+  const nøkkel = (num) => /^[a-z]/i.test(String(num)) ? String(num) : "kapoppg-" + num;
   const økt = (num) => S.store.get().exams[nøkkel(num)] || {};
   const valgene = (num) => økt(num).valg || {};
   /* BLANK er «stå over», og må skilles fra «ikke svart ennå». Uten det kan ikke
@@ -528,5 +531,5 @@ window.EDU = window.EDU || {};
     return kort;
   }
 
-  S.views.kapitteloppgaver = { render: renderList, renderKap, kapittelkort, harOppgaver };
+  S.views.kapitteloppgaver = { render: renderList, renderKap, kapittelkort, harOppgaver, åpenOppgave };
 })(window.EDU);

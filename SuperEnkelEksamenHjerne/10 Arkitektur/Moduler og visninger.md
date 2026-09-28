@@ -1,11 +1,11 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-09-24
+oppdatert: 2026-09-28
 ---
 
 # Moduler og visninger
 
-15 moduler + Konto. Faget kan slå av hvilke som helst via `modules` i
+16 moduler + Konto. Faget kan slå av hvilke som helst via `modules` i
 [[Fagregisteret]]; Dashboard er alltid med.
 
 | Modul | Rute | Hva den gjør |
@@ -13,6 +13,7 @@ oppdatert: 2026-09-24
 | Dashboard | `/` | Dagens økt, prosent klar, fremdriftslinjer, neste milepæl, dagens konsepter |
 | Studieplan | `/plan`, `/day/:n` | Dagene bygget pedagogisk: rammeverk → måling → vekst → kort sikt → repetisjon |
 | Pensum | `/curriculum`, `/chapter/:num` | Kapitlene som rene artikler; marker *lest* / *forstått* / *usikker* |
+| Kjernepensum | `/kjerne`, `/kjerne/:num`, `/kjerne/husk` | Det viktigste i faget på én kveld, i deler bygd rundt eksamensblokkene, med sjekker og en minicase etter hver del |
 | Lynlæring | `/lyn` | 13 minispill for mobil, 2–5 min |
 | Quiz | `/quiz` | Trekker fra hele pensum, blander gammelt og nytt. Flervalg, kortsvar og sant/usant (et flervalg med nøyaktig alternativene «True» og «False», som i FIE459) |
 | Flashcards | `/flashcards` | Spaced repetition |
@@ -157,6 +158,58 @@ vises én om gangen (fallgruve 7v). Hver oppgave gjentar tallene den trenger.
 > Kontrollen krever nøyaktig fire. Med tre er forventet verdi av blindt gjett
 > +0,33 i stedet for 0, og hele gjettestrategien kapittel 19 lærer bort, blir
 > feil.
+
+## Kjernepensum — det viktigste på én kveld
+
+`/kjerne` er en kort lesevei ved siden av den fulle manualen. Magnus ba om den
+28. september 2026: noe man kan lese på kort tid og da ha god forståelse av det
+som kommer på eksamen, enten før man prøver seg på eksamensoppgaver selv, eller
+når det er kort tid igjen. **Det er greit å ikke kunne hele pensum etterpå,
+men ikke å mangle noe sentralt.** Den avveiningen er hele jobben.
+
+**Delene følger eksamensblokkene, ikke kapitlene.** FIE402s del 4 (WACC, APV og
+FTE) kondenserer k2 og k17–k20, fordi eksamen spør om dem som én oppgave. Hver
+del viser til kapitlene den korter ned, som lenker øverst på siden.
+
+**Teksten er en nedkorting av manualen, ikke nytt stoff** (se
+[[Beslutningslogg]]). Eksemplene i teksten er ofte manualens egne, med de
+kontrollerte tallene. Minicasene har nye tall, så de tester og ikke gjenkjenner.
+
+Hver del har tre ting etter teksten:
+
+| Del | Hva | Lagring |
+|---|---|---|
+| Sjekker | 2–4 flervalg med forklaring, fasit med en gang. Tester forståelse, ikke pugg: retning på en feil, hvilken rente, hva som skjer med kursen | `sjekk: { <id>: indeks }` |
+| Minicase | 2–3 deloppgaver i eksamensformat, 6–7 poeng, ~10 min. Bruker den åpne oppgaven fra kapitteloppgavene: skriv svaret, åpne løsningen del for del, gi deg selv poeng | `valg: { <id>: { svar, score } }` |
+| «Must know»-boksen | Nøyaktig én `<div class="callout tip husk">` sist i teksten, 3–5 punkter. Del 0 har også én, med de fem sjekkene, så hovedpunktsiden definerer dem | — |
+
+Alt ligger under `state.exams["kjerne-<del-id>"]`, sammen med `lest`. En del er
+**ferdig** når den er markert lest, sjekkene er besvart og minicasen er vurdert.
+
+**`/kjerne/husk` samler alle «Must know»-boksene** på én side, som et
+timinutters ark til siste dag. Derfor må hvert punkt stå på egne ben.
+
+**Tidsestimatet regnes, ikke skrives**: 110 ord i minuttet for teksten, ett
+minutt per sjekk, og minicasens egne minutter. Samme tall står i motoren og i
+kontrollen, så de sier det samme.
+
+**Henvisninger:** «k17» i teksten blir en lenke til kapitlet og «kj4» en lenke
+til delen, begge med tittelen synlig. Leseren av kjernepensum har ofte ikke
+vært i manualen, så koden alene sier ingenting.
+
+Mobilnavigasjonen har ikke plass, så **dashbordet har et eget kort** som peker
+på neste del som ikke er ferdig.
+
+Motoren lånte den åpne oppgaven fra kapitteloppgavene i stedet for å skrive den
+på nytt: `S.views.kapitteloppgaver.åpenOppgave(nøkkel, oppgave)`. En nøkkel som
+begynner med en bokstav («kjerne-kj3»), brukes som den er; et kapittelnummer
+blir «kapoppg-N» som før.
+
+Data i `EDU_DATA.kjerne`, bygget fra `fag/<id>/_kjerne/kjN.js` med
+`python3 tools/bygg-kjerne.py <fag>` og kontrollert med
+`node tools/sjekk-kjerne.js <fag>`. Kontrollen tar også enkeltfragmenter, og
+sjekker fasitposisjonene mot `_kjerne/fasitplan.json` (fallgruve 7c).
+Forfatterspesifikasjonen for FIE402 er `docs/fie402-kjerne-spek.md`.
 
 ## NotebookLM — pensum som ren tekst
 

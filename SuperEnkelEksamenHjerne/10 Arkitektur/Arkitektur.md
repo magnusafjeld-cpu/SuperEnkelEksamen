@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, kode]
-oppdatert: 2026-09-08
+oppdatert: 2026-09-28
 ---
 
 # Arkitektur
@@ -24,6 +24,8 @@ js/
   bundle-historier.js      historiebank
   bundle-kapitteloppgaver.js  flervalg i eksamensformat per kapittel
   bundle-notebooklm.js     pensum som ren tekst, ett kapittel per kilde
+  bundle-kjerne.js         kjernepensum: kort lesevei etter eksamensblokker,
+                           med sjekker, minicase og hovedpunktene samlet
   account.js               Supabase-innlogging + synk (mergeState bor her)
   picker.js                fag-velger, tema, byggnummer, dynamisk lasting av fagdata
   boot.js                  app-skall, navigasjon, ruting, innholdslaster
@@ -89,7 +91,9 @@ bruker den samme funksjonen så de ikke lenker til avslåtte moduler.
 
 Rutene: `/`, `/plan`, `/day/:n`, `/curriculum`, `/chapter/:num`, `/quiz`,
 `/flashcards`, `/dybde`, `/lyn`, `/oppgaver`, `/exam`, `/review`, `/search`,
-`/progress`, `/konto`. Ukjent rute → dashboard.
+`/progress`, `/kjerne`, `/kjerne/husk`, `/kjerne/:num`, `/konto`. Ukjent rute →
+dashboard. Ruteren tar første treff, så `/kjerne/husk` må registreres før
+`/kjerne/:num`.
 
 ## Rendering
 

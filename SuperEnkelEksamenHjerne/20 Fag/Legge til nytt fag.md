@@ -1,6 +1,6 @@
 ---
 tags: [fag, oppskrift]
-oppdatert: 2026-09-24
+oppdatert: 2026-09-28
 ---
 
 # Legge til nytt fag
@@ -22,6 +22,12 @@ oppdatert: 2026-09-24
 >    `tools/rekalibrer-plan.py <fag>`.
 > 6. Kontroller med `tools/sjekk-manual.py`, `tools/sjekk-drill.js <fag>` og
 >    `tools/sjekk-aritmetikk.py`, og sveip alle ruter i nettleseren.
+> 7. Valgfritt: et kjernepensum når manualen er ferdig. Skriv delene som
+>    `fag/<fag>/_kjerne/kjN.js` etter en egen spek (mal: `docs/fie402-kjerne-spek.md`),
+>    trekk fasitposisjonene til `_kjerne/fasitplan.json`, bygg med
+>    `tools/bygg-kjerne.py <fag>` og kontroller med `tools/sjekk-kjerne.js <fag>`.
+>    Legg `fag/<fag>/kjerne.js` i `scripts` og `/kjerne` i `modules`. Se
+>    [[Moduler og visninger]].
 
 Fire steg. Malen i `fag/_mal/data.js` forklarer hvert felt.
 

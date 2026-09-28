@@ -224,6 +224,7 @@ svg.ico{width:1.05em;height:1.05em;flex:0 0 auto;}
    under innholdets bredde. Uten denne dikterer den bredeste tabellen
    bredden på hele kapitlet. */
 .article-wrap>*{min-width:0;}
+.kj-spalte{max-width:780px;}
 .prose{min-width:0;}
 .article-toc{position:sticky;top:24px;}
 .article-toc .tlabel{font-size:11.5px;font-weight:650;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-4);margin-bottom:10px;padding-left:12px;}
@@ -543,13 +544,20 @@ textarea{font-family:inherit;}
    verken kan plassere kapitlet eller vet at det ligger foran ham. */
 .prose a.kapref{border-bottom:none;font-weight:640;color:var(--accent-ink);white-space:nowrap;}
 .prose a.kapref:hover{text-decoration:underline;}
-.prose a.kapref.senere{display:inline-flex;align-items:baseline;gap:5px;background:var(--bg-sunken);border:1px solid var(--hairline-strong);border-radius:var(--r-sm);padding:0 7px;font-size:.9em;font-weight:400;max-width:100%;white-space:normal;}
-.prose a.kapref.senere:hover{background:var(--accent-soft);border-color:var(--accent-soft-2);text-decoration:none;}
-.prose a.kapref.senere .kr-kode{font-weight:660;color:var(--ink-3);flex:0 0 auto;}
-.prose a.kapref.senere .kr-tittel{color:var(--ink-2);min-width:0;overflow:hidden;text-overflow:ellipsis;}
+.prose a.kapref.senere,.prose a.kapref.chipref{display:inline-flex;align-items:baseline;gap:5px;background:var(--bg-sunken);border:1px solid var(--hairline-strong);border-radius:var(--r-sm);padding:0 7px;font-size:.9em;font-weight:400;max-width:100%;white-space:normal;}
+.prose a.kapref.senere:hover,.prose a.kapref.chipref:hover{background:var(--accent-soft);border-color:var(--accent-soft-2);text-decoration:none;}
+.prose a.kapref.senere .kr-kode,.prose a.kapref.chipref .kr-kode{font-weight:660;color:var(--ink-3);flex:0 0 auto;}
+.prose a.kapref.senere .kr-tittel,.prose a.kapref.chipref .kr-tittel{color:var(--ink-2);min-width:0;overflow:hidden;text-overflow:ellipsis;}
 .prose a.kapref.senere .kr-flagg{flex:0 0 auto;font-size:.8em;font-weight:620;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-4);border-left:1px solid var(--hairline-strong);padding-left:5px;}
 @media (max-width:560px){.prose a.kapref.senere .kr-tittel{display:none;}
   .prose a.kapref.senere{gap:4px;}}
+/* Kjernepensum: lenken flyter som tekst og brytes over linjer i stedet for å
+   bli en klosset blokk midt i en setning. I tabeller står bare koden, siden
+   raden allerede sier hva delen handler om. */
+.prose a.kapref.chipref{display:inline;padding:1px 6px;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+.prose a.kapref.chipref .kr-kode{margin-right:5px;}
+.prose td a.kapref.chipref .kr-tittel{display:none;}
+.prose td a.kapref.chipref .kr-kode{margin-right:0;}
 </style>
 </head>
 <body>
@@ -570,8 +578,8 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=105"></script>
-<script src="js/config.js?v=105"></script>
+<script src="js/subjects.js?v=106"></script>
+<script src="js/config.js?v=106"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
@@ -583,18 +591,19 @@ window.EDU_DATA = {};
      account      = Supabase-innlogging og synk av fremdrift (valgfritt)
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=105"></script>
-<script src="js/bundle-views.js?v=105"></script>
-<script src="js/bundle-lyn.js?v=105"></script>
-<script src="js/bundle-dybde.js?v=105"></script>
-<script src="js/bundle-sett.js?v=105"></script>
-<script src="js/bundle-case.js?v=105"></script>
-<script src="js/bundle-mock.js?v=105"></script>
-<script src="js/bundle-historier.js?v=105"></script>
-<script src="js/bundle-kapitteloppgaver.js?v=105"></script>
-<script src="js/bundle-notebooklm.js?v=105"></script>
-<script src="js/account.js?v=105"></script>
-<script src="js/picker.js?v=105"></script>
-<script src="js/boot.js?v=105"></script>
+<script src="js/bundle-core.js?v=106"></script>
+<script src="js/bundle-views.js?v=106"></script>
+<script src="js/bundle-lyn.js?v=106"></script>
+<script src="js/bundle-dybde.js?v=106"></script>
+<script src="js/bundle-sett.js?v=106"></script>
+<script src="js/bundle-case.js?v=106"></script>
+<script src="js/bundle-mock.js?v=106"></script>
+<script src="js/bundle-historier.js?v=106"></script>
+<script src="js/bundle-kapitteloppgaver.js?v=106"></script>
+<script src="js/bundle-notebooklm.js?v=106"></script>
+<script src="js/bundle-kjerne.js?v=106"></script>
+<script src="js/account.js?v=106"></script>
+<script src="js/picker.js?v=106"></script>
+<script src="js/boot.js?v=106"></script>
 </body>
 </html>

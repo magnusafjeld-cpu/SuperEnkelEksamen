@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-09-24
+oppdatert: 2026-09-28
 ---
 
 # Fallgruver
@@ -415,9 +415,9 @@ for (const r of [...new Set([...document.querySelectorAll('[data-match]')].map(n
 }
 ```
 
-Kjør den for **alle fire fagene**. En endring i `bundle-core.js` treffer alle, og
-fag-id-ene er `sam3`, `fie402`, `case` og `fie432` — merk at Caseintervju heter
-`case`, ikke `caseintervju`.
+Kjør den for **alle fem fagene**. En endring i `bundle-core.js` treffer alle, og
+fag-id-ene er `sam3`, `fie402`, `case`, `fie432` og `fie459` — merk at
+Caseintervju heter `case`, ikke `caseintervju`.
 
 ## 7s. Svar på oppgaver som ikke finnes lenger
 
@@ -517,6 +517,26 @@ eksempel lå bare i den bygde fila før de ble overført.
 diffen tom, er fragmentene og manualen i takt. FIE459 er bygget på samme måte, med
 `tools/fie459-bygg-manual.py`. FIE402, SAM3 og Caseintervju har ingen fragmenter;
 der er manualfila selve kilden.
+
+## 7y. Fasiten var oftest det lengste alternativet
+
+Fallgruve 7c på en annen akse. Da kjernepensum for FIE402 ble skrevet, var
+fasitposisjonene trukket på forhånd og helt jevne, 10/10/10/9. Likevel løste en
+blind gjennomgang alle 39 sjekkene, og la merke til at **fasiten var det lengste
+alternativet i 26 av dem**. Den som alltid velger det lengste, får to av tre
+riktige uten å kunne faget.
+
+Årsaken er den samme hver gang: forfatteren skriver det riktige svaret med hele
+begrunnelsen og de gale som korte påstander. Rettingen var å flytte begrunnelsen
+fra fasiten inn i forklaringen, og gi et galt alternativ en plausibel begrunnelse
+av samme lengde. Etterpå var fasiten lengst i 10 av 39, 26 %, og kortest i 6.
+
+`tools/sjekk-kjerne.js` melder nå FEIL når fasiten er lengst i mer enn 40 %, og
+ADVARSEL per spørsmål der den er over 1,3 ganger det lengste gale alternativet.
+
+**Samme skjevhet ligger i tre av quizene**, målt 28. september 2026: SAM3 66 %,
+FIE402 61 % (151 av 246) og Caseintervju 53 %. FIE432 og FIE459 er under 30 %.
+Det er ikke rettet ennå; se [[Åpne spørsmål og neste steg]].
 
 ## 8. Filer som ikke er koblet til noe
 

@@ -145,7 +145,7 @@ but cannot use them fluently. Rebuild from the ground up, fast but complete.
   what predicts leverage in practice, and how to argue it in an exam answer.
 
 ### Part II — Information and issuance (k12–k14)
-- **k12 · Asymmetric information: Myers-Majluf.** The full template: α = I/(E[V | beliefs] + NPV);
+- **k12 · Asymmetric information: Myers-Majluf.** The full template: α = I/(E[V | beliefs] + I + NPV);
   payoff to old shareholders = (1−α)(V_true + payoff); issue if that exceeds V_true; then
   **check whether investors' beliefs are rational**. Pooling and separating outcomes. Why the
   outcome can be inefficient even when beliefs are rational. *Repeated almost identically in

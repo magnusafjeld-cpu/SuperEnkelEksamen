@@ -11,6 +11,7 @@ window.EDU = window.EDU || {};
       { route: "#/", match: "/", label: "Dashboard", ico: "home" },
       { route: "#/plan", match: "/plan", label: "Studieplan", ico: "calendar" },
       { route: "#/curriculum", match: "/curriculum", label: "Pensum", ico: "grid" },
+      { route: "#/kjerne", match: "/kjerne", label: "Kjernepensum", ico: "star" },
     ]},
     { group: "Øving", items: [
       { route: "#/lyn", match: "/lyn", label: "Lynlæring", ico: "bolt", badge: () => (S.views.lyn && !S.views.lyn.dailyDone()) ? "⚡" : null },
@@ -55,6 +56,7 @@ window.EDU = window.EDU || {};
     /* Teksteksporten lager kildene av manualen. Uten kapitler er den tom. */
     "/notebooklm": () => (window.EDU_DATA.curriculum || []).length > 0,
     "/kapitteloppgaver": () => Object.keys(window.EDU_DATA.chapterTasks || {}).length > 0,
+    "/kjerne": () => (window.EDU_DATA.kjerne || []).length > 0,
   };
   function has(match) {
     const m = sub().modules;
@@ -146,6 +148,10 @@ window.EDU = window.EDU || {};
     when("/kapitteloppgaver", "/kapitteloppgaver/:num", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num)));
     when("/kapitteloppgaver", "/kapitteloppgaver/:num/:oppg", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num, p.oppg)));
     when("/notebooklm", "/notebooklm", () => setView(() => V.notebooklm.render()));
+    /* husk før :num — ruteren tar første treff. */
+    when("/kjerne", "/kjerne", () => setView(() => V.kjerne.render()));
+    when("/kjerne", "/kjerne/husk", () => setView(() => V.kjerne.renderHusk()));
+    when("/kjerne", "/kjerne/:num", (p) => setView(() => V.kjerne.renderDel(p.num)));
     if (S.account) R.on("/konto", () => setView(() => S.account.render()));
     R.setNotFound(() => setView(() => V.dashboard.render()));
   }

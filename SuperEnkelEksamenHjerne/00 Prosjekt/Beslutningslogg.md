@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-09-24
+oppdatert: 2026-09-28
 ---
 
 # Beslutningslogg
@@ -60,6 +60,22 @@ Magnus ba om et fag han kan gå «raskt igjennom for å ha en grei forståelse f
 temaene». Derfor én kort kapittel per forelesning, quiz og flashcards, og ingen
 dybdetrening, lynlæring, kapitteloppgaver eller eksamenssett. Det er et valg, ikke
 et hull; mer eksamenstrening kan legges til senere. Se [[FIE459 Sustainable Finance]].
+
+## Kjernepensum er en nedkorting av manualen, bygd etter eksamensblokker
+Magnus ba 28. september 2026 om en del «som heter kjernepensum», som kan leses
+på kort tid og gi god forståelse av det som kommer på eksamen. Tre valg ble tatt
+med ham: **rundt 12 000 ord** (én kveld), **raske sjekker pluss en minicase** per
+del, og **full behandling av temaene Kurbatov ikke har gitt** (Myers-Majluf,
+gjeld og egenkapital som opsjoner, emisjoner), selv om de ikke var i de to siste
+settene.
+
+Teksten er manualen kortet ned, ikke nytt stoff: samme konvensjoner, ofte samme
+kontrollerte eksempler, og hver del lenker til kapitlene den bygger på. Delene
+følger det eksamen spør om (tvillingfirma, MM og rekapitalisering, WACC og APV
+…), ikke kapittelinndelingen, fordi det er slik oppgavene kommer.
+**Konsekvens:** ikke skriv nytt fagstoff i kjernepensum som ikke står i
+manualen. Finnes noe i kjernepensum som manualen mangler, hører det hjemme i
+manualen først. Se [[Moduler og visninger]].
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på

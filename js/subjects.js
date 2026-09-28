@@ -69,7 +69,7 @@ window.EDU_SUBJECTS = [
     logo: "CF",
     blurb: "Hele mastermanualen på engelsk: kapitalstruktur, verdsetting med gjeld, opsjoner, M&A og eierstyring — med seks tidligere eksamenssett.",
     accent: "#12805c", accentInk: "#0b6448", accentSoft: "#e3f4ee", accentSoft2: "#cfeade",
-    scripts: ["fag/fie402/data.js", "fag/fie402/lyn.js", "fag/fie402/dybde.js", "fag/fie402/sett.js", "fag/fie402/kapitteloppgaver.js"],
+    scripts: ["fag/fie402/data.js", "fag/fie402/lyn.js", "fag/fie402/dybde.js", "fag/fie402/sett.js", "fag/fie402/kapitteloppgaver.js", "fag/fie402/kjerne.js"],
     manual: {
       candidates: ["FIE402_Manual.html", "fag/fie402/manual.html", "../FIE402_Manual.html"],
       label: "FIE402_Manual.html",
@@ -176,8 +176,11 @@ window.EDU_SUBJECTS = [
       planEyebrow: "Studieplan · 25 moduler",
       planIntro: "Modul 1–21 bygger faget fra bunnen: grunnlaget, kapitalstruktur, informasjon og utbytte, verdsetting med gjeld, opsjoner, og til slutt M&A og eierstyring. Modul 22–25 er ren eksamenstrening på ekte sett. Innleveringene HW1 og HW2 har egne milepæler underveis.",
       dybdeIntro: "Selvrettet trening i seks bolker som følger kursets deler. Velg bank, filtrer på nivå og tema, og skriv svaret på papir før du åpner fasiten — eksamen er penn og papir.",
+      /* Kjernepensum er bygd rundt eksamensblokkene, så introen sier hvordan
+         delene henger sammen i DETTE faget. */
+      kjerneIntro: "Det viktigste i FIE402 på én kveld, i tolv korte deler bygd rundt det eksamen spør om, ikke rundt kapitlene. Del 1–4 er verdsettingsmaskinen og hører sammen; resten kan leses i hvilken som helst rekkefølge. Svar på sjekkene etter hver del, og løs minicasen på papir før du går videre. Teksten er på engelsk, som eksamen.",
     },
-    modules: ["/plan", "/curriculum", "/lyn", "/quiz", "/kapitteloppgaver", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress", "/notebooklm"],
+    modules: ["/plan", "/curriculum", "/kjerne", "/lyn", "/quiz", "/kapitteloppgaver", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress", "/notebooklm"],
   },
   {
     id: "case",

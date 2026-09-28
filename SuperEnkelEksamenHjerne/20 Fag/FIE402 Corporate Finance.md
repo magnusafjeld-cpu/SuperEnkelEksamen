@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-09-24
+oppdatert: 2026-09-28
 ---
 
 # FIE402 Corporate Finance
@@ -171,6 +171,84 @@ sett på klokka, ikke ved å lese om det, og det ligger i Eksamenssett.
 > femoppgaverskapittel — og ble meldt som for tynt fordi kontrollen bare talte
 > oppgaver. Nå innfrir et kapittel vekten sin med enten antallet eller
 > poengsummen, så færre og lengre oppgaver er et lovlig valg.
+
+## Kjernepensum
+
+Lagt inn 28. september 2026: det viktigste i faget på én kveld, som egen lesevei
+ved siden av manualen. Modulen er beskrevet i [[Moduler og visninger]], valgene
+i [[Beslutningslogg]], og forfatterspesifikasjonen er
+`docs/fie402-kjerne-spek.md`.
+
+| Del | Tittel | Kondenserer |
+|---|---|---|
+| kj0 | The exam in one page | k0, k28 |
+| kj1 | Cost of capital and the twin-firm routine | k3, k4 |
+| kj2 | Modigliani-Miller, recapitalisations and payout | k6, k15, k16 |
+| kj3 | Taxes, the interest tax shield and the trade-off | k7, k8 |
+| kj4 | Valuing a levered firm: WACC, APV and FTE | k2, k17–k20 |
+| kj5 | Agency costs of debt: risk shifting and debt overhang | k9–k11 |
+| kj6 | Asymmetric information and raising capital | k12–k14 |
+| kj7 | Options: payoffs, parity, binomial pricing, Black-Scholes | k21–k23 |
+| kj8 | Debt and equity as options, and credit risk | k5, k24 |
+| kj9 | Real options | k25 |
+| kj10 | Mergers and acquisitions | k26 |
+| kj11 | Corporate governance | k27 |
+
+**13 100 ord, 39 sjekker og 11 minicaser.** Omtrent 2 timer lesing, 4 t 30 min
+med alt. Del 1–4 er verdsettingsmaskinen og leses i rekkefølge; resten står
+alene. Myers-Majluf, gjeld og EK som opsjoner og emisjoner har full behandling
+etter Magnus' valg, men er merket som fraværende i begge Kurbatov-settene.
+
+Fem agenter skrev delene fra manualen. Alle tall ble regnet om to ganger: av meg,
+og i en blind løsning av minicasene fra oppgaveteksten alene. Sjekkene ble
+besvart blindt, 39 av 39. I tillegg ble hver påstand kontrollert mot manualen, og
+dekningen målt mot H2024 og H2025: en leser med bare kjernepensum når anslagsvis
+85–89 av 100 poeng på H2024 og nesten alt på H2025. Det gjennomgangen fant:
+
+- **En minicase som tillot to svar** (kj9 b): verdien av informasjon ble regnet
+  mot å bygge i dag, mens oppgaven selv hadde vist at det beste alternativet er å
+  vente. Da er studien bare verdt kostnaden ved utsettelsen, 25,45 og ikke 240.
+  Spørsmålet sier nå «bygg i dag eller aldri», og teksten i kj9 har fått
+  forbeholdet.
+- **Fasiten var det lengste alternativet i 26 av 39 sjekker.** Rettet til 10 av
+  39; se [[Fallgruver]] 7y.
+- **Én «andre rute» som var samme likning** (kj10): spreaden i dealsannsynligheten
+  er long-short-posisjonen uten innskuddet. Merket som en raskere vei, ikke en
+  uavhengig sjekk.
+
+- **Betingelser som falt bort i nedkortingen**, 14 steder. Eksempler: «skatter
+  favoriserer tilbakekjøp» uten «når τ<sub>d</sub> &gt; τ<sub>g</sub>, for skattepliktige»,
+  «pre-announcement prices in the failure branch» uten «når oppgaven sier at
+  kursene går tilbake», og τ<sub>c</sub>D som skjoldets tak uten «for gjeld som ikke
+  vokser». To påstander om kort løpetid og sikringskrav i covenants sto ikke i
+  manualen og ble strøket.
+- **Hull med eksamensverdi, tettet:** refinansiering inne i en rekapitalisering
+  (H2024 E3: bare D<sub>ny</sub> − D<sub>gammel</sub> går til aksjonærene), realopsjon
+  med renten som usikkerhet (H2024 E6), annuiteten på pugglista, gjeld mot
+  egenkapital under asymmetrisk informasjon (2021 P1), at aksjonærer kan tape på å
+  kjøpe tilbake gjeld, og oppkjøpsgrunner fordelt på kjøper og mål (H2024 E1).
+  Kj0 fikk en «Must know»-boks med de fem sjekkene, så hovedpunktsiden definerer
+  dem.
+
+> [!warning] Mulig feil i eksamenssettets løsning på H2024 E6(c)
+> Løsningen i `fag/fie402/sett.js` regner ρ = 0,7197 fra verdien i dag av
+> kontantstrømmene år 1–10 og verdiene om ett år av kontantstrømmene år 2–11.
+> Konsistente oppsett gir rundt 0,46. Det finnes ingen offisiell fasit. Ikke
+> rettet ennå; se [[Åpne spørsmål og neste steg]]. Kjernepensum beskriver bare
+> prinsippet.
+
+Agentene fant i tillegg elleve feil i manualen og kursplanen, alle rettet:
+kursplanen manglet I i nevneren til α; en setning i 10.4 var avkuttet; 26.3 og
+k29 sa at identiteten NPV<sub>A</sub> + NPV<sub>T</sub> = S kan finne en feil i
+x eller y (den holder for alle x og y); k29-raden for dealsannsynlighet
+manglet (1 + r<sub>f</sub>), som er nettopp feilen H2025-fasiten navngir; 18.3 og 18.4
+kalte τ<sub>c</sub>D skjoldets tak også for gjeld som vokser; 15 sa to steder at H2024 E3
+mangler utbyttedelen (den har den, det nye er at gammel gjeld innfris først);
+6.4 sa at ingenting beveger seg ved gjennomføringen, men kursen faller med
+utbyttet; 16.3 lot skatteargumentet snu allerede ved like satser; 17.3 sa at
+sjekk 2 fanger en feil β<sub>U</sub>, men den regner bare om; 23.5 kalte implisitt
+volatilitet markedets prognose og motsa sin egen advarsel; og en modellbesvarelse
+i 28.5 brukte forskjøvet styre uten å si at det er amerikansk rett.
 
 ## Gjennomgangen, september 2026
 
