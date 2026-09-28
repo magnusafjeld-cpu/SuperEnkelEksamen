@@ -241,6 +241,19 @@ tilgjengelig når du regner en kapitteloppgave eller et sett som på eksamen.
 - `.fa-vindu[hidden]` må settes eksplisitt til `display:none`, ellers vinner
   `display:flex` over `hidden`-attributtet.
 - `.brok` er en stablet brøk (teller over nevner), laget for arket.
+- **(i) på hver formel** (lagt til samme dag): en rund (i) helt til høyre på raden
+  viser hva formelen er og, under «When to use», når den brukes. Teksten ligger i
+  fagdataene som en skjult `.fa-info-tekst` inne i `.fa-rad`; motoren flytter den
+  ut, pakker formelen i `.fa-formel` og legger til knappen. Ett felles tips-element
+  (`.fa-tips`, `position:fixed`, inne i vinduet så klikk på det teller som «inne»)
+  plasseres under (i)-en, eller over når det ikke er plass.
+  - Hover og tastaturfokus viser, et trykk fester, et nytt trykk skjuler. Esc tar
+    tipset før vinduet. Scroll i arket og endret vindusstørrelse skjuler tipset.
+  - **Hover reagerer bare på mus** (`pointerType === "mouse"`). På iOS sluker en
+    hover-effekt som endrer siden det første trykket, så (i)-en ville trengt tre
+    trykk for å lukkes.
+  - `.fa-formel` har `overflow-y:hidden` og 3 px luft: brøkene stikker en piksel
+    utenfor linjen, og uten det tegnet nettleseren et loddrett rullefelt i raden.
 
 FIE402-arket er hentet ordrett fra `Formula sheet.docx` med en egen OMML-leser,
 fordi Word-ligningene forsvinner med vanlige verktøy (samme felle som i FIE432).

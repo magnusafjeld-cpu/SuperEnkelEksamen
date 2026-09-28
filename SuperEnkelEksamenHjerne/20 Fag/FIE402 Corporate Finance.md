@@ -57,7 +57,9 @@ FCF, evighetsrenter, CAPM, rE = rU + (D/E)(rU − rD), β_U-vekting, WACC før o
 etter skatt, binomisk replikering med ρ, og aksjebytte/bytteforhold.
 
 **Arket ligger i appen**, bak knappen nederst til høyre på alle sider, ordrett
-fra docx-fila og med listen under. Se [[Moduler og visninger]].
+fra docx-fila og med listen under. Hver formel har en (i) som forklarer hva den
+er og når den brukes, på engelsk og bare med eksamenshenvisninger fra kursplanen.
+Forklaringene er ikke en del av arket. Se [[Moduler og visninger]].
 
 **Ikke på arket — må pugges:** V^L = V^U + PV(TS), reglene for hvilken rente som
 diskonterer skatteskjoldet, D_t = d·V_t^L, put-call-paritet, βE = N(d1)(V/E)βU,
