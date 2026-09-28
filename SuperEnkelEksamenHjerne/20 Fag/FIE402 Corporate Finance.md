@@ -56,6 +56,9 @@ Utleveres på eksamen, og er identisk med `FIE402_Corp_course_files/Formula shee
 FCF, evighetsrenter, CAPM, rE = rU + (D/E)(rU − rD), β_U-vekting, WACC før og
 etter skatt, binomisk replikering med ρ, og aksjebytte/bytteforhold.
 
+**Arket ligger i appen**, bak knappen nederst til høyre på alle sider, ordrett
+fra docx-fila og med listen under. Se [[Moduler og visninger]].
+
 **Ikke på arket — må pugges:** V^L = V^U + PV(TS), reglene for hvilken rente som
 diskonterer skatteskjoldet, D_t = d·V_t^L, put-call-paritet, βE = N(d1)(V/E)βU,
 durasjon, hele Myers-Majluf-oppsettet og alt om realopsjoner. **Black-Scholes og

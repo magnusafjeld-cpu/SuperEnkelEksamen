@@ -69,7 +69,7 @@ window.EDU_SUBJECTS = [
     logo: "CF",
     blurb: "Hele mastermanualen på engelsk: kapitalstruktur, verdsetting med gjeld, opsjoner, M&A og eierstyring — med seks tidligere eksamenssett.",
     accent: "#12805c", accentInk: "#0b6448", accentSoft: "#e3f4ee", accentSoft2: "#cfeade",
-    scripts: ["fag/fie402/data.js", "fag/fie402/lyn.js", "fag/fie402/dybde.js", "fag/fie402/sett.js", "fag/fie402/kapitteloppgaver.js", "fag/fie402/kjerne.js"],
+    scripts: ["fag/fie402/data.js", "fag/fie402/lyn.js", "fag/fie402/dybde.js", "fag/fie402/sett.js", "fag/fie402/kapitteloppgaver.js", "fag/fie402/kjerne.js", "fag/fie402/formelark.js"],
     manual: {
       candidates: ["FIE402_Manual.html", "fag/fie402/manual.html", "../FIE402_Manual.html"],
       label: "FIE402_Manual.html",

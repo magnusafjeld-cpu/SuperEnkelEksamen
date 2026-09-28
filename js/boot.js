@@ -99,6 +99,8 @@ window.EDU = window.EDU || {};
     const app = el(".app"); app.appendChild(buildSidebar());
     const main = el(".main"); main.appendChild(buildTopbar()); contentEl = el(".content"); main.appendChild(contentEl);
     app.appendChild(main); document.body.appendChild(app); document.body.appendChild(buildMobileNav());
+    /* Formelarket: knappen nederst til høyre, bare i fag som har et ark. */
+    if (S.formelark) S.formelark.mount(document.body);
   }
   function bestMatch(path) {
     if (path === "/") return "/";

@@ -225,6 +225,42 @@ svg.ico{width:1.05em;height:1.05em;flex:0 0 auto;}
    bredden på hele kapitlet. */
 .article-wrap>*{min-width:0;}
 .kj-spalte{max-width:780px;}
+/* Formelarket: rund knapp nederst til høyre og et lite vindu over den. Ligger på
+   <body>, utenfor .content. [hidden] må overstyres, ellers vinner display:flex. */
+.fa-knapp{position:fixed;right:22px;bottom:22px;z-index:70;display:flex;align-items:center;gap:8px;padding:8px 16px 8px 8px;border:none;border-radius:var(--r-pill);background:var(--accent);color:#fff;font:inherit;font-size:14px;font-weight:620;box-shadow:var(--shadow-md);cursor:pointer;}
+.fa-knapp:hover,.fa-knapp.aktiv{background:var(--accent-ink);}
+.fa-knapp:focus-visible{outline:3px solid var(--accent-soft-2);outline-offset:2px;}
+.fa-ikon{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-family:var(--font-serif);font-style:italic;font-size:19px;line-height:1;}
+.fa-vindu{position:fixed;right:22px;bottom:78px;z-index:71;width:min(460px,calc(100vw - 32px));max-height:min(72vh,660px);display:flex;flex-direction:column;background:var(--card);border:1px solid var(--hairline-strong);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);overflow:hidden;}
+.fa-vindu[hidden]{display:none;}
+.fa-topp{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 14px 10px 18px;border-bottom:1px solid var(--hairline);}
+.fa-tittel{font-weight:680;font-size:15px;}
+.fa-kilde{font-size:12px;color:var(--ink-3);margin-top:2px;}
+.fa-lukk{flex:0 0 auto;width:32px;height:32px;border:none;border-radius:var(--r-sm);background:none;color:var(--ink-3);font-size:24px;line-height:1;cursor:pointer;}
+.fa-lukk:hover{background:var(--bg-sunken);color:var(--ink);}
+.fa-kropp{overflow-y:auto;padding:6px 18px 16px;}
+.fa-ark{font-family:var(--font-serif);font-size:15.5px;color:var(--ink);}
+.fa-rad{padding:8px 0;border-bottom:1px solid var(--hairline);line-height:2.1;overflow-x:auto;}
+.fa-navn{font-family:var(--font);font-size:12.5px;color:var(--ink-3);margin-right:4px;}
+.fa-overskrift{font-family:var(--font);font-size:12px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin:12px 0 0;}
+.brok{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 2px;font-size:.9em;line-height:1.25;}
+.brok>span:first-child{border-bottom:1px solid currentColor;padding:0 3px 1px;}
+.brok>span:last-child{padding:1px 3px 0;}
+.fa-ikke-tittel{font-size:12px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin:16px 0 6px;}
+.fa-ikke ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.55;color:var(--ink-2);}
+.fa-ikke li{margin:3px 0;}
+@media (max-width:860px){
+  .fa-knapp{right:14px;bottom:calc(76px + env(safe-area-inset-bottom));padding:8px;}
+  .fa-knapptekst{display:none;}
+  .fa-ikon{width:34px;height:34px;}
+  .fa-vindu{left:12px;right:12px;width:auto;bottom:calc(132px + env(safe-area-inset-bottom));max-height:calc(100vh - 210px);}
+  .fa-ark{font-size:14.5px;}
+  .fa-navn{display:block;line-height:1.4;margin-top:2px;}
+  /* Knappen ligger over mobilmenyen; uten ekstra luft dekker den høyre kant av
+     det nederste på siden, som «Neste oppgave →». */
+  body.har-formelark .content{padding-bottom:150px;}
+}
+@media print{.fa-knapp,.fa-vindu{display:none;}}
 .prose{min-width:0;}
 .article-toc{position:sticky;top:24px;}
 .article-toc .tlabel{font-size:11.5px;font-weight:650;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-4);margin-bottom:10px;padding-left:12px;}
@@ -583,8 +619,8 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=107"></script>
-<script src="js/config.js?v=107"></script>
+<script src="js/subjects.js?v=108"></script>
+<script src="js/config.js?v=108"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
@@ -596,19 +632,20 @@ window.EDU_DATA = {};
      account      = Supabase-innlogging og synk av fremdrift (valgfritt)
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=107"></script>
-<script src="js/bundle-views.js?v=107"></script>
-<script src="js/bundle-lyn.js?v=107"></script>
-<script src="js/bundle-dybde.js?v=107"></script>
-<script src="js/bundle-sett.js?v=107"></script>
-<script src="js/bundle-case.js?v=107"></script>
-<script src="js/bundle-mock.js?v=107"></script>
-<script src="js/bundle-historier.js?v=107"></script>
-<script src="js/bundle-kapitteloppgaver.js?v=107"></script>
-<script src="js/bundle-notebooklm.js?v=107"></script>
-<script src="js/bundle-kjerne.js?v=107"></script>
-<script src="js/account.js?v=107"></script>
-<script src="js/picker.js?v=107"></script>
-<script src="js/boot.js?v=107"></script>
+<script src="js/bundle-core.js?v=108"></script>
+<script src="js/bundle-views.js?v=108"></script>
+<script src="js/bundle-lyn.js?v=108"></script>
+<script src="js/bundle-dybde.js?v=108"></script>
+<script src="js/bundle-sett.js?v=108"></script>
+<script src="js/bundle-case.js?v=108"></script>
+<script src="js/bundle-mock.js?v=108"></script>
+<script src="js/bundle-historier.js?v=108"></script>
+<script src="js/bundle-kapitteloppgaver.js?v=108"></script>
+<script src="js/bundle-notebooklm.js?v=108"></script>
+<script src="js/bundle-kjerne.js?v=108"></script>
+<script src="js/bundle-formelark.js?v=108"></script>
+<script src="js/account.js?v=108"></script>
+<script src="js/picker.js?v=108"></script>
+<script src="js/boot.js?v=108"></script>
 </body>
 </html>

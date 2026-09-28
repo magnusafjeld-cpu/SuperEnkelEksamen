@@ -26,6 +26,8 @@ js/
   bundle-notebooklm.js     pensum som ren tekst, ett kapittel per kilde
   bundle-kjerne.js         kjernepensum: kort lesevei etter eksamensblokker,
                            med sjekker, minicase og hovedpunktene samlet
+  bundle-formelark.js      formelarket: rund knapp nederst til høyre og et
+                           lite vindu med eksamensarket, i fag som har ett
   account.js               Supabase-innlogging + synk (mergeState bor her)
   picker.js                fag-velger, tema, byggnummer, dynamisk lasting av fagdata
   boot.js                  app-skall, navigasjon, ruting, innholdslaster

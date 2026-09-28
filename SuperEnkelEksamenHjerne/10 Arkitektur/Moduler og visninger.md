@@ -220,6 +220,31 @@ sjekker fasitposisjonene mot `_kjerne/fasitplan.json` (fallgruve 7c).
 Forfatterspesifikasjonene er `docs/fie402-kjerne-spek.md` (åpen minicase, engelsk) og
 `docs/fie432-kjerne-spek.md` (flervalgsminicase, norsk).
 
+## Formelarket — alltid ett trykk unna
+
+Fag som får utdelt et formelark på eksamen, har en rund knapp nederst til høyre
+på alle sider, merket «ƒ Formelark». Den åpner et lite vindu med arket nøyaktig
+slik det deles ut, og under det en kort liste over det som ikke står der og må
+kunnes. Magnus ba om det for FIE402 28. september 2026: arket skal være like
+tilgjengelig når du regner en kapitteloppgave eller et sett som på eksamen.
+
+- **Data i faget, knapp i motoren.** `EDU_DATA.formelark = { tittel, kilde, html,
+  ikkePaaArket }` ligger i `fag/<id>/formelark.js`; `js/bundle-formelark.js`
+  monteres fra `buildShell()` i `boot.js`. Fag uten formelark får ingen knapp.
+- **Knappen og vinduet henger på `<body>`**, utenfor `.content`, så de overlever
+  at visningen tegnes på nytt.
+- **Lukkes** med krysset, Esc, et nytt trykk på knappen eller klikk utenfor; et
+  klikk inne i vinduet lukker ikke.
+- **Mobil:** knappen er bare ikonet og ligger over mobilmenyen, vinduet fyller
+  bredden, og etikettene («Pre-tax WACC:») står på egen linje. `body.har-formelark`
+  gir innholdet 150 px luft nederst, ellers dekket knappen «Neste oppgave →».
+- `.fa-vindu[hidden]` må settes eksplisitt til `display:none`, ellers vinner
+  `display:flex` over `hidden`-attributtet.
+- `.brok` er en stablet brøk (teller over nevner), laget for arket.
+
+FIE402-arket er hentet ordrett fra `Formula sheet.docx` med en egen OMML-leser,
+fordi Word-ligningene forsvinner med vanlige verktøy (samme felle som i FIE432).
+
 ## NotebookLM — pensum som ren tekst
 
 `/notebooklm` gjør de lastede kapitlene om til ren tekst med en kopiknapp per
