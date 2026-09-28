@@ -89,7 +89,9 @@ må huske å oppsøke.
 ### Eksamensvekt i hele appen
 
 Fag med `examWeights` i manifestet får fem prikker ved hvert kapittel i pensum,
-i studieplanens kapittelrader og i kapitteloppgavene. På kapittelsiden står
+i studieplanens kapittelrader, i kapitteloppgavene, i kjernepensum (tyngste
+kapittel per del) og i NotebookLM, der de sier hvilke kapitler som er verdt å
+legge inn som kilde først (lagt til 28. september 2026). På kapittelsiden står
 vekten og begrunnelsen som tekst, fordi mobil ikke har hover. `examWeightsNote`
 i manifestet er forklaringen som vises over prikkene. Den er fagspesifikk, fordi
 FIE402 vekter mot sensor og FIE432 mot flervalgsæraen. Hjelperen er

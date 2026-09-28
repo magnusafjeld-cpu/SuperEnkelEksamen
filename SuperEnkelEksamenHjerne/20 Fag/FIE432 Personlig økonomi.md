@@ -77,8 +77,8 @@ vekt 4 på ett eneste sett (17 % av H2025) pluss 2026-planen. **k13** har vekt 3
 fordi den var 17–19 % av to sett, men forsvant i H2025 og mangler gjesteforeleser
 i 2026. **k17** har vekt 4 fordi andelen stiger (8 % og så 14 %).
 
-Vektene vises som prikker i pensum, på kapittelsidene, i studieplanen og i
-kapitteloppgavene, og repetisjonsmotoren bruker dem. Se [[Moduler og visninger]].
+Vektene vises som prikker i pensum, på kapittelsidene, i studieplanen, i
+kapitteloppgavene, i kjernepensum og i NotebookLM, og repetisjonsmotoren bruker dem. Se [[Moduler og visninger]].
 
 ## Fasitene har feil, og de er kartlagt
 

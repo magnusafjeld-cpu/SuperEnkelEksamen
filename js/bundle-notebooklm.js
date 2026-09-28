@@ -23,7 +23,7 @@
    som ingen har bruk for som kilde.                                            */
 window.EDU = window.EDU || {};
 (function (S) {
-  const { el, icon, tellord } = S.u;
+  const { el, icon, tellord, vektmerke } = S.u;
   const sh = () => S.views.shared;
 
   const CALLOUT = { mech: "MEKANISME", warn: "ADVARSEL", tip: "TIPS", link: "KOBLING", mistake: "VANLIG FEIL", info: "MERK" };
@@ -210,8 +210,11 @@ window.EDU = window.EDU || {};
 
   function rad(k) {
     const r = el(".nlm-rad");
+    /* Eksamensvekten ved navnet, som i pensum og kapitteloppgavene: den sier
+       hvilke kapitler som er verdt å legge inn som kilde først. */
     const venstre = el(".nlm-radtekst",
-      el(".nlm-radnavn", k.kap.fullTitle),
+      el(".row", { style: { gap: "10px", alignItems: "center" } },
+        el(".nlm-radnavn", k.kap.fullTitle), vektmerke(k.kap.num)),
       el(".nlm-radtall", [
         k.ord.toLocaleString("nb-NO") + " ord",
         k.eks ? tellord(k.eks, "gjennomregnet eksempel", "gjennomregnede eksempler") : null,
@@ -266,6 +269,9 @@ window.EDU = window.EDU || {};
       + "kilde i NotebookLM, en språkmodell eller et notat. Hvert kapittel er en hel "
       + "kilde for seg, med leseveiledningen øverst. Teksten lages av manualen som er "
       + "lastet nå, så den er alltid i takt med kapitlene du leser.")));
+    if (Object.keys(sub().examWeights || {}).length) wrap.appendChild(el("p.tiny.muted", { style: { maxWidth: "62ch", margin: "-14px 0 22px" } },
+      el("b", "Prikkene er eksamensvekt"), " fra 1 til 5, " + (sub().examWeightsNote || "utledet av hvor ofte temaet har kommet på eksamen.")
+      + " Hold musepekeren over for begrunnelsen."));
     const rutenett = el(".nlm-rutenett");
     bs.forEach((b) => rutenett.appendChild(delkort(b)));
     wrap.appendChild(rutenett);
