@@ -427,6 +427,11 @@ details.dyb-q.again{border-left:4px solid var(--rose);}
 details.dyb-q[open] .dyb-ans{display:block;}
 .dyb-ansin{background:var(--green-soft);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:14px 17px;margin-top:14px;font-size:15px;line-height:1.6;color:var(--ink-2);}
 .dyb-ansin b{color:#1d7a47;}
+/* Svarfeltet låner fargen fra svarboksen, men en textarea har ingen bredde av seg
+   selv: uten dette ble den et lite kvadrat på ~214 px med nettleserens grå kant. */
+textarea.dyb-ansin{display:block;width:100%;box-sizing:border-box;font:inherit;font-size:15px;line-height:1.6;color:var(--ink);border:1px solid var(--hairline-strong);border-left:4px solid var(--green);border-radius:12px;resize:vertical;}
+textarea.dyb-ansin:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft);}
+textarea.dyb-ansin::placeholder{color:var(--ink-4);}
 .dyb-self{margin-top:12px;display:flex;gap:9px;flex-wrap:wrap;align-items:center;}
 .dyb-self span{font-size:13px;color:var(--ink-3);margin-right:2px;}
 button.dyb-sb{font-family:inherit;font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:999px;cursor:pointer;border:1.5px solid var(--hairline-strong);background:#fff;transition:.15s;}
