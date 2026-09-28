@@ -180,7 +180,7 @@ Hver del har tre ting etter teksten:
 | Del | Hva | Lagring |
 |---|---|---|
 | Sjekker | 2–4 flervalg med forklaring, fasit med en gang. Tester forståelse, ikke pugg: retning på en feil, hvilken rente, hva som skjer med kursen | `sjekk: { <id>: indeks }` |
-| Minicase | 2–3 deloppgaver i eksamensformat, 6–7 poeng, ~10 min. Bruker den åpne oppgaven fra kapitteloppgavene: skriv svaret, åpne løsningen del for del, gi deg selv poeng | `valg: { <id>: { svar, score } }` |
+| Minicase | En kort oppgave i **fagets eksamensform**, ~10 min. Åpen i FIE402: 2–3 deloppgaver, skriv svaret, åpne løsningen del for del, gi deg selv poeng. Flervalg i FIE432: felles oppgavetekst og tre ledd med fire alternativer, +3/−1/0, «stå over» og fellene | `valg: { <id>: { svar, score } }` eller `valg: { <ledd-id>: indeks \| −1 }` |
 | «Must know»-boksen | Nøyaktig én `<div class="callout tip husk">` sist i teksten, 3–5 punkter. Del 0 har også én, med de fem sjekkene, så hovedpunktsiden definerer dem | — |
 
 Alt ligger under `state.exams["kjerne-<del-id>"]`, sammen med `lest`. En del er
@@ -200,16 +200,25 @@ vært i manualen, så koden alene sier ingenting.
 Mobilnavigasjonen har ikke plass, så **dashbordet har et eget kort** som peker
 på neste del som ikke er ferdig.
 
-Motoren lånte den åpne oppgaven fra kapitteloppgavene i stedet for å skrive den
-på nytt: `S.views.kapitteloppgaver.åpenOppgave(nøkkel, oppgave)`. En nøkkel som
-begynner med en bokstav («kjerne-kj3»), brukes som den er; et kapittelnummer
-blir «kapoppg-N» som før.
+**Minicasen følger eksamensformen, og motoren har begge.** `case` med
+`open: true` er den åpne formen; `case` med `ledd: [...]` er flervalgsformen,
+der hvert ledd har samme felt som en flervalgs-kapitteloppgave (`options`,
+`answer`, `traps`, `solution`, `points`). Delens status regner minuspoengene
+selv, så «minicase −1/9» er et mulig resultat, og «Ta minicasen på nytt» fjerner
+bare leddene.
+
+Motoren lånte begge formene fra kapitteloppgavene i stedet for å skrive dem på
+nytt: `S.views.kapitteloppgaver.åpenOppgave(nøkkel, oppgave)` og
+`S.views.kapitteloppgaver.flervalg(nøkkel, oppgave)`. En nøkkel som begynner med
+en bokstav («kjerne-kj3»), brukes som den er; et kapittelnummer blir
+«kapoppg-N» som før. Minuspoengregelen er dermed den samme i begge moduler.
 
 Data i `EDU_DATA.kjerne`, bygget fra `fag/<id>/_kjerne/kjN.js` med
 `python3 tools/bygg-kjerne.py <fag>` og kontrollert med
 `node tools/sjekk-kjerne.js <fag>`. Kontrollen tar også enkeltfragmenter, og
 sjekker fasitposisjonene mot `_kjerne/fasitplan.json` (fallgruve 7c).
-Forfatterspesifikasjonen for FIE402 er `docs/fie402-kjerne-spek.md`.
+Forfatterspesifikasjonene er `docs/fie402-kjerne-spek.md` (åpen minicase, engelsk) og
+`docs/fie432-kjerne-spek.md` (flervalgsminicase, norsk).
 
 ## NotebookLM — pensum som ren tekst
 

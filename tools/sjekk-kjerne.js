@@ -117,8 +117,9 @@ function deler(html) {
   return ut;
 }
 
-const HENVISNING = /\b(as above|see above|previous (question|task|exercise|case)|the case above|same firm as|som over|forrige oppgave)\b/i;
-const BOKSTAVREF = /\b(option|alternative|answer|choice)\s*\(?[A-D]\)?(?![a-zA-Z])|\([A-D]\)\s*(is|was)\b/;
+const HENVISNING = /\b(as above|see above|previous (question|task|exercise|case)|the case above|same firm as|som over|forrige oppgave|oppgaven over|samme selskap som)\b/i;
+/* Engelsk (FIE402) og norsk (FIE432): «option B», «alternativ C», «svar D». */
+const BOKSTAVREF = /\b([Oo]ption|[Aa]lternative|[Aa]nswer|[Cc]hoice|[Aa]lternativ(?:et)?|[Ss]var(?:et)?)\s*\(?[A-D]\)?(?![a-zA-ZæøåÆØÅ])|\([A-D]\)\s*(is|was|er|var)\b/;
 
 function main() {
   const arg = process.argv.slice(2);
@@ -203,7 +204,49 @@ function main() {
 
     const c = d.case;
     let caseMin = 0;
-    if (c) {
+    if (c && Array.isArray(c.ledd)) {
+      /* Flervalgsminicase (fag med flervalgseksamen, som FIE432): en felles
+         oppgavetekst og 2–4 ledd i kapitteloppgavenes flervalgsformat. */
+      const h = `${hvor}.case`;
+      if (c.id !== `${d.id}-m1`) feil.push(`${h}: id skal være ${d.id}-m1`);
+      nyId(c.id, h);
+      if (c.open) feil.push(`${h}: en flervalgsminicase skal ikke ha open`);
+      if (!Number.isInteger(c.minutes) || c.minutes < 3 || c.minutes > 15) feil.push(`${h}: minutes må være et heltall 3–15`);
+      caseMin = c.minutes || 0;
+      if (!c.topic) feil.push(`${h}: mangler topic`);
+      if (!String(c.body || "").trim()) feil.push(`${h}: mangler body (den felles oppgaveteksten)`);
+      sjekkHtml(String(c.body || ""), h + ".body", feil, advarsel);
+      if (HENVISNING.test(ren(c.body))) feil.push(`${h}: viser til en annen oppgave; minicasen vises alene (fallgruve 7v)`);
+      if (c.ledd.length < 2 || c.ledd.length > 4) feil.push(`${h}: trenger 2–4 ledd, har ${c.ledd.length}`);
+      const planL = plan && plan[c.id];
+      if (planL && planL.length !== c.ledd.length) feil.push(`${h}: planen har ${planL.length} ledd, minicasen ${c.ledd.length}`);
+      c.ledd.forEach((l, j) => {
+        const hl = `${h}.ledd[${j}]`, bokstav = String.fromCharCode(97 + j);
+        if (l.id !== `${c.id}${bokstav}`) feil.push(`${hl}: id skal være ${c.id}${bokstav}, er «${l.id}»`);
+        nyId(l.id, hl);
+        if (!l.q) feil.push(`${hl}: mangler q`);
+        sjekkHtml(String(l.q || ""), hl + ".q", feil, advarsel);
+        if (!Number.isInteger(l.points) || l.points < 1 || l.points > 6) feil.push(`${hl}: points må være et heltall 1–6`);
+        sumPoeng += l.points || 0;
+        if (!Array.isArray(l.options) || l.options.length !== 4) feil.push(`${hl}: må ha nøyaktig fire alternativer`);
+        else {
+          if (new Set(l.options.map((o) => ren(o))).size !== 4) feil.push(`${hl}: to alternativer er like`);
+          l.options.forEach((o, k) => sjekkHtml(String(o), `${hl}.options[${k}]`, feil, advarsel, { inline: true }));
+        }
+        if (!Number.isInteger(l.answer) || l.answer < 0 || l.answer > 3) feil.push(`${hl}: answer må være 0–3`);
+        else pos[l.answer]++;
+        if (planL && planL[j] !== undefined && planL[j] !== l.answer) feil.push(`${hl}: fasiten står på ${"ABCD"[l.answer]}, planen sier ${"ABCD"[planL[j]]}`);
+        if (!String(l.solution || "").trim()) feil.push(`${hl}: mangler solution`);
+        sjekkHtml(String(l.solution || ""), hl + ".solution", feil, advarsel);
+        if (!Array.isArray(l.traps) || l.traps.length !== 4) feil.push(`${hl}: traps må ha fire plasser, parallelt med options`);
+        else l.traps.forEach((tr, k) => {
+          if (k === l.answer && tr !== null) feil.push(`${hl}: traps[${k}] skal være null, det er fasiten`);
+          if (k !== l.answer && !String(tr || "").trim()) feil.push(`${hl}: traps[${k}] mangler; hvert galt alternativ skal si hvilken feil det er laget av`);
+          if (k !== l.answer && tr) sjekkHtml(String(tr), `${hl}.traps[${k}]`, feil, advarsel, { inline: true });
+        });
+        if (BOKSTAVREF.test(ren(l.solution))) feil.push(`${hl}: løsningen viser til et alternativ med bokstav; vis til innholdet (fallgruve 7c)`);
+      });
+    } else if (c) {
       const h = `${hvor}.case`;
       if (c.id !== `${d.id}-m1`) feil.push(`${h}: id skal være ${d.id}-m1`);
       nyId(c.id, h);
@@ -226,21 +269,26 @@ function main() {
 
     const min = Math.round(w / ORD_PER_MIN + sjekker.length * MIN_PER_SJEKK + caseMin);
     sumOrd += w; sumMin += min; sumSjekk += sjekker.length;
-    rader.push(`  ${String(d.id).padEnd(5)} ${String(w).padStart(5)} ord · ${sjekker.length} sjekker · minicase ${c ? c.points + " p/" + c.minutes + " min" : "–"} · ~${min} min  ${d.title || ""}`);
+    const cp = c ? (Array.isArray(c.ledd) ? c.ledd.reduce((a, l) => a + (l.points || 0), 0) + " p i " + c.ledd.length + " ledd" : c.points + " p") : "";
+    rader.push(`  ${String(d.id).padEnd(5)} ${String(w).padStart(5)} ord · ${sjekker.length} sjekker · minicase ${c ? cp + "/" + c.minutes + " min" : "–"} · ~${min} min  ${d.title || ""}`);
   });
 
   if (sumSjekk >= 12) {
-    const maks = Math.max(...pos) / sumSjekk;
+    /* pos teller både sjekkene og flervalgsleddene i minicasene. */
+    const maks = Math.max(...pos) / pos.reduce((x, y) => x + y, 0);
     if (maks > 0.35) feil.push(`fasitposisjonene er skjeve: ${pos.join("/")} (fallgruve 7c)`);
     /* Samme felle på en annen akse: er fasiten oftest det lengste alternativet,
        lærer leseren å velge det lengste. Tilfeldig er 25 %. */
     const andel = lengst / sumSjekk;
-    if (andel > 0.4) feil.push(`fasiten er det lengste alternativet i ${lengst} av ${sumSjekk} sjekker (${Math.round(andel * 100)} %); hold det under 40 % (fallgruve 7c)`);
+    if (andel > 0.4) feil.push(`fasiten er det lengste alternativet i ${lengst} av ${sumSjekk} sjekker (${Math.round(andel * 100)} %); hold det under 40 % (fallgruve 7y)`);
+    /* Og motsatt: er fasiten aldri lengst, lærer leseren å stryke det lengste.
+       FIE432-agentene overkorrigerte til 0 av 38 før dette ble fanget. */
+    else if (andel < 0.1) feil.push(`fasiten er det lengste alternativet i bare ${lengst} av ${sumSjekk} sjekker (${Math.round(andel * 100)} %); da lærer leseren å stryke det lengste. Sikt mot rundt 25 % (fallgruve 7y)`);
     else notat.push(`fasiten er det lengste alternativet i ${lengst} av ${sumSjekk} sjekker (${Math.round(andel * 100)} %)`);
   }
 
   console.log(rader.join("\n"));
-  console.log(`\n  ${deleneAlle.length} deler · ${sumOrd} ord · ${sumSjekk} sjekker (fasit ${pos.join("/")}) · ${sumPoeng} minicasepoeng · ~${Math.floor(sumMin / 60)} t ${sumMin % 60} min`);
+  console.log(`\n  ${deleneAlle.length} deler · ${sumOrd} ord · ${sumSjekk} sjekker (fasit med minicaseledd ${pos.join("/")}) · ${sumPoeng} minicasepoeng · ~${Math.floor(sumMin / 60)} t ${sumMin % 60} min`);
   notat.forEach((n) => console.log("  " + n));
   advarsel.forEach((a) => console.log("ADVARSEL  " + a));
   feil.forEach((f) => console.log("FEIL  " + f));

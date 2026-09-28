@@ -42,6 +42,8 @@ ikke står i commit-meldingene.
 | 24. september 2026 | FIE432-kapitteloppgavene fra 117 til 229, alle løst blindt | 229 av 229 blinde valg stemte, men gjennomgangen fant tre lovfeil som også sto i manualen. Se [[FIE432 Personlig økonomi]] |
 | 24. september 2026 | De siste fire manualpunktene i FIE432 rettet | Ektefellenes innslagspunkt, kombinasjonsfond, exit-skattens 0,7-regel og gavegrense, bostedsregler og system 1/2. Se [[Åpne spørsmål og neste steg]] |
 | 24. september 2026 | [[FIE459 Sustainable Finance]] lagt inn som fag nummer fem | Bevisst kort: 14 kapitler og 20 900 ord, quiz i eksamensformatet med flervalg og sant/usant |
+| 28. september 2026 | Svarfeltet i åpne oppgaver fyller hele bredden | Det var et lite kvadrat på ~214 px, fordi en textarea ikke har bredde av seg selv |
+| 28. september 2026 | Kjernepensum for [[FIE432 Personlig økonomi]], med flervalgsminicaser | Minicasen følger eksamensformen: +3/−1/0, «stå over» og feller |
 | 28. september 2026 | Ny modul: kjernepensum, først for [[FIE402 Corporate Finance]] | Det viktigste på én kveld: tolv deler bygd rundt eksamensblokkene, med sjekker og minicase, og hovedpunktene samlet på én side. Se [[Moduler og visninger]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

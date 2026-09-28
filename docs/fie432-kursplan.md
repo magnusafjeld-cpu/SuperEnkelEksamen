@@ -27,7 +27,8 @@ desember (H2025: 14. november; H2024: 9. desember).
 | Periode | Form | Poeng | Minuspoeng |
 |---|---|---|---|
 | H2016–H2019 | skoleeksamen med åpne regne- og drøftingsoppgaver, kalkulator | varierende | — |
-| H2020–H2022 | hjemmeeksamen, flervalg, 4 timer | H2022: ca. 10 poeng per oppgave | nei |
+| H2020–H2021 | hjemmeeksamen med åpne svar, 4 timer | varierende | — |
+| H2022 | hjemmeeksamen, første rene flervalg, 4 timer | 35 på 7 oppgaver, ca. 5 poeng per oppgave | nei |
 | H2024–H2025 | skoleeksamen i Wiseflow, flervalg, 4 timer | H2024: 48 · H2025: 29 | **nei** |
 | **H2026** | skoleeksamen i Wiseflow, flervalg, 4 timer, fire alternativer | ukjent | **ja: 3 for rett, −1 for feil, 0 ubesvart** |
 
@@ -118,7 +119,7 @@ H2022, H2024 og H2025 er de tre flervalgssettene. Andel av settets poeng:
    Avrundingen er noen ganger *nødvendig*: H2019 oppgave 2c gir nøyaktig null bare hvis man
    runder først; eksakt regning gir −47 489 og treffer ingen av alternativene.
 7. **Satsene i eldre sett er ikke dagens.** Aksjerabatten var 45 % i 2021 og 20 % nå;
-   oppjusteringsfaktoren 1,6 i 2020 og 1,72 nå. Oppgaveteksten oppgir dem alltid — les den,
+   oppjusteringsfaktoren 1,72 nå, men 1,6 i H2022-settet. Oppgaveteksten oppgir dem alltid — les den,
    ikke hukommelsen. `05-satser-2026.md` § 6 lister hva som har endret seg.
 5. **Fasitene har regnefeil, og de er kartlagt.** Alle 109 kontrollerbare fasitsvar er regnet
    om (`01-eksamens-dna.md` § 7): 96 stemmer eksakt, 6 avviker bare på avrunding, og **6 er
@@ -184,7 +185,7 @@ skatt. Bygg fra bunnen, raskt men komplett.
   (H2024 oppgave 5). Effektiv skattesats = betalt skatt / bruttoinntekt; for en eier regnes
   selskapets skatt og selskapets overskudd med; avskrivninger senker den (H2025 oppgave 5).
   Hvorfor rente skattlegges med 22 % og aksjegevinst med 37,84 %: indifferensregningen
-  fra forelesning 1 (100 000 i rente = 125 482 i gevinst).
+  fra forelesning 1 (100 000 i rente = 125 483 i gevinst).
 - **k2 · Avkastning før og etter skatt: nominell, real og fradragenes tidsverdi.**
   Totalavkastning = kapitalgevinst + direkteavkastning. Realavkastning eksakt og
   approksimert. Etter skatt: r(1 − t); skatt opp virker som rente ned. Nåverdi av et
@@ -225,8 +226,8 @@ eksempler.*
 - **k6 · Fritaksmetoden, selskapsaksjonærer, aksjonærlån og exit-skatt.** Fritaksmetoden
   og treprosentregelen (0,66 % effektivt), holdingselskap som utsettelse, «to-hodet troll»
   (BS2), nøytralitet i aksjonærbeskatningen (BS3). Aksjonærlån skattlegges som utbytte.
-  Exit-skatt: latent gevinst, betalingsordningen over 12 år, gave til nærstående i utlandet
-  utløser den, utflytting av selskapet utløser realisasjon (H2024 oppgave 10 i–j).
+  Exit-skatt: latent gevinst, betalingsordningen over 12 år, gave til noen som er bosatt i utlandet
+  utløser den, utflytting av selskapet utløser realisasjon (H2024 oppgave 10 h–i).
   Lock-in og new view/old view om utbytteskatt, kort.
 - **k7 · Formuesskatten: verdsetting, rabatter, gjeldsfordeling og bunnfradrag.** Satser
   1,0 / 1,1 %, bunnfradrag, verdsettingsrabatter (børsnoterte aksjer og fond 20 %,
@@ -236,10 +237,11 @@ eksempler.*
   oppgave 2, og H2017). Anine-regnestykket fra forelesning 1: børsnotert mot unotert.
   Eiendomsskatt, kort.
 - **k8 · Formuesskatt som avkastningsskatt: verdsetting, utbyttebeslutningen og de
-  rikeste.** Formuesskatten faller på formuen ved inngangen til året, så den tilsvarer
+  rikeste.** I kursets modell og eksamen faller formuesskatten på formuen ved inngangen til
+  perioden (loven verdsetter per 1. januar året etter inntektsåret), så den tilsvarer
   en avkastningsskatt τ_w/r (H2025 oppgave 9: T = r·t). Avkastning etter formuesskatt og
-  verdsetting av en evig kontantstrøm under formuesskatt, V = CF/(r + τ_w) med
-  alternativkostnaden justert (H2025 oppgave 3, BS4). Utbyttet som må tas for å betale
+  verdsetting av en evig kontantstrøm under formuesskatt: V = CF/r når skatten også
+  treffer alternativet, og CF/(r + τ_w) bare når den ikke gjør det (H2025 oppgave 3, BS4). Utbyttet som må tas for å betale
   formuesskatten når utbyttet selv beskattes: D = τ_w·W/(1 − t_e) (H2024 oppgave 7, H2025
   oppgave 6). Argumentene for og mot formuesskatt (AM, BS5), effektiv skatt på de rikeste
   (HBS), og forelesningens polemikk gjengitt som argumenter.
@@ -273,8 +275,8 @@ eksempler.*
 - **k13 · Internasjonal skatt: bosted, kilde, skatteavtaler og skatteparadiser.**
   Globalskatteplikt for norsk selskap; fast driftssted; unntaksmetoden (fullstendig unntak
   → dobbelt-ikke-beskatning hvis kildestaten ikke skattlegger) og kreditmetoden (kredit
-  begrenset til norsk skatt på inntekten); ingen skatteavtale → dobbeltbeskatning (hele
-  H2024 oppgave 10). Skatteparadis: secrecy jurisdictions (GS1), mekanismene
+  begrenset til norsk skatt på inntekten); ingen skatteavtale → dobbeltbeskatning slik eksamen regner (hele
+  H2024 oppgave 10), men skatteloven § 16-20 gir kreditfradrag også uten avtale. Skatteparadis: secrecy jurisdictions (GS1), mekanismene
   (internprising, tynn kapitalisering, skallselskap), omfanget (Alstadsæter: topp 0,01 %
   skjuler ca. 20 %), tiltakene (CRS, BEPS, 15 % global minimumsskatt), sentralbankens
   blindsoner (SS).
@@ -296,7 +298,7 @@ eksempler.*
   oppgave 13b). BSU. Hvor mye du bør spare selv.
 - **k16 · Lån og risikostyring.** Annuitet og serielån, effektiv rente, fast mot flytende
   rente, avdragsfrihet ved midlertidig likviditetsproblem (H2024 oppgave 14),
-  utlånsforskriften (5 × inntekt, 15 % egenkapital, avdrag over 60 %, stresstest),
+  utlånsforskriften (5 × inntekt, egenkapitalkravet slik manualen oppgir det for 2026, avdrag over 60 %, stresstest),
   rentefradraget etter skatt, boliglån som risikostyring.
 - **k17 · Forsikring og forventet nytte.** Risikoaversjon, U = √W og ln W, forventet nytte
   med og uten forsikring, sikkerhetsekvivalent, maksimal premie (H2024 oppgave 11d:

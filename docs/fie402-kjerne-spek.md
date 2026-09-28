@@ -289,6 +289,9 @@ Quick understanding checks, shown right after the text. Each takes under a minut
   (the ones the manual's warn and mistake boxes name), not filler.
 - **The answer position is fixed in advance** (fallgruve 7c). Your positions are in your
   brief, as 0–3 (A–D). Write the correct option in that slot.
+- **Length must not give the key away** (fallgruve 7y): aim for the correct option to be the
+  longest in about one check in four, as chance would have it. The first FIE402 draft had it
+  longest in 26 of 39; the first FIE432 draft, told to avoid that, in 0 of 38. Both are tells.
 - `explanation`: two to four sentences. Say why the right answer is right **and** what the
   most tempting wrong one gets wrong. **Refer to options by their content, never by letter**
   ("the answer that uses D/V", not "option B").

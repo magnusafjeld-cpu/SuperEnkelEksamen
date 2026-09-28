@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-09-24
+oppdatert: 2026-09-28
 ---
 
 # FIE432 Personlig økonomi
@@ -227,6 +227,60 @@ mot at 150 000 «bare er renten på et evig lån».
 > 109 000 ord. Manualen er lesbar og kontrollert, men 57 timer er mye for et
 > fag på 7,5 studiepoeng. Skal noe trimmes, er det prosaen rundt de
 > gjennomregnede eksemplene, ikke eksemplene.
+
+## Kjernepensum
+
+Lagt inn 28. september 2026, etter FIE402. Det viktigste i faget på én kveld,
+som egen lesevei ved siden av manualen: **13 400 ord i tolv deler, 38 sjekker og
+11 minicaser**, rundt 2 timer lesing og 4 t 30 min med alt. Modulen er beskrevet
+i [[Moduler og visninger]], og spesifikasjonen er `docs/fie432-kjerne-spek.md`.
+
+**Minicasen følger eksamensformen.** Magnus ba om at kjernepensum skulle lages
+«på riktig måte basert på eksamensformen». Derfor er minicasen her en
+eksamensoppgave i flervalg: felles oppgavetekst og tre ledd med fire
+alternativer, +3/−1/0, «stå over», og en setning per galt alternativ om hvilken
+feil det er laget av. Den bruker samme visning som kapitteloppgavene.
+
+| Del | Tittel | Kondenserer |
+|---|---|---|
+| kj0 | Eksamen på én side | k0, k19 |
+| kj1 | Skattesystemet og effektiv skatt | k1, k2 |
+| kj2 | Aksjonærmodellen: skjerming, utbytte og gevinst | k5, k6 |
+| kj3 | Formuesskatten: verdsetting og gjeldsfordeling | k7 (og boligreglene i k4) |
+| kj4 | Formuesskatt som avkastningsskatt | k8 |
+| kj5 | Hvem betaler skatten: insidens | k11 |
+| kj6 | Nøytralitet, bedriftens tilpasning og implisitte skatter | k9, k10, k12 |
+| kj7 | Internasjonal skatt og exit-skatt | k13, k6 |
+| kj8 | Sparing og porteføljevalg | k14, 18.2 |
+| kj9 | Pensjon | k15 |
+| kj10 | Lån | k16 |
+| kj11 | Forsikring, forventet nytte og finansiell psykologi | k17, k18 |
+
+**Kontrollen.** Alle tall regnet om av meg, og alle 33 minicaseledd løst blindt:
+33 av 33, og alle 66 fellene gir tallet i sitt alternativ. Sjekkene ble besvart
+blindt, 37 av 38. Bommen skyldtes et misvisende årstall, som er fjernet. Mot
+eksamenssettene i appen når en leser med bare kjernepensum anslagsvis 28–29 av 29
+poeng på H2025, 47–48 av 48 på H2024 og 32–33 av 35 på H2022, fordi nesten hver
+oppgave i de to siste settene er brukt som eksempel.
+
+Det gjennomgangen fant:
+
+- **To alternativer som var samme uttrykk** (kj4-s2): (CF − τ<sub>w</sub>V)/r løst for V
+  er CF/(r + τ<sub>w</sub>). Byttet ut med en ekte halv justering.
+- **Fasiten var aldri det lengste alternativet** (0 av 38): agentene overkorrigerte
+  FIE402-lærdommen. Rettet til 9 av 38; se [[Fallgruver]] 7y.
+- **Betingelser som falt bort**, blant annet at 10 mill.-terskelen for primærbolig
+  bare gjelder H2024 og H2025, at første års rente er lavere enn r × L bare med
+  flere terminer i året, og at avdragskravet også oppfylles av et 30-års
+  annuitetslån.
+- **En lovpåstand i manualen var feil**: at norsk formuesskatt bygger på formuen
+  ved inngangen til året. Skatteloven § 4-1 bruker verdien per 1. januar i året
+  etter inntektsåret; inngangsformuen er konvensjonen i kursets modell og i H2025
+  oppgave 9. Sjekket på Lovdata, rettet i kjernepensum og manualen.
+- **Tillegg med eksamensverdi**: realavkastning og superprofitt (flagget som
+  kandidat for 2026), gjennomsnittlig årlig vekst og sluttverdi av sparing,
+  artikkel 4-rekkefølgen for bosted, at et selskap stiftet i Norge forblir
+  hjemmehørende her, boligreglene og å lese elastisiteten ut av ordlyden.
 
 ## Kapitteloppgaver
 

@@ -58,9 +58,11 @@ Det som gjenstår er ikke innhold, men bruk:
 Lagt inn for FIE402 28. september 2026. Magnus ba om det for «fagene jeg har
 dette året», FIE402 først. Se [[Moduler og visninger]].
 
-- [ ] **FIE432 Personlig økonomi.** Eksamen er flervalg med minuspoeng, så
-      minicasen bør trolig være flervalg der, ikke en åpen oppgave. Avklar med
-      Magnus før det skrives.
+- [x] ~~**FIE432 Personlig økonomi.**~~ Lagt inn 28. september 2026 med
+      flervalgsminicaser, slik eksamen er. Se [[FIE432 Personlig økonomi]].
+- [ ] **FIE432 k20 mangler formlene fra k8** (τ<sub>w</sub>/r, V = CF/r mot
+      CF/(r + τ<sub>w</sub>), D = τ<sub>w</sub>W/(1 − t<sub>e</sub>)), selv om k8 var 17 % av H2025.
+      Nye rader må legges nederst i 20.3 (fallgruve 7b).
 - [ ] **FIE459 Sustainable Finance.** Faget er allerede kort (20 900 ord). Et
       kjernepensum gir mest mening etter at k10–k13 er skrevet om.
 - [ ] **Les FIE402-kjernepensum og si fra om nivået treffer.** Tidsestimatet er

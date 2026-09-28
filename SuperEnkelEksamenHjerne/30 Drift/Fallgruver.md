@@ -534,6 +534,13 @@ av samme lengde. Etterpå var fasiten lengst i 10 av 39, 26 %, og kortest i 6.
 `tools/sjekk-kjerne.js` melder nå FEIL når fasiten er lengst i mer enn 40 %, og
 ADVARSEL per spørsmål der den er over 1,3 ganger det lengste gale alternativet.
 
+> [!warning] Advarselen ble overkorrigert
+> I FIE432 fikk agentene beskjed om at fasiten ikke skulle være det lengste
+> alternativet. Resultatet ble **0 av 38**: fasiten var aldri lengst, og da lærer
+> leseren å stryke det lengste. Kontrollen melder derfor også FEIL under 10 %, og
+> spesifikasjonen sier nå «rundt én av fire». Ni fasiter ble forlenget litt, uten
+> ny mening, til 9 av 38. Et forbud skaper en ny skjevhet; be om en fordeling.
+
 **Samme skjevhet ligger i tre av quizene**, målt 28. september 2026: SAM3 66 %,
 FIE402 61 % (151 av 246) og Caseintervju 53 %. FIE432 og FIE459 er under 30 %.
 Det er ikke rettet ennå; se [[Åpne spørsmål og neste steg]].

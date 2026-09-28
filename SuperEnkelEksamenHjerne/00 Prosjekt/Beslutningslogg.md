@@ -77,6 +77,14 @@ følger det eksamen spør om (tvillingfirma, MM og rekapitalisering, WACC og APV
 manualen. Finnes noe i kjernepensum som manualen mangler, hører det hjemme i
 manualen først. Se [[Moduler og visninger]].
 
+## Minicasen i kjernepensum følger eksamensformen
+FIE402 eksamineres med åpne oppgaver og penn og papir, FIE432 med flervalg og
+minuspoeng. Kjernepensum i FIE432 fikk derfor flervalgsminicaser med +3/−1/0,
+«stå over» og en setning per galt alternativ om hvilken feil det er laget av, og
+ikke FIE402s åpne format. Magnus ba om at det skulle lages «på riktig måte basert
+på eksamensformen». Et nytt fag velger form etter sin egen eksamen; motoren har
+begge. Se [[Moduler og visninger]].
+
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på
 norsk. Se [[Kodekonvensjoner]].

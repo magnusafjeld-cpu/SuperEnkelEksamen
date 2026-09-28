@@ -14,10 +14,13 @@
    timinutters ark til siste dag.
 
    Data:    EDU_DATA.kjerne = [{ id, num, title, chapters, html, checks, case }]
+   case er enten åpen (open: true, body, solution, criteria, points) eller
+   flervalg (body og ledd: [{ id, q, options, answer, points, solution, traps }]),
+   etter fagets eksamensform.
    Lagring: state.exams["kjerne-<id>"] = { lest, sjekk: { <sjekk-id>: indeks },
-            valg: { <case-id>: { svar, score } } }
-   valg-feltet er det kapitteloppgavenes åpne oppgave skriver til. id-ene er
-   lagringsnøkler og må aldri endres.
+            valg: { <case-id>: { svar, score } } eller { <ledd-id>: indeks | −1 } }
+   valg-feltet er det kapitteloppgavene skriver til. id-ene er lagringsnøkler
+   og må aldri endres.
    ============================================================================ */
 window.EDU = window.EDU || {};
 (function (S) {
@@ -66,6 +69,36 @@ window.EDU = window.EDU || {};
   }
   function nullstillSjekker(d) { S.store.setExam(nøkkel(d), { sjekk: {} }); }
 
+  /* Minicasen har to former, etter fagets eksamen. ÅPEN (FIE402, penn og papir):
+     skriv svaret, åpne løsningen del for del, vurder deg selv. FLERVALG (FIE432,
+     flervalg med minuspoeng): en felles oppgavetekst og 2–3 ledd med fire
+     alternativer, +3 for rett, −1 for feil og 0 for «stå over». Leddene lagres i
+     samme valg-objekt som den åpne oppgaven, under sine egne id-er. */
+  const erFlervalg = (c) => !!(c && Array.isArray(c.ledd));
+  const caseMaks = (c) => !c ? 0 : erFlervalg(c) ? c.ledd.reduce((a, l) => a + (l.points || 3), 0) : (c.points || 0);
+  const fmt = (n) => n.toLocaleString("nb-NO", { maximumFractionDigits: 2 }).replace("-", "−");
+  function flervalgResultat(d) {
+    const c = d.case, valg = økt(d).valg || {}, kv = S.views.kapitteloppgaver || {};
+    const blank = typeof kv.BLANK === "number" ? kv.BLANK : -1;
+    const wf = typeof kv.STD_WF === "number" ? kv.STD_WF : -1 / 3;
+    const r = { besvart: 0, poeng: 0, rett: 0, galt: 0, stått: 0, antall: c.ledd.length };
+    c.ledd.forEach((l) => {
+      if (!(l.id in valg)) return;
+      r.besvart++;
+      const v = valg[l.id], p = l.points || 3;
+      if (v === blank) r.stått++;
+      else if (v === l.answer) { r.rett++; r.poeng += p; }
+      else { r.galt++; r.poeng += p * wf; }
+    });
+    r.poeng = Math.round(r.poeng * 100) / 100;
+    return r;
+  }
+  function nullstillMinicase(d) {
+    const valg = Object.assign({}, økt(d).valg || {});
+    d.case.ledd.forEach((l) => { delete valg[l.id]; });
+    S.store.setExam(nøkkel(d), { valg: valg });
+  }
+
   /* Status for én del. «Ferdig» krever alle tre: lest, sjekkene besvart og
      minicasen vurdert. En del uten minicase (kurs og eksamen) er ferdig når den
      er lest og sjekkene er tatt. Svar på sjekker som ikke finnes lenger, telles
@@ -74,14 +107,22 @@ window.EDU = window.EDU || {};
     const s = sjekkSvar(d), sjekker = d.checks || [];
     const besvart = sjekker.filter((q) => q.id in s);
     const riktig = besvart.filter((q) => s[q.id] === q.answer).length;
-    const c = caseSt(d);
-    const caseVurdert = !d.case || (c && typeof c.score === "number");
+    let caseVurdert = true, caseScore = null, caseÅpnet = false;
+    if (erFlervalg(d.case)) {
+      const r = flervalgResultat(d);
+      caseÅpnet = r.besvart > 0; caseVurdert = r.besvart === r.antall;
+      if (caseVurdert) caseScore = r.poeng;
+    } else if (d.case) {
+      const c = caseSt(d);
+      caseÅpnet = !!c; caseVurdert = !!(c && typeof c.score === "number");
+      if (caseVurdert) caseScore = c.score;
+    }
     const lest = !!økt(d).lest;
     return {
       lest, besvart: besvart.length, riktig, antall: sjekker.length,
-      caseÅpnet: !!c, caseScore: c && typeof c.score === "number" ? c.score : null,
+      caseÅpnet, caseScore,
       ferdig: lest && besvart.length === sjekker.length && caseVurdert,
-      påbegynt: lest || besvart.length > 0 || !!c,
+      påbegynt: lest || besvart.length > 0 || caseÅpnet,
     };
   }
 
@@ -164,16 +205,38 @@ window.EDU = window.EDU || {};
     if (!c) return null;
     const sek = el("div", { style: { marginTop: "34px" } });
     sek.appendChild(el(".section-title", el("h3", "Minicase"), el(".spacer"),
-      el(".chip.indigo", { style: { fontWeight: 620 } }, `${c.points} poeng · ~${c.minutes} min`)));
+      el(".chip.indigo", { style: { fontWeight: 620 } }, `${caseMaks(c)} poeng · ~${c.minutes} min`)));
     sek.appendChild(el("p.muted", { style: { marginTop: "-6px", marginBottom: "16px", fontSize: "14.5px" } },
-      "Samme format som eksamen, bare kortere. Regn på papir, skriv svaret, og åpne løsningen del for del."));
+      erFlervalg(c)
+        ? "Samme format som eksamen: fire alternativer, +3 for rett, −1 for feil og 0 for blankt. Svar når du kan utelukke minst ett alternativ, og stå over ellers. Fasiten kommer med en gang, med hvilken feil hvert galt alternativ er laget av."
+        : "Samme format som eksamen, bare kortere. Regn på papir, skriv svaret, og åpne løsningen del for del."));
     const kort = el(".card.pad-lg");
     if (c.topic) kort.appendChild(el(".row", { style: { marginBottom: "10px" } }, el(".chip.slate", { style: { fontSize: "11px" } }, c.topic)));
     kort.appendChild(prosa(c.body || ""));
-    /* Den åpne oppgaven fra kapitteloppgavene: samme skrivefelt, samme
-       del-for-del-løsning, samme selvvurdering. Lagres under kjerne-<id>. */
     const kv = S.views.kapitteloppgaver;
-    if (kv && kv.åpenOppgave) kort.appendChild(kv.åpenOppgave(nøkkel(d), c));
+    if (erFlervalg(c)) {
+      /* Flervalget fra kapitteloppgavene: samme låsing, «stå over», minuspoeng
+         og feller. Leddene deler oppgaveteksten over, som på eksamen. */
+      c.ledd.forEach((l, i) => {
+        const ledd = el("div", { style: { marginTop: "20px", paddingTop: "16px", borderTop: "1px solid var(--hairline)" } });
+        ledd.appendChild(el(".row", { style: { gap: "10px", alignItems: "baseline" } },
+          el("b", `(${String.fromCharCode(97 + i)})`), el(".spacer"),
+          el(".chip.indigo", { style: { fontSize: "11px" } }, `${l.points || 3} poeng`)));
+        ledd.appendChild(prosa(l.q || ""));
+        if (kv && kv.flervalg) ledd.appendChild(kv.flervalg(nøkkel(d), l));
+        kort.appendChild(ledd);
+      });
+      const r = flervalgResultat(d);
+      if (r.besvart === r.antall) kort.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "center", marginTop: "18px", paddingTop: "14px", borderTop: "1px solid var(--hairline)" } },
+        el("b", `${fmt(r.poeng)} av ${caseMaks(c)} poeng`),
+        el("span.tiny.muted", [tellord(r.rett, "rett", "rett"), tellord(r.galt, "feil", "feil"), tellord(r.stått, "stått over", "stått over")].join(" · ")),
+        el(".spacer"),
+        el("button.btn.ghost.sm", { onclick: () => { nullstillMinicase(d); S.app.refresh(); } }, "Ta minicasen på nytt")));
+    } else if (kv && kv.åpenOppgave) {
+      /* Den åpne oppgaven fra kapitteloppgavene: samme skrivefelt, samme
+         del-for-del-løsning, samme selvvurdering. Lagres under kjerne-<id>. */
+      kort.appendChild(kv.åpenOppgave(nøkkel(d), c));
+    }
     sek.appendChild(kort);
     return sek;
   }
@@ -192,7 +255,7 @@ window.EDU = window.EDU || {};
       el("span.tiny.muted", `Del ${i + 1} av ${alle.length}`)));
     const deler = [`~${lesMin(d)} min lesing`];
     if ((d.checks || []).length) deler.push(tellord(d.checks.length, "sjekk", "sjekker"));
-    if (d.case) deler.push(`minicase ${d.case.points} poeng`);
+    if (d.case) deler.push(`minicase ${caseMaks(d.case)} poeng`);
     wrap.appendChild(sh().pageHead(`Kjernepensum · del ${d.num}`, d.title, deler.join(" · ")));
 
     /* Hvor stoffet står i full lengde. Kjernepensum er en nedkorting, og den som
@@ -261,7 +324,7 @@ window.EDU = window.EDU || {};
     const st = status(d);
     const biter = [`~${minutter(d)} min`];
     if (st.antall) biter.push(st.besvart ? `sjekker ${st.riktig}/${st.antall}` : tellord(st.antall, "sjekk", "sjekker"));
-    if (d.case) biter.push(st.caseScore != null ? `minicase ${st.caseScore}/${d.case.points}` : `minicase ${d.case.points} p`);
+    if (d.case) biter.push(st.caseScore != null ? `minicase ${fmt(st.caseScore)}/${caseMaks(d.case)}` : `minicase ${caseMaks(d.case)} p`);
     /* Den tyngste eksamensvekten blant kapitlene delen dekker. */
     const tyngst = (d.chapters || []).reduce((a, n) => { const v = S.u.vektFor(n); return v && (!a || v[0] > a.v) ? { n, v: v[0] } : a; }, null);
     return el(".kap-rad",

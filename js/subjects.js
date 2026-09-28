@@ -302,7 +302,7 @@ window.EDU_SUBJECTS = [
     logo: "PØ",
     blurb: "Skattesystemet, aksjonær- og formuesbeskatningen, skatteteorien og husholdningens finansbeslutninger — med ni tidligere eksamener rettet automatisk.",
     accent: "#a8521c", accentInk: "#8a4116", accentSoft: "#fbf0e8", accentSoft2: "#f4dcc9",
-    scripts: ["fag/fie432/data.js", "fag/fie432/quiz.js", "fag/fie432/dybde.js", "fag/fie432/sett.js", "fag/fie432/kapitteloppgaver.js"],
+    scripts: ["fag/fie432/data.js", "fag/fie432/quiz.js", "fag/fie432/dybde.js", "fag/fie432/sett.js", "fag/fie432/kapitteloppgaver.js", "fag/fie432/kjerne.js"],
     manual: {
       candidates: ["FIE432_Manual.html", "fag/fie432/manual.html", "../FIE432_Manual.html"],
       label: "FIE432_Manual.html",
@@ -342,6 +342,8 @@ window.EDU_SUBJECTS = [
       planEyebrow: "Studieplan · 21 moduler",
       planIntro: "Modul 1–18 bygger faget fra bunnen: grunnlaget, aktiva og avkastning, aksjonær- og formuesbeskatningen, skatteteorien og personlig finans. Modul 19–21 er hele eksamenssett, det siste som generalprøve på tid med minuspoeng slått på. Vektingen følger hva som faktisk har kommet på eksamen.",
       dybdeIntro: "Selvrettet trening i fire bolker som følger kursets deler. Velg bank, filtrer på nivå, og regn ferdig på papir før du åpner fasiten — eksamen er flervalg, og et tall du ikke har regnet selv, gjenkjenner du ikke blant fire som ligner.",
+      /* Minicasene her er flervalg med minuspoeng, fordi eksamen er det. */
+      kjerneIntro: "Det viktigste i FIE432 på én kveld, i tolv korte deler bygd rundt det eksamen spør om, ikke rundt kapitlene. Etter hver del kommer raske sjekker og en minicase i eksamensformatet: flervalg med fire alternativer, +3 for rett, −1 for feil og 0 for blankt. Regn på papir før du velger, og stå over når du ikke kan utelukke noe.",
       /* Hakeparentesene er FIE432s egen konvensjon, og en leser som bare får
          teksten har ingen mulighet til å gjette hva de betyr. */
       notebooklmNotasjon: [
@@ -353,7 +355,7 @@ window.EDU_SUBJECTS = [
        flervalgssett, som kjøres i /sett. Flashcards er med fordi de 100 radene i
        formelsamlingen k20 blir til kort automatisk; quiz, dybde og lyn legges
        til når de dataene er skrevet. */
-    modules: ["/plan", "/curriculum", "/quiz", "/kapitteloppgaver", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress", "/notebooklm"],
+    modules: ["/plan", "/curriculum", "/kjerne", "/quiz", "/kapitteloppgaver", "/flashcards", "/dybde", "/sett", "/review", "/search", "/progress", "/notebooklm"],
   },
   {
     id: "fie459",

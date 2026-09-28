@@ -313,6 +313,16 @@ window.EDU = window.EDU || {};
     return kort;
   }
 
+  /* Kjernepensum låner flervalget til minicasene i fag med flervalgseksamen:
+     alternativene, låsingen, «stå over», minuspoengene og fellene, under sin
+     egen nøkkel («kjerne-kj3»). Samme regel som her, så treningen er lik. */
+  function flervalg(num, t) {
+    const boks = el("div");
+    boks.appendChild(alternativer(num, t));
+    if (erÅpen(num, t.id)) boks.appendChild(fasit(t));
+    return boks;
+  }
+
   /* ---------- ett kapittels sett ---------- */
   /* Status for én oppgave, til velgeren. Åpne oppgaver: ikke startet, løsning
      åpnet, vurdert. Flervalg: ikke besvart, riktig, galt, stått over. */
@@ -531,5 +541,5 @@ window.EDU = window.EDU || {};
     return kort;
   }
 
-  S.views.kapitteloppgaver = { render: renderList, renderKap, kapittelkort, harOppgaver, åpenOppgave };
+  S.views.kapitteloppgaver = { render: renderList, renderKap, kapittelkort, harOppgaver, åpenOppgave, flervalg, BLANK, STD_WF };
 })(window.EDU);
