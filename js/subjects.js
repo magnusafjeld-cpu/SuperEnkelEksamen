@@ -173,6 +173,9 @@ window.EDU_SUBJECTS = [
         tip: "Eierstyring er garantert egen oppgave. Ha minst åtte tiltak du kan forklare på tre setninger hver." },
     ],
     copy: {
+      /* NotebookLM-teksten sier hvordan tall leses. Manualen har punktum som
+         desimaltegn og både komma og mellomrom som tusenskille. */
+      notebooklmTall: ["Desimaltegnet er punktum: «8.0000 %» er åtte prosent, «21.25» er tjueen komma tjuefem.\n  Tusenskillet er komma eller mellomrom: «1,000» og «2 400» er tusen og to tusen fire hundre."],
       searchTerms: ["unlever", "APV", "WACC", "MM II", "tax shield", "risk shifting", "debt overhang",
                     "Myers-Majluf", "put-call parity", "risk-neutral", "real options", "exchange ratio"],
       planEyebrow: "Studieplan · 25 moduler",
@@ -391,6 +394,8 @@ window.EDU_SUBJECTS = [
       { id: 3, tag: "Part III", name: "Investing and financing sustainability", chapters: [8, 9, 10, 11, 12, 13] },
     ],
     copy: {
+      /* Engelsk tallformat, som i FIE402. */
+      notebooklmTall: ["Desimaltegnet er punktum og tusenskillet komma: «1,000.5» er tusen komma fem."],
       searchTerms: ["externality", "double materiality", "stakeholder", "CSRD", "EU taxonomy", "SFDR",
                     "ESG integration", "stewardship", "greenium", "integrated value", "SF 2.0"],
       planEyebrow: "Studieplan · 8 moduler",

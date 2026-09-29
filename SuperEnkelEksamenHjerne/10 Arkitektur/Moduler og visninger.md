@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-09-28
+oppdatert: 2026-09-29
 ---
 
 # Moduler og visninger
@@ -312,6 +312,28 @@ sammenlignet tegn for tegn på Del I og Del II og er identiske.
 > taggene er nettopp en slik node — resultatet ble `salgsverdien[dagens regel]`.
 > Nettleserens DOM beholder den, så feilen fantes bare i Python-verktøyet, og den
 > ble bare synlig fordi de to ble sammenlignet. Tre steder i Del II alene.
+
+### Kjernepensum som kilde (29. september 2026)
+
+Fag med `/kjerne` får et eget kort øverst på siden, før kapitlene: «Hele
+kjernepensum» som én kilde (~27 000 ord i begge fag) og så én rad per del.
+Kjernepensum er kilden du vil ha når tiden er kort, derfor står det først.
+
+- **Sjekkene og minicasen er med, med fasit og løsning.** En kilde som skal svare
+  på spørsmål, må kunne forklare hvorfor et alternativ er feil. Åpen minicase
+  (FIE402) gir `LØSNING` og `SENSORKRITERIER`; flervalgsminicase (FIE432) gir
+  alternativer, `FASIT`, løsning per ledd og «Slik er de gale alternativene laget».
+- **«Må kunne»-boksen** er `.callout.tip.husk` og får etiketten `MÅ KUNNE`, ikke
+  `TIPS`. Manualene bruker ikke `husk`, så kapitteleksporten er uendret og
+  `tools/manual-til-kilde.py` gir fortsatt samme tekst.
+- **`k17` og `kj4`** er lenker i appen. I teksten får de tittelen i parentes,
+  «kj4 (kjernepensum del 4: …)», ellers peker de på noe leseren ikke kan slå opp.
+- **Radene har eksamensvekt** fra det tyngste kapitlet delen dekker, som i
+  kjernepensumlista. «Hele kjernepensum» har ingen.
+
+**Tallformatet i leseveiledningen følger faget.** Den sa «komma som desimaltegn»
+for alle fag, men FIE402 og FIE459 har punktum. De to fagene setter nå
+`copy.notebooklmTall` i manifestet; de norske fagene bruker standardteksten.
 
 ## De fire læringsmotorene
 

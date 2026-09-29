@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-09-28
+oppdatert: 2026-09-29
 ---
 
 # Tidslinje
@@ -46,6 +46,7 @@ ikke står i commit-meldingene.
 | 28. september 2026 | (i) på hver formel i formelarket | Hva formelen er og når den brukes, ved hover eller trykk. Se [[Moduler og visninger]] |
 | 28. september 2026 | Eksamensvekten på NotebookLM-siden | Prikkene ved hvert kapittel sier hvilke som er verdt å legge inn som kilde først |
 | 28. september 2026 | Fremdrift-siden og «% klar» fjernet | Fremdriften står inne i hver modul. Det samlede tallet telte ikke kjernepensum, kapitteloppgaver eller eksamenssett. Se [[Beslutningslogg]] |
+| 29. september 2026 | Kjernepensum som eget kort i NotebookLM, i FIE402 og FIE432 | Hele kjernepensum som én kilde eller del for del, med sjekker og minicase med fasit. Se [[Moduler og visninger]] |
 | 28. september 2026 | Svarfeltet i åpne oppgaver fyller hele bredden | Det var et lite kvadrat på ~214 px, fordi en textarea ikke har bredde av seg selv |
 | 28. september 2026 | Kjernepensum for [[FIE432 Personlig økonomi]], med flervalgsminicaser | Minicasen følger eksamensformen: +3/−1/0, «stå over» og feller |
 | 28. september 2026 | Ny modul: kjernepensum, først for [[FIE402 Corporate Finance]] | Det viktigste på én kveld: tolv deler bygd rundt eksamensblokkene, med sjekker og minicase, og hovedpunktene samlet på én side. Se [[Moduler og visninger]] |

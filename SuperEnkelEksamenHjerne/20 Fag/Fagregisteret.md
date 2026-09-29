@@ -1,6 +1,6 @@
 ---
 tags: [fag, arkitektur]
-oppdatert: 2026-09-28
+oppdatert: 2026-09-29
 ---
 
 # Fagregisteret
@@ -65,6 +65,8 @@ oppførsel som default**, så et manifest uten dem er uendret.
 | `copy` `{planEyebrow,planIntro,dybdeIntro,lynFoot}` | faste SAM3-setninger i sidetoppene | SAM3s tekst |
 | `copy.searchTerms` | SAM3s makrobegreper som søkeforslag | utledes av ordlisten, ellers av kapitteltitlene |
 | `copy.kjerneIntro` | ingen; ny med kjernepensum | en generell tekst om å lese delene i rekkefølge |
+| `copy.notebooklmNotasjon` | ingen; fagets egne tegn i NotebookLM-teksten (FIE432s hakeparenteser) | ingen ekstra linjer |
+| `copy.notebooklmTall` | tallformatet i NotebookLM-teksten | norsk: mellomrom som tusenskille, komma som desimaltegn. FIE402 og FIE459 setter punktum |
 
 > [!info] `refSections: {}` er ikke det samme som å utelate feltet
 > Utelates `manual.refSections`, arver faget SAM3s `#k21`–`#k23`. Et tomt objekt
