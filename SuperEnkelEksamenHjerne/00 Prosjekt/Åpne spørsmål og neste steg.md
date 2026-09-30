@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, oppgaver]
-oppdatert: 2026-09-28
+oppdatert: 2026-09-30
 ---
 
 # Åpne spørsmål og neste steg
@@ -14,6 +14,15 @@ Levende liste. Kryss av eller stryk når noe er gjort, og noter datoen.
       19. august 2026. Glemt-passord-lenker og e-postbekreftelse går derfor til
       en død adresse. Fikses i Supabase → Authentication → URL Configuration.
       Se [[Supabase]].
+- [ ] **Tre steder i Caseintervju bruker fortsatt 1,4 millioner småhus.** SSB
+      oppgir 1,88 millioner småhus og 1,31 millioner eneboliger for 2026.
+      Varmepumpecasen og tallarket i k15 ble rettet 30. september 2026. Tre
+      steder har fortsatt det gamle tallet:
+      `estimering-kjokken` (1,4 millioner småhus + 1,25 millioner leiligheter =
+      2,65 millioner, mot SSBs 1,88 + 0,88 = 2,76 millioner),
+      `estimering-bredband` («husholdninger i småhus» 1,4 millioner) og spørsmål
+      27 i `fag/case/dybde-tall.js` (varmepumper til enebolig). Alle tre må
+      regnes om fra grunnen av. Det er ikke nok å bytte ut tallet. Se [[Caseintervju]].
 - [x] ~~`.claude/launch.json` er utdatert.~~ Rettet 19. august 2026 — peker nå på
       `tools/serve.py`, og `serve.py` godtar `PORT` fra miljøet.
 

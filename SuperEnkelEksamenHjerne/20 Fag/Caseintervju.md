@@ -1,6 +1,6 @@
 ---
 tags: [fag, case, innhold]
-oppdatert: 2026-09-15
+oppdatert: 2026-09-30
 ---
 
 # Caseintervju
@@ -284,6 +284,21 @@ regnetrinn på rad og tåler videre `toleranse` (tak 0,3 mot 0,05).
 > kjedede ledd (`a × b × c = d = e`). Tredje versjon, som sammenligner mot flere
 > skalaer samtidig, ga null. **Et kontrollskript som finner feil, må selv
 > kontrolleres før man tror på det.**
+
+> [!warning] Riktig regnet betyr ikke at premisset er riktig
+> Varmepumpecasen (`estimering-varmepumper`) besto alle kontrollene over med
+> 1,4 millioner småhus. Tallet var feil. SSBs statistikk «Boliger» for 2026 gir
+> 1,88 millioner småhus (eneboliger 1,31, tomannsboliger 0,24, rekkehus og andre
+> småhus 0,33) av 2,76 millioner boliger. Aritmetikken ble kontrollert, men ikke
+> kilden. Det er samme skille som i fallgruve 7q i [[Fallgruver]].
+>
+> Rettet 30. september 2026 til 1,9 millioner, og hele casen ble regnet om: 131 000
+> enheter og 3,9 milliarder, der det før sto 100 000 og 3 milliarder. Casen bruker
+> fortsatt **alle småhus, ikke bare eneboligene**, fordi penetrasjonen og nybyggtallet
+> den oppgir gjelder småhus, og rekkehus og tomannsboliger får pumpe bolig for bolig.
+> Husholdningsfella blåser nå svaret opp med over en tredjedel, ikke det dobbelte.
+> Tallarket i k15 ble rettet samtidig. Det samme ankertallet står fortsatt tre andre
+> steder, se [[Åpne spørsmål og neste steg]].
 
 ## Fasitposisjon er en gjenganger
 

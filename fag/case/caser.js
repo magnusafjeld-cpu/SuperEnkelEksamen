@@ -5329,8 +5329,9 @@ window.EDU_DATA.cases = [
           <p>Merk hvilken enhet som er den riktige å bygge på: <b>bolig, ikke person</b>. En
           varmepumpe monteres per bolig. Og ikke alle boliger — en varmepumpe i en
           blokkleilighet er uvanlig, så avgrens til småhus (enebolig, rekkehus, tomannsbolig) og
-          si at du gjør det.</p>
-          <p>Si også avrundingsregelen din høyt: «Jeg runder til nærmeste hundretusen og flagger
+          si at du gjør det. Stopp heller ikke ved eneboligene: et rekkehus eller en tomannsbolig
+          varmes opp bolig for bolig, og får pumpen sin på samme måte.</p>
+          <p>Si også avrundingsregelen din høyt: «Jeg runder til nærmeste tusen og flagger
           retningen underveis.» Det er en kvalitetsmarkør, ikke en unnskyldning.</p>`,
         krav: [
           "Du skriver ligningen i symboler før du setter inn tall.",
@@ -5352,7 +5353,7 @@ window.EDU_DATA.cases = [
             <tr><td>Befolkning</td><td class="n">5,6 mill.</td></tr>
             <tr><td>Husholdninger</td><td class="n">2,65 mill.</td></tr>
             <tr><td>Personer per husholdning</td><td class="n">2,1</td></tr>
-            <tr><td>Boliger i småhus (enebolig, rekkehus, tomannsbolig)</td><td class="n">1,4 mill.</td></tr>
+            <tr><td>Boliger i småhus (enebolig, rekkehus, tomannsbolig)</td><td class="n">1,9 mill.</td></tr>
             <tr><td>Nye småhus ferdigstilt per år</td><td class="n">12 000</td></tr>
             <tr><td>Dagligvaremarkedet</td><td class="n">230 mrd kr</td></tr>
             <tr><td>Nyregistrerte personbiler per år</td><td class="n">185 000</td></tr>
@@ -5365,19 +5366,19 @@ window.EDU_DATA.cases = [
             <tr><td>Gjennomsnittlig levetid på en varmepumpe</td><td class="n">14 år</td></tr>
             <tr><td>Snittpris installert, utstyr og montering</td><td class="n">30 000 kr</td></tr>
           </table>`,
-        fasit: `<p>Del arket i to i hodet med én gang, og si det høyt: <b>fire tall skal inn i
-          regnestykket, fire er der for å sanity-sjekke svaret.</b></p>
+        fasit: `<p>Del arket i to i hodet med én gang, og si det høyt: <b>seks tall skal inn i
+          regnestykket, tre er der for å sanity-sjekke svaret.</b></p>
           <ul>
-            <li><b>Inn i regnestykket:</b> 1,4 millioner småhus, 60 prosent penetrasjon, 14 års
+            <li><b>Inn i regnestykket:</b> 1,9 millioner småhus, 60 prosent penetrasjon, 14 års
               levetid, +2 prosentpoeng i året, 12 000 nye småhus, og 30 000 kroner i pris. Alt
               annet er kontekst.</li>
             <li><b>Til sanity-sjekk:</b> dagligvaremarkedet på 230 milliarder er den beste
               norske målestokken for et forbrukermarked. Nybilsalget — 185 000 biler à 450 000
               kroner, altså rundt 83 milliarder — er den nest beste, fordi en varmepumpe og en bil
               er sammenlignbare varige goder.</li>
-            <li><b>Fellen i arket:</b> husholdninger (2,65 millioner) og småhus (1,4 millioner)
-              er to forskjellige tall, og bare det ene er riktig grunnlag. Griper du feil, dobler
-              du markedet.</li>
+            <li><b>Fellen i arket:</b> husholdninger (2,65 millioner) og småhus (1,9 millioner)
+              er to forskjellige tall, og bare det ene er riktig grunnlag. Griper du feil, blåser
+              du opp markedet med over en tredjedel.</li>
           </ul>
           <p>Legg merke til at penetrasjonen på 60 prosent er oppgitt for <i>småhus</i>, ikke for
           husholdninger. Å lese den fotnoten er hele forskjellen.</p>`,
@@ -5387,7 +5388,7 @@ window.EDU_DATA.cases = [
           "Du merker deg at penetrasjonen gjelder småhus, ikke alle boliger.",
           "Du sier på forhånd hvilken målestokk du vil sanity-sjekke mot.",
         ],
-        felle: "Å bruke 2,65 millioner husholdninger som grunnlag fordi det er det mest kjente tallet på arket. Varmepumper monteres i småhus, og småhus er 1,4 millioner. Feil grunnlag dobler svaret.",
+        felle: "Å bruke 2,65 millioner husholdninger som grunnlag fordi det er det mest kjente tallet på arket. Varmepumper monteres i småhus, og småhus er 1,9 millioner. Feil grunnlag blåser opp svaret med over en tredjedel.",
       },
       {
         art: "regne",
@@ -5396,46 +5397,46 @@ window.EDU_DATA.cases = [
         sp: `<p>Bruk tallene fra faktaarket. <b>Hvor stort er det norske markedet for varmepumper
           til bolig, i millioner kroner per år?</b></p>
           <p class="tiny">Bygg det leddvis og si hvert delresultat høyt. Rund av åpent.</p>`,
-        svar: 3000,
+        svar: 3930,
         enhet: "millioner kroner",
         toleranse: 0.1,
         fasit: `<p>Fire ledd, hvert med en enhet:</p>
           <div class="formula">
-            <div class="eq">Installert base: 1 400 000 × 60 % = 840 000 varmepumper</div>
-            <div class="eq">Erstatningssalg: 840 000 / 14 år = 60 000 enheter per år</div>
-            <div class="eq">Økt penetrasjon: 1 400 000 × 2 prosentpoeng = 28 000 enheter per år</div>
+            <div class="eq">Installert base: 1 900 000 × 60 % = 1 140 000 varmepumper</div>
+            <div class="eq">Erstatningssalg: 1 140 000 / 14 år ≈ 81 000 enheter per år (rundet ned fra 81 400)</div>
+            <div class="eq">Økt penetrasjon: 1 900 000 × 2 prosentpoeng = 38 000 enheter per år</div>
             <div class="eq">Nybygg: 12 000 enheter per år</div>
-            <div class="eq">Sum: 60 000 + 28 000 + 12 000 = 100 000 enheter per år</div>
-            <div class="eq">Marked: 100 000 × 30 000 kr = <b>3 000 millioner kroner = 3 milliarder</b></div>
+            <div class="eq">Sum: 81 000 + 38 000 + 12 000 = 131 000 enheter per år</div>
+            <div class="eq">Marked: 131 000 × 30 000 kr = <b>3 930 millioner kroner ≈ 3,9 milliarder</b></div>
           </div>
           <p><b>Nå kommer delen som skiller et sterkt svar fra et middels: sanity-sjekken.</b>
           Gjør minst to, og si dem høyt.</p>
           <ul>
-            <li><b>Mot noe kjent:</b> 3 milliarder er 1,3 prosent av dagligvaremarkedet på 230
+            <li><b>Mot noe kjent:</b> 3,9 milliarder er 1,7 prosent av dagligvaremarkedet på 230
               milliarder. For en varig forbruksvare som kjøpes hvert fjortende år, er det en
               plausibel størrelsesorden.</li>
             <li><b>Mot nybilsalget:</b> 185 000 biler à 450 000 kroner er rundt 83 milliarder.
-              Varmepumpene er 3,6 prosent av det. Sjekk konsistensen: vi selger 54 prosent så
-              mange enheter til 6,7 prosent av prisen, som gir 3,6 prosent. Det stemmer.</li>
-            <li><b>Baklengs:</b> 3 milliarder fordelt på 1,4 millioner småhus er rundt 2 100
+              Varmepumpene er 4,7 prosent av det. Sjekk konsistensen: vi selger rundt 70 prosent så
+              mange enheter til 6,7 prosent av prisen, som gir 4,7 prosent. Det stemmer.</li>
+            <li><b>Baklengs:</b> 3,9 milliarder fordelt på 1,9 millioner småhus er rundt 2 100
               kroner per småhus per år. Med en pumpe til 30 000 kroner som varer 14 år, blir det
               2 140 kroner i året. Konsistent.</li>
           </ul>
           <p>Og til slutt det som gjør deg interessant å snakke med: <b>hva skjer med markedet når
-          penetrasjonen stopper?</b> 28 000 av de 100 000 enhetene kommer fra vekst i
+          penetrasjonen stopper?</b> 38 000 av de 131 000 enhetene kommer fra vekst i
           penetrasjonen, og den delen forsvinner ved metning. Men den installerte basen har da
-          vokst til 80 prosent av 1,4 millioner, altså 1,12 millioner pumper, og erstatningssalget
-          blir 80 000 i året. Med nybygg blir markedet 92 000 enheter — bare 8 prosent lavere.
+          vokst til 80 prosent av 1,9 millioner, altså 1,52 millioner pumper, og erstatningssalget
+          blir rundt 109 000 i året. Med nybygg blir markedet 121 000 enheter — bare 8 prosent lavere.
           <i>Markedet er langt mer robust enn det ser ut,</i> fordi erstatningsbasen vokser i takt
           med at veksten forsvinner. Det er en innsikt, ikke et regnestykke.</p>`,
         krav: [
           "Du sier enheten på hvert delresultat underveis — enheter, år, kroner.",
           "Du har med alle tre kildene til salg, ikke bare erstatningssalget.",
           "Du sanity-sjekker mot minst én kjent norsk størrelse, og sier tallet høyt.",
-          "Du krysspeiler baklengs: svaret delt på antall boliger skal stemme med pris delt på levetid.",
+          "Du krysspeiler baklengs: svaret delt på antall småhus skal stemme med pris delt på levetid.",
           "Du sier noe om hva som skjer med markedet framover, ikke bare hva det er i dag.",
         ],
-        felle: "Å levere 3 milliarder uten sanity-sjekk. Wharton er eksplisitt på at det er en av de raskeste måtene å miste intervjuerens tillit — og sjekken tar tjue sekunder.",
+        felle: "Å levere 3,9 milliarder uten sanity-sjekk. Wharton er eksplisitt på at det er en av de raskeste måtene å miste intervjuerens tillit — og sjekken tar tjue sekunder.",
       },
       {
         art: "ide",
@@ -5464,9 +5465,9 @@ window.EDU_DATA.cases = [
           ettermarked) og <b>gjør det beslutningsrelevant</b> (marginer, kanaler, konkurrenter,
           støtteordninger).</p>
           <p>Prioritér etter hvilken forutsetning som flytter svaret mest. Her er det to:
-          <b>levetiden</b>, fordi den alene bestemmer 60 av de 100 000 enhetene, og
+          <b>levetiden</b>, fordi den alene bestemmer 81 000 av de 131 000 enhetene, og
           <b>produktmiksen</b>, fordi prisen spenner fra 25 000 til 200 000 kroner. Endrer du
-          levetiden fra 14 til 10 år, går markedet fra 3 til 3,7 milliarder. Det er den typen
+          levetiden fra 14 til 10 år, går markedet fra 3,9 til 4,9 milliarder. Det er den typen
           følsomhet du bør si høyt.</p>`,
         krav: [
           "Du grupperer før du lister, og gruppene svarer på ulike behov.",
@@ -5482,21 +5483,21 @@ window.EDU_DATA.cases = [
         tittel: "Anbefalingen",
         sp: `<p>Klienten har <b>ett minutt</b>. Gi svaret og hva det betyr.</p>`,
         fasit: `<p>Tallet først, spennet med, så hva det betyr for beslutningen.</p>
-          <blockquote><p><b>«Det norske markedet for varmepumper til bolig er rundt 3 milliarder
-          kroner i året — omtrent 100 000 enheter til 30 000 kroner installert. Jeg vil si
-          2,5 til 3,5 milliarder, der usikkerheten ligger i levetiden og i produktmiksen.»</b></p>
-          <p>Slik kom jeg dit: 1,4 millioner småhus, 60 prosent har allerede pumpe, det gir en
-          installert base på 840 000. Med 14 års levetid er erstatningssalget 60 000 i året. Legg
-          til 28 000 fra at penetrasjonen vokser to prosentpoeng årlig, og 12 000 fra nybygg —
-          100 000 enheter.</p>
-          <p>Sanity-sjekken holder: det er 1,3 prosent av dagligvaremarkedet, og 3,6 prosent av
+          <blockquote><p><b>«Det norske markedet for varmepumper til bolig er rundt 4 milliarder
+          kroner i året — omtrent 130 000 enheter til 30 000 kroner installert. Jeg vil si
+          3,5 til 4,5 milliarder, der usikkerheten ligger i levetiden og i produktmiksen.»</b></p>
+          <p>Slik kom jeg dit: 1,9 millioner småhus, 60 prosent har allerede pumpe, det gir en
+          installert base på 1,14 millioner. Med 14 års levetid er erstatningssalget rundt 81 000 i
+          året. Legg til 38 000 fra at penetrasjonen vokser to prosentpoeng årlig, og 12 000 fra
+          nybygg — 131 000 enheter.</p>
+          <p>Sanity-sjekken holder: det er 1,7 prosent av dagligvaremarkedet, og 4,7 prosent av
           nybilsalget. For et varig gode som byttes hvert fjortende år, er det riktig
           størrelsesorden.</p>
-          <p>Det viktigste for dere er ikke tallet, men sammensetningen: 60 prosent av markedet er
-          allerede erstatningssalg til folk som har hatt en pumpe før. Det er et
+          <p>Det viktigste for dere er ikke tallet, men sammensetningen: over 60 prosent av markedet
+          er allerede erstatningssalg til folk som har hatt en pumpe før. Det er et
           <i>gjenkjøpsmarked</i>, ikke et vekstmarked, og det betyr at installatørnettverket og
           merkevaren betyr mer enn å overbevise nye kunder. Det jeg ville gjort videre, er å dele
-          de 3 milliardene i utstyr og montering — de har helt ulike konkurrenter, og det avgjør
+          de 4 milliardene i utstyr og montering — de har helt ulike konkurrenter, og det avgjør
           hvor dere skal inn.»</p></blockquote>`,
         krav: [
           "Du gir tallet med et spenn, og sier hvor usikkerheten ligger.",
@@ -5505,7 +5506,7 @@ window.EDU_DATA.cases = [
           "Du trekker en strategisk konsekvens av sammensetningen, ikke bare av størrelsen.",
           "Du holder deg innenfor ett minutt.",
         ],
-        felle: "Å presentere et tall med fire siffer. «3,18 milliarder» signaliserer at du ikke har forstått hvor usikkerheten ligger. «Rundt 3 milliarder, spenn 2,5 til 3,5» signaliserer at du har.",
+        felle: "Å presentere et tall med fire siffer. «3,943 milliarder» signaliserer at du ikke har forstått hvor usikkerheten ligger. «Rundt 4 milliarder, spenn 3,5 til 4,5» signaliserer at du har.",
       },
     ],
   },
