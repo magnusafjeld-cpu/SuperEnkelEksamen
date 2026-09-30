@@ -14,7 +14,9 @@ fagtermene står på engelsk der de faktisk heter det — *issue tree*, *MECE*,
 
 Trening til caseintervjuer i managementkonsulenting. Målgruppen er hans egne
 søknader høsten 2026, vektet mot **MBB, Arkwright og de øvrige strategihusene** —
-ikke Big 4, som ble valgt bort.
+ikke Big 4, som ble valgt bort. **Unntaket er PwC:** Magnus har et individuelt
+caseintervju hos PwC Consulting i Oslo **6. oktober 2026**, digitalt på Teams, og
+fikk en egen bolk med seks caser 30. september (se under).
 
 ## Det som styrer alt: fristene
 
@@ -100,6 +102,54 @@ casene skrives parallelt. Kontrolleres med `tools/sjekk-caser.js`.
 Vil du gi dem en egen bolk igjen, er det ett felt: `kategori: "EY-Parthenon"` på
 hver case, pluss en tekst i `caseKategorier`. Motoren lager fanen selv.
 
+## PwC-casene
+
+Seks caser i formen PwC selv beskriver, bygget 30. september 2026 før intervjuet
+6. oktober. Kildene ligger i `docs/case-research/10-pwc-consulting.md`, og
+kontrakten i `docs/case-pwc-spek.md`. Som EY-Parthenon-casene har de ingen egen
+fane; de finnes via **Stilart → PwC**.
+
+**Formen, med PwCs egne ord:** PwC Norge gjennomfører én dag med et
+kompetansebasert dybdeintervju og ett individuelt caseintervju, og råder
+kandidaten til å «lese informasjonen du mottar svært nøye». PwCs egne eksempelcaser
+er et skriftlig scenario med «Key considerations», lest på noen minutter, og så
+spørsmål fra en engasjementsleder: tilnærming, risiko, tiltak, anbefaling, veikart,
+og hvordan KI kan brukes i analysen. 30–45 minutter. Prep-bransjen kaller PwC
+«candidate-led»; PwCs egne eksempler er intervjuerledet. Casene er derfor:
+
+- **Casematerialet** som et utdelt ark, og et første trinn med **lesetid**
+  (`forberedelse`).
+- **Én detalj i materialet som bare den som leser nøye, får med seg**, og som biter
+  i et regnetrinn senere.
+- Minst ett **drøftingstrinn** (`drøfting`) om gjennomføring, risiko eller KI,
+  fordi gjennomføringen er en del av svaret hos PwC Consulting.
+- **Kravene merket med PwCs fem kriterier** (strukturert tenkning, håndterer
+  uklarhet, kommunikasjon, forretningsforståelse og tall, nysgjerrighet og
+  mottakelighet). Oppsummeringen etter casen viser treff per kriterium.
+- Ny informasjon eller motstand minst to steder, alltid i syntesen.
+
+| Case | Type | Nivå | Min | Mekanismen | Detaljen i materialet |
+|---|---|---|---|---|---|
+| Sportskjeden som selger mer og tjener mindre | Lønnsomhet | Intro | 35 | cost-to-serve på nett: små ordrer taper etter frakt og returer | nettallene er bestilt verdi før returer |
+| Sjømatkonsernet med sju økonomiavdelinger | Kostnadskutt | Middels | 40 | gapet er kompleksitet, ikke fart; samordne før automatisering, J-kurve, payback 42 mnd | 180 ansatte, men 150 årsverk |
+| Hotellkjeden som vil bygge tre nye hoteller | Vekst | Middels | 35 | fyll lavsesongen før du bygger; et nytt hotell arver mønsteret | fire hoteller er stengt om vinteren |
+| Strømselskapet som vil selge solceller | Markedsinngang | Middels | 40 | adresserbart marked er lite, og montering binder; inngangsmåten er beslutningen | priser med mva., kostnader uten |
+| Kundesenteret som skal kutte 40 prosent med KI | Digitalisering | Avansert | 45 | failure demand: fjern årsakene før du automatiserer svarene | hver rådgiver har to chatter samtidig |
+| Hjemmetjenesten med flere 80-åringer og samme ramme | Offentlig | Avansert | 45 | etterspørselsdrevet vekst: bøy behovskurven, gevinsten er unngått kostnad | bare 60 % av tiden går til dem over 80 |
+
+**Slik ble de laget:** seks forfattere parallelt, så **en uavhengig kontrollør per
+case med blindtest**, retting, og en etterkontroll. Kontrollene fant feil som
+forfatterne ikke så: detaljen avslørt i fasiten til et tidligere trinn, et prisfall
+trukket fra to ganger, en syntese som motsa seg selv, krav som straffet like gode
+svar, og modellsvar på ett minutt som var tre ganger for lange. Se fallgruve 7z i
+[[Fallgruver]]. PwC-kildene kom også med noe konkret for selve intervjuet: **du får
+en buddy før intervjudagen**; spør om lesetid, om materialet er skriftlig, og om
+intervjueren styrer.
+
+Bygges med `tools/bygg-pwc-caser.py` fra `fag/case/_pwc/`, og kontrolleres med
+`node tools/sjekk-caser.js --fragment <fil>` per case og uten argumenter for hele
+biblioteket.
+
 ## Kildegrunnlaget
 
 De parallelle kartleggingene ligger i `docs/case-research/`. De er verdt å lese
@@ -147,7 +197,7 @@ De skarpeste funnene:
 | Motor | **ferdig** — fem moduler, alle verifisert i nettleseren |
 | Manual | **16 av 16 kapitler · 21 300 ord** — 96 seksjoner, 43 tabeller, 15 gjennomregnede eksempler |
 | Studieplan | **11 moduler · 14 timer** · arbeidsoppgaver med lenke inn i øvelsen |
-| Caser | **32** i to bolker: **18 intervjucaser** og 14 market sizing · 192 trinn · 950 minutter |
+| Caser | **43**: **29 intervjucaser** (18 generiske, 5 EY-Parthenon, 6 PwC) og 14 market sizing · 272 trinn · 1 086 minutter |
 | Struktureringsprompter | **84** i åtte casetyper (9–15 hver), med modellstruktur som tre, hypotese og felle |
 | Finn feilen | **34** utregninger, 7 av dem uten feil |
 | Les grafen | **24** figurer — 18 SVG, 6 tabeller, 17 med innebygd felle |

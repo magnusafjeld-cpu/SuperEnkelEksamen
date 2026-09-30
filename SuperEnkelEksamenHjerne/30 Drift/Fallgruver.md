@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-09-28
+oppdatert: 2026-09-30
 ---
 
 # Fallgruver
@@ -547,6 +547,42 @@ ADVARSEL per spørsmål der den er over 1,3 ganger det lengste gale alternativet
 **Samme skjevhet ligger i tre av quizene**, målt 28. september 2026: SAM3 66 %,
 FIE402 61 % (151 av 246) og Caseintervju 53 %. FIE432 og FIE459 er under 30 %.
 Det er ikke rettet ennå; se [[Åpne spørsmål og neste steg]].
+
+## 7z. En case kan avsløre seg selv før tiden
+
+PwC-casene ble skrevet av seks agenter som hver kontrollerte sin egen case, med
+null feil i strukturkontrollen og alle tall regnet i Python. En uavhengig
+kontrollør per case, med **blindtest** (les bare materialet og spørsmålet, svar,
+og åpne så fasiten), fant likevel det samme mønsteret i nesten alle:
+
+| Lekkasje | Hvorfor den er lett å overse |
+|---|---|
+| Fasit og krav for tidlige trinn nevnte detaljen som skulle bite senere | Fasit og krav vises etter hvert trinn. En lesetid med kravet «Du noterer at tallene er før returer» gjør at fella tre trinn senere aldri biter |
+| Egne titler på trinnknappene («Per ordre», «Kapasitet», «Feilkildene») | Raden vises fra første skjerm og forteller hva intervjueren skal spørre om |
+| `blurb` og `label` navnga mekanismen eller innvendingen | De vises i biblioteket før casen starter |
+| Regnetrinnet viste ✓ eller ✗ før fasiten | Du kunne prøve deg fram til riktig tall, og «feil tall gir Delvis» ble tomt |
+| Krav som gjaldt noe spørsmålet ikke spurte om | Et perfekt svar på spørsmålet ga Delvis |
+| Modellsvaret «på ett minutt» var 270–390 ord | Et forbilde som er tre ganger for langt, lærer bort det motsatte |
+
+Motoren tar nå to av dem: egne trinntitler vises først når du er kommet til
+trinnet, og regnesvaret sjekkes først når utregningen åpnes. Resten er regler i
+`docs/case-pwc-spek.md`, og `tools/sjekk-caser.js` varsler når syntesen er over
+170 ord.
+
+> [!warning] En rettelse kan regne på feil grunnlag
+> I hjemmetjenestecasen fant kontrollen at to tiltak overlapper: et besøk som
+> faller bort, kan ikke også bli tre minutter kortere. Riktig, men overlappen ble
+> trukket fra **dagens** besøk, mens gapet den ble holdt mot, gjelder **2030**, med
+> 1 800 flere besøk som også blir kortere. De to opphever hverandre. Rettelsen
+> gjorde et overskudd på rundt 2 millioner til et «kronegap» på 0,6, og jeg ba
+> forfatteren si gapet rett ut i anbefalingen. Etterkontrollen fant det. Når en
+> rettelse endrer et regnestykke, sjekk at den bruker samme år, volum og grunnlag
+> som tallet den sammenlignes med (se også 7q).
+
+**Lærdommen:** en forfatter kan ikke blindteste sin egen case, fordi hun vet
+svaret. Kontrollen må gjøres av noen som ikke har skrevet den, og den må lese i
+samme rekkefølge som kandidaten. Det samme gjelder premisser: 1,4 millioner småhus
+besto hver aritmetikkontroll, men var feil hos SSB (se [[Caseintervju]] og 7q).
 
 ## 8. Filer som ikke er koblet til noe
 

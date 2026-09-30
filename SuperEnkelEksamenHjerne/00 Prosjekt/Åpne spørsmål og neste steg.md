@@ -28,6 +28,11 @@ Levende liste. Kryss av eller stryk når noe er gjort, og noter datoen.
 
 ## Bør vurderes
 
+- [ ] **Etter PwC-intervjuet 6. oktober 2026:** noter hvordan casen faktisk var
+      (lesetid, skriftlig materiale, hvem som styrte, casetype, hva de spurte om)
+      i `docs/case-research/10-pwc-consulting.md`, og juster PwC-casene hvis formatet
+      var et annet enn det PwCs egne sider beskriver. Se [[Caseintervju]].
+
 - [ ] **Studieplanen for SAM3 er utløpt.** Planen går 29. juni – 19. juli 2026,
       altså en måned bak i tid. `activeDayIndex()` klamper til siste dag, så
       dashbordet står permanent på dag 21. Enten settes `startDate` fram mot en

@@ -7,24 +7,82 @@
 
    Bruk:  node tools/sjekk-caser.js                 # alle casefiler for faget
           node tools/sjekk-caser.js fag/case/caser-eyp.js
+          node tools/sjekk-caser.js --fragment fag/case/_pwc/01-noe.js
+   --fragment leser ett enkelt caseobjekt, slik forfatterne skriver dem, uten å
+   bygge hele bolken først.
 */
 const fs = require("fs");
 const path = require("path");
 const ROT = path.join(__dirname, "..");
 
-const ARTER = new Set(["oppklaring", "struktur", "exhibit", "regne", "ide", "syntese"]);
+const ARTER = new Set(["forberedelse", "oppklaring", "struktur", "exhibit", "regne", "ide", "drøfting", "syntese"]);
 const HTML_TAGG = /<\/?[a-zA-Z][^>]*>/;
+/* Kravpunkter er tekst, eller { k, t } når casen vurderes mot et sett kriterier
+   (PwC-casene: PwCs egne fem). Nøklene må finnes i caseKriterier. */
+const KRITERIER = new Set(["struktur", "uklarhet", "kommunikasjon", "tall", "nysgjerrighet"]);
+const kravTekst = (k) => (typeof k === "string" ? k : (k && k.t) || "");
 
-function last(filer) {
+function last(filer, fragment) {
   const w = { EDU_DATA: { cases: [] } };
   global.window = w;
   for (const f of filer) {
     const p = path.isAbsolute(f) ? f : path.join(ROT, f);
     if (!fs.existsSync(p)) { console.error("fant ikke " + f); process.exit(2); }
+    if (fragment) {
+      /* Et fragment er ett objektliteral med kommentarer over. */
+      const kilde = fs.readFileSync(p, "utf-8").trim().replace(/,\s*$/, "");
+      try { w.EDU_DATA.cases.push(new Function("return (" + kilde + "\n);")()); }
+      catch (e) { console.error(`${f}: kan ikke leses som objekt — ${e.message}`); process.exit(2); }
+      continue;
+    }
     delete require.cache[require.resolve(p)];
     require(p);
   }
   return w.EDU_DATA;
+}
+
+/* PwC-casene følger PwCs eget format: skriftlig materiale, lesetid, og så
+   spørsmål fra en engasjementsleder. Kravene er merket med PwCs fem kriterier,
+   og hvert kriterium må vurderes flere ganger, ellers blir oppsummeringen
+   per kriterium tom eller tilfeldig. Se docs/case-pwc-spek.md. */
+function pwcRegler(c, hvor, feil, advarsel) {
+  const t = c.trinn || [];
+  const arter = t.map((x) => x.art);
+  if (arter[0] !== "forberedelse") feil.push(`${hvor}: PwC-casen må starte med forberedelse (lesetid)`);
+  if (arter[arter.length - 1] !== "syntese") feil.push(`${hvor}: PwC-casen må ende i syntese`);
+  ["oppklaring", "struktur", "exhibit", "regne", "drøfting"].forEach((a) => {
+    if (!arter.includes(a)) feil.push(`${hvor}: PwC-casen mangler et ${a}-trinn`);
+  });
+  if (t.length < 7 || t.length > 9) feil.push(`${hvor}: PwC-casen har ${t.length} trinn, skal ha 7–9`);
+  if (c.stil !== "interviewer-led") feil.push(`${hvor}: PwC-casen skal være interviewer-led`);
+  if (!(c.minutter >= 30 && c.minutter <= 45)) feil.push(`${hvor}: PwC-casen skal ta 30–45 minutter`);
+  const telling = {};
+  t.forEach((x, i) => {
+    const th = `${hvor} trinn ${i + 1}`;
+    const krav = x.krav || [];
+    if (krav.length < 4 || krav.length > 6) feil.push(`${th}: ${krav.length} krav, skal være 4–6`);
+    krav.forEach((k, n) => {
+      if (typeof k !== "object") { feil.push(`${th}: krav ${n + 1} mangler kriterium ({ k, t })`); return; }
+      telling[k.k] = (telling[k.k] || 0) + 1;
+      if (k.t.length > 240) advarsel.push(`${th}: krav ${n + 1} er ${k.t.length} tegn — et krav skal kunne krysses av på et øyeblikk`);
+    });
+    if (!x.felle) feil.push(`${th}: mangler felle`);
+    if (x.art === "exhibit" && !/<table class="data"/.test(x.figur || "") && !/<svg/.test(x.figur || ""))
+      feil.push(`${th}: exhibit uten tabell eller figur`);
+    if (x.art === "regne" && x.toleranse != null && x.toleranse > 0.05) feil.push(`${th}: toleranse over 0,05`);
+    if (x.art === "ide" && (x.liste || []).length < 10) feil.push(`${th}: idélisten har under 10 punkter`);
+  });
+  KRITERIER.forEach((k) => { if ((telling[k] || 0) < 3) feil.push(`${hvor}: kriteriet «${k}» vurderes bare ${telling[k] || 0} ganger, minst 3`); });
+  /* Ett minutt er rundt 160 ord. Et modellsvar som er tre ganger så langt, lærer
+     bort det motsatte av det det skal. */
+  const syn = t.find((x) => x.art === "syntese");
+  const sitat = syn && /<blockquote>([\s\S]*?)<\/blockquote>/.exec(syn.fasit || "");
+  if (sitat) {
+    const ord = sitat[1].replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+    if (ord > 170) advarsel.push(`${hvor}: modellanbefalingen i syntesen er ${ord} ord — ett minutt er rundt 160`);
+  }
+
+  if (/<\/?[a-zA-Z][^>]*>/.test(c.blurb || "")) feil.push(`${hvor}: blurb inneholder markup`);
 }
 
 function sjekk(D) {
@@ -65,10 +123,15 @@ function sjekk(D) {
       /* krav er det som skiller et sterkt svar fra et middels. Uten det er
          fasiten bare et svar, og casen mister halve poenget. */
       if (!(t.krav || []).length) advarsel.push(`${th}: ingen krav-punkter`);
-      (t.krav || []).forEach((k, n) => { if (HTML_TAGG.test(k)) feil.push(`${th}: krav ${n + 1} inneholder markup — feltet escapes`); });
+      (t.krav || []).forEach((k, n) => {
+        if (!kravTekst(k)) feil.push(`${th}: krav ${n + 1} er tomt`);
+        if (HTML_TAGG.test(kravTekst(k))) feil.push(`${th}: krav ${n + 1} inneholder markup — feltet escapes`);
+        if (typeof k === "object" && !KRITERIER.has(k.k)) feil.push(`${th}: krav ${n + 1} har ukjent kriterium «${k.k}»`);
+      });
       if (t.felle && HTML_TAGG.test(t.felle)) feil.push(`${th}: felle inneholder markup — feltet escapes`);
     });
     if (!harRegne) advarsel.push(`${hvor}: ingen regne-trinn`);
+    if (c.firma === "PwC") pwcRegler(c, hvor, feil, advarsel);
     if (!harSyntese) advarsel.push(`${hvor}: ingen syntese-trinn — casen ender uten anbefaling`);
 
     /* I enkeltmodus spilles ikke trinnene hver for seg, og trinnklokkene brukes
@@ -98,8 +161,10 @@ function sjekk(D) {
 }
 
 const arg = process.argv.slice(2);
-const filer = arg.length ? arg : ["fag/case/caser.js", "fag/case/caser-eyp.js"].filter((f) => fs.existsSync(path.join(ROT, f)));
-const { feil, advarsel, notat } = sjekk(last(filer));
+const fragment = arg.includes("--fragment");
+const valgt = arg.filter((a) => a !== "--fragment");
+const filer = valgt.length ? valgt : ["fag/case/caser.js", "fag/case/caser-eyp.js", "fag/case/caser-pwc.js"].filter((f) => fs.existsSync(path.join(ROT, f)));
+const { feil, advarsel, notat } = sjekk(last(filer, fragment));
 console.log("=".repeat(72));
 console.log(filer.join(" + "));
 notat.forEach((n) => console.log(n));

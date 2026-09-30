@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-09-28
+oppdatert: 2026-09-30
 ---
 
 # Beslutningslogg
@@ -101,6 +101,26 @@ minuspoeng. Kjernepensum i FIE432 fikk derfor flervalgsminicaser med +3/−1/0,
 ikke FIE402s åpne format. Magnus ba om at det skulle lages «på riktig måte basert
 på eksamensformen». Et nytt fag velger form etter sin egen eksamen; motoren har
 begge. Se [[Moduler og visninger]].
+
+## Casevurderingen regnes ut, den velges ikke
+Til 30. september 2026 valgte kandidaten selv Bom, Delvis, Solid eller Distinkt
+etter hvert casetrinn. Magnus ba om «streng, konkret feedback etter hver runde»
+før PwC-intervjuet, og en skala du velger etter magefølelse, er ikke streng. Nå
+krysser du av kravene svaret faktisk oppfylte, og nivået regnes ut: alle krav gir
+Distinkt, tre firedeler Solid, 40 prosent Delvis. Å gå i fella, eller ha feil tall
+på et regnetrinn, setter Delvis som tak. Tiden står i tilbakemeldingen, men teller
+ikke, fordi det tar lengre tid å skrive et svar enn å si det.
+
+**Konsekvens:** ikke gjeninnfør fritt valg av nivå for trinn med krav. Og kravene
+må være rettferdige, siden de nå avgjør nivået: de skal gjelde det spørsmålet ber
+om, og godta like gode svar («for eksempel»). Se [[Case-spilleren]].
+
+## Firmaets egen caseform framfor prep-bransjens
+PwC-casene følger det PwC selv beskriver: skriftlig materiale med «viktige
+forhold», lesetid, og spørsmål fra en engasjementsleder, vurdert mot PwCs egne fem
+kriterier. Prep-bransjen kaller PwC «candidate-led», men PwCs egne eksempelcaser er
+intervjuerledet. Der firmaet har publisert formen, bygger vi etter den, og
+kildemerker motstriden. Se `docs/case-research/10-pwc-consulting.md`.
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på

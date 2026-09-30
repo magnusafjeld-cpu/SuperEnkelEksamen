@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, case]
-oppdatert: 2026-09-12
+oppdatert: 2026-09-30
 ---
 
 # Case-spilleren
@@ -15,19 +15,76 @@ intervjuerens struktur før du har skrevet din egen, har du ikke trent, du har
 lest en fasit. Derfor er hvert trinn låst til du selv har forsøkt, og derfor kan
 ikke settmodulen brukes — den viser alle oppgavene samtidig.
 
-## De seks trinnartene
+## De åtte trinnartene
 
 | `art` | Hva som skjer | Vurdering |
 |---|---|---|
-| `oppklaring` | Hvilke spørsmål ville du stilt? | selvvurdert |
-| `struktur` | Skriv nedbrytningen før intervjuerens vises | selvvurdert |
-| `exhibit` | Les figuren og si hva den betyr | selvvurdert |
-| `regne` | Regn på papir, skriv tallet — sjekkes automatisk | maskinelt |
-| `ide` | Idémyldring mot klokka, kryss så av hva du fikk | telt |
-| `syntese` | Anbefalingen, topp-ned, på tid | selvvurdert |
+| `forberedelse` | Lesetid før intervjuet: les materialet, noter (PwC-formen) | sjekkliste |
+| `oppklaring` | Hvilke spørsmål ville du stilt? | sjekkliste |
+| `struktur` | Skriv nedbrytningen før intervjuerens vises | sjekkliste |
+| `exhibit` | Les figuren og si hva den betyr | sjekkliste |
+| `regne` | Regn på papir, skriv tallet — sjekkes automatisk | sjekkliste, og feil tall gir tak |
+| `ide` | Idémyldring mot klokka, kryss så av hva du fikk | telt mot idélisten |
+| `drøfting` | Et kvalitativt spørsmål: risiko, gjennomføring, KI, alternativer | sjekkliste |
+| `syntese` | Anbefalingen, topp-ned, på tid | sjekkliste |
 
 Skalaen er **Bom / Delvis / Solid / Distinkt**, ikke poeng. «Bestått» og
 «distinkt» er to forskjellige ting, og det er nettopp det skillet som trenes.
+
+`forberedelse` og `drøfting` kom med PwC-casene 30. september 2026. Starter en
+case med `forberedelse`, merkes promptkortet «Casematerialet», og knappen heter
+«Tiden er ute — start intervjuet».
+
+**Trinnraden røper ikke det som kommer.** Den vises fra første skjerm, og en egen
+`kort`-tittel som «Payback» eller «Feilkildene» fortalte hva intervjueren skulle
+spørre om. Nå står standardnavnet («Regning», «Drøfting») til du er kommet til
+trinnet, og den egne tittelen brukes etterpå og i oppsummeringen.
+
+**Tabeller på mobil:** materiale, spørsmål, fasit og bakgrunn går gjennom
+`prosa()`, som kaller `S.u.rullTabeller`, så hver `table.data` ruller i sin egen
+boks. Fasittabellene i PwC-casene var opptil 375 piksler i et felt på 277, og drog
+hele siden sidelengs (fallgruve 7i). Figurene i trinnene lå allerede i en egen
+rulleboks.
+
+**Rulling:** «Start casen» går til toppen, der materialet står. Et trinnbytte
+(`gåTil()`) ruller til trinnraden. Før landet du midt i det nye trinnet, fordi
+knappen for neste trinn står nederst og siden beholdt rulleposisjonen.
+
+## Streng vurdering: nivået regnes ut, det velges ikke
+
+Til 30. september 2026 valgte du nivået selv etter hvert trinn, med kravene som
+en liste å se på. Det var for snilt: magefølelsen sier Solid når svaret hadde
+halvparten. Nå krysser du av hvert krav svaret ditt **faktisk** inneholdt, og
+`strengScore()` regner ut nivået:
+
+| Treff | Nivå |
+|---|---|
+| alle krav | Distinkt |
+| minst tre firedeler | Solid |
+| minst 40 prosent | Delvis |
+| under det | Bom |
+
+To ting setter **Delvis som tak**: at du svarer ja på «Gikk du i fella?», og feil
+eller manglende tall på et regnetrinn. Tiden er ikke med i nivået, fordi det tar
+lengre tid å skrive et svar enn å si det, men går du mer enn 25 prosent over,
+står det i tilbakemeldingen.
+
+Etter hvert trinn står det som manglet. Etter hele casen samler `tilbakemelding()`
+nivå per trinn, treff per kriterium der kravene er merket med ett, de tre dyreste
+manglene (fra de svakeste trinnene), feller og tid.
+
+- **Kravene er tekst eller `{ k, t }`.** `k` er et kriterium, og navnet hentes
+  fra `EDU_DATA.caseKriterier`, som er innhold. PwC-casene merker kravene med
+  PwCs fem kriterier; de gamle casene har ren tekst og får ingen fordeling.
+- **Idémyldring** telles fortsatt mot idélisten, ikke mot kravene.
+- **Enkeltmodus** (market sizing) har fortsatt én selvvalgt vurdering.
+- Et trinn vurdert på den gamle måten viser «Tidligere egenvurdering» til du
+  krysser av.
+
+> [!bug] `.check` er en rund boks, ikke en rad
+> Idélisten brukte `button.check` strukket til full bredde. `.check` er den
+> 22 piksler store sirkelen fra studieplanen, så hver idé ble en grønn ellipse.
+> Begge listene bruker nå `sjekkRad()` med egen stil (`.sjekk-rad`).
 
 ## Enkeltmodus: estimeringscasene har bare ett spørsmål
 
@@ -68,6 +125,17 @@ enheten er millioner. Sjekken sammenligner derfor i grunnenheter:
 
 Da godtas riktig svar uansett skrivemåte, mens `78 mrd` fortsatt avvises.
 Standard slingringsmonn er 2 %, overstyrbart per trinn med `toleranse`.
+
+Fra 30. september 2026 forstår `parseTall` også «minus 30», punktum som
+tusenskille («40.000»), «40k», og et helt regnestykke som «120 000 − 80 000 =
+40 000», der tallet etter siste likhetstegn er svaret. «tap på 30» leses fortsatt
+som 30, derfor ber casene med negativt svar om fortegn.
+
+> [!important] Tallet sjekkes først når utregningen åpnes
+> Til 30. september 2026 viste regnetrinnet ✓ eller ✗ ved «Sjekk» og ved blur,
+> før fasiten. Da kunne du prøve deg fram til riktig tall, og fella i trinnet bet
+> aldri, samtidig som feil tall nå gir Delvis som tak. Nå lagres svaret ved blur
+> uten vurdering, sjekkes når du trykker «Vis utregningen», og låses der.
 
 `parseTall` stripper mellomrom (også harde), prosenttegn og gjør komma til
 punktum — og normaliserer **ekte minustegn (−, U+2212) og tankestrek til vanlig
@@ -134,7 +202,7 @@ uten at appen gjør noe. Knappen er bare raskere.
 | Nøkkel | Innhold |
 |---|---|
 | `state.exams["case:<id>:run"]` | `{ startedAt, submittedAt }` |
-| `state.exams["case:<id>:t<n>"]` | `{ svar, vist, brukt, score, tikk }` per trinn |
+| `state.exams["case:<id>:t<n>"]` | `{ svar, vist, brukt, score, tikk, kravTikk, fellen }` per trinn |
 
 `state.exams` er en generisk bøtte som allerede synkes og slås sammen per nøkkel,
 så modulen trengte **ingen migrering**. Se [[Datamodell og lagring]].

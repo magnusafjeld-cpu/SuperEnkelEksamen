@@ -7,12 +7,17 @@
    Modulen kjører derfor casen som en sekvens av trinn. Hvert trinn har en art som
    bestemmer hvordan det spilles:
 
+     forberedelse lesetid før intervjuet: les materialet og noter
      oppklaring   hvilke spørsmål ville du stilt før du begynner?
      struktur     skriv din egen nedbrytning før intervjuerens vises
      exhibit      les figuren og si hva den betyr
      regne        regn på papir, skriv tallet — det sjekkes automatisk
      ide          idémyldring mot klokka, deretter kryss av hva du fikk med
+     drøfting     et kvalitativt spørsmål: risiko, gjennomføring, alternativer
      syntese      anbefalingen, topp-ned, på tid
+
+   Vurderingen er streng: etter hvert trinn krysser du av kravene svaret ditt
+   faktisk oppfylte, og nivået regnes ut av det. Se strengVurdering().
 
    Fremdrift lagres i state.exams under "case:<id>:run" og "case:<id>:t<n>".
    Den bøtta er generisk og synkes allerede, så modulen trenger ingen migrering. */
@@ -22,6 +27,9 @@ window.EDU = window.EDU || {};
   const { el, icon, frag } = S.u;
   const sh = () => S.views.shared;
   const CASES = () => window.EDU_DATA.cases || [];
+  /* Tabeller i fasit og materiale er bredere enn en telefon. Uten innpakning drar
+     de hele siden sidelengs (fallgruve 7i); rullTabeller gir hver sin egen rulling. */
+  const prosa = (html, stil) => { const n = el(".prose", stil ? { style: stil } : {}, frag(html)); S.u.rullTabeller(n); return n; };
 
   /* Skalaen er konsulentbransjens egen, ikke poeng. «Bestått» og «distinkt» er
      to forskjellige ting, og det er nettopp det skillet treningen handler om. */
@@ -87,6 +95,11 @@ window.EDU = window.EDU || {};
   }
   function settScore(id, i, s) { S.store.setExam(stegKey(id, i), { score: s }); }
   function settTikk(id, i, liste) { S.store.setExam(stegKey(id, i), { tikk: liste }); }
+  /* Kravene er tekst, eller { k, t } når casen vurderes mot et sett kriterier.
+     Kriterienavnene er innhold og ligger i EDU_DATA.caseKriterier. */
+  const kravTekst = (k) => (typeof k === "string" ? k : (k && k.t) || "");
+  const kravKrit = (k) => (k && typeof k === "object" ? k.k || null : null);
+  const kritNavn = (k) => ((window.EDU_DATA || {}).caseKriterier || {})[k] || k;
 
   const erVist = (id, i) => !!stegSt(id, i).vist;
   const erFerdig = (c) => trinnene(c).every((_, i) => erVist(c.id, i));
@@ -101,7 +114,7 @@ window.EDU = window.EDU || {};
        alltid også   tallet tatt bokstavelig             «78000000»  → 78 000 000
 
      Da godtas svaret uansett hvordan det skrives, mens «78 mrd» fortsatt avvises. */
-  const SUFFIKS = [[/mrd|milliard/i, 1e9], [/mill|million/i, 1e6], [/\btusen\b/i, 1e3]];
+  const SUFFIKS = [[/mrd|milliard/i, 1e9], [/mill|million/i, 1e6], [/\btusen\b|\d\s*k\b/i, 1e3]];
   const ENHETSKALA = [[/milliard/i, 1e9], [/million/i, 1e6], [/tusen/i, 1e3]];
 
   function skala(tekst, tabell) {
@@ -111,9 +124,14 @@ window.EDU = window.EDU || {};
   /* Appen skriver selv negative tall med ekte minustegn (−, U+2212), så det er
      det tegnet brukeren kopierer og som telefontastaturet setter inn. Uten
      normaliseringen her leses «−18» som 18, og et riktig svar blir underkjent. */
+  /* Og slik skrives det også: «minus 30», «40.000» med punktum som tusenskille,
+     og hele regnestykket «120 000 − 80 000 = 40 000», der svaret står sist. */
   function parseTall(s) {
-    const t = String(s == null ? "" : s).replace(/[\s ]/g, "").replace(/%/g, "")
-      .replace(/[\u2212\u2013]/g, "-").replace(",", ".");
+    let t = String(s == null ? "" : s);
+    if (t.includes("=")) t = t.slice(t.lastIndexOf("=") + 1);
+    t = t.replace(/[\s ]/g, "").replace(/%/g, "")
+      .replace(/[\u2212\u2013]/g, "-").replace(/minus/i, "-")
+      .replace(/(\d)\.(?=\d{3}(?!\d))/g, "$1").replace(",", ".");
     const m = t.match(/-?\d+(\.\d+)?/);
     return m ? parseFloat(m[0]) : null;
   }
@@ -249,7 +267,7 @@ window.EDU = window.EDU || {};
     }
 
     kort.appendChild(el(".row.wrap", { style: { gap: "8px" } },
-      el("button.btn.primary", { onclick: () => { åpen = c.id; steg = førsteUgjorte(c); stegStart = S.u.nowTs(); if (!kjør(c.id).startedAt) start(c.id); S.app.refresh(); } },
+      el("button.btn.primary", { onclick: () => { åpen = c.id; steg = førsteUgjorte(c); stegStart = S.u.nowTs(); if (!kjør(c.id).startedAt) start(c.id); S.app.refresh(); window.scrollTo({ top: 0 }); } },
         r.startedAt ? "Fortsett casen" : "Start casen"),
       r.startedAt ? el("button.btn.ghost.sm", { onclick: () => { if (confirm("Nullstille denne casen? Alle svarene dine slettes.")) { nullstill(c.id); S.app.refresh(); } } }, "Nullstill") : null));
     return kort;
@@ -375,33 +393,53 @@ window.EDU = window.EDU || {};
      men her trener vi på resonnementet — ikke på hukommelse. */
   function promptKort(c) {
     const kort = el(".card.pad-lg", { style: { marginBottom: "16px" } });
+    /* Med lesetid først er prompten et utdelt ark, ikke noe intervjueren sier. */
+    if ((trinnene(c)[0] || {}).art === "forberedelse")
+      kort.appendChild(el(".eyebrow", { style: { marginBottom: "4px" } }, "Casematerialet"));
     kort.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline", marginBottom: "10px" } },
       el("h3", { style: { fontSize: "20px" } }, c.label),
       el(".spacer"),
       c.type ? el(".chip.indigo", c.type) : null));
-    if (c.prompt) kort.appendChild(el(".prose", { style: { fontSize: "15.5px" } }, frag(c.prompt)));
+    if (c.prompt) kort.appendChild(prosa(c.prompt, { fontSize: "15.5px" }));
     return kort;
   }
 
+  /* Et trinnbytte tegner siden på nytt med samme rulleposisjon. Knappen for
+     neste trinn står nederst, så uten dette landet du midt i det nye trinnet,
+     under spørsmålet. Rull heller til trinnraden, rett over spørsmålet. */
+  function gåTil(i) {
+    steg = i; stegStart = S.u.nowTs(); S.app.refresh();
+    const rad = document.querySelector(".case-trinnrad");
+    if (rad) window.scrollTo({ top: Math.max(0, rad.getBoundingClientRect().top + window.scrollY - 80) });
+  }
+
   function trinnRad(c, liste) {
-    const rad = el(".row.wrap", { style: { gap: "6px", marginBottom: "16px" } });
+    const rad = el(".row.wrap.case-trinnrad", { style: { gap: "6px", marginBottom: "16px" } });
     liste.forEach((t, i) => {
       const vist = erVist(c.id, i);
       const cls = i === steg ? "button.chip.sett-nav.on" : vist ? "button.chip.green.sett-nav" : "button.chip.sett-nav";
       /* Trinnet kan gi sin egen korttittel. Uten den sto det «Regning» tre ganger
-         på rad i casene som møtes fra to sider, og raden sa ingenting om hvor du var. */
-      rad.appendChild(el(cls, { onclick: () => { steg = i; stegStart = S.u.nowTs(); S.app.refresh(); } },
-        t.kort || (ARTNAVN[t.art] ? ARTNAVN[t.art].kort : String(i + 1))));
+         på rad i casene som møtes fra to sider, og raden sa ingenting om hvor du var.
+         Men raden vises fra første skjerm, og «Payback» eller «Feilkildene» røper
+         hva intervjueren skal spørre om. Derfor vises den egne tittelen først når
+         du er kommet til trinnet; før det står bare arten. */
+      const standard = ARTNAVN[t.art] ? ARTNAVN[t.art].kort : String(i + 1);
+      rad.appendChild(el(cls, { onclick: () => { gåTil(i); } },
+        (vist || i === steg) && t.kort ? t.kort : standard));
     });
     return rad;
   }
 
   const ARTNAVN = {
+    /* Lesetiden før intervjuet. PwC gir casen som skriftlig materiale og ber deg
+       lese det «svært nøye»; notatene du gjør nå, er de du har i rommet. */
+    forberedelse: { kort: "Lesetid", full: "Lesetid før intervjuet", ledd: "Les materialet nøye og noter før intervjueren begynner. Tiden på klokka er det du har." },
     oppklaring: { kort: "Spørsmål", full: "Oppklarende spørsmål", ledd: "Hva ville du spurt om før du begynner?" },
     struktur: { kort: "Struktur", full: "Struktur", ledd: "Bryt problemet ned. Skriv nedbrytningen din før du ser intervjuerens." },
     exhibit: { kort: "Figur", full: "Figurtolkning", ledd: "Hva ser du, og hva betyr det for casen?" },
     regne: { kort: "Regning", full: "Regnestykke", ledd: "Regn på papir. Skriv svaret her, så sjekkes det." },
     ide: { kort: "Idéer", full: "Idémyldring", ledd: "List så mange du klarer. Kvantitet først, så sorterer du." },
+    drøfting: { kort: "Drøfting", full: "Drøfting", ledd: "Poenget først, så to eller tre begrunnelser. Vær konkret på hva det betyr for akkurat denne klienten." },
     syntese: { kort: "Anbefaling", full: "Syntese og anbefaling", ledd: "Svaret først, så de tre grunnene. Som til en klient som har ett minutt." },
   };
 
@@ -418,14 +456,20 @@ window.EDU = window.EDU || {};
       t.sek ? (vist ? bruktKlokke(t, st) : stegKlokke(t)) : null));
 
     kort.appendChild(el("p.tiny.muted", { style: { margin: "0 0 14px" } }, t.ledd || navn.ledd));
-    if (t.sp) kort.appendChild(el(".prose", { style: { fontSize: "15.5px" } }, frag(t.sp)));
+    if (t.sp) kort.appendChild(prosa(t.sp, { fontSize: "15.5px" }));
     if (t.figur) kort.appendChild(el(".card.flat", { style: { margin: "14px 0", overflowX: "auto" } }, el(".prose", frag(t.figur))));
 
     kort.appendChild(t.art === "regne" ? regnefelt(c, t, i, vist, st) : skrivefelt(c, t, i, vist, st));
 
     if (vist) {
-      kort.appendChild(fasitPanel(t));
-      if (t.art === "ide" && (t.liste || []).length) kort.appendChild(idéAvkryssing(c, t, i, st));
+      /* Idémyldringen har sin egen avkrysning mot idélisten. Alle andre trinn
+         med krav får den strenge sjekklisten, og da vises kravene der i stedet
+         for som en liste i fasiten. */
+      const idé = t.art === "ide" && (t.liste || []).length;
+      const sjekkliste = !idé && (t.krav || []).length > 0;
+      kort.appendChild(fasitPanel(t, !sjekkliste));
+      if (idé) kort.appendChild(idéAvkryssing(c, t, i, st));
+      else if (sjekkliste) kort.appendChild(strengVurdering(c, t, i, st));
       else kort.appendChild(scoreRad(c, i, st));
     }
     return kort;
@@ -473,22 +517,27 @@ window.EDU = window.EDU || {};
     const boks = el("div", { style: { marginTop: "14px" } });
     const plass = t.art === "ide" ? "Én idé per linje… eller si dem høyt med mikrofonen" : t.art === "struktur"
       ? "Skriv nedbrytningen — eller si den høyt med mikrofonen. Gjerne punkter med undernivåer, og hypotesen til slutt."
-      : "Skriv svaret ditt her — eller si det høyt med mikrofonen…";
-    const felt = tekstfelt(c, i, st, plass, t.art === "struktur" ? 10 : 6);
+      : t.art === "forberedelse"
+        ? "Notatene dine: målet med klientens egne ord, tallene som betyr mest, det som mangler, og en foreløpig hypotese."
+        : "Skriv svaret ditt her — eller si det høyt med mikrofonen…";
+    const felt = tekstfelt(c, i, st, plass, t.art === "struktur" || t.art === "forberedelse" ? 10 : 6);
     const ta = felt.tagName === "TEXTAREA" ? felt : felt.querySelector("textarea");
     boks.appendChild(felt);
 
     if (!vist) {
+      const lesetid = t.art === "forberedelse";
       boks.appendChild(el(".card", { style: { marginTop: "14px", background: "var(--amber-soft)", border: "1px solid #f2dcb6" } },
         el("p", { style: { margin: "0 0 12px", fontSize: "14.5px", lineHeight: 1.55 } },
-          el("b", "Skriv ferdig først. "),
-          "Fasiten under er skrevet av noen som allerede kunne svaret. Leser du den før du har forsøkt, føles den opplagt — og du lærer ingenting."),
+          lesetid ? el("b", "Hold deg til tiden. ") : el("b", "Skriv ferdig først. "),
+          lesetid
+            ? "Når lesetiden er ute, begynner intervjueren på første spørsmål, ferdig eller ikke. Notatene dine er det du har å gå på resten av casen."
+            : "Fasiten under er skrevet av noen som allerede kunne svaret. Leser du den før du har forsøkt, føles den opplagt — og du lærer ingenting."),
         el("button.btn.primary", {
           onclick: () => {
-            if (!ta.value.trim() && !confirm("Du har ikke skrevet noe. Vil du se fasiten likevel?")) return;
+            if (!ta.value.trim() && !confirm(lesetid ? "Du har ikke notert noe. Vil du starte intervjuet likevel?" : "Du har ikke skrevet noe. Vil du se fasiten likevel?")) return;
             lagreSvar(c.id, i, ta.value); avdekk(c.id, i); S.app.refresh();
           },
-        }, "Jeg har svart — vis fasiten")));
+        }, lesetid ? "Tiden er ute — start intervjuet" : "Jeg har svart — vis fasiten")));
     }
     return boks;
   }
@@ -502,22 +551,25 @@ window.EDU = window.EDU || {};
     });
     inn.value = st.svar || "";
 
+    /* Tallet sjekkes først når utregningen åpnes, og da er det låst. Med en
+       sjekk-knapp før det kunne du prøve deg fram til riktig tall, og fella i
+       trinnet bet aldri. I rommet får du ikke vite om tallet stemmer før du har
+       sagt det. */
     const dom = el("div", { style: { marginTop: "10px" } });
-    function vurder(lagre) {
+    if (vist) {
+      inn.readOnly = true;
       const ok = riktigTall(t, inn.value);
       S.u.mount(dom, ok == null
-        ? el(".tiny.muted", "Skriv et tall — «1,2 mrd», «450 mill» og «12 %» forstås også.")
-        : el(".chip" + (ok ? ".green" : ".rose"), ok ? "✓ Riktig" : "✗ Ikke riktig ennå"));
-      if (lagre) lagreSvar(c.id, i, inn.value);
-      return ok;
+        ? el(".chip.rose", "✗ Ingen tall å sjekke")
+        : el(".chip" + (ok ? ".green" : ".rose"), ok ? "✓ Riktig" : "✗ Ikke riktig"));
+    } else {
+      inn.addEventListener("blur", () => lagreSvar(c.id, i, inn.value));
+      dom.appendChild(el(".tiny.muted", "Tallet sjekkes når du åpner utregningen. «1,2 mrd», «450 mill», «12 %» og «minus 30» forstås."));
     }
-    inn.addEventListener("blur", () => vurder(true));
 
     boks.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "center" } },
-      inn, t.enhet ? el(".tiny.muted", t.enhet) : null,
-      el("button.btn.sm", { onclick: () => vurder(true) }, "Sjekk")));
+      inn, t.enhet ? el(".tiny.muted", t.enhet) : null));
     boks.appendChild(dom);
-    if (st.svar) vurder(false);
 
     if (!vist) {
       boks.appendChild(el(".card", { style: { marginTop: "14px", background: "var(--amber-soft)", border: "1px solid #f2dcb6" } },
@@ -530,22 +582,124 @@ window.EDU = window.EDU || {};
     return boks;
   }
 
-  function fasitPanel(t) {
+  /* visKrav: kravene som lesbar liste. Av når trinnet har den strenge
+     sjekklisten, som viser dem selv — og som også viser fella. */
+  function fasitPanel(t, visKrav) {
     const boks = el(".sol-panel");
-    boks.appendChild(el(".sol-h", icon("check"), el("span", t.art === "regne" ? "Utregning" : "Slik ser et sterkt svar ut")));
+    const tittel = t.art === "regne" ? "Utregning" : t.art === "forberedelse" ? "Slik ser gode notater ut etter lesetiden" : "Slik ser et sterkt svar ut";
+    boks.appendChild(el(".sol-h", icon("check"), el("span", tittel)));
     if (t.art === "regne" && t.svar != null) {
       boks.appendChild(el("p", { style: { margin: "0 0 10px", fontSize: "17px", fontWeight: 650 } },
         `Svar: ${norsk(t.svar)}${t.enhet ? " " + t.enhet : ""}`));
     }
-    if (t.fasit) boks.appendChild(el(".prose", frag(t.fasit)));
-    if ((t.krav || []).length) {
+    if (t.fasit) boks.appendChild(prosa(t.fasit));
+    if (visKrav !== false && (t.krav || []).length) {
       boks.appendChild(el(".nav-section", { style: { paddingLeft: 0 } }, "Dette skiller et sterkt svar fra et middels"));
       const ul = el("ul.sol-crit");
-      t.krav.forEach((k) => ul.appendChild(el("li", k)));
+      t.krav.forEach((k) => ul.appendChild(el("li", kravTekst(k))));
       boks.appendChild(ul);
     }
-    if (t.felle) boks.appendChild(el(".explain", { style: { marginTop: "12px" } }, el("b", "Vanlig felle: "), t.felle));
+    if (t.felle && visKrav !== false) boks.appendChild(el(".explain", { style: { marginTop: "12px" } }, el("b", "Vanlig felle: "), t.felle));
     return boks;
+  }
+
+  /* ---------- streng vurdering ----------
+     Å velge «Solid» etter magefølelse er for snilt. Her krysser du av hvert krav
+     svaret ditt faktisk oppfylte, og nivået regnes ut:
+
+       alle krav, ingen felle            Distinkt
+       minst tre firedeler               Solid
+       minst 40 prosent                  Delvis
+       under det                         Bom
+
+     To ting setter Delvis som tak uansett hvor mange krav du fikk: at du gikk i
+     fella, og at tallet på et regnetrinn er feil. Det er det intervjueren
+     noterer først. */
+  const NIVÅFARGE = ["rose", "amber", "indigo", "green"];
+
+  function strengScore(c, t, st) {
+    const n = (t.krav || []).length;
+    if (!n) return null;
+    const tikk = (st.kravTikk || []).filter((x) => x < n);
+    const andel = tikk.length / n;
+    let s = andel >= 1 ? 3 : andel >= 0.75 ? 2 : andel >= 0.4 ? 1 : 0;
+    const tak = [];
+    if (st.fellen === true && s > 1) { s = 1; tak.push("Du gikk i fella, og da er Delvis taket."); }
+    if (t.art === "regne" && t.svar != null && riktigTall(t, st.svar) !== true && s > 1) {
+      s = 1; tak.push("Tallet ditt er feil eller mangler, og da er Delvis taket uansett hvor god framgangsmåten var.");
+    }
+    return { s, antall: tikk.length, n, tak };
+  }
+  const erStrengVurdert = (st) => Array.isArray(st.kravTikk) || typeof st.fellen === "boolean";
+
+  function strengVurdering(c, t, i, st) {
+    const boks = el(".card", { style: { marginTop: "16px" } });
+    const tikk = new Set(st.kravTikk || []);
+    const lagre = (endring) => {
+      const ny = Object.assign({}, st, endring);
+      if (!Array.isArray(ny.kravTikk)) ny.kravTikk = [...tikk];
+      const r = strengScore(c, t, ny);
+      S.store.setExam(stegKey(c.id, i), { kravTikk: ny.kravTikk, fellen: ny.fellen, score: r ? r.s : null });
+      S.app.refresh();
+    };
+
+    boks.appendChild(el("h3", { style: { fontSize: "16px", marginBottom: "4px" } }, "Streng vurdering"));
+    boks.appendChild(el("p.tiny.muted", { style: { margin: "0 0 12px" } },
+      "Kryss av bare det svaret ditt faktisk inneholdt: det du skrev, eller sa høyt. «Jeg tenkte på det» teller ikke."));
+
+    t.krav.forEach((k, n) => {
+      const på = tikk.has(n);
+      const krit = kravKrit(k);
+      boks.appendChild(sjekkRad(på, kravTekst(k), krit ? kritNavn(krit) : null,
+        () => { på ? tikk.delete(n) : tikk.add(n); lagre({ kravTikk: [...tikk].sort((a, b) => a - b) }); }));
+    });
+
+    if (t.felle) {
+      boks.appendChild(el(".explain", { style: { marginTop: "12px" } }, el("b", "Vanlig felle: "), t.felle));
+      boks.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "10px" } },
+        el(".tiny.muted", "Gikk du i den?"),
+        el("button.btn.sm" + (st.fellen === false ? ".primary" : ""), { onclick: () => lagre({ fellen: false }) }, "Nei"),
+        el("button.btn.sm" + (st.fellen === true ? ".primary" : ""), { onclick: () => lagre({ fellen: true }) }, "Ja, der gikk jeg")));
+    }
+
+    const res = el("div", { style: { marginTop: "16px", paddingTop: "14px", borderTop: "1px solid var(--hairline)" } });
+    if (!erStrengVurdert(st)) {
+      res.appendChild(el(".tiny.muted", typeof st.score === "number"
+        ? `Tidligere egenvurdering: ${SKALA[st.score]}. Kryss av over for en streng vurdering.`
+        : "Ikke vurdert ennå. Kryss av kravene, og svar på om du gikk i fella."));
+    } else {
+      const r = strengScore(c, t, st);
+      res.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "center" } },
+        el(".chip." + NIVÅFARGE[r.s], { style: { fontWeight: 650 } }, SKALA[r.s]),
+        el(".tiny", `${r.antall} av ${r.n} krav`)));
+      r.tak.forEach((x) => res.appendChild(el("p.tiny", { style: { margin: "8px 0 0", color: "#b8324b" } }, x)));
+      const mangler = t.krav.filter((_, n) => !tikk.has(n));
+      if (mangler.length) {
+        res.appendChild(el(".tiny.muted", { style: { margin: "12px 0 6px" } }, "Dette manglet i svaret ditt:"));
+        const ul = el("ul.sol-crit");
+        mangler.forEach((k) => ul.appendChild(el("li", kravTekst(k))));
+        res.appendChild(ul);
+      }
+      /* Tiden er ikke med i nivået, fordi det tar lengre tid å skrive enn å si
+         et svar. Men den står her, fordi den er det intervjueren merker. */
+      if (st.brukt != null && t.sek && st.brukt > t.sek * 1250) {
+        res.appendChild(el("p.tiny", { style: { margin: "10px 0 0" } },
+          `Du brukte ${mmss(st.brukt)} mot ${mmss(t.sek * 1000)}. I rommet blir du avbrutt før du er ferdig, eller får dårligere tid på resten av casen.`));
+      }
+    }
+    boks.appendChild(res);
+    boks.appendChild(el("p.tiny.muted", { style: { margin: "12px 0 0" } },
+      "Distinkt krever alle kravene og ingen felle. Solid krever minst tre firedeler, Delvis minst 40 prosent. Går du i fella, eller har feil tall, er Delvis taket."));
+    return boks;
+  }
+
+  /* Én rad i en avkrysningsliste. Hele raden er knappen; sirkelen viser status.
+     .check er den lille runde boksen fra studieplanen, og strukket til full
+     bredde ble den en grønn ellipse. */
+  function sjekkRad(på, tekst, merke, onclick) {
+    return el("button.sjekk-rad" + (på ? ".på" : ""), { type: "button", "aria-pressed": String(på), onclick },
+      el("span.sjekk-o", på ? "✓" : ""),
+      el("span.sjekk-t", tekst, merke ? el("span.sjekk-krit", merke) : null));
   }
 
   /* Idémyldring vurderes ikke på skjønn, men på treff: kryss av hva du faktisk
@@ -557,15 +711,12 @@ window.EDU = window.EDU || {};
     const teller = el(".chip.accent", `${tikk.size} av ${t.liste.length}`);
     t.liste.forEach((idé, n) => {
       const på = tikk.has(n);
-      boks.appendChild(el("button.check" + (på ? ".done" : ""), {
-        style: { display: "block", width: "100%", textAlign: "left", marginBottom: "6px", cursor: "pointer" },
-        onclick: () => {
-          på ? tikk.delete(n) : tikk.add(n);
-          settTikk(c.id, i, [...tikk]);
-          settScore(c.id, i, Math.min(3, Math.round((tikk.size / t.liste.length) * 3)));
-          S.app.refresh();
-        },
-      }, (på ? "✓ " : "○ ") + idé));
+      boks.appendChild(sjekkRad(på, idé, null, () => {
+        på ? tikk.delete(n) : tikk.add(n);
+        settTikk(c.id, i, [...tikk]);
+        settScore(c.id, i, Math.min(3, Math.round((tikk.size / t.liste.length) * 3)));
+        S.app.refresh();
+      }));
     });
     boks.appendChild(el(".row", { style: { marginTop: "10px", alignItems: "center", gap: "8px" } },
       el(".tiny.muted", "Treff:"), teller));
@@ -585,10 +736,10 @@ window.EDU = window.EDU || {};
 
   function bunnRad(c, liste) {
     return el(".row", { style: { gap: "8px", marginTop: "18px" } },
-      steg > 0 ? el("button.btn.ghost.sm", { onclick: () => { steg--; stegStart = S.u.nowTs(); S.app.refresh(); } }, "← Forrige trinn") : null,
+      steg > 0 ? el("button.btn.ghost.sm", { onclick: () => gåTil(steg - 1) }, "← Forrige trinn") : null,
       el(".spacer"),
       steg < liste.length - 1
-        ? el("button.btn.sm" + (erVist(c.id, steg) ? ".primary" : ""), { onclick: () => { steg++; stegStart = S.u.nowTs(); S.app.refresh(); } }, "Neste trinn →")
+        ? el("button.btn.sm" + (erVist(c.id, steg) ? ".primary" : ""), { onclick: () => gåTil(steg + 1) }, "Neste trinn →")
         : erVist(c.id, steg) && !kjør(c.id).submittedAt
           ? el("button.btn.primary", { onclick: () => { fullfør(c.id); S.app.refresh(); } }, "Avslutt casen")
           : null);
@@ -605,9 +756,10 @@ window.EDU = window.EDU || {};
         el("div", { style: { fontSize: "20px", fontWeight: 680 } }, snitt == null ? "Ikke vurdert" : SKALA[Math.round(snitt)]),
         el("p.tiny.muted", { style: { marginTop: "8px", maxWidth: "440px" } },
           "Vurderingen er din egen. Den er bare verdt noe hvis du trekker fra der strukturen ikke var skreddersydd, der du regnet uten å si framgangsmåten, eller der anbefalingen manglet et «så derfor»."))));
+    if (!erEnkelt(c)) kort.appendChild(tilbakemelding(c));
     if (c.bakgrunn) {
       kort.appendChild(el(".nav-section", { style: { paddingLeft: 0, marginTop: "16px" } }, "Om denne casen"));
-      kort.appendChild(el(".prose", { style: { fontSize: "14.5px" } }, frag(c.bakgrunn)));
+      kort.appendChild(prosa(c.bakgrunn, { fontSize: "14.5px" }));
     }
     if ((c.ch || []).length && S.hasModule("/curriculum")) {
       kort.appendChild(el(".tiny.muted", { style: { margin: "14px 0 8px" } }, "Kapitler denne casen bygger på"));
@@ -617,6 +769,78 @@ window.EDU = window.EDU || {};
       })));
     }
     return kort;
+  }
+
+  /* Tilbakemeldingen på hele casen, bygget av sjekklistene: nivå per trinn, treff
+     per kriterium når kravene er merket med et, og de tre tingene som kostet mest.
+     Tallene er dine egne avkrysninger, så de er strenge bare hvis du var det. */
+  function tilbakemelding(c) {
+    const boks = el("div", { style: { marginTop: "18px" } });
+    const liste = trinnene(c);
+    const data = liste.map((t, i) => ({ t, i, st: stegSt(c.id, i) }));
+
+    boks.appendChild(el(".nav-section", { style: { paddingLeft: 0 } }, "Trinn for trinn"));
+    boks.appendChild(el(".row.wrap", { style: { gap: "6px" } }, ...data.map(({ t, i, st }) => {
+      const navn = t.kort || (ARTNAVN[t.art] ? ARTNAVN[t.art].kort : "Trinn");
+      const s = typeof st.score === "number" ? st.score : null;
+      return el(".chip" + (s == null ? ".slate" : "." + NIVÅFARGE[s]), { style: { cursor: "pointer" },
+        onclick: () => gåTil(i) },
+        `${i + 1} ${navn} · ${s == null ? "ikke vurdert" : SKALA[s]}`);
+    })));
+
+    const vurdert = data.filter(({ t, st }) => (t.krav || []).length && erStrengVurdert(st) && !(t.art === "ide" && (t.liste || []).length));
+    if (!vurdert.length) {
+      boks.appendChild(el("p.tiny.muted", { style: { margin: "10px 0 0" } },
+        "Kryss av kravene i hvert trinn for å få en streng tilbakemelding på hele casen."));
+      return boks;
+    }
+
+    /* Treff per kriterium, der kravene er merket med ett. */
+    const krit = new Map();
+    vurdert.forEach(({ t, st }) => t.krav.forEach((k, n) => {
+      const nøkkel = kravKrit(k);
+      if (!nøkkel) return;
+      const r = krit.get(nøkkel) || { tatt: 0, alle: 0 };
+      r.alle++; if ((st.kravTikk || []).includes(n)) r.tatt++;
+      krit.set(nøkkel, r);
+    }));
+    if (krit.size) {
+      const rader = [...krit].map(([k, r]) => ({ k, ...r, pct: Math.round((r.tatt / r.alle) * 100) }));
+      const svakest = rader.reduce((a, b) => (b.pct < a.pct ? b : a));
+      boks.appendChild(el(".nav-section", { style: { paddingLeft: 0, marginTop: "16px" } }, "Etter kriterium"));
+      rader.forEach((r) => {
+        boks.appendChild(el(".row", { style: { gap: "8px", alignItems: "baseline", marginTop: "8px" } },
+          el(".tiny", { style: { fontWeight: 560 } }, kritNavn(r.k)),
+          r === svakest && r.pct < 100 ? el(".chip.rose", { style: { fontSize: "11px" } }, "svakest") : null,
+          el(".spacer"),
+          el(".tiny.muted", `${r.tatt} av ${r.alle}`)));
+        boks.appendChild(el("div", { style: { marginTop: "4px" } }, S.u.bar(r.pct, { thin: true, green: r.pct === 100 })));
+      });
+    }
+
+    /* De tre dyreste manglene: fra de svakeste trinnene først. */
+    const mangler = [];
+    [...vurdert].sort((a, b) => (a.st.score || 0) - (b.st.score || 0) || a.i - b.i).forEach(({ t, i, st }) => {
+      t.krav.forEach((k, n) => { if (!(st.kravTikk || []).includes(n)) mangler.push({ i, tekst: kravTekst(k) }); });
+    });
+    if (mangler.length) {
+      boks.appendChild(el(".nav-section", { style: { paddingLeft: 0, marginTop: "16px" } }, "Fiks dette før neste case"));
+      const ol = el("ol", { style: { margin: "0", paddingLeft: "20px" } });
+      mangler.slice(0, 3).forEach((m) => ol.appendChild(el("li", { style: { margin: "4px 0", fontSize: "14.5px" } },
+        el("span.tiny.muted", `Trinn ${m.i + 1}: `), m.tekst)));
+      boks.appendChild(ol);
+    }
+
+    const feller = vurdert.filter(({ st }) => st.fellen === true).map(({ i }) => i + 1);
+    const feilTall = vurdert.filter(({ t, st }) => t.art === "regne" && riktigTall(t, st.svar) !== true).map(({ i }) => i + 1);
+    const brukt = data.reduce((a, { st }) => a + (st.brukt || 0), 0);
+    const mål = data.reduce((a, { t, st }) => a + (st.brukt != null && t.sek ? t.sek * 1000 : 0), 0);
+    const notater = [];
+    if (feller.length) notater.push(`Du gikk i fella på trinn ${feller.join(" og ")}.`);
+    if (feilTall.length) notater.push(`Feil eller manglende tall på trinn ${feilTall.join(" og ")}.`);
+    if (mål && brukt > mål * 1.1) notater.push(`Du brukte ${mmss(brukt)} mot ${mmss(mål)} på trinnene du tok tiden på.`);
+    notater.forEach((x) => boks.appendChild(el("p.tiny", { style: { margin: "10px 0 0" } }, x)));
+    return boks;
   }
 
   /* ================= inngang ================= */
