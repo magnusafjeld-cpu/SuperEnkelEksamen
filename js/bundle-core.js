@@ -89,6 +89,16 @@ window.EDU = window.EDU || {};
     requestAnimationFrame(() => t.classList.add("show"));
     clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 2200);
   }
+  /* Kopierer tekst. Utklippstavle-API-et kan være avslått i en innebygd ramme
+     eller uten https, og da prøves den gamle veien via et skjult felt. */
+  async function tilUtklipp(tekst) {
+    try { await navigator.clipboard.writeText(tekst); return true; } catch (e) {}
+    const felt = el("textarea", { readonly: "", style: { position: "fixed", top: 0, left: 0, opacity: 0 } });
+    felt.value = tekst; document.body.appendChild(felt); felt.select();
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    felt.remove(); return ok;
+  }
   function ring(percent, size, label, sublabel, color) {
     size = size || 120; const stroke = size < 70 ? 6 : 9; const r = (size - stroke) / 2;
     const c = 2 * Math.PI * r; const off = c * (1 - clamp(percent, 0, 100) / 100);
@@ -211,7 +221,7 @@ window.EDU = window.EDU || {};
     return el("div", rad, live);
   }
 
-  S.u = { el, frag, clear, mount, escapeHtml, todayISO, parseISO, daysBetween, formatDate, clamp, nowTs, debounce, toast, ring, bar, icon, ICONS, diktering, tellord, rullTabeller, vektFor, vektmerke };
+  S.u = { el, frag, clear, mount, escapeHtml, todayISO, parseISO, daysBetween, formatDate, clamp, nowTs, debounce, toast, tilUtklipp, ring, bar, icon, ICONS, diktering, tellord, rullTabeller, vektFor, vektmerke };
 })(window.EDU);
 
 /* ---------------- parse-manual ---------------- */

@@ -468,6 +468,10 @@ window.EDU = window.EDU || {};
       const idé = t.art === "ide" && (t.liste || []).length;
       const sjekkliste = !idé && (t.krav || []).length > 0;
       kort.appendChild(fasitPanel(t, !sjekkliste));
+      /* Før avkrysningen: Claude svarer med hvilke krav som ble oppfylt, og
+         dem krysser du av rett under. */
+      kort.appendChild(claudeRad(() => trinnPrompt(c, i), "Vurder med Claude",
+        "Kopierer casen, svaret ditt, fasiten og kravene som én melding. Lim den inn i Claude, så sier den hvilke krav du oppfylte og stiller et oppfølgingsspørsmål."));
       if (idé) kort.appendChild(idéAvkryssing(c, t, i, st));
       else if (sjekkliste) kort.appendChild(strengVurdering(c, t, i, st));
       else kort.appendChild(scoreRad(c, i, st));
@@ -757,6 +761,8 @@ window.EDU = window.EDU || {};
         el("p.tiny.muted", { style: { marginTop: "8px", maxWidth: "440px" } },
           "Vurderingen er din egen. Den er bare verdt noe hvis du trekker fra der strukturen ikke var skreddersydd, der du regnet uten å si framgangsmåten, eller der anbefalingen manglet et «så derfor»."))));
     if (!erEnkelt(c)) kort.appendChild(tilbakemelding(c));
+    kort.appendChild(claudeRad(() => helPrompt(c), "Hele casen til Claude",
+      "Kopierer alle svarene dine med fasit og krav. Claude gir en samlet dom: ville du gått videre, og hva som kostet mest."));
     if (c.bakgrunn) {
       kort.appendChild(el(".nav-section", { style: { paddingLeft: 0, marginTop: "16px" } }, "Om denne casen"));
       kort.appendChild(prosa(c.bakgrunn, { fontSize: "14.5px" }));
@@ -841,6 +847,154 @@ window.EDU = window.EDU || {};
     if (mål && brukt > mål * 1.1) notater.push(`Du brukte ${mmss(brukt)} mot ${mmss(mål)} på trinnene du tok tiden på.`);
     notater.forEach((x) => boks.appendChild(el("p.tiny", { style: { margin: "10px 0 0" } }, x)));
     return boks;
+  }
+
+  /* ================= vurdering med Claude =================
+     Avkrysningen over er bare så streng som du er. Her settes casen, svaret,
+     fasiten og kravene sammen til én ferdig melding som du limer inn i Claude,
+     og da er det abonnementet ditt som betaler. Appen kaller ingen API og har
+     ingen nøkkel: en nøkkel i en statisk side kan leses av alle. */
+  const CLAUDE_URL = "https://claude.ai/new";
+
+  /* Fagdataene er HTML. Claude leser ren tekst bedre, og tabellene må bevares
+     som rader, ellers flyter tallene i ett. */
+  function ren(html) {
+    if (!html) return "";
+    const d = document.createElement("div");
+    d.innerHTML = String(html);
+    /* Kildens innrykk og linjeskift er formatering, ikke innhold. */
+    const gå = document.createTreeWalker(d, NodeFilter.SHOW_TEXT);
+    for (let n = gå.nextNode(); n; n = gå.nextNode()) n.nodeValue = n.nodeValue.replace(/\s+/g, " ");
+    d.querySelectorAll("table").forEach((tab) => {
+      tab.textContent = [...tab.querySelectorAll("tr")]
+        .map((tr) => "| " + [...tr.children].map((c) => c.textContent.trim()).join(" | ") + " |").join("\n");
+    });
+    d.querySelectorAll("br").forEach((n) => n.replaceWith("\n"));
+    d.querySelectorAll("li").forEach((li) => { li.prepend("- "); li.append("\n"); });
+    d.querySelectorAll("p, h1, h2, h3, h4, table, ul, ol, div").forEach((n) => { n.prepend("\n"); n.append("\n\n"); });
+    return d.textContent.replace(/[ \t]*\n[ \t]*/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+  }
+
+  const artNavn = (t) => (ARTNAVN[t.art] || { full: "Trinn" }).full;
+  const trinnNavn = (t, i) => `Trinn ${i + 1} · ${t.tittel || artNavn(t)}`;
+  const sitat = (s) => (String(s || "").trim() ? '"""\n' + String(s).trim() + '\n"""' : "(tomt — jeg skrev ingenting)");
+
+  function rolle(c) {
+    /* «Generisk» er bibliotekets merkelapp for caser uten et bestemt firma. */
+    const firma = c.firma && c.firma !== "Generisk" ? c.firma : null;
+    return `Du er intervjueren i et caseintervju${firma ? " hos " + firma : " i et konsulentselskap"}. Jeg øver, og jeg vil ha en streng og konkret vurdering, ikke oppmuntring. Vær like streng som en intervjuer som skal velge ut én av ti.`;
+  }
+
+  function materiale(c) {
+    return `## Casen: ${c.label}\n${ren(c.prompt)}`;
+  }
+
+  function spørsmålTekst(t) {
+    const d = [];
+    if (t.sp) d.push(ren(t.sp));
+    if (t.figur) d.push("Figur/tabell:\n" + ren(t.figur));
+    return d.join("\n\n") || "(ingen egen tekst — se trinnets art)";
+  }
+
+  function kravListe(t) {
+    return (t.krav || []).map((k, n) => {
+      const krit = kravKrit(k);
+      return `${n + 1}. ${krit ? "[" + kritNavn(krit) + "] " : ""}${kravTekst(k)}`;
+    }).join("\n");
+  }
+
+  /* Intervjuerens ark for ett trinn: fasit, krav, fella og idélisten. */
+  function ark(t) {
+    const d = [];
+    if (t.art === "regne" && t.svar != null) d.push(`Riktig svar: ${norsk(t.svar)}${t.enhet ? " " + t.enhet : ""}`);
+    if (t.fasit) d.push("Fasit:\n" + ren(t.fasit));
+    if ((t.krav || []).length) d.push("Krav:\n" + kravListe(t));
+    if ((t.liste || []).length) d.push("Idélisten:\n" + t.liste.map((x) => "- " + ren(x)).join("\n"));
+    if (t.felle) d.push("Vanlig felle: " + ren(t.felle));
+    return d.join("\n\n");
+  }
+
+  const NIVÅREGEL = "Nivået er Bom, Delvis, Solid eller Distinkt. Distinkt krever alle kravene og ingen felle. Solid krever minst tre firedeler av kravene, Delvis minst 40 prosent, under det er det Bom. Gikk jeg i fella, eller er tallet feil på et regnetrinn, er Delvis taket.";
+
+  function trinnPrompt(c, i) {
+    const liste = trinnene(c), t = liste[i], st = stegSt(c.id, i);
+    const d = [rolle(c), materiale(c)];
+
+    /* Det kandidaten allerede har fått: spørsmålene og figurene før dette
+       trinnet, men ikke fasitene deres. */
+    if (i > 0) d.push("## Det intervjuet har vært innom før dette trinnet\n" +
+      liste.slice(0, i).map((f, n) => `### ${trinnNavn(f, n)}\n${spørsmålTekst(f)}`).join("\n\n"));
+
+    let hode = `## Trinnet som skal vurderes: ${trinnNavn(t, i)}\n${spørsmålTekst(t)}`;
+    if (t.sek) hode += `\n\nMåltid: ${mmss(t.sek * 1000)}.` + (st.brukt >= 5000 ? ` Jeg brukte ${mmss(st.brukt)}.` : "");
+    d.push(hode);
+
+    let svar = "## Svaret mitt\n" + sitat(st.svar);
+    if (t.art === "regne" && t.svar != null) {
+      const ok = riktigTall(t, st.svar);
+      svar += `\n\nAppen leste tallet mitt som ${ok == null ? "manglende" : ok ? "riktig" : "feil"}. Framgangsmåten sa jeg høyt og står ikke her; vurder tallet og det svaret viser.`;
+    }
+    d.push(svar);
+
+    d.push("## Intervjuerens ark (bruk det, men vær ikke snillere enn det)\n" + (ark(t) || "(ingen fasit til dette trinnet)"));
+
+    const harKrav = (t.krav || []).length > 0;
+    d.push(`## Slik vurderer du
+- Vurder bare det som faktisk står i svaret. Det som er underforstått, eller som jeg sikkert tenkte, teller ikke.
+- Svaret kan være diktert, så se bort fra stavefeil og tegnsetting.
+- ${harKrav ? "Gå gjennom kravene ett for ett: oppfylt eller ikke, med et kort sitat fra svaret som bevis. Halvveis er ikke oppfylt." : "Sammenlign med fasiten og si hva som mangler."}
+- ${NIVÅREGEL}
+- Ikke gjenta fasiten. Jeg har lest den.
+
+## Svar kort, på norsk, i denne formen
+1. **Nivå:** én linje${harKrav ? " med nivået og hvor mange krav av hvor mange" : ""}.
+${harKrav ? "2. **Krav for krav:** ✓ eller ✗, og sitatet eller hva som manglet.\n" : ""}${harKrav ? "3" : "2"}. **Det viktigste å endre:** én ting, konkret, som ville løftet svaret ett nivå.
+${harKrav ? "4" : "3"}. **Slik kunne det lydt:** de to første setningene av mitt svar, skrevet om slik en sterk kandidat ville sagt dem.
+${harKrav ? "5" : "4"}. **Oppfølgingen:** spørsmålet intervjueren ville stilt nå. Jeg svarer i neste melding, og da vurderer du det like strengt.${harKrav ? "\n6. Siste linje, nøyaktig slik: «Kryss av: 1, 3, 4» med numrene på kravene jeg oppfylte, eller «Kryss av: ingen»." : ""}`);
+    return d.join("\n\n");
+  }
+
+  /* Hele casen på én gang, for sluttvurderingen etter siste trinn. */
+  function helPrompt(c) {
+    const liste = trinnene(c);
+    const d = [rolle(c), materiale(c)];
+    if (erEnkelt(c)) {
+      d.push("## Svaret mitt\n" + sitat(enkeltSt(c.id).svar));
+      d.push("## Intervjuerens ark\n" + liste.map((t, i) => `### ${trinnNavn(t, i)}\n${ark(t)}`).join("\n\n"));
+    } else {
+      d.push("## Trinnene, med mine svar og intervjuerens ark\n" + liste.map((t, i) => {
+        const st = stegSt(c.id, i);
+        return `### ${trinnNavn(t, i)}\n${spørsmålTekst(t)}\n\nMitt svar:\n${sitat(st.svar)}\n\n${ark(t)}`;
+      }).join("\n\n---\n\n"));
+    }
+    /* Kriteriene bare når casen selv er merket med dem, ellers hører de til
+       et annet firma. */
+    const nøkler = [...new Set(liste.flatMap((t) => (t.krav || []).map(kravKrit).filter(Boolean)))];
+    const krit = nøkler.length ? nøkler.map(kritNavn).join(", ") : "struktur, tall, kommunikasjon og forretningsforståelse";
+    const enkelt = erEnkelt(c);
+    d.push(`## Slik vurderer du
+- Vurder bare det som faktisk står i ${enkelt ? "svaret" : "svarene"}. Det som er underforstått, teller ikke. ${enkelt ? "Svaret" : "Svarene"} kan være diktert, så se bort fra stavefeil.
+- ${enkelt ? "I en estimeringscase er det oppsettet og forutsetningene som vurderes, ikke at tallet treffer fasiten. Har jeg bare skrevet et tall uten oppsett, er det det du vurderer, og da er Delvis taket." : NIVÅREGEL}
+- Se etter mønstre, ikke bare enkeltfeil.
+
+## Svar kort, på norsk, i denne formen
+1. **Dommen:** ville du sendt meg videre til neste runde? Ja, nei eller på vippen, og hvorfor i to setninger.
+${enkelt
+  ? "2. **Oppsettet:** hva som holdt og hva som manglet i nedbrytningen og forutsetningene, sammenlignet med intervjuerens ark.\n3. **Tallet:** er det innenfor et rimelig spenn, og hvilken forutsetning flyttet det mest?"
+  : "2. **Trinn for trinn:** nivået på hvert trinn, én linje hver.\n3. **Etter kriterium:** " + krit + ". Sterk, middels eller svak, med ett bevis fra svarene for hvert."}
+4. **De tre tingene som kostet mest**, i rekkefølge, og hva jeg skal gjøre annerledes i neste case.
+5. **Slik kunne det lydt:** ${enkelt ? "oppsettet slik en sterk kandidat ville sagt det høyt, på 30 sekunder." : "sluttanbefalingen slik en sterk kandidat ville sagt den, på 30 sekunder."}`);
+    return d.join("\n\n");
+  }
+
+  function claudeRad(lagTekst, knappTekst, forklaring) {
+    return el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "16px" } },
+      el("button.btn.sm.primary", { type: "button", onclick: async () => {
+        const ok = await S.u.tilUtklipp(lagTekst());
+        S.u.toast(ok ? "Kopiert — lim det inn i Claude" : "Fikk ikke kopiert. Prøv igjen, eller i en annen nettleser.");
+      } }, knappTekst),
+      el("a.btn.sm.ghost", { href: CLAUDE_URL, target: "_blank", rel: "noopener" }, "Åpne Claude ↗"),
+      el("p.tiny.muted", { style: { margin: "4px 0 0", flexBasis: "100%" } }, forklaring));
   }
 
   /* ================= inngang ================= */

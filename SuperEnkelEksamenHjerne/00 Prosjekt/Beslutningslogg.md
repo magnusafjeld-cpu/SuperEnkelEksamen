@@ -122,6 +122,19 @@ kriterier. Prep-bransjen kaller PwC «candidate-led», men PwCs egne eksempelcas
 intervjuerledet. Der firmaet har publisert formen, bygger vi etter den, og
 kildemerker motstriden. Se `docs/case-research/10-pwc-consulting.md`.
 
+## Claude via kopiert melding, ikke via API
+Magnus ville ha Claude til å vurdere casesvar, men uten at noen andre kunne bruke
+kvoten. Et API-kall fra appen krever en nøkkel, og alt i en statisk side kan leses
+av alle. Da trengs en server (en Supabase Edge Function med eiersjekk) og egen
+fakturering. Abonnementet på claude.ai gir ingen API-nøkkel og kan ikke brukes fra
+en egen nettside. Løsningen ble derfor en knapp som kopierer en ferdig melding, som
+limes inn i Claude, og da er det abonnementet som betaler.
+
+**Konsekvens:** ingen nøkler og ingen `fetch` til Anthropic i `js/`. Vil noen ha
+vurderingen inne i appen, er veien en Edge Function med eiersjekk, stengt
+registrering og utgiftstak på nøkkelen. Det er en egen beslutning og første
+serverkode i prosjektet. Se [[Case-spilleren]].
+
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på
 norsk. Se [[Kodekonvensjoner]].

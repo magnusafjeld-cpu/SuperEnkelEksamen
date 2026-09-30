@@ -330,15 +330,7 @@ window.EDU = window.EDU || {};
   const kjerneKort = () => (bufretKjerne === undefined ? (bufretKjerne = kjerneBolk()) : bufretKjerne);
 
   /* ---------- kopiering ---------- */
-  async function tilUtklipp(tekst) {
-    try { await navigator.clipboard.writeText(tekst); return true; } catch (e) {}
-    /* Utklippstavle-API-et kan være avslått i en innebygd ramme eller uten https. */
-    const felt = el("textarea", { readonly: "", style: { position: "fixed", top: 0, left: 0, opacity: 0 } });
-    felt.value = tekst; document.body.appendChild(felt); felt.select();
-    let ok = false;
-    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
-    felt.remove(); return ok;
-  }
+  const tilUtklipp = (tekst) => S.u.tilUtklipp(tekst);
 
   function merk(pre) {
     const r = document.createRange(); r.selectNodeContents(pre);

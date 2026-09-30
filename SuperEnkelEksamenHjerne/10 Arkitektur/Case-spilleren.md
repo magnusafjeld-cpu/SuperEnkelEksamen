@@ -197,6 +197,26 @@ resultat enn å formulere seg skriftlig først.
 På iPhone finnes dessuten mikrofonen på selve tastaturet, som virker i alle felt
 uten at appen gjør noe. Knappen er bare raskere.
 
+## Vurdering med Claude: en ferdig melding, ingen API
+
+Når et trinn er åpnet, står knappen **«Vurder med Claude»** mellom fasiten og
+avkrysningen. Den kopierer én ferdig melding til utklippstavla: rolle (intervjuer
+hos casens firma, eller «i et konsulentselskap» når `firma` er «Generisk»),
+casematerialet, spørsmålene og figurene i trinnene før, trinnet med måltid og brukt
+tid, svaret ditt, og intervjuerens ark (fasit, krav med kriterienavn, idéliste,
+felle). Til slutt står nivåregelen og svarformen: krav for krav med sitat,
+det viktigste å endre, en omskrevet åpning, et oppfølgingsspørsmål, og siste linje
+«Kryss av: 1, 3, 4», som du fører inn i sjekklisten rett under.
+
+I oppsummeringen etter siste trinn kopierer **«Hele casen til Claude»** alle svarene
+med fasit og krav, og ber om en samlet dom. Enkeltmoduscasene (estimering) får en
+egen variant som vurderer oppsettet, ikke tallet.
+
+Fagdataene er HTML, så `ren()` gjør dem om til tekst: tabeller blir rader med `|`,
+lister får `-`, og kildens innrykk forsvinner. Fasitene fra tidligere trinn er
+**ikke** med, bare det kandidaten hadde fått se. `S.u.tilUtklipp` i `bundle-core.js`
+er delt med NotebookLM-siden. Hvorfor det ikke er et API-kall: se [[Beslutningslogg]].
+
 ## Lagring
 
 | Nøkkel | Innhold |
