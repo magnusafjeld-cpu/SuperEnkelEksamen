@@ -217,6 +217,14 @@ flexrad uten `flex-wrap`. Lange kapitteltitler skjøv «Usikker» utenfor kanten
 I tillegg var chips som fungerer som knapper 24 px høye. `button.chip` får nå
 mer luft under 560 px — etikett-chips er `div` og treffes ikke av regelen.
 
+> [!bug] Fagvelgeren kunne ikke rulles (rettet 30. september 2026)
+> `#splash` er et fast lag over hele skjermen med `align-items:center` og uten
+> `overflow`. Med fem fag ble velgeren høyere enn en telefonskjerm, og både toppen
+> og bunnen ble kuttet uten at noe kunne rulles. Nå har laget `overflow-y:auto`, og
+> kortet har `margin:auto`, som sentrerer når det er plass og starter øverst når
+> det ikke er det. `align-items:center` på en beholder som kan bli for liten, er
+> den samme feilen hvor som helst.
+
 ## 7j. `el()` svelget tall som eneste barn
 
 `el(spec, attrs, ...children)` avgjør om andre argument er et barn eller et

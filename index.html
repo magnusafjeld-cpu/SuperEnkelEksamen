@@ -502,8 +502,12 @@ button.dyb-sb.r:hover,button.dyb-sb.r.on{background:var(--rose);color:#fff;borde
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
 textarea{font-family:inherit;}
 /* splash / loader */
-#splash{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:500;}
-.splash-card{max-width:460px;text-align:center;padding:40px;}
+/* Laget ruller selv: med fem fag er velgeren høyere enn en telefonskjerm, og
+   align-items:center kuttet både toppen og bunnen uten at noe kunne rulles.
+   margin:auto på kortet sentrerer når det er plass, og starter øverst når ikke. */
+#splash{position:fixed;inset:0;background:var(--bg);display:flex;z-index:500;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
+.splash-card{max-width:460px;text-align:center;padding:40px;margin:auto;}
+@media (max-width:600px){.splash-card{padding:28px 16px calc(28px + env(safe-area-inset-bottom));}}
 .splash-logo{width:64px;height:64px;border-radius:18px;background:linear-gradient(145deg,var(--accent),#6f9bff);box-shadow:var(--shadow-accent);display:grid;place-items:center;color:#fff;font-weight:750;font-size:28px;margin:0 auto 22px;}
 .spinner{width:34px;height:34px;border:3px solid var(--accent-soft-2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:18px auto;}
 @keyframes spin{to{transform:rotate(360deg);}}
@@ -640,8 +644,8 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=115"></script>
-<script src="js/config.js?v=115"></script>
+<script src="js/subjects.js?v=116"></script>
+<script src="js/config.js?v=116"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
@@ -653,20 +657,20 @@ window.EDU_DATA = {};
      account      = Supabase-innlogging og synk av fremdrift (valgfritt)
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=115"></script>
-<script src="js/bundle-views.js?v=115"></script>
-<script src="js/bundle-lyn.js?v=115"></script>
-<script src="js/bundle-dybde.js?v=115"></script>
-<script src="js/bundle-sett.js?v=115"></script>
-<script src="js/bundle-case.js?v=115"></script>
-<script src="js/bundle-mock.js?v=115"></script>
-<script src="js/bundle-historier.js?v=115"></script>
-<script src="js/bundle-kapitteloppgaver.js?v=115"></script>
-<script src="js/bundle-notebooklm.js?v=115"></script>
-<script src="js/bundle-kjerne.js?v=115"></script>
-<script src="js/bundle-formelark.js?v=115"></script>
-<script src="js/account.js?v=115"></script>
-<script src="js/picker.js?v=115"></script>
-<script src="js/boot.js?v=115"></script>
+<script src="js/bundle-core.js?v=116"></script>
+<script src="js/bundle-views.js?v=116"></script>
+<script src="js/bundle-lyn.js?v=116"></script>
+<script src="js/bundle-dybde.js?v=116"></script>
+<script src="js/bundle-sett.js?v=116"></script>
+<script src="js/bundle-case.js?v=116"></script>
+<script src="js/bundle-mock.js?v=116"></script>
+<script src="js/bundle-historier.js?v=116"></script>
+<script src="js/bundle-kapitteloppgaver.js?v=116"></script>
+<script src="js/bundle-notebooklm.js?v=116"></script>
+<script src="js/bundle-kjerne.js?v=116"></script>
+<script src="js/bundle-formelark.js?v=116"></script>
+<script src="js/account.js?v=116"></script>
+<script src="js/picker.js?v=116"></script>
+<script src="js/boot.js?v=116"></script>
 </body>
 </html>
