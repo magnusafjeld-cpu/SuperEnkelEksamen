@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Pensjon",
   chapters: [15],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Pensjonen din kommer fra tre kilder: folketrygden fra staten, tjenestepensjon fra arbeidsgiveren og egen sparing. Delen viser hvordan folketrygden bygges opp år for år som en beholdning og gjøres om til en årlig pensjon. Du ser også hvorfor den årlige pensjonen blir høyere jo lenger du venter med uttaket. Så forklarer delen forskjellen på innskudds- og ytelsespensjon, altså hvem som bærer risikoen. Til slutt kommer skattefordelene ved IPS og BSU.</div>
+
 <p class="lead-in">Pensjon har vært med i sju av ni sett, folketrygden og ordningene i seks hver: folketrygdregningen tar 6,2 % av poengene i snitt, ordningene 4,2 %. I flervalgsæraen har det vært begreper (H2024 oppgave 13a og 13b, H2025 oppgave 14 og 17), men regnerutinen gikk igjen i eldre sett som H2019 oppgave 6.</p>
 
 <h3>Folketrygden: beholdning og delingstall</h3>

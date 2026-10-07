@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Internasjonal skatt og exit-skatt",
   chapters: [13, 6],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Bor du i ett land og tjener penger i et annet, kan begge land kreve skatt av den samme inntekten. Skatteavtaler løser det på to måter: hjemlandet unntar inntekten, eller det gir fradrag (kredit) for skatten som er betalt ute. Delen viser hvordan du regner skatten under hver løsning og uten avtale. Den dekker også reglene for når du regnes som bosatt i Norge og exit-skatten du må betale når du flytter ut med urealiserte aksjegevinster.</div>
+
 <p class="lead-in">Internasjonal skatt og exit-skatt tok 17 % av poengene i H2022 og 19 % i H2024 (oppgave 10). I H2025 var temaet borte, og 2026-planen har ingen gjesteforeleser i skatterett. Usikkert, men billig: tre regimer og noen exit-fakta.</p>
 
 <h3>Bosted, globalskatteplikt og kilde</h3>

@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Debt and equity as options, and credit risk",
   chapters: [5, 24],
   html: `
+<div class="callout kort"><span class="h">In short</span>This part applies options to the firm's own claims. Shareholders can walk away when the firm is worth less than its debt, so equity works like a call option on the firm's assets, with the face value of the debt as the strike price. Risky debt is then safe debt minus a put. That explains why a bond's promised yield is higher than its expected return, how default risk is priced and why more risk in the assets moves value from lenders to shareholders. Credit default swaps, which insure a lender against default, close the part.</div>
+
 <p class="lead-in">Credit risk and option-based debt pricing are in eight of eleven mapped papers: 2015 Problem 4 alone was worth 90 points, and 2016 Problem 4, 2021 MC7–9 and V2024 Problems 3 and 4 sit here too. Neither Kurbatov paper has used it yet, so it is a real risk rather than a certainty.</p>
 
 <h3>Promised versus expected return</h3>

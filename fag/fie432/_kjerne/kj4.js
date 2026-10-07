@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Formuesskatt som avkastningsskatt",
   chapters: [8],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Formuesskatten betales av formuen, men den kan regnes om til en skatt på avkastningen. Er formuesskatten 1 % og avkastningen 5 %, tar formuesskatten en femdel av avkastningen. Det tilsvarer en avkastningsskatt på 20 %. Delen viser denne omregningen, hva formuesskatten gjør med avkastning og verdi, hvor stort utbytte en eier må ta ut for å betale den og argumentene for og mot skatten.</div>
+
 <p class="lead-in">Temaet fantes ikke på eksamen før H2021, men var 17 % av poengene i H2025: oppgave 9 (hvilken avkastningsskatt formuesskatten tilsvarer) og oppgave 3 (avkastning og verdi under formuesskatt). Utbyttet som betaler skatten, kom i H2024 oppgave 7 og H2025 oppgave 6.</p>
 
 <h3>Ekvivalensen: t = τ<sub>w</sub>/r</h3>

@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Options: payoffs, parity, binomial pricing, Black-Scholes",
   chapters: [21, 22, 23],
   html: `
+<div class="callout kort"><span class="h">In short</span>An option is the right, but not the duty, to buy (a call) or sell (a put) an asset at a fixed price. You only use it when it pays, so its payoff is never negative. This part shows how to read payoffs, how calls and puts are linked (put-call parity) and how to price an option. The binomial model does it by building a portfolio of shares and bonds with the same payoff. Black-Scholes is the continuous version of the same idea. The tools return in kj8 and kj9.</div>
+
 <p class="lead-in">Options are examined three ways. Put-call parity is a quick computation (2023 MC9–10). The binomial model, in seven of eleven papers, is a full exercise: 2022 Problem 4, and H2024 Exercise 6 (a 20-point real option). Black-Scholes is now pure intuition: H2025 Exercise 1 asked about volatility and a mispriced option.</p>
 
 <h3>Payoffs, bounds and put-call parity</h3>

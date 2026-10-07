@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Cost of capital and the twin-firm routine",
   chapters: [3, 4, 1],
   html: `
+<div class="callout kort"><span class="h">In short</span>Every valuation needs a discount rate. This part is about finding it. The CAPM turns risk, measured by beta, into a required return. The catch is that a firm's beta depends on how much debt it has, so you cannot borrow a comparable firm's number directly. Instead you strip the comparable's debt out to get the risk of the business alone (unlevering), then add your own firm's debt back in (relevering). That business-only rate, r<sub>U</sub>, feeds everything that follows.</div>
+
 <p class="lead-in">Unlevering and relevering a twin firm has been in all eleven mapped papers. It opens H2024 Exercise 5 and H2025 Exercise 4, and every later step of those exercises uses the r<sub>U</sub> you find here, so one slip costs the whole chain.</p>
 <h3>The CAPM, run both ways</h3>
 <div class="formula"><div class="eq">r<sub>i</sub> = r<sub>f</sub> + β<sub>i</sub>(E[R<sub>mkt</sub>] − r<sub>f</sub>) &nbsp;⟺&nbsp; β<sub>i</sub> = (r<sub>i</sub> − r<sub>f</sub>)/(E[R<sub>mkt</sub>] − r<sub>f</sub>)</div>

@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Corporate governance",
   chapters: [27],
   html: `
+<div class="callout kort"><span class="h">In short</span>Shareholders own the firm, but managers run it. Their interests are not the same. Corporate governance is the set of tools that keeps managers working for the owners: the board, shareholder votes, pay, debt and the threat of a takeover. This part explains why small shareholders rarely bother to monitor (the free-rider problem), what a larger holder can do and how takeover defences cut both ways. It ends with the rules of Norwegian company law that matter.</div>
+
 <p class="lead-in">Exercise 2 was governance in both Kurbatov papers, 12 predictable verbal points each time. H2024 asked for two distinct ways to monitor a CEO, who monitors and with which tools; H2025 asked what a 5–10% holder can do about a shirking CEO, three actions at four points each.</p>
 
 <h3>The agency problem and the free rider</h3>

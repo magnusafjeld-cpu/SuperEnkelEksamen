@@ -103,6 +103,8 @@ window.EDU_DATA.kjerne.push({
   title: "Cost of capital and the twin-firm routine",
   chapters: [3, 4, 1],
   html: `
+<div class="callout kort"><span class="h">In short</span>Every valuation needs a discount rate. This part is about finding it. The CAPM turns risk, measured by beta, into a required return. The catch is that a firm's beta depends on how much debt it has, so you cannot borrow a comparable firm's number directly. Instead you strip the comparable's debt out to get the risk of the business alone (unlevering), then add your own firm's debt back in (relevering). That business-only rate, r<sub>U</sub>, feeds everything that follows.</div>
+
 <p class="lead-in">Unlevering and relevering a twin firm has been in all eleven mapped papers. It opens H2024 Exercise 5 and H2025 Exercise 4, and every later step of those exercises uses the r<sub>U</sub> you find here, so one slip costs the whole chain.</p>
 <h3>The CAPM, run both ways</h3>
 <div class="formula"><div class="eq">r<sub>i</sub> = r<sub>f</sub> + β<sub>i</sub>(E[R<sub>mkt</sub>] − r<sub>f</sub>) &nbsp;⟺&nbsp; β<sub>i</sub> = (r<sub>i</sub> − r<sub>f</sub>)/(E[R<sub>mkt</sub>] − r<sub>f</sub>)</div>
@@ -216,6 +218,8 @@ window.EDU_DATA.kjerne.push({
   title: "Modigliani-Miller, recapitalisations and payout",
   chapters: [6, 15, 16],
   html: `
+<div class="callout kort"><span class="h">In short</span>Modigliani and Miller's starting point: in a perfect market, with no taxes, no distress costs and everyone holding the same information, it does not matter how a firm is financed or how it pays out cash. Value comes from the business, not from how the claims on it are sliced. This part runs that idea through one concrete event: the firm borrows and pays the money out as a buyback or a special dividend. You follow the share price and each shareholder's wealth step by step and see that no value is created. Then come the frictions (taxes, signalling, agency costs) that make payout policy matter after all.</div>
+
 <p class="lead-in">H2024 Exercise 3 and H2025 Exercise 3 were this part alone, 18 points each: a perfect-market firm issues debt, pays it out as a buyback or a special dividend, and you price every step and compare the seller with the holder. MM appears in all eleven mapped papers, payout in seven.</p>
 <h3>MM in a perfect market</h3>
 <p>A perfect capital market means: no taxes; no transaction, issuance or distress costs; investment and cash flows that do not depend on financing; the same information for everyone; and investors who borrow, lend and trade on the same terms as firms.</p>
@@ -353,6 +357,8 @@ window.EDU_DATA.kjerne.push({
   title: "Taxes, the interest tax shield and the trade-off",
   chapters: [7, 8],
   html: `
+<div class="callout kort"><span class="h">In short</span>Taxes are the first reason debt can create value. Interest is tax deductible, so a firm with debt pays less tax and more of its cash reaches investors. That saving is the interest tax shield. This part shows how to value it, who captures the gain when a firm takes on debt (the existing shareholders) and why firms still do not borrow without limit: more debt also raises the expected costs of financial distress. The trade-off theory weighs the two.</div>
+
 <p class="lead-in">Taxes are the first friction that makes capital structure matter: 2022 Problem 1, 2023 Problem 1 and 2015 Problem 3 are built on the tax shield, and H2025 Exercise 4 computes it year by year. Distress costs are the counterweight the examiner expects you to name.</p>
 
 <h3>The interest tax shield</h3>
@@ -458,6 +464,8 @@ window.EDU_DATA.kjerne.push({
   title: "Valuing a levered firm: WACC, APV and FTE",
   chapters: [17, 18, 19, 20, 2],
   html: `
+<div class="callout kort"><span class="h">In short</span>Here the pieces come together into a full valuation of a firm with debt. There are three ways to do it. All three start from the same free cash flow. WACC discounts that cash flow at a rate that already contains the tax benefit of debt. APV values the firm as if it had no debt and adds the value of the tax shield separately. FTE values only the equity, using the cash left for shareholders after debt payments. Done right they give the same answer, which is how you check your work.</div>
+
 <p class="lead-in">Valuing one firm by WACC and again by APV is on all eleven mapped papers and is usually the biggest exercise. H2024 Exercise 5 goes from a comparable firm to a value by both routes; H2025 Exercise 4 does it over two periods in nine chained sub-questions, at four decimals. The three methods split one set of cash flows three ways, and must agree.</p>
 
 <h3>Free cash flow and the WACC method</h3>
@@ -584,6 +592,8 @@ window.EDU_DATA.kjerne.push({
   title: "Agency costs of debt: risk shifting and debt overhang",
   chapters: [9, 10, 11],
   html: `
+<div class="callout kort"><span class="h">In short</span>Until now the firm has been run to maximise its total value. Once debt is risky, that breaks down. Shareholders keep all the upside, while losses beyond their equity fall on the creditors. So they may gamble on risky projects (risk shifting) or turn down good projects whose gains would mostly go to the lenders (debt overhang). This part shows how to measure the value lost with a simple table of outcomes and what renegotiation and contract terms can do about it.</div>
+
 <p class="lead-in">Once debt is risky, shareholders stop maximising firm value: they gamble (risk shifting) or refuse good projects (debt overhang). Risk shifting and hedging was H2024 Exercise 4 (18 points) and V2024 Problem 1; overhang ran in 2017V Problem 3, 2017H Problems 1 and 4 and 2021 Problem 2. Both are a state-by-state table plus a named mechanism.</p>
 
 <h3>Equity is a call on the firm</h3>
@@ -711,6 +721,8 @@ window.EDU_DATA.kjerne.push({
   title: "Asymmetric information and raising capital",
   chapters: [12, 13, 14],
   html: `
+<div class="callout kort"><span class="h">In short</span>Managers usually know more about the firm than outside investors do. That makes raising money tricky. When a firm offers new shares, investors suspect the shares are overpriced and pay less for them. A firm whose shares really are worth more may then skip a good project rather than sell itself too cheaply. This part works through that logic (the Myers-Majluf model), explains why firms prefer internal funds first, then debt, then equity (the pecking order) and covers how firms actually raise capital through IPOs, seasoned offerings and rights issues.</div>
+
 <p class="lead-in">When managers know more than investors, selling shares transfers wealth, and a firm may skip a good project rather than sell itself cheaply. A flag: this appeared in 8 of 11 papers historically but in neither Kurbatov paper, and it is still on the syllabus. The template barely changed: 2016 Problem 1, 2017V Problem 1, 2020 Problem 2, 2022 Problem 2, 2023 Problem 4.</p>
 
 <h3>The Myers-Majluf template</h3>
@@ -854,6 +866,8 @@ window.EDU_DATA.kjerne.push({
   title: "Options: payoffs, parity, binomial pricing, Black-Scholes",
   chapters: [21, 22, 23],
   html: `
+<div class="callout kort"><span class="h">In short</span>An option is the right, but not the duty, to buy (a call) or sell (a put) an asset at a fixed price. You only use it when it pays, so its payoff is never negative. This part shows how to read payoffs, how calls and puts are linked (put-call parity) and how to price an option. The binomial model does it by building a portfolio of shares and bonds with the same payoff. Black-Scholes is the continuous version of the same idea. The tools return in kj8 and kj9.</div>
+
 <p class="lead-in">Options are examined three ways. Put-call parity is a quick computation (2023 MC9–10). The binomial model, in seven of eleven papers, is a full exercise: 2022 Problem 4, and H2024 Exercise 6 (a 20-point real option). Black-Scholes is now pure intuition: H2025 Exercise 1 asked about volatility and a mispriced option.</p>
 
 <h3>Payoffs, bounds and put-call parity</h3>
@@ -994,6 +1008,8 @@ window.EDU_DATA.kjerne.push({
   title: "Debt and equity as options, and credit risk",
   chapters: [5, 24],
   html: `
+<div class="callout kort"><span class="h">In short</span>This part applies options to the firm's own claims. Shareholders can walk away when the firm is worth less than its debt, so equity works like a call option on the firm's assets, with the face value of the debt as the strike price. Risky debt is then safe debt minus a put. That explains why a bond's promised yield is higher than its expected return, how default risk is priced and why more risk in the assets moves value from lenders to shareholders. Credit default swaps, which insure a lender against default, close the part.</div>
+
 <p class="lead-in">Credit risk and option-based debt pricing are in eight of eleven mapped papers: 2015 Problem 4 alone was worth 90 points, and 2016 Problem 4, 2021 MC7–9 and V2024 Problems 3 and 4 sit here too. Neither Kurbatov paper has used it yet, so it is a real risk rather than a certainty.</p>
 
 <h3>Promised versus expected return</h3>
@@ -1141,6 +1157,8 @@ window.EDU_DATA.kjerne.push({
   title: "Real options",
   chapters: [25],
   html: `
+<div class="callout kort"><span class="h">In short</span>Real options are choices built into a real project: waiting before you invest, learning more before you decide or shutting down if things go badly. Standard NPV treats a project as now or never and ignores that flexibility, so it can undervalue the project. This part shows how to value each choice with a simple tree of outcomes, often with the risk-neutral pricing from kj7. A project with a positive NPV today can still be worth waiting for.</div>
+
 <p class="lead-in">Real options have been a fixed exam item since 2017, and both Kurbatov papers gave them 20 points: H2024 Exercise 6 valued a real option with risk-neutral probabilities, and H2025 Exercise 5 asked for the value of information, an exit option and an indifference point. None of it is on the formula sheet.</p>
 
 <h3>The option to wait</h3>
@@ -1291,6 +1309,8 @@ window.EDU_DATA.kjerne.push({
   title: "Mergers and acquisitions",
   chapters: [26],
   html: `
+<div class="callout kort"><span class="h">In short</span>Mergers and acquisitions raise two questions: when buying another firm creates value and who gets it. Synergies are the usual answer, but this part also covers the other motives, good and bad. It then teaches two routines. The first splits value between the two sets of owners when a deal is paid in the acquirer's shares. The second reads market prices backwards to find the probability the market puts on a deal closing.</div>
+
 <p class="lead-in">M&amp;A opened H2024 (Exercise 1, 12 verbal points, synergies banned as a motive) and closed H2025 (Exercise 6, 20 points: the market's probability that a deal closes, from four prices and r<sub>f</sub>). You need motives and two routines: the stock swap and reading prices backwards.</p>
 
 <h3>Motives, without saying "synergies"</h3>
@@ -1420,6 +1440,8 @@ window.EDU_DATA.kjerne.push({
   title: "Corporate governance",
   chapters: [27],
   html: `
+<div class="callout kort"><span class="h">In short</span>Shareholders own the firm, but managers run it. Their interests are not the same. Corporate governance is the set of tools that keeps managers working for the owners: the board, shareholder votes, pay, debt and the threat of a takeover. This part explains why small shareholders rarely bother to monitor (the free-rider problem), what a larger holder can do and how takeover defences cut both ways. It ends with the rules of Norwegian company law that matter.</div>
+
 <p class="lead-in">Exercise 2 was governance in both Kurbatov papers, 12 predictable verbal points each time. H2024 asked for two distinct ways to monitor a CEO, who monitors and with which tools; H2025 asked what a 5–10% holder can do about a shirking CEO, three actions at four points each.</p>
 
 <h3>The agency problem and the free rider</h3>

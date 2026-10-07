@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Sparing og porteføljevalg",
   chapters: [14, 18],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Hvor mye bør du ha i aksjer? Delen starter med hvordan to aktiva blandes til en portefølje med lavere risiko. Deretter ser du hvordan du velger risikonivå ved å kombinere markedsporteføljen med lån eller plassering til risikofri rente. Så kommer Mertons modell, som også regner med fremtidig lønn (humankapital): en ung person med trygg jobb har mye som ligner obligasjoner i lønnen sin og kan derfor ha mer i aksjer. Til slutt ser du hvordan nytte brukes til å velge mellom bank og risiko.</div>
+
 <p class="lead-in">Mertons aksjeandel med humankapital har vært med i fem av ni sett og tok 14 % av poengene i både H2022 og H2025. Porteføljestoffet tok 8 % i H2024 og 7 % i H2025, sparevalget med ln-nytte 14 % i H2022. To vaner avgjør mye: sjekk om tallet er varians eller standardavvik, og om «andel» betyr andel av finansformuen eller av totalformuen.</p>
 
 <h3>To aktiva og kapitalmarkedslinjen</h3>

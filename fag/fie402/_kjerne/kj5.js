@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Agency costs of debt: risk shifting and debt overhang",
   chapters: [9, 10, 11],
   html: `
+<div class="callout kort"><span class="h">In short</span>Until now the firm has been run to maximise its total value. Once debt is risky, that breaks down. Shareholders keep all the upside, while losses beyond their equity fall on the creditors. So they may gamble on risky projects (risk shifting) or turn down good projects whose gains would mostly go to the lenders (debt overhang). This part shows how to measure the value lost with a simple table of outcomes and what renegotiation and contract terms can do about it.</div>
+
 <p class="lead-in">Once debt is risky, shareholders stop maximising firm value: they gamble (risk shifting) or refuse good projects (debt overhang). Risk shifting and hedging was H2024 Exercise 4 (18 points) and V2024 Problem 1; overhang ran in 2017V Problem 3, 2017H Problems 1 and 4 and 2021 Problem 2. Both are a state-by-state table plus a named mechanism.</p>
 
 <h3>Equity is a call on the firm</h3>

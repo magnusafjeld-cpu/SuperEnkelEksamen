@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Hvem betaler skatten: insidens",
   chapters: [11],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Den som formelt betaler en skatt, er ikke nødvendigvis den som bærer den. Legges en avgift på en vare, stiger prisen kjøperen betaler, mens prisen selgeren sitter igjen med, faller. Til sammen utgjør de to endringene hele avgiften. Hvor mye hver side tar, avhenger av hvor lett den kan endre kvantumet: den som minst kan tilpasse seg, bærer mest. Delen utleder dette med tilbud og etterspørsel, viser grensetilfellene og regner ut skatteinntekt og dødvektstap.</div>
+
 <p class="lead-in">Stykkskatt-insidens er kursets mest testede enkelttema: åtte av ni sett, 11,6 % av poengene i snitt og 19 % i H2024. H2024 oppgave 8 ba deg peke ut ∂p/∂t og ∂P/∂t blant fire nesten like brøker; H2025 oppgave 8 ga grensetilfeller med tall. Begge hviler på én utledning og én kontroll.</p>
 
 <h3>Kilen og utledningen</h3>

@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-09-29
+oppdatert: 2026-10-07
 ---
 
 # Moduler og visninger
@@ -175,6 +175,13 @@ del viser til kapitlene den korter ned, som lenker øverst på siden.
 **Teksten er en nedkorting av manualen, ikke nytt stoff** (se
 [[Beslutningslogg]]). Eksemplene i teksten er ofte manualens egne, med de
 kontrollerte tallene. Minicasene har nye tall, så de tester og ikke gjenkjenner.
+
+**Hver del starter med «Kort fortalt»** («In short» i FIE402): en boks med
+fire til sju enkle setninger om hva delen handler om, før `lead-in` med
+eksamensstatistikken. Magnus ba om den 7. oktober 2026, for at man ikke skal starte
+helt fra null på det man leser. Den er `<div class="callout kort">`, og
+`tools/sjekk-kjerne.js` krever nøyaktig én, først i teksten (ikke i del 0, som selv er
+oversikten).
 
 Hver del har tre ting etter teksten:
 

@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Modigliani-Miller, recapitalisations and payout",
   chapters: [6, 15, 16],
   html: `
+<div class="callout kort"><span class="h">In short</span>Modigliani and Miller's starting point: in a perfect market, with no taxes, no distress costs and everyone holding the same information, it does not matter how a firm is financed or how it pays out cash. Value comes from the business, not from how the claims on it are sliced. This part runs that idea through one concrete event: the firm borrows and pays the money out as a buyback or a special dividend. You follow the share price and each shareholder's wealth step by step and see that no value is created. Then come the frictions (taxes, signalling, agency costs) that make payout policy matter after all.</div>
+
 <p class="lead-in">H2024 Exercise 3 and H2025 Exercise 3 were this part alone, 18 points each: a perfect-market firm issues debt, pays it out as a buyback or a special dividend, and you price every step and compare the seller with the holder. MM appears in all eleven mapped papers, payout in seven.</p>
 <h3>MM in a perfect market</h3>
 <p>A perfect capital market means: no taxes; no transaction, issuance or distress costs; investment and cash flows that do not depend on financing; the same information for everyone; and investors who borrow, lend and trade on the same terms as firms.</p>

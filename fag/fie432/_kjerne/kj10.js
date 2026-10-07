@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Lån",
   chapters: [16],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Et lån er én formel og noen få regler. Delen viser hvordan terminbeløpet på et annuitetslån regnes og hvor mye av hver betaling som er renter, som gir 22 % fradrag. Du lærer å finne den effektive renten med gebyrene medregnet. Til slutt ser du hvor mye du kan låne etter utlånsforskriften og hva avdragsfrihet egentlig koster.</div>
+
 <p class="lead-in">Lån er én formel og noen få regler. H2022 oppgave 6 (9 % av poengene) spurte om terminbeløp, effektiv rente og kredittkostnad på ett billån, H2020 oppgave 4 og H2021 oppgave 5 om lånetaket, og H2024 oppgave 14 om avdragsfrihet.</p>
 
 <h3>Annuitet, serielån og rentefradraget</h3>

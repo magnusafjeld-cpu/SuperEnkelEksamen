@@ -185,6 +185,10 @@ Går du langt over, er formålet borte; får du ikke plass til noe, si det i rap
 
 ### Formen på hver del (kj1–kj11)
 
+0. **Først: nøyaktig én «Kort fortalt»-boks**, `<div class="callout kort"><span class="h">Kort fortalt</span>…</div>`.
+   Fire til sju enkle setninger for en leser som starter fra null: hva delen handler om og
+   den ene ideen som holder den sammen. Ingen eksamensstatistikk, ingen symboler som ikke
+   forklares. Kontrollen krever den, først i teksten.
 1. `<p class="lead-in">`: to–tre setninger om hva dette er og hvorfor det er kjerne, med de
    ekte eksamenshenvisningene over. Bare sett som kursplanen eller eksamens-DNA-et lister.
 2. To–fire `<h3>`-underoverskrifter (vanlige titler, **ingen nummerering**).
@@ -221,6 +225,8 @@ window.EDU_DATA.kjerne.push({
   title: "Aksjonærmodellen: skjerming, utbytte og gevinst",
   chapters: [5, 6],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>…</div>
+
 <p class="lead-in">…</p>
 <h3>Skjermingen</h3>
 <p>…</p>

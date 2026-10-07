@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Skattesystemet og effektiv skatt",
   chapters: [1, 2],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Norsk inntektsskatt regnes av to grunnlag. Alminnelig inntekt er inntekten etter fradrag og skattlegges med 22 %. Brutto lønn er inntekten før fradrag og er grunnlaget for trygdeavgift og trinnskatt. Delen viser hvordan skatten regnes trinn for trinn og hvordan du finner hvor stor andel av inntekten som faktisk går til skatt. Den forklarer også hvorfor marginalskatten, skatten på neste krone, er noe annet enn gjennomsnittsskatten. Til slutt ser du hva et fradrag er verdt.</div>
+
 <p class="lead-in">Effektiv skattesats og gjennomsnittsskatt er testet i sju av ni gamle sett: progressivitet i H2024 oppgave 4, trinnskatt i H2024 oppgave 5, effektiv sats med avskrivning i H2025 oppgave 5. De to vanlige feilene, marginalsatsen på hele inntekten og feil nevner, har alltid sitt eget svaralternativ.</p>
 <h3>Satsene og de to grunnlagene</h3>
 <p>En lønn treffes av tre skatter med to grunnlag. Trygdeavgiften og trinnskatten regnes av <b>personinntekten</b>, altså brutto lønn. 22-prosenten regnes av <b>alminnelig inntekt</b>: all inntekt minus alle fradrag, for en lønnstaker minstefradraget og personfradraget. Satsene, [dagens regel] for 2026:</p>

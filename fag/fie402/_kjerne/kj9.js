@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Real options",
   chapters: [25],
   html: `
+<div class="callout kort"><span class="h">In short</span>Real options are choices built into a real project: waiting before you invest, learning more before you decide or shutting down if things go badly. Standard NPV treats a project as now or never and ignores that flexibility, so it can undervalue the project. This part shows how to value each choice with a simple tree of outcomes, often with the risk-neutral pricing from kj7. A project with a positive NPV today can still be worth waiting for.</div>
+
 <p class="lead-in">Real options have been a fixed exam item since 2017, and both Kurbatov papers gave them 20 points: H2024 Exercise 6 valued a real option with risk-neutral probabilities, and H2025 Exercise 5 asked for the value of information, an exit option and an indifference point. None of it is on the formula sheet.</p>
 
 <h3>The option to wait</h3>

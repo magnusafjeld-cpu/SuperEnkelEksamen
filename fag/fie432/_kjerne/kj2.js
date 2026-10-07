@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Aksjonærmodellen: skjerming, utbytte og gevinst",
   chapters: [5, 6],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Aksjeinntekter skattlegges to ganger. Først betaler selskapet 22 % av overskuddet. Så betaler eieren skatt når pengene deles ut som utbytte eller aksjen selges. Eierskatten er satt høyt (37,84 %), slik at det ikke skal lønne seg å ta ut inntekt som utbytte i stedet for lønn. Samtidig skal en normal avkastning, omtrent det du ville fått risikofritt, være skattefri. Det er skjermingsfradraget. Delen lærer deg å regne skjermingen år for år, gevinst ved salg og hva som skjer når eieren er et selskap.</div>
+
 <p class="lead-in">Ingen annen rutine i kurset gir like mange poeng: skjerming er testet i fem av ni sett og tok 20 % av poengene i H2022, oppjustering og eierskatt i sju av ni. H2024 oppgave 1 og 2 og H2025 oppgave 4 og 10 er skjermingskjeder og gevinster med det samme regnestykket. Ett ledd feller folk: ubenyttet skjerming framføres <i>og</i> legges til neste års grunnlag.</p>
 <h3>Eierskatten, og hvorfor den er 37,84 %</h3>
 <p>For en personlig aksjonær trekkes skjermingsfradraget fra utbytte og gevinst, og resten oppjusteres og skattlegges:</p>

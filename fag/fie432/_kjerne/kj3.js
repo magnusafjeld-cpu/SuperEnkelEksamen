@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Formuesskatten: verdsetting og gjeldsfordeling",
   chapters: [7],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Formuesskatten er en årlig skatt på det du eier minus det du skylder, over et bunnfradrag. Men den regnes ikke av markedsverdiene. Hver eiendel verdsettes med sin egen sats: en primærbolig teller bare 25 % av verdien opp til en grense, aksjer 80 % og bankinnskudd fullt. Gjelden hører ikke til én bestemt eiendel, så den må fordeles på dem etter verdi. Gjelden som havner på aksjer og andre eiendeler med rabatt på 20 %, gir bare delvis fradrag. Delen gir deg én tabell som løser alle variantene.</div>
+
 <p class="lead-in">Forholdsmessig gjeldsfordeling er i sju av ni eksamenssett og står for 7,6 % av alle poengene: H2024 oppgave 6 spurte om gjeldsreduksjonen og nettoformuen, H2025 oppgave 2 om nettoformuen. Verdsettingen er den andre halvparten, med tre sett bak seg. Én fast tabell løser hele familien, og de gale alternativene er nesten alltid bygget av de samme få feilene.</p>
 
 <h3>Satsene og bunnfradraget</h3>

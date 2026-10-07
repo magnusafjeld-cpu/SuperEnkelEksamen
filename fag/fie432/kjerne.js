@@ -87,6 +87,8 @@ window.EDU_DATA.kjerne.push({
   title: "Skattesystemet og effektiv skatt",
   chapters: [1, 2],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Norsk inntektsskatt regnes av to grunnlag. Alminnelig inntekt er inntekten etter fradrag og skattlegges med 22 %. Brutto lønn er inntekten før fradrag og er grunnlaget for trygdeavgift og trinnskatt. Delen viser hvordan skatten regnes trinn for trinn og hvordan du finner hvor stor andel av inntekten som faktisk går til skatt. Den forklarer også hvorfor marginalskatten, skatten på neste krone, er noe annet enn gjennomsnittsskatten. Til slutt ser du hva et fradrag er verdt.</div>
+
 <p class="lead-in">Effektiv skattesats og gjennomsnittsskatt er testet i sju av ni gamle sett: progressivitet i H2024 oppgave 4, trinnskatt i H2024 oppgave 5, effektiv sats med avskrivning i H2025 oppgave 5. De to vanlige feilene, marginalsatsen på hele inntekten og feil nevner, har alltid sitt eget svaralternativ.</p>
 <h3>Satsene og de to grunnlagene</h3>
 <p>En lønn treffes av tre skatter med to grunnlag. Trygdeavgiften og trinnskatten regnes av <b>personinntekten</b>, altså brutto lønn. 22-prosenten regnes av <b>alminnelig inntekt</b>: all inntekt minus alle fradrag, for en lønnstaker minstefradraget og personfradraget. Satsene, [dagens regel] for 2026:</p>
@@ -245,6 +247,8 @@ window.EDU_DATA.kjerne.push({
   title: "Aksjonærmodellen: skjerming, utbytte og gevinst",
   chapters: [5, 6],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Aksjeinntekter skattlegges to ganger. Først betaler selskapet 22 % av overskuddet. Så betaler eieren skatt når pengene deles ut som utbytte eller aksjen selges. Eierskatten er satt høyt (37,84 %), slik at det ikke skal lønne seg å ta ut inntekt som utbytte i stedet for lønn. Samtidig skal en normal avkastning, omtrent det du ville fått risikofritt, være skattefri. Det er skjermingsfradraget. Delen lærer deg å regne skjermingen år for år, gevinst ved salg og hva som skjer når eieren er et selskap.</div>
+
 <p class="lead-in">Ingen annen rutine i kurset gir like mange poeng: skjerming er testet i fem av ni sett og tok 20 % av poengene i H2022, oppjustering og eierskatt i sju av ni. H2024 oppgave 1 og 2 og H2025 oppgave 4 og 10 er skjermingskjeder og gevinster med det samme regnestykket. Ett ledd feller folk: ubenyttet skjerming framføres <i>og</i> legges til neste års grunnlag.</p>
 <h3>Eierskatten, og hvorfor den er 37,84 %</h3>
 <p>For en personlig aksjonær trekkes skjermingsfradraget fra utbytte og gevinst, og resten oppjusteres og skattlegges:</p>
@@ -423,6 +427,8 @@ window.EDU_DATA.kjerne.push({
   title: "Formuesskatten: verdsetting og gjeldsfordeling",
   chapters: [7],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Formuesskatten er en årlig skatt på det du eier minus det du skylder, over et bunnfradrag. Men den regnes ikke av markedsverdiene. Hver eiendel verdsettes med sin egen sats: en primærbolig teller bare 25 % av verdien opp til en grense, aksjer 80 % og bankinnskudd fullt. Gjelden hører ikke til én bestemt eiendel, så den må fordeles på dem etter verdi. Gjelden som havner på aksjer og andre eiendeler med rabatt på 20 %, gir bare delvis fradrag. Delen gir deg én tabell som løser alle variantene.</div>
+
 <p class="lead-in">Forholdsmessig gjeldsfordeling er i sju av ni eksamenssett og står for 7,6 % av alle poengene: H2024 oppgave 6 spurte om gjeldsreduksjonen og nettoformuen, H2025 oppgave 2 om nettoformuen. Verdsettingen er den andre halvparten, med tre sett bak seg. Én fast tabell løser hele familien, og de gale alternativene er nesten alltid bygget av de samme få feilene.</p>
 
 <h3>Satsene og bunnfradraget</h3>
@@ -576,6 +582,8 @@ window.EDU_DATA.kjerne.push({
   title: "Formuesskatt som avkastningsskatt",
   chapters: [8],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Formuesskatten betales av formuen, men den kan regnes om til en skatt på avkastningen. Er formuesskatten 1 % og avkastningen 5 %, tar formuesskatten en femdel av avkastningen. Det tilsvarer en avkastningsskatt på 20 %. Delen viser denne omregningen, hva formuesskatten gjør med avkastning og verdi, hvor stort utbytte en eier må ta ut for å betale den og argumentene for og mot skatten.</div>
+
 <p class="lead-in">Temaet fantes ikke på eksamen før H2021, men var 17 % av poengene i H2025: oppgave 9 (hvilken avkastningsskatt formuesskatten tilsvarer) og oppgave 3 (avkastning og verdi under formuesskatt). Utbyttet som betaler skatten, kom i H2024 oppgave 7 og H2025 oppgave 6.</p>
 
 <h3>Ekvivalensen: t = τ<sub>w</sub>/r</h3>
@@ -715,6 +723,8 @@ window.EDU_DATA.kjerne.push({
   title: "Hvem betaler skatten: insidens",
   chapters: [11],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Den som formelt betaler en skatt, er ikke nødvendigvis den som bærer den. Legges en avgift på en vare, stiger prisen kjøperen betaler, mens prisen selgeren sitter igjen med, faller. Til sammen utgjør de to endringene hele avgiften. Hvor mye hver side tar, avhenger av hvor lett den kan endre kvantumet: den som minst kan tilpasse seg, bærer mest. Delen utleder dette med tilbud og etterspørsel, viser grensetilfellene og regner ut skatteinntekt og dødvektstap.</div>
+
 <p class="lead-in">Stykkskatt-insidens er kursets mest testede enkelttema: åtte av ni sett, 11,6 % av poengene i snitt og 19 % i H2024. H2024 oppgave 8 ba deg peke ut ∂p/∂t og ∂P/∂t blant fire nesten like brøker; H2025 oppgave 8 ga grensetilfeller med tall. Begge hviler på én utledning og én kontroll.</p>
 
 <h3>Kilen og utledningen</h3>
@@ -887,6 +897,8 @@ window.EDU_DATA.kjerne.push({
   title: "Nøytralitet, bedriftens tilpasning og implisitte skatter",
   chapters: [9, 10, 12],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>En skatt er nøytral når den ikke endrer hvilke valg som lønner seg. Denne delen ser på hva som skjer når den ikke er det. Når renter gir fradrag, men avkastning på egenkapital ikke gjør det, blir gjeld billigere enn egenkapital. Bedriften tilpasser seg etter det. Når én plassering er skattefavorisert, presses avkastningen på den ned. Forskjellen i avkastning kalles implisitt skatt. Til slutt ser du hvorfor en skatt med fullt tapsfradrag kan få investoren til å ta mer risiko, ikke mindre.</div>
+
 <p class="lead-in">To små regnerutiner med faste feller. Bedriftens tilpasning ga 10 % av poengene i H2025 (oppgave 7: fire nesten like brøker for F′(K), så gjeld mot egenkapital). Implisitt skatt kom i H2019 oppgave 4 og H2024 oppgave 9, der fella i 9b var nevneren. Progressivitet er prøvd med regning (H2024 oppgave 4) og Domar–Musgrave aldri; under ren flervalg må du vente stoffet som påstandsspørsmål.</p>
 
 <h3>Nøytralitet og skattearbitrasje</h3>
@@ -1030,6 +1042,8 @@ window.EDU_DATA.kjerne.push({
   title: "Internasjonal skatt og exit-skatt",
   chapters: [13, 6],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Bor du i ett land og tjener penger i et annet, kan begge land kreve skatt av den samme inntekten. Skatteavtaler løser det på to måter: hjemlandet unntar inntekten, eller det gir fradrag (kredit) for skatten som er betalt ute. Delen viser hvordan du regner skatten under hver løsning og uten avtale. Den dekker også reglene for når du regnes som bosatt i Norge og exit-skatten du må betale når du flytter ut med urealiserte aksjegevinster.</div>
+
 <p class="lead-in">Internasjonal skatt og exit-skatt tok 17 % av poengene i H2022 og 19 % i H2024 (oppgave 10). I H2025 var temaet borte, og 2026-planen har ingen gjesteforeleser i skatterett. Usikkert, men billig: tre regimer og noen exit-fakta.</p>
 
 <h3>Bosted, globalskatteplikt og kilde</h3>
@@ -1173,6 +1187,8 @@ window.EDU_DATA.kjerne.push({
   title: "Sparing og porteføljevalg",
   chapters: [14, 18],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Hvor mye bør du ha i aksjer? Delen starter med hvordan to aktiva blandes til en portefølje med lavere risiko. Deretter ser du hvordan du velger risikonivå ved å kombinere markedsporteføljen med lån eller plassering til risikofri rente. Så kommer Mertons modell, som også regner med fremtidig lønn (humankapital): en ung person med trygg jobb har mye som ligner obligasjoner i lønnen sin og kan derfor ha mer i aksjer. Til slutt ser du hvordan nytte brukes til å velge mellom bank og risiko.</div>
+
 <p class="lead-in">Mertons aksjeandel med humankapital har vært med i fem av ni sett og tok 14 % av poengene i både H2022 og H2025. Porteføljestoffet tok 8 % i H2024 og 7 % i H2025, sparevalget med ln-nytte 14 % i H2022. To vaner avgjør mye: sjekk om tallet er varians eller standardavvik, og om «andel» betyr andel av finansformuen eller av totalformuen.</p>
 
 <h3>To aktiva og kapitalmarkedslinjen</h3>
@@ -1337,6 +1353,8 @@ window.EDU_DATA.kjerne.push({
   title: "Pensjon",
   chapters: [15],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Pensjonen din kommer fra tre kilder: folketrygden fra staten, tjenestepensjon fra arbeidsgiveren og egen sparing. Delen viser hvordan folketrygden bygges opp år for år som en beholdning og gjøres om til en årlig pensjon. Du ser også hvorfor den årlige pensjonen blir høyere jo lenger du venter med uttaket. Så forklarer delen forskjellen på innskudds- og ytelsespensjon, altså hvem som bærer risikoen. Til slutt kommer skattefordelene ved IPS og BSU.</div>
+
 <p class="lead-in">Pensjon har vært med i sju av ni sett, folketrygden og ordningene i seks hver: folketrygdregningen tar 6,2 % av poengene i snitt, ordningene 4,2 %. I flervalgsæraen har det vært begreper (H2024 oppgave 13a og 13b, H2025 oppgave 14 og 17), men regnerutinen gikk igjen i eldre sett som H2019 oppgave 6.</p>
 
 <h3>Folketrygden: beholdning og delingstall</h3>
@@ -1473,6 +1491,8 @@ window.EDU_DATA.kjerne.push({
   title: "Lån",
   chapters: [16],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Et lån er én formel og noen få regler. Delen viser hvordan terminbeløpet på et annuitetslån regnes og hvor mye av hver betaling som er renter, som gir 22 % fradrag. Du lærer å finne den effektive renten med gebyrene medregnet. Til slutt ser du hvor mye du kan låne etter utlånsforskriften og hva avdragsfrihet egentlig koster.</div>
+
 <p class="lead-in">Lån er én formel og noen få regler. H2022 oppgave 6 (9 % av poengene) spurte om terminbeløp, effektiv rente og kredittkostnad på ett billån, H2020 oppgave 4 og H2021 oppgave 5 om lånetaket, og H2024 oppgave 14 om avdragsfrihet.</p>
 
 <h3>Annuitet, serielån og rentefradraget</h3>
@@ -1617,6 +1637,8 @@ window.EDU_DATA.kjerne.push({
   title: "Forsikring, forventet nytte og finansiell psykologi",
   chapters: [17, 18],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Hvorfor kjøper folk forsikring når premien i snitt er høyere enn det de får igjen? Fordi de fleste misliker risiko: å tape 100 000 kroner gjør mer vondt enn å vinne 100 000 kroner gjør godt. Forventet nytte fanger det ved å sammenligne hvor godt du har det i hvert utfall, ikke bare kronene. Delen viser hvordan du regner ut den høyeste premien du bør godta. Den avslutter med finansiell psykologi: tankefeil og preferanser som får folk til å velge annerledes enn teorien sier.</div>
+
 <p class="lead-in">Forventet nytte tok 8 % av poengene i H2024 (oppgave 11a–d) og 14 % i H2025 (oppgave 12 og 13), og regnedelen sammenligner nytter, ikke kroner. Finansiell psykologi er spurt som begreper (H2016 oppgave 3j, H2019 oppgave 9f og 9h); regningen med tapsaversjon står i kj8.</p>
 
 <h3>Risikoaversjon og sikkerhetsekvivalent</h3>

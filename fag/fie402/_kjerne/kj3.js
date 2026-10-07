@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Taxes, the interest tax shield and the trade-off",
   chapters: [7, 8],
   html: `
+<div class="callout kort"><span class="h">In short</span>Taxes are the first reason debt can create value. Interest is tax deductible, so a firm with debt pays less tax and more of its cash reaches investors. That saving is the interest tax shield. This part shows how to value it, who captures the gain when a firm takes on debt (the existing shareholders) and why firms still do not borrow without limit: more debt also raises the expected costs of financial distress. The trade-off theory weighs the two.</div>
+
 <p class="lead-in">Taxes are the first friction that makes capital structure matter: 2022 Problem 1, 2023 Problem 1 and 2015 Problem 3 are built on the tax shield, and H2025 Exercise 4 computes it year by year. Distress costs are the counterweight the examiner expects you to name.</p>
 
 <h3>The interest tax shield</h3>

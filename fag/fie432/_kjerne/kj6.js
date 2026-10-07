@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Nøytralitet, bedriftens tilpasning og implisitte skatter",
   chapters: [9, 10, 12],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>En skatt er nøytral når den ikke endrer hvilke valg som lønner seg. Denne delen ser på hva som skjer når den ikke er det. Når renter gir fradrag, men avkastning på egenkapital ikke gjør det, blir gjeld billigere enn egenkapital. Bedriften tilpasser seg etter det. Når én plassering er skattefavorisert, presses avkastningen på den ned. Forskjellen i avkastning kalles implisitt skatt. Til slutt ser du hvorfor en skatt med fullt tapsfradrag kan få investoren til å ta mer risiko, ikke mindre.</div>
+
 <p class="lead-in">To små regnerutiner med faste feller. Bedriftens tilpasning ga 10 % av poengene i H2025 (oppgave 7: fire nesten like brøker for F′(K), så gjeld mot egenkapital). Implisitt skatt kom i H2019 oppgave 4 og H2024 oppgave 9, der fella i 9b var nevneren. Progressivitet er prøvd med regning (H2024 oppgave 4) og Domar–Musgrave aldri; under ren flervalg må du vente stoffet som påstandsspørsmål.</p>
 
 <h3>Nøytralitet og skattearbitrasje</h3>

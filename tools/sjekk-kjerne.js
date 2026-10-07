@@ -61,7 +61,7 @@ const LOVLIGE = new Set(["p", "h3", "h4", "div", "span", "b", "i", "em", "strong
   "table", "thead", "tbody", "tr", "th", "td", "br", "figure", "figcaption", "code",
   "svg", "g", "line", "path", "text", "tspan", "circle", "rect", "polyline", "polygon", "ellipse", "defs", "marker", "title"]);
 const INLINE = new Set(["b", "i", "em", "strong", "sub", "sup", "br", "code", "span"]);
-const KLASSER = new Set(["lead-in", "formula", "eq", "where", "callout", "mech", "tip", "warn", "link", "mistake",
+const KLASSER = new Set(["lead-in", "formula", "eq", "where", "callout", "mech", "tip", "warn", "link", "mistake", "kort",
   "h", "husk", "worked", "wh", "data", "n"]);
 
 function tagger(html) {
@@ -100,7 +100,7 @@ function sjekkHtml(html, hvor, feil, advarsel, { inline = false } = {}) {
 function sjekkBokser(html, hvor, feil) {
   for (const m of html.matchAll(/<div class="callout([^"]*)">\s*(<span class="h">)?/g)) {
     const typer = m[1].trim().split(/\s+/).filter(Boolean);
-    if (!typer.some((t) => ["mech", "tip", "warn", "link", "mistake"].includes(t))) feil.push(`${hvor}: callout uten type`);
+    if (!typer.some((t) => ["mech", "tip", "warn", "link", "mistake", "kort"].includes(t))) feil.push(`${hvor}: callout uten type`);
     if (!m[2]) feil.push(`${hvor}: callout «${typer.join(" ")}» må starte med <span class="h">`);
   }
   for (const m of html.matchAll(/<div class="worked">\s*(<span class="wh">)?/g)) if (!m[1]) feil.push(`${hvor}: .worked må starte med <span class="wh">`);
@@ -166,6 +166,11 @@ function main() {
     if (/<h[12][ >]/.test(html)) feil.push(`${hvor}: h1/h2 hører ikke hjemme i en del; bruk <h3>`);
     const husk = (html.match(/class="callout tip husk"/g) || []).length;
     if (d.num > 0 && husk !== 1) feil.push(`${hvor}: må ha nøyaktig én «Must know»-boks (<div class="callout tip husk">), fant ${husk}`);
+    /* «Kort fortalt» står først, så leseren vet hva delen handler om før
+       eksamensstatistikken i lead-in. Del 0 er selve oversikten og har ingen. */
+    const kort = (html.match(/class="callout kort"/g) || []).length;
+    if (d.num > 0 && kort !== 1) feil.push(`${hvor}: må ha nøyaktig én «Kort fortalt»-boks (<div class="callout kort">), fant ${kort}`);
+    if (kort && !/^\s*<div class="callout kort">/.test(html)) feil.push(`${hvor}: «Kort fortalt»-boksen skal stå først i teksten`);
     if (kap) for (const m of html.matchAll(/\bk(\d{1,2})\b/g)) if (!kap.has(+m[1])) feil.push(`${hvor}: henvisning til k${m[1]}, som ikke finnes`);
     for (const m of html.matchAll(/\bkj(\d{1,2})\b/g)) if (!deleneAlle.some((x) => x && x.num === +m[1])) advarsel.push(`${hvor}: henvisning til kj${m[1]}, som ikke finnes (ennå)`);
     const tankestrek = (ren(html).match(/ — /g) || []).length;

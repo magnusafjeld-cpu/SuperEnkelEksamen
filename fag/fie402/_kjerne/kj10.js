@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Mergers and acquisitions",
   chapters: [26],
   html: `
+<div class="callout kort"><span class="h">In short</span>Mergers and acquisitions raise two questions: when buying another firm creates value and who gets it. Synergies are the usual answer, but this part also covers the other motives, good and bad. It then teaches two routines. The first splits value between the two sets of owners when a deal is paid in the acquirer's shares. The second reads market prices backwards to find the probability the market puts on a deal closing.</div>
+
 <p class="lead-in">M&amp;A opened H2024 (Exercise 1, 12 verbal points, synergies banned as a motive) and closed H2025 (Exercise 6, 20 points: the market's probability that a deal closes, from four prices and r<sub>f</sub>). You need motives and two routines: the stock swap and reading prices backwards.</p>
 
 <h3>Motives, without saying "synergies"</h3>

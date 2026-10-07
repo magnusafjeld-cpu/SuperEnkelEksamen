@@ -203,6 +203,10 @@ rather than overflowing.
 
 ### Shape of every part (kj1–kj11)
 
+0. **First: exactly one "In short" box**, `<div class="callout kort"><span class="h">In short</span>…</div>`.
+   Four to seven plain sentences for a reader starting from zero: what the part is about and
+   the one idea that holds it together. No exam statistics, no symbols that are not
+   explained. The checker requires it, first in the text.
 1. `<p class="lead-in">` — two or three sentences: what this is and why it is core, with the
    real exam references above. Only cite sittings listed in the course plan (§9.6).
 2. Two to four `<h3>` subsections (plain titles, **no numbering**).
@@ -235,6 +239,8 @@ window.EDU_DATA.kjerne.push({
   title: "Taxes, the interest tax shield and the trade-off",
   chapters: [7, 8],
   html: `
+<div class="callout kort"><span class="h">In short</span>…</div>
+
 <p class="lead-in">…</p>
 <h3>The tax shield</h3>
 <p>…</p>

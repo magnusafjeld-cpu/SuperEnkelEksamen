@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Forsikring, forventet nytte og finansiell psykologi",
   chapters: [17, 18],
   html: `
+<div class="callout kort"><span class="h">Kort fortalt</span>Hvorfor kjøper folk forsikring når premien i snitt er høyere enn det de får igjen? Fordi de fleste misliker risiko: å tape 100 000 kroner gjør mer vondt enn å vinne 100 000 kroner gjør godt. Forventet nytte fanger det ved å sammenligne hvor godt du har det i hvert utfall, ikke bare kronene. Delen viser hvordan du regner ut den høyeste premien du bør godta. Den avslutter med finansiell psykologi: tankefeil og preferanser som får folk til å velge annerledes enn teorien sier.</div>
+
 <p class="lead-in">Forventet nytte tok 8 % av poengene i H2024 (oppgave 11a–d) og 14 % i H2025 (oppgave 12 og 13), og regnedelen sammenligner nytter, ikke kroner. Finansiell psykologi er spurt som begreper (H2016 oppgave 3j, H2019 oppgave 9f og 9h); regningen med tapsaversjon står i kj8.</p>
 
 <h3>Risikoaversjon og sikkerhetsekvivalent</h3>

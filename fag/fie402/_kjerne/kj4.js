@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Valuing a levered firm: WACC, APV and FTE",
   chapters: [17, 18, 19, 20, 2],
   html: `
+<div class="callout kort"><span class="h">In short</span>Here the pieces come together into a full valuation of a firm with debt. There are three ways to do it. All three start from the same free cash flow. WACC discounts that cash flow at a rate that already contains the tax benefit of debt. APV values the firm as if it had no debt and adds the value of the tax shield separately. FTE values only the equity, using the cash left for shareholders after debt payments. Done right they give the same answer, which is how you check your work.</div>
+
 <p class="lead-in">Valuing one firm by WACC and again by APV is on all eleven mapped papers and is usually the biggest exercise. H2024 Exercise 5 goes from a comparable firm to a value by both routes; H2025 Exercise 4 does it over two periods in nine chained sub-questions, at four decimals. The three methods split one set of cash flows three ways, and must agree.</p>
 
 <h3>Free cash flow and the WACC method</h3>

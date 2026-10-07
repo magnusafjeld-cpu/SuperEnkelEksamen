@@ -5,6 +5,8 @@ window.EDU_DATA.kjerne.push({
   title: "Asymmetric information and raising capital",
   chapters: [12, 13, 14],
   html: `
+<div class="callout kort"><span class="h">In short</span>Managers usually know more about the firm than outside investors do. That makes raising money tricky. When a firm offers new shares, investors suspect the shares are overpriced and pay less for them. A firm whose shares really are worth more may then skip a good project rather than sell itself too cheaply. This part works through that logic (the Myers-Majluf model), explains why firms prefer internal funds first, then debt, then equity (the pecking order) and covers how firms actually raise capital through IPOs, seasoned offerings and rights issues.</div>
+
 <p class="lead-in">When managers know more than investors, selling shares transfers wealth, and a firm may skip a good project rather than sell itself cheaply. A flag: this appeared in 8 of 11 papers historically but in neither Kurbatov paper, and it is still on the syllabus. The template barely changed: 2016 Problem 1, 2017V Problem 1, 2020 Problem 2, 2022 Problem 2, 2023 Problem 4.</p>
 
 <h3>The Myers-Majluf template</h3>
