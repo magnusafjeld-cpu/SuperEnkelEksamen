@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, kode]
-oppdatert: 2026-09-28
+oppdatert: 2026-10-08
 ---
 
 # Arkitektur
@@ -29,6 +29,8 @@ js/
   bundle-formelark.js      formelarket: rund knapp nederst til høyre og et
                            lite vindu med eksamensarket, i fag som har ett,
                            og en (i) per formel med forklaring
+  bundle-symboler.js       hold over et symbol i en formel i kjernepensum
+                           og se hva det står for (fag/<id>/symboler.js)
   account.js               Supabase-innlogging + synk (mergeState bor her)
   picker.js                fag-velger, tema, byggnummer, dynamisk lasting av fagdata
   boot.js                  app-skall, navigasjon, ruting, innholdslaster

@@ -271,6 +271,8 @@ window.EDU = window.EDU || {};
     const spalte = el(".kj-spalte");
     const tekst = prosa(d.html || "");
     merkHenvisninger(tekst, d.num);
+    /* Symbolene i formlene får forklaringen sin ved hover eller trykk. */
+    if (S.symboler) S.symboler.merk(tekst, d.id);
     spalte.appendChild(tekst);
     const sj = sjekkeDel(d); if (sj) spalte.appendChild(sj);
     const mc = minicase(d); if (mc) spalte.appendChild(mc);

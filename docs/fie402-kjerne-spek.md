@@ -211,6 +211,9 @@ rather than overflowing.
    real exam references above. Only cite sittings listed in the course plan (§9.6).
 2. Two to four `<h3>` subsections (plain titles, **no numbering**).
 3. The formulas the exam needs, in `.formula` blocks, each followed at once by what it means.
+   Every symbol in a `.eq` line gets a hover explanation from `fag/fie402/symboler.js`.
+   A new symbol, or a letter used in a new sense, needs an entry there:
+   `node tools/sjekk-symboler.js fie402` fails until it has one.
 4. `.callout.mech` for the mechanism behind the central result (1–2 per part).
 5. **One** `.worked` example, short and complete, ending in the check the examiner makes.
    Two only where the part covers two separate exam routines.

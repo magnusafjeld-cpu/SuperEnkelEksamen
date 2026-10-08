@@ -1,6 +1,6 @@
 ---
 tags: [fag, oppskrift]
-oppdatert: 2026-09-28
+oppdatert: 2026-10-08
 ---
 
 # Legge til nytt fag
@@ -26,7 +26,9 @@ oppdatert: 2026-09-28
 >    `fag/<fag>/_kjerne/kjN.js` etter en egen spek (mal: `docs/fie402-kjerne-spek.md`),
 >    trekk fasitposisjonene til `_kjerne/fasitplan.json`, bygg med
 >    `tools/bygg-kjerne.py <fag>` og kontroller med `tools/sjekk-kjerne.js <fag>`.
->    Legg `fag/<fag>/kjerne.js` i `scripts` og `/kjerne` i `modules`. Se
+>    Legg `fag/<fag>/kjerne.js` i `scripts` og `/kjerne` i `modules`. Vil du at
+>    symbolene i formlene skal forklares, skriv `fag/<fag>/symboler.js`, legg den i
+>    `scripts` og kontroller med `tools/sjekk-symboler.js <fag>`. Se
 >    [[Moduler og visninger]].
 
 Fire steg. Malen i `fag/_mal/data.js` forklarer hvert felt.

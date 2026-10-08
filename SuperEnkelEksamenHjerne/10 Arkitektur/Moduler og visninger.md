@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-07
+oppdatert: 2026-10-08
 ---
 
 # Moduler og visninger
@@ -227,6 +227,29 @@ Data i `EDU_DATA.kjerne`, bygget fra `fag/<id>/_kjerne/kjN.js` med
 sjekker fasitposisjonene mot `_kjerne/fasitplan.json` (fallgruve 7c).
 Forfatterspesifikasjonene er `docs/fie402-kjerne-spek.md` (åpen minicase, engelsk) og
 `docs/fie432-kjerne-spek.md` (flervalgsminicase, norsk).
+
+### Symbolene i formlene
+
+I kjernepensum har hvert symbol i formellinjene (`.formula .eq`) en svak prikket
+understrek. Musepeker over viser hva det står for; på telefon gjør et trykk det
+samme. Magnus ba om det 8. oktober 2026, først for FIE402.
+
+Motoren er `js/bundle-symboler.js`, og innholdet er `fag/<fag>/symboler.js`
+(`EDU_DATA.symboler`). Teksten i delene er urørt: motoren finner symbolene når
+delen tegnes. Et symbol er en bokstavgruppe med senket og hevet skrift rett
+etter, som nøkkelen «r_U» eller «V^L_t». Oppslaget prøver full form, så uten
+senket, så uten hevet, så grunnformen, så «FCF» dekker FCF_1 og FCF_t.
+
+**Samme bokstav betyr ulike ting i ulike deler.** C er en kjøpsopsjon i kj7, en
+kontantstrøm i kj9 og en kostnad i kj11; T er løpetid i kj7 og målselskapet i kj10.
+Derfor har ordlisten `deler.<id>` som slås opp før `alle`. «E[» er E foran en
+hakeparentes, altså forventningen og ikke egenkapitalen.
+
+`node tools/sjekk-symboler.js <fag>` leser formlene likt med motoren og gir FEIL
+for alt i en formel som verken er forklart eller står i `ikke` (vanlige ord som
+«max» og «payoff»). `--liste` viser hva hvert symbol forklares med i hver del.
+Endrer du en formel, kjør den. Symboler i løpende tekst merkes ikke, der står
+betydningen som regel allerede.
 
 ## Formelarket — alltid ett trykk unna
 
