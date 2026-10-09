@@ -308,7 +308,7 @@ window.EDU_SUBJECTS = [
     logo: "PØ",
     blurb: "Skattesystemet, aksjonær- og formuesbeskatningen, skatteteorien og husholdningens finansbeslutninger — med ni tidligere eksamener rettet automatisk.",
     accent: "#a8521c", accentInk: "#8a4116", accentSoft: "#fbf0e8", accentSoft2: "#f4dcc9",
-    scripts: ["fag/fie432/data.js", "fag/fie432/quiz.js", "fag/fie432/dybde.js", "fag/fie432/sett.js", "fag/fie432/kapitteloppgaver.js", "fag/fie432/kjerne.js"],
+    scripts: ["fag/fie432/data.js", "fag/fie432/quiz.js", "fag/fie432/dybde.js", "fag/fie432/sett.js", "fag/fie432/kapitteloppgaver.js", "fag/fie432/kjerne.js", "fag/fie432/symboler.js"],
     manual: {
       candidates: ["FIE432_Manual.html", "fag/fie432/manual.html", "../FIE432_Manual.html"],
       label: "FIE432_Manual.html",

@@ -13,6 +13,8 @@
    Samme bokstav betyr ulike ting i ulike deler (C er en kjøpsopsjon i én del
    og en kontantstrøm i en annen), så delens egne betydninger slås opp før de
    felles. «E[» er E rett foran en hakeparentes: forventningen, ikke egenkapitalen.
+   «E(» og «U(» er det samme med vanlig parentes, for fag som skriver E(r) og U(W).
+   En kombinerende strek eller hatt hører til bokstaven: t̄ er ett symbol.
 
    Data: EDU_DATA.symboler = { alle: { nøkkel: tekst }, deler: { <del-id>: { nøkkel: tekst } } }
    Ukjente bokstavgrupper, som vanlige ord, får stå i fred.
@@ -22,12 +24,14 @@ window.EDU = window.EDU || {};
 (function (S) {
   const { el, frag } = S.u;
   const data = () => (window.EDU_DATA || {}).symboler || null;
-  const TOK = /[A-Za-z]+(?:['’][a-z]+)?[*′]?|[Ͱ-Ͽ][*′]?/g;
+  /* Bokstavgrupper med æ, ø og å er hele ord: uten dem ble «lån» til «l» + «n»,
+     og «n» kunne fått forklaringen til antall terminer. */
+  const TOK = /[A-Za-zÆØÅæøåÄÖÜäöüÉé\u0300-\u036F]+(?:['’][a-zæøå]+)?[*′]?|[\u0370-\u03FF][\u0300-\u036F]*[*′]?/g;
 
   /* ---------- oppslag ---------- */
   function kandidater(grunn, hevet, senket, neste) {
     const ut = [];
-    if (neste === "[") ut.push(grunn + "[");
+    if (neste === "[" || neste === "(") ut.push(grunn + neste);
     if (hevet && senket) ut.push(`${grunn}^${hevet}_${senket}`);
     if (senket) ut.push(`${grunn}_${senket}`);
     if (hevet) ut.push(`${grunn}^${hevet}`);

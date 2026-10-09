@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-09-28
+oppdatert: 2026-10-09
 ---
 
 # FIE432 Personlig økonomi
@@ -281,6 +281,10 @@ Det gjennomgangen fant:
   kandidat for 2026), gjennomsnittlig årlig vekst og sluttverdi av sparing,
   artikkel 4-rekkefølgen for bosted, at et selskap stiftet i Norge forblir
   hjemmehørende her, boligreglene og å lese elastisiteten ut av ordlyden.
+
+**Symbolene i formlene forklares ved hover eller trykk** (9. oktober 2026), som i
+FIE402: 92 symboler i `fag/fie432/symboler.js`, kontrollert med
+`tools/sjekk-symboler.js fie432`. Se [[Moduler og visninger]].
 
 ## Kapitteloppgaver
 

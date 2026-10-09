@@ -29,7 +29,8 @@ const DELER = window.EDU_DATA.kjerne || [];
 
 /* Samme regler som motoren: bokstavgruppe, så høyst én senket og én hevet
    rett etter, der hevet bare teller når den er bokstaver. */
-const TOK = /[A-Za-z]+(?:['’][a-z]+)?[*′]?|[Ͱ-Ͽ][*′]?/g;
+/* Samme bokstavklasse som motoren: æ, ø og å hører til ordet. */
+const TOK = /[A-Za-zÆØÅæøåÄÖÜäöüÉé\u0300-\u036F]+(?:['’][a-zæøå]+)?[*′]?|[\u0370-\u03FF][\u0300-\u036F]*[*′]?/g;
 const tekst = (s) => s.replace(/&nbsp;/g, " ").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").replace(/&[a-z]+;/g, " ");
 function noder(html) {
   const ut = [];
@@ -43,7 +44,7 @@ function noder(html) {
 }
 function kandidater(grunn, hevet, senket, neste) {
   const ut = [];
-  if (neste === "[") ut.push(grunn + "[");
+  if (neste === "[" || neste === "(") ut.push(grunn + neste);
   if (hevet && senket) ut.push(`${grunn}^${hevet}_${senket}`);
   if (senket) ut.push(`${grunn}_${senket}`);
   if (hevet) ut.push(`${grunn}^${hevet}`);
