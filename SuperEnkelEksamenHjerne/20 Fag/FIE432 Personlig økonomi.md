@@ -304,6 +304,9 @@ samme format og vanskelighet som de som kommer på eksamen». Modulen er beskrev
 | Pensjon | 63 | 8 | Lån | 51 | 7 |
 | Forsikring | 62 | 7 | Psykologi | 26 | 2 |
 
+Hvert tema har en **hurtiginnføring**: hva det tester, formlene og de typiske
+fellene, kortet ned fra «Må kunne»-boksene i kjernepensum.
+
 Fasiten står 189/188/188/189 på A–D. Hver regnerutine R1–R20 i eksamens-DNA-en har
 minst én familie.
 

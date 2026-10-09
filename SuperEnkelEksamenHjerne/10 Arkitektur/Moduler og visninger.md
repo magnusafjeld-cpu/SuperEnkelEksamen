@@ -283,6 +283,17 @@ per galt alternativ og lenker til kjernepensumdelen og manualkapitlene. Tastatur
 A–D, S, F, Enter. Resultatet viser poeng med og uten minuspoeng, per tema, og en
 gjennomgang du kan åpne spørsmål for spørsmål.
 
+**Hurtiginnføring per tema.** Hvert temakort har en knapp som åpner et lite
+vindu med hva temaet tester, formlene du må kunne og de typiske fellene, og en
+knapp for å øve på bare det temaet. Underveis i en runde åpner temamerket og
+«Les mer» i gjennomgangen det samme vinduet. Magnus ba om det 9. oktober 2026:
+«veldig kort hva den tester og hva formlene man må huske er». Innholdet er
+`intro` på hvert tema i `_trening/temaer.py`, en kortversjon av «Må kunne»-boksene
+i kjernepensum. Formlene settes som `.formula .eq`, så symbolforklaringen virker
+også der. Psykologi har begreper i stedet for formler (`formeltittel`).
+Kontrollen sjekker språk og HTML i innføringene. Mens vinduet er åpent, svarer
+ikke A–D på spørsmålet bak det.
+
 **Familier.** Varianter av samme regnestykke har samme `fam`, og én runde tar bare
 én fra hver familie så lenge utvalget rekker. Ellers ville fem like regnestykker på
 rad sett ut som fem spørsmål.

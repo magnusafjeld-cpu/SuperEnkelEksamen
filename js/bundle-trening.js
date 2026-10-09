@@ -204,10 +204,15 @@ window.EDU = window.EDU || {};
           const st = temaStatus(t.id);
           const vekt = el(".kap-vekt", { title: `Eksamensvekt ${t.vekt} av 5` });
           for (let i = 1; i <= 5; i++) vekt.appendChild(el("i" + (i <= t.vekt ? ".på" : "")));
-          return el("button.tr-tema" + (på ? ".på" : ""), { type: "button", "aria-pressed": String(på),
-            onclick: () => { temaer = på ? temaer.filter((x) => x !== t.id) : temaer.concat(t.id); oppdater(); } },
-            el(".tr-tema-topp", el("span.tr-tema-navn", el("span.lang", t.navn), el("span.kort", t.kort || t.navn)), vekt),
-            el(".tr-tema-bunn", st.sett ? `${st.sett} av ${st.antall} sett · ${Math.round(100 * st.rett / st.sett)} % riktig` : `${st.antall} spørsmål`));
+          /* Valgknappen og innføringsknappen er søsken, ikke nøstet: en knapp i en
+             knapp er ugyldig HTML, og trykket ville valgt temaet i samme slag. */
+          return el(".tr-tema-boks",
+            el("button.tr-tema" + (på ? ".på" : ""), { type: "button", "aria-pressed": String(på),
+              onclick: () => { temaer = på ? temaer.filter((x) => x !== t.id) : temaer.concat(t.id); oppdater(); } },
+              el(".tr-tema-topp", el("span.tr-tema-navn", el("span.lang", t.navn), el("span.kort", t.kort || t.navn)), vekt),
+              el(".tr-tema-bunn", st.sett ? `${st.sett} av ${st.antall} sett · ${Math.round(100 * st.rett / st.sett)} % riktig` : `${st.antall} spørsmål`)),
+            t.intro ? el("button.tr-intro-knapp", { type: "button", title: "Hva temaet tester og formlene du må kunne",
+              onclick: () => visIntro(t) }, el("span.lang", "Hurtiginnføring"), el("span.kort", "Innføring")) : null);
         })));
 
       const seg = el(".seg");
@@ -281,7 +286,9 @@ window.EDU = window.EDU || {};
     kortEl.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginBottom: "6px" } },
       el(".tiny.muted", `Spørsmål ${pos + 1} av ${liste.length}`),
       el(".spacer"),
-      tema ? el(".chip.slate", tema.kort || tema.navn) : null,
+      tema ? (tema.intro
+        ? el("button.chip.slate.tr-temachip", { type: "button", title: "Hurtiginnføring i temaet", onclick: () => visIntro(tema, { iRunde: true }) }, tema.kort || tema.navn, el("span.tr-i", "i"))
+        : el(".chip.slate", tema.kort || tema.navn)) : null,
       el(".chip" + (poeng > 0 ? ".green" : poeng < 0 ? ".rose" : ""), `${fmt(poeng)} poeng`)));
 
     kortEl.appendChild(el(".tr-stem", prosa(sp.q)));
@@ -347,11 +354,12 @@ window.EDU = window.EDU || {};
   }
 
   /* Hvor stoffet står: kjernepensumdelen og manualkapitlene temaet hører til. */
-  function lesMer(sp) {
-    const t = temaFor(sp.tema);
+  function lesMer(sp) { return lesMerTema(temaFor(sp.tema), true); }
+  function lesMerTema(t, medIntro) {
     const rad = el(".row.wrap.tr-lesmer");
     if (!t) return rad;
     rad.appendChild(el("span.tiny.muted", "Les mer:"));
+    if (medIntro && t.intro) rad.appendChild(el("button.chip", { type: "button", onclick: () => visIntro(t, { iRunde: true }) }, "Hurtiginnføring"));
     if (t.kjerne && S.hasModule("/kjerne")) {
       const num = parseInt(String(t.kjerne).replace(/\D/g, ""), 10);
       const del = ((window.EDU_DATA || {}).kjerne || []).find((d) => d.id === t.kjerne);
@@ -363,6 +371,63 @@ window.EDU = window.EDU || {};
       if (k) rad.appendChild(el("a.chip", { href: "#/chapter/" + n, style: { textDecoration: "none" } }, `K${n} · ${kutt(k.title, 30)}`));
     });
     return rad;
+  }
+
+  /* ---------- hurtiginnføring ----------
+     Hva temaet tester, formlene du må kunne og de vanligste fellene, i et lite
+     vindu over siden. Innholdet er tema.intro fra fagdataene. Formlene settes som
+     .formula .eq, så symbolforklaringen fra kjernepensum virker også her. */
+  let modal = null;
+  function lukkIntro() {
+    if (!modal) return;
+    modal.remove(); modal = null;
+    document.body.classList.remove("tr-modal-åpen");
+  }
+  function visIntro(t, { iRunde = false } = {}) {
+    lukkIntro();
+    const i = t.intro || {};
+    const vekt = el(".kap-vekt", { title: `Eksamensvekt ${t.vekt} av 5` });
+    for (let n = 1; n <= 5; n++) vekt.appendChild(el("i" + (n <= t.vekt ? ".på" : "")));
+    const kort = el(".tr-modal", { role: "dialog", "aria-modal": "true", "aria-label": "Hurtiginnføring: " + t.navn });
+    const lukk = el("button.tr-modal-lukk", { type: "button", "aria-label": "Lukk", onclick: lukkIntro }, "×");
+    kort.appendChild(el(".tr-modal-topp",
+      el("div", el(".eyebrow", "Hurtiginnføring"), el("h3", t.navn), vekt), lukk));
+
+    const kropp = el(".tr-modal-kropp.prose");
+    if ((i.tester || []).length) {
+      kropp.appendChild(el("h4", "Hva temaet tester"));
+      kropp.appendChild(el("ul", ...i.tester.map((x) => el("li", frag(String(x))))));
+    }
+    if ((i.formler || []).length) {
+      kropp.appendChild(el("h4", i.formeltittel || "Formlene du må kunne"));
+      i.formler.forEach(([uttrykk, hva]) => kropp.appendChild(i.formeltittel
+        ? el(".tr-begrep", el("b", frag(String(uttrykk))), el("span", frag(String(hva || ""))))
+        : el(".formula", el(".eq", frag(String(uttrykk))), hva ? el(".where", frag(String(hva))) : null)));
+    }
+    if ((i.feller || []).length) {
+      kropp.appendChild(el("h4", "Typiske feller"));
+      kropp.appendChild(el("ul", ...i.feller.map((x) => el("li", frag(String(x))))));
+    }
+    if (S.symboler) S.symboler.merk(kropp, t.kjerne);
+    kropp.appendChild(lesMerTema(t, false));
+    kort.appendChild(kropp);
+
+    const bunn = el(".tr-modal-bunn");
+    bunn.appendChild(el(".row", { style: { gap: "8px" } },
+      el(".spacer"),
+      el("button.btn.ghost.sm", { type: "button", onclick: lukkIntro }, "Lukk"),
+      iRunde ? null : el("button.btn.primary.sm", { type: "button", onclick: () => {
+        const v = valg();
+        settValg({ temaer: [t.id] });
+        lukkIntro();
+        start([t.id], v.antall, v.modus);
+      } }, "Øv på dette temaet →")));
+    kort.appendChild(bunn);
+
+    modal = el(".tr-modal-bak", { onclick: (e) => { if (e.target === modal) lukkIntro(); } }, kort);
+    document.body.appendChild(modal);
+    document.body.classList.add("tr-modal-åpen");
+    lukk.focus({ preventScroll: true });
   }
 
   /* ---------- resultat ---------- */
@@ -442,7 +507,10 @@ window.EDU = window.EDU || {};
   function kobleTaster() {
     if (tasterKoblet) return;
     tasterKoblet = true;
+    window.addEventListener("hashchange", lukkIntro);
     document.addEventListener("keydown", (e) => {
+      /* Mens innføringen er åpen, skal A–D ikke svare på spørsmålet bak den. */
+      if (modal) { if (e.key === "Escape") { e.preventDefault(); lukkIntro(); } return; }
       if (!/^#\/trening/.test(location.hash || "")) return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       const mål = e.target;

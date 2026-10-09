@@ -136,6 +136,18 @@ for (const s of ALLE) {
   }
 }
 
+/* ---------- hurtiginnføringen per tema ---------- */
+for (const [id, t] of temaer) {
+  const i = t.intro;
+  if (!i) { advarsel.push(`tema ${id}: mangler hurtiginnføring (intro)`); continue; }
+  if (!(i.tester || []).length) feil.push(`tema ${id}: intro.tester er tom`);
+  if (!(i.formler || []).length) feil.push(`tema ${id}: intro.formler er tom`);
+  const tekster = [...(i.tester || []).map((x, n) => [x, `tester[${n}]`]),
+    ...(i.formler || []).flatMap(([f, h], n) => [[f, `formler[${n}]`], [h || "", `formler[${n}].forklaring`]]),
+    ...(i.feller || []).map((x, n) => [x, `feller[${n}]`])];
+  tekster.forEach(([x, hvor]) => { sjekkHtml(String(x), `tema ${id}.intro.${hvor}`); sjekkSpråk(String(x), `tema ${id}.intro.${hvor}`, { fasit: true }); });
+}
+
 /* ---------- banken ---------- */
 for (const [id, t] of temaer) {
   const n = perTema.get(id) || 0;
