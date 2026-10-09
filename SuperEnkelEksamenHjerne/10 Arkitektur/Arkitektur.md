@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, kode]
-oppdatert: 2026-10-08
+oppdatert: 2026-10-09
 ---
 
 # Arkitektur
@@ -31,6 +31,8 @@ js/
                            og en (i) per formel med forklaring
   bundle-symboler.js       hold over et symbol i en formel i kjernepensum
                            og se hva det står for (fag/<id>/symboler.js)
+  bundle-trening.js        eksamenstrening: stor flervalgsbank, velg temaer og
+                           antall, kort fasit og full gjennomgang med en gang
   account.js               Supabase-innlogging + synk (mergeState bor her)
   picker.js                fag-velger, tema, byggnummer, dynamisk lasting av fagdata
   boot.js                  app-skall, navigasjon, ruting, innholdslaster
@@ -109,3 +111,14 @@ gjeldende visnings-thunk om igjen og gjenoppretter scrollposisjonen.
 `store.subscribe()` med 150 ms debounce holder navigasjonens merker oppdatert.
 
 Se [[Datamodell og lagring]], [[Pensumparseren]], [[Moduler og visninger]].
+
+## Fagdata som lastes først når modulen åpnes
+
+Fagets `scripts` lastes ved fagvalg. En stor fil som bare én modul bruker, kan i
+stedet stå i manifestets `lazy`: `lazy: { "/trening": ["fag/fie432/trening.js"] }`.
+Modulen laster den selv med `S.picker.loadScripts` første gang den tegnes, viser
+en spinner så lenge, og tegner på nytt. Menyen må vite at modulen finnes før
+dataene er lastet, så `DATASTYRT` i `boot.js` spør modulen (`finnes()`) i stedet
+for å se etter dataene. Brukt første gang 9. oktober 2026 for eksamenstreningen,
+som er 1,6 MB. Se [[Moduler og visninger]].
+

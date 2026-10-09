@@ -10,7 +10,7 @@ oppdatert: 2026-10-09
 
 | Modul | Rute | Hva den gjør |
 |---|---|---|
-| Dashboard | `/` | Dagens økt, kjernepensum, repetisjon i dag, neste milepæl, kommende temaer. Ingen samlet fremdrift |
+| Dashboard | `/` | Dagens økt, kjernepensum, eksamenstrening, repetisjon i dag, neste milepæl, kommende temaer. Ingen samlet fremdrift |
 | Studieplan | `/plan`, `/day/:n` | Dagene bygget pedagogisk: rammeverk → måling → vekst → kort sikt → repetisjon. «X av N fullført» øverst |
 | Pensum | `/curriculum`, `/chapter/:num` | Kapitlene som rene artikler; marker *lest* / *forstått* / *usikker* |
 | Kjernepensum | `/kjerne`, `/kjerne/:num`, `/kjerne/husk` | Det viktigste i faget på én kveld, i deler bygd rundt eksamensblokkene, med sjekker og en minicase etter hver del |
@@ -24,6 +24,7 @@ oppdatert: 2026-10-09
 | Repetisjon | `/review` | Hva du bør repetere nå |
 | Søk | `/search` | På tvers av begreper, formler, figurer, økonomer, variabler |
 | Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num`, `/kapitteloppgaver/:num/:oppg` | Oppgaver i fagets eksamensformat per kapittel: flervalg med fasit med en gang (FIE432) eller åpne oppgaver med løsning og sensorkriterier (FIE402) |
+| Eksamenstrening | `/trening` | Stor flervalgsbank i eksamensformat. Velg temaer og antall, få kort fasit med en gang og full gjennomgang på knapp |
 | NotebookLM | `/notebooklm` | Pensum som ren tekst, ett kapittel per kilde, med kopiknapp — se under |
 | Konto | `/konto` | Innlogging, synkstatus, «Nullstill fremdrift» og «Last innhold på nytt» |
 
@@ -259,6 +260,55 @@ for alt i en formel som verken er forklart eller står i `ikke` (vanlige ord som
 «max» og «payoff»). `--liste` viser hva hvert symbol forklares med i hver del.
 Endrer du en formel, kjør den. Symboler i løpende tekst merkes ikke, der står
 betydningen som regel allerede.
+
+## Eksamenstrening — mange spørsmål, fasit med en gang
+
+`/trening`, `js/bundle-trening.js`. Magnus ba om den 9. oktober 2026 for FIE432:
+«en stor mengde med spørsmål i samme format og vanskelighet som de som kommer på
+eksamen», med valg av antall og tema (ett, flere eller alle), en kort fasit med en
+gang og en knapp for en grundig gjennomgang «slik at man kan virkelig forstå det om
+man ikke kan det fra før». Like spørsmål med nye tall var eksplisitt greit.
+
+**Hvorfor ikke kapitteloppgavene:** de er et lite, fast sett per kapittel, ment
+rett etter lesingen. Her er banken stor (754 i FIE432), temaene kan blandes slik
+eksamen gjør, og regnespørsmålene finnes i mange varianter.
+
+**Flyten.** Oppsettet har temakort (eksamensvekt som prikker, hvor mange du har sett
+og hvor mange du fikk riktig sist), antall 10/20/30/50 og tre utvalg: «Nye først»
+(aldri sett, så bommet, så resten), «Bare de jeg bommet på» og «Helt tilfeldig».
+Antallet fordeles på temaene etter eksamensvekten, minst ett per tema. En runde er
+ett spørsmål om gangen med +3/−1/0, «Stå over» og «Angre svaret» for bomtrykk. Etter
+svaret kommer den korte fasiten; «Vis full gjennomgang» åpner forklaringen, fellene
+per galt alternativ og lenker til kjernepensumdelen og manualkapitlene. Tastatur:
+A–D, S, F, Enter. Resultatet viser poeng med og uten minuspoeng, per tema, og en
+gjennomgang du kan åpne spørsmål for spørsmål.
+
+**Familier.** Varianter av samme regnestykke har samme `fam`, og én runde tar bare
+én fra hver familie så lenge utvalget rekker. Ellers ville fem like regnestykker på
+rad sett ut som fem spørsmål.
+
+**Lagring:** `state.exams["tr:<id>"] = { n, r, s, t }` per spørsmål, så sky-synken
+slår sammen to enheter per spørsmål; `"trening:okt"` er runden og `"trening:valg"`
+det du valgte sist. Banken er 1,6 MB og lastes først når modulen åpnes
+(manifest.lazy, se [[Arkitektur]]). Modulen har et kort på dashbordet og plass i
+mobilmenyen, som nå kappes ved seks.
+
+**Innholdet bygges, det skrives ikke for hånd i JS.** Spørsmålene skrives som
+Python-moduler i `fag/<fag>/_trening/`, én per tema, og `tools/bygg-trening.py`
+lager `fag/<fag>/trening.js`. Regnespørsmål er **familier**: små funksjoner som
+trekker tall og regner svar, feller, kort fasit og gjennomgang av de samme
+variablene, så aritmetikken er riktig per konstruksjon. Begrep, påstand, formel og
+fakta er **statiske**. Byggeren stokker alternativene med jevn fasit på A–D, og
+ingen tekst kan derfor si «alternativ B». Spesifikasjonen er
+`docs/fie432-trening-spek.md`, hjelperne er `tools/trening_lib.py`.
+
+| Verktøy | Hva det gjør |
+|---|---|
+| `python3 tools/bygg-trening.py <fag>` | bygger banken; `--bare <fil>` til et utkast, `--vis <familie>` skriver ut variantene |
+| `node tools/sjekk-trening.js <fag>` | struktur, HTML, tankestrek, komma foran «og», bokstavhenvisninger, fasitposisjon, fasit lengst (7y), lengder |
+| `python3 tools/trening-blind.py del/sammenlign` | blind kontroll: spørsmålene uten fasit ut, svarene inn, avvikene vist |
+
+Se [[FIE432 Personlig økonomi]] for hvordan banken ble skrevet og kontrollert.
 
 ## Formelarket — alltid ett trykk unna
 

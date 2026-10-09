@@ -361,7 +361,9 @@ window.EDU_SUBJECTS = [
        flervalgssett, som kjøres i /sett. Flashcards er med fordi de 100 radene i
        formelsamlingen k20 blir til kort automatisk; quiz, dybde og lyn legges
        til når de dataene er skrevet. */
-    modules: ["/plan", "/curriculum", "/kjerne", "/quiz", "/kapitteloppgaver", "/flashcards", "/dybde", "/sett", "/review", "/search", "/notebooklm"],
+    modules: ["/plan", "/curriculum", "/kjerne", "/quiz", "/kapitteloppgaver", "/trening", "/flashcards", "/dybde", "/sett", "/review", "/search", "/notebooklm"],
+    /* Eksamenstreningen er over en megabyte og lastes først når den åpnes. */
+    lazy: { "/trening": ["fag/fie432/trening.js"] },
   },
   {
     id: "fie459",

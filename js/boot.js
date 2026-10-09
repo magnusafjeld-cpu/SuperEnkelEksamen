@@ -17,6 +17,7 @@ window.EDU = window.EDU || {};
       { route: "#/lyn", match: "/lyn", label: "Lynlæring", ico: "bolt", badge: () => (S.views.lyn && !S.views.lyn.dailyDone()) ? "⚡" : null },
       { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
       { route: "#/kapitteloppgaver", match: "/kapitteloppgaver", label: "Kapitteloppgaver", ico: "check" },
+      { route: "#/trening", match: "/trening", label: "Eksamenstrening", ico: "target" },
       { route: "#/flashcards", match: "/flashcards", label: "Flashcards", ico: "cards", badge: () => S.srs.stats().due || null },
       { route: "#/dybde", match: "/dybde", label: "Dybdetrening", ico: "layers", badge: () => (S.views.dybde && S.views.dybde.weakCount()) || null },
       { route: "#/oppgaver", match: "/oppgaver", label: "Oppgavebank", ico: "book" },
@@ -36,6 +37,7 @@ window.EDU = window.EDU || {};
     { route: "#/", match: "/", label: "Hjem", ico: "home" },
     { route: "#/lyn", match: "/lyn", label: "Lyn", ico: "bolt" },
     { route: "#/plan", match: "/plan", label: "Plan", ico: "calendar" },
+    { route: "#/trening", match: "/trening", label: "Trening", ico: "target" },
     { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
     { route: "#/flashcards", match: "/flashcards", label: "Kort", ico: "cards" },
     { route: "#/dybde", match: "/dybde", label: "Dybde", ico: "layers" },
@@ -56,6 +58,9 @@ window.EDU = window.EDU || {};
     "/notebooklm": () => (window.EDU_DATA.curriculum || []).length > 0,
     "/kapitteloppgaver": () => Object.keys(window.EDU_DATA.chapterTasks || {}).length > 0,
     "/kjerne": () => (window.EDU_DATA.kjerne || []).length > 0,
+    /* Spørsmålsbanken er stor og lastes først når modulen åpnes (manifest.lazy),
+       så her holder det at faget har den. */
+    "/trening": () => !!(S.views.trening && S.views.trening.finnes()),
   };
   function has(match) {
     const m = sub().modules;
@@ -65,7 +70,8 @@ window.EDU = window.EDU || {};
     return true;                                          // modules: null = alle
   }
   function nav() { return NAV.map((g) => ({ group: g.group, items: g.items.filter((i) => has(i.match)) })).filter((g) => g.items.length); }
-  function mobileNav() { const m = MOBILE.filter((i) => has(i.match)); return m.length > 1 ? m : []; }
+  /* Seks er det som får plass på en telefon. Har et fag alle, faller de siste bort. */
+  function mobileNav() { const m = MOBILE.filter((i) => has(i.match)).slice(0, 6); return m.length > 1 ? m : []; }
 
   let contentEl, currentView = () => V.dashboard.render();
 
@@ -145,6 +151,7 @@ window.EDU = window.EDU || {};
     when("/kapitteloppgaver", "/kapitteloppgaver/:num", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num)));
     when("/kapitteloppgaver", "/kapitteloppgaver/:num/:oppg", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num, p.oppg)));
     when("/notebooklm", "/notebooklm", () => setView(() => V.notebooklm.render()));
+    when("/trening", "/trening", () => setView(() => V.trening.render()));
     /* husk før :num — ruteren tar første treff. */
     when("/kjerne", "/kjerne", () => setView(() => V.kjerne.render()));
     when("/kjerne", "/kjerne/husk", () => setView(() => V.kjerne.renderHusk()));

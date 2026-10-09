@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-09-30
+oppdatert: 2026-10-09
 ---
 
 # Fallgruver
@@ -591,6 +591,34 @@ trinnet, og regnesvaret sjekkes først når utregningen åpnes. Resten er regler
 svaret. Kontrollen må gjøres av noen som ikke har skrevet den, og den må lese i
 samme rekkefølge som kandidaten. Det samme gjelder premisser: 1,4 millioner småhus
 besto hver aritmetikkontroll, men var feil hos SSB (se [[Caseintervju]] og 7q).
+
+## 7æ. Stigende tall låste fasiten på samme plass
+
+Eksamen setter talloptionene i stigende rekkefølge, og byggeren for
+eksamenstreningen gjorde det samme. Første familie fikk fasiten på C i alle åtte
+variantene: fellene er laget av de samme feilene hver gang, så de ligger alltid på
+samme side av svaret. Den som lærer posisjonen, trenger ikke faget. Byggeren
+stokker nå alt med jevn fasit på A–D; stigende rekkefølge må velges eksplisitt,
+og `tools/sjekk-trening.js` advarer når én families fasit står på samme plass i
+over 60 % av variantene. Flere skribenter fant det samme på rangplass: fasiten var
+«alltid nest lavest» eller «alltid høyest» i en familie, og fikk en ny felle på
+den andre siden.
+
+## 7ø. To alternativer som bare skilte seg i store og små bokstaver ble regnet som like
+
+Byggeren sammenlignet alternativene med `.lower()`, og avviste dermed
+«(R − r)/R» og «(R − r)/r» som like. I formelspørsmål er det nettopp det som er
+forskjellen (P og p, R og r). Sammenligningen skiller nå store og små bokstaver og
+holder senket og hevet skrift adskilt. Samme lærdom for alt som normaliserer tekst
+før en likhetstest: tenk på hva normaliseringen kaster.
+
+## 7å. Språksjekken så ikke kommaet etter en tagg
+
+`sjekk-trening.js` byttet tagger med mellomrom før den lette etter komma foran
+«og». «r<sub>e</sub>, og» ble da «r e , og», og regelen bommet. Inline-tagger
+fjernes nå uten mellomrom. En skribent fant det med sin egen strengere sjekk. Når
+en kontroll leter etter tegn ved siden av hverandre, må den ikke sette inn noe
+mellom dem.
 
 ## 8. Filer som ikke er koblet til noe
 

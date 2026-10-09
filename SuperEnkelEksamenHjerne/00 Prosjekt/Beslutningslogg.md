@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-09-30
+oppdatert: 2026-10-09
 ---
 
 # Beslutningslogg
@@ -134,6 +134,21 @@ limes inn i Claude, og da er det abonnementet som betaler.
 vurderingen inne i appen, er veien en Edge Function med eiersjekk, stengt
 registrering og utgiftstak på nøkkelen. Det er en egen beslutning og første
 serverkode i prosjektet. Se [[Case-spilleren]].
+
+## Regnespørsmål genereres, de skrives ikke
+Eksamenstreningen trengte hundrevis av regnespørsmål, og Magnus sa uttrykkelig at
+like spørsmål med nye tall var greit. Skrevet for hånd ville hvert tall vært en
+mulig regnefeil; FIE432-manualen hadde én slik feil som slapp gjennom fire
+kontrollrunder. Regnespørsmålene er derfor familier: små Python-funksjoner i
+`fag/<fag>/_trening/` som trekker tall og regner svar, feller og forklaring av de
+samme variablene. `tools/bygg-trening.py` lager en statisk `trening.js`.
+
+**Konsekvens:** appen er fortsatt uten byggesteg; Python-kildene lastes aldri i
+nettleseren, de er kilder slik `_kjerne/` og `_fragmenter/` er. Endrer du et
+spørsmål, rett i `_trening/*.py` og bygg på nytt, aldri i `trening.js`. Aritmetikken
+er riktig per konstruksjon, men **premissene er det ikke**: en gal regel i en
+familie blir gal i alle variantene. Derfor blindkontroll av minst to varianter per
+familie. Se [[Moduler og visninger]].
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på

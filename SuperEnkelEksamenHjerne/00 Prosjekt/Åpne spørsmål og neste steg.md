@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, oppgaver]
-oppdatert: 2026-09-30
+oppdatert: 2026-10-09
 ---
 
 # Åpne spørsmål og neste steg
@@ -124,6 +124,22 @@ Faget ble lagt inn 24. september 2026. Se [[FIE459 Sustainable Finance]].
       k9, k11 og k13.
 - [ ] Vurder kapitteloppgaver i flervalgsformat, som i FIE432, hvis Magnus vil ha
       mer eksamenstrening enn quizen gir.
+
+## FIE432 — funnet under eksamenstreningen, ikke rettet
+
+- [ ] **H2024 oppgave 8 i `fag/fie432/sett.js` har likevekten «D(P) = S(p + t)»**,
+      som ikke stemmer med P = p + t. kj5 og k11 bruker D(p + t) = S(p). Trolig en
+      trykkfeil i selve eksamensteksten; sjekk originalen og merk den i settet.
+- [ ] **Tabellen i manualen 18.2 merker hjemmebias som «feilslutning»**, mens teksten
+      og kj11 sier at den kan leses begge veier (forsøket endret ingenting).
+- [ ] **Tankestrek i eldre innhold.** Magnus' skriveregel forbyr dem, men manualen
+      (k6 32, k7 45, k8 40, k13 12 og flere), kj7 og kapitteloppgavene har mange,
+      ofte som «Steg 1 — …». Eksamenstreningen har ingen. En egen opprydding.
+- [ ] **Hjelperne `unik`, `syklus` og `velg_feller`** er definert lokalt i flere
+      temafiler i `fag/fie432/_trening/`. Flytt dem til `tools/trening_lib.py` før
+      neste fag får eksamenstrening.
+- [ ] **Eksamenstrening for andre fag.** Motoren er fagnøytral; FIE402 (åpen
+      eksamen) passer dårlig, FIE459 (flervalg og sant/usant) godt.
 
 ## Åpne spørsmål
 

@@ -199,6 +199,7 @@ Kontrolleres med `tools/sjekk-manual.py`.
 | Quiz | **164 spørsmål** · 133 flervalg / 31 kortsvar · alle 20 kapitler dekket |
 | Dybdetrening | **299 spørsmål** i fire banker: 72 · 77 · 72 · 78 |
 | Kapitteloppgaver | **229 oppgaver** i eksamensformat over alle 19 kapitler · 687 poeng · antallet følger eksamensvekten |
+| Eksamenstrening | **754 spørsmål** i tolv temaer · 91 regnefamilier med 480 varianter og 274 statiske · alle løst blindt |
 | Lynlæring | ikke skrevet — modulen er avslått til den har data |
 
 **Aritmetikken er kontrollert maskinelt.** `tools/sjekk-aritmetikk.py` fant 841
@@ -285,6 +286,60 @@ Det gjennomgangen fant:
 **Symbolene i formlene forklares ved hover eller trykk** (9. oktober 2026), som i
 FIE402: 92 symboler i `fag/fie432/symboler.js`, kontrollert med
 `tools/sjekk-symboler.js fie432`. Se [[Moduler og visninger]].
+
+## Eksamenstrening
+
+Lagt inn 9. oktober 2026, etter at Magnus ba om «en stor mengde med spørsmål i
+samme format og vanskelighet som de som kommer på eksamen». Modulen er beskrevet i
+[[Moduler og visninger]]; spesifikasjonen er `docs/fie432-trening-spek.md`.
+
+**Tolv temaer**, de elleve kjernepensumdelene med finansiell psykologi skilt ut:
+
+| Tema | Spørsmål | Familier | Tema | Spørsmål | Familier |
+|---|---|---|---|---|---|
+| Skattesystemet | 69 | 10 | Insidens | 90 | 11 |
+| Aksjonærmodellen | 88 | 11 | Nøytralitet | 51 | 6 |
+| Formuesskatt | 61 | 7 | Internasjonal skatt | 49 | 4 |
+| Avkastningsskatt | 55 | 6 | Portefølje | 89 | 12 |
+| Pensjon | 63 | 8 | Lån | 51 | 7 |
+| Forsikring | 62 | 7 | Psykologi | 26 | 2 |
+
+Fasiten står 189/188/188/189 på A–D. Hver regnerutine R1–R20 i eksamens-DNA-en har
+minst én familie.
+
+**Hvordan den ble laget.** Fem skribentagenter skrev hvert sitt temasett etter
+spesifikasjonen og regnet minst to varianter av hver familie uavhengig. Så løste
+fem andre agenter **456 spørsmål blindt** (alle statiske og to varianter per
+familie) før de så fasiten: **456 av 456 stemte, og ingen fasit var gal.** Likevel
+fant gjennomgangene over 80 ting å rette, de fleste av samme slag:
+
+- **Feller som var sanne.** «Nei: premien er høyere enn forventet skade» er en
+  sann påstand med riktig konklusjon når svaret er nei. Med −1 for feil er det
+  urettferdig. Fellen er nå den gale *regelen*, slik H2024 11c skrev den.
+- **Feller ingen gjør**, som «alderen brukt i stedet for delingstallet». Byttet med
+  den klassiske retningsfeilen.
+- **Kontroller som ikke kan feile** («årsbeløp × delingstall gir beholdningen
+  tilbake»). Spesifikasjonen forbød dem; de kom likevel, og 34 ble omdøpt til
+  «Merk» der det ikke fantes en ekte kontroll.
+- **Avrunding**: en tabell med fire desimaler mens regningen brukte eksakt faktor,
+  0,225 vist som 0,22, flyttall som rundet 1,875 ned.
+- **Tall som ikke er lov**: uttak av alderspensjon ved 62 år for 1980-kullet.
+
+Etter rettingene løste en sjette agent én ny variant fra hver familie blindt, for å
+fange feil rettingene innførte.
+
+**Det gjennomgangen fant utenfor banken, og som er rettet:**
+
+- Løsningen til H2025 oppgave 16 i `sett.js` sa at ett prosentpoeng i gebyr gir
+  «omtrent 22 % lavere sluttverdi» over 20 år. Riktig er 17 % (1,06²⁰/1,07²⁰ = 0,83).
+- Manualen 18.4 sa at «nesten en tredjedel» av spareformuen er avkastning. Det er 41 %.
+- Manualen 6.5 sa at lån under kr 100 000 innfridd innen 60 dager er unntatt. Det
+  stemmer, men unntaket står i forskriften (FSFIN § 10-11-1), ikke i skatteloven, og
+  grensen gjelder samlet kreditt. Nå står det slik.
+- DNA-en sa at ∂p/∂t og ∂P/∂t «summerer til 1». Det er differansen som er 1.
+
+**Bekreftet mot primærkilde:** utbytte på aksjesparekonto skattlegges først ved
+uttak (sktl § 10-21 tredje ledd, Skatteetaten), slik manualen og kj8 sier.
 
 ## Kapitteloppgaver
 

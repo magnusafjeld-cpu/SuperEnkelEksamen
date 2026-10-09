@@ -100,6 +100,8 @@ window.EDU.views = window.EDU.views || {};
     /* Kjernepensum har ingen plass i mobilnavigasjonen, så inngangen er her. */
     const kjerne = S.views.kjerne && S.views.kjerne.dashbordkort();
     if (kjerne) col.appendChild(kjerne);
+    const trening = S.views.trening && S.views.trening.dashbordkort();
+    if (trening) col.appendChild(trening);
     const repCard = el(".card");
     repCard.appendChild(el(".row", el("h3", { style: { fontSize: "16px" } }, "Repetisjon i dag"), el(".spacer"), S.hasModule("/review") && el(".see-all", { onclick: sh().go("#/review") }, "Alle →")));
     S.repetition.suggest(3).forEach((s) => repCard.appendChild(el(".task-row", { style: { cursor: "pointer" }, onclick: sh().go(`#/chapter/${s.num}`) }, el(".priority-tag." + s.priority, { style: { marginTop: "1px" } }, s.priority === "high" ? "Høy" : s.priority === "med" ? "Med" : "Lav"), el("div", el(".tt", `K${s.num} · ${s.chapter.title}`), el(".td", s.reasons[0] || "Repetisjon")))));

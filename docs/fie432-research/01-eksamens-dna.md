@@ -703,7 +703,7 @@ fortegnet i nevneren til D′ − S′, eller (iii) sløyfe hele nevneren (D′/
 alle tre variantene som alternativer. I talleksemplene er fella å forveksle konsument- og
 produsentpris: i H2025 8b og 8c er svarene 1,50 og 1,00, og de står som alternativer i hverandres
 spørsmål. Huskeregel som eliminerer halvparten av alternativene på ett sekund: **∂p/∂t er alltid
-negativ, ∂P/∂t alltid positiv, og de summerer til 1.**
+negativ, ∂P/∂t alltid positiv, og ∂P/∂t − ∂p/∂t = 1** (andelene ∂P/∂t og |∂p/∂t| summerer til 1; selve de deriverte gjør ikke det).
 
 ### R10. Implisitt skatt
 
@@ -1345,7 +1345,7 @@ oppjustering/effektiv sats, og utbytte for å dekke formuesskatt.**
 
 1. **Stykkskatt-insidens** (rutine R9). Både formelgjenkjenningen (H2024) og talleksemplene med
    grensetilfeller (H2025). Kravet er å kunne skrive ned ∂p/∂t = D′/(S′ − D′) og ∂P/∂t = S′/(S′ − D′)
-   uten å tenke, og å vite at de summerer til 1.
+   uten å tenke, og å vite at ∂P/∂t − ∂p/∂t = 1.
 2. **Skjerming → oppjustering → effektiv sats som én sammenhengende kjede** (R1, R2, R3). Trenes ikke
    som tre temaer, men som én oppgave med fire til seks delspørsmål, slik settene faktisk gjør det.
 3. **Formuesskatt i to former:** forholdsmessig gjeldsfordeling med verdsettingsrabatt (R4) *og*

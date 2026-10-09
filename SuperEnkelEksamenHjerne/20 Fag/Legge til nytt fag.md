@@ -1,6 +1,6 @@
 ---
 tags: [fag, oppskrift]
-oppdatert: 2026-10-08
+oppdatert: 2026-10-09
 ---
 
 # Legge til nytt fag
@@ -30,6 +30,12 @@ oppdatert: 2026-10-08
 >    symbolene i formlene skal forklares, skriv `fag/<fag>/symboler.js`, legg den i
 >    `scripts` og kontroller med `tools/sjekk-symboler.js <fag>`. Se
 >    [[Moduler og visninger]].
+> 8. Valgfritt: eksamenstrening, når faget eksamineres med flervalg. Skriv
+>    `fag/<fag>/_trening/temaer.py` og én modul per tema (mal:
+>    `docs/fie432-trening-spek.md` og `fag/fie432/_trening/`), bygg med
+>    `tools/bygg-trening.py <fag>`, kontroller med `tools/sjekk-trening.js <fag>` og
+>    blindtest med `tools/trening-blind.py`. Legg `/trening` i `modules` og fila i
+>    `lazy`, ikke i `scripts`.
 
 Fire steg. Malen i `fag/_mal/data.js` forklarer hvert felt.
 
