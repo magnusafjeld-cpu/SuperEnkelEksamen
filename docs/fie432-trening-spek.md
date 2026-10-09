@@ -117,6 +117,29 @@ alternativ. **Skriv derfor aldri «alternativ B» eller «(C)» i noen tekst**: 
 stokkes ved bygging. Bokstaven ville pekt feil. Skriv «det gale alternativet som glemmer
 oppjusteringen».
 
+## 2b. Hjelpen (knappen «Hjelp» før du svarer)
+
+Magnus' ønske: hjelpen «bør i stor grad egentlig gi fasit, men ikke med tall … den bør
+vise hvordan man løser en oppgave som den, og jeg kan da gjøre det med tallene i
+oppgaven». Den vises før du svarer, så den er en oppskrift, ikke en løsning.
+
+- **Familier:** én hjelp per familie, `@familie(..., hjelp="...")`, som passer alle
+  variantene. Har familien flere spørsmålstyper (for eksempel grunnlaget eller skatten,
+  ett eller to år), gi varianten sin egen med `sporsmal(..., hjelp=...)`.
+- **Statiske:** `statisk(..., hjelp="...")` per spørsmål.
+- **Innhold:** stegene i rekkefølge (`<p><b>Steg 1: …</b> …</p>`), med navnene på
+  størrelsene og formlene som trengs, og hvilken felle du skal se etter. For
+  begrepsspørsmål: hvilken regel eller hvilket resonnement som avgjør, og hvordan du
+  stryker de gale. 40–120 ord.
+- **Ingen tall fra spørsmålet eller alternativene, og ikke svaret.** Ikke skriv det riktige
+  alternativet, og ikke si hvilket det er. Kursets faste satser (22 %, 1,72, 37,84 %,
+  18,1 %, 7,1 G) er lov, fordi de er regler. Kontrollen stopper tall fra alternativene,
+  store tall og desimaltall fra spørsmålet og teksten i det riktige alternativet.
+- Samme språkregler som resten: ingen tankestrek, ingen komma foran «og», ingen
+  bokstavhenvisninger.
+
+Referanse: `aks-skj1` og `aks-b01` i `fag/fie432/_trening/aksjonar.py`.
+
 ## 3. Språk og regler
 
 - **Bokmål.** Tiltale «du». Kort og direkte.

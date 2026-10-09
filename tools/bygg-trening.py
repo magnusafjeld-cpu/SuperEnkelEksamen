@@ -140,7 +140,7 @@ def main():
     teller = [0, 0, 0, 0]
     sett_id, sett_q = set(), {}
 
-    def legg_til(id_, tema, fam, typ, sp, rng, kilde):
+    def legg_til(id_, tema, fam, typ, sp, rng, kilde, fam_hjelp=None):
         hvor = f"{kilde} {id_}"
         if tema not in tema_ids:
             raise L.Avvis(f"{hvor}: ukjent tema «{tema}»")
@@ -150,6 +150,8 @@ def main():
         if fam: rad["fam"] = fam
         rad.update({"type": typ, "q": sp["q"].strip(), "options": options, "answer": answer,
                     "traps": traps, "kort": sp["kort"].strip(), "full": sp["full"].strip()})
+        hjelp = sp.get("hjelp") or fam_hjelp
+        if hjelp: rad["hjelp"] = hjelp.strip()
         ut.append(rad)
         return modus
 
@@ -189,7 +191,7 @@ def main():
                     siste = f"{type(e).__name__}: {e}"; break
                 sett_tekst.add(norm(sp["q"]))
                 sett_id.add(id_)
-                legg_til(id_, fam["tema"], fid, fam["type"], sp, rng, fam["fil"])
+                legg_til(id_, fam["tema"], fid, fam["type"], sp, rng, fam["fil"], fam.get("hjelp"))
                 ok = True; lagd += 1
                 break
             if not ok:

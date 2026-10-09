@@ -14,6 +14,10 @@
    - «oppgaven over», «forrige oppgave»: spørsmålene trekkes tilfeldig (fallgruve 7v)
    - samme spørsmålstekst to ganger
 
+   - et spørsmål uten hjelp, eller en hjelp som røper svaret: et tall fra
+     alternativene, et stort tall eller et desimaltall fra spørsmålet, eller
+     teksten i det riktige alternativet. Kursets faste satser (22 %, 1,72 …) er lov.
+
    ADVARSEL
    - et tema med færre spørsmål enn målet i temaer.py
    - fasiten samlet på én posisjon, i hele banken eller i én familie
@@ -85,6 +89,12 @@ function sjekkSpråk(tekst, hvor, { fasit = false } = {}) {
   if (HENVISNING.test(t)) feil.push(`${hvor}: viser til et annet spørsmål («${t.match(HENVISNING)[0]}»). Spørsmålene trekkes tilfeldig`);
 }
 
+/* Kursets faste satser og konstanter. De er regler, ikke svar, og kan stå i en
+   hjelp selv om de også står i spørsmålet. */
+const FASTE = new Set(["22", "1,72", "37,84", "51,52", "47,4", "18,1", "7,1", "12", "0,66", "3", "1,0", "1,1",
+  "1,6", "1,44", "25", "70", "80", "75", "14", "20", "100", "90", "5", "7", "2", "10", "60", "30", "2,5", "29,6", "7,6",
+  "0", "1", "50", "0,5", "40", "62", "67", "183", "270", "36", "4", "6", "8", "9", "15", "27", "33", "3,0"]);
+
 /* ---------- per spørsmål ---------- */
 const ider = new Set(), qTekst = new Map();
 const pos = [0, 0, 0, 0];
@@ -118,6 +128,23 @@ for (const s of ALLE) {
   sjekkSpråk(s.full, hvor + ".full", { fasit: true });
   s.options.forEach((o, i) => sjekkSpråk(o, `${hvor}.options[${i}]`));
   (s.traps || []).forEach((t, i) => t && sjekkSpråk(t, `${hvor}.traps[${i}]`, { fasit: true }));
+
+  /* Hjelpen: fremgangsmåten uten spørsmålets tall og uten svaret. */
+  if (!String(s.hjelp || "").trim()) feil.push(`${hvor}: mangler hjelp`);
+  else {
+    sjekkHtml(s.hjelp, hvor + ".hjelp");
+    sjekkSpråk(s.hjelp, hvor + ".hjelp", { fasit: true });
+    const h = " " + renSpråk(s.hjelp).replace(/\u00a0/g, " ") + " ";
+    const tallI = (t) => (renSpråk(t).replace(/\u00a0/g, " ").match(/\d{1,3}(?: \d{3})+(?:,\d+)?|\d+(?:,\d+)?/g) || []);
+    const fritt = (t) => FASTE.has(t);
+    const finnes = (t) => new RegExp("(^|[^\\d,])" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![\\d,])").test(h);
+    const fraAlt = new Set(s.options.flatMap(tallI).filter((t) => !fritt(t) && t.replace(/\D/g, "").length >= 2));
+    const fraQ = new Set(tallI(s.q).filter((t) => !fritt(t) && (t.replace(/\D/g, "").length >= 4 || t.includes(","))));
+    const lekk = [...new Set([...fraAlt, ...fraQ])].filter(finnes);
+    if (lekk.length) feil.push(`${hvor}.hjelp: inneholder tall fra spørsmålet eller alternativene (${lekk.slice(0, 4).join(", ")})`);
+    const riktig = ren(s.options[s.answer]).toLowerCase();
+    if (riktig.length >= 18 && ren(s.hjelp).toLowerCase().includes(riktig)) feil.push(`${hvor}.hjelp: gjengir det riktige alternativet`);
+  }
 
   if (ord(s.kort) > 90) advarsel.push(`${hvor}: kort fasit er ${ord(s.kort)} ord. Den skal være kort`);
   if (ord(s.full) < 60) advarsel.push(`${hvor}: full gjennomgang er bare ${ord(s.full)} ord`);

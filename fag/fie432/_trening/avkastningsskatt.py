@@ -35,13 +35,13 @@ def _fiks(alt):
     return alt
 
 
-def sp(q, alt, kort, full, rekkefolge=None):
-    return sporsmal(nb(q), _fiks(alt), nb(kort), nb(full), rekkefolge)
+def sp(q, alt, kort, full, rekkefolge=None, hjelp=None):
+    return sporsmal(nb(q), _fiks(alt), nb(kort), nb(full), rekkefolge, hjelp=nb(hjelp) if hjelp else None)
 
 
 def st(id_, typ, q, alt, kort, full, rekkefolge=None):
     statisk(id_, tema=TEMA, type=typ, q=nb(q), alternativer=_fiks(alt), kort=nb(kort), full=nb(full),
-            rekkefolge=rekkefolge)
+            rekkefolge=rekkefolge, hjelp=nb(HJELP[id_]))
 
 
 _RUNDE = {}
@@ -94,10 +94,112 @@ def mkr(x):
     return "kr" + NBSP + (tall(v, 0) if abs(v - round(v)) < 1e-9 else tall(v, 1)) + NBSP + "mill."
 
 
+
+# ---------------------------------------------------------------------------
+# Hjelpen bak «Hjelp»-knappen: fremgangsmåten uten tallene i spørsmålet (spek § 2b)
+# ---------------------------------------------------------------------------
+HJ_FAM = {'avk-ekv1': '<p><b>Steg 1: formuesskatten i kroner.</b> Formuesverdien ganger satsen. Bruk 80 % av '
+             'markedsverdien bare når oppgaven sier at aksjene verdsettes med rabatt. Står det at du skal se bort fra '
+             'verdsettingsrabatter, bruker du hele beløpet.</p><p><b>Steg 2: avkastningen i kroner.</b> Hele '
+             'markedsverdien ganger avkastningen r.</p><p><b>Steg 3: del.</b> t = formuesskatt i kroner / avkastning i '
+             'kroner. Uten rabatt blir det τ<sub>w</sub>/r, med rabatt 0,8 × τ<sub>w</sub>/r.</p><p><b>Pass på:</b> '
+             'avkastningen regnes alltid av hele markedsverdien, også når formuesskatten har rabatt.</p>',
+ 'avk-ekv2': '<p><b>Steg 1: finn t.</b> Satsen på avkastningen, med oppjusteringen hvis det er '
+             'aksjegevinst.</p><p><b>Steg 2: sett opp likningen.</b> τ<sub>w</sub> × grunnlaget = t × r × W. '
+             'Grunnlaget er W ved periodens begynnelse og W(1 + r) ved slutten.</p><p><b>Steg 3: løs for '
+             'τ<sub>w</sub>.</b></p><p><b>Pass på:</b> tidspunktet avgjør om du deler på (1 + r). Oppjusteringen '
+             'brukes bare én gang.</p>',
+ 'avk-avk1': '<p><b>Steg 1: avkastningen før skatt.</b> (Utbytte + kursgevinst)/kjøpsverdi.</p><p><b>Steg 2: '
+             'formuesskatten.</b> Satsen ganger formuesverdien ved begynnelsen. Med aksjerabatt teller bare 80 % av '
+             'verdien.</p><p><b>Steg 3: trekk fra.</b> Formuesskatten som andel av kjøpsverdien trekkes fra '
+             'avkastningen.</p><p><b>Pass på:</b> skatten trekkes fra én gang og regnes av inngående verdi.</p>',
+ 'avk-verd1': '<p><b>Steg 1: les forutsetningen.</b> Rammer formuesskatten også alternativet i samme '
+              'risikoklasse?</p><p><b>Steg 2: sett opp betingelsen.</b> (CF − τ<sub>w</sub>V)/V = kravet etter '
+              'formuesskatt. Rammes alternativet, er kravet r − τ<sub>w</sub>. Rammes det ikke, er kravet fortsatt '
+              'r.</p><p><b>Steg 3: løs for V.</b></p><p><b>Pass på den halve justeringen:</b> skatten trukket fra '
+              'strømmen, men kravet før skatt beholdt.</p>',
+ 'avk-kum1': '<p><b>Steg 1: vekst per år.</b> Uten skatt 1 + r. Med skatt på inngående formue 1 + r − '
+             'τ<sub>w</sub>.</p><p><b>Steg 2: forholdet etter n år.</b> [(1 + r − τ<sub>w</sub>)/(1 + '
+             'r)]<sup>n</sup>.</p><p><b>Steg 3: reduksjonen.</b> 1 minus forholdet.</p><p><b>Pass på:</b> ikke legg '
+             'satsen sammen lineært over årene. Ikke forveksle med den ekvivalente avkastningsskatten for ett '
+             'år.</p>'}
+
+HJ_VAR = {'avk-utb1': {'D': '<p><b>Steg 1: formuesskatten.</b> Satsen ganger formuesverdien, ikke '
+                   'markedsverdien.</p><p><b>Steg 2: finn eierskatten t<sub>e</sub>.</b></p><p><b>Steg 3: '
+                   'bruttoregn.</b> D = formuesskatt/(1 − t<sub>e</sub>).</p><p><b>Kontroll:</b> D minus skatten på '
+                   'D skal gi formuesskatten.</p><p><b>Pass på:</b> del på (1 − t<sub>e</sub>), ikke gang med (1 + '
+                   't<sub>e</sub>).</p>',
+              'skatt': '<p><b>Steg 1: formuesskatten.</b> Satsen ganger formuesverdien, ikke '
+                       'markedsverdien.</p><p><b>Steg 2: bruttoregn utbyttet.</b> D = formuesskatt/(1 − '
+                       't<sub>e</sub>).</p><p><b>Steg 3: skatten på utbyttet.</b> D × t<sub>e</sub>, som er det '
+                       'samme som D minus formuesskatten.</p><p><b>Pass på:</b> skatten regnes av utbyttet, ikke av '
+                       'formuesskatten.</p>'}}
+
+HJELP = {'avk-s01': '<p>Bruk alternativkostnaden. Avkastningskravet er avkastningen etter skatt på beste alternativ i samme risikoklasse.</p><p><b>Steg 1:</b> hvilke eiendeler hos en norsk investor treffes av formuesskatten?</p><p><b>Steg 2:</b> hva skjer da med avkastningen etter skatt på alternativet hun sammenligner med?</p><p><b>Steg 3:</b> hva betyr det for kravet hun stiller til investeringen? Test hvert alternativ: følger det av denne mekanismen?</p>',
+ 'avk-s02': '<p><b>Sett provenyene like:</b> formuesskatten τ<sub>w</sub>W mot avkastningsskatten t × rW. Løs for '
+            't.</p><p><b>Sjekk tidspunktet:</b> inngående og utgående formue gir ulike formler.</p><p><b>Stryk</b> '
+            'formler som er snudd eller bruker avkastningen etter formuesskatt.</p>',
+ 'avk-s03': '<p><b>Skriv provenyet på begge sider.</b> Formuesskatten tar τ<sub>w</sub> ganger formuen ved slutten, '
+            'W(1 + r). Avkastningsskatten tar t × rW.</p><p><b>Løs for τ<sub>w</sub></b> og se hvor (1 + r) havner. '
+            'Står det i telleren eller nevneren?</p>',
+ 'avk-s04': '<p><b>Venstre side</b> er avkastningen på investeringen etter formuesskatt, (CF − τ<sub>w</sub>V)/V. '
+            '<b>Høyre side</b> er alternativkostnaden etter formuesskatt.</p><p><b>Spør:</b> hva blir kravet når '
+            'skatten treffer alt investoren eier?</p><p><b>Tell justeringene:</b> skatt trukket fra telleren krever '
+            'skatt trukket fra kravet.</p>',
+ 'avk-s05': '<p><b>Sett opp betingelsen:</b> det som er igjen av utbyttet etter skatt, skal være lik formuesskatten. '
+            'Det som er igjen av D, er D × (1 − t<sub>e</sub>).</p><p><b>Løs for D</b> og test hvert alternativ: gir '
+            'det nok etter skatt?</p>',
+ 'avk-s06': '<p><b>Formuesskatten er et fast beløp</b> av formuen. Avkastningen varierer.</p><p><b>Spør:</b> hvor '
+            'stor andel av avkastningen tar et fast beløp når avkastningen er lav? Når den er høy?</p><p><b>Husk</b> '
+            'at formuen stryker seg i likningen.</p>',
+ 'avk-s07': '<p><b>Bruk t = τ<sub>w</sub>/r</b> og la r gå mot null. Hva skjer med brøken?</p><p><b>Spør også:</b> '
+            'kan en skatt på null avkastning noen gang gi et positivt proveny?</p>',
+ 'avk-s08': '<p><b>Steg 1:</b> regn formuesskatten i kroner for hver person: satsen ganger formuen ved årets '
+            'begynnelse.</p><p><b>Steg 2:</b> del på hver persons avkastning.</p><p><b>Sammenlign</b> med det en '
+            'avkastningsskatt ville tatt.</p>',
+ 'avk-s09': '<p>En skatt vrir når folk kan endre atferd for å betale mindre.</p><p><b>Steg 1:</b> hva må en person vite på forhånd for å tilpasse seg en skatt?</p><p><b>Steg 2:</b> kan grunnlaget for en uventet engangsskatt påvirkes etter at skatten er kjent?</p><p><b>Steg 3:</b> sammenlign med en årlig skatt, der folk vet at den kommer igjen neste år. Test hver forklaring mot dette.</p>',
+ 'avk-s10': '<p><b>Spør:</b> hvor mange ganger treffer en årlig formuesskatt den samme '
+            'kronen?</p><p><b>Sammenlign</b> med en inntektsskatt, som treffer kronen én gang.</p><p><b>Stryk</b> '
+            'alternativer om satsendringer og bunnfradrag.</p>',
+ 'avk-s11': '<p><b>Skill de to artiklene.</b> Adam og Miller er skeptiske, men gjengir argumenter for skatten. '
+            'Magma-artikkelen forsvarer den med empiri.</p><p><b>Finn</b> det prinsipielle argumentet for og stryk '
+            'det som egentlig er argumenter mot eller hører til den andre artikkelen.</p>',
+ 'avk-s12': '<p><b>Magma-artikkelen forsvarer skatten.</b> Hva kritiserer den likevel: satsen, virkningene eller '
+            'hvordan formuen måles?</p><p><b>Stryk</b> innvendinger som hører til Adam og Miller og påstander '
+            'artikkelen avviser.</p>',
+ 'avk-s13': '<p><b>Start med hovedresultatet:</b> rammes investeringen og alternativet likt, stryker skatten '
+            'seg.</p><p><b>Her verdsettes de ulikt.</b> Hvilken gir minst formuesskatt per krone '
+            'markedsverdi?</p><p><b>Spør:</b> faller kravet mer eller mindre enn kontantstrømmen etter skatt? Hva '
+            'betyr det for verdien?</p>',
+ 'avk-s14': '<p><b>Tenk på hele kjeden</b> for den som eier et selskap: skatten i selskapet, skatten på utbyttet og '
+            'formuesskatten.</p><p><b>Spør:</b> hvilke ledd blir lave for unoterte selskaper?</p><p><b>Stryk</b> '
+            'forklaringer om satser som ikke finnes eller om ulovlig unndragelse.</p>',
+ 'avk-s15': '<p><b>Dette er et faktum fra Magma-artikkelen.</b> Det er tre land.</p><p><b>Husk</b> at de nordiske '
+            'nabolandene har avskaffet sine formuesskatter.</p>',
+ 'avk-s16': '<p><b>Finn fratrekket</b> i prosentpoeng og del det på avkastningen før formuesskatt.</p><p><b>Pass '
+            'på:</b> ikke del på avkastningen etter skatt. Ikke forveksle satsen på formuen med satsen på '
+            'avkastningen.</p>',
+ 'avk-s17': '<p><b>Bruk betingelsen</b> (CF − τ<sub>w</sub>V)/V = kravet etter skatt.</p><p><b>Spør:</b> hva skjer '
+            'med kravet når skatten treffer alt investoren eier?</p><p><b>Stryk</b> påstander om at utlendinger '
+            'betaler norsk formuesskatt.</p>',
+ 'avk-s18': '<p><b>Ulike avkastninger gir ulike ekvivalente satser.</b> Hvem betaler størst andel av avkastningen: '
+            'den med lav eller høy avkastning?</p><p><b>Spør:</b> hva gjør det med hvem som vil eie kapitalen over '
+            'tid?</p><p><b>Stryk</b> alternativer som sier at ekvivalensen holder for alle.</p>',
+ 'avk-s19': '<p><b>Bruttoregn.</b> Utbyttet per krone formuesverdi er formuesskatten delt på (1 − '
+            't<sub>e</sub>).</p><p><b>Kontroll:</b> det som er igjen etter skatt, skal dekke '
+            'formuesskatten.</p><p><b>Stryk</b> tall der skatten er lagt oppå og tall som bare er '
+            'formuesskatten.</p>',
+ 'avk-s20': '<p>Skill markedsverdi fra formuesverdi. Avkastningen r er målt mot markedsverdien. Formuesskatten regnes av formuesverdien, som er markedsverdien etter rabatt.</p><p><b>Steg 1:</b> skriv formuesverdien som andel av markedsverdien.</p><p><b>Steg 2:</b> regn formuesskatten i kroner og del på markedsverdien.</p><p><b>Steg 3:</b> trekk dette fra r. Kontroll: med null rabatt skal du få r minus full formuesskattesats.</p>',
+ 'avk-s21': '<p><b>Sammenlign likningene</b> for de to tidspunktene. I hvilken står r bare ett '
+            'sted?</p><p><b>Spør:</b> hva inneholder grunnlaget ved periodens slutt?</p><p><b>Stryk</b> forklaringer '
+            'om hva loven gjør og om når avkastningen skattlegges.</p>',
+ 'avk-s22': '<p>Tenk på trekanten for dødvektstapet. Både høyden og bredden vokser med satsen.</p><p><b>Steg 1:</b> hva skjer da med tapet når satsen dobles?</p><p><b>Steg 2:</b> hva skjer med tapet per krone i proveny når satsen øker?</p><p><b>Steg 3:</b> gitt det, er det best å hente et proveny fra ett grunnlag eller fra flere? Test hvert alternativ mot dette.</p>'}
+
+
 # ---------------------------------------------------------------------------
 # avk-ekv1 · Hvilken avkastningsskatt tilsvarer formuesskatten? t = τ/r
 # ---------------------------------------------------------------------------
-@familie("avk-ekv1", tema=TEMA, antall=6, tittel="Ekvivalent avkastningsskatt, t = τ/r")
+@familie("avk-ekv1", tema=TEMA, hjelp=nb(HJ_FAM["avk-ekv1"]), antall=6, tittel="Ekvivalent avkastningsskatt, t = τ/r")
 def _(r):
     navn = r.choice(NAVN)
     tau = r.choice([1.0, 1.0, 1.1])
@@ -166,7 +268,7 @@ def _(r):
 # ---------------------------------------------------------------------------
 # avk-ekv2 · Baklengs: hvilken formuesskattesats tilsvarer en avkastningsskatt?
 # ---------------------------------------------------------------------------
-@familie("avk-ekv2", tema=TEMA, antall=5, tittel="Formuesskattesatsen som tilsvarer en avkastningsskatt")
+@familie("avk-ekv2", tema=TEMA, hjelp=nb(HJ_FAM["avk-ekv2"]), antall=5, tittel="Formuesskattesatsen som tilsvarer en avkastningsskatt")
 def _(r):
     slutt = tur("avk-ekv2", [True, False, True, False, True])
     rr = r.choice([2.0, 3.0, 4.0, 5.0, 6.0])
@@ -244,7 +346,7 @@ def _(r):
 # ---------------------------------------------------------------------------
 # avk-avk1 · Avkastning etter formuesskatt, med og uten rabatt
 # ---------------------------------------------------------------------------
-@familie("avk-avk1", tema=TEMA, antall=5, tittel="Avkastning etter formuesskatt")
+@familie("avk-avk1", tema=TEMA, hjelp=nb(HJ_FAM["avk-avk1"]), antall=5, tittel="Avkastning etter formuesskatt")
 def _(r):
     navn = r.choice(NAVN)
     W = r.choice([50, 100, 200, 250, 400]) * 1_000_000
@@ -311,7 +413,7 @@ def _(r):
 # ---------------------------------------------------------------------------
 # avk-verd1 · Evig kontantstrøm: rammes alternativet eller ikke?
 # ---------------------------------------------------------------------------
-@familie("avk-verd1", tema=TEMA, antall=6, tittel="Verdien av en evig kontantstrøm under formuesskatt")
+@familie("avk-verd1", tema=TEMA, hjelp=nb(HJ_FAM["avk-verd1"]), antall=6, tittel="Verdien av en evig kontantstrøm under formuesskatt")
 def _(r):
     navn = r.choice(NAVN)
     rammes = tur("avk-verd1", [True, False, True, True, False, True])
@@ -472,13 +574,13 @@ def _(r):
         "<p><b>Husk:</b> D = τ<sub>w</sub>W/(1 − t<sub>e</sub>). Del på (1 − t<sub>e</sub>), ikke gang med "
         "(1 + t<sub>e</sub>).</p>"
     )
-    return ferdig("avk-utb1", sp(q, alternativer, kort, full))
+    return ferdig("avk-utb1", sp(q, alternativer, kort, full, hjelp=HJ_VAR["avk-utb1"][spm]))
 
 
 # ---------------------------------------------------------------------------
 # avk-kum1 · Kumulasjonen: hva årlig formuesskatt gjør med sluttverdien
 # ---------------------------------------------------------------------------
-@familie("avk-kum1", tema=TEMA, antall=5, tittel="Formuesskatt over mange år")
+@familie("avk-kum1", tema=TEMA, hjelp=nb(HJ_FAM["avk-kum1"]), antall=5, tittel="Formuesskatt over mange år")
 def _(r):
     navn = r.choice(NAVN)
     rr = r.choice([4.0, 5.0, 6.0, 7.0])

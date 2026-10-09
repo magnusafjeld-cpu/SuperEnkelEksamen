@@ -121,6 +121,162 @@ MERTON = f"w* = (μ − {RF})/(γ{SIGMA2})"
 
 
 # ===========================================================================
+# HJELP: fremgangsmåten uten tall, vist bak «Hjelp»-knappen før du svarer
+# ===========================================================================
+_H_PREMIE_DIR = ("<p><b>Steg 1: telleren.</b> Telleren er risikopremien μ − r<sub>f</sub>. Er meravkastningen over "
+                 "risikofri rente oppgitt direkte, er renten alt trukket fra. Er forventet avkastning oppgitt, trekker "
+                 "du fra risikofri rente selv.</p>")
+HJELP = {
+    "prt-mer1": {
+        "sigma": _H_PREMIE_DIR +
+        "<p><b>Steg 2: nevneren.</b> Kvadrer standardavviket til varians. Gang med risikoaversjonen γ.</p>"
+        "<p><b>Steg 3: del.</b> w* = (μ − r<sub>f</sub>)/(γσ<sup>2</sup>) er andelen av totalformuen i aksjer.</p>"
+        "<p><b>Pass på:</b> formelen har varians, ikke standardavvik. Glemmer du å kvadrere, blir andelen altfor "
+        "lav. Sett svaret inn igjen som kontroll.</p>",
+        "varians": _H_PREMIE_DIR +
+        "<p><b>Steg 2: nevneren.</b> Variansen er oppgitt direkte. Bruk den som den er og gang med risikoaversjonen "
+        "γ.</p>"
+        "<p><b>Steg 3: del.</b> w* = (μ − r<sub>f</sub>)/(γσ<sup>2</sup>) er andelen av totalformuen i aksjer.</p>"
+        "<p><b>Pass på:</b> ikke kvadrer variansen en gang til. Ikke ta roten av den heller. Les nøye om tallet er "
+        "varians eller standardavvik.</p>",
+    },
+    "prt-mer2": {
+        "sigma": "<p><b>Steg 1: snu formelen.</b> Fra w* = (μ − r<sub>f</sub>)/(γσ<sup>2</sup>) får du "
+                 "γ = (μ − r<sub>f</sub>)/(w* × σ<sup>2</sup>).</p>"
+                 "<p><b>Steg 2: telleren.</b> Risikopremien er forventet avkastning minus risikofri rente.</p>"
+                 "<p><b>Steg 3: nevneren.</b> Kvadrer standardavviket og gang med aksjeandelen skrevet som desimaltall.</p>"
+                 "<p><b>Pass på:</b> snur du brøken, får du 1/γ. Sjekk ved å sette γ tilbake i formelen: da skal "
+                 "aksjeandelen komme ut.</p>",
+        "varians": "<p><b>Steg 1: snu formelen.</b> Fra w* = (μ − r<sub>f</sub>)/(γσ<sup>2</sup>) får du "
+                   "γ = (μ − r<sub>f</sub>)/(w* × σ<sup>2</sup>).</p>"
+                   "<p><b>Steg 2: sett inn.</b> Meravkastningen er telleren. Variansen er oppgitt direkte og brukes som "
+                   "den er. Gang den med aksjeandelen skrevet som desimaltall.</p>"
+                   "<p><b>Pass på:</b> tre av de fire størrelsene er oppgitt, så den fjerde er alltid bestemt. "
+                   "Tidshorisonten står ikke i formelen. Sjekk ved å sette γ tilbake.</p>",
+    },
+    "prt-hk1": {
+        "andel": "<p><b>Steg 1: totalformuen.</b> Legg sammen finansformuen F og humankapitalen H.</p>"
+                 "<p><b>Steg 2: ønsket aksjebeløp.</b> Gang w* med totalformuen.</p>"
+                 "<p><b>Steg 3: hvor beløpet tas.</b> Trygg lønn betyr β<sub>H</sub> = 0. Humankapitalen er da et "
+                 "bankinnskudd og gir ingen aksjer. Hele beløpet må stå i finansformuen, så del det på F.</p>"
+                 "<p><b>Pass på:</b> w* gjelder totalformuen, ikke F. Over hundre prosent betyr lån. Det er lov når "
+                 "oppgaven sier at personen kan låne.</p>",
+        "belop": "<p><b>Steg 1: totalformuen.</b> Legg sammen finansformuen F og humankapitalen H.</p>"
+                 "<p><b>Steg 2: ønsket aksjebeløp.</b> Gang w* med totalformuen F + H.</p>"
+                 "<p><b>Steg 3: trekk fra det lønnen alt gir.</b> Med trygg lønn er β<sub>H</sub> = 0, så ingenting "
+                 "trekkes fra.</p>"
+                 "<p><b>Pass på:</b> w* skal ganges med totalformuen, ikke bare med finansformuen. Humankapitalen er en "
+                 "trygg post du alt eier, så den øker aksjebeløpet i finansformuen.</p>",
+    },
+    "prt-hk2": "<p><b>Steg 1: ønsket eksponering.</b> Gang w* med totalformuen F + H.</p>"
+               "<p><b>Steg 2: det lønnen alt gir.</b> Humankapitalen oppfører seg delvis som aksjer. Aksjedelen er "
+               "β<sub>H</sub> × H.</p>"
+               "<p><b>Steg 3: resten i finansformuen.</b> Trekk aksjedelen av humankapitalen fra ønsket eksponering og "
+               "del på finansformuen F.</p>"
+               "<p><b>Pass på:</b> betaen ganges med H og trekkes fra. Den skal ikke inn i totalformuen. Del på F, ikke "
+               "på F + H. Kontroll: aksjer i F pluss β<sub>H</sub> × H skal gi w* av totalformuen.</p>",
+    "prt-liv1": "<p><b>Steg 1: bruk tallene for den alderen spørsmålet gjelder.</b> w* er den samme hele livet. Det er "
+                "balansen som endres.</p>"
+                "<p><b>Steg 2: ønsket aksjebeløp.</b> Gang w* med dagens totalformue, finansformue pluss "
+                "humankapital.</p>"
+                "<p><b>Steg 3: andelen.</b> Humankapitalen er trygg, så hele beløpet står i finansformuen. Del på "
+                "dagens finansformue.</p>"
+                "<p><b>Pass på:</b> ikke hold kronebeløpet fra den yngre alderen fast. Andelen faller fordi "
+                "humankapitalen krymper, ikke fordi aksjer blir tryggere over tid.</p>",
+    "prt-var1": "<p><b>Steg 1: kvadratleddene.</b> Kvadrer hver vekt og hvert standardavvik: s<sup>2</sup>σ<sub>1</sub>"
+                "<sup>2</sup> og (1 − s)<sup>2</sup>σ<sub>2</sub><sup>2</sup>.</p>"
+                "<p><b>Steg 2: krysleddet.</b> 2s(1 − s)ρσ<sub>1</sub>σ<sub>2</sub>. Behold fortegnet på ρ.</p>"
+                "<p><b>Steg 3: variansen og roten.</b> Summen er variansen. Ta kvadratroten for å få "
+                "standardavviket.</p>"
+                "<p><b>Pass på:</b> krysleddet har begge standardavvikene, ikke ρ alene. Svaret skal ligge under det "
+                "vektede snittet av standardavvikene når ρ er under én.</p>",
+    "prt-minv1": {
+        "rho1a": "<p><b>Hva korrelasjonen gjør.</b> Ved perfekt positiv korrelasjon blir standardavviket et rent "
+                 "vektet snitt av de to standardavvikene. Det er en rett linje uten diversifiseringsgevinst.</p>"
+                 "<p><b>Steg 1:</b> skriv σ<sub>p</sub> som funksjon av andelen og se hvilken vei den faller.</p>"
+                 "<p><b>Steg 2:</b> uten shortsalg ligger minimum i et hjørne, aldri inni intervallet.</p>"
+                 "<p><b>Pass på:</b> minimum-varians-formelen med ρ lik null og null-risiko-andelen ved negativ "
+                 "korrelasjon gjelder ikke her.</p>",
+        "rhom1": "<p><b>Hva korrelasjonen gjør.</b> Ved perfekt negativ korrelasjon beveger aksjene seg alltid motsatt. "
+                 "Risikoen kan fjernes helt.</p>"
+                 "<p><b>Steg 1:</b> skriv σ<sub>p</sub> = |wσ<sub>A</sub> − (1 − w)σ<sub>B</sub>|.</p>"
+                 "<p><b>Steg 2:</b> sett uttrykket lik null og løs for w, andelen i A.</p>"
+                 "<p><b>Pass på:</b> halvparten i hver gir null risiko bare når standardavvikene er like. Aksjen med "
+                 "lavest standardavvik skal ha størst andel. Sjekk at bidragene blir like store.</p>",
+        "rho0": "<p><b>Steg 1: formelen.</b> Minimum varians gir andelen i A lik (σ<sub>B</sub><sup>2</sup> − ρσ<sub>A</sub>"
+                "σ<sub>B</sub>)/(σ<sub>A</sub><sup>2</sup> + σ<sub>B</sub><sup>2</sup> − 2ρσ<sub>A</sub>σ<sub>B</sub>).</p>"
+                "<p><b>Steg 2: ukorrelerte aksjer.</b> Når ρ er null, faller kovariansleddene bort. Bruk variansene.</p>"
+                "<p><b>Pass på:</b> standardavvik i brøken er svaret ved negativ korrelasjon. Telleren har variansen til "
+                "den andre aksjen, B. Kontroll: standardavviket i minimumspunktet skal være lavere enn i hver aksje "
+                "alene.</p>",
+    },
+    "prt-kml1": {
+        "E": "<p><b>Steg 1: Sharpe-forholdet.</b> (E(r<sub>M</sub>) − r<sub>f</sub>)/σ<sub>M</sub>, meravkastning per "
+             "enhet risiko.</p>"
+             "<p><b>Steg 2: les av linjen.</b> E(r<sub>p</sub>) = r<sub>f</sub> + Sharpe × σ<sub>p</sub>.</p>"
+             "<p><b>Pass på:</b> linjen starter i risikofri rente. Trekk fra r<sub>f</sub> i stigningstallet. Kontroll "
+             "med vektene: andelen i M er σ<sub>p</sub>/σ<sub>M</sub>, resten står i bank eller er lånt til "
+             "r<sub>f</sub>.</p>",
+        "sigma": "<p><b>Steg 1: andelen i M.</b> Hver krone i M gir markedspremien mer enn banken. Del ønsket "
+                 "meravkastning over r<sub>f</sub> på markedspremien.</p>"
+                 "<p><b>Steg 2: standardavviket.</b> Bankdelen har ingen risiko, så σ<sub>p</sub> = andelen i M × "
+                 "σ<sub>M</sub>.</p>"
+                 "<p><b>Pass på:</b> lån koster risikofri rente, så andelen er ikke ønsket avkastning delt på "
+                 "markedets avkastning. Standardavviket skaleres med andelen, variansen med andelen i annen.</p>",
+        "laan": "<p><b>Steg 1: andelen i M.</b> Standardavviket skaleres med andelen: w = σ<sub>p</sub>/σ<sub>M</sub>.</p>"
+                "<p><b>Steg 2: lånet.</b> Alt over hundre prosent av egenkapitalen er lånt: lånt andel = w − 1.</p>"
+                "<p><b>Pass på:</b> andelen i M er ikke det samme som lånet. Bruk standardavvik, ikke varians. "
+                "Kontroll: forventet avkastning med vektene skal stemme med kapitalmarkedslinjen.</p>",
+        "sharpe": "<p><b>Steg 1: meravkastningen.</b> Trekk risikofri rente fra markedets forventede avkastning.</p>"
+                  "<p><b>Steg 2: del på risikoen.</b> Del meravkastningen på markedets standardavvik.</p>"
+                  "<p><b>Pass på:</b> nevneren er standardavviket, ikke variansen. Telleren er meravkastningen, ikke "
+                  "hele avkastningen. Stigningstallet på linjen er det samme uansett hvor mye du girer.</p>",
+    },
+    "prt-ln1": "<p><b>Steg 1: bankens sluttverdi.</b> Innskudd × (1 + rente)<sup>T</sup>. Nytten er ln av den.</p>"
+               "<p><b>Steg 2: fondets forventede nytte.</b> Ta ln av hvert utfall først. Vekt så med "
+               "sannsynlighetene: p × ln W<sub>god</sub> + (1 − p) × ln W<sub>dårlig</sub>.</p>"
+               "<p><b>Steg 3: sammenlign nyttene.</b> Høyest forventet nytte vinner.</p>"
+               "<p><b>Pass på:</b> forventet sluttverdi i kroner er valget til en risikonøytral person. Bruk riktig "
+               "sannsynlighet på riktig utfall. Banken forrenter innskuddet, så bruk sluttverdien, ikke innskuddet.</p>",
+    "prt-ln2": "<p><b>Steg 1: bankens nytte.</b> Regn bankens sluttverdi og ta ln. Den avhenger ikke av "
+               "sannsynligheten.</p>"
+               "<p><b>Steg 2: nytten i fondets utfall.</b> ln av sluttverdien i gode og i dårlige tider.</p>"
+               "<p><b>Steg 3: indifferensen.</b> Sett p × ln W<sub>god</sub> + (1 − p) × ln W<sub>dårlig</sub> lik "
+               "ln W<sub>bank</sub> og løs for p.</p>"
+               "<p><b>Pass på:</b> p er sannsynligheten for gode tider. Bruk ln-verdiene, ikke kronene, ellers får du "
+               "terskelen til en risikonøytral person. Sjekk at en sannsynlighet litt over terskelen gir fondet.</p>",
+    "prt-ln3": "<p><b>Steg 1: referansepunktet.</b> Hvilke utfall ligger under innskuddet? Bare de er tap.</p>"
+               "<p><b>Steg 2: bankens nytte.</b> ln av bankens sluttverdi. Er den over innskuddet, får den vekt én.</p>"
+               "<p><b>Steg 3: fondets nytte.</b> ln av hvert utfall. Gang ln-verdien for tapsutfallet med "
+               "tapsvekten. Vekt så med sannsynlighetene.</p>"
+               "<p><b>Pass på:</b> vekten ganges, den deles ikke. Den legges bare på utfall under referansepunktet. "
+               "Tapsaversjon kan bare trekke valget mot det trygge alternativet.</p>",
+    "prt-tid1": {
+        "cagr": "<p><b>Steg 1: vekstfaktoren.</b> Del sluttverdien på startverdien.</p>"
+                "<p><b>Steg 2: den årlige faktoren.</b> Opphøy vekstfaktoren i én delt på antall år.</p>"
+                "<p><b>Steg 3: renten.</b> Trekk fra én.</p>"
+                "<p><b>Pass på:</b> samlet avkastning delt på antall år er enkel rente og blir for høyt. Bruk faktisk "
+                "antall år i roten. Kontroll: startverdi × (1 + r)<sup>T</sup> skal gi sluttverdien.</p>",
+        "fv": "<p><b>Steg 1: sluttverdifaktoren.</b> [(1 + r)<sup>T</sup> − 1]/r for innskudd ved utgangen av hvert "
+              "år.</p>"
+              "<p><b>Steg 2: sluttverdien.</b> Gang det årlige innskuddet med faktoren.</p>"
+              "<p><b>Pass på:</b> hvert innskudd forrentes bare fra det settes inn. Ikke forrent hele summen fra dag "
+              "én. Nåverdifaktoren [1 − (1 + r)<sup>−T</sup>]/r gir dagens verdi, ikke sluttverdien. Kontroll: "
+              "nåverdien forrentet i T år gir samme svar.</p>",
+        "gebyr": "<p><b>Steg 1: de to sluttverdiene.</b> Startbeløp × (1 + avkastning)<sup>T</sup> for hvert fond, "
+                 "med avkastningen etter gebyr.</p>"
+                 "<p><b>Steg 2: forholdet.</b> Del det aktive fondets sluttverdi på indeksfondets og trekk resultatet "
+                 "fra én.</p>"
+                 "<p><b>Pass på:</b> gebyret virker med renters rente, så du kan ikke bare gange det med antall år. "
+                 "Spørsmålet måler i prosent av indeksfondets sluttverdi, så indeksfondet står i nevneren. "
+                 "Startbeløpet påvirker ikke prosenten.</p>",
+    },
+}
+HJELP["prt-minv1"]["rho1b"] = HJELP["prt-minv1"]["rho1a"]
+HJELP["prt-mer1"]["premie"] = HJELP["prt-mer1"]["mu"] = HJELP["prt-mer1"]["sigma"]
+
+
+# ===========================================================================
 # prt-mer1 · Mertons aksjeandel forlengs
 # ===========================================================================
 @familie("prt-mer1", tema=T, antall=5, tittel="Mertons aksjeandel w*")
@@ -209,7 +365,7 @@ def _(r):
         f"tallet som det er.</p>"
     )
     brukt("prt-mer1", modus)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJELP["prt-mer1"][modus])
 
 
 # ===========================================================================
@@ -289,7 +445,7 @@ def _(r):
     )
     brukt("prt-mer2", modus)
     _MER2_BRUKT.add(gamma)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJELP["prt-mer2"][modus])
 
 
 # ===========================================================================
@@ -378,7 +534,7 @@ def _(r):
         f"finansformuen skal ha mer aksjer, ikke mindre.</p>"
     )
     brukt("prt-hk1", modus)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJELP["prt-hk1"][modus])
 
 
 # ===========================================================================
@@ -392,7 +548,7 @@ JOBBER_RISIKO = [("selger med provisjonslønn", "Provisjonen følger konjunkture
                  ("selvstendig næringsdrivende", "Overskuddet følger konjunkturene")]
 
 
-@familie("prt-hk2", tema=T, antall=5, tittel="Merton med risikabel humankapital")
+@familie("prt-hk2", tema=T, antall=5, tittel="Merton med risikabel humankapital", hjelp=HJELP["prt-hk2"])
 def _(r):
     navn, pron = r.choice(PERSONER)
     jobb, grunn = r.choice(JOBBER_RISIKO)
@@ -448,7 +604,7 @@ def _(r):
 # ===========================================================================
 # prt-liv1 · Livssyklusen: samme person ved to aldre
 # ===========================================================================
-@familie("prt-liv1", tema=T, antall=5, tittel="Aksjeandelen gjennom livet")
+@familie("prt-liv1", tema=T, antall=5, tittel="Aksjeandelen gjennom livet", hjelp=HJELP["prt-liv1"])
 def _(r):
     navn, pron = r.choice(PERSONER)
     a1 = r.choice([28, 30, 32, 35])
@@ -511,7 +667,7 @@ PAR = [("et globalt aksjefond", "et obligasjonsfond", "aksjefondet", "obligasjon
        ("en amerikansk teknologiaksje", "en norsk sparebankaksje", "teknologiaksjen", "bankaksjen")]
 
 
-@familie("prt-var1", tema=T, antall=5, tittel="Porteføljens standardavvik med to aktiva")
+@familie("prt-var1", tema=T, antall=5, tittel="Porteføljens standardavvik med to aktiva", hjelp=HJELP["prt-var1"])
 def _(r):
     navn, pron = r.choice(PERSONER)
     a1, a2, k1, k2 = r.choice(PAR)
@@ -693,7 +849,7 @@ def _(r):
         + steg + f"<p><b>Husk:</b> {husk}</p>"
     )
     brukt("prt-minv1", mod)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJELP["prt-minv1"][mod])
 
 
 # ===========================================================================
@@ -810,7 +966,7 @@ def _(r):
             f"<p><b>Husk:</b> meravkastning per risiko er {dk(premie)}/{dk(sm)}. Mer risiko enn M tar du ved å låne og "
             f"kjøpe mer M, aldri ved å kjøpe mer volatile enkeltaksjer.</p>")
     brukt("prt-kml1", modus)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJELP["prt-kml1"][modus])
 
 
 # ===========================================================================
@@ -854,7 +1010,7 @@ def _valg_par(u_bank, u_fond):
 # ===========================================================================
 # prt-ln1 · Bank eller fond med ln-nytte
 # ===========================================================================
-@familie("prt-ln1", tema=T, antall=5, tittel="Sparevalget med ln-nytte")
+@familie("prt-ln1", tema=T, antall=5, tittel="Sparevalget med ln-nytte", hjelp=HJELP["prt-ln1"])
 def _(r):
     navn, pron = r.choice(PERSONER)
     W0, T_, rb, Wb, Wg, Wd = _sparevalg(r)
@@ -910,7 +1066,7 @@ def _(r):
 # ===========================================================================
 # prt-ln2 · Subjektive sannsynligheter: terskelen der valget snur
 # ===========================================================================
-@familie("prt-ln2", tema=T, antall=5, tittel="Subjektiv sannsynlighet: hvor valget snur")
+@familie("prt-ln2", tema=T, antall=5, tittel="Subjektiv sannsynlighet: hvor valget snur", hjelp=HJELP["prt-ln2"])
 def _(r):
     navn, pron = r.choice(PERSONER)
     W0, T_, rb, Wb, Wg, Wd = _sparevalg(r)
@@ -959,7 +1115,7 @@ VEKTER = [(1 / 1.03, "1/1,03 = 0,970874"), (0.96, "0,96"), (0.95, "0,95"), (1 / 
           (0.97, "0,97")]
 
 
-@familie("prt-ln3", tema=T, antall=5, tittel="Tapsaversjon i sparevalget")
+@familie("prt-ln3", tema=T, antall=5, tittel="Tapsaversjon i sparevalget", hjelp=HJELP["prt-ln3"])
 def _(r):
     navn, pron = r.choice(PERSONER)
     W0, T_, rb, Wb, Wg, Wd = _sparevalg(r)
@@ -1113,14 +1269,113 @@ def _(r):
     alternativer = plukk(r, riktig, kand)
     full = steg + f"<p><b>Husk:</b> {husk}</p>"
     brukt("prt-tid1", modus)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJELP["prt-tid1"][modus])
 
 
 # ===========================================================================
 # STATISKE SPØRSMÅL
 # ===========================================================================
+
+def P(*avsnitt):
+    return "".join(f"<p>{a}</p>" for a in avsnitt)
+
+_VALUTA = P("<b>Regelen:</b> vurder et aktivum etter hvordan det samvarierer med resten av formuen, lønnen inkludert.",
+            "<b>Steg 1:</b> når er lønnen høy, med sterk eller med svak krone?",
+            "<b>Steg 2:</b> når er det usikrede fondet verdt mest i kroner? En svak krone gjør utenlandske aksjer verdt "
+            "flere kroner.",
+            "<b>Steg 3:</b> trekker lønn og fond i samme eller motsatt retning? Motsatt retning demper svingningene i "
+            "summen. Samme retning forsterker dem. Valutasikring fjerner fondets valutadel.")
+
+HS = {
+    "prt-s01": P("<b>Tenk på hva et indeksfond er.</b> Det eier markedet i markedsverdivekter. Hva må avkastningen da "
+                 "bli før kostnader? Hva skjer etter kostnader?",
+                 "<b>Gå gjennom påstandene.</b> Stemmer hver av dem med det kurset sier om diversifisering, kostnader og "
+                 "informasjon? Den gale påstanden lover noe fondet ikke kan levere per konstruksjon."),
+    "prt-s02": P("<b>Vektene.</b> Et globalt indeksfond for utviklede markeder er vektet etter markedsverdi. Hvilket "
+                 "land har klart størst børsverdi?",
+                 "<b>Kina.</b> Regnes Kina som et utviklet eller et fremvoksende marked? Er det da med i indeksen?",
+                 "<b>Pass på:</b> valutaen fondet selges i, endrer ikke hva det eier."),
+    "prt-s03": _VALUTA,
+    "prt-s04": _VALUTA,
+    "prt-s05": '<p>Forbrukerrådet sammenlignet aktive fond med indeks i fire kategorier over tjue år.</p><p><b>Steg 1:</b> hva er kursets hovedmønster for aktive fond mot indeks etter kostnader?</p><p><b>Steg 2:</b> var resultatet likt i alle kategoriene, eller var det forskjell mellom markedene? Tenk på hvor norske forvaltere kan ha et fortrinn.</p><p><b>Steg 3:</b> sjekk hvert alternativ både på hovedmønsteret og på eventuelle unntak.</p>',
+    "prt-s06": '<p>Bruk kapitalmarkedslinjen.</p><p><b>Steg 1:</b> hvilken risikabel portefølje gir best avkastning per enhet risiko?</p><p><b>Steg 2:</b> alle punkter på linjen kombinerer den porteføljen med risikofri rente. Hvordan kommer du til et punkt med mer risiko enn markedsporteføljen?</p><p><b>Steg 3:</b> sammenlign med å ta mer risiko på andre måter. Får du betalt for selskapsspesifikk risiko?</p>',
+    "prt-s07": '<p>Skill systematisk og usystematisk risiko.</p><p><b>Steg 1:</b> hvilken del av risikoen i en enkeltaksje forsvinner i en bred portefølje?</p><p><b>Steg 2:</b> hvis en risiko kan fjernes uten kostnad, hvorfor skulle markedet betale en premie for å bære den?</p><p><b>Steg 3:</b> test hver forklaring: bygger den på hvordan markedet priser risiko?</p>',
+    "prt-s08": P("<b>Separasjonsteoremet deler valget i to.</b> Først: hvilken risikabel portefølje? Deretter: hvor stor "
+                 "del av formuen skal i den?",
+                 "<b>Den andre delen.</b> Bruk Mertons formel. Risikoaversjonen γ står i nevneren.",
+                 "<b>Sjekk retningen:</b> hvem av de to er mest risikoavers? Hvem skal da ha mest i bank?"),
+    "prt-s09": P("<b>Sjekk retningene.</b> Mer risikopremie skal gi mer aksjer. Mer risiko og mer risikoaversjon skal gi "
+                 "mindre. Står hver størrelse på riktig side av brøkstreken?",
+                 "<b>Sjekk risikomålet.</b> Formelen bruker variansen.",
+                 "<b>Sjekk nevneren i spørsmålet.</b> Det gjelder andelen av totalformuen, ikke av finansformuen."),
+    "prt-s10": P("<b>Skriv opp Mertons formel</b> og se hvor hver størrelse står. En størrelse i telleren løfter w* når "
+                 "den øker. En størrelse i nevneren senker den.",
+                 "<b>Risikopremien</b> er forventet aksjeavkastning minus risikofri rente. Hva skjer med den når bare "
+                 "renten endres?",
+                 "<b>Spør også:</b> står tidshorisonten i formelen i det hele tatt?"),
+    "prt-s11": P("<b>Merton gjelder totalformuen:</b> finansformue pluss humankapital.",
+                 "<b>Steg 1:</b> hva skjer med humankapitalen fra ung alder til rett før pensjon?",
+                 "<b>Steg 2:</b> når den trygge posten utenfor finansformuen krymper, hvor må det trygge da ligge?",
+                 "<b>Pass på:</b> noen alternativer har riktig konklusjon med galt argument. Kurset avviser at aksjer "
+                 "blir tryggere over tid."),
+    "prt-s12": P("<b>Skill to mål.</b> Standardavviket til gjennomsnittsavkastningen per år er ikke det samme som "
+                 "usikkerheten i det du sitter igjen med til slutt.",
+                 "<b>Spør:</b> hva skjer med hvert av dem når flere usikre år legges sammen?",
+                 "<b>Husk også</b> at Mertons formel ikke inneholder tid."),
+    "prt-s13": '<p>Vurder en plassering etter hvordan den samvarierer med resten av formuen, også humankapitalen.</p><p><b>Steg 1:</b> hva skjer med lønnen og jobbtryggheten når arbeidsgiveren får problemer?</p><p><b>Steg 2:</b> hva skjer med aksjekursen samtidig?</p><p><b>Steg 3:</b> øker eller minsker aksjene da den samlede risikoen din? Sjekk til slutt om hvert alternativ er en riktig påstand.</p>',
+    "prt-s14": P("<b>Bygg uttrykket i tre steg.</b> Ønsket eksponering er w* ganger totalformuen. Trekk fra "
+                 "aksjeeksponeringen humankapitalen alt gir, betaen ganger H. Del til slutt på den formuen spørsmålet "
+                 "ber om andelen av.",
+                 "<b>Kontroll:</b> sett betaen lik null. Da skal hele ønsket eksponering tas i finansformuen."),
+    "prt-s15": P("<b>Variansen til en vektet sum:</b> vekt i annen ganger varians for hvert ledd, pluss to ganger "
+                 "produktet av vektene ganger kovariansen.",
+                 "<b>Kovariansen</b> er korrelasjonen ganget med de to standardavvikene.",
+                 "<b>Kontroll:</b> med perfekt positiv korrelasjon skal uttrykket bli et fullt kvadrat."),
+    "prt-s16": P("<b>Vurder påstandene hver for seg.</b>",
+                 "<b>Forventningen:</b> er den lineær i vektene?",
+                 "<b>Standardavviket:</b> når er det et rent vektet snitt av standardavvikene? Hva er korrelasjonen "
+                 "her?"),
+    "prt-s17": P("<b>Steg 1:</b> ved perfekt negativ korrelasjon er porteføljens standardavvik absoluttverdien av "
+                 "differansen mellom de to vektede standardavvikene.",
+                 "<b>Steg 2:</b> sett uttrykket lik null og løs for andelen i A.",
+                 "<b>Kontroll:</b> gir halvparten i hver null når standardavvikene er ulike? Skill også mellom perfekt "
+                 "positiv og perfekt negativ korrelasjon."),
+    "prt-s18": P("<b>Skriv opp regnestykket.</b> Forventet nytte er en vektet sum av ln av hvert utfall.",
+                 "<b>Spør for hver størrelse:</b> avhenger den av sannsynligheten? Sluttverdiene bestemmes av markedet. "
+                 "Banken er sikker. Det er bare vektene som er sannsynligheter."),
+    "prt-s19": P("<b>Steg 1: referansepunktet.</b> Hvilke utfall ligger under innskuddet? Hvor ligger banken?",
+                 "<b>Steg 2: vekten.</b> Den ganges bare på nytten av utfall under referansepunktet.",
+                 "<b>Steg 3: retningen.</b> Hvilken vei kan en slik vekt flytte valget?",
+                 "<b>Stryk</b> påstander som endrer kronebeløp eller vekter gevinster."),
+    "prt-s20": '<p>Skill forventet sluttverdi fra forventet nytte.</p><p><b>Steg 1:</b> er ln-funksjonen konkav, lineær eller konveks?</p><p><b>Steg 2:</b> tegn kurven og marker et lavt og et høyt utfall. Faller nytten mer i det lave utfallet enn den stiger i det høye?</p><p><b>Steg 3:</b> hva betyr det for forventet nytte når sluttverdien er usikker? Sjekk hvert alternativ mot hvordan ln-nytte faktisk velger.</p>',
+    "prt-s21": P("<b>Tenk aritmetikk, ikke ferdigheter.</b> Hva er markedets avkastning før kostnader, målt som snittet "
+                 "av alle investorer?",
+                 "<b>Steg 2:</b> indeksfondene får det snittet. Hva må da de aktive få samlet før kostnader?",
+                 "<b>Steg 3:</b> trekk fra kostnadene."),
+    "prt-s22": '<p>Spør hvilke fond som er med i statistikken.</p><p><b>Steg 1:</b> hva skjer i praksis med et fond som taper mot indeks år etter år?</p><p><b>Steg 2:</b> hvis noen fond forsvinner fra tallene, hvilke er det trolig? Hvilken vei trekker det snittet?</p><p><b>Steg 3:</b> vurder hvert alternativ. Er det en mekanisme kurset nevner? Ville den fått historien til å se bedre ut enn den var?</p>',
+    "prt-s23": '<p>Aksjesparekontoen skiller mellom handel på kontoen og uttak fra den.</p><p><b>Steg 1:</b> utløser et salg på kontoen skatt, eller er det uttaket som teller?</p><p><b>Steg 2:</b> når du tar ut, hvilken del regnes først som tilbakebetaling av innskuddet?</p><p><b>Steg 3:</b> hvordan skattlegges den skattepliktige delen? Gjelder reglene for aksjeinntekt?</p>',
+    "prt-s24": P("<b>Linjen</b> er tegnet med standardavvik på den vannrette aksen og forventet avkastning på den "
+                 "loddrette.",
+                 "<b>Finn to punkter:</b> risikofri rente ved null risiko og markedsporteføljen.",
+                 "<b>Stigningstallet</b> er endring i forventet avkastning delt på endring i standardavvik."),
+    "prt-s25": P("<b>Tegn standardavviket som funksjon av andelen i aksje 1.</b> Det faller først og stiger så, med "
+                 "bunn i s*. Forventet avkastning stiger hele veien.",
+                 "<b>Ta en portefølje litt under s*.</b> Finnes det en på den andre siden med samme risiko? Hvilken av "
+                 "dem har høyest forventning?"),
+    "prt-s26": '<p>Betaen til humankapitalen måler hvordan arbeidsinntekten samvarierer med aksjemarkedet.</p><p><b>Steg 1:</b> skill mellom en inntekt som er usikker og en inntekt som følger børsen.</p><p><b>Steg 2:</b> spør for hver person: stiger og faller arbeidsinntekten når børsen stiger og faller?</p><p><b>Steg 3:</b> har personen humankapital i det hele tatt?</p>',
+    "prt-s27": '<p>Tenk på hva fondene betaler for. Et indeksfond kopierer en indeks. Et aktivt fond betaler analytikere og forvaltere.</p><p><b>Steg 1:</b> husk kursets nivåer for årlig honorar for hver type.</p><p><b>Steg 2:</b> er honoraret i alternativet en fast prosent per år eller en andel av avkastningen? Hvilken fondstype tar betalt slik?</p><p><b>Steg 3:</b> er indeksfond billig i absolutt forstand, eller bare billigere enn aktive fond?</p>',
+}
+
+HS["prt-s16"] += P("<b>Kontroll med et eget eksempel:</b> velg to standardavvik og en korrelasjon under én, regn porteføljens standardavvik og sammenlign med det vektede snittet. Stryk deretter.")
+HS["prt-s18"] += P("<b>Stryk</b> størrelser som bare er ln av et fast beløp.")
+HS["prt-s21"] += P("<b>Husk:</b> enkelte aktive kan slå markedet, men da må andre aktive tape tilsvarende.")
+HS["prt-s24"] += P("<b>Pass på:</b> husk at linjen starter i risikofri rente. Den vannrette aksen har standardavvik, ikke varians.")
+HS["prt-s26"] += P("<b>Stryk</b> personer med trygg, fast lønn. Usikker inntekt er ikke det samme som inntekt som følger markedet.")
+HS["prt-s27"] += P("<b>Husk:</b> forskjellen er rundt ett prosentpoeng i året.")
+
 statisk(
     "prt-s01", tema=T, type="paastand",
+    hjelp=HS["prt-s01"],
     q="<p>Hvilken av disse påstandene om brede indeksfond er <b>gal</b>?</p>",
     alternativer=[
         R("Et indeksfond gir normalt høyere avkastning enn det verdivektede snittet av aksjene det eier"),
@@ -1151,6 +1406,7 @@ statisk(
 
 statisk(
     "prt-s02", tema=T, type="fakta",
+    hjelp=HS["prt-s02"],
     q="<p>Du vurderer et globalt indeksfond for utviklede markeder, av typen norske banker og nettmeglere selger. "
       "Hvilken beskrivelse passer best på hva fondet eier?</p>",
     alternativer=[
@@ -1182,6 +1438,7 @@ statisk(
 
 statisk(
     "prt-s03", tema=T, type="begrep",
+    hjelp=HS["prt-s03"],
     q="<p>Ola jobber i oljeservice. Når oljeprisen er høy, er kronen sterk og lønnen hans høy. Når oljeprisen faller, "
       "svekkes kronen samtidig som bonusen forsvinner. Ola sparer i et globalt indeksfond i utenlandsk valuta. Fondet "
       "finnes med og uten valutasikring. Sikringen fjerner valutasvingningene, så han bare får aksjeavkastningen.</p>"
@@ -1218,6 +1475,7 @@ statisk(
 
 statisk(
     "prt-s04", tema=T, type="begrep",
+    hjelp=HS["prt-s04"],
     q="<p>Kari jobber i en eksportbedrift. Når kronen er svak, går salget godt og lønnen hennes er høy. Når kronen er "
       "sterk, faller bonusen. Hun sparer i et globalt indeksfond i utenlandsk valuta. Hun er risikoavers og bryr seg om "
       "summen av lønn og fondsverdi.</p><p>Hva tilsier kursets prinsipp om samvariasjon med resten av formuen?</p>",
@@ -1251,6 +1509,7 @@ statisk(
 
 statisk(
     "prt-s05", tema=T, type="fakta",
+    hjelp=HS["prt-s05"],
     q="<p>Forbrukerrådet sammenlignet aktive fond fra norske forvaltere med indeksfond over tjue år fram til 2018, i "
       "fire kategorier: globale, europeiske, nordiske og norske aksjer. Hva fant de?</p>",
     alternativer=[
@@ -1281,6 +1540,7 @@ statisk(
 
 statisk(
     "prt-s06", tema=T, type="begrep",
+    hjelp=HS["prt-s06"],
     q="<p>Petter har hele sparebeløpet i et globalt indeksfond, som vi kan behandle som markedsporteføljen. Han vil ha "
       "høyere forventet avkastning og godtar mer risiko. Han kan låne til risikofri rente. Hva sier teorien om optimale "
       "porteføljer at han bør gjøre?</p>",
@@ -1314,6 +1574,7 @@ statisk(
 
 statisk(
     "prt-s07", tema=T, type="begrep",
+    hjelp=HS["prt-s07"],
     q="<p>En enkeltaksje har standardavvik 45 %, mens et globalt indeksfond har 15 %. Ifølge kurset gir enkeltaksjen "
       "likevel ikke høyere forventet avkastning på grunn av den ekstra risikoen. Hvorfor?</p>",
     alternativer=[
@@ -1345,6 +1606,7 @@ statisk(
 
 statisk(
     "prt-s08", tema=T, type="begrep",
+    hjelp=HS["prt-s08"],
     q="<p>Anne har risikoaversjon γ = 2 og Bjørn γ = 6. Begge kan spare og låne til risikofri rente og følger teorien om "
       "optimale porteføljer. Hva er riktig om porteføljene deres?</p>",
     alternativer=[
@@ -1377,6 +1639,7 @@ statisk(
 
 statisk(
     "prt-s09", tema=T, type="formel",
+    hjelp=HS["prt-s09"],
     q="<p>μ er forventet avkastning på aksjemarkedet, r<sub>f</sub> risikofri rente, σ markedets standardavvik og γ "
       "risikoaversjonen. Hvilket uttrykk er Mertons optimale aksjeandel w* av <b>totalformuen</b>?</p>",
     alternativer=[
@@ -1408,6 +1671,7 @@ statisk(
 
 statisk(
     "prt-s10", tema=T, type="begrep",
+    hjelp=HS["prt-s10"],
     q="<p>Alt annet likt: hvilken av disse endringene gir høyere optimal aksjeandel w* etter Mertons formel?</p>",
     alternativer=[
         R("Markedets standardavvik faller fra 20 % til 16 %"),
@@ -1435,6 +1699,7 @@ statisk(
 
 statisk(
     "prt-s11", tema=T, type="begrep",
+    hjelp=HS["prt-s11"],
     q="<p>Lise er 62 år og har trygg jobb i staten. Siden hun var 35, har hun hatt nesten hele finansformuen i aksjer. "
       "Rådgiveren sier at hun bør trappe ned aksjeandelen av finansformuen nå. Risikoaversjonen hennes er den samme som "
       "før. Hvilken begrunnelse er i tråd med kurset?</p>",
@@ -1468,6 +1733,7 @@ statisk(
 
 statisk(
     "prt-s12", tema=T, type="paastand",
+    hjelp=HS["prt-s12"],
     q="<p>Hvilken påstand om aksjer og lang tidshorisont er riktig ifølge kurset?</p>",
     alternativer=[
         R("Standardavviket til sluttformuen vokser med antall år du eier aksjene"),
@@ -1496,6 +1762,7 @@ statisk(
 
 statisk(
     "prt-s13", tema=T, type="begrep",
+    hjelp=HS["prt-s13"],
     q="<p>Kurset fraråder å eie mye aksjer i selskapet du selv jobber i. Hva er hovedgrunnen?</p>",
     alternativer=[
         R("Jobben og aksjene kan rammes samtidig hvis det går dårlig for selskapet du jobber i"),
@@ -1527,6 +1794,7 @@ statisk(
 
 statisk(
     "prt-s14", tema=T, type="formel",
+    hjelp=HS["prt-s14"],
     q="<p>F er finansformuen, H humankapitalen, β<sub>H</sub> humankapitalens beta mot aksjemarkedet og w* Mertons andel "
       "av totalformuen. Hvilket uttrykk gir andelen av <b>finansformuen</b> som bør stå i aksjer?</p>",
     alternativer=[
@@ -1554,6 +1822,7 @@ statisk(
 
 statisk(
     "prt-s15", tema=T, type="formel",
+    hjelp=HS["prt-s15"],
     q="<p>To aktiva har standardavvik σ<sub>1</sub> og σ<sub>2</sub> og korrelasjon ρ. Andelen s ligger i aktivum 1, "
       "resten i aktivum 2. Hvilket uttrykk er porteføljens varians?</p>",
     alternativer=[
@@ -1587,6 +1856,7 @@ statisk(
 
 statisk(
     "prt-s16", tema=T, type="paastand", rekkefolge="fast",
+    hjelp=HS["prt-s16"],
     q="<p>To aksjer har korrelasjon ρ = 0,3. Du fordeler formuen mellom dem.</p>"
       "<p>I: Porteføljens forventede avkastning er det vektede snittet av aksjenes forventede avkastning.</p>"
       "<p>II: Porteføljens standardavvik er det vektede snittet av aksjenes standardavvik.</p>"
@@ -1616,6 +1886,7 @@ statisk(
 
 statisk(
     "prt-s17", tema=T, type="paastand",
+    hjelp=HS["prt-s17"],
     q="<p>To aksjer A og B har perfekt negativ korrelasjon, ρ = −1. Standardavvikene er σ<sub>A</sub> og σ<sub>B</sub>, "
       "som ikke er like store. Du kan ikke shortselge. Hvilken påstand er riktig?</p>",
     alternativer=[
@@ -1646,6 +1917,7 @@ statisk(
 
 statisk(
     "prt-s18", tema=T, type="begrep",
+    hjelp=HS["prt-s18"],
     q="<p>Jonas velger mellom bank og et aksjefond med to utfall, gode og dårlige tider. Han har ln-nytte av "
       "sluttverdien. Så blir han mer optimistisk: sannsynligheten han tror på for gode tider, øker fra 40 % til 55 %. "
       "Hvilken størrelse endres?</p>",
@@ -1677,6 +1949,7 @@ statisk(
 
 statisk(
     "prt-s19", tema=T, type="tolkning",
+    hjelp=HS["prt-s19"],
     q="<p>Mia velger mellom bank og et aksjefond med ln-nytte. Banken gir sikkert mer enn innskuddet. Fondet gir enten "
       "mer eller mindre enn innskuddet. Mia blir tapsavers med innskuddet som referansepunkt: nytten av utfall under "
       "referansepunktet ganges med en vekt under 1. Hvilken påstand er riktig?</p>",
@@ -1707,6 +1980,7 @@ statisk(
 
 statisk(
     "prt-s20", tema=T, type="begrep",
+    hjelp=HS["prt-s20"],
     q="<p>Et aksjefond har høyere forventet sluttverdi enn banken. Likevel velger en person med U(W) = ln W banken. Hva "
       "forklarer det?</p>",
     alternativer=[
@@ -1739,6 +2013,7 @@ statisk(
 
 statisk(
     "prt-s21", tema=T, type="begrep",
+    hjelp=HS["prt-s21"],
     q="<p>Hvorfor kan ikke aktive forvaltere <b>som gruppe</b> slå markedet etter kostnader?</p>",
     alternativer=[
         R("Markedet er snittet av alle før kostnader, så snittet etter kostnader må ligge under"),
@@ -1766,6 +2041,7 @@ statisk(
 
 statisk(
     "prt-s22", tema=T, type="begrep",
+    hjelp=HS["prt-s22"],
     q="<p>Historisk statistikk over aktive fond får dem ofte til å se bedre ut enn de har vært for sparerne. Hvilken "
       "mekanisme peker kurset på?</p>",
     alternativer=[
@@ -1797,6 +2073,7 @@ statisk(
 
 statisk(
     "prt-s23", tema=T, type="fakta",
+    hjelp=HS["prt-s23"],
     q="<p>Sara selger en aksje med gevinst inne på aksjesparekontoen sin. Hun kjøper et aksjefond for pengene på samme "
       "konto og tar ikke ut noe. Hva skjer med skatten på gevinsten?</p>",
     alternativer=[
@@ -1827,6 +2104,7 @@ statisk(
 
 statisk(
     "prt-s24", tema=T, type="formel",
+    hjelp=HS["prt-s24"],
     q="<p>E(r<sub>M</sub>) er markedsporteføljens forventede avkastning, σ<sub>M</sub> dens standardavvik og "
       "r<sub>f</sub> risikofri rente. Hvilket uttrykk er stigningstallet til kapitalmarkedslinjen?</p>",
     alternativer=[
@@ -1856,6 +2134,7 @@ statisk(
 
 statisk(
     "prt-s25", tema=T, type="begrep",
+    hjelp=HS["prt-s25"],
     q="<p>To aksjer har korrelasjon under 1. Aksje 1 har høyest forventet avkastning. s* er andelen i aksje 1 i "
       "minimum-varians-porteføljen. Hvorfor bør ingen investor ha mindre enn s* i aksje 1?</p>",
     alternativer=[
@@ -1884,6 +2163,7 @@ statisk(
 
 statisk(
     "prt-s26", tema=T, type="begrep",
+    hjelp=HS["prt-s26"],
     q="<p>Hvilken arbeidstaker har humankapital med beta β<sub>H</sub> nær 1 mot aksjemarkedet?</p>",
     alternativer=[
         R("En aksjemegler med bonus som stiger og faller med aksjemarkedet"),
@@ -1911,6 +2191,7 @@ statisk(
 
 statisk(
     "prt-s27", tema=T, type="fakta",
+    hjelp=HS["prt-s27"],
     q="<p>Omtrent hvor mye tar et bredt indeksfond og et typisk aktivt forvaltet aksjefond i årlig forvaltningshonorar, "
       "ifølge kurset?</p>",
     alternativer=[

@@ -19,8 +19,9 @@
    når modulen åpnes: manifest.lazy = { "/trening": ["fag/<fag>/trening.js"] }.
 
    Lagring (state.exams):
-     "tr:<id>"       { n, r, s, t }  forsøk, riktige, siste (1 rett, 0 feil, −1 stod over), tid
-     "trening:okt"   { ids, svar: { id: indeks | −1 }, temaer, modus, start, slutt }
+     "tr:<id>"       { n, r, s, t, h }  forsøk, riktige, siste (1 rett, 0 feil, −1 stod over),
+                     tid, og h = 1 når hjelpen var åpen sist
+     "trening:okt"   { ids, svar: { id: indeks | −1 }, hjelp: { id: true }, temaer, modus, start, slutt }
      "trening:valg"  { temaer, antall, modus }  det du valgte sist
    Én nøkkel per spørsmål, så sky-synken slår sammen to enheter per spørsmål.
    ============================================================================ */
@@ -71,7 +72,8 @@ window.EDU = window.EDU || {};
     lagreØkt(Object.assign({}, o, { svar, angre: { id: sp.id, logg: før ? Object.assign({}, før) : null } }));
     const g = før || { n: 0, r: 0 };
     const s = i === BLANK ? -1 : i === sp.answer ? 1 : 0;
-    S.store.setExam("tr:" + sp.id, { n: g.n + 1, r: g.r + (s === 1 ? 1 : 0), s, t: S.u.nowTs() });
+    const h = (o.hjelp || {})[sp.id] ? 1 : 0;
+    S.store.setExam("tr:" + sp.id, { n: g.n + 1, r: g.r + (s === 1 ? 1 : 0), s, t: S.u.nowTs(), h });
   }
   function angre(sp) {
     const o = økt();
@@ -89,11 +91,17 @@ window.EDU = window.EDU || {};
   function stokk(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
   /* Prioritet i «Nye først»: aldri sett, så bommet eller stått over sist, så
      resten. Lavest først. */
-  function prio(sp) { const g = logg(sp.id); return !g ? 0 : g.s !== 1 ? 1 : 2; }
+  /* Riktig med hjelp teller som ikke mestret ennå. */
+  function prio(sp) { const g = logg(sp.id); return !g ? 0 : (g.s !== 1 || g.h) ? 1 : 2; }
+  function åpneHjelp(sp) {
+    const o = økt();
+    if (!o || (o.hjelp || {})[sp.id]) return;
+    lagreØkt(Object.assign({}, o, { hjelp: Object.assign({}, o.hjelp, { [sp.id]: true }) }));
+  }
 
   function utvalg(temaIds, modus) {
     const valgte = new Set(temaIds);
-    return ALLE().filter((sp) => valgte.has(sp.tema) && (modus !== "feil" || ((logg(sp.id) || {}).s != null && logg(sp.id).s !== 1)));
+    return ALLE().filter((sp) => valgte.has(sp.tema) && (modus !== "feil" || ((logg(sp.id) || {}).s != null && (logg(sp.id).s !== 1 || logg(sp.id).h))));
   }
 
   /* Fordeler antallet på temaene etter eksamensvekt. Hvert valgt tema får
@@ -169,7 +177,7 @@ window.EDU = window.EDU || {};
     const totalt = ALLE().length;
     const sett = ALLE().filter((s) => logg(s.id)).length;
     wrap.appendChild(sh().pageHead("Eksamenstrening", `${totalt} spørsmål i eksamensformat`,
-      "Velg temaer og antall. Spørsmålene trekkes tilfeldig, og du får fasiten med en gang: først kort, så en full gjennomgang hvis du vil. 3 poeng for rett, −1 for feil og 0 for å stå over, som på eksamen."));
+      "Velg temaer og antall. Spørsmålene trekkes tilfeldig. Du får fasiten med en gang: først kort, så en full gjennomgang hvis du vil. 3 poeng for rett, −1 for feil og 0 for å stå over, som på eksamen."));
 
     const o = økt();
     if (o && !o.slutt && o.ids.length) {
@@ -302,9 +310,18 @@ window.EDU = window.EDU || {};
     });
     kortEl.appendChild(alt);
 
+    /* Hjelpen viser fremgangsmåten uten tallene, så du regner selv. Den står
+       åpen resten av runden når du først har bedt om den. */
+    const harHjelp = !!sp.hjelp;
+    const brukteHjelp = !!(o.hjelp || {})[sp.id];
+    if (harHjelp && brukteHjelp) kortEl.appendChild(el(".tr-hjelp",
+      el(".tr-hjelp-hode", "Slik løser du den"), prosa(sp.hjelp)));
+
     if (!åpen) {
       kortEl.appendChild(el(".row.wrap", { style: { marginTop: "6px", gap: "10px", alignItems: "center" } },
         el("button.btn.ghost.sm", { onclick: () => { registrer(sp, BLANK); S.app.refresh(); } }, "Stå over"),
+        harHjelp && !brukteHjelp ? el("button.btn.ghost.sm", { title: "Fremgangsmåten uten tallene. Spørsmålet regnes som ikke mestret ennå.",
+          onclick: () => { åpneHjelp(sp); S.app.refresh(); } }, "Hjelp") : null,
         el("span.tiny.muted", "0 poeng, men ingen minus. Riktig valg når du ikke kan utelukke minst ett alternativ.")));
     } else {
       kortEl.appendChild(fasit(sp, svar));
@@ -316,7 +333,7 @@ window.EDU = window.EDU || {};
       el("button.btn.ghost.sm", { onclick: () => { lagreØkt(Object.assign({}, o, { slutt: S.u.nowTs() })); S.app.refresh(); } }, "Avslutt"),
       åpen ? el("button.btn.primary", { onclick: () => neste(o, liste, pos) }, pos + 1 < liste.length ? "Neste →" : "Se resultatet →") : null));
     wrap.appendChild(kortEl);
-    wrap.appendChild(el("p.tiny.muted.tr-taster", "Tastatur: A–D svarer, S står over, F åpner gjennomgangen, Enter går videre."));
+    wrap.appendChild(el("p.tiny.muted.tr-taster", "Tastatur: A–D svarer, H gir hjelp, S står over, F åpner gjennomgangen, Enter går videre."));
     return wrap;
   }
 
@@ -438,6 +455,7 @@ window.EDU = window.EDU || {};
     let rett = 0, galt = 0, blank = 0, ubesvart = 0;
     liste.forEach((s) => { const v = o.svar[s.id]; if (v == null) ubesvart++; else if (v === BLANK) blank++; else if (v === s.answer) rett++; else galt++; });
     const besvart = liste.length - ubesvart;
+    const medHjelp = liste.filter((s) => (o.hjelp || {})[s.id] && o.svar[s.id] === s.answer).length;
     const poeng = rett * RETT + galt * FEIL;
     const maks = besvart * RETT;
     const pct = maks ? Math.max(0, Math.round(100 * poeng / maks)) : 0;
@@ -451,6 +469,7 @@ window.EDU = window.EDU || {};
         el("div", { style: { fontSize: "20px", fontWeight: 680 } }, `${rett} riktige · ${galt} feil · ${blank} stod over`),
         el("p.tiny.muted", { style: { margin: "6px 0 0", maxWidth: "440px" } },
           `Med +3/−1/0 ble det ${poeng} av ${maks} poeng (${pct} %). Uten minuspoeng hadde det vært ${rett * RETT}.`
+          + (medHjelp ? ` ${medHjelp} av de riktige var med hjelp. De kommer tilbake under «Nye først».` : "")
           + (galt && blank === 0 ? " Du stod aldri over. Svar bare når du kan utelukke minst ett alternativ." : "")))));
 
     /* Per tema, når runden spenner over flere. */
@@ -524,6 +543,7 @@ window.EDU = window.EDU || {};
       const i = "abcd".indexOf(k) > -1 ? "abcd".indexOf(k) : "1234".indexOf(k);
       if (!åpen && i > -1 && i < sp.options.length) { e.preventDefault(); registrer(sp, i); S.app.refresh(); return; }
       if (!åpen && k === "s") { e.preventDefault(); registrer(sp, BLANK); S.app.refresh(); return; }
+      if (!åpen && k === "h" && sp.hjelp) { e.preventDefault(); åpneHjelp(sp); S.app.refresh(); return; }
       if (åpen && k === "f") { e.preventDefault(); visFull = !visFull; S.app.refresh(); return; }
       if (åpen && (k === "enter" || k === "arrowright")) { e.preventDefault(); neste(o, liste, pos); return; }
       if (k === "arrowleft" && pos > 0) { e.preventDefault(); gåTil(o, pos - 1); }

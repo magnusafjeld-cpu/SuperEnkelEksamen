@@ -154,9 +154,84 @@ def _rund_premie(x):
 
 
 # ===========================================================================
+# HJELP: fremgangsmåten uten tall, vist bak «Hjelp»-knappen før du svarer
+# ===========================================================================
+HJELP = {
+    "fors-eu1": "<p><b>Steg 1: tilstandstabellen.</b> Skriv formuen uten skade og med skade, med og uten forsikring. "
+                "Med full dekning er formuen W − P i begge tilstander.</p>"
+                "<p><b>Steg 2: uten forsikring.</b> E[U] = (1 − p) × √W + p × √(W − L). Formuen etter tapet er null "
+                "bare hvis alt går tapt.</p>"
+                "<p><b>Steg 3: med forsikring.</b> √(W − P), uten sannsynligheter.</p>"
+                "<p><b>Steg 4: sammenlign nyttene.</b></p>"
+                "<p><b>Pass på:</b> at premien er høyere enn forventet skade, avgjør ingenting. Sett formuen etter "
+                "tapet inn i √, ikke selve tapet.</p>",
+    "fors-max1": "<p><b>Steg 1: forventet nytte uten forsikring.</b> (1 − p) × √W + p × √(W − L), med formuen etter "
+                 "tapet i den siste roten.</p>"
+                 "<p><b>Steg 2: sikkerhetsekvivalenten.</b> Kvadrer forventet nytte: CE = (E[U])<sup>2</sup>.</p>"
+                 "<p><b>Steg 3: maksimalpremien.</b> P<sub>maks</sub> = W − CE.</p>"
+                 "<p><b>Kontroll:</b> svaret skal være aktuarisk premie p × L pluss risikopremien E[W] − CE. Det "
+                 "ligger over forventet skade og under hele tapet.</p>"
+                 "<p><b>Pass på:</b> CE er ikke premien. Premien er W minus CE.</p>",
+    "fors-max2": "<p><b>Steg 1: nytten i hver tilstand.</b> ln W uten skade og ln(W − L) med skade.</p>"
+                 "<p><b>Steg 2: forventet nytte.</b> (1 − p) × ln W + p × ln(W − L). Regn med mange desimaler.</p>"
+                 "<p><b>Steg 3: sikkerhetsekvivalenten.</b> Med ln W snur du med eksponentialen: CE = e<sup>E[U]</sup>.</p>"
+                 "<p><b>Steg 4: maksimalpremien.</b> W − CE.</p>"
+                 "<p><b>Pass på:</b> ikke kvadrer som med √W. Kontroll: aktuarisk premie pluss risikopremien skal gi "
+                 "samme tall. ln W er mer risikoavers enn √W og betaler mer.</p>",
+    "fors-pkr1": {
+        "sqrt": "<p><b>Steg 1: høyresiden.</b> Med full dekning er nytten √(W − P), uavhengig av p.</p>"
+                "<p><b>Steg 2: nytten uten forsikring i hver tilstand.</b> √W uten skade og √(W − L) med skade.</p>"
+                "<p><b>Steg 3: løs for p.</b> (1 − p) × √W + p × √(W − L) = √(W − P) gir "
+                "p = [√W − √(W − P)]/[√W − √(W − L)].</p>"
+                "<p><b>Pass på:</b> formelen 1 − U(W − P)/U(W) gjelder bare når alt går tapt. Sett inn formuen etter "
+                "tapet, ikke tapet. En risikoavers kjøper ved lavere p enn premie delt på tap.</p>",
+        "ln": "<p><b>Steg 1: høyresiden.</b> Med full dekning er nytten ln(W − P), uavhengig av p.</p>"
+              "<p><b>Steg 2: nytten uten forsikring i hver tilstand.</b> ln W uten skade og ln(W − L) med skade.</p>"
+              "<p><b>Steg 3: løs for p.</b> p = [ln W − ln(W − P)]/[ln W − ln(W − L)]. Regn med mange desimaler, for "
+              "forskjellene er små.</p>"
+              "<p><b>Pass på:</b> bruk ln, ikke √. Sett inn formuen etter tapet, ikke tapet. En risikoavers kjøper "
+              "ved lavere p enn premie delt på tap.</p>",
+    },
+    "fors-del1": {
+        "eu": "<p><b>Steg 1: tilstandstabellen.</b> Uten skade: W − P. Med skade: W − L + utbetaling − P.</p>"
+              "<p><b>Steg 2: forventet nytte.</b> (1 − p) × √(W − P) + p × √(W − L + utbetaling − P).</p>"
+              "<p><b>Pass på:</b> premien betales også når skaden inntreffer. Utbetalingen alene er ikke formuen i "
+              "skadetilstanden. Nytten av forventet formue er ikke forventet nytte. Spørsmålet gjelder nytten med "
+              "polisen, ikke uten.</p>",
+        "kjop": "<p><b>Steg 1: tilstandstabellen.</b> Uten skade: W − P. Med skade: W − L + utbetaling − P.</p>"
+                "<p><b>Steg 2: med polisen.</b> (1 − p) × √(W − P) + p × √(W − L + utbetaling − P).</p>"
+                "<p><b>Steg 3: uten forsikring.</b> (1 − p) × √W + p × √(W − L).</p>"
+                "<p><b>Steg 4: sammenlign.</b></p>"
+                "<p><b>Pass på:</b> premien trekkes i begge tilstander. At premien er høyere enn forventet utbetaling, "
+                "avgjør ingenting. Konklusjonen fra full dekning kan ikke dras videre.</p>",
+    },
+    "fors-ce1": {
+        "ce": "<p><b>Steg 1: forventet nytte.</b> (1 − p) × √W + p × √(formuen etter tapet).</p>"
+              "<p><b>Steg 2: snu til kroner.</b> Med √W er sikkerhetsekvivalenten CE = (E[U])<sup>2</sup>.</p>"
+              "<p><b>Pass på:</b> CE er ikke forventet formue. Vekt med sannsynlighetene, ikke et rent snitt. "
+              "Formuen etter tapet er ikke null. Kontroll: CE ligger mellom det dårligste utfallet og forventet "
+              "formue.</p>",
+        "rp": "<p><b>Steg 1: forventet formue.</b> E[W] = (1 − p) × W + p × (W − L).</p>"
+              "<p><b>Steg 2: sikkerhetsekvivalenten.</b> Regn forventet nytte med √ og kvadrer.</p>"
+              "<p><b>Steg 3: risikopremien.</b> E[W] − CE.</p>"
+              "<p><b>Pass på:</b> forventet tap p × L er aktuarisk premie. W − CE er maksimalpremien. Ingen av dem er "
+              "risikopremien. For en risikoavers er risikopremien alltid positiv.</p>",
+    },
+    "fors-tre1": "<p><b>Steg 1: maksimalpremien med √W.</b> E[U] = (1 − p) × √W + p × √(W − L), CE = "
+                 "(E[U])<sup>2</sup> og P<sub>maks</sub> = W − CE.</p>"
+                 "<p><b>Steg 2: maksimalpremien med ln W.</b> E[U] = (1 − p) × ln W + p × ln(W − L), CE = "
+                 "e<sup>E[U]</sup> og P<sub>maks</sub> = W − CE.</p>"
+                 "<p><b>Steg 3: sammenlign hver grense med premien.</b> Den som har grense over premien, kjøper.</p>"
+                 "<p><b>Pass på:</b> ln W er mer risikoavers enn √W og har alltid høyest grense. Begge betaler gjerne "
+                 "mer enn forventet skade.</p>",
+}
+HJELP["fors-del1"]["kjop_ja"] = HJELP["fors-del1"]["kjop_nei"] = HJELP["fors-del1"]["kjop"]
+
+
+# ===========================================================================
 # fors-eu1 · Bør du kjøpe full dekning? (√W)
 # ===========================================================================
-@familie("fors-eu1", tema=T, antall=5, tittel="Kjøpe full dekning eller ikke")
+@familie("fors-eu1", tema=T, antall=5, tittel="Kjøpe full dekning eller ikke", hjelp=HJELP["fors-eu1"])
 def _(r):
     navn, pron = r.choice(PERSONER)
     ting = r.choice(EIENDEL)
@@ -229,7 +304,7 @@ def _(r):
 # ===========================================================================
 # fors-max1 · Maksimal premie med √W
 # ===========================================================================
-@familie("fors-max1", tema=T, antall=5, tittel="Maksimal premie med √W")
+@familie("fors-max1", tema=T, antall=5, tittel="Maksimal premie med √W", hjelp=HJELP["fors-max1"])
 def _(r):
     navn, pron = r.choice(PERSONER)
     ting = r.choice(EIENDEL)
@@ -290,7 +365,7 @@ def _(r):
 # ===========================================================================
 # fors-max2 · Maksimal premie med ln W
 # ===========================================================================
-@familie("fors-max2", tema=T, antall=5, tittel="Maksimal premie med ln W")
+@familie("fors-max2", tema=T, antall=5, tittel="Maksimal premie med ln W", hjelp=HJELP["fors-max2"])
 def _(r):
     navn, pron = r.choice(PERSONER)
     ting = r.choice(EIENDEL)
@@ -409,7 +484,7 @@ def _(r):
         f"gjelder bare når alt går tapt og U(0) = 0.</p>"
     )
     brukt("fors-pkr1", mod)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJELP["fors-pkr1"][mod])
 
 
 # ===========================================================================
@@ -512,7 +587,7 @@ def _(r):
         f"<p><b>Husk:</b> skriv tilstandstabellen først. Formuen i skadetilstanden er W − L + utbetaling − premie.</p>"
     )
     brukt("fors-del1", mod)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJELP["fors-del1"][mod])
 
 
 # ===========================================================================
@@ -574,7 +649,7 @@ def _(r):
         f"person.</p>"
     )
     brukt("fors-ce1", mod)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJELP["fors-ce1"][mod])
 
 
 # ===========================================================================
@@ -583,7 +658,7 @@ def _(r):
 PAR_NAVN = [("Kari", "Lise"), ("Ola", "Per"), ("Mona", "Sara"), ("Erik", "Lars"), ("Anna", "Eva")]
 
 
-@familie("fors-tre1", tema=T, antall=5, tittel="√W mot ln W: hvem kjøper?")
+@familie("fors-tre1", tema=T, antall=5, tittel="√W mot ln W: hvem kjøper?", hjelp=HJELP["fors-tre1"])
 def _(r):
     sq, ln_ = r.choice(PAR_NAVN)
     if r.random() < 0.5:
@@ -656,8 +731,121 @@ def _(r):
 # ===========================================================================
 # STATISKE SPØRSMÅL
 # ===========================================================================
+
+def P(*avsnitt):
+    return "".join(f"<p>{a}</p>" for a in avsnitt)
+
+_VALUTA = P("<b>Regelen:</b> vurder et aktivum etter hvordan det samvarierer med resten av formuen, lønnen inkludert.",
+            "<b>Steg 1:</b> når er lønnen høy, med sterk eller med svak krone?",
+            "<b>Steg 2:</b> når er det usikrede fondet verdt mest i kroner? En svak krone gjør utenlandske aksjer verdt "
+            "flere kroner.",
+            "<b>Steg 3:</b> trekker lønn og fond i samme eller motsatt retning? Motsatt retning demper svingningene i "
+            "summen. Samme retning forsterker dem. Valutasikring fjerner fondets valutadel.")
+
+HS = {
+    "fors-s01": P("<b>Spør for hver forsikring:</b> rammer skaden deg selv eller andre?",
+                  "<b>Regelen:</b> loven griper inn der en skadelidt tredjepart ellers kunne stått uten dekning.",
+                  "<b>Pass på:</b> skill lovplikt fra krav i en avtale, for eksempel med banken."),
+    "fors-s02": '<p>Spør hvem som bærer tapet i hvert tilfelle. Kasko dekker din egen bil. Ansvarsforsikringen dekker skade du påfører andre.</p><p><b>Steg 1:</b> hvem står uten dekning hvis bileieren mangler den ene eller den andre forsikringen?</p><p><b>Steg 2:</b> når har staten en prinsipiell grunn til å tvinge noen til å forsikre seg?</p><p><b>Steg 3:</b> test hvert alternativ: gir det en slik prinsipiell grunn?</p>',
+    "fors-s03": '<p>Skill lovplikt fra avtaleplikt. En lovplikt gjelder alle i en gruppe. En avtaleplikt følger av en kontrakt.</p><p><b>Steg 1:</b> finnes det en lov som pålegger alle boligeiere å forsikre?</p><p><b>Steg 2:</b> hva er boligen for banken når du har boliglån? Hva skjer med bankens sikkerhet om boligen brenner uforsikret?</p><p><b>Steg 3:</b> sjekk hva folketrygden og kommunen faktisk dekker og krever.</p>',
+    "fors-s04": P("<b>Steg 1: når oppstår problemet?</b> Skjult atferd etter at avtalen er inngått, eller skjult risiko "
+                  "før?",
+                  "<b>Steg 2: koble navnet til mekanismen.</b>",
+                  "<b>Steg 3: koble løsningen til mekanismen.</b> Hvilket tiltak gir kunden en grunn til å være "
+                  "forsiktig? Hvilket hindrer at de gode risikoene velger seg ut?"),
+    "fors-s05": P("<b>Steg 1: når oppstår problemet?</b> Skjult risiko før avtalen, eller skjult atferd etter?",
+                  "<b>Steg 2: koble navnet til mekanismen.</b>",
+                  "<b>Steg 3: koble løsningen til mekanismen.</b> Hvilket tiltak sørger for at alle er med, også de "
+                  "gode risikoene? Hvilket endrer bare atferd etter kjøpet?"),
+    "fors-s06": '<p>Forsikring virker ved store talls lov: mange uavhengige risikoer gir et forutsigbart samlet tap.</p><p><b>Steg 1:</b> hva må være oppfylt for at det skal gå?</p><p><b>Steg 2:</b> tenk på hvordan arbeidsledighet oppstår i en økonomi. Henger én kundes risiko sammen med en annens?</p><p><b>Steg 3:</b> test hvert alternativ: forklarer det hvorfor mekanismen bak forsikring svikter her?</p>',
+    "fors-s07": P("<b>Vurder påstandene hver for seg.</b> Hvilken markedssvikt handler hver av dem om? Passer tiltaket "
+                  "til mekanismen?",
+                  "<b>Mekanismene:</b> moralsk hasard er skjult atferd etter kjøpet. Ugunstig utvalg er skjult risiko "
+                  "før kjøpet."),
+    "fors-s08": P("<b>Aktuarisk pris</b> betyr at premien er lik forventet utbetaling.",
+                  "<b>Steg 1:</b> sammenlign forventet formue med og uten forsikring.",
+                  "<b>Steg 2:</b> hva skjer med risikoen?",
+                  "<b>Steg 3:</b> hva foretrekker en person med konkav nytte når forventningen er lik? Husk at ln W også "
+                  "er konkav."),
+    "fors-s09": P("<b>Til aktuarisk pris</b> koster hver krone dekning det den forventes å gi tilbake.",
+                  "<b>Spør:</b> hva skjer med forventet formue når dekningen øker? Hva skjer med risikoen? Følg "
+                  "resonnementet helt til siste krone.",
+                  "<b>Pass på:</b> skill teoriens svar fra praktiske råd som gjelder når premien har påslag."),
+    "fors-s10": '<p>Start i Mossins resultat: til aktuarisk pris er full dekning best. Spør hva som er annerledes med ekte premier.</p><p><b>Steg 1:</b> hva koster en ekstra krone dekning når premien har påslag?</p><p><b>Steg 2:</b> hva er den ekstra kronen verdt for en risikoavers person når nesten alt er dekket?</p><p><b>Steg 3:</b> sammenlign kostnad og verdi. Sjekk så om hvert alternativ stemmer med forventet nytte.</p>',
+    "fors-s11": P("<b>Maksimalpremien</b> er forventet skade pluss risikopremien.",
+                  "<b>Steg 1:</b> er nyttefunksjonen konkav?",
+                  "<b>Steg 2:</b> hva betyr det for fortegnet på risikopremien?",
+                  "<b>Steg 3:</b> hvor ligger maksimalpremien sammenlignet med forventet skade? Stryk påstander som "
+                  "gjelder en risikonøytral person eller ingen pris i det hele tatt."),
+    "fors-s12": P("<b>Se på krumningen.</b> Hva skjer med verdien av en ekstra krone når formuen vokser?",
+                  "<b>Prøv et lotteri:</b> sammenlign nytten av et sikkert beløp med snittet av nyttene i to utfall med "
+                  "samme forventning.",
+                  "<b>Pass på:</b> at nytten stiger med formuen, gjelder alle nyttefunksjonene i kurset, også den "
+                  "risikonøytrale."),
+    "fors-s13": P("<b>Bruk Jensens ulikhet</b> for en konkav funksjon.",
+                  "<b>Prøv et lite eksempel</b> med to like sannsynlige utfall. Regn snittet av rotene og roten av "
+                  "snittet.",
+                  "<b>Husk</b> at sikkerhetsekvivalenten er forventet nytte i annen. Den ligger under forventet formue."),
+    "fors-s14": '<p>Tenk på en usikker formue med to utfall og en person med konkav nytte.</p><p><b>Steg 1:</b> hvordan måler du hvor god den usikre posisjonen er for personen?</p><p><b>Steg 2:</b> tenk deg et sikkert beløp. Hva må være likt for at personen skal være likegyldig mellom det og den usikre posisjonen?</p><p><b>Steg 3:</b> sjekk hvert alternativ: er det et sikkert beløp? Er det knyttet til nytten?</p>',
+    "fors-s15": P("<b>Risikopremien</b> er det en risikoavers gir opp i forventning for å slippe risikoen.",
+                  "<b>Skriv opp tre beløp:</b> formuen uten skade, forventet formue og sikkerhetsekvivalenten. Hvilken "
+                  "avstand måler bare risikoen?",
+                  "<b>Pass på fortegnet:</b> det skal være positivt for en risikoavers."),
+    "fors-s16": P("<b>Start i P<sub>maks</sub> = W − CE.</b>",
+                  "<b>Del avstanden i to</b> ved å legge forventet formue inn mellom W og CE. Den ene biten er forventet "
+                  "skade. Den andre er risikopremien.",
+                  "<b>Sjekk fortegnene:</b> begge bitene er positive for en risikoavers."),
+    "fors-s17": P("<b>Skriv tilstandstabellen.</b> Uten skade: hva har du betalt? Med skade: hva har du tapt, hva får "
+                  "du utbetalt og hva har du betalt?",
+                  "<b>Vekt nyttene</b> med sannsynlighetene.",
+                  "<b>Pass på:</b> premien betales i begge tilstander. Med delvis dekning er formuen fortsatt usikker."),
+    "fors-s18": P("<b>Sett de to nyttene like.</b> Forventet nytte uten forsikring skal være lik nytten med full "
+                  "dekning.",
+                  "<b>Uten forsikring</b> er formuen null ved skade. Nytten av null er null. Løs ligningen for p.",
+                  "<b>Kontroll:</b> en risikoavers kjøper ved lavere sannsynlighet enn en risikonøytral."),
+    "fors-s19": P("<b>Kursets nyttefunksjoner</b> har ulik relativ risikoaversjon γ, den samme γ som i Mertons formel. "
+                  "Hvilken av dem krummer mest?",
+                  "<b>Mer krumning</b> gir lavere sikkerhetsekvivalent. Maksimalpremien er W − CE."),
+    "fors-s20": '<p>Maksimalpremien er forventet skade pluss risikopremien.</p><p><b>Steg 1:</b> hvor stor er risikopremien for et lite tap sammenlignet med et stort? Tenk på hvor krum nyttekurven er over et kort stykke.</p><p><b>Steg 2:</b> hvor stort er påslaget over forventet skade i ekte premier på småting?</p><p><b>Steg 3:</b> sammenlign betalingsvilje og pris. Husk også hva Mossin sier om aktuarisk pris.</p>',
+    "fors-s21": P("<b>Retningen:</b> forsikringen lønner seg for alle sannsynligheter over terskelen.",
+                  "<b>Bruk det du vet:</b> den lønner seg ved dagens sannsynlighet. På hvilken side av dagens "
+                  "sannsynlighet må terskelen da ligge?",
+                  "<b>Stryk</b> alternativene som er uforenlige med det. Resten må testes."),
+    "fors-s22": '<p>Maksimalpremien er det høyeste personen vil betale for full dekning.</p><p><b>Steg 1:</b> er maksimalpremien for en risikoavers person over eller under forventet skade? Tenk på fortegnet til risikopremien.</p><p><b>Steg 2:</b> han avviste en bestemt premie. Hva sier det om maksimalpremien sammenlignet med den premien?</p><p><b>Steg 3:</b> kombiner de to opplysningene.</p>',
+    "fors-s23": P("<b>Skriv formuen i begge tilstander med full dekning.</b> Uten skade har du betalt premien. Med "
+                  "skade taper du verdien, får den erstattet og har betalt premien.",
+                  "<b>Spør:</b> er de to formuene like? Hva skjer da med sannsynlighetene i forventet nytte?"),
+    "fors-s24": P("<b>Sammenlign prisen per krone dekning.</b> Aktuarisk pris er sannsynlighet ganger utbetaling.",
+                  "<b>Spør:</b> hva skjer med forholdet mellom premien og aktuarisk pris når utbetalingen halveres, men "
+                  "premien står stille?",
+                  "<b>Pass på:</b> premien betales i begge tilstander. Regn på nytt i stedet for å dra konklusjonen "
+                  "videre."),
+    "fors-s25": '<p>Uføredekning har tre lag: folketrygden, ordninger arbeidsgiveren har og forsikringer du kjøper selv.</p><p><b>Steg 1:</b> hvilket lag gjelder alle automatisk?</p><p><b>Steg 2:</b> hva pålegger loven om obligatorisk tjenestepensjon arbeidsgiveren å gjøre? Er det sparing eller uføredekning?</p><p><b>Steg 3:</b> finnes det en lov som pålegger privatpersoner å kjøpe uføreforsikring? Skill lovplikt fra krav i en låneavtale.</p>',
+    "fors-s26": P("<b>Med lineær nytte</b> er forventet nytte lik forventet formue.",
+                  "<b>Sett</b> den sikre formuen med forsikring lik forventet formue uten forsikring. Løs for premien.",
+                  "<b>Husk:</b> risikopremien er null når nytten er lineær."),
+    "fors-s27": P("<b>Tenk på store talls lov.</b> Hva skjer med andelen kunder som rammes, når selskapet har svært "
+                  "mange uavhengige kunder?",
+                  "<b>Spør deretter</b> når mekanismen svikter.",
+                  "<b>Stryk</b> forklaringer som bygger på statlige garantier eller på premier over det største tapet."),
+}
+
+HS["fors-s01"] += P("<b>Kontroll:</b> still spørsmålet «hvem står uten dekning hvis jeg ikke er forsikret?» for hvert alternativ.")
+HS["fors-s02"] += P("<b>Kontroll:</b> samme logikk gjelder andre forsikringer som pålegges fordi skaden rammer noen andre enn den som må forsikre.")
+HS["fors-s07"] += P("<b>Stryk deretter:</b> er begge koblingene riktige, eller bare én av dem? Prøv å bytte tiltakene og se om de fortsatt virker.")
+HS["fors-s13"] += P("<b>Kontroll:</b> en ulikhet som sier at sikkerhetsekvivalenten er høyere enn forventet formue, kan ikke stemme for en risikoavers.")
+HS["fors-s14"] += P("<b>Husk</b> regnemåten: med √W kvadrerer du forventet nytte, med ln W tar du eksponentialen.")
+HS["fors-s15"] += P("<b>Kontroll:</b> maksimalpremien skal være forventet skade pluss den avstanden du har funnet.")
+HS["fors-s19"] += P("<b>Steg til slutt:</b> sammenlign maksimalpremiene for de to. Den som har lavest sikkerhetsekvivalent, er villig til å betale mest. Stryk svar som sier at nyttefunksjonen ikke spiller noen rolle.")
+HS["fors-s21"] += P("<b>Husk:</b> sensor godtar prøve-og-feile, så test én av de to som står igjen.")
+HS["fors-s22"] += P("<b>Steg til slutt:</b> maksimalpremien ligger mellom de to grensene. Stryk alternativene utenfor intervallet. Husk at en risikonøytral person betaler nøyaktig forventet skade, ikke mer.")
+HS["fors-s25"] += P("<b>Stryk</b> påstander om at privatpersoner er pålagt ved lov å kjøpe uføreforsikring, enten de har boliglån eller ikke.")
+HS["fors-s26"] += P("<b>Kontroll:</b> maksimalpremien er alltid forventet skade pluss risikopremien. Hva står igjen når risikopremien er null?")
+HS["fors-s27"] += P("<b>Husk:</b> kunden betaler litt over forventet skade og slipper en stor risiko.")
+
 statisk(
     "fors-s01", tema=T, type="fakta",
+    hjelp=HS["fors-s01"],
     q="<p>Hvilken av disse forsikringene er en privatperson pålagt ved lov å ha?</p>",
     alternativer=[
         R("Ansvarsforsikring for en bil som brukes på vei"),
@@ -686,6 +874,7 @@ statisk(
 
 statisk(
     "fors-s02", tema=T, type="begrep",
+    hjelp=HS["fors-s02"],
     q="<p>Hva er den prinsipielle grunnen til at ansvarsforsikring for bil er lovpålagt, mens kaskoforsikring av din "
       "egen bil er frivillig?</p>",
     alternativer=[
@@ -716,6 +905,7 @@ statisk(
 
 statisk(
     "fors-s03", tema=T, type="fakta",
+    hjelp=HS["fors-s03"],
     q="<p>Nesten alle boligeiere med boliglån har boligforsikring. Hva er grunnen?</p>",
     alternativer=[
         R("Banken krever den som vilkår for lånet, siden boligen er pant"),
@@ -743,6 +933,7 @@ statisk(
 
 statisk(
     "fors-s04", tema=T, type="begrep",
+    hjelp=HS["fors-s04"],
     q="<p>En kunde med full tyveriforsikring låser sykkelen sjeldnere enn før. Selskapet kan ikke se hvor forsiktig hun "
       "er. Hvilket navn og hvilken løsning hører sammen med dette problemet?</p>",
     alternativer=[
@@ -774,6 +965,7 @@ statisk(
 
 statisk(
     "fors-s05", tema=T, type="begrep",
+    hjelp=HS["fors-s05"],
     q="<p>I et forsikringsmarked kjøper de med høy risiko forsikring, mens de med lav risiko lar være. Selskapet kan ikke "
       "skille dem. Premien må settes etter de dårlige risikoene. I verste fall bryter markedet sammen. Hvilket navn og "
       "hvilken løsning hører sammen med dette?</p>",
@@ -805,6 +997,7 @@ statisk(
 
 statisk(
     "fors-s06", tema=T, type="begrep",
+    hjelp=HS["fors-s06"],
     q="<p>Hvorfor egner arbeidsledighet seg dårlig for privat forsikring, ifølge kurset?</p>",
     alternativer=[
         R("Den rammer mange samtidig, så risikoen kan ikke spres over kundene"),
@@ -836,6 +1029,7 @@ statisk(
 
 statisk(
     "fors-s07", tema=T, type="paastand", rekkefolge="fast",
+    hjelp=HS["fors-s07"],
     q="<p>I: Egenandel demper moralsk hasard.</p><p>II: Obligatorisk medlemskap demper ugunstig utvalg.</p>"
       "<p>Hvilke påstander er riktige?</p>",
     alternativer=[
@@ -861,6 +1055,7 @@ statisk(
 
 statisk(
     "fors-s08", tema=T, type="begrep",
+    hjelp=HS["fors-s08"],
     q="<p>Et selskap tilbyr forsikring av sykkelen din til aktuarisk pris: premien er lik forventet utbetaling. Du har "
       "nyttefunksjonen U(W) = ln W. Bør du kjøpe?</p>",
     alternativer=[
@@ -890,6 +1085,7 @@ statisk(
 
 statisk(
     "fors-s09", tema=T, type="begrep",
+    hjelp=HS["fors-s09"],
     q="<p>Selskapet lar deg selv velge hvor stor andel av verdien til elsykkelen din du vil forsikre. Prisen per forsikret "
       "krone er aktuarisk riktig. Du er risikoavers. Hvor stor andel bør du forsikre?</p>",
     alternativer=[
@@ -920,6 +1116,7 @@ statisk(
 
 statisk(
     "fors-s10", tema=T, type="begrep",
+    hjelp=HS["fors-s10"],
     q="<p>Ekte skadeforsikringer har nesten alltid egenandel. Hvilken forklaring passer med teorien om forventet nytte i "
       "kurset?</p>",
     alternativer=[
@@ -950,6 +1147,7 @@ statisk(
 
 statisk(
     "fors-s11", tema=T, type="paastand",
+    hjelp=HS["fors-s11"],
     q="<p>Emma har nyttefunksjonen U(W) = √W og vurderer full dekning av huset. Hvilken påstand er riktig?</p>",
     alternativer=[
         R("Hun kan rasjonelt betale mer enn forventet skade for full dekning"),
@@ -977,6 +1175,7 @@ statisk(
 
 statisk(
     "fors-s12", tema=T, type="begrep",
+    hjelp=HS["fors-s12"],
     q="<p>Hvilken egenskap ved en nyttefunksjon U(W) gjør en person risikoavers?</p>",
     alternativer=[
         R("Den er konkav: grensenytten avtar med formuen"),
@@ -1003,6 +1202,7 @@ statisk(
 
 statisk(
     "fors-s13", tema=T, type="formel",
+    hjelp=HS["fors-s13"],
     q="<p>W er en usikker formue. Nyttefunksjonen er U(W) = √W. Hvilken ulikhet gjelder alltid?</p>",
     alternativer=[
         R("E[√W] &lt; √E[W]"),
@@ -1028,6 +1228,7 @@ statisk(
 
 statisk(
     "fors-s14", tema=T, type="begrep",
+    hjelp=HS["fors-s14"],
     q="<p>Hva er sikkerhetsekvivalenten til en usikker formue?</p>",
     alternativer=[
         R("Den sikre formuen som gir samme nytte som den usikre"),
@@ -1057,6 +1258,7 @@ statisk(
 
 statisk(
     "fors-s15", tema=T, type="formel",
+    hjelp=HS["fors-s15"],
     q="<p>E[W] er forventet formue, CE sikkerhetsekvivalenten, W formuen uten skade, p sannsynligheten for skade og L "
       "tapet. Hvilket uttrykk er risikopremien?</p>",
     alternativer=[
@@ -1080,6 +1282,7 @@ statisk(
 
 statisk(
     "fors-s16", tema=T, type="formel",
+    hjelp=HS["fors-s16"],
     q="<p>W er formuen uten skade, p sannsynligheten for et tap L, E[W] forventet formue og CE sikkerhetsekvivalenten. "
       "Hvilket uttrykk er den maksimale premien for full dekning?</p>",
     alternativer=[
@@ -1105,6 +1308,7 @@ statisk(
 
 statisk(
     "fors-s17", tema=T, type="formel",
+    hjelp=HS["fors-s17"],
     q="<p>Formuen er W. Med sannsynlighet p inntreffer et tap L. En polise dekker andelen α av tapet mot premien P. Hvilket "
       "uttrykk er forventet nytte med polisen?</p>",
     alternativer=[
@@ -1132,6 +1336,7 @@ statisk(
 
 statisk(
     "fors-s18", tema=T, type="formel",
+    hjelp=HS["fors-s18"],
     q="<p>Huset er hele formuen W og går helt tapt med sannsynlighet p. U(0) = 0. Full dekning koster P. Hvilket uttrykk "
       "gir den kritiske sannsynligheten p* der forsikringen akkurat lønner seg?</p>",
     alternativer=[
@@ -1157,6 +1362,7 @@ statisk(
 
 statisk(
     "fors-s19", tema=T, type="begrep",
+    hjelp=HS["fors-s19"],
     q="<p>To personer har samme formue og står overfor samme risiko for tap. Den ene har U(W) = √W, den andre "
       "U(W) = ln W. Hvem er villig til å betale mest for full dekning?</p>",
     alternativer=[
@@ -1185,6 +1391,7 @@ statisk(
 
 statisk(
     "fors-s20", tema=T, type="begrep",
+    hjelp=HS["fors-s20"],
     q="<p>Kurset gir rådet «forsikre huset og ansvaret, ikke mobilen». Hva er den beste begrunnelsen?</p>",
     alternativer=[
         R("Risikopremien på småtap er nesten null, men premiene har høyt påslag"),
@@ -1216,6 +1423,7 @@ statisk(
 
 statisk(
     "fors-s21", tema=T, type="tolkning",
+    hjelp=HS["fors-s21"],
     q="<p>Kari har funnet ut at full dekning til en gitt premie lønner seg ved dagens brannsannsynlighet på 2 %. Nå skal "
       "hun finne den laveste sannsynligheten som gjør forsikringen lønnsom. Alternativene er 0,8 %, 1,6 %, 2,4 % og "
       "3,1 %. Hva kan hun slå fast uten å regne?</p>",
@@ -1248,6 +1456,7 @@ statisk(
 
 statisk(
     "fors-s22", tema=T, type="tolkning",
+    hjelp=HS["fors-s22"],
     q="<p>Ola har U(W) = √W. Han har nettopp regnet ut at han ikke vil kjøpe full dekning av huset for en premie på "
       "kr 25 000. Forventet skade er kr 10 000. Hvor må maksimalpremien hans ligge?</p>",
     alternativer=[
@@ -1275,6 +1484,7 @@ statisk(
 
 statisk(
     "fors-s23", tema=T, type="tolkning",
+    hjelp=HS["fors-s23"],
     q="<p>Med full dekning skriver vi forventet nytte som U(W − P), uten noen sannsynlighet. Hvorfor?</p>",
     alternativer=[
         R("Formuen er W − P i begge tilstander, så utfallet er sikkert"),
@@ -1305,6 +1515,7 @@ statisk(
 
 statisk(
     "fors-s24", tema=T, type="begrep",
+    hjelp=HS["fors-s24"],
     q="<p>Full dekning av huset til en gitt premie lønner seg for Nora. Selskapet tilbyr i stedet 50 % dekning til samme "
       "premie. Hvorfor kan svaret nå bli nei?</p>",
     alternativer=[
@@ -1335,6 +1546,7 @@ statisk(
 
 statisk(
     "fors-s25", tema=T, type="fakta",
+    hjelp=HS["fors-s25"],
     q="<p>Hvilken påstand om økonomisk dekning ved uførhet i Norge er riktig?</p>",
     alternativer=[
         R("Grunndekningen ligger i folketrygdens uføretrygd. Privat uføreforsikring er frivillig."),
@@ -1362,6 +1574,7 @@ statisk(
 
 statisk(
     "fors-s26", tema=T, type="begrep",
+    hjelp=HS["fors-s26"],
     q="<p>Per er risikonøytral, med U(W) = W. Han risikerer et tap L med sannsynlighet p. Hva er det meste han vil betale "
       "for full dekning?</p>",
     alternativer=[
@@ -1390,6 +1603,7 @@ statisk(
 
 statisk(
     "fors-s27", tema=T, type="begrep",
+    hjelp=HS["fors-s27"],
     q="<p>Hvorfor kan et forsikringsselskap ta på seg risiko som ville vært altfor stor for én husholdning?</p>",
     alternativer=[
         R("Det samler mange uavhengige risikoer, så det samlede tapet blir forutsigbart"),

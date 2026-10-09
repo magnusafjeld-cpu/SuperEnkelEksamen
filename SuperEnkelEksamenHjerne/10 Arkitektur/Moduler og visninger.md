@@ -294,6 +294,17 @@ også der. Psykologi har begreper i stedet for formler (`formeltittel`).
 Kontrollen sjekker språk og HTML i innføringene. Mens vinduet er åpent, svarer
 ikke A–D på spørsmålet bak det.
 
+**Hjelp før du svarer.** Hvert spørsmål har en «Hjelp»-knapp (tasten H) ved
+siden av «Stå over». Den viser fremgangsmåten uten tallene, så du regner selv med
+tallene i oppgaven; Magnus ba om at den «i stor grad egentlig gir fasit, men ikke med
+tall». Regnefamiliene har én hjelp per familie (eller per spørsmålstype), de
+statiske én hver. Et riktig svar med hjelp lagres med `h: 1` og regnes som ikke
+mestret: det kommer tilbake under «Nye først» og «Bare de jeg bommet på», og
+resultatet sier hvor mange av de riktige som var med hjelp. `sjekk-trening.js`
+stopper hjelp som inneholder tall fra alternativene, store tall eller desimaltall
+fra spørsmålet, eller teksten i det riktige alternativet; kursets faste satser er
+unntatt. Spesifikasjonen er § 2b i `docs/fie432-trening-spek.md`.
+
 **Familier.** Varianter av samme regnestykke har samme `fam`, og én runde tar bare
 én fra hver familie så lenge utvalget rekker. Ellers ville fem like regnestykker på
 rad sett ut som fem spørsmål.

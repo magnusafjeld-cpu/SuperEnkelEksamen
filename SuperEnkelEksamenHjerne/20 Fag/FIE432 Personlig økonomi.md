@@ -304,6 +304,13 @@ samme format og vanskelighet som de som kommer på eksamen». Modulen er beskrev
 | Pensjon | 63 | 8 | Lån | 51 | 7 |
 | Forsikring | 62 | 7 | Psykologi | 26 | 2 |
 
+**Hver av de 754 har hjelp** (425 ulike tekster): fremgangsmåten uten tall, skrevet
+av de samme fem skribentene. To kontrollører gikk gjennom alle. Den ene regnet alle 152
+regneoppskriftene med tallene i spørsmålet: alle ga fasiten, seks ble presisert. Den
+andre fant at 100 av hjelpetekstene for begrepsspørsmål røpet svaret ved å liste
+nøyaktig de tre gale alternativene («Stryk …»). De er skrevet om til regelen og en
+test studenten må gjøre selv. Lærdom: be om fremgangsmåten, ikke om elimineringen.
+
 Hvert tema har en **hurtiginnføring**: hva det tester, formlene og de typiske
 fellene, kortet ned fra «Må kunne»-boksene i kjernepensum.
 

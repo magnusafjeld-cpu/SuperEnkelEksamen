@@ -40,13 +40,13 @@ def _fiks(alt):
     return alt
 
 
-def sp(q, alt, kort, full, rekkefolge=None):
-    return sporsmal(nb(q), _fiks(alt), nb(kort), nb(full), rekkefolge)
+def sp(q, alt, kort, full, rekkefolge=None, hjelp=None):
+    return sporsmal(nb(q), _fiks(alt), nb(kort), nb(full), rekkefolge, hjelp=nb(hjelp) if hjelp else None)
 
 
 def st(id_, typ, q, alt, kort, full, rekkefolge=None):
     statisk(id_, tema=TEMA, type=typ, q=nb(q), alternativer=_fiks(alt), kort=nb(kort), full=nb(full),
-            rekkefolge=rekkefolge)
+            rekkefolge=rekkefolge, hjelp=nb(HJELP[id_]))
 
 
 _RUNDE = {}
@@ -86,6 +86,122 @@ def p(x):
 
 
 HJEM = 0.22
+
+
+
+# ---------------------------------------------------------------------------
+# Hjelpen bak «Hjelp»-knappen: fremgangsmåten uten tallene i spørsmålet (spek § 2b)
+# ---------------------------------------------------------------------------
+HJ_FAM = {'int-gave1': '<p><b>Steg 1: samlet gevinst.</b> Summer netto gevinst på alle gaver til personer i utlandet i '
+              'året.</p><p><b>Steg 2: sammenlign med terskelen.</b> Er den ikke passert, er skatten '
+              'null.</p><p><b>Steg 3: skatten.</b> Er terskelen passert, skattlegges hele gevinsten med 37,84 '
+              '%.</p><p><b>Pass på:</b> terskelen er ikke et fradrag. Bunnfradraget ved egen utflytting gjelder ikke '
+              'gaver.</p>'}
+
+HJ_VAR = {'int-kred1': {'lav-norge': '<p><b>Steg 1: norsk skatt.</b> 22 % av inntekten i kildestaten.</p><p><b>Steg 2: '
+                            'kildeskatten.</b> Kildesatsen ganger inntekten.</p><p><b>Steg 3: kreditfradraget.</b> '
+                            'Den laveste av de to.</p><p><b>Steg 4: restskatten til Norge.</b> Norsk skatt minus '
+                            'kreditfradraget.</p><p><b>Pass på:</b> under ordinær kredit kan restskatten til Norge '
+                            'aldri bli negativ.</p>',
+               'høy-norge': '<p><b>Steg 1: norsk skatt.</b> 22 % av inntekten i kildestaten.</p><p><b>Steg 2: '
+                            'kildeskatten.</b> Kildesatsen ganger inntekten.</p><p><b>Steg 3: kreditfradraget.</b> '
+                            'Den laveste av de to.</p><p><b>Steg 4: restskatten til Norge.</b> Norsk skatt minus '
+                            'kreditfradraget.</p><p><b>Pass på:</b> under ordinær kredit kan restskatten til Norge '
+                            'aldri bli negativ.</p>',
+               'lav-samlet': '<p><b>Steg 1: norsk skatt.</b> 22 % av inntekten i kildestaten.</p><p><b>Steg 2: '
+                             'kildeskatten.</b> Kildesatsen ganger inntekten.</p><p><b>Steg 3: kreditfradraget.</b> '
+                             'Den laveste av de to.</p><p><b>Steg 4: samlet skatt.</b> Kildeskatten pluss '
+                             'restskatten til Norge. Kontroll: den høyeste av satsene ganger '
+                             'inntekten.</p><p><b>Pass på:</b> under ordinær kredit kan restskatten til Norge aldri '
+                             'bli negativ.</p>',
+               'høy-samlet': '<p><b>Steg 1: norsk skatt.</b> 22 % av inntekten i kildestaten.</p><p><b>Steg 2: '
+                             'kildeskatten.</b> Kildesatsen ganger inntekten.</p><p><b>Steg 3: kreditfradraget.</b> '
+                             'Den laveste av de to.</p><p><b>Steg 4: samlet skatt.</b> Kildeskatten pluss '
+                             'restskatten til Norge. Kontroll: den høyeste av satsene ganger '
+                             'inntekten.</p><p><b>Pass på:</b> under ordinær kredit kan restskatten til Norge aldri '
+                             'bli negativ.</p>',
+               'høy-ukreditert': '<p><b>Steg 1: norsk skatt.</b> 22 % av inntekten i kildestaten.</p><p><b>Steg 2: '
+                                 'kildeskatten.</b> Kildesatsen ganger inntekten.</p><p><b>Steg 3: '
+                                 'kreditfradraget.</b> Den laveste av de to.</p><p><b>Steg 4: det som ikke får '
+                                 'kredit.</b> Kildeskatten minus kreditfradraget.</p><p><b>Pass på:</b> under '
+                                 'ordinær kredit kan restskatten til Norge aldri bli negativ.</p>'},
+ 'int-reg1': {'norge': '<p><b>Steg 1: Norge.</b> 22 % av inntekten opptjent i Norge.</p><p><b>Steg 2: land for '
+                       'land.</b> Unntak: ingenting til Norge. Kredit: restskatt = maks(0 ; 22 % − kildesats) × '
+                       'inntekt. Ingen avtale: full norsk skatt, slik oppgaven forutsetter.</p><p><b>Steg 3: '
+                       'summer</b> skatten til Norge.</p><p><b>Pass på:</b> kreditten har tak. Se bort fra den '
+                       'ensidige kreditten i § 16-20 når oppgaven sier det.</p>',
+              'samlet': '<p><b>Steg 1: skatten til Norge.</b> 22 % av norsk inntekt. For hvert land: unntak gir 0, '
+                        'kredit gir maks(0 ; 22 % − kildesats) × inntekt, ingen avtale gir full norsk '
+                        'skatt.</p><p><b>Steg 2: skatten ute.</b> Kildesatsen ganger inntekten i hvert '
+                        'land.</p><p><b>Steg 3: legg sammen.</b></p><p><b>Pass på:</b> se bort fra den ensidige '
+                        'kreditten i § 16-20 når oppgaven sier det.</p>',
+              'sats': '<p><b>Steg 1: skatten til Norge.</b> 22 % av norsk inntekt. For hvert land: unntak gir 0, '
+                      'kredit gir maks(0 ; 22 % − kildesats) × inntekt, ingen avtale gir full norsk '
+                      'skatt.</p><p><b>Steg 2: skatten ute.</b> Kildesatsen ganger inntekten i hvert '
+                      'land.</p><p><b>Steg 3: del summen på samlet overskudd.</b></p><p><b>Pass på:</b> se bort fra '
+                      'den ensidige kreditten i § 16-20 når oppgaven sier det.</p>'},
+ 'int-exit1': {'skatt': '<p><b>Steg 1: latent gevinst.</b> Markedsverdi dagen før utflytting minus inngangsverdi. '
+                        'Summer postene.</p><p><b>Steg 2: bunnfradraget.</b> Trekk det fra gevinsten.</p><p><b>Steg '
+                        '3: skatten.</b> Gang med 37,84 % (22 % × 1,72).</p><p><b>Pass på:</b> bunnfradraget trekkes '
+                        'fra gevinsten, ikke fra markedsverdien.</p>',
+               'rate': '<p><b>Steg 1: latent gevinst.</b> Markedsverdi dagen før utflytting minus inngangsverdi. '
+                       'Summer postene.</p><p><b>Steg 2: bunnfradraget.</b> Trekk det fra gevinsten.</p><p><b>Steg '
+                       '3: skatten.</b> Gang med 37,84 % (22 % × 1,72).</p><p><b>Steg 4: ratene.</b> Del skatten '
+                       'likt på antall rater.</p><p><b>Pass på:</b> bunnfradraget trekkes fra gevinsten, ikke fra '
+                       'markedsverdien.</p>'}}
+
+HJELP = {'int-s01': '<p><b>Skill bostedsprinsippet fra kildeprinsippet.</b> Spørsmålet sier «etter intern rett isolert '
+            'sett», altså før avtalene brukes.</p><p><b>Spør:</b> hva omfatter globalskatteplikten for et selskap '
+            'hjemmehørende i Norge?</p>',
+ 'int-s02': '<p>Skattemessig bosted ved innflytting avgjøres av hvor mange dager personen oppholder seg i Norge.</p><p><b>Steg 1:</b> er periodene loven bruker, glidende eller kalenderår?</p><p><b>Steg 2:</b> er det ett vilkår eller flere alternative vilkår?</p><p><b>Steg 3:</b> skill reglene for innflytting fra reglene for utflytting, som har egne dagegrenser og et krav om bolig.</p><p><b>Steg 4:</b> er folkeregistrering det samme som skattemessig bosted?</p>',
+ 'int-s03': '<p><b>Steg 1:</b> finn utflyttingsåret.</p><p><b>Steg 2:</b> har personen bodd i Norge i minst ti år? '
+            'Da må vilkårene oppfylles i tre hele inntektsår etter utflyttingsåret.</p><p><b>Steg 3:</b> tell årene. '
+            'Bostedet opphører først etter det siste av dem.</p>',
+ 'int-s04': '<p>Reglene for utflytting avhenger av hvor lenge personen har bodd i Norge.</p><p><b>Steg 1:</b> har personen bodd her lenge nok til at kravet om flere år ute gjelder?</p><p><b>Steg 2:</b> hvis ikke, hvilke vilkår må personen oppfylle i inntektsåret? Skill mellom vilkår om opphold i Norge, bolig i Norge, opphold i det nye landet og arbeid. Hvilke bruker loven?</p>',
+ 'int-s05': '<p>Artikkel 4 prøver kriteriene i fast rekkefølge til ett avgjør.</p><p><b>Steg 1:</b> hvilke av de fire beskriver personens faktiske tilknytning? Hvilket er et rent formelt bånd?</p><p><b>Steg 2:</b> blant de faktiske, hvilket er lettest å fastslå objektivt? Hvilket krever en helhetsvurdering?</p><p><b>Steg 3:</b> kontroller hele rekkefølgen i alternativet, ikke bare første ledd.</p>',
+ 'int-s06': '<p><b>For hver metode:</b> hva skjer med samlet skatt når kildestaten ikke '
+            'skattlegger?</p><p><b>Husk:</b> under unntak gir Norge avkall uansett. Under kredit har Norge ingenting '
+            'å kreditere og skattlegger fullt.</p>',
+ 'int-s07': '<p><b>Spør:</b> er kreditten et fradrag i norsk skatt eller en utbetaling fra '
+            'statskassen?</p><p><b>Tenk på en kildestat med svært høy sats.</b> Hva måtte Norge gjort uten '
+            'tak?</p><p><b>Stryk</b> alternativer som snur virkningen av taket.</p>',
+ 'int-s08': '<p><b>Begge er kreditmetoder</b> der hjemstaten gir fradrag.</p><p><b>Spør:</b> hva skjer når '
+            'kildeskatten er høyere enn den norske skatten på inntekten?</p><p><b>Stryk</b> alternativer der '
+            'kildestaten gir kreditten.</p>',
+ 'int-s09': '<p>Uten skatteavtale gjelder bare hvert lands interne rett.</p><p><b>Steg 1:</b> har Norge rett til å skattlegge selskapets globale inntekt? Har kildestaten rett til å skattlegge inntekten der?</p><p><b>Steg 2:</b> blir det da dobbeltbeskatning, eller har skatteloven selv en regel for dette?</p><p><b>Steg 3:</b> bruker en eventuell regel kredit eller unntak? Test hvert alternativ mot svarene.</p>',
+ 'int-s10': '<p><b>Etter intern rett:</b> hva gir et fast driftssted kildestaten?</p><p><b>Spør:</b> endrer det noe '
+            'ved Norges globalskatteplikt? Husk at bare en avtale kan innskrenke Norges rett.</p>',
+ 'int-s11': '<p><b>Fast driftssted</b> krever et fast forretningssted der virksomheten drives, eller en avhengig '
+            'agent som inngår kontrakter. Byggeplasser blir fast driftssted etter en viss '
+            'varighet.</p><p><b>Spør:</b> hvilken aktivitet er bare forberedende eller hjelpevirksomhet?</p>',
+ 'int-s12': '<p><b>Regn samlet sats under hver metode.</b> Unntak: bare kildesatsen. Ordinær kredit: den høyeste av '
+            'den norske satsen og kildesatsen.</p><p><b>Sammenlign</b> de to.</p>',
+ 'int-s13': '<p><b>Spør:</b> når anses gevinsten realisert ved utflytting, før eller etter at bostedet '
+            'flyttes?</p><p><b>Kan en avtale med det nye landet</b> da hindre skatten?</p>',
+ 'int-s14': '<p>Betalingsreglene ble endret da exit-skatten ble strammet inn.</p><p><b>Steg 1:</b> kan skatten utsettes? I så fall hvor lenge?</p><p><b>Steg 2:</b> påløper det renter i utsettelsen? Gjelder det alle valgene?</p><p><b>Steg 3:</b> er betalingen fortsatt knyttet til et faktisk salg av aksjene? Sjekk hvert alternativ på alle punktene. Ett feil punkt gjør alternativet galt.</p>',
+ 'int-s15': '<p><b>Spør:</b> er exit-skatten foreløpig eller endelig når den fastsettes?</p><p><b>Hva er det '
+            'eneste</b> som får den til å falle bort?</p>',
+ 'int-s16': '<p><b>Sjekk to ting</b> når en utflyttet skattyter kommer tilbake: kom han tilbake innen fristen? Eier '
+            'han fortsatt aksjene?</p><p><b>Stryk</b> alternativer som bygger på den opphevede femårsregelen.</p>',
+ 'int-s17': '<p><b>Regelen om utbytte etter utflytting</b> gir et skattebeløp som forfaller, ikke et '
+            'grunnlag.</p><p><b>Gang utbyttet med faktoren i loven.</b></p><p><b>Pass på:</b> ikke gang med '
+            'eierskatten i tillegg.</p>',
+ 'int-s18': '<p>Exit-skatten er strammet inn etter at det gamle eksamenssettet ble laget.</p><p><b>Steg 1:</b> hva skjedde med regelen om at skatten falt bort etter noen år uten salg?</p><p><b>Steg 2:</b> hva er i dag den eneste måten skatten kan falle bort på?</p><p><b>Steg 3:</b> finnes det i dagens regler beløpsgrenser for bortfall eller unntak for flytting innen EØS? Sjekk hvert alternativ mot dagens regel, ikke mot den gamle fasiten.</p>',
+ 'int-s19': '<p><b>Spør:</b> hvor er et selskap stiftet etter norsk lov hjemmehørende?</p><p><b>Kan noe annet</b> '
+            'enn en skatteavtale flytte hjemstedet?</p>',
+ 'int-s20': '<p>Spør hva et skatteparadis selger til utlendinger.</p><p><b>Steg 1:</b> hva skjer når skattemyndighetene i hjemlandet ikke vet at pengene finnes?</p><p><b>Steg 2:</b> kan et land med vanlig selskapsskatt likevel være et skatteparadis? Kan et land med lav sats være åpent om eierne?</p><p><b>Steg 3:</b> test hvert kjennetegn: er det nødvendig for Schjelderups definisjon, eller bare vanlig?</p>',
+ 'int-s21': '<p>Begge begrepene handler om å betale mindre skatt. Tenk på to eksempler: å bruke en fradragsregel slik den står i loven eller å holde en konto skjult for skattemyndighetene.</p><p><b>Steg 1:</b> hvilket begrep hører til hvert eksempel?</p><p><b>Steg 2:</b> hva er den rettslige forskjellen mellom eksemplene?</p><p><b>Steg 3:</b> sjekk om skillet i hvert alternativ holder for begge eksemplene.</p>',
+ 'int-s22': '<p><b>Tenk på hvem som får informasjonen</b> i CRS og hvilke land som deltar.</p><p><b>Stryk</b> '
+            'alternativer som tar feil om hvor mange land som er med eller hvilke kontoer som omfattes.</p>',
+ 'int-s23': '<p><b>Toppskatten fyller opp</b> differansen mellom minimumssatsen og den effektive '
+            'satsen.</p><p><b>Gang differansen med overskuddet.</b></p><p><b>Pass på:</b> skatten som alt er betalt, '
+            'trekkes fra.</p>',
+ 'int-s24': '<p><b>Studien har to tall:</b> andelen av formuen som skjules og andelen av skatten som unndras. '
+            'Hvilket er størst?</p><p><b>Pass på</b> et tall som gjelder en annen gruppe enn den spørsmålet '
+            'nevner.</p>',
+ 'int-s25': '<p><b>Gevinsten ved å flytte overskudd</b> er det flyttede beløpet ganget med forskjellen mellom de to '
+            'satsene.</p><p><b>Pass på:</b> ikke bruk den ene satsen alene eller summen av dem.</p>',
+ 'int-s26': '<p>Et konsern kan flytte overskudd mellom land med priser eller med finansiering.</p><p><b>Steg 1:</b> hva skjer med overskuddet i et datterselskap som betaler renter til et annet selskap i konsernet?</p><p><b>Steg 2:</b> hvor er et rentefradrag mest verdt? Hvor bør renteinntekten havne?</p><p><b>Steg 3:</b> ordet «tynn» viser til at datterselskapet har lite av noe. Hva?</p>'}
 
 
 # ---------------------------------------------------------------------------
@@ -172,7 +288,7 @@ def _(r):
         "<p><b>Husk:</b> kreditfradrag = min(kildeskatt ; norsk skatt). Samlet skatt = maks(t<sub>hjem</sub> ; "
         "t<sub>kilde</sub>) × Y.</p>"
     )
-    return ferdig("int-kred1", sp(q, alternativer, kort, full))
+    return ferdig("int-kred1", sp(q, alternativer, kort, full, hjelp=HJ_VAR["int-kred1"][f"{niva}-{spm}"]))
 
 
 # ---------------------------------------------------------------------------
@@ -340,7 +456,7 @@ def _(r):
           f"Ingen avtale gir hele kildeskatten.</p>"
         + "<p><b>Husk:</b> unntak gir kildesatsen, kredit den høyeste satsen og ingen avtale summen.</p>"
     )
-    return ferdig("int-reg1", sp(q, alternativer, kort, full))
+    return ferdig("int-reg1", sp(q, alternativer, kort, full, hjelp=HJ_VAR["int-reg1"][spm]))
 
 
 # ---------------------------------------------------------------------------
@@ -420,13 +536,13 @@ def _(r):
         "eller straks. Flytter du tilbake innen tolv år med aksjene i behold, faller den bort.</p>"
         "<p><b>Husk:</b> (markedsverdi − inngangsverdi − 3 000 000) × 37,84 %, dagen før utflytting.</p>"
     )
-    return ferdig("int-exit1", sp(q, alternativer, kort, full))
+    return ferdig("int-exit1", sp(q, alternativer, kort, full, hjelp=HJ_VAR["int-exit1"][spm]))
 
 
 # ---------------------------------------------------------------------------
 # int-gave1 · Gave til noen som bor i utlandet (terskel kr 100 000)
 # ---------------------------------------------------------------------------
-@familie("int-gave1", tema=TEMA, antall=5, tittel="Exit-skatt ved gave til utlandet")
+@familie("int-gave1", tema=TEMA, hjelp=nb(HJ_FAM["int-gave1"]), antall=5, tittel="Exit-skatt ved gave til utlandet")
 def _(r):
     navn, barn = r.sample(NAVN, 2)
     dit = r.choice(["Sverige", "Danmark", "Tyskland", "Frankrike", "USA", "Australia"])

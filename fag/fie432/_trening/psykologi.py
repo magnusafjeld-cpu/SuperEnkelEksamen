@@ -7,6 +7,96 @@
 """
 from trening_lib import *  # noqa: F401,F403
 
+# Hjelpen bak «Hjelp»-knappen: fremgangsmåten uten tallene i spørsmålet og uten svaret.
+HJELP = {
+    "psy-dsp1-forskjell":
+        "<p><b>Steg 1: de to resultatene.</b> Salgsverdi minus kjøpspris for hver post. Den ene gir gevinst, den andre "
+        "tap.</p>"
+        "<p><b>Steg 2: selg vinneren.</b> Gevinsten skattlegges med 37,84 % (1,72 × 22 %).</p>"
+        "<p><b>Steg 3: selg taperen.</b> Tapet gir fradrag med samme sats, altså lavere skatt.</p>"
+        "<p><b>Steg 4: forskjellen.</b> Skatten du slipper pluss fradraget du får: (gevinst + tap) × 37,84 %.</p>"
+        "<p><b>Pass på:</b> tapet oppjusteres akkurat som en gevinst. 37,84 % har oppjusteringen i seg, så gang ikke "
+        "med 1,72 én gang til.</p>",
+    "psy-dsp1-vinner":
+        "<p><b>Steg 1: gevinsten.</b> Salgsverdi minus kjøpspris for posten som har steget.</p>"
+        "<p><b>Steg 2: skatten.</b> Gevinsten × 37,84 % (1,72 × 22 %).</p>"
+        "<p><b>Steg 3: igjen etter skatt.</b> Salgsverdien minus skatten.</p>"
+        "<p><b>Pass på:</b> bare gevinsten skattlegges, ikke hele salgssummen. Glem ikke oppjusteringen.</p>",
+    "psy-dsp1-taper":
+        "<p><b>Steg 1: tapet.</b> Kjøpspris minus salgsverdi for posten som har falt.</p>"
+        "<p><b>Steg 2: fradraget.</b> Tapet × 37,84 % (1,72 × 22 %) i lavere skatt, så lenge det finnes annen inntekt "
+        "å trekke det fra.</p>"
+        "<p><b>Steg 3: igjen etter skatt.</b> Salgsverdien pluss skattebesparelsen.</p>"
+        "<p><b>Pass på:</b> et tap gir lavere skatt, ikke høyere. Tap på aksjer oppjusteres med 1,72, akkurat som "
+        "gevinster.</p>",
+    "psy-eks1-gjeld":
+        "<p><b>Steg 1: vekstfaktoren.</b> (1 + r) opphøyd i antall år.</p>"
+        "<p><b>Steg 2: gjelden.</b> Startgjelden × vekstfaktoren.</p>"
+        "<p><b>Kontroll med doblinger:</b> finn hvor mange år det tar å doble gjelden ved renten. Antall doblinger i "
+        "perioden gir omtrent samme faktor.</p>"
+        "<p><b>Pass på:</b> enkel rente, der du legger til samme rentebeløp hvert år, gir for lite. Å gange rentefaktoren "
+        "med antall år i stedet for å opphøye er en annen vanlig feil. Spørsmålet gjelder hele gjelden, ikke bare "
+        "rentene.</p>",
+    "psy-eks1-sparing":
+        "<p><b>Steg 1: vekstfaktoren.</b> (1 + r) opphøyd i antall år.</p>"
+        "<p><b>Steg 2: sluttverdifaktoren.</b> (vekstfaktoren − 1)/r.</p>"
+        "<p><b>Steg 3: sluttverdien.</b> Det årlige innskuddet × sluttverdifaktoren.</p>"
+        "<p><b>Kontroll:</b> nåverdien av innskuddene ganget med vekstfaktoren skal gi det samme.</p>"
+        "<p><b>Pass på:</b> innskuddene settes inn ved utgangen av hvert år, så det siste får ingen avkastning. Å "
+        "forrente alt som om det ble satt inn på dag én gir for mye.</p>",
+
+    "psy-s01":
+        '<p>Kjenn igjen de fire avvikene: overkonfidens, flokkatferd, forankring og tapsaversjon.</p><p><b>Steg 1:</b> skriv én setning om hva som driver hvert av dem: egen vurdering, andres handlinger, et tall eller frykt for tap.</p><p><b>Steg 2:</b> plasser hvert alternativ på ett av avvikene.</p><p><b>Steg 3:</b> se på hvilket alternativ som hører til overkonfidens og hva avviket fører til.</p>',
+    "psy-s02":
+        '<p>Markedsavkastningen er snittet av alle investorer før kostnader.</p><p><b>Steg 1:</b> hvis personen velger aksjer like godt som snittet, hva får han før kostnader?</p><p><b>Steg 2:</b> hva koster det å handle ofte?</p><p><b>Steg 3:</b> test hver forklaring. Stemmer den med de norske skattereglene, med sammenhengen mellom risiko og avkastning og med det oppgaven sier om ferdighetene hans?</p>',
+    "psy-s03":
+        '<p>Tenk på hele formuen. Humankapitalen er ofte den største posten for en arbeidstaker.</p><p><b>Steg 1:</b> hvilke risikoer påvirker lønnen og jobben hans?</p><p><b>Steg 2:</b> hvilke risikoer påvirker aksjene han eier?</p><p><b>Steg 3:</b> trekker de i samme eller motsatt retning når bransjen får problemer? Sjekk til slutt om hvert alternativ er en riktig påstand om kostnader, avkastning og preferanser.</p>',
+    "psy-s04":
+        "<p><b>Steg 1: avviket.</b> Merkes pengene etter formål i stedet for å telles som én formue? Det har et eget "
+        "navn.</p>"
+        "<p><b>Steg 2: kostnaden.</b> Renteinntekt etter skatt er rente × (1 − 22 %). Renteutgift etter fradrag er "
+        "rente × (1 − 22 %). Forskjellen ganger beløpet er det hun taper i året.</p>"
+        "<p><b>Pass på:</b> skatten treffer begge rentene. Tapsaversjon er noe annet: tap som veier tyngre enn "
+        "gevinster.</p>",
+    "psy-s05":
+        "<p><b>Skill tre ting.</b> Risikoaversjon kommer av en konkav nytte av hele formuen. Tapsaversjon måles fra et "
+        "referansepunkt. Disposisjonseffekten er en atferd som bygger på tapsaversjon.</p>"
+        "<p><b>Steg 1.</b> Spør for hvert alternativ: er det en definisjon eller en følge?</p>"
+        "<p><b>Steg 2.</b> Spør om valget ville endret seg hvis referansepunktet flyttet seg. Det skiller tapsaversjon "
+        "fra vanlig risikoaversjon.</p>",
+    "psy-s06":
+        '<p>Skill feilslutninger fra preferanser. En feilslutning kan i prinsippet rettes med informasjon. En preferanse er det du faktisk liker. Den kan ikke være feil, bare dyr.</p><p><b>Steg 1:</b> hvis informasjon ikke endrer atferden, hvilke verktøy har du da?</p><p><b>Steg 2:</b> hvilke av forelesningens praktiske regler virker uten at du må endre hva du liker?</p><p><b>Steg 3:</b> kan en preferanse koste penger?</p>',
+    "psy-s07":
+        '<p>Intuisjon er god når den er trent.</p><p><b>Steg 1:</b> hva krever slik trening? Tenk på antall like situasjoner og hvor raskt du får vite om du tok feil.</p><p><b>Steg 2:</b> spør for hvert alternativ om situasjonen gir slik trening. Er utfallet forutsigbart ut fra det personen ser?</p><p><b>Steg 3:</b> vær skeptisk til påstander om at intuisjon alltid eller aldri virker.</p>',
+    "psy-s08":
+        '<p>Koble hver regel til valget den fjerner.</p><p><b>Steg 1:</b> når slår forankring og flokkatferd til? Tenk på hva som styrer når du kjøper og selger.</p><p><b>Steg 2:</b> for hver regel i alternativene, spør hvilket valg den tar fra deg.</p><p><b>Steg 3:</b> sjekk at regelen faktisk er en av forelesningens regler. Velg regelen som fjerner akkurat det valget avvikene virker gjennom.</p>',
+    "psy-s09":
+        '<p>Finn ut hva som styrer budet.</p><p><b>Steg 1:</b> hvilket tall så han først? Ligger budene nær det eller nær taksten?</p><p><b>Steg 2:</b> spør hva hvert avvik krever. Følger han andre? Stoler han på egen analyse? Frykter han et tap? Trekkes vurderingen mot et oppgitt tall?</p><p><b>Steg 3:</b> velg avviket som passer med det oppgaven beskriver.</p>',
+    "psy-s10":
+        '<p>Spør hva som bør avgjøre om du beholder en aksje.</p><p><b>Steg 1:</b> tankeforsøk. To personer eier samme aksje til samme kurs i dag. Den ene kjøpte billig, den andre dyrt. Har de grunn til å velge ulikt?</p><p><b>Steg 2:</b> hva betyr det for kjøpskursens rolle?</p><p><b>Steg 3:</b> test hvert alternativ mot skattereglene for tap og mot det teorien sier om kursutvikling.</p>',
+    "psy-s11":
+        "<p><b>Forelesningens fire regler.</b> Globalt indeksfond, automatisk månedlig sparing, innlåsing i IPS og "
+        "tjenestepensjon og en skriftlig plan.</p>"
+        "<p><b>Steg 1.</b> For hver regel: hvilket valg fjerner den? Aksjevalget, tidspunktet, muligheten til å bruke "
+        "pengene eller fristelsen til å improvisere?</p>"
+        "<p><b>Steg 2.</b> Hvilke avvik virker gjennom akkurat det valget?</p>"
+        "<p><b>Pass på:</b> finansundervisning er ikke en av reglene.</p>",
+    "psy-s12":
+        '<p>Teorien sier at aksjer har en positiv risikopremie.</p><p><b>Steg 1:</b> hvordan ser en jevn nyttefunksjon ut over et svært lite intervall?</p><p><b>Steg 2:</b> hvor mye betyr risikoaversjon da for en liten aksjepost? Hva burde personen gjøre?</p><p><b>Steg 3:</b> sammenlign med at mange eier null aksjer. Sjekk også hvert alternativ mot fakta om avkastning og skatt.</p>',
+    "psy-s13":
+        '<p>Tenk på mange vurderinger av samme sak.</p><p><b>Steg 1:</b> bommer de samme vei, eller spriker de?</p><p><b>Steg 2:</b> hva skjer med gjennomsnittet av vurderingene i hvert tilfelle? Jevner feilen seg ut?</p><p><b>Steg 3:</b> hvilken feiltype kalles avvik og hvilken kalles støy? Sjekk at alternativet bruker begrepene riktig vei og ikke blander inn preferanser eller markedet.</p>',
+    "psy-s14":
+        "<p><b>Verdifunksjonens tre egenskaper.</b> Et referansepunkt, en knekk i referansepunktet og avtakende "
+        "følsomhet.</p>"
+        "<p><b>Påstand I:</b> måles nytten fra et referansepunkt eller fra formuens nivå?</p>"
+        "<p><b>Påstand II:</b> er kurven brattere for tap eller for gevinster rett ved referansepunktet?</p>"
+        "<p><b>Sett sammen.</b> Velg alternativet som passer med hvilke påstander som holder.</p>",
+    "psy-s15":
+        '<p>Les forsøket nøye.</p><p><b>Steg 1:</b> hva ble målt, kundenes valg eller fondenes avkastning?</p><p><b>Steg 2:</b> endret valgene seg? Hvor mye, relativt og i prosentpoeng?</p><p><b>Steg 3:</b> var informasjonen konkret eller generell?</p><p><b>Steg 4:</b> hva kan forsøket si noe om? Hva ble ikke testet?</p>',
+    "psy-s16":
+        '<p>Spør hvordan intuisjonen framskriver vekst.</p><p><b>Steg 1:</b> legger den til samme beløp hvert år, eller lar den veksten tilta?</p><p><b>Steg 2:</b> med renters rente vokser beløp raskere enn lineært. Hvilken vei bommer da intuisjonen?</p><p><b>Steg 3:</b> gjelder dette bare sparing, bare gjeld eller begge? Tenk på et lån som får stå urørt.</p>',
+}
+
 NAVN = ["Mira", "Jonas", "Selma", "Aksel", "Ingrid", "Tobias", "Nora", "Elias", "Sigrid", "Henrik",
         "Maja", "Ola", "Hanne", "Petter", "Kari", "Kristian", "Emil", "Ida", "Sofie", "Marius"]
 SELSKAP = [("Fjordlaks ASA", "Nordlys Energi ASA"), ("Havbris ASA", "Polarbuss ASA"),
@@ -93,7 +183,7 @@ def _(r):
         f"<p><b>Husk:</b> å realisere en gevinst er å betale skatt tidlig. Å realisere et tap er å få fradraget "
         f"tidlig. Disposisjonseffekten gjør begge deler feil vei.</p>"
     )
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp={"forskjell": HJELP["psy-dsp1-forskjell"], "vinner": HJELP["psy-dsp1-vinner"], "taper": HJELP["psy-dsp1-taper"]}[spor])
 
 
 # ---------------------------------------------------------------------------
@@ -103,6 +193,7 @@ def _(r):
 def _(r):
     navn = r.choice(NAVN)
     if r.random() < 0.5:
+        nokkel = "gjeld"
         L = r.choice([20_000, 25_000, 30_000, 40_000, 50_000, 60_000])
         rp = r.choice([15, 18, 20, 22, 24, 25])
         T = r.choice([5, 6, 8, 10, 12])
@@ -131,6 +222,7 @@ def _(r):
                 f"rekker den {tall(T / dobling, 2)} doblinger. 2<sup>{tall(T / dobling, 2)}</sup> ≈ "
                 f"{tall(2 ** (T / dobling), 2)}. Samme faktor, uten å opphøye renten ✓.</p>")
     else:
+        nokkel = "sparing"
         S = r.choice([12_000, 24_000, 30_000, 36_000, 48_000, 60_000])
         rp = r.choice([4, 5, 6, 7])
         T = r.choice([10, 15, 20, 25, 30])
@@ -168,7 +260,7 @@ def _(r):
         + steg +
         f"<p><b>Husk:</b> gjeld: L × (1 + r)<sup>T</sup>. Årlig sparing: S × [(1 + r)<sup>T</sup> − 1]/r.</p>"
     )
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp={"gjeld": HJELP["psy-eks1-gjeld"], "sparing": HJELP["psy-eks1-sparing"]}[nokkel])
 
 
 def rtekst(rp):
@@ -181,7 +273,7 @@ def rtekst(rp):
 # ===========================================================================
 
 statisk(
-    "psy-s01", tema="psykologi", type="begrep",
+    "psy-s01", hjelp=HJELP["psy-s01"], tema="psykologi", type="begrep",
     q="<p>Hva kjennetegner overkonfidens slik finansiell psykologi bruker begrepet?</p>",
     alternativer=[
         R("Du tror du vet mer om selskapene enn markedet og handler derfor ofte"),
@@ -210,7 +302,7 @@ statisk(
 )
 
 statisk(
-    "psy-s02", tema="psykologi", type="begrep",
+    "psy-s02", hjelp=HJELP["psy-s02"], tema="psykologi", type="begrep",
     q="<p>Jonas velger aksjer like godt som gjennomsnittsinvestoren, men handler mye oftere. Hvorfor ventes han likevel "
       "å få lavere avkastning enn markedet?</p>",
     alternativer=[
@@ -240,7 +332,7 @@ statisk(
 )
 
 statisk(
-    "psy-s03", tema="psykologi", type="begrep",
+    "psy-s03", hjelp=HJELP["psy-s03"], tema="psykologi", type="begrep",
     q="<p>Petter jobber i oljeservice i Stavanger. Nesten hele aksjeporteføljen hans er norske selskaper, mange i hans "
       "egen bransje. Hva er hovedargumentet mot porteføljen?</p>",
     alternativer=[
@@ -269,7 +361,7 @@ statisk(
 )
 
 statisk(
-    "psy-s04", tema="psykologi", type="tolkning",
+    "psy-s04", hjelp=HJELP["psy-s04"], tema="psykologi", type="tolkning",
     q="<p>Mari har kr 100 000 på en sparekonto til 3 % rente og kr 100 000 i forbrukslån til 14 % rente. Hun kaller "
       "sparekontoen «bufferen» og rører den ikke. Renteinntekter skattlegges med 22 %. Renteutgifter gir fradrag med "
       "22 %. Hvilket avvik viser hun? Hva koster det i året?</p>",
@@ -300,7 +392,7 @@ statisk(
 )
 
 statisk(
-    "psy-s05", tema="psykologi", type="begrep",
+    "psy-s05", hjelp=HJELP["psy-s05"], tema="psykologi", type="begrep",
     q="<p>Hva betyr tapsaversjon?</p>",
     alternativer=[
         R("Et tap veier tyngre enn en like stor gevinst, målt fra et referansepunkt"),
@@ -328,7 +420,7 @@ statisk(
 )
 
 statisk(
-    "psy-s06", tema="psykologi", type="begrep",
+    "psy-s06", hjelp=HJELP["psy-s06"], tema="psykologi", type="begrep",
     q="<p>Forelesningen skiller mellom avvik som er feilslutninger og avvik som er preferanser. Hva følger av at "
       "tapsaversjon regnes som en preferanse?</p>",
     alternativer=[
@@ -358,7 +450,7 @@ statisk(
 )
 
 statisk(
-    "psy-s07", tema="psykologi", type="begrep",
+    "psy-s07", hjelp=HJELP["psy-s07"], tema="psykologi", type="begrep",
     q="<p>Kahneman skiller mellom to måter å tenke på. System 1 er den raske magefølelsen. System 2 er den langsomme "
       "overveielsen. Når gir magefølelsen gode valg?</p>",
     alternativer=[
@@ -386,7 +478,7 @@ statisk(
 )
 
 statisk(
-    "psy-s08", tema="psykologi", type="begrep",
+    "psy-s08", hjelp=HJELP["psy-s08"], tema="psykologi", type="begrep",
     q="<p>Hvilken av forelesningens regler er særlig rettet mot forankring og flokkatferd?</p>",
     alternativer=[
         R("Automatisk månedlig sparing, så du ikke velger tidspunkt"),
@@ -414,7 +506,7 @@ statisk(
 )
 
 statisk(
-    "psy-s09", tema="psykologi", type="begrep",
+    "psy-s09", hjelp=HJELP["psy-s09"], tema="psykologi", type="begrep",
     q="<p>Ola skal by på en leilighet. Han så prisantydningen, kr 4 200 000, før han leste taksten. Takstmannen mener leiligheten er verdt "
       "kr 3 800 000, men alle budene Ola vurderer, ligger like rundt prisantydningen. Hvilket avvik viser han?</p>",
     alternativer=[
@@ -443,7 +535,7 @@ statisk(
 )
 
 statisk(
-    "psy-s10", tema="psykologi", type="begrep",
+    "psy-s10", hjelp=HJELP["psy-s10"], tema="psykologi", type="begrep",
     q="<p>Kari beholder en aksje som har falt 40 %. Hun vil vente «til den kommer tilbake til kjøpskursen». Hvorfor er "
       "resonnementet irrasjonelt?</p>",
     alternativer=[
@@ -472,7 +564,7 @@ statisk(
 )
 
 statisk(
-    "psy-s11", tema="psykologi", type="paastand",
+    "psy-s11", hjelp=HJELP["psy-s11"], tema="psykologi", type="paastand",
     q="<p>Forelesningen knytter hver av sine praktiske regler til bestemte avvik. Hvilken kobling er riktig?</p>",
     alternativer=[
         R("Globalt indeksfond mot overkonfidens og hjemmebias"),
@@ -502,7 +594,7 @@ statisk(
 )
 
 statisk(
-    "psy-s12", tema="psykologi", type="begrep",
+    "psy-s12", hjelp=HJELP["psy-s12"], tema="psykologi", type="begrep",
     q="<p>I nesten alle land eier under halvparten av husholdningene aksjer. Hvorfor kan ikke risikoaversjon alene "
       "forklare det?</p>",
     alternativer=[
@@ -531,7 +623,7 @@ statisk(
 )
 
 statisk(
-    "psy-s13", tema="psykologi", type="begrep",
+    "psy-s13", hjelp=HJELP["psy-s13"], tema="psykologi", type="begrep",
     q="<p>Hva er forskjellen på et avvik (bias) og støy i vurderinger?</p>",
     alternativer=[
         R("Et avvik har en fast retning. Støy er spredning uten retning."),
@@ -559,7 +651,7 @@ statisk(
 )
 
 statisk(
-    "psy-s14", tema="psykologi", type="paastand", rekkefolge="fast",
+    "psy-s14", hjelp=HJELP["psy-s14"], tema="psykologi", type="paastand", rekkefolge="fast",
     q="<p>Vurder to påstander om prospektteoriens verdifunksjon.</p>"
       "<p>I. Nytten måles ut fra formuens absolutte nivå, som i vanlig forventet nytte.</p>"
       "<p>II. Kurven er brattere for tap enn for gevinster rett ved referansepunktet.</p>"
@@ -586,7 +678,7 @@ statisk(
 )
 
 statisk(
-    "psy-s15", tema="psykologi", type="tolkning",
+    "psy-s15", hjelp=HJELP["psy-s15"], tema="psykologi", type="tolkning",
     q="<p>I et forsøk fikk halvparten av rundt 590 norske fondskunder Forbrukerrådets tall for aktive fond mot "
       "indeksfond. Indeksandelen i den gruppen steg fra 11 % til 15 %. Effekten varte i to år. Hva viser forsøket?</p>",
     alternativer=[
@@ -614,7 +706,7 @@ statisk(
 )
 
 statisk(
-    "psy-s16", tema="psykologi", type="begrep",
+    "psy-s16", hjelp=HJELP["psy-s16"], tema="psykologi", type="begrep",
     q="<p>Hva er eksponentiell vekst-bias?</p>",
     alternativer=[
         R("Lineær framskriving, så både gjeld og sparing blir undervurdert"),

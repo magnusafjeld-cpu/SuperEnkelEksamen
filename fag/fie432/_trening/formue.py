@@ -38,13 +38,13 @@ def _fiks(alt):
     return alt
 
 
-def sp(q, alt, kort, full, rekkefolge=None):
-    return sporsmal(nb(q), _fiks(alt), nb(kort), nb(full), rekkefolge)
+def sp(q, alt, kort, full, rekkefolge=None, hjelp=None):
+    return sporsmal(nb(q), _fiks(alt), nb(kort), nb(full), rekkefolge, hjelp=nb(hjelp) if hjelp else None)
 
 
 def st(id_, typ, q, alt, kort, full, rekkefolge=None):
     statisk(id_, tema=TEMA, type=typ, q=nb(q), alternativer=_fiks(alt), kort=nb(kort), full=nb(full),
-            rekkefolge=rekkefolge)
+            rekkefolge=rekkefolge, hjelp=nb(HJELP[id_]))
 
 
 def fskatt(W, B=B1, K=K1):
@@ -84,10 +84,126 @@ def velg(r, riktig, kand, n=3, rel=0.02):
     return valgt
 
 
+
+# ---------------------------------------------------------------------------
+# Hjelpen bak «Hjelp»-knappen: fremgangsmåten uten tallene i spørsmålet (spek § 2b)
+# ---------------------------------------------------------------------------
+HJ_FAM = {'frm-skatt1': '<p><b>Steg 1: finn nettoformuen.</b> Formuesverdier etter rabatt minus fradragsberettiget gjeld. '
+               'Står den oppgitt, bruker du den direkte.</p><p><b>Steg 2: trinn 1.</b> 1,0 % av det som ligger '
+               'mellom bunnfradraget og innslagspunktet, eller mellom bunnfradraget og nettoformuen om den er '
+               'lavest.</p><p><b>Steg 3: trinn 2.</b> 1,1 % av det som ligger over innslagspunktet, hvis noe gjør '
+               'det.</p><p><b>Pass på:</b> bruk grensene for en enslig, ikke for ektefeller. Bunnfradraget trekkes '
+               'bare fra én gang.</p>',
+ 'frm-skatt2': '<p><b>Steg 1: legg sammen</b> ektefellenes nettoformuer.</p><p><b>Steg 2: doble grensene.</b> For '
+               'ektefeller under ett dobles både bunnfradraget og innslagspunktet for en enslig.</p><p><b>Steg 3: '
+               'regn trinnene på samlet formue.</b> 1,0 % mellom det doble bunnfradraget og det doble '
+               'innslagspunktet, 1,1 % over.</p><p><b>Pass på:</b> det er lett å doble bunnfradraget og glemme '
+               'innslagspunktet. Regn heller ikke med grensene for en enslig på parets samlede formue.</p>',
+ 'frm-gjeld1': '<p><b>Steg 1: fordelingsnøkkelen.</b> Del hver eiendels bruttoverdi, altså markedsverdien før '
+               'rabatt, på summen av bruttoverdiene.</p><p><b>Steg 2: gjelden til de rabatterte eiendelene.</b> Gang '
+               'gjelden med andelen til aksjer, aksjefond og næringseiendom.</p><p><b>Steg 3: reduksjonen.</b> 20 % '
+               'av gjelden fra steg 2. Samleformelen: gjeld × Σ(bruttoverdi × 20 %), summert bare over eiendelene med 20 % rabatt, delt på sum av '
+               'bruttoverdiene.</p><p><b>Pass på:</b> boliggjelden avkortes ikke. Bank og sekundærbolig har ingen '
+               'rabatt. Nøkkelen er bruttoverdiene, ikke formuesverdiene.</p>',
+ 'frm-gjeld2': '<p><b>Steg 1: formuesverdiene.</b> Primærbolig 25 % (70 % over terskelen), aksjer og fond 80 %, bank '
+               'og sekundærbolig 100 %. Summer.</p><p><b>Steg 2: fradragsberettiget gjeld.</b> Fordel gjelden etter '
+               'bruttoverdi. Avkort med 20 % den delen som havner på aksjer, fond og næringseiendom.</p><p><b>Steg '
+               '3: nettoformuen.</b> Formuesverdiene minus fradragsberettiget gjeld.</p><p><b>Pass på:</b> en '
+               'negativ boligkolonne skal motregnes, ikke settes til null. Bunnfradraget trekkes ikke fra her.</p>',
+ 'frm-hele1': '<p><b>Steg 1: formuesverdiene.</b> Primærbolig 25 % opp til terskelen og 70 % over, aksjer, fond og '
+              'næringseiendom 80 %, bank og sekundærbolig 100 %.</p><p><b>Steg 2: fradragsberettiget gjeld.</b> '
+              'Fordel gjelden etter bruttoverdi og avkort med 20 % delen på eiendeler med 20 % rabatt.</p><p><b>Steg '
+              '3: nettoformuen</b> er formuesverdiene minus fradragsberettiget gjeld.</p><p><b>Steg 4: skatten.</b> '
+              '1,0 % av det som ligger over bunnfradraget, 1,1 % over innslagspunktet.</p><p><b>Pass på:</b> '
+              'boliggjelden avkortes ikke. Skatten regnes aldri av markedsverdiene.</p>'}
+
+HJ_VAR = {'frm-bolig1': {'fv': '<p><b>Steg 1: del boligen ved terskelen.</b> Det nederste sjiktet er verdien opp til '
+                      'terskelen, det øverste er resten.</p><p><b>Steg 2: verdsett hvert sjikt.</b> 25 % av det '
+                      'nederste, 70 % av det øverste.</p><p><b>Steg 3: legg sammen.</b></p><p><b>Pass på:</b> ikke '
+                      'bruk én sats på hele boligen. Bruk terskelen oppgaven gir, ikke den som gjaldt i 2024 og '
+                      '2025.</p>',
+                'skatt': '<p><b>Steg 1: boligens formuesverdi.</b> 25 % av verdien opp til terskelen og 70 % av det '
+                         'som ligger over.</p><p><b>Steg 2: nettoformuen.</b> Legg til bankinnskuddet, som teller '
+                         'fullt.</p><p><b>Steg 3: skatten.</b> Trekk fra bunnfradraget og gang med 1,0 %. Bruk 1,1 % '
+                         'bare på det som eventuelt ligger over innslagspunktet.</p><p><b>Pass på:</b> skatten '
+                         'regnes av formuesverdien, ikke av markedsverdien.</p>',
+                'to': '<p><b>Steg 1: primærboligen.</b> 25 % av verdien opp til terskelen og 70 % av det som ligger '
+                      'over.</p><p><b>Steg 2: sekundærboligen.</b> Den har ingen rabatt og teller '
+                      'fullt.</p><p><b>Steg 3: legg sammen.</b></p><p><b>Pass på:</b> bare boligen du selv bor i, '
+                      'har rabatt. Boligene skal ikke slås sammen og behandles som én primærbolig.</p>'},
+ 'frm-unot1': {'fv': '<p><b>Steg 1: selskapets formuesverdi.</b> Eiendelene minus gjelden i selskapet.</p><p><b>Steg '
+                     '2: din andel.</b> Gang med eierandelen.</p><p><b>Steg 3: rabatten.</b> Unoterte aksjer teller '
+                     '80 %.</p><p><b>Pass på:</b> emisjonsprisen er en markedspris og brukes ikke. Glem heller ikke '
+                     'selskapets gjeld.</p>',
+               'skatt': '<p><b>Steg 1: aksjenes formuesverdi.</b> Selskapets eiendeler minus gjeld, ganget med '
+                        'eierandelen og med 80 %.</p><p><b>Steg 2: nettoformuen.</b> Legg til '
+                        'bankinnskuddet.</p><p><b>Steg 3: skatten.</b> Trekk fra bunnfradraget og gang med 1,0 % '
+                        '(1,1 % over innslagspunktet).</p><p><b>Pass på:</b> emisjonsprisen er en markedspris og '
+                        'brukes ikke.</p>'}}
+
+HJELP = {'frm-s01': '<p>Tenk på aksjer kjøpt fullt ut for lånte penger. Aksjene teller med rabatt i formuen.</p><p><b>Steg 1:</b> hva ville nettoformuen blitt hvis gjelden ble trukket fra fullt?</p><p><b>Steg 2:</b> svarer det til et reelt tap av formue?</p><p><b>Steg 3:</b> hva må gjøres med gjelden for at gjeld og eiendel måles med samme målestokk? Test hver begrunnelse mot dette regnestykket.</p>',
+ 'frm-s02': '<p>Regelen: gjeld fordeles på eiendelene etter bruttoverdi. Gjeld på eiendeler med rabatt avkortes. Primærboligen har rabatt, men gjelden dit avkortes ikke. Spør: hva ville skjedd med verdien av boligrabatten for eieren om boliggjelden ble avkortet like mye som rabatten? Hvem tjener på unntaket? Vurder hvert alternativ: er påstanden sann om boligen og om gjeldsfordelingen?</p>',
+ 'frm-s03': '<p><b>Husk tabellens rekkefølge:</b> bruttoverdi og andel, formuesverdi, gjeld fordelt, avkorting, '
+            'netto.</p><p><b>Spør:</b> i hvilken rad brukes rabatten? Er det før eller etter at gjelden er '
+            'fordelt?</p><p><b>Stryk</b> kostprisen, som hører til skjermingen og alternativer som fordeler etter '
+            'hva lånet ble brukt til.</p>',
+ 'frm-s04': '<p><b>Vurder hver påstand for seg.</b> Har eiendelen en verdsettingsrabatt som utløser avkorting av '
+            'gjelden?</p><p><b>Regelen:</b> aksjer, aksjefond og næringseiendom har 20 % rabatt og avkorting. Bank '
+            'og sekundærbolig teller fullt, uten rabatt. Ingen rabatt betyr ingen avkorting.</p><p><b>Velg</b> så '
+            'kombinasjonen som passer.</p>',
+ 'frm-s05': '<p><b>Vurder hver påstand for seg.</b> Har eiendelen rabatt og utløser rabatten avkorting av '
+            'gjelden?</p><p><b>Regelen:</b> aksjer og aksjefond har 20 % rabatt med avkorting. Primærboligen har '
+            'rabatt, men er et bevisst unntak fra avkortingen.</p><p><b>Velg</b> så kombinasjonen som passer.</p>',
+ 'frm-s06': '<p>Formuesskatten har en kommunal og en statlig del.</p><p><b>Steg 1:</b> finn den samlede satsen i trinn 1 før og etter endringen.</p><p><b>Steg 2:</b> spør om den kommunale satsen er valgfri for hver kommune eller lik i hele landet.</p><p><b>Steg 3:</b> avgjør om endringen påvirker hva den enkelte betaler, eller bare hvem som mottar pengene.</p>',
+ 'frm-s07': '<p><b>Start med grensene for en enslig i dag.</b> For ektefeller som skattlegges under ett, dobles både '
+            'bunnfradraget og innslagspunktet. Begge regnes på parets samlede nettoformue.</p><p><b>Pass på:</b> to '
+            'vanlige feil er å doble bare den ene grensen og å bruke et eldre års grenser.</p>',
+ 'frm-s08': '<p>Primærboligen verdsettes i to sjikt med ulik prosent.</p><p><b>Steg 1:</b> hvilket sjikt får lavest prosent, det nederste eller det øverste? Tenk på formålet: å skjerme vanlige boliger.</p><p><b>Steg 2:</b> finn terskelen mellom sjiktene etter dagens regel og pass på at du ikke bruker et eldre års regel.</p><p><b>Steg 3:</b> test hvert alternativ på både rekkefølgen av sjiktene og terskelen.</p>',
+ 'frm-s09': '<p><b>Sammenlign to tall</b> for boligen: hvor mye den teller i formuesskatten og hvor mye gjeld som '
+            'henføres dit.</p><p><b>Spør:</b> fordeles gjelden etter bruttoverdi eller formuesverdi? Avkortes '
+            'boliggjelden?</p><p><b>Husk</b> hva du gjør med en negativ kolonne når nettoformuen summeres.</p>',
+ 'frm-s10': '<p>Spør hva verdsettingen tar utgangspunkt i når aksjen ikke har en børskurs.</p><p><b>Steg 1:</b> hvilket tall finnes alltid for et unotert selskap?</p><p><b>Steg 2:</b> hvordan er det tallet målt? Hvordan skiller det seg fra det en kjøper ville betalt for selskapets framtidige inntjening?</p><p><b>Steg 3:</b> sjekk hvilken rabatt som gjelder aksjer generelt og om det finnes fritak for unoterte aksjer.</p>',
+ 'frm-s11': '<p><b>Steg 1: del fondet</b> i aksjedel og rentedel etter aksjeandelen.</p><p><b>Steg 2: verdsett '
+            'delene.</b> Aksjedelen teller 80 %, rentedelen 100 %.</p><p><b>Steg 3: legg sammen.</b></p><p><b>Pass '
+            'på:</b> rabatten gjelder bare aksjedelen. Rentedelen er også formue.</p>',
+ 'frm-s12': '<p>Formuesskatten har egne regler for primærbolig, sekundærbolig og fritidsbolig.</p><p><b>Steg 1:</b> plasser en hytte i riktig kategori. Den er ikke der du bor fast. Den leies vanligvis ikke ut.</p><p><b>Steg 2:</b> hvordan fastsettes formuesverdien i den kategorien? Hvem kan be om å endre den?</p><p><b>Steg 3:</b> sjekk hvert alternativ på både kategori og prosent.</p>',
+ 'frm-s13': '<p><b>Eiendomsskatt og formuesskatt er to ulike skatter.</b> Still fire spørsmål:</p><p>Hvem skriver '
+            'den ut, staten eller kommunen? Er grunnlaget formuesverdien eller en andel av beregnet verdi? Gir gjeld '
+            'fradrag? Er maksimalsatsen i prosent eller promille?</p><p><b>Stryk</b> påstandene som svarer feil på '
+            'ett av dem.</p>',
+ 'frm-s14': '<p><b>Bygg formelen selv.</b> Hver eiendel får gjeld lik gjelden ganget med sin andel av '
+            'bruttoverdien.</p><p><b>Bare gjelden på eiendeler med avkorting</b> reduseres med rabatten. Summer '
+            'reduksjonene og trekk dem fra gjelden.</p><p><b>Sjekk</b> nevneren, brutto eller formuesverdi og hvilke '
+            'eiendeler som er med i summen.</p>',
+ 'frm-s15': '<p><b>Skriv trinnene.</b> Trinn 1 er 1,0 % av formuen mellom bunnfradraget og innslagspunktet. Trinn 2 '
+            'er 1,1 % av det som ligger over innslagspunktet.</p><p><b>Sjekk</b> hvor bunnfradraget trekkes fra og '
+            'hvor mange ganger.</p>',
+ 'frm-s16': '<p><b>Del boligen ved terskelen.</b> Det nederste sjiktet er alt opp til terskelen, det øverste er '
+            'resten.</p><p><b>Sjekk hver formel:</b> overlapper sjiktene? Er satsene byttet? Brukes den gamle '
+            'terskelen?</p>',
+ 'frm-s17': '<p><b>Sammenlign nettoformuen med bunnfradraget.</b> Skatten er 1,0 % av det som ligger over, aldri av '
+            'et negativt beløp.</p><p><b>Spør:</b> framføres et ubrukt bunnfradrag? Brukes noen gang markedsverdiene '
+            'i stedet?</p>',
+ 'frm-s18': '<p>Følg begge sider.</p><p><b>Steg 1:</b> hvor mye teller bankinnskuddet i formuen? Hvor mye faller formuesverdien når du tar ut en krone?</p><p><b>Steg 2:</b> gjelden fordeles etter bruttoverdi. Den delen som havner på aksjene, avkortes. Hvor mye fradrag ga en krone gjeld?</p><p><b>Steg 3:</b> sammenlign de to endringene og avgjør både retningen og størrelsen på endringen i nettoformuen.</p>',
+ 'frm-s19': '<p>Skattefritaket bygger på at boligen faktisk har vært hjemmet ditt. Spør: hvilket krav stiller loven til hvor lenge du har eid boligen? Hvilket krav stiller den til hvor lenge du har bodd i den? Innenfor hvilken periode? Er boliggevinst ellers skattepliktig? Gir tap da fradrag? Har formuesskatten noe med dette å gjøre?</p>',
+ 'frm-s20': '<p><b>Langtidsutleie av del av egen bolig:</b> hvor stor del bruker du selv og hvordan måles den '
+            'delen?</p><p><b>Skill</b> langtidsutleie fra korttidsutleie under en måned, som har en egen '
+            'regel.</p><p><b>Stryk</b> alternativer som gjør all leie skattepliktig.</p>',
+ 'frm-s21': '<p><b>Hold tre størrelser fra hverandre:</b> formuesverdiene etter rabatt, den fradragsberettigede '
+            'gjelden etter fordeling og avkorting og bunnfradraget.</p><p><b>Spør:</b> hvilke av dem inngår i '
+            'nettoformuen? Hvilket kommer først når skatten regnes?</p>',
+ 'frm-s22': '<p><b>Gå gjennom hver påstand med regelen:</b> gjelden fordeles etter bruttoverdi, avkortes bare på '
+            'eiendeler med 20 % rabatt og avkortes aldri på primærboligen.</p><p><b>Husk</b> at spørsmålet ber om '
+            'den gale påstanden.</p>',
+ 'frm-s23': '<p><b>Sorter eiendelene:</b> hvilke har 20 % rabatt, hvilke teller fullt og hvilke er boliger med egne '
+            'regler?</p><p><b>Gå gjennom listene</b> og stryk hver liste som inneholder én eiendel som ikke hører '
+            'til 80 %-gruppen.</p>'}
+
+
 # ---------------------------------------------------------------------------
 # frm-skatt1 · Formuesskatt for en enslig, ett eller to trinn
 # ---------------------------------------------------------------------------
-@familie("frm-skatt1", tema=TEMA, antall=5, tittel="Formuesskatt for en enslig")
+@familie("frm-skatt1", tema=TEMA, hjelp=nb(HJ_FAM["frm-skatt1"]), antall=5, tittel="Formuesskatt for en enslig")
 def _(r):
     navn = r.choice(NAVN)
     to = tur("frm-skatt1", [True, False, True, False, True])
@@ -185,7 +301,7 @@ def _(r):
 # ---------------------------------------------------------------------------
 # frm-skatt2 · Ektefeller som skattlegges under ett
 # ---------------------------------------------------------------------------
-@familie("frm-skatt2", tema=TEMA, antall=5, tittel="Formuesskatt for ektefeller under ett")
+@familie("frm-skatt2", tema=TEMA, hjelp=nb(HJ_FAM["frm-skatt2"]), antall=5, tittel="Formuesskatt for ektefeller under ett")
 def _(r):
     n1, n2 = r.sample(NAVN, 2)
     a = r.randrange(4_000_000, 40_000_001, 500_000)
@@ -384,7 +500,7 @@ def _(r):
                 f"rabatt.</p>"
                 "<p><b>Husk:</b> bare primærboligen har rabatt. Sekundærbolig og bankinnskudd teller 100 %.</p>")
         alternativer = [R(kr(riktig), riktig)] + [F(kra(v), f, v) for v, f in valgt]
-    return ferdig("frm-bolig1", sp(q, alternativer, kort, full))
+    return ferdig("frm-bolig1", sp(q, alternativer, kort, full, hjelp=HJ_VAR["frm-bolig1"][spm]))
 
 
 # ---------------------------------------------------------------------------
@@ -476,7 +592,7 @@ GJELD_HVA = ("<p><b>Hva gjeldsfordelingen er.</b> Gjelden hører ikke til én be
 # ---------------------------------------------------------------------------
 # frm-gjeld1 · Hvor mye reduseres gjelden? (R4, H2024 oppgave 6a)
 # ---------------------------------------------------------------------------
-@familie("frm-gjeld1", tema=TEMA, antall=6, tittel="Gjeldsreduksjonen ved forholdsmessig fordeling")
+@familie("frm-gjeld1", tema=TEMA, hjelp=nb(HJ_FAM["frm-gjeld1"]), antall=6, tittel="Gjeldsreduksjonen ved forholdsmessig fordeling")
 def _(r):
     navn = r.choice(NAVN)
     akt = _aktiva(r)
@@ -533,7 +649,7 @@ def _(r):
 # ---------------------------------------------------------------------------
 # frm-gjeld2 · Nettoformuen etter gjeldsfordelingen (R4, H2024 6b, H2025 2)
 # ---------------------------------------------------------------------------
-@familie("frm-gjeld2", tema=TEMA, antall=6, tittel="Nettoformuen etter gjeldsfordeling")
+@familie("frm-gjeld2", tema=TEMA, hjelp=nb(HJ_FAM["frm-gjeld2"]), antall=6, tittel="Nettoformuen etter gjeldsfordeling")
 def _(r):
     navn = r.choice(NAVN)
     akt = _aktiva(r)
@@ -590,7 +706,7 @@ def _(r):
 # ---------------------------------------------------------------------------
 # frm-hele1 · Fra eiendeler og gjeld til formuesskatten
 # ---------------------------------------------------------------------------
-@familie("frm-hele1", tema=TEMA, antall=5, tittel="Formuesskatt fra eiendeler og gjeld")
+@familie("frm-hele1", tema=TEMA, hjelp=nb(HJ_FAM["frm-hele1"]), antall=5, tittel="Formuesskatt fra eiendeler og gjeld")
 def _(r):
     navn = r.choice(NAVN)
     stor = tur("frm-hele1", [False, True, False, True, False])
@@ -737,7 +853,7 @@ def _(r):
             + f"<p><b>Kontroll.</b> Formuesverdien er {pst(fv / (andel * Vm))} av det emisjonen priser aksjene til. "
               f"Ligger tallet ditt nær emisjonsprisen, har du brukt markedsverdien.</p>"
             "<p><b>Husk:</b> unotert = andel × (eiendeler − gjeld) × 80 %. Emisjonsprisen er en felle.</p>")
-    return ferdig("frm-unot1", sp(q, alternativer, kort, full))
+    return ferdig("frm-unot1", sp(q, alternativer, kort, full, hjelp=HJ_VAR["frm-unot1"][spm]))
 
 
 # ===========================================================================

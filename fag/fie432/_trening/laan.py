@@ -7,6 +7,164 @@
 """
 from trening_lib import *  # noqa: F401,F403
 
+# Hjelpen bak «Hjelp»-knappen: fremgangsmåten uten tallene i spørsmålet og uten svaret.
+HJELP = {
+    "lan-ann1-mnd":
+        "<p><b>Steg 1: terminstørrelsene.</b> Med månedlige terminer er renten per termin m = årsrenten/12. Antall "
+        "terminer n = antall år × 12.</p>"
+        "<p><b>Steg 2: formelen.</b> A = L × m / (1 − (1 + m)<sup>−n</sup>). Regn telleren og nevneren hver for seg.</p>"
+        "<p><b>Kontroll:</b> svaret må ligge over avdraget alene, L/n. Det må ligge under serielånets første termin, "
+        "L/n + L × m.</p>"
+        "<p><b>Pass på:</b> regn ikke årsannuiteten og del på tolv. Det gir et tall som ser riktig ut, men er litt "
+        "for høyt.</p>",
+    "lan-ann1-aar":
+        "<p><b>Steg 1: terminstørrelsene.</b> Med én termin i året er m årsrenten og n antall år.</p>"
+        "<p><b>Steg 2: formelen.</b> A = L × m / (1 − (1 + m)<sup>−n</sup>). Regn telleren og nevneren hver for seg.</p>"
+        "<p><b>Kontroll:</b> svaret må ligge over avdraget alene, L/n. Det må ligge under serielånets første termin, "
+        "L/n + L × m.</p>"
+        "<p><b>Pass på:</b> regn ikke med månedlige terminer når terminene er årlige.</p>",
+    "lan-ren1-fradrag":
+        "<p><b>Steg 1: avdragene første år.</b> Lånet minus restgjelden etter tolv terminer.</p>"
+        "<p><b>Steg 2: rentene.</b> Alt som er betalt i året (tolv terminbeløp) minus avdragene.</p>"
+        "<p><b>Steg 3: fradraget.</b> Rentene × 22 %.</p>"
+        "<p><b>Pass på:</b> renter av hele lånet i tolv måneder blir for mye, fordi saldoen faller gjennom året. "
+        "Avdrag gir ikke fradrag. Satsen er 22 %, ikke marginalskatten.</p>",
+    "lan-ren1-netto":
+        "<p><b>Steg 1: avdragene første år.</b> Lånet minus restgjelden etter tolv terminer.</p>"
+        "<p><b>Steg 2: rentene.</b> Alt som er betalt i året (tolv terminbeløp) minus avdragene.</p>"
+        "<p><b>Steg 3: etter skatt.</b> Rentene × (1 − 22 %).</p>"
+        "<p><b>Pass på:</b> spørsmålet gjelder hva rentene koster etter fradraget, ikke selve fradraget. Avdrag er "
+        "ingen kostnad. Renter av hele lånet i tolv måneder blir for mye.</p>",
+    "lan-ren1-renter":
+        "<p><b>Steg 1: avdragene første år.</b> Lånet minus restgjelden etter tolv terminer.</p>"
+        "<p><b>Steg 2: rentene.</b> Alt som er betalt i året (tolv terminbeløp) minus avdragene.</p>"
+        "<p><b>Kontroll:</b> rentene må ligge litt under rentesatsen ganget med lånet, fordi bare første termin "
+        "forrenter hele lånet.</p>"
+        "<p><b>Pass på:</b> ikke svar med alt som er betalt eller med avdragene. Begge er mellomtall.</p>",
+    "lan-ren1-aarlig":
+        "<p><b>Steg 1: rentene første år.</b> Med én årlig termin står hele lånet ute hele første år. Renten er "
+        "rentesatsen × lånet.</p>"
+        "<p><b>Steg 2: fradraget.</b> Rentene × 22 %.</p>"
+        "<p><b>Kontroll:</b> terminbeløpet minus rentene er avdraget. Det skal være positivt og litt under lånet "
+        "delt på antall år.</p>"
+        "<p><b>Pass på:</b> fradraget gjelder bare rentene, ikke hele terminbeløpet. Satsen er 22 % uansett "
+        "marginalskatt.</p>",
+    "lan-sum1-annuitet":
+        "<p><b>Steg 1: alt som betales.</b> Antall terminer × terminbeløpet.</p>"
+        "<p><b>Steg 2: trekk fra lånet.</b> Avdragene summerer seg alltid til lånebeløpet. Resten er renter: n × A − L.</p>"
+        "<p><b>Kontroll:</b> rentesummen må ligge over serielånets, m × L × (n + 1)/2. Den må ligge under renten på "
+        "hele lånet i alle terminene, m × L × n.</p>"
+        "<p><b>Pass på:</b> glem ikke å trekke fra lånet.</p>",
+    "lan-sum1-annuitet-mnd":
+        "<p><b>Steg 1: terminbeløpet.</b> m = årsrenten/12 og n = antall terminer. A = L × m / (1 − (1 + m)<sup>−n</sup>).</p>"
+        "<p><b>Steg 2: alt som betales.</b> n × A.</p>"
+        "<p><b>Steg 3: trekk fra lånet.</b> Avdragene summerer seg til lånet. Rentesummen er n × A − L.</p>"
+        "<p><b>Kontroll:</b> rentesummen må ligge mellom serielånets m × L × (n + 1)/2 og m × L × n.</p>"
+        "<p><b>Pass på:</b> regn med månedlige terminer, ikke med årsannuiteten. Glem ikke å trekke fra lånet.</p>",
+    "lan-sum1-serie":
+        "<p><b>Steg 1: avdraget.</b> L/n, likt i hver termin.</p>"
+        "<p><b>Steg 2: renten i første og siste termin.</b> Første: L × m. Siste: renten på ett avdrag.</p>"
+        "<p><b>Steg 3: summen.</b> Rentene faller lineært: antall terminer × snittet av første og siste. Det er "
+        "m × L × (n + 1)/2.</p>"
+        "<p><b>Pass på:</b> leddet + 1 blir lett borte. Renten på hele lånet i alle terminene er for mye, fordi "
+        "gjelden faller.</p>",
+    "lan-eff1":
+        "<p><b>Steg 1: kontantstrømmen.</b> I dag mottar du lånet minus etableringsgebyret. I hver termin betaler du "
+        "terminbeløpet pluss termingebyret.</p>"
+        "<p><b>Steg 2: internrenten.</b> Effektiv rente er renten der det du mottar, er lik nåverdien av betalingene. "
+        "Sett alternativene inn baklengs: del beløpet du mottar på annuitetsfaktoren og sammenlign med betalingen.</p>"
+        "<p><b>Kontroll:</b> gebyrene per år delt på gjennomsnittlig restgjeld gir omtrent påslaget over nominell "
+        "rente.</p>"
+        "<p><b>Pass på:</b> ta med begge gebyrene. Legg ikke gebyrprosent på den nominelle renten.</p>",
+    "lan-kre1":
+        "<p><b>Steg 1: rentene.</b> Antall terminer × terminbeløpet minus lånet.</p>"
+        "<p><b>Steg 2: gebyrene.</b> Antall terminer × termingebyret, pluss etableringsgebyret.</p>"
+        "<p><b>Steg 3: kredittkostnaden.</b> Rentene pluss alle gebyrene, summert uten diskontering.</p>"
+        "<p><b>Kontroll:</b> regn alt som betales, inkludert gebyrene. Trekk fra lånet. Det skal gi det samme.</p>"
+        "<p><b>Pass på:</b> det farligste gale tallet er summen av alle betalinger uten å trekke fra lånet. Glem ikke "
+        "et av gebyrene.</p>",
+    "lan-tak1":
+        "<p><b>Regn hver skranke for seg.</b> Lånetaket er den laveste.</p>"
+        "<p><b>Steg 1: gjeldsgraden.</b> 5 × brutto inntekt minus all annen gjeld.</p>"
+        "<p><b>Steg 2: belåningsgraden.</b> 90 % av boligens verdi.</p>"
+        "<p><b>Steg 3: stresstesten.</b> Stresset rente = renten + 3 prosentpoeng, men minst 7 %. Maks lån = "
+        "betjeningsevnen × annuitetsfaktoren over 30 år ved stresset rente. Hent faktoren fra tabellen.</p>"
+        "<p><b>Pass på:</b> det gamle påslaget på 5 prosentpoeng gjelder ikke lenger. Bruk gulvet bare når renten "
+        "pluss 3 prosentpoeng er under 7 %. Annen gjeld teller i femgangeren.</p>",
+    "lan-avf1-termin":
+        "<p><b>Steg 1: restgjelden.</b> I en avdragsfri periode betales bare renter. Hvor mye av lånet står da igjen "
+        "når perioden er over?</p>"
+        "<p><b>Steg 2: nytt annuitetslån.</b> Hele restgjelden skal betales på de terminene som gjenstår. Bruk "
+        "A = L × m / (1 − (1 + m)<sup>−n</sup>) med n = terminene som er igjen.</p>"
+        "<p><b>Kontroll:</b> det nye terminbeløpet må være høyere enn det gamle, fordi samme lån betales på færre "
+        "terminer.</p>"
+        "<p><b>Pass på:</b> de utsatte avdragene kan ikke bare fordeles likt. De må også forrentes.</p>",
+    "lan-avf1-kost":
+        "<p><b>Steg 1: uten avdragsfrihet.</b> Antall terminer × det opprinnelige terminbeløpet.</p>"
+        "<p><b>Steg 2: med avdragsfrihet.</b> Rentene i den avdragsfrie perioden, pluss resten av terminene × det nye "
+        "terminbeløpet.</p>"
+        "<p><b>Steg 3: forskjellen.</b> Med minus uten.</p>"
+        "<p><b>Kontroll:</b> merkostnaden må være lavere enn rentene i den avdragsfrie perioden. Det er merkostnaden "
+        "hvis løpetiden forlenges i stedet.</p>"
+        "<p><b>Pass på:</b> i kroner koster avdragsfrihet noe, selv om nåverdien ved lånerenten er den samme.</p>",
+
+    "lan-s01":
+        '<p>Avdragsfrihet betyr at du bare betaler renter en periode.</p><p><b>Steg 1:</b> står gjelden lenger ute? Hva gjør det med summen av rentekroner?</p><p><b>Steg 2:</b> diskonter betalingene med lånerenten. Endres nåverdien?</p><p><b>Steg 3:</b> hvis nåverdien er den samme, hva kan likevel gi avdragsfrihet verdi for en låntaker? Tenk på hva alternativet er når pengene ikke strekker til en periode.</p>',
+    "lan-s02":
+        "<p><b>Vurder påstandene hver for seg.</b></p>"
+        "<p><b>Påstand I:</b> står hovedstolen lenger ute med avdragsfrihet? Hva gjør det med summen av rentene i "
+        "kroner?</p>"
+        "<p><b>Påstand II:</b> hva er nåverdien av en betalingsstrøm av renter og avdrag på et lån, når du diskonterer "
+        "med lånets egen rente? Avhenger det av når avdragene betales?</p>"
+        "<p><b>Sett sammen.</b> Velg alternativet som passer med hvilke påstander som holder.</p>",
+    "lan-s03":
+        '<p>Bankens fastrente bygger på markedets forventninger om framtidig rente pluss et lite påslag.</p><p><b>Steg 1:</b> kan du vente å tjene penger på fast rente fordi renten ventes å stige?</p><p><b>Steg 2:</b> hva kjøper du da egentlig med fast rente?</p><p><b>Steg 3:</b> hvem har mest nytte av det, en låntaker med stor buffer eller en med høy gjeld og lite sparing? Sjekk også hva tidlig innfrielse koster.</p>',
+    "lan-s04":
+        '<p>Å betale ned et lån gir en sikker avkastning lik lånerenten etter skatt.</p><p><b>Steg 1:</b> alle lånene har rentefradrag med samme sats. Endrer fradraget rangeringen mellom dem?</p><p><b>Steg 2:</b> hvor gir en ekstra krone størst sikker avkastning?</p><p><b>Steg 3:</b> vurder hvert råd ut fra avkastningen det gir på den ekstra kronen.</p>',
+    "lan-s05":
+        "<p><b>Steg 1: hva gir fradrag?</b> Skill rentene fra avdragene. Avdrag er tilbakebetaling, ikke en kostnad.</p>"
+        "<p><b>Steg 2: hvilken sats?</b> Renter trekkes fra i alminnelig inntekt, som skattlegges med 22 %. "
+        "Marginalskatten på lønn inneholder trygdeavgift og trinnskatt, som ikke påvirkes.</p>"
+        "<p><b>Steg 3.</b> Gang rentene med 22 %.</p>"
+        "<p><b>Stryk de gale.</b> Rentefradrag gjelder all gjeld, ikke bare studielån.</p>",
+    "lan-s06":
+        "<p><b>Regelen.</b> Stresset rente = dagens rente + 3 prosentpoeng, men aldri lavere enn 7 %.</p>"
+        "<p><b>Steg 1.</b> Legg 3 prosentpoeng på renten.</p>"
+        "<p><b>Steg 2.</b> Sammenlign med 7 %. Den høyeste av de to gjelder.</p>"
+        "<p><b>Stryk de gale.</b> Påslaget på 5 prosentpoeng er den gamle regelen fra eldre eksamenssett. Stresstesten "
+        "bygger på dagens rente, ikke på et fast nivå.</p>",
+    "lan-s07":
+        "<p><b>Regelen.</b> Samlet gjeld kan være høyst 5 × brutto årsinntekt. All gjeld teller.</p>"
+        "<p><b>Steg 1.</b> Regn 5 × inntekten.</p>"
+        "<p><b>Steg 2.</b> Legg sammen all eksisterende gjeld: studielån, billån og kredittkortrammer, også ubrukte.</p>"
+        "<p><b>Steg 3.</b> Boliglånet kan være forskjellen.</p>"
+        "<p><b>Pass på:</b> alternativene er laget ved å glemme én gjeldspost. Sjekk at du har tatt med alle.</p>",
+    "lan-s08":
+        "<p><b>To krav å sjekke.</b> Hvor stor andel av boligverdien kan lånet være? Når kreves avdrag? Hvor mye?</p>"
+        "<p><b>Belåning.</b> Dagens grense for nedbetalingslån ble endret fra 2025. Rammelån har en lavere grense.</p>"
+        "<p><b>Avdrag.</b> Kravet gjelder over en bestemt belåningsgrad. Det er en prosent av lånet per år, eller "
+        "avdraget i et annuitetslån over 30 år.</p>"
+        "<p><b>Stryk de gale.</b> Ett feil tall i et alternativ gjør hele alternativet galt.</p>",
+    "lan-s09":
+        '<p>Spør hvem forskriften beskytter.</p><p><b>Steg 1:</b> hvis målet var å verne hver forbruker mot å låne for mye, hvilke lån ville da vært strengest regulert? Er det slik i dag?</p><p><b>Steg 2:</b> hva kan gå galt for hele økonomien når mange husholdninger har høy boliggjeld samtidig?</p><p><b>Steg 3:</b> hvordan gir forskriften bankene rom for skjønn? Hvem bestemmer unntakene?</p>',
+    "lan-s10":
+        '<p>Lånet er nåverdien av alle terminbeløpene.</p><p><b>Steg 1:</b> skriv nåverdien av n like betalinger A med rente m per termin som A ganget med en annuitetsfaktor.</p><p><b>Steg 2:</b> sett nåverdien lik L og løs for A.</p><p><b>Steg 3:</b> sjekk fortegnet på eksponenten. Nevneren må bli positiv. Kontroll: fast avdrag pluss rente gir ikke et fast terminbeløp.</p>',
+    "lan-s11":
+        "<p><b>Hva effektiv rente måler.</b> Hvor mye en krone vokser på ett år når renten per termin rentes k ganger.</p>"
+        "<p><b>Steg 1.</b> Renten per termin er r/k.</p>"
+        "<p><b>Steg 2.</b> Over et år vokser en krone k ganger med den. Trekk fra kronen du startet med.</p>"
+        "<p><b>Kontroll.</b> Effektiv rente skal være litt over den nominelle. Et uttrykk som gir mindre, eller "
+        "flere ganger mer, er galt.</p>",
+    "lan-s12":
+        '<p>To mål for samme lån: det ene i kroner, det andre i prosent.</p><p><b>Steg 1:</b> kredittkostnad. Hva legger du sammen? Trekker du fra beløpet du fikk utbetalt? Diskonteres beløpene?</p><p><b>Steg 2:</b> effektiv rente. Hvilken rente gjør nåverdien av alle betalinger lik beløpet du mottok? Er det det samme som nominell rente pluss gebyrer?</p><p><b>Steg 3:</b> test hvert alternativ på begge målene.</p>',
+    "lan-s13":
+        "<p><b>Vurder påstandene hver for seg.</b> I begge lånetypene er renten restgjelden × renten per termin.</p>"
+        "<p><b>Påstand I:</b> når terminbeløpet er fast og restgjelden faller, hva skjer med rentedelen?</p>"
+        "<p><b>Påstand II:</b> hvilket lån har lavest gjeld ute i snitt gjennom løpetiden? Hva betyr det for "
+        "rentesummen?</p>"
+        "<p><b>Sett sammen.</b> Velg alternativet som passer med hvilke påstander som holder.</p>",
+}
+
 NAVN = ["Mira", "Jonas", "Selma", "Aksel", "Ingrid", "Tobias", "Nora", "Elias", "Sigrid", "Henrik",
         "Maja", "Ola", "Hanne", "Petter", "Lise", "Kristian", "Emil", "Ida", "Sofie", "Marius"]
 
@@ -92,7 +250,7 @@ def _(r):
         f"termin, {tall(L / n + L * m, 2)}.</p>"
         f"<p><b>Husk:</b> A = L × m/(1 − (1 + m)<sup>−n</sup>). Rente og antall terminer må måles i samme termin.</p>"
     )
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp={"måned": HJELP["lan-ann1-mnd"], "år": HJELP["lan-ann1-aar"]}[termin])
 
 
 # ---------------------------------------------------------------------------
@@ -113,6 +271,7 @@ def _(r):
         renter = 12 * A - avdrag
         rL = rp / 100 * L
         spor = r.choice(["fradrag", "netto", "renter"])
+        nokkel = spor
         q0 = (f"<p>{navn} har et annuitetslån på {kr(L)} med nominell rente {rtekst(rp)} over {aar} år, med "
               f"månedlige terminer. Terminbeløpet er {kr(A, 2)}. Etter tolv terminer er restgjelden {kr(R12)}. "
               f"Renter gir fradrag i alminnelig inntekt, som skattlegges med 22 %. Marginalskatten til {navn} på "
@@ -173,6 +332,7 @@ def _(r):
         kort = (f"<p><b>{kr(riktig)}.</b> Med én årlig termin er første års rente {rtekst(rp)} × {tall(L)} = "
                 f"{talla(rL)}. Fradraget er 22 % av det.</p>")
         spor = "fradrag"
+        nokkel = "aarlig"
     ulike(riktig, *[v for v, _ in fl], rel=0.006)
 
     q = q0 + f"<p>{sp}</p>"
@@ -190,7 +350,7 @@ def _(r):
         + steg + slutt + kontroll +
         f"<p><b>Husk:</b> renter = betalt − avdrag. Fradraget er 22 % av rentene, aldri av terminbeløpet.</p>"
     )
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp={"fradrag": HJELP["lan-ren1-fradrag"], "netto": HJELP["lan-ren1-netto"], "renter": HJELP["lan-ren1-renter"], "aarlig": HJELP["lan-ren1-aarlig"]}[nokkel])
 
 
 # ---------------------------------------------------------------------------
@@ -277,13 +437,14 @@ def _(r):
         + steg +
         f"<p><b>Husk:</b> annuitet: rentesum = n × A − L. Serielån: rentesum = m × L × (n + 1)/2.</p>"
     )
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp={"annuitet": HJELP["lan-sum1-annuitet"], "annuitet-mnd": HJELP["lan-sum1-annuitet-mnd"], "serie": HJELP["lan-sum1-serie"]}[type_ if gi_A or type_ == "serie" else "annuitet-mnd"])
 
 
 # ---------------------------------------------------------------------------
 # lan-eff1 · Effektiv rente med etableringsgebyr og termingebyr
 # ---------------------------------------------------------------------------
-@familie("lan-eff1", tema="laan", antall=5, tittel="Effektiv rente med gebyrer")
+@familie("lan-eff1", tema="laan", antall=5, tittel="Effektiv rente med gebyrer",
+         hjelp=HJELP["lan-eff1"])
 def _(r):
     navn = r.choice(NAVN)
     L = r.randrange(150_000, 600_001, 10_000)
@@ -358,7 +519,8 @@ def _(r):
 # ---------------------------------------------------------------------------
 # lan-kre1 · Kredittkostnad: renter og gebyrer, udiskontert
 # ---------------------------------------------------------------------------
-@familie("lan-kre1", tema="laan", antall=5, tittel="Kredittkostnaden på et lån")
+@familie("lan-kre1", tema="laan", antall=5, tittel="Kredittkostnaden på et lån",
+         hjelp=HJELP["lan-kre1"])
 def _(r):
     navn = r.choice(NAVN)
     L = r.randrange(150_000, 600_001, 10_000)
@@ -415,7 +577,8 @@ def _(r):
 # ---------------------------------------------------------------------------
 # lan-tak1 · Lånetaket etter utlånsforskriften
 # ---------------------------------------------------------------------------
-@familie("lan-tak1", tema="laan", antall=6, tittel="Lånetaket etter utlånsforskriften")
+@familie("lan-tak1", tema="laan", antall=6, tittel="Lånetaket etter utlånsforskriften",
+         hjelp=HJELP["lan-tak1"])
 def _(r):
     navn = r.choice(NAVN)
     binder = r.choice(["gjeld", "belaning", "stress"])
@@ -582,7 +745,7 @@ def _(r):
         f"<p><b>Husk:</b> avdragsfrihet gir flere kroner i renter, men samme nåverdi. Den er verdt noe fordi den "
         f"frigjør likviditet.</p>"
     )
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp={"termin": HJELP["lan-avf1-termin"], "kost": HJELP["lan-avf1-kost"]}[spor])
 
 
 # ===========================================================================
@@ -590,7 +753,7 @@ def _(r):
 # ===========================================================================
 
 statisk(
-    "lan-s01", tema="laan", type="paastand",
+    "lan-s01", hjelp=HJELP["lan-s01"], tema="laan", type="paastand",
     q="<p>Hvilken påstand om avdragsfrihet på et boliglån er riktig?</p>",
     alternativer=[
         R("Det kan være lurt å be om avdragsfrihet ved midlertidige problemer med likviditeten"),
@@ -618,7 +781,7 @@ statisk(
 )
 
 statisk(
-    "lan-s02", tema="laan", type="paastand", rekkefolge="fast",
+    "lan-s02", hjelp=HJELP["lan-s02"], tema="laan", type="paastand", rekkefolge="fast",
     q="<p>Mira får to års avdragsfrihet på et annuitetslån. Sluttdatoen for lånet står fast. Vurder to påstander.</p>"
       "<p>I. Mira betaler flere kroner i renter til sammen enn uten avdragsfrihet.</p>"
       "<p>II. Avdragsfriheten gjør lånet dyrere målt i nåverdi, diskontert med lånerenten.</p>"
@@ -646,7 +809,7 @@ statisk(
 )
 
 statisk(
-    "lan-s03", tema="laan", type="begrep",
+    "lan-s03", hjelp=HJELP["lan-s03"], tema="laan", type="begrep",
     q="<p>Marius har nettopp kjøpt sin første bolig med så stort lån som banken ville gi. Han har lite sparepenger. "
       "Fastrenten for fem år er litt høyere enn den flytende renten. Hvilken påstand om valget er riktig?</p>",
     alternativer=[
@@ -675,7 +838,7 @@ statisk(
 )
 
 statisk(
-    "lan-s04", tema="laan", type="begrep",
+    "lan-s04", hjelp=HJELP["lan-s04"], tema="laan", type="begrep",
     q="<p>Hanne har fire lån: kredittkort til 22 %, billån til 7,5 %, boliglån til 5,0 % og studielån til 4,5 %. Hun "
       "har kr 50 000 ekstra hun vil bruke på å betale ned gjeld. Hvilket råd er økonomisk riktig?</p>",
     alternativer=[
@@ -704,7 +867,7 @@ statisk(
 )
 
 statisk(
-    "lan-s05", tema="laan", type="fakta",
+    "lan-s05", hjelp=HJELP["lan-s05"], tema="laan", type="fakta",
     q="<p>Petter har marginalskatt 47,4 % på lønn og betaler kr 100 000 i året på boliglånet: kr 60 000 i renter og "
       "kr 40 000 i avdrag. Skatten på alminnelig inntekt er 22 %. Hvor mye reduserer lånet skatten hans?</p>",
     alternativer=[
@@ -731,7 +894,7 @@ statisk(
 )
 
 statisk(
-    "lan-s06", tema="laan", type="fakta",
+    "lan-s06", hjelp=HJELP["lan-s06"], tema="laan", type="fakta",
     q="<p>Lånerenten er 3,5 %. Hvilken rente må banken bruke i stresstesten etter dagens utlånsforskrift?</p>",
     alternativer=[
         R("7 %, fordi renten pluss 3 prosentpoeng er under gulvet på 7 %"),
@@ -756,7 +919,7 @@ statisk(
 )
 
 statisk(
-    "lan-s07", tema="laan", type="fakta",
+    "lan-s07", hjelp=HJELP["lan-s07"], tema="laan", type="fakta",
     q="<p>Ida har brutto årsinntekt kr 600 000. Hun har et studielån på kr 350 000, et billån på kr 120 000 og en "
       "kredittkortramme på kr 30 000. Hvor stort boliglån tillater gjeldsgradskravet i utlånsforskriften alene?</p>",
     alternativer=[
@@ -779,7 +942,7 @@ statisk(
 )
 
 statisk(
-    "lan-s08", tema="laan", type="fakta",
+    "lan-s08", hjelp=HJELP["lan-s08"], tema="laan", type="fakta",
     q="<p>Hvilken kombinasjon gir dagens krav i utlånsforskriften til egenkapital og avdrag på et nedbetalingslån med "
       "pant i bolig?</p>",
     alternativer=[
@@ -806,7 +969,7 @@ statisk(
 )
 
 statisk(
-    "lan-s09", tema="laan", type="begrep",
+    "lan-s09", hjelp=HJELP["lan-s09"], tema="laan", type="begrep",
     q="<p>Hva er forelesningens hovedbegrunnelse for at utlånsforskriften finnes? Hvorfor kan en bank likevel gi "
       "lån som bryter kravene?</p>",
     alternativer=[
@@ -836,7 +999,7 @@ statisk(
 )
 
 statisk(
-    "lan-s10", tema="laan", type="formel",
+    "lan-s10", hjelp=HJELP["lan-s10"], tema="laan", type="formel",
     q="<p>Et annuitetslån på L kroner har rente m per termin og n terminer. Hvilket uttrykk gir terminbeløpet A?</p>",
     alternativer=[
         R("A = L × m / (1 − (1 + m)<sup>−n</sup>)"),
@@ -864,7 +1027,7 @@ statisk(
 )
 
 statisk(
-    "lan-s11", tema="laan", type="formel",
+    "lan-s11", hjelp=HJELP["lan-s11"], tema="laan", type="formel",
     q="<p>Et lån har nominell årsrente r og k terminer i året, uten gebyrer. Hvilket uttrykk gir den effektive "
       "årsrenten?</p>",
     alternativer=[
@@ -889,7 +1052,7 @@ statisk(
 )
 
 statisk(
-    "lan-s12", tema="laan", type="begrep",
+    "lan-s12", hjelp=HJELP["lan-s12"], tema="laan", type="begrep",
     q="<p>Hva er forskjellen på kredittkostnad og effektiv rente for et lån med gebyrer?</p>",
     alternativer=[
         R("Kredittkostnaden er kroner, udiskontert. Effektiv rente er en internrente i prosent."),
@@ -917,7 +1080,7 @@ statisk(
 )
 
 statisk(
-    "lan-s13", tema="laan", type="paastand", rekkefolge="fast",
+    "lan-s13", hjelp=HJELP["lan-s13"], tema="laan", type="paastand", rekkefolge="fast",
     q="<p>Vurder to påstander om et annuitetslån og et serielån med samme lånebeløp, rente og løpetid.</p>"
       "<p>I. I annuitetslånet faller rentedelen av terminen over tid, mens terminbeløpet er fast.</p>"
       "<p>II. Serielånet gir lavere rentesum, fordi gjelden i snitt er lavere gjennom løpetiden.</p>"

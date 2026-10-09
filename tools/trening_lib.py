@@ -120,23 +120,26 @@ class F:
         self.tekst, self.verdi, self.felle = tekst, verdi, felle
 
 
-def sporsmal(q, alternativer, kort, full, rekkefolge=None):
+def sporsmal(q, alternativer, kort, full, rekkefolge=None, hjelp=None):
     """rekkefolge: «stokk» (standard), «stigende» (tall i stigende rekkefølge,
        se modulteksten) eller «fast» (behold rekkefølgen du skrev, for eksempel
        når alternativene er «Bare I», «Bare II», «Begge», «Ingen»)."""
-    return dict(q=q, alternativer=alternativer, kort=kort, full=full, rekkefolge=rekkefolge)
+    return dict(q=q, alternativer=alternativer, kort=kort, full=full, rekkefolge=rekkefolge, hjelp=hjelp)
 
 
-def familie(id, tema, antall, tittel="", type="regne"):
+def familie(id, tema, antall, tittel="", type="regne", hjelp=None):
+    """hjelp: fremgangsmåten uten tall, felles for alle variantene. En variant
+       kan overstyre den med sporsmal(..., hjelp=...) når familien har flere
+       spørsmålstyper. Se spesifikasjonen § 2b."""
     def dek(fn):
-        FAMILIER.append(dict(id=id, tema=tema, antall=antall, tittel=tittel, type=type, fn=fn))
+        FAMILIER.append(dict(id=id, tema=tema, antall=antall, tittel=tittel, type=type, fn=fn, hjelp=hjelp))
         return fn
     return dek
 
 
-def statisk(id, tema, q, alternativer, kort, full, type="begrep", rekkefolge=None):
+def statisk(id, tema, q, alternativer, kort, full, type="begrep", rekkefolge=None, hjelp=None):
     STATISKE.append(dict(id=id, tema=tema, type=type,
-                         sp=sporsmal(q, alternativer, kort, full, rekkefolge)))
+                         sp=sporsmal(q, alternativer, kort, full, rekkefolge, hjelp)))
 
 
 # ---------------------------------------------------------------- små hjelpere

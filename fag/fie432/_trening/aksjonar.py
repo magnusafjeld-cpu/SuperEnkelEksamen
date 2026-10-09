@@ -10,7 +10,14 @@ from trening_lib import *  # noqa: F401,F403
 # ---------------------------------------------------------------------------
 # aks-skj1 · Skattepliktig utbytte når skjermingen dekker en del av utbyttet
 # ---------------------------------------------------------------------------
-@familie("aks-skj1", tema="aksjonar", antall=8, tittel="Skattepliktig utbytte, ett år")
+@familie("aks-skj1", tema="aksjonar", antall=8, tittel="Skattepliktig utbytte, ett år",
+         hjelp="<p><b>Steg 1: finn skjermingsgrunnlaget.</b> Det er kostprisen, det du betalte for aksjene, pluss "
+               "eventuell ubenyttet skjerming fra året før. Markedsverdien brukes ikke.</p>"
+               "<p><b>Steg 2: regn skjermingsfradraget.</b> Gang skjermingsgrunnlaget med skjermingsrenten.</p>"
+               "<p><b>Steg 3: trekk fradraget fra utbyttet.</b> Det som er igjen, er skattepliktig utbytte. Det kan "
+               "aldri bli negativt.</p>"
+               "<p><b>Pass på:</b> spørsmålet ber om skattepliktig utbytte, altså beløpet skatten regnes av. Det er "
+               "verken skjermingsgrunnlaget eller selve skatten. Skatten ville vært skattepliktig utbytte × 37,84 %.</p>")
 def _(r):
     navn = r.choice(["Mira", "Jonas", "Selma", "Aksel", "Ingrid", "Tobias", "Nora", "Elias"])
     kost = r.randrange(200_000, 900_001, 50_000)
@@ -75,6 +82,12 @@ def _(r):
 # ---------------------------------------------------------------------------
 statisk(
     "aks-b01", tema="aksjonar", type="begrep",
+    hjelp="<p><b>Tenk på hele kjeden.</b> Et overskudd i et aksjeselskap skattlegges først i selskapet. Det som deles "
+          "ut, skattlegges så hos eieren.</p>"
+          "<p><b>Sammenlign med lønn.</b> Hva ville eieren betalt i skatt om pengene ble tatt ut som lønn i stedet? "
+          "Regn samlet skatt på utdelt overskudd: selskapsskatten pluss eierskatten på det som er igjen.</p>"
+          "<p><b>Stryk de gale.</b> Hvilke alternativer beskriver en skatt som faktisk betales av utbytte? Hvilke "
+          "blander inn regler for lønn eller for tapsfradrag?</p>",
     q="<p>Utbytte og aksjegevinst for personlige aksjonærer skattlegges i dag med en effektiv sats på 37,84 %. "
       "Hva er den riktige begrunnelsen for at satsen er så mye høyere enn 22 %?</p>",
     alternativer=[
@@ -252,6 +265,194 @@ def kjedetabell(aar, rader):
     return f"<table class=\"data\">{hode}{linjer}</table>"
 
 
+# ===========================================================================
+# HJELP: fremgangsmåten uten tallene fra spørsmålet (spesifikasjonen § 2b)
+# ===========================================================================
+def _s(*steg):
+    return "".join(f"<p>{x}</p>" for x in steg)
+
+
+_TO_AAR = ("<b>Steg 1: første år.</b> Fradrag = kostpris × årets skjermingsrente. Er utbyttet mindre, er skattepliktig "
+           "utbytte null. Resten framføres som ubenyttet skjerming.",
+           "<b>Steg 2: grunnlaget neste år</b> = kostpris + ubenyttet skjerming.",
+           "<b>Steg 3: årets fradrag</b> = grunnlaget × årets skjermingsrente.",
+           "<b>Steg 4: skattepliktig utbytte</b> = utbytte − årets fradrag − ubenyttet skjerming.")
+_KJEDE = ("<b>Steg 1: selskapsskatt</b> = 22 % × overskudd. <b>Steg 2: utbytte</b> = overskudd − selskapsskatt.",
+          "<b>Steg 3: skjerming</b> = kostpris × skjermingsrente. Skattepliktig utbytte = utbytte − skjerming.",
+          "<b>Steg 4: eierskatt</b> = skattepliktig utbytte × faktor × sats.")
+_HOLD = ("<b>Steg 1: Drift AS.</b> Eierens andel = eierandel × overskudd. Selskapsskatt = 22 % av andelen. Resten går "
+         "som utbytte til holdingselskapet.",
+         "<b>Steg 2: holdingselskapet.</b> Eier det mer enn 90 % av aksjene og stemmene, er utbyttet fritatt. Ellers "
+         "inntektsføres 3 % av utbyttet, og skatten blir 0,66 % av det.".replace("utbyttet, og skatten", "utbyttet. Skatten"))
+
+HJA = {
+    "aks-skj2": {
+        "grunnlag": _s(*_TO_AAR, "<b>Pass på:</b> den framførte skjermingen skal både inn i skjermingsgrunnlaget og "
+                       "trekkes fra. Spørsmålet ber om skattepliktig utbytte, ikke skjermingsgrunnlaget og ikke skatten."),
+        "skatt": _s(*_TO_AAR, "<b>Steg 5: skatten</b> = skattepliktig utbytte × 1,72 × 22 %, altså × 37,84 %.",
+                    "<b>Pass på:</b> den framførte skjermingen skal både inn i grunnlaget og trekkes fra. Glem ikke "
+                    "oppjusteringen."),
+    },
+    "aks-skj3": _s("Gjør rutinen én rad per år, i rekkefølge.",
+                   "<b>Grunnlag</b> = kostpris + ubenyttet skjerming fra året før. <b>Årets fradrag</b> = grunnlag × årets "
+                   "rente. <b>Samlet skjerming</b> = årets fradrag + framført.",
+                   "Er utbyttet større enn samlet skjerming, er differansen skattepliktig. Ingenting framføres. Er det "
+                   "mindre, er skattepliktig null. Resten framføres.",
+                   "<b>Pass på:</b> framført skjerming løfter grunnlaget og trekkes fra. Ikke svar med et mellomtall som "
+                   "årets fradrag eller samlet fradrag."),
+    "aks-skj4": {
+        "fritt": _s("<b>Steg 1: første år.</b> Fradrag = kostpris × rente. Det som ikke gikk med til utbyttet, framføres.",
+                    "<b>Steg 2: neste år.</b> Grunnlag = kostpris + framført. Fradrag = grunnlag × årets rente.",
+                    "<b>Steg 3: skattefritt utbytte</b> = årets fradrag + framført skjerming.",
+                    "<b>Pass på:</b> det framførte skal både løfte grunnlaget og legges til. Skjerming som er brukt mot "
+                    "utbytte, er borte."),
+        "saldo": _s("<b>Steg 1: første år.</b> Fradrag = kostpris × årets rente. Framført = fradrag − utbytte, men aldri "
+                    "under null.",
+                    "<b>Steg 2: andre år.</b> Grunnlag = kostpris + framført. Fradrag = grunnlag × årets rente.",
+                    "<b>Steg 3: ny saldo</b> = årets fradrag + framført − årets utbytte, men aldri under null.",
+                    "<b>Pass på:</b> det framførte skal forrentes gjennom grunnlaget. Begge utbyttene trekkes fra, men "
+                    "hvert bare én gang. Saldoen etter første år er et mellomtall."),
+        "grunnlag": _s("<b>Steg 1: første år.</b> Fradrag = kostpris × årets rente. Framført = fradrag − utbytte, men "
+                       "aldri under null.",
+                       "<b>Steg 2: andre år.</b> Grunnlag = kostpris + framført. Årets fradrag = grunnlag × årets rente. "
+                       "Ny saldo = årets fradrag + framført − årets utbytte, men aldri under null.",
+                       "<b>Steg 3: grunnlaget året etter</b> = kostpris + den nye saldoen.",
+                       "<b>Pass på:</b> markedsverdien brukes aldri. Skjerming som er brukt mot utbytte, legges ikke til. "
+                       "Bruk saldoen fra siste år."),
+    },
+    "aks-gev1": {
+        "skatt": _s("<b>Steg 1: gevinst</b> = salgspris − inngangsverdi − ubenyttet skjerming.",
+                    "<b>Steg 2: skatt</b> = gevinst × faktor × sats. Regn også med faktor × sats som én sats. Begge veier "
+                    "skal gi det samme.",
+                    "<b>Pass på:</b> oppjuster bare én gang. Glemt oppjustering gir et svar som er rundt seks tideler av "
+                    "det riktige. Skjermingen trekkes fra, og den skattlegges ikke.".replace("fra, og den", "fra. Den")),
+        "gevinst": _s("<b>Steg 1:</b> salgspris − inngangsverdi.",
+                      "<b>Steg 2:</b> trekk fra den ubenyttede skjermingen. Ingen ny skjerming for salgsåret.",
+                      "<b>Pass på:</b> spørsmålet ber om den skattepliktige gevinsten, ikke skatten. Skjermingen kan bare "
+                      "gjøre gevinsten mindre."),
+    },
+    "aks-gev2": {
+        "gevinst": _s("<b>Steg 1: framført skjerming.</b> For hvert år aksjene ble eid ved årsskiftet: grunnlag × rente. "
+                      "Uten utbytte framføres alt og legges til grunnlaget året etter.",
+                      "<b>Steg 2: salgsåret.</b> Aksjene er solgt før årsskiftet, så det gis ingen skjerming det året.",
+                      "<b>Steg 3: gevinst</b> = salgspris − inngangsverdi − framført skjerming.",
+                      "<b>Pass på:</b> fradraget for salgsåret går til kjøperen."),
+        "skatt": _s("<b>Steg 1: framført skjerming.</b> For hvert år aksjene ble eid ved årsskiftet: grunnlag × rente. "
+                    "Uten utbytte framføres alt og legges til grunnlaget året etter.",
+                    "<b>Steg 2: salgsåret.</b> Solgt før årsskiftet gir ingen skjerming det året.",
+                    "<b>Steg 3: gevinst</b> = salgspris − inngangsverdi − framført skjerming. <b>Steg 4: skatt</b> = "
+                    "gevinst × 37,84 %.",
+                    "<b>Pass på:</b> fradraget for salgsåret går til kjøperen. Glem ikke oppjusteringen."),
+    },
+    "aks-eier1": {
+        "skatt": _s("<b>Steg 1: skjermingsfradrag</b> = kostpris × skjermingsrente.",
+                    "<b>Steg 2: skattepliktig utbytte</b> = utbytte − skjerming.",
+                    "<b>Steg 3: skatt</b> = skattepliktig utbytte × faktor × sats. Kontroller med faktor × sats som én sats.",
+                    "<b>Pass på:</b> trekk fra skjermingen før du oppjusterer. Oppjuster bare én gang."),
+        "netto": _s("<b>Steg 1: skjermingsfradrag</b> = kostpris × skjermingsrente.",
+                    "<b>Steg 2: skatt</b> = (utbytte − skjerming) × faktor × sats.",
+                    "<b>Steg 3: igjen</b> = hele utbyttet − skatten.",
+                    "<b>Pass på:</b> trekk fra skjermingen før du oppjusterer. Den skjermede delen av utbyttet beholder "
+                    "eieren også."),
+    },
+    "aks-samlet1": {
+        "eierskatt": _s(*_KJEDE, "<b>Pass på:</b> eierskatten regnes av utbyttet etter selskapsskatt, ikke av overskuddet "
+                        "før skatt. Trekk fra skjermingen før oppjusteringen."),
+        "samlet": _s(*_KJEDE, "<b>Steg 5:</b> legg sammen selskapsskatt og eierskatt.",
+                     "<b>Pass på:</b> begge skattene skal med. Eierskatten regnes av utbyttet, ikke av overskuddet."),
+        "netto": _s(*_KJEDE, "<b>Steg 5: igjen</b> = utbytte − eierskatt.",
+                    "<b>Pass på:</b> start fra utbyttet etter selskapsskatt. Den skjermede delen beholder eieren også."),
+    },
+    "aks-frit1": _s("<b>Steg 1: gå gjennom postene én for én.</b> Gevinst og tap på aksjer i EØS følger fritaksmetoden: "
+                    "ingen skatt og ingen fradrag.",
+                    "<b>Steg 2: utbytte.</b> Sjekk eierandelen. Mer enn 90 % av aksjene og stemmene: fritatt. 90 % eller "
+                    "mindre: 3 % av utbyttet inntektsføres.",
+                    "<b>Steg 3: skatt</b> = inntektsført beløp × 22 %, altså 0,66 % av utbyttet.",
+                    "<b>Pass på:</b> 3 % er ikke skattesatsen. Regelen gjelder ikke gevinst. Nøyaktig 90 % er ikke mer "
+                    "enn 90 %."),
+    "aks-hold1": {
+        "sats": _s(*_HOLD, "<b>Steg 3: eierskatt</b> = det holdingselskapet deler ut × 37,84 %.",
+                   "<b>Steg 4: samlet sats</b> = (selskapsskatt + skatt i holdingselskapet + eierskatt) / eierens andel.",
+                   "<b>Pass på:</b> holdingselskapet betaler ikke 22 % av utbyttet. Treprosentregelen gjelder bare ved "
+                   "90 % eller lavere."),
+        "netto": _s(*_HOLD, "<b>Steg 3: eierskatt</b> = det holdingselskapet deler ut × 37,84 %.",
+                    "<b>Steg 4: igjen</b> = utdelt fra holdingselskapet − eierskatt.",
+                    "<b>Pass på:</b> fritaksmetoden fritar holdingselskapet, ikke eieren."),
+        "utsatt": _s(*_HOLD, "<b>Steg 3:</b> pengene blir stående i holdingselskapet. Eierskatten er ikke betalt ennå. "
+                     "Betalt så langt = selskapsskatt + eventuell skatt etter treprosentregelen.",
+                     "<b>Pass på:</b> ikke ta med eierskatten. Holdingselskapet skal ikke betale 22 % av utbyttet."),
+    },
+    "aks-uf1": _s("<b>Steg 1: skjerming hvert år</b> = kostpris × årets rente. Er utbyttet større enn skjermingen, framføres ingenting.",
+                  "<b>Steg 2: eierskatt hvert år</b> = (utbytte − skjerming) × eierskatten.",
+                  "<b>Steg 3: formuesskatt per år</b> = børsverdi × 80 % × formuesskattesatsen. Den betales hvert år.",
+                  "<b>Steg 4: igjen</b> = sum utbytte − sum eierskatt − formuesskatt for begge år.",
+                  "<b>Pass på:</b> hvert år har sitt eget fradrag. Glem ikke rabatten."),
+}
+
+HSA = {
+    "aks-s01": _s("Skjermingen skal gjøre en risikofri avkastning på det eieren har skutt inn, skattefri.",
+                  "Spør: hva har eieren skutt inn, og hvilken skjerming er ennå ikke brukt? Stryk alternativer med "
+                  "markedsverdien eller med skjerming som alt er brukt mot utbytte.".replace("inn, og hvilken",
+                                                                                          "inn? Hvilken")),
+    "aks-s02": _s("Regelen: skjermingsfradraget for et år går til den som eier aksjen ved utgangen av året.",
+                  "Fradraget fordeles ikke etter måneder, og det faller ikke bort ved eierskifte. Finn ut hvem som eier "
+                  "aksjen ved årsskiftet.".replace("måneder, og det", "måneder. Det")),
+    "aks-s03": '<p>Skjermingen beregnes med en risikofri rente på det eieren har skutt inn. Sammenlign med gjeld: renter på lån gir fradrag, men eierens egen alternativkostnad gir det ikke. Spør: hvilken del av avkastningen dekker en risikofri rente? Hvilken del dekker den ikke? Test hvert alternativ: passer begrunnelsen med at renten er risikofri og beregnes av innskutt kapital, eller ville den krevd en annen rente eller en annen mekanisme?</p>',
+    "aks-s04": _s("Spør to ting om den ubenyttede skjermingen. Endrer den grunnlaget neste år? Trekkes den fra utbyttet "
+                  "neste år?",
+                  "Kontroll: samlet skjerming neste år kan regnes som framført × (1 + rente) + kostpris × rente. Stryk "
+                  "svar der skjermingen går tapt."),
+    "aks-s05": '<p>Bygg renten ut fra formålet: skjermingen skal gjøre en risikofri avkastning skattefri.</p><p><b>Steg 1:</b> hvilken markedsrente er risikofri på kort sikt, en børsavkastning, en styringsrente eller en rente på statspapirer?</p><p><b>Steg 2:</b> skjermingen er selv skattefri, mens en risikofri plassering skattlegges. Skal renten da måles før eller etter skatt?</p><p><b>Steg 3:</b> sjekk både rentekilden og justeringen i hvert alternativ. Ett feil ledd gjør alternativet galt.</p>',
+    "aks-s06": _s("<b>Steg 1:</b> legg påslaget til snittet.",
+                  "<b>Steg 2:</b> gang med (1 − 22 %).",
+                  "<b>Steg 3:</b> rund av til nærmeste tidel.",
+                  "<b>Pass på rekkefølgen:</b> påslaget først, så skattejusteringen. Glem ikke påslaget, og glem ikke "
+                  "skattejusteringen.".replace("påslaget, og glem", "påslaget. Glem heller")),
+    "aks-s07": _s("Vurder påstandene hver for seg.",
+                  "Skjermingen trekkes fra gevinsten, men aldri slik at resultatet blir under null. Kan den da gjøre et "
+                  "tap større? Tenk på asymmetrien i modellen."),
+    "aks-s08": '<p>Fritaksmetoden skal hindre at samme overskudd skattlegges flere ganger i en kjede av selskaper. Spør tre ting. Hva skjer med utbytte når det går mellom aksjeselskaper? Hva skjer med gevinst? Hva ville det betydd for symmetrien om inntekten var fri mens tap ga fradrag? Husk at eieren her er et selskap. Vurder hvert alternativ på alle tre punktene.</p>',
+    "aks-s09": _s("Sjekk tre ting. Gjelder regelen utbytte, gevinst eller begge? Er 3 % en skattesats eller en andel som "
+                  "inntektsføres? Hva skjer når mottakeren eier mer enn 90 % av aksjene og stemmene?"),
+    "aks-s10": '<p>Tenk på et selskap som eier aksjer. Inntekten fra aksjene er fritatt, men selskapet har også utgifter knyttet til den. Spør: gir de utgiftene fradrag i annen inntekt? Hvilken skjevhet oppstår da? Hvordan kan loven rette den opp på en enkel måte, uten å granske hver enkelt utgift? Test hvert alternativ: forklarer det en skjevhet i selskapets eget skattegrunnlag?</p>',
+    "aks-s11": '<p>Følg én krone overskudd gjennom flere selskaper på vei til en personlig eier. Spør: hva ville skjedd med samlet skatt om hvert selskap i kjeden betalte skatt av utbyttet det mottok? Hva endrer fritaksmetoden i den kjeden? Husk at fritaksmetoden gjelder mellom selskaper og ikke fjerner skatten hos personen. Test hvert alternativ: beskriver det formålet med fritaket?</p>',
+    "aks-s12": '<p>Samlet skatt ved uttak er den samme med og uten holdingselskap. Spør derfor hva annet enn satsen som kan skille de to veiene. Tenk på når eierskatten betales i hvert tilfelle. Hva er det verdt å kunne investere pengene videre før en skatt betales? Test hvert alternativ mot to krav: det må stemme med at samlet skatt er lik. Det må også stemme med fritaksmetodens regel for tap.</p>',
+    "aks-s13": _s("Regelen fra 2015: lån fra et selskap til en personlig aksjonær behandles ikke som et vanlig lån. Som "
+                  "hva, og når?".replace("hva, og når?", "hva? Og når?"),
+                  "Sjekk også om forskriftens unntak for små lån som betales raskt tilbake, kan gjelde her."),
+    "aks-s14": '<p>Beskriv modellen med tre spørsmål. Hva skattlegges: all avkastning eller bare en del av den? Når utløses skatten: hvert år eller ved en bestemt hendelse? Hos hvem betales eierskatten: i selskapet eller hos personen? Svar på alle tre før du ser på alternativene. Test så hvert alternativ mot svarene dine.</p>',
+    "aks-s15": _s("Regn samlet skatt på én krone. Selskapsskatt først. Så eierskatt på det som er igjen.",
+                  "Sammenlign med toppskatten på lønn, 47,4 %. Er utbytte billigere eller dyrere enn lønn? Hvilken vei "
+                  "vil eieren da flytte inntekt? Stryk tall der satsene er lagt rett sammen."),
+    "aks-s16": _s("Trekk t fra begge sider av likningen. Del så på det som står foran f, altså (1 − t) × t.",
+                  "Kontroll: med a lik null og dagens satser skal f bli lavere enn 1,72. Stryk uttrykk som glemmer å "
+                  "trekke fra t, glemmer å dele på t eller snur fortegnet på a."),
+    "aks-s17": _s("Nøytralitet krever at staten deler oppside og nedside likt.",
+                  "Spør hva som skjer med ubenyttet skjerming når aksjen selges med tap. Spør også om investoren kan låne "
+                  "til skjermingsrenten. Stryk påstander med feil satser eller feil retning."),
+    "aks-s18": '<p>Innlåsing er en atferdseffekt av skattesystemet. Spør: når betaler en personlig eier skatt på en kursgevinst i Norge? Er det løpende hvert år eller ved en bestemt hendelse? Tenk på en eier som har en bedre aksje i sikte. Hva gjør skattereglene med lysten til å bytte? Test hvert alternativ: beskriver det en atferd som følger av skattereglene?</p>',
+    "aks-s19": _s("Vurder påstandene hver for seg.",
+                  "Skjermingen regnes per aksje og tilhører eieren. Hva skjer da med selgerens ubenyttede skjerming ved "
+                  "salg? Hva blir kjøperens grunnlag?"),
+    "aks-s20": '<p>Regelen: skjerming for et år gis til den som eier aksjen ved utgangen av året. Den beregnes av skjermingsgrunnlaget.</p><p><b>Steg 1:</b> tegn en tidslinje med kjøp, salg og årsskiftene.</p><p><b>Steg 2:</b> sjekk om personen eide aksjen ved minst ett årsskifte.</p><p><b>Steg 3:</b> avgjør hvor mye skjerming som da finnes å trekke fra gevinsten.</p>',
+    "aks-s21": _s("Skjermingen er et fast fradrag i utbyttet, ikke en lavere sats.",
+                  "Spart skatt = skjermingsfradraget × eierskatten, så lenge utbyttet er større enn fradraget. Regn den "
+                  "for hvert utbytte. Avhenger den av hvor stort utbyttet er?"),
+    "aks-s22": '<p>Riktig skatt er gevinst etter skjerming ganget med oppjusteringsfaktoren og satsen.</p><p><b>Steg 1:</b> skriv opp regnestykket for hver feil i alternativene. Glemt skjerming gjør grunnlaget større. Dobbel skjerming gjør det mindre. Glemt eller doblet oppjustering endrer faktoren.</p><p><b>Steg 2:</b> del det oppgitte tallet på riktig skatt.</p><p><b>Steg 3:</b> finn feilen som gir akkurat det forholdet.</p>',
+    "aks-s24": _s("Fritaksmetoden gjør utbytte mellom aksjeselskaper skattefritt. Over 90 % gjelder heller ikke "
+                  "treprosentregelen.",
+                  "Følg én krone gjennom kjeden og legg sammen skattene. Vurder hver påstand for seg."),
+    "aks-s25": _s("Grunnlaget bygger på det eieren har skutt inn, inngangsverdien, pluss ubenyttet skjerming.",
+                  "Hva skjer med inngangsverdien når eieren skyter inn mer egenkapital? Oppjusteringen gjelder skatten, "
+                  "ikke grunnlaget."),
+    "aks-s26": '<p>Skjermingen skal svare til en risikofri avkastning eieren kunne fått et annet sted. Fradraget gir selv ingen skatt.</p><p><b>Steg 1:</b> hvordan skattlegges den risikofrie plasseringen eieren sammenligner med?</p><p><b>Steg 2:</b> når fradraget er skattefritt, skal det da svare til den risikofrie renten før eller etter skatt?</p><p><b>Steg 3:</b> test hvert alternativ. Forklarer det justeringen ut fra skjermingens formål?</p>',
+    "aks-s27": _s("Personlig aksjonær: tap behandles som gevinst, oppjustert og med 22 %, altså 37,84 %.",
+                  "Aksjeselskap: fritaksmetoden gir ingen skatt på gevinst. Hva betyr symmetrien for tap? Regn verdien "
+                  "av fradraget for hver."),
+    "aks-s29": '<p>Se på hva hver regel gjør alene. Fritaksmetoden: hva skjer med skatten når et selskap selger aksjer med gevinst og investerer på nytt? Aksjonærmodellen: når betaler personen skatt? Sett dem sammen. Hvem styrer da tidspunktet for eierskatten? Hva er det økonomisk verdt å betale en skatt senere? Test hvert alternativ: er samlet skatt ved uttak endret, eller er det noe annet som endres?</p>',
+}
+
+
 # ---------------------------------------------------------------------------
 # aks-skj2 · Framført skjerming over to år (R1, H2025 oppgave 4)
 # ---------------------------------------------------------------------------
@@ -333,7 +534,7 @@ def _(r):
         f"<p><b>Husk:</b> ubenyttet skjerming legges til grunnlaget <i>og</i> trekkes fra neste utbytte.</p>"
     )
     unik("aks-skj2", riktig)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJA["aks-skj2"][modus])
 
 
 # ---------------------------------------------------------------------------
@@ -425,7 +626,7 @@ def _(r):
         f"<p><b>Husk:</b> skriv grunnlag, årets fradrag og framført rest på hver sin linje før du trekker fra.</p>"
     )
     unik("aks-skj3", riktig)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJA["aks-skj3"])
 
 
 # ---------------------------------------------------------------------------
@@ -531,7 +732,7 @@ def _(r):
         f"<p><b>Husk:</b> grunnlag = kostpris + ubenyttet skjerming. Framført skjerming løfter grunnlaget og trekkes fra.</p>"
     )
     unik("aks-skj4", riktig)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJA["aks-skj4"][modus])
 
 
 # ---------------------------------------------------------------------------
@@ -607,7 +808,7 @@ def _(r):
         f"Oppjuster grunnlaget eller satsen, aldri begge.</p>"
     )
     unik("aks-gev1", riktig)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJA["aks-gev1"][modus])
 
 
 # ---------------------------------------------------------------------------
@@ -696,7 +897,7 @@ def _(r):
         f"<p><b>Husk:</b> solgt før årsskiftet betyr ingen skjerming for salgsåret, bare det som alt er framført.</p>"
     )
     unik("aks-gev2", riktig)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJA["aks-gev2"][modus])
 
 
 # ---------------------------------------------------------------------------
@@ -764,7 +965,7 @@ def _(r):
         f"<p><b>Husk:</b> trekk fra skjermingen først, oppjuster så grunnlaget eller satsen, aldri begge.</p>"
     )
     unik("aks-eier1", riktig)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJA["aks-eier1"][modus])
 
 
 # ---------------------------------------------------------------------------
@@ -856,7 +1057,7 @@ def _(r):
         f"<p><b>Husk:</b> selskapsskatt av overskuddet, eierskatt av utbyttet minus skjerming.</p>"
     )
     unik("aks-samlet1", riktig)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJA["aks-samlet1"][modus])
 
 
 # ---------------------------------------------------------------------------
@@ -937,7 +1138,7 @@ def _(r):
         f"fradrag for tap.</p>"
     )
     unik("aks-frit1", riktig)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJA["aks-frit1"])
 
 
 # ---------------------------------------------------------------------------
@@ -1053,7 +1254,7 @@ def _(r):
         + f"<p><b>Husk:</b> fritaksmetoden gir selskapsskatt én gang og eierskatt én gang, uansett antall ledd.</p>"
     )
     unik("aks-hold1", riktig)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJA["aks-hold1"][modus])
 
 
 def holding_navn(navn):
@@ -1117,7 +1318,7 @@ def _(r):
         f"<p><b>Husk:</b> eierskatt av utbytte minus skjerming, formuesskatt av 80 % av børsverdien hvert år.</p>"
     )
     unik("aks-uf1", riktig)
-    return sporsmal(q, alternativer, kort, full)
+    return sporsmal(q, alternativer, kort, full, hjelp=HJA["aks-uf1"])
 
 
 # ===========================================================================
@@ -1125,7 +1326,7 @@ def _(r):
 # ===========================================================================
 
 statisk(
-    "aks-s01", tema="aksjonar", type="fakta",
+    "aks-s01", hjelp=HSA["aks-s01"], tema="aksjonar", type="fakta",
     q="<p>Hva er skjermingsgrunnlaget for en aksje i aksjonærmodellen?</p>",
     alternativer=[
         R("Kostprisen pluss ubenyttet skjerming fra tidligere år"),
@@ -1151,7 +1352,7 @@ statisk(
 )
 
 statisk(
-    "aks-s02", tema="aksjonar", type="fakta",
+    "aks-s02", hjelp=HSA["aks-s02"], tema="aksjonar", type="fakta",
     q="<p>Ole selger en aksjepost til Kari 15. september. Hvem får skjermingsfradraget for aksjene for dette året?</p>",
     alternativer=[
         R("Kari, fordi hun eier aksjene ved utgangen av året"),
@@ -1176,7 +1377,7 @@ statisk(
 )
 
 statisk(
-    "aks-s03", tema="aksjonar", type="begrep",
+    "aks-s03", hjelp=HSA["aks-s03"], tema="aksjonar", type="begrep",
     q="<p>Hva er den økonomiske begrunnelsen for skjermingsfradraget i aksjonærmodellen?</p>",
     alternativer=[
         R("Normalavkastningen på innskutt egenkapital skal være skattefri"),
@@ -1203,7 +1404,7 @@ statisk(
 )
 
 statisk(
-    "aks-s04", tema="aksjonar", type="begrep",
+    "aks-s04", hjelp=HSA["aks-s04"], tema="aksjonar", type="begrep",
     q="<p>Utbyttet på en aksje var i fjor kr 2 000 lavere enn skjermingsfradraget. Eieren beholder aksjen. Hva skjer med de "
       "kr 2 000 i år?</p>",
     alternativer=[
@@ -1229,7 +1430,7 @@ statisk(
 )
 
 statisk(
-    "aks-s05", tema="aksjonar", type="fakta",
+    "aks-s05", hjelp=HSA["aks-s05"], tema="aksjonar", type="fakta",
     q="<p>Hvordan fastsettes skjermingsrenten for aksjer eid av personer?</p>",
     alternativer=[
         R("Snittet av 3-måneders statskasseveksel pluss 0,5 prosentpoeng, ganget med 0,78"),
@@ -1256,7 +1457,7 @@ statisk(
 )
 
 statisk(
-    "aks-s06", tema="aksjonar", type="fakta",
+    "aks-s06", hjelp=HSA["aks-s06"], tema="aksjonar", type="fakta",
     q="<p>Gjennomsnittsrenten på 3-måneders statskasseveksler var 4,1 % i et inntektsår. Skjermingsrenten er snittet pluss "
       "0,5 prosentpoeng, justert for 22 % skatt og rundet av til nærmeste tidel. Hva blir skjermingsrenten?</p>",
     alternativer=[
@@ -1282,7 +1483,7 @@ statisk(
 )
 
 statisk(
-    "aks-s07", tema="aksjonar", type="paastand", rekkefolge="fast",
+    "aks-s07", hjelp=HSA["aks-s07"], tema="aksjonar", type="paastand", rekkefolge="fast",
     q="<p>Vurder de to påstandene om skjerming for en personlig aksjonær.</p>"
       "<p>I. Ubenyttet skjerming kan trekkes fra en gevinst ved salg og redusere den til null.</p>"
       "<p>II. Selges aksjen med tap, kan ubenyttet skjerming legges til tapet og gi et større fradrag.</p>"
@@ -1309,7 +1510,7 @@ statisk(
 )
 
 statisk(
-    "aks-s08", tema="aksjonar", type="fakta",
+    "aks-s08", hjelp=HSA["aks-s08"], tema="aksjonar", type="fakta",
     q="<p>Et norsk aksjeselskap eier aksjer i et annet norsk aksjeselskap. Hva sier fritaksmetoden om utbytte, gevinst og "
       "tap på slike aksjer?</p>",
     alternativer=[
@@ -1337,7 +1538,7 @@ statisk(
 )
 
 statisk(
-    "aks-s09", tema="aksjonar", type="fakta",
+    "aks-s09", hjelp=HSA["aks-s09"], tema="aksjonar", type="fakta",
     q="<p>Hvilken påstand om treprosentregelen i fritaksmetoden er riktig?</p>",
     alternativer=[
         R("3 % av mottatt utbytte inntektsføres, men ikke ved over 90 % eierskap"),
@@ -1362,7 +1563,7 @@ statisk(
 )
 
 statisk(
-    "aks-s10", tema="aksjonar", type="begrep",
+    "aks-s10", hjelp=HSA["aks-s10"], tema="aksjonar", type="begrep",
     q="<p>Hvorfor skal et aksjeselskap inntektsføre 3 % av mottatt utbytte når utbytte ellers er fritatt etter "
       "fritaksmetoden?</p>",
     alternativer=[
@@ -1389,7 +1590,7 @@ statisk(
 )
 
 statisk(
-    "aks-s11", tema="aksjonar", type="begrep",
+    "aks-s11", hjelp=HSA["aks-s11"], tema="aksjonar", type="begrep",
     q="<p>Hva er hovedbegrunnelsen for at utbytte og gevinst mellom aksjeselskaper er skattefritt?</p>",
     alternativer=[
         R("Å unngå kjedebeskatning, så overskuddet skattlegges én gang i selskapssektoren"),
@@ -1416,7 +1617,7 @@ statisk(
 )
 
 statisk(
-    "aks-s12", tema="aksjonar", type="begrep",
+    "aks-s12", hjelp=HSA["aks-s12"], tema="aksjonar", type="begrep",
     q="<p>Samlet skatt på en krone som til slutt tas ut til eieren, er den samme med og uten holdingselskap. Hvorfor kan det "
       "likevel lønne seg å eie aksjene gjennom et holdingselskap?</p>",
     alternativer=[
@@ -1444,7 +1645,7 @@ statisk(
 )
 
 statisk(
-    "aks-s13", tema="aksjonar", type="fakta",
+    "aks-s13", hjelp=HSA["aks-s13"], tema="aksjonar", type="fakta",
     q="<p>Kari låner kr 500 000 av sitt eget aksjeselskap i 2026. Lånet har markedsmessig rente og en skriftlig avtale. "
       "Hvordan behandles lånet skattemessig hos Kari?</p>",
     alternativer=[
@@ -1472,7 +1673,7 @@ statisk(
 )
 
 statisk(
-    "aks-s14", tema="aksjonar", type="fakta",
+    "aks-s14", hjelp=HSA["aks-s14"], tema="aksjonar", type="fakta",
     q="<p>Hva er kjernen i aksjonærmodellen for personlige aksjonærer?</p>",
     alternativer=[
         R("Avkastning over skjermingen oppjusteres og skattlegges som alminnelig inntekt"),
@@ -1499,7 +1700,7 @@ statisk(
 )
 
 statisk(
-    "aks-s15", tema="aksjonar", type="begrep",
+    "aks-s15", hjelp=HSA["aks-s15"], tema="aksjonar", type="begrep",
     q="<p>Anta at eierskatten på utbytte bare var 22 %, uten oppjustering. Selskapsskatten er 22 %. Hva ville samlet skatt på "
       "en krone utdelt overskudd vært? Velg tallet med riktig konsekvens.</p>",
     alternativer=[
@@ -1527,7 +1728,7 @@ statisk(
 )
 
 statisk(
-    "aks-s16", tema="aksjonar", type="formel",
+    "aks-s16", hjelp=HSA["aks-s16"], tema="aksjonar", type="formel",
     q="<p>Oppjusteringsfaktoren f løses ut av likevektsbetingelsen t<sub>w</sub> + a = t + (1 − t) × t × f. Her er t<sub>w</sub> "
       "toppskatten på lønn, t skatten på alminnelig inntekt og a den delen av arbeidsgiveravgiften som veltes over på "
       "lønnstakeren. Hvilket uttrykk gir f?</p>",
@@ -1552,7 +1753,7 @@ statisk(
 )
 
 statisk(
-    "aks-s17", tema="aksjonar", type="paastand",
+    "aks-s17", hjelp=HSA["aks-s17"], tema="aksjonar", type="paastand",
     q="<p>Bjerksund og Schjelderup argumenterer for at aksjonærmodellen ikke er nøytral. Hvilken begrunnelse gir de?</p>",
     alternativer=[
         R("Staten tar del i oppsiden, men ikke fullt i nedsiden"),
@@ -1580,7 +1781,7 @@ statisk(
 )
 
 statisk(
-    "aks-s18", tema="aksjonar", type="begrep",
+    "aks-s18", hjelp=HSA["aks-s18"], tema="aksjonar", type="begrep",
     q="<p>Hva menes med innlåsing (lock-in) i aksjebeskatningen?</p>",
     alternativer=[
         R("At eiere venter med å selge fordi skatten først kommer ved salg"),
@@ -1610,7 +1811,7 @@ statisk(
 )
 
 statisk(
-    "aks-s19", tema="aksjonar", type="paastand", rekkefolge="fast",
+    "aks-s19", hjelp=HSA["aks-s19"], tema="aksjonar", type="paastand", rekkefolge="fast",
     q="<p>Vurder de to påstandene om skjerming.</p>"
       "<p>I. Skjermingen er personlig og regnes aksje for aksje. Ubenyttet skjerming på én aksje kan ikke brukes mot "
       "utbytte på en annen.</p>"
@@ -1638,7 +1839,7 @@ statisk(
 )
 
 statisk(
-    "aks-s20", tema="aksjonar", type="fakta",
+    "aks-s20", hjelp=HSA["aks-s20"], tema="aksjonar", type="fakta",
     q="<p>Jon kjøper en aksjepost i februar og selger den med gevinst i desember samme år, før årsskiftet. Selskapet betaler "
       "ikke utbytte. Hvilken skjerming kan Jon trekke fra gevinsten?</p>",
     alternativer=[
@@ -1666,7 +1867,7 @@ statisk(
 )
 
 statisk(
-    "aks-s21", tema="aksjonar", type="tolkning",
+    "aks-s21", hjelp=HSA["aks-s21"], tema="aksjonar", type="tolkning",
     q="<p>Mira har et skjermingsfradrag på kr 6 000 i år og ingen framført skjerming. Eierskatten er 37,84 %. Hvor mye lavere "
       "blir eierskatten med skjermingen enn uten, på et utbytte på kr 20 000 og på et utbytte på kr 50 000?</p>",
     alternativer=[
@@ -1692,7 +1893,7 @@ statisk(
 )
 
 statisk(
-    "aks-s22", tema="aksjonar", type="tolkning",
+    "aks-s22", hjelp=HSA["aks-s22"], tema="aksjonar", type="tolkning",
     q="<p>En gevinst etter skjerming på kr 80 000 gir kr 30 272 i skatt med oppjusteringsfaktor 1,72 og sats 22 %. Blant "
       "svaralternativene står også kr 17 600. Hvilken feil gir det tallet?</p>",
     alternativer=[
@@ -1718,7 +1919,7 @@ statisk(
 )
 
 statisk(
-    "aks-s24", tema="aksjonar", type="paastand", rekkefolge="fast",
+    "aks-s24", hjelp=HSA["aks-s24"], tema="aksjonar", type="paastand", rekkefolge="fast",
     q="<p>Et driftsselskap eies 100 % av Holding 1 AS, som eies 100 % av Holding 2 AS. Holding 2 AS eies av en person. "
       "Alt overskudd deles ut hele veien. Vurder de to påstandene med dagens regler.</p>"
       "<p>I. Samlet skatt på en krone overskudd som når personen, er 22 % + 78 % × 37,84 % = 51,52 %.</p>"
@@ -1747,7 +1948,7 @@ statisk(
 )
 
 statisk(
-    "aks-s25", tema="aksjonar", type="fakta",
+    "aks-s25", hjelp=HSA["aks-s25"], tema="aksjonar", type="fakta",
     q="<p>Linnea eier alle aksjene i sitt eget aksjeselskap og skyter inn kr 200 000 i ny egenkapital. Hva skjer med "
       "skjermingsgrunnlaget for aksjene hennes?</p>",
     alternativer=[
@@ -1775,7 +1976,7 @@ statisk(
 )
 
 statisk(
-    "aks-s26", tema="aksjonar", type="begrep",
+    "aks-s26", hjelp=HSA["aks-s26"], tema="aksjonar", type="begrep",
     q="<p>Skjermingsrenten er snittet av 3-måneders statskasseveksel pluss 0,5 prosentpoeng, ganget med (1 − 22 %). Hvorfor "
       "ganges den med 0,78?</p>",
     alternativer=[
@@ -1801,7 +2002,7 @@ statisk(
 )
 
 statisk(
-    "aks-s27", tema="aksjonar", type="fakta",
+    "aks-s27", hjelp=HSA["aks-s27"], tema="aksjonar", type="fakta",
     q="<p>En privatperson og et aksjeselskap taper hver kr 1 000 000 på en aksjepost i et norsk selskap. Begge har nok annen "
       "inntekt. Hva er tapsfradraget verdt for hver av dem med dagens regler?</p>",
     alternativer=[
@@ -1829,7 +2030,7 @@ statisk(
 )
 
 statisk(
-    "aks-s29", tema="aksjonar", type="begrep",
+    "aks-s29", hjelp=HSA["aks-s29"], tema="aksjonar", type="begrep",
     q="<p>Bjerksund og Schjelderup kaller kombinasjonen av aksjonærmodellen og fritaksmetoden et «to-hodet troll». Hva er "
       "poenget?</p>",
     alternativer=[
