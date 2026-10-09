@@ -5,7 +5,7 @@ oppdatert: 2026-10-09
 
 # FIE432 Personlig økonomi
 
-Fag nummer fire. Id `fie432`, aksentfarge `#a8521c` (brent oransje), logo «PØ».
+Fag nummer fire. Id `fie432`, aksentfarge `#051c2c` (McKinsey-blå, Deep Blue; brent oransje `#a8521c` til 9. oktober 2026), logo «PØ».
 Alt innhold på norsk — kurset undervises på norsk og eksamen besvares på norsk.
 
 ## Kursfakta
