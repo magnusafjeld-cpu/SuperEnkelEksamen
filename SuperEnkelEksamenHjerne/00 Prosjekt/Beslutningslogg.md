@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-10-09
+oppdatert: 2026-10-12
 ---
 
 # Beslutningslogg
@@ -122,7 +122,25 @@ kriterier. Prep-bransjen kaller PwC «candidate-led», men PwCs egne eksempelcas
 intervjuerledet. Der firmaet har publisert formen, bygger vi etter den, og
 kildemerker motstriden. Se `docs/case-research/10-pwc-consulting.md`.
 
-## Claude via kopiert melding, ikke via API
+## Claude med brukerens egen API-nøkkel (12. oktober 2026)
+Erstatter «Claude via kopiert melding» under. Magnus fikk API-kreditt og ville ha
+bedre tilbakemelding på fasit og en chat som vet hvilken side du står på. Andre
+brukere skulle kunne bruke sin egen kvote. Løsningen er «bring your own key»: hver
+bruker limer inn sin egen nøkkel, den lagres bare i nettleseren
+(`localStorage["edu.claude.v1"]`). Nettleseren kaller api.anthropic.com direkte
+med `anthropic-dangerous-direct-browser-access`.
+
+Valgt framfor en Edge Function med eiersjekk fordi ingen nøkler havner hos oss,
+ingen betaler for andre og det trengs ingen serverkode. Risikoen er at en nøkkel
+i nettleseren kan leses av kode på siden. Siden laster ingen skript utenfra, så det
+er bare vår egen kode, men UI-et ber om en egen nøkkel med lav utgiftsgrense.
+
+**Konsekvens:** Nøkkelen skal aldri inn i fremdriften (`S.store`), for den synkes
+til Supabase. Laster siden noen gang et skript utenfra, må denne beslutningen tas
+opp igjen. Uten nøkkel virker alt som før: knappene kopierer meldingen. Se
+[[Moduler og visninger]] under «Spør Claude».
+
+## Claude via kopiert melding, ikke via API (erstattet 12. oktober 2026)
 Magnus ville ha Claude til å vurdere casesvar, men uten at noen andre kunne bruke
 kvoten. Et API-kall fra appen krever en nøkkel, og alt i en statisk side kan leses
 av alle. Da trengs en server (en Supabase Edge Function med eiersjekk) og egen
@@ -130,10 +148,7 @@ fakturering. Abonnementet på claude.ai gir ingen API-nøkkel og kan ikke brukes
 en egen nettside. Løsningen ble derfor en knapp som kopierer en ferdig melding, som
 limes inn i Claude, og da er det abonnementet som betaler.
 
-**Konsekvens:** ingen nøkler og ingen `fetch` til Anthropic i `js/`. Vil noen ha
-vurderingen inne i appen, er veien en Edge Function med eiersjekk, stengt
-registrering og utgiftstak på nøkkelen. Det er en egen beslutning og første
-serverkode i prosjektet. Se [[Case-spilleren]].
+Kopieringen lever videre som reserve for brukere uten nøkkel. Se [[Case-spilleren]].
 
 ## Regnespørsmål genereres, de skrives ikke
 Eksamenstreningen trengte hundrevis av regnespørsmål, og Magnus sa uttrykkelig at

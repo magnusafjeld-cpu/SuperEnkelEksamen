@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, case]
-oppdatert: 2026-09-30
+oppdatert: 2026-10-12
 ---
 
 # Case-spilleren
@@ -197,10 +197,14 @@ resultat enn å formulere seg skriftlig først.
 På iPhone finnes dessuten mikrofonen på selve tastaturet, som virker i alle felt
 uten at appen gjør noe. Knappen er bare raskere.
 
-## Vurdering med Claude: en ferdig melding, ingen API
+## Vurdering med Claude: rett i appen med egen nøkkel, ellers kopiert melding
 
 Når et trinn er åpnet, står knappen **«Vurder med Claude»** mellom fasiten og
-avkrysningen. Den kopierer én ferdig melding til utklippstavla: rolle (intervjuer
+avkrysningen. Har brukeren lagt inn sin egen API-nøkkel, strømmes vurderingen rett
+inn under knappen. «Svar eller spør videre i chatten» tar den med til chatpanelet,
+der du svarer på oppfølgingsspørsmålet. Uten nøkkel kopieres meldingen som før.
+Boksen er `S.claude.vurdering()` fra `bundle-claude.js`; se [[Moduler og visninger]]
+under «Spør Claude». Meldingen er den samme i begge tilfeller: rolle (intervjuer
 hos casens firma, eller «i et konsulentselskap» når `firma` er «Generisk»),
 casematerialet, spørsmålene og figurene i trinnene før, trinnet med måltid og brukt
 tid, svaret ditt, og intervjuerens ark (fasit, krav med kriterienavn, idéliste,
@@ -212,10 +216,10 @@ I oppsummeringen etter siste trinn kopierer **«Hele casen til Claude»** alle s
 med fasit og krav, og ber om en samlet dom. Enkeltmoduscasene (estimering) får en
 egen variant som vurderer oppsettet, ikke tallet.
 
-Fagdataene er HTML, så `ren()` gjør dem om til tekst: tabeller blir rader med `|`,
+Fagdataene er HTML, så `ren()` (nå `S.claude.ren` i `bundle-claude.js`) gjør dem om til tekst: tabeller blir rader med `|`,
 lister får `-`, og kildens innrykk forsvinner. Fasitene fra tidligere trinn er
 **ikke** med, bare det kandidaten hadde fått se. `S.u.tilUtklipp` i `bundle-core.js`
-er delt med NotebookLM-siden. Hvorfor det ikke er et API-kall: se [[Beslutningslogg]].
+er delt med NotebookLM-siden. Hvorfor brukerens egen nøkkel: se [[Beslutningslogg]].
 
 ## Lagring
 

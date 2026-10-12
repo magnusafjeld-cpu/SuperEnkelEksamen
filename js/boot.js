@@ -105,6 +105,9 @@ window.EDU = window.EDU || {};
     app.appendChild(main); document.body.appendChild(app); document.body.appendChild(buildMobileNav());
     /* Formelarket: knappen nederst til høyre, bare i fag som har et ark. */
     if (S.formelark) S.formelark.mount(document.body);
+    /* Spør Claude: knappen nederst til høyre i alle fag. Formelarkets knapp
+       flyttes opp over den (body.har-claude). */
+    if (S.claude) S.claude.mount(document.body);
   }
   function bestMatch(path) {
     if (path === "/") return "/";

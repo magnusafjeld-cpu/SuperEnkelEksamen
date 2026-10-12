@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, data, synk]
-oppdatert: 2026-09-28
+oppdatert: 2026-10-12
 ---
 
 # Datamodell og lagring
@@ -10,6 +10,7 @@ oppdatert: 2026-09-28
 | Nøkkel | Innhold |
 |---|---|
 | `edu.subject` | sist valgte fag-id |
+| `edu.claude.v1` | `{ nokkel, modell, mnd, brukt }`: brukerens egen API-nøkkel, valgt modell og anslått forbruk denne måneden. Felles for alle fag og **aldri** synket. Se [[Beslutningslogg]] |
 | `edu.<fagId>.progress.v1` | all fremdrift for faget |
 | `edu.<fagId>.manual.v1` | parset pensum (`{curriculum, reference}`) |
 | `edu.<fagId>.problems.v1` | parset oppgavebank |

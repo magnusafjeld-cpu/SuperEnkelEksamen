@@ -370,6 +370,61 @@ body.tr-modal-åpen{overflow:hidden;}
   body.har-formelark .content{padding-bottom:150px;}
 }
 @media print{.fa-knapp,.fa-vindu{display:none;}}
+
+/* ===== Spør Claude (bundle-claude.js) =====
+   Knappen ligger nederst til høyre. I fag med formelark flyttes formelarkets
+   knapp og vindu opp over den. Panelet er et vindu på PC og hele skjermen på
+   telefon. */
+.cl-knapp{position:fixed;right:22px;bottom:22px;z-index:70;display:flex;align-items:center;gap:8px;padding:8px 16px 8px 8px;border:1px solid var(--hairline-strong);border-radius:var(--r-pill);background:var(--bg-elevated);color:var(--ink);font:inherit;font-size:14px;font-weight:620;box-shadow:var(--shadow-md);cursor:pointer;}
+.cl-knapp:hover,.cl-knapp.aktiv{background:var(--bg-sunken);}
+.cl-knapp:focus-visible{outline:3px solid var(--accent-soft-2);outline-offset:2px;}
+.cl-merke{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;}
+body.har-claude .fa-knapp{bottom:76px;}
+body.har-claude .fa-vindu{bottom:132px;max-height:min(66vh,620px);}
+.cl-panel{position:fixed;right:22px;bottom:78px;z-index:72;width:min(470px,calc(100vw - 32px));height:min(76vh,720px);display:flex;flex-direction:column;background:var(--card);border:1px solid var(--hairline-strong);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);overflow:hidden;}
+.cl-panel[hidden]{display:none;}
+.cl-hode{display:flex;align-items:center;gap:10px;padding:12px 14px 12px 18px;border-bottom:1px solid var(--hairline);}
+.cl-tittel{font-weight:650;font-size:15.5px;}
+.cl-under{font-size:12px;color:var(--ink-3,var(--ink-2));white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cl-lukk{width:32px;height:32px;border-radius:50%;border:none;background:var(--bg-sunken);color:var(--ink-2);font-size:20px;line-height:1;cursor:pointer;flex:none;}
+.cl-kropp{flex:1;display:flex;flex-direction:column;min-height:0;}
+.cl-liste{flex:1;overflow-y:auto;padding:14px 16px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
+.cl-tom p{font-size:14px;color:var(--ink-2);line-height:1.55;margin:0 0 12px;}
+.cl-forslag{display:flex;flex-wrap:wrap;gap:6px;}
+.cl-forslag .chip{cursor:pointer;border:1px solid var(--hairline-strong);background:var(--bg-elevated);font:inherit;font-size:13px;}
+.cl-m{margin-bottom:12px;display:flex;flex-direction:column;}
+.cl-m.bruker{align-items:flex-end;}
+.cl-m.bruker .cl-boble{background:var(--accent-soft);border-radius:16px 16px 4px 16px;padding:9px 13px;max-width:88%;white-space:pre-wrap;font-size:14.5px;line-height:1.5;}
+.cl-m.claude .cl-boble{font-size:14.5px;line-height:1.6;max-width:100%;}
+.cl-boble.prose p{margin:0 0 9px;}
+.cl-boble.prose ul,.cl-boble.prose ol{margin:0 0 9px;padding-left:20px;}
+.cl-boble.prose h4,.cl-vurdering-tekst h4{font-size:14.5px;margin:12px 0 6px;}
+.cl-boble.prose pre,.cl-vurdering-tekst pre{background:var(--bg-sunken);padding:10px;border-radius:8px;overflow-x:auto;font-size:13px;}
+.cl-side{font-size:11.5px;color:var(--ink-3,var(--ink-2));margin-top:3px;}
+.cl-tenker{color:var(--ink-3,var(--ink-2));font-style:italic;}
+.cl-feil{color:var(--rose);}
+.cl-fot{border-top:1px solid var(--hairline);padding:10px 12px calc(10px + env(safe-area-inset-bottom));}
+.cl-skriv{display:flex;gap:8px;align-items:flex-end;}
+.cl-felt{flex:1;resize:none;border:1.5px solid var(--hairline-strong);border-radius:12px;padding:9px 12px;font:inherit;font-size:15px;line-height:1.45;max-height:140px;background:var(--bg-elevated);color:var(--ink);}
+.cl-felt:focus{outline:none;border-color:var(--accent);}
+.cl-info{display:flex;gap:8px;font-size:11.5px;color:var(--ink-3,var(--ink-2));margin-top:6px;}
+.cl-info span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cl-oppsett{padding:16px 18px;overflow-y:auto;font-size:14px;line-height:1.55;}
+.cl-vurdering{border:1px solid var(--hairline);border-radius:var(--r-md);padding:12px 14px;background:var(--bg-elevated);}
+.cl-vurdering-tekst{margin-top:12px;padding-top:12px;border-top:1px solid var(--hairline);font-size:14.5px;}
+.cl-vurdering-tekst p{margin:0 0 9px;}
+@media (max-width:860px){
+  .cl-knapp{right:14px;bottom:calc(76px + env(safe-area-inset-bottom));padding:6px;}
+  .cl-knapptekst{display:none;}
+  .cl-merke{width:34px;height:34px;}
+  body.har-claude .fa-knapp{bottom:calc(130px + env(safe-area-inset-bottom));}
+  body.har-claude .fa-vindu{bottom:calc(186px + env(safe-area-inset-bottom));max-height:calc(100vh - 264px);}
+  body.har-claude .content{padding-bottom:150px;}
+  body.har-claude.har-formelark .content{padding-bottom:200px;}
+  .cl-panel{inset:0;width:auto;height:auto;border-radius:0;border:none;z-index:155;padding-top:env(safe-area-inset-top);}
+  body.cl-åpen{overflow:hidden;}
+}
+@media print{.cl-knapp,.cl-panel{display:none;}}
 .prose{min-width:0;}
 .article-toc{position:sticky;top:24px;}
 .article-toc .tlabel{font-size:11.5px;font-weight:650;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-4);margin-bottom:10px;padding-left:12px;}
@@ -734,8 +789,8 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=128"></script>
-<script src="js/config.js?v=128"></script>
+<script src="js/subjects.js?v=129"></script>
+<script src="js/config.js?v=129"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
@@ -744,25 +799,27 @@ window.EDU_DATA = {};
      bundle-case  = casetrening: én case spilt trinn for trinn
      bundle-mock  = mock-intervjuer på video, med stopp-punkter
      bundle-historier = dine egne fit-historier, med dekningsmatrise
+     bundle-claude = Spør Claude og vurdering med egen API-nøkkel (bare i nettleseren)
      account      = Supabase-innlogging og synk av fremdrift (valgfritt)
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=128"></script>
-<script src="js/bundle-views.js?v=128"></script>
-<script src="js/bundle-lyn.js?v=128"></script>
-<script src="js/bundle-dybde.js?v=128"></script>
-<script src="js/bundle-sett.js?v=128"></script>
-<script src="js/bundle-case.js?v=128"></script>
-<script src="js/bundle-mock.js?v=128"></script>
-<script src="js/bundle-historier.js?v=128"></script>
-<script src="js/bundle-kapitteloppgaver.js?v=128"></script>
-<script src="js/bundle-notebooklm.js?v=128"></script>
-<script src="js/bundle-kjerne.js?v=128"></script>
-<script src="js/bundle-formelark.js?v=128"></script>
-<script src="js/bundle-symboler.js?v=128"></script>
-<script src="js/bundle-trening.js?v=128"></script>
-<script src="js/account.js?v=128"></script>
-<script src="js/picker.js?v=128"></script>
-<script src="js/boot.js?v=128"></script>
+<script src="js/bundle-core.js?v=129"></script>
+<script src="js/bundle-views.js?v=129"></script>
+<script src="js/bundle-lyn.js?v=129"></script>
+<script src="js/bundle-dybde.js?v=129"></script>
+<script src="js/bundle-sett.js?v=129"></script>
+<script src="js/bundle-case.js?v=129"></script>
+<script src="js/bundle-mock.js?v=129"></script>
+<script src="js/bundle-historier.js?v=129"></script>
+<script src="js/bundle-kapitteloppgaver.js?v=129"></script>
+<script src="js/bundle-notebooklm.js?v=129"></script>
+<script src="js/bundle-kjerne.js?v=129"></script>
+<script src="js/bundle-formelark.js?v=129"></script>
+<script src="js/bundle-symboler.js?v=129"></script>
+<script src="js/bundle-trening.js?v=129"></script>
+<script src="js/bundle-claude.js?v=129"></script>
+<script src="js/account.js?v=129"></script>
+<script src="js/picker.js?v=129"></script>
+<script src="js/boot.js?v=129"></script>
 </body>
 </html>

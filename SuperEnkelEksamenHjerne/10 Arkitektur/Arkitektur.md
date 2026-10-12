@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, kode]
-oppdatert: 2026-10-09
+oppdatert: 2026-10-12
 ---
 
 # Arkitektur
@@ -33,6 +33,8 @@ js/
                            og se hva det står for (fag/<id>/symboler.js)
   bundle-trening.js        eksamenstrening: stor flervalgsbank, velg temaer og
                            antall, kort fasit og full gjennomgang med en gang
+  bundle-claude.js         Spør Claude: chat med sidekontekst og vurdering av
+                           svar, med brukerens egen API-nøkkel (bare i nettleseren)
   account.js               Supabase-innlogging + synk (mergeState bor her)
   picker.js                fag-velger, tema, byggnummer, dynamisk lasting av fagdata
   boot.js                  app-skall, navigasjon, ruting, innholdslaster

@@ -470,7 +470,8 @@ window.EDU = window.EDU || {};
       kort.appendChild(fasitPanel(t, !sjekkliste));
       /* Før avkrysningen: Claude svarer med hvilke krav som ble oppfylt, og
          dem krysser du av rett under. */
-      kort.appendChild(claudeRad(() => trinnPrompt(c, i), "Vurder med Claude",
+      kort.appendChild(claudeRad(`case:${c.id}:${i}`, () => trinnPrompt(c, i), "Vurder med Claude",
+        "Claude leser casen, svaret ditt, fasiten og kravene, sier hvilke krav du oppfylte og stiller et oppfølgingsspørsmål. Svar på det i chatten.",
         "Kopierer casen, svaret ditt, fasiten og kravene som én melding. Lim den inn i Claude, så sier den hvilke krav du oppfylte og stiller et oppfølgingsspørsmål."));
       if (idé) kort.appendChild(idéAvkryssing(c, t, i, st));
       else if (sjekkliste) kort.appendChild(strengVurdering(c, t, i, st));
@@ -761,7 +762,8 @@ window.EDU = window.EDU || {};
         el("p.tiny.muted", { style: { marginTop: "8px", maxWidth: "440px" } },
           "Vurderingen er din egen. Den er bare verdt noe hvis du trekker fra der strukturen ikke var skreddersydd, der du regnet uten å si framgangsmåten, eller der anbefalingen manglet et «så derfor»."))));
     if (!erEnkelt(c)) kort.appendChild(tilbakemelding(c));
-    kort.appendChild(claudeRad(() => helPrompt(c), "Hele casen til Claude",
+    kort.appendChild(claudeRad(`case:${c.id}:hel`, () => helPrompt(c), "Hele casen til Claude",
+      "Claude leser alle svarene dine med fasit og krav og gir en samlet dom: ville du gått videre og hva kostet mest?",
       "Kopierer alle svarene dine med fasit og krav. Claude gir en samlet dom: ville du gått videre, og hva som kostet mest."));
     if (c.bakgrunn) {
       kort.appendChild(el(".nav-section", { style: { paddingLeft: 0, marginTop: "16px" } }, "Om denne casen"));
@@ -851,29 +853,12 @@ window.EDU = window.EDU || {};
 
   /* ================= vurdering med Claude =================
      Avkrysningen over er bare så streng som du er. Her settes casen, svaret,
-     fasiten og kravene sammen til én ferdig melding som du limer inn i Claude,
-     og da er det abonnementet ditt som betaler. Appen kaller ingen API og har
-     ingen nøkkel: en nøkkel i en statisk side kan leses av alle. */
-  const CLAUDE_URL = "https://claude.ai/new";
+     fasiten og kravene sammen til én melding. Har du lagt inn din egen
+     API-nøkkel, svarer Claude rett i appen (bundle-claude.js). Uten nøkkel
+     kopieres meldingen. Da limer du den inn i Claude selv. */
 
-  /* Fagdataene er HTML. Claude leser ren tekst bedre, og tabellene må bevares
-     som rader, ellers flyter tallene i ett. */
-  function ren(html) {
-    if (!html) return "";
-    const d = document.createElement("div");
-    d.innerHTML = String(html);
-    /* Kildens innrykk og linjeskift er formatering, ikke innhold. */
-    const gå = document.createTreeWalker(d, NodeFilter.SHOW_TEXT);
-    for (let n = gå.nextNode(); n; n = gå.nextNode()) n.nodeValue = n.nodeValue.replace(/\s+/g, " ");
-    d.querySelectorAll("table").forEach((tab) => {
-      tab.textContent = [...tab.querySelectorAll("tr")]
-        .map((tr) => "| " + [...tr.children].map((c) => c.textContent.trim()).join(" | ") + " |").join("\n");
-    });
-    d.querySelectorAll("br").forEach((n) => n.replaceWith("\n"));
-    d.querySelectorAll("li").forEach((li) => { li.prepend("- "); li.append("\n"); });
-    d.querySelectorAll("p, h1, h2, h3, h4, table, ul, ol, div").forEach((n) => { n.prepend("\n"); n.append("\n\n"); });
-    return d.textContent.replace(/[ \t]*\n[ \t]*/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
-  }
+  /* HTML til ren tekst, med tabellene som rader. Bor i bundle-claude.js. */
+  const ren = (html) => S.claude.ren(html);
 
   const artNavn = (t) => (ARTNAVN[t.art] || { full: "Trinn" }).full;
   const trinnNavn = (t, i) => `Trinn ${i + 1} · ${t.tittel || artNavn(t)}`;
@@ -987,14 +972,9 @@ ${enkelt
     return d.join("\n\n");
   }
 
-  function claudeRad(lagTekst, knappTekst, forklaring) {
-    return el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "16px" } },
-      el("button.btn.sm.primary", { type: "button", onclick: async () => {
-        const ok = await S.u.tilUtklipp(lagTekst());
-        S.u.toast(ok ? "Kopiert — lim det inn i Claude" : "Fikk ikke kopiert. Prøv igjen, eller i en annen nettleser.");
-      } }, knappTekst),
-      el("a.btn.sm.ghost", { href: CLAUDE_URL, target: "_blank", rel: "noopener" }, "Åpne Claude ↗"),
-      el("p.tiny.muted", { style: { margin: "4px 0 0", flexBasis: "100%" } }, forklaring));
+  function claudeRad(id, lagTekst, knappTekst, forklaring, forklaringUten) {
+    return el("div", { style: { marginTop: "16px" } },
+      S.claude.vurdering({ id, prompt: lagTekst, knapp: knappTekst, forklaring, forklaringUten, effort: "high" }));
   }
 
   /* ================= inngang ================= */

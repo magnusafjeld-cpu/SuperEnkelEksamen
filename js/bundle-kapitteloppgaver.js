@@ -279,6 +279,13 @@ window.EDU = window.EDU || {};
     }
     boks.appendChild(sol);
 
+    /* Claude som sensor: leser svaret mot løsningen og kriteriene og foreslår
+       poeng. Du setter fortsatt poengene selv, rett under. */
+    if (S.claude && (felt.value || st.svar || "").trim()) boks.appendChild(el("div", { style: { marginTop: "14px" } },
+      S.claude.vurdering({ id: `kap:${num}:${t.id}`, prompt: () => sensorPrompt(t, felt.value || st.svar), knapp: "Vurder svaret med Claude", effort: "high",
+        forklaring: "Claude leser svaret ditt mot løsningen og kriteriene, foreslår poeng og peker på det som kostet mest.",
+        forklaringUten: "Kopierer oppgaven, svaret ditt, løsningen og kriteriene som én melding du kan lime inn i Claude." })));
+
     /* Selvvurdering i fire trinn av maks. Kriteriene over er det du måler mot. */
     const cur = st.score;
     const rad = el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "14px" } },
@@ -296,6 +303,35 @@ window.EDU = window.EDU || {};
     if (typeof cur !== "number") boks.appendChild(el("p.tiny.muted", { style: { margin: "8px 0 0" } },
       "Vurder ærlig mot kriteriene. Trekk der du regnet uten å si metoden, der mekanismen ikke ble navngitt, og der kontrollen mangler."));
     return boks;
+  }
+
+  /* Meldingen til Claude for en åpen oppgave. Den strenge sensoren, i samme
+     form som eksamen: poeng per kriterium, ikke helhetsinntrykk. */
+  function sensorPrompt(t, svar) {
+    const ren = S.claude.ren;
+    const p = t.points || 6;
+    const krit = (t.criteria || []).map((c, n) => `${n + 1}. ${ren(c)}`).join("\n");
+    return `Du er sensor på en skriftlig eksamen i ${(window.EDU_SUBJECT || {}).name || "emnet"}. Jeg øver og vil ha en streng og konkret vurdering, ikke oppmuntring.
+
+## Oppgaven (${p} poeng)
+${ren(t.body || t.q || "")}
+
+## Svaret mitt
+${String(svar || "").trim() ? '"""\n' + String(svar).trim() + '\n"""' : "(tomt)"}
+
+## Løsningen
+${ren(t.solution || "") || "(ingen løsning)"}
+${krit ? "\n## Kriteriene sensor ser etter\n" + krit + "\n" : ""}
+## Slik vurderer du
+- Vurder bare det som står i svaret. Det som er underforstått, teller ikke. Svaret kan være skrevet raskt, så se bort fra stavefeil.
+- Riktig tall uten metode gir lite. Riktig metode med en regnefeil gir mye.
+- Ikke gjenta løsningen. Jeg har lest den.
+
+## Svar kort, på norsk, i denne formen
+1. **Poeng:** «x av ${p}» og én setning om hvorfor.
+2. **Kriterium for kriterium:** ✓ eller ✗, med et kort sitat fra svaret som bevis eller hva som manglet.
+3. **Feilen som kostet mest:** hvor i resonnementet det gikk galt, konkret.
+4. **Slik ville et toppsvar startet:** de to første linjene, skrevet slik jeg burde skrevet dem.`;
   }
 
   function oppgave(num, t, i) {

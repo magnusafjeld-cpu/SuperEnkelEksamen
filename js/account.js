@@ -229,6 +229,9 @@ window.EDU = window.EDU || {};
         el(".tiny.muted", "Hvert fag har sin egen fremdrift og synkes for seg.")),
       el("button.btn.ghost", { onclick: () => S.picker.show({ cancel: true }) }, "Alle fag")));
 
+    /* Egen API-nøkkel til Claude. Lagres bare i nettleseren og synkes aldri. */
+    if (S.claude) wrap.appendChild(S.claude.innstillingskort());
+
     /* Bodde på Fremdrift-siden til den ble fjernet 28. september 2026. Begge
        gjelder bare faget som er åpent. */
     wrap.appendChild(el(".card", { style: { marginTop: "20px", display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" } },

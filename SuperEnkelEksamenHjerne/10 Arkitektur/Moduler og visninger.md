@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-09
+oppdatert: 2026-10-12
 ---
 
 # Moduler og visninger
@@ -369,6 +369,37 @@ tilgjengelig når du regner en kapitteloppgave eller et sett som på eksamen.
 
 FIE402-arket er hentet ordrett fra `Formula sheet.docx` med en egen OMML-leser,
 fordi Word-ligningene forsvinner med vanlige verktøy (samme felle som i FIE432).
+
+## Spør Claude: chat og vurdering med egen API-nøkkel
+
+Lagt til 12. oktober 2026 (`js/bundle-claude.js`). Hver bruker legger inn sin egen
+Anthropic API-nøkkel på Konto-siden eller i panelet. Nettleseren kaller Messages
+API direkte. Forbruket går på brukerens konto. Hvorfor: [[Beslutningslogg]].
+
+- **Chatpanelet.** Knappen «Spør Claude» nederst til høyre i alle fag (formelarkets
+  knapp flyttes opp over den med `body.har-claude`). Vindu på PC, hele skjermen på
+  telefon. Hver melding får med teksten i `.content` som en `<side>`-blokk: det som
+  synes, det du har skrevet i feltene og hvilket alternativ som er valgt, riktig
+  eller feil (klassene `.opt.sel/.correct/.wrong` blir til tekst). Står du på samme
+  side som sist, sendes bare `<side samme="ja"/>`. Samtalen lever til «Ny samtale»
+  eller omlasting, også når du bytter side.
+- **Vurdering av svar.** `S.claude.vurdering({ id, prompt, knapp, forklaring,
+  forklaringUten, effort })` gir en boks som strømmer vurderingen inn. Brukt i
+  case-spilleren og i de åpne kapitteloppgavene (FIE402 og minicasene i
+  kjernepensum), der Claude er sensor og foreslår poeng mot kriteriene. Tilstanden
+  lagres per `id` i minnet, fordi visningen tegnes på nytt når du setter poeng.
+  Uten nøkkel kopierer boksen meldingen i stedet.
+- **API-et.** Sonnet 5.5 som standard (Opus 5.5 og Haiku 5.5 kan velges), strømming,
+  adaptiv tenking, `effort` medium i chat og high i vurdering, automatisk caching
+  (`cache_control` på toppnivå) og `fallbacks: "default"` når sikkerhetsfilteret
+  avslår. Samtalen er bare-legg-til: systemprompten fryses ved første melding og
+  svarets innholdsblokker (med tenkeblokkenes signatur) sendes tilbake uendret. Da
+  treffer cachen og tenkeblokkene er gyldige. Avviser API-et en signatur, prøves
+  det én gang til uten tenkeblokker.
+- **Forbruk.** Panelet viser et anslag for samtalen og måneden, regnet fra `usage`
+  og listeprisene. Kontoen i Console er fasiten.
+- **Nøkkelen sjekkes gratis** med `GET /v1/models/<modell>`, som ikke koster tokens.
+- Markdown fra Claude tegnes av en liten egen `md()` som escaper alt først.
 
 ## NotebookLM — pensum som ren tekst
 
