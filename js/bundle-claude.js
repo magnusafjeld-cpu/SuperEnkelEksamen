@@ -187,6 +187,11 @@ window.EDU = window.EDU || {};
      svarer i markdown. Vi trenger avsnitt, lister, fet, kursiv, kode,
      overskrifter og enkle tabeller. */
   const PUNKT = /^\s*([-*•]|\d+[.)])\s+/;
+  /* En tabellrad starter og slutter med |. Den siste linjen under en tabell
+     kan mangle sluttstreken mens svaret strømmer inn. */
+  const HEL_RAD = /^\s*\|.*\|\s*$/;
+  const tabellrad = (linjer, i) => HEL_RAD.test(linjer[i]) ||
+    (i === linjer.length - 1 && i > 0 && /^\s*\|/.test(linjer[i]) && HEL_RAD.test(linjer[i - 1]));
   function md(tekst) {
     const esc = S.u.escapeHtml;
     const inline = (s) => esc(s)
@@ -205,9 +210,9 @@ window.EDU = window.EDU || {};
       }
       const h = /^(#{1,4})\s+(.*)$/.exec(l);
       if (h) { ut.push("<h4>" + inline(h[2]) + "</h4>"); i++; continue; }
-      if (/^\s*\|.*\|\s*$/.test(l)) {
+      if (tabellrad(linjer, i)) {
         const rader = [];
-        while (i < linjer.length && /^\s*\|.*\|\s*$/.test(linjer[i])) rader.push(linjer[i++]);
+        while (i < linjer.length && tabellrad(linjer, i)) rader.push(linjer[i++]);
         const celler = (r) => r.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
         const kropp = rader.filter((r) => !/^\s*\|[\s:|-]+\|\s*$/.test(r));
         ut.push('<div class="tabell-scroll"><table class="data">' + kropp.map((r, n) =>
@@ -235,8 +240,11 @@ window.EDU = window.EDU || {};
         continue;
       }
       if (!l.trim()) { i++; continue; }
-      const avsnitt = [];
-      while (i < linjer.length && linjer[i].trim() && !/^(```|#{1,4}\s|\s*\||\s*([-*•]|\d+[.)])\s+)/.test(linjer[i])) avsnitt.push(linjer[i++]);
+      /* Første linje tas alltid med. Uten det gikk tegneren i evig løkke på en
+         linje som så ut som starten på en blokk uten å være det («|ρ| ≤ 1»,
+         eller en tabellrad som ennå strømmer inn), og hele siden frøs. */
+      const avsnitt = [linjer[i++]];
+      while (i < linjer.length && linjer[i].trim() && !/^(```|#{1,4}\s|\s*([-*•]|\d+[.)])\s+)/.test(linjer[i]) && !tabellrad(linjer, i)) avsnitt.push(linjer[i++]);
       ut.push("<p>" + avsnitt.map(inline).join("<br>") + "</p>");
     }
     return ut.join("");

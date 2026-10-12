@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-10-09
+oppdatert: 2026-10-12
 ---
 
 # Fallgruver
@@ -638,3 +638,17 @@ endres, ellers går glemt-passord-lenker til en død adresse. Se [[Supabase]].
 
 Prosjektinnstillinger for Claude Code følger altså ikke med repoet. Bevisst nok,
 men verdt å vite hvis noe «mangler» på en annen maskin.
+
+## 11. Markdown-tegneren i Spør Claude må alltid gå framover
+
+`md()` i `js/bundle-claude.js` kjøres på hele svaret for hver bit som strømmer
+inn. Første versjon (12. oktober 2026) frøs hele siden: en linje som startet med
+`|` uten å slutte med `|` ble verken lest som tabell eller som avsnitt, og løkka
+sto stille. Det skjer hver gang Claude strømmer en tabell (den siste raden er
+halvferdig) og i tekst som «|ρ| ≤ 1». Panelet og resten av siden sluttet å svare,
+og bare omlasting hjalp.
+
+Rettet ved at et avsnitt alltid tar med første linje, og ved at den siste, ufullstendige
+linjen under en tabell regnes som tabellrad. Endrer du `md()`: hver gren i
+hovedløkka må øke `i`. Test med prefiksene av tilfeldige markdown-biter, slik et
+svar ser ut underveis, ikke bare med ferdige svar.
