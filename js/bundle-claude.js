@@ -242,7 +242,7 @@ window.EDU = window.EDU || {};
       if (!l.trim()) { i++; continue; }
       /* Første linje tas alltid med. Uten det gikk tegneren i evig løkke på en
          linje som så ut som starten på en blokk uten å være det («|ρ| ≤ 1»,
-         eller en tabellrad som ennå strømmer inn), og hele siden frøs. */
+         eller en tabellrad som ennå strømmer inn). Da frøs hele siden. */
       const avsnitt = [linjer[i++]];
       while (i < linjer.length && linjer[i].trim() && !/^(```|#{1,4}\s|\s*([-*•]|\d+[.)])\s+)/.test(linjer[i]) && !tabellrad(linjer, i)) avsnitt.push(linjer[i++]);
       ut.push("<p>" + avsnitt.map(inline).join("<br>") + "</p>");
@@ -342,7 +342,7 @@ Slik svarer du:
 
   /* Samtalen huskes i fem minutter etter siste forespørsel, også om siden lastes
      på nytt. Det er like lenge som Claudes cache lever. Etter det måtte hele
-     samtalen sendes på nytt til full pris, så da glemmes den i stedet, og neste
+     samtalen sendes på nytt til full pris, så da glemmes den i stedet. Neste
      spørsmål starter en ny samtale med siden du står på. */
   const SAMTALE = "edu.claude.samtale";
   const LEVETID = 5 * 60 * 1000;

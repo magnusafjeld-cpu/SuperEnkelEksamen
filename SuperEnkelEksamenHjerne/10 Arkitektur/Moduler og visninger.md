@@ -385,7 +385,7 @@ API direkte. Forbruket går på brukerens konto. Hvorfor: [[Beslutningslogg]].
 - **Samtalen huskes i fem minutter** etter siste forespørsel, også når du bytter
   side eller laster på nytt (`localStorage["edu.claude.samtale"]`). Fem minutter er
   levetiden til Claudes cache. Etter det måtte hele samtalen sendes på nytt til full
-  pris, så den glemmes i stedet, og neste spørsmål starter en ny samtale med siden du
+  pris, så den glemmes i stedet. Neste spørsmål starter en ny samtale med siden du
   står på. Panelet viser klokkeslettet den glemmes. Magnus ba om dette 12. oktober 2026.
 - **Vurdering av svar.** `S.claude.vurdering({ id, prompt, knapp, forklaring,
   forklaringUten, effort })` gir en boks som strømmer vurderingen inn. Brukt i
