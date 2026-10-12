@@ -381,8 +381,12 @@ API direkte. Forbruket går på brukerens konto. Hvorfor: [[Beslutningslogg]].
   telefon. Hver melding får med teksten i `.content` som en `<side>`-blokk: det som
   synes, det du har skrevet i feltene og hvilket alternativ som er valgt, riktig
   eller feil (klassene `.opt.sel/.correct/.wrong` blir til tekst). Står du på samme
-  side som sist, sendes bare `<side samme="ja"/>`. Samtalen lever til «Ny samtale»
-  eller omlasting, også når du bytter side.
+  side som sist, sendes bare `<side samme="ja"/>`.
+- **Samtalen huskes i fem minutter** etter siste forespørsel, også når du bytter
+  side eller laster på nytt (`localStorage["edu.claude.samtale"]`). Fem minutter er
+  levetiden til Claudes cache. Etter det måtte hele samtalen sendes på nytt til full
+  pris, så den glemmes i stedet, og neste spørsmål starter en ny samtale med siden du
+  står på. Panelet viser klokkeslettet den glemmes. Magnus ba om dette 12. oktober 2026.
 - **Vurdering av svar.** `S.claude.vurdering({ id, prompt, knapp, forklaring,
   forklaringUten, effort })` gir en boks som strømmer vurderingen inn. Brukt i
   case-spilleren og i de åpne kapitteloppgavene (FIE402 og minicasene i

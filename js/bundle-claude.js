@@ -337,13 +337,58 @@ Slik svarer du:
     system: null,       // frosset ved første melding
     kjører: null,       // AbortController mens et svar strømmer
     kostnad: 0,
+    sist: 0,            // da siste forespørsel ble sendt, altså da cachen sist ble brukt
   };
+
+  /* Samtalen huskes i fem minutter etter siste forespørsel, også om siden lastes
+     på nytt. Det er like lenge som Claudes cache lever. Etter det måtte hele
+     samtalen sendes på nytt til full pris, så da glemmes den i stedet, og neste
+     spørsmål starter en ny samtale med siden du står på. */
+  const SAMTALE = "edu.claude.samtale";
+  const LEVETID = 5 * 60 * 1000;
+  const fagId = () => (window.EDU_SUBJECT || {}).id || "";
+  const utløpt = () => chat.meldinger.length > 0 && !chat.kjører && Date.now() - chat.sist > LEVETID;
+
+  function lagreSamtale() {
+    try {
+      if (!chat.meldinger.length) { localStorage.removeItem(SAMTALE); return; }
+      localStorage.setItem(SAMTALE, JSON.stringify({
+        fag: fagId(), sist: chat.sist, system: chat.system, meldinger: chat.meldinger, sisteSide: chat.sisteSide,
+        kostnad: chat.kostnad, effort: chat.effort || null,
+        vist: chat.vist.filter((m) => !m.venter).map((m) => ({ rolle: m.rolle, tekst: m.tekst, side: m.side, kostnad: m.kostnad, feil: m.feil })),
+      }));
+    } catch (e) { /* full lagring: samtalen huskes bare i minnet */ }
+  }
+  function hentSamtale() {
+    let o = null;
+    try { o = JSON.parse(localStorage.getItem(SAMTALE)); } catch (e) {}
+    if (!o || o.fag !== fagId() || !Array.isArray(o.meldinger) || Date.now() - o.sist > LEVETID) {
+      try { localStorage.removeItem(SAMTALE); } catch (e) {}
+      return;
+    }
+    /* Lastet siden om midt i et svar, står brukermeldingen uten svar. Den tas ut,
+       så samtalen fortsatt veksler mellom bruker og assistent. */
+    const meldinger = o.meldinger.slice();
+    if (meldinger.length && meldinger[meldinger.length - 1].role === "user") meldinger.pop();
+    if (!meldinger.length) return;
+    Object.assign(chat, { meldinger, system: o.system, sisteSide: o.sisteSide, sist: o.sist,
+      kostnad: o.kostnad || 0, effort: o.effort, vist: o.vist || [] });
+  }
+  /* Kalles før panelet tegnes og før en ny melding sendes. */
+  function glemHvisUtløpt() {
+    if (!utløpt()) return false;
+    nyttVindu();
+    chat.vist = [{ rolle: "info", tekst: "Forrige samtale er glemt, fordi det har gått mer enn fem minutter. Å sende den på nytt ville kostet full pris." }];
+    return true;
+  }
+  const klokke = (t) => new Date(t).toLocaleTimeString("nb-NO", { hour: "2-digit", minute: "2-digit" });
   let knapp = null, panel = null, åpen = false;
   const SNAKKEBOBLE = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM8 10h8M8 13.5h5"/></svg>';
 
   function nyttVindu() {
     if (chat.kjører) chat.kjører.abort();
-    chat.meldinger = []; chat.vist = []; chat.sisteSide = null; chat.system = null; chat.kostnad = 0; chat.effort = null;
+    chat.meldinger = []; chat.vist = []; chat.sisteSide = null; chat.system = null; chat.kostnad = 0; chat.effort = null; chat.sist = 0;
+    lagreSamtale();
   }
 
   function mount(body) {
@@ -355,12 +400,14 @@ Slik svarer du:
     body.appendChild(knapp);
     body.appendChild(panel);
     body.classList.add("har-claude");
+    hentSamtale();
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && åpen) lukk(); });
   }
 
   function åpne() {
     if (!panel) return;
     if (S.formelark && S.formelark.lukk) S.formelark.lukk();
+    glemHvisUtløpt();
     åpen = true; panel.hidden = false;
     knapp.setAttribute("aria-expanded", "true"); knapp.classList.add("aktiv");
     document.body.classList.add("cl-åpen");
@@ -401,7 +448,7 @@ Slik svarer du:
 
   function samtale() {
     const liste = el(".cl-liste");
-    if (!chat.vist.length) {
+    if (!chat.vist.some((m) => m.rolle !== "info")) {
       liste.appendChild(el(".cl-tom",
         el("p", "Spør om det du ser på. Claude får med teksten på siden og det du har skrevet, så du kan skrive «hvorfor er ikke B riktig?» eller «forklar formelen øverst»."),
         el(".cl-forslag", ["Forklar dette enklere", "Gi meg et hint", "Hvor gjorde jeg feil?", "Lag et lignende spørsmål"].map((f) =>
@@ -419,12 +466,15 @@ Slik svarer du:
       el(".cl-info",
         el("span", "Ser: " + (sidetittel() || location.hash || "forsiden")),
         el(".spacer"),
+        chat.meldinger.length && chat.sist && !chat.kjører ? el("span", { title: "Fem minutter etter siste melding. Da er Claudes cache tømt." },
+          "glemmes " + klokke(chat.sist + LEVETID) + " ·") : null,
         el("span", { title: "Anslag ut fra API-prisene. Kontoen din i Console er fasiten." },
           (chat.kostnad ? "Samtalen " + dollar(chat.kostnad) + " · " : "") + "måneden " + dollar(brukt()))));
     return el(".cl-kropp", liste, fot);
   }
 
   function boble(m) {
+    if (m.rolle === "info") return el("p.cl-side", { style: { margin: "0 0 12px" } }, m.tekst);
     if (m.rolle === "bruker") return el(".cl-m.bruker", el(".cl-boble", m.tekst),
       m.side ? el(".cl-side", "fra " + m.side) : null);
     const b = el(".cl-m.claude");
@@ -443,6 +493,7 @@ Slik svarer du:
     if (!tekst || chat.kjører || !harNøkkel()) return;
     const felt = panel && panel.querySelector(".cl-felt");
     if (felt) felt.value = "";
+    glemHvisUtløpt();
     if (!chat.system) chat.system = systemprompt();
     const k = kontekst();
     const sideNøkkel = k.sti + "\n" + k.tekst;
@@ -463,6 +514,7 @@ Slik svarer du:
      flyttes over til chatten. */
   async function kjør(svar, { effort }) {
     chat.kjører = new AbortController();
+    chat.sist = Date.now();
     tegn();
     try {
       const r = await strømMedRetry({
@@ -492,6 +544,7 @@ Slik svarer du:
       }
     }
     chat.kjører = null;
+    lagreSamtale();
     tegn();
   }
   function rullNed() {
@@ -501,7 +554,7 @@ Slik svarer du:
 
   /* Overtar en vurdering som første tur i chatten, så du kan svare på
      oppfølgingsspørsmålet eller spørre videre. */
-  function fortsettIChat(prompt, content, effort) {
+  function fortsettIChat(prompt, content, effort, sendt) {
     nyttVindu();
     chat.system = systemprompt();
     /* Første chatmelding etter vurderingen får med siden, så Claude ser alt
@@ -509,6 +562,8 @@ Slik svarer du:
     chat.meldinger = [{ role: "user", content: prompt }, { role: "assistant", content: tilHistorikk(content) }];
     chat.vist = [{ rolle: "bruker", tekst: "Vurder svaret mitt." }, { rolle: "claude", tekst: tekstAv(content) }];
     chat.effort = effort || "high";
+    chat.sist = sendt || Date.now();
+    lagreSamtale();
     åpne();
   }
 
@@ -605,7 +660,7 @@ Slik svarer du:
         if (ctrl) rad.appendChild(el("button.btn.sm.ghost", { type: "button", onclick: () => v.ctrl && v.ctrl.abort() }, "Stopp"));
         else rad.appendChild(el("button.btn.sm.primary", { type: "button", onclick: start }, tilstand ? "Vurder på nytt" : opts.knapp));
         if (tilstand && tilstand.content && !ctrl) rad.appendChild(el("button.btn.sm.ghost", { type: "button",
-          onclick: () => fortsettIChat(tilstand.prompt, tilstand.content, opts.effort) }, "Svar eller spør videre i chatten"));
+          onclick: () => fortsettIChat(tilstand.prompt, tilstand.content, opts.effort, tilstand.sendt) }, "Svar eller spør videre i chatten"));
         rad.appendChild(el(".spacer"));
         if (tilstand && tilstand.kostnad != null) rad.appendChild(el("span.tiny.muted", dollar(tilstand.kostnad)));
       } else {
@@ -633,7 +688,7 @@ Slik svarer du:
 
     async function start() {
       const prompt = v.opts.prompt();
-      const tilstand = { prompt, tekst: "" };
+      const tilstand = { prompt, tekst: "", sendt: Date.now() };
       v.tilstand = tilstand;
       v.ctrl = new AbortController();
       v.tegn();
