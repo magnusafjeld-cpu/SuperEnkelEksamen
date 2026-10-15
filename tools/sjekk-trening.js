@@ -14,9 +14,12 @@
    - «oppgaven over», «forrige oppgave»: spørsmålene trekkes tilfeldig (fallgruve 7v)
    - samme spørsmålstekst to ganger
 
-   - et spørsmål uten hjelp, eller en hjelp som røper svaret: et tall fra
-     alternativene, et stort tall eller et desimaltall fra spørsmålet, eller
-     teksten i det riktige alternativet. Kursets faste satser (22 %, 1,72 …) er lov.
+   - et spørsmål uten hjelp eller uten de to hintene, eller en hjelp eller et
+     hint som røper svaret: et tall fra alternativene, et stort tall eller et
+     desimaltall fra spørsmålet, eller teksten i det riktige alternativet.
+     Kursets faste satser (22 %, 1,72 …) er lov.
+   - en felle som røper fasiten: teksten i det riktige alternativet eller et tall
+     som bare står der. Fella vises før fasiten i «Prøv igjen».
 
    ADVARSEL
    - et tema med færre spørsmål enn målet i temaer.py
@@ -129,22 +132,44 @@ for (const s of ALLE) {
   s.options.forEach((o, i) => sjekkSpråk(o, `${hvor}.options[${i}]`));
   (s.traps || []).forEach((t, i) => t && sjekkSpråk(t, `${hvor}.traps[${i}]`, { fasit: true }));
 
-  /* Hjelpen: fremgangsmåten uten spørsmålets tall og uten svaret. */
-  if (!String(s.hjelp || "").trim()) feil.push(`${hvor}: mangler hjelp`);
-  else {
-    sjekkHtml(s.hjelp, hvor + ".hjelp");
-    sjekkSpråk(s.hjelp, hvor + ".hjelp", { fasit: true });
-    const h = " " + renSpråk(s.hjelp).replace(/\u00a0/g, " ") + " ";
-    const tallI = (t) => (renSpråk(t).replace(/\u00a0/g, " ").match(/\d{1,3}(?: \d{3})+(?:,\d+)?|\d+(?:,\d+)?/g) || []);
-    const fritt = (t) => FASTE.has(t);
+  /* Hjelpen: fremgangsmåten uten spørsmålets tall og uten svaret. Det samme
+     gjelder de to hintene før den (tema og regel, spesifikasjonen § 2c). */
+  const tallI = (t) => (renSpråk(t).replace(/\u00a0/g, " ").match(/\d{1,3}(?: \d{3})+(?:,\d+)?|\d+(?:,\d+)?/g) || []);
+  const fritt = (t) => FASTE.has(t);
+  const riktig = ren(s.options[s.answer]).toLowerCase();
+  function røper(tekst, felt) {
+    sjekkHtml(tekst, felt);
+    sjekkSpråk(tekst, felt, { fasit: true });
+    const h = " " + renSpråk(tekst).replace(/\u00a0/g, " ") + " ";
     const finnes = (t) => new RegExp("(^|[^\\d,])" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![\\d,])").test(h);
     const fraAlt = new Set(s.options.flatMap(tallI).filter((t) => !fritt(t) && t.replace(/\D/g, "").length >= 2));
     const fraQ = new Set(tallI(s.q).filter((t) => !fritt(t) && (t.replace(/\D/g, "").length >= 4 || t.includes(","))));
     const lekk = [...new Set([...fraAlt, ...fraQ])].filter(finnes);
-    if (lekk.length) feil.push(`${hvor}.hjelp: inneholder tall fra spørsmålet eller alternativene (${lekk.slice(0, 4).join(", ")})`);
-    const riktig = ren(s.options[s.answer]).toLowerCase();
-    if (riktig.length >= 18 && ren(s.hjelp).toLowerCase().includes(riktig)) feil.push(`${hvor}.hjelp: gjengir det riktige alternativet`);
+    if (lekk.length) feil.push(`${felt}: inneholder tall fra spørsmålet eller alternativene (${lekk.slice(0, 4).join(", ")})`);
+    if (riktig.length >= 18 && ren(tekst).toLowerCase().includes(riktig)) feil.push(`${felt}: gjengir det riktige alternativet`);
   }
+  if (!String(s.hjelp || "").trim()) feil.push(`${hvor}: mangler hjelp`);
+  else røper(s.hjelp, hvor + ".hjelp");
+  if (!Array.isArray(s.hint) || s.hint.length !== 2 || !s.hint.every((h) => String(h || "").trim())) {
+    feil.push(`${hvor}: mangler hint (tema og regel). Bruk hjelp3(tema, regel, oppsett)`);
+  } else {
+    s.hint.forEach((h, k) => røper(h, `${hvor}.hint[${k}]`));
+    if (ord(s.hint[0]) > 35) advarsel.push(`${hvor}.hint[0]: ${ord(s.hint[0])} ord. Temaet skal være én til to setninger`);
+    if (ord(s.hint[1]) > 70) advarsel.push(`${hvor}.hint[1]: ${ord(s.hint[1])} ord. Regelen skal være kort`);
+  }
+
+  /* «Prøv igjen» viser fella for alternativet du valgte, før fasiten. Da må
+     fella forklare feilen uten å si hva som er riktig: ikke teksten i det
+     riktige alternativet, og ikke et tall som bare står der. */
+  const egneTall = new Set(s.options.filter((_, i) => i !== s.answer).flatMap(tallI));
+  const fasitTall = tallI(s.options[s.answer]).filter((t) => !fritt(t) && t.replace(/\D/g, "").length >= 2 && !egneTall.has(t));
+  (s.traps || []).forEach((t, i) => {
+    if (!t || i === s.answer) return;
+    const h = " " + renSpråk(t).replace(/\u00a0/g, " ") + " ";
+    const tallet = fasitTall.find((x) => new RegExp("(^|[^\\d,])" + x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![\\d,])").test(h));
+    if (tallet || (riktig.length >= 12 && ren(t).toLowerCase().includes(riktig)))
+      feil.push(`${hvor}.traps[${i}]: røper fasiten (${tallet || "teksten i det riktige alternativet"}). Fella vises før fasiten i «Prøv igjen»`);
+  });
 
   if (ord(s.kort) > 90) advarsel.push(`${hvor}: kort fasit er ${ord(s.kort)} ord. Den skal være kort`);
   if (ord(s.full) < 60) advarsel.push(`${hvor}: full gjennomgang er bare ${ord(s.full)} ord`);

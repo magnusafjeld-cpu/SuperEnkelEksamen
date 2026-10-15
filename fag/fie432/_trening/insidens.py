@@ -9,8 +9,9 @@
 """
 from trening_lib import *  # noqa: F401,F403
 
-# Hjelpen bak «Hjelp»-knappen: fremgangsmåten uten spørsmålets tall og uten svaret.
-HJELP = {
+# Hjelpen bak «Hjelp»-knappen i tre trinn (spesifikasjonen § 2c). _OPPSETT er trinn 3,
+# fremgangsmåten uten spørsmålets tall og uten svaret. Tema og regel står i _TRINN under.
+_OPPSETT = {
     'ins-lin1': (
         '<p><b>Steg 1: skriv kilen.</b> P = p + t, uansett hvem som betaler skatten inn.</p>'
         '<p><b>Steg 2: sett kilen inn i likevekten.</b> Erstatt P med p + t i etterspørselen og sett den lik tilbudet: D(p + t) = S(p). Løs for p.</p>'
@@ -271,6 +272,214 @@ HJELP = {
     ),
 }
 
+# Trinn 1 og 2: temaet (hva spørsmålet handler om og hva du skal finne) og regelen
+# (formelen med symboler). Ingen tall fra spørsmålet og ikke svaret.
+_ELAST = ("Kjøperens andel = ε<sub>S</sub>/(ε<sub>S</sub> + |ε<sub>D</sub>|). "
+          "Selgerens andel = |ε<sub>D</sub>|/(ε<sub>S</sub> + |ε<sub>D</sub>|).")
+_HELN = "∂p/∂t = D′/(S′ − D′) og ∂P/∂t = S′/(S′ − D′)."
+_GRENSE_TEMA = ("Dette er et grensetilfelle for insidens: én kurve er loddrett eller vannrett, så én side bærer "
+                "hele skatten. Du skal finne ")
+_GRENSE_REGEL = (_HELN + " Loddrett kurve har helning 0, vannrett kurve helning mot uendelig. D′ = 0 eller S′ → ∞ "
+                 "gir ∂P/∂t = 1. S′ = 0 eller D′ → −∞ gir ∂p/∂t = −1. Kilen er P = p + t.")
+_DERIVER = ("Kilen er P = p + t. Deriver likevekten D(p + t) = S(p) med hensyn på t. Venstresiden gir "
+            "D′ × (∂p/∂t + 1), høyresiden S′ × ∂p/∂t.")
+_FORM_TEMA = "Dette er formelgjenkjenning for en stykkskatt i frikonkurranse: du skal finne uttrykket for "
+
+_TRINN = {
+    'ins-lin1': (
+        "Dette er insidens av en stykkskatt med lineære kurver: du skal finne en av de to prisene i den nye likevekten.",
+        "Kilen: P = p + t, uansett hvem som betaler inn. Ny likevekt: D(p + t) = S(p). Kjøperens andel av skatten "
+        "er S′/(S′ − D′), selgerens |D′|/(S′ − D′)."),
+    'ins-lin2': (
+        "Dette er statens proveny av en stykkskatt: skatten ganget med det som faktisk omsettes etter at skatten er innført.",
+        "Proveny = t × x<sub>t</sub>, der x<sub>t</sub> er kvantumet i ny likevekt. Finn det fra D(p + t) = S(p) "
+        "med P = p + t."),
+    'ins-dvt1': (
+        "Dette er dødvektstapet av en stykkskatt: verdien av handlene som forsvinner fordi skatten legger en kile "
+        "mellom prisene.",
+        "Dødvektstap = ½ × t × Δx, der Δx er kvantumsfallet. Med rette linjer er det også "
+        "½ × t² × |S′D′|/(S′ − D′)."),
+    'ins-cs1': (
+        "Dette er reell insidens målt i kroner: hvor mye konsument- eller produsentoverskudd én side taper på skatten.",
+        "Tap for én side = Δpris × x<sub>t</sub> + ½ × Δpris × Δx. Δpris er sidens egen prisendring, "
+        "x<sub>t</sub> nytt kvantum og Δx kvantumsfallet."),
+    'ins-eps1': (
+        "Dette er elastisitetsregelen for insidens: du skal fordele en stykkskatt mellom kjøpere og selgere og "
+        "finne kroner eller en pris.",
+        _ELAST + " Kroner per enhet = andelen × t."),
+    'ins-eps2': (
+        "Dette er elastisitetsregelen brukt baklengs. Prisendringen viser hvor stor andel kjøperne bærer. Du skal "
+        "finne den ukjente elastisiteten.",
+        "Kjøpernes andel = ΔP/t = ε<sub>S</sub>/(ε<sub>S</sub> + |ε<sub>D</sub>|). Selgernes andel = 1 − "
+        "kjøpernes andel = |ε<sub>D</sub>|/(ε<sub>S</sub> + |ε<sub>D</sub>|)."),
+    'ins-hel1': (
+        "Dette er insidensformlene med helninger: du skal finne hvor mye en av prisene endres, per krone skatt "
+        "eller i kroner.",
+        _HELN + " Nevneren S′ − D′ = S′ + |D′| er alltid positiv. Endring i kroner = brøken × t."),
+    'ins-mono1': (
+        "Dette er insidens under monopol. Skatten løfter grensekostnaden. Du skal finne ny pris eller statens proveny.",
+        "Monopolisten velger x der MR = MC + t. Med invers etterspørsel P = a − bx er MR = a − 2bx. "
+        "Proveny = t × nytt kvantum."),
+    'ins-kap1': (
+        "Dette er kapitalisering: en varig skatt på et aktivum med fast tilbud slår inn i prisen på aktivumet "
+        "med en gang.",
+        "Fast tilbud betyr S′ = 0, så eieren bærer hele skatten. Pris = årlig netto inntekt / avkastningskrav. "
+        "En evig årlig skatt T har nåverdien T/k."),
+    'ins-grense1-P': (_GRENSE_TEMA + "det kjøperne betaler i alt per enhet.", _GRENSE_REGEL),
+    'ins-grense1-p': (_GRENSE_TEMA + "det selgerne sitter igjen med per enhet.", _GRENSE_REGEL),
+    'ins-form1-dp': (
+        _FORM_TEMA + "hvor mye produsentprisen p endres når skatten øker marginalt.",
+        _DERIVER + " Krav: ∂p/∂t ligger mellom −1 og 0."),
+    'ins-form1-dP': (
+        _FORM_TEMA + "hvor mye konsumentprisen P endres når skatten øker marginalt.",
+        _DERIVER + " Løs for ∂p/∂t. Kilen gir ∂P/∂t = ∂p/∂t + 1. Krav: ∂P/∂t ligger mellom 0 og 1."),
+    'ins-form1-forhold': (
+        _FORM_TEMA + "forholdet mellom endringen i konsumentprisen og endringen i produsentprisen.",
+        _DERIVER + " Løs for ∂p/∂t og bruk ∂P/∂t = ∂p/∂t + 1. Begge brøkene får nevneren S′ − D′."),
+    'ins-form1-diff': (
+        _FORM_TEMA + "differansen mellom endringen i konsumentprisen og endringen i produsentprisen.",
+        "Kilen P = p + t gjelder for enhver skatt t. ∂P/∂t − ∂p/∂t er den deriverte av P − p med hensyn på t."),
+    'ins-form1-selg': (
+        _FORM_TEMA + "andelen av skatten produsentene bærer.",
+        _DERIVER + " Løs for ∂p/∂t. Produsentens andel er hvor mye p faller per krone skatt, altså −∂p/∂t."),
+    'ins-s01': (
+        "Dette er et grensetilfelle: fast antall betyr perfekt uelastisk tilbud. Du skal finne hvor mye "
+        "konsumentprisen endres per krone skatt.",
+        _HELN + " Perfekt uelastisk tilbud er en loddrett tilbudskurve: tilbudt mengde reagerer ikke på prisen."),
+    'ins-s02': (
+        "Dette er et grensetilfelle: et perfekt substitutt til fast pris betyr perfekt elastisk etterspørsel. Du "
+        "skal finne hvor mye produsentprisen endres per krone skatt.",
+        "∂p/∂t = D′/(S′ − D′). Perfekt elastisk etterspørsel er en vannrett kurve, D′ → −∞. Ta grensen ved å "
+        "dele teller og nevner på D′."),
+    'ins-s03': (
+        "Dette er grensetilfellene for insidens: du skal finne hvilket marked som gjør at kjøperen bærer hele skatten.",
+        _HELN + " Oversett hvert tilfelle til en helning: loddrett kurve har helning 0, vannrett kurve helning "
+        "mot uendelig."),
+    'ins-s04': (
+        "Dette er kvantumsvirkningen av en stykkskatt: du skal finne hvor mye omsatt mengde endres når skatten "
+        "øker marginalt.",
+        "Kjerneregelen: x = S(p) gir ∂x/∂t = S′ × ∂p/∂t. Fra likevekten er ∂p/∂t = D′/(S′ − D′)."),
+    'ins-s05': (
+        "Dette er insidensregelen skrevet med elastisiteter: du skal finne andelen av skatten kjøperne bærer.",
+        "Med helninger er kjøperens andel ∂P/∂t = S′/(S′ − D′). En elastisitet er helning × pris/kvantum: "
+        "ε<sub>S</sub> = S′ × p/x og ε<sub>D</sub> = D′ × P/x."),
+    'ins-s06': (
+        "Dette er første steg i utledningen av insidensformlene: du skal derivere venstresiden av likevekten med "
+        "hensyn på skatten t.",
+        "Kjerneregelen: den deriverte av D(u) med hensyn på t er D′ × ∂u/∂t. Her er u = p + t, der både p og t "
+        "endrer seg når t øker."),
+    'ins-s07': (
+        "Dette er insidens under monopol: du skal finne hvor mye prisen kundene betaler stiger med en stykkskatt.",
+        "Monopolisten velger kvantumet der MR = MC. Skatten gir MR = MC + t. Med lineær etterspørsel P = a − bx er "
+        "MR = a − 2bx."),
+    'ins-s08': (
+        "Dette er skillet mellom formell og reell insidens på arbeidsmarkedet: du skal finne hva som avgjør hvem "
+        "som faktisk bærer avgiften.",
+        "Formell insidens er hvem som betaler inn. Reell insidens er hvem som får lavere inntekt eller høyere pris. "
+        "Avgiften er en kile mellom det arbeidsgiveren betaler og det arbeidstakeren får: W = w + t."),
+    'ins-s09': (
+        "Dette er formell mot reell insidens: du skal finne hva som skjer med det kjøperne betaler i alt når "
+        "innkrevingen flyttes.",
+        "Selgerne betaler inn: D(p + t) = S(p). Kjøperne betaler inn: D(P) = S(P − t). I begge tilfeller er "
+        "P = p + t, der P er det kjøperne betaler i alt."),
+    'ins-s10': (
+        "Dette er intuisjonen bak elastisitetsregelen: du skal forklare hvorfor den minst elastiske siden bærer mest.",
+        "Elastisitet måler hvor sterkt kvantumet reagerer når prisen endres. " + _ELAST),
+    'ins-s11': (
+        "Dette er dødvektstapet av en stykkskatt: du skal finne påstanden om tapet som holder.",
+        "Dødvektstap = ½ × t × Δx, der Δx er kvantumsfallet. Med rette linjer er Δx = t × |S′D′|/(S′ − D′), så "
+        "tapet er ½ × t² × |S′D′|/(S′ − D′)."),
+    'ins-s12': (
+        "Dette er grensetilfellene for insidens brukt på et tilskudd: du skal finne hva som skjer med pris og "
+        "kvantum når tilskuddet fjernes.",
+        "Et tilskudd er en negativ skatt. ∂P/∂t = S′/(S′ − D′) og ∂x/∂t = S′D′/(S′ − D′). Loddrett kurve har "
+        "helning 0, vannrett kurve helning mot uendelig."),
+    'ins-s13': (
+        "Dette er grensene for hvor mye konsumentprisen kan endres per krone skatt: du skal finne verdien "
+        "∂P/∂t ikke kan ha.",
+        "∂P/∂t = S′/(S′ − D′) = S′/(S′ + |D′|). Med D′ &lt; 0 og S′ &gt; 0 er både teller og nevner positive."),
+    'ins-s14': (
+        "Dette er kravene til et gyldig par ∂P/∂t og ∂p/∂t: du skal finne paret som kan komme fra et vanlig marked.",
+        _HELN + " Med D′ &lt; 0 og S′ &gt; 0 ligger ∂P/∂t mellom 0 og 1 og ∂p/∂t mellom −1 og 0. Kilen gir "
+        "∂P/∂t − ∂p/∂t = 1."),
+    'ins-s15': (
+        "Dette er reell insidens av selskapsskatten: du skal finne hvem som til slutt bærer den etter Harbergers "
+        "analyse.",
+        "Bare mennesker kan bære en skatt: eiere, arbeidere eller kunder. I Harbergers modell kan kapitalen flytte "
+        "mellom selskapssektoren og resten av økonomien."),
+    'ins-s16': (
+        "Dette er insidens i et tosidig marked: du skal finne hva en avgift på abonnementer kan gjøre med "
+        "abonnementsprisen.",
+        "En plattform har to kundegrupper som trenger hverandre. Prisen til den ene gruppen settes også ut fra hva "
+        "den gruppen er verdt for den andre. Regler for markeder med én kundegruppe gjelder da ikke."),
+    'ins-s17': (
+        "Dette er dynamisk insidens: politikk som endres etter at folk har investert. Du skal finne begrepet som "
+        "beskriver problemet.",
+        "Dynamisk insidens handler om hvordan skatter og fordeler endres over tid og hvem som taper på endringen. "
+        "Den som alt har investert, kan ikke angre. Skill begreper om skattekiler, om innbetaling og om løfter "
+        "over tid."),
+    'ins-s18': (
+        "Dette er Ramsey-regelen: du skal finne hvor avgiftssatsene bør være høyest for å hente et gitt proveny med "
+        "minst effektivitetstap.",
+        "Dødvektstap = ½ × t × Δx. Kvantumsfallet per krone skatt er |S′D′|/(S′ − D′). Det er lite når en av "
+        "helningene er liten."),
+    'ins-s19': (
+        "Dette er et grensetilfelle der kjøperne må ha varen: du skal finne hvem som bærer avgiften og om den gir "
+        "dødvektstap.",
+        "∂P/∂t = S′/(S′ − D′), ∂p/∂t = D′/(S′ − D′) og ∂x/∂t = S′D′/(S′ − D′). Dødvektstap = ½ × t × "
+        "kvantumsfallet."),
+    'ins-s20': (
+        "Dette er måling av skattebyrde: du skal finne hvorfor årsinntekt får skattesystemet til å se mer "
+        "regressivt ut enn det er.",
+        "Skattebyrde = betalt skatt / inntekt. Livsløpsinntekt er inntekten summert over hele livet. Forbruket "
+        "følger livsløpsinntekten tettere enn årsinntekten, fordi folk låner og sparer."),
+    'ins-s21': (
+        "Dette er sammenhengen mellom de to formene av insidensregelen: du skal forklare hvorfor helninger og "
+        "elastisiteter gir samme andel.",
+        "Med helninger er kjøperens andel S′/(S′ − D′). En elastisitet er helningen ganget med pris delt på "
+        "kvantum: ε<sub>S</sub> = S′ × p/x og ε<sub>D</sub> = D′ × P/x."),
+    'ins-s22': (
+        "To påstander om insidens: du skal vurdere elastisitetsregelen og om den som betaler inn, bærer mest.",
+        "Kjøperens andel er ∂P/∂t = S′/(S′ − D′). En elastisitet er helning × pris/kvantum. Formell insidens er "
+        "hvem som betaler inn, reell insidens hvem som taper."),
+    'ins-s23': (
+        "To påstander om en stykkskatt: du skal vurdere hvilket kvantum provenyet regnes av og når dødvektstapet "
+        "er null.",
+        "Proveny = t × x, der x er antall enheter skatten faktisk betales for. Dødvektstap = ½ × t × Δx. "
+        "Kvantumsendringen er ∂x/∂t = S′D′/(S′ − D′)."),
+    'ins-s24': (
+        "To påstander om overvelting: du skal vurdere et grensetilfelle i frikonkurranse og regelen under monopol.",
+        "Frikonkurranse: ∂P/∂t = S′/(S′ − D′). Perfekt elastisk tilbud betyr S′ → ∞. Monopol: MR = MC + t. "
+        "Med P = a − bx er MR = a − 2bx."),
+    'ins-s25': (
+        "To påstander om overvelting utenfor frikonkurranse: du skal vurdere oligopol og avgifter i markeder med "
+        "to kundegrupper.",
+        "Monopol med lineær etterspørsel og konstant grensekostnad gir overvelting av halve skatten. En plattform "
+        "priser hver kundegruppe ut fra hva den er verdt for den andre gruppen."),
+    'ins-s26': (
+        "Dette er insidens av et tilskudd per enhet: du skal finne hvilken side av markedet som får mest av fordelen.",
+        "Et tilskudd er en negativ skatt og fordeles etter samme regel. " + _ELAST),
+    'ins-s27': (
+        "Dette er tolkning av elastisitet: du skal finne beskrivelsen av et marked som betyr perfekt elastisk tilbud.",
+        "Tilbudselastisitet ε<sub>S</sub> = (Δx/x)/(Δp/p). Perfekt elastisk: ε<sub>S</sub> → ∞, vannrett "
+        "tilbudskurve. Perfekt uelastisk: ε<sub>S</sub> = 0, loddrett tilbudskurve."),
+    'ins-s28': (
+        "Dette er hvordan dødvektstapet vokser med skatten: du skal finne det nye tapet når stykkskatten heves.",
+        "Med rette linjer er dødvektstap = ½ × t² × |S′D′|/(S′ − D′). Brøken er konstant, så "
+        "nytt tap = gammelt tap × (t<sub>ny</sub>/t<sub>gammel</sub>)²."),
+    'ins-s29': (
+        "Dette er kapitalisering av en varslet skatt: du skal finne hvem som bærer en varig eiendomsskatt på et "
+        "fast antall hytter.",
+        "Fast antall betyr S′ = 0, så eierne bærer skatten. Prisen på et aktivum er nåverdien av den netto "
+        "inntekten kjøperne venter å få."),
+    'ins-s30': (
+        "Dette er formen på dødvektstapet: du skal forklare hvorfor det tegnes som en trekant.",
+        "Gevinsten av én handel er betalingsviljen på etterspørselskurven minus kostnaden på tilbudskurven. "
+        "Dødvektstapet er summen av gevinstene fra handlene skatten stopper."),
+}
+
+HJELP = {k: hjelp3(f"<p>{_TRINN[k][0]}</p>", f"<p>{_TRINN[k][1]}</p>", v) for k, v in _OPPSETT.items()}
+
 
 # ---------------------------------------------------------------------------
 # Lokale hjelpere
@@ -393,7 +602,8 @@ def _(r):
                      "Det skjer bare når etterspørselen er perfekt uelastisk eller tilbudet perfekt elastisk."))
         f_halv = (f"Skatten delt på midten: {tall(P0)} + {tall(t)}/2. Lik deling krever like helninger, men her er "
                   f"|D′| = {tall(b)} og S′ = {tall(d)}.")
-        f_annen = f"Dette er det selgeren sitter igjen med, p = {talla(P)} − {tall(t)}. Spørsmålet gjelder kjøperen."
+        f_annen = ("Dette er det selgeren sitter igjen med etter skatten. Spørsmålet gjelder det kjøperen betaler i "
+                   "alt, skatten medregnet.")
     else:
         riktig = p
         swap = P0 - m["kjop"]
@@ -408,7 +618,8 @@ def _(r):
                      "Det skjer bare når tilbudet er perfekt uelastisk eller etterspørselen perfekt elastisk."))
         f_halv = (f"Skatten delt på midten: {tall(P0)} − {tall(t)}/2. Lik deling krever like helninger, men her er "
                   f"|D′| = {tall(b)} og S′ = {tall(d)}.")
-        f_annen = f"Dette er det kjøperen betaler i alt, P = {talla(p)} + {tall(t)}. Spørsmålet gjelder selgeren."
+        f_annen = ("Dette er det kjøperen betaler i alt, skatten medregnet. Spørsmålet gjelder det selgeren sitter "
+                   "igjen med.")
 
     tredje = r.choice(["full", "halv"])
     f3 = F(kra(full), f_full, full) if tredje == "full" else F(kra(halv), f_halv, halv)
@@ -504,8 +715,9 @@ def _(r):
         kand.append(F(kra(setr), f"Høyden satt til selgerens prisfall på {talla(m['selg'])}: ½ × {talla(m['selg'])} × "
                                  f"{tall(fall)} er bare selgernes del av trekanten.", setr))
     else:
-        kand.append(F(kra(feil_b), f"Kvantumsfallet regnet som om kjøperen bar hele skatten: {tall(b)} × {tall(t)} = "
-                                   f"{tall(b * t)}, så ½ × {tall(t)} × {tall(b * t)}.", feil_b))
+        kand.append(F(kra(feil_b), f"Kvantumsfallet regnet som |D′| × t = {tall(b)} × {tall(t)}, som om kjøperen bar "
+                                   f"hele skatten. Prisen kjøperen betaler, stiger bare med kjøperens del av skatten. "
+                                   f"Finn kvantumet i ny likevekt først.", feil_b))
     ulike(riktig, *[a.verdi for a in kand], rel=0.01)
 
     q = marked_tekst(m, vare, enh) + f"<p>{innkrevd_tekst('selger', t)}"
@@ -746,23 +958,24 @@ def _(r):
         inn_txt = (f"Myndighetene innfører en stykkskatt på {kp(t)} per {enh}, som {K} betaler inn direkte til "
                    f"staten i tillegg til {prisord} de betaler {S}.")
         spm_P = f"Hva betaler {K} i alt per {enh} etter at skatten er innført, skatten medregnet?"
+    # Fellene vises før fasiten i «Prøv igjen». Er svaret prisen før skatten, skrives
+    # den med ord i fellene, så tallet ikke røper svaret.
+    halv = f"Lik deling krever like helninger, men her er én kurve loddrett eller vannrett ({helning})."
     if spor == "P":
         riktig = P
         spm = spm_P
         if baerer == "kjoper":
-            alt = [F(kp(P0), f"Grensetilfellet snudd: det {K} betaler, står stille når {S} bærer alt. Det skjer ved "
+            alt = [F(kp(P0), f"Grensetilfellet snudd: det {K} betaler, står stille bare når {S} bærer alt. Det skjer ved "
                              f"perfekt uelastisk tilbud eller perfekt elastisk etterspørsel.", P0),
                    F(kp(P0 + 2 * t), f"Skatten lagt på to ganger: {tl(P0)} + {tl(t)} + {tl(t)}. Det {K} betaler, kan "
                                      f"aldri stige med mer enn skatten.", P0 + 2 * t),
-                   F(kp(P0 + t / 2), f"Skatten delt på midten: {tl(P0)} + {tl(t)}/2. Med {helning} er delingen "
-                                     f"100/0, ikke 50/50.", P0 + t / 2)]
+                   F(kp(P0 + t / 2), f"Skatten delt på midten: {tl(P0)} + {tl(t)}/2. {halv}", P0 + t / 2)]
         else:
-            alt = [F(kp(P0 + t), f"Grensetilfellet snudd: hele skatten veltet over på {K}, {tl(P0)} + {tl(t)}. Det "
-                                 f"skjer ved perfekt uelastisk etterspørsel eller perfekt elastisk tilbud.", P0 + t),
-                   F(kp(P0 - t), f"Dette er det {S} sitter igjen med, {tl(P0)} − {tl(t)}. Spørsmålet gjelder "
-                                 f"{K}.", P0 - t),
-                   F(kp(P0 + t / 2), f"Skatten delt på midten: {tl(P0)} + {tl(t)}/2. Med {helning} er delingen "
-                                     f"0/100, ikke 50/50.", P0 + t / 2)]
+            alt = [F(kp(P0 + t), f"Grensetilfellet snudd: hele skatten veltet over på {K}. Det skjer bare ved perfekt "
+                                 f"uelastisk etterspørsel eller perfekt elastisk tilbud.", P0 + t),
+                   F(kp(P0 - t), f"Dette er det {S} sitter igjen med etter skatten. Spørsmålet gjelder det {K} betaler "
+                                 f"i alt.", P0 - t),
+                   F(kp(P0 + t / 2), f"Skatten delt på midten: prisen før skatten pluss {tl(t)}/2. {halv}", P0 + t / 2)]
     else:
         riktig = p
         spm = f"Hva sitter {S} igjen med per {enh} etter at skatten er betalt?"
@@ -771,17 +984,15 @@ def _(r):
         if baerer == "kjoper":
             alt = [F(kp(P0 - t), f"Grensetilfellet snudd: {S} bærer hele skatten bare ved perfekt uelastisk tilbud "
                                  f"eller perfekt elastisk etterspørsel. {betaler}".strip(), P0 - t),
-                   F(kp(P0 + t), f"Dette er det {K} betaler i alt, {tl(P0)} + {tl(t)}. Av det går {tl(t)} til "
-                                 f"staten.", P0 + t),
-                   F(kp(P0 - t / 2), f"Skatten delt på midten: {tl(P0)} − {tl(t)}/2. Med {helning} er delingen "
-                                     f"100/0, ikke 50/50.", P0 - t / 2)]
+                   F(kp(P0 + t), f"Dette er det {K} betaler i alt, skatten medregnet. Spørsmålet gjelder det {S} sitter "
+                                 f"igjen med etter at skatten er betalt.", P0 + t),
+                   F(kp(P0 - t / 2), f"Skatten delt på midten: prisen før skatten minus {tl(t)}/2. {halv}", P0 - t / 2)]
         else:
-            alt = [F(kp(P0), f"Dette er det {K} betaler i alt, som står stille på {tl(P0)}. Av det går {tl(t)} "
-                             f"til staten.", P0),
+            alt = [F(kp(P0), f"Dette er det {K} betaler i alt, skatten medregnet. Spørsmålet gjelder det {S} sitter "
+                             f"igjen med etter at skatten er betalt.", P0),
                    F(kp(P0 + t), f"Grensetilfellet snudd og prisene byttet: {tl(P0)} + {tl(t)} er det {K} ville "
                                  f"betalt i alt hvis de bar hele skatten.", P0 + t),
-                   F(kp(P0 - t / 2), f"Skatten delt på midten: {tl(P0)} − {tl(t)}/2. Med {helning} er delingen "
-                                     f"0/100, ikke 50/50.", P0 - t / 2)]
+                   F(kp(P0 - t / 2), f"Skatten delt på midten: {tl(P0)} − {tl(t)}/2. {halv}", P0 - t / 2)]
     alt = [R(kp(riktig), riktig)] + alt
     ulike(*[a.verdi for a in alt], rel=0.004)
     unik("grense1", kode, vare, spor)
@@ -1251,8 +1462,8 @@ def _(r):
         ligning = (f"{d2(andel)} = {tall(eS, 1)}/({tall(eS, 1)} + |ε<sub>D</sub>|) gir {tall(eS, 1)} + |ε<sub>D</sub>| = "
                    f"{tall(eS, 1)}/{d2(andel)} = {d2(eS / andel)}, altså |ε<sub>D</sub>| = {d2(eS / andel)} − "
                    f"{tall(eS, 1)} = {d2(riktig)}")
-        f_glemt = (f"Glemt å trekke fra ε<sub>S</sub>: {tall(eS, 1)}/{d2(andel)} = {d2(glemt)} er summen "
-                   f"ε<sub>S</sub> + |ε<sub>D</sub>|, ikke |ε<sub>D</sub>|.")
+        f_glemt = (f"Glemt å trekke fra ε<sub>S</sub>: {d2(glemt)} er summen ε<sub>S</sub> + |ε<sub>D</sub>|, "
+                   f"ikke |ε<sub>D</sub>|.")
     else:
         eD = r.choice([0.3, 0.4, 0.6, 0.8, 1.2, 1.5])
         riktig = eD * andel / (1 - andel)
@@ -1264,14 +1475,14 @@ def _(r):
         ligning = (f"Selgernes andel er 1 − {d2(andel)} = {d2(1 - andel)} = {tall(eD, 1)}/(ε<sub>S</sub> + "
                    f"{tall(eD, 1)}). Det gir ε<sub>S</sub> + {tall(eD, 1)} = {tall(eD, 1)}/{d2(1 - andel)} = "
                    f"{d2(glemt)}, altså ε<sub>S</sub> = {d2(glemt)} − {tall(eD, 1)} = {d2(riktig)}")
-        f_glemt = (f"Glemt å trekke fra |ε<sub>D</sub>|: {tall(eD, 1)}/{d2(1 - andel)} = {d2(glemt)} er summen "
-                   f"ε<sub>S</sub> + |ε<sub>D</sub>|.")
+        f_glemt = (f"Glemt å trekke fra |ε<sub>D</sub>|: {d2(glemt)} er summen ε<sub>S</sub> + |ε<sub>D</sub>|, "
+                   f"ikke ε<sub>S</sub>.")
     alt = [R(d2(riktig), riktig),
            F(d2(byttet), "Andelene byttet om: kjøperens andel satt lik |ε<sub>D</sub>|/(ε<sub>S</sub> + "
                          "|ε<sub>D</sub>|). Den er ε<sub>S</sub>/(ε<sub>S</sub> + |ε<sub>D</sub>|).", byttet),
            F(d2(glemt), f_glemt, glemt),
-           F(d2(gange), f"Den kjente elastisiteten ganget med kjøperens andel {d2(andel)}. Andelen er en brøk "
-                        f"som må løses for den ukjente.", gange)]
+           F(d2(gange), "Den kjente elastisiteten ganget med kjøperens andel. Andelen er en brøk med begge "
+                        "elastisitetene i seg. Den må løses for den ukjente.", gange)]
     ulike(*[a.verdi for a in alt], rel=0.01)
     if not all(heltall(round(x * 100, 6)) for x in (riktig, byttet, glemt, gange)):
         raise Avvis("svaret eller en felle er ikke eksakt på to desimaler")
@@ -1534,11 +1745,13 @@ statisk(
     alternativer=[
         R("Ingenting, det blir det samme som før"),
         F("Det stiger med kr 5, siden kjøperne nå betaler avgiften",
-          "Prisen kjøperne betaler selgerne, faller like mye. Totalen er uendret."),
+          "Å betale inn er ikke det samme som å bære. Spør hva som skjer med prisen kjøperne betaler selgerne når "
+          "de i tillegg betaler avgiften selv."),
         F("Det stiger, men med mindre enn kr 5",
           "Det ville vært riktig om avgiften ble innført. Her flyttes den bare."),
         F("Det kommer an på elastisitetene",
-          "Elastisitetene avgjør delingen av avgiften, men delingen er den samme før og etter flyttingen."),
+          "Elastisitetene avgjør hvordan avgiften deles. Her endres verken kurvene eller avgiften, bare hvem som "
+          "betaler den inn."),
     ],
     kort="<p><b>Ingenting.</b> I begge tilfeller er det kjøperne betaler i alt, P = p + 5. Likevekten er samme "
          "ligning, D(p + 5) = S(p). Prisen til selgerne faller med 5, men totalen er uendret.</p>",
@@ -1621,7 +1834,8 @@ statisk(
     alternativer=[
         R("Prisen stiger med hele tilskuddet. Antall reiser er uendret"),
         F("Prisen stiger med hele tilskuddet. Antall reiser faller",
-          "Prisen er riktig, men kvantumet kan ikke falle når etterspørselen er perfekt uelastisk."),
+          "Kvantumet kan ikke falle når de reisende reiser like mye uansett pris. Etterspørselen er perfekt "
+          "uelastisk."),
         F("Prisen stiger med halve tilskuddet. Antall reiser er uendret",
           "Halvparten er monopolregelen. Med vannrett tilbud og loddrett etterspørsel bærer kjøperne alt."),
         F("Prisen er uendret. Antall reiser faller",
@@ -1918,7 +2132,7 @@ statisk(
              "Den som betaler skatten inn til staten, bærer alltid minst halvparten av den."),
     alternativer=[
         R("Bare I"),
-        F("Bare II", "II er gal: hvem som betaler inn, er formell insidens. I er riktig."),
+        F("Bare II", "II holder ikke: hvem som betaler inn, er formell insidens. Det avgjør ikke hvem som bærer."),
         F("Begge", "II er gal. En selger som betaler inn, kan bære nesten ingenting når etterspørselen er uelastisk."),
         F("Ingen", "I er riktig: tilbudselastisiteten står i telleren for kjøpernes andel."),
     ],
@@ -1943,7 +2157,8 @@ statisk(
     q=_par_q("Statens proveny er skatten per enhet ganget med kvantumet som ble omsatt før skatten ble innført.",
              "Dødvektstapet er null når tilbudet er perfekt uelastisk."),
     alternativer=[
-        F("Bare I", "I er gal: provenyet regnes av det nye kvantumet. II er riktig."),
+        F("Bare I", "I holder ikke: skatten betales bare av enhetene som fortsatt omsettes etter at skatten er "
+                    "innført."),
         R("Bare II"),
         F("Begge", "I er gal. Det gamle kvantumet overvurderer provenyet med t × kvantumsfallet."),
         F("Ingen", "II er riktig: med S′ = 0 faller ikke kvantumet. Da finnes ingen trekant."),
@@ -1968,10 +2183,12 @@ statisk(
     q=_par_q("Er tilbudet perfekt elastisk, stiger prisen kjøperen betaler med hele skatten.",
              "Under monopol med lineær etterspørsel og konstant grensekostnad stiger prisen med halve skatten."),
     alternativer=[
-        F("Bare I", "II er også riktig: MR = MC + t gir P = (a + c + t)/2."),
-        F("Bare II", "I er også riktig: S′ → ∞ gir ∂P/∂t = 1."),
+        F("Bare I", "Sjekk II: monopolisten setter MR = MC + t. Regn ut hvor mye prisen stiger per krone skatt "
+                    "med P = a − bx."),
+        F("Bare II", "Sjekk I: del teller og nevner i ∂P/∂t = S′/(S′ − D′) på S′ og la S′ gå mot uendelig."),
         R("Begge"),
-        F("Ingen", "Begge stemmer. I følger av ∂P/∂t = S′/(S′ − D′) → 1, II av MR = MC + t."),
+        F("Ingen", "Test påstandene med formlene: I med ∂P/∂t = S′/(S′ − D′) når S′ → ∞, II med MR = MC + t og "
+                   "MR = a − 2bx."),
     ],
     kort="<p><b>Begge.</b> S′ → ∞ gir ∂P/∂t = 1. Med P = a − bx og grensekostnad c gir MR = MC + t prisen "
          "(a + c + t)/2, altså en økning på t/2.</p>",
@@ -1993,10 +2210,11 @@ statisk(
     q=_par_q("Under oligopol veltes alltid halvparten av en stykkskatt over på kundene.",
              "En avgift på en vare kan aldri føre til at prisen kundene betaler for varen, faller."),
     alternativer=[
-        F("Bare I", "I er gal: oligopol har ingen entydig regel. II er også gal."),
-        F("Bare II", "II er gal: i tosidige markeder kan en avgift gi lavere pris. I er også gal."),
-        F("Begge", "Ingen av dem stemmer. Halvparten gjelder monopol med lineær etterspørsel. Plattformer kan "
-                   "senke prisen."),
+        F("Bare I", "I holder ikke: oligopol har ingen entydig regel for overveltingen. Den avhenger av "
+                    "konkurranseformen."),
+        F("Bare II", "II holder ikke: i et tosidig marked kan en avgift gi lavere pris til den ene kundegruppen."),
+        F("Begge", "Halv overvelting er monopolregelen med lineær etterspørsel og konstant grensekostnad. Den "
+                   "gjelder ikke oligopol."),
         R("Ingen"),
     ],
     kort="<p><b>Ingen.</b> Under oligopol avhenger overveltingen av konkurranseformen og antall bedrifter. En "
@@ -2075,7 +2293,8 @@ statisk(
                       "firedobles."),
         F("Kr 1 800", "Uendret fordi elastisitetene er de samme. Elastisitetene avgjør delingen, men tapet vokser "
                       "med t²."),
-        F("Kr 5 400", "Dette er økningen i dødvektstapet, 7 200 − 1 800. Spørsmålet ber om det nye tapet."),
+        F("Kr 5 400", "Dette er økningen i dødvektstapet, nytt tap minus gammelt. Spørsmålet ber om det nye "
+                      "tapet."),
     ],
     kort="<p><b>Kr 7 200.</b> Dødvektstapet er ½ × t² × |S′D′|/(S′ − D′). Dobbel skatt gir 2² = 4 ganger tapet: "
          "4 × 1 800 = 7 200.</p>",

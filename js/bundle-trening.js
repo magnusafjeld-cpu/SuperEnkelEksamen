@@ -11,18 +11,28 @@
    bare én fra hver familie så lenge utvalget rekker.
 
    Fasiten kommer med en gang: først den korte, så en knapp for den fulle
-   gjennomgangen og hvilken feil hvert galt alternativ er laget av.
+   gjennomgangen og hvilken feil hvert galt alternativ er laget av. Velger du
+   «Prøv igjen først», viser et galt svar bare fella for det alternativet, og
+   du prøver på nytt. Poengene og loggen teller fortsatt bare første svar.
+
+   Hjelpen åpnes i tre trinn, som i øvingsguiden til MC-testen: temaet, regelen
+   og fremgangsmåten. Etter et svar kan du ta en ny variant av samme
+   regnestykke med en gang.
 
    Data: EDU_DATA.trening = { temaer: [{ id, navn, kort, vekt, kap, kjerne }], sporsmal: [
-           { id, tema, fam?, type, q, options[4], answer, traps[4], kort, full }] }
+           { id, tema, fam?, type, q, options[4], answer, traps[4], kort, full,
+             hint?: [tema, regel], hjelp }] }
    Bygget av tools/bygg-trening.py. Fila er stor, så faget kan laste den først
    når modulen åpnes: manifest.lazy = { "/trening": ["fag/<fag>/trening.js"] }.
 
    Lagring (state.exams):
      "tr:<id>"       { n, r, s, t, h }  forsøk, riktige, siste (1 rett, 0 feil, −1 stod over),
-                     tid, og h = 1 når hjelpen var åpen sist
-     "trening:okt"   { ids, svar: { id: indeks | −1 }, hjelp: { id: true }, temaer, modus, start, slutt }
-     "trening:valg"  { temaer, antall, modus }  det du valgte sist
+                     tid, og h = trinnene av hjelpen som var åpne sist (0–3)
+     "trening:okt"   { ids, svar: { id: indeks | −1 }, hjelp: { id: trinn }, temaer, modus,
+                       igjen, forsok: { id: [gale valg] }, losst: { id: true }, gitt: { id: true },
+                       start, slutt }
+                     svar er alltid første svar. forsok, losst og gitt gjelder bare «Prøv igjen».
+     "trening:valg"  { temaer, antall, modus, feil }  det du valgte sist
    Én nøkkel per spørsmål, så sky-synken slår sammen to enheter per spørsmål.
    ============================================================================ */
 window.EDU = window.EDU || {};
@@ -40,6 +50,7 @@ window.EDU = window.EDU || {};
   const BLANK = -1;
   const ANTALL = [10, 20, 30, 50];
   const MODI = [["nye", "Nye først"], ["feil", "Bare de jeg bommet på"], ["tilfeldig", "Helt tilfeldig"]];
+  const FEILVALG = [["fasit", "Vis fasiten"], ["igjen", "Prøv igjen først"]];
 
   /* ---------- lasting ---------- */
   let lasting = null, lastefeil = null;
@@ -57,13 +68,18 @@ window.EDU = window.EDU || {};
   const exams = () => S.store.get().exams;
   const logg = (id) => exams()["tr:" + id] || null;
   const økt = () => exams()["trening:okt"] || null;
-  const valg = () => Object.assign({ temaer: [], antall: 20, modus: "nye" }, exams()["trening:valg"] || {});
+  const valg = () => Object.assign({ temaer: [], antall: 20, modus: "nye", feil: "fasit" }, exams()["trening:valg"] || {});
   function settValg(patch) { S.store.setExam("trening:valg", patch); }
   function lagreØkt(o) { exams()["trening:okt"] = o; S.store.emit(); }
   function forkastØkt() { delete exams()["trening:okt"]; S.store.emit(); }
 
   /* Et svar låses, som på eksamen. Det siste svaret kan likevel angres, for et
      bomtrykk på telefonen skal ikke telle; da settes også loggen tilbake. */
+  /* Hjelpen i trinn: tema, regel og fremgangsmåten. Eldre økter lagret true,
+     som var hele fremgangsmåten. */
+  const hjelpeTrinn = (sp) => [...(sp.hint || []), sp.hjelp].filter(Boolean);
+  function hjelpNivå(o, id) { const v = ((o && o.hjelp) || {})[id]; return v === true ? 3 : v || 0; }
+
   function registrer(sp, i) {
     const o = økt();
     if (!o || o.svar[sp.id] != null) return;
@@ -72,16 +88,17 @@ window.EDU = window.EDU || {};
     lagreØkt(Object.assign({}, o, { svar, angre: { id: sp.id, logg: før ? Object.assign({}, før) : null } }));
     const g = før || { n: 0, r: 0 };
     const s = i === BLANK ? -1 : i === sp.answer ? 1 : 0;
-    const h = (o.hjelp || {})[sp.id] ? 1 : 0;
+    const h = Math.min(hjelpNivå(o, sp.id), hjelpeTrinn(sp).length);
     S.store.setExam("tr:" + sp.id, { n: g.n + 1, r: g.r + (s === 1 ? 1 : 0), s, t: S.u.nowTs(), h });
   }
   function angre(sp) {
     const o = økt();
     if (!o || !o.angre || o.angre.id !== sp.id) return;
     const svar = Object.assign({}, o.svar); delete svar[sp.id];
+    const uten = (m) => { const k = Object.assign({}, m || {}); delete k[sp.id]; return k; };
     if (o.angre.logg) exams()["tr:" + sp.id] = o.angre.logg; else delete exams()["tr:" + sp.id];
     visFull = false;
-    lagreØkt(Object.assign({}, o, { svar, angre: null }));
+    lagreØkt(Object.assign({}, o, { svar, angre: null, forsok: uten(o.forsok), losst: uten(o.losst), gitt: uten(o.gitt) }));
   }
 
   const poengFor = (sp, v) => v == null || v === BLANK ? 0 : v === sp.answer ? RETT : FEIL;
@@ -93,10 +110,49 @@ window.EDU = window.EDU || {};
      resten. Lavest først. */
   /* Riktig med hjelp teller som ikke mestret ennå. */
   function prio(sp) { const g = logg(sp.id); return !g ? 0 : (g.s !== 1 || g.h) ? 1 : 2; }
-  function åpneHjelp(sp) {
+  /* Ett trinn til av hjelpen. Riktig svar etter hjelp teller som ikke mestret. */
+  function merHjelp(sp) {
     const o = økt();
-    if (!o || (o.hjelp || {})[sp.id]) return;
-    lagreØkt(Object.assign({}, o, { hjelp: Object.assign({}, o.hjelp, { [sp.id]: true }) }));
+    const n = hjelpNivå(o, sp.id);
+    if (!o || n >= hjelpeTrinn(sp).length) return;
+    lagreØkt(Object.assign({}, o, { hjelp: Object.assign({}, o.hjelp, { [sp.id]: n + 1 }) }));
+  }
+
+  /* «Prøv igjen»: et galt første svar låser ikke spørsmålet. Du prøver til du
+     treffer eller gir opp, men det er første svar som teller. */
+  const prøverIgjen = (o, sp) => {
+    const v = o.svar[sp.id];
+    return !!o.igjen && v != null && v !== BLANK && v !== sp.answer && !(o.losst || {})[sp.id] && !(o.gitt || {})[sp.id];
+  };
+  const erÅpen = (o, sp) => o.svar[sp.id] != null && !prøverIgjen(o, sp);
+  function velg(sp, i) {
+    const o = økt();
+    if (!o) return;
+    if (o.svar[sp.id] == null) { registrer(sp, i); return; }
+    if (!prøverIgjen(o, sp)) return;
+    const prøvd = ((o.forsok || {})[sp.id] || []);
+    if (i === o.svar[sp.id] || prøvd.includes(i)) return;
+    if (i === sp.answer) lagreØkt(Object.assign({}, o, { losst: Object.assign({}, o.losst, { [sp.id]: true }) }));
+    else lagreØkt(Object.assign({}, o, { forsok: Object.assign({}, o.forsok, { [sp.id]: prøvd.concat(i) }) }));
+  }
+  function giOpp(sp) {
+    const o = økt();
+    if (o) lagreØkt(Object.assign({}, o, { gitt: Object.assign({}, o.gitt, { [sp.id]: true }) }));
+  }
+
+  /* En ny variant av samme regnestykke, rett etter den du står på. Varianter du
+     ikke har sett kommer først. */
+  function nyVariant(o, sp) {
+    if (!sp.fam) return null;
+    const i = new Set(o.ids);
+    const k = ALLE().filter((s) => s.fam === sp.fam && !i.has(s.id));
+    return k.length ? stokk(k).sort((a, b) => prio(a) - prio(b))[0] : null;
+  }
+  function taVariant(o, pos, v) {
+    const ids = o.ids.slice(); ids.splice(pos + 1, 0, v.id);
+    visFull = false;
+    lagreØkt(Object.assign({}, o, { ids, pos: pos + 1 }));
+    S.app.refresh(); window.scrollTo({ top: 0 });
   }
 
   function utvalg(temaIds, modus) {
@@ -154,7 +210,7 @@ window.EDU = window.EDU || {};
       ids = stokk(Object.entries(f).flatMap(([id, n]) => velgFraTema(id, n, modus).map((sp) => sp.id)));
     }
     if (!ids.length) { S.u.toast("Ingen spørsmål i dette utvalget"); return; }
-    lagreØkt({ ids, svar: {}, temaer: temaIds, modus, start: S.u.nowTs(), slutt: null, pos: 0 });
+    lagreØkt({ ids, svar: {}, temaer: temaIds, modus, igjen: valg().feil === "igjen", start: S.u.nowTs(), slutt: null, pos: 0 });
     S.app.refresh(); window.scrollTo({ top: 0 });
   }
 
@@ -172,7 +228,7 @@ window.EDU = window.EDU || {};
     const gyldige = new Set(TEMAER().map((t) => t.id));
     let temaer = v.temaer.filter((id) => gyldige.has(id));
     if (!temaer.length) temaer = TEMAER().map((t) => t.id);
-    let antall = v.antall, modus = v.modus;
+    let antall = v.antall, modus = v.modus, feilvalg = v.feil;
 
     const totalt = ALLE().length;
     const sett = ALLE().filter((s) => logg(s.id)).length;
@@ -192,11 +248,12 @@ window.EDU = window.EDU || {};
     }
 
     const kort = el(".card.pad-lg");
-    const oppdater = () => { settValg({ temaer, antall, modus }); tegn(); };
+    const oppdater = () => { settValg({ temaer, antall, modus, feil: feilvalg }); tegn(); };
 
     const temaBoks = el("div");
     const antallBoks = el("div");
     const modusBoks = el("div");
+    const feilBoks = el("div");
     const plan = el("div", { style: { marginTop: "18px" } });
     const startKnapp = el("button.btn.primary.lg", { onclick: () => start(temaer, antall, modus) }, "Start →");
 
@@ -235,6 +292,13 @@ window.EDU = window.EDU || {};
             : modus === "feil" ? "Bare spørsmål du svarte feil på eller stod over sist du hadde dem."
               : "Rent tilfeldig fra temaene, uansett hva du har svart før."));
 
+      const fseg = el(".seg", { style: { flexWrap: "wrap" } });
+      FEILVALG.forEach(([k, l]) => fseg.appendChild(el("button" + (feilvalg === k ? ".on" : ""), { onclick: () => { feilvalg = k; oppdater(); } }, l)));
+      S.u.mount(feilBoks, el(".nav-section", { style: { paddingLeft: 0 } }, "Ved feil svar"), fseg,
+        el("p.tiny.muted", { style: { margin: "8px 0 0" } },
+          feilvalg === "igjen" ? "Du får vite hvorfor akkurat det alternativet frister, men ikke hva som er riktig. Så prøver du på nytt. Poengene teller første svar."
+            : "Fasiten og forklaringen kommer med en gang."));
+
       const f = temaer.length ? fordel(temaer, antall, modus) : {};
       const sum = Object.values(f).reduce((a, b) => a + b, 0);
       const deler = Object.entries(f).filter(([, n]) => n > 0).map(([id, n]) => `${(temaFor(id) || {}).kort || id} ${n}`);
@@ -248,7 +312,7 @@ window.EDU = window.EDU || {};
     }
     tegn();
     kort.appendChild(temaBoks);
-    kort.appendChild(el(".row.wrap", { style: { gap: "28px", marginTop: "8px" } }, antallBoks, modusBoks));
+    kort.appendChild(el(".row.wrap", { style: { gap: "28px", marginTop: "8px" } }, antallBoks, modusBoks, feilBoks));
     kort.appendChild(plan);
     wrap.appendChild(kort);
 
@@ -279,7 +343,9 @@ window.EDU = window.EDU || {};
     if (!sp) { forkastØkt(); return oppsett(); }
     const wrap = el(".fade-in");
     const svar = o.svar[sp.id];
-    const åpen = svar != null;
+    const åpen = erÅpen(o, sp);
+    const igjen = prøverIgjen(o, sp);
+    const prøvd = igjen ? [svar].concat((o.forsok || {})[sp.id] || []) : [];
     const poeng = liste.reduce((a, s) => a + poengFor(s, o.svar[s.id]), 0);
     const tema = temaFor(sp.tema);
 
@@ -305,35 +371,63 @@ window.EDU = window.EDU || {};
     sp.options.forEach((tekst, i) => {
       let kls = "button.opt";
       if (åpen) kls += i === sp.answer ? ".correct" : i === svar ? ".wrong" : ".dim";
-      alt.appendChild(el(kls, { disabled: åpen, onclick: () => { if (!åpen) { registrer(sp, i); S.app.refresh(); } } },
+      else if (prøvd.includes(i)) kls += ".wrong";
+      const låst = åpen || prøvd.includes(i);
+      alt.appendChild(el(kls, { disabled: låst, onclick: () => { if (!låst) { velg(sp, i); S.app.refresh(); } } },
         el(".key", String.fromCharCode(65 + i)), el("span", frag(String(tekst)))));
     });
     kortEl.appendChild(alt);
 
-    /* Hjelpen viser fremgangsmåten uten tallene, så du regner selv. Den står
-       åpen resten av runden når du først har bedt om den. */
-    const harHjelp = !!sp.hjelp;
-    const brukteHjelp = !!(o.hjelp || {})[sp.id];
-    if (harHjelp && brukteHjelp) kortEl.appendChild(el(".tr-hjelp",
-      el(".tr-hjelp-hode", "Slik løser du den"), prosa(sp.hjelp)));
+    /* «Prøv igjen»: fella for det siste gale valget, uten fasiten. */
+    if (igjen) {
+      const sist = prøvd[prøvd.length - 1];
+      kortEl.appendChild(el(".tr-igjen",
+        el(".tr-igjen-hode", prøvd.length === 1 ? `Ikke riktig · ${fmt(FEIL)} poeng` : `Ikke riktig denne gangen heller · forsøk ${prøvd.length}`),
+        sp.traps && sp.traps[sist] ? prosa(String(sp.traps[sist])) : null,
+        el("p.tiny.muted", { style: { margin: "6px 0 0" } }, "Prøv et annet alternativ. Poengene teller første svar.")));
+    }
 
-    if (!åpen) {
+    /* Hjelpen i trinn, uten tallene, så du regner selv. Trinnene du har åpnet,
+       står resten av runden. */
+    const trinn = hjelpeTrinn(sp);
+    const nivå = Math.min(hjelpNivå(o, sp.id), trinn.length);
+    const navn = trinn.length === 3 ? ["1 · Temaet", "2 · Regelen", "3 · Slik løser du den"] : ["Slik løser du den"];
+    if (nivå) {
+      const boks = el(".tr-hjelp");
+      trinn.slice(0, nivå).forEach((t, k) => {
+        boks.appendChild(el(".tr-hjelp-hode" + (k ? ".neste" : ""), navn[k] || ""));
+        boks.appendChild(prosa(t));
+      });
+      kortEl.appendChild(boks);
+    }
+    const hjelpKnapp = !åpen && nivå < trinn.length
+      ? el("button.btn.ghost.sm", { title: "Ett trinn om gangen: temaet, regelen, fremgangsmåten. Spørsmålet regnes som ikke mestret ennå.",
+        onclick: () => { merHjelp(sp); S.app.refresh(); } },
+        !nivå ? "Hjelp" : trinn.length === 3 ? `Mer hjelp (${nivå + 1} av 3)` : "Hjelp")
+      : null;
+
+    if (igjen) {
+      kortEl.appendChild(el(".row.wrap", { style: { marginTop: "6px", gap: "10px", alignItems: "center" } },
+        hjelpKnapp,
+        el("button.btn.ghost.sm", { onclick: () => { giOpp(sp); S.app.refresh(); } }, "Vis fasiten")));
+    } else if (!åpen) {
       kortEl.appendChild(el(".row.wrap", { style: { marginTop: "6px", gap: "10px", alignItems: "center" } },
         el("button.btn.ghost.sm", { onclick: () => { registrer(sp, BLANK); S.app.refresh(); } }, "Stå over"),
-        harHjelp && !brukteHjelp ? el("button.btn.ghost.sm", { title: "Fremgangsmåten uten tallene. Spørsmålet regnes som ikke mestret ennå.",
-          onclick: () => { åpneHjelp(sp); S.app.refresh(); } }, "Hjelp") : null,
+        hjelpKnapp,
         el("span.tiny.muted", "0 poeng, men ingen minus. Riktig valg når du ikke kan utelukke minst ett alternativ.")));
     } else {
       kortEl.appendChild(fasit(sp, svar));
     }
 
-    kortEl.appendChild(el(".row", { style: { marginTop: "20px", gap: "10px", alignItems: "center" } },
+    const variant = åpen ? nyVariant(o, sp) : null;
+    kortEl.appendChild(el(".row.wrap", { style: { marginTop: "20px", gap: "10px", alignItems: "center" } },
       pos > 0 ? el("button.btn.ghost.sm", { onclick: () => gåTil(o, pos - 1) }, "← Forrige") : null,
       el(".spacer"),
       el("button.btn.ghost.sm", { onclick: () => { lagreØkt(Object.assign({}, o, { slutt: S.u.nowTs() })); S.app.refresh(); } }, "Avslutt"),
+      åpen && variant ? el("button.btn.ghost.sm", { title: "Samme regnestykke med nye tall, rett etter dette (V)", onclick: () => taVariant(o, pos, variant) }, "Ny variant") : null,
       åpen ? el("button.btn.primary", { onclick: () => neste(o, liste, pos) }, pos + 1 < liste.length ? "Neste →" : "Se resultatet →") : null));
     wrap.appendChild(kortEl);
-    wrap.appendChild(el("p.tiny.muted.tr-taster", "Tastatur: A–D svarer, H gir hjelp, S står over, F åpner gjennomgangen, Enter går videre."));
+    wrap.appendChild(el("p.tiny.muted.tr-taster", "Tastatur: A–D svarer, H gir et trinn hjelp, S står over, F åpner gjennomgangen, V gir en ny variant, Enter går videre."));
     return wrap;
   }
 
@@ -342,9 +436,13 @@ window.EDU = window.EDU || {};
     const boks = el(".tr-fasit");
     const blank = svar === BLANK;
     const o = økt();
+    const forsøk = 1 + (((o && o.forsok) || {})[sp.id] || []).length;
+    const løst = !!((o && o.losst) || {})[sp.id];
     boks.appendChild(el(".row", { style: { alignItems: "center", gap: "10px" } },
       el(".tr-resultat" + (blank ? ".blank" : p > 0 ? ".rett" : ".galt"),
-        blank ? "Stod over · 0 poeng" : p > 0 ? `Riktig · +${RETT} poeng` : `Feil · −${Math.abs(FEIL)} poeng`),
+        blank ? "Stod over · 0 poeng" : p > 0 ? `Riktig · +${RETT} poeng`
+          : løst ? `Feil første gang · −${Math.abs(FEIL)} poeng · riktig på forsøk ${forsøk + 1}`
+            : `Feil · −${Math.abs(FEIL)} poeng`),
       el(".spacer"),
       o && o.angre && o.angre.id === sp.id
         ? el("button.btn.ghost.sm", { title: "For bomtrykk. Har du lest fasiten, måler et nytt forsøk ingenting.", onclick: () => { angre(sp); S.app.refresh(); } }, "Angre svaret")
@@ -357,8 +455,9 @@ window.EDU = window.EDU || {};
     if (feller.length) {
       full.appendChild(el(".tr-fellehode", "Hva de gale alternativene er laget av"));
       const ul = el("ul.tr-feller");
-      feller.forEach((f) => ul.appendChild(el("li" + (f.i === svar ? ".ditt" : ""),
-        el("b", String.fromCharCode(65 + f.i) + (f.i === svar ? " (ditt svar): " : ": ")), frag(String(f.t)))));
+      const dine = new Set([svar].concat(((o && o.forsok) || {})[sp.id] || []));
+      feller.forEach((f) => ul.appendChild(el("li" + (dine.has(f.i) ? ".ditt" : ""),
+        el("b", String.fromCharCode(65 + f.i) + (f.i === svar ? " (ditt svar): " : dine.has(f.i) ? " (prøvd): " : ": ")), frag(String(f.t)))));
       full.appendChild(ul);
     }
     full.appendChild(lesMer(sp));
@@ -455,7 +554,9 @@ window.EDU = window.EDU || {};
     let rett = 0, galt = 0, blank = 0, ubesvart = 0;
     liste.forEach((s) => { const v = o.svar[s.id]; if (v == null) ubesvart++; else if (v === BLANK) blank++; else if (v === s.answer) rett++; else galt++; });
     const besvart = liste.length - ubesvart;
-    const medHjelp = liste.filter((s) => (o.hjelp || {})[s.id] && o.svar[s.id] === s.answer).length;
+    const medHjelp = liste.filter((s) => hjelpNivå(o, s.id) && o.svar[s.id] === s.answer).length;
+    const førsteGang = rett - medHjelp;
+    const senere = liste.filter((s) => (o.losst || {})[s.id]).length;
     const poeng = rett * RETT + galt * FEIL;
     const maks = besvart * RETT;
     const pct = maks ? Math.max(0, Math.round(100 * poeng / maks)) : 0;
@@ -469,6 +570,8 @@ window.EDU = window.EDU || {};
         el("div", { style: { fontSize: "20px", fontWeight: 680 } }, `${rett} riktige · ${galt} feil · ${blank} stod over`),
         el("p.tiny.muted", { style: { margin: "6px 0 0", maxWidth: "440px" } },
           `Med +3/−1/0 ble det ${poeng} av ${maks} poeng (${pct} %). Uten minuspoeng hadde det vært ${rett * RETT}.`
+          + ` Riktig på første forsøk uten hjelp: ${førsteGang} av ${besvart}.`
+          + (senere ? ` ${senere} fikk du riktig på et senere forsøk.` : "")
           + (medHjelp ? ` ${medHjelp} av de riktige var med hjelp. De kommer tilbake under «Nye først».` : "")
           + (galt && blank === 0 ? " Du stod aldri over. Svar bare når du kan utelukke minst ett alternativ." : "")))));
 
@@ -539,11 +642,12 @@ window.EDU = window.EDU || {};
       const { liste, pos, sp } = aktivtSpørsmål(o);
       if (!sp) return;
       const k = e.key.toLowerCase();
-      const åpen = o.svar[sp.id] != null;
+      const åpen = erÅpen(o, sp);
       const i = "abcd".indexOf(k) > -1 ? "abcd".indexOf(k) : "1234".indexOf(k);
-      if (!åpen && i > -1 && i < sp.options.length) { e.preventDefault(); registrer(sp, i); S.app.refresh(); return; }
-      if (!åpen && k === "s") { e.preventDefault(); registrer(sp, BLANK); S.app.refresh(); return; }
-      if (!åpen && k === "h" && sp.hjelp) { e.preventDefault(); åpneHjelp(sp); S.app.refresh(); return; }
+      if (!åpen && i > -1 && i < sp.options.length) { e.preventDefault(); velg(sp, i); S.app.refresh(); return; }
+      if (!åpen && k === "s" && o.svar[sp.id] == null) { e.preventDefault(); registrer(sp, BLANK); S.app.refresh(); return; }
+      if (!åpen && k === "h") { e.preventDefault(); merHjelp(sp); S.app.refresh(); return; }
+      if (åpen && k === "v") { const v = nyVariant(o, sp); if (v) { e.preventDefault(); taVariant(o, pos, v); } return; }
       if (åpen && k === "f") { e.preventDefault(); visFull = !visFull; S.app.refresh(); return; }
       if (åpen && (k === "enter" || k === "arrowright")) { e.preventDefault(); neste(o, liste, pos); return; }
       if (k === "arrowleft" && pos > 0) { e.preventDefault(); gåTil(o, pos - 1); }

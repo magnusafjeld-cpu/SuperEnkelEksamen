@@ -40,13 +40,20 @@ def _fiks(alt):
     return alt
 
 
+def nbh(h):
+    """nb() på hjelpen, også når den er en tuppel fra hjelp3."""
+    if isinstance(h, (tuple, list)):
+        return tuple(nb(x) for x in h)
+    return nb(h) if h else None
+
+
 def sp(q, alt, kort, full, rekkefolge=None, hjelp=None):
-    return sporsmal(nb(q), _fiks(alt), nb(kort), nb(full), rekkefolge, hjelp=nb(hjelp) if hjelp else None)
+    return sporsmal(nb(q), _fiks(alt), nb(kort), nb(full), rekkefolge, hjelp=nbh(hjelp))
 
 
 def st(id_, typ, q, alt, kort, full, rekkefolge=None):
     statisk(id_, tema=TEMA, type=typ, q=nb(q), alternativer=_fiks(alt), kort=nb(kort), full=nb(full),
-            rekkefolge=rekkefolge, hjelp=nb(HJELP[id_]))
+            rekkefolge=rekkefolge, hjelp=nbh(HJELP[id_]))
 
 
 _RUNDE = {}
@@ -203,6 +210,188 @@ HJELP = {'int-s01': '<p><b>Skill bostedsprinsippet fra kildeprinsippet.</b> Spø
             'satsene.</p><p><b>Pass på:</b> ikke bruk den ene satsen alene eller summen av dem.</p>',
  'int-s26': '<p>Et konsern kan flytte overskudd mellom land med priser eller med finansiering.</p><p><b>Steg 1:</b> hva skjer med overskuddet i et datterselskap som betaler renter til et annet selskap i konsernet?</p><p><b>Steg 2:</b> hvor er et rentefradrag mest verdt? Hvor bør renteinntekten havne?</p><p><b>Steg 3:</b> ordet «tynn» viser til at datterselskapet har lite av noe. Hva?</p>'}
 
+# ---------------------------------------------------------------------------
+# Trinn 1 og 2 i hjelpen (spek § 2c): temaet og regelen. Oppsettet over er trinn 3.
+# Ingen tall fra spørsmålet og ikke svaret.
+# ---------------------------------------------------------------------------
+_KRED_TEMA = "Dette er ordinær kredit for inntekt gjennom et fast driftssted i ett land: du skal finne "
+_KRED_REGEL = ("Norsk skatt = 22 % × Y. Kildeskatt = t<sub>kilde</sub> × Y. Kreditfradrag = min(kildeskatt ; "
+               "norsk skatt). Restskatt til Norge = norsk skatt − kreditfradrag.")
+_REG_TEMA = "Dette er internasjonal skatt for et selskap med inntekt i flere land under ulike regimer: du skal finne "
+_REG_REGEL = ("Norge: 22 % × norsk inntekt. Fullstendig unntak: 0 til Norge. Ordinær kredit: maks(0 ; 22 % − "
+              "t<sub>kilde</sub>) × Y til Norge. Ingen avtale: 22 % × Y til Norge, når oppgaven ser bort fra § 16-20.")
+_EXIT_TEMA = "Dette er exit-skatt ved utflytting: latent gevinst på aksjer skattlegges som realisert. Du skal finne "
+_EXIT_REGEL = ("Latent gevinst = markedsverdi − inngangsverdi dagen før utflytting, summert over postene. "
+               "Exit-skatt = (gevinst − bunnfradrag) × 37,84 %, der 37,84 % = 22 % × 1,72.")
+
+_TRINN_FAM = {'int-gave1': (
+    "Dette er exit-skatt ved gave til en person bosatt i utlandet: du skal finne skatten gaven eller gavene utløser.",
+    "Exit-skatt utløses når samlet netto gevinst på slike gaver i året overstiger terskelen. Da er skatten hele "
+    "gevinsten × 37,84 % (22 % × 1,72). Ellers er den null.")}
+
+_TRINN_VAR = {
+    'int-kred1': {
+        'lav-norge': (_KRED_TEMA + "skatten selskapet betaler til Norge.", _KRED_REGEL),
+        'høy-norge': (_KRED_TEMA + "skatten selskapet betaler til Norge.", _KRED_REGEL),
+        'lav-samlet': (_KRED_TEMA + "samlet skatt i Norge og i kildestaten.",
+                       _KRED_REGEL + " Samlet skatt = kildeskatt + restskatt."),
+        'høy-samlet': (_KRED_TEMA + "samlet skatt i Norge og i kildestaten.",
+                       _KRED_REGEL + " Samlet skatt = kildeskatt + restskatt."),
+        'høy-ukreditert': (_KRED_TEMA + "den delen av kildeskatten som ikke får kredit i Norge.",
+                           _KRED_REGEL + " Ukreditert kildeskatt = kildeskatt − kreditfradrag."),
+    },
+    'int-reg1': {
+        'norge': (_REG_TEMA + "skatten selskapet betaler til Norge.", _REG_REGEL),
+        'samlet': (_REG_TEMA + "samlet skatt i Norge og i utlandet.",
+                   _REG_REGEL + " Samlet skatt = skatt til Norge + kildeskattene."),
+        'sats': (_REG_TEMA + "samlet skatt i prosent av samlet overskudd.",
+                 _REG_REGEL + " Samlet sats = (skatt til Norge + kildeskattene) / samlet overskudd."),
+    },
+    'int-exit1': {
+        'skatt': (_EXIT_TEMA + "exit-skatten.", _EXIT_REGEL),
+        'rate': (_EXIT_TEMA + "hver av de årlige ratene.",
+                 _EXIT_REGEL + " Rentefrie rater: skatten delt likt på antall rater."),
+    },
+}
+
+_TRINN = {
+    'int-s01': (
+        "Dette er skatteplikten til et norsk selskap etter intern rett, før avtalene: du skal finne hvor mye av "
+        "inntekten Norge kan skattlegge.",
+        "Intern rett bygger på to prinsipper. Bostedsprinsippet: skatteplikt for den som hører hjemme i Norge. "
+        "Kildeprinsippet: skatteplikt for inntekt opptjent i Norge. Skatteavtalene kommer i neste ledd og kan "
+        "bare begrense retten."),
+    'int-s02': (
+        "Dette er reglene for når en innflytter blir skattemessig bosatt i Norge: du skal finne vilkåret i "
+        "skatteloven § 2-1.",
+        "Bosted ved innflytting avgjøres av antall dager med opphold i Norge innenfor bestemte perioder, ikke av "
+        "registrering. Utflytting har egne regler med dager i Norge og bolig her."),
+    'int-s03': (
+        "Dette er reglene for når bostedet opphører etter lang botid: du skal finne det siste inntektsåret Sara "
+        "er skattemessig bosatt i Norge.",
+        "Etter minst ti års bosted opphører bostedet først når vilkårene er oppfylt i tre hele inntektsår etter "
+        "utflyttingsåret: høyst 61 dager i Norge i året og ingen bolig her for deg eller nærstående."),
+    'int-s04': (
+        "Dette er reglene for når bostedet opphører etter kort botid: du skal finne vilkåret som gjelder for Ali.",
+        "Treårsregelen gjelder bare etter minst ti års bosted i Norge. Ellers vurderes bostedet for hvert "
+        "inntektsår for seg etter vilkårene i skatteloven § 2-1."),
+    'int-s05': (
+        "Dette er reglene for dobbelt bosted i OECDs mønsteravtale artikkel 4: du skal finne rekkefølgen "
+        "kriteriene prøves i.",
+        "Kriteriene prøves i fast rekkefølge. Det neste kriteriet brukes bare når det forrige peker på begge land "
+        "eller på ingen av dem."),
+    'int-s06': (
+        "Dette er metodene for å unngå dobbeltbeskatning: du skal finne metoden der inntekten kan ende uten skatt "
+        "noe sted.",
+        "Fullstendig unntak: hjemstaten gir avkall på inntekten. Ordinær kredit: hjemstaten skattlegger og trekker "
+        "fra kildeskatten, høyst egen skatt. Full kredit: hele kildeskatten trekkes fra. Uten avtale: begge land "
+        "kan skattlegge."),
+    'int-s07': (
+        "Dette er taket i ordinær kredit: du skal finne begrunnelsen for at kreditfradraget ikke kan bli større "
+        "enn norsk skatt på inntekten.",
+        "Kreditfradrag = min(kildeskatt ; norsk skatt på inntekten). Restskatt til Norge = norsk skatt − "
+        "kreditfradrag, aldri under null."),
+    'int-s08': (
+        "Dette er forskjellen mellom to kreditmetoder: du skal finne hva som skiller ordinær kredit fra full kredit.",
+        "Under begge metodene gir hjemstaten fradrag i egen skatt for skatt betalt i kildestaten. Forskjellen viser "
+        "seg bare når kildeskatten er høyere enn den norske skatten på samme inntekt."),
+    'int-s09': (
+        "Dette er dobbeltbeskatning uten skatteavtale: du skal finne hva norsk intern rett sier om skatten betalt i "
+        "det andre landet.",
+        "Uten avtale gjelder bare hvert lands interne rett. Norge skattlegger hjemmehørende selskaper for "
+        "verdensinntekten. Kildestaten skattlegger inntekten opptjent der."),
+    'int-s10': (
+        "Dette er betydningen av fast driftssted etter intern rett: du skal finne hva det betyr for Land K og for "
+        "Norge før en avtale brukes.",
+        "Kildeprinsippet: et land skattlegger inntekt opptjent der. Fast driftssted er terskelen for når "
+        "næringsinntekt regnes som opptjent i landet. Bostedsprinsippet: Norge skattlegger hjemmehørende selskaper."),
+    'int-s11': (
+        "Dette er begrepet fast driftssted: du skal finne aktiviteten som typisk ikke gir fast driftssted i et "
+        "annet land.",
+        "Fast driftssted krever et fast forretningssted der virksomheten drives, eller en avhengig agent som jevnlig "
+        "inngår kontrakter. En byggeplass blir fast driftssted etter en viss varighet. Ren hjelpevirksomhet er "
+        "unntatt."),
+    'int-s12': (
+        "Dette er samlet skatt under unntak og ordinær kredit når kildestaten har høyere sats enn Norge: du skal "
+        "sammenligne metodene.",
+        "Fullstendig unntak: samlet sats = t<sub>kilde</sub>. Ordinær kredit: samlet sats = maks(22 % ; "
+        "t<sub>kilde</sub>). Full kredit: samlet sats = 22 %."),
+    'int-s13': (
+        "Dette er tidspunktet for exit-skatt: du skal finne når latent gevinst på aksjene anses realisert ved "
+        "utflytting.",
+        "Exit-skatten (skatteloven § 10-70) behandler latent gevinst som realisert ved utflyttingen, uten salg. "
+        "En skatteavtale fordeler retten til å skattlegge inntekt etter at bostedet er flyttet."),
+    'int-s14': (
+        "Dette er betalingsreglene for exit-skatt etter innstrammingen: du skal finne hvilke måter skatten kan "
+        "betales på.",
+        "Exit-skatten forfaller uavhengig av om aksjene selges. Den kan utsettes i en begrenset periode. Om "
+        "utsettelsen er rentefri, avhenger av betalingsmåten du velger."),
+    'int-s15': (
+        "Dette er om exit-skatten er foreløpig eller endelig: du skal finne hva et verdifall etter utflytting gjør "
+        "med skatten.",
+        "Exit-skatten regnes av verdien dagen før utflytting. Regelen har ett unntak som kan få den til å falle "
+        "bort: tilbakeflytting innen tolv år med aksjene i behold."),
+    'int-s16': (
+        "Dette er tilbakeflytting etter at exit-skatten er fastsatt: du skal finne hva som skjer med skatten når "
+        "Ola kommer tilbake.",
+        "Exit-skatten kan bare falle bort på én måte. Vilkårene gjelder hvor lenge du har vært ute og om du "
+        "fortsatt eier aksjene. Den gamle femårsregelen er opphevet."),
+    'int-s17': (
+        "Dette er utbytte etter utflytting når exit-skatten er utsatt: du skal finne hvor mye av den utsatte "
+        "skatten som forfaller.",
+        "Tar du utbytte fra aksjene, forfaller en del av den utsatte exit-skatten. Beløpet er utbyttet ganget med "
+        "en fast faktor i loven, høyst den utsatte skatten. Det er et skattebeløp, ikke et grunnlag."),
+    'int-s18': (
+        "Dette er dagens regel for exit-skatt sammenlignet med et eldre eksamenssett: du skal finne hva som gjelder "
+        "for den gamle femårsregelen.",
+        "Exit-skatten regnes av latent gevinst dagen før utflytting. Dagens regler gir utsettelse med betalingen og "
+        "har ett vilkår for bortfall, knyttet til tilbakeflytting."),
+    'int-s19': (
+        "Dette er hvor et selskap stiftet etter norsk lov er hjemmehørende: du skal finne om flytting av ledelsen "
+        "endrer det uten skatteavtale.",
+        "Intern rett har to grunnlag for at et selskap er hjemmehørende i Norge: det ene er knyttet til "
+        "stiftelsen, det andre til den reelle ledelsen. Spør om begge må være oppfylt."),
+    'int-s20': (
+        "Dette er Schjelderups definisjon av et skatteparadis: du skal finne kjennetegnet han mener er det sentrale.",
+        "Schjelderup skiller kjennetegn som er vanlige hos skatteparadiser fra det ene som er nødvendig. Tenk på "
+        "hva utlendinger kjøper der som de ikke får hjemme."),
+    'int-s21': (
+        "Dette er skillet mellom skatteplanlegging og skatteunndragelse: du skal finne hva som skiller begrepene.",
+        "Skatteplanlegging (tax avoidance): å tilpasse seg reglene for å betale mindre skatt. Skatteunndragelse "
+        "(tax evasion): å skjule inntekt eller formue for skattemyndighetene."),
+    'int-s22': (
+        "Dette er CRS, OECDs standard for automatisk utveksling av kontoinformasjon: du skal finne svakheten pensum "
+        "peker på.",
+        "Under CRS rapporterer banker og andre finansinstitusjoner kontoer eid av utlendinger, både personer og "
+        "selskaper, til skattemyndighetene i hjemlandet."),
+    'int-s23': (
+        "Dette er den globale minimumsskatten: du skal finne toppskatten som fyller opp til minimumssatsen.",
+        "Toppskatt = maks(0 ; minimumssats − effektiv sats) × overskudd. Skatten som alt er betalt, ligger i den "
+        "effektive satsen."),
+    'int-s24': (
+        "Dette er studien til Alstadsæter, Johannesen og Zucman om skjult formue: du skal finne hva den fant for de "
+        "aller rikeste i Norge.",
+        "Studien måler hvor stor andel av formuen som skjules i utlandet i hver formuesgruppe. Den måler også hvor "
+        "stor andel av skatten gruppen unndrar."),
+    'int-s25': (
+        "Dette er overskuddsflytting med internpriser: du skal finne hvor mye konsernet sparer i skatt.",
+        "Skattebesparelse = flyttet overskudd × (t<sub>høy</sub> − t<sub>lav</sub>). Overskuddet skattlegges med "
+        "den lave satsen i stedet for den høye."),
+    'int-s26': (
+        "Dette er tynn kapitalisering: du skal finne hvordan metoden flytter overskudd mellom land i et konsern.",
+        "Renter er fradragsberettiget for den som betaler og skattepliktige for den som mottar. Et rentefradrag er "
+        "verdt rentene × skattesatsen i landet der fradraget tas."),
+}
+
+
+def _tre(trinn, oppsett):
+    return hjelp3(f"<p>{trinn[0]}</p>", f"<p>{trinn[1]}</p>", oppsett)
+
+
+HJ_FAM = {k: _tre(_TRINN_FAM[k], v) for k, v in HJ_FAM.items()}
+HJ_VAR = {f: {m: _tre(_TRINN_VAR[f][m], v) for m, v in d.items()} for f, d in HJ_VAR.items()}
+HJELP = {k: _tre(_TRINN[k], v) for k, v in HJELP.items()}
+
 
 # ---------------------------------------------------------------------------
 # int-kred1 · Ordinær kredit for ett land (R12)
@@ -237,26 +426,27 @@ def _(r):
         spørsmål = f"Hvor mye skatt betaler {selskap} til Norge av overskuddet i {land}?"
     elif spm == "samlet" and niva == "lav":
         riktig = norsk
-        kand = [(kilde, f"Behandlet som fullstendig unntak: bare skatten i {land}, {tall(kilde)}. Under kredit "
-                        f"løftes inntekten til norsk nivå."),
-                (norsk + kilde, f"Ingen lettelse: {tall(norsk)} + {tall(kilde)} = {tall(norsk + kilde)}. Avtalen gir "
-                                f"kreditfradrag for skatten i {land}."),
+        kand = [(kilde, f"Behandlet som fullstendig unntak: bare skatten i {land}, {tall(kilde)}. Under ordinær "
+                        f"kredit krever Norge i tillegg restskatt når kildesatsen er lavere enn 22 %."),
+                (norsk + kilde, f"Ingen lettelse: norsk skatt og kildeskatt lagt sammen, {tall(norsk + kilde)}. Avtalen "
+                                f"gir kreditfradrag for skatten i {land}."),
                 (rest, f"Bare restskatten til Norge, {tall(rest)}. Skatten til {land} kommer i tillegg.")]
         spørsmål = f"Hva blir samlet skatt, i Norge og i {land}, på overskuddet i {land}?"
     elif spm == "samlet":
         riktig = kilde
         kand = [(norsk, f"Full kredit: som om Norge krediterte hele skatten i {land} og ga tilbake differansen. "
                         f"Kreditten er begrenset til norsk skatt, {tall(norsk)}."),
-                (norsk + kilde, f"Ingen lettelse: {tall(norsk)} + {tall(kilde)} = {tall(norsk + kilde)}. Avtalen gir "
-                                f"kreditfradrag opp til den norske skatten."),
+                (norsk + kilde, f"Ingen lettelse: norsk skatt og kildeskatt lagt sammen, {tall(norsk + kilde)}. Avtalen "
+                                f"gir kreditfradrag opp til den norske skatten."),
                 (kilde - norsk, f"Dette er bare den delen av kildeskatten som ikke får kredit, {tall(kilde - norsk)}. "
-                                f"Samlet skatt er hele kildeskatten.")]
+                                f"Samlet skatt omfatter all skatt som betales på inntekten, ute og hjemme.")]
         spørsmål = f"Hva blir samlet skatt, i Norge og i {land}, på overskuddet i {land}?"
     else:  # ukreditert
         riktig = kilde - norsk
         kand = [(0, f"Full kredit: all skatt betalt i {land} krediteres. Under ordinær kredit er fradraget begrenset "
                     f"til norsk skatt på inntekten."),
-                (kilde, f"Hele skatten i {land}, {tall(kilde)}. Opp til {tall(norsk)} får den kredit."),
+                (kilde, f"Hele skatten i {land}, {tall(kilde)}. En del av den får kredit i Norge, opp til den norske "
+                        f"skatten på inntekten."),
                 (norsk, f"Dette er kreditfradraget, {tall(norsk)}, altså den delen som får kredit.")]
         spørsmål = f"Hvor mye av skatten betalt i {land} får ikke kredit i Norge?"
     valgt = velg(r, riktig, kand)
@@ -542,7 +732,7 @@ def _(r):
 # ---------------------------------------------------------------------------
 # int-gave1 · Gave til noen som bor i utlandet (terskel kr 100 000)
 # ---------------------------------------------------------------------------
-@familie("int-gave1", tema=TEMA, hjelp=nb(HJ_FAM["int-gave1"]), antall=5, tittel="Exit-skatt ved gave til utlandet")
+@familie("int-gave1", tema=TEMA, hjelp=nbh(HJ_FAM["int-gave1"]), antall=5, tittel="Exit-skatt ved gave til utlandet")
 def _(r):
     navn, barn = r.sample(NAVN, 2)
     dit = r.choice(["Sverige", "Danmark", "Tyskland", "Frankrike", "USA", "Australia"])
@@ -631,7 +821,7 @@ st("int-s01", "fakta",
        F("Bare inntekten som er opptjent i Norge",
          "Det er kildeprinsippet. Spørsmålet gjelder globalskatteplikten, som er bostedsprinsippet."),
        F("Inntekten i Norge og i land Norge ikke har avtale med",
-         "Dette blander inn avtalene. Etter intern rett isolert sett er alt skattepliktig."),
+         "Dette blander inn avtalene. Spørsmålet gjelder intern rett isolert sett, før avtalene brukes."),
        R("Hele verdensinntekten"),
        F("Inntekten i land som skattlegger lavere enn Norge",
          "Satsen ute spiller ingen rolle for den interne skatteplikten."),
@@ -799,11 +989,11 @@ st("int-s08", "begrep",
    alt=[
        R("Ordinær kredit krediterer bare opp til norsk skatt på inntekten"),
        F("Ordinær kredit krediterer all kildeskatt, full kredit det dobbelte",
-         "Ingen metode krediterer mer enn den betalte skatten. Forskjellen er taket."),
+         "Ingen metode krediterer mer enn den betalte skatten."),
        F("Ved ordinær kredit er det kildestaten som gir fradrag for norsk skatt",
          "Kreditten gis alltid av hjemstaten. Snudd kredit er en klassisk felle."),
        F("Ordinær kredit gjelder selskaper, full kredit gjelder personer",
-         "Begge kan gjelde både selskaper og personer. Det er taket som skiller."),
+         "Begge kan gjelde både selskaper og personer. Skillet ligger i hvor mye som krediteres."),
    ],
    kort="<p><b>Taket.</b> Ordinær kredit gir fradrag for kildeskatten høyst med norsk skatt på samme inntekt. Full "
         "kredit ville gitt fradrag for all kildeskatt, også over den norske.</p>",
@@ -824,7 +1014,8 @@ st("int-s09", "fakta",
      "intern rett om skatten betalt i det landet?</p>",
    alt=[
        F("Norge gir aldri lettelse uten avtale, så det blir alltid dobbeltbeskatning",
-         "Skatteloven § 16-20 gir kreditfradrag også uten avtale. Eksamenssettene har likevel regnet uten."),
+         "«Aldri» er for strengt: skatteloven har en egen regel om lettelse uten avtale. Eksamenssettene har likevel "
+         "regnet uten."),
        F("Norge unntar inntekten, som under fullstendig unntak",
          "Uten avtale gir Norge ikke avkall på inntekten. Den er skattepliktig hit."),
        R("Norge kan gi kreditfradrag ensidig etter skatteloven § 16-20"),
@@ -904,7 +1095,8 @@ st("int-s12", "tolkning",
        R("Ingenting: begge gir 30 %"),
        F("Kredit gir 22 %, unntak gir 30 %",
          "22 % ville krevd full kredit. Under ordinær kredit er fradraget begrenset til 22 %."),
-       F("Unntak gir 22 %, kredit gir 30 %", "Under unntak står kildeskatten alene: 30 %."),
+       F("Unntak gir 22 %, kredit gir 30 %", "Under unntak gir Norge avkall på inntekten. Da står bare kildeskatten "
+                                             "igjen, ikke den norske satsen."),
        F("Kredit gir 52 %, unntak gir 30 %", "52 % er summen, altså ingen lettelse. Kreditten fjerner den norske "
                                              "skatten."),
    ],
@@ -927,7 +1119,7 @@ st("int-s13", "fakta",
          "Gevinsten anses realisert ved utflyttingen, uten salg."),
        R("Dagen før utflytting, uansett skatteavtale"),
        F("Ved utgangen av utflyttingsåret, med mindre avtalen sier noe annet",
-         "Tidspunktet er dagen før utflytting."),
+         "Tidspunktet er knyttet til selve utflyttingen, ikke til utgangen av året."),
        F("Aldri, fordi skatteavtalen gir det nye landet beskatningsretten",
          "Avtalen beskytter ikke mot exit-skatten. Den skattlegger gevinsten som ble opptjent i Norge."),
    ],
@@ -950,7 +1142,7 @@ st("int-s14", "fakta",
        F("Fem rentefrie årlige rater eller hele beløpet straks",
          "Ordningen er tolv år, ikke fem. Femårsregelen var noe annet og er opphevet."),
        F("Hele beløpet straks, uten mulighet for utsettelse",
-         "Skatten kan betales over tolv år, rentefritt i rater."),
+         "Exit-skatten kan utsettes. Det finnes flere betalingsmåter enn å betale alt straks."),
        R("Tolv rentefrie rater, alt etter tolv år med renter, eller alt straks"),
        F("Skatten betales først når aksjene faktisk selges, uten renter og uten frist",
          "Skatten forfaller uavhengig av salg. Utsettelsen er begrenset til tolv år."),
@@ -1000,12 +1192,13 @@ st("int-s16", "fakta",
      "fortsatt aksjene. Hva skjer med exit-skatten?</p>",
    alt=[
        F("Resten forfaller straks, siden han er bosatt i Norge igjen",
-         "Tilbakeflytting innen tolv år med aksjene i behold fører til at skatten faller bort."),
+         "At han er bosatt i Norge igjen, gjør ikke at resten forfaller. Tilbakeflytting har en egen regel for "
+         "exit-skatten."),
        R("Den faller bort, siden han kom tilbake innen tolv år med aksjene"),
        F("Den faller bort bare hvis han har bodd ute i minst fem år",
-         "Femårsregelen er opphevet. Vilkåret er tilbakeflytting innen tolv år."),
+         "Femårsregelen er opphevet. Det finnes ikke lenger noe krav om fem år ute."),
        F("Han må betale resten med renter fra utflyttingsåret",
-         "Ratene er rentefrie. Skatten faller bort ved tilbakeflytting innen tolv år."),
+         "Ratene er rentefrie. Tilbakeflytting har dessuten en egen regel for exit-skatten."),
    ],
    kort="<p><b>Den faller bort.</b> Flytter du tilbake innen tolv år og fortsatt eier aksjene, bortfaller "
         "exit-skatten.</p>",
@@ -1023,12 +1216,13 @@ st("int-s17", "tolkning",
    q="<p>Ola har flyttet ut og har fått utsettelse med en exit-skatt på kr 3 000 000. Året etter tar han kr 1 000 000 i "
      "utbytte fra aksjene. Hvor mye av den utsatte exit-skatten forfaller til betaling [dagens regel]?</p>",
    alt=[
-       F("kr 378 400", "Utbyttet ganget med 37,84 %. Regelen er ikke en skatt på utbyttet, men at 0,7 × utbyttet av "
-                       "den utsatte skatten forfaller."),
-       F("kr 264 880", "0,7 × utbyttet × 37,84 %. Tallet 0,7 × utbyttet er alt et skattebeløp og skal ikke ganges med "
-                       "en sats."),
+       F("kr 378 400", "Utbyttet ganget med 37,84 %. Regelen er ikke en skatt på utbyttet, men at en del av den "
+                       "utsatte skatten forfaller."),
+       F("kr 264 880", "Utbyttet ganget med faktoren i loven og så med 37,84 %. Utbyttet ganget med faktoren er alt et "
+                       "skattebeløp og skal ikke ganges med en sats."),
        R("kr 700 000"),
-       F("kr 1 000 000", "Hele utbyttet. Faktoren er 0,7, for å gi rom for kildeskatten på selve utbyttet."),
+       F("kr 1 000 000", "Hele utbyttet. Faktoren i loven er under 1, for å gi rom for kildeskatten på selve "
+                         "utbyttet."),
    ],
    kort="<p><b>kr 700 000.</b> Utsettelsen faller bort for et skattebeløp lik utdelingen ganget med 0,7 (skatteloven "
         "§ 10-70 åttende ledd).</p>",
@@ -1071,8 +1265,8 @@ st("int-s19", "fakta",
    q="<p>Et aksjeselskap stiftet etter norsk lov flytter ledelsen til et land Norge ikke har skatteavtale med. Er "
      "selskapet fortsatt hjemmehørende i Norge?</p>",
    alt=[
-       F("Nei, hjemstedet følger alltid ledelsens sete", "For selskaper stiftet i Norge er stiftelsen avgjørende når "
-                                                          "det ikke finnes avtale."),
+       F("Nei, hjemstedet følger alltid ledelsens sete", "Ledelsens sete er ett grunnlag for å være hjemmehørende, "
+                                                          "men ikke det eneste. «Alltid» holder ikke."),
        F("Nei, det blir hjemmehørende der flertallet av aksjonærene bor", "Aksjonærenes bosted avgjør ikke hvor "
                                                                           "selskapet hører hjemme."),
        F("Det blir hjemmehørende i begge land med skatten delt likt",
@@ -1099,8 +1293,8 @@ st("int-s20", "begrep",
          "Mange skatteparadiser har skatt. Mauritius og Jersey har satser over null for noen."),
        R("Hemmeligholdet: det er produktet, ikke skattesatsen"),
        F("At landet ikke er medlem av OECD eller EU", "Medlemskap avgjør ikke. Flere sekretessestater er i Europa."),
-       F("At landet ikke har skatteavtale med Norge", "Avtaler finnes med mange av dem. Det er hemmeligholdet som "
-                                                      "teller."),
+       F("At landet ikke har skatteavtale med Norge", "Norge har avtaler med mange av dem, så det kan ikke være det "
+                                                      "sentrale kjennetegnet."),
    ],
    kort="<p><b>Hemmeligholdet.</b> Schjelderup bruker begrepet secrecy jurisdiction: skattesatsen er et instrument, "
         "hemmeligholdet er varen.</p>",
@@ -1124,7 +1318,7 @@ st("int-s21", "begrep",
        F("Begge er ulovlige, men unndragelse straffes hardere",
          "Skatteplanlegging innenfor loven er lovlig."),
        F("Planlegging skjer i Norge, unndragelse skjer i skatteparadiser",
-         "Skatteparadiser brukes til begge deler. Skillet er om det er lovlig."),
+         "Skatteparadiser brukes til begge deler. Hvor det skjer, er ikke det som skiller begrepene."),
    ],
    kort="<p><b>Lovlig mot ulovlig.</b> Skatteplanlegging utnytter reglene. Unndragelse skjuler inntekt eller formue i "
         "strid med loven.</p>",
@@ -1184,13 +1378,14 @@ st("int-s24", "fakta",
    q="<p>Hva fant Alstadsæter, Johannesen og Zucman om de 0,01 % rikeste i Norge?</p>",
    alt=[
        F("De skjuler om lag 25 % av formuen og unndrar om lag 20 % av skatten",
-         "Tallene er byttet. Det er 20 % av formuen og 25 % av skatten."),
+         "Tenk på hva som skjer med skatten på avkastningen av den skjulte formuen. Det avgjør hvilken andel som er "
+         "størst."),
        F("De skjuler om lag 2 % av formuen og unndrar om lag 3 % av skatten",
-         "For lavt. Studien fant om lag 20 og 25 %."),
+         "For lavt for den aller rikeste gruppen. Andelene stiger kraftig mot toppen av fordelingen."),
        R("De skjuler om lag 20 % av formuen og unndrar om lag 25 % av skatten"),
        F("De eier om lag halvparten av all formue nordmenn skjuler i skatteparadis",
-         "Halvparten gjelder den rikeste prosenten, ikke de 0,01 % rikeste. Spørsmålet gjelder andelen av deres "
-         "egen formue og skatt: 20 og 25 %."),
+         "Halvparten gjelder den rikeste prosenten, ikke de 0,01 % rikeste. Spørsmålet gjelder andelen av gruppens "
+         "egen formue og skatt."),
    ],
    kort="<p><b>20 % av formuen, 25 % av skatten.</b> Halvparten av all formue nordmenn skjuler i skatteparadis, tilhører "
         "den rikeste prosenten.</p>",

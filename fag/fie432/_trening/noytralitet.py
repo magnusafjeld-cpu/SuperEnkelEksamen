@@ -173,6 +173,196 @@ HJELP = {
     ),
 }
 
+# Hjelpen i tre trinn (spesifikasjonen § 2c): tema og regel vises før oppsettet over.
+TRINN = {
+    'noy-foc1': (
+        'Dette er bedriftens kapitalkrav når bare en del av rentekostnaden gir fradrag. Du skal finne minstekravet '
+        'til marginalproduktet F′(K) før skatt.',
+        'V = F(K) − rK − t[F(K) − ArK], der A er andelen av renten som gir fradrag. Førsteordensbetingelsen gir '
+        'F′(K) = r(1 − At)/(1 − t). Ved A = 1 er kravet r.'
+    ),
+    'noy-ge1-krav': (
+        'Dette er kapitalkravet ved gjeld mot egenkapital når bare gjeldsrenten gir fradrag. Du skal finne '
+        'marginalproduktet før skatt som den neste kronen minst må gi.',
+        'V = F(E + G) − r(E + G) − t[F(E + G) − rG]. Bare rG trekkes fra i skattegrunnlaget. Deriver med hensyn på '
+        'den finansieringsformen spørsmålet gjelder og sett lik null.'
+    ),
+    'noy-ge1-prosjekt': (
+        'Dette er resultatet etter skatt av et prosjekt finansiert med gjeld eller med egenkapital. Du skal ta med '
+        'både skatten og kapitalkostnaden.',
+        'Bare utbetalte renter gir fradrag. Egenkapitalens alternativkostnad er en ekte kostnad for eierne, men den '
+        'gir ikke fradrag. Den trekkes derfor fra etter skatt.'
+    ),
+    'noy-imp1-sats': (
+        'Dette er implisitt skatt: et skattefritt aktivum gir lavere avkastning før skatt i likevekt. Du skal finne '
+        'den implisitte satsen eller avkastningen på det skattefrie.',
+        'Likevekt: r = R(1 − t*), der R er avkastningen før skatt på det skattlagte og r på det skattefrie. Den '
+        'implisitte skattesatsen er t* = (R − r)/R.'
+    ),
+    'noy-imp1-valg': (
+        'Dette er valgregelen ved implisitt skatt. Du skal finne hvilken obligasjon investoren bør eie og hvor mye '
+        'mer den gir etter skatt.',
+        'Implisitt sats: t* = (R − r)/R. En investor med marginalskatt τ får R(1 − τ) etter skatt fra det skattlagte '
+        'og hele r fra det skattefrie.'
+    ),
+    'noy-arb1-gevinst': (
+        'Dette er skattearbitrasje: et lån med rentefradrag finansierer et skattefritt papir. Du skal finne den '
+        'årlige gevinsten etter skatt før prisen tilpasser seg.',
+        'Lånets kostnad etter skatt = rente × (1 − t<sub>fradrag</sub>). Papirets avkastning etter skatt = rente × '
+        '(1 − t<sub>avkastning</sub>). Rentefradraget har satsen 22 % for alle. Her er t<sub>avkastning</sub> = 0.'
+    ),
+    'noy-arb1-likevekt': (
+        'Dette er skattearbitrasje i likevekt: alle kan låne og kjøpe papiret. Du skal finne avkastningen før skatt '
+        'på papiret når prisen har tilpasset seg.',
+        'Likevekt betyr at gevinsten er borte: papirets avkastning etter skatt er lik lånets kostnad etter skatt. '
+        'Lånet koster rente × (1 − t<sub>fradrag</sub>), med t<sub>fradrag</sub> = 22 %. Papiret er skattefritt.'
+    ),
+    'noy-dm1-replisering': (
+        'Dette er Domar–Musgrave: proporsjonal skatt med fullt tapsfradrag. Du skal finne beløpet i det risikable '
+        'aktivumet som gir samme fordeling etter skatt som før.',
+        'Hvert utfall etter skatt er (1 − t) × beløp × avkastning før skatt, både gevinst og tap. Samme fordeling '
+        'krever beløp<sub>ny</sub> × (1 − t<sub>ny</sub>) = beløp<sub>før</sub> × (1 − t<sub>før</sub>). Uten skatt '
+        'fra før er t<sub>før</sub> = 0.'
+    ),
+    'noy-dm1-prosjekt': (
+        'Dette er skatt og risikotaking. Du skal finne forventet resultat etter skatt for det risikable prosjektet '
+        'og sammenligne med det sikre.',
+        'Med fullt tapsfradrag tar staten andelen t av gevinsten og bærer andelen t av tapet. Uten tapsfradrag tar '
+        'staten t av gevinsten, men bærer ingenting av tapet. En risikonøytral velger høyest forventning etter skatt.'
+    ),
+    'noy-prog1': (
+        'Dette er progressivitet målt med gjennomsnittsskatt, med én sats over et bunnfradrag. Du skal finne '
+        'gjennomsnittsskatten for begge personene og klassifisere systemet.',
+        'Skatt = t(Y − B), der B er bunnfradraget. Gjennomsnittsskatt = skatt/Y = t(1 − B/Y). Stiger den med '
+        'inntekten, er systemet progressivt. Er den lik, er det proporsjonalt. Faller den, er det regressivt.'
+    ),
+    'noy-s01': (
+        'Dette er førsteordensbetingelsen for kapital når bare andelen A av rentekostnaden gir fradrag. Du skal '
+        'finne kravet til marginalproduktet F′(K).',
+        'Optimum: dV/dK = 0. Her er dV/dK = F′(K) − r − t[F′(K) − Ar]. Samle leddene med F′(K) på én side og løs.'
+    ),
+    'noy-s02': (
+        'Dette er bedriftens tilpasning når gjeldsrenten gir fradrag, men egenkapitalens alternativkostnad ikke gjør '
+        'det. Du skal finne kravene til F′<sub>G</sub> og F′<sub>E</sub>.',
+        'Optimum: ∂V/∂G = 0 og ∂V/∂E = 0. Skattegrunnlaget er F(E + G) − rG. Alternativkostnaden rE er en kostnad '
+        'for eierne, men står ikke i skattegrunnlaget.'
+    ),
+    'noy-s03': (
+        'Dette er følgen av ulike avkastningskrav for gjeld og egenkapital. Du skal finne hvordan de optimale '
+        'mengdene E* og G* forholder seg til hverandre.',
+        'Optimum er der marginalproduktet er lik kravet: F′(x*) = krav. F″ &lt; 0 betyr at F′ faller når x øker.'
+    ),
+    'noy-s04': (
+        'Dette er en overskuddsskatt med fullt fradrag for alle kapitalkostnader. Du skal forklare hvorfor kravet '
+        'til marginalproduktet blir det samme som uten skatt.',
+        'V = F(K) − rK − t[F(K) − ArK] med A = 1. Skattegrunnlaget er da nøyaktig overskuddet før skatt, '
+        'F(K) − rK.'
+    ),
+    'noy-s05': (
+        'Dette er definisjonen av en nøytral skatt. Du skal finne hva begrepet betyr. Skill det fra skattenivå og '
+        'fordeling.',
+        'Nøytralitet er et effektivitetsbegrep: det gjelder hvordan skatten påvirker valg mellom alternativer. '
+        'Effektivitet sier ingenting om hvor mye skatt som betales eller av hvem.'
+    ),
+    'noy-s06': (
+        'Dette handler om hva nøytralitet betyr og ikke betyr. Du skal finne den riktige påstanden om nøytrale '
+        'skatter.',
+        'Nøytral betyr at skatten ikke endrer rangeringen av alternativene. Det krever like effektive satser, '
+        'uansett hvor høye de er. Nøytralitet er et effektivitetskrav og sier ingenting om fordeling.'
+    ),
+    'noy-s07': (
+        'Dette er kravet om like effektive skattesatser i et nøytralt system. Du skal finne de tre valgene kravet '
+        'gjelder.',
+        'Nøytralitet gjelder valg en investor tar, ikke forskjeller mellom grupper av skattytere. Forskjeller '
+        'mellom grupper er et fordelingsspørsmål.'
+    ),
+    'noy-s08': (
+        'Dette er begrepet skattearbitrasje. Du skal finne definisjonen og skille den fra vanlig arbitrasje og andre '
+        'skattetilpasninger.',
+        'Arbitrasje er en risikofri gevinst uten egen kapital. Ved skattearbitrasje kommer gevinsten fra '
+        'skattereglene, ikke fra prisforskjeller. Eksempel: et lån med rentefradrag som finansierer en skattefri '
+        'plassering.'
+    ),
+    'noy-s09': (
+        'Dette er to påstander om skattearbitrasje med rentefradrag. Du skal avgjøre om hver av dem stemmer.',
+        'Gevinsten er r × L × (t<sub>fradrag</sub> − t<sub>avkastning</sub>). Rentefradraget går mot alminnelig '
+        'inntekt med 22 %, ikke mot personinntekt.'
+    ),
+    'noy-s10': (
+        'Dette er den implisitte skattesatsen på et skattefritt aktivum. Du skal kjenne igjen uttrykket for t* gitt '
+        'R og r.',
+        'Likevekt: like risikable aktiva gir samme avkastning etter skatt, r = R(1 − t*). En skattesats måles mot '
+        'grunnlaget før skatt.'
+    ),
+    'noy-s11': (
+        'Dette er implisitt skatt på en skattefri obligasjon. Du skal finne hvilken obligasjon som har høyest '
+        'avkastning før skatt i likevekt.',
+        'Avkastning er kupong delt på kurs. Økt etterspørsel løfter kursen og senker avkastningen. I likevekt gir '
+        'like risikable papirer samme avkastning etter skatt for den marginale investoren.'
+    ),
+    'noy-s12': (
+        'Dette er valgregelen ved implisitt skatt. Du skal finne hvilke investorer som tjener på å eie det '
+        'skattefrie papiret.',
+        'Det skattefrie gir r = R(1 − t*). Det skattlagte gir R(1 − τ) etter skatt for en investor med '
+        'marginalskatt τ. Sammenlign de to.'
+    ),
+    'noy-s13': (
+        'Dette er insidensen av et skattefritak for renter. Du skal finne hvem som tjener på fritaket når prisene '
+        'har tilpasset seg.',
+        'Fritaket øker etterspørselen etter papiret. Kursen stiger. Renten før skatt faller til r = R(1 − t*). '
+        'Fordelen havner hos den som ikke må gi den fra seg gjennom prisen.'
+    ),
+    'noy-s14': (
+        'Dette er Domar–Musgrave-mekanismen. Du skal forklare hvorfor en høyere skatt med fullt tapsfradrag kan øke '
+        'beløpet i det risikable aktivumet.',
+        'Med proporsjonal skatt t og fullt tapsfradrag er hvert utfall etter skatt (1 − t) ganger utfallet før skatt. '
+        'Det gjelder gevinst og tap likt. Investoren kan gjenskape fordelingen ved å skalere beløpet med 1/(1 − t).'
+    ),
+    'noy-s15': (
+        'Dette handler om hvordan skatt påvirker risikotaking med og uten fullt tapsfradrag. Du skal finne '
+        'påstanden som stemmer.',
+        'Med fullt tapsfradrag deler staten både gevinst og tap med andelen t, så rangeringen av prosjektene står. '
+        'Uten tapsfradrag deler staten bare gevinsten.'
+    ),
+    'noy-s16': (
+        'Dette er forutsetningene bak Domar–Musgrave-resultatet. Du skal finne den forutsetningen som ikke trengs.',
+        'Resultatet er en replisering: med beløpet x/(1 − t) blir hvert utfall etter skatt det samme som før skatt. '
+        'Det krever at hvert utfall krymper med nøyaktig samme faktor 1 − t.'
+    ),
+    'noy-s17': (
+        'Dette er definisjonen av et progressivt skattesystem. Du skal finne kriteriet som skiller progressivt fra '
+        'proporsjonalt og regressivt.',
+        'Gjennomsnittsskatt = T(Y)/Y, betalt skatt delt på inntekt. Progressivitet handler om hvordan skatten som '
+        'andel av inntekten endrer seg når inntekten øker.'
+    ),
+    'noy-s18': (
+        'Dette er progresjon målt som forskjellen i gjennomsnittsskatt. Du skal finne hva et høyere bunnfradrag med '
+        'samme sats gjør med forskjellen.',
+        'Gjennomsnittsskatt = t(Y − B)/Y = t(1 − B/Y), der B er bunnfradraget. Progresjonen er her '
+        'gjennomsnittsskatten til den med høy inntekt minus den til den med lav inntekt.'
+    ),
+    'noy-s19': (
+        'Dette er Mirrlees-teorien om optimal inntektsbeskatning. Du skal finne hvilken faktor som gir høy optimal '
+        'marginalskatt.',
+        'Optimal marginalskatt veier gevinsten ved omfordeling mot effektivitetstapet. Satsen er høyere jo mer '
+        'omfordeling er verdt og jo mindre skattegrunnlaget reagerer på skatten.'
+    ),
+    'noy-s20': (
+        'Dette er forskjellen i avkastningskrav for gjeld og egenkapital i modellen for bedriftens tilpasning. Du '
+        'skal finne mekanismen i modellen som gir forskjellen.',
+        'Begge finansieringsformene koster r før skatt. V = F(K) − rK − t[F(K) − rG]. Kravene er F′<sub>G</sub> = r '
+        'og F′<sub>E</sub> = r/(1 − t).'
+    ),
+    'noy-s21': (
+        'Dette er verdsettingen i formuesskatten: primærbolig mot bankinnskudd, begge kjøpt for lånte penger. Du '
+        'skal finne hvorfor nettogrunnlaget blir ulikt.',
+        'Formuesgrunnlag = verdsatte eiendeler − gjeld. Bankinnskudd teller med full verdi. Primærbolig har en '
+        'verdsettingsrabatt. Gjeld knyttet til primærbolig avkortes ikke.'
+    ),
+}
+for _k, (_tema, _regel) in TRINN.items():
+    HJELP[_k] = hjelp3(_tema, _regel, HJELP[_k])
+
 
 def p2(x):
     """Brøk til prosent med to desimaler: 0.0685 → «6,85 %»."""
@@ -1084,7 +1274,7 @@ statisk(
       "<p>Hvilke av påstandene er riktige?</p>",
     alternativer=[
         R("Bare I"),
-        F("Bare II", "II er gal: fradraget går mot alminnelig inntekt med 22 % for alle. I er riktig."),
+        F("Bare II", "II er gal: fradraget går mot alminnelig inntekt med 22 % for alle, uansett marginalskatt på lønn."),
         F("Begge", "II er gal. Marginalskatten på lønn inneholder trinnskatt og trygdeavgift, som rentefradraget "
                    "ikke reduserer."),
         F("Ingen", "I er riktig: med lik sats er gevinsten r × L × (22 % − 22 %) = 0."),

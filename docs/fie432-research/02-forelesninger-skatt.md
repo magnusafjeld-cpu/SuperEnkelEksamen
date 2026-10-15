@@ -771,13 +771,17 @@ inntektsskiftningsligningen ut i tekst).
     2025/21). **[dagens regel]**
 12. **Utbytte for å betale formuesskatt F:** U = F / (1 − t_e);
     utbytteskatt = U · t_e. Med 37,84 %: U = 1,609 · F; med 37,8 %: 1,608 · F.
-13. **Inntektsskiftningsligningen** ⟨rekonstruert; identisk med eksamensfasit
-    H2017 og H2020⟩:
-    t_w + a = t_A + (1 − t_A) · t_e · y,
-    der t_w = høyeste marginalskatt på lønn (47,4 %), a = arbeidsgiveravgift
-    overveltet på arbeidstaker (12,4 % ved full overvelting), t_A = 22 %,
-    t_e = 22 %. Løst: **y = (t_w + a − t_A) / ((1 − t_A) · t_e)** og effektiv
-    eierskatt = y · t_e. Uten a (som i eksamensoppgavene): t_w = t_A + (1 − t_A) t_e y.
+13. **Inntektsskiftningsligningen** (forelesning 5, 2026, lysbilde 3–12). Kurset
+    legger **nominelle satser** sammen:
+    t_w + a_L = t_A + a_F + y · t_e,
+    der t_w = høyeste marginalskatt på lønn (47,4 %), a_L = den delen av
+    arbeidsgiveravgiften arbeidstakeren bærer, a_F = den delen bedriften bærer,
+    t_A = nominell selskapsskatt (22 %) og t_e = nominell eierskattesats (22 %).
+    Full overvelting: 47,4 % + 12,4 % = 22 % + 22 % · y, altså **y ≈ 1,72** og
+    eierskatt 22 % · 1,72 = 37,84 % (59,8 = 59,8). Løst:
+    **y = (t_w + a_L − t_A − a_F) / t_e**. Summen er nominell, ikke en effektiv
+    skatt (lysbilde 5). Eldre eksamener (H2017, H2020) brukte effektive satser:
+    t_w (+ a) = t_A + (1 − t_A) · t_e · y. Den formen er ikke kursets likning i 2026.
 14. **AGA-omregning:** 100 kr lønnskostnad = 87,6 lønn + 12,4 avgift; 12,4/87,6 = 14,1 %.
 15. **Marginal eierskatt når alt tas ut:** t_A + (1 − t_A) × 37,84 %.
 16. **AERT** ⟨rekonstruert⟩: personlig skattyter T/Y; aksjonær
@@ -837,17 +841,23 @@ Skjermingsrente 3,6 %, eierskatt 37,84 %, formuesskatt 1 %, utbytte 6 % =
 500 000 → 22,1 %; 600 000 → 24,0 %; 700 000 → 25,4 % (uten gjeld og fradrag).
 
 **E4.7 Inntektsskiftningsligningen med tre overveltingsantakelser**
-⟨rekonstruert⟩. t_w = 47,4 %, t_A = t_e = 22 %.
-- Full overvelting (a = 12,4 %): 59,8 % = 22 % + 78 % × 22 % × y →
-  **y = 2,20**, effektiv eierskatt **48,4 %**.
-- 50/50 (a = 6,2 %): 53,6 % → **y = 1,84**, eierskatt **40,5 %**.
-- Bedriften bærer AGA (a = 0): 47,4 % → **y = 1,48**, eierskatt **32,6 %**.
-- Dagens y = 1,72 gir høyresiden 22 % + 78 % × 37,84 % = **51,5 %**, som
-  tilsvarer a ≈ 4,1 pp — om lag en tredel av avgiften overveltet. Med full
-  overvelting er venstresiden 59,8 % (eller 53,9 % om lønnsdelen skaleres
-  med 0,876), så ligningen balanserer *ikke* med 1,72. Det er nettopp
-  forelesningens poeng: «hvis AGA deles 50/50 eller 30/70 betyr det en
-  betydelig lettelse av eierbeskatningen».
+(forelesning 5, 2026, lysbilde 10). t_w = 47,4 %, a = 12,4 %, t_A = t_e = 22 %.
+Den delen bedriften bærer, står på høyresiden.
+- Full overvelting: 47,4 + 12,4 = 22 + 22y → **y ≈ 1,72**, eierskatt **37,84 %**.
+- 50/50: 47,4 + 6,2 = 22 + 6,2 + 22y → **y ≈ 1,15**, eierskatt **25,3 %**.
+- Bedriften bærer alt: 47,4 = 22 + 12,4 + 22y → **y ≈ 0,59** (lysbildet: 0,6),
+  eierskatt **12,98 %** (lysbildet: 13,2 %).
+- Summen 59,8 = 59,8 er nominelle satser lagt sammen. Den effektive skatten på
+  utdelt overskudd er 22 % + 78 % × 37,84 % = 51,52 %.
+- Endringer (lysbilde 6–8): trygdeavgift 10 % gir y ≈ 1,83 og 40,26 %;
+  selskapsskatt 20 % med lønn uendret gir y ≈ 1,81 og 39,82 % (lysbildet: 1,8 og
+  39,6 %); selskapsskatt 24 % gir y ≈ 1,63 og 35,86 % (lysbildet: 1,62 og
+  35,64 %); alminnelig sats 20 % for både lønn og selskap gir y uendret 1,72.
+- Forelesningens poeng: «hvis AGA deles 50/50 eller 30/70 betyr det en
+  betydelig lettelse av eierbeskatningen». Empirien finner 15–30 %.
+- Tidligere versjon av denne noten regnet med den eldre effektive formen
+  (y = 2,20 / 1,84 / 1,48, «1,72 svarer til a ≈ 4,1 pp»). Det var feil for
+  kurset slik det undervises i 2026.
 - Lysbilde 51 bruker eldre satser (22 + 7,8 + 17,6 = 47,5 %); lysbilde 49
   bruker 2026-satsene (22 + 7,6 + 17,8 = 47,4 %). Samme sum i praksis.
 
@@ -1939,7 +1949,7 @@ lysbildet; **✗** = lysbildets eller fasitens tall lar seg ikke reprodusere.
 | E4.3 | Olsen 2014–2019, alle fem rader + gevinst 70 → skatt 26,49 | ✓ alle rader |
 | E4.4 | Treprosentregelen 0,66 | ✓ |
 | E4.5 | Formuesskatt 63 000, utbytteskatt 90 816, igjen 446 184, eff. 25,6 % | ✗ lysbildet skriver **90 186** (talltransposisjon) og 25,5 % |
-| E4.7 | y = 2,20 / 1,84 / 1,48 ved a = 12,4 / 6,2 / 0 pp | ⟨rek⟩ ✓ — men ✗ **ligningen balanserer ikke med dagens y = 1,72 og full overvelting**: 1,72 svarer til a ≈ 4,1 pp |
+| E4.7 | y = 1,72 / 1,15 / 0,59 ved full overvelting / 50-50 / bedriften alt | ✓ med kursets nominelle likning (lysbilde 10 runder siste til 0,6) |
 | E4.8 | 22 % + 78 % × 37,84 % = 51,5 %; med AERT 14 %: 46,5 % | ✓ |
 | E4.9 | Printeren: full avskrivning 14,67 %, saldo 30 % 19,8 % | ✗ lysbildet skriver **14,6 %** i tabellen og **15,4 %** i noten |
 | E4.10 | V = 818, unotert 286,3; børs 24,7 %, unotert 18,1 %, portefølje 20,3 % | ⟨rek⟩ ✓ — men bare 1,1 %-satsen reproduserer 11,6 og 4,4 |
@@ -1976,10 +1986,10 @@ lysbildet; **✗** = lysbildets eller fasitens tall lar seg ikke reprodusere.
 3. **E4.9 / printereksempelet:** 44 000/300 000 = 14,67 %. Lysbildet oppgir både
    14,6 % (tabellen) og 15,4 % (noten). Ingen av dem er riktig; 15,4 % ser ut
    som en transposisjon av 14,5.
-4. **E4.7 / inntektsskiftningsligningen:** med full overvelting av
-   arbeidsgiveravgiften krever ligningen y = 2,20, ikke 1,72. Dagens faktor
-   svarer til at bare ca. 4,1 av 12,4 prosentpoeng overveltes. Det er ikke en
-   regnefeil, men forelesningens eget poeng — verdt å kunne som argument.
+4. **E4.7 / inntektsskiftningsligningen:** rettet oktober 2026. Kurset legger
+   nominelle satser sammen. 1,72 svarer til full overvelting
+   (47,4 + 12,4 = 22 + 22 × 1,72). Den tidligere påstanden om y = 2,20 og
+   «a ≈ 4,1 pp» kom fra den eldre effektive formen og gjelder ikke.
 5. **E3.10 / regnearket:** tredje diskonterte ledd er ført som 46 523; riktig er
    46 535. NV blir 546 585, ikke 546 597. 12 kroner.
 6. **Benedicte spm. 3:** fasiten regner 10 % × (100 % − 45 %) = 6,5 %. Riktig er

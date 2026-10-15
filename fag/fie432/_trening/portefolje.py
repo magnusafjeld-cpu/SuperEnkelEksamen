@@ -272,6 +272,121 @@ HJELP = {
                  "Startbeløpet påvirker ikke prosenten.</p>",
     },
 }
+
+# Hjelpen i tre trinn (spesifikasjonen § 2c): tema og regel vises før oppsettet over.
+_W_MERTON = f"w* = (μ − {RF})/(γ{SIGMA2})"
+TRINN = {
+    "prt-mer1": {
+        "sigma": ("Dette er Mertons formel for optimal aksjeandel. Du skal finne hvor stor andel av formuen som bør stå "
+                  "i aksjer, gitt risikopremien, markedsrisikoen og risikoaversjonen.",
+                  f"{_W_MERTON}. Telleren er risikopremien, forventet avkastning over risikofri rente. Nevneren er "
+                  f"risikoaversjonen γ ganget med variansen {SIGMA2}, altså standardavviket i annen."),
+        "varians": ("Dette er Mertons formel for optimal aksjeandel. Du skal finne hvor stor andel av formuen som bør "
+                    "stå i aksjer, gitt risikopremien, markedsrisikoen og risikoaversjonen.",
+                    f"{_W_MERTON}. Telleren er risikopremien μ − {RF}. Nevneren er risikoaversjonen γ ganget med "
+                    f"variansen {SIGMA2}. En oppgitt varians er alt kvadrert."),
+    },
+    "prt-mer2": {
+        "sigma": ("Dette er Mertons formel brukt baklengs. Aksjeandelen er kjent, så du skal finne risikoaversjonen γ "
+                  "som gir akkurat den andelen.",
+                  f"{_W_MERTON}. Tre av de fire størrelsene er kjent, så den fjerde er bestemt. Løs formelen for γ. "
+                  f"Nevneren har variansen {SIGMA2}, ikke standardavviket σ."),
+        "varians": ("Dette er Mertons formel brukt baklengs. Aksjeandelen er kjent, så du skal finne risikoaversjonen γ "
+                    "som gir akkurat den andelen.",
+                    f"{_W_MERTON}. Tre av de fire størrelsene er kjent, så den fjerde er bestemt. Løs formelen for "
+                    f"γ. {SIGMA2} er variansen. Tidshorisonten står ikke i formelen."),
+    },
+    "prt-hk1": {
+        "andel": ("Dette er Merton med trygg humankapital. Du skal finne hvor stor andel av finansformuen som bør stå i "
+                  "aksjer når w* gjelder totalformuen.",
+                  f"Ønsket aksjebeløp = w* × (F + H), der F er finansformuen og H humankapitalen. Med {BH} = 0 gir "
+                  f"lønnen ingen aksjeeksponering selv. Andelen av finansformuen er aksjebeløpet delt på F."),
+        "belop": ("Dette er Merton med trygg humankapital. Du skal finne hvor mange kroner som bør stå i aksjer når w* "
+                  "gjelder totalformuen.",
+                  f"Aksjer i finansformuen = w* × (F + H) − {BH} × H, der F er finansformuen og H humankapitalen. "
+                  f"Trygg lønn betyr {BH} = 0."),
+    },
+    "prt-hk2": ("Dette er Merton med risikabel humankapital: lønnen gir alt noe aksjeeksponering. Du skal finne "
+                "andelen av finansformuen som bør stå i aksjer.",
+                f"Andel i aksjer = [w*(F + H) − {BH}H]/F. w*(F + H) er ønsket eksponering mot aksjer. {BH}H er "
+                f"aksjedelen lønnen alt gir. F er finansformuen."),
+    "prt-liv1": ("Dette er livssyklusen i Mertons modell: w* står fast, men balansen endres med alderen. Du skal finne "
+                 "aksjeandelen av finansformuen ved den alderen spørsmålet gjelder.",
+                 f"Aksjebeløp = w* × (F + H) med F og H for den alderen du regner på. Andel av finansformuen = "
+                 f"w* × (F + H)/F. Trygg humankapital ({BH} = 0) gir ingen aksjer selv."),
+    "prt-var1": ("Dette er porteføljerisiko med to aktiva. Du skal finne standardavviket til en blanding der "
+                 "korrelasjonen er under én.",
+                 "σ<sub>p</sub><sup>2</sup> = s<sup>2</sup>σ<sub>1</sub><sup>2</sup> + (1 − s)<sup>2</sup>σ<sub>2</sub>"
+                 "<sup>2</sup> + 2s(1 − s)ρσ<sub>1</sub>σ<sub>2</sub>. Standardavviket er kvadratroten av variansen. "
+                 "Forventet avkastning trengs ikke."),
+    "prt-minv1": {
+        "rho1a": ("Dette er minimum varians med perfekt positiv korrelasjon og uten shortsalg. Du skal finne andelen "
+                  "som gir lavest mulig standardavvik.",
+                  "Ved ρ = 1 er σ<sub>p</sub> = wσ<sub>A</sub> + (1 − w)σ<sub>B</sub>, en rett linje i andelen w. "
+                  "Uten shortsalg må w ligge mellom 0 og 1. En rett linje har sitt minimum i et endepunkt."),
+        "rhom1": ("Dette er minimum varians med perfekt negativ korrelasjon. Du skal finne andelen i aksje A som gir "
+                  "lavest mulig standardavvik.",
+                  "Ved ρ = −1 blir variansen et fullt kvadrat: σ<sub>p</sub><sup>2</sup> = (wσ<sub>A</sub> − (1 − w)"
+                  "σ<sub>B</sub>)<sup>2</sup>. Risikoen er null når de to vektede standardavvikene er like store."),
+        "rho0": ("Dette er minimum-varians-porteføljen med to ukorrelerte aksjer. Du skal finne andelen i aksje A som "
+                 "gir lavest varians.",
+                 "σ<sub>p</sub><sup>2</sup> = w<sup>2</sup>σ<sub>A</sub><sup>2</sup> + (1 − w)<sup>2</sup>σ<sub>B</sub>"
+                 "<sup>2</sup> + 2w(1 − w)ρσ<sub>A</sub>σ<sub>B</sub>. Minimum finner du ved å derivere med hensyn på "
+                 "w og sette lik null. Med ρ = 0 faller krysleddet bort."),
+    },
+    "prt-kml1": {
+        "E": ("Dette er kapitalmarkedslinjen: alle kombinasjoner av bank og markedsporteføljen. Du skal finne forventet "
+              "avkastning for et gitt standardavvik.",
+              f"E(r<sub>p</sub>) = {RF} + [(E(r<sub>M</sub>) − {RF})/σ<sub>M</sub>] × σ<sub>p</sub>. Brøken er "
+              f"Sharpe-forholdet, stigningstallet på linjen."),
+        "sigma": ("Dette er kapitalmarkedslinjen brukt baklengs. Du skal finne standardavviket til porteføljen som gir "
+                  "ønsket forventet avkastning.",
+                  f"Andel i markedsporteføljen: w = (E(r<sub>p</sub>) − {RF})/(E(r<sub>M</sub>) − {RF}). Banken er "
+                  f"risikofri, så σ<sub>p</sub> = w × σ<sub>M</sub>."),
+        "laan": ("Dette er giring langs kapitalmarkedslinjen: mer risiko enn markedet krever lån. Du skal finne lånet i "
+                 "prosent av egenkapitalen.",
+                 f"Andel i markedsporteføljen: w = σ<sub>p</sub>/σ<sub>M</sub>. Lånt andel = w − 1. Lånet koster "
+                 f"risikofri rente {RF}."),
+        "sharpe": ("Dette er Sharpe-forholdet til markedsporteføljen: meravkastning per enhet risiko. Det er også "
+                   "stigningstallet på kapitalmarkedslinjen.",
+                   f"Sharpe = (E(r<sub>M</sub>) − {RF})/σ<sub>M</sub>. Telleren er meravkastningen over risikofri "
+                   f"rente. Nevneren er standardavviket."),
+    },
+    "prt-ln1": ("Dette er sparevalget med ln-nytte. Du skal avgjøre om banken eller fondet gir høyest forventet nytte, "
+                "ikke høyest forventet sluttverdi.",
+                "U(W) = ln W. Banken gir ln[W<sub>0</sub>(1 + r)<sup>T</sup>]. Fondet gir E[U] = p × ln W<sub>god</sub> "
+                "+ (1 − p) × ln W<sub>dårlig</sub>, der p er sannsynligheten for gode tider."),
+    "prt-ln2": ("Dette er indifferenssannsynligheten med ln-nytte. Du skal finne sannsynligheten for gode tider som gjør "
+                "banken og fondet like gode.",
+                "Indifferens: p × ln W<sub>god</sub> + (1 − p) × ln W<sub>dårlig</sub> = ln W<sub>bank</sub>. Løst: "
+                "p = (ln W<sub>bank</sub> − ln W<sub>dårlig</sub>)/(ln W<sub>god</sub> − ln W<sub>dårlig</sub>)."),
+    "prt-ln3": ("Dette er tapsaversjon i sparevalget: utfall under innskuddet teller som tap. Du skal avgjøre om banken "
+                "eller fondet gir høyest forventet nytte.",
+                "Referansepunktet er innskuddet W<sub>0</sub>. Nytten er ln W for utfall over W<sub>0</sub> og v × ln W "
+                "for utfall under, der v er tapsvekten. Forventet nytte vektes med sannsynlighetene som vanlig."),
+    "prt-tid1": {
+        "cagr": ("Dette er årlig vekstrate (CAGR). Du skal finne den faste årlige avkastningen som gjør startverdien om "
+                 "til sluttverdien.",
+                 "Sluttverdi = startverdi × (1 + r)<sup>T</sup>. Løst for r: r = (sluttverdi/startverdi)<sup>1/T</sup> "
+                 "− 1, der T er antall år."),
+        "fv": ("Dette er sluttverdien av like årlige innskudd. Du skal finne hva innskuddene er verdt rett etter det "
+               "siste.",
+               "FV = a × [(1 + r)<sup>T</sup> − 1]/r for innskuddet a ved utgangen av hvert år i T år. Det siste "
+               "innskuddet får ingen rente."),
+        "gebyr": ("Dette er gebyrets virkning med renters rente. Du skal finne hvor mye lavere sluttverdien blir i det "
+                  "aktive fondet, målt i prosent av indeksfondets sluttverdi.",
+                  "Sluttverdi = W<sub>0</sub>(1 + r)<sup>T</sup>, med avkastningen etter gebyr. Prosent lavere = 1 − "
+                  "W<sub>aktiv</sub>/W<sub>indeks</sub> = 1 − [(1 + r<sub>aktiv</sub>)/(1 + r<sub>indeks</sub>)]"
+                  "<sup>T</sup>."),
+    },
+}
+for _k, _t in TRINN.items():
+    if isinstance(_t, dict):
+        for _m, (_tema, _regel) in _t.items():
+            HJELP[_k][_m] = hjelp3(_tema, _regel, HJELP[_k][_m])
+    else:
+        HJELP[_k] = hjelp3(_t[0], _t[1], HJELP[_k])
+
 HJELP["prt-minv1"]["rho1b"] = HJELP["prt-minv1"]["rho1a"]
 HJELP["prt-mer1"]["premie"] = HJELP["prt-mer1"]["mu"] = HJELP["prt-mer1"]["sigma"]
 
@@ -493,7 +608,8 @@ def _(r):
                                      f"{tall(belop)}/{tall(H)}.", belop / H)]
         if laan:
             kand.append(F(pst(1.0, 1), f"Andelen kappet ved 100 %. {navn} kan låne og følger formelen fullt ut, så "
-                                       f"svaret er {pst(andel, 1)}, finansiert delvis med lån.", 1.0))
+                                       f"andelen kan gå over 100 %. Det som overstiger finansformuen, lånes til "
+                                       f"risikofri rente.", 1.0))
         alternativer = plukk(r, riktig, kand)
         svar = pst(andel, 1)
         kort = (f"<p><b>{svar}.</b> Aksjebeløpet er {pk(w)} × ({tall(F_)} + {tall(H)}) = {kr(belop)}. Alt må tas i "
@@ -504,12 +620,13 @@ def _(r):
         b1 = max(0.0, belop - H)
         kand = [F(kr(w * F_), f"w* brukt direkte på finansformuen: {pk(w)} × {tall(F_)}. Humankapitalen er en del "
                               f"av totalformuen og må med.", w * F_),
-                F(kr(b1), f"Humankapitalen behandlet som aksjer ({BH} = 1): {tall(belop)} − {tall(H)}"
-                          + (", kappet ved 0" if belop < H else "") + f". Lønnen er trygg, så {BH} = 0.", b1),
+                F(kr(b1), f"Humankapitalen behandlet som aksjer ({BH} = 1): hele humankapitalen på {kr(H)} er trukket "
+                          f"fra ønsket aksjebeløp" + (". Resultatet er kappet ved 0" if belop < H else "")
+                          + f". Lønnen er trygg, så {BH} = 0. Ingenting skal trekkes fra.", b1),
                 F(kr(w * H), f"Bare humankapitalen ganget med w*: {pk(w)} × {tall(H)}. Finansformuen er glemt.", w * H)]
         if laan:
-            kand.append(F(kr(F_), f"Beløpet kappet ved hele finansformuen. {navn} kan låne, så formelen gir "
-                                  f"{kr(belop)}.", F_))
+            kand.append(F(kr(F_), f"Beløpet kappet ved hele finansformuen. {navn} kan låne til risikofri rente og "
+                                  f"følger formelen fullt ut, så aksjebeløpet kan være større enn finansformuen.", F_))
         alternativer = plukk(r, riktig, kand)
         svar = kr(belop)
         kort = (f"<p><b>{svar}.</b> Merton gjelder totalformuen: {pk(w)} × ({tall(F_)} + {tall(H)}) = {svar}. "
@@ -1293,7 +1410,7 @@ HS = {
                  "informasjon? Den gale påstanden lover noe fondet ikke kan levere per konstruksjon."),
     "prt-s02": P("<b>Vektene.</b> Et globalt indeksfond for utviklede markeder er vektet etter markedsverdi. Hvilket "
                  "land har klart størst børsverdi?",
-                 "<b>Kina.</b> Regnes Kina som et utviklet eller et fremvoksende marked? Er det da med i indeksen?",
+                 "<b>Deretter Kina.</b> Regnes Kina som et utviklet eller et fremvoksende marked? Er det da med i indeksen?",
                  "<b>Pass på:</b> valutaen fondet selges i, endrer ikke hva det eier."),
     "prt-s03": _VALUTA,
     "prt-s04": _VALUTA,
@@ -1372,6 +1489,118 @@ HS["prt-s21"] += P("<b>Husk:</b> enkelte aktive kan slå markedet, men da må an
 HS["prt-s24"] += P("<b>Pass på:</b> husk at linjen starter i risikofri rente. Den vannrette aksen har standardavvik, ikke varians.")
 HS["prt-s26"] += P("<b>Stryk</b> personer med trygg, fast lønn. Usikker inntekt er ikke det samme som inntekt som følger markedet.")
 HS["prt-s27"] += P("<b>Husk:</b> forskjellen er rundt ett prosentpoeng i året.")
+
+# Hjelpen i tre trinn (spesifikasjonen § 2c): tema og regel vises før oppsettet over.
+_VALUTA_TEMA = ("Dette er valutasikring vurdert mot lønnen. Du skal avgjøre om fondet bør valutasikres når lønnen "
+                "svinger med kronekursen.")
+_VALUTA_REGEL = ("Et aktivum vurderes etter samvariasjonen med resten av formuen, humankapitalen inkludert. Et "
+                 "aktivum som stiger når resten faller, demper risikoen i summen. Et usikret utenlandsk fond stiger "
+                 "i kroner når kronen svekkes.")
+HS_TRINN = {
+    "prt-s01": ("Dette handler om hva et bredt indeksfond kan og ikke kan levere. Du skal finne den gale påstanden.",
+                "Et indeksfond eier markedet i markedsverdivekter. Avkastningen før kostnader følger da av vektene. "
+                "Spredningen fjerner selskapsspesifikk risiko. Passiv forvaltning holder kostnadene lave."),
+    "prt-s02": ("Dette handler om sammensetningen av et globalt indeksfond for utviklede markeder. Du skal finne hva "
+                "fondet faktisk eier.",
+                "Vektene følger markedsverdien til selskapene i indeksen. Bare land som regnes som utviklede markeder, "
+                "er med. Fremvoksende markeder har en egen indeks."),
+    "prt-s03": (_VALUTA_TEMA, _VALUTA_REGEL),
+    "prt-s04": (_VALUTA_TEMA, _VALUTA_REGEL),
+    "prt-s05": ("Dette er Forbrukerrådets sammenligning av aktive fond og indeksfond over tjue år. Du skal finne "
+                "resultatet i de fire kategoriene.",
+                "Kursets hovedmønster er at aktive fond i snitt gjør det svakere enn indeks etter kostnader. Et "
+                "hovedmønster trenger ikke gjelde i hver eneste kategori."),
+    "prt-s06": ("Dette er kapitalmarkedslinjen. Du skal finne hvordan en investor best får høyere forventet avkastning "
+                "enn markedsporteføljen.",
+                f"E(r<sub>p</sub>) = {RF} + [(E(r<sub>M</sub>) − {RF})/σ<sub>M</sub>] × σ<sub>p</sub>. "
+                f"Markedsporteføljen har høyest Sharpe-forhold. Markedet betaler bare for systematisk risiko."),
+    "prt-s07": ("Dette handler om hvilken risiko markedet betaler for. Du skal forklare hvorfor høy risiko i en "
+                "enkeltaksje ikke gir høyere forventet avkastning.",
+                "Total risiko er systematisk risiko pluss selskapsspesifikk risiko. Systematisk risiko rammer hele "
+                "markedet. Selskapsspesifikk risiko forsvinner i en bred portefølje."),
+    "prt-s08": ("Dette er separasjonsteoremet med to investorer som har ulik risikoaversjon. Du skal finne hvordan "
+                "porteføljene deres skiller seg.",
+                f"Separasjonsteoremet: først velges den risikable porteføljen, så fordelingen mellom den og banken. "
+                f"{_W_MERTON} styrer bare den andre delen."),
+    "prt-s09": ("Dette er Mertons formel for optimal aksjeandel. Du skal kjenne igjen det riktige uttrykket blant "
+                "varianter med feil plassering eller feil risikomål.",
+                "Bygg formelen fra retningene. Det som skal løfte andelen, står i telleren. Det som skal senke den, "
+                f"står i nevneren. Risikomålet i Merton er variansen {SIGMA2}."),
+    "prt-s10": ("Dette er Mertons formel brukt på en endring. Du skal finne hvilken endring som løfter den optimale "
+                "aksjeandelen.",
+                f"{_W_MERTON}. En økning i telleren løfter w*. En økning i nevneren senker w*. Telleren er "
+                f"risikopremien, ikke forventet avkastning alene."),
+    "prt-s11": ("Dette er livssyklusen i Mertons modell. Du skal finne den riktige begrunnelsen for å trappe ned "
+                "aksjeandelen av finansformuen før pensjon.",
+                "Aksjebeløp = w* × (F + H). Andel av finansformuen = w* × (F + H)/F. w* står fast når "
+                "risikoaversjonen og markedet er det samme. Det er F og H som endres med alderen."),
+    "prt-s12": ("Dette handler om aksjer og lang tidshorisont. Du skal skille risikoen i den årlige "
+                "snittavkastningen fra risikoen i sluttformuen.",
+                "Med uavhengige år vokser variansen til samlet avkastning med antall år T. Standardavviket til summen "
+                "vokser som √T. Standardavviket til snittet per år faller som 1/√T."),
+    "prt-s13": ("Dette handler om å eie aksjer i egen arbeidsgiver. Du skal finne kursets hovedgrunn til å fraråde "
+                "det.",
+                "Humankapitalen er en del av formuen. Hvor risikabelt et aktivum er for deg, avhenger av hvordan det "
+                "samvarierer med resten av formuen, ikke av standardavviket alene."),
+    "prt-s14": ("Dette er Merton med risikabel humankapital skrevet som formel. Du skal finne uttrykket for "
+                "aksjeandelen av finansformuen.",
+                f"Ønsket eksponering gjelder totalformuen F + H. Humankapitalen gir alt eksponeringen {BH}H. Resten "
+                f"må tas i finansformuen. Andelen måles mot den formuen aksjene står i."),
+    "prt-s15": ("Dette er variansen til en portefølje av to aktiva. Du skal kjenne igjen det riktige uttrykket.",
+                "Var(aX + bY) = a<sup>2</sup>Var(X) + b<sup>2</sup>Var(Y) + 2ab Cov(X, Y). Kovariansen er "
+                "Cov(X, Y) = ρσ<sub>X</sub>σ<sub>Y</sub>."),
+    "prt-s16": ("Dette handler om hva som er lineært i porteføljevektene og hva som ikke er det. Du skal vurdere "
+                "forventningen og standardavviket hver for seg.",
+                "E(r<sub>p</sub>) = sE(r<sub>1</sub>) + (1 − s)E(r<sub>2</sub>). σ<sub>p</sub><sup>2</sup> = "
+                "s<sup>2</sup>σ<sub>1</sub><sup>2</sup> + (1 − s)<sup>2</sup>σ<sub>2</sub><sup>2</sup> + 2s(1 − s)ρ"
+                "σ<sub>1</sub>σ<sub>2</sub>."),
+    "prt-s17": ("Dette er perfekt negativ korrelasjon uten shortsalg. Du skal finne hva som er mulig for "
+                "porteføljens risiko og med hvilke andeler.",
+                "Ved ρ = −1 blir variansen et fullt kvadrat: σ<sub>p</sub><sup>2</sup> = (wσ<sub>A</sub> − (1 − w)"
+                "σ<sub>B</sub>)<sup>2</sup>. Standardavviket er da σ<sub>p</sub> = |wσ<sub>A</sub> − (1 − w)"
+                "σ<sub>B</sub>|."),
+    "prt-s18": ("Dette er forventet nytte med subjektive sannsynligheter. Du skal finne hvilken størrelse som endres "
+                "når personen blir mer optimistisk.",
+                "Fondet: E[U] = p × ln W<sub>god</sub> + (1 − p) × ln W<sub>dårlig</sub>. Banken: U = ln W<sub>bank"
+                "</sub>. Sluttverdiene er gitt av markedet. p er vekten."),
+    "prt-s19": ("Dette er tapsaversjon med innskuddet som referansepunkt. Du skal finne hva vekten på tapene kan gjøre "
+                "med valget mellom bank og fond.",
+                "U(W) = ln W for W ≥ W<sub>0</sub> og U(W) = v × ln W for W &lt; W<sub>0</sub>, med v under 1. "
+                "Banken ligger over W<sub>0</sub>. Fondet har ett utfall over og ett under."),
+    "prt-s20": ("Dette er forskjellen mellom forventet sluttverdi og forventet nytte. Du skal forklare hvorfor en "
+                "person med ln-nytte kan velge banken.",
+                "Forventet nytte er E[U] = p × ln W<sub>god</sub> + (1 − p) × ln W<sub>dårlig</sub>, ikke ln av "
+                "forventet sluttverdi. Formen på ln-kurven avgjør forskjellen mellom de to."),
+    "prt-s21": ("Dette er aritmetikken i aktiv forvaltning. Du skal forklare hvorfor aktive forvaltere samlet ikke kan "
+                "slå markedet etter kostnader.",
+                "Markedsavkastningen er det verdivektede snittet av alle investorers avkastning før kostnader. "
+                "Indeksfondene får dette snittet. Avkastning etter kostnader = avkastning før kostnader − kostnader."),
+    "prt-s22": ("Dette handler om skjevhet i historisk fondsstatistikk. Du skal finne mekanismen som får aktive fond "
+                "til å se bedre ut enn de har vært.",
+                "Overlevelsesskjevhet: statistikk som bare regner med fondene som finnes ved slutten av perioden, gir "
+                "et skjevt snitt. Spør hvilke fond som har falt ut underveis."),
+    "prt-s23": ("Dette er aksjesparekontoen (ASK). Du skal finne når en gevinst inne på kontoen skattlegges.",
+                "ASK skiller handel på kontoen fra uttak fra kontoen. Innskuddet kan tas ut skattefritt. Det som "
+                "skattlegges, er aksjeinntekt: 22 % × 1,72 = 37,84 %, med skjerming."),
+    "prt-s24": ("Dette er kapitalmarkedslinjen. Du skal finne stigningstallet, altså hvor mye forventet avkastning "
+                "øker per enhet risiko.",
+                f"Stigningstall = endring i y delt på endring i x mellom to punkter. Linjen går gjennom (0, {RF}) og "
+                f"(σ<sub>M</sub>, E(r<sub>M</sub>)). Den vannrette aksen er standardavvik."),
+    "prt-s25": ("Dette er den effisiente delen av mulighetskurven for to aksjer. Du skal forklare hvorfor andeler under "
+                "minimum-varians-andelen s* er dårlige valg.",
+                "En portefølje er dominert hvis en annen har samme standardavvik og høyere forventet avkastning. Bare "
+                "porteføljer som ikke er dominert, er effisiente."),
+    "prt-s26": ("Dette er humankapitalens beta. Du skal finne arbeidstakeren der arbeidsinntekten følger "
+                "aksjemarkedet tett.",
+                f"{BH} måler samvariasjonen mellom arbeidsinntekten og aksjemarkedet. {BH} = 0 er en lønn som ikke "
+                f"følger børsen. {BH} nær 1 er en inntekt som svinger i takt med børsen."),
+    "prt-s27": ("Dette er kostnadsnivået i fond. Du skal finne de typiske årlige forvaltningshonorarene for et bredt "
+                "indeksfond og et aktivt aksjefond.",
+                "Forvaltningshonoraret er en fast prosent av forvaltet kapital per år. Et indeksfond kopierer en "
+                "indeks og trenger lite arbeid. Et aktivt fond betaler for analyse og forvaltning."),
+}
+for _k, (_tema, _regel) in HS_TRINN.items():
+    HS[_k] = hjelp3(_tema, _regel, HS[_k])
 
 statisk(
     "prt-s01", tema=T, type="paastand",
@@ -1863,7 +2092,7 @@ statisk(
       "<p>Hvilke påstander er riktige?</p>",
     alternativer=[
         R("Bare I"),
-        F("Bare II", "Snudd. Forventningen er alltid lineær. Standardavviket er lavere enn snittet når ρ er under 1."),
+        F("Bare II", "II holder ikke her. Med ρ under 1 gir krysleddet en diversifiseringsgevinst, så standardavviket blir lavere enn det vektede snittet."),
         F("Både I og II", "II gjelder bare ved ρ = 1. Med ρ = 0,3 er standardavviket lavere enn det vektede snittet."),
         F("Ingen av dem", "I er riktig: forventet avkastning er alltid et rent vektet snitt."),
     ],

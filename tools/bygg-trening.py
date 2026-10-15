@@ -151,6 +151,12 @@ def main():
         rad.update({"type": typ, "q": sp["q"].strip(), "options": options, "answer": answer,
                     "traps": traps, "kort": sp["kort"].strip(), "full": sp["full"].strip()})
         hjelp = sp.get("hjelp") or fam_hjelp
+        # Tre trinn (hjelp3): tema og regel blir hint, oppsettet er hjelpen.
+        if isinstance(hjelp, (tuple, list)):
+            if len(hjelp) != 3 or not all(str(h or "").strip() for h in hjelp):
+                raise L.Avvis(f"{hvor}: hjelp3 må ha tre tekster")
+            rad["hint"] = [hjelp[0].strip(), hjelp[1].strip()]
+            hjelp = hjelp[2]
         if hjelp: rad["hjelp"] = hjelp.strip()
         ut.append(rad)
         return modus

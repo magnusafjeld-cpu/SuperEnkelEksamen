@@ -145,7 +145,9 @@ window.EDU = window.EDU || {};
   function renderList() {
     const wrap = el(".fade-in");
     const sets = SETS();
-    wrap.appendChild(sh().pageHead("Eksamenssett", `${sets.length} tidligere eksamener`,
+    /* Ikke alle settene er eksamener: FIE432 har også flervalgstesten til
+       kursgodkjenning. Undertittelen teller derfor sett. */
+    wrap.appendChild(sh().pageHead("Eksamenssett", sets.length === 1 ? "1 sett" : `${sets.length} sett`,
       "Hele sett, slik de ble gitt. Kjør dem som øving med fasit underveis, eller som ekte eksamen på tid der fasiten først åpner seg når du leverer."));
 
     if (!sets.length) { wrap.appendChild(sh().empty("📄", "Ingen eksamenssett ennå", "Faget har ikke lagt inn sett i EDU_DATA.sets.")); return wrap; }

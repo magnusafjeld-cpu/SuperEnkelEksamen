@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-10-12
+oppdatert: 2026-10-15
 ---
 
 # Beslutningslogg
@@ -164,6 +164,17 @@ spørsmål, rett i `_trening/*.py` og bygg på nytt, aldri i `trening.js`. Aritm
 er riktig per konstruksjon, men **premissene er det ikke**: en gal regel i en
 familie blir gal i alle variantene. Derfor blindkontroll av minst to varianter per
 familie. Se [[Moduler og visninger]].
+
+## Inntektsskiftingslikningen følger forelesningen for 2026 (15. oktober 2026)
+Eksamensfasitene H2017 og H2020 brukte t<sub>w</sub> = t<sub>A</sub> + (1 − t<sub>A</sub>) × t<sub>e</sub> × y. Forelesning 5 i
+2026 legger nominelle satser sammen: 47,4 % + 12,4 % = 22 % + 22 % × y, og
+kursgodkjenningstesten bruker den formen. Appen lærer derfor bort 2026-formen. Den
+eldre står bare som felle eller som «eldre eksamener». Tekstuttrekket appen ble bygget
+fra, manglet formelobjektene i lysbildene. Derfor kom feilen inn.
+
+## MC-testen publiseres med løsninger før fristen (15. oktober 2026)
+Kurset deler ikke ut fasit til kursgodkjenningstesten. Appen er offentlig. Magnus
+fikk spørsmålet og valgte å publisere settet med løsninger med en gang.
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på

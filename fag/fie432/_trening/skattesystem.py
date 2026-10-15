@@ -94,168 +94,406 @@ def _s(*steg):
 
 HJ = {
     "ska-trinn1": {
-        False: _s("<b>Steg 1: skatt i hvert trinn.</b> Gang hver sats bare med den delen av inntekten som ligger inne i "
-                  "trinnet: første grense × første sats, avstanden mellom grensene × andre sats og inntekten over "
-                  "øverste grense × toppsatsen.",
-                  "<b>Steg 2: summer</b> de tre beløpene.",
-                  "<b>Steg 3: del på inntekten.</b> Gjennomsnittsskatt = samlet skatt / inntekt.",
-                  "<b>Pass på:</b> toppsatsen brukt på hele inntekten er marginalskatten, ikke snittet. Svaret må ligge "
-                  "mellom snittet ved øverste grense og toppsatsen."),
-        True: _s("<b>Steg 1: skattepliktig inntekt</b> = brutto inntekt − fradrag.",
-                 "<b>Steg 2: trinnene.</b> Bruk satsene på den skattepliktige inntekten, hver sats bare på inntekten inne "
-                 "i sitt trinn. Summer.",
-                 "<b>Steg 3: effektiv sats</b> = betalt skatt / <i>brutto</i> inntekt.",
-                 "<b>Pass på:</b> delt på skattepliktig inntekt forsvinner virkningen av fradragene. Trinnene skal ikke "
-                 "brukes på brutto inntekt. Toppsatsen skal ikke brukes på alt."),
+        False: hjelp3(
+            "Dette er gjennomsnittsskatt i et trinnsystem. Du skal finne hvor stor andel av hele inntekten som går "
+            "til skatt.",
+            "T = s<sub>1</sub> × G<sub>1</sub> + s<sub>2</sub> × (G<sub>2</sub> − G<sub>1</sub>) + s<sub>3</sub> × "
+            "(Y − G<sub>2</sub>), der G er grensene og s satsene. Gjennomsnittsskatt = T / Y.",
+            _s("<b>Steg 1: skatt i hvert trinn.</b> Gang hver sats bare med den delen av inntekten som ligger inne i "
+               "trinnet: første grense × første sats, avstanden mellom grensene × andre sats og inntekten over "
+               "øverste grense × toppsatsen.",
+               "<b>Steg 2: summer</b> de tre beløpene.",
+               "<b>Steg 3: del på inntekten.</b> Gjennomsnittsskatt = samlet skatt / inntekt.",
+               "<b>Pass på:</b> toppsatsen brukt på hele inntekten er marginalskatten, ikke snittet. Svaret må ligge "
+               "mellom snittet ved øverste grense og toppsatsen."),
+        ),
+        True: hjelp3(
+            "Dette er effektiv skattesats i et trinnsystem med fradrag. Du skal finne betalt skatt som andel av "
+            "brutto inntekt.",
+            "Skattepliktig inntekt Y<sub>s</sub> = brutto − fradrag. T = s<sub>1</sub> × G<sub>1</sub> + "
+            "s<sub>2</sub> × (G<sub>2</sub> − G<sub>1</sub>) + s<sub>3</sub> × (Y<sub>s</sub> − G<sub>2</sub>). "
+            "Effektiv sats = T / brutto inntekt.",
+            _s("<b>Steg 1: skattepliktig inntekt</b> = brutto inntekt − fradrag.",
+               "<b>Steg 2: trinnene.</b> Bruk satsene på den skattepliktige inntekten, hver sats bare på inntekten inne "
+               "i sitt trinn. Summer.",
+               "<b>Steg 3: effektiv sats</b> = betalt skatt / <i>brutto</i> inntekt.",
+               "<b>Pass på:</b> delt på skattepliktig inntekt forsvinner virkningen av fradragene. Trinnene skal ikke "
+               "brukes på brutto inntekt. Toppsatsen skal ikke brukes på alt."),
+        ),
     },
-    "ska-trinn2": _s("<b>Steg 1: de nederste trinnene.</b> Ligger begge over øverste grense, betaler de det samme i de to "
-                     "nederste trinnene: første grense × første sats + avstanden mellom grensene × andre sats.",
-                     "<b>Steg 2: toppsjiktet for hver:</b> (inntekt − øverste grense) × toppsatsen.",
-                     "<b>Steg 3: del hver skatt på hver sin inntekt.</b>",
-                     "<b>Kontroll:</b> forskjellen i skatt skal være toppsatsen × forskjellen i inntekt. Begge snittene "
-                     "må ligge under toppsatsen. Den med høyest inntekt skal ha høyest snitt."),
+    "ska-trinn2": hjelp3(
+        "Dette er gjennomsnittsskatt i et trinnsystem for to personer. Du skal finne andelen av inntekten hver av "
+        "dem betaler i skatt.",
+        "Over øverste grense G<sub>2</sub>: T(Y) = s<sub>1</sub> × G<sub>1</sub> + s<sub>2</sub> × (G<sub>2</sub> − "
+        "G<sub>1</sub>) + s<sub>3</sub> × (Y − G<sub>2</sub>). Gjennomsnittsskatt = T(Y) / Y for hver person.",
+        _s("<b>Steg 1: de nederste trinnene.</b> Ligger begge over øverste grense, betaler de det samme i de to "
+           "nederste trinnene: første grense × første sats + avstanden mellom grensene × andre sats.",
+           "<b>Steg 2: toppsjiktet for hver:</b> (inntekt − øverste grense) × toppsatsen.",
+           "<b>Steg 3: del hver skatt på hver sin inntekt.</b>",
+           "<b>Kontroll:</b> forskjellen i skatt skal være toppsatsen × forskjellen i inntekt. Begge snittene "
+           "må ligge under toppsatsen. Den med høyest inntekt skal ha høyest snitt."),
+    ),
     "ska-bunn1": {
-        "gap": _s("<b>Steg 1: snittet for hver person:</b> t × (Y − B)/Y, altså t × (1 − B/Y).",
-                  "<b>Steg 2: trekk det laveste snittet fra det høyeste.</b> Svaret er i prosentpoeng.",
-                  "<b>Snarvei:</b> t × B × (1/Y<sub>lav</sub> − 1/Y<sub>høy</sub>).",
-                  "<b>Pass på:</b> bunnfradraget trekkes fra inntekten, ikke fra skatten. Lik sats over fradraget betyr "
-                  "ikke lik gjennomsnittsskatt. En relativ forskjell er ikke prosentpoeng."),
-        "en": _s("<b>Steg 1: skattegrunnlaget</b> = inntekt − bunnfradrag.",
-                 "<b>Steg 2: skatten</b> = sats × grunnlag.",
-                 "<b>Steg 3: gjennomsnittsskatten</b> = skatt / inntekt, eller direkte t × (1 − B/Y).",
-                 "<b>Pass på:</b> satsen alene er marginalskatten. Bunnfradraget trekkes fra inntekten, ikke fra "
-                 "skatten. Svaret må ligge mellom null og satsen."),
+        "gap": hjelp3(
+            "Dette er progressivitet med flat sats og bunnfradrag. Du skal finne forskjellen i gjennomsnittsskatt "
+            "mellom to inntekter, målt i prosentpoeng.",
+            "t̄(Y) = t × (1 − B/Y). Forskjell = t̄(Y<sub>høy</sub>) − t̄(Y<sub>lav</sub>) = t × B × "
+            "(1/Y<sub>lav</sub> − 1/Y<sub>høy</sub>).",
+            _s("<b>Steg 1: snittet for hver person:</b> t × (Y − B)/Y, altså t × (1 − B/Y).",
+               "<b>Steg 2: trekk det laveste snittet fra det høyeste.</b> Svaret er i prosentpoeng.",
+               "<b>Snarvei:</b> t × B × (1/Y<sub>lav</sub> − 1/Y<sub>høy</sub>).",
+               "<b>Pass på:</b> bunnfradraget trekkes fra inntekten, ikke fra skatten. Lik sats over fradraget betyr "
+               "ikke lik gjennomsnittsskatt. En relativ forskjell er ikke prosentpoeng."),
+        ),
+        "en": hjelp3(
+            "Dette er gjennomsnittsskatt med flat sats og bunnfradrag. Du skal finne hvor stor andel av inntekten "
+            "personen betaler i skatt.",
+            "Skatt T = t × (Y − B). Gjennomsnittsskatt t̄(Y) = T/Y = t × (1 − B/Y).",
+            _s("<b>Steg 1: skattegrunnlaget</b> = inntekt − bunnfradrag.",
+               "<b>Steg 2: skatten</b> = sats × grunnlag.",
+               "<b>Steg 3: gjennomsnittsskatten</b> = skatt / inntekt, eller direkte t × (1 − B/Y).",
+               "<b>Pass på:</b> satsen alene er marginalskatten. Bunnfradraget trekkes fra inntekten, ikke fra "
+               "skatten. Svaret må ligge mellom null og satsen."),
+        ),
     },
-    "ska-eff1": _s("<b>Steg 1: årets avskrivning</b> = maskinens pris / antall år. Bare den trekkes fra i år.",
-                   "<b>Steg 2: skattepliktig overskudd</b> = driftsinntekter − årets avskrivning − eventuelt framført "
-                   "underskudd.",
-                   "<b>Steg 3: betalt skatt</b> = selskapsskatten × skattepliktig overskudd.",
-                   "<b>Steg 4: effektiv sats</b> = betalt skatt / driftsinntektene.",
-                   "<b>Pass på:</b> delt på skattepliktig overskudd får du bare den nominelle satsen tilbake. Hele "
-                   "maskinen skal ikke trekkes fra i år."),
+    "ska-eff1": hjelp3(
+        "Dette er effektiv skattesats for et selskap. Du skal finne betalt skatt som andel av driftsinntektene når "
+        "fradrag senker skatten.",
+        "Skattepliktig overskudd = driftsinntekter − årets avskrivning − framført underskudd. Betalt skatt = t × "
+        "skattepliktig overskudd. Effektiv sats = betalt skatt / driftsinntekter.",
+        _s("<b>Steg 1: årets avskrivning</b> = maskinens pris / antall år. Bare den trekkes fra i år.",
+           "<b>Steg 2: skattepliktig overskudd</b> = driftsinntekter − årets avskrivning − eventuelt framført "
+           "underskudd.",
+           "<b>Steg 3: betalt skatt</b> = selskapsskatten × skattepliktig overskudd.",
+           "<b>Steg 4: effektiv sats</b> = betalt skatt / driftsinntektene.",
+           "<b>Pass på:</b> delt på skattepliktig overskudd får du bare den nominelle satsen tilbake. Hele "
+           "maskinen skal ikke trekkes fra i år."),
+    ),
     "ska-eff2": {
-        "samlet": _s("<b>Steg 1: selskapsskatt</b> = selskapets sats × overskudd. <b>Steg 2: utbytte</b> = overskudd − "
-                     "selskapsskatt.",
-                     "<b>Steg 3: skjerming</b> (når den er oppgitt) = kostpris × skjermingsrente. Skattepliktig utbytte = "
-                     "utbytte − skjerming.",
-                     "<b>Steg 4: eierskatt</b> = skattepliktig utbytte × faktor × sats.",
-                     "<b>Steg 5: samlet sats</b> = (selskapsskatt + eierskatt) / overskudd før skatt.",
-                     "<b>Pass på:</b> satsene skal ikke legges sammen. Eierskatten treffer bare det som er igjen etter "
-                     "selskapsskatten."),
-        "utbytte": _s("<b>Steg 1: selskapsskatt</b> = selskapets sats × overskudd. <b>Steg 2: utbytte</b> = overskudd − "
-                      "selskapsskatt.",
-                      "<b>Steg 3: skjerming</b> = kostpris × skjermingsrente. Skattepliktig utbytte = utbytte − skjerming.",
-                      "<b>Steg 4: eierskatt</b> = skattepliktig utbytte × faktor × sats.",
-                      "<b>Steg 5: effektiv skatt på utbyttet</b> = eierskatt / utbytte.",
-                      "<b>Pass på:</b> nevneren er utbyttet, ikke overskuddet før skatt. Uten skjerming ville svaret vært "
-                      "faktor × sats. Skjermingen trekker det ned."),
+        "samlet": hjelp3(
+            "Dette er samlet skatt på utdelt overskudd. Du skal finne selskapsskatt og eierskatt til sammen som "
+            "andel av overskuddet før skatt.",
+            "Utbytte D = P × (1 − t<sub>A</sub>). Eierskatt E = (D − skjerming) × y × t. Samlet sats = "
+            "(t<sub>A</sub> × P + E) / P. Uten skjerming blir det t<sub>A</sub> + (1 − t<sub>A</sub>) × y × t.",
+            _s("<b>Steg 1: selskapsskatt</b> = selskapets sats × overskudd. <b>Steg 2: utbytte</b> = overskudd − "
+               "selskapsskatt.",
+               "<b>Steg 3: skjerming</b> (når den er oppgitt) = kostpris × skjermingsrente. Skattepliktig utbytte = "
+               "utbytte − skjerming.",
+               "<b>Steg 4: eierskatt</b> = skattepliktig utbytte × faktor × sats.",
+               "<b>Steg 5: samlet sats</b> = (selskapsskatt + eierskatt) / overskudd før skatt.",
+               "<b>Pass på:</b> satsene skal ikke legges sammen. Eierskatten treffer bare det som er igjen etter "
+               "selskapsskatten."),
+        ),
+        "utbytte": hjelp3(
+            "Dette er effektiv skatt på utbytte hos eieren. Du skal finne eierskatten som andel av utbyttet når "
+            "skjermingen trekker satsen ned.",
+            "Utbytte D = P × (1 − t<sub>A</sub>). Eierskatt E = (D − kostpris × skjermingsrente) × y × t. Effektiv "
+            "skatt på utbyttet = E / D.",
+            _s("<b>Steg 1: selskapsskatt</b> = selskapets sats × overskudd. <b>Steg 2: utbytte</b> = overskudd − "
+               "selskapsskatt.",
+               "<b>Steg 3: skjerming</b> = kostpris × skjermingsrente. Skattepliktig utbytte = utbytte − skjerming.",
+               "<b>Steg 4: eierskatt</b> = skattepliktig utbytte × faktor × sats.",
+               "<b>Steg 5: effektiv skatt på utbyttet</b> = eierskatt / utbytte.",
+               "<b>Pass på:</b> nevneren er utbyttet, ikke overskuddet før skatt. Uten skjerming ville svaret vært "
+               "faktor × sats. Skjermingen trekker det ned."),
+        ),
     },
     "ska-just1": {
-        "y": _s("<b>Steg 1: likningen.</b> Toppskatt på lønn = t<sub>A</sub> + (1 − t<sub>A</sub>) × y × t.",
-                "<b>Steg 2:</b> trekk t<sub>A</sub> fra begge sider.",
-                "<b>Steg 3:</b> del på (1 − t<sub>A</sub>) × t.",
-                "<b>Pass på:</b> eierskatten treffer bare det som er igjen etter selskapsskatten, så (1 − t<sub>A</sub>) "
-                "skal stå i nevneren. Toppskatten skal ha selskapsskatten trukket fra.",
-                "<b>Kontroll:</b> sett svaret inn igjen og se at du får toppskatten."),
-        "te": _s("<b>Steg 1: likningen</b> med eierskatten t<sub>e</sub> = y × t: t<sub>w</sub> = t<sub>A</sub> + "
-                 "(1 − t<sub>A</sub>) × t<sub>e</sub>.",
-                 "<b>Steg 2: løs for t<sub>e</sub>:</b> (t<sub>w</sub> − t<sub>A</sub>)/(1 − t<sub>A</sub>).",
-                 "<b>Pass på:</b> svaret er verken t<sub>w</sub> − t<sub>A</sub> eller toppskatten selv. Uten oppjustering "
-                 "blir eierskatten bare den nominelle satsen.",
-                 "<b>Kontroll:</b> t<sub>A</sub> + (1 − t<sub>A</sub>) × t<sub>e</sub> skal bli toppskatten."),
+        "y": hjelp3(
+            "Dette er inntektsskiftingslikningen. Du skal finne oppjusteringsfaktoren y som gjør de nominelle "
+            "satsene på lønn og utbytte like store.",
+            "t<sub>w</sub> + a<sub>L</sub> = t<sub>A</sub> + a<sub>F</sub> + y × t<sub>e</sub>. a<sub>L</sub> er "
+            "den delen av arbeidsgiveravgiften arbeidstakeren bærer, a<sub>F</sub> den delen bedriften bærer. "
+            "Satsene legges rett sammen.",
+            _s("<b>Steg 1: fordel avgiften.</b> Les hvem som bærer arbeidsgiveravgiften. Arbeidstakerens del står "
+               "på lønnssiden, bedriftens del på selskapssiden.",
+               "<b>Steg 2: sett inn</b> toppskatten, selskapsskatten og eierskattesatsen.",
+               "<b>Steg 3: løs for y.</b> Trekk alt på selskapssiden unntatt eierskatten fra lønnssiden. Del på "
+               "t<sub>e</sub>.",
+               "<b>Pass på:</b> ingen (1 − t<sub>A</sub>) i nevneren. Den hører til en eldre form. Glem verken "
+               "selskapsskatten eller avgiften.",
+               "<b>Kontroll:</b> sett y inn igjen. Begge sider skal bli like store."),
+        ),
+        "eff": hjelp3(
+            "Dette er inntektsskiftingslikningen. Du skal finne eierskatten på utbytte, altså "
+            "oppjusteringsfaktoren y ganget med eierskattesatsen.",
+            "t<sub>w</sub> + a<sub>L</sub> = t<sub>A</sub> + a<sub>F</sub> + y × t<sub>e</sub>. a<sub>L</sub> er "
+            "den delen av arbeidsgiveravgiften arbeidstakeren bærer, a<sub>F</sub> den delen bedriften bærer. "
+            "Eierskatten er y × t<sub>e</sub>.",
+            _s("<b>Steg 1: fordel avgiften.</b> Arbeidstakerens del står på lønnssiden, bedriftens del på "
+               "selskapssiden.",
+               "<b>Steg 2: løs for y</b> og rund av til to desimaler.",
+               "<b>Steg 3: eierskatten</b> = y × t<sub>e</sub>.",
+               "<b>Pass på:</b> svaret er ikke t<sub>e</sub> alene. Det skal ikke stå (1 − t<sub>A</sub>) i "
+               "nevneren. Selskapsskatten skal trekkes fra.",
+               "<b>Kontroll:</b> eierskatten pluss selskapssidens andre ledd skal bli lik lønnssiden."),
+        ),
     },
-    "ska-eier1": _s("<b>Steg 1: selskapets skatt</b> = sats × (driftsinntekter − avskrivninger). Ta eierandelen av den.",
-                    "<b>Steg 2: eierens egen skatt</b> = eierandelen av utbyttet × 37,84 %, pluss eventuell skatt på lønn.",
-                    "<b>Steg 3: brøken.</b> Teller: andelen av selskapets skatt + egen skatt. Nevner: eierandel × "
-                    "driftsinntekter + eventuell lønn.",
-                    "<b>Pass på:</b> eierandelen skal brukes både i teller og nevner. Nevneren er driftsinntektene, ikke "
-                    "overskuddet. Utbyttet telles ikke en gang til. Bare skattemeldingen gir for høyt tall."),
+    "ska-eier1": hjelp3(
+        "Dette er eierens effektive skattesats når selskapets skatt og inntekt regnes med etter eierandelen, slik "
+        "kurset gjør for eiere.",
+        "Effektiv sats = (α × selskapets skatt + eierskatt på eierens utbytte + skatt på lønn) / (α × "
+        "driftsinntekter + lønn), der α er eierandelen. Selskapets skatt = t<sub>A</sub> × (driftsinntekter − "
+        "avskrivninger).",
+        _s("<b>Steg 1: selskapets skatt</b> = sats × (driftsinntekter − avskrivninger). Ta eierandelen av den.",
+           "<b>Steg 2: eierens egen skatt</b> = eierandelen av utbyttet × 37,84 %, pluss eventuell skatt på lønn.",
+           "<b>Steg 3: brøken.</b> Teller: andelen av selskapets skatt + egen skatt. Nevner: eierandel × "
+           "driftsinntekter + eventuell lønn.",
+           "<b>Pass på:</b> eierandelen skal brukes både i teller og nevner. Nevneren er driftsinntektene, ikke "
+           "overskuddet. Utbyttet telles ikke en gang til. Bare skattemeldingen gir for høyt tall."),
+    ),
     "ska-fradr1": {
-        "diff": _s("<b>Steg 1: alt nå</b> = fradraget × satsen, mottatt i dag.",
-                   "<b>Steg 2: fordelt.</b> Årlig besparelse = årlig avskrivning × satsen. Nåverdi = årlig besparelse × "
-                   "annuitetsfaktoren [1 − (1 + ρ)<sup>−T</sup>]/ρ.",
-                   "<b>Steg 3: forskjellen</b> = alt nå − nåverdien av det fordelte.",
-                   "<b>Pass på:</b> udiskontert er de like store, så «ingen forskjell» stemmer bare ved null rente. Regn på "
-                   "skattebesparelsen, ikke på fradraget. Nåverdien alene er et mellomtall."),
-        "nv": _s("<b>Steg 1: årlig skattebesparelse</b> = årlig avskrivning × satsen.",
-                 "<b>Steg 2: nåverdien</b> = årlig besparelse × annuitetsfaktoren [1 − (1 + ρ)<sup>−T</sup>]/ρ.",
-                 "<b>Pass på:</b> ikke bruk summen uten diskontering, ikke sluttverdifaktoren og ikke glem satsen. "
-                 "Svaret må være lavere enn hele fradraget × satsen."),
+        "diff": hjelp3(
+            "Dette er tidsverdien av et fradrag. Du skal finne hvor mye mer det er verdt å ta hele fradraget nå enn "
+            "å fordele det over flere år.",
+            "Alt nå: F × t. Fordelt: (F/T) × t × [1 − (1 + ρ)<sup>−T</sup>]/ρ, der T er antall år. Forskjell = F × "
+            "t − nåverdien av det fordelte.",
+            _s("<b>Steg 1: alt nå</b> = fradraget × satsen, mottatt i dag.",
+               "<b>Steg 2: fordelt.</b> Årlig besparelse = årlig avskrivning × satsen. Nåverdi = årlig besparelse × "
+               "annuitetsfaktoren [1 − (1 + ρ)<sup>−T</sup>]/ρ.",
+               "<b>Steg 3: forskjellen</b> = alt nå − nåverdien av det fordelte.",
+               "<b>Pass på:</b> udiskontert er de like store, så «ingen forskjell» stemmer bare ved null rente. Regn på "
+               "skattebesparelsen, ikke på fradraget. Nåverdien alene er et mellomtall."),
+        ),
+        "nv": hjelp3(
+            "Dette er nåverdien av skattebesparelser fra avskrivninger. Du skal finne hva besparelsene over flere "
+            "år er verdt i dag.",
+            "Årlig besparelse = årlig avskrivning × t. Nåverdi = årlig besparelse × [1 − (1 + ρ)<sup>−T</sup>]/ρ, "
+            "med første besparelse ved slutten av år 1.",
+            _s("<b>Steg 1: årlig skattebesparelse</b> = årlig avskrivning × satsen.",
+               "<b>Steg 2: nåverdien</b> = årlig besparelse × annuitetsfaktoren [1 − (1 + ρ)<sup>−T</sup>]/ρ.",
+               "<b>Pass på:</b> ikke bruk summen uten diskontering, ikke sluttverdifaktoren og ikke glem satsen. "
+               "Svaret må være lavere enn hele fradraget × satsen."),
+        ),
     },
     "ska-rente1": {
-        "rente": _s("<b>Steg 1: banken etter skatt</b> = rente × (1 − 22 %).",
-                    "<b>Steg 2: fondet må gi det samme etter skatt:</b> r × (1 − 37,84 %) = bankrenten etter skatt.",
-                    "<b>Steg 3: løs for r.</b>",
-                    "<b>Pass på:</b> ikke stopp etter steg 1. Ikke snu brøken heller. Fondet skattlegges hardere, så det må gi "
-                    "mer enn banken før skatt."),
-        "kroner": _s("<b>Steg 1: renten etter skatt</b> = renteinntekt × (1 − 22 %).",
-                     "<b>Steg 2: gevinsten G må gi det samme:</b> G × (1 − 37,84 %) = renten etter skatt.",
-                     "<b>Steg 3: løs for G.</b>",
-                     "<b>Pass på:</b> begge inntektene skattlegges. Gevinsten skattlegges hardere, så den må være større "
-                     "enn renteinntekten. Snur du brøken, blir den mindre."),
-        "omvendt": _s("<b>Steg 1: fondet etter skatt</b> = avkastning × (1 − 37,84 %).",
-                      "<b>Steg 2: banken må gi det samme etter skatt:</b> i × (1 − 22 %) = fondet etter skatt.",
-                      "<b>Steg 3: løs for i.</b>",
-                      "<b>Pass på:</b> renter skattlegges lettere, så bankrenten kan være lavere enn fondets avkastning. "
-                      "Fondet etter skatt er et mellomtall, ikke svaret."),
+        "rente": hjelp3(
+            "Dette er rente mot aksjeavkastning etter skatt. Du skal finne hvor høy avkastning før skatt fondet må "
+            "gi for å holde følge med banken.",
+            "Etter skatt: bank = i × (1 − 22 %), fond = r × (1 − 37,84 %). Sett dem like: r = i × (1 − 22 %) / (1 − "
+            "37,84 %).",
+            _s("<b>Steg 1: banken etter skatt</b> = rente × (1 − 22 %).",
+               "<b>Steg 2: fondet må gi det samme etter skatt:</b> r × (1 − 37,84 %) = bankrenten etter skatt.",
+               "<b>Steg 3: løs for r.</b>",
+               "<b>Pass på:</b> ikke stopp etter steg 1. Ikke snu brøken heller. Fondet skattlegges hardere, så det må gi "
+               "mer enn banken før skatt."),
+        ),
+        "kroner": hjelp3(
+            "Dette er renteinntekt mot aksjegevinst etter skatt. Du skal finne hvor stor gevinst som gir like mye "
+            "etter skatt som renten.",
+            "Renten etter skatt = R × (1 − 22 %). Gevinsten etter skatt = G × (1 − 37,84 %). Sett dem like og løs "
+            "for G.",
+            _s("<b>Steg 1: renten etter skatt</b> = renteinntekt × (1 − 22 %).",
+               "<b>Steg 2: gevinsten G må gi det samme:</b> G × (1 − 37,84 %) = renten etter skatt.",
+               "<b>Steg 3: løs for G.</b>",
+               "<b>Pass på:</b> begge inntektene skattlegges. Gevinsten skattlegges hardere, så den må være større "
+               "enn renteinntekten. Snur du brøken, blir den mindre."),
+        ),
+        "omvendt": hjelp3(
+            "Dette er aksjeavkastning mot rente etter skatt. Du skal finne hvor høy bankrente som gir like mye "
+            "etter skatt som fondet.",
+            "Fondet etter skatt = r × (1 − 37,84 %). Banken etter skatt = i × (1 − 22 %). Sett dem like og løs for "
+            "i.",
+            _s("<b>Steg 1: fondet etter skatt</b> = avkastning × (1 − 37,84 %).",
+               "<b>Steg 2: banken må gi det samme etter skatt:</b> i × (1 − 22 %) = fondet etter skatt.",
+               "<b>Steg 3: løs for i.</b>",
+               "<b>Pass på:</b> renter skattlegges lettere, så bankrenten kan være lavere enn fondets avkastning. "
+               "Fondet etter skatt er et mellomtall, ikke svaret."),
+        ),
     },
-    "ska-real1": _s("<b>Steg 1: nominelt etter skatt</b> = i × (1 − t).",
-                    "<b>Steg 2: realt</b> = (1 + nominell avkastning etter skatt)/(1 + π) − 1.",
-                    "<b>Pass på:</b> rekkefølgen er nominelt, skatt, realt. Ikke legg skatten på realavkastningen. Ikke "
-                    "bruk tilnærmingen i − π når oppgaven ber om to desimaler. Er inflasjonen høyere enn renten etter "
-                    "skatt, blir svaret negativt."),
+    "ska-real1": hjelp3(
+        "Dette er realavkastning etter skatt. Du skal finne avkastningen målt i kjøpekraft når skatten treffer den "
+        "nominelle avkastningen.",
+        "Realavkastning etter skatt = (1 + i × (1 − t)) / (1 + π) − 1, der i er nominell avkastning, t skattesatsen "
+        "og π inflasjonen.",
+        _s("<b>Steg 1: nominelt etter skatt</b> = i × (1 − t).",
+           "<b>Steg 2: realt</b> = (1 + nominell avkastning etter skatt)/(1 + π) − 1.",
+           "<b>Pass på:</b> rekkefølgen er nominelt, skatt, realt. Ikke legg skatten på realavkastningen. Ikke "
+           "bruk tilnærmingen i − π når oppgaven ber om to desimaler. Er inflasjonen høyere enn renten etter "
+           "skatt, blir svaret negativt."),
+    ),
 }
 
 HS = {
-    "ska-s01": '<p>Marginalskatt er ΔT/ΔY. Gjennomsnittsskatt er T/Y.</p><p><b>Steg 1:</b> hva måler hvert av dem i ord?</p><p><b>Steg 2:</b> hvilken av dem er normalt høyest i et system med bunnfradrag og trinn?</p><p><b>Steg 3:</b> koble tallene i oppgaven til begrepene og sjekk hvert alternativ. Gjelder begrepene den samlede inntekten eller bestemte inntektsarter?</p>',
-    "ska-s02": '<p>Skill tre mål: kronebeløp i skatt, skatt på neste krone og skatt delt på hele inntekten.</p><p><b>Steg 1:</b> hvilket av dem må stige med inntekten for at systemet skal kalles progressivt?</p><p><b>Steg 2:</b> test hvert alternativ med en flat skatt uten bunnfradrag. Oppfyller den alternativets kriterium? Bør den kalles progressiv?</p>',
-    "ska-s03": _s("Vurder hver påstand for seg med definisjonen: progressivt betyr at gjennomsnittsskatten stiger med "
-                  "inntekten.",
-                  "Regn snittet for begge inntektene i hvert system. Med bunnfradrag er snittet t × (1 − B/Y). Uten "
-                  "bunnfradrag er det bare t. En begrunnelse som teller kroner, holder ikke, selv om tallene stemmer."),
-    "ska-s04": _s("Med flat sats t og bunnfradrag B er forskjellen i snitt mellom to inntekter "
-                  "t × B × (1/Y<sub>lav</sub> − 1/Y<sub>høy</sub>).",
-                  "Se hvordan den avhenger av B når satsen og inntektene står fast. Regn gjerne forskjellen før og etter "
-                  "endringen. Stryk svar som ser på kronebeløp eller på marginalskatten."),
-    "ska-s05": _s("Skill mellom to grunnlag. Personinntekt er brutto lønn uten fradrag. Alminnelig inntekt er all inntekt "
-                  "minus fradrag.",
-                  "Spør for hver skatt: er den knyttet til selve arbeidsinntekten eller den progressive delen av "
-                  "lønnsskatten? Eller er den en generell skatt på netto inntekt? Bare den generelle skatten regnes "
-                  "etter fradrag."),
-    "ska-s06": '<p>Del marginalskatten opp i de tre skattene på lønn.</p><p><b>Steg 1:</b> spør for hver skatt om den regnes av alminnelig inntekt eller av brutto lønn.</p><p><b>Steg 2:</b> hvilke av dem påvirkes av et fradrag i alminnelig inntekt?</p><p><b>Steg 3:</b> verdien av fradraget er beløpet ganget med satsene som faktisk endres. Er de satsene like for begge personene?</p>',
-    "ska-s07": '<p>Marginalskatt på lønn er det lønnstakeren betaler av neste krone lønn.</p><p><b>Steg 1:</b> list opp skattene som treffer en lønnskrone i øverste trinn hos lønnstakeren.</p><p><b>Steg 2:</b> betaler arbeidsgiveren noe i tillegg? Er det med i lønnstakerens marginalskatt?</p><p><b>Steg 3:</b> skill satsen på lønn fra satsen på utdelt overskudd. Sjekk hvert alternativ for ledd som mangler eller er for mange.</p>',
-    "ska-s08": _s("<b>Steg 1:</b> finn trinnet lønnen ligger i ved å sammenligne med innslagspunktene.",
-                  "<b>Steg 2:</b> marginalskatten = 22 % + trygdeavgiften + satsen i det trinnet.",
-                  "Minstefradraget står på taket, så neste krone gir ikke mer fradrag.",
-                  "<b>Pass på:</b> ikke bruk trinnet under, ikke glem trygdeavgiften og ikke regn gjennomsnittsskatten."),
-    "ska-s09": '<p>Spør hva målet faktisk regner ut.</p><p><b>Steg 1:</b> skriv betalt skatt som satsen ganget med skattepliktig overskudd.</p><p><b>Steg 2:</b> del på skattepliktig overskudd. Hva sitter du igjen med? Avhenger det av fradragene?</p><p><b>Steg 3:</b> del i stedet på driftsinntektene og sammenlign selskapene. Hva sier det om hvor godt det første målet fanger skattebyrden?</p>',
-    "ska-s10": _s("Skatten er t × (Y − B). Del på Y og forkort brøken.",
-                  "Kontroll: sett inn enkle tall, for eksempel en inntekt som er dobbelt så stor som B. Da er halve "
-                  "inntekten skattefri. Snittet må da bli halve satsen. Stryk uttrykk som blir negative eller som "
-                  "trekker B fra skatten."),
-    "ska-s11": _s("Følg én krone. Selskapet betaler t<sub>A</sub>. Det som er igjen, 1 − t<sub>A</sub>, deles ut. Eieren "
-                  "betaler t<sub>e</sub> av det som er igjen.",
-                  "Legg sammen de to skattebeløpene. Stryk uttrykk som legger satsene rett sammen, som utelater "
-                  "selskapsskatten eller som bytter satsene om. Kontroll med dagens satser: svaret skal bli 51,52 %."),
-    "ska-s12": _s("Skriv likningen t<sub>w</sub> = t<sub>A</sub> + (1 − t<sub>A</sub>) × y × t.",
-                  "Flytt t<sub>A</sub> over og del på det som står foran y.",
-                  "Kontroll: med toppskatt 47,4 % og 22 % for begge de andre satsene skal faktoren bli mindre enn 1,72. "
-                  "Sett den inn igjen og se at du får toppskatten."),
-    "ska-s13": '<p>Følg én krone gjennom tre steg i riktig rekkefølge.</p><p><b>Steg 1:</b> nominell avkastning.</p><p><b>Steg 2:</b> skatten regnes av den nominelle avkastningen. Hva har du etter skatt, kronen inkludert?</p><p><b>Steg 3:</b> gjør beløpet om til realverdi ved å dele på én pluss inflasjonen og trekke fra kronen du startet med. Kontroll: er uttrykket eksakt? Skattlegges bare avkastningen?</p>',
-    "ska-s14": '<p>Sammenlign to strømmer av skattebesparelser med samme sum i kroner.</p><p><b>Steg 1:</b> med positiv rente, hvilken strøm har høyest nåverdi?</p><p><b>Steg 2:</b> hva må til for at et fradrag faktisk sparer skatt i år? Hva skjer med et fradrag som er større enn inntekten, når ubrukt fradrag går tapt?</p><p><b>Steg 3:</b> under hvilke forhold kan det da lønne seg å spre fradraget over flere år?</p>',
-    "ska-s15": _s("Vurder påstandene hver for seg.",
-                  "Hva står på skattemeldingen når selskapet ikke deler ut noe? Hva skjer når selskapets skatt og inntekt "
-                  "tas med etter eierandelen: (α × selskapets skatt + egen skatt)/(α × selskapets inntekt + andre "
-                  "inntekter)?"),
-    "ska-s16": '<p>Følg skatten for en eier som har mye av formuen og inntekten i egne selskaper.</p><p><b>Steg 1:</b> hva betales i selskapet? Når betales eierskatten?</p><p><b>Steg 2:</b> hvordan verdsettes unoterte aksjer i formuesskatten sammenlignet med markedsverdien?</p><p><b>Steg 3:</b> hva skjer med den effektive skattesatsen når overskudd blir stående i selskapet? Sjekk hvert alternativ mot fakta om satser og skjerming.</p>',
-    "ska-s17": _s("Budsjettlinjen har helning −(1 + r(1 − t)) og går alltid gjennom utstyrspunktet.",
-                  "Spør: blir renten etter skatt høyere eller lavere når t øker? Hva betyr det for helningen? Inntektene "
-                  "er uendret, så linjen kan ikke forskyves parallelt."),
-    "ska-s18": '<p>Følg én krone i rekkefølgen nominell rente, skatt og inflasjon.</p><p><b>Steg 1:</b> hvilket grunnlag regnes skatten av, den nominelle renten eller realavkastningen?</p><p><b>Steg 2:</b> regn renten etter skatt og sammenlign med inflasjonen.</p><p><b>Steg 3:</b> avgjør fortegnet på realavkastningen etter skatt.</p>',
-    "ska-s19": _s("Sammenlign to veier for samme overskudd. Lønn: toppskatten på lønn. Utbytte: selskapsskatten først og "
-                  "så eierskatten på resten.",
-                  "Den billigste veien er den eieren velger. <b>Pass på:</b> eierskatten alene overser at selskapsskatten "
-                  "alt er betalt av samme krone."),
+    "ska-s01": hjelp3(
+        "Spørsmålet gjelder forskjellen mellom marginalskatt og gjennomsnittsskatt. Du skal finne hva hvert av "
+        "tallene sier.",
+        "Marginalskatt = ΔT/ΔY. Gjennomsnittsskatt = T/Y. Her er T skatten og Y inntekten.",
+        '<p>Marginalskatt er ΔT/ΔY. Gjennomsnittsskatt er T/Y.</p><p><b>Steg 1:</b> hva måler hvert av dem i ord?</p><p><b>Steg 2:</b> hvilken av dem er normalt høyest i et system med bunnfradrag og trinn?</p><p><b>Steg 3:</b> koble tallene i oppgaven til begrepene og sjekk hvert alternativ. Gjelder begrepene den samlede inntekten eller bestemte inntektsarter?</p>',
+    ),
+    "ska-s02": hjelp3(
+        "Spørsmålet gjelder definisjonen av et progressivt skattesystem.",
+        "Skill mellom tre mål: skatten i kroner T, marginalskatten ΔT/ΔY og gjennomsnittsskatten T/Y. Ordene "
+        "progressiv, proporsjonal og regressiv bygger på ett av dem.",
+        '<p>Skill tre mål: kronebeløp i skatt, skatt på neste krone og skatt delt på hele inntekten.</p><p><b>Steg 1:</b> hvilket av dem må stige med inntekten for at systemet skal kalles progressivt?</p><p><b>Steg 2:</b> test hvert alternativ med en flat skatt uten bunnfradrag. Oppfyller den alternativets kriterium? Bør den kalles progressiv?</p>',
+    ),
+    "ska-s03": hjelp3(
+        "Spørsmålet gjelder om en flat skatt er progressiv, med og uten bunnfradrag.",
+        "Progressivt: gjennomsnittsskatten t̄(Y) stiger med Y. Flat sats t med bunnfradrag B gir t̄(Y) = t × (1 − "
+        "B/Y). Uten bunnfradrag er t̄(Y) = t.",
+        _s("Vurder hver påstand for seg med definisjonen: progressivt betyr at gjennomsnittsskatten stiger med "
+           "inntekten.",
+           "Regn snittet for begge inntektene i hvert system. Med bunnfradrag er snittet t × (1 − B/Y). Uten "
+           "bunnfradrag er det bare t. En begrunnelse som teller kroner, holder ikke, selv om tallene stemmer."),
+    ),
+    "ska-s04": hjelp3(
+        "Spørsmålet gjelder progressivitet: hvordan forskjellen i gjennomsnittsskatt mellom to inntekter endres når "
+        "bunnfradraget økes.",
+        "t̄(Y) = t × (1 − B/Y). Forskjellen mellom to inntekter er t̄(Y<sub>høy</sub>) − t̄(Y<sub>lav</sub>).",
+        _s("Med flat sats t og bunnfradrag B er forskjellen i snitt mellom to inntekter "
+           "t × B × (1/Y<sub>lav</sub> − 1/Y<sub>høy</sub>).",
+           "Se hvordan den avhenger av B når satsen og inntektene står fast. Regn gjerne forskjellen før og etter "
+           "endringen. Stryk svar som ser på kronebeløp eller på marginalskatten."),
+    ),
+    "ska-s05": hjelp3(
+        "Spørsmålet gjelder skattegrunnlagene for lønn: hvilke skatter som regnes av personinntekt og hvilke av "
+        "alminnelig inntekt.",
+        "Personinntekt = brutto lønn, uten fradrag. Alminnelig inntekt = all inntekt − fradrag. Fradragene virker "
+        "bare i ett av de to grunnlagene.",
+        _s("Skill mellom to grunnlag. Personinntekt er brutto lønn uten fradrag. Alminnelig inntekt er all inntekt "
+           "minus fradrag.",
+           "Spør for hver skatt: er den knyttet til selve arbeidsinntekten eller den progressive delen av "
+           "lønnsskatten? Eller er den en generell skatt på netto inntekt? Bare den generelle skatten regnes "
+           "etter fradrag."),
+    ),
+    "ska-s06": hjelp3(
+        "Spørsmålet gjelder verdien av et fradrag i alminnelig inntekt for to personer med ulik marginalskatt.",
+        "Verdi av fradrag = fradrag × summen av satsene som regnes av det grunnlaget fradraget senker. "
+        "Marginalskatten på lønn består av 22 %, trygdeavgift og trinnskatt, med hvert sitt grunnlag.",
+        '<p>Del marginalskatten opp i de tre skattene på lønn.</p><p><b>Steg 1:</b> spør for hver skatt om den regnes av alminnelig inntekt eller av brutto lønn.</p><p><b>Steg 2:</b> hvilke av dem påvirkes av et fradrag i alminnelig inntekt?</p><p><b>Steg 3:</b> verdien av fradraget er beløpet ganget med satsene som faktisk endres. Er de satsene like for begge personene?</p>',
+    ),
+    "ska-s07": hjelp3(
+        "Spørsmålet gjelder den høyeste marginalskatten på lønn og hvilke skatter som inngår i den.",
+        "Marginalskatt på lønn = det lønnstakeren betaler av neste krone: skatt på alminnelig inntekt + "
+        "trygdeavgift + trinnskatt i øverste trinn. Skatter arbeidsgiveren betaler, hører ikke med.",
+        '<p>Marginalskatt på lønn er det lønnstakeren betaler av neste krone lønn.</p><p><b>Steg 1:</b> list opp skattene som treffer en lønnskrone i øverste trinn hos lønnstakeren.</p><p><b>Steg 2:</b> betaler arbeidsgiveren noe i tillegg? Er det med i lønnstakerens marginalskatt?</p><p><b>Steg 3:</b> skill satsen på lønn fra satsen på utdelt overskudd. Sjekk hvert alternativ for ledd som mangler eller er for mange.</p>',
+    ),
+    "ska-s08": hjelp3(
+        "Dette er marginalskatt på lønn. Du skal finne skatten på neste krone Siri tjener.",
+        "Marginalskatt = 22 % + trygdeavgift + trinnskattesatsen i trinnet lønnen ligger i. Minstefradraget på "
+        "taket betyr at neste krone ikke gir mer fradrag.",
+        _s("<b>Steg 1:</b> finn trinnet lønnen ligger i ved å sammenligne med innslagspunktene.",
+           "<b>Steg 2:</b> marginalskatten = 22 % + trygdeavgiften + satsen i det trinnet.",
+           "Minstefradraget står på taket, så neste krone gir ikke mer fradrag.",
+           "<b>Pass på:</b> ikke bruk trinnet under, ikke glem trygdeavgiften og ikke regn gjennomsnittsskatten."),
+    ),
+    "ska-s09": hjelp3(
+        "Spørsmålet gjelder hva et mål på effektiv skattesats sier når betalt skatt deles på skattepliktig "
+        "overskudd.",
+        "Betalt skatt = t × skattepliktig overskudd. Effektiv skattesats = betalt skatt / brutto inntekt. Nevneren "
+        "avgjør om målet fanger virkningen av fradragene.",
+        '<p>Spør hva målet faktisk regner ut.</p><p><b>Steg 1:</b> skriv betalt skatt som satsen ganget med skattepliktig overskudd.</p><p><b>Steg 2:</b> del på skattepliktig overskudd. Hva sitter du igjen med? Avhenger det av fradragene?</p><p><b>Steg 3:</b> del i stedet på driftsinntektene og sammenlign selskapene. Hva sier det om hvor godt det første målet fanger skattebyrden?</p>',
+    ),
+    "ska-s10": hjelp3(
+        "Dette er gjennomsnittsskatt med flat sats og bunnfradrag. Du skal finne uttrykket for skatt delt på "
+        "inntekt.",
+        "Skatt T = t × (Y − B), fordi bare inntekten over bunnfradraget skattlegges. Gjennomsnittsskatt = T/Y.",
+        _s("Skatten er t × (Y − B). Del på Y og forkort brøken.",
+           "Kontroll: sett inn enkle tall, for eksempel en inntekt som er dobbelt så stor som B. Da er halve "
+           "inntekten skattefri. Snittet må da bli halve satsen. Stryk uttrykk som blir negative eller som "
+           "trekker B fra skatten."),
+    ),
+    "ska-s11": hjelp3(
+        "Dette er den effektive skatten på en krone overskudd som deles ut. Du skal finne uttrykket som legger "
+        "sammen selskapsskatt og eierskatt.",
+        "Selskapet betaler t<sub>A</sub> av kronen. Det som er igjen, 1 − t<sub>A</sub>, deles ut. Eieren betaler "
+        "t<sub>e</sub> av utbyttet.",
+        _s("Regn de to skattebeløpene for én krone og legg dem sammen.",
+           "Stryk uttrykk som legger satsene rett sammen, som utelater selskapsskatten eller som bytter satsene om. "
+           "Kontroll med dagens satser: svaret skal bli 51,52 %."),
+    ),
+    "ska-s12": hjelp3(
+        "Dette er inntektsskiftingslikningen. Du skal løse den for oppjusteringsfaktoren y.",
+        "Lønnssiden er t<sub>w</sub> + a. Utbyttesiden er t<sub>A</sub> + y × t<sub>e</sub>. Kurset legger de "
+        "nominelle satsene rett sammen og setter sidene like.",
+        _s("<b>Steg 1:</b> skriv likningen med lønnssiden til venstre og utbyttesiden til høyre.",
+           "<b>Steg 2:</b> flytt t<sub>A</sub> over til lønnssiden.",
+           "<b>Steg 3:</b> del på det som står foran y.",
+           "<b>Kontroll:</b> med 2026-satsene skal faktoren bli 1,72. Uttrykk med (1 − t<sub>A</sub>) i nevneren "
+           "hører til en eldre form."),
+    ),
+    "ska-s13": hjelp3(
+        "Dette er eksakt realavkastning etter skatt. Du skal finne uttrykket der skatten treffer den nominelle "
+        "avkastningen og inflasjonen tas ut til slutt.",
+        "Skatt = t × i, regnet av avkastningen og ikke av beløpet du satte inn. Realavkastning = (1 + nominell "
+        "avkastning) / (1 + π) − 1, eksakt og uten tilnærming.",
+        '<p>Følg én krone gjennom tre steg i riktig rekkefølge.</p><p><b>Steg 1:</b> nominell avkastning.</p><p><b>Steg 2:</b> skatten regnes av den nominelle avkastningen. Hva har du etter skatt, kronen inkludert?</p><p><b>Steg 3:</b> gjør beløpet om til realverdi ved å dele på én pluss inflasjonen og trekke fra kronen du startet med. Kontroll: er uttrykket eksakt? Skattlegges bare avkastningen?</p>',
+    ),
+    "ska-s14": hjelp3(
+        "Spørsmålet gjelder tidsverdien av et fradrag: når det kan lønne seg å fordele et fradrag over flere år i "
+        "stedet for å ta alt nå.",
+        "Verdien av et fradrag = fradrag × sats, men bare når det finnes inntekt å trekke det fra. Nåverdien av en "
+        "besparelse i år s = besparelse / (1 + r)<sup>s</sup>.",
+        '<p>Sammenlign to strømmer av skattebesparelser med samme sum i kroner.</p><p><b>Steg 1:</b> med positiv rente, hvilken strøm har høyest nåverdi?</p><p><b>Steg 2:</b> hva må til for at et fradrag faktisk sparer skatt i år? Hva skjer med et fradrag som er større enn inntekten, når ubrukt fradrag går tapt?</p><p><b>Steg 3:</b> under hvilke forhold kan det da lønne seg å spre fradraget over flere år?</p>',
+    ),
+    "ska-s15": hjelp3(
+        "Spørsmålet gjelder effektiv skattesats for en eier som holder overskuddet tilbake i eget selskap.",
+        "Effektiv sats for eier = (α × selskapets skatt + egen skatt) / (α × selskapets inntekt + andre inntekter), "
+        "der α er eierandelen. Skattemeldingen viser bare egen inntekt og egen skatt.",
+        _s("Vurder påstandene hver for seg.",
+           "Hva står på skattemeldingen når selskapet ikke deler ut noe? Hva skjer når selskapets skatt og inntekt "
+           "tas med etter eierandelen: (α × selskapets skatt + egen skatt)/(α × selskapets inntekt + andre "
+           "inntekter)?"),
+    ),
+    "ska-s16": hjelp3(
+        "Spørsmålet gjelder hvorfor den effektive skattesatsen faller for de aller rikeste når selskapsskatt og "
+        "formuesskatt regnes med.",
+        "Effektiv sats = all betalt skatt / samlet inntekt, også overskudd som blir stående i selskap. Tenk på "
+        "hvilke skatter som betales løpende og hvilke som kan vente. Tenk også på hvilken verdi formuesskatten "
+        "bruker.",
+        '<p>Følg skatten for en eier som har mye av formuen og inntekten i egne selskaper.</p><p><b>Steg 1:</b> hva betales i selskapet? Når betales eierskatten?</p><p><b>Steg 2:</b> hvordan verdsettes unoterte aksjer i formuesskatten sammenlignet med markedsverdien?</p><p><b>Steg 3:</b> hva skjer med den effektive skattesatsen når overskudd blir stående i selskapet? Sjekk hvert alternativ mot fakta om satser og skjerming.</p>',
+    ),
+    "ska-s17": hjelp3(
+        "Dette er to-periodemodellen med skatt på renter. Du skal finne hvordan budsjettlinjen endres når "
+        "skattesatsen øker.",
+        "c<sub>2</sub> = y<sub>2</sub> + (1 + r(1 − t)) × (y<sub>1</sub> − c<sub>1</sub>). Helningen er −(1 + r(1 − "
+        "t)). Linjen går alltid gjennom utstyrspunktet (y<sub>1</sub>, y<sub>2</sub>).",
+        _s("Budsjettlinjen har helning −(1 + r(1 − t)) og går alltid gjennom utstyrspunktet.",
+           "Spør: blir renten etter skatt høyere eller lavere når t øker? Hva betyr det for helningen? Inntektene "
+           "er uendret, så linjen kan ikke forskyves parallelt."),
+    ),
+    "ska-s18": hjelp3(
+        "Spørsmålet gjelder realavkastning etter skatt når renten akkurat dekker inflasjonen før skatt.",
+        "Realavkastning etter skatt = (1 + i × (1 − t)) / (1 + π) − 1. Skatten regnes av den nominelle renten i, "
+        "ikke av realavkastningen.",
+        '<p>Følg én krone i rekkefølgen nominell rente, skatt og inflasjon.</p><p><b>Steg 1:</b> hvilket grunnlag regnes skatten av, den nominelle renten eller realavkastningen?</p><p><b>Steg 2:</b> regn renten etter skatt og sammenlign med inflasjonen.</p><p><b>Steg 3:</b> avgjør fortegnet på realavkastningen etter skatt.</p>',
+    ),
+    "ska-s19": hjelp3(
+        "Spørsmålet gjelder inntektsskifting: om det lønner seg for en eier å ta ut overskudd som utbytte i stedet "
+        "for lønn.",
+        "Lønn: toppskatten på lønn. Utbytte: selskapsskatten først og så eierskatten på det som er igjen, "
+        "t<sub>A</sub> + (1 − t<sub>A</sub>) × t<sub>e</sub>.",
+        _s("Sammenlign de to veiene for samme overskudd. Den billigste veien er den eieren velger.",
+           "<b>Pass på:</b> eierskatten alene overser at selskapsskatten alt er betalt av samme krone."),
+    ),
+    "ska-s20": hjelp3(
+        "Spørsmålet gjelder hvilket grunnlag arbeidsgiveravgiften måles mot i inntektsskiftingslikningen.",
+        "Avgiften regnes av utbetalt lønn. Lønnskostnaden er lønn pluss avgift. Samme kronebeløp er en mindre "
+        "andel av lønnskostnaden enn av lønnen.",
+        _s("<b>Steg 1:</b> tenk deg at bedriften setter av en fast sum til lønn og avgift. Del summen i lønn og "
+           "avgift med satsen på utbetalt lønn.",
+           "<b>Steg 2:</b> mål avgiften både mot lønnen og mot hele summen. Hvilket av de to tallene står i "
+           "likningen?",
+           "<b>Pass på:</b> likningen forutsetter at arbeidstakeren bærer hele avgiften."),
+    ),
+    "ska-s21": hjelp3(
+        "Spørsmålet gjelder hva inntektsskiftingslikningen faktisk sammenligner.",
+        "Likningen legger nominelle satser rett sammen. En effektiv skatt måler betalt skatt mot ett og samme "
+        "grunnlag, for eksempel en krone overskudd.",
+        _s("<b>Steg 1:</b> regn den effektive skatten på en krone utdelt overskudd: selskapsskatten først, så "
+           "eierskatten på det som er igjen.",
+           "<b>Steg 2:</b> sammenlign med summen i likningen. Er de like?",
+           "<b>Steg 3:</b> husk hva likningen skal hindre. Test hvert alternativ mot det."),
+    ),
+    "ska-s22": hjelp3(
+        "Dette er inntektsskiftingslikningen når ett ledd endres. Du skal se hvordan oppjusteringsfaktoren må "
+        "tilpasse seg.",
+        "t<sub>w</sub> + a = t<sub>A</sub> + y × t<sub>e</sub>. Selskapsskatten t<sub>A</sub> og eierskatten "
+        "y × t<sub>e</sub> står på samme side.",
+        _s("<b>Steg 1:</b> finn hvilket ledd som endres. Står den andre siden fast?",
+           "<b>Steg 2:</b> skal sidene fortsatt være like, må y ta opp endringen. Bestem retningen.",
+           "<b>Steg 3:</b> husk at eierskatten er y ganget med en fast sats."),
+    ),
 }
 
 
@@ -293,7 +531,7 @@ def _(r):
              f"<p>Hva er {gen(navn)} effektive skattesats? Rund av til to desimaler.</p>")
         alternativer = [
             R(pst(riktig, d), riktig),
-            F(pst(f_skpl, d), f"Riktig skatt, men delt på skattepliktig inntekt i stedet for brutto inntekt: "
+            F(pst(f_skpl, d), f"Skatten er delt på skattepliktig inntekt i stedet for på brutto inntekt: "
               f"{talla(T)}/{tall(Ys)}. Da forsvinner virkningen av fradragene fra målet.", f_skpl),
             F(pst(f_brutto, d), f"Fradragene glemt, så trinnene er brukt på hele brutto inntekt: skatten blir "
               f"{talla(Tb)}. {talla(Tb)}/{tall(Y)} gir dette tallet.", f_brutto),
@@ -694,77 +932,179 @@ def _(r):
 
 
 # ---------------------------------------------------------------------------
-# ska-just1 · Justeringsfaktoren (R3b, H2017 oppgave 2a, H2020 oppgave 1e)
+# ska-just1 · Inntektsskiftingslikningen (R3b, forelesning 5 i 2026)
+# Kurset legger nominelle satser sammen: t_w + a_L = t_A + a_F + y × t_e, der
+# a_L er den delen av arbeidsgiveravgiften arbeidstakeren bærer og a_F den
+# delen bedriften bærer. 47,4 % + 12,4 % = 22 % + 22 % × y gir y ≈ 1,72.
+# Eldre eksamener (H2017, H2020) brukte en form med (1 − t_A) i nevneren. Den
+# står bare som felle her.
 # ---------------------------------------------------------------------------
-@familie("ska-just1", tema="skattesystem", antall=5, tittel="Justeringsfaktoren for utbytte")
+_BAERER = {
+    "full": (1.0, "Anta, som skattesystemet gjør, at arbeidstakeren bærer hele arbeidsgiveravgiften gjennom "
+                  "lavere lønn."),
+    "halv": (0.5, "Anta at arbeidsgiveravgiften deles likt: halvparten bæres av arbeidstakeren gjennom lavere "
+                  "lønn, resten av bedriften."),
+    "bedrift": (0.0, "Anta at bedriften bærer hele arbeidsgiveravgiften. Arbeidstakeren bærer ingenting av den."),
+}
+# (modus, hvem bærer avgiften, faste satser eller None). Første variant er kursets egen regning for 2026,
+# den fjerde tallene fra kursgodkjenningstesten 2026 (47 %, 13 %, 20 %, 20 %).
+_PLAN_JUST1 = [("y", "full", (47.4, 12.4, 22, 22)), ("eff", "full", None), ("y", "halv", None),
+               ("eff", "full", (47.0, 13.0, 20, 20)), ("y", "bedrift", None), ("eff", "halv", None)]
+
+
+def _pp(x):
+    """Prosenttall uten %-tegn, med så få desimaler som trengs: 6.2 → «6,2»."""
+    return tn(x, 2)
+
+
+@familie("ska-just1", tema="skattesystem", antall=6, tittel="Inntektsskiftingslikningen")
 def _(r):
-    tw = r.choice([46.4, 46.7, 47.0, 47.4, 48.0, 49.0])
-    tA = r.choice([22, 22, 24, 25])
-    t = r.choice([20, 22, 22, 23, 24, 25])
-    y = (tw - tA) / ((100 - tA) / 100 * t)
-    te = (tw - tA) / (100 - tA)                        # som brøk
-    if not 1.15 < y < 2.0:
-        raise Avvis("urimelig faktor")
-    modus = syklus("ska-just1", ["y", "te", "y", "y", "te"])
-    q = (f"<p>Toppskatten på lønn er {ps(tw)}. Et selskap betaler {ps(tA)} skatt av overskuddet og deler ut resten som "
-         f"utbytte. Hos eieren skal utbyttet oppjusteres med en faktor y og deretter skattlegges med {ps(t)}. "
-         f"Faktoren skal settes slik at samlet skatt på en krone overskudd som deles ut, blir lik toppskatten på "
-         f"lønn. Se bort fra skjermingsfradraget.</p>")
-    if modus == "y":
-        q += "<p>Hvilken oppjusteringsfaktor y oppfyller kravet? Rund av til to desimaler.</p>"
-        f1 = (tw - tA) / t
-        f2 = tw / ((100 - tA) / 100 * t)
-        f3 = tw / t
-        ulike(y, f1, f2, f3, rel=0.03)
-        alternativer = [
-            R(tall(y, 2), y),
-            F(tall(f1, 2), f"Glemt at eierskatten bare treffer det som er igjen etter selskapsskatt: ({tn(tw)} − {tn(tA)})/"
-              f"{tn(t)}. Nevneren skal ha med {tn((100 - tA) / 100)}.", f1),
-            F(tall(f2, 2), f"Selskapsskatten er ikke trukket fra toppskatten: {tn(tw / 100, 3)}/({tn((100 - tA) / 100)} × "
-              f"{tn(t / 100)}). Da betales selskapsskatten to ganger.", f2),
-            F(tall(f3, 2), f"Selskapsskatten helt utelatt, y × {ps(t)} = {ps(tw)}: {tn(tw)}/{tn(t)}. Overskuddet er alt "
-              f"skattlagt i selskapet.", f3),
-        ]
-        kort = (f"<p><b>{tall(y, 2)}.</b> Løs {tn(tw / 100, 3)} = {tn(tA / 100)} + {tn((100 - tA) / 100)} × y × "
-                f"{tn(t / 100)}: y = ({tn(tw / 100, 3)} − {tn(tA / 100)})/({tn((100 - tA) / 100)} × {tn(t / 100)}) = "
-                f"{tall(y, 2)}.</p>")
-        svar_linje = f"y = {tall((tw - tA) / 100, 3)}/{tall((100 - tA) / 100 * t / 100, 4)} = <b>{tall(y, 2)}</b>"
+    modus, hvem, fast = syklus("ska-just1", _PLAN_JUST1)
+    s, hvem_tekst = _BAERER[hvem]
+    if fast:
+        tw, a, tA, te = fast
     else:
-        q += "<p>Hvor høy blir da den effektive eierskatten y × t på utbytte? Rund av til to desimaler.</p>"
-        f1 = (tw - tA) / 100
-        f2 = tw / 100
-        f3 = t / 100
-        ulike(te, f1, f2, f3, rel=0.03)
-        alternativer = [
-            R(pst(te, 2), te),
-            F(pst(f1, 2), f"Toppskatten minus selskapsskatten, {ps(tw)} − {ps(tA)}, uten å dele på {tn((100 - tA) / 100)}. "
-              f"Eierskatten treffer bare de {tn(100 - tA)} kronene som er igjen etter selskapsskatt.", f1),
-            F(pst(f2, 2), f"Eierskatten satt lik toppskatten på lønn. Da blir samlet skatt på utdelt overskudd langt over "
-              f"{ps(tw)}, fordi selskapet alt har betalt {ps(tA)}.", f2),
-            F(pst(f3, 2), f"Oppjusteringen glemt: bare den nominelle satsen {ps(t)}. Den gir for lav samlet skatt.", f3),
-        ]
-        kort = (f"<p><b>{pst(te, 2)}.</b> Eierskatten t<sub>e</sub> må oppfylle {ps(tA)} + {tn((100 - tA) / 100)} × "
-                f"t<sub>e</sub> = {ps(tw)}, så t<sub>e</sub> = ({tn(tw)} − {tn(tA)})/{tn(100 - tA)} = {pst(te, 2)}.</p>")
-        svar_linje = (f"y = {tall(y, 4)}. Eierskatten blir y × {ps(t)} = <b>{pst(te, 2)}</b>. Raskere: "
-                      f"t<sub>e</sub> = ({tn(tw)} − {tn(tA)})/{tn(100 - tA)}")
+        tw = r.choice([47.4, 47.4, 47.0, 46.7, 48.0, 49.8])
+        a = r.choice([12.4, 12.4, 12.0, 13.0])
+        tA = r.choice([22, 22, 22, 20, 24])
+        te = r.choice([22, 22, 22, 20])
+    aL, aF = s * a, (1 - s) * a
+    netto = tw + aL - tA - aF                         # y × t_e før avrunding av y, i prosent
+    y = netto / te
+    if not 0.4 < y < 2.6:
+        raise Avvis("urimelig faktor")
+    if 0.35 < (y * 100) % 1 < 0.65:
+        raise Avvis("y ligger for nær en avrundingsgrense")
+    y2 = round(y, 2)
+    eff = y2 * te                                     # eierskatten slik kurset regner den: avrundet y × t_e
+
+    # Likningen og telleren skrevet ut med tallene
+    venstre = f"{_pp(tw)} %" + (f" + {_pp(aL)} %" if aL else "")
+    hoyre = f"{_pp(tA)} %" + (f" + {_pp(aF)} %" if aF else "") + f" + {_pp(te)} % × y"
+    teller = _pp(tw) + (f" + {_pp(aL)}" if aL else "") + f" − {_pp(tA)}" + (f" − {_pp(aF)}" if aF else "")
+
+    if tA != 22 and te == 22:
+        intro = (f"Stortinget vurderer å sette selskapsskatten til {ps(tA)}, mens skattene på lønn ikke endres. "
+                 f"Oppjusteringsfaktoren y for utbytte skal settes med inntektsskiftingslikningen.")
+    else:
+        intro = r.choice([
+            "Skattesystemet skal ikke gjøre det lønnsomt for en eier å ta ut lønn som utbytte. "
+            "Oppjusteringsfaktoren y for utbytte settes derfor med inntektsskiftingslikningen.",
+            "En eier som jobber i eget aksjeselskap, kan ta ut overskuddet som lønn eller som utbytte. "
+            "Oppjusteringsfaktoren y for utbytte settes med inntektsskiftingslikningen, slik kurset gjør i 2026.",
+        ])
+    q = (f"<p>{intro} Høyeste marginalskatt på lønn er {ps(tw)}. Arbeidsgiveravgiften utgjør {ps(a)} av "
+         f"bedriftens lønnskostnad. {hvem_tekst} Selskapsskatten er {ps(tA)}. Utbytte oppjusteres med y og "
+         f"skattlegges deretter med {ps(te)}.</p>")
+    if modus == "y":
+        q += "<p>Hvilken oppjusteringsfaktor y gir likningen? Rund av til to desimaler.</p>"
+    else:
+        q += (f"<p>Hvor høy blir eierskatten y × {ps(te)} på utbytte? Rund av y til to desimaler før du ganger, "
+              f"slik kurset gjør.</p>")
+
+    # Fellene: (y-verdi, regnestykket, hva som er galt). Eierskatten regnes av den avrundede y-en, som i fasiten.
+    kand = []
+    if s != 0.5:                                      # ved 50/50 faller avgiften ut, så fella gir fasiten
+        hvor = ("Den delen arbeidstakeren bærer, er en skatt på lønn og står på lønnssiden." if s == 1 else
+                "Den delen bedriften bærer, står på selskapssiden.")
+        kand.append(((tw - tA) / te, f"Arbeidsgiveravgiften glemt: y = ({_pp(tw)} − {_pp(tA)})/{_pp(te)}", hvor))
+    kand.append((netto / ((100 - tA) / 100 * te),
+                 f"Den eldre formen fra H2017 og H2020, med (1 − t<sub>A</sub>) i nevneren: y = ({teller})/"
+                 f"({tn((100 - tA) / 100)} × {_pp(te)})",
+                 "Kurset legger i 2026 de nominelle satsene rett sammen, uten (1 − t<sub>A</sub>)."))
+    tel_uten = _pp(tw) + (f" + {_pp(aL)}" if aL else "") + (f" − {_pp(aF)}" if aF else "")
+    kand.append(((tw + aL - aF) / te, f"Selskapsskatten ikke trukket fra: y = ({tel_uten})/{_pp(te)}",
+                 f"Utbyttekronen har alt betalt {ps(tA)} i selskapet, så den står på utbyttesiden."))
+    if s == 1:
+        kand.append(((tw - tA - a) / te, f"Avgiften satt på selskapssiden, som om bedriften bar den: y = "
+                                         f"({_pp(tw)} − {_pp(tA)} − {_pp(a)})/{_pp(te)}",
+                     "Bærer arbeidstakeren avgiften, står den på lønnssiden."))
+    elif s == 0.5:
+        kand.append(((tw + a - tA) / te, f"Hele avgiften satt på lønnssiden: y = ({_pp(tw)} + {_pp(a)} − "
+                                         f"{_pp(tA)})/{_pp(te)}",
+                     "Det er regningen for full overvelting. Bedriftens halvdel står på selskapssiden."))
+    else:
+        kand.append(((tw + a - tA) / te, f"Avgiften satt på lønnssiden: y = ({_pp(tw)} + {_pp(a)} − "
+                                         f"{_pp(tA)})/{_pp(te)}",
+                     "Det forutsetter at arbeidstakeren bærer den. Her bærer bedriften den, så den står på "
+                     "selskapssiden."))
+
+    if modus == "y":
+        riktig = y
+        kand = [(v, f"{regn} ≈ {tall(v, 2)}. {hvorfor}") for v, regn, hvorfor in kand if v > 0]
+    else:
+        riktig = eff
+        ny = []
+        for v, regn, hvorfor in kand:
+            if v > 0:
+                ny.append((round(v, 2) * te, f"{regn} ≈ {tall(v, 2)}. Eierskatten blir {tall(v, 2)} × {ps(te)} = "
+                                             f"{tall(round(v, 2) * te, 2)} %. {hvorfor}"))
+        ny.append((te, f"Oppjusteringen glemt: bare den nominelle satsen {ps(te)}. Eierskatten er y × {ps(te)}."))
+        kand = ny
+    r.shuffle(kand)
+    valgt = []
+    for v, tekst in kand:
+        if all(not nær(v, w, 0.03) for w, _ in valgt) and not nær(v, riktig, 0.03):
+            valgt.append((v, tekst))
+        if len(valgt) == 3:
+            break
+    if len(valgt) < 3:
+        raise Avvis("for få ulike feller")
+    if modus == "y":
+        alternativer = [R(tall(y, 2), y2)] + [F(tall(v, 2), tekst, v) for v, tekst in valgt]
+    else:
+        alternativer = [R(tall(eff, 2) + NBSP + "%", eff)] + [F(tall(v, 2) + NBSP + "%", tekst, v) for v, tekst in valgt]
+    vis_ulike(*[x.tekst for x in alternativer])
+
+    # Fasit og gjennomgang
+    if s == 1:
+        fordel = (f"Arbeidstakeren bærer hele avgiften, så a<sub>L</sub> = {_pp(a)} % står på lønnssiden og "
+                  f"a<sub>F</sub> = 0.")
+    elif s == 0.5:
+        fordel = (f"Avgiften deles likt: a<sub>L</sub> = a<sub>F</sub> = {_pp(a)}/2 = {_pp(aL)} %. Den står med like "
+                  f"mye på begge sider og faller ut.")
+    else:
+        fordel = (f"Bedriften bærer hele avgiften, så a<sub>F</sub> = {_pp(a)} % står på selskapssiden og "
+                  f"a<sub>L</sub> = 0.")
+    if modus == "y":
+        kort = (f"<p><b>{tall(y, 2)}.</b> {venstre} = {hoyre}, så y = ({teller})/{_pp(te)} ≈ {tall(y, 2)}.</p>")
+        svar = f"y = ({teller})/{_pp(te)} = {tall(netto, 2)}/{_pp(te)} = {tall(y, 4)} ≈ <b>{tall(y, 2)}</b>"
+    else:
+        kort = (f"<p><b>{tall(eff, 2)} %.</b> {venstre} = {hoyre} gir y = ({teller})/{_pp(te)} ≈ {tall(y2, 2)}. "
+                f"Eierskatten er {tall(y2, 2)} × {ps(te)} = {tall(eff, 2)} %.</p>")
+        svar = (f"y = ({teller})/{_pp(te)} = {tall(netto, 2)}/{_pp(te)} = {tall(y, 4)} ≈ {tall(y2, 2)}. Eierskatten: "
+                f"{tall(y2, 2)} × {ps(te)} = <b>{tall(eff, 2)} %</b>")
+    sum_v = tw + aL
+    sum_h = tA + aF + te * y2
+    kontroll = (f"<p><b>Kontroll.</b> Sett y inn igjen. Lønnssiden: {venstre} = {tall(sum_v, 2)} %. Utbyttesiden: "
+                f"{_pp(tA)} %" + (f" + {_pp(aF)} %" if aF else "") + f" + {_pp(te)} % × {tall(y2, 2)} = "
+                f"{tall(sum_h, 2)} %. Likt når du ser bort fra avrundingen av y. ✓</p>")
+    if s == 1 and tw == 47.4 and a == 12.4 and tA == 22 and te == 22:
+        tillegg = ("<p>Dette er kursets egen regning for 2026: 47,4 % + 12,4 % = 22 % + 22 % × 1,72, altså "
+                   "59,8 = 59,8. Eierskatten 22 % × 1,72 = 37,84 % er dagens sats.</p>")
+    elif s < 1:
+        yfull = (tw + a - tA) / te
+        tillegg = (f"<p><b>Hvorfor antakelsen betyr så mye.</b> Med full overvelting ville samme tall gitt "
+                   f"y = ({_pp(tw)} + {_pp(a)} − {_pp(tA)})/{_pp(te)} ≈ {tall(yfull, 2)}. Jo mindre av avgiften "
+                   f"arbeidstakeren bærer, jo lavere blir eierskatten. Nordiske studier finner at 15–30 % veltes "
+                   f"over, så antakelsen om full overvelting gjør eierskatten for høy.</p>")
+    else:
+        tillegg = ("<p>Med 2026-satsene gir samme regning 47,4 % + 12,4 % = 22 % + 22 % × y, altså y ≈ 1,72 og "
+                   "eierskatt 37,84 %.</p>")
     full = (
-        f"<p><b>Hva faktoren skal gjøre.</b> En krone tjent i selskapet og delt ut skattlegges to ganger: først med "
-        f"selskapsskatten, så med eierskatten på det som er igjen. Uten oppjustering ville samlet skatt ligget langt "
-        f"under toppskatten på lønn. Da ville eiere av egne selskaper tatt ut lønn som utbytte. Faktoren y løfter "
-        f"eierskatten slik at de to veiene koster det samme.</p>"
-        f"<p><b>Steg 1: likningen.</b> Samlet skatt på utbytte = t<sub>A</sub> + (1 − t<sub>A</sub>) × y × t. "
-        f"Sett den lik toppskatten: {tn(tw / 100, 3)} = {tn(tA / 100)} + {tn((100 - tA) / 100)} × y × {tn(t / 100)}.</p>"
-        f"<p><b>Steg 2: løs for y.</b> y = (t<sub>w</sub> − t<sub>A</sub>)/((1 − t<sub>A</sub>) × t) = "
-        f"({tn(tw / 100, 3)} − {tn(tA / 100)})/({tn((100 - tA) / 100)} × {tn(t / 100)}).</p>"
-        f"<p><b>Steg 3: regn ut.</b> {svar_linje}.</p>"
-        f"<p><b>Kontroll.</b> Sett svaret inn igjen: {ps(tA)} + {tn((100 - tA) / 100)} × {tall(y, 4)} × {ps(t)} = "
-        f"{tn(tA)} % + {tall((100 - tA) / 100 * y * t, 2)} % = {tall(tA + (100 - tA) / 100 * y * t, 2)} %, som er "
-        f"toppskatten. ✓ Dagens faktor 1,72 er høyere enn 1,48 som samme regning gir med 47,4 % og 22 %. Forskjellen "
-        f"forklares med arbeidsgiveravgiften som veltes over på lønnstakeren.</p>"
-        f"<p><b>Husk:</b> y = (t<sub>w</sub> − t<sub>A</sub>)/((1 − t<sub>A</sub>) × t). Eierskatten treffer bare "
-        f"(1 − t<sub>A</sub>) av overskuddet.</p>"
+        f"<p><b>Hva likningen sier.</b> Skatten skal ikke gjøre det lønnsomt å ta ut lønn som utbytte. "
+        f"Inntektsskiftingslikningen setter derfor de nominelle satsene på de to veiene lik hverandre: toppskatten "
+        f"på lønn pluss den delen av arbeidsgiveravgiften arbeidstakeren bærer (a<sub>L</sub>) er lik "
+        f"selskapsskatten pluss den delen bedriften bærer (a<sub>F</sub>) pluss eierskatten y × t<sub>e</sub>. "
+        f"Satsene legges rett sammen. Det er ikke den effektive skatten.</p>"
+        f"<p><b>Steg 1: fordel avgiften.</b> {fordel}</p>"
+        f"<p><b>Steg 2: sett opp likningen.</b> {venstre} = {hoyre}.</p>"
+        f"<p><b>Steg 3: løs.</b> {svar}.</p>"
+        + kontroll + tillegg +
+        f"<p><b>Husk:</b> t<sub>w</sub> + a<sub>L</sub> = t<sub>A</sub> + a<sub>F</sub> + y × t<sub>e</sub>, med "
+        f"nominelle satser og uten (1 − t<sub>A</sub>). Eldre eksamener (H2017, H2020) brukte en annen form.</p>"
     )
-    unik("ska-just1", alternativer[0].verdi)
+    unik("ska-just1", riktig)
     return sporsmal(q, alternativer, kort, full, hjelp=HJ["ska-just1"][modus])
 
 
@@ -1114,8 +1454,8 @@ statisk(
         F("Lønnen hans skattlegges med 43,3 %, mens renter og utbytte skattlegges med 27 %",
           "Marginal- og gjennomsnittsskatt handler om samme inntekt målt på to måter, ikke om ulike inntektsarter."),
         F("Inntekten over siste innslagspunkt skattlegges med 43,3 %, resten av inntekten med 27 % i snitt",
-          "Halvveis riktig om marginalskatten, men 27 % er snittet over <i>hele</i> inntekten, ikke over delen under "
-          "innslagspunktet."),
+          "27 % er snittet over <i>hele</i> inntekten, ikke over delen under innslagspunktet. Gjennomsnittsskatten "
+          "gjelder all inntekt, også kronene over innslagspunktet."),
     ],
     kort="<p><b>Neste krone mot hele inntekten.</b> Marginalskatten er ΔT/ΔY, skatten på neste krone. "
          "Gjennomsnittsskatten er T/Y, andelen av hele inntekten som går til skatt.</p>",
@@ -1173,9 +1513,10 @@ statisk(
     alternativer=[
         R("Bare I"),
         F("Bare II", "Påstand II forveksler kroner med andel. Begge betaler 30 % av inntekten, så systemet er "
-                     "proporsjonalt. Påstand I er riktig."),
+                     "proporsjonalt."),
         F("Både I og II", "Påstand II er gal: tre ganger så mange kroner er nøyaktig like stor andel, 30 %."),
-        F("Ingen av dem", "Påstand I er riktig. Bunnfradraget gjør at gjennomsnittsskatten stiger med inntekten."),
+        F("Ingen av dem", "Påstand I kan ikke avvises. Bunnfradraget gjør at gjennomsnittsskatten stiger med inntekten. "
+                           "Det er nettopp det progressiv betyr."),
     ],
     kort="<p><b>Bare I.</b> Med bunnfradrag er gjennomsnittsskatten 30 % × (1 − 60 000/Y), som stiger med Y. Uten "
          "fradrag betaler alle 30 % av inntekten. Det er proporsjonalt.</p>",
@@ -1406,34 +1747,41 @@ statisk(
          "<p><b>Kontroll med tall.</b> Overskudd 1 000 000: selskapsskatt 220 000, utbytte 780 000, eierskatt "
          "780 000 × 37,84 % = 295 152. Samlet 515 152, altså 51,52 %. Formelen: 0,22 + 0,78 × 0,3784 = 0,5152. ✓ "
          "Lagt sammen gir satsene 59,84 %, bare eierskatten 29,52 %.</p>"
-         "<p><b>Husk:</b> eierskatten treffer det som er igjen etter selskapsskatt. 51,52 % mot 47,4 % på lønn.</p>",
+         "<p><b>Husk:</b> eierskatten treffer det som er igjen etter selskapsskatt, så den effektive skatten på utdelt "
+         "overskudd er 51,52 %. Inntektsskiftingslikningen sammenligner derimot nominelle satser: 47,4 % + 12,4 % = "
+         "22 % + 22 % × 1,72, altså 59,8 = 59,8.</p>",
 )
 
 statisk(
     "ska-s12", hjelp=HS["ska-s12"], tema="skattesystem", type="formel",
-    q="<p>Oppjusteringsfaktoren y skal settes slik at samlet skatt på utdelt overskudd blir lik toppskatten på lønn, "
-      "t<sub>w</sub>. Selskapet betaler t<sub>A</sub>. Eieren betaler y × t av utbyttet. Se bort fra skjerming og "
-      "arbeidsgiveravgift. Hvilket uttrykk gir y?</p>",
+    q="<p>Inntektsskiftingslikningen setter de nominelle satsene på lønn og utbytte lik hverandre. t<sub>w</sub> er "
+      "høyeste marginalskatt på lønn og a arbeidsgiveravgiften, som arbeidstakeren bærer fullt ut. t<sub>A</sub> er "
+      "selskapsskatten. Utbytte oppjusteres med y og skattlegges med t<sub>e</sub>. Hvilket uttrykk gir y?</p>",
     alternativer=[
-        R("(t<sub>w</sub> − t<sub>A</sub>)/((1 − t<sub>A</sub>) × t)"),
-        F("(t<sub>w</sub> − t<sub>A</sub>)/t", "Glemt at eierskatten bare treffer (1 − t<sub>A</sub>) av overskuddet."),
-        F("t<sub>w</sub>/((1 − t<sub>A</sub>) × t)", "Selskapsskatten ikke trukket fra toppskatten. Da betales den to "
-                                                    "ganger."),
-        F("((1 − t<sub>A</sub>) × t)/(t<sub>w</sub> − t<sub>A</sub>)", "Brøken snudd. Med dagens satser gir den 0,68, "
-                                                                      "en faktor som senker eierskatten."),
+        R("(t<sub>w</sub> + a − t<sub>A</sub>)/t<sub>e</sub>"),
+        F("(t<sub>w</sub> + a − t<sub>A</sub>)/((1 − t<sub>A</sub>) × t<sub>e</sub>)",
+          "Den eldre formen fra H2017 og H2020. Kurset legger i 2026 de nominelle satsene rett sammen, så "
+          "(1 − t<sub>A</sub>) skal ikke stå i nevneren."),
+        F("(t<sub>w</sub> − a − t<sub>A</sub>)/t<sub>e</sub>",
+          "Fortegnet på a er snudd. Avgiften arbeidstakeren bærer, er en skatt på lønn og øker lønnssiden."),
+        F("(t<sub>w</sub> + a)/t<sub>e</sub>",
+          "Selskapsskatten er ikke trukket fra. Utbyttekronen har alt betalt t<sub>A</sub> i selskapet."),
     ],
-    kort="<p><b>(t<sub>w</sub> − t<sub>A</sub>)/((1 − t<sub>A</sub>) × t).</b> Løs t<sub>w</sub> = t<sub>A</sub> + "
-         "(1 − t<sub>A</sub>) × y × t for y.</p>",
-    full="<p><b>Hva faktoren skal gjøre.</b> Samlet skatt på en krone overskudd som deles ut, skal være lik skatten på en "
-         "lønnskrone. Da lønner det seg ikke å ta ut lønn som utbytte.</p>"
-         "<p><b>Steg 1: likningen.</b> t<sub>w</sub> = t<sub>A</sub> + (1 − t<sub>A</sub>) × y × t.</p>"
-         "<p><b>Steg 2: flytt t<sub>A</sub>.</b> t<sub>w</sub> − t<sub>A</sub> = (1 − t<sub>A</sub>) × y × t.</p>"
-         "<p><b>Steg 3: del.</b> y = (t<sub>w</sub> − t<sub>A</sub>)/((1 − t<sub>A</sub>) × t).</p>"
-         "<p><b>Kontroll med tall.</b> t<sub>w</sub> = 47,4 %, t<sub>A</sub> = t = 22 %: y = 0,254/(0,78 × 0,22) = "
-         "0,254/0,1716 = 1,48. Sett inn: 22 % + 0,78 × 1,48 × 22 % = 22 % + 25,4 % = 47,4 %. ✓ Dagens faktor er 1,72. "
-         "Avviket forklares med arbeidsgiveravgiften som veltes over på lønnstakeren, et ledd uttrykket her ser bort fra. "
-         "H2017 brukte samme formel med 46,7 %, 24 % og 23 % og fikk y = 1,3.</p>"
-         "<p><b>Husk:</b> y = (t<sub>w</sub> − t<sub>A</sub>)/((1 − t<sub>A</sub>) × t).</p>",
+    kort="<p><b>(t<sub>w</sub> + a − t<sub>A</sub>)/t<sub>e</sub>.</b> Løs t<sub>w</sub> + a = t<sub>A</sub> + "
+         "y × t<sub>e</sub> for y. Med 2026-satsene: (47,4 + 12,4 − 22)/22 ≈ 1,72.</p>",
+    full="<p><b>Hva likningen gjør.</b> En eier kan ta ut overskudd som lønn eller som utbytte. Skattesystemet skal "
+         "ikke gjøre det lønnsomt å skifte fra den ene til den andre. Kurset setter derfor de nominelle satsene lik "
+         "hverandre: toppskatten på lønn pluss arbeidsgiveravgiften er lik selskapsskatten pluss eierskatten "
+         "y × t<sub>e</sub>.</p>"
+         "<p><b>Steg 1: likningen.</b> t<sub>w</sub> + a = t<sub>A</sub> + y × t<sub>e</sub>.</p>"
+         "<p><b>Steg 2: flytt t<sub>A</sub>.</b> t<sub>w</sub> + a − t<sub>A</sub> = y × t<sub>e</sub>.</p>"
+         "<p><b>Steg 3: del.</b> y = (t<sub>w</sub> + a − t<sub>A</sub>)/t<sub>e</sub>.</p>"
+         "<p><b>Kontroll med tall.</b> t<sub>w</sub> = 47,4 %, a = 12,4 % og t<sub>A</sub> = t<sub>e</sub> = 22 %: "
+         "y = 37,8/22 = 1,718 ≈ 1,72. Sett inn: 22 % + 22 % × 1,72 = 59,84 % ≈ 47,4 % + 12,4 % = 59,8 %. ✓ "
+         "Eierskatten blir 22 % × 1,72 = 37,84 %. Den eldre formen med (1 − t<sub>A</sub>) i nevneren ville gitt "
+         "37,8/(0,78 × 22) ≈ 2,20, langt over dagens faktor.</p>"
+         "<p><b>Husk:</b> y = (t<sub>w</sub> + a − t<sub>A</sub>)/t<sub>e</sub>. Nominelle satser lagt rett sammen, "
+         "ingen (1 − t<sub>A</sub>).</p>",
 )
 
 statisk(
@@ -1503,9 +1851,11 @@ statisk(
       "<p>Hvilke påstander er riktige?</p>",
     alternativer=[
         R("Bare I"),
-        F("Bare II", "Påstand I er riktig: uten utbytte står ingenting på skattemeldingen. Påstand II er gal."),
+        F("Bare II", "Påstand II holder ikke: regnet med selskapets skatt og inntekt etter eierandelen er satsen ikke "
+                      "null."),
         F("Både I og II", "Påstand II er gal. Med selskapet regnet med er satsen 220 000/1 000 000 = 22 %."),
-        F("Ingen av dem", "Påstand I er riktig. Uten utbytte har Nico verken inntekt eller skatt på skattemeldingen."),
+        F("Ingen av dem", "Påstand I kan ikke avvises. Uten utbytte har Nico verken inntekt eller skatt på "
+                           "skattemeldingen."),
     ],
     kort="<p><b>Bare I.</b> Skattemeldingen viser null. Kursets mål tar med selskapets skatt og inntekt: 220 000/1 000 000 "
          "= 22 %.</p>",
@@ -1634,8 +1984,109 @@ statisk(
          "skattlegges med 37,84 % hos eieren: 29,52 øre. Samlet 51,52 øre.</p>"
          "<p><b>Steg 3: sammenlign.</b> 51,52 % er høyere enn 47,4 %. Utbytte er ikke billigere.</p>"
          "<p><b>Kontroll.</b> Uten oppjustering ville eierskatten vært 22 %: 22 % + 78 % × 22 % = 39,16 %, åtte "
-         "prosentpoeng under lønn. Det er derfor faktoren 1,72 finnes. Samme regning med faktoren 1,48 gir nøyaktig "
-         "47,4 %. Dagens 1,72 legger på litt ekstra for arbeidsgiveravgiften.</p>"
+         "prosentpoeng under lønn. Det er derfor faktoren 1,72 finnes. Den kommer fra inntektsskiftingslikningen, som "
+         "legger nominelle satser sammen og tar med arbeidsgiveravgiften arbeidstakeren bærer: 47,4 % + 12,4 % = "
+         "22 % + 22 % × 1,72. Sjekk: 22 + 22 × 1,72 = 59,84 ≈ 59,8. ✓</p>"
          "<p><b>Husk:</b> 51,52 % på utdelt overskudd mot 47,4 % på lønn. Oppjusteringen stenger døra for "
          "inntektsskifting.</p>",
+)
+
+# ---------------------------------------------------------------------------
+# Inntektsskiftingslikningen slik kurset bruker den i 2026 (forelesning 5)
+# ---------------------------------------------------------------------------
+statisk(
+    "ska-s20", hjelp=HS["ska-s20"], tema="skattesystem", type="begrep",
+    q="<p>Arbeidsgiveravgiften er 14,1 % av utbetalt lønn. I inntektsskiftingslikningen står den likevel som "
+      "12,4 %: 47,4 % + 12,4 % = 22 % + 22 % × y. Hvorfor 12,4 %?</p>",
+    alternativer=[
+        R("Fordi avgiften måles mot hele lønnskostnaden, lønn pluss avgift"),
+        F("Fordi bare 12,4 av de 14,1 prosentpoengene veltes over på arbeidstakeren",
+          "Likningen forutsetter at arbeidstakeren bærer hele avgiften. 12,4 er altså hele avgiften, ikke en del "
+          "av den."),
+        F("Fordi avgiften gir fradrag, så 14,1 % blir lavere etter selskapsskatt",
+          "Da ville tallet vært 14,1 % × (1 − 0,22) = 11,0 %, ikke 12,4 %. Selskapsskatten har ingenting med "
+          "omregningen å gjøre."),
+        F("Fordi 12,4 % er et snitt av satsene i de ulike avgiftssonene",
+          "Likningen bygger på én sats, 14,1 %, ikke et snitt over soner. Spør hva 14,1 % er prosent av."),
+    ],
+    kort="<p><b>Grunnlaget er lønnskostnaden.</b> Av 100 kr bedriften setter av, går 87,64 til lønn og 12,36 til "
+         "avgift. Det er 14,1 % av lønnen, men 12,4 % av kostnaden.</p>",
+    full="<p><b>To grunnlag for samme avgift.</b> Arbeidsgiveravgiften regnes av utbetalt lønn. Likningen måler "
+         "satsene mot det bedriften faktisk betaler for arbeidet: lønnskostnaden, som er lønn pluss avgift.</p>"
+         "<p><b>Steg 1: del opp 100 kr.</b> Lønn L pluss avgift 0,141 × L skal bli 100. Da er 1,141 × L = 100, så "
+         "L = 87,64 og avgiften 12,36.</p>"
+         "<p><b>Steg 2: mål avgiften mot hvert grunnlag.</b> Mot lønnen: 12,36/87,64 = 14,1 %. Mot kostnaden: "
+         "12,36/100 = 12,36 %, avrundet 12,4 %. Forelesningen skriver 100 kr = 87,6 + 12,4.</p>"
+         "<p><b>Steg 3: hvorfor kostnaden.</b> Likningen forutsetter at arbeidstakeren bærer hele avgiften gjennom "
+         "lavere lønn. Av hver krone bedriften setter av til arbeid, går da 12,4 øre til en avgift arbeidstakeren i "
+         "praksis betaler. Derfor står 12,4 % på lønnssiden. Det gir y ≈ 1,72.</p>"
+         "<p><b>Kontroll.</b> 87,64 × 14,1 % = 12,36. Summen 87,64 + 12,36 = 100. ✓ Med 14,1 i likningen ville "
+         "y blitt (47,4 + 14,1 − 22)/22 ≈ 1,80, for høyt.</p>"
+         "<p><b>Husk:</b> 14,1 % av lønnen er 12,4 % av lønnskostnaden. Likningen bruker 12,4.</p>",
+)
+
+statisk(
+    "ska-s21", hjelp=HS["ska-s21"], tema="skattesystem", type="tolkning",
+    q="<p>Forelesningen skriver inntektsskiftingslikningen for 2026 slik: 22 % + 7,6 % + 17,8 % + 12,4 % = "
+      "22 % + 22 % × 1,72, altså 59,8 % = 59,8 %. Hva betyr likheten?</p>",
+    alternativer=[
+        R("Nominelle satser balanserer, men 59,8 % er ingen effektiv skatt"),
+        F("Arbeidstakeren betaler i dag 59,8 % skatt av bruttolønnen sin",
+          "Arbeidstakeren betaler 47,4 % av lønnen. 12,4 % er arbeidsgiveravgiften målt mot lønnskostnaden. "
+          "Satsene har ulike grunnlag."),
+        F("Utbytte er billigere enn lønn, fordi 37,84 % er lavere enn 47,4 %",
+          "Eierskatten alene overser selskapsskatten. Likningen er laget nettopp for at ingen av veiene skal lønne "
+          "seg."),
+        F("Effektiv skatt på utdelt overskudd er 59,8 %, mot 47,4 % på lønn",
+          "Effektiv skatt på utdelt overskudd er 22 % + 78 % × 37,84 % = 51,52 %. Eierskatten treffer bare det som "
+          "er igjen etter selskapsskatten."),
+    ],
+    kort="<p><b>Nominelle satser i balanse.</b> Likningen legger satsene rett sammen. Den effektive skatten på utdelt "
+         "overskudd er 22 % + 78 % × 37,84 % = 51,52 %, ikke 59,8 %.</p>",
+    full="<p><b>Nominell mot effektiv.</b> En nominell sats er den vedtatte satsen. En effektiv skatt er betalt skatt "
+         "delt på ett og samme grunnlag. Inntektsskiftingslikningen legger nominelle satser med ulike grunnlag rett "
+         "sammen. Den sier at de to veiene er i balanse, ikke hva noen faktisk betaler.</p>"
+         "<p><b>Steg 1: lønnssiden.</b> 22 % alminnelig inntekt, 7,6 % trygdeavgift og 17,8 % trinnskatt gir "
+         "47,4 % av lønnen. 12,4 % er arbeidsgiveravgiften målt mot lønnskostnaden. Summen 59,8 % har altså to "
+         "grunnlag.</p>"
+         "<p><b>Steg 2: utbyttesiden effektivt.</b> Av en krone overskudd betaler selskapet 22 øre. Eieren betaler "
+         "37,84 % av de 78 ørene som er igjen: 29,52 øre. Samlet 51,52 %.</p>"
+         "<p><b>Steg 3: lønnssiden effektivt.</b> Av 100 kr i lønnskostnad går 12,4 til avgift. Lønnen 87,6 "
+         "skattlegges med 47,4 %: 41,52. Samlet 53,92 % av kostnaden.</p>"
+         "<p><b>Kontroll.</b> 22 + 7,6 + 17,8 + 12,4 = 59,8 og 22 + 22 × 1,72 = 59,84 ≈ 59,8. ✓ Ingen av de "
+         "effektive tallene er 59,8.</p>"
+         "<p><b>Husk:</b> likningen sammenligner nominelle satser. Den effektive skatten på utdelt overskudd er "
+         "51,52 %.</p>",
+)
+
+statisk(
+    "ska-s22", hjelp=HS["ska-s22"], tema="skattesystem", type="tolkning",
+    q="<p>Inntektsskiftingslikningen er i dag 47,4 % + 12,4 % = 22 % + 22 % × y, med y ≈ 1,72. Første ledd på høyre "
+      "side er selskapsskatten. Stortinget senker selskapsskatten til 20 %, men beholder 22 % skatt på alminnelig "
+      "inntekt for personer. Skatten på lønn er dermed uendret. Hva skjer med oppjusteringsfaktoren?</p>",
+    alternativer=[
+        R("Faktoren øker slik at eierskatten går opp"),
+        F("Faktoren faller slik at eierskatten går ned",
+          "Retningen er snudd. Selskapsskatten står på utbyttesiden. Faller den, må eierskatten øke for at sidene "
+          "fortsatt skal være like."),
+        F("Faktoren er uendret fordi skatten på lønn er uendret",
+          "Uendret faktor krever at lønnssiden faller like mye som selskapsskatten. Det skjer bare når den "
+          "alminnelige satsen senkes både for lønn og selskap."),
+        F("Faktoren øker, men eierskatten er uendret på 37,84 %",
+          "Eierskatten er y × 22 %. Øker y mens satsen står fast, øker eierskatten også."),
+    ],
+    kort="<p><b>Faktoren øker.</b> 47,4 + 12,4 = 20 + 22 × y gir y = 39,8/22 ≈ 1,81. Eierskatten blir "
+         "1,81 × 22 % = 39,82 %.</p>",
+    full="<p><b>Likningen som balanse.</b> Lønnssiden er toppskatten pluss arbeidsgiveravgiften. Utbyttesiden er "
+         "selskapsskatten pluss eierskatten y × 22 %. Endres ett ledd, må y ta opp forskjellen.</p>"
+         "<p><b>Steg 1: ny likning.</b> 47,4 % + 12,4 % = 20 % + 22 % × y.</p>"
+         "<p><b>Steg 2: løs.</b> y = (59,8 − 20)/22 = 39,8/22 = 1,809 ≈ 1,81. Eierskatten blir 1,81 × 22 % = "
+         "39,82 %. Forelesningen runder y til 1,8 og får 39,6 %.</p>"
+         "<p><b>Steg 3: motsatt vei.</b> Heves selskapsskatten til 24 %, blir y = 35,8/22 ≈ 1,63. Eierskatten blir "
+         "1,63 × 22 % = 35,86 % (forelesningen skriver 1,62 og 35,64 %). Går skatten på bedriften opp, går "
+         "eierskatten ned.</p>"
+         "<p><b>Kontroll.</b> Senkes den alminnelige satsen til 20 % både for lønn og selskap, faller begge sider "
+         "med 2 prosentpoeng: 45,4 % + 12,4 % = 20 % + 22 % × y gir y = 37,8/22 ≈ 1,72, uendret. ✓</p>"
+         "<p><b>Husk:</b> selskapsskatten og eierskatten står på samme side. Senkes den ene alene, må den andre "
+         "opp.</p>",
 )

@@ -2,13 +2,401 @@
    Ordrett gjengitt oppgavetekst med egne, fullstendige løsninger. Kjøres av
    modulen /sett (js/bundle-sett.js) i øvingsmodus eller på tid.
 
-   Alle settene er flervalg. Ingen av dem hadde minuspoeng, men eksamen høsten
+   Alle settene er flervalg. Det første er flervalgstesten til kursgodkjenning
+   2026, de andre er eksamener. Ingen av dem hadde minuspoeng, men eksamen høsten
    2026 har det — slå det på i eksamensmodus for å trene riktige forhold.
 
    id-ene er lagringsnøkler for svar og selvvurdering. De må aldri endres.
    ========================================================================= */
 window.EDU_DATA = window.EDU_DATA || {};
 window.EDU_DATA.sets = [
+/* Flervalgstesten til kursgodkjenning 2026. Løsningene er skrevet ut fra
+   referansesvaret i emnemappen (FIE432 Referansesvar MC-test kursgodkjenning 2026.pdf). */
+{
+    "id": "mc2026",
+    "label": "Flervalgstesten 2026 (kursgodkjenning)",
+    "date": "2026-10-01",
+    "minutes": 60,
+    "points": 20,
+    "format": "20 flervalg · fire eller fem alternativer · 17 av 20 riktige for godkjenning",
+    "note": "Flervalgstesten til kursgodkjenning høsten 2026: 20 spørsmål à ett poeng. 17 riktige kreves. Tre av spørsmålene er nesten ordrett hentet fra eksamen (spørsmål 6 fra H2019, 9 fra H2022 og 17 fra H2019), så testen viser hva foreleserne gjenbruker. Spørsmål 2 bruker inntektsskiftingslikningen slik den undervises i 2026. Den eldre likningen fra H2020 gir et fellealternativ. Løsningene er skrevet ut fra kursmaterialet. Kurset deler ikke ut fasit.",
+    "facts": [
+      "Kursgodkjenning: 17 av 20 riktige, tre forsøk. Samarbeid er lov, men testen tas individuelt.",
+      "Ingen minuspoeng. Spørsmålene har fire alternativer, unntatt spørsmål 2 med fem.",
+      "Spørsmål 4 har et sjette, tomt alternativ i originalen. Det er tatt ut her.",
+      "Løsningene er laget med KI ut fra forelesningene for 2026 og eksamensfasitene. Kurset har ikke kontrollert dem."
+    ],
+    "practiceNote": "Les ordene «kan», «alltid» og «alle tre» nøye. «Kan» krever ett tilfelle der påstanden holder, «alltid» faller på ett moteksempel. «Alle tre» er riktig bare når hver påstand holder for seg.",
+    "mc": {
+      "wrongFactor": 0
+    },
+    "exercises": [
+      {
+        "n": 1,
+        "title": "Skjerming over to år",
+        "points": 1,
+        "topic": "Aksjonærmodellen",
+        "chapters": [
+          5
+        ],
+        "body": "<p>Anette eier en aksje i selskapet ABC som hun kjøpte for kr 100 i desember i år 0. Hun sitter med aksjen i 2 år og selger den før utbytte i år 3. I både år 1 og år 2 mottar hun utbytte fra selskapet på kr 4. Skjermingsrenten er 4 % i år 1 og 2 % i år 2. Hva er skattepliktig utbytte i år 2? I både år 1 og år 2 er aksjekursen kr 120.</p>",
+        "options": [
+          "Kr 4",
+          "Kr 2",
+          "Kr 0",
+          "Kr 3"
+        ],
+        "answer": 1,
+        "solution": "<p><b>Regelen.</b> Skattepliktig utbytte = utbytte − skjermingsfradrag. Fradraget er skjermingsgrunnlaget (kostpris pluss ubenyttet skjerming fra før) ganget med årets skjermingsrente. «Skattepliktig utbytte» er beløpet før oppjustering, slik kursets skjermingstabeller bruker ordet.</p><table class=\"data\"><tr><th>År</th><th>Utbytte</th><th>Grunnlag</th><th>Rente</th><th>Skjerming</th><th>Skattepliktig</th><th>Ubenyttet</th></tr><tr><td>1</td><td class=\"n\">4</td><td class=\"n\">100</td><td class=\"n\">4 %</td><td class=\"n\">4</td><td class=\"n\">0</td><td class=\"n\">0</td></tr><tr><td>2</td><td class=\"n\">4</td><td class=\"n\">100</td><td class=\"n\">2 %</td><td class=\"n\">2</td><td class=\"n\"><b>2</b></td><td class=\"n\">0</td></tr></table><p>I år 1 spiser skjermingen hele utbyttet, men det blir ingenting igjen å framføre. I år 2 er skjermingen 100 × 2 % = 2, så 4 − 2 = <b>2</b> er skattepliktig.</p><p><b>Kursen 120 er støy.</b> Grunnlaget er kostpris, ikke markedsverdi. «Aksjekursen 31.12» var et galt alternativ på eksamen H2019.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Kr 4: skjermingen i år 2 er glemt.</li><li>Kr 0: krever 4 i skjerming i år 2, for eksempel 4 % også i år 2 eller skjerming fra år 0.</li><li>Kr 3: trolig oppjusteringsfellen. 2 × 1,44 = 2,88 og 2 × 1,4 = 2,8 med eldre faktorer. Oppgaven oppgir ingen faktor.</li></ul><p><b>Forutsetning.</b> Kjøpet i desember gir formelt rett til skjerming også i år 0, men oppgaven gir rente bare for år 1 og 2. Kursets fasiter regner da fra år 1 (H2021 oppgave 1a og H2022 oppgave 1).</p>"
+      },
+      {
+        "n": 2,
+        "title": "Inntektsskiftingslikningen",
+        "points": 1,
+        "topic": "Aksjonærmodellen",
+        "chapters": [
+          5
+        ],
+        "body": "<p>Inntektsskiftingsligningen. Regjeringen vil at marginalskatten på lønn inkludert arbeidsgiveravgiften skal være lik skatt på selskapet pluss eierskatten. Anta at den marginale skattesatsen på arbeid er 47 %, arbeidsgiveravgiften, som betales av arbeidstaker, er 13 % og eierskatten er 20 %. Regjeringen har vedtatt å løsrive selskapsskatten fra den alminnelige skattesatsen og endre satsen bedriftene betaler fra 22 % til 20 %. Hva blir oppjusteringssatsen og hva blir effektiv nominell eierskatt med de nye reglene?</p>",
+        "options": [
+          "Oppjusteringssats = 2 og effektiv nominell eierskatt = 40 %",
+          "Oppjusteringssats = 2,1 og effektiv nominell eierskatt = 42 %",
+          "Oppjusteringssats = 1,6 og effektiv nominell eierskatt = 32 %",
+          "Oppjusteringssats = 1,40 og effektiv nominell eierskatt = 28 %",
+          "Oppjusteringssats = 1,8 og effektiv nominell eierskatt = 36 %"
+        ],
+        "answer": 0,
+        "solution": "<p><b>Regelen (forelesning 5, 2026).</b> Kurset legger de nominelle satsene sammen: høyeste marginalskatt på lønn + arbeidsgiveravgiften arbeidstakeren bærer = nominell selskapsskatt + nominell eierskatt × y. Med dagens satser: 47,4 % + 12,4 % = 22 % + 22 % × y, som gir y ≈ 1,72.</p><p><b>Med oppgavens tall.</b> 47 % + 13 % = 20 % + 20 % × y, så y = (60 % − 20 %)/20 % = <b>2</b>. Effektiv nominell eierskatt er 20 % × 2 = <b>40 %</b>. Kontroll: 20 % + 40 % = 60 %. ✓</p><p>Bare a) gir 60 % på høyre side: b) gir 62 %, c) 52 %, d) 48 % og e) 56 %.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>2,1 og 42 %: nominell avgift på 14,1 % i stedet for 13 %, eller en effektiv regning som kurset ikke bruker.</li><li>1,6 og 32 %: fasiten fra eksamen H2020, som brukte den eldre likningen t<sub>w</sub> = t<sub>A</sub> + (1 − t<sub>A</sub>) × t<sub>e</sub> × y uten arbeidsgiveravgift. Det er fella.</li><li>1,4 og 28 %: arbeidsgiveravgiften glemt, 47 % = 20 % + 20 % × y.</li><li>1,8 og 36 %: y fra forelesningens eksempel der eierskatten er 22 %, ikke 20 %.</li></ul><p><b>Merk.</b> Summen av nominelle satser er ikke den effektive skatten. Det sier forelesningen selv. Oppgaven spør likevel etter nominell eierskatt og følger forelesningens likning.</p>"
+      },
+      {
+        "n": 3,
+        "title": "Eierskatt i Selfie AS",
+        "points": 1,
+        "topic": "Aksjonærmodellen",
+        "chapters": [
+          5
+        ],
+        "body": "<p>Du driver bedriften Selfie AS som har et skattbart overskudd på kr 100.000. Anta at den alminnelige skattesatsen er 23 %, oppjusteringsfaktoren 1,33 og den nominelle eierskatten er 20 %. Etter at bedriften har betalt bedriftsskatten tar du resten ut som utbytte. Hvor mange kroner utgjør eierskatten (får du desimaler i ditt svar kan du se bort fra dem).</p>",
+        "options": [
+          "Kr 17.710",
+          "Kr 22.100",
+          "Kr 20.482",
+          "Kr 24.950"
+        ],
+        "answer": 2,
+        "solution": "<p><b>Regelen.</b> Eierskatten regnes av utbyttet etter selskapsskatt, oppjustert med faktoren.</p><p>Selskapsskatt 100 000 × 23 % = 23 000. Utbytte 77 000. Oppjustert 77 000 × 1,33 = 102 410. Eierskatt 102 410 × 20 % = <b>20 482</b>.</p><p>Samlet skatt er 43 482, altså 43,5 % av overskuddet. Det er mindre enn satsene lagt sammen (23 % + 26,6 %), fordi eierskatten bare treffer de 77 000 som er igjen.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Kr 17 710: 77 000 × 23 %, selskapsskattesatsen brukt som eierskatt og uten oppjustering.</li><li>Kr 22 100: ingen kjent regnevei.</li><li>Kr 24 950: om lag 77 000 × 1,62 × 20 %, altså en annen faktor enn den oppgitte.</li></ul><p><b>Forutsetning.</b> Ingen skjerming, siden kostpris og skjermingsrente ikke er oppgitt.</p>"
+      },
+      {
+        "n": 4,
+        "title": "Hvem er norsk skattyter",
+        "points": 1,
+        "topic": "Internasjonal skatt",
+        "chapters": [
+          13
+        ],
+        "body": "<p>Er du norsk skattyter hvis:</p>",
+        "options": [
+          "Du har norsk pass",
+          "Er født i Norge",
+          "Har bodd mer enn et visst antall dager over ulike tidsperioder i Norge uansett statsborgerskap",
+          "Har bostedsadresse i Norge",
+          "Har ektefelle i Norge"
+        ],
+        "answer": 2,
+        "solution": "<p><b>Regelen.</b> Global skatteplikt følger bosted. Bosted følger opphold: mer enn 183 dager i en tolvmånedersperiode eller mer enn 270 dager i en trettiseksmånedersperiode (skatteloven § 2-1). Statsborgerskap, fødested og adresse avgjør ikke.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Pass og fødested: inngår ikke i bostedsregelen.</li><li>Bostedsadresse: bosted følger oppholdsdager. I eksamen H2022 meldte Masse flytting, men var likevel bosatt etter intern rett.</li><li>Ektefelle i Norge: nærstående og bolig betyr noe for når bostedet opphører, ikke for om det oppstår.</li></ul><p><b>Merk.</b> Originalen har et sjette, tomt alternativ. Det er tatt ut her.</p>"
+      },
+      {
+        "n": 5,
+        "title": "Skattefri utleie av egen bolig",
+        "points": 1,
+        "topic": "Investeringscaser",
+        "chapters": [
+          4
+        ],
+        "body": "<p>Du har nettopp kjøpt en liten enebolig og ønsker å leie ut deler av eneboligen skattefritt. Leieinntekten er skattefri hvis:</p>",
+        "options": [
+          "Du leier ut halvparten eller mindre av boligen, beregnet etter størrelse",
+          "Du leier ut mindre enn halvparten av boligen og utleieenheten ikke har egen inngang",
+          "Du har eid boligen i mer enn ett år og da kan du leie ut skattefritt",
+          "Du bruker minst halvparten av boligen du eier til eget bruk, beregnet etter utleieverdi."
+        ],
+        "answer": 3,
+        "solution": "<p><b>Regelen.</b> Leien er skattefri når eieren selv bruker minst halvparten av boligen, målt etter utleieverdi og ikke areal (skatteloven § 7-2). Eksamen H2021 oppgave 1d: to like store etasjer, men den utleide var verdt 14 000 kroner i måneden mot 15 000 for eierens, så utleien var skattefri.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Etter størrelse: feil målestokk. Like store deler kan ha ulik utleieverdi.</li><li>Egen inngang: ikke et vilkår. Alternativet måler dessuten etter størrelse.</li><li>Eid i mer enn ett år: et vilkår for skattefri gevinst ved salg, ikke for utleie.</li></ul><p><b>Merk.</b> Gjelder langtidsutleie. Er leien skattefri, får du heller ikke fradrag for kostnader.</p>"
+      },
+      {
+        "n": 6,
+        "title": "Fritaksmetoden",
+        "points": 1,
+        "topic": "Fritaksmetoden",
+        "chapters": [
+          6
+        ],
+        "body": "<p>Fritaksmetoden innebærer at:</p>",
+        "options": [
+          "Personlig skattyter trenger ikke å skatte for aksjegevinster.",
+          "Aksjegevinster skattlegges kun på selskapets hånd.",
+          "Fritaksmetoden innebærer at aksjeselskaper i hovedsak ikke blir skattlagt for mottatt utbytte.",
+          "Aksjeinntekter, aksjeutbytte og aksjegevinster som mottas fra datterselskaper skattlegges i holdingselskapet."
+        ],
+        "answer": 2,
+        "solution": "<p><b>Regelen.</b> Fritaksmetoden gjelder selskapsaksjonærer: utbytte og gevinst er i hovedsak skattefrie for aksjeselskaper, for å unngå kjedebeskatning (skatteloven § 2-38). «I hovedsak» viser til 3 %-regelen: under 90 % eierskap skattlegges 3 % av utbyttet med 22 %, altså 0,66 %. Eksamen H2019 oppgave 1a hadde nesten samme spørsmål.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Personer slipper skatt på gevinst: personlige aksjonærer følger aksjonærmodellen.</li><li>Gevinst bare i selskapet: motsatt. Gevinsten er i hovedsak skattefri i selskapet.</li><li>Skattlegges i holdingselskapet: motsatt. Inntekter fra datterselskaper er i hovedsak skattefrie der.</li></ul>"
+      },
+      {
+        "n": 7,
+        "title": "Delvis tapsfradrag og risikotaking",
+        "points": 1,
+        "topic": "Skatt og risiko",
+        "chapters": [
+          12
+        ],
+        "body": "<p>Anta at skattesystemet er utformet slik at vi bare delvis kan fremføre mulige tap mot fremtidig inntekt. Hva betyr det for risikotakingen til et individ som er risikonøytral?</p>",
+        "options": [
+          "Vi påvirkes ikke av det fordi vi er opptatt av forventet gevinst",
+          "Vi tar mere risiko",
+          "Vi tar mindre risiko",
+          "Vi dobler våre investeringer i risikable aktiva"
+        ],
+        "answer": 2,
+        "solution": "<p><b>Regelen.</b> Skatten påvirker ikke investeringsvalget når staten er med på både opp- og nedsiden (forelesning 10). Med bare delvis tapsfradrag tar staten full andel av gevinsten, men bærer bare en del av tapet. Da faller forventet gevinst etter skatt mest for det risikable prosjektet.</p><p><b>Kursets eksempel.</b> 100 000 med 40 % skatt. A gir sikkert 20 000, altså 12 000 etter skatt. B gir +150 000 eller −100 000 med like stor sannsynlighet. Med fullt fradrag er E(B) etter skatt 15 000, så B velges. Med halvt fradrag blir det 45 000 − 40 000 = 5 000, så A velges. En risikonøytral investor tar altså mindre risiko.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Påvirkes ikke: blander risikonøytralitet med skattenøytralitet. Den risikonøytrale påvirkes nettopp gjennom forventet gevinst etter skatt.</li><li>Mer risiko: gjelder fullt tapsfradrag i porteføljemodellen (Domar–Musgrave), der staten deler risikoen.</li><li>Dobler investeringene: ingen støtte i kurset.</li></ul>"
+      },
+      {
+        "n": 8,
+        "title": "Lik gjennomsnittsskatt",
+        "points": 1,
+        "topic": "Progressivitet",
+        "chapters": [
+          10
+        ],
+        "body": "<p>Oluf ønsker seg et mer rettferdig skattesystem hvor alle behandles likt skattemessig slik at gjennomsnittskatten er den samme for alle uansett inntekt. Hvilke av alternativene under har den egenskapen Oluf er ute etter:</p>",
+        "options": [
+          "Et skattesystem med en flat skattesats for all inntekt uansett inntektens størrelse, men hvor det gis et bunnfradrag.",
+          "Et skattesystem med en flat skattesats for all inntekt uten bunnfradrag.",
+          "Et skattesystem hvor man har en flat skattesats som gjelder for alle inntektsnivåer, men hvor alle er garantert en minstelønn (borgerlønn).",
+          "Et skattesystem hvor alle betaler samme skattesats uavhengig av inntektens størrelse, men hvor man får et fradrag for hvert barn man har."
+        ],
+        "answer": 1,
+        "solution": "<p><b>Regelen.</b> Med T = tY er gjennomsnittsskatten T/Y = t for alle. Fasiten til eksamen H2024 oppgave 4a: uten bunnfradrag «betaler alle samme gjennomsnittsskatt og systemet er verken regressivt eller progressivt».</p><p>Alle fire har flat marginalskatt. Bare uten fradrag og overføringer blir også gjennomsnittsskatten flat.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Bunnfradrag B: T/Y = t(1 − B/Y) stiger med inntekten, så systemet er progressivt.</li><li>Borgerlønn G: virker som negativ skatt, T/Y = t − G/Y stiger også med inntekten.</li><li>Barnefradrag: gir ulik gjennomsnittsskatt ved samme inntekt.</li></ul>"
+      },
+      {
+        "n": 9,
+        "title": "Skattemessig utflytting",
+        "points": 1,
+        "topic": "Internasjonal skatt",
+        "chapters": [
+          13
+        ],
+        "body": "<p>Inge har bodd i Norge i over 20 år, men nå har han fått nok av regjeringen og flyttet i januar 2022 til Sveits. Fra og med hvilket år vil Inge anses som skattemessig utflyttet fra Norge etter norsk intern skatterett?</p>",
+        "options": [
+          "2022.",
+          "2024.",
+          "2025.",
+          "2026."
+        ],
+        "answer": 3,
+        "solution": "<p><b>Regelen.</b> Har du vært bosatt i Norge i mer enn ti år før utflyttingsåret, er du fortsatt bosatt til utløpet av det tredje inntektsåret etter utflyttingsåret (skatteloven § 2-1). Spørsmålet er nesten ordrett likt eksamen H2022 oppgave 4, med samme fasit.</p><table class=\"data\"><tr><th>År</th><th>Status</th></tr><tr><td>2022</td><td>Utflyttingsår, bosatt</td></tr><tr><td>2023, 2024, 2025</td><td>Tre inntektsår etter, bosatt</td></tr><tr><td>2026</td><td><b>Første år som utflyttet</b></td></tr></table><p><b>Hvorfor de andre er feil.</b></p><ul><li>2022: bare mulig med kortere botid enn ti år.</li><li>2024: teller bare ett mellomliggende år.</li><li>2025: fella. Teller utflyttingsåret som ett av de tre, eller oppgir siste år som bosatt.</li></ul><p><b>Forutsetning.</b> Inge har vært i Norge høyst 61 dager i hvert av årene 2023–2025. Verken han eller nærstående har disponert bolig her.</p>"
+      },
+      {
+        "n": 10,
+        "title": "Hvem får skjermingsfradraget",
+        "points": 1,
+        "topic": "Aksjonærmodellen",
+        "chapters": [
+          5
+        ],
+        "body": "<p>Hvilket utsagn er riktig:</p>",
+        "options": [
+          "Skjermingsfradraget går til alle som eier aksjer.",
+          "Skjermingsfradraget går til selskapsaksjonærer.",
+          "Skjermingsfradraget er noe som utenlandske investorer får for å fremme investeringer fra utlandet.",
+          "Skjermingsfradraget tilfaller personlig aksjonær som eier aksjen pr. 31.12. i inntektsåret."
+        ],
+        "answer": 3,
+        "solution": "<p><b>Regelen.</b> Skjermingen hører til aksjonærmodellen, som gjelder personlige aksjonærer. Den tilordnes den som eier aksjen 31. desember (skatteloven § 10-12). Selger du før årsskiftet, mister du årets skjerming. Formålet er at eierskatten bare skal treffe avkastning utover en risikofri normalavkastning.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Alle som eier aksjer: for vidt. Selskapsaksjonærer følger fritaksmetoden.</li><li>Selskapsaksjonærer: motsatt av regelen.</li><li>Utenlandske investorer: formålet er å skjerme normalavkastningen, ikke å tiltrekke kapital.</li></ul>"
+      },
+      {
+        "n": 11,
+        "title": "Valg mellom pensjonskontrakter",
+        "points": 1,
+        "topic": "Forventet nytte",
+        "chapters": [
+          17
+        ],
+        "body": "<p>Anta at Pernille Olsen har en risikoaversjon over null. Individet har valget mellom tre ulike pensjonskontrakter:</p><p>Alternativ A vil gi en utbetaling på 500.000 helt sikkert.<br>Alternativ B gir en utbetaling på 400.000 med 75 % sannsynlighet og 800.000 med 25 % sannsynlighet.<br>Alternativ C gir en utbetaling på 350.000 med 25 % sannsynlighet og 550.000 med 75 % sannsynlighet.</p><p>Hvilket alternativ vil hun velge?</p>",
+        "options": [
+          "Alternativ A",
+          "Alternativ B",
+          "Alternativ C",
+          "Alle er like gode"
+        ],
+        "answer": 0,
+        "solution": "<p><b>Regelen.</b> Alle tre har samme forventning: E(B) = 0,75 × 400 000 + 0,25 × 800 000 = 500 000 og E(C) = 0,25 × 350 000 + 0,75 × 550 000 = 500 000. En risikoavers har konkav nytte, så E[U(X)] &lt; U(E[X]). Det sikre beløpet A gir derfor høyest forventet nytte.</p><p>Sikkerhetsekvivalenten CE = E(r) − ½Aσ² (forelesning 10) sier det samme: risiko trekker CE ned for B og C, men ikke for A.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>B og C: samme forventning, men med risiko i tillegg.</li><li>Alle like gode: gjelder bare en risikonøytral person.</li></ul><p><b>Merk.</b> Rekkefølgen mellom B og C avhenger av nyttefunksjonen, men spørsmålet krever bare at A slår begge.</p>"
+      },
+      {
+        "n": 12,
+        "title": "Optimal aksjeandel (Merton)",
+        "points": 1,
+        "topic": "Sparing og portefølje",
+        "chapters": [
+          14
+        ],
+        "body": "<p>Anta at Per Olsens nyttefunksjon er U = c<sup>1−γ</sup>/(1 − γ), med γ = 4. Anta også at Per Olsen er pensjonist og bare har finansiell formue. Han ønsker å fordele formuen på et aksjefond med forventet avkastning på 6 % og et standardavvik på 20 % og en risikofri bankkonto med avkastning på 2 %. Hva er optimal andel investert i aksjefondet.</p>",
+        "options": [
+          "5 %",
+          "25 %",
+          "37,5 %",
+          "100 %"
+        ],
+        "answer": 1,
+        "solution": "<p><b>Regelen.</b> w* = (E(r) − r<sub>f</sub>)/(γσ²). Parameteren γ i nyttefunksjonen er den samme som i formelen.</p><p>w* = (0,06 − 0,02)/(4 × 0,20²) = 0,04/0,16 = <b>25 %</b>.</p><p>Pensjonisten har ingen humankapital, så andelen gjelder hele den finansielle formuen.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>5 %: σ i stedet for σ², 0,04/(4 × 0,20).</li><li>37,5 %: forventet avkastning i stedet for risikopremien, 0,06/0,16.</li><li>100 %: krever γ = 1.</li></ul>"
+      },
+      {
+        "n": 13,
+        "title": "Påstander om aksjeporteføljer",
+        "points": 1,
+        "topic": "Sparing og portefølje",
+        "chapters": [
+          14
+        ],
+        "body": "<p>Hvilken av påstandene om aksjeporteføljer kan være korrekt?</p>",
+        "options": [
+          "Det kan være fordeler ved å diversifisere aksjeporteføljen selv når de ulike aksjene er positivt korrelerte.",
+          "De som misliker risiko mye og lite bør investere i den samme aksjeporteføljen, men jo mer man tåler risiko, jo større andel av formuen bør man investere i denne aksjeporteføljen.",
+          "Anta at aksje A har lavere standardavvik enn aksje B. Likevel kan en portefølje der man investerer halvparten av formuen i aksje B og resten i aksje A ha lavere standardavvik enn dersom man kun investerer i aksje A.",
+          "Alle de tre påstandene over kan være korrekte."
+        ],
+        "answer": 3,
+        "solution": "<p><b>Ordet «kan» avgjør.</b> Ett tilfelle der påstanden holder, er nok.</p><ul><li><b>Første påstand holder:</b> så lenge ρ &lt; 1 er porteføljens standardavvik lavere enn det vektede snittet. Bare ved perfekt positiv korrelasjon er det ingen gevinst.</li><li><b>Andre holder:</b> separasjonsteoremet. Alle holder markedsporteføljen og bank. Den som tåler mer risiko, har mer av markedsporteføljen, ikke mer risikable aksjer.</li><li><b>Tredje kan holde:</b> med σ<sub>A</sub> = 0,20, σ<sub>B</sub> = 0,25 og ρ = 0,3 gir 50/50 σ<sub>p</sub> = 0,182 &lt; 0,20. Med disse tallene holder det når ρ &lt; 0,575.</li></ul><p>Alle tre kan holde, så svaret er «alle de tre».</p>"
+      },
+      {
+        "n": 14,
+        "title": "Aktive og passive aksjefond",
+        "points": 1,
+        "topic": "Sparing og portefølje",
+        "chapters": [
+          14
+        ],
+        "body": "<p>Hvilken påstand om aktive og passive aksjefond er riktig?</p>",
+        "options": [
+          "Det vil alltid lønne seg å investere i aktive aksjefond siden aktivitet lønner seg.",
+          "Aktive aksjefond har som regel høyere forvaltningskostnader enn passive aksjefond.",
+          "Passive aksjefond er mer risikable enn aktive, siden forvalterne har mindre kontakt med selskapene de investerer i.",
+          "Aktive aksjefond har som regel lavere avkastning før kostnadene er trukket fra."
+        ],
+        "answer": 1,
+        "solution": "<p><b>Regelen.</b> Aktive fond tar ofte 1–2 % i årlig gebyr, om lag fem ganger så mye som indeksfond. Eksamen H2024 oppgave 12: «Indeksfond er generelt billigere enn aktivt forvaltede fond».</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Alltid lønnsomt: «alltid» faller på ett moteksempel. Flertallet av aktive fond slår ikke indeks etter gebyrer.</li><li>Passive mer risikable: indeksfond gir maksimal spredning. Risiko måles med standardavvik.</li><li>Lavere avkastning før kostnader: kurset støtter ikke det. Før gebyrer gjør aktive fond det minst like bra. Gapet kommer etter kostnadene.</li></ul>"
+      },
+      {
+        "n": 15,
+        "title": "Egenandel i forsikring",
+        "points": 1,
+        "topic": "Forsikring",
+        "chapters": [
+          17
+        ],
+        "body": "<p>Hvorfor kan det være gunstig for et forsikringsselskap å selge forsikring med en egenandel, selv om premien blir lavere?</p>",
+        "options": [
+          "Egenandelen reduserer risikoen for moralsk hasard.",
+          "Egenandelen gir et mer gunstig utvalg, siden forsikringstagere med forsiktig adferd vil foretrekke en egenandel.",
+          "Egenandelen gir lavere kostnader fordi færre krav må håndteres.",
+          "Alle de tre alternativene over vil være aktuelle."
+        ],
+        "answer": 3,
+        "solution": "<ul><li><b>Moralsk hasard</b> (atferd etter avtalen): kunden bærer selv en del av skaden og har grunn til å være forsiktig. Riktig svar i eksamen H2019 oppgave 7b.</li><li><b>Seleksjon</b> (hvem som kjøper): forsiktige kunder velger egenandel mot lavere premie, mens kunder med høy risiko velger full dekning. Kundene sorterer seg selv. Selskapet får et gunstigere utvalg.</li><li><b>Færre krav:</b> små skader under egenandelen meldes ikke. For dem er behandlingskostnaden stor i forhold til utbetalingen.</li></ul><p>Alle tre mekanismene virker samtidig, så svaret er «alle de tre».</p><p><b>Merk.</b> Kursets lysbilder om forsikring ligger ikke i mappen. Svaret bygger på eksamensfasitene og standard teori.</p>"
+      },
+      {
+        "n": 16,
+        "title": "Flere aksjefond gir høyere aksjeandel",
+        "points": 1,
+        "topic": "Finansiell psykologi",
+        "chapters": [
+          18
+        ],
+        "body": "<p>I en pensjonsordning der individene kan velge selv hvor man investerer har det vist seg at aksjeandelen stiger jo flere forskjellige aksjefond som blir tilbudt. Hvilken type irrasjonell adferd er det mest sannsynlig at dette skyldes?</p>",
+        "options": [
+          "Tapsaversjon",
+          "Menyeffekt",
+          "Preferanse for det kjente",
+          "Overvurdering av egne ferdigheter"
+        ],
+        "answer": 1,
+        "solution": "<p><b>Regelen.</b> For en rasjonell investor avhenger aksjeandelen bare av risikopremie, risiko og risikoaversjon. Når den stiger med antall aksjefond, er det menyen som styrer valget. Forelesning 16 nevner menyeffekten og 1/N-regelen (folk fordeler jevnt på det som tilbys) under «Heuristikker». Med 1/N blir aksjeandelen omtrent lik andelen aksjefond i menyen.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Tapsaversjon: ville trukket aksjeandelen ned, uavhengig av antall fond.</li><li>Preferanse for det kjente: forklarer hjemmebias. Flere ukjente fond skulle ikke øke aksjeandelen.</li><li>Overvurdering av egne ferdigheter: forklarer overdreven handel.</li></ul><p><b>Merk.</b> Strengt tatt er mekanismen 1/N-regelen. Den er ikke et alternativ, så menyeffekt er det beste svaret.</p>"
+      },
+      {
+        "n": 17,
+        "title": "Aksjeandel, alder og humankapital",
+        "points": 1,
+        "topic": "Sparing og portefølje",
+        "chapters": [
+          14,
+          15
+        ],
+        "body": "<p>Anta at både Pernille Olsen og Petra Olsen jobber som revisorer med samme lønn. Pernille er 30 år gammel, mens Petra er 60 år. Ingen av dem har nevneverdige finansielle aktiva, men begge har en innskuddspensjon. Hvem bør ha den høyeste aksjeandelen?</p>",
+        "options": [
+          "Pernille Olsen",
+          "Petra Olsen",
+          "De bør begge ha en aksjeandel på ca 50 %",
+          "Ingen bør investere i aksjer"
+        ],
+        "answer": 0,
+        "solution": "<p><b>Regelen.</b> Den unge revisoren har mest humankapital igjen. Den er sikker og virker som et bankinnskudd, så hun bør ha høyere aksjeandel i den finansielle formuen. Eksamen H2022 oppgave 7 viser det i tall: når humankapitalen faller fra 2 000′ til 1 000′ og finansformuen stiger fra 2 000′ til 3 000′, faller aksjeandelen av finansformuen fra 100 % til 66,7 %. Eksamen H2019 oppgave 6d var nesten samme spørsmål.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Petra: snur logikken.</li><li>Begge ca. 50 %: standardprofilen i mange ordninger, men unge bør ha høyere andel.</li><li>Ingen i aksjer: med positiv risikopremie gir Merton en andel over null.</li></ul><p><b>Forutsetning.</b> Revisorlønnen er tilnærmet risikofri. Svinger humankapitalen med aksjemarkedet (β = 1), snus rangeringen.</p><p><b>Merk.</b> Begrunnelsen er humankapital, ikke at aksjer blir tryggere over tid eller at eldre er mer risikoaverse.</p>"
+      },
+      {
+        "n": 18,
+        "title": "Home bias",
+        "points": 1,
+        "topic": "Finansiell psykologi",
+        "chapters": [
+          14,
+          18
+        ],
+        "body": "<p>Hvilken av påstandene om «home bias» i aksjeinvesteringer kan være riktig?</p>",
+        "options": [
+          "En stor andel norske aksjer kan øke den samlede risikoen dersom også arbeidsinntekten er sterkt knyttet til norsk økonomi.",
+          "Det er lurt å investere mest i norske aksjer siden det norske aksjemarkedet har lavere standardavvik enn utenlandske aksjer.",
+          "Det er lurt å investere mest i norske aksjer fordi norske småsparere kjenner det norske aksjemarkedet bedre enn utlendinger, noe som gjør at vi får høyere avkastning i Norge.",
+          "Alle tre påstandene er korrekte."
+        ],
+        "answer": 0,
+        "solution": "<p><b>Regelen.</b> Lønnen er allerede eksponert mot norsk økonomi, så norske aksjer legger til mer av samme risiko: investeringene gjør det dårlig når du har mest behov for penger. Velg heller plasseringer som har høy verdi når arbeidsinntekten er lav.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Lavere standardavvik: det er porteføljens risiko som teller. Spredning mellom markeder gir lavere risiko. Norske aksjer er dessuten bare 0,2 % av verdens aksjemarked.</li><li>Bedre kunnskap: i et effektivt marked gir lokalkunnskap ikke systematisk meravkastning.</li><li>Alle tre: faller fordi to av påstandene er feil.</li></ul>"
+      },
+      {
+        "n": 19,
+        "title": "Alderspensjon fra folketrygden",
+        "points": 1,
+        "topic": "Pensjon",
+        "chapters": [
+          15
+        ],
+        "body": "<p>Pål Olsen er 22 år og nyutdannet. Han har en lønn på 400.000 og regner med at denne vil stige i takt med generell lønnsutvikling i samfunnet frem til pensjonsalder. Hva vil være hans forventede pensjon fra Folketrygden, målt i % av sluttlønn, dersom han jobber frem til han er 66 år gammel og delingstallet da blir 22?</p>",
+        "options": [
+          "18,1 %",
+          "36,2 %",
+          "44,0 %",
+          "Det kommer an på avkastningen i aksjemarkedet"
+        ],
+        "answer": 1,
+        "solution": "<p><b>Regelen.</b> Hvert år legges 18,1 % av inntekten opp til 7,1 G til beholdningen. Beholdningen reguleres med lønnsveksten. Når lønnen følger lønnsveksten, er hvert opptjeningsår verdt 18,1 % av sluttlønnen. Årlig pensjon = beholdning/delingstall.</p><p>Beholdning = 44 × 18,1 % × sluttlønn = 7,964 × sluttlønn. Pensjon = 7,964/22 = 0,362, altså <b>36,2 %</b> av sluttlønnen.</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>18,1 %: ett års opptjening, eller beholdningen delt på antall år i stedet for delingstallet.</li><li>44 %: ingen regnevei. Tallet er antall opptjeningsår.</li><li>Avhenger av aksjemarkedet: beholdningen er en rettighet som reguleres med lønnsveksten, ikke et fond.</li></ul><p><b>Forutsetning.</b> Opptjening i alle 44 årene og lønn under 7,1 G hele tiden.</p>"
+      },
+      {
+        "n": 20,
+        "title": "Mest utsatt for svingninger i aksjemarkedet",
+        "points": 1,
+        "topic": "Pensjon",
+        "chapters": [
+          15
+        ],
+        "body": "<p>Hvilken del av pensjonsformuen til et individ er mest utsatt for svingninger i aksjemarkedet?</p>",
+        "options": [
+          "Folketrygden",
+          "Ytelsespensjon",
+          "En gjennomsnittlig innskuddspensjon",
+          "Fripolise"
+        ],
+        "answer": 2,
+        "solution": "<p><b>Regelen.</b> Spør hvem som bærer investeringsrisikoen. I innskuddspensjon er det arbeidstakeren. En vanlig profil har om lag 50 % aksjer. Eksamen H2025 oppgave 17: «den ansatte bærer investeringsrisikoen».</p><p><b>Hvorfor de andre er feil.</b></p><ul><li>Folketrygden: reguleres med lønnsveksten.</li><li>Ytelsespensjon: garanterer en bestemt utbetaling. Arbeidsgiveren bærer risikoen.</li><li>Fripolise: et produkt med rentegaranti, der leverandøren bærer risikoen.</li></ul>"
+      }
+    ]
+  },
 {
   id: "h2025",
   label: "Høsten 2025",

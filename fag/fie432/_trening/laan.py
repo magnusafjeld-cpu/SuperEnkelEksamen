@@ -10,159 +10,290 @@ from trening_lib import *  # noqa: F401,F403
 # Hjelpen bak «Hjelp»-knappen: fremgangsmåten uten tallene i spørsmålet og uten svaret.
 HJELP = {
     "lan-ann1-mnd":
-        "<p><b>Steg 1: terminstørrelsene.</b> Med månedlige terminer er renten per termin m = årsrenten/12. Antall "
+        hjelp3(
+            "Dette er terminbeløpet i et annuitetslån med månedlige terminer: du skal finne det faste beløpet "
+            "som betales hver måned.",
+            "A = L × m / (1 − (1 + m)<sup>−n</sup>), der m er renten per termin og n antall terminer. Med "
+            "månedlige terminer er m = årsrenten / 12 og n = antall år × 12.",
+            "<p><b>Steg 1: terminstørrelsene.</b> Med månedlige terminer er renten per termin m = årsrenten/12. Antall "
         "terminer n = antall år × 12.</p>"
         "<p><b>Steg 2: formelen.</b> A = L × m / (1 − (1 + m)<sup>−n</sup>). Regn telleren og nevneren hver for seg.</p>"
         "<p><b>Kontroll:</b> svaret må ligge over avdraget alene, L/n. Det må ligge under serielånets første termin, "
         "L/n + L × m.</p>"
         "<p><b>Pass på:</b> regn ikke årsannuiteten og del på tolv. Det gir et tall som ser riktig ut, men er litt "
-        "for høyt.</p>",
+        "for høyt.</p>"),
     "lan-ann1-aar":
-        "<p><b>Steg 1: terminstørrelsene.</b> Med én termin i året er m årsrenten og n antall år.</p>"
+        hjelp3(
+            "Dette er terminbeløpet i et annuitetslån med én termin i året: du skal finne det faste årlige "
+            "beløpet.",
+            "A = L × m / (1 − (1 + m)<sup>−n</sup>), der m er renten per termin og n antall terminer. Med "
+            "årlige terminer er m årsrenten og n antall år.",
+            "<p><b>Steg 1: terminstørrelsene.</b> Med én termin i året er m årsrenten og n antall år.</p>"
         "<p><b>Steg 2: formelen.</b> A = L × m / (1 − (1 + m)<sup>−n</sup>). Regn telleren og nevneren hver for seg.</p>"
         "<p><b>Kontroll:</b> svaret må ligge over avdraget alene, L/n. Det må ligge under serielånets første termin, "
         "L/n + L × m.</p>"
-        "<p><b>Pass på:</b> regn ikke med månedlige terminer når terminene er årlige.</p>",
+        "<p><b>Pass på:</b> regn ikke med månedlige terminer når terminene er årlige.</p>"),
     "lan-ren1-fradrag":
-        "<p><b>Steg 1: avdragene første år.</b> Lånet minus restgjelden etter tolv terminer.</p>"
+        hjelp3(
+            "Dette er rentefradraget det første året på et annuitetslån: du skal finne hvor mye lavere "
+            "skatten blir.",
+            "Avdrag = lån − restgjeld. Renter = det som er betalt i året − avdrag. Renter trekkes fra i "
+            "alminnelig inntekt, så fradraget er verdt 22 % av rentene.",
+            "<p><b>Steg 1: avdragene første år.</b> Lånet minus restgjelden etter tolv terminer.</p>"
         "<p><b>Steg 2: rentene.</b> Alt som er betalt i året (tolv terminbeløp) minus avdragene.</p>"
         "<p><b>Steg 3: fradraget.</b> Rentene × 22 %.</p>"
         "<p><b>Pass på:</b> renter av hele lånet i tolv måneder blir for mye, fordi saldoen faller gjennom året. "
-        "Avdrag gir ikke fradrag. Satsen er 22 %, ikke marginalskatten.</p>",
+        "Avdrag gir ikke fradrag. Satsen er 22 %, ikke marginalskatten.</p>"),
     "lan-ren1-netto":
-        "<p><b>Steg 1: avdragene første år.</b> Lånet minus restgjelden etter tolv terminer.</p>"
+        hjelp3(
+            "Dette er rentekostnaden etter skatt det første året på et annuitetslån: du skal finne hva "
+            "rentene koster etter fradraget.",
+            "Avdrag = lån − restgjeld. Renter = det som er betalt i året − avdrag. Renter etter skatt = "
+            "renter × (1 − 22 %).",
+            "<p><b>Steg 1: avdragene første år.</b> Lånet minus restgjelden etter tolv terminer.</p>"
         "<p><b>Steg 2: rentene.</b> Alt som er betalt i året (tolv terminbeløp) minus avdragene.</p>"
         "<p><b>Steg 3: etter skatt.</b> Rentene × (1 − 22 %).</p>"
         "<p><b>Pass på:</b> spørsmålet gjelder hva rentene koster etter fradraget, ikke selve fradraget. Avdrag er "
-        "ingen kostnad. Renter av hele lånet i tolv måneder blir for mye.</p>",
+        "ingen kostnad. Renter av hele lånet i tolv måneder blir for mye.</p>"),
     "lan-ren1-renter":
-        "<p><b>Steg 1: avdragene første år.</b> Lånet minus restgjelden etter tolv terminer.</p>"
+        hjelp3(
+            "Dette er rentedelen av betalingene det første året på et annuitetslån: du skal finne rentene i "
+            "kroner.",
+            "Hver termin er renter pluss avdrag. Avdrag = lån − restgjeld etter årets terminer. Renter = det "
+            "som er betalt i året − avdrag.",
+            "<p><b>Steg 1: avdragene første år.</b> Lånet minus restgjelden etter tolv terminer.</p>"
         "<p><b>Steg 2: rentene.</b> Alt som er betalt i året (tolv terminbeløp) minus avdragene.</p>"
         "<p><b>Kontroll:</b> rentene må ligge litt under rentesatsen ganget med lånet, fordi bare første termin "
         "forrenter hele lånet.</p>"
-        "<p><b>Pass på:</b> ikke svar med alt som er betalt eller med avdragene. Begge er mellomtall.</p>",
+        "<p><b>Pass på:</b> ikke svar med alt som er betalt eller med avdragene. Begge er mellomtall.</p>"),
     "lan-ren1-aarlig":
-        "<p><b>Steg 1: rentene første år.</b> Med én årlig termin står hele lånet ute hele første år. Renten er "
+        hjelp3(
+            "Dette er rentefradraget det første året på et annuitetslån med én termin i året: du skal finne "
+            "hvor mye lavere skatten blir.",
+            "Renten i første termin = rentesatsen × hele lånet. Terminbeløpet minus renten er avdraget. "
+            "Renter trekkes fra i alminnelig inntekt, så fradraget er verdt 22 % av rentene.",
+            "<p><b>Steg 1: rentene første år.</b> Med én årlig termin står hele lånet ute hele første år. Renten er "
         "rentesatsen × lånet.</p>"
         "<p><b>Steg 2: fradraget.</b> Rentene × 22 %.</p>"
         "<p><b>Kontroll:</b> terminbeløpet minus rentene er avdraget. Det skal være positivt og litt under lånet "
         "delt på antall år.</p>"
         "<p><b>Pass på:</b> fradraget gjelder bare rentene, ikke hele terminbeløpet. Satsen er 22 % uansett "
-        "marginalskatt.</p>",
+        "marginalskatt.</p>"),
     "lan-sum1-annuitet":
-        "<p><b>Steg 1: alt som betales.</b> Antall terminer × terminbeløpet.</p>"
+        hjelp3(
+            "Dette er samlet rentekostnad over hele løpetiden for et annuitetslån: du skal finne summen av "
+            "alle rentene i kroner.",
+            "Alt som betales = n × A. Avdragene summerer seg til lånebeløpet L. Rentesum = n × A − L.",
+            "<p><b>Steg 1: alt som betales.</b> Antall terminer × terminbeløpet.</p>"
         "<p><b>Steg 2: trekk fra lånet.</b> Avdragene summerer seg alltid til lånebeløpet. Resten er renter: n × A − L.</p>"
         "<p><b>Kontroll:</b> rentesummen må ligge over serielånets, m × L × (n + 1)/2. Den må ligge under renten på "
         "hele lånet i alle terminene, m × L × n.</p>"
-        "<p><b>Pass på:</b> glem ikke å trekke fra lånet.</p>",
+        "<p><b>Pass på:</b> glem ikke å trekke fra lånet.</p>"),
     "lan-sum1-annuitet-mnd":
-        "<p><b>Steg 1: terminbeløpet.</b> m = årsrenten/12 og n = antall terminer. A = L × m / (1 − (1 + m)<sup>−n</sup>).</p>"
+        hjelp3(
+            "Dette er samlet rentekostnad over hele løpetiden for et annuitetslån: du skal finne summen av "
+            "alle rentene i kroner.",
+            "A = L × m / (1 − (1 + m)<sup>−n</sup>), med m = årsrenten / 12 og n = antall terminer. Avdragene "
+            "summerer seg til L. Rentesum = n × A − L.",
+            "<p><b>Steg 1: terminbeløpet.</b> m = årsrenten/12 og n = antall terminer. A = L × m / (1 − (1 + m)<sup>−n</sup>).</p>"
         "<p><b>Steg 2: alt som betales.</b> n × A.</p>"
         "<p><b>Steg 3: trekk fra lånet.</b> Avdragene summerer seg til lånet. Rentesummen er n × A − L.</p>"
         "<p><b>Kontroll:</b> rentesummen må ligge mellom serielånets m × L × (n + 1)/2 og m × L × n.</p>"
-        "<p><b>Pass på:</b> regn med månedlige terminer, ikke med årsannuiteten. Glem ikke å trekke fra lånet.</p>",
+        "<p><b>Pass på:</b> regn med månedlige terminer, ikke med årsannuiteten. Glem ikke å trekke fra lånet.</p>"),
     "lan-sum1-serie":
-        "<p><b>Steg 1: avdraget.</b> L/n, likt i hver termin.</p>"
+        hjelp3(
+            "Dette er samlet rentekostnad over hele løpetiden for et serielån: du skal finne summen av alle "
+            "rentene i kroner.",
+            "Serielån: likt avdrag L/n i hver termin. Renten i en termin er m × restgjelden før terminen. "
+            "Rentene faller lineært, så rentesum = m × L × (n + 1) / 2.",
+            "<p><b>Steg 1: avdraget.</b> L/n, likt i hver termin.</p>"
         "<p><b>Steg 2: renten i første og siste termin.</b> Første: L × m. Siste: renten på ett avdrag.</p>"
         "<p><b>Steg 3: summen.</b> Rentene faller lineært: antall terminer × snittet av første og siste. Det er "
         "m × L × (n + 1)/2.</p>"
         "<p><b>Pass på:</b> leddet + 1 blir lett borte. Renten på hele lånet i alle terminene er for mye, fordi "
-        "gjelden faller.</p>",
+        "gjelden faller.</p>"),
     "lan-eff1":
-        "<p><b>Steg 1: kontantstrømmen.</b> I dag mottar du lånet minus etableringsgebyret. I hver termin betaler du "
+        hjelp3(
+            "Dette er effektiv rente på et lån med gebyrer: du skal finne renten som tar med både "
+            "etableringsgebyret og termingebyrene.",
+            "Effektiv rente er internrenten r som gjør L − etableringsgebyr = (A + termingebyr) × [1 − (1 + "
+            "r)<sup>−n</sup>] / r.",
+            "<p><b>Steg 1: kontantstrømmen.</b> I dag mottar du lånet minus etableringsgebyret. I hver termin betaler du "
         "terminbeløpet pluss termingebyret.</p>"
         "<p><b>Steg 2: internrenten.</b> Effektiv rente er renten der det du mottar, er lik nåverdien av betalingene. "
         "Sett alternativene inn baklengs: del beløpet du mottar på annuitetsfaktoren og sammenlign med betalingen.</p>"
         "<p><b>Kontroll:</b> gebyrene per år delt på gjennomsnittlig restgjeld gir omtrent påslaget over nominell "
         "rente.</p>"
-        "<p><b>Pass på:</b> ta med begge gebyrene. Legg ikke gebyrprosent på den nominelle renten.</p>",
+        "<p><b>Pass på:</b> ta med begge gebyrene. Legg ikke gebyrprosent på den nominelle renten.</p>"),
     "lan-kre1":
-        "<p><b>Steg 1: rentene.</b> Antall terminer × terminbeløpet minus lånet.</p>"
+        hjelp3(
+            "Dette er kredittkostnaden på et lån: alle kostnadene ved kreditten i kroner, summert uten "
+            "diskontering.",
+            "Kredittkostnad = renter + alle gebyrer. Renter = n × A − L. Gebyrer = n × termingebyr + "
+            "etableringsgebyr.",
+            "<p><b>Steg 1: rentene.</b> Antall terminer × terminbeløpet minus lånet.</p>"
         "<p><b>Steg 2: gebyrene.</b> Antall terminer × termingebyret, pluss etableringsgebyret.</p>"
         "<p><b>Steg 3: kredittkostnaden.</b> Rentene pluss alle gebyrene, summert uten diskontering.</p>"
         "<p><b>Kontroll:</b> regn alt som betales, inkludert gebyrene. Trekk fra lånet. Det skal gi det samme.</p>"
         "<p><b>Pass på:</b> det farligste gale tallet er summen av alle betalinger uten å trekke fra lånet. Glem ikke "
-        "et av gebyrene.</p>",
+        "et av gebyrene.</p>"),
     "lan-tak1":
-        "<p><b>Regn hver skranke for seg.</b> Lånetaket er den laveste.</p>"
+        hjelp3(
+            "Dette er utlånsforskriften: du skal finne det største boliglånet, som er det laveste av tre "
+            "lånetak.",
+            "Gjeldsgrad: samlet gjeld høyst 5 × brutto inntekt. Belåningsgrad: lånet høyst 90 % av "
+            "boligverdien. Stresstest: maks lån = betjeningsevne × annuitetsfaktor over 30 år ved maks(rente "
+            "+ 3 prosentpoeng; 7 %).",
+            "<p><b>Regn hver skranke for seg.</b> Lånetaket er den laveste.</p>"
         "<p><b>Steg 1: gjeldsgraden.</b> 5 × brutto inntekt minus all annen gjeld.</p>"
         "<p><b>Steg 2: belåningsgraden.</b> 90 % av boligens verdi.</p>"
         "<p><b>Steg 3: stresstesten.</b> Stresset rente = renten + 3 prosentpoeng, men minst 7 %. Maks lån = "
         "betjeningsevnen × annuitetsfaktoren over 30 år ved stresset rente. Hent faktoren fra tabellen.</p>"
         "<p><b>Pass på:</b> det gamle påslaget på 5 prosentpoeng gjelder ikke lenger. Bruk gulvet bare når renten "
-        "pluss 3 prosentpoeng er under 7 %. Annen gjeld teller i femgangeren.</p>",
+        "pluss 3 prosentpoeng er under 7 %. Annen gjeld teller i femgangeren.</p>"),
     "lan-avf1-termin":
-        "<p><b>Steg 1: restgjelden.</b> I en avdragsfri periode betales bare renter. Hvor mye av lånet står da igjen "
+        hjelp3(
+            "Dette er avdragsfrihet med fast sluttdato: du skal finne det nye terminbeløpet når den "
+            "avdragsfrie perioden er over.",
+            "I en avdragsfri periode betales bare renter, så restgjelden er hele lånet. Nytt terminbeløp = L "
+            "× m / (1 − (1 + m)<sup>−n′</sup>), der n′ er antall terminer som gjenstår.",
+            "<p><b>Steg 1: restgjelden.</b> I en avdragsfri periode betales bare renter. Hvor mye av lånet står da igjen "
         "når perioden er over?</p>"
         "<p><b>Steg 2: nytt annuitetslån.</b> Hele restgjelden skal betales på de terminene som gjenstår. Bruk "
         "A = L × m / (1 − (1 + m)<sup>−n</sup>) med n = terminene som er igjen.</p>"
         "<p><b>Kontroll:</b> det nye terminbeløpet må være høyere enn det gamle, fordi samme lån betales på færre "
         "terminer.</p>"
-        "<p><b>Pass på:</b> de utsatte avdragene kan ikke bare fordeles likt. De må også forrentes.</p>",
+        "<p><b>Pass på:</b> de utsatte avdragene kan ikke bare fordeles likt. De må også forrentes.</p>"),
     "lan-avf1-kost":
-        "<p><b>Steg 1: uten avdragsfrihet.</b> Antall terminer × det opprinnelige terminbeløpet.</p>"
+        hjelp3(
+            "Dette er avdragsfrihet med fast sluttdato: du skal finne hvor mye mer du betaler i kroner over "
+            "lånets levetid.",
+            "Uten avdragsfrihet: n × A. Med avdragsfrihet: rentene i den avdragsfrie perioden + n′ × A′, der "
+            "A′ er det nye terminbeløpet på de n′ terminene som gjenstår. Merkostnaden er forskjellen.",
+            "<p><b>Steg 1: uten avdragsfrihet.</b> Antall terminer × det opprinnelige terminbeløpet.</p>"
         "<p><b>Steg 2: med avdragsfrihet.</b> Rentene i den avdragsfrie perioden, pluss resten av terminene × det nye "
         "terminbeløpet.</p>"
         "<p><b>Steg 3: forskjellen.</b> Med minus uten.</p>"
         "<p><b>Kontroll:</b> merkostnaden må være lavere enn rentene i den avdragsfrie perioden. Det er merkostnaden "
         "hvis løpetiden forlenges i stedet.</p>"
-        "<p><b>Pass på:</b> i kroner koster avdragsfrihet noe, selv om nåverdien ved lånerenten er den samme.</p>",
+        "<p><b>Pass på:</b> i kroner koster avdragsfrihet noe, selv om nåverdien ved lånerenten er den samme.</p>"),
 
     "lan-s01":
-        '<p>Avdragsfrihet betyr at du bare betaler renter en periode.</p><p><b>Steg 1:</b> står gjelden lenger ute? Hva gjør det med summen av rentekroner?</p><p><b>Steg 2:</b> diskonter betalingene med lånerenten. Endres nåverdien?</p><p><b>Steg 3:</b> hvis nåverdien er den samme, hva kan likevel gi avdragsfrihet verdi for en låntaker? Tenk på hva alternativet er når pengene ikke strekker til en periode.</p>',
+        hjelp3(
+            "Dette handler om hva avdragsfrihet koster og hvorfor den likevel kan ha verdi for en låntaker.",
+            "Avdragsfrihet flytter avdrag ut i tid. Summen av rentekroner og nåverdien ved lånerenten er to "
+            "ulike mål på kostnaden.",
+            '<p>Avdragsfrihet betyr at du bare betaler renter en periode.</p><p><b>Steg 1:</b> står gjelden lenger ute? Hva gjør det med summen av rentekroner?</p><p><b>Steg 2:</b> diskonter betalingene med lånerenten. Endres nåverdien?</p><p><b>Steg 3:</b> hvis nåverdien er den samme, hva kan likevel gi avdragsfrihet verdi for en låntaker? Tenk på hva alternativet er når pengene ikke strekker til en periode.</p>'),
     "lan-s02":
-        "<p><b>Vurder påstandene hver for seg.</b></p>"
+        hjelp3(
+            "Dette handler om avdragsfrihet med fast sluttdato: du skal vurdere kostnaden både i rentekroner "
+            "og i nåverdi.",
+            "Rente i hver termin = rente per termin × restgjelden. Nåverdien av betalingene på et lån, "
+            "diskontert med lånets egen rente, er lik lånebeløpet.",
+            "<p><b>Vurder påstandene hver for seg.</b></p>"
         "<p><b>Påstand I:</b> står hovedstolen lenger ute med avdragsfrihet? Hva gjør det med summen av rentene i "
         "kroner?</p>"
         "<p><b>Påstand II:</b> hva er nåverdien av en betalingsstrøm av renter og avdrag på et lån, når du diskonterer "
         "med lånets egen rente? Avhenger det av når avdragene betales?</p>"
-        "<p><b>Sett sammen.</b> Velg alternativet som passer med hvilke påstander som holder.</p>",
+        "<p><b>Sett sammen.</b> Velg alternativet som passer med hvilke påstander som holder.</p>"),
     "lan-s03":
-        '<p>Bankens fastrente bygger på markedets forventninger om framtidig rente pluss et lite påslag.</p><p><b>Steg 1:</b> kan du vente å tjene penger på fast rente fordi renten ventes å stige?</p><p><b>Steg 2:</b> hva kjøper du da egentlig med fast rente?</p><p><b>Steg 3:</b> hvem har mest nytte av det, en låntaker med stor buffer eller en med høy gjeld og lite sparing? Sjekk også hva tidlig innfrielse koster.</p>',
+        hjelp3(
+            "Dette handler om valget mellom fast og flytende rente for en låntaker med høy gjeld og liten "
+            "buffer.",
+            "Fastrenten prises ut fra markedets forventninger om framtidig rente pluss et lite påslag. Fast "
+            "rente bytter en usikker rentekostnad mot en sikker. Innfrielse før tiden kan gi overkurs.",
+            '<p>Bankens fastrente bygger på markedets forventninger om framtidig rente pluss et lite påslag.</p><p><b>Steg 1:</b> kan du vente å tjene penger på fast rente fordi renten ventes å stige?</p><p><b>Steg 2:</b> hva kjøper du da egentlig med fast rente?</p><p><b>Steg 3:</b> hvem har mest nytte av det, en låntaker med stor buffer eller en med høy gjeld og lite sparing? Sjekk også hva tidlig innfrielse koster.</p>'),
     "lan-s04":
-        '<p>Å betale ned et lån gir en sikker avkastning lik lånerenten etter skatt.</p><p><b>Steg 1:</b> alle lånene har rentefradrag med samme sats. Endrer fradraget rangeringen mellom dem?</p><p><b>Steg 2:</b> hvor gir en ekstra krone størst sikker avkastning?</p><p><b>Steg 3:</b> vurder hvert råd ut fra avkastningen det gir på den ekstra kronen.</p>',
+        hjelp3(
+            "Dette handler om hvilket lån som bør betales ned først når du har penger til overs.",
+            "Å betale ned et lån gir en sikker avkastning lik lånerenten etter skatt, r × (1 − 22 %) når "
+            "renten gir fradrag. Samme fradragssats på alle lånene endrer ikke rangeringen.",
+            '<p>Å betale ned et lån gir en sikker avkastning lik lånerenten etter skatt.</p><p><b>Steg 1:</b> alle lånene har rentefradrag med samme sats. Endrer fradraget rangeringen mellom dem?</p><p><b>Steg 2:</b> hvor gir en ekstra krone størst sikker avkastning?</p><p><b>Steg 3:</b> vurder hvert råd ut fra avkastningen det gir på den ekstra kronen.</p>'),
     "lan-s05":
-        "<p><b>Steg 1: hva gir fradrag?</b> Skill rentene fra avdragene. Avdrag er tilbakebetaling, ikke en kostnad.</p>"
+        hjelp3(
+            "Dette handler om rentefradraget på boliglån: du skal finne hvor mye skatten reduseres av "
+            "betalingene på lånet.",
+            "Bare renter gir fradrag. Avdrag er tilbakebetaling av lånet. Renter trekkes fra i alminnelig "
+            "inntekt, så skattebesparelsen = 22 % × rentene.",
+            "<p><b>Steg 1: hva gir fradrag?</b> Skill rentene fra avdragene. Avdrag er tilbakebetaling, ikke en kostnad.</p>"
         "<p><b>Steg 2: hvilken sats?</b> Renter trekkes fra i alminnelig inntekt, som skattlegges med 22 %. "
         "Marginalskatten på lønn inneholder trygdeavgift og trinnskatt, som ikke påvirkes.</p>"
         "<p><b>Steg 3.</b> Gang rentene med 22 %.</p>"
-        "<p><b>Stryk de gale.</b> Rentefradrag gjelder all gjeld, ikke bare studielån.</p>",
+        "<p><b>Stryk de gale.</b> Rentefradrag gjelder all gjeld, ikke bare studielån.</p>"),
     "lan-s06":
-        "<p><b>Regelen.</b> Stresset rente = dagens rente + 3 prosentpoeng, men aldri lavere enn 7 %.</p>"
+        hjelp3(
+            "Dette handler om stresstesten i utlånsforskriften: du skal finne renten banken må bruke.",
+            "Stresset rente = maks(lånerente + 3 prosentpoeng; 7 %).",
+            "<p><b>Regelen.</b> Stresset rente = dagens rente + 3 prosentpoeng, men aldri lavere enn 7 %.</p>"
         "<p><b>Steg 1.</b> Legg 3 prosentpoeng på renten.</p>"
         "<p><b>Steg 2.</b> Sammenlign med 7 %. Den høyeste av de to gjelder.</p>"
         "<p><b>Stryk de gale.</b> Påslaget på 5 prosentpoeng er den gamle regelen fra eldre eksamenssett. Stresstesten "
-        "bygger på dagens rente, ikke på et fast nivå.</p>",
+        "bygger på dagens rente, ikke på et fast nivå.</p>"),
     "lan-s07":
-        "<p><b>Regelen.</b> Samlet gjeld kan være høyst 5 × brutto årsinntekt. All gjeld teller.</p>"
+        hjelp3(
+            "Dette handler om gjeldsgradskravet i utlånsforskriften: du skal finne hvor stort boliglån kravet "
+            "alene tillater.",
+            "Samlet gjeld høyst 5 × brutto årsinntekt. All gjeld teller, også studielån, billån og hele "
+            "kredittkortrammen, brukt eller ikke. Maks boliglån = 5 × inntekt − annen gjeld.",
+            "<p><b>Regelen.</b> Samlet gjeld kan være høyst 5 × brutto årsinntekt. All gjeld teller.</p>"
         "<p><b>Steg 1.</b> Regn 5 × inntekten.</p>"
         "<p><b>Steg 2.</b> Legg sammen all eksisterende gjeld: studielån, billån og kredittkortrammer, også ubrukte.</p>"
         "<p><b>Steg 3.</b> Boliglånet kan være forskjellen.</p>"
-        "<p><b>Pass på:</b> alternativene er laget ved å glemme én gjeldspost. Sjekk at du har tatt med alle.</p>",
+        "<p><b>Pass på:</b> alternativene er laget ved å glemme én gjeldspost. Sjekk at du har tatt med alle.</p>"),
     "lan-s08":
-        "<p><b>To krav å sjekke.</b> Hvor stor andel av boligverdien kan lånet være? Når kreves avdrag? Hvor mye?</p>"
+        hjelp3(
+            "Dette handler om utlånsforskriftens krav til belåningsgrad og avdrag på et nedbetalingslån med "
+            "pant i bolig.",
+            "Belåningsgrad = lån / boligverdi, med en øvre grense som ble endret fra 2025. Over en viss "
+            "belåningsgrad kreves avdrag: en fast prosent av lånet per år eller det et annuitetslån over 30 "
+            "år gir. Rammelån har en lavere grense.",
+            "<p><b>To krav å sjekke.</b> Hvor stor andel av boligverdien kan lånet være? Når kreves avdrag? Hvor mye?</p>"
         "<p><b>Belåning.</b> Dagens grense for nedbetalingslån ble endret fra 2025. Rammelån har en lavere grense.</p>"
         "<p><b>Avdrag.</b> Kravet gjelder over en bestemt belåningsgrad. Det er en prosent av lånet per år, eller "
         "avdraget i et annuitetslån over 30 år.</p>"
-        "<p><b>Stryk de gale.</b> Ett feil tall i et alternativ gjør hele alternativet galt.</p>",
+        "<p><b>Stryk de gale.</b> Ett feil tall i et alternativ gjør hele alternativet galt.</p>"),
     "lan-s09":
-        '<p>Spør hvem forskriften beskytter.</p><p><b>Steg 1:</b> hvis målet var å verne hver forbruker mot å låne for mye, hvilke lån ville da vært strengest regulert? Er det slik i dag?</p><p><b>Steg 2:</b> hva kan gå galt for hele økonomien når mange husholdninger har høy boliggjeld samtidig?</p><p><b>Steg 3:</b> hvordan gir forskriften bankene rom for skjønn? Hvem bestemmer unntakene?</p>',
+        hjelp3(
+            "Dette handler om formålet med utlånsforskriften og hvordan en bank likevel kan gi lån som bryter "
+            "kravene.",
+            "En regel kan begrunnes med vern av den enkelte eller med stabiliteten i hele økonomien. Se på "
+            "hvilke lån forskriften regulerer strengest. Spør så hvem som bestemmer unntakene.",
+            '<p>Spør hvem forskriften beskytter.</p><p><b>Steg 1:</b> hvis målet var å verne hver forbruker mot å låne for mye, hvilke lån ville da vært strengest regulert? Er det slik i dag?</p><p><b>Steg 2:</b> hva kan gå galt for hele økonomien når mange husholdninger har høy boliggjeld samtidig?</p><p><b>Steg 3:</b> hvordan gir forskriften bankene rom for skjønn? Hvem bestemmer unntakene?</p>'),
     "lan-s10":
-        '<p>Lånet er nåverdien av alle terminbeløpene.</p><p><b>Steg 1:</b> skriv nåverdien av n like betalinger A med rente m per termin som A ganget med en annuitetsfaktor.</p><p><b>Steg 2:</b> sett nåverdien lik L og løs for A.</p><p><b>Steg 3:</b> sjekk fortegnet på eksponenten. Nevneren må bli positiv. Kontroll: fast avdrag pluss rente gir ikke et fast terminbeløp.</p>',
+        hjelp3(
+            "Dette er formelen for terminbeløpet i et annuitetslån: du skal finne uttrykket for A med L, m og "
+            "n.",
+            "Lånet er lik nåverdien av alle terminbeløpene, diskontert med renten per termin. Nåverdien av n "
+            "like betalinger A er A ganget med annuitetsfaktoren.",
+            '<p>Lånet er nåverdien av alle terminbeløpene.</p><p><b>Steg 1:</b> skriv nåverdien av n like betalinger A med rente m per termin som A ganget med en annuitetsfaktor.</p><p><b>Steg 2:</b> sett nåverdien lik L og løs for A.</p><p><b>Steg 3:</b> sjekk fortegnet på eksponenten. Nevneren må bli positiv. Kontroll: fast avdrag pluss rente gir ikke et fast terminbeløp.</p>'),
     "lan-s11":
-        "<p><b>Hva effektiv rente måler.</b> Hvor mye en krone vokser på ett år når renten per termin rentes k ganger.</p>"
+        hjelp3(
+            "Dette er effektiv årsrente når renten legges til flere ganger i året: du skal finne uttrykket "
+            "for den.",
+            "Effektiv rente = det én krone har vokst til etter ett år, minus kronen selv. Renten per termin "
+            "er r/k. Rentene forrentes innen året.",
+            "<p><b>Hva effektiv rente måler.</b> Hvor mye en krone vokser på ett år når renten per termin rentes k ganger.</p>"
         "<p><b>Steg 1.</b> Renten per termin er r/k.</p>"
         "<p><b>Steg 2.</b> Over et år vokser en krone k ganger med den. Trekk fra kronen du startet med.</p>"
         "<p><b>Kontroll.</b> Effektiv rente skal være litt over den nominelle. Et uttrykk som gir mindre, eller "
-        "flere ganger mer, er galt.</p>",
+        "flere ganger mer, er galt.</p>"),
     "lan-s12":
-        '<p>To mål for samme lån: det ene i kroner, det andre i prosent.</p><p><b>Steg 1:</b> kredittkostnad. Hva legger du sammen? Trekker du fra beløpet du fikk utbetalt? Diskonteres beløpene?</p><p><b>Steg 2:</b> effektiv rente. Hvilken rente gjør nåverdien av alle betalinger lik beløpet du mottok? Er det det samme som nominell rente pluss gebyrer?</p><p><b>Steg 3:</b> test hvert alternativ på begge målene.</p>',
+        hjelp3(
+            "Dette handler om to mål på hva et lån med gebyrer koster: kredittkostnaden og effektiv rente.",
+            "Kredittkostnaden summerer kronene du betaler utover lånet. Effektiv rente tar hensyn til når "
+            "betalingene skjer.",
+            '<p>To mål for samme lån: det ene i kroner, det andre i prosent.</p><p><b>Steg 1:</b> kredittkostnad. Hva legger du sammen? Trekker du fra beløpet du fikk utbetalt? Diskonteres beløpene?</p><p><b>Steg 2:</b> effektiv rente. Hvilken rente gjør nåverdien av alle betalinger lik beløpet du mottok? Er det det samme som nominell rente pluss gebyrer?</p><p><b>Steg 3:</b> test hvert alternativ på begge målene.</p>'),
     "lan-s13":
-        "<p><b>Vurder påstandene hver for seg.</b> I begge lånetypene er renten restgjelden × renten per termin.</p>"
+        hjelp3(
+            "Dette handler om forskjellen mellom annuitetslån og serielån: rentedelen over tid og samlet "
+            "rentesum.",
+            "Rente i hver termin = rente per termin × restgjelden. Annuitetslån: fast terminbeløp med små "
+            "avdrag i starten. Serielån: fast avdrag, så gjelden faller raskere i starten.",
+            "<p><b>Vurder påstandene hver for seg.</b> I begge lånetypene er renten restgjelden × renten per termin.</p>"
         "<p><b>Påstand I:</b> når terminbeløpet er fast og restgjelden faller, hva skjer med rentedelen?</p>"
         "<p><b>Påstand II:</b> hvilket lån har lavest gjeld ute i snitt gjennom løpetiden? Hva betyr det for "
         "rentesummen?</p>"
-        "<p><b>Sett sammen.</b> Velg alternativet som passer med hvilke påstander som holder.</p>",
+        "<p><b>Sett sammen.</b> Velg alternativet som passer med hvilke påstander som holder.</p>"),
 }
 
 NAVN = ["Mira", "Jonas", "Selma", "Aksel", "Ingrid", "Tobias", "Nora", "Elias", "Sigrid", "Henrik",
@@ -788,9 +919,9 @@ statisk(
       "<p>Hvilke påstander er riktige?</p>",
     alternativer=[
         R("Bare I"),
-        F("Bare II", "Påstand I er riktig: hovedstolen står lenger, så rentene blir flere kroner. Påstand II er gal."),
+        F("Bare II", "Påstand II er gal. Diskontert med lånerenten er betalingene på et lån verdt lånebeløpet, uansett når avdragene betales."),
         F("Både I og II", "Påstand II er gal. Diskontert med lånerenten er alle betalingsstrømmer på lånet verdt lånebeløpet."),
-        F("Ingen av dem", "Påstand I er riktig. Renten løper på hele hovedstolen i to år til."),
+        F("Ingen av dem", "Du har forkastet påstand I, men renten løper på hele hovedstolen i to år til. Det gir flere rentekroner."),
     ],
     kort="<p><b>Bare I.</b> Flere kroner i renter, men samme nåverdi ved lånerenten. Enhver betalingsplan på lånet er "
          "verdt lånebeløpet når den diskonteres med lånets egen rente.</p>",
@@ -1086,10 +1217,10 @@ statisk(
       "<p>II. Serielånet gir lavere rentesum, fordi gjelden i snitt er lavere gjennom løpetiden.</p>"
       "<p>Hvilke påstander er riktige?</p>",
     alternativer=[
-        F("Bare I", "Påstand II er også riktig. Serielånet nedbetales raskere, så det står mindre gjeld ute."),
-        F("Bare II", "Påstand I er også riktig. Renten regnes av restgjelden, som faller, så rentedelen faller."),
+        F("Bare I", "Du har forkastet påstand II, men serielånet nedbetales raskere. Da står det mindre gjeld ute og rentesummen blir lavere."),
+        F("Bare II", "Du har forkastet påstand I, men renten regnes av restgjelden. Den faller, så rentedelen faller mens terminbeløpet står fast."),
         R("Både I og II"),
-        F("Ingen av dem", "Begge er riktige. Renten følger restgjelden i begge lånetypene."),
+        F("Ingen av dem", "Du har forkastet påstand I, men renten regnes av restgjelden. Den faller, så rentedelen i annuitetslånet faller."),
     ],
     kort="<p><b>Både I og II.</b> Renten regnes alltid av restgjelden. I annuitetslånet faller rentedelen mens "
          "avdragsdelen stiger. Serielånet har lavere gjeld i snitt og dermed lavere rentesum.</p>",

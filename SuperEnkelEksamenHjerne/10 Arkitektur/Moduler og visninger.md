@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-12
+oppdatert: 2026-10-15
 ---
 
 # Moduler og visninger
@@ -294,24 +294,40 @@ også der. Psykologi har begreper i stedet for formler (`formeltittel`).
 Kontrollen sjekker språk og HTML i innføringene. Mens vinduet er åpent, svarer
 ikke A–D på spørsmålet bak det.
 
-**Hjelp før du svarer.** Hvert spørsmål har en «Hjelp»-knapp (tasten H) ved
-siden av «Stå over». Den viser fremgangsmåten uten tallene, så du regner selv med
-tallene i oppgaven; Magnus ba om at den «i stor grad egentlig gir fasit, men ikke med
-tall». Regnefamiliene har én hjelp per familie (eller per spørsmålstype), de
-statiske én hver. Et riktig svar med hjelp lagres med `h: 1` og regnes som ikke
-mestret: det kommer tilbake under «Nye først» og «Bare de jeg bommet på», og
-resultatet sier hvor mange av de riktige som var med hjelp. `sjekk-trening.js`
-stopper hjelp som inneholder tall fra alternativene, store tall eller desimaltall
-fra spørsmålet, eller teksten i det riktige alternativet; kursets faste satser er
-unntatt. Spesifikasjonen er § 2b i `docs/fie432-trening-spek.md`.
+**Hjelp før du svarer, i tre trinn.** Hvert spørsmål har en «Hjelp»-knapp (tasten H)
+ved siden av «Stå over». Første trykk viser temaet (hvilket begrep spørsmålet handler
+om), neste regelen eller formelen. Det tredje viser fremgangsmåten uten tallene, så du
+regner selv. Trinnene du har åpnet, står resten av runden. Magnus ba først om én hjelp
+som «i stor grad egentlig gir fasit, men ikke med tall» (9. oktober 2026). Trinnene
+kom 15. oktober etter mønster fra øvingsguiden til MC-testen. Dataene er `hint: [tema,
+regel]` og `hjelp` (fremgangsmåten), skrevet med `hjelp3(tema, regel, oppsett)` i
+`_trening/`. Et svar lagres med `h` = antall trinn som var åpne. Et riktig svar med
+hjelp regnes som ikke mestret: det kommer tilbake under «Nye først» og «Bare de jeg
+bommet på». `sjekk-trening.js` stopper hint og hjelp som inneholder tall fra
+alternativene, store tall eller desimaltall fra spørsmålet, eller teksten i det
+riktige alternativet; kursets faste satser er unntatt. Spesifikasjonen er § 2b og
+§ 2c i `docs/fie432-trening-spek.md`.
+
+**«Prøv igjen først».** Et valg i oppsettet ved siden av utvalget. Svarer du feil,
+vises bare fella for alternativet du valgte, uten fasiten. Så prøver du et annet.
+«Vis fasiten» gir opp. Poengene og loggen teller første svar, så modusen endrer ikke
+hva som regnes som mestret. Fasithodet sier «riktig på forsøk N». Resultatet
+viser «riktig på første forsøk uten hjelp» og hvor mange du fikk på et senere
+forsøk. Fordi fellene vises før fasiten, stopper kontrollen en felle som nevner
+teksten i det riktige alternativet eller et tall som bare står der.
+
+**«Ny variant».** Etter et svar på et regnespørsmål kan du ta en ny variant av samme
+familie med en gang (tasten V). Den settes inn rett etter spørsmålet du står på, og
+varianter du ikke har sett kommer først.
 
 **Familier.** Varianter av samme regnestykke har samme `fam`, og én runde tar bare
 én fra hver familie så lenge utvalget rekker. Ellers ville fem like regnestykker på
 rad sett ut som fem spørsmål.
 
-**Lagring:** `state.exams["tr:<id>"] = { n, r, s, t }` per spørsmål, så sky-synken
-slår sammen to enheter per spørsmål; `"trening:okt"` er runden og `"trening:valg"`
-det du valgte sist. Banken er 1,6 MB og lastes først når modulen åpnes
+**Lagring:** `state.exams["tr:<id>"] = { n, r, s, t, h }` per spørsmål, så sky-synken
+slår sammen to enheter per spørsmål; `"trening:okt"` er runden (med `hjelp`,
+`forsok`, `losst` og `gitt` per spørsmål) og `"trening:valg"` det du valgte sist,
+også `feil: "fasit" | "igjen"`. Banken er 1,6 MB og lastes først når modulen åpnes
 (manifest.lazy, se [[Arkitektur]]). Modulen har et kort på dashbordet og plass i
 mobilmenyen, som nå kappes ved seks.
 

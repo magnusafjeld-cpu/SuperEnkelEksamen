@@ -15,7 +15,7 @@ window.EDU_DATA.kjerne.push({
 <div class="eq">Skatt = grunnlag × f × t = grunnlag × t<sub>e</sub></div>
 <div class="where">f er oppjusteringsfaktoren og t skatten på alminnelig inntekt, begge [dagens regel]. Oppjuster grunnlaget og bruk 22 %, eller oppjuster satsen og bruk grunnlaget som det er, aldri begge. Regn begge veier som kontroll. Eksamen oppgir ofte andre satser (1,6 og 25 % i H2022, eierskatt 40 % i H2025 oppgave 1): bruk oppgavens tall.</div>
 </div>
-<div class="callout mech"><span class="h">Hvorfor finnes oppjusteringen?</span>En krone tjent i selskapet og delt ut beskattes med 22 % i selskapet og 37,84 % av de 78 ørene som er igjen: 22 % + 78 % × 37,84 % = 51,52 %. Det skal ligne toppskatten på lønn, 47,4 % [dagens regel]. Uten oppjusteringen ville samlet sats vært 22 % + 78 % × 22 % = 39,16 %, og enhver med eget selskap ville tatt lønnen som utbytte. Det kalles inntektsskifting, og faktoren stenger døra.</div>
+<div class="callout mech"><span class="h">Hvorfor finnes oppjusteringen?</span>Skattesystemet skal ikke gjøre det lønnsomt å ta ut lønn som utbytte. Det kalles inntektsskifting. Faktoren settes med inntektsskiftingslikningen, som legger nominelle satser sammen: toppskatt på lønn + arbeidsgiveravgiften arbeidstakeren bærer = selskapsskatt + eierskatt × oppjusteringsfaktor. Med 2026-satsene er 47,4 % + 12,4 % = 22 % + 22 % × y, som gir y ≈ 1,72 og 59,8 = 59,8 [dagens regel]. 12,4 % er avgiften målt mot lønnskostnaden (14,1 % av utbetalt lønn). 1,72 forutsetter at arbeidstakeren bærer hele avgiften. Deles den 50/50, gir likningen 1,15. Summen er nominell. Den effektive skatten på utdelt overskudd er 22 % + 78 % × 37,84 % = 51,52 %. Uten oppjusteringen ville den vært 22 % + 78 % × 22 % = 39,16 %.</div>
 <h3>Skjermingen, år for år</h3>
 <p>Skjermingsrenten er r<sub>s</sub> = (snittet av 3-måneders statskasseveksel + 0,5 prosentpoeng) × (1 − t), fastsatt i januar året etter inntektsåret, så eksamen oppgir den. Grunnlaget starter på kostprisen, aldri markedsverdien. Hvert år, i denne rekkefølgen:</p>
 <div class="formula">
@@ -61,7 +61,7 @@ window.EDU_DATA.kjerne.push({
 <li>Skjermingsrutinen hvert år: grunnlag = kostpris + ubenyttet skjerming fra i fjor; fradrag = grunnlag × skjermingsrenten; skattepliktig utbytte = utbytte − fradrag − ubenyttet fra i fjor, aldri under null; resten framføres og legges til neste års grunnlag.</li>
 <li>Kontroll av en skjermingskjede: skattepliktig utbytte pluss brukt skjerming over alle år er lik summen av utbyttene.</li>
 <li>Skattepliktig gevinst = salgspris − inngangsverdi − ubenyttet skjerming, skattlagt med 37,84 %. Selges aksjen før årsskiftet, gis ikke årets skjermingsfradrag.</li>
-<li>Samlet skatt på utdelt overskudd er 22 % + 78 % × 37,84 % = 51,52 %, mot 47,4 % på lønn: derfor oppjusteringen. Et aksjeselskap som eier aksjer i EØS, betaler etter fritaksmetoden ingen skatt på gevinst og 0,66 % (3 % × 22 %) på mottatt utbytte, null i konsern over 90 %. Et holdingselskap utsetter eierskatten, men fjerner den ikke.</li></ul></div>
+<li>Oppjusteringen kommer fra inntektsskiftingslikningen med nominelle satser: 47,4 % + 12,4 % = 22 % + 22 % × 1,72 (59,8 = 59,8), med full overvelting av arbeidsgiveravgiften. Den effektive skatten på utdelt overskudd er 22 % + 78 % × 37,84 % = 51,52 %. Et aksjeselskap som eier aksjer i EØS, betaler etter fritaksmetoden ingen skatt på gevinst og 0,66 % (3 % × 22 %) på mottatt utbytte, null i konsern over 90 %. Et holdingselskap utsetter eierskatten, men fjerner den ikke.</li></ul></div>
 `,
   checks: [
     {
@@ -80,13 +80,13 @@ window.EDU_DATA.kjerne.push({
       id: "kj2-s2",
       q: "Hvorfor ganges utbytte og aksjegevinst med 1,72 før 22 % skatt?",
       options: [
-        "For at samlet skatt på utdelt overskudd skal ligne toppskatten på lønnsinntekt",
+        "For at det ikke skal lønne seg å ta ut lønn som utbytte",
         "For at skjermingsfradraget skal gjøre normalavkastningen skattefri",
         "For å veie opp for at gevinsten først skattlegges når aksjen selges",
         "For at utbytte skal skattlegges hardere enn lønn, så overskudd blir stående",
       ],
       answer: 0,
-      explanation: "Med oppjusteringen blir samlet skatt på utdelt overskudd 22 % + 78 % × 37,84 % = 51,52 %, nær 47,4 % på lønn; uten den ville den vært 39,16 %, og eiere ville tatt lønn som utbytte. Det er inntektsskifting faktoren skal hindre. Skjermingen gjør normalavkastningen skattefri, men det er en egen regel og ikke grunnen til faktoren.",
+      explanation: "Faktoren settes med inntektsskiftingslikningen i nominelle satser: 47,4 % + 12,4 % = 22 % + 22 % × 1,72, altså 59,8 = 59,8. Da lønner det seg ikke å ta lønn som utbytte. Det er inntektsskifting faktoren skal hindre. Effektivt blir skatten på utdelt overskudd 51,52 %. Uten faktoren ville den vært 39,16 %. Skjermingen gjør normalavkastningen skattefri, men det er en egen regel og ikke grunnen til faktoren.",
     },
     {
       id: "kj2-s3",

@@ -8,178 +8,349 @@ from trening_lib import *  # noqa: F401,F403
 # Hjelpen bak «Hjelp»-knappen: fremgangsmåten uten tallene i spørsmålet og uten svaret.
 HJELP = {
     "pen-beh1-slutt":
-        "<p><b>Steg 1: reguler først.</b> Gang beholdningen ved inngangen til året med (1 + lønnsveksten).</p>"
+        hjelp3(
+            "Dette er pensjonsbeholdningen i folketrygden etter alleårsregelen: du skal finne beholdningen "
+            "ved utgangen av året.",
+            "B<sub>t</sub> = B<sub>t−1</sub> × (1 + g) + 18,1 % × min(L<sub>t</sub>; 7,1 G<sub>t</sub>). "
+            "Lønnsveksten g regulerer bare beholdningen fra inngangen til året. Årets opptjening legges til "
+            "etter reguleringen.",
+            "<p><b>Steg 1: reguler først.</b> Gang beholdningen ved inngangen til året med (1 + lønnsveksten).</p>"
         "<p><b>Steg 2: årets opptjening.</b> Regn 7,1 G med årets G. Opptjeningen er 18,1 % av den laveste av "
         "inntekten og 7,1 G.</p>"
         "<p><b>Steg 3: legg sammen.</b> Regulert beholdning pluss opptjeningen.</p>"
         "<p><b>Pass på:</b> rekkefølgen. Årets opptjening skal ikke reguleres. Sjekk også om lønnen er over eller "
-        "under taket før du ganger.</p>",
+        "under taket før du ganger.</p>"),
     "pen-beh1-okning":
-        "<p><b>Steg 1: reguleringen.</b> Beholdningen ved inngangen til året ganget med lønnsveksten. Det er den ene "
+        hjelp3(
+            "Dette er pensjonsbeholdningen i folketrygden etter alleårsregelen: du skal finne hvor mye "
+            "beholdningen vokser i løpet av ett år.",
+            "B<sub>t</sub> = B<sub>t−1</sub> × (1 + g) + 18,1 % × min(L<sub>t</sub>; 7,1 G<sub>t</sub>). "
+            "Økningen B<sub>t</sub> − B<sub>t−1</sub> har derfor to deler: reguleringen g × B<sub>t−1</sub> "
+            "og årets opptjening.",
+            "<p><b>Steg 1: reguleringen.</b> Beholdningen ved inngangen til året ganget med lønnsveksten. Det er den ene "
         "delen av økningen.</p>"
         "<p><b>Steg 2: årets opptjening.</b> Regn 7,1 G med årets G. Opptjeningen er 18,1 % av den laveste av "
         "inntekten og 7,1 G.</p>"
         "<p><b>Steg 3: økningen.</b> Reguleringen pluss opptjeningen.</p>"
         "<p><b>Pass på:</b> økningen er ikke bare opptjeningen. Reguleringen treffer det som lå der fra før, men ikke "
-        "årets opptjening.</p>",
+        "årets opptjening.</p>"),
     "pen-beh2":
-        "<p><b>Ett år om gangen.</b> Gjenta to steg for hvert år.</p>"
+        hjelp3(
+            "Dette er pensjonsbeholdningen i folketrygden over to år: du skal finne beholdningen ved utgangen "
+            "av det andre året.",
+            "Hvert år: B<sub>t</sub> = B<sub>t−1</sub> × (1 + g<sub>t</sub>) + 18,1 % × min(L<sub>t</sub>; "
+            "7,1 G<sub>t</sub>). Lønnsveksten, G og taket gjelder for hvert år for seg.",
+            "<p><b>Ett år om gangen.</b> Gjenta to steg for hvert år.</p>"
         "<p><b>Steg 1: reguler.</b> Gang beholdningen fra året før med (1 + årets lønnsvekst).</p>"
         "<p><b>Steg 2: legg til opptjeningen.</b> 18,1 % av den laveste av årets inntekt og 7,1 G, regnet med årets "
         "G. Taket er nytt hvert år.</p>"
         "<p><b>Steg 3: andre år.</b> Bruk beholdningen fra første år, også det som ble tjent opp. Gjenta stegene.</p>"
         "<p><b>Pass på:</b> reguler aldri årets egen opptjening. Sjekk taket hvert år for seg, fordi inntekten kan "
-        "være under taket det ene året og over det andre.</p>",
+        "være under taket det ene året og over det andre.</p>"),
     "pen-uts1":
-        "<p><b>Steg 1: regelen.</b> Årlig pensjon = beholdning / delingstall. Med fast beholdning følger årsbeløpet "
+        hjelp3(
+            "Dette handler om delingstallet ved uttak av alderspensjon: du skal finne hvordan årlig pensjon "
+            "endres når uttaksalderen flyttes.",
+            "Årlig pensjon = beholdning / delingstall. Med fast beholdning er forholdet mellom to årsbeløp "
+            "lik det omvendte forholdet mellom delingstallene. Innenfor ett kull synker delingstallet med "
+            "uttaksalderen.",
+            "<p><b>Steg 1: regelen.</b> Årlig pensjon = beholdning / delingstall. Med fast beholdning følger årsbeløpet "
         "1/delingstall.</p>"
         "<p><b>Steg 2: endringen.</b> Del delingstallet ved den planlagte alderen på delingstallet ved den nye "
         "alderen og trekk fra én. Beholdningen faller ut.</p>"
         "<p><b>Steg 3: retningen.</b> Senere uttak gir lavere delingstall og høyere årsbeløp. Tidligere uttak gir det "
         "motsatte.</p>"
         "<p><b>Pass på:</b> delingstallet er en nevner, ikke en faktor. Nøytraliteten gjelder samlet utbetaling over "
-        "livet, ikke årsbeløpet.</p>",
+        "livet, ikke årsbeløpet.</p>"),
     "pen-bre1":
-        "<p><b>Steg 1: årsbeløpene.</b> Beholdningen delt på hvert av de to delingstallene.</p>"
+        hjelp3(
+            "Dette er et break-even-spørsmål om uttaksalder: du skal finne alderen der samlet utbetaling ved "
+            "sent uttak har tatt igjen samlet utbetaling ved tidlig uttak.",
+            "Årsbeløp P = B / D for hver uttaksalder. Forsprang = (sen alder − tidlig alder) × "
+            "P<sub>tidlig</sub>. Det tas igjen med P<sub>sen</sub> − P<sub>tidlig</sub> per år, regnet fra "
+            "den sene uttaksalderen.",
+            "<p><b>Steg 1: årsbeløpene.</b> Beholdningen delt på hvert av de to delingstallene.</p>"
         "<p><b>Steg 2: forspranget.</b> Den tidlige får pensjon i årene før den andre starter: antall år mellom "
         "uttaksaldrene ganget med det lave årsbeløpet.</p>"
         "<p><b>Steg 3: innhentingen.</b> Del forspranget på differansen mellom de to årsbeløpene. Det gir antall år "
         "etter den sene uttaksalderen.</p>"
         "<p><b>Steg 4: alderen.</b> Legg årene til den sene uttaksalderen.</p>"
         "<p><b>Pass på:</b> forspranget tas igjen med differansen, ikke med hele årsbeløpet. Årene legges til den sene "
-        "alderen, ikke den tidlige.</p>",
+        "alderen, ikke den tidlige.</p>"),
     "pen-kmp1":
-        "<p><b>Steg 1: hvem er over taket?</b> Sammenlign lønnen i G med 7,1 G.</p>"
+        hjelp3(
+            "Dette er kompensasjonsgraden fra folketrygden: årlig alderspensjon delt på sluttlønnen for en "
+            "person med en gitt lønn målt i G.",
+            "Under taket: kompensasjonsgrad = 18,1 % × n / D, der n er antall år med inntekt og D "
+            "delingstallet ved uttak. Over taket gir bare 7,1 G opptjening, så du ganger med 7,1 / lønnen i "
+            "G.",
+            "<p><b>Steg 1: hvem er over taket?</b> Sammenlign lønnen i G med 7,1 G.</p>"
         "<p><b>Steg 2: snarveien under taket.</b> Kompensasjonsgrad = 18,1 % × antall år / delingstall. Lønnen faller "
         "ut av brøken.</p>"
         "<p><b>Steg 3: over taket.</b> Gang snarveien med 7,1 / lønnen i G, fordi bare 7,1 G gir opptjening.</p>"
         "<p><b>Steg 4: delingstallet.</b> Bruk delingstallet for den alderen personene faktisk tar ut pensjonen.</p>"
         "<p><b>Pass på:</b> får du samme prosent for to ulike lønninger, har du glemt taket. Takbrøken gjelder bare "
-        "den som er over taket.</p>",
+        "den som er over taket.</p>"),
     "pen-otp1-min":
-        "<p><b>Steg 1: grensen.</b> Regn 12 G med oppgitt G.</p>"
+        hjelp3(
+            "Dette er minstekravet i loven om obligatorisk tjenestepensjon (OTP): du skal finne det minste "
+            "arbeidsgiveren må sette inn i året.",
+            "OTP-minimum = 2 % × min(lønn; 12 G). Kravet gjelder fra første krone. Regelen om at bare lønn "
+            "over 1 G teller, ble fjernet i 2022.",
+            "<p><b>Steg 1: grensen.</b> Regn 12 G med oppgitt G.</p>"
         "<p><b>Steg 2: grunnlaget.</b> Den laveste av lønnen og 12 G. Kravet gjelder fra første krone.</p>"
         "<p><b>Steg 3: minimumet.</b> 2 % av grunnlaget.</p>"
         "<p><b>Pass på:</b> regelen før 2022 gjaldt bare lønn over 1 G. Den gjelder ikke lenger. Taket for OTP er "
-        "12 G, ikke folketrygdens 7,1 G. Og 7 % er maksimum, ikke minimum.</p>",
+        "12 G, ikke folketrygdens 7,1 G. Og 7 % er maksimum, ikke minimum.</p>"),
     "pen-otp1-maks":
-        "<p><b>Steg 1: grensene.</b> Regn 7,1 G og 12 G med oppgitt G. Bruk den laveste av lønnen og 12 G.</p>"
+        hjelp3(
+            "Dette er maksimalt innskudd i innskuddspensjon: du skal finne det meste arbeidsgiveren kan sette "
+            "inn i året.",
+            "Maks innskudd = 7 % × min(lønn; 12 G) + 18,1 % av den delen av lønnen som ligger mellom 7,1 G og "
+            "12 G.",
+            "<p><b>Steg 1: grensene.</b> Regn 7,1 G og 12 G med oppgitt G. Bruk den laveste av lønnen og 12 G.</p>"
         "<p><b>Steg 2: grunnsatsen.</b> 7 % av hele lønnen opp til 12 G, fra første krone.</p>"
         "<p><b>Steg 3: tillegget.</b> 18,1 % av den delen av lønnen som ligger mellom 7,1 G og 12 G.</p>"
         "<p><b>Steg 4: summen.</b> Grunnsatsen pluss tillegget.</p>"
         "<p><b>Pass på:</b> tillegget gjelder bare lønnen over 7,1 G. Grunnsatsen gjelder all lønn opp til 12 G, "
-        "ikke bare opp til 7,1 G.</p>",
+        "ikke bare opp til 7,1 G.</p>"),
     "pen-skf1-ips":
-        "<p><b>Steg 1: taket.</b> Finn taket for IPS i det aktuelle året. Bare innskudd opp til taket gir fradrag.</p>"
+        hjelp3(
+            "Dette er skattefordelen ved innskudd på IPS: du skal finne hvor mye lavere skatten blir det året "
+            "du setter inn.",
+            "Skattefordel = 22 % × min(innskudd; årets tak). IPS gir fradrag i alminnelig inntekt, så satsen "
+            "er 22 % uansett marginalskatt på lønn.",
+            "<p><b>Steg 1: taket.</b> Finn taket for IPS i det aktuelle året. Bare innskudd opp til taket gir fradrag.</p>"
         "<p><b>Steg 2: fradraget.</b> Den laveste av innskuddet og taket trekkes fra i alminnelig inntekt.</p>"
         "<p><b>Steg 3: skatteverdien.</b> Gang fradraget med 22 %.</p>"
         "<p><b>Pass på:</b> marginalskatten på lønn er uten betydning. Trygdeavgift og trinnskatt påvirkes ikke av "
-        "fradrag i alminnelig inntekt. Bland ikke inn BSU-regelen med fradrag rett i skatten.</p>",
+        "fradrag i alminnelig inntekt. Bland ikke inn BSU-regelen med fradrag rett i skatten.</p>"),
     "pen-skf1-bsu":
-        "<p><b>Steg 1: vilkårene.</b> Sjekk alderen (til og med året du fyller 33) og om personen eier bolig. Er et "
+        hjelp3(
+            "Dette er skattefradraget for BSU: du skal sjekke vilkårene og finne hvor mye lavere skatten "
+            "blir.",
+            "Fradrag i skatten = 10 % × min(årets sparing; taket per år). Fradraget gis til og med året du "
+            "fyller 33 og bare til den som ikke eier bolig. Ellers er det null.",
+            "<p><b>Steg 1: vilkårene.</b> Sjekk alderen (til og med året du fyller 33) og om personen eier bolig. Er et "
         "vilkår brutt, er fradraget null.</p>"
         "<p><b>Steg 2: grunnlaget.</b> Den laveste av årets sparing og taket per år.</p>"
         "<p><b>Steg 3: fradraget.</b> 10 % av grunnlaget, trukket rett fra skatten.</p>"
         "<p><b>Pass på:</b> BSU gir fradrag i skatten, ikke i inntekten, så 22 % og marginalskatten brukes ikke. "
-        "Maksimalt fradrag gjelder bare når sparingen når taket.</p>",
+        "Maksimalt fradrag gjelder bare når sparingen når taket.</p>"),
     "pen-ips2-netto":
-        "<p><b>Steg 1: kontoverdien.</b> Hele innskuddet vokser uten skatt underveis: innskudd × vekstfaktoren.</p>"
+        hjelp3(
+            "Dette er IPS over tid: du skal finne hva du sitter igjen med etter skatt når hele kontoen er "
+            "tatt ut.",
+            "Kontoverdi = innskudd × vekstfaktor, uten skatt underveis. Innskuddet ga fradrag i alminnelig "
+            "inntekt. Da skattlegges hele uttaket som alminnelig inntekt med 22 %, uten trygdeavgift.",
+            "<p><b>Steg 1: kontoverdien.</b> Hele innskuddet vokser uten skatt underveis: innskudd × vekstfaktoren.</p>"
         "<p><b>Steg 2: skatten ved uttak.</b> Avgjør hva slags inntekt IPS-uttak er. Bruk den satsen på hele "
         "uttaket.</p>"
         "<p><b>Steg 3: netto.</b> Kontoverdien minus skatten.</p>"
         "<p><b>Kontroll:</b> flytt (1 − 22 %) til starten. Ditt eget utlegg etter fradraget ganger vekstfaktoren skal "
         "gi samme netto.</p>"
         "<p><b>Pass på:</b> IPS-uttak er alminnelig inntekt, ikke aksjegevinst og ikke pensjonsinntekt. Hele uttaket "
-        "skattlegges, ikke bare avkastningen.</p>",
+        "skattlegges, ikke bare avkastningen.</p>"),
     "pen-ips2-skatt":
-        "<p><b>Steg 1: kontoverdien.</b> Innskuddet ganget med vekstfaktoren. Ingen skatt underveis.</p>"
+        hjelp3(
+            "Dette er IPS over tid: du skal finne den samlede skatten på uttakene.",
+            "Kontoverdi = innskudd × vekstfaktor, uten skatt underveis. Hele uttaket er alminnelig inntekt "
+            "med 22 %, ikke pensjonsinntekt. Det gir ingen trygdeavgift.",
+            "<p><b>Steg 1: kontoverdien.</b> Innskuddet ganget med vekstfaktoren. Ingen skatt underveis.</p>"
         "<p><b>Steg 2: hva slags inntekt?</b> IPS-uttak skattlegges som alminnelig inntekt med 22 %. Det er verken "
         "aksjegevinst eller pensjonsinntekt.</p>"
         "<p><b>Steg 3: skatten.</b> 22 % av hele kontoverdien.</p>"
         "<p><b>Kontroll:</b> statens 22 % av innskuddet har vokst med samme faktor. Det skal gi samme skatt.</p>"
         "<p><b>Pass på:</b> innskuddet ga fradrag, så hele uttaket er skattepliktig, ikke bare avkastningen. "
-        "Trygdeavgift kommer ikke i tillegg.</p>",
+        "Trygdeavgift kommer ikke i tillegg.</p>"),
 
     "pen-s01":
-        "<p><b>Regelen.</b> Årlig pensjon = beholdning / delingstall. Delingstallet er tilnærmet forventet "
+        hjelp3(
+            "Dette handler om delingstallet innenfor ett kull: du skal finne hvordan delingstallet og årlig "
+            "pensjon endres når uttaket utsettes.",
+            "Årlig pensjon = beholdning / delingstall. Delingstallet er tilnærmet forventet gjenstående "
+            "leveår ved uttaksalderen.",
+            "<p><b>Regelen.</b> Årlig pensjon = beholdning / delingstall. Delingstallet er tilnærmet forventet "
         "gjenstående leveår ved uttaksalderen.</p>"
         "<p><b>Resonnementet.</b> Har en eldre person flere eller færre forventede leveår igjen enn en yngre? Hva skjer "
         "da med nevneren? Hva skjer med brøken når telleren står fast?</p>"
         "<p><b>Stryk de gale.</b> Med fast teller kan ikke nevneren og brøken bevege seg i samme retning. Det stryker "
         "to alternativer med en gang.</p>"
-        "<p><b>Pass på:</b> ikke bland inn levealdersjusteringen, som gjelder sammenligning mellom kull.</p>",
+        "<p><b>Pass på:</b> ikke bland inn levealdersjusteringen, som gjelder sammenligning mellom kull.</p>"),
     "pen-s02":
-        "<p><b>Hva justeringen gjør.</b> Delingstallet settes ut fra forventet levealder i hvert kull. Spør: lever "
+        hjelp3(
+            "Dette er levealdersjusteringen: du skal sammenligne delingstall og årlig pensjon for to kull som "
+            "tar ut pensjon ved samme alder.",
+            "Delingstallet fastsettes for hvert kull ut fra forventet levealder i kullet. Årlig pensjon = "
+            "beholdning / delingstall.",
+            "<p><b>Hva justeringen gjør.</b> Delingstallet settes ut fra forventet levealder i hvert kull. Spør: lever "
         "yngre kull lenger eller kortere enn eldre?</p>"
         "<p><b>Steg 1: delingstallet.</b> Flere forventede leveår ved uttak betyr et høyere eller lavere "
         "delingstall?</p>"
         "<p><b>Steg 2: pensjonen.</b> Årlig pensjon = beholdning / delingstall. Hva gjør en endret nevner med "
         "brøken?</p>"
         "<p><b>Stryk de gale.</b> Alternativer der delingstallet og pensjonen går i samme retning, er umulige. "
-        "Delingstallet avhenger av levealderen i kullet, ikke av innbetalte år.</p>",
+        "Delingstallet avhenger av levealderen i kullet, ikke av innbetalte år.</p>"),
     "pen-s03":
-        "<p><b>Vurder påstandene hver for seg.</b></p>"
+        hjelp3(
+            "Dette handler om hvordan delingstallet fastsettes: når det låses for et kull og om det skiller "
+            "mellom kjønn.",
+            "Delingstallet speiler forventet gjenstående levetid ved uttak. Det fastsettes per årskull ut fra "
+            "dødelighetstall for kullet. Folketrygden deler levealdersrisikoen mellom alle i kullet.",
+            "<p><b>Vurder påstandene hver for seg.</b></p>"
         "<p><b>Påstand I:</b> når fastsettes delingstallet for et kull endelig? Husk alderen kullet har det året.</p>"
         "<p><b>Påstand II:</b> bruker folketrygden ulike delingstall for kvinner og menn, eller ett felles? Tenk på at "
         "ordningen deler levealdersrisikoen mellom alle i kullet.</p>"
-        "<p><b>Sett sammen.</b> Velg alternativet som passer med hvilke påstander som holder.</p>",
+        "<p><b>Sett sammen.</b> Velg alternativet som passer med hvilke påstander som holder.</p>"),
     "pen-s04":
-        '<p>Navnet på ordningen sier hva som er lovet på forhånd.</p><p><b>Steg 1:</b> i en innskuddsordning, hva vet du sikkert når du begynner? I en ytelsesordning?</p><p><b>Steg 2:</b> hvem bærer da avkastningsrisikoen i hver av dem?</p><p><b>Steg 3:</b> sjekk hvert alternativ. Stemmer påstandene om lovplikt og sektor med det du vet om OTP? Er ordningene beskrevet riktig vei?</p>',
+        hjelp3(
+            "Dette handler om skillet mellom de to formene for tjenestepensjon: innskuddspensjon og "
+            "ytelsespensjon.",
+            "Navnet på ordningen sier hva som er avtalt på forhånd. Det som ikke er avtalt, blir bestemt av "
+            "avkastningen. Loven om obligatorisk tjenestepensjon gjelder uansett hvilken form arbeidsgiveren "
+            "velger.",
+            '<p>Navnet på ordningen sier hva som er lovet på forhånd.</p><p><b>Steg 1:</b> i en innskuddsordning, hva vet du sikkert når du begynner? I en ytelsesordning?</p><p><b>Steg 2:</b> hvem bærer da avkastningsrisikoen i hver av dem?</p><p><b>Steg 3:</b> sjekk hvert alternativ. Stemmer påstandene om lovplikt og sektor med det du vet om OTP? Er ordningene beskrevet riktig vei?</p>'),
     "pen-s05":
-        '<p>I innskuddspensjon er innskuddet lovet. Den ansatte bærer avkastningsrisikoen.</p><p><b>Steg 1:</b> hvis du bærer risikoen, er det rimelig at du får påvirke den?</p><p><b>Steg 2:</b> spør for hvert alternativ om det beskriver innskudd eller ytelse.</p><p><b>Steg 3:</b> når kan midler i tjenestepensjon tas ut?</p>',
+        hjelp3(
+            "Dette handler om kjennetegnene ved innskuddspensjon: hvem som bærer risikoen og hva den ansatte "
+            "selv kan bestemme.",
+            "I innskuddspensjon er innskuddet avtalt. Pensjonen blir det kontoen vokser til, så den ansatte "
+            "bærer avkastningsrisikoen. Tjenestepensjon er bundet til pensjonsalder.",
+            '<p>I innskuddspensjon er innskuddet lovet. Den ansatte bærer avkastningsrisikoen.</p><p><b>Steg 1:</b> hvis du bærer risikoen, er det rimelig at du får påvirke den?</p><p><b>Steg 2:</b> spør for hvert alternativ om det beskriver innskudd eller ytelse.</p><p><b>Steg 3:</b> når kan midler i tjenestepensjon tas ut?</p>'),
     "pen-s06":
-        '<p>I ytelsespensjon er utbetalingen avtalt. I innskuddspensjon er innskuddet avtalt.</p><p><b>Steg 1:</b> hvilken form har personen? Hva er da fast?</p><p><b>Steg 2:</b> når avkastningen svikter, må noe justeres for at regnestykket skal gå opp. Hvem har gitt et løfte? Hvem har mottatt det?</p><p><b>Steg 3:</b> avhenger folketrygdens beregning av tjenestepensjonen?</p>',
+        hjelp3(
+            "Dette handler om hvem som bærer avkastningsrisikoen i en ytelsespensjon når avkastningen blir "
+            "lavere enn ordningen regnet med.",
+            "I ytelsespensjon er utbetalingen avtalt som en andel av sluttlønnen. Det som er lovet, ligger "
+            "fast. Det som ikke er lovet, må justeres når avkastningen svikter.",
+            '<p>I ytelsespensjon er utbetalingen avtalt. I innskuddspensjon er innskuddet avtalt.</p><p><b>Steg 1:</b> hvilken form har personen? Hva er da fast?</p><p><b>Steg 2:</b> når avkastningen svikter, må noe justeres for at regnestykket skal gå opp. Hvem har gitt et løfte? Hvem har mottatt det?</p><p><b>Steg 3:</b> avhenger folketrygdens beregning av tjenestepensjonen?</p>'),
     "pen-s07":
-        '<p>To spørsmål: jobbytte og død.</p><p><b>Steg 1:</b> ved jobbytte får du et dokument som viser opptjent pensjon. Innskudd og ytelse gir hvert sitt dokument. Hvilket hører til personens ordning?</p><p><b>Steg 2:</b> er pensjonen en konto med en beholdning i ditt navn, eller et løfte om utbetaling så lenge du lever? Hvilken form kan arves?</p><p><b>Steg 3:</b> hvem eier opptjent tjenestepensjon?</p>',
+        hjelp3(
+            "Dette handler om hva som skjer med opptjent innskuddspensjon ved jobbytte og ved død.",
+            "Innskuddspensjon er en konto med en beholdning i ditt navn. Ytelsespensjon er et løfte om "
+            "utbetaling så lenge du lever. Ved jobbytte får du et dokument som viser det du har tjent opp. "
+            "Innskudd og ytelse gir hvert sitt.",
+            '<p>To spørsmål: jobbytte og død.</p><p><b>Steg 1:</b> ved jobbytte får du et dokument som viser opptjent pensjon. Innskudd og ytelse gir hvert sitt dokument. Hvilket hører til personens ordning?</p><p><b>Steg 2:</b> er pensjonen en konto med en beholdning i ditt navn, eller et løfte om utbetaling så lenge du lever? Hvilken form kan arves?</p><p><b>Steg 3:</b> hvem eier opptjent tjenestepensjon?</p>'),
     "pen-s08":
-        '<p>Beskriv IPS med fire spørsmål. Hvordan behandles innskuddet i skatten? Skattlegges avkastningen underveis? Hvordan behandles kontoen i formuesskatten? Når og hvordan skattlegges uttaket?</p><p><b>Steg 2:</b> med samme sats inn og ut, hva er da fordelen?</p><p><b>Steg 3:</b> sjekk hvert alternativ. Gjelder fritaket bare kontoen? Kan pengene tas ut tidlig? Er ordningen blandet med en annen?</p>',
+        hjelp3(
+            "Dette handler om hvordan IPS virker i skattesystemet: fradrag ved innskudd, skatt ved uttak og "
+            "behandlingen i formuesskatten.",
+            "IPS gir fradrag i alminnelig inntekt for innskuddet. Uttaket skattlegges senere som alminnelig "
+            "inntekt med samme sats. Midlene er bundet til pensjonsalder.",
+            '<p>Beskriv IPS med fire spørsmål. Hvordan behandles innskuddet i skatten? Skattlegges avkastningen underveis? Hvordan behandles kontoen i formuesskatten? Når og hvordan skattlegges uttaket?</p><p><b>Steg 2:</b> med samme sats inn og ut, hva er da fordelen?</p><p><b>Steg 3:</b> sjekk hvert alternativ. Gjelder fritaket bare kontoen? Kan pengene tas ut tidlig? Er ordningen blandet med en annen?</p>'),
     "pen-s09":
-        '<p><b>Steg 1:</b> finn inntektskategorien. Innskuddet ga fradrag i en bestemt inntektsart. Uttaket skattlegges i den samme. Er det personinntekt, alminnelig inntekt eller aksjeinntekt?</p><p><b>Steg 2:</b> hvilke skatter treffer den kategorien? Kommer trygdeavgift med?</p><p><b>Steg 3:</b> gang uttaket med satsen. Kontroll: kan skatten ha vært betalt ved innskuddet når innskuddet ga fradrag?</p>',
+        hjelp3(
+            "Dette handler om skatt på uttak fra IPS: hvilken inntektsart uttaket er og hvilken sats som "
+            "gjelder.",
+            "Uttaket skattlegges i samme inntektsart som innskuddet ga fradrag i. Alminnelig inntekt har 22 "
+            "%. Personinntekt gir i tillegg trygdeavgift og trinnskatt. Aksjeinntekt har eierskatten.",
+            '<p><b>Steg 1:</b> finn inntektskategorien. Innskuddet ga fradrag i en bestemt inntektsart. Uttaket skattlegges i den samme. Er det personinntekt, alminnelig inntekt eller aksjeinntekt?</p><p><b>Steg 2:</b> hvilke skatter treffer den kategorien? Kommer trygdeavgift med?</p><p><b>Steg 3:</b> gang uttaket med satsen. Kontroll: kan skatten ha vært betalt ved innskuddet når innskuddet ga fradrag?</p>'),
     "pen-s10":
-        '<p>Sammenlign skatteverdien inn og ut.</p><p><b>Steg 1:</b> hvilken sats er fradraget for innskuddet verdt?</p><p><b>Steg 2:</b> hvilken sats skattlegges uttaket med? Er uttaket pensjonsinntekt med trygdeavgift?</p><p><b>Steg 3:</b> hvis satsene er like, finnes det ingen satsforskjell å tjene på. Hva er da fordelen? Tenk på tidspunktet for skatten og på hvordan kontoen behandles i formuesskatten.</p>',
+        hjelp3(
+            "Dette handler om hva skattefordelen ved IPS egentlig består i, når du sammenligner satsen inn og "
+            "satsen ut.",
+            "Fradraget for innskuddet er verdt satsen på alminnelig inntekt. Skatten ved uttak avhenger av "
+            "hvilken inntektsart uttaket er. Er satsene like, må fordelen komme fra noe annet enn satsen.",
+            '<p>Sammenlign skatteverdien inn og ut.</p><p><b>Steg 1:</b> hvilken sats er fradraget for innskuddet verdt?</p><p><b>Steg 2:</b> hvilken sats skattlegges uttaket med? Er uttaket pensjonsinntekt med trygdeavgift?</p><p><b>Steg 3:</b> hvis satsene er like, finnes det ingen satsforskjell å tjene på. Hva er da fordelen? Tenk på tidspunktet for skatten og på hvordan kontoen behandles i formuesskatten.</p>'),
     "pen-s11":
-        '<p>IPS har regler både for når uttaket starter og for hvor lenge det varer.</p><p><b>Steg 1:</b> hvilken alder er tidligste start knyttet til i pensjonssystemet?</p><p><b>Steg 2:</b> hvor lenge må utbetalingen minst vare? Loven setter både et minste antall år og en alder utbetalingen må vare til.</p><p><b>Steg 3:</b> finnes det tidlig uttak mot ekstra skatt? Kan kontoen tømmes på én gang? Sjekk hvert alternativ på alle punktene.</p>',
+        hjelp3(
+            "Dette handler om reglene for uttak fra IPS: tidligste uttaksalder og hvor lenge utbetalingen "
+            "minst må vare.",
+            "Tidligste uttak er knyttet til folketrygdens nedre uttaksalder. Loven setter også krav til hvor "
+            "lenge utbetalingen minst skal vare, både i antall år og i alder.",
+            '<p>IPS har regler både for når uttaket starter og for hvor lenge det varer.</p><p><b>Steg 1:</b> hvilken alder er tidligste start knyttet til i pensjonssystemet?</p><p><b>Steg 2:</b> hvor lenge må utbetalingen minst vare? Loven setter både et minste antall år og en alder utbetalingen må vare til.</p><p><b>Steg 3:</b> finnes det tidlig uttak mot ekstra skatt? Kan kontoen tømmes på én gang? Sjekk hvert alternativ på alle punktene.</p>'),
     "pen-s12":
-        '<p>Sjekk fire ting i hvert alternativ: satsen, taket per år, aldersgrensen og boligvilkåret. Satsen: gir BSU fradrag i inntekten eller direkte i skatten? Med hvilken prosent? Taket: skill BSU-taket fra IPS-taket. Alder: til og med hvilket år? Bolig: kan du få fradrag etter dagens regel når du alt eier bolig? Ett feil punkt gjør alternativet galt.</p>',
+        hjelp3(
+            "Dette handler om vilkårene for skattefradrag for BSU etter dagens regler: satsen, taket per år, aldersgrensen "
+            "og boligvilkåret.",
+            "Fradrag i skatten = sats × min(årets sparing; taket). Fradraget har en aldersgrense og et "
+            "boligvilkår. Fradrag i skatten er noe annet enn fradrag i inntekten. IPS har sitt eget tak.",
+            '<p>Sjekk fire ting i hvert alternativ: satsen, taket per år, aldersgrensen og boligvilkåret. Satsen: gir BSU fradrag i inntekten eller direkte i skatten? Med hvilken prosent? Taket: skill BSU-taket fra IPS-taket. Alder: til og med hvilket år? Bolig: kan du få fradrag etter dagens regel når du alt eier bolig? Ett feil punkt gjør alternativet galt.</p>'),
     "pen-s13":
-        '<p>Spør to ting om hver ordning. Gir den fradrag i inntekten, verdt inntektsskattesatsen, eller fradrag direkte i skatten med en egen prosent? Skattlegges pengene når de tas ut?</p><p><b>Steg 2:</b> tenk på hva pengene skal brukes til i hver ordning. Hva skjer med skatten ved uttak?</p><p><b>Steg 3:</b> sjekk at kanalene ikke er byttet om i alternativet du velger.</p>',
+        hjelp3(
+            "Dette handler om forskjellen mellom IPS og BSU: hvordan skattefordelen gis og om pengene "
+            "skattlegges ved uttak.",
+            "Fradrag i inntekten er verdt 22 % av beløpet. Fradrag i skatten trekkes rett fra skatten med en "
+            "egen prosent. Sjekk for hver ordning om uttaket er skattepliktig.",
+            '<p>Spør to ting om hver ordning. Gir den fradrag i inntekten, verdt inntektsskattesatsen, eller fradrag direkte i skatten med en egen prosent? Skattlegges pengene når de tas ut?</p><p><b>Steg 2:</b> tenk på hva pengene skal brukes til i hver ordning. Hva skjer med skatten ved uttak?</p><p><b>Steg 3:</b> sjekk at kanalene ikke er byttet om i alternativet du velger.</p>'),
     "pen-s14":
-        "<p><b>Tre ting å sjekke.</b> Satsen, hvilken del av lønnen den gjelder og hvem kravet gjelder for.</p>"
+        hjelp3(
+            "Dette handler om minstekravet i loven om obligatorisk tjenestepensjon (OTP): satsen, hvilken del "
+            "av lønnen den gjelder og hvem den gjelder for.",
+            "OTP setter et minstekrav til arbeidsgiverens sparing, med tak på 12 G. Kravet ble endret i 2022. "
+            "Maksimal grunnsats i innskuddspensjon er en annen regel enn minstekravet.",
+            "<p><b>Tre ting å sjekke.</b> Satsen, hvilken del av lønnen den gjelder og hvem kravet gjelder for.</p>"
         "<p><b>Satsen og grunnlaget.</b> OTP-minimum er 2 % opp til 12 G. Spør om det gjelder fra første krone eller "
         "over 1 G. Husk endringen i 2022.</p>"
         "<p><b>Hvem.</b> Gjelder plikten bare én av formene innskudd og ytelse?</p>"
-        "<p><b>Stryk de gale.</b> 7 % er maksimal grunnsats i innskuddspensjon, ikke minimum.</p>",
+        "<p><b>Stryk de gale.</b> 7 % er maksimal grunnsats i innskuddspensjon, ikke minimum.</p>"),
     "pen-s15":
-        '<p>Se etter tilleggssatsen og grensen andre steder i pensjonssystemet.</p><p><b>Steg 1:</b> hvilken opptjeningssats og hvilket tak har folketrygdens alleårsregel?</p><p><b>Steg 2:</b> hva får en person fra folketrygden for lønn over taket?</p><p><b>Steg 3:</b> hva kan da et tillegg i tjenestepensjonen være ment å gjøre? Sjekk også om satsene i alternativene stemmer med skattesystemet.</p>',
+        hjelp3(
+            "Dette handler om hvorfor tilleggssparingen i innskuddspensjon bruker akkurat 18,1 % og 7,1 G.",
+            "Folketrygdens alleårsregel gir opptjening med 18,1 % av inntekt opp til 7,1 G. Lønn over 7,1 G "
+            "gir ingen opptjening i folketrygden.",
+            '<p>Se etter tilleggssatsen og grensen andre steder i pensjonssystemet.</p><p><b>Steg 1:</b> hvilken opptjeningssats og hvilket tak har folketrygdens alleårsregel?</p><p><b>Steg 2:</b> hva får en person fra folketrygden for lønn over taket?</p><p><b>Steg 3:</b> hva kan da et tillegg i tjenestepensjonen være ment å gjøre? Sjekk også om satsene i alternativene stemmer med skattesystemet.</p>'),
     "pen-s16":
-        "<p><b>To finansieringsformer.</b> Fondert: penger settes av og investeres. Pay-as-you-go: dagens "
+        hjelp3(
+            "Dette handler om hvordan alderspensjonen i folketrygden og tjenestepensjonen finansieres.",
+            "Fondert: penger settes av og investeres. Pay-as-you-go: dagens yrkesaktive betaler dagens "
+            "pensjoner.",
+            "<p><b>To finansieringsformer.</b> Fondert: penger settes av og investeres. Pay-as-you-go: dagens "
         "yrkesaktive betaler for dagens pensjonister.</p>"
         "<p><b>Steg 1.</b> Er pensjonsbeholdningen i folketrygden penger som er investert, eller et regnskap over en "
         "rettighet?</p>"
         "<p><b>Steg 2.</b> Setter arbeidsgiveren av penger som avkaster i tjenestepensjonen?</p>"
-        "<p><b>Kontroll.</b> Hva skjer med hver ordning om børsen faller? Påvirkes den ene direkte og den andre ikke?</p>",
+        "<p><b>Kontroll.</b> Hva skjer med hver ordning om børsen faller? Påvirkes den ene direkte og den andre ikke?</p>"),
     "pen-s17":
-        '<p>Sammenlign den gamle regelen med alleårsregelen.</p><p><b>Steg 1:</b> under regelen med beste år, teller et år med lav inntekt hvis du har nok gode år?</p><p><b>Steg 2:</b> under alleårsregelen bygges en beholdning opp hvert år. Hva skjer med beholdningen i et år med deltid?</p><p><b>Steg 3:</b> hvem tjente på den gamle regelen? Test hvert alternativ: beskriver det den nye eller den gamle regelen?</p>',
+        hjelp3(
+            "Dette handler om skiftet fra beste-år-regelen til alleårsregelen i folketrygden og hva det betyr "
+            "for opptjeningen.",
+            "Alleårsregelen: hvert år legges 18,1 % av inntekt opp til 7,1 G til beholdningen. Den gamle "
+            "regelen regnet pensjonen ut fra de beste inntektsårene.",
+            '<p>Sammenlign den gamle regelen med alleårsregelen.</p><p><b>Steg 1:</b> under regelen med beste år, teller et år med lav inntekt hvis du har nok gode år?</p><p><b>Steg 2:</b> under alleårsregelen bygges en beholdning opp hvert år. Hva skjer med beholdningen i et år med deltid?</p><p><b>Steg 3:</b> hvem tjente på den gamle regelen? Test hvert alternativ: beskriver det den nye eller den gamle regelen?</p>'),
     "pen-s18":
-        '<p>Ordningen er en forsikring mot å leve lenge.</p><p><b>Steg 1:</b> tenk deg at den var frivillig. Hvem har mest å tjene på å bli med? Hvem har minst?</p><p><b>Steg 2:</b> hva skjer med regnestykket for ordningen om bare én av gruppene blir med? Hva heter dette problemet i forsikringsteorien?</p><p><b>Steg 3:</b> sjekk om de andre forklaringene stemmer med fakta om folketrygden.</p>',
+        hjelp3(
+            "Dette handler om hvorfor en livsvarig pensjon må være obligatorisk, sett fra forsikringsteorien.",
+            "En livsvarig pensjon forsikrer mot å leve lenge. Ugunstig utvalg: når kundene vet mer om egen "
+            "risiko enn tilbyderen, kjøper de med høy risiko og de med lav risiko lar være.",
+            '<p>Ordningen er en forsikring mot å leve lenge.</p><p><b>Steg 1:</b> tenk deg at den var frivillig. Hvem har mest å tjene på å bli med? Hvem har minst?</p><p><b>Steg 2:</b> hva skjer med regnestykket for ordningen om bare én av gruppene blir med? Hva heter dette problemet i forsikringsteorien?</p><p><b>Steg 3:</b> sjekk om de andre forklaringene stemmer med fakta om folketrygden.</p>'),
     "pen-s19":
-        '<p>Nøytral betyr at forventet samlet utbetaling er omtrent lik for gjennomsnittspersonen i kullet, uansett uttaksalder.</p><p><b>Steg 1:</b> betyr det at valget er likegyldig for alle?</p><p><b>Steg 2:</b> hva kan skille én person fra gjennomsnittet? Hvilke personlige forhold kan gjøre tidlig eller sent uttak bedre for akkurat ham?</p><p><b>Steg 3:</b> vær skeptisk til råd som skal gjelde alle uansett situasjon.</p>',
+        hjelp3(
+            "Dette handler om hva nøytralt uttak betyr for valget av uttaksalder for én bestemt person.",
+            "Nøytralt uttak: forventet samlet utbetaling er omtrent lik uansett uttaksalder for "
+            "gjennomsnittspersonen i kullet. Den enkelte kan avvike fra gjennomsnittet.",
+            '<p>Nøytral betyr at forventet samlet utbetaling er omtrent lik for gjennomsnittspersonen i kullet, uansett uttaksalder.</p><p><b>Steg 1:</b> betyr det at valget er likegyldig for alle?</p><p><b>Steg 2:</b> hva kan skille én person fra gjennomsnittet? Hvilke personlige forhold kan gjøre tidlig eller sent uttak bedre for akkurat ham?</p><p><b>Steg 3:</b> vær skeptisk til råd som skal gjelde alle uansett situasjon.</p>'),
     "pen-s20":
-        '<p>Skill to faser: beholdningen før uttak og den løpende pensjonen etter.</p><p><b>Steg 1:</b> beholdningen er en rettighet, ikke penger i et fond. Hvilken vekstrate holder den i takt med de yrkesaktive?</p><p><b>Steg 2:</b> reguleres løpende pensjon på samme måte som beholdningen? Hva bestemte pensjonsreformen om dette?</p><p><b>Steg 3:</b> sjekk at fasene ikke er byttet om.</p>',
+        hjelp3(
+            "Dette handler om reguleringen i folketrygden: hvordan beholdningen reguleres før uttak og "
+            "hvordan løpende pensjon reguleres etter.",
+            "Pensjonsbeholdningen er en rettighet, ikke penger i et fond. Etter pensjonsreformen reguleres "
+            "beholdningen og den løpende pensjonen ulikt. Reguleringen bygger på lønnsveksten og prisveksten.",
+            '<p>Skill to faser: beholdningen før uttak og den løpende pensjonen etter.</p><p><b>Steg 1:</b> beholdningen er en rettighet, ikke penger i et fond. Hvilken vekstrate holder den i takt med de yrkesaktive?</p><p><b>Steg 2:</b> reguleres løpende pensjon på samme måte som beholdningen? Hva bestemte pensjonsreformen om dette?</p><p><b>Steg 3:</b> sjekk at fasene ikke er byttet om.</p>'),
     "pen-s21":
-        "<p><b>Hva formelen må gjøre.</b> To ting hvert år: regulere den gamle beholdningen og legge til årets "
+        hjelp3(
+            "Dette er formelen for pensjonsbeholdningen etter alleårsregelen: du skal finne uttrykket for "
+            "beholdningen ved utgangen av år t.",
+            "Reguleringen holder beholdningen i takt med lønningene. Opptjeningen er 18,1 % av "
+            "pensjonsgivende inntekt, men inntekt over 7,1 G teller ikke.",
+            "<p><b>Hva formelen må gjøre.</b> To ting hvert år: regulere den gamle beholdningen og legge til årets "
         "opptjening med tak.</p>"
         "<p><b>Sjekk hvert uttrykk.</b> Er det bare den gamle beholdningen som ganges med (1 + g)? Er opptjeningen "
         "begrenset av 7,1 G med min()?</p>"
         "<p><b>Stryk de gale.</b> Et uttrykk der årets opptjening også reguleres, gir rekkefølgen feil. Et uttrykk "
-        "uten min() mangler taket.</p>",
+        "uten min() mangler taket.</p>"),
     "pen-s22":
-        "<p><b>Bygg uttrykket selv.</b> Hvert år gir 18,1 % av lønnen. Fordi beholdningen reguleres med samme vekst "
+        hjelp3(
+            "Dette er kompensasjonsgraden fra folketrygden for en person under taket: du skal finne uttrykket "
+            "for pensjonen delt på sluttlønnen.",
+            "Kompensasjonsgrad = årlig pensjon / sluttlønn. Årlig pensjon = beholdning / D. Når lønnen følger "
+            "lønnsveksten, gir hvert år 18,1 % av sluttlønnen målt i dagens kroner.",
+            "<p><b>Bygg uttrykket selv.</b> Hvert år gir 18,1 % av lønnen. Fordi beholdningen reguleres med samme vekst "
         "som lønnen, er beholdningen etter n år 18,1 % × n sluttlønner.</p>"
         "<p><b>Neste steg.</b> Årlig pensjon er beholdningen delt på delingstallet D. Kompensasjonsgraden er pensjonen "
         "delt på sluttlønnen.</p>"
         "<p><b>Sjekk retningen.</b> Flere år i arbeid skal gi høyere andel. Høyere delingstall skal gi lavere andel. "
-        "Stryk uttrykk der en av dem går feil vei.</p>",
+        "Stryk uttrykk der en av dem går feil vei.</p>"),
 }
 
 NAVN = ["Mira", "Jonas", "Selma", "Aksel", "Ingrid", "Tobias", "Nora", "Elias", "Sigrid", "Henrik",
@@ -971,9 +1142,9 @@ statisk(
       "<p>Hvilke påstander er riktige?</p>",
     alternativer=[
         R("Bare I"),
-        F("Bare II", "Påstand I er riktig. Påstand II er gal: delingstallet er felles for kvinner og menn."),
+        F("Bare II", "Påstand II er gal: delingstallet er felles for kvinner og menn i samme kull."),
         F("Både I og II", "Påstand II er gal. Delingstallet er det samme for kvinner og menn i ett kull."),
-        F("Ingen av dem", "Påstand I er riktig: delingstallet fastsettes endelig når kullet fyller 61."),
+        F("Ingen av dem", "Du har forkastet påstand I, men delingstallet fastsettes endelig når kullet fyller 61."),
     ],
     kort="<p><b>Bare I.</b> Delingstallet fastsettes når kullet fyller 61 år og er felles for kvinner og menn.</p>",
     full="<p><b>Hva delingstallet er.</b> Delingstallet er tilnærmet forventet antall gjenstående leveår ved "

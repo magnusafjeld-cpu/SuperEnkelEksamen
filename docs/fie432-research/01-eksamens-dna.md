@@ -537,6 +537,13 @@ som distraktor — nøyaktig 50 × 22 %. H2024 oppgave 2 har 3,89, som ligger p�
 **3b — justeringsfaktoren y** løses ut av samme ligning når t_w (høyeste marginalskatt på lønn)
 er gitt: y = (t_w − t_A)/((1 − t_A)·t_e).
 
+> **Merknad (oktober 2026).** Formen over er den H2017 og H2020 brukte. Kurset i 2026
+> (forelesning 5) bruker den nominelle formen: t_w + a_L = t_A + a_F + y·t_e, der a_L og a_F
+> er delene av arbeidsgiveravgiften arbeidstakeren og bedriften bærer. Full overvelting:
+> 47,4 % + 12,4 % = 22 % + 22 %·y, y ≈ 1,72 (59,8 = 59,8). 50/50 gir 1,15, bedriften alt 0,59.
+> Kursgodkjenningstesten 2026: 47 % + 13 % = 20 % + 20 %·y gir y = 2 og eierskatt 40 %.
+> Bruk den nominelle formen som regel. Den eldre gjelder bare når et eldre sett ber om den.
+
 **3c — effektiv sats på bedriftsnivå alene** (H2025 oppgave 5): betalt skatt delt på *brutto*
 inntekt, ikke på skattepliktig overskudd.
 

@@ -127,6 +127,16 @@ def sporsmal(q, alternativer, kort, full, rekkefolge=None, hjelp=None):
     return dict(q=q, alternativer=alternativer, kort=kort, full=full, rekkefolge=rekkefolge, hjelp=hjelp)
 
 
+def hjelp3(tema, regel, oppsett):
+    """Hjelpen i tre trinn, som vises ett om gangen (spesifikasjonen § 2c):
+       tema     hvilket begrep spørsmålet handler om og hva du skal finne. Én til
+                to setninger, ingen formel.
+       regel    regelen eller formelen, med symboler og uten spørsmålets tall.
+       oppsett  fremgangsmåten steg for steg, slik hjelpen var før.
+       Alle tre skal la svaret stå åpent."""
+    return (tema, regel, oppsett)
+
+
 def familie(id, tema, antall, tittel="", type="regne", hjelp=None):
     """hjelp: fremgangsmåten uten tall, felles for alle variantene. En variant
        kan overstyre den med sporsmal(..., hjelp=...) når familien har flere

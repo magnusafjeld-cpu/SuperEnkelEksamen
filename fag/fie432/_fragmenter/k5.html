@@ -16,17 +16,44 @@
 </div>
 
 <div class="callout mech"><span class="h">Hvorfor finnes oppjusteringsfaktoren i det hele tatt?</span>
-En krone tjent i et selskap og delt ut til eieren beskattes to ganger: 22 % i selskapet, og 37,84 % av de 78 ørene som er igjen. Samlet blir det 22 % + 78 % × 37,84 % = <b>51,52 %</b>. Det skal ligne på den høyeste marginalskatten på lønn, som er <b>47,4 %</b> [dagens regel]. Uten oppjusteringen ville samlet sats vært 22 % + 78 % × 22 % = 39,16 %, altså åtte prosentpoeng under lønn, og enhver som eide sitt eget selskap ville tatt lønnen sin som utbytte i stedet. Det er dette som kalles <i>inntektsskifting</i>, og faktoren finnes for å stenge døra.</div>
+Skattesystemet skal ikke gjøre det lønnsomt å gjøre lønn om til utbytte. En eier som arbeider i eget selskap, velger selv om avlønningen kommer som lønn eller som utbytte. Er utbytte billigere, tar hun lønnen som utbytte. Det kalles <i>inntektsskifting</i>. Uten oppjustering ville eierskatten bare vært 22 %. Samlet skatt på utdelt overskudd ville da vært 22 % + 78 % × 22 % = 39,16 %, godt under de 47,4 % på lønn [dagens regel]. Faktoren finnes for å stenge døra.</div>
 
-<p>Faktoren er ikke plukket ut av lufta. Den løses ut av en likevektsbetingelse som forelesningen kaller inntektsskiftningsligningen, og som eksamensfasitene i H2017 og H2020 skriver ut i tekst:</p>
+<p>Faktoren er ikke plukket ut av lufta. Den løses ut av <b>inntektsskiftingslikningen</b>. Slik forelesningen skriver den i 2026, legger den <b>nominelle satser</b> sammen: høyeste marginalskatt på lønn pluss arbeidsgiveravgiften er lik nominell selskapsskatt pluss nominell eierskatt ganger oppjusteringsfaktoren.</p>
 
 <div class="formula">
-  <div class="eq">t<sub>w</sub> + a = t + (1 − t) × t × f</div>
-  <div class="eq">f = (t<sub>w</sub> + a − t) / ((1 − t) × t)</div>
-  <div class="where">t<sub>w</sub> er høyeste marginalskatt på lønn (47,4 %), t den alminnelige satsen (22 %), og a den delen av arbeidsgiveravgiften som veltes over på arbeidstakeren gjennom lavere lønn. Venstresiden er den samlede skatten på en lønnskrone, høyresiden den samlede skatten på en utbyttekrone.</div>
+  <div class="eq">t<sub>w</sub> + a = t<sub>A</sub> + f × t</div>
+  <div class="eq">47,4 % + 12,4 % = 22 % + 22 % × f &nbsp;⟹&nbsp; f = 37,8/22 ≈ 1,72</div>
+  <div class="where">t<sub>w</sub> er høyeste marginalskatt på lønn: 22 % alminnelig inntekt + 17,8 % trinnskatt trinn 5 + 7,6 % trygdeavgift = 47,4 % [dagens regel]. a er arbeidsgiveravgiften som arbeidstakeren bærer, målt mot lønnskostnaden. t<sub>A</sub> er selskapsskatten og t satsen eierskatten regnes med. Forelesningen kaller faktoren y.</div>
 </div>
 
-<p>Sett inn tallene. Bærer bedriften hele arbeidsgiveravgiften, er a = 0, og f = (0,474 − 0,22)/(0,78 × 0,22) = 0,254/0,1716 = <b>1,48</b>, som gir en eierskatt på 1,48 × 22 % = 32,6 %. Veltes hele avgiften over på arbeidstakeren, er a = 12,4 prosentpoeng, og f = 0,378/0,1716 = <b>2,20</b> (2,2028 uavrundet), altså en eierskatt på 2,2028 × 22 % = 48,5 %. Dagens f = 1,72 ligger mellom dem og svarer til a ≈ 4,1 prosentpoeng, om lag en tredel av avgiften. Forelesningens påstand er at empirien om overvelting spriker (norske studier finner 15–30 %, én finsk finner ingen), og at satsen derfor hviler på en antakelse som ikke er avklart; motargumentet er at 51,52 % mot 47,4 % uansett er den sammenligningen lovgiveren har villet ha. Du skal kjenne argumentet, ikke ta parti.</p>
+<p>Regn begge sider. Lønnssiden er 47,4 + 12,4 = 59,8. Utbyttesiden er 22 + 22 × 1,72 = 59,84 ≈ 59,8. Eierskatten blir 22 % × 1,72 = <b>37,84 %</b>.</p>
+
+<p><b>Hvorfor 12,4 % og ikke 14,1 %.</b> Arbeidsgiveravgiften er 14,1 % av utbetalt lønn. Likningen måler den mot lønnskostnaden, altså lønn pluss avgift. Av 100 kr bedriften setter av, går 100/1,141 = 87,64 kr til lønn og 12,36 kr til avgift. Forelesningen runder til 87,6 og 12,4. Avgiften er 12,36/87,64 = 14,1 % av lønnen, men 12,4 % av kostnaden.</p>
+
+<p><b>Nominelt, ikke effektivt.</b> 59,8 = 59,8 er nominelle satser lagt sammen. Det er ikke den effektive skatten på høy lønn eller på eierne. Den effektive skatten på utdelt overskudd er 22 % + 78 % × 37,84 % = 51,52 %.</p>
+
+<p><b>Antakelsen som bærer tallet.</b> 1,72 forutsetter at arbeidstakeren bærer <i>hele</i> arbeidsgiveravgiften gjennom lavere lønn, altså full overvelting. Den delen bedriften bærer, hører hjemme på høyresiden sammen med selskapsskatten:</p>
+
+<table class="data">
+<tr><th>Hvem bærer avgiften</th><th>Likningen</th><th class="n">f</th><th class="n">Eierskatt f × 22 %</th></tr>
+<tr><td>Arbeidstakeren alt (full overvelting)</td><td>47,4 + 12,4 = 22 + 22f</td><td class="n">1,72</td><td class="n">37,84 %</td></tr>
+<tr><td>Delt 50/50</td><td>47,4 + 6,2 = 22 + 6,2 + 22f</td><td class="n">1,15</td><td class="n">25,30 %</td></tr>
+<tr><td>Bedriften alt</td><td>47,4 = 22 + 12,4 + 22f</td><td class="n">0,59</td><td class="n">12,98 %</td></tr>
+</table>
+
+<p>Forelesningen runder den siste til 0,6 og 13,2 %. Ved 50/50 står 6,2 på begge sider og faller ut.</p>
+
+<p><b>Empirien.</b> Nordiske studier finner at 15–30 % av avgiften veltes over på arbeidstakerne (Dale-Olsen 2018, Ku m.fl. 2020 og Stokke 2021 i Norge, om lag 25 % i Bennmarker m.fl. 2009 i Sverige). Noen finner mer: om lag 50 % i en finsk studie fra finanskrisen og nær full overvelting på bonus og overtid. Én finsk studie på bedriftsnivå finner ingen overvelting. Forelesningens poeng er at antakelsen om full overvelting gjør eierskatten for høy. Deles avgiften 50/50 eller 30/70, blir eierbeskatningen betydelig lettere. Du skal kjenne argumentet, ikke ta parti.</p>
+
+<p><b>Når en skatt endres.</b> Likningen viser hvordan satsene henger sammen:</p>
+<ul>
+<li>Trygdeavgiften opp til 10 %: 49,8 + 12,4 = 22 + 22f gir f ≈ 1,83 og eierskatt 1,83 × 22 % = 40,26 %.</li>
+<li>Selskapsskatten ned til 20 %, lønn uendret: 59,8 = 20 + 22f gir f ≈ 1,81 og eierskatt 39,82 %. Forelesningen runder til 1,8 og 39,6 %.</li>
+<li>Selskapsskatten opp til 24 %: 59,8 = 24 + 22f gir f ≈ 1,63 og eierskatt 35,86 %. Forelesningen skriver 1,62 og 35,64 %. Går skatten på bedriften opp, går eierskatten ned.</li>
+<li>Den alminnelige satsen ned til 20 % for både lønn og selskap: 45,4 + 12,4 = 20 + 22f gir f ≈ 1,72, uendret.</li>
+</ul>
+
+<p><b>Eldre eksamener.</b> H2017 og H2020 skrev likevektsbetingelsen med effektive satser, t<sub>w</sub> + a = t + (1 − t) × t × f. Oppgavene ble løst med den. H2020 oppgave 1e gir 47 %, 22 % og 20 % uten avgift og f = 1,60. Den formen er ikke kursets likning i 2026. Kursgodkjenningstesten i 2026 spør med nominelle satser: 47 % + 13 % = 20 % + 20 % × f gir f = 2 og eierskatt 40 %. Den eldre formen gir et annet tall og står som felle.</p>
 
 <h3>5.2 Skjermingsrenten: formelen, satsene og året den gjelder</h3>
 

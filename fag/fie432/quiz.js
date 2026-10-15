@@ -331,10 +331,10 @@ window.EDU_DATA.quizzes = [
   explanation: "te = f × t = 1,44 × 22 % = 31,68 %. 37,84 % er dagens sats og den du har pugget — men satsen i oppgaveteksten går alltid foran hukommelsen, og faktoren har vært 1,6 i 2020, 1,44 i 2019 og 1,72 nå. 22,00 % glemmer oppjusteringen. 15,28 % deler på faktoren i stedet for å gange." },
 
 { id: "q48", ch: 5, oppg: 1, type: "mcq",
-  q: "Oppjusteringsfaktoren løses ut av f = (tw + a − t)/((1 − t) × t), der tw er høyeste marginalskatt på lønn, t satsen på alminnelig inntekt og a den delen av arbeidsgiveravgiften som veltes over på arbeidstakeren. Hva blir f når tw = 47,4 %, t = 22 % og a = 0?",
-  options: ["1,15", "1,72", "1,48", "2,20"],
+  q: "Inntektsskiftingslikningen legger nominelle satser sammen: tw + aL = t + aF + y × t, der tw er høyeste marginalskatt på lønn (47,4 %), t = 22 % både for selskapsskatten og eierskatten, aL den delen av arbeidsgiveravgiften arbeidstakeren bærer og aF den delen bedriften bærer. Avgiften er 12,4 % av lønnskostnaden. Hva blir y når avgiften deles 50/50?",
+  options: ["0,59", "1,72", "1,15", "1,48"],
   answer: 2,
-  explanation: "f = (0,474 − 0,22)/(0,78 × 0,22) = 0,254/0,1716 = 1,48, som gir en eierskatt på 32,6 %. Veltes hele arbeidsgiveravgiften på 12,4 prosentpoeng over på arbeidstakeren, blir a = 0,124 og f = 0,378/0,1716 = 2,20, altså en eierskatt på 48,4 %. Dagens 1,72 ligger mellom de to og svarer til a omtrent 4,1 prosentpoeng — den er altså ikke svaret når a settes til null. 1,15 deler bare på t og glemmer (1 − t) i nevneren." },
+  explanation: "47,4 + 6,2 = 22 + 6,2 + 22y. Avgiften står med 6,2 på hver side og faller ut, så y = 25,4/22 = 1,15 og eierskatten 22 % × 1,15 = 25,30 %. 1,72 er full overvelting, der hele 12,4 står på lønnssiden: 47,4 + 12,4 = 22 + 22y. 0,59 er at bedriften bærer alt: 47,4 = 22 + 12,4 + 22y (forelesningen runder til 0,6). 1,48 er den eldre formen fra H2017 og H2020 med (1 − t) i nevneren: 25,4/(0,78 × 22). Kurset bruker den ikke i 2026." },
 
 { id: "q49", ch: 5, oppg: 1, type: "mcq",
   q: "Per kjøpte børsnoterte aksjer for kr 5 000 000, som er kostprisen, og har rett til utbytte i to år. År 1: utbytte kr 300 000, skjermingsrente 3 %. År 2: utbytte kr 350 000, skjermingsrente 4 %. Eierskatten er 37,84 %, formuesskatten 1,0 % og aksjerabatten 20 %. Børsverdien er lik kostprisen begge år, og du skal se bort fra bunnfradrag. Hvor mye sitter han igjen med av utbyttene?",
@@ -367,11 +367,12 @@ window.EDU_DATA.quizzes = [
 { id: "q53", ch: 5, oppg: 1, type: "short",
   q: "Forklar hvorfor oppjusteringsfaktoren finnes, og hvilken sammenligning den er kalibrert mot.",
   model: ["En krone tjent i selskapet og delt ut beskattes to ganger: 22 % i selskapet og deretter eierskatten av de 78 ørene som er igjen",
-          "Samlet blir det 22 % + 78 % × 37,84 % = 51,52 %, som skal ligne på høyeste marginalskatt på lønn, 47,4 %",
+          "Effektivt blir det 22 % + 78 % × 37,84 % = 51,52 %, mot 47,4 % på lønn",
           "Uten oppjusteringen ville samlet sats vært 22 % + 78 % × 22 % = 39,16 %, altså åtte prosentpoeng under lønn",
           "Da ville enhver med eget selskap tatt lønnen sin som utbytte i stedet — det er inntektsskifting, og faktoren finnes for å stenge døra",
-          "Faktoren løses ut av likevektsbetingelsen tw + a = t + (1 − t) × t × f, der a er den delen av arbeidsgiveravgiften som veltes over på arbeidstakeren",
-          "Med a = 0 gir den f = 1,48 og med full overvelting f = 2,20; dagens 1,72 svarer til a omtrent 4,1 prosentpoeng, altså en antakelse om overvelting som empirien ikke har avklart"] },
+          "Faktoren kalibreres mot inntektsskiftingslikningen, som legger nominelle satser sammen: toppskatt på lønn + arbeidsgiveravgiften = selskapsskatt + eierskatt × y, altså 47,4 % + 12,4 % = 22 % + 22 % × y. Det gir y ≈ 1,72 og 59,8 = 59,8",
+          "12,4 % er avgiften målt mot lønnskostnaden (14,1 % av utbetalt lønn). 1,72 forutsetter at arbeidstakeren bærer hele avgiften. Deles den 50/50, blir y ≈ 1,15. Bærer bedriften alt, blir y ≈ 0,59",
+          "Nordiske studier finner at 15–30 % av avgiften veltes over, så antakelsen om full overvelting gjør eierskatten for høy"] },
 
 /* ============================ KAPITTEL 6 ============================ */
 

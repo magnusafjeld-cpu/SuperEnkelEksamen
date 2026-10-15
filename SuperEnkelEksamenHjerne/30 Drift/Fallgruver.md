@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-10-12
+oppdatert: 2026-10-15
 ---
 
 # Fallgruver
@@ -652,3 +652,21 @@ Rettet ved at et avsnitt alltid tar med første linje, og ved at den siste, uful
 linjen under en tabell regnes som tabellrad. Endrer du `md()`: hver gren i
 hovedløkka må øke `i`. Test med prefiksene av tilfeldige markdown-biter, slik et
 svar ser ut underveis, ikke bare med ferdige svar.
+
+## 12. En felle kan røpe svaret uten å nevne det
+
+I «Prøv igjen» vises fella for alternativet du valgte, før fasiten. `sjekk-trening.js`
+stopper feller som nevner teksten i det riktige alternativet eller et tall som bare
+står der (43 i oktober 2026). Agentene fant om lag 90 til som kontrollen ikke kan se:
+- påstandsspørsmål der fella for «Bare II» sier «påstand I er riktig»
+- «Riktig tall, men …» eller «Riktig brøk, men retningen snudd»
+- et mellomtall som gir fasiten med én multiplikasjon
+
+Skriver du nye feller: si hva som er galt med *dette* valget, ikke hva som er riktig.
+
+## 13. Tekstuttrekk fra pptx mister formlene
+
+Formler i PowerPoint ligger som egne objekter og forsvinner i et vanlig tekstuttrekk.
+FIE432-banken ble bygget fra et uttrekk uten dem. Derfor lærte den bort den eldre
+inntektsskiftingslikningen fra eksamensfasitene i stedet for forelesningens 2026-form.
+Det rettede uttrekket ligger i emnemappens `_claude/tekst/`. Sjekk formler mot det.

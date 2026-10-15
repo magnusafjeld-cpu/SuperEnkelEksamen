@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-10-09
+oppdatert: 2026-10-15
 ---
 
 # FIE432 Personlig økonomi
@@ -107,6 +107,14 @@ parametrene for 2024, 2025 og 2026 med primærkilde, og lister hva som har endre
 seg. Den største endringen i 2026: **primærboligens terskel for 70 %-sjiktet
 gikk fra 10 til 14 millioner**, vedtatt i revidert nasjonalbudsjett med virkning
 for hele inntektsåret.
+
+> [!warning] Inntektsskiftingslikningen har byttet form
+> H2017 og H2020 løste faktoren med effektive satser, t_w = t_A + (1 − t_A)·t_e·y.
+> Kurset i 2026 (forelesning 5) legger nominelle satser sammen og tar med
+> arbeidsgiveravgiften: 47,4 % + 12,4 % = 22 % + 22 %·y, altså y ≈ 1,72 ved full
+> overvelting (50/50 gir 1,15, bedriften alt 0,59). Appen lærte bort den eldre
+> formen (1,48, 2,20, «a ≈ 4,1 pp») til den ble rettet 15. oktober 2026 i
+> treningen, manualen (k5, k9, k1), kj2, quizen, dybdebanken og k5-6.
 
 Skjermingsrenten for inntektsåret 2026 fastsettes først i januar 2027 og finnes
 altså ikke. Oppgaver må oppgi den selv, slik eksamen gjør.
@@ -297,12 +305,12 @@ samme format og vanskelighet som de som kommer på eksamen». Modulen er beskrev
 
 | Tema | Spørsmål | Familier | Tema | Spørsmål | Familier |
 |---|---|---|---|---|---|
-| Skattesystemet | 69 | 10 | Insidens | 90 | 11 |
+| Skattesystemet | 73 | 10 | Insidens | 90 | 11 |
 | Aksjonærmodellen | 88 | 11 | Nøytralitet | 51 | 6 |
 | Formuesskatt | 61 | 7 | Internasjonal skatt | 49 | 4 |
 | Avkastningsskatt | 55 | 6 | Portefølje | 89 | 12 |
 | Pensjon | 63 | 8 | Lån | 51 | 7 |
-| Forsikring | 62 | 7 | Psykologi | 26 | 2 |
+| Forsikring | 62 | 7 | Psykologi | 32 | 2 |
 
 **Hver av de 754 har hjelp** (425 ulike tekster): fremgangsmåten uten tall, skrevet
 av de samme fem skribentene. To kontrollører gikk gjennom alle. Den ene regnet alle 152
@@ -347,6 +355,22 @@ fange feil rettingene innførte.
   stemmer, men unntaket står i forskriften (FSFIN § 10-11-1), ikke i skatteloven, og
   grensen gjelder samlet kreditt. Nå står det slik.
 - DNA-en sa at ∂p/∂t og ∂P/∂t «summerer til 1». Det er differansen som er 1.
+
+**15. oktober 2026: tre trinn, «Prøv igjen» og heuristikkene.** Etter at
+kursgodkjenningstesten og øvingsguiden kom, fikk banken 764 spørsmål:
+- **Hjelp i tre trinn** på alle: tema, regel og fremgangsmåten. Seks skribentagenter
+  skrev tema og regel for hver av de rundt 430 hjelpene.
+- **Feller som tåler «Prøv igjen».** Kontrollen stoppet 43 feller som nevnte
+  fasiten. Agentene fant i tillegg om lag 90 som røpet svaret uten at kontrollen så
+  det, de fleste i påstandsspørsmål («Bare II: påstand I er riktig …»). Alle er
+  skrevet om. Fallgruve 11 i [[Fallgruver]].
+- **Heuristikkene** (`psy-s17` til `psy-s22`): menyeffekt, 1/N-regelen og preferanse
+  for det kjente. Testen spurte om menyeffekten. Banken hadde ingenting om den.
+- **Inntektsskiftingslikningen i 2026-formen** (se warning over): `ska-just1` er skrevet
+  om og `ska-s20`–`ska-s22` er nye. `aks-s16` spør hvilken antakelse 1,72 hviler på.
+
+**Flervalgstesten til kursgodkjenning 2026** ligger som første sett i `sett.js`
+(`mc2026`), med løsninger fra referansesvaret i emnemappen. Se [[Eksamenssett-modulen]].
 
 **Bekreftet mot primærkilde:** utbytte på aksjesparekonto skattlegges først ved
 uttak (sktl § 10-21 tredje ledd, Skatteetaten), slik manualen og kj8 sier.

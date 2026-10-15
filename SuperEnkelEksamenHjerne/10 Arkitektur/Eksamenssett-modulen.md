@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-09-03
+oppdatert: 2026-10-15
 ---
 
 # Eksamenssett-modulen
@@ -95,6 +95,16 @@ så du ser hva gjettingen kostet eller ville kostet.
 > i motoren og ville blitt vist til et fag med digital flervalg på norsk.
 > `set.facts` overstyrer listen; `set.practiceNote` overstyrer nøkkelsetningen
 > i øvingsmodus. Uten feltene gjelder FIE402s tekst som før.
+
+## Ikke bare eksamener
+
+Et sett trenger ikke være en eksamen. FIE432 har flervalgstesten til
+kursgodkjenning 2026 (`mc2026`) som første sett: 20 spørsmål, ett poeng hvert,
+uten minuspoeng. Den ble lagt inn 15. oktober 2026 fordi tre av spørsmålene er
+gamle eksamensspørsmål, så testen viser hva foreleserne gjenbruker. Magnus valgte
+å publisere den med løsninger før fristen for kursgodkjenning. Løsningene bygger på
+referansesvaret i emnemappen. Listevisningen teller derfor «N sett», ikke «N
+tidligere eksamener».
 
 ## Kontrollen
 

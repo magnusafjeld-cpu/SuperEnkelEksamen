@@ -220,8 +220,9 @@ eksempler.*
   lagt til grunnlaget, oppjusteringsfaktor 1,72, eierskatt 37,84 %. Flerårs-rutinen fra
   H2024 oppgave 1 og H2025 oppgave 4 steg for steg. Gevinst ved salg: kostpris, ubenyttet
   skjerming, oppjustering (H2024 oppgave 2, H2025 oppgave 10). Hvorfor oppjusteringen
-  finnes: inntektsskifting mellom lønn og utbytte, og likheten mellom høyeste marginalskatt
-  på lønn og samlet skatt på utbytte (22 % + 37,84 % av resten). Utbytte og formuesskatt
+  finnes: inntektsskifting mellom lønn og utbytte. Faktoren settes med
+  inntektsskiftingslikningen i nominelle satser (47,4 % + 12,4 % = 22 % + 22 % × 1,72, full
+  overvelting av arbeidsgiveravgiften); effektiv skatt på utbytte er 22 % + 37,84 % av resten. Utbytte og formuesskatt
   sammen over to år (H2025 oppgave 1).
 - **k6 · Fritaksmetoden, selskapsaksjonærer, aksjonærlån og exit-skatt.** Fritaksmetoden
   og treprosentregelen (0,66 % effektivt), holdingselskap som utsettelse, «to-hodet troll»

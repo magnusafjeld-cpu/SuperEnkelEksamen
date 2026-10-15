@@ -78,6 +78,7 @@ INTRO = {
             "Skattepliktig utbytte med skjerming, også over flere år med framført skjerming",
             "Skatt på gevinst ved salg og eierskatten med oppjusteringen",
             "Samlet skatt på utdelt overskudd og fritaksmetoden for selskaper",
+            "Inntektsskiftingslikningen: hvordan oppjusteringsfaktoren bestemmes",
         ],
         formler=[
             ("t<sub>e</sub> = f × t = 1,72 × 22 % = 37,84 %",
@@ -90,8 +91,10 @@ INTRO = {
              "Ubenyttet skjerming brukes to ganger: i grunnlaget og som fradrag. Det som ikke brukes, framføres."),
             ("Skattepliktig gevinst = salgspris − kostpris − ubenyttet skjerming",
              "Selger du før årsskiftet, får du ikke årets skjerming."),
+            ("t<sub>w</sub> + AGA = t<sub>A</sub> + t<sub>e</sub> × y · 47,4 % + 12,4 % = 22 % + 22 % × y",
+             "Inntektsskiftingslikningen slik kurset bruker den i 2026: nominelle satser lagt sammen, y ≈ 1,72. 12,4 % er arbeidsgiveravgiften på 14,1 % regnet av lønnskostnaden. 1,72 forutsetter at arbeidstakeren bærer hele. Bærer bedriften en del, står den delen på høyresiden."),
             ("Samlet skatt = 22 % + 78 % × 37,84 % = 51,52 %",
-             "Selskapsskatt pluss eierskatt på det som deles ut."),
+             "Selskapsskatt pluss eierskatt på det som deles ut. Det er den effektive skatten, ikke den nominelle summen i likningen."),
             ("Fritaksmetoden: 3 % × 22 % = 0,66 % på mottatt utbytte",
              "Gevinst er skattefri. Utbytte i konsern over 90 % gir null."),
         ],
@@ -99,6 +102,7 @@ INTRO = {
             "Framført skjerming glemt, eller lagt til grunnlaget uten å trekkes fra",
             "Oppjusteringen glemt: grunnlaget ganget med 22 % alene",
             "Skatten oppgitt der spørsmålet ber om grunnlaget",
+            "Den eldre likningen fra H2017 og H2020, t<sub>w</sub> = t<sub>A</sub> + (1 − t<sub>A</sub>) × t<sub>e</sub> × y, brukt i stedet for 2026-formen",
         ],
     ),
     "formue": dict(
@@ -323,6 +327,7 @@ INTRO = {
         formeltittel="Begrepene du må kunne",
         tester=[
             "De åtte avvikene: hva de er og hva de koster",
+            "Heuristikkene: menyeffekt og 1/N-regelen",
             "Forskjellen på en feilslutning og en preferanse. Hvordan hver av dem håndteres",
             "System 1 og 2",
         ],
@@ -335,12 +340,17 @@ INTRO = {
              "Grensetilfellene. Disposisjonseffekten er en feilslutning bygget på tapsaversjon. Hjemmebias endret seg ikke da folk fikk informasjon i forsøket, så den kan også leses som en preferanse."),
             ("Tapsvekt: nytten i utfall under referansepunktet ganges med 1/1,03",
              "Kursets regnevariant (H2022 oppgave 5.6). Forsterker valget av det trygge."),
+            ("Heuristikker: menyeffekt og 1/N-regelen",
+             "Forenklinger i stedet for porteføljeoptimering. Menyeffekt: det som står øverst på listen, velges oftere. 1/N: folk fordeler jevnt på alternativene som tilbys, så flere aksjefond i menyen gir høyere aksjeandel."),
+            ("Preferanse for det kjente",
+             "Forklarer hjemmebias: «jeg vil eie det jeg kjenner». Norske aksjer er 0,2 % av verdens aksjemarked."),
             ("Betenkningstid flytter valget fra system 1 til system 2",
              "Fra magefølelsen til overveielsen."),
         ],
         feller=[
             "Tapsaversjon kalt en feilslutning som kan rettes med informasjon",
             "Kurtasje sett som uflaks: den kommer oppå et nullspill",
+            "Høyere aksjeandel med flere aksjefond i menyen forklart med risikovilje: det er menyen som styrer",
         ],
     ),
 }

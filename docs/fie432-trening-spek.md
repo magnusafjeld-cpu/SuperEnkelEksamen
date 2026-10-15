@@ -140,6 +140,31 @@ oppgaven». Den vises før du svarer, så den er en oppskrift, ikke en løsning.
 
 Referanse: `aks-skj1` og `aks-b01` i `fag/fie432/_trening/aksjonar.py`.
 
+## 2c. Hjelp i tre trinn og feller som tåler «Prøv igjen» (oktober 2026)
+
+Hjelpen åpnes ett trinn om gangen, slik øvingsguiden til MC-testen gjør det. Hvert
+spørsmål har derfor tre tekster, laget med `hjelp3(tema, regel, oppsett)`:
+
+1. **Tema** (`hint[0]`, høyst 35 ord, helst én setning): hvilket begrep eller hvilken
+   regel spørsmålet handler om og hva du skal finne. Ingen formel. «Dette er
+   skjermingskjeden over to år: du skal finne det skattepliktige utbyttet i år 2.»
+2. **Regel** (`hint[1]`, høyst 70 ord): regelen eller formelen med symboler, slik kurset
+   skriver den. «Skjermingsgrunnlag = kostpris + ubenyttet skjerming fra i fjor.
+   Skattepliktig utbytte = maks(0; utbytte − grunnlag × rente − ubenyttet).»
+3. **Oppsett** (`hjelp`): fremgangsmåten steg for steg, som i § 2b. Den finnes alt.
+
+Alle tre følger reglene i § 2b: ingen tall fra spørsmålet eller alternativene, ikke det
+riktige alternativet og ikke hvilket det er. Trinnene skal bygge på hverandre, ikke si
+det samme tre ganger.
+
+Bruk: `hjelp=hjelp3("…", "…", _s(…))` der hjelpen sto før, både i `statisk`,
+`@familie` og `sporsmal`. Ligger hjelpen i en ordbok, legg tuppelen der.
+
+**Fellene.** Velger du feil i «Prøv igjen»-modus, vises fella for det alternativet før
+fasiten. Fella må derfor forklare feilen uten å røpe svaret: ikke teksten i det riktige
+alternativet og ikke et tall som bare står i det riktige alternativet. Skriv hva som er
+galt med *dette* valget og hvilken regel det bryter. Kontrollen stopper begge deler.
+
 ## 3. Språk og regler
 
 - **Bokmål.** Tiltale «du». Kort og direkte.

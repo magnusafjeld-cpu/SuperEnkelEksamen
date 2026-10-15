@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, oppgaver]
-oppdatert: 2026-10-09
+oppdatert: 2026-10-15
 ---
 
 # Åpne spørsmål og neste steg
@@ -138,6 +138,13 @@ Faget ble lagt inn 24. september 2026. Se [[FIE459 Sustainable Finance]].
 - [ ] **Hjelperne `unik`, `syklus` og `velg_feller`** er definert lokalt i flere
       temafiler i `fag/fie432/_trening/`. Flytt dem til `tools/trening_lib.py` før
       neste fag får eksamenstrening.
+- [ ] **int-s24 (Alstadsæter, Johannesen og Zucman):** forelesning 11 sier at de
+      0,01 % rikeste unndrar 25 % av skatten. Tallet «om lag 20 % av formuen» i fasiten
+      står ikke i lysbildene. Sjekk mot artikkelen.
+- [ ] **Feller for «Ingen av dem» i påstandsspørsmål** må si at påstand I holder for å
+      forklare feilen. Da snevrer den valget inn i «Prøv igjen». Akseptert foreløpig.
+- [ ] **`aks-s16` beholdt id-en** selv om spørsmålet er et annet (spesifikasjonen § 5
+      sier ny id). Gammel logg på id-en gjelder det gamle spørsmålet.
 - [ ] **Eksamenstrening for andre fag.** Motoren er fagnøytral; FIE402 (åpen
       eksamen) passer dårlig, FIE459 (flervalg og sant/usant) godt.
 
