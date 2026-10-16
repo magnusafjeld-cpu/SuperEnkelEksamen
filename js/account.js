@@ -372,5 +372,5 @@ window.EDU = window.EDU || {};
     return el(".card", el("h3", "Velg nytt passord"), form);
   }
 
-  S.account = { start, render, mountSidebar, mountPickerSlot, pull, push, onChange, mergeState, configured: () => !!cfg(), status: () => status };
+  S.account = { start, klient, render, mountSidebar, mountPickerSlot, pull, push, onChange, mergeState, configured: () => !!cfg(), status: () => status };
 })(window.EDU);
