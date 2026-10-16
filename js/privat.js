@@ -128,9 +128,12 @@ window.EDU = window.EDU || {};
     if (lastet && !tvungen) return lastet;
     if (!tvungen && !lokal() && !harLagretØkt()) { status.tilstand = "av"; return (lastet = Promise.resolve(0)); }
     status.tilstand = "laster"; status.melding = ""; status.grunn = "";
+    /* Et tidsavbrudd, så hentingen aldri blir stående og «hente» i det uendelige. */
+    const medFrist = (p, ms, hva) => Promise.race([p, new Promise((_, nei) => setTimeout(() => nei(new Error(hva)), ms))]);
     lastet = (async () => {
       let n = 0, feil = "";
-      try { n += await fraSky(); } catch (e) { feil = (e && e.message) || String(e); console.warn("privat:", e); }
+      try { n += await medFrist(fraSky(), 20000, "Tidsavbrudd: fikk ikke svar fra Supabase på 20 sekunder. Last siden på nytt."); }
+      catch (e) { feil = (e && e.message) || String(e); console.warn("privat:", e); }
       try { n += await fraMappe(); } catch (e) {}
       merk(n);
       Object.assign(status, { tilstand: feil ? "feil" : "ok", melding: feil, antall: antall() });

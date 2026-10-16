@@ -66,7 +66,13 @@ window.EDU = window.EDU || {};
         recovery = true;
         setTimeout(() => { if (S.app) S.app.navigate("#/konto"); }, 0);   // etter at ruteren finnes
       }
-      if (event === "SIGNED_IN") { pull(); if (S.privat) S.privat.last({ tvungen: true }); }
+      /* Ingen Supabase-kall rett i denne varslingen: biblioteket holder
+         innloggingslåsen mens den kjører, og et kall som venter på låsen,
+         henger for alltid. setTimeout flytter dem ut. */
+      if (event === "SIGNED_IN") setTimeout(() => {
+        pull();
+        if (S.privat && S.privat.status().tilstand !== "ok") S.privat.last({ tvungen: true });
+      }, 0);
       if (event === "SIGNED_OUT") setStatus("local");
       listeners.forEach((fn) => fn());
     });
