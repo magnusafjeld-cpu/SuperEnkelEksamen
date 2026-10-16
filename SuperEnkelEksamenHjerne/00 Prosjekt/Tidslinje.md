@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-10-15
+oppdatert: 2026-10-16
 ---
 
 # Tidslinje
@@ -48,6 +48,7 @@ ikke står i commit-meldingene.
 | 28. september 2026 | Fremdrift-siden og «% klar» fjernet | Fremdriften står inne i hver modul. Det samlede tallet telte ikke kjernepensum, kapitteloppgaver eller eksamenssett. Se [[Beslutningslogg]] |
 | 29. september 2026 | Kjernepensum som eget kort i NotebookLM, i FIE402 og FIE432 | Hele kjernepensum som én kilde eller del for del, med sjekker og minicase med fasit. Se [[Moduler og visninger]] |
 | 30. september 2026 | PwC-caser og streng vurdering i casetreningen | Seks caser i PwCs eget format før intervjuet 6. oktober, hver kontrollert blindt av en annen agent. Nivået etter hvert trinn regnes nå ut av kravene du krysser av. Se [[Caseintervju]] og [[Case-spilleren]] |
+| 16. oktober 2026 | Merk spørsmål i eksamenstreningen med «Øv mer» | Utvalget «Bare merkede» og en liste under oppsettet. Se [[Moduler og visninger]] |
 | 15. oktober 2026 | FIE432: hjelp i tre trinn, «Prøv igjen», «Ny variant», heuristikkene og MC-testen som eget sett | Etter kursgodkjenningstesten og øvingsguiden. Inntektsskiftingslikningen rettet til 2026-formen overalt. Se [[FIE432 Personlig økonomi]] |
 | 12. oktober 2026 | Spør Claude: chat med sidekontekst og vurdering av svar, med egen API-nøkkel | Hver bruker bruker sin egen kvote. Nøkkelen ligger bare i nettleseren. Se [[Moduler og visninger]] og [[Beslutningslogg]] |
 | 9. oktober 2026 | Hjelp-knapp på hvert spørsmål i eksamenstreningen | Fremgangsmåten uten tall. Riktig med hjelp teller som ikke mestret |

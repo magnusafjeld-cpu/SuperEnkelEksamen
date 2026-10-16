@@ -33,6 +33,9 @@
                        start, slutt }
                      svar er alltid første svar. forsok, losst og gitt gjelder bare «Prøv igjen».
      "trening:valg"  { temaer, antall, modus, feil }  det du valgte sist
+     "trm:<id>"      { m: 1 | 0, t }  merket «Øv mer på denne». Egen nøkkel, så et merket
+                     spørsmål ikke teller som sett. Å fjerne merket skriver m: 0 i stedet
+                     for å slette, ellers ville synken hentet det tilbake fra den andre enheten.
    Én nøkkel per spørsmål, så sky-synken slår sammen to enheter per spørsmål.
    ============================================================================ */
 window.EDU = window.EDU || {};
@@ -49,7 +52,7 @@ window.EDU = window.EDU || {};
   const RETT = 3, FEIL = -1;
   const BLANK = -1;
   const ANTALL = [10, 20, 30, 50];
-  const MODI = [["nye", "Nye først"], ["feil", "Bare de jeg bommet på"], ["tilfeldig", "Helt tilfeldig"]];
+  const MODI = [["nye", "Nye først"], ["feil", "Bare de jeg bommet på"], ["merket", "Bare merkede"], ["tilfeldig", "Helt tilfeldig"]];
   const FEILVALG = [["fasit", "Vis fasiten"], ["igjen", "Prøv igjen først"]];
 
   /* ---------- lasting ---------- */
@@ -155,9 +158,25 @@ window.EDU = window.EDU || {};
     S.app.refresh(); window.scrollTo({ top: 0 });
   }
 
+  /* «Øv mer på denne»: spørsmål du vil finne tilbake til. */
+  const erMerket = (id) => ((exams()["trm:" + id] || {}).m === 1);
+  function merk(sp, på) {
+    S.store.setExam("trm:" + sp.id, { m: på ? 1 : 0, t: S.u.nowTs() });
+    S.u.toast(på ? "Merket. Du finner det under «Bare merkede»" : "Merket er fjernet");
+  }
+  const merkede = () => ALLE().filter((sp) => erMerket(sp.id));
+  function merkKnapp(sp) {
+    const på = erMerket(sp.id);
+    return el("button.chip.tr-merk" + (på ? ".på" : ""), { type: "button", "aria-pressed": String(på),
+      title: på ? "Fjern merket (M)" : "Merk spørsmålet så du finner tilbake til det (M)",
+      onclick: () => { merk(sp, !på); S.app.refresh(); } }, på ? "★ Øv mer" : "☆ Øv mer");
+  }
+
   function utvalg(temaIds, modus) {
     const valgte = new Set(temaIds);
-    return ALLE().filter((sp) => valgte.has(sp.tema) && (modus !== "feil" || ((logg(sp.id) || {}).s != null && (logg(sp.id).s !== 1 || logg(sp.id).h))));
+    return ALLE().filter((sp) => valgte.has(sp.tema)
+      && (modus !== "feil" || ((logg(sp.id) || {}).s != null && (logg(sp.id).s !== 1 || logg(sp.id).h)))
+      && (modus !== "merket" || erMerket(sp.id)));
   }
 
   /* Fordeler antallet på temaene etter eksamensvekt. Hvert valgt tema får
@@ -290,6 +309,7 @@ window.EDU = window.EDU || {};
         el("p.tiny.muted", { style: { margin: "8px 0 0" } },
           modus === "nye" ? "Spørsmål du ikke har sett kommer først, så de du bommet på. Fra hver familie av like regnestykker kommer bare ett om gangen."
             : modus === "feil" ? "Bare spørsmål du svarte feil på eller stod over sist du hadde dem."
+              : modus === "merket" ? "Bare spørsmål du har merket med «Øv mer». Merk et spørsmål med stjernen øverst på kortet eller tasten M."
               : "Rent tilfeldig fra temaene, uansett hva du har svart før."));
 
       const fseg = el(".seg", { style: { flexWrap: "wrap" } });
@@ -305,7 +325,8 @@ window.EDU = window.EDU || {};
       S.u.mount(plan,
         el("p", { style: { margin: "0 0 14px", fontSize: "14.5px" } },
           !temaer.length ? "Velg minst ett tema."
-            : !sum ? (modus === "feil" ? "Du har ikke bommet på noe i disse temaene ennå." : "Ingen spørsmål i dette utvalget.")
+            : !sum ? (modus === "feil" ? "Du har ikke bommet på noe i disse temaene ennå."
+              : modus === "merket" ? "Du har ikke merket noe i disse temaene ennå." : "Ingen spørsmål i dette utvalget.")
               : el("span", el("b", `${sum} spørsmål`), sum < antall ? ` (alt som finnes i utvalget)` : "", deler.length > 1 ? `: ${deler.join(" · ")}` : "")),
         startKnapp);
       startKnapp.disabled = !sum;
@@ -316,9 +337,37 @@ window.EDU = window.EDU || {};
     kort.appendChild(plan);
     wrap.appendChild(kort);
 
+    const m = merkede();
+    if (m.length) wrap.appendChild(merketKort(m));
+
     if (sett) wrap.appendChild(el("p.tiny.muted", { style: { marginTop: "14px" } },
       `Du har sett ${sett} av ${totalt} spørsmål. Fordelingen på temaene følger eksamensvekten, prikkene ved hvert tema.`));
     return wrap;
+  }
+
+  /* Spørsmålene du har merket, samlet: start en runde med alle, eller åpne og
+     fjern dem ett og ett. */
+  function merketKort(m) {
+    const kort = el(".card", { style: { marginTop: "18px" } });
+    kort.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "center" } },
+      el("div", el("h3", { style: { margin: 0, fontSize: "16px" } }, `★ Merket for øving (${m.length})`),
+        el(".tiny.muted", "Spørsmålene du har merket med «Øv mer». Merket står til du fjerner det.")),
+      el(".spacer"),
+      el("button.btn.primary.sm", { onclick: () => start(TEMAER().map((t) => t.id), m.length, "merket", m.map((s) => s.id)) },
+        `Øv på alle ${m.length}`)));
+    const liste = el("details.tr-merket", { style: { marginTop: "10px" } });
+    liste.appendChild(el("summary.tiny", "Vis listen"));
+    m.forEach((s) => {
+      const g = logg(s.id);
+      const merke = !g ? "–" : g.s === 1 ? "✓" : g.s === -1 ? "○" : "✕";
+      liste.appendChild(el(".row", { style: { gap: "8px", alignItems: "center", padding: "7px 0", borderTop: "1px solid var(--hairline)" } },
+        el("span.tr-gj-merke", { title: "Sist: ✓ riktig, ✕ feil, ○ stod over, – ikke besvart" }, merke),
+        el("span.tiny", { style: { flex: 1, minWidth: 0 } }, `${(temaFor(s.tema) || {}).kort || ""}: ${stripp(spørsmålet(s.q))}`),
+        el("button.btn.ghost.sm", { onclick: () => start([s.tema], 1, "merket", [s.id]) }, "Åpne"),
+        el("button.btn.ghost.sm", { title: "Fjern merket", onclick: () => { merk(s, false); S.app.refresh(); } }, "Fjern")));
+    });
+    kort.appendChild(liste);
+    return kort;
   }
 
   /* ---------- én runde ---------- */
@@ -363,6 +412,7 @@ window.EDU = window.EDU || {};
       tema ? (tema.intro
         ? el("button.chip.slate.tr-temachip", { type: "button", title: "Hurtiginnføring i temaet", onclick: () => visIntro(tema, { iRunde: true }) }, tema.kort || tema.navn, el("span.tr-i", "i"))
         : el(".chip.slate", tema.kort || tema.navn)) : null,
+      merkKnapp(sp),
       el(".chip" + (poeng > 0 ? ".green" : poeng < 0 ? ".rose" : ""), `${fmt(poeng)} poeng`)));
 
     kortEl.appendChild(el(".tr-stem", prosa(sp.q)));
@@ -427,7 +477,7 @@ window.EDU = window.EDU || {};
       åpen && variant ? el("button.btn.ghost.sm", { title: "Samme regnestykke med nye tall, rett etter dette (V)", onclick: () => taVariant(o, pos, variant) }, "Ny variant") : null,
       åpen ? el("button.btn.primary", { onclick: () => neste(o, liste, pos) }, pos + 1 < liste.length ? "Neste →" : "Se resultatet →") : null));
     wrap.appendChild(kortEl);
-    wrap.appendChild(el("p.tiny.muted.tr-taster", "Tastatur: A–D svarer, H gir et trinn hjelp, S står over, F åpner gjennomgangen, V gir en ny variant, Enter går videre."));
+    wrap.appendChild(el("p.tiny.muted.tr-taster", "Tastatur: A–D svarer, H gir et trinn hjelp, S står over, M merker for øving, F åpner gjennomgangen, V gir en ny variant, Enter går videre."));
     return wrap;
   }
 
@@ -592,6 +642,8 @@ window.EDU = window.EDU || {};
     kort.appendChild(el(".row.wrap", { style: { gap: "10px", marginTop: "22px" } },
       el("button.btn.primary", { onclick: () => start(o.temaer, liste.length, o.modus) }, "Ny runde"),
       bom.length ? el("button.btn", { onclick: () => start(o.temaer, bom.length, o.modus, bom.map((s) => s.id)) }, `Øv på de ${bom.length} du ikke fikk riktig`) : null,
+      liste.some((s) => erMerket(s.id)) ? el("button.btn", { onclick: () => { const ids = liste.filter((s) => erMerket(s.id)).map((s) => s.id); start(o.temaer, ids.length, "merket", ids); } },
+        `Øv på de ${liste.filter((s) => erMerket(s.id)).length} du merket`) : null,
       el("button.btn.ghost", { onclick: () => { forkastØkt(); S.app.refresh(); } }, "Endre utvalg")));
     wrap.appendChild(kort);
 
@@ -603,13 +655,15 @@ window.EDU = window.EDU || {};
       const merke = v == null ? ["–", "var(--ink-4)"] : v === BLANK ? ["○", "var(--ink-3)"] : v === s.answer ? ["✓", "var(--green)"] : ["✕", "var(--rose)"];
       const d = el("details.tr-gj");
       d.appendChild(el("summary", el("span.tr-gj-merke", { style: { color: merke[1] } }, merke[0]),
-        el("span.tr-gj-tekst", `${i + 1}. ${(temaFor(s.tema) || {}).kort || ""}: ${stripp(spørsmålet(s.q))}`)));
+        el("span.tr-gj-tekst", `${i + 1}. ${(temaFor(s.tema) || {}).kort || ""}: ${stripp(spørsmålet(s.q))}`),
+        erMerket(s.id) ? el("span.tr-gj-stjerne", { title: "Merket for øving" }, "★") : null));
       const innhold = el("div", { style: { padding: "4px 0 12px 26px" } });
       innhold.appendChild(prosa(s.q));
       innhold.appendChild(el("p.tiny", { style: { margin: "6px 0" } },
         el("b", "Riktig: "), frag(String(s.options[s.answer])),
         v != null && v !== BLANK && v !== s.answer ? el("span", { style: { color: "var(--rose)" } }, " · ditt svar: ", frag(String(s.options[v]))) : null));
       innhold.appendChild(el(".explain", prosa(s.kort)));
+      innhold.appendChild(el("div", { style: { marginTop: "8px" } }, merkKnapp(s)));
       innhold.appendChild(el("button.btn.ghost.sm", { style: { marginTop: "8px" }, onclick: () => { const ny = Object.assign({}, o, { slutt: null, pos: i }); visFull = true; lagreØkt(ny); S.app.refresh(); window.scrollTo({ top: 0 }); } }, "Åpne med full gjennomgang"));
       d.appendChild(innhold);
       listeEl.appendChild(d);
@@ -647,6 +701,7 @@ window.EDU = window.EDU || {};
       if (!åpen && i > -1 && i < sp.options.length) { e.preventDefault(); velg(sp, i); S.app.refresh(); return; }
       if (!åpen && k === "s" && o.svar[sp.id] == null) { e.preventDefault(); registrer(sp, BLANK); S.app.refresh(); return; }
       if (!åpen && k === "h") { e.preventDefault(); merHjelp(sp); S.app.refresh(); return; }
+      if (k === "m") { e.preventDefault(); merk(sp, !erMerket(sp.id)); S.app.refresh(); return; }
       if (åpen && k === "v") { const v = nyVariant(o, sp); if (v) { e.preventDefault(); taVariant(o, pos, v); } return; }
       if (åpen && k === "f") { e.preventDefault(); visFull = !visFull; S.app.refresh(); return; }
       if (åpen && (k === "enter" || k === "arrowright")) { e.preventDefault(); neste(o, liste, pos); return; }
@@ -684,10 +739,12 @@ window.EDU = window.EDU || {};
     const kort = el(".card");
     kort.appendChild(el(".row", el("h3", { style: { fontSize: "16px" } }, "Eksamenstrening"), el(".spacer"),
       el(".see-all", { onclick: sh().go("#/trening") }, "Åpne →")));
+    const merket = Object.keys(ex).filter((k) => k.indexOf("trm:") === 0 && ex[k].m === 1).length;
     kort.appendChild(el("p.tiny.muted", { style: { margin: "6px 0 12px" } },
-      igang ? `Du har en runde i gang: ${o.ids.filter((id) => o.svar[id] != null).length} av ${o.ids.length} besvart.`
+      (merket ? `${merket} merket for øving. ` : "")
+      + (igang ? `Du har en runde i gang: ${o.ids.filter((id) => o.svar[id] != null).length} av ${o.ids.length} besvart.`
         : sett ? `Spørsmål i eksamensformat, med fasit med en gang. Du har svart på ${sett} så langt.`
-          : "Spørsmål i eksamensformat, med fasit med en gang. Velg temaer og antall."));
+          : "Spørsmål i eksamensformat, med fasit med en gang. Velg temaer og antall.")));
     kort.appendChild(el("a.btn.primary.sm", { href: "#/trening" }, igang ? "Fortsett runden" : "Start en runde"));
     return kort;
   }

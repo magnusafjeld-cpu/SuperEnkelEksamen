@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-15
+oppdatert: 2026-10-16
 ---
 
 # Moduler og visninger
@@ -319,6 +319,17 @@ teksten i det riktige alternativet eller et tall som bare står der.
 **«Ny variant».** Etter et svar på et regnespørsmål kan du ta en ny variant av samme
 familie med en gang (tasten V). Den settes inn rett etter spørsmålet du står på, og
 varianter du ikke har sett kommer først.
+
+**«Øv mer på denne».** Magnus ba 16. oktober 2026 om å kunne merke et spørsmål
+«som en oppgave man må øve mer på slik at man lett finner tilbake til den». Stjernen
+«☆ Øv mer» står øverst på spørsmålskortet og i gjennomgangen etter runden (tasten M).
+Merkede spørsmål finnes tre steder: utvalget «Bare merkede» i oppsettet, kortet «★
+Merket for øving» under oppsettet (start alle, eller åpne og fjern dem ett og ett), og
+knappen «Øv på de N du merket» i resultatet. Dashbordkortet teller dem. Markeringen
+ligger i en egen nøkkel, `"trm:<id>" = { m, t }`, ikke i `"tr:<id>"`. Ellers ville et
+merket spørsmål telt som sett, og «Nye først» ville hoppet over det. Å fjerne merket
+skriver `m: 0` i stedet for å slette nøkkelen, fordi synken slår sammen nøkler og
+ville hentet tilbake en slettet markering fra den andre enheten.
 
 **Familier.** Varianter av samme regnestykke har samme `fam`, og én runde tar bare
 én fra hver familie så lenge utvalget rekker. Ellers ville fem like regnestykker på
