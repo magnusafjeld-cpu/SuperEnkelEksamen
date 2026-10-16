@@ -96,8 +96,8 @@ window.EDU = window.EDU || {};
     opts = opts || {};
     /* Logget du inn etter oppstart, kan de private fagene ha kommet til siden. */
     if (S.privat && !opts.privatLastet) {
-      const før = S.privat.antall();
-      S.privat.last().then(() => { if (S.privat.antall() !== før && document.getElementById("splash")) show(Object.assign({}, opts, { privatLastet: true })); });
+      const før = S.privat.antall() + S.privat.status().tilstand;
+      S.privat.last().then(() => { if (S.privat.antall() + S.privat.status().tilstand !== før && document.getElementById("splash")) show(Object.assign({}, opts, { privatLastet: true })); });
     }
     const splash = ensureSplash();
     const card_ = splash.querySelector(".splash-card");
@@ -121,10 +121,15 @@ window.EDU = window.EDU || {};
 
     /* Har du hatt private fag på denne enheten, men er logget ut, sier vi hvorfor
        de mangler. */
-    if (S.privat && S.privat.harHatt() && !S.privat.antall()) {
+    const ps = S.privat ? S.privat.status() : null;
+    const linje = !ps ? ""
+      : ps.tilstand === "laster" ? "Henter de private fagene dine …"
+        : ps.tilstand === "feil" ? "De private fagene kunne ikke hentes: " + ps.melding
+          : S.privat.harHatt() && !S.privat.antall() ? "De private fagene dine vises når du er logget inn (Konto i et av fagene)." : "";
+    if (linje) {
       const p = document.createElement("p");
       p.className = "tiny muted"; p.style.margin = "10px 0 0";
-      p.textContent = "De private fagene dine vises når du er logget inn (Konto i et av fagene).";
+      p.textContent = linje;
       card_.appendChild(p);
     }
 

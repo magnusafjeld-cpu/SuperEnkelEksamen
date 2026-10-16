@@ -24,7 +24,9 @@ window.EDU = window.EDU || {};
   const BØTTE = "privat";
   const HAR = "edu.privat.har";          // husker at det finnes private fag, så velgeren kan be deg logge inn
   const LEVETID = 6 * 3600;              // sekunder en signert adresse varer
-  let lastet = null;
+  let lastet = null;            // selve jobben
+  /* Hva som skjedde sist, så velgeren og Konto kan si det. */
+  const status = { tilstand: "av", melding: "", antall: 0 };
 
   const lokal = () => /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
   function harLagretØkt() {
@@ -72,7 +74,12 @@ window.EDU = window.EDU || {};
     const uid = økt.user.id;
     const lager = k.storage.from(BØTTE);
     const { data: blob, error } = await lager.download(`${uid}/fag.json`);
-    if (error || !blob) return 0;
+    if (error || !blob) {
+      /* Ingen fag.json betyr bare at du ikke har lastet opp noe. Alt annet er en feil. */
+      const m = String((error && (error.message || error.error)) || "");
+      if (/not.?found|404|object not found/i.test(m) || (error && (error.status === 404 || error.statusCode === "404"))) return 0;
+      throw new Error("fikk ikke hentet listen over private fag" + (m ? ": " + m : ""));
+    }
     let fag = [];
     try { fag = JSON.parse(await blob.text()); } catch (e) { console.warn("privat: fag.json kunne ikke leses", e); return 0; }
     if (!Array.isArray(fag)) return 0;
@@ -80,7 +87,7 @@ window.EDU = window.EDU || {};
     const adr = new Map();
     if (alle.length) {
       const { data: sign, error: e2 } = await lager.createSignedUrls(alle, LEVETID);
-      if (e2) { console.warn("privat: fikk ikke signert adressene", e2); return 0; }
+      if (e2) throw new Error("fikk ikke signert adressene: " + (e2.message || e2));
       (sign || []).forEach((x) => { if (x && x.signedUrl && x.path) adr.set(x.path, x.signedUrl); });
     }
     let n = 0;
@@ -108,24 +115,27 @@ window.EDU = window.EDU || {};
     return n;
   }
 
-  /* Laster de private fagene. Gir opp etter noen sekunder, så et tregt nett
-     ikke stopper oppstarten. */
+  /* Laster de private fagene. Løftet blir ferdig når alt er hentet, uansett hvor
+     lang tid det tar; oppstarten bruker vent() i stedet, som gir opp etter noen
+     sekunder. Fag som kommer etter det, legges likevel inn, og velgeren tegnes på
+     nytt når den er åpen. */
   function last({ tvungen } = {}) {
     if (lastet && !tvungen) return lastet;
-    if (!tvungen && !lokal() && !harLagretØkt()) return (lastet = Promise.resolve(0));
-    const jobb = (async () => {
-      let n = 0;
-      try { n += await fraSky(); } catch (e) { console.warn("privat:", e); }
+    if (!tvungen && !lokal() && !harLagretØkt()) { status.tilstand = "av"; return (lastet = Promise.resolve(0)); }
+    status.tilstand = "laster"; status.melding = "";
+    lastet = (async () => {
+      let n = 0, feil = "";
+      try { n += await fraSky(); } catch (e) { feil = (e && e.message) || String(e); console.warn("privat:", e); }
       try { n += await fraMappe(); } catch (e) {}
       merk(n);
+      Object.assign(status, { tilstand: feil ? "feil" : "ok", melding: feil, antall: antall() });
       return n;
     })();
-    const tidsavbrudd = new Promise((res) => setTimeout(() => res(0), 6000));
-    lastet = Promise.race([jobb, tidsavbrudd]);
     return lastet;
   }
+  function vent(ms) { return Promise.race([last(), new Promise((res) => setTimeout(() => res(0), ms || 8000))]); }
 
   const antall = () => (window.EDU_SUBJECTS || []).filter((s) => s.privat).length;
 
-  S.privat = { last, antall, harHatt };
+  S.privat = { last, vent, antall, harHatt, status: () => Object.assign({}, status) };
 })(window.EDU);

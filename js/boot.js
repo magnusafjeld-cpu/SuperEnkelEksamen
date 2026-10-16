@@ -281,7 +281,7 @@ window.EDU = window.EDU || {};
   async function boot() {
     /* Private fag (js/privat.js) må finnes i registeret før faget velges, ellers
        blir et husket privat fag ikke funnet. */
-    if (S.privat) { try { await S.privat.last(); } catch (e) {} }
+    if (S.privat) { try { await S.privat.vent(8000); } catch (e) {} }
     const sub = S.picker.resolve();
     if (!sub) { S.picker.show(); return; }        // ingen fag valgt ennå — vis velgeren
     SUB = sub; window.EDU_SUBJECT = sub;

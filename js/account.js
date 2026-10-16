@@ -275,6 +275,21 @@ window.EDU = window.EDU || {};
       el("p.tiny.muted", "Full oppskrift ligger i docs/supabase-oppsett.md."));
   }
 
+  /* De private fagene (js/privat.js): hvor mange som er hentet, eller feilen. */
+  function privatLinje() {
+    if (!S.privat) return null;
+    const ps = S.privat.status();
+    const tekst = ps.tilstand === "laster" ? "Henter de private fagene …"
+      : ps.tilstand === "feil" ? "De private fagene kunne ikke hentes: " + ps.melding
+        : `Private fag: ${S.privat.antall()}. De står under «Alle fag».`;
+    return el(".row.wrap", { style: { gap: "8px", alignItems: "center", margin: "6px 0" } },
+      el("span.tiny" + (ps.tilstand === "feil" ? "" : ".muted"), { style: ps.tilstand === "feil" ? { color: "var(--rose)" } : null }, tekst),
+      el("button.btn.ghost.sm", { onclick: async (e) => {
+        e.target.disabled = true; await S.privat.last({ tvungen: true }); S.app.refresh();
+        S.u.toast(S.privat.status().tilstand === "feil" ? "Fikk ikke hentet de private fagene" : `Private fag: ${S.privat.antall()}`);
+      } }, "Hent på nytt"));
+  }
+
   function signedInCard() {
     const box = msgBox();
     const [t] = LABEL[status] || LABEL.local;
@@ -283,6 +298,7 @@ window.EDU = window.EDU || {};
         el("div", el("div", { style: { fontWeight: 600 } }, session.user.email),
           el(".tiny.muted", t + (statusMsg ? " · " + statusMsg : "")))),
       el("p.tiny.muted", "Fremdriften i «" + ((window.EDU_SUBJECT || {}).name || S.store.subjectId()) + "» speiles til Supabase. Hvert fag synkes for seg."),
+      privatLinje(),
       box,
       el(".acct-actions",
         el("button.btn.primary", { onclick: async (e) => { e.target.disabled = true; say(box, "Synkroniserer…"); await pull(); e.target.disabled = false; say(box, status === "error" ? statusMsg : "Synkronisert.", status === "error" ? "bad" : "ok"); } }, "Synkroniser nå"),
