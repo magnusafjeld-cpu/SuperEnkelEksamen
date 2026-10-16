@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-10-15
+oppdatert: 2026-10-16
 ---
 
 # Fallgruver
@@ -670,3 +670,12 @@ Formler i PowerPoint ligger som egne objekter og forsvinner i et vanlig tekstutt
 FIE432-banken ble bygget fra et uttrekk uten dem. Derfor lærte den bort den eldre
 inntektsskiftingslikningen fra eksamensfasitene i stedet for forelesningens 2026-form.
 Det rettede uttrekket ligger i emnemappens `_claude/tekst/`. Sjekk formler mot det.
+
+## 14. Ingen Supabase-kall rett i onAuthStateChange
+
+Supabase-biblioteket holder innloggingslåsen mens varslingen i
+`client.auth.onAuthStateChange` kjører. Et kall som trenger økten (`getSession`,
+lagring, tabeller), venter på den samme låsen og henger for alltid, uten feilmelding.
+Det skjedde med de private fagene 16. oktober 2026: de sto på «Henter …», og «Hent på
+nytt» gjorde ingenting. Legg kallene i `setTimeout(() => …, 0)` i varslingen, og gi
+nettverksjobber et tidsavbrudd med en feilmelding.
