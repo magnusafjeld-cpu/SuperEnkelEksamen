@@ -397,6 +397,38 @@ tilgjengelig når du regner en kapitteloppgave eller et sett som på eksamen.
 FIE402-arket er hentet ordrett fra `Formula sheet.docx` med en egen OMML-leser,
 fordi Word-ligningene forsvinner med vanlige verktøy (samme felle som i FIE432).
 
+## Varianter: sjakkrepertoar på brettet
+
+Lagt til 16. oktober 2026 for et privat sjakkfag (`/linjer`, `js/bundle-sjakk.js`,
+reglene i `js/sjakk-kjerne.js`). Motoren er fagnøytral og har ikke noe repertoar
+selv; innholdet ligger i faget som `EDU_DATA.repertoar = { grupper, linjer }`.
+
+- **Reglene** (`window.SJAKK`): stilling, lovlige trekk, SAN begge veier, FEN og
+  `spill(trekkrekke)`. Ren JS uten DOM, så `tools/sjekk-sjakk.js` bruker de samme
+  reglene i node. Testet med perft fra fem standardstillinger (start, Kiwipete og
+  tre til), som dekker rokade, en passant, forvandling og sjakk:
+  `node tools/sjekk-sjakk.js --perft`.
+- **Lær**: en ny linje trekk for trekk med kommentarene, så «Spill den selv».
+- **Øv**: du spiller dine trekk ved å trykke brikke og felt. Motstanderens trekk
+  spilles etter et halvt sekund. Feil trekk gir melding, andre bom et hint (brikken
+  som skal flyttes) og tredje svaret. Linjen lagres i `state.exams["sj:<id>"] =
+  { boks, neste, n, feil, t }` med Leitner-bokser: feilfri flytter ett steg ut
+  (1, 3, 7, 16, 35 dager). Feil gir boks 1 og i morgen. Linjen kommer da én gang
+  til på slutten av økten.
+- **Utforsk**: alle linjene i en gruppe som et tre, med kommentarene.
+- **Diagrammer i pensum**: `<div class="sjakk-diagram" data-trekk="1.d4 d5"
+  data-tekst="…" data-farge="b">` tegnes som brett av trekkene, via en
+  MutationObserver. Ingen skriver FEN for hånd.
+- Brikkene er Unicode-tegn med `\uFE0E`, ellers tegner iOS bonden som emoji.
+  Størrelsen er `10cqw` (10 % av brettets bredde). Rutenettet er
+  `repeat(8, minmax(0, 1fr))` i begge retninger. Med fast skriftstørrelse presset
+  brikkene feltene utover på mobil. Da forsvant den åttende raden og kolonnen.
+
+`tools/sjekk-sjakk.js <fag>` spiller alle linjene og diagrammene. Den stopper ulovlige
+trekk, kommentarer til trekk som ikke finnes og to linjer med samme farge som svarer
+forskjellig i samme stilling (da kan treneren bare godta det ene svaret).
+Repertoaret kan deles i flere filer (`repertoar-*.js`) som skrives samtidig.
+
 ## Spør Claude: chat og vurdering med egen API-nøkkel
 
 Lagt til 12. oktober 2026 (`js/bundle-claude.js`). Hver bruker legger inn sin egen

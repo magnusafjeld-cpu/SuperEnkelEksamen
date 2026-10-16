@@ -36,6 +36,9 @@ js/
   bundle-claude.js         Spør Claude: chat med sidekontekst og vurdering av
                            svar, med brukerens egen API-nøkkel (bare i nettleseren)
   account.js               Supabase-innlogging + synk (mergeState bor her)
+  sjakk-kjerne.js          sjakkreglene (lovlige trekk, SAN, FEN), også brukt av
+                           tools/sjekk-sjakk.js
+  bundle-sjakk.js          Varianter: sjakkrepertoar på brettet (/linjer)
   privat.js                private fag fra den private Supabase-bøtta, bare for
                            eieren (se [[Supabase]])
   picker.js                fag-velger, tema, byggnummer, dynamisk lasting av fagdata

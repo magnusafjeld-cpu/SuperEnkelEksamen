@@ -18,6 +18,7 @@ window.EDU = window.EDU || {};
       { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
       { route: "#/kapitteloppgaver", match: "/kapitteloppgaver", label: "Kapitteloppgaver", ico: "check" },
       { route: "#/trening", match: "/trening", label: "Eksamenstrening", ico: "target" },
+      { route: "#/linjer", match: "/linjer", label: "Varianter", ico: "flag", badge: () => (S.views.sjakk && S.views.sjakk.antallForfalt()) || null },
       { route: "#/flashcards", match: "/flashcards", label: "Flashcards", ico: "cards", badge: () => S.srs.stats().due || null },
       { route: "#/dybde", match: "/dybde", label: "Dybdetrening", ico: "layers", badge: () => (S.views.dybde && S.views.dybde.weakCount()) || null },
       { route: "#/oppgaver", match: "/oppgaver", label: "Oppgavebank", ico: "book" },
@@ -38,6 +39,7 @@ window.EDU = window.EDU || {};
     { route: "#/lyn", match: "/lyn", label: "Lyn", ico: "bolt" },
     { route: "#/plan", match: "/plan", label: "Plan", ico: "calendar" },
     { route: "#/trening", match: "/trening", label: "Trening", ico: "target" },
+    { route: "#/linjer", match: "/linjer", label: "Varianter", ico: "flag" },
     { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
     { route: "#/flashcards", match: "/flashcards", label: "Kort", ico: "cards" },
     { route: "#/dybde", match: "/dybde", label: "Dybde", ico: "layers" },
@@ -61,6 +63,7 @@ window.EDU = window.EDU || {};
     /* Spørsmålsbanken er stor og lastes først når modulen åpnes (manifest.lazy),
        så her holder det at faget har den. */
     "/trening": () => !!(S.views.trening && S.views.trening.finnes()),
+    "/linjer": () => !!(S.views.sjakk && S.views.sjakk.finnes()),
   };
   function has(match) {
     const m = sub().modules;
@@ -155,6 +158,7 @@ window.EDU = window.EDU || {};
     when("/kapitteloppgaver", "/kapitteloppgaver/:num/:oppg", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num, p.oppg)));
     when("/notebooklm", "/notebooklm", () => setView(() => V.notebooklm.render()));
     when("/trening", "/trening", () => setView(() => V.trening.render()));
+    when("/linjer", "/linjer", () => setView(() => V.sjakk.render()));
     /* husk før :num — ruteren tar første treff. */
     when("/kjerne", "/kjerne", () => setView(() => V.kjerne.render()));
     when("/kjerne", "/kjerne/husk", () => setView(() => V.kjerne.renderHusk()));

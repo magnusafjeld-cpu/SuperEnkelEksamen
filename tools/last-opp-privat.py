@@ -173,6 +173,10 @@ def ny(fid, navn):
         "manual": {"candidates": ["manual.html"], "label": "manual.html",
                    "hint": "pensum lastes inn og lagres lokalt", "refSections": {}},
         "modules": ["/plan", "/curriculum", "/quiz", "/flashcards", "/review", "/search", "/notebooklm"],
+        # Uten parts og copy arver faget SAM3s deltitler og plantekst (fallgruve 3).
+        "parts": [{"id": 0, "tag": "Del 0", "name": "Om faget", "chapters": [0]},
+                  {"id": 1, "tag": "Del I", "name": "Pensum", "chapters": list(range(1, 40))}],
+        "copy": {"planEyebrow": "Studieplan", "planIntro": "Gå gjennom kapitlene i rekkefølge og repeter det du er usikker på."},
     }
     json.dump(manifest, open(os.path.join(m, "fag.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(os.path.join(m, "manual.html"), "w", encoding="utf-8").write(f"""<!doctype html>

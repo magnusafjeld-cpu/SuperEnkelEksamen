@@ -102,6 +102,8 @@ window.EDU.views = window.EDU.views || {};
     if (kjerne) col.appendChild(kjerne);
     const trening = S.views.trening && S.views.trening.dashbordkort();
     if (trening) col.appendChild(trening);
+    const sjakk = S.views.sjakk && S.views.sjakk.dashbordkort();
+    if (sjakk) col.appendChild(sjakk);
     const repCard = el(".card");
     repCard.appendChild(el(".row", el("h3", { style: { fontSize: "16px" } }, "Repetisjon i dag"), el(".spacer"), S.hasModule("/review") && el(".see-all", { onclick: sh().go("#/review") }, "Alle →")));
     S.repetition.suggest(3).forEach((s) => repCard.appendChild(el(".task-row", { style: { cursor: "pointer" }, onclick: sh().go(`#/chapter/${s.num}`) }, el(".priority-tag." + s.priority, { style: { marginTop: "1px" } }, s.priority === "high" ? "Høy" : s.priority === "med" ? "Med" : "Lav"), el("div", el(".tt", `K${s.num} · ${s.chapter.title}`), el(".td", s.reasons[0] || "Repetisjon")))));
@@ -268,7 +270,7 @@ window.EDU.views = window.EDU.views || {};
     const vekt = S.u.vektFor(num);
     if (vekt) wrap.appendChild(el(".row", { style: { gap: "10px", alignItems: "center", margin: "-6px 0 14px" } },
       S.u.vektmerke(num), el("span.tiny.muted", `Eksamensvekt ${vekt[0]} av 5 · ${vekt[1]}`)));
-    wrap.appendChild(el(".row.wrap", { style: { gap: "8px", marginBottom: "18px" } }, el(".chip." + sh().phaseColor(phaseForChapter(num)), c.partName), el(".chip", sh().chapterMeta(c)), el(".chip", { onclick: sh().go("#/flashcards"), style: { cursor: "pointer" } }, "🎴 Øv på formler"), el(".chip", { onclick: sh().go("#/quiz"), style: { cursor: "pointer" } }, "❓ Quiz dette temaet")));
+    wrap.appendChild(el(".row.wrap", { style: { gap: "8px", marginBottom: "18px" } }, el(".chip." + sh().phaseColor(phaseForChapter(num)), c.partName), el(".chip", sh().chapterMeta(c)), S.hasModule("/flashcards") ? el(".chip", { onclick: sh().go("#/flashcards"), style: { cursor: "pointer" } }, "🎴 Øv på formler") : null, S.hasModule("/quiz") ? el(".chip", { onclick: sh().go("#/quiz"), style: { cursor: "pointer" } }, "❓ Quiz dette temaet") : null));
     const layout = el(".article-wrap"); const article = el("div"); const prose = el(".prose");
     prose.appendChild(frag(c.html));
     merkKapittelhenvisninger(prose, num);
