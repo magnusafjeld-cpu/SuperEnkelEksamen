@@ -415,6 +415,12 @@ selv; innholdet ligger i faget som `EDU_DATA.repertoar = { grupper, linjer }`.
   { boks, neste, n, feil, t }` med Leitner-bokser: feilfri flytter ett steg ut
   (1, 3, 7, 16, 35 dager). Feil gir boks 1 og i morgen. Linjen kommer da én gang
   til på slutten av økten.
+- **Flytte brikker**: dra brikken, eller trykk brikke og så felt. Draget bruker
+  pekerhendelser, så mus og finger virker likt. Brettet fanger pekeren først når du
+  faktisk har begynt å dra (6 px): fanges den ved trykket, går klikket til brettet i
+  stedet for feltet, og trykk-trykk slutter å virke. Markeringene under draget settes
+  rett i DOM-en uten ny tegning, og `touch-action:none` på brettet hindrer at siden
+  ruller mens du drar på telefonen.
 - **Utforsk**: alle linjene i en gruppe som et tre, med kommentarene.
 - **Diagrammer i pensum**: `<div class="sjakk-diagram" data-trekk="1.d4 d5"
   data-tekst="…" data-farge="b">` tegnes som brett av trekkene, via en

@@ -18,6 +18,8 @@
            trekk, kommentar: { "4.cxd5": "…" }, plan }] }
    Lagring: state.exams["sj:<linje-id>"] = { boks, neste, n, feil, t }
 
+   Du flytter ved å dra brikken, eller ved å trykke brikke og så felt.
+
    Diagrammer i pensum: <div class="sjakk-diagram" data-trekk="1.d4 d5" data-tekst="…"
    data-farge="b"> tegnes som et brett når siden vises, uansett modul.
    ============================================================================ */
@@ -100,11 +102,78 @@ window.EDU = window.EDU || {};
         if (x) felt.appendChild(el("span.sj-brikke" + (x === x.toUpperCase() ? ".hvit" : ".svart"), GLYF[x.toLowerCase()] + "︎"));
         if (ff === 0) felt.appendChild(el("span.sj-koord.rad", String(r + 1)));
         if (rr === 7) felt.appendChild(el("span.sj-koord.fil", "abcdefgh"[f]));
-        if (opt.interaktiv) felt.addEventListener("click", () => opt.onFelt && opt.onFelt(sq, lovlige));
+        if (opt.interaktiv) felt.addEventListener("click", () => { if (dratt) { dratt = false; return; } opt.onFelt && opt.onFelt(sq, lovlige); });
         nett.appendChild(felt);
       }
     }
+    if (opt.interaktiv && opt.onDra) dra(nett, p, lovlige, opt);
     return nett;
+  }
+
+  /* Dra og slipp, med mus og finger (pekerhendelser). Brikken følger pekeren,
+     feltene den kan gå til markeres, og slippet gir trekket til opt.onDra. Et
+     trykk uten bevegelse er et vanlig klikk, så å trykke brikke og felt virker
+     som før. Brettet tegnes ikke på nytt underveis; markeringene settes rett i
+     DOM-en, ellers ville draget blitt avbrutt. */
+  let dratt = false;          // sant rett etter et drag, så klikket som følger ignoreres
+  function dra(nett, p, lovlige, opt) {
+    nett.classList.add("kan-dra");
+    let d = null;
+    const feltUnder = (x, y) => { const e = document.elementFromPoint(x, y); const f = e && e.closest(".sj-felt"); return f && nett.contains(f) ? Number(f.dataset.sq) : null; };
+    const rydd = () => {
+      if (!d) return;
+      if (d.spøkelse) d.spøkelse.remove();
+      if (d.brikke) d.brikke.classList.remove("løftet");
+      nett.querySelectorAll(".dra-mal, .dra-slagmal, .dra-over").forEach((f) => f.classList.remove("dra-mal", "dra-slagmal", "dra-over"));
+      d = null;
+    };
+    nett.addEventListener("pointerdown", (e) => {
+      if (e.button !== undefined && e.button !== 0) return;
+      const sq = feltUnder(e.clientX, e.clientY);
+      if (sq == null) return;
+      const x = p.b[sq];
+      if (!x || C().farge(x) !== p.tur || p.tur !== opt.egen) return;
+      const felt = nett.querySelector(`.sj-felt[data-sq="${sq}"]`);
+      const brikke = felt.querySelector(".sj-brikke");
+      const rekt = felt.getBoundingClientRect();
+      d = { fra: sq, x0: e.clientX, y0: e.clientY, beveget: false, brikke, størrelse: rekt.width, id: e.pointerId };
+    });
+    nett.addEventListener("pointermove", (e) => {
+      if (!d || e.pointerId !== d.id) return;
+      if (!d.beveget && Math.hypot(e.clientX - d.x0, e.clientY - d.y0) < 6) return;
+      if (!d.beveget) {
+        d.beveget = true;
+        /* Fanges først nå: med fanging fra trykket går klikket til brettet i
+           stedet for feltet, og trykk-trykk-flytting slutter å virke. */
+        try { nett.setPointerCapture(e.pointerId); } catch (_) {}
+        d.spøkelse = el("span.sj-brikke.sj-spøkelse" + (d.brikke.classList.contains("hvit") ? ".hvit" : ".svart"), d.brikke.textContent);
+        d.spøkelse.style.fontSize = (d.størrelse * 0.8) + "px";
+        document.body.appendChild(d.spøkelse);
+        d.brikke.classList.add("løftet");
+        lovlige.filter((m) => m.fra === d.fra).forEach((m) => {
+          const f = nett.querySelector(`.sj-felt[data-sq="${m.til}"]`);
+          if (f) f.classList.add(p.b[m.til] || m.flagg === "e" ? "dra-slagmal" : "dra-mal");
+        });
+      }
+      e.preventDefault();
+      d.spøkelse.style.transform = `translate(${e.clientX - d.størrelse / 2}px, ${e.clientY - d.størrelse / 2}px)`;
+      const over = feltUnder(e.clientX, e.clientY);
+      nett.querySelectorAll(".dra-over").forEach((f) => f.classList.remove("dra-over"));
+      if (over != null) { const f = nett.querySelector(`.sj-felt[data-sq="${over}"]`); if (f) f.classList.add("dra-over"); }
+    });
+    const slipp = (e) => {
+      if (!d || e.pointerId !== d.id) return;
+      const { fra, beveget } = d;
+      const til = beveget ? feltUnder(e.clientX, e.clientY) : null;
+      rydd();
+      if (!beveget) return;               // et trykk: klikket tar det
+      dratt = true;
+      setTimeout(() => { dratt = false; }, 0);
+      if (til == null || til === fra) return;
+      opt.onDra(fra, til, lovlige);
+    };
+    nett.addEventListener("pointerup", slipp);
+    nett.addEventListener("pointercancel", (e) => { if (d && e.pointerId === d.id) rydd(); });
   }
 
   /* Klikk-logikken: velg en brikke, så et felt. */
@@ -362,9 +431,16 @@ window.EDU = window.EDU || {};
     wrap.appendChild(hode(økt.tittel || "Øv", `Linje ${økt.i + 1} av ${økt.kø.length} · ${g ? g.navn : ""} · ${økt.farge === "b" ? "du er svart" : "du er hvit"}`));
     const kort = el(".card.pad-lg.sj-økt");
     kort.appendChild(brett(p, { farge: økt.farge, siste: s && s.m, interaktiv: din, valgt: økt.valgt, hint: økt.hint, feil: økt.feilFelt,
+      egen: økt.farge,
       onFelt: (sq, lovlige) => {
         const r = klikk(p, sq, lovlige, økt.valgt, økt.farge);
         if (r.trekk) prøv(r.trekk); else { økt.valgt = r.valgt; økt.feilFelt = null; tegn(); }
+      },
+      /* Et ulovlig slipp gjør ingenting; et lovlig trekk sjekkes som et klikk. */
+      onDra: (fra, til, lovlige) => {
+        const ms = lovlige.filter((m) => m.fra === fra && m.til === til);
+        økt.valgt = null;
+        if (ms.length) prøv(ms.find((m) => !m.forfr || m.forfr === "Q") || ms[0]); else tegn();
       } }));
     const panel = el(".sj-panel");
     panel.appendChild(el(".sj-status", økt.ferdig ? (økt.feilTotalt ? `Linjen er ferdig · ${økt.feilTotalt} feil` : "Feilfritt ✓")

@@ -116,8 +116,24 @@ window.EDU = window.EDU || {};
 
     const list = document.createElement("div");
     list.className = "subject-list";
-    all().forEach((s) => list.appendChild(card(s)));
+    all().filter((s) => !s.privat).forEach((s) => list.appendChild(card(s)));
     card_.appendChild(list);
+
+    /* De private fagene ligger sammenfoldet under de vanlige, lukket hver gang
+       velgeren åpnes, så de ikke synes med mindre du åpner dem selv. */
+    const privat = all().filter((s) => s.privat);
+    if (privat.length) {
+      const d = document.createElement("details");
+      d.className = "picker-privat";
+      const sum = document.createElement("summary");
+      sum.textContent = "Private fag (" + privat.length + ")";
+      d.appendChild(sum);
+      const pl = document.createElement("div");
+      pl.className = "subject-list";
+      privat.forEach((s) => pl.appendChild(card(s)));
+      d.appendChild(pl);
+      card_.appendChild(d);
+    }
 
     /* Har du hatt private fag på denne enheten, men er logget ut, sier vi hvorfor
        de mangler. */

@@ -93,7 +93,10 @@ nederst i `docs/supabase.sql`.
 
 `js/privat.js` laster listen ved oppstart (bare når det finnes en lagret økt) og
 når du logger inn, gjør stiene om til signerte adresser som varer i seks timer, og
-legger fagene inn i registeret med `privat: true`. Velgeren merker dem «Privat».
+legger fagene inn i registeret med `privat: true`. Velgeren viser dem i en egen
+sammenfoldet liste, «Private fag (N)», under de vanlige fagene. Listen er lukket hver
+gang velgeren åpnes, så de ikke synes med mindre du åpner den. Konto viser «Private
+fag: N» eller hvorfor ingen ble funnet, med en knapp for å hente på nytt.
 Et privat fag må hete `privat-<navn>` og kan aldri ta id-en til et offentlig fag.
 På localhost leses fagene også rett fra `fag/<id>/` via `fag/privat-indeks.json`.
 
