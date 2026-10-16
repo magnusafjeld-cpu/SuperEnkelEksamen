@@ -418,8 +418,8 @@ selv; innholdet ligger i faget som `EDU_DATA.repertoar = { grupper, linjer }`.
 - **Flytte brikker**: dra brikken, eller trykk brikke og så felt. Draget bruker
   pekerhendelser, så mus og finger virker likt. Brettet fanger pekeren først når du
   faktisk har begynt å dra (6 px): fanges den ved trykket, går klikket til brettet i
-  stedet for feltet, og trykk-trykk slutter å virke. Markeringene under draget settes
-  rett i DOM-en uten ny tegning, og `touch-action:none` på brettet hindrer at siden
+  stedet for feltet. Da slutter trykk-trykk å virke. Markeringene under draget settes
+  rett i DOM-en uten ny tegning. `touch-action:none` på brettet hindrer at siden
   ruller mens du drar på telefonen.
 - **Utforsk**: alle linjene i en gruppe som et tre, med kommentarene.
 - **Diagrammer i pensum**: `<div class="sjakk-diagram" data-trekk="1.d4 d5"
