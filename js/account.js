@@ -281,12 +281,13 @@ window.EDU = window.EDU || {};
     const ps = S.privat.status();
     const tekst = ps.tilstand === "laster" ? "Henter de private fagene …"
       : ps.tilstand === "feil" ? "De private fagene kunne ikke hentes: " + ps.melding
-        : `Private fag: ${S.privat.antall()}. De står under «Alle fag».`;
+        : S.privat.antall() ? `Private fag: ${S.privat.antall()}. De står under «Alle fag».`
+          : "Private fag: 0. " + (ps.grunn || "");
     return el(".row.wrap", { style: { gap: "8px", alignItems: "center", margin: "6px 0" } },
       el("span.tiny" + (ps.tilstand === "feil" ? "" : ".muted"), { style: ps.tilstand === "feil" ? { color: "var(--rose)" } : null }, tekst),
       el("button.btn.ghost.sm", { onclick: async (e) => {
         e.target.disabled = true; await S.privat.last({ tvungen: true }); S.app.refresh();
-        S.u.toast(S.privat.status().tilstand === "feil" ? "Fikk ikke hentet de private fagene" : `Private fag: ${S.privat.antall()}`);
+        S.u.toast(S.privat.status().tilstand === "feil" ? "Fikk ikke hentet de private fagene" : `Hentet på nytt · private fag: ${S.privat.antall()}`);
       } }, "Hent på nytt"));
   }
 

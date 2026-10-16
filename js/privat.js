@@ -26,7 +26,7 @@ window.EDU = window.EDU || {};
   const LEVETID = 6 * 3600;              // sekunder en signert adresse varer
   let lastet = null;            // selve jobben
   /* Hva som skjedde sist, så velgeren og Konto kan si det. */
-  const status = { tilstand: "av", melding: "", antall: 0 };
+  const status = { tilstand: "av", melding: "", antall: 0, bruker: "" };
 
   const lokal = () => /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
   function harLagretØkt() {
@@ -65,19 +65,24 @@ window.EDU = window.EDU || {};
 
   /* Fra Supabase: listen og signerte adresser til alle filene. */
   async function fraSky() {
-    if (!S.account || !S.account.klient || !S.account.configured()) return 0;
+    if (!S.account || !S.account.klient || !S.account.configured()) { status.grunn = "Innloggingen er ikke satt opp."; return 0; }
     const k = await S.account.klient();
-    if (!k) return 0;
+    if (!k) { status.grunn = "Innloggingen er ikke satt opp."; return 0; }
     const { data } = await k.auth.getSession();
     const økt = data && data.session;
-    if (!økt) return 0;
+    if (!økt) { status.grunn = "Du er ikke logget inn."; return 0; }
     const uid = økt.user.id;
+    status.bruker = uid.slice(0, 8);
     const lager = k.storage.from(BØTTE);
     const { data: blob, error } = await lager.download(`${uid}/fag.json`);
     if (error || !blob) {
       /* Ingen fag.json betyr bare at du ikke har lastet opp noe. Alt annet er en feil. */
       const m = String((error && (error.message || error.error)) || "");
-      if (/not.?found|404|object not found/i.test(m) || (error && (error.status === 404 || error.statusCode === "404"))) return 0;
+      if (/not.?found|404|object not found/i.test(m) || (error && (error.status === 404 || error.statusCode === "404"))) {
+        /* Supabase svarer «finnes ikke» også når tilgangsregelen nekter. */
+        status.grunn = `Fant ingen private fag for denne kontoen (bruker-id ${uid.slice(0, 8)}…). Er de lastet opp med samme e-post som du er logget inn med?`;
+        return 0;
+      }
       throw new Error("fikk ikke hentet listen over private fag" + (m ? ": " + m : ""));
     }
     let fag = [];
@@ -122,7 +127,7 @@ window.EDU = window.EDU || {};
   function last({ tvungen } = {}) {
     if (lastet && !tvungen) return lastet;
     if (!tvungen && !lokal() && !harLagretØkt()) { status.tilstand = "av"; return (lastet = Promise.resolve(0)); }
-    status.tilstand = "laster"; status.melding = "";
+    status.tilstand = "laster"; status.melding = ""; status.grunn = "";
     lastet = (async () => {
       let n = 0, feil = "";
       try { n += await fraSky(); } catch (e) { feil = (e && e.message) || String(e); console.warn("privat:", e); }

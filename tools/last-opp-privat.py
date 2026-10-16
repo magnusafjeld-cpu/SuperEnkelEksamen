@@ -103,6 +103,7 @@ class Sky:
                          {"Content-Type": "application/json"}, token=False)
         self.token = svar["access_token"]
         self.uid = svar["user"]["id"]
+        print(f"Logget inn som {svar['user'].get('email', '?')} (bruker-id {self.uid[:8]}…)")
 
     def kall(self, metode, sti, data=None, hoder=None, token=True, rå=False):
         h = {"apikey": self.anon}
