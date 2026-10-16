@@ -327,7 +327,7 @@ Merkede spørsmål finnes tre steder: utvalget «Bare merkede» i oppsettet, kor
 Merket for øving» under oppsettet (start alle, eller åpne og fjern dem ett og ett), og
 knappen «Øv på de N du merket» i resultatet. Dashbordkortet teller dem. Markeringen
 ligger i en egen nøkkel, `"trm:<id>" = { m, t }`, ikke i `"tr:<id>"`. Ellers ville et
-merket spørsmål telt som sett, og «Nye først» ville hoppet over det. Å fjerne merket
+merket spørsmål telt som sett. Da ville «Nye først» hoppet over det. Å fjerne merket
 skriver `m: 0` i stedet for å slette nøkkelen, fordi synken slår sammen nøkler og
 ville hentet tilbake en slettet markering fra den andre enheten.
 
