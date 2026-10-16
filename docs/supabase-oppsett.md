@@ -97,3 +97,20 @@ Last siden på nytt. «Konto» i sidepanelet skal nå tilby innlogging.
 | Lenken i glemt-passord-e-posten går til feil sted | Redirect URLs mangler (steg 3) |
 | «Synk stoppet» i sidepanelet | Åpne Konto-siden — feilmeldingen står der |
 | Fremdriften synker ikke | Er du innlogget? Sidepanelet nederst viser status |
+
+## 5. Private fag (valgfritt)
+
+Fag som bare du skal se, ligger i en privat bøtte i Supabase Storage.
+
+1. Kjør `docs/supabase.sql` på nytt (den er trygg å kjøre flere ganger). Den lager
+   bøtta `privat` og tilgangsreglene.
+2. Lag faget lokalt:
+   `python3 tools/last-opp-privat.py ny privat-<navn> "Fullt navn"`.
+   Mappen `fag/privat-<navn>/` holdes utenfor repoet av `.gitignore`.
+3. Se det med `python3 tools/serve.py`. På localhost vises det uten opplasting.
+4. Last det opp: `python3 tools/last-opp-privat.py opp privat-<navn>`. Skriptet ber
+   om e-post og passord til kontoen din i appen og lagrer ingen av dem.
+5. Logg inn i appen (Konto i et av fagene) og velg «Alle fag». Faget er merket
+   «Privat».
+
+`liste` viser hva som ligger i bøtta. `fjern privat-<navn>` tar faget ut.

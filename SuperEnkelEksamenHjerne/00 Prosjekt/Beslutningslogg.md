@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-10-15
+oppdatert: 2026-10-16
 ---
 
 # Beslutningslogg
@@ -132,8 +132,11 @@ med `anthropic-dangerous-direct-browser-access`.
 
 Valgt framfor en Edge Function med eiersjekk fordi ingen nøkler havner hos oss,
 ingen betaler for andre og det trengs ingen serverkode. Risikoen er at en nøkkel
-i nettleseren kan leses av kode på siden. Siden laster ingen skript utenfra, så det
-er bare vår egen kode, men UI-et ber om en egen nøkkel med lav utgiftsgrense.
+i nettleseren kan leses av kode på siden. Det ble først skrevet at siden ikke laster
+skript utenfra. Det stemte ikke: innloggingen hentet Supabase-biblioteket fra
+jsDelivr med «@2», altså nyeste versjon uten kontroll. Rettet 16. oktober 2026:
+biblioteket er låst til 2.117.2 med integritetssjekk (SRI). UI-et ber om en egen
+nøkkel med lav utgiftsgrense.
 
 **Konsekvens:** Nøkkelen skal aldri inn i fremdriften (`S.store`), for den synkes
 til Supabase. Laster siden noen gang et skript utenfra, må denne beslutningen tas
@@ -175,6 +178,19 @@ fra, manglet formelobjektene i lysbildene. Derfor kom feilen inn.
 ## MC-testen publiseres med løsninger før fristen (15. oktober 2026)
 Kurset deler ikke ut fasit til kursgodkjenningstesten. Appen er offentlig. Magnus
 fikk spørsmålet og valgte å publisere settet med løsninger med en gang.
+
+## Private fag i en privat Supabase-bøtte (16. oktober 2026)
+Magnus ville kunne legge til fag som bare han ser. Alt i repoet og på GitHub Pages
+er offentlig, også filer velgeren ikke viser. Kursmateriale fra NHH er dessuten
+opphavsrettslig beskyttet. Fagene ligger derfor i bøtta `privat` i Supabase Storage,
+der en tilgangsregel bare slipper inn eierens egen mappe (`privat/<bruker-id>/`).
+Valgt framfor «bare lokalt» fordi fagene skal virke på telefonen også. Valgt framfor
+å skjule faget i velgeren fordi filene da fortsatt ville vært offentlige.
+
+**Konsekvens:** private fag finnes bare når du er logget inn. De skrives i
+`fag/privat-<navn>/`, som `.gitignore` holder utenfor repoet. De lastes opp med
+`tools/last-opp-privat.py` med din egen innlogging. `service_role` brukes ikke.
+Se [[Supabase]].
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på

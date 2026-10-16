@@ -11,7 +11,14 @@
 window.EDU = window.EDU || {};
 
 (function (S) {
-  const SDK_URL = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+  /* Biblioteket hentes fra jsDelivr, låst til én eksakt versjon med
+     integritetssjekk (SRI). Uten låsen («@2») ville siden kjørt den nyeste
+     utgaven uten at noen hadde sett den. Koden på siden kan lese det som ligger
+     i nettleseren, også en API-nøkkel til Claude. Endres filen på CDN-en, nekter
+     nettleseren å kjøre den. Ny versjon: velg en som er minst to uker gammel, og
+     hent hashen fra https://data.jsdelivr.com/v1/packages/npm/@supabase/supabase-js@<versjon>?structure=flat */
+  const SDK_URL = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js";
+  const SDK_SRI = "sha256-WdOUh8NYmEO0EDItij1WLOAiq6HlzLFomO8/sqDaLs0=";
   const TABLE = "progress";
   const PULL_MIN_MS = 20000;          // ikke hent på nytt oftere enn dette
 
@@ -31,18 +38,27 @@ window.EDU = window.EDU || {};
     return new Promise((res, rej) => {
       const s = document.createElement("script");
       s.src = SDK_URL; s.async = true;
+      s.integrity = SDK_SRI; s.crossOrigin = "anonymous"; s.referrerPolicy = "no-referrer";
       s.onload = res; s.onerror = () => rej(new Error("Fikk ikke lastet Supabase-biblioteket"));
       document.head.appendChild(s);
     });
   }
 
-  async function start() {
-    if (!cfg()) { setStatus("off"); return; }
-    try { await loadSdk(); } catch (e) { setStatus("error", e.message); return; }
-
-    client = window.supabase.createClient(cfg().supabaseUrl, cfg().supabaseAnonKey, {
+  /* Én klient for hele appen. De private fagene (js/privat.js) trenger den før
+     faget er valgt, altså før start() kjører. */
+  async function klient() {
+    if (client) return client;
+    if (!cfg()) return null;
+    await loadSdk();
+    if (!client) client = window.supabase.createClient(cfg().supabaseUrl, cfg().supabaseAnonKey, {
       auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: "pkce" },
     });
+    return client;
+  }
+
+  async function start() {
+    if (!cfg()) { setStatus("off"); return; }
+    try { await klient(); } catch (e) { setStatus("error", e.message); return; }
 
     client.auth.onAuthStateChange((event, s) => {
       session = s || null;
@@ -50,7 +66,7 @@ window.EDU = window.EDU || {};
         recovery = true;
         setTimeout(() => { if (S.app) S.app.navigate("#/konto"); }, 0);   // etter at ruteren finnes
       }
-      if (event === "SIGNED_IN") pull();
+      if (event === "SIGNED_IN") { pull(); if (S.privat) S.privat.last({ tvungen: true }); }
       if (event === "SIGNED_OUT") setStatus("local");
       listeners.forEach((fn) => fn());
     });

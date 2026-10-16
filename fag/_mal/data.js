@@ -17,7 +17,8 @@ window.EDU_DATA.plan = {
   /* mode: "dates" (default) følger kalenderen fra startDate. "modules" er for
      selvpasede fag: «i dag» er første ufullførte modul, og dato/ukedag droppes. */
   mode: "dates",
-  startDate: "2026-01-06", totalDays: 14,
+  /* totalDays må være lik antall dager i days, ellers slår dashbordet opp en dag som ikke finnes. */
+  startDate: "2026-01-06", totalDays: 1,
   examNote: "4 timer · skriftlig skoleeksamen",
   days: [
     { day: 1, date: "2026-01-06", weekday: "Tirsdag", phase: "Grunnlag",

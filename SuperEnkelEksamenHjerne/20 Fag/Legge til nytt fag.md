@@ -1,6 +1,6 @@
 ---
 tags: [fag, oppskrift]
-oppdatert: 2026-10-09
+oppdatert: 2026-10-16
 ---
 
 # Legge til nytt fag
@@ -36,6 +36,14 @@ oppdatert: 2026-10-09
 >    `tools/bygg-trening.py <fag>`, kontroller med `tools/sjekk-trening.js <fag>` og
 >    blindtest med `tools/trening-blind.py`. Legg `/trening` i `modules` og fila i
 >    `lazy`, ikke i `scripts`.
+
+> [!note] Et fag bare du skal se
+> Lag det med `python3 tools/last-opp-privat.py ny privat-<navn> "Fullt navn"`. Det
+> legges i `fag/privat-<navn>/`, som `.gitignore` holder utenfor repoet, med en
+> `fag.json` i stedet for en oppføring i `js/subjects.js`. Stiene i `fag.json` er
+> relative til mappen. Alle verktøyene over virker som før, fordi mappen ligger i
+> `fag/`. Se faget lokalt med `tools/serve.py`. Last det opp med
+> `python3 tools/last-opp-privat.py opp privat-<navn>`. Se [[Supabase]].
 
 Fire steg. Malen i `fag/_mal/data.js` forklarer hvert felt.
 

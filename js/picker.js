@@ -82,7 +82,7 @@ window.EDU = window.EDU || {};
     b.style.setProperty("--sc", sub.accent || "#2f6bff");
     b.innerHTML =
       `<div class="sc-logo">${esc(sub.logo || "?")}</div>` +
-      `<div class="sc-text"><div class="sc-name">${esc(sub.name)}</div>` +
+      `<div class="sc-text"><div class="sc-name">${esc(sub.name)}${sub.privat ? ' <span class="sc-privat" title="Bare synlig for deg">Privat</span>' : ""}</div>` +
       `<div class="sc-blurb">${esc(sub.blurb || sub.tagline || "")}</div></div>` +
       `<svg class="sc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>`;
     b.onclick = () => choose(sub.id);
@@ -94,6 +94,11 @@ window.EDU = window.EDU || {};
      «Alle fag» i sidepanelet. */
   function show(opts) {
     opts = opts || {};
+    /* Logget du inn etter oppstart, kan de private fagene ha kommet til siden. */
+    if (S.privat && !opts.privatLastet) {
+      const før = S.privat.antall();
+      S.privat.last().then(() => { if (S.privat.antall() !== før && document.getElementById("splash")) show(Object.assign({}, opts, { privatLastet: true })); });
+    }
     const splash = ensureSplash();
     const card_ = splash.querySelector(".splash-card");
     card_.innerHTML = "";
@@ -113,6 +118,15 @@ window.EDU = window.EDU || {};
     list.className = "subject-list";
     all().forEach((s) => list.appendChild(card(s)));
     card_.appendChild(list);
+
+    /* Har du hatt private fag på denne enheten, men er logget ut, sier vi hvorfor
+       de mangler. */
+    if (S.privat && S.privat.harHatt() && !S.privat.antall()) {
+      const p = document.createElement("p");
+      p.className = "tiny muted"; p.style.margin = "10px 0 0";
+      p.textContent = "De private fagene dine vises når du er logget inn (Konto i et av fagene).";
+      card_.appendChild(p);
+    }
 
     if (!all().length) {
       list.innerHTML = `<p class="muted">Ingen fag er registrert. Legg til et objekt i <code>js/subjects.js</code>.</p>`;

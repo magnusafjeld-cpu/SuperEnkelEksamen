@@ -23,3 +23,8 @@ FIE459 Sustainable Finance files/
 # Utkast fra bygg-trening.py --bare, og Pythons bufre
 fag/*/_trening/_utkast*.js
 __pycache__/
+
+# Private fag. Lastes opp til den private Supabase-bøtta med
+# tools/last-opp-privat.py og skal aldri ligge i det offentlige repoet.
+fag/privat-*/
+fag/privat-indeks.json

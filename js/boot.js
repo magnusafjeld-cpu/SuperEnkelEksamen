@@ -186,8 +186,10 @@ window.EDU = window.EDU || {};
       .map((s) => (s.getAttribute("src") || "").match(/\?v=(\d+)/)).find(Boolean);
     return m ? m[1] : "0";
   })();
-  const manKey = () => "edu." + SUB.id + ".manual.b" + BYGG;
-  const probKey = () => "edu." + SUB.id + ".problems.b" + BYGG;
+  /* Private fag lastes opp uten nytt byggnummer, så de har sin egen versjon
+     (satt av tools/last-opp-privat.py) i nøkkelen. */
+  const manKey = () => "edu." + SUB.id + ".manual.b" + BYGG + (SUB.versjon ? ".v" + SUB.versjon : "");
+  const probKey = () => "edu." + SUB.id + ".problems.b" + BYGG + (SUB.versjon ? ".v" + SUB.versjon : "");
   /* Rydd bort buffere fra tidligere bygg, ellers vokser localStorage med én
      kopi av hvert pensum per bygg — og taket er rundt 5 MB. */
   function ryddGamleBuffere() {
@@ -273,6 +275,9 @@ window.EDU = window.EDU || {};
   };
 
   async function boot() {
+    /* Private fag (js/privat.js) må finnes i registeret før faget velges, ellers
+       blir et husket privat fag ikke funnet. */
+    if (S.privat) { try { await S.privat.last(); } catch (e) {} }
     const sub = S.picker.resolve();
     if (!sub) { S.picker.show(); return; }        // ingen fag valgt ennå — vis velgeren
     SUB = sub; window.EDU_SUBJECT = sub;

@@ -5,9 +5,10 @@
    og forbruket går på brukerens egen konto. Uten nøkkel faller knappene tilbake
    til «kopier prompten», som før.
 
-   Risiko: en nøkkel i nettleseren kan leses av all kode som kjører på siden. Siden
-   laster ingen skript utenfra, så det er bare vår egen kode. Derfor anbefaler vi
-   en egen nøkkel med lav utgiftsgrense. Det står ved feltet.
+   Risiko: en nøkkel i nettleseren kan leses av all kode som kjører på siden. Det
+   eneste skriptet utenfra er Supabase-biblioteket for innlogging, låst til én
+   versjon med integritetssjekk (js/account.js). Derfor anbefaler vi en egen
+   nøkkel med lav utgiftsgrense. Det står ved feltet.
 
    To innganger:
    - Chatpanelet: knappen nederst til høyre på alle sider. Hver melding får med
@@ -611,7 +612,7 @@ Slik svarer du:
     boks.appendChild(velg);
     boks.appendChild(el("p.tiny.muted", { style: { margin: "12px 0 0", lineHeight: 1.55 } },
       "Omtrent pris med Sonnet 5.5: en vurdering av et svar 2–3 cent, en chatmelding rundt 1 cent. ",
-      "Nøkkelen kan leses av kode som kjører på denne siden. Siden laster ingen skript utenfra, men bruk likevel en egen nøkkel med lav grense. Fjern den på maskiner du deler med andre."));
+      "Nøkkelen kan leses av kode som kjører på denne siden. Det eneste skriptet utenfra er innloggingsbiblioteket, låst til én versjon med integritetssjekk. Bruk likevel en egen nøkkel med lav grense. Fjern den på maskiner du deler med andre."));
     return boks;
   }
 

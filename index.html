@@ -677,6 +677,7 @@ textarea{font-family:inherit;}
 .picker-title{font-size:26px;font-weight:680;letter-spacing:-.02em;}
 .picker-sub{color:var(--ink-3);font-size:14.5px;margin:8px 0 24px;}
 .subject-list{display:flex;flex-direction:column;gap:12px;}
+.sc-privat{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;background:var(--bg-sunken);color:var(--ink-3);font-size:11px;font-weight:650;vertical-align:2px;}
 .subject-card{display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;padding:16px 18px;border-radius:var(--r-lg);border:1px solid var(--hairline);background:var(--card);box-shadow:var(--shadow-sm);transition:transform .14s,box-shadow .14s,border-color .14s;}
 .subject-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--sc);}
 .subject-card .sc-logo{width:46px;height:46px;flex:0 0 auto;border-radius:13px;background:var(--sc);display:grid;place-items:center;color:#fff;font-weight:750;font-size:18px;letter-spacing:-.03em;}
@@ -798,8 +799,8 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=134"></script>
-<script src="js/config.js?v=134"></script>
+<script src="js/subjects.js?v=135"></script>
+<script src="js/config.js?v=135"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
@@ -810,25 +811,27 @@ window.EDU_DATA = {};
      bundle-historier = dine egne fit-historier, med dekningsmatrise
      bundle-claude = Spør Claude og vurdering med egen API-nøkkel (bare i nettleseren)
      account      = Supabase-innlogging og synk av fremdrift (valgfritt)
+     privat       = private fag fra en privat Supabase-bøtte, bare for eieren
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=134"></script>
-<script src="js/bundle-views.js?v=134"></script>
-<script src="js/bundle-lyn.js?v=134"></script>
-<script src="js/bundle-dybde.js?v=134"></script>
-<script src="js/bundle-sett.js?v=134"></script>
-<script src="js/bundle-case.js?v=134"></script>
-<script src="js/bundle-mock.js?v=134"></script>
-<script src="js/bundle-historier.js?v=134"></script>
-<script src="js/bundle-kapitteloppgaver.js?v=134"></script>
-<script src="js/bundle-notebooklm.js?v=134"></script>
-<script src="js/bundle-kjerne.js?v=134"></script>
-<script src="js/bundle-formelark.js?v=134"></script>
-<script src="js/bundle-symboler.js?v=134"></script>
-<script src="js/bundle-trening.js?v=134"></script>
-<script src="js/bundle-claude.js?v=134"></script>
-<script src="js/account.js?v=134"></script>
-<script src="js/picker.js?v=134"></script>
-<script src="js/boot.js?v=134"></script>
+<script src="js/bundle-core.js?v=135"></script>
+<script src="js/bundle-views.js?v=135"></script>
+<script src="js/bundle-lyn.js?v=135"></script>
+<script src="js/bundle-dybde.js?v=135"></script>
+<script src="js/bundle-sett.js?v=135"></script>
+<script src="js/bundle-case.js?v=135"></script>
+<script src="js/bundle-mock.js?v=135"></script>
+<script src="js/bundle-historier.js?v=135"></script>
+<script src="js/bundle-kapitteloppgaver.js?v=135"></script>
+<script src="js/bundle-notebooklm.js?v=135"></script>
+<script src="js/bundle-kjerne.js?v=135"></script>
+<script src="js/bundle-formelark.js?v=135"></script>
+<script src="js/bundle-symboler.js?v=135"></script>
+<script src="js/bundle-trening.js?v=135"></script>
+<script src="js/bundle-claude.js?v=135"></script>
+<script src="js/account.js?v=135"></script>
+<script src="js/privat.js?v=135"></script>
+<script src="js/picker.js?v=135"></script>
+<script src="js/boot.js?v=135"></script>
 </body>
 </html>

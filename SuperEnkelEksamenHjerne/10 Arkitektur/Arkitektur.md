@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, kode]
-oppdatert: 2026-10-12
+oppdatert: 2026-10-16
 ---
 
 # Arkitektur
@@ -36,6 +36,8 @@ js/
   bundle-claude.js         Spør Claude: chat med sidekontekst og vurdering av
                            svar, med brukerens egen API-nøkkel (bare i nettleseren)
   account.js               Supabase-innlogging + synk (mergeState bor her)
+  privat.js                private fag fra den private Supabase-bøtta, bare for
+                           eieren (se [[Supabase]])
   picker.js                fag-velger, tema, byggnummer, dynamisk lasting av fagdata
   boot.js                  app-skall, navigasjon, ruting, innholdslaster
 fag/<id>/                  fagets innhold: data.js, lyn.js, dybde.js

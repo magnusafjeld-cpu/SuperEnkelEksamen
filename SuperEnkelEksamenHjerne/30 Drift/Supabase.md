@@ -1,6 +1,6 @@
 ---
 tags: [drift, supabase, synk]
-oppdatert: 2026-08-19
+oppdatert: 2026-10-16
 ---
 
 # Supabase
@@ -79,3 +79,24 @@ Detaljene i [[Datamodell og lagring]]. Kort:
 | «Tabellen progress finnes ikke ennå» | `docs/supabase.sql` er ikke kjørt |
 | «E-posten er ikke bekreftet ennå» | «Confirm email» står på |
 | «Synk stoppet» i sidepanelet | åpne Konto-siden — detaljen står der |
+
+## Private fag (16. oktober 2026)
+
+Bøtta `privat` i Storage, med fire tilgangsregler på `storage.objects`: den
+innloggede brukeren kan lese, lage, endre og slette bare der første mappenivå er
+brukerens egen id (`(storage.foldername(name))[1] = auth.uid()::text`). SQL-en står
+nederst i `docs/supabase.sql`.
+
+- `privat/<bruker-id>/fag.json`: listen over de private fagene, samme felter som i
+  `js/subjects.js`, med stier relative til fagets mappe og en `versjon`.
+- `privat/<bruker-id>/<fag-id>/…`: fagets filer.
+
+`js/privat.js` laster listen ved oppstart (bare når det finnes en lagret økt) og
+når du logger inn, gjør stiene om til signerte adresser som varer i seks timer, og
+legger fagene inn i registeret med `privat: true`. Velgeren merker dem «Privat».
+Et privat fag må hete `privat-<navn>` og kan aldri ta id-en til et offentlig fag.
+På localhost leses fagene også rett fra `fag/<id>/` via `fag/privat-indeks.json`.
+
+**Biblioteket:** `js/account.js` henter supabase-js 2.117.2 fra jsDelivr med
+SRI-hash. Bytter du versjon, velg en som er minst to uker gammel og hent hashen fra
+`https://data.jsdelivr.com/v1/packages/npm/@supabase/supabase-js@<versjon>?structure=flat`.

@@ -1,0 +1,131 @@
+/* ===================== PRIVATE FAG — bare for den som eier dem =====================
+   Alt i repoet og på GitHub Pages kan leses av alle. Private fag ligger derfor
+   ikke der, men i en privat bøtte i Supabase Storage («privat»). Tilgangsregelen
+   (docs/supabase.sql) slipper bare inn den innloggede brukeren, og bare i brukerens
+   egen mappe:
+
+     privat/<bruker-id>/fag.json           listen over fagene, samme form som
+                                           et fag i js/subjects.js
+     privat/<bruker-id>/<fag-id>/<fil>     fagets filer
+
+   Stiene i fag.json er relative til fagets mappe («data.js», «manual.html»).
+   Her gjøres de om til signerte adresser som varer i seks timer, og fagene legges
+   inn i EDU_SUBJECTS med privat: true. Resten av appen ser dem som vanlige fag.
+
+   Fagene skrives lokalt i fag/privat-<navn>/, som .gitignore holder utenfor
+   repoet, og lastes opp med tools/last-opp-privat.py. På localhost leses de i
+   tillegg rett fra mappen (fag/privat-indeks.json), så du kan se et fag før du
+   laster det opp.
+
+   Kalles fra boot.js før faget velges, og igjen når du logger inn.
+   ============================================================================ */
+window.EDU = window.EDU || {};
+(function (S) {
+  const BØTTE = "privat";
+  const HAR = "edu.privat.har";          // husker at det finnes private fag, så velgeren kan be deg logge inn
+  const LEVETID = 6 * 3600;              // sekunder en signert adresse varer
+  let lastet = null;
+
+  const lokal = () => /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  function harLagretØkt() {
+    try { return Object.keys(localStorage).some((k) => /^sb-.*-auth-token$/.test(k)); } catch (e) { return false; }
+  }
+  function merk(n) { try { if (n) localStorage.setItem(HAR, "1"); } catch (e) {} }
+  const harHatt = () => { try { return localStorage.getItem(HAR) === "1"; } catch (e) { return false; } };
+
+  /* Alle filstiene et fag viser til, relative til fagets mappe. */
+  function stier(fag) {
+    const ut = [].concat(fag.scripts || []);
+    Object.values(fag.lazy || {}).forEach((l) => ut.push(...l));
+    if (fag.manual) ut.push(...(fag.manual.candidates || []));
+    if (fag.problems) ut.push(...(fag.problems.candidates || []));
+    return [...new Set(ut)];
+  }
+
+  /* Legger faget inn i fagregisteret med stiene byttet ut. Et privat fag kan
+     aldri overta id-en til et offentlig. */
+  function registrer(fag, adresse) {
+    if (!fag || !fag.id || !/^privat-[a-z0-9-]+$/.test(fag.id)) return false;
+    const m = (l) => (l || []).map(adresse).filter(Boolean);
+    const s = Object.assign({}, fag, {
+      privat: true,
+      scripts: m(fag.scripts),
+      lazy: fag.lazy ? Object.fromEntries(Object.entries(fag.lazy).map(([k, v]) => [k, m(v)])) : undefined,
+      manual: fag.manual ? Object.assign({}, fag.manual, { candidates: m(fag.manual.candidates) }) : undefined,
+      problems: fag.problems ? Object.assign({}, fag.problems, { candidates: m(fag.problems.candidates) }) : undefined,
+    });
+    const liste = window.EDU_SUBJECTS || (window.EDU_SUBJECTS = []);
+    const i = liste.findIndex((x) => x.id === s.id);
+    if (i >= 0 && !liste[i].privat) return false;
+    if (i >= 0) liste[i] = s; else liste.push(s);
+    return true;
+  }
+
+  /* Fra Supabase: listen og signerte adresser til alle filene. */
+  async function fraSky() {
+    if (!S.account || !S.account.klient || !S.account.configured()) return 0;
+    const k = await S.account.klient();
+    if (!k) return 0;
+    const { data } = await k.auth.getSession();
+    const økt = data && data.session;
+    if (!økt) return 0;
+    const uid = økt.user.id;
+    const lager = k.storage.from(BØTTE);
+    const { data: blob, error } = await lager.download(`${uid}/fag.json`);
+    if (error || !blob) return 0;
+    let fag = [];
+    try { fag = JSON.parse(await blob.text()); } catch (e) { console.warn("privat: fag.json kunne ikke leses", e); return 0; }
+    if (!Array.isArray(fag)) return 0;
+    const alle = fag.flatMap((f) => stier(f).map((p) => `${uid}/${f.id}/${p}`));
+    const adr = new Map();
+    if (alle.length) {
+      const { data: sign, error: e2 } = await lager.createSignedUrls(alle, LEVETID);
+      if (e2) { console.warn("privat: fikk ikke signert adressene", e2); return 0; }
+      (sign || []).forEach((x) => { if (x && x.signedUrl && x.path) adr.set(x.path, x.signedUrl); });
+    }
+    let n = 0;
+    fag.forEach((f) => { if (registrer(f, (p) => adr.get(`${uid}/${f.id}/${p}`))) n++; });
+    return n;
+  }
+
+  /* På localhost: rett fra fag/<id>/, så du ser endringer før opplasting. */
+  async function fraMappe() {
+    if (!lokal()) return 0;
+    let ids = [];
+    try { const r = await fetch("fag/privat-indeks.json", { cache: "no-store" }); if (!r.ok) return 0; ids = await r.json(); } catch (e) { return 0; }
+    let n = 0;
+    for (const id of ids) {
+      try {
+        const r = await fetch(`fag/${id}/fag.json`, { cache: "no-store" });
+        if (!r.ok) continue;
+        const f = await r.json();
+        if (f.id !== id) continue;
+        /* Lokalt bustes cachen med tiden, så endringer vises med en gang. */
+        f.versjon = "lokal-" + Date.now();
+        if (registrer(f, (p) => `fag/${id}/${p}`)) n++;
+      } catch (e) {}
+    }
+    return n;
+  }
+
+  /* Laster de private fagene. Gir opp etter noen sekunder, så et tregt nett
+     ikke stopper oppstarten. */
+  function last({ tvungen } = {}) {
+    if (lastet && !tvungen) return lastet;
+    if (!tvungen && !lokal() && !harLagretØkt()) return (lastet = Promise.resolve(0));
+    const jobb = (async () => {
+      let n = 0;
+      try { n += await fraSky(); } catch (e) { console.warn("privat:", e); }
+      try { n += await fraMappe(); } catch (e) {}
+      merk(n);
+      return n;
+    })();
+    const tidsavbrudd = new Promise((res) => setTimeout(() => res(0), 6000));
+    lastet = Promise.race([jobb, tidsavbrudd]);
+    return lastet;
+  }
+
+  const antall = () => (window.EDU_SUBJECTS || []).filter((s) => s.privat).length;
+
+  S.privat = { last, antall, harHatt };
+})(window.EDU);

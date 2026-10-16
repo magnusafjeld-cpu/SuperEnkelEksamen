@@ -41,3 +41,30 @@ begin new.updated_at = now(); return new; end $$;
 drop trigger if exists progress_touch on public.progress;
 create trigger progress_touch before update on public.progress
   for each row execute function public.touch_updated_at();
+
+-- =============================================================================
+-- Private fag (lagt til 16. oktober 2026, js/privat.js)
+-- En privat bøtte der hver bruker bare kan lese og skrive i sin egen mappe,
+-- privat/<bruker-id>/. Fagene som ligger der, vises bare for den brukeren.
+-- Trygg å kjøre flere ganger.
+-- =============================================================================
+
+insert into storage.buckets (id, name, public)
+values ('privat', 'privat', false)
+on conflict (id) do update set public = false;
+
+drop policy if exists "les egne private fag"   on storage.objects;
+drop policy if exists "lag egne private fag"   on storage.objects;
+drop policy if exists "endre egne private fag" on storage.objects;
+drop policy if exists "slett egne private fag" on storage.objects;
+
+-- Første mappenivå i stien må være brukerens egen id.
+create policy "les egne private fag" on storage.objects for select to authenticated
+  using (bucket_id = 'privat' and (storage.foldername(name))[1] = auth.uid()::text);
+create policy "lag egne private fag" on storage.objects for insert to authenticated
+  with check (bucket_id = 'privat' and (storage.foldername(name))[1] = auth.uid()::text);
+create policy "endre egne private fag" on storage.objects for update to authenticated
+  using (bucket_id = 'privat' and (storage.foldername(name))[1] = auth.uid()::text)
+  with check (bucket_id = 'privat' and (storage.foldername(name))[1] = auth.uid()::text);
+create policy "slett egne private fag" on storage.objects for delete to authenticated
+  using (bucket_id = 'privat' and (storage.foldername(name))[1] = auth.uid()::text);
