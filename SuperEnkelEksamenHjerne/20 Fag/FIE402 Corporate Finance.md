@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-09-28
+oppdatert: 2026-10-20
 ---
 
 # FIE402 Corporate Finance
@@ -349,6 +349,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **268** forfattet + 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
+| Problem sets | **Problem Set 1** (capital structure and payout policy) · 13 oppgaver · 52 delspørsmål med fire hint hver |
 | Aktiv læring | **208** oppgaver |
 | Dybdetrening | **458** i seks banker |
 | Lynlæring | **233** elementer, med fremdriftsport |
@@ -390,6 +391,16 @@ plottede punkt i alle ni figurene. **All aritmetikk var riktig.** Alle feilene v
 Alle er rettet, og lærdommene er skrevet inn i forfatterspesifikasjonen som et eget
 kapittel, slik at bølge 2–5 ikke gjentar dem. Se [[Slik oppdaterer du hjernen]] for
 prinsippet: en kontroll som bare bekrefter, er ingen kontroll.
+
+## Problem sets
+
+Øvingssettene fra kurset har egen fane, `/problemsett`. Problem Set 1 kom
+20. oktober 2026 som en ferdig HTML-side og ble lagt inn i
+`fag/fie402/problemsett.js`: oppgaveteksten ordrett på engelsk, hint og fasit
+på norsk, stjernene fra settet (tutorial, forelesning, egen trening).
+Formelarket fra HTML-siden ble utelatt, siden appen har eksamensarket på alle
+sider. Neste sett legges til som et nytt objekt i samme fil. Se
+[[Moduler og visninger]].
 
 ## Eksamenssettene i appen
 

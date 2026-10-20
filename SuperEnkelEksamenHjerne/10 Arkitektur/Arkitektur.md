@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, kode]
-oppdatert: 2026-10-16
+oppdatert: 2026-10-20
 ---
 
 # Arkitektur
@@ -23,6 +23,7 @@ js/
   bundle-mock.js           mock-intervjuer
   bundle-historier.js      historiebank
   bundle-kapitteloppgaver.js  flervalg i eksamensformat per kapittel
+  bundle-problemsett.js    problem sets: kursets øvingssett med fire hint per delspørsmål
   bundle-notebooklm.js     pensum som ren tekst, ett kapittel per kilde
   bundle-kjerne.js         kjernepensum: kort lesevei etter eksamensblokker,
                            med sjekker, minicase og hovedpunktene samlet

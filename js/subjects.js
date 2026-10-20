@@ -71,7 +71,7 @@ window.EDU_SUBJECTS = [
     logo: "CF",
     blurb: "Hele mastermanualen på engelsk: kapitalstruktur, verdsetting med gjeld, opsjoner, M&A og eierstyring — med seks tidligere eksamenssett.",
     accent: "#12805c", accentInk: "#0b6448", accentSoft: "#e3f4ee", accentSoft2: "#cfeade",
-    scripts: ["fag/fie402/data.js", "fag/fie402/lyn.js", "fag/fie402/dybde.js", "fag/fie402/sett.js", "fag/fie402/kapitteloppgaver.js", "fag/fie402/kjerne.js", "fag/fie402/symboler.js", "fag/fie402/formelark.js"],
+    scripts: ["fag/fie402/data.js", "fag/fie402/lyn.js", "fag/fie402/dybde.js", "fag/fie402/sett.js", "fag/fie402/kapitteloppgaver.js", "fag/fie402/problemsett.js", "fag/fie402/kjerne.js", "fag/fie402/symboler.js", "fag/fie402/formelark.js"],
     manual: {
       candidates: ["FIE402_Manual.html", "fag/fie402/manual.html", "../FIE402_Manual.html"],
       label: "FIE402_Manual.html",
@@ -185,7 +185,7 @@ window.EDU_SUBJECTS = [
          delene henger sammen i DETTE faget. */
       kjerneIntro: "Det viktigste i FIE402 på én kveld, i tolv korte deler bygd rundt det eksamen spør om, ikke rundt kapitlene. Del 1–4 er verdsettingsmaskinen og hører sammen; resten kan leses i hvilken som helst rekkefølge. Svar på sjekkene etter hver del, og løs minicasen på papir før du går videre. Teksten er på engelsk, som eksamen.",
     },
-    modules: ["/plan", "/curriculum", "/kjerne", "/lyn", "/quiz", "/kapitteloppgaver", "/flashcards", "/dybde", "/sett", "/review", "/search", "/notebooklm"],
+    modules: ["/plan", "/curriculum", "/kjerne", "/lyn", "/quiz", "/kapitteloppgaver", "/problemsett", "/flashcards", "/dybde", "/sett", "/review", "/search", "/notebooklm"],
   },
   {
     id: "case",

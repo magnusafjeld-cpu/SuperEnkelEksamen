@@ -17,6 +17,7 @@ window.EDU = window.EDU || {};
       { route: "#/lyn", match: "/lyn", label: "Lynlæring", ico: "bolt", badge: () => (S.views.lyn && !S.views.lyn.dailyDone()) ? "⚡" : null },
       { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
       { route: "#/kapitteloppgaver", match: "/kapitteloppgaver", label: "Kapitteloppgaver", ico: "check" },
+      { route: "#/problemsett", match: "/problemsett", label: "Problem sets", ico: "book" },
       { route: "#/trening", match: "/trening", label: "Eksamenstrening", ico: "target" },
       { route: "#/linjer", match: "/linjer", label: "Varianter", ico: "flag", badge: () => (S.views.sjakk && S.views.sjakk.antallForfalt()) || null },
       { route: "#/flashcards", match: "/flashcards", label: "Flashcards", ico: "cards", badge: () => S.srs.stats().due || null },
@@ -59,6 +60,7 @@ window.EDU = window.EDU || {};
     /* Teksteksporten lager kildene av manualen. Uten kapitler er den tom. */
     "/notebooklm": () => (window.EDU_DATA.curriculum || []).length > 0,
     "/kapitteloppgaver": () => Object.keys(window.EDU_DATA.chapterTasks || {}).length > 0,
+    "/problemsett": () => !!(S.views.problemsett && S.views.problemsett.finnes()),
     "/kjerne": () => (window.EDU_DATA.kjerne || []).length > 0,
     /* Spørsmålsbanken er stor og lastes først når modulen åpnes (manifest.lazy),
        så her holder det at faget har den. */
@@ -156,6 +158,9 @@ window.EDU = window.EDU || {};
     when("/kapitteloppgaver", "/kapitteloppgaver", () => setView(() => V.kapitteloppgaver.render()));
     when("/kapitteloppgaver", "/kapitteloppgaver/:num", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num)));
     when("/kapitteloppgaver", "/kapitteloppgaver/:num/:oppg", (p) => setView(() => V.kapitteloppgaver.renderKap(p.num, p.oppg)));
+    when("/problemsett", "/problemsett", () => setView(() => V.problemsett.render()));
+    when("/problemsett", "/problemsett/:id", (p) => setView(() => V.problemsett.render(p.id)));
+    when("/problemsett", "/problemsett/:id/:nr", (p) => setView(() => V.problemsett.render(p.id, p.nr)));
     when("/notebooklm", "/notebooklm", () => setView(() => V.notebooklm.render()));
     when("/trening", "/trening", () => setView(() => V.trening.render()));
     when("/linjer", "/linjer", () => setView(() => V.sjakk.render()));

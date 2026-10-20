@@ -332,6 +332,65 @@ body.tr-modal-åpen{overflow:hidden;}
 .tr-hjelp .prose{font-size:14.5px;}
 .tr-hjelp .prose p{margin:.4em 0;}
 .tr-hjelp-hode.neste{margin-top:12px;padding-top:10px;border-top:1px solid var(--accent-soft-2);}
+/* Problem sets: hintstigen. Ravgult er hjelp, aksentfargen er fasiten. */
+.ps-stige{display:flex;flex-wrap:wrap;gap:8px;}
+.ps-stige span{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;background:var(--amber-soft);color:#8a560c;border-radius:var(--r-pill);padding:3px 10px;}
+.ps-stige b{font-family:var(--mono);font-weight:600;}
+.ps-niva{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:6px;white-space:nowrap;background:var(--slate-soft);color:var(--ink-2);}
+.ps-niva.n1{background:var(--indigo-soft);color:var(--indigo);}
+.ps-niva.n2{background:var(--rose-soft);color:var(--rose);}
+.ps-niva.n3{background:var(--green-soft);color:var(--green);}
+.ps-filter{display:flex;flex-wrap:wrap;gap:6px;}
+.ps-filterknapp{font:inherit;font-size:13px;padding:6px 12px;border-radius:var(--r-pill);border:1px solid var(--hairline-strong);background:var(--card);color:var(--ink-2);cursor:pointer;}
+.ps-filterknapp[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent-soft-2);color:var(--accent-ink);font-weight:600;}
+.ps-framdrift{display:flex;align-items:center;gap:10px;min-width:180px;}
+.ps-framdrift .bar{flex:1;min-width:80px;}
+.ps-oppg{padding:0;overflow:hidden;}
+.ps-hode{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;padding:20px 24px 4px;flex-wrap:wrap;}
+.ps-hodetekst{min-width:0;flex:1 1 260px;}
+.ps-hode h3{font-size:19px;margin:6px 0 0;}
+.ps-kicker{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12.5px;color:var(--ink-3);}
+.ps-ferdig{font:inherit;font-size:13px;display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:var(--r-pill);border:1px solid var(--hairline-strong);background:var(--card);color:var(--ink-3);cursor:pointer;}
+.ps-ferdig .ok{width:14px;height:14px;border-radius:50%;border:1.5px solid currentColor;}
+.ps-ferdig[aria-pressed="true"]{background:var(--green-soft);color:var(--green);border-color:transparent;font-weight:600;}
+.ps-ferdig[aria-pressed="true"] .ok{background:var(--green);border-color:var(--green);}
+.ps-intro{padding:4px 24px 14px;}
+.ps-del{padding:18px 24px 20px;border-top:1px solid var(--hairline);display:flex;flex-direction:column;gap:12px;}
+.ps-ctx{padding:10px 14px;border-radius:var(--r-md);background:var(--bg-sunken);font-size:14.5px;}
+.ps-ctx .prose p{margin:0;}
+.ps-q{display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px;}
+.ps-l{font-family:var(--mono);font-weight:600;color:var(--accent-ink);padding-top:1px;}
+.ps-q .prose p:first-child{margin-top:0;}
+.ps-q .prose p:last-child,.ps-q .prose ul:last-child{margin-bottom:0;}
+.ps-hintene{display:flex;flex-direction:column;gap:8px;}
+.ps-hintene:empty{display:none;}
+.ps-hint{padding:10px 14px;border-radius:var(--r-md);background:var(--amber-soft);border:1px solid #f1dcb6;}
+.ps-hint.t4{background:#fffaf0;border-style:dashed;}
+.ps-hint .prose{font-size:14.5px;}
+.ps-hint .prose p,.ps-hint .prose ol,.ps-hint .prose ul{margin:.3em 0;}
+.ps-trinn{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8a560c;margin-bottom:2px;}
+.ps-handling{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.ps-hintknapp{font:inherit;font-size:13.5px;display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:var(--r-md);border:1px solid #f1dcb6;background:var(--amber-soft);color:#8a560c;cursor:pointer;font-weight:550;}
+.ps-hintknapp:disabled{opacity:.55;cursor:default;}
+.ps-prikker{display:inline-flex;gap:3px;align-items:flex-end;}
+.ps-prikker i{width:5px;border-radius:2px;background:#f1dcb6;}
+.ps-prikker i:nth-child(1){height:6px}.ps-prikker i:nth-child(2){height:9px}.ps-prikker i:nth-child(3){height:12px}.ps-prikker i:nth-child(4){height:15px}
+.ps-prikker i.på{background:#b07415;}
+.ps-skjul{font:inherit;font-size:13px;background:none;border:none;color:var(--ink-3);cursor:pointer;padding:6px 4px;text-decoration:underline;text-underline-offset:3px;}
+.ps-fasit{border:1px solid var(--hairline-strong);border-radius:var(--r-md);background:var(--card);}
+.ps-fasit summary{cursor:pointer;padding:9px 14px;font-weight:600;font-size:14px;color:var(--accent-ink);}
+.ps-fasit[open] summary{border-bottom:1px solid var(--hairline);background:var(--accent-soft);border-radius:var(--r-md) var(--r-md) 0 0;}
+.ps-fasitkropp{padding:12px 16px;}
+.ps-fasitkropp .prose p:first-child{margin-top:0;}
+.ps-oppg .calc{font-family:var(--mono);font-size:13.5px;line-height:1.7;background:var(--bg-sunken);border-radius:var(--r-sm);padding:10px 12px;margin:0 0 10px;overflow-x:auto;white-space:pre;}
+.ps-oppg .f{font-family:var(--mono);font-size:.92em;background:var(--slate-soft);border-radius:5px;padding:1px 5px;white-space:nowrap;}
+@media (max-width:640px){
+  .ps-hode{padding:16px 16px 4px;}
+  .ps-intro{padding:4px 16px 12px;}
+  .ps-del{padding:16px;}
+  .ps-q{grid-template-columns:22px minmax(0,1fr);}
+  .ps-oppg .f{white-space:normal;}
+}
 .tr-merk{cursor:pointer;border:1px solid var(--hairline-strong);background:var(--bg-elevated);font:inherit;font-size:12.5px;font-weight:600;color:var(--ink-3);}
 .tr-merk.på{background:var(--amber-soft);border-color:var(--amber);color:#9a5b0c;}
 .tr-gj-stjerne{color:var(--amber);margin-left:6px;}
@@ -858,8 +917,8 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=142"></script>
-<script src="js/config.js?v=142"></script>
+<script src="js/subjects.js?v=143"></script>
+<script src="js/config.js?v=143"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
@@ -874,26 +933,27 @@ window.EDU_DATA = {};
      privat       = private fag fra en privat Supabase-bøtte, bare for eieren
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=142"></script>
-<script src="js/bundle-views.js?v=142"></script>
-<script src="js/bundle-lyn.js?v=142"></script>
-<script src="js/bundle-dybde.js?v=142"></script>
-<script src="js/bundle-sett.js?v=142"></script>
-<script src="js/bundle-case.js?v=142"></script>
-<script src="js/bundle-mock.js?v=142"></script>
-<script src="js/bundle-historier.js?v=142"></script>
-<script src="js/bundle-kapitteloppgaver.js?v=142"></script>
-<script src="js/bundle-notebooklm.js?v=142"></script>
-<script src="js/bundle-kjerne.js?v=142"></script>
-<script src="js/bundle-formelark.js?v=142"></script>
-<script src="js/bundle-symboler.js?v=142"></script>
-<script src="js/bundle-trening.js?v=142"></script>
-<script src="js/bundle-claude.js?v=142"></script>
-<script src="js/sjakk-kjerne.js?v=142"></script>
-<script src="js/bundle-sjakk.js?v=142"></script>
-<script src="js/account.js?v=142"></script>
-<script src="js/privat.js?v=142"></script>
-<script src="js/picker.js?v=142"></script>
-<script src="js/boot.js?v=142"></script>
+<script src="js/bundle-core.js?v=143"></script>
+<script src="js/bundle-views.js?v=143"></script>
+<script src="js/bundle-lyn.js?v=143"></script>
+<script src="js/bundle-dybde.js?v=143"></script>
+<script src="js/bundle-sett.js?v=143"></script>
+<script src="js/bundle-case.js?v=143"></script>
+<script src="js/bundle-mock.js?v=143"></script>
+<script src="js/bundle-historier.js?v=143"></script>
+<script src="js/bundle-kapitteloppgaver.js?v=143"></script>
+<script src="js/bundle-problemsett.js?v=143"></script>
+<script src="js/bundle-notebooklm.js?v=143"></script>
+<script src="js/bundle-kjerne.js?v=143"></script>
+<script src="js/bundle-formelark.js?v=143"></script>
+<script src="js/bundle-symboler.js?v=143"></script>
+<script src="js/bundle-trening.js?v=143"></script>
+<script src="js/bundle-claude.js?v=143"></script>
+<script src="js/sjakk-kjerne.js?v=143"></script>
+<script src="js/bundle-sjakk.js?v=143"></script>
+<script src="js/account.js?v=143"></script>
+<script src="js/privat.js?v=143"></script>
+<script src="js/picker.js?v=143"></script>
+<script src="js/boot.js?v=143"></script>
 </body>
 </html>

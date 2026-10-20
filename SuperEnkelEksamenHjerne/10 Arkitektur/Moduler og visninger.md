@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-16
+oppdatert: 2026-10-20
 ---
 
 # Moduler og visninger
@@ -24,6 +24,7 @@ oppdatert: 2026-10-16
 | Repetisjon | `/review` | Hva du bør repetere nå |
 | Søk | `/search` | På tvers av begreper, formler, figurer, økonomer, variabler |
 | Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num`, `/kapitteloppgaver/:num/:oppg` | Oppgaver i fagets eksamensformat per kapittel: flervalg med fasit med en gang (FIE432) eller åpne oppgaver med løsning og sensorkriterier (FIE402) |
+| Problem sets | `/problemsett`, `/problemsett/:id`, `/problemsett/:id/:nr` | Øvingssettene fra kurset, med fire hint per delspørsmål og fasit bak en knapp. Bare FIE402 foreløpig |
 | Eksamenstrening | `/trening` | Stor flervalgsbank i eksamensformat. Velg temaer og antall, få kort fasit med en gang og full gjennomgang på knapp |
 | NotebookLM | `/notebooklm` | Pensum som ren tekst, ett kapittel per kilde, med kopiknapp — se under |
 | Konto | `/konto` | Innlogging, synkstatus, «Nullstill fremdrift» og «Last innhold på nytt» |
@@ -160,6 +161,37 @@ vises én om gangen (fallgruve 7v). Hver oppgave gjentar tallene den trenger.
 > Kontrollen krever nøyaktig fire. Med tre er forventet verdi av blindt gjett
 > +0,33 i stedet for 0, og hele gjettestrategien kapittel 19 lærer bort, blir
 > feil.
+
+## Problem sets: øvingssettene fra kurset, med hintstige
+
+`/problemsett` viser settene kurset deler ut underveis (FIE402 Problem Set 1 er
+det første). Motoren er `js/bundle-problemsett.js`, dataene
+`EDU_DATA.problemsett` (for FIE402 i `fag/fie402/problemsett.js`).
+
+**Hintstigen.** Hvert delspørsmål har fire hint som blir gradvis mer konkrete:
+retning, verktøy, oppsett og til slutt oppskriften uten tall. Ett trykk viser
+neste trinn, «Skjul hint» starter på nytt. Fasiten ligger i en egen
+`<details>` under. Poenget er å komme seg videre i en oppgave du står fast i
+uten å se fasiten for tidlig. Navnene på trinnene kan settes per sett
+(`trinn`).
+
+**Tre sider.** Oversikten over settene, ett sett med alle oppgavene (filter på
+stjernene: tutorial, forelesning, egen trening) og én oppgave om gangen med
+forrige og neste. Filteret gjelder også når du blar, så «neste» er neste
+oppgave av samme slag.
+
+**Lagring per oppgave:** `exams["ps:<settId>:<nr>"] = { ferdig, hint: { a: 2 },
+fasit: { a: 1 }, t }`. Hintnivået og åpnet fasit huskes, og «Marker som
+ferdig» gir framdriften. Én nøkkel per oppgave, så to enheter ikke overskriver
+hverandres oppgaver i synken.
+
+**Formelarket** er ikke en del av settet. FIE402 har allerede eksamensarket
+bak knappen nederst til høyre på alle sider (se under).
+
+**Nytt sett:** legg et objekt til i `EDU_DATA.problemsett` med ny `id` og
+`nr`. Id-en og oppgavenes `nr` er lagringsnøkler og må aldri endres. Tekster
+med HTML ligger som malstrenger; `.calc` er et utregningsfelt i fast bredde, og
+`.f` en formel i teksten.
 
 ## Kjernepensum — det viktigste på én kveld
 
