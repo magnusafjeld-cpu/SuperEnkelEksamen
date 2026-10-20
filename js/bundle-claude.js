@@ -383,7 +383,7 @@ Slik svarer du:
     return true;
   }
   const klokke = (t) => new Date(t).toLocaleTimeString("nb-NO", { hour: "2-digit", minute: "2-digit" });
-  let knapp = null, panel = null, åpen = false;
+  let knapp = null, panel = null, åpen = false, åpnetNå = false;
   const SNAKKEBOBLE = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM8 10h8M8 13.5h5"/></svg>';
 
   function nyttVindu() {
@@ -403,6 +403,17 @@ Slik svarer du:
     body.classList.add("har-claude");
     hentSamtale();
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && åpen) lukk(); });
+    /* Et trykk utenfor vinduet lukker det. Hvor trykket STARTET avgjør, målt
+       ved pointerdown: knappene i vinduet tegner det på nytt, så når click
+       kommer fram, er målet ofte fjernet fra siden og ville sett ut som et
+       trykk utenfor. Click, ikke pointerdown, lukker, så en rulling på
+       telefonen ikke gjør det. «Fortsett i chatten» ligger utenfor vinduet og
+       åpner det i det samme trykket, så det trykket teller ikke (åpnetNå). */
+    let startInne = false;
+    document.addEventListener("pointerdown", (e) => {
+      startInne = panel.contains(e.target) || knapp.contains(e.target);
+    }, true);
+    document.addEventListener("click", () => { if (åpen && !startInne && !åpnetNå) lukk(); });
   }
 
   function åpne() {
@@ -410,6 +421,7 @@ Slik svarer du:
     if (S.formelark && S.formelark.lukk) S.formelark.lukk();
     glemHvisUtløpt();
     åpen = true; panel.hidden = false;
+    åpnetNå = true; setTimeout(() => { åpnetNå = false; });
     knapp.setAttribute("aria-expanded", "true"); knapp.classList.add("aktiv");
     document.body.classList.add("cl-åpen");
     tegn();

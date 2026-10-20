@@ -479,6 +479,11 @@ API direkte. Forbruket går på brukerens konto. Hvorfor: [[Beslutningslogg]].
   synes, det du har skrevet i feltene og hvilket alternativ som er valgt, riktig
   eller feil (klassene `.opt.sel/.correct/.wrong` blir til tekst). Står du på samme
   side som sist, sendes bare `<side samme="ja"/>`.
+- **Lukkes** med krysset, Esc eller et trykk utenfor vinduet. Det er stedet trykket
+  starter (pointerdown) som teller, siden knappene i vinduet tegner det på nytt og
+  målet for click da er borte. Det er click som lukker, så rulling på telefonen ikke
+  gjør det. «Fortsett i chatten» åpner vinduet fra utsiden, og det trykket hoppes
+  over (`åpnetNå`).
 - **Samtalen huskes i fem minutter** etter siste forespørsel, også når du bytter
   side eller laster på nytt (`localStorage["edu.claude.samtale"]`). Fem minutter er
   levetiden til Claudes cache. Etter det måtte hele samtalen sendes på nytt til full
