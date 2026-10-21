@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-21
+oppdatert: 2026-10-22
 ---
 
 # Moduler og visninger
@@ -24,6 +24,7 @@ oppdatert: 2026-10-21
 | Repetisjon | `/review` | Hva du bør repetere nå |
 | Søk | `/search` | På tvers av begreper, formler, figurer, økonomer, variabler |
 | Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num`, `/kapitteloppgaver/:num/:oppg` | Oppgaver i fagets eksamensformat per kapittel: flervalg med fasit med en gang (FIE432) eller åpne oppgaver med løsning og sensorkriterier (FIE402) |
+| Sjangertrening | `/sjangre`, `/sjangre/:id`, `/sjangre/:id/:n` | Én stige per oppgavesjanger, fra null til eksamensnivå: teori, eksempel og én flervalgsoppgave per steg. Bare FIE402 foreløpig |
 | Problem sets | `/problemsett`, `/problemsett/:id`, `/problemsett/:id/:nr` | Øvingssettene fra kurset, med fire hint per delspørsmål og fasit bak en knapp. Bare FIE402 foreløpig |
 | Eksamenstrening | `/trening` | Stor flervalgsbank i eksamensformat. Velg temaer og antall, få kort fasit med en gang og full gjennomgang på knapp |
 | NotebookLM | `/notebooklm` | Pensum som ren tekst, ett kapittel per kilde, med kopiknapp — se under |
@@ -161,6 +162,36 @@ vises én om gangen (fallgruve 7v). Hver oppgave gjentar tallene den trenger.
 > Kontrollen krever nøyaktig fire. Med tre er forventet verdi av blindt gjett
 > +0,33 i stedet for 0, og hele gjettestrategien kapittel 19 lærer bort, blir
 > feil.
+
+## Sjangertrening: én oppgavetype fra null til eksamen
+
+Magnus ba om den 22. oktober 2026, etter et opplegg han likte i FIE432: dele
+eksamensoppgavene i sjangre og lage et fullt opplegg per sjanger som starter som om
+han ikke kan noe og ender der han kan svare på nesten alle oppgaver i sjangeren.
+
+**Hvert steg har samme form:** kort teori om ett nytt begrep, et lite talleksempel med
+pene tall og én flervalgsoppgave med fire alternativer. Etter svaret: riktig eller
+galt, utregningen steg for steg, en kontroll og hvilken typisk feil hvert galt
+alternativ er laget av. Stigen er 10–14 steg; de siste er bygd som de virkelige
+eksamensoppgavene i sjangeren, med nye tall.
+
+**Ingen minuspoeng og ingen «stå over».** Et galt svar kan prøves på nytt, men det
+første svaret huskes (`forste`), så stigen skiller «riktig» fra «riktig etter nytt
+forsøk». Lagring per steg: `exams["sg:<steg-id>"] = { v, forste, t }`.
+
+**Tre sider:** sjangrene etter eksamensvekt, stigen i én sjanger med status per steg og
+«Fortsett med steg n», og ett steg per side med prikker for hele stigen øverst.
+Tastatur: A–D eller 1–4 svarer, N/→ og P/← blar.
+
+Motoren er `js/bundle-sjangre.js`, dataene `EDU_DATA.sjangre`, bygget fra
+`fag/<fag>/_sjangre/NN-<id>.js` med `python3 tools/bygg-sjangre.py <fag>` og kontrollert med
+`node tools/sjekk-sjangre.js <fag>`. Fasitposisjonene er trukket på forhånd
+(`_sjangre/fasitplan.json`). Spesifikasjonen er `docs/fie402-sjanger-spek.md`.
+
+**Lengdesjekken gjelder bare utsagnsalternativer.** Første versjon telte også
+tallalternativer, og telte uavgjort som «fasiten er lengst». En agent holdt derfor
+riktige prosenter ensifret, og «det tosifrede er aldri riktig» ble en ny avsløring.
+Nå teller bare et utsagnsalternativ som er strengt lengst.
 
 ## Problem sets: øvingssettene fra kurset, med hintstige
 

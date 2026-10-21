@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, oppgaver]
-oppdatert: 2026-10-21
+oppdatert: 2026-10-22
 ---
 
 # Åpne spørsmål og neste steg
@@ -126,6 +126,26 @@ Faget ble lagt inn 24. september 2026. Se [[FIE459 Sustainable Finance]].
       Materials har ikke publisert foiler.
 - [ ] Vurder kapitteloppgaver i flervalgsformat, som i FIE432, hvis Magnus vil ha
       mer eksamenstrening enn quizen gir.
+
+## FIE402 — funnet under sjangertreningen (22. oktober 2026)
+
+Agentene som skrev stigene, leste manualen og eksamenssettene grundig. Rettet med en
+gang: regnefeilen i illustrasjonen i k25, Worked example 4 (−30.7407 skulle vært
+−21.4815), og setningen i k18 § 18.4 om at forskyvning av gjeldssaldoen «always
+overstates the shield» (retningen avhenger av hvilken vei du forskyver). Ikke rettet:
+
+- [ ] **k12 Worked example 3 har to likevekter.** Med NPV = 40 er også separering
+      selvkonsistent (α = 0.30 gir den gode typen 245 &lt; 250). Figur 12.2 tegner pooling
+      og separering som utelukkende områder. Si at begge kan holde.
+- [ ] **k12 Worked example 2, steg 6** sier at eksamen spør etter terskelen q\* som egen
+      deloppgave. Ingen av settene i `sett.js` gjør det.
+- [ ] **H2024 E6-konvensjonen for det underliggende** (S<sub>u</sub> og S<sub>d</sub> som
+      dato-1-verdier av en ny annuitet uten betaling på dato 1) kan gi ρ &gt; 1 med korte
+      annuiteter. V2021 P4-nøkkelen tar med betalingen. k25 bør si at ρ må kontrolleres.
+- [ ] **H2025 E1-nøkkelens 6.04** er kontinuerlig diskontert, mens manualen (k21–k23)
+      diskonterer årlig. Ikke en feil, men verdt én setning i k23.
+- [ ] **sett.js H2025 E4** oppgir PV(TS) = 0.7503 og justeringen 5.7531; med full
+      presisjon 0.7504 og 5.7530. Innenfor nøkkelens toleranse.
 
 ## FIE432 — funnet under eksamenstreningen, ikke rettet
 

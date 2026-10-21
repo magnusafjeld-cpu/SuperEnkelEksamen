@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-10-20
+oppdatert: 2026-10-22
 ---
 
 # FIE402 Corporate Finance
@@ -350,6 +350,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Flashcards | **268** forfattet + 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
 | Problem sets | **Problem Set 1** (capital structure and payout policy) · 13 oppgaver · 52 delspørsmål med fire hint hver |
+| Sjangertrening | **9 stiger · 126 steg**, hver fra null til eksamensnivå, etter eksamensvekt |
 | Aktiv læring | **208** oppgaver |
 | Dybdetrening | **458** i seks banker |
 | Lynlæring | **233** elementer, med fremdriftsport |
@@ -391,6 +392,25 @@ plottede punkt i alle ni figurene. **All aritmetikk var riktig.** Alle feilene v
 Alle er rettet, og lærdommene er skrevet inn i forfatterspesifikasjonen som et eget
 kapittel, slik at bølge 2–5 ikke gjentar dem. Se [[Slik oppdaterer du hjernen]] for
 prinsippet: en kontroll som bare bekrefter, er ingen kontroll.
+
+## Sjangertrening
+
+Ni stiger, én per oppgavesjanger, i rekkefølge etter eksamensvekt: tvillingfirmaet,
+MM og rekapitalisering, WACC og APV, realopsjoner, fusjoner, risikoskifting og
+gjeldsoverheng, opsjoner, gjeld og egenkapital som opsjoner og Myers-Majluf. Hver
+har 14 steg; de siste er bygd som de virkelige eksamensoppgavene med nye tall
+(H2025 E4 (a)–(i) i WACC/APV, H2025 E5 og H2024 E6 i realopsjoner, H2025 E6 i
+fusjoner, V2024 P4 i kreditt og så videre). Engelsk, som resten av faget.
+
+Skrevet 22. oktober 2026 av ni agenter etter `docs/fie402-sjanger-spek.md`, og
+kontrollert av fem uavhengige kontrollører som regnet alle tall på nytt. Ingen fasit
+var feil. Det kontrollørene fant mest av, var **mønstre i feilsvarene** som pekte ut
+fasiten: den høyeste verdien var aldri riktig, fasiten sto alene utenfor ellers
+sorterte feilsvar, to alternativer summerte til 100 %, eller fasiten var det eneste
+alternativet som delte en del med hvert av de andre. De ble brutt ved å bytte
+feilsvar, aldri fasiten. Ikke dekket: governance og de verbale M&A-motivene som
+egne skriveoppgaver (stigen har flervalg om motivene), og typene som ikke finnes i
+`sett.js`. Se [[Moduler og visninger]].
 
 ## Problem sets
 
