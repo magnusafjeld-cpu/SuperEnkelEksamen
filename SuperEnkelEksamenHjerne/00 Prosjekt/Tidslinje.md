@@ -48,6 +48,7 @@ ikke står i commit-meldingene.
 | 28. september 2026 | Fremdrift-siden og «% klar» fjernet | Fremdriften står inne i hver modul. Det samlede tallet telte ikke kjernepensum, kapitteloppgaver eller eksamenssett. Se [[Beslutningslogg]] |
 | 29. september 2026 | Kjernepensum som eget kort i NotebookLM, i FIE402 og FIE432 | Hele kjernepensum som én kilde eller del for del, med sjekker og minicase med fasit. Se [[Moduler og visninger]] |
 | 30. september 2026 | PwC-caser og streng vurdering i casetreningen | Seks caser i PwCs eget format før intervjuet 6. oktober, hver kontrollert blindt av en annen agent. Nivået etter hvert trinn regnes nå ut av kravene du krysser av. Se [[Caseintervju]] og [[Case-spilleren]] |
+| 21. oktober 2026 | FIE459 k10–k13 skrevet om fra foilene, med DNB-gjesteforelesningen og kj7 | Ny quiz og nye kort for k10–k13, eksamensinformasjonen fra forelesning 13 i k0 og kj0, og studieplanen kalibrert på nytt. Se [[FIE459 Sustainable Finance]] |
 | 21. oktober 2026 | Kjernepensum for FIE459, med sant/usant og uten minuspoeng | Sju deler, rundt 6 900 ord. Manifestet fikk `wrongFactor`, og kontrollen godtar sant/usant. Se [[FIE459 Sustainable Finance]] |
 | 20. oktober 2026 | Spør Claude lukkes ved trykk utenfor vinduet | Stedet trykket starter avgjør, så omtegning inni vinduet ikke lukker det. Se [[Moduler og visninger]] |
 | 20. oktober 2026 | Ny fane i FIE402: Problem sets, med Problem Set 1 | Øvingssettene fra kurset med fire hint per delspørsmål og fasit bak en knapp. Se [[Moduler og visninger]] |

@@ -116,15 +116,14 @@ kontrollert mot Lovdata, Skatteetaten eller kursets egne fasiter. Se
 
 Faget ble lagt inn 24. september 2026. Se [[FIE459 Sustainable Finance]].
 
-- [ ] **Skriv om k10–k12 fra foilene, som nå finnes** i emnemappen
-      (`NHH/7. Semester/FIE459 Sustainable Finance/`). Avvikene er listet i
-      `docs/fie459-k10-k12-avvik.md`. Quizen og kortene for k10–k12 må følge med, og
-      kj6 i kjernepensum bør leses mot de nye kapitlene etterpå. k13 venter fortsatt
-      på forelesning 13.
-- [ ] **Gjesteforelesningene** (Folketrygdfondet, Fonds Finans, DNB,
-      Sustainability Hub, Heidelberg Materials) er ikke med. Foilene publiseres
-      bare med foreleserens samtykke og tas ikke opp. Kommer de, hører de til k8,
-      k9, k11 og k13.
+- [x] ~~**Skriv om k10–k13 fra foilene.**~~ Gjort 21. oktober 2026, med ny quiz, nye
+      kort og kj7 i kjernepensum. Se [[FIE459 Sustainable Finance]].
+- [ ] **Eksempelspørsmålene** som deles ut på de to gjesteforelesningene etter
+      forelesning 13: legg dem inn i quizen og kalibrer kjernepensumet mot dem.
+- [ ] **Gjesteforelesningene.** DNB (13/10) er med i k11. Foilene fra
+      Folketrygdfondet og Fondsfinans (Melanie Brooks) ligger i kildemappen, men er
+      ikke med; de hører trolig til k8 og k9. Sustainability Hub og Heidelberg
+      Materials har ikke publisert foiler.
 - [ ] Vurder kapitteloppgaver i flervalgsformat, som i FIE432, hvis Magnus vil ha
       mer eksamenstrening enn quizen gir.
 

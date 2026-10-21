@@ -408,9 +408,9 @@ window.EDU_SUBJECTS = [
       notebooklmTall: ["Desimaltegnet er punktum og tusenskillet komma: «1,000.5» er tusen komma fem."],
       searchTerms: ["externality", "double materiality", "stakeholder", "CSRD", "EU taxonomy", "SFDR",
                     "ESG integration", "stewardship", "greenium", "integrated value", "SF 2.0"],
-      kjerneIntro: "Det viktigste i FIE459 på et par timer, i sju korte deler bygd rundt skillelinjene eksamen spør om. Etter hver del kommer raske sjekker og en minicase i eksamensformatet: to flervalg og ett sant/usant. Feil svar gir ingen minuspoeng, så svar på alt. Teksten er på engelsk, som eksamen. Del 6 er skrevet fra foilene til forelesning 10–12.",
+      kjerneIntro: "Det viktigste i FIE459 på et par timer, i åtte korte deler bygd rundt skillelinjene eksamen spør om. Etter hver del kommer raske sjekker og en minicase i eksamensformatet: to flervalg og ett sant/usant. Feil svar gir ingen minuspoeng, så svar på alt. Teksten er på engelsk, som eksamen.",
       planEyebrow: "Studieplan · 8 moduler",
-      planIntro: "Modul 1–6 følger forelesningene: grunnlaget, etikk og eksternaliteter, selskapet og investering. Modul 7 er de foreløpige kapitlene om obligasjoner, bank, forsikring og myndighetene, og modul 8 er repetisjon i eksamensformatet. Faget er bevisst kort: målet er en grei forståelse av hvert tema.",
+      planIntro: "Modul 1–6 følger forelesningene: grunnlaget, etikk og eksternaliteter, selskapet og investering. Modul 7 er obligasjoner, bank, forsikring, koalisjoner og omstilling, og modul 8 er repetisjon i eksamensformatet. Faget er bevisst kort: målet er en grei forståelse av hvert tema.",
     },
     /* Ingen dybdetrening, lynlæring eller eksamenssett: det finnes ingen
        tidligere eksamener, og faget skal være kort. Eksamen er flervalg og

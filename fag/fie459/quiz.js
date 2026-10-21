@@ -1,5 +1,5 @@
 /* ===================== FIE459 · QUIZ =====================
-   95 spørsmål over kapittel 0–13, i eksamensformatet: flervalg med fire
+   107 spørsmål over kapittel 0–13, i eksamensformatet: flervalg med fire
    alternativer og sant/usant («True or false?», alternativene True/False).
    Alle har oppg: 1 — faget har ingen oppgaveinndeling på eksamen.
 
@@ -1080,287 +1080,459 @@ window.EDU_DATA.quizzes = [
     "explanation": "The cost of capital is the return investors expect, so a lower cost of capital means a lower expected return. High-ESG stocks can still show higher realised returns when demand shifts unexpectedly towards them, but that is a surprise, not an expectation. Mixing up expected and realised returns is the classic trap here."
   },
   {
-    "id": "q10-1",
+    "id": "q10-6",
     "ch": 10,
     "oppg": 1,
     "type": "mcq",
-    "q": "A steel producer issues a bond whose proceeds can be used for general corporate purposes. If it has not cut its emission intensity to a set target by a fixed date, the coupon rises. How should the bond be classified?",
+    "q": "A bank issues a bond. The net proceeds go to a sub-account and are used exclusively to finance energy-efficient buildings and affordable housing. Which ICMA set of principles should the bond align with?",
     "options": [
-      "A green bond, because the target concerns the issuer's emissions",
-      "A sustainability bond, because it mixes green and general purposes",
-      "A sustainability-linked bond, because the coupon depends on a KPI target",
-      "A conventional bond, because the proceeds are not earmarked for any project"
+      "The Green Bond Principles (GBP)",
+      "The Social Bond Principles (SBP)",
+      "The Sustainability Bond Guidelines (SBG)",
+      "The Sustainability-Linked Bond Principles (SLBP)"
     ],
     "answer": 2,
-    "explanation": "The money is free to use, and what is tied to sustainability is the coupon, through a KPI (emission intensity) and a target with a step-up if it is missed. That is a sustainability-linked bond. Green and sustainability bonds earmark the money for projects, so neither fits. The missing earmark does not make the bond conventional, because its terms are tied to a sustainability target."
+    "explanation": "The proceeds are earmarked for a combination of green projects (energy-efficient buildings) and social projects (affordable housing), which defines a sustainability bond under the Sustainability Bond Guidelines. The GBP and SBP cover purely green or purely social projects. The SLBP cover bonds whose terms depend on sustainability targets, not bonds with earmarked proceeds."
   },
   {
-    "id": "q10-2",
+    "id": "q10-7",
     "ch": 10,
     "oppg": 1,
     "type": "mcq",
-    "q": "Why do ESG risks typically matter more for a long-dated bond from a low-rated issuer than for a short-dated bond from a highly rated issuer?",
+    "q": "Which set of findings matches Flammer (2021) on corporate green bonds?",
     "options": [
-      "Bondholders bear only the downside, and long maturity and weak credit give ESG risks time and room to cause default",
-      "Bondholders share in the upside, so ESG opportunities raise the value of long-dated, low-rated bonds the most",
-      "Only low-rated issuers are required to publish ESG data, so investors can assess ESG risks for them alone",
-      "Short-dated bonds from strong issuers fall outside the SFDR, so investors may not consider ESG for them"
-    ],
-    "answer": 0,
-    "explanation": "A bond's payoff is asymmetric: the upside is capped at coupons and principal, so ESG matters mainly as credit risk. A risk such as a carbon price or stranded assets needs time to hit cash flows (long maturity) and only hurts the lender if it pushes the issuer into default (weak credit). Bondholders do not share in the upside, and neither disclosure duties nor the SFDR explain the difference."
-  },
-  {
-    "id": "q10-3",
-    "ch": 10,
-    "oppg": 1,
-    "type": "mcq",
-    "q": "Which statement about the greenium is correct?",
-    "options": [
-      "It is the extra yield investors demand for holding a green bond instead of a conventional one",
-      "It arises because a green bond gives investors a claim on the green project's cash flows only",
-      "It is large because green bonds carry much lower default risk than the issuer's other bonds",
-      "It is the lower yield on a green bond than on a comparable conventional bond from the same issuer"
+      "Share prices fall at announcement, most for first-time issuers, as investors see costly projects",
+      "Share prices rise at announcement, most for repeat issuers and bonds without third-party certification",
+      "Share prices barely react, but issuers then cut emissions and gain more short-term investors",
+      "Share prices rise at announcement, then emissions fall and more long-term, green investors buy in"
     ],
     "answer": 3,
-    "explanation": "The greenium is a yield discount: investors accept a lower return on the green bond than on an otherwise identical conventional bond of the same issuer. A standard green bond is a claim on the whole issuer, so it carries the same credit risk; the discount reflects demand for the label, not lower default risk. An extra yield would be the opposite sign."
+    "explanation": "Flammer finds a positive response to green bond announcements, stronger for first-time issuers and for bonds certified by third parties. After issuance, environmental ratings rise, CO2 emissions fall and ownership by long-term and green investors increases, which she reads as signaling. The other options get the direction of the reaction, the type of issuer or the type of investor wrong."
   },
   {
-    "id": "q10-4",
+    "id": "q10-8",
     "ch": 10,
     "oppg": 1,
     "type": "mcq",
-    "q": "True or false? The proceeds of a sustainability-linked bond can be used for general corporate purposes; what is tied to sustainability is the bond's terms, such as the coupon.",
+    "q": "In Schoenmaker and Schramade's table of ESG issues relevant to bonds, which pair matters mostly for sovereign rather than corporate issuers?",
     "options": [
-      "True",
-      "False"
+      "Corruption and rule of law",
+      "Board expertise and audit practices",
+      "Climate change and biodiversity",
+      "Shareholder rights and diversity"
     ],
     "answer": 0,
-    "explanation": "True. A sustainability-linked bond ties the coupon to the issuer's KPIs and targets, usually with a step-up if a target is missed, but it does not earmark the money. Earmarking is the defining feature of use-of-proceeds bonds such as green bonds."
+    "explanation": "Corruption and rule of law are governance issues of a state, so they sit in the mostly sovereign column. Board expertise, audit practices, shareholder rights and diversity are mostly corporate issues. Climate change and biodiversity are relevant to both corporate and sovereign issuers."
   },
   {
-    "id": "q10-5",
+    "id": "q10-9",
     "ch": 10,
     "oppg": 1,
     "type": "mcq",
-    "q": "True or false? A firm can issue a green bond without any change in its overall environmental performance.",
+    "q": "In the 2019 sustainability improvement derivative between ING and SBM Offshore, what happens if SBM misses the ESG target that ING sets for the year?",
+    "options": [
+      "The swap terminates and SBM must repay its floating rate credit facility early",
+      "SBM donates to non-profit projects, while the fixed rate on the swap stays the same",
+      "SBM pays a penalty of 5–10 basis points on the fixed rate it pays under the swap",
+      "ING cuts the floating rate it pays SBM until Sustainalytics confirms a better score"
+    ],
+    "answer": 2,
+    "explanation": "The swap hedges SBM's floating rate credit facility: SBM pays fixed and receives floating. Meeting the annual ESG target, scored by Sustainalytics, cuts the fixed rate by 5–10 bp while missing it adds a 5–10 bp penalty. Donations instead of rate changes describe HSBC's swap with Siemens Gamesa. Nothing in the deal terminates the swap or changes the floating leg."
+  },
+  {
+    "id": "q10-10",
+    "ch": 10,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A bondholder is promised fixed coupons and the face value. Following the lecture's payoff logic, how does ESG mainly enter the bondholder's analysis?",
+    "options": [
+      "Through upside: ESG strengths raise firm value and the bondholder shares in the gain",
+      "It does not: a fixed claim makes the bondholder indifferent to ESG issues",
+      "Through risk: ESG problems raise default risk and the yield and lower the rating",
+      "Through voting: bondholders use annual meetings to push for ESG targets"
+    ],
+    "answer": 2,
+    "explanation": "The debt payoff is capped at the promised amount, so the bondholder gains nothing from upside but loses if the asset value falls below the debt. ESG therefore matters through risk, which shows up in the yield to maturity and the rating. Bondholders are not indifferent, since a fixed claim can still default. Their influence comes through refinancing and engagement, not shareholder votes."
+  },
+  {
+    "id": "q10-11",
+    "ch": 10,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "True or false? Attig et al. (2013) find that credit rating agencies tend to award relatively high ratings to firms with good social performance.",
     "options": [
       "True",
       "False"
     ],
     "answer": 0,
-    "explanation": "True. Money is fungible: the firm can finance green projects it would have undertaken anyway and use the freed-up funds elsewhere. The label documents where the bond's money goes, not whether the firm as a whole becomes greener, so investors must also judge the issuer's strategy."
+    "explanation": "True. This is the finding quoted on the slides. The CSR components tied to primary stakeholders, such as community relations, employee relations and environmental performance, matter most for creditworthiness."
   },
   {
-    "id": "q11-1",
-    "ch": 11,
+    "id": "q10-12",
+    "ch": 10,
     "oppg": 1,
     "type": "mcq",
-    "q": "A bank has lent to a coal-fired power producer. A steep new carbon price makes the plant unprofitable long before the end of its planned life. How is the bank's risk best described?",
-    "options": [
-      "Physical risk, because the plant's emissions contribute to climate change",
-      "Physical risk, because a carbon price is a chronic climate hazard",
-      "Transition risk, and the plant is at risk of becoming a stranded asset",
-      "Operational risk, because the bank's own offices run on coal power"
-    ],
-    "answer": 2,
-    "explanation": "The loss comes from the move to a low-carbon economy (a carbon price), not from climate damage itself, so it is transition risk. A plant that loses its value before the end of its economic life is a stranded asset; for the bank it raises the borrower's default probability and lowers the collateral value. Physical risk would be damage from floods, storms or heat, and the bank's own electricity use is not the channel."
-  },
-  {
-    "id": "q11-2",
-    "ch": 11,
-    "oppg": 1,
-    "type": "mcq",
-    "q": "Which statement best describes a climate stress test of a bank's loan book?",
-    "options": [
-      "It estimates loan losses under severe but plausible climate scenarios, such as those of the NGFS",
-      "It measures the bank's own scope 1 and 2 emissions and compares them with its net-zero target",
-      "It forecasts the single most likely climate path and holds capital for that path only",
-      "It checks whether the bank's green loans meet the taxonomy's technical screening criteria"
-    ],
-    "answer": 0,
-    "explanation": "A stress test translates severe but plausible scenarios, typically from the NGFS, into variables such as carbon prices and property values and maps them onto borrowers' default probabilities and losses. It is not a forecast of the most likely path, it concerns the loan book rather than the bank's own emissions, and checking green loans against taxonomy criteria is classification, not stress testing."
-  },
-  {
-    "id": "q11-3",
-    "ch": 11,
-    "oppg": 1,
-    "type": "mcq",
-    "q": "What is the key difference between a green loan and a sustainability-linked loan?",
-    "options": [
-      "A green loan's margin depends on KPIs, while a sustainability-linked loan funds specific eligible projects",
-      "A green loan funds specific eligible projects, while a sustainability-linked loan's margin depends on KPIs",
-      "A green loan falls under the SFDR, while a sustainability-linked loan falls under the CSRD",
-      "A green loan is a bank product, while a sustainability-linked loan exists only in the bond market"
-    ],
-    "answer": 1,
-    "explanation": "A green loan is a use-of-proceeds instrument: the money goes to eligible projects such as a solar park or an energy-efficient home. A sustainability-linked loan leaves the money free to use and adjusts the interest margin to the borrower's performance on KPIs. Option A swaps the two, neither the SFDR nor the CSRD defines the difference, and the bond-market counterpart is the sustainability-linked bond."
-  },
-  {
-    "id": "q11-4",
-    "ch": 11,
-    "oppg": 1,
-    "type": "mcq",
-    "q": "True or false? A bank with a very small operational carbon footprint can still be heavily exposed to climate risk through the firms and properties it finances.",
-    "options": [
-      "True",
-      "False"
-    ],
-    "answer": 0,
-    "explanation": "True. A bank's own offices emit little; its exposure sits in the loan book, through transition risk at carbon-intensive borrowers and physical risk at borrowers and collateral in exposed locations. Its impact is likewise measured by financed emissions, not by its own operations."
-  },
-  {
-    "id": "q11-5",
-    "ch": 11,
-    "oppg": 1,
-    "type": "mcq",
-    "q": "True or false? In a hot house world scenario with no new climate policy, transition risk stays low while physical risk grows.",
-    "options": [
-      "True",
-      "False"
-    ],
-    "answer": 0,
-    "explanation": "True. Physical and transition risk trade off across the NGFS scenarios. Without new policy there is little transition shock, but climate change continues and physical damage grows; a disorderly transition, by contrast, brings high transition risk."
-  },
-  {
-    "id": "q12-1",
-    "ch": 12,
-    "oppg": 1,
-    "type": "mcq",
-    "q": "An insurer sees more frequent flood claims on its home insurance. At the same time, the coal-company bonds in its portfolio fall in value after a new carbon tax. Which classification is correct?",
-    "options": [
-      "Both are physical risks: climate damage shows up on each side of the balance sheet",
-      "Both are transition risks: climate policy shows up on each side of the balance sheet",
-      "The claims are physical risk in underwriting; the bond losses are transition risk in investing",
-      "The claims are transition risk in investing; the bond losses are physical risk in underwriting"
-    ],
-    "answer": 2,
-    "explanation": "Flood claims come from climate damage itself and hit the liability side, where the insurer carries risk for premiums: physical risk in underwriting. The bonds lose value because of climate policy, which is transition risk on the asset side, where the insurer invests its premiums. The case shows the double hit: climate change can strike both sides at once."
-  },
-  {
-    "id": "q12-2",
-    "ch": 12,
-    "oppg": 1,
-    "type": "mcq",
-    "q": "What is the insurance protection gap?",
-    "options": [
-      "The difference between the premiums an insurer collects and the claims it pays in a year",
-      "The shortfall between an insurer's investment assets and its long-term liabilities",
-      "The part of the economic losses from disasters that is not covered by insurance",
-      "The gap between an insurer's capital and the capital its supervisor requires"
-    ],
-    "answer": 2,
-    "explanation": "The protection gap is the uninsured share of economic losses. It widens when cover becomes unaffordable or insurers withdraw from high-risk areas, and the loss then falls on households, firms and ultimately taxpayers. Premiums minus claims is underwriting profit, and the other two options describe an insurer's solvency, not a gap in society's cover."
-  },
-  {
-    "id": "q12-3",
-    "ch": 12,
-    "oppg": 1,
-    "type": "mcq",
-    "q": "Most non-life policies run for one year and can be repriced at renewal. What follows for physical climate risk?",
-    "options": [
-      "Repricing shifts the risk to policyholders and governments, and rising premiums widen the protection gap",
-      "Repricing removes the risk entirely, so physical climate risk is only a reputational issue for insurers",
-      "Repricing is not allowed for climate-related perils, so insurers are locked into today's premiums",
-      "Repricing matters only for life insurers, whose long contracts are renewed and repriced each year"
-    ],
-    "answer": 0,
-    "explanation": "Annual contracts let a non-life insurer raise premiums or withdraw as risk rises, which protects its balance sheet in the short run. But the risk does not disappear: it moves to households, firms and governments, and the insurer's market shrinks as cover becomes unaffordable. Life contracts run for decades rather than one year, and option C describes a restriction that does not generally exist."
-  },
-  {
-    "id": "q12-4",
-    "ch": 12,
-    "oppg": 1,
-    "type": "mcq",
-    "q": "True or false? Climate change affects insurers only through the underwriting side, because physical damage leads to claims.",
+    "q": "True or false? A sustainability bond lets the issuer use the proceeds for general corporate purposes, with the coupon tied to sustainability targets.",
     "options": [
       "True",
       "False"
     ],
     "answer": 1,
-    "explanation": "False. Underwriting is hit by physical risk through claims, but the investment side is also exposed: fossil-fuel holdings can strand under transition risk, and real estate the insurer owns can be damaged. The danger is a double hit, where one scenario raises claims and lowers asset values at the same time."
+    "explanation": "False. A sustainability bond is a use-of-proceeds bond: the money goes exclusively to a combination of green and social projects. Free use of proceeds with terms tied to targets describes a sustainability-linked bond, which has its own ICMA principles (SLBP)."
   },
   {
-    "id": "q12-5",
-    "ch": 12,
+    "id": "q10-13",
+    "ch": 10,
     "oppg": 1,
     "type": "mcq",
-    "q": "True or false? A risk-based insurance premium can discourage building in flood-prone areas, which makes it a form of internalisation.",
+    "q": "True or false? Under the Green Bond Principles (2017), reporting on the use of proceeds is mandatory.",
     "options": [
       "True",
       "False"
     ],
     "answer": 0,
-    "explanation": "True. A premium that reflects flood risk makes a hidden cost visible to the person who creates the exposure, much as a carbon price does for emissions. The signal weakens if premiums are capped or subsidised, or if full cover removes the incentive to adapt (moral hazard)."
+    "explanation": "True. Reporting is the fourth GBP component and is mandatory on the use of the proceeds. The other three are use of proceeds, project evaluation and selection plus management of proceeds through a tracked sub-account."
   },
   {
-    "id": "q13-1",
-    "ch": 13,
+    "id": "q11-6",
+    "ch": 11,
     "oppg": 1,
     "type": "mcq",
-    "q": "A government wants certainty about the total quantity of emissions. Which instrument delivers that, and what is left uncertain?",
+    "q": "A bank charges a higher interest margin to borrowers with weak environmental management, because its credit model shows that such firms default more often. Which approach does this illustrate?",
     "options": [
-      "A carbon tax, which leaves the carbon price uncertain",
-      "A carbon tax, which leaves the quantity of emissions uncertain",
-      "Cap-and-trade, which leaves the carbon price uncertain",
-      "Cap-and-trade, which leaves the quantity of emissions uncertain"
-    ],
-    "answer": 2,
-    "explanation": "Cap-and-trade, such as the EU ETS, fixes the total quantity through the number of allowances and lets the market set the allowance price, so the price is what is uncertain. A carbon tax does the opposite: it fixes the price per tonne, and the quantity emitted depends on how firms respond. Options A and D mix up which variable each instrument fixes."
-  },
-  {
-    "id": "q13-2",
-    "ch": 13,
-    "oppg": 1,
-    "type": "mcq",
-    "q": "An asset manager commits to six principles for incorporating ESG issues and to report on its progress. It faces no legal penalty if it falls short and can leave at any time. What has it most likely joined?",
-    "options": [
-      "The EU Taxonomy for sustainable activities",
-      "The Corporate Sustainability Reporting Directive",
-      "The UN Principles for Responsible Investment",
-      "The Sustainable Finance Disclosure Regulation"
-    ],
-    "answer": 2,
-    "explanation": "The UN PRI is a voluntary investor initiative built on six principles; signatories report on implementation, but there is no legal penalty and they can withdraw. The Taxonomy, the CSRD and the SFDR are EU law: binding for those in scope, and not something a firm joins or leaves."
-  },
-  {
-    "id": "q13-3",
-    "ch": 13,
-    "oppg": 1,
-    "type": "mcq",
-    "q": "Which statement best describes integrated thinking?",
-    "options": [
-      "Publishing financial and sustainability information together in one combined annual report",
-      "Maximising financial value first and then offsetting the social and environmental harm",
-      "Letting social and environmental goals replace financial viability as the firm's objective",
-      "Managing financial, social and environmental value together in the firm's core decisions"
+      "Value-based banking, because the bank pursues environmental value",
+      "Impact lending, because the loan is priced on environmental grounds",
+      "Exclusion, because the weakest borrowers are kept out of the book",
+      "Risk-based banking, because ESG enters the credit risk premium"
     ],
     "answer": 3,
-    "explanation": "Integrated thinking is a management practice: strategy, capital allocation and pay take financial, social and environmental value into account together. A combined report is integrated reporting, which describes the result. Maximising financial value first is closer to finance as usual or SF 1.0, and even SF 3.0 keeps financial value as a constraint rather than dropping it."
+    "explanation": "The bank uses ESG to predict default and prices it into the risk premium: ESG integration in credit risk management, which Schoenmaker and Schramade call risk-based banking (SF 2.0). Value-based banking and impact lending (SF 3.0) aim to create social and environmental value, not to price risk. The borrowers are charged more, not excluded, so it is not SF 1.0."
   },
   {
-    "id": "q13-4",
-    "ch": 13,
+    "id": "q11-7",
+    "ch": 11,
     "oppg": 1,
     "type": "mcq",
-    "q": "True or false? In the EU framework, the SFDR sets sustainability disclosure duties for companies, while the CSRD sets them for asset managers, pension funds and insurers.",
+    "q": "A shipping company borrows for general corporate purposes. The loan margin falls if the company cuts its CO2 intensity by a pre-agreed amount and rises if it misses the target. What kind of loan is this?",
     "options": [
-      "True",
-      "False"
+      "A green loan, since the price rewards lower emissions",
+      "A transition loan, since the target is an emission cut",
+      "A sustainability-linked loan, as the margin tracks KPIs",
+      "A social loan, since the proceeds have no earmarked use"
     ],
-    "answer": 1,
-    "explanation": "False: the two are swapped. The CSRD requires companies to report on sustainability with double materiality, and the SFDR requires financial market participants such as asset managers, pension funds and insurers to disclose how their products handle sustainability (Articles 8 and 9). Investors rely on company reporting to fill their own disclosures."
+    "answer": 2,
+    "explanation": "The money is free to use and the price moves with sustainability targets: that is a sustainability-linked loan under the LMA/LSTA Sustainability-Linked Loan Principles. Green and transition loans earmark the proceeds for specific investments; a social loan earmarks them for social purposes. What is tied (use of proceeds or price) decides the label, not the topic of the target."
   },
   {
-    "id": "q13-5",
-    "ch": 13,
+    "id": "q11-8",
+    "ch": 11,
     "oppg": 1,
     "type": "mcq",
-    "q": "True or false? If social and environmental costs are gradually charged to firms, a firm that optimises integrated value today is less exposed to stranded assets than one that maximises financial value only.",
+    "q": "GABV data cited by Schoenmaker & Schramade (2019) compare values-based banks (VBBs) with global systemically important banks (balance sheets in 2015, returns over 2006–15). Which statement matches the evidence?",
+    "options": [
+      "VBBs earned a far higher ROE with about the same volatility",
+      "VBBs held fewer loans relative to assets but had steadier returns",
+      "VBBs relied more on trading assets and less on customer deposits",
+      "VBBs earned a similar ROE with clearly lower ROE volatility"
+    ],
+    "answer": 3,
+    "explanation": "VBBs had an ROE of 8.3% against 8.7% for global banks, with a standard deviation of 4.9% against 7.7%, so they were about as profitable and more stable. They held more loans (76.8% of assets against 41.6%) and more deposits (81.7% against 52.2%), not less. Value-based banking cost little or no return in these data."
+  },
+  {
+    "id": "q11-9",
+    "ch": 11,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "The SASB materiality map for commercial banks lists data security, access and affordability, product design, business ethics and systemic risk, but no environmental issue. What is the best conclusion?",
+    "options": [
+      "Environmental issues reach a bank indirectly, through its loans and investments",
+      "Environmental issues are immaterial for banks, since their own emissions are low",
+      "Environmental issues matter for banks only when regulators set capital charges",
+      "Environmental issues are covered fully by the bank's business ethics topic"
+    ],
+    "answer": 0,
+    "explanation": "The lecture calls credits and investments the bank's indirect material issues: ESG relates primarily to clients' activities and only indirectly to the bank. Low own emissions do not make the issues immaterial, because they reach the bank through credit risk and collateral values. Neither capital rules nor business ethics is the channel."
+  },
+  {
+    "id": "q11-10",
+    "ch": 11,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Under the EBA's Pillar 3 ESG disclosures, what does a bank's green asset ratio (GAR) report?",
+    "options": [
+      "The share of its own energy use that comes from renewable sources",
+      "Its exposures to fossil fuel firms as a share of total lending",
+      "The share of covered loans financing taxonomy-aligned activities",
+      "The extra capital it must hold against acute physical climate risk"
+    ],
+    "answer": 2,
+    "explanation": "The GAR shows how much of the bank's exposures to NFRD corporates and retail clients finances taxonomy-aligned activities, which is why the taxonomy is the basis for it. Fossil fuel exposures belong to the transition risk disclosures and acute climate events to the physical risk disclosures. Pillar 3 is about disclosure, not a capital charge. It concerns the loan book, not the bank's own energy use."
+  },
+  {
+    "id": "q11-11",
+    "ch": 11,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "True or false? In Schoenmaker & Schramade's framework, microfinance is an example of value-based banking (SF 3.0), while ESG integration in credit risk management is risk-based (SF 2.0).",
     "options": [
       "True",
       "False"
     ],
     "answer": 0,
-    "explanation": "True. Under full internalisation a firm's financial value converges to its integrated value (F + S + E), so processes with large social and environmental costs lose value. In the chapter 3 example the original process falls from F 15 to 9 while the optimised one keeps 12; the firm that chose on integrated value has already avoided the asset that strands."
+    "explanation": "True. Exclusion (SF 1.0) and ESG integration (SF 2.0) are risk-based: sustainability enters the risk premium. Impact lending and microfinance (SF 3.0) are value-based: the bank lends to create social and environmental value."
+  },
+  {
+    "id": "q11-12",
+    "ch": 11,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "True or false? A green loan ties its interest margin to the borrower's performance on pre-agreed sustainability targets, while the proceeds can fund general corporate purposes.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": 1,
+    "explanation": "False. That describes a sustainability-linked loan. A green loan earmarks the proceeds for green projects and tracks how they are used; any margin benefit depends on meeting the green loan criteria, not on company-wide KPIs."
+  },
+  {
+    "id": "q11-13",
+    "ch": 11,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "True or false? ESG factors can make a loan riskier for the bank even when they leave the borrower's creditworthiness unchanged, because they can also lower the value of collateral such as real estate.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": 0,
+    "explanation": "True. Schoenmaker and Schramade stress that ESG factors do not only influence borrower creditworthiness but also collateral value, for example of real estate. A lower collateral value means a larger loss if the borrower defaults, so the loan is riskier even with an unchanged default probability."
+  },
+  {
+    "id": "q12-6",
+    "ch": 12,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "An insurer expects next year's home insurance claims to be EUR 500 million, but a severe storm season could push them to EUR 800 million. In the lecture's balance sheet, how are these claims covered?",
+    "options": [
+      "Technical provisions cover the expected 500 million; equity is the buffer for the extra 300 million",
+      "Equity covers the expected 500 million; technical provisions are the buffer for the extra 300 million",
+      "Technical provisions cover the whole 800 million, so equity plays no role in paying claims",
+      "Premium income covers the expected 500 million; investment income covers the extra 300 million"
+    ],
+    "answer": 0,
+    "explanation": "Technical provisions cover expected claims and equity covers unexpected claims. The second option swaps the two buffers. Provisions are not sized for the bad year, which is why equity is needed. Premium and investment income are value drivers in the P&L, not the buffers on the balance sheet."
+  },
+  {
+    "id": "q12-7",
+    "ch": 12,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A city adopts stricter building codes, so houses suffer less damage from the same flood. Which component of the catastrophe model does this change most directly?",
+    "options": [
+      "Hazard: the extent and intensity of the flood",
+      "Exposure: building, contents and business interruption values",
+      "Vulnerability: the relative damage to the assets",
+      "Platform: the integration of the model components"
+    ],
+    "answer": 2,
+    "explanation": "Vulnerability assesses the relative damage to assets such as property and infrastructure, which is what building codes change. The flood itself (hazard) is the same. Exposure is the value standing in the way, which does not change here. The platform only integrates the other four components."
+  },
+  {
+    "id": "q12-8",
+    "ch": 12,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "An insurer computes its 99% value at risk (VaR) on the loss distribution shown in the lecture. Which statement is correct?",
+    "options": [
+      "VaR equals the unexpected loss, the part of losses above the expected loss",
+      "VaR is the largest loss the insurer can suffer, so losses never exceed it",
+      "VaR is expected plus unexpected loss; losses exceed it with 1% probability",
+      "VaR equals the average annual loss, the mean of the whole loss distribution"
+    ],
+    "answer": 2,
+    "explanation": "On the lecture's figure, VaR = expected loss (EL) + unexpected loss (UL); the tail beyond it has probability 100% minus the confidence level, here 1%. The unexpected loss is only part of VaR. VaR is not a maximum, since losses beyond it do occur. The average annual loss corresponds to the expected loss, not to VaR."
+  },
+  {
+    "id": "q12-9",
+    "ch": 12,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "An insurer has issued a catastrophe bond. A hurricane then causes a catastrophic loss for the insurer. Under the lecture's definition, what happens to the bond?",
+    "options": [
+      "The insurer may skip or defer scheduled payments to the bondholders",
+      "The bond converts into shares, so the bondholders become owners",
+      "A government programme takes over the payments to the bondholders",
+      "The bondholders must pay the insurer an amount equal to its claims"
+    ],
+    "answer": 0,
+    "explanation": "The lecture defines cat bonds as corporate bonds that allow the issuer to skip or defer scheduled payments if a catastrophic loss occurs, so bondholders absorb part of the loss. Conversion into shares is not part of the definition. Government programmes are a separate layer that covers part of very large catastrophes. Bondholders do not pay in after the event; they receive less or later."
+  },
+  {
+    "id": "q12-10",
+    "ch": 12,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "An EU non-life insurer sells only home and motor insurance. Which parts of EY's sustainable finance regulatory package for insurers apply to it?",
+    "options": [
+      "Solvency II and the IDD only, since the Taxonomy targets investors",
+      "Solvency II, the IDD and the Taxonomy, but not the SFDR",
+      "All four, since the SFDR covers every insurer that invests premiums",
+      "Only the SFDR and the Taxonomy, since they cover all financial firms"
+    ],
+    "answer": 1,
+    "explanation": "In EY's package, Solvency II, the IDD and the Taxonomy apply to life and non-life insurers, while the SFDR applies only to life insurance (savings and investments). A pure non-life insurer is therefore outside the SFDR but inside the other three. The first option wrongly drops the Taxonomy; the last two misplace the SFDR."
+  },
+  {
+    "id": "q12-11",
+    "ch": 12,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "True or false? According to the lecture, life insurance is harder to model than non-life insurance, because death, disability and retirement vary more than natural catastrophes, accidents and fire.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": 1,
+    "explanation": "False. The lecture calls life insurance fairly stable and easier to predict; non-life insurance is more diverse and more difficult to model. That is why natural catastrophes, which sit on the non-life side, need catastrophe models."
+  },
+  {
+    "id": "q12-12",
+    "ch": 12,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "True or false? In the DNB (2017) scenarios (De Nederlandsche Bank, the Dutch central bank), climate-related claims on homeowner's insurance policies rise by 2085 even if warming is limited to 1.5 °C.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": 0,
+    "explanation": "True. At 1.5 °C the claims rise by 10% to 52% from 2016; at 3.5 °C by 25% to 131%. Limiting warming reduces the increase but does not remove it."
+  },
+  {
+    "id": "q12-13",
+    "ch": 12,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "True or false? According to the lecture, an economic strength of microinsurance is that the firms offering it are easy to sustain and make profitable.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": 1,
+    "explanation": "False. The lecture lists the economic impact the other way: microinsurance firms are difficult to sustain and make profitable. The positive impact is social: improved access to healthcare and reduced catastrophic expenditures."
+  },
+  {
+    "id": "q13-6",
+    "ch": 13,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A mid-sized asset manager signs the PRI shortly after its three largest competitors have done so, because it fears clients will see it as lagging behind. Which motive for joining a coalition does this illustrate best?",
+    "options": [
+      "Collective engagement",
+      "Risk avoidance",
+      "Collective advocacy",
+      "Peer effect"
+    ],
+    "answer": 3,
+    "explanation": "The trigger is that peers have joined and staying out risks a competitive disadvantage, which is the peer effect. Collective engagement is about raising the success rate of engagements with companies. Risk avoidance is about stranded assets; collective advocacy is about lobbying governments for clearer policy."
+  },
+  {
+    "id": "q13-7",
+    "ch": 13,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "Which statement about the coalitions in Schoenmaker & Schramade's Table 4.3 is correct?",
+    "options": [
+      "The coalitions with the widest coverage apply SF 3.0 principles",
+      "GIIN combines a high coverage with an SF 3.0 vision",
+      "Wider coverage tends to go with a less ambitious SF type",
+      "Every coalition has graduated sanctions for non-compliance"
+    ],
+    "answer": 2,
+    "explanation": "The relation between coverage and ambition is inverse: PRI, WEF and the Equator Principles cover 30 to 38% but sit at SF 1.0/2.0, while the SF 3.0 coalitions cover less than 1%. GIIN is SF 3.0 but covers only 0.05%. Most coalitions have no graduated sanctions; only WBCSD can end a membership for non-adherence."
+  },
+  {
+    "id": "q13-8",
+    "ch": 13,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "A coalition's council reviews and benchmarks the annual sustainability report of every member. Which of Ostrom's design principles does this mainly put into practice?",
+    "options": [
+      "Clearly defined boundaries",
+      "Monitoring",
+      "Collective-choice arrangements",
+      "Conflict-resolution mechanism"
+    ],
+    "answer": 1,
+    "explanation": "Reviewing members' reports checks progress towards the coalition's rules, which is monitoring (WBCSD does this in Table 4.3). Clearly defined boundaries concern how much of the sector the coalition covers. Collective-choice arrangements let members help change the rules, while a conflict-resolution mechanism settles disputes between members."
+  },
+  {
+    "id": "q13-9",
+    "ch": 13,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "According to Dimson, Karakaş & Li (2020) on coordinated engagements, which set-up has the highest success rate?",
+    "options": [
+      "International leads, domestic supporters and a small, focused coalition",
+      "A single large investor engaging alone, without supporting investors",
+      "A small group of equal partners with no designated lead investor",
+      "Domestic leads, international supporters and an influential coalition"
+    ],
+    "answer": 3,
+    "explanation": "The paper finds that a two-tier strategy works: lead investors backed by supporting investors. Success rates are elevated when the leads are domestic, the supporters are international and the coalition is influential. The other options either reverse the roles, drop the supporting investors or drop the lead investor."
+  },
+  {
+    "id": "q13-10",
+    "ch": 13,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "In Schoenmaker & Schramade's Table 3.1 of the players in sustainability, which description fits government?",
+    "options": [
+      "The only player in the table for which free-rider behaviour is a threat",
+      "Works mainly through procurement and the production process",
+      "Taxation and regulation as tools, with a horizon of up to four years",
+      "Acts through buying decisions and by electing the government"
+    ],
+    "answer": 2,
+    "explanation": "Government has a strong leadership role through taxation and regulation but a horizon of up to four years. Free-rider behaviour is listed as a threat for households too, so it is not unique to government. Procurement and the production process are the corporates' mechanisms, while buying decisions and elections belong to households."
+  },
+  {
+    "id": "q13-11",
+    "ch": 13,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "True or false? In backcasting, you first describe the long-term vision and ambitions, then create pathways with stepping stones and only then formulate concrete actions for today.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": 0,
+    "explanation": "This is the order in Schoenmaker & Schramade's Figure 12.2, adapted from Loorbach (2010): vision, pathways, concrete actions. Backcasting starts from the destination and works back to the present, from long-term thinking to short-term action. Forecasting does the opposite and extrapolates current trends."
+  },
+  {
+    "id": "q13-12",
+    "ch": 13,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "True or false? Dimson, Karakaş & Li (2015) find that successful engagements are followed by positive abnormal returns, while unsuccessful engagements are followed by negative abnormal returns.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": 1,
+    "explanation": "Successful engagements are followed by positive abnormal returns, but unsuccessful ones are followed by zero abnormal returns, not negative ones. A failed engagement therefore does not destroy value on average. The paper also finds that collaboration among activists raises the success rate of environmental and social engagements."
+  },
+  {
+    "id": "q13-13",
+    "ch": 13,
+    "oppg": 1,
+    "type": "mcq",
+    "q": "True or false? Schoenmaker & Schramade see free riding, where a member enjoys the benefits of membership without observing the coalition's rules, as the most obvious risk for a coalition and use Ostrom's design principles to assess how well coalitions are built.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": 0,
+    "explanation": "Free riding is named as the most obvious risk once a coalition exists. Ostrom's (1990) principles for governing common resources, such as monitoring and sanctions, are the tools that make shirking visible and costly. Table 4.3 scores the main coalitions on these features."
   }
 ];

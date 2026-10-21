@@ -11,11 +11,12 @@ window.EDU_DATA.kjerne.push({
 <ul>
 <li>3-hour digital school exam, <b>closed book</b>, 16 December 2026.</li>
 <li><b>Multiple-choice and true/false</b> questions, answered in English.</li>
-<li>There are no past exams, so nobody knows the exact mix. Nothing in the course material says a wrong answer costs points; this app scores without negative marking.</li>
+<li>There are no past exams, so nobody knows the exact mix. A few <b>sample questions</b> will be handed out at the two guest lectures after Lecture 13: get them.</li>
+<li>Nothing in the course material says a wrong answer costs points; this app scores without negative marking.</li>
 </ul>
 
 <h3>What the lecturer asks for</h3>
-<p>Jiaying Li puts the focus on «economic intuition, not calculation» and warns: «Memorizing definitions is not the best strategy!» Read for the mechanism (such as why a polluting market makes too much) and for the line between two concepts that sound alike. For every concept, ask what it is most easily confused with and what separates the two.</p>
+<p>Jiaying Li puts the focus on «economic intuition, not calculation» and warns: «Memorizing definitions is not the best strategy!» Read for the mechanism (such as why a polluting market makes too much) and for the line between two concepts that sound alike. For every concept, ask what it is most easily confused with and what separates the two. The last lecture puts it plainly: the exam focuses on «concepts and frameworks learned in class», so read the slides until you can explain each framework.</p>
 
 <h3>How a true/false statement is built</h3>
 <p>A false statement is usually correct except for one element:</p>
@@ -35,8 +36,8 @@ window.EDU_DATA.kjerne.push({
 <tr><td>kj4</td><td>Business models, materiality, reporting and ESG ratings</td></tr>
 <tr><td>kj5</td><td>Investment strategies, ESG integration and asset prices</td></tr>
 <tr><td>kj6</td><td>Bonds, banks and insurers</td></tr>
+<tr><td>kj7</td><td>Coalitions, governments and transition management</td></tr>
 </table>
-<p>The manual's chapter on governments and the transition (k13) is left out until its lecture has been held.</p>
 
 <div class="callout tip husk"><span class="h">Must know</span>
 <ul><li>A true/false statement is false if any one part of it is false: read every clause.</li>

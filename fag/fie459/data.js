@@ -17,8 +17,9 @@ window.EDU_DATA = window.EDU_DATA || {};
 
 /* ===================== STUDIEPLAN =====================
    8 moduler, fremdriftsstyrt (plan.mode = "modules"): «i dag» er første
-   ufullførte modul. Modul 1–6 følger forelesningene, modul 7 er de foreløpige
-   kapitlene k10–k13, og modul 8 er repetisjon i eksamensformatet.
+   ufullførte modul. Modul 1–7 følger forelesningene (modul 7 er k10–k13,
+   skrevet om fra foilene i oktober 2026), og modul 8 er repetisjon i
+   eksamensformatet.
 
    estMinutes settes av tools/rekalibrer-plan.py fie459 etter hva kapitlene
    faktisk inneholder.
@@ -146,22 +147,22 @@ window.EDU_DATA.plan = {
       tip: "Dette er også stoffet gruppeoppgaven bygger på: strategien fra kapittel 8, og spørsmålet om historien allerede er priset fra kapittel 9." },
 
     { day: 7, phase: "Resten av kurset",
-      title: "Obligasjoner, bank, forsikring og myndighetenes rolle",
-      chapters: [10, 11, 12, 13], estMinutes: 110,
+      title: "Obligasjoner, bank, forsikring, koalisjoner og omstilling",
+      chapters: [10, 11, 12, 13], estMinutes: 200,
       goals: [
-        "Skille use-of-proceeds-obligasjoner fra sustainability-linked bonds",
-        "Skille fysisk risiko fra overgangsrisiko i en bankportefølje",
-        "Forklare forsikringens to sider: underwriting og investering",
-        "Forklare myndighetenes rolle og hva integrated thinking betyr",
+        "Skille grønne, sosiale og bærekraftige obligasjoner (use of proceeds) fra sustainability-linked bonds, og forklare hvorfor ESG kommer inn i gjeld som risiko",
+        "Skille risk-based fra value-based banking, og green loans, transition loans og sustainability-linked loans",
+        "Forklare forsikringsbalansen (avsetninger mot egenkapital), katastrofemodellen og VaR = EL + UL",
+        "Forklare hvorfor investorer går i koalisjoner, Ostroms designprinsipper og backcasting",
       ],
-      keyConcepts: ["Green bond", "Sustainability-linked bond", "Physical risk", "Transition risk", "Protection gap", "Integrated thinking"],
+      keyConcepts: ["Green bond", "Sustainability-linked bond", "Risk-based vs value-based banking", "Pillar 3", "Catastrophe model", "Cat bond", "Coalition", "Backcasting"],
       review: [8, 9],
       tasks: [
-        { t: "Les de foreløpige kapitlene", sub: "Skrevet før foilene kom. Ta dem som et kart, og les dem igjen når forelesningen er holdt.", rute: "#/chapter/10" },
+        { t: "Les kapittel 10–13", sub: "Skrevet fra foilene til forelesning 10–13. Kapittel 11 har også DNB-gjesteforelesningen.", rute: "#/chapter/10" },
         { t: "Ta quizen på kapittel 10–13", sub: "", rute: "#/quiz" },
       ],
       milestone: "Du har sett hele kurset én gang",
-      tip: "Kapittel 10–13 oppdateres når forelesningene er holdt. Begrepene holder, men vektleggingen er en gjetning." },
+      tip: "Foreleseren deler ut noen eksempelspørsmål på de to gjesteforelesningene etter forelesning 13. Skaff dem: de er det nærmeste faget har en gammel eksamen." },
 
     { day: 8, phase: "Eksamenstrening",
       title: "Repetisjon i eksamensformatet",
@@ -652,116 +653,200 @@ window.EDU_DATA.flashcards = [
     "back": "Not necessarily. Cohen, Gurun and Nguyen (2020): oil, gas and energy firms, low-ESG and often excluded from ESG funds, produce more and higher-quality green patents.<br>Blanket exclusion can starve key green innovators; reward-based incentives may work better."
   },
   {
-    "id": "fc10-1",
+    "id": "fc10-5",
     "ch": 10,
     "deck": "begrep",
-    "front": "Use-of-proceeds bond (green, social, sustainability)",
-    "back": "A bond whose money is <b>earmarked</b> for eligible projects: green (renewables, efficiency, clean transport), social (affordable housing, health, education) or a mix of both (sustainability bond).<br>Usually still a claim on the whole issuer, so the credit risk is the <b>issuer's</b>, not the project's."
+    "front": "Bond valuation drivers: sovereign vs corporate",
+    "back": "Price moves with the <b>yield to maturity</b>, which reflects risk, which is summarised in <b>ratings</b>.<br><b>Sovereign:</b> GDP, GDP growth, GDP per capita, inflation, external debt, default history.<br><b>Corporate:</b> default risk, loss given default, liquidity risk, credit migration risk."
   },
   {
-    "id": "fc10-2",
+    "id": "fc10-6",
     "ch": 10,
     "deck": "mekanisme",
-    "front": "How does a sustainability-linked bond work?",
-    "back": "The proceeds are free to use (general corporate purposes). The issuer sets <b>KPIs</b> and <b>sustainability performance targets</b>; if a target is missed by the observation date, the coupon usually <b>steps up</b>.<br>Weak spots: easy targets, small step-ups, late test dates."
+    "front": "Why is ESG a downside story for debt holders?",
+    "back": "Debt holders get at most the promised amount D; equity holders keep everything above it. An ESG strength adds little for the bondholder, but an ESG problem that pushes asset value below D causes a loss. So ESG enters bonds through <b>default risk, loss given default and the rating</b>."
   },
   {
-    "id": "fc10-3",
-    "ch": 10,
-    "deck": "intuisjon",
-    "front": "Why is ESG mainly a downside-risk issue for bondholders?",
-    "back": "Debt has an <b>asymmetric payoff</b>: capped upside (coupons and principal), full downside in default. ESG matters when it raises the probability of default or lowers recovery, and most for <b>long maturities</b> and <b>weak credit</b>."
-  },
-  {
-    "id": "fc10-4",
+    "id": "fc10-7",
     "ch": 10,
     "deck": "begrep",
-    "front": "Greenium",
-    "back": "The <b>lower yield</b> on a green bond than on an otherwise identical conventional bond from the same issuer.<br>Both carry the same credit risk, so the greenium reflects investor demand for the label (taste), not lower default risk."
+    "front": "The four components of the Green Bond Principles (GBP, 2017)",
+    "back": "1. <b>Use of proceeds</b>: exclusively green projects, described in the legal documentation.<br>2. <b>Project evaluation and selection</b>: objectives, process and eligibility criteria.<br>3. <b>Management of proceeds</b>: sub-account, tracked and verified.<br>4. <b>Reporting</b>: mandatory, on the use of proceeds."
   },
   {
-    "id": "fc11-1",
+    "id": "fc10-8",
+    "ch": 10,
+    "deck": "begrep",
+    "front": "ICMA's four voluntary sets of principles plus the regulation beside them",
+    "back": "Green Bond Principles (GBP), Social Bond Principles (SBP), Sustainability Bond Guidelines (SBG) and Sustainability-Linked Bond Principles (SLBP).<br>Regulation: the EU's <b>European Green Bond Standard</b>.<br>Green, social and sustainability bonds are <i>use of proceeds</i>; sustainability-linked bonds are not."
+  },
+  {
+    "id": "fc10-9",
+    "ch": 10,
+    "deck": "mekanisme",
+    "front": "Five reasons bonds matter for sustainability",
+    "back": "1. <b>Maturity</b>: issuers must refinance, so investors can set terms.<br>2. <b>Market size</b>: larger than equities.<br>3. <b>Short «bad» bonds</b> (Adani in the FT).<br>4. <b>Engagement</b>.<br>5. <b>Signaling</b> (Flammer 2021)."
+  },
+  {
+    "id": "fc10-10",
+    "ch": 10,
+    "deck": "intuisjon",
+    "front": "Flammer (2021): why is the green bond effect strongest for first-time and certified issuers?",
+    "back": "Her reading is <b>signaling</b>. A first green bond carries the most new information while third-party certification makes the signal harder to fake. After issuance, environmental performance improves and long-term, green ownership rises, so the signal is credible."
+  },
+  {
+    "id": "fc10-11",
+    "ch": 10,
+    "deck": "begrep",
+    "front": "Sustainability-linked derivative (ING and SBM Offshore, 2019)",
+    "back": "An interest rate swap hedging SBM's floating rate credit facility: SBM pays fixed. ING sets a yearly ESG target (scored by Sustainalytics). Met: fixed rate <b>5–10 bp lower</b>. Missed: <b>5–10 bp penalty</b>.<br>Contrast: in HSBC's swap with Siemens Gamesa the rate never changes; ESG rating changes trigger donations."
+  },
+  {
+    "id": "fc11-5",
     "ch": 11,
     "deck": "begrep",
-    "front": "Physical risk vs transition risk",
-    "back": "<b>Physical</b>: damage from climate change itself, acute (floods, storms, wildfires) or chronic (heat, drought, sea-level rise).<br><b>Transition</b>: losses from the move to a low-carbon economy: policy and carbon prices, technology, consumer preferences, litigation.<br>They trade off across NGFS scenarios: a hot house world means high physical and low transition risk."
+    "front": "Risk-based vs value-based banking",
+    "back": "<b>Risk-based</b>: sustainability enters credit risk management and the risk premium. SF 1.0 (exclusion) and SF 2.0 (ESG integration).<br><b>Value-based</b>: the bank lends to create social and environmental value. SF 3.0 (impact lending, microfinance).<br><i>Schoenmaker &amp; Schramade (2019)</i>"
   },
   {
-    "id": "fc11-2",
-    "ch": 11,
-    "deck": "begrep",
-    "front": "Financed emissions",
-    "back": "A bank's real footprint: the emissions of the firms it finances, attributed to the bank in proportion to its share of their financing. Far larger than the emissions from its own offices."
-  },
-  {
-    "id": "fc11-3",
+    "id": "fc11-6",
     "ch": 11,
     "deck": "mekanisme",
-    "front": "How does a carbon price reach a bank's loan book?",
-    "back": "Carbon price → borrower's costs rise → cash flows fall if the cost cannot be passed on → higher <b>probability of default</b>. A stranded plant as collateral → higher <b>loss given default</b>.<br>Result: higher expected losses, provisions, capital and loan prices. Climate risk drives existing credit risk rather than forming a new category."
+    "front": "How does ESG reach a bank's credit decision?",
+    "back": "Through <b>creditworthiness</b> (ESG factors move the credit risk indicators) and through <b>collateral value</b> (e.g. real estate).<br>Four-step credit score: (1) analyse the industry, (2) paths for the average company, (3) material ESG issues, (4) weight and combine.<br>Weber (2010): sustainability criteria improve the predictive validity of credit ratings."
   },
   {
-    "id": "fc11-4",
+    "id": "fc11-7",
+    "ch": 11,
+    "deck": "begrep",
+    "front": "Green loan vs transition loan vs sustainability-linked loan (DNB guest lecture)",
+    "back": "<b>Green</b>: proceeds earmarked for environmental investments (LMA Green Loan Principles).<br><b>Transition</b>: proceeds earmarked for investments that cut emissions (LMA guide for transition loans).<br><b>SLL</b>: general corporate purposes; margin rises or falls with pre-agreed targets (LMA SLL Principles)."
+  },
+  {
+    "id": "fc11-8",
     "ch": 11,
     "deck": "intuisjon",
-    "front": "Why can dropping polluting clients be paper decarbonisation?",
-    "back": "The bank's financed emissions fall, but the plant keeps running if another, often less-monitored, lender finances it, so real emissions may not fall at all. Financing a credible transition plan can cut more."
+    "front": "Why are a bank's most important ESG issues indirect?",
+    "back": "A bank's ESG relates primarily to its <b>clients' activities</b>. SASB lists no environmental issue for commercial banks; the lecture calls <b>credits and investments</b> the bank's indirect material issues. Credit risk is «indirectly all risks a counterparty faces»."
   },
   {
-    "id": "fc12-1",
+    "id": "fc11-9",
+    "ch": 11,
+    "deck": "begrep",
+    "front": "Equator Principles vs UN Principles for Responsible Banking",
+    "back": "<b>Equator Principles</b>: benchmark for environmental and social risk in <i>projects</i>; ten principles; 116 institutions in 37 countries (March 2021).<br><b>PRB</b> (UNEP FI, 2019): six principles for the whole bank (alignment, impact and target setting, clients, stakeholders, governance and culture, transparency); impact analysis, target setting, reporting."
+  },
+  {
+    "id": "fc11-10",
+    "ch": 11,
+    "deck": "begrep",
+    "front": "EBA Pillar 3 ESG disclosures: what do banks report?",
+    "back": "<b>Risk</b>: transition (fossil fuel exposures, real estate by energy performance) and physical (chronic and acute, by sector and geography).<br><b>Mitigating actions</b> outside the taxonomy.<br><b>GAR</b> and <b>BTAR</b>: share of exposures financing taxonomy-aligned activities.<br><b>Qualitative</b>: governance, business model, risk management."
+  },
+  {
+    "id": "fc11-11",
+    "ch": 11,
+    "deck": "intuisjon",
+    "front": "Does value-based banking cost return?",
+    "back": "Not in the GABV data (2006–15): values-based banks had an ROE of 8.3% vs 8.7% for global banks, but an ROE standard deviation of only 4.9% vs 7.7%. They lend more (76.8% vs 41.6% of assets in 2015) and fund with deposits. <i>Similar return, more stable.</i>"
+  },
+  {
+    "id": "fc12-5",
     "ch": 12,
     "deck": "begrep",
-    "front": "Underwriting side vs investing side of an insurer",
-    "back": "<b>Underwriting</b> (liabilities): pricing and carrying risk in return for premiums; hit by physical risk through claims.<br><b>Investing</b> (assets): premiums invested until claims are paid; hit by transition risk through holdings that strand."
+    "front": "Technical provisions versus equity in an insurer's balance sheet",
+    "back": "<b>Technical provisions</b> cover <b>expected</b> claims.<br><b>Equity</b> covers <b>unexpected</b> claims.<br>Profit and loss: premium income + investment income − claims − expenses."
   },
   {
-    "id": "fc12-2",
+    "id": "fc12-6",
     "ch": 12,
     "deck": "begrep",
-    "front": "Protection gap",
-    "back": "The part of economic losses from disasters that is <b>not insured</b>. It widens when cover becomes unaffordable or unavailable, and the loss then falls on households, firms and ultimately taxpayers.<br>Not the same as premiums minus claims."
+    "front": "The five components of the catastrophe model (Schoenmaker & Schramade 2019)",
+    "back": "1. <b>Hazard</b>: extent and intensity of the catastrophe<br>2. <b>Vulnerability</b>: relative damage to the assets<br>3. <b>Exposure</b>: building, contents and business interruption values<br>4. <b>Financial loss</b>: physical damage into monetary loss, before insurance<br>5. <b>Platform</b>: integrates the four"
   },
   {
-    "id": "fc12-3",
+    "id": "fc12-7",
     "ch": 12,
     "deck": "mekanisme",
-    "front": "Why does climate change strain insurability?",
-    "back": "An insurable risk needs estimable losses, many independent policyholders and affordable premiums. Climate change strains all three: the <b>past is a poor guide</b> to future claims, losses are <b>correlated</b> (one storm hits a whole region), and premiums rise beyond what people can pay."
+    "front": "How is value at risk (VaR) built up on the lecture's loss distribution?",
+    "back": "<b>VaR = expected loss (EL) + unexpected loss (UL)</b> at a chosen confidence level.<br>Losses beyond VaR occur with probability 100% minus the confidence level.<br>EL matches the technical provisions, UL the equity buffer."
   },
   {
-    "id": "fc12-4",
+    "id": "fc12-8",
+    "ch": 12,
+    "deck": "mekanisme",
+    "front": "How is a catastrophe too big for one insurer shared?",
+    "back": "1. Divided among <b>insurers and reinsurers</b><br>2. <b>Government programmes</b> when insurance and reinsurance do not suffice (US NFIP)<br>3. <b>Cat bonds</b>: corporate bonds that let the issuer <b>skip or defer scheduled payments</b> after a catastrophic loss"
+  },
+  {
+    "id": "fc12-9",
     "ch": 12,
     "deck": "intuisjon",
-    "front": "Why doesn't annual repricing make climate risk irrelevant for non-life insurers?",
-    "back": "Repricing protects the insurer's balance sheet in the short run, but it <b>moves</b> the risk rather than removing it: policyholders and governments carry it, the protection gap widens, and the insurer's market shrinks."
+    "front": "What does DNB (2017), De Nederlandsche Bank's Waterproof report, show for climate-related claims on homeowner's policies?",
+    "back": "2016: 409 of 1,858 in claims (EUR millions).<br>2085: <b>+10% to +52%</b> at 1.5 °C, <b>+25% to +131%</b> at 3.5 °C.<br>Storm stays at 187; rain and hail drive the rise. Claims rise even in the 1.5 °C scenario."
   },
   {
-    "id": "fc13-1",
+    "id": "fc12-10",
+    "ch": 12,
+    "deck": "begrep",
+    "front": "The four UN Principles for Sustainable Insurance (PSI)",
+    "back": "1. Embed ESG issues in decision-making<br>2. Work with <b>clients and business partners</b> on awareness, risk and solutions<br>3. Work with <b>governments, regulators and other stakeholders</b> for action across society<br>4. <b>Disclose progress</b> regularly and publicly"
+  },
+  {
+    "id": "fc12-11",
+    "ch": 12,
+    "deck": "intuisjon",
+    "front": "Microinsurance: what, who and with what impact?",
+    "back": "Financial protection of <b>low-income people and micro-enterprises</b> against health and property risks, to avoid the poverty trap.<br>Suppliers: commercial insurers, community-based organisations and cooperatives, microfinance institutions.<br>Impact: <b>social</b> gains (healthcare access, fewer catastrophic expenditures), but the firms are <b>hard to make profitable</b>."
+  },
+  {
+    "id": "fc13-5",
     "ch": 13,
     "deck": "begrep",
-    "front": "Carbon tax vs cap-and-trade",
-    "back": "<b>Carbon tax</b>: the government fixes the price; the quantity emitted is uncertain.<br><b>Cap-and-trade</b> (e.g. EU ETS): the government fixes the quantity; the allowance price is uncertain."
+    "front": "Coalition for sustainable finance",
+    "back": "A group of like-minded organisations (investors, banks or companies) forming a non-profit platform to pursue sustainable business and finance practices.<br>Examples: <b>PRI</b>, FCLT Global, GIIN (asset management); <b>Equator Principles</b>, GABV (banking); WEF, <b>WBCSD</b> (corporates)."
   },
   {
-    "id": "fc13-2",
+    "id": "fc13-6",
     "ch": 13,
     "deck": "begrep",
-    "front": "Taxonomy, CSRD and SFDR: who and what?",
-    "back": "<b>Taxonomy</b>: defines which economic activities count as environmentally sustainable.<br><b>CSRD</b>: companies report on sustainability with double materiality (ESRS).<br><b>SFDR</b>: asset managers, pension funds and insurers disclose how their products handle sustainability (Articles 8 and 9)."
+    "front": "The six motives to join a coalition",
+    "back": "1. <b>Collective advocacy</b>: lobby for policy, less policy uncertainty<br>2. <b>Reputation</b>: be seen as a leader<br>3. <b>Peer effect</b>: peers joined, avoid a competitive disadvantage<br>4. <b>Outside pressure</b>: consumers, investors, NGOs<br>5. <b>Risk avoidance</b>: stranded assets<br>6. <b>Collective engagement</b>: higher engagement success"
   },
   {
-    "id": "fc13-3",
+    "id": "fc13-7",
+    "ch": 13,
+    "deck": "mekanisme",
+    "front": "Why does free riding threaten a coalition and what does Ostrom's design do about it?",
+    "back": "Each member bears its own compliance cost, but the benefits are shared, so it pays to join and shirk.<br>Ostrom (1990): <b>clear boundaries</b>, <b>membership rules</b>, <b>collective choice</b>, <b>monitoring</b>, <b>sanctions and rewards</b>, <b>conflict resolution</b>.<br>Monitoring makes shirking visible; sanctions make it costly."
+  },
+  {
+    "id": "fc13-8",
     "ch": 13,
     "deck": "intuisjon",
-    "front": "Integrated thinking vs integrated reporting",
-    "back": "<b>Integrated thinking</b>: managing financial, social and environmental value together in core decisions.<br><b>Integrated reporting</b> (IR framework): the report that describes how the firm uses and affects the six capitals.<br>Thinking is the practice; the report shows it."
+    "front": "Why do the largest coalitions have the least ambitious SF type?",
+    "back": "Size and ambition are <b>inversely related</b> (Table 4.3). Coalitions covering 20 to 40% of their sector sit at SF 1.0/2.0; SF 3.0 coalitions (GIIN, GABV at 2.0/3.0) cover under 1%.<br>A broad coalition must accept members who still put profit first. <i>Trap:</i> biggest is not most ambitious."
   },
   {
-    "id": "fc13-4",
+    "id": "fc13-9",
+    "ch": 13,
+    "deck": "mekanisme",
+    "front": "Dimson, Karakaş & Li: what makes engagements succeed?",
+    "back": "<b>2015:</b> success is followed by positive abnormal returns (failure by zero); more likely with reputational concerns and capacity to change; <b>collaboration among activists raises success</b>.<br><b>2020:</b> two-tier strategy (lead plus supporting investors). Best with domestic leads, international supporters and an influential coalition."
+  },
+  {
+    "id": "fc13-10",
     "ch": 13,
     "deck": "begrep",
-    "front": "Binding regulation vs voluntary initiatives",
-    "back": "<b>Binding</b>: EU law (Taxonomy, CSRD, SFDR) and supervisors' rules.<br><b>Voluntary</b>: UN PRI, ICMA Green Bond Principles, UNEP FI principles for banking and insurance; the NGFS is a voluntary network of central banks and supervisors.<br>Voluntary initiatives set norms and reduce free-riding, but carry no legal penalty, and members can leave."
+    "front": "Backcasting",
+    "back": "Planning from the end point back to today (Figure 12.2, after Loorbach 2010):<br>1. Describe the <b>vision and ambitions</b><br>2. Create <b>pathways with stepping stones</b><br>3. Formulate <b>concrete actions</b> now<br>Forecasting extrapolates trends; backcasting fixes the goal first (e.g. a 1.5°C pathway)."
+  },
+  {
+    "id": "fc13-11",
+    "ch": 13,
+    "deck": "intuisjon",
+    "front": "What can government do that coalitions cannot and where is it weak?",
+    "back": "Strong leadership role: <b>taxation, regulation, carbon pricing</b>, monitoring and sanctioning, supranational coalitions (IPCC) and action via the UN, the OECD and the Paris Agreement.<br>Weak spots in Table 3.1: horizon of <b>up to four years</b>, shortfall of efforts, <b>free-rider behaviour</b>.<br>Gates: pull technology, policy and markets at the same time."
   }
 ];
 /* </FLASHCARDS> */

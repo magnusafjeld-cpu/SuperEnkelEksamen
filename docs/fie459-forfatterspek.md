@@ -107,12 +107,14 @@ python3 tools/sjekk-manual.py FIE459_Manual.html
 | k7 | Metrics and reporting | L7 + PwC-gjesteforelesningen | 1 200–1 800 |
 | k8 | Investing for long-term value creation | L8 | 1 200–1 800 |
 | k9 | ESG integration and asset prices | L9 | 1 200–1 800 |
-| k10 | Non-equity asset classes | **foreløpig**: syllabus + lærebokas kap. 9 | 600–1 000 |
-| k11 | Banking | **foreløpig**: syllabus + kap. 10 | 600–1 000 |
-| k12 | Insurance | **foreløpig**: syllabus + kap. 11 | 600–1 000 |
-| k13 | Governments, transition management, integrated thinking | **foreløpig**: syllabus + kap. 4 og 12 | 600–1 000 |
+| k10 | Non-equity asset classes | L10 | 1 200–1 800 |
+| k11 | Banking | L11 + DNB-gjesteforelesningen (13/10) | 1 200–1 800 |
+| k12 | Insurance | L12 | 1 200–1 800 |
+| k13 | Coalitions, governments and transition management | L13 | 1 200–1 800 |
 
-**Foreløpige kapitler (k10–k13)** begynner rett etter lead-in med:
+**k10–k13 ble skrevet om fra foilene 21. oktober 2026** og er ikke lenger foreløpige. Avvikene som ble rettet, står i `docs/fie459-k10-k12-avvik.md`. Teksten under gjaldt den første versjonen og beholdes som historikk.
+
+Før omskrivingen begynte de foreløpige kapitlene rett etter lead-in med:
 
 ```html
 <div class="callout warn"><span class="h">Provisional chapter</span>
@@ -516,7 +518,7 @@ returns in k5 and k9 and is the course's backbone.
   except screening on scores.
 - Impact investing (GIIN).
 
-### k10–k13 (foreløpige)
+### k10–k13 (første, foreløpige versjon; erstattet 21. oktober 2026)
 - **k10 Non-equity asset classes:** bonds and loans as debt stakes (downside
   risk focus: ESG as credit risk), green bonds (use of proceeds), social and
   sustainability bonds, sustainability-linked bonds (coupon tied to KPIs, not
@@ -557,7 +559,7 @@ Skrives som JSON i `…/scratchpad/fie459/utkast/kN.json`:
 ```
 
 - **Antall per kapittel:** k0: 1 flervalg + 2 sant/usant, 3 kort. k1–k9: 5 flervalg
-  + 3 sant/usant, 7 kort. k10–k13: 3 flervalg + 2 sant/usant, 4 kort.
+  + 3 sant/usant, 7 kort. k10–k13: 3 flervalg + 2 sant/usant, 4 kort i første versjon; etter omskrivingen 5 flervalg + 3 sant/usant og 7 nye kort, med nye id-er (q10-6 …, fc10-5 …).
 - **Fasitposisjonen er pålagt** i `…/scratchpad/fie459/fasitplan.json` (bokstav per
   flervalgsspørsmål i rekkefølge, True/False per sant/usant). Følg den nøyaktig.
 - Flervalg: fire alternativer, alle plausible, like lange, ingen «all of the

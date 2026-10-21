@@ -262,7 +262,7 @@ Forfatterspesifikasjonene er `docs/fie402-kjerne-spek.md` (åpen minicase, engel
 `docs/fie432-kjerne-spek.md` (flervalgsminicase, norsk) og
 `docs/fie459-kjerne-spek.md` (flervalg og sant/usant, engelsk).
 
-**FIE459 (21. oktober 2026)** har sju deler og rundt 6 900 ord. Eksamen er flervalg
+**FIE459 (21. oktober 2026)** har åtte deler og rundt 7 800 ord. Eksamen er flervalg
 og sant/usant, så minicasen har to flervalgsledd og ett sant/usant-ledd
 (`options: ["True", "False"]`). Kontrollen godtar sant/usant i sjekker og ledd og
 måler balansen sanne/usanne for seg. Ingenting i kildene sier at eksamen gir

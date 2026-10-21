@@ -1,51 +1,102 @@
 <section id="k10">
 <a class="backtotop" href="#toc">↑ contents</a>
-<h2 class="chap">10 · Beyond equity: bonds, loans and other asset classes</h2>
+<h2 class="chap">10 · Beyond equity: bonds, derivatives and other asset classes</h2>
 
-<p class="lead-in">A lender looks at sustainability from the downside: can an ESG problem stop the borrower from repaying? This chapter explains that credit-risk view, separates the two families of labelled bonds (use of proceeds versus sustainability-linked), and covers the greenium, private equity and real assets. The labelled-bond distinction is the likeliest exam question.</p>
+<p class="lead-in">Most of the world's capital is not listed shares. This chapter starts with bonds: how they are valued, how ratings capture risk, which ESG issues matter for sovereign and corporate issuers, how green, social and sustainability bonds work and why bonds matter for sustainability. It then covers real estate, infrastructure, commodities and derivatives. Expect questions that classify a bond or apply Flammer (2021).</p>
 
-<div class="callout warn"><span class="h">Provisional chapter</span>
-Written before the lecture slides for this topic were available, from the
-syllabus and the textbook chapter's standard content. It will be revised when
-the lecture is out. Treat the concepts as reliable and the emphasis as a guess.</div>
+<h3>10.1 Debt holders: a capped upside</h3>
+<p>Bonds and loans give the same claim. If the firm's asset value ends above the debt D, debt holders get D and equity holders keep the rest. If it ends below D, the firm defaults and debt holders take what is left. Their payoff is capped at what they were promised, while their losses grow as the asset value falls. Loans are the subject of the banking lecture (chapter 11); this chapter is about bonds.</p>
 
-<h3>10.1 Why debt investors see ESG as downside risk</h3>
-<p>A bondholder or lender is promised fixed coupons and the principal back. If the firm thrives, the lender still gets only what was promised; if it fails, the lender loses. The payoff is <b>asymmetric</b>: capped upside, full downside. Sustainability therefore enters debt analysis mainly as <b>credit risk</b>. Does an ESG issue raise the probability of default, or cut what the lender recovers after a default, for example because the collateral is a coal plant nobody wants?</p>
+<div class="callout mech"><span class="h">Why ESG enters debt as risk</span>
+A debt holder gains nothing if an ESG strength makes the firm worth more than D. They lose if an ESG problem pushes the asset value below D. So for bonds, ESG matters through the downside: default risk, loss given default and the rating. The equity holder shares in the upside; the bondholder mostly cares about the downside.</div>
 
-<div class="callout mech"><span class="h">When ESG matters most for a bond</span>
-Stranded assets, litigation or a carbon price take time to hit cash flows, and they only hurt a lender if they push the borrower towards default. So ESG matters most for <b>long maturities</b> (the risk has time to materialise before repayment) and <b>weak credit quality</b> (the issuer is already close to default). For a short bond from a strong issuer, even a serious ESG problem rarely threatens repayment.</div>
-
-<p>Bondholders do not vote, so their leverage comes when the issuer needs new money: at issuance and refinancing they set the price and the covenants. For <b>sovereign bonds</b> the same logic applies to countries: governance (institutions, corruption, rule of law), social stability and exposure to climate change or fossil-fuel revenues all affect a state's ability to repay.</p>
-
-<h3>10.2 Use-of-proceeds bonds: green, social and sustainability</h3>
-<p>A <b>green bond</b> is an ordinary bond whose proceeds are earmarked for eligible green projects, such as renewable energy, energy efficiency, clean transport or green buildings. A <b>social bond</b> earmarks the money for social projects (affordable housing, access to health care or education), and a <b>sustainability bond</b> finances a mix of the two. The label says where the money goes. In the standard case the bond is still a claim on the whole issuer, so its credit risk is the issuer's credit risk, not the project's.</p>
-<p>The market runs on voluntary guidelines, chiefly ICMA's Green Bond Principles (use of proceeds, project selection, management of proceeds, reporting), usually checked by an external reviewer. The EU's voluntary European Green Bond Standard ties the proceeds mainly to taxonomy-aligned activities (chapter 7; general background, not from the lecture).</p>
-
-<div class="callout mistake"><span class="h">Trap: a green label is not a greener firm</span>
-Money is fungible: a firm can fund green projects it would have done anyway with a green bond and spend the freed-up money on anything. The label proves allocation, not additionality; an oil company can issue a green bond without changing its overall emissions. Judge the issuer, not just the bond.</div>
-
-<h3>10.3 Sustainability-linked bonds</h3>
-<p>A <b>sustainability-linked bond (SLB)</b> turns the logic around. The proceeds can be used for <b>general corporate purposes</b>. What is tied to sustainability is the bond's terms: the issuer chooses key performance indicators (KPIs), such as emission intensity, and sets sustainability performance targets. If a target is missed by the observation date, the coupon usually <b>steps up</b>, so the issuer pays a penalty. SLBs suit firms in transition, such as cement or steel producers, which have few separable green projects but can commit to firm-level targets. Their weak spots are easy targets, small step-ups and late test dates.</p>
+<h3>10.2 What drives a bond's price</h3>
+<p>Schoenmaker &amp; Schramade (2019) start from the pricing formula. The price is the present value of the coupons (CPN) and the face value (FV), each discounted at the yield to maturity (YTM):</p>
+<p>P = CPN / (1 + YTM<sub>1</sub>) + CPN / (1 + YTM<sub>2</sub>)<sup>2</sup> + … + (CPN + FV) / (1 + YTM<sub>n</sub>)<sup>n</sup></p>
+<p>The chain to remember: the coupon is fixed, so the price moves with the <b>yield to maturity</b>; the yield reflects <b>risk</b>; and risk is summarised in <b>ratings</b>. The drivers of risk differ by issuer:</p>
 
 <table class="data">
-<tr><th></th><th>Green, social or sustainability bond</th><th>Sustainability-linked bond</th></tr>
-<tr><td>Tied to sustainability</td><td>The use of the money</td><td>The coupon, via KPIs and targets</td></tr>
-<tr><td>Use of proceeds</td><td>Earmarked for eligible projects</td><td>Free: general corporate purposes</td></tr>
-<tr><td>Investors monitor</td><td>Allocation and impact reports on the projects</td><td>The issuer's performance on the KPIs</td></tr>
-<tr><td>Typical weakness</td><td>Fungibility, no additionality</td><td>Unambitious targets, small penalty</td></tr>
+<tr><th>Sovereign bonds</th><th>Corporate bonds</th></tr>
+<tr><td>GDP, GDP growth, GDP per capita</td><td>Default risk</td></tr>
+<tr><td>Inflation</td><td>Loss given default</td></tr>
+<tr><td>External debt</td><td>Liquidity risk</td></tr>
+<tr><td>Default history</td><td>Credit migration risk (rating changes)</td></tr>
 </table>
 
-<p>Loans come in the same two families: green loans and sustainability-linked loans (chapter 11).</p>
+<h3>10.3 Credit ratings and ESG</h3>
+<p>S&amp;P Global Ratings builds a corporate rating from <b>country risk</b>, <b>industry risk</b> and <b>competitive position</b>, combined with <b>cash flow/leverage</b>. It then adjusts for diversification, capital structure, financial policy, liquidity, <b>management/governance</b> and comparable ratings, then finally for <b>group or government influence</b>. Governance is a named factor; environmental and social issues have no box of their own.</p>
+<p>Two sources say ESG does reach ratings. Attig, El Ghoul, Guedhami &amp; Suh (2013) find that «credit rating agencies tend to award relatively high ratings to firms with good social performance»; the CSR components tied to primary stakeholders (community relations, diversity, employee relations, environmental performance and product characteristics) matter most. S&amp;P itself puts it as: the question is not <i>if</i> ESG factors affect credit ratings, but <i>how</i>.</p>
 
-<h3>10.4 The greenium</h3>
-<p>The <b>greenium</b> is the lower yield on a green bond compared with an otherwise identical conventional bond from the same issuer (same maturity and seniority). Because both bonds carry the same credit risk, a greenium cannot be a reward for lower default risk. It reflects demand: investors with green tastes or green mandates accept a slightly lower return for the label. Most studies find the bond greenium small (general background, not from the lecture), so the issuer's main gains are a broader investor base and a public signal of commitment, not cheap money.</p>
+<h3>10.4 Which ESG issues matter for which bonds</h3>
+<p>Schoenmaker &amp; Schramade sort the ESG issues relevant to bonds into three groups. A selection:</p>
+
+<table class="data">
+<tr><th></th><th>Corporate and sovereign</th><th>Mostly sovereign</th><th>Mostly corporate</th></tr>
+<tr><td>E</td><td>Climate change, biodiversity, energy, pollution, natural resources</td><td>Natural disasters, land system change</td><td>Product stewardship, redemption of used products</td></tr>
+<tr><td>S</td><td>Human rights, education and human capital, health and safety</td><td>Political freedoms, demographic change, employment, poverty, crime, food security</td><td>Product responsibility, diversity, employee, community and consumer relations</td></tr>
+<tr><td>G</td><td>Financial policy, accounting standards</td><td>Institutional strength, corruption, regime stability, civil liberties, rule of law, regulatory quality</td><td>Shareholder rights, incentives, audit, board expertise, independent directors, business integrity</td></tr>
+</table>
+
+<div class="callout mistake"><span class="h">Trap: governance means different things for a state and a firm</span>
+For a country, governance is corruption, rule of law and regime stability. For a firm, it is shareholder rights, boards and audit. Climate change and biodiversity sit in the shared column. A statement that puts board expertise under sovereigns, or rule of law under corporates, is false.</div>
+
+<h3>10.5 Green, social and sustainability bonds</h3>
+<p>The lecture separates <b>voluntary principles</b> from <b>regulation</b>. The International Capital Market Association (ICMA) publishes four voluntary sets: the Green Bond Principles (GBP), the Social Bond Principles (SBP), the Sustainability Bond Guidelines (SBG) and the Sustainability-Linked Bond Principles (SLBP). On the regulation side stands the EU's European Green Bond Standard.</p>
+<p>Following Sustainalytics (2019), the first three are <b>use-of-proceeds</b> bonds. <b>Green bonds</b> raise money for new and existing projects with environmental benefits (lenders use the parallel Green Loan Principles). <b>Social bonds</b> fund projects with positive social outcomes. <b>Sustainability bonds</b> apply the proceeds exclusively to a combination of green and social projects. A <b>sustainability-linked bond</b> works differently: the money is not earmarked; it is a general corporate purpose bond whose financial terms, typically the coupon, are linked to sustainability performance targets (DNB guest lecture, 13 October 2026; see k11). Chapter 11 draws the same line for loans.</p>
+<p>The Green Bond Principles (GBP, 2017) have four components:</p>
+
+<table class="data">
+<tr><th>Component</th><th>What it requires</th></tr>
+<tr><td>Use of proceeds</td><td>Exclusively for green projects, described in the bond's legal documentation</td></tr>
+<tr><td>Project evaluation and selection</td><td>Tell investors the environmental objectives, how projects are matched to eligible categories and the eligibility criteria</td></tr>
+<tr><td>Management of proceeds</td><td>Net proceeds go to a sub-account and are tracked and verified</td></tr>
+<tr><td>Reporting</td><td>Mandatory, on the use of the proceeds</td></tr>
+</table>
+
+<p>The market grew fast. Global labelled sustainable bond issuance (World Bank, based on Environmental Finance data) went from USD 108 billion in 2016 to a peak of USD 1,162 billion in 2021, then ran at about USD 1,000 billion a year before falling to USD 904 billion in 2025. Green bonds are the largest category every year; sustainability-linked and transition bonds are small.</p>
+
+<h3>10.6 Why bonds matter for sustainability</h3>
+<p>The lecture gives five reasons:</p>
+<ul>
+<li><b>Maturity.</b> Bonds expire, so issuers must refinance. At each refinancing investors can set terms.</li>
+<li><b>Market size.</b> The bond market is larger than the equity market.</li>
+<li><b>Short «bad» bonds.</b> Investors can short the bonds of firms they see as bad. The FT case: after a short-seller attack, Gautam Adani trimmed capital expenditure and bought back bonds to shore up confidence.</li>
+<li><b>Engagement.</b> Bondholders can engage with issuers, not only shareholders.</li>
+<li><b>Signaling.</b> Issuing a green bond can signal commitment.</li>
+</ul>
+
+<p>Flammer (2021), «Corporate green bonds», tests the signaling story. Investors respond positively to the announcement of a green bond, most of all for <b>first-time issuers</b> and for bonds <b>certified by third parties</b>. After issuance, issuers improve their environmental performance: higher environmental ratings and lower CO<sub>2</sub> emissions. Ownership by <b>long-term and green investors</b> rises. Flammer reads this as signaling: by issuing green bonds, firms credibly signal their commitment to the environment.</p>
+
+<div class="callout mistake"><span class="h">Trap: first-time and certified, not repeat and uncertified</span>
+The announcement effect is strongest where the signal carries the most new information and is hardest to fake: a firm's first green bond or a bond checked by a third party. Flammer's evidence is about stock price reactions, environmental performance and the investor base. It is not a claim that green bonds give cheaper funding.</div>
 
 <div class="callout link"><span class="h">Link: chapters 8 and 9</span>
-The greenium is the bond version of the taste premium in chapter 9 (Pástor, Stambaugh &amp; Taylor 2022): green assets should have lower <i>expected</i> returns. Chapter 8 listed these bonds, private equity and real assets among the asset classes of SRI.</div>
+The greenium, the lower yield on green bonds, is in chapter 9: it widened as climate concerns grew, the bond version of Pástor, Stambaugh &amp; Taylor's (2022) lower expected green returns. Chapter 8 listed these bonds among the SRI asset classes.</div>
 
-<h3>10.5 Private equity and real assets</h3>
-<p><b>Private equity</b> gives investors concentrated ownership, board seats and a longer horizon than a typical listed holding, which is why chapter 8 called it the usual route for impact investing. The cost is less transparency and a fixed exit date. <b>Real assets</b> carry sustainability in the asset itself: energy efficiency and flood exposure in <b>real estate</b>, renewables versus fossil plants in <b>infrastructure</b>, and natural capital in <b>forests and land</b>. Because these assets last for decades, they are exposed to both physical climate risk and stranded-asset risk (chapter 3).</p>
+<h3>10.7 The wider market portfolio</h3>
+<p>Gadzinski, Schuller &amp; Vacchino (2021) estimate the global market portfolio: public equity, bonds and money markets, loans, cash, private equity plus real estate and land. The data labels in their chart put stock markets at USD 95 trillion in 2019, out of a net global capital stock of about USD 670 trillion (the labels sum to 669); real estate (138), private equity (132) and non-securitised loans (112) were each larger. Sustainable finance that stops at listed shares misses most of the capital.</p>
+<p>NBIM, which manages Norway's sovereign wealth fund, held USD 1,357 billion in June 2021 (Statista), mostly equity (USD 982 billion), then fixed income, with small real estate and renewable energy infrastructure portfolios.</p>
+<p>Responsible investment is uneven across classes. In PRI data from 2016 (shown by Schoenmaker &amp; Schramade), 75–100% of reporting managers did some responsible investment in listed equity, corporate fixed income and private equity, against 50–75% in property, securitised fixed income and sovereign, supranational and agency (SSA) bonds. A second chart on the slide shows year-on-year progress in 2018 for directly managed assets, in percentage points of responsible investment: SSA bonds rose 11.0 and securitised fixed income 9.2, while listed equity was flat (+/- 0%). Farmland rose most, by 52.7.</p>
+
+<h3>10.8 Real estate, infrastructure and commodities</h3>
+<p>For <b>real estate</b>, the PRI follows a direct investor through four phases:</p>
+<ul>
+<li><b>Deal sourcing:</b> identify material ESG issues in screening, due diligence and the planning of new developments and major renovations.</li>
+<li><b>Investment decision:</b> communicate material issues to the investment committee and assess their impact on valuation.</li>
+<li><b>Ownership:</b> include ESG in managing the asset, the use of external property managers and engagement with tenants.</li>
+<li><b>Sale:</b> add value when the asset is sold.</li>
+</ul>
+<p>The UN PRI (2016) action framework for the Paris Agreement in real estate wraps this in a strategy, adviser selection, monitoring and reporting plus market engagement. The World Green Building Council links green buildings to nine of the Sustainable Development Goals, from health and clean energy to climate action and partnerships. Buildings are certified with rating tools such as <b>BREEAM</b> (Building Research Establishment Environmental Assessment Method) and <b>LEED</b> (Leadership in Energy and Environmental Design, US). In Norway, the Green Building Council is Grønn Byggallianse.</p>
+<p><b>Infrastructure</b> and <b>commodities</b> were covered by videos: the sustainable infrastructure imperative and the Swiss Platform for Sustainable Cocoa. The textbook page on the slides lists a social licence to operate and health and safety standards among the ESG considerations in infrastructure.</p>
+
+<h3>10.9 Derivatives</h3>
+<p>The ISDA overview sorts ESG-related derivatives into: sustainability-linked derivatives, ESG-related credit derivatives, ESG-related exchange-traded derivatives, emissions trading, renewable energy and renewable fuels (power purchase agreements, renewable energy certificates, wind index futures, renewable identification numbers, low carbon fuel standards) plus catastrophe and weather derivatives.</p>
+
+<div class="worked"><span class="wh">Case: ING and SBM Offshore (2019)</span>
+<p>In August 2019 ING executed the world's first sustainability improvement derivative. It hedged the interest rate risk on SBM Offshore's USD 1 billion five-year floating rate credit facility: SBM pays a fixed rate and receives a floating rate. Each year ING sets a target ESG score, measured by Sustainalytics. If SBM meets it, the fixed rate falls by 5–10 basis points; if not, SBM pays a 5–10 bp penalty.</p>
+<p>Not every structure moves the price. In HSBC's 2020 swap with Siemens Gamesa the fixed rate never changes. If Siemens Gamesa's ESG rating improves, HSBC donates to non-profit projects; if it declines, Siemens Gamesa donates.</p>
+</div>
 
 <div class="callout tip"><span class="h">What the exam is likely to ask</span>
-Classify a bond from its description: earmarked money means use of proceeds; a coupon tied to KPIs means sustainability-linked. Expect traps on who bears a green bond's credit risk (the issuer), on the direction of the greenium (a lower yield) and on why ESG is a downside story for debt.</div>
+Classify a bond from its description: earmarked for green, social or both, or tied to targets. Know the four GBP components and that reporting is mandatory. Know why ESG is a downside story for debt and which issues are mostly sovereign or mostly corporate. Know Flammer (2021): positive reaction, strongest for first-time and certified issuers, better environmental performance, more long-term and green owners, signaling. Know the five reasons bonds matter and how a sustainability-linked derivative adjusts the rate.</div>
 </section>

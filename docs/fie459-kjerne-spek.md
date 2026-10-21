@@ -59,9 +59,10 @@ Ordbudsjettet gjelder bare `html` (sjekker og minicase kommer i tillegg). ±15 %
 | kj4 | Business models, materiality and reporting | k6, k7 | 1 000 | 3 |
 | kj5 | Investing: strategies, ESG integration and asset prices | k8, k9 | 1 100 | 4 |
 | kj6 | Beyond equity: bonds, banks and insurers | k10, k11, k12 | 900 | 3 |
+| kj7 | Coalitions, governments and transition management | k13 | 800 | 3 |
 
-k13 (myndighetene og omstillingen) er ikke med: forelesning 13 er ikke holdt, og kapitlet er
-foreløpig. kj0 sier det i én setning.
+kj7 kom til 21. oktober 2026, da forelesning 13 var holdt og k13 skrevet om fra foilene.
+kj6 ble skrevet fra foilene før k10–k12 ble skrevet om; begge bygger på samme kilde.
 
 ### Hva hver del må inneholde
 

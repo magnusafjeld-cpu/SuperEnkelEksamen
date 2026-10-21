@@ -7,7 +7,7 @@ window.EDU_DATA.kjerne.push({
   html: `
 <div class="callout kort"><span class="h">In short</span>This part takes sustainable finance to bonds, loans and insurance. A lender gets at most what it was promised, so ESG enters debt as credit risk. Labelled bonds and loans come in two families: the money is earmarked for projects, or the price depends on sustainability targets. Banks and insurers meet climate risk mostly through the borrowers they lend to and the clients they insure. The idea that holds it together: their risk and impact sit in what they finance and insure.</div>
 
-<p class="lead-in">Lectures 10 to 12 apply the course to bonds, banks and insurers, with distinctions that suit true/false: proceeds versus KPIs, risk-based versus value-based banking, physical versus transition risk and expected versus unexpected claims.</p>
+<p class="lead-in">Lectures 10 to 12 bring distinctions that suit true/false: proceeds versus KPIs, risk-based versus value-based banking, physical versus transition risk and expected versus unexpected claims.</p>
 
 <h3>Bonds: ESG as credit risk</h3>
 <p>A bond's price is its cash flows discounted at the yield to maturity. The yield reflects risk, summarised in a credit rating. Debt holders care about the downside: default risk and loss given default. Attig et al. (2013) find that rating agencies tend to give relatively high ratings to firms with good social performance. For countries the issues differ: corruption, rule of law and natural disasters are mostly sovereign (Schoenmaker and Schramade 2019).</p>
@@ -25,7 +25,7 @@ window.EDU_DATA.kjerne.push({
 <p>Green buildings are certified under BREEAM or LEED. Derivatives include emissions trading, catastrophe and weather derivatives and swaps whose rate moves with the client's ESG score (ING and SBM Offshore, 2019).</p>
 
 <h3>Banks: risk-based or value-based</h3>
-<p>Banks finance the economy and are particularly important for small and medium-sized firms. They screen borrowers (against adverse selection), monitor them (against moral hazard) and earn the spread between lending and deposit rates. Credit risk is indirectly all the risks a borrower faces, so a bank's indirect material issues sit in its credits and investments. The EBA's Pillar 3 ESG disclosures split them: <b>transition risk</b> is exposure to carbon-intensive sectors and to real estate by energy performance; <b>physical risk</b> is exposure to acute and chronic climate events by sector and geography.</p>
+<p>Banks finance the economy and are particularly important for small and medium-sized firms. They screen borrowers (against adverse selection), monitor them (against moral hazard) and earn the spread between lending and deposit rates. Credit risk is indirectly all the risks a borrower faces, so a bank's indirect material issues sit in its credits and investments. The EBA's Pillar 3 ESG disclosures split them: <b>transition risk</b> is exposure to fossil-fuel firms and to real estate by energy performance; <b>physical risk</b> is exposure to acute and chronic climate events by sector and geography.</p>
 <table>
 <tr><th>Typology</th><th>Bank loans</th><th>Approach</th></tr>
 <tr><td>SF 1.0</td><td>Exclusion</td><td>Risk-based</td></tr>
@@ -36,8 +36,8 @@ window.EDU_DATA.kjerne.push({
 
 <h3>Insurers: climate risk on both sides</h3>
 <p>Insurers transfer, price and manage risk by pooling many clients. Life insurance is easier to predict than non-life (catastrophes, accidents, fire, liability). <b>Technical provisions cover expected claims; equity covers unexpected claims.</b> Premiums are invested until claims are paid, so insurers are asset managers. Climate risk hits both sides: physical impacts raise claims while the investments carry their own material issues.</p>
-<div class="callout mech"><span class="h">Pricing and sharing catastrophe risk</span>A catastrophe model chains hazard, vulnerability (damage to assets), exposure (building, contents and business interruption values), financial loss and a platform that combines them. It yields average annual loss and value at risk (expected plus unexpected loss). A risk too big for one insurer goes to reinsurers, government programmes such as the US National Flood Insurance Programme, or investors via catastrophe bonds, which let the issuer skip or defer payments after a catastrophe. The stakes: climate-related claims on Dutch homeowner policies could rise 10% to 52% by 2085 at 1.5°C and 25% to 131% at 3.5°C (DNB 2017).</div>
-<p>When cover becomes unaffordable or is withdrawn, losses go uninsured: less than half of Europe's natural disaster losses were insured in 2024 (ECB, in the FT). Responses include climate consulting to keep clients insurable, the UN Principles for Sustainable Insurance, sustainability rules in Solvency II (since 2022) and microinsurance for the poor.</p>
+<div class="callout mech"><span class="h">Pricing and sharing catastrophe risk</span>A catastrophe model chains hazard, vulnerability (damage to assets), exposure (building, contents and business interruption values), financial loss and a platform that combines them. It yields average annual loss and value at risk (expected plus unexpected loss). A risk too big for one insurer is shared with reinsurers and with investors via catastrophe bonds, which let the issuer skip or defer payments after a catastrophe. Government programmes such as the US National Flood Insurance Programme cover part when those do not suffice. The stakes: climate-related claims on Dutch homeowner policies could rise 10% to 52% by 2085 at 1.5°C and 25% to 131% at 3.5°C (DNB 2017, the Dutch central bank).</div>
+<p>Withdrawn cover does not remove a risk: it stays with the uninsured households and firms and, through their loans, with their banks. Responses include the UN Principles for Sustainable Insurance, sustainability rules in Solvency II and the IDD (since August 2022) and microinsurance for low-income people.</p>
 
 <div class="callout warn"><span class="h">Mix-ups that cost points</span><ul>
 <li>Green bond or loan: the money is earmarked. Sustainability-linked: targets set the rate and the money is free.</li>
@@ -148,7 +148,7 @@ window.EDU_DATA.kjerne.push({
         q: `<p>True or false? The insurer's decision does not remove the flood risk on the shore-side homes: more of it now falls on the homeowners and, through their mortgages, on Fjordvik's credit risk.</p>`,
         options: ["True", "False"],
         answer: 0,
-        solution: `<p>True. When cover is withdrawn, the loss is not priced away but left uninsured, as with European natural disaster losses, of which less than half were insured in 2024. A bank's credit risk is indirectly all the risks its borrowers face, so uninsured flood damage to homes it lends against becomes Fjordvik's problem too.</p>`,
+        solution: `<p>True. When cover is withdrawn, the risk is not priced away: the loss is left uninsured with the homeowners. A bank's credit risk is indirectly all the risks its borrowers face, so uninsured flood damage to homes it lends against becomes Fjordvik's problem too.</p>`,
         traps: [null, "Thinks that once the insurer stops covering a risk the risk is gone, or that a bank's climate risk is limited to its own operations."],
       },
     ],
