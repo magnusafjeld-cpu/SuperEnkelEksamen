@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, oppgaver]
-oppdatert: 2026-10-15
+oppdatert: 2026-10-21
 ---
 
 # Åpne spørsmål og neste steg
@@ -77,8 +77,9 @@ dette året», FIE402 først. Se [[Moduler og visninger]].
 - [ ] **FIE432 k20 mangler formlene fra k8** (τ<sub>w</sub>/r, V = CF/r mot
       CF/(r + τ<sub>w</sub>), D = τ<sub>w</sub>W/(1 − t<sub>e</sub>)), selv om k8 var 17 % av H2025.
       Nye rader må legges nederst i 20.3 (fallgruve 7b).
-- [ ] **FIE459 Sustainable Finance.** Faget er allerede kort (20 900 ord). Et
-      kjernepensum gir mest mening etter at k10–k13 er skrevet om.
+- [x] ~~**FIE459 Sustainable Finance.**~~ Lagt inn 21. oktober 2026 med sju deler,
+      flervalg og sant/usant uten minuspoeng. Del 6 er skrevet fra foilene til
+      forelesning 10–12. Se [[FIE459 Sustainable Finance]].
 - [ ] **Les FIE402-kjernepensum og si fra om nivået treffer.** Tidsestimatet er
       ~2 timer lesing og ~4 t 30 min med alle sjekker og minicaser, over de
       3 timene som var målet. Er det for mye, er minicasene det naturlige å
@@ -115,9 +116,11 @@ kontrollert mot Lovdata, Skatteetaten eller kursets egne fasiter. Se
 
 Faget ble lagt inn 24. september 2026. Se [[FIE459 Sustainable Finance]].
 
-- [ ] **Skriv om k10–k13 når foilene til forelesning 10–13 kommer.** Kapitlene er
-      foreløpige og skrevet fra syllabus og lærebokas tema. Legg de nye foilene i
-      kildemappen, hent ut teksten, og skriv om kapitlene og quizen deres.
+- [ ] **Skriv om k10–k12 fra foilene, som nå finnes** i emnemappen
+      (`NHH/7. Semester/FIE459 Sustainable Finance/`). Avvikene er listet i
+      `docs/fie459-k10-k12-avvik.md`. Quizen og kortene for k10–k12 må følge med, og
+      kj6 i kjernepensum bør leses mot de nye kapitlene etterpå. k13 venter fortsatt
+      på forelesning 13.
 - [ ] **Gjesteforelesningene** (Folketrygdfondet, Fonds Finans, DNB,
       Sustainability Hub, Heidelberg Materials) er ikke med. Foilene publiseres
       bare med foreleserens samtykke og tas ikke opp. Kommer de, hører de til k8,

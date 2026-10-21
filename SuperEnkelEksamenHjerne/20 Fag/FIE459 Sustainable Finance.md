@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie459, innhold]
-oppdatert: 2026-09-24
+oppdatert: 2026-10-21
 ---
 
 # FIE459 Sustainable Finance
@@ -38,6 +38,7 @@ strategy!». Det finnes **ingen tidligere eksamener**. Derfor ingen
 | Studieplan | 8 moduler i progresjonsmodus, rundt 15 timer, kalibrert med `tools/rekalibrer-plan.py` |
 | Quiz | **95 spørsmål: 58 flervalg og 37 sant/usant**, samme format som eksamen. Fasit 15/15/14/14 og 19 sanne/18 usanne |
 | Flashcards | 82 skrevne kort i tre kortstokker: begrep, mekanisme, intuisjon |
+| Kjernepensum | 7 deler, rundt 6 900 ord og 2 t 10 min med sjekker og minicaser (lagt inn 21. oktober 2026). Minicasene har to flervalg og ett sant/usant, uten minuspoeng. Del 6 er skrevet fra foilene til forelesning 10–12 |
 
 Ingen dybdetrening, lynlæring, kapitteloppgaver eller eksamenssett. Det holder
 faget kort, og quizen har allerede eksamensformatet. Kapitteloppgaver i
@@ -49,6 +50,30 @@ forsikring, myndigheter og omstilling) var ikke ute 24. september. Kapitlene er
 skrevet fra syllabus og lærebokas tema, holdt til etablerte begreper uten tall, og
 merket med en «Provisional chapter»-boks. De skal skrives om når foilene kommer.
 Se [[Åpne spørsmål og neste steg]].
+
+## Kjernepensum
+
+Bygd etter skillelinjene eksamen tester, ikke kapitlene: kj0 eksamen, kj1 hva
+sustainable finance er (k1), kj2 etikk og eksternaliteter (k2, k3), kj3 shareholder,
+stakeholder og eierstyring (k4, k5), kj4 forretningsmodeller, materialitet og
+rapportering (k6, k7), kj5 investering og aktivapriser (k8, k9) og kj6 obligasjoner,
+bank og forsikring (k10–k12). k13 er utelatt til forelesning 13 er holdt.
+Spesifikasjonen er `docs/fie459-kjerne-spek.md`.
+
+**Uten minuspoeng.** Ingenting i syllabus eller forelesning 1 sier at feil svar
+trekker, så manifestet har `wrongFactor: 0`. Viser det seg at eksamen har
+minuspoeng, er det nok å fjerne feltet.
+
+**kj6 bygger på foilene, ikke manualen.** Foilene til forelesning 10–12 ligger nå i
+emnemappen (`NHH/7. Semester/FIE459 Sustainable Finance/course_files_export-2/`,
+tekst i `_claude/tekst/`), men ikke i prosjektets kildemappe. Manualkapitlene
+k10–k12 er fortsatt de foreløpige. Det agentene fant i foilene som kapitlene mangler
+eller sier annerledes, står i `docs/fie459-k10-k12-avvik.md` (28 punkter, blant annet
+risk-based mot value-based banking, katastrofemodellen og definisjonen av cat bonds).
+
+**Spesifikasjonen tok feil to steder, og agentene fulgte manualen:** Pigou, Coase og
+karbonlekkasje står ikke i k3 eller forelesning 3, og manualen knytter ikke voice og
+exit til Starks.
 
 ## Kildene og hvordan de ble brukt
 

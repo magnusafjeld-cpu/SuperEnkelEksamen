@@ -75,12 +75,15 @@ window.EDU = window.EDU || {};
      alternativer, +3 for rett, −1 for feil og 0 for «stå over». Leddene lagres i
      samme valg-objekt som den åpne oppgaven, under sine egne id-er. */
   const erFlervalg = (c) => !!(c && Array.isArray(c.ledd));
+  /* FIE459 har ingen minuspoeng (manifestets wrongFactor: 0). Da er «stå over»
+     aldri riktig, og teksten sier det. Sant/usant-ledd har to alternativer. */
+  const utenMinus = () => { const kv = S.views.kapitteloppgaver || {}; return !!kv.fagWf && kv.fagWf() === 0; };
   const caseMaks = (c) => !c ? 0 : erFlervalg(c) ? c.ledd.reduce((a, l) => a + (l.points || 3), 0) : (c.points || 0);
   const fmt = (n) => n.toLocaleString("nb-NO", { maximumFractionDigits: 2 }).replace("-", "−");
   function flervalgResultat(d) {
     const c = d.case, valg = økt(d).valg || {}, kv = S.views.kapitteloppgaver || {};
     const blank = typeof kv.BLANK === "number" ? kv.BLANK : -1;
-    const wf = typeof kv.STD_WF === "number" ? kv.STD_WF : -1 / 3;
+    const wf = kv.fagWf ? kv.fagWf() : -1 / 3;
     const r = { besvart: 0, poeng: 0, rett: 0, galt: 0, stått: 0, antall: c.ledd.length };
     c.ledd.forEach((l) => {
       if (!(l.id in valg)) return;
@@ -207,9 +210,9 @@ window.EDU = window.EDU || {};
     sek.appendChild(el(".section-title", el("h3", "Minicase"), el(".spacer"),
       el(".chip.indigo", { style: { fontWeight: 620 } }, `${caseMaks(c)} poeng · ~${c.minutes} min`)));
     sek.appendChild(el("p.muted", { style: { marginTop: "-6px", marginBottom: "16px", fontSize: "14.5px" } },
-      erFlervalg(c)
-        ? "Samme format som eksamen: fire alternativer, +3 for rett, −1 for feil og 0 for blankt. Svar når du kan utelukke minst ett alternativ, og stå over ellers. Fasiten kommer med en gang, med hvilken feil hvert galt alternativ er laget av."
-        : "Samme format som eksamen, bare kortere. Regn på papir, skriv svaret, og åpne løsningen del for del."));
+      !erFlervalg(c) ? "Samme format som eksamen, bare kortere. Regn på papir, skriv svaret, og åpne løsningen del for del."
+        : utenMinus() ? "Samme format som eksamen: flervalg og sant/usant. Feil svar gir ingen minuspoeng, så svar på alt. Fasiten kommer med en gang, med hvilken feil hvert galt alternativ er laget av."
+        : "Samme format som eksamen: fire alternativer, +3 for rett, −1 for feil og 0 for blankt. Svar når du kan utelukke minst ett alternativ, og stå over ellers. Fasiten kommer med en gang, med hvilken feil hvert galt alternativ er laget av."));
     const kort = el(".card.pad-lg");
     if (c.topic) kort.appendChild(el(".row", { style: { marginBottom: "10px" } }, el(".chip.slate", { style: { fontSize: "11px" } }, c.topic)));
     kort.appendChild(prosa(c.body || ""));
@@ -229,7 +232,7 @@ window.EDU = window.EDU || {};
       const r = flervalgResultat(d);
       if (r.besvart === r.antall) kort.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "center", marginTop: "18px", paddingTop: "14px", borderTop: "1px solid var(--hairline)" } },
         el("b", `${fmt(r.poeng)} av ${caseMaks(c)} poeng`),
-        el("span.tiny.muted", [tellord(r.rett, "rett", "rett"), tellord(r.galt, "feil", "feil"), tellord(r.stått, "stått over", "stått over")].join(" · ")),
+        el("span.tiny.muted", [tellord(r.rett, "rett", "rett"), tellord(r.galt, "feil", "feil")].concat(utenMinus() ? [] : [tellord(r.stått, "stått over", "stått over")]).join(" · ")),
         el(".spacer"),
         el("button.btn.ghost.sm", { onclick: () => { nullstillMinicase(d); S.app.refresh(); } }, "Ta minicasen på nytt")));
     } else if (kv && kv.åpenOppgave) {

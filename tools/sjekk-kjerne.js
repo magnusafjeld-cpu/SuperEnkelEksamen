@@ -12,7 +12,8 @@
           node tools/sjekk-kjerne.js fag/fie402/_kjerne/kj3.js  (ett eller flere fragmenter)
 
    Fasitposisjonene er trukket på forhånd (fallgruve 7c). Ligger
-   fag/<id>/_kjerne/fasitplan.json der, kontrolleres hver sjekk mot planen.     */
+   fag/<id>/_kjerne/fasitplan.json der, kontrolleres hver sjekk mot planen.
+   Sant/usant (options ["True", "False"]) er lov i sjekker og minicaseledd.    */
 
 const fs = require("fs");
 const path = require("path");
@@ -117,6 +118,11 @@ function deler(html) {
   return ut;
 }
 
+/* Sant/usant (FIE459) er to alternativer, «True» og «False», i den rekkefølgen.
+   Fasitbalansen for dem måles for seg (andel sanne), ellers ville de dratt
+   posisjonsmålingen for flervalg mot A og B. */
+const erSU = (o) => Array.isArray(o) && o.length === 2 && o[0] === "True" && o[1] === "False";
+
 const HENVISNING = /\b(as above|see above|previous (question|task|exercise|case)|the case above|same firm as|som over|forrige oppgave|oppgaven over|samme selskap som)\b/i;
 /* Engelsk (FIE402) og norsk (FIE432): «option B», «alternativ C», «svar D». */
 const BOKSTAVREF = /\b([Oo]ption|[Aa]lternative|[Aa]nswer|[Cc]hoice|[Aa]lternativ(?:et)?|[Ss]var(?:et)?)\s*\(?[A-D]\)?(?![a-zA-ZæøåÆØÅ])|\([A-D]\)\s*(is|was|er|var)\b/;
@@ -144,6 +150,7 @@ function main() {
   const ider = new Set();
   const nyId = (id, hvor) => { if (ider.has(id)) feil.push(`${hvor}: id «${id}» er brukt før`); ider.add(id); };
   const pos = [0, 0, 0, 0];
+  const su = [0, 0];
   const notat = [];
   let lengst = 0;
   let sumOrd = 0, sumMin = 0, sumSjekk = 0, sumPoeng = 0;
@@ -183,12 +190,14 @@ function main() {
       if (q.id !== `${d.id}-s${j + 1}`) feil.push(`${h}: id skal være ${d.id}-s${j + 1}, er «${q.id}»`);
       nyId(q.id, h);
       if (!q.q) feil.push(`${h}: mangler q`);
-      if (!Array.isArray(q.options) || q.options.length !== 4) feil.push(`${h}: må ha nøyaktig fire alternativer`);
-      else {
+      const qSU = erSU(q.options);
+      if (!qSU && (!Array.isArray(q.options) || q.options.length !== 4)) feil.push(`${h}: må ha nøyaktig fire alternativer, eller ["True", "False"]`);
+      else if (!qSU) {
         if (new Set(q.options.map((o) => ren(o))).size !== 4) feil.push(`${h}: to alternativer er like`);
         q.options.forEach((o, k) => sjekkHtml(String(o), `${h}.options[${k}]`, feil, advarsel, { inline: true }));
       }
-      if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer > 3) feil.push(`${h}: answer må være 0–3`);
+      if (qSU) { if (q.answer !== 0 && q.answer !== 1) feil.push(`${h}: answer må være 0 (True) eller 1 (False)`); else su[q.answer]++; }
+      else if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer > 3) feil.push(`${h}: answer må være 0–3`);
       else {
         pos[q.answer]++;
         if (Array.isArray(q.options) && q.options.length === 4) {
@@ -203,7 +212,7 @@ function main() {
       sjekkHtml(String(q.explanation || ""), h + ".explanation", feil, advarsel, { inline: true });
       if (BOKSTAVREF.test(ren(q.explanation))) feil.push(`${h}: forklaringen viser til et alternativ med bokstav; vis til innholdet (fallgruve 7c)`);
       if (plan && plan[d.id] && plan[d.id][j] !== undefined && plan[d.id][j] !== q.answer)
-        feil.push(`${h}: fasiten står på ${"ABCD"[q.answer]}, planen sier ${"ABCD"[plan[d.id][j]]}`);
+        feil.push(`${h}: fasiten står på ${qSU ? ["True", "False"][q.answer] : "ABCD"[q.answer]}, planen sier ${qSU ? ["True", "False"][plan[d.id][j]] : "ABCD"[plan[d.id][j]]}`);
     });
     if (plan && plan[d.id] && plan[d.id].length !== sjekker.length) feil.push(`${hvor}: planen har ${plan[d.id].length} sjekker, delen har ${sjekker.length}`);
 
@@ -233,17 +242,19 @@ function main() {
         sjekkHtml(String(l.q || ""), hl + ".q", feil, advarsel);
         if (!Number.isInteger(l.points) || l.points < 1 || l.points > 6) feil.push(`${hl}: points må være et heltall 1–6`);
         sumPoeng += l.points || 0;
-        if (!Array.isArray(l.options) || l.options.length !== 4) feil.push(`${hl}: må ha nøyaktig fire alternativer`);
-        else {
+        const lSU = erSU(l.options), n = lSU ? 2 : 4;
+        if (!lSU && (!Array.isArray(l.options) || l.options.length !== 4)) feil.push(`${hl}: må ha nøyaktig fire alternativer, eller ["True", "False"]`);
+        else if (!lSU) {
           if (new Set(l.options.map((o) => ren(o))).size !== 4) feil.push(`${hl}: to alternativer er like`);
           l.options.forEach((o, k) => sjekkHtml(String(o), `${hl}.options[${k}]`, feil, advarsel, { inline: true }));
         }
-        if (!Number.isInteger(l.answer) || l.answer < 0 || l.answer > 3) feil.push(`${hl}: answer må være 0–3`);
+        if (!Number.isInteger(l.answer) || l.answer < 0 || l.answer > n - 1) feil.push(`${hl}: answer må være 0–${n - 1}`);
+        else if (lSU) su[l.answer]++;
         else pos[l.answer]++;
-        if (planL && planL[j] !== undefined && planL[j] !== l.answer) feil.push(`${hl}: fasiten står på ${"ABCD"[l.answer]}, planen sier ${"ABCD"[planL[j]]}`);
+        if (planL && planL[j] !== undefined && planL[j] !== l.answer) feil.push(`${hl}: fasiten står på ${lSU ? ["True", "False"][l.answer] : "ABCD"[l.answer]}, planen sier ${lSU ? ["True", "False"][planL[j]] : "ABCD"[planL[j]]}`);
         if (!String(l.solution || "").trim()) feil.push(`${hl}: mangler solution`);
         sjekkHtml(String(l.solution || ""), hl + ".solution", feil, advarsel);
-        if (!Array.isArray(l.traps) || l.traps.length !== 4) feil.push(`${hl}: traps må ha fire plasser, parallelt med options`);
+        if (!Array.isArray(l.traps) || l.traps.length !== n) feil.push(`${hl}: traps må ha ${n} plasser, parallelt med options`);
         else l.traps.forEach((tr, k) => {
           if (k === l.answer && tr !== null) feil.push(`${hl}: traps[${k}] skal være null, det er fasiten`);
           if (k !== l.answer && !String(tr || "").trim()) feil.push(`${hl}: traps[${k}] mangler; hvert galt alternativ skal si hvilken feil det er laget av`);
@@ -290,6 +301,12 @@ function main() {
        FIE432-agentene overkorrigerte til 0 av 38 før dette ble fanget. */
     else if (andel < 0.1) feil.push(`fasiten er det lengste alternativet i bare ${lengst} av ${sumSjekk} sjekker (${Math.round(andel * 100)} %); da lærer leseren å stryke det lengste. Sikt mot rundt 25 % (fallgruve 7y)`);
     else notat.push(`fasiten er det lengste alternativet i ${lengst} av ${sumSjekk} sjekker (${Math.round(andel * 100)} %)`);
+  }
+
+  if (su[0] + su[1] >= 6) {
+    const andel = su[0] / (su[0] + su[1]);
+    if (andel < 0.3 || andel > 0.7) feil.push(`sant/usant er skjevt: ${su[0]} sanne og ${su[1]} usanne (fallgruve 7c)`);
+    else notat.push(`sant/usant: ${su[0]} sanne og ${su[1]} usanne`);
   }
 
   console.log(rader.join("\n"));

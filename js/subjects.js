@@ -20,9 +20,12 @@
      problems   { candidates: [...] } — oppgavebanken (valgfri; tom = modulen tom)
      modules    hvilke moduler faget har. null = alle. Dashboard er alltid med.
                 gyldige: /plan /curriculum /kjerne /lyn /quiz /kapitteloppgaver
-                         /flashcards /dybde /oppgaver /exam /sett /caser /mock
-                         /historier /review /search /notebooklm
+                         /problemsett /trening /linjer /flashcards /dybde /oppgaver
+                         /exam /sett /caser /mock /historier /review /search /notebooklm
                 Det finnes ingen samlet fremdriftsside: hver modul viser sin egen.
+     wrongFactor  poeng for feil svar i flervalg, som andel av oppgavens poeng.
+                Utelatt = −1/3 (+3/−1/0, FIE432). 0 = ingen minuspoeng (FIE459),
+                og da vises ikke «stå over».
    ======================================================= */
 /* Plattformen selv — navnet over fagene. Brukes i velgeren, sidetittelen og
    ikonet. Fagene under har sine egne navn og farger. */
@@ -379,7 +382,10 @@ window.EDU_SUBJECTS = [
     blurb: "Etikk, eksternaliteter, eierstyring, rapportering og ESG-investering, kort og konsist, med quiz i eksamensformatet: flervalg og sant/usant.",
     /* Mosegrønn: gulgrønn, så den skilles fra FIE402s blågrønne smaragd i velgeren. */
     accent: "#5b7a19", accentInk: "#465f12", accentSoft: "#f2f6e6", accentSoft2: "#e0eac4",
-    scripts: ["fag/fie459/data.js", "fag/fie459/quiz.js"],
+    scripts: ["fag/fie459/data.js", "fag/fie459/quiz.js", "fag/fie459/kjerne.js"],
+    /* Ingenting i kildene sier at feil svar gir minuspoeng på eksamen. Flervalget
+       i minicasene regnes derfor uten minus, og «stå over» vises ikke. */
+    wrongFactor: 0,
     manual: {
       candidates: ["FIE459_Manual.html", "fag/fie459/manual.html", "../FIE459_Manual.html"],
       label: "FIE459_Manual.html",
@@ -402,13 +408,14 @@ window.EDU_SUBJECTS = [
       notebooklmTall: ["Desimaltegnet er punktum og tusenskillet komma: «1,000.5» er tusen komma fem."],
       searchTerms: ["externality", "double materiality", "stakeholder", "CSRD", "EU taxonomy", "SFDR",
                     "ESG integration", "stewardship", "greenium", "integrated value", "SF 2.0"],
+      kjerneIntro: "Det viktigste i FIE459 på et par timer, i sju korte deler bygd rundt skillelinjene eksamen spør om. Etter hver del kommer raske sjekker og en minicase i eksamensformatet: to flervalg og ett sant/usant. Feil svar gir ingen minuspoeng, så svar på alt. Teksten er på engelsk, som eksamen. Del 6 er skrevet fra foilene til forelesning 10–12.",
       planEyebrow: "Studieplan · 8 moduler",
       planIntro: "Modul 1–6 følger forelesningene: grunnlaget, etikk og eksternaliteter, selskapet og investering. Modul 7 er de foreløpige kapitlene om obligasjoner, bank, forsikring og myndighetene, og modul 8 er repetisjon i eksamensformatet. Faget er bevisst kort: målet er en grei forståelse av hvert tema.",
     },
     /* Ingen dybdetrening, lynlæring eller eksamenssett: det finnes ingen
        tidligere eksamener, og faget skal være kort. Eksamen er flervalg og
        sant/usant, og det er nøyaktig formatet quizen har. */
-    modules: ["/plan", "/curriculum", "/quiz", "/flashcards", "/review", "/search", "/notebooklm"],
+    modules: ["/plan", "/curriculum", "/kjerne", "/quiz", "/flashcards", "/review", "/search", "/notebooklm"],
   },
 ];
 

@@ -1,6 +1,6 @@
 ---
 tags: [fag, arkitektur]
-oppdatert: 2026-09-29
+oppdatert: 2026-10-21
 ---
 
 # Fagregisteret
@@ -65,6 +65,7 @@ oppførsel som default**, så et manifest uten dem er uendret.
 | `copy` `{planEyebrow,planIntro,dybdeIntro,lynFoot}` | faste SAM3-setninger i sidetoppene | SAM3s tekst |
 | `copy.searchTerms` | SAM3s makrobegreper som søkeforslag | utledes av ordlisten, ellers av kapitteltitlene |
 | `copy.kjerneIntro` | ingen; ny med kjernepensum | en generell tekst om å lese delene i rekkefølge |
+| `wrongFactor` | den faste minusregelen (−1/3 av poengene) i flervalg | −1/3, som FIE432. FIE459 setter 0: ingen minuspoeng, og «stå over» vises ikke |
 | `copy.notebooklmNotasjon` | ingen; fagets egne tegn i NotebookLM-teksten (FIE432s hakeparenteser) | ingen ekstra linjer |
 | `copy.notebooklmTall` | tallformatet i NotebookLM-teksten | norsk: mellomrom som tusenskille, komma som desimaltegn. FIE402 og FIE459 setter punktum |
 

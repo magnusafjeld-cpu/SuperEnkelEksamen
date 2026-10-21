@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-20
+oppdatert: 2026-10-21
 ---
 
 # Moduler og visninger
@@ -258,8 +258,17 @@ Data i `EDU_DATA.kjerne`, bygget fra `fag/<id>/_kjerne/kjN.js` med
 `python3 tools/bygg-kjerne.py <fag>` og kontrollert med
 `node tools/sjekk-kjerne.js <fag>`. Kontrollen tar også enkeltfragmenter, og
 sjekker fasitposisjonene mot `_kjerne/fasitplan.json` (fallgruve 7c).
-Forfatterspesifikasjonene er `docs/fie402-kjerne-spek.md` (åpen minicase, engelsk) og
-`docs/fie432-kjerne-spek.md` (flervalgsminicase, norsk).
+Forfatterspesifikasjonene er `docs/fie402-kjerne-spek.md` (åpen minicase, engelsk),
+`docs/fie432-kjerne-spek.md` (flervalgsminicase, norsk) og
+`docs/fie459-kjerne-spek.md` (flervalg og sant/usant, engelsk).
+
+**FIE459 (21. oktober 2026)** har sju deler og rundt 6 900 ord. Eksamen er flervalg
+og sant/usant, så minicasen har to flervalgsledd og ett sant/usant-ledd
+(`options: ["True", "False"]`). Kontrollen godtar sant/usant i sjekker og ledd og
+måler balansen sanne/usanne for seg. Ingenting i kildene sier at eksamen gir
+minuspoeng, så manifestet setter `wrongFactor: 0`: feil svar gir 0, «stå over»
+skjules, og introen sier «svar på alt». Regelen bor i kapitteloppgavenes `fagWf()`,
+som kjernepensum låner, så FIE432 er uendret.
 
 ### Symbolene i formlene
 

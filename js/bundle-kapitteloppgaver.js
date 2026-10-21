@@ -43,7 +43,10 @@ window.EDU = window.EDU || {};
   /* Eksamen høsten 2026: 3 poeng for rett, −1 for feil, 0 for blankt.
      Faget kan overstyre per kapittel; −1/3 av poengsummen er standarden. */
   const STD_WF = -1 / 3;
-  const wfFor = (b) => (b && typeof b.wrongFactor === "number") ? b.wrongFactor : STD_WF;
+  /* Et fag uten minuspoeng på eksamen (FIE459) setter wrongFactor: 0 i
+     manifestet. Leses ved hvert kall, siden faget kan byttes uten ny lasting. */
+  const fagWf = () => { const w = (window.EDU_SUBJECT || {}).wrongFactor; return typeof w === "number" ? w : STD_WF; };
+  const wfFor = (b) => (b && typeof b.wrongFactor === "number") ? b.wrongFactor : fagWf();
 
   /* ---------- lagring ---------- */
   /* Hele kapittelsettet er én økt: ett oppslag med alle valgene. id-ene inni er
@@ -163,7 +166,7 @@ window.EDU = window.EDU || {};
         el(".spacer"),
         el("button.btn.ghost.sm", { title: "Nullstiller bare denne oppgaven",
           onclick: () => { angre(num, t.id); S.app.refresh(); } }, "Angre svaret")));
-    } else {
+    } else if (wfFor(forKap(num)) !== 0) {
       /* «Stå over» er ikke en snarvei forbi oppgaven, det er svaret på eksamen
          når du ikke kan utelukke noe. Den skal derfor være like tilgjengelig som
          alternativene, og den avslører fasiten på samme måte. */
@@ -577,5 +580,6 @@ ${krit ? "\n## Kriteriene sensor ser etter\n" + krit + "\n" : ""}
     return kort;
   }
 
-  S.views.kapitteloppgaver = { render: renderList, renderKap, kapittelkort, harOppgaver, åpenOppgave, flervalg, BLANK, STD_WF };
+  /* Uten minuspoeng finnes ingen grunn til å stå over, og knappen skjules. */
+  S.views.kapitteloppgaver = { render: renderList, renderKap, kapittelkort, harOppgaver, åpenOppgave, flervalg, BLANK, STD_WF, fagWf };
 })(window.EDU);
