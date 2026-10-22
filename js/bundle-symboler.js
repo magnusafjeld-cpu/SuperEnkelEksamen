@@ -18,6 +18,17 @@
 
    Data: EDU_DATA.symboler = { alle: { nøkkel: tekst }, deler: { <del-id>: { nøkkel: tekst } } }
    Ukjente bokstavgrupper, som vanlige ord, får stå i fred.
+
+   To måter å merke på (22. oktober 2026, for sjangertreningen og formelarket):
+   - formellinjer (.formula .eq, .fa-formel): hvert kjent symbol merkes.
+   - løpende tekst (merk(rot, id, { overalt: true })): bare det som sikkert er et
+     symbol. Det er et tegn med senket eller hevet skrift (r<sub>E</sub>), en gresk
+     bokstav, en forkortelse med store bokstaver (WACC, NPV, TS) eller E foran en
+     hakeparentes. En enkelt bokstav uten hale merkes bare når den står i et
+     regnestykke, med =, ×, /, +, −, parentes eller ulikhetstegn rett ved siden av.
+     Ellers ville «A firm» og «I» fått forklaringer.
+   Knapper og lenker merkes aldri: et trykk på et symbol i et svaralternativ
+   ville ellers også valgt alternativet.
    tools/sjekk-symboler.js leser formlene på samme måte og melder det som mangler.
    ======================================================================== */
 window.EDU = window.EDU || {};
@@ -63,7 +74,25 @@ window.EDU = window.EDU || {};
     return { hevet, senket, noder };
   }
 
-  function merkTekst(tn, d, delId) {
+  /* Er treffet sikkert et symbol i løpende tekst? */
+  const REGNETEGN = /[=×\/+\-−()·≤≥<>^]/;
+  const GRESK = /^[\u0370-\u03FF]/;
+  function sikkert(tok, h, tekst, fra, til) {
+    /* «P/E» er pris over inntjening: verken aksjekursen eller egenkapitalen alene. */
+    if ((tok === "P" && tekst.slice(til, til + 2) === "/E") || (tok === "E" && tekst.slice(fra - 2, fra) === "P/")) return false;
+    if (h.hevet || h.senket || GRESK.test(tok)) return true;
+    if (tekst[til] === "[") return true;
+    if (tok.length >= 2) return tok === tok.toUpperCase() && /^[A-Z]+$/.test(tok);
+    /* «k7», «E4» og «P1» er henvisninger til kapitler og oppgaver, ikke symboler. */
+    if (/^[A-Za-z]$/.test(tok) && /\d/.test(tekst[til] || "")) return false;
+    /* «(d)» er en deloppgave, ikke gjeldsandelen d. */
+    if (/^[a-i]$/.test(tok) && tekst[fra - 1] === "(" && tekst[til] === ")") return false;
+    let før = fra - 1; while (før >= 0 && tekst[før] === " ") før--;
+    let etter = til; while (etter < tekst.length && tekst[etter] === " ") etter++;
+    return REGNETEGN.test(tekst[før] || "") || REGNETEGN.test(tekst[etter] || "");
+  }
+
+  function merkTekst(tn, d, delId, formel) {
     const tekst = tn.nodeValue;
     const treff = [];
     TOK.lastIndex = 0;
@@ -71,7 +100,7 @@ window.EDU = window.EDU || {};
       const slutt = m.index + m[0].length;
       const h = slutt === tekst.length ? hale(tn) : { hevet: "", senket: "", noder: [] };
       const forkl = slåOpp(d, delId, m[0], h.hevet, h.senket, tekst[slutt]);
-      if (forkl) treff.push({ fra: m.index, til: slutt, forkl, noder: h.noder });
+      if (forkl && (formel || sikkert(m[0], h, tekst, m.index, slutt))) treff.push({ fra: m.index, til: slutt, forkl, noder: h.noder });
     }
     if (!treff.length) return;
     const ny = document.createDocumentFragment();
@@ -88,18 +117,23 @@ window.EDU = window.EDU || {};
     tn.replaceWith(ny);
   }
 
-  function gå(node, d, delId) {
+  const FORMEL = (n) => n.classList.contains("eq") || n.classList.contains("fa-formel") || n.classList.contains("calc");
+  const HOPP = /^(SUB|SUP|BUTTON|A|INPUT|TEXTAREA|SELECT|SVG|SCRIPT|STYLE)$/;
+  function gå(node, d, delId, formel) {
     /* Fast liste: merkingen flytter senket og hevet skrift inn i symbolet. */
     [...node.childNodes].forEach((n) => {
-      if (n.nodeType === 3) merkTekst(n, d, delId);
-      else if (n.nodeType === 1 && n.tagName !== "SUB" && n.tagName !== "SUP" && !n.classList.contains("sym")) gå(n, d, delId);
+      if (n.nodeType === 3) merkTekst(n, d, delId, formel);
+      else if (n.nodeType === 1 && !HOPP.test(n.tagName.toUpperCase()) && !n.classList.contains("sym")
+        && !n.classList.contains("fa-navn") && !n.classList.contains("fa-info-tekst")) gå(n, d, delId, formel || FORMEL(n));
     });
   }
 
-  function merk(rot, delId) {
+  /* valg.overalt: merk hele rot, ikke bare formellinjene. */
+  function merk(rot, delId, valg) {
     const d = data();
     if (!d || !rot) return;
-    rot.querySelectorAll(".formula .eq").forEach((eq) => gå(eq, d, delId));
+    if (valg && valg.overalt) gå(rot, d, delId, FORMEL(rot));
+    else rot.querySelectorAll(".formula .eq, .fa-formel").forEach((eq) => gå(eq, d, delId, true));
     if (rot.querySelector(".sym")) kobleTil();
   }
 

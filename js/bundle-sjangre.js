@@ -134,7 +134,10 @@ window.EDU = window.EDU || {};
     /* Eksempelet er en .worked-boks med egen overskrift, så den står uten kort rundt. */
     if (s.example) wrap.appendChild(el(".sg-eksempel", prosa(s.example)));
     wrap.appendChild(oppgaven(g, s));
-    if (S.symboler) S.symboler.merk(wrap, null);
+    /* Hold over et symbol for å se hva det er, i teori, eksempel, oppgave og
+       fasit. Sjangerens egne betydninger («sg-<id>» i symbolordlisten) går foran
+       de felles: S er aksjekursen i opsjoner, men synergiene i fusjoner. */
+    if (S.symboler) S.symboler.merk(wrap, "sg-" + g.id, { overalt: true });
 
     const forrige = i > 0 ? el("a.btn.ghost", { href: `#/sjangre/${g.id}/${i}` }, "← Forrige steg") : null;
     const igjen = svart(s) && !riktig(s)

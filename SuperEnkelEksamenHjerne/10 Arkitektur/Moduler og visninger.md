@@ -329,9 +329,25 @@ i kj9; L er et lån i kj6 og kj10 og et tap i kj11.
 
 `node tools/sjekk-symboler.js <fag>` leser formlene likt med motoren og gir FEIL
 for alt i en formel som verken er forklart eller står i `ikke` (vanlige ord som
-«max» og «payoff»). `--liste` viser hva hvert symbol forklares med i hver del.
-Endrer du en formel, kjør den. Symboler i løpende tekst merkes ikke, der står
-betydningen som regel allerede.
+«max» og «payoff»). `--liste` viser hva hvert symbol forklares med i hver del,
+`--bare <del-id>` sjekker én del, og `--ekstra utkast.json` fletter inn et utkast
+så flere kan skrive forklaringer parallelt. Endrer du en formel, kjør den.
+
+**Sjangertreningen og formelarket (22. oktober 2026).** Magnus ba om å kunne holde
+over tegn også der. I kjernepensum merkes fortsatt bare formellinjene. I
+sjangertreningen merkes hele steget med `merk(rot, "sg-<sjanger>", { overalt: true })`:
+alt i formellinjene, men i løpende tekst bare det som sikkert er et symbol (senket
+eller hevet skrift, gresk bokstav, forkortelse med store bokstaver, E[, eller en
+enkelt bokstav med et regnetegn rett ved siden av). Ellers ville «A firm» og «I» fått
+forklaringer. «(d)» som deloppgave merkes ikke. Svaralternativene står i knapper og
+merkes aldri, for et trykk på symbolet ville også valgt alternativet.
+
+Hver sjanger har egne betydninger (`deler.sg-<id>`), fordi bokstavene skifter mening:
+S er aksjekursen i opsjoner og synergiene i fusjoner, K innløsningskursen i opsjoner og
+pålydende i agentproblemet. Formelarket har `deler.formelark` (formeldelen av hver rad,
+uten navnet) og `deler.formelark-liste` (lista «Står ikke på arket», der C og P er
+opsjoner). Nøkler med senket skrift skiller betydninger på samme ark: C alene er
+kontantstrømmen, C_u opsjonsverdien i opptilstanden.
 
 ## Eksamenstrening — mange spørsmål, fasit med en gang
 

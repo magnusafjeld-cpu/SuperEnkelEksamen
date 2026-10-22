@@ -113,10 +113,16 @@ window.EDU = window.EDU || {};
     const kropp = el(".fa-kropp");
     const ark = el(".fa-ark", frag(d.html || ""));
     leggTilInfo(ark);
+    /* Hold over et tegn i en formel for å se hva det står for (symbolordlisten,
+       med «formelark» som egne betydninger). Formelnavnene merkes ikke. */
+    if (S.symboler) S.symboler.merk(ark, "formelark");
     kropp.appendChild(ark);
     if (d.ikkePaaArket) {
       kropp.appendChild(el(".fa-ikke-tittel", "Står ikke på arket, må kunnes"));
-      kropp.appendChild(el(".fa-ikke", frag(d.ikkePaaArket)));
+      const ikke = el(".fa-ikke", frag(d.ikkePaaArket));
+      /* Lista er tekst med formler i, så bare det som sikkert er symboler merkes. */
+      if (S.symboler) S.symboler.merk(ikke, "formelark-liste", { overalt: true });
+      kropp.appendChild(ikke);
     }
     v.appendChild(kropp);
     /* Tipset ligger inne i vinduet, så et klikk på det teller som «inne» og ikke
@@ -150,7 +156,11 @@ window.EDU = window.EDU || {};
     });
     /* Klikk utenfor lukker, men et klikk inne i vinduet (for eksempel for å
        markere en formel) skal ikke gjøre det. */
-    document.addEventListener("click", (e) => { if (åpen && !vindu.contains(e.target) && !knapp.contains(e.target)) lukk(); });
+    document.addEventListener("click", (e) => {
+      /* Symbolforklaringen ligger utenfor vinduet; et trykk på den lukker ikke arket. */
+      if (e.target.closest && e.target.closest(".sym-tips")) return;
+      if (åpen && !vindu.contains(e.target) && !knapp.contains(e.target)) lukk();
+    });
     window.addEventListener("resize", skjulTips);
   }
 
