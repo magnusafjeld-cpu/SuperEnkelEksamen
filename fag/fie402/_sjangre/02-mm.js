@@ -71,22 +71,23 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "mm-4",
-      title: "A debt-financed repurchase: how many shares",
-      theory: `<p>In a repurchase the firm uses the borrowed cash to buy its own shares at the market price, which in a perfect market is the unchanged price. Equity falls by the cash paid out and the share count falls by the shares bought, so the price per share stays where it was. Between the debt issue and the buyback the firm holds the cash: assets are V + D, debt is D and equity is still V.</p>
-<div class="formula"><div class="eq">n = D<sub>new</sub>/P &nbsp;·&nbsp; N<sub>1</sub> = N<sub>0</sub> − n &nbsp;·&nbsp; E<sub>1</sub> = V − D &nbsp;·&nbsp; P<sub>1</sub> = E<sub>1</sub>/N<sub>1</sub> = P</div>
-<div class="where">n is the number of shares bought back, D<sub>new</sub> the cash raised for the buyback, D the total debt afterwards and P the price at which the firm buys.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>All-equity firm, V = 640, 16 million shares at 40.00. It borrows 160.</p><p>Just after the loan: assets 640 + 160 cash = 800, debt 160, equity 640, price 40.00. Buyback: n = 160/40.00 = 4 million shares, leaving 12 million. E<sub>1</sub> = 640 − 160 = 480 and P<sub>1</sub> = 480/12 = 40.00.</p></div>`,
-      q: `<p>An all-equity firm has 40 million shares trading at 27.00. Markets are perfect and there are no taxes. It borrows 243 million and uses all of it to repurchase shares at the market price. How many shares (in millions) does it buy back?</p>`,
-      options: ["7.3469", "6.0750", "31.0000", "9.0000"],
-      answer: 3,
-      solution: `<p>The announcement leaves the price at 27.00 (MM I), so that is the price the firm pays.</p><p>n = 243/27.00 = <b>9.0000</b> million shares, leaving N<sub>1</sub> = 40 − 9 = 31 million.</p>`,
-      check: `<p>E<sub>1</sub> = 1 080 − 243 = 837 and 837/31 = 27.00. That check cannot fail, because n was defined at 27.00. The one that can is the price you buy at: just before the buyback the assets are 1 080 + 243 = 1 323, the debt is 243 and equity is 1 080 over 40 million shares, which is 27.00.</p>`,
+      id: "mm-7",
+      title: "A debt-financed repurchase: only the new money buys shares",
+      theory: `<p>In a repurchase the firm uses the borrowed cash to buy its own shares at the market price, which in a perfect market is the unchanged price. Equity falls by the cash paid out and the share count falls by the shares bought, so the price per share stays where it was. Exam firms often carry debt already. If the board targets a leverage ratio, the new debt is the target minus what is already there. Only that new money goes to shareholders. If instead a new loan first repays the old debt, the payout is the new loan minus the debt repaid. A target D/V is a fraction of V, which a perfect-market recapitalisation leaves unchanged.</p>
+<div class="formula"><div class="eq">D<sub>target</sub> = (D/V)<sub>target</sub> × V &nbsp;·&nbsp; D<sub>new</sub> = D<sub>target</sub> − D<sub>old</sub></div>
+<div class="eq">n = D<sub>new</sub>/P &nbsp;·&nbsp; N<sub>1</sub> = N<sub>0</sub> − n &nbsp;·&nbsp; P<sub>1</sub> = (V − D<sub>target</sub>)/N<sub>1</sub> = P</div>
+<div class="where">n is the number of shares bought back and P the price at which the firm buys. Refinancing variant: payout = new loan − old debt repaid. Read whether the target is D/V or D/E: with D/E = x, D = [x/(1 + x)] × V.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>V = 800 with D<sub>old</sub> = 200 and E = 600, on 30 million shares at 20.00. Target D/V = 0.40.</p><p>D<sub>target</sub> = 0.40 × 800 = 320, so D<sub>new</sub> = 320 − 200 = 120 and n = 120/20.00 = 6 million, leaving 24 million. E<sub>1</sub> = 800 − 320 = 480 and 480/24 = 20.00. A new loan of 320 that repays the 200 releases the same 120.</p></div>`,
+      q: `<p>A firm in a perfect market with no taxes has V = 1 500 million: debt of 300 million and equity of 1 200 million, on 40 million shares at 30.00. The board will issue debt until D/V = 0.35 and use the proceeds to buy back shares. How many shares (in millions) does it buy back?</p>`,
+      options: ["2.9630", "4.0000", "7.5000", "17.5000"],
+      answer: 2,
+      solution: `<p>D<sub>target</sub> = 0.35 × 1 500 = 525.</p><p>D<sub>new</sub> = 525 − 300 = 225.</p><p>n = 225/30.00 = <b>7.5000</b> million, leaving 40 − 7.5 = 32.5 million.</p>`,
+      check: `<p>Total debt 525 over V = 1 500 is 0.35, the target. This can fail: issue the whole 525 as new debt and total debt is 825, D/V = 0.55. Price: E<sub>1</sub> = 1 500 − 525 = 975 and 975/32.5 = 30.00, unchanged.</p>`,
       traps: [
-        "Priced the share with the borrowed cash but without the debt that came with it: (1 080 + 243)/40 = 33.075, so 243/33.075 = 7.3469.",
-        "Treated the payout as a dividend and divided the cash by the shares outstanding: 243/40 = 6.0750. That is cash per share, not shares bought.",
-        "Gave the shares left outstanding, 40 − 9 = 31.0000, instead of the shares bought.",
+        "Read the target as D/E = 0.35: D = (0.35/1.35) × 1 500 = 388.89, so (388.89 − 300)/30.00 = 2.9630.",
+        "Applied the target ratio to equity instead of firm value: 0.35 × 1 200 = 420, so (420 − 300)/30.00 = 4.0000.",
         null,
+        "Treated the whole target as new debt, ignoring the 300 already there: 525/30.00 = 17.5000.",
       ],
     },
     {
@@ -125,25 +126,6 @@ window.EDU_DATA.sjangre.push({
         null,
         "Gave the holder a dividend as well as the unchanged price: 200 × (48.00 + 12.00) = 12 000.00. A repurchase pays only the shares tendered.",
         "Divided firm value by the new share count, forgetting the debt: 200 × 1 200/18.75 = 12 800.00.",
-      ],
-    },
-    {
-      id: "mm-7",
-      title: "A firm that already has debt: only the new money is paid out",
-      theory: `<p>Exam firms often carry debt already. If the board targets a leverage ratio, the new debt is the target minus what is already there. Only that new money goes to shareholders. If instead a new loan first repays the old debt, the payout is the new loan minus the debt repaid. A target D/V is a fraction of V, which a perfect-market recapitalisation leaves unchanged.</p>
-<div class="formula"><div class="eq">D<sub>target</sub> = (D/V)<sub>target</sub> × V &nbsp;·&nbsp; D<sub>new</sub> = D<sub>target</sub> − D<sub>old</sub> &nbsp;·&nbsp; n = D<sub>new</sub>/P</div>
-<div class="where">Refinancing variant: payout = new loan − old debt repaid. Read whether the target is D/V or D/E: with D/E = x, D = [x/(1 + x)] × V.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>V = 800 with D<sub>old</sub> = 200 and E = 600, on 30 million shares at 20.00. Target D/V = 0.40.</p><p>D<sub>target</sub> = 0.40 × 800 = 320, so D<sub>new</sub> = 320 − 200 = 120 and n = 120/20.00 = 6 million, leaving 24 million. E<sub>1</sub> = 800 − 320 = 480 and 480/24 = 20.00. A new loan of 320 that repays the 200 releases the same 120.</p></div>`,
-      q: `<p>A firm in a perfect market with no taxes has V = 1 500 million: debt of 300 million and equity of 1 200 million, on 40 million shares at 30.00. The board will issue debt until D/V = 0.35 and use the proceeds to buy back shares. How many shares (in millions) does it buy back?</p>`,
-      options: ["2.9630", "4.0000", "7.5000", "17.5000"],
-      answer: 2,
-      solution: `<p>D<sub>target</sub> = 0.35 × 1 500 = 525.</p><p>D<sub>new</sub> = 525 − 300 = 225.</p><p>n = 225/30.00 = <b>7.5000</b> million, leaving 40 − 7.5 = 32.5 million.</p>`,
-      check: `<p>Total debt 525 over V = 1 500 is 0.35, the target. This can fail: issue the whole 525 as new debt and total debt is 825, D/V = 0.55. Price: E<sub>1</sub> = 1 500 − 525 = 975 and 975/32.5 = 30.00, unchanged.</p>`,
-      traps: [
-        "Read the target as D/E = 0.35: D = (0.35/1.35) × 1 500 = 388.89, so (388.89 − 300)/30.00 = 2.9630.",
-        "Applied the target ratio to equity instead of firm value: 0.35 × 1 200 = 420, so (420 − 300)/30.00 = 4.0000.",
-        null,
-        "Treated the whole target as new debt, ignoring the 300 already there: 525/30.00 = 17.5000.",
       ],
     },
     {
@@ -201,49 +183,6 @@ window.EDU_DATA.sjangre.push({
         "Charged interest on the old debt only: (81 − 16)/8 = 8.1250.",
         "Divided by the old share count, forgetting the buyback: 61/10 = 6.1000.",
         null,
-      ],
-    },
-    {
-      id: "mm-11",
-      title: "EPS rises, value does not",
-      theory: `<p>With no taxes, no growth and full payout, earnings to shareholders are the cash flow less interest. EPS is that over the shares. Leverage raises EPS whenever the assets earn more than r<sub>D</sub>, because fewer shares split a cash flow that shrank by less. The price still does not move: the extra EPS is riskier, so the market pays less per krone of earnings. With full payout and no growth the P/E is simply 1/r<sub>E</sub>.</p>
-<div class="formula"><div class="eq">EPS = (FCF − r<sub>D</sub> × D)/N &nbsp;·&nbsp; P/E = P/EPS = 1/r<sub>E</sub></div>
-<div class="where">Higher EPS at an unchanged price means a lower P/E. The error is to apply the old P/E to the new EPS, as if the risk had not changed.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>All-equity firm earning 120 a year, 60 million shares at 25.00, so V = 1 500 and r<sub>U</sub> = 8%. EPS = 2.00 and P/E = 12.50.</p><p>It borrows 500 at 4% and buys back 20 million shares. Earnings 120 − 20 = 100 over 40 million: EPS = 2.50, up 25%. P stays 25.00, so P/E = 10.00. Check: r<sub>E</sub> = 0.08 + (500/1 000)(0.04) = 0.10 = 1/10.</p></div>`,
-      q: `<p>An all-equity firm earns 90 million a year forever and pays it all out. It has 30 million shares at 30.00. Markets are perfect and there are no taxes. It borrows 360 million of risk-free debt at 5% and buys back shares. What is the P/E ratio after the buyback?</p>`,
-      options: ["10.0000", "12.5000", "7.5000", "8.3333"],
-      answer: 2,
-      solution: `<p>n = 360/30.00 = 12 million, N<sub>1</sub> = 18 million.</p><p>Earnings to equity = 90 − 0.05 × 360 = 72, so EPS = 72/18 = 4.0000, up from 3.0000.</p><p>The price is unchanged at 30.00, so P/E = 30.00/4.0000 = <b>7.5000</b>, down from 10.0000.</p>`,
-      check: `<p>r<sub>U</sub> = 90/900 = 10%. MM II: r<sub>E</sub> = 0.10 + (360/540)(0.10 − 0.05) = 0.10 + 0.033333 = 0.133333 and 1/0.133333 = 7.5000. Earnings and MM II are separate routes and they agree.</p>`,
-      traps: [
-        "Kept the old multiple, which would price the share at 4.00 × 10 = 40.00: treating riskier EPS as if it were as safe as before.",
-        "Put firm value over equity earnings instead of equity value: 900/72 = 12.5000.",
-        null,
-        "Inverted a cost of equity built with D/V instead of D/E: r<sub>E</sub> = 0.10 + (360/900)(0.05) = 0.12, so 1/0.12 = 8.3333.",
-      ],
-    },
-    {
-      id: "mm-12",
-      title: "Homemade unlevering: getting the old risk back",
-      theory: `<p>An investor who dislikes the new leverage can undo it herself. Holding the firm's equity and debt in the proportions E/V and D/V is the same as owning a slice of the whole firm, so her return is r<sub>U</sub> again. To get there she sells D/V of her shares and buys the firm's debt with the money. The reverse, borrowing on her own account to buy more shares, is homemade leverage. Because she can do either at market prices, nobody pays extra for the firm's choice of leverage: this is the engine behind MM I.</p>
-<div class="formula"><div class="eq">sell shares worth W × D/V &nbsp;·&nbsp; buy debt worth W × D/V</div><div class="eq">return = (E/V) r<sub>E</sub> + (D/V) r<sub>D</sub> = r<sub>U</sub></div>
-<div class="where">W is the value of her holding. Use D/V, not D/E: she needs the same fraction of each claim.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>A firm moves to D = 250 and E = 750, so D/V = 0.25, with r<sub>U</sub> = 10% and r<sub>D</sub> = 6%: r<sub>E</sub> = 0.10 + (250/750)(0.04) = 0.113333.</p><p>An investor holds 8 000.00 of shares. She sells 0.25 × 8 000.00 = 2 000.00 and buys the firm's bonds. Her return: 0.75 × 0.113333 + 0.25 × 0.06 = 0.085 + 0.015 = 0.10 = r<sub>U</sub>.</p></div>`,
-      q: `<p>After a recapitalisation a firm has 600 million of risk-free debt at r<sub>D</sub> = 4% and equity worth 900 million; r<sub>U</sub> = 9%. Markets are perfect and there are no taxes. An investor holds shares worth 5 000.00 and wants exactly the risk of the old all-equity firm, without adding money. What should she do?</p>`,
-      options: [
-        "Sell shares worth 3 333.33 and buy the firm's debt with the proceeds",
-        "Sell shares worth 2 000.00 and buy the firm's debt with the proceeds",
-        "Borrow 2 000.00 and buy more of the firm's shares",
-        "Sell shares worth 3 000.00 and buy the firm's debt with the proceeds",
-      ],
-      answer: 1,
-      solution: `<p>D/V = 600/1 500 = 0.40.</p><p>She sells 0.40 × 5 000.00 = <b>2 000.00</b> of shares and buys 2 000.00 of the firm's debt, keeping 3 000.00 in shares.</p>`,
-      check: `<p>Fractions: 3 000/900 million and 2 000/600 million are both 3.3333 × 10<sup>−6</sup>, the same slice of both claims, so the same slice of the assets as 5 000/1 500 million. Returns: r<sub>E</sub> = 0.09 + (600/900)(0.05) = 0.123333 and 0.6 × 0.123333 + 0.4 × 0.04 = 0.074 + 0.016 = 0.09 = r<sub>U</sub>. Sell 3 333.33 instead and the two fractions differ, so the check fails.</p>`,
-      traps: [
-        "Used D/E = 600/900 where D/V belongs: 0.6667 × 5 000.00 = 3 333.33.",
-        null,
-        "Went the wrong way. Borrowing to buy more shares is homemade leverage and adds risk.",
-        "Used E/V = 0.60 instead of D/V: 0.60 × 5 000.00 = 3 000.00 is what she keeps in shares, not what she sells.",
       ],
     },
     {

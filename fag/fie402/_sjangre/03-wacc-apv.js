@@ -29,32 +29,13 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "wacc-apv-2",
-      title: "Permanent debt: PV(TS) = τc × D",
-      theory: `<p>If the firm borrows a fixed amount and rolls it over forever, the shield is the same τ<sub>c</sub> × r<sub>D</sub> × D every year. It is a level perpetuity as safe as the interest, so you discount it at r<sub>D</sub>. Then r<sub>D</sub> cancels and the shield is worth τ<sub>c</sub> × D. The levered firm is the unlevered firm plus that value. Neither line is on the formula sheet.</p>
-<div class="formula"><div class="eq">PV(TS) = τ<sub>c</sub> × r<sub>D</sub> × D / r<sub>D</sub> = τ<sub>c</sub> × D</div>
-<div class="eq">V<sup>L</sup> = V<sup>U</sup> + PV(TS)</div>
-<div class="where">V<sup>U</sup> is the same firm with no debt. τ<sub>c</sub> × D holds only when the debt is both fixed in amount and permanent.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>V<sup>U</sup> = 500. The firm adds 120 of permanent debt at r<sub>D</sub> = 4%, τ<sub>c</sub> = 25%.</p><p>TS = 0.25 × 0.04 × 120 = 1.20 a year. PV(TS) = 1.20/0.04 = 30.00 = 0.25 × 120.</p><p>V<sup>L</sup> = 500 + 30.00 = 530.00.</p></div>`,
-      q: `<p>An all-equity firm is worth V<sup>U</sup> = 800. It borrows 200 at r<sub>D</sub> = 5% and pays the cash out to shareholders in a share buyback. The debt is permanent: the firm will roll over exactly 200 forever. τ<sub>c</sub> = 22% and the unlevered cost of capital is r<sub>U</sub> = 10%. What is V<sup>L</sup> after the buyback?</p>`,
-      options: ["1 000.00", "802.20", "822.00", "844.00"],
-      answer: 3,
-      solution: `<p>TS = 0.22 × 0.05 × 200 = 2.20 a year, forever.</p><p>The debt is fixed and permanent, so discount at r<sub>D</sub>: PV(TS) = 2.20/0.05 = 44.00 = τ<sub>c</sub> × D = 0.22 × 200.</p><p>V<sup>L</sup> = 800 + 44.00 = <b>844.00</b>.</p>`,
-      check: `<p>The shield earns exactly the debt rate: 2.20/44.00 = 5%. And V<sup>L</sup> − V<sup>U</sup> = 44.00 = 0.22 × 200. The r<sub>U</sub> of 10% was never needed: it matters only if the firm rebalances its debt.</p>`,
-      traps: [
-        "Counted the borrowed 200 as firm value: 800 + 200 = 1 000.00. The cash left the firm in the buyback; only the tax saving stays.",
-        "Added one year's shield instead of its present value: 800 + 2.20 = 802.20.",
-        "Discounted the shield at r<sub>U</sub> as if the debt were rebalanced: 800 + 2.20/0.10 = 822.00.",
-        null,
-      ],
-    },
-    {
       id: "wacc-apv-3",
-      title: "The announcement: who gets the tax shield",
-      theory: `<p>The share price moves when the market learns about the debt, not when the debt is issued. At that moment the whole PV(TS) lands on the shares already outstanding. The lenders get none of it: they pay a fair price for their debt, a zero-NPV deal. The buyback then runs at the new, higher price, so it moves nothing.</p>
-<div class="formula"><div class="eq">P<sub>1</sub> = P<sub>0</sub> + PV(TS)/N<sub>0</sub>  ·  shares bought back = D/P<sub>1</sub></div>
-<div class="where">N<sub>0</sub> is the share count before anything happens. Borrowing to hold government bonds is not leverage: net debt stays at zero and the interest received is taxed as the interest paid is deducted. The price does not move.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>10 million shares at 40.00, so V<sup>U</sup> = 400. The firm announces 100 of permanent debt to buy back shares, τ<sub>c</sub> = 25%.</p><p>PV(TS) = 0.25 × 100 = 25.00. P<sub>1</sub> = 40.00 + 25.00/10 = 42.50.</p><p>Shares bought back = 100/42.50 = 2.3529 million, leaving 7.6471 million. Equity afterwards = 425 − 100 = 325 and 325/7.6471 = 42.50.</p></div>`,
+      title: "Permanent debt and the announcement: who gets the tax shield",
+      theory: `<p>If the firm borrows a fixed amount and rolls it over forever, the shield τ<sub>c</sub> × r<sub>D</sub> × D is a level perpetuity as safe as the interest. Discounted at r<sub>D</sub>, the r<sub>D</sub> cancels and the shield is worth τ<sub>c</sub> × D, which the levered firm has on top of the unlevered one. The share price moves when the market learns about the debt, not when the debt is issued. At that moment the whole PV(TS) lands on the shares already outstanding: the lenders pay a fair price for their debt, a zero-NPV deal. The buyback then runs at the new, higher price, so it moves nothing.</p>
+<div class="formula"><div class="eq">PV(TS) = τ<sub>c</sub> × r<sub>D</sub> × D / r<sub>D</sub> = τ<sub>c</sub> × D  ·  V<sup>L</sup> = V<sup>U</sup> + PV(TS)</div>
+<div class="eq">P<sub>1</sub> = P<sub>0</sub> + PV(TS)/N<sub>0</sub>  ·  shares bought back = D/P<sub>1</sub></div>
+<div class="where">τ<sub>c</sub> × D holds only when the debt is both fixed in amount and permanent. Neither value line is on the formula sheet. N<sub>0</sub> is the share count before anything happens. Borrowing to hold government bonds is not leverage: net debt stays at zero and the interest received is taxed as the interest paid is deducted. The price does not move.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>10 million shares at 40.00, so V<sup>U</sup> = 400. The firm announces 100 of permanent debt at r<sub>D</sub> = 4% to buy back shares, τ<sub>c</sub> = 25%.</p><p>TS = 0.25 × 0.04 × 100 = 1.00 a year, so PV(TS) = 1.00/0.04 = 25.00 = 0.25 × 100 and V<sup>L</sup> = 425. P<sub>1</sub> = 40.00 + 25.00/10 = 42.50.</p><p>Shares bought back = 100/42.50 = 2.3529 million, leaving 7.6471 million. Equity afterwards = 425 − 100 = 325 and 325/7.6471 = 42.50.</p></div>`,
       q: `<p>An all-equity firm has 40 million shares at 15.00. Investors expect it to stay all-equity. It announces that it will borrow 150 at r<sub>D</sub> = 5% as permanent debt and use all of it to buy back shares. τ<sub>c</sub> = 22%. The market believes the plan at once. How many shares, in millions, does the firm buy back?</p>`,
       options: ["10.0000", "12.4224", "9.4787", "9.9726"],
       answer: 2,
@@ -189,49 +170,6 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "wacc-apv-10",
-      title: "APV over two periods, with the debt adjusted",
-      theory: `<p>Over several periods APV is two discounted sums. V<sup>U</sup> discounts the FCF at r<sub>U</sub>. The shield in year t comes from the debt carried into that year, D<sub>t−1</sub>, so take the debt path from the WACC values first. Under a constant debt ratio every shield is discounted at r<sub>U</sub>. The total must equal the WACC value: consistency check 1.</p>
-<div class="formula"><div class="eq">V<sup>U</sup> = Σ FCF<sub>t</sub>/(1 + r<sub>U</sub>)<sup>t</sup>  ·  PV(TS) = Σ τ<sub>c</sub> r<sub>D</sub> D<sub>t−1</sub>/(1 + r<sub>U</sub>)<sup>t</sup></div>
-<div class="where">The check is a fixed point: the debt came from the WACC answer, so the two methods agree by construction. It still catches a wrong rate on the shield and slips in the debt path.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>The firm from the last example: d = 0.30, FCF 60 and 55, with r<sub>U</sub> = 10.6%, r<sub>D</sub> = 5% and τ<sub>c</sub> = 40%, so r<sub>wacc</sub> = 0.106 − 0.30 × 0.05 × 0.40 = 10%. The debt path was D<sub>0</sub> = 30.00 and D<sub>1</sub> = 15.00.</p><p>TS<sub>1</sub> = 0.40 × 0.05 × 30.00 = 0.60 and TS<sub>2</sub> = 0.40 × 0.05 × 15.00 = 0.30. PV(TS) = 0.60/1.106 + 0.30/1.106² = 0.7877.</p><p>V<sup>U</sup> = 60/1.106 + 55/1.106² = 99.2123. Then 99.2123 + 0.7877 = 100.0000 = V<sup>L</sup><sub>0</sub>.</p></div>`,
-      q: `<p>A firm keeps D/V = 0.25 and exists for two years, with free cash flow of 100 in year 1 and 120 in year 2. r<sub>U</sub> = 12%, r<sub>D</sub> = 8% and τ<sub>c</sub> = 25%, so r<sub>wacc</sub> = 11.5%. What is PV(TS) in the APV valuation?</p>`,
-      options: ["1.5735", "1.2603", "11.6381", "1.3234"],
-      answer: 1,
-      solution: `<p>Value path at 11.5%: V<sup>L</sup><sub>1</sub> = 120/1.115 = 107.6233 and V<sup>L</sup><sub>0</sub> = (100 + 107.6233)/1.115 = 186.2093.</p><p>Debt path: D<sub>0</sub> = 0.25 × 186.2093 = 46.5523 and D<sub>1</sub> = 0.25 × 107.6233 = 26.9058.</p><p>Shields: TS<sub>1</sub> = 0.25 × 0.08 × 46.5523 = 0.931046 and TS<sub>2</sub> = 0.25 × 0.08 × 26.9058 = 0.538117.</p><p>At r<sub>U</sub>: PV(TS) = 0.931046/1.12 + 0.538117/1.12² = 0.831291 + 0.428983 = <b>1.2603</b>.</p>`,
-      check: `<p>V<sup>U</sup> = 100/1.12 + 120/1.12² = 89.285714 + 95.663265 = 184.948979. Then V<sup>U</sup> + PV(TS) = 184.948979 + 1.260274 = 186.209253, the WACC value of 186.2093 (consistency check 1). With the shields at r<sub>D</sub> the total would be 186.2724 and the check fails.</p>`,
-      traps: [
-        "Left the debt at D<sub>0</sub> in both years: 0.831291 + 0.931046/1.12² = 1.5735.",
-        null,
-        "Used the permanent-debt shortcut τ<sub>c</sub> × D<sub>0</sub> = 0.25 × 46.5523 = 11.6381.",
-        "Discounted the shields at r<sub>D</sub> = 8%: 0.862080 + 0.461348 = 1.3234.",
-      ],
-    },
-    {
-      id: "wacc-apv-11",
-      title: "Flow to equity and the rate for each cash flow",
-      theory: `<p>Flow to equity (FTE) is the third method. It values the equity directly: take FCF, subtract the after-tax interest, add net borrowing and discount at r<sub>E</sub>. A repayment is cash the shareholders give up, so a falling debt path lowers FCFE. The rule behind all three methods is to discount each cash flow at the rate of whoever receives it.</p>
-<div class="formula"><div class="eq">FCFE<sub>t</sub> = FCF<sub>t</sub> − (1 − τ<sub>c</sub>) r<sub>D</sub> D<sub>t−1</sub> + (D<sub>t</sub> − D<sub>t−1</sub>)  ·  E<sub>0</sub> = Σ FCFE<sub>t</sub>/(1 + r<sub>E</sub>)<sup>t</sup></div>
-<div class="where">WACC: FCF at r<sub>wacc</sub> gives V<sup>L</sup>. APV: FCF at r<sub>U</sub> plus the shield at r<sub>U</sub> (target ratio) or r<sub>D</sub> (fixed debt) gives V<sup>L</sup>. FTE: FCFE at r<sub>E</sub> gives E.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>FCF of 50 a year forever, D/V = 0.40, r<sub>D</sub> = 5%, τ<sub>c</sub> = 25%, r<sub>E</sub> = 13.3333% and r<sub>wacc</sub> = 9.5%.</p><p>V<sup>L</sup> = 50/0.095 = 526.3158 and D = 0.40 × 526.3158 = 210.5263. The debt never changes, so net borrowing is zero.</p><p>FCFE = 50 − 0.75 × 0.05 × 210.5263 = 50 − 7.8947 = 42.1053, so E = 42.1053/0.133333 = 315.79, which is V<sup>L</sup> − D = 526.3158 − 210.5263 = 315.7895.</p></div>`,
-      q: `<p>Which statement about the three valuation methods is true?</p>`,
-      options: [
-        "Flow to equity discounts the cash flow to shareholders at r<sub>wacc</sub> to find the value of the whole firm.",
-        "With a fixed permanent amount of debt, APV discounts both the free cash flow and the tax shield at r<sub>D</sub>.",
-        "The WACC method values the unlevered firm and the tax shield separately before adding the two.",
-        "With a constant debt-to-equity ratio, APV discounts both the free cash flow and the tax shield at r<sub>U</sub>.",
-      ],
-      answer: 3,
-      solution: `<p>Under a constant D/E the firm rebalances, so its debt and therefore its shield move with firm value. The shield carries asset risk and is discounted at r<sub>U</sub>, the same rate as the free cash flow, which is unlevered by definition.</p><p>The other three fail. FTE discounts FCFE at r<sub>E</sub> and gives the equity, not the firm. Under fixed permanent debt the shield is discounted at r<sub>D</sub>, but the free cash flow still at r<sub>U</sub>: that statement is only half true. Valuing the unlevered firm and the shield separately is APV; the WACC method hides the shield in the rate and values one stream.</p>`,
-      check: `<p>On the example firm all three routes give one number. FTE: E = 315.79 plus D = 210.53 gives 526.32. APV at r<sub>U</sub> = 10%: V<sup>U</sup> = 50/0.10 = 500.00 and PV(TS) = 0.25 × 0.05 × 210.53/0.10 = 26.32, so 526.32. WACC: 50/0.095 = 526.32.</p>`,
-      traps: [
-        "Mixed a cash flow with the wrong rate: FCFE belongs to the shareholders, so it is discounted at r<sub>E</sub> and gives E, not V<sup>L</sup>.",
-        "Half true: fixed permanent debt puts the shield at r<sub>D</sub>, but in APV the free cash flow is always discounted at r<sub>U</sub>.",
-        "Described APV, not the WACC method. The WACC method puts the shield into the rate through (1 − τ<sub>c</sub>) and values one stream.",
-        null,
-      ],
-    },
-    {
       id: "wacc-apv-12",
       title: "Running the WACC method backwards: implied growth",
       theory: `<p>The exam often gives you a price and asks what the market must be assuming. Build the WACC from market values, then solve V<sup>L</sup> = FCF<sub>1</sub>/(r<sub>wacc</sub> − g) for g. The cost of equity comes from the CAPM with the market risk premium E[R<sub>mkt</sub>] − r<sub>f</sub>, not the market return. The same equation solved for V<sup>L</sup> instead gives the most you can pay, the break-even price.</p>
@@ -273,9 +211,10 @@ window.EDU_DATA.sjangre.push({
     {
       id: "wacc-apv-14",
       title: "Exam level: WACC and APV over two periods, step by step",
-      theory: `<p>H2025 E4 chains nine questions on one firm with a finite life: debt beta, r<sub>E</sub>, r<sub>U</sub>, r<sub>wacc</sub>, V<sup>L</sup> by WACC, the debt adjustment, V<sup>U</sup>, the shields and V<sup>L</sup> by APV. The one new tool is the debt beta: debt with r<sub>D</sub> above r<sub>f</sub> has a beta, read off the CAPM backwards. Lay out one table with a column per date, carry full precision and round only when you write.</p>
+      theory: `<p>H2025 E4 chains nine questions on one firm with a finite life: debt beta, r<sub>E</sub>, r<sub>U</sub>, r<sub>wacc</sub>, V<sup>L</sup> by WACC, the debt adjustment, V<sup>U</sup>, the shields and V<sup>L</sup> by APV. Two tools are new. Debt with r<sub>D</sub> above r<sub>f</sub> has a beta, read off the CAPM backwards. Over several periods APV is two discounted sums at r<sub>U</sub>, where the shield in year t comes from the debt carried into that year, D<sub>t−1</sub>. Lay out one table with a column per date, carry full precision and round only when you write.</p>
 <div class="formula"><div class="eq">β<sub>D</sub> = (r<sub>D</sub> − r<sub>f</sub>)/(E[R<sub>mkt</sub>] − r<sub>f</sub>)  ·  r<sub>U</sub> = (E/V) r<sub>E</sub> + (D/V) r<sub>D</sub></div>
-<div class="where">r<sub>U</sub> has no tax term. The order is fixed: the value path first, then the debt path, then the shields.</div></div>`,
+<div class="eq">V<sup>U</sup> = Σ FCF<sub>t</sub>/(1 + r<sub>U</sub>)<sup>t</sup>  ·  PV(TS) = Σ τ<sub>c</sub> r<sub>D</sub> D<sub>t−1</sub>/(1 + r<sub>U</sub>)<sup>t</sup></div>
+<div class="where">r<sub>U</sub> has no tax term. The order is fixed: the value path first, then the debt path, then the shields. Under a constant debt ratio every shield is discounted at r<sub>U</sub>. V<sup>U</sup> + PV(TS) must equal the WACC value (consistency check 1). The debt came from the WACC answer, so the check is a fixed point, but it still catches a wrong rate on the shield and slips in the debt path.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>D/E = 0.25, β<sub>E</sub> = 1.5, r<sub>D</sub> = 7%, r<sub>f</sub> = 4%, E[R<sub>mkt</sub>] = 10%, τ<sub>c</sub> = 25%, FCF of 30 and 40 over two years.</p><p>β<sub>D</sub> = 0.03/0.06 = 0.50. r<sub>E</sub> = 0.04 + 1.5 × 0.06 = 13%. D/V = 0.20, so r<sub>U</sub> = 0.80 × 0.13 + 0.20 × 0.07 = 0.104 + 0.014 = 11.80% and r<sub>wacc</sub> = 0.104 + 0.20 × 0.07 × 0.75 = 11.45%.</p><p>V<sup>L</sup><sub>1</sub> = 40/1.1145 = 35.8905 and V<sup>L</sup><sub>0</sub> = (30 + 35.8905)/1.1145 = 59.1212, so D<sub>0</sub> = 11.8242 and D<sub>1</sub> = 7.1781.</p><p>TS<sub>1</sub> = 0.25 × 0.07 × 11.8242 = 0.206924 and TS<sub>2</sub> = 0.25 × 0.07 × 7.1781 = 0.125617. PV(TS) = 0.206924/1.118 + 0.125617/1.118² = 0.185084 + 0.100500 = 0.285584.</p><p>V<sup>U</sup> = 30/1.118 + 40/1.118² = 26.833631 + 32.001946 = 58.835577. Then 58.835577 + 0.285584 = 59.121161.</p></div>`,
       q: `<p>A firm keeps a debt-to-equity ratio of 0.5 and exists for two years, with free cash flow of 60 at the end of year 1 and 80 at the end of year 2. Its equity beta is 1.6 and its cost of debt is 6%. The risk-free rate is 4%, the expected market return 9% and τ<sub>c</sub> = 30%. What is PV(TS) in the APV valuation? Use four decimals.</p>`,
       options: ["0.3989", "1.5395", "1.0264", "1.0793"],

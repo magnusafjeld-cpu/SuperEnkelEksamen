@@ -30,7 +30,7 @@ window.EDU_DATA.sjangre.push({
     {
       id: "kreditt-2",
       title: "Promised versus expected return on risky debt",
-      theory: `<p>A corporate borrower can default. Let p be the probability of default over the year and R the recovery rate, the fraction of face value the creditors collect if it happens. The loss given default is L = 1 − R. The yield y assumes nothing goes wrong. The <b>expected return</b> r<sub>D</sub> takes off the expected loss. It is r<sub>D</sub>, not y, that is the cost of debt in a WACC. The course formula is not on the formula sheet: memorise it.</p>
+      theory: `<p>A corporate borrower can default. Let p be the probability of default over the year and R the recovery rate, the fraction of face value the creditors collect if it happens. The loss given default is L = 1 − R. The yield y assumes nothing goes wrong. The <b>expected return</b> r<sub>D</sub> takes off the expected loss. It is r<sub>D</sub>, not y, that is the cost of debt in a WACC. The course formula is not on the formula sheet: memorise it. The credit spread y − r<sub>f</sub> holds two parts. The expected loss p·L is money the lender does not expect to get. Only the rest, r<sub>D</sub> − r<sub>f</sub>, is a premium for bearing default risk.</p>
 <div class="formula"><div class="eq">r<sub>D</sub> = y − p·L</div><div class="eq">exact, from the payoffs: r<sub>D</sub> = E[payment]/P − 1 with E[payment] = (1 − p)·F + p·R·F</div>
 <div class="where">The two routes differ by p·L·y, because the formula charges the loss on the price and the exact route on the promised payment. Use the formula when you are given y, p and L. Use the payoffs when you are given them.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>y = 8%, p = 5%, R = 50%, so L = 0.50.</p><p>p·L = 0.05 × 0.50 = 0.025. r<sub>D</sub> = 8% − 2.5% = 5.5000%.</p><p>Exact route per 100 of face: price 100/1.08 = 92.5926, expected payment 0.95 × 100 + 0.05 × 50 = 97.50, return 97.50/92.5926 − 1 = 5.3000%. The gap of 0.2% is p·L·y = 0.025 × 0.08 = 0.002.</p></div>`,
@@ -44,25 +44,6 @@ window.EDU_DATA.sjangre.push({
         "Used the promised yield as the expected return: 9.0000%. That is the return only if nothing goes wrong.",
         "Subtracted p times the recovery rate instead of the loss: 9% − 0.04 × 0.40 = 7.4000%.",
         "Subtracted the default probability as if creditors lost everything in default: 9% − 4% = 5.0000%.",
-      ],
-    },
-    {
-      id: "kreditt-3",
-      title: "The credit spread: expected loss plus a risk premium",
-      theory: `<p>The credit spread is the promised yield over the risk-free rate of the same maturity. It holds two different things. The expected loss p·L is money the lender does not expect to get, so it compensates for nothing. The rest, r<sub>D</sub> − r<sub>f</sub>, is a genuine premium for bearing default risk that strikes in bad times. Only that part is priced by the CAPM, so never compute the debt beta from the yield.</p>
-<div class="formula"><div class="eq">spread = y − r<sub>f</sub> = p·L + (r<sub>D</sub> − r<sub>f</sub>)</div><div class="eq">β<sub>D</sub> = (r<sub>D</sub> − r<sub>f</sub>)/(E[R<sub>mkt</sub>] − r<sub>f</sub>)</div>
-<div class="where">E[R<sub>mkt</sub>] − r<sub>f</sub> is the market risk premium. The first line is the course formula r<sub>D</sub> = y − p·L rearranged.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>y = 7%, r<sub>f</sub> = 3%, p = 2%, L = 0.60 and a market risk premium of 5%.</p><p>Spread = 7% − 3% = 4.0%. Expected loss p·L = 1.2%. r<sub>D</sub> = 7% − 1.2% = 5.8%, so the risk premium is 5.8% − 3% = 2.8%. β<sub>D</sub> = 0.028/0.05 = 0.56.</p></div>`,
-      q: `<p>A bond has a promised yield of 8.5%. The risk-free rate is 4% and the market risk premium is 6%. The probability of default is 3% and the loss given default is 50%. What is the debt beta?</p>`,
-      options: ["0.7500", "0.5000", "0.2500", "1.1667"],
-      answer: 1,
-      solution: `<p>Spread = 8.5% − 4% = 4.5%. Expected loss p·L = 0.03 × 0.50 = 1.5%.</p><p>r<sub>D</sub> = 8.5% − 1.5% = 7.0%, so the risk premium is 7.0% − 4% = 3.0%.</p><p>β<sub>D</sub> = 0.030/0.06 = <b>0.5000</b>.</p>`,
-      check: `<p>Backwards through the CAPM: 4% + 0.5 × 6% = 7.0% = r<sub>D</sub> ✓. The test the wrong answers fail: a beta of 0.75 would put the expected return at 4% + 0.75 × 6% = 8.5%, the promised yield, which lenders do not expect to earn when default is possible.</p>`,
-      traps: [
-        "Computed the beta from the whole spread: (8.5% − 4%)/6% = 0.7500. The expected loss is not a risk premium.",
-        null,
-        "Priced the expected loss instead of the premium: 1.5%/6% = 0.2500.",
-        "Forgot to subtract the risk-free rate: 7.0%/6% = 1.1667.",
       ],
     },
     {
@@ -93,7 +74,7 @@ window.EDU_DATA.sjangre.push({
       title: "Risky debt as risk-free debt minus a put",
       theory: `<p>Rewrite the creditors' payoff: min(V<sub>T</sub>, F) = F − max(F − V<sub>T</sub>, 0). Lending to a levered firm is lending risk-free and at the same time writing the shareholders a put on the assets with strike F. The put is their right to hand over the assets instead of paying F. Equivalently, debt is the assets minus the shareholders' call. Put-call parity, Call = Put + V − PV(F), makes the two readings the same.</p>
 <div class="formula"><div class="eq">D = PV(F) − Put = V − Call</div>
-<div class="where">PV(F) = F/(1 + r<sub>f</sub>)<sup>T</sup> is the value of the same promise if it were risk-free. Put and Call are options on V with strike F and the debt's maturity. The put enters with a minus: it is worth something to the shareholders, not to the lender.</div></div>`,
+<div class="where">PV(F) = F/(1 + r<sub>f</sub>)<sup>T</sup> is the value of the same promise if it were risk-free. Put and Call are options on V with strike F and the debt's maturity. The put enters with a minus: it is worth something to the shareholders, not to the lender. If the firm is all-equity before the issue, options on its n shares with strike F/n are options on V: n such puts make one put on V with strike F (2016 Problem 4).</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>V = 120, F = 110 due in one year, r<sub>f</sub> = 10%. The put on V with strike 110 is worth 6.</p><p>PV(F) = 110/1.10 = 100. D = 100 − 6 = 94. Equity is the rest: E = 120 − 94 = 26.</p><p>Parity: Call = 6 + 120 − 100 = 26 ✓.</p></div>`,
       q: `<p>A firm's assets are worth 250. Its only debt is a zero-coupon bond with face value 210 due in one year. The risk-free rate is 5%. A European put on the firm's assets with strike 210 and one year to expiry is worth 12. What is the market value of the debt?</p>`,
       options: ["212.00", "198.00", "200.00", "188.00"],
@@ -124,25 +105,6 @@ window.EDU_DATA.sjangre.push({
         null,
         "Valued the debt as risk-free: 180/1.04 = 173.0769. That ignores the shortfall of 20 in the down state.",
         "Forgot to discount the risk-neutral expectation: 169.6000.",
-      ],
-    },
-    {
-      id: "kreditt-7",
-      title: "Yield and credit spread from the value of the debt",
-      theory: `<p>Once you have the market value D of a zero-coupon debt, its promised yield is the rate that turns D into F, exactly as in the first step. The credit spread is that yield minus r<sub>f</sub>. D can come from a tree or from traded option prices. If the firm is all-equity, its shares are claims on the assets, so options on the shares are options on V: n puts with strike F/n on its n shares are one put on V with strike F. 2016 Problem 4 gave option prices on an all-equity firm's shares and asked for the yield its debt would carry.</p>
-<div class="formula"><div class="eq">D = PV(F) − n × Put<sub>share</sub> &nbsp;·&nbsp; y = (F/D)<sup>1/T</sup> − 1 &nbsp;·&nbsp; spread = y − r<sub>f</sub></div>
-<div class="where">n is the number of shares. Put<sub>share</sub> is the price of one put on a share with strike F/n and maturity T. Quote y and r<sub>f</sub> on the same compounding basis, per year.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>An all-equity firm has 100 million shares at 30.00. It plans a zero-coupon bond with F = 2 400 million due in one year, so the strike per share is 2 400/100 = 24.00. A one-year put on the shares with strike 24.00 costs 1.20 and r<sub>f</sub> = 4%.</p><p>PV(F) = 2 400/1.04 = 2 307.6923. Puts: 100 × 1.20 = 120.00. D = 2 307.6923 − 120.00 = 2 187.6923.</p><p>y = 2 400/2 187.6923 − 1 = 9.7046%. Spread = 9.7046% − 4% = 5.7046%.</p></div>`,
-      q: `<p>An all-equity firm has 250 million shares at 48.00. It considers issuing a zero-coupon bond with face value 10 000 million due in two years and paying out the proceeds. Markets are perfect. A two-year European put on its shares with strike 40.00 trades at 2.60. The two-year risk-free rate is 3% a year with annual compounding. What credit spread per year would the bond carry, to four decimals?</p>`,
-      options: ["3.5282%", "−3.3776%", "3.7463%", "0.4175%"],
-      answer: 2,
-      solution: `<p>The strike per share is 10 000/250 = 40.00, so the 250 million puts make one put on the assets with strike 10 000: 250 × 2.60 = 650.00 million.</p><p>PV(F) = 10 000/1.03<sup>2</sup> = 10 000/1.0609 = 9 425.9591.</p><p>D = 9 425.9591 − 650.0000 = 8 775.9591.</p><p>y = (10 000/8 775.9591)<sup>1/2</sup> − 1 = 1.139477<sup>1/2</sup> − 1 = 6.7463%. Spread = 6.7463% − 3% = <b>3.7463%</b>.</p>`,
-      check: `<p>Price the bond back at its yield: 10 000/1.0674627<sup>2</sup> = 8 775.96 ✓. The spread is positive and D lies below PV(F), as risky debt must. The equity left after the payout, 12 000 − 8 775.9591 = 3 224.0409, is positive too.</p>`,
-      traps: [
-        "Mixed compounding bases: took the continuously compounded yield ln(10 000/8 775.9591)/2 = 6.5282% and subtracted the annually compounded 3%, giving 3.5282%. Put y and r<sub>f</sub> on the same basis.",
-        "Added the puts instead of subtracting them: D = 9 425.9591 + 650 = 10 075.9591, so y = −0.3776% and the spread −3.3776%.",
-        null,
-        "Subtracted the puts from the undiscounted face value: D = 10 000 − 650 = 9 350, so y = 3.4175% and the spread 0.4175%.",
       ],
     },
     {
@@ -181,35 +143,6 @@ window.EDU_DATA.sjangre.push({
         null,
         "Used N(d<sub>2</sub>) where N(d<sub>1</sub>) belongs: 0.7126 × 2.6279 × 1.2 = 2.2472. N(d<sub>2</sub>) is a probability, not the delta.",
         "Valued equity as V − PV(F) = 300, as if the debt were risk-free: 0.8556 × (900/300) × 1.2 = 3.0802.",
-      ],
-    },
-    {
-      id: "kreditt-10",
-      title: "Equity risk when the firm nears default",
-      theory: `<p>As the asset value falls towards the face value of the debt, two things happen to β<sub>E</sub> = N(d<sub>1</sub>)(V/E)β<sub>U</sub>. The delta N(d<sub>1</sub>) falls, because the call moves out of the money. But E falls much faster than N(d<sub>1</sub>)·V, so V/E shoots up. The second effect wins: equity near default is a thin, highly geared claim and its beta rises steeply. The debt beta rises too, because the lenders now carry part of the asset risk. So the linear formula with β<sub>D</sub> = 0 overstates β<sub>E</sub>.</p>
-<div class="formula"><div class="eq">V ↓ ⟹ N(d<sub>1</sub>) ↓ but V/E ↑ faster ⟹ β<sub>E</sub> ↑ &nbsp;·&nbsp; β<sub>D</sub> ↑</div>
-<div class="where">N(d<sub>1</sub>)·V/E is the call's elasticity: the per cent change in E for a 1% change in V. The further out of the money a call is, the larger its elasticity.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Take the firm from the last step and let its assets fall, holding PV(F) = 600, the asset volatility and β<sub>U</sub> = 1.2 fixed.</p>
-<table class="data"><tr><th>V</th><th>N(d<sub>1</sub>)</th><th>E</th><th>V/E</th><th>β<sub>E</sub></th><th>β<sub>D</sub></th><th>(V/E)β<sub>U</sub></th></tr>
-<tr><td class="n">1 200</td><td class="n">0.9491</td><td class="n">615.66</td><td class="n">1.9491</td><td class="n">2.2199</td><td class="n">0.1254</td><td class="n">2.3390</td></tr>
-<tr><td class="n">900</td><td class="n">0.8556</td><td class="n">342.48</td><td class="n">2.6279</td><td class="n">2.6981</td><td class="n">0.2797</td><td class="n">3.1535</td></tr>
-<tr><td class="n">700</td><td class="n">0.7117</td><td class="n">184.27</td><td class="n">3.7988</td><td class="n">3.2443</td><td class="n">0.4696</td><td class="n">4.5585</td></tr></table>
-<p>From 1 200 to 700 the delta falls by a quarter while V/E almost doubles, so β<sub>E</sub> rises from 2.2199 to 3.2443. The last column, which assumes riskless debt, overshoots more and more.</p></div>`,
-      q: `<p>Over a bad year a firm's asset value falls until its equity is a thin slice above the present value of its debt. Its asset beta and its zero-coupon debt are unchanged. No N(d) values are given. What happens to the equity beta and why?</p>`,
-      options: [
-        "It rises: E shrinks much faster than N(d<sub>1</sub>)·V, so each krone of equity carries more of the asset risk.",
-        "It falls: N(d<sub>1</sub>) drops as the call moves out of the money and outweighs the rise in V/E.",
-        "It stays where it was: leverage moves risk between the claims while the asset beta is unchanged.",
-        "It rises exactly as β<sub>U</sub>(1 + D/E) predicts, since the debt keeps a beta of zero near default.",
-      ],
-      answer: 0,
-      solution: `<p>β<sub>E</sub> = N(d<sub>1</sub>)(V/E)β<sub>U</sub>. As V falls, N(d<sub>1</sub>) falls, but E falls much faster: it is a small residual on top of a large debt claim. V/E rises steeply and the product rises. Equity near default is a deep out-of-the-money call, the most geared claim on the firm, so <b>β<sub>E</sub> rises</b>.</p><p>It rises by less than the linear formula with β<sub>D</sub> = 0 says, because the debt beta also rises: the lenders now carry part of the asset risk.</p>`,
-      check: `<p>In the example, β<sub>E</sub> rises from 2.2199 to 3.2443 between V = 1 200 and V = 700. The weighted betas still return β<sub>U</sub> at 700: (184.27/700)(3.2443) + (515.73/700)(0.4696) = 0.8540 + 0.3460 = 1.2000. That is an identity, so it confirms the arithmetic, not the direction; the direction comes from V/E rising faster than N(d<sub>1</sub>) falls.</p>`,
-      traps: [
-        null,
-        "N(d<sub>1</sub>) does fall, but E falls much faster, so V/E rises by more: from V = 1 200 to 700 the delta drops by a quarter while V/E almost doubles.",
-        "The asset beta is fixed, but equity's share of the assets shrinks, so the same risk sits on a smaller base. Only the weighted average of β<sub>E</sub> and β<sub>D</sub> stays at β<sub>U</sub>.",
-        "Near default the debt is far from risk-free. β<sub>D</sub> rises, so β<sub>E</sub> rises by less than β<sub>U</sub>(1 + D/E): 3.2443 against 4.5585 at V = 700.",
       ],
     },
     {

@@ -41,44 +41,6 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "tvilling-2",
-      title: "The CAPM backwards: beta from a return",
-      theory: `<p>The exam rarely hands you a beta. It hands you a return, usually a comparable firm's cost of equity. You must recover the beta behind it. Rearrange the CAPM: the asset's excess return divided by the market's excess return.</p>
-<div class="formula"><div class="eq">β = (r − r<sub>f</sub>) / (E[R<sub>mkt</sub>] − r<sub>f</sub>)</div>
-<div class="where">The same rearrangement works on equity (r<sub>E</sub> gives β<sub>E</sub>), on debt (r<sub>D</sub> gives β<sub>D</sub>) and on the whole business (r<sub>U</sub> gives β<sub>U</sub>). Only systematic risk is priced: an asset whose risk is all diversifiable has β = 0 and earns r<sub>f</sub>, however volatile it is.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>r<sub>f</sub> = 2%, E[R<sub>mkt</sub>] = 7%, r<sub>E</sub> = 10%.</p><p>Premium = 7% − 2% = 5%. Excess return on the stock = 10% − 2% = 8%.</p><p>β<sub>E</sub> = 8% / 5% = 1.60.</p></div>`,
-      q: `<p>The risk-free rate is 3.5% and the expected return on the market is 9.5%. Investors require 11.9% on a stock. What is the stock's beta?</p>`,
-      options: ["0.40", "0.88", "1.40", "1.98"],
-      answer: 2,
-      solution: `<p>Market risk premium = 9.5% − 3.5% = 6%.</p><p>Excess return on the stock = 11.9% − 3.5% = 8.4%.</p><p>β<sub>E</sub> = 8.4% / 6% = <b>1.40</b>.</p>`,
-      check: `<p>Run the CAPM forwards: 3.5% + 1.40 × 6% = 3.5% + 8.4% = 11.9%, the return you started from. A required return above the market's 9.5% must come with a beta above 1: 1.40 does.</p>`,
-      traps: [
-        "Measured the stock's excess return over the market instead of over r<sub>f</sub>: (11.9% − 9.5%) / 6% = 0.40.",
-        "Divided by the market return instead of the premium: 8.4% / 9.5% = 0.88.",
-        null,
-        "Forgot to subtract the risk-free rate from the stock's return: 11.9% / 6% = 1.98.",
-      ],
-    },
-    {
-      id: "tvilling-3",
-      title: "The CAPM backwards: the market risk premium from a known pair",
-      theory: `<p>Sometimes the exam gives you one asset whose beta and expected return you both know but leaves the market out. One known pair pins down the slope of the security market line. That slope is the market risk premium. Add r<sub>f</sub> to the premium and you have the expected market return.</p>
-<div class="formula"><div class="eq">E[R<sub>mkt</sub>] − r<sub>f</sub> = (r<sub>i</sub> − r<sub>f</sub>) / β<sub>i</sub></div>
-<div class="where">The premium is the reward per unit of beta, so it is the same for every asset. Keep the premium and the market return apart: a premium of 6% with r<sub>f</sub> = 3% means a market return of 9%.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>r<sub>f</sub> = 3%. A stock with β = 0.80 has an expected return of 7%.</p><p>Premium = (7% − 3%) / 0.80 = 4% / 0.80 = 5%.</p><p>E[R<sub>mkt</sub>] = 3% + 5% = 8%.</p></div>`,
-      q: `<p>The risk-free rate is 2.5%. A stock with a beta of 1.25 has an expected return of 10%. What expected return on the market portfolio does this imply?</p>`,
-      options: ["8.50%", "6.00%", "11.88%", "8.00%"],
-      answer: 0,
-      solution: `<p>Premium = (10% − 2.5%) / 1.25 = 7.5% / 1.25 = 6%.</p><p>E[R<sub>mkt</sub>] = 2.5% + 6% = <b>8.50%</b>.</p>`,
-      check: `<p>Put the stock back on the line: 2.5% + 1.25 × (8.5% − 2.5%) = 2.5% + 7.5% = 10%. A beta above 1 must earn more than the market: 10% is above 8.5%.</p>`,
-      traps: [
-        null,
-        "Reported the premium, not the market return: (10% − 2.5%) / 1.25 = 6.00%.",
-        "Multiplied the excess return by beta instead of dividing: 2.5% + 1.25 × 7.5% = 11.875%, which rounds to 11.88%.",
-        "Divided the whole return by beta and forgot the risk-free rate: 10% / 1.25 = 8.00%.",
-      ],
-    },
-    {
       id: "tvilling-4",
       title: "Market-value weights: D/V, E/V and D/E",
       theory: `<p>Every weight in the twin-firm chain is a market value. Equity is the share price times the shares outstanding, never the book equity on the balance sheet. Debt is its market value, which the exam usually gives you. Firm value is V = E + D.</p>
@@ -121,10 +83,10 @@ window.EDU_DATA.sjangre.push({
     {
       id: "tvilling-6",
       title: "The debt beta and unlevering with risky debt",
-      theory: `<p>Debt is only risk-free if it is repaid in every state. When debt is expected to return more than r<sub>f</sub>, part of its default risk is systematic, so it has a positive beta. Get it from the CAPM backwards, as you did for equity. Then keep it in the weighting.</p>
+      theory: `<p>Debt is only risk-free if it is repaid in every state. When debt is expected to return more than r<sub>f</sub>, part of its default risk is systematic, so it has a positive beta. The exam gives you r<sub>D</sub>, not β<sub>D</sub>, so run the CAPM backwards: the debt's excess return divided by the market's excess return. Then keep β<sub>D</sub> in the weighting.</p>
 <div class="formula"><div class="eq">β<sub>D</sub> = (r<sub>D</sub> − r<sub>f</sub>) / (E[R<sub>mkt</sub>] − r<sub>f</sub>)</div>
 <div class="eq">β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub></div>
-<div class="where">r<sub>D</sub> is the expected return on the debt. Setting β<sub>D</sub> = 0 when r<sub>D</sub> &gt; r<sub>f</sub> drops a positive term, so it understates β<sub>U</sub> and every discount rate built on it. The firm then looks more valuable than it is.</div></div>`,
+<div class="where">r<sub>D</sub> is the expected return on the debt. The same rearrangement turns a cost of equity into β<sub>E</sub>: β<sub>E</sub> = (r<sub>E</sub> − r<sub>f</sub>) / premium. Setting β<sub>D</sub> = 0 when r<sub>D</sub> &gt; r<sub>f</sub> drops a positive term, so it understates β<sub>U</sub> and every discount rate built on it. The firm then looks more valuable than it is.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>r<sub>f</sub> = 3%, premium 5%. A twin has E/V = 0.70, β<sub>E</sub> = 1.50 and r<sub>D</sub> = 4%.</p><p>β<sub>D</sub> = (4% − 3%) / 5% = 0.20.</p><p>β<sub>U</sub> = 0.70 × 1.50 + 0.30 × 0.20 = 1.05 + 0.06 = 1.11.</p></div>`,
       q: `<p>The risk-free rate is 2% and the expected market return is 8%. A twin has a debt-to-value ratio of 0.40, an equity beta of 1.75 and an expected return on its debt of 3.5%. What is the twin's unlevered beta, to four decimals?</p>`,
       options: ["1.0500", "1.1500", "1.2833", "1.3214"],
@@ -159,30 +121,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "tvilling-8",
-      title: "Relevering beta to your own capital structure",
-      theory: `<p>Once you have the business risk β<sub>U</sub>, you put your own financing back on. Rearranging the beta weighting gives the equity beta at any leverage. Use your own target D/E and your own debt beta, never the twin's. Then turn β<sub>E</sub> into r<sub>E</sub> with the CAPM.</p>
-<div class="formula"><div class="eq">β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>)</div>
-<div class="where">With risk-free debt this is β<sub>E</sub> = β<sub>U</sub>(1 + D/E). More debt puts the same business risk on a smaller equity base, so β<sub>E</sub> rises with D/E. A positive β<sub>D</sub> means the lenders carry part of that risk, which holds β<sub>E</sub> down.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>β<sub>U</sub> = 1.00. Your D/E = 0.50 and your β<sub>D</sub> = 0.20. r<sub>f</sub> = 3%, premium 5%.</p><p>β<sub>E</sub> = 1.00 + 0.50 × (1.00 − 0.20) = 1.00 + 0.40 = 1.40.</p><p>r<sub>E</sub> = 3% + 1.40 × 5% = 10%.</p></div>`,
-      q: `<p>A twin with a debt-to-equity ratio of 1.00 has an unlevered beta of 0.90. Your firm is in the same business and targets a debt-to-value ratio of 0.40, with a debt beta of 0.15. The risk-free rate is 2% and the market risk premium is 5%. Relever the beta to your firm and find your cost of equity, to four decimals.</p>`,
-      options: ["8.0000%", "9.0000%", "9.5000%", "10.2500%"],
-      answer: 1,
-      solution: `<p>Your D/E = 0.40/0.60 = 2/3.</p><p>β<sub>E</sub> = 0.90 + (2/3) × (0.90 − 0.15) = 0.90 + (2/3) × 0.75 = 0.90 + 0.50 = 1.40.</p><p>r<sub>E</sub> = 2% + 1.40 × 5% = 2% + 7% = <b>9.0000%</b>.</p>`,
-      check: `<p>Weight your own betas back: 0.60 × 1.40 + 0.40 × 0.15 = 0.84 + 0.06 = 0.90 = β<sub>U</sub>. That only confirms the arithmetic, since β<sub>E</sub> was built from β<sub>U</sub>. The returns must agree too: r<sub>U</sub> = 2% + 0.90 × 5% = 6.5% and r<sub>D</sub> = 2% + 0.15 × 5% = 2.75%. Then 0.60 × 9% + 0.40 × 2.75% = 5.40% + 1.10% = 6.50% = r<sub>U</sub>.</p>`,
-      traps: [
-        "Used D/V = 0.40 in place of D/E: β<sub>E</sub> = 0.90 + 0.40 × 0.75 = 1.20, so r<sub>E</sub> = 8.0000%.",
-        null,
-        "Ignored your own debt beta: β<sub>E</sub> = 0.90 × (1 + 2/3) = 1.50, so r<sub>E</sub> = 9.5000%.",
-        "Relevered with the twin's D/E of 1.00: β<sub>E</sub> = 0.90 + 1.00 × 0.75 = 1.65, so r<sub>E</sub> = 10.2500%.",
-      ],
-    },
-    {
       id: "tvilling-9",
       title: "MM Proposition II: relevering the cost of equity",
-      theory: `<p>This is the relevering of the previous step written in returns instead of betas. If you have r<sub>U</sub> and your own r<sub>D</sub>, MM Proposition II, which is on the formula sheet, gives r<sub>E</sub> directly. The multiplier is D/E, not D/V. When the firm keeps a target D/E the formula holds with corporate taxes too, so no (1 − τ<sub>c</sub>) enters.</p>
+      theory: `<p>Once you have the business risk, you put your own financing back on. More debt puts the same business risk on a smaller equity base, so the cost of equity rises with D/E. If you have r<sub>U</sub> and your own r<sub>D</sub>, MM Proposition II, which is on the formula sheet, gives r<sub>E</sub> directly. The multiplier is D/E, not D/V. When the firm keeps a target D/E the formula holds with corporate taxes too, so no (1 − τ<sub>c</sub>) enters.</p>
 <div class="formula"><div class="eq">r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>)</div>
-<div class="where">Equity holders earn r<sub>U</sub> plus a premium for financial risk. The premium grows with D/E and with the spread between r<sub>U</sub> and what the lenders earn. Use your own D/E and your own r<sub>D</sub>.</div></div>`,
+<div class="eq">β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>)</div>
+<div class="where">Equity holders earn r<sub>U</sub> plus a premium for financial risk. The premium grows with D/E and with the spread between r<sub>U</sub> and what the lenders earn. The second line is the same relevering in betas: put its β<sub>E</sub> into the CAPM and you get the same r<sub>E</sub>. Use your own D/E and your own r<sub>D</sub> or β<sub>D</sub>, never the twin's.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>r<sub>U</sub> = 9%, D/E = 0.50, r<sub>D</sub> = 5%.</p><p>r<sub>E</sub> = 9% + 0.50 × (9% − 5%) = 9% + 2% = 11%.</p></div>`,
       q: `<p>Your firm's unlevered cost of capital is 8.1%, taken from a twin that runs a debt-to-equity ratio of 0.60. Your firm will keep a constant debt-to-value ratio of 0.25. The expected return on its debt will be 4.5%. The corporate tax rate is 22%. What is your cost of equity, to four decimals?</p>`,
       options: ["8.1000%", "9.0000%", "9.0360%", "9.3000%"],
@@ -376,22 +320,23 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "mm-4",
-      title: "A debt-financed repurchase: how many shares",
-      theory: `<p>In a repurchase the firm uses the borrowed cash to buy its own shares at the market price, which in a perfect market is the unchanged price. Equity falls by the cash paid out and the share count falls by the shares bought, so the price per share stays where it was. Between the debt issue and the buyback the firm holds the cash: assets are V + D, debt is D and equity is still V.</p>
-<div class="formula"><div class="eq">n = D<sub>new</sub>/P &nbsp;·&nbsp; N<sub>1</sub> = N<sub>0</sub> − n &nbsp;·&nbsp; E<sub>1</sub> = V − D &nbsp;·&nbsp; P<sub>1</sub> = E<sub>1</sub>/N<sub>1</sub> = P</div>
-<div class="where">n is the number of shares bought back, D<sub>new</sub> the cash raised for the buyback, D the total debt afterwards and P the price at which the firm buys.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>All-equity firm, V = 640, 16 million shares at 40.00. It borrows 160.</p><p>Just after the loan: assets 640 + 160 cash = 800, debt 160, equity 640, price 40.00. Buyback: n = 160/40.00 = 4 million shares, leaving 12 million. E<sub>1</sub> = 640 − 160 = 480 and P<sub>1</sub> = 480/12 = 40.00.</p></div>`,
-      q: `<p>An all-equity firm has 40 million shares trading at 27.00. Markets are perfect and there are no taxes. It borrows 243 million and uses all of it to repurchase shares at the market price. How many shares (in millions) does it buy back?</p>`,
-      options: ["7.3469", "6.0750", "31.0000", "9.0000"],
-      answer: 3,
-      solution: `<p>The announcement leaves the price at 27.00 (MM I), so that is the price the firm pays.</p><p>n = 243/27.00 = <b>9.0000</b> million shares, leaving N<sub>1</sub> = 40 − 9 = 31 million.</p>`,
-      check: `<p>E<sub>1</sub> = 1 080 − 243 = 837 and 837/31 = 27.00. That check cannot fail, because n was defined at 27.00. The one that can is the price you buy at: just before the buyback the assets are 1 080 + 243 = 1 323, the debt is 243 and equity is 1 080 over 40 million shares, which is 27.00.</p>`,
+      id: "mm-7",
+      title: "A debt-financed repurchase: only the new money buys shares",
+      theory: `<p>In a repurchase the firm uses the borrowed cash to buy its own shares at the market price, which in a perfect market is the unchanged price. Equity falls by the cash paid out and the share count falls by the shares bought, so the price per share stays where it was. Exam firms often carry debt already. If the board targets a leverage ratio, the new debt is the target minus what is already there. Only that new money goes to shareholders. If instead a new loan first repays the old debt, the payout is the new loan minus the debt repaid. A target D/V is a fraction of V, which a perfect-market recapitalisation leaves unchanged.</p>
+<div class="formula"><div class="eq">D<sub>target</sub> = (D/V)<sub>target</sub> × V &nbsp;·&nbsp; D<sub>new</sub> = D<sub>target</sub> − D<sub>old</sub></div>
+<div class="eq">n = D<sub>new</sub>/P &nbsp;·&nbsp; N<sub>1</sub> = N<sub>0</sub> − n &nbsp;·&nbsp; P<sub>1</sub> = (V − D<sub>target</sub>)/N<sub>1</sub> = P</div>
+<div class="where">n is the number of shares bought back and P the price at which the firm buys. Refinancing variant: payout = new loan − old debt repaid. Read whether the target is D/V or D/E: with D/E = x, D = [x/(1 + x)] × V.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>V = 800 with D<sub>old</sub> = 200 and E = 600, on 30 million shares at 20.00. Target D/V = 0.40.</p><p>D<sub>target</sub> = 0.40 × 800 = 320, so D<sub>new</sub> = 320 − 200 = 120 and n = 120/20.00 = 6 million, leaving 24 million. E<sub>1</sub> = 800 − 320 = 480 and 480/24 = 20.00. A new loan of 320 that repays the 200 releases the same 120.</p></div>`,
+      q: `<p>A firm in a perfect market with no taxes has V = 1 500 million: debt of 300 million and equity of 1 200 million, on 40 million shares at 30.00. The board will issue debt until D/V = 0.35 and use the proceeds to buy back shares. How many shares (in millions) does it buy back?</p>`,
+      options: ["2.9630", "4.0000", "7.5000", "17.5000"],
+      answer: 2,
+      solution: `<p>D<sub>target</sub> = 0.35 × 1 500 = 525.</p><p>D<sub>new</sub> = 525 − 300 = 225.</p><p>n = 225/30.00 = <b>7.5000</b> million, leaving 40 − 7.5 = 32.5 million.</p>`,
+      check: `<p>Total debt 525 over V = 1 500 is 0.35, the target. This can fail: issue the whole 525 as new debt and total debt is 825, D/V = 0.55. Price: E<sub>1</sub> = 1 500 − 525 = 975 and 975/32.5 = 30.00, unchanged.</p>`,
       traps: [
-        "Priced the share with the borrowed cash but without the debt that came with it: (1 080 + 243)/40 = 33.075, so 243/33.075 = 7.3469.",
-        "Treated the payout as a dividend and divided the cash by the shares outstanding: 243/40 = 6.0750. That is cash per share, not shares bought.",
-        "Gave the shares left outstanding, 40 − 9 = 31.0000, instead of the shares bought.",
+        "Read the target as D/E = 0.35: D = (0.35/1.35) × 1 500 = 388.89, so (388.89 − 300)/30.00 = 2.9630.",
+        "Applied the target ratio to equity instead of firm value: 0.35 × 1 200 = 420, so (420 − 300)/30.00 = 4.0000.",
         null,
+        "Treated the whole target as new debt, ignoring the 300 already there: 525/30.00 = 17.5000.",
       ],
     },
     {
@@ -430,25 +375,6 @@ window.EDU_DATA.sjangre.push({
         null,
         "Gave the holder a dividend as well as the unchanged price: 200 × (48.00 + 12.00) = 12 000.00. A repurchase pays only the shares tendered.",
         "Divided firm value by the new share count, forgetting the debt: 200 × 1 200/18.75 = 12 800.00.",
-      ],
-    },
-    {
-      id: "mm-7",
-      title: "A firm that already has debt: only the new money is paid out",
-      theory: `<p>Exam firms often carry debt already. If the board targets a leverage ratio, the new debt is the target minus what is already there. Only that new money goes to shareholders. If instead a new loan first repays the old debt, the payout is the new loan minus the debt repaid. A target D/V is a fraction of V, which a perfect-market recapitalisation leaves unchanged.</p>
-<div class="formula"><div class="eq">D<sub>target</sub> = (D/V)<sub>target</sub> × V &nbsp;·&nbsp; D<sub>new</sub> = D<sub>target</sub> − D<sub>old</sub> &nbsp;·&nbsp; n = D<sub>new</sub>/P</div>
-<div class="where">Refinancing variant: payout = new loan − old debt repaid. Read whether the target is D/V or D/E: with D/E = x, D = [x/(1 + x)] × V.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>V = 800 with D<sub>old</sub> = 200 and E = 600, on 30 million shares at 20.00. Target D/V = 0.40.</p><p>D<sub>target</sub> = 0.40 × 800 = 320, so D<sub>new</sub> = 320 − 200 = 120 and n = 120/20.00 = 6 million, leaving 24 million. E<sub>1</sub> = 800 − 320 = 480 and 480/24 = 20.00. A new loan of 320 that repays the 200 releases the same 120.</p></div>`,
-      q: `<p>A firm in a perfect market with no taxes has V = 1 500 million: debt of 300 million and equity of 1 200 million, on 40 million shares at 30.00. The board will issue debt until D/V = 0.35 and use the proceeds to buy back shares. How many shares (in millions) does it buy back?</p>`,
-      options: ["2.9630", "4.0000", "7.5000", "17.5000"],
-      answer: 2,
-      solution: `<p>D<sub>target</sub> = 0.35 × 1 500 = 525.</p><p>D<sub>new</sub> = 525 − 300 = 225.</p><p>n = 225/30.00 = <b>7.5000</b> million, leaving 40 − 7.5 = 32.5 million.</p>`,
-      check: `<p>Total debt 525 over V = 1 500 is 0.35, the target. This can fail: issue the whole 525 as new debt and total debt is 825, D/V = 0.55. Price: E<sub>1</sub> = 1 500 − 525 = 975 and 975/32.5 = 30.00, unchanged.</p>`,
-      traps: [
-        "Read the target as D/E = 0.35: D = (0.35/1.35) × 1 500 = 388.89, so (388.89 − 300)/30.00 = 2.9630.",
-        "Applied the target ratio to equity instead of firm value: 0.35 × 1 200 = 420, so (420 − 300)/30.00 = 4.0000.",
-        null,
-        "Treated the whole target as new debt, ignoring the 300 already there: 525/30.00 = 17.5000.",
       ],
     },
     {
@@ -506,49 +432,6 @@ window.EDU_DATA.sjangre.push({
         "Charged interest on the old debt only: (81 − 16)/8 = 8.1250.",
         "Divided by the old share count, forgetting the buyback: 61/10 = 6.1000.",
         null,
-      ],
-    },
-    {
-      id: "mm-11",
-      title: "EPS rises, value does not",
-      theory: `<p>With no taxes, no growth and full payout, earnings to shareholders are the cash flow less interest. EPS is that over the shares. Leverage raises EPS whenever the assets earn more than r<sub>D</sub>, because fewer shares split a cash flow that shrank by less. The price still does not move: the extra EPS is riskier, so the market pays less per krone of earnings. With full payout and no growth the P/E is simply 1/r<sub>E</sub>.</p>
-<div class="formula"><div class="eq">EPS = (FCF − r<sub>D</sub> × D)/N &nbsp;·&nbsp; P/E = P/EPS = 1/r<sub>E</sub></div>
-<div class="where">Higher EPS at an unchanged price means a lower P/E. The error is to apply the old P/E to the new EPS, as if the risk had not changed.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>All-equity firm earning 120 a year, 60 million shares at 25.00, so V = 1 500 and r<sub>U</sub> = 8%. EPS = 2.00 and P/E = 12.50.</p><p>It borrows 500 at 4% and buys back 20 million shares. Earnings 120 − 20 = 100 over 40 million: EPS = 2.50, up 25%. P stays 25.00, so P/E = 10.00. Check: r<sub>E</sub> = 0.08 + (500/1 000)(0.04) = 0.10 = 1/10.</p></div>`,
-      q: `<p>An all-equity firm earns 90 million a year forever and pays it all out. It has 30 million shares at 30.00. Markets are perfect and there are no taxes. It borrows 360 million of risk-free debt at 5% and buys back shares. What is the P/E ratio after the buyback?</p>`,
-      options: ["10.0000", "12.5000", "7.5000", "8.3333"],
-      answer: 2,
-      solution: `<p>n = 360/30.00 = 12 million, N<sub>1</sub> = 18 million.</p><p>Earnings to equity = 90 − 0.05 × 360 = 72, so EPS = 72/18 = 4.0000, up from 3.0000.</p><p>The price is unchanged at 30.00, so P/E = 30.00/4.0000 = <b>7.5000</b>, down from 10.0000.</p>`,
-      check: `<p>r<sub>U</sub> = 90/900 = 10%. MM II: r<sub>E</sub> = 0.10 + (360/540)(0.10 − 0.05) = 0.10 + 0.033333 = 0.133333 and 1/0.133333 = 7.5000. Earnings and MM II are separate routes and they agree.</p>`,
-      traps: [
-        "Kept the old multiple, which would price the share at 4.00 × 10 = 40.00: treating riskier EPS as if it were as safe as before.",
-        "Put firm value over equity earnings instead of equity value: 900/72 = 12.5000.",
-        null,
-        "Inverted a cost of equity built with D/V instead of D/E: r<sub>E</sub> = 0.10 + (360/900)(0.05) = 0.12, so 1/0.12 = 8.3333.",
-      ],
-    },
-    {
-      id: "mm-12",
-      title: "Homemade unlevering: getting the old risk back",
-      theory: `<p>An investor who dislikes the new leverage can undo it herself. Holding the firm's equity and debt in the proportions E/V and D/V is the same as owning a slice of the whole firm, so her return is r<sub>U</sub> again. To get there she sells D/V of her shares and buys the firm's debt with the money. The reverse, borrowing on her own account to buy more shares, is homemade leverage. Because she can do either at market prices, nobody pays extra for the firm's choice of leverage: this is the engine behind MM I.</p>
-<div class="formula"><div class="eq">sell shares worth W × D/V &nbsp;·&nbsp; buy debt worth W × D/V</div><div class="eq">return = (E/V) r<sub>E</sub> + (D/V) r<sub>D</sub> = r<sub>U</sub></div>
-<div class="where">W is the value of her holding. Use D/V, not D/E: she needs the same fraction of each claim.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>A firm moves to D = 250 and E = 750, so D/V = 0.25, with r<sub>U</sub> = 10% and r<sub>D</sub> = 6%: r<sub>E</sub> = 0.10 + (250/750)(0.04) = 0.113333.</p><p>An investor holds 8 000.00 of shares. She sells 0.25 × 8 000.00 = 2 000.00 and buys the firm's bonds. Her return: 0.75 × 0.113333 + 0.25 × 0.06 = 0.085 + 0.015 = 0.10 = r<sub>U</sub>.</p></div>`,
-      q: `<p>After a recapitalisation a firm has 600 million of risk-free debt at r<sub>D</sub> = 4% and equity worth 900 million; r<sub>U</sub> = 9%. Markets are perfect and there are no taxes. An investor holds shares worth 5 000.00 and wants exactly the risk of the old all-equity firm, without adding money. What should she do?</p>`,
-      options: [
-        "Sell shares worth 3 333.33 and buy the firm's debt with the proceeds",
-        "Sell shares worth 2 000.00 and buy the firm's debt with the proceeds",
-        "Borrow 2 000.00 and buy more of the firm's shares",
-        "Sell shares worth 3 000.00 and buy the firm's debt with the proceeds",
-      ],
-      answer: 1,
-      solution: `<p>D/V = 600/1 500 = 0.40.</p><p>She sells 0.40 × 5 000.00 = <b>2 000.00</b> of shares and buys 2 000.00 of the firm's debt, keeping 3 000.00 in shares.</p>`,
-      check: `<p>Fractions: 3 000/900 million and 2 000/600 million are both 3.3333 × 10<sup>−6</sup>, the same slice of both claims, so the same slice of the assets as 5 000/1 500 million. Returns: r<sub>E</sub> = 0.09 + (600/900)(0.05) = 0.123333 and 0.6 × 0.123333 + 0.4 × 0.04 = 0.074 + 0.016 = 0.09 = r<sub>U</sub>. Sell 3 333.33 instead and the two fractions differ, so the check fails.</p>`,
-      traps: [
-        "Used D/E = 600/900 where D/V belongs: 0.6667 × 5 000.00 = 3 333.33.",
-        null,
-        "Went the wrong way. Borrowing to buy more shares is homemade leverage and adds risk.",
-        "Used E/V = 0.60 instead of D/V: 0.60 × 5 000.00 = 3 000.00 is what she keeps in shares, not what she sells.",
       ],
     },
     {
@@ -623,32 +506,13 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "wacc-apv-2",
-      title: "Permanent debt: PV(TS) = τc × D",
-      theory: `<p>If the firm borrows a fixed amount and rolls it over forever, the shield is the same τ<sub>c</sub> × r<sub>D</sub> × D every year. It is a level perpetuity as safe as the interest, so you discount it at r<sub>D</sub>. Then r<sub>D</sub> cancels and the shield is worth τ<sub>c</sub> × D. The levered firm is the unlevered firm plus that value. Neither line is on the formula sheet.</p>
-<div class="formula"><div class="eq">PV(TS) = τ<sub>c</sub> × r<sub>D</sub> × D / r<sub>D</sub> = τ<sub>c</sub> × D</div>
-<div class="eq">V<sup>L</sup> = V<sup>U</sup> + PV(TS)</div>
-<div class="where">V<sup>U</sup> is the same firm with no debt. τ<sub>c</sub> × D holds only when the debt is both fixed in amount and permanent.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>V<sup>U</sup> = 500. The firm adds 120 of permanent debt at r<sub>D</sub> = 4%, τ<sub>c</sub> = 25%.</p><p>TS = 0.25 × 0.04 × 120 = 1.20 a year. PV(TS) = 1.20/0.04 = 30.00 = 0.25 × 120.</p><p>V<sup>L</sup> = 500 + 30.00 = 530.00.</p></div>`,
-      q: `<p>An all-equity firm is worth V<sup>U</sup> = 800. It borrows 200 at r<sub>D</sub> = 5% and pays the cash out to shareholders in a share buyback. The debt is permanent: the firm will roll over exactly 200 forever. τ<sub>c</sub> = 22% and the unlevered cost of capital is r<sub>U</sub> = 10%. What is V<sup>L</sup> after the buyback?</p>`,
-      options: ["1 000.00", "802.20", "822.00", "844.00"],
-      answer: 3,
-      solution: `<p>TS = 0.22 × 0.05 × 200 = 2.20 a year, forever.</p><p>The debt is fixed and permanent, so discount at r<sub>D</sub>: PV(TS) = 2.20/0.05 = 44.00 = τ<sub>c</sub> × D = 0.22 × 200.</p><p>V<sup>L</sup> = 800 + 44.00 = <b>844.00</b>.</p>`,
-      check: `<p>The shield earns exactly the debt rate: 2.20/44.00 = 5%. And V<sup>L</sup> − V<sup>U</sup> = 44.00 = 0.22 × 200. The r<sub>U</sub> of 10% was never needed: it matters only if the firm rebalances its debt.</p>`,
-      traps: [
-        "Counted the borrowed 200 as firm value: 800 + 200 = 1 000.00. The cash left the firm in the buyback; only the tax saving stays.",
-        "Added one year's shield instead of its present value: 800 + 2.20 = 802.20.",
-        "Discounted the shield at r<sub>U</sub> as if the debt were rebalanced: 800 + 2.20/0.10 = 822.00.",
-        null,
-      ],
-    },
-    {
       id: "wacc-apv-3",
-      title: "The announcement: who gets the tax shield",
-      theory: `<p>The share price moves when the market learns about the debt, not when the debt is issued. At that moment the whole PV(TS) lands on the shares already outstanding. The lenders get none of it: they pay a fair price for their debt, a zero-NPV deal. The buyback then runs at the new, higher price, so it moves nothing.</p>
-<div class="formula"><div class="eq">P<sub>1</sub> = P<sub>0</sub> + PV(TS)/N<sub>0</sub>  ·  shares bought back = D/P<sub>1</sub></div>
-<div class="where">N<sub>0</sub> is the share count before anything happens. Borrowing to hold government bonds is not leverage: net debt stays at zero and the interest received is taxed as the interest paid is deducted. The price does not move.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>10 million shares at 40.00, so V<sup>U</sup> = 400. The firm announces 100 of permanent debt to buy back shares, τ<sub>c</sub> = 25%.</p><p>PV(TS) = 0.25 × 100 = 25.00. P<sub>1</sub> = 40.00 + 25.00/10 = 42.50.</p><p>Shares bought back = 100/42.50 = 2.3529 million, leaving 7.6471 million. Equity afterwards = 425 − 100 = 325 and 325/7.6471 = 42.50.</p></div>`,
+      title: "Permanent debt and the announcement: who gets the tax shield",
+      theory: `<p>If the firm borrows a fixed amount and rolls it over forever, the shield τ<sub>c</sub> × r<sub>D</sub> × D is a level perpetuity as safe as the interest. Discounted at r<sub>D</sub>, the r<sub>D</sub> cancels and the shield is worth τ<sub>c</sub> × D, which the levered firm has on top of the unlevered one. The share price moves when the market learns about the debt, not when the debt is issued. At that moment the whole PV(TS) lands on the shares already outstanding: the lenders pay a fair price for their debt, a zero-NPV deal. The buyback then runs at the new, higher price, so it moves nothing.</p>
+<div class="formula"><div class="eq">PV(TS) = τ<sub>c</sub> × r<sub>D</sub> × D / r<sub>D</sub> = τ<sub>c</sub> × D  ·  V<sup>L</sup> = V<sup>U</sup> + PV(TS)</div>
+<div class="eq">P<sub>1</sub> = P<sub>0</sub> + PV(TS)/N<sub>0</sub>  ·  shares bought back = D/P<sub>1</sub></div>
+<div class="where">τ<sub>c</sub> × D holds only when the debt is both fixed in amount and permanent. Neither value line is on the formula sheet. N<sub>0</sub> is the share count before anything happens. Borrowing to hold government bonds is not leverage: net debt stays at zero and the interest received is taxed as the interest paid is deducted. The price does not move.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>10 million shares at 40.00, so V<sup>U</sup> = 400. The firm announces 100 of permanent debt at r<sub>D</sub> = 4% to buy back shares, τ<sub>c</sub> = 25%.</p><p>TS = 0.25 × 0.04 × 100 = 1.00 a year, so PV(TS) = 1.00/0.04 = 25.00 = 0.25 × 100 and V<sup>L</sup> = 425. P<sub>1</sub> = 40.00 + 25.00/10 = 42.50.</p><p>Shares bought back = 100/42.50 = 2.3529 million, leaving 7.6471 million. Equity afterwards = 425 − 100 = 325 and 325/7.6471 = 42.50.</p></div>`,
       q: `<p>An all-equity firm has 40 million shares at 15.00. Investors expect it to stay all-equity. It announces that it will borrow 150 at r<sub>D</sub> = 5% as permanent debt and use all of it to buy back shares. τ<sub>c</sub> = 22%. The market believes the plan at once. How many shares, in millions, does the firm buy back?</p>`,
       options: ["10.0000", "12.4224", "9.4787", "9.9726"],
       answer: 2,
@@ -783,49 +647,6 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "wacc-apv-10",
-      title: "APV over two periods, with the debt adjusted",
-      theory: `<p>Over several periods APV is two discounted sums. V<sup>U</sup> discounts the FCF at r<sub>U</sub>. The shield in year t comes from the debt carried into that year, D<sub>t−1</sub>, so take the debt path from the WACC values first. Under a constant debt ratio every shield is discounted at r<sub>U</sub>. The total must equal the WACC value: consistency check 1.</p>
-<div class="formula"><div class="eq">V<sup>U</sup> = Σ FCF<sub>t</sub>/(1 + r<sub>U</sub>)<sup>t</sup>  ·  PV(TS) = Σ τ<sub>c</sub> r<sub>D</sub> D<sub>t−1</sub>/(1 + r<sub>U</sub>)<sup>t</sup></div>
-<div class="where">The check is a fixed point: the debt came from the WACC answer, so the two methods agree by construction. It still catches a wrong rate on the shield and slips in the debt path.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>The firm from the last example: d = 0.30, FCF 60 and 55, with r<sub>U</sub> = 10.6%, r<sub>D</sub> = 5% and τ<sub>c</sub> = 40%, so r<sub>wacc</sub> = 0.106 − 0.30 × 0.05 × 0.40 = 10%. The debt path was D<sub>0</sub> = 30.00 and D<sub>1</sub> = 15.00.</p><p>TS<sub>1</sub> = 0.40 × 0.05 × 30.00 = 0.60 and TS<sub>2</sub> = 0.40 × 0.05 × 15.00 = 0.30. PV(TS) = 0.60/1.106 + 0.30/1.106² = 0.7877.</p><p>V<sup>U</sup> = 60/1.106 + 55/1.106² = 99.2123. Then 99.2123 + 0.7877 = 100.0000 = V<sup>L</sup><sub>0</sub>.</p></div>`,
-      q: `<p>A firm keeps D/V = 0.25 and exists for two years, with free cash flow of 100 in year 1 and 120 in year 2. r<sub>U</sub> = 12%, r<sub>D</sub> = 8% and τ<sub>c</sub> = 25%, so r<sub>wacc</sub> = 11.5%. What is PV(TS) in the APV valuation?</p>`,
-      options: ["1.5735", "1.2603", "11.6381", "1.3234"],
-      answer: 1,
-      solution: `<p>Value path at 11.5%: V<sup>L</sup><sub>1</sub> = 120/1.115 = 107.6233 and V<sup>L</sup><sub>0</sub> = (100 + 107.6233)/1.115 = 186.2093.</p><p>Debt path: D<sub>0</sub> = 0.25 × 186.2093 = 46.5523 and D<sub>1</sub> = 0.25 × 107.6233 = 26.9058.</p><p>Shields: TS<sub>1</sub> = 0.25 × 0.08 × 46.5523 = 0.931046 and TS<sub>2</sub> = 0.25 × 0.08 × 26.9058 = 0.538117.</p><p>At r<sub>U</sub>: PV(TS) = 0.931046/1.12 + 0.538117/1.12² = 0.831291 + 0.428983 = <b>1.2603</b>.</p>`,
-      check: `<p>V<sup>U</sup> = 100/1.12 + 120/1.12² = 89.285714 + 95.663265 = 184.948979. Then V<sup>U</sup> + PV(TS) = 184.948979 + 1.260274 = 186.209253, the WACC value of 186.2093 (consistency check 1). With the shields at r<sub>D</sub> the total would be 186.2724 and the check fails.</p>`,
-      traps: [
-        "Left the debt at D<sub>0</sub> in both years: 0.831291 + 0.931046/1.12² = 1.5735.",
-        null,
-        "Used the permanent-debt shortcut τ<sub>c</sub> × D<sub>0</sub> = 0.25 × 46.5523 = 11.6381.",
-        "Discounted the shields at r<sub>D</sub> = 8%: 0.862080 + 0.461348 = 1.3234.",
-      ],
-    },
-    {
-      id: "wacc-apv-11",
-      title: "Flow to equity and the rate for each cash flow",
-      theory: `<p>Flow to equity (FTE) is the third method. It values the equity directly: take FCF, subtract the after-tax interest, add net borrowing and discount at r<sub>E</sub>. A repayment is cash the shareholders give up, so a falling debt path lowers FCFE. The rule behind all three methods is to discount each cash flow at the rate of whoever receives it.</p>
-<div class="formula"><div class="eq">FCFE<sub>t</sub> = FCF<sub>t</sub> − (1 − τ<sub>c</sub>) r<sub>D</sub> D<sub>t−1</sub> + (D<sub>t</sub> − D<sub>t−1</sub>)  ·  E<sub>0</sub> = Σ FCFE<sub>t</sub>/(1 + r<sub>E</sub>)<sup>t</sup></div>
-<div class="where">WACC: FCF at r<sub>wacc</sub> gives V<sup>L</sup>. APV: FCF at r<sub>U</sub> plus the shield at r<sub>U</sub> (target ratio) or r<sub>D</sub> (fixed debt) gives V<sup>L</sup>. FTE: FCFE at r<sub>E</sub> gives E.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>FCF of 50 a year forever, D/V = 0.40, r<sub>D</sub> = 5%, τ<sub>c</sub> = 25%, r<sub>E</sub> = 13.3333% and r<sub>wacc</sub> = 9.5%.</p><p>V<sup>L</sup> = 50/0.095 = 526.3158 and D = 0.40 × 526.3158 = 210.5263. The debt never changes, so net borrowing is zero.</p><p>FCFE = 50 − 0.75 × 0.05 × 210.5263 = 50 − 7.8947 = 42.1053, so E = 42.1053/0.133333 = 315.79, which is V<sup>L</sup> − D = 526.3158 − 210.5263 = 315.7895.</p></div>`,
-      q: `<p>Which statement about the three valuation methods is true?</p>`,
-      options: [
-        "Flow to equity discounts the cash flow to shareholders at r<sub>wacc</sub> to find the value of the whole firm.",
-        "With a fixed permanent amount of debt, APV discounts both the free cash flow and the tax shield at r<sub>D</sub>.",
-        "The WACC method values the unlevered firm and the tax shield separately before adding the two.",
-        "With a constant debt-to-equity ratio, APV discounts both the free cash flow and the tax shield at r<sub>U</sub>.",
-      ],
-      answer: 3,
-      solution: `<p>Under a constant D/E the firm rebalances, so its debt and therefore its shield move with firm value. The shield carries asset risk and is discounted at r<sub>U</sub>, the same rate as the free cash flow, which is unlevered by definition.</p><p>The other three fail. FTE discounts FCFE at r<sub>E</sub> and gives the equity, not the firm. Under fixed permanent debt the shield is discounted at r<sub>D</sub>, but the free cash flow still at r<sub>U</sub>: that statement is only half true. Valuing the unlevered firm and the shield separately is APV; the WACC method hides the shield in the rate and values one stream.</p>`,
-      check: `<p>On the example firm all three routes give one number. FTE: E = 315.79 plus D = 210.53 gives 526.32. APV at r<sub>U</sub> = 10%: V<sup>U</sup> = 50/0.10 = 500.00 and PV(TS) = 0.25 × 0.05 × 210.53/0.10 = 26.32, so 526.32. WACC: 50/0.095 = 526.32.</p>`,
-      traps: [
-        "Mixed a cash flow with the wrong rate: FCFE belongs to the shareholders, so it is discounted at r<sub>E</sub> and gives E, not V<sup>L</sup>.",
-        "Half true: fixed permanent debt puts the shield at r<sub>D</sub>, but in APV the free cash flow is always discounted at r<sub>U</sub>.",
-        "Described APV, not the WACC method. The WACC method puts the shield into the rate through (1 − τ<sub>c</sub>) and values one stream.",
-        null,
-      ],
-    },
-    {
       id: "wacc-apv-12",
       title: "Running the WACC method backwards: implied growth",
       theory: `<p>The exam often gives you a price and asks what the market must be assuming. Build the WACC from market values, then solve V<sup>L</sup> = FCF<sub>1</sub>/(r<sub>wacc</sub> − g) for g. The cost of equity comes from the CAPM with the market risk premium E[R<sub>mkt</sub>] − r<sub>f</sub>, not the market return. The same equation solved for V<sup>L</sup> instead gives the most you can pay, the break-even price.</p>
@@ -867,9 +688,10 @@ window.EDU_DATA.sjangre.push({
     {
       id: "wacc-apv-14",
       title: "Exam level: WACC and APV over two periods, step by step",
-      theory: `<p>H2025 E4 chains nine questions on one firm with a finite life: debt beta, r<sub>E</sub>, r<sub>U</sub>, r<sub>wacc</sub>, V<sup>L</sup> by WACC, the debt adjustment, V<sup>U</sup>, the shields and V<sup>L</sup> by APV. The one new tool is the debt beta: debt with r<sub>D</sub> above r<sub>f</sub> has a beta, read off the CAPM backwards. Lay out one table with a column per date, carry full precision and round only when you write.</p>
+      theory: `<p>H2025 E4 chains nine questions on one firm with a finite life: debt beta, r<sub>E</sub>, r<sub>U</sub>, r<sub>wacc</sub>, V<sup>L</sup> by WACC, the debt adjustment, V<sup>U</sup>, the shields and V<sup>L</sup> by APV. Two tools are new. Debt with r<sub>D</sub> above r<sub>f</sub> has a beta, read off the CAPM backwards. Over several periods APV is two discounted sums at r<sub>U</sub>, where the shield in year t comes from the debt carried into that year, D<sub>t−1</sub>. Lay out one table with a column per date, carry full precision and round only when you write.</p>
 <div class="formula"><div class="eq">β<sub>D</sub> = (r<sub>D</sub> − r<sub>f</sub>)/(E[R<sub>mkt</sub>] − r<sub>f</sub>)  ·  r<sub>U</sub> = (E/V) r<sub>E</sub> + (D/V) r<sub>D</sub></div>
-<div class="where">r<sub>U</sub> has no tax term. The order is fixed: the value path first, then the debt path, then the shields.</div></div>`,
+<div class="eq">V<sup>U</sup> = Σ FCF<sub>t</sub>/(1 + r<sub>U</sub>)<sup>t</sup>  ·  PV(TS) = Σ τ<sub>c</sub> r<sub>D</sub> D<sub>t−1</sub>/(1 + r<sub>U</sub>)<sup>t</sup></div>
+<div class="where">r<sub>U</sub> has no tax term. The order is fixed: the value path first, then the debt path, then the shields. Under a constant debt ratio every shield is discounted at r<sub>U</sub>. V<sup>U</sup> + PV(TS) must equal the WACC value (consistency check 1). The debt came from the WACC answer, so the check is a fixed point, but it still catches a wrong rate on the shield and slips in the debt path.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>D/E = 0.25, β<sub>E</sub> = 1.5, r<sub>D</sub> = 7%, r<sub>f</sub> = 4%, E[R<sub>mkt</sub>] = 10%, τ<sub>c</sub> = 25%, FCF of 30 and 40 over two years.</p><p>β<sub>D</sub> = 0.03/0.06 = 0.50. r<sub>E</sub> = 0.04 + 1.5 × 0.06 = 13%. D/V = 0.20, so r<sub>U</sub> = 0.80 × 0.13 + 0.20 × 0.07 = 0.104 + 0.014 = 11.80% and r<sub>wacc</sub> = 0.104 + 0.20 × 0.07 × 0.75 = 11.45%.</p><p>V<sup>L</sup><sub>1</sub> = 40/1.1145 = 35.8905 and V<sup>L</sup><sub>0</sub> = (30 + 35.8905)/1.1145 = 59.1212, so D<sub>0</sub> = 11.8242 and D<sub>1</sub> = 7.1781.</p><p>TS<sub>1</sub> = 0.25 × 0.07 × 11.8242 = 0.206924 and TS<sub>2</sub> = 0.25 × 0.07 × 7.1781 = 0.125617. PV(TS) = 0.206924/1.118 + 0.125617/1.118² = 0.185084 + 0.100500 = 0.285584.</p><p>V<sup>U</sup> = 30/1.118 + 40/1.118² = 26.833631 + 32.001946 = 58.835577. Then 58.835577 + 0.285584 = 59.121161.</p></div>`,
       q: `<p>A firm keeps a debt-to-equity ratio of 0.5 and exists for two years, with free cash flow of 60 at the end of year 1 and 80 at the end of year 2. Its equity beta is 1.6 and its cost of debt is 6%. The risk-free rate is 4%, the expected market return 9% and τ<sub>c</sub> = 30%. What is PV(TS) in the APV valuation? Use four decimals.</p>`,
       options: ["0.3989", "1.5395", "1.0264", "1.0793"],
@@ -936,31 +758,11 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "realopsjon-3",
-      title: "Deciding after the state is known",
-      theory: `<p>Draw the decision as a tree: a square for a choice you make, a circle for a state the world picks. If the square comes before the circle, you commit and get every branch. If the circle comes first, you see the state and then choose, so a branch with negative NPV becomes 0. Put the max inside the expectation, never outside.</p>
-<div class="formula"><div class="eq">commit first: E[NPV] = Σ p<sub>i</sub>·NPV<sub>i</sub></div>
-<div class="eq">decide after: E[max(0, NPV<sub>i</sub>)] = Σ p<sub>i</sub>·max(0, NPV<sub>i</sub>)</div>
-<div class="where">NPV<sub>i</sub> is the NPV in state i and p<sub>i</sub> its probability. Deciding after is never worth less than committing first, nor less than max(0, E[NPV]).</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Two equally likely states: NPV<sub>good</sub> = +200, NPV<sub>bad</sub> = −120.</p><p>Commit first: 0.5(200) + 0.5(−120) = 40. Decide after: 0.5(200) + 0.5(0) = 100.</p></div>`,
-      q: `<p>A product launch costs 400 today. The PV of its cash flows is 900 with probability 0.3 or 200 with probability 0.7. Suppose you could learn the state before you decide, at no cost and with no delay. What is the expected value of the launch decision, E[max(0, NPV<sub>i</sub>)]?</p>`,
-      options: ["10.00", "350.00", "150.00", "−130.00"],
-      answer: 2,
-      solution: `<p>NPV<sub>good</sub> = 900 − 400 = +500: launch. NPV<sub>bad</sub> = 200 − 400 = −200: do not launch, worth 0.</p><p>E[max(0, NPV<sub>i</sub>)] = 0.3(500) + 0.7(0) = <b>150.00</b>.</p>`,
-      check: `<p>Committing first gives E[NPV] = 0.3(500) + 0.7(−200) = 150 − 140 = 10. The gap, 150 − 10 = 140, must equal the loss you avoid in the bad state: 0.7 × 200 = 140 ✓</p>`,
-      traps: [
-        "Committed before seeing the state, or took the max after averaging: 0.3(500) + 0.7(−200) = 10; max(0, 10) is still 10.",
-        "Swapped the probabilities: 0.7(500) + 0.3(0) = 350.",
-        null,
-        "Declined the bad state but still charged the 400 there: 0.3(500) + 0.7(0 − 400) = 150 − 280 = −130.",
-      ],
-    },
-    {
       id: "realopsjon-4",
       title: "The value of perfect information",
-      theory: `<p>Information is worth what you would do differently with it. With it, you decide state by state. Without it, you make one decision on the average: invest if E[NPV] &gt; 0, otherwise do nothing and get 0. The difference is the most you should pay for a study that reveals the state today.</p>
+      theory: `<p>Draw the decision as a tree: a square for a choice you make, a circle for a state the world picks. If the circle comes first, you see the state and then choose, so a branch with negative NPV becomes 0: the max goes inside the expectation. If the square comes first, you make one decision on the average: invest if E[NPV] &gt; 0, otherwise do nothing and get 0. Information is worth the difference, the most you should pay for a study that reveals the state today.</p>
 <div class="formula"><div class="eq">value of perfect information = E[max(0, NPV<sub>i</sub>)] − max(0, E[NPV])</div>
-<div class="where">The second term is the best uninformed choice. If E[NPV] is negative it is 0, not E[NPV]. No discounting: the answer arrives now and you act now.</div></div>`,
+<div class="where">E[max(0, NPV<sub>i</sub>)] = Σ p<sub>i</sub>·max(0, NPV<sub>i</sub>), with p<sub>i</sub> the probability of state i. The second term is the best uninformed choice. If E[NPV] is negative it is 0, not E[NPV]. No discounting: the answer arrives now and you act now.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>p = 0.5, NPV<sub>good</sub> = +150, NPV<sub>bad</sub> = −250.</p><p>E[NPV] = 0.5(150) + 0.5(−250) = −50, so uninformed you do nothing: 0. Informed: 0.5(150) + 0.5(0) = 75.</p><p>Value of the information = 75 − 0 = 75, not 75 + 50 = 125.</p></div>`,
       q: `<p>A mining company can expand a mine for 500 today. The PV of the extra cash flows is 800 with probability 0.6 or 350 with probability 0.4. A geological survey, delivered immediately, would tell the company which. What is the most the company should pay for the survey?</p>`,
       options: ["180.00", "60.00", "0.00", "150.00"],
@@ -1013,30 +815,6 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "realopsjon-7",
-      title: "What makes the option to wait valuable",
-      theory: `<p>Three things must be present: uncertainty, information that arrives while you wait and an investment that cannot be undone for free. The value comes from max(0, ·): the bad state is cut off at zero while the good state is kept. A wider spread with the same expected cash flow therefore raises the option, whether the risk is systematic or firm-specific. Anything that removes part of the good state, or pushes it further away, lowers it. So a positive NPV today can still mean wait; a negative-NPV project can still be worth something.</p>
-<div class="formula"><div class="eq">option to wait = avoided loss in the bad state − cost of delaying the good state</div>
-<div class="where">With two states, the bad one declined and NPV<sub>now</sub> &gt; 0: p<sub>bad</sub>·|NPV<sub>bad</sub>| − p<sub>good</sub>·NPV<sub>good</sub>·[1 − 1/(1 + r)].</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>I = 100, cash flow 16 or 6 a year forever (p = 0.5), r = 10%: NPV<sub>now</sub> = 10, NPV<sub>good</sub> = 60, NPV<sub>bad</sub> = −40.</p><p>Avoided loss 0.5 × 40 = 20.00, delay cost 0.5 × 60 × (1 − 1/1.10) = 2.73, option 17.27.</p><p>Widen the cash flows to 21 or 1, same mean of 11: NPV<sub>now</sub> stays 10, NPV<sub>good</sub> = 210 − 100 = 110, waiting = 0.5(110)/1.10 = 50, option = 40.</p></div>`,
-      q: `<p>A project costs 900 today and pays 120 or 40 a year forever, with probability 0.5 each; the state is revealed in one year. The cost of capital is 8%, so NPV<sub>now</sub> = 100. Waiting a year to build for the same 900 gives an option to wait worth 177.78. Which single change, with everything else unchanged, raises the value of the option to wait?</p>`,
-      options: [
-        "The good-state cash flow rises to 130 and the bad-state cash flow falls to 30.",
-        "The state is revealed only after two years, so waiting means building two years from now.",
-        "A rival may take the project during the year, with probability 0.2.",
-        "The bad-state cash flow rises from 40 to 60.",
-      ],
-      answer: 0,
-      solution: `<p>Base: NPV<sub>good</sub> = 1 500 − 900 = 600, NPV<sub>bad</sub> = 500 − 900 = −400, waiting 0.5(600)/1.08 = 277.78, option 277.78 − 100 = 177.78.</p><p>Wider spread, 130 or 30 with the mean still 80: NPV<sub>now</sub> stays 100, NPV<sub>good</sub> = 1 625 − 900 = 725, waiting 0.5(725)/1.08 = 335.65, option <b>235.65</b>. Up. The extra loss in the bad state is cut off at zero, while the extra gain in the good state is kept.</p>`,
-      check: `<p>The other three all lower the option. Two years: 300/1.08<sup>2</sup> = 257.20, option 157.20. Rival: 0.8 × 300/1.08 = 222.22, option 122.22. Bad state at 60: NPV<sub>now</sub> = 0.5(120 + 60)/0.08 − 900 = 1 125 − 900 = 225, waiting unchanged at 277.78, option 52.78. Only the wider spread raises it ✓</p>`,
-      traps: [
-        null,
-        "Thought more time means more information. The information is the same, it just arrives later: 0.5(600)/1.08<sup>2</sup> − 100 = 157.20, down from 177.78.",
-        "Treated any extra uncertainty as option value. A rival removes part of the good state you are waiting for: 0.8 × 300/1.08 − 100 = 122.22.",
-        "Thought a milder bad state helps the option. It raises NPV<sub>now</sub> to 225 but not the value of waiting, since you never build in the bad state: 277.78 − 225 = 52.78.",
-      ],
-    },
-    {
       id: "realopsjon-8",
       title: "The exit option: a perpetuity cut to an annuity",
       theory: `<p>An exit option is the mirror image of waiting: you commit first, then may quit once you know the state. In the bad state the perpetuity of losses is replaced by an annuity that stops at the exit date, plus any salvage value S. The good state is unchanged, since you never quit a positive perpetuity. The option is worth only the negative tail it cuts off.</p>
@@ -1074,26 +852,6 @@ window.EDU_DATA.sjangre.push({
         "Valued the perpetuity at date 2 and discounted it again: success 2 600/1.10 − 2 000 = 363.64, failure still sells for 250, NPV = −200 + [0.4(363.64) + 0.6(250)]/1.10 = 68.60.",
         null,
         "Built in both states, with no max at date 1: −200 + [0.4(600) + 0.6(−500)]/1.10 = −200 − 54.55 = −254.55.",
-      ],
-    },
-    {
-      id: "realopsjon-10",
-      title: "The indifference point",
-      theory: `<p>Run the comparison backwards: leave one input unknown, write both strategies as functions of it, set them equal and solve. Because max(0, ·) makes each strategy piecewise linear, the algebra holds only inside the interval where the same branches are taken. Check that the answer lies in that interval, then say which side does what.</p>
-<div class="formula"><div class="eq">invest now: E[C]/r − I</div>
-<div class="eq">wait: Σ p<sub>i</sub>·max(0, C<sub>i</sub>/r − I)/(1 + r)</div>
-<div class="where">For an unknown investment cost I, the usual interval is the one where the good state is built and the bad state is not: C<sub>bad</sub>/r &lt; I &lt; C<sub>good</sub>/r.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 30 or 10 a year forever (p = 0.5), r = 10%. Invest now: 200 − I. Wait, for 100 &lt; I &lt; 300: 0.5(300 − I)/1.10.</p><p>Set equal: 1.10(200 − I) = 150 − 0.5I, so 220 − 1.10I = 150 − 0.5I and 70 = 0.60I. I* = 116.6667, inside (100, 300) ✓</p><p>Below I* invest now, above it wait.</p></div>`,
-      q: `<p>A plant pays 140 a year forever with probability 0.4 or 40 a year forever with probability 0.6; the state is revealed in one year. The cost of capital is 8%. The investment cost I is the same today and in one year. Waiting shifts the whole project by a year. At what investment cost I* is the firm indifferent between investing today and waiting?</p>`,
-      options: ["558.8235", "608.5595", "1 000.0000", "586.4198"],
-      answer: 0,
-      solution: `<p>PVs: 140/0.08 = 1 750 and 40/0.08 = 500. Expected: 0.4(1 750) + 0.6(500) = 1 000.</p><p>Invest now: 1 000 − I. Wait, for 500 &lt; I &lt; 1 750: 0.4(1 750 − I)/1.08.</p><p>Set equal: 1.08(1 000 − I) = 700 − 0.4I, so 1 080 − 1.08I = 700 − 0.4I and 380 = 0.68I. I* = <b>558.8235</b>, inside (500, 1 750) ✓ Below I* build now, above it wait.</p>`,
-      check: `<p>Plug back: invest now 1 000 − 558.8235 = 441.1765. Wait 0.4(1 750 − 558.8235)/1.08 = 476.4706/1.08 = 441.1765 ✓ At I = 600: invest now 400 against wait 0.4(1 150)/1.08 = 425.93, so waiting wins above I*, as stated.</p>`,
-      traps: [
-        null,
-        "Discounted the waiting branch twice: 1.08<sup>2</sup>(1 000 − I) = 0.4(1 750 − I) gives 466.4 = 0.7664I, so I = 608.5595.",
-        "Solved the static rule NPV<sub>now</sub> = 0 instead of comparing with waiting: I = 1 000.",
-        "Discounted the date-1 cash flows but not the date-1 investment: 1 000 − I = 0.4(1 750/1.08 − I) gives I = 586.4198.",
       ],
     },
     {
@@ -1245,31 +1003,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "ma-4",
-      title: "The target's ownership share y",
-      theory: `<p>After the swap the target's former shareholders hold the x new shares and the acquirer's old shareholders hold the N<sub>A</sub> old ones. The target's fraction of the merged firm is y. It is a ratio of share counts, so it depends on neither prices nor synergies. The formula sheet uses y in both NPV formulas but does not define it.</p>
-<div class="formula"><div class="eq">y = x/(N<sub>A</sub> + x) &nbsp;&nbsp; 1 − y = N<sub>A</sub>/(N<sub>A</sub> + x)</div>
-<div class="where">The denominator is the share count after the deal. 1 − y is what the acquirer's old shareholders keep.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>N<sub>A</sub> = 10 million and x = 2.5 million.</p><p>y = 2.5/(10 + 2.5) = 2.5/12.5 = 20%. The acquirer's old holders keep 80%.</p></div>`,
-      q: `<p>Granlia ASA has 80 million shares. It offers ER = 0.35 for each of the 20 million shares of Myrvoll AS. What fraction of the merged firm will Myrvoll's former shareholders own?</p>`,
-      options: ["8.7500%", "20.0000%", "7.0000%", "8.0460%"],
-      answer: 3,
-      solution: `<p>x = 0.35 × 20 = 7.00 million new shares.</p><p>y = 7/(80 + 7) = 7/87 = 0.080460 = <b>8.0460%</b>.</p>`,
-      check: `<p>Backwards: y/(1 − y) = 0.080460/0.919540 = 0.0875 = 7/80 = x/N<sub>A</sub> ✓. Also x/N<sub>T</sub> = 7/20 = 0.35 = ER ✓.</p>`,
-      traps: [
-        "Divided by the acquirer's old share count instead of the count after the deal: 7/80 = 8.7500%.",
-        "Used the target's old share count in place of the new shares: 20/(80 + 20) = 20.0000%.",
-        "Divided by both firms' old share counts instead of the count after the deal: 7/(80 + 20) = 7.0000%.",
-        null,
-      ],
-    },
-    {
       id: "ma-5",
-      title: "The NPV to each side and why the two sum to S",
-      theory: `<p>Each group's gain is what it owns after the deal minus what it had before. The acquirer's old shareholders own 1 − y of A + T + S and had A; the target's shareholders own y of it and had T. Both formulas are on the formula sheet. Added together they give S: the exchange ratio only decides how the synergies are divided.</p>
-<div class="formula"><div class="eq">NPV<sub>A</sub> = (1 − y)(A + T + S) − A &nbsp;&nbsp; NPV<sub>T</sub> = y(A + T + S) − T</div><div class="eq">NPV<sub>A</sub> + NPV<sub>T</sub> = S &nbsp;&nbsp; NPV<sub>A</sub> = N<sub>A</sub>(P<sub>new</sub> − P<sub>A</sub>)</div>
-<div class="where">The sum to S is an identity: it catches a slip in one NPV line but holds for any y. The second identity never uses y, so it is the check that catches a wrong y.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>A = 500, T = 100, S = 50 and y = 20%, so A + T + S = 650.</p><p>NPV<sub>A</sub> = 0.80 × 650 − 500 = 20. NPV<sub>T</sub> = 0.20 × 650 − 100 = 30. Sum: 20 + 30 = 50 = S ✓.</p></div>`,
+      title: "The target's ownership share y and the NPV to each side",
+      theory: `<p>After the swap the target's former shareholders hold the x new shares and the acquirer's old shareholders keep their N<sub>A</sub>. The target's fraction of the merged firm is y, a ratio of share counts that depends on neither prices nor synergies. Each group's gain is what it owns after the deal minus what it had before. The acquirer's old shareholders own 1 − y of A + T + S and had A; the target's shareholders own y of it and had T. The formula sheet gives both NPV formulas but does not define y. Added together they give S: the exchange ratio only decides how the synergies are divided.</p>
+<div class="formula"><div class="eq">y = x/(N<sub>A</sub> + x)</div><div class="eq">NPV<sub>A</sub> = (1 − y)(A + T + S) − A &nbsp;&nbsp; NPV<sub>T</sub> = y(A + T + S) − T</div><div class="eq">NPV<sub>A</sub> + NPV<sub>T</sub> = S &nbsp;&nbsp; NPV<sub>A</sub> = N<sub>A</sub>(P<sub>new</sub> − P<sub>A</sub>)</div>
+<div class="where">The denominator of y is the share count after the deal, not N<sub>A</sub> and not N<sub>A</sub> + N<sub>T</sub>. The sum to S is an identity: it catches a slip in one NPV line but holds for any y. The last identity never uses y, so it is the check that catches a wrong y.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>N<sub>A</sub> = 10 million and x = 2.5 million new shares, A = 500, T = 100 and S = 50.</p><p>y = 2.5/(10 + 2.5) = 20% and A + T + S = 650. NPV<sub>A</sub> = 0.80 × 650 − 500 = 20. NPV<sub>T</sub> = 0.20 × 650 − 100 = 30. Sum: 20 + 30 = 50 = S ✓.</p></div>`,
       q: `<p>Kvitfjell ASA has 30 million shares at 150 NOK. It offers ER = 0.36 for each of the 12 million shares of Bergtind AS, which trade at 45 NOK. The synergies are worth 180 million NOK. Both prices are pre-announcement. What is the NPV of the deal for Kvitfjell's shareholders?</p>`,
       options: ["117.06 million", "−94.41 million", "160.71 million", "62.94 million"],
       answer: 3,
@@ -1321,44 +1060,6 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "ma-8",
-      title: "EPS after the merger: why accretion is not value",
-      theory: `<p>Earnings per share after the merger are the two firms' earnings over the new share count. If the acquirer pays a lower price-earnings ratio for the target than its own, EPS rises mechanically, with no synergies at all. This is bootstrapping. The market values the merged firm at A + T + S, not at the acquirer's old P/E times the new EPS, so the merged P/E simply falls. Only P<sub>new</sub> against P<sub>A</sub> says whether the acquirer's shareholders gained.</p>
-<div class="formula"><div class="eq">EPS<sub>new</sub> = (Earnings<sub>A</sub> + Earnings<sub>T</sub>)/(N<sub>A</sub> + x)</div>
-<div class="where">EPS rises whenever the P/E paid for the target (offer per share/EPS<sub>T</sub>) is below the acquirer's own P/E. That is arithmetic, not value creation.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>The acquirer: 20 million shares at 100 NOK, earnings 100 million (EPS 5, P/E 20). The target: 10 million shares at 20 NOK, earnings 20 million (EPS 2, P/E 10). Zero premium: ER = 20/100 = 0.20 and x = 2 million. S = 0.</p><p>EPS<sub>new</sub> = 120/22 = 5.4545, up 9.09%. P<sub>new</sub> = (2 000 + 200)/22 = 100.00, unchanged. EPS rose, value did not.</p></div>`,
-      q: `<p>Høgset ASA earns 240 million NOK a year on 40 million shares and trades at 96 NOK. Lauvås AS earns 60 million on 25 million shares and trades at 20 NOK. Høgset offers a 20% premium, paid in its own shares. There are no synergies. What are Høgset's EPS and share price after the merger?</p>`,
-      options: ["EPS 6.4865 and price 93.8378", "EPS 6.4865 and price 103.7838", "EPS 7.5000 and price 108.5000", "EPS 6.4865 and price 96.0000"],
-      answer: 0,
-      solution: `<p>Offer = 20 × 1.20 = 24 NOK per Lauvås share, so ER = 24/96 = 0.25 and x = 0.25 × 25 = 6.25 million.</p><p>EPS<sub>new</sub> = (240 + 60)/(40 + 6.25) = 300/46.25 = <b>6.4865</b>, up 8.11% from 6.00.</p><p>P<sub>new</sub> = (40 × 96 + 25 × 20)/46.25 = 4 340/46.25 = <b>93.8378</b>, down 2.25% from 96.</p>`,
-      check: `<p>The P/E paid is 24/2.40 = 10, below Høgset's own 96/6 = 16, so EPS had to rise before anyone looked at the business. Value route: Lauvås's holders get 6.25 × 93.8378 = 586.49 for T = 500, so Høgset's holders lose 86.49 = 40 × (96 − 93.8378) ✓. The merged P/E is 4 340/300 = 14.4667, between the 16 and the 10 paid.</p>`,
-      traps: [
-        null,
-        "Bootstrapping: applied Høgset's old P/E to the new EPS, 16 × 6.486486 = 103.7838. The market prices the assets, not the EPS.",
-        "Forgot the new shares: 300/40 = 7.5000 and 4 340/40 = 108.5000.",
-        "Assumed the price cannot move without synergies and kept 96.0000. With S = 0 the merged firm is worth A + T = 4 340, but the 20% premium moves 86.49 of Høgset's value to Lauvås's holders, so the price falls to 4 340/46.25 = 93.8378.",
-      ],
-    },
-    {
-      id: "ma-9",
-      title: "Implied synergies from the announcement reaction",
-      theory: `<p>When a deal is announced, both prices move. Whatever the payment method, the two sets of shareholders together own the whole merged firm, so the change in the two firms' combined market value is the market's estimate of the synergies. Keep the sign: the acquirer often falls. This assumes the market expects the deal to close and that nothing else moved the prices that day.</p>
-<div class="formula"><div class="eq">S<sub>implied</sub> = (N<sub>A</sub>P<sub>A</sub><sup>post</sup> + N<sub>T</sub>P<sub>T</sub><sup>post</sup>) − (N<sub>A</sub>P<sub>A</sub><sup>pre</sup> + N<sub>T</sub>P<sub>T</sub><sup>pre</sup>)</div>
-<div class="where">The target's change is its gain, the acquirer's change its gain or loss. If the deal may fail, the prices are probability-weighted and S<sub>implied</sub> understates the synergies conditional on closing.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>The acquirer has 10 million shares that rise from 50 to 51 NOK. The target has 5 million shares that rise from 20 to 25 NOK.</p><p>Acquirer: 10 × 1 = +10 million. Target: 5 × 5 = +25 million. S<sub>implied</sub> = 10 + 25 = 35 million.</p></div>`,
-      q: `<p>Rognstad ASA (50 million shares at 64 NOK) offers 1 Rognstad share for every 2 shares of Eikefjord AS (20 million shares at 25 NOK). On the announcement Rognstad falls to 62.40 and Eikefjord rises to 31.20. Assume the market expects the deal to close and nothing else moved the prices. What synergies does the market assign to the deal?</p>`,
-      options: ["124.00 million", "204.00 million", "−80.00 million", "44.00 million"],
-      answer: 3,
-      solution: `<p>Before: 50 × 64 + 20 × 25 = 3 200 + 500 = 3 700 million.</p><p>After: 50 × 62.40 + 20 × 31.20 = 3 120 + 624 = 3 744 million.</p><p>S<sub>implied</sub> = 3 744 − 3 700 = <b>44.00 million</b>. Eikefjord's holders gain 20 × 6.20 = 124 and Rognstad's lose 50 × 1.60 = 80: 124 − 80 = 44.</p>`,
-      check: `<p>Feed S = 44 into the merged-price formula: x = 0.5 × 20 = 10 million and P<sub>new</sub> = (3 200 + 500 + 44)/(50 + 10) = 3 744/60 = 62.40, exactly Rognstad's observed price ✓. Eikefjord at 0.5 × 62.40 = 31.20 is then exactly the value of the shares it will receive.</p>`,
-      traps: [
-        "Counted only the target's gain: 20 × (31.20 − 25) = 124.00 million. That is the premium, not the synergy.",
-        "Added the acquirer's loss as if it were a gain: 124 + 80 = 204.00 million.",
-        "Counted only the acquirer's change: 50 × (62.40 − 64) = −80.00 million.",
-        null,
-      ],
-    },
-    {
       id: "ma-10",
       title: "The long-short strategy and its two payoffs",
       theory: `<p>Between announcement and completion the target trades below what it will be worth if the deal closes, because the deal may fail. To read that risk off prices, build a position whose payoff you know in both outcomes: buy target shares and short acquirer shares in exactly the exchange ratio, then put the short-sale proceeds in the risk-free asset. If the deal completes, the target shares convert into exactly the acquirer shares you owe, so only the deposit is left. If it fails, you unwind at the prices that then hold.</p>
@@ -1399,10 +1100,10 @@ window.EDU_DATA.sjangre.push({
     {
       id: "ma-12",
       title: "Exam level: the motive and the vote from the price reaction",
-      theory: `<p>The announcement reaction tells you what the market believes about the deal. If the acquirer falls and the target jumps, the market thinks the acquirer pays more than the target is worth to it, so NPV<sub>A</sub> &lt; 0. Motives that predict that pattern are agency motives: empire building (managers gain from running a bigger firm) and hubris or the winner's curse. Motives that create value, such as undervaluation, a disciplinary takeover or a tax gain, should raise the two firms' combined value; they fit a falling acquirer only if it pays away more than the gain.</p>
-<div class="formula"><div class="eq">acquirer ↓, target ↑ ⟹ NPV<sub>A</sub> &lt; 0: empire building, hubris, winner's curse</div>
-<div class="where">An acquirer shareholder votes by his own NPV. If enough holders vote against, the deal fails and prices move back towards their pre-announcement levels. They may not go all the way: the bid may have revealed something about the target, or management may try again.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>An acquirer with 20 million shares falls from 80 to 76; a target with 10 million shares rises from 30 to 37. Combined value: 1 600 + 300 = 1 900 before and 1 520 + 370 = 1 890 after.</p><p>The acquirer loses 80 million, the target gains 70 million and 10 million disappears. That fits empire building, not undervaluation.</p></div>`,
+      theory: `<p>The announcement reaction tells you what the market believes about the deal. Whatever the payment method, the two sets of shareholders together own the whole merged firm, so the change in the two firms' combined market value is the market's estimate of the synergies. If the acquirer falls and the target jumps, the market thinks the acquirer pays more than the target is worth to it, so NPV<sub>A</sub> &lt; 0. Motives that predict that pattern are agency motives: empire building (managers gain from running a bigger firm) and hubris or the winner's curse. Motives that create value, such as undervaluation, a disciplinary takeover or a tax gain, should raise the two firms' combined value; they fit a falling acquirer only if it pays away more than the gain.</p>
+<div class="formula"><div class="eq">S<sub>implied</sub> = N<sub>A</sub>ΔP<sub>A</sub> + N<sub>T</sub>ΔP<sub>T</sub></div><div class="eq">acquirer ↓, target ↑ ⟹ NPV<sub>A</sub> &lt; 0: empire building, hubris, winner's curse</div>
+<div class="where">ΔP is the change in each share price on the announcement; keep the sign. An acquirer shareholder votes by his own NPV. If enough holders vote against, the deal fails and prices move back towards their pre-announcement levels. They may not go all the way: the bid may have revealed something about the target, or management may try again.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>An acquirer with 20 million shares falls from 80 to 76; a target with 10 million shares rises from 30 to 37. Combined value: 1 600 + 300 = 1 900 before and 1 520 + 370 = 1 890 after.</p><p>The acquirer loses 20 × 4 = 80 million and the target gains 10 × 7 = 70 million, so S<sub>implied</sub> = −80 + 70 = −10 million: 1 890 − 1 900. That fits empire building, not undervaluation.</p></div>`,
       q: `<p>Storhaug ASA is a mature firm with large cash holdings, few investment opportunities and a CEO whose bonus grows with the size of the firm. It announces an offer for Lindvik AS, a firm in an unrelated industry. Storhaug's 30 million shares fall from 140 to 131 NOK and Lindvik's 12 million shares rise from 50 to 63 NOK. Synergies are not an accepted answer. Which answer gives a motive that fits the evidence, the right vote for a Storhaug shareholder and the right prediction for the prices if most holders vote the same way?</p>`,
       options: [
         "Undervaluation: Storhaug has spotted that Lindvik is cheap and buys it below its true value. Vote in favour, since Storhaug's price recovers once the deal closes.",
@@ -1485,31 +1186,12 @@ window.EDU_DATA.sjangre.push({
   intro: `<p>Risky debt gives shareholders two bad incentives. Each has appeared on 5 of 11 papers. In <b>risk shifting</b> they choose a riskier project with a lower value because the creditors bear its downside: H2024 Exercise 4 (18 points) and V2024 Problem 1 (52 points). In <b>debt overhang</b> they refuse a good project because the creditors collect part of its value: 2017V Problem 3, 2017H Problems 1 and 4 plus 2021 Problem 2, which put both problems in one firm and ended with a renegotiation of the face value. The ladder starts with who gets paid in each state. At the top you can find the project management picks, the agency cost, the indifference face value, the fate of a hedge or a debt buyback and the write-down that leaves both sides better off.</p>`,
   steps: [
     {
-      id: "agent-1",
-      title: "Who gets paid: debt and equity state by state",
-      theory: `<p>A firm with debt has two claims on the same cash flow. At maturity the creditors are paid first, up to the face value K of the debt. The shareholders get what is left, but never less than zero: limited liability lets them walk away from a firm that owes more than it has. Work state by state. In every state the two payoffs add up to the firm's cash flow.</p>
-<div class="formula"><div class="eq">D<sub>1</sub> = min(CF, K) &nbsp;&nbsp; E<sub>1</sub> = max(CF − K, 0)</div>
-<div class="where">CF is the firm's cash flow in one state at maturity and K the face value, the amount promised to the creditors. In a state where CF &lt; K the firm defaults: the creditors take all of CF and the shareholders get nothing. D<sub>1</sub> + E<sub>1</sub> = CF in every state.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Face value K = 100. Cash flow is 140 in a good state and 70 in a bad state.</p><p>Good state: D<sub>1</sub> = min(140, 100) = 100 and E<sub>1</sub> = max(140 − 100, 0) = 40. Bad state: D<sub>1</sub> = min(70, 100) = 70 and E<sub>1</sub> = max(70 − 100, 0) = 0. The 30 shortfall in the bad state is the creditors' loss, not the shareholders'.</p></div>`,
-      q: `<p>Lysefjord AS has zero-coupon debt with face value 120, due in one year. In one year its cash flow will be 200 in a boom and 90 in a bust. What do the creditors and the shareholders receive in the bust?</p>`,
-      options: ["Debt 90, equity 0", "Debt 120, equity −30", "Debt 90, equity −30", "Debt 0, equity 90"],
-      answer: 0,
-      solution: `<p>In the bust the cash flow of 90 is below the face value of 120, so the firm defaults.</p><p>Creditors: min(90, 120) = <b>90</b>. Shareholders: max(90 − 120, 0) = <b>0</b>.</p><p>For comparison, in the boom the creditors get min(200, 120) = 120 and the shareholders max(200 − 120, 0) = 80.</p>`,
-      check: `<p>The claims add up to the cash flow in each state: 90 + 0 = 90 in the bust and 120 + 80 = 200 in the boom ✓. The sum alone cannot rule out debt 120 with equity −30, which also adds to 90. Limited liability does: equity is never negative.</p>`,
-      traps: [
-        null,
-        "Assumed the creditors are always paid in full and let the shareholders absorb the shortfall: 90 − 120 = −30. Limited liability floors equity at zero.",
-        "Dropped the floor on equity, 90 − 120 = −30, while paying the creditors 90. The two claims then add to 60, not the 90 the firm has.",
-        "Reversed the priority and paid the shareholders first. Creditors rank ahead of equity.",
-      ],
-    },
-    {
       id: "agent-2",
-      title: "Valuing debt and equity today",
-      theory: `<p>Today each claim is worth its expected payoff discounted at the risk-free rate. That works because the course gives you risk-neutral probabilities or risk-neutral investors, so no risk premium is needed. The order matters: apply min and max in each state first, then take the expectation. Subtracting K from the expected cash flow skips the floor and gets equity wrong whenever some state defaults.</p>
-<div class="formula"><div class="eq">E = E[max(CF − K, 0)]/(1 + r<sub>f</sub>) &nbsp;&nbsp; D = E[min(CF, K)]/(1 + r<sub>f</sub>)</div>
-<div class="where">E[·] is the probability-weighted average over the states. V = E + D = E[CF]/(1 + r<sub>f</sub>). Not on the formula sheet. When the exam sets the discount rate to zero, every value is simply an expected payoff.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>K = 100. Cash flow 140 or 70 with probability 0.5 each, investors risk neutral, r<sub>f</sub> = 5%.</p><p>Equity: 0.5 × 40 + 0.5 × 0 = 20, so E = 20/1.05 = 19.05. Debt: 0.5 × 100 + 0.5 × 70 = 85, so D = 85/1.05 = 80.95. Firm: 105/1.05 = 100.00 = 19.05 + 80.95.</p></div>`,
+      title: "Who gets paid in each state and what each claim is worth today",
+      theory: `<p>A firm with debt has two claims on the same cash flow. At maturity the creditors are paid first, up to the face value K of the debt. The shareholders get what is left, but never less than zero: limited liability lets them walk away from a firm that owes more than it has. In a state where CF &lt; K the firm defaults and the creditors take all of CF. Today each claim is worth its expected payoff discounted at the risk-free rate. That works because the course gives you risk-neutral probabilities or risk-neutral investors, so no risk premium is needed. The order matters: apply min and max in each state first, then take the expectation. Subtracting K from the expected cash flow skips the floor and gets equity wrong whenever some state defaults.</p>
+<div class="formula"><div class="eq">D<sub>1</sub> = min(CF, K) &nbsp;&nbsp; E<sub>1</sub> = max(CF − K, 0)</div><div class="eq">E = E[max(CF − K, 0)]/(1 + r<sub>f</sub>) &nbsp;&nbsp; D = E[min(CF, K)]/(1 + r<sub>f</sub>)</div>
+<div class="where">CF is the firm's cash flow in one state at maturity and K the face value. D<sub>1</sub> + E<sub>1</sub> = CF in every state. E[·] is the probability-weighted average over the states. V = E + D = E[CF]/(1 + r<sub>f</sub>). Not on the formula sheet. When the exam sets the discount rate to zero, every value is simply an expected payoff.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>K = 100. Cash flow 140 or 70 with probability 0.5 each, investors risk neutral, r<sub>f</sub> = 5%.</p><p>Good state: debt min(140, 100) = 100 and equity max(140 − 100, 0) = 40. Bad state: debt 70 and equity 0; the 30 shortfall is the creditors' loss.</p><p>Equity: 0.5 × 40 + 0.5 × 0 = 20, so E = 20/1.05 = 19.05. Debt: 0.5 × 100 + 0.5 × 70 = 85, so D = 85/1.05 = 80.95. Firm: 105/1.05 = 100.00 = 19.05 + 80.95.</p></div>`,
       q: `<p>Brekke AS has zero-coupon debt with face value 120, due in one year. Its cash flow in one year will be 240 with probability 0.4 and 100 with probability 0.6. Investors are risk neutral and r<sub>f</sub> = 4%. What is the equity worth today?</p>`,
       options: ["34.62", "30.00", "48.00", "46.15"],
       answer: 3,
@@ -1599,31 +1281,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "agent-7",
-      title: "Debt overhang: the creditors' windfall",
-      theory: `<p>Now the firm can take a new project with positive NPV that the shareholders must pay for themselves. When the debt is risky, part of the project's cash flow lands in default states, where every extra krone goes to the creditors. The market value of the existing debt rises although the creditors put up nothing. That windfall ΔD is the root of <b>debt overhang</b>. With risk-free debt ΔD = 0, nothing leaks and overhang cannot arise.</p>
-<div class="formula"><div class="eq">ΔD = E[min(CF + X, K) − min(CF, K)]/(1 + r<sub>f</sub>)</div>
-<div class="where">X is the project's cash flow in each state and the face value K is unchanged. In a state that stays in default, all of X goes to the creditors. In a state already solvent, none of it does.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 60 or 180 with probability 0.5 each, K = 120, investors risk neutral, r<sub>f</sub> = 5%. A project costs 15 and adds 20 in both states.</p><p>D<sub>0</sub> = (0.5 × 60 + 0.5 × 120)/1.05 = 90/1.05 = 85.7143. With the project the bad state pays 80, still below 120: D<sub>1</sub> = (0.5 × 80 + 0.5 × 120)/1.05 = 100/1.05 = 95.2381. ΔD = 10/1.05 = 9.5238, while the NPV is 20/1.05 − 15 = 4.0476.</p></div>`,
-      q: `<p>Vatne AS has debt with face value 120, due in one year. Its cash flow will be 40 with probability 0.4 and 180 with probability 0.6. A project costs 25 today, is paid for by the shareholders and adds 30 to the cash flow in both states. The face value is not changed. Investors are risk neutral and r<sub>f</sub> = 4%. By how much does the market value of the existing debt rise if the project is taken?</p>`,
-      options: ["11.54", "0.00", "28.85", "12.00"],
-      answer: 0,
-      solution: `<p>Without the project: D<sub>0</sub> = (0.4 × 40 + 0.6 × 120)/1.04 = 88/1.04 = 84.6154.</p><p>With it the bad state pays 70, still below 120, while the good state still pays 120: D<sub>1</sub> = (0.4 × 70 + 0.6 × 120)/1.04 = 100/1.04 = 96.1538.</p><p>ΔD = (100 − 88)/1.04 = 12/1.04 = <b>11.54</b>.</p>`,
-      check: `<p>Shortcut: only the bad state's extra 30 reaches the creditors, 0.4 × 30/1.04 = 11.54 ✓. The project's NPV is 30/1.04 − 25 = 28.85 − 25 = 3.85. The shareholders' equity rises by 0.6 × 30/1.04 = 17.31, so they gain 17.31 − 25 = −7.69. Check 3: 11.54 + (−7.69) = 3.85 ✓. They refuse a project that creates value: debt overhang.</p>`,
-      traps: [
-        null,
-        "Thought the debt is unaffected because its face value is unchanged. Its market value rises because the bad state now pays 70 instead of 40.",
-        "Gave the creditors the whole present value of the project's cash flow, 30/1.04 = 28.85. In the good state they are already paid in full, so that 30 goes to the shareholders.",
-        "Forgot to discount: 0.4 × 30 = 12.00 arrives in one year.",
-      ],
-    },
-    {
       id: "agent-8",
-      title: "The shareholders' gain is the NPV minus the windfall",
-      theory: `<p>The shareholders pay the whole outlay I but receive only the part of the project's value that does not leak to the creditors. Their gain is the rise in equity value minus I, which equals the project's NPV minus ΔD. Debt overhang is the case ΔD &gt; NPV &gt; 0: the project creates value, but the owners who fund it lose. The solution keys single out one error: using the stand-alone NPV as the change in equity value. The two differ by exactly the transfer to the creditors.</p>
-<div class="formula"><div class="eq">ΔE − I = NPV − ΔD &nbsp;&nbsp; invest only if NPV &gt; ΔD</div>
-<div class="where">NPV = PV(X) − I is the project's stand-alone NPV. ΔE is the rise in the market value of equity before the outlay is paid. ΔD is the creditors' windfall from the previous step.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 60 or 180 with probability 0.5 each, K = 120, r<sub>f</sub> = 5%. The project costs 15 and adds 20 in both states, so NPV = 4.0476 and ΔD = 9.5238.</p><p>Equity rises from 0.5 × 60/1.05 to 0.5 × 80/1.05, so ΔE = 0.5 × 20/1.05 = 9.5238 and ΔE − I = 9.5238 − 15 = −5.4762. Same number the short way: 4.0476 − 9.5238 = −5.4762. The shareholders refuse.</p></div>`,
+      title: "Debt overhang: the creditors' windfall and the shareholders' gain",
+      theory: `<p>Now the firm can take a new project with positive NPV that the shareholders must pay for themselves. When the debt is risky, part of the project's cash flow lands in default states, where every extra krone goes to the creditors. The existing debt rises in value although the creditors put up nothing: a windfall ΔD. The shareholders pay the whole outlay I but receive only what does not leak, so their gain is the project's NPV minus ΔD. <b>Debt overhang</b> is the case ΔD &gt; NPV &gt; 0: the project creates value, but the owners who fund it lose. With risk-free debt ΔD = 0 and overhang cannot arise. The solution keys single out one error: using the stand-alone NPV as the change in equity value. The two differ by exactly the transfer to the creditors.</p>
+<div class="formula"><div class="eq">ΔD = E[min(CF + X, K) − min(CF, K)]/(1 + r<sub>f</sub>)</div><div class="eq">ΔE − I = NPV − ΔD &nbsp;&nbsp; invest only if NPV &gt; ΔD</div>
+<div class="where">X is the project's cash flow in each state and the face value K is unchanged. In a state that stays in default, all of X goes to the creditors; in a state already solvent, none of it does. NPV = PV(X) − I is the project's stand-alone NPV. ΔE is the rise in the market value of equity before the outlay is paid.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 60 or 180 with probability 0.5 each, K = 120, r<sub>f</sub> = 5%. The project costs 15 and adds 20 in both states, so NPV = 20/1.05 − 15 = 4.0476. The bad state rises to 80, still below 120, so its 20 goes to the creditors: ΔD = 0.5 × 20/1.05 = 9.5238.</p><p>Equity rises from 0.5 × 60/1.05 to 0.5 × 80/1.05, so ΔE = 0.5 × 20/1.05 = 9.5238 and ΔE − I = 9.5238 − 15 = −5.4762. Same number the short way: 4.0476 − 9.5238 = −5.4762. The shareholders refuse.</p></div>`,
       q: `<p>Tjelta AS has debt with face value 110, due in one year. Its cash flow will be 70 or 170 with probability 0.5 each. A project costs 30 today, is paid for by the shareholders and adds 20 to the cash flow in the bad state and 50 in the good state. The face value is not changed. Investors are risk neutral and r<sub>f</sub> = 5%. What is the change in the shareholders' wealth if they take the project?</p>`,
       options: ["+3.33", "−6.19", "+23.81", "−5.00"],
       answer: 1,
@@ -1639,7 +1302,7 @@ window.EDU_DATA.sjangre.push({
     {
       id: "agent-9",
       title: "Renegotiation: how far must the face value fall?",
-      theory: `<p>The creditors want the project, since it lifts their claim for free, but the shareholders decide. Cutting the face value from K to K′ hands value back to equity, but only in the states where the debt is paid in full: in a default state the creditors take the whole cash flow whatever K′ is. So each krone of write-down is worth only the probability of the solvent states to the shareholders, discounted. The smallest write-down leaves them exactly as well off as without the project.</p>
+      theory: `<p>The creditors want the project, since it lifts their claim for free, but the shareholders decide. Cutting the face value from K to K′ hands value back to equity, but only in the states where the debt is paid in full: in a default state the creditors take the whole cash flow whatever K′ is. So each krone of write-down is worth only the probability of the solvent states to the shareholders, discounted. The smallest write-down leaves them exactly as well off as without the project. The creditors still come out ahead as long as their claim is worth at least what it was without the project. The two gains always sum to the project's NPV (consistency check 3).</p>
 <div class="formula"><div class="eq">E(K′) − I ≥ E<sub>0</sub> ⟹ K′ ≤ K′<sub>max</sub> &nbsp;&nbsp; write-down = K − K′<sub>max</sub></div>
 <div class="where">E<sub>0</sub> is the equity value with the old face value and no project: the shareholders' fallback, not zero. E(K′) is the equity value with the project and face value K′. Solve on the interval where the same states default and check it.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 60 or 180 with probability 0.5 each, K = 120, r<sub>f</sub> = 5%. The project costs 15 and adds 20 in both states, so the cash flows become 80 and 200. E<sub>0</sub> = 0.5 × 60/1.05 = 28.57.</p><p>For K′ ≥ 80 the bad state still defaults, so E(K′) = 0.5(200 − K′)/1.05. The condition 0.5(200 − K′)/1.05 ≥ 15 + 30/1.05 gives 0.5(200 − K′) ≥ 15.75 + 30 = 45.75, so K′ ≤ 108.50, inside the interval. The face value must fall by 120 − 108.50 = 11.50.</p></div>`,
@@ -1653,25 +1316,6 @@ window.EDU_DATA.sjangre.push({
         null,
         "Cut the face value by the creditors' windfall, 98 − 86 = 12. That hands the shareholders 0.6 × 12 − 3 = 4.20 more than they need, so it is not the smallest cut.",
         "Assumed the debt becomes safe after the cut, so E = 152 − K′ and K′ ≤ 95. At 95 the bad state's 80 still defaults, so that formula does not apply.",
-      ],
-    },
-    {
-      id: "agent-10",
-      title: "Both sides gain and the gains sum to the NPV",
-      theory: `<p>A renegotiated face value is a deal both sides sign when two conditions hold. The creditors' claim must be worth at least what it was without the project. The shareholders' equity net of I must be at least their fallback. Where the deal lands between those bounds is bargaining power. Wherever it lands, consistency check 3 must hold. Renegotiation only divides the payoff and the project decides how much there is to divide, so the two gains sum to the NPV at every K′.</p>
-<div class="formula"><div class="eq">[D(K′) − D<sub>0</sub>] + [E(K′) − I − E<sub>0</sub>] = NPV</div>
-<div class="where">D<sub>0</sub> and E<sub>0</sub>: the values with the old face value and no project. D(K′) and E(K′): the values with the project and the new face value. The check catches a forgotten I and a creditor paid K′ in a state where the firm has less.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 60 or 180 with probability 0.5 each, K = 120, r<sub>f</sub> = 5%. The project costs 15 and adds 20 in both states, so the cash flows become 80 and 200. D<sub>0</sub> = 90/1.05 and E<sub>0</sub> = 30/1.05. The face value is cut to K′ = 102.</p><p>Debt now pays 80 or 102, expected 91: creditors gain (91 − 90)/1.05 = 0.95. Equity pays 0 or 98, expected 49: shareholders gain (49 − 30)/1.05 − 15 = 18.10 − 15 = 3.10. Sum: 0.95 + 3.10 = 4.05 = 20/1.05 − 15 ✓.</p></div>`,
-      q: `<p>Haugland AS has debt with face value 100, due in one year. Its cash flow will be 40 or 140 with probability 0.5 each. A project costs 25 today, is paid for by the shareholders and adds 35 to the cash flow in both states. Investors are risk neutral and r<sub>f</sub> = 5%. At the face value of 100 the shareholders refuse the project. The creditors offer to cut the face value to 80 if the shareholders fund it. What does each side gain from the deal?</p>`,
-      options: ["Creditors +7.14, shareholders +26.19", "Creditors +9.52, shareholders +1.19", "Creditors +7.14, shareholders +1.19", "Creditors +9.52, shareholders +26.19"],
-      answer: 2,
-      solution: `<p>Before: D<sub>0</sub> = (0.5 × 40 + 0.5 × 100)/1.05 = 70/1.05 = 66.67 and E<sub>0</sub> = 0.5 × 40/1.05 = 19.05.</p><p>With the project the cash flows are 75 and 175. At K′ = 80 the bad state still defaults: the creditors get 75 and 80, the shareholders 0 and 95.</p><p>D = (0.5 × 75 + 0.5 × 80)/1.05 = 77.5/1.05 = 73.81, so the creditors gain 73.81 − 66.67 = <b>+7.14</b>.</p><p>E = 0.5 × 95/1.05 = 45.24, so the shareholders gain 45.24 − 19.05 − 25 = <b>+1.19</b>.</p>`,
-      check: `<p>NPV = 35/1.05 − 25 = 33.33 − 25 = 8.33. Check 3: 7.14 + 1.19 = 8.33 ✓. Second route: without the cut the creditors would gain 16.6667 and the shareholders lose 8.3333. Cutting the face value by 20 in the good state moves 0.5 × 20/1.05 = 9.5238 between them: 16.6667 − 9.5238 = 7.1429 and −8.3333 + 9.5238 = 1.1905 ✓.</p>`,
-      traps: [
-        "Forgot to subtract the outlay of 25: 45.24 − 19.05 = 26.19. The gains then sum to 33.33, not the NPV of 8.33.",
-        "Paid the creditors the new face value of 80 in the bad state, where the firm has only 75: 80/1.05 − 66.67 = 9.52. The gains then sum to 10.71, not 8.33.",
-        null,
-        "Made both slips: forgot the outlay of 25 and paid the creditors 80 in the bad state, where the firm has only 75. The gains then sum to 35.71, not 8.33.",
       ],
     },
     {
@@ -1766,7 +1410,7 @@ window.EDU_DATA.sjangre.push({
   summary: "From a single payoff to put-call parity, the binomial tree, risk-neutral pricing and what volatility does to an option",
   chapters: [21, 22, 23],
   exam: "7 of 11 papers · H2024 E6, H2025 E1",
-  intro: `<p>The binomial model and risk-neutral pricing have appeared on 7 of 11 papers and put-call parity on 4. Kurbatov has tested options twice: H2024 Exercise 6 priced the right to wait with risk-neutral probabilities for 20 points; H2025 Exercise 1 opened the paper with 12 verbal points on what volatility does to a call. The ladder starts with one payoff, builds parity and the one-period tree, then climbs to two periods, ρ backed out of prices and Black-Scholes intuition. At the top you can price any claim on a binomial tree, find a missing price or an arbitrage with parity and say what a mispriced volatility means for the trade.</p>`,
+  intro: `<p>The binomial model and risk-neutral pricing have appeared on 7 of 11 papers and put-call parity on 4. Kurbatov has tested options twice: H2024 Exercise 6 priced the right to wait with risk-neutral probabilities for 20 points; H2025 Exercise 1 opened the paper with 12 verbal points on what volatility does to a call. The ladder starts with one payoff, builds parity and the one-period tree, then climbs to two periods, ρ backed out of prices and Black-Scholes intuition. At the top you can price any claim on a binomial tree, find a missing price with parity, spot a quote that breaks the no-arbitrage bounds and say what a mispriced volatility means for the trade.</p>`,
   steps: [
     {
       id: "opsjoner-1",
@@ -1788,28 +1432,9 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "opsjoner-2",
-      title: "Moneyness, intrinsic value and time value",
-      theory: `<p>Moneyness says where today's share price S sits relative to the strike. A call is in the money when S &gt; K and out of the money when S &lt; K; for a put it is the other way round. Intrinsic value is what the option would pay if it expired right now. Everything else in the premium is time value: the price of the chance that the share moves your way before expiry. Time value is largest near the money and shrinks to zero at expiry.</p>
-<div class="formula"><div class="eq">Premium = intrinsic value + time value</div><div class="eq">Intrinsic value: call max(S − K, 0) &nbsp;&nbsp; put max(K − S, 0)</div>
-<div class="where">Intrinsic value uses today's price S and the undiscounted strike K. An out-of-the-money option has zero intrinsic value, so its whole premium is time value.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>S = 110. A call with K = 100 costs 14: in the money, intrinsic value 110 − 100 = 10, time value 14 − 10 = 4.</p><p>A put with K = 100 costs 3.50: out of the money, intrinsic value max(100 − 110, 0) = 0, time value 3.50.</p></div>`,
-      q: `<p>A share trades at S = 58. A put on it with strike K = 65 costs 9.40. What is the put's time value?</p>`,
-      options: ["7.00", "9.40", "16.40", "2.40"],
-      answer: 3,
-      solution: `<p>S = 58 is below K = 65, so the put is in the money.</p><p>Intrinsic value = max(65 − 58, 0) = 7.00.</p><p>Time value = 9.40 − 7.00 = <b>2.40</b>.</p>`,
-      check: `<p>Backwards: 7.00 + 2.40 = 9.40, the premium ✓. The put sells for more than the 7.00 it would pay if it expired today, so its time value is positive.</p>`,
-      traps: [
-        "Gave the intrinsic value, max(65 − 58, 0) = 7.00, instead of the time value.",
-        "Used the call's intrinsic value, max(58 − 65, 0) = 0, so the whole 9.40 became time value. A put is in the money when S &lt; K.",
-        "Dropped the max(·, 0) and used S − K: intrinsic value 58 − 65 = −7, so time value 9.40 + 7 = 16.40.",
-        null,
-      ],
-    },
-    {
       id: "opsjoner-3",
       title: "The bounds: what a call cannot cost",
-      theory: `<p>Arbitrage alone, before any model, limits what a European call on a share without dividends can cost. It can never be worth more than the share, because owning the share gives you the same thing without paying K. It is worth at least S − PV(K): a call plus a deposit of PV(K) pays max(S<sub>T</sub>, K) at expiry, which is never less than the share, so the package cannot cost less than S. The floor uses the discounted strike, so it lies above the intrinsic value S − K.</p>
+      theory: `<p>Arbitrage alone, before any model, limits what a European call on a share without dividends can cost. It can never be worth more than the share, because owning the share gives you the same thing without paying K. It is worth at least S − PV(K): a call plus a deposit of PV(K) pays max(S<sub>T</sub>, K) at expiry, which is never less than the share, so the package cannot cost less than S. The floor uses the discounted strike, so it lies above the intrinsic value S − K, what the call would pay if you exercised it today.</p>
 <div class="formula"><div class="eq">max(S − PV(K), 0) ≤ C ≤ S &nbsp;&nbsp; PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup></div>
 <div class="where">A quote outside the bounds is an arbitrage. Below the floor: buy the call, short the share and lend PV(K). The upper bound holds whatever the strike: the call's payoff is unlimited, its price is not. For a put: max(PV(K) − S, 0) ≤ P ≤ PV(K).</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>S = 100, K = 84, r<sub>f</sub> = 5%, one year. PV(K) = 84/1.05 = 80, so 20 ≤ C ≤ 100.</p><p>A quote of 18 is impossible even though it beats the intrinsic value of 16. Buy the call for 18, short the share for 100 and lend 80: you collect 2 today. At expiry you hold max(S<sub>T</sub> − 84, 0) − S<sub>T</sub> + 84 = max(84 − S<sub>T</sub>, 0) ≥ 0.</p></div>`,
@@ -1830,7 +1455,7 @@ window.EDU_DATA.sjangre.push({
       title: "Put-call parity: the missing price",
       theory: `<p>Two portfolios pay exactly the same at expiry. A share plus a put (the protective put) pays max(S<sub>T</sub>, K). So does a call plus a deposit of PV(K) (the fiduciary call). Identical payoffs in every state must cost the same today, or there is free money. That is put-call parity. It needs no model and no probabilities. It is not on the formula sheet.</p>
 <div class="formula"><div class="eq">C + PV(K) = P + S &nbsp;⟺&nbsp; C = P + S − PV(K)</div>
-<div class="where">PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup>, with the exponent T. Parity holds for European options with the same strike, the same expiry and the same underlying, on a share that pays no dividends before expiry.</div></div>`,
+<div class="where">PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup>, with the exponent T. Parity holds for European options with the same strike, the same expiry and the same underlying, on a share that pays no dividends before expiry. If quoted prices break parity, buy the cheaper side, sell the dearer one and keep the gap: the payoffs cancel in every state.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>S = 60, K = 66, r<sub>f</sub> = 5% a year, T = 2 years. The put costs 7.00.</p><p>(1.05)<sup>2</sup> = 1.1025, so PV(K) = 66/1.1025 = 59.8639.</p><p>C = 7.00 + 60 − 59.8639 = 7.1361.</p></div>`,
       q: `<p>A share trades at S = 84 and pays no dividends. A two-year European put with strike K = 90 costs 9.20. The risk-free rate is 4% a year. What is the price of the two-year European call with the same strike?</p>`,
       options: ["3.2000", "6.6615", "9.9899", "8.4101"],
@@ -1842,30 +1467,6 @@ window.EDU_DATA.sjangre.push({
         "Discounted the strike for one year only: 9.20 + 84 − 90/1.04 = 9.20 + 84 − 86.5385 = 6.6615.",
         null,
         "Swapped the signs of S and PV(K): 9.20 − 84 + 83.2101 = 8.4101.",
-      ],
-    },
-    {
-      id: "opsjoner-5",
-      title: "Trading a parity violation",
-      theory: `<p>When quoted prices break parity, one of the two portfolios is too cheap. Price both, buy the cheap one and sell the dear one. Selling the fiduciary call means writing the call and borrowing PV(K); buying the protective put means buying the share and the put. The payoffs cancel in every state, so the cash you collect today is a riskless profit equal to the parity gap.</p>
-<div class="formula"><div class="eq">gap = [C + PV(K)] − [P + S]</div>
-<div class="where">gap &gt; 0: write the call, borrow PV(K), buy the share and the put. gap &lt; 0: do the reverse. Borrow PV(K), not K: the loan is repaid with exactly K at expiry.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>S = 40, K = 42, r<sub>f</sub> = 5%, one year, C = 3.10, P = 2.60. PV(K) = 42/1.05 = 40.00.</p><p>Fiduciary call: 3.10 + 40.00 = 43.10. Protective put: 2.60 + 40 = 42.60. Gap = 0.50 &gt; 0.</p><p>Write the call and borrow 40.00, buy the share and the put. Cash today: 3.10 + 40.00 − 40 − 2.60 = +0.50.</p></div>`,
-      q: `<p>A share trades at S = 96 and pays no dividends. One-year European options with strike K = 100 trade at C = 8.40 and P = 7.10. The one-year risk-free rate is 5%. Which trade earns a riskless profit and how much do you collect today?</p>`,
-      options: [
-        "Buy the call and lend 95.24; short the share and write the put. You collect 0.54 today.",
-        "Write the call and borrow 100.00; buy the share and the put. You collect 5.30 today.",
-        "Write the call and buy the put, since the call is dearer than the put. You collect 1.30 today.",
-        "Write the call and borrow 95.24; buy the share and the put. You collect 0.54 today.",
-      ],
-      answer: 3,
-      solution: `<p>PV(K) = 100/1.05 = 95.2381. Fiduciary call: 8.40 + 95.2381 = 103.6381. Protective put: 7.10 + 96 = 103.10.</p><p>The fiduciary call is dear, so sell it and buy the protective put: write the call (+8.40), borrow 95.2381 (+95.2381), buy the share (−96) and the put (−7.10). Cash today = 8.40 + 95.2381 − 96 − 7.10 = <b>+0.5381</b>, about 0.54.</p><p>At expiry the share and the put are worth max(S<sub>T</sub>, 100). The written call and the loan cost max(S<sub>T</sub> − 100, 0) + 100 = max(S<sub>T</sub>, 100). They cancel in every state.</p>`,
-      check: `<p>The cash collected equals the parity gap: 103.6381 − 103.10 = 0.5381 ✓. If it did not, you would have taken the wrong side. Two states: at S<sub>T</sub> = 80 you hold 80 + 20 − 0 − 100 = 0, at S<sub>T</sub> = 120 you hold 120 + 0 − 20 − 100 = 0 ✓.</p>`,
-      traps: [
-        "Bought the dear side. Buying the call and lending costs 103.64 while shorting the share and writing the put brings in 103.10, so you pay 0.54 today instead of collecting it.",
-        "Borrowed K instead of PV(K): 8.40 + 100 − 96 − 7.10 = 5.30. A loan of 100 today must be repaid with 105, which the position does not cover.",
-        "Compared the call with the put directly. A written call plus a bought put pays 100 − S<sub>T</sub>, a short position in the share: at S<sub>T</sub> = 120 you lose 20.",
-        null,
       ],
     },
     {
@@ -1907,25 +1508,6 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "opsjoner-8",
-      title: "A put in the tree, checked with parity",
-      theory: `<p>A put is priced on the same tree with the same ρ: only the payoffs change, to max(K − S, 0) in each state. Replication still works, but Δ is now negative (short the share) and B positive (lend). Because the call and the put come from different payoffs, put-call parity is a genuine check on both.</p>
-<div class="formula"><div class="eq">P<sub>u</sub> = max(K − S<sub>u</sub>, 0) &nbsp;&nbsp; P<sub>d</sub> = max(K − S<sub>d</sub>, 0)</div><div class="eq">P<sub>0</sub> = [ρP<sub>u</sub> + (1 − ρ)P<sub>d</sub>]/(1 + r<sub>f</sub>)</div>
-<div class="where">The put pays in the down state, which carries the weight 1 − ρ. Check: C<sub>0</sub> − P<sub>0</sub> = S<sub>0</sub> − K/(1 + r<sub>f</sub>).</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Same tree: S<sub>0</sub> = 50, S<sub>u</sub> = 60, S<sub>d</sub> = 40, r<sub>f</sub> = 4%, ρ = 0.60, put with K = 50. P<sub>u</sub> = 0, P<sub>d</sub> = 10.</p><p>P<sub>0</sub> = 0.40 × 10/1.04 = 4/1.04 = 3.8462. Replication: Δ = (0 − 10)/20 = −0.5, B = (10 + 40 × 0.5)/1.04 = 30/1.04 = 28.8462, P<sub>0</sub> = −25 + 28.8462 = 3.8462 ✓.</p><p>Parity: C<sub>0</sub> − P<sub>0</sub> = 5.769231 − 3.846154 = 1.923077 and S<sub>0</sub> − PV(K) = 50 − 48.076923 = 1.923077 ✓.</p></div>`,
-      q: `<p>A share trades at S<sub>0</sub> = 80. In one year it will be worth 100 or 70. The one-year risk-free rate is 5%. What is the price of a one-year European put with strike K = 88?</p>`,
-      options: ["8.0000", "9.1429", "9.6000", "3.8095"],
-      answer: 1,
-      solution: `<p>ρ = (1.05 × 80 − 70)/(100 − 70) = (84 − 70)/30 = 0.466667, so 1 − ρ = 0.533333.</p><p>Payoffs: P<sub>u</sub> = max(88 − 100, 0) = 0, P<sub>d</sub> = max(88 − 70, 0) = 18.</p><p>P<sub>0</sub> = (0.466667 × 0 + 0.533333 × 18)/1.05 = 9.6000/1.05 = <b>9.1429</b>.</p>`,
-      check: `<p>Parity against the call on the same tree: C<sub>u</sub> = 12, C<sub>d</sub> = 0, so C<sub>0</sub> = 0.466667 × 12/1.05 = 5.6000/1.05 = 5.333333. C<sub>0</sub> − P<sub>0</sub> = 5.333333 − 9.142857 = −3.809524. Parity requires S<sub>0</sub> − PV(K) = 80 − 88/1.05 = 80 − 83.809524 = −3.809524 ✓. Replication agrees too: Δ = (0 − 18)/30 = −0.6, B = (18 + 70 × 0.6)/1.05 = 60/1.05 = 57.142857, P<sub>0</sub> = −48 + 57.142857 = 9.142857.</p>`,
-      traps: [
-        "Gave the down-state payoff the weight ρ instead of 1 − ρ: 0.466667 × 18/1.05 = 8.0000. ρ belongs to the up state, where the put pays nothing.",
-        null,
-        "Forgot to discount: 0.533333 × 18 = 9.6000 is the value in one year.",
-        "Dropped the max(·, 0) and used K − S in both states: [0.466667 × (−12) + 0.533333 × 18]/1.05 = 4.0000/1.05 = 3.8095. That prices an obligation to sell at 88, not a right.",
-      ],
-    },
-    {
       id: "opsjoner-9",
       title: "Two periods: roll the tree back node by node",
       theory: `<p>With two periods you solve the one-period problem three times, starting at the end. Build the share tree, compute the payoffs at the last date, then value each date-1 node as the risk-neutral average of the two nodes after it, discounted one period. Repeat at the root. With the same u and d at every node the tree recombines and ρ is the same everywhere. Δ changes from node to node, so a replicating portfolio must be rebalanced at date 1.</p>
@@ -1947,7 +1529,7 @@ window.EDU_DATA.sjangre.push({
     {
       id: "opsjoner-10",
       title: "Backing ρ out of an observed price",
-      theory: `<p>ρ does not have to come from the share. On a two-state tree every traded asset is priced with the same weights, so any observed price X<sub>0</sub> with known payoffs X<sub>u</sub> and X<sub>d</sub> reveals ρ. The exam uses this when the share itself is not quoted but something else on the same two states is: an option, a commodity certificate, a bond or the cash flows of a project. Once you have ρ, price any other claim on the tree with it.</p>
+      theory: `<p>ρ does not have to come from the share. On a two-state tree every traded asset is priced with the same weights, so any observed price X<sub>0</sub> with known payoffs X<sub>u</sub> and X<sub>d</sub> reveals ρ. The exam uses this when the share itself is not quoted but something else on the same two states is: an option, a commodity certificate, a bond or the cash flows of a project. Once you have ρ, price any other claim on the tree with it. A put works the same way: its payoff max(K − S, 0) comes in the down state, which carries the weight 1 − ρ.</p>
 <div class="formula"><div class="eq">ρ = [(1 + r<sub>f</sub>)X<sub>0</sub> − X<sub>d</sub>]/(X<sub>u</sub> − X<sub>d</sub>)</div>
 <div class="where">Grow the price by (1 + r<sub>f</sub>) before you compare it with the payoffs. If the asset also pays a cash flow at date 1, add it to both X<sub>u</sub> and X<sub>d</sub>. If two assets on the same tree imply different ρ, one of them is mispriced.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>The share will be worth 120 or 80 in one year and r<sub>f</sub> = 5%. A call with K = 100 trades at 10.00 and pays 20 or 0.</p><p>ρ = (1.05 × 10.00 − 0)/(20 − 0) = 10.50/20 = 0.525.</p><p>A put with K = 110 pays 0 or 30, so P = 0.475 × 30/1.05 = 14.25/1.05 = 13.5714. The share price the options imply is (0.525 × 120 + 0.475 × 80)/1.05 = 101/1.05 = 96.1905.</p></div>`,
@@ -1966,7 +1548,7 @@ window.EDU_DATA.sjangre.push({
     {
       id: "opsjoner-11",
       title: "Black-Scholes: which way each input moves the value",
-      theory: `<p>Give the binomial tree more and shorter steps and its price converges to the Black-Scholes formula. N(d<sub>1</sub>) is Δ and PV(K)·N(d<sub>2</sub>) is the borrowing, so it is still C = SΔ + B. The formula sheet carries no N(d) tables, so the exam tests the direction of each effect and the reason, not the arithmetic. The key effect: a higher σ raises both a call and a put, because the payoff is floored at zero, so extra dispersion adds upside without adding downside.</p>
+      theory: `<p>Give the binomial tree more and shorter steps and its price converges to the Black-Scholes formula. N(d<sub>1</sub>) is Δ and PV(K)·N(d<sub>2</sub>) is the borrowing, so it is still C = SΔ + B. The formula sheet carries no N(d) tables, so the exam tests the direction of each effect and the reason, not the arithmetic. The key effect: a higher σ raises both a call and a put, because the payoff is floored at zero, so extra dispersion adds upside without adding downside. Four of the inputs can be read off a screen; only σ cannot. Run the formula backwards from a market price and you get the implied volatility: the σ the price is quoting.</p>
 <div class="formula"><div class="eq">C = S·N(d<sub>1</sub>) − PV(K)·N(d<sub>2</sub>)</div><div class="eq">d<sub>1</sub> = ln[S/PV(K)]/(σ√T) + σ√T/2 &nbsp;&nbsp; d<sub>2</sub> = d<sub>1</sub> − σ√T</div>
 <div class="where">S, K, T, r<sub>f</sub> and σ are the five inputs; σ is the annual volatility of the share's return. PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup> as before: this ladder, like the manual, compounds r<sub>f</sub> annually. Textbooks that write K·e<sup>−r<sub>f</sub>T</sup> use the same formula with a continuous rate. The share's expected return appears nowhere. A dividend before expiry lowers the call and raises the put.</div></div>
 <table class="data"><tr><th>Input rises</th><th>Call</th><th>Put</th><th>Why</th></tr>
@@ -1996,25 +1578,6 @@ window.EDU_DATA.sjangre.push({
         "Forgot that more time means more dispersion and a smaller PV(K). Both raise a call. The option is not priced by discounting at a risky rate.",
         "Mixed up the call and the put. The call holder pays K at exercise, so a higher K lowers the call and raises the put.",
         null,
-      ],
-    },
-    {
-      id: "opsjoner-12",
-      title: "Implied volatility: the price written as a σ",
-      theory: `<p>Four of the five inputs can be read off a screen; only σ must be estimated. So the formula is run backwards: the implied volatility is the σ that makes the Black-Scholes value equal the market price. Value rises with σ, so there is exactly one such σ. Quoting an implied volatility is just another way of quoting the price. If your own estimate differs, value the option at your σ and compare. A call and a put with the same K and T carry the same implied σ and are mispriced by the same amount, because σ does not appear in S − PV(K).</p>
-<div class="formula"><div class="eq">σ<sub>implied</sub> solves C<sub>market</sub> = S·N(d<sub>1</sub>(σ)) − PV(K)·N(d<sub>2</sub>(σ))</div><div class="eq">P<sub>your σ</sub> = P<sub>market</sub> − (C<sub>market</sub> − C<sub>your σ</sub>)</div>
-<div class="where">The second line is parity applied at both volatilities. Implied volatility is a model output read from a price, not a measurement of the share.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>S = 50, K = 50, r<sub>f</sub> = 4%, T = 1. The call trades at 8.7719, the Black-Scholes value at σ = 40%: that is its implied volatility.</p><p>At your σ = 30% the call is worth 6.8582, so it is overpriced by 1.9137. The put trades at 6.8488; at 30% it is worth 6.8488 − 1.9137 = 4.9351, the same 1.9137 below its price.</p></div>`,
-      q: `<p>A share trades at S = 80 and pays no dividends. One-year European options with strike K = 84 trade at C = 10.7866 and P = 11.5558. The risk-free rate is 4% a year, compounded annually. The call's price implies σ = 35%. You estimate σ = 25%, at which the call is worth 7.6176. What is the put worth at your volatility?</p>`,
-      options: ["14.7248", "8.3868", "11.5558", "11.6176"],
-      answer: 1,
-      solution: `<p>The call is overpriced by 10.7866 − 7.6176 = 3.1690.</p><p>σ does not enter S − PV(K), so the put is overpriced by the same amount: P = 11.5558 − 3.1690 = <b>8.3868</b>.</p>`,
-      check: `<p>Parity at your volatility: P = C − S + PV(K) = 7.6176 − 80 + 84/1.04 = 7.6176 − 80 + 80.7692 = 8.3868 ✓. The market prices obey parity too: 10.7866 − 80 + 80.7692 = 11.5558 ✓. The put falls when σ falls, as it must: less dispersion lowers both options.</p>`,
-      traps: [
-        "Moved the put the wrong way, as if a lower σ that hurts the call must help the put: 11.5558 + 3.1690 = 14.7248. A lower σ lowers both.",
-        null,
-        "Kept the market price, as if the volatility view concerned only the call: 11.5558. The put carries the same implied σ of 35%.",
-        "Used K instead of PV(K) in parity: 7.6176 − 80 + 84 = 11.6176.",
       ],
     },
     {
@@ -2095,7 +1658,7 @@ window.EDU_DATA.sjangre.push({
     {
       id: "kreditt-2",
       title: "Promised versus expected return on risky debt",
-      theory: `<p>A corporate borrower can default. Let p be the probability of default over the year and R the recovery rate, the fraction of face value the creditors collect if it happens. The loss given default is L = 1 − R. The yield y assumes nothing goes wrong. The <b>expected return</b> r<sub>D</sub> takes off the expected loss. It is r<sub>D</sub>, not y, that is the cost of debt in a WACC. The course formula is not on the formula sheet: memorise it.</p>
+      theory: `<p>A corporate borrower can default. Let p be the probability of default over the year and R the recovery rate, the fraction of face value the creditors collect if it happens. The loss given default is L = 1 − R. The yield y assumes nothing goes wrong. The <b>expected return</b> r<sub>D</sub> takes off the expected loss. It is r<sub>D</sub>, not y, that is the cost of debt in a WACC. The course formula is not on the formula sheet: memorise it. The credit spread y − r<sub>f</sub> holds two parts. The expected loss p·L is money the lender does not expect to get. Only the rest, r<sub>D</sub> − r<sub>f</sub>, is a premium for bearing default risk.</p>
 <div class="formula"><div class="eq">r<sub>D</sub> = y − p·L</div><div class="eq">exact, from the payoffs: r<sub>D</sub> = E[payment]/P − 1 with E[payment] = (1 − p)·F + p·R·F</div>
 <div class="where">The two routes differ by p·L·y, because the formula charges the loss on the price and the exact route on the promised payment. Use the formula when you are given y, p and L. Use the payoffs when you are given them.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>y = 8%, p = 5%, R = 50%, so L = 0.50.</p><p>p·L = 0.05 × 0.50 = 0.025. r<sub>D</sub> = 8% − 2.5% = 5.5000%.</p><p>Exact route per 100 of face: price 100/1.08 = 92.5926, expected payment 0.95 × 100 + 0.05 × 50 = 97.50, return 97.50/92.5926 − 1 = 5.3000%. The gap of 0.2% is p·L·y = 0.025 × 0.08 = 0.002.</p></div>`,
@@ -2109,25 +1672,6 @@ window.EDU_DATA.sjangre.push({
         "Used the promised yield as the expected return: 9.0000%. That is the return only if nothing goes wrong.",
         "Subtracted p times the recovery rate instead of the loss: 9% − 0.04 × 0.40 = 7.4000%.",
         "Subtracted the default probability as if creditors lost everything in default: 9% − 4% = 5.0000%.",
-      ],
-    },
-    {
-      id: "kreditt-3",
-      title: "The credit spread: expected loss plus a risk premium",
-      theory: `<p>The credit spread is the promised yield over the risk-free rate of the same maturity. It holds two different things. The expected loss p·L is money the lender does not expect to get, so it compensates for nothing. The rest, r<sub>D</sub> − r<sub>f</sub>, is a genuine premium for bearing default risk that strikes in bad times. Only that part is priced by the CAPM, so never compute the debt beta from the yield.</p>
-<div class="formula"><div class="eq">spread = y − r<sub>f</sub> = p·L + (r<sub>D</sub> − r<sub>f</sub>)</div><div class="eq">β<sub>D</sub> = (r<sub>D</sub> − r<sub>f</sub>)/(E[R<sub>mkt</sub>] − r<sub>f</sub>)</div>
-<div class="where">E[R<sub>mkt</sub>] − r<sub>f</sub> is the market risk premium. The first line is the course formula r<sub>D</sub> = y − p·L rearranged.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>y = 7%, r<sub>f</sub> = 3%, p = 2%, L = 0.60 and a market risk premium of 5%.</p><p>Spread = 7% − 3% = 4.0%. Expected loss p·L = 1.2%. r<sub>D</sub> = 7% − 1.2% = 5.8%, so the risk premium is 5.8% − 3% = 2.8%. β<sub>D</sub> = 0.028/0.05 = 0.56.</p></div>`,
-      q: `<p>A bond has a promised yield of 8.5%. The risk-free rate is 4% and the market risk premium is 6%. The probability of default is 3% and the loss given default is 50%. What is the debt beta?</p>`,
-      options: ["0.7500", "0.5000", "0.2500", "1.1667"],
-      answer: 1,
-      solution: `<p>Spread = 8.5% − 4% = 4.5%. Expected loss p·L = 0.03 × 0.50 = 1.5%.</p><p>r<sub>D</sub> = 8.5% − 1.5% = 7.0%, so the risk premium is 7.0% − 4% = 3.0%.</p><p>β<sub>D</sub> = 0.030/0.06 = <b>0.5000</b>.</p>`,
-      check: `<p>Backwards through the CAPM: 4% + 0.5 × 6% = 7.0% = r<sub>D</sub> ✓. The test the wrong answers fail: a beta of 0.75 would put the expected return at 4% + 0.75 × 6% = 8.5%, the promised yield, which lenders do not expect to earn when default is possible.</p>`,
-      traps: [
-        "Computed the beta from the whole spread: (8.5% − 4%)/6% = 0.7500. The expected loss is not a risk premium.",
-        null,
-        "Priced the expected loss instead of the premium: 1.5%/6% = 0.2500.",
-        "Forgot to subtract the risk-free rate: 7.0%/6% = 1.1667.",
       ],
     },
     {
@@ -2158,7 +1702,7 @@ window.EDU_DATA.sjangre.push({
       title: "Risky debt as risk-free debt minus a put",
       theory: `<p>Rewrite the creditors' payoff: min(V<sub>T</sub>, F) = F − max(F − V<sub>T</sub>, 0). Lending to a levered firm is lending risk-free and at the same time writing the shareholders a put on the assets with strike F. The put is their right to hand over the assets instead of paying F. Equivalently, debt is the assets minus the shareholders' call. Put-call parity, Call = Put + V − PV(F), makes the two readings the same.</p>
 <div class="formula"><div class="eq">D = PV(F) − Put = V − Call</div>
-<div class="where">PV(F) = F/(1 + r<sub>f</sub>)<sup>T</sup> is the value of the same promise if it were risk-free. Put and Call are options on V with strike F and the debt's maturity. The put enters with a minus: it is worth something to the shareholders, not to the lender.</div></div>`,
+<div class="where">PV(F) = F/(1 + r<sub>f</sub>)<sup>T</sup> is the value of the same promise if it were risk-free. Put and Call are options on V with strike F and the debt's maturity. The put enters with a minus: it is worth something to the shareholders, not to the lender. If the firm is all-equity before the issue, options on its n shares with strike F/n are options on V: n such puts make one put on V with strike F (2016 Problem 4).</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>V = 120, F = 110 due in one year, r<sub>f</sub> = 10%. The put on V with strike 110 is worth 6.</p><p>PV(F) = 110/1.10 = 100. D = 100 − 6 = 94. Equity is the rest: E = 120 − 94 = 26.</p><p>Parity: Call = 6 + 120 − 100 = 26 ✓.</p></div>`,
       q: `<p>A firm's assets are worth 250. Its only debt is a zero-coupon bond with face value 210 due in one year. The risk-free rate is 5%. A European put on the firm's assets with strike 210 and one year to expiry is worth 12. What is the market value of the debt?</p>`,
       options: ["212.00", "198.00", "200.00", "188.00"],
@@ -2189,25 +1733,6 @@ window.EDU_DATA.sjangre.push({
         null,
         "Valued the debt as risk-free: 180/1.04 = 173.0769. That ignores the shortfall of 20 in the down state.",
         "Forgot to discount the risk-neutral expectation: 169.6000.",
-      ],
-    },
-    {
-      id: "kreditt-7",
-      title: "Yield and credit spread from the value of the debt",
-      theory: `<p>Once you have the market value D of a zero-coupon debt, its promised yield is the rate that turns D into F, exactly as in the first step. The credit spread is that yield minus r<sub>f</sub>. D can come from a tree or from traded option prices. If the firm is all-equity, its shares are claims on the assets, so options on the shares are options on V: n puts with strike F/n on its n shares are one put on V with strike F. 2016 Problem 4 gave option prices on an all-equity firm's shares and asked for the yield its debt would carry.</p>
-<div class="formula"><div class="eq">D = PV(F) − n × Put<sub>share</sub> &nbsp;·&nbsp; y = (F/D)<sup>1/T</sup> − 1 &nbsp;·&nbsp; spread = y − r<sub>f</sub></div>
-<div class="where">n is the number of shares. Put<sub>share</sub> is the price of one put on a share with strike F/n and maturity T. Quote y and r<sub>f</sub> on the same compounding basis, per year.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>An all-equity firm has 100 million shares at 30.00. It plans a zero-coupon bond with F = 2 400 million due in one year, so the strike per share is 2 400/100 = 24.00. A one-year put on the shares with strike 24.00 costs 1.20 and r<sub>f</sub> = 4%.</p><p>PV(F) = 2 400/1.04 = 2 307.6923. Puts: 100 × 1.20 = 120.00. D = 2 307.6923 − 120.00 = 2 187.6923.</p><p>y = 2 400/2 187.6923 − 1 = 9.7046%. Spread = 9.7046% − 4% = 5.7046%.</p></div>`,
-      q: `<p>An all-equity firm has 250 million shares at 48.00. It considers issuing a zero-coupon bond with face value 10 000 million due in two years and paying out the proceeds. Markets are perfect. A two-year European put on its shares with strike 40.00 trades at 2.60. The two-year risk-free rate is 3% a year with annual compounding. What credit spread per year would the bond carry, to four decimals?</p>`,
-      options: ["3.5282%", "−3.3776%", "3.7463%", "0.4175%"],
-      answer: 2,
-      solution: `<p>The strike per share is 10 000/250 = 40.00, so the 250 million puts make one put on the assets with strike 10 000: 250 × 2.60 = 650.00 million.</p><p>PV(F) = 10 000/1.03<sup>2</sup> = 10 000/1.0609 = 9 425.9591.</p><p>D = 9 425.9591 − 650.0000 = 8 775.9591.</p><p>y = (10 000/8 775.9591)<sup>1/2</sup> − 1 = 1.139477<sup>1/2</sup> − 1 = 6.7463%. Spread = 6.7463% − 3% = <b>3.7463%</b>.</p>`,
-      check: `<p>Price the bond back at its yield: 10 000/1.0674627<sup>2</sup> = 8 775.96 ✓. The spread is positive and D lies below PV(F), as risky debt must. The equity left after the payout, 12 000 − 8 775.9591 = 3 224.0409, is positive too.</p>`,
-      traps: [
-        "Mixed compounding bases: took the continuously compounded yield ln(10 000/8 775.9591)/2 = 6.5282% and subtracted the annually compounded 3%, giving 3.5282%. Put y and r<sub>f</sub> on the same basis.",
-        "Added the puts instead of subtracting them: D = 9 425.9591 + 650 = 10 075.9591, so y = −0.3776% and the spread −3.3776%.",
-        null,
-        "Subtracted the puts from the undiscounted face value: D = 10 000 − 650 = 9 350, so y = 3.4175% and the spread 0.4175%.",
       ],
     },
     {
@@ -2246,35 +1771,6 @@ window.EDU_DATA.sjangre.push({
         null,
         "Used N(d<sub>2</sub>) where N(d<sub>1</sub>) belongs: 0.7126 × 2.6279 × 1.2 = 2.2472. N(d<sub>2</sub>) is a probability, not the delta.",
         "Valued equity as V − PV(F) = 300, as if the debt were risk-free: 0.8556 × (900/300) × 1.2 = 3.0802.",
-      ],
-    },
-    {
-      id: "kreditt-10",
-      title: "Equity risk when the firm nears default",
-      theory: `<p>As the asset value falls towards the face value of the debt, two things happen to β<sub>E</sub> = N(d<sub>1</sub>)(V/E)β<sub>U</sub>. The delta N(d<sub>1</sub>) falls, because the call moves out of the money. But E falls much faster than N(d<sub>1</sub>)·V, so V/E shoots up. The second effect wins: equity near default is a thin, highly geared claim and its beta rises steeply. The debt beta rises too, because the lenders now carry part of the asset risk. So the linear formula with β<sub>D</sub> = 0 overstates β<sub>E</sub>.</p>
-<div class="formula"><div class="eq">V ↓ ⟹ N(d<sub>1</sub>) ↓ but V/E ↑ faster ⟹ β<sub>E</sub> ↑ &nbsp;·&nbsp; β<sub>D</sub> ↑</div>
-<div class="where">N(d<sub>1</sub>)·V/E is the call's elasticity: the per cent change in E for a 1% change in V. The further out of the money a call is, the larger its elasticity.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Take the firm from the last step and let its assets fall, holding PV(F) = 600, the asset volatility and β<sub>U</sub> = 1.2 fixed.</p>
-<table class="data"><tr><th>V</th><th>N(d<sub>1</sub>)</th><th>E</th><th>V/E</th><th>β<sub>E</sub></th><th>β<sub>D</sub></th><th>(V/E)β<sub>U</sub></th></tr>
-<tr><td class="n">1 200</td><td class="n">0.9491</td><td class="n">615.66</td><td class="n">1.9491</td><td class="n">2.2199</td><td class="n">0.1254</td><td class="n">2.3390</td></tr>
-<tr><td class="n">900</td><td class="n">0.8556</td><td class="n">342.48</td><td class="n">2.6279</td><td class="n">2.6981</td><td class="n">0.2797</td><td class="n">3.1535</td></tr>
-<tr><td class="n">700</td><td class="n">0.7117</td><td class="n">184.27</td><td class="n">3.7988</td><td class="n">3.2443</td><td class="n">0.4696</td><td class="n">4.5585</td></tr></table>
-<p>From 1 200 to 700 the delta falls by a quarter while V/E almost doubles, so β<sub>E</sub> rises from 2.2199 to 3.2443. The last column, which assumes riskless debt, overshoots more and more.</p></div>`,
-      q: `<p>Over a bad year a firm's asset value falls until its equity is a thin slice above the present value of its debt. Its asset beta and its zero-coupon debt are unchanged. No N(d) values are given. What happens to the equity beta and why?</p>`,
-      options: [
-        "It rises: E shrinks much faster than N(d<sub>1</sub>)·V, so each krone of equity carries more of the asset risk.",
-        "It falls: N(d<sub>1</sub>) drops as the call moves out of the money and outweighs the rise in V/E.",
-        "It stays where it was: leverage moves risk between the claims while the asset beta is unchanged.",
-        "It rises exactly as β<sub>U</sub>(1 + D/E) predicts, since the debt keeps a beta of zero near default.",
-      ],
-      answer: 0,
-      solution: `<p>β<sub>E</sub> = N(d<sub>1</sub>)(V/E)β<sub>U</sub>. As V falls, N(d<sub>1</sub>) falls, but E falls much faster: it is a small residual on top of a large debt claim. V/E rises steeply and the product rises. Equity near default is a deep out-of-the-money call, the most geared claim on the firm, so <b>β<sub>E</sub> rises</b>.</p><p>It rises by less than the linear formula with β<sub>D</sub> = 0 says, because the debt beta also rises: the lenders now carry part of the asset risk.</p>`,
-      check: `<p>In the example, β<sub>E</sub> rises from 2.2199 to 3.2443 between V = 1 200 and V = 700. The weighted betas still return β<sub>U</sub> at 700: (184.27/700)(3.2443) + (515.73/700)(0.4696) = 0.8540 + 0.3460 = 1.2000. That is an identity, so it confirms the arithmetic, not the direction; the direction comes from V/E rising faster than N(d<sub>1</sub>) falls.</p>`,
-      traps: [
-        null,
-        "N(d<sub>1</sub>) does fall, but E falls much faster, so V/E rises by more: from V = 1 200 to 700 the delta drops by a quarter while V/E almost doubles.",
-        "The asset beta is fixed, but equity's share of the assets shrinks, so the same risk sits on a smaller base. Only the weighted average of β<sub>E</sub> and β<sub>D</sub> stays at β<sub>U</sub>.",
-        "Near default the debt is far from risk-free. β<sub>D</sub> rises, so β<sub>E</sub> rises by less than β<sub>U</sub>(1 + D/E): 3.2443 against 4.5585 at V = 700.",
       ],
     },
     {
@@ -2403,31 +1899,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "myers-2",
-      title: "What the old shareholders keep",
-      theory: `<p>The old shareholders keep the rest, 1 − α, of the post-issue firm. With fair pricing the new investors take out exactly the I they put in. So the old shareholders end with their assets plus the whole NPV. This is the benchmark for the rest of the ladder: when investors know V, the old shareholders capture the entire NPV.</p>
-<div class="formula"><div class="eq">Payoff to old shareholders = (1 − α)(V + I + NPV) = V + I + NPV − I = V + NPV</div>
-<div class="where">The shortcut uses α(V + I + NPV) = I from the pricing condition. It holds only when α is priced on the true V. Once investors price α on a different V, the shortcut fails and the first form is the one to use.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>V = 100, I = 40, NPV = 10, so α = 40/150 = 4/15.</p><p>Payoff = (1 − 4/15) × 150 = (11/15) × 150 = 110 = 100 + 10. The old shareholders keep their assets and gain the full NPV of 10.</p></div>`,
-      q: `<p>A firm's assets in place are worth 180 and everyone knows it. The firm issues new shares to raise 60 for a project with an NPV of 24. Investors are competitive and there is no discounting. What is the old shareholders' stake worth after the issue?</p>`,
-      options: ["157.64", "204.00", "139.09", "144.00"],
-      answer: 1,
-      solution: `<p>α = 60/(180 + 60 + 24) = 60/264 = 0.227273.</p><p>Payoff = (1 − 0.227273) × 264 = 0.772727 × 264 = <b>204.00</b>.</p>`,
-      check: `<p>Shortcut: V + NPV = 180 + 24 = 204.00 ✓. The new investors hold 0.227273 × 264 = 60.00, exactly what they paid, so nothing moves between the two groups.</p>`,
-      traps: [
-        "Left the cash out of the firm's value: 0.772727 × (180 + 24) = 157.64. The 60 is invested in the project, so it is part of the firm.",
-        null,
-        "Applied 1 − α to the assets alone: 0.772727 × 180 = 139.09.",
-        "Charged the old shareholders for the cash raised: 180 + 24 − 60 = 144.00. The new investors pay the 60 and get a stake worth exactly 60, so it costs the old shareholders nothing.",
-      ],
-    },
-    {
       id: "myers-3",
-      title: "The issue decision: compare with V",
-      theory: `<p>The manager acts for the old shareholders. If he does not issue, the project is lost, because the firm has no other money. So the old shareholders compare the payoff from issuing with V alone, not with V + NPV. When investors know V the rule reduces to NPV &gt; 0. The stake handed to the new investors is not a loss: they paid I for it, exactly its value.</p>
-<div class="formula"><div class="eq">Issue and invest if (1 − α)(V + I + NPV) &gt; V</div>
-<div class="where">V on the right is what the old shares are worth if the firm walks away. Comparing with V + NPV counts the project in the alternative where it is never built.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>V = 100, I = 40, NPV = 10. Issuing gives the old shareholders 110; walking away leaves them 100.</p><p>They issue. The gain is 110 − 100 = 10, the NPV.</p></div>`,
+      title: "The old shareholders' payoff and the issue decision",
+      theory: `<p>The old shareholders keep the rest, 1 − α, of the post-issue firm. With fair pricing the new investors take out exactly the I they put in, so the old shareholders end with V + NPV. The manager acts for them. If he does not issue, the project is lost, because the firm has no other money. So he compares the payoff from issuing with V alone, not with V + NPV. When investors know V the rule reduces to NPV &gt; 0: the stake handed to the new investors is not a loss, because they paid I for it, exactly its value.</p>
+<div class="formula"><div class="eq">Payoff to old shareholders = (1 − α)(V + I + NPV) = V + NPV</div><div class="eq">Issue and invest if (1 − α)(V + I + NPV) &gt; V</div>
+<div class="where">The shortcut V + NPV uses α(V + I + NPV) = I and holds only when α is priced on the true V. Once investors price α on a different V, use the first form. V on the right of the issue rule is what the old shares are worth if the firm walks away; comparing with V + NPV counts the project in the alternative where it is never built.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>V = 100, I = 40, NPV = 10, so α = 40/150 = 4/15.</p><p>Issue: (1 − 4/15) × 150 = (11/15) × 150 = 110 = 100 + 10. Walk away: 100. They issue and gain 110 − 100 = 10, the NPV.</p></div>`,
       q: `<p>A firm's assets in place are worth 320 and everyone knows it. A project with an NPV of 18 needs 90, which can only be raised by issuing shares. Without the issue the project is lost. Investors are competitive and there is no discounting. What should the manager, acting for the old shareholders, do?</p>`,
       options: [
         "Do not issue: the new investors get 21.03% of a firm worth 428.00, that is 90.00, far more than the NPV of 18.00",
@@ -2446,31 +1923,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "myers-4",
-      title: "Asymmetric information: α priced on investors' beliefs",
-      theory: `<p>Now the manager knows V but investors do not. They know only that the assets are worth V<sub>H</sub> with probability q and V<sub>L</sub> with probability 1 − q. The project is public: everyone knows I and NPV. Investors cannot price the true V, so they price what they expect V to be <b>given the action they observe</b>. If they believe every firm issues, whatever its type (the pooling belief), an issue tells them nothing and they use the prior average.</p>
-<div class="formula"><div class="eq">E[V | issue] = qV<sub>H</sub> + (1 − q)V<sub>L</sub> &nbsp;(if both types issue)</div><div class="eq">α = I/(E[V | issue] + I + NPV)</div>
-<div class="where">α is the same for both types, because investors cannot tell them apart. What the manager knows never enters α.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10. Investors believe both types issue.</p><p>E[V | issue] = 0.5 × 200 + 0.5 × 80 = 140. α = 40/(140 + 40 + 10) = 40/190 = 0.2105.</p></div>`,
-      q: `<p>A firm's assets in place are worth 300 or 120. Investors put probability 0.4 on 300; the manager knows the assets are worth 300. The firm must issue shares to raise 70 for a project with a publicly known NPV of 14. Investors believe the firm would issue whatever its type. What fraction α must the new investors receive? Give four decimals.</p>`,
-      options: ["0.1823", "0.3398", "0.2672", "0.2536"],
-      answer: 3,
-      solution: `<p>Investors do not know what the manager knows, so they use the prior: E[V | issue] = 0.4 × 300 + 0.6 × 120 = 120 + 72 = 192.</p><p>α = 70/(192 + 70 + 14) = 70/276 = <b>0.2536</b>.</p>`,
-      check: `<p>Backwards: 0.253623 × 276 = 70.00 ✓. The pooled α must lie between the full-information prices of the two types: 70/(300 + 84) = 0.1823 for the high type and 70/(120 + 84) = 0.3431 for the low type. 0.2536 does.</p>`,
-      traps: [
-        "Priced α on the true value the manager knows: 70/(300 + 70 + 14) = 0.1823. Investors cannot see it.",
-        "Left the cash raised out of the denominator: 70/(192 + 14) = 0.3398.",
-        "Left the NPV out of the denominator: 70/(192 + 70) = 0.2672.",
-        null,
-      ],
-    },
-    {
       id: "myers-5",
-      title: "The undervalued type walks away from a good project",
-      theory: `<p>The old shareholders' payoff uses the <b>true</b> V, which the manager knows, times the 1 − α that investors set from their beliefs. For the high type the investors' average is too low: it sells a slice of a firm worth more than they think. Substituting α gives the dilution form, which shows the trade-off in one line.</p>
-<div class="formula"><div class="eq">Payoff = (1 − α)(V + I + NPV) = V + NPV − α(V − E[V | issue])</div><div class="eq">Gain from issuing = NPV − α(V − E[V | issue])</div>
-<div class="where">α(V − E[V | issue]) is the dilution cost: value handed to the new investors because they bought into a firm worth more than they believed. If it exceeds the NPV, the high type keeps V by not issuing and a positive-NPV project dies. That is underinvestment.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10, so E[V | issue] = 140 and α = 4/19 = 0.210526.</p><p>Payoff = (15/19) × 250 = 197.37. Gain = 197.37 − 200 = −2.63. Dilution form: 0.210526 × 60 = 12.63 and 10 − 12.63 = −2.63. The high type does not issue.</p></div>`,
+      title: "Asymmetric information: the undervalued type walks away",
+      theory: `<p>Now the manager knows V but investors do not. They know only that the assets are worth V<sub>H</sub> with probability q and V<sub>L</sub> with probability 1 − q; the project, I and NPV, is public. Investors price what they expect V to be given the action they observe. If they believe every firm issues whatever its type (the pooling belief), an issue tells them nothing and they use the prior average. The old shareholders' payoff still uses the <b>true</b> V, which the manager knows, times the 1 − α that investors set.</p>
+<div class="formula"><div class="eq">E[V | issue] = qV<sub>H</sub> + (1 − q)V<sub>L</sub> &nbsp;(if both types issue) &nbsp;·&nbsp; α = I/(E[V | issue] + I + NPV)</div><div class="eq">Gain from issuing = (1 − α)(V + I + NPV) − V = NPV − α(V − E[V | issue])</div>
+<div class="where">α is the same for both types, because investors cannot tell them apart. α(V − E[V | issue]) is the dilution cost: value handed to new investors who bought into a firm worth more than they believed. If it exceeds the NPV, the high type keeps V by not issuing and a positive-NPV project dies. That is underinvestment. For the low type the sign flips: it sells overpriced shares, gains from issuing and always issues at the pooled price.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10. E[V | issue] = 0.5 × 200 + 0.5 × 80 = 140 and α = 40/190 = 4/19 = 0.210526.</p><p>High type: (15/19) × 250 = 197.37, a gain of 197.37 − 200 = −2.63. Dilution form: 0.210526 × 60 = 12.63 and 10 − 12.63 = −2.63. It does not issue.</p><p>Low type: (15/19) × 130 = 102.63 = 80 + 10 + 12.63 &gt; 80. It issues.</p></div>`,
       q: `<p>A firm's assets in place are worth 360 or 160; investors think each is equally likely. The manager knows they are worth 360. A project with a publicly known NPV of 12 needs 80, to be raised by a share issue. Investors believe the firm would issue whatever its type. Measured once the true value comes out, by how much does issuing and investing change the old shareholders' wealth compared with not issuing?</p>`,
       options: ["−10.73", "12.00", "−22.73", "−88.00"],
       answer: 0,
@@ -2484,55 +1942,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "myers-6",
-      title: "The overvalued type gains from issuing",
-      theory: `<p>The low type is in the opposite position. The investors' average is above its true value, so it sells shares for more than they are worth. The dilution term changes sign: the new investors hand value to the old shareholders. Under the pooling price the low type therefore always issues. Investors still break even on average, because what they lose on the low type they gain on the high type.</p>
-<div class="formula"><div class="eq">Payoff<sub>L</sub> = (1 − α)(V<sub>L</sub> + I + NPV) = V<sub>L</sub> + NPV + α(E[V | issue] − V<sub>L</sub>)</div>
-<div class="where">The last term is the low type's gain from being priced as an average firm. With both types issuing, q × α(V<sub>H</sub> − E[V | issue]) = (1 − q) × α(E[V | issue] − V<sub>L</sub>). The two transfers balance in expectation and are equal in size only when q = 0.5.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>L</sub> = 80, E[V | issue] = 140, α = 4/19 = 0.210526, I = 40, NPV = 10.</p><p>Payoff = (15/19) × 130 = 102.63 = 80 + 10 + 0.210526 × 60 = 80 + 10 + 12.63. The low type issues: 102.63 &gt; 80.</p></div>`,
-      q: `<p>A firm's assets in place are worth 240 or 90. Investors put probability 0.6 on 240; the manager knows they are worth 90. A project with a publicly known NPV of 10 needs 50, raised by issuing shares. Investors believe the firm would issue whatever its type. What is the old shareholders' payoff, once the true value comes out, if the firm issues and invests?</p>`,
-      options: ["100.00", "110.53", "114.29", "118.75"],
-      answer: 3,
-      solution: `<p>E[V | issue] = 0.6 × 240 + 0.4 × 90 = 144 + 36 = 180, so α = 50/(180 + 50 + 10) = 50/240 = 0.208333.</p><p>Payoff = (1 − 0.208333) × (90 + 50 + 10) = 0.791667 × 150 = <b>118.75</b>, against 90 without the issue.</p>`,
-      check: `<p>Dilution form: 90 + 10 + 0.208333 × (180 − 90) = 100 + 18.75 = 118.75 ✓. From the investors' side: their stake is truly worth 0.208333 × 150 = 31.25 but they paid 50, a loss of 18.75 that lands with the old shareholders. Had the high type also issued, investors would gain 0.208333 × (240 − 180) = 12.50 on it. Weighted: 0.6 × 12.50 = 0.4 × 18.75 = 7.50, so they break even on average.</p>`,
-      traps: [
-        "Priced α on the true value 90, as if investors knew it. The payoff is then V + NPV = 100.00.",
-        "Left the cash raised out of the denominator: α = 50/(180 + 10) = 0.263158, so 0.736842 × 150 = 110.53.",
-        "Swapped the probabilities: E[V | issue] = 0.4 × 240 + 0.6 × 90 = 150, α = 50/210 and 0.761905 × 150 = 114.29.",
-        null,
-      ],
-    },
-    {
-      id: "myers-7",
-      title: "Check 5: are investors' beliefs rational?",
-      theory: `<p>Computing α does not finish the answer. An equilibrium is a pair: an action for each type and a belief that is correct given those actions. This is consistency check 5, the step the solution keys mark. The pooling belief "both types issue" is rational only if both types actually issue at the pooled α. The low type always does, so the test is the high type. If it walks away, an issue reveals the low type: the belief is contradicted by the behaviour it predicts and the pooled α cannot stand.</p>
-<div class="formula"><div class="eq">Pooling is rational if (1 − α<sub>pool</sub>)(V<sub>H</sub> + I + NPV) &gt; V<sub>H</sub>, that is NPV &gt; α<sub>pool</sub>(V<sub>H</sub> − E[V | issue])</div>
-<div class="where">Investors breaking even at the pooled price is not the test: under the belief they break even by construction. The test is whether the types behave as the belief assumes.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10. At the pooled α = 0.2105 the high type keeps 197.37 &lt; 200, so it does not issue.</p><p>Only the low type issues, so an issue tells investors that V = 80, not 140. The pooling belief is not rational.</p></div>`,
-      q: `<p>A firm's assets in place are worth 400 or 150, equally likely in investors' eyes; the manager knows which. A project with a publicly known NPV of 20 needs 100, raised by issuing shares. Investors believe the firm issues whatever its type and price the issue on that belief. Which statement is correct?</p>`,
-      options: [
-        "Rational: investors pay 100.00 for a stake worth 100.00 at the pooled value, so they break even and the belief stands",
-        "Not rational: at that price the high type would keep 388.35 against 400.00, so only the low type issues",
-        "Rational: at that price the high type would keep 420.00 against 400.00, so both types issue",
-        "Not rational: at that price the high type would keep 343.73 against 400.00, so only the low type issues",
-      ],
-      answer: 1,
-      solution: `<p>Pooled belief: E[V | issue] = 0.5 × 400 + 0.5 × 150 = 275, so α = 100/(275 + 100 + 20) = 100/395 = 0.253165.</p><p>High type: (1 − 0.253165) × 520 = 0.746835 × 520 = <b>388.35</b> &lt; 400. It does not issue.</p><p>Low type: 0.746835 × 270 = 201.65 &gt; 150. It issues.</p><p>Only the low type issues, so an issue reveals V = 150. The belief that priced the shares is contradicted: <b>not rational</b>.</p>`,
-      check: `<p>Dilution form for the high type: 400 + 20 − 0.253165 × 125 = 420 − 31.65 = 388.35 ✓. The dilution of 31.65 is well above the NPV of 20, so the verdict does not hinge on rounding.</p>`,
-      traps: [
-        "Ran the wrong test. Investors break even at the pooled price by construction; check 5 asks whether each type acts as the belief assumes.",
-        null,
-        "Priced α on the high type's true value: 100/520 = 0.192308 and 0.807692 × 520 = 420.00. Investors cannot see that value.",
-        "Left the cash raised out of the denominator: α = 100/295 = 0.338983 and 0.661017 × 520 = 343.73.",
-      ],
-    },
-    {
       id: "myers-8",
-      title: "The separating equilibrium: α priced on the low type",
-      theory: `<p>When pooling fails, rational investors update: an issue means the low type. They price the shares on V<sub>L</sub> and α rises. Two checks make this an equilibrium and both earn points. The low type must still want to issue at the harsher price. The high type must still prefer to stay out at that same price.</p>
-<div class="formula"><div class="eq">α<sub>sep</sub> = I/(V<sub>L</sub> + I + NPV)</div><div class="eq">Low type: (1 − α<sub>sep</sub>)(V<sub>L</sub> + I + NPV) = V<sub>L</sub> + NPV &gt; V<sub>L</sub> &nbsp;·&nbsp; High type: (1 − α<sub>sep</sub>)(V<sub>H</sub> + I + NPV) &lt; V<sub>H</sub></div>
-<div class="where">The low type is now priced correctly, so it keeps exactly V<sub>L</sub> + NPV and issues whenever NPV &gt; 0. The high type faces an even worse price than under pooling, so if it refused then, it refuses now.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, I = 40, NPV = 10. Pooling failed in the last step. Separating: α = 40/(80 + 40 + 10) = 40/130 = 0.3077.</p><p>Low type: (9/13) × 130 = 90 = 80 + 10 &gt; 80, so it issues ✓. High type, if it issued: (9/13) × 250 = 173.08 &lt; 200, so it stays out ✓. Only the low type issues: a separating equilibrium.</p></div>`,
+      title: "Check 5 and the separating equilibrium",
+      theory: `<p>Computing α does not finish the answer. An equilibrium is an action for each type plus a belief that is correct given those actions: consistency check 5, the step the solution keys mark. The pooling belief holds only if both types issue at the pooled α. The low type always does, so the test is the high type. If it walks away, an issue reveals the low type, investors price the shares on V<sub>L</sub> and α rises. Two checks make this separating outcome an equilibrium and both earn points: the low type still issues at the harsher price while the high type still stays out.</p>
+<div class="formula"><div class="eq">Pooling holds if NPV &gt; α<sub>pool</sub>(V<sub>H</sub> − E[V | issue]) &nbsp;·&nbsp; else α<sub>sep</sub> = I/(V<sub>L</sub> + I + NPV)</div><div class="eq">Low type: (1 − α<sub>sep</sub>)(V<sub>L</sub> + I + NPV) = V<sub>L</sub> + NPV &gt; V<sub>L</sub> &nbsp;·&nbsp; High type: (1 − α<sub>sep</sub>)(V<sub>H</sub> + I + NPV) &lt; V<sub>H</sub></div>
+<div class="where">Investors breaking even at the pooled price is not the test: under the belief they break even by construction. Under separating the low type is priced correctly, so it keeps exactly V<sub>L</sub> + NPV. The high type faces an even worse price than under pooling, so if it refused then, it refuses now.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10. At the pooled α = 0.2105 the high type keeps 197.37 &lt; 200 and does not issue. The pooling belief fails check 5.</p><p>Separating: α = 40/(80 + 40 + 10) = 40/130 = 0.3077. Low type: (9/13) × 130 = 90 = 80 + 10 &gt; 80, so it issues ✓. High type, if it issued: (9/13) × 250 = 173.08 &lt; 200, so it stays out ✓. Only the low type issues: a separating equilibrium.</p></div>`,
       q: `<p>A firm's assets in place are worth 500 or 200, equally likely in investors' eyes; the manager knows which. A project with a publicly known NPV of 24 needs 120, raised by issuing shares. Find the equilibrium. What fraction α do new investors receive in it? Give four decimals.</p>`,
       options: ["0.2429", "0.1863", "0.3488", "0.5357"],
       answer: 2,
@@ -2584,33 +1999,9 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "myers-11",
-      title: "The pecking order: why safe debt removes the problem",
-      theory: `<p>The high type's loss comes from selling a claim that outsiders underprice. So rank the sources of money by how badly they can be underpriced. Internal cash sells no claim at all. Risk-free debt pays the same in every state, so investors' ignorance of V does not touch its price. Risky debt differs across types only in default. Equity tracks V one for one and carries the full dilution.</p>
-<div class="formula"><div class="eq">Internal funds → debt, safest first → equity, last</div><div class="eq">Adverse-selection cost = S(V<sub>true</sub>) − E[S(V) | beliefs]</div>
-<div class="where">S(V) is what the security pays when the firm is worth V. The pecking order rests on asymmetric information, not on inefficient markets: every price here is fair given what investors know. It ranks the sources; it does not forbid equity.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10. The high type raises 40 with equity at α = 4/19: the stake is truly worth 0.210526 × 250 = 52.63, so it gives away 12.63.</p><p>Debt of 40 instead: even the low type has 80 + 50 = 130 to repay it, so it is risk-free, worth 40 to everyone and sells for 40. Cost 0. The high type keeps 200 + 10 = 210 and takes the project.</p></div>`,
-      q: `<p>A manager knows his firm's assets are worth more than investors think. He must raise money for a positive-NPV project and can sell either equity or debt that is risk-free whatever the firm's type. Why does the pecking order say he should borrow?</p>`,
-      options: [
-        "Debt is cheaper because r<sub>D</sub> is below r<sub>E</sub>, so borrowing lowers the cost of capital and raises firm value",
-        "Interest is tax deductible, so the tax shield on the debt more than makes up for the dilution an equity issue would cause",
-        "Risk-free debt pays the same whatever the firm is worth, so investors' ignorance of V cannot make it underpriced and nothing is transferred",
-        "Equity markets are inefficient and underprice new shares, while bond markets price debt correctly, so only debt sells at a fair price",
-      ],
-      answer: 2,
-      solution: `<p>The cost of an issue is the gap between what the claim is truly worth and what investors pay for it. For risk-free debt that gap is zero: its payoff does not depend on V, so investors who cannot see V still price it correctly. Equity's payoff rises one for one with V, so the high type sells it below its true value and transfers wealth to the new investors. Borrowing lets the manager take the project without that transfer.</p>`,
-      check: `<p>Run the formula. Debt with face K paid in full in both states: S(V<sub>H</sub>) = S(V<sub>L</sub>) = K, so the cost is K − K = 0. Equity: S(V) = α(V + I + NPV), which differs across types, so the cost is α(V<sub>H</sub> − E[V | beliefs]) &gt; 0.</p>`,
-      traps: [
-        "MM confusion. A lower r<sub>D</sub> is offset by a higher r<sub>E</sub>; the pecking order is about information, not the cost of capital.",
-        "Trade-off theory, not the pecking order. The argument works with no taxes at all.",
-        null,
-        "The standard wrong answer. Every price here is fair given investors' information; the cost comes from the manager knowing more.",
-      ],
-    },
-    {
       id: "myers-12",
-      title: "Debt or equity under private information",
-      theory: `<p>2021 Problem 1 let the firm fund the same project with 100% debt or 100% equity. Hold investors' beliefs at the prior, whatever the choice. Risk-free debt costs both types exactly I, so the old shareholders keep V + NPV. Equity is priced at the pooled value, so the high type gives away its dilution and the low type gains it. The two types want different securities. That is why the fixed beliefs cannot be rational: an equity issue reveals the low type.</p>
+      title: "Debt or equity: the pecking order",
+      theory: `<p>The high type's loss comes from selling a claim that outsiders underprice. Risk-free debt pays the same in every state, so investors' ignorance of V cannot touch its price: it costs both types exactly I and the old shareholders keep V + NPV. Equity tracks V one for one and carries the full dilution. Hence the pecking order: internal funds first, then debt (safest first), then equity last. It rests on asymmetric information, not on taxes or inefficient markets: every price here is fair given what investors know. 2021 Problem 1 tested it with 100% debt or 100% equity and beliefs held at the prior whatever the choice. The two types then want different securities, so those fixed beliefs cannot be rational: an equity issue reveals the low type.</p>
 <div class="formula"><div class="eq">Debt: V + C − I = V + NPV &nbsp;·&nbsp; Equity: (1 − α)(V + C), with α = I/(E[V] + C)</div><div class="eq">Debt − equity = α(V − E[V])</div>
 <div class="where">C is the project's sure cash flow next year, so C = I + NPV with no discounting. Check that the debt is risk-free (V<sub>L</sub> + C ≥ I) before valuing it at face. The difference is positive for the high type and negative for the low type.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>V<sub>H</sub> = 150, V<sub>L</sub> = 30, q = 0.5, I = 20, C = 26. E[V] = 90 and α = 20/116 = 0.172414.</p><p>High type: debt 150 + 6 = 156; equity 0.827586 × 176 = 145.66. Debt wins by 10.34 = 0.172414 × 60. Low type: debt 36; equity 0.827586 × 56 = 46.34. Equity wins.</p></div>`,

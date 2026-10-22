@@ -28,44 +28,6 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "tvilling-2",
-      title: "The CAPM backwards: beta from a return",
-      theory: `<p>The exam rarely hands you a beta. It hands you a return, usually a comparable firm's cost of equity. You must recover the beta behind it. Rearrange the CAPM: the asset's excess return divided by the market's excess return.</p>
-<div class="formula"><div class="eq">β = (r − r<sub>f</sub>) / (E[R<sub>mkt</sub>] − r<sub>f</sub>)</div>
-<div class="where">The same rearrangement works on equity (r<sub>E</sub> gives β<sub>E</sub>), on debt (r<sub>D</sub> gives β<sub>D</sub>) and on the whole business (r<sub>U</sub> gives β<sub>U</sub>). Only systematic risk is priced: an asset whose risk is all diversifiable has β = 0 and earns r<sub>f</sub>, however volatile it is.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>r<sub>f</sub> = 2%, E[R<sub>mkt</sub>] = 7%, r<sub>E</sub> = 10%.</p><p>Premium = 7% − 2% = 5%. Excess return on the stock = 10% − 2% = 8%.</p><p>β<sub>E</sub> = 8% / 5% = 1.60.</p></div>`,
-      q: `<p>The risk-free rate is 3.5% and the expected return on the market is 9.5%. Investors require 11.9% on a stock. What is the stock's beta?</p>`,
-      options: ["0.40", "0.88", "1.40", "1.98"],
-      answer: 2,
-      solution: `<p>Market risk premium = 9.5% − 3.5% = 6%.</p><p>Excess return on the stock = 11.9% − 3.5% = 8.4%.</p><p>β<sub>E</sub> = 8.4% / 6% = <b>1.40</b>.</p>`,
-      check: `<p>Run the CAPM forwards: 3.5% + 1.40 × 6% = 3.5% + 8.4% = 11.9%, the return you started from. A required return above the market's 9.5% must come with a beta above 1: 1.40 does.</p>`,
-      traps: [
-        "Measured the stock's excess return over the market instead of over r<sub>f</sub>: (11.9% − 9.5%) / 6% = 0.40.",
-        "Divided by the market return instead of the premium: 8.4% / 9.5% = 0.88.",
-        null,
-        "Forgot to subtract the risk-free rate from the stock's return: 11.9% / 6% = 1.98.",
-      ],
-    },
-    {
-      id: "tvilling-3",
-      title: "The CAPM backwards: the market risk premium from a known pair",
-      theory: `<p>Sometimes the exam gives you one asset whose beta and expected return you both know but leaves the market out. One known pair pins down the slope of the security market line. That slope is the market risk premium. Add r<sub>f</sub> to the premium and you have the expected market return.</p>
-<div class="formula"><div class="eq">E[R<sub>mkt</sub>] − r<sub>f</sub> = (r<sub>i</sub> − r<sub>f</sub>) / β<sub>i</sub></div>
-<div class="where">The premium is the reward per unit of beta, so it is the same for every asset. Keep the premium and the market return apart: a premium of 6% with r<sub>f</sub> = 3% means a market return of 9%.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>r<sub>f</sub> = 3%. A stock with β = 0.80 has an expected return of 7%.</p><p>Premium = (7% − 3%) / 0.80 = 4% / 0.80 = 5%.</p><p>E[R<sub>mkt</sub>] = 3% + 5% = 8%.</p></div>`,
-      q: `<p>The risk-free rate is 2.5%. A stock with a beta of 1.25 has an expected return of 10%. What expected return on the market portfolio does this imply?</p>`,
-      options: ["8.50%", "6.00%", "11.88%", "8.00%"],
-      answer: 0,
-      solution: `<p>Premium = (10% − 2.5%) / 1.25 = 7.5% / 1.25 = 6%.</p><p>E[R<sub>mkt</sub>] = 2.5% + 6% = <b>8.50%</b>.</p>`,
-      check: `<p>Put the stock back on the line: 2.5% + 1.25 × (8.5% − 2.5%) = 2.5% + 7.5% = 10%. A beta above 1 must earn more than the market: 10% is above 8.5%.</p>`,
-      traps: [
-        null,
-        "Reported the premium, not the market return: (10% − 2.5%) / 1.25 = 6.00%.",
-        "Multiplied the excess return by beta instead of dividing: 2.5% + 1.25 × 7.5% = 11.875%, which rounds to 11.88%.",
-        "Divided the whole return by beta and forgot the risk-free rate: 10% / 1.25 = 8.00%.",
-      ],
-    },
-    {
       id: "tvilling-4",
       title: "Market-value weights: D/V, E/V and D/E",
       theory: `<p>Every weight in the twin-firm chain is a market value. Equity is the share price times the shares outstanding, never the book equity on the balance sheet. Debt is its market value, which the exam usually gives you. Firm value is V = E + D.</p>
@@ -108,10 +70,10 @@ window.EDU_DATA.sjangre.push({
     {
       id: "tvilling-6",
       title: "The debt beta and unlevering with risky debt",
-      theory: `<p>Debt is only risk-free if it is repaid in every state. When debt is expected to return more than r<sub>f</sub>, part of its default risk is systematic, so it has a positive beta. Get it from the CAPM backwards, as you did for equity. Then keep it in the weighting.</p>
+      theory: `<p>Debt is only risk-free if it is repaid in every state. When debt is expected to return more than r<sub>f</sub>, part of its default risk is systematic, so it has a positive beta. The exam gives you r<sub>D</sub>, not β<sub>D</sub>, so run the CAPM backwards: the debt's excess return divided by the market's excess return. Then keep β<sub>D</sub> in the weighting.</p>
 <div class="formula"><div class="eq">β<sub>D</sub> = (r<sub>D</sub> − r<sub>f</sub>) / (E[R<sub>mkt</sub>] − r<sub>f</sub>)</div>
 <div class="eq">β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub></div>
-<div class="where">r<sub>D</sub> is the expected return on the debt. Setting β<sub>D</sub> = 0 when r<sub>D</sub> &gt; r<sub>f</sub> drops a positive term, so it understates β<sub>U</sub> and every discount rate built on it. The firm then looks more valuable than it is.</div></div>`,
+<div class="where">r<sub>D</sub> is the expected return on the debt. The same rearrangement turns a cost of equity into β<sub>E</sub>: β<sub>E</sub> = (r<sub>E</sub> − r<sub>f</sub>) / premium. Setting β<sub>D</sub> = 0 when r<sub>D</sub> &gt; r<sub>f</sub> drops a positive term, so it understates β<sub>U</sub> and every discount rate built on it. The firm then looks more valuable than it is.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>r<sub>f</sub> = 3%, premium 5%. A twin has E/V = 0.70, β<sub>E</sub> = 1.50 and r<sub>D</sub> = 4%.</p><p>β<sub>D</sub> = (4% − 3%) / 5% = 0.20.</p><p>β<sub>U</sub> = 0.70 × 1.50 + 0.30 × 0.20 = 1.05 + 0.06 = 1.11.</p></div>`,
       q: `<p>The risk-free rate is 2% and the expected market return is 8%. A twin has a debt-to-value ratio of 0.40, an equity beta of 1.75 and an expected return on its debt of 3.5%. What is the twin's unlevered beta, to four decimals?</p>`,
       options: ["1.0500", "1.1500", "1.2833", "1.3214"],
@@ -146,30 +108,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "tvilling-8",
-      title: "Relevering beta to your own capital structure",
-      theory: `<p>Once you have the business risk β<sub>U</sub>, you put your own financing back on. Rearranging the beta weighting gives the equity beta at any leverage. Use your own target D/E and your own debt beta, never the twin's. Then turn β<sub>E</sub> into r<sub>E</sub> with the CAPM.</p>
-<div class="formula"><div class="eq">β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>)</div>
-<div class="where">With risk-free debt this is β<sub>E</sub> = β<sub>U</sub>(1 + D/E). More debt puts the same business risk on a smaller equity base, so β<sub>E</sub> rises with D/E. A positive β<sub>D</sub> means the lenders carry part of that risk, which holds β<sub>E</sub> down.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>β<sub>U</sub> = 1.00. Your D/E = 0.50 and your β<sub>D</sub> = 0.20. r<sub>f</sub> = 3%, premium 5%.</p><p>β<sub>E</sub> = 1.00 + 0.50 × (1.00 − 0.20) = 1.00 + 0.40 = 1.40.</p><p>r<sub>E</sub> = 3% + 1.40 × 5% = 10%.</p></div>`,
-      q: `<p>A twin with a debt-to-equity ratio of 1.00 has an unlevered beta of 0.90. Your firm is in the same business and targets a debt-to-value ratio of 0.40, with a debt beta of 0.15. The risk-free rate is 2% and the market risk premium is 5%. Relever the beta to your firm and find your cost of equity, to four decimals.</p>`,
-      options: ["8.0000%", "9.0000%", "9.5000%", "10.2500%"],
-      answer: 1,
-      solution: `<p>Your D/E = 0.40/0.60 = 2/3.</p><p>β<sub>E</sub> = 0.90 + (2/3) × (0.90 − 0.15) = 0.90 + (2/3) × 0.75 = 0.90 + 0.50 = 1.40.</p><p>r<sub>E</sub> = 2% + 1.40 × 5% = 2% + 7% = <b>9.0000%</b>.</p>`,
-      check: `<p>Weight your own betas back: 0.60 × 1.40 + 0.40 × 0.15 = 0.84 + 0.06 = 0.90 = β<sub>U</sub>. That only confirms the arithmetic, since β<sub>E</sub> was built from β<sub>U</sub>. The returns must agree too: r<sub>U</sub> = 2% + 0.90 × 5% = 6.5% and r<sub>D</sub> = 2% + 0.15 × 5% = 2.75%. Then 0.60 × 9% + 0.40 × 2.75% = 5.40% + 1.10% = 6.50% = r<sub>U</sub>.</p>`,
-      traps: [
-        "Used D/V = 0.40 in place of D/E: β<sub>E</sub> = 0.90 + 0.40 × 0.75 = 1.20, so r<sub>E</sub> = 8.0000%.",
-        null,
-        "Ignored your own debt beta: β<sub>E</sub> = 0.90 × (1 + 2/3) = 1.50, so r<sub>E</sub> = 9.5000%.",
-        "Relevered with the twin's D/E of 1.00: β<sub>E</sub> = 0.90 + 1.00 × 0.75 = 1.65, so r<sub>E</sub> = 10.2500%.",
-      ],
-    },
-    {
       id: "tvilling-9",
       title: "MM Proposition II: relevering the cost of equity",
-      theory: `<p>This is the relevering of the previous step written in returns instead of betas. If you have r<sub>U</sub> and your own r<sub>D</sub>, MM Proposition II, which is on the formula sheet, gives r<sub>E</sub> directly. The multiplier is D/E, not D/V. When the firm keeps a target D/E the formula holds with corporate taxes too, so no (1 − τ<sub>c</sub>) enters.</p>
+      theory: `<p>Once you have the business risk, you put your own financing back on. More debt puts the same business risk on a smaller equity base, so the cost of equity rises with D/E. If you have r<sub>U</sub> and your own r<sub>D</sub>, MM Proposition II, which is on the formula sheet, gives r<sub>E</sub> directly. The multiplier is D/E, not D/V. When the firm keeps a target D/E the formula holds with corporate taxes too, so no (1 − τ<sub>c</sub>) enters.</p>
 <div class="formula"><div class="eq">r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>)</div>
-<div class="where">Equity holders earn r<sub>U</sub> plus a premium for financial risk. The premium grows with D/E and with the spread between r<sub>U</sub> and what the lenders earn. Use your own D/E and your own r<sub>D</sub>.</div></div>`,
+<div class="eq">β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>)</div>
+<div class="where">Equity holders earn r<sub>U</sub> plus a premium for financial risk. The premium grows with D/E and with the spread between r<sub>U</sub> and what the lenders earn. The second line is the same relevering in betas: put its β<sub>E</sub> into the CAPM and you get the same r<sub>E</sub>. Use your own D/E and your own r<sub>D</sub> or β<sub>D</sub>, never the twin's.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>r<sub>U</sub> = 9%, D/E = 0.50, r<sub>D</sub> = 5%.</p><p>r<sub>E</sub> = 9% + 0.50 × (9% − 5%) = 9% + 2% = 11%.</p></div>`,
       q: `<p>Your firm's unlevered cost of capital is 8.1%, taken from a twin that runs a debt-to-equity ratio of 0.60. Your firm will keep a constant debt-to-value ratio of 0.25. The expected return on its debt will be 4.5%. The corporate tax rate is 22%. What is your cost of equity, to four decimals?</p>`,
       options: ["8.1000%", "9.0000%", "9.0360%", "9.3000%"],

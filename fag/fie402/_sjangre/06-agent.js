@@ -9,31 +9,12 @@ window.EDU_DATA.sjangre.push({
   intro: `<p>Risky debt gives shareholders two bad incentives. Each has appeared on 5 of 11 papers. In <b>risk shifting</b> they choose a riskier project with a lower value because the creditors bear its downside: H2024 Exercise 4 (18 points) and V2024 Problem 1 (52 points). In <b>debt overhang</b> they refuse a good project because the creditors collect part of its value: 2017V Problem 3, 2017H Problems 1 and 4 plus 2021 Problem 2, which put both problems in one firm and ended with a renegotiation of the face value. The ladder starts with who gets paid in each state. At the top you can find the project management picks, the agency cost, the indifference face value, the fate of a hedge or a debt buyback and the write-down that leaves both sides better off.</p>`,
   steps: [
     {
-      id: "agent-1",
-      title: "Who gets paid: debt and equity state by state",
-      theory: `<p>A firm with debt has two claims on the same cash flow. At maturity the creditors are paid first, up to the face value K of the debt. The shareholders get what is left, but never less than zero: limited liability lets them walk away from a firm that owes more than it has. Work state by state. In every state the two payoffs add up to the firm's cash flow.</p>
-<div class="formula"><div class="eq">D<sub>1</sub> = min(CF, K) &nbsp;&nbsp; E<sub>1</sub> = max(CF − K, 0)</div>
-<div class="where">CF is the firm's cash flow in one state at maturity and K the face value, the amount promised to the creditors. In a state where CF &lt; K the firm defaults: the creditors take all of CF and the shareholders get nothing. D<sub>1</sub> + E<sub>1</sub> = CF in every state.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Face value K = 100. Cash flow is 140 in a good state and 70 in a bad state.</p><p>Good state: D<sub>1</sub> = min(140, 100) = 100 and E<sub>1</sub> = max(140 − 100, 0) = 40. Bad state: D<sub>1</sub> = min(70, 100) = 70 and E<sub>1</sub> = max(70 − 100, 0) = 0. The 30 shortfall in the bad state is the creditors' loss, not the shareholders'.</p></div>`,
-      q: `<p>Lysefjord AS has zero-coupon debt with face value 120, due in one year. In one year its cash flow will be 200 in a boom and 90 in a bust. What do the creditors and the shareholders receive in the bust?</p>`,
-      options: ["Debt 90, equity 0", "Debt 120, equity −30", "Debt 90, equity −30", "Debt 0, equity 90"],
-      answer: 0,
-      solution: `<p>In the bust the cash flow of 90 is below the face value of 120, so the firm defaults.</p><p>Creditors: min(90, 120) = <b>90</b>. Shareholders: max(90 − 120, 0) = <b>0</b>.</p><p>For comparison, in the boom the creditors get min(200, 120) = 120 and the shareholders max(200 − 120, 0) = 80.</p>`,
-      check: `<p>The claims add up to the cash flow in each state: 90 + 0 = 90 in the bust and 120 + 80 = 200 in the boom ✓. The sum alone cannot rule out debt 120 with equity −30, which also adds to 90. Limited liability does: equity is never negative.</p>`,
-      traps: [
-        null,
-        "Assumed the creditors are always paid in full and let the shareholders absorb the shortfall: 90 − 120 = −30. Limited liability floors equity at zero.",
-        "Dropped the floor on equity, 90 − 120 = −30, while paying the creditors 90. The two claims then add to 60, not the 90 the firm has.",
-        "Reversed the priority and paid the shareholders first. Creditors rank ahead of equity.",
-      ],
-    },
-    {
       id: "agent-2",
-      title: "Valuing debt and equity today",
-      theory: `<p>Today each claim is worth its expected payoff discounted at the risk-free rate. That works because the course gives you risk-neutral probabilities or risk-neutral investors, so no risk premium is needed. The order matters: apply min and max in each state first, then take the expectation. Subtracting K from the expected cash flow skips the floor and gets equity wrong whenever some state defaults.</p>
-<div class="formula"><div class="eq">E = E[max(CF − K, 0)]/(1 + r<sub>f</sub>) &nbsp;&nbsp; D = E[min(CF, K)]/(1 + r<sub>f</sub>)</div>
-<div class="where">E[·] is the probability-weighted average over the states. V = E + D = E[CF]/(1 + r<sub>f</sub>). Not on the formula sheet. When the exam sets the discount rate to zero, every value is simply an expected payoff.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>K = 100. Cash flow 140 or 70 with probability 0.5 each, investors risk neutral, r<sub>f</sub> = 5%.</p><p>Equity: 0.5 × 40 + 0.5 × 0 = 20, so E = 20/1.05 = 19.05. Debt: 0.5 × 100 + 0.5 × 70 = 85, so D = 85/1.05 = 80.95. Firm: 105/1.05 = 100.00 = 19.05 + 80.95.</p></div>`,
+      title: "Who gets paid in each state and what each claim is worth today",
+      theory: `<p>A firm with debt has two claims on the same cash flow. At maturity the creditors are paid first, up to the face value K of the debt. The shareholders get what is left, but never less than zero: limited liability lets them walk away from a firm that owes more than it has. In a state where CF &lt; K the firm defaults and the creditors take all of CF. Today each claim is worth its expected payoff discounted at the risk-free rate. That works because the course gives you risk-neutral probabilities or risk-neutral investors, so no risk premium is needed. The order matters: apply min and max in each state first, then take the expectation. Subtracting K from the expected cash flow skips the floor and gets equity wrong whenever some state defaults.</p>
+<div class="formula"><div class="eq">D<sub>1</sub> = min(CF, K) &nbsp;&nbsp; E<sub>1</sub> = max(CF − K, 0)</div><div class="eq">E = E[max(CF − K, 0)]/(1 + r<sub>f</sub>) &nbsp;&nbsp; D = E[min(CF, K)]/(1 + r<sub>f</sub>)</div>
+<div class="where">CF is the firm's cash flow in one state at maturity and K the face value. D<sub>1</sub> + E<sub>1</sub> = CF in every state. E[·] is the probability-weighted average over the states. V = E + D = E[CF]/(1 + r<sub>f</sub>). Not on the formula sheet. When the exam sets the discount rate to zero, every value is simply an expected payoff.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>K = 100. Cash flow 140 or 70 with probability 0.5 each, investors risk neutral, r<sub>f</sub> = 5%.</p><p>Good state: debt min(140, 100) = 100 and equity max(140 − 100, 0) = 40. Bad state: debt 70 and equity 0; the 30 shortfall is the creditors' loss.</p><p>Equity: 0.5 × 40 + 0.5 × 0 = 20, so E = 20/1.05 = 19.05. Debt: 0.5 × 100 + 0.5 × 70 = 85, so D = 85/1.05 = 80.95. Firm: 105/1.05 = 100.00 = 19.05 + 80.95.</p></div>`,
       q: `<p>Brekke AS has zero-coupon debt with face value 120, due in one year. Its cash flow in one year will be 240 with probability 0.4 and 100 with probability 0.6. Investors are risk neutral and r<sub>f</sub> = 4%. What is the equity worth today?</p>`,
       options: ["34.62", "30.00", "48.00", "46.15"],
       answer: 3,
@@ -123,31 +104,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "agent-7",
-      title: "Debt overhang: the creditors' windfall",
-      theory: `<p>Now the firm can take a new project with positive NPV that the shareholders must pay for themselves. When the debt is risky, part of the project's cash flow lands in default states, where every extra krone goes to the creditors. The market value of the existing debt rises although the creditors put up nothing. That windfall ΔD is the root of <b>debt overhang</b>. With risk-free debt ΔD = 0, nothing leaks and overhang cannot arise.</p>
-<div class="formula"><div class="eq">ΔD = E[min(CF + X, K) − min(CF, K)]/(1 + r<sub>f</sub>)</div>
-<div class="where">X is the project's cash flow in each state and the face value K is unchanged. In a state that stays in default, all of X goes to the creditors. In a state already solvent, none of it does.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 60 or 180 with probability 0.5 each, K = 120, investors risk neutral, r<sub>f</sub> = 5%. A project costs 15 and adds 20 in both states.</p><p>D<sub>0</sub> = (0.5 × 60 + 0.5 × 120)/1.05 = 90/1.05 = 85.7143. With the project the bad state pays 80, still below 120: D<sub>1</sub> = (0.5 × 80 + 0.5 × 120)/1.05 = 100/1.05 = 95.2381. ΔD = 10/1.05 = 9.5238, while the NPV is 20/1.05 − 15 = 4.0476.</p></div>`,
-      q: `<p>Vatne AS has debt with face value 120, due in one year. Its cash flow will be 40 with probability 0.4 and 180 with probability 0.6. A project costs 25 today, is paid for by the shareholders and adds 30 to the cash flow in both states. The face value is not changed. Investors are risk neutral and r<sub>f</sub> = 4%. By how much does the market value of the existing debt rise if the project is taken?</p>`,
-      options: ["11.54", "0.00", "28.85", "12.00"],
-      answer: 0,
-      solution: `<p>Without the project: D<sub>0</sub> = (0.4 × 40 + 0.6 × 120)/1.04 = 88/1.04 = 84.6154.</p><p>With it the bad state pays 70, still below 120, while the good state still pays 120: D<sub>1</sub> = (0.4 × 70 + 0.6 × 120)/1.04 = 100/1.04 = 96.1538.</p><p>ΔD = (100 − 88)/1.04 = 12/1.04 = <b>11.54</b>.</p>`,
-      check: `<p>Shortcut: only the bad state's extra 30 reaches the creditors, 0.4 × 30/1.04 = 11.54 ✓. The project's NPV is 30/1.04 − 25 = 28.85 − 25 = 3.85. The shareholders' equity rises by 0.6 × 30/1.04 = 17.31, so they gain 17.31 − 25 = −7.69. Check 3: 11.54 + (−7.69) = 3.85 ✓. They refuse a project that creates value: debt overhang.</p>`,
-      traps: [
-        null,
-        "Thought the debt is unaffected because its face value is unchanged. Its market value rises because the bad state now pays 70 instead of 40.",
-        "Gave the creditors the whole present value of the project's cash flow, 30/1.04 = 28.85. In the good state they are already paid in full, so that 30 goes to the shareholders.",
-        "Forgot to discount: 0.4 × 30 = 12.00 arrives in one year.",
-      ],
-    },
-    {
       id: "agent-8",
-      title: "The shareholders' gain is the NPV minus the windfall",
-      theory: `<p>The shareholders pay the whole outlay I but receive only the part of the project's value that does not leak to the creditors. Their gain is the rise in equity value minus I, which equals the project's NPV minus ΔD. Debt overhang is the case ΔD &gt; NPV &gt; 0: the project creates value, but the owners who fund it lose. The solution keys single out one error: using the stand-alone NPV as the change in equity value. The two differ by exactly the transfer to the creditors.</p>
-<div class="formula"><div class="eq">ΔE − I = NPV − ΔD &nbsp;&nbsp; invest only if NPV &gt; ΔD</div>
-<div class="where">NPV = PV(X) − I is the project's stand-alone NPV. ΔE is the rise in the market value of equity before the outlay is paid. ΔD is the creditors' windfall from the previous step.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 60 or 180 with probability 0.5 each, K = 120, r<sub>f</sub> = 5%. The project costs 15 and adds 20 in both states, so NPV = 4.0476 and ΔD = 9.5238.</p><p>Equity rises from 0.5 × 60/1.05 to 0.5 × 80/1.05, so ΔE = 0.5 × 20/1.05 = 9.5238 and ΔE − I = 9.5238 − 15 = −5.4762. Same number the short way: 4.0476 − 9.5238 = −5.4762. The shareholders refuse.</p></div>`,
+      title: "Debt overhang: the creditors' windfall and the shareholders' gain",
+      theory: `<p>Now the firm can take a new project with positive NPV that the shareholders must pay for themselves. When the debt is risky, part of the project's cash flow lands in default states, where every extra krone goes to the creditors. The existing debt rises in value although the creditors put up nothing: a windfall ΔD. The shareholders pay the whole outlay I but receive only what does not leak, so their gain is the project's NPV minus ΔD. <b>Debt overhang</b> is the case ΔD &gt; NPV &gt; 0: the project creates value, but the owners who fund it lose. With risk-free debt ΔD = 0 and overhang cannot arise. The solution keys single out one error: using the stand-alone NPV as the change in equity value. The two differ by exactly the transfer to the creditors.</p>
+<div class="formula"><div class="eq">ΔD = E[min(CF + X, K) − min(CF, K)]/(1 + r<sub>f</sub>)</div><div class="eq">ΔE − I = NPV − ΔD &nbsp;&nbsp; invest only if NPV &gt; ΔD</div>
+<div class="where">X is the project's cash flow in each state and the face value K is unchanged. In a state that stays in default, all of X goes to the creditors; in a state already solvent, none of it does. NPV = PV(X) − I is the project's stand-alone NPV. ΔE is the rise in the market value of equity before the outlay is paid.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 60 or 180 with probability 0.5 each, K = 120, r<sub>f</sub> = 5%. The project costs 15 and adds 20 in both states, so NPV = 20/1.05 − 15 = 4.0476. The bad state rises to 80, still below 120, so its 20 goes to the creditors: ΔD = 0.5 × 20/1.05 = 9.5238.</p><p>Equity rises from 0.5 × 60/1.05 to 0.5 × 80/1.05, so ΔE = 0.5 × 20/1.05 = 9.5238 and ΔE − I = 9.5238 − 15 = −5.4762. Same number the short way: 4.0476 − 9.5238 = −5.4762. The shareholders refuse.</p></div>`,
       q: `<p>Tjelta AS has debt with face value 110, due in one year. Its cash flow will be 70 or 170 with probability 0.5 each. A project costs 30 today, is paid for by the shareholders and adds 20 to the cash flow in the bad state and 50 in the good state. The face value is not changed. Investors are risk neutral and r<sub>f</sub> = 5%. What is the change in the shareholders' wealth if they take the project?</p>`,
       options: ["+3.33", "−6.19", "+23.81", "−5.00"],
       answer: 1,
@@ -163,7 +125,7 @@ window.EDU_DATA.sjangre.push({
     {
       id: "agent-9",
       title: "Renegotiation: how far must the face value fall?",
-      theory: `<p>The creditors want the project, since it lifts their claim for free, but the shareholders decide. Cutting the face value from K to K′ hands value back to equity, but only in the states where the debt is paid in full: in a default state the creditors take the whole cash flow whatever K′ is. So each krone of write-down is worth only the probability of the solvent states to the shareholders, discounted. The smallest write-down leaves them exactly as well off as without the project.</p>
+      theory: `<p>The creditors want the project, since it lifts their claim for free, but the shareholders decide. Cutting the face value from K to K′ hands value back to equity, but only in the states where the debt is paid in full: in a default state the creditors take the whole cash flow whatever K′ is. So each krone of write-down is worth only the probability of the solvent states to the shareholders, discounted. The smallest write-down leaves them exactly as well off as without the project. The creditors still come out ahead as long as their claim is worth at least what it was without the project. The two gains always sum to the project's NPV (consistency check 3).</p>
 <div class="formula"><div class="eq">E(K′) − I ≥ E<sub>0</sub> ⟹ K′ ≤ K′<sub>max</sub> &nbsp;&nbsp; write-down = K − K′<sub>max</sub></div>
 <div class="where">E<sub>0</sub> is the equity value with the old face value and no project: the shareholders' fallback, not zero. E(K′) is the equity value with the project and face value K′. Solve on the interval where the same states default and check it.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 60 or 180 with probability 0.5 each, K = 120, r<sub>f</sub> = 5%. The project costs 15 and adds 20 in both states, so the cash flows become 80 and 200. E<sub>0</sub> = 0.5 × 60/1.05 = 28.57.</p><p>For K′ ≥ 80 the bad state still defaults, so E(K′) = 0.5(200 − K′)/1.05. The condition 0.5(200 − K′)/1.05 ≥ 15 + 30/1.05 gives 0.5(200 − K′) ≥ 15.75 + 30 = 45.75, so K′ ≤ 108.50, inside the interval. The face value must fall by 120 − 108.50 = 11.50.</p></div>`,
@@ -177,25 +139,6 @@ window.EDU_DATA.sjangre.push({
         null,
         "Cut the face value by the creditors' windfall, 98 − 86 = 12. That hands the shareholders 0.6 × 12 − 3 = 4.20 more than they need, so it is not the smallest cut.",
         "Assumed the debt becomes safe after the cut, so E = 152 − K′ and K′ ≤ 95. At 95 the bad state's 80 still defaults, so that formula does not apply.",
-      ],
-    },
-    {
-      id: "agent-10",
-      title: "Both sides gain and the gains sum to the NPV",
-      theory: `<p>A renegotiated face value is a deal both sides sign when two conditions hold. The creditors' claim must be worth at least what it was without the project. The shareholders' equity net of I must be at least their fallback. Where the deal lands between those bounds is bargaining power. Wherever it lands, consistency check 3 must hold. Renegotiation only divides the payoff and the project decides how much there is to divide, so the two gains sum to the NPV at every K′.</p>
-<div class="formula"><div class="eq">[D(K′) − D<sub>0</sub>] + [E(K′) − I − E<sub>0</sub>] = NPV</div>
-<div class="where">D<sub>0</sub> and E<sub>0</sub>: the values with the old face value and no project. D(K′) and E(K′): the values with the project and the new face value. The check catches a forgotten I and a creditor paid K′ in a state where the firm has less.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 60 or 180 with probability 0.5 each, K = 120, r<sub>f</sub> = 5%. The project costs 15 and adds 20 in both states, so the cash flows become 80 and 200. D<sub>0</sub> = 90/1.05 and E<sub>0</sub> = 30/1.05. The face value is cut to K′ = 102.</p><p>Debt now pays 80 or 102, expected 91: creditors gain (91 − 90)/1.05 = 0.95. Equity pays 0 or 98, expected 49: shareholders gain (49 − 30)/1.05 − 15 = 18.10 − 15 = 3.10. Sum: 0.95 + 3.10 = 4.05 = 20/1.05 − 15 ✓.</p></div>`,
-      q: `<p>Haugland AS has debt with face value 100, due in one year. Its cash flow will be 40 or 140 with probability 0.5 each. A project costs 25 today, is paid for by the shareholders and adds 35 to the cash flow in both states. Investors are risk neutral and r<sub>f</sub> = 5%. At the face value of 100 the shareholders refuse the project. The creditors offer to cut the face value to 80 if the shareholders fund it. What does each side gain from the deal?</p>`,
-      options: ["Creditors +7.14, shareholders +26.19", "Creditors +9.52, shareholders +1.19", "Creditors +7.14, shareholders +1.19", "Creditors +9.52, shareholders +26.19"],
-      answer: 2,
-      solution: `<p>Before: D<sub>0</sub> = (0.5 × 40 + 0.5 × 100)/1.05 = 70/1.05 = 66.67 and E<sub>0</sub> = 0.5 × 40/1.05 = 19.05.</p><p>With the project the cash flows are 75 and 175. At K′ = 80 the bad state still defaults: the creditors get 75 and 80, the shareholders 0 and 95.</p><p>D = (0.5 × 75 + 0.5 × 80)/1.05 = 77.5/1.05 = 73.81, so the creditors gain 73.81 − 66.67 = <b>+7.14</b>.</p><p>E = 0.5 × 95/1.05 = 45.24, so the shareholders gain 45.24 − 19.05 − 25 = <b>+1.19</b>.</p>`,
-      check: `<p>NPV = 35/1.05 − 25 = 33.33 − 25 = 8.33. Check 3: 7.14 + 1.19 = 8.33 ✓. Second route: without the cut the creditors would gain 16.6667 and the shareholders lose 8.3333. Cutting the face value by 20 in the good state moves 0.5 × 20/1.05 = 9.5238 between them: 16.6667 − 9.5238 = 7.1429 and −8.3333 + 9.5238 = 1.1905 ✓.</p>`,
-      traps: [
-        "Forgot to subtract the outlay of 25: 45.24 − 19.05 = 26.19. The gains then sum to 33.33, not the NPV of 8.33.",
-        "Paid the creditors the new face value of 80 in the bad state, where the firm has only 75: 80/1.05 − 66.67 = 9.52. The gains then sum to 10.71, not 8.33.",
-        null,
-        "Made both slips: forgot the outlay of 25 and paid the creditors 80 in the bad state, where the firm has only 75. The gains then sum to 35.71, not 8.33.",
       ],
     },
     {

@@ -28,31 +28,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "myers-2",
-      title: "What the old shareholders keep",
-      theory: `<p>The old shareholders keep the rest, 1 − α, of the post-issue firm. With fair pricing the new investors take out exactly the I they put in. So the old shareholders end with their assets plus the whole NPV. This is the benchmark for the rest of the ladder: when investors know V, the old shareholders capture the entire NPV.</p>
-<div class="formula"><div class="eq">Payoff to old shareholders = (1 − α)(V + I + NPV) = V + I + NPV − I = V + NPV</div>
-<div class="where">The shortcut uses α(V + I + NPV) = I from the pricing condition. It holds only when α is priced on the true V. Once investors price α on a different V, the shortcut fails and the first form is the one to use.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>V = 100, I = 40, NPV = 10, so α = 40/150 = 4/15.</p><p>Payoff = (1 − 4/15) × 150 = (11/15) × 150 = 110 = 100 + 10. The old shareholders keep their assets and gain the full NPV of 10.</p></div>`,
-      q: `<p>A firm's assets in place are worth 180 and everyone knows it. The firm issues new shares to raise 60 for a project with an NPV of 24. Investors are competitive and there is no discounting. What is the old shareholders' stake worth after the issue?</p>`,
-      options: ["157.64", "204.00", "139.09", "144.00"],
-      answer: 1,
-      solution: `<p>α = 60/(180 + 60 + 24) = 60/264 = 0.227273.</p><p>Payoff = (1 − 0.227273) × 264 = 0.772727 × 264 = <b>204.00</b>.</p>`,
-      check: `<p>Shortcut: V + NPV = 180 + 24 = 204.00 ✓. The new investors hold 0.227273 × 264 = 60.00, exactly what they paid, so nothing moves between the two groups.</p>`,
-      traps: [
-        "Left the cash out of the firm's value: 0.772727 × (180 + 24) = 157.64. The 60 is invested in the project, so it is part of the firm.",
-        null,
-        "Applied 1 − α to the assets alone: 0.772727 × 180 = 139.09.",
-        "Charged the old shareholders for the cash raised: 180 + 24 − 60 = 144.00. The new investors pay the 60 and get a stake worth exactly 60, so it costs the old shareholders nothing.",
-      ],
-    },
-    {
       id: "myers-3",
-      title: "The issue decision: compare with V",
-      theory: `<p>The manager acts for the old shareholders. If he does not issue, the project is lost, because the firm has no other money. So the old shareholders compare the payoff from issuing with V alone, not with V + NPV. When investors know V the rule reduces to NPV &gt; 0. The stake handed to the new investors is not a loss: they paid I for it, exactly its value.</p>
-<div class="formula"><div class="eq">Issue and invest if (1 − α)(V + I + NPV) &gt; V</div>
-<div class="where">V on the right is what the old shares are worth if the firm walks away. Comparing with V + NPV counts the project in the alternative where it is never built.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>V = 100, I = 40, NPV = 10. Issuing gives the old shareholders 110; walking away leaves them 100.</p><p>They issue. The gain is 110 − 100 = 10, the NPV.</p></div>`,
+      title: "The old shareholders' payoff and the issue decision",
+      theory: `<p>The old shareholders keep the rest, 1 − α, of the post-issue firm. With fair pricing the new investors take out exactly the I they put in, so the old shareholders end with V + NPV. The manager acts for them. If he does not issue, the project is lost, because the firm has no other money. So he compares the payoff from issuing with V alone, not with V + NPV. When investors know V the rule reduces to NPV &gt; 0: the stake handed to the new investors is not a loss, because they paid I for it, exactly its value.</p>
+<div class="formula"><div class="eq">Payoff to old shareholders = (1 − α)(V + I + NPV) = V + NPV</div><div class="eq">Issue and invest if (1 − α)(V + I + NPV) &gt; V</div>
+<div class="where">The shortcut V + NPV uses α(V + I + NPV) = I and holds only when α is priced on the true V. Once investors price α on a different V, use the first form. V on the right of the issue rule is what the old shares are worth if the firm walks away; comparing with V + NPV counts the project in the alternative where it is never built.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>V = 100, I = 40, NPV = 10, so α = 40/150 = 4/15.</p><p>Issue: (1 − 4/15) × 150 = (11/15) × 150 = 110 = 100 + 10. Walk away: 100. They issue and gain 110 − 100 = 10, the NPV.</p></div>`,
       q: `<p>A firm's assets in place are worth 320 and everyone knows it. A project with an NPV of 18 needs 90, which can only be raised by issuing shares. Without the issue the project is lost. Investors are competitive and there is no discounting. What should the manager, acting for the old shareholders, do?</p>`,
       options: [
         "Do not issue: the new investors get 21.03% of a firm worth 428.00, that is 90.00, far more than the NPV of 18.00",
@@ -71,31 +52,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "myers-4",
-      title: "Asymmetric information: α priced on investors' beliefs",
-      theory: `<p>Now the manager knows V but investors do not. They know only that the assets are worth V<sub>H</sub> with probability q and V<sub>L</sub> with probability 1 − q. The project is public: everyone knows I and NPV. Investors cannot price the true V, so they price what they expect V to be <b>given the action they observe</b>. If they believe every firm issues, whatever its type (the pooling belief), an issue tells them nothing and they use the prior average.</p>
-<div class="formula"><div class="eq">E[V | issue] = qV<sub>H</sub> + (1 − q)V<sub>L</sub> &nbsp;(if both types issue)</div><div class="eq">α = I/(E[V | issue] + I + NPV)</div>
-<div class="where">α is the same for both types, because investors cannot tell them apart. What the manager knows never enters α.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10. Investors believe both types issue.</p><p>E[V | issue] = 0.5 × 200 + 0.5 × 80 = 140. α = 40/(140 + 40 + 10) = 40/190 = 0.2105.</p></div>`,
-      q: `<p>A firm's assets in place are worth 300 or 120. Investors put probability 0.4 on 300; the manager knows the assets are worth 300. The firm must issue shares to raise 70 for a project with a publicly known NPV of 14. Investors believe the firm would issue whatever its type. What fraction α must the new investors receive? Give four decimals.</p>`,
-      options: ["0.1823", "0.3398", "0.2672", "0.2536"],
-      answer: 3,
-      solution: `<p>Investors do not know what the manager knows, so they use the prior: E[V | issue] = 0.4 × 300 + 0.6 × 120 = 120 + 72 = 192.</p><p>α = 70/(192 + 70 + 14) = 70/276 = <b>0.2536</b>.</p>`,
-      check: `<p>Backwards: 0.253623 × 276 = 70.00 ✓. The pooled α must lie between the full-information prices of the two types: 70/(300 + 84) = 0.1823 for the high type and 70/(120 + 84) = 0.3431 for the low type. 0.2536 does.</p>`,
-      traps: [
-        "Priced α on the true value the manager knows: 70/(300 + 70 + 14) = 0.1823. Investors cannot see it.",
-        "Left the cash raised out of the denominator: 70/(192 + 14) = 0.3398.",
-        "Left the NPV out of the denominator: 70/(192 + 70) = 0.2672.",
-        null,
-      ],
-    },
-    {
       id: "myers-5",
-      title: "The undervalued type walks away from a good project",
-      theory: `<p>The old shareholders' payoff uses the <b>true</b> V, which the manager knows, times the 1 − α that investors set from their beliefs. For the high type the investors' average is too low: it sells a slice of a firm worth more than they think. Substituting α gives the dilution form, which shows the trade-off in one line.</p>
-<div class="formula"><div class="eq">Payoff = (1 − α)(V + I + NPV) = V + NPV − α(V − E[V | issue])</div><div class="eq">Gain from issuing = NPV − α(V − E[V | issue])</div>
-<div class="where">α(V − E[V | issue]) is the dilution cost: value handed to the new investors because they bought into a firm worth more than they believed. If it exceeds the NPV, the high type keeps V by not issuing and a positive-NPV project dies. That is underinvestment.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10, so E[V | issue] = 140 and α = 4/19 = 0.210526.</p><p>Payoff = (15/19) × 250 = 197.37. Gain = 197.37 − 200 = −2.63. Dilution form: 0.210526 × 60 = 12.63 and 10 − 12.63 = −2.63. The high type does not issue.</p></div>`,
+      title: "Asymmetric information: the undervalued type walks away",
+      theory: `<p>Now the manager knows V but investors do not. They know only that the assets are worth V<sub>H</sub> with probability q and V<sub>L</sub> with probability 1 − q; the project, I and NPV, is public. Investors price what they expect V to be given the action they observe. If they believe every firm issues whatever its type (the pooling belief), an issue tells them nothing and they use the prior average. The old shareholders' payoff still uses the <b>true</b> V, which the manager knows, times the 1 − α that investors set.</p>
+<div class="formula"><div class="eq">E[V | issue] = qV<sub>H</sub> + (1 − q)V<sub>L</sub> &nbsp;(if both types issue) &nbsp;·&nbsp; α = I/(E[V | issue] + I + NPV)</div><div class="eq">Gain from issuing = (1 − α)(V + I + NPV) − V = NPV − α(V − E[V | issue])</div>
+<div class="where">α is the same for both types, because investors cannot tell them apart. α(V − E[V | issue]) is the dilution cost: value handed to new investors who bought into a firm worth more than they believed. If it exceeds the NPV, the high type keeps V by not issuing and a positive-NPV project dies. That is underinvestment. For the low type the sign flips: it sells overpriced shares, gains from issuing and always issues at the pooled price.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10. E[V | issue] = 0.5 × 200 + 0.5 × 80 = 140 and α = 40/190 = 4/19 = 0.210526.</p><p>High type: (15/19) × 250 = 197.37, a gain of 197.37 − 200 = −2.63. Dilution form: 0.210526 × 60 = 12.63 and 10 − 12.63 = −2.63. It does not issue.</p><p>Low type: (15/19) × 130 = 102.63 = 80 + 10 + 12.63 &gt; 80. It issues.</p></div>`,
       q: `<p>A firm's assets in place are worth 360 or 160; investors think each is equally likely. The manager knows they are worth 360. A project with a publicly known NPV of 12 needs 80, to be raised by a share issue. Investors believe the firm would issue whatever its type. Measured once the true value comes out, by how much does issuing and investing change the old shareholders' wealth compared with not issuing?</p>`,
       options: ["−10.73", "12.00", "−22.73", "−88.00"],
       answer: 0,
@@ -109,55 +71,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "myers-6",
-      title: "The overvalued type gains from issuing",
-      theory: `<p>The low type is in the opposite position. The investors' average is above its true value, so it sells shares for more than they are worth. The dilution term changes sign: the new investors hand value to the old shareholders. Under the pooling price the low type therefore always issues. Investors still break even on average, because what they lose on the low type they gain on the high type.</p>
-<div class="formula"><div class="eq">Payoff<sub>L</sub> = (1 − α)(V<sub>L</sub> + I + NPV) = V<sub>L</sub> + NPV + α(E[V | issue] − V<sub>L</sub>)</div>
-<div class="where">The last term is the low type's gain from being priced as an average firm. With both types issuing, q × α(V<sub>H</sub> − E[V | issue]) = (1 − q) × α(E[V | issue] − V<sub>L</sub>). The two transfers balance in expectation and are equal in size only when q = 0.5.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>L</sub> = 80, E[V | issue] = 140, α = 4/19 = 0.210526, I = 40, NPV = 10.</p><p>Payoff = (15/19) × 130 = 102.63 = 80 + 10 + 0.210526 × 60 = 80 + 10 + 12.63. The low type issues: 102.63 &gt; 80.</p></div>`,
-      q: `<p>A firm's assets in place are worth 240 or 90. Investors put probability 0.6 on 240; the manager knows they are worth 90. A project with a publicly known NPV of 10 needs 50, raised by issuing shares. Investors believe the firm would issue whatever its type. What is the old shareholders' payoff, once the true value comes out, if the firm issues and invests?</p>`,
-      options: ["100.00", "110.53", "114.29", "118.75"],
-      answer: 3,
-      solution: `<p>E[V | issue] = 0.6 × 240 + 0.4 × 90 = 144 + 36 = 180, so α = 50/(180 + 50 + 10) = 50/240 = 0.208333.</p><p>Payoff = (1 − 0.208333) × (90 + 50 + 10) = 0.791667 × 150 = <b>118.75</b>, against 90 without the issue.</p>`,
-      check: `<p>Dilution form: 90 + 10 + 0.208333 × (180 − 90) = 100 + 18.75 = 118.75 ✓. From the investors' side: their stake is truly worth 0.208333 × 150 = 31.25 but they paid 50, a loss of 18.75 that lands with the old shareholders. Had the high type also issued, investors would gain 0.208333 × (240 − 180) = 12.50 on it. Weighted: 0.6 × 12.50 = 0.4 × 18.75 = 7.50, so they break even on average.</p>`,
-      traps: [
-        "Priced α on the true value 90, as if investors knew it. The payoff is then V + NPV = 100.00.",
-        "Left the cash raised out of the denominator: α = 50/(180 + 10) = 0.263158, so 0.736842 × 150 = 110.53.",
-        "Swapped the probabilities: E[V | issue] = 0.4 × 240 + 0.6 × 90 = 150, α = 50/210 and 0.761905 × 150 = 114.29.",
-        null,
-      ],
-    },
-    {
-      id: "myers-7",
-      title: "Check 5: are investors' beliefs rational?",
-      theory: `<p>Computing α does not finish the answer. An equilibrium is a pair: an action for each type and a belief that is correct given those actions. This is consistency check 5, the step the solution keys mark. The pooling belief "both types issue" is rational only if both types actually issue at the pooled α. The low type always does, so the test is the high type. If it walks away, an issue reveals the low type: the belief is contradicted by the behaviour it predicts and the pooled α cannot stand.</p>
-<div class="formula"><div class="eq">Pooling is rational if (1 − α<sub>pool</sub>)(V<sub>H</sub> + I + NPV) &gt; V<sub>H</sub>, that is NPV &gt; α<sub>pool</sub>(V<sub>H</sub> − E[V | issue])</div>
-<div class="where">Investors breaking even at the pooled price is not the test: under the belief they break even by construction. The test is whether the types behave as the belief assumes.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10. At the pooled α = 0.2105 the high type keeps 197.37 &lt; 200, so it does not issue.</p><p>Only the low type issues, so an issue tells investors that V = 80, not 140. The pooling belief is not rational.</p></div>`,
-      q: `<p>A firm's assets in place are worth 400 or 150, equally likely in investors' eyes; the manager knows which. A project with a publicly known NPV of 20 needs 100, raised by issuing shares. Investors believe the firm issues whatever its type and price the issue on that belief. Which statement is correct?</p>`,
-      options: [
-        "Rational: investors pay 100.00 for a stake worth 100.00 at the pooled value, so they break even and the belief stands",
-        "Not rational: at that price the high type would keep 388.35 against 400.00, so only the low type issues",
-        "Rational: at that price the high type would keep 420.00 against 400.00, so both types issue",
-        "Not rational: at that price the high type would keep 343.73 against 400.00, so only the low type issues",
-      ],
-      answer: 1,
-      solution: `<p>Pooled belief: E[V | issue] = 0.5 × 400 + 0.5 × 150 = 275, so α = 100/(275 + 100 + 20) = 100/395 = 0.253165.</p><p>High type: (1 − 0.253165) × 520 = 0.746835 × 520 = <b>388.35</b> &lt; 400. It does not issue.</p><p>Low type: 0.746835 × 270 = 201.65 &gt; 150. It issues.</p><p>Only the low type issues, so an issue reveals V = 150. The belief that priced the shares is contradicted: <b>not rational</b>.</p>`,
-      check: `<p>Dilution form for the high type: 400 + 20 − 0.253165 × 125 = 420 − 31.65 = 388.35 ✓. The dilution of 31.65 is well above the NPV of 20, so the verdict does not hinge on rounding.</p>`,
-      traps: [
-        "Ran the wrong test. Investors break even at the pooled price by construction; check 5 asks whether each type acts as the belief assumes.",
-        null,
-        "Priced α on the high type's true value: 100/520 = 0.192308 and 0.807692 × 520 = 420.00. Investors cannot see that value.",
-        "Left the cash raised out of the denominator: α = 100/295 = 0.338983 and 0.661017 × 520 = 343.73.",
-      ],
-    },
-    {
       id: "myers-8",
-      title: "The separating equilibrium: α priced on the low type",
-      theory: `<p>When pooling fails, rational investors update: an issue means the low type. They price the shares on V<sub>L</sub> and α rises. Two checks make this an equilibrium and both earn points. The low type must still want to issue at the harsher price. The high type must still prefer to stay out at that same price.</p>
-<div class="formula"><div class="eq">α<sub>sep</sub> = I/(V<sub>L</sub> + I + NPV)</div><div class="eq">Low type: (1 − α<sub>sep</sub>)(V<sub>L</sub> + I + NPV) = V<sub>L</sub> + NPV &gt; V<sub>L</sub> &nbsp;·&nbsp; High type: (1 − α<sub>sep</sub>)(V<sub>H</sub> + I + NPV) &lt; V<sub>H</sub></div>
-<div class="where">The low type is now priced correctly, so it keeps exactly V<sub>L</sub> + NPV and issues whenever NPV &gt; 0. The high type faces an even worse price than under pooling, so if it refused then, it refuses now.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, I = 40, NPV = 10. Pooling failed in the last step. Separating: α = 40/(80 + 40 + 10) = 40/130 = 0.3077.</p><p>Low type: (9/13) × 130 = 90 = 80 + 10 &gt; 80, so it issues ✓. High type, if it issued: (9/13) × 250 = 173.08 &lt; 200, so it stays out ✓. Only the low type issues: a separating equilibrium.</p></div>`,
+      title: "Check 5 and the separating equilibrium",
+      theory: `<p>Computing α does not finish the answer. An equilibrium is an action for each type plus a belief that is correct given those actions: consistency check 5, the step the solution keys mark. The pooling belief holds only if both types issue at the pooled α. The low type always does, so the test is the high type. If it walks away, an issue reveals the low type, investors price the shares on V<sub>L</sub> and α rises. Two checks make this separating outcome an equilibrium and both earn points: the low type still issues at the harsher price while the high type still stays out.</p>
+<div class="formula"><div class="eq">Pooling holds if NPV &gt; α<sub>pool</sub>(V<sub>H</sub> − E[V | issue]) &nbsp;·&nbsp; else α<sub>sep</sub> = I/(V<sub>L</sub> + I + NPV)</div><div class="eq">Low type: (1 − α<sub>sep</sub>)(V<sub>L</sub> + I + NPV) = V<sub>L</sub> + NPV &gt; V<sub>L</sub> &nbsp;·&nbsp; High type: (1 − α<sub>sep</sub>)(V<sub>H</sub> + I + NPV) &lt; V<sub>H</sub></div>
+<div class="where">Investors breaking even at the pooled price is not the test: under the belief they break even by construction. Under separating the low type is priced correctly, so it keeps exactly V<sub>L</sub> + NPV. The high type faces an even worse price than under pooling, so if it refused then, it refuses now.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10. At the pooled α = 0.2105 the high type keeps 197.37 &lt; 200 and does not issue. The pooling belief fails check 5.</p><p>Separating: α = 40/(80 + 40 + 10) = 40/130 = 0.3077. Low type: (9/13) × 130 = 90 = 80 + 10 &gt; 80, so it issues ✓. High type, if it issued: (9/13) × 250 = 173.08 &lt; 200, so it stays out ✓. Only the low type issues: a separating equilibrium.</p></div>`,
       q: `<p>A firm's assets in place are worth 500 or 200, equally likely in investors' eyes; the manager knows which. A project with a publicly known NPV of 24 needs 120, raised by issuing shares. Find the equilibrium. What fraction α do new investors receive in it? Give four decimals.</p>`,
       options: ["0.2429", "0.1863", "0.3488", "0.5357"],
       answer: 2,
@@ -209,33 +128,9 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "myers-11",
-      title: "The pecking order: why safe debt removes the problem",
-      theory: `<p>The high type's loss comes from selling a claim that outsiders underprice. So rank the sources of money by how badly they can be underpriced. Internal cash sells no claim at all. Risk-free debt pays the same in every state, so investors' ignorance of V does not touch its price. Risky debt differs across types only in default. Equity tracks V one for one and carries the full dilution.</p>
-<div class="formula"><div class="eq">Internal funds → debt, safest first → equity, last</div><div class="eq">Adverse-selection cost = S(V<sub>true</sub>) − E[S(V) | beliefs]</div>
-<div class="where">S(V) is what the security pays when the firm is worth V. The pecking order rests on asymmetric information, not on inefficient markets: every price here is fair given what investors know. It ranks the sources; it does not forbid equity.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: the running case</span><p>V<sub>H</sub> = 200, V<sub>L</sub> = 80, q = 0.5, I = 40, NPV = 10. The high type raises 40 with equity at α = 4/19: the stake is truly worth 0.210526 × 250 = 52.63, so it gives away 12.63.</p><p>Debt of 40 instead: even the low type has 80 + 50 = 130 to repay it, so it is risk-free, worth 40 to everyone and sells for 40. Cost 0. The high type keeps 200 + 10 = 210 and takes the project.</p></div>`,
-      q: `<p>A manager knows his firm's assets are worth more than investors think. He must raise money for a positive-NPV project and can sell either equity or debt that is risk-free whatever the firm's type. Why does the pecking order say he should borrow?</p>`,
-      options: [
-        "Debt is cheaper because r<sub>D</sub> is below r<sub>E</sub>, so borrowing lowers the cost of capital and raises firm value",
-        "Interest is tax deductible, so the tax shield on the debt more than makes up for the dilution an equity issue would cause",
-        "Risk-free debt pays the same whatever the firm is worth, so investors' ignorance of V cannot make it underpriced and nothing is transferred",
-        "Equity markets are inefficient and underprice new shares, while bond markets price debt correctly, so only debt sells at a fair price",
-      ],
-      answer: 2,
-      solution: `<p>The cost of an issue is the gap between what the claim is truly worth and what investors pay for it. For risk-free debt that gap is zero: its payoff does not depend on V, so investors who cannot see V still price it correctly. Equity's payoff rises one for one with V, so the high type sells it below its true value and transfers wealth to the new investors. Borrowing lets the manager take the project without that transfer.</p>`,
-      check: `<p>Run the formula. Debt with face K paid in full in both states: S(V<sub>H</sub>) = S(V<sub>L</sub>) = K, so the cost is K − K = 0. Equity: S(V) = α(V + I + NPV), which differs across types, so the cost is α(V<sub>H</sub> − E[V | beliefs]) &gt; 0.</p>`,
-      traps: [
-        "MM confusion. A lower r<sub>D</sub> is offset by a higher r<sub>E</sub>; the pecking order is about information, not the cost of capital.",
-        "Trade-off theory, not the pecking order. The argument works with no taxes at all.",
-        null,
-        "The standard wrong answer. Every price here is fair given investors' information; the cost comes from the manager knowing more.",
-      ],
-    },
-    {
       id: "myers-12",
-      title: "Debt or equity under private information",
-      theory: `<p>2021 Problem 1 let the firm fund the same project with 100% debt or 100% equity. Hold investors' beliefs at the prior, whatever the choice. Risk-free debt costs both types exactly I, so the old shareholders keep V + NPV. Equity is priced at the pooled value, so the high type gives away its dilution and the low type gains it. The two types want different securities. That is why the fixed beliefs cannot be rational: an equity issue reveals the low type.</p>
+      title: "Debt or equity: the pecking order",
+      theory: `<p>The high type's loss comes from selling a claim that outsiders underprice. Risk-free debt pays the same in every state, so investors' ignorance of V cannot touch its price: it costs both types exactly I and the old shareholders keep V + NPV. Equity tracks V one for one and carries the full dilution. Hence the pecking order: internal funds first, then debt (safest first), then equity last. It rests on asymmetric information, not on taxes or inefficient markets: every price here is fair given what investors know. 2021 Problem 1 tested it with 100% debt or 100% equity and beliefs held at the prior whatever the choice. The two types then want different securities, so those fixed beliefs cannot be rational: an equity issue reveals the low type.</p>
 <div class="formula"><div class="eq">Debt: V + C − I = V + NPV &nbsp;·&nbsp; Equity: (1 − α)(V + C), with α = I/(E[V] + C)</div><div class="eq">Debt − equity = α(V − E[V])</div>
 <div class="where">C is the project's sure cash flow next year, so C = I + NPV with no discounting. Check that the debt is risk-free (V<sub>L</sub> + C ≥ I) before valuing it at face. The difference is positive for the high type and negative for the low type.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>V<sub>H</sub> = 150, V<sub>L</sub> = 30, q = 0.5, I = 20, C = 26. E[V] = 90 and α = 20/116 = 0.172414.</p><p>High type: debt 150 + 6 = 156; equity 0.827586 × 176 = 145.66. Debt wins by 10.34 = 0.172414 × 60. Low type: debt 36; equity 0.827586 × 56 = 46.34. Equity wins.</p></div>`,

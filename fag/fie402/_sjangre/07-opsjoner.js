@@ -6,7 +6,7 @@ window.EDU_DATA.sjangre.push({
   summary: "From a single payoff to put-call parity, the binomial tree, risk-neutral pricing and what volatility does to an option",
   chapters: [21, 22, 23],
   exam: "7 of 11 papers · H2024 E6, H2025 E1",
-  intro: `<p>The binomial model and risk-neutral pricing have appeared on 7 of 11 papers and put-call parity on 4. Kurbatov has tested options twice: H2024 Exercise 6 priced the right to wait with risk-neutral probabilities for 20 points; H2025 Exercise 1 opened the paper with 12 verbal points on what volatility does to a call. The ladder starts with one payoff, builds parity and the one-period tree, then climbs to two periods, ρ backed out of prices and Black-Scholes intuition. At the top you can price any claim on a binomial tree, find a missing price or an arbitrage with parity and say what a mispriced volatility means for the trade.</p>`,
+  intro: `<p>The binomial model and risk-neutral pricing have appeared on 7 of 11 papers and put-call parity on 4. Kurbatov has tested options twice: H2024 Exercise 6 priced the right to wait with risk-neutral probabilities for 20 points; H2025 Exercise 1 opened the paper with 12 verbal points on what volatility does to a call. The ladder starts with one payoff, builds parity and the one-period tree, then climbs to two periods, ρ backed out of prices and Black-Scholes intuition. At the top you can price any claim on a binomial tree, find a missing price with parity, spot a quote that breaks the no-arbitrage bounds and say what a mispriced volatility means for the trade.</p>`,
   steps: [
     {
       id: "opsjoner-1",
@@ -28,28 +28,9 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "opsjoner-2",
-      title: "Moneyness, intrinsic value and time value",
-      theory: `<p>Moneyness says where today's share price S sits relative to the strike. A call is in the money when S &gt; K and out of the money when S &lt; K; for a put it is the other way round. Intrinsic value is what the option would pay if it expired right now. Everything else in the premium is time value: the price of the chance that the share moves your way before expiry. Time value is largest near the money and shrinks to zero at expiry.</p>
-<div class="formula"><div class="eq">Premium = intrinsic value + time value</div><div class="eq">Intrinsic value: call max(S − K, 0) &nbsp;&nbsp; put max(K − S, 0)</div>
-<div class="where">Intrinsic value uses today's price S and the undiscounted strike K. An out-of-the-money option has zero intrinsic value, so its whole premium is time value.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>S = 110. A call with K = 100 costs 14: in the money, intrinsic value 110 − 100 = 10, time value 14 − 10 = 4.</p><p>A put with K = 100 costs 3.50: out of the money, intrinsic value max(100 − 110, 0) = 0, time value 3.50.</p></div>`,
-      q: `<p>A share trades at S = 58. A put on it with strike K = 65 costs 9.40. What is the put's time value?</p>`,
-      options: ["7.00", "9.40", "16.40", "2.40"],
-      answer: 3,
-      solution: `<p>S = 58 is below K = 65, so the put is in the money.</p><p>Intrinsic value = max(65 − 58, 0) = 7.00.</p><p>Time value = 9.40 − 7.00 = <b>2.40</b>.</p>`,
-      check: `<p>Backwards: 7.00 + 2.40 = 9.40, the premium ✓. The put sells for more than the 7.00 it would pay if it expired today, so its time value is positive.</p>`,
-      traps: [
-        "Gave the intrinsic value, max(65 − 58, 0) = 7.00, instead of the time value.",
-        "Used the call's intrinsic value, max(58 − 65, 0) = 0, so the whole 9.40 became time value. A put is in the money when S &lt; K.",
-        "Dropped the max(·, 0) and used S − K: intrinsic value 58 − 65 = −7, so time value 9.40 + 7 = 16.40.",
-        null,
-      ],
-    },
-    {
       id: "opsjoner-3",
       title: "The bounds: what a call cannot cost",
-      theory: `<p>Arbitrage alone, before any model, limits what a European call on a share without dividends can cost. It can never be worth more than the share, because owning the share gives you the same thing without paying K. It is worth at least S − PV(K): a call plus a deposit of PV(K) pays max(S<sub>T</sub>, K) at expiry, which is never less than the share, so the package cannot cost less than S. The floor uses the discounted strike, so it lies above the intrinsic value S − K.</p>
+      theory: `<p>Arbitrage alone, before any model, limits what a European call on a share without dividends can cost. It can never be worth more than the share, because owning the share gives you the same thing without paying K. It is worth at least S − PV(K): a call plus a deposit of PV(K) pays max(S<sub>T</sub>, K) at expiry, which is never less than the share, so the package cannot cost less than S. The floor uses the discounted strike, so it lies above the intrinsic value S − K, what the call would pay if you exercised it today.</p>
 <div class="formula"><div class="eq">max(S − PV(K), 0) ≤ C ≤ S &nbsp;&nbsp; PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup></div>
 <div class="where">A quote outside the bounds is an arbitrage. Below the floor: buy the call, short the share and lend PV(K). The upper bound holds whatever the strike: the call's payoff is unlimited, its price is not. For a put: max(PV(K) − S, 0) ≤ P ≤ PV(K).</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>S = 100, K = 84, r<sub>f</sub> = 5%, one year. PV(K) = 84/1.05 = 80, so 20 ≤ C ≤ 100.</p><p>A quote of 18 is impossible even though it beats the intrinsic value of 16. Buy the call for 18, short the share for 100 and lend 80: you collect 2 today. At expiry you hold max(S<sub>T</sub> − 84, 0) − S<sub>T</sub> + 84 = max(84 − S<sub>T</sub>, 0) ≥ 0.</p></div>`,
@@ -70,7 +51,7 @@ window.EDU_DATA.sjangre.push({
       title: "Put-call parity: the missing price",
       theory: `<p>Two portfolios pay exactly the same at expiry. A share plus a put (the protective put) pays max(S<sub>T</sub>, K). So does a call plus a deposit of PV(K) (the fiduciary call). Identical payoffs in every state must cost the same today, or there is free money. That is put-call parity. It needs no model and no probabilities. It is not on the formula sheet.</p>
 <div class="formula"><div class="eq">C + PV(K) = P + S &nbsp;⟺&nbsp; C = P + S − PV(K)</div>
-<div class="where">PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup>, with the exponent T. Parity holds for European options with the same strike, the same expiry and the same underlying, on a share that pays no dividends before expiry.</div></div>`,
+<div class="where">PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup>, with the exponent T. Parity holds for European options with the same strike, the same expiry and the same underlying, on a share that pays no dividends before expiry. If quoted prices break parity, buy the cheaper side, sell the dearer one and keep the gap: the payoffs cancel in every state.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>S = 60, K = 66, r<sub>f</sub> = 5% a year, T = 2 years. The put costs 7.00.</p><p>(1.05)<sup>2</sup> = 1.1025, so PV(K) = 66/1.1025 = 59.8639.</p><p>C = 7.00 + 60 − 59.8639 = 7.1361.</p></div>`,
       q: `<p>A share trades at S = 84 and pays no dividends. A two-year European put with strike K = 90 costs 9.20. The risk-free rate is 4% a year. What is the price of the two-year European call with the same strike?</p>`,
       options: ["3.2000", "6.6615", "9.9899", "8.4101"],
@@ -82,30 +63,6 @@ window.EDU_DATA.sjangre.push({
         "Discounted the strike for one year only: 9.20 + 84 − 90/1.04 = 9.20 + 84 − 86.5385 = 6.6615.",
         null,
         "Swapped the signs of S and PV(K): 9.20 − 84 + 83.2101 = 8.4101.",
-      ],
-    },
-    {
-      id: "opsjoner-5",
-      title: "Trading a parity violation",
-      theory: `<p>When quoted prices break parity, one of the two portfolios is too cheap. Price both, buy the cheap one and sell the dear one. Selling the fiduciary call means writing the call and borrowing PV(K); buying the protective put means buying the share and the put. The payoffs cancel in every state, so the cash you collect today is a riskless profit equal to the parity gap.</p>
-<div class="formula"><div class="eq">gap = [C + PV(K)] − [P + S]</div>
-<div class="where">gap &gt; 0: write the call, borrow PV(K), buy the share and the put. gap &lt; 0: do the reverse. Borrow PV(K), not K: the loan is repaid with exactly K at expiry.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>S = 40, K = 42, r<sub>f</sub> = 5%, one year, C = 3.10, P = 2.60. PV(K) = 42/1.05 = 40.00.</p><p>Fiduciary call: 3.10 + 40.00 = 43.10. Protective put: 2.60 + 40 = 42.60. Gap = 0.50 &gt; 0.</p><p>Write the call and borrow 40.00, buy the share and the put. Cash today: 3.10 + 40.00 − 40 − 2.60 = +0.50.</p></div>`,
-      q: `<p>A share trades at S = 96 and pays no dividends. One-year European options with strike K = 100 trade at C = 8.40 and P = 7.10. The one-year risk-free rate is 5%. Which trade earns a riskless profit and how much do you collect today?</p>`,
-      options: [
-        "Buy the call and lend 95.24; short the share and write the put. You collect 0.54 today.",
-        "Write the call and borrow 100.00; buy the share and the put. You collect 5.30 today.",
-        "Write the call and buy the put, since the call is dearer than the put. You collect 1.30 today.",
-        "Write the call and borrow 95.24; buy the share and the put. You collect 0.54 today.",
-      ],
-      answer: 3,
-      solution: `<p>PV(K) = 100/1.05 = 95.2381. Fiduciary call: 8.40 + 95.2381 = 103.6381. Protective put: 7.10 + 96 = 103.10.</p><p>The fiduciary call is dear, so sell it and buy the protective put: write the call (+8.40), borrow 95.2381 (+95.2381), buy the share (−96) and the put (−7.10). Cash today = 8.40 + 95.2381 − 96 − 7.10 = <b>+0.5381</b>, about 0.54.</p><p>At expiry the share and the put are worth max(S<sub>T</sub>, 100). The written call and the loan cost max(S<sub>T</sub> − 100, 0) + 100 = max(S<sub>T</sub>, 100). They cancel in every state.</p>`,
-      check: `<p>The cash collected equals the parity gap: 103.6381 − 103.10 = 0.5381 ✓. If it did not, you would have taken the wrong side. Two states: at S<sub>T</sub> = 80 you hold 80 + 20 − 0 − 100 = 0, at S<sub>T</sub> = 120 you hold 120 + 0 − 20 − 100 = 0 ✓.</p>`,
-      traps: [
-        "Bought the dear side. Buying the call and lending costs 103.64 while shorting the share and writing the put brings in 103.10, so you pay 0.54 today instead of collecting it.",
-        "Borrowed K instead of PV(K): 8.40 + 100 − 96 − 7.10 = 5.30. A loan of 100 today must be repaid with 105, which the position does not cover.",
-        "Compared the call with the put directly. A written call plus a bought put pays 100 − S<sub>T</sub>, a short position in the share: at S<sub>T</sub> = 120 you lose 20.",
-        null,
       ],
     },
     {
@@ -147,25 +104,6 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "opsjoner-8",
-      title: "A put in the tree, checked with parity",
-      theory: `<p>A put is priced on the same tree with the same ρ: only the payoffs change, to max(K − S, 0) in each state. Replication still works, but Δ is now negative (short the share) and B positive (lend). Because the call and the put come from different payoffs, put-call parity is a genuine check on both.</p>
-<div class="formula"><div class="eq">P<sub>u</sub> = max(K − S<sub>u</sub>, 0) &nbsp;&nbsp; P<sub>d</sub> = max(K − S<sub>d</sub>, 0)</div><div class="eq">P<sub>0</sub> = [ρP<sub>u</sub> + (1 − ρ)P<sub>d</sub>]/(1 + r<sub>f</sub>)</div>
-<div class="where">The put pays in the down state, which carries the weight 1 − ρ. Check: C<sub>0</sub> − P<sub>0</sub> = S<sub>0</sub> − K/(1 + r<sub>f</sub>).</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Same tree: S<sub>0</sub> = 50, S<sub>u</sub> = 60, S<sub>d</sub> = 40, r<sub>f</sub> = 4%, ρ = 0.60, put with K = 50. P<sub>u</sub> = 0, P<sub>d</sub> = 10.</p><p>P<sub>0</sub> = 0.40 × 10/1.04 = 4/1.04 = 3.8462. Replication: Δ = (0 − 10)/20 = −0.5, B = (10 + 40 × 0.5)/1.04 = 30/1.04 = 28.8462, P<sub>0</sub> = −25 + 28.8462 = 3.8462 ✓.</p><p>Parity: C<sub>0</sub> − P<sub>0</sub> = 5.769231 − 3.846154 = 1.923077 and S<sub>0</sub> − PV(K) = 50 − 48.076923 = 1.923077 ✓.</p></div>`,
-      q: `<p>A share trades at S<sub>0</sub> = 80. In one year it will be worth 100 or 70. The one-year risk-free rate is 5%. What is the price of a one-year European put with strike K = 88?</p>`,
-      options: ["8.0000", "9.1429", "9.6000", "3.8095"],
-      answer: 1,
-      solution: `<p>ρ = (1.05 × 80 − 70)/(100 − 70) = (84 − 70)/30 = 0.466667, so 1 − ρ = 0.533333.</p><p>Payoffs: P<sub>u</sub> = max(88 − 100, 0) = 0, P<sub>d</sub> = max(88 − 70, 0) = 18.</p><p>P<sub>0</sub> = (0.466667 × 0 + 0.533333 × 18)/1.05 = 9.6000/1.05 = <b>9.1429</b>.</p>`,
-      check: `<p>Parity against the call on the same tree: C<sub>u</sub> = 12, C<sub>d</sub> = 0, so C<sub>0</sub> = 0.466667 × 12/1.05 = 5.6000/1.05 = 5.333333. C<sub>0</sub> − P<sub>0</sub> = 5.333333 − 9.142857 = −3.809524. Parity requires S<sub>0</sub> − PV(K) = 80 − 88/1.05 = 80 − 83.809524 = −3.809524 ✓. Replication agrees too: Δ = (0 − 18)/30 = −0.6, B = (18 + 70 × 0.6)/1.05 = 60/1.05 = 57.142857, P<sub>0</sub> = −48 + 57.142857 = 9.142857.</p>`,
-      traps: [
-        "Gave the down-state payoff the weight ρ instead of 1 − ρ: 0.466667 × 18/1.05 = 8.0000. ρ belongs to the up state, where the put pays nothing.",
-        null,
-        "Forgot to discount: 0.533333 × 18 = 9.6000 is the value in one year.",
-        "Dropped the max(·, 0) and used K − S in both states: [0.466667 × (−12) + 0.533333 × 18]/1.05 = 4.0000/1.05 = 3.8095. That prices an obligation to sell at 88, not a right.",
-      ],
-    },
-    {
       id: "opsjoner-9",
       title: "Two periods: roll the tree back node by node",
       theory: `<p>With two periods you solve the one-period problem three times, starting at the end. Build the share tree, compute the payoffs at the last date, then value each date-1 node as the risk-neutral average of the two nodes after it, discounted one period. Repeat at the root. With the same u and d at every node the tree recombines and ρ is the same everywhere. Δ changes from node to node, so a replicating portfolio must be rebalanced at date 1.</p>
@@ -187,7 +125,7 @@ window.EDU_DATA.sjangre.push({
     {
       id: "opsjoner-10",
       title: "Backing ρ out of an observed price",
-      theory: `<p>ρ does not have to come from the share. On a two-state tree every traded asset is priced with the same weights, so any observed price X<sub>0</sub> with known payoffs X<sub>u</sub> and X<sub>d</sub> reveals ρ. The exam uses this when the share itself is not quoted but something else on the same two states is: an option, a commodity certificate, a bond or the cash flows of a project. Once you have ρ, price any other claim on the tree with it.</p>
+      theory: `<p>ρ does not have to come from the share. On a two-state tree every traded asset is priced with the same weights, so any observed price X<sub>0</sub> with known payoffs X<sub>u</sub> and X<sub>d</sub> reveals ρ. The exam uses this when the share itself is not quoted but something else on the same two states is: an option, a commodity certificate, a bond or the cash flows of a project. Once you have ρ, price any other claim on the tree with it. A put works the same way: its payoff max(K − S, 0) comes in the down state, which carries the weight 1 − ρ.</p>
 <div class="formula"><div class="eq">ρ = [(1 + r<sub>f</sub>)X<sub>0</sub> − X<sub>d</sub>]/(X<sub>u</sub> − X<sub>d</sub>)</div>
 <div class="where">Grow the price by (1 + r<sub>f</sub>) before you compare it with the payoffs. If the asset also pays a cash flow at date 1, add it to both X<sub>u</sub> and X<sub>d</sub>. If two assets on the same tree imply different ρ, one of them is mispriced.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>The share will be worth 120 or 80 in one year and r<sub>f</sub> = 5%. A call with K = 100 trades at 10.00 and pays 20 or 0.</p><p>ρ = (1.05 × 10.00 − 0)/(20 − 0) = 10.50/20 = 0.525.</p><p>A put with K = 110 pays 0 or 30, so P = 0.475 × 30/1.05 = 14.25/1.05 = 13.5714. The share price the options imply is (0.525 × 120 + 0.475 × 80)/1.05 = 101/1.05 = 96.1905.</p></div>`,
@@ -206,7 +144,7 @@ window.EDU_DATA.sjangre.push({
     {
       id: "opsjoner-11",
       title: "Black-Scholes: which way each input moves the value",
-      theory: `<p>Give the binomial tree more and shorter steps and its price converges to the Black-Scholes formula. N(d<sub>1</sub>) is Δ and PV(K)·N(d<sub>2</sub>) is the borrowing, so it is still C = SΔ + B. The formula sheet carries no N(d) tables, so the exam tests the direction of each effect and the reason, not the arithmetic. The key effect: a higher σ raises both a call and a put, because the payoff is floored at zero, so extra dispersion adds upside without adding downside.</p>
+      theory: `<p>Give the binomial tree more and shorter steps and its price converges to the Black-Scholes formula. N(d<sub>1</sub>) is Δ and PV(K)·N(d<sub>2</sub>) is the borrowing, so it is still C = SΔ + B. The formula sheet carries no N(d) tables, so the exam tests the direction of each effect and the reason, not the arithmetic. The key effect: a higher σ raises both a call and a put, because the payoff is floored at zero, so extra dispersion adds upside without adding downside. Four of the inputs can be read off a screen; only σ cannot. Run the formula backwards from a market price and you get the implied volatility: the σ the price is quoting.</p>
 <div class="formula"><div class="eq">C = S·N(d<sub>1</sub>) − PV(K)·N(d<sub>2</sub>)</div><div class="eq">d<sub>1</sub> = ln[S/PV(K)]/(σ√T) + σ√T/2 &nbsp;&nbsp; d<sub>2</sub> = d<sub>1</sub> − σ√T</div>
 <div class="where">S, K, T, r<sub>f</sub> and σ are the five inputs; σ is the annual volatility of the share's return. PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup> as before: this ladder, like the manual, compounds r<sub>f</sub> annually. Textbooks that write K·e<sup>−r<sub>f</sub>T</sup> use the same formula with a continuous rate. The share's expected return appears nowhere. A dividend before expiry lowers the call and raises the put.</div></div>
 <table class="data"><tr><th>Input rises</th><th>Call</th><th>Put</th><th>Why</th></tr>
@@ -236,25 +174,6 @@ window.EDU_DATA.sjangre.push({
         "Forgot that more time means more dispersion and a smaller PV(K). Both raise a call. The option is not priced by discounting at a risky rate.",
         "Mixed up the call and the put. The call holder pays K at exercise, so a higher K lowers the call and raises the put.",
         null,
-      ],
-    },
-    {
-      id: "opsjoner-12",
-      title: "Implied volatility: the price written as a σ",
-      theory: `<p>Four of the five inputs can be read off a screen; only σ must be estimated. So the formula is run backwards: the implied volatility is the σ that makes the Black-Scholes value equal the market price. Value rises with σ, so there is exactly one such σ. Quoting an implied volatility is just another way of quoting the price. If your own estimate differs, value the option at your σ and compare. A call and a put with the same K and T carry the same implied σ and are mispriced by the same amount, because σ does not appear in S − PV(K).</p>
-<div class="formula"><div class="eq">σ<sub>implied</sub> solves C<sub>market</sub> = S·N(d<sub>1</sub>(σ)) − PV(K)·N(d<sub>2</sub>(σ))</div><div class="eq">P<sub>your σ</sub> = P<sub>market</sub> − (C<sub>market</sub> − C<sub>your σ</sub>)</div>
-<div class="where">The second line is parity applied at both volatilities. Implied volatility is a model output read from a price, not a measurement of the share.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>S = 50, K = 50, r<sub>f</sub> = 4%, T = 1. The call trades at 8.7719, the Black-Scholes value at σ = 40%: that is its implied volatility.</p><p>At your σ = 30% the call is worth 6.8582, so it is overpriced by 1.9137. The put trades at 6.8488; at 30% it is worth 6.8488 − 1.9137 = 4.9351, the same 1.9137 below its price.</p></div>`,
-      q: `<p>A share trades at S = 80 and pays no dividends. One-year European options with strike K = 84 trade at C = 10.7866 and P = 11.5558. The risk-free rate is 4% a year, compounded annually. The call's price implies σ = 35%. You estimate σ = 25%, at which the call is worth 7.6176. What is the put worth at your volatility?</p>`,
-      options: ["14.7248", "8.3868", "11.5558", "11.6176"],
-      answer: 1,
-      solution: `<p>The call is overpriced by 10.7866 − 7.6176 = 3.1690.</p><p>σ does not enter S − PV(K), so the put is overpriced by the same amount: P = 11.5558 − 3.1690 = <b>8.3868</b>.</p>`,
-      check: `<p>Parity at your volatility: P = C − S + PV(K) = 7.6176 − 80 + 84/1.04 = 7.6176 − 80 + 80.7692 = 8.3868 ✓. The market prices obey parity too: 10.7866 − 80 + 80.7692 = 11.5558 ✓. The put falls when σ falls, as it must: less dispersion lowers both options.</p>`,
-      traps: [
-        "Moved the put the wrong way, as if a lower σ that hurts the call must help the put: 11.5558 + 3.1690 = 14.7248. A lower σ lowers both.",
-        null,
-        "Kept the market price, as if the volatility view concerned only the call: 11.5558. The put carries the same implied σ of 35%.",
-        "Used K instead of PV(K) in parity: 7.6176 − 80 + 84 = 11.6176.",
       ],
     },
     {

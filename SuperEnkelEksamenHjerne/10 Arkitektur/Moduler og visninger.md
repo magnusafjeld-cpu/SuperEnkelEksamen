@@ -191,6 +191,13 @@ Motoren er `js/bundle-sjangre.js`, dataene `EDU_DATA.sjangre`, bygget fra
 **FIE432 fikk samme modul samme dag**, på norsk (`docs/fie432-sjanger-spek.md`). Kontrollen
 sjekker komma foran både «and» og «og».
 
+**Publiserte stiger kortes ned uten å miste svar.** Da FIE402 ble kortet ned fra 14 til
+9–11 steg (96 i alt), beholdt hvert uendret steg id-en sin, og kuttede steg forsvant. Et
+steg som slås sammen eller skrives om slik at oppgaven eller fasiten endres, får neste
+ledige nummer. Id-ene står derfor ikke i rekkefølge i stigen, og fasitplanen er nummerert
+etter id-nummeret, ikke plassen. Kontrollen godtar det. I praksis ble det bare kutt og
+flytting av teori; ingen steg trengte ny id.
+
 **Antall steg følger sjangeren, ikke et fast tall.** Magnus ba om det etter at alle
 FIE402-stigene fikk 14 steg (briefen sa 10–14). Retningen er færre: typisk 8–12, større
 hopp der begrepet er lett. Kontrollen varsler bare over 16.

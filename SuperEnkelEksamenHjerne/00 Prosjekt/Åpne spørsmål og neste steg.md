@@ -159,7 +159,7 @@ overstates the shield» (retningen avhenger av hvilken vei du forskyver). Ikke r
       juridisk (Dubai er ikke part i avtalen).
 - [ ] **Kreditten etter § 16-21 regnes per kategori, ikke per land**, mens manualen 13.3
       regner land for land.
-- [ ] **FIE402-stigene har 14 steg hver.** Kan kortes ned på samme måte som FIE432.
+- [x] ~~**FIE402-stigene har 14 steg hver.**~~ Kortet ned til 9–11 steg 22. oktober 2026, uten å miste lagrede svar.
 
 ## FIE432 — funnet under eksamenstreningen, ikke rettet
 

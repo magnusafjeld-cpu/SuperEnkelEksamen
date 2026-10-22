@@ -111,7 +111,11 @@ function main() {
     let gOrd = 0;
     steg.forEach((s, i) => {
       const h = `${s.id || hvor + "[" + i + "]"}`;
-      if (s.id !== `${g.id}-${i + 1}`) feil.push(`${h}: id skal være ${g.id}-${i + 1}`);
+      /* id-en er «<sjanger>-<nr>». Nummeret følger ikke nødvendigvis plassen: når en
+         publisert stige kortes ned, beholder uendrede steg id-en (og leserens svar),
+         og nye eller omskrevne steg får neste ledige nummer. */
+      const nr = (new RegExp(`^${g.id}-(\\d+)$`).exec(s.id || "") || [])[1];
+      if (!nr) feil.push(`${h}: id skal være ${g.id}-<nummer>`);
       if (ider.has(s.id)) feil.push(`${h}: id brukt før`); ider.add(s.id);
       for (const f of ["title", "theory", "q", "solution", "check"]) if (!String(s[f] || "").trim()) feil.push(`${h}: mangler ${f}`);
       for (const f of ["theory", "example", "q", "solution", "check"]) { sjekkHtml(s[f], `${h}.${f}`, feil, advarsel, false); språk(s[f], `${h}.${f}`, feil); }
@@ -134,7 +138,9 @@ function main() {
           if (l[s.answer] > Math.max(...l.filter((_, k) => k !== s.answer))) lengst++;
         }
         const p = plan && plan[g.id];
-        if (p && p[i] !== undefined && p[i] !== s.answer) feil.push(`${h}: fasiten står på ${"ABCD"[s.answer]}, planen sier ${"ABCD"[p[i]]}`);
+        /* Fasitplanen er nummerert etter id-nummeret, ikke plassen i stigen. */
+        const pi = nr ? +nr - 1 : i;
+        if (p && p[pi] !== undefined && p[pi] !== s.answer) feil.push(`${h}: fasiten står på ${"ABCD"[s.answer]}, planen sier ${"ABCD"[p[pi]]}`);
       }
       if (!Array.isArray(s.traps) || s.traps.length !== 4) feil.push(`${h}: traps må ha fire plasser, parallelt med options`);
       else s.traps.forEach((t, k) => {

@@ -48,31 +48,11 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "realopsjon-3",
-      title: "Deciding after the state is known",
-      theory: `<p>Draw the decision as a tree: a square for a choice you make, a circle for a state the world picks. If the square comes before the circle, you commit and get every branch. If the circle comes first, you see the state and then choose, so a branch with negative NPV becomes 0. Put the max inside the expectation, never outside.</p>
-<div class="formula"><div class="eq">commit first: E[NPV] = Σ p<sub>i</sub>·NPV<sub>i</sub></div>
-<div class="eq">decide after: E[max(0, NPV<sub>i</sub>)] = Σ p<sub>i</sub>·max(0, NPV<sub>i</sub>)</div>
-<div class="where">NPV<sub>i</sub> is the NPV in state i and p<sub>i</sub> its probability. Deciding after is never worth less than committing first, nor less than max(0, E[NPV]).</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Two equally likely states: NPV<sub>good</sub> = +200, NPV<sub>bad</sub> = −120.</p><p>Commit first: 0.5(200) + 0.5(−120) = 40. Decide after: 0.5(200) + 0.5(0) = 100.</p></div>`,
-      q: `<p>A product launch costs 400 today. The PV of its cash flows is 900 with probability 0.3 or 200 with probability 0.7. Suppose you could learn the state before you decide, at no cost and with no delay. What is the expected value of the launch decision, E[max(0, NPV<sub>i</sub>)]?</p>`,
-      options: ["10.00", "350.00", "150.00", "−130.00"],
-      answer: 2,
-      solution: `<p>NPV<sub>good</sub> = 900 − 400 = +500: launch. NPV<sub>bad</sub> = 200 − 400 = −200: do not launch, worth 0.</p><p>E[max(0, NPV<sub>i</sub>)] = 0.3(500) + 0.7(0) = <b>150.00</b>.</p>`,
-      check: `<p>Committing first gives E[NPV] = 0.3(500) + 0.7(−200) = 150 − 140 = 10. The gap, 150 − 10 = 140, must equal the loss you avoid in the bad state: 0.7 × 200 = 140 ✓</p>`,
-      traps: [
-        "Committed before seeing the state, or took the max after averaging: 0.3(500) + 0.7(−200) = 10; max(0, 10) is still 10.",
-        "Swapped the probabilities: 0.7(500) + 0.3(0) = 350.",
-        null,
-        "Declined the bad state but still charged the 400 there: 0.3(500) + 0.7(0 − 400) = 150 − 280 = −130.",
-      ],
-    },
-    {
       id: "realopsjon-4",
       title: "The value of perfect information",
-      theory: `<p>Information is worth what you would do differently with it. With it, you decide state by state. Without it, you make one decision on the average: invest if E[NPV] &gt; 0, otherwise do nothing and get 0. The difference is the most you should pay for a study that reveals the state today.</p>
+      theory: `<p>Draw the decision as a tree: a square for a choice you make, a circle for a state the world picks. If the circle comes first, you see the state and then choose, so a branch with negative NPV becomes 0: the max goes inside the expectation. If the square comes first, you make one decision on the average: invest if E[NPV] &gt; 0, otherwise do nothing and get 0. Information is worth the difference, the most you should pay for a study that reveals the state today.</p>
 <div class="formula"><div class="eq">value of perfect information = E[max(0, NPV<sub>i</sub>)] − max(0, E[NPV])</div>
-<div class="where">The second term is the best uninformed choice. If E[NPV] is negative it is 0, not E[NPV]. No discounting: the answer arrives now and you act now.</div></div>`,
+<div class="where">E[max(0, NPV<sub>i</sub>)] = Σ p<sub>i</sub>·max(0, NPV<sub>i</sub>), with p<sub>i</sub> the probability of state i. The second term is the best uninformed choice. If E[NPV] is negative it is 0, not E[NPV]. No discounting: the answer arrives now and you act now.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>p = 0.5, NPV<sub>good</sub> = +150, NPV<sub>bad</sub> = −250.</p><p>E[NPV] = 0.5(150) + 0.5(−250) = −50, so uninformed you do nothing: 0. Informed: 0.5(150) + 0.5(0) = 75.</p><p>Value of the information = 75 − 0 = 75, not 75 + 50 = 125.</p></div>`,
       q: `<p>A mining company can expand a mine for 500 today. The PV of the extra cash flows is 800 with probability 0.6 or 350 with probability 0.4. A geological survey, delivered immediately, would tell the company which. What is the most the company should pay for the survey?</p>`,
       options: ["180.00", "60.00", "0.00", "150.00"],
@@ -125,30 +105,6 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "realopsjon-7",
-      title: "What makes the option to wait valuable",
-      theory: `<p>Three things must be present: uncertainty, information that arrives while you wait and an investment that cannot be undone for free. The value comes from max(0, ·): the bad state is cut off at zero while the good state is kept. A wider spread with the same expected cash flow therefore raises the option, whether the risk is systematic or firm-specific. Anything that removes part of the good state, or pushes it further away, lowers it. So a positive NPV today can still mean wait; a negative-NPV project can still be worth something.</p>
-<div class="formula"><div class="eq">option to wait = avoided loss in the bad state − cost of delaying the good state</div>
-<div class="where">With two states, the bad one declined and NPV<sub>now</sub> &gt; 0: p<sub>bad</sub>·|NPV<sub>bad</sub>| − p<sub>good</sub>·NPV<sub>good</sub>·[1 − 1/(1 + r)].</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>I = 100, cash flow 16 or 6 a year forever (p = 0.5), r = 10%: NPV<sub>now</sub> = 10, NPV<sub>good</sub> = 60, NPV<sub>bad</sub> = −40.</p><p>Avoided loss 0.5 × 40 = 20.00, delay cost 0.5 × 60 × (1 − 1/1.10) = 2.73, option 17.27.</p><p>Widen the cash flows to 21 or 1, same mean of 11: NPV<sub>now</sub> stays 10, NPV<sub>good</sub> = 210 − 100 = 110, waiting = 0.5(110)/1.10 = 50, option = 40.</p></div>`,
-      q: `<p>A project costs 900 today and pays 120 or 40 a year forever, with probability 0.5 each; the state is revealed in one year. The cost of capital is 8%, so NPV<sub>now</sub> = 100. Waiting a year to build for the same 900 gives an option to wait worth 177.78. Which single change, with everything else unchanged, raises the value of the option to wait?</p>`,
-      options: [
-        "The good-state cash flow rises to 130 and the bad-state cash flow falls to 30.",
-        "The state is revealed only after two years, so waiting means building two years from now.",
-        "A rival may take the project during the year, with probability 0.2.",
-        "The bad-state cash flow rises from 40 to 60.",
-      ],
-      answer: 0,
-      solution: `<p>Base: NPV<sub>good</sub> = 1 500 − 900 = 600, NPV<sub>bad</sub> = 500 − 900 = −400, waiting 0.5(600)/1.08 = 277.78, option 277.78 − 100 = 177.78.</p><p>Wider spread, 130 or 30 with the mean still 80: NPV<sub>now</sub> stays 100, NPV<sub>good</sub> = 1 625 − 900 = 725, waiting 0.5(725)/1.08 = 335.65, option <b>235.65</b>. Up. The extra loss in the bad state is cut off at zero, while the extra gain in the good state is kept.</p>`,
-      check: `<p>The other three all lower the option. Two years: 300/1.08<sup>2</sup> = 257.20, option 157.20. Rival: 0.8 × 300/1.08 = 222.22, option 122.22. Bad state at 60: NPV<sub>now</sub> = 0.5(120 + 60)/0.08 − 900 = 1 125 − 900 = 225, waiting unchanged at 277.78, option 52.78. Only the wider spread raises it ✓</p>`,
-      traps: [
-        null,
-        "Thought more time means more information. The information is the same, it just arrives later: 0.5(600)/1.08<sup>2</sup> − 100 = 157.20, down from 177.78.",
-        "Treated any extra uncertainty as option value. A rival removes part of the good state you are waiting for: 0.8 × 300/1.08 − 100 = 122.22.",
-        "Thought a milder bad state helps the option. It raises NPV<sub>now</sub> to 225 but not the value of waiting, since you never build in the bad state: 277.78 − 225 = 52.78.",
-      ],
-    },
-    {
       id: "realopsjon-8",
       title: "The exit option: a perpetuity cut to an annuity",
       theory: `<p>An exit option is the mirror image of waiting: you commit first, then may quit once you know the state. In the bad state the perpetuity of losses is replaced by an annuity that stops at the exit date, plus any salvage value S. The good state is unchanged, since you never quit a positive perpetuity. The option is worth only the negative tail it cuts off.</p>
@@ -186,26 +142,6 @@ window.EDU_DATA.sjangre.push({
         "Valued the perpetuity at date 2 and discounted it again: success 2 600/1.10 − 2 000 = 363.64, failure still sells for 250, NPV = −200 + [0.4(363.64) + 0.6(250)]/1.10 = 68.60.",
         null,
         "Built in both states, with no max at date 1: −200 + [0.4(600) + 0.6(−500)]/1.10 = −200 − 54.55 = −254.55.",
-      ],
-    },
-    {
-      id: "realopsjon-10",
-      title: "The indifference point",
-      theory: `<p>Run the comparison backwards: leave one input unknown, write both strategies as functions of it, set them equal and solve. Because max(0, ·) makes each strategy piecewise linear, the algebra holds only inside the interval where the same branches are taken. Check that the answer lies in that interval, then say which side does what.</p>
-<div class="formula"><div class="eq">invest now: E[C]/r − I</div>
-<div class="eq">wait: Σ p<sub>i</sub>·max(0, C<sub>i</sub>/r − I)/(1 + r)</div>
-<div class="where">For an unknown investment cost I, the usual interval is the one where the good state is built and the bad state is not: C<sub>bad</sub>/r &lt; I &lt; C<sub>good</sub>/r.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>Cash flow 30 or 10 a year forever (p = 0.5), r = 10%. Invest now: 200 − I. Wait, for 100 &lt; I &lt; 300: 0.5(300 − I)/1.10.</p><p>Set equal: 1.10(200 − I) = 150 − 0.5I, so 220 − 1.10I = 150 − 0.5I and 70 = 0.60I. I* = 116.6667, inside (100, 300) ✓</p><p>Below I* invest now, above it wait.</p></div>`,
-      q: `<p>A plant pays 140 a year forever with probability 0.4 or 40 a year forever with probability 0.6; the state is revealed in one year. The cost of capital is 8%. The investment cost I is the same today and in one year. Waiting shifts the whole project by a year. At what investment cost I* is the firm indifferent between investing today and waiting?</p>`,
-      options: ["558.8235", "608.5595", "1 000.0000", "586.4198"],
-      answer: 0,
-      solution: `<p>PVs: 140/0.08 = 1 750 and 40/0.08 = 500. Expected: 0.4(1 750) + 0.6(500) = 1 000.</p><p>Invest now: 1 000 − I. Wait, for 500 &lt; I &lt; 1 750: 0.4(1 750 − I)/1.08.</p><p>Set equal: 1.08(1 000 − I) = 700 − 0.4I, so 1 080 − 1.08I = 700 − 0.4I and 380 = 0.68I. I* = <b>558.8235</b>, inside (500, 1 750) ✓ Below I* build now, above it wait.</p>`,
-      check: `<p>Plug back: invest now 1 000 − 558.8235 = 441.1765. Wait 0.4(1 750 − 558.8235)/1.08 = 476.4706/1.08 = 441.1765 ✓ At I = 600: invest now 400 against wait 0.4(1 150)/1.08 = 425.93, so waiting wins above I*, as stated.</p>`,
-      traps: [
-        null,
-        "Discounted the waiting branch twice: 1.08<sup>2</sup>(1 000 − I) = 0.4(1 750 − I) gives 466.4 = 0.7664I, so I = 608.5595.",
-        "Solved the static rule NPV<sub>now</sub> = 0 instead of comparing with waiting: I = 1 000.",
-        "Discounted the date-1 cash flows but not the date-1 investment: 1 000 − I = 0.4(1 750/1.08 − I) gives I = 586.4198.",
       ],
     },
     {

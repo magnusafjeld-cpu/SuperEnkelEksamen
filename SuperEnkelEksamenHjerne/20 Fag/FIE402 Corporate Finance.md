@@ -350,7 +350,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Flashcards | **268** forfattet + 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
 | Problem sets | **Problem Set 1** (capital structure and payout policy) · 13 oppgaver · 52 delspørsmål med fire hint hver |
-| Sjangertrening | **9 stiger · 126 steg**, hver fra null til eksamensnivå, etter eksamensvekt |
+| Sjangertrening | **9 stiger · 96 steg**, hver fra null til eksamensnivå, etter eksamensvekt |
 | Aktiv læring | **208** oppgaver |
 | Dybdetrening | **458** i seks banker |
 | Lynlæring | **233** elementer, med fremdriftsport |
@@ -397,8 +397,7 @@ prinsippet: en kontroll som bare bekrefter, er ingen kontroll.
 
 Ni stiger, én per oppgavesjanger, i rekkefølge etter eksamensvekt: tvillingfirmaet,
 MM og rekapitalisering, WACC og APV, realopsjoner, fusjoner, risikoskifting og
-gjeldsoverheng, opsjoner, gjeld og egenkapital som opsjoner og Myers-Majluf. Hver
-har 14 steg; de siste er bygd som de virkelige eksamensoppgavene med nye tall
+gjeldsoverheng, opsjoner, gjeld og egenkapital som opsjoner og Myers-Majluf. De siste stegene er bygd som de virkelige eksamensoppgavene med nye tall
 (H2025 E4 (a)–(i) i WACC/APV, H2025 E5 og H2024 E6 i realopsjoner, H2025 E6 i
 fusjoner, V2024 P4 i kreditt og så videre). Engelsk, som resten av faget.
 

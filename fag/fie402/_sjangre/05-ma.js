@@ -66,31 +66,12 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "ma-4",
-      title: "The target's ownership share y",
-      theory: `<p>After the swap the target's former shareholders hold the x new shares and the acquirer's old shareholders hold the N<sub>A</sub> old ones. The target's fraction of the merged firm is y. It is a ratio of share counts, so it depends on neither prices nor synergies. The formula sheet uses y in both NPV formulas but does not define it.</p>
-<div class="formula"><div class="eq">y = x/(N<sub>A</sub> + x) &nbsp;&nbsp; 1 − y = N<sub>A</sub>/(N<sub>A</sub> + x)</div>
-<div class="where">The denominator is the share count after the deal. 1 − y is what the acquirer's old shareholders keep.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>N<sub>A</sub> = 10 million and x = 2.5 million.</p><p>y = 2.5/(10 + 2.5) = 2.5/12.5 = 20%. The acquirer's old holders keep 80%.</p></div>`,
-      q: `<p>Granlia ASA has 80 million shares. It offers ER = 0.35 for each of the 20 million shares of Myrvoll AS. What fraction of the merged firm will Myrvoll's former shareholders own?</p>`,
-      options: ["8.7500%", "20.0000%", "7.0000%", "8.0460%"],
-      answer: 3,
-      solution: `<p>x = 0.35 × 20 = 7.00 million new shares.</p><p>y = 7/(80 + 7) = 7/87 = 0.080460 = <b>8.0460%</b>.</p>`,
-      check: `<p>Backwards: y/(1 − y) = 0.080460/0.919540 = 0.0875 = 7/80 = x/N<sub>A</sub> ✓. Also x/N<sub>T</sub> = 7/20 = 0.35 = ER ✓.</p>`,
-      traps: [
-        "Divided by the acquirer's old share count instead of the count after the deal: 7/80 = 8.7500%.",
-        "Used the target's old share count in place of the new shares: 20/(80 + 20) = 20.0000%.",
-        "Divided by both firms' old share counts instead of the count after the deal: 7/(80 + 20) = 7.0000%.",
-        null,
-      ],
-    },
-    {
       id: "ma-5",
-      title: "The NPV to each side and why the two sum to S",
-      theory: `<p>Each group's gain is what it owns after the deal minus what it had before. The acquirer's old shareholders own 1 − y of A + T + S and had A; the target's shareholders own y of it and had T. Both formulas are on the formula sheet. Added together they give S: the exchange ratio only decides how the synergies are divided.</p>
-<div class="formula"><div class="eq">NPV<sub>A</sub> = (1 − y)(A + T + S) − A &nbsp;&nbsp; NPV<sub>T</sub> = y(A + T + S) − T</div><div class="eq">NPV<sub>A</sub> + NPV<sub>T</sub> = S &nbsp;&nbsp; NPV<sub>A</sub> = N<sub>A</sub>(P<sub>new</sub> − P<sub>A</sub>)</div>
-<div class="where">The sum to S is an identity: it catches a slip in one NPV line but holds for any y. The second identity never uses y, so it is the check that catches a wrong y.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>A = 500, T = 100, S = 50 and y = 20%, so A + T + S = 650.</p><p>NPV<sub>A</sub> = 0.80 × 650 − 500 = 20. NPV<sub>T</sub> = 0.20 × 650 − 100 = 30. Sum: 20 + 30 = 50 = S ✓.</p></div>`,
+      title: "The target's ownership share y and the NPV to each side",
+      theory: `<p>After the swap the target's former shareholders hold the x new shares and the acquirer's old shareholders keep their N<sub>A</sub>. The target's fraction of the merged firm is y, a ratio of share counts that depends on neither prices nor synergies. Each group's gain is what it owns after the deal minus what it had before. The acquirer's old shareholders own 1 − y of A + T + S and had A; the target's shareholders own y of it and had T. The formula sheet gives both NPV formulas but does not define y. Added together they give S: the exchange ratio only decides how the synergies are divided.</p>
+<div class="formula"><div class="eq">y = x/(N<sub>A</sub> + x)</div><div class="eq">NPV<sub>A</sub> = (1 − y)(A + T + S) − A &nbsp;&nbsp; NPV<sub>T</sub> = y(A + T + S) − T</div><div class="eq">NPV<sub>A</sub> + NPV<sub>T</sub> = S &nbsp;&nbsp; NPV<sub>A</sub> = N<sub>A</sub>(P<sub>new</sub> − P<sub>A</sub>)</div>
+<div class="where">The denominator of y is the share count after the deal, not N<sub>A</sub> and not N<sub>A</sub> + N<sub>T</sub>. The sum to S is an identity: it catches a slip in one NPV line but holds for any y. The last identity never uses y, so it is the check that catches a wrong y.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>N<sub>A</sub> = 10 million and x = 2.5 million new shares, A = 500, T = 100 and S = 50.</p><p>y = 2.5/(10 + 2.5) = 20% and A + T + S = 650. NPV<sub>A</sub> = 0.80 × 650 − 500 = 20. NPV<sub>T</sub> = 0.20 × 650 − 100 = 30. Sum: 20 + 30 = 50 = S ✓.</p></div>`,
       q: `<p>Kvitfjell ASA has 30 million shares at 150 NOK. It offers ER = 0.36 for each of the 12 million shares of Bergtind AS, which trade at 45 NOK. The synergies are worth 180 million NOK. Both prices are pre-announcement. What is the NPV of the deal for Kvitfjell's shareholders?</p>`,
       options: ["117.06 million", "−94.41 million", "160.71 million", "62.94 million"],
       answer: 3,
@@ -142,44 +123,6 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "ma-8",
-      title: "EPS after the merger: why accretion is not value",
-      theory: `<p>Earnings per share after the merger are the two firms' earnings over the new share count. If the acquirer pays a lower price-earnings ratio for the target than its own, EPS rises mechanically, with no synergies at all. This is bootstrapping. The market values the merged firm at A + T + S, not at the acquirer's old P/E times the new EPS, so the merged P/E simply falls. Only P<sub>new</sub> against P<sub>A</sub> says whether the acquirer's shareholders gained.</p>
-<div class="formula"><div class="eq">EPS<sub>new</sub> = (Earnings<sub>A</sub> + Earnings<sub>T</sub>)/(N<sub>A</sub> + x)</div>
-<div class="where">EPS rises whenever the P/E paid for the target (offer per share/EPS<sub>T</sub>) is below the acquirer's own P/E. That is arithmetic, not value creation.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>The acquirer: 20 million shares at 100 NOK, earnings 100 million (EPS 5, P/E 20). The target: 10 million shares at 20 NOK, earnings 20 million (EPS 2, P/E 10). Zero premium: ER = 20/100 = 0.20 and x = 2 million. S = 0.</p><p>EPS<sub>new</sub> = 120/22 = 5.4545, up 9.09%. P<sub>new</sub> = (2 000 + 200)/22 = 100.00, unchanged. EPS rose, value did not.</p></div>`,
-      q: `<p>Høgset ASA earns 240 million NOK a year on 40 million shares and trades at 96 NOK. Lauvås AS earns 60 million on 25 million shares and trades at 20 NOK. Høgset offers a 20% premium, paid in its own shares. There are no synergies. What are Høgset's EPS and share price after the merger?</p>`,
-      options: ["EPS 6.4865 and price 93.8378", "EPS 6.4865 and price 103.7838", "EPS 7.5000 and price 108.5000", "EPS 6.4865 and price 96.0000"],
-      answer: 0,
-      solution: `<p>Offer = 20 × 1.20 = 24 NOK per Lauvås share, so ER = 24/96 = 0.25 and x = 0.25 × 25 = 6.25 million.</p><p>EPS<sub>new</sub> = (240 + 60)/(40 + 6.25) = 300/46.25 = <b>6.4865</b>, up 8.11% from 6.00.</p><p>P<sub>new</sub> = (40 × 96 + 25 × 20)/46.25 = 4 340/46.25 = <b>93.8378</b>, down 2.25% from 96.</p>`,
-      check: `<p>The P/E paid is 24/2.40 = 10, below Høgset's own 96/6 = 16, so EPS had to rise before anyone looked at the business. Value route: Lauvås's holders get 6.25 × 93.8378 = 586.49 for T = 500, so Høgset's holders lose 86.49 = 40 × (96 − 93.8378) ✓. The merged P/E is 4 340/300 = 14.4667, between the 16 and the 10 paid.</p>`,
-      traps: [
-        null,
-        "Bootstrapping: applied Høgset's old P/E to the new EPS, 16 × 6.486486 = 103.7838. The market prices the assets, not the EPS.",
-        "Forgot the new shares: 300/40 = 7.5000 and 4 340/40 = 108.5000.",
-        "Assumed the price cannot move without synergies and kept 96.0000. With S = 0 the merged firm is worth A + T = 4 340, but the 20% premium moves 86.49 of Høgset's value to Lauvås's holders, so the price falls to 4 340/46.25 = 93.8378.",
-      ],
-    },
-    {
-      id: "ma-9",
-      title: "Implied synergies from the announcement reaction",
-      theory: `<p>When a deal is announced, both prices move. Whatever the payment method, the two sets of shareholders together own the whole merged firm, so the change in the two firms' combined market value is the market's estimate of the synergies. Keep the sign: the acquirer often falls. This assumes the market expects the deal to close and that nothing else moved the prices that day.</p>
-<div class="formula"><div class="eq">S<sub>implied</sub> = (N<sub>A</sub>P<sub>A</sub><sup>post</sup> + N<sub>T</sub>P<sub>T</sub><sup>post</sup>) − (N<sub>A</sub>P<sub>A</sub><sup>pre</sup> + N<sub>T</sub>P<sub>T</sub><sup>pre</sup>)</div>
-<div class="where">The target's change is its gain, the acquirer's change its gain or loss. If the deal may fail, the prices are probability-weighted and S<sub>implied</sub> understates the synergies conditional on closing.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>The acquirer has 10 million shares that rise from 50 to 51 NOK. The target has 5 million shares that rise from 20 to 25 NOK.</p><p>Acquirer: 10 × 1 = +10 million. Target: 5 × 5 = +25 million. S<sub>implied</sub> = 10 + 25 = 35 million.</p></div>`,
-      q: `<p>Rognstad ASA (50 million shares at 64 NOK) offers 1 Rognstad share for every 2 shares of Eikefjord AS (20 million shares at 25 NOK). On the announcement Rognstad falls to 62.40 and Eikefjord rises to 31.20. Assume the market expects the deal to close and nothing else moved the prices. What synergies does the market assign to the deal?</p>`,
-      options: ["124.00 million", "204.00 million", "−80.00 million", "44.00 million"],
-      answer: 3,
-      solution: `<p>Before: 50 × 64 + 20 × 25 = 3 200 + 500 = 3 700 million.</p><p>After: 50 × 62.40 + 20 × 31.20 = 3 120 + 624 = 3 744 million.</p><p>S<sub>implied</sub> = 3 744 − 3 700 = <b>44.00 million</b>. Eikefjord's holders gain 20 × 6.20 = 124 and Rognstad's lose 50 × 1.60 = 80: 124 − 80 = 44.</p>`,
-      check: `<p>Feed S = 44 into the merged-price formula: x = 0.5 × 20 = 10 million and P<sub>new</sub> = (3 200 + 500 + 44)/(50 + 10) = 3 744/60 = 62.40, exactly Rognstad's observed price ✓. Eikefjord at 0.5 × 62.40 = 31.20 is then exactly the value of the shares it will receive.</p>`,
-      traps: [
-        "Counted only the target's gain: 20 × (31.20 − 25) = 124.00 million. That is the premium, not the synergy.",
-        "Added the acquirer's loss as if it were a gain: 124 + 80 = 204.00 million.",
-        "Counted only the acquirer's change: 50 × (62.40 − 64) = −80.00 million.",
-        null,
-      ],
-    },
-    {
       id: "ma-10",
       title: "The long-short strategy and its two payoffs",
       theory: `<p>Between announcement and completion the target trades below what it will be worth if the deal closes, because the deal may fail. To read that risk off prices, build a position whose payoff you know in both outcomes: buy target shares and short acquirer shares in exactly the exchange ratio, then put the short-sale proceeds in the risk-free asset. If the deal completes, the target shares convert into exactly the acquirer shares you owe, so only the deposit is left. If it fails, you unwind at the prices that then hold.</p>
@@ -220,10 +163,10 @@ window.EDU_DATA.sjangre.push({
     {
       id: "ma-12",
       title: "Exam level: the motive and the vote from the price reaction",
-      theory: `<p>The announcement reaction tells you what the market believes about the deal. If the acquirer falls and the target jumps, the market thinks the acquirer pays more than the target is worth to it, so NPV<sub>A</sub> &lt; 0. Motives that predict that pattern are agency motives: empire building (managers gain from running a bigger firm) and hubris or the winner's curse. Motives that create value, such as undervaluation, a disciplinary takeover or a tax gain, should raise the two firms' combined value; they fit a falling acquirer only if it pays away more than the gain.</p>
-<div class="formula"><div class="eq">acquirer ↓, target ↑ ⟹ NPV<sub>A</sub> &lt; 0: empire building, hubris, winner's curse</div>
-<div class="where">An acquirer shareholder votes by his own NPV. If enough holders vote against, the deal fails and prices move back towards their pre-announcement levels. They may not go all the way: the bid may have revealed something about the target, or management may try again.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>An acquirer with 20 million shares falls from 80 to 76; a target with 10 million shares rises from 30 to 37. Combined value: 1 600 + 300 = 1 900 before and 1 520 + 370 = 1 890 after.</p><p>The acquirer loses 80 million, the target gains 70 million and 10 million disappears. That fits empire building, not undervaluation.</p></div>`,
+      theory: `<p>The announcement reaction tells you what the market believes about the deal. Whatever the payment method, the two sets of shareholders together own the whole merged firm, so the change in the two firms' combined market value is the market's estimate of the synergies. If the acquirer falls and the target jumps, the market thinks the acquirer pays more than the target is worth to it, so NPV<sub>A</sub> &lt; 0. Motives that predict that pattern are agency motives: empire building (managers gain from running a bigger firm) and hubris or the winner's curse. Motives that create value, such as undervaluation, a disciplinary takeover or a tax gain, should raise the two firms' combined value; they fit a falling acquirer only if it pays away more than the gain.</p>
+<div class="formula"><div class="eq">S<sub>implied</sub> = N<sub>A</sub>ΔP<sub>A</sub> + N<sub>T</sub>ΔP<sub>T</sub></div><div class="eq">acquirer ↓, target ↑ ⟹ NPV<sub>A</sub> &lt; 0: empire building, hubris, winner's curse</div>
+<div class="where">ΔP is the change in each share price on the announcement; keep the sign. An acquirer shareholder votes by his own NPV. If enough holders vote against, the deal fails and prices move back towards their pre-announcement levels. They may not go all the way: the bid may have revealed something about the target, or management may try again.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>An acquirer with 20 million shares falls from 80 to 76; a target with 10 million shares rises from 30 to 37. Combined value: 1 600 + 300 = 1 900 before and 1 520 + 370 = 1 890 after.</p><p>The acquirer loses 20 × 4 = 80 million and the target gains 10 × 7 = 70 million, so S<sub>implied</sub> = −80 + 70 = −10 million: 1 890 − 1 900. That fits empire building, not undervaluation.</p></div>`,
       q: `<p>Storhaug ASA is a mature firm with large cash holdings, few investment opportunities and a CEO whose bonus grows with the size of the firm. It announces an offer for Lindvik AS, a firm in an unrelated industry. Storhaug's 30 million shares fall from 140 to 131 NOK and Lindvik's 12 million shares rise from 50 to 63 NOK. Synergies are not an accepted answer. Which answer gives a motive that fits the evidence, the right vote for a Storhaug shareholder and the right prediction for the prices if most holders vote the same way?</p>`,
       options: [
         "Undervaluation: Storhaug has spotted that Lindvik is cheap and buys it below its true value. Vote in favour, since Storhaug's price recovers once the deal closes.",
