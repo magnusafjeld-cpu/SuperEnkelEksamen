@@ -9,7 +9,7 @@ Alt der gjelder her uendret.
 ## 1. Hva dette er
 
 En egen fane, «Sjangertrening», der hver **sjanger** er én type eksamensoppgave (tvillingfirmaet,
-rekapitaliseringen, realopsjonen …). Hver sjanger er en **stige**: 10–14 korte steg som starter
+rekapitaliseringen, realopsjonen …). Hver sjanger er en **stige** av korte steg som starter
 som om leseren ikke kan noe om temaet, og slutter med en oppgave på eksamensnivå. Etter siste
 steg skal han kunne løse nesten alle eksamensoppgaver i sjangeren.
 
@@ -45,6 +45,9 @@ hvordan et begrep introduseres og hvordan de gale alternativene lages:
 
 ## 2. Stigen
 
+- **Så få steg som trengs, ikke et fast tall** (Magnus' beskjed 22. oktober 2026). Typisk 8–12;
+  større hopp er greit der begrepet er enkelt. Første versjon av FIE402-stigene fikk 14 steg hver
+  fordi briefene sa 10–14.
 - **Steg 1 forutsetter ingenting** utover å kunne regne prosent. Ett begrep, én formel.
 - **Ett nytt begrep per steg.** Et steg kan bruke alt fra tidligere steg i samme stige, men
   aldri noe som ikke er introdusert der. Hver stige står på egne ben: leseren kan starte i

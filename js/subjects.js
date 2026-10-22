@@ -312,7 +312,7 @@ window.EDU_SUBJECTS = [
     blurb: "Skattesystemet, aksjonær- og formuesbeskatningen, skatteteorien og husholdningens finansbeslutninger — med ni tidligere eksamener rettet automatisk.",
     /* Samme blå som SAM3. Var brent oransje til 9. oktober 2026. */
     accent: "#2f6bff", accentInk: "#1b4fd6", accentSoft: "#eaf0ff", accentSoft2: "#dbe6ff",
-    scripts: ["fag/fie432/data.js", "fag/fie432/quiz.js", "fag/fie432/dybde.js", "fag/fie432/sett.js", "fag/fie432/kapitteloppgaver.js", "fag/fie432/kjerne.js", "fag/fie432/symboler.js"],
+    scripts: ["fag/fie432/data.js", "fag/fie432/quiz.js", "fag/fie432/dybde.js", "fag/fie432/sett.js", "fag/fie432/kapitteloppgaver.js", "fag/fie432/sjangre.js", "fag/fie432/kjerne.js", "fag/fie432/symboler.js"],
     manual: {
       candidates: ["FIE432_Manual.html", "fag/fie432/manual.html", "../FIE432_Manual.html"],
       label: "FIE432_Manual.html",
@@ -365,7 +365,7 @@ window.EDU_SUBJECTS = [
        flervalgssett, som kjøres i /sett. Flashcards er med fordi de 100 radene i
        formelsamlingen k20 blir til kort automatisk; quiz, dybde og lyn legges
        til når de dataene er skrevet. */
-    modules: ["/plan", "/curriculum", "/kjerne", "/quiz", "/kapitteloppgaver", "/trening", "/flashcards", "/dybde", "/sett", "/review", "/search", "/notebooklm"],
+    modules: ["/plan", "/curriculum", "/kjerne", "/quiz", "/kapitteloppgaver", "/sjangre", "/trening", "/flashcards", "/dybde", "/sett", "/review", "/search", "/notebooklm"],
     /* Eksamenstreningen er over en megabyte og lastes først når den åpnes. */
     lazy: { "/trening": ["fag/fie432/trening.js"] },
   },

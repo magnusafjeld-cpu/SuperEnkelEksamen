@@ -57,11 +57,13 @@ function sjekkHtml(html, hvor, feil, advarsel, inline) {
 /* Et talalternativ: et tall med enhet, valuta eller prosent, kort. */
 const erTall = (o) => { const t = ren(o); return t.length <= 28 && /\d/.test(t) && !/[a-z]{4,}/i.test(t.replace(/\b(NOK|USD|EUR|mill|million|bn|per|share)\b/gi, "")); };
 
-const BOKSTAVREF = /\b([Oo]ption|[Aa]lternative|[Aa]nswer|[Cc]hoice)\s*\(?[A-D]\)?(?![a-zA-Z])|\([A-D]\)\s*(is|was)\b/;
+/* Engelsk (FIE402) og norsk (FIE432): «option B», «alternativ C», «svar D». */
+const BOKSTAVREF = /\b([Oo]ption|[Aa]lternative|[Aa]nswer|[Cc]hoice|[Aa]lternativ(?:et)?|[Ss]var(?:et)?)\s*\(?[A-D]\)?(?![a-zA-ZæøåÆØÅ])|\([A-D]\)\s*(is|was|er|var)\b/;
 function språk(tekst, hvor, feil) {
   const t = ren(tekst);
   if (/—/.test(t)) feil.push(`${hvor}: tankestrek (—)`);
   for (const m of t.matchAll(/[^\s,]+, and\b/g)) feil.push(`${hvor}: komma foran «and»: «${m[0]}»`);
+  for (const m of t.matchAll(/[^\s,]+, og\b/g)) feil.push(`${hvor}: komma foran «og»: «${m[0]}»`);
 }
 
 function last(filer) {
@@ -103,7 +105,8 @@ function main() {
     sjekkHtml(g.intro, hvor + ".intro", feil, advarsel, false);
     språk([g.title, g.summary, g.intro, g.exam].join(" "), hvor, feil);
     const steg = g.steps || [];
-    if (steg.length < 8 || steg.length > 16) advarsel.push(`${hvor}: ${steg.length} steg (sikt mot 10–14)`);
+    /* Så få steg som trengs (typisk 8–12), ikke et fast tall. Bare ytterpunktene varsles. */
+    if (steg.length < 5 || steg.length > 16) advarsel.push(`${hvor}: ${steg.length} steg; er stigen for tynn eller for lang?`);
     const gpos = [0, 0, 0, 0];
     let gOrd = 0;
     steg.forEach((s, i) => {

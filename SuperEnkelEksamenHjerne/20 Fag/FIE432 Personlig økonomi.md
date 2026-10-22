@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-10-15
+oppdatert: 2026-10-22
 ---
 
 # FIE432 Personlig økonomi
@@ -208,6 +208,7 @@ Kontrolleres med `tools/sjekk-manual.py`.
 | Dybdetrening | **299 spørsmål** i fire banker: 72 · 77 · 72 · 78 |
 | Kapitteloppgaver | **229 oppgaver** i eksamensformat over alle 19 kapitler · 687 poeng · antallet følger eksamensvekten |
 | Eksamenstrening | **754 spørsmål** i tolv temaer · 91 regnefamilier med 480 varianter og 274 statiske · alle løst blindt |
+| Sjangertrening | **11 stiger · 114 steg**, hver fra null til eksamensnivå, etter eksamensvekt |
 | Lynlæring | ikke skrevet — modulen er avslått til den har data |
 
 **Aritmetikken er kontrollert maskinelt.** `tools/sjekk-aritmetikk.py` fant 841
@@ -294,6 +295,26 @@ Det gjennomgangen fant:
 **Symbolene i formlene forklares ved hover eller trykk** (9. oktober 2026), som i
 FIE402: 92 symboler i `fag/fie432/symboler.js`, kontrollert med
 `tools/sjekk-symboler.js fie432`. Se [[Moduler og visninger]].
+
+## Sjangertrening
+
+Elleve stiger, én per oppgavesjanger, etter poengvekt over de ni settene: insidens,
+aksjonærmodellen, formuesskatten, formuesskatt som avkastningsskatt, effektiv
+skattesats, pensjon, portefølje (Merton), forventet nytte og forsikring, internasjonal
+skatt, lån og bedriftens tilpasning. Norsk, med kursets notasjon. Opplegget kom
+opprinnelig fra FIE432 (forventet nytte steg for steg), og nytte-stigen starter med de
+tre stegene Magnus beskrev. Spesifikasjonen er `docs/fie432-sjanger-spek.md`.
+
+**Antall steg følger sjangeren.** Første utkast fikk 14 steg hver fordi briefen sa
+12–14; Magnus ba om at antallet skulle tilpasses, og helst færre. Kontrollørene kuttet
+steg som bare gjentok en rutine med nye tall og slo sammen lette begreper: nå 10–12
+steg per stige. Fasitplanen har 16 plasser per sjanger.
+
+Skrevet 22. oktober 2026 av elleve agenter og kontrollert av fem uavhengige
+kontrollører som regnet alle tall på nytt. Ingen fasit var feil; de rettet mønstre
+der fasiten avslørte seg (to alternativer som summerte til et tredje, fasiten aldri
+høyest), og noen uklare oppgavetekster. Eulerlikningen er ikke med: den står verken i
+manualen eller forelesningene.
 
 ## Eksamenstrening
 

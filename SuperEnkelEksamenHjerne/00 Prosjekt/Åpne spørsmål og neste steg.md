@@ -147,6 +147,20 @@ overstates the shield» (retningen avhenger av hvilken vei du forskyver). Ikke r
 - [ ] **sett.js H2025 E4** oppgir PV(TS) = 0.7503 og justeringen 5.7531; med full
       presisjon 0.7504 og 5.7530. Innenfor nøkkelens toleranse.
 
+## FIE432 — funnet under sjangertreningen (22. oktober 2026)
+
+- [ ] **k15 (pensjon) motsier seg selv om H2019 oppgave 6c:** forklaringen under formelen
+      og advarselsboksen nevner ulike gale alternativer (1 328 510 mot 1 352 040).
+- [ ] **sett.js H2022 oppgave 6a:** mellomregningene er feil (1,0499⁻⁵ = 0,783899, ikke
+      0,784013), men sluttsvarene stemmer. 6b bruker et annet overslag enn manualen.
+- [ ] **sett.js H2024 oppgave 14:** løsningen sier at avdragsfrihet gir høyere kostnad;
+      manualen (og stigen) sier at den er lik i nåverdi.
+- [ ] **sett.js H2022 oppgave 4 spørsmål 4:** forklaringen om fast bolig holder neppe
+      juridisk (Dubai er ikke part i avtalen).
+- [ ] **Kreditten etter § 16-21 regnes per kategori, ikke per land**, mens manualen 13.3
+      regner land for land.
+- [ ] **FIE402-stigene har 14 steg hver.** Kan kortes ned på samme måte som FIE432.
+
 ## FIE432 — funnet under eksamenstreningen, ikke rettet
 
 - [ ] **H2024 oppgave 8 i `fag/fie432/sett.js` har likevekten «D(P) = S(p + t)»**,

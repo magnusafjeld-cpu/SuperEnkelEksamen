@@ -188,6 +188,13 @@ Motoren er `js/bundle-sjangre.js`, dataene `EDU_DATA.sjangre`, bygget fra
 `node tools/sjekk-sjangre.js <fag>`. Fasitposisjonene er trukket på forhånd
 (`_sjangre/fasitplan.json`). Spesifikasjonen er `docs/fie402-sjanger-spek.md`.
 
+**FIE432 fikk samme modul samme dag**, på norsk (`docs/fie432-sjanger-spek.md`). Kontrollen
+sjekker komma foran både «and» og «og».
+
+**Antall steg følger sjangeren, ikke et fast tall.** Magnus ba om det etter at alle
+FIE402-stigene fikk 14 steg (briefen sa 10–14). Retningen er færre: typisk 8–12, større
+hopp der begrepet er lett. Kontrollen varsler bare over 16.
+
 **Lengdesjekken gjelder bare utsagnsalternativer.** Første versjon telte også
 tallalternativer, og telte uavgjort som «fasiten er lengst». En agent holdt derfor
 riktige prosenter ensifret, og «det tosifrede er aldri riktig» ble en ny avsløring.

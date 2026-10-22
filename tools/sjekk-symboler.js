@@ -91,6 +91,10 @@ function sikkert(tok, hevet, senket, v, fra, til) {
   if (tok.length >= 2) return tok === tok.toUpperCase() && /^[A-Z]+$/.test(tok);
   /* «k7», «E4» og «P1» er henvisninger til kapitler og oppgaver, ikke symboler. */
   if (/^[A-Za-z]$/.test(tok) && /\d/.test(v[til] || "")) return false;
+  /* «3a)» og «6b)» er deloppgaver: en bokstav rett etter et siffer. */
+  if (/^[a-i]$/.test(tok) && /\d/.test(v[fra - 1] || "")) return false;
+  /* «delspørsmål c)» og «oppgave d)»: bokstav etter et ord og rett foran «)». «(b + d)» er fortsatt et symbol. */
+  if (/^[a-i]$/.test(tok) && v[til] === ")" && /[A-Za-zæøåÆØÅ] $/.test(v.slice(Math.max(0, fra - 2), fra))) return false;
   /* «(d)» er en deloppgave, ikke gjeldsandelen d. */
   if (/^[a-i]$/.test(tok) && v[fra - 1] === "(" && v[til] === ")") return false;
   let før = fra - 1; while (før >= 0 && v[før] === " ") før--;

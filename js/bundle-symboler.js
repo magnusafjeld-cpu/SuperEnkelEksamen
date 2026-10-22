@@ -85,6 +85,10 @@ window.EDU = window.EDU || {};
     if (tok.length >= 2) return tok === tok.toUpperCase() && /^[A-Z]+$/.test(tok);
     /* «k7», «E4» og «P1» er henvisninger til kapitler og oppgaver, ikke symboler. */
     if (/^[A-Za-z]$/.test(tok) && /\d/.test(tekst[til] || "")) return false;
+    /* «3a)» og «6b)» er deloppgaver: en bokstav rett etter et siffer. */
+    if (/^[a-i]$/.test(tok) && /\d/.test(tekst[fra - 1] || "")) return false;
+    /* «delspørsmål c)» og «oppgave d)»: bokstav etter et ord og rett foran «)». «(b + d)» er fortsatt et symbol. */
+    if (/^[a-i]$/.test(tok) && tekst[til] === ")" && /[A-Za-zæøåÆØÅ] $/.test(tekst.slice(Math.max(0, fra - 2), fra))) return false;
     /* «(d)» er en deloppgave, ikke gjeldsandelen d. */
     if (/^[a-i]$/.test(tok) && tekst[fra - 1] === "(" && tekst[til] === ")") return false;
     let før = fra - 1; while (før >= 0 && tekst[før] === " ") før--;
