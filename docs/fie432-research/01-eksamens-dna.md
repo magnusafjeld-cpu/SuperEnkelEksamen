@@ -1307,7 +1307,7 @@ treningsprogram bør bruke:
 | H2020 4a–4c | 224 000; 2 800 000 − studielån; stresstest ved 8 % over 30 år: **2 521 743** |
 | H2020 5a | 0,181 × 500 000 × 43/18,02 = 215 954 i året ⇒ kompensasjonsgrad **43,2 %** |
 | H2020 6a | Lån 2 125 000, annuitet **122 034**; første fem år: renter **300 732**, avdrag **309 439**, restgjeld **1 815 561** |
-| H2020 6c–6e | EK 375 000 → 1 226 071 etter fem år. Geometrisk EK-avkastning før renter **26,7 %**; etter renter **19,8 %**; etter skatt **21,5 %**; med avdragsfrihet **12,2 %** (lavere fordi egenkapitalen ikke bygges opp) |
+| H2020 6c–6e | Fasitbildet bruker internrente, ikke geometrisk EK-avkastning: **6,96 %** før skatt og **8,96 %** etter skatt, **7,75 %** og **10,27 %** med avdragsfrihet. Kontrollregnet oktober 2026 da settet ble lagt inn i appen. (Den første rekonstruksjonen, 26,7/19,8/21,5/12,2 %, overså annuitetene.) |
 | H2020 6g | Leie-til-eie med avtalt 4 % prisvekst: **2 658 244** mot 2 500 000 ved direktekjøp |
 | H2021 5a–5c | 260 000; 3 250 000 − studielån; stresstest **2 927 024** |
 | H2021 6a–6b | γ = 3: **85,03 %**; γ = 4: 63,78 %; γ = 5: 51,02 %; γ = 6: 42,52 %. Med 0,5 pp høyere premie, γ = 3: **93,54 %** |

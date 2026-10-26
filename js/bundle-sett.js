@@ -175,7 +175,7 @@ window.EDU = window.EDU || {};
       el(".chip", `${set.points} poeng`),
       set.format ? el(".chip.slate", set.format) : null));
 
-    if (set.note) card.appendChild(el("p.tiny.muted", { style: { margin: "0 0 12px" } }, set.note));
+    if (set.note) card.appendChild(el("p.tiny.muted", { style: { margin: "0 0 12px" } }, frag(set.note)));
 
     const topics = [...new Set((set.exercises || []).map((e) => e.topic).filter(Boolean))];
     if (topics.length) card.appendChild(el(".row.wrap", { style: { gap: "6px", marginBottom: "14px" } },
@@ -440,7 +440,7 @@ window.EDU = window.EDU || {};
       `${set.points} poeng på ${set.minutes} minutter — det er ${(set.minutes / set.points).toFixed(1).replace(".", ",")} minutter per poeng.`,
       ...(set.facts || STANDARD_FAKTA),
       "Nedtellingen overlever at du lukker fanen, så en uhellsvangert oppfriskning ødelegger ingenting.",
-    ].forEach((t) => facts.appendChild(el("li", t)));
+    ].forEach((t) => facts.appendChild(el("li", frag(t))));
     card.appendChild(facts);
 
     /* Minuspoeng velges per økt, så et eldre sett uten straff kan kjøres slik

@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-10-22
+oppdatert: 2026-10-26
 ---
 
 # FIE432 Personlig økonomi
@@ -146,7 +146,7 @@ manualen er ferdig.
 
 ## Eksamenssettene
 
-Tre flervalgssett ligger i `fag/fie432/sett.js` og rettes automatisk:
+Ni eksamenssett ligger i `fag/fie432/sett.js`, alle med fasit. De tre flervalgssettene rettes automatisk:
 
 | Sett | Oppgaver | Ledd | Poeng | Merknad |
 |---|---|---|---|---|
@@ -164,9 +164,17 @@ til** — det er den ferdigheten minuspoengene krever.
 > oppgave 2 på et annet utbytte enn nynorskoppgaven selv oppgir. Settet i appen
 > bygger på bokmålsversjonen.
 
-De seks eldre settene (2016–2021) er kartlagt, men ikke lagt inn: fire av dem er
-åpne regneoppgaver fra før flervalgsformatet, og 32 fasitsvar i de to andre er
-bilder uten tekstlag. Rekonstruerte svar står i `01-eksamens-dna.md` § 7.4.
+De seks eldre settene (H2016–H2021) ble lagt inn 26. oktober 2026, etter
+`docs/fie432-eldre-sett-spek.md`. De er åpne oppgaver med selvvurdering og
+`criteria`, 100 poeng hver, fordelt etter vektene eller «anbefalt tid» i originalen
+(poengene per ledd er skjønn). H2019 oppgave 1–8 og H2020 oppgave 2 er flervalg og
+rettes automatisk. H2017 er bare GS-delen, fordi fila er en fasit uten oppgavehefte.
+Fasitene som var bilder (H2018 5–7, H2019 9, H2020 4–6, H2021 5–7) er lest fra
+bildene; EMF-bildene ble gjengitt ved å la Word lagre docx som PDF. Hver løsning
+regner med satsene fra det året og sier i én setning «I 2026» hva som gjelder nå.
+Oppgaver med siffer fra kandidatnummeret har tabeller for alle siffer 0–9.
+H2019 oppgave 4 godtar (c) og (e), fordi begge holder i likevekt; fasiten godtar
+bare (c).
 
 ## Kildene
 
@@ -202,7 +210,7 @@ Kontrolleres med `tools/sjekk-manual.py`.
 | Kartlegging | **ferdig** — 84 000 ord, 227 eksamensspørsmål registrert, 109 fasiter kontrollregnet |
 | Manual | **21 av 21 kapitler · 81 500 ord** — strukturelt feilfri |
 | Studieplan | **21 moduler · 57 timer**, estimatene regnet av faktisk innhold |
-| Eksamenssett | **3 sett · 98 flervalgsledd**, rettet automatisk |
+| Eksamenssett | **9 sett**: 3 rene flervalg (98 ledd) og 6 eldre med åpne oppgaver (H2016–H2021, 130 ledd) |
 | Flashcards | **100** auto-genererte formelkort fra k20 |
 | Quiz | **164 spørsmål** · 133 flervalg / 31 kortsvar · alle 20 kapitler dekket |
 | Dybdetrening | **299 spørsmål** i fire banker: 72 · 77 · 72 · 78 |

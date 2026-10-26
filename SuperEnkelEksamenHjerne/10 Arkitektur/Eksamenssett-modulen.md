@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-10-15
+oppdatert: 2026-10-26
 ---
 
 # Eksamenssett-modulen
@@ -35,7 +35,7 @@ EDU_DATA.sets = [{
   label: "Autumn 2025", date: "2025-12-08",
   minutes: 180, points: 100,
   format: "6 exercises · no multiple choice",
-  note: "…kontekst som vises på settkortet…",
+  note: "…kontekst som vises på settkortet (HTML er lov, også i facts)…",
   exercises: [{
     n: 1, title: "Options", points: 12, topic: "Options",
     chapters: [21, 23],     // kapitler oppgaven bygger på

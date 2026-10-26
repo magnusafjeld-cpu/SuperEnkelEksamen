@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-10-22
+oppdatert: 2026-10-26
 ---
 
 # Tidslinje
@@ -71,5 +71,6 @@ ikke står i commit-meldingene.
 | 28. september 2026 | Svarfeltet i åpne oppgaver fyller hele bredden | Det var et lite kvadrat på ~214 px, fordi en textarea ikke har bredde av seg selv |
 | 28. september 2026 | Kjernepensum for [[FIE432 Personlig økonomi]], med flervalgsminicaser | Minicasen følger eksamensformen: +3/−1/0, «stå over» og feller |
 | 28. september 2026 | Ny modul: kjernepensum, først for [[FIE402 Corporate Finance]] | Det viktigste på én kveld: tolv deler bygd rundt eksamensblokkene, med sjekker og minicase, og hovedpunktene samlet på én side. Se [[Moduler og visninger]] |
+| 26. oktober 2026 | [[FIE432 Personlig økonomi]] får de seks eldre eksamenssettene (H2016–H2021) | Alle ni eksamenene med fasit kan nå øves på, ikke bare flervalgsæraen |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.
