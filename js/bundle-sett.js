@@ -465,8 +465,10 @@ window.EDU = window.EDU || {};
 
   function clockBar(set, submitted) {
     const bar = el(".exam-clock" + (submitted ? ".done" : ""));
-    const time = el(".ec-t", fmtClock(remainingMs(set)));
-    bar.appendChild(el(".ec-l", submitted ? "Levert" : "Tid igjen"));
+    /* Etter levering viser klokka brukt tid. Fryst nedtelling ble lest som brukt tid. */
+    const ms = submitted ? (set.minutes || 180) * 60000 - remainingMs(set) : remainingMs(set);
+    const time = el(".ec-t", fmtClock(ms));
+    bar.appendChild(el(".ec-l", submitted ? "Levert · brukt tid" : "Tid igjen"));
     bar.appendChild(time);
     bar.appendChild(el(".spacer"));
     bar.appendChild(el(".tiny", { style: { opacity: .85 } }, `${set.points} poeng · ${(set.exercises || []).length} oppgaver`));

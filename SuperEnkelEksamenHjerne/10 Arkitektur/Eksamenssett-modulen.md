@@ -135,6 +135,9 @@ Alt går gjennom `S.store.setExam()`, så det synkes som all annen fremdrift.
 **Nedtellingen regnes ut fra `startedAt`, ikke fra en teller i minnet** — derfor
 overlever en påbegynt eksamen at fanen lukkes eller lastes på nytt.
 
+Etter levering viser klokka **brukt tid** («Levert · brukt tid»), ikke den frosne
+nedtellingen. Den ble lest som brukt tid (endret 26. oktober 2026).
+
 Se [[Datamodell og lagring]] for resten av lagringsmodellen.
 
 ## Ting å vite hvis du endrer den
