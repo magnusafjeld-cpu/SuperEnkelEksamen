@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-22
+oppdatert: 2026-10-27
 ---
 
 # Moduler og visninger
@@ -576,6 +576,10 @@ API direkte. Forbruket går på brukerens konto. Hvorfor: [[Beslutningslogg]].
   og listeprisene. Kontoen i Console er fasiten.
 - **Nøkkelen sjekkes gratis** med `GET /v1/models/<modell>`, som ikke koster tokens.
 - Markdown fra Claude tegnes av en liten egen `md()` som escaper alt først.
+- **Rulling.** Lista følger bunnen bare så lenge du er der (`følger`). Ruller du
+  opp mens svaret strømmer, blir du stående, også når svaret er ferdig og panelet
+  tegnes på nytt. Den følger igjen når du ruller helt ned, sender en melding eller
+  åpner panelet. Før 27. oktober 2026 dro hver ny tekstbit deg ned igjen.
 
 ## NotebookLM — pensum som ren tekst
 

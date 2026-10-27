@@ -384,6 +384,10 @@ Slik svarer du:
   }
   const klokke = (t) => new Date(t).toLocaleTimeString("nb-NO", { hour: "2-digit", minute: "2-digit" });
   let knapp = null, panel = null, åpen = false, åpnetNå = false;
+  /* Om lista skal følge bunnen. Ruller du opp mens svaret strømmer, slutter den
+     å følge, så du kan lese i fred. Den følger igjen når du ruller helt ned,
+     sender en ny melding eller åpner panelet. */
+  let følger = true;
   const SNAKKEBOBLE = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM8 10h8M8 13.5h5"/></svg>';
 
   function nyttVindu() {
@@ -424,6 +428,7 @@ Slik svarer du:
     åpnetNå = true; setTimeout(() => { åpnetNå = false; });
     knapp.setAttribute("aria-expanded", "true"); knapp.classList.add("aktiv");
     document.body.classList.add("cl-åpen");
+    følger = true;
     tegn();
     const felt = panel.querySelector("textarea");
     if (felt && window.matchMedia("(hover:hover)").matches) felt.focus({ preventScroll: true });
@@ -450,17 +455,26 @@ Slik svarer du:
     /* Det du holder på å skrive, overlever at panelet tegnes på nytt. */
     const gammelt = panel.querySelector(".cl-felt");
     const utkast = gammelt ? gammelt.value : "";
+    const gammelListe = panel.querySelector(".cl-liste");
+    const rullet = gammelListe ? gammelListe.scrollTop : 0;
     const fokus = gammelt && document.activeElement === gammelt;
     S.u.mount(panel, hode(), harNøkkel() ? samtale() : oppsett({ iPanel: true }));
     const nytt = panel.querySelector(".cl-felt");
     if (nytt && utkast) nytt.value = utkast;
     if (nytt && fokus) nytt.focus({ preventScroll: true });
+    /* Følger du bunnen, havner du der. Ellers står du der du var: innholdet
+       over er det samme, så samme scrollTop viser samme tekst. */
     const liste = panel.querySelector(".cl-liste");
-    if (liste) liste.scrollTop = liste.scrollHeight;
+    if (liste) liste.scrollTop = følger ? liste.scrollHeight : rullet;
   }
 
   function samtale() {
     const liste = el(".cl-liste");
+    /* Bare brukerens egen rulling endrer om lista følger. Ny tekst gir ingen
+       scroll-hendelse, og når vi selv ruller til bunnen, blir avstanden null. */
+    liste.addEventListener("scroll", () => {
+      følger = liste.scrollHeight - liste.scrollTop - liste.clientHeight < 40;
+    }, { passive: true });
     if (!chat.vist.some((m) => m.rolle !== "info")) {
       liste.appendChild(el(".cl-tom",
         el("p", "Spør om det du ser på. Claude får med teksten på siden og det du har skrevet, så du kan skrive «hvorfor er ikke B riktig?» eller «forklar formelen øverst»."),
@@ -527,6 +541,7 @@ Slik svarer du:
      flyttes over til chatten. */
   async function kjør(svar, { effort }) {
     chat.kjører = new AbortController();
+    følger = true;
     chat.sist = Date.now();
     tegn();
     try {
@@ -562,7 +577,7 @@ Slik svarer du:
   }
   function rullNed() {
     const liste = panel && panel.querySelector(".cl-liste");
-    if (liste && liste.scrollHeight - liste.scrollTop - liste.clientHeight < 140) liste.scrollTop = liste.scrollHeight;
+    if (liste && følger) liste.scrollTop = liste.scrollHeight;
   }
 
   /* Overtar en vurdering som første tur i chatten, så du kan svare på
