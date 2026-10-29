@@ -76,5 +76,6 @@ ikke står i commit-meldingene.
 | 29. oktober 2026 | [[FIE432 Personlig økonomi]] får H2023 som tiende eksamenssett | Sensorveiledningen manglet i kildematerialet. Registrert i eksamens-DNA, men frekvenstabellene teller fortsatt de ni |
 | 29. oktober 2026 | [[FIE432 Personlig økonomi]]: seks prøveeksamener, kalibrert mot skoleeksamenene og kursgodkjenningen 2026 | Prøveeksamen 3 var for lik hjemmeeksamenen H2022 og ble skrevet om |
 | 29. oktober 2026 | [[FIE402 Corporate Finance]]: tre prøveeksamener i Kurbatov-formatet | Hver løst blindt av en uavhengig kontrollør. Manualen fikk r<sub>E</sub> ved permanent gjeld med skatt, og H2024 E6(c) en merknad |
+| 29. oktober 2026 | Planleggeren: privat utvidelse som fordeler dagens tid mellom fagene etter eksamensdato og mestring per kapittel | Motoren fikk private utvidelser (`S.utvidelser`). Claude kan lage ukeplan. Se [[Moduler og visninger]] og [[Beslutningslogg]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

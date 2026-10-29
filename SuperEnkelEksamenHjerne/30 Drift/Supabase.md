@@ -1,6 +1,6 @@
 ---
 tags: [drift, supabase, synk]
-oppdatert: 2026-10-16
+oppdatert: 2026-10-29
 ---
 
 # Supabase
@@ -99,6 +99,16 @@ gang velgeren åpnes, så de ikke synes med mindre du åpner den. Konto viser «
 fag: N» eller hvorfor ingen ble funnet, med en knapp for å hente på nytt.
 Et privat fag må hete `privat-<navn>` og kan aldri ta id-en til et offentlig fag.
 På localhost leses fagene også rett fra `fag/<id>/` via `fag/privat-indeks.json`.
+
+**Private utvidelser (29. oktober 2026).** En oppføring med `"type": "utvidelse"` er
+ikke et fag, men en modul som gjelder i alle fag. Den vises ikke i velgeren.
+`js/privat.js` husker skriptene, og `js/boot.js` laster dem etter fagets egne skript
+(`S.privat.lastUtvidelser()`), før appen tegnes. Skriptet registrerer seg med
+`S.utvidelser.registrer({ route, match, label, ico, group, badge?, ruter })` og får da
+et menypunkt og egne ruter i hvert fag. Den første er planleggeren
+(`fag/privat-planlegger/`, se [[Moduler og visninger]]). Den lagrer i en egen rad i
+`progress` med `subject_id` «privat-planlegger», så tilgangsregelen som allerede
+finnes, holder den privat.
 
 **Biblioteket:** `js/account.js` henter supabase-js 2.117.2 fra jsDelivr med
 SRI-hash. Bytter du versjon, velg en som er minst to uker gammel og hent hashen fra

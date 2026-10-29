@@ -47,6 +47,12 @@ window.EDU = window.EDU || {};
     { route: "#/dybde", match: "/dybde", label: "Dybde", ico: "layers" },
   ];
 
+  /* Utvidelser (private moduler lastet av js/privat.js) legger seg inn her før
+     appen tegnes: { route, match, label, ico, group, badge?, ruter: [{ path, render(p, q) }] }.
+     De gjelder i alle fag og overstyrer ikke fagets modules-liste for noe annet. */
+  const UTV = [];
+  S.utvidelser = { registrer: (u) => { if (u && u.match && !UTV.some((x) => x.match === u.match)) UTV.push(u); } };
+
   /* Faget kan slå av moduler (manifest.modules). Dashboard er alltid med. */
   const sub = () => window.EDU_SUBJECT || {};
   /* Fire moduler er helt tomme uten egne data. De skjules uansett hva manifestet
@@ -72,11 +78,12 @@ window.EDU = window.EDU || {};
   function has(match) {
     const m = sub().modules;
     if (match === "/") return true;                       // Dashboard er alltid med
+    if (UTV.some((u) => u.match === match)) return true;  // utvidelser gjelder i alle fag
     if (DATASTYRT[match] && !DATASTYRT[match]()) return false;
     if (Array.isArray(m)) return m.indexOf(match) > -1;   // eksplisitt liste vinner
     return true;                                          // modules: null = alle
   }
-  function nav() { return NAV.map((g) => ({ group: g.group, items: g.items.filter((i) => has(i.match)) })).filter((g) => g.items.length); }
+  function nav() { return NAV.map((g) => ({ group: g.group, items: g.items.concat(UTV.filter((u) => (u.group || "Studieløp") === g.group)).filter((i) => has(i.match)) })).filter((g) => g.items.length); }
   /* Seks er det som får plass på en telefon. Har et fag alle, faller de siste bort. */
   function mobileNav() { const m = MOBILE.filter((i) => has(i.match)).slice(0, 6); return m.length > 1 ? m : []; }
 
@@ -121,7 +128,8 @@ window.EDU = window.EDU || {};
     if (path.startsWith("/day")) return "/plan";
     if (path.startsWith("/chapter")) return "/curriculum";
     const all = nav().flatMap((g) => g.items).map((i) => i.match);
-    return all.find((m) => m !== "/" && path.startsWith(m)) || "/";
+    /* Lengste treff vinner, ellers markeres Studieplan (/plan) på /planlegger. */
+    return all.filter((m) => m !== "/" && path.startsWith(m)).sort((a, b) => b.length - a.length)[0] || "/";
   }
   function updateNav() {
     const activeMatch = bestMatch(S.router.getCurrent().path);
@@ -174,6 +182,7 @@ window.EDU = window.EDU || {};
     when("/kjerne", "/kjerne/husk", () => setView(() => V.kjerne.renderHusk()));
     when("/kjerne", "/kjerne/:num", (p) => setView(() => V.kjerne.renderDel(p.num)));
     if (S.account) R.on("/konto", () => setView(() => S.account.render()));
+    UTV.forEach((u) => (u.ruter || []).forEach((r) => R.on(r.path, (p, q) => setView(() => r.render(p, q)))));
     /* Også gamle lenker til #/progress havner her. Fremdrift-siden ble fjernet
        28. september 2026: fremdriften vises inne i hver modul. */
     R.setNotFound(() => setView(() => V.dashboard.render()));
@@ -301,6 +310,8 @@ window.EDU = window.EDU || {};
     status('<div class="spinner"></div><p class="muted">Laster faginnhold…</p>');
     try { await S.picker.loadScripts(sub.scripts); }
     catch (e) { status(`<p class="muted">${e.message}</p><p class="tiny muted">Sjekk stiene i <code>js/subjects.js</code>.</p>`); return; }
+    /* Private utvidelser registrerer menyvalg og ruter, så de må lastes før appen tegnes. */
+    if (S.privat && S.privat.lastUtvidelser) { try { await S.privat.lastUtvidelser(); } catch (e) {} }
 
     ryddGamleBuffere();
     const c = cached(manKey(), legacy("man"));

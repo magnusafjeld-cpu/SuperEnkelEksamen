@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-27
+oppdatert: 2026-10-29
 ---
 
 # Moduler og visninger
@@ -536,6 +536,35 @@ selv; innholdet ligger i faget som `EDU_DATA.repertoar = { grupper, linjer }`.
 trekk, kommentarer til trekk som ikke finnes og to linjer med samme farge som svarer
 forskjellig i samme stilling (da kan treneren bare godta det ene svaret).
 Repertoaret kan deles i flere filer (`repertoar-*.js`) som skrives samtidig.
+
+## Planleggeren: dagens plan på tvers av fagene (privat)
+
+Lagt til 29. oktober 2026 som privat utvidelse (`fag/privat-planlegger/planlegger.js`,
+gitignorert, lastes fra bøtta, se [[Supabase]]). Rute `#/planlegger` i alle fag,
+gruppe Studieløp. Velg fag, eksamensdatoer, pensumfaktor, timer på hverdager og i
+helgen og opptatte dager.
+
+- **Måling.** I faget du står i lages et øyeblikksbilde: mestring per kapittel som
+  vektet snitt av svarene (sett 3, kapitteloppgaver 2, sjangertrening og
+  eksamenstrening 1,5, quiz 1, flashcards 0,5), halvert vekt per 28 dager, med en
+  svak start fra lest/forstått. Bildet lagres, så planleggeren ser alle fagene selv
+  om bare ett er lastet. Et fag du ikke har åpnet, står som «Ikke målt».
+- **Regnemodellen.** Gjenstår = (ord / 50) × faktor × gap til 85 % × (0,4 + 0,2 ×
+  eksamensvekt), summert over kapitlene, pluss opptil fire hele sett. Tempo =
+  gjenstår / dager igjen. Dagens tid fordeles etter tempo, i kvarter etter største
+  rest, med minst 90 minutter de to siste dagene før en eksamen. Et fag du kan godt,
+  får dermed lite selv om eksamen er nær.
+- **Oppgavene.** Generalprøve (nyeste ekte sett) tre dager før, ellers neste sett når
+  det er under tre uker igjen eller mestringen er over 60 %. Så de svakeste kapitlene
+  etter eksamensvekt × gap, med kjernepensum eller lesing for det du ikke har
+  begynt på og kapitteloppgaver eller sjangertrening ellers. Dagens plan står fast
+  gjennom dagen, med avkrysning.
+- **Claude.** «Lag ukeplan med Claude» sender tallene, dagene og notatet og får JSON
+  tilbake. Appen kaster tid etter eksamen, skalerer ned dager over kapasiteten og
+  faller tilbake på regnemodellen for dager som mangler. Hvorfor hybrid:
+  [[Beslutningslogg]].
+- **Kjent svakhet.** Ordtellingen i manualen er målet på pensum. FIE459-manualen er
+  23 000 ord mot 105 000 i FIE402, så FIE459 trenger høyere pensumfaktor.
 
 ## Spør Claude: chat og vurdering med egen API-nøkkel
 

@@ -18,6 +18,11 @@
    laster det opp.
 
    Kalles fra boot.js før faget velges, og igjen når du logger inn.
+
+   Utvidelser. En oppføring med "type": "utvidelse" er ikke et fag, men en
+   modul som legger seg inn i alle fag (for eksempel en planlegger). Den vises
+   ikke i fagvelgeren. Skriptene lastes av boot.js før appen tegnes, og
+   registrerer seg selv med S.utvidelser.registrer (boot.js).
    ============================================================================ */
 window.EDU = window.EDU || {};
 (function (S) {
@@ -25,6 +30,8 @@ window.EDU = window.EDU || {};
   const HAR = "edu.privat.har";          // husker at det finnes private fag, så velgeren kan be deg logge inn
   const LEVETID = 6 * 3600;              // sekunder en signert adresse varer
   let lastet = null;            // selve jobben
+  const utvidelser = new Map();  // id -> { id, scripts } for oppføringer med type "utvidelse"
+  const utvLastet = new Set();   // skriptene som allerede er lastet
   /* Hva som skjedde sist, så velgeren og Konto kan si det. */
   const status = { tilstand: "av", melding: "", antall: 0, bruker: "" };
 
@@ -49,6 +56,13 @@ window.EDU = window.EDU || {};
   function registrer(fag, adresse) {
     if (!fag || !fag.id || !/^privat-[a-z0-9-]+$/.test(fag.id)) return false;
     const m = (l) => (l || []).map(adresse).filter(Boolean);
+    if (fag.type === "utvidelse") {
+      /* Signerte adresser har allerede en spørrestreng. Lokale stier får
+         versjonen på, så en endring vises uten at byggnummeret må opp. */
+      const v = fag.versjon ? "?u=" + encodeURIComponent(fag.versjon) : "";
+      utvidelser.set(fag.id, { id: fag.id, scripts: m(fag.scripts).map((u) => (u.indexOf("?") < 0 ? u + v : u)) });
+      return true;
+    }
     const s = Object.assign({}, fag, {
       privat: true,
       scripts: m(fag.scripts),
@@ -141,9 +155,17 @@ window.EDU = window.EDU || {};
     })();
     return lastet;
   }
+  /* Laster skriptene til utvidelsene som er funnet så langt. Trygg å kalle flere
+     ganger: et skript lastes bare én gang. */
+  async function lastUtvidelser() {
+    const nye = [...utvidelser.values()].flatMap((u) => u.scripts).filter((u) => !utvLastet.has(u));
+    nye.forEach((u) => utvLastet.add(u));
+    if (nye.length && S.picker) { try { await S.picker.loadScripts(nye); } catch (e) { console.warn("privat: en utvidelse kunne ikke lastes", e); } }
+    return utvidelser.size;
+  }
   function vent(ms) { return Promise.race([last(), new Promise((res) => setTimeout(() => res(0), ms || 8000))]); }
 
   const antall = () => (window.EDU_SUBJECTS || []).filter((s) => s.privat).length;
 
-  S.privat = { last, vent, antall, harHatt, status: () => Object.assign({}, status) };
+  S.privat = { last, vent, antall, harHatt, lastUtvidelser, status: () => Object.assign({}, status) };
 })(window.EDU);

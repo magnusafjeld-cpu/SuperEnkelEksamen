@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-10-16
+oppdatert: 2026-10-29
 ---
 
 # Beslutningslogg
@@ -191,6 +191,18 @@ Valgt framfor «bare lokalt» fordi fagene skal virke på telefonen også. Valgt
 `fag/privat-<navn>/`, som `.gitignore` holder utenfor repoet. De lastes opp med
 `tools/last-opp-privat.py` med din egen innlogging. `service_role` brukes ikke.
 Se [[Supabase]].
+
+## Planleggeren: regnemodell med Claude som rådgiver (29. oktober 2026)
+Magnus ville ha en plan som oppdaterer seg etter resultatene og fordeler tiden
+fornuftig mellom fag: ikke overprioritere FIE432 bare fordi eksamen er nær når han
+kan det, spre tiden når alt er langt unna og ta hensyn til ulik pensummengde.
+Valgt: en deterministisk regnemodell lager dagsplanen hver dag, gratis og
+forutsigbart, og Claude lager en ukeplan bare på knapp, med appen som vokter over
+tiden og eksamensdatoene. Valgt framfor bare Claude fordi en daglig plan ikke skal
+koste penger eller variere tilfeldig, og framfor bare regler fordi skjønn om
+generalprøver, notater og vekting er lettere å beskrive enn å kode.
+
+**Konsekvens:** modulen er privat (utvidelse i bøtta). Se [[Moduler og visninger]].
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på

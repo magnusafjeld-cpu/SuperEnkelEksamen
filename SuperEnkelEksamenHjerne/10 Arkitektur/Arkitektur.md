@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, kode]
-oppdatert: 2026-10-22
+oppdatert: 2026-10-29
 ---
 
 # Arkitektur
@@ -42,7 +42,8 @@ js/
                            tools/sjekk-sjakk.js
   bundle-sjakk.js          Varianter: sjakkrepertoar på brettet (/linjer)
   privat.js                private fag fra den private Supabase-bøtta, bare for
-                           eieren (se [[Supabase]])
+                           eieren, og private utvidelser som planleggeren
+                           (S.utvidelser i boot.js, se [[Supabase]])
   picker.js                fag-velger, tema, byggnummer, dynamisk lasting av fagdata
   boot.js                  app-skall, navigasjon, ruting, innholdslaster
 fag/<id>/                  fagets innhold: data.js, lyn.js, dybde.js
