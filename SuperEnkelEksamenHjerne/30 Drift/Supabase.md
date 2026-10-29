@@ -105,7 +105,9 @@ ikke et fag, men en modul som gjelder i alle fag. Den vises ikke i velgeren.
 `js/privat.js` husker skriptene, og `js/boot.js` laster dem etter fagets egne skript
 (`S.privat.lastUtvidelser()`), før appen tegnes. Skriptet registrerer seg med
 `S.utvidelser.registrer({ route, match, label, ico, group, badge?, ruter })` og får da
-et menypunkt og egne ruter i hvert fag. Den første er planleggeren
+et menypunkt og egne ruter i hvert fag (`mobil: { label }` gir også plass i
+bunnmenyen). Kommer listen etter fristen i oppstarten eller etter innlogging, lastes
+utvidelsen likevel, og sidepanel og bunnmeny tegnes på nytt. Den første er planleggeren
 (`fag/privat-planlegger/`, se [[Moduler og visninger]]). Den lagrer i en egen rad i
 `progress` med `subject_id` «privat-planlegger», så tilgangsregelen som allerede
 finnes, holder den privat.
