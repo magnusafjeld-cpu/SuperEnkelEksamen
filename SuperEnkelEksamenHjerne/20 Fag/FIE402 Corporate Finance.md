@@ -11,7 +11,7 @@ Fag nummer to. Id `fie402`, aksentfarge `#12805c` (grønn), logo «CF».
 ## Kursfakta
 
 NHH, 7,5 studiepoeng, undervisningsspråk engelsk, karakter A–F på totalsummen.
-**3 timers lukket skoleeksamen, penn og papir.** Kalkulator og én tospråklig
+**Eksamen 7. desember 2026: 3 timers lukket skoleeksamen, penn og papir.** Kalkulator og én tospråklig
 ordbok tillatt — merk kontrasten til [[SAM3 Makroøkonomi]], der kalkulator var
 forbudt. Besvares på engelsk. To obligatoriske innleveringer for kursgodkjenning.
 

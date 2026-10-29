@@ -16,7 +16,7 @@ Forelesninger 19. august – 16. oktober. Kursgodkjenning er en flervalgstest p�
 Canvas: 17 av 20 rett, tre forsøk, samarbeid tillatt men individuell levering,
 og **fristen er den samme som oppmeldingsfristen**.
 
-**Eksamen: fire timers digital flervalgseksamen i Wiseflow.** Kalkulator og én
+**Eksamen 12. november 2026: fire timers digital flervalgseksamen i Wiseflow.** Kalkulator og én
 tospråklig ordbok tillatt. Karakter A–F.
 
 ## Det som styrer alt: minuspoengene

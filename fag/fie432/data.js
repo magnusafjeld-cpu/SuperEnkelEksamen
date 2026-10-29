@@ -28,7 +28,7 @@ window.EDU_DATA.plan = {
   mode: "modules",
   totalDays: 21,
   startDate: "2026-08-19",
-  examNote: "4 timer · digital flervalgseksamen i Wiseflow · minuspoeng for feil svar",
+  examNote: "4 timer · digital flervalgseksamen i Wiseflow · minuspoeng for feil svar · 12. november",
   phaseColors: {
     "Grunnlaget": "slate",
     "Aktiva og avkastning": "teal",
