@@ -583,6 +583,10 @@ helgen og opptatte dager.
   Magnus brukte minst dobbelt så lang tid som anslått. Tid per sjangersteg måles
   fra svartidspunktene (median av avstander mellom 30 sekunder og 30 minutter) og
   brukes i stedet for anslaget når det finnes minst åtte målinger.
+- **Planversjon.** `PLANVERSJON` i skriptet: dagsplaner og Claude-planer laget av en
+  eldre versjon lages på nytt (Claude-planen erstattes av regnemodellen til en ny
+  er laget, og morgenkjøringen lager den). Øk tallet når reglene endres.
+- **Flashcards** per fag i innstillingene; av som standard i FIE402.
 - **Morgenen kl. 06.** Plandagen skifter kl. 06. Første gang appen er åpen etter
   det (eller når den blir synlig igjen), hentes raden fra skyen, faget måles, og
   Claude lager ny ukeplan hvis det er slått på og nøkkel finnes. Én gang per morgen
