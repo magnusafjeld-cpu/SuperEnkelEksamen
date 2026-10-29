@@ -558,7 +558,10 @@ helgen og opptatte dager.
   kjernepensum, kapitteloppgaver og quiz for kapitlet tar; manualens ordtall brukes
   bare for kapitler uten noe av dette. Pluss resten av sjangertreningen (skal
   gjennomgås helt, uavhengig av mestring), forelesninger som ikke er sett og opptil
-  fire hele sett. Tempo = gjenstår / dagene faget faktisk får.
+  fire hele sett. Dagene vektes med tiden du har (en eksamensdag med to timer
+  igjen teller som en kvart dag). Tempo = (gjenstår − halvparten av tiden faget har
+  alene på slutten) / delte dager, men minst forelesningene som gjenstår. Et fag med
+  mange egne dager til slutt (FIE459 etter Corp-eksamen) får dermed lite tid før.
 - **Eksamensuka.** De siste sju dagene før en eksamen får bare det faget tid, også
   i Claudes plan (appen flytter tiden og noterer avviket). Dager i andre fags
   eksamensuke telles ikke når tempoet regnes ut. Dagens tid fordeles etter tempo, i kvarter etter største
@@ -573,7 +576,9 @@ helgen og opptatte dager.
   sjangertrening, eksamenstrening, kapitteloppgaver og quiz først. Kjernepensum når
   oppgavene viser hull (mestring under 50 % med en viss måling). Manuallesing bare
   når kapitlet ikke har annet.
-- **Forelesninger.** Per fag: antall og lengde (FIE459: 13 à 2 timer). Forelesning n
+- **Forelesninger.** Per fag: antall og lengde (FIE459: 13 à 2 timer). Alltid hele,
+  spredt jevnt over dagene før eksamensuka (dag k får en når ⌊(k+1)·rate⌋ passerer
+  et heltall), og de låner tid fra andre fag som et helt sett. Forelesning n
   hører til kapittel n. Avkrysningen i dagsplanen teller minuttene som sett
   (`T.fl`, største verdi vinner ved fletting). Dagens plan står fast
   gjennom dagen, med avkrysning.
