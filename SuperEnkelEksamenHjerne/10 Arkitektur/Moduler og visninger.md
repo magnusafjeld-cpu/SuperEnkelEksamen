@@ -587,6 +587,11 @@ helgen og opptatte dager.
   eldre versjon lages på nytt (Claude-planen erstattes av regnemodellen til en ny
   er laget, og morgenkjøringen lager den). Øk tallet når reglene endres.
 - **Flashcards** per fag i innstillingene; av som standard i FIE402.
+- **Hele sett låner tid.** Et sett kan ikke kortes ned. Får faget ikke plass til
+  settet i sin del av dagen, låner det opptil 60 % av de andre fagenes tid
+  (`lagPlan`). Dagsplanen har opptil tolv oppgaver; tid som ikke kan fylles, vises
+  som ledig. I Claude-planen flytter appen andre fags minutter til eksamensfaget i
+  eksamensuka, men fyller ikke dagen, så Claude kan gi en lett dag før eksamen.
 - **Morgenen kl. 06.** Plandagen skifter kl. 06. Første gang appen er åpen etter
   det (eller når den blir synlig igjen), hentes raden fra skyen, faget måles, og
   Claude lager ny ukeplan hvis det er slått på og nøkkel finnes. Én gang per morgen
