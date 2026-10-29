@@ -48,13 +48,28 @@ const ord = (e, p) => new Set(strip((e.body || "") + " " + (p === e ? "" : p.bod
 const ekteOrd = ekte.flatMap((s) => ledd(s).map(({ e, p }) => ord(e, p)));
 
 let feil = 0;
-const ref = ["h2023", "h2024", "h2025"].map((id) => sets.find((s) => s.id === id)).filter(Boolean).map(mål);
+const ref = ["h2023", "h2024", "h2025"].map((id) => sets.find((s) => s.id === id)).filter((s) => s && ledd(s).some(({ p }) => p.options)).map(mål);
 const refOrd = ref.reduce((a, m) => a + m.ord, 0) / Math.max(ref.length, 1);
 const refTall = ref.reduce((a, m) => a + m.tall, 0) / Math.max(ref.length, 1);
 const mc = sets.find((s) => s.id === "mc2026");
 if (ref.length) console.log(`Skoleeksamenene (snitt H2023–H2025): ${Math.round(refOrd)} ord per ledd, ${Math.round(refTall * 100)} % tallsvar` + (mc ? ` · kursgodkjenningen 2026: ${Math.round(mål(mc).ord)} ord, ${Math.round(mål(mc).tall * 100)} % tallsvar` : ""));
 if (!prøver.length) console.log("Ingen prøveeksamener i " + fag);
 prøver.forEach((s, k) => {
+  /* Åpne, selvvurderte sett (FIE402): ingen alternativer å lekke. Sjekk i stedet
+     poengmønsteret mot de nyeste ekte settene, at hvert ledd har løsning og
+     kriterier, og skrivereglene (også «, and» på engelsk). */
+  if (!ledd(s).some(({ p }) => p.options)) {
+    const raw = JSON.stringify(s);
+    const mønster = s.exercises.map((e) => e.points).join("/");
+    const ekteMønster = [...new Set(ekte.filter((x) => /^h20/.test(x.id)).slice(0, 2).map((x) => x.exercises.map((e) => e.points).join("/")))];
+    const mangler = ledd(s).filter(({ p }) => !p.solution || !(p.criteria || []).length).length;
+    const tankestrek = (raw.match(/—/g) || []).length, komma = (raw.match(/, (og|and) /g) || []).length;
+    if (mangler || tankestrek || komma) feil++;
+    console.log(`\n${s.id} · ${s.label}: ${s.exercises.length} oppgaver, ${ledd(s).length} ledd, ${s.points} poeng, ${s.minutes} min (selvvurdert)`);
+    console.log(`  poeng per oppgave: ${mønster}` + (ekteMønster.length ? ` · de nyeste ekte settene: ${ekteMønster.join(" og ")}` : ""));
+    console.log(`  ledd uten løsning eller kriterier: ${mangler}` + (tankestrek || komma ? ` · FEIL tankestrek: ${tankestrek} · komma foran «og/and»: ${komma}` : ""));
+    return;
+  }
   const L = ledd(s);
   const svar = L.map(({ p }) => p.answer);
   const pl = plan["p" + String(s.id).replace(/\D/g, "")];  // prove5 → p5, uavhengig av rekkefølgen

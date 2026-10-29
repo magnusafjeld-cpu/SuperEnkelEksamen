@@ -114,6 +114,8 @@ aldri blandes. Motoren kjører dem ellers likt. Forvalget for minuspoeng følger
 settets `mc.wrongFactor`, så prøveeksamenene i 2026-formatet starter med
 minuspoeng på. Lagt til 29. oktober 2026 for FIE432.
 
+For åpne, selvvurderte prøveeksamener (FIE402) sjekker den i stedet poengmønsteret mot de nyeste ekte settene og at hvert ledd har løsning og kriterier. Prøvesettene flettes inn med `tools/flett-prove.py <rot> <fag> <id …>`.
+
 `tools/sjekk-prove.js <fag>` måler kalibreringen mot skoleeksamenene (ord per
 ledd, andel tallsvar) og ser etter det som lar studenten finne svaret uten å
 kunne stoffet: avvik fra fasitplanen (`fag/<fag>/_prove/fasitplan.json`), om

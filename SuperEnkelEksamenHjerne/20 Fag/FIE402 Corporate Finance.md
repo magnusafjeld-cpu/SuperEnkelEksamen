@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-10-22
+oppdatert: 2026-10-29
 ---
 
 # FIE402 Corporate Finance
@@ -238,9 +238,11 @@ dekningen målt mot H2024 og H2025: en leser med bare kjernepensum når anslagsv
 > [!warning] Mulig feil i eksamenssettets løsning på H2024 E6(c)
 > Løsningen i `fag/fie402/sett.js` regner ρ = 0,7197 fra verdien i dag av
 > kontantstrømmene år 1–10 og verdiene om ett år av kontantstrømmene år 2–11.
-> Konsistente oppsett gir rundt 0,46. Det finnes ingen offisiell fasit. Ikke
-> rettet ennå; se [[Åpne spørsmål og neste steg]]. Kjernepensum beskriver bare
-> prinsippet.
+> Konsistente oppsett gir rundt 0,46. Det finnes ingen offisiell fasit.
+> 29. oktober 2026 fikk 6c og 6d en merknad øverst i løsningen: konsistent
+> ρ = 0,4663 (fergen startet nå: S<sub>u</sub> = 13,1792, S<sub>d</sub> = 11,2728),
+> opsjonen verdt 0,3532, samme beslutning (vent). Den opprinnelige utregningen
+> står under merknaden. Prøveeksamen 2 oppgave 6 trener den konsistente versjonen.
 
 Agentene fant i tillegg elleve feil i manualen og kursplanen, alle rettet:
 kursplanen manglet I i nevneren til α; en setning i 10.4 var avkuttet; 26.3 og
@@ -345,7 +347,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 |---|---|
 | Manualen | **30 kapitler · 109 000 ord** · alle uavhengig tallkontrollert |
 | Studieplan | **25 moduler · 78 timer**, estimatene regnet av faktisk innhold |
-| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver |
+| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **3 prøveeksamener** i Kurbatov-formatet (18 oppgaver, 68 deloppgaver) |
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **268** forfattet + 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
@@ -420,6 +422,29 @@ på norsk, stjernene fra settet (tutorial, forelesning, egen trening).
 Formelarket fra HTML-siden ble utelatt, siden appen har eksamensarket på alle
 sider. Neste sett legges til som et nytt objekt i samme fil. Se
 [[Moduler og visninger]].
+
+## Prøveeksamenene
+
+Tre prøveeksamener (`prove1`–`prove3`, `kind: "mock"`, «Mock exam 1–3») ligger sist i
+`fag/fie402/sett.js` og vises under «Prøveeksamener» i Eksamenssett. Lagt inn 29. oktober
+2026 etter `docs/fie402-proveeksamen-spek.md`. Alle følger Kurbatovs mal nøyaktig: 180
+minutter, 100 poeng, seks oppgaver med 12/12/18/18/20/20 poeng, to verbale oppgaver først
+(den andre alltid governance), åpne svar med løsning og kriterier for selvvurdering.
+
+| Eksamen | Ligner | Oppgavene |
+|---|---|---|
+| Mock exam 1 | H2025 | Opsjonsintuisjon · governance (fri kontantstrøm) · MM-rekapitalisering med hjemmelaget giring · WACC og APV over to år (gjelden øker i år 1) · realopsjoner (informasjon, salgsopsjon, likegyldighetspunkt) · M&A med aksjebytte |
+| Mock exam 2 | H2024 | M&A verbal · governance (lederlønn) · MM med risikabel gjeld og utbytterekap · risikoskifting, gjeldsoverheng og reforhandling · WACC og APV fra et sammenlignbart selskap · ventopsjon med risikonøytral verdsetting fra en omsatt tvilling |
+| Mock exam 3 | Kurbatovs vekt i 2026 (arbeidskravene) | Utbyttepolitikk verbal · governance (aktivist, poison pill, gullfallskjerm) · Myers-Majluf med sertifikat · skatteskjold, rekap og konkurskostnader · binomialprising, put-call-paritet og egenkapital som kjøpsopsjon · WACC og APV med gjeldskapasitet |
+
+Tallene er regnet i `fag/fie402/_prove/proveN_regn.py`, som også sjekker
+konsistenskontrollene (WACC = APV, vektede betaer, gevinstene summerer til NPV) og bygger
+JSON-en; flettes inn med `tools/flett-prove.py . fie402 …`. Hver eksamen ble løst blindt
+av en uavhengig kontrollør: alle tall stemte. Kontrollene fant ett ledd med to forsvarlige
+svar (verdien av en salgsopsjon, 5d i Mock exam 1), kriterier som krevde ting spørsmålet
+ikke ba om, og at manualen manglet r<sub>E</sub> ved permanent gjeld med skatt. Den står nå
+i k7 § 7.4, og en feil setning i k15 § 15.5 er rettet. Kontrolløren av Mock exam 2 pekte
+også på den kjente feilen i H2024 E6(c); den har nå en merknad i løsningen.
 
 ## Eksamenssettene i appen
 
