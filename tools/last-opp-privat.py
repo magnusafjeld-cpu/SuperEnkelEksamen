@@ -20,8 +20,14 @@
      python3 tools/last-opp-privat.py fjern privat-fie401
          tar faget ut av listen og sletter filene i bøtta (den lokale mappen står)
 
-   Innlogging: e-post og passord til kontoen din i appen. Passordet spørres om
-   hver gang og lagres ikke. Skriptet bruker den offentlige anon-nøkkelen i
+     python3 tools/last-opp-privat.py logg-ut
+         glemmer innloggingen på denne maskinen
+
+   Innlogging: e-post og passord til kontoen din i appen, første gang. Passordet
+   lagres aldri. Skriptet husker i stedet innloggingsnøkkelen (refresh token) i
+   ~/.config/superenkeleksamen/innlogging.json, lesbar bare for deg (0600) og
+   utenfor repoet, og bytter den ut hver gang den brukes. Er den utløpt eller
+   ugyldig, spørres det om passord igjen. «logg-ut» sletter filen. Skriptet bruker den offentlige anon-nøkkelen i
    js/config.js; tilgangsregelen i docs/supabase.sql gjør at du bare kan skrive i
    din egen mappe. service_role-nøkkelen trengs ikke, og skal aldri inn i repoet.
 
@@ -33,6 +39,7 @@ import getpass, json, mimetypes, os, re, sys, time, urllib.error, urllib.parse, 
 ROT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 BØTTE = "privat"
 INDEKS = os.path.join(ROT, "fag", "privat-indeks.json")
+HUSK = os.path.join(os.path.expanduser("~"), ".config", "superenkeleksamen", "innlogging.json")
 ID = re.compile(r"^privat-[a-z0-9]+(-[a-z0-9]+)*$")
 TYPER = {".js": "application/javascript; charset=utf-8", ".html": "text/html; charset=utf-8",
          ".json": "application/json; charset=utf-8", ".css": "text/css; charset=utf-8"}
@@ -93,14 +100,44 @@ def oppdater_indeks(legg_til=(), fjern=()):
 
 
 # ---------------------------------------------------------------- Supabase
+def husk(url, svar):
+    """Lagrer den nye innloggingsnøkkelen. Filen opprettes med 0600, så bare du kan lese den."""
+    os.makedirs(os.path.dirname(HUSK), mode=0o700, exist_ok=True)
+    fd = os.open(HUSK, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+    with os.fdopen(fd, "w", encoding="utf-8") as f:
+        json.dump({"url": url, "epost": svar["user"].get("email"), "refresh_token": svar["refresh_token"]}, f)
+    os.chmod(HUSK, 0o600)
+
+
+def husket(url, anon):
+    """Prøver den lagrede nøkkelen. Gir svaret fra Supabase, eller None."""
+    try:
+        lagret = json.load(open(HUSK, encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    if lagret.get("url") != url or not lagret.get("refresh_token"):
+        return None
+    req = urllib.request.Request(url + "/auth/v1/token?grant_type=refresh_token", method="POST",
+                                 data=json.dumps({"refresh_token": lagret["refresh_token"]}).encode(),
+                                 headers={"apikey": anon, "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.loads(r.read())
+    except (urllib.error.URLError, ValueError):
+        return None
+
+
 class Sky:
     def __init__(self):
         self.url, self.anon = konfig()
-        epost = os.environ.get("SEE_EPOST") or input("E-post: ").strip()
-        passord = getpass.getpass("Passord (vises ikke): ")
-        svar = self.kall("POST", "/auth/v1/token?grant_type=password",
-                         json.dumps({"email": epost, "password": passord}).encode(),
-                         {"Content-Type": "application/json"}, token=False)
+        svar = husket(self.url, self.anon)
+        if not svar:
+            epost = os.environ.get("SEE_EPOST") or input("E-post: ").strip()
+            passord = getpass.getpass("Passord (vises ikke): ")
+            svar = self.kall("POST", "/auth/v1/token?grant_type=password",
+                             json.dumps({"email": epost, "password": passord}).encode(),
+                             {"Content-Type": "application/json"}, token=False)
+        husk(self.url, svar)       # nøkkelen byttes ut hver gang, så den gamle slutter å virke
         self.token = svar["access_token"]
         self.uid = svar["user"]["id"]
         print(f"Logget inn som {svar['user'].get('email', '?')} (bruker-id {self.uid[:8]}…)")
@@ -244,8 +281,14 @@ def fjern(fid):
 
 def main():
     a = sys.argv[1:]
-    if not a or a[0] not in ("ny", "opp", "liste", "fjern"):
+    if not a or a[0] not in ("ny", "opp", "liste", "fjern", "logg-ut"):
         print(__doc__); sys.exit(1)
+    if a[0] == "logg-ut":
+        if os.path.exists(HUSK):
+            os.remove(HUSK); print("Innloggingen er glemt på denne maskinen.")
+        else:
+            print("Ingen lagret innlogging.")
+        return
     if a[0] == "ny":
         if len(a) < 3:
             stopp('bruk: ny privat-<navn> "Fullt navn"')

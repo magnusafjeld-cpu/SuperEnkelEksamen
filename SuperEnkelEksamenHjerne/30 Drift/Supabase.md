@@ -112,6 +112,10 @@ utvidelsen likevel, og sidepanel og bunnmeny tegnes på nytt. Den første er pla
 `progress` med `subject_id` «privat-planlegger», så tilgangsregelen som allerede
 finnes, holder den privat.
 
+**Innloggingen i opplastingsskriptet** huskes i
+`~/.config/superenkeleksamen/innlogging.json` (refresh token, 0600, utenfor repoet),
+og nøkkelen byttes ut ved hver bruk. Passordet lagres aldri. `logg-ut` sletter filen.
+
 **Biblioteket:** `js/account.js` henter supabase-js 2.117.2 fra jsDelivr med
 SRI-hash. Bytter du versjon, velg en som er minst to uker gammel og hent hashen fra
 `https://data.jsdelivr.com/v1/packages/npm/@supabase/supabase-js@<versjon>?structure=flat`.
