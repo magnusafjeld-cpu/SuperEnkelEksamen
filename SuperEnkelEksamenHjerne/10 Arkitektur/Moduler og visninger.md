@@ -570,9 +570,9 @@ helgen og opptatte dager.
   får dermed lite selv om eksamen er nær.
 - **Oppgavene.** I rekkefølge: neste forelesning i opptak (kvote så de er sett før
   eksamensuka), generalprøve (nyeste ekte sett) tre dager før eller neste sett når
-  det er under fire uker igjen eller mestringen er over 50 %, en daglig kvote
-  sjangertrening (alt gjennomgått to dager før eksamen, sjangrene med de svakeste
-  kapitlene først), så de svakeste kapitlene etter eksamensvekt × gap med
+  det er under fire uker igjen eller mestringen er over 50 %, sjangertrening som hele sjangre
+  (aldri delt; spredt jevnt så alt er gjennomgått to dager før eksamen, påbegynte og
+  de med de svakeste kapitlene først, låner tid som et helt sett), så de svakeste kapitlene etter eksamensvekt × gap med
   sjangertrening, eksamenstrening, kapitteloppgaver og quiz først. Kjernepensum når
   oppgavene viser hull (mestring under 50 % med en viss måling). Manuallesing bare
   når kapitlet ikke har annet.
