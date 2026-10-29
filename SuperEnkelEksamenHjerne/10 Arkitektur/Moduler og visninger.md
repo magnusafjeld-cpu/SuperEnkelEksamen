@@ -565,6 +565,12 @@ helgen og opptatte dager.
   kapitteloppgaver og quiz først. Kjernepensum bare når kapitlet står svakt og har
   lite å måle på, aldri over 70 %. Manuallesing bare når kapitlet ikke har annet. Dagens plan står fast
   gjennom dagen, med avkrysning.
+- **Tid.** Kjernepensum regnes til 50 ord per minutt pluss 1,5 minutter per sjekk og
+  3 per minicaseledd, sjangertrening til 3 minutter per steg. En tidsfaktor per fag
+  ganger opp alt unntatt hele sett og flashcards; FIE402 starter på ×2 fordi
+  Magnus brukte minst dobbelt så lang tid som anslått. Tid per sjangersteg måles
+  fra svartidspunktene (median av avstander mellom 30 sekunder og 30 minutter) og
+  brukes i stedet for anslaget når det finnes minst åtte målinger.
 - **Morgenen kl. 06.** Plandagen skifter kl. 06. Første gang appen er åpen etter
   det (eller når den blir synlig igjen), hentes raden fra skyen, faget måles, og
   Claude lager ny ukeplan hvis det er slått på og nøkkel finnes. Én gang per morgen
