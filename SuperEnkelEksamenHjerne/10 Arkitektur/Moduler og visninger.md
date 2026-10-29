@@ -552,7 +552,8 @@ helgen og opptatte dager.
 - **Regnemodellen.** Gjenstår = (ord / 50) × faktor × gap til 85 % × (0,4 + 0,2 ×
   eksamensvekt), summert over kapitlene, pluss opptil fire hele sett. Tempo =
   gjenstår / dager igjen. Dagens tid fordeles etter tempo, i kvarter etter største
-  rest, med minst 90 minutter de to siste dagene før en eksamen. Et fag du kan godt,
+  rest, med minst 90 minutter de to siste dagene før en eksamen. En eksamensdag
+  trekker seks timer fra kapasiteten; resten går til de andre fagene. Et fag du kan godt,
   får dermed lite selv om eksamen er nær.
 - **Oppgavene.** Generalprøve (nyeste ekte sett) tre dager før, ellers neste sett når
   det er under tre uker igjen eller mestringen er over 60 %. Så de svakeste kapitlene
