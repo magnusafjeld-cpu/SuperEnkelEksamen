@@ -548,22 +548,34 @@ helgen og opptatte dager.
   vektet snitt av svarene, halvert vekt per 28 dager. Tidligere eksamensoppgaver
   teller mest: sett 4, eksamenstrening og sjangertrening 2,5, kapitteloppgaver 2,
   minicasene i kjernepensum 1,5, sjekkene 1, quiz 0,75, flashcards 0,5. Det du har
-  lest, gir bare en svak start (0,25, eller 0,4 med kjernepensum lest): kan du
-  stoffet uten å ha lest, viser oppgavene det. Bildet lagres, så planleggeren ser alle fagene selv
+  lest, gir bare en svak start (0,1, eller 0,3 med kjernepensum lest eller
+  forelesningen sett): et kapittel uten svar regnes som ikke kunnet, og kan du
+  stoffet uten å ha lest, viser oppgavene det. Fag med under 15 svar vises som
+  «Lite målt». Bildet lagres, så planleggeren ser alle fagene selv
   om bare ett er lastet. Et fag du ikke har åpnet, står som «Ikke målt».
-- **Regnemodellen.** Gjenstår = arbeidsmengde × faktor × gap til 85 % × (0,4 + 0,2 ×
-  eksamensvekt), summert over kapitlene. Arbeidsmengden er tiden kjernepensum,
-  sjangertrening, kapitteloppgaver og quiz for kapitlet tar; manualens ordtall
-  brukes bare for kapitler uten noe av dette. Pluss opptil fire hele sett. Tempo =
-  gjenstår / dager igjen. Dagens tid fordeles etter tempo, i kvarter etter største
+- **Regnemodellen.** Gjenstår = arbeidsmengde × faktorene × gap til 85 % × (0,4 +
+  0,2 × eksamensvekt), summert over kapitlene. Arbeidsmengden er tiden
+  kjernepensum, kapitteloppgaver og quiz for kapitlet tar; manualens ordtall brukes
+  bare for kapitler uten noe av dette. Pluss resten av sjangertreningen (skal
+  gjennomgås helt, uavhengig av mestring), forelesninger som ikke er sett og opptil
+  fire hele sett. Tempo = gjenstår / dagene faget faktisk får.
+- **Eksamensuka.** De siste sju dagene før en eksamen får bare det faget tid, også
+  i Claudes plan (appen flytter tiden og noterer avviket). Dager i andre fags
+  eksamensuke telles ikke når tempoet regnes ut. Dagens tid fordeles etter tempo, i kvarter etter største
   rest, med minst 90 minutter de to siste dagene før en eksamen. En eksamensdag
   trekker seks timer fra kapasiteten; resten går til de andre fagene. Et fag du kan godt,
   får dermed lite selv om eksamen er nær.
-- **Oppgavene.** Generalprøve (nyeste ekte sett) tre dager før, ellers neste sett når
-  det er under fire uker igjen eller mestringen er over 50 %. Så de svakeste
-  kapitlene etter eksamensvekt × gap: sjangertrening, eksamenstrening,
-  kapitteloppgaver og quiz først. Kjernepensum bare når kapitlet står svakt og har
-  lite å måle på, aldri over 70 %. Manuallesing bare når kapitlet ikke har annet. Dagens plan står fast
+- **Oppgavene.** I rekkefølge: neste forelesning i opptak (kvote så de er sett før
+  eksamensuka), generalprøve (nyeste ekte sett) tre dager før eller neste sett når
+  det er under fire uker igjen eller mestringen er over 50 %, en daglig kvote
+  sjangertrening (alt gjennomgått to dager før eksamen, sjangrene med de svakeste
+  kapitlene først), så de svakeste kapitlene etter eksamensvekt × gap med
+  sjangertrening, eksamenstrening, kapitteloppgaver og quiz først. Kjernepensum når
+  oppgavene viser hull (mestring under 50 % med en viss måling). Manuallesing bare
+  når kapitlet ikke har annet.
+- **Forelesninger.** Per fag: antall og lengde (FIE459: 13 à 2 timer). Forelesning n
+  hører til kapittel n. Avkrysningen i dagsplanen teller minuttene som sett
+  (`T.fl`, største verdi vinner ved fletting). Dagens plan står fast
   gjennom dagen, med avkrysning.
 - **Tid.** Kjernepensum regnes til 50 ord per minutt pluss 1,5 minutter per sjekk og
   3 per minicaseledd, sjangertrening til 3 minutter per steg. En tidsfaktor per fag
