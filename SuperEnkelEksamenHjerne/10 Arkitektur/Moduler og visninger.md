@@ -545,21 +545,31 @@ gruppe Studieløp. Velg fag, eksamensdatoer, pensumfaktor, timer på hverdager o
 helgen og opptatte dager.
 
 - **Måling.** I faget du står i lages et øyeblikksbilde: mestring per kapittel som
-  vektet snitt av svarene (sett 3, kapitteloppgaver 2, sjangertrening og
-  eksamenstrening 1,5, quiz 1, flashcards 0,5), halvert vekt per 28 dager, med en
-  svak start fra lest/forstått. Bildet lagres, så planleggeren ser alle fagene selv
+  vektet snitt av svarene, halvert vekt per 28 dager. Tidligere eksamensoppgaver
+  teller mest: sett 4, eksamenstrening og sjangertrening 2,5, kapitteloppgaver 2,
+  minicasene i kjernepensum 1,5, sjekkene 1, quiz 0,75, flashcards 0,5. Det du har
+  lest, gir bare en svak start (0,25, eller 0,4 med kjernepensum lest): kan du
+  stoffet uten å ha lest, viser oppgavene det. Bildet lagres, så planleggeren ser alle fagene selv
   om bare ett er lastet. Et fag du ikke har åpnet, står som «Ikke målt».
-- **Regnemodellen.** Gjenstår = (ord / 50) × faktor × gap til 85 % × (0,4 + 0,2 ×
-  eksamensvekt), summert over kapitlene, pluss opptil fire hele sett. Tempo =
+- **Regnemodellen.** Gjenstår = arbeidsmengde × faktor × gap til 85 % × (0,4 + 0,2 ×
+  eksamensvekt), summert over kapitlene. Arbeidsmengden er tiden kjernepensum,
+  sjangertrening, kapitteloppgaver og quiz for kapitlet tar; manualens ordtall
+  brukes bare for kapitler uten noe av dette. Pluss opptil fire hele sett. Tempo =
   gjenstår / dager igjen. Dagens tid fordeles etter tempo, i kvarter etter største
   rest, med minst 90 minutter de to siste dagene før en eksamen. En eksamensdag
   trekker seks timer fra kapasiteten; resten går til de andre fagene. Et fag du kan godt,
   får dermed lite selv om eksamen er nær.
 - **Oppgavene.** Generalprøve (nyeste ekte sett) tre dager før, ellers neste sett når
-  det er under tre uker igjen eller mestringen er over 60 %. Så de svakeste kapitlene
-  etter eksamensvekt × gap, med kjernepensum eller lesing for det du ikke har
-  begynt på og kapitteloppgaver eller sjangertrening ellers. Dagens plan står fast
+  det er under fire uker igjen eller mestringen er over 50 %. Så de svakeste
+  kapitlene etter eksamensvekt × gap: sjangertrening, eksamenstrening,
+  kapitteloppgaver og quiz først. Kjernepensum bare når kapitlet står svakt og har
+  lite å måle på, aldri over 70 %. Manuallesing bare når kapitlet ikke har annet. Dagens plan står fast
   gjennom dagen, med avkrysning.
+- **Morgenen kl. 06.** Plandagen skifter kl. 06. Første gang appen er åpen etter
+  det (eller når den blir synlig igjen), hentes raden fra skyen, faget måles, og
+  Claude lager ny ukeplan hvis det er slått på og nøkkel finnes. Én gang per morgen
+  på tvers av enheter; en feil vises i kortet og regnemodellen brukes. Ingen server:
+  er appen ikke åpnet, skjer det ikke.
 - **Claude.** «Lag ukeplan med Claude» sender tallene, dagene og notatet og får JSON
   tilbake. Appen kaster tid etter eksamen, skalerer ned dager over kapasiteten og
   faller tilbake på regnemodellen for dager som mangler. Hvorfor hybrid:
