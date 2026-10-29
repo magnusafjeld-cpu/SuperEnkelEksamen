@@ -183,9 +183,8 @@ EX.append(dict(
           "Gjennomsnittsskatten er skatten delt på inntekten.</p>"),
     parts=[
         dict(label="a",
-             body=(f"<p>System X er en negativ inntektsskatt: alle betaler {pc(tX, 0)} av hele inntekten og får samtidig "
-                   f"en overføring på {kr(G)} som trekkes fra skatten. Hvilket alternativ angir både gjennomsnittsskatten til "
-                   "Siri og Tor og hva slags system dette er?</p>"),
+             body=(f"<p>System X er en negativ inntektsskatt: skatten er {pc(tX, 0)} av hele inntekten minus en fast overføring "
+                   f"på {kr(G)} til alle. Hvilket alternativ gir riktig gjennomsnittsskatt for begge og riktig karakteristikk av systemet?</p>"),
              options=[f"Siri {pc(feil_inntekt[0])} og Tor {pc(feil_inntekt[1])}, altså progressivt",
                       f"Siri {pc(avs)} og Tor {pc(avt)}, altså progressivt",
                       f"Siri {pc(tX)} og Tor {pc(tX)}, altså proporsjonalt",
@@ -271,12 +270,11 @@ assert round(snitt600, 6) == 0.2
 
 EX.append(dict(
     title="Gjennomsnittsskatt i et trinnsystem", topic="Progressivitet", chapters=[1],
-    body=("<p>I landet Nordvik skattlegges inntekt etter disse trinnene:</p>"
+    body=("<p>Et land har denne trinnskatten:</p>"
           "<ul><li>10 % på inntekt opp til kr 200 000</li>"
           "<li>25 % på inntekt mellom kr 200 000 og kr 600 000</li>"
           "<li>35 % på inntekt over kr 600 000</li></ul>"
-          f"<p>Ola har en inntekt på {kr(Yo)} og Kari en inntekt på {kr(Yk)}. Hva er gjennomsnittsskatten til Ola og Kari? "
-          "Rund av til én desimal.</p>"),
+          f"<p>Ola tjener {kr(Yo)} og Kari {kr(Yk)}. Hva er gjennomsnittsskatten deres? Rund av til én desimal.</p>"),
     options=[f"Ola {pc(ao)} og Kari {pc(ak)}",
              f"Ola {pc(f_marg[0])} og Kari {pc(f_marg[1])}",
              f"Ola {pc(f_skip[0])} og Kari {pc(f_skip[1])}",
@@ -344,15 +342,14 @@ assert feil_a_fv < gulv4 and feil_a_bolig < gulv4 and gulv4 < sum_gfr <= gjeld
 kol = list(MV)
 EX.append(dict(
     title="Formuesskatt med primærbolig over terskelen", topic="Formuesskatt", chapters=[7],
-    body=("<p>Hedda er enslig. Ved utgangen av 2026 eier hun følgende, målt i markedsverdi:</p>"
+    body=("<p>Enslige Hedda eier ved utgangen av 2026, i markedsverdi:</p>"
           f"<ul><li>primærbolig: {kr(MV['Primærbolig'])}</li>"
-          f"<li>sekundærbolig (utleieleilighet): {kr(MV['Sekundærbolig'])}</li>"
+          f"<li>sekundærbolig: {kr(MV['Sekundærbolig'])}</li>"
           f"<li>børsnoterte aksjer: {kr(MV['Aksjer'])}</li>"
           f"<li>bankinnskudd: {kr(MV['Bank'])}</li></ul>"
-          f"<p>Hun har {kr(gjeld)} i gjeld. Bruk 2026-reglene: primærbolig verdsettes til 25 % av verdien opp til "
-          "kr 14 000 000 og 70 % av verdien over. Sekundærbolig og bankinnskudd verdsettes til 100 % og aksjer til 80 %. "
-          "Gjelden skal fordeles forholdsmessig etter markedsverdiene. Gjeld som faller på aksjene, skal reduseres med "
-          "aksjerabatten. Gjeld som faller på primærboligen, skal ikke reduseres.</p>"),
+          f"<p>Hun har {kr(gjeld)} i gjeld. Etter 2026-reglene verdsettes primærbolig til 25 % opp til kr 14 000 000 "
+          "og 70 % over, sekundærbolig og bankinnskudd til 100 % og aksjer til 80 %. Gjelden fordeles etter markedsverdiene. "
+          "Gjelden på aksjene reduseres med aksjerabatten. Gjelden på primærboligen reduseres ikke.</p>"),
     parts=[
         dict(label="a",
              body="<p>Hvor stor er Heddas fradragsberettigede gjeld?</p>",
@@ -385,8 +382,8 @@ EX.append(dict(
                  f"Reduksjonen er høyst 20 % av den, altså under {n(maksred4)}. Svaret må derfor ligge over {n(gulv4)}. "
                  f"{Kr(feil_a_fv)} og {kr(feil_a_bolig)} faller utenfor.</p>")),
         dict(label="b",
-             body=("<p>Hva blir Heddas formuesskatt for 2026? Formuesskatten er 1,0 % av nettoformuen over et bunnfradrag "
-                   "på kr 1 900 000 (1,1 % av nettoformuen over kr 21 500 000).</p>"),
+             body=("<p>Hva blir formuesskatten for 2026? Satsen er 1,0 % over et bunnfradrag på kr 1 900 000 og 1,1 % "
+                   "over kr 21 500 000.</p>"),
              options=[Kr(feil_b_prim), Kr(feil_b_sek), Kr(fskatt), Kr(feil_b_gjeld)], answer=2,
              solution=(
                  "<p><b>Regelen.</b> Primærbolig verdsettes til 25 % av de første kr 14 000 000 og 70 % av resten. "
@@ -424,12 +421,10 @@ belast5 = D5 / W5
 
 EX.append(dict(
     title="Utbyttet som skal betale formuesskatten", topic="Formuesskatt som avkastningsskatt", chapters=[8],
-    body=("<p>Lars eier alle aksjene i det unoterte selskapet Lager og Logistikk AS. Aksjenes formuesverdi før rabatt "
-          f"(selskapets skattemessige formuesverdi) er {kr(FV_for)}. Aksjerabatten er 20 %. Lars har ingen andre eiendeler "
-          "og ingen gjeld. Han må ta utbytte fra selskapet for å betale formuesskatten. Anta at formuesskatten er 1,0 % og se "
-          "bort fra bunnfradraget. Eierskatten er 22 % og oppjusteringsfaktoren 1,72. Se bort fra skjermingsfradraget. "
-          "Hvor stort utbytte må Lars ta ut for å ha nøyaktig nok til formuesskatten etter at utbytteskatten er betalt? "
-          "Rund av til nærmeste krone.</p>"),
+    body=(f"<p>Lars eier et unotert aksjeselskap og har ingen andre eiendeler og ingen gjeld. Aksjenes formuesverdi før "
+          f"rabatt er {kr(FV_for)}. Aksjerabatten er 20 %. Han må ta utbytte for å betale formuesskatten. Formuesskatten er "
+          "1,0 %. Eierskatten er 22 % og oppjusteringsfaktoren 1,72. Se bort fra bunnfradrag og skjerming. Hvor stort utbytte "
+          "må han ta for å ha nøyaktig nok til formuesskatten etter utbytteskatt? Rund av til nærmeste krone.</p>"),
     options=[Kr(f5_rab), Kr(f5_oppa), Kr(D5), Kr(f5_22)], answer=2,
     solution=(
         "<p><b>Regelen.</b> Lars må sitte igjen med formuesskatten etter at utbyttet er skattlagt. Utbyttet må derfor "
@@ -518,8 +513,8 @@ EX.append(dict(
                  f"S′/D′ = {n(Sp)}/({n(Dp)}) = {n(Sp / Dp)}. ✓ Forholdet er negativt fordi prisene går hver sin vei. Jo sterkere "
                  "tilbudet reagerer på pris sammenlignet med etterspørselen, jo større del av skatten bærer kjøperne.</p>")),
         dict(label="c",
-             body=("<p>Anta nå at tilbudet er perfekt uelastisk, altså S′(p) = 0, for eksempel fordi varen er tomter i et "
-                   "område der det ikke kan bygges ut mer. Hva blir ∂q/∂t og ∂p/∂t?</p>"),
+             body=("<p>Anta nå at tilbudet er perfekt uelastisk, S′(p) = 0, som for tomter i et ferdig utbygd område. "
+                   "Hva blir ∂q/∂t og ∂p/∂t?</p>"),
              options=["∂q/∂t = 1 og ∂p/∂t = 0: kjøperne bærer hele skatten",
                       "∂q/∂t = 0 og ∂p/∂t = −1: selgerne bærer hele skatten",
                       "∂q/∂t = 0 og ∂p/∂t = 0: ingen bærer skatten fordi kvantum ikke endres",
@@ -618,11 +613,10 @@ assert abs(kontroll8 - diff8) < 1e-6
 
 EX.append(dict(
     title="Utgiftsføre nå eller avskrive over fem år", topic="Fradragets tidsverdi", chapters=[2],
-    body=(f"<p>Sigrids eiendomsselskap har kjøpt inventar til utleieboligene for {kr(I8)}. Selskapet kan enten utgiftsføre "
-          f"hele beløpet med en gang eller avskrive {kr(a8)} i året i fem år. Selskapsskatten er 22 %. Selskapet har "
-          "overskudd nok til å utnytte fradraget fullt ut uansett valg. Utgiftsfører selskapet alt, kommer hele "
-          "skattebesparelsen i dag. Avskriver det, kommer besparelsen ved utgangen av hvert av de fem neste årene. "
-          "Selskapet diskonterer med 7 %. Oppjusteringsfaktoren for utbytte er 1,72. Hva bør selskapet velge?</p>"),
+    body=(f"<p>Sigrids utleieselskap har kjøpt inventar for {kr(I8)}. Det kan utgiftsføre alt nå og få hele "
+          f"skattebesparelsen i dag, eller avskrive {kr(a8)} i året og få besparelsen ved utgangen av hvert av de neste fem "
+          "årene. Selskapet har overskudd nok til å utnytte fradraget uansett. Selskapsskatten er 22 %, diskonteringsrenten "
+          "7 % og oppjusteringsfaktoren for utbytte 1,72. Hva bør selskapet velge?</p>"),
     options=[f"Det spiller ingen rolle: skattebesparelsen er {kr(naa)} i begge tilfeller",
              f"Utgiftsføre alt nå: det er {kr(diff8)} mer verdt i nåverdi",
              f"Utgiftsføre alt nå: det er {kr(NV_ford)} mer verdt i nåverdi",
@@ -711,19 +705,18 @@ rader9 = [["Norge", n(oms["Norge"]), "intern rett", "0", n(til_norge["Norge"])],
 
 EX.append(dict(
     title="Havbris Analytics AS: fire land og en utflytting", topic="Internasjonal skatt", chapters=[13, 6],
-    body=("<p>Havbris Analytics AS er stiftet og hjemmehørende i Bergen og selger programvare for værvarsling til "
-          "oppdrettsnæringen. Selskapet har egne kontorer med fast ansatte salgsteam i Tyskland, i Irland og på Bahamas. "
-          "Skattemyndighetene i alle tre land har slått fast at kontorene er faste driftssteder. Den lokale omsetningen "
-          "skattlegges derfor fullt ut der etter landets interne rett.</p>"
+    body=("<p>Havbris Analytics AS er stiftet og hjemmehørende i Bergen. Selskapet har salgskontorer med egne ansatte i "
+          "Tyskland, Irland og på Bahamas. Alle tre land behandler kontorene som faste driftssteder og skattlegger den "
+          "lokale omsetningen fullt ut etter egen intern rett.</p>"
           f"<p>I 2026 har selskapet {kr(tot_oms)} i omsetning og ingen kostnader:</p>"
           f"<ul><li>{kr(oms['Norge'])} fra Norge</li><li>{kr(oms['Tyskland'])} fra Tyskland</li>"
           f"<li>{kr(oms['Irland'])} fra Irland</li><li>{kr(oms['Bahamas'])} fra Bahamas</li></ul>"
           "<p>Du kan forutsette at:</p>"
-          "<ul><li>skatteavtalen mellom Norge og Tyskland bygger på den vanlige kreditmetoden</li>"
-          "<li>skatteavtalen mellom Norge og Irland bygger på unntaksmetoden med fullstendig unntak</li>"
-          "<li>det ikke finnes skatteavtale mellom Norge og Bahamas</li>"
-          "<li>Norge gir bare lempning for utenlandsk skatt (unntak eller kreditfradrag) når en skatteavtale krever det. "
-          "Se bort fra de ensidige kreditreglene i skatteloven.</li>"
+          "<ul><li>avtalen med Tyskland bygger på vanlig kreditmetode</li>"
+          "<li>avtalen med Irland bygger på unntaksmetoden med fullstendig unntak</li>"
+          "<li>Norge og Bahamas har ingen skatteavtale</li>"
+          "<li>Norge gir bare lempning (unntak eller kreditfradrag) når en skatteavtale krever det. Se bort fra de "
+          "ensidige kreditreglene i skatteloven.</li>"
           "<li>selskapsskatten er 22 % i Norge, 30 % i Tyskland, 12,5 % i Irland og 10 % på Bahamas</li></ul>"),
     parts=[
         dict(label="a",
@@ -828,10 +821,9 @@ EX.append(dict(
                  f"Tyskland {n(oms['Tyskland'])} × (30 % − 22 %) = {n(spor[0])}, Bahamas {n(oms['Bahamas'])} × 10 % = {n(spor[1])} "
                  f"og Irland {n(oms['Irland'])} × (12,5 % − 22 %) = {n(spor[2])}. Sum {n(sum(spor))}. ✓</p>")),
         dict(label="f",
-             body=("<p>Medgründeren Henrik eier 5 % av aksjene i Havbris Analytics AS. Han kjøpte dem for "
-                   f"{kr(inng)}, har bodd i Norge hele livet og flytter til Portugal i 2026. Dagen før utflyttingen er aksjene "
-                   f"hans verdt {kr(mv_exit)}. Hva blir konsekvensen etter reglene for exit-skatt som gjelder i 2026? "
-                   f"Bunnfradraget er {kr(bunn)}. Eierskatten er 22 % med oppjusteringsfaktor 1,72.</p>"),
+             body=(f"<p>Medgründer Henrik har bodd i Norge hele livet og flytter til Portugal i 2026. Aksjene hans i Havbris "
+                   f"kostet {kr(inng)} og er verdt {kr(mv_exit)} dagen før utflyttingen. Bunnfradraget er {kr(bunn)}. "
+                   "Eierskatten er 22 % og oppjusteringsfaktoren 1,72. Hva blir konsekvensen etter exit-reglene for 2026?</p>"),
              options=[f"Exit-skatt på {kr(f_exit_bunn)}, som han kan betale i tolv rentefrie årlige rater på {kr(f_exit_bunn / 12)}",
                       "Ingen skatt nå: skatten på den latente gevinsten bortfaller hvis han ikke selger aksjene innen fem år",
                       f"Exit-skatt på {kr(exit_skatt)}, som han kan betale i tolv rentefrie årlige rater på {kr(rate)}",
@@ -879,14 +871,12 @@ assert feil_hele == 36_000
 
 EX.append(dict(
     title="Båtforsikring: rettferdig pris og maksimal premie", topic="Forsikring og forventet nytte", chapters=[17],
-    body=(f"<p>Elias har en formue på {kr(W10)}. Av den er {kr(L10)} en seilbåt. Sannsynligheten for at båten blir "
-          f"totalskadd i løpet av året er {pc(p10, 0)}. Da mister den hele verdien. Elias har nyttefunksjonen U(W) = √W, "
-          "der W er formuen hans.</p>"),
+    body=(f"<p>Elias har en formue på {kr(W10)}, hvorav en seilbåt til {kr(L10)}. Med sannsynlighet {pc(p10, 0)} blir båten "
+          "totalskadd i løpet av året og mister hele verdien. Nyttefunksjonen hans er U(W) = √W, der W er formuen.</p>"),
     parts=[
         dict(label="a",
-             body=("<p>Et forsikringsselskap tilbyr dekning til aktuarisk rettferdig pris. Elias kan selv velge hvor stor "
-                   "del av båtens verdi han vil forsikre. Hvilket alternativ angir både den aktuarisk rettferdige premien for full "
-                   "dekning og den dekningen han bør velge?</p>"),
+             body=("<p>Et selskap tilbyr dekning til aktuarisk rettferdig pris. Elias velger selv hvor stor del av båtens "
+                   "verdi han forsikrer. Hvilket alternativ gir riktig premie for full dekning og riktig valg av dekning?</p>"),
              options=[f"{Kr(prem_akt)}: han bør velge delvis dekning, fordi en egenandel alltid er optimal",
                       f"{Kr(feil_hele)}: han er likegyldig, fordi forventet formue er den samme uansett dekning",
                       f"{Kr(feil_hele)}: han bør velge full dekning",
@@ -951,10 +941,9 @@ EX.append(dict(
     body="<p>Oppgaven har to uavhengige delspørsmål om portefølje.</p>",
     parts=[
         dict(label="a",
-             body=("<p>Aksje C har forventet avkastning 6 % og standardavvik 15 %. Aksje D har forventet avkastning 9 % og "
-                   "standardavvik 25 %. Korrelasjonen mellom dem er −1. Du kan bare investere i disse to aksjene. Shortsalg "
-                   "er ikke tillatt. Hvor stor andel bør du investere i aksje C dersom du vil ha lavest mulig standardavvik? "
-                   "Rund av til én desimal.</p>"),
+             body=("<p>Aksje C har forventet avkastning 6 % og standardavvik 15 %. Aksje D har 9 % og 25 %. Korrelasjonen "
+                   "er −1. Du kan bare kjøpe disse to aksjene, uten shortsalg. Hvor stor andel i C gir lavest mulig "
+                   "standardavvik? Rund av til én desimal.</p>"),
              options=[pc(w_neg), pc(1.0), pc(w_null), pc(0.5)], answer=0,
              solution=(
                  "<p><b>Regelen.</b> Med korrelasjon −1 kan risikoen fjernes helt uten shortsalg. Andelen i C som gir null "
@@ -1066,9 +1055,9 @@ assert abs((ER - rf) / (w13 * sig ** 2) - gam) < 1e-12
 
 EX.append(dict(
     title="Mertons aksjeandel for en pensjonist", topic="Porteføljevalg", chapters=[14],
-    body=(f"<p>Randi er pensjonist og har bare finansiell formue, {kr(F13)}. Hun kan plassere den i et globalt aksjefond "
-          "med forventet avkastning 7 % og standardavvik 16 % eller på en risikofri bankkonto med 3 % rente. Risikoaversjonen "
-          "hennes er γ = 3. Hvor stor andel av formuen bør hun ifølge Mertons formel ha i aksjefondet? Rund av til én desimal.</p>"),
+    body=(f"<p>Pensjonisten Randi har bare finansiell formue, {kr(F13)}. Et globalt aksjefond har forventet avkastning "
+          "7 % og standardavvik 16 %. En risikofri bankkonto gir 3 %. Randi har γ = 3. Hvor stor andel bør hun ifølge "
+          "Mertons formel ha i aksjefondet? Rund av til én desimal.</p>"),
     options=[pc(f13["sigma"]), pc(f13["uten_gamma"]), pc(w13), pc(f13["ER"])], answer=2,
     solution=(
         "<p><b>Regelen.</b> Mertons formel gir andelen i aksjer: w = (E(R) − r<sub>f</sub>)/(γσ²). Uten humankapital er "
@@ -1104,13 +1093,13 @@ print("Lån 14:", round(L_stress, 2), "gammelt påslag:", round(f14_gammel, 2), 
 
 EX.append(dict(
     title="Hvor mye kan Mina låne", topic="Lån", chapters=[16],
-    body=(f"<p>Mina har en brutto årsinntekt på {kr(Y14)} og et studielån på {kr(studie)}. Hun vil kjøpe en leilighet til "
-          f"{kr(bolig)} og har nok egenkapital. Banken regner med at hun kan bruke {kr(disp)} i året på å betjene boliglånet. "
-          "Dagens rente er 4,5 %. Utlånsforskriften krever at</p>"
-          "<ul><li>samlet gjeld er høyst 5 ganger brutto årsinntekt</li>"
-          "<li>lånet er høyst 90 % av boligens verdi</li>"
-          "<li>hun tåler en rente lik dagens rente pluss 3 prosentpoeng, minst 7 %, på et annuitetslån over 30 år med årlige terminer</li></ul>"
-          "<p>Se bort fra bankens fleksibilitetskvote. Hva er det største boliglånet Mina kan få? Rund av til nærmeste krone.</p>"),
+    body=(f"<p>Mina tjener {kr(Y14)} brutto i året og har {kr(studie)} i studielån. Hun vil kjøpe en leilighet til "
+          f"{kr(bolig)} og har nok egenkapital. Hun kan betale {kr(disp)} i året på boliglånet. Renten er 4,5 %. "
+          "Utlånsforskriften krever:</p>"
+          "<ul><li>samlet gjeld høyst 5 ganger brutto årsinntekt</li>"
+          "<li>lån høyst 90 % av boligverdien</li>"
+          "<li>at hun tåler renten pluss 3 prosentpoeng, minst 7 %, på et annuitetslån over 30 år med årlige terminer</li></ul>"
+          "<p>Se bort fra fleksibilitetskvoten. Hva er det største boliglånet hun kan få? Rund av til nærmeste krone.</p>"),
     options=[Kr(L_stress), Kr(L_gjeld), Kr(f14_femgang), Kr(f14_gammel)], answer=0,
     solution=(
         "<p><b>Regelen.</b> Regn hver skranke i utlånsforskriften for seg. Den som gir det laveste lånet, binder.</p>"
@@ -1144,11 +1133,10 @@ assert round(netto_med) == 300 and round(netto_uten) == -8_700 and abs(netto_med
 
 EX.append(dict(
     title="Sparepenger og kredittkortgjeld samtidig", topic="Finansiell psykologi", chapters=[18, 16],
-    body=(f"<p>Sara har {kr(spar)} på en sparekonto med {pc(rs15, 0)} rente. Hun har kalt kontoen «feriepenger». Samtidig har "
-          f"hun {kr(gjeld15)} i kredittkortgjeld til {pc(rk15, 0)} rente. Hun lar sparepengene stå urørt fordi de «skal gå til "
-          "ferie», selv om hun kan bruke kredittkortet igjen hvis hun trenger pengene senere. Se bort fra skatt. Hvilket "
-          "alternativ angir både skjevheten Sara viser og hvor mye den koster henne i året sammenlignet med å bruke "
-          "sparepengene til å betale ned kredittkortgjelden?</p>"),
+    body=(f"<p>Sara har {kr(spar)} på en sparekonto kalt «feriepenger» til {pc(rs15, 0)} rente og {kr(gjeld15)} i "
+          f"kredittkortgjeld til {pc(rk15, 0)} rente. Hun rører ikke feriepengene, selv om hun kan bruke kortet igjen hvis "
+          "hun trenger pengene senere. Se bort fra skatt. Hvilket alternativ gir skjevheten og hva den koster henne i året, "
+          "sammenlignet med å betale ned gjelden med sparepengene?</p>"),
     options=[f"Overkonfidens: den koster henne {kr(spart_rente)} i året",
              f"Mental regnskapsføring: den koster henne {kr(tap15)} i året",
              f"Mental regnskapsføring: den koster henne {kr(spart_rente)} i året",

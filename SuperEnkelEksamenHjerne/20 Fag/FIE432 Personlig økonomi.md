@@ -179,27 +179,37 @@ bare (c).
 
 ### Prøveeksamenene
 
-Tre prøveeksamener (`prove1`–`prove3`, `kind: "mock"`) ligger sist i `sett.js` og
-vises under «Prøveeksamener» i Eksamenssett. Lagt inn 29. oktober 2026 etter
-`docs/fie432-proveeksamen-spek.md`. Formatet er 2026-formatet: 30 flervalg, fire
-alternativer, 3 poeng for rett og −1 for feil, 4 timer, 90 poeng. To tredeler skatt
-og en tredel finans, som forelesningsplanen.
+Seks prøveeksamener (`prove1`–`prove6`, `kind: "mock"`) ligger sist i `sett.js` og
+vises under «Prøveeksamener» i Eksamenssett. Formatet er 2026-formatet: 30 flervalg,
+fire alternativer, 3 poeng for rett og −1 for feil, 4 timer, 90 poeng.
+Spesifikasjonen er `docs/fie432-proveeksamen-spek.md`.
 
-| Eksamen | Ligner | Særpreg |
-|---|---|---|
-| Prøveeksamen 1 | H2025 | Skjermingskjeden, formuesskatt som avkastningsskatt, Merton med humankapital, forsikring med √W |
-| Prøveeksamen 2 | H2024 | Progressivitet, incidens som formelgjenkjenning, implisitt skatt, en skatterett-blokk på seks ledd med exit-skatt |
-| Prøveeksamen 3 | H2022 og de åpne settene | Lugano-kjeden, inntektsskifting, ln-nytte og tapsaversjon, annuitetslån, utlånsforskriften |
+| Eksamen | Ligner | Ord per ledd | Tallsvar |
+|---|---|---|---|
+| Prøveeksamen 1 | H2025 | 45 | 57 % |
+| Prøveeksamen 2 | H2024, med en skatterett-blokk på seks ledd | 46 | 47 % |
+| Prøveeksamen 3 | Temaer fra H2022 og de åpne settene, i skoleeksamensformat | 42 | 50 % |
+| Prøveeksamen 4 | H2023 og kursgodkjenningen 2026 | 47 | 53 % |
+| Prøveeksamen 5 | H2024 og kursgodkjenningen 2026 | 45 | 50 % |
+| Prøveeksamen 6 | H2025 og kursgodkjenningen 2026 | 46 | 50 % |
 
-Slik ble de laget: fasitposisjonene trukket på forhånd med fast seed
-(`fag/fie432/_prove/fasitplan.json`, 8/8/7/7 per eksamen). Tre agenter skrev
-hver sin eksamen med alle tall regnet i Python (`_prove/proveN_regn.py`). Så løste
-tre andre agenter hver eksamen **blindt** fra en versjon uten fasit. Alle 90 svar
-stemte. Kontrollen fant likevel to ledd med to forsvarlige svar (en definisjon av
-nevneren i effektiv sats, og en gave til utlandet der mottakeren var bosatt i Norge
-etter intern rett) og flere ledd som kunne løses ved konvergens (svaret er
-alternativet som deler et element med alle de andre). Alt er rettet.
-`node tools/sjekk-prove.js fie432` kjører lekkasjekontrollen.
+**Kalibrert mot skoleeksamen.** Eksamen 2026 er en skoleeksamen. H2022 var en
+hjemmeeksamen med lengre og tyngre oppgaver (68 ord per ledd), og den første versjonen
+av prøveeksamen 3 ble for lik den (61 ord, 80 % tallsvar). Magnus påpekte det 29. oktober
+2026. Nå gjelder: 35–48 ord per ledd og 35–55 % tallsvar, som skoleeksamenene H2023–H2025
+(44 ord, 51 %); høyst tre regnetrinn, ingen iterasjon; og omtrent halvparten begrepsledd
+i stilen fra kursgodkjenningen 2026, som er laget av årets forelesere (34 ord, 20 %).
+`node tools/sjekk-prove.js fie432` måler dette sammen med lekkasjen.
+
+**Slik ble de laget.** Fasitposisjonene trukket på forhånd med fast seed
+(`fag/fie432/_prove/fasitplan.json`). Én agent skrev hver eksamen med alle tall regnet i
+`_prove/proveN_regn.py`, som også bygger JSON-en. En annen agent løste den **blindt** fra
+en versjon uten fasit: alle 180 svar stemte. Kontrollene fant likevel ledd med to
+forsvarlige svar og mange ledd der svaret kunne gjettes av mønsteret (konvergens:
+riktig alternativ deler et element med alle de andre; «58 %-par» der riktig er det
+høyeste av et par med og uten oppjustering; to alternativer som skiller seg med nøyaktig
+én oppgitt størrelse). Alt er rettet. Endringer gjøres i skriptet, så flettes inn med
+`tools/fie432-flett-prove.py`; skriptene bygger nøyaktig det som ligger i `sett.js`.
 
 ## Kildene
 

@@ -244,3 +244,121 @@ Når de tre er skrevet, går hver eksamen gjennom en uavhengig kontroll: en regn
 som regner hvert ledd på nytt uten å se løsningen først, og en fagkontroll av at hvert
 riktig svar er entydig riktig etter manualen og at ingen gale alternativer også kan
 forsvares. Funn rettes før settene flettes inn i `fag/fie432/sett.js`.
+
+## Kalibrering mot skoleeksamen (gjelder alle prøveeksamenene fra 29. oktober 2026)
+
+Eksamen i 2026 er en **skoleeksamen** med kalkulator. H2022 var en hjemmeeksamen med alle
+hjelpemidler, og oppgavene var derfor lengre og tyngre. Prøveeksamenene skal ligne
+skoleeksamenene (H2023, H2024, H2025) og kursgodkjenningen 2026 (`mc2026`), som er laget av
+årets forelesere. H2022 og de åpne settene kan levere **temaer**, ikke oppgavetype eller
+vanskelighetsgrad.
+
+Målt med `node tools/sjekk-prove.js fie432`:
+
+| | Ord per ledd | Ledd med tallsvar |
+|---|---|---|
+| Skoleeksamenene H2023–H2025 (snitt) | 44 | 51 % |
+| Kursgodkjenningen 2026 | 34 | 20 % |
+| H2022 (hjemmeeksamen) | 68 | 61 % |
+| **Mål for en prøveeksamen** | **35–48** | **35–55 %** |
+
+Regler:
+- **Regneledd:** høyst tre regnetrinn med vanlig kalkulator, og tall som går greit opp. Ingen
+  iterasjon (effektiv rente som internrente, løse for n), ingen tabeller over fem rader, ingen
+  kjeder der fire ledd bygger på hverandre.
+- **Begrepsledd i stilen fra kursgodkjenningen 2026:** «Hvilket utsagn er riktig?», «Hvilken
+  av påstandene kan være korrekt?», «Alle de tre påstandene over» som alternativ når det er
+  entydig, definisjonsspørsmål (fritaksmetoden, hvem som får skjermingsfradraget, skattefri
+  utleie av egen bolig, når man er norsk skattyter) og konsekvensspørsmål (hva delvis
+  tapsfradrag gjør med risikotakingen). Les ordene «kan», «alltid», «alle» presist.
+- **Ikke gjenta** spørsmål fra noen av de ekte settene eller fra de andre prøveeksamenene med
+  samme tall eller samme scenario. Les dem i `fag/fie432/sett.js` før du skriver.
+
+### Prøveeksamen 3, omskrevet: «temaer fra H2022 og de åpne settene, i skoleeksamensformat»
+
+Samme temaer og samme fasitposisjoner, men kortere tekster og omtrent halvparten begrepsledd.
+Effektiv rente med gebyrer (internrente) erstattes. Notatet skal ikke si at eksamenen «ligner
+H2022».
+
+### Prøveeksamen 4: «ligner H2023 og kursgodkjenningen 2026» (skatt 21, finans 9)
+
+Skatt:
+1. Skjerming i en tabell over fire til fem år: skattepliktig utbytte et år, akkumulert
+   ubenyttet skjerming, og gevinstskatt ved salg (3). Jf. H2023 1, mc2026 1.
+2. Oppjusteringsfaktoren som gir en bestemt effektiv sats, og samlet effektiv sats for selskap og
+   eier (2). Jf. H2023 2, mc2026 3.
+3. Formuesskatt med gjeldsfordeling der rabatten avgjør (1). Jf. H2023 3.
+4. Formuesskatt utløst av et selskap: skatten, utbyttet som dekker den med eierskatt, og hvilken
+   selskapsskatt som gir samme proveny (2). Jf. H2023 4.
+5. Skjerming på aksjer i et utenlandsk selskap (1). Jf. H2023 5.
+6. Nominell avkastning og realavkastning på en eiendom (1). Jf. H2023 6.
+7. Stykkskatt: uttrykket for konsumentprisen og et grensetilfelle (2). Jf. H2023 7.
+8. Begrepsledd i kursgodkjenningsstil, ny ordlyd (6): fritaksmetoden, hvem som får
+   skjermingsfradraget, skattefri utleie av egen bolig, når man er skattemessig utflyttet,
+   progressivitet (hvilket system gir lik gjennomsnittsskatt), og delvis tapsfradrag og
+   risikotaking. Jf. mc2026 4–10.
+9. Inntektsskiftingslikningen (1). Jf. mc2026 2.
+10. Skatteparadiser (1). Kapittel 13.
+10b. Exit-skatt med 2026-reglene, for eksempel gave til noen i utlandet (1). Kapittel 6 § 6.6.
+
+Finans:
+11. Kapitalmarkedslinjen eller separasjonsteoremet (1). Jf. H2023 8 og 14.
+12. Humankapital og aksjeandel uten tall (1). Jf. H2023 9, mc2026 17.
+13. Pensjon: levetidsrisiko eller delingstall (1). Jf. H2023 10.
+14. Forsikring: når det lønner seg, og hva som kan diversifiseres (2). Jf. H2023 11–12.
+15. To aksjer: minimum varians og risikonøytral investor (2). Jf. H2023 13.
+16. Forventet nytte: valg mellom kontrakter med samme forventning (1). Jf. mc2026 11.
+17. Finansiell psykologi (1). Jf. mc2026 16 og 18, men en annen skjevhet enn prøveeksamen 1–3.
+
+### Prøveeksamen 5: «ligner H2024 og kursgodkjenningen 2026» (skatt 20, finans 10)
+
+Skatt:
+1. Skjerming for én aksje over tre år (3). Jf. H2024 1.
+2. Gevinst med ubenyttet skjerming (1). Jf. H2024 2.
+3. Tidsverdien av et fradrag (1). Jf. H2024 3.
+4. Progressivitet med og uten bunnfradrag (2). Jf. H2024 4, mc2026 8.
+5. Gjennomsnittsskatt i et trinnsystem (1). Jf. H2024 5.
+6. Formuesskatt med gjeldsreduksjon (2). Jf. H2024 6.
+7. Utbytte for å betale formuesskatten (1). Jf. H2024 7.
+8. Stykkskatt: formelgjenkjenning (2). Jf. H2024 8.
+9. Implisitt skatt (2). Jf. H2024 9.
+10. Internasjonal skatt, kort blokk: globalskatteplikt, én metode og bosted (3). Jf. H2024 10,
+    mc2026 4 og 9.
+11. Begrepsledd i kursgodkjenningsstil (2): fritaksmetoden og holdingselskap, hvem som får
+    skjermingsfradraget. Ny ordlyd.
+
+Finans:
+12. Forventet nytte: aktuarisk premie og maksimal premie (2). Jf. H2024 11.
+13. Påstander om porteføljer: «kan være korrekt» (1). Jf. mc2026 13.
+14. Indeksfond eller valutasikring (1). Jf. H2024 12.
+15. Aktive mot passive fond (1). Jf. mc2026 14.
+16. Innskudd mot ytelse og IPS (2). Jf. H2024 13.
+17. Avdragsfrihet (1). Jf. H2024 14.
+18. Egenandel, moralsk hasard og ugunstig utvalg (1). Jf. mc2026 15.
+19. Folketrygden i prosent av sluttlønn (1). Jf. mc2026 19.
+
+### Prøveeksamen 6: «ligner H2025 og kursgodkjenningen 2026» (skatt 19, finans 11)
+
+Skatt:
+1. Utbytte etter eierskatt og formuesskatt over to år (1). Jf. H2025 1.
+2. Gjeldsfordeling med primærbolig og aksjefond (1). Jf. H2025 2.
+3. Formuesskatt som avkastningsskatt: avkastning før og etter, og hvilken kapitalinntektsskatt
+   som gir samme proveny (3). Jf. H2025 3 og 9.
+4. Ubenyttet skjerming (1). Jf. H2025 4.
+5. Effektiv sats med avskrivning (1). Jf. H2025 5.
+6. Utbytte for å betale formuesskatten (1). Jf. H2025 6.
+7. Bedriftens tilpasning: førsteordensbetingelsen og gjeld mot egenkapital (2). Jf. H2025 7.
+8. Stykkskatt med tall og grensetilfeller (3). Jf. H2025 8.
+9. Gevinst med oppjustering (1). Jf. H2025 10.
+10. Begrepsledd i kursgodkjenningsstil (5): skattefri utleie, utflytting, delvis tapsfradrag,
+    inntektsskifting, skatteparadiser. Ny ordlyd.
+
+Finans:
+11. Merton: risikoaversjon fra aksjeandelen, og humankapital (3). Jf. H2025 11, mc2026 12 og 17.
+12. Hvilke forsikringer som er lovpålagt, eller annen forsikringsfakta fra manualen (1). Jf. H2025 12.
+13. Forventet nytte med √W (2). Jf. H2025 13.
+14. Delingstall og utsatt uttak (1). Jf. H2025 14.
+15. Kapitalmarkedslinjen og giring (1). Jf. H2025 15.
+16. Indeksfond mot aktive fond, Forbrukerrådet (1). Jf. H2025 16.
+17. Innskuddspensjon (1). Jf. H2025 17.
+18. Home bias eller annen skjevhet (1). Jf. mc2026 18.
