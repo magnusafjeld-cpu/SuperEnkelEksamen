@@ -40,7 +40,7 @@ vanligste feilene gir.
 
 ## Hva som faktisk kommer
 
-Alle ni sett med fasit (2016–2025) er registrert spørsmål for spørsmål i
+Alle ni sett med fasit (2016–2025 uten 2023) er registrert spørsmål for spørsmål i
 `docs/fie432-research/01-eksamens-dna.md`: **227 spørsmål**, poengvektet per sett.
 
 **Mest testet:** stykkskatt-incidens (8 av 9 sett, 11,6 % av poengene) ·
@@ -146,12 +146,13 @@ manualen er ferdig.
 
 ## Eksamenssettene
 
-Ni eksamenssett ligger i `fag/fie432/sett.js`, alle med fasit. De tre flervalgssettene rettes automatisk:
+Ti eksamenssett ligger i `fag/fie432/sett.js`, alle med fasit. De fire flervalgssettene rettes automatisk:
 
 | Sett | Oppgaver | Ledd | Poeng | Merknad |
 |---|---|---|---|---|
 | Høsten 2025 | 17 | 29 | 29 | Skoleeksamen. Ligner mest på 2026 |
 | Høsten 2024 | 14 | 38 | 48 | Størst. Oppgave 10 er ti delspørsmål om internasjonal skatt |
+| Høsten 2023 | 14 | 23 | 30 | Skoleeksamen. Lagt inn 29. oktober 2026, da sensorveiledningen kom. 73 % skatt. Første sett med realavkastning som eget spørsmål |
 | Høsten 2022 | 7 | 31 | 35 | **Hjemmeeksamen** — tyngre oppgaver enn skoleeksamen |
 
 Ingen av dem hadde minuspoeng, men eksamensmodus lar deg slå det på, og
@@ -234,7 +235,7 @@ Kontrolleres med `tools/sjekk-manual.py`.
 | Kartlegging | **ferdig** — 84 000 ord, 227 eksamensspørsmål registrert, 109 fasiter kontrollregnet |
 | Manual | **21 av 21 kapitler · 81 500 ord** — strukturelt feilfri |
 | Studieplan | **21 moduler · 57 timer**, estimatene regnet av faktisk innhold |
-| Eksamenssett | **9 sett**: 3 rene flervalg (98 ledd) og 6 eldre med åpne oppgaver (H2016–H2021, 130 ledd). **3 prøveeksamener** i 2026-formatet (90 ledd) |
+| Eksamenssett | **10 sett**: 4 rene flervalg (121 ledd) og 6 eldre med åpne oppgaver (H2016–H2021, 130 ledd). **3 prøveeksamener** i 2026-formatet (90 ledd) |
 | Flashcards | **100** auto-genererte formelkort fra k20 |
 | Quiz | **164 spørsmål** · 133 flervalg / 31 kortsvar · alle 20 kapitler dekket |
 | Dybdetrening | **299 spørsmål** i fire banker: 72 · 77 · 72 · 78 |

@@ -39,8 +39,8 @@ blankt når du ikke kan.** Kapittel 19 lærer dette som en rutine.
 
 ### Hva som faktisk kommer
 
-Alle ni sett med fasit (2016–2025) er registrert spørsmål for spørsmål i
-`docs/fie432-research/01-eksamens-dna.md`: **227 spørsmål**, hvert merket med tema,
+Alle ni sett med fasit (2016–2025 uten 2023) er registrert spørsmål for spørsmål i
+`docs/fie432-research/01-eksamens-dna.md`: **227 spørsmål** (H2023 kom inn 29. oktober 2026 og står i § 1, men ikke i tabellene under), hvert merket med tema,
 type og regnerutine, og poengvektet per sett. Tabellene under er sammendraget.
 Bruk registeret når du trenger et konkret eksempel til et kapittel.
 

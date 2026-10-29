@@ -1,6 +1,6 @@
 # FIE432 Personlig økonomi — eksamens-DNA
 
-*Kartlegging av ni eksamenssett (H2016–H2025, H2023 mangler) med fasit/sensorveiledning.
+*Kartlegging av ni eksamenssett (H2016–H2025, H2023 mangler) med fasit/sensorveiledning. H2023 kom inn 29. oktober 2026 og er registrert i § 1, men frekvenstabellene i § 2 og rutinene i § 4 er laget før og teller bare de ni.
 Formålet er å styre hva et læringsprogram skal trene på.*
 
 Kilder: `FIE432 Personlig Økonomi 31. aug/_tekst/Eksamensoppgaver_*.txt`,
@@ -229,6 +229,36 @@ Poengene under er råpoeng slik de står i settet (GS-delen 20 råpoeng = 50 %, 
 | H2022 | 7 | 6 | 1 | OA | `merton-med-humankapital` | regne | 2 000/3 000 | (c) 66,7 % |
 
 Karakterskala H2022 (35 p): A 31–35, B 27–30, C 22–26, D 18–21, E 14–17, F 0–13 (ca. 88/76/64/52/40 %).
+
+### H2023: skoleeksamen 14.12.2023, 4 timer, Wiseflow; ren flervalg med fire alternativer, ingen minuspoeng nevnt, 30 poeng. GS opg 1–7 = 22 p (73 %), OA opg 8–14 = 8 p (27 %). Lagt til 29. oktober 2026
+
+| Sett | Oppg | Del | Poeng | Foreleser | Tema | Type | Regnerutine | Fasit |
+|---|---|---|---|---|---|---|---|---|
+| H2023 | 1 | a | 1 | GS | `skjerming-utbytte` | regne | 2 000·3 % = 60; 100 − 60 | (i) 40 |
+| H2023 | 1 | b | 1 | GS | `skjerming-ubenyttet` | regne | 2015: 80 − 40 = 40; 2016: (2 000 + 40)·5 % = 102; 40 + (102 − 50) | (i) 92 |
+| H2023 | 1 | c | 1 | GS | `skjerming-ubenyttet` | regne | 2017: 200 − 20,92 − 92 = 87,08 (alt brukt); 2018: 2 000·3 % = 60 = utbyttet | (ii) 0 |
+| H2023 | 1 | d | 1 | GS | `gevinst-ubenyttet-skjerming` + `gevinst-oppjustering` | regne | (2 200 − 2 000)·1,72·0,22; ingen skjerming i salgsåret | (iii) 75,68 |
+| H2023 | 2 | a | 1 | GS | `justeringsfaktor` | regne | 20 %·y = 30 % | (ii) 1,5 |
+| H2023 | 2 | b | 1 | GS | `gevinst-oppjustering` | regne | 200 000·0,8·1,5 | (i) 240 000 |
+| H2023 | 2 | c | 2 | GS | `effektiv-skattesats` | regne | (40 000 + 48 000)/200 000 = 1 − 0,8·0,7 | (i) 44 % |
+| H2023 | 3 | - | 2 | GS | `formuesskatt-gjeldsfordeling` | regne | Gjeld 50/50; 8 + 2,5 − (4 + 5) − 1,5 = 0 | (ii) 0 |
+| H2023 | 4 | a | 1 | GS | `formuesskatt-verdsetting` | regne | 300 000·0,8·1 % | (iv) 2 400 |
+| H2023 | 4 | b | 2 | GS | `utbytte-for-å-betale-formuesskatt` | regne | 2 400/(1 − 0,2·2) | (iv) 4 000 |
+| H2023 | 4 | c | 1 | GS | `formuesskatt-som-avkastningsskatt` | regne | (2 200 + 2 400)/10 000 | (ii) 46 % |
+| H2023 | 5 | - | 2 | GS | `skjerming-utbytte` | regne | (5 − 3)·40 % + (10 − 6)·40 %; utenlandsk AS gir skjerming | (i) 2,4 (*veiledningen skriver «2*0,8», riktig er 2·0,4*) |
+| H2023 | 6 | - | 1 | GS | `realavkastning` (ny) | regne | (6 − 5)/5 + (150 000 − 125 000)/5 mill.; R − π | (ii) 20,5 % og 10,5 % |
+| H2023 | 7 | a | 2 | GS | `stykkskatt-incidens` | formelgjenkjenning | ∂P/∂t = S′/(S′ − D′) | (i) |
+| H2023 | 7 | b | 3 | GS | `stykkskatt-incidens` | formelgjenkjenning | D′ = 0 ⇒ ∂p/∂t = 0 | (i) 0 |
+| H2023 | 8 | - | 1 | OA | `kapitalmarkedslinjen` | begrep | Gir indeksfond ved lav γ og trygg HK, ikke enkeltaksjer | (ii) |
+| H2023 | 9 | - | 1 | OA | `merton-med-humankapital` | begrep | Risikofri HK ⇒ flere aksjer; aksjelik HK ⇒ færre | (i) Nina |
+| H2023 | 10 | - | 1 | OA | `pensjon-delingstall` | begrep | Livsvarig utbetaling = forsikring mot langt liv (levetidsrisiko) | (i) |
+| H2023 | 11 | - | 1 | OA | `forsikring-utfordringer` | begrep | Negativ forventet gevinst, men risikoavers forsikrer store tap | (ii) |
+| H2023 | 12 | - | 1 | OA | `forsikring-diversifisering` | begrep | Uavhengige husbranner kan diversifiseres; pandemi er systematisk | (iii) |
+| H2023 | 13 | a | 1 | OA | `portefølje-varians` | regne | 0,09/(0,04 + 0,09) | (iii) 69 % |
+| H2023 | 13 | b | 1 | OA | `portefølje-forventet-avkastning` | begrep | Risikonøytral ⇒ alt i høyest E(R) (uten shortsalg) | (i) 100 % |
+| H2023 | 14 | - | 1 | OA | `kapitalmarkedslinjen` | begrep | Separasjonsteoremet: mer indeks, ikke mer risikable enkeltaksjer | (iii) |
+
+Poengandeler H2023: skjerming 18,3 % · stykkskatt-incidens 16,7 % · portefølje (indeksfond, CML, varians) 13,3 % · oppjustering 8,3 % · effektiv skattesats, gjeldsfordeling, utbytte for formuesskatt og forsikring 6,7 % hver · formuesskatt-verdsetting, formuesskatt som avkastningsskatt, realavkastning, Merton med humankapital og pensjon 3,3 % hver. Merknader: realavkastning er prøvd som eget spørsmål for første gang (opg 6), og 7b må leses som *perfekt* uelastisk etterspørsel.
 
 ### H2024 — skoleeksamen 9.12.2024, 4 timer, Wiseflow; flervalg med 3–4 alternativer, **ingen minuspoeng**, 48 poeng. GS opg 1–9 = 28 p (58 %), skatterett opg 10 = 9 p (19 %), OA opg 11–14 = 11 p (23 %)
 

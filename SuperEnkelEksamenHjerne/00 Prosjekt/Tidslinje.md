@@ -73,5 +73,6 @@ ikke står i commit-meldingene.
 | 28. september 2026 | Ny modul: kjernepensum, først for [[FIE402 Corporate Finance]] | Det viktigste på én kveld: tolv deler bygd rundt eksamensblokkene, med sjekker og minicase, og hovedpunktene samlet på én side. Se [[Moduler og visninger]] |
 | 26. oktober 2026 | [[FIE432 Personlig økonomi]] får de seks eldre eksamenssettene (H2016–H2021) | Alle ni eksamenene med fasit kan nå øves på, ikke bare flervalgsæraen |
 | 29. oktober 2026 | Prøveeksamener: egen del i Eksamenssett, og tre for [[FIE432 Personlig økonomi]] i 2026-formatet med minuspoeng | Hver løst blindt av en uavhengig kontrollør før de ble lagt inn |
+| 29. oktober 2026 | [[FIE432 Personlig økonomi]] får H2023 som tiende eksamenssett | Sensorveiledningen manglet i kildematerialet. Registrert i eksamens-DNA, men frekvenstabellene teller fortsatt de ni |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.
