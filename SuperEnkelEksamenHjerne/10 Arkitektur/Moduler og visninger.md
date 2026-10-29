@@ -559,9 +559,10 @@ helgen og opptatte dager.
   bare for kapitler uten noe av dette. Pluss resten av sjangertreningen (skal
   gjennomgås helt, uavhengig av mestring), forelesninger som ikke er sett og opptil
   fire hele sett. Dagene vektes med tiden du har (en eksamensdag med to timer
-  igjen teller som en kvart dag). Tempo = (gjenstår − halvparten av tiden faget har
-  alene på slutten) / delte dager, men minst forelesningene som gjenstår. Et fag med
-  mange egne dager til slutt (FIE459 etter Corp-eksamen) får dermed lite tid før.
+  igjen teller som en kvart dag). Tempo = gjenstår / alle dagene faget får (egne dager
+  på slutten er med i nevneren, så faget trenger mindre per dag før), men minst
+  forelesningene som gjenstår delt på de delte dagene. Aldri null: en tidligere
+  versjon trakk egen tid på slutten fra og ga FIE432 null timer uka før eksamensuka.
 - **Eksamensuka.** De siste sju dagene før en eksamen får bare det faget tid, også
   i Claudes plan (appen flytter tiden og noterer avviket). Dager i andre fags
   eksamensuke telles ikke når tempoet regnes ut. Dagens tid fordeles etter tempo, i kvarter etter største
@@ -594,7 +595,7 @@ helgen og opptatte dager.
 - **Flashcards** per fag i innstillingene; av som standard i FIE402.
 - **Hele sett låner tid.** Et sett kan ikke kortes ned. Får faget ikke plass til
   settet i sin del av dagen, låner det opptil 60 % av de andre fagenes tid
-  (`lagPlan`). Dagsplanen har opptil tolv oppgaver; tid som ikke kan fylles, vises
+  (`lagPlan`). Går dagen over, kortes først fagene som ikke låner, så de som lånte. Dagsplanen har opptil tolv oppgaver; tid som ikke kan fylles, vises
   som ledig. I Claude-planen flytter appen andre fags minutter til eksamensfaget i
   eksamensuka, men fyller ikke dagen, så Claude kan gi en lett dag før eksamen.
 - **Morgenen kl. 06.** Plandagen skifter kl. 06. Første gang appen er åpen etter
