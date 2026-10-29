@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-10-26
+oppdatert: 2026-10-29
 ---
 
 # FIE432 Personlig økonomi
@@ -176,6 +176,30 @@ Oppgaver med siffer fra kandidatnummeret har tabeller for alle siffer 0–9.
 H2019 oppgave 4 godtar (c) og (e), fordi begge holder i likevekt; fasiten godtar
 bare (c).
 
+### Prøveeksamenene
+
+Tre prøveeksamener (`prove1`–`prove3`, `kind: "mock"`) ligger sist i `sett.js` og
+vises under «Prøveeksamener» i Eksamenssett. Lagt inn 29. oktober 2026 etter
+`docs/fie432-proveeksamen-spek.md`. Formatet er 2026-formatet: 30 flervalg, fire
+alternativer, 3 poeng for rett og −1 for feil, 4 timer, 90 poeng. To tredeler skatt
+og en tredel finans, som forelesningsplanen.
+
+| Eksamen | Ligner | Særpreg |
+|---|---|---|
+| Prøveeksamen 1 | H2025 | Skjermingskjeden, formuesskatt som avkastningsskatt, Merton med humankapital, forsikring med √W |
+| Prøveeksamen 2 | H2024 | Progressivitet, incidens som formelgjenkjenning, implisitt skatt, en skatterett-blokk på seks ledd med exit-skatt |
+| Prøveeksamen 3 | H2022 og de åpne settene | Lugano-kjeden, inntektsskifting, ln-nytte og tapsaversjon, annuitetslån, utlånsforskriften |
+
+Slik ble de laget: fasitposisjonene trukket på forhånd med fast seed
+(`fag/fie432/_prove/fasitplan.json`, 8/8/7/7 per eksamen). Tre agenter skrev
+hver sin eksamen med alle tall regnet i Python (`_prove/proveN_regn.py`). Så løste
+tre andre agenter hver eksamen **blindt** fra en versjon uten fasit. Alle 90 svar
+stemte. Kontrollen fant likevel to ledd med to forsvarlige svar (en definisjon av
+nevneren i effektiv sats, og en gave til utlandet der mottakeren var bosatt i Norge
+etter intern rett) og flere ledd som kunne løses ved konvergens (svaret er
+alternativet som deler et element med alle de andre). Alt er rettet.
+`node tools/sjekk-prove.js fie432` kjører lekkasjekontrollen.
+
 ## Kildene
 
 `FIE432 Personlig Økonomi 31. aug/` — forelesningslysbilder, ni eksamenssett med
@@ -210,7 +234,7 @@ Kontrolleres med `tools/sjekk-manual.py`.
 | Kartlegging | **ferdig** — 84 000 ord, 227 eksamensspørsmål registrert, 109 fasiter kontrollregnet |
 | Manual | **21 av 21 kapitler · 81 500 ord** — strukturelt feilfri |
 | Studieplan | **21 moduler · 57 timer**, estimatene regnet av faktisk innhold |
-| Eksamenssett | **9 sett**: 3 rene flervalg (98 ledd) og 6 eldre med åpne oppgaver (H2016–H2021, 130 ledd) |
+| Eksamenssett | **9 sett**: 3 rene flervalg (98 ledd) og 6 eldre med åpne oppgaver (H2016–H2021, 130 ledd). **3 prøveeksamener** i 2026-formatet (90 ledd) |
 | Flashcards | **100** auto-genererte formelkort fra k20 |
 | Quiz | **164 spørsmål** · 133 flervalg / 31 kortsvar · alle 20 kapitler dekket |
 | Dybdetrening | **299 spørsmål** i fire banker: 72 · 77 · 72 · 78 |

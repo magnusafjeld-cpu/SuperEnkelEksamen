@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-10-26
+oppdatert: 2026-10-29
 ---
 
 # Eksamenssett-modulen
@@ -105,6 +105,19 @@ gamle eksamensspørsmål, så testen viser hva foreleserne gjenbruker. Magnus va
 å publisere den med løsninger før fristen for kursgodkjenning. Løsningene bygger på
 referansesvaret i emnemappen. Listevisningen teller derfor «N sett», ikke «N
 tidligere eksamener».
+
+## Prøveeksamener (kind: "mock")
+
+Et sett med `kind: "mock"` er laget for appen, ikke gitt av kurset. Lista får da
+to deler med en bryter øverst: «Tidligere eksamener» og «Prøveeksamener», så de
+aldri blandes. Motoren kjører dem ellers likt. Forvalget for minuspoeng følger
+settets `mc.wrongFactor`, så prøveeksamenene i 2026-formatet starter med
+minuspoeng på. Lagt til 29. oktober 2026 for FIE432.
+
+`tools/sjekk-prove.js <fag>` ser etter det som lar studenten finne svaret uten å
+kunne stoffet: avvik fra fasitplanen (`fag/<fag>/_prove/fasitplan.json`), om
+riktig alternativ oftere enn tilfeldig er det lengste eller det midterste tallet,
+ledd som ligner et ekte spørsmål for mye, og skrivereglene.
 
 ## Kontrollen
 

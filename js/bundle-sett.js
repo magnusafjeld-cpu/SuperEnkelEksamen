@@ -15,6 +15,10 @@
    blindt er null). `answer` er en indeks, eller en liste når fasiten godtar
    flere. Åpne oppgaver vurderes fortsatt selv, så et sett kan blande begge.
 
+   Prøveeksamener. Et sett med kind: "mock" er laget for faget, ikke gitt av
+   kurset. Lista viser dem i en egen del, så de aldri blandes med de ekte
+   eksamenene. Ellers kjøres de nøyaktig likt.
+
    Fremdrift lagres i state.exams under nøklene "<settId>-run" (økta) og
    "<settId>-e<n>" (selvvurdering per oppgave), og synkes dermed som alt annet. */
 window.EDU = window.EDU || {};
@@ -29,6 +33,7 @@ window.EDU = window.EDU || {};
   let mode = "practice";   // "practice" | "exam"
   let cursor = 0;          // hvilken oppgave som vises i øvingsmodus
   let ticker = null;       // intervallet som teller ned
+  let del = "eksamen";     // "eksamen" | "prove": hvilken del av lista som vises
 
   function stopTicker() { if (ticker) { clearInterval(ticker); ticker = null; } }
   const setById = (id) => SETS().find((s) => s.id === id) || null;
@@ -144,11 +149,25 @@ window.EDU = window.EDU || {};
   /* ================= listevisning ================= */
   function renderList() {
     const wrap = el(".fade-in");
-    const sets = SETS();
+    const alle = SETS();
+    const prøver = alle.filter((x) => x.kind === "mock");
+    const ekte = alle.filter((x) => x.kind !== "mock");
+    if (!prøver.length) del = "eksamen";
+    const prøveDel = del === "prove";
+    const sets = prøveDel ? prøver : ekte;
     /* Ikke alle settene er eksamener: FIE432 har også flervalgstesten til
        kursgodkjenning. Undertittelen teller derfor sett. */
     wrap.appendChild(sh().pageHead("Eksamenssett", sets.length === 1 ? "1 sett" : `${sets.length} sett`,
-      "Hele sett, slik de ble gitt. Kjør dem som øving med fasit underveis, eller som ekte eksamen på tid der fasiten først åpner seg når du leverer."));
+      prøveDel
+        ? "Prøveeksamener laget i formatet du møter, bygd på det de tidligere eksamenene faktisk spør om. De er ikke gitt av kurset. Kjør dem på tid med minuspoeng, og les fasiten på hvert feil svar etterpå."
+        : "Hele sett, slik de ble gitt. Kjør dem som øving med fasit underveis, eller som ekte eksamen på tid der fasiten først åpner seg når du leverer."));
+
+    if (prøver.length) {
+      const seg = el(".seg", { style: { marginBottom: "16px" } });
+      [["eksamen", `Tidligere eksamener (${ekte.length})`], ["prove", `Prøveeksamener (${prøver.length})`]].forEach(([d, label]) =>
+        seg.appendChild(el("button" + (del === d ? ".on" : ""), { onclick: () => { if (del !== d) { del = d; S.app.refresh(); } } }, label)));
+      wrap.appendChild(seg);
+    }
 
     if (!sets.length) { wrap.appendChild(sh().empty("📄", "Ingen eksamenssett ennå", "Faget har ikke lagt inn sett i EDU_DATA.sets.")); return wrap; }
 
