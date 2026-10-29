@@ -151,6 +151,9 @@ window.EDU = window.EDU || {};
       try { n += await fraMappe(); } catch (e) {}
       merk(n);
       Object.assign(status, { tilstand: feil ? "feil" : "ok", melding: feil, antall: antall() });
+      /* Kom listen etter fristen i oppstarten eller etter innlogging, lastes
+         utvidelsene nå. boot.js legger dem inn i appen som allerede er tegnet. */
+      if (window.EDU_SUBJECT && utvidelser.size) lastUtvidelser();
       return n;
     })();
     return lastet;

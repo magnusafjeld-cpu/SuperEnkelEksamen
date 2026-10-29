@@ -48,10 +48,26 @@ window.EDU = window.EDU || {};
   ];
 
   /* Utvidelser (private moduler lastet av js/privat.js) legger seg inn her før
-     appen tegnes: { route, match, label, ico, group, badge?, ruter: [{ path, render(p, q) }] }.
+     appen tegnes: { route, match, label, ico, group, badge?, mobil?, ruter: [{ path, render(p, q) }] }.
      De gjelder i alle fag og overstyrer ikke fagets modules-liste for noe annet. */
   const UTV = [];
-  S.utvidelser = { registrer: (u) => { if (u && u.match && !UTV.some((x) => x.match === u.match)) UTV.push(u); } };
+  let startet = false;
+  S.utvidelser = { registrer: (u) => {
+    if (!u || !u.match || UTV.some((x) => x.match === u.match)) return;
+    UTV.push(u);
+    if (startet) leggTilSent(u);
+  } };
+  /* En utvidelse kan komme etter at appen er tegnet: de private filene svarte
+     etter fristen i boot(), eller du logget inn etterpå. Da får den rutene sine,
+     sidepanelet tegnes på nytt, og ruten du står på løses opp igjen. */
+  function leggTilSent(u) {
+    (u.ruter || []).forEach((r) => S.router.on(r.path, (p, q) => setView(() => r.render(p, q))));
+    const gml = document.querySelector(".app > .sidebar");
+    if (gml) { gml.replaceWith(buildSidebar()); if (S.account) S.account.mountSidebar(document.getElementById("account-slot")); }
+    const mob = document.querySelector("body > .mobile-nav");
+    if (mob) mob.replaceWith(buildMobileNav());
+    S.router.navigate(location.hash.replace(/^#/, "") || "/");
+  }
 
   /* Faget kan slå av moduler (manifest.modules). Dashboard er alltid med. */
   const sub = () => window.EDU_SUBJECT || {};
@@ -85,7 +101,13 @@ window.EDU = window.EDU || {};
   }
   function nav() { return NAV.map((g) => ({ group: g.group, items: g.items.concat(UTV.filter((u) => (u.group || "Studieløp") === g.group)).filter((i) => has(i.match)) })).filter((g) => g.items.length); }
   /* Seks er det som får plass på en telefon. Har et fag alle, faller de siste bort. */
-  function mobileNav() { const m = MOBILE.filter((i) => has(i.match)).slice(0, 6); return m.length > 1 ? m : []; }
+  /* Utvidelser med mobil: { label, ico } står rett etter Hjem i bunnmenyen. */
+  function mobileNav() {
+    const utv = UTV.filter((u) => u.mobil).map((u) => Object.assign({ route: u.route, match: u.match, label: u.label, ico: u.ico }, u.mobil));
+    const m = MOBILE.filter((i) => has(i.match));
+    m.splice(1, 0, ...utv);
+    return m.length > 1 ? m.slice(0, 6) : [];
+  }
 
   let contentEl, currentView = () => V.dashboard.render();
 
@@ -192,6 +214,7 @@ window.EDU = window.EDU || {};
     S.store.subscribe(S.u.debounce(updateNav, 150));
     if (S.account) S.account.mountSidebar(document.getElementById("account-slot"));
     S.router.start();
+    startet = true;
   }
   S.hasModule = has;   // visningene bruker denne så de ikke lenker til moduler faget har av
   S.app = { init, refresh, navigate: (r) => S.router.navigate(r) };
