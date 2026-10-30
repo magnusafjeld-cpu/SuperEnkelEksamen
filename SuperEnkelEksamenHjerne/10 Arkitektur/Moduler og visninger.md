@@ -607,7 +607,7 @@ helgen og opptatte dager.
   anslaget uten personlige faktorer; faktoren per fag og oppgavetype er medianen av
   faktisk/anslag for de siste tolv, fra to målinger. Den går foran målt tid per
   sjangersteg og tidsfaktoren.
-- **Claude Opus lager dagsplanen.** Morgenkjøringen og knappen sender Opus
+- **Claude Opus lager dagsplanen** når du velger det. Kallet sender Opus
   (`modell: "claude-opus-5-5"` i `S.claude.strøm`, effort high) hele bildet: dager og
   eksamensuker, per fag mestring per kapittel, sett, sjangre (ferdige med feil og de
   som gjenstår), forelesninger, tidsbruk, i går gjort og ikke gjort, og en pott med
@@ -645,11 +645,13 @@ helgen og opptatte dager.
   (`lagPlan`). Går dagen over, kortes først fagene som ikke låner, så de som lånte. Dagsplanen har opptil tolv oppgaver; tid som ikke kan fylles, vises
   som ledig. I Claude-planen flytter appen andre fags minutter til eksamensfaget i
   eksamensuka, men fyller ikke dagen, så Claude kan gi en lett dag før eksamen.
-- **Morgenen kl. 06.** Plandagen skifter kl. 06. Første gang appen er åpen etter
-  det (eller når den blir synlig igjen), hentes raden fra skyen, faget måles, og
-  Claude lager ny ukeplan hvis det er slått på og nøkkel finnes. Én gang per morgen
-  på tvers av enheter; en feil vises i kortet og regnemodellen brukes. Ingen server:
-  er appen ikke åpnet, skjer det ikke.
+- **Ingenting lages av seg selv** (fra 30. oktober 2026). Plandagen skifter kl. 06,
+  men dagens plan lages bare når du trykker. Valget øverst (`startKort()`): jobber
+  fra og til (studietid etter pauser vises), en anbefaling (`anbefaling()`: summen av
+  tempoet fagene som får tid i dag trenger, med sluttid fra `sluttFor()`), om
+  arbeidsøkta skal startes, og «Lag plan med Claude Opus» eller «uten Claude». Valget
+  lagres i `T.dagvalg` og styrer dagens kapasitet og tidslinje. Planen står til du
+  lager en ny; det som er gjort et annet sted, vises som gjort uten ny plan.
 - **Claude.** «Lag ukeplan med Claude» sender tallene, dagene og notatet og får JSON
   tilbake. Appen kaster tid etter eksamen, skalerer ned dager over kapasiteten og
   faller tilbake på regnemodellen for dager som mangler. Hvorfor hybrid:
