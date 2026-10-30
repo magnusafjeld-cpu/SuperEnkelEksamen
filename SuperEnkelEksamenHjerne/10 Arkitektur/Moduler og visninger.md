@@ -589,6 +589,14 @@ helgen og opptatte dager.
   Magnus brukte minst dobbelt så lang tid som anslått. Tid per sjangersteg måles
   fra svartidspunktene (median av avstander mellom 30 sekunder og 30 minutter) og
   brukes i stedet for anslaget når det finnes minst åtte målinger.
+- **Fra i går.** Oppgaver i forrige plan (inntil tre dager tilbake) som ikke er
+  krysset av og fortsatt ikke er gjort, legges først i dagens plan med «Fra i går»
+  (`arv()` i `lagPlan`): forelesninger som ikke er sett, sjangre som ikke er
+  gjennomgått (tittel og tid regnes på nytt), sett som ikke er levert og oppgaver som
+  fortsatt står i tilbudet. Quiz og flashcards planlegges på nytt i stedet.
+- **Quiz** samles til én oppgave per fag, og kapitler med en forelesning som ikke er
+  sett, venter til den er sett. Kortet «Forelesninger i opptak» er en sjekkliste
+  uavhengig av dagsplanen.
 - **Planversjon.** `PLANVERSJON` i skriptet: dagsplaner og Claude-planer laget av en
   eldre versjon lages på nytt (Claude-planen erstattes av regnemodellen til en ny
   er laget, og morgenkjøringen lager den). Øk tallet når reglene endres.
