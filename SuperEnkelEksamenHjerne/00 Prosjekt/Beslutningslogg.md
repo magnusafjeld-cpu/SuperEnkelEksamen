@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-10-29
+oppdatert: 2026-10-30
 ---
 
 # Beslutningslogg
@@ -203,6 +203,17 @@ koste penger eller variere tilfeldig, og framfor bare regler fordi skjønn om
 generalprøver, notater og vekting er lettere å beskrive enn å kode.
 
 **Konsekvens:** modulen er privat (utvidelse i bøtta). Se [[Moduler og visninger]].
+
+## Planleggeren: anbefalt arbeid i stedet for dagsplan (30. oktober 2026)
+Magnus likte ikke at planleggeren sa nøyaktig hva han skulle gjøre når. Valgt: en
+side som går på tvers av fagene og sier hvor mye tid hvert fag bør få og hva tiden i
+faget bør gå til (sjangertrening, svake kapitler, hele sett, forelesninger), med det
+neste konkrete å åpne. Dagsplanen med tidslinje, Claude Opus-planen og
+oppgaveklokka er fjernet. Erstatter vedtaket over om regnemodell med Claude som
+rådgiver: regnemodellen står, Claude er ute av planleggeren.
+
+**Konsekvens:** ingen nye tidsmålinger per oppgave; tid per sjangersteg måles
+fortsatt fra svartidspunktene. Se [[Moduler og visninger]].
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på

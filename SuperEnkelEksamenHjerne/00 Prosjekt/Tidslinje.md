@@ -78,5 +78,6 @@ ikke står i commit-meldingene.
 | 29. oktober 2026 | [[FIE402 Corporate Finance]]: tre prøveeksamener i Kurbatov-formatet | Hver løst blindt av en uavhengig kontrollør. Manualen fikk r<sub>E</sub> ved permanent gjeld med skatt, og H2024 E6(c) en merknad |
 | 29. oktober 2026 | Planleggeren: privat utvidelse som fordeler dagens tid mellom fagene etter eksamensdato og mestring per kapittel | Motoren fikk private utvidelser (`S.utvidelser`). Claude kan lage ukeplan. Se [[Moduler og visninger]] og [[Beslutningslogg]] |
 | 30. oktober 2026 | Planleggeren: Claude Opus lager dagsplanen hver morgen, spredt repetisjon og klokke per oppgave | `S.claude.strøm` tar nå en valgfri modell. Se [[Moduler og visninger]] |
+| 30. oktober 2026 | Planleggeren: «Anbefalt arbeid» erstatter dagsplanen, Claude-planen og oppgaveklokka | Tid per fag og hva tiden bør gå til, uten timeplan. Se [[Beslutningslogg]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

@@ -537,12 +537,18 @@ trekk, kommentarer til trekk som ikke finnes og to linjer med samme farge som sv
 forskjellig i samme stilling (da kan treneren bare godta det ene svaret).
 Repertoaret kan deles i flere filer (`repertoar-*.js`) som skrives samtidig.
 
-## Planleggeren: dagens plan på tvers av fagene (privat)
+## Planleggeren: anbefalt arbeid på tvers av fagene (privat)
 
 Lagt til 29. oktober 2026 som privat utvidelse (`fag/privat-planlegger/planlegger.js`,
 gitignorert, lastes fra bøtta, se [[Supabase]]). Rute `#/planlegger` i alle fag,
-gruppe Studieløp. Velg fag, eksamensdatoer, pensumfaktor, timer på hverdager og i
-helgen og opptatte dager.
+gruppe Studieløp. Velg fag, eksamensdatoer, pensumfaktor, arbeidstid, pauser og
+opptatte dager.
+
+**Ingen timeplan (fra 30. oktober 2026, versjon 20).** Magnus likte ikke en plan som
+sa nøyaktig hva han skulle gjøre når. Dagsplanen med tidslinje, «Lag plan»-valget,
+Claude Opus-planen, oppgaveklokka og avkrysningen er fjernet. Siden viser i stedet
+«Anbefalt arbeid»: hvor mye tid hvert fag bør få og hva tiden i faget bør gå til.
+Den regnes på nytt hver gang siden åpnes.
 
 - **Måling.** I faget du står i lages et øyeblikksbilde: mestring per kapittel som
   vektet snitt av svarene, halvert vekt per 28 dager. Tidligere eksamensoppgaver
@@ -563,99 +569,49 @@ helgen og opptatte dager.
   på slutten er med i nevneren, så faget trenger mindre per dag før), men minst
   forelesningene som gjenstår delt på de delte dagene. Aldri null: en tidligere
   versjon trakk egen tid på slutten fra og ga FIE432 null timer uka før eksamensuka.
-- **Eksamensuka.** De siste sju dagene før en eksamen får bare det faget tid, også
-  i Claudes plan (appen flytter tiden og noterer avviket). Dager i andre fags
-  eksamensuke telles ikke når tempoet regnes ut. Dagens tid fordeles etter tempo, i kvarter etter største
+- **Eksamensuka.** De siste sju dagene før en eksamen får bare det faget tid. Dager
+  i andre fags eksamensuke telles ikke når tempoet regnes ut. Dagens tid fordeles etter tempo, i kvarter etter største
   rest, med minst 90 minutter de to siste dagene før en eksamen. En eksamensdag
   trekker seks timer fra kapasiteten; resten går til de andre fagene. Et fag du kan godt,
   får dermed lite selv om eksamen er nær.
-- **Oppgavene.** I rekkefølge: neste forelesning i opptak (kvote så de er sett før
-  eksamensuka), generalprøve (nyeste ekte sett) tre dager før eller neste sett når
-  det er under fire uker igjen eller mestringen er over 50 %, sjangertrening som hele sjangre
-  (aldri delt; spredt jevnt så alt er gjennomgått to dager før eksamen, påbegynte og
-  de med de svakeste kapitlene først, låner tid som et helt sett), så de svakeste kapitlene etter eksamensvekt × gap med
-  sjangertrening, eksamenstrening, kapitteloppgaver og quiz først. Kjernepensum når
-  oppgavene viser hull (mestring under 50 % med en viss måling). Manuallesing bare
-  når kapitlet ikke har annet.
-- **Forelesninger.** Per fag: antall og lengde (FIE459: 13 à 2 timer). Alltid hele,
-  spredt jevnt over dagene før eksamensuka (dag k får en når ⌊(k+1)·rate⌋ passerer
-  et heltall), og de låner tid fra andre fag som et helt sett. Forelesning n
-  hører til kapittel n. Avkrysningen i dagsplanen teller minuttene som sett
-  (`T.fl`, største verdi vinner ved fletting). Dagens plan står fast
-  gjennom dagen, med avkrysning.
-- **Tid.** Kjernepensum regnes til 50 ord per minutt pluss 1,5 minutter per sjekk og
-  3 per minicaseledd, sjangertrening til 3 minutter per steg. En tidsfaktor per fag
-  ganger opp alt unntatt hele sett og flashcards; FIE402 starter på ×2 fordi
-  Magnus brukte minst dobbelt så lang tid som anslått. Tid per sjangersteg måles
-  fra svartidspunktene (median av avstander mellom 30 sekunder og 30 minutter) og
-  brukes i stedet for anslaget når det finnes minst åtte målinger.
-- **Fra i går.** Oppgaver i forrige plan (inntil tre dager tilbake) som ikke er
-  krysset av og fortsatt ikke er gjort, legges først i dagens plan med «Fra i går»
-  (`arv()` i `lagPlan`): forelesninger som ikke er sett, sjangre som ikke er
-  gjennomgått (tittel og tid regnes på nytt), sett som ikke er levert og oppgaver som
-  fortsatt står i tilbudet. Quiz og flashcards planlegges på nytt i stedet.
-- **Quiz** samles til én oppgave per fag, og kapitler med en forelesning som ikke er
-  sett, venter til den er sett. Kortet «Forelesninger i opptak» er en sjekkliste
-  uavhengig av dagsplanen.
-- **Spredt repetisjon.** Etter en hel sjanger (fra svartidspunktene), kjernepensum,
-  en forelesning eller kapitteloppgaver som er krysset av, kommer korte oppgaver på
-  samme kapitler 1, 3 og 7 dager etter (`repetisjoner()`): dagen etter en sjanger
+- **Anbefalt arbeid** (`anbefaltKort()`). Øverst: studietid i dag, tiden per fag i
+  dag (`fordel()`), hva tempoet krever (`anbefaling()`, med forklaring når det er mer
+  enn dagen) og en tabell over de neste sju dagene per fag. Så ett kort per fag,
+  nærmeste eksamen først (`fagAnbefaling()`), med tid i dag og de neste sju dagene.
+- **Delene i et fag** (`anbefalt()`). Det som gjenstår, deles i fire deler, og hver
+  del får en andel av fagets tid etter behovet per dag, altså mengden delt på dagene
+  den har: sjangertrening (alle hele sjangre innen to dager før eksamen),
+  forelesninger i opptak (før eksamensuka), hele sett på tid (fra fire uker før
+  eksamen eller når mestringen passerer 50 %, ellers «Ikke nå»; generalprøven spares
+  til to til tre dager før) og oppgaver i de svakeste kapitlene (fram til eksamen).
+  Hver del viser andelen med en stolpe, hvor mange sjangre, forelesninger eller sett
+  det blir de neste sju dagene, status og det neste konkrete å åpne: de to neste
+  sjangrene, neste forelesning med «Merk som sett», neste sett og de tre kapitlene med
+  høyest eksamensvekt × gap med oppgaven `velgTilbud()` velger (oppgaver først,
+  kjernepensum bare der oppgavene viser hull). Kapitler med en forelesning som ikke
+  er sett, venter på den. «Først i dag» viser repetisjon som forfaller og flashcards.
+- **Forelesninger.** Per fag: antall og lengde (FIE459: 13 à 2 timer). Forelesning n
+  hører til kapittel n. Sjekklisten «Forelesninger i opptak» og «Merk som sett»
+  lagrer minuttene som sett (`T.fl`, største verdi vinner ved fletting).
+- **Spredt repetisjon.** Etter en hel sjanger (fra svartidspunktene) kommer korte
+  oppgaver på samme kapitler 1, 3 og 7 dager etter (`repetisjoner()`): dagen etter
   stegene du bommet på, ellers eksamenstrening, kapitteloppgaver eller quiz i
-  kapitlene, og som siste utvei gjenhenting uten stoff.
-- **Tid du bruker.** Klokke per oppgave i dagsplanen: starter på «Åpne» eller
-  «Start», lagres når oppgaven krysses av (kan rettes). `T.tid` holder målingene med
-  anslaget uten personlige faktorer; faktoren per fag og oppgavetype er medianen av
-  faktisk/anslag for de siste tolv, fra to målinger. Den går foran målt tid per
-  sjangersteg og tidsfaktoren.
-- **Claude Opus lager dagsplanen** når du velger det. Kallet sender Opus
-  (`modell: "claude-opus-5-5"` i `S.claude.strøm`, effort high) hele bildet: dager og
-  eksamensuker, per fag mestring per kapittel, sett, sjangre (ferdige med feil og de
-  som gjenstår), forelesninger, tidsbruk, i går gjort og ikke gjort, og en pott med
-  kandidater (regnemodellens oppgaver med dobbelt budsjett, pluss neste forelesning
-  og alle sjangre som gjenstår). Opus velger og ordner dagens oppgaver fra potten og
-  fordeler minuttene for uka, etter læringsprinsipper i systemprompten (oppgaver
-  først, spredt repetisjon, sammenheng, hele blokker). Appen godtar bare id-er fra
-  potten, gir hele blokker sin egen tid, holder eksamensuka og tiden. Rundt 1 til 3 kr
-  per plan; kostnaden vises.
+  kapitlene. Avkryssede oppgaver i gamle dagsplaner (`T.dager`) teller fortsatt.
+- **Tid du bruker.** `T.tid` holder målingene fra den gamle oppgaveklokka; faktoren
+  per fag og oppgavetype er medianen av faktisk/anslag for de siste tolv, fra to
+  målinger. Det kommer ingen nye, men tid per sjangersteg måles fortsatt fra
+  svartidspunktene.
 - **Arbeidstid og pauser.** Innstillingene har klokkeslett (standard hverdager
   08–16, helg 09–16) og pauser (10 min etter hver 50. minutt, 30 min lunsj fra
   11:30). Studietiden er arbeidstiden minus pausene (`studietid()`; 08–16 gir 6 t 20
-  min). Dagsplanen vises som en tidslinje fra arbeidsdagens start (`tidslinje()`),
-  med pausene inne; hele sett tas samlet med pause etterpå. Regnemodellens
-  rekkefølge: repetisjon, det du ikke rakk, tunge oppgaver, forelesninger, lette til
-  slutt. Etter kutting deles ledig tid ut igjen til fagene som fikk minst av sin andel.
+  min) og er tiden anbefalingen fordeler.
 - **Arbeidsøkta.** En klokke øverst i sidepanelet, under fagnavnet, i hele appen
-  (`tegnØkt()` legger den etter `.sidebar .brand`; på mobil, der sidepanelet er
-  skjult, flyter den over bunnmenyen). Du starter dagen med når du skal slutte; den viser
-  tid jobbet uten pauser, når neste pause er (varsel og ☕ i fanetittelen) og
-  oppgaven klokka går for. Pause stopper både økta og oppgaveklokka
-  (`T.klokke.pauset`), så pausen ikke regnes med i tidsmålingen. Å starte en
-  oppgaveklokke starter økta. Dagens kapasitet og tidslinje regnes fra når økta
-  startet til når du skal slutte. `T.økt` synkes som resten.
-- **Én sjanger per fag per dag**, både i regnemodellen og når appen sjekker Opus-planen.
-- **Sluttkontroll** (`ryddDag()` i `dagensPlan`): uansett kilde høyst én sjanger per
-  fag og ikke mer enn dagens kapasitet (også når arbeidsøkta startet sent). Opus-planen
-  får regnemodellens oppgaver for faget med nærmeste eksamen hvis Opus utelot det.
-- **Planversjon.** `PLANVERSJON` i skriptet: dagsplaner og Claude-planer laget av en
-  eldre versjon lages på nytt (Claude-planen erstattes av regnemodellen til en ny
-  er laget, og morgenkjøringen lager den). Øk tallet når reglene endres.
+  (`tegnØkt()` legger den etter `.sidebar .brand`; på mobil flyter den over
+  bunnmenyen). Du starter dagen med når du skal slutte; den viser tid jobbet uten
+  pauser og når neste pause er (varsel og ☕ i fanetittelen). Er økta startet, er
+  den dagens studietid. `T.økt` synkes som resten.
 - **Flashcards** per fag i innstillingene; av som standard i FIE402.
-- **Hele sett låner tid.** Et sett kan ikke kortes ned. Får faget ikke plass til
-  settet i sin del av dagen, låner det opptil 60 % av de andre fagenes tid
-  (`lagPlan`). Går dagen over, kortes først fagene som ikke låner, så de som lånte. Dagsplanen har opptil tolv oppgaver; tid som ikke kan fylles, vises
-  som ledig. I Claude-planen flytter appen andre fags minutter til eksamensfaget i
-  eksamensuka, men fyller ikke dagen, så Claude kan gi en lett dag før eksamen.
-- **Ingenting lages av seg selv** (fra 30. oktober 2026). Plandagen skifter kl. 06,
-  men dagens plan lages bare når du trykker. Valget øverst (`startKort()`): jobber
-  fra og til (studietid etter pauser vises), en anbefaling (`anbefaling()`: summen av
-  tempoet fagene som får tid i dag trenger, med sluttid fra `sluttFor()`), om
-  arbeidsøkta skal startes, og «Lag plan med Claude Opus» eller «uten Claude». Valget
-  lagres i `T.dagvalg` og styrer dagens kapasitet og tidslinje. Planen står til du
-  lager en ny; det som er gjort et annet sted, vises som gjort uten ny plan.
-- **Claude.** «Lag ukeplan med Claude» sender tallene, dagene og notatet og får JSON
-  tilbake. Appen kaster tid etter eksamen, skalerer ned dager over kapasiteten og
-  faller tilbake på regnemodellen for dager som mangler. Hvorfor hybrid:
-  [[Beslutningslogg]].
+- **Gamle felt.** `uke`, `klokke` og `dagvalg` slettes når tilstanden leses.
 - **Kjent svakhet.** Ordtellingen i manualen er målet på pensum. FIE459-manualen er
   23 000 ord mot 105 000 i FIE402, så FIE459 trenger høyere pensumfaktor.
 
