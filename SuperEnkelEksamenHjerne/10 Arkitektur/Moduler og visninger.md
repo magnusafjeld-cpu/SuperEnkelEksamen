@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-29
+oppdatert: 2026-10-30
 ---
 
 # Moduler og visninger
@@ -597,6 +597,26 @@ helgen og opptatte dager.
 - **Quiz** samles til én oppgave per fag, og kapitler med en forelesning som ikke er
   sett, venter til den er sett. Kortet «Forelesninger i opptak» er en sjekkliste
   uavhengig av dagsplanen.
+- **Spredt repetisjon.** Etter en hel sjanger (fra svartidspunktene), kjernepensum,
+  en forelesning eller kapitteloppgaver som er krysset av, kommer korte oppgaver på
+  samme kapitler 1, 3 og 7 dager etter (`repetisjoner()`): dagen etter en sjanger
+  stegene du bommet på, ellers eksamenstrening, kapitteloppgaver eller quiz i
+  kapitlene, og som siste utvei gjenhenting uten stoff.
+- **Tid du bruker.** Klokke per oppgave i dagsplanen: starter på «Åpne» eller
+  «Start», lagres når oppgaven krysses av (kan rettes). `T.tid` holder målingene med
+  anslaget uten personlige faktorer; faktoren per fag og oppgavetype er medianen av
+  faktisk/anslag for de siste tolv, fra to målinger. Den går foran målt tid per
+  sjangersteg og tidsfaktoren.
+- **Claude Opus lager dagsplanen.** Morgenkjøringen og knappen sender Opus
+  (`modell: "claude-opus-5-5"` i `S.claude.strøm`, effort high) hele bildet: dager og
+  eksamensuker, per fag mestring per kapittel, sett, sjangre (ferdige med feil og de
+  som gjenstår), forelesninger, tidsbruk, i går gjort og ikke gjort, og en pott med
+  kandidater (regnemodellens oppgaver med dobbelt budsjett, pluss neste forelesning
+  og alle sjangre som gjenstår). Opus velger og ordner dagens oppgaver fra potten og
+  fordeler minuttene for uka, etter læringsprinsipper i systemprompten (oppgaver
+  først, spredt repetisjon, sammenheng, hele blokker). Appen godtar bare id-er fra
+  potten, gir hele blokker sin egen tid, holder eksamensuka og tiden. Rundt 1 til 3 kr
+  per plan; kostnaden vises.
 - **Planversjon.** `PLANVERSJON` i skriptet: dagsplaner og Claude-planer laget av en
   eldre versjon lages på nytt (Claude-planen erstattes av regnemodellen til en ny
   er laget, og morgenkjøringen lager den). Øk tallet når reglene endres.

@@ -75,9 +75,10 @@ window.EDU = window.EDU || {};
 
   /* Strømmer ett svar. Bygger innholdsblokkene slik API-et sender dem, så de kan
      sendes tilbake uendret i neste tur (tenkeblokkene har en signatur som må
-     følge med). Returnerer { content, stop, usage, modell }. */
-  async function strøm({ system, messages, maxTokens, effort, onTekst, onTenker, signal }) {
-    const id = modell();
+     følge med). Returnerer { content, stop, usage, modell }. En modul kan be om en
+     bestemt modell (modell: "claude-opus-5-5"); ellers brukes den du har valgt. */
+  async function strøm({ system, messages, maxTokens, effort, onTekst, onTenker, signal, modell: ønsket }) {
+    const id = MODELLER[ønsket] ? ønsket : modell();
     const body = {
       model: id,
       max_tokens: maxTokens || 16000,
