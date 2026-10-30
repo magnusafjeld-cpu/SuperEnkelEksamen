@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-10-29
+oppdatert: 2026-10-30
 ---
 
 # FIE432 Personlig økonomi
@@ -249,7 +249,7 @@ Kontrolleres med `tools/sjekk-manual.py`.
 | Flashcards | **100** auto-genererte formelkort fra k20 |
 | Quiz | **164 spørsmål** · 133 flervalg / 31 kortsvar · alle 20 kapitler dekket |
 | Dybdetrening | **299 spørsmål** i fire banker: 72 · 77 · 72 · 78 |
-| Kapitteloppgaver | **229 oppgaver** i eksamensformat over alle 19 kapitler · 687 poeng · antallet følger eksamensvekten |
+| Kapitteloppgaver | **219 oppgaver** i eksamensformat over kapittel 1–18 · 657 poeng · antallet følger eksamensvekten |
 | Eksamenstrening | **754 spørsmål** i tolv temaer · 91 regnefamilier med 480 varianter og 274 statiske · alle løst blindt |
 | Sjangertrening | **11 stiger · 114 steg**, hver fra null til eksamensnivå, etter eksamensvekt |
 | Lynlæring | ikke skrevet — modulen er avslått til den har data |
@@ -442,8 +442,14 @@ uttak (sktl § 10-21 tredje ledd, Skatteetaten), slik manualen og kj8 sier.
 ## Kapitteloppgaver
 
 Hvert kapittel har sitt eget sett flervalgsoppgaver i eksamensformat, å ta rett
-etter lesingen. **229 oppgaver over 19 kapitler, 687 poeng.** Se
+etter lesingen. **219 oppgaver over kapittel 1–18, 657 poeng.** Se
 [[Moduler og visninger]] for datamodellen.
+
+**Kapittel 19 (eksamensteknikk: gjetting med minuspoeng) er ikke pensum**, og de ti
+oppgavene der ble fjernet 30. oktober 2026 (ligger i `_kapoppg/_fjernet/k19.js`).
+`coreChapters` er nå 1–18, så k19 teller ikke i fremdrift, repetisjon eller
+planleggeren. Quizen har fortsatt seks spørsmål om gjettestrategi (k0 og k19), og
+kjernepensum del 0 «Eksamen på én side» dekker det samme.
 
 **Antallet følger eksamensvekten**, via `kapoppgPerVekt` i manifestet:
 

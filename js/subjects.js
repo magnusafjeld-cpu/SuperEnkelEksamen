@@ -302,7 +302,7 @@ window.EDU_SUBJECTS = [
       16: [3, "Lån: boliglånsforskrift i 4 av 9 sett, annuitet og effektiv rente i 3 av 9. 9 % av H2022, borte siden."],
       17: [4, "Forsikring og forventet nytte: 4 av 9 sett, og stigende: 8 % av H2024 og 14 % av H2025."],
       18: [2, "Finansiell psykologi: atferdsfinans i 2 av 9 sett. Tapsaversjon testes ellers via k14."],
-      19: [3, "Minuspoeng fra 2026: rutinen for når du svarer og når du står over gjelder hvert spørsmål. Trenes gjennom sett på tid."],
+      19: [1, "Eksamensteknikk: når du svarer og når du står over med minuspoeng. Ikke pensum; trenes gjennom sett på tid."],
       20: [1, "Satser og formler. Referanse, ikke pensum å øve på."],
     },
     name: "FIE432 Personlig økonomi",
@@ -321,9 +321,11 @@ window.EDU_SUBJECTS = [
          og rekkefølgen er permanent — id-ene er posisjonsbaserte. */
       refSections: { formulas: "k20" },
     },
-    /* k0 er kurs- og eksamensintroduksjon, k20 er ren referanse — ingen av dem
-       teller som pensum i fremdriften. */
-    coreChapters: { from: 1, to: 19 },
+    /* k0 er kurs- og eksamensintroduksjon, k19 eksamensteknikk (gjetting med
+       minuspoeng) og k20 ren referanse. Ingen av dem teller som pensum i
+       fremdriften eller repetisjonen, og k19 har ingen kapitteloppgaver
+       (fjernet 30. oktober 2026, ligger i _kapoppg/_fjernet/). */
+    coreChapters: { from: 1, to: 18 },
     /* Uten denne arver faget SAM3s makrodeler i stillhet. Deltitlene i manualen
        brukes IKKE til tilordning; det er utelukkende denne tabellen som gjelder. */
     parts: [
