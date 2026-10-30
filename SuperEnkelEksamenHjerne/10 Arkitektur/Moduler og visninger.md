@@ -624,14 +624,18 @@ helgen og opptatte dager.
   med pausene inne; hele sett tas samlet med pause etterpå. Regnemodellens
   rekkefølge: repetisjon, det du ikke rakk, tunge oppgaver, forelesninger, lette til
   slutt. Etter kutting deles ledig tid ut igjen til fagene som fikk minst av sin andel.
-- **Arbeidsøkta.** En klokke nederst til venstre i hele appen (`tegnØkt()`, lagt på
-  `document.body` av planleggeren). Du starter dagen med når du skal slutte; den viser
+- **Arbeidsøkta.** En klokke øverst i sidepanelet, under fagnavnet, i hele appen
+  (`tegnØkt()` legger den etter `.sidebar .brand`; på mobil, der sidepanelet er
+  skjult, flyter den over bunnmenyen). Du starter dagen med når du skal slutte; den viser
   tid jobbet uten pauser, når neste pause er (varsel og ☕ i fanetittelen) og
   oppgaven klokka går for. Pause stopper både økta og oppgaveklokka
   (`T.klokke.pauset`), så pausen ikke regnes med i tidsmålingen. Å starte en
   oppgaveklokke starter økta. Dagens kapasitet og tidslinje regnes fra når økta
   startet til når du skal slutte. `T.økt` synkes som resten.
 - **Én sjanger per fag per dag**, både i regnemodellen og når appen sjekker Opus-planen.
+- **Sluttkontroll** (`ryddDag()` i `dagensPlan`): uansett kilde høyst én sjanger per
+  fag og ikke mer enn dagens kapasitet (også når arbeidsøkta startet sent). Opus-planen
+  får regnemodellens oppgaver for faget med nærmeste eksamen hvis Opus utelot det.
 - **Planversjon.** `PLANVERSJON` i skriptet: dagsplaner og Claude-planer laget av en
   eldre versjon lages på nytt (Claude-planen erstattes av regnemodellen til en ny
   er laget, og morgenkjøringen lager den). Øk tallet når reglene endres.
