@@ -617,6 +617,13 @@ helgen og opptatte dager.
   først, spredt repetisjon, sammenheng, hele blokker). Appen godtar bare id-er fra
   potten, gir hele blokker sin egen tid, holder eksamensuka og tiden. Rundt 1 til 3 kr
   per plan; kostnaden vises.
+- **Arbeidstid og pauser.** Innstillingene har klokkeslett (standard hverdager
+  08–16, helg 09–16) og pauser (10 min etter hver 50. minutt, 30 min lunsj fra
+  11:30). Studietiden er arbeidstiden minus pausene (`studietid()`; 08–16 gir 6 t 20
+  min). Dagsplanen vises som en tidslinje fra arbeidsdagens start (`tidslinje()`),
+  med pausene inne; hele sett tas samlet med pause etterpå. Regnemodellens
+  rekkefølge: repetisjon, det du ikke rakk, tunge oppgaver, forelesninger, lette til
+  slutt. Etter kutting deles ledig tid ut igjen til fagene som fikk minst av sin andel.
 - **Planversjon.** `PLANVERSJON` i skriptet: dagsplaner og Claude-planer laget av en
   eldre versjon lages på nytt (Claude-planen erstattes av regnemodellen til en ny
   er laget, og morgenkjøringen lager den). Øk tallet når reglene endres.
