@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-10-30
+oppdatert: 2026-10-31
 ---
 
 # Beslutningslogg
@@ -214,6 +214,15 @@ rådgiver: regnemodellen står, Claude er ute av planleggeren.
 
 **Konsekvens:** ingen nye tidsmålinger per oppgave; tid per sjangersteg måles
 fortsatt fra svartidspunktene. Se [[Moduler og visninger]].
+
+## Planleggeren: dagens mål som tre ringer (31. oktober 2026)
+Magnus ville ha noe som gjør arbeidet mer motiverende: hvor mye han har gjort i
+løpet av dagen mot mål. Seks forslag ble lagt fram. Valgt: tre ringer (tid,
+riktige, nytt) som hovedvisning, med eksamensklar-måler per fag og oppsummering om
+kvelden. Valgt bort: dagens oppdrag, rene tellere og rekke med kalender.
+
+**Konsekvens:** planleggeren fører en dagbok over svarene per dag, også i fag der
+modulene ikke lagrer tidsstempel. Se [[Moduler og visninger]].
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på

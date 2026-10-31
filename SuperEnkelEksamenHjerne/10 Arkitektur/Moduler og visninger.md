@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-30
+oppdatert: 2026-10-31
 ---
 
 # Moduler og visninger
@@ -574,6 +574,27 @@ Den regnes på nytt hver gang siden åpnes.
   rest, med minst 90 minutter de to siste dagene før en eksamen. En eksamensdag
   trekker seks timer fra kapasiteten; resten går til de andre fagene. Et fag du kan godt,
   får dermed lite selv om eksamen er nær.
+- **Dagens mål (fra 31. oktober 2026, versjon 23).** Øverst på siden tre ringer
+  (`ringerKort()`): **Tid** i arbeidsøkta mot studietiden i dag, **Riktige** og
+  **Nytt** (oppgaver du ikke har gjort før). Målene følger anbefalingen: ett riktig
+  per fem minutter av tiden som ikke går til forelesninger, én ny oppgave per fire
+  minutter av tiden til sjangertrening og svake kapitler, halvparten i Corp. Med
+  minst tre dager med en time i økta følger målene medianen av ditt eget tempo
+  (riktige per time), pluss 10 %. Sidepanelet viser «🎯 18/32 riktige · 5/31 nye» i
+  alle fag. Under ringene **Eksamensklar** (`klarKort()`): mestring / 85 % per fag,
+  med endringen siden dagen startet (`klar0`, målt på forrige bilde før det byttes
+  ut). Etter arbeidstiden, eller når økta er avsluttet, kommer **Dagen i dag**
+  (`kveldKort()`) øverst: tid, løste, riktige, nye, ringene, rekord for flest
+  riktige, endringen i eksamensklar, forelesninger og det første anbefalte per fag
+  i morgen.
+- **Dagboka** (`T.dag[dato]`). `logg[fag][nøkkel] = [r, ny]` per svar: r er hvor
+  riktig (0 til 1, null for problemsett), ny er 1 første gang. Samme oppgave teller
+  én gang per dag, med siste svar. Svarene finnes ved å sammenligne hvert svar med
+  forrige måling (`edu.planlegger.sig.<fag>`, lokalt per enhet), også for
+  kapitteloppgaver og kjernepensum, som ikke har tidsstempel. Har svaret et
+  tidsstempel, føres det den dagen. Eksamenssett telles når oppgaven er rettet.
+  Synken tar unionen av svarene og den tidligste morgenmålingen. Fjorten dager
+  beholdes.
 - **Anbefalt arbeid** (`anbefaltKort()`). Øverst: studietid i dag, tiden per fag i
   dag (`fordel()`), hva tempoet krever (`anbefaling()`, med forklaring når det er mer
   enn dagen) og en tabell over de neste sju dagene per fag. Så ett kort per fag,

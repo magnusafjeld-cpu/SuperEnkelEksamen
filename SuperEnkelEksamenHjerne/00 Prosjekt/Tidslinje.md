@@ -80,5 +80,6 @@ ikke står i commit-meldingene.
 | 30. oktober 2026 | Planleggeren: Claude Opus lager dagsplanen hver morgen, spredt repetisjon og klokke per oppgave | `S.claude.strøm` tar nå en valgfri modell. Se [[Moduler og visninger]] |
 | 30. oktober 2026 | Planleggeren: «Anbefalt arbeid» erstatter dagsplanen, Claude-planen og oppgaveklokka | Tid per fag og hva tiden bør gå til, uten timeplan. Se [[Beslutningslogg]] |
 | 31. oktober 2026 | Eksamenssett: oppgaver kan merkes som usikre, med oversikt, filter og «Prøv på nytt» | Riktig på flaks blir synlig. Planleggeren teller usikre oppgaver halvt. Se [[Eksamenssett-modulen]] |
+| 31. oktober 2026 | Planleggeren: dagens mål som tre ringer (tid, riktige, nytt), eksamensklar per fag og oppsummering om kvelden | Motivasjon gjennom dagen. Svarene føres i en dagbok per dag. Se [[Beslutningslogg]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.
