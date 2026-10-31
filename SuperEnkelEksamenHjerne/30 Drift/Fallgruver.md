@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-10-16
+oppdatert: 2026-10-31
 ---
 
 # Fallgruver
@@ -65,7 +65,7 @@ migreringskoden, mister eksisterende installasjoner historikken sin.
 
 ## 6. Endret pensum vises ikke
 
-Parset pensum ligger i `localStorage`. Endrer du manual-HTML-en, må
+Parset pensum ligger i IndexedDB, nøklet på byggnummeret. Endrer du manual-HTML-en, må
 **«Last innhold på nytt»** på Konto-siden trykkes (Fremdrift-siden, der den
 lå før, ble fjernet 28. september 2026).
 
@@ -140,7 +140,14 @@ og et regex-søk etter «multiple choice» treffer den. Avgjør på om settet fa
 
 ## 7e. Pensumbufferen vokser med manualen
 
-`localStorage` ligger nå på **2,3 MB** med tre fag installert: FIE402 1 513 KB,
+> [!warning] Full localStorage logger deg ut (31. oktober 2026)
+> Bufrene fylte localStorage, og da feilet alle andre skrivinger stille: Supabase
+> fikk ikke lagret den fornyede innloggingen (ny innlogging i hvert fag) og
+> fremdriften ble ikke lagret lokalt. Bufrene ligger nå i IndexedDB. **Legg aldri
+> store data i localStorage igjen.** Den er til innlogging, fremdrift og små
+> innstillinger. Se [[Datamodell og lagring]].
+
+Historikk: `localStorage` lå på **2,3 MB** med tre fag installert: FIE402 1 513 KB,
 SAM3 566 KB pluss 202 KB oppgavebank, Caseintervju 14 KB. Grensen i de fleste
 nettlesere er 5 MB.
 

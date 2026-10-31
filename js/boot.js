@@ -236,16 +236,44 @@ window.EDU = window.EDU || {};
      (satt av tools/last-opp-privat.py) i nøkkelen. */
   const manKey = () => "edu." + SUB.id + ".manual.b" + BYGG + (SUB.versjon ? ".v" + SUB.versjon : "");
   const probKey = () => "edu." + SUB.id + ".problems.b" + BYGG + (SUB.versjon ? ".v" + SUB.versjon : "");
-  /* Rydd bort buffere fra tidligere bygg, ellers vokser localStorage med én
-     kopi av hvert pensum per bygg — og taket er rundt 5 MB. */
-  function ryddGamleBuffere() {
+  /* Pensumbufferen ligger i IndexedDB, ikke localStorage. Den parsede manualen
+     tar 0,4 til 1,6 MB per fag, og med fire fag fylte bufrene localStorage
+     (rundt 5 MB per nettsted). Da feilet alle andre skrivinger der stille:
+     innloggingen fikk ikke lagret den fornyede nøkkelen, så du ble logget ut ved
+     hvert fagbytte, og fremdriften ble ikke lagret lokalt. Uten IndexedDB (privat
+     surfing i enkelte nettlesere) parses pensum på nytt hver gang. */
+  let idbÅpen = null;
+  function idb() {
+    if (!idbÅpen) idbÅpen = new Promise((ok, feil) => {
+      const r = indexedDB.open("edu-buffer", 1);
+      r.onupgradeneeded = () => r.result.createObjectStore("b");
+      r.onsuccess = () => ok(r.result); r.onerror = () => feil(r.error);
+    });
+    return idbÅpen;
+  }
+  async function idbKjør(modus, fn) {
+    const db = await idb();
+    return new Promise((ok, feil) => {
+      const tx = db.transaction("b", modus), req = fn(tx.objectStore("b"));
+      tx.oncomplete = () => ok(req ? req.result : undefined); tx.onerror = tx.onabort = () => feil(tx.error);
+    });
+  }
+  const idbGet = (k) => idbKjør("readonly", (b) => b.get(k)).catch(() => null);
+  const idbSet = (k, v) => idbKjør("readwrite", (b) => b.put(v, k)).catch(() => {});
+  const idbDel = (k) => idbKjør("readwrite", (b) => b.delete(k)).catch(() => {});
+  const idbNøkler = () => idbKjør("readonly", (b) => b.getAllKeys()).catch(() => []);
+  /* Rydd bort buffere fra tidligere bygg, ellers ligger det én kopi av hvert
+     pensum per bygg. Gamle buffere i localStorage slettes for alle fag: de er
+     flyttet til IndexedDB, og plassen trengs til innlogging og fremdrift. */
+  async function ryddGamleBuffere() {
     const behold = [manKey(), probKey()];
     const mønster = new RegExp("^edu\\." + SUB.id + "\\.(manual|problems)\\.");
     try {
       Object.keys(localStorage).forEach((k) => {
-        if (mønster.test(k) && behold.indexOf(k) === -1) localStorage.removeItem(k);
+        if (/^edu\.[^.]+\.(manual|problems)\./.test(k) && behold.indexOf(k) === -1) localStorage.removeItem(k);
       });
     } catch (e) {}
+    for (const k of await idbNøkler()) if (mønster.test(k) && behold.indexOf(k) === -1) await idbDel(k);
   }
   /* nøklene het "sam3.*" før fag-velgeren; les dem én gang så ingenting må parses på nytt */
   /* Nøklene het "sam3.*" før fag-velgeren. De migreres én gang og slettes så —
@@ -259,21 +287,24 @@ window.EDU = window.EDU || {};
   }
   function hideSplash() { const s = document.getElementById("splash"); if (s) s.remove(); }
   function lsGet(key) { try { const c = localStorage.getItem(key); return c ? JSON.parse(c) : null; } catch (e) { return null; } }
-  function lsSet(key, d) { try { localStorage.setItem(key, JSON.stringify(d)); } catch (e) {} }
-  function cached(key, legacyKey) {
-    const d = lsGet(key); if (d) return d;
-    const old = legacyKey ? lsGet(legacyKey) : null;
-    if (old) { lsSet(key, old); try { localStorage.removeItem(legacyKey); } catch (e) {} return old; }
+  /* Bufferen: IndexedDB først. En buffer som fortsatt ligger i localStorage under
+     samme nøkkel eller en gammel nøkkel, flyttes over og slettes der. */
+  async function cached(key, legacyKey) {
+    const d = await idbGet(key); if (d) return d;
+    for (const k of [key, legacyKey]) {
+      const old = k ? lsGet(k) : null;
+      if (old) { await idbSet(key, old); try { localStorage.removeItem(k); } catch (e) {} return old; }
+    }
     return null;
   }
 
   async function loadProblems() {
-    const c = cached(probKey(), legacy("prob"));
+    const c = await cached(probKey(), legacy("prob"));
     if (c && c.length) { S.bootProblems(c); return; }
     for (const url of (SUB.problems && SUB.problems.candidates) || []) {
       try {
         const r = await fetch(url, { cache: "no-store" });
-        if (r && r.ok) { const t = await r.text(); if (t.indexOf('class="doc"') > -1) { const parsed = S.parseProblems(t); if (parsed.length) { S.bootProblems(parsed); lsSet(probKey(), parsed); return; } } }
+        if (r && r.ok) { const t = await r.text(); if (t.indexOf('class="doc"') > -1) { const parsed = S.parseProblems(t); if (parsed.length) { S.bootProblems(parsed); idbSet(probKey(), parsed); return; } } }
       } catch (e) {}
     }
     S.bootProblems([]);
@@ -294,7 +325,7 @@ window.EDU = window.EDU || {};
   function readFile(file) {
     status('<div class="spinner"></div><p class="muted">Leser og parser pensum…</p>');
     const fr = new FileReader();
-    fr.onload = () => { try { const d = S.parseManual(fr.result); if (!d.curriculum.length) throw new Error("tom"); lsSet(manKey(), d); finish(d); } catch (e) { status('<p class="muted">Klarte ikke å lese filen. Er det riktig pensum-HTML?</p>'); setTimeout(showFilePicker, 1400); } };
+    fr.onload = () => { try { const d = S.parseManual(fr.result); if (!d.curriculum.length) throw new Error("tom"); idbSet(manKey(), d); finish(d); } catch (e) { status('<p class="muted">Klarte ikke å lese filen. Er det riktig pensum-HTML?</p>'); setTimeout(showFilePicker, 1400); } };
     fr.onerror = () => { status('<p class="muted">Kunne ikke lese filen.</p>'); setTimeout(showFilePicker, 1200); };
     fr.readAsText(file, "utf-8");
   }
@@ -317,7 +348,7 @@ window.EDU = window.EDU || {};
 
   /* Tømmer bufret pensum/oppgaver for gjeldende fag (knappen på Konto). */
   S.clearContentCache = function () {
-    [manKey(), probKey(), legacy("man"), legacy("prob")].forEach((k) => { if (k) { try { localStorage.removeItem(k); } catch (e) {} } });
+    [manKey(), probKey(), legacy("man"), legacy("prob")].forEach((k) => { if (k) { try { localStorage.removeItem(k); } catch (e) {} idbDel(k); } });
   };
 
   async function boot() {
@@ -336,11 +367,11 @@ window.EDU = window.EDU || {};
     /* Private utvidelser registrerer menyvalg og ruter, så de må lastes før appen tegnes. */
     if (S.privat && S.privat.lastUtvidelser) { try { await S.privat.lastUtvidelser(); } catch (e) {} }
 
-    ryddGamleBuffere();
-    const c = cached(manKey(), legacy("man"));
+    await ryddGamleBuffere();
+    const c = await cached(manKey(), legacy("man"));
     if (c && c.curriculum && c.curriculum.length) { try { await finish(c); return; } catch (e) { console.error(e); } }
     let fetched = null; try { fetched = await tryFetch(); } catch (e) {}
-    if (fetched) { lsSet(manKey(), fetched); await finish(fetched); return; }
+    if (fetched) { await idbSet(manKey(), fetched); await finish(fetched); return; }
     showFilePicker();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();

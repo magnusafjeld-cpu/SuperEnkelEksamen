@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, data, synk]
-oppdatert: 2026-10-22
+oppdatert: 2026-10-31
 ---
 
 # Datamodell og lagring
@@ -13,8 +13,11 @@ oppdatert: 2026-10-22
 | `edu.claude.samtale` | den siste chatsamtalen med `fag` og `sist` (tidspunktet for siste forespørsel). Hentes bare hvis den er under fem minutter gammel og fra samme fag, ellers slettes den |
 | `edu.claude.v1` | `{ nokkel, modell, mnd, brukt }`: brukerens egen API-nøkkel, valgt modell og anslått forbruk denne måneden. Felles for alle fag og **aldri** synket. Se [[Beslutningslogg]] |
 | `edu.<fagId>.progress.v1` | all fremdrift for faget |
-| `edu.<fagId>.manual.v1` | parset pensum (`{curriculum, reference}`) |
-| `edu.<fagId>.problems.v1` | parset oppgavebank |
+| `edu.planlegger.v1`, `edu.planlegger.sig.<fagId>` | planleggerens tilstand og signaturene dagboka sammenligner svarene med (privat utvidelse) |
+
+Parset pensum og oppgavebank (`edu.<fagId>.manual.b<bygg>`,
+`edu.<fagId>.problems.b<bygg>`) lå her til 31. oktober 2026. Nå ligger de i
+IndexedDB, se Innholdscachen nedenfor.
 | `sam3.progress.v1`, `sam3.manual.v1`, `sam3.problems.v1` | **arv** fra før fag-velgeren; leses én gang og skrives over til de nye nøklene |
 
 Supabase-sesjonen lagres i tillegg av Supabase-SDK-en selv, under sine egne
@@ -106,7 +109,20 @@ det ferskeste tidsstempelet som finnes for akkurat det elementet.
 
 ## Innholdscachen
 
-Parset pensum og oppgavebank ligger i `localStorage` fordi parsingen tar tid.
+Parset pensum og oppgavebank ligger i **IndexedDB** (database `edu-buffer`,
+lager `b`, samme nøkler som før: `edu.<fagId>.manual.b<bygg>[.v<versjon>]`), fordi
+parsingen tar tid. `js/boot.js` flytter en buffer som fortsatt ligger i
+localStorage over ved første oppstart, og sletter alle gamle pensumbuffere i
+localStorage for alle fag.
+
+**Hvorfor flyttet (31. oktober 2026).** Med FIE402 (1,55 M tegn), FIE432 (1,08 M) og
+FIE459 (0,36 M) lå bufrene alene på rundt 3 millioner tegn, over grensen på rundt
+5 MB per nettsted. Da feilet alle andre skrivinger i localStorage stille: Supabase
+fikk ikke lagret den fornyede innloggingen, så Magnus ble logget ut ved hvert
+fagbytte, og fremdriften ble ikke lagret lokalt. Et levert eksamenssett som
+forsvant samme morgen, har trolig samme årsak.
+
+Teksten under er historikk fra tiden i localStorage.
 
 **Størrelsen er den reelle begrensningen, ikke tiden.** Å parse 156 KB manual tar
 ~25 ms; den parsede kopien er derimot mange ganger kildefilen. Målt 19. august 2026
