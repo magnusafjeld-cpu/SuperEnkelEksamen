@@ -19,12 +19,12 @@
    kurset. Lista viser dem i en egen del, så de aldri blandes med de ekte
    eksamenene. Ellers kjøres de nøyaktig likt.
 
-   Usikker. Hver oppgave kan merkes som usikker, i begge moduser, så du finner
-   tilbake til den selv om svaret ble riktig. Lista samler alle merkede øverst,
+   Usikker. Hver deloppgave (eller oppgave uten deler) kan merkes som usikker, i
+   begge moduser, så du finner tilbake til den selv om svaret ble riktig. Lista samler alle merkede øverst,
    og øvingsmodus kan vise bare dem.
 
    Fremdrift lagres i state.exams under nøklene "<settId>-run" (økta),
-   "<settId>-e<n>" (selvvurdering per oppgave) og "<settId>-u<n>" (usikker-merket),
+   "<settId>-e<n>" (selvvurdering per oppgave) og "<settId>-u<n>[-<del>]" (usikker-merket),
    og synkes dermed som alt annet. */
 window.EDU = window.EDU || {};
 
@@ -85,21 +85,32 @@ window.EDU = window.EDU || {};
   function prøvIgjen(setId, n) { S.store.setExam(exKey(setId, n), { revealed: false, valg: null, score: null, scoredAt: null }); }
 
   /* ---------- usikker ---------- */
-  /* Oppgaver du vil tilbake til, også når svaret ble riktig. Egen nøkkel per
-     oppgave, så merket overlever eksamensstart og nullstilling. Å fjerne merket
+  /* Deloppgaver du vil tilbake til, også når svaret ble riktig. Merket settes
+     per deloppgave, eller på oppgaven når den ikke har deler (etikett ""). Egen
+     nøkkel, så merket overlever eksamensstart og nullstilling. Å fjerne merket
      skriver u: 0, av samme grunn som over. */
-  const usKey = (setId, n) => setId + "-u" + n;
-  const erUsikker = (setId, n) => readKey(usKey(setId, n)).u === 1;
-  const usikre = (set) => (set.exercises || []).filter((ex) => erUsikker(set.id, ex.n));
-  function merkUsikker(setId, n, på) {
-    S.store.setExam(usKey(setId, n), { u: på ? 1 : 0, t: S.u.nowTs() });
+  const usKey = (setId, n, etikett) => setId + "-u" + n + (etikett ? "-" + etikett : "");
+  const erUsikker = (setId, n, etikett) => readKey(usKey(setId, n, etikett)).u === 1;
+  /* Etikettene som er merket i en oppgave. "" er hele oppgaven: oppgaver uten
+     deler, og merker satt på hele oppgaven før merket ble flyttet til deloppgavene. */
+  const merkedeDeler = (setId, ex) => ["", ...(ex.parts || []).map((p) => p.label)].filter((e) => erUsikker(setId, ex.n, e));
+  const harUsikker = (setId, ex) => merkedeDeler(setId, ex).length > 0;
+  const usikre = (set) => (set.exercises || []).flatMap((ex) => merkedeDeler(set.id, ex).map((etikett) => ({ ex, etikett })));
+  function merkUsikker(setId, n, etikett, på) {
+    S.store.setExam(usKey(setId, n, etikett), { u: på ? 1 : 0, t: S.u.nowTs() });
     S.u.toast(på ? "Merket som usikker. Du finner den øverst under Eksamenssett" : "Usikker-merket er fjernet");
   }
-  function usikkerKnapp(set, ex) {
-    const på = erUsikker(set.id, ex.n);
+  function usikkerKnapp(set, ex, etikett, tekst) {
+    const på = erUsikker(set.id, ex.n, etikett);
     return el("button.chip.tr-merk" + (på ? ".på" : ""), { type: "button", "aria-pressed": String(på),
-      title: på ? "Fjern merket" : "Merk oppgaven så du finner tilbake til den, også om svaret ble riktig",
-      onclick: () => { merkUsikker(set.id, ex.n, !på); S.app.refresh(); } }, på ? "⚑ Usikker" : "⚐ Usikker");
+      title: på ? "Fjern merket" : "Merk deloppgaven så du finner tilbake til den, også om svaret ble riktig",
+      onclick: () => { merkUsikker(set.id, ex.n, etikett, !på); S.app.refresh(); } }, (på ? "⚑ " : "⚐ ") + (tekst || "Usikker"));
+  }
+  /* Deloppgavens hode: etikett, usikker-knapp og poeng. */
+  function delHode(set, ex, part) {
+    return el(".row", { style: { gap: "8px", alignItems: "center" } }, el(".part-label", part.label + ")"), el(".spacer"),
+      usikkerKnapp(set, ex, part.label),
+      part.points ? el(".tiny.muted", `${part.points} p`) : null);
   }
   /* Åpner en oppgave direkte i øvingsmodus. */
   function åpneOppgave(set, ex) {
@@ -217,17 +228,17 @@ window.EDU = window.EDU || {};
   /* Alle usikre oppgaver samlet, på tvers av settene og begge delene av lista.
      Ett klikk åpner oppgaven i øvingsmodus. */
   function usikreKort(alle) {
-    const rader = alle.map((set) => ({ set, exs: usikre(set) })).filter((r) => r.exs.length);
+    const rader = alle.map((set) => ({ set, merker: usikre(set) })).filter((r) => r.merker.length);
     if (!rader.length) return null;
-    const antall = rader.reduce((n, r) => n + r.exs.length, 0);
+    const antall = rader.reduce((n, r) => n + r.merker.length, 0);
     const card = el(".card", { style: { marginBottom: "16px", background: "var(--amber-soft)", border: "1px solid #f2dcb6" } });
     card.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "baseline", marginBottom: "6px" } },
       el("h4", `⚑ Usikre oppgaver (${antall})`)));
     card.appendChild(el("p.tiny.muted", { style: { margin: "0 0 10px" } },
-      "Oppgaver du har merket som usikre, også de du fikk riktig. Gjør dem på nytt til du kan begrunne svaret, og fjern merket da."));
-    rader.forEach(({ set, exs }) => card.appendChild(el(".row.wrap", { style: { gap: "6px", alignItems: "center", marginTop: "6px" } },
+      "Deloppgaver du har merket som usikre, også de du fikk riktig. Gjør dem på nytt til du kan begrunne svaret, og fjern merket da."));
+    rader.forEach(({ set, merker }) => card.appendChild(el(".row.wrap", { style: { gap: "6px", alignItems: "center", marginTop: "6px" } },
       el(".tiny", { style: { fontWeight: 620, minWidth: "120px" } }, set.label),
-      ...exs.map((ex) => el("button.chip.sett-nav", { type: "button", title: ex.title || "", onclick: () => åpneOppgave(set, ex) }, String(ex.n))))));
+      ...merker.map(({ ex, etikett }) => el("button.chip.sett-nav", { type: "button", title: ex.title || "", onclick: () => åpneOppgave(set, ex) }, ex.n + etikett)))));
     return card;
   }
 
@@ -329,7 +340,10 @@ window.EDU = window.EDU || {};
   function exerciseHead(set, ex) {
     return el(".row.wrap", { style: { gap: "10px", alignItems: "baseline", marginBottom: "10px" } },
       el("h3", { style: { fontSize: "18px" } }, `Oppgave ${ex.n}${ex.title ? " · " + ex.title : ""}`),
-      el(".spacer"), usikkerKnapp(set, ex), pointsBadge(ex.points || 0));
+      el(".spacer"),
+      !(ex.parts || []).length ? usikkerKnapp(set, ex, "")
+        : erUsikker(set.id, ex.n, "") ? usikkerKnapp(set, ex, "", "Hele oppgaven") : null,
+      pointsBadge(ex.points || 0));
   }
 
   /* Fasitpanel — grønn kant, tydelig adskilt fra oppgaveteksten. */
@@ -372,9 +386,9 @@ window.EDU = window.EDU || {};
 
     /* Med «Bare usikre» viser navigasjonen og Forrige/Neste bare de merkede.
        Oppgaven du står på, vises uansett, så den ikke forsvinner idet du fjerner merket. */
-    const nUs = usikre(set).length;
+    const nUs = exs.filter((ex) => harUsikker(set.id, ex)).length;   // oppgaver, ikke merker
     if (!nUs) bareUsikre = false;
-    const synlige = exs.map((ex, i) => i).filter((i) => !bareUsikre || i === cursor || erUsikker(set.id, exs[i].n));
+    const synlige = exs.map((ex, i) => i).filter((i) => !bareUsikre || i === cursor || harUsikker(set.id, exs[i]));
 
     if (nUs) {
       const seg = el(".seg", { style: { marginBottom: "10px" } });
@@ -382,7 +396,7 @@ window.EDU = window.EDU || {};
         seg.appendChild(el("button" + (bareUsikre === b ? ".on" : ""), { onclick: () => {
           if (bareUsikre === b) return;
           bareUsikre = b;
-          if (b && !erUsikker(set.id, exs[cursor].n)) cursor = exs.findIndex((ex) => erUsikker(set.id, ex.n));
+          if (b && !harUsikker(set.id, exs[cursor])) cursor = exs.findIndex((ex) => harUsikker(set.id, ex));
           S.app.refresh();
         } }, label)));
       wrap.appendChild(seg);
@@ -392,7 +406,7 @@ window.EDU = window.EDU || {};
     synlige.forEach((i) => {
       const ex = exs[i];
       const revealed = !!exState(set.id, ex.n).revealed;
-      const us = erUsikker(set.id, ex.n);
+      const us = harUsikker(set.id, ex);
       const cls = i === cursor ? "button.chip.sett-nav.on" : us ? "button.chip.amber.sett-nav" : revealed ? "button.chip.green.sett-nav" : "button.chip.sett-nav";
       nav.appendChild(el(cls, { title: us ? "Merket som usikker" : "", onclick: () => { cursor = i; S.app.refresh(); } },
         `${ex.n}`, us ? el("span", { style: { marginLeft: "4px" } }, "⚑") : revealed && i !== cursor ? el("span", { style: { marginLeft: "4px" } }, "✓") : null));
@@ -412,8 +426,7 @@ window.EDU = window.EDU || {};
 
     (ex.parts || []).forEach((part) => {
       const pc = el(".sett-part");
-      pc.appendChild(el(".row", el(".part-label", part.label + ")"), el(".spacer"),
-        part.points ? el(".tiny.muted", `${part.points} p`) : null));
+      pc.appendChild(delHode(set, ex, part));
       pc.appendChild(body(part.body));
       const ledd = leddFor(ex, part.label);
       if (ledd) pc.appendChild(mcValg(set, ex, ledd, open, true));
@@ -491,8 +504,7 @@ window.EDU = window.EDU || {};
       if (hoved) card.appendChild(mcValg(set, ex, hoved, submitted, !submitted));
       (ex.parts || []).forEach((part) => {
         const pc = el(".sett-part");
-        pc.appendChild(el(".row", el(".part-label", part.label + ")"), el(".spacer"),
-          part.points ? el(".tiny.muted", `${part.points} p`) : null));
+        pc.appendChild(delHode(set, ex, part));
         pc.appendChild(body(part.body));
         const ledd = leddFor(ex, part.label);
         if (ledd) pc.appendChild(mcValg(set, ex, ledd, submitted, !submitted));

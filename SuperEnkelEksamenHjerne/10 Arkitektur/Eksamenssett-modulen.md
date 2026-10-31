@@ -98,23 +98,28 @@ så du ser hva gjettingen kostet eller ville kostet.
 
 ## Usikker-merket
 
-Lagt til 31. oktober 2026. Hver oppgave har en knapp «⚐ Usikker» i overskriften,
-i både øving og eksamen. Den er for oppgaver du vil tilbake til selv om svaret
-ble riktig, for eksempel fordi du gjettet mellom to alternativer.
+Lagt til 31. oktober 2026. Hver deloppgave har en knapp «⚐ Usikker» i hodet sitt,
+i både øving og eksamen. En oppgave uten deler har knappen i overskriften. Den er
+for ledd du vil tilbake til selv om svaret ble riktig, for eksempel fordi du
+gjettet mellom to alternativer. Merket satt først på hele oppgaven, men Magnus ville
+ha det per deloppgave samme dag: ofte er bare ett ledd flaks.
 
-- Lista viser et gult kort øverst, «Usikre oppgaver», med alle merkede oppgaver
-  på tvers av settene og begge delene av lista. Ett klikk åpner oppgaven i øving.
-- Settkortet viser «⚑ N usikre».
+- Lista viser et gult kort øverst, «Usikre oppgaver», med alle merkede ledd
+  («5b», «17») på tvers av settene og begge delene av lista. Ett klikk åpner
+  oppgaven i øving.
+- Settkortet viser «⚑ N usikre», talt i ledd.
 - Øvingsmodus har bryteren «Alle / Bare usikre». Med den på viser navigasjonen og
-  Forrige/Neste bare de merkede.
+  Forrige/Neste bare oppgaver med minst ett merket ledd.
 - «↺ Prøv på nytt» i øving lukker fasiten og fjerner svar og poeng for én oppgave.
   Den vises ikke etter levering, for da ville den endret eksamensresultatet.
-- Merket ligger i en egen nøkkel, `<settId>-u<n>` = `{ u: 1 | 0, t }`. Derfor
+- Merket ligger i en egen nøkkel, `<settId>-u<n>-<del>` = `{ u: 1 | 0, t }`,
+  eller `<settId>-u<n>` for en oppgave uten deler. Et gammelt merke på hele
+  oppgaven vises som «⚑ Hele oppgaven» i overskriften, så det kan fjernes. Derfor
   overlever det eksamensstart og «Nullstill settet». Å fjerne merket skriver
   `u: 0` i stedet for å slette, ellers ville synken hentet det tilbake fra den
   andre enheten. Samme mønster som «Øv mer» i eksamenstreningen.
-- Planleggeren teller en usikker oppgave høyst halvt i mestringen, også når
-  poengene er fulle.
+- Planleggeren senker taket for oppgavens mestring med halvparten av de merkede
+  leddenes poengandel. Er b (3 av 9 poeng) usikker, teller oppgaven høyst 83 %.
 
 ## Ikke bare eksamener
 
@@ -166,7 +171,7 @@ at `criteria` er ren tekst, at `mc.wrongFactor` ligger i [−1, 0], og at
 |---|---|
 | `state.exams["<settId>-run"]` | `{ mode, startedAt, submittedAt, wrongFactor }` — selve økta |
 | `state.exams["<settId>-e<n>"]` | `{ revealed, score, scoredAt, valg }` per oppgave |
-| `state.exams["<settId>-u<n>"]` | `{ u: 1 \| 0, t }`, usikker-merket per oppgave |
+| `state.exams["<settId>-u<n>[-<del>]"]` | `{ u: 1 \| 0, t }`, usikker-merket per deloppgave |
 
 Alt går gjennom `S.store.setExam()`, så det synkes som all annen fremdrift.
 **Nedtellingen regnes ut fra `startedAt`, ikke fra en teller i minnet** — derfor
