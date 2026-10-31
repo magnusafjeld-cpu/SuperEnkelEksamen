@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-10-29
+oppdatert: 2026-10-31
 ---
 
 # Eksamenssett-modulen
@@ -96,6 +96,26 @@ så du ser hva gjettingen kostet eller ville kostet.
 > `set.facts` overstyrer listen; `set.practiceNote` overstyrer nøkkelsetningen
 > i øvingsmodus. Uten feltene gjelder FIE402s tekst som før.
 
+## Usikker-merket
+
+Lagt til 31. oktober 2026. Hver oppgave har en knapp «⚐ Usikker» i overskriften,
+i både øving og eksamen. Den er for oppgaver du vil tilbake til selv om svaret
+ble riktig, for eksempel fordi du gjettet mellom to alternativer.
+
+- Lista viser et gult kort øverst, «Usikre oppgaver», med alle merkede oppgaver
+  på tvers av settene og begge delene av lista. Ett klikk åpner oppgaven i øving.
+- Settkortet viser «⚑ N usikre».
+- Øvingsmodus har bryteren «Alle / Bare usikre». Med den på viser navigasjonen og
+  Forrige/Neste bare de merkede.
+- «↺ Prøv på nytt» i øving lukker fasiten og fjerner svar og poeng for én oppgave.
+  Den vises ikke etter levering, for da ville den endret eksamensresultatet.
+- Merket ligger i en egen nøkkel, `<settId>-u<n>` = `{ u: 1 | 0, t }`. Derfor
+  overlever det eksamensstart og «Nullstill settet». Å fjerne merket skriver
+  `u: 0` i stedet for å slette, ellers ville synken hentet det tilbake fra den
+  andre enheten. Samme mønster som «Øv mer» i eksamenstreningen.
+- Planleggeren teller en usikker oppgave høyst halvt i mestringen, også når
+  poengene er fulle.
+
 ## Ikke bare eksamener
 
 Et sett trenger ikke være en eksamen. FIE432 har flervalgstesten til
@@ -146,6 +166,7 @@ at `criteria` er ren tekst, at `mc.wrongFactor` ligger i [−1, 0], og at
 |---|---|
 | `state.exams["<settId>-run"]` | `{ mode, startedAt, submittedAt, wrongFactor }` — selve økta |
 | `state.exams["<settId>-e<n>"]` | `{ revealed, score, scoredAt, valg }` per oppgave |
+| `state.exams["<settId>-u<n>"]` | `{ u: 1 \| 0, t }`, usikker-merket per oppgave |
 
 Alt går gjennom `S.store.setExam()`, så det synkes som all annen fremdrift.
 **Nedtellingen regnes ut fra `startedAt`, ikke fra en teller i minnet** — derfor

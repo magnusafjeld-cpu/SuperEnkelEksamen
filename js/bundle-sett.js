@@ -19,8 +19,13 @@
    kurset. Lista viser dem i en egen del, så de aldri blandes med de ekte
    eksamenene. Ellers kjøres de nøyaktig likt.
 
-   Fremdrift lagres i state.exams under nøklene "<settId>-run" (økta) og
-   "<settId>-e<n>" (selvvurdering per oppgave), og synkes dermed som alt annet. */
+   Usikker. Hver oppgave kan merkes som usikker, i begge moduser, så du finner
+   tilbake til den selv om svaret ble riktig. Lista samler alle merkede øverst,
+   og øvingsmodus kan vise bare dem.
+
+   Fremdrift lagres i state.exams under nøklene "<settId>-run" (økta),
+   "<settId>-e<n>" (selvvurdering per oppgave) og "<settId>-u<n>" (usikker-merket),
+   og synkes dermed som alt annet. */
 window.EDU = window.EDU || {};
 
 (function (S) {
@@ -34,6 +39,7 @@ window.EDU = window.EDU || {};
   let cursor = 0;          // hvilken oppgave som vises i øvingsmodus
   let ticker = null;       // intervallet som teller ned
   let del = "eksamen";     // "eksamen" | "prove": hvilken del av lista som vises
+  let bareUsikre = false;  // øvingsmodus viser bare oppgaver merket som usikre
 
   function stopTicker() { if (ticker) { clearInterval(ticker); ticker = null; } }
   const setById = (id) => SETS().find((s) => s.id === id) || null;
@@ -73,6 +79,34 @@ window.EDU = window.EDU || {};
   }
   function reveal(setId, n) { S.store.setExam(exKey(setId, n), { revealed: true }); }
   function setScore(setId, n, score) { S.store.setExam(exKey(setId, n), { score: score, scoredAt: S.u.nowTs() }); }
+  /* «Prøv på nytt» i øving: lukker fasiten og fjerner svar og poeng for én
+     oppgave. Skriver tomme verdier i stedet for å slette nøkkelen, ellers ville
+     synken hentet det gamle svaret tilbake fra den andre enheten. */
+  function prøvIgjen(setId, n) { S.store.setExam(exKey(setId, n), { revealed: false, valg: null, score: null, scoredAt: null }); }
+
+  /* ---------- usikker ---------- */
+  /* Oppgaver du vil tilbake til, også når svaret ble riktig. Egen nøkkel per
+     oppgave, så merket overlever eksamensstart og nullstilling. Å fjerne merket
+     skriver u: 0, av samme grunn som over. */
+  const usKey = (setId, n) => setId + "-u" + n;
+  const erUsikker = (setId, n) => readKey(usKey(setId, n)).u === 1;
+  const usikre = (set) => (set.exercises || []).filter((ex) => erUsikker(set.id, ex.n));
+  function merkUsikker(setId, n, på) {
+    S.store.setExam(usKey(setId, n), { u: på ? 1 : 0, t: S.u.nowTs() });
+    S.u.toast(på ? "Merket som usikker. Du finner den øverst under Eksamenssett" : "Usikker-merket er fjernet");
+  }
+  function usikkerKnapp(set, ex) {
+    const på = erUsikker(set.id, ex.n);
+    return el("button.chip.tr-merk" + (på ? ".på" : ""), { type: "button", "aria-pressed": String(på),
+      title: på ? "Fjern merket" : "Merk oppgaven så du finner tilbake til den, også om svaret ble riktig",
+      onclick: () => { merkUsikker(set.id, ex.n, !på); S.app.refresh(); } }, på ? "⚑ Usikker" : "⚐ Usikker");
+  }
+  /* Åpner en oppgave direkte i øvingsmodus. */
+  function åpneOppgave(set, ex) {
+    openSet = set.id; mode = "practice"; bareUsikre = true;
+    cursor = Math.max(0, (set.exercises || []).indexOf(ex));
+    S.app.refresh();
+  }
 
   /* ---------- flervalg ---------- */
   /* Valgene lagres per oppgave som { "<deletikett>": indeks }; en oppgave uten
@@ -171,10 +205,30 @@ window.EDU = window.EDU || {};
 
     if (!sets.length) { wrap.appendChild(sh().empty("📄", "Ingen eksamenssett ennå", "Faget har ikke lagt inn sett i EDU_DATA.sets.")); return wrap; }
 
+    const us = usikreKort(alle);
+    if (us) wrap.appendChild(us);
+
     const list = el(".stack", { style: { gap: "14px" } });
     sets.forEach((set) => list.appendChild(setCard(set)));
     wrap.appendChild(list);
     return wrap;
+  }
+
+  /* Alle usikre oppgaver samlet, på tvers av settene og begge delene av lista.
+     Ett klikk åpner oppgaven i øvingsmodus. */
+  function usikreKort(alle) {
+    const rader = alle.map((set) => ({ set, exs: usikre(set) })).filter((r) => r.exs.length);
+    if (!rader.length) return null;
+    const antall = rader.reduce((n, r) => n + r.exs.length, 0);
+    const card = el(".card", { style: { marginBottom: "16px", background: "var(--amber-soft)", border: "1px solid #f2dcb6" } });
+    card.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "baseline", marginBottom: "6px" } },
+      el("h4", `⚑ Usikre oppgaver (${antall})`)));
+    card.appendChild(el("p.tiny.muted", { style: { margin: "0 0 10px" } },
+      "Oppgaver du har merket som usikre, også de du fikk riktig. Gjør dem på nytt til du kan begrunne svaret, og fjern merket da."));
+    rader.forEach(({ set, exs }) => card.appendChild(el(".row.wrap", { style: { gap: "6px", alignItems: "center", marginTop: "6px" } },
+      el(".tiny", { style: { fontWeight: 620, minWidth: "120px" } }, set.label),
+      ...exs.map((ex) => el("button.chip.sett-nav", { type: "button", title: ex.title || "", onclick: () => åpneOppgave(set, ex) }, String(ex.n))))));
+    return card;
   }
 
   function setCard(set) {
@@ -182,11 +236,13 @@ window.EDU = window.EDU || {};
     const r = run(set.id);
     const done = !!r.submittedAt;
     const started = !!r.startedAt && !done;
+    const nUs = usikre(set).length;
 
     const card = el(".card.pad-lg");
     card.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline" } },
       el("h3", { style: { fontSize: "19px" } }, set.label),
       el(".spacer"),
+      nUs ? el(".chip.amber", `⚑ ${nUs} usikre`) : null,
       done ? el(".chip.green", el(".dot"), "Levert") : started ? el(".chip.amber", el(".dot"), "Påbegynt") : null));
 
     card.appendChild(el(".row.wrap", { style: { gap: "8px", margin: "8px 0 12px" } },
@@ -207,7 +263,7 @@ window.EDU = window.EDU || {};
       el("button.btn.primary", { onclick: () => { openSet = set.id; mode = "practice"; cursor = 0; S.app.refresh(); } }, "Øvingsmodus"),
       el("button.btn", { onclick: () => { openSet = set.id; mode = "exam"; S.app.refresh(); } }, "⏱ Eksamensmodus"),
       (done || started || anyTouched(set)) ? el("button.btn.ghost.sm", { onclick: () => {
-        if (confirm(`Nullstille «${set.label}» — leveringen, svarene og alle vurderinger? Kan ikke angres.`)) { resetRun(set.id); S.app.refresh(); }
+        if (confirm(`Nullstille «${set.label}» — leveringen, svarene og alle vurderinger? Usikker-merkene beholdes. Kan ikke angres.`)) { resetRun(set.id); S.app.refresh(); }
       } }, "Nullstill settet") : null));
     return card;
   }
@@ -270,10 +326,10 @@ window.EDU = window.EDU || {};
     return el(".chip.indigo", { style: { fontWeight: 620 } }, `${p} poeng`);
   }
 
-  function exerciseHead(ex) {
+  function exerciseHead(set, ex) {
     return el(".row.wrap", { style: { gap: "10px", alignItems: "baseline", marginBottom: "10px" } },
       el("h3", { style: { fontSize: "18px" } }, `Oppgave ${ex.n}${ex.title ? " · " + ex.title : ""}`),
-      el(".spacer"), pointsBadge(ex.points || 0));
+      el(".spacer"), usikkerKnapp(set, ex), pointsBadge(ex.points || 0));
   }
 
   /* Fasitpanel — grønn kant, tydelig adskilt fra oppgaveteksten. */
@@ -314,18 +370,38 @@ window.EDU = window.EDU || {};
     if (!exs.length) { wrap.appendChild(sh().empty("📄", "Tomt sett", "Ingen oppgaver lagt inn.")); return wrap; }
     if (cursor >= exs.length) cursor = 0;
 
+    /* Med «Bare usikre» viser navigasjonen og Forrige/Neste bare de merkede.
+       Oppgaven du står på, vises uansett, så den ikke forsvinner idet du fjerner merket. */
+    const nUs = usikre(set).length;
+    if (!nUs) bareUsikre = false;
+    const synlige = exs.map((ex, i) => i).filter((i) => !bareUsikre || i === cursor || erUsikker(set.id, exs[i].n));
+
+    if (nUs) {
+      const seg = el(".seg", { style: { marginBottom: "10px" } });
+      [[false, `Alle (${exs.length})`], [true, `⚑ Bare usikre (${nUs})`]].forEach(([b, label]) =>
+        seg.appendChild(el("button" + (bareUsikre === b ? ".on" : ""), { onclick: () => {
+          if (bareUsikre === b) return;
+          bareUsikre = b;
+          if (b && !erUsikker(set.id, exs[cursor].n)) cursor = exs.findIndex((ex) => erUsikker(set.id, ex.n));
+          S.app.refresh();
+        } }, label)));
+      wrap.appendChild(seg);
+    }
+
     const nav = el(".row.wrap", { style: { gap: "6px", marginBottom: "16px" } });
-    exs.forEach((ex, i) => {
+    synlige.forEach((i) => {
+      const ex = exs[i];
       const revealed = !!exState(set.id, ex.n).revealed;
-      const cls = i === cursor ? "button.chip.sett-nav.on" : revealed ? "button.chip.green.sett-nav" : "button.chip.sett-nav";
-      nav.appendChild(el(cls, { onclick: () => { cursor = i; S.app.refresh(); } },
-        `${ex.n}`, revealed && i !== cursor ? el("span", { style: { marginLeft: "4px" } }, "✓") : null));
+      const us = erUsikker(set.id, ex.n);
+      const cls = i === cursor ? "button.chip.sett-nav.on" : us ? "button.chip.amber.sett-nav" : revealed ? "button.chip.green.sett-nav" : "button.chip.sett-nav";
+      nav.appendChild(el(cls, { title: us ? "Merket som usikker" : "", onclick: () => { cursor = i; S.app.refresh(); } },
+        `${ex.n}`, us ? el("span", { style: { marginLeft: "4px" } }, "⚑") : revealed && i !== cursor ? el("span", { style: { marginLeft: "4px" } }, "✓") : null));
     });
     wrap.appendChild(nav);
 
     const ex = exs[cursor];
     const card = el(".card.pad-lg");
-    card.appendChild(exerciseHead(ex));
+    card.appendChild(exerciseHead(set, ex));
     if (ex.topic) card.appendChild(el(".row.wrap", { style: { gap: "6px", marginBottom: "12px" } }, el(".chip.slate", ex.topic)));
     card.appendChild(body(ex.body));
 
@@ -364,14 +440,21 @@ window.EDU = window.EDU || {};
         card.appendChild(el(".explain", { style: { marginTop: "14px" } },
           el("b", `${pts(r.got)} av ${r.of} poeng`), ` · ${r.rett} riktig, ${r.galt} feil, ${r.blank} ubesvart` + (wrongFactor(set) ? " · minuspoeng for feil" : "")));
       } else card.appendChild(scoreRow(set, ex));
+      /* Etter levering står fasiten åpen for hele settet, så å prøve på nytt
+         ville bare endret eksamensresultatet. Da må settet nullstilles. */
+      if (!isSubmitted(set.id)) card.appendChild(el(".row", { style: { marginTop: "14px" } },
+        el("button.btn.ghost.sm", { onclick: () => { prøvIgjen(set.id, ex.n); S.app.refresh(); } }, "↺ Prøv på nytt")));
     }
 
     wrap.appendChild(card);
 
+    const her = synlige.indexOf(cursor);
+    const forrige = her > 0 ? synlige[her - 1] : null;
+    const neste = her >= 0 && her < synlige.length - 1 ? synlige[her + 1] : null;
     const move = el(".row", { style: { gap: "8px", marginTop: "18px" } },
-      cursor > 0 ? el("button.btn.ghost.sm", { onclick: () => { cursor--; S.app.refresh(); } }, "← Forrige oppgave") : null,
+      forrige != null ? el("button.btn.ghost.sm", { onclick: () => { cursor = forrige; S.app.refresh(); } }, bareUsikre ? "← Forrige usikre" : "← Forrige oppgave") : null,
       el(".spacer"),
-      cursor < exs.length - 1 ? el("button.btn.sm", { onclick: () => { cursor++; S.app.refresh(); } }, "Neste oppgave →") : null);
+      neste != null ? el("button.btn.sm", { onclick: () => { cursor = neste; S.app.refresh(); } }, bareUsikre ? "Neste usikre →" : "Neste oppgave →") : null);
     wrap.appendChild(move);
 
     if (ex.chapters && ex.chapters.length && S.hasModule("/curriculum")) {
@@ -402,7 +485,7 @@ window.EDU = window.EDU || {};
     const harMC = settHarMC(set);
     (set.exercises || []).forEach((ex) => {
       const card = el(".card.pad-lg", { style: { marginBottom: "18px" } });
-      card.appendChild(exerciseHead(ex));
+      card.appendChild(exerciseHead(set, ex));
       card.appendChild(body(ex.body));
       const hoved = leddFor(ex, "");
       if (hoved) card.appendChild(mcValg(set, ex, hoved, submitted, !submitted));
