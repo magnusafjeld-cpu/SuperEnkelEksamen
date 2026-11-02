@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-10-31
+oppdatert: 2026-11-02
 ---
 
 # Eksamenssett-modulen
@@ -146,6 +146,38 @@ ledd, andel tallsvar) og ser etter det som lar studenten finne svaret uten å
 kunne stoffet: avvik fra fasitplanen (`fag/<fag>/_prove/fasitplan.json`), om
 riktig alternativ oftere enn tilfeldig er det lengste eller det midterste tallet,
 ledd som ligner et ekte spørsmål for mye, og skrivereglene.
+
+## Kartlegging (kind: "kartlegging")
+
+Lagt til 2. november 2026 for [[FIE402 Corporate Finance]]. Magnus ville ha en
+prøve som finner ut hva han må øve mer på, og som dekker omtrent hele pensum.
+Han valgte ren flervalg i tre deler à rundt 90 minutter.
+
+- **Egen fane** «Kartlegging» ved siden av «Tidligere eksamener» og
+  «Prøveeksamener». Delene er egne sett med `del: 1 | 2 | 3`.
+- **Alltid hele delen synlig**, ingen øvingsmodus. Ingen nedtelling: klokka viser
+  brukt tid. Ingen minuspoeng.
+- **«Vet ikke»** under alternativene lagrer valget `−1`. Det teller 0 og regnes
+  ikke som feil. Poenget er at et gjettet riktig svar skjuler hullet.
+- **Hvert ledd har `tema`** fra `EDU_DATA.kartlegging.temaer` og **`diag`**: én
+  norsk tekst per galt alternativ som navngir feilen, `null` på fasiten. Etter
+  levering vises «Feilen: …» under det gale valget.
+- **Rapporten** samler leddene per tema. Sikkert riktig teller 1, riktig men
+  merket usikker 0,5, feil og «Vet ikke» 0. Et tema sitter fra 85 %, er ustøtt
+  fra 50 %. «Jobb med dette» sorteres etter `vekt × (1 − mestring)`, der vekt
+  (1 til 5) er hvor tungt temaet er på eksamen. Hver rad viser feilene du gjorde,
+  leddene som trakk ned (klikk åpner delen ved leddet) og knapper til sjanger,
+  kjernepensum og kapitteloppgaver fra temaets `øv`.
+- Rapporten for én del vises over fasiten. Den samlede ligger øverst i fanen og
+  sier hvilke deler og temaer som ikke er kartlagt ennå.
+- Planleggeren regner svarene inn i mestringen, men tar ikke delene med i lista
+  over hele sett å anbefale.
+
+Kildene ligger i `fag/fie402/_kart/`: `temaer.js`, `del1.js` til `del3.js`, et
+regneskript per del og oppdraget agentene skrev etter (`OPPDRAG.md`).
+`python3 tools/flett-kart.py fie402` setter dem sammen til
+`fag/fie402/kartlegging.js`, som lastes etter `sett.js`. `tools/sjekk-sett.js`
+sjekker tema og diag i tillegg til det vanlige.
 
 ## Kontrollen
 

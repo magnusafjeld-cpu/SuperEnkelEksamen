@@ -12,7 +12,13 @@
    og `answer` rettes automatisk. `answer` er en indeks, eller en liste når
    fasiten godtar flere. Kontrollen sjekker at indeksene finnes, at poengene
    summerer, og at et flervalg ikke også har `criteria` (som bare gir mening for
-   selvvurderte oppgaver).                                                      */
+   selvvurderte oppgaver).
+
+   Kartlegging (november 2026): et sett med kind: "kartlegging" er en diagnose.
+   Hvert ledd må ha et tema som finnes i EDU_DATA.kartlegging.temaer, og en diag
+   per alternativ: null på fasiten, en ren tekst som navngir feilen på hvert galt
+   alternativ. Settet skal ikke ha minuspoeng. Filen fag/<id>/kartlegging.js
+   tas med når du ikke oppgir filer.                                            */
 
 const fs = require("fs");
 const path = require("path");
@@ -21,8 +27,10 @@ const filer = process.argv.slice(2);
 if (!filer.length) {
   const fag = path.join(__dirname, "..", "fag");
   for (const d of fs.readdirSync(fag)) {
-    const f = path.join(fag, d, "sett.js");
-    if (fs.existsSync(f)) filer.push(f);
+    for (const navn of ["sett.js", "kartlegging.js"]) {
+      const f = path.join(fag, d, navn);
+      if (fs.existsSync(f)) filer.push(f);
+    }
   }
 }
 if (!filer.length) { console.log("fant ingen sett.js"); process.exit(0); }
@@ -54,6 +62,7 @@ for (const fil of filer) {
   if (!sets.length) { console.log("  ingen sett i filen"); continue; }
 
   const kap = kapitlerFor(fil);
+  const temaIder = new Set(((w.EDU_DATA.kartlegging || {}).temaer || []).map((t) => t.id));
   const feil = [], advarsel = [];
   const si = (l, hvor, m) => l.push(`${hvor}: ${m}`);
   const HTML = /<[a-zA-Z/!]/;
@@ -68,6 +77,9 @@ for (const fil of filer) {
     if (typeof s.minutes !== "number" || s.minutes < 30) si(feil, sid, "minutes er urimelig");
     if (typeof s.points !== "number" || s.points <= 0) si(feil, sid, "points er urimelig");
     if (s.facts && !Array.isArray(s.facts)) si(feil, sid, "facts må være en liste");
+    const kart = s.kind === "kartlegging";
+    if (kart && s.mc && s.mc.wrongFactor) si(feil, sid, "kartleggingen skal ikke ha minuspoeng");
+    if (kart && !temaIder.size) si(feil, sid, "kartlegging uten EDU_DATA.kartlegging.temaer i samme fil");
     if (s.mc && typeof s.mc.wrongFactor === "number" && (s.mc.wrongFactor > 0 || s.mc.wrongFactor < -1))
       si(feil, sid, `mc.wrongFactor ${s.mc.wrongFactor} er utenfor [-1, 0]`);
 
@@ -122,6 +134,15 @@ for (const fil of filer) {
         else if (new Set(svar).size !== svar.length) si(feil, merke, "answer har duplikater");
         else if (svar.length === n) si(feil, merke, "alle alternativene er markert riktige");
         if (svar.length > 1) si(advarsel, merke, `${svar.length} godtatte svar — sjekk at fasiten faktisk sier det`);
+        if (kart) {
+          if (!temaIder.has(o.tema)) si(feil, merke, `tema ${JSON.stringify(o.tema)} finnes ikke i temalista`);
+          if (!Array.isArray(o.diag) || o.diag.length !== n) si(feil, merke, "diag må ha like mange elementer som options");
+          else o.diag.forEach((d, i) => {
+            if (svar.includes(i)) { if (d != null) si(feil, merke, `diag ${i + 1} står på fasiten — skal være null`); }
+            else if (!d || !String(d).trim()) si(feil, merke, `diag ${i + 1} mangler — rapporten kan ikke si hva feilen var`);
+            else if (HTML.test(d)) si(feil, merke, `diag ${i + 1} inneholder markup — feltet vises som ren tekst`);
+          });
+        }
         if (!o.solution) si(feil, merke, "flervalg uten solution — da lærer man ingenting av å bomme");
         if (o.criteria && o.criteria.length)
           si(advarsel, merke, "flervalg med criteria — kriterielisten vises bare for selvvurderte oppgaver");

@@ -19,6 +19,13 @@
    kurset. Lista viser dem i en egen del, så de aldri blandes med de ekte
    eksamenene. Ellers kjøres de nøyaktig likt.
 
+   Kartlegging. Et sett med kind: "kartlegging" er en diagnose, ikke en eksamen.
+   Det får en egen fane, kjøres alltid med hele settet synlig, uten nedtelling
+   (klokka viser brukt tid) og uten minuspoeng. Hvert ledd har en «Vet ikke»-knapp
+   (valg −1), et tema fra EDU_DATA.kartlegging.temaer og en diag-tekst per galt
+   alternativ. Etter levering samler rapporten leddene per tema: hva som sitter,
+   hva som må øves, hvilke feil du gjorde, og lenker til der du øver på det.
+
    Usikker. Hver deloppgave (eller oppgave uten deler) kan merkes som usikker, i
    begge moduser, så du finner tilbake til den selv om svaret ble riktig. Lista samler alle merkede øverst,
    og øvingsmodus kan vise bare dem.
@@ -38,8 +45,11 @@ window.EDU = window.EDU || {};
   let mode = "practice";   // "practice" | "exam"
   let cursor = 0;          // hvilken oppgave som vises i øvingsmodus
   let ticker = null;       // intervallet som teller ned
-  let del = "eksamen";     // "eksamen" | "prove": hvilken del av lista som vises
+  let del = "eksamen";     // "eksamen" | "prove" | "kart": hvilken del av lista som vises
   let bareUsikre = false;  // øvingsmodus viser bare oppgaver merket som usikre
+
+  const erKart = (set) => !!set && set.kind === "kartlegging";
+  const VET_IKKE = -1;     // valget «Vet ikke» i kartleggingen
 
   function stopTicker() { if (ticker) { clearInterval(ticker); ticker = null; } }
   const setById = (id) => SETS().find((s) => s.id === id) || null;
@@ -131,8 +141,8 @@ window.EDU = window.EDU || {};
   /* Alle flervalgsleddene i en oppgave, i rekkefølge. */
   function mcLedd(ex) {
     const ut = [];
-    if (ex.options) ut.push({ nøkkel: "", options: ex.options, answer: ex.answer, points: ex.points || 0 });
-    (ex.parts || []).forEach((p) => { if (p.options) ut.push({ nøkkel: p.label, options: p.options, answer: p.answer, points: p.points || 0 }); });
+    if (ex.options) ut.push({ nøkkel: "", options: ex.options, answer: ex.answer, points: ex.points || 0, tema: ex.tema, diag: ex.diag });
+    (ex.parts || []).forEach((p) => { if (p.options) ut.push({ nøkkel: p.label, options: p.options, answer: p.answer, points: p.points || 0, tema: p.tema, diag: p.diag }); });
     return ut;
   }
   const erMC = (ex) => mcLedd(ex).length > 0;
@@ -148,11 +158,12 @@ window.EDU = window.EDU || {};
   /* Retter én oppgaves flervalgsledd. Returnerer poeng og tellinger. */
   function mcRett(set, ex, wf) {
     const st = exState(set.id, ex.n); const valg = st.valg || {};
-    const r = { got: 0, of: 0, rett: 0, galt: 0, blank: 0 };
+    const r = { got: 0, of: 0, rett: 0, galt: 0, blank: 0, vet: 0 };
     mcLedd(ex).forEach((ledd) => {
       r.of += ledd.points;
       const i = valg[ledd.nøkkel];
       if (i == null) r.blank++;
+      else if (i === VET_IKKE) r.vet++;
       else if (riktig(ledd, i)) { r.rett++; r.got += ledd.points; }
       else { r.galt++; r.got += ledd.points * wf; }
     });
@@ -196,10 +207,25 @@ window.EDU = window.EDU || {};
     const wrap = el(".fade-in");
     const alle = SETS();
     const prøver = alle.filter((x) => x.kind === "mock");
-    const ekte = alle.filter((x) => x.kind !== "mock");
-    if (!prøver.length) del = "eksamen";
+    const kart = alle.filter(erKart);
+    const ekte = alle.filter((x) => x.kind !== "mock" && !erKart(x));
+    if ((del === "prove" && !prøver.length) || (del === "kart" && !kart.length)) del = "eksamen";
     const prøveDel = del === "prove";
     const sets = prøveDel ? prøver : ekte;
+    const faner = () => {
+      const seg = el(".seg", { style: { marginBottom: "16px" } });
+      [["eksamen", `Tidligere eksamener (${ekte.length})`], prøver.length ? ["prove", `Prøveeksamener (${prøver.length})`] : null,
+       kart.length ? ["kart", "Kartlegging"] : null].filter(Boolean).forEach(([d, label]) =>
+        seg.appendChild(el("button" + (del === d ? ".on" : ""), { onclick: () => { if (del !== d) { del = d; S.app.refresh(); } } }, label)));
+      return seg;
+    };
+    if (del === "kart") {
+      wrap.appendChild(sh().pageHead("Eksamenssett", "Kartlegging",
+        "Tre deler som til sammen dekker pensum. Svar så godt du kan, velg «Vet ikke» heller enn å gjette og merk ledd du er usikker på. Rapporten etterpå viser hva som sitter og hva du må jobbe med."));
+      wrap.appendChild(faner());
+      kartListe(wrap, kart);
+      return wrap;
+    }
     /* Ikke alle settene er eksamener: FIE432 har også flervalgstesten til
        kursgodkjenning. Undertittelen teller derfor sett. */
     wrap.appendChild(sh().pageHead("Eksamenssett", sets.length === 1 ? "1 sett" : `${sets.length} sett`,
@@ -207,16 +233,11 @@ window.EDU = window.EDU || {};
         ? "Prøveeksamener laget i formatet du møter, bygd på det de tidligere eksamenene faktisk spør om. De er ikke gitt av kurset. Kjør dem på tid med minuspoeng, og les fasiten på hvert feil svar etterpå."
         : "Hele sett, slik de ble gitt. Kjør dem som øving med fasit underveis, eller som ekte eksamen på tid der fasiten først åpner seg når du leverer."));
 
-    if (prøver.length) {
-      const seg = el(".seg", { style: { marginBottom: "16px" } });
-      [["eksamen", `Tidligere eksamener (${ekte.length})`], ["prove", `Prøveeksamener (${prøver.length})`]].forEach(([d, label]) =>
-        seg.appendChild(el("button" + (del === d ? ".on" : ""), { onclick: () => { if (del !== d) { del = d; S.app.refresh(); } } }, label)));
-      wrap.appendChild(seg);
-    }
+    if (prøver.length || kart.length) wrap.appendChild(faner());
 
     if (!sets.length) { wrap.appendChild(sh().empty("📄", "Ingen eksamenssett ennå", "Faget har ikke lagt inn sett i EDU_DATA.sets.")); return wrap; }
 
-    const us = usikreKort(alle);
+    const us = usikreKort(alle.filter((x) => !erKart(x)));
     if (us) wrap.appendChild(us);
 
     const list = el(".stack", { style: { gap: "14px" } });
@@ -282,6 +303,12 @@ window.EDU = window.EDU || {};
   /* ================= felles deler ================= */
   function topBar(set) {
     const bar = el(".row.wrap", { style: { gap: "10px", marginBottom: "16px", alignItems: "center" } });
+    if (erKart(set)) {
+      bar.appendChild(el("button.btn.ghost.sm", { onclick: () => { openSet = null; del = "kart"; stopTicker(); S.app.refresh(); } }, "← Kartlegging"));
+      bar.appendChild(el(".spacer"));
+      bar.appendChild(el("h3", { style: { fontSize: "16px" } }, set.label));
+      return bar;
+    }
     bar.appendChild(el("button.btn.ghost.sm", { onclick: () => { openSet = null; stopTicker(); S.app.refresh(); } }, "← Alle sett"));
     const seg = el(".seg");
     [["practice", "Øving"], ["exam", "⏱ Eksamen"]].forEach(([m, label]) => {
@@ -319,12 +346,25 @@ window.EDU = window.EDU || {};
         el(".key", String.fromCharCode(65 + i)), el("span", frag(String(o))));
       boks.appendChild(btn);
     });
+    /* Kartleggingen: «Vet ikke» er et ærlig svar. Et gjettet riktig svar skjuler
+       hullet rapporten skal finne. */
+    if (erKart(set)) {
+      const på = valgt === VET_IKKE;
+      boks.appendChild(el("button.opt" + (på ? ".sel" : åpen ? ".dim" : ""), { disabled: åpen || !interaktiv,
+        onclick: () => { if (åpen || !interaktiv) return; velg(set.id, ex.n, ledd.nøkkel, VET_IKKE); S.app.refresh(); } },
+        el(".key", "?"), el("span", "Vet ikke")));
+    }
     if (åpen) {
-      const traff = valgt != null && riktig(ledd, valgt);
+      const vet = valgt === VET_IKKE;
+      const traff = valgt != null && !vet && riktig(ledd, valgt);
       const wf = wrongFactor(set);
-      const p = valgt == null ? 0 : traff ? ledd.points : Math.round(ledd.points * wf * 100) / 100;
-      boks.appendChild(el(".tiny", { style: { marginTop: "4px", fontWeight: 620, color: valgt == null ? "var(--ink-3)" : traff ? "var(--green)" : "var(--rose)" } },
-        valgt == null ? "Ubesvart · 0 poeng" : traff ? `Riktig · ${pts(p)} poeng` : `Feil · ${pts(p)} poeng`));
+      const p = valgt == null || vet ? 0 : traff ? ledd.points : Math.round(ledd.points * wf * 100) / 100;
+      boks.appendChild(el(".tiny", { style: { marginTop: "4px", fontWeight: 620, color: valgt == null || vet ? "var(--ink-3)" : traff ? "var(--green)" : "var(--rose)" } },
+        valgt == null ? "Ubesvart · 0 poeng" : vet ? "Vet ikke · 0 poeng" : traff ? `Riktig · ${pts(p)} poeng` : `Feil · ${pts(p)} poeng`));
+      /* Feilen bak alternativet du valgte, når faget har skrevet den. */
+      const diag = !traff && valgt != null && valgt >= 0 && ledd.diag ? ledd.diag[valgt] : null;
+      if (diag) boks.appendChild(el(".tiny", { style: { marginTop: "6px", padding: "8px 10px", borderRadius: "8px", background: "var(--rose-soft)", lineHeight: 1.5 } },
+        el("b", "Feilen: "), diag));
     } else if (!interaktiv) {
       boks.appendChild(el(".tiny.muted", { style: { marginTop: "4px" } }, "Alternativene låses opp når eksamen er startet."));
     }
@@ -488,16 +528,16 @@ window.EDU = window.EDU || {};
     wrap.appendChild(topBar(set));
 
     const r = run(set.id);
-    if (!r.startedAt) { wrap.appendChild(startCard(set)); return wrap; }
+    if (!r.startedAt) { wrap.appendChild(erKart(set) ? kartStart(set) : startCard(set)); return wrap; }
 
     const submitted = !!r.submittedAt;
     wrap.appendChild(clockBar(set, submitted));
 
-    if (submitted) wrap.appendChild(resultCard(set));
+    if (submitted) wrap.appendChild(erKart(set) ? kartRapport([set], true) : resultCard(set));
 
     const harMC = settHarMC(set);
     (set.exercises || []).forEach((ex) => {
-      const card = el(".card.pad-lg", { style: { marginBottom: "18px" } });
+      const card = el(".card.pad-lg", { id: "oppg-" + ex.n, style: { marginBottom: "18px" } });
       card.appendChild(exerciseHead(set, ex));
       card.appendChild(body(ex.body));
       const hoved = leddFor(ex, "");
@@ -517,7 +557,7 @@ window.EDU = window.EDU || {};
         if (erMC(ex)) {
           const r = mcRett(set, ex, wrongFactor(set));
           card.appendChild(el(".explain", { style: { marginTop: "14px" } },
-            el("b", `${pts(r.got)} av ${r.of} poeng`), ` · ${r.rett} riktig, ${r.galt} feil, ${r.blank} ubesvart`));
+            el("b", `${pts(r.got)} av ${r.of} poeng`), ` · ${r.rett} riktig, ${r.galt} feil, ` + (r.vet ? `${r.vet} vet ikke, ` : "") + `${r.blank} ubesvart`));
         } else card.appendChild(scoreRow(set, ex));
       }
       wrap.appendChild(card);
@@ -527,7 +567,8 @@ window.EDU = window.EDU || {};
       const blanke = harMC ? (set.exercises || []).reduce((n, ex) => n + mcRett(set, ex, 0).blank, 0) : 0;
       wrap.appendChild(el(".card.pad-lg", { style: { textAlign: "center", background: "var(--accent-soft)", border: "1px solid var(--accent-soft-2)" } },
         el("p", { style: { margin: "0 0 14px", fontSize: "15px", lineHeight: 1.55 } },
-          el("b", "Ferdig? "), harMC ? "Når du leverer, rettes flervalgene automatisk og alle løsningene åpnes." : "Når du leverer, åpnes alle løsningene samtidig, og du poengsetter deg selv oppgave for oppgave."),
+          el("b", "Ferdig? "), erKart(set) ? "Når du leverer, rettes alt og du får en rapport over hva som sitter og hva du må øve på. Løsningene åpnes samtidig."
+            : harMC ? "Når du leverer, rettes flervalgene automatisk og alle løsningene åpnes." : "Når du leverer, åpnes alle løsningene samtidig, og du poengsetter deg selv oppgave for oppgave."),
         blanke ? el("p.tiny.muted", { style: { margin: "0 0 12px" } }, `${blanke} ${blanke === 1 ? "ledd står" : "ledd står"} ubesvart` + (wrongFactor(set) ? " — det gir 0, som er bedre enn et feil svar hvis du er i tvil" : "")) : null,
         el("button.btn.primary.lg", { onclick: () => {
           if (confirm("Levere besvarelsen? Løsningene åpnes, og du kan ikke lukke dem igjen uten å nullstille settet.")) { submitRun(set.id); mcRettAlle(set); stopTicker(); S.app.refresh(); }
@@ -579,16 +620,20 @@ window.EDU = window.EDU || {};
 
   function clockBar(set, submitted) {
     const bar = el(".exam-clock" + (submitted ? ".done" : ""));
-    /* Etter levering viser klokka brukt tid. Fryst nedtelling ble lest som brukt tid. */
-    const ms = submitted ? (set.minutes || 180) * 60000 - remainingMs(set) : remainingMs(set);
+    /* Etter levering viser klokka brukt tid. Fryst nedtelling ble lest som brukt tid.
+       Kartleggingen har ingen nedtelling: klokka viser brukt tid hele veien. */
+    const kart = erKart(set);
+    const brukt = () => { const r = run(set.id); return (r.submittedAt || S.u.nowTs()) - r.startedAt; };
+    const ms = kart ? brukt() : submitted ? (set.minutes || 180) * 60000 - remainingMs(set) : remainingMs(set);
     const time = el(".ec-t", fmtClock(ms));
-    bar.appendChild(el(".ec-l", submitted ? "Levert · brukt tid" : "Tid igjen"));
+    bar.appendChild(el(".ec-l", submitted ? "Levert · brukt tid" : kart ? "Brukt tid" : "Tid igjen"));
     bar.appendChild(time);
     bar.appendChild(el(".spacer"));
-    bar.appendChild(el(".tiny", { style: { opacity: .85 } }, `${set.points} poeng · ${(set.exercises || []).length} oppgaver`));
+    bar.appendChild(el(".tiny", { style: { opacity: .85 } }, kart ? `${set.points} ledd · rundt ${set.minutes} min` : `${set.points} poeng · ${(set.exercises || []).length} oppgaver`));
     if (!submitted) {
       ticker = setInterval(() => {
         if (!document.body.contains(time)) return stopTicker();
+        if (kart) { time.textContent = fmtClock(brukt()); return; }
         const ms = remainingMs(set);
         time.textContent = fmtClock(ms);
         bar.classList.toggle("over", ms < 0);
@@ -628,12 +673,187 @@ window.EDU = window.EDU || {};
     return card;
   }
 
+  /* ================= kartlegging ================= */
+  const kartTemaer = () => ((window.EDU_DATA.kartlegging || {}).temaer) || [];
+  const delNr = (set) => set.del || 0;
+  const antallLedd = (set) => (set.exercises || []).reduce((n, ex) => n + mcLedd(ex).length, 0);
+  const antallBesvart = (set) => (set.exercises || []).reduce((n, ex) => {
+    const valg = exState(set.id, ex.n).valg || {};
+    return n + mcLedd(ex).filter((l) => valg[l.nøkkel] != null).length;
+  }, 0);
+
+  function kartListe(wrap, kart) {
+    const deler = kart.slice().sort((a, b) => delNr(a) - delNr(b));
+    const rapport = kartRapport(deler, false);
+    if (rapport) wrap.appendChild(rapport);
+    const list = el(".stack", { style: { gap: "14px" } });
+    deler.forEach((set) => list.appendChild(kartKort(set)));
+    wrap.appendChild(list);
+  }
+
+  function kartKort(set) {
+    const r = run(set.id);
+    const done = !!r.submittedAt, started = !!r.startedAt && !done;
+    const n = antallLedd(set);
+    const card = el(".card.pad-lg");
+    card.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline" } },
+      el("h3", { style: { fontSize: "19px" } }, set.label),
+      el(".spacer"),
+      done ? el(".chip.green", el(".dot"), "Levert") : started ? el(".chip.amber", el(".dot"), "Påbegynt") : null));
+    card.appendChild(el(".row.wrap", { style: { gap: "8px", margin: "8px 0 12px" } },
+      el(".chip", icon("clock"), `rundt ${set.minutes} min`),
+      el(".chip", `${n} ledd`),
+      el(".chip.slate", "uten nedtelling")));
+    const ids = [...new Set((set.exercises || []).flatMap((ex) => mcLedd(ex).map((l) => l.tema)).filter(Boolean))];
+    const navn = ids.map((id) => (kartTemaer().find((t) => t.id === id) || {}).navn || id);
+    if (navn.length) card.appendChild(el(".row.wrap", { style: { gap: "6px", marginBottom: "14px" } },
+      ...navn.map((t) => el(".chip.slate", { style: { fontSize: "11px" } }, t))));
+    if (started) card.appendChild(el(".explain", { style: { marginBottom: "14px" } }, el("b", `${antallBesvart(set)} av ${n} besvart`), " · fortsett der du slapp"));
+    if (done) {
+      const t = (set.exercises || []).reduce((a, ex) => { const x = mcRett(set, ex, 0); a.rett += x.rett; a.vet += x.vet; return a; }, { rett: 0, vet: 0 });
+      card.appendChild(el(".explain", { style: { marginBottom: "14px" } }, el("b", `${t.rett} av ${n} riktige`), t.vet ? ` · ${t.vet} vet ikke` : ""));
+    }
+    card.appendChild(el(".row.wrap", { style: { gap: "8px" } },
+      el("button.btn" + (done ? "" : ".primary"), { onclick: () => { openSet = set.id; mode = "exam"; S.app.refresh(); } },
+        done ? "Se svar og fasit" : started ? "Fortsett" : `Start del ${delNr(set)}`),
+      (done || started) ? el("button.btn.ghost.sm", { onclick: () => {
+        if (confirm(`Nullstille «${set.label}»? Svarene og rapporten for denne delen slettes. Kan ikke angres.`)) { resetRun(set.id); S.app.refresh(); }
+      } }, "Nullstill delen") : null));
+    return card;
+  }
+
+  function kartStart(set) {
+    const card = el(".card.pad-lg");
+    card.appendChild(el("h3", { style: { fontSize: "20px", marginBottom: "10px" } }, set.label));
+    card.appendChild(el("p", { style: { fontSize: "15px", lineHeight: 1.6, color: "var(--ink-2)" } },
+      `${antallLedd(set)} flervalgsledd. Ingen nedtelling: sett av rundt ${set.minutes} minutter, gjerne i én økt. Klokka viser hvor lenge du har brukt.`));
+    const facts = el("ul", { style: { fontSize: "14.5px", lineHeight: 1.7, color: "var(--ink-2)", paddingLeft: "20px" } });
+    [
+      "Svar så godt du kan på alle leddene. Målet er et ærlig bilde av hva du kan, ikke en høy poengsum.",
+      "Velg «Vet ikke» når du ikke vet. Et gjettet riktig svar skjuler hullet rapporten skal finne.",
+      "Merk ⚐ Usikker på ledd der du valgte mellom to. Et riktig svar du var usikker på, teller halvt i rapporten.",
+      "Regn på papir. Ingen minuspoeng. Fasit og rapport åpnes når du leverer.",
+      ...(set.facts || []),
+      "Du kan lukke fanen og komme tilbake. Svarene er lagret.",
+    ].forEach((t) => facts.appendChild(el("li", frag(t))));
+    card.appendChild(facts);
+    card.appendChild(el(".row", { style: { marginTop: "16px", gap: "8px" } },
+      el("button.btn.primary.lg", { onclick: () => { startRun(set.id, "exam", 0); S.app.refresh(); } }, `Start del ${delNr(set)}`),
+      el("button.btn.ghost", { onclick: () => { openSet = null; del = "kart"; S.app.refresh(); } }, "Tilbake")));
+    return card;
+  }
+
+  /* Leddene i leverte deler, samlet per tema. Sikkert riktig teller 1, riktig
+     men merket usikker 0,5, feil, «Vet ikke» og ubesvart 0. */
+  function kartAnalyse(sets) {
+    const per = {};
+    const levert = sets.filter((s) => isSubmitted(s.id));
+    levert.forEach((set) => (set.exercises || []).forEach((ex) => {
+      const valg = exState(set.id, ex.n).valg || {};
+      mcLedd(ex).forEach((l) => {
+        if (!l.tema) return;
+        const t = per[l.tema] || (per[l.tema] = { n: 0, rett: 0, usikker: 0, feil: 0, vet: 0, blank: 0, feilene: [], hvor: [] });
+        const i = valg[l.nøkkel];
+        const sted = { set, ex, etikett: ex.n + l.nøkkel };
+        t.n++;
+        if (i == null) { t.blank++; t.hvor.push(Object.assign(sted, { hva: "ubesvart" })); }
+        else if (i === VET_IKKE) { t.vet++; t.hvor.push(Object.assign(sted, { hva: "vet ikke" })); }
+        else if (riktig(l, i)) {
+          if (erUsikker(set.id, ex.n, l.nøkkel)) { t.usikker++; t.hvor.push(Object.assign(sted, { hva: "usikker" })); } else t.rett++;
+        } else {
+          t.feil++; t.hvor.push(Object.assign(sted, { hva: "feil" }));
+          if (l.diag && l.diag[i]) t.feilene.push(l.diag[i]);
+        }
+      });
+    }));
+    Object.values(per).forEach((t) => { t.m = t.n ? (t.rett + 0.5 * t.usikker) / t.n : 0; });
+    return { per, levert };
+  }
+  const kartKat = (m) => (m >= 0.85 ? "sitter" : m >= 0.5 ? "ustø" : "øv");
+
+  /* Rapporten. enDel: bare temaene i den ene delen, vist over fasiten. Ellers
+     den samlede, øverst i fanen, med det som ikke er kartlagt ennå. */
+  function kartRapport(sets, enDel) {
+    const { per, levert } = kartAnalyse(sets);
+    if (!levert.length) return null;
+    const temaer = kartTemaer();
+    const sum = Object.values(per).reduce((a, t) => { ["n", "rett", "usikker", "feil", "vet", "blank"].forEach((k) => (a[k] += t[k])); return a; },
+      { n: 0, rett: 0, usikker: 0, feil: 0, vet: 0, blank: 0 });
+    const pct = sum.n ? Math.round((sum.rett + 0.5 * sum.usikker) / sum.n * 100) : 0;
+
+    const card = el(".card.pad-lg", { style: { marginBottom: "18px" } });
+    card.appendChild(el("h3", { style: { fontSize: "19px", marginBottom: "6px" } }, enDel ? "Rapport for denne delen" : "Samlet rapport"));
+    const mangler = sets.filter((s) => !isSubmitted(s.id)).sort((a, b) => delNr(a) - delNr(b));
+    card.appendChild(el("p.tiny.muted", { style: { marginTop: 0 } },
+      enDel ? "Bare temaene i denne delen. Den samlede rapporten under Kartlegging slår sammen alle delene du har levert."
+        : `${levert.length} av ${sets.length} deler levert.` + (mangler.length ? ` Del ${mangler.map(delNr).join(" og ")} gjenstår, så rapporten dekker ikke hele pensum ennå.` : " Rapporten dekker hele pensum.")));
+    const deler = [`Sikkert riktig: ${sum.rett} av ${sum.n}`];
+    if (sum.usikker) deler.push(`Riktig, men usikker: ${sum.usikker}`);
+    if (sum.feil) deler.push(`Feil: ${sum.feil}`);
+    if (sum.vet) deler.push(`Vet ikke: ${sum.vet}`);
+    if (sum.blank) deler.push(`Ubesvart: ${sum.blank}`);
+    card.appendChild(el(".row.wrap", { style: { gap: "18px", alignItems: "center", margin: "10px 0 6px" } },
+      S.u.ring(pct, 92, `${pct}%`, "mestring"),
+      el("div", el("div", { style: { fontSize: "15px", fontWeight: 620, lineHeight: 1.6 } }, deler.join(" · ")),
+        el(".tiny.muted", { style: { maxWidth: "460px", marginTop: "4px" } }, "Mestring: sikkert riktig teller 1, riktig men usikker teller halvt, feil og «Vet ikke» teller 0. Et tema sitter fra 85 %."))));
+
+    const vurdert = temaer.filter((t) => per[t.id]).map((t) => ({ t, d: per[t.id], k: kartKat(per[t.id].m), prio: (t.vekt || 1) * (1 - per[t.id].m) }));
+    const jobb = vurdert.filter((x) => x.k !== "sitter").sort((a, b) => b.prio - a.prio || a.d.m - b.d.m);
+    if (jobb.length) {
+      card.appendChild(el("h4", { style: { margin: "18px 0 2px" } }, "Jobb med dette, viktigst først"));
+      card.appendChild(el("p.tiny.muted", { style: { margin: "0 0 4px" } }, "Rekkefølgen er hvor mye temaet teller på eksamen ganger hvor mye som mangler."));
+      jobb.forEach((x) => card.appendChild(kartTemaRad(x)));
+    } else {
+      card.appendChild(el(".explain", { style: { marginTop: "14px" } }, el("b", "Alt sitter. "), "Ingen av temaene i " + (enDel ? "denne delen" : "de leverte delene") + " er under 85 %."));
+    }
+    const sitter = vurdert.filter((x) => x.k === "sitter");
+    if (sitter.length) {
+      card.appendChild(el("h4", { style: { margin: "18px 0 8px" } }, "Dette sitter"));
+      card.appendChild(el(".row.wrap", { style: { gap: "6px" } },
+        ...sitter.map((x) => el(".chip.green", `${x.t.navn} · ${x.d.rett + x.d.usikker}/${x.d.n}`))));
+    }
+    if (!enDel) {
+      const ikke = temaer.filter((t) => !per[t.id]);
+      if (ikke.length) card.appendChild(el("p.tiny.muted", { style: { margin: "16px 0 0" } },
+        el("b", "Ikke kartlagt ennå: "), ikke.map((t) => t.navn).join(", ") + "."));
+    }
+    return card;
+  }
+
+  function kartTemaRad({ t, d, k }) {
+    const box = el("div", { style: { borderTop: "1px solid var(--line)", padding: "12px 0 10px" } });
+    box.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "center" } },
+      el("b", { style: { fontSize: "15px" } }, t.navn),
+      el(k === "øv" ? ".chip.rose" : ".chip.amber", k === "øv" ? "Må øves" : "Ustø"),
+      el(".spacer"),
+      el(".tiny.muted", `${d.rett + d.usikker} av ${d.n} riktige` + (d.usikker ? `, ${d.usikker} av dem usikre` : ""))));
+    box.appendChild(el("div", { style: { maxWidth: "320px", margin: "6px 0 8px" } }, S.u.bar(d.m * 100)));
+    const feilene = [...new Set(d.feilene)];
+    if (feilene.length) {
+      const ul = el("ul", { style: { margin: "0 0 8px", paddingLeft: "20px", fontSize: "14px", lineHeight: 1.55 } });
+      feilene.forEach((f) => ul.appendChild(el("li", f)));
+      box.appendChild(ul);
+    }
+    /* Leddene som trakk ned, klikkbare: åpner delen med fasiten ved leddet. */
+    if (d.hvor.length) box.appendChild(el(".row.wrap", { style: { gap: "6px", alignItems: "center", marginBottom: "8px" } },
+      el(".tiny.muted", "Leddene:"),
+      ...d.hvor.map((h) => el("button.chip.sett-nav", { type: "button", onclick: () => {
+        openSet = h.set.id; mode = "exam"; S.app.refresh();
+        /* «instant»: siden har scroll-behavior: smooth, og en myk rulling ble avbrutt. */
+        setTimeout(() => { const n = document.getElementById("oppg-" + h.ex.n);
+          if (n) window.scrollTo({ top: n.getBoundingClientRect().top + window.scrollY - 16, behavior: "instant" }); }, 30);
+      } }, `Del ${delNr(h.set)} · ${h.etikett} ${h.hva}`))));
+    if ((t.øv || []).length) box.appendChild(el(".row.wrap", { style: { gap: "6px" } },
+      ...t.øv.map(([tekst, rute]) => el("button.btn.sm", { onclick: sh().go(rute) }, tekst))));
+    return box;
+  }
+
   /* ================= inngang ================= */
   function render() {
     stopTicker();
     const set = openSet ? setById(openSet) : null;
     if (!set) { openSet = null; return renderList(); }
-    return mode === "exam" ? renderExam(set) : renderPractice(set);
+    return erKart(set) || mode === "exam" ? renderExam(set) : renderPractice(set);
   }
 
   /* Merke i navigasjonen: sett som er påbegynt, men ikke levert. */

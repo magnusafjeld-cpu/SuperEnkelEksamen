@@ -83,5 +83,6 @@ ikke står i commit-meldingene.
 | 31. oktober 2026 | Pensumbufferen flyttet fra localStorage til IndexedDB | Full localStorage logget Magnus ut ved hvert fagbytte og stoppet lokal lagring av fremdrift. Se [[Fallgruver]] |
 | 31. oktober 2026 | Planleggeren: dagens mål som tre ringer (tid, riktige, nytt), eksamensklar per fag og oppsummering om kvelden | Motivasjon gjennom dagen. Svarene føres i en dagbok per dag. Se [[Beslutningslogg]] |
 | 2. november 2026 | Planleggeren: eksamensklar som anslått poengsum mot A-grensen per fag | 85 % mestring sa ikke noe om karakter. Se [[Beslutningslogg]] |
+| 2. november 2026 | Eksamenssett: fanen «Kartlegging», FIE402 i tre deler (85 flervalgsledd) med rapport per tema | Finne ut hva som må øves, på tvers av hele pensum. Se [[Eksamenssett-modulen]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

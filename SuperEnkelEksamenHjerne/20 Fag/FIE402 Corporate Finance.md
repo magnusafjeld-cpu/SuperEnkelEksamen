@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-10-29
+oppdatert: 2026-11-02
 ---
 
 # FIE402 Corporate Finance
@@ -445,6 +445,34 @@ svar (verdien av en salgsopsjon, 5d i Mock exam 1), kriterier som krevde ting sp
 ikke ba om, og at manualen manglet r<sub>E</sub> ved permanent gjeld med skatt. Den står nå
 i k7 § 7.4, og en feil setning i k15 § 15.5 er rettet. Kontrolløren av Mock exam 2 pekte
 også på den kjente feilen i H2024 E6(c); den har nå en merknad i løsningen.
+
+## Kartleggingen
+
+Lagt inn 2. november 2026: en diagnoseprøve i tre deler under fanen «Kartlegging» i
+Eksamenssett. Magnus ville finne ut hva han må øve mer på, med omtrent hele pensum
+dekket. Han valgte ren flervalg og tre deler à rundt 90 minutter.
+
+| Del | Kapitler | Ledd | Temaer |
+|---|---|---|---|
+| 1 Grunnlag og verdsetting med gjeld | 1–5, 17–20 | 28 | tid, fcf, capm, tvilling, gjeld, wacc, apv, fte |
+| 2 Kapitalstruktur, agentkostnader og informasjon | 6–16 | 29 | mm, skatt, tradeoff, risikoskift, overheng, myers, emisjon, utbytte |
+| 3 Opsjoner, M&A og governance | 21–27 | 28 | opsjon, binomial, bs, kreditt, realopsjon, ma, governance |
+
+Hvert ledd står på egne ben, og hvert gale alternativ er bygd fra én navngitt feil
+(`diag`), så rapporten kan si hva som ikke sitter. Tre agenter skrev én del hver
+etter `fag/fie402/_kart/OPPDRAG.md`, med et regneskript per del som regner alle
+alternativene. En uavhengig agent løste hver del blindt og sammenlignet etterpå. Alle
+85 fasitene stemte i første runde. Det kontrollen fant, var annet:
+
+- **Lekkasje.** Delen vises på én side, men oppfølgingsledd oppga svaret på forrige ledd
+  («Suppose r_U = …»). Rettet med andre hypotetiske verdier.
+  `tools/sjekk-lekkasje.js` leter nå etter hvert riktig tallsvar andre steder i delen.
+- **Lengde.** I del 3 var riktig svar det lengste i alle elleve verbale ledd, og de
+  gale brukte absolutte ord. Skrevet om. Regneskriptet sjekker nå lengden.
+- **Gjettbare ledd** der svaret kunne leses av casen (V^L i stammen) og en
+  «kontroll» som var en identitet (§9.2b, §9.7b).
+
+Se [[Eksamenssett-modulen]] for motoren og rapporten.
 
 ## Eksamenssettene i appen
 

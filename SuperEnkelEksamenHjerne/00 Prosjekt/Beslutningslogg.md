@@ -234,6 +234,16 @@ ingen karaktergrenser, så A starter på 90 % og kan endres per fag.
 **Konsekvens:** eksamensklar viser poengsum og bokstav, ikke mestring. 85 % er nå
 bare et internt mål for hvor mye som gjenstår per kapittel. Se [[Moduler og visninger]].
 
+## Kartlegging som egen fane, ren flervalg (2. november 2026)
+Magnus ville ha en eksamenslignende prøve som dekker omtrent hele pensum og sier tydelig
+hva han må jobbe med. To valg ble lagt fram: format og oppbygging. Valgt: alt som
+flervalg (Claude anbefalte en blanding med selvvurderte verbale ledd) og tre deler à
+rundt 90 minutter uten nedtelling, med én samlet rapport.
+
+**Konsekvens:** hvert galt alternativ må bygges fra en navngitt feil (`diag`), og en
+«Vet ikke»-knapp skiller hull fra gjetning. Diagnosen er bare så god som feilsvarene,
+derfor blind kontroll av hver del. Se [[Eksamenssett-modulen]].
+
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på
 norsk. Se [[Kodekonvensjoner]].
