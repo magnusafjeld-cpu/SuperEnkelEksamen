@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-10-31
+oppdatert: 2026-11-02
 ---
 
 # Moduler og visninger
@@ -581,9 +581,16 @@ Den regnes på nytt hver gang siden åpnes.
   minutter av tiden til sjangertrening og svake kapitler, halvparten i Corp. Med
   minst tre dager med en time i økta følger målene medianen av ditt eget tempo
   (riktige per time), pluss 10 %. Sidepanelet viser «🎯 18/32 riktige · 5/31 nye» i
-  alle fag. Under ringene **Eksamensklar** (`klarKort()`): mestring / 85 % per fag,
-  med endringen siden dagen startet (`klar0`, målt på forrige bilde før det byttes
-  ut). Etter arbeidstiden, eller når økta er avsluttet, kommer **Dagen i dag**
+  alle fag. Under ringene **Eksamensklar** (`klarKort()`): anslått poengsum hvis
+  eksamen var i dag (`prognose()`), mot A-grensen i faget, med bokstavkarakter og
+  endringen i prosentpoeng siden dagen startet (`klar0` = {m, f, ts}, målt på
+  forrige bilde før det byttes ut). Anslaget er mestringen (vekt 1) trukket mot
+  hele sett: hvert levert eller ferdig rettet sett veier 3 og mister halve vekten
+  på 21 dager. Settets andel (`prog` i bildet) regner usikre deler halvt, som
+  mestringen. A-grensen settes per fag i innstillingene («A fra», standard 90 %,
+  `innst.fag[id].aGrense`). Ingen av fagene oppgir karaktergrenser, så B til E
+  følger en vanlig skala under A-grensen (−10, −30, −40, −50). Gapet til 85 %
+  mestring styrer fortsatt hvor mye arbeid som gjenstår per kapittel. Etter arbeidstiden, eller når økta er avsluttet, kommer **Dagen i dag**
   (`kveldKort()`) øverst: tid, løste, riktige, nye, ringene, rekord for flest
   riktige, endringen i eksamensklar, forelesninger og det første anbefalte per fag
   i morgen.

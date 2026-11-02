@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-10-31
+oppdatert: 2026-11-02
 ---
 
 # Beslutningslogg
@@ -223,6 +223,16 @@ kvelden. Valgt bort: dagens oppdrag, rene tellere og rekke med kalender.
 
 **Konsekvens:** planleggeren fører en dagbok over svarene per dag, også i fag der
 modulene ikke lagrer tidsstempel. Se [[Moduler og visninger]].
+
+## Planleggeren: eksamensklar mot A i stedet for 85 % mestring (2. november 2026)
+Magnus syntes målet på 85 % mestring var rart: målet er A på eksamen. Tre forslag
+ble lagt fram: anslått poengsum mot A-grensen, bare hele sett, og sjanse for A.
+Valgt: anslått poengsum, fordi den flytter seg med arbeidet hver dag og lar hele
+sett veie tyngst når de finnes. Sensorveiledningene i FIE432, FIE402 og FIE459 har
+ingen karaktergrenser, så A starter på 90 % og kan endres per fag.
+
+**Konsekvens:** eksamensklar viser poengsum og bokstav, ikke mestring. 85 % er nå
+bare et internt mål for hvor mye som gjenstår per kapittel. Se [[Moduler og visninger]].
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på
