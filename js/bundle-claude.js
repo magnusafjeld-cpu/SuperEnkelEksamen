@@ -625,7 +625,7 @@ Slik svarer du:
     boks.appendChild(el("p", { style: { margin: "0 0 10px" } },
       "Lim inn din egen API-nøkkel fra Anthropic. Da kan Claude vurdere svarene dine mot fasiten og svare på spørsmål om siden du står på. Forbruket går på din egen konto."));
     boks.appendChild(el("ol.tiny", { style: { margin: "0 0 12px", paddingLeft: "18px", lineHeight: 1.6 } },
-      el("li", "Lag en konto og fyll på kreditt i ", el("a", { href: "https://platform.claude.com", target: "_blank", rel: "noopener" }, "Claude Console"), ". Et Pro- eller Max-abonnement dekker ikke API-bruk."),
+      el("li", "Lag en konto i ", el("a", { href: "https://platform.claude.com", target: "_blank", rel: "noopener" }, "Claude Console"), ". Har du Max, får du 100 dollar i API-kreditt hver måned: koble Console-kontoen under Settings > Billing på claude.ai. Med Pro må du fylle på kreditt selv."),
       el("li", "Lag en egen nøkkel til dette under ", el("a", { href: KONSOLL, target: "_blank", rel: "noopener" }, "API keys"), ". Sett en lav månedlig utgiftsgrense under Limits."),
       el("li", "Lim den inn her. Den lagres bare i denne nettleseren og sendes bare til Anthropic.")));
     boks.appendChild(felt);
