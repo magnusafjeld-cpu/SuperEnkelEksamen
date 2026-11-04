@@ -902,10 +902,11 @@ SETT = {
     "id": "prove7",
     "kind": "mock",
     "label": "Prøveeksamen 7",
+    "badge": "Vanskeligere",
     "minutes": 240,
     "points": 90,
     "format": "30 flervalg · fire alternativer · 3 poeng for rett, −1 for feil",
-    "note": ("Ligner H2025 og forelesning 1–5 i 2026. Dekker pensum de første seks prøveeksamenene ikke har testet: "
+    "note": ("Vanskeligere enn prøveeksamen 1–6. Ligner H2025 og forelesning 1–5 i 2026. Dekker pensum de første seks prøveeksamenene ikke har testet: "
              "aksjonærmodellen og aksjesparekontoen, effektiv skatt for de rikeste, ulikhetsmålingen, aksjonærlån, "
              "formuesskatt på unoterte aksjer, bankinnskudd og inflasjon, bolig og folkelån, bosted, Merton med "
              "humankapital, forsikring, fondskostnader, BSU, lån, pensjon og finansiell psykologi. Teksten gir lite hjelp: ingen formler. Bare halvparten av regneleddene oppgir "

@@ -214,7 +214,7 @@ høyeste av et par med og uten oppjustering; to alternativer som skiller seg med
 én oppgitt størrelse). Alt er rettet. Endringer gjøres i skriptet, så flettes inn med
 `tools/flett-prove.py`; skriptene bygger nøyaktig det som ligger i `sett.js`.
 
-**Prøveeksamen 7–9 (4. november 2026) dekker det 1–6 ikke testet.** Alle 106 ledd i 1–6 ble
+**Prøveeksamen 7–9 (4. november 2026) dekker det 1–6 ikke testet.** De er merket «Vanskeligere» (feltet `badge`, en rød brikke ved navnet), og notatet deres begynner med det. Alle 106 ledd i 1–6 ble
 kartlagt mot manualens underkapitler og årets lysbilder. Rundt 40 temaer var aldri testet,
 blant dem unoterte aksjer i formuesskatten, AERT for de rikeste, Jordà, giring, folkefinansiering,
 aksjesparekonto, dødvektstap, eiendomsskatt, nøytralitet med β, Mirrlees, fast driftssted,

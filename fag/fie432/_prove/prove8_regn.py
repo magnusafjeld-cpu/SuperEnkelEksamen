@@ -857,10 +857,11 @@ SETT = {
     "id": "prove8",
     "kind": "mock",
     "label": "Prøveeksamen 8",
+    "badge": "Vanskeligere",
     "minutes": 240,
     "points": 90,
     "format": "30 flervalg · fire alternativer · 3 poeng for rett, −1 for feil",
-    "note": ("Ligner H2024 og skatteteorien i forelesning 6 til 11. Teksten gir bare situasjon, tall og satser, aldri formel "
+    "note": ("Vanskeligere enn prøveeksamen 1–6. Ligner H2024 og skatteteorien i forelesning 6 til 11. Teksten gir bare situasjon, tall og satser, aldri formel "
              "eller framgangsmåte. I flere regneledd står bare «Bruk skattereglene for 2026». Nytt pensum: skjerming per "
              "aksjepost ved gave, nøytralitet når bare en andel kan trekkes fra, eiendomsskatt som kapitaliseres, "
              "evneprinsippet, kilen og Mirrlees, fast driftssted og internpriser, kreditfradrag med kildeskatt, CAPM, "

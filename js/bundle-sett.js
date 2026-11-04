@@ -19,6 +19,9 @@
    kurset. Lista viser dem i en egen del, så de aldri blandes med de ekte
    eksamenene. Ellers kjøres de nøyaktig likt.
 
+   Et sett kan ha `badge` (for eksempel «Vanskeligere»), som vises som en brikke
+   ved navnet i lista.
+
    Svake temaer. Et sett med kind: "svak" øver bare på temaer du har svart feil på
    eller merket som usikre. Slike sett kommer fra en privat utvidelse, ikke fra
    faget, så fanen «Svake temaer» vises bare for den som har dem. Ellers kjøres de
@@ -337,6 +340,7 @@ window.EDU = window.EDU || {};
     const card = el(".card.pad-lg");
     card.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline" } },
       el("h3", { style: { fontSize: "19px" } }, set.label),
+      set.badge ? el(".chip.rose", set.badge) : null,
       el(".spacer"),
       nFeil ? el(".chip.rose", `${nFeil} feil`) : null,
       nUs ? el(".chip.amber", `⚑ ${nUs} usikre`) : null,

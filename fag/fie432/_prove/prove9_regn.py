@@ -896,10 +896,11 @@ SETT = {
     "id": "prove9",
     "kind": "mock",
     "label": "Prøveeksamen 9",
+    "badge": "Vanskeligere",
     "minutes": 240,
     "points": 90,
     "format": "30 flervalg · fire alternativer · 3 poeng for rett, −1 for feil",
-    "note": ("Ligner H2023 og kursgodkjenningen 2026, med vekt på finansforelesningene. Teksten gir bare situasjon, tall og "
+    "note": ("Vanskeligere enn prøveeksamen 1–6. Ligner H2023 og kursgodkjenningen 2026, med vekt på finansforelesningene. Teksten gir bare situasjon, tall og "
              "satser. Noen ledd sier bare «Bruk skattereglene for 2026». Noen få har en opplysning som ikke skal brukes. "
              "Nytt stoff: skjerming som ender i tap, holdingselskap og utsatt skatt, kombinasjonsfond i gjeldsfordelingen, "
              "superprofitt, to-periodemodellen, evig leie før og etter skatt, selskapsskatt med mobil kapital, gråmarkedslån, "
