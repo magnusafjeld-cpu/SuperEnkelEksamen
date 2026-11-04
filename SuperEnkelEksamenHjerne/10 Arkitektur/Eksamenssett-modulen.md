@@ -150,6 +150,11 @@ Innholdet er nyskrevne ledd på det han har svart feil på eller merket usikkert
 prøveeksamen 1–5, bygget med `fag/privat-svake/_kilde/` og løst blindt. Se
 [[FIE432 Personlig økonomi]].
 
+Settene teller ikke i planleggerens mestring eller eksamensklar-anslaget (fra 4.
+november 2026, planleggeren versjon 26). De har bare temaer han har bommet på, så
+et lavt resultat der sier lite om nivået på eksamen. Planleggeren kan fortsatt
+foreslå dem som øving, som en prøveeksamen. Se [[Moduler og visninger]].
+
 ## Ikke bare eksamener
 
 Et sett trenger ikke være en eksamen. FIE432 har flervalgstesten til

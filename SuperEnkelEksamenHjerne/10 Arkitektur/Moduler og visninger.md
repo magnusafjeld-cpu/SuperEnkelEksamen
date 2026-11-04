@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-02
+oppdatert: 2026-11-04
 ---
 
 # Moduler og visninger
@@ -559,6 +559,9 @@ Den regnes på nytt hver gang siden åpnes.
   stoffet uten å ha lest, viser oppgavene det. Fag med under 15 svar vises som
   «Lite målt». Bildet lagres, så planleggeren ser alle fagene selv
   om bare ett er lastet. Et fag du ikke har åpnet, står som «Ikke målt».
+  Sett med `kind: "svak"` (Svake temaer) teller verken i mestringen eller i
+  eksamensklar-anslaget (fra 4. november 2026). De står i settlista som
+  `mock` med `prog: null`, så de kan anbefales som øving uten å bli generalprøve.
 - **Regnemodellen.** Gjenstår = arbeidsmengde × faktorene × gap til 85 % × (0,4 +
   0,2 × eksamensvekt), summert over kapitlene. Arbeidsmengden er tiden
   kjernepensum, kapitteloppgaver og quiz for kapitlet tar; manualens ordtall brukes
