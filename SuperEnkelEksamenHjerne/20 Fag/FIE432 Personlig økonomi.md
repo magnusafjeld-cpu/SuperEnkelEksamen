@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-10-30
+oppdatert: 2026-11-04
 ---
 
 # FIE432 Personlig økonomi
@@ -179,7 +179,7 @@ bare (c).
 
 ### Prøveeksamenene
 
-Seks prøveeksamener (`prove1`–`prove6`, `kind: "mock"`) ligger sist i `sett.js` og
+Ni prøveeksamener (`prove1`–`prove9`, `kind: "mock"`) ligger sist i `sett.js` og
 vises under «Prøveeksamener» i Eksamenssett. Formatet er 2026-formatet: 30 flervalg,
 fire alternativer, 3 poeng for rett og −1 for feil, 4 timer, 90 poeng.
 Spesifikasjonen er `docs/fie432-proveeksamen-spek.md`.
@@ -192,9 +192,12 @@ Spesifikasjonen er `docs/fie432-proveeksamen-spek.md`.
 | Prøveeksamen 4 | H2023 og kursgodkjenningen 2026 | 47 | 53 % |
 | Prøveeksamen 5 | H2024 og kursgodkjenningen 2026 | 45 | 50 % |
 | Prøveeksamen 6 | H2025 og kursgodkjenningen 2026 | 46 | 50 % |
+| Prøveeksamen 7 | H2025 og årets forelesning 1–5 | 40 | 53 % |
+| Prøveeksamen 8 | H2024 og skatteteorien i forelesning 6–11 | 37 | 53 % |
+| Prøveeksamen 9 | H2023 og kursgodkjenningen, med vekt på finansforelesningene | 43 | 53 % |
 
 **Kalibrert mot skoleeksamen.** Eksamen 2026 er en skoleeksamen. H2022 var en
-hjemmeeksamen med lengre og tyngre oppgaver (68 ord per ledd), og den første versjonen
+hjemmeeksamen med lengre og tyngre oppgaver (68 ord per ledd). Den første versjonen
 av prøveeksamen 3 ble for lik den (61 ord, 80 % tallsvar). Magnus påpekte det 29. oktober
 2026. Nå gjelder: 35–48 ord per ledd og 35–55 % tallsvar, som skoleeksamenene H2023–H2025
 (44 ord, 51 %); høyst tre regnetrinn, ingen iterasjon; og omtrent halvparten begrepsledd
@@ -209,7 +212,22 @@ forsvarlige svar og mange ledd der svaret kunne gjettes av mønsteret (konvergen
 riktig alternativ deler et element med alle de andre; «58 %-par» der riktig er det
 høyeste av et par med og uten oppjustering; to alternativer som skiller seg med nøyaktig
 én oppgitt størrelse). Alt er rettet. Endringer gjøres i skriptet, så flettes inn med
-`tools/fie432-flett-prove.py`; skriptene bygger nøyaktig det som ligger i `sett.js`.
+`tools/flett-prove.py`; skriptene bygger nøyaktig det som ligger i `sett.js`.
+
+**Prøveeksamen 7–9 (4. november 2026) dekker det 1–6 ikke testet.** Alle 106 ledd i 1–6 ble
+kartlagt mot manualens underkapitler og årets lysbilder. Rundt 40 temaer var aldri testet,
+blant dem unoterte aksjer i formuesskatten, AERT for de rikeste, Jordà, giring, folkefinansiering,
+aksjesparekonto, dødvektstap, eiendomsskatt, nøytralitet med β, Mirrlees, fast driftssted,
+internpriser, markedseffisiens, Fama–French, CAPM, BSU, serielån, fast mot flytende rente,
+bias mot støy og Norwegian-saken. Hver eksamen har kjernetemaene med en ny vri og rundt 12 ledd
+på slike temaer. Magnus' svakheter fra 1–4 testes på nytt med nye tall. Etter **Magnus' krav**
+gir tekstene minst mulig hjelp, som eksamen på sitt verste: ingen formel, regel eller
+framgangsmåte. I omtrent halvparten av regneleddene står bare «Bruk skattereglene for 2026». Titlene
+er nøytrale. Noen ledd har en opplysning som er støy. Reglene står under «Minimalt stillas» i
+spesifikasjonen. Blindløsningen traff alle 90 svar, men fant 15 ting som er rettet: fem ledd med to
+forsvarlige svar, fem ledd der et annet ledd eller stammen røpet svaret, tre uklare formuleringer,
+ordet pensjonskapitalbevis (egen pensjonskonto fra 2021) og Merton med skatt der risikofri rente
+bryter Domar–Musgrave.
 
 ## Kildene
 
@@ -245,7 +263,7 @@ Kontrolleres med `tools/sjekk-manual.py`.
 | Kartlegging | **ferdig** — 84 000 ord, 227 eksamensspørsmål registrert, 109 fasiter kontrollregnet |
 | Manual | **21 av 21 kapitler · 81 500 ord** — strukturelt feilfri |
 | Studieplan | **21 moduler · 57 timer**, estimatene regnet av faktisk innhold |
-| Eksamenssett | **10 sett**: 4 rene flervalg (121 ledd) og 6 eldre med åpne oppgaver (H2016–H2021, 130 ledd). **3 prøveeksamener** i 2026-formatet (90 ledd) |
+| Eksamenssett | **10 sett**: 4 rene flervalg (121 ledd) og 6 eldre med åpne oppgaver (H2016–H2021, 130 ledd). **9 prøveeksamener** i 2026-formatet (270 ledd) |
 | Flashcards | **100** auto-genererte formelkort fra k20 |
 | Quiz | **164 spørsmål** · 133 flervalg / 31 kortsvar · alle 20 kapitler dekket |
 | Dybdetrening | **299 spørsmål** i fire banker: 72 · 77 · 72 · 78 |

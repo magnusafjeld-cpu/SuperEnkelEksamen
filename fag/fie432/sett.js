@@ -7908,4 +7908,1715 @@ window.EDU_DATA.sets = [
     }
   ]
 },
+{
+  "id": "prove7",
+  "kind": "mock",
+  "label": "Prøveeksamen 7",
+  "minutes": 240,
+  "points": 90,
+  "format": "30 flervalg · fire alternativer · 3 poeng for rett, −1 for feil",
+  "note": "Ligner H2025 og forelesning 1–5 i 2026. Dekker pensum de første seks prøveeksamenene ikke har testet: aksjonærmodellen og aksjesparekontoen, effektiv skatt for de rikeste, ulikhetsmålingen, aksjonærlån, formuesskatt på unoterte aksjer, bankinnskudd og inflasjon, bolig og folkelån, bosted, Merton med humankapital, forsikring, fondskostnader, BSU, lån, pensjon og finansiell psykologi. Teksten gir lite hjelp: ingen formler. Bare halvparten av regneleddene oppgir 2026-satsene.",
+  "facts": [
+    "Fire timer, kalkulator tillatt. 30 flervalgsledd med fire alternativer og nøyaktig ett riktig.",
+    "3 poeng for rett svar, −1 for feil svar og 0 for ubesvart. Totalt 90 poeng.",
+    "Oppgave 1–10 er skattedelen (20 ledd). Oppgave 11–18 er finansdelen (10 ledd).",
+    "Der det står «Bruk skattereglene for 2026», må du kunne satsen selv.",
+    "Laget for trening etter mønster fra H2025, forelesningene i 2026 og manualen. Det er ikke en ekte eksamen. Kurset har ikke kontrollert løsningene."
+  ],
+  "practiceNote": "Regn ferdig før du ser på alternativene. Teksten sier aldri hvilken regel som gjelder. Hvert galt alternativ er en bestemt feil. I begrepsleddene avgjør ett ord, så les «alltid», «aldri» og «eneste» presist. Kan du stryke ett alternativ, lønner det seg å svare.",
+  "mc": {
+    "wrongFactor": -0.3333333333333333
+  },
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Halvor og to aksjeposter i Fjordnett ASA",
+      "points": 6,
+      "topic": "Aksjonærmodellen",
+      "chapters": [
+        5
+      ],
+      "body": "<p>Halvor kjøpte 2 000 aksjer i Fjordnett ASA i 2019 for kr 40 per aksje. I 2025 kjøpte han 1 000 aksjer til i samme selskap for kr 160 per aksje. Han eier alle aksjene hele 2026. Ingen av aksjene har ubenyttet skjerming fra tidligere år. I 2026 betaler selskapet kr 4 i utbytte per aksje. Skjermingsrenten for 2026 er 3,5 %. Kursen ved utgangen av 2026 er kr 95.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hva er Halvors skattepliktige utbytte for 2026?</p>",
+          "options": [
+            "Kr 3 600",
+            "Kr 1 967,68",
+            "Kr 5 200",
+            "Kr 12 000"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Skjermingen regnes per aksje av den aksjens egen kostpris. Ubenyttet skjerming på én aksje kan ikke brukes mot utbytte fra en annen, heller ikke når begge er i samme selskap (manualen 5.3).</p><p><b>Regnestykket.</b></p><p>1. Første post: skjerming 40 × 3,5 % = 1,40 per aksje. Skattepliktig (4 − 1,40) × 2 000 = 5 200.<br>2. Andre post: skjerming 160 × 3,5 % = 5,60 per aksje. Det er mer enn utbyttet på kr 4, så skattepliktig utbytte er 0 og resten framføres på disse aksjene.<br>3. Samlet: 5 200 + 0 = <b>kr 5 200</b>. Kursen kr 95 er støy: skjermingen regnes av kostprisen, aldri av kursen.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 3 600</b> = skjermingen slått sammen for hele beholdningen: 12 000 − 8 400. Snittkursen kr 80 gir samme tall. Da brukes skjermingen på den dyre posten mot utbyttet på den billige. Det er ikke lov.<br><b>Kr 1 967,68</b> = skatten (5 200 × 37,84 %), ikke det skattepliktige utbyttet.<br><b>Kr 12 000</b> = skjermingen glemt: hele utbyttet regnet som skattepliktig.</p><p><b>Kontroll.</b> Utbyttet 12 000 = skattepliktig 5 200 + brukt skjerming 2 800 på første post + 4 000 på andre post. ✓</p><p><b>Strategi med minuspoeng.</b> Har du regnet én skjerming for hele beholdningen, står tallet ditt blant alternativene. Regn posten med den høyeste kostprisen for seg før du svarer.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Hvor stor ubenyttet skjerming har Halvor etter 2026 på aksjene han kjøpte for kr 160?</p>",
+          "options": [
+            "Kr 5 600",
+            "Kr 0",
+            "Kr 1 656",
+            "Kr 1 600"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Ubenyttet skjerming er skjermingsfradraget minus utbyttet på den samme aksjen når fradraget er størst. Den framføres på aksjen og legges til neste års grunnlag (manualen 5.3).</p><p><b>Regnestykket.</b></p><p>1. Skjerming på posten: 1 000 × 160 × 3,5 % = 5 600.<br>2. Utbytte på posten: 1 000 × 4 = 4 000.<br>3. Ubenyttet: 5 600 − 4 000 = <b>kr 1 600</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 5 600</b> = årets skjermingsfradrag på posten, uten at utbyttet er trukket fra.<br><b>Kr 0</b> = skjermingen slått sammen: samlet skjerming 8 400 er mindre enn samlet utbytte 12 000, så ingenting blir til overs. Skjermingen følger aksjen, ikke beholdningen.<br><b>Kr 1 656</b> = 1 600 forrentet med 3,5 %. Det skjer først neste år, når beløpet er lagt til grunnlaget.</p><p><b>Kontroll.</b> Neste år er grunnlaget for posten 160 000 + 1 600 = 161 600. Per aksje: 5,60 − 4 = 1,60, ganger 1 000 aksjer = 1 600. ✓</p>"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Iselin tar ut fra aksjesparekontoen",
+      "points": 3,
+      "topic": "Aksjonærmodellen",
+      "chapters": [
+        14,
+        5
+      ],
+      "body": "<p>Iselin åpnet en aksjesparekonto og satte inn kr 400 000. Et par år senere tok hun ut kr 100 000. Hun har ikke satt inn mer. I 2026 er kontoen verdt kr 650 000. Da tar hun ut kr 450 000. Se bort fra skjermingsfradrag. Hvor mye av uttaket i 2026 er skattepliktig?</p>",
+      "options": [
+        "Kr 150 000",
+        "Kr 50 000",
+        "Kr 242 308",
+        "Kr 350 000"
+      ],
+      "answer": 0,
+      "solution": "<p><b>Regelen.</b> Gevinst og utbytte inne på kontoen skattlegges ikke. Et uttak regnes først som tilbakebetaling av innskuddet, som er skattefritt. Bare det som går ut over gjenværende innskudd, er skattepliktig (manualen 14.6 og 20.7).</p><p><b>Regnestykket.</b></p><p>1. Det første uttaket var innskudd: gjenværende innskudd 400 000 − 100 000 = 300 000.<br>2. Uttaket i 2026: 450 000 − 300 000 = <b>kr 150 000</b> er skattepliktig. Med 2026-reglene blir skatten 150 000 × 37,84 % = 56 760.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 50 000</b> = det første uttaket glemt: 450 000 − 400 000.<br><b>Kr 242 308</b> = uttaket fordelt forholdsmessig på innskudd og gevinst (350 000/650 000 av uttaket). Slik virker ikke kontoen: innskuddet tas ut først.<br><b>Kr 350 000</b> = hele gevinsten på kontoen, også den delen som blir stående.</p><p><b>Kontroll.</b> Etter uttaket står 200 000 igjen. Innskuddet er brukt opp. Samlet gevinst 350 000 = 150 000 skattlagt nå + 200 000 som skattlegges ved senere uttak. ✓</p>"
+    },
+    {
+      "n": 3,
+      "title": "Bodil og det unoterte selskapet",
+      "points": 9,
+      "topic": "Effektiv skattesats",
+      "chapters": [
+        8,
+        1,
+        3
+      ],
+      "body": "<p>Bodil eier et unotert selskap som tjener kr 20 000 000 i året før skatt. Selskapet betaler i praksis 13 % av overskuddet i selskapsskatt. Aksjene er verdt kr 150 000 000. Formuesverdien etter rabatt er 35 % av markedsverdien. Bodil har ingen annen inntekt og tar bare ut så mye utbytte at hun kan betale formuesskatten. Anta at formuesskatten er 1,1 % av hele formuesverdien. Eierskatten er 37,84 %. Se bort fra skjerming.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hva er Bodils effektive gjennomsnittlige skattesats (AERT)? Svar med to desimaler.</p>",
+          "options": [
+            "4,65 %",
+            "15,89 %",
+            "16,98 %",
+            "17,65 %"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> AERT er all skatt som betales på veien fra selskapet til eieren, delt på den økonomiske inntekten før skatt: selskapsskatt + formuesskatt + utbytteskatt, delt på selskapets overskudd (forelesning 5, lysbilde 35–39, manualen 8.6). Utbyttet må dekke både formuesskatten og sin egen skatt.</p><p><b>Regnestykket.</b></p><p>1. Formuesskatt: 150 000 000 × 35 % × 1,1 % = 577 500.<br>2. Utbytte: 577 500/(1 − 0,3784) = 929 054. Utbytteskatt: 929 054 × 37,84 % = 351 554.<br>3. Samlet skatt: 2 600 000 + 577 500 + 351 554 = 3 529 054. AERT = 3 529 054/20 000 000 = <b>17,65 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>4,65 %</b> = bare personskattene. Selskapsskatten mangler i telleren. Det er nettopp feilen AERT for eiere skal rette (forelesning 5, lysbilde 22–25).<br><b>15,89 %</b> = utbytteskatten glemt: utbyttet som betaler formuesskatten, skattlegges også.<br><b>16,98 %</b> = utbytteskatten regnet som 577 500 × 37,84 %. Utbyttet må også dekke sin egen skatt, så skatten regnes av utbyttet, ikke av formuesskatten.</p><p><b>Kontroll.</b> Utbyttet 929 054 går til 577 500 i formuesskatt og 351 554 i utbytteskatt, til sammen 929 054. ✓</p><p><b>Strategi med minuspoeng.</b> Hvert galt alternativ mangler ett ledd. Sjekk at telleren har alle tre skattene og at utbyttet dekker sin egen skatt.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Forskningen forelesningen viser til, finner at den rikeste prosenten betaler en mindre andel av bruttoinntekten i skatt enn mange lønnstakere. Hva er hovedforklaringen?</p>",
+          "options": [
+            "Høy gjeld gir de rikeste store rentefradrag som senker skatten deres",
+            "Overskuddet flyttes til datterselskaper i skatteparadiser og skattlegges aldri i Norge",
+            "Lav effektiv selskapsskatt i selskapene og lav formuesverdi på unoterte aksjer",
+            "Skjermingsfradraget gjør nesten alt utbyttet de tar ut, skattefritt"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Forelesning 5 og manualen 8.6 peker på to årsaker. Selskapene betaler i snitt en effektiv selskapsskatt på om lag 13 %, ikke 22 %. Unoterte aksjer får en formuesverdi på om lag 35 % av markedsverdien, mot 80 % for børsnoterte. De rikeste eier om lag to tredeler unotert. Bodils 17,65 % viser det samme. <b>Lav selskapsskatt og lav verdsetting er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Høy gjeld</b> = motsatt. Gjeldsgraden faller mot toppen av fordelingen. De rikeste er ikke lånefinansiert (forelesning 5, lysbilde 33).<br><b>Skatteparadiser</b> = manualen 8.6 sier uttrykkelig at et alternativ som peker på skatteparadis som hovedforklaring, er galt.<br><b>Skjermingsfradraget</b> = regnestykket i forelesningen ser bort fra skjermingen og lander likevel på om lag 20 %. Den lave satsen kommer ikke derfra.</p>"
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>I den offisielle statistikken fikk den rikeste prosenten 8,8 % av markedsinntekten i 2018. I SSBs justerte tall fikk de 19,0 %. Hva forklarer forskjellen?</p>",
+          "options": [
+            "De rikeste har mest lønnsinntekt, men høye lønninger fanges ikke opp av skattemeldingen",
+            "Tilbakeholdt overskudd i selskapene regnes ikke som inntekt for eierne i statistikken",
+            "Utbyttene økte kraftig da utbytteskatten kom, men statistikken har ikke tatt det inn",
+            "Den offisielle statistikken trekker formuesskatten fra inntekten før andelene regnes ut"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Offisiell inntektsstatistikk bygger på skattemeldingen og ser bare overskudd som er tatt ut som utbytte. Da utbytteskatten kom, falt utbyttene til personlige aksjonærer fra 99 mrd. kr i 2005 til 7,4 mrd. kr i 2006. SSB erstatter mottatt utbytte med eierens andel av årsresultatet (manualen 3.6, forelesning 1 lysbilde 19–24). <b>Tilbakeholdt overskudd er forklaringen.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Lønnsinntekt</b> = de rikeste har lite lønn. Den økonomiske inntekten ligger i selskapene (forelesning 5, lysbilde 32).<br><b>Utbyttene økte</b> = motsatt. Utbyttene falt kraftig. Det er derfor statistikken undervurderer inntekten.<br><b>Formuesskatten trekkes fra</b> = markedsinntekten måles før skatt. Formuesskatten inngår ikke.</p>"
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Selskapsskatten og Brage Bygg AS",
+      "points": 6,
+      "topic": "Aksjonærmodellen",
+      "chapters": [
+        5,
+        6
+      ],
+      "body": "<p>To uavhengige spørsmål.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Et parti vil heve selskapsskatten fra 22 % til 25 % og beholde 22 % skatt på alminnelig inntekt for personer. Høyeste marginalskatt på lønn er 47,4 %. Arbeidsgiveravgiften utgjør 12,4 % av lønnskostnaden og bæres av arbeidstakeren. Oppjusteringsfaktoren skal settes slik at det verken lønner seg å gjøre lønn om til utbytte eller utbytte om til lønn. Hva blir faktoren og den effektive eierskatten?</p>",
+          "options": [
+            "1,72 og 37,8 %",
+            "1,02 og 22,4 %",
+            "1,58 og 34,8 %",
+            "1,85 og 40,8 %"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Inntektsskiftingslikningen (forelesning 5, lysbilde 3–8): høyeste marginalskatt på lønn + arbeidsgiveravgiften arbeidstakeren bærer = selskapsskatt + eierskatt × oppjusteringsfaktoren y. Lysbilde 8 regner mindretallets forslag om 24 % på samme måte: lønnsskatten står stille, så faktoren må ned.</p><p><b>Regnestykket.</b></p><p>1. Venstresiden er uendret: 47,4 % + 12,4 % = 59,8 %.<br>2. 59,8 % = 25 % + 22 % × y, så 22 % × y = 34,8 %.<br>3. y = 34,8/22 = 1,5818 ≈ <b>1,58</b>. Effektiv eierskatt er <b>34,8 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>1,72 og 37,8 %</b> = skatten på lønn også hevet til 25 %, så venstresiden blir 62,8 %. Forslaget beholder 22 % for personer.<br><b>1,02 og 22,4 %</b> = arbeidsgiveravgiften glemt: 47,4 % − 25 % = 22,4 %.<br><b>1,85 og 40,8 %</b> = økningen i selskapsskatten ført med feil fortegn. Går selskapsskatten opp, må eierskatten ned for at summen skal holde.</p><p><b>Kontroll.</b> 25 % + 34,8 % = 59,8 %. ✓ Den effektive eierskatten faller med nøyaktig de tre prosentpoengene selskapsskatten stiger.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Brage eier alle aksjene i Brage Bygg AS. I 2026 låner han kr 800 000 av selskapet til markedsrente med fast nedbetalingsplan. Hvilket utsagn er riktig?</p>",
+          "options": [
+            "Lånet skattlegges som utbytte det året han får pengene",
+            "Lånet er skattefritt fordi han betaler markedsrente og har en fast nedbetalingsplan",
+            "Lånet skattlegges som utbytte, men skatten betales tilbake når lånet er nedbetalt",
+            "Lån under kr 1 000 000 er unntatt, så lånet hans skattlegges ikke"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Siden 2015 skattlegges lån fra et selskap til en personlig aksjonær som utbytte på utbetalingstidspunktet, uansett rente og nedbetalingsplan (skatteloven § 10-11 fjerde ledd, manualen 6.5, forelesning 5 lysbilde 13). Uten skjerming blir skatten 800 000 × 37,84 % = 302 720. I tillegg skylder Brage fortsatt selskapet pengene. <b>Lånet er utbytte det året det utbetales.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Skattefritt med markedsrente</b> = vilkårene endrer ingenting. Regelen ser på substansen: eieren bestemmer selv om lånet blir krevd inn.<br><b>Skatten tilbake ved nedbetaling</b> = tilbakebetaling gir ikke skatten tilbake (manualen 20.2).<br><b>Unntak under 1 000 000</b> = unntaket er kreditt under kr 100 000 som innfris innen 60 dager. Loven har ellers ingen beløpsgrense.</p>"
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Synnøve og aksjene i Fjelltech AS",
+      "points": 6,
+      "topic": "Formuesskatt",
+      "chapters": [
+        7
+      ],
+      "body": "<p>Synnøve er enslig og eier 30 % av aksjene i det unoterte selskapet Fjelltech AS. Selskapets eiendeler har en skattemessig verdi på kr 25 000 000. Gjelden er kr 5 000 000. Et fond kjøpte nylig aksjer av en annen eier til en pris som verdsetter hele selskapet til kr 200 000 000. Synnøve har ingen annen formue og kr 1 000 000 i personlig gjeld.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Bruk skattereglene for 2026. Hvor mye formuesskatt betaler Synnøve?</p>",
+          "options": [
+            "Kr 19 000",
+            "Kr 21 000",
+            "Kr 33 000",
+            "Kr 478 700"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Unoterte aksjer verdsettes til eierandelen av selskapets skattemessige formuesverdi (eiendeler minus gjeld), deretter 80 %. Prisen fra et aksjekjøp brukes ikke (manualen 7.5). Gjeld reduseres forholdsmessig når eiendelen har verdsettingsrabatt. Det gjelder også unoterte aksjer (skatteloven § 4-19, manualen 20.3). Satsene for 2026 står i manualen 20.3: 80 %, 1,0 % opp til kr 21 500 000 og bunnfradrag kr 1 900 000 for enslige.</p><p><b>Regnestykket.</b></p><p>1. Formuesverdi: 30 % × (25 000 000 − 5 000 000) × 80 % = 4 800 000.<br>2. Fradragsberettiget gjeld: aksjene er eneste eiendel, så 1 000 000 × 80 % = 800 000.<br>3. Nettoformue 4 000 000. Skatt: (4 000 000 − 1 900 000) × 1,0 % = <b>kr 21 000</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 19 000</b> = gjeldsreduksjonen glemt: hele gjelden på 1 000 000 trukket fra.<br><b>Kr 33 000</b> = selskapets gjeld glemt: 30 % × 25 000 000 × 80 % = 6 000 000.<br><b>Kr 478 700</b> = prisen fra aksjekjøpet brukt: 30 % × 200 000 000 × 80 % − 800 000 = 47 200 000, med 1,1 % over kr 21 500 000.</p><p><b>Kontroll.</b> Gjelden kan også regnes med formelen gjeld × (1 − rabatterte verdier × 20 %/samlet verdi). Med aksjene som eneste eiendel blir brøken 1. Fradraget blir 1 000 000 × 0,80 = 800 000. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Styret i Fjelltech AS vurderer å børsnotere selskapet. Anta at kursen vil verdsette selskapet omtrent som fondets kjøp gjorde. Hvilket utsagn om Synnøves formuesskatt er riktig?</p>",
+          "options": [
+            "Den endres lite, fordi alle aksjer verdsettes til 80 % av markedsverdien",
+            "Den går ned, fordi børsnoterte aksjer får større verdsettingsrabatt enn unoterte",
+            "Den går kraftig opp, fordi børsnoterte aksjer verdsettes etter kursen",
+            "Den går opp, men bare fordi børsnoterte aksjer ikke får noen verdsettingsrabatt"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Unoterte aksjer verdsettes etter selskapets skattemessige formuesverdi, børsnoterte etter kursen. Begge verdsettes til 80 % (manualen 7.5 og 20.3). Etter en børsnotering blir Synnøves aksjer verdt 30 % × 200 000 000 × 80 % = 48 000 000. Formuesskatten stiger da fra kr 21 000 til kr 478 700. Forelesningene bruker denne forskjellen til å vise at verdsettingen betyr mer enn satsen. Reglene gir også et insentiv til å holde selskaper unotert (forelesning 1 lysbilde 14–18, forelesning 2 lysbilde 5–7). <b>Formuesskatten går kraftig opp.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Endres lite</b> = unoterte aksjer verdsettes ikke etter markedsverdien, men etter selskapets skattemessige verdier. Det er derfor Synnøve betaler så lite i dag.<br><b>Går ned</b> = børsnoterte og unoterte aksjer har samme rabatt. Begge verdsettes til 80 %.<br><b>Bare fordi ingen rabatt</b> = børsnoterte aksjer verdsettes også til 80 %. Økningen kommer av at kursen erstatter de skattemessige verdiene.</p>"
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Gunvor og pengene i banken",
+      "points": 6,
+      "topic": "Formuesskatt som avkastningsskatt",
+      "chapters": [
+        2,
+        8
+      ],
+      "body": "<p>Gunvor har kr 2 000 000 på en bankkonto hele året. Renten er 5 %. Inflasjonen er 4 %. Renteinntekten skattlegges med 22 %. Formuesskatten er 1,0 % av innskuddet.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hvor stor andel av renteinntekten går til inntektsskatt og formuesskatt til sammen?</p>",
+          "options": [
+            "22,00 %",
+            "23,00 %",
+            "42,00 %",
+            "20,00 %"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Begge skattene sammenlignes med renteinntekten. Formuesskatten treffer hele innskuddet, så målt mot renten blir den τ<sub>w</sub>/i (manualen 8.1). Skatten regnes av den nominelle renten (manualen 2.2).</p><p><b>Regnestykket.</b></p><p>1. Rente: 2 000 000 × 5 % = 100 000. Inntektsskatt 22 000.<br>2. Formuesskatt: 2 000 000 × 1,0 % = 20 000.<br>3. (22 000 + 20 000)/100 000 = <b>42,00 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>22,00 %</b> = formuesskatten glemt.<br><b>23,00 %</b> = satsene lagt sammen. Formuesskatten er 1 % av innskuddet, ikke av renten.<br><b>20,00 %</b> = bare formuesskatten: 20 000/100 000.</p><p><b>Kontroll.</b> Per krone: 0,05 × 0,22 + 0,01 = 0,021. Delt på 0,05 gir det 0,42. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Hva er realavkastningen etter skatt? Svar med to desimaler.</p>",
+          "options": [
+            "−0,25 %",
+            "2,90 %",
+            "−0,10 %",
+            "−1,06 %"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Rekkefølgen er nominelt, så etter skatt, så realt. Realavkastningen er (1 + avkastning etter skatt)/(1 + inflasjon) − 1. Ber oppgaven om desimaler, skal den eksakte formelen brukes (manualen 2.2 og 20.4, forelesning 2 lysbilde 41).</p><p><b>Regnestykket.</b></p><p>1. Nominell avkastning etter skatt: 5,00 % − 2,10 % = 2,90 %.<br>2. Real: 1,029/1,04 − 1 = <b>−1,06 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>−0,25 %</b> = skatten regnet av realrenten: 0,96 % × 0,78 − 1 %. Skatten treffer den nominelle renten, også inflasjonskompensasjonen.<br><b>2,90 %</b> = inflasjonen glemt: det er den nominelle avkastningen etter skatt.<br><b>−0,10 %</b> = formuesskatten glemt: 1,039/1,04 − 1. Tilnærmingen gir samme tall, men det er galt uansett metode, fordi formuesskatten mangler.</p><p><b>Kontroll.</b> I kroner: 2 000 000 blir 2 058 000 etter skatt, som er 1 978 846 i dagens kroner. Det er −1,06 % av 2 000 000. ✓ Tilnærmingen 2,90 % − 4 % gir −1,10 %. Det tallet står ikke blant alternativene, fordi fasitene til oppgavene i forelesning 2 selv bruker tilnærmingen. Regner du slik, er det riktige alternativet likevel det nærmeste.</p><p><b>Strategi med minuspoeng.</b> Tre av alternativene er negative og ligger tett. Regn nominelt, skatt og realt i den rekkefølgen før du ser på dem.</p>"
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "title": "En avgift på kr 6 per enhet",
+      "points": 6,
+      "topic": "Skatteincidens",
+      "chapters": [
+        11
+      ],
+      "body": "<p>Etterspørselen etter en vare er x = 1 200 − 20P. Tilbudet er x = 40p − 300. Her er x kvantum, P prisen kjøperne betaler og p prisen selgerne sitter igjen med. Staten innfører en avgift på kr 6 per enhet som kjøperne betaler inn.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hvor stor andel av avgiften bærer kjøperne?</p>",
+          "options": [
+            "33,3 %",
+            "100,0 %",
+            "50,0 %",
+            "66,7 %"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Hvem som betaler inn avgiften, betyr ingenting for hvem som bærer den. Likevekten er D(p + t) = S(p). Den minst elastiske siden bærer mest. Med lineære kurver er kjøpernes andel S′/(S′ − D′) (manualen 11.2–11.4).</p><p><b>Regnestykket.</b></p><p>1. Før avgiften: 1 200 − 20P = 40P − 300, så P = 25 og x = 700.<br>2. Med avgiften: 1 200 − 20(p + 6) = 40p − 300, så p = 23 og P = 29.<br>3. Kjøperne betaler 4 mer av 6: 4/6 = <b>66,7 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>33,3 %</b> = selgernes andel: prisen de sitter igjen med, faller fra 25 til 23.<br><b>100,0 %</b> = den som betaler inn avgiften, bærer den. Det er formell insidens, ikke reell.<br><b>50,0 %</b> = lik deling. Delingen følger helningene, ikke en tommelfingerregel.</p><p><b>Kontroll.</b> Formelen: 40/(40 + 20) = 0,667. Andelene summerer til én: 66,7 % + 33,3 % = 100 %. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Hvor stort er dødvektstapet?</p>",
+          "options": [
+            "Kr 240",
+            "Kr 480",
+            "Kr 3 720",
+            "Kr 1 860"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Dødvektstapet er trekanten mellom kurvene: ½ × t × (x<sub>0</sub> − x<sub>t</sub>). Provenyet er en overføring til staten og ikke et tap (manualen 11.5).</p><p><b>Regnestykket.</b></p><p>1. Kvantumet faller fra 700 til 620, altså med 80.<br>2. ½ × 6 × 80 = <b>kr 240</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 480</b> = halvparten glemt: rektangelet i stedet for trekanten.<br><b>Kr 3 720</b> = provenyet 6 × 620. Det går til staten og er ikke tapt.<br><b>Kr 1 860</b> = trekanten regnet med det nye kvantumet i stedet for kvantumsfallet.</p><p><b>Kontroll.</b> Formelen ½ × t² × |S′D′|/(S′ − D′) = ½ × 36 × 800/60 = 240. ✓</p>"
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "title": "Embla kjøper leilighet",
+      "points": 9,
+      "topic": "Investeringscaser",
+      "chapters": [
+        4,
+        3
+      ],
+      "body": "<p>Embla kjøper en selveierleilighet for kr 5 000 000 og flytter inn. Hun tjener kr 900 000 i året. Hun låner kr 4 500 000 til 5 % rente og betaler resten selv. Lånet er avdragsfritt det første året. Boligprisene stiger 6 % det første året.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Bruk skattereglene for 2026. Se bort fra dokumentavgiften, felleskostnader og verdien av å bo i leiligheten. Hva er avkastningen på egenkapitalen det første året?</p>",
+          "options": [
+            "15,00 %",
+            "24,90 %",
+            "11,70 %",
+            "6,00 %"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Med lån tilfaller hele verdistigningen egenkapitalen, mens lånet koster renter etter fradrag. Rentene gir fradrag med 22 % (manualen 4.3 og 20.9). Verdistigningen skattlegges ikke: den er ikke realisert. Gevinst ved salg av egen bolig er dessuten skattefri når eier- og botid er oppfylt (manualen 4.4).</p><p><b>Regnestykket.</b></p><p>1. Egenkapital: 5 000 000 − 4 500 000 = 500 000.<br>2. Renter 4 500 000 × 5 % = 225 000, etter fradrag 175 500. Verdistigning 300 000.<br>3. (300 000 − 175 500)/500 000 = 124 500/500 000 = <b>24,90 %</b>. Lønnen er støy.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>15,00 %</b> = rentefradraget glemt: (300 000 − 225 000)/500 000.<br><b>11,70 %</b> = verdistigningen skattlagt med 22 %: (234 000 − 175 500)/500 000. Ingenting er solgt. Gevinst på egen bolig er dessuten skattefri når vilkårene er oppfylt.<br><b>6,00 %</b> = avkastningen på hele boligen, 300 000/5 000 000. Giringen er oversett.</p><p><b>Kontroll.</b> Brekkstangformelen: 6,00 % + (6,00 % − 3,90 %) × 9 = 24,90 %, der 9 = 4 500 000/500 000 er gjeldsgraden. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Hvilket utsagn er riktig?</p>",
+          "options": [
+            "Selger hun etter 10 måneder og har bodd der hele tiden, er gevinsten skattefri",
+            "Selger hun etter 14 måneder og har bodd der hele tiden, er gevinsten skattefri",
+            "Dokumentavgiften på kr 125 000 kan hun trekke fra i alminnelig inntekt året hun kjøper",
+            "Hadde hun kjøpt en borettslagsandel til samme pris, ville hun også betalt kr 125 000 i dokumentavgift"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Gevinst ved salg av egen bolig er skattefri når du har eid boligen i mer enn ett år og har bodd i den minst 12 av de siste 24 månedene (manualen 4.4, forelesning 3). Dokumentavgiften betales bare ved tinglysing av skjøte på selveierbolig og er ikke fradragsberettiget (manualen 4.1). <b>Salg etter 14 måneder med botid hele tiden er skattefritt.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Etter 10 måneder</b> = hun har ikke eid boligen i mer enn ett år, så gevinsten er skattepliktig med 22 %.<br><b>Fradrag for dokumentavgiften</b> = dokumentavgiften gir ikke fradrag i alminnelig inntekt.<br><b>Borettslagsandel</b> = ved kjøp av en borettslagsandel betales ingen dokumentavgift, bare et registreringsgebyr.</p>"
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>Embla har lest at bolig har gitt litt høyere realavkastning enn aksjer i 16 land fra 1870 til 2015 (Jordà mfl. 2019). Hvilket utsagn om funnene er i tråd med forelesningen?</p>",
+          "options": [
+            "Bolig har gitt mest fordi boligprisene har steget mer enn aksjekursene, mens leien betyr lite",
+            "Bolig har svingt omtrent like mye som aksjer, så risikoen ved de to er den samme",
+            "Siden bolig har gitt mest med minst risiko, er én enkelt bolig en bedre investering enn et globalt aksjefond",
+            "Tallene gjelder en bred boligportefølje, så den som eier ett hus, har mer risiko enn tallene viser"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Jordà mfl. finner 7,3 % realavkastning for bolig og 6,7 % for aksjer, med standardavvik om lag 10 mot 24. Tallene er snittet for en boligportefølje. Den som eier ett hus, kan ikke diversifisere bort risikoen knyttet til akkurat det huset og stedet (manualen 3.1–3.4, forelesning 2 lysbilde 33–37). <b>Ett hus har mer risiko enn tallene viser.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Prisstigningen</b> = motsatt. Realprisstigningen på bolig er bare om lag 1 % i året. Resten er leie, mens kursgevinst er viktigst for aksjer.<br><b>Like stor svingning</b> = aksjer har omtrent dobbelt så høyt standardavvik som bolig.<br><b>Én bolig slår aksjefondet</b> = slutningen overser at tallene gjelder en diversifisert portefølje. Ett hus er ikke det.</p>"
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "title": "Maren låner ut penger gjennom en plattform",
+      "points": 6,
+      "topic": "Investeringscaser",
+      "chapters": [
+        4,
+        12
+      ],
+      "body": "<p>Maren låner ut kr 200 000 i ett år gjennom en registrert folkefinansieringsplattform. Lånet har 12 % rente. Med 95 % sannsynlighet betaler låntakeren renten og hele lånet tilbake. Ellers taper Maren hele beløpet og får ingen rente.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hva er forventet avkastning før skatt?</p>",
+          "options": [
+            "12,00 %",
+            "11,40 %",
+            "7,00 %",
+            "6,40 %"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Lovet rente er ikke forventet avkastning. Forventningen vekter renten med sannsynligheten for at lånet betales og trekker fra det forventede tapet av hovedstolen (manualen 4.6, forelesning 3 lysbilde 38–51).</p><p><b>Regnestykket.</b></p><p>1. Godt utfall: 95 % × 24 000 = 22 800.<br>2. Mislighold: 5 % × 200 000 = 10 000 i forventet tap.<br>3. (22 800 − 10 000)/200 000 = <b>6,40 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>12,00 %</b> = den lovede renten, som om alle betaler.<br><b>11,40 %</b> = misligholdet tatt med på renten, men ikke på hovedstolen.<br><b>7,00 %</b> = renten talt med også i utfallet der låntakeren ikke betaler.</p><p><b>Kontroll.</b> Utfallene: +24 000 med 95 % og −200 000 med 5 %. 22 800 − 10 000 = 12 800. ✓</p><p><b>Strategi med minuspoeng.</b> Alle de gale alternativene er større enn det riktige, fordi hver feil utelater en kostnad.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Maren er risikonøytral. Renteinntekter skattlegges med 22 %. Hvilket utsagn er riktig?</p>",
+          "options": [
+            "Med fradrag for tapet er forventet avkastning etter skatt 78 % av forventet avkastning før skatt",
+            "Med fradrag for tapet er forventet avkastning etter skatt 78 % av den lovede renten",
+            "Uten fradrag for tapet tar staten 22 % av både renten og tapet, så forventningen bare skaleres ned",
+            "Fradraget for tapet har ingen verdi for henne, fordi hun bare bryr seg om forventet avkastning"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Med tapsfradrag treffer skatten gevinst og tap med samme sats, så forventningen etter skatt blir (1 − t) ganger forventningen før skatt: 6,40 % × 0,78 = 4,99 %. Uten fradrag tar staten del i renten, men ikke i tapet. Da faller forventningen til 3,89 % (manualen 4.6). <b>78 % av forventet avkastning før skatt er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>78 % av den lovede renten</b> = glemmer misligholdet: 12 % × 0,78 = 9,36 %.<br><b>Uten fradrag skaleres bare ned</b> = byttet om. Det er med fradrag at staten deler både renten og tapet.<br><b>Fradraget har ingen verdi</b> = nettopp fordi hun bryr seg om forventningen, har fradraget verdi: 4,99 % mot 3,89 %.</p>"
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "title": "Kasper flytter hjem til Danmark",
+      "points": 3,
+      "topic": "Internasjonal skatt",
+      "chapters": [
+        13
+      ],
+      "body": "<p>Kasper er dansk og har bodd og jobbet i Norge siden 2020. I mai 2026 flytter han tilbake til Danmark sammen med familien og selger leiligheten i Oslo. I 2026 er han i Norge 150 dager til sammen. I 2027 er han her 20 dager. Hva er riktig om bostedet hans etter norsk intern rett?</p>",
+      "options": [
+        "Bostedet opphører fra og med året etter at han flyttet",
+        "Bostedet opphører først etter de tre inntektsårene som følger etter utflyttingsåret",
+        "Bostedet opphører allerede i utflyttingsåret, fordi han var i Norge under 183 dager det året",
+        "Han er bosatt også året etter flyttingen, fordi han har vært i Norge mer enn 270 dager de siste 36 månedene"
+      ],
+      "answer": 0,
+      "solution": "<p><b>Regelen.</b> Bostedet opphører for det inntektsåret du kan godtgjøre at du ikke har vært i Norge mer enn 61 dager og at verken du eller nærstående har disponert bolig her. Kravet om tre slike år gjelder bare den som har vært bosatt i minst ti år før utflyttingsåret (skatteloven § 2-1 tredje ledd, manualen 13.1). Kasper har bodd her i seks år. I 2026 var han her 150 dager, så han er bosatt det året. I 2027 er han her 20 dager uten bolig. <b>Bostedet opphører fra og med 2027.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Tre år etter utflyttingsåret</b> = tiårsregelen. Den gjelder ikke for seks års botid.<br><b>Allerede i utflyttingsåret</b> = 183 dager er grensen for å bli bosatt. For å slutte å være bosatt gjelder 61 dager. Han var her 150.<br><b>Bosatt på grunn av 270 dager</b> = 270-dagersregelen avgjør når bosted oppstår, ikke når det opphører.</p><p><b>Strategi med minuspoeng.</b> Tiårsregelen er det mest fristende gale alternativet. Sjekk alltid hvor lenge personen har bodd i Norge.</p>"
+    },
+    {
+      "n": 11,
+      "title": "Hedvig og indeksfondet",
+      "points": 6,
+      "topic": "Porteføljevalg",
+      "chapters": [
+        14
+      ],
+      "body": "<p>Hedvig er 26 år og fast ansatt i staten. Lønnen hennes svinger ikke med aksjemarkedet. Nåverdien av framtidig lønn er kr 3 500 000. Finansformuen hennes er kr 500 000. Et globalt indeksfond har forventet avkastning 6 % og standardavvik 16 %. Risikofri rente er 2 %. Hun kan låne til den renten. Risikoaversjonen hennes er γ = 2,5.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hvor mye bør Hedvig ha i indeksfondet?</p>",
+          "options": [
+            "Kr 312 500",
+            "Kr 400 000",
+            "Kr 2 500 000",
+            "Kr 3 750 000"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Mertons andel w* = (E(r) − r<sub>f</sub>)/(γσ²) gjelder hele formuen, også humankapitalen. Sikker lønn virker som et bankinnskudd, så ønsket aksjebeløp er w* × (F + H). Over 100 % av finansformuen betyr at hun låner (manualen 14.4–14.5 og 20.7, forelesningen om aksjesparing lysbilde 8).</p><p><b>Regnestykket.</b></p><p>1. w* = (6 % − 2 %)/(2,5 × 0,16²) = 0,04/0,064 = 0,625.<br>2. Samlet formue: 500 000 + 3 500 000 = 4 000 000.<br>3. 0,625 × 4 000 000 = <b>kr 2 500 000</b>. Det er 500 % av finansformuen, så hun låner 2 000 000.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 312 500</b> = humankapitalen glemt: andelen brukt på finansformuen alene.<br><b>Kr 400 000</b> = standardavviket ikke kvadrert: w = 0,10.<br><b>Kr 3 750 000</b> = forventet avkastning 6 % i telleren i stedet for meravkastningen.</p><p><b>Kontroll.</b> Hun skal ha 2 500 000 i aksjer og 1 500 000 sikkert. Humankapitalen dekker 3 500 000 av det sikre, så finansielt er hun −2 000 000 i bank, altså et lån på 2 000 000. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Hvilket utsagn om å låne til aksjekjøp er i tråd med forelesningen?</p>",
+          "options": [
+            "Med sikker lønn og liten finansformue kan det være fornuftig å låne litt til fondssparing, så lenge renten er lav",
+            "Et forbrukslån til 12 % rente kan lønne seg, siden aksjer har gitt om lag 15 % i året",
+            "Det er aldri rasjonelt å lånefinansiere aksjekjøp, uansett hvor lite risikoavers man er og hvor lav renten er",
+            "Unge bør låne til aksjer fordi aksjer blir mindre risikable jo lengre tidshorisonten er"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Forelesningen om aksjesparing (lysbilde 44–47) bruker en ung statsansatt som eksempel: stor og sikker humankapital og liten finansformue gir lite risiko ved å lånefinansiere litt fondssparing. Lånet må ha lav rente. Aksjemarkedet har gitt 3–7 prosentpoeng over risikofri rente. <b>Litt lån til lav rente kan være fornuftig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Forbrukslån til 12 %</b> = lysbilde 47: det er åpenbart ikke smart. Det er ingen grunn til å tro på 15 % avkastning.<br><b>Aldri rasjonelt</b> = lånefinansiering kan være rasjonelt gitt lav nok risikoaversjon (lysbilde 54). Kapitalmarkedslinjen fortsetter forbi markedsporteføljen med lån.<br><b>Mindre risiko med lang horisont</b> = det er selvhjelpsbøkenes argument. Økonomene er ikke enige i det. Grunnen til mer aksjer for unge er humankapitalen (lysbilde 13).</p>"
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "title": "Gaute og hytta",
+      "points": 6,
+      "topic": "Forsikring og forventet nytte",
+      "chapters": [
+        17
+      ],
+      "body": "<p>Gaute har en formue på kr 2 000 000. Av dette er kr 800 000 en hytte. Hytta brenner med sannsynlighet 2 % og er da tapt. Gaute har nyttefunksjonen U(W) = ln W.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hva er den høyeste premien Gaute vil betale for full dekning? Rund av til nærmeste krone.</p>",
+          "options": [
+            "Kr 20 329",
+            "Kr 16 000",
+            "Kr 17 992",
+            "Kr 36 318"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Høyeste premie er formuen minus sikkerhetsekvivalenten. Med ln W går du tilbake til kroner med eksponentialfunksjonen (manualen 17.3 og 17.5).</p><p><b>Regnestykket.</b></p><p>1. E[U] = 0,98 × ln 2 000 000 + 0,02 × ln 1 200 000 = 14,498441.<br>2. Sikkerhetsekvivalent: e<sup>14,498441</sup> = 1 979 671.<br>3. 2 000 000 − 1 979 671 = <b>kr 20 329</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 16 000</b> = aktuarisk premie 2 % × 800 000. Den betaler en risikonøytral, ikke Gaute.<br><b>Kr 17 992</b> = √W brukt av gammel vane: sikkerhetsekvivalenten blir 1 407,8382² = 1 982 008. Med ln W er Gaute mer risikoavers og betaler mer.<br><b>Kr 36 318</b> = formuen i skadetilstanden satt til 800 000, som er tapet. Formuen etter tapet er 1 200 000.</p><p><b>Kontroll.</b> Maksimal premie = aktuarisk premie + risikopremie: 16 000 + 4 329 = 20 329. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Et selskap tilbyr full dekning for kr 17 000. Hvilket utsagn om den kritiske skadesannsynligheten er riktig?</p>",
+          "options": [
+            "Den er 2,125 %, for der er premien lik forventet erstatning",
+            "Den er lavere enn 2 %, fordi premien er lavere enn det Gaute høyst vil betale ved 2 %",
+            "For en person som er mer risikoavers enn Gaute, er den høyere",
+            "Er skadesannsynligheten høyere enn den kritiske, lønner det seg ikke for Gaute å kjøpe forsikringen"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Den kritiske sannsynligheten er den laveste sannsynligheten som gjør forsikringen lønnsom til en gitt premie (manualen 17.4). Ved 2 % vil Gaute betale opptil kr 20 329. Premien er kr 17 000. Han kjøper altså ved 2 %, så terskelen må ligge under. Regnet ut er den 1,67 %. <b>Terskelen ligger under 2 %.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>2,125 %</b> = terskelen for en risikonøytral. Gaute er risikoavers og kjøper allerede ved lavere sannsynlighet.<br><b>Høyere for mer risikoaverse</b> = motsatt. Mer risikoaversjon gir høyere betalingsvilje og dermed lavere terskel.<br><b>Ikke lønnsomt over terskelen</b> = motsatt retning. Over terskelen lønner forsikringen seg, under gjør den det ikke.</p>"
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "title": "Liv velger fond for 30 år",
+      "points": 3,
+      "topic": "Indeksfond og aktiv forvaltning",
+      "chapters": [
+        14
+      ],
+      "body": "<p>Liv setter kr 500 000 i et aksjefond i 30 år. Begge fondene hun vurderer, gir 7 % i året før honorar. Indeksfondet tar 0,2 % i året, det aktive fondet 1,6 %. Hvor mye mer har hun etter 30 år i indeksfondet? Rund av til nærmeste 1 000 kr.</p>",
+      "options": [
+        "Kr 210 000",
+        "Kr 1 384 000",
+        "Kr 53 000",
+        "Kr 1 176 000"
+      ],
+      "answer": 3,
+      "solution": "<p><b>Regelen.</b> Honoraret trekkes hvert år og rammer derfor renters rente. Regn hvert fond med sin netto avkastning og trekk sluttverdiene fra hverandre (manualen 14.6).</p><p><b>Regnestykket.</b></p><p>1. Indeksfond: 500 000 × 1,068<sup>30</sup> = 3 598 385.<br>2. Aktivt fond: 500 000 × 1,054<sup>30</sup> = 2 422 079.<br>3. Differanse 1 176 305 ≈ <b>kr 1 176 000</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 210 000</b> = lineær regning: 1,4 % × 30 × 500 000.<br><b>Kr 1 384 000</b> = indeksfondets eget honorar glemt: 7 % i stedet for 6,8 %.<br><b>Kr 53 000</b> = honorarforskjellen trukket én gang av sluttverdien, i stedet for hvert år.</p><p><b>Kontroll.</b> Det aktive fondet ender 32,7 % lavere: (1,054/1,068)<sup>30</sup> = 0,673. ✓</p>"
+    },
+    {
+      "n": 14,
+      "title": "Eskil og BSU-kontoen",
+      "points": 3,
+      "topic": "Sparing",
+      "chapters": [
+        15
+      ],
+      "body": "<p>Eskil er 29 år, eier ikke bolig og tjener kr 610 000 i året. Han har til sammen satt inn kr 280 000 på BSU-kontoen sin tidligere år. I 2026 vil han sette inn kr 35 000. Bruk skattereglene for 2026. Hvor stort skattefradrag kan han få for 2026?</p>",
+      "options": [
+        "Kr 2 000",
+        "Kr 2 750",
+        "Kr 3 500",
+        "Kr 4 400"
+      ],
+      "answer": 0,
+      "solution": "<p><b>Regelen.</b> BSU gir skattefradrag på 10 % av årets sparing. Sparingen er begrenset til kr 27 500 i året og kr 300 000 til sammen. Fradraget gis til og med året du fyller 33 og bare til den som ikke eier bolig (manualen 15.6 og 20.8).</p><p><b>Regnestykket.</b></p><p>1. Plass under samlet tak: 300 000 − 280 000 = 20 000.<br>2. Det er mindre enn årstaket på 27 500, så bare 20 000 gir fradrag.<br>3. 10 % × 20 000 = <b>kr 2 000</b>. Lønnen er støy.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 2 750</b> = bare årstaket brukt. Det samlede taket binder først.<br><b>Kr 3 500</b> = begge takene glemt: 10 % av 35 000.<br><b>Kr 4 400</b> = 22 % brukt, som om BSU var et fradrag i inntekten slik IPS er.</p><p><b>Kontroll.</b> Etter 2026 har han 300 000 på kontoen og kan ikke spare mer med fradrag. ✓</p>"
+    },
+    {
+      "n": 15,
+      "title": "Amund, Silje og fastrenten",
+      "points": 3,
+      "topic": "Lån",
+      "chapters": [
+        16
+      ],
+      "body": "<p>Amund og Silje tar opp hvert sitt boliglån. Amund har lav belåningsgrad og god buffer. Silje har lånt så mye hun kan og har ingen buffer. Banken tilbyr fem års fastrente litt over dagens flytende rente. Hvilket utsagn er i tråd med pensum?</p>",
+      "options": [
+        "Fast rente er et veddemål om renten og bør bare velges av den som tror den stiger mer enn banken venter",
+        "Fast rente er en forsikring mot renteøkning som er mest verdt for Silje",
+        "Siden fastrenten er høyere enn den flytende renten i dag, taper begge på å velge fast rente",
+        "Fast rente passer best for Amund, fordi han har god nok buffer til å betale forsikringspremien"
+      ],
+      "answer": 1,
+      "solution": "<p><b>Regelen.</b> Fast rente er ikke noe som enten lønner seg eller ikke lønner seg. Det er en forsikring mot høyere rente (forelesningen om lån, lysbilde 25). Banken priser fastrenten ut fra markedets forventninger. Påslaget er forsikringspremien. Forsikringen er mest verdt for den som er mest sårbar for en renteøkning (manualen 16.6). <b>Fastrenten er mest verdt for Silje.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Veddemål</b> = nettopp det forelesningen sier at fast rente ikke er.<br><b>Begge taper</b> = premien er prisen for visshet om terminbeløpet. Det er ikke et tap i seg selv, like lite som en forsikringspremie er det.<br><b>Best for Amund</b> = Amund har allerede tryggheten. Han betaler for noe han ikke trenger.</p>"
+    },
+    {
+      "n": 16,
+      "title": "Torunn bytter jobb",
+      "points": 3,
+      "topic": "Pensjon",
+      "chapters": [
+        15
+      ],
+      "body": "<p>Torunn har jobbet ti år i en privat bedrift med innskuddspensjon. Nå begynner hun i en annen bedrift. Hvilket utsagn om pensjonen hun har tjent opp i den gamle jobben, er riktig?</p>",
+      "options": [
+        "Den blir en fripolise som gir henne en fast andel av sluttlønnen fra den gamle jobben",
+        "Den blir stående på egen pensjonskonto og fortsetter å vokse med avkastningen",
+        "Den gamle arbeidsgiveren fortsetter å betale innskudd til den fram til hun går av med pensjon",
+        "Hun kan ta ut det hun har spart, som kontanter når hun slutter i jobben"
+      ],
+      "answer": 1,
+      "solution": "<p><b>Regelen.</b> Når du slutter i en jobb, slutter også innbetalingene til pensjonsordningen der, men du tar med deg det som er spart. Fra 2021 har alle med innskuddspensjon en egen pensjonskonto. Det oppsparte blir stående der ved jobbskifte og vokser videre med avkastningen. Før 2021 ble det oppsparte gjort om til et pensjonskapitalbevis. Ytelsespensjon blir en fripolise (forelesningen om pensjon, lysbilde 22, manualen 15.4). <b>Egen pensjonskonto med videre avkastning er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Fripolise med fast andel</b> = det er det som skjer med ytelsespensjon. Torunn har innskuddspensjon.<br><b>Arbeidsgiveren betaler videre</b> = innbetalingene stopper når hun slutter (lysbilde 22).<br><b>Ta ut kontant</b> = pensjonsmidlene er bundet til pensjonsalderen.</p>"
+    },
+    {
+      "n": 17,
+      "title": "Rådgiverne i banken",
+      "points": 3,
+      "topic": "Finansiell psykologi",
+      "chapters": [
+        18
+      ],
+      "body": "<p>En bank lar ti rådgivere vurdere de samme tjue lånesøknadene hver for seg. I snitt treffer vurderingene godt, men to rådgivere gir ofte samme søker svært ulik rente. Hvilket utsagn er riktig?</p>",
+      "options": [
+        "Dette er en bias som rettes ved å justere alle vurderingene like mye i motsatt retning",
+        "Spredningen spiller ingen rolle så lenge snittet av vurderingene treffer riktig nivå",
+        "Dette er støy som dempes best med faste vurderingsskjemaer eller enkle modeller",
+        "Dette er støy som forsvinner av seg selv når rådgiverne har fått lang nok erfaring"
+      ],
+      "answer": 2,
+      "solution": "<p><b>Regelen.</b> Bias er en systematisk skjevhet i én retning. Støy er feil uten retning, altså spredning mellom vurderinger av det samme. Kahnemans forsikringsfunn var om lag 50 % uenighet der ledelsen ventet 10 %. Støy dempes med algoritmer, enkle modeller og strukturerte vurderinger (manualen 18.1, finansiell psykologi lysbilde 2–6). <b>Støy, dempet med faste regler, er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Bias som justeres</b> = snittet treffer, så det finnes ingen retning å justere mot. En bias-regel virker ikke på støy.<br><b>Spiller ingen rolle</b> = hver søker får en tilfeldig rente. Feilen er reell for den enkelte selv om snittet treffer.<br><b>Forsvinner med erfaring</b> = Kahnemans saksbehandlere var erfarne fagfolk. Forelesningens råd er modeller og strukturerte vurderinger, ikke mer erfaring.</p>"
+    },
+    {
+      "n": 18,
+      "title": "Joakim og forbrukslånet",
+      "points": 3,
+      "topic": "Porteføljevalg",
+      "chapters": [
+        14,
+        18
+      ],
+      "body": "<p>Joakim tar opp et forbrukslån til 14 % rente og kjøper aksjer i ett enkelt bilselskap som har steget kraftig de siste årene. «Du kommer ingen steder uten risiko», sier han. Hvilket utsagn er i tråd med forelesningen?</p>",
+      "options": [
+        "Problemet er bare forbrukslånet. Med egne sparepenger er én enkelt aksje like god som et indeksfond",
+        "Selskapsspesifikk risiko gir ingen forventet meravkastning, fordi den kan diversifiseres bort",
+        "Risikoen er høy, men markedet betaler ham for den gjennom en tilsvarende høyere forventet avkastning",
+        "Lånet er uproblematisk så lenge aksjen har steget mer enn lånerenten de siste årene"
+      ],
+      "answer": 1,
+      "solution": "<p><b>Regelen.</b> Markedet betaler bare for risiko som ikke kan diversifiseres bort. Den selskapsspesifikke risikoen kan fjernes med et indeksfond, så ingen betaler ham for den. I tillegg er forbrukslånet dyrt: det er ingen grunn til å tro på avkastning over renten på et slikt lån (forelesningen om aksjesparing, lysbilde 47–56). <b>Selskapsrisikoen gir ingen betaling.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Bare forbrukslånet</b> = halve problemet. Også med egne penger bærer han selskapsrisiko som ingen betaler for. Et indeksfond fjerner den (lysbilde 48–50).<br><b>Markedet betaler for risikoen</b> = bare den systematiske risikoen betales (CAPM). Lotto er også risikabelt uten å gi betaling.<br><b>Uproblematisk etter sterk kursutvikling</b> = historisk kursutvikling i én aksje sier lite om framtiden. Markedet har gitt 3–7 prosentpoeng over risikofri rente, ikke 14 %.</p>"
+    }
+  ]
+},
+{
+  "id": "prove8",
+  "kind": "mock",
+  "label": "Prøveeksamen 8",
+  "minutes": 240,
+  "points": 90,
+  "format": "30 flervalg · fire alternativer · 3 poeng for rett, −1 for feil",
+  "note": "Ligner H2024 og skatteteorien i forelesning 6 til 11. Teksten gir bare situasjon, tall og satser, aldri formel eller framgangsmåte. I flere regneledd står bare «Bruk skattereglene for 2026». Nytt pensum: skjerming per aksjepost ved gave, nøytralitet når bare en andel kan trekkes fra, eiendomsskatt som kapitaliseres, evneprinsippet, kilen og Mirrlees, fast driftssted og internpriser, kreditfradrag med kildeskatt, CAPM, serielån og offentlig mot privat tjenestepensjon.",
+  "facts": [
+    "Fire timer, kalkulator tillatt. 30 flervalgsledd med fire alternativer og nøyaktig ett riktig.",
+    "3 poeng for rett svar, −1 for feil svar og 0 for ubesvart. Totalt 90 poeng.",
+    "Oppgave 1 til 11 er skattedelen (21 ledd). Oppgave 12 til 18 er finansdelen (9 ledd).",
+    "Laget for trening etter mønster fra H2024, forelesning 6 til 11 og manualen. Det er ikke en ekte eksamen. Kurset har ikke kontrollert løsningene."
+  ],
+  "practiceNote": "Regn ferdig før du ser på alternativene. Står det bare «Bruk skattereglene for 2026», må du kunne satsen selv. Noen ledd har en opplysning som ikke skal brukes. I begrepsleddene avgjør ett ord, så les «bare», «alltid» og «kan» presist. Kan du stryke ett alternativ, lønner det seg å svare.",
+  "mc": {
+    "wrongFactor": -0.3333333333333333
+  },
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Gudrun, Håkon og aksjene i Tindefjell ASA",
+      "points": 9,
+      "topic": "Aksjonærmodellen",
+      "chapters": [
+        5,
+        6
+      ],
+      "body": "<p>Gudrun kjøpte 2 000 aksjer i Tindefjell ASA for kr 200 per aksje i januar år 1 og 1 000 aksjer til for kr 250 per aksje i oktober år 1. Selskapet betalte kr 8 per aksje i utbytte i mai år 1 og har ikke betalt utbytte senere. Skjermingsrenten var 3 % i år 1 og 2 % i år 2. I mars år 2 ga Gudrun alle aksjene til sønnen Håkon, som bor i Bergen. Kursen var da kr 270. Håkon solgte alle aksjene i september år 3 for kr 300 per aksje.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hva er Gudruns skattepliktige utbytte for år 1?</p>",
+          "options": [
+            "Kr 0",
+            "Kr 4 000",
+            "Kr 4 500",
+            "Kr 12 000"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Skjermingen regnes per aksje. Ubenyttet skjerming på én aksje kan ikke brukes mot utbytte på en annen. Utbyttet tilfaller den som eier aksjen når utbyttet vedtas. Skjermingsfradraget tilfaller den som eier aksjen ved utgangen av året (manualen 5.3 og 5.4).</p><p><b>Regnestykket.</b></p><p>1. Utbytte: bare de 2 000 aksjene fra januar var eid i mai. 2 000 × 8 = kr 16 000. Aksjene fra oktober fikk ikke utbytte.<br>2. Skjerming på januarposten: 400 000 × 3 % = kr 12 000. Skattepliktig: 16 000 − 12 000 = <b>kr 4 000</b>.<br>3. Oktoberposten får skjerming for år 1 fordi Gudrun eier den ved årsskiftet: 250 000 × 3 % = kr 7 500. Den står ubrukt, men kan ikke trekkes fra utbyttet på januarposten.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 0</b> = skjermingen lagt sammen for begge postene: 16 000 − 19 500 er negativt. Skjermingen er aksjevis.<br><b>Kr 4 500</b> = utbytte også på oktoberposten: 24 000 − 19 500. De aksjene var ikke kjøpt da utbyttet ble betalt.<br><b>Kr 12 000</b> = skjermingsfradraget på januarposten. Riktig mellomresultat, feil spørsmål.</p><p><b>Kontroll.</b> Brukt skjerming pluss skattepliktig utbytte skal være lik utbyttet: 12 000 + 4 000 = 16 000. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Hva er Håkons samlede skjermingsgrunnlag for aksjene i år 2?</p>",
+          "options": [
+            "Kr 650 000",
+            "Kr 657 500",
+            "Kr 810 000",
+            "Kr 651 875"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Gave og arv gir kontinuitet (skatteloven § 9-7): mottakeren overtar giverens inngangsverdi og øvrige skatteposisjoner, også den ubenyttede skjermingen på hver aksje (manualen 6.6). Skjermingsgrunnlaget er kostpris pluss ubenyttet skjerming fra året før (manualen 5.3). Håkon eier aksjene 31. desember år 2 og får skjermingen for år 2. Kursen ved gaven er støy.</p><p><b>Regnestykket.</b></p><p>1. Januarposten: kostpris 400 000. Skjermingen for år 1 på kr 12 000 ble brukt mot utbyttet, så grunnlaget er 400 000.<br>2. Oktoberposten: kostpris 250 000 pluss ubenyttet skjerming 250 000 × 3 % = 7 500, altså 257 500.<br>3. Samlet grunnlag: 400 000 + 257 500 = <b>kr 657 500</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 650 000</b> = bare kostprisen. Den ubenyttede skjermingen på oktoberposten legges til grunnlaget.<br><b>Kr 810 000</b> = gaven behandlet som et kjøp til kurs 270: 3 000 × 270. Diskontinuitet gjelder bare bolig, fritidsbolig og gårdsbruk giveren kunne solgt skattefritt, ikke aksjer.<br><b>Kr 651 875</b> = skjermingen på oktoberposten avkortet til tre av tolv måneder: 7 500 × 3/12 = 1 875. Den som eier aksjen ved årsskiftet, får hele årets skjerming.</p><p><b>Kontroll.</b> Skjermingen for år 2 blir 657 500 × 2 % = 13 150. Det er 8 000 + 5 150 fra regnestykket i c. ✓</p><p><b>Strategi med minuspoeng.</b> Kontinuitetsprinsippet stryker kr 810 000. Mellom de tre som står igjen, avgjør hvor mye ubenyttet skjerming som legges til grunnlaget.</p>"
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>Hvor mye skatt betaler Håkon på gevinsten? Bruk skattereglene for 2026. Svar med to desimaler.</p>",
+          "options": [
+            "Kr 86 842,80",
+            "Kr 27 925,92",
+            "Kr 50 457,00",
+            "Kr 86 786,04"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Håkon overtar inngangsverdien kr 650 000 og den ubenyttede skjermingen (kontinuitet, § 9-7). Han eier aksjene ved utgangen av år 2 og får skjermingen for år 2 av grunnlaget kostpris pluss ubenyttet skjerming. Selger han før årsskiftet i år 3, får han ingen skjerming for år 3. Gevinsten skattlegges med 22 % × 1,72 = 37,84 % (satsene for 2026, manualen 20.2). Kursen ved gaven er støy.</p><p><b>Regnestykket.</b></p><p>1. Skjerming år 2: januarposten 400 000 × 2 % = 8 000. Oktoberposten (250 000 + 7 500) × 2 % = 5 150. Ubenyttet ved salget: 8 000 + 7 500 + 5 150 = kr 20 650.<br>2. Gevinst: 3 000 × 300 − 650 000 − 20 650 = 900 000 − 650 000 − 20 650 = kr 229 350.<br>3. Skatt: 229 350 × 37,84 % = <b>kr 86 786,04</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 86 842,80</b> = glemt at den ubenyttede skjermingen på kr 7 500 legges til grunnlaget i år 2: 250 000 × 2 % = 5 000 i stedet for 5 150.<br><b>Kr 27 925,92</b> = gaven behandlet som et kjøp til kurs 270: inngangsverdi 810 000 og ny skjerming 810 000 × 2 % = 16 200. Det er diskontinuitet, som ikke gjelder aksjer.<br><b>Kr 50 457,00</b> = glemt oppjusteringen: 229 350 × 22 %.</p><p><b>Kontroll.</b> Regn per post. Januarposten: 600 000 − 400 000 − 8 000 = 192 000. Oktoberposten: 300 000 − 250 000 − 12 650 = 37 350. Sum 229 350. ✓</p><p><b>Strategi med minuspoeng.</b> Kontinuitet stryker kr 27 925,92. Oppjusteringsparet (22 % mot 37,84 %) stryker kr 50 457,00. Mellom de to som står igjen, avgjør om du la den ubenyttede skjermingen til grunnlaget.</p>"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Kystmøbler AS utvider produksjonen",
+      "points": 6,
+      "topic": "Bedriftens tilpasning",
+      "chapters": [
+        9
+      ],
+      "body": "<p>Kystmøbler AS vurderer å utvide produksjonen. Avkastningskravet uten skatt er 6 %. Selskapsskatten er 22 %. Målt i nåverdi kommer 70 % av investeringskostnaden til fradrag gjennom avskrivningene.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hva er kapitalkostnaden før skatt, altså avkastningen før skatt den siste investerte kronen må gi? Svar med to desimaler.</p>",
+          "options": [
+            "5,08 %",
+            "5,53 %",
+            "6,51 %",
+            "6,00 %"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Bedriften maksimerer overskudd etter skatt, der skattegrunnlaget bare trekker fra andelen β av kostnaden. Førsteordensbetingelsen gir p = c′(x) × (1 − tβ)/(1 − t) (forelesning 5, lysbilde 19). Med kapital er c′ avkastningskravet r. Det er samme uttrykk som i manualen 9.4, med β i stedet for A.</p><p><b>Regnestykket.</b></p><p>1. Telleren: 1 − 0,22 × 0,70 = 1 − 0,154 = 0,846.<br>2. Nevneren: 1 − 0,22 = 0,78. Kilen er 0,846/0,78 = 1,0846.<br>3. Kapitalkostnaden før skatt: 6 % × 1,0846 = <b>6,51 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>5,08 %</b> = glemt å dele på 1 − t: 6 % × 0,846.<br><b>5,53 %</b> = brøken snudd: 6 % × 0,78/0,846. Kravet kan ikke bli lavere enn uten skatt når fradraget er for lite.<br><b>6,00 %</b> = antatt at skatten er nøytral. Det krever β = 1.</p><p><b>Kontroll.</b> Grensene: β = 1 gir 6,00 %, β = 0 gir 6 %/0,78 = 7,69 %. Uttrykket er lineært i β, så β = 0,7 ligger 30 % av veien fra 6,00 % mot 7,69 %: 6,00 + 0,3 × 1,69 = 6,51 %. ✓</p><p><b>Strategi med minuspoeng.</b> Med β under 1 ligger svaret mellom r og r/(1 − t), altså mellom 6,00 % og 7,69 %. Det stryker 5,08 % og 5,53 % uten regning.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Regjeringen vurderer å endre avskrivningsreglene eller skattesatsen. Hvilket utsagn er riktig?</p>",
+          "options": [
+            "Skatten er nøytral bare hvis nåverdien av fradragene er lik hele kostnaden, uansett sats",
+            "En lavere selskapsskatt fjerner kilen, selv om bare 70 % kommer til fradrag",
+            "Når bare 70 % kommer til fradrag, investerer bedriften mer enn den ville gjort uten skatt",
+            "Er nåverdien av fradragene større enn kostnaden, blir skatten nøytral"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> β er nåverdien av fradragene som andel av kostnaden (forelesning 5, lysbilde 18). Kilen (1 − tβ)/(1 − t) er lik 1 bare når β = 1, altså når nåverdien av fradragene er lik hele kostnaden. Da er skattepliktig og virkelig overskudd like i nåverdi. Skatten treffer bare den rene profitten, uansett sats. Utgiftsføring straks er den enkleste måten å få β = 1 på (lysbilde 20). <b>Utsagnet om nåverdien av fradragene er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Lavere selskapsskatt</b> = kilen blir mindre, men ikke 1. Med 11 % blir den (1 − 0,11 × 0,7)/0,89 = 1,037.<br><b>Investerer mer</b> = feil retning. Kilen over 1 gir høyere krav og for lite investering.<br><b>Nåverdi større enn kostnaden</b> = β over 1 gir en kile under 1. Bedriften investerer da for mye, så skatten er heller ikke nøytral (lysbilde 19).</p>"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Liv, utbyttet og boliglånet",
+      "points": 3,
+      "topic": "Aksjonærmodellen",
+      "chapters": [
+        9,
+        5
+      ],
+      "body": "<p>Liv eier aksjer i et norsk selskap som deler ut hele overskuddet etter skatt. Hun har også et boliglån med rentefradrag. Hvilket utsagn er i tråd med pensum?</p>",
+      "options": [
+        "Fritaksmetoden hindrer at utbyttet hennes skattlegges både i selskapet og hos henne",
+        "Låner hun med rentefradrag og plasserer pengene skattefritt til samme rente, er gevinsten betaling for risiko",
+        "Klientellbasert arbitrasje gjør at skattefavoriserte aktiva havner hos investorer med lav marginalskatt",
+        "Skjermingsfradraget gjør at normalavkastningen på aksjene hennes bare skattlegges i selskapet"
+      ],
+      "answer": 3,
+      "solution": "<p><b>Regelen.</b> Utdelt overskudd skattlegges med 22 % i selskapet og 37,84 % av resten hos eieren, samlet 51,52 %. Skjermingsrenten er risikofri rente etter skatt, så normalavkastningen slipper eierskatt. Bare meravkastningen treffes av begge skattene (manualen 9.3). <b>Utsagnet om skjermingsfradraget er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Fritaksmetoden</b> = løser kjedebeskatning når overskuddet passerer flere selskaper. Den gjelder ikke personlige eiere.<br><b>Betaling for risiko</b> = skattearbitrasje krever verken egenkapital eller risiko. Gevinsten er bare satsdifferansen, r × L × (t<sub>fradrag</sub> − t<sub>avkastning</sub>) (manualen 9.2).<br><b>Lav marginalskatt</b> = motsatt. Det skattefavoriserte aktivumet havner hos den med høyest marginalskatt, som har mest å spare.</p>"
+    },
+    {
+      "n": 4,
+      "title": "Sigve og formuen i 2026",
+      "points": 6,
+      "topic": "Formuesskatt",
+      "chapters": [
+        7
+      ],
+      "body": "<p>Sigve er enslig. Ved utgangen av 2026 eier han børsnoterte aksjer med markedsverdi kr 25 000 000, kr 2 000 000 i bankinnskudd og en leilighet i Trondheim som han leier ut. Leiligheten har markedsverdi kr 6 000 000. Selv bor han til leie. Gjelden hans er kr 6 600 000. Bruk skattereglene for 2026.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hva er Sigves nettoformue?</p>",
+          "options": [
+            "Kr 21 400 000",
+            "Kr 21 440 000",
+            "Kr 17 900 000",
+            "Kr 22 400 000"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Aksjer verdsettes til 80 %. Sekundærbolig og bankinnskudd verdsettes til 100 % (manualen 7.2). Gjelden fordeles etter bruttoverdiene. Den delen som faller på aksjene, reduseres med aksjerabatten på 20 % (skatteloven § 4-19, manualen 7.4). En leilighet Sigve leier ut og ikke bor i, er sekundærbolig.</p><p><b>Regnestykket.</b></p><p>1. Formuesverdi: 25 000 000 × 80 % + 6 000 000 + 2 000 000 = 20 000 000 + 8 000 000 = kr 28 000 000.<br>2. Gjeldsreduksjon: 6 600 000 × 25 000 000/33 000 000 × 20 % = 5 000 000 × 20 % = kr 1 000 000. Fradragsberettiget gjeld: 6 600 000 − 1 000 000 = kr 5 600 000.<br>3. Nettoformue: 28 000 000 − 5 600 000 = <b>kr 22 400 000</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 21 400 000</b> = hele gjelden trukket fra uten reduksjon.<br><b>Kr 21 440 000</b> = utleieleiligheten behandlet som næringseiendom med 80 % og gjeldsreduksjon. En utleid boligleilighet er sekundærbolig.<br><b>Kr 17 900 000</b> = leiligheten verdsatt til 25 % som primærbolig. Sigve bor ikke der.</p><p><b>Kontroll.</b> Gjeldsreduksjonen er gjelden ganget med rabatten i kroner delt på bruttoformuen: 6 600 000 × 5 000 000/33 000 000 = 1 000 000. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Hvor mye formuesskatt betaler han?</p>",
+          "options": [
+            "Kr 205 900",
+            "Kr 205 000",
+            "Kr 195 000",
+            "Kr 225 500"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Formuesskatten for 2026 er 1,0 % av nettoformuen mellom bunnfradraget på kr 1 900 000 og kr 21 500 000. Det som overstiger kr 21 500 000, skattlegges med 1,1 % (enslig, manualen 7.1).</p><p><b>Regnestykket.</b></p><p>1. Trinn 1: (21 500 000 − 1 900 000) × 1,0 % = kr 196 000.<br>2. Trinn 2: (22 400 000 − 21 500 000) × 1,1 % = kr 9 900.<br>3. Sum: 196 000 + 9 900 = <b>kr 205 900</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 205 000</b> = 1,0 % av hele grunnlaget. Trinn 2 er glemt.<br><b>Kr 195 000</b> = følgefeil fra nettoformuen kr 21 400 000 uten gjeldsreduksjon. Da ligger formuen under kr 21 500 000.<br><b>Kr 225 500</b> = 1,1 % av hele grunnlaget over bunnfradraget.</p><p><b>Kontroll.</b> 1,0 % av (22 400 000 − 1 900 000) = 205 000, pluss 0,1 % × 900 000 = 900. Sum 205 900. ✓</p>"
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Stortinget og formuesskatten",
+      "points": 3,
+      "topic": "Formuesskatt",
+      "chapters": [
+        8
+      ],
+      "body": "<p>Stortinget diskuterer om den årlige formuesskatten skal beholdes. Hvilket utsagn er i tråd med pensum?</p>",
+      "options": [
+        "Registerstudier av tett eide selskaper viser at den reduserer sysselsettingen i selskapene",
+        "En uventet engangsskatt på formue vrir like mye som en årlig skatt med samme proveny",
+        "Den treffer normalavkastningen hardt og meravkastningen ikke, motsatt av det teorien anbefaler",
+        "Jo kortere tid du sparer, desto høyere blir den effektive skatten på konsumet du utsetter til senere"
+      ],
+      "answer": 2,
+      "solution": "<p><b>Regelen.</b> Adam og Miller: en årlig formuesskatt tar det samme kronebeløpet uansett avkastning. Med formue 100 og 1 % skatt tar den 1 av en normalavkastning på 5, men fortsatt bare 1 av en avkastning på 20. Teorien sier at det er meravkastningen som bør beskattes (manualen 8.5). <b>Utsagnet om normalavkastningen er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Sysselsettingen</b> = Bjerksund og Schjelderup viser til registerstudier som ikke finner støtte for det, snarere en positiv sammenheng.<br><b>Engangsskatt</b> = en uventet og troverdig engangsskatt vrir ingenting, fordi ingen kan tilpasse seg. Problemet er troverdigheten.<br><b>Kortere sparing</b> = motsatt. Kumulasjonen gjør skatten høyere jo lenger konsumet utsettes.</p>"
+    },
+    {
+      "n": 6,
+      "title": "To like hytter i to kommuner",
+      "points": 3,
+      "topic": "Skatteincidens",
+      "chapters": [
+        7,
+        11
+      ],
+      "body": "<p>To like hytter ligger i hver sin kommune. Fjellvik kommune har ingen eiendomsskatt. Hytta der er nettopp solgt for kr 3 200 000. Dalbygd kommune har eiendomsskatt på 3 promille av et grunnlag på kr 2 000 000. Skatten betales i slutten av hvert år. Kjøperne regner med at begge ordningene varer evig og bruker 4 % diskonteringsrente. Ellers verdsetter de hyttene likt. Hvor mye lavere blir prisen på hytta i Dalbygd?</p>",
+      "options": [
+        "Kr 0",
+        "Kr 6 000",
+        "Kr 150 000",
+        "Kr 75 000"
+      ],
+      "answer": 2,
+      "solution": "<p><b>Regelen.</b> En skatt som følger eiendommen, kapitaliseres i prisen: kjøperen betaler bare det hytta er verdt etter skatt. Prisforskjellen er nåverdien av alle framtidige skattebeløp (manualen 11.6 og forelesning 9, siste lysbilde). En evig strøm har nåverdi lik beløpet delt på renten. Prisen i Fjellvik er støy.</p><p><b>Regnestykket.</b></p><p>1. Årlig eiendomsskatt: 2 000 000 × 3 ‰ = kr 6 000.<br>2. Nåverdi av evig strøm: 6 000/0,04 = kr 150 000.<br>3. Hytta i Dalbygd koster derfor <b>kr 150 000</b> mindre.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 0</b> = tror kjøperen bare betaler skatten år for år uten at prisen påvirkes. Med lik pris ville ingen kjøpt i Dalbygd, så prisen må ned til kjøperne er likegyldige.<br><b>Kr 6 000</b> = bare ett års skatt. Skatten betales hvert år for alltid.<br><b>Kr 75 000</b> = halvparten av nåverdien. Funnet om at nesten halvparten bæres av utleieren, gjelder leiemarkedet (Carroll og Yinger), ikke kjøpere som verdsetter hyttene likt.</p><p><b>Kontroll.</b> 4 % av 150 000 er 6 000. Rabatten i prisen gir akkurat nok renter til å dekke skatten hvert år. ✓</p>"
+    },
+    {
+      "n": 7,
+      "title": "Regjeringen og to skatter på formuen",
+      "points": 3,
+      "topic": "Formuesskatt som avkastningsskatt",
+      "chapters": [
+        8
+      ],
+      "body": "<p>Regjeringen vurderer å erstatte en skatt på 30 % av avkastningen med en formuesskatt som gir samme proveny. Formuen gir 5 % avkastning i året. Formuesskatten skal regnes av formuen ved utgangen av året, etter at avkastningen er lagt til. Hvilken formuesskattesats gir samme proveny? Svar med to desimaler.</p>",
+      "options": [
+        "1,50 %",
+        "1,43 %",
+        "1,58 %",
+        "1,15 %"
+      ],
+      "answer": 1,
+      "solution": "<p><b>Regelen.</b> Sett provenyene like. Avkastningsskatten tar t × r × W. Formuesskatten tar τ av formuen ved årets slutt, W(1 + r). Da er τ = t × r/(1 + r) (manualen 8.1).</p><p><b>Regnestykket.</b></p><p>1. Avkastningsskatt per krone formue ved inngangen: 30 % × 5 % = 0,015.<br>2. Grunnlaget for formuesskatten er 1,05 per krone ved inngangen.<br>3. τ = 0,015/1,05 = <b>1,43 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>1,50 %</b> = formuesskatten regnet av formuen ved inngangen: τ = t × r.<br><b>1,58 %</b> = ganget med 1 + r i stedet for å dele: 0,015 × 1,05.<br><b>1,15 %</b> = delt på 1 + t i stedet for 1 + r: 0,015/1,30.</p><p><b>Kontroll.</b> Formue 100: avkastningen 5 gir 1,50 i avkastningsskatt. Formuesskatten 1,4286 % av 105 gir 1,50. ✓</p><p><b>Strategi med minuspoeng.</b> Teksten sier at skatten regnes etter at avkastningen er lagt til. Da må svaret ligge litt under t × r = 1,50 %.</p>"
+    },
+    {
+      "n": 8,
+      "title": "Avgift på en vare og moms på en avis",
+      "points": 9,
+      "topic": "Skatteincidens",
+      "chapters": [
+        11
+      ],
+      "body": "<p>Etterspørselen etter en vare er x = 900 − 30P, der P er prisen kjøperne betaler. Tilbudet er x = 20p − 100, der p er prisen selgerne får. Myndighetene innfører en avgift på kr 5 per enhet. Den skal betales inn av kjøperne.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hvor mye betaler kjøperne til sammen per enhet, avgiften medregnet?</p>",
+          "options": [
+            "Kr 22",
+            "Kr 17",
+            "Kr 25",
+            "Kr 23"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Det spiller ingen rolle hvem som betaler avgiften inn (forelesning 9, lysbilde 14, manualen 11.1). Likevekten er D(p + t) = S(p): kjøperne betaler p + t, selgerne får p.</p><p><b>Regnestykket.</b></p><p>1. 900 − 30(p + 5) = 20p − 100 gir 850 = 50p, så p = 17.<br>2. Kjøperne betaler 17 + 5 = <b>kr 22</b> til sammen.<br>3. Uten avgift er prisen 20 (900 − 30P = 20P − 100). Kjøperne bærer 2 kroner, selgerne 3.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 17</b> = prisen selgerne får. Kjøperne betaler avgiften i tillegg.<br><b>Kr 25</b> = hele avgiften lagt på den gamle prisen. Det krever perfekt elastisk tilbud eller perfekt uelastisk etterspørsel.<br><b>Kr 23</b> = andelene byttet om: kjøperne bærer 60 % i stedet for 40 %.</p><p><b>Kontroll.</b> Kjøpernes andel er S′/(S′ − D′) = 20/(20 + 30) = 40 %. 40 % × 5 = 2. Da er 20 + 2 = 22. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Myndighetene vurderer senere å doble avgiften til kr 10. Hvilket utsagn er riktig?</p>",
+          "options": [
+            "Dødvektstapet dobles, fordi det øker i takt med avgiften",
+            "Provenyet til staten dobles, fordi avgiften per enhet dobles",
+            "Kjøperne bærer en større andel av avgiften enn før",
+            "Dødvektstapet blir fire ganger så stort"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Dødvektstapet er trekanten ½ × t × (x<sub>0</sub> − x<sub>t</sub>). Med lineære kurver faller kvantumet proporsjonalt med avgiften, så tapet vokser med kvadratet av avgiften (manualen 11.5).</p><p><b>Regnestykket.</b></p><p>1. Uten avgift: x<sub>0</sub> = 900 − 30 × 20 = 300. Med kr 5: x = 20 × 17 − 100 = 240. Tap ½ × 5 × 60 = 150.<br>2. Med kr 10: 900 − 30(p + 10) = 20p − 100 gir p = 14 og x = 180. Tap ½ × 10 × 120 = 600.<br>3. 600/150 = 4. <b>Dødvektstapet blir fire ganger så stort.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Dobles</b> = glemmer at både høyden og grunnlinjen i trekanten dobles.<br><b>Provenyet dobles</b> = provenyet er t × x: 5 × 240 = 1 200 mot 10 × 180 = 1 800. Kvantumet faller.<br><b>Kjøperne bærer mer</b> = med lineære kurver er andelen konstant, 40 % av hver krone avgift.</p>"
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>En avis selger abonnementer til lesere og annonseplass til annonsører. Staten innfører merverdiavgift på abonnementene. Hvilket utsagn er i tråd med pensum?</p>",
+          "options": [
+            "Avisen kan senke abonnementsprisen for å holde på leserne og annonseinntektene",
+            "Avisen må øke abonnementsprisen med hele avgiften, fordi det er avisen som betaler den inn",
+            "En avgift på abonnementet kan aldri gi lavere pris for leserne",
+            "Abonnementsprisen kan bare falle hvis etterspørselen etter avisen er helt uelastisk"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> En avis er en plattform med to gjensidig avhengige kundegrupper: flere lesere gjør annonseplassen mer verdt. Da gjelder ikke pris lik grensekostnad. En avgift på den ene siden kan få plattformen til å senke prisen der (forelesning 9, lysbilde 24 og 25, manualen 11.6). <b>Avisen kan senke prisen.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Må øke med hele avgiften</b> = blander formell og reell insidens. Den som betaler inn, er ikke nødvendigvis den som bærer avgiften.<br><b>Aldri lavere pris</b> = det er nettopp det overraskende resultatet: en vare som skattlegges, kan falle i pris (lysbilde 7).<br><b>Helt uelastisk etterspørsel</b> = da bærer leserne hele avgiften. Prisen stiger med hele avgiften (forelesning 9, lysbilde 15). Prisfallet kommer av at de to sidene henger sammen, ikke av elastisiteten.</p>"
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "title": "Tre spørsmål om rettferdighet og arbeid",
+      "points": 9,
+      "topic": "Progressivitet",
+      "chapters": [
+        10
+      ],
+      "body": "<p>Tre spørsmål om skattesystemet. Hvert spørsmål står for seg.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Synne og Oskar har hver en inntekt på kr 1 000 000 i 2026. Synne har bare lønn. Oskar har bare renteinntekter. Synne betaler mest skatt. Hvilket utsagn er riktig?</p>",
+          "options": [
+            "Forskjellen bryter vertikal likhet, fordi Synne betaler mer enn Oskar",
+            "Forskjellen bryter horisontal likhet, fordi like tilfeller ikke behandles likt",
+            "Forskjellen følger av evneprinsippet, fordi lønn gir større skatteevne enn renter",
+            "Forskjellen viser at systemet er progressivt, fordi lønn skattlegges i flere trinn"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Horisontal likhet: like tilfeller skal behandles likt. Vertikal likhet: den med større evne skal betale mer. Begge hviler på evneprinsippet. Det duale systemet skattlegger lønn med opptil 47,4 % og kapitalinntekt med 22 %, så to med samme inntekt kan møte ulik skatt. Bruddet begrunnes med at kapitalen er mer bevegelig (manualen 10.1). <b>Horisontal likhet er brutt.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Vertikal likhet</b> = gjelder personer med ulik evne. Synne og Oskar har samme inntekt.<br><b>Følger av evneprinsippet</b> = skatteevnen måles ved inntekten, ikke ved hvor den kommer fra. Forskjellen er et brudd, ikke en anvendelse.<br><b>Progressivt</b> = progressivitet handler om at gjennomsnittsskatten stiger med inntekten. Her er inntekten lik.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Etter en skattereform har Brage høyere marginalskatt, men lavere gjennomsnittsskatt enn før. Fritid er et normalt gode for ham. Hva skjer med arbeidstilbudet hans?</p>",
+          "options": [
+            "Virkningen er ubestemt, fordi inntekts- og substitusjonsvirkningen trekker hver sin vei",
+            "Han jobber mindre, fordi begge virkningene trekker samme vei",
+            "Han jobber mer, fordi lavere gjennomsnittsskatt gjør ham rikere",
+            "Han jobber mer, fordi han må jobbe mer for å holde inntekten etter skatt"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Marginalskatten styrer substitusjonsvirkningen: høyere marginalskatt gjør en time arbeid mindre verdt, så han jobber mindre. Gjennomsnittsskatten styrer inntektsvirkningen: lavere gjennomsnittsskatt gjør ham rikere. Når fritid er et normalt gode, kjøper han da mer fritid (manualen 10.2). <b>Begge trekker mot mindre arbeid.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Ubestemt</b> = gjelder når virkningene trekker hver sin vei, for eksempel når både marginal- og gjennomsnittsskatten stiger. Her trekker begge samme vei.<br><b>Jobber mer fordi rikere</b> = feil retning. Rikere betyr mer fritid når fritid er et normalt gode.<br><b>Holde inntekten</b> = inntektsvirkningen av en høyere gjennomsnittsskatt. Her faller gjennomsnittsskatten.</p>"
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>Land A og land B har samme spredning i produktivitet og like sterk ulikhetsaversjon. I land A er den kompenserte arbeidstilbudselastisiteten lav. I land B er den høy. Hva sier teorien om optimal inntektsskatt?</p>",
+          "options": [
+            "Land A bør ha høyest marginalskatt, fordi skatten der gir minst vridning",
+            "Land B bør ha høyest marginalskatt, fordi skattegrunnlaget der reagerer mest",
+            "Begge bør ha like høy marginalskatt, fordi bare ulikhetsaversjonen avgjør nivået",
+            "Begge bør ha sterkt stigende marginalskatt, slik at omfordelingen kommer fra satsene"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Mirrlees: optimal marginalskatt er høyere jo lavere den kompenserte elastisiteten er, jo større spredningen i produktivitet er og jo sterkere ulikhetsaversjonen er. Løsningen er nesten lineær. Omfordelingen kommer fra bunnfradraget (manualen 10.5). <b>Land A bør ha høyest marginalskatt.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Land B</b> = fortegnet på elastisiteten snudd, den vanligste feilversjonen. Et grunnlag som reagerer mye, gjør skatten dyr.<br><b>Bare ulikhetsaversjonen</b> = den er én av tre faktorer. Elastisiteten skiller landene her.<br><b>Sterkt stigende</b> = Mirrlees fant en nesten lineær skatt med konstant eller svakt fallende marginalskatt.</p>"
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "title": "Fjordtek AS, Tyskland og Irland",
+      "points": 9,
+      "topic": "Internasjonal skatt",
+      "chapters": [
+        13
+      ],
+      "body": "<p>Fjordtek AS i Bergen lager måleutstyr og selger til kunder i Tyskland. Konsernet har også et søsterselskap i Irland.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hvilket av forholdene gir Fjordtek fast driftssted i Tyskland etter OECDs mønsteravtale?</p>",
+          "options": [
+            "En byggeplass i Tyskland der Fjordtek monterer utstyr i seks måneder",
+            "Salg til tyske kunder gjennom nettbutikken, med levering fra Bergen",
+            "En ansatt selger i München som jevnlig inngår bindende avtaler for Fjordtek",
+            "Et innkjøpskontor i Berlin som kjøper inn komponenter til fabrikken i Bergen"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Fast driftssted krever et fast forretningssted som virksomheten helt eller delvis drives gjennom. Agentregelen gir fast driftssted også uten lokaler: en representant som ikke er uavhengig og jevnlig inngår bindende kontrakter for selskapet. En byggeplass gir fast driftssted først når arbeidet varer ut over tolv måneder. Forberedende virksomhet og hjelpevirksomhet, som et innkjøpskontor, gir ikke fast driftssted (manualen 13.2). <b>Den ansatte selgeren i München gir fast driftssted.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Byggeplass i seks måneder</b> = under terskelen på tolv måneder i mønsteravtalen.<br><b>Nettbutikk fra Bergen</b> = ingen forretningssted i Tyskland. Det er dette hullet BEPS skal tette.<br><b>Innkjøpskontor</b> = hjelpevirksomhet for fabrikken i Bergen. Verdien skapes ikke der.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Fjordtek kjøper 20 000 komponenter i året fra søsterselskapet i Irland. Internprisen er kr 900 per stykk. Uavhengige parter ville handlet til kr 600. Selskapsskatten er 22 % i Norge og 12,5 % i Irland. Anta at internprisen blir godtatt. Hvor mye sparer konsernet i skatt per år?</p>",
+          "options": [
+            "Kr 570 000",
+            "Kr 1 320 000",
+            "Kr 750 000",
+            "Kr 1 710 000"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Den høye internprisen flytter overskudd fra Norge til Irland. Flyttet overskudd = (internpris − armlengdepris) × volum. Konsernet sparer satsforskjellen på det flyttede beløpet (manualen 13.5).</p><p><b>Regnestykket.</b></p><p>1. Flyttet overskudd: (900 − 600) × 20 000 = kr 6 000 000.<br>2. Satsforskjell: 22 % − 12,5 % = 9,5 prosentpoeng.<br>3. Besparelse: 6 000 000 × 9,5 % = <b>kr 570 000</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 1 320 000</b> = bare den norske skatten på 6 000 000. Glemmer at Irland skattlegger beløpet med 12,5 %.<br><b>Kr 750 000</b> = den irske skatten på beløpet, ikke besparelsen.<br><b>Kr 1 710 000</b> = satsforskjellen ganget med hele internprisen: 900 × 20 000 × 9,5 %. Bare overprisen flytter overskudd.</p><p><b>Kontroll.</b> Norge taper 6 000 000 × 22 % = 1 320 000. Irland får 6 000 000 × 12,5 % = 750 000. Konsernet sparer 1 320 000 − 750 000 = 570 000. ✓</p>"
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>Skattemyndighetene vil vite mer om hvordan slike konsern flytter overskudd. Hvilket utsagn om tiltakene mot skatteparadiser er i tråd med pensum?</p>",
+          "options": [
+            "BEPS har gjort de fleste oppleggene for å flytte overskudd til lavskatteland ulovlige",
+            "Den globale minimumsskatten fjerner hemmeligholdet i skatteparadisene",
+            "USA deltar i CRS og ligger derfor lavt på listene over hemmelighold",
+            "CRS gir informasjon bare til skattemyndighetene. Ingen tredjepart får innsyn"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> CRS er automatisk informasjonsutveksling mellom skattemyndighetene i om lag 160 land. Avtalene gir ikke mer åpenhet for tredjepart. Bare skattemyndighetene får informasjonen (forelesning 11, lysbilde 51, manualen 13.6). <b>Utsagnet om CRS er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>BEPS</b> = de fleste av oppleggene er ikke ulovlige. BEPS er OECDs arbeid mot uthuling av skattegrunnlag og overskuddsflytting.<br><b>Minimumsskatten</b> = angriper satsen, ikke hemmeligholdet.<br><b>USA</b> = deltar ikke i CRS. På Financial Secrecy Index ligger USA høyt, bak Caymanøyene.</p>"
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "title": "Ingunn og utbyttet fra Sveits",
+      "points": 3,
+      "topic": "Internasjonal skatt",
+      "chapters": [
+        13,
+        5
+      ],
+      "body": "<p>Ingunn bor i Norge og eier aksjer i det sveitsiske selskapet Alpenwerk AG hele året. Kostprisen er kr 1 200 000. Skjermingsrenten for året er 3,5 %. Hun får kr 60 000 i utbytte. Sveits trekker 15 % kildeskatt. Skatteavtalen bruker kreditmetoden. Eierskatten er 22 % og oppjusteringsfaktoren 1,72. Hvor mye skatt betaler Ingunn til Norge på utbyttet? Svar med to desimaler.</p>",
+      "options": [
+        "Kr 3 405,60",
+        "Kr 0,00",
+        "Kr 6 811,20",
+        "Kr −2 188,80"
+      ],
+      "answer": 1,
+      "solution": "<p><b>Regelen.</b> Skjermingen gjelder også aksjer i utenlandske selskaper (manualen 5.3). Kreditfradraget er det laveste av kildeskatten og den norske skatten på samme inntekt. Restskatten til Norge kan ikke bli negativ. Ukreditert kildeskatt går som hovedregel tapt (manualen 13.3).</p><p><b>Regnestykket.</b></p><p>1. Norsk skatt før kredit: (60 000 − 1 200 000 × 3,5 %) × 1,72 × 22 % = (60 000 − 42 000) × 37,84 % = kr 6 811,20.<br>2. Kildeskatt: 60 000 × 15 % = kr 9 000. Kreditfradrag: det laveste av 9 000 og 6 811,20, altså 6 811,20.<br>3. Norsk skatt: 6 811,20 − 6 811,20 = <b>kr 0,00</b>. Kr 2 188,80 av kildeskatten får ingen kredit.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 3 405,60</b> = kildeskatten trukket fra grunnlaget som et fradrag: (60 000 − 9 000 − 42 000) × 37,84 %.<br><b>Kr 6 811,20</b> = ingen kredit for kildeskatten.<br><b>Kr −2 188,80</b> = kredit for hele kildeskatten, slik at Norge betaler tilbake. Kreditten har et tak.</p><p><b>Kontroll.</b> Samlet skatt er 9 000, altså 15 % av utbyttet. Under kreditmetoden ender du på den høyeste av de to skattene: 9 000 mot 6 811,20. ✓</p><p><b>Strategi med minuspoeng.</b> Restskatten kan ikke bli negativ. Det stryker det negative tallet med en gang.</p>"
+    },
+    {
+      "n": 12,
+      "title": "Maren og maleriet",
+      "points": 6,
+      "topic": "Forsikring og forventet nytte",
+      "chapters": [
+        17
+      ],
+      "body": "<p>Marens samlede formue er kr 1 000 000. Av dette er kr 510 000 et maleri. Sannsynligheten for at maleriet blir stjålet i løpet av året, er 10 %. Da mister hun hele verdien av det. Nyttefunksjonen hennes er U(W) = √W.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hva er den høyeste premien Maren er villig til å betale for en forsikring med full dekning? Rund av til nærmeste krone.</p>",
+          "options": [
+            "Kr 51 000",
+            "Kr 96 900",
+            "Kr 30 000",
+            "Kr 59 100"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Den høyeste premien gjør henne likegyldig: √(W − P) = E[U] uten forsikring, så P = W − CE, der CE = (E[U])² (manualen 17.3). Tyveriet tar bare maleriet, ikke hele formuen.</p><p><b>Regnestykket.</b></p><p>1. E[U] = 0,9 × √1 000 000 + 0,1 × √490 000 = 0,9 × 1 000 + 0,1 × 700 = 970.<br>2. Sikkerhetsekvivalent: 970² = kr 940 900.<br>3. Høyeste premie: 1 000 000 − 940 900 = <b>kr 59 100</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 51 000</b> = forventet tap, 10 % × 510 000. En risikoavers betaler mer enn det.<br><b>Kr 96 900</b> = regnet som om maleriet var hele formuen: 0,9 × √510 000 gir CE 413 100. Premien blir 510 000 − 413 100 = 96 900.<br><b>Kr 30 000</b> = nyttetapet 1 000 − 970 = 30 ganget med 1 000 i stedet for å gå via sikkerhetsekvivalenten.</p><p><b>Kontroll.</b> Premien skal ligge mellom forventet tap (51 000) og hele tapet (510 000). Og √(1 000 000 − 59 100) = √940 900 = 970. ✓</p><p><b>Strategi med minuspoeng.</b> Kr 30 000 ligger under forventet tap og kan strykes uten regning.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Hvor stor er risikopremien hennes?</p>",
+          "options": [
+            "Kr 59 100",
+            "Kr 51 000",
+            "Kr 8 100",
+            "Kr 45 900"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Risikopremien er forventet formue minus sikkerhetsekvivalenten (manualen 17.1). Den er også den høyeste premien minus forventet tap.</p><p><b>Regnestykket.</b></p><p>1. Forventet formue: 1 000 000 − 0,1 × 510 000 = kr 949 000.<br>2. Sikkerhetsekvivalent fra a: kr 940 900.<br>3. Risikopremie: 949 000 − 940 900 = <b>kr 8 100</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 59 100</b> = den høyeste premien, som også inneholder forventet tap.<br><b>Kr 51 000</b> = forventet tap, altså den aktuarisk rettferdige premien.<br><b>Kr 45 900</b> = følgefeil: 96 900 − 51 000, med maleriet som hele formuen.</p><p><b>Kontroll.</b> Høyeste premie = forventet tap + risikopremie: 51 000 + 8 100 = 59 100. ✓</p>"
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "title": "Torvald og et mer urolig aksjemarked",
+      "points": 3,
+      "topic": "Porteføljevalg",
+      "chapters": [
+        14
+      ],
+      "body": "<p>Torvald er pensjonist og har bare finansiell formue. Han har 48 % av formuen i et globalt aksjefond og resten i banken. Andelen er optimal for ham. Så stiger standardavviket til aksjefondet fra 15 % til 20 %. Forventet avkastning, bankrenten og risikoaversjonen hans er uendret. Hva er den nye optimale andelen i aksjefondet? Svar med én desimal.</p>",
+      "options": [
+        "27,0 %",
+        "36,0 %",
+        "48,0 %",
+        "64,0 %"
+      ],
+      "answer": 0,
+      "solution": "<p><b>Regelen.</b> Mertons andel er w* = (E[r] − r<sub>f</sub>)/(γσ²). Med uendret premie og γ er andelen omvendt proporsjonal med variansen (manualen 14.4).</p><p><b>Regnestykket.</b></p><p>1. w* = premie/(γσ²). Premien og γ står fast, så bare σ² endres.<br>2. Variansen går fra 0,15² = 0,0225 til 0,20² = 0,04, altså 1,7778 ganger så høy.<br>3. Ny andel: 48 %/1,7778 = <b>27,0 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>36,0 %</b> = andelen justert med σ i stedet for σ²: 48 % × 15/20.<br><b>48,0 %</b> = uendret. Andelen avhenger av risikoen.<br><b>64,0 %</b> = forholdet snudd: 48 % × 20/15. Mer risiko gir lavere andel, ikke høyere.</p><p><b>Kontroll.</b> Sett premien til 5 %: γ = 0,05/(0,48 × 0,0225) = 4,63. Da er 0,05/(4,63 × 0,04) = 27,0 %. Svaret avhenger ikke av premien. ✓</p><p><b>Strategi med minuspoeng.</b> Mer risiko og samme premie gir lavere andel. Det stryker de to høyeste alternativene.</p>"
+    },
+    {
+      "n": 14,
+      "title": "Sølvi og aksjen i Polarnett ASA",
+      "points": 3,
+      "topic": "Porteføljevalg",
+      "chapters": [
+        14
+      ],
+      "body": "<p>Aksjen i Polarnett ASA har beta 1,4 og standardavvik 45 %. Markedsporteføljen har forventet avkastning 8 % og standardavvik 18 %. Risikofri rente er 3 %. Sølvi vurderer å kjøpe aksjen. Hvilken avkastning bør hun forvente av aksjen hvis CAPM holder?</p>",
+      "options": [
+        "10,0 %",
+        "11,2 %",
+        "15,5 %",
+        "8,0 %"
+      ],
+      "answer": 0,
+      "solution": "<p><b>Regelen.</b> CAPM: r = r<sub>f</sub> + β(r<sub>m</sub> − r<sub>f</sub>). Markedet betaler bare for risiko som ikke kan diversifiseres bort, altså samvariasjonen med markedet målt ved beta (ForelesningAksjesparing, lysbilde 70 og 71). Standardavvikene er støy.</p><p><b>Regnestykket.</b></p><p>1. Markedets risikopremie: 8 % − 3 % = 5 %.<br>2. Aksjens risikopremie: 1,4 × 5 % = 7 %.<br>3. Forventet avkastning: 3 % + 7 % = <b>10,0 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>11,2 %</b> = beta ganget med markedets avkastning, 1,4 × 8 %, uten å trekke fra den risikofrie renten.<br><b>15,5 %</b> = totalrisikoen priset: 45/18 = 2,5 ganger markedets premie. Den usystematiske delen kan diversifiseres bort og gir ingen premie.<br><b>8,0 %</b> = markedets avkastning. Beta over 1 betyr at aksjen samvarierer mer med markedet og skal gi mer.</p><p><b>Kontroll.</b> Beta 1 gir 8 %, beta 0 gir 3 %. Beta 1,4 skal ligge 0,4 markedspremier over 8 %: 8 + 0,4 × 5 = 10. ✓</p>"
+    },
+    {
+      "n": 15,
+      "title": "Agnes og serielånet",
+      "points": 3,
+      "topic": "Lån",
+      "chapters": [
+        16
+      ],
+      "body": "<p>Agnes tjener kr 2 000 000 i året. Hun tar opp et serielån på kr 1 800 000 med 4,5 % rente og 15 års løpetid. Lånet betales med én termin i slutten av hvert år. Bruk skattereglene for 2026. Hva koster første termin henne etter rentefradraget?</p>",
+      "options": [
+        "Kr 201 000",
+        "Kr 174 600",
+        "Kr 183 180",
+        "Kr 162 606"
+      ],
+      "answer": 2,
+      "solution": "<p><b>Regelen.</b> Serielån: fast avdrag L/n pluss renter på restgjelden. Bare renten gir fradrag. Fradraget er 22 % i alminnelig inntekt uansett hvor høy marginalskatten på lønn er (manualen 16.2 og 16.4). Lønnen er støy.</p><p><b>Regnestykket.</b></p><p>1. Avdrag: 1 800 000/15 = kr 120 000. Renter år 1: 1 800 000 × 4,5 % = kr 81 000. Termin: kr 201 000.<br>2. Rentefradrag: 81 000 × 22 % = kr 17 820.<br>3. Kostnad etter skatt: 201 000 − 17 820 = <b>kr 183 180</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 201 000</b> = terminen før fradraget.<br><b>Kr 174 600</b> = fradrag for avdraget i stedet for renten: 201 000 − 120 000 × 22 %. Avdrag er ingen kostnad.<br><b>Kr 162 606</b> = fradraget regnet med 47,4 %, den høyeste marginalskatten på lønn: 201 000 − 81 000 × 47,4 %.</p><p><b>Kontroll.</b> Avdrag pluss rente etter skatt: 120 000 + 81 000 × 0,78 = 120 000 + 63 180 = 183 180. ✓</p>"
+    },
+    {
+      "n": 16,
+      "title": "Åse, Eskil og tjenestepensjonen",
+      "points": 3,
+      "topic": "Pensjon",
+      "chapters": [
+        15
+      ],
+      "body": "<p>Åse er sykepleier i en kommune. Eskil er ingeniør i et privat selskap med innskuddspensjon. Hvilket utsagn om tjenestepensjonene deres er i tråd med pensum?</p>",
+      "options": [
+        "Eskils arbeidsgiver kan la være å ha tjenestepensjon, fordi bare offentlige arbeidsgivere er pålagt det",
+        "Åses ordning er en ferdig pakke, mens Eskils avhenger av hva arbeidsgiveren hans har valgt",
+        "Begge pensjonene utbetales livet ut, slik som alderspensjonen fra folketrygden",
+        "Ytelsespensjon er vanligst i privat sektor, mens offentlig sektor bare bruker innskuddspensjon"
+      ],
+      "answer": 1,
+      "solution": "<p><b>Regelen.</b> Offentlig tjenestepensjon er en ferdig pakke og utbetales livet ut. I privat sektor varierer ordningen fra bedrift til bedrift. Ni av ti har innskuddspensjon. Den utbetales som regel bare i ti år. Hybrid er vanligst i offentlig sektor (ForelesningPensjon, lysbilde 37, manualen 15.4). <b>Utsagnet om den ferdige pakken er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Bare offentlige er pålagt</b> = alle bedrifter er pålagt å ha tjenestepensjon, minst 2 % av lønn opp til 12 G.<br><b>Begge livet ut</b> = privat tjenestepensjon utbetales som regel bare i ti år.<br><b>Ytelse vanligst i privat sektor</b> = motsatt. Ni av ti i privat sektor har innskuddspensjon. I offentlig sektor er hybrid vanligst.</p>"
+    },
+    {
+      "n": 17,
+      "title": "Norwegian-aksjen og Vetles sparekonto",
+      "points": 6,
+      "topic": "Finansiell psykologi",
+      "chapters": [
+        18
+      ],
+      "body": "<p>To spørsmål om investeringsatferd. Hvert spørsmål står for seg.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>I januar 2021 handlet Norwegian-aksjen rundt kr 60, mens selskapet hadde varslet en emisjon til kr 6 til 10 per aksje. Kursen falt likevel ikke på flere dager. Over halvparten av eierne trodde på oppgang det neste året. Hvilket utsagn er i tråd med pensum?</p>",
+          "options": [
+            "Kursen holdt seg fordi markedet priset all offentlig informasjon riktig",
+            "Det rasjonelle for eierne var å kjøpe flere aksjer før emisjonen",
+            "Eierne var tapsaverse og solgte raskt for å unngå videre tap",
+            "Mange fulgte flokken. Feilprisingen varte fordi aksjen var vanskelig å shorte"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Flokkatferd er å følge mengden i stedet for egen analyse. Den kan bidra til bobler og krakk (Finansiell psykologi, lysbilde 41). I Norwegian-caset var det rasjonelle å selge og eventuelt kjøpe tilbake billig i emisjonen. Feilprisingen varte fordi tre meglerhus nektet å låne ut aksjer, så aksjen var vanskelig å shorte (manualen 18.2). <b>Utsagnet om flokken og shortingen er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Markedet priset riktig</b> = en kurs på 60 mot en emisjon til 6 til 10 er det motsatte. Små markeder som er vanskelige å shorte, er mindre effisiente.<br><b>Kjøpe flere</b> = emisjonen gjorde det billigere å kjøpe senere. Det rasjonelle var å selge.<br><b>Solgte raskt</b> = de solgte ikke. Først da en ekspertvideo kom, solgte 21 % dagen etter.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Vetle har kr 300 000 på sparekonto og eier verken aksjer eller aksjefond. Han sier at han er for risikoavers til å eie aksjer. Hvilket utsagn er i tråd med pensum?</p>",
+          "options": [
+            "En risikoavers person bør ikke eie aksjer så lenge de er risikable",
+            "Tapsaversjon trekker mot høyere aksjeandel, så forklaringen må ligge et helt annet sted",
+            "Risikoaversjon alene forklarer det ikke. Hindringen er heller faste kostnader og treghet",
+            "Det er rasjonelt, fordi forventet avkastning på aksjer er lavere enn renten i banken"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> For små beløp er nesten enhver nyttefunksjon tilnærmet lineær. Den første tusenlappen i aksjer gir en positiv forventet premie nesten uten nyttekostnad, så også en risikoavers person burde kjøpe litt. At mange ikke gjør det, peker på faste kostnader ved å komme i gang, manglende kunnskap og treghet (manualen 18.2). <b>Utsagnet om at risikoaversjon alene ikke forklarer det, er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Bør ikke eie aksjer</b> = med positiv risikopremie gir Mertons formel en positiv aksjeandel for enhver endelig risikoaversjon.<br><b>Tapsaversjon</b> = trekker mot lavere aksjeandel, ikke høyere (manualen 18.2).<br><b>Lavere enn banken</b> = aksjer har positiv forventet risikopremie i pensum.</p>"
+        }
+      ]
+    },
+    {
+      "n": 18,
+      "title": "Hallvard og vinnerfondet",
+      "points": 3,
+      "topic": "Indeksfond og aktiv forvaltning",
+      "chapters": [
+        14
+      ],
+      "body": "<p>Hallvard vil kjøpe aksjefondet som har gjort det best av alle norske fond de siste ti årene. Hvilket utsagn er i tråd med pensum?</p>",
+      "options": [
+        "Aktive fond slår i snitt indeksen etter gebyrer, men ikke før",
+        "I Buffetts veddemål slo hedgefondene indeksen, fordi de kunne investere friere",
+        "Survivorship bias får aktive fond til å se dårligere ut i statistikken enn de egentlig er",
+        "De 20 beste investorene på 70-tallet ble slått av markedet på 80-tallet"
+      ],
+      "answer": 3,
+      "solution": "<p><b>Regelen.</b> Det finnes lite persistens. De 20 beste investorene på 70-tallet gjorde det dobbelt så bra som indeksen, men ble slått av markedet på 80-tallet. De beste på 80-tallet var under middels på 90-tallet (ForelesningAksjesparing, lysbilde 89 og 90). <b>Utsagnet om toppresultatene er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Etter gebyrer, men ikke før</b> = snudd. Berk og DeMarzo viser at aktive fond slår indeksen før gebyrer, men at kundene taper på grunn av gebyrene.<br><b>Buffetts veddemål</b> = indeksen steg 85 % på ti år, hedgefondene i snitt 22 %.<br><b>Survivorship bias</b> = dårlige fond legges ned, så statistikken ser bedre ut enn virkeligheten. Malkiel fant at det gjør situasjonen enda verre.</p>"
+    }
+  ]
+},
+{
+  "id": "prove9",
+  "kind": "mock",
+  "label": "Prøveeksamen 9",
+  "minutes": 240,
+  "points": 90,
+  "format": "30 flervalg · fire alternativer · 3 poeng for rett, −1 for feil",
+  "note": "Ligner H2023 og kursgodkjenningen 2026, med vekt på finansforelesningene. Teksten gir bare situasjon, tall og satser. Noen ledd sier bare «Bruk skattereglene for 2026». Noen få har en opplysning som ikke skal brukes. Nytt stoff: skjerming som ender i tap, holdingselskap og utsatt skatt, kombinasjonsfond i gjeldsfordelingen, superprofitt, to-periodemodellen, evig leie før og etter skatt, selskapsskatt med mobil kapital, gråmarkedslån, global minimumsskatt i to land, BS-modellen, markedseffisiens, verdiaksjer, Merton med skatt, regulering av pensjon, forsikring med tre utfall, present bias, Norwegian-aksjen og dulting.",
+  "facts": [
+    "Fire timer, kalkulator tillatt. 30 flervalgsledd med fire alternativer og nøyaktig ett riktig.",
+    "3 poeng for rett svar, −1 for feil svar og 0 for ubesvart. Totalt 90 poeng.",
+    "Oppgave 1–11 er skattedelen (19 ledd). Oppgave 12–17 er finansdelen (11 ledd).",
+    "Laget for trening etter mønster fra H2023, kursgodkjenningen 2026, manualen og årets lysbilder. Det er ikke en ekte eksamen. Kurset har ikke kontrollert løsningene."
+  ],
+  "practiceNote": "Regn ferdig før du ser på alternativene. Teksten sier ikke hvilken regel som gjelder. Noen ledd har en opplysning du ikke trenger. Hvert galt alternativ er en bestemt feil: ubenyttet skjerming lagt til et tap, konsernunntaket glemt, hele kombinasjonsfondet behandlet som aksjer, strøm og rente målt ulikt, snitt på tvers av land eller w(1 − t) i stedet for w/(1 − t). Kan du stryke ett alternativ, lønner det seg å svare.",
+  "mc": {
+    "wrongFactor": -0.3333333333333333
+  },
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Synne og aksjene i Havørn ASA",
+      "points": 9,
+      "topic": "Aksjonærmodellen",
+      "chapters": [
+        5
+      ],
+      "body": "<p>Synne kjøpte aksjer i Havørn ASA for kr 500 000 i februar år 1 og eide dem ved utgangen av hvert av årene 1–4. Markedsverdien var kr 610 000 ved utgangen av år 2. Skjermingsrenten og utbyttet hun mottok, var:</p><table class=\"data\"><tr><th>År</th><th>Skjermingsrente</th><th>Utbytte</th></tr><tr><td>1</td><td class=\"n\">3,0 %</td><td class=\"n\">10 000</td></tr><tr><td>2</td><td class=\"n\">2,0 %</td><td class=\"n\">22 000</td></tr><tr><td>3</td><td class=\"n\">4,0 %</td><td class=\"n\">0</td></tr><tr><td>4</td><td class=\"n\">2,5 %</td><td class=\"n\">6 000</td></tr></table>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hva er skattepliktig utbytte i år 2?</p>",
+          "options": [
+            "Kr 6 900",
+            "Kr 7 000",
+            "Kr 12 000",
+            "Kr 11 900"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Skjermingsfradraget er grunnlaget ganget med årets skjermingsrente. Grunnlaget er kostprisen pluss ubenyttet skjerming fra tidligere år. Den framførte skjermingen trekkes i tillegg fra utbyttet. Skattepliktig utbytte er utbyttet minus årets og framført skjerming, aldri under null (manualen 5.3).</p><p><b>Regnestykket.</b></p><p>1. År 1: 500 000 × 3,0 % = 15 000. Utbyttet er 10 000, så ingenting er skattepliktig og 5 000 framføres.<br>2. År 2: grunnlaget er 500 000 + 5 000 = 505 000. Skjermingen er 505 000 × 2,0 % = 10 100. Tilgjengelig: 10 100 + 5 000 = 15 100.<br>3. Skattepliktig: 22 000 − 15 100 = <b>kr 6 900</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 7 000</b> = de 5 000 er trukket fra utbyttet, men ikke lagt til grunnlaget: 22 000 − 10 000 − 5 000.<br><b>Kr 12 000</b> = den framførte skjermingen fra år 1 er glemt: 22 000 − 10 000.<br><b>Kr 11 900</b> = grunnlaget er økt til 505 000, men de 5 000 er ikke trukket fra utbyttet: 22 000 − 10 100.</p><p><b>Kontroll.</b> Tilgjengelig skjerming 15 100 + skattepliktig 6 900 = 22 000, som er utbyttet. Ingenting framføres til år 3. Markedsverdien ved utgangen av år 2 er støy: skjermingen regnes av kostprisen, ikke av markedsverdien. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Hvor stor er akkumulert ubenyttet skjerming ved utgangen av år 4?</p>",
+          "options": [
+            "Kr 26 500",
+            "Kr 27 000",
+            "Kr 20 000",
+            "Kr 7 000"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Ubenyttet skjerming framføres på aksjen, legges til grunnlaget året etter og kan brukes mot senere utbytte. Når den er brukt opp, er grunnlaget igjen bare kostprisen (manualen 5.3).</p><p><b>Regnestykket.</b></p><p>1. År 3: ingenting er framført fra år 2, så grunnlaget er 500 000. Skjermingen 500 000 × 4,0 % = 20 000 blir ubenyttet, fordi det ikke kom utbytte.<br>2. År 4: grunnlaget er 500 000 + 20 000 = 520 000. Skjermingen er 520 000 × 2,5 % = 13 000. Tilgjengelig: 13 000 + 20 000 = 33 000.<br>3. Utbyttet på 6 000 bruker en del: 33 000 − 6 000 = <b>kr 27 000</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 26 500</b> = de 20 000 fra år 3 er ikke lagt til grunnlaget i år 4: 500 000 × 2,5 % = 12 500. Så 20 000 + 12 500 − 6 000.<br><b>Kr 20 000</b> = beholdningen ved utgangen av år 3. År 4 er ikke regnet med.<br><b>Kr 7 000</b> = bare årets rest i år 4, 13 000 − 6 000. Det som ble framført fra år 3, er glemt.</p><p><b>Kontroll.</b> Hele tabellen:</p><table class=\"data\"><tr><th>År</th><th>Grunnlag</th><th>Skjerming</th><th>Tilgjengelig</th><th>Utbytte</th><th>Skattepliktig</th><th>Ubenyttet ved årsslutt</th></tr><tr><td>1</td><td class=\"n\">500 000</td><td class=\"n\">15 000</td><td class=\"n\">15 000</td><td class=\"n\">10 000</td><td class=\"n\">0</td><td class=\"n\">5 000</td></tr><tr><td>2</td><td class=\"n\">505 000</td><td class=\"n\">10 100</td><td class=\"n\">15 100</td><td class=\"n\">22 000</td><td class=\"n\">6 900</td><td class=\"n\">0</td></tr><tr><td>3</td><td class=\"n\">500 000</td><td class=\"n\">20 000</td><td class=\"n\">20 000</td><td class=\"n\">0</td><td class=\"n\">0</td><td class=\"n\">20 000</td></tr><tr><td>4</td><td class=\"n\">520 000</td><td class=\"n\">13 000</td><td class=\"n\">33 000</td><td class=\"n\">6 000</td><td class=\"n\">0</td><td class=\"n\">27 000</td></tr></table><p>Raden for år 4: 20 000 × 1,025 + 500 000 × 2,5 % − 6 000 = 27 000. ✓</p>"
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>Synne selger alle aksjene i mars år 5 for kr 460 000. Hun har nok annen inntekt til å utnytte et fradrag. Bruk skattereglene for 2026. Hvor mye sparer hun i skatt på grunn av salget? Svar i hele kroner.</p>",
+          "options": [
+            "Kr 25 353",
+            "Kr 8 800",
+            "Kr 0",
+            "Kr 15 136"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Et realisert tap på aksjer er fradragsberettiget og oppjusteres med samme faktor som en gevinst, 1,72. Med 22 % skatt på alminnelig inntekt er hver krone tap verdt 22 % × 1,72 = 37,84 % i lavere skatt. Satsene står i k20. Ubenyttet skjerming kan redusere en gevinst til null, men kan verken skape eller øke et tap. I salgsåret gis det ingen ny skjerming (manualen 5.3, 5.4 og k18).</p><p><b>Regnestykket.</b></p><p>1. Tapet: 460 000 − 500 000 = −40 000.<br>2. De 27 000 i ubenyttet skjerming fra b går tapt. De øker ikke tapet.<br>3. Skatteverdien: 40 000 × 37,84 % = <b>kr 15 136</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 25 353</b> = den ubenyttede skjermingen er lagt til tapet: (40 000 + 27 000) × 37,84 % = 25 352,80.<br><b>Kr 8 800</b> = oppjusteringen er glemt: 40 000 × 22 %.<br><b>Kr 0</b> = tapet er behandlet som om det ikke gir fradrag. Det gjelder selskapsaksjonærer under fritaksmetoden, ikke personer.</p><p><b>Kontroll.</b> Oppjuster grunnlaget i stedet: 40 000 × 1,72 = 68 800 i fradrag. 68 800 × 22 % = 15 136. ✓</p><p><b>Strategi med minuspoeng.</b> Alternativet med 22 % uten oppjustering er alltid 58 % av det riktige. Ser du det paret, er det høyeste av de to som regel riktig.</p>"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Kasper Holding AS og to datterselskaper",
+      "points": 6,
+      "topic": "Fritaksmetoden",
+      "chapters": [
+        6
+      ],
+      "body": "<p>Kasper eier alle aksjene i Kasper Holding AS. Holdingselskapet eier 100 % av aksjene i Vestbris AS og 40 % av aksjene i Fjordglass AS. Begge er norske aksjeselskaper. Bruk skattereglene for 2026.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>I 2026 mottar Kasper Holding AS kr 3 000 000 i utbytte fra Vestbris og kr 1 500 000 fra Fjordglass. Hvor mye skatt betaler holdingselskapet på utbyttene?</p>",
+          "options": [
+            "Kr 29 700",
+            "Kr 45 000",
+            "Kr 330 000",
+            "Kr 9 900"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Fritaksmetoden gjør utbytte til et aksjeselskap i hovedsak skattefritt. Etter treprosentregelen skal likevel 3 % av utbyttet inntektsføres og skattlegges med 22 %, altså 0,66 % av utbyttet. Regelen gjelder ikke når mottakeren eier mer enn 90 % av aksjene og stemmene (konsern). Da er utbyttet helt skattefritt (manualen 6.2).</p><p><b>Regnestykket.</b></p><p>1. Vestbris er eid 100 %: konsern, så utbyttet på 3 000 000 er helt skattefritt.<br>2. Fjordglass er eid 40 %: 1 500 000 × 3 % = 45 000 inntektsføres.<br>3. Skatt: 45 000 × 22 % = <b>kr 9 900</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 29 700</b> = konsernunntaket er glemt: 0,66 % av begge utbyttene, 4 500 000.<br><b>Kr 45 000</b> = beløpet som inntektsføres, ikke skatten. 3 % er lest som skattesats.<br><b>Kr 330 000</b> = fritaksmetoden er glemt for Fjordglass: 1 500 000 × 22 %.</p><p><b>Kontroll.</b> 1 500 000 × 0,66 % = 9 900. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Kasper vil ta ut kr 2 000 000 av holdingselskapet som utbytte, enten nå eller om ti år. Anta at eierskatten blir like stor i kroner uansett når han tar ut pengene. Diskonteringsrenten er 5 %. Se bort fra skjermingsfradraget. Hva er det verdt i nåverdi å utsette eierskatten i ti år?</p>",
+          "options": [
+            "Kr 292 190",
+            "Kr 756 800",
+            "Kr 464 610",
+            "Kr 378 400"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Holdingselskapet utsetter eierskatten, men fjerner den ikke (manualen 6.3). En utsatt skatt er et rentefritt lån fra staten (6.4): verdien er skatten i dag minus nåverdien av den samme skatten betalt senere. Eierskatten er 22 % × 1,72 = 37,84 % (k20).</p><p><b>Regnestykket.</b></p><p>1. Eierskatten: 2 000 000 × 37,84 % = 756 800.<br>2. Nåverdien av å betale den om ti år: 756 800 / 1,05<sup>10</sup> = 464 610.<br>3. Verdien av utsettelsen: 756 800 − 464 610 = <b>kr 292 190</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 756 800</b> = fordelen er satt lik selve skatten. Skatten kommer tilbake om ti år. Det er bare renten på den som er gevinsten.<br><b>Kr 464 610</b> = nåverdien av skatten som betales om ti år. Det er kostnaden ved å vente, ikke verdien.<br><b>Kr 378 400</b> = enkel rente: 756 800 × 5 % × 10. Det er verken rentes rente eller nåverdi.</p><p><b>Kontroll.</b> Framtidsverdien av fordelen, 292 190 × 1,05<sup>10</sup> = 475 947, er rentes rente på skatten i ti år: 756 800 × (1,05<sup>10</sup> − 1) = 475 947. ✓</p>"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Ingeborgs bolig, fond og bankinnskudd",
+      "points": 3,
+      "topic": "Formuesskatt",
+      "chapters": [
+        7
+      ],
+      "body": "<p>Ingeborg eier en primærbolig med markedsverdi kr 6 000 000, et kombinasjonsfond verdt kr 2 500 000 og kr 1 500 000 i bankinnskudd. Fondet har 60 % aksjer og 40 % obligasjoner. Gjelden hennes er kr 4 000 000. Aksjer verdsettes til 80 %, primærboligen til 25 % og bankinnskudd og obligasjoner til 100 %. Hvor stor er Ingeborgs fradragsberettigede gjeld i formuesskatten?</p>",
+      "options": [
+        "Kr 3 880 000",
+        "Kr 3 800 000",
+        "Kr 2 080 000",
+        "Kr 3 796 923"
+      ],
+      "answer": 0,
+      "solution": "<p><b>Regelen.</b> Gjelden fordeles etter bruttoverdiene, altså markedsverdiene før rabatt. Gjelden som faller på et aktivum med rabatt som utløser reduksjon, avkortes med rabatten. I et kombinasjonsfond har bare aksjedelen rabatt, så bare den delen trekker gjelden ned. Gjeld på primærbolig og bankinnskudd avkortes ikke (manualen 7.2 og 7.4).</p><p><b>Regnestykket.</b></p><p>1. Bruttoformuen er 10 000 000. Fondet er 25 % av den, så 1 000 000 av gjelden faller på fondet.<br>2. Bare aksjedelen har rabatt: 1 000 000 × 60 % × 20 % = 120 000 i reduksjon.<br>3. Fradragsberettiget gjeld: 4 000 000 − 120 000 = <b>kr 3 880 000</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 3 800 000</b> = hele fondet er behandlet som et aksjefond: 1 000 000 × 20 % = 200 000 i reduksjon. Obligasjonsdelen har ingen rabatt.<br><b>Kr 2 080 000</b> = gjelden på boligen, 2 400 000, er også avkortet med 75 %. Primærbolig utløser ingen gjeldsreduksjon.<br><b>Kr 3 796 923</b> = gjelden er fordelt etter formuesverdiene (til sammen 5 200 000) i stedet for bruttoverdiene.</p><p><b>Kontroll.</b> Samleformelen: 4 000 000 × (1 − 1 500 000 × 20 % / 10 000 000) = 4 000 000 × 0,97 = 3 880 000. ✓ Boligens verdsetting til 25 % er støy her: den endrer formuesverdien, ikke gjeldsfradraget.</p><p><b>Strategi med minuspoeng.</b> Reduksjonen kan ikke være større enn 20 % av gjelden på fondet, altså 200 000. Det stryker alternativet der fradraget er nesten halvert.</p>"
+    },
+    {
+      "n": 4,
+      "title": "Trym, Liv og Halvor plasserer penger",
+      "points": 9,
+      "topic": "Sparing",
+      "chapters": [
+        2
+      ],
+      "body": "<p>Tre uavhengige spørsmål.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Trym vil vite hvor stor superprofitt aksjefondet hans ga i fjor. Hvilket utsagn om superprofitt er riktig?</p>",
+          "options": [
+            "Det er avkastningen ut over risikofri rente. Skjermingen holder normalavkastningen utenfor eierskatten, så det er i hovedsak den eierskatten treffer",
+            "Det er avkastningen ut over inflasjonen, altså realavkastningen. Den er grunnlaget for eierskatten, fordi skjermingen skal ta bort inflasjonen fra avkastningen",
+            "Det er avkastningen ut over aksjemarkedets snitt. Skjermingsrenten settes lik forventet aksjeavkastning, så bare den som slår markedet, betaler eierskatt",
+            "Det er avkastningen ut over bankens utlånsrente. Skjermingsrenten settes lik utlånsrenten, så bare avkastning over den treffes av eierskatten"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Superprofitt, på engelsk excess return, er avkastningen ut over risikofri rente, r − r<sub>f</sub>. Kurset måler den risikofrie renten med tre måneders statskasseveksel (manualen 2.3, forelesning 2). Skjermingsrenten er en risikofri rente etter skatt (5.2), så normalavkastningen slipper eierskatt og det er meravkastningen som treffes (k9). <b>Utsagnet om risikofri rente er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Ut over inflasjonen</b> = realavkastning, et annet begrep. Skjermingen bygger på statskasseveksler, ikke på inflasjonen.<br><b>Ut over aksjemarkedets snitt</b> = skjermingsrenten er statskasseveksel pluss 0,5 prosentpoeng, ganget med (1 − 22 %), ikke forventet aksjeavkastning.<br><b>Ut over utlånsrenten</b> = risikofri rente måles med statskasseveksler, ikke med bankens utlånsrente. Skjermingsrenten ligger under lånerenten (manualen 6.4).</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Liv bruker mindre enn hun tjener i år og sparer resten til neste år. Skatten på renteinntekter øker fra 22 % til 30 %. Fradraget for renteutgifter øker også til 30 %. Hvilket utsagn er riktig?</p>",
+          "options": [
+            "Budsjettlinjen blir brattere, fordi skatten gjør konsum neste år dyrere målt i konsum i år. Liv vil derfor spare mer",
+            "Budsjettlinjen blir slakere og dreier om inntektspunktet. Substitusjonseffekten trekker mot mer konsum i år, inntektseffekten mot mindre, så virkningen på sparingen er ubestemt",
+            "Budsjettlinjen forskyves parallelt innover, fordi skatten gjør Liv fattigere i begge perioder. Hun sparer like mye som før",
+            "Budsjettlinjen blir slakere. Liv sparer entydig mindre, fordi substitusjonseffekten og inntektseffekten begge trekker mot mer konsum i år"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Budsjettlinjen er C<sub>2</sub> = Y<sub>2</sub> + (Y<sub>1</sub> − C<sub>1</sub>)(1 + r(1 − t)). Den går alltid gjennom utstyrspunktet (Y<sub>1</sub>, Y<sub>2</sub>) og har stigningstall −(1 + r(1 − t)). Høyere t gir lavere rente etter skatt. Linjen vipper om utstyrspunktet og blir slakere (manualen 2.6, forelesning 2 lysbilde 53–55). For en långiver trekker substitusjonseffekten mot mer konsum i dag, mens inntektseffekten trekker mot mindre, fordi hun får mindre renteinntekt. <b>Totalvirkningen er ubestemt.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Brattere</b> = feil fortegn. Lavere rente etter skatt gjør framtidig konsum dyrere, så linjen blir slakere.<br><b>Parallelt innover</b> = linjen vipper om utstyrspunktet, som er tilgjengelig uansett rente.<br><b>Entydig mindre</b> = det gjelder en låntaker, der begge effektene trekker samme vei. Liv er långiver.</p>"
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>Halvor eier en rekke garasjer som gir kr 150 000 i leie hvert år for alltid. Kostnadene er kr 30 000 i året. Leie og renter skattlegges med 22 %. Kostnadene er fradragsberettiget. En plassering med samme risiko gir 6 % rente før skatt. Se bort fra formuesskatt. Hva er garasjene verdt for Halvor?</p>",
+          "options": [
+            "Kr 1 560 000",
+            "Kr 2 000 000",
+            "Kr 2 564 103",
+            "Kr 2 500 000"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> En evig kontantstrøm er verdt V = CF/r. Strømmen og renten må måles på samme måte: før skatt med rente før skatt, eller etter skatt med rente etter skatt (manualen 2.5, forelesning 3 appendiks).</p><p><b>Regnestykket.</b></p><p>1. Netto leie: 150 000 − 30 000 = 120 000, etter skatt 120 000 × 0,78 = 93 600.<br>2. Renten etter skatt: 6 % × 0,78 = 4,68 %.<br>3. Verdien: 93 600 / 0,0468 = <b>kr 2 000 000</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 1 560 000</b> = strøm etter skatt diskontert med rente før skatt: 93 600 / 0,06.<br><b>Kr 2 564 103</b> = strøm før skatt diskontert med rente etter skatt: 120 000 / 0,0468. Det er feilen forelesningen peker på i appendikset.<br><b>Kr 2 500 000</b> = kostnadene er glemt: 150 000 / 0,06.</p><p><b>Kontroll.</b> Før skatt: 120 000 / 0,06 = 2 000 000. Samme verdi, fordi skatten treffer leien og den alternative plasseringen med samme sats. ✓</p>"
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Skatter i et lite land med åpne kapitalmarkeder",
+      "points": 6,
+      "topic": "Skatteincidens",
+      "chapters": [
+        11
+      ],
+      "body": "<p>Myndighetene i et lite land vurderer to skatter. Kapitalen er fullt mobil mellom land. Avkastningskravet etter skatt er gitt fra utlandet. Arbeidskraften flytter ikke.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Selskapsskatten økes. Hvilket utsagn om hvem som bærer skatteøkningen, er riktig?</p>",
+          "options": [
+            "Arbeidstakerne bærer det meste gjennom lavere lønn, fordi kapital flytter ut og hver arbeider får mindre kapital å jobbe med",
+            "Selskapene bærer skatten, fordi det er de som betaler den inn til staten. Det endres ikke av at kapitalen kan flytte",
+            "Kapitaleierne bærer det meste gjennom lavere avkastning etter skatt, slik kapitalen gjør i Harbergers analyse av selskapsskatten",
+            "Halvparten bæres alltid av lønnstakere og produktpriser, slik Congressional Budget Office har vist for alle land"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Den minst mobile parten bærer skatten, fordi den har færrest alternativer å rømme til: insidens er et spørsmål om mobilitet, ikke om hvem som betaler inn (manualen 11.4). Her er avkastningskravet etter skatt gitt fra utlandet. Tilbudet av kapital er da perfekt elastisk ved det kravet. Den perfekt elastiske siden bærer ingenting. Når selskapsskatten øker, flytter kapital ut til avkastningen før skatt har steget nok til at kravet etter skatt igjen er oppfylt. Mindre kapital per arbeider gir lavere lønn, så skatten havner hos arbeidskraften, som ikke kan flytte. Manualen 11.6 beskriver samme mekanisme: når kapitalen krymper, presses lønningene ned. Forelesning 9 lysbilde 3 spør nettopp hva økt selskapsskatt gjør med lønningene. <b>Utsagnet om arbeidstakerne er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Selskapene bærer den</b> = formell insidens forkledd som reell.<br><b>Harberger</b> = Harberger (1962) ser på en lukket økonomi der kapitalen bare kan flytte mellom sektorer i landet. Der finnes det ingen avkastning utenfra å flykte til, så kapitalen bærer det meste (11.6). Her er avkastningen etter skatt låst fast av utlandet, så kapitaleierne kan ikke bære skatten.<br><b>Halvparten alltid</b> = CBO legger til grunn at 50 % av selskapsskatten i USA overveltes på lønninger og produktpriser. Det er en antakelse for ett land, ikke en lov.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Myndighetene innfører også en avgift på kr 200 per døgn på utleie av hytter. Tilbudselastisiteten er 0,2 og etterspørselselastisiteten −0,6, målt i likevekten før avgiften. Kurvene er lineære. Hvor mye stiger prisen leietakerne betaler per døgn?</p>",
+          "options": [
+            "Kr 150,00",
+            "Kr 50,00",
+            "Kr 66,67",
+            "Kr 200,00"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Konsumentenes andel av en stykkskatt er ε<sub>S</sub>/(ε<sub>S</sub> + |ε<sub>D</sub>|). Den minst elastiske siden bærer mest (manualen 11.4). Med lineære kurver gjelder andelen for hele avgiften.</p><p><b>Regnestykket.</b></p><p>1. Konsumentenes andel: 0,2 / (0,2 + 0,6) = 25 %.<br>2. Prisøkningen: 200 × 25 % = <b>kr 50,00</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 150,00</b> = utleiernes andel. Formelen er snudd.<br><b>Kr 66,67</b> = feil nevner: 0,2 / 0,6 × 200.<br><b>Kr 200,00</b> = hele avgiften på leietakerne. Det gjelder bare når etterspørselen er perfekt uelastisk eller tilbudet perfekt elastisk.</p><p><b>Kontroll.</b> Utleierne bærer 200 − 50 = 150. Tilbudet er minst elastisk (0,2 mot 0,6), så utleierne skal bære mest. ✓</p>"
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Ulrik vil låne ut penger",
+      "points": 6,
+      "topic": "Skatt og risiko",
+      "chapters": [
+        4,
+        12
+      ],
+      "body": "<p>Ulrik vurderer å låne ut penger privat i gråmarkedet til 18 % rente eller å kjøpe høyrenteobligasjoner med 12 % kupong.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hvilket utsagn er i tråd med pensum?</p>",
+          "options": [
+            "Kupongen på 12 % er et godt anslag på forventet avkastning, fordi obligasjonseiere får hovedstolen tilbake før aksjonærene",
+            "Renten på gråmarkedslånet er skattefri, fordi den ikke rapporteres inn av en bank eller en plattform",
+            "Gråmarkedsrenten skattlegges med 22 %, mens et tap ikke gir fradrag. Det er én grunn til at den er så høy",
+            "Et tap på gråmarkedslånet gir fradrag med oppjustering 1,72, som tap på aksjer"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Pensum sier at renteinntekt på private lån skattlegges med 22 %. Skattyteren må selv rapportere den. Tap på lån til private kan ikke trekkes fra mot alminnelig inntekt, mens gevinsten skattlegges. Den asymmetrien gir høy rente, sammen med lav prioritet og at du ikke vet hvor mange andre som har samme prioritet (forelesning 3 lysbilde 45–46, manualen 4.6). <b>Utsagnet om 22 % skatt uten tapsfradrag er i tråd med pensum.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kupongen som forventet avkastning</b> = lovet rente er ikke forventet avkastning. Norske høyrenteobligasjoner ga 0,51 % i året 2005–2011. I DOF Subsea-saken ble obligasjonene gjort om til aksjer.<br><b>Skattefri</b> = renten er skattepliktig. Plikten til å rapportere ligger hos Ulrik.<br><b>Fradrag med 1,72</b> = oppjusteringsfaktoren gjelder bare utbytte og gevinst eller tap på aksjer, aldri renter eller tap på lån. Pensum sier dessuten at tap på private lån ikke gir fradrag.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Anta at alle gevinster på slike plasseringer skattlegges, mens tap aldri kan trekkes fra. Ulrik er risikoavers. Hvilket utsagn om virkningen på risikotakingen hans er i tråd med pensum?</p>",
+          "options": [
+            "Han øker den risikable posisjonen med faktoren 1/(1 − t), slik at fordelingen etter skatt blir nøyaktig som før skatten",
+            "Staten deler oppsiden, men ikke nedsiden. Virkningen er generelt tvetydig, men ved høy nok sats tar han mindre risiko",
+            "Risikotakingen påvirkes ikke, fordi skatten treffer gevinstene på det risikable alternativet og renten på det sikre alternativet med samme sats",
+            "Han tar alltid mer risiko, fordi staten tar en del av gevinstene og dermed gjør utfallene hans mindre spredt"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Uten tapsfradrag er staten partner i oppturen, men ikke i nedturen. Det er oppsiden som straffes. Mossin og Stiglitz viser at virkningen generelt er tvetydig, men at etterspørselen etter det risikable aktivumet må falle når satsen blir høy nok (manualen 12.3, forelesning 3 «Tapsfradrag vs. ikke tapsfradrag»). <b>Utsagnet om at virkningen er tvetydig, er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>1/(1 − t)</b> = Domar–Musgrave. Repliseringen krever fullt tapsfradrag (12.2).<br><b>Påvirkes ikke</b> = skatten treffer gevinst og tap ulikt, så fordelingen etter skatt endres.<br><b>Alltid mer risiko</b> = motsatt av det pensum sier om høye satser.</p>"
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "title": "Nordvik ASA og datterselskapene i land A og B",
+      "points": 3,
+      "topic": "Internasjonal skatt",
+      "chapters": [
+        13
+      ],
+      "body": "<p>Nordvik ASA er et norsk konsern som er omfattet av reglene om global minimumsskatt. Det har ett datterselskap i land A og ett i land B. Datterselskapet i land A har et overskudd på kr 200 mill. og betaler kr 12 mill. i skatt. Datterselskapet i land B har et overskudd på kr 300 mill. og betaler kr 60 mill. i skatt. Bruk skattereglene for 2026. Hvor mye toppskatt utløser de to datterselskapene til sammen?</p>",
+      "options": [
+        "Kr 18 mill.",
+        "Kr 3 mill.",
+        "Kr 30 mill.",
+        "Kr 45 mill."
+      ],
+      "answer": 0,
+      "solution": "<p><b>Regelen.</b> Toppskatt = maks(0; 15 % − effektiv skattesats i jurisdiksjonen) × overskudd. Den regnes land for land, med 15 % som gulv (manualen 13.5, k20). Et land over 15 % gir ingen kreditt til et land under.</p><p><b>Regnestykket.</b></p><p>1. Land A: 12 / 200 = 6 %. Toppskatt (15 % − 6 %) × 200 = 18 mill.<br>2. Land B: 60 / 300 = 20 %, over gulvet. Ingen toppskatt.<br>3. Til sammen: <b>kr 18 mill.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 3 mill.</b> = snittet for begge land: 72 / 500 = 14,4 %, så 0,6 % × 500. Regelen blander ikke land.<br><b>Kr 30 mill.</b> = 15 % × 200. Skatten land A allerede tar, er glemt.<br><b>Kr 45 mill.</b> = 9 % × 500. Toppskatten er regnet av hele overskuddet, også det i land B.</p><p><b>Kontroll.</b> Etter toppskatten betaler land A-selskapet 12 + 18 = 30 mill., som er 15 % av 200. ✓</p>"
+    },
+    {
+      "n": 8,
+      "title": "Iver og eneboligen med to leiligheter",
+      "points": 3,
+      "topic": "Investeringscaser",
+      "chapters": [
+        4
+      ],
+      "body": "<p>Iver eier en enebolig med to leiligheter. Han bor selv i underetasjen på 100 m². Hovedetasjen på 90 m² har bedre lys, egen inngang og hage. Den leier han ut på langtidskontrakt for kr 14 000 i måneden, som er markedsleien. Markedsleien for underetasjen ville vært kr 10 000 i måneden. Hvilket utsagn om leieinntekten er riktig?</p>",
+      "options": [
+        "Leien er skattefri, fordi Iver selv bruker mer enn halvparten av boligen målt i kvadratmeter",
+        "Bare den delen av leien som overstiger kr 20 000 i året, er skattepliktig",
+        "Hele leien er skattepliktig fra første krone, fordi hans egen del er under halvparten målt etter utleieverdi",
+        "Leien skattlegges som korttidsutleie: de første kr 10 000 er skattefrie, mens 85 % av resten er skattepliktig"
+      ],
+      "answer": 2,
+      "solution": "<p><b>Regelen.</b> Langtidsutleie av egen bolig er skattefri når eieren selv bruker minst halvparten av boligen, målt etter utleieverdi og ikke etter areal. Bruker han mindre, er leien skattefri bare om den samlet er inntil kr 20 000 i året. Over grensen er hele beløpet skattepliktig fra første krone (manualen 4.4, forelesning 3 lysbilde 15).</p><p>Egen del etter utleieverdi: 10 000 / (10 000 + 14 000) = 41,7 %, under halvparten. Leien er 14 000 × 12 = kr 168 000 i året, over grensen. <b>Hele leien er skattepliktig</b>. Iver får fradrag for kostnadene ved utleien.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Skattefri etter kvadratmeter</b> = feil mål. Etter areal bruker han 52,6 %, men loven måler utleieverdi.<br><b>Bare over kr 20 000</b> = grensen er en terskel, ikke et bunnfradrag.<br><b>Korttidsutleie</b> = gjelder utleieforhold under 30 dager. Dette er en langtidskontrakt.</p>"
+    },
+    {
+      "n": 9,
+      "title": "Marens lønnsøkning",
+      "points": 3,
+      "topic": "Progressivitet",
+      "chapters": [
+        1
+      ],
+      "body": "<p>Maren får lønnsøkning fra kr 940 000 til kr 1 020 000 i året. Trinnskatten er 13,7 % på inntekt mellom kr 725 050 og kr 980 100 og 16,8 % på inntekt mellom kr 980 100 og kr 1 467 200. Trygdeavgiften er 7,6 % og skatten på alminnelig inntekt 22 %. Hvor mye av lønnsøkningen beholder hun etter skatt? Svar i hele kroner.</p>",
+      "options": [
+        "Kr 45 360",
+        "Kr 42 880",
+        "Kr 50 203",
+        "Kr 44 123"
+      ],
+      "answer": 3,
+      "solution": "<p><b>Regelen.</b> Marginalskatten på lønn er 22 % + trinnskatt + trygdeavgift. Minstefradraget og personfradraget står stille ved denne lønnen, så hver ekstra krone treffes av hele satsen (manualen 1.1 og 1.2). Økningen krysser innslagspunktet for trinn 4, så den må deles i to.</p><p><b>Regnestykket.</b></p><p>1. Opp til 980 100: 40 100 kr med 22 + 13,7 + 7,6 = 43,3 %. Hun beholder 40 100 × 0,567 = 22 736,70.<br>2. Over 980 100: 39 900 kr med 22 + 16,8 + 7,6 = 46,4 %. Hun beholder 39 900 × 0,536 = 21 386,40.<br>3. Til sammen 44 123,10, altså <b>kr 44 123</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 45 360</b> = hele økningen er regnet i trinn 3: 80 000 × 0,567.<br><b>Kr 42 880</b> = hele økningen er regnet i trinn 4: 80 000 × 0,536.<br><b>Kr 50 203</b> = trygdeavgiften er glemt: 35,7 % og 38,8 % i stedet for 43,3 % og 46,4 %.</p><p><b>Kontroll.</b> Skatten på økningen er 80 000 − 44 123 = 35 877, altså 44,8 % i snitt. Det ligger mellom de to marginalsatsene, slik det skal. ✓</p>"
+    },
+    {
+      "n": 10,
+      "title": "Lønn eller utbytte i Vestria",
+      "points": 3,
+      "topic": "Aksjonærmodellen",
+      "chapters": [
+        5
+      ],
+      "body": "<p>I landet Vestria er høyeste marginalskatt på lønn 48 %. Selskapsskatten og skatten på alminnelig inntekt er 22 %. Arbeidsgiveravgiften utgjør 12 % av lønnskostnaden. Eierskatten er 22 % av utbyttet ganget med en oppjusteringsfaktor y. Myndighetene vil at det ikke skal lønne seg for eiere å ta ut lønn som utbytte. Når de fastsetter y, legger de til grunn at avgiften bæres likt av arbeidstakeren og bedriften. Hvilken faktor og hvilken effektiv eierskatt følger?</p>",
+      "options": [
+        "y = 1,73 og effektiv eierskatt 38 %",
+        "y = 1,18 og effektiv eierskatt 26 %",
+        "y = 1,45 og effektiv eierskatt 32 %",
+        "y = 0,64 og effektiv eierskatt 14 %"
+      ],
+      "answer": 1,
+      "solution": "<p><b>Regelen.</b> Marginalskatten på lønn pluss den delen av arbeidsgiveravgiften arbeidstakeren bærer, skal være lik selskapsskatten pluss den delen bedriften bærer pluss 22 % × y (forelesning 5 lysbilde 10, «Antakelser om overveltning»).</p><p><b>Regnestykket.</b></p><p>1. Myndighetene legger til grunn lik deling: 6 % på hver side.<br>2. 48 % + 6 % = 22 % + 6 % + 22 % × y.<br>3. 22 % × y = 26 %, så y = 1,18 og <b>effektiv eierskatt 26 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>y = 1,73 og 38 %</b> = full overvelting: 48 % + 12 % = 22 % + 22 % × y. Det er forelesningens standardantakelse og passer for en eier-leder som bærer hele avgiften selv. Myndighetene legger her til grunn lik deling.<br><b>y = 1,45 og 32 %</b> = bedriftens halvdel er glemt på kapitalsiden: 48 % + 6 % = 22 % + 22 % × y.<br><b>y = 0,64 og 14 %</b> = bedriften bærer hele avgiften: 48 % = 22 % + 12 % + 22 % × y.</p><p><b>Kontroll.</b> Når avgiften deles likt, faller den ut på begge sider: 48 % − 22 % = 26 %. Med 2026-satsene gir samme oppsett 47,4 % − 22 % = 25,4 %, som forelesningen runder til y ≈ 1,15 og 25,3 %. ✓</p>"
+    },
+    {
+      "n": 11,
+      "title": "Husholdningenes formue og Bendiks utbytte",
+      "points": 6,
+      "topic": "Aksjonærmodellen",
+      "chapters": [
+        3,
+        6
+      ],
+      "body": "<p>To uavhengige spørsmål.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hvilket utsagn om formuen til norske husholdninger er i tråd med pensum?</p>",
+          "options": [
+            "Bankinnskudd er husholdningenes største formuespost samlet, mens topp 1 prosent har mesteparten av formuen i bolig",
+            "Aksjer og verdipapirer utgjør om lag halvparten av husholdningenes bruttoformue samlet. Bolig utgjør om lag en firedel",
+            "Primærboligen er den største posten samlet, mens topp 1 prosent først og fremst eier aksjer, for det meste unoterte",
+            "Topp 1 prosents andel av samlet formue har falt de siste tiårene, fordi boligformuen er blitt jevnere fordelt"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Norske husholdninger har formuen sin i bolig: primærbolig 52 %, sekundærbolig og annen eiendom 14 %, bankinnskudd 13 % og aksjer og verdipapirer 11 % av bruttoformuen i 2025. Topp 1 prosent eier først og fremst aksjer, to tredeler av dem unoterte. De eier relativt lite eiendom (manualen 3.5, forelesning 2). <b>Utsagnet om primærboligen og de unoterte aksjene er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Bankinnskudd størst</b> = bankinnskudd er 13 %. Toppen eier lite bolig.<br><b>Halvparten i aksjer</b> = aksjer og verdipapirer er 11 %. Bolig er over halvparten.<br><b>Andelen har falt</b> = toppens andel steg fra 14,8 % i 1995 til 21 % i 2016, drevet av aksjekonsentrasjon.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Bendik eier alle aksjene i Bendik Invest AS. Han vurderer å ta ut kr 1 000 000 i utbytte nå og samtidig skyte inn kr 1 000 000 som ny egenkapital, slik at selskapet er like stort. Eierskatten betaler han med et privat lån til 5,5 % rente. Skjermingsrenten er 3,6 %. Alternativet er å ta utbyttet neste år. Hvilket utsagn er riktig?</p>",
+          "options": [
+            "Han bør ta utbyttet nå. Den nye egenkapitalen øker skjermingsgrunnlaget. Den gevinsten er alltid større enn renten på lånet",
+            "Det er likegyldig. Skjermingen gjør aksjonærmodellen nøytral, så tidspunktet for utbyttet endrer ikke skatten i nåverdi",
+            "Han bør ta utbyttet nå, fordi eierskatten blir lavere når utbyttet tas ut i samme år som overskuddet er opptjent",
+            "Han bør vente. Gevinsten av høyere inngangsverdi vokser med skjermingsrenten, mens lånet til eierskatten vokser med lånerenten etter skatt, som er høyere"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> I BS-modellen (forelesning 5 appendiks, lysbilde 51–53) tar eieren utbytte nå og skyter inn like mye ny egenkapital, så risikoen i selskapet er den samme. Eierskatten finansieres med et lån som vokser med R(1 − t). Innskuddet øker inngangsverdien. Skattebesparelsen av det vokser med skjermingsrenten. Utbytte nå lønner seg bare om skjermingsrenten er minst like høy som lånerenten. Er lånerenten høyere, kommer eieren best ut ved å spare i selskapet (manualen 6.4).</p><p>Her er skjermingsrenten 3,6 %, mens lånerenten etter skatt er 5,5 % × 0,78 = 4,29 %. <b>Han bør vente.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Alltid større</b> = det avhenger av skjermingsrenten mot lånerenten. Her taper han.<br><b>Likegyldig</b> = modellen er bare nøytral om eieren kan låne til skjermingsrenten. Lånerenten er høyere (6.4).<br><b>Lavere skatt samme år</b> = ingen slik regel finnes.</p>"
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "title": "Frida og aksjemarkedet",
+      "points": 6,
+      "topic": "Indeksfond og aktiv forvaltning",
+      "chapters": [
+        14
+      ],
+      "body": "<p>Frida vurderer å plukke enkeltaksjer selv i stedet for å kjøpe et indeksfond.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Anta at aksjemarkedet er effisient i halvsterk form, men ikke i sterk form. Hvilken strategi kan da gi Frida meravkastning over tid?</p>",
+          "options": [
+            "Å kjøpe aksjer som har steget mye de siste ukene, fordi kursmønstre har en tendens til å gjenta seg",
+            "Å lese årsrapporter og analyser og kjøpe aksjer som ser billige ut i forhold til inntjeningen",
+            "Å kjøpe aksjer rett etter at selskapene har lagt fram gode kvartalstall, før kursen rekker å stige mer",
+            "Å handle på informasjon som ennå bare er kjent for innsidere i selskapet"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Svak form: prisene reflekterer all markedsdata, som tidligere priser, så teknisk analyse har ingen verdi. Halvsterk form: prisene reflekterer all offentlig informasjon, så fundamental analyse har ingen verdi. Sterk form: prisene reflekterer all informasjon som er kjent av noen, også innsideinformasjon (ForelesningAksjesparing, lysbilde 79). Halvsterk form omfatter svak form. Holder ikke sterk form, er det bare informasjon som ikke er offentlig, som kan gi meravkastning. <b>Innsideinformasjon er svaret.</b> Handel på innsideinformasjon er ulovlig. Spørsmålet gjelder hva de tre formene sier.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kursmønstre</b> = teknisk analyse, utelukket allerede av svak form.<br><b>Årsrapporter</b> = fundamental analyse på offentlig informasjon, utelukket av halvsterk form.<br><b>Etter kvartalstallene</b> = tallene er offentlige i det de legges fram, så kursen har allerede tatt dem inn.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Frida leser at verdiaksjer har gitt høyere avkastning enn andre aksjer over tid. Hvilket utsagn er i tråd med pensum?</p>",
+          "options": [
+            "Verdiaksjer har høy P/E og lav book-to-market. Fama og French fant at slike aksjer har gitt høyere avkastning",
+            "Verdiaksjer er billige i forhold til inntjening eller bokført verdi. Én tolkning er at de har risiko som CAPM-betaen ikke fanger opp",
+            "Fama og French fant at store selskaper har gitt høyere avkastning enn små. Derfor la de faktoren SMB til CAPM",
+            "Meravkastningen på verdiaksjer viser at CAPM-betaen fanger opp all risiko som investorene får betalt for, også risikoen i små selskaper"
+          ],
+          "answer": 1,
+          "solution": "<p><b>Regelen.</b> Verdiaksjer er lavt priset i forhold til hva de tjener (lav P/E) eller i forhold til bokførte verdier (høy book-to-market). Fama og French (1992) fant at slike aksjer og små selskaper har gitt høyere avkastning. De la til faktorene SMB (small minus big) og HML (high minus low book-to-market) i CAPM. Én tolkning er feilprising. Den andre er at aksjene er mer risikable på en måte CAPM ikke fanger opp (ForelesningAksjesparing, lysbilde 92–97). <b>Utsagnet om risiko CAPM ikke fanger opp, er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Høy P/E og lav book-to-market</b> = definisjonen er snudd. Det beskriver vekstaksjer.<br><b>Store selskaper</b> = motsatt. SMB betyr at små selskaper har gitt mer.<br><b>Fanger opp all risiko</b> = motsatt. Funnet er nettopp at betaen ikke forklarer avkastningen alene.</p>"
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "title": "Sverres to aksjer",
+      "points": 3,
+      "topic": "Porteføljevalg",
+      "chapters": [
+        14
+      ],
+      "body": "<p>Sverre har 60 % av porteføljen i aksje A og 40 % i aksje B. Aksje A har forventet avkastning 8 % og standardavvik 20 %. Aksje B har forventet avkastning 11 % og standardavvik 30 %. Korrelasjonen mellom dem er 0,25. Hva er standardavviket til porteføljen? Svar med to desimaler.</p>",
+      "options": [
+        "24,00 %",
+        "16,97 %",
+        "18,97 %",
+        "18,00 %"
+      ],
+      "answer": 2,
+      "solution": "<p><b>Regelen.</b> σ<sub>p</sub><sup>2</sup> = s<sup>2</sup>σ<sub>A</sub><sup>2</sup> + (1 − s)<sup>2</sup>σ<sub>B</sub><sup>2</sup> + 2s(1 − s)ρσ<sub>A</sub>σ<sub>B</sub>. Forventningen er et vektet snitt, risikoen er det ikke (manualen 14.1).</p><p><b>Regnestykket.</b></p><p>1. Kvadratleddene: 0,36 × 0,04 = 0,0144 og 0,16 × 0,09 = 0,0144.<br>2. Krysleddet: 2 × 0,6 × 0,4 × 0,25 × 0,20 × 0,30 = 0,0072.<br>3. Variansen er 0,0360. Standardavviket er √0,0360 = <b>18,97 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>24,00 %</b> = vektet snitt av standardavvikene. Det gjelder bare når korrelasjonen er 1.<br><b>16,97 %</b> = krysleddet er glemt, som om korrelasjonen var 0.<br><b>18,00 %</b> = faktoren 2 i krysleddet er glemt.</p><p><b>Kontroll.</b> Svaret ligger mellom 16,97 % (korrelasjon 0) og 24,00 % (korrelasjon 1), slik det må med korrelasjon 0,25. Forventet avkastning (9,2 %) er støy her. ✓</p>"
+    },
+    {
+      "n": 14,
+      "title": "Aurora og aksjeandelen",
+      "points": 6,
+      "topic": "Porteføljevalg",
+      "chapters": [
+        14,
+        12
+      ],
+      "body": "<p>Aurora har bare finansiell formue. Hun kan plassere den i et globalt indeksfond med forventet avkastning 5 % og standardavvik 20 %, eller i bankinnskudd som ikke gir rente. Auroras relative risikoaversjon er γ = 2,5.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hvor stor andel av formuen bør hun ha i indeksfondet? Rund av til én desimal.</p>",
+          "options": [
+            "10,0 %",
+            "125,0 %",
+            "2,0 %",
+            "50,0 %"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> w* = (μ − r<sub>f</sub>) / (γσ<sup>2</sup>), der σ<sup>2</sup> er variansen (manualen 14.4). Bankinnskuddet er det risikofrie alternativet, så r<sub>f</sub> = 0.</p><p><b>Regnestykket.</b></p><p>1. Meravkastningen: 5 % − 0 % = 5 %.<br>2. Nevneren: 2,5 × 0,20<sup>2</sup> = 2,5 × 0,04 = 0,10.<br>3. w* = 0,05 / 0,10 = <b>50,0 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>10,0 %</b> = standardavviket er ikke kvadrert: 0,05 / (2,5 × 0,20).<br><b>125,0 %</b> = risikoaversjonen er glemt: 0,05 / 0,04.<br><b>2,0 %</b> = variansen er glemt: 0,05 / 2,5.</p><p><b>Kontroll.</b> Sett 50 % inn baklengs: γ = 0,05 / (0,5 × 0,04) = 2,5. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Myndighetene innfører en skatt på 25 % på all avkastning, med fullt fradrag for tap. Hvor stor andel bør Aurora nå ha i fondet? Rund av til én desimal.</p>",
+          "options": [
+            "50,0 %",
+            "37,5 %",
+            "88,9 %",
+            "66,7 %"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Betingelsene for Domar–Musgrave er oppfylt: skatten er proporsjonal, tapsfradraget er fullt og det sikre alternativet gir ingen avkastning (manualen 12.3 og k20). Skatten krymper da både avkastningen og standardavviket med (1 − t). Investoren skalerer opp: x<sub>1</sub>* = z*/(1 − t) (12.2). Mertons formel gir det samme: (1 − t)μ / (γ(1 − t)<sup>2</sup>σ<sup>2</sup>) = w*/(1 − t).</p><p><b>Regnestykket.</b></p><p>1. Forventet avkastning etter skatt: 0,75 × 5 % = 3,75 %.<br>2. Varians etter skatt: (0,75 × 0,20)<sup>2</sup> = 0,0225. Ganget med γ blir det 0,05625.<br>3. w* = 0,0375 / 0,05625 = <b>66,7 %</b>, som er 50 % / 0,75.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>50,0 %</b> = uendret. Repliseringen er glemt: skatten gjør det risikable mindre risikabelt også.<br><b>37,5 %</b> = 50 % × 0,75. Andelen er ganget med (1 − t) i stedet for delt.<br><b>88,9 %</b> = bare variansen er krympet, ikke avkastningen: 0,05 / 0,05625.</p><p><b>Kontroll.</b> Risikoen etter skatt: 66,7 % × 0,75 × 20 % = 10 %, nøyaktig som 50 % × 20 % før skatten. ✓ Hadde banken gitt rente som også ble skattlagt, ville en inntektseffekt gjort virkningen tvetydig (manualen 12.3, «Skatt, aksjer og risikotaking» lysbilde 14). Derfor gir banken ingen rente her.</p><p><b>Strategi med minuspoeng.</b> Med fullt tapsfradrag skal andelen opp, så de to alternativene på 50 % eller lavere kan strykes med en gang.</p>"
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "title": "Åses alderspensjon",
+      "points": 3,
+      "topic": "Pensjon",
+      "chapters": [
+        15
+      ],
+      "body": "<p>Åse er 70 år og har tatt ut full alderspensjon fra folketrygden siden hun fylte 67. Hun har hatt god inntekt hele yrkeslivet og har ingen tjenestepensjon. Hvordan reguleres alderspensjonen hennes fra folketrygden hvert år?</p>",
+      "options": [
+        "Med snittet av lønns- og prisveksten, så den vanligvis vokser litt saktere enn lønningene",
+        "Med lønnsveksten, akkurat som pensjonsbeholdningen hennes ble regulert fram til uttaket",
+        "Med prisveksten alene, slik at kjøpekraften hennes holdes nøyaktig uendret fra år til år så lenge hun lever",
+        "Den reguleres ikke. Beløpet ligger fast i kroner fra uttaket og resten av livet"
+      ],
+      "answer": 0,
+      "solution": "<p><b>Regelen.</b> Pensjonsbeholdningen reguleres med lønnsveksten fram til uttak. Løpende pensjon reguleres med gjennomsnittet av lønns- og prisveksten: for 2026 ble alderspensjonen hevet 4,69 % mot 4,91 % for G (manualen kapittel 15). Forelesningen sier at pensjonen etter uttak vokser litt saktere enn lønnsnivået (ForelesningPensjon, lysbilde 15). <b>Snittet av lønns- og prisveksten er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Lønnsveksten</b> = det gjelder beholdningen før uttak, ikke pensjonen som utbetales.<br><b>Prisveksten alene</b> = reguleringen ligger mellom pris- og lønnsveksten.<br><b>Fast i kroner</b> = folketrygdens pensjon reguleres hvert år.</p><p><b>Merk.</b> Den eldre regelen, lønnsveksten minus 0,75 prosentpoeng, gjaldt fra 2011 til 2021.</p>"
+    },
+    {
+      "n": 16,
+      "title": "Agnes og traktoren",
+      "points": 6,
+      "topic": "Forsikring og forventet nytte",
+      "chapters": [
+        17
+      ],
+      "body": "<p>Agnes har en formue på kr 1 000 000, der kr 640 000 er traktoren hennes. Neste år får traktoren ingen skade med sannsynlighet 80 %, en delskade som koster kr 190 000 med sannsynlighet 15 % og totalskade med sannsynlighet 5 %. Nyttefunksjonen hennes er U(W) = √W, der W er formuen. Forsikringen gir full dekning.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Hva er den aktuarisk rettferdige premien?</p>",
+          "options": [
+            "Kr 32 000",
+            "Kr 128 000",
+            "Kr 60 500",
+            "Kr 68 775"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Den aktuarisk rettferdige premien er forventet erstatning: summen av sannsynlighet ganger tap over alle utfall (manualen 17.3).</p><p><b>Regnestykket.</b></p><p>1. Delskade: 15 % × 190 000 = 28 500.<br>2. Totalskade: 5 % × 640 000 = 32 000.<br>3. Sum: <b>kr 60 500</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 32 000</b> = delskaden er glemt.<br><b>Kr 128 000</b> = all skade er regnet som totalskade: 20 % × 640 000.<br><b>Kr 68 775</b> = den høyeste premien hun vil betale, altså svaret på b.</p><p><b>Kontroll.</b> Forventet formue uten forsikring er 1 000 000 − 60 500 = 939 500. ✓</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Hva er den høyeste premien Agnes er villig til å betale? Rund av til nærmeste krone.</p>",
+          "options": [
+            "Kr 8 275",
+            "Kr 39 600",
+            "Kr 68 775",
+            "Kr 60 500"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Sett nytten med forsikring lik forventet nytte uten: √(W − P) = E[√W]. Da er P<sub>maks</sub> = W − (E[√W])<sup>2</sup> (manualen 17.3).</p><p><b>Regnestykket.</b></p><p>1. Forventet nytte: 0,80 × √1 000 000 + 0,15 × √810 000 + 0,05 × √360 000 = 800 + 135 + 30 = 965.<br>2. Sikkerhetsekvivalenten: 965<sup>2</sup> = 931 225.<br>3. P<sub>maks</sub> = 1 000 000 − 931 225 = <b>kr 68 775</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Kr 8 275</b> = bare risikopremien, 939 500 − 931 225. Den aktuariske premien er glemt.<br><b>Kr 39 600</b> = delskaden er glemt i forventet nytte: 0,95 × 1 000 + 0,05 × 600 = 980.<br><b>Kr 60 500</b> = den aktuariske premien fra a. Den gjelder for en risikonøytral person.</p><p><b>Kontroll.</b> Aktuarisk premie + risikopremie: 60 500 + 8 275 = 68 775. ✓</p>"
+        }
+      ]
+    },
+    {
+      "n": 17,
+      "title": "Mikkel, Norwegian-eierne og Johannes pensjonssparing",
+      "points": 9,
+      "topic": "Finansiell psykologi",
+      "chapters": [
+        16,
+        18
+      ],
+      "body": "<p>Tre uavhengige spørsmål.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Mikkel finansierer forbruk med kredittkort til 22 % rente i stedet for å betale ned gjelden. Hvilken forklaring gir pensum på at mange gjør som Mikkel?</p>",
+          "options": [
+            "Rasjonell konsumutjevning: folk låner mest i dårlige tider, slik modellene forutsier. Dataene viser nettopp det",
+            "Eksponentiell diskontering med samme faktor δ mellom alle perioder, slik at forbruk i dag og forbruk i morgen veies helt likt",
+            "Present bias: all framtidig nytte vektes med en ekstra faktor β under 1, så dagens forbruk teller mer. Det er ikke rasjonelt",
+            "Tapsaversjon: Mikkel vil ikke realisere tapet han får ved å bruke sparepengene sine til å betale ned gjelden"
+          ],
+          "answer": 2,
+          "solution": "<p><b>Regelen.</b> Med standard preferanser diskonteres framtidige perioder med δ, δ<sup>2</sup> og så videre. Med present bias vektes alt i framtiden i tillegg med β < 1, så det kan virke optimalt å konsumere mye i dag finansiert med kredittkort. Laibson og medforfattere viser dette. Forelesningen understreker at det ikke er rasjonelle preferanser. Folk med present bias har oftere kredittgjeld (ForelesningLån, lysbilde 13–14). <b>Present bias er svaret.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Konsumutjevning</b> = rasjonelle modeller sier at folk låner i dårlige tider, men i virkeligheten er det ofte motsatt.<br><b>Eksponentiell diskontering</b> = det er standardpreferansene som present bias avviker fra.<br><b>Tapsaversjon</b> = brukes om aksjesalg og referansepunkter, ikke om forbrukslån i pensum.</p>"
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>I januar 2021 kostet en Norwegian-aksje om lag 60 kroner, mens selskapet planla å selge nye aksjer for 6–10 kroner. Prisen falt likevel ikke med en gang. Hvilken forklaring er i tråd med pensum?</p>",
+          "options": [
+            "Markedet var effisient i sterk form, så kursen på 60 kroner var riktig gitt all informasjon, også innsideinformasjon",
+            "Eierne kjente allerede ekspertenes vurdering av aksjen. Informasjon om at den var overpriset, endret derfor ikke hva eierne faktisk gjorde",
+            "Norwegian var en så stor og likvid aksje at en feilprising ville blitt rettet opp straks hvis den fantes",
+            "Rasjonelle investorer shortet lite, fordi aksjene var vanskelige å låne og volatiliteten høy. Mange eiere trodde også at kursen ville stige"
+          ],
+          "answer": 3,
+          "solution": "<p><b>Regelen.</b> Over halvparten av eierne trodde at aksjen ville stige det neste året. Feilprisingen kunne vare fordi rasjonelle investorer shortet lite: et meglerhus droppet det på grunn av høy volatilitet. To sa at aksjer var vanskelige å låne på grunn av spredt eierskap (Finansiell psykologi, lysbilde 37–48; manualen k18). <b>Utsagnet om lite shorting er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Sterk form</b> = aksjen stupte da de nye aksjene kom. Pensum bruker caset som eksempel på feilprising.<br><b>Kjente vurderingen</b> = etter en video der en ekspert forklarte at prisen var for høy, solgte 21 % dagen etter. Mange visste altså ikke.<br><b>Stor og likvid</b> = Norwegian er en liten aksje. Lærdommen er at større markeder oftere er effisiente.</p>"
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>Johannes arbeidsgiver melder alle nyansatte automatisk inn i en frivillig pensjonsspareordning. De kan melde seg ut når de vil, uten kostnad. Hvilket utsagn er i tråd med pensum?</p>",
+          "options": [
+            "Dette er dulting: valgfriheten og insentivene er de samme, men standardvalget gjør at langt flere sparer",
+            "Tiltaket virker bare om arbeidsgiveren samtidig øker innskuddet, fordi folk bare reagerer på økonomiske insentiver",
+            "Automatisk innmelding er tvang og regnes derfor ikke som dulting, siden de ansatte ikke har valgt selv",
+            "Standardvalget har liten effekt, fordi de som ikke ville ha spart, melder seg ut med en gang"
+          ],
+          "answer": 0,
+          "solution": "<p><b>Regelen.</b> Dulting gjør det enklere å ta gode valg uten å endre insentivene. Standardvalg er viktige for pensjonssparing (Thaler og Sunstein): de som meldes inn automatisk, har 50 prosent større sjanse for å spare, selv om de enkelt kan la være (Finansiell psykologi, lysbilde 34). Hindringen er terskelen, ikke smaken (manualen k18). <b>Utsagnet om dulting er riktig.</b></p><p><b>Hvorfor de andre er gale.</b></p><p><b>Bare med høyere innskudd</b> = dulting virker nettopp uten nye insentiver.<br><b>Tvang</b> = de kan melde seg ut fritt, så valget er deres.<br><b>Liten effekt</b> = empirien viser det motsatte.</p>"
+        }
+      ]
+    }
+  ]
+},
 ];

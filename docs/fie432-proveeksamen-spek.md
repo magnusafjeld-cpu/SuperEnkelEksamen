@@ -1,4 +1,4 @@
-# FIE432: tre prøveeksamener i 2026-formatet
+# FIE432: prøveeksamener i 2026-formatet
 
 Tre hele prøveeksamener som trener eksamen høsten 2026 så tett som mulig. De vises i
 Eksamenssett under «Prøveeksamener» (`kind: "mock"`) og kjøres av samme motor som de
@@ -362,3 +362,201 @@ Finans:
 16. Indeksfond mot aktive fond, Forbrukerrådet (1). Jf. H2025 16.
 17. Innskuddspensjon (1). Jf. H2025 17.
 18. Home bias eller annen skjevhet (1). Jf. mc2026 18.
+
+## Prøveeksamen 7, 8 og 9 (4. november 2026): pensum som 1–6 ikke har testet
+
+Bestilt av Magnus 4. november 2026: tre nye eksamener som ligner de tidligere, men dekker
+pensum som prøveeksamen 1–6 ikke har testet og som avdekker kunnskapshull. Grunnlaget er en
+kartlegging av alle 106 ledd i prøveeksamen 1–6 mot manualens underkapitler og årets
+lysbilder. Hver eksamen har omtrent 18 ledd på kjernetemaene med en ny vri og omtrent 12 ledd
+på pensum som ikke er testet før.
+
+### Minimalt stillas (Magnus' krav, gjelder bare 7–9)
+
+Oppgavene skal gi så lite hjelp som eksamen gjør på sitt verste. Mønsteret er de knappeste
+ekte spørsmålene: mc2026 1 (bare kjøpspris, utbytte, skjermingsrente og kurs), H2025 2
+(rabattene, men ingenting om hvordan gjelden fordeles) og H2023 13 (to aksjer, «uavhengige»).
+
+1. **Teksten gir situasjonen, tallene og satsene. Aldri regelen, formelen eller
+   framgangsmåten.** Ikke skriv hvordan gjelden fordeles, at ubenyttet skjerming framføres
+   eller legges til grunnlaget, «ifølge Mertons formel», «sammenlign forventet nytte», «bruk
+   eksakt formel», hvilken metode en skatteavtale bruker utover det et faktum krever, eller noe
+   som varsler om fellen.
+2. **Satsene.** Det som ikke kan vites, står alltid: skjermingsrente, priser, renter,
+   sannsynligheter, inflasjon, G, delingstall, kildeskatt i andre land, effektive satser.
+   Standardsatsene for 2026 i k20 (22 %, 1,72, aksjer og aksjefond 80 %, primærbolig 25 % opp
+   til 14 mill. og 70 % over, sekundærbolig 100 %, formuesskatt 1,0 % og 1,1 % over 21,5 mill.,
+   bunnfradrag 1 900 000, minimumsskatt 15 %, exit-skatt med bunnfradrag 3 mill. og
+   gaveterskel 100 000, dokumentavgift 2,5 %, BSU 27 500 og 10 %, korttidsutleie 10 000 og
+   85 %, folketrygd 18,1 % opp til 7,1 G) står i omtrent halvparten av regneleddene. I resten
+   står bare «Bruk skattereglene for 2026.» Da må studenten kunne satsen. Løsningen sier i så
+   fall hvilken sats som ble brukt og hvor den står (k20).
+3. **«Du kan se bort fra …»** bare når det trengs for at svaret skal bli entydig.
+4. **Nøytrale titler**: navn og situasjon («Kari og aksjene i Nordlys ASA»), aldri metoden
+   eller fellen («… med ubenyttet skjerming»). `topic` bruker det bredeste navnet i lista som
+   passer (Aksjonærmodellen heller enn Skjerming), fordi chipen vises under eksamen.
+5. Delspørsmål kan bygge på hverandre uten å gjenta mellomresultatet, som på eksamen.
+6. Begrepsledd har ingen definisjon i stammen. Alternativene bærer begrepene.
+7. Noen få ledd har én opplysning som ikke skal brukes, slik aksjekursen i mc2026 1 er støy.
+   Løsningen sier at den er støy.
+
+Alt annet i spesifikasjonen gjelder: fire alternativer med nøyaktig ett riktig, gale
+alternativer som navngitte feil, fasitplanen (`p7`, `p8`, `p9` i `fasitplan.json`), løsningene i
+fast mal, 35–48 ord per ledd, 35–55 % tallsvar, høyst tre regnetrinn, ingen iterasjon.
+
+### Kilder for temaene som ikke er testet før
+
+Manualen dekker det meste (underkapitlene er oppgitt). Det som bare står i lysbildene, hentes
+fra tekstuttrekkene i `NHH/7. Semester/FIE432 Persøk/_claude/tekst/`: årets forelesning 1–5 og 9
+(«NYE FORELESNINGER __ …»), «Forelesning 9GS  Skatt, aksjer og risikotaking Rev», «Nye
+oppgaver __ Forelesning 11 GS  SkatteparadisREV» og Næss' «ForelesningAksjesparing (3)»,
+«ForelesningPensjon (5)», «ForelesningLån» og «Finansiell_psykologi (2)». Et faktum som bare
+står i et lysbilde, skal gjengis presist og løsningen oppgir forelesning og lysbilde. Ta ikke
+med påstander lysbildet ikke dekker entydig.
+
+### Svakhetene som testes på nytt med ny vri
+
+Fra Magnus' usikre og gale svar på prøveeksamen 1–4: skjerming per aksjepost, eksakt
+realavkastning, inntektsskiftingslikningen med avgiftsandelen, skattemessig bosted (§ 2-1, 61
+dager, ti år), global minimumsskatt (15 % er gulvet), Domar–Musgrave, utleie av egen bolig og
+formuesskatt med gjeldsfordeling.
+
+### Prøveeksamen 7: «ligner H2025 og forelesning 1–5 i 2026» (skatt 20, finans 10)
+
+T = tallsvar, B = begrepsledd. Slå sammen beslektede enkeltledd under felles innledning, så
+det blir 16–19 oppgaver.
+
+Skatt:
+1. Skjerming per aksjepost: to poster i samme selskap kjøpt til ulik pris, samme utbytte per
+   aksje. Skattepliktig utbytte for beholdningen og ubenyttet skjerming på den ene posten (2 T).
+   Feller: skjerming på snittkurs, netting mellom postene. k5.2–5.3.
+2. Aksjesparekonto: skattepliktig beløp ved et uttak når kontoen har gevinst (1 T). k14.6,
+   forelesning 3 («Skal du investere i aksjer og er privatperson bruk ASK!»).
+3. Effektiv skatt for en rik investor: AERT for eier av børsnotert mot unotert selskap uten
+   utbytte (formuesverdi rundt 35 % av markedsverdi for unoterte) og hva som forklarer den lave
+   satsen (1 T, 1 B). k8.6, forelesning 5 lysbilde 30–45.
+4. Inntektsskiftingslikningen når selskapsskatten endres, slik forelesning 5 viser («Hva skjer
+   når en av skattene endres», mindretallet i skatteutvalget med 24 %) (1 T). Bruk den
+   forutsetningen om lønnsskatten som lysbildet bruker.
+5. Aksjonærlån (1 B). k6.5, forelesning 5.
+6. Unoterte aksjer i formuesskatten, Anine-typen: formuesskatt når selskapets skattemessige
+   formuesverdi er langt under markedsverdien, med gjeld (1 T) og hva avisregnestykket gjorde
+   feil (1 B). k7.5, forelesning 1 lysbilde 14–18, forelesning 2 («Den skattemessige fordelen
+   ved å eie unoterte aksjer»). Ny person og nye tall.
+7. Bankinnskudd under høy inflasjon: samlet skatt (inntektsskatt og formuesskatt) i prosent av
+   den nominelle renten og realavkastning etter skatt (2 T). k2.2, k8.1, forelesning 2
+   («Takeaway»). Feller: R − π i stedet for eksakt, skatt på realrenten, glemt formuesskatten.
+8. Stykkskatt med lineære kurver: konsumentenes andel av skatten (1 T) og dødvektstapet (1 T).
+   k11.2–11.5. Feller: glemt ½, provenyet, produsentenes andel.
+9. Giring av bolig: avkastning på egenkapitalen med lån, prisstigning og renter etter skatt
+   (1 T). k4.3, forelesning 3 lysbilde 7 og 25–31.
+10. Kjøp og salg av bolig: dokumentavgift og vilkårene for skattefritt salg (1 B). k4.1, k4.4,
+    forelesning 3 («Kravene for skattefritt salg»).
+11. Folkefinansiering: forventet avkastning på et folkelån med lovet rente og
+    misligholdssannsynlighet (1 T) og et utsagn om tapsfradrag og forventet avkastning etter
+    skatt for en risikonøytral investor (1 B). k4.6, forelesning 3 lysbilde 38–51.
+12. Avkastning på aktiva 1870–2015 (Jordà mfl. 2019): bolig mot aksjer, risiko og én bolig
+    som ikke er diversifisert (1 B). k3.1–3.4, forelesning 2.
+13. Ulikhet og tilbakeholdt overskudd: hvorfor statistikken undervurderer inntekten til de
+    rikeste (1 B). k3.6, k1.6, forelesning 1 lysbilde 19–24.
+14. Skattemessig bosted for en som har bodd i Norge kortere enn ti år (1 B). k13 (§ 2-1).
+
+Finans:
+15. Ung person med stor risikofri humankapital: optimalt aksjebeløp etter Merton er større
+    enn finansformuen (1 T) og utsagn om lånefinansierte aksjekjøp for unge (1 B). k14.4–14.5,
+    «ForelesningAksjesparing (3)» («Lånefinansiere aksjekjøp», «Gjett hvem som anbefaler denne
+    strategien?», «Humankapital og alder»).
+16. Forsikring med U(W) = ln W: høyeste premie (1 T) og et utsagn om kritisk
+    skadesannsynlighet (1 B). k17.4–17.5.
+17. Kostnader over 30 år: sluttverdi i indeksfond mot aktivt fond med samme bruttoavkastning
+    (1 T). k14.6. Feller: lineær regning, differansen trukket én gang.
+18. BSU: skattefradraget og vilkårene (1 T). k15.6. Feller: 22 %, fradrag over taket, eier bolig.
+19. Fast mot flytende rente (1 B). k16.6, «ForelesningLån».
+20. Tjenestepensjon ved jobbskifte: pensjonskapitalbevis og egen pensjonskonto (1 B). k15.4.
+21. Bias mot støy (Kahneman) (1 B). k18.1, «Finansiell_psykologi (2)».
+22. Gearet indeksfond eller markedsporteføljen, det lysbildene i «ForelesningAksjesparing (3)»
+    dekker entydig (1 B).
+
+### Prøveeksamen 8: «ligner H2024 og skatteteorien i forelesning 6–11» (skatt 21, finans 9)
+
+Skatt:
+1. Skjerming over tre år der aksjene arves i år 2: arvingen overtar inngangsverdi og ubenyttet
+   skjerming (kontinuitet, skatteloven § 9-7). Skattepliktig utbytte for giveren, skjermingen
+   arvingen overtar og gevinstskatt når arvingen selger (3 T). k5.3, k6.6. Kontroller i k6.6
+   at ubenyttet skjerming følger aksjen. Gjør den ikke det, bruk gave i stedet.
+2. Nøytralitet når bare en andel β av investeringen kan utgiftsføres: kapitalkostnaden før
+   skatt (1 T) og et utsagn om når skatten er nøytral (1 B). k9.1, k9.4, forelesning 5
+   («Førsteordensbetingelsen», «Nøytralitet krever at β = 1»).
+3. Dobbeltbeskatning og skattearbitrasje (1 B). k9.2–9.3.
+4. Formuesskatt med sekundærbolig, børsnoterte aksjer, bankinnskudd og gjeld over trinnet på
+   21,5 mill.: formuesverdi etter gjeld (1 T) og formuesskatt (1 T). k7.1–7.4.
+5. Argumentene for og mot formuesskatt (1 B). k8.5.
+6. Eiendomsskatt som kapitaliseres i boligprisen: prisforskjellen mellom to like hytter i en
+   kommune med og en uten eiendomsskatt (1 T). k7.6, k11.6, forelesning 9 (siste lysbilder).
+7. Formuesskatt som avkastningsskatt, motsatt vei: formuesskattesatsen som gir samme proveny
+   som en gitt avkastningsskatt (1 T). k8.1.
+8. Stykkskatt: konsumentpris med lineære kurver (1 T), et utsagn om dødvektstapet (1 B) og
+   moms på mat eller plattformmarkeder (1 B). k11.2–11.6, forelesning 9.
+9. Evneprinsippet: horisontal og vertikal likhet (1 B). k10.1.
+10. Kilen: hva en høyere marginalskatt gjør med arbeidstilbudet (1 B). k10.2.
+11. Optimal beskatning (Mirrlees) eller reell mot formell progresjon (1 B). k10.5–10.6.
+12. Fast driftssted (1 B) og overskuddsflytting med internpriser (1 T). k13.2, k13.6.
+13. Tiltakene mot skatteparadiser: CRS, land-for-land-rapportering, BEPS og hvem som får
+    informasjonen (1 B). k13.6.
+14. Utbytte fra et utenlandsk selskap med kildeskatt: norsk skatt etter kreditfradrag (1 T).
+    k13.3, k5. Feller: kildeskatten trukket fra grunnlaget, ingen kredit, kredit over norsk skatt.
+
+Finans:
+15. Forsikring med √W: høyeste premie (1 T) og risikopremien, altså forventet formue minus
+    sikkerhetsekvivalenten (1 T). k17.1–17.3.
+16. Merton når volatiliteten øker: ny aksjeandel (1 T). k14.4. Feller: 1/σ, uendret.
+17. CAPM: forventet avkastning med beta og hvorfor usystematisk risiko ikke gir
+    risikopremie (1 T). k14, «ForelesningAksjesparing (3)» («CAPM og diversifisering»).
+18. Serielån: første terminbeløp og renter etter skatt (1 T). k16.2, k16.4.
+19. Offentlig mot privat tjenestepensjon (1 B). k15.4, «ForelesningPensjon (5)».
+20. Herding og sosiale effekter (1 B). k18, «Finansiell_psykologi (2)».
+21. Aktive fond over tid: persistens og Buffetts veddemål (1 B). k14.6,
+    «ForelesningAksjesparing (3)».
+22. Manglende deltakelse i aksjemarkedet (1 B). «Finansiell_psykologi (2)».
+
+### Prøveeksamen 9: «ligner H2023 og kursgodkjenningen 2026, med vekt på finansforelesningene» (skatt 19, finans 11)
+
+Skatt:
+1. Skjermingstabell over fire år som ender i salg med tap: skattepliktig utbytte et år,
+   akkumulert ubenyttet skjerming og skatteverdien av tapet når ubenyttet skjerming ikke kan
+   øke tapet (3 T). k5.3–5.4.
+2. Holdingselskap: skatt på utbytte gjennom holdingselskapet (treprosentregelen) (1 T) og hva
+   utsettelsen er verdt i nåverdi (1 T). k6.2–6.4, BS2 («Et to-hodet troll»).
+3. Formuesskatt: fradragsberettiget gjeld med bankinnskudd, aksjefond og primærbolig (1 T). k7.4.
+4. Superprofitt og skjermingsrenten (1 B). k2.3, forelesning 2 («Superprofitt»).
+5. To-periodemodellen: hva skatt på renteinntekt gjør med budsjettlinjen og sparingen (1 B).
+   k2.6, forelesning 2 lysbilde 50–56.
+6. Verdien av en evig kontantstrøm før og etter skatt: skattefri mot skattepliktig leie og
+   riktig diskonteringsrente (1 T). k2.5, forelesning 3 (appendiks).
+7. Selskapsskatt i en liten åpen økonomi med mobil kapital: hvem bærer den (1 B) og
+   konsumentenes andel når tilbudet er lite elastisk (1 T). k11.4, k11.6, forelesning 9 lysbilde 3.
+8. Gevinster skattlegges, men tap kan ikke trekkes fra: hva skjer med risikotakingen (1 B).
+   k12.3, forelesning 3 («Tapsfradrag vs. ikke tapsfradrag»).
+9. Global minimumsskatt med to datterselskaper med ulik effektiv sats (1 T). k13.5–13.6.
+10. Utleie av del av egen bolig der egen bruk er under halvparten målt etter utleieverdi (1 B).
+    k4.4, forelesning 3 («Skattefri utleie»).
+11. Marginalskatt og hvor mye av en lønnsøkning man beholder (1 T). k1.1–1.2.
+12. Høyrenteobligasjoner og gråmarkedslån (1 B). k4.6, forelesning 3.
+13. Inntektsskiftingslikningen når arbeidsgiveravgiften deles 50/50: eierskatten som følger
+    (1 T). Forelesning 5 («Antakelser om overveltning»).
+14. Hvem eier hva: husholdningenes formue og de rikestes (1 B). k3.5, forelesning 2.
+15. BS-modellen: utbytte og nytt innskudd av egenkapital under formuesskatt (1 B). Forelesning 5
+    appendiks, BS1.
+
+Finans:
+16. Markedseffisiens: svak, halvsterk og sterk form (1 B). «ForelesningAksjesparing (3)».
+17. Verdiaksjer og Fama–French (1 B). «ForelesningAksjesparing (3)».
+18. Standardavviket til en portefølje av to aksjer med gitt korrelasjon (1 T). k14.1–14.2.
+19. Merton med og uten skatt: aksjeandelen uten skatt (1 T) og med proporsjonal skatt og
+    fullt tapsfradrag på all avkastning (1 T). k14.4, k12.2. Feller: uendret, w(1 − t).
+20. Regulering av løpende alderspensjon: hva den følger (1 B). k15, «ForelesningPensjon (5)».
+21. Forsikring med √W og tre utfall (ingen skade, delskade, totalskade): aktuarisk premie
+    (1 T) og høyeste premie (1 T). k17.
+22. Present bias og forbrukslån (1 B). «ForelesningLån».
+23. Norwegian-aksjen: hvorfor prisen ikke falt (1 B). «Finansiell_psykologi (2)».
+24. Dulting: automatisk innmelding og standardvalg (1 B). «Finansiell_psykologi (2)».
