@@ -85,5 +85,6 @@ ikke står i commit-meldingene.
 | 2. november 2026 | Planleggeren: eksamensklar som anslått poengsum mot A-grensen per fag | 85 % mestring sa ikke noe om karakter. Se [[Beslutningslogg]] |
 | 2. november 2026 | Eksamenssett: fanen «Kartlegging», FIE402 i tre deler (85 flervalgsledd) med rapport per tema | Finne ut hva som må øves, på tvers av hele pensum. Se [[Eksamenssett-modulen]] |
 | 4. november 2026 | [[FIE432 Personlig økonomi]]: prøveeksamen 7–9 med pensum som 1–6 ikke testet og med minst mulig hjelp i oppgaveteksten | Magnus ville avdekke kunnskapshull og være forberedt på eksamen på sitt verste. Alle 90 svar løst blindt |
+| 4. november 2026 | Eksamenssett: feil svar havner automatisk i oversikten øverst, merket «feil» også når leddet er usikkert | Én liste over alt som bør gjøres på nytt. Se [[Eksamenssett-modulen]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

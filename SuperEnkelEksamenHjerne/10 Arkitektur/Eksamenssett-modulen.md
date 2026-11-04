@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-11-02
+oppdatert: 2026-11-04
 ---
 
 # Eksamenssett-modulen
@@ -121,6 +121,24 @@ ha det per deloppgave samme dag: ofte er bare ett ledd flaks.
 - Planleggeren senker taket for oppgavens mestring med halvparten av de merkede
   leddenes poengandel. Er b (3 av 9 poeng) usikker, teller oppgaven høyst 83 %.
 
+### Feil svar kommer med automatisk
+
+Lagt til 4. november 2026, fordi Magnus ville ha én liste over alt han bør gjøre på
+nytt. Flervalg du har svart feil på, havner i kortet øverst, som nå heter «Usikre og
+feil». En feil vises som «9b · feil» på en rød brikke, også når leddet er merket usikker
+(«⚑ 1a · feil»). Ledd som bare er usikre, er gule. Settkortet viser «N feil» ved siden
+av «⚑ N usikre». Øvingsbryteren heter «Bare usikre og feil». Eksamensmodus viser
+ingenting av dette.
+
+- Når oppgaven er rettet (levert eller fasit åpnet i øving), leses feilen av det
+  lagrede svaret. Slik kom feilene fra settene som allerede var levert, med uten
+  migrering.
+- Før svarene slettes (ny eksamensøkt, «Nullstill settet», «↺ Prøv på nytt») og når et
+  svar rettes, skrives resultatet til `<settId>-f<n>[-<del>]` = `{ f: 1 | 0, t }`.
+  Feilen står derfor til et senere, rettet svar er riktig. Da skrives `f: 0`, av samme
+  grunn som `u: 0`.
+- «Vet ikke» og ubesvart teller ikke som feil.
+
 ## Ikke bare eksamener
 
 Et sett trenger ikke være en eksamen. FIE432 har flervalgstesten til
@@ -204,6 +222,7 @@ at `criteria` er ren tekst, at `mc.wrongFactor` ligger i [−1, 0], og at
 | `state.exams["<settId>-run"]` | `{ mode, startedAt, submittedAt, wrongFactor }` — selve økta |
 | `state.exams["<settId>-e<n>"]` | `{ revealed, score, scoredAt, valg }` per oppgave |
 | `state.exams["<settId>-u<n>[-<del>]"]` | `{ u: 1 \| 0, t }`, usikker-merket per deloppgave |
+| `state.exams["<settId>-f<n>[-<del>]"]` | `{ f: 1 \| 0, t }`, feil fra et rettet svar, skrevet før svaret slettes |
 
 Alt går gjennom `S.store.setExam()`, så det synkes som all annen fremdrift.
 **Nedtellingen regnes ut fra `startedAt`, ikke fra en teller i minnet** — derfor
