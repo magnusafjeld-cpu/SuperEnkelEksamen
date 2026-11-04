@@ -229,6 +229,13 @@ forsvarlige svar, fem ledd der et annet ledd eller stammen røpet svaret, tre uk
 ordet pensjonskapitalbevis (egen pensjonskonto fra 2021) og Merton med skatt der risikofri rente
 bryter Domar–Musgrave.
 
+**Svake temaer (privat, 4. november 2026).** To sett med 15 ledd hver, `svak1` (aksjonærmodellen,
+formuesskatt og skatteteori) og `svak2` (landegrenser, lån og finans). Hvert ledd treffer en
+misforståelse Magnus hadde i prøveeksamen 1–5, med nye tall og ny vri. Hver løsning sier hva han
+bommet på sist. De ligger i den private utvidelsen `privat-svake` og vises i fanen «Svake temaer».
+Skriptene i `fag/privat-svake/_kilde/` bygger `svake.js` med `bygg.py`. Opplasting:
+`python3 tools/last-opp-privat.py opp privat-svake`. Blindløst 30 av 30, fem lekkasjer rettet.
+
 ## Kildene
 
 `FIE432 Personlig Økonomi 31. aug/` — forelesningslysbilder, ni eksamenssett med

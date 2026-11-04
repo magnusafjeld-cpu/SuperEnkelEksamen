@@ -139,6 +139,17 @@ ingenting av dette.
   grunn som `u: 0`.
 - «Vet ikke» og ubesvart teller ikke som feil.
 
+### Fanen «Svake temaer»
+
+Lagt til 4. november 2026. Et sett med `kind: "svak"` får sin egen fane, «Svake temaer
+(N)», ved siden av Prøveeksamener. Fanen vises bare når slike sett finnes. Ellers kjøres
+settene som prøveeksamenene, med tid og minuspoeng. Faget leverer ingen slike sett. De
+kommer fra den private utvidelsen `privat-svake` (gitignorert, i den private bøtta), som
+legger dem inn i `EDU_DATA.sets` når faget er FIE432. Derfor ser bare Magnus fanen.
+Innholdet er nyskrevne ledd på det han har svart feil på eller merket usikkert i
+prøveeksamen 1–5, bygget med `fag/privat-svake/_kilde/` og løst blindt. Se
+[[FIE432 Personlig økonomi]].
+
 ## Ikke bare eksamener
 
 Et sett trenger ikke være en eksamen. FIE432 har flervalgstesten til

@@ -19,6 +19,11 @@
    kurset. Lista viser dem i en egen del, så de aldri blandes med de ekte
    eksamenene. Ellers kjøres de nøyaktig likt.
 
+   Svake temaer. Et sett med kind: "svak" øver bare på temaer du har svart feil på
+   eller merket som usikre. Slike sett kommer fra en privat utvidelse, ikke fra
+   faget, så fanen «Svake temaer» vises bare for den som har dem. Ellers kjøres de
+   som prøveeksamenene.
+
    Kartlegging. Et sett med kind: "kartlegging" er en diagnose, ikke en eksamen.
    Det får en egen fane, kjøres alltid med hele settet synlig, uten nedtelling
    (klokka viser brukt tid) og uten minuspoeng. Hvert ledd har en «Vet ikke»-knapp
@@ -47,7 +52,7 @@ window.EDU = window.EDU || {};
   let mode = "practice";   // "practice" | "exam"
   let cursor = 0;          // hvilken oppgave som vises i øvingsmodus
   let ticker = null;       // intervallet som teller ned
-  let del = "eksamen";     // "eksamen" | "prove" | "kart": hvilken del av lista som vises
+  let del = "eksamen";     // "eksamen" | "prove" | "svak" | "kart": hvilken del av lista som vises
   let bareUsikre = false;  // øvingsmodus viser bare oppgaver som er usikre eller feil
 
   const erKart = (set) => !!set && set.kind === "kartlegging";
@@ -259,14 +264,16 @@ window.EDU = window.EDU || {};
     const wrap = el(".fade-in");
     const alle = SETS();
     const prøver = alle.filter((x) => x.kind === "mock");
+    const svake = alle.filter((x) => x.kind === "svak");
     const kart = alle.filter(erKart);
-    const ekte = alle.filter((x) => x.kind !== "mock" && !erKart(x));
-    if ((del === "prove" && !prøver.length) || (del === "kart" && !kart.length)) del = "eksamen";
-    const prøveDel = del === "prove";
-    const sets = prøveDel ? prøver : ekte;
+    const ekte = alle.filter((x) => x.kind !== "mock" && x.kind !== "svak" && !erKart(x));
+    if ((del === "prove" && !prøver.length) || (del === "svak" && !svake.length) || (del === "kart" && !kart.length)) del = "eksamen";
+    const prøveDel = del === "prove", svakDel = del === "svak";
+    const sets = prøveDel ? prøver : svakDel ? svake : ekte;
     const faner = () => {
       const seg = el(".seg", { style: { marginBottom: "16px" } });
       [["eksamen", `Tidligere eksamener (${ekte.length})`], prøver.length ? ["prove", `Prøveeksamener (${prøver.length})`] : null,
+       svake.length ? ["svak", `Svake temaer (${svake.length})`] : null,
        kart.length ? ["kart", "Kartlegging"] : null].filter(Boolean).forEach(([d, label]) =>
         seg.appendChild(el("button" + (del === d ? ".on" : ""), { onclick: () => { if (del !== d) { del = d; S.app.refresh(); } } }, label)));
       return seg;
@@ -281,11 +288,13 @@ window.EDU = window.EDU || {};
     /* Ikke alle settene er eksamener: FIE432 har også flervalgstesten til
        kursgodkjenning. Undertittelen teller derfor sett. */
     wrap.appendChild(sh().pageHead("Eksamenssett", sets.length === 1 ? "1 sett" : `${sets.length} sett`,
-      prøveDel
+      svakDel
+        ? "Nye oppgaver bare på temaene du har svart feil på eller merket som usikre. Kjør dem på tid med minuspoeng, og les fasiten på hvert feil svar etterpå."
+        : prøveDel
         ? "Prøveeksamener laget i formatet du møter, bygd på det de tidligere eksamenene faktisk spør om. De er ikke gitt av kurset. Kjør dem på tid med minuspoeng, og les fasiten på hvert feil svar etterpå."
         : "Hele sett, slik de ble gitt. Kjør dem som øving med fasit underveis, eller som ekte eksamen på tid der fasiten først åpner seg når du leverer."));
 
-    if (prøver.length || kart.length) wrap.appendChild(faner());
+    if (prøver.length || svake.length || kart.length) wrap.appendChild(faner());
 
     if (!sets.length) { wrap.appendChild(sh().empty("📄", "Ingen eksamenssett ennå", "Faget har ikke lagt inn sett i EDU_DATA.sets.")); return wrap; }
 
