@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-11-04
+oppdatert: 2026-11-05
 ---
 
 # Eksamenssett-modulen
@@ -147,7 +147,8 @@ settene som prøveeksamenene, med tid og minuspoeng. Faget leverer ingen slike s
 kommer fra den private utvidelsen `privat-svake` (gitignorert, i den private bøtta), som
 legger dem inn i `EDU_DATA.sets` når faget er FIE432. Derfor ser bare Magnus fanen.
 Innholdet er nyskrevne ledd på det han har svart feil på eller merket usikkert i
-prøveeksamen 1–5, bygget med `fag/privat-svake/_kilde/` og løst blindt. Se
+prøveeksamen 1–5 (`svak1`, `svak2`) og de fire feilene som gikk igjen etter dem (`svak3`),
+bygget med `fag/privat-svake/_kilde/` og løst blindt. Se
 [[FIE432 Personlig økonomi]].
 
 Settene teller ikke i planleggerens mestring eller eksamensklar-anslaget (fra 4.

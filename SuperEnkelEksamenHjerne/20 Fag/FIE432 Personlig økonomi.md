@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-11-04
+oppdatert: 2026-11-05
 ---
 
 # FIE432 Personlig økonomi
@@ -235,6 +235,14 @@ misforståelse Magnus hadde i prøveeksamen 1–5, med nye tall og ny vri. Hver 
 bommet på sist. De ligger i den private utvidelsen `privat-svake` og vises i fanen «Svake temaer».
 Skriptene i `fag/privat-svake/_kilde/` bygger `svake.js` med `bygg.py`. Opplasting:
 `python3 tools/last-opp-privat.py opp privat-svake`. Blindløst 30 av 30, fem lekkasjer rettet.
+
+**Svake temaer 3 (privat, 5. november 2026).** `svak3` driller bare de fire feilene Magnus gjorde
+to ganger (prøveeksamen 4 og 5 og `svak1`): skjerming per aksjepost (1–4), oppjusteringsfaktoren med
+delt arbeidsgiveravgift (5–8), utleie av egen bolig (9–11) og implisitt skatt (12–15). En time,
+15 ledd. Skriptet er `_kilde/svak3_regn.py`, fasitplanen nøkkel `svak3`. Utvidelsen er versjon 2.
+Blindløst 15 av 15. Løseren fant at 5–7 hadde to forsvarlige svar fordi teksten ikke sa hvordan
+bedriftens del av avgiften føres. Nå står det «før likningen som i forelesningen» (forelesning 5,
+lysbilde 10: bedriftens del på utbyttesiden).
 
 ## Kildene
 
