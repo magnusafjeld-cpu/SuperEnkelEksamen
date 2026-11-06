@@ -27,6 +27,11 @@
    faget, så fanen «Svake temaer» vises bare for den som har dem. Ellers kjøres de
    som prøveeksamenene.
 
+   Per forelesning. Et sett med kind: "forelesning" øver på én forelesning og har
+   `nr` for rekkefølgen. Fanen «Per forelesning» viser dem sortert, med en linje
+   øverst om hvor mange som er gjort. Til sammen dekker de hvert punkt i
+   sjekklisten (ledd.dekker). Ellers kjøres de som prøveeksamenene.
+
    Kartlegging. Et sett med kind: "kartlegging" er en diagnose, ikke en eksamen.
    Det får en egen fane, kjøres alltid med hele settet synlig, uten nedtelling
    (klokka viser brukt tid) og uten minuspoeng. Hvert ledd har en «Vet ikke»-knapp
@@ -55,7 +60,7 @@ window.EDU = window.EDU || {};
   let mode = "practice";   // "practice" | "exam"
   let cursor = 0;          // hvilken oppgave som vises i øvingsmodus
   let ticker = null;       // intervallet som teller ned
-  let del = "eksamen";     // "eksamen" | "prove" | "svak" | "kart": hvilken del av lista som vises
+  let del = "eksamen";     // "eksamen" | "prove" | "svak" | "fl" | "kart": hvilken del av lista som vises
   let bareUsikre = false;  // øvingsmodus viser bare oppgaver som er usikre eller feil
 
   const erKart = (set) => !!set && set.kind === "kartlegging";
@@ -269,13 +274,15 @@ window.EDU = window.EDU || {};
     const prøver = alle.filter((x) => x.kind === "mock");
     const svake = alle.filter((x) => x.kind === "svak");
     const kart = alle.filter(erKart);
-    const ekte = alle.filter((x) => x.kind !== "mock" && x.kind !== "svak" && !erKart(x));
-    if ((del === "prove" && !prøver.length) || (del === "svak" && !svake.length) || (del === "kart" && !kart.length)) del = "eksamen";
-    const prøveDel = del === "prove", svakDel = del === "svak";
-    const sets = prøveDel ? prøver : svakDel ? svake : ekte;
+    const fl = alle.filter((x) => x.kind === "forelesning").sort((a, b) => (a.nr || 0) - (b.nr || 0));
+    const ekte = alle.filter((x) => x.kind !== "mock" && x.kind !== "svak" && x.kind !== "forelesning" && !erKart(x));
+    if ((del === "prove" && !prøver.length) || (del === "svak" && !svake.length) || (del === "fl" && !fl.length) || (del === "kart" && !kart.length)) del = "eksamen";
+    const prøveDel = del === "prove", svakDel = del === "svak", flDel = del === "fl";
+    const sets = prøveDel ? prøver : svakDel ? svake : flDel ? fl : ekte;
     const faner = () => {
       const seg = el(".seg", { style: { marginBottom: "16px" } });
       [["eksamen", `Tidligere eksamener (${ekte.length})`], prøver.length ? ["prove", `Prøveeksamener (${prøver.length})`] : null,
+       fl.length ? ["fl", `Per forelesning (${fl.length})`] : null,
        svake.length ? ["svak", `Svake temaer (${svake.length})`] : null,
        kart.length ? ["kart", "Kartlegging"] : null].filter(Boolean).forEach(([d, label]) =>
         seg.appendChild(el("button" + (del === d ? ".on" : ""), { onclick: () => { if (del !== d) { del = d; S.app.refresh(); } } }, label)));
@@ -291,23 +298,49 @@ window.EDU = window.EDU || {};
     /* Ikke alle settene er eksamener: FIE432 har også flervalgstesten til
        kursgodkjenning. Undertittelen teller derfor sett. */
     wrap.appendChild(sh().pageHead("Eksamenssett", sets.length === 1 ? "1 sett" : `${sets.length} sett`,
-      svakDel
+      flDel
+        ? "Ett sett per forelesning, i samme rekkefølge som kurset. Til sammen dekker de hvert punkt i sjekklisten, så når alle er gjort, er du testet på hele pensum. Satser og regler står i oppgaveteksten, slik de blir oppgitt på eksamen."
+        : svakDel
         ? "Nye oppgaver bare på temaene du har svart feil på eller merket som usikre. Kjør dem på tid med minuspoeng, og les fasiten på hvert feil svar etterpå."
         : prøveDel
         ? "Prøveeksamener laget i formatet du møter, bygd på det de tidligere eksamenene faktisk spør om. De er ikke gitt av kurset. Kjør dem på tid med minuspoeng, og les fasiten på hvert feil svar etterpå."
         : "Hele sett, slik de ble gitt. Kjør dem som øving med fasit underveis, eller som ekte eksamen på tid der fasiten først åpner seg når du leverer."));
 
-    if (prøver.length || svake.length || kart.length) wrap.appendChild(faner());
+    if (prøver.length || svake.length || fl.length || kart.length) wrap.appendChild(faner());
 
     if (!sets.length) { wrap.appendChild(sh().empty("📄", "Ingen eksamenssett ennå", "Faget har ikke lagt inn sett i EDU_DATA.sets.")); return wrap; }
 
     const us = usikreKort(alle.filter((x) => !erKart(x)));
     if (us) wrap.appendChild(us);
+    if (flDel) wrap.appendChild(flFremdrift(fl));
 
     const list = el(".stack", { style: { gap: "14px" } });
     sets.forEach((set) => list.appendChild(setCard(set)));
     wrap.appendChild(list);
     return wrap;
+  }
+
+  /* Hvor langt du er kommet gjennom forelesningssettene. Et sett er gjort når det
+     er levert eller hver oppgave er rettet i øving. */
+  function flFremdrift(fl) {
+    let ledd = 0, rettet = 0, got = 0, of = 0, gjort = 0;
+    fl.forEach((set) => {
+      const sum = scoreSum(set);
+      (set.exercises || []).forEach((ex) => {
+        const n = ex.parts && ex.parts.length ? ex.parts.length : 1;
+        ledd += n;
+        if (typeof exState(set.id, ex.n).score === "number") { rettet += n; got += exState(set.id, ex.n).score; of += ex.points || 0; }
+      });
+      if (isSubmitted(set.id) || (sum.total && sum.scored === sum.total)) gjort++;
+    });
+    const pst = ledd ? Math.round((rettet / ledd) * 100) : 0;
+    const card = el(".card", { style: { marginBottom: "16px" } });
+    card.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline" } },
+      el("h4", `${gjort} av ${fl.length} forelesninger gjort`),
+      el(".spacer"),
+      el(".tiny.muted", `${rettet} av ${ledd} ledd rettet` + (of ? ` · ${pts(got)} av ${of} poeng` : ""))));
+    card.appendChild(el(".bar", { style: { margin: "10px 0 0" } }, el("span", { style: { width: pst + "%" } })));
+    return card;
   }
 
   /* Alle usikre oppgaver samlet, på tvers av settene og begge delene av lista.

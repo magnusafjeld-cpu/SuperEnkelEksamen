@@ -28,3 +28,7 @@ __pycache__/
 # tools/last-opp-privat.py og skal aldri ligge i det offentlige repoet.
 fag/privat-*/
 fag/privat-indeks.json
+
+# Forelesningssettene: JSON lages av <id>_regn.py, forelesningssett.js er kilden for appen
+fag/fie432/_forelesning/fl-*.json
+fag/fie432/_forelesning/__pycache__/

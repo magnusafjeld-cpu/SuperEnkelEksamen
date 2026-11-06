@@ -312,7 +312,7 @@ window.EDU_SUBJECTS = [
     blurb: "Skattesystemet, aksjonær- og formuesbeskatningen, skatteteorien og husholdningens finansbeslutninger — med ni tidligere eksamener rettet automatisk.",
     /* Samme blå som SAM3. Var brent oransje til 9. oktober 2026. */
     accent: "#2f6bff", accentInk: "#1b4fd6", accentSoft: "#eaf0ff", accentSoft2: "#dbe6ff",
-    scripts: ["fag/fie432/data.js", "fag/fie432/quiz.js", "fag/fie432/dybde.js", "fag/fie432/sett.js", "fag/fie432/kapitteloppgaver.js", "fag/fie432/sjangre.js", "fag/fie432/kjerne.js", "fag/fie432/symboler.js"],
+    scripts: ["fag/fie432/data.js", "fag/fie432/quiz.js", "fag/fie432/dybde.js", "fag/fie432/sett.js", "fag/fie432/forelesningssett.js", "fag/fie432/kapitteloppgaver.js", "fag/fie432/sjangre.js", "fag/fie432/kjerne.js", "fag/fie432/symboler.js"],
     manual: {
       candidates: ["FIE432_Manual.html", "fag/fie432/manual.html", "../FIE432_Manual.html"],
       label: "FIE432_Manual.html",
