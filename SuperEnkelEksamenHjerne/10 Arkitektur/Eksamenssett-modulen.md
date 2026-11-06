@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-11-05
+oppdatert: 2026-11-06
 ---
 
 # Eksamenssett-modulen
@@ -181,6 +181,29 @@ ledd, andel tallsvar) og ser etter det som lar studenten finne svaret uten å
 kunne stoffet: avvik fra fasitplanen (`fag/<fag>/_prove/fasitplan.json`), om
 riktig alternativ oftere enn tilfeldig er det lengste eller det midterste tallet,
 ledd som ligner et ekte spørsmål for mye, og skrivereglene.
+
+## Per forelesning (kind: "forelesning")
+
+Lagt til 6. november 2026 for [[FIE432 Personlig økonomi]]. Magnus ville ha ett
+eksamenssett per forelesning som til sammen dekker hele pensum.
+
+- **Egen fane** «Per forelesning (N)», sortert på settets `nr`. Øverst står et kort
+  med «X av N forelesninger gjort» og ledd rettet. Et sett er gjort når det er levert
+  eller hver oppgave er rettet i øving. Ellers kjøres settene som prøveeksamenene,
+  med tid og minuspoeng.
+- **Dekning måles mot sjekklisten.** Hvert ledd har `dekker` med id-ene til
+  sjekklistepunktene det tester. Byggeskriptet stopper hvis ett av de 854 punktene
+  ikke er dekket.
+- **Satser og regler står i oppgaveteksten**, fordi kurset kunngjorde 6. november
+  2026 at de oppgis på eksamen.
+- Planleggeren (versjon 27) regner settene som prøver: de anbefales aldri som
+  «ekte eksamen», men teller i anslaget.
+- Kildene ligger i `fag/fie432/_forelesning/`: `felles.py` (regnehjelp, fasitplan,
+  kontrollene: tall i alternativene, skriveregler, lekkasje, dekning og
+  `tools/sjekk-sett.js`), ett `<id>_regn.py` per sett, `fasitplan.json` og oppdraget
+  agentene skrev etter (`OPPDRAG.md`). `python3 -I fag/fie432/_forelesning/bygg.py`
+  kjører alle skriptene og skriver `fag/fie432/forelesningssett.js`, som lastes etter
+  `sett.js`. `--delvis --uten=<id,…>` publiserer bare ferdige sett.
 
 ## Kartlegging (kind: "kartlegging")
 

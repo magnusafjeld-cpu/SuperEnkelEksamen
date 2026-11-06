@@ -245,6 +245,12 @@ forelesning 6–11, Kvadsheim og Næss sine 2026-forelesninger). Kursgodkjenning
 lysbilder og fasiter (F4 lb 53 sin regnefeil, fortegnet i V2-formelen i F10, stresstest
 +3 mot +5 og femårsregelen) står i «Mer» på punktene. Se [[Moduler og visninger]].
 
+**Eksamenssett per forelesning (6. november 2026).** Fanen «Per forelesning» i
+Eksamenssett har 16 flervalgssett, ett per forelesning (F1–F11, Næss sine fire og
+Kvadsheim), med 291 ledd til sammen. Til sammen dekker de alle 854 punktene i
+sjekklisten. Satsene står i oppgaveteksten, og hver løsning viser til lysbildet. Se
+[[Eksamenssett-modulen]].
+
 **Svake temaer 3 (privat, 5. november 2026).** `svak3` driller bare de fire feilene Magnus gjorde
 to ganger (prøveeksamen 4 og 5 og `svak1`): skjerming per aksjepost (1–4), oppjusteringsfaktoren med
 delt arbeidsgiveravgift (5–8), utleie av egen bolig (9–11) og implisitt skatt (12–15). En time,
