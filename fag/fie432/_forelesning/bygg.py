@@ -3,6 +3,7 @@
     python3 -I fag/fie432/_forelesning/bygg.py          # kjører alle <id>_regn.py, så fletter
     python3 -I fag/fie432/_forelesning/bygg.py --flett  # bare fletter de ferdige <id>.json
     ... --delvis   tar med bare settene som er ferdige og hopper over dekningskravet
+    ... --uten=fl-f5,fl-f6   holder sett som fortsatt er under arbeid utenfor (med --delvis)
 
 Stopper hvis et sett mangler eller hvis et sjekklistepunkt ikke er dekket av noe ledd.
 """
@@ -21,9 +22,10 @@ HODE = """/* ===================== FIE432 · EKSAMENSSETT PER FORELESNING ======
 """
 
 DELVIS = "--delvis" in sys.argv
+UTEN = {x for a in sys.argv if a.startswith("--uten=") for x in a[7:].split(",")}
 if "--flett" not in sys.argv:
     for sid in SETT_INFO:
-        if DELVIS and not os.path.exists(os.path.join(HER, sid + "_regn.py")):
+        if DELVIS and (sid in UTEN or not os.path.exists(os.path.join(HER, sid + "_regn.py"))):
             continue
         r = subprocess.run([sys.executable, "-I", os.path.join(HER, sid + "_regn.py")], capture_output=True, text=True, cwd=ROT)
         if r.returncode:
@@ -33,7 +35,7 @@ if "--flett" not in sys.argv:
 sett, mangler = [], []
 for sid in SETT_INFO:
     f = os.path.join(HER, sid + ".json")
-    if os.path.exists(f):
+    if os.path.exists(f) and not (DELVIS and sid in UTEN):
         sett.append(json.load(open(f, encoding="utf8")))
     else:
         mangler.append(sid)
