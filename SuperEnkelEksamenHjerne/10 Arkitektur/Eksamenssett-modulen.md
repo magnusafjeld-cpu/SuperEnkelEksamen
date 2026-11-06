@@ -105,8 +105,9 @@ gjettet mellom to alternativer. Merket satt først på hele oppgaven, men Magnus
 ha det per deloppgave samme dag: ofte er bare ett ledd flaks.
 
 - Lista viser et gult kort øverst, «Usikre oppgaver», med alle merkede ledd
-  («5b», «17») på tvers av settene og begge delene av lista. Ett klikk åpner
-  oppgaven i øving.
+  («5b», «17») i settene i fanen du står i. Ett klikk åpner oppgaven i øving.
+  Fram til 6. november 2026 viste kortet alle fanene samlet, men Magnus ville bare se
+  den kategorien han er inne på.
 - Settkortet viser «⚑ N usikre», talt i ledd.
 - Øvingsmodus har bryteren «Alle / Bare usikre». Med den på viser navigasjonen og
   Forrige/Neste bare oppgaver med minst ett merket ledd.

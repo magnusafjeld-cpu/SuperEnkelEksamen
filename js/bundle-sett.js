@@ -310,7 +310,7 @@ window.EDU = window.EDU || {};
 
     if (!sets.length) { wrap.appendChild(sh().empty("📄", "Ingen eksamenssett ennå", "Faget har ikke lagt inn sett i EDU_DATA.sets.")); return wrap; }
 
-    const us = usikreKort(alle.filter((x) => !erKart(x)));
+    const us = usikreKort(sets);
     if (us) wrap.appendChild(us);
     if (flDel) wrap.appendChild(flFremdrift(fl));
 
@@ -343,8 +343,8 @@ window.EDU = window.EDU || {};
     return card;
   }
 
-  /* Alle usikre oppgaver samlet, på tvers av settene og begge delene av lista.
-     Ett klikk åpner oppgaven i øvingsmodus. */
+  /* Usikre og feil oppgaver samlet for settene i fanen du står i (fra 6. november
+     2026, før gjaldt det alle fanene). Ett klikk åpner oppgaven i øvingsmodus. */
   function usikreKort(alle) {
     const rader = alle.map((set) => ({ set, merker: merkede(set) })).filter((r) => r.merker.length);
     if (!rader.length) return null;
