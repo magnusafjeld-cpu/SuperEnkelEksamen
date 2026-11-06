@@ -20,6 +20,7 @@ window.EDU = window.EDU || {};
       { route: "#/problemsett", match: "/problemsett", label: "Problem sets", ico: "book" },
       { route: "#/sjangre", match: "/sjangre", label: "Sjangertrening", ico: "chart" },
       { route: "#/trening", match: "/trening", label: "Eksamenstrening", ico: "target" },
+      { route: "#/sjekkliste", match: "/sjekkliste", label: "Sjekkliste", ico: "check" },
       { route: "#/linjer", match: "/linjer", label: "Varianter", ico: "flag", badge: () => (S.views.sjakk && S.views.sjakk.antallForfalt()) || null },
       { route: "#/flashcards", match: "/flashcards", label: "Flashcards", ico: "cards", badge: () => S.srs.stats().due || null },
       { route: "#/dybde", match: "/dybde", label: "Dybdetrening", ico: "layers", badge: () => (S.views.dybde && S.views.dybde.weakCount()) || null },
@@ -89,6 +90,8 @@ window.EDU = window.EDU || {};
     /* Spørsmålsbanken er stor og lastes først når modulen åpnes (manifest.lazy),
        så her holder det at faget har den. */
     "/trening": () => !!(S.views.trening && S.views.trening.finnes()),
+    /* Sjekklisten lastes også først når den åpnes. */
+    "/sjekkliste": () => !!(S.views.sjekkliste && S.views.sjekkliste.finnes()),
     "/linjer": () => !!(S.views.sjakk && S.views.sjakk.finnes()),
   };
   function has(match) {
@@ -198,6 +201,7 @@ window.EDU = window.EDU || {};
     when("/sjangre", "/sjangre/:id/:n", (p) => setView(() => V.sjangre.render(p.id, p.n)));
     when("/notebooklm", "/notebooklm", () => setView(() => V.notebooklm.render()));
     when("/trening", "/trening", () => setView(() => V.trening.render()));
+    when("/sjekkliste", "/sjekkliste", () => setView(() => V.sjekkliste.render()));
     when("/linjer", "/linjer", () => setView(() => V.sjakk.render()));
     /* husk før :num — ruteren tar første treff. */
     when("/kjerne", "/kjerne", () => setView(() => V.kjerne.render()));

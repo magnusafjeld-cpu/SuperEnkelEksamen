@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, data, synk]
-oppdatert: 2026-10-31
+oppdatert: 2026-11-06
 ---
 
 # Datamodell og lagring
@@ -52,7 +52,7 @@ to ganger nullstiller den.
 id, mens [[Eksamenssett-modulen]] bruker `"<settId>-run"` for selve økta og
 `"<settId>-e<n>"` for selvvurdering per oppgave. Kapitteloppgavene bruker
 `"kapoppg-<kapittel>"`, og kjernepensum `"kjerne-<del-id>"` med `lest`, `sjekk`
-og `valg` inni, problem sets `"ps:<settId>:<nr>"` med `ferdig`, `hint` og `fasit`, og sjangertreningen `"sg:<steg-id>"` med `v` og `forste` (se [[Moduler og visninger]]). Nøkkelrommet er delt, så id-ene
+og `valg` inni, problem sets `"ps:<settId>:<nr>"` med `ferdig`, `hint` og `fasit`, sjangertreningen `"sg:<steg-id>"` med `v` og `forste` og sjekklisten `"skl:<punkt-id>"` med `v` (`kan`, `usikker` eller tomt når merket er fjernet, så også fjerningen synkes) og `t`, pluss `"skl:valg"` med testmodus og lukkede temaer (se [[Moduler og visninger]]). Nøkkelrommet er delt, så id-ene
 må ikke kollidere. Synken slår sammen `exams` nøkkel for nøkkel, der den nyeste
 siden vinner per felt.
 

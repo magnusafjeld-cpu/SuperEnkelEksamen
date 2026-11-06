@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-11-05
+oppdatert: 2026-11-06
 ---
 
 # FIE432 Personlig økonomi
@@ -235,6 +235,15 @@ misforståelse Magnus hadde i prøveeksamen 1–5, med nye tall og ny vri. Hver 
 bommet på sist. De ligger i den private utvidelsen `privat-svake` og vises i fanen «Svake temaer».
 Skriptene i `fag/privat-svake/_kilde/` bygger `svake.js` med `bygg.py`. Opplasting:
 `python3 tools/last-opp-privat.py opp privat-svake`. Blindløst 30 av 30, fem lekkasjer rettet.
+
+**Sjekkliste (6. november 2026).** `/sjekkliste` med 854 punkter i 110 temaer over hele
+pensum, laget av seks agenter fra den siste Canvas-eksporten (`course_files_export-2`, med
+forelesning 6–11, Kvadsheim og Næss sine 2026-forelesninger). Kursgodkjenningens fasit
+(20 punkter) ligger i den private utvidelsen `privat-sjekkliste`. Kilde og bygg:
+`fag/privat-sjekkliste/_kilde/bygg.py`. Opplasting:
+`python3 tools/last-opp-privat.py opp privat-sjekkliste`. Avvikene agentene fant mellom
+lysbilder og fasiter (F4 lb 53 sin regnefeil, fortegnet i V2-formelen i F10, stresstest
++3 mot +5 og femårsregelen) står i «Mer» på punktene. Se [[Moduler og visninger]].
 
 **Svake temaer 3 (privat, 5. november 2026).** `svak3` driller bare de fire feilene Magnus gjorde
 to ganger (prøveeksamen 4 og 5 og `svak1`): skjerming per aksjepost (1–4), oppjusteringsfaktoren med

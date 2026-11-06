@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, kode]
-oppdatert: 2026-10-29
+oppdatert: 2026-11-06
 ---
 
 # Arkitektur
@@ -35,6 +35,8 @@ js/
                            og se hva det står for (fag/<id>/symboler.js)
   bundle-trening.js        eksamenstrening: stor flervalgsbank, velg temaer og
                            antall, kort fasit og full gjennomgang med en gang
+  bundle-sjekkliste.js     sjekkliste: alt som kan komme, punkt for punkt, merket
+                           kan eller usikker (lazy som eksamenstreningen)
   bundle-claude.js         Spør Claude: chat med sidekontekst og vurdering av
                            svar, med brukerens egen API-nøkkel (bare i nettleseren)
   account.js               Supabase-innlogging + synk (mergeState bor her)
@@ -130,5 +132,5 @@ Modulen laster den selv med `S.picker.loadScripts` første gang den tegnes, vise
 en spinner så lenge, og tegner på nytt. Menyen må vite at modulen finnes før
 dataene er lastet, så `DATASTYRT` i `boot.js` spør modulen (`finnes()`) i stedet
 for å se etter dataene. Brukt første gang 9. oktober 2026 for eksamenstreningen,
-som er 1,6 MB. Se [[Moduler og visninger]].
+som er 1,6 MB, og 6. november for sjekklisten. Se [[Moduler og visninger]].
 

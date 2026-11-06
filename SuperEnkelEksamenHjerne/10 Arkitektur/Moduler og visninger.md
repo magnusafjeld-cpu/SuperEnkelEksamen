@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-04
+oppdatert: 2026-11-06
 ---
 
 # Moduler og visninger
@@ -27,6 +27,7 @@ oppdatert: 2026-11-04
 | Sjangertrening | `/sjangre`, `/sjangre/:id`, `/sjangre/:id/:n` | Én stige per oppgavesjanger, fra null til eksamensnivå: teori, eksempel og én flervalgsoppgave per steg. Bare FIE402 foreløpig |
 | Problem sets | `/problemsett`, `/problemsett/:id`, `/problemsett/:id/:nr` | Øvingssettene fra kurset, med fire hint per delspørsmål og fasit bak en knapp. Bare FIE402 foreløpig |
 | Eksamenstrening | `/trening` | Stor flervalgsbank i eksamensformat. Velg temaer og antall, få kort fasit med en gang og full gjennomgang på knapp |
+| Sjekkliste | `/sjekkliste` | Alt som kan komme på eksamen, punkt for punkt, merket ✓ (kan) eller ? (usikker), med testmodus og liste over usikre punkter. Bare FIE432, se under |
 | NotebookLM | `/notebooklm` | Pensum som ren tekst, ett kapittel per kilde, med kopiknapp — se under |
 | Konto | `/konto` | Innlogging, synkstatus, «Nullstill fremdrift» og «Last innhold på nytt» |
 
@@ -362,6 +363,36 @@ pålydende i agentproblemet. Formelarket har `deler.formelark` (formeldelen av h
 uten navnet) og `deler.formelark-liste` (lista «Står ikke på arket», der C og P er
 opsjoner). Nøkler med senket skrift skiller betydninger på samme ark: C alene er
 kontantstrømmen, C_u opsjonsverdien i opptilstanden.
+
+## Sjekkliste: finn hullene når du kan nesten alt
+
+`/sjekkliste`, `js/bundle-sjekkliste.js`. Magnus ba om den 6. november 2026, seks
+dager før FIE432-eksamen: han fikk nesten alt riktig på prøveeksamenene og ville
+vite at han kunne *alt*. «Hvert del bør ha det viktigste først også mulighet til å
+utvide for mer info.»
+
+**Innholdet.** `fag/fie432/sjekkliste.js` (`EDU_DATA.sjekkliste`, 854 punkter i 110
+temaer) er laget av seks agenter fra hele Canvas-eksporten: forelesning 1–11,
+Kvadsheim, Næss, pensumartiklene og alle eksamener 2016–2025. Hvert punkt er én
+ferdighet («Regne ut …») med `kort` svar, `mer` (forklaring, talleksempel, felle),
+`kilder` og `eksamen` (hvor det er testet), og nivå kjerne, viktig eller detalj.
+Temaene grupperes per forelesning, sortert på eksamensvekt, og punktene på nivå.
+Kilden er `fag/privat-sjekkliste/_kilde/` (A–F.json og `bygg.py`), som er
+gitignorert fordi den også har fasiten til kursgodkjenningen. `bygg.py` skriver
+den åpne datafila, den private utvidelsen og en frittstående HTML-utgave i
+emnemappen.
+
+**Kursgodkjenningen er privat.** Kurset deler ikke ut fasit til MC-testen, så den
+åpne datafila har ingen setninger om den (`bygg.py` renser dem og stopper hvis noe
+er igjen). Seksjonen med alle 20 svarene ligger i den private utvidelsen
+`privat-sjekkliste`, som legger den i `EDU_DATA.sjekklisteTillegg`.
+
+**Visningen.** Fremdrift totalt og per forelesning (trykk for å hoppe dit), søk,
+filter på status, nivå og «Testet på eksamen», testmodus (svaret skjult til du har
+svart), «Tilfeldig punkt» (et du ikke har merket) og «Usikre punkter» (en liste å
+lime inn hos Claude). «Mer» tegnes først når det åpnes. Datafila er nesten 0,8 MB
+og står i `manifest.lazy`, som eksamenstreningen. Lagring: `exams["skl:<id>"]` og
+`exams["skl:valg"]` (se [[Datamodell og lagring]]).
 
 ## Eksamenstrening — mange spørsmål, fasit med en gang
 
