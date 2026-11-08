@@ -560,3 +560,127 @@ Finans:
 22. Present bias og forbrukslån (1 B). «ForelesningLån».
 23. Norwegian-aksjen: hvorfor prisen ikke falt (1 B). «Finansiell_psykologi (2)».
 24. Dulting: automatisk innmelding og standardvalg (1 B). «Finansiell_psykologi (2)».
+
+## Prøveeksamen 10, 11 og 12 (8. november 2026): så lik eksamen som mulig
+
+Magnus bestilte dette 8. november 2026: tre eksamener med høyest mulig sannsynlighet for å ligne den han faktisk får 12. november, med samme vanskelighetsgrad som H2025.
+
+Grunnlaget er tre kilder:
+- **H2025.** Den siste skoleeksamenen, laget av de samme foreleserne i skattedelen.
+- **Kursgodkjenningen 2026 (`mc2026`).** Laget av årets forelesere, også Næss, som har finansdelen for første gang.
+- **Kunngjøringen fra 6. november 2026.** Satser og regler oppgis på eksamen, veldig gamle oppgaver er utdatert, og man bør lese forelesningsnotatene nøye.
+
+Hver eksamen er bygd som en hel og troverdig eksamen. Kjernerutinene kommer i alle tre. De andre temaene roterer, slik at de tre til sammen dekker alt som har en reell sjanse for å komme.
+
+### Formatet og vanskelighetsgraden (H2025-nivå)
+
+- 30 ledd fordelt på 15–19 oppgaver.
+  - **Skattedelen (GS):** 18 ledd, 60 %.
+  - **Finansdelen (Næss og Kvadsheim):** 12 ledd, 40 %. H2025 hadde 59/41.
+- 4 alternativer, +3/−1, `minutes: 240`.
+- **Stillaset er som i H2025, ikke det minimale fra prøveeksamen 7–9.**
+  - Alle satser står i teksten, som kunngjort.
+  - Lærerne bruker gjerne runde satser («eierskatt 40 %», «formuesskatt 1 %», «verdsettingsrabatt 20 %»). Gjør det samme i omtrent halvparten av regneleddene, og si i teksten at satsene er forenklet.
+  - En regel som eksamen ville oppgitt, kan stå i teksten, for eksempel at gjelden fordeles forholdsmessig. Framgangsmåten og fellen skal aldri stå der.
+- **Regneledd:** én til tre operasjoner med runde tall som går opp, som H2025 1–10. Ingen lange tabeller. Kjeder (a–d) der hvert ledd er kort, som H2025 3 og 13.
+- **Begrepsledd:** i stilen fra mc2026: «Hvilket utsagn er riktig?», «Hvilken av påstandene kan være korrekt?», formelgjenkjenning (H2025 7, H2024 8) og fakta fra lysbildene (H2025 16).
+- **Måltall** (`node tools/sjekk-prove.js fie432`):
+  - 38–50 ord per ledd
+  - 55–65 % tallsvar (H2025 har om lag 65 %)
+- Ingen spørsmål med samme tall eller samme scenario som de ekte settene, mc2026 eller prøveeksamen 1–9. Bruk nye navn, og kontroller dem med grep mot `fag/fie432/sett.js`.
+- **Pensum er 2026-forelesningene.** Er en gammel fasit i strid med forelesningen, gjelder forelesningen.
+- **Satser for 2026:** se «Satsene» over.
+
+### Prøveeksamen 10: «tvillingen til H2025» (samme rekkefølge og samme rutiner som H2025, nye tall og vrier)
+
+Skattedelen (18 ledd):
+
+| Nr. | Innhold | Ledd | Modell |
+|---|---|---|---|
+| 1 | Kontantstrøm til eieren over to år: utbytte med skjerming og formuesskatt med rabatt, netto til eier | 1 T | H2025 1 |
+| 2 | Formuesskatt med bolig og aksjer og felles gjeld. Teksten må gjøre det entydig om gjeldsreduksjonen gjelder | 1 T | H2025 2, der to svar ble godtatt |
+| 3 | Formuesskatt som avkastningsskatt: skatt i % av avkastningen med og uten selskapsskatt, verdi av evig kontantstrøm og verdi med formuesskatt | 4 T | H2025 3 |
+| 4 | Ubenyttet skjerming fra året før, skattepliktig utbytte per aksje | 1 T | H2025 4 |
+| 5 | Effektiv skattesats når en kostnad ikke er fradragsberettiget eller bare delvis | 1 T | H2025 5 |
+| 6 | Utbytte som trengs for å betale formuesskatten | 1 T | H2025 6 |
+| 7 | Bedriftens tilpasning: F′(K) med avgrenset rentefradrag og skatt på eier som formelgjenkjenning, og et begrepsledd om gjeld mot egenkapital | 2 formel, 1 B | H2025 7 |
+| 8 | Stykkskatt med lineære kurver: generelt tilfelle, ett grensetilfelle og produsentprisen | 3 T | H2025 8 |
+| 9 | Formuesskatt omregnet til avkastningsskatt. Vrien er formuen ved utgangen av året i stedet for inngangen | 1 T | H2025 9 |
+| 10 | Gevinst med oppjustering når aksjen har ubenyttet skjerming | 1 T | H2025 10 |
+| 11 | Fritaksmetoden eller aksjonærmodellen | 1 B | mc2026 6 og 10 |
+
+Finansdelen (12 ledd):
+
+| Nr. | Innhold | Ledd | Modell |
+|---|---|---|---|
+| 12 | Merton-kjeden: γ eller aksjeandel, risikofri humankapital, humankapital med β = 1 og livssyklus | 4 | H2025 11 |
+| 13 | Forsikring, egenandel eller lovpålagt | 1 B | H2025 12, mc2026 15 |
+| 14 | Forventet nytte med √W: kjøpe eller ikke, kritisk sannsynlighet og delforsikring | 3 | H2025 13 |
+| 15 | Delingstall og uttaksalder i folketrygden | 1 B | H2025 14 |
+| 16 | Kapitalmarkedslinjen og giring av markedsporteføljen | 1 B | H2025 15 |
+| 17 | Indeksfond mot aktive fond, fakta fra Næss | 1 B | H2025 16 |
+| 18 | Innskudd mot ytelse | 1 B | H2025 17 |
+
+### Prøveeksamen 11: «H2024 og kursgodkjenningen»
+
+Skattedelen (18 ledd):
+
+| Nr. | Innhold | Ledd | Modell |
+|---|---|---|---|
+| 1 | Skjermingskjeden over to år: skjerming, skattepliktig, ubenyttet og år 2 med framført skjerming | 4 T | H2024 1, mc2026 1 |
+| 2 | Gevinst med oppjustering | 1 T | H2024 2 |
+| 3 | Tidsverdien av avskrivning mot straksfradrag | 1 | H2024 3 |
+| 4 | Progressivitet: flat sats med bunnfradrag og gjennomsnittsskatt | 1 B, 1 T | H2024 4, mc2026 8 |
+| 5 | Formuesskatt: gjeldsreduksjon og nettoformue | 2 T | H2024 6 |
+| 6 | Utbytte som trengs for å betale formuesskatt med eierskatt 37,84 % | 1 T | H2024 7 |
+| 7 | Stykkskatt som formelgjenkjenning: ∂p/∂t, ∂P/∂t og et grensetilfelle | 3 | H2024 8 |
+| 8 | Implisitt skatt: begrep og tall | 2 | H2024 9 |
+| 9 | Inntektsskiftingslikningen | 1 T | mc2026 2 |
+| 10 | Norsk skattyter, skattemessig bosted eller utflytting | 1 B | mc2026 4 og 9, H2024 10 |
+
+Finansdelen (12 ledd):
+
+| Nr. | Innhold | Ledd | Modell |
+|---|---|---|---|
+| 11 | Forsikring med √W eller ln W: rettferdig pris, full dekning, kjøpe eller ikke og høyeste premie | 4 | H2024 11 |
+| 12 | Indeksfond, eksponering, valutasikring og varians med ρ = 1 | 3 | H2024 12 |
+| 13 | Innskudd mot ytelse, IPS og BSU | 2 | H2024 13 |
+| 14 | Lån: avdragsfrihet eller rentevalg | 1 | H2024 14, ForelesningLån |
+| 15 | Finansiell psykologi: menyeffekt eller home bias | 1 B | mc2026 16 og 18 |
+| 16 | CRRA-pensjonist: aksjeandel med γ oppgitt | 1 T | mc2026 12 |
+
+### Prøveeksamen 12: «kursgodkjenningen og 2026-forelesningene»
+
+Skattedelen (18 ledd):
+
+| Nr. | Innhold | Ledd | Modell |
+|---|---|---|---|
+| 1 | Skjerming over år og salg med ubenyttet skjerming | 2 T | mc2026 1 |
+| 2 | Samlet skatt på overskudd tatt ut som utbytte, med oppgitte satser | 1 T | mc2026 3 |
+| 3 | Inntektsskiftingslikningen når en sats endres, eller når arbeidsgiveravgiften deles | 1 T | mc2026 2, F5 |
+| 4 | AERT eller formuesskatt som avkastningsskatt for børsnotert mot unotert | 1 T, 1 B | F5, F8, H2025 3 |
+| 5 | Formuesskatt med primærbolig og aksjer og gjeldsfordeling | 1 T | |
+| 6 | Stykkskatt med tall: konsumentpris og konsumentenes andel | 2 T | F9 |
+| 7 | Skatt og risiko: delvis tapsfradrag i begrep, og Domar–Musgrave med tall | 2 | mc2026 7, F10 |
+| 8 | Bedriftens tilpasning: kapitalkostnad eller nøytralitet | 1 | F6 |
+| 9 | Skattefri utleie av egen bolig | 1 B | mc2026 5, F3 |
+| 10 | Fritaksmetoden | 1 B | mc2026 6 |
+| 11 | Utflytting: når man er utflyttet, og exit-skatt | 2 | mc2026 9, F7 |
+| 12 | Skatteparadis | 1 B | F11 |
+| 13 | Progressivitet | 1 B | mc2026 8 |
+
+Finansdelen (12 ledd):
+
+| Nr. | Innhold | Ledd | Modell |
+|---|---|---|---|
+| 14 | Valg mellom pensjonskontrakter ved risikoaversjon | 1 | mc2026 11 |
+| 15 | Humankapital: ung mot gammel og Merton med humankapital | 2 | mc2026 17, H2025 11 |
+| 16 | Folketrygd: opptjening og delingstall | 1 T | mc2026 19 |
+| 17 | Hvilken del av pensjonsformuen som er utsatt for aksjemarkedet | 1 B | mc2026 20 |
+| 18 | Aksjeporteføljer og aktive mot passive fond | 2 B | mc2026 13 og 14 |
+| 19 | Forsikring: egenandel og høyeste premie med √W | 1 B, 1 T | mc2026 15 |
+| 20 | Lån eller sparing (Kvadsheim, ForelesningLån) | 1 | |
+| 21 | Finansiell psykologi | 1 B | mc2026 16 og 18 |
+| 22 | Aksjesparing: kostnader over tid eller å slå markedet | 1 T | ForelesningAksjesparing |
+
+T betyr tallsvar og B begrepsledd. Oppgavene i lista kan slås sammen eller deles når det gir en naturlig felles innledning. Antall ledd per eksamen står fast.

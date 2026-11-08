@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-11-06
+oppdatert: 2026-11-08
 ---
 
 # FIE432 Personlig økonomi
@@ -179,7 +179,7 @@ bare (c).
 
 ### Prøveeksamenene
 
-Ni prøveeksamener (`prove1`–`prove9`, `kind: "mock"`) ligger sist i `sett.js` og
+Tolv prøveeksamener (`prove1`–`prove12`, `kind: "mock"`) ligger sist i `sett.js` og
 vises under «Prøveeksamener» i Eksamenssett. Formatet er 2026-formatet: 30 flervalg,
 fire alternativer, 3 poeng for rett og −1 for feil, 4 timer, 90 poeng.
 Spesifikasjonen er `docs/fie432-proveeksamen-spek.md`.
@@ -195,6 +195,9 @@ Spesifikasjonen er `docs/fie432-proveeksamen-spek.md`.
 | Prøveeksamen 7 | H2025 og årets forelesning 1–5 | 40 | 53 % |
 | Prøveeksamen 8 | H2024 og skatteteorien i forelesning 6–11 | 37 | 53 % |
 | Prøveeksamen 9 | H2023 og kursgodkjenningen, med vekt på finansforelesningene | 43 | 53 % |
+| Prøveeksamen 10 | Tvillingen til H2025: samme rutiner i samme rekkefølge | 48 | 63 % |
+| Prøveeksamen 11 | H2024 og kursgodkjenningen 2026 | 39 | 63 % |
+| Prøveeksamen 12 | Kursgodkjenningen og 2026-forelesningene | 49 | 57 % |
 
 **Kalibrert mot skoleeksamen.** Eksamen 2026 er en skoleeksamen. H2022 var en
 hjemmeeksamen med lengre og tyngre oppgaver (68 ord per ledd). Den første versjonen
@@ -228,6 +231,8 @@ spesifikasjonen. Blindløsningen traff alle 90 svar, men fant 15 ting som er ret
 forsvarlige svar, fem ledd der et annet ledd eller stammen røpet svaret, tre uklare formuleringer,
 ordet pensjonskapitalbevis (egen pensjonskonto fra 2021) og Merton med skatt der risikofri rente
 bryter Domar–Musgrave.
+
+**Prøveeksamen 10–12 (8. november 2026) er laget for å ligne eksamen mest mulig.** Magnus bestilte tre eksamener med høyest sannsynlighet for å ligne den han får 12. november, på H2025-nivå. Grunnlaget var H2025 (siste skoleeksamen), kursgodkjenningen 2026 (årets forelesere, også Næss) og kunngjøringen 6. november (satser og regler oppgis). Alle satser står i teksten, gjerne forenklet som i H2025, og kalibreringen er 38–50 ord og 55–65 % tallsvar. 10 følger H2025 oppgave for oppgave, 11 bygger på H2024 og kursgodkjenningen, og 12 på kursgodkjenningen og temaene som er nye i 2026 (AERT, skatt og risiko, utflytting, skatteparadis, Næss og Kvadsheim). En uavhengig kontrollør regnet hvert ledd på nytt og fant fem feil: i prove10 en variant av bedriftens tilpasning med rentetak som ikke er undervist (byttet til andel A og skatt på eierens renteinntekt fra F6), en uklar formuesverdi i 3d og en nevner som avvek fra kursets regel, og i prove12 en sats som manglet i teksten. Alt er rettet. Oppskriften står sist i spesifikasjonen.
 
 **Svake temaer (privat, 4. november 2026).** To sett med 15 ledd hver, `svak1` (aksjonærmodellen,
 formuesskatt og skatteteori) og `svak2` (landegrenser, lån og finans). Hvert ledd treffer en

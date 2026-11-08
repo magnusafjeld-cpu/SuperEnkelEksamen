@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-11-04
+oppdatert: 2026-11-08
 ---
 
 # Tidslinje
@@ -87,5 +87,7 @@ ikke står i commit-meldingene.
 | 4. november 2026 | [[FIE432 Personlig økonomi]]: prøveeksamen 7–9 med pensum som 1–6 ikke testet og med minst mulig hjelp i oppgaveteksten | Magnus ville avdekke kunnskapshull og være forberedt på eksamen på sitt verste. Alle 90 svar løst blindt |
 | 4. november 2026 | Eksamenssett: feil svar havner automatisk i oversikten øverst, merket «feil» også når leddet er usikkert | Én liste over alt som bør gjøres på nytt. Se [[Eksamenssett-modulen]] |
 | 4. november 2026 | Eksamenssett: fanen «Svake temaer» med to private sett på det Magnus har bommet på | Mindre tid på det han kan. Se [[Eksamenssett-modulen]] |
+| 6. november 2026 | [[FIE432 Personlig økonomi]]: eksamenssett per forelesning (16 sett) som til sammen dekker hele sjekklisten | Kurset sa at forelesningsnotatene er det viktigste. Se [[Eksamenssett-modulen]] |
+| 8. november 2026 | [[FIE432 Personlig økonomi]]: prøveeksamen 10–12, laget for å ligne eksamen mest mulig (H2025-nivå) | Fire dager før eksamen. Hver eksamen kontrollert uavhengig, fem feil rettet |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.
