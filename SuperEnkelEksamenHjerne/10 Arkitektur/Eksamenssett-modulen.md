@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-11-06
+oppdatert: 2026-11-09
 ---
 
 # Eksamenssett-modulen
@@ -197,8 +197,11 @@ eksamenssett per forelesning som til sammen dekker hele pensum.
   ikke er dekket.
 - **Satser og regler står i oppgaveteksten**, fordi kurset kunngjorde 6. november
   2026 at de oppgis på eksamen.
-- Planleggeren (versjon 27) regner settene som prøver: de anbefales aldri som
-  «ekte eksamen», men teller i anslaget.
+- Planleggeren regner settene som prøver: de anbefales aldri som «ekte eksamen».
+  Fra 9. november 2026 (versjon 28) teller de heller ikke i mestringen eller
+  eksamensklar-anslaget, som de svake temaene. Magnus ville at de ikke skulle gi
+  progresjon: de øver på én forelesning om gangen og er ikke på eksamensnivå.
+  Svarene teller fortsatt i dagens mål (riktige og nye oppgaver).
 - Kildene ligger i `fag/fie432/_forelesning/`: `felles.py` (regnehjelp, fasitplan,
   kontrollene: tall i alternativene, skriveregler, lekkasje, dekning og
   `tools/sjekk-sett.js`), ett `<id>_regn.py` per sett, `fasitplan.json` og oppdraget

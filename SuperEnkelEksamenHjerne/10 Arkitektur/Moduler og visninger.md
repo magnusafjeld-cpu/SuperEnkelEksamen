@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-06
+oppdatert: 2026-11-09
 ---
 
 # Moduler og visninger
@@ -593,6 +593,8 @@ Den regnes på nytt hver gang siden åpnes.
   Sett med `kind: "svak"` (Svake temaer) teller verken i mestringen eller i
   eksamensklar-anslaget (fra 4. november 2026). De står i settlista som
   `mock` med `prog: null`, så de kan anbefales som øving uten å bli generalprøve.
+  Det samme gjelder sett med `kind: "forelesning"` fra 9. november 2026
+  (versjon 28): de gir ikke progresjon, men svarene teller i dagens mål.
 - **Regnemodellen.** Gjenstår = arbeidsmengde × faktorene × gap til 85 % × (0,4 +
   0,2 × eksamensvekt), summert over kapitlene. Arbeidsmengden er tiden
   kjernepensum, kapitteloppgaver og quiz for kapitlet tar; manualens ordtall brukes
