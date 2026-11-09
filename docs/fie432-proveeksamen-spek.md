@@ -567,7 +567,7 @@ Magnus bestilte dette 8. november 2026: tre eksamener med høyest mulig sannsynl
 
 Grunnlaget er tre kilder:
 - **H2025.** Den siste skoleeksamenen, laget av de samme foreleserne i skattedelen.
-- **Kursgodkjenningen 2026 (`mc2026`).** Laget av årets forelesere, også Næss, som har finansdelen for første gang.
+- **Kursgodkjenningen 2026 (`mc2026`).** Laget av årets forelesere, også Næss, som har hatt finansdelen minst siden 2022.
 - **Kunngjøringen fra 6. november 2026.** Satser og regler oppgis på eksamen, veldig gamle oppgaver er utdatert, og man bør lese forelesningsnotatene nøye.
 
 Hver eksamen er bygd som en hel og troverdig eksamen. Kjernerutinene kommer i alle tre. De andre temaene roterer, slik at de tre til sammen dekker alt som har en reell sjanse for å komme.
@@ -684,3 +684,149 @@ Finansdelen (12 ledd):
 | 22 | Aksjesparing: kostnader over tid eller å slå markedet | 1 T | ForelesningAksjesparing |
 
 T betyr tallsvar og B begrepsledd. Oppgavene i lista kan slås sammen eller deles når det gir en naturlig felles innledning. Antall ledd per eksamen står fast.
+
+## Prøveeksamen 13, 14 og 15 (9. november 2026): prediksjonen
+
+Magnus bestilte dette 9. november 2026. Han ville ha en skikkelig prediksjon av eksamen torsdag 12. november, både av hvilke oppgaver som kommer og av vanskelighetsgraden. Det som har vært for lite dekket de siste årene, skulle også vurderes.
+
+### Grunnlaget
+
+- **Samme forelesere.**
+  - Schjelderup (GS) har laget skattedelen i alle settene.
+  - Ole-Andreas Næss (OA) har hatt finansdelen minst siden 2022. Forelesningsplanen for 2024 og registeret for H2022–H2025 viser det.
+  - H2024, H2025 og kursgodkjenningen 2026 er derfor de beste prediktorene for begge delene.
+- **Endringene i 2026.**
+  - Minuspoeng.
+  - Ingen gjesteforeleser i skatterett. Torvik hadde internasjonal skatt i 2024, men i 2026 tar GS utflytting selv (F7) og skatteparadiser (F11).
+  - Ny gjesteforelesning av Kvadsheim.
+  - Kunngjøringen 6. november: satser og regler oppgis. Forelesningsnotatene skal leses nøye. Faktaledd fra lysbildene må derfor ventes (som H2025 16).
+- **Kursgodkjenningen 2026** er laget av de samme foreleserne i år. Spørsmål 1–10 viser hva GS mener kan testes fra 2026-forelesningene: skjerming, inntektsskifting, eierskatt i AS, skattyter og utflytting, utleie, fritaksmetoden, delvis tapsfradrag og progressivitet. Spørsmål 11–20 viser det samme for Næss: pensjonskontrakter, Merton, aksjeporteføljer, aktive og passive fond, egenandel, menyeffekt, humankapital, home bias, folketrygd og pensjonsformue.
+
+### Prediksjonen
+
+Sannsynligheten for at temaet kommer og forventet antall ledd av 30.
+
+**Skattedelen (rundt 18 ledd):**
+
+| Tema | Sist på eksamen | Sannsynlighet | Ledd |
+|---|---|---|---|
+| Skjermingskjeden: utbytte, ubenyttet skjerming, flere år | H2022, H2023, H2024, H2025 | 97 % | 2–4 |
+| Stykkskatt-insidens: formel, grensetilfeller eller tall | hvert år | 97 % | 2–3 |
+| Gevinst med oppjustering, også med ubenyttet skjerming | hvert år | 95 % | 1–2 |
+| Formuesskatt: verdsetting og gjeldsfordeling | H2023, H2024, H2025 | 85 % | 1–2 |
+| Utbytte som trengs for å betale formuesskatten | H2023, H2024, H2025 | 85 % | 1 |
+| Effektiv skattesats eller samlet skatt på utbytte | H2022, H2023, H2025, mc2026 | 80 % | 1–2 |
+| Formuesskatt som avkastningsskatt, verdi med formuesskatt | H2023, H2025 (17 %), F8 og BS4 | 75 % | 1–3 |
+| Utflytting, skattemessig bosted, exit-skatt | H2022, H2024, mc2026 4 og 9 | 55 % | 1–2 |
+| Bedriftens tilpasning, F′(K), gjeld mot egenkapital | H2025, F6 | 50 % | 1–2 |
+| Skatt og risiko (Domar–Musgrave, tapsfradrag) | mc2026 7, F10 | 50 % | 1 |
+| Progressivitet og gjennomsnittsskatt | H2024, mc2026 8, F7 | 50 % | 1–2 |
+| Implisitt skatt | H2024, F10 | 45 % | 1–2 |
+| Inntektsskifting | mc2026 2, F5 | 45 % | 1 |
+| Fritaksmetoden og aksjonærmodellen som begrep | mc2026 6 og 10 | 35 % | 1 |
+| Skatteparadis og inntekt uten skatteavtale | H2021, H2024, F11 | 35 % | 1 |
+| Realavkastning og avkastning over tid (F2) | H2023 | 30 % | 1 |
+| Utleie av bolig og investeringscaser (F3) | mc2026 5 | 30 % | 1 |
+| Tidsverdi av fradrag og avskrivning | H2024 | 20 % | 1 |
+
+**Finansdelen (rundt 12 ledd):**
+
+| Tema | Sist på eksamen | Sannsynlighet | Ledd |
+|---|---|---|---|
+| Forventet nytte og forsikring med √W eller ln W | H2024, H2025 | 90 % | 2–4 |
+| Merton med humankapital og livssyklus | H2022, H2025, mc2026 12 og 17 | 80 % | 2–4 |
+| Indeksfond mot aktive fond, fakta fra Næss | H2024, H2025, mc2026 13 og 14 | 80 % | 1–2 |
+| Folketrygd: delingstall, opptjening | H2025, mc2026 19 | 75 % | 1 |
+| Innskudd mot ytelse, IPS, BSU, ASK | H2024, H2025 | 75 % | 1–2 |
+| Forsikring som begrep: egenandel, lovpålagt, systematisk risiko | H2023, H2025, mc2026 15 | 70 % | 1 |
+| Lån: annuitet, effektiv rente, avdragsfrihet, boliglånsforskrift | H2022, H2024. Har ventet lenge | 65 % | 1–2 |
+| Kapitalmarkedslinjen, giring og varians | H2023, H2024, H2025 | 60 % | 1 |
+| Finansiell psykologi | mc2026 16 og 18, aldri på eksamen i flervalgstiden | 60 % | 1 |
+| Kvadsheim: sparing og lån | ny i 2026 | 50 % | 1 |
+| Valutasikring og home bias | H2024, mc2026 18 | 40 % | 1 |
+| Sparing med ln-nytte, subjektive sannsynligheter, tapsaversjon | H2022 | 30 % | 1–2 |
+
+**Vanskelighetsgraden.**
+- Som H2025. Kalibreringen fra 10–12 gjelder: 38–50 ord per ledd, 55–65 % tallsvar, runde tall, én til tre operasjoner, alle satser i teksten og ingen lange tabeller.
+- Minuspoengene gjør det trolig ikke vanskeligere. Det er de gale alternativene som blir viktigere. De bygges på de samme feilene som før.
+
+### Slik er de tre eksamenene bygd
+
+- **Alle tre** har temaene med sannsynlighet 75 % eller mer, i forventet størrelse.
+- **De usikre temaene** fordeles slik at:
+  - temaer på 50 % eller mer kommer i to av de tre eksamenene
+  - temaer under 50 % kommer i én
+- Hver eksamen er altså en troverdig «trekning» av eksamen. Til sammen dekker de det meste av sannsynlighetsmassen.
+- Rekkefølgen er som i H2025: GS først (skjerming, formuesskatt, insidens og resten), så Næss (Merton, forsikring, pensjon, fond og resten).
+- Navn og scenarioer skal være nye. Grep mot `fag/fie432/sett.js`, som også har prøveeksamen 1–12.
+
+### Prøveeksamen 13: «hovedprediksjonen» (det mest sannsynlige settet)
+
+| Nr. | Innhold | Ledd |
+|---|---|---|
+| 1 | Skjermingskjeden over to til tre år med ubenyttet skjerming framført | 3 T |
+| 2 | Gevinst ved salg med oppjustering, der aksjen har ubenyttet skjerming | 1 T |
+| 3 | Samlet skatt (selskap og eier) på overskudd tatt ut som utbytte, med oppgitte satser | 1 T |
+| 4 | Formuesskatt med bolig, aksjer og gjeld: verdsetting og gjeldsreduksjon, entydig formulert. Nettoformue og formuesskatt | 2 T |
+| 5 | Utbyttet som trengs for å betale formuesskatten | 1 T |
+| 6 | Formuesskatt som avkastningsskatt og verdien av en evig kontantstrøm med formuesskatt | 2 T |
+| 7 | Stykkskatt: formelgjenkjenning, ett grensetilfelle og ett talleksempel med lineære kurver | 3 |
+| 8 | Bedriftens tilpasning: F′(K) med skatt som formelgjenkjenning og gjeld mot egenkapital som begrep | 2 |
+| 9 | Skatt og risiko: fullt tapsfradrag og risikotaking | 1 B |
+| 10 | Utflytting: når du er skattemessig utflyttet, eller exit-skatt | 1 B |
+| 11 | Progressivitet: flat sats med bunnfradrag | 1 T |
+| 12 | Merton: γ eller aksjeandel, risikofri humankapital og aksjelik humankapital | 3 |
+| 13 | Forventet nytte med √W: kjøpe eller ikke, høyeste premie og delforsikring eller egenandel | 3 T |
+| 14 | Forsikring som begrep | 1 B |
+| 15 | Folketrygden: delingstall eller opptjening | 1 |
+| 16 | Innskudd mot ytelse eller IPS | 1 B |
+| 17 | Indeksfond mot aktive fond, fakta fra lysbildene | 1 B |
+| 18 | Lån: annuitet eller effektiv rente med gebyr | 1 T |
+| 19 | Finansiell psykologi | 1 B |
+
+### Prøveeksamen 14: «rotasjonen» (GS sin H2024-blokk og Næss sin porteføljeblokk)
+
+| Nr. | Innhold | Ledd |
+|---|---|---|
+| 1 | Skjermingskjeden: utbytte per aksje over flere år | 3 T |
+| 2 | Justeringsfaktoren: faktoren som gir en bestemt samlet sats og eierskatt på en gevinst | 2 T |
+| 3 | Formuesskatt med gjeldsfordeling der nettoformuen blir null eller negativ | 1 T |
+| 4 | Formuesskatt på aksjer: formuesskatten, utbyttet som trengs og formuesskatten i % av avkastningen | 3 T |
+| 5 | Stykkskatt: ∂P/∂t som formel og to grensetilfeller | 3 |
+| 6 | Implisitt skatt: begrep og tall | 2 |
+| 7 | Gjennomsnittsskatt i et trinnsystem eller progressivitet | 1 T |
+| 8 | Tidsverdien av avskrivning mot straksfradrag | 1 |
+| 9 | Inntektsskiftingslikningen | 1 T |
+| 10 | Fritaksmetoden eller aksjonærmodellen | 1 B |
+| 11 | Forsikring med ln W eller √W: rettferdig pris, full dekning og høyeste premie | 3 |
+| 12 | Portefølje: indeksfond, kapitalmarkedslinjen eller giring og varians med to aktiva | 3 |
+| 13 | Sparing med ln-nytte: bank mot aksjefond og tapsaversjon | 2 T |
+| 14 | Pensjon: innskudd mot ytelse og delingstall | 2 B |
+| 15 | Lån: annuitet, effektiv rente eller avdragsfrihet | 1 |
+| 16 | Humankapital: ung mot gammel | 1 B |
+
+### Prøveeksamen 15: «2026-forelesningene» (det som er nytt i planen og i kursgodkjenningen)
+
+| Nr. | Innhold | Ledd |
+|---|---|---|
+| 1 | Skjerming: utbytte og salg samme år, ubenyttet skjerming ved salg | 2 T |
+| 2 | Eierskatt i AS med oppgitte satser | 1 T |
+| 3 | Inntektsskiftingslikningen | 1 T |
+| 4 | Formuesskatt med primærbolig, sekundærbolig, aksjer og gjeld | 2 T |
+| 5 | Formuesskatt som avkastningsskatt: formue ved inngangen mot utgangen, eller børsnotert mot unotert | 2 T |
+| 6 | Utbyttet som trengs for å betale formuesskatten | 1 T |
+| 7 | Stykkskatt med tall og lineære kurver: konsumentpris, produsentpris og andel | 3 T |
+| 8 | Skatt og risiko: delvis tapsfradrag som begrep og Domar–Musgrave med tall | 2 |
+| 9 | Bedriftens tilpasning eller skattearbitrasje (F6) | 1 |
+| 10 | Utflytting og exit-skatt | 1 B |
+| 11 | Inntekt fra et skatteparadis uten skatteavtale | 1 |
+| 12 | Realavkastning eller avkastning over tid (F2) | 1 T |
+| 13 | Merton: pensjonist med CRRA og humankapital | 2 |
+| 14 | Forventet nytte: valg mellom pensjonskontrakter, eller forsikring med √W | 2 |
+| 15 | Aksjesparing: kostnader over tid og å slå markedet (Næss) | 2 |
+| 16 | Pensjon: opptjening i folketrygden og pensjonsformuen | 2 |
+| 17 | Kvadsheim: lån og sparing (gjeldsgrad, ASK eller IPS, hvilken gjeld som betales ned først) | 2 |
+| 18 | Finansiell psykologi | 1 B |
+| 19 | Forsikring: egenandel eller moralsk hasard | 1 B |
+
+T betyr tallsvar og B begrepsledd. Antall ledd per eksamen er fast: 18 GS og 12 finans. Oppgaver kan slås sammen når det gir en naturlig felles innledning.
