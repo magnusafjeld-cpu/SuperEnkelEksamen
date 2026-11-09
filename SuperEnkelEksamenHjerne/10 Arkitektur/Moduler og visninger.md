@@ -674,6 +674,21 @@ Den regnes på nytt hver gang siden åpnes.
   bunnmenyen). Du starter dagen med når du skal slutte; den viser tid jobbet uten
   pauser og når neste pause er (varsel og ☕ i fanetittelen). Er økta startet, er
   den dagens studietid. `T.økt` synkes som resten.
+- **Automatisk start og pause** (versjon 29, 9. november 2026). Magnus glemte å
+  starte arbeidsdagen, så planleggeren ser selv på bruken: klikk, taster, rulling og
+  svar mens vinduet er synlig.
+  - Start: ingen økt i dag og aktiv i fire ulike minutter i strekk (eller to med et
+    svar). Starttid er første aktivitet. Bare fra kl. 06 til en halvtime før
+    arbeidstidens slutt. «Jobber ikke nå» stanser det i to timer på enheten.
+  - Borte: 15 minutter uten aktivitet på noen enhet gir pause (`type: "auto"`) fra
+    siste aktivitet. Økta hentes fra skyen først, så bruk på telefonen teller.
+    Pausen slutter når du er tilbake, og «Det var jobb» fjerner den.
+  - En pause du tar selv, slutter også når du er aktiv igjen (etter minst ett
+    minutt).
+  - Siste aktivitet lagres i `T.økt.aktiv` høyst hvert andre minutt. Bryteren er
+    `T.innst.auto` under Arbeidstid og pauser.
+  - Svakhet: arbeid utenfor appen (PDF, opptak, papir) ser ut som pause og må
+    rettes med «Det var jobb».
 - **Flashcards** per fag i innstillingene; av som standard i FIE402.
 - **Gamle felt.** `uke`, `klokke` og `dagvalg` slettes når tilstanden leses.
 - **Kjent svakhet.** Ordtellingen i manualen er målet på pensum. FIE459-manualen er
