@@ -651,44 +651,47 @@ EX.append(oppgave(11, "Flat skatt med borgerlønn", "Progressivitet", [10], "", 
 # ======================================================================= 12
 print("\nOppgave 12: Inntektsskiftingslikningen når en firedel av avgiften veltes over")
 tl12, aga12, del12, ts12, te12 = 0.47, 0.12, 0.25, 0.20, 0.20
-venstre12 = tl12 + aga12 * del12                    # 50 %
-eier12 = venstre12 - ts12                           # 30 %
-y12 = eier12 / te12                                 # 1,50
-e_hele = tl12 + aga12 - ts12                        # hele avgiften: 39 %
-e_ingen = tl12 - ts12                               # avgiften utelatt: 27 %
-e_tre = tl12 + aga12 * (1 - del12) - ts12           # tre firedeler: 36 %
-assert lik(venstre12, 0.50) and lik(eier12, 0.30) and lik(y12, 1.5) and lik(e_hele / te12, 1.95)
-assert lik(e_ingen / te12, 1.35) and lik(e_tre / te12, 1.80)
-print(f"   venstre side {venstre12}, eierskatt {eier12}, faktor {y12}; gale {e_hele}, {e_ingen}, {e_tre}")
+# F5 lb 10 (2026): delen arbeidstakeren bærer står på lønnssiden, delen bedriften bærer
+# legges til selskapsskatten på høyre side. 50/50: 47,4 + 6,2 = 22 + 6,2 + 22y.
+arb12 = aga12 * del12                               # 3 %
+bed12 = aga12 * (1 - del12)                         # 9 %
+eier12 = tl12 + arb12 - ts12 - bed12                # 21 %
+y12 = eier12 / te12                                 # 1,05
+e_hele = tl12 + aga12 - ts12                        # alt på arbeidstakeren: 39 %
+e_ingen = tl12 - ts12                               # avgiften utelatt helt: 27 %
+e_glemt = tl12 + arb12 - ts12                       # bedriftens del glemt på høyre side: 30 %
+assert lik(eier12, 0.21) and lik(y12, 1.05) and lik(e_hele / te12, 1.95)
+assert lik(e_ingen / te12, 1.35) and lik(e_glemt / te12, 1.50)
+print(f"   eierskatt {eier12}, faktor {y12}; gale {e_hele}, {e_ingen}, {e_glemt}")
 
 
 def FE(e):
     return (f"Faktor {kr(e / te12, 2)} og eierskatt {pst(e, 0)}", [kr(e / te12, 2), pst(e, 0)])
 
 
-p = ledd("", "<p>Myndighetene vil at høyeste marginalskatt på lønn pluss arbeidsgiveravgiften som arbeidstakeren bærer, "
-             "skal være lik selskapsskatten pluss den nominelle eierskatten ganget med oppjusteringsfaktoren. Høyeste "
-             "marginalskatt på lønn er 47 %. Arbeidsgiveravgiften utgjør 12 % av lønnskostnaden, men bare en firedel av "
-             "den veltes over på arbeidstakeren. Anta forenklet at selskapsskatten og den nominelle eierskatten begge "
-             "er 20 %. Hva blir oppjusteringsfaktoren og den effektive eierskatten?</p>",
+p = ledd("", "<p>Myndighetene vil at det ikke skal lønne seg å ta ut lønn som utbytte. De bruker "
+             "inntektsskiftingslikningen. Høyeste marginalskatt på lønn er 47 %. Arbeidsgiveravgiften utgjør 12 % av "
+             "lønnskostnaden. Myndighetene legger til grunn at en firedel av avgiften veltes over på arbeidstakeren og "
+             "at bedriften bærer resten. Anta forenklet at selskapsskatten og den nominelle eierskatten begge er 20 %. "
+             "Hva blir oppjusteringsfaktoren og den effektive eierskatten?</p>",
          FE(eier12),
-         [FE(e_hele), FE(e_ingen), FE(e_tre)],
-         sol("Inntektsskiftingslikningen legger sammen nominelle satser: marginalskatt på lønn pluss arbeidsgiveravgiften "
-             "som veltes over på arbeidstakeren, er lik selskapsskatten pluss eierskatten ganget med "
-             "oppjusteringsfaktoren (F5 lb 3 og 4). Hvor mye av avgiften som veltes over, avgjør eierskatten (F5 lb 10 "
-             "til 12).",
-             [f"Venstre side: 47 % + 12 % × 25 % = 47 % + 3 % = {pst(venstre12, 0)}.",
-              f"Effektiv eierskatt: {pst(venstre12, 0)} − 20 % = {pst(eier12, 0)}.",
+         [FE(e_hele), FE(e_ingen), FE(e_glemt)],
+         sol("Inntektsskiftingslikningen legger sammen nominelle satser (F5 lb 3 og 4). Delen av "
+             "arbeidsgiveravgiften som arbeidstakeren bærer, står på lønnssiden. Delen bedriften bærer, legges til "
+             "selskapsskatten på kapitalsiden (F5 lb 10: ved 50/50 er det 47,4 % + 6,2 % = 22 % + 6,2 % + 22 % × y).",
+             [f"Arbeidstakeren bærer 12 % × ¼ = 3 %, bedriften 12 % × ¾ = 9 %.",
+              f"47 % + 3 % = 20 % + 9 % + 20 % × y, så 20 % × y = {pst(eier12, 0)}.",
               f"Oppjusteringsfaktor: {pst(eier12, 0)}/20 % = {kr(y12, 2)}. <b>Faktor {kr(y12, 2)} og eierskatt "
               f"{pst(eier12, 0)}</b>."],
-             [(f"Faktor {kr(e_hele / te12, 2)} og {pst(e_hele, 0)}", "hele avgiften på 12 % er lagt til, som om alt "
-               "veltes over på arbeidstakeren. Det er forutsetningen i dagens likning."),
-              (f"Faktor {kr(e_ingen / te12, 2)} og {pst(e_ingen, 0)}", "avgiften er utelatt, som om bedriften bærer alt."),
-              (f"Faktor {kr(e_tre / te12, 2)} og {pst(e_tre, 0)}", "de tre firedelene bedriften bærer, er lagt til i "
-               "stedet for den ene firedelen arbeidstakeren bærer.")],
-             f"Høyre side: 20 % + 20 % × {kr(y12, 2)} = {pst(ts12 + te12 * y12, 0)} = venstre side. ✓",
-             "Jo mindre av avgiften arbeidstakeren bærer, jo lavere eierskatt trengs. Svaret må ligge mellom "
-             f"{pst(e_ingen, 0)} (ingenting veltes over) og {pst(e_hele, 0)} (alt veltes over), nærmest det laveste."))
+             [(f"Faktor {kr(e_hele / te12, 2)} og {pst(e_hele, 0)}", "hele avgiften er lagt på lønnssiden, som om alt "
+               "veltes over på arbeidstakeren. Det er forutsetningen i dagens likning, ikke i oppgaven."),
+              (f"Faktor {kr(e_ingen / te12, 2)} og {pst(e_ingen, 0)}", "avgiften er utelatt helt, på begge sider."),
+              (f"Faktor {kr(e_glemt / te12, 2)} og {pst(e_glemt, 0)}", "arbeidstakerens firedel er riktig lagt til, men "
+               "bedriftens tre firedeler er glemt på høyre side.")],
+             f"Høyre side: 20 % + 9 % + 20 % × {kr(y12, 2)} = {pst(ts12 + bed12 + te12 * y12, 0)} = venstre side 50 %. ✓",
+             "Jo mindre av avgiften arbeidstakeren bærer, jo lavere eierskatt. Hele avgiften på lønnssiden gir "
+             f"{pst(e_hele, 0)} og hele hos bedriften gir {pst(tl12 - ts12 - aga12, 0)}. En firedel gir et svar nær det "
+             "laveste."))
 EX.append(oppgave(12, "Inntektsskiftingslikningen og arbeidsgiveravgiften", "Aksjonærmodellen", [5], "", [p]))
 
 # ======================================================================= 13

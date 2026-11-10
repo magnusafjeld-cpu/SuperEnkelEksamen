@@ -13323,15 +13323,15 @@ window.EDU_DATA.sets = [
       "chapters": [
         5
       ],
-      "body": "<p>Myndighetene vil at høyeste marginalskatt på lønn pluss arbeidsgiveravgiften som arbeidstakeren bærer, skal være lik selskapsskatten pluss den nominelle eierskatten ganget med oppjusteringsfaktoren. Høyeste marginalskatt på lønn er 47 %. Arbeidsgiveravgiften utgjør 12 % av lønnskostnaden, men bare en firedel av den veltes over på arbeidstakeren. Anta forenklet at selskapsskatten og den nominelle eierskatten begge er 20 %. Hva blir oppjusteringsfaktoren og den effektive eierskatten?</p>",
+      "body": "<p>Myndighetene vil at det ikke skal lønne seg å ta ut lønn som utbytte. De bruker inntektsskiftingslikningen. Høyeste marginalskatt på lønn er 47 %. Arbeidsgiveravgiften utgjør 12 % av lønnskostnaden. Myndighetene legger til grunn at en firedel av avgiften veltes over på arbeidstakeren og at bedriften bærer resten. Anta forenklet at selskapsskatten og den nominelle eierskatten begge er 20 %. Hva blir oppjusteringsfaktoren og den effektive eierskatten?</p>",
       "options": [
         "Faktor 1,95 og eierskatt 39 %",
         "Faktor 1,35 og eierskatt 27 %",
-        "Faktor 1,80 og eierskatt 36 %",
-        "Faktor 1,50 og eierskatt 30 %"
+        "Faktor 1,50 og eierskatt 30 %",
+        "Faktor 1,05 og eierskatt 21 %"
       ],
       "answer": 3,
-      "solution": "<p><b>Regelen.</b> Inntektsskiftingslikningen legger sammen nominelle satser: marginalskatt på lønn pluss arbeidsgiveravgiften som veltes over på arbeidstakeren, er lik selskapsskatten pluss eierskatten ganget med oppjusteringsfaktoren (F5 lb 3 og 4). Hvor mye av avgiften som veltes over, avgjør eierskatten (F5 lb 10 til 12).</p><p><b>Regnestykket.</b></p><p>1. Venstre side: 47 % + 12 % × 25 % = 47 % + 3 % = 50 %.<br>2. Effektiv eierskatt: 50 % − 20 % = 30 %.<br>3. Oppjusteringsfaktor: 30 %/20 % = 1,50. <b>Faktor 1,50 og eierskatt 30 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Faktor 1,95 og 39 %</b> = hele avgiften på 12 % er lagt til, som om alt veltes over på arbeidstakeren. Det er forutsetningen i dagens likning.<br><b>Faktor 1,35 og 27 %</b> = avgiften er utelatt, som om bedriften bærer alt.<br><b>Faktor 1,80 og 36 %</b> = de tre firedelene bedriften bærer, er lagt til i stedet for den ene firedelen arbeidstakeren bærer.</p><p><b>Kontroll.</b> Høyre side: 20 % + 20 % × 1,50 = 50 % = venstre side. ✓</p><p><b>Strategi med minuspoeng.</b> Jo mindre av avgiften arbeidstakeren bærer, jo lavere eierskatt trengs. Svaret må ligge mellom 27 % (ingenting veltes over) og 39 % (alt veltes over), nærmest det laveste.</p>"
+      "solution": "<p><b>Regelen.</b> Inntektsskiftingslikningen legger sammen nominelle satser (F5 lb 3 og 4). Delen av arbeidsgiveravgiften som arbeidstakeren bærer, står på lønnssiden. Delen bedriften bærer, legges til selskapsskatten på kapitalsiden (F5 lb 10: ved 50/50 er det 47,4 % + 6,2 % = 22 % + 6,2 % + 22 % × y).</p><p><b>Regnestykket.</b></p><p>1. Arbeidstakeren bærer 12 % × ¼ = 3 %, bedriften 12 % × ¾ = 9 %.<br>2. 47 % + 3 % = 20 % + 9 % + 20 % × y, så 20 % × y = 21 %.<br>3. Oppjusteringsfaktor: 21 %/20 % = 1,05. <b>Faktor 1,05 og eierskatt 21 %</b>.</p><p><b>Hvorfor de andre er gale.</b></p><p><b>Faktor 1,95 og 39 %</b> = hele avgiften er lagt på lønnssiden, som om alt veltes over på arbeidstakeren. Det er forutsetningen i dagens likning, ikke i oppgaven.<br><b>Faktor 1,35 og 27 %</b> = avgiften er utelatt helt, på begge sider.<br><b>Faktor 1,50 og 30 %</b> = arbeidstakerens firedel er riktig lagt til, men bedriftens tre firedeler er glemt på høyre side.</p><p><b>Kontroll.</b> Høyre side: 20 % + 9 % + 20 % × 1,05 = 50 % = venstre side 50 %. ✓</p><p><b>Strategi med minuspoeng.</b> Jo mindre av avgiften arbeidstakeren bærer, jo lavere eierskatt. Hele avgiften på lønnssiden gir 39 % og hele hos bedriften gir 15 %. En firedel gir et svar nær det laveste.</p>"
     },
     {
       "n": 13,
