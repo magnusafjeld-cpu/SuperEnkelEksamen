@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-09
+oppdatert: 2026-11-10
 ---
 
 # Moduler og visninger
@@ -925,3 +925,7 @@ For [[FIE402 Corporate Finance]] betyr det 3 spill i modul 1 og alle 13 fra modu
 `bundle-dybde.js`. Tre banker, filtrerbare på nivå og tema, med
 «kunne / må øve»-vurdering som lagres per bank og mater «må øve»-merket i
 navigasjonen. Se [[SAM3 Makroøkonomi]] for bankene som finnes.
+
+## Flashcards: kursets kort og formelkort i hver sin seksjon (10. november 2026)
+
+Oppsettsiden har to adskilte seksjoner. Øverst ligger kursets egne kort (`EDU_DATA.flashcards`, `kind: "konsept"`), med kategorivelger og egne knapper. Under ligger formelkortene fra referansekapitlet, som også har egne knapper. Det finnes ikke lenger én «Alle»-kø som blander dem. Filteret er `"konsept"`, et dekknavn eller `"formel"`. Faget kan sette `EDU_DATA.flashcardsMeta = { title, icon, sub, allLabel, order }` for å gi seksjonen navn og rekkefølgen på kategoriene. FIE432 bruker det til «🎯 Oppgavekort». Uten meta heter seksjonen «Kort fra kurset», og kategoriene sorteres alfabetisk.
