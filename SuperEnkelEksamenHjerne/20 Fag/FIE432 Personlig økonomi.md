@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie432, innhold]
-oppdatert: 2026-11-09
+oppdatert: 2026-11-10
 ---
 
 # FIE432 Personlig økonomi
@@ -179,7 +179,7 @@ bare (c).
 
 ### Prøveeksamenene
 
-Femten prøveeksamener (`prove1`–`prove15`, `kind: "mock"`) ligger sist i `sett.js` og
+Atten prøveeksamener (`prove1`–`prove18`, `kind: "mock"`) ligger sist i `sett.js` og
 vises under «Prøveeksamener» i Eksamenssett. Formatet er 2026-formatet: 30 flervalg,
 fire alternativer, 3 poeng for rett og −1 for feil, 4 timer, 90 poeng.
 Spesifikasjonen er `docs/fie432-proveeksamen-spek.md`.
@@ -201,6 +201,9 @@ Spesifikasjonen er `docs/fie432-proveeksamen-spek.md`.
 | Prøveeksamen 13 | Prediksjonen: det mest sannsynlige settet | 46 | 60 % |
 | Prøveeksamen 14 | Prediksjonen: rotasjonen (GS sin H2024-blokk, Næss sin porteføljeblokk) | 43 | 60 % |
 | Prøveeksamen 15 | Prediksjonen: 2026-forelesningene | 48 | 63 % |
+| Prøveeksamen 16 | Ny trekning: H2025-formen | 48 | 63 % |
+| Prøveeksamen 17 | Ny trekning: kursgodkjenningen og 2026-forelesningene | 49 | 63 % |
+| Prøveeksamen 18 | Ny trekning: H2024-formen med nye vrier | 48 | 63 % |
 
 **Kalibrert mot skoleeksamen.** Eksamen 2026 er en skoleeksamen. H2022 var en
 hjemmeeksamen med lengre og tyngre oppgaver (68 ord per ledd). Den første versjonen
@@ -245,3 +248,5 @@ bryter Domar–Musgrave.
   - 13 er det mest sannsynlige settet. 14 er rotasjonen. 15 er det som er nytt i 2026.
 - **Kontrollen.** En uavhengig kontrollør regnet hvert ledd på nytt og fant én feil: i prove13 8b kunne to svar forsvares etter F6 lb 14–15. Den fant også rundt tjue forbedringer som gjør settene mer like H2025. Eksempler er hint om fellen i teksten, svar som lekket mellom ledd, notasjonen A i stedet for g og et tvetydig scenario med utbytte og salg i samme år. Alt er rettet.
 - **Lån.** 2026-lysbildene om lån har verken annuitet, effektiv rente eller avdragsfrihet. Lånespørsmålene bygger derfor på manualen og på eksponentiell vekst-bias.
+
+**Prøveeksamen 16–18 (10. november 2026) er tre nye trekninger av samme prediksjon.** Kjernen (temaene på 75 % eller mer) er med i alle tre, med andre vrier enn i 10–15. De tar også temaene 13–15 ikke rakk: utleie av egen bolig, valutasikring og home bias, monopol og overveltning, kontantstrømskatt og Kvadsheim. Hver eksamen ble løst blindt av en uavhengig kontrollør, som fikk 30 av 30 lik fasiten på alle tre. Svakhetene som ble rettet, var lekkasje i alternativer og overlapp i tall mellom de tre settene. Planen står i `docs/fie432-proveeksamen-spek.md`.
