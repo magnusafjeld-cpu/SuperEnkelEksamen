@@ -830,3 +830,95 @@ Sannsynligheten for at temaet kommer og forventet antall ledd av 30.
 | 19 | Forsikring: egenandel eller moralsk hasard | 1 B |
 
 T betyr tallsvar og B begrepsledd. Antall ledd per eksamen er fast: 18 GS og 12 finans. Oppgaver kan slås sammen når det gir en naturlig felles innledning.
+
+## Prøveeksamen 16, 17 og 18 (10. november 2026): tre nye trekninger av prediksjonen
+
+Magnus bestilte dette 10. november 2026: tre nye prøveeksamener som er så like den faktiske eksamen som mulig. Prediksjonen fra 13–15 står fast (tabellene over). Det nye er dette:
+
+- **Alle tre er bygd som en hel og troverdig eksamen**, ikke som temasett. Kjernen (temaene på 75 % eller mer) er med i alle tre. De usikre temaene er fordelt slik at 16–18 til sammen dekker dem.
+- **Nye vrier.** Kjernerutinene kommer igjen, men med en annen vri enn i 10–15. Les oppgaven med samme tema i `prove10`–`prove15` i `fag/fie432/sett.js` før du skriver, og velg en annen innfallsvinkel (annen ukjent, annet år i kjeden, annet grensetilfelle eller annen felle). Ingen ledd skal kunne løses ved å huske et svar fra 10–15.
+- **Temaer som 13–15 ikke rakk:** utleie av egen bolig (F3), valutasikring og home bias, monopol og overveltning (F9 lb 20), kontantstrømskatt og nøytralitet (F6 lb 40–41) og Kvadsheim.
+- **Formuleringen skal ligne H2025, H2024 og kursgodkjenningen 2026 mest mulig.** Bruk setningsbygningen og lengden derfra. Regneleddene har runde tall, én til tre operasjoner og alle satser i teksten.
+- **Lærdom fra kontrollen av 13–15.** Disse feilene gikk igjen og skal unngås fra start:
+  - to alternativer som begge kan forsvares
+  - hint i teksten om framgangsmåten eller fellen
+  - det riktige alternativet er det eneste med en presisering eller det lengste
+  - tall som ikke går opp, eller alternativer som ligger så tett at avrunding avgjør
+  - notasjon som ikke er forklart i oppgaven
+- Formatet, kalibreringen og måltallene er som for 10–15: 30 ledd, 18 GS og 12 finans, 38–50 ord per ledd og 55–65 % tallsvar. Fasitplanen er `p16`, `p17` og `p18`.
+
+### Prøveeksamen 16: «andre trekning: H2025-formen»
+
+| Nr. | Innhold | Ledd |
+|---|---|---|
+| 1 | Skjermingskjeden over to år: et år der utbyttet er lavere enn skjermingen, og året etter | 2 T |
+| 2 | Salg med ubenyttet skjerming. Vri: skjermingen kan ikke skape eller øke et fradragsberettiget tap | 1 T |
+| 3 | Effektiv skattesats når en kostnad ikke er fradragsberettiget eller bare delvis | 1 T |
+| 4 | Formuesskatt med bolig, aksjer og gjeld | 1 T |
+| 5 | Utbyttet som trengs for å betale formuesskatten | 1 T |
+| 6 | Formuesskatt som avkastningsskatt: skatt i % av avkastningen, verdien av en evig kontantstrøm uten og med formuesskatt | 3 T |
+| 7 | Stykkskatt med lineære kurver: konsumentprisen, konsumentenes andel og ett grensetilfelle som begrep | 3 |
+| 8 | Bedriftens tilpasning: F′(K) med skatt på eieren som formelgjenkjenning, og gjeld mot egenkapital | 2 |
+| 9 | Skattemessig bosted eller utflytting | 1 B |
+| 10 | Implisitt skatt med tall | 1 T |
+| 11 | Progressivitet som begrep | 1 B |
+| 12 | Inntektsskiftingslikningen | 1 T |
+| 13 | Merton: aksjeandel, risikofri humankapital og livssyklus | 3 |
+| 14 | Forventet nytte med √W eller ln W: kjøpe eller ikke, høyeste premie og delforsikring | 3 T |
+| 15 | Forsikring som begrep | 1 B |
+| 16 | Folketrygden: delingstall og uttaksalder | 1 |
+| 17 | Innskudd mot ytelse eller IPS | 1 B |
+| 18 | Indeksfond mot aktive fond, fakta fra lysbildene | 1 B |
+| 19 | Lån: annuitet, serielån eller effektiv rente | 1 T |
+| 20 | Kapitalmarkedslinjen og giring | 1 |
+
+### Prøveeksamen 17: «tredje trekning: kursgodkjenningen og 2026-forelesningene»
+
+| Nr. | Innhold | Ledd |
+|---|---|---|
+| 1 | Skjermingskjeden over tre år, per aksje eller med kjøp underveis (eieren ved utgangen av året får skjermingen) | 3 T |
+| 2 | Gevinst ved salg med oppjustering | 1 T |
+| 3 | Samlet skatt på overskudd tatt ut som utbytte, eller lønn mot utbytte | 1 T |
+| 4 | Formuesskatt: verdsetting, gjeldsreduksjon og formuesskatten | 2 T |
+| 5 | Utbyttet som trengs for å betale formuesskatten | 1 T |
+| 6 | Formuesskatt som avkastningsskatt: formuen ved inngangen mot utgangen av året | 1 T |
+| 7 | Stykkskatt: formelgjenkjenning og to grensetilfeller | 3 |
+| 8 | Skatt og risiko: Domar–Musgrave med tall og tapsfradrag som begrep | 2 |
+| 9 | Utleie av egen bolig | 1 B |
+| 10 | Fritaksmetoden | 1 B |
+| 11 | Gjennomsnittsskatt og marginalskatt i et trinnsystem | 1 T |
+| 12 | Skatteparadis | 1 B |
+| 13 | Forsikring med ln W eller √W: rettferdig premie, full dekning og høyeste premie | 3 |
+| 14 | Merton: pensjonist med CRRA, og humankapital ung mot gammel | 2 |
+| 15 | Folketrygden: opptjening med tall | 1 T |
+| 16 | Innskudd mot ytelse | 1 B |
+| 17 | Aksjesparing: kostnader over tid med tall, og et faktaledd om aktive fond | 2 |
+| 18 | Finansiell psykologi | 1 B |
+| 19 | Kvadsheim: sparing og lån | 1 |
+| 20 | Valutasikring eller home bias | 1 B |
+
+### Prøveeksamen 18: «fjerde trekning: H2024-formen med nye vrier»
+
+| Nr. | Innhold | Ledd |
+|---|---|---|
+| 1 | Skjerming: utbytte og salg, med ubenyttet skjerming ved salget | 2 T |
+| 2 | Eierskatt på en gevinst med oppjustering | 1 T |
+| 3 | Effektiv skattesats eller AERT | 1 T |
+| 4 | Formuesskatt med gjeldsfordeling | 1 T |
+| 5 | Formuesskatt på aksjer: formuesskatten, utbyttet som trengs og formuesskatten i % av avkastningen | 3 T |
+| 6 | Verdien av en aksje med formuesskatt: børsnotert mot unotert | 1 T |
+| 7 | Stykkskatt: produsentprisen med tall, produsentenes andel og monopol med lineær etterspørsel | 3 |
+| 8 | Bedriftens tilpasning: gjeld og egenkapital med avgrenset rentefradrag, og kontantstrømskatt | 2 |
+| 9 | Exit-skatt | 1 |
+| 10 | Realavkastning etter skatt | 1 T |
+| 11 | Tidsverdien av avskrivning mot straksfradrag | 1 T |
+| 12 | Flat skatt med bunnfradrag | 1 T |
+| 13 | Merton-kjeden: γ, aksjeandel, risikofri og aksjelik humankapital | 4 |
+| 14 | Forventet nytte: kritisk sannsynlighet og egenandel | 2 T |
+| 15 | Forsikring som begrep | 1 B |
+| 16 | Pensjon: delingstall og pensjonsformuen | 2 |
+| 17 | Indeksfond mot aktive fond | 1 B |
+| 18 | Lån: avdragsfrihet eller annuitet | 1 T |
+| 19 | Finansiell psykologi | 1 B |
+
+T betyr tallsvar og B begrepsledd. Antall ledd per eksamen er fast: 18 GS og 12 finans. Oppgaver kan slås sammen når det gir en naturlig felles innledning.
