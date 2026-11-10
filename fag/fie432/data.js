@@ -434,6 +434,7 @@ window.EDU_DATA.quizzes = [];
    regelen, framgangsmåten, fellen og kilden. deck = kategori. Bygd 10. november
    2026 av generatorene i skrapemappen og kontrollert uavhengig. Formelkortene
    genereres automatisk fra tabellene i k20 og skal ikke skrives her. */
+window.EDU_DATA.flashcardsMeta = { title: "Oppgavekort", icon: "🎯", allLabel: "Hele pensum", sub: "Forsiden er en oppgavetype du kan få på eksamen. Baksiden er svaret, framgangsmåten og fellene.", order: ["skjerming og gevinst", "effektiv skatt", "formuesskatt", "skatteinsidens", "bedriften", "skatteteori", "internasjonal skatt", "porteføljevalg", "forsikring", "pensjon", "aksjesparing og fond", "lån og sparing", "finansiell psykologi"] };
 window.EDU_DATA.flashcards = [
  {
   "id": "fo-skj-01",

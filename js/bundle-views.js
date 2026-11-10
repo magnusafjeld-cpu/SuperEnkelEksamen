@@ -530,31 +530,62 @@ window.EDU.views = window.EDU.views || {};
 
 /* ---------------- flashcards ---------------- */
 (function (S) {
-  const { el, frag, ring } = S.u; const sh = () => S.views.shared; let fc = null; let deckFilter = "alle";
+  const { el, frag, ring } = S.u; const sh = () => S.views.shared; let fc = null; let deckFilter = null;
   function render() { if (fc && fc.idx < fc.queue.length) return cardScreen(); if (fc && fc.idx >= fc.queue.length) return doneScreen(); return setupScreen(); }
   function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
-  function startDue() { const due = shuffle(S.srs.dueCards(deckFilter)); if (!due.length) { S.u.toast("Ingen kort forfaller — øv alle i stedet"); return startAll(); } fc = { queue: due, idx: 0, flipped: false, reviewed: 0 }; S.app.refresh(); }
-  function startAll() { const all = shuffle(S.srs.deck().filter((c) => deckFilter === "alle" || c.deck === deckFilter)); fc = { queue: all, idx: 0, flipped: false, reviewed: 0 }; S.app.refresh(); }
+  /* To adskilte samlinger (10. november 2026): kursets egne kort (kind "konsept",
+     fra EDU_DATA.flashcards) og formelkortene som genereres fra referansekapitlet.
+     Filteret er "konsept" (alle kursets kort), et dekknavn innenfor dem, eller
+     "formel". De blandes ikke lenger i én «Alle»-kø. */
+  const META = () => S.data.raw.flashcardsMeta || {};
+  const egne = () => S.srs.deck().filter((c) => c.kind !== "formel");
+  const formler = () => S.srs.deck().filter((c) => c.kind === "formel");
+  function treff(c, f) { if (f === "formel") return c.kind === "formel"; if (c.kind === "formel") return false; return f === "konsept" || c.deck === f; }
+  function utvalg(f) { return S.srs.deck().filter((c) => treff(c, f)); }
+  function forfalte(f) { return utvalg(f).filter((c) => S.srs.isDue(c.id)); }
+  function standard() { return egne().length ? "konsept" : "formel"; }
+  function startDue() { const due = shuffle(forfalte(deckFilter)); if (!due.length) { S.u.toast("Ingen kort forfaller. Øver alle i stedet"); return startAll(); } fc = { queue: due, idx: 0, flipped: false, reviewed: 0 }; S.app.refresh(); }
+  function startAll() { fc = { queue: shuffle(utvalg(deckFilter)), idx: 0, flipped: false, reviewed: 0 }; S.app.refresh(); }
+  function knapper(f) {
+    const n = forfalte(f).length; const alle = utvalg(f).length;
+    return el(".row.wrap", { style: { marginTop: "18px", gap: "10px" } },
+      el("button.btn.primary.lg", { onclick: () => { deckFilter = f; startDue(); } }, `Repeter forfalte (${n})`),
+      el("button.btn.lg", { onclick: () => { deckFilter = f; startAll(); } }, `Øv alle (${alle})`));
+  }
   function setupScreen() {
     const wrap = el(".fade-in"); const stats = S.srs.stats();
+    if (!deckFilter || (deckFilter !== "formel" && deckFilter !== "konsept" && !egne().some((c) => c.deck === deckFilter))) deckFilter = standard();
     wrap.appendChild(sh().pageHead("Flashcards", "Definisjoner, formler og økonomisk intuisjon", "Spaced repetition: kort du synes er vanskelige kommer oftere tilbake, kort du mestrer kommer sjeldnere."));
     const grid = el(".grid.cols-4", { style: { marginBottom: "20px" } });
     grid.appendChild(el(".card", sh().stat(stats.total, "Kort totalt"))); grid.appendChild(el(".card", sh().stat(stats.due, "Forfaller nå"))); grid.appendChild(el(".card", sh().stat(stats.mastered, "Mestret"))); grid.appendChild(el(".card", sh().stat(stats.fresh, "Ikke startet")));
     wrap.appendChild(grid);
-    const card = el(".card.pad-lg"); card.appendChild(el("h3", { style: { marginBottom: "12px" } }, "Velg kortstokk"));
-    const seg = el(".seg", { style: { flexWrap: "wrap" } });
-    /* Dekkene bygges av kortene som finnes. «Mekanismer» og «Intuisjon» ga en tom
-       kø i fag som ikke bruker dem, og køen falt rett til «Økt fullført». */
-    const NAVN = { formel: "Formler", begrep: "Begreper", mekanisme: "Mekanismer", intuisjon: "Intuisjon" };
-    const dekk = [...new Set(S.srs.deck().map((c) => c.deck).filter(Boolean))].sort();
-    [["alle", "Alle"], ...dekk.map((d) => [d, NAVN[d] || d[0].toUpperCase() + d.slice(1)])].forEach(([k, l]) => seg.appendChild(el("button" + (deckFilter === k ? ".on" : ""), { onclick: (e) => { deckFilter = k; [...seg.children].forEach((c) => c.classList.remove("on")); e.target.classList.add("on"); } }, l)));
-    card.appendChild(seg);
-    card.appendChild(el(".row", { style: { marginTop: "22px", gap: "10px" } }, el("button.btn.primary.lg", { onclick: startDue }, `Repeter forfalte (${S.srs.dueCards(deckFilter).length})`), el("button.btn.lg", { onclick: startAll }, "Øv alle")));
-    wrap.appendChild(card); return wrap;
+    const NAVN = { begrep: "Begreper", mekanisme: "Mekanismer", intuisjon: "Intuisjon" };
+    const navn = (d) => NAVN[d] || d[0].toUpperCase() + d.slice(1);
+    if (egne().length) {
+      const m = META();
+      const card = el(".card.pad-lg", { style: { marginBottom: "20px", borderWidth: "2px", borderColor: "var(--accent)", background: "var(--accent-soft)" } });
+      card.appendChild(el(".row", { style: { gap: "10px", alignItems: "baseline", marginBottom: "4px" } }, el("h3", { style: { margin: 0 } }, (m.icon || "🎯") + " " + (m.title || "Kort fra kurset")), el(".chip", egne().length + " kort")));
+      if (m.sub) card.appendChild(el(".tiny.muted", { style: { marginBottom: "14px" } }, m.sub));
+      const dekk = m.order ? m.order.filter((d) => egne().some((c) => c.deck === d)) : [...new Set(egne().map((c) => c.deck).filter(Boolean))].sort();
+      const seg = el(".seg", { style: { flexWrap: "wrap" } });
+      const valg = [["konsept", m.allLabel || "Alle"], ...dekk.map((d) => [d, `${navn(d)} (${egne().filter((c) => c.deck === d).length})`])];
+      valg.forEach(([k, l]) => seg.appendChild(el("button" + (deckFilter === k ? ".on" : ""), { onclick: () => { deckFilter = k; S.app.refresh(); } }, l)));
+      card.appendChild(seg);
+      card.appendChild(knapper(deckFilter === "formel" ? "konsept" : deckFilter));
+      wrap.appendChild(card);
+    }
+    if (formler().length) {
+      const card = el(".card.pad-lg");
+      card.appendChild(el(".row", { style: { gap: "10px", alignItems: "baseline", marginBottom: "4px" } }, el("h3", { style: { margin: 0 } }, "📐 Formelkort"), el(".chip.slate", formler().length + " kort")));
+      card.appendChild(el(".tiny.muted", "Lages automatisk fra formeltabellene i referansekapitlet. Navnet på formelen på forsiden, formelen på baksiden."));
+      card.appendChild(knapper("formel"));
+      wrap.appendChild(card);
+    }
+    return wrap;
   }
   function cardScreen() {
     const wrap = el(".fade-in"); const c = fc.queue[fc.idx];
-    wrap.appendChild(el(".row", { style: { maxWidth: "600px", margin: "0 auto 16px" } }, el(".tiny.muted", `Kort ${fc.idx + 1} av ${fc.queue.length}`), el(".spacer"), el(".chip.slate", c.kind === "formel" ? (c.topic || "Formel") : (c.ch ? "Kapittel " + c.ch : c.deck))));
+    wrap.appendChild(el(".row", { style: { maxWidth: "600px", margin: "0 auto 16px" } }, el(".tiny.muted", `Kort ${fc.idx + 1} av ${fc.queue.length}`), el(".spacer"), (c.kind === "formel" ? el(".chip.slate", "📐 " + (c.topic || "Formel")) : el(".chip", { style: { background: "var(--accent-soft)", color: "var(--accent)" } }, (META().icon || "🎯") + " " + (META().title || "Kort") + (c.deck ? " · " + deckLabel(c.deck) : "")))));
     const stage = el(".fc-stage");
     const flip = el(".flashcard" + (fc.flipped ? ".flipped" : ""), { onclick: () => { fc.flipped = !fc.flipped; S.app.refresh(); } });
     const front = el(".fc-face.fc-front", el(".fc-kicker", deckLabel(c.deck)), el(".fc-text", c.front), el(".fc-hint", "Trykk for å snu"));
@@ -573,7 +604,7 @@ window.EDU.views = window.EDU.views || {};
     const wrap = el(".fade-in"); wrap.appendChild(sh().pageHead("Økt fullført", "Bra repetert! 🎴")); const stats = S.srs.stats(); const reviewed = fc.reviewed;
     const card = el(".card.pad-lg");
     card.appendChild(el(".score-ring-wrap", ring(stats.masteredPct, 140, reviewed, "kort repetert"), el(".muted", `${stats.mastered} av ${stats.total} kort mestret · ${stats.due} forfaller fortsatt`)));
-    card.appendChild(el(".row", { style: { justifyContent: "center", gap: "10px", marginTop: "10px" } }, el("button.btn.primary", { onclick: () => { fc = null; S.app.refresh(); } }, "Tilbake"), S.srs.dueCards(deckFilter).length ? el("button.btn", { onclick: startDue }, "Fortsett med forfalte") : null));
+    card.appendChild(el(".row", { style: { justifyContent: "center", gap: "10px", marginTop: "10px" } }, el("button.btn.primary", { onclick: () => { fc = null; S.app.refresh(); } }, "Tilbake"), forfalte(deckFilter).length ? el("button.btn", { onclick: startDue }, "Fortsett med forfalte") : null));
     wrap.appendChild(card); fc = null; return wrap;
   }
   /* Ukjente dekk fikk «Kort». Nå brukes dekkets eget navn med stor forbokstav, slik
