@@ -137,6 +137,8 @@ altså ikke. Oppgaver må oppgi den selv, slik eksamen gjør.
 `manual.refSections = { formulas: "k20" }`. Radene der blir automatisk til
 flashcards — **rekkefølgen er permanent**, se [[Fallgruver]].
 
+**Oppgavekort (10. november 2026): 263 flashcards i 13 kategorier** i `window.EDU_DATA.flashcards` (id `fo-*`). Forsiden er en oppgavetype fra eksamen, baksiden regelen, framgangsmåten, fellen og kilden. Skattedelen har 150 kort (skjerming og gevinst, effektiv skatt, formuesskatt, skatteinsidens, bedriften, skatteteori, internasjonal skatt), finansdelen 113 (porteføljevalg, forsikring, pensjon, aksjesparing og fond, lån og sparing, finansiell psykologi). Ryggraden er R1–R20 i eksamens-DNA og vriene fra prøveeksamen 1–18. Hver halvdel ble kontrollert uavhengig: sju feil og rundt tjue manglende oppgavetyper ble rettet. Generatorene ligger i `fag/fie432/_flashcards/`. id-ene er lagringsnøkler for SRS og endres aldri.
+
 **Studieplanen: 21 moduler, `plan.mode = "modules"`.** Modul 1–18 er læring,
 19–21 er hele eksamenssett, det siste som generalprøve på tid med minuspoeng
 slått på. Samlet estimat 46 timer. Kjør `tools/rekalibrer-plan.py fie432` når
