@@ -93,6 +93,7 @@ ikke står i commit-meldingene.
 | 10. november 2026 | [[FIE432 Personlig økonomi]]: prøveeksamen 16–18, tre nye trekninger av prediksjonen med nye vrier | To dager før eksamen. Kontrolløren fikk 30 av 30 lik fasiten på alle tre, rundt tjuefem forbedringer rettet |
 | 10. november 2026 | [[FIE432 Personlig økonomi]]: 263 oppgavekort i Flashcards, 13 kategorier, forsiden er oppgavetypen og baksiden løsningen | Kontrollert uavhengig per halvdel, sju feil rettet |
 | 14. november 2026 | [[FIE402 Corporate Finance]]: Problem Set 1–4, H2024-nøkkelen, nytt formelark og alle forelesningene. Appen rettet der den motsa Kurbatov, 58 nye sjangersteg og governance-stigen | Første gang appen ble sammenlignet med forelesningene. Opptaket av wrap-up snudde Black-Scholes-beslutningen |
-| 14. november 2026 | [[FIE402 Corporate Finance]]: Persøk-oppsettet for Corp: prediksjon av eksamen, 260 oppgavekort og 14 NotebookLM-kilder | Alt kontrollert uavhengig. Prøveeksamen 4–12 påbegynt |
+| 14. november 2026 | [[FIE402 Corporate Finance]]: Persøk-oppsettet for Corp: prediksjon av eksamen, 260 oppgavekort og 14 NotebookLM-kilder | Alt kontrollert uavhengig |
+| 15. november 2026 | [[FIE402 Corporate Finance]]: prøveeksamen 4–12, bygd på prediksjonen, i tre runder | Hver løst blindt av en uavhengig kontrollør (96–100 av 100, ingen regnefeil) og rettet før publisering |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

@@ -6331,4 +6331,360 @@ window.EDU_DATA.sets = [
     }
   ]
 },
+{
+  "id": "prove12",
+  "kind": "mock",
+  "label": "Mock exam 12",
+  "minutes": 180,
+  "points": 100,
+  "format": "6 exercises · no multiple choice · calculator permitted",
+  "note": "Written for this app in Kurbatov's format (H2024, H2025), round three of the 2026 prediction: breadth, in the shape of the autumn 2024 paper with two capital-structure exercises. Two verbal exercises on option values and a hostile bid, then four calculations: two identical firms financed differently, a group that splits in two, a growing firm valued three ways and a mine that can expand later. New firms and numbers throughout. Not an official exam: the course has not checked the solutions.",
+  "facts": [
+    "Mock exam in Kurbatov's format (H2024, H2025): 180 minutes, 100 points, six exercises, no multiple choice. Pen and paper, calculator and one bilingual dictionary.",
+    "Points per exercise: 12 · 12 · 18 · 18 · 20 · 20. Exercises 1 and 2 are verbal with a sentence budget; exercises 3 to 6 are chains of calculations, most of which end with a short verbal question.",
+    "The formula sheet is handed out. Results from the lectures that are not on it must be known by heart.",
+    "Show every calculation and carry 4 decimals where the exercise asks for it. Answer in English.",
+    "Written for practice in this app, not an official exam. The course has not checked the solutions."
+  ],
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Options",
+      "points": 12,
+      "topic": "Options",
+      "chapters": [
+        15,
+        21,
+        23
+      ],
+      "body": "<p>Halsnøy Halvleder ASA trades at NOK 200 and has never paid a dividend. Consider European calls and puts on its shares with strike NOK 200 and two years to expiry. Treat each part separately; no calculations, 2-3 sentences per part (3 points each).</p><p>a) Ingrid expects the share to become far more volatile than the market expects, with no view on its direction. If the market comes round to her view while the share is still at NOK 200, which option gains more?</p><p>b) Are five-year European options with the same strike worth more than the two-year call and put?</p><p>c) A colleague says: «A higher risk-free rate discounts the payoffs more, so it lowers both option values.» Is he right if the share price is unchanged?</p><p>d) Halsnøy will pay out NOK 20 per share next month, as a dividend or as a repurchase at the market price. Which method would a call holder prefer and which a put holder?</p>",
+      "solution": "<p>Four answers of 2-3 sentences, 3 points each.</p><p><b>a) Both gain, by the same amount.</b> An option's payoff is cut off at zero, so a wider spread of the share price adds value in the tail where the option pays and costs nothing in the other: higher volatility raises both the call and the put. With S unchanged, put-call parity C − P = S − PV(K) does not contain σ, so the call and the put must rise by exactly the same amount.</p><p><b>b) The call: yes, at least as much. The put: not necessarily.</b> Without dividends a call is worth at least S − PV(K); a longer life both lowers PV(K) and gives the share more time to rise, so the five-year call is worth at least as much as the two-year call. For the put the two effects pull apart: more time adds volatility value, but the holder receives K later, so even this at-the-money put can be worth less with a longer life when volatility is low and the interest rate high.</p><p><b>c) No: the call rises and the put falls.</b> The call holder pays K only at expiry, so a higher rate lowers PV(K), today's cost of exercising, while the put holder receives K at expiry and that is now worth less today. Parity confirms it: with S fixed, C − P = S − PV(K) rises when PV(K) falls.</p><p><b>d) The call holder prefers the repurchase; the put holder prefers the dividend.</b> The dividend lowers the share price by about NOK 20 on the ex-dividend date and option holders receive none of the cash, so the call loses and the put gains. A repurchase at the market price leaves the price per share unchanged (MM), so neither option is affected.</p><p><b>Also accepted.</b> In a): «the put gains slightly more if time passes before the market comes round», since PV(K) then rises towards K and C − P = S − PV(K) falls; buying both options (a straddle) as the way to bet on volatility. In b): the argument that a European call on a share without dividends is never exercised early, so it is worth the same as an American call, which can only gain from a longer life. In d): that managers paid in options therefore favour repurchases, or that paying out cash makes the remaining shares slightly riskier, which helps both options a little whichever method is used.</p>",
+      "criteria": [
+        "Four parts graded separately, 3 points each: about 1 point for the direction (for both options where asked) and 2 for the reason. A direction without a reason earns at most 1 point.",
+        "a) Both rise with volatility because the payoff is one-sided. They rise by the same amount, since sigma is not in C − P = S − PV(K). «The put slightly more if time passes» is accepted with the PV(K) argument. Saying the put falls when volatility rises is the error.",
+        "b) Call: worth at least as much (no dividends, lower PV(K), more time). Put: not necessarily, because K arrives later; with low volatility and a high rate the longer put can be worth less. «Both are worth more» with a correct argument for the call earns 2 of 3.",
+        "c) The colleague is wrong: the call rises and the put falls, because PV(K) falls. A parity argument earns full credit for the reason.",
+        "d) Dividend: the share drops ex-dividend, so the call falls and the put rises. Repurchase at the market price: price unchanged, options unaffected. The call holder prefers the repurchase and the put holder the dividend.",
+        "(bonus) Managers paid in options favour repurchases; naming the straddle in a).",
+        "No calculation is expected. Keep to 2-3 sentences per part."
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Governance",
+      "points": 12,
+      "topic": "Corporate governance",
+      "chapters": [
+        26,
+        27
+      ],
+      "body": "<p>Corwin Instruments Inc., a US-listed firm with dispersed ownership, has lagged its peers for three years. Halberd Partners, a private equity firm holding 9% of the shares, has launched a hostile tender offer at a 30% premium. Corwin's board considers three responses:</p><p>(1) a poison pill adopted without a shareholder vote;<br>(2) a white knight: a friendly bidder that would keep the managers;<br>(3) greenmail: buying Halberd's stake at a premium if it drops the bid.</p><p>For each: how does it work against the bid? Who is likely to gain and who to lose among the managers, the other shareholders and Halberd? 2-3 sentences and 4 points each.</p>",
+      "solution": "<p>Three answers of 2-3 sentences, 4 points each.</p><p><b>(1) The poison pill.</b> If a holder crosses a trigger (say 15%) without the board's approval, every other shareholder may buy new shares at a deep discount, so Halberd would be diluted and its offer cannot succeed unless the board redeems the pill; Halberd must negotiate with the board or replace it in a proxy contest. The managers gain time and job security and Halberd loses; the other shareholders lose the 30% premium if the pill blocks the bid, but can gain if the board uses it only to bargain for a higher price.</p><p><b>(2) The white knight.</b> The board invites a friendlier buyer, which starts an auction: Halberd must raise its offer or lose the deal. The other shareholders gain if the competition lifts the premium above 30%, the managers keep their jobs if the knight wins and Halberd loses the deal but sells its 9% to the winner at the higher price. The risk is that the board picks the bidder that is kindest to the managers rather than the one that pays the most.</p><p><b>(3) Greenmail.</b> Corwin pays Halberd more than the market price for its stake, with the other shareholders' money, in return for dropping the bid (usually with a standstill agreement not to buy again). Halberd earns a premium on 9% without buying the firm and the managers keep their jobs; the other shareholders lose twice, through the premium paid out of the firm and through the loss of the 30% offer and of the takeover threat that disciplines the managers, so the share price typically falls on greenmail.</p><p><b>Also accepted.</b> In (1): the point that a pill combined with a staggered board is very hard to overcome. In (2): a white squire (a friendly buyer of a block that will vote with the board). In (3): that the firm's other owners may oppose greenmail at the general meeting or forbid it in the charter.</p>",
+      "criteria": [
+        "Three responses graded separately, 4 points each: about 2 for how it works and 2 for who gains and who loses among the three parties.",
+        "(1) Pill: discounted new shares for everyone but the holder above the trigger, so the bid fails unless the board redeems it. Managers gain, Halberd loses; shareholders lose the premium if the bid is blocked, or gain if the pill is only a bargaining tool. Either reading earns full marks if argued.",
+        "(2) White knight: a rival bid creates competition. Shareholders can gain a higher premium, managers keep their jobs, Halberd loses the deal but profits on its stake. Naming the risk of a knight chosen for the managers' sake is a bonus.",
+        "(3) Greenmail: a repurchase at a premium from the bidder only. Halberd and the managers gain; the other shareholders lose the premium paid and the offer.",
+        "Each answer must say who gains and who loses, not only how the defence works; a pure description earns at most 2 of the 4 points.",
+        "Keep to 2-3 sentences per response. A general (US-style) frame is expected; no country's law is needed."
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Capital Structure",
+      "points": 18,
+      "topic": "Capital structure",
+      "chapters": [
+        6
+      ],
+      "body": "<p>Lind Havbruk AS and Selje Havbruk AS each own one identical salmon farm and nothing else. At t = 1 each sells its farm and is wound up; a farm fetches NOK 205 million if salmon prices are high and NOK 125 million if low (50% each). Lind has no debt; Selje owes NOK 63 million (face value) on a zero-coupon loan due at t = 1. Markets are perfect and everyone can borrow and lend at 5%. Lind's equity trades at NOK 150 million, Selje's at NOK 96 million.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What do each firm's shareholders receive at t = 1 in each state and what is Selje's loan worth today?</p>",
+          "solution": "<table class=\"data\"><tr><th>State at t = 1</th><th>Lind shareholders</th><th>Selje's lender</th><th>Selje shareholders</th></tr><tr><td>High prices</td><td class=\"n\">205</td><td class=\"n\">63</td><td class=\"n\">205 − 63 = 142</td></tr><tr><td>Low prices</td><td class=\"n\">125</td><td class=\"n\">63</td><td class=\"n\">125 − 63 = 62</td></tr></table><p>The loan is paid in full in both states (63 &lt; 125), so it is risk-free and worth D = 63/1.05 = <b>60</b>.</p>",
+          "criteria": [
+            "Lind's shareholders get the whole cash flow: 205 and 125.",
+            "Selje's shareholders get 142 and 62; the lender gets 63 in both states.",
+            "D = 63/1.05 = 60, risk-free because 63 is below 125. Using the face value 63 as today's value is the error."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>What are the two firms worth and what expected return does each firm's equity offer?</p>",
+          "solution": "<p><b>Step 1. Firm values.</b> V<sub>Lind</sub> = <b>150</b>; V<sub>Selje</sub> = E + D = 96 + 60 = <b>156</b>. The market values identical cash flows 6 higher when they come with debt.</p><p><b>Step 2. Expected returns.</b> Lind: (0.5 × 205 + 0.5 × 125)/150 − 1 = 165/150 − 1 = <b>10%</b>. Selje: (0.5 × 142 + 0.5 × 62)/96 − 1 = 102/96 − 1 = <b>6.25%</b>.</p><p><b>Note (not required).</b> This cannot be right: Selje's shares carry the same business risk plus leverage (their payoff swings by 80 on a price of 96, Lind's by 80 on 150), yet they promise a lower return. One of the two prices must be wrong.</p>",
+          "criteria": [
+            "V_Lind = 150; V_Selje = 96 + 60 = 156: the same cash flows valued differently.",
+            "Expected returns: Lind 165/150 − 1 = 10%; Selje 102/96 − 1 = 6.25%.",
+            "(bonus) Notes that the levered shares are riskier yet promise less, so the prices cannot both be right."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>With NOK 9.6 million, Kari can buy 10% of Selje's shares, or 10% of Lind's shares with the rest borrowed at 5% in her own name. What does each plan pay at t = 1 in each state and which is better?</p>",
+          "solution": "<p><b>Step 1. Selje.</b> 10% of Selje costs 9.6 and pays 10% of 142 or 62.</p><p><b>Step 2. Lind with a personal loan.</b> 10% of Lind costs 15, so she borrows 15 − 9.6 = 5.4 and repays 5.4 × 1.05 = 5.67 at t = 1.</p><table class=\"data\"><tr><th>Plan</th><th>Cost today</th><th>High prices</th><th>Low prices</th></tr><tr><td>10% of Selje</td><td class=\"n\">9.6</td><td class=\"n\">14.2</td><td class=\"n\">6.2</td></tr><tr><td>10% of Lind, loan 5.4</td><td class=\"n\">15 − 5.4 = 9.6</td><td class=\"n\">20.5 − 5.67 = <b>14.83</b></td><td class=\"n\">12.5 − 5.67 = <b>6.83</b></td></tr></table><p><b>The Lind plan is better:</b> for the same 9.6 it pays <b>0.63 more in both states</b>. Kari can create Selje's leverage herself (homemade leverage) more cheaply than the market sells it.</p>",
+          "criteria": [
+            "Selje plan: 10% × (142, 62) = 14.2 and 6.2.",
+            "Lind plan: loan 15 − 9.6 = 5.4, repayment 5.67; payoff 14.83 and 6.83.",
+            "The Lind plan pays 0.63 more in both states, so it dominates.",
+            "Repaying only 5.4 (no interest on the personal loan) gives 15.1 and 7.1 and is the error."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Construct an arbitrage that needs no money of your own, trading 10% of each firm's shares. What is your profit and at what value of Selje's equity would the arbitrage disappear?</p>",
+          "solution": "<p><b>Step 1. Copy Selje's shares and sell the expensive original.</b> 10% of Lind plus a loan that repays 10% of 63 = 6.3 pays exactly what 10% of Selje's shares pay, in both states:</p><table class=\"data\"><tr><th>Position</th><th>Today</th><th>High prices</th><th>Low prices</th></tr><tr><td>Sell 10% of Selje's shares short</td><td class=\"n\">+9.6</td><td class=\"n\">−14.2</td><td class=\"n\">−6.2</td></tr><tr><td>Buy 10% of Lind's shares</td><td class=\"n\">−15</td><td class=\"n\">+20.5</td><td class=\"n\">+12.5</td></tr><tr><td>Borrow at 5%</td><td class=\"n\">+6</td><td class=\"n\">−6.3</td><td class=\"n\">−6.3</td></tr><tr><td><b>Total</b></td><td class=\"n\"><b>+0.6</b></td><td class=\"n\">0</td><td class=\"n\">0</td></tr></table><p><b>Profit: NOK 0.6 million today</b>, risk-free and with no money of your own (equivalently 0.6 × 1.05 = 0.63 at t = 1, by investing the 0.6 at 5% or by borrowing only 5.4). It equals 10% of the gap in firm values, 156 − 150.</p><p><b>Step 2. Equilibrium.</b> Selling Selje and buying Lind continues until V<sub>Selje</sub> = V<sub>Lind</sub> = 150, that is <b>E<sub>Selje</sub> = 150 − 60 = 90</b>.</p><p><b>Check.</b> At 90 Selje's expected return is 102/90 − 1 = 13.3333%; MM II gives 10% + (60/90) × (10% − 5%) = 13.3333% ✓. It catches the face value used in place of the market value: E = 150 − 63 = 87 gives an expected return of 17.2414%, while MM II with the loan at its market value of 60 gives 13.4483%.</p>",
+          "criteria": [
+            "Sells Selje's shares short and buys Lind's shares with a personal loan (homemade leverage). Buying Selje and selling Lind is the wrong direction.",
+            "Positions: +9.6, −15, +6 (repay 6.3); zero at t = 1 in both states, shown state by state.",
+            "Profit 0.6 today or 0.63 at t = 1. Another scale is accepted if stated (all the shares give 6 today).",
+            "The arbitrage disappears at E_Selje = 150 − 60 = 90, where both firms are worth 150.",
+            "(bonus) Checks the equilibrium with MM II: 13.3333% both ways."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Which theorem does this illustrate? State it and the assumptions about investors that your strategy in d) relies on. (3-4 sentences)</p>",
+          "solution": "<p><b>Model answer (4 sentences).</b> This is Modigliani-Miller Proposition I: in a perfect capital market the total value of a firm does not depend on its capital structure, because investors can copy or undo any leverage the firm chooses. My strategy needed investors to borrow at the same rate as the firm, here 5%; if a personal loan cost more, homemade leverage would be dearer than corporate leverage and a levered firm could trade at a premium. It also needed short sales and no taxes or transaction costs, so that the trade costs nothing to set up. Finally, all investors must know that the two farms are identical, so that the shares are perfect substitutes.</p>",
+          "criteria": [
+            "Names MM Proposition I and states it: firm value does not depend on capital structure in a perfect market (the law of one price).",
+            "Names the borrowing assumption: investors borrow and lend at the same rate as firms, which makes homemade leverage a perfect substitute.",
+            "Names at least one more assumption the strategy uses: short selling, no taxes, no transaction costs, the same information.",
+            "A list of perfect-market conditions that never says which ones the strategy in d) relies on earns at most half.",
+            "Keep to 3-4 sentences."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Debt and risk",
+      "points": 18,
+      "topic": "Debt and risk",
+      "chapters": [
+        9,
+        10
+      ],
+      "body": "<p>Leirvåg Gruppen ASA has two divisions, Havn (ports) and Seismikk (seismic surveys). It will be wound up at t = 1, when they produce these cash flows (NOK million):</p><table class=\"data\"><tr><th>State (probability)</th><th class=\"n\">Bust (25%)</th><th class=\"n\">Normal (50%)</th><th class=\"n\">Boom (25%)</th></tr><tr><td>Havn</td><td class=\"n\">140</td><td class=\"n\">150</td><td class=\"n\">160</td></tr><tr><td>Seismikk</td><td class=\"n\">20</td><td class=\"n\">110</td><td class=\"n\">260</td></tr></table><p>Its only debt is a zero-coupon bond with face value NOK 150 million due at t = 1. Investors are risk neutral, the risk-free rate is 5% and there are no taxes. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What are Leirvåg's bond and equity worth today?</p>",
+          "solution": "<p>Together the divisions produce 160, 260 and 420. Even in a bust 160 ≥ 150, so the bond is always paid in full: <b>D = 150/1.05 = 142.8571</b>.</p><p>Equity receives 10, 110 and 270: E = (0.25 × 10 + 0.5 × 110 + 0.25 × 270)/1.05 = 125/1.05 = <b>119.0476</b>.</p><p><b>Identity.</b> D + E = 261.9048 = 275/1.05, the value of all the cash flows; it holds by construction (D + E = V in every state).</p>",
+          "criteria": [
+            "The bond is risk-free (160 ≥ 150 in a bust): D = 150/1.05 = 142.8571.",
+            "E = 125/1.05 = 119.0476.",
+            "Risk-neutral investors: expected values discounted at 5%."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 6,
+          "body": "<p>The CEO proposes to split Leirvåg into Havn ASA and Seismikk ASA, giving each shareholder one share in each. The bond terms let him move the whole bond to either firm. The split costs synergies: each firm's cash flow falls by NOK 6 million in every state. Which firm should take the bond if the CEO acts for the shareholders? Find their total equity value under both choices.</p>",
+          "solution": "<p>Value each firm's debt and equity state by state (risk neutral, discount at 5%):</p><table class=\"data\"><tr><th>After the split</th><th class=\"n\">Bust</th><th class=\"n\">Normal</th><th class=\"n\">Boom</th><th class=\"n\">Value today</th></tr><tr><td>Havn ASA, cash flow</td><td class=\"n\">134</td><td class=\"n\">144</td><td class=\"n\">154</td><td></td></tr><tr><td>Seismikk ASA, cash flow</td><td class=\"n\">14</td><td class=\"n\">104</td><td class=\"n\">254</td><td></td></tr><tr><td colspan=\"5\"><i>Bond on Seismikk</i></td></tr><tr><td>Bond</td><td class=\"n\">14</td><td class=\"n\">104</td><td class=\"n\">150</td><td class=\"n\">88.5714</td></tr><tr><td>Seismikk equity</td><td class=\"n\">0</td><td class=\"n\">0</td><td class=\"n\">104</td><td class=\"n\">24.7619</td></tr><tr><td>Havn equity</td><td class=\"n\">134</td><td class=\"n\">144</td><td class=\"n\">154</td><td class=\"n\">137.1429</td></tr><tr><td colspan=\"5\"><i>Bond on Havn</i></td></tr><tr><td>Bond</td><td class=\"n\">134</td><td class=\"n\">144</td><td class=\"n\">150</td><td class=\"n\">136.1905</td></tr><tr><td>Havn equity</td><td class=\"n\">0</td><td class=\"n\">0</td><td class=\"n\">4</td><td class=\"n\">0.9524</td></tr><tr><td>Seismikk equity</td><td class=\"n\">14</td><td class=\"n\">104</td><td class=\"n\">254</td><td class=\"n\">113.3333</td></tr></table><p><b>Bond on Seismikk:</b> equity = 24.7619 + 137.1429 = <b>161.9048</b>. <b>Bond on Havn:</b> equity = 0.9524 + 113.3333 = <b>114.2857</b>.</p><p><b>The bond goes to Seismikk.</b> With limited liability the shareholders walk away from the bond in the states where its firm cannot pay, so they want it on the most volatile cash flow: Seismikk cannot pay 150 in two states out of three and the bondholders absorb those shortfalls.</p>",
+          "criteria": [
+            "About 2 points for each allocation valued state by state and 2 for the choice with its reason.",
+            "Cash flows after the split: Havn 134, 144, 154; Seismikk 14, 104, 254.",
+            "Bond on Seismikk: equity (0, 0, 104) plus Havn's cash flow: 24.7619 + 137.1429 = 161.9048.",
+            "Bond on Havn: equity (0, 0, 4) plus Seismikk's cash flow: 0.9524 + 113.3333 = 114.2857.",
+            "Choice: Seismikk, the riskier division. Choosing Havn because it can «carry» the bond, or comparing only total expected cash flows (the same under both choices), is the error."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>For the CEO's choice, by what percentage do the value of the bond and the shareholders' total wealth change when the plan is announced?</p>",
+          "solution": "<p><b>Step 1. The bond.</b> It now pays 14, 104, 150: D = (0.25 × 14 + 0.5 × 104 + 0.25 × 150)/1.05 = <b>88.5714</b>, a change of 88.5714/142.8571 − 1 = <b>−38%</b>.</p><p><b>Step 2. The shareholders.</b> They now own the equity of both firms, 161.9048 against 119.0476 before: 161.9048/119.0476 − 1 = <b>+36%</b>.</p><p>The bond's promised yield jumps from 5% to 150/88.5714 − 1 = 69.3548%, while its expected return stays 5% (risk neutrality). Shares up and bonds down on the same news is the signature of a wealth transfer (Marriott's split in 1993 is the classic case).</p>",
+          "criteria": [
+            "D = 93/1.05 = 88.5714.",
+            "Bond: 88.5714/142.8571 − 1 = −38%.",
+            "Shareholders: equity of both firms, 161.9048/119.0476 − 1 = +36%. Counting only Seismikk's equity (24.7619) is the error.",
+            "Stating that the share price rises while the bond falls (opposite signs) earns credit even with an arithmetic slip."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 3,
+          "body": "<p>Who wins and who loses from the split and by how much? Does it create value?</p>",
+          "solution": "<table class=\"data\"><tr><th>Group</th><th class=\"n\">Before</th><th class=\"n\">After</th><th class=\"n\">Change</th></tr><tr><td>Shareholders</td><td class=\"n\">119.0476</td><td class=\"n\">161.9048</td><td class=\"n\"><b>+42.8571</b></td></tr><tr><td>Bondholders</td><td class=\"n\">142.8571</td><td class=\"n\">88.5714</td><td class=\"n\"><b>−54.2857</b></td></tr><tr><td>Firm (D + E)</td><td class=\"n\">261.9048</td><td class=\"n\">250.4762</td><td class=\"n\"><b>−11.4286</b></td></tr></table><p><b>The shareholders gain 42.8571 and the bondholders lose 54.2857.</b> The firm as a whole loses 11.4286 = 12/1.05, the present value of the destroyed synergies, so the split <b>destroys value</b>: the shareholders gain only because they take more than the whole loss from the bondholders. It is a wealth transfer through risk shifting, with the lost synergies as its deadweight cost.</p><p><b>Identity.</b> 42.8571 − 54.2857 = −11.4286: since D + E = V in every state, the gains must sum to the change in firm value. It checks the arithmetic, not the choice in b).</p>",
+          "criteria": [
+            "Shareholders +42.8571 (161.9048 − 119.0476); bondholders −54.2857 (88.5714 − 142.8571).",
+            "The firm loses 11.4286, the present value of the 12 of synergies lost at t = 1: the split destroys value.",
+            "Names the mechanism: a wealth transfer from bondholders to shareholders (risk shifting), larger than the value destroyed.",
+            "(bonus) States the identity 42.8571 − 54.2857 = −11.4286 and says it cannot catch a wrong choice in b)."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>In the long run, who bears the cost of such transactions and are covenants that forbid them good or bad for shareholders? (2-3 sentences)</p>",
+          "solution": "<p><b>Model answer (3 sentences).</b> In the long run the shareholders bear it: lenders learn that firms can move risk onto them and demand a higher rate or lend less, so the expected loss, including any synergies destroyed, is charged up front. Covenants that forbid moving debt or assets are therefore good for shareholders before the loan is made, a «necessary evil»: the firm gives up some flexibility but borrows more cheaply, because a credible promise not to expropriate the lenders is worth more than the option to do it. Once the bond is sold the same covenant blocks gains like the one in d), which is why managers then try to escape it.</p><p><b>Also accepted.</b> Convertible debt or shorter maturities as other remedies; renegotiation with the lenders.</p>",
+          "criteria": [
+            "The shareholders bear the cost in the long run: lenders anticipate and price it (higher rate, less debt).",
+            "Covenants are good for shareholders ex ante: cheaper debt in exchange for less flexibility (a «necessary evil»).",
+            "(bonus) Covenants are bad ex post for the current shareholders, or names other remedies (convertible debt, short maturities, renegotiation).",
+            "Keep to 2-3 sentences."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Valuation",
+      "points": 20,
+      "topic": "WACC, APV and FTE",
+      "chapters": [
+        2,
+        3,
+        4,
+        17,
+        18,
+        19
+      ],
+      "body": "<p>Kjølvik Lager AS, a cold-storage firm, expects for Year 1 (NOK million): EBIT 500, depreciation 80, capital expenditure 120 and an increase in net working capital of 20, all growing by 2.5% a year forever. The tax rate is 22%. Kjølvik has NOK 2,500 million of risk-free debt and keeps its debt-to-equity ratio constant, so the debt is expected to grow by 2.5% a year; interest is paid at year end on the opening debt. The risk-free rate is 4%, the expected market return 9% and the asset beta 0.8. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Find Kjølvik's free cash flow in Year 1 and its unlevered value.</p>",
+          "solution": "<p><b>Step 1. FCF.</b> FCF<sub>1</sub> = EBIT(1 − τ) + Dep − CapEx − ΔNWC = 500 × 0.78 + 80 − 120 − 20 = <b>330</b>. No interest is deducted: the financing is valued separately.</p><p><b>Step 2. r<sub>U</sub> and V<sup>U</sup>.</b> r<sub>U</sub> = 4% + 0.8 × (9% − 4%) = 8%; V<sup>U</sup> = 330/(8% − 2.5%) = <b>NOK 6,000 million</b>.</p>",
+          "criteria": [
+            "FCF = 500 × 0.78 + 80 − 120 − 20 = 330.",
+            "r_U = 4% + 0.8 × 5% = 8% from the asset beta.",
+            "V^U = 330/(8% − 2.5%) = 6,000, a growing perpetuity.",
+            "Forgetting the change in working capital (FCF 350, V^U 6,363.6364) or deducting interest is the error."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>Find the interest tax shield in Year 1 and the present value of all interest tax shields. Which rate do you use and why?</p>",
+          "solution": "<p><b>Step 1. Year 1.</b> The debt is risk-free, so r<sub>D</sub> = r<sub>f</sub> = 4%: interest = 4% × 2,500 = 100; tax shield = 22% × 100 = <b>22</b>. With a constant D/E the debt grows with the firm, so the tax shields are expected to grow at 2.5% a year.</p><p><b>Step 2. PV(TS)</b> = 22/(8% − 2.5%) = <b>NOK 400 million</b>, discounted at <b>r<sub>U</sub> = 8%</b>. The debt is rebalanced to keep D/E constant: when the firm's value rises or falls, the future debt and the future tax shields follow. The tax shields therefore carry the risk of the firm's assets.</p>",
+          "criteria": [
+            "Interest on the opening debt 4% × 2,500 = 100; tax shield 22% × 100 = 22, growing at 2.5% with the debt.",
+            "PV(TS) = 22/(8% − 2.5%) = 400.",
+            "Rate r_U, because the debt is rebalanced with firm value, so the future tax shields have the assets' risk.",
+            "Discounting all the tax shields at r_D = 4% gives 1,466.6667 and is the error.",
+            "Discounting the first year's tax shield at r_D and the later ones at r_U (Miles-Ezzell) gives 415.3846 and is accepted if argued; follow-through is then accepted in c) to f)."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>Find Kjølvik's levered value with APV and the value of its equity.</p>",
+          "solution": "<p>V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 6,000 + 400 = <b>6,400</b>; E = 6,400 − 2,500 = <b>3,900</b>. Leverage: D/V = 2,500/6,400 = 0.3906.</p>",
+          "criteria": [
+            "V^L = 6,000 + 400 = 6,400.",
+            "E = 6,400 − 2,500 = 3,900.",
+            "Follow-through from a) and b) earns full credit."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 2,
+          "body": "<p>What after-tax WACC is consistent with the free cash flow and the levered value in c)?</p>",
+          "solution": "<p>V<sup>L</sup> = FCF<sub>1</sub>/(r<sub>wacc</sub> − g), so r<sub>wacc</sub> = 330/6,400 + 2.5% = 0.0515625 + 0.025 = 0.0765625 = <b>7.6563%</b>.</p><p><b>Identity.</b> r<sub>U</sub> − (D/V)τr<sub>D</sub> = 8% − 0.390625 × 0.22 × 4% = 7.6563%. It holds by construction under this debt policy, so it confirms the arithmetic only.</p>",
+          "criteria": [
+            "r_wacc = 330/6,400 + 2.5% = 7.6563%.",
+            "Reaching it with r_U − (D/V)τ r_D, or with MM II and the WACC formula, is equally accepted.",
+            "A precision error of about 0.001 percentage points is fine; 0.05 is too much."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Find Kjølvik's cost of equity and equity beta. Do its equity and debt betas, weighted by value, average to its asset beta?</p>",
+          "solution": "<p><b>Step 1. r<sub>E</sub>.</b> From the WACC formula: 7.6563% = 0.609375 r<sub>E</sub> + 0.390625 × 0.78 × 4%, so r<sub>E</sub> = <b>10.5641%</b>. MM II gives the same: 8% + (2,500/3,900) × (8% − 4%) = 10.5641%.</p><p><b>Step 2. β<sub>E</sub>.</b> (10.5641% − 4%)/5% = <b>1.3128</b>.</p><p><b>Step 3. Yes.</b> The debt is risk-free, so β<sub>D</sub> = 0: 0.609375 × 1.3128 + 0.390625 × 0 = <b>0.8000</b> = β<sub>U</sub> ✓. This is an identity under a constant D/E (pre-tax WACC = r<sub>U</sub>), so it confirms the arithmetic, not the debt policy.</p>",
+          "criteria": [
+            "r_E = 10.5641%, from the WACC formula or from MM II.",
+            "β_E = (10.5641% − 4%)/5% = 1.3128.",
+            "Yes: 0.6094 × 1.3128 + 0.3906 × 0 = 0.8000, with β_D = 0 because the debt is risk-free."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 4,
+          "body": "<p>Find the free cash flow to equity in Year 1 and value the equity with the flow-to-equity method. Compare with c).</p>",
+          "solution": "<p><b>Step 1. FCFE.</b> The debt grows with the firm, so the shareholders also receive the net borrowing, 2.5% × 2,500 = 62.5 in Year 1. FCFE<sub>1</sub> = FCF − (1 − τ) × interest + net borrowing = 330 − 0.78 × 100 + 62.5 = <b>314.5</b>, growing at 2.5%.</p><p><b>Step 2. FTE.</b> E = 314.5/(10.5641% − 2.5%) = <b>3,900</b>, the same as in c). The agreement is a fixed point, since r<sub>E</sub> came from V<sup>L</sup>; it catches a wrong FCFE, not a wrong V<sup>L</sup>. Leaving out the net borrowing would cut the equity value by its present value, 775.0397, to 3,124.9603.</p>",
+          "criteria": [
+            "Net borrowing 2.5% × 2,500 = 62.5, paid to the shareholders.",
+            "FCFE = 330 − 0.78 × 100 + 62.5 = 314.5: after-tax interest, not the full interest.",
+            "E = 314.5/(10.5641% − 2.5%) = 3,900, discounted at r_E, equal to c).",
+            "Leaving out the net borrowing is the error; stating the resulting 3,124.9603 is optional.",
+            "(bonus) Notes that FTE = APV is a fixed point here, not an independent test."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Real Options",
+      "points": 20,
+      "topic": "Real options, risk-neutral valuation",
+      "chapters": [
+        22,
+        25
+      ],
+      "body": "<p>Kobbervik Gruve AS can expand its copper mine by 3,000 tonnes a year forever for USD 200 million. The extra copper costs USD 7,000 per tonne to produce and is sold at each year end at that year's price. At t = 1 the copper price becomes USD 11,000 or USD 7,500 per tonne and stays there forever; nobody knows the probabilities. The risk-free rate is 4%.</p><p>Listed Nordmalm Royalty ASA, worth USD 245 million, owns only the right to 1,000 tonnes of copper a year forever from t = 1; it sells each year's copper at that year's price and pays out at once.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the NPV of expanding now (output from Year 1)? Value the sales with Nordmalm's market value.</p>",
+          "solution": "<p><b>Step 1. Sales.</b> 3,000 tonnes a year from Year 1 is 3 times Nordmalm's stream, so the market values it at 3 × 245 = <b>735</b>. No probabilities or risk premium are needed: they are in Nordmalm's price.</p><p><b>Step 2. Costs.</b> 3,000 × 7,000 = USD 21 million a year, certain, so discount at r<sub>f</sub>: 21/0.04 = <b>525</b>.</p><p>NPV = 735 − 525 − 200 = <b>USD 10 million</b>, positive.</p>",
+          "criteria": [
+            "Sales = 3 × 245 = 735: the same stream as Nordmalm's, scaled.",
+            "Costs 21 a year are certain: 21/0.04 = 525.",
+            "NPV = 735 − 525 − 200 = 10."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>Instead, Kobbervik can decide at t = 1, when the price is known, paying USD 200 million then; output starts in Year 2. What is the NPV of expanding in each state, measured at t = 1? Above which price does Kobbervik expand?</p>",
+          "solution": "<p>From t = 1 the price is known and fixed, so the margins are certain: discount at r<sub>f</sub>. Output from Year 2 is a perpetuity whose value at t = 1 is margin/r<sub>f</sub>.</p><p><b>High price.</b> Margin 3,000 × (11,000 − 7,000) = USD 12 million a year; value 12/0.04 = 300; NPV<sub>1</sub> = 300 − 200 = <b>100</b>: expand.</p><p><b>Low price.</b> Margin 3,000 × (7,500 − 7,000) = 1.5; value 1.5/0.04 = 37.5; NPV<sub>1</sub> = 37.5 − 200 = <b>−162.5</b>: do not expand.</p><p><b>Threshold.</b> The NPV at t = 1 is zero when 3,000 × (P − 7,000)/0.04 = USD 200,000,000: P − 7,000 = 200,000,000 × 0.04/3,000 = 2,666.67, so P = <b>USD 9,666.67 per tonne</b>.</p>",
+          "criteria": [
+            "High: 12/0.04 − 200 = 100. Low: 1.5/0.04 − 200 = −162.5.",
+            "Values the Year-2 perpetuity at t = 1 as margin/r_f (no extra discounting, no Year-1 cash flow).",
+            "Expands only at the high price; at the low price the value is 0, not the negative NPV.",
+            "Threshold price USD 9,666.67 per tonne.",
+            "Discounting the state values to today (96.1538 and −156.2500) is also accepted if stated."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 8,
+          "body": "<p>What is the risk-neutral probability of the high price? Explain briefly why true probabilities are not needed.</p>",
+          "solution": "<p><b>Step 1. One traded security, valued today and in both states.</b> Nordmalm is priced at S<sub>0</sub> = 245. At t = 1 its holder owns the payment made then plus the rest of the stream, which is certain from then on, so S<sub>u</sub> and S<sub>d</sub> include the t = 1 payment, as a share's value includes a dividend just paid:</p><table class=\"data\"><tr><th>Nordmalm at t = 1 (USD million)</th><th>Payment at t = 1</th><th>Later payments, valued at t = 1</th><th>Total</th></tr><tr><td>High price, S<sub>u</sub></td><td class=\"n\">1,000 × 11,000 = 11</td><td class=\"n\">11/0.04 = 275</td><td class=\"n\"><b>286</b></td></tr><tr><td>Low price, S<sub>d</sub></td><td class=\"n\">1,000 × 7,500 = 7.5</td><td class=\"n\">7.5/0.04 = 187.5</td><td class=\"n\"><b>195</b></td></tr></table><p><b>Step 2. The formula sheet.</b> ρ = [(1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>) = (1.04 × 245 − 195)/(286 − 195) = 59.8/91 = <b>0.6571</b>; 1 − ρ = 0.3429.</p><p><b>The trap.</b> S<sub>0</sub> = 245 includes the payment at t = 1, so S<sub>u</sub> and S<sub>d</sub> must include it too. Leaving it out (275 and 187.5) mixes two different streams and gives 0.7691. That still lies between 0 and 1, so a range check misses it; repricing the expansion with it does not return a) (the check in d)).</p><p><b>Check.</b> [0.6571 × 286 + 0.3429 × 195]/1.04 = 245 ✓ (true by construction). The market prices copper as if the expected price were 0.657143 × 11,000 + 0.342857 × 7,500 = USD 9,800.</p><p><b>Why no true probabilities.</b> The expansion's payoff depends only on the price state; Nordmalm plus risk-free borrowing can replicate any such payoff. Its value then follows from no arbitrage, whatever the true probabilities or investors' risk aversion: both are already in Nordmalm's price.</p>",
+          "criteria": [
+            "Uses one security for S_0, S_u and S_d: Nordmalm, S_0 = 245.",
+            "Includes the payment at t = 1: S_u = 11 + 11/0.04 = 286 and S_d = 7.5 + 7.5/0.04 = 195.",
+            "ρ = (1.04 × 245 − 195)/(286 − 195) = 0.6571.",
+            "Leaving out the t = 1 payment gives 0.7691 and is the error; it lies between 0 and 1, so only the rule or a repricing check catches it.",
+            "Why: the payoff can be replicated with the traded security and the risk-free bond, so its price cannot depend on true probabilities or risk preferences.",
+            "(bonus) Verifies that ρ reprices Nordmalm, or reads off the risk-neutral expected price USD 9,800."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Without expanding now, what is Kobbervik's right to expand at t = 1 worth today? Do you expand now or wait? Briefly comment.</p>",
+          "solution": "<p><b>Step 1. The option.</b> C<sub>0</sub> = [ρ × 100 + (1 − ρ) × 0]/1.04 = 0.6571 × 100/1.04 = <b>USD 63.1868 million</b>.</p><p><b>Step 2. Decision: wait.</b> 63.1868 &gt; 10: expanding now has a positive NPV, but it is worth 53.1868 less than keeping the option. Waiting costs only one year of margin, while committing now means expanding also in the low state, where it destroys 162.5 at t = 1.</p><p><b>Check.</b> Expanding now, priced state by state with ρ: [0.6571 × (12 + 300) + 0.3429 × (1.5 + 37.5)]/1.04 − 200 = 10 = a) ✓. This check can fail: with ρ = 0.7691 it gives 39.4.</p><p><b>Also accepted.</b> Replication: hold Δ = 100/91 = 1.098901 times Nordmalm's equity and borrow 206.0440: 1.098901 × 245 − 206.0440 = 269.2308 − 206.0440 = 63.1868.</p>",
+          "criteria": [
+            "C_0 = 0.6571 × 100/1.04 = 63.1868, with 0 in the low state (about 2 points).",
+            "Wait: 63.1868 is more than the NPV of 10 from expanding now. Investing because the NPV is positive is the error.",
+            "Comment: committing now gives up the right to skip the low state (the flexibility is worth 53.1868); waiting costs only the Year-1 margin. A positive NPV is not enough.",
+            "With the wrong ρ from c) (0.7691) the value is 73.9560; follow-through earns the decision points."
+          ]
+        }
+      ]
+    }
+  ]
+},
 ];
