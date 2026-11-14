@@ -225,3 +225,22 @@ checks, blind review), with these updates from `docs/fie402-forelesninger-2026.m
   matters.
 - Never reuse a scenario or the numbers of H2024, H2025, prove1–3, HA1–HA2 or the problem sets:
   the source in the plan gives the *type*, the numbers and the twist must be new.
+
+### Lessons from the blind review of round 1 (14 November 2026)
+
+- `facts` and `note` are shown to the student before the exam starts (`js/bundle-sett.js`,
+  the set card and the start card). They must not contain formulas or mechanism names that give
+  away an answer («the EPS fallacy», «coinsurance», «V^L = (1 + τk)V^U»).
+- Length at Kurbatov's level: 1 000 to 1 250 words of exercise text and 30 to 40 deliverables
+  in total (H2025: 1 149 words, H2024: 1 027). Weight the points by the work.
+- A later part must not reveal an earlier answer. «Show that the shareholders are no worse off»
+  gives the number away; ask «Are they better or worse off?».
+- Theory exercises: the model answer obeys its own rules (no repeated argument), and the
+  criteria say whether two close arguments count as one or two.
+- Label identities and decompositions as such; only checks that can catch a conceptual error
+  are called checks that «can fail». Criteria never require a check the question did not ask
+  for: make it a bonus.
+- Proxy access: the SEC rule 14a-11 under Dodd-Frank was struck down in 2011; today it comes
+  through the bylaws, often after a shareholder proposal. Credit students who cite the lecture.
+- «Forgetting the delta» (Kurbatov) means using the level of working capital instead of the
+  change.

@@ -350,7 +350,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 |---|---|
 | Manualen | **30 kapitler · 109 000 ord** · alle uavhengig tallkontrollert |
 | Studieplan | **25 moduler · 78 timer**, estimatene regnet av faktisk innhold |
-| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **3 prøveeksamener** i Kurbatov-formatet (18 oppgaver, 68 deloppgaver) |
+| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **6 prøveeksamener** i Kurbatov-formatet (prove1–3 fra oktober, prove4–6 fra prediksjonen 14. november) |
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **528**: 260 oppgavekort i 16 kategorier (forsiden en oppgavetype, baksiden svar og feller) og 268 begrepskort, pluss 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
@@ -538,7 +538,11 @@ NotebookLM-kilder, med god tid.
 - **NotebookLM-kilder:** 14 filer, én per forelesning, på engelsk, i kursmappen
   `NotebookLM-kilder/`. Kontrollert uavhengig; seks rettinger, blant annet IST i PS1 E9
   (gevinsten er 27 mill., ikke 37).
-- **Prøveeksamener 4–12:** se `docs/fie402-proveeksamen-spek.md`, siste del.
+- **Prøveeksamener 4–12:** se `docs/fie402-proveeksamen-spek.md`, siste del. Runde 1
+  (prove4 det mest sannsynlige settet, prove5 kjernen, prove6 H2024-formen) er lagt ut etter
+  blind løsning: ingen regnefeil, men alle tre var 40–60 % lengre enn Kurbatovs (1 600–1 900
+  ord mot 1 000–1 150), og `facts`/`note`, som vises før start, røpet formler. Kortet til
+  1 110–1 250 ord og rettet. Lærdommene står i spesifikasjonen.
 - Kontrollene fant også feil i appen: H2025 E5(d) verdsatte exit-programmet mot den
   negative NPV-en (62 388); riktig mot det beste alternativet er 45 246. PS1 E6(b) sa at
   gjelden blir risikofri; riktig er 75 → 90 og eieren 25 → 16.

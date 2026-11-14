@@ -3502,4 +3502,1065 @@ window.EDU_DATA.sets = [
     }
   ]
 },
+{
+  "id": "prove4",
+  "kind": "mock",
+  "label": "Mock exam 4",
+  "minutes": 180,
+  "points": 100,
+  "format": "6 exercises · no multiple choice · calculator and one bilingual dictionary permitted",
+  "note": "Mock exam 4, “the most likely set”. Written for this app as practice in Kurbatov's format (H2024, H2025) from the 2026 prediction for this course, with new firms and numbers throughout. It is not an official exam and no official solution key exists.",
+  "facts": [
+    "Mock exam in Kurbatov's format (H2024, H2025): 6 exercises, 100 points, 180 minutes, no multiple choice, calculator and one bilingual dictionary permitted.",
+    "Points per exercise: 12 · 12 · 18 · 18 · 20 · 20. Two verbal exercises with sentence budgets, then four computational exercises.",
+    "The formula sheet is handed out.",
+    "Recommended precision: 4 decimal places. An error carried forward is not penalised again in later parts.",
+    "Written for this app. Every number in the solutions is computed in a script."
+  ],
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Security issues",
+      "points": 12,
+      "topic": "Equity issues, asymmetric information, pecking order",
+      "chapters": [
+        12,
+        13,
+        14
+      ],
+      "body": "<p>Glomfjord Batteri ASA, a listed battery producer with almost no debt and equity worth NOK 8 billion, announces a seasoned equity offering of NOK 1.2 billion to build a new factory. On the announcement day its share price falls by 12% while the market is flat.</p><p><b>a)</b> (8 points) What are the potential reasons for the price fall? Describe two distinct reasons, each worth 4 points. Reasons must be other than «the new shares dilute the existing shareholders». Around five sentences in total should be enough.</p><p><b>b)</b> (4 points) Suggest a better way to raise the money and explain briefly why the market would react less negatively. (2-3 sentences.)</p>",
+      "solution": "<p><b>Read the number first.</b> A fall of 12% on NOK 8 billion is NOK 960 million, 80% of the amount Glomfjord is raising. A drop of that size is news about the value of the company, not about the mechanics of the issue.</p><p><b>a) Model answer (four sentences).</b> <b>Reason 1: adverse selection (Myers-Majluf).</b> Managers know more about the company than outside investors and the existing shareholders gain when new shares are sold above their true value, so a company is most willing to issue equity when its shares are overvalued. Investors know this and read the announcement as a signal that management thinks the share price is too high, so they revise the value of the existing assets down. <b>Reason 2: doubt about the factory (agency).</b> The market may believe that management wants a bigger company more than a more valuable one, so that the factory has a negative NPV (empire building). Raising equity hands managers cash without the discipline of fixed debt payments, so the price falls by the value investors expect to be lost.</p><p><b>b) Model answer (three sentences).</b> Borrow the money instead: Glomfjord has almost no debt and the value of safe debt hardly depends on what management knows, so issuing it says little about whether the shares are overvalued (the pecking order: internal funds first, then debt, then equity). The interest is also tax-deductible. If equity is needed, a rights offer to the existing shareholders is cheaper and less underpriced and leaves no outsiders to sell overvalued shares to, so it carries a weaker signal.</p><p><b>Also accepted in a).</b> Equity chosen over debt as news about cash flows (pecking order): Glomfjord could have borrowed, so declining to commit to debt payments suggests that management expects weak cash flows. This counts as a reason distinct from overvaluation only if it is explained as news about future cash flows rather than about the share price. Market timing: firms tend to issue after a run-up in their share price and investors read the timing. Free cash flow: more cash weakens management's discipline. Issue costs and underpricing as a minor part only: fees of about 5.3% plus 1.7% other costs on NOK 1,200 million are about NOK 84 million, roughly 1% of the company's value, far below the 12% fall. Moving away from the tax advantage of debt, also minor here.</p><p><b>Not accepted.</b> «Dilution» or «more shares mean a lower price». New shares sold at a fair price bring in cash worth exactly what the new shareholders pay, so the value per share is unchanged (the dilution fallacy). The exercise excludes it.</p><p><b>Also accepted in b).</b> Internal funds: cut the dividend or build the factory in stages from retained earnings. Reduce the information gap before issuing: disclose the contracts behind the factory or bring in a well-informed anchor investor (a credible certification). Convertible debt as a middle way, if the reason is given.</p>",
+      "criteria": [
+        "a) Reason 1 (4 points): asymmetric information. Managers issue when the shares are overvalued, so the issue signals overvaluation and investors lower their estimate of the existing assets. Naming 'Myers-Majluf' or 'lemons' without the mechanism earns at most 2 points.",
+        "a) Reason 2 (4 points): a second distinct mechanism: doubt about the NPV of the factory or empire building, market timing after a run-up, or equity chosen over debt as news about weak future cash flows (pecking order). Overvaluation and the cash-flow signal count as two reasons only if the second is explained as news about cash flows, not about the share price.",
+        "a) Issue costs or underpricing alone earn at most 2 points: about 7% of NOK 1,200 million is NOK 84 million, roughly 1% of the firm's value, not 12%.",
+        "a) 'Dilution' earns nothing: the exercise excludes it. New shares sold at a fair price do not lower the value per share.",
+        "b) (4 points) A concrete alternative with the reason the market reacts less: safe debt is insensitive to private information (pecking order), a rights offer leaves no outsiders to sell overvalued shares to, or internal funds avoid the issue altogether. The alternative without the reason earns 2 points.",
+        "Keep to the budget: around five sentences in a), 2-3 in b). No calculation is needed."
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Governance",
+      "points": 12,
+      "topic": "Corporate governance",
+      "chapters": [
+        6,
+        27
+      ],
+      "body": "<p>Kvitstein Medical, a listed company with dispersed ownership, pays its CEO a cash bonus of about twice the salary if earnings per share (EPS) reach a target set by the board. With one quarter left, EPS was heading just below the target. The company then postponed two clinical trials, cutting R&amp;D spending by 30%. It also bought back 6% of its shares with cash meant for a new laboratory. EPS ended just above the target. The next spring the share price fell when two product launches were delayed.</p><p>Answer each question in 2-3 sentences (4 points each).</p><p><b>(i)</b> Name the problem and explain why the two actions raised EPS without creating value.</p><p><b>(ii)</b> Propose one change to the CEO's contract that removes this incentive and one way it can backfire.</p><p><b>(iii)</b> Propose one mechanism outside the CEO's pay that could have stopped both actions: who performs it, how it works and one weakness.</p>",
+      "solution": "<p><b>(i) The problem.</b> This is short-termism (managerial myopia) created by the contract itself: the bonus rewards a one-year accounting number, so the CEO maximises the number instead of the value of the firm, an agency problem between the CEO and the shareholders. Postponing the trials raised this year's earnings only because R&amp;D is expensed, while it delayed or gave up positive-NPV projects; the delayed launches and the fall in the share price are that lost value showing up. The buyback raised EPS mechanically by dividing the earnings by 6% fewer shares (about 6.4% higher EPS with unchanged earnings), but a repurchase at a fair price creates no value in itself (the EPS fallacy); here it was even paid for with cash meant for an investment.</p><p><b>(ii) A change to the contract.</b> Replace the annual EPS bonus with shares that vest over three to five years, or defer the bonus and add a clawback, so that the CEO's pay depends on the long-run share price, which falls when valuable R&amp;D is cut. This can backfire because the CEO then carries much of the firm's specific risk and may avoid risky but valuable projects; the share price also moves with the market, so the CEO is rewarded or punished for luck (with options instead of shares the danger becomes excessive risk-taking).</p><p><b>(iii) A mechanism outside the pay contract.</b> The board, through its independent directors and its audit or compensation committee, should have to approve share buybacks and large cuts to the R&amp;D budget; it can ask why the cuts come exactly when the bonus is at stake. Independent directors see the internal plans and can refuse the buyback or replace the CEO. The weakness is that the board depends on the CEO for information and may be captive, especially if the CEO helped pick the directors.</p><p><b>Also accepted.</b> In (ii): measure EPS before the effect of buybacks and R&amp;D cuts, use several KPIs (economic profit, R&amp;D milestones) or pay relative to peers; each is weak because any measure can be gamed and a complex contract is hard to evaluate. In (iii): shareholders voting against the pay plan at the general meeting or an activist fund pushing for a new contract, weak because dispersed shareholders free-ride and many simply follow proxy advisors; disclosure rules for buybacks and pay, weak because regulation targets fraud rather than legal short-termism; a takeover by a buyer who sees the lost value, weak because it comes only after the damage.</p>",
+      "criteria": [
+        "(i) Names the problem: short-termism (myopia) caused by pay tied to a one-year accounting KPI, an agency problem. Minimal accepted answer: the CEO maximises EPS, not the value of the firm.",
+        "(i) Explains both actions: the R&D cut raises this year's earnings but delays or gives up positive-NPV projects; the buyback raises EPS by dividing by fewer shares but creates no value at a fair price (the EPS fallacy). One action explained well earns 3 of the 4 points.",
+        "(ii) A contract change that removes the incentive: long-vesting shares, a deferred bonus with clawback or a KPI that buybacks and R&D cuts cannot move. 2 points for the design and the incentive it creates, 2 for a credible way it backfires.",
+        "(iii) A mechanism outside pay with who acts, how and one weakness: independent board or committee approval of buybacks and R&D cuts, a shareholder vote against the pay plan, an activist. A mechanism without a weakness loses up to 2 points.",
+        "(iii) 'Fire the CEO' earns credit only if the answer says who does it and how (the board, or shareholders replacing the board).",
+        "2-3 sentences per question. Bonus credit for using the setting: dispersed ownership weakens monitoring by shareholders because of free-riding."
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Capital Structure",
+      "points": 18,
+      "topic": "Interest tax shield, recapitalisation, fire sales",
+      "chapters": [
+        4,
+        6,
+        7,
+        8
+      ],
+      "body": "<p>Nordfôr ASA, a fish-feed producer, is all-equity financed with 24 million shares and EBIT of NOK 192 million a year in perpetuity. Capital expenditure equals depreciation, working capital is constant and all earnings are paid out. The tax rate is 25%, the equity beta 0.8, the risk-free rate 4% and the expected market return 9%. Markets are perfect apart from taxes. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Find Nordfôr's unlevered cost of capital, its market value and its share price.</p>",
+          "solution": "<p><b>Step 1. Cost of capital.</b> Nordfôr has no debt, so β<sub>U</sub> = β<sub>E</sub> = 0.8. With a market risk premium of 9% − 4% = 5%: r<sub>U</sub> = 4% + 0.8 × 5% = <b>8.0000%</b>.</p><p><b>Step 2. Free cash flow.</b> Capital expenditure equals depreciation and working capital does not change, so FCF = EBIT × (1 − τ<sub>c</sub>) = 192 × 0.75 = <b>144</b> million per year, forever.</p><p><b>Step 3. Value and price.</b> V<sup>U</sup> = 144/0.08 = <b>NOK 1,800 million</b> and P<sub>0</sub> = 1,800/24 = <b>NOK 75.00</b>.</p><p><b>Check.</b> Per share the dividend is 144/24 = 6.00 and 6.00/0.08 = 75.00 ✓ (the same calculation per share, so it checks the arithmetic only).</p>",
+          "criteria": [
+            "All-equity firm, so beta_U = beta_E = 0.8 and r_U = 4% + 0.8 × 5% = 8.00%. Using 9% as the risk premium is the trap.",
+            "FCF = EBIT × (1 − tau) = 192 × 0.75 = 144, because capex equals depreciation and NWC does not change.",
+            "V^U = 144/0.08 = 1,800 million and P = 1,800/24 = NOK 75.00.",
+            "Show the calculation. No calculation, no points."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Nordfôr announces that it will borrow a fixed, permanent amount of risk-free debt at 4% to repurchase shares, set so that debt will be 40% of firm value after the repurchase. How much will it borrow? What is the present value of the interest tax shield, at which rate and why?</p>",
+          "solution": "<p><b>Step 1. The rate.</b> The debt is a fixed, permanent amount and risk-free, so every year's tax shield τ<sub>c</sub> × r<sub>D</sub> × D is as certain as the interest itself and is discounted at r<sub>D</sub> = r<sub>f</sub> = 4%, not at r<sub>U</sub>. A perpetuity of τ<sub>c</sub> × r<sub>D</sub> × D at r<sub>D</sub> is worth <b>PV(TS) = τ<sub>c</sub> × D</b>.</p><p><b>Step 2. The amount.</b> The 40% refers to the firm's value <i>after</i> the transaction. That value includes the tax shield the debt creates: V<sup>L</sup> = V<sup>U</sup> + τ<sub>c</sub>D. So<br>D = 0.40 × (1,800 + 0.25 × D)<br>D × (1 − 0.40 × 0.25) = 0.40 × 1,800<br>D = 720/0.90 = <b>NOK 800 million</b></p><p><b>Step 3. The tax shield.</b> PV(TS) = 0.25 × 800 = <b>NOK 200 million</b> (each year 0.25 × 0.04 × 800 = 8, divided by 0.04).</p><p><b>Check (an identity, since D was solved from this condition).</b> V<sup>L</sup> = 1,800 + 200 = 2,000 and D/V<sup>L</sup> = 800/2,000 = 0.40 ✓ Taking 40% of today's value instead gives 0.40 × 1,800 = 720 and D/V<sup>L</sup> = 720/1,980 = 0.3636, below the target.</p>",
+          "criteria": [
+            "Sets up D = 0.40 × V^L with V^L = V^U + tau × D: D = 0.40 × 1,800/(1 − 0.40 × 0.25) = 800.",
+            "Classic error: D = 0.40 × 1,800 = 720, which forgets that the recapitalisation itself raises the firm's value. Later parts are then graded on the student's own D.",
+            "PV(TS) = tau × D = 200 million.",
+            "Rate with reason: r_D = r_f = 4%, because the debt is a fixed, permanent and risk-free amount, so the shield is as safe as the interest. Discounting at r_U is the rule for debt that is rebalanced to a target ratio."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>What happens to the share price on the announcement? How many shares are repurchased and at what price? Who gains more: sellers or keepers?</p>",
+          "solution": "<p><b>Step 1. Announcement.</b> The market prices the tax shield as soon as the plan is announced, before any debt is issued. Equity is then worth V<sup>U</sup> + PV(TS) = 1,800 + 200 = 2,000, so<br>P = 2,000/24 = <b>NOK 83.3333</b>, up 8.3333 (11.11%) from 75.00.</p><p><b>Step 2. The repurchase.</b> Nordfôr borrows 800 and buys shares at the new market price:<br>Shares repurchased = 800/83.3333 = <b>9.6 million</b>, leaving 24 − 9.6 = 14.4 million shares.<br>After the repurchase E = V<sup>L</sup> − D = 2,000 − 800 = 1,200 and P = 1,200/14.4 = <b>NOK 83.3333</b>: the repurchase itself does not move the price.</p><table class=\"data\"><tr><th>Market values, NOK million</th><th>Before</th><th>After announcement</th><th>After repurchase</th></tr><tr><td>V<sup>U</sup> (operating assets)</td><td class=\"n\">1,800</td><td class=\"n\">1,800</td><td class=\"n\">1,800</td></tr><tr><td>PV(TS)</td><td class=\"n\">0</td><td class=\"n\">200</td><td class=\"n\">200</td></tr><tr><td>Debt D</td><td class=\"n\">0</td><td class=\"n\">0</td><td class=\"n\">800</td></tr><tr><td>Equity E</td><td class=\"n\">1,800</td><td class=\"n\">2,000</td><td class=\"n\">1,200</td></tr><tr><td>Shares (million)</td><td class=\"n\">24</td><td class=\"n\">24</td><td class=\"n\">14.4</td></tr><tr><td>Price per share</td><td class=\"n\">75.00</td><td class=\"n\">83.3333</td><td class=\"n\">83.3333</td></tr></table><p><b>Step 3. Who gains.</b> Both groups gain the same 8.3333 per share: the sellers receive 83.3333 in cash and the keepers hold a share worth 83.3333. The whole gain goes to the shareholders, because the debt is issued at a fair price and the creditors only earn their required return.</p><p><b>Check (an identity: the announcement price was built from PV(TS)).</b> Total gain = 24 × 8.3333 = 200 = PV(TS) ✓ If the shares were bought back at the old 75.00, the keepers would end up at 90.00 and the sellers at 75.00: the sellers would hand their part of the gain to the keepers, which cannot happen once the plan is public.</p>",
+          "criteria": [
+            "Price on announcement = (V^U + PV(TS))/N = 2,000/24 = 83.3333: the tax shield is priced when the plan becomes known, not when the debt is issued.",
+            "Shares repurchased = 800/83.3333 = 9.6 million at the new price, leaving 14.4 million.",
+            "Price after the repurchase = (2,000 − 800)/14.4 = 83.3333: unchanged.",
+            "Sellers and keepers gain the same 8.3333 per share; total 24 × 8.3333 = 200 = PV(TS). Buying back at 75 is the classic error."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>What is the expected dividend per share after the recapitalisation? What is the new equity cost of capital?</p>",
+          "solution": "<p><b>Step 1. Dividend.</b> Interest is 0.04 × 800 = 32. Earnings after interest and tax are (192 − 32) × 0.75 = 120, all paid out:<br>DPS = 120/14.4 = <b>NOK 8.3333</b>, up from 6.00.</p><p><b>Step 2. Cost of equity, direct route.</b> Each share is a level perpetuity, so r<sub>E</sub> = DPS/P = 8.3333/83.3333 = <b>10.0000%</b>. This is a full answer.</p><p><b>Step 3. The same from MM Proposition II.</b> With permanent debt and taxes, r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>):<br>r<sub>E</sub> = 8% + (800/1,200) × 0.75 × (8% − 4%) = 8% + 2.0000% = <b>10.0000%</b><br>Through betas: β<sub>E</sub> = 0.8 × (1 + 0.6667 × 0.75) = 1.20 and 4% + 1.20 × 5% = 10.0000%.</p><p><b>Check.</b> The two routes agree ✓ This is a real check, since the price comes from APV and the formula from MM II: the no-tax formula would give r<sub>E</sub> = 10.6667% and 8.3333/0.106667 = 78.1250, not 83.3333. A second check is an identity once r<sub>E</sub> comes from MM II with taxes: r<sub>wacc</sub> = 0.6 × 10% + 0.4 × 4% × 0.75 = 7.2000% = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>) and 144/0.072 = 2,000 = V<sup>L</sup> ✓</p>",
+          "criteria": [
+            "Interest = 0.04 × 800 = 32; dividends = (192 − 32) × 0.75 = 120; DPS = 120/14.4 = 8.3333. Dividing by the original 24 million shares is the classic error.",
+            "r_E = DPS/P = 8.3333/83.3333 = 10.00% is a full route, since each share is a level perpetuity.",
+            "Equally full: r_E = r_U + (D/E)(1 − tau)(r_U − r_D) = 8% + (800/1,200) × 0.75 × 4% = 10.00%, or beta_E = 1.2 with the CAPM.",
+            "The no-tax formula (r_E = 10.6667%) is wrong here: the debt is permanent and the firm pays taxes. Showing that two routes agree is a bonus."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>The CFO notes that permanent debt adds value through the tax shield and proposes debt of 90% of firm value. She argues that bankruptcy costs are small: legal fees are about 3% of firm value and the annual bankruptcy probability is below 1%. Nordfôr's specialised plants can only be sold to other feed producers, hit by the same downturns. Explain briefly, with reference to fire sales, why her argument understates the cost of high leverage. (3-5 sentences.)</p>",
+          "solution": "<p><b>Model answer (five sentences).</b> The CFO is right about direct costs: about 3% times a probability below 1% is an expected cost of roughly 0.03% of value a year, far too small to stop a firm from borrowing. The large costs of distress are indirect and start before any formal bankruptcy: a firm that cannot pay its creditors in a downturn must sell assets quickly, but Nordfôr's specialised plants can only be sold to other feed producers who are short of cash in the same downturn, so they fetch far less than their value in use (a fire sale). Customers and suppliers also turn away from a firm that may not survive, while debt overhang makes the owners skip positive-NPV investments. The probability of distress rises steeply with leverage; at 90% debt the debt is no longer risk-free, so neither the low interest rate nor the full tax shield of b) survives. Creditors anticipate these losses and price them into the debt, so the shareholders bear the expected cost today: the best debt level is where the extra tax shield of one more NOK of debt equals its extra expected cost of distress (the trade-off theory).</p><p><b>Also accepted.</b> Kurbatov's lecture example: assets worth 300 in normal use that fetch 100-150 in a fire sale. Lost employees, time spent on negotiations with creditors or a weaker competitive position (lecture 4, slide 9). Agency costs of high leverage such as excessive risk-taking (gambling for resurrection).</p>",
+          "criteria": [
+            "Agrees that direct costs are small: about 3% of value times a probability below 1% is a tiny expected cost (Kurbatov's lecture numbers), so the CFO's arithmetic is not the problem.",
+            "Explains the fire sale: a distressed firm must sell fast; specialised plants can only go to rivals hit by the same downturn, so they fetch far below their value in use. This is the core of the answer.",
+            "Adds one more mechanism: lost customers or suppliers, debt overhang, the probability of distress rising steeply with leverage, or the tax shield no longer being safe at 90% debt.",
+            "Bonus: concludes with the trade-off: creditors price the expected costs, so the shareholders bear them today; borrow until the marginal tax benefit equals the marginal expected cost of distress.",
+            "3-5 sentences. 'Bankruptcy is costly' without a mechanism earns little."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Valuation with leverage",
+      "points": 18,
+      "topic": "Free cash flow, net debt, WACC and APV",
+      "chapters": [
+        2,
+        4,
+        17,
+        18
+      ],
+      "body": "<p>Hjeltnes Transport ASA, a trucking company, is offered a three-year contract to run a plastics sorting plant. The project has the risk of Ren Sortering ASA, a listed firm that only runs such plants. Hjeltnes has already paid NOK 1.5 million for an engineering study. Figures are in NOK million.</p><p>The equipment costs 60 today (Year 0) and is depreciated straight-line to zero over Years 1-3; it is worthless afterwards. Revenue and cash operating costs:</p><table class=\"data\"><tr><th>Year</th><th>1</th><th>2</th><th>3</th></tr><tr><td>Revenue</td><td class=\"n\">62</td><td class=\"n\">72</td><td class=\"n\">68</td></tr><tr><td>Operating costs (cash)</td><td class=\"n\">34</td><td class=\"n\">38</td><td class=\"n\">37</td></tr></table><p>Net working capital is 6.0, 7.5 and 7.0 at the end of Years 0, 1 and 2 and is fully recovered at the end of Year 3. The tax rate is 22%.</p><p>Ren Sortering: market capitalisation 960, risk-free debt 400, cash 180 (60 needed in operations, the rest excess), equity beta 1.24. The risk-free rate is 4% and the expected market return 9%.</p><p>Both firms keep their leverage constant: the project's D/E is 0.5 (rebalanced at each year end) and its debt costs 5.5%. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Find the project's free cash flow in Years 0 to 3.</p>",
+          "solution": "<p><b>Step 1. Earnings.</b> Depreciation is 60/3 = 20 per year, so EBIT = revenue − cash costs − depreciation.</p><p><b>Step 2. From EBIT to FCF.</b> FCF = EBIT × (1 − τ<sub>c</sub>) + depreciation − capital expenditure − ΔNWC. Only the <i>change</i> in working capital is a cash flow; the recovery in Year 3 is an inflow.</p><table class=\"data\"><tr><th>Year</th><th>0</th><th>1</th><th>2</th><th>3</th></tr><tr><td>Revenue</td><td class=\"n\"></td><td class=\"n\">62</td><td class=\"n\">72</td><td class=\"n\">68</td></tr><tr><td>Operating costs</td><td class=\"n\"></td><td class=\"n\">−34</td><td class=\"n\">−38</td><td class=\"n\">−37</td></tr><tr><td>Depreciation</td><td class=\"n\"></td><td class=\"n\">−20</td><td class=\"n\">−20</td><td class=\"n\">−20</td></tr><tr><td>EBIT</td><td class=\"n\"></td><td class=\"n\">8</td><td class=\"n\">14</td><td class=\"n\">11</td></tr><tr><td>EBIT × (1 − 0.22)</td><td class=\"n\"></td><td class=\"n\">6.24</td><td class=\"n\">10.92</td><td class=\"n\">8.58</td></tr><tr><td>+ Depreciation</td><td class=\"n\"></td><td class=\"n\">20</td><td class=\"n\">20</td><td class=\"n\">20</td></tr><tr><td>− Capital expenditure</td><td class=\"n\">−60</td><td class=\"n\"></td><td class=\"n\"></td><td class=\"n\"></td></tr><tr><td>NWC (level)</td><td class=\"n\">6.0</td><td class=\"n\">7.5</td><td class=\"n\">7.0</td><td class=\"n\">0.0</td></tr><tr><td>− ΔNWC</td><td class=\"n\">−6.0</td><td class=\"n\">−1.5</td><td class=\"n\">0.5</td><td class=\"n\">7.0</td></tr><tr><td><b>FCF</b></td><td class=\"n\"><b>−66.00</b></td><td class=\"n\"><b>24.74</b></td><td class=\"n\"><b>31.42</b></td><td class=\"n\"><b>35.58</b></td></tr></table><p><b>FCF = −66.00, 24.74, 31.42 and 35.58</b>. The NOK 1.5 million study is sunk: it has been paid whether or not the plant is built, so it is left out. Interest is not deducted: financing enters through the discount rate.</p><p><b>Check.</b> The other route gives the same numbers: EBITDA × (1 − τ<sub>c</sub>) + τ<sub>c</sub> × depreciation − ΔNWC, for example in Year 1: 28 × 0.78 + 0.22 × 20 − 1.5 = 24.74 ✓ The changes in working capital sum to 6.0 + 1.5 − 0.5 − 7.0 = 0 ✓</p>",
+          "criteria": [
+            "FCF = EBIT × (1 − tau) + depreciation − capex − ΔNWC with EBIT = revenue − cash costs − depreciation (8, 14, 11). EBITDA × (1 − tau) + tau × depreciation is the same.",
+            "Uses the change in NWC, not the level: 6.0 in Year 0, 1.5 in Year 1, −0.5 in Year 2 and −7.0 (recovery) in Year 3. Forgetting the delta is the error Kurbatov calls one of the biggest.",
+            "Leaves out the 1.5 already paid for the study (sunk) and deducts no interest.",
+            "FCF = −66.00, 24.74, 31.42, 35.58."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Find the project's unlevered cost of capital.</p>",
+          "solution": "<p><b>Step 1. Why the comparable.</b> The project's risk is that of a sorting plant, not of Hjeltnes's trucking, so its cost of capital comes from Ren Sortering.</p><p><b>Step 2. Net debt.</b> Excess cash is a risk-free asset that offsets debt: excess cash = 180 − 60 = 120 and net debt = 400 − 120 = <b>280</b>, so the enterprise value is 960 + 280 = 1,240.</p><p><b>Step 3. Unlever.</b> The debt is risk-free (β<sub>D</sub> = 0) and the weights are without taxes, since Ren Sortering keeps its leverage constant:<br>β<sub>U</sub> = (960/1,240) × 1.24 + (280/1,240) × 0 = <b>0.9600</b><br>r<sub>U</sub> = 4% + 0.96 × 5% = <b>8.8000%</b></p><p><b>Check.</b> Ignoring the cash gives β<sub>U</sub> = 0.8753 (r<sub>U</sub> = 8.3765%) and subtracting all of it gives 1.0088 (r<sub>U</sub> = 9.0441%): the cash that is needed to run the business belongs to the operating assets and stays in.</p>",
+          "criteria": [
+            "Net debt in the weights: 400 − (180 − 60) = 280, so V = 1,240. Only the excess cash is subtracted.",
+            "beta_U = (960/1,240) × 1.24 = 0.96 and r_U = 4% + 0.96 × 5% = 8.80%.",
+            "Classic errors: ignoring the cash (beta_U = 0.8753) or subtracting all of it (beta_U = 1.0088).",
+            "Uses the comparable, not Hjeltnes's own business, because the project is a new line of business."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 2,
+          "body": "<p>Find the project's equity cost of capital and after-tax WACC.</p>",
+          "solution": "<p><b>Step 1. Weights.</b> D/E = 0.5 means D/V = 0.5/1.5 = 1/3 and E/V = 2/3.</p><p><b>Step 2. Cost of equity</b> (MM II, constant leverage):<br>r<sub>E</sub> = 8.8% + 0.5 × (8.8% − 5.5%) = 8.8% + 1.65% = <b>10.4500%</b></p><p><b>Step 3. WACC.</b><br>r<sub>wacc</sub> = (2/3) × 10.45% + (1/3) × 5.5% × 0.78 = 6.9667% + 1.4300% = <b>8.3967%</b></p><p><b>Check.</b> r<sub>wacc</sub> = r<sub>U</sub> − d × τ<sub>c</sub> × r<sub>D</sub> = 8.8% − (1/3) × 0.22 × 5.5% = 8.8% − 0.4033% = 8.3967% ✓ (an identity under constant leverage, so it checks the arithmetic).</p>",
+          "criteria": [
+            "Converts D/E = 0.5 into D/V = 1/3 and E/V = 2/3. Using 0.5 as a weight is the trap.",
+            "r_E = 8.8% + 0.5 × (8.8% − 5.5%) = 10.45%.",
+            "r_wacc = (2/3) × 10.45% + (1/3) × 5.5% × 0.78 = 8.3967%."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Find the project's NPV with the WACC method and its debt capacity at the end of Years 0-2.</p>",
+          "solution": "<p><b>Step 1. Roll the value back from the end.</b> V<sup>L</sup><sub>3</sub> = 0 and V<sup>L</sup><sub>t−1</sub> = (FCF<sub>t</sub> + V<sup>L</sup><sub>t</sub>)/(1 + r<sub>wacc</sub>):<br>V<sup>L</sup><sub>2</sub> = 35.58/1.083967 = <b>32.8239</b><br>V<sup>L</sup><sub>1</sub> = (31.42 + 32.8239)/1.083967 = <b>59.2674</b><br>V<sup>L</sup><sub>0</sub> = (24.74 + 59.2674)/1.083967 = <b>77.5000</b></p><p><b>Step 2. NPV.</b> V<sup>L</sup><sub>0</sub> is the value of the future cash flows. The project's NPV subtracts what it costs today: NPV = 77.5000 − 66 = <b>11.5000</b> &gt; 0, so Hjeltnes should take the contract. The question asks for the project's NPV, not for a value of Hjeltnes.</p><p><b>Step 3. Debt capacity.</b> D<sub>t</sub> = (1/3) × V<sup>L</sup><sub>t</sub>:</p><table class=\"data\"><tr><th>End of year t</th><th>0</th><th>1</th><th>2</th><th>3</th></tr><tr><td>FCF<sub>t</sub></td><td class=\"n\">−66.00</td><td class=\"n\">24.74</td><td class=\"n\">31.42</td><td class=\"n\">35.58</td></tr><tr><td>V<sup>L</sup><sub>t</sub></td><td class=\"n\">77.5000</td><td class=\"n\">59.2674</td><td class=\"n\">32.8239</td><td class=\"n\">0.0000</td></tr><tr><td>D<sub>t</sub> = V<sup>L</sup><sub>t</sub>/3</td><td class=\"n\">25.8333</td><td class=\"n\">19.7558</td><td class=\"n\">10.9413</td><td class=\"n\">0.0000</td></tr><tr><td>Borrow (+) or repay (−)</td><td class=\"n\">+25.8333</td><td class=\"n\">−6.0775</td><td class=\"n\">−8.8145</td><td class=\"n\">−10.9413</td></tr></table><p><b>Check (identities that confirm the arithmetic).</b> The repayments in Years 1 to 3 sum to −25.8333 = −D<sub>0</sub>: the project's debt is gone when the contract ends ✓ One step forward: 77.5000 × 1.083967 − 24.74 = 59.2674 = V<sup>L</sup><sub>1</sub> ✓</p>",
+          "criteria": [
+            "Discounts the FCF of Years 1 to 3 at the WACC: V^L_0 = 77.5000.",
+            "NPV = 77.5000 − 66 = 11.5000. Reporting 77.5000 as the answer (PV, not NPV) loses points.",
+            "V^L_1 = 59.2674 and V^L_2 = 32.8239, the value of the cash flows still to come after each date's cash flow has been paid.",
+            "Debt capacity D_t = V^L_t/3: D_0 = 25.8333, D_1 = 19.7558, D_2 = 10.9413. Using 0.5 instead of 1/3 is the D/E-versus-D/V error again.",
+            "Rounding r_wacc to 0.0840 gives V^L_0 = 77.4951, which is accepted."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Value the project with APV (unlevered value, yearly tax shields, PV(TS)) and compare with d).</p>",
+          "solution": "<p><b>Step 1. Unlevered value</b> at r<sub>U</sub> = 8.8%:<br>V<sup>U</sup> = 24.74/1.088 + 31.42/1.088<sup>2</sup> + 35.58/1.088<sup>3</sup> = 22.7390 + 26.5429 + 27.6261 = <b>76.9080</b></p><p><b>Step 2. Tax shields.</b> TS<sub>t</sub> = τ<sub>c</sub> × r<sub>D</sub> × D<sub>t−1</sub>, on the debt at the start of each year:<br>TS<sub>1</sub> = 0.22 × 0.055 × 25.8333 = 0.3126<br>TS<sub>2</sub> = 0.22 × 0.055 × 19.7558 = 0.2390<br>TS<sub>3</sub> = 0.22 × 0.055 × 10.9413 = 0.1324</p><p><b>Step 3. Discount the shields at r<sub>U</sub>.</b> The debt is rebalanced to a constant ratio, so it moves with the project's value and the shields carry the project's risk:<br>PV(TS) = 0.3126/1.088 + 0.2390/1.088<sup>2</sup> + 0.1324/1.088<sup>3</sup> = 0.2873 + 0.2019 + 0.1028 = <b>0.5920</b></p><p><b>Step 4. Add up.</b> APV = 76.9080 + 0.5920 = <b>77.5000</b> = V<sup>L</sup><sub>0</sub> from d), so the NPV is also 77.5000 − 66 = 11.5000 ✓</p><p><b>Check.</b> The two methods agree, as they must: they count the same tax shield, once inside the discount rate and once as a separate cash flow. Since the debt levels came from the WACC values, the agreement is a fixed point rather than an independent test; it still catches arithmetic slips and the wrong rate on the shields (at r<sub>D</sub> PV(TS) would be 0.6238 and APV 77.5318).</p>",
+          "criteria": [
+            "V^U discounts the same FCF at r_U = 8.8%: 76.9080.",
+            "TS_t = 0.22 × 5.5% × D_(t−1): 0.3126, 0.2390, 0.1324. Using D_t instead of D_(t−1) is the timing error.",
+            "PV(TS) at r_U (constant leverage, so the shield is as risky as the project) = 0.5920.",
+            "APV = 76.9080 + 0.5920 = 77.5000, equal to d). A deviation of about 0.001 is rounding; 0.05 is a real error."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 3,
+          "body": "<p>Why is the after-tax WACC lower than r<sub>U</sub>? A colleague says debt is simply cheaper than equity. Is she right? (2-3 sentences.)</p>",
+          "solution": "<p><b>Model answer.</b> r<sub>U</sub> is the return the project's assets must earn as if they were financed only with equity; it does not depend on taxes. The WACC uses the after-tax cost of debt, so it is lower by the value of the interest tax shield: r<sub>wacc</sub> = r<sub>U</sub> − d × τ<sub>c</sub> × r<sub>D</sub> = 8.8% − 0.4033%. The colleague is wrong: debt has a lower required return, but borrowing more raises r<sub>E</sub> exactly enough to offset it (MM II), so without taxes the WACC would equal r<sub>U</sub> at any leverage.</p><p><b>Also accepted.</b> The gap is the tax shield expressed as a rate; with τ<sub>c</sub> = 0 the two rates coincide. The WACC method puts the tax shield in the discount rate, while the APV method uses r<sub>U</sub> and adds the shield separately.</p>",
+          "criteria": [
+            "States that the gap comes from the tax deductibility of interest: the WACC uses r_D(1 − tau), so r_wacc = r_U − d × tau × r_D (here 0.4033% lower).",
+            "Rejects the colleague's reason: cheaper debt alone does not lower the cost of capital, because r_E rises with leverage (MM II); without taxes r_wacc = r_U.",
+            "Bonus: notes that r_U is the pre-tax return on the assets and does not depend on taxes, or links to APV, which adds the shield separately."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Real Options",
+      "points": 20,
+      "topic": "Real options",
+      "chapters": [
+        1,
+        25
+      ],
+      "body": "<p>You consider opening a bakery-café. The fit-out costs NOK 600,000 now and has no resale value; running costs are NOK 41,000 a month. Monthly revenue will be NOK 36,000 or NOK 51,000 forever, with equal probability; you learn which right after opening. Cash flows arrive at the end of each month. Demand is unrelated to the market, so discount at the risk-free rate of 6% a year. The standard lease runs forever and cannot be terminated. Give the monthly rate in percent with 4 decimals (as in 0.1234%) and use it throughout.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 2,
+          "body": "<p>What is the monthly rate? What is the NPV of opening now under the standard lease? Will you open?</p>",
+          "solution": "<p><b>Step 1. Monthly rate.</b> r<sub>m</sub> = (1 + 0.06)<sup>1/12</sup> − 1 = <b>0.4868%</b> per month. (Dividing 6% by 12 gives 0.5%, which is too high: it ignores monthly compounding.)</p><p><b>Step 2. Expected monthly cash flow.</b> Net of the running cost the café earns 10,000 in the good state and −5,000 in the bad state, so 2,500 per month in expectation, forever.</p><p><b>Step 3. NPV.</b> PV = 2,500/0.004868 = 513,558 and NPV = 513,558 − 600,000 = <b>NOK −86,442</b>. <b>Do not open the café</b> under the standard lease.</p>",
+          "criteria": [
+            "r_m = 1.06^(1/12) − 1 = 0.4868%, not 6%/12 = 0.5%.",
+            "Nets the running cost off the revenue first: +10,000 or −5,000, so 2,500 per month in expectation.",
+            "NPV = 2,500/0.004868 − 600,000 = −86,442 < 0: do not open."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>The landlord offers instead a lease you can terminate at no cost at the end of month 24, after which you receive nothing. What is the NPV of opening now? Will you open?</p>",
+          "solution": "<p><b>Step 1. The timing.</b> You pay the fit-out before you know the state. In the good state you never leave. In the bad state you are locked in for 24 months and then leave, because staying means losing 5,000 a month forever.</p><p><b>Step 2. Good state.</b> NPV<sub>good</sub> = 10,000/0.004868 − 600,000 = 2,054,232 − 600,000 = <b>1,454,232</b></p><p><b>Step 3. Bad state.</b> A 24-month annuity: a<sub>24</sub> = [1 − 1/1.004868<sup>24</sup>]/0.004868 = 22.5992<br>NPV<sub>bad</sub> = −600,000 − 5,000 × 22.5992 = −600,000 − 112,996 = <b>−712,996</b></p><p><b>Step 4. Expected NPV.</b> NPV = 0.5 × 1,454,232 + 0.5 × (−712,996) = <b>NOK 370,618</b> &gt; 0. <b>Open the café</b>: the right to leave caps the loss in the bad state at two years.</p>",
+          "criteria": [
+            "Timing: the fit-out is paid in both states; in the bad state you bear 24 months of losses and then leave; in the good state you never leave.",
+            "NPV_good = 10,000/0.004868 − 600,000 = 1,454,232.",
+            "NPV_bad = −600,000 − 5,000 × a24 with a24 = 22.60: −712,996.",
+            "NPV = 0.5 × (1,454,232 − 712,996) = 370,618 > 0: open. Rounding in the monthly rate moves the answers by a few hundred NOK, which is accepted."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>How much is the right to terminate after 24 months worth to you, given what you would do without it? How much more would it be worth with termination at the end of month 12?</p>",
+          "solution": "<p><b>Step 1. Compare with what you would do without the right.</b> Under the standard lease you would not open (part a), so the alternative is to do nothing, worth 0:<br>Value of the right = 370,618 − max(0, −86,442) = <b>NOK 370,618</b></p><p>This is how Kurbatov values such options. In his key to H2024 Exercise 6 d) the option to wait is ρ × NPV<sub>u</sub> + (1 − ρ) × 0: the bad branch counts as 0 and the negative NPV of investing now is not subtracted. In the 2026 wrap-up lecture he warned against comparing an exit option with the negative value. The number 370,618 − (−86,442) = 457,060 answers another question: how much the clause adds to a café you are already committed to open.</p><p><b>Step 2. Exit after 12 months.</b> Only the bad state changes: a<sub>12</sub> = 11.6288, so NPV<sub>bad</sub> = −600,000 − 5,000 × 11.6288 = −658,144 and NPV = 0.5 × 1,454,232 + 0.5 × (−658,144) = 398,044. The right is then worth 398,044, that is <b>NOK 27,426 more</b>.</p><p><b>Check (an identity, written out to show where the value comes from).</b> The extra value is the 12 months of losses you avoid, with probability 0.5: 0.5 × 5,000 × (22.5992 − 11.6288) = 27,426 ✓</p>",
+          "criteria": [
+            "The 24-month right (2 points): NPV with the right − max(0, NPV without) = 370,618 − 0 = 370,618, because without the right you would not open.",
+            "Partial credit: 370,618 − (−86,442) = 457,060, measured against the negative NPV, earns 1 of the 2 points if the calculation and the explanation are correct. Kurbatov compares with 0, both in his H2024 key (Exercise 6 d) and in the 2026 wrap-up.",
+            "Exit after 12 months (2 points): NPV_bad = −658,144, NPV = 398,044, so the right is worth 27,426 more.",
+            "Bonus: the extra value equals the avoided losses of months 13 to 24, 0.5 × 5,000 × (a24 − a12)."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Return to the lease in b). The landlord now charges a fee F, paid at the end of month 24 only if you leave. What is the highest F at which you would still open?</p>",
+          "solution": "<p><b>Step 1. Where the fee enters.</b> You pay F only in the bad state, at month 24, so it costs 0.5 × F/1.004868<sup>24</sup> = 0.5 × F/1.123612 today.</p><p><b>Step 2. Set the NPV to zero.</b><br>0 = 370,618 − 0.5 × F/1.123612<br>F = 2 × 370,618 × 1.123612 = <b>NOK 832,861</b></p><p><b>Step 3. Would you still leave?</b> At month 24 in the bad state, staying costs the present value of 5,000 a month forever, 5,000/0.004868 = 1,027,116. Since 832,861 &lt; 1,027,116, paying the fee and leaving is still the better choice, so the equation in Step 2 is the right one. (A fee above 1,027,116 would make you stay. The café would then be back to a), worth −86,442.)</p><p><b>Check (an identity: F is put back into the equation it was solved from).</b> With F = 832,861 the whole decision tree gives 0.5 × 1,454,232 + 0.5 × [−600,000 − 112,996 − 832,861/1.123612] = 0 ✓</p>",
+          "criteria": [
+            "The fee is paid only in the bad state and only at month 24: it is discounted by (1 + r_m)^24 = 1.1236 and weighted by 0.5.",
+            "F = 2 × 370,618 × 1.1236 = 832,861.",
+            "Checks that leaving is still optimal at that fee: 832,861 < 5,000/0.004868 = 1,027,116.",
+            "Classic errors: not discounting the fee (741,236) or forgetting that it is paid only in the bad state (416,431)."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 6,
+          "body": "<p>Without a fee, let the probability of high revenue be p. For which p are you indifferent about opening with the lease in b)? Under the standard lease? Explain briefly why the two differ.</p>",
+          "solution": "<p><b>Step 1. With the right to leave.</b> The two state NPVs from b) do not depend on p:<br>0 = p × 1,454,232 + (1 − p) × (−712,996)<br>p = 712,996/(1,454,232 + 712,996) = <b>0.3290 (32.90%)</b></p><p><b>Step 2. Without the right.</b> The bad state is now a loss forever:<br>0 = p × 10,000/0.004868 + (1 − p) × (−5,000)/0.004868 − 600,000<br>p × 15,000 = 600,000 × 0.004868 + 5,000 = 7,920.8<br>p = <b>0.5281 (52.81%)</b></p><p><b>Step 3. Why they differ.</b> The right to leave truncates the downside: in the bad state you lose 5,000 a month for 24 months instead of forever, while the good state keeps its whole upside. A much smaller chance of success, 32.9% instead of 52.8%, is therefore enough to make opening worthwhile; the more uncertain the demand, the more the flexibility is worth.</p><p><b>Check.</b> Putting p = 0.3290 back in is an identity: 0.3290 × 1,454,232 − 0.6710 × 712,996 = 0 ✓ The real check is that both thresholds agree with the earlier parts: 32.9% &lt; 50% &lt; 52.8%, so at 50% you open with the right (b) and not without it (a).</p>",
+          "criteria": [
+            "With the right: 0 = p × 1,454,232 + (1 − p) × (−712,996), so p = 0.3290.",
+            "Without the right: 0 = p × 10,000/r_m − (1 − p) × 5,000/r_m − 600,000, so p = 0.5281.",
+            "The explanation names the mechanism: the right truncates the bad state at 24 months while the good state keeps the perpetuity, so a lower probability of success is enough.",
+            "Bonus: links the thresholds to a) and b) (50% lies between them) or notes that flexibility is worth more when the spread of outcomes is wider.",
+            "Points: 2 for each probability and 2 for the explanation. Show the equations."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "M&A",
+      "points": 20,
+      "topic": "Mergers and acquisitions",
+      "chapters": [
+        22,
+        26
+      ],
+      "body": "<p>Gaustad Energi ASA (A) bids for Bølgefiber ASA (B), offering 3 A shares for every 2 B shares. The bid was a surprise. The deal will be completed or fail in exactly 3 months; if it fails, both prices return to their pre-announcement levels, which reflect stand-alone values.</p><p>Before the announcement: 150 million A shares at P<sub>A,0</sub> = NOK 40.00 and 30 million B shares at P<sub>B,0</sub> = NOK 50.00. Just after: P<sub>A,1</sub> = NOK 41.70 and P<sub>B,1</sub> = NOK 59.60. The risk-free rate is 4.5% a year. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the offer worth per B share at the new prices? What is the spread in NOK and in percent of B's price? Why does B trade below the offer?</p>",
+          "solution": "<p><b>Step 1. The offer.</b> One B share becomes 1.5 A shares: 1.5 × 41.70 = <b>NOK 62.55</b> per B share, a premium of 25.1% over B's pre-announcement price.</p><p><b>Step 2. The spread.</b> 62.55 − 59.60 = <b>NOK 2.95</b>, or 2.95/59.60 = <b>4.95%</b> of B's price.</p><p><b>Step 3. Why.</b> The deal may fail and then B falls back to 50.00. A holder of B bears that risk until the decision, so B trades below the offer; the spread is the price of insurance against deal failure that merger arbitrageurs earn for bearing it.</p>",
+          "criteria": [
+            "Offer = 1.5 × 41.70 = 62.55 per B share, at A's price after the announcement.",
+            "Spread = 2.95, 4.95% of B's price (as a share of the offer, 4.72%, is also accepted).",
+            "Reason: the deal can fail and then B returns to 50.00; the spread compensates for that risk. Minimal accepted answer: 'the deal may not go through'."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 9,
+          "body": "<p>Calculate the probability of completion perceived by the market. (Hint: use a long-short strategy, invest the short-sale proceeds at the risk-free rate and remember that the deal is decided in 3 months.)</p>",
+          "solution": "<p><b>Step 1. Build the position, per B share, at today's prices.</b></p><table class=\"data\"><tr><th>Leg</th><th>Action</th><th>Cash flow today</th></tr><tr><td>Long target</td><td>Buy 1 B share at 59.60</td><td class=\"n\">−59.60</td></tr><tr><td>Short acquirer</td><td>Short-sell 1.5 A shares at 41.70</td><td class=\"n\">+62.55</td></tr><tr><td>Risk-free</td><td>Invest the 62.55 for 3 months</td><td class=\"n\">−62.55</td></tr><tr><td><b>Net outlay</b></td><td></td><td class=\"n\"><b>−59.60</b></td></tr></table><p><b>Step 2. Three months at an annual rate.</b> The growth factor is (1 + 0.045)<sup>0.25</sup> = 1.011065, so the investment returns 62.55 × 1.011065 = <b>63.2421</b>.</p><p><b>Step 3. Payoff if the deal goes through.</b> The B share is exchanged for exactly the 1.5 A shares needed to close the short. Only the investment is left: <b>63.2421</b>.</p><p><b>Step 4. Payoff if the deal fails.</b> Prices return to 40.00 and 50.00: sell B for 50.00, buy back 1.5 A shares for 60.00, keep the investment:<br>50.00 − 60.00 + 63.2421 = <b>53.2421</b></p><p><b>Step 5. The certainty equivalent.</b> The strategy costs 59.60 today, so its expected payoff in 3 months must be 59.60 × 1.011065 = <b>60.2595</b>. Setting it equal to 59.60 is the error the H2025 key calls «very important to not just plug».</p><p><b>Step 6. Solve for p.</b><br>60.2595 = p × 63.2421 + (1 − p) × 53.2421<br>60.2595 − 53.2421 = p × (63.2421 − 53.2421)<br>7.0174 = p × 10.0000<br><b>p = 0.7017 (70.17%)</b></p><p><b>Check (an identity: p is put back into its own equation).</b> With the unrounded p = 0.701736: 0.701736 × 63.2421 + 0.298264 × 53.2421 = 60.2595 = 59.60 × 1.011065 ✓ The market prices the deal as roughly a 7-in-10 chance. Because the payoffs are discounted at r<sub>f</sub>, p is a risk-neutral probability.</p>",
+          "criteria": [
+            "Builds a long-short position in the exchange ratio: long 1 B and short 1.5 A (or long 2 B and short 3 A) and invests the short proceeds of 62.55 at the risk-free rate. Many constructions work if they are consistent.",
+            "Uses the 3-month factor (1.045)^0.25 = 1.011065, not 1.045: 62.55 × 1.011065 = 63.2421.",
+            "Success payoff = 63.2421 (the equity legs cancel); failure payoff = 50 − 60 + 63.2421 = 53.2421, at the pre-announcement prices.",
+            "Certainty equivalent = 59.60 × 1.011065 = 60.2595. Plugging 59.60 gives p = 0.6358; using a full year gives p = 0.6917.",
+            "Solves 60.2595 = p × 63.2421 + (1 − p) × 53.2421: p = 0.7017 (70.17%).",
+            "This part carries 9 of the 20 points: show the position, both payoffs, the certainty equivalent and the equation."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>If the deal succeeds, the merged company will be worth the two pre-announcement market values plus synergies S. What S do the prices after the announcement imply? Use the assumptions of b).</p>",
+          "solution": "<p><b>Step 1. What the market value says.</b> In 3 months the two companies are worth A + T + S with probability p and A + T without the deal. Today's combined market value is the risk-neutral expectation discounted at r<sub>f</sub>:<br>N<sub>A</sub> × P<sub>A,1</sub> + N<sub>B</sub> × P<sub>B,1</sub> = [A + T + p × S]/(1 + r<sub>f</sub>)<sup>0.25</sup></p><p><b>Step 2. Numbers.</b> A + T = 150 × 40.00 + 30 × 50.00 = 6,000 + 1,500 = 7,500. After the announcement: 150 × 41.70 + 30 × 59.60 = 6,255 + 1,788 = 8,043.<br>S = (8,043 × 1.011065 − 7,500)/0.701736 = 632.00/0.701736 = <b>NOK 900.6 million</b></p><p><b>Second route (an identity: it uses the same p and the same pricing, so it checks the arithmetic, not the model).</b> A's price must equal the expected value of A's share: 41.70 × 1.011065 = p × P<sub>merged</sub> + (1 − p) × 40.00, so P<sub>merged</sub> = (42.1614 − 0.298264 × 40.00)/0.701736 = 43.0801. The merged company has 150 + 45 = 195 million shares, so S = 195 × 43.0801 − 7,500 = 900.6 ✓ The split: NPV<sub>A</sub> = 150 × (43.0801 − 40.00) = 462.0 and NPV<sub>B</sub> = 30 × (1.5 × 43.0801 − 50.00) = 438.6, which sum to S, again an identity ✓</p><p><b>Note.</b> The combined market value rose by only 543: the market expects synergies of about 901 but discounts them for the 30% chance that the deal fails.</p>",
+          "criteria": [
+            "Uses the same convention as b): A + T + S in the success state, A + T in the failure state, risk-neutral probability p and discounting over 3 months.",
+            "Combined market value after the announcement = 8,043 against A + T = 7,500 before.",
+            "S = (8,043 × 1.011065 − 7,500)/0.7017 = 900.6 (900.7 with p rounded to 0.7017 is fine). The same S follows from A's price through the merged share price of 43.08.",
+            "Classic errors: forgetting p (S = 632.0), the 3-month factor (S = 773.8) or both (S = 543).",
+            "Bonus: the split NPV_A = 462.0 and NPV_B = 438.6, which sum to S."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>What if the decision is delayed by one year, to 15 months? How would the calculation in b) change? What do you expect for B's share price and why? (3-4 sentences, no calculation needed.)</p>",
+          "solution": "<p><b>Model answer (four sentences).</b> In b) the 3-month factor (1.045)<sup>0.25</sup> becomes (1.045)<sup>1.25</sup>, both for the investment of the short proceeds and for the certainty equivalent; the payoffs in the two states are otherwise the same. B's price should fall towards its stand-alone value. B's shareholders now receive the offer (and the synergies behind it) a year later, which lowers its present value. A longer wait also gives more room for the deal to fail (conditions from the regulator, financing, a change in market conditions), so the market's probability of completion is likely to fall as well.</p><p><b>Bonus (not required).</b> With p and the merged share price unchanged, the model gives a B price of [0.7017 × 1.5 × 43.0801 + 0.2983 × 50.00]/1.056563 = 57.03 instead of 59.60: the time effect alone. With p unchanged the spread stays at 4.95% of B's price; it widens only if p falls. A delay can also work the other way if it opens the door for a rival bidder for B, or if A can use the extra year to learn more about the synergies (an option to wait).</p>",
+          "criteria": [
+            "Changes the time factor to (1.045)^1.25 in both places: the short proceeds and the certainty equivalent.",
+            "Predicts that B's price falls and gives a reason: the offer and the synergies arrive later, so they are worth less today.",
+            "A second mechanism: more time for the deal to fail lowers p. A rival bidder (B could rise) or the option to wait for information is accepted if argued.",
+            "3-4 sentences. A calculation is not required."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "prove5",
+  "kind": "mock",
+  "label": "Mock exam 5",
+  "minutes": 180,
+  "points": 100,
+  "format": "6 exercises · no multiple choice · calculator permitted",
+  "note": "Mock exam 5, the core of the 2026 prediction in a second draw. Written for this app in Kurbatov's format (H2024, H2025): payout policy and the board of directors as the verbal exercises, then capital structure, valuation with leverage, real options and M&A. New firms and numbers throughout. Not an official exam: the course has not checked the solutions.",
+  "facts": [
+    "Mock exam in Kurbatov's format (H2024, H2025): 180 minutes, 100 points, six exercises, no multiple choice. Pen and paper, calculator and one bilingual dictionary.",
+    "Points per exercise: 12 · 12 · 18 · 18 · 20 · 20. Exercises 1 and 2 are verbal with a sentence budget; exercises 3 to 6 are chains of calculations, most of them ending with a short verbal question.",
+    "The formula sheet is handed out. Not on it, so learn them: the APV method, the flow-to-equity method, the NPVs of a cash offer and the logic of real options.",
+    "Show every calculation and carry 4 decimals on rates. Answer in English.",
+    "Written for practice in this app, not an official exam. The course has not checked the solutions."
+  ],
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Payout policy",
+      "points": 12,
+      "topic": "Payout policy",
+      "chapters": [
+        15,
+        16
+      ],
+      "body": "<p>Skarvøy Telecom ASA, a mature listed telecom operator with few investment needs, expects about NOK 1.2 billion of free cash flow a year. The board considers four ways to use this year's cash: (1) raise the regular dividend, (2) buy back shares, (3) keep the cash, (4) invest in data centres, a new business area proposed by the CEO. Most shareholders pay more tax on dividends than on capital gains, managers know more than investors and may pursue their own interests.</p><p>Give one advantage and one risk of each alternative. (1-2 sentences per alternative. Each alternative is worth 3 points: 1.5 for the advantage and 1.5 for the risk. An argument already used for another alternative earns no points the second time.)</p>",
+      "solution": "<p>One advantage and one risk per alternative, with every argument used once.</p><p><b>(1) Raise the dividend.</b> <i>Advantage:</i> firms are known to avoid cutting dividends, so a higher regular dividend credibly signals that management expects the higher cash flow to last. <i>Risk:</i> most of these shareholders pay more tax on dividends than on capital gains, so a dividend costs them tax that a buyback would partly avoid.</p><p><b>(2) Buy back shares.</b> <i>Advantage:</i> a buyback is flexible: it commits the firm to nothing next year and can be scaled down without the price drop a dividend cut triggers. <i>Risk:</i> it moves wealth between the shareholders who sell and those who stay, so if management buys above the true value the remaining shareholders lose.</p><p><b>(3) Keep the cash.</b> <i>Advantage:</i> financial slack lets the firm fund future projects without issue costs or the discount investors demand when they know less than managers (pecking order) and gives a buffer against distress. <i>Risk:</i> interest earned on cash is taxed at the corporate level, so cash is negative debt with a tax cost.</p><p><b>(4) Invest in data centres.</b> <i>Advantage:</i> if the project has a positive NPV, it creates value that a payout would forgo. <i>Risk:</i> the CEO of a mature firm with spare cash may grow the firm for his own sake (empire building, the free cash flow problem) and invest outside Skarvøy's expertise at a negative NPV.</p><p><b>How arguments are counted.</b> The personal tax difference is one argument, whether it appears as the dividend's risk or as the buyback's advantage. The free cash flow problem is one argument in any form: cash taken out of management's hands (an advantage of (1) or (2)), overinvestment from cash on hand (a risk of (3)) or empire building (a risk of (4)). The dividend's lost flexibility and the buyback's flexibility are one argument. The dividend signal (lasting cash flow) and the buyback signal (undervalued shares) are two.</p><p><b>Also accepted.</b> A buyback signals that management believes the shares are cheap; a CEO paid on EPS targets may time buybacks to hit them; clienteles (corporate investors prefer dividends); a cash pile invites a hostile bid. A well-argued point beyond these earns credit, as in the H2025 key.</p>",
+      "criteria": [
+        "Four alternatives, 1-2 sentences each, 3 points each: 1.5 for the advantage and 1.5 for the risk. Each needs its mechanism: 'signal' alone earns little, 'a higher dividend signals lasting cash flow because cuts are punished' earns the 1.5.",
+        "(1) Dividend. Advantage: signal of lasting cash flow (dividends are sticky). Risk: the personal tax on dividends, or lost flexibility (a later cut is punished, as for GM).",
+        "(2) Buyback. Advantage: flexibility, lower and deferred personal tax, or a signal that the shares are undervalued. Risk: wealth transfer between sellers and remaining holders if the price is wrong, or buybacks timed to hit EPS targets.",
+        "(3) Cash. Advantage: financial slack (no issue costs, no adverse-selection discount, a buffer against distress). Risk: corporate tax on interest earned (cash is negative debt) or the free cash flow problem.",
+        "(4) Invest. Advantage: a positive-NPV project creates value. Risk: empire building, a project outside the firm's expertise.",
+        "Counting rule: 'dividends are taxed more' and 'buybacks are taxed less' are one argument; the free cash flow problem in any form (cash out of management's hands, overinvestment, empire building) is one argument; the dividend's lost flexibility and the buyback's flexibility are one argument. Each scores once. The two signals are two arguments.",
+        "Saying only that the choice is irrelevant under MM earns nothing: the question assumes frictions."
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Governance",
+      "points": 12,
+      "topic": "Corporate governance",
+      "chapters": [
+        27
+      ],
+      "body": "<p>Ashgrove Medical Devices Inc. is a US-listed company with dispersed ownership. Its 13 directors are:</p><ul><li>the CEO, who also chairs the board;</li><li>three other executives;</li><li>two directors with business ties: the former CFO and a partner in a law firm paid USD 4 million a year by Ashgrove;</li><li>seven independent directors, four of whom sit on four or more other boards.</li></ul><p>The board is staggered (one third elected each year) and nominates its own candidates. The stock has lagged its peers by 40% over five years, yet the CEO keeps his job and pay.</p><p>Select three weaknesses of this board. For each, explain why it weakens the monitoring of the CEO and name one remedy for the shareholders. (2-3 sentences each, 4 points: 2 for the why, 2 for the remedy. The executives and the two directors with business ties count as one weakness.)</p>",
+      "solution": "<p>Three weaknesses, each disabling the board's monitoring in a different way.</p><p><b>1. Lack of independence.</b> Six of the 13 directors are not independent: the CEO, three executives who report to him, the former CFO and a law-firm partner whose USD 4 million in fees depend on good relations with management, so they rarely vote to replace the CEO or cut his pay. Shareholders can withhold their votes from the non-independent directors and file a proposal for a clear independent majority with independent compensation, audit and nominating committees.</p><p><b>2. The CEO chairs the board.</b> The chairman sets the agenda, controls what the board sees and runs the meetings, so the CEO chairs the body that should evaluate and, if necessary, replace him. Shareholders can propose separating the roles, with an independent chairman or at least a lead independent director who meets the other independents without the CEO.</p><p><b>3. Staggered board.</b> With one third of the seats up each year, an activist or a bidder needs two annual meetings to win a majority, which blunts the threat of a proxy fight or a takeover. Shareholders can propose to declassify the board so that all directors stand for election every year.</p><p><b>Other weaknesses that score.</b> <i>Self-nomination:</i> the board picks its own successors, so the CEO's allies stay (a captive board); remedy: proxy access or a proxy contest. <i>Busy directors:</i> four independents on four or more other boards have little time to monitor; remedy: vote against overboarded directors (ISS recommends this) or cap outside seats. <i>A large board:</i> 13 members free-ride on each other; remedy: propose a smaller board.</p><p><b>On proxy access.</b> Dodd-Frank allowed the SEC to let large shareholders nominate directors in the company's proxy, but the SEC's rule 14a-11 was struck down in 2011 (Business Roundtable v. SEC). Today proxy access comes through company bylaws, often adopted after a shareholder proposal. An answer that cites lecture 13 ('large shareholders can nominate board members') also earns the point.</p><p><b>Other remedies that score.</b> Backing an activist, voting against the pay package (say on pay), supporting a takeover and, as a bonus for creativity in the H2025 key, selling the shares.</p>",
+      "criteria": [
+        "Three weaknesses, 2-3 sentences each, 4 points each: 2 for why it weakens monitoring (the mechanism) and 2 for a remedy the shareholders can actually use.",
+        "Accepted weaknesses (lecture 13): lack of independence (six of 13 are non-independent: the CEO, three executives, two directors with business ties), the CEO as chairman, the staggered board, self-nomination (captive board), busy directors, a large board.",
+        "Counting: the executives and the directors with business ties are one weakness. The staggered board and self-nomination are two weaknesses when each gets its own mechanism: the first protects incumbents from removal, the second lets the board choose its successors.",
+        "Accepted remedies: withhold votes or vote against directors; shareholder proposals (independent majority and committees, separate chairman or lead independent director, declassification, a cap on outside seats, a smaller board); proxy access or a proxy contest; backing an activist or a takeover; say on pay. Bonus: exit by selling.",
+        "Proxy access: the SEC's rule 14a-11 was struck down in 2011, so today it comes through bylaws, often after a shareholder proposal. Citing lecture 13 (Dodd-Frank lets large shareholders nominate board members) still earns the point.",
+        "A remedy must be something shareholders do. 'The board should be more independent' without saying how they bring it about earns at most half of the remedy points."
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Capital Structure",
+      "points": 18,
+      "topic": "MM in perfect markets, EPS and payout",
+      "chapters": [
+        3,
+        6,
+        15
+      ],
+      "body": "<p>Ravnfjell Elektro ASA operates in a perfect capital market with no taxes. It is all-equity financed with 20 million shares, expects EBIT of NOK 66 million every year forever (no growth) and pays out all earnings as dividends at the end of each year. Its equity beta is 1.4, the risk-free rate is 4% and the expected market return is 9%.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What are the share price and the forward P/E ratio (price divided by next year's expected EPS)?</p>",
+          "solution": "<p><b>Step 1. CAPM.</b> r<sub>E</sub> = 0.04 + 1.4 × (0.09 − 0.04) = 0.04 + 0.07 = <b>0.11</b>, which is also r<sub>U</sub> since there is no debt.</p><p><b>Step 2. Price.</b> E = 66 / 0.11 = 600, so P = 600 / 20 = <b>NOK 30.00</b>.</p><p><b>Step 3. P/E.</b> EPS = 66 / 20 = 3.30, so P/E = 30.00 / 3.30 = <b>9.0909</b>.</p><p><b>Note (an identity, not a check).</b> With no growth and full payout P/E = 1/r<sub>E</sub> = 9.0909 by construction.</p>",
+          "criteria": [
+            "r_E = 0.04 + 1.4 × 0.05 = 11%. Using 9% as the market risk premium is the classic slip.",
+            "Share price 66/0.11/20 = 30.00.",
+            "EPS = 3.30 and forward P/E = 30.00/3.30 = 9.0909."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>Ravnfjell borrows NOK 180 million of permanent risk-free debt to buy back shares. What happens to the share price on the announcement? How many shares are bought back? What is the new cost of equity?</p>",
+          "solution": "<p><b>Step 1. Price.</b> With no taxes the recapitalisation only re-slices the same cash flow (MM I): the price <b>stays at NOK 30.00</b> on the announcement.</p><p><b>Step 2. Buyback.</b> 180 / 30.00 = <b>6 million shares</b>, leaving 14 million.</p><p><b>Step 3. Cost of equity.</b> E = 600 − 180 = 420 and D/E = 180/420 = 0.428571. With risk-free debt β<sub>E</sub> = 1.4 × (1 + 0.428571) = 2.00, so r<sub>E</sub> = 0.04 + 2.0 × 0.05 = <b>14.00%</b>.</p><p>MM II gives the same: 0.11 + 0.428571 × (0.11 − 0.04) = 0.14. That is an identity with the beta route, not an independent check.</p>",
+          "criteria": [
+            "Price unchanged at 30.00, with the reason: no taxes, MM I.",
+            "Shares bought back 180/30 = 6 million at the unchanged price.",
+            "r_E = 14%, via β_E = 2.0 or directly from MM II.",
+            "Relevering with D/V = 0.3 instead of D/E = 0.4286 (β_E = 1.82) is the classic error."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>What is next year's expected EPS after the transaction? The CFO says the higher EPS shows that the shareholders gain. Do you agree? Explain briefly.</p>",
+          "solution": "<p><b>Step 1. EPS.</b> Interest is 0.04 × 180 = 7.2, so EPS = (66 − 7.2) / 14 = 58.8 / 14 = <b>NOK 4.20</b> (up 27.27%).</p><p><b>Step 2. No.</b> The price is unchanged at 30.00: the higher expected EPS only compensates the shareholders for the higher risk they now bear, which is why r<sub>E</sub> rose to 14% and the P/E fell to 7.1429.</p><p><b>Check (can fail).</b> 4.20 / 0.14 = 30.00 = the unchanged price ✓. Dividing by 20 million shares or keeping r<sub>E</sub> at 11% breaks it.</p><p><b>Bonus.</b> Levered and unlevered EPS are equal at EBIT = r<sub>D</sub> × V = 24; below that, leverage lowers EPS.</p>",
+          "criteria": [
+            "EPS = (66 − 7.2)/14 = 4.20. Dividing by the old 20 million shares is the classic error.",
+            "Does not agree: the price is unchanged, so no value is created; the higher EPS is compensation for higher risk (r_E from 11% to 14%). This is the EPS fallacy of lecture 2.",
+            "Credit for the check 4.20/0.14 = 30, the lower P/E of 7.1429 or the break-even EBIT of 24."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>For the rest of the exercise there is no recapitalisation. Instead, Ravnfjell pays NOK 5.10 per share at the end of Year 1 and raises the part not covered by earnings by issuing new shares right after the payment (the new shares do not receive it). Later, all earnings are again paid out. At what price are the new shares issued? How many are needed?</p>",
+          "solution": "<p><b>Step 1. Cash to raise.</b> Earnings cover 3.30 per share, so the issue must raise (5.10 − 3.30) × 20 = <b>NOK 36 million</b>.</p><p><b>Step 2. Value after the issue.</b> The new money goes straight out as dividend, so the firm still owns the same assets: V<sub>1</sub> = 66 / 0.11 = 600.</p><p><b>Step 3. Price and number.</b> All shares trade at the same ex-dividend price P<sub>1</sub>:</p><p>(20 + n) × P<sub>1</sub> = 600 and n × P<sub>1</sub> = 36 &rArr; 20 × P<sub>1</sub> = 564 &rArr; <b>P<sub>1</sub> = NOK 28.20</b><br>n = 36 / 28.20 = <b>1.276596 million shares</b>, so the new shareholders own 36/600 = 6% of the firm.</p><p><b>Note (an identity).</b> 21.276596 × 28.20 = 600 holds by construction; the real check comes in (e).</p>",
+          "criteria": [
+            "Cash to raise (5.10 − 3.30) × 20 = 36 million.",
+            "Firm value after dividend and issue is still 600: the new money is paid straight out.",
+            "P1 = (600 − 36)/20 = 28.20 and n = 36/28.20 = 1.2766 million.",
+            "Issuing at 30 or giving the new shares the Year-1 dividend is the classic error: they are sold ex-dividend."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Are the original shareholders better or worse off? What is the share price today, after the announcement? Explain briefly.</p>",
+          "solution": "<p>One share pays 5.10 at the end of Year 1 and is then worth 28.20:</p><p>P<sub>0</sub> = (5.10 + 28.20) / 1.11 = 33.30 / 1.11 = <b>NOK 30.00</b></p><p><b>Neither better nor worse off.</b> They receive 1.80 more per share in Year 1 but keep only 94% of all later dividends; the new shareholders pay a fair price for the rest: the dividend change only moves cash in time (payout irrelevance under MM).</p><p><b>Check (can fail).</b> The price comes back to the 30.00 of (a) only if P<sub>1</sub> in (d) is right: issuing at 30, for example, would give (5.10 + 30)/1.11 = 31.62.</p>",
+          "criteria": [
+            "P0 = (5.10 + 28.20)/1.11 = 30.00, unchanged from (a).",
+            "Neither better nor worse off: more cash now and a smaller share of later dividends, bought by new shareholders at a fair price. Payout policy is irrelevant under MM.",
+            "Credit for valuing the later dividends directly: 3.102 per share from Year 2 (= 3.30 × 0.94), worth 28.20 at Year 1."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Valuation with leverage",
+      "points": 18,
+      "topic": "Constant interest coverage, FTE and WACC",
+      "chapters": [
+        2,
+        17,
+        18,
+        19
+      ],
+      "body": "<p>Frostheim Logistics ASA expects EBIT of NOK 50 million in Year 1. Capital expenditure equals depreciation and net working capital rises by NOK 3 million in Year 1; all items then grow at 3% a year forever. The tax rate is 22%, the risk-free rate 3%, the expected market return 9% and the asset beta 1.0.</p><p>Frostheim keeps a constant interest coverage ratio: each year's interest is 30% of that year's free cash flow, paid at r<sub>D</sub> = 4.5% on the debt outstanding at the start of the year. Use 4 decimal places (rates in percent: 8.1234%).</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is Frostheim's unlevered value V<sup>U</sup>?</p>",
+          "solution": "<p>FCF<sub>1</sub> = 50 × (1 − 0.22) − 3 = 39 − 3 = <b>NOK 36 million</b> (capital expenditure and depreciation cancel; interest is not subtracted).<br>r<sub>U</sub> = 0.03 + 1.0 × 0.06 = <b>9.00%</b><br>V<sup>U</sup> = 36 / (0.09 − 0.03) = <b>NOK 600 million</b></p><p>Leaving out the increase in working capital gives 39 and V<sup>U</sup> = 650.</p>",
+          "criteria": [
+            "FCF1 = 50 × 0.78 − 3 = 36. Leaving out the increase in NWC (39) or subtracting interest loses the point.",
+            "r_U = 0.03 + 1.0 × 0.06 = 9%.",
+            "V^U = 36/(0.09 − 0.03) = 600, a growing perpetuity."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>What is Frostheim's levered value V<sup>L</sup>?</p>",
+          "solution": "<p><b>Step 1. The shield.</b> Interest<sub>1</sub> = 0.30 × 36 = 10.8 and TS<sub>1</sub> = 0.22 × 10.8 = 2.376. The shield is a fixed fraction of FCF, so it grows at 3% and has the risk of the FCF: discount at r<sub>U</sub>.</p><p>PV(TS) = 2.376 / (0.09 − 0.03) = <b>NOK 39.6 million</b>, which is τkV<sup>U</sup> = 0.22 × 0.30 × 600 (the same formula, lecture 8 slide 17).</p><p>V<sup>L</sup> = 600 + 39.6 = <b>NOK 639.6 million</b> = (1 + τk)V<sup>U</sup></p><p><b>Also accepted.</b> The interest for a year is fixed at its start, so each shield is known one year ahead. Discounting the last year at r<sub>D</sub> and the rest at r<sub>U</sub> (Miles-Ezzell) gives 39.6 × 1.09/1.045 = 41.31 and V<sup>L</sup> = 641.31. The key follows lecture 8, which discounts the whole shield at r<sub>U</sub>; later parts are then marked on follow-through.</p>",
+          "criteria": [
+            "PV(TS) = τ·k·V^U = 0.22 × 0.30 × 600 = 39.6, or the shield 2.376 as a growing perpetuity at r_U.",
+            "V^L = (1 + τk)V^U = 639.6.",
+            "Also accepted with the argument that each shield is known a year ahead: 41.31 (Miles-Ezzell), with follow-through in later parts.",
+            "Discounting the shield at r_D throughout, or using τD as for permanent debt, is the error."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 2,
+          "body": "<p>How much debt does Frostheim have today? What is its equity worth?</p>",
+          "solution": "<p>The Year-1 interest of 10.8 is paid on today's debt: D<sub>0</sub> = 10.8 / 0.045 = <b>NOK 240 million</b>. E = 639.6 − 240 = <b>NOK 399.6 million</b>. (D/V<sup>L</sup> = 0.3752, constant over time because debt and value both grow with the FCF.)</p>",
+          "criteria": [
+            "D0 = interest/r_D = 10.8/0.045 = 240.",
+            "E = V^L − D = 399.6.",
+            "Computing interest on next year's debt instead of today's is the error."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>What is Frostheim's cost of equity? Value its equity with the flow-to-equity (FTE) method.</p>",
+          "solution": "<p><b>Step 1. r<sub>E</sub> (MM II, formula sheet).</b> The shield is discounted at r<sub>U</sub>, so the no-tax form applies:</p><p>r<sub>E</sub> = 0.09 + (240/399.6) × (0.09 − 0.045) = 0.09 + 0.027027 = <b>11.7027%</b></p><p><b>Step 2. FCFE.</b> Debt grows with the FCF, so net borrowing in Year 1 is 0.03 × 240 = 7.2:</p><p>FCFE<sub>1</sub> = 36 − 0.78 × 10.8 + 7.2 = 36 − 8.424 + 7.2 = <b>34.776</b></p><p><b>Step 3. FTE.</b> E = 34.776 / (0.117027 − 0.03) = <b>NOK 399.6 million</b></p><p><b>Check.</b> 399.6 = E from (c) ✓. It is a fixed point of the same debt policy, but it fails if you leave out the net borrowing: 27.576/0.087027 = 316.9.</p>",
+          "criteria": [
+            "r_E = 0.09 + (240/399.6)(0.09 − 0.045) = 11.7027% from MM II.",
+            "FCFE1 = 36 − 0.78 × 10.8 + 7.2 = 34.776: after-tax interest subtracted, net borrowing added.",
+            "E = 34.776/(11.7027% − 3%) = 399.6, equal to (c).",
+            "Forgetting net borrowing gives 316.9; pre-tax interest or discounting at r_U are the other errors."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Value the firm with the WACC method.</p>",
+          "solution": "<p><b>Step 1. r<sub>wacc</sub> (formula sheet, r<sub>E</sub> from (d)).</b> (399.6/639.6) × 0.117027 + (240/639.6) × 0.045 × 0.78 = 0.073114 + 0.013171 = <b>8.6285%</b></p><p><b>Step 2. Value.</b> V<sup>L</sup> = 36 / (0.086285 − 0.03) = <b>NOK 639.6 million</b></p><p><b>Check (WACC = APV).</b> 639.6 = V<sup>L</sup> from (b) ✓. This is a fixed point, not an independent estimate, but it catches arithmetic slips and a wrong rate on the shield. Rounding r<sub>wacc</sub> to 8.63% gives 639.43, more than the 0.05 the H2025 key calls too much.</p><p><b>Also accepted.</b> r<sub>wacc</sub> = r<sub>U</sub> − d·τ·r<sub>D</sub> = 0.09 − 0.375235 × 0.22 × 0.045 = 0.086285. On this route the agreement with (b) holds by construction.</p>",
+          "criteria": [
+            "r_wacc = 8.6285% from the formula sheet with r_E from (d), or from r_U − dτr_D. On the second route the agreement with (b) is a fixed point, not a test.",
+            "V^L = 36/(r_wacc − 0.03) = 639.6, the same as (b).",
+            "Carry 4 decimals in percent: 8.63% gives about 639.4."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 3,
+          "body": "<p>Explain briefly why r<sub>wacc</sub> is lower than r<sub>U</sub>. (1-2 sentences)</p>",
+          "solution": "<p><b>Model answer.</b> r<sub>U</sub> is the return required on the firm's assets whatever the financing, while r<sub>wacc</sub> also counts the interest tax shield: interest is deductible, so the after-tax cost of debt is r<sub>D</sub>(1 − τ). Without taxes the two would be equal; here the gap is d·τ·r<sub>D</sub> = 0.3715 percentage points.</p><p><b>Also accepted.</b> Debt is not cheaper in itself, because by MM II r<sub>E</sub> rises with leverage; the whole gap is the tax subsidy.</p>",
+          "criteria": [
+            "The gap is the interest tax shield: interest is deductible, so the after-tax cost of debt is r_D(1 − τ).",
+            "Without taxes r_wacc = r_U (MM).",
+            "'Debt is cheaper than equity' without the tax argument earns nothing: MM II offsets it through a higher r_E."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Real Options",
+      "points": 20,
+      "topic": "Real options: waiting and staged financing",
+      "chapters": [
+        1,
+        25
+      ],
+      "body": "<p>Vestvik Proteins AS can build a production unit for NOK 48 million. It produces 100,000 kg of protein a year forever at a cost of NOK 20 per kg and cannot be shut down. The first output is sold the moment the unit is built and then once a year. Today's price is NOK 60 per kg; at the end of Year 1 it moves to NOK 90 or NOK 30 with equal probability and stays there. The risk is not systematic: discount at r<sub>f</sub> = 8%. No taxes.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the NPV of building the unit today?</p>",
+          "solution": "<p>Cash flow today: 100,000 × (60 − 20) = NOK 4.0 million. The expected price from Year 1 is still 60, so the expected cash flow stays 4.0 million. The first one arrives today, so the factor is 1.08/0.08 = 13.5:</p><p>NPV = −48 + 4.0 × 13.5 = −48 + 54.0 = <b>NOK 6.0 million</b></p>",
+          "criteria": [
+            "Cash flow 4.0 million a year, the same in expectation from Year 1.",
+            "NPV = −48 + 4.0 × 1.08/0.08 = 6.0. Leaving out today's cash flow gives 2.0.",
+            "Discounts at r_f, as allowed: the price risk is not systematic."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>Vestvik can instead wait a year, observe the price and then decide (same cost; output again starts at once). What is the value of the option to wait? Do you build today or wait?</p>",
+          "solution": "<p><b>Step 1. Year-1 decision, state by state</b> (same factor 13.5, since output starts at once):</p><table class=\"data\"><tr><th>Price</th><th>Cash flow</th><th>NPV at Year 1 if built</th><th>Decision</th></tr><tr><td>NOK 90</td><td class=\"n\">7.0</td><td class=\"n\">−48 + 7.0 × 13.5 = 46.5</td><td>build</td></tr><tr><td>NOK 30</td><td class=\"n\">1.0</td><td class=\"n\">−48 + 1.0 × 13.5 = −34.5</td><td>do not build: 0</td></tr></table><p><b>Step 2. Today.</b> NPV<sub>wait</sub> = 0.5 × 46.5 / 1.08 = <b>21.5278</b></p><p><b>Step 3. Option value.</b> 21.5278 − 6.0 = <b>NOK 15.5278 million</b>, measured against building today. <b>Wait</b>: a positive NPV today is not enough when waiting is worth more.</p><p><b>Check (a decomposition of the same numbers, not an independent test).</b> Waiting avoids a loss of 31.5 in the low state and costs 4 − (48 − 48/1.08) = 0.4444 in the high state (today's cash flow lost, investment paid later): 0.5 × 31.5 − 0.5 × 0.4444 = 15.5278 ✓.</p>",
+          "criteria": [
+            "High price: −48 + 7.0 × 13.5 = 46.5, build. Low price: −34.5, do not build, payoff 0.",
+            "NPV of waiting 0.5 × 46.5/1.08 = 21.5278.",
+            "Option to wait 21.5278 − 6.0 = 15.5278; decision: wait.",
+            "Using 1/0.08 instead of 1.08/0.08 at Year 1 ignores that output starts at once."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>Suppose the Year-1 price is instead NOK 105 or NOK 15. Without calculations: what happens to the NPV of building today and to the value of waiting? (2-3 sentences)</p>",
+          "solution": "<p><b>Model answer.</b> The NPV of building today is unchanged: a unit that produces in both states forever is worth the expected cash flow; the expected price is still 60. The value of waiting rises, because you build only in the high state: a better high state adds value while a worse low state costs nothing. Like any option, the option to wait gains from a wider spread of outcomes.</p><p><b>Numbers (bonus).</b> Waiting: 0.5 × (−48 + 8.5 × 13.5)/1.08 = 30.9028, so the option is worth 24.9028 against 15.5278.</p><p><b>Also accepted.</b> With a price of 15 below the cost of 20, building today risks losses every year forever, which makes committing today less attractive relative to waiting.</p>",
+          "criteria": [
+            "NPV of building today unchanged: committed, you get the expected cash flow; the expected price is still 60.",
+            "Value of waiting rises: the high state improves, the low state stays at zero because you do not build (one-sided payoff).",
+            "No calculation required; numbers are a bonus (24.9028 against 15.5278)."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 8,
+          "body": "<p>For the rest of the exercise, consider a new project. A pilot costs NOK 5 million today and shows after one year whether the process works (probability 40%); if it does not, a full-scale unit is worthless. If it works, the full-scale unit costs NOK 30 million at the end of Year 1 and succeeds with probability 50%: it is then worth NOK 120 million at the end of Year 2, otherwise nothing. Same 8% rate.</p><p>Compare the NPV of committing to both stages today (the NOK 30 million is paid whatever the pilot shows) with staged financing (paid only if the process works). Explain the difference briefly.</p>",
+          "solution": "<p><b>Step 1. All at once.</b> Success needs both stages: 0.4 × 0.5 = 0.2. At Year 1: −30 + 0.2 × 120/1.08 = −30 + 22.2222 = −7.7778, so</p><p>NPV<sub>all</sub> = −5 + (−7.7778)/1.08 = −5 − 7.2016 = <b>NOK −12.2016 million</b></p><p><b>Step 2. Staged.</b> If the process works, going on is worth −30 + 0.5 × 120/1.08 = −30 + 55.5556 = 25.5556 &gt; 0 at Year 1, so you continue; otherwise you stop.</p><p>NPV<sub>staged</sub> = −5 + 0.4 × 25.5556/1.08 = −5 + 9.4650 = <b>NOK 4.4650 million</b></p><p><b>Step 3. Why.</b> Total cost and overall success probability are the same, but staging is an option to stop after the pilot: with probability 0.6 you save the NOK 30 million. The more the first stage reveals, the more staging is worth.</p><p><b>Check (a decomposition, not an independent test).</b> 4.465021 − (−12.201646) = 16.666667 = 0.6 × 30/1.08 ✓.</p>",
+          "criteria": [
+            "All at once (3 points): NPV = −5 − 30/1.08 + 0.2 × 120/1.08² = −12.2016.",
+            "Staged (3 points): continue if the process works, since −30 + 0.5 × 120/1.08 = 25.5556 > 0; NPV = −5 + 0.4 × 25.5556/1.08 = 4.4650.",
+            "Explanation (2 points): the option to stop saves the second-stage cost with probability 0.6, worth 0.6 × 30/1.08 = 16.6667.",
+            "Ignoring discounting (as the lecture example does) gives −11 and 7: the reasoning scores, with a small deduction."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "M&A",
+      "points": 20,
+      "topic": "Mergers and acquisitions",
+      "chapters": [
+        13,
+        26
+      ],
+      "body": "<p>Fjordbit ASA (A) offers to acquire Lyngtopp Data ASA (B), paying 0.70 A shares for each B share. A has 50 million shares at NOK 80 and B has 20 million shares at NOK 45 (stand-alone values). A's management estimates the synergies at S = NOK 300 million.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 4,
+          "body": "<p>What is the NPV of the deal to A's and to B's shareholders?</p>",
+          "solution": "<p>A = 50 × 80 = 4,000, T = 20 × 45 = 900, new shares x = 0.70 × 20 = 14 million, so 64 million shares share 4,000 + 900 + 300 = 5,200:</p><p>P<sub>new</sub> = 5,200 / 64 = <b>NOK 81.25</b>; y = 14/64 = 0.21875</p><p>NPV<sub>A</sub> = (1 − 0.21875) × 5,200 − 4,000 = <b>62.5</b><br>NPV<sub>B</sub> = 0.21875 × 5,200 − 900 = <b>237.5</b></p><p><b>Check (a second route through the same numbers).</b> A's NPV is its old shares' price change: 50 × (81.25 − 80) = 62.5 ✓. That 62.5 + 237.5 = 300 = S is an identity.</p>",
+          "criteria": [
+            "P_new = 5,200/64 = 81.25 (a step, not required).",
+            "NPV_A = 62.5 and NPV_B = 237.5 with the formula-sheet expressions (y = 0.21875).",
+            "Using post-announcement prices as stand-alone values double counts the synergies.",
+            "Bonus: NPV_A = 50 × (P_new − 80), or NPV_A + NPV_B = S."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>What is the highest exchange ratio A's shareholders should accept?</p>",
+          "solution": "<p>ER<sub>max</sub> = [(T + S)/A] × (N<sub>A</sub>/N<sub>T</sub>) = [(900 + 300)/4,000] × (50/20) = 0.3 × 2.5 = <b>0.75</b> (formula sheet). The offer of 0.70 is below it, so A gains.</p><p><b>Note (an identity).</b> At 0.75, A issues 15 million shares and P<sub>new</sub> = 5,200/65 = 80.00 = P<sub>A</sub>: that is how ER<sub>max</sub> is defined.</p>",
+          "criteria": [
+            "ER_max = [(T + S)/A](N_A/N_T) = 0.75 from the formula sheet, or (P_T/P_A)(1 + S/T).",
+            "States that 0.70 lies below it, so A's shareholders gain.",
+            "Leaving S out (ER = 45/80 = 0.5625) gives the ratio at which B gets no premium, not A's maximum."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 6,
+          "body": "<p>A could instead pay NOK 56 in cash per B share. What is A's NPV? If the synergies turn out to be only NOK 100 million, what is A's NPV with cash and with shares? Who bears the synergy risk under each method?</p>",
+          "solution": "<p><b>Step 1. Cash, S = 300.</b> A pays 56 × 20 = 1,120 for a target worth 900: NPV<sub>A</sub> = S − (P − T) = 300 − 220 = <b>80</b> (B gets 220).</p><p><b>Step 2. S = 100.</b></p><table class=\"data\"><tr><th></th><th>Cash</th><th>Shares</th></tr><tr><td>NPV to A</td><td class=\"n\">100 − 220 = −120</td><td class=\"n\">0.78125 × 5,000 − 4,000 = −93.75</td></tr><tr><td>NPV to B</td><td class=\"n\">220</td><td class=\"n\">0.21875 × 5,000 − 900 = 193.75</td></tr></table><p><b>Step 3. Who bears the risk.</b> With cash B's premium of 220 is fixed, so <b>A's shareholders bear the whole shortfall</b> of 200. With shares <b>B's shareholders share it</b> in proportion to their 21.875% stake: their NPV falls by 43.75.</p><p><b>Note (an identity).</b> 43.75 = 0.21875 × 200 holds for any numbers; it shows the mechanism rather than testing the answer.</p>",
+          "criteria": [
+            "Cash: NPV_A = S − (P − T) = 300 − 220 = 80.",
+            "S = 100: cash gives NPV_A = −120; shares give 0.78125 × 5,000 − 4,000 = −93.75.",
+            "With cash the acquirer bears all the synergy risk; with shares the target's shareholders bear the fraction y = 0.21875 of it.",
+            "Bonus: B's side (220 with cash, 193.75 with shares)."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Back to S = NOK 300 million. A's management believes A's shares are worth NOK 72, not 80. By that valuation, which offer is better for A's shareholders, shares or NOK 56 in cash? By how much? What does the market infer from the choice?</p>",
+          "solution": "<p>True values: A = 50 × 72 = 3,600, merged firm 3,600 + 900 + 300 = 4,800.</p><p>Shares: NPV<sub>A</sub> = 0.78125 × 4,800 − 3,600 = <b>150</b>. Cash: 300 − 220 = <b>80</b>, whatever A is worth.</p><p><b>Shares are better by NOK 70 million</b>: B's holders accept A shares at 80 that management thinks are worth 72.</p><p><b>Check (a decomposition, not an independent test).</b> The overvaluation passed to B is 0.21875 × 400 = 87.5; at market prices shares cost A 17.5 more than cash; 87.5 − 17.5 = 70 ✓.</p><p><b>What the market infers.</b> A manager who thinks his shares are cheap pays cash and one who thinks they are expensive pays with shares, so a share offer signals that A is overvalued (the Myers-Majluf logic). A's price falls on the announcement; B's holders may ask for a higher ratio or for cash.</p>",
+          "criteria": [
+            "Shares: NPV_A = 0.78125 × 4,800 − 3,600 = 150 at A's true value.",
+            "Cash: NPV_A = 80, independent of A's value; shares better by 70.",
+            "The market reads a share offer as a sign that the acquirer thinks its shares are overvalued (adverse selection), so A's price falls."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>B also has NOK 400 million of risky debt, which the merged firm takes over; A's cash flows are not perfectly correlated with B's. Without synergies, what happens to the value of B's debt? Who gains and who loses? (2-3 sentences)</p>",
+          "solution": "<p><b>Model answer.</b> B's debt is now backed by A's cash flows as well; since the two are not perfectly correlated, default becomes less likely (coinsurance) and <b>the value of B's debt rises</b>. With no synergies total firm value is unchanged, so B's creditors gain exactly what the shareholders of the merged firm lose.</p><p><b>Also accepted (bonus).</b> The shareholders' NPVs in (a) are therefore overstated: together they get S minus the gain to B's creditors. Shareholders can undo the transfer by borrowing more; diversification is no motive for them, since they can diversify themselves.</p>",
+          "criteria": [
+            "Names the coinsurance effect: default becomes less likely, so B's debt is worth more.",
+            "B's creditors gain, the merged firm's shareholders lose the same amount (total value unchanged without synergies).",
+            "Bonus: the NPVs in (a) are overstated; re-levering undoes the transfer."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "prove6",
+  "kind": "mock",
+  "label": "Mock exam 6",
+  "minutes": 180,
+  "points": 100,
+  "format": "6 exercises · no multiple choice · calculator permitted",
+  "note": "Written for this app in Kurbatov's format and closest to the autumn 2024 paper: two verbal exercises, two capital-structure exercises, a valuation and a real option. New firms and numbers throughout. Not an official exam: the course has not checked the solutions.",
+  "facts": [
+    "Mock exam in Kurbatov's format (H2024, H2025): 180 minutes, 100 points, six exercises, no multiple choice. Pen and paper, calculator and one bilingual dictionary.",
+    "Points per exercise: 12 · 12 · 18 · 18 · 20 · 20. Exercises 1 and 2 are verbal with a sentence budget; exercises 3 to 6 are chains of calculations that end with a short verbal question.",
+    "The formula sheet is handed out. Show every calculation and carry 4 decimals where the exercise asks for it. Answer in English.",
+    "Written for practice in this app, not an official exam. The course has not checked the solutions."
+  ],
+  "exercises": [
+    {
+      "n": 1,
+      "title": "M&A",
+      "points": 12,
+      "topic": "Mergers and acquisitions",
+      "chapters": [
+        26
+      ],
+      "body": "<p>On the announcement of a takeover, target shareholders earn abnormal returns of about 15% on average, while acquirer shareholders earn about 1% and lose in about half of the deals.</p><p>a) Give two reasons why the target's shareholders capture most of the gains.</p><p>b) Give two reasons why a hostile takeover can increase the value of the target.</p><p>Reasons must be other than «synergies». The two reasons in each part must differ. Keep explanations short, 1-2 sentences per reason (3 points each).</p>",
+      "solution": "<p>Four reasons, 1-2 sentences each, 3 points each.</p><p><b>a) Why the target's shareholders capture most of the gains.</b></p><p><b>1. Competition for the target.</b> A target can be sold only once, so rival bidders, or a board that runs an auction, push the price up towards the target's full value under a new owner. The winning bidder hands most of what the deal creates to the target's shareholders as a premium.</p><p><b>2. Overpayment: hubris and the winner's curse.</b> The winning bidder is the one with the most optimistic estimate of the target's value; an overconfident CEO also believes he can extract more than is there. The premium then exceeds the value created, which is why acquirers lose in about half of the deals.</p><p><b>b) Why a hostile takeover can increase the value of the target.</b></p><p><b>3. Replacing poor or entrenched management.</b> A hostile bid goes around a board that protects the incumbents; the new owner installs managers who run the same assets better. The gain comes from using the target's own assets better, not from combining two firms.</p><p><b>4. Stopping empire building with the free cash flow.</b> A new owner can stop the spending of surplus cash on negative-NPV projects and pay it out, often by loading the firm with debt as in an LBO. The threat of such a bid also disciplines managers who are not yet targets.</p><p><b>Other reasons that score equally.</b> For a): the free-rider problem (dispersed shareholders will not tender below the value their shares will have after the takeover, so the bidder must pay away the gain); empire building by the acquirer's CEO, who pays more than the target is worth to his shareholders; EPS manipulation; takeover defences or a white knight that raise the price. For b): breaking up an inefficient conglomerate; cutting perks and costs; economies of scale, market power or access to larger markets, which Kurbatov's H2024 key accepted although synergies were banned, provided the mechanism is explained.</p><p><b>Not accepted.</b> «Synergies» or «the merged firm is worth more» with no mechanism. Two labels for one mechanism (hubris and the winner's curse) count as one reason.</p>",
+      "criteria": [
+        "Four reasons, two in a) and two in b), each worth 3 points and graded separately. A missing reason costs 3 points however good the others are.",
+        "a) Accepted: competition among bidders or an auction run by the target's board; the free-rider problem in tender offers (a separate mechanism from competition); hubris or the winner's curse; empire building by the acquirer's CEO; EPS manipulation; takeover defences or a white knight that raise the price.",
+        "b) Accepted: replacing poor or entrenched managers; stopping empire building and paying out free cash flow (often with debt, as in an LBO); cutting perks and costs; breaking up the firm; the threat of a bid. As in Kurbatov's H2024 key, economies of scale, market power or access to larger markets also score when the mechanism is explained.",
+        "«Synergies» or «the merged firm is worth more» with no mechanism earns nothing.",
+        "The two reasons in a part must rest on different mechanisms: hubris and the winner's curse are one reason, competition among bidders and the free-rider problem are two.",
+        "1-2 sentences per reason with the mechanism stated. A bare label earns at most 1 point."
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Governance",
+      "points": 12,
+      "topic": "Corporate governance",
+      "chapters": [
+        27
+      ],
+      "body": "<p>An index fund owns 0.1-0.5% of each of 2,000 listed companies: about 30,000 ballot items a year. Its governance team of four votes on every item as a proxy advisor (such as ISS or Glass Lewis) recommends.</p><p>a) Is this optimal for the fund's investors? Give one argument for, one against and your conclusion (6 points; 2-3 sentences per argument).</p><p>b) Propose one alternative way for the fund to discipline managers: who acts, how it works and one weakness (6 points; 3-4 sentences).</p>",
+      "solution": "<p><b>a) Argument for: it is a rational way to vote.</b> A team of four cannot analyse 30,000 items. With stakes of 0.1-0.5% the fund would capture only a tiny share of any value its own research created: the free-rider problem of small shareholders. A proxy advisor spreads the cost of research over thousands of clients, applies a consistent policy and is far better than not voting at all.</p><p><b>Argument against: it is not optimal.</b> The advisor's policies are checklists that ignore each company's circumstances; the advisor also has conflicts of interest (some sell consulting to the companies whose votes they score) and makes mistakes that thousands of funds then copy. When many large holders vote mechanically, two private firms hold much of the voting power without bearing any of the consequences, while managers learn to satisfy a checklist rather than to create value.</p><p><b>Conclusion.</b> Following the advisor is a sensible cost-saving device for routine items, but not for the few votes that matter (contested elections, large pay packages, mergers at the largest holdings), where the advice should be an input rather than an autopilot.</p><p><b>b) Model answer: focused engagement backed by coordinated voting.</b> The governance team picks the few companies where its votes matter most (the largest positions, poor performers, contested pay) and engages their boards directly, stating what it will vote against. An index fund cannot sell a badly run company, so voice is its only tool; together with other institutions holding 10-20% of the shares it can make a vote against the chair or the pay plan credible enough that the board responds before the meeting. The weakness is cost and free-riding: the fund bears the full cost while every shareholder shares the gain; coordination is also slow and can run into rules on acting in concert.</p><p><b>Other alternatives that score equally,</b> each with its mechanism and one weakness: an own voting policy with case-by-case votes on the important items (costly); nominating directors or supporting a proxy contest (expensive, rarely successful); shareholder proposals (usually advisory, often voted down); backing an activist hedge fund (its horizon may be short); passing the votes through to the fund's own investors (retail investors vote few of their shares).</p><p><b>Not accepted as the alternative.</b> «Sell the shares»: an index fund must hold every company in the index, which is exactly why voice is its only channel. Saying so is a good point in itself.</p>",
+      "criteria": [
+        "a) One argument for and one against, about 3 points each, with the conclusion inside the 6 points: an answer that never states a view loses 1 point.",
+        "For: 30,000 items cannot be analysed by four people; with stakes of 0.1-0.5% the fund captures little of the gain from its own research (free-rider problem); advisors spread research costs and voting with advice beats not voting.",
+        "Against: one-size-fits-all checklists; conflicts of interest and errors at the advisor that many funds copy; voting power concentrated in a few advisors that bear no consequences; managers who learn to satisfy the checklist; a fiduciary duty that cannot be outsourced.",
+        "b) One alternative with who acts, how it disciplines management and one weakness, about 2 points each. Any reasonable mechanism with an explanation is accepted.",
+        "Accepted alternatives: own voting policy on the important items; private engagement with boards; coordinated voting with other institutions; nominating directors or supporting a proxy contest; shareholder proposals; backing an activist; pass-through voting to the fund's own investors.",
+        "Selling the shares does not score as the alternative: an index fund must hold the index. Noting that this is why voice is the fund's only channel earns credit.",
+        "Keep to the sentence budget: 2-3 sentences per argument in a) and 3-4 sentences in b)."
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Capital Structure",
+      "points": 18,
+      "topic": "MM in perfect markets, leverage and beta",
+      "chapters": [
+        3,
+        4,
+        6
+      ],
+      "body": "<p>Skarvik Robotics ASA operates in a perfect capital market with no taxes. It has 60 million shares trading at NOK 50 and NOK 1,500 million of risk-free debt. Its assets generate expected EBIT of NOK 450 million per year forever, all paid out as interest and dividends. The risk-free rate is 4%, the expected market return is 9% and Skarvik's equity beta is 1.8.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Find Skarvik's asset beta and unlevered cost of capital.</p>",
+          "solution": "<p><b>Step 1. Market values.</b> E = 60 × 50 = <b>NOK 3,000 million</b>, D = 1,500 and V = E + D = <b>4,500</b>. Weights: E/V = 2/3 and D/V = 1/3.</p><p><b>Step 2. Unlever the beta.</b> The debt is risk-free, so β<sub>D</sub> = 0:<br>β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub> = (2/3)(1.8) + (1/3)(0) = <b>1.2</b></p><p><b>Step 3. CAPM.</b> The market risk premium is 9% − 4% = 5%:<br>r<sub>U</sub> = 4% + 1.2 × 5% = <b>10%</b></p><p><b>Check.</b> With no taxes and all EBIT paid out, r<sub>U</sub> is also the expected EBIT over the value of the firm: 450/4,500 = 10% ✓. The same works for equity: r<sub>E</sub> = 4% + 1.8 × 5% = 13%, which matches the cash flow to equity: (450 − 4% × 1,500)/3,000 = 390/3,000 = 13% ✓. This check is real: it uses the EBIT, which the beta route never touches.</p>",
+          "criteria": [
+            "Market values first: E = 60 × 50 = 3,000, V = 4,500, weights 2/3 and 1/3.",
+            "β_U = (2/3)(1.8) + (1/3)(0) = 1.2, with β_D = 0 because the debt is risk-free and weights without taxes.",
+            "Market risk premium = 9% − 4% = 5%, not 9%.",
+            "r_U = 10%. The check 450/4,500 = 10% is optional but worth one line."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Skarvik announces that it will issue new shares for NOK 1,000 million and use the proceeds to repay debt; the debt stays risk-free. What happens to the share price on announcement? How many new shares are issued?</p>",
+          "solution": "<p><b>Share price: unchanged at NOK 50.</b> In a perfect market with no taxes, MM Proposition I holds: the value of the firm is set by its assets; swapping debt for equity only changes how the same EBIT is split between the two claims. V stays at 4,500 and the announcement contains no news about the assets, so there is nothing for the market to price in.</p><p><b>New shares.</b> The shares are issued at the market price of NOK 50:<br>new shares = 1,000/50 = <b>20 million</b>; shares outstanding afterwards = 60 + 20 = <b>80 million</b>.</p><p><b>Check.</b> After the issue D = 1,500 − 1,000 = 500 and E = 4,500 − 500 = 4,000, so P = 4,000/80 = <b>NOK 50</b> ✓. The old shareholders still hold 60 × 50 = 3,000; the new ones paid 1,000 in cash for shares worth 1,000. (An identity once the shares are issued at the market price: it catches arithmetic slips only.)</p>",
+          "criteria": [
+            "Share price unchanged at NOK 50, with the reason: perfect market, no taxes, MM I, so no value is created or destroyed.",
+            "New shares = 1,000/50 = 20 million, issued at the unchanged price; 80 million shares afterwards.",
+            "Issuing at an invented lower «diluted» price is the error: a fair issue at the market price transfers no value.",
+            "The check E/N = 4,000/80 = 50 takes one line."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>Find the equity beta and the cost of equity after the issue. Why do they change in this direction?</p>",
+          "solution": "<p><b>Step 1. New leverage.</b> D/E = 500/4,000 = 0.125 (D/V = 1/9).</p><p><b>Step 2. Relever.</b> β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>) = 1.2 + 0.125 × 1.2 = <b>1.35</b><br>r<sub>E</sub> = 4% + 1.35 × 5% = <b>10.75%</b><br>MM II gives the same: 10% + 0.125 × (10% − 4%) = 10.75%.</p><p><b>Check.</b> Interest is now 4% × 500 = 20, so the shareholders receive 450 − 20 = 430 a year, or 430/80 = NOK 5.375 per share. On a NOK 50 share that is 5.375/50 = 10.75% ✓.</p><p><b>Why both fall</b> (from 1.8 and 13%). The business risk of the assets is unchanged (β<sub>U</sub> = 1.2), but less of it is concentrated on the shareholders: with less fixed debt service ahead of them, a given swing in EBIT moves the income per share by less. Lower financial leverage means lower financial risk for equity, so the equity beta and the return shareholders require both fall.</p>",
+          "criteria": [
+            "Uses the new capital structure: D = 500, E = 4,000, D/E = 0.125. Using the old D/E of 0.5 gives r_E = 13% and is the error.",
+            "β_E = 1.2 × (1 + 0.125) = 1.35 and r_E = 10.75%, by CAPM or MM II.",
+            "Explains the direction: business risk (β_U) is unchanged, financial risk falls because there is less debt ahead of the shareholders.",
+            "(bonus) Checks with the cash flow: 430/80 = 5.375 per share; 5.375/50 = 10.75%."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Find the WACC before and after the issue. Explain the result using MM.</p>",
+          "solution": "<p><b>Before.</b> r<sub>wacc</sub> = (2/3)(13%) + (1/3)(4%) = 8.6667% + 1.3333% = <b>10%</b></p><p><b>After.</b> E/V = 4,000/4,500 = 8/9 and D/V = 1/9:<br>r<sub>wacc</sub> = (8/9)(10.75%) + (1/9)(4%) = 9.5556% + 0.4444% = <b>10%</b></p><p>There are no taxes, so there is no (1 − τ<sub>c</sub>) term and the WACC is the pre-tax WACC, equal to r<sub>U</sub> = 10% both times.</p><p><b>Explanation.</b> In a perfect market without taxes the WACC is the expected return on the firm's assets. MM says that the assets, their risk and their value do not depend on how they are financed. The transaction moves weight from cheap debt to more expensive equity, but the equity has become safer and cheaper by exactly enough to leave the average unchanged (MM I and MM II together).</p><p><b>Check.</b> Investors as a group expect 4% × 1,500 + 13% × 3,000 = 60 + 390 = 450 before and 4% × 500 + 10.75% × 4,000 = 20 + 430 = 450 after: the expected EBIT both times ✓. This is the cash-flow check from a) and c) once more, in money: it confirms the inputs rather than testing the WACC, which is an identity once r<sub>E</sub> came from MM II.</p>",
+          "criteria": [
+            "Before: (2/3)(13%) + (1/3)(4%) = 10%.",
+            "After: (8/9)(10.75%) + (1/9)(4%) = 10%, with the new weights.",
+            "No (1 − τ) term: there are no taxes, so the WACC is the pre-tax WACC = r_U.",
+            "Explains with MM: asset risk and firm value are independent of financing, so the fall in r_E exactly offsets the larger weight on equity.",
+            "Show the calculation. Stating «unchanged by MM» without the two numbers earns half."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>A colleague objects: «Equity costs far more than the 4% we pay on debt, so replacing debt with equity must raise our cost of capital. Besides, the earnings are now shared among more shares, so EPS falls from NOK 6.50 and the existing shareholders are diluted.» Is the colleague right? Explain briefly (3-5 sentences).</p>",
+          "solution": "<p><b>Model answer (5 sentences).</b> No, on both counts. The cost of equity is not a fixed 13%: with less debt the equity is safer, r<sub>E</sub> falls to 10.75% and the WACC stays at 10% (part d), because debt only looks cheap while it pushes risk onto the shareholders. EPS does fall from 6.50 to 5.375, but so does the risk: each share now earns 5.375/50 = 10.75%, exactly the new r<sub>E</sub>, so it is still worth 5.375/0.1075 = NOK 50 (before: 6.50/0.13 = 50). The new shareholders paid NOK 1,000 million in cash, the fair value of what they received, so no value moves from the old shareholders to the new ones. A lower EPS is compensation for lower risk, not a loss: this is the EPS (dilution) fallacy.</p><p><b>Also accepted.</b> Any correct MM argument in your own words, for example homemade leverage: an old shareholder who wants the old risk back can borrow and buy more shares, so the firm's choice of leverage cannot change what the shares are worth.</p>",
+          "criteria": [
+            "Answers clearly: the colleague is wrong on both points.",
+            "r_E is not fixed: it falls to 10.75% as leverage falls, so the WACC stays at 10%.",
+            "EPS falls from 6.50 to 5.375, but the required return falls in step: 5.375/0.1075 = 50 = 6.50/0.13.",
+            "The new shares are sold at the fair price, so there is no dilution of value. Naming the EPS or dilution fallacy earns credit.",
+            "Anything reasonable about MM is accepted; a bare «MM says it does not matter» without the two mechanisms earns at most half."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Debt and risk",
+      "points": 18,
+      "topic": "Financial distress, fire sales and risk shifting",
+      "chapters": [
+        8,
+        9
+      ],
+      "body": "<p>Brattøy Verft AS, a shipyard, has a bank loan with face value NOK 50 million due at t = 1. Management, acting for the shareholders, plans to build a prototype vessel on speculation (Plan P): at t = 1 the yard's assets will be worth NOK 120 million if a buyer is found (probability 60%) and NOK 20 million if not (probability 40%). Investors are risk neutral and the risk-free rate is 0%. If the yard cannot repay the loan, the bank takes over its assets.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Assume default is costless. Find the values of the loan, the equity and the firm today.</p>",
+          "solution": "<p>Value each claim state by state: the bank receives min(50, V<sub>1</sub>) and the shareholders max(V<sub>1</sub> − 50, 0).</p><table class=\"data\"><tr><th>State</th><th>Probability</th><th>Assets</th><th>Bank</th><th>Shareholders</th></tr><tr><td>Buyer found</td><td class=\"n\">0.6</td><td class=\"n\">120</td><td class=\"n\">50</td><td class=\"n\">70</td></tr><tr><td>No buyer</td><td class=\"n\">0.4</td><td class=\"n\">20</td><td class=\"n\">20</td><td class=\"n\">0</td></tr></table><p>D = 0.6 × 50 + 0.4 × 20 = 30 + 8 = <b>38</b><br>E = 0.6 × 70 + 0.4 × 0 = <b>42</b><br>V = 0.6 × 120 + 0.4 × 20 = <b>80</b></p><p><b>Check.</b> D + E = 38 + 42 = 80 = V ✓. This is an identity: state by state the two claims split the assets, so it catches arithmetic slips only.</p>",
+          "criteria": [
+            "Values the claims state by state: the bank gets min(50, assets), the shareholders max(assets − 50, 0).",
+            "D = 38, E = 42, V = 80.",
+            "Subtracting 50 from the expected asset value (80 − 50 = 30) ignores limited liability and is the error.",
+            "The check D + E = 80 takes one line."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>In default, the assets must be sold in a fire sale for half their value. Recalculate the three values. With the loan already outstanding, who bears the cost of the fire sale? What are the loan's promised yield and expected return?</p>",
+          "solution": "<p><b>Step 1. The bad state.</b> The assets worth 20 fetch only 0.5 × 20 = <b>10</b>. That is what the bank receives.</p><p>D = 0.6 × 50 + 0.4 × 10 = 30 + 4 = <b>34</b><br>E = 0.6 × 70 = <b>42</b> (unchanged)<br>V = D + E = <b>76</b></p><p><b>Step 2. Who bears it.</b> The expected cost of the fire sale is 0.4 × (20 − 10) = <b>4</b> = 80 − 76. <b>With the loan already outstanding, the bank bears it</b>: the loan is worth 34 instead of 38, while the shareholders lose nothing because they receive nothing in default whatever the assets fetch. Before the loan was made it is the other way round: a bank that foresees the fire sale lends only 34 against the promise of 50, so if the loan was priced correctly the shareholders absorbed the 4 up front («the cost is absorbed by equity holders», lecture 4). Part e) applies the same logic to the whole agency cost.</p><p><b>Step 3. Yield and expected return.</b> The loan promises 50 and is worth 34: promised yield = 50/34 − 1 = <b>47.0588%</b>. Its expected payoff is 34, so the expected return is 34/34 − 1 = <b>0%</b>, the risk-free rate, as it must be for risk-neutral investors. The whole spread is expected default loss, fire sale included.</p>",
+          "criteria": [
+            "Bad-state payoff to the bank = 0.5 × 20 = 10.",
+            "D = 34, E = 42, V = 76; expected fire-sale cost = 0.4 × 10 = 4.",
+            "Who bears it: the bank, now that the loan is outstanding (the loan falls from 38 to 34; the shareholders get nothing in default anyway). Full marks also for adding that a correctly priced loan made the shareholders bear it up front, as in Kurbatov's lecture 4 and part e).",
+            "Promised yield 47.0588% against an expected return of 0%. Calling the yield the expected return is the classic error."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>Instead of Plan P, the Navy offers a fixed-price contract (Plan N) that makes the assets worth NOK 85 million at t = 1 for sure. Which plan would the yard choose without debt? Which plan does management choose with the loan, given the fire sale? Why?</p>",
+          "solution": "<p><b>Without debt.</b> The shareholders own everything, so they maximise expected asset value: Plan N gives 85 and Plan P gives 0.6 × 120 + 0.4 × 20 = 80. An unlevered yard never defaults, so there is no fire sale. <b>It chooses Plan N.</b></p><p><b>With the loan of 50.</b></p><table class=\"data\"><tr><th>Plan</th><th>Loan</th><th>Equity</th><th>Firm</th></tr><tr><td>N (Navy contract)</td><td class=\"n\">50</td><td class=\"n\">85 − 50 = 35</td><td class=\"n\">85</td></tr><tr><td>P (prototype)</td><td class=\"n\">34</td><td class=\"n\">42</td><td class=\"n\">76</td></tr></table><p><b>Management chooses Plan P</b>, because it gives the shareholders 42 against 35, although the firm is worth 9 less.</p><p><b>The mechanism: risk shifting (asset substitution).</b> With limited liability the equity is a call option on the assets with strike 50: the shareholders keep all of the upside of the prototype, while in the bad state the bank takes the loss. The safe contract makes the loan safe and hands the shareholders only a sure 35.</p>",
+          "criteria": [
+            "Without debt: Plan N (85 > 80); no default, so no fire sale.",
+            "With the loan: E_N = 35, E_P = 42, so management chooses P.",
+            "(bonus) Loan values: 50 under N (safe) and 34 under P, which d) needs anyway.",
+            "Names the mechanism: risk shifting or asset substitution; equity as a call option on the assets with strike equal to the face value."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Find the agency cost of the loan and split it into the part due to Plan P's lower expected asset value and the part due to the fire sale. Who wins and who loses when P is chosen over N?</p>",
+          "solution": "<p><b>Agency cost</b> = V<sub>N</sub> − V<sub>P</sub> = 85 − 76 = <b>9</b>, the value destroyed because the loan distorts the choice of plan.</p><table class=\"data\"><tr><th>Source</th><th>Calculation</th><th>Cost</th></tr><tr><td>Lower expected asset value</td><td>85 − 80</td><td class=\"n\">5</td></tr><tr><td>Expected fire-sale loss</td><td>0.4 × (20 − 10)</td><td class=\"n\">4</td></tr><tr><td><b>Total</b></td><td></td><td class=\"n\"><b>9</b></td></tr></table><p><b>Who wins and who loses</b> (P compared with N):</p><table class=\"data\"><tr><th>Claim</th><th>Plan N</th><th>Plan P</th><th>Change</th></tr><tr><td>Shareholders</td><td class=\"n\">35</td><td class=\"n\">42</td><td class=\"n\">+7</td></tr><tr><td>Bank</td><td class=\"n\">50</td><td class=\"n\">34</td><td class=\"n\">−16</td></tr><tr><td>Firm</td><td class=\"n\">85</td><td class=\"n\">76</td><td class=\"n\">−9</td></tr></table><p><b>Check.</b> +7 + (−16) = −9, the change in firm value ✓ (an identity, since the two claims always add up to the firm: it catches arithmetic slips only). The shareholders gain 7 by taking 16 from the bank; the other 9 simply disappears.</p><p>Without fire sales the agency cost would be only 5: the fire sale makes risk shifting more expensive, because the risky plan creates the very default that triggers it.</p>",
+          "criteria": [
+            "Agency cost = 85 − 76 = 9.",
+            "Split: 5 from the lower expected asset value (85 − 80) and 4 from the expected fire-sale loss.",
+            "Shareholders +7, bank −16, firm −9; the gains and losses sum to the change in firm value.",
+            "(bonus) Notes that without fire sales the cost would be 5: distress costs amplify risk shifting."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>The bank priced the loan a year ago, knowing that management would choose the plan later. Who bears the agency cost in the end? Name one way to avoid it (2-3 sentences).</p>",
+          "solution": "<p><b>Model answer (3 sentences).</b> The shareholders bear it: a rational bank foresaw Plan P and lent only what a promise of 50 is worth under P (34), so the shareholders got 34 + 42 = 76 for the loan and their equity together, against 50 + 35 = 85 if they could have committed to Plan N. The 9 of lost value is paid up front, when the loan is raised. A covenant that forbids speculative builds (or requires the bank's consent to the plan) would have avoided it: the bank would then lend 50 against the promise and the shareholders would keep the value.</p><p><b>Other remedies that score.</b> Less debt: with a face value of 32.5 or less the shareholders would pick Plan N themselves (for F between 20 and 32.5, 0.6 × (120 − F) ≤ 85 − F; below 20 the loan is safe under both plans). Convertible debt that gives the bank part of the upside. Renegotiating the loan before the plan is chosen.</p>",
+          "criteria": [
+            "The shareholders bear it: rational creditors anticipate the choice and price the loan accordingly, so the cost is paid when the loan is raised.",
+            "Remedy: a covenant restricting the choice of plan (or requiring consent); less debt; convertible debt; renegotiation. Any one with a sentence of mechanism scores.",
+            "(bonus) The debt level below which management chooses N itself: F = 32.5."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Valuation",
+      "points": 20,
+      "topic": "WACC and APV",
+      "chapters": [
+        3,
+        4,
+        17,
+        18,
+        19
+      ],
+      "body": "<p>Lofotkabel AS, an unlisted fibre-network operator, expects EBIT of NOK 500 million next year. Capital expenditure equals depreciation, working capital is constant and free cash flow grows by 2.5% per year forever. The tax rate is 22%. Lofotkabel's debt trades at par at NOK 2,000 million today; both its cost of debt and its interest rate are 5.5%. The firm keeps its debt-to-equity ratio constant, so the debt also grows by 2.5% per year. The risk-free rate is 4% and the expected market return is 9%.</p><p>Two comparable listed firms keep their debt-to-value ratios constant:</p><table class=\"data\"><tr><th>Comparable</th><th>Cost of equity</th><th>Cost of debt</th><th>Leverage</th></tr><tr><td>Nordkabel ASA</td><td class=\"n\">11%</td><td class=\"n\">5%</td><td class=\"n\">D/V = 30%</td></tr><tr><td>Vestnett ASA</td><td class=\"n\">10%</td><td class=\"n\">4%</td><td class=\"n\">D/E = 0.25</td></tr></table><p>Use the average of their unlevered costs of capital. Recommended precision is 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 4,
+          "body": "<p>Find Lofotkabel's unlevered cost of capital and asset beta.</p>",
+          "solution": "<p><b>Step 1. Unlever each comparable.</b> Both keep D/V constant, so the pre-tax WACC with market-value weights (no taxes in the weights) is r<sub>U</sub>.</p><p>Nordkabel: r<sub>U</sub> = 0.7 × 11% + 0.3 × 5% = 7.7% + 1.5% = <b>9.2%</b></p><p>Vestnett: D/E = 0.25 means D/V = 0.25/1.25 = 0.2 and E/V = 0.8:<br>r<sub>U</sub> = 0.8 × 10% + 0.2 × 4% = 8% + 0.8% = <b>8.8%</b></p><p><b>Step 2. Average.</b> r<sub>U</sub> = (9.2% + 8.8%)/2 = <b>9%</b></p><p><b>Step 3. Asset beta.</b> β<sub>U</sub> = (r<sub>U</sub> − r<sub>f</sub>)/(E[R<sub>Mkt</sub>] − r<sub>f</sub>) = (9% − 4%)/5% = <b>1</b></p><p>Through betas the answer is the same: Nordkabel β<sub>E</sub> = 1.4 and β<sub>D</sub> = 0.2 give β<sub>U</sub> = 1.04; Vestnett β<sub>E</sub> = 1.2 and β<sub>D</sub> = 0 give 0.96; the average is 1 ✓.</p>",
+          "criteria": [
+            "Unlevers each comparable with the pre-tax WACC: 9.2% and 8.8%.",
+            "Converts Vestnett's D/E = 0.25 into D/V = 0.2. Using 0.25 as the weight is the standard slip.",
+            "r_U = 9% and β_U = 1.",
+            "No (1 − τ) in the unlevering: the comparables keep D/V constant (course convention). Averaging the comparables' r_E (10.5%) instead of their r_U is wrong."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>What would Lofotkabel be worth if it were all-equity financed?</p>",
+          "solution": "<p><b>Step 1. Free cash flow.</b> FCF = EBIT × (1 − τ<sub>c</sub>) = 500 × 0.78 = <b>390</b>. Capital expenditure equals depreciation and working capital is constant, so nothing else enters. Interest is not deducted: FCF belongs to all investors.</p><p><b>Step 2. Growing perpetuity at r<sub>U</sub>.</b><br>V<sup>U</sup> = 390/(9% − 2.5%) = 390/0.065 = <b>NOK 6,000 million</b></p>",
+          "criteria": [
+            "FCF = 500 × 0.78 = 390. Deducting interest first (304.2) mixes financing into the FCF and is the error.",
+            "Growing perpetuity at r_U: V^U = 390/(9% − 2.5%) = 6,000.",
+            "Uses r_U, not a WACC: this is the value of the firm without debt."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>Find next year's interest and the present value of the interest tax shields. Which rate do you discount them at and why?</p>",
+          "solution": "<p><b>Step 1. Next year's shield.</b> Interest = 5.5% × 2,000 = <b>110</b>, so TS<sub>1</sub> = 22% × 110 = <b>24.2</b>. The debt grows by 2.5% a year, so the interest and the shield grow by 2.5% as well.</p><p><b>Step 2. The rate.</b> Lofotkabel keeps D/E constant, so the amount of debt (and with it the tax shield) moves up and down with the value of the firm. The shield therefore has the risk of the firm's assets and is discounted at <b>r<sub>U</sub> = 9%</b>, not at r<sub>D</sub>. (r<sub>D</sub> would be right only for a debt level fixed in advance.)</p><p>PV(TS) = 24.2/(9% − 2.5%) = <b>372.3077</b></p>",
+          "criteria": [
+            "Interest = 5.5% × 2,000 = 110 on today's debt; TS_1 = 24.2.",
+            "The shield grows at 2.5% with the debt and is valued as a growing perpetuity.",
+            "Discounts at r_U = 9% and says why: constant D/E makes the debt (and so the shield) move with firm value. Discounting at r_D gives 806.6667 and is the classic error.",
+            "PV(TS) = 372.3077."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 3,
+          "body": "<p>Find Lofotkabel's levered value with the APV method, the value of its equity and its debt-to-value ratio.</p>",
+          "solution": "<p>V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 6,000 + 372.3077 = <b>6,372.3077</b><br>E = V<sup>L</sup> − D = 6,372.3077 − 2,000 = <b>4,372.3077</b><br>D/V = 2,000/6,372.3077 = <b>0.3139</b>, so E/V = 0.6861 and D/E = 2,000/4,372.3077 = 0.4574.</p><p>Because the firm keeps D/E constant and everything grows at the same rate, these ratios hold in every future year.</p>",
+          "criteria": [
+            "V^L = 6,000 + 372.3077 = 6,372.3077.",
+            "E = V^L − D = 4,372.3077.",
+            "D/V = 0.3139 (and D/E = 0.4574), the weights needed in e) and f)."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Find the after-tax WACC (hint: work backwards from the free cash flow and V<sup>L</sup>). Then use the WACC formula to find the cost of equity.</p>",
+          "solution": "<p><b>Step 1. WACC backwards.</b> V<sup>L</sup> = FCF/(r<sub>wacc</sub> − g), so<br>r<sub>wacc</sub> = FCF/V<sup>L</sup> + g = 390/6,372.3077 + 0.025000 = 0.061202 + 0.025000 = <b>0.086202 (8.6202%)</b></p><p><b>Step 2. Solve the WACC formula for r<sub>E</sub>.</b><br>r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ<sub>c</sub>)<br>0.086202 = 0.686142 r<sub>E</sub> + 0.313858 × 0.055 × 0.78 = 0.686142 r<sub>E</sub> + 0.013465<br>r<sub>E</sub> = (0.086202 − 0.013465)/0.686142 = <b>0.106010 (10.6010%)</b></p><p><b>Check.</b> MM II gives r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) = 9% + 0.457424 × (9% − 5.5%) = 10.6010% ✓. This check is real: if the shields had been discounted at r<sub>D</sub> in c), the WACC route would give 9.8689% and MM II 10.4563%.</p>",
+          "criteria": [
+            "r_wacc = 390/6,372.3077 + 2.5% = 8.6202%. Forgetting to add g is the trap of the backwards route.",
+            "r_E from the WACC formula with (1 − τ) on r_D only: 10.6010%.",
+            "Uses the weights from d): E/V = 0.6861, D/V = 0.3139.",
+            "(bonus) MM II gives the same 10.6010%, which confirms that the shields were discounted at the right rate."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 4,
+          "body": "<p>Find the equity and debt betas and show that their weighted average equals the asset beta. Briefly explain why r<sub>wacc</sub> is lower than r<sub>U</sub>.</p>",
+          "solution": "<p><b>Step 1. Betas from CAPM.</b><br>β<sub>D</sub> = (5.5% − 4%)/5% = <b>0.3</b> (the debt is risky: r<sub>D</sub> &gt; r<sub>f</sub>)<br>β<sub>E</sub> = (10.6010% − 4%)/5% = <b>1.3202</b></p><p><b>Step 2. The weighted average.</b> (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub> = 0.6861 × 1.3202 + 0.3139 × 0.3 = 0.9058 + 0.0942 = <b>1.0000</b> = β<sub>U</sub> ✓. This is the same test as the MM II check in e), in beta form: it fails in exactly the same cases (with the shields discounted at r<sub>D</sub> the weighted betas sum to 0.9170) and adds no new information. Setting β<sub>D</sub> = 0 would also break it.</p><p><b>Why r<sub>wacc</sub> &lt; r<sub>U</sub>.</b> r<sub>U</sub> is the required return on the assets and ignores how they are financed. Interest is tax deductible, so every krone of interest saves τ<sub>c</sub> in tax; the WACC method builds that subsidy into the discount rate instead of adding it as a cash flow: r<sub>wacc</sub> = r<sub>U</sub> − (D/V)τ<sub>c</sub>r<sub>D</sub> = 9% − 0.3139 × 0.22 × 0.055 = 8.6202% ✓.</p>",
+          "criteria": [
+            "β_D = (5.5% − 4%)/5% = 0.3, not 0: the debt is risky.",
+            "β_E = 1.3202 from r_E = 10.6010%.",
+            "Weighted sum 0.6861 × 1.3202 + 0.3139 × 0.3 = 1.0000 = β_U.",
+            "Explains r_wacc < r_U: the tax deductibility of interest lowers the after-tax cost of debt, so the tax shield sits in the discount rate; r_U ignores financing.",
+            "(bonus) r_wacc = r_U − (D/V)τ r_D = 8.6202% as a cross-check."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Real Options",
+      "points": 20,
+      "topic": "Real options, risk-neutral valuation",
+      "chapters": [
+        22,
+        25
+      ],
+      "body": "<p>Your licence to a small oil field expires after next year. You can extract all the oil now or next year. The quick method extracts 3 million barrels at USD 40 per barrel; the careful method extracts 5 million barrels at USD 55 per barrel. The oil is sold at the spot price when extracted and the cost is paid at the same time.</p><p>Oil trades at USD 70 today and will rise by 25% or fall by 20% over the year. Analysts put the probability of a rise at 60%. Oil is a traded asset that costs nothing to hold and pays nothing. The risk-free rate is 5%. Recommended precision is 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 2,
+          "body": "<p>If you extract now, which method do you use? What is the field worth if you extract now?</p>",
+          "solution": "<p>Quick: 3 × (70 − 40) = <b>90</b>. Careful: 5 × (70 − 55) = <b>75</b> (USD million).</p><p><b>Use the quick method; the field is worth USD 90 million</b> if you extract now.</p>",
+          "criteria": [
+            "Quick 90, careful 75.",
+            "Chooses the quick method: USD 90 million.",
+            "Compares values, not volumes: the careful method extracts more barrels but is worth less at today's price."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Set up the binomial tree for the oil price. Find the value of each method (oil minus extraction cost) at each end-point.</p>",
+          "solution": "<p><b>The tree.</b> Today 70; next year 70 × 1.25 = <b>87.5</b> (up) or 70 × 0.8 = <b>56</b> (down).</p><table class=\"data\"><tr><th>End-point</th><th>Oil price</th><th>Quick method</th><th>Careful method</th></tr><tr><td>Up</td><td class=\"n\">87.5</td><td class=\"n\">3 × (87.5 − 40) = 142.5</td><td class=\"n\">5 × (87.5 − 55) = 162.5</td></tr><tr><td>Down</td><td class=\"n\">56</td><td class=\"n\">3 × (56 − 40) = 48</td><td class=\"n\">5 × (56 − 55) = 5</td></tr></table><p>The values are in USD million at t = 1.</p>",
+          "criteria": [
+            "Tree: 70 today; 87.5 up and 56 down (up 25%, down 20%, not symmetric in price).",
+            "Up: quick 142.5, careful 162.5.",
+            "Down: quick 48, careful 5."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>At which oil price are the two methods equally good? Which method is optimal at each end-point? Why does the careful method win at high prices?</p>",
+          "solution": "<p><b>Switching price.</b> 3(P − 40) = 5(P − 55) ⇒ 2P = 275 − 120 = 155 ⇒ <b>P* = USD 77.5</b></p><p><b>Optimal method.</b> Up: 87.5 &gt; 77.5, so the <b>careful method, 162.5</b>. Down: 56 &lt; 77.5, so the <b>quick method, 48</b>. Both are positive, so you extract in both states.</p><p><b>Why.</b> The careful method buys 2 million extra barrels for 155 million of extra extraction cost, a break-even price of 155/2 = 77.5 per extra barrel. Its value rises by 5 per dollar of oil price against 3 for the quick method, so the more oil is worth, the more the extra barrels pay. The payoff you will get next year, the better of the two methods (and never below 0), is therefore a convex function of the oil price: an option.</p>",
+          "criteria": [
+            "Sets the two values equal and solves: P* = (275 − 120)/2 = 77.5.",
+            "Up: careful (162.5). Down: quick (48).",
+            "Explains: the careful method has more barrels (higher exposure to the price) and a higher cost per barrel, so it wins only when the price is high enough.",
+            "(bonus) Noting that the best-of-two payoff is convex in the price, like an option."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 8,
+          "body": "<p>What is the present value today of extracting next year? Use the risk-neutral probability implied by the oil price. Verify with a portfolio of oil and risk-free bonds that replicates the payoff.</p>",
+          "solution": "<p><b>Step 1. The payoff to value.</b> From c), waiting pays C<sub>u</sub> = <b>162.5</b> in the up state (careful method) and C<sub>d</sub> = <b>48</b> in the down state (quick method), USD million at t = 1.</p><p><b>Step 2. The risk-neutral probability from the oil price.</b> Oil is the traded asset whose price drives the payoff, with S<sub>0</sub> = 70, S<sub>u</sub> = 87.5 and S<sub>d</sub> = 56:<br>ρ = [(1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>) = (1.05 × 70 − 56)/(87.5 − 56) = 17.5/31.5 = <b>0.5556</b>, so 1 − ρ = 0.4444.</p><p><b>Step 3. Value.</b><br>PV = [ρC<sub>u</sub> + (1 − ρ)C<sub>d</sub>]/(1 + r<sub>f</sub>) = [0.5556 × 162.5 + 0.4444 × 48]/1.05 = (90.2778 + 21.3333)/1.05 = 111.6111/1.05 = <b>USD 106.2963 million</b></p><p><b>Step 4. Replication.</b> Hold Δ million barrels of oil and invest B in the risk-free bond so that the portfolio pays C<sub>u</sub> and C<sub>d</sub>:<br>Δ = (C<sub>u</sub> − C<sub>d</sub>)/(S<sub>u</sub> − S<sub>d</sub>) = (162.5 − 48)/(87.5 − 56) = 114.5/31.5 = <b>3.6349</b> million barrels<br>B = (C<sub>d</sub> − ΔS<sub>d</sub>)/(1 + r<sub>f</sub>) = (48 − 3.6349 × 56)/1.05 = (48 − 203.5556)/1.05 = <b>−148.1481</b> (borrow 148.1481)<br>Cost today = ΔS<sub>0</sub> + B = 3.6349 × 70 − 148.1481 = 254.4444 − 148.1481 = <b>106.2963</b> ✓</p><p>The two routes are algebraically the same (ρ and the portfolio are built from the same three prices), so their agreement catches arithmetic slips only. The state-by-state check below confirms Δ and B.</p><p><b>Check.</b> Up: 3.6349 × 87.5 − 148.1481 × 1.05 = 318.0556 − 155.5556 = 162.5000 = C<sub>u</sub> ✓. Down: 203.5556 − 155.5556 = 48.0000 = C<sub>d</sub> ✓.</p>",
+          "criteria": [
+            "Uses the optimal payoff in each state: 162.5 up (careful) and 48 down (quick). Locking in the quick method in both states gives 95.7143.",
+            "ρ = (1.05 × 70 − 56)/(87.5 − 56) = 0.5556, from the oil price, not from the analysts' 60%.",
+            "PV = [0.5556 × 162.5 + 0.4444 × 48]/1.05 = 106.2963.",
+            "Replicating portfolio: Δ = 3.6349 million barrels and B = −148.1481, costing 106.2963, the same value.",
+            "This part carries 8 points: show the probability, the discounting and the portfolio. Either route alone with a full calculation earns most of the points; the verification is what completes it."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Do you extract now or wait? What is the option to wait worth? Explain why the analysts' 60% was not needed in d) and what goes wrong if you use it (2-3 sentences).</p>",
+          "solution": "<p><b>Wait.</b> Waiting is worth 106.2963 today against 90 from extracting now, so the option to wait is worth 106.2963 − 90 = <b>USD 16.2963 million</b>. Waiting lets you pick the method after you see the price; the flexibility is worth more than the cost of getting the cash a year later.</p><p><b>Why the real probability is not needed (2 sentences).</b> The payoff can be replicated with oil and bonds, so its price follows from the oil price of 70, which already reflects the market's view of the up and down moves and the risk premium on oil. Using the analysts' 60% with the risk-free rate gives (0.6 × 162.5 + 0.4 × 48)/1.05 = 111.1429, which is too high: oil's risk is systematic (its expected return is 7%, above 5%), so a real expectation cannot be discounted at r<sub>f</sub>.</p><p><b>Bonus thought (not required).</b> Even oil's own 7% gives 109.0654, still wrong, because the right to extract is a levered position in oil (long 3.6349 million barrels, borrowing 148.1481) with a required return of 9.7875%. No single rate can be read off in advance; only ρ gives the price directly.</p>",
+          "criteria": [
+            "Decision: wait; option to wait = 106.2963 − 90 = 16.2963.",
+            "Why 60% is not needed: the payoff is replicated with oil and bonds; the oil price already prices the risk, so no real probabilities or risk preferences enter.",
+            "What goes wrong: 60% with r_f gives 111.1429, too high, because oil's risk is systematic (expected return 7% > 5%).",
+            "(bonus) No single discount rate fixes the real-probability route: the option is a levered position in oil, with a required return of about 9.79%."
+          ]
+        }
+      ]
+    }
+  ]
+},
 ];
