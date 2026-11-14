@@ -321,7 +321,7 @@ Break-even nye investorer:
 x × [½(180 − 100) + ½ × 0] = 24  →  x = 24/40 = 60%
 
 Managerens payoff: 40% × 40 = 16 < 25</div>
-<p>Nei, manageren vil ikke investere. Med prosjektet blir gjelden risikofri (verdi 100 mot 75), så gjeldseierne får en gevinst på 25 mens prosjektet bare skaper 6. Aksjonærene taper differansen. Dette er debt overhang.</p>` },
+<p>Nei, manageren vil ikke investere. Med prosjektet får gjeldseierne 100 i boom og 80 i resesjon, så gjelden stiger fra 75 til <b>90 (+15)</b>, mens den gamle eieren faller fra 25 til <b>16 (−9)</b>. Summen er 15 − 9 = 6 = NPV. Gjelden blir ikke risikofri: 80 er fortsatt under pålydende 100. Kreditorene tar mer enn hele gevinsten, og aksjonærene betaler differansen. Dette er debt overhang.</p>` },
           { l: "c",
             q: `<p>Suppose the manager offers existing debt holders to renegotiate their current claim which has a face value of $100: He offers to replace the existing debt contract with a new contract that stipulates a lower face value of $80. Suppose that if the debt holders reject the offer, the old contract remains in place and the face value remains at $100. If the debt holders accept the offer, will the manager subsequently want to issue equity to undertake the investment project described in part b)? Will the debtholders agree to renegotiate?</p>`,
             hint: [

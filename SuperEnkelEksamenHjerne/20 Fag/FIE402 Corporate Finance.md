@@ -352,7 +352,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Studieplan | **25 moduler · 78 timer**, estimatene regnet av faktisk innhold |
 | Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **3 prøveeksamener** i Kurbatov-formatet (18 oppgaver, 68 deloppgaver) |
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
-| Flashcards | **268** forfattet + 80 auto-genererte formelkort |
+| Flashcards | **528**: 260 oppgavekort i 16 kategorier (forsiden en oppgavetype, baksiden svar og feller) og 268 begrepskort, pluss 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
 | Problem sets | **Problem Set 1–4** · 36 oppgaver · 144 delspørsmål med fire hint hver (PS4 er eksemplene i M&A-forelesningen, som Kurbatov kalte PS4) |
 | Sjangertrening | **10 stiger · 151 steg**, hver fra null til eksamensnivå, etter eksamensvekt (stige 10 er governance og verbale M&A-motiver) |
@@ -519,3 +519,26 @@ fri kontantstrøm, rente for brøkdel av år og gjeld som risikofri gjeld minus 
 gjeld telt to ganger: riktig $26,17), PS3 E6(a) 11,1 % (riktig 11,3 %), PS3 E7(c)
 pålydende 250 (riktig 402,6), lecture 10 s. 15 junior 34,94 % (riktig 35,94 %),
 lecture 12 s. 21 225,03 (riktig 225,003, p = 0,5884).
+
+## Persøk-oppsettet for Corp (14. november 2026)
+
+Magnus ba om det samme som hjalp i Persøk: mange prøveeksamener, oppgavekort og
+NotebookLM-kilder, med god tid.
+
+- **Prediksjonen** står i `docs/fie402-prediksjon.md`: format, sannsynlighet per tema,
+  rotasjon etter H2024 og H2025 og en plan for prove4–prove12 i tre runder. Hovedfunnet er
+  at Kurbatov bygger hver eksamensoppgave på et eget forelesningseksempel eller en
+  problem set-oppgave med nye tall og én vri; alle tolv oppgavene i H2024 og H2025 kan
+  spores.
+- **Oppgavekort:** 260 kort (`ok-*` i `window.EDU_DATA.flashcards`), generert av
+  `fag/fie402/_oppgavekort/del1_regn.py` og `del2_regn.py` og satt inn med blokkskript
+  som kan kjøres på nytt. `flashcardsMeta.order` legger de 16 oppgavekategoriene først og
+  begrepskortene sist. Begge halvdelene ble kontrollert uavhengig; ingen regnefeil, rundt
+  tjue rettinger av kilder, avrunding og uklare forsider.
+- **NotebookLM-kilder:** 14 filer, én per forelesning, på engelsk, i kursmappen
+  `NotebookLM-kilder/`. Kontrollert uavhengig; seks rettinger, blant annet IST i PS1 E9
+  (gevinsten er 27 mill., ikke 37).
+- **Prøveeksamener 4–12:** se `docs/fie402-proveeksamen-spek.md`, siste del.
+- Kontrollene fant også feil i appen: H2025 E5(d) verdsatte exit-programmet mot den
+  negative NPV-en (62 388); riktig mot det beste alternativet er 45 246. PS1 E6(b) sa at
+  gjelden blir risikofri; riktig er 75 → 90 og eieren 25 → 16.

@@ -133,9 +133,9 @@ board.pdf` s. 11, `PS1-E8.xls`): all gjeld på Nicole gir D = 70, E = 110 mot 10
 forhånd og er bra for eierne («necessary evil»). Inn i k9 (henvisning fra k13) og kj5.
 
 B8. **Skatteskjold på rentelån (bare renter, hovedstol ved forfall).** `lecture_3.pdf` s. 11–12,
-tavle s. 3: 100M i 10 år, τ = 35 %, r_f = 5 %: PV(TS) = 0.35·5·A(10; 5 %) = 13.51? (regn selv;
-kontrolløren oppga 35 × annuitetsfaktor = 270.26 for et annet beløp; sjekk kilden). Hovedstolen er
-ikke med. Inn i k7.
+tavle s. 3: renter på 100M i året i 10 år på et lån med hovedstol 2 000M, τ = 35 %, r_f = 5 %:
+PV(TS) = 35 × A(10; 5 %) = 35 × 7.7217 = 270.26M. Hovedstolen er ikke med. Inn i k7. (Rettet
+14.11: første utgave leste 100M som lånebeløpet.)
 
 B9. **EPS-feilslutningen ved rekapitalisering.** `lecture_2.pdf` s. 24: EPS 1 → 1.1, break-even
 EBIT: EBIT/10 = (EBIT − 1.2)/8 gir EBIT = 6. Tutorial E1 Yerba (`tutorial session 1 board.pdf`

@@ -1,0 +1,919 @@
+[
+ {
+  "id": "ok-opsjoner-01",
+  "ch": 21,
+  "deck": "opsjoner og paritet",
+  "front": "You buy a European put with strike 64 for 5.20. What are your payoff and profit at expiry if the share ends at 58? If it ends at 70? Where is break-even?",
+  "back": "<b>S = 58: payoff 6.00, profit 0.80. S = 70: payoff 0, profit −5.20. Break-even at 58.80</b><br>1. Put payoff = max(K − S<sub>T</sub>, 0): max(64 − 58, 0) = 6.00 and max(64 − 70, 0) = 0.<br>2. Profit = payoff − premium: 6.00 − 5.20 = 0.80 and 0 − 5.20 = −5.20.<br>3. Break-even: K − premium = 64 − 5.20 = 58.80.<br>Trap: −6.00 at S = 70 (exercising a put that is out of the money); 6.00 reported as the profit (premium forgotten); 69.20 as break-even (K + premium is the call holder's rule).<br>(lecture 9 p. 6, manual 21.2)"
+ },
+ {
+  "id": "ok-opsjoner-02",
+  "ch": 21,
+  "deck": "opsjoner og paritet",
+  "front": "You write (sell) a European call with strike 100 for a premium of 8. What is your profit at expiry if the share ends at 95, 104 or 120? At which share price do you break even?",
+  "back": "<b>Profit +8.00, +4.00 and −12.00. Break-even at 108</b><br>1. The writer pays max(S<sub>T</sub> − K, 0) to the holder and keeps the premium: profit = 8 − max(S<sub>T</sub> − 100, 0).<br>2. S<sub>T</sub> = 95: not exercised, profit 8.00. S<sub>T</sub> = 104: 8 − 4 = 4.00. S<sub>T</sub> = 120: 8 − 20 = −12.00.<br>3. Break-even: 8 − (S<sub>T</sub> − 100) = 0 gives S<sub>T</sub> = 108. Above it the loss has no ceiling.<br>Trap: −4.00 at 104 (that is the holder's profit, 4 − 8); 92 as break-even (K − premium is the put holder's rule).<br>(lecture 9 p. 6, manual 21.1)"
+ },
+ {
+  "id": "ok-opsjoner-03",
+  "ch": 21,
+  "deck": "opsjoner og paritet",
+  "front": "A share pays no dividends and trades at 150. The one-year risk-free rate is 5%. A one-year European call with strike 126 is quoted at 27.50. Is the quote possible? If not, what do you do?",
+  "back": "<b>No. The call must cost at least S − PV(K) = 30.00. Buy the call, short the share, lend 120.00: +2.50 today</b><br>1. PV(K) = 126/1.05 = 120.00. Bounds for a European call on a share without dividends: max(S − PV(K), 0) ≤ C ≤ S, so 30.00 ≤ C ≤ 150.00.<br>2. 27.50 is below 30.00: the call is too cheap.<br>3. Short the share (+150.00), buy the call (−27.50), lend 120.00 at 5%. Cash today = +2.50.<br>4. At expiry: 126 from the loan + max(S<sub>T</sub> − 126, 0) from the call − S<sub>T</sub> to close the short = max(126 − S<sub>T</sub>, 0) ≥ 0. You never lose.<br>Trap: S − K = 24.00 used as the lower bound (strike not discounted), which wrongly lets the quote pass. Checking only C ≤ S = 150 catches nothing here.<br>(manual 21.4)"
+ },
+ {
+  "id": "ok-opsjoner-04",
+  "ch": 21,
+  "deck": "opsjoner og paritet",
+  "front": "Harbin trades at 20. A one-year European call with strike 25 is worth 1.19 and the risk-free rate is 5%. What is the European put with the same strike and maturity worth?",
+  "back": "<b>P = C − S + PV(K) = 4.9995 ≈ 5.00</b><br>1. PV(K) = 25/1.05 = 23.8095.<br>2. P = 1.19 − 20 + 23.8095 = 4.9995 ≈ 5.00.<br>3. The same put priced in the PS3 tree (30 or 18, ρ = 0.25) gives 0.75 × 7/1.05 = 5.0000 ✓ The 0.0005 gap is the call rounded to 1.19.<br>Trap: 6.19 (K used instead of PV(K)). Parity needs European options with the same K and T on a share without dividends: say so in half a sentence.<br>(PS3 E4(e), manual 21.5)"
+ },
+ {
+  "id": "ok-opsjoner-05",
+  "ch": 21,
+  "deck": "opsjoner og paritet",
+  "front": "A share trades at 75 and pays no dividends. A two-year European put with strike 80 costs 8.50. The risk-free rate is 4% a year. What is the two-year European call with the same strike worth?",
+  "back": "<b>C = P + S − PV(K) = 9.5355</b><br>1. Discount the strike over two years: 1.04<sup>2</sup> = 1.0816, PV(K) = 80/1.0816 = 73.9645.<br>2. C = 8.50 + 75 − 73.9645 = 9.5355.<br>3. Check the bounds: max(S − PV(K), 0) = 1.0355 ≤ C ≤ 75 ✓<br>Trap: 6.5769 (strike discounted one year only); 3.5000 (strike not discounted). The exponent is T, always.<br>(manual 21.6)"
+ },
+ {
+  "id": "ok-opsjoner-06",
+  "ch": 21,
+  "deck": "opsjoner og paritet",
+  "front": "A share trades at 190. Two-year European options with strike 210 trade at 13.60 (call) and 23.60 (put). What annual risk-free rate does the option market imply?",
+  "back": "<b>r<sub>f</sub> = 2.4695% a year</b><br>1. Parity solved for the bond: PV(K) = S + P − C = 190 + 23.60 − 13.60 = 200.00.<br>2. Annualise over two years: r<sub>f</sub> = (210/200.00)<sup>1/2</sup> − 1 = 2.4695%.<br>Trap: 5.0000% (210/200 − 1, the two-year return reported as an annual rate); 8.0123% (PV(K) = S + C − P, call and put swapped).<br>(manual 21.6)"
+ },
+ {
+  "id": "ok-opsjoner-07",
+  "ch": 21,
+  "deck": "opsjoner og paritet",
+  "front": "A share trades at 190 and rf is 5%. One-year European options with strike 210 trade at 13.60 (call) and 23.00 (put). Parity says the put should be 23.60. What trade earns an arbitrage profit and how much?",
+  "back": "<b>Buy the share and the put, write the call, borrow 200: +0.60 today, zero at expiry</b><br>1. Fiduciary call: C + PV(K) = 13.60 + 200.00 = 213.60. Protective put: P + S = 23.00 + 190.00 = 213.00. Both pay max(S<sub>T</sub>, 210).<br>2. Buy the cheap side (share + put), sell the dear side (write the call, borrow PV(K) = 200).<br>3. Today: −190 − 23.00 + 13.60 + 200 = +0.60. At expiry: max(S<sub>T</sub>, 210) − max(S<sub>T</sub> − 210, 0) − 210 = 0 in every state.<br>Trap: Buying the expensive side gives −0.60 today. Test the direction: the put is too cheap, so you must be buying the put.<br>(manual 21.6)"
+ },
+ {
+  "id": "ok-opsjoner-08",
+  "ch": 21,
+  "deck": "opsjoner og paritet",
+  "front": "A share trades at 60. A one-year European call and a one-year European put both have strike 66 and the risk-free rate is 10%. Without any model, which option is dearer?",
+  "back": "<b>Neither. C − P = S − PV(K) = 60 − 66/1.1 = 0, so they cost the same</b><br>1. Parity: C − P = S − PV(K).<br>2. PV(K) = 66/1.10 = 60.00 = S, so C − P = 0.<br>3. This holds whatever the volatility and whatever investors expect the share to do.<br>Trap: 'The call is dearer because shares drift up.' Expected returns and beliefs do not enter parity; only S against PV(K) decides the sign.<br>(PS3 E1(g), manual 21.6)"
+ },
+ {
+  "id": "ok-opsjoner-09",
+  "ch": 21,
+  "deck": "opsjoner og paritet",
+  "front": "Kurbatov's slide asks: put-call parity C + PV(K) = P + S only holds for European options. Why?",
+  "back": "<b>The two portfolios have the same payoff only on the expiry date. Early exercise breaks the match</b><br>1. Parity compares two portfolios that both pay max(S<sub>T</sub>, K) at T. No arbitrage then forces equal prices today.<br>2. An American option can be exercised before T. An American put deep in the money may be exercised early, so the put side can pay before T while the call side does not.<br>3. The equality then becomes a band: for a share without dividends, S − K ≤ C − P ≤ S − PV(K).<br>Trap: 'American options cost more, so the formula is off by a premium.' The point is that the replication only holds at one date.<br>(lecture 9 p. 9)"
+ },
+ {
+  "id": "ok-opsjoner-10",
+  "ch": 23,
+  "deck": "opsjoner og paritet",
+  "front": "The volatility of a share rises from 35% to 45%, all else equal. What happens to a European call and a European put on it? Why? (No calculation)",
+  "back": "<b>Both become more valuable, by the same amount</b><br>1. The payoff is one-sided: a call pays max(S<sub>T</sub> − K, 0), a put max(K − S<sub>T</sub>, 0). Losses stop at zero.<br>2. More dispersion adds payoff in the tail where the option pays and costs nothing in the tail where it already pays zero.<br>3. Parity: C − P = S − PV(K) contains no σ, so the call and the put must rise by exactly the same amount.<br>4. Extreme case: with σ = 0 and S below PV(K) the share never reaches the strike and the call is worth zero.<br>Trap: 'A riskier share is worth less, so the call falls' (confuses the option with the share's required return); 'the put falls because the call rises' (parity rules it out).<br>(HA2 E3(b), H2025 E1, manual 23.4)"
+ },
+ {
+  "id": "ok-opsjoner-11",
+  "ch": 23,
+  "deck": "opsjoner og paritet",
+  "front": "Black-Scholes intuition, no numbers: what does a higher share price, a higher strike and a higher risk-free rate each do to a European call and to a European put?",
+  "back": "<b>S up: call up, put down. K up: call down, put up. r<sub>f</sub> up: call up, put down</b><br>1. S: the call is the right to buy the share, so a dearer share makes it worth more; the right to sell it is worth less.<br>2. K: the call holder pays K, the put holder receives K.<br>3. r<sub>f</sub>: K changes hands at expiry. A higher rate lowers PV(K), which helps the one who pays it (call) and hurts the one who receives it (put).<br>4. Check each row with parity: C − P = S − PV(K).<br>Trap: 'A higher r<sub>f</sub> lowers the call because the payoff is discounted harder.' The PV(K) effect dominates and the call rises.<br>(lecture 9 p. 19, manual 23.3)"
+ },
+ {
+  "id": "ok-opsjoner-12",
+  "ch": 23,
+  "deck": "opsjoner og paritet",
+  "front": "No numbers: what does a longer time to expiry do to a European call and to a European put? And a dividend paid before expiry?",
+  "back": "<b>Longer T: call up; European put ambiguous (American put up). Dividend: call down, put up</b><br>1. Longer T gives more dispersion and a lower PV(K). Both help a call.<br>2. For a European put they pull against each other: more dispersion helps, but K arrives later. A deep in-the-money put at a high rate can lose value with T.<br>3. A dividend: the share drops by the dividend on the ex-date and the option holder gets none of it. Lower S means call down, put up.<br>Trap: 'Every option is worth more with more time.' True for calls and American options, not always for a European put.<br>(PS3 E3(e)(f), manual 23.3)"
+ },
+ {
+  "id": "ok-opsjoner-13",
+  "ch": 23,
+  "deck": "opsjoner og paritet",
+  "front": "A share trades at 100. A one-year call with strike 110 trades at 6.04, which implies σ = 20%. A friend who knows the firm well says the true volatility is 15%. How does the true volatility affect the call price and what should you do? (4 to 6 sentences, no calculation)",
+  "back": "<b>The fair price is lower (about 4). The call is overpriced: do not buy it; better, write it and delta-hedge</b><br>1. Option value rises with volatility: the payoff max(S<sub>T</sub> − K, 0) is one-sided, so a wider distribution adds upside without adding downside.<br>2. The 6.04 is the Black-Scholes value at σ = 20%: that is what an implied volatility of 20% means.<br>3. At the true 15% the fair value is lower, about 4, so the call trades above its value.<br>4. Minimum answer: do not buy. Full answer: write (sell) the call, since you sell for 6.04 something worth about 4. Buy Δ shares as well so the bet is on volatility rather than on the direction of the share.<br>5. It is not riskless arbitrage: it is a bet that your friend's estimate beats the market's.<br>Trap: 'Lower volatility means less risk, so the call is worth more' (wrong sign); answering only the first question, when the exercise said 'Please be very clear and answer both questions'; computing N(d<sub>1</sub>), which Kurbatov said will not be asked.<br>(H2025 E1, 12 points)"
+ },
+ {
+  "id": "ok-opsjoner-14",
+  "ch": 23,
+  "deck": "opsjoner og paritet",
+  "front": "Kurbatov's intuition question: if a call and a put on a share without dividends were American instead of European, would their prices go up or down?",
+  "back": "<b>Call: unchanged. Put: at least as high, usually higher</b><br>1. Alive, a call is worth at least S − PV(K), which is more than the S − K you get by exercising now. Early exercise is never optimal, so the extra right is worth nothing.<br>2. A deep in-the-money put pays K − S now. Taking K today beats waiting for at most K later, so early exercise can pay and the right has value.<br>3. With dividends a call may be exercised just before the ex-date, so an American call on a dividend payer can be worth more.<br>Trap: 'Both rise because an extra right always adds value' (it adds nothing to this call); 'parity keeps both unchanged' (parity only holds for European options).<br>(lecture 14 recording, manual 23.3)"
+ },
+ {
+  "id": "ok-opsjoner-15",
+  "ch": 23,
+  "deck": "opsjoner og paritet",
+  "front": "What is implied volatility? How does a trader use it to decide whether to buy or sell an option?",
+  "back": "<b>The σ that makes the Black-Scholes price equal the market price. Compare it with your own estimate</b><br>1. Every Black-Scholes input except σ is observable (S, K, T, r<sub>f</sub>). Solve for the σ that reproduces the quoted price.<br>2. Your σ below the implied σ: the option is overpriced, so sell it. Your σ above: it is cheap, so buy it.<br>3. σ is the only input on which traders really disagree, which is why option traders are called volatility traders.<br>Trap: Treating implied volatility as historical volatility. Historical σ describes the past; implied σ is the market's price of future volatility.<br>(lecture 9 p. 22, manual 23.5)"
+ },
+ {
+  "id": "ok-opsjoner-16",
+  "ch": 21,
+  "deck": "opsjoner og paritet",
+  "front": "You run an airline. Oil costs 50 a barrel and you fear it will rise to 70. Which option position insures you? What does the insurance cost?",
+  "back": "<b>Buy call options on oil with strike 50. The cost is the premium</b><br>1. If oil rises to 70, exercise: you pay 50, so the fuel cost is capped at 50 plus the premium.<br>2. If oil falls, let the calls expire and buy cheap oil in the market: you keep the upside.<br>3. The premium is the price of the insurance and is paid whether or not oil rises.<br>Trap: Buying puts (they insure an oil producer against a fall); writing calls (you collect a premium but lose exactly when oil rises).<br>(lecture 9 p. 7)"
+ },
+ {
+  "id": "ok-binomial-01",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "Kurbatov's own exercise: the risk-free rate is 5%, a share trades at 100 and will be worth 120 or 60 in one year. Find the risk-neutral probability ρ, then price a call and a put with strike 100.",
+  "back": "<b>ρ = 0.75. Call 14.2857, put 9.5238</b><br>1. ρ = [(1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>) = (105 − 60)/(120 − 60) = 45/60 = 0.75.<br>2. Arithmetic check (an identity: it only confirms the sums): (0.75 × 120 + 0.25 × 60)/1.05 = 105/1.05 = 100 ✓<br>3. Call pays 20 or 0: C = 0.75 × 20/1.05 = 14.2857. Put pays 0 or 40: P = 0.25 × 40/1.05 = 9.5238.<br>4. Parity: C − P = 4.7619 = 100 − 100/1.05 ✓<br>Trap: 0.6667 (S<sub>0</sub> used instead of (1 + r<sub>f</sub>)S<sub>0</sub>); discounting the option at a risky rate. ρ already carries the risk adjustment, so you discount at r<sub>f</sub>.<br>(lecture 14 recording, manual 22.3)"
+ },
+ {
+  "id": "ok-binomial-02",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "A share is worth 100 today and will be worth 160 or 80 in one year. The risk-free rate is 10%. Replicate a one-year European call with strike 105: how many shares and how much borrowing? What is the call worth?",
+  "back": "<b>Buy 0.6875 shares, borrow 50.00: C = 18.75</b><br>1. Payoffs: C<sub>u</sub> = 160 − 105 = 55, C<sub>d</sub> = 0.<br>2. Shares: N = (C<sub>u</sub> − C<sub>d</sub>)/(S<sub>u</sub> − S<sub>d</sub>) = 55/80 = 0.6875.<br>3. Loan: X = (C<sub>d</sub> − N·S<sub>d</sub>)/(1 + r<sub>f</sub>) = (0 − 80 × 0.6875)/1.1 = −50.00, so you borrow 50.00.<br>4. C<sub>0</sub> = N·S<sub>0</sub> + X = 68.75 − 50.00 = 18.75.<br>Trap: 13.75 (loan not divided by 1.1); X = +50 (lending). A replicated call is always shares bought partly with borrowed money: 0 &lt; N &lt; 1 and X &lt; 0.<br>(lecture 9 p. 10 to 11, manual 22.2)"
+ },
+ {
+  "id": "ok-binomial-03",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "Stiawmot trades at 60 and will rise 25% or fall 20% in a year. The risk-free rate is 10%. Replicate a one-year European put with strike 66. What is your portfolio and what is the put worth?",
+  "back": "<b>Short 2/3 share and lend 45.45: P = 5.45</b><br>1. Tree: 75 or 48. Put payoffs: P<sub>u</sub> = max(66 − 75, 0) = 0, P<sub>d</sub> = 66 − 48 = 18.<br>2. Δ = (0 − 18)/(75 − 48) = −2/3.<br>3. B = (P<sub>u</sub> − Δ·S<sub>u</sub>)/1.1 = (0 + 50)/1.1 = 45.45: you lend.<br>4. P = 60 × (−2/3) + 45.45 = 5.45. Check with ρ = (66 − 48)/27 = 2/3: P = (1/3) × 18/1.1 = 5.45 ✓<br>Trap: Δ = +2/3 (call logic carried over); B = 50 without dividing by 1.1, which gives P = 10.00.<br>(PS3 E1(b) to (f))"
+ },
+ {
+  "id": "ok-binomial-04",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "Harbin trades at 20. In one year the price is equally likely to be 30 or 18. The risk-free rate is 5%. What is a one-year European call with strike 25 worth?",
+  "back": "<b>C = 1.1905</b><br>1. ρ = (1.05 × 20 − 18)/(30 − 18) = 3/12 = 0.25.<br>2. Payoffs: C<sub>u</sub> = 5, C<sub>d</sub> = 0.<br>3. C = (0.25 × 5 + 0.75 × 0)/1.05 = 1.1905. The real 0.5 plays no role.<br>Trap: 2.3810 (the real 0.5 discounted at r<sub>f</sub>); 2.0833 (the real 0.5 discounted at the share's 20% expected return; the call is riskier than the share, so even 20% is too low for it).<br>(PS3 E4(b)(c), manual 22.3)"
+ },
+ {
+  "id": "ok-binomial-05",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "Harbin again: the share is worth 20 and will be 30 or 18 with equal real probability; rf is 5%. A call with strike 25 is worth 1.19 and a put with strike 25 is worth 5.00. What are the expected returns on the share, the call and the put?",
+  "back": "<b>Share 20%, call 110%, put −30%</b><br>1. Share: (0.5 × 30 + 0.5 × 18)/20 − 1 = 24/20 − 1 = 20%.<br>2. Call: real expected payoff 0.5 × 5 = 2.5, so 2.5/1.1905 − 1 = 110%. A call is a levered long position: high beta.<br>3. Put: real expected payoff 0.5 × 7 = 3.5, so 3.5/5.00 − 1 = −30%. A put is insurance against a fall: negative beta, expected return below r<sub>f</sub>.<br>Trap: Expecting the put to earn at least r<sub>f</sub>. Real probabilities are right here because the question asks for expected returns, not prices.<br>(PS3 E4(a)(d)(f))"
+ },
+ {
+  "id": "ok-binomial-06",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "Delinquent Joe: in one year the share is worth 290 or 170 with equal probability. Its beta is 0.75, rf is 10.5% and the market's expected return is 16.5%. Find today's share price, then replicate and price a one-year call with strike 212.",
+  "back": "<b>S<sub>0</sub> = 200.00. Buy 0.65 shares and borrow 100.00: C = 30.00</b><br>1. CAPM: r = 10.5% + 0.75 × (16.5% − 10.5%) = 15.0%.<br>2. S<sub>0</sub> = (0.5 × 290 + 0.5 × 170)/1.15 = 230/1.15 = 200.00.<br>3. Call payoffs 78 and 0: Δ = 78/120 = 0.65. B = (0 − 0.65 × 170)/1.105 = −100.00.<br>4. C = 0.65 × 200 − 100.00 = 30.00.<br>Trap: S<sub>0</sub> = 230/1.105 = 208.14 (the share discounted at r<sub>f</sub>; its beta is 0.75, so its risk is priced and the CAPM rate applies). Every later number inherits the slip.<br>(PS3 E2(a) to (c))"
+ },
+ {
+  "id": "ok-binomial-07",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "Delinquent Joe: the call (strike 212) is worth 30 and is replicated by 0.65 shares at 200 and a loan of 100. The share's beta is 0.75, rf 10.5%, market premium 6%. What are the call's beta and expected return? Show that discounting its expected payoff gives 30.",
+  "back": "<b>β<sub>C</sub> = 3.25, r<sub>C</sub> = 30%</b><br>1. Beta of a portfolio = value-weighted betas: β<sub>C</sub> = (0.65 × 200/30) × 0.75 + (−100/30) × 0 = 4.3333 × 0.75 = 3.25.<br>2. r<sub>C</sub> = 10.5% + 3.25 × 6% = 30%.<br>3. Expected payoff with real probabilities: 0.5 × 78 = 39. 39/1.30 = 30 ✓<br>Trap: 33.91 (39 discounted at the share's 15%). Each claim needs its own rate. The call is a levered position in the share.<br>(PS3 E2(d)(e))"
+ },
+ {
+  "id": "ok-binomial-08",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "A share trades at 45 and will be worth 55 or 20 in one year. The risk-free rate is 10%. What state probabilities does the market imply? What are a call and a put with strike 45 worth?",
+  "back": "<b>ρ = 0.8429 (up), 0.1571 (down). Call 7.6623, put 3.5714</b><br>1. ρ × 55 + (1 − ρ) × 20 = 45 × 1.10 = 49.5, so ρ = 29.5/35 = 0.842857.<br>2. Call pays 10 or 0: C = 0.842857 × 10/1.10 = 7.6623.<br>3. Put by parity: P = 45/1.10 + 7.6623 − 45 = 3.5714. Directly: 0.157143 × 25/1.10 = 3.5714 ✓<br>Trap: The real probability guessed at 0.5: C = 4.5455. Rounding ρ to 0.8429 first gives 7.6627 and 3.5718 (the key's figures); carry six decimals so parity closes exactly.<br>(Home Assignment 2 E2)"
+ },
+ {
+  "id": "ok-binomial-09",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "A share trades at 100. Each year it rises by the factor 1.2 or falls by 0.9. The risk-free rate is 5% a year. What is a two-year European call with strike 100 worth?",
+  "back": "<b>C<sub>0</sub> = 13.6054</b><br>1. ρ = (1.05 − 0.9)/(1.2 − 0.9) = 0.5000, the same at every node.<br>2. Final prices: 144, 108 and 81. Payoffs 44, 8 and 0.<br>3. Date 1: C<sub>u</sub> = (0.5 × 44 + 0.5 × 8)/1.05 = 24.7619; C<sub>d</sub> = 0.5 × 8/1.05 = 3.8095.<br>4. Today: C<sub>0</sub> = (0.5 × 24.7619 + 0.5 × 3.8095)/1.05 = 13.6054. Shortcut: (0.25 × 44 + 0.50 × 8)/1.05<sup>2</sup> gives the same.<br>Trap: 11.7914 (the middle node given weight 0.25: it can be reached two ways, so it gets 2ρ(1 − ρ) = 0.50); 14.2857 (two years discounted as one).<br>(manual 22.4)"
+ },
+ {
+  "id": "ok-binomial-10",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "A share trades at 100 and each year rises by the factor 1.25 or falls by 0.8. The risk-free rate is 4% a year. Price a two-year European call with strike 70 the fast way.",
+  "back": "<b>C = 36.4892: price the put first, then use parity</b><br>1. ρ = (1.04 − 0.80)/(1.25 − 0.80) = 0.5333. Final prices 156.25, 100 and 64.<br>2. The call pays at two nodes (86.25 and 30), the put with strike 70 only at one: 70 − 64 = 6. The put is easier.<br>3. P = (1 − ρ)<sup>2</sup> × 6/1.04<sup>2</sup> = 0.2178 × 6/1.0816 = 1.2081.<br>4. C = P + S − PV(K) = 1.2081 + 100 − 70/1.0816 = 1.2081 + 100 − 64.7189 = 36.4892. Direct check gives the same.<br>Trap: Pricing the call node by node and losing time, or using parity with PV(K) over one year instead of two. Kurbatov: price first the call or the put, whichever is easier.<br>(lecture 14 recording, manual 22.4)"
+ },
+ {
+  "id": "ok-binomial-11",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "Nobody quotes the share, but everyone agrees it will be worth 150 or 80 in one year. A one-year European call with strike 100 trades at 20. The risk-free rate is 5%. What is a one-year European put with strike 120 worth?",
+  "back": "<b>P = 22.0952</b><br>1. The call pays 50 or 0. Its price pins down ρ: 20 = ρ × 50/1.05.<br>2. ρ = 1.05 × 20/50 = 0.4200.<br>3. The put with strike 120 pays 0 or 40: P = 0.5800 × 40/1.05 = 22.0952.<br>4. The same ρ implies a share price of (0.4200 × 150 + 0.5800 × 80)/1.05 = 104.1905.<br>Trap: 19.0476 (ρ guessed at 0.5 because no share price is given). Any traded price on the tree carries the same information as the share price.<br>(manual 22.5, sjangre opsjoner-10)"
+ },
+ {
+  "id": "ok-binomial-12",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "A share trades at 430 and in six months will be worth 573.33 or 322.50. The risk-free rate is 1.5% a year. What is a six-month European call with strike 430 worth?",
+  "back": "<b>ρ = 0.4414, C = 62.79</b><br>1. Half a year: growth factor (1.015)<sup>0.5</sup> = 1.007472, not 1.015.<br>2. ρ = (1.007472 × 430 − 322.50)/(573.33 − 322.50) = 110.7130/250.83 = 0.4414.<br>3. C = 0.4414 × 143.33/1.007472 = 62.79. The slide shows 0.4412 and 62.76 after rounding.<br>Trap: A full year's 1.015 for six months: ρ = 0.4543 and C = 64.15. Rates for part of a year are compounded: (1 + r)<sup>T</sup>.<br>(lecture 9 p. 17)"
+ },
+ {
+  "id": "ok-binomial-13",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "A share is worth 100 and will be worth 160 or 80 in one year; rf is 10%. A one-year call with strike 105 trades at 20, but replication (0.6875 shares and a loan of 50) gives 18.75. What do you do?",
+  "back": "<b>Write the call at 20, buy 0.6875 shares and borrow 50: +1.25 today, nothing owed later</b><br>1. The replicating portfolio costs 0.6875 × 100 − 50 = 18.75 and pays exactly what the call pays in both states.<br>2. Sell the dear asset (the call at 20), buy the cheap one (the portfolio at 18.75).<br>3. Up: the shares are worth 110, you repay 55 and pay 55 on the call: 0. Down: shares 55, repay 55, call 0: 0.<br>4. Profit today: 20 − 18.75 = 1.25 with no risk.<br>Trap: Buying the call: it trades above its replicating cost, so it is the asset to sell. Forgetting to borrow leaves you exposed to the share.<br>(manual 22.2)"
+ },
+ {
+  "id": "ok-binomial-14",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "Explain in two or three sentences why the real probabilities of the up and down states do not enter the price of an option in the binomial model.",
+  "back": "<b>The option can be copied with the share and a risk-free loan, so its price follows from their prices by no arbitrage</b><br>1. Δ shares plus a loan pay exactly what the option pays in both states, whatever the probabilities are.<br>2. Two assets with the same payoffs must cost the same, so C = Δ·S<sub>0</sub> + B. The real probabilities and investors' risk aversion are already inside S<sub>0</sub>.<br>3. ρ is the probability that makes the share earn r<sub>f</sub>: a pricing device, not a forecast.<br>Trap: 'Because investors are risk neutral' (nobody assumes they are); 'ρ is the market's forecast of the up move' (it mixes the forecast with the price of risk).<br>(lecture 9 p. 16, H2024 E6(c), manual 22.3)"
+ },
+ {
+  "id": "ok-binomial-15",
+  "ch": 22,
+  "deck": "binomial og risikonøytral",
+  "front": "A share trades at 100 and will be worth 130 or 108 in a year; the risk-free rate is 5%. Why can this tree not be used to price options?",
+  "back": "<b>Even the down state beats the bond: 108 is above 105. The tree has an arbitrage and ρ is negative</b><br>1. No arbitrage requires S<sub>d</sub> &lt; (1 + r<sub>f</sub>)S<sub>0</sub> &lt; S<sub>u</sub>. Here 108 &gt; 105.<br>2. Borrow 100 at 5% and buy the share: you owe 105 and hold at least 108. A sure profit.<br>3. ρ = (105 − 108)/(130 − 108) = −0.1364, outside 0 to 1.<br>Trap: Pricing the call anyway with a negative ρ. A ρ outside 0 to 1 is the check that the numbers are wrong, or that S<sub>0</sub> does not price the same cash flows as S<sub>u</sub> and S<sub>d</sub>.<br>(lecture 9 p. 12)"
+ },
+ {
+  "id": "ok-gjeldek-01",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "Wesley Corp.: 20 million shares at 25, a market debt-equity ratio of 0.5 and zero-coupon debt due in 5 years with a yield of 10%. Describe the equity as a call option: underlying, strike, maturity.",
+  "back": "<b>A European call on the firm's assets (V = 750 million), strike 402.6 million, maturity 5 years</b><br>1. E = 25 × 20 = 500. D = 0.5 × 500 = 250. V = 750.<br>2. The strike is the face value the shareholders must pay to keep the firm: 250 × 1.1<sup>5</sup> = 402.63.<br>3. Payoff at maturity: max(V<sub>5</sub> − 402.6, 0). Limited liability caps the loss at zero.<br>Trap: Strike 250 (today's market value of the debt, not the face value); 250 × 1.1 × 5 = 1 375 (the course solution's typo for 250 × 1.1<sup>5</sup>).<br>(PS3 E7(a), lecture 10 p. 2)"
+ },
+ {
+  "id": "ok-gjeldek-02",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "Describe Wesley's debt (face value 402.6 million, due in 5 years, firm assets worth 750 million) first with a call option, then with a put option.",
+  "back": "<b>D = V − C(K) and D = PV(K) − P(K), both with K = 402.6 and T = 5</b><br>1. The creditors receive min(V<sub>5</sub>, 402.6).<br>2. With a call: min(V, K) = V − max(V − K, 0). Debt = own the firm's assets and write a call on them struck at 402.6.<br>3. With a put: min(V, K) = K − max(K − V, 0). Debt = a risk-free zero-coupon bond with face value 402.6 and a written put on the assets struck at 402.6.<br>Trap: Face value 250 in the put version (the course solution's slip: 250 is the market value of the debt). Writing 'long a put' instead of 'short a put'.<br>(PS3 E7(b)(c), lecture 10 p. 4)"
+ },
+ {
+  "id": "ok-gjeldek-03",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "Exam question Kurbatov hinted at: explain in words why corporate debt is risk-free debt minus a put option.",
+  "back": "<b>Creditors get min(V, K) = K − max(K − V, 0). The max term is the shareholders' option to default. The creditors have written it</b><br>1. At maturity the creditors are paid the face value K unless the assets V are worth less, in which case they take V.<br>2. So they get K minus the shortfall max(K − V, 0), which is the payoff of a put on the firm's assets struck at K.<br>3. That put belongs to the shareholders: limited liability lets them hand over the assets instead of paying K. The creditors are short it: D = PV(K) − P(K).<br>4. With unlimited liability the put disappears and D = PV(K). The gap between risk-free and corporate debt is the value of the default option.<br>Trap: 'The creditors own a put that protects them' (they wrote it; a CDS is what they buy for protection); 'debt is a call on the assets' (that is the equity).<br>(lecture 10 p. 6 to 7, lecture 14 recording)"
+ },
+ {
+  "id": "ok-gjeldek-04",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "A firm's assets are worth 250. Its only debt is a one-year zero-coupon bond with face value 210. The risk-free rate is 5%. A European put on the firm's assets with strike 210 and one year to expiry is worth 12. Value the debt and the equity. Find the yield.",
+  "back": "<b>D = 188.00, E = 62.00, yield 11.70% (spread 6.70%)</b><br>1. PV(K) = 210/1.05 = 200.00.<br>2. D = PV(K) − P = 200.00 − 12 = 188.00.<br>3. E = V − D = 250 − 188.00 = 62.00.<br>4. y = 210/188.00 − 1 = 11.70%.<br>Trap: D = 200.00 (default ignored, the debt priced as risk-free); D = 210 − 12 = 198.00 (put subtracted from the face value instead of its PV).<br>(manual 24.1, sjangre kreditt-5)"
+ },
+ {
+  "id": "ok-gjeldek-05",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "Google has 320 million shares and is worth 135.1 billion; rf is 1%. It considers issuing 128 billion of zero-coupon debt due in 18 months. A call on Google with that maturity and strike 400 is quoted at bid 85.10 and ask 87.00. What yield would the debt pay?",
+  "back": "<b>y = 12.30% a year, spread 11.30%</b><br>1. Strike per share = face value per share: 128/0.32 = 400. The equity is 320 million such calls.<br>2. Midpoint of bid and ask: (85.10 + 87.00)/2 = 86.05. E = 86.05 × 0.32 = 27.536 billion.<br>3. D = V − E = 135.1 − 27.536 = 107.564 billion.<br>4. Annualise over 1.5 years: y = (128/107.564)<sup>1/1.5</sup> − 1 = 12.30%. The slide uses V = 135 and gets 12.37%.<br>Trap: 19.00% (the 18-month return not annualised); bid or ask instead of the midpoint. The course solution prints the spread as 11.1%; 12.3% − 1% is 11.3%.<br>(PS3 E6(a), lecture 10 p. 15)"
+ },
+ {
+  "id": "ok-gjeldek-06",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "Same Google case (320 million shares, V = 135.1 billion, 18 months), but now 96 billion senior and 32 billion junior zero-coupon debt. Call midpoints: 149.15 for strike 300 and 86.05 for strike 400. What yield does the junior debt pay?",
+  "back": "<b>y<sub>J</sub> = 35.93% a year (senior 6.48%)</b><br>1. Senior alone: strike 96/0.32 = 300. D<sub>S</sub> = V − C(300) = 135.1 − 149.15 × 0.32 = 87.372.<br>2. Equity: strike (96 + 32)/0.32 = 400. E = C(400) = 27.536.<br>3. Junior: D<sub>J</sub> = V − D<sub>S</sub> − E = C(300) − C(400) = 0.32 × (149.15 − 86.05) = 20.192.<br>4. y<sub>J</sub> = (32/20.192)<sup>1/1.5</sup> − 1 = 35.93%.<br>5. The PS3 written solution rounds the senior debt to 87.4 first and gets 6.46% and 36.1%; the board notes keep 87.37 and get 35.9%.<br>Trap: A call with strike 32/0.32 = 100 for the junior debt (the junior claim sits between 300 and 400, not at the bottom). Lecture 10 slide 15 prints 34.94%; with its own numbers (32/20.19)<sup>12/18</sup> − 1 = 35.94%.<br>(PS3 E6(b), lecture 10 p. 13 to 15)"
+ },
+ {
+  "id": "ok-gjeldek-07",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "A firm's assets are worth 500 and will be worth 650 or 380 in one year (real probability of the up state 0.7). Its only debt is a one-year zero-coupon bond with face value 450. The risk-free rate is 4%. Value the debt and the equity and find the yield on the debt.",
+  "back": "<b>D = 400.2849, E = 99.7151, yield 12.42%</b><br>1. ρ = (1.04 × 500 − 380)/(650 − 380) = 140/270 = 0.5185.<br>2. Debt pays min(V, 450): 450 or 380. D = (0.5185 × 450 + 0.4815 × 380)/1.04 = 400.2849.<br>3. Equity pays max(V − 450, 0): 200 or 0. E = 0.5185 × 200/1.04 = 99.7151.<br>4. Check D + E = 500.00 = V ✓. Yield = 450/400.2849 − 1 = 12.42%, spread 8.42%.<br>Trap: D = 412.5000 (the real 0.7 discounted at r<sub>f</sub>). The tree gives you V, so use ρ for every claim on it.<br>(manual 24.1, sjangre kreditt-6)"
+ },
+ {
+  "id": "ok-gjeldek-08",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "Two bonds promise 100 in one year. The government bond yields 5%. The corporate bond yields 10%, defaults with real probability 10% and then loses 20. A CDS pays 1 if the firm defaults. Find the risk-neutral default probability, the price of the CDS and how many CDS hedge the corporate bond.",
+  "back": "<b>p = 22.73%, CDS = 0.2165, buy 20 CDS</b><br>1. Prices: P<sub>gov</sub> = 100/1.05 = 95.2381, P<sub>corp</sub> = 100/1.10 = 90.9091.<br>2. Risk-neutral default probability: [(1 − p) × 100 + p × 80]/1.05 = 90.9091, so p = 0.227273, more than twice the real 10%.<br>3. CDS = p × 1/1.05 = 0.2165.<br>4. Hedge: CDS needed = K × LGD = 100 × 0.20 = 20. Bond + 20 CDS = 90.9091 + 4.3290 = 95.2381, the risk-free price ✓<br>5. The expected return on the corporate bond is 98/90.9091 − 1 = 7.8%, below the 10% promised yield.<br>Trap: CDS priced with the real 10%: 0.0952; buying 100 CDS instead of K × LGD = 20.<br>(lecture 10 p. 8 to 10, manual 24.4)"
+ },
+ {
+  "id": "ok-gjeldek-09",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "A firm's assets are worth 400 and will be worth 520 or 300 in one year. Its only debt is a one-year zero with face value 350. The risk-free rate is 4%. A CDS pays the creditors' shortfall at maturity if the firm defaults. What is the CDS worth today?",
+  "back": "<b>CDS = 22.7273</b><br>1. ρ = (1.04 × 400 − 300)/(520 − 300) = 116/220 = 0.5273.<br>2. Default only in the down state: shortfall 350 − 300 = 50. The CDS is the put max(K − V, 0).<br>3. CDS = 0.4727 × 50/1.04 = 22.7273.<br>4. Check: PV(K) − D = 350/1.04 − 313.8112 = 22.7273 ✓ Risky bond + CDS = risk-free bond.<br>Trap: Weighting the shortfall with ρ instead of 1 − ρ: 25.3497. Draw the payoff in both states before you weight.<br>(lecture 14 recording, sjangre opsjoner-16)"
+ },
+ {
+  "id": "ok-gjeldek-10",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "A firm's assets are worth 400 and will be worth 560 or 280 in one year. The asset beta is 1.2 and rf is 5%. The only debt is a one-year zero with face value 320. What are the equity beta and the debt beta?",
+  "back": "<b>β<sub>E</sub> = 3.6000, β<sub>D</sub> = 0.2400</b><br>1. ρ = (420 − 280)/(560 − 280) = 0.5000. Equity pays 240 or 0: E = 0.5000 × 240/1.05 = 114.2857. D = 400 − E = 285.7143.<br>2. Deltas: Δ<sub>E</sub> = 240/280 = 0.8571, Δ<sub>D</sub> = (320 − 280)/280 = 0.1429.<br>3. β<sub>E</sub> = Δ<sub>E</sub>(V/E)β<sub>U</sub> = 0.8571 × 3.5000 × 1.2 = 3.6000. β<sub>D</sub> = 0.1429 × 1.4000 × 1.2 = 0.2400.<br>4. Check: (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub> = 1.0286 + 0.1714 = 1.2 ✓<br>Trap: β<sub>E</sub> = (V/E)β<sub>U</sub> = 4.2000 (Δ left out, which treats the debt as risk-free). Under Black-Scholes Δ is N(d<sub>1</sub>), but you only need it as intuition.<br>(manual 24.3, sjangre kreditt-19)"
+ },
+ {
+  "id": "ok-gjeldek-11",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "An all-equity firm is worth 500 and will be worth 750 or 375 in one year; rf is 5% and markets are perfect. It issues a one-year zero-coupon bond with face value 450 and pays the proceeds out as a special dividend. How big is the dividend and what is the equity worth afterwards? Do the shareholders gain?",
+  "back": "<b>Dividend 385.7143, equity 114.2857, total 500.00: no gain (MM)</b><br>1. ρ = (525 − 375)/(750 − 375) = 0.4000.<br>2. The bond pays 450 or 375: D = (0.4000 × 450 + 0.6000 × 375)/1.05 = 385.7143 = the dividend.<br>3. Equity pays 300 or 0: E = 0.4000 × 300/1.05 = 114.2857.<br>4. Shareholders hold 385.7143 + 114.2857 = 500 before and after. The bond yields 16.67%, a spread of 11.67%.<br>Trap: Dividend = 450/1.05 = 428.5714 (the risky bond priced as risk-free; it defaults in the down state). That number would leave V above 500, which breaks MM.<br>(2015 P4 type, sjangre kreditt-12)"
+ },
+ {
+  "id": "ok-gjeldek-12",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "Two equally likely states, risk-neutral investors, rf = 0. Firm A is worth 90 or 10 and owes 40. Firm B is worth 10 or 50 and owes 40. They merge with no synergies; the debts rank equally and the merged equity is split in proportion to pre-merger equity values. Who gains and who loses?",
+  "back": "<b>Creditors A +10.0000, creditors B +10.0000, shareholders A −16.6667, shareholders B −3.3333. Shareholders reject</b><br>1. Apart: debt A pays 40 or 10, worth 25.00; equity A 50 or 0, worth 25.00. Debt B 10 or 40, worth 25.00; equity B 0 or 10, worth 5.00. Total 80.<br>2. Merged: assets 100 or 60 against F = 80. Debt pays 80 or 60, equity 20 or 0, worth 10.00. Total still 80: no value created.<br>3. State 2: 60 split by face value, 30 to each group of creditors. Debt A = (40 + 30)/2 = 35.00, debt B = 35.00.<br>4. Equity 10.00 split 25 : 5, so A gets 8.3333 and B 1.6667. Creditors gain 20, shareholders lose 20.<br>Trap: 'No value is created, so nobody gains or loses.' The total is fixed, but the assets of each firm now back the other's debt: coinsurance moves value from shareholders to creditors.<br>(V2024 P4 type, manual 24.6)"
+ },
+ {
+  "id": "ok-gjeldek-13",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "In option language, why do shareholders of a levered firm sometimes prefer a risky negative-NPV project and turn down a safe positive-NPV one?",
+  "back": "<b>Equity is a call on the assets and gains from volatility; debt is short a put and loses from it</b><br>1. Equity = C(V, K). An option's value rises with risk, so more volatile assets raise the equity value.<br>2. Debt = PV(K) − P(K). More risk makes the put dearer, so the debt loses.<br>3. Anything that raises the debt's risk without destroying value moves value from creditors to shareholders: excessive risk taking, or gambling for resurrection near default.<br>4. The same logic gives debt overhang: a safe project mostly makes the debt safer, so the creditors capture the gain and the shareholders, who pay for it, say no.<br>Trap: Saying shareholders 'like risk' as a preference. They are not risk lovers; the convex payoff of limited liability makes risk pay for them at the creditors' expense.<br>(lecture 10 p. 16, manual 24.1)"
+ },
+ {
+  "id": "ok-gjeldek-14",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "Straight debt with face value 60: the owners prefer a gamble (190 or 40, firm value 115) to a safe project (140 or 100, firm value 120), rf = 0 and ρ = 0.5. Show why debt convertible into 50% of the firm removes the incentive.",
+  "back": "<b>With the convertible, equity is worth 55.00 under the safe project and 47.50 under the gamble: the owners now choose the safe one</b><br>1. Straight debt: equity is 0.5 × 80 + 0.5 × 40 = 60.00 (safe) against 0.5 × 130 + 0 = 65.00 (gamble). The owners gamble and destroy 5 of value.<br>2. Convertible: the holder converts when 0.5V &gt; 60, that is when V &gt; 120.<br>3. Safe: up 140, converts, equity 70; down 100, no conversion, equity 40. E = 55.00.<br>4. Gamble: up 190, converts, equity 95; down 40, default, equity 0. E = 47.50. The convertible takes the upside the gamble was built on.<br>Trap: Comparing firm values only (120 against 115): that shows the gamble is bad, not why the owners take it. The question is always what each claim is worth under each project.<br>(manual 24.5)"
+ },
+ {
+  "id": "ok-gjeldek-15",
+  "ch": 24,
+  "deck": "gjeld og egenkapital som opsjoner",
+  "front": "Use put-call parity on the firm's assets to show Modigliani-Miller: the face value K of the debt does not change the value of the firm.",
+  "back": "<b>V = C(K) + PV(K) − P(K) = E + D for every K</b><br>1. Parity on the assets: C(K) + PV(K) = V + P(K), so V = C(K) + [PV(K) − P(K)].<br>2. The first term is the equity, E = C(K). The bracket is the debt, D = PV(K) − P(K).<br>3. Changing K moves value between the two claims, but their sum is always V.<br>Trap: Writing D = PV(K): that is only true with unlimited liability, when the default put is worth nothing.<br>(lecture 10 p. 11)"
+ },
+ {
+  "id": "ok-realopsjoner-01",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "A store costs 160 000 NOK to open. It costs 90 000 a year to run and brings in 80 000 or 120 000 a year forever with equal probability; you learn which during year 1 if you open. The risk-free rate is 7%. What is the NPV of opening now? Do you open?",
+  "back": "<b>NPV = −17 143: do not open</b><br>1. Net the cost off the revenue first: +30 000 in the good state, −10 000 in the bad state.<br>2. Expected net cash flow: 0.5 × 30 000 + 0.5 × (−10 000) = 10 000 a year forever.<br>3. NPV = 10 000/0.07 − 160 000 = 142 857 − 160 000 = −17 143.<br>4. The case discounts at the risk-free rate: the store's risk is treated as non-systematic, so real probabilities go with r<sub>f</sub>.<br>Trap: 1 268 571 (revenue without the operating cost); only the good state used. Opening now commits you to both states.<br>(H2025 E5(a))"
+ },
+ {
+  "id": "ok-realopsjoner-02",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Same store (cost 160 000; net +30 000 or −10 000 a year forever, equal odds; 7%; uninformed NPV −17 143). A finished market study tells you the state now if you pay C0. What is the most you would pay?",
+  "back": "<b>Up to 134 286 NOK</b><br>1. Good state: 30 000/0.07 − 160 000 = 268 571: open.<br>2. Bad state: −10 000/0.07 − 160 000 = −302 857: do not open, value 0.<br>3. Informed: 0.5 × 268 571 + 0.5 × 0 = 134 286 (real probabilities at r<sub>f</sub>, since the risk is treated as non-systematic).<br>4. Value of the study = 134 286 − max(0, −17 143) = 134 286. The value comes from avoiding the bad state.<br>Trap: 151 429 (subtracting the negative NPV instead of 0: uninformed you simply do not open); −17 143 (the bad state kept at its negative NPV instead of 0: averaging before taking the max).<br>(H2025 E5(b), manual 25.3)"
+ },
+ {
+  "id": "ok-realopsjoner-03",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Same store, but the study takes one year: you pay C1 now, learn the state in a year and then decide whether to open on the same terms. How much is the study worth now? Why is it less than 134 286?",
+  "back": "<b>C1 = 125 501, which is 8 785 less</b><br>1. Waiting gives the same project one year later. Good-state NPV at date 1 is still 268 571; bad state 0.<br>2. Today: 0.5 × 268 571/1.07 = 125 501, discounted at r<sub>f</sub> because the risk is treated as non-systematic.<br>3. Why less: in the good state you lose the year-1 cash flow, 30 000/1.07 = 28 037. You gain only from paying 160 000 a year later, 160 000 − 160 000/1.07 = 10 467. Net −17 570 × 0.5 = −8 785.<br>Trap: 134 286 again (the date-1 value not discounted); 117 290 (discounted twice). Mentioning the lost year-1 cash flow is enough for full marks on the comment.<br>(H2025 E5(c))"
+ },
+ {
+  "id": "ok-realopsjoner-04",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Same store (no study). The government now lets you close after 2 years and walk away with nothing from year 3. You must still open before you know the state. What is the NPV of opening now? Do you open? What does the exit right add?",
+  "back": "<b>NPV = 45 246: open. The exit right adds 45 246 against not opening</b><br>1. Good state: never close, NPV = 268 571.<br>2. Bad state: lose 10 000 in years 1 and 2, then close. Two-year annuity factor 1/1.07 + 1/1.07<sup>2</sup> = 1.8080. NPV = −160 000 − 10 000 × 1.8080 = −178 080.<br>3. Expected: 0.5 × 268 571 + 0.5 × (−178 080) = 45 246 (real probabilities at r<sub>f</sub>: non-systematic risk).<br>4. Without the right you would not open (value 0), so the right is worth 45 246 − max(0, −17 143) = 45 246.<br>Trap: 62 388 as the value of the right (comparing with the negative NPV instead of with 0, the error Kurbatov named in the wrap-up; it only measures how much the exit lifts a store you were forced to open).<br>(H2025 E5(d), lecture 14 recording)"
+ },
+ {
+  "id": "ok-realopsjoner-05",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Same store with the exit after 2 years. Revenue is now 100 000 − X or 100 000 + X with equal probability (cost still 90 000). For which X are you indifferent between opening and not opening?",
+  "back": "<b>X = 12 747.76</b><br>1. Net flows: 10 000 + X (good) and 10 000 − X (bad). Assume X &gt; 10 000 so the bad state loses money and you exit.<br>2. Factors at r<sub>f</sub> (the risk is treated as non-systematic): 1/0.07 = 14.2857 and the two-year annuity 1.8080.<br>3. 0 = −160 000 + 0.5[14.2857(10 000 + X) + 1.8080(10 000 − X)]. Multiply by 2: 320 000 = 160 937 + 12.4777X.<br>4. X = 159 063/12.4777 = 12 747.76. Check: 12 748 &gt; 10 000, so the exit really is used ✓<br>Trap: Solving without the exit (perpetuity in both states) or forgetting to check that X lies in the region where your branch assumption holds. Sanity check: the original X = 20 000 is above the indifference point, consistent with the positive NPV in (d).<br>(H2025 E5(e), manual 25.6)"
+ },
+ {
+  "id": "ok-realopsjoner-06",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "A ferry licence and ferry cost 12 million NOK now. The ferry earns 1.5 million a year for 10 years, then has no value. The risk-free rate is 5%. What is the NPV of investing now?",
+  "back": "<b>NPV = −0.4174 million</b><br>1. A(10, 5%) = [1 − 1.05<sup>−10</sup>]/0.05 = 7.7217.<br>2. PV = 1.5 × 7.7217 = 11.5826.<br>3. NPV = 11.5826 − 12 = −0.4174. Keep 11.5826: it prices the twin in part (c).<br>Trap: −2.7913 (all ten payments discounted as one payment in year 10); an annuity due (first payment today) gives 0.1617.<br>(H2024 E6(a))"
+ },
+ {
+  "id": "ok-realopsjoner-07",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Ferry again (cost 12, 1.5 a year for 10 years). If you wait one year, the rate from year 1 will be 3% or 7%; the rate from year 0 to year 1 stays 5%. The ferry still runs 10 years after you invest. What is the NPV from today's perspective of investing at date 1 in each state?",
+  "back": "<b>+0.7574 (3%) and −1.3949 (7%) million</b><br>1. 3%: A(10, 3%) = 8.5302, PV<sub>1</sub> = 12.7953, NPV<sub>1</sub> = 0.7953, today 0.7953/1.05 = 0.7574.<br>2. 7%: A(10, 7%) = 7.0236, PV<sub>1</sub> = 10.5354, NPV<sub>1</sub> = −1.4646, today −1.4646/1.05 = −1.3949.<br>3. A falling rate is the good state for this project: the same annuity is worth more.<br>Trap: Discounting date-1 values with the new rate (3% or 7%) instead of the year-0-to-1 rate of 5%. The official key prints the 7% line as 0.7953/1.05 = −1.3949; the result is right, the input is a typo for −1.4646.<br>(H2024 E6(b))"
+ },
+ {
+  "id": "ok-realopsjoner-08",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Ferry again. You do not know the probabilities of 3% and 7%, so you use risk-neutral valuation. The ferry started at date 1 is worth 12.7953 or 10.5354 at date 1; the ferry started now is worth 11.5826 today. What is the risk-neutral probability of the 3% state?",
+  "back": "<b>ρ = 0.4634</b><br>1. The twin must price the same cash flows the option delivers: the ferry started at date 1 (years 2 to 11). Today that stream is worth 11.5826/1.05 = 11.0310.<br>2. ρ = (1.05 × 11.0310 − 10.5354)/(12.7953 − 10.5354) = (11.5826 − 10.5354)/2.2599 = 0.4634.<br>3. Kurbatov's key uses a security paying 1 a year for 11 years and gets the same 0.4634. A sure payment does not change ρ.<br>4. No real probabilities: the payoff is replicated with the twin and the bond.<br>Trap: 0.7197 (S<sub>0</sub> = 11.5826, the ferry started now, paired with S<sub>u</sub> and S<sub>d</sub> of the ferry started a year later). It lies between 0 and 1, so only the rule catches it.<br>(H2024 E6(c), manual 22.5)"
+ },
+ {
+  "id": "ok-realopsjoner-09",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Ferry again: investing now has NPV −0.4174; waiting gives NPV (today's terms) +0.7574 if rates fall and −1.3949 if they rise; ρ = 0.4634. What is the option to wait worth? Invest or wait?",
+  "back": "<b>0.3510 million: wait</b><br>1. At date 1 you invest only if rates fall: payoffs max(0.7953, 0) and max(−1.4646, 0) = 0.<br>2. Value = ρ × NPV<sub>0,u</sub> + (1 − ρ) × 0 = 0.4634 × 0.7574 = 0.3510.<br>3. Against investing now: 0.3510 − max(−0.4174, 0) = 0.3510. Wait.<br>4. The licence is a call on the ferry: you invest only in the branch where the annuity is worth more than 12.<br>Trap: 0.3787 (the real 0.5 that nobody gave you); 0.5451 (the mismatched ρ = 0.7197); 0.7684 (subtracting the negative NPV of investing now instead of 0).<br>(H2024 E6(d))"
+ },
+ {
+  "id": "ok-realopsjoner-10",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "An investment costs 1 600 and produces one unit a year forever, starting when you invest. A unit sells for 200 today; next year the price will be 100 or 300 (equal odds, non-systematic risk) and then stay there. rf = 10%. Invest now or wait a year?",
+  "back": "<b>Now: 600. Wait: 773. Wait</b><br>1. Now: −1 600 + 200 + 200/0.10 = −1 600 + 2 200 = 600.<br>2. Wait, price 300: at date 1, −1 600 + 300 + 300/0.10 = 1 700: invest. Price 100: −1 600 + 100 + 1 000 = −500: do not invest.<br>3. Today: 0.5 × 1 700/1.10 = 773 &gt; 600, so wait although the NPV now is positive.<br>4. The risk is not systematic, so the real 50% is discounted at r<sub>f</sub>.<br>Trap: 400 for investing now (the unit sold today forgotten); 545 for waiting (investing in both states, which throws the option away).<br>(lecture 11 p. 5)"
+ },
+ {
+  "id": "ok-realopsjoner-11",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "A project costs 10 and pays 22 or 6 one year later (equal odds; demand uncorrelated with the market, rf = 10%). A study costing 1.5 today reveals demand, but takes a year: you then decide to invest in year 1 and get the cash flow in year 2. Commission the study?",
+  "back": "<b>Yes: 3.05 with the study against 2.73 without. Pay up to 1.82</b><br>1. Invest now: −10 + (0.5 × 22 + 0.5 × 6)/1.1 = 2.73.<br>2. With the study, year 1: high demand −10 + 22/1.1 = 10.00, invest; low −10 + 6/1.1 = −4.55, skip.<br>3. Today: −1.5 + 0.5 × 10.00/1.1 = 3.05 &gt; 2.73.<br>4. Most you would pay: 4.55 − 2.73 = 1.82.<br>5. Real probabilities with r<sub>f</sub> are right here because the risk is not systematic (β = 0).<br>Trap: 3.50 (year-1 value not discounted); refusing to pair real probabilities with r<sub>f</sub>. Kurbatov does it whenever the risk is not priced.<br>(PS3 E8(a)(b), lecture 11)"
+ },
+ {
+  "id": "ok-realopsjoner-12",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Same project and study as before (cost 10; pays 22 or 6; study reveals demand). You now believe high demand would pay much more than 22 and low demand much less than 6, with the same expected cash flow. Does the decision to buy the study change? (No calculation)",
+  "back": "<b>No: you still buy it. It is now worth more</b><br>1. Investing now depends only on the expected cash flow, which is unchanged.<br>2. With the study you invest only in the high state, which is now better. In the low state you do not invest, so a worse low state costs you nothing.<br>3. More spread raises the value of the option the study gives, exactly as volatility raises the value of a call.<br>Trap: 'More risk makes the project less attractive, so skip the study.' The downside is cut off by the option not to invest.<br>(PS3 E8(c))"
+ },
+ {
+  "id": "ok-realopsjoner-13",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Hatch can build a camp for 250 (10% discount rate). With probability 0.1 a lawsuit comes this year: dismissed (half the time) gives 100 a year forever, successful gives 0 forever. No lawsuit gives 50 a year forever. Invest now, or wait a year and decide after the lawsuit (cash flows then start in year 2)?",
+  "back": "<b>Invest now: 250 against 238.6 for waiting</b><br>1. Now: E[CF] = 0.05 × 100 + 0.9 × 50 + 0.05 × 0 = 50; NPV = −250 + 50/0.10 = 250.<br>2. Wait, year-1 values: dismissed −250 + 1 000 = 750; no lawsuit −250 + 500 = 250; ban: do not invest, 0.<br>3. Today: (0.05 × 750 + 0.9 × 250)/1.10 = 262.5/1.10 = 238.6.<br>4. Waiting avoids only the 5% ban branch but costs a year of cash flows: invest now.<br>Trap: Investing in all three branches when waiting (a ban branch of −250 is never chosen); forgetting to discount the year-1 values: 262.5.<br>(PS3 E9(a)(b))"
+ },
+ {
+  "id": "ok-realopsjoner-14",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Hatch again (cost 250, 10%; lawsuit with probability p, half dismissed giving 100 forever, half a ban giving 0; no lawsuit 50 forever). For which p is Hatch indifferent between investing now and waiting? Wait at p = 0.3?",
+  "back": "<b>p* = 0.20. At p = 0.3 waiting is worth 261.4 &gt; 250: wait</b><br>1. Now: E[CF] = (p/2) × 100 + (1 − p) × 50 = 50 for every p, so NPV = 250 always.<br>2. Wait: [(p/2) × 750 + (1 − p) × 250]/1.10 = (250 + 125p)/1.10.<br>3. Indifference: 250 + 125p = 275 gives p* = 0.20. Below it invest now, above it wait.<br>4. p = 0.3: (0.15 × 750 + 0.7 × 250)/1.10 = 261.4. Same mean, more spread: the option to wait is worth more.<br>Trap: Expecting the NPV of investing now to fall with p. The mean is unchanged; only the dispersion grows. Dispersion is what the option to wait is paid for.<br>(PS3 E9(c), practice session 3)"
+ },
+ {
+  "id": "ok-realopsjoner-15",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Hatch with p = 0.3 (waiting is worth 261.4, investing now 250). Now the investment is reversible: in any state you can sell the land and equipment for 250 after year 1. Invest now or wait?",
+  "back": "<b>Invest now: 284.1 &gt; 261.4</b><br>1. Invest now and sell out in the ban state: the ban branch is worth 250/1.10 instead of 0.<br>2. NPV = −250 + 0.15 × 100/0.1 + 0.7 × 50/0.1 + 0.15 × 250/1.1 = −250 + 150 + 350 + 34.1 = 284.1.<br>3. The value of waiting came from avoiding the bad state. Reversibility gives that protection while you invest, so you do not have to give up the year-1 cash flow.<br>Trap: Adding the 250 resale in all states (you sell only where the camp is worth less than 250).<br>(PS3 E9(d))"
+ },
+ {
+  "id": "ok-realopsjoner-16",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Oil field: extract now or next year (then it is worthless). Method 1 costs 36 a barrel and gets 1M barrels; method 2 costs 52 and gets 2M barrels. Oil is 60 today and will be 72 or 48 next year; rf = 10%. What is the option to wait worth?",
+  "back": "<b>6 million: wait</b><br>1. Now: method 1 gives 1 × (60 − 36) = 24, method 2 gives 2 × (60 − 52) = 16. Take 24.<br>2. Next year: at 72, method 2 gives 2 × 20 = 40 (method 1: 36); at 48, method 1 gives 12 (method 2: −8).<br>3. ρ = (1.1 × 60 − 48)/(72 − 48) = 0.75. PV of waiting = (0.75 × 40 + 0.25 × 12)/1.1 = 30.<br>4. Option to wait = 30 − 24 = 6. Waiting lets you pick the method after you see the price.<br>Trap: Fixing the method before the tree (method 1 in both states gives (0.75 × 36 + 0.25 × 12)/1.1 = 27.27); using 0.5 instead of ρ: 23.64.<br>(PS3 E10)"
+ },
+ {
+  "id": "ok-realopsjoner-17",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Bringing a start-up to an IPO costs 100 and succeeds with probability 10% (IPO worth 800). Alternatively: 10 for product development (50% success), then 90 for the IPO stage (20% success). Same total cost and odds; ignore discounting. NPV of each plan?",
+  "back": "<b>All at once: −20. In stages: +25</b><br>1. At once: −100 + 0.10 × 800 = −20.<br>2. Stages: after a successful first stage, 90 buys 0.20 × 800 = 160 &gt; 90, so continue; after a failure, stop.<br>3. Outcomes: both succeed 0.10 × (800 − 100) = 70; product works, IPO fails 0.40 × (−100) = −40; product fails 0.50 × (−10) = −5. Total +25.<br>4. Staging is worth 45 = 0.50 × 90: the second payment you avoid when the first stage fails.<br>Trap: Treating the stages as the same project because the cost and the odds are unchanged. The value is the option to stop; the more a stage reveals, the more it is worth.<br>(lecture 11 p. 12, manual 25.7)"
+ },
+ {
+  "id": "ok-realopsjoner-18",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "Convert 7% a year to a monthly rate. Then value 2 000 a month for 24 months and 2 000 a month forever, first payment in one month.",
+  "back": "<b>r<sub>m</sub> = 0.5654%. 24 months: 44 768. Forever: 353 723</b><br>1. r<sub>m</sub> = 1.07<sup>1/12</sup> − 1 = 0.00565415.<br>2. A(24, r<sub>m</sub>) = [1 − (1 + r<sub>m</sub>)<sup>−24</sup>]/r<sub>m</sub> = 22.3838; 2 000 × 22.3838 = 44 768.<br>3. Perpetuity: 2 000/0.00565415 = 353 723.<br>4. Back again: (1 + r<sub>m</sub>)<sup>12</sup> − 1 = 7%. Six months: 1.07<sup>0.5</sup> − 1; 18 months: discount with 1.07<sup>1.5</sup>.<br>Trap: 7%/12 = 0.5833%, which gives 44 670 and 342 857. A perpetuity at a monthly rate moves a lot with the fourth decimal.<br>(lecture 11 p. 16, lecture 14 recording)"
+ },
+ {
+  "id": "ok-realopsjoner-19",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "A shop costs 400 000 to open. Running costs are 10 000 a month; inflow is 16 000 or 8 000 a month forever (50% each, revealed right after opening, not related to the market). The lease can be ended at no cost after 2 years. rf = 7% a year. Open? What is the exit right worth?",
+  "back": "<b>NPV with the exit = 108 200: open. The right is worth 108 200</b><br>1. Monthly rate 0.5654%. Without the exit: 2 000/0.00565415 − 400 000 = −46 277: you would not open.<br>2. Good: 6 000/0.00565415 − 400 000 = 661 168. Bad, leave after 24 months: −2 000 × 22.3838 − 400 000 = −444 768.<br>3. With the exit: 0.5 × 661 168 + 0.5 × (−444 768) = 108 200.<br>4. The right is worth 108 200 − max(0, −46 277) = 108 200.<br>Trap: 154 478 (compared with the negative −46 277 instead of with 0: the mistake Kurbatov said ChatGPT made). The slide rounds the rate to 0.565% and gets 108 588.<br>(lecture 11 p. 16, lecture 14 recording)"
+ },
+ {
+  "id": "ok-realopsjoner-20",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "A plant costs 950. From year 1 it pays 150 a year forever or 50 a year forever (equal odds, 10%); the year-1 cash flow reveals which. After year 1 you can sell the plant for 600. What is the abandonment option worth?",
+  "back": "<b>45.45: NPV rises from 50.00 to 95.45</b><br>1. Committed, date-1 values: 150 + 1 500 = 1 650 and 50 + 500 = 550. NPV = 1 100/1.1 − 950 = 50.00.<br>2. At date 1 in the bad state: continuing is worth 500, selling 600. Sell: 50 + 600 = 650.<br>3. With the option: (0.5 × 1 650 + 0.5 × 650)/1.1 − 950 = 95.45.<br>4. Check: 0.5 × (600 − 500)/1.1 = 45.45 ✓ The exit is a put on the project struck at the salvage value.<br>Trap: Selling in the good state as well, or adding 600 on top of continuing. Compare continue and sell at each node, then take the maximum, then average.<br>(manual 25.4)"
+ },
+ {
+  "id": "ok-realopsjoner-21",
+  "ch": 25,
+  "deck": "realopsjoner",
+  "front": "When is the option to wait worth most? What does waiting cost? Answer in words, the way Kurbatov does.",
+  "back": "<b>Waiting pays when uncertainty is high and resolves soon; it costs the cash flows you forgo and the risk that a rival moves first</b><br>1. Waiting lets you invest only in the good states. The more dispersed the outcomes, the more that is worth (like σ for a call).<br>2. The cash flow you give up while you wait works like a dividend on the underlying: a large one pushes you to invest now, as a large dividend pushes early exercise of a call.<br>3. Competitors, an expiring licence or a closing market window also make waiting costly.<br>4. Rule of thumb: with an option to wait, invest now only if the NPV is considerably high. A negative NPV today can become positive later.<br>Trap: 'A positive NPV means invest now.' Compare investing now with the value of waiting, never with zero alone.<br>(lecture 11 p. 9, manual 25.1)"
+ },
+ {
+  "id": "ok-ma-regning-01",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "A announces a bid for B. In exactly one year the deal completes (5 B shares are exchanged for 1 A share) or fails (prices return to their pre-announcement levels). Before: A 110, B 16. After the announcement: A 105, B 20. rf = 3%. What completion probability does the market imply?",
+  "back": "<b>p = 0.8283 = 82.83%</b><br>1. Long-short position at today's prices: buy 5 B for 100, short 1 A for 105, deposit the 105 at 3%. Net outlay 100.<br>2. Completes: the 5 B become the 1 A you owe, the equity legs cancel, you keep 105 × 1.03 = 108.15.<br>3. Fails: 108.15 + 5 × 16 − 110 = 78.15 (pre-announcement prices).<br>4. Certainty equivalent of the outlay: 100 × 1.03 = 103.00. 103.00 = p × 108.15 + (1 − p) × 78.15, so p = 24.85/30 = 0.8283.<br>5. Arithmetic check (an identity): 0.8283 × 108.15 + 0.1717 × 78.15 = 103.00 ✓<br>Trap: 0.7283 (expected payoff set equal to 100 instead of 100 × 1.03, the error the key singles out); post-announcement prices in the failure branch; the ratio turned around (5 A against 1 B).<br>(H2025 E6(a), 12 points)"
+ },
+ {
+  "id": "ok-ma-regning-02",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "Vodafone offers 53.7 of its shares for each Mannesmann share; the outcome comes in 3 months. On 17 December: Mannesmann 234, Vodafone 4.96. If the deal fails, prices revert to the 21 October levels (145.35 and 4.19). rf = 5.5% a year. What success probability does Mannesmann's price imply?",
+  "back": "<b>p = 0.5884, about 59%</b><br>1. Buy 1 Mannesmann for 234, short 53.7 Vodafone for 53.7 × 4.96 = 266.352, deposit the 266.352.<br>2. Three months at 5.5% a year: 1.055<sup>0.25</sup> = 1.013475. Deposit grows to 269.9411.<br>3. Completes: the Mannesmann share becomes the 53.7 Vodafone shares you owe: 269.9411. Fails: 145.35 − 53.7 × 4.19 + 269.9411 = 145.35 − 225.003 + 269.9411 = 190.2881.<br>4. 234 × 1.013475 = 237.1532 = p × 269.9411 + (1 − p) × 190.2881, so p = 0.5884.<br>Trap: Growing at 1.055 for a full year instead of 1.055<sup>0.25</sup>; discounting nothing. The slide writes 225.03 for 53.7 × 4.19 = 225.003 and gets 0.5885.<br>(PS4 E1(b)(c), lecture 12 p. 21)"
+ },
+ {
+  "id": "ok-ma-regning-03",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "Fast route: an acquirer offers 0.8 of its shares for each target share; the deal is settled in 6 months. Prices revert if it fails. Before: acquirer 50, target 30. Now: acquirer 48, target 36. rf = 6% a year. Implied completion probability?",
+  "back": "<b>p = 0.7529</b><br>1. Merger spread per target share = ER × P<sub>A</sub> − P<sub>T</sub>. Today: 0.8 × 48 − 36 = 2.40. If the deal fails: 0.8 × 50 − 30 = 10.00. If it completes: 0.<br>2. 1 − p = (1 + r<sub>f</sub>)<sup>T</sup> × spread today/spread on failure = 1.06<sup>0.5</sup> × 2.40/10 = 1.029563 × 0.24 = 0.2471.<br>3. p = 0.7529. The long-short position (buy 1 target, short 0.8 acquirer) gives the same number.<br>Trap: Using 1.06 for six months: p = 0.7456; dividing today's spread by the offer value (38.40) instead of by the spread if the deal fails: p = 0.9357.<br>(manual 26.6, lecture 12 p. 21)"
+ },
+ {
+  "id": "ok-ma-regning-04",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "Vodafone (31.105 billion shares) offers 53.7 new Vodafone shares for each of Mannesmann's 517.9 million shares. How many new shares are issued? What fraction y of the combined firm do Mannesmann's owners get? And at the revised 58.96?",
+  "back": "<b>27.811 billion new shares, y = 47.2%. Revised: 30.535 billion, y = 49.5%</b><br>1. New shares X = ER × N<sub>T</sub> = 53.7 × 0.5179 = 27.811 billion.<br>2. y = X/(N<sub>A</sub> + X) = 27.811/(58.916) = 47.2%.<br>3. Revised: 58.96 × 0.5179 = 30.535 billion, y = 49.5%. Both match the slide.<br>Trap: y = X/N<sub>A</sub> = 89.4% (new shares divided by the old count instead of the new total).<br>(PS4 E1(a), lecture 12 p. 20)"
+ },
+ {
+  "id": "ok-ma-regning-05",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "Vodafone offers 53.7 shares for each Mannesmann share. Using the 21 October prices as stand-alone values (Vodafone 4.19, 31.105 billion shares; Mannesmann 145.35, 517.9 million shares), how large must the synergies be for Vodafone's owners not to lose?",
+  "back": "<b>S ≥ 41.25 billion EUR</b><br>1. A = 31.105 × 4.19 = 130.33. T = 0.5179 × 145.35 = 75.28.<br>2. Acquirer's condition: X ≤ N<sub>A</sub>(T + S)/A, so S ≥ X·A/N<sub>A</sub> − T = X·P<sub>A</sub> − T.<br>3. S ≥ 27.811 × 4.19 − 75.28 = 116.53 − 75.28 = 41.25.<br>4. Check with the exchange ratio: ER ≤ (P<sub>T</sub>/P<sub>A</sub>)(1 + S/T) = 34.69 × (1 + 0.5480) = 53.7 ✓<br>Trap: Using the 17 December prices as stand-alone values: they already contain the bid.<br>(PS4 E1(e), lecture 12 p. 17 to 18)"
+ },
+ {
+  "id": "ok-ma-regning-06",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "An acquirer (50 million shares at 80) offers 38 in cash for each of the target's 10 million shares, which traded at 30 before the bid and trade at 37 now. Synergies are worth 120 million. What is the NPV for each side?",
+  "back": "<b>Target 80 million, acquirer 40 million. Sum = S = 120</b><br>1. T = 10 × 30 = 300 (pre-announcement), P = 10 × 38 = 380.<br>2. NPV<sub>T</sub> = P − T = 80: the premium.<br>3. NPV<sub>A</sub> = (A + T + S) − P − A = S − (P − T) = 120 − 80 = 40.<br>4. With cash the acquirer's cost does not depend on S: if the synergies disappoint, the acquirer bears it all.<br>Trap: T measured at today's 37 (the price already contains the bid): premium 10, NPV<sub>A</sub> 110. NPV<sub>A</sub> = S, which forgets that the premium is paid out of the synergies.<br>(PS4 E2(a), lecture 12 p. 15)"
+ },
+ {
+  "id": "ok-ma-regning-07",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "Stock swap: the acquirer has 40 million shares at 100, the target 20 million at 25 (pre-announcement). The offer is 0.3 acquirer shares per target share and synergies are worth 300 million. What fraction y do target owners get? What is the NPV to each side?",
+  "back": "<b>y = 0.1304. NPV<sub>A</sub> = 173.91, NPV<sub>T</sub> = 126.09 million</b><br>1. New shares x = 0.3 × 20 = 6 million. y = 6/46 = 0.1304.<br>2. Combined value A + T + S = 4 000 + 500 + 300 = 4 800. New price 4 800/46 = 104.3478.<br>3. NPV<sub>A</sub> = (1 − y)(A + T + S) − A = 173.91. NPV<sub>T</sub> = y(A + T + S) − T = 126.09.<br>4. Sum = 300 = S ✓ With shares the target shares in the synergies, so a disappointment hurts both sides.<br>Trap: y = x/N<sub>A</sub> = 0.15 instead of x/(N<sub>A</sub> + x); valuing the 6 million new shares at the acquirer's old price of 100: 6 × 100 − 500 = 100 instead of 126.09.<br>(PS4 E2(b), lecture 12 p. 16 to 17)"
+ },
+ {
+  "id": "ok-ma-regning-08",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "The acquirer has 60 million shares at 50, the target 20 million shares at 30; synergies are worth 150 million. What is the largest number of new shares and the highest exchange ratio the acquirer can offer before its owners lose?",
+  "back": "<b>X ≤ 15 million shares, ER ≤ 0.75</b><br>1. Condition: N<sub>A</sub>/(N<sub>A</sub> + X) × (A + T + S) ≥ A, which gives X ≤ N<sub>A</sub>(T + S)/A.<br>2. A = 3 000, T = 600: X ≤ 60 × 750/3 000 = 15 million.<br>3. ER = X/N<sub>T</sub> ≤ (P<sub>T</sub>/P<sub>A</sub>)(1 + S/T) = 0.6 × 1.25 = 0.75.<br>4. Without synergies the cap is the price ratio 0.6. Synergies are what make room for a premium.<br>Trap: (P<sub>A</sub>/P<sub>T</sub>)(1 + S/T) = 2.08 (prices upside down); using post-announcement prices.<br>(PS4 E2(c), formula sheet)"
+ },
+ {
+  "id": "ok-ma-regning-09",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "The acquirer (40 million shares at 100) offers 0.3 of its shares for each of the target's 20 million shares at 25. Synergies are 300 million. What premium do the target's owners actually receive? How does it compare with the offered premium?",
+  "back": "<b>Actual 25.22% against offered 20.00%</b><br>1. Offered premium uses the acquirer's price before the deal: 0.3 × 100/25 − 1 = 20.00%.<br>2. Actual premium uses the price after the deal: P<sub>new</sub> = (4 000 + 500 + 300)/46 = 104.3478; 0.3 × 104.3478 = 31.3043 per target share, 25.22% above 25.<br>3. With no synergies P<sub>new</sub> = 4 500/46 = 97.8261 and the actual premium falls to 17.39%: the target pays part of its own premium.<br>4. Measure every premium against the pre-announcement price of the target.<br>Trap: Reporting the offered premium when the actual one is asked, or measuring the premium against the target's post-announcement price.<br>(manual 26.4)"
+ },
+ {
+  "id": "ok-ma-regning-10",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "On the announcement of a bid, the acquirer (30 million shares) falls from 200 to 196 and the target (10 million shares) rises from 60 to 75. What synergies does the market expect? Who captures them?",
+  "back": "<b>S = 30 million. The target gains 150, the acquirer loses 120</b><br>1. Combined value before: 30 × 200 + 10 × 60 = 6 600. After: 30 × 196 + 10 × 75 = 6 630.<br>2. Implied synergies = change in combined value = 30.<br>3. Target: 10 × 15 = +150. Acquirer: 30 × (−4) = −120. The acquirer pays more than the deal creates: overpayment, the signature of empire building or hubris.<br>4. Caveats: if the deal may fail, prices are probability-weighted; if the bid revealed news about the target, part of its jump is not synergy.<br>Trap: Reading the acquirer's fall as value destruction for the whole deal. The combined change is positive; the problem is how it is split.<br>(manual 26.6, lecture 12 p. 12)"
+ },
+ {
+  "id": "ok-ma-regning-11",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "A earns 300 million on 100 million shares at 60 (P/E 20). T earns 50 million on 25 million shares at 20 (P/E 10). A buys T with shares at no premium and there are no synergies. What happens to A's EPS and share price?",
+  "back": "<b>EPS rises from 3.0000 to 3.2308; the price stays at 60.00</b><br>1. ER = 20/60 = 1/3, so x = 25/3 = 8.3333 million new shares.<br>2. EPS = (300 + 50)/108.3333 = 3.2308, up 7.69%.<br>3. Value: (6 000 + 500)/108.3333 = 60.00, unchanged. The P/E falls to 18.5714.<br>4. Buying a lower P/E always lifts EPS by arithmetic alone: bootstrapping. EPS accretion is not value creation.<br>Trap: 'The deal is accretive, so it creates value.' Kurbatov lists EPS manipulation among the motives precisely because it creates nothing.<br>(manual 26.5, lecture 12 p. 4)"
+ },
+ {
+  "id": "ok-ma-regning-12",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "Banks A, B and C (stand-alone 100, 80, 70) bid for bank D (60). If A wins, the banks are worth A 190, B 70, C 55. If B wins: A 90, B 170, C 55. If C wins: A 90, B 70, C 160. D will be sold to one of them for sure. How much will each bid? Who wins at what price?",
+  "back": "<b>A and B stop at 100, C bids up to 105: C wins at about 100</b><br>1. Reservation price = value if you win − value if a rival wins, not value if nobody buys.<br>2. A: 190 − 90 = 100. B: 170 − 70 = 100. C: 160 − 55 = 105.<br>3. C outbids the others and pays just above 100: 40 above D's stand-alone value.<br>4. Against 'nobody buys D' each would pay only 90 (190 − 100, 170 − 80, 160 − 70). Fear of a rival owning D drives the price up.<br>Trap: 90 for everybody (the status quo used as the alternative, but the question says D will be sold anyway).<br>(PS4 E3(b)(c), lecture 12 p. 26)"
+ },
+ {
+  "id": "ok-ma-regning-13",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "Bank D (stand-alone 60) is bought by C for 100. Before the deal A, B and C were worth 100, 80 and 70; after C's purchase they are worth 90, 70 and 160 (before paying). Who wins and who loses? How much value is created?",
+  "back": "<b>D +40, A −10, B −10, C −10. Value created: +10</b><br>1. D's owners: 100 − 60 = +40.<br>2. C: 160 − 100 − 70 = −10, but +5 against the 55 it would be worth if a rival had won.<br>3. A: 90 − 100 = −10. B: 70 − 80 = −10.<br>4. Total: 40 − 30 = +10 = (90 + 70 + 160) − (100 + 80 + 70 + 60) ✓ The target's owners take more than all of the gain, as in the data.<br>Trap: C's NPV computed against 'nothing happens' only. Its real choice was between buying and watching a rival buy.<br>(PS4 E3(a)(d))"
+ },
+ {
+  "id": "ok-ma-regning-14",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "No synergies, two equally likely states, risk-neutral investors, rf = 0. Firm A is worth 80 or 20 and owes 30; firm B is worth 10 or 40 and owes 15. They merge and take over both debts. What happens to the value of debt and equity?",
+  "back": "<b>Debt 37.5 → 45.0, equity 37.5 → 30.0. Shareholders lose 7.5</b><br>1. Apart: A's debt pays 30 or 20 (25.0), equity 50 or 0 (25.0). B's debt pays 10 or 15 (12.5), equity 0 or 25 (12.5).<br>2. Merged: assets 90 or 60 against debt 45. The debt is now risk-free: 45. Equity pays 45 or 15: 30.<br>3. Firm value 75 before and after. Creditors +7.5, shareholders −7.5: a pure transfer (coinsurance).<br>4. The condition: the two firms' cash flows must not be perfectly correlated. Shareholders can win it back by borrowing more after the merger.<br>Trap: 'Lower risk makes the merger good for shareholders.' Equity is a call: less risk lowers its value. Shareholders can diversify on their own by holding both shares.<br>(PS4 E4, lecture 12 p. 27 to 28)"
+ },
+ {
+  "id": "ok-ma-regning-15",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "On a bid announcement the target (worth 2 000 million) rises 20% and the acquirer (worth 10 000 million) falls 1.5%. Did the deal create value? Compare with Kurbatov's averages.",
+  "back": "<b>Yes: combined +250 million, 2.08% of the combined value</b><br>1. Weight the returns by value: target +0.20 × 2 000 = +400; acquirer −0.015 × 10 000 = −150.<br>2. Combined +250 on 12 000 = 2.08%.<br>3. Kurbatov's numbers: targets about +15% on announcement, acquirers about +1% on average and negative in half the cases, combined 1 to 3% and mostly positive. Value is usually created and mostly goes to the target.<br>Trap: Averaging the two percentages ((20 − 1.5)/2 = 9.25%) or concluding the deal destroys value because the acquirer fell.<br>(lecture 12 p. 12)"
+ },
+ {
+  "id": "ok-ma-regning-16",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "Fjord (200 million shares) bids 2 Fjord shares for each of Li's 40 million shares; the deal is settled in one year. Prices revert if it fails. Before: Fjord 30, Li 50. Now: Fjord 29, Li 55. rf = 4%. What synergies does the market price in?",
+  "back": "<b>p = 0.6880; synergies about 465.12 million (at the completion date)</b><br>1. Position: buy 1 Li for 55, short 2 Fjord for 58, deposit → 60.32. Fails: 60.32 + 50 − 60 = 50.32. Certainty equivalent 55 × 1.04 = 57.20.<br>2. p = (57.20 − 50.32)/(60.32 − 50.32) = 0.6880.<br>3. Fjord's price if the deal completes: 29 × 1.04 = p × P<sub>c</sub> + (1 − p) × 30, so P<sub>c</sub> = 30.2326.<br>4. Merged firm: (200 + 80) × 30.2326 = 8 465.12. Stand-alone: 200 × 30 + 40 × 50 = 8 000. S = 465.12.<br>Trap: Using today's Fjord price (29) as the post-merger price: it mixes the completion and failure outcomes. Kurbatov's Mannesmann exercise asks for exactly this chain: probability, arbitrage, risk-neutral valuation, then the synergies.<br>(lecture 12 p. 20 to 22, lecture 14 recording)"
+ },
+ {
+  "id": "ok-ma-regning-17",
+  "ch": 26,
+  "deck": "M&A-regning",
+  "front": "The target has 30 million shares that traded at 50 before any news of a bid. The bidder offers 62 in cash; the target now trades at 60. What is the premium in per cent and in NOK?",
+  "back": "<b>24.00% and 360 million NOK</b><br>1. Measure against the pre-announcement price, 50, not today's 60.<br>2. Premium per share = 62 − 50 = 12, or 62/50 − 1 = 24.00%.<br>3. In total: 30 million × 12 = 360 million.<br>4. The 2 between 60 and 62 is the market's doubt that the deal completes (and the time value until it does).<br>Trap: 3.33% and 60 million (measured against today's price).<br>(manual 26.1, sjangre ma-1)"
+ },
+ {
+  "id": "ok-ma-verbal-01",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "H2024 type, 12 points: give four reasons, none of them synergies: one why an acquisition can be good for the acquirer, one why it can be bad for the acquirer, one good for the target, one bad for the target. 1 to 2 sentences each.",
+  "back": "<b>One mechanism per box, named and explained</b><br>1. Good for the acquirer: a disciplinary takeover. It buys a badly run target at a price that reflects poor management, replaces the managers and unlocks the difference.<br>2. Bad for the acquirer: empire building and hubris. A CEO paid for size, or sure he values the target better than the market, overpays; in an auction the winner is the most optimistic bidder (winner's curse).<br>3. Good for the target: the control premium. To get control the bidder must pay well above the market price. The free-rider problem pushes it up further.<br>4. Bad for the target: damage to what made it valuable. The new owner can destroy its corporate culture, lose its unique management vision or bend its long-term plans towards immediate returns.<br>Trap: Leaving one box empty (a quarter of the points); 'the firms are worth more together' (that is a synergy); naming a reason without saying what it does. The key also accepts market power, supply chain and access to new markets; for the last box a low price accepted in return for a golden parachute also works.<br>(H2024 E1, manual 26.2)"
+ },
+ {
+  "id": "ok-ma-verbal-02",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "List Kurbatov's merger motives and the merger types. Which motives create value?",
+  "back": "<b>Seven motives, four types</b><br>1. Economies of scale and scope, supply chain optimisation, complementary goods: real gains from combining (synergies).<br>2. Industry consolidation and market power: profit for the merged firm, taken from customers.<br>3. Changes in corporate control: better managers run the same assets better.<br>4. EPS manipulation: no value, only arithmetic. Manager ambitions: an agency cost that destroys value for the acquirer's owners.<br>5. Types: horizontal (same industry), vertical (along the supply chain), conglomerate (unrelated), reverse (a private firm takes over a listed one to get listed).<br>Trap: Listing only synergies, when the exam bans them, or treating EPS growth as a motive that creates value.<br>(lecture 12 p. 2 and 4)"
+ },
+ {
+  "id": "ok-ma-verbal-03",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "H2025 type: after a bid announcement the acquirer falls from 110 to 105 and the target rises from 16 to 20. Give one possible reason for the deal other than synergies and explain it in 2 to 3 sentences.",
+  "back": "<b>Empire building: the acquirer's managers overpay to run a bigger firm</b><br>1. Read the reaction first: the acquirer fell and the target rose, so the market thinks the acquirer pays more than the target is worth to it. A value-creating motive would not push the acquirer down.<br>2. A's CEO wants a larger company, for pay, prestige or a new market. He is willing to overpay. The target's owners capture the premium.<br>3. This is an agency problem between A's managers and A's shareholders, not a synergy.<br>Trap: A reason that would make the acquirer's price rise (better management of the target with a fair price, market power); synergies, which the question bans. Hubris or the winner's curse also fit the prices.<br>(H2025 E6(b), manual 26.6)"
+ },
+ {
+  "id": "ok-ma-verbal-04",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "H2025 type, continued: you own shares in the acquirer, whose price fell on the announcement. Management calls a shareholder vote on the deal. How do you vote? How do prices react if most owners vote the same way?",
+  "back": "<b>Vote against. Prices move back towards their pre-announcement levels</b><br>1. Following the reason given before (empire building), the deal moves value from me to the target's owners, so I vote against.<br>2. If most owners agree, the deal dies and prices revert towards 110 and 16, as the case assumes for a failed deal.<br>3. Bonus: reversion may be incomplete if the market thinks entrenched managers will push on, or if the bid revealed that the target is undervalued or attractive to other bidders.<br>Trap: A vote that does not follow from your own reason in the previous part. Consistency with part (b) is what is graded.<br>(H2025 E6(c))"
+ },
+ {
+  "id": "ok-ma-verbal-05",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "Cash or shares: what decides how an acquirer pays? What does the choice signal?",
+  "back": "<b>Liquidity, information, uncertainty, the seller's needs and time. Paying in shares signals that the acquirer finds its own shares overvalued</b><br>1. Kurbatov's list: the acquirer's liquidity and debt capacity; who has the information advantage; uncertainty about synergies and stand-alone values; whether the sellers need cash and how they are taxed; time.<br>2. With shares the cost y(A + T + S) − T depends on the synergies, so the target shares the risk of misvaluation.<br>3. An acquirer that thinks its shares are overpriced prefers to pay with them; one that thinks they are cheap pays cash.<br>4. Investors know this, so a share offer is read as a sign of overvaluation and the acquirer's price falls (the Myers-Majluf logic).<br>Trap: 'Shares are cheaper because no cash leaves the firm.' The target's owners get a fraction of the merged firm, which can cost far more than cash.<br>(PS4 E2(d), lecture 12 p. 24 to 25)"
+ },
+ {
+  "id": "ok-ma-verbal-06",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "Hostile takeovers: what can they do for a firm? What can they cost?",
+  "back": "<b>They discipline management, but can disrupt the firm and provoke entrenchment</b><br>1. Benefits: new management, new ideas, better performance. Even the threat of a bid disciplines current managers.<br>2. Costs: disruption of operations; 'soft' assets such as corporate culture can be destroyed (Kurbatov: Twitter).<br>3. Takeover threats can push managers to entrench themselves with anti-takeover defences.<br>Trap: Calling hostile takeovers simply good or simply bad. The exam wants both sides and the mechanism behind each.<br>(lecture 12 p. 11)"
+ },
+ {
+  "id": "ok-ma-verbal-07",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "Name the main anti-takeover defences. Which question does Kurbatov ask about all of them?",
+  "back": "<b>Charter provisions, scorched earth, white knights, greenmail, regulatory barriers, golden parachutes. Do they raise value or entrench managers?</b><br>1. Charter provisions: poison pills, staggered boards, supermajority rules.<br>2. Scorched earth: sell or destroy the asset the bidder wants. White knight: invite a friendlier bidder.<br>3. Greenmail: buy back the raider's block at a premium. Regulatory barriers. Golden parachutes.<br>4. Test: a defence used to extract a higher price serves the owners; one used to kill the bid serves the managers. A falling share price on its adoption points to entrenchment.<br>Trap: Listing defences without the key question. The points come from saying whose interest the defence serves.<br>(lecture 12 p. 29)"
+ },
+ {
+  "id": "ok-ma-verbal-08",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "Who wins in mergers and acquisitions on average? Why do targets earn such high returns?",
+  "back": "<b>Targets about +15% on announcement, acquirers about +1% (negative in half the cases), combined +1 to 3%</b><br>1. Kurbatov's figures: mergers usually create value. Most of it goes to the target's owners.<br>2. Competition among bidders: the reservation price is the value if you win minus the value if a rival wins, which pushes bids up.<br>3. The free-rider problem: target owners will not sell below the post-takeover value, so the bidder must hand over most of the gain.<br>4. Acquirer-side agency and hubris: some acquirers overpay.<br>Trap: Quoting the 20 to 40% offer premium as the targets' abnormal return. The premium is over the old price; the announcement return is about 15%.<br>(lecture 12 p. 5 and 12, PS4 E3)"
+ },
+ {
+  "id": "ok-ma-verbal-09",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "What is merger arbitrage? Why is it not risk-free? What role do the arbitrageurs play?",
+  "back": "<b>Buy the target, short the acquirer in the exchange ratio. It is a bet on completion that pays like insurance</b><br>1. The position earns the deal spread if the deal completes and loses if it fails and prices revert.<br>2. Target owners who sell before the outcome buy insurance against a failure; the spread is the price of that insurance.<br>3. Arbitrageurs provide liquidity and carry deal risk, spread over many deals. Historically the strategy has been profitable (Mitchell and Pulvino, 2001).<br>4. The risk left is mostly whether the deal goes through, which is why the implied p is found by discounting at r<sub>f</sub>.<br>Trap: Calling it riskless arbitrage. The payoff depends on whether the deal completes.<br>(lecture 12 p. 22 to 23, PS4 E1(d))"
+ },
+ {
+  "id": "ok-ma-verbal-10",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "Kurbatov's twist: 'What if we can delay this M&A by one year?' Answer with intuition.",
+  "back": "<b>Delay is an option to wait: buy only if the synergies prove large. Worth most when uncertainty is high and no rival is near</b><br>1. Waiting turns the deal into a call: you buy later if the news is good and walk away if it is bad.<br>2. Uncertainty that resolves within the year (a regulator, a test, the market) makes the option valuable.<br>3. Costs: a year of lost synergies (like a dividend forgone) and the risk that a rival buys the target, which can also raise the price you would pay later.<br>Trap: 'Close now because the NPV is positive' or 'always delay because an option gains from time'. Weigh the option against the cost of waiting.<br>(lecture 14 recording, manual 25.1)"
+ },
+ {
+  "id": "ok-ma-verbal-11",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "A CEO argues that merging with an unrelated firm reduces risk and therefore benefits shareholders. Evaluate the argument.",
+  "back": "<b>Weak: shareholders can diversify themselves. Lower risk also moves value from shareholders to creditors</b><br>1. Diversification inside the firm adds nothing that shareholders cannot get by holding both shares.<br>2. Coinsurance: each firm's assets now back the other's debt, so the debt gets safer and is worth more. With firm value fixed, the equity loses (PS4: 37.5 to 30).<br>3. The real gain is higher debt capacity and a larger tax shield if the merged firm borrows more, or lower distress costs: say so if you defend the deal.<br>4. Risk reduction can serve the CEO, whose human capital is undiversified: an agency motive.<br>Trap: Agreeing that 'less risk is worth a premium'. Only systematic risk is priced. Diversification does not reduce it.<br>(lecture 12 p. 27 to 28, manual 26.2)"
+ },
+ {
+  "id": "ok-ma-verbal-12",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "Beyond the price paid, what can make a merger fail even when its strategic logic is sound? Give the costs Kurbatov and the H2024 key name.",
+  "back": "<b>Integration costs: culture, people, vision and horizon</b><br>1. Corporate culture: two ways of working collide. The 'soft' assets that made the target valuable can be lost.<br>2. People and vision: key employees leave. A founder's unique management vision disappears with the founder.<br>3. Horizon: long-term plans are bent towards immediate returns to justify the price.<br>4. Disruption: management attention goes to the deal instead of the business while integration drags on.<br>Trap: Answering only with overpayment. The question asks for costs that hit even a fairly priced deal; the H2024 key lists these under 'negative for the target'.<br>(lecture 14 recording, lecture 12 p. 11, H2024 E1 key)"
+ },
+ {
+  "id": "ok-ma-verbal-13",
+  "ch": 26,
+  "deck": "M&A verbal",
+  "front": "Why do mergers come in waves?",
+  "back": "<b>Shocks to the business environment hit many firms in an industry at once</b><br>1. M&amp;A activity clusters in short periods in some industries.<br>2. Waves usually coincide with periods of sustained growth.<br>3. Triggers: technological innovation, deregulation and other changes in legislation that make a new industry structure efficient.<br>Trap: Explaining waves only by managers copying each other. Kurbatov points to changes in the business environment.<br>(lecture 12 p. 6)"
+ },
+ {
+  "id": "ok-governance-01",
+  "ch": 27,
+  "deck": "governance",
+  "front": "H2024 type, 12 points: select and describe two distinct ways of monitoring the CEO. Say who monitors and which tools they have. At most 3 to 4 sentences per method.",
+  "back": "<b>1. The board, through its independent directors. 2. Large shareholders and institutions</b><br>1. Board: elected by the shareholders to act for them; the independent (outside) directors are the ones who can confront the CEO, since insiders report to him.<br>2. Board tools: it hires and fires the CEO, sets his pay through the compensation committee, approves major investments and acquisitions. It oversees the accounts through the audit committee.<br>3. Large shareholders (a founding family, a pension fund, an activist with a few per cent): big enough to overcome the free-rider problem, since they keep enough of any improvement to make monitoring pay.<br>4. Their tools: voting their block against directors or the pay plan, putting items on the agenda, coordinated voting, public campaigns, proxy fights for board seats and, at the limit, backing a takeover or an LBO.<br>Trap: Two methods that are really one ('the board' and 'the compensation committee'); describing the mechanism without naming the tools; citing one country's company law when the question names none.<br>(H2024 E2, lecture 13 p. 4 to 9)"
+ },
+ {
+  "id": "ok-governance-02",
+  "ch": 27,
+  "deck": "governance",
+  "front": "H2025 type, 12 points: you hold 5 to 10% of a firm whose managers shirk and enjoy private benefits. Select three actions and explain each in 2 to 3 sentences.",
+  "back": "<b>Three actions from three channels: monitor from the board, rewrite pay, escalate to a proxy fight or a buyer</b><br>1. Monitor and take a board seat (internal monitoring): with 5 to 10% I keep enough of any gain to make monitoring pay, which a 0.1% holder does not. I demand access to management, nominate a director and push to replace insiders with independent directors.<br>2. Rewrite the CEO's contract (better contracts): through the compensation committee or a vote against the pay plan I push for long-vesting shares, performance targets against peers and clawbacks, so shirking and perks cost him personally.<br>3. Escalate (shareholder action and the market for corporate control): if quiet talks fail, I go public, gather other institutions and run a proxy fight to replace the board and the CEO, or find a buyer or LBO fund that will replace management.<br>Trap: Two actions that overlap (voting against directors and a proxy fight to replace them); an action with no tool behind it ('write a letter asking him to work harder'); ignoring the size of the stake. Selling the shares counts as a creative bonus.<br>(H2025 E2, manual 27.5)"
+ },
+ {
+  "id": "ok-governance-03",
+  "ch": 27,
+  "deck": "governance",
+  "front": "Name the ways a manager can act against the shareholders, with an example of each.",
+  "back": "<b>Shirking, private benefits, empire building, entrenchment and the wrong amount of risk</b><br>1. Shirking: low effort (H2025 E2: a CEO who designs exam tasks instead of running the firm).<br>2. Private benefits: perks, jets, pet projects paid for by the owners.<br>3. Empire building: growing the firm beyond its value-maximising size because pay and prestige grow with size.<br>4. Entrenchment: making himself hard to replace (staggered board, defences) and hiding bad news (report manipulation).<br>5. Risk: too little (a passive manager protecting his job) or too much (gambling when his options are out of the money).<br>Trap: Naming only 'the agency problem'. The exam rewards the specific name of the behaviour and the tool that fixes it.<br>(lecture 13 p. 2 and 15, sjangre governance-1)"
+ },
+ {
+  "id": "ok-governance-04",
+  "ch": 27,
+  "deck": "governance",
+  "front": "Kurbatov's four governance tools. Classify each: (a) restricted shares that vest over five years, (b) an activist runs a proxy fight, (c) the board adds two independent directors, (d) a law requires independent auditors.",
+  "back": "<b>(a) Better contracts. (b) Shareholder action. (c) Better monitoring. (d) Regulation</b><br>1. Better monitoring: someone watches the manager more closely (board, large holders, lenders, employees, authorities, outsiders).<br>2. Better contracts: change what the manager wants by changing what he earns (pay, vesting, targets).<br>3. Shareholder action: owners use their votes and voice (agenda items, coordinated voting, campaigns, proxy contests).<br>4. Regulation: the state sets rules that make monitoring easier (SOX, Dodd-Frank).<br>Trap: Calling a pay change 'monitoring' because the board decides it. Nobody watches the CEO more closely; his incentives change.<br>(lecture 13 p. 3)"
+ },
+ {
+  "id": "ok-governance-05",
+  "ch": 27,
+  "deck": "governance",
+  "front": "According to Kurbatov, who can monitor the managers of a firm and with what?",
+  "back": "<b>Shareholders (especially big institutions) and the board; to a degree also lenders, employees, authorities and outsiders</b><br>1. Shareholders, above all large institutions: votes, proposals, engagement, proxy fights.<br>2. The board: hires, fires and pays the executives and takes the major decisions.<br>3. Lenders: covenants and the threat of calling the loan. Employees: they see problems first and can blow the whistle. Authorities: fraud cases.<br>4. External monitoring: the market for corporate control (the threat of a takeover), analysts and the press.<br>Trap: Listing small dispersed shareholders as monitors: each keeps too little of the gain to pay the cost, so they free-ride.<br>(lecture 13 p. 4, lecture 14 p. 24)"
+ },
+ {
+  "id": "ok-governance-06",
+  "ch": 27,
+  "deck": "governance",
+  "front": "What makes a board good or bad at monitoring? Use Kurbatov's list.",
+  "back": "<b>Independence above all; watch for captive boards, a CEO as chair, staggered terms, size and busy directors</b><br>1. Directors can be insiders (employees), gray (ties to the firm, such as its lawyer or banker) or independent. Independent boards monitor better.<br>2. A captive board was picked by the CEO it should watch. A CEO who chairs the board sets its agenda.<br>3. A staggered board elects only some seats each year, which makes incumbents much harder to replace.<br>4. Size and time: a large board coordinates poorly. Directors with many seats are too busy to monitor.<br>Trap: Counting gray directors as independent; treating a board as independent because it has a majority of outsiders while the CEO chairs it.<br>(lecture 13 p. 5, manual 27.2)"
+ },
+ {
+  "id": "ok-governance-07",
+  "ch": 27,
+  "deck": "governance",
+  "front": "A board has 9 seats with staggered three-year terms (3 seats elected each year). An activist wants a majority to replace the CEO. How many annual meetings does it need, even if it wins every contested seat?",
+  "back": "<b>Two meetings</b><br>1. A majority of 9 is 5 seats.<br>2. First meeting: 3 seats, short of 5.<br>3. Second meeting: 6 seats, a majority.<br>4. That delay is why Kurbatov calls a staggered board 'much harder to replace incumbent members'. It is also why it works as a takeover defence.<br>Trap: One meeting (forgetting that only a third of the seats are up); three (thinking every seat must be replaced).<br>(lecture 13 p. 5, sjangre governance-4)"
+ },
+ {
+  "id": "ok-governance-08",
+  "ch": 27,
+  "deck": "governance",
+  "front": "A firm earns 500 a year, including 40 of interest on 1 000 of cash (4%). It has 200 shares at 50; no taxes, perfect markets. The CEO's bonus depends on EPS. He spends all the cash buying back shares at 50. What happens to EPS and to the share price?",
+  "back": "<b>EPS rises from 2.5000 to 2.5556; the price stays at 50</b><br>1. Shares bought: 1 000/50 = 20, leaving 180.<br>2. Earnings lose the interest: 500 − 40 = 460. EPS = 460/180 = 2.5556.<br>3. Equity was 200 × 50 = 10 000; 1 000 is paid out; 9 000/180 = 50. Owners gain nothing.<br>4. Kurbatov's point: KPI targets make managers short-sighted. They may prefer such moves, or cut long-term projects, to hit this year's number.<br>Trap: 'EPS is up, so value is up.' The buyback moves cash from the firm to the sellers at a fair price; the bonus pays for nothing.<br>(lecture 14 recording, lecture 13 p. 7)"
+ },
+ {
+  "id": "ok-governance-09",
+  "ch": 27,
+  "deck": "governance",
+  "front": "Can you design a perfect pay contract for a CEO? Discuss performance metrics, stock-based pay and golden parachutes.",
+  "back": "<b>No: every tool fixes one problem and creates another</b><br>1. Performance metrics (EPS, KPIs): easy to observe, but the manager targets the number rather than the value. He becomes short-sighted.<br>2. Stock-based pay: ties his wealth to the share price, but short vesting invites timing and options can reward risk taking. Use long vesting and clawbacks.<br>3. Golden parachutes: can stop a CEO from blocking a good takeover to save his job, but can also reward failure or buy his consent to a low offer.<br>4. Monitor too hard and the manager becomes too passive; give him freedom and he may shirk. That is the trade-off.<br>Trap: Claiming more stock-based pay always aligns interests. It aligns him with the share price, which he can move in the short run.<br>(lecture 13 p. 6 to 7 and 15)"
+ },
+ {
+  "id": "ok-governance-10",
+  "ch": 27,
+  "deck": "governance",
+  "front": "A firm is worth 2 000 million. Active monitoring costs 2 million a year and would raise the value by 2%. Does a 7% owner monitor? A 0.1% owner?",
+  "back": "<b>The 7% owner does (2.8 &gt; 2); the 0.1% owner does not (0.04 &lt; 2)</b><br>1. Value created: 2% × 2 000 = 40 million.<br>2. 7% owner keeps 0.07 × 40 = 2.8 &gt; 2: monitoring pays.<br>3. 0.1% owner keeps 0.001 × 40 = 0.04 &lt; 2: he free-rides.<br>4. Rule: monitor if α × ΔV &gt; C. This is why large holders and institutions monitor and dispersed owners do not.<br>Trap: Comparing the full 40 with the cost: everyone gains from monitoring, but each pays the whole cost alone.<br>(manual 27.1, H2025 E2)"
+ },
+ {
+  "id": "ok-governance-11",
+  "ch": 27,
+  "deck": "governance",
+  "front": "What can shareholders do, beyond selling? List Kurbatov's forms of shareholder action.",
+  "back": "<b>'Just vote no', agenda items, coordinated voting, activist campaigns, proxy contests</b><br>1. 'Just vote no': vote against directors or the pay plan. It rarely wins outright, but a large protest vote is a signal.<br>2. Add items to the agenda of the meeting (shareholder proposals).<br>3. Coordinated voting: institutions vote together.<br>4. Activist campaigns: public letters and plans. Proxy contests: run your own slate of directors.<br>5. Facts from the readings: retail investors vote little. Institutions often delegate to proxy advisers.<br>Trap: Treating exit (selling) as monitoring. It can discipline through the share price, but it gives up the voice.<br>(lecture 13 p. 8)"
+ },
+ {
+  "id": "ok-governance-12",
+  "ch": 27,
+  "deck": "governance",
+  "front": "Many funds vote as the proxy adviser ISS or Glass Lewis recommends. Is that optimal?",
+  "back": "<b>Cheap but not obviously optimal: one standard policy replaces judgment at each firm</b><br>1. A fund with small stakes in thousands of firms would spend more on research than it gains at each one (α × ΔV &lt; C), so buying a recommendation is rational.<br>2. The cost of research is shared across all the adviser's clients.<br>3. But votes follow a template rather than the facts at each firm. Advisers also gain influence without owning anything or bearing the consequences.<br>4. Kurbatov's question 'is that optimal?' wants both sides.<br>Trap: Saying advisers solve the free-rider problem completely, or that they hold the shares themselves.<br>(lecture 13 p. 9)"
+ },
+ {
+  "id": "ok-governance-13",
+  "ch": 27,
+  "deck": "governance",
+  "front": "A new board demands approval for every project and says it will fire the CEO after one loss-making quarter. What is the likely effect on firm value?",
+  "back": "<b>Probably lower: the CEO becomes too passive and drops risky positive-NPV projects</b><br>1. A risky project with positive NPV can lose money in some quarter. The CEO now bears that risk with his job; the owners keep the upside.<br>2. He picks safe, low-value projects instead.<br>3. Kurbatov: 'a manager who is monitored too strongly will be too passive'. The trade-off is freedom for the manager or tight control.<br>4. Entrenchment is the opposite failure: a manager protected by a staggered board or defences is monitored too little.<br>Trap: 'More monitoring always means more value.' Past some point it buys less shirking at the price of less risk taking.<br>(lecture 13 p. 15 and 18)"
+ },
+ {
+  "id": "ok-governance-14",
+  "ch": 27,
+  "deck": "governance",
+  "front": "What did Sarbanes-Oxley and Dodd-Frank change in corporate governance? Why did they come?",
+  "back": "<b>SOX: independent auditors, more disclosure, personal responsibility. Dodd-Frank: independent pay committees, nominations by large holders</b><br>1. Background: the frauds of the early 2000s, with Enron (about 11 billion dollars of shareholder losses) as the landmark case. Earlier, the 1984 Insider Trading Sanctions Act targeted insiders.<br>2. Sarbanes-Oxley: independent auditors, enhanced disclosure, corporate responsibility for the accounts.<br>3. Dodd-Frank (after the financial crisis): many stability rules, plus independent compensation committees and a right for large shareholders to nominate board members.<br>4. Regulation supports monitoring; it does not replace it.<br>Trap: Swapping the two acts. SOX is about the numbers; Dodd-Frank strengthened shareholders against the board.<br>(lecture 13 p. 17)"
+ },
+ {
+  "id": "ok-governance-15",
+  "ch": 27,
+  "deck": "governance",
+  "front": "Shareholders or stakeholders? A CEO keeps an unprofitable plant open to protect local jobs. Discuss.",
+  "back": "<b>Friedman: the CEO spends the owners' money on a goal they did not choose. The counterargument: firms have many constituencies</b><br>1. Friedman (1970): the manager is the owners' agent. Social goals are for owners to fund with their own money if they want them.<br>2. Kurbatov's worry about the stakeholder view: too many missions and conflicting interests make the manager accountable to no one.<br>3. The other side: CSR and the Stanford survey. 89% of executives call stakeholders important and only 23% say shareholders clearly come first; employees are ranked most important.<br>4. A balanced answer: stakeholder care that raises long-run value is consistent with value maximisation; spending that does not is an agency cost.<br>Trap: Using the survey as proof that the plant should stay open. It describes what CEOs believe, not whose money it is.<br>(lecture 1 p. 28 to 32, lecture 13 p. 2)"
+ },
+ {
+  "id": "ok-governance-16",
+  "ch": 27,
+  "deck": "governance",
+  "front": "A mature firm generates 400 a year of free cash flow and has no positive-NPV projects. The CEO, who owns 0.2% of the shares, wants to reinvest it all to grow. What are the four uses of free cash flow? Which is best here?",
+  "back": "<b>Dividend, buyback, hold cash, reinvest. Pay it out: reinvesting here is empire building</b><br>1. Under MM the choice is irrelevant. With frictions it is not.<br>2. Without positive-NPV projects, every reinvestment has a negative NPV: a bigger firm worth less.<br>3. The CEO bears 0.2% of the loss but enjoys all of the size and prestige: the agency problem in miniature.<br>4. Dividends or buybacks take the cash out of his hands. Dividends are sticky (cutting them is punished); buybacks are flexible and can signal undervaluation.<br>Trap: 'Under MM it does not matter.' The question is about agency, where it does.<br>(lecture 14 recording, lecture 5)"
+ },
+ {
+  "id": "ok-governance-17",
+  "ch": 27,
+  "deck": "governance",
+  "front": "Why can an LBO or a takeover threat work as governance?",
+  "back": "<b>It replaces or disciplines management from outside the firm</b><br>1. A badly run firm trades below what it would be worth under good managers. A bidder or LBO fund can buy it, replace the managers and keep the gain.<br>2. In an LBO the new owners hold a large stake (no free-rider problem) and the heavy debt commits the managers to pay out cash instead of building empires.<br>3. Even the threat of a bid disciplines current managers, which is why defences that remove the threat are a governance concern.<br>Trap: Treating the market for corporate control as a monitor with daily tools. It works through the threat and the occasional bid.<br>(manual 27.6, lecture 12 p. 11)"
+ },
+ {
+  "id": "ok-governance-18",
+  "ch": 27,
+  "deck": "governance",
+  "front": "A governance question names no country. Which framework do you answer in? When do you bring in Norwegian company law?",
+  "back": "<b>Answer in the general (Kurbatov's) framework; bring in Norwegian law only if the question says ASA or Norway</b><br>1. Kurbatov teaches governance in a general, largely American frame: boards, staggered boards, proxy fights, ISS, SOX, Dodd-Frank.<br>2. H2024 E2 and H2025 E2 name no jurisdiction. The keys accept any reasonable mechanism with an explanation.<br>3. If the case is a Norwegian ASA, one sentence on the general meeting or the board's duties can add precision, but it does not replace the mechanism.<br>Trap: Building the answer on Norwegian law, or calling an American mechanism 'wrong' because Norwegian law differs. The points are for mechanisms, tools and who uses them.<br>(lecture 13, docs forelesninger A7)"
+ },
+ {
+  "id": "ok-eksamen-01",
+  "ch": 0,
+  "deck": "eksamensteknikk",
+  "front": "What does Kurbatov's exam look like? Structure, points, time and grading.",
+  "back": "<b>Exactly as H2024 and H2025: two theory questions, four problems, every block covered</b><br>1. Two theory questions of about 10 to 12 points each, answerable with sound reasoning; four computational problems, about 80% of the paper, several ending with 3 to 5 points of intuition.<br>2. Every block gets at least one exercise or sub-question: capital structure and payout, valuation with leverage, options and real options, M&amp;A and governance.<br>3. Part (a) is easy. No multiple choice. The formula sheet is the last page; your own sheets are not allowed. Calculator (ideally scientific with powers) and one bilingual dictionary.<br>4. Three or four hours: check the exam information. Graded on a curve by examiners; the A line has been about 90 to 91 points.<br>Trap: Preparing from pre-2024 exams as if they were his: 2022 is close and 2016 only with care. Their M&amp;A and governance parts are not representative.<br>(lecture 14 recording)"
+ },
+ {
+  "id": "ok-eksamen-02",
+  "ch": 0,
+  "deck": "eksamensteknikk",
+  "front": "How do you budget time across the six exercises?",
+  "back": "<b>About 1.6 minutes per point on a 3-hour paper, 2.2 on a 4-hour one, with a stop time written next to each exercise</b><br>1. Spend the first 10 minutes reading every exercise and writing the points next to each.<br>2. Three hours: 180 − 10 reading − 10 checking = 160 minutes for 100 points, 1.6 a point. A 12-point exercise gets about 19 minutes, a 20-point one about 32.<br>3. Four hours: 240 − 10 − 10 = 220 minutes, 2.2 a point. A 12-point exercise gets about 26 minutes, a 20-point one 44.<br>4. Write the closing minute in the margin. When the clock passes it, move on and come back later.<br>5. Early sub-questions are the easy ones, so a started exercise beats perfecting a hard part.<br>Trap: Starting with the biggest exercise and reaching minute 150 with both theory questions unwritten.<br>(manual 28.1)"
+ },
+ {
+  "id": "ok-eksamen-03",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "The question says 'evaluate the project'. You have the firm's levered value and the project's PV. What do you report?",
+  "back": "<b>The project's NPV: its PV minus its investment, not the firm's value</b><br>1. Kurbatov: 'if it says evaluate the project, I want the NPV of the project, not the firm'. Reporting firm value costs a lot of points.<br>2. PV is not NPV: subtract the investment before you report.<br>3. Underline 'project' or 'firm' and 'PV' or 'NPV' in the question before you compute.<br>Trap: Firm value reported as the answer, or a PV with the investment never subtracted.<br>(lecture 14 recording, manual 28.7)"
+ },
+ {
+  "id": "ok-eksamen-04",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "How many decimals? When do you round?",
+  "back": "<b>Typically four decimals, at most four for small numbers; round only when you write the final number</b><br>1. Kurbatov: typically four decimals, at most four for small numbers; no cents when the numbers are in billions.<br>2. H2025 E4: 'Recommended precision is 4 decimal places (as in, 1.2345 instead of 1.23)', for amounts such as 72.0178 as well as for rates.<br>3. Carry six decimals inside a chain. A rate rounded early moves a perpetuity by whole units and spreads through every later step.<br>Trap: Rounding ρ, a monthly rate or a discount factor mid-chain, or reporting small amounts with two decimals. The H2025 key accepts a drift of about 0.001 but calls about 0.05 too much.<br>(lecture 14 recording, H2025 E4, manual 28.7)"
+ },
+ {
+  "id": "ok-eksamen-05",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "You cannot get part (b), but parts (c) and (d) build on it. What do you do?",
+  "back": "<b>Name the missing number as a symbol or a labelled assumption and carry on: follow-on errors are not punished twice</b><br>1. Kurbatov: a later part that uses your wrong earlier number correctly gets full marks.<br>2. Write 'I could not obtain β<sub>U</sub> in (b); I carry it forward as β<sub>U</sub>' and do the algebra.<br>3. If a number is needed, assume one and label it: 'Assume β<sub>U</sub> = 1.4, since (b) is unresolved.'<br>4. Leave nothing blank: an empty sub-question is the only guaranteed zero.<br>Trap: Stopping at the broken part, or inventing a number silently, which makes later parts look wrong rather than consistent.<br>(lecture 14 recording, manual 28.8)"
+ },
+ {
+  "id": "ok-eksamen-06",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "Which discount rate goes with which valuation method? And why is r_wacc below r_U?",
+  "back": "<b>FCFE at r<sub>E</sub>, APV at r<sub>U</sub>, WACC method at r<sub>wacc</sub></b><br>1. Given r<sub>wacc</sub>: expect the WACC method. Given r<sub>U</sub>: expect APV. Maybe both: then they must agree.<br>2. FCF never subtracts interest; the tax benefit of debt enters through r<sub>wacc</sub> or through PV(TS), never twice. FCFE = FCF − (1 − τ) × interest + net borrowing, discounted at r<sub>E</sub>.<br>3. r<sub>wacc</sub> = r<sub>U</sub> − (D/V)τr<sub>D</sub> under constant leverage: the after-tax cost of debt carries the tax shield, so r<sub>wacc</sub> is below r<sub>U</sub> whenever there is debt and tax. Example: 10% − 0.4 × 0.22 × 5% = 9.56%.<br>Trap: Discounting FCF at r<sub>E</sub>, subtracting interest from FCF and then also using r<sub>wacc</sub> (tax shield counted twice).<br>(lecture 14 recording, lecture 14 p. 16 to 18)"
+ },
+ {
+  "id": "ok-eksamen-07",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "The annual rate is 8%. What do you use for 6 months, for 18 months and for one month?",
+  "back": "<b>6 months: 3.9230%. 18 months: factor 1.08<sup>1.5</sup> = 1.122369. One month: 0.6434%</b><br>1. Compound, never divide: (1 + r)<sup>T</sup> with T in years.<br>2. Six months: √1.08 − 1 = 3.9230%.<br>3. 18 months: discount with 1.08<sup>1.5</sup> = 1.122369. This is how Kurbatov annualises Google's 18-month yield.<br>4. Monthly: 1.08<sup>1/12</sup> − 1 = 0.6434%; back again (1 + r<sub>m</sub>)<sup>12</sup> − 1 = 8%.<br>Trap: 8%/2 = 4% and 8%/12 = 0.6667%. Kurbatov said he would not be surprised to see this on the exam.<br>(lecture 14 recording, manual 28.7)"
+ },
+ {
+  "id": "ok-eksamen-08",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "Read what is asked: which small words in a question change the answer you must give?",
+  "back": "<b>'Most you would pay', 'from today's perspective', 'as perceived by the market', 'answer both questions', 'actual premium'</b><br>1. 'How much would you pay': a maximum, the value of the information or option, not a price.<br>2. 'NPV from today's perspective': discount date-1 values back to date 0.<br>3. 'Probability as perceived by the market': a risk-neutral (or r<sub>f</sub>-discounted) probability backed out of prices.<br>4. 'Answer both questions': two answers, each stated in words. H2025 E1 said it outright: 'Please be very clear and answer both questions'.<br>5. 'Offered' or 'actual' premium; 'stand-alone' or 'combined'; 'value of the option' (against the best alternative, which is often 0).<br>Trap: Answering a nearby question correctly. The key gives no points for the number that was not asked.<br>(lecture 14 recording, manual 28.7)"
+ },
+ {
+  "id": "ok-eksamen-09",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "How do you write a 12-point verbal answer (governance or M&A motives)?",
+  "back": "<b>Exactly the number of items asked, each in its own paragraph: the mechanism named first, then who, how and why, within the sentence budget</b><br>1. Count the items: 'two methods', 'three actions', 'four boxes'. Each is graded on its own, so three solid items beat one brilliant one.<br>2. First line of each item: the name of the mechanism ('the board', 'disciplinary takeover', 'winner's curse').<br>3. Then explain it with the case facts (the 5 to 10% stake, the price reaction).<br>4. Keep to the budget: 2 to 3 or 3 to 4 sentences. Length is not rewarded.<br>Trap: Overlapping items, items without a mechanism, a general essay on governance, or synergies when they are banned.<br>(manual 28.5, H2024 E1 and E2, H2025 E2)"
+ },
+ {
+  "id": "ok-eksamen-10",
+  "ch": 23,
+  "deck": "eksamensteknikk",
+  "front": "The exam asks about Black-Scholes. What will you have to do? What not?",
+  "back": "<b>No Black-Scholes calculation; explain directions and mechanisms</b><br>1. Kurbatov, repeatedly: 'Black-Scholes calculation will not be in the exam. Intuition can be there.' You need not explain N(d<sub>1</sub>).<br>2. Expect: what a change in σ, T, r<sub>f</sub>, S or K does to a call or a put and why; implied against true volatility (H2025 E1); American against European.<br>3. Option prices you must compute come from parity or the binomial model.<br>4. No American options to price, only the intuition.<br>Trap: Spending exam minutes computing d<sub>1</sub> and N(d<sub>1</sub>). It earns nothing and costs time.<br>(lecture 14 recording)"
+ },
+ {
+  "id": "ok-eksamen-11",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "A strategy costs 100 today and pays 108.15 or 78.15 in a year (rf = 3%). Which equation gives the implied probability? What error do the keys name here?",
+  "back": "<b>100 × 1.03 = p × 108.15 + (1 − p) × 78.15, so p = 0.8283</b><br>1. Move every amount to the same date before you compare. Today's 100 is worth 103 in a year.<br>2. 103 − 78.15 = 30p gives p = 0.8283.<br>3. The same habit applies everywhere: a certainty equivalent, a date-1 NPV brought back to date 0, an amount paid later in a real option.<br>Trap: 100 = p × 108.15 + (1 − p) × 78.15, which gives 0.7283: p comes out 10 percentage points too low, the error the H2025 key singles out.<br>(H2025 E6, manual 28.7)"
+ },
+ {
+  "id": "ok-eksamen-12",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "Which checks close an answer? What does each catch?",
+  "back": "<b>Run a check that can fail and write one line saying it passed</b><br>1. Valuation: WACC value = APV value; weighted betas (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub> = β<sub>U</sub>.<br>2. Agency: creditors' gain + shareholders' gain = the project's NPV; with fixed total value, one side's gain is the other's loss.<br>3. Options: ρ between 0 and 1; parity C − P = S − PV(K); D + E = V; a second twin for the same stream gives the same ρ.<br>4. Real options: the option's value equals the probability of the branch it changes times the improvement there, discounted.<br>5. M&amp;A: the NPVs to acquirer and target sum to S; the long-short route and the spread shortcut give the same p.<br>Trap: Running a check that is an identity by construction and believing it tests the inputs: ρ always reprices the S<sub>0</sub> it came from; p always reprices the outlay. Those lines only confirm the arithmetic.<br>(manual 28.6)"
+ },
+ {
+  "id": "ok-eksamen-13",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "Which words in a question tell you which method to use?",
+  "back": "<b>Match the cue to the routine before you touch the numbers</b><br>1. 'Assume perfect capital markets': MM; show that debt and equity give the same value.<br>2. 'Uncorrelated with the market', 'the probability is known': real probabilities discounted at r<sub>f</sub>.<br>3. 'You do not know the probabilities', 'traded price', 'up and down': risk-neutral ρ from the twin.<br>4. 'Maintains a target D/E': tax shield at r<sub>U</sub>. 'Permanent debt of X': tax shield at r<sub>D</sub>, PV(TS) = τD.<br>5. 'Invest now or wait', 'may exit': fold the tree back, max at each node, compare with 0.<br>Trap: Choosing the method from the topic heading instead of from the wording. The paper gives no headings.<br>(lecture 14 recording, manual 28.2)"
+ },
+ {
+  "id": "ok-eksamen-14",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "What is on the formula sheet? What must you know by heart for blocks 3 and 4?",
+  "back": "<b>On the sheet: binomial replication and ρ, the stock-swap NPVs and the exchange-ratio cap. By heart: everything else in options, real options and deal probabilities</b><br>1. On the sheet: Δ, B and ρ = [(1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>); the M&amp;A swap NPVs and ER = x/N<sub>T</sub> ≤ [(T + S)/A](N<sub>A</sub>/N<sub>T</sub>). Nothing else from blocks 3 and 4.<br>2. By heart: put-call parity C + PV(K) = P + S; E = C(K) and D = PV(K) − P(K); senior and junior debt from calls; the CDS from ρ.<br>3. By heart: everything about real options (max at each node, value of information, exit as a put, compare with 0).<br>4. By heart: cash NPVs S − (P − T) and P − T; the deal probability from the long-short position with (1 + r<sub>f</sub>)<sup>T</sup>.<br>Trap: Assuming parity or the deal-probability set-up will be printed. Write the unprinted formulas on scrap paper in the first minute.<br>(formula sheet, manual 28.7)"
+ },
+ {
+  "id": "ok-eksamen-15",
+  "ch": 25,
+  "deck": "eksamensteknikk",
+  "front": "Kurbatov said decision trees help but are unlikely to earn points by themselves. How should you use one in a real-option answer?",
+  "back": "<b>As a tool: maximum at each decision node first, then probability-weight and discount. Report the option as a difference</b><br>1. Squares for decisions, circles for chance, numbers on every branch.<br>2. At each decision node take max(continue, stop, 0) before averaging; averaging first erases the option.<br>3. Report the option's value as the difference between two strategies you have both computed.<br>4. Compare with the best alternative, which is often doing nothing (0), not a negative NPV.<br>Trap: A beautiful tree with no numbers or no conclusion. Points are for values and the decision in words ('wait', 'open').<br>(lecture 14 recording, manual 25.7)"
+ },
+ {
+  "id": "ok-eksamen-16",
+  "ch": 28,
+  "deck": "eksamensteknikk",
+  "front": "How should you prepare in the last weeks, according to Kurbatov?",
+  "back": "<b>His two exams, then the problem sets, then the slides; the textbook last</b><br>1. H2024 and H2025: same structure and spirit, not identical questions.<br>2. Problem sets: anything solvable in a few lines can come, often with a twist; big Excel exercises will not. The stars say nothing about difficulty.<br>3. The M&amp;A lecture is Problem Set 4 (the 'minus one' example and the three at the end). Governance has no computations.<br>4. Slides: 'understand everything in this presentation, preferably in all the presentations'. Textbook chapters and exercises have lower priority.<br>Trap: Treating pre-2024 exams as his. M&amp;A and governance there are not representative.<br>(lecture 14 recording)"
+ }
+]

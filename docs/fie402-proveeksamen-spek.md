@@ -196,3 +196,32 @@ Each exam is then solved blind by an independent reviewer from a version without
 who checks every number, the consistency checks, whether each part has one defensible answer,
 and whether it reads like a Kurbatov paper. Findings are fixed before the sets are merged into
 `fag/fie402/sett.js`.
+
+## Mock exams 4 to 12 (14 November 2026): the prediction
+
+Nine more mocks in three rounds of three, built on `docs/fie402-prediksjon.md` (written from
+Kurbatov's two papers and keys, the 2026 lectures, the problem sets, the home assignments and what
+he said in the recorded wrap-up lecture). Section 5 of that document gives each exam exercise by
+exercise: topic, points per part, content and the source with the twist to apply.
+
+- **Round 1, the main prediction:** prove4 (the most likely set), prove5 (the core, second draw),
+  prove6 (the H2024 form with two capital-structure exercises).
+- **Round 2, the rotation:** prove7, prove8, prove9.
+- **Round 3, the breadth:** prove10, prove11, prove12.
+
+Everything in this specification above still applies (format, data format, writing rules,
+checks, blind review), with these updates from `docs/fie402-forelesninger-2026.md`:
+- **No Black-Scholes computation anywhere** (Kurbatov, wrap-up): intuition only. The earlier
+  line «If Black-Scholes is computed, give N(d1) and N(d2)» is withdrawn.
+- Conventions: unlevered weights by default, D(1−τ) weights for predetermined permanent debt;
+  r_wacc = r_U(1 − τD/V^L) for fixed permanent debt without growth; V^L = (1 + τk)V^U for a
+  constant interest coverage ratio; FTE = FCF − (1−τ)·interest + net borrowing at r_E; real
+  probabilities discounted at r_f only when the risk is not systematic; the twin in a waiting
+  option must price the same cash flow (H2024 ρ = 0.4634); an exit or abandonment option is
+  compared with 0, never with the negative NPV; discrete discounting, including fractions of a
+  year; deal probability with (1 + r_f)^T; governance answered in a general (US-style) frame.
+- Part a is easy; at least one construction part of 8 to 12 points per exam; a verbal tail of
+  3 to 5 points in at least three computational exercises; «Use 4 decimal places» where it
+  matters.
+- Never reuse a scenario or the numbers of H2024, H2025, prove1–3, HA1–HA2 or the problem sets:
+  the source in the plan gives the *type*, the numbers and the twist must be new.

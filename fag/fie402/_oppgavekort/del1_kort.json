@@ -1,0 +1,905 @@
+[
+ {
+  "id": "ok-tvilling-01",
+  "ch": 3,
+  "deck": "tvillingfirma og beta",
+  "front": "Cost of equity from the CAPM. (Risk-free rate 6%, expected market return 11%, equity beta 2.4)",
+  "back": "<b>r<sub>E</sub> = 6% + 2.4 × (11% − 6%) = 18%</b><br>1. Market risk premium = 11% − 6% = 5%. The paper gives the market return, not the premium.<br>2. r<sub>E</sub> = 6% + 2.4 × 5% = 18%.<br>Trap: 32.4% (the market return used as the premium). 26.4% (beta times the market return, r<sub>f</sub> left out).<br>(H2025 E4b, manual 3.4)"
+ },
+ {
+  "id": "ok-tvilling-02",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "Debt beta when the debt is risky. (Cost of debt 10%, risk-free rate 6%, expected market return 11%)",
+  "back": "<b>β<sub>D</sub> = (10% − 6%)/5% = 0.8</b><br>1. Run the CAPM backwards on the debt: r<sub>D</sub> = r<sub>f</sub> + β<sub>D</sub>(E[R<sub>m</sub>] − r<sub>f</sub>).<br>2. 0.1 = 0.06 + β<sub>D</sub> × 0.05, so β<sub>D</sub> = 0.04/0.05 = 0.8.<br>Trap: β<sub>D</sub> = 0 because debt feels safe. With D/E = 0.25 and β<sub>E</sub> = 2.4 that gives β<sub>U</sub> = 1.92 instead of 2.08 and r<sub>U</sub> = 15.6% instead of 16.4%: too low a rate, so the firm is overvalued.<br>(H2025 E4a, manual 4.5)"
+ },
+ {
+  "id": "ok-tvilling-03",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "A firm keeps a debt-to-equity ratio of 25%. What are D/V and E/V? Which ratio goes into MM II?",
+  "back": "<b>D/V = 0.25/1.25 = 0.2 and E/V = 0.8</b><br>1. D/V = (D/E)/(1 + D/E) = 0.2. E/V = 1/1.25 = 0.8.<br>2. D/V and E/V weight the betas: β<sub>U</sub> = 0.8β<sub>E</sub> + 0.2β<sub>D</sub>. D/E itself goes into MM II: r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>).<br>3. Use market values: E = shares × price. Book equity never enters.<br>Trap: 0.25 read as D/V. With β<sub>E</sub> = 1.5 and β<sub>D</sub> = 0 that gives β<sub>U</sub> = 1.125 instead of 1.2 (H2024 E5).<br>(H2024 E5a, H2025 E4c, manual 4.2)"
+ },
+ {
+  "id": "ok-tvilling-04",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "Unlevered cost of capital from a twin. (Twin: D/E = 25%, debt beta 0, equity beta 1.5. Risk-free 5%, market return 11%, tax 40%. Your firm keeps D/V = 30%)",
+  "back": "<b>β<sub>U</sub> = 0.8 × 1.5 = 1.2, so r<sub>U</sub> = 5% + 1.2 × 6% = 12.2%</b><br>1. Weights: D/V = 0.25/1.25 = 0.2, E/V = 0.8.<br>2. Unlever without taxes (course default): β<sub>U</sub> = 0.8 × 1.5 + 0.2 × 0 = 1.2.<br>3. CAPM: 5% + 1.2 × 6% = 12.2%. Same business, same asset risk, so this is also your firm's r<sub>U</sub>.<br>Trap: 12.8261% (Hamada with taxes: 1.5/(1 + 0.6 × 0.25) = 1.3043). 11.3% (unlevered with your own 30% instead of the twin's leverage). The tax rate plays no part here.<br>(H2024 E5a, manual 4.3)"
+ },
+ {
+  "id": "ok-tvilling-05",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "Unlevered cost of capital when the debt is risky. (D/E = 25%, equity beta 2.4, debt beta 0.8, cost of debt 10%, risk-free 6%, market return 11%, tax 40%)",
+  "back": "<b>β<sub>U</sub> = 2.08 and r<sub>U</sub> = 16.4%</b><br>1. β<sub>U</sub> = 0.8 × 2.4 + 0.2 × 0.8 = 1.92 + 0.16 = 2.08.<br>2. r<sub>U</sub> = 6% + 2.08 × 5% = 16.4%.<br>3. Second route, pre-tax WACC: 0.8 × 18% + 0.2 × 10% = 14.4% + 2% = 16.4%. Same answer, because the CAPM is linear.<br>Trap: 15.6%, which two different errors produce here: the debt beta dropped (β<sub>U</sub> = 1.92) or the tax put into r<sub>U</sub> (that is the after-tax WACC). r<sub>U</sub> has no taxes in it.<br>(H2025 E4c, manual 4.5)"
+ },
+ {
+  "id": "ok-tvilling-06",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "Unlevered cost of capital from market data. (15 million shares at 90, risk-free debt of 250, cost of equity 9%, cost of debt 3%, perfect markets)",
+  "back": "<b>r<sub>U</sub> = 0.84375 × 9% + 0.15625 × 3% = 8.0625%</b><br>1. E = 15 × 90 = 1 350, D = 250, V = 1 600.<br>2. Pre-tax WACC = r<sub>U</sub>: 0.0759375 + 0.0046875 = 0.080625.<br>Check: MM II: 8.0625% + (250/1 350)(8.0625% − 3%) = 9% ✓<br>Trap: 9% (r<sub>E</sub> is not r<sub>U</sub> once there is debt). 8.04% (weights rounded to 0.84 and 0.16). Perfect markets, so no (1 − τ) anywhere.<br>(H2024 E3a, manual 4.1)"
+ },
+ {
+  "id": "ok-tvilling-07",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "Relever to your own leverage. (Unlevered cost of capital 12.2%, your firm keeps D/V = 30%, cost of debt 6%, tax 40%)",
+  "back": "<b>r<sub>E</sub> = 12.2% + (3/7)(12.2% − 6%) = 14.8571%</b><br>1. D/E = 0.3/0.7 = 0.4286.<br>2. MM II: 12.2% + 0.4286 × 6.2% = 12.2% + 2.6571% = 14.8571%.<br>Check: 0.7 × 14.8571% + 0.3 × 6% = 12.2% = r<sub>U</sub> ✓ (an identity: it catches slips only)<br>Trap: 14.06% (D/V put into MM II). 13.7943% (the (1 − τ) version, which belongs to fixed permanent debt; this firm keeps D/V constant).<br>(H2024 E5b, manual 4.4)"
+ },
+ {
+  "id": "ok-tvilling-08",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "Equity beta and expected return after a debt-financed buyback. (All-equity firm, beta 1.2, expected return 12.5%. It issues risk-free debt at 5% and buys back 40% of its shares. Perfect markets)",
+  "back": "<b>β<sub>E</sub> = 1.2 × (1 + 0.4/0.6) = 2 and r<sub>E</sub> = 17.5%</b><br>1. Buying back 40% of the shares with debt makes D/V = 0.4, so D/E = 2/3.<br>2. Today's beta is β<sub>U</sub> (no debt). With β<sub>D</sub> = 0: β<sub>E</sub> = β<sub>U</sub>(1 + D/E) = 2.<br>3. Premium = (12.5% − 5%)/1.2 = 6.25%, so r<sub>E</sub> = 5% + 2 × 6.25% = 17.5%.<br>Check: 12.5% + (2/3)(12.5% − 5%) = 17.5% ✓<br>Trap: 1.68 (0.4 used as D/E). 1.2 (the assets did not change, but the equity now carries their risk on a smaller base).<br>(PS1 E1a–b, manual 4.4)"
+ },
+ {
+  "id": "ok-tvilling-09",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "A firm deleverages from D/E = 1/3 to D/V = 1/5. New equity beta and cost of equity? (Risk-free debt, equity beta today 1.5, risk-free 5%, market return 7%, no taxes)",
+  "back": "<b>β<sub>E</sub> = 1.40625 and r<sub>E</sub> = 7.8125%, down from 1.5 and 8%</b><br>1. Unlever: D/V = 1/4, so β<sub>U</sub> = 0.75 × 1.5 = 1.125 and r<sub>U</sub> = 5% + 1.125 × 2% = 7.25%.<br>2. Relever: D/V = 1/5 means D/E = 1/4, so β<sub>E</sub> = 1.125 × 1.25 = 1.40625.<br>3. r<sub>E</sub> = 5% + 1.40625 × 2% = 7.8125%. WACC = 0.8 × 7.8125% + 0.2 × 5% = 7.25% before and after: the assets did not change.<br>Trap: 1.35 and 7.7% (1/5 used as D/E). Saying the lower r<sub>E</sub> destroys value: it is lower because the equity is safer. The price does not move.<br>(Home assignment 1 E1a–d, manual 4.4)"
+ },
+ {
+  "id": "ok-tvilling-10",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "Unlever a twin that holds excess cash. (12 million shares at 100, debt 400 with beta 0, cash 150 of which 50 is needed in operations, equity beta 1.25, risk-free 4%, market risk premium 6%)",
+  "back": "<b>β<sub>U</sub> = (1 200/1 500) × 1.25 = 1, r<sub>U</sub> = 10%</b><br>1. Only excess cash is netted: 150 − 50 = 100. Net debt = 400 − 100 = 300.<br>2. E = 12 × 100 = 1 200, so V = 1 200 + 300 = 1 500.<br>3. β<sub>U</sub> = 0.8 × 1.25 + 0.2 × 0 = 1. r<sub>U</sub> = 4% + 1 × 6% = 10%.<br>Trap: 0.9375 (cash ignored, D = 400). 1.0345 (all 150 netted, D = 250). Operating cash is an asset the business needs.<br>(PS2 E7, lecture 7 slide 19, manual 4.3)"
+ },
+ {
+  "id": "ok-tvilling-11",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "Asset beta of an all-equity firm with excess cash. (Market equity 960, excess cash 425 with beta 0, equity beta 1.2)",
+  "back": "<b>β<sub>U</sub> = 1.2 × 960/535 = 2.1533</b><br>1. Equity = operations + cash, so 1.2 = (535/960)β<sub>U</sub> + (425/960) × 0.<br>2. β<sub>U</sub> = 1.2 × 960/535 = 2.1533. Excess cash is negative net debt.<br>Trap: 1.2 (cash left in, which dilutes the beta of the business). 0.6688 (the weight applied the wrong way round).<br>(PS2 E8, manual 4.3)"
+ },
+ {
+  "id": "ok-tvilling-12",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "Two twins: average their asset betas. (Twin 1: equity 300, debt 150, equity beta 1.65, debt yield 6.5%. Twin 2: asset beta 2.1533. Risk-free 5%, market risk premium 6%)",
+  "back": "<b>β<sub>U</sub> = (1.1833 + 2.1533)/2 = 1.6683, so r<sub>U</sub> = 15.0098%</b><br>1. Twin 1's debt beta from its yield: (6.5% − 5%)/6% = 0.25 (the yield taken as the expected return, as the course solution does).<br>2. Twin 1: (300/450) × 1.65 + (150/450) × 0.25 = 1.1 + 0.0833 = 1.1833.<br>3. Average the asset betas, then the CAPM: 5% + 1.6683 × 6% = 15.0098%.<br>Trap: 14.7598% (debt beta set to 0). 12.1% (one twin only). Average asset betas, never equity betas.<br>(PS2 E8, lecture 8, manual 4.3)"
+ },
+ {
+  "id": "ok-tvilling-13",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "After-tax WACC. (D/V = 30%, cost of equity 14.8571%, cost of debt 6%, tax 40%, unlevered cost 12.2%)",
+  "back": "<b>r<sub>wacc</sub> = 0.7 × 14.8571% + 0.3 × 6% × 0.6 = 11.48%</b><br>1. Equity part 0.104. Debt part after tax: 0.3 × 0.036 = 0.0108.<br>2. Shortcut: r<sub>U</sub> − (D/V)τ<sub>c</sub>r<sub>D</sub> = 12.2% − 0.3 × 0.4 × 6% = 11.48% ✓ (valid with constant D/V).<br>Trap: 12.2% (tax left out: that is the pre-tax WACC, r<sub>U</sub>). 7.32% (the (1 − τ) applied to the whole WACC).<br>(H2024 E5c, manual 4.6)"
+ },
+ {
+  "id": "ok-tvilling-14",
+  "ch": 4,
+  "deck": "tvillingfirma og beta",
+  "front": "Unlever a twin whose debt is fixed and permanent. (Equity 988, permanent debt 400 at 4%, cost of equity 10.5789%, tax 22%)",
+  "back": "<b>r<sub>U</sub> = (988 × 10.5789% + 312 × 4%)/1 300 = 9%</b><br>1. Fixed permanent debt: the tax shield is as safe as the debt, so weight the debt net of it: D(1 − τ) = 400 × 0.78 = 312.<br>2. r<sub>U</sub> = (104.52 + 12.48)/1 300 = 9%. Same weights for betas.<br>3. Equivalent: r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ)(r<sub>U</sub> − r<sub>D</sub>) = 9% + 0.4049 × 0.78 × 5% = 10.5789% ✓<br>Trap: 8.683% (plain weights E/V and D/V: the pre-tax WACC, which equals r<sub>U</sub> only under constant D/V). Use D(1 − τ) only when the question says the debt is fixed.<br>(Lecture 8 slide 18, manual 7.4)"
+ },
+ {
+  "id": "ok-tvilling-15",
+  "ch": 3,
+  "deck": "tvillingfirma og beta",
+  "front": "Beta from data. (Covariance of the stock with the market 0.018, market standard deviation 15%, stock standard deviation 40%)",
+  "back": "<b>β = Cov/Var(R<sub>m</sub>) = 0.018/0.15² = 0.8</b><br>1. Var(R<sub>m</sub>) = 0.0225. β = 0.018/0.0225 = 0.8.<br>2. Equivalently β = Corr × σ<sub>i</sub>/σ<sub>m</sub> = 0.3 × 0.4/0.15 = 0.8.<br>3. The stock's own 40% volatility is mostly diversifiable and earns no premium.<br>Trap: 0.12 (divided by σ<sub>m</sub>, not the variance). 0.3 (the correlation; lecture 1 slide 24 prints Corr/Var, a typo for Cov/Var). 2.6667 (σ<sub>i</sub>/σ<sub>m</sub>).<br>(Lecture 1, manual 3.3)"
+ },
+ {
+  "id": "ok-tvilling-16",
+  "ch": 3,
+  "deck": "tvillingfirma og beta",
+  "front": "A gold miner has volatility 45% and beta −0.2. What return do investors require? Why so low? (Risk-free 3%, market risk premium 5%)",
+  "back": "<b>r = 3% + (−0.2) × 5% = 2%, below the risk-free rate</b><br>1. Only systematic risk is priced. The 45% volatility is almost all diversifiable.<br>2. A negative beta means the stock pays off when the market falls. It hedges the rest of the portfolio, so investors accept less than r<sub>f</sub>.<br>Trap: 4% (sign of beta dropped). Using volatility instead of beta, or claiming every risky stock must earn more than r<sub>f</sub>.<br>(Lecture 14 wrap-up, manual 3.2)"
+ },
+ {
+  "id": "ok-mm-01",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "A firm in perfect markets announces it will borrow 400, repay its 250 of debt and pay out the rest as a dividend. What happens to the share price on the announcement? (15 million shares at 90)",
+  "back": "<b>Nothing: the price stays at 90</b><br>1. Perfect markets: no taxes, no distress or agency costs. MM I says V = 1 600 before and after.<br>2. The announcement only changes how the same cash flows are split between debt and equity, so there is nothing new to price.<br>Trap: 100 (the payout added to the price) or 80 (the ex-dividend drop moved to the announcement date). With taxes and permanent debt the price would jump at once by τ<sub>c</sub> × 150/15.<br>(H2024 E3b, manual 6.4)"
+ },
+ {
+  "id": "ok-mm-02",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "The firm borrows 400, repays 250 of old debt and pays out the rest as a dividend. Share price after? Are the shareholders better off? (15 million shares at 90, firm value 1 600, perfect markets)",
+  "back": "<b>DPS = 150/15 = 10, P<sub>ex</sub> = (1 600 − 400)/15 = 80. Wealth 80 + 10 = 90: no change</b><br>1. 400 − 250 = 150 is paid out, 10 per share.<br>2. V stays 1 600 (MM I) and D is now 400, so E = 1 200 on the same 15 million shares.<br>Check: 15 × 80 + 150 = 1 350 = old equity ✓<br>Trap: 90 (a dividend retires no shares, but the cash leaves the firm). 70 (the dividend subtracted twice: 1 600 − 400 − 150).<br>(H2024 E3c, manual 15.5)"
+ },
+ {
+  "id": "ok-mm-03",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "After the recap the debt is riskier and costs 4.5% instead of 3%. New cost of equity? (Unlevered cost 8.0625%, D = 400, E = 1 200, perfect markets)",
+  "back": "<b>r<sub>E</sub> = 8.0625% + (400/1 200)(8.0625% − 4.5%) = 9.25%</b><br>1. r<sub>U</sub> is unchanged: same assets.<br>2. D/E = 1/3, so r<sub>E</sub> = 8.0625% + 1.1875% = 9.25%.<br>Check: 0.75 × 9.25% + 0.25 × 4.5% = 8.0625% ✓<br>Trap: 9.75% (old r<sub>D</sub> = 3% kept). 8.9531% (D/V used). Riskier debt takes some risk off the equity, so r<sub>E</sub> rises less.<br>(H2024 E3d, manual 6.3)"
+ },
+ {
+  "id": "ok-mm-04",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "Same recap, but the 150 buys back shares instead of paying a dividend. Share price and number of shares bought? (15 million shares at 90, perfect markets)",
+  "back": "<b>P stays 90. n = 150/90 = 1.6667 million shares</b><br>1. A buyback at the market price is a fair swap: cash out, shares of equal value in.<br>2. Shares left: 15 − 1.6667 = 13.3333 million.<br>3. The seller gets 90 in cash, the holder keeps a 90 share: the same as 80 + 10 under the dividend.<br>Check: E = 1 600 − 400 = 1 200; 1 200/13.3333 = 90 ✓<br>Trap: 1.875 million (bought at the ex-dividend price 80). Then 1 200/13.125 = 91.43, a second price for the same share.<br>(H2024 E3e, manual 6.4)"
+ },
+ {
+  "id": "ok-mm-05",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "Cost of equity and share price from a perpetuity. (FCF 20 a year forever, all paid out. Risk-free debt 100 at 5%, equity worth 200, 1 million shares, no taxes)",
+  "back": "<b>r<sub>E</sub> = 7.5%, P = 200</b><br>1. V = 100 + 200 = 300, so r<sub>U</sub> = FCF/V = 20/300 = 6.6667% (no taxes: pre-tax WACC = r<sub>U</sub>).<br>2. 6.6667% = (2/3)r<sub>E</sub> + (1/3) × 5%, so r<sub>E</sub> = 7.5%.<br>3. P = 200/1 = 200.<br>Check: dividend 20 − 5 = 15; 15/0.075 = 200 ✓<br>Trap: 6.6667% reported as r<sub>E</sub>. 10% (20/200: the whole FCF credited to equity, interest forgotten).<br>(H2025 E3a, manual 6.3)"
+ },
+ {
+  "id": "ok-mm-06",
+  "ch": 15,
+  "deck": "MM og rekapitalisering",
+  "front": "Dividend per share at the end of year 1 and the share price right after it. (FCF 20 forever, risk-free debt 100 at 5%, 1 million shares, cost of equity 7.5%)",
+  "back": "<b>Div<sub>1</sub> = 15, P<sub>1</sub> = 200 (215 just before)</b><br>1. Interest first: 5% × 100 = 5. Equity gets 20 − 5 = 15, 15 per share.<br>2. After the payout the share is again a claim on 15 forever: 15/0.075 = 200.<br>Check: (15 + 200)/1.075 = 200 = P<sub>0</sub> ✓<br>Trap: 20 per share (interest forgotten). 185 (the dividend subtracted from 200 instead of from the cum price 215).<br>(H2025 E3b, manual 15.2)"
+ },
+ {
+  "id": "ok-mm-07",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "The board recapitalises to D/V = 0.5 by issuing debt and buying back shares. Debt issued, price on announcement and shares bought? (V = 300, debt 100, 1 million shares at 200, no taxes)",
+  "back": "<b>Issue 50, the price stays 200, buy back 0.25 million shares</b><br>1. Target D = 0.5 × 300 = 150. It has 100, so it issues 50.<br>2. No taxes or frictions: V stays 300, so P stays 200.<br>3. n = 50/200 = 0.25 million.<br>Check: (300 − 150)/0.75 = 200 ✓<br>Trap: 150 of new debt (the target read as the issue: D/V would be 250/300). Expecting a price rise on the announcement: only taxes would create one.<br>(H2025 E3c, manual 6.4)"
+ },
+ {
+  "id": "ok-mm-08",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "After the recap to D/V = 0.5, what is the new dividend per share and the new cost of equity? (FCF 20 forever, debt 150 at 5%, 0.75 million shares, unlevered cost 6.6667%)",
+  "back": "<b>Div = 12.5/0.75 = 16.6667, r<sub>E</sub> = 8.3333%</b><br>1. Interest: 5% × 150 = 7.5. Equity gets 20 − 7.5 = 12.5 on 0.75 million shares.<br>2. MM II with D/E = 1: 6.6667% + 1 × (6.6667% − 5%) = 8.3333%.<br>Check: 16.6667/0.083333 = 200, the unchanged price ✓<br>Trap: 12.5 (old share count kept). 7.5% (D/V = 0.5 put into MM II, which happens to return the old r<sub>E</sub>).<br>(H2025 E3d, manual 6.3)"
+ },
+ {
+  "id": "ok-mm-09",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "Compare three shareholders: one in the original firm, one who sold in the buyback and one who kept the share. Comment. (H2025 E3e: FCF 20 forever, recap from D/V = 1/3 to 1/2, perfect markets)",
+  "back": "<b>All three hold 200 today. Leverage moved risk, not value</b><br>1. Original: 15 forever at 7.5% = 200. Sold: 200 in cash. Kept: 16.6667 forever at 8.3333% = 200.<br>2. Model comment: MM I holds, so the recap only re-slices the same 20 of cash flow. The holder gets an 11.1% larger dividend but bears the business risk on a smaller equity base, so r<sub>E</sub> rises just enough to keep the price at 200. The seller got fair value, so nobody gains at anyone's expense. An investor who wants the old risk back can hold some of the firm's debt alongside the share (homemade leverage).<br>Check: 0.25 × 200 + 0.75 × 200 = 200 = old equity ✓<br>Trap: Saying the holder wins because the dividend rose, or the seller wins because he got cash.<br>(H2025 E3e, manual 6.2)"
+ },
+ {
+  "id": "ok-mm-10",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "Debt-financed special dividend: share price after the transaction and new cost of equity? (10 million shares at 75, risk-free debt 100 at 4.25%, cost of equity 8.5%. The firm borrows 350 at 5%, repays the 100 and pays 250 as a dividend)",
+  "back": "<b>P = (850 − 350)/10 = 50, r<sub>E</sub> = 10.1%</b><br>1. V = 10 × 75 + 100 = 850, unchanged by MM I. New E = 850 − 350 = 500, 50 per share.<br>2. r<sub>U</sub> = (750/850) × 8.5% + (100/850) × 4.25% = 8%.<br>3. r<sub>E</sub> = 8% + (350/500)(8% − 5%) = 10.1%.<br>Check: 50 + 25 dividend = 75 ✓<br>Trap: 40 (all 350 deducted per share, though 100 of it only replaced old debt). 10.625% (old 4.25% kept as r<sub>D</sub>).<br>(PS1 E3, manual 6.5)"
+ },
+ {
+  "id": "ok-mm-11",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "An all-equity firm expects earnings of 3 000 a year forever, cost of equity 20%, 1 000 shares. It borrows 7 500 at 10% and buys back shares. Price, shares bought and new cost of equity? (No taxes, perfect markets)",
+  "back": "<b>P = 15, n = 500, r<sub>E</sub> = 30%</b><br>1. V = 3 000/0.2 = 15 000, P = 15. MM: the announcement leaves it there.<br>2. n = 7 500/15 = 500 shares. D/E = 7 500/7 500 = 1.<br>3. r<sub>E</sub> = 20% + 1 × (20% − 10%) = 30%.<br>Check: (3 000 − 750)/0.3 = 7 500 = E ✓<br>Trap: 25% (D/V = 0.5 put into MM II). Thinking shareholders gain because EPS rises from 3 to 4.5: the higher return only pays for the higher risk.<br>(PS1 E4b, manual 6.5)"
+ },
+ {
+  "id": "ok-mm-12",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "Firms A and B both pay 110 next year. A is all-equity and worth 100. B has debt of 40 at 10% (repays 44). B's equity trades at 54. Find the arbitrage. (Everyone borrows and lends at 10%)",
+  "back": "<b>Short A, buy B's equity, lend 46: a sure 6.6 next year (6 today)</b><br>1. Today: +100 − 54 − 46 = 0.<br>2. Next year: 66 from B's equity + 46 × 1.1 = 50.6 from the loan − 110 owed on A = 6.6.<br>3. Arbitrage pushes E<sub>B</sub> to 66/1.1 = 60, so V<sub>A</sub> = V<sub>B</sub> = 100: MM I.<br>Trap: Buying A and shorting B (the wrong direction loses 6.6). Comparing 54 with 100 directly: B's equity sits behind 40 of debt.<br>(PS1 E2, manual 6.2)"
+ },
+ {
+  "id": "ok-mm-13",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "EPS and P/E after a recap. (EPS 1.50, P/E 14. The firm borrows risk-free at 5% and buys back 40% of its shares. Perfect markets)",
+  "back": "<b>EPS = 1.80 (up from 1.50), P/E = 21/1.80 = 11.67 (down from 14)</b><br>1. P = 14 × 1.50 = 21. Debt per original share 0.4 × 21 = 8.40, interest 0.42.<br>2. Earnings 1.50 − 0.42 = 1.08 shared by 0.6 shares: EPS = 1.80.<br>3. The price stays 21 (MM). P/E falls because each krone of earnings is now riskier.<br>Trap: Claiming value rose with EPS. 2.50 (1.50/0.6, interest forgotten).<br>(PS1 E1c–d, tutorial session 1, manual 6.6)"
+ },
+ {
+  "id": "ok-mm-14",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "EPS break-even. (EBIT 10 million, 10 million shares at 7.50. The firm borrows 15 million at 8% and buys back 2 million shares. No taxes)",
+  "back": "<b>EPS rises from 1.00 to 1.10. Break-even EBIT = 6 million</b><br>1. Interest 8% × 15 = 1.2, so EPS = (10 − 1.2)/8 = 1.10.<br>2. Break-even: EBIT/10 = (EBIT − 1.2)/8 gives 8 EBIT = 10 EBIT − 12, so EBIT = 6.<br>3. Above 6 the levered EPS is higher, below it lower: leverage amplifies the swings. That is extra risk, not extra value.<br>Trap: 1.2 (break-even set where EBIT just covers the interest). Concluding the recap creates value because EPS went up.<br>(Lecture 2 slide 24, manual 6.6)"
+ },
+ {
+  "id": "ok-mm-15",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "A bank funds itself with 3% equity at 25% and debt at 5%. The regulator requires 6% equity. The bankers say the funding cost rises to 6.2%. Right? (Perfect markets, cost of debt unchanged)",
+  "back": "<b>No. r<sub>E</sub> falls to 15% and the funding cost stays 5.6%</b><br>1. r<sub>U</sub> = 0.03 × 25% + 0.97 × 5% = 5.6%.<br>2. New D/E = 94/6, so r<sub>E</sub> = 5.6% + (94/6)(5.6% − 5%) = 15%.<br>3. A thicker equity cushion makes each krone of equity safer.<br>Check: 0.06 × 15% + 0.94 × 5% = 5.6% ✓<br>Trap: 6.2% (r<sub>E</sub> held at 25%: the bankers' argument). In reality the cost can rise through lost tax shields and implicit guarantees, not through MM.<br>(Lecture 2 slide 25, manual 6.6)"
+ },
+ {
+  "id": "ok-mm-16",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "A founder with no money has a project that costs 800 today and pays 1 400 or 900 next year with equal probability. Investors require 15% on the project. She can borrow at a risk-free 5% or sell shares. What is her stake worth? (Perfect markets)",
+  "back": "<b>200 either way: the project's NPV</b><br>1. V = (0.5 × 1 400 + 0.5 × 900)/1.15 = 1 150/1.15 = 1 000. NPV = 200.<br>2. Debt: she owes 840 next year, safe even in the bad state. Her claim is worth 1 000 − 800 = 200.<br>3. Equity: she sells 800/1 000 = 80% and keeps 20% × 1 000 = 200.<br>Trap: 269.57 (her levered payoff of 310 discounted at the project's 15%). Her claim sits behind the debt and is riskier than the project.<br>(Lecture 2, manual 6.2)"
+ },
+ {
+  "id": "ok-mm-17",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "A colleague says: the expected return on equity fell after the firm cut its debt, so the recap must have reduced shareholder value. Correct? (Home assignment 1 E1e)",
+  "back": "<b>No. The required return fell because the equity became safer. The price did not move</b><br>Model answer: Under MM I firm value depends only on the assets, so a recap in perfect markets leaves the share price unchanged. r<sub>E</sub> is a required return, the compensation for bearing risk, not a gain the shareholder owns. Less debt means less financial risk per share, so β<sub>E</sub> and r<sub>E</sub> fall together (in the assignment from 1.5 and 8% to 1.40625 and 7.8125%) while the WACC stays at r<sub>U</sub> = 7.25%. A lower expected return at lower risk leaves the investor exactly as well off.<br>Trap: Treating r<sub>E</sub> as a measure of value created. The same logic would say more debt always creates value.<br>(Home assignment 1 E1e, manual 6.6)"
+ },
+ {
+  "id": "ok-mm-18",
+  "ch": 6,
+  "deck": "MM og rekapitalisering",
+  "front": "A firm worth 1 000 has 10 shares at 100. It issues 5 new shares at 100 and invests the cash in a zero-NPV project. Are the old shareholders diluted?",
+  "back": "<b>No. The price stays at 1 500/15 = 100</b><br>1. The issue brings in 500 of cash, so V = 1 000 + 500 = 1 500 on 15 shares.<br>2. The old owners' share of the firm falls from 100% to 2/3, but it is a slice of a bigger firm and worth the same.<br>3. Only a sale below fair value, or a negative-NPV use of the cash, hurts the old holders.<br>Trap: 66.67 (1 000/15: the cash raised left out). The same mistake as the EPS fallacy.<br>(Lecture 2 slide 26, manual 6.6)"
+ },
+ {
+  "id": "ok-skatt-01",
+  "ch": 7,
+  "deck": "skatt og trade-off",
+  "front": "Present value of the tax shield on a one-year loan. (Borrows 500 at 5% for one year, tax 22%)",
+  "back": "<b>PV(TS) = 0.22 × 5% × 500/1.05 = 5.2381</b><br>1. One deduction: interest 25, worth 0.22 × 25 = 5.5 at date 1.<br>2. A fixed amount, as safe as the debt: discount at r<sub>D</sub>. 5.5/1.05 = 5.2381.<br>Trap: 110 (τ<sub>c</sub>D, the permanent-debt formula). 5.5 (not discounted).<br>(Manual 7.3)"
+ },
+ {
+  "id": "ok-skatt-02",
+  "ch": 7,
+  "deck": "skatt og trade-off",
+  "front": "Permanent debt and who captures the tax shield. (Earnings 3 000 a year forever, tax 40%, unlevered cost of capital 20%, 1 000 shares. The firm adds 7 500 of permanent debt and buys back shares)",
+  "back": "<b>V<sup>L</sup> = 9 000 + 0.4 × 7 500 = 12 000. The price jumps from 9 to 12 on the announcement</b><br>1. V<sup>U</sup> = 3 000 × 0.6/0.2 = 9 000, P = 9.<br>2. Permanent debt: PV(TS) = τ<sub>c</sub>D = 3 000. The price jumps at once to 12 000/1 000 = 12.<br>3. The buyback runs at 12: n = 7 500/12 = 625.<br>4. The whole gain goes to those who own the shares when the plan is announced, sellers and holders alike. New lenders get zero NPV.<br>Check: (12 000 − 7 500)/375 = 12 ✓<br>Trap: 833.33 shares (bought at the old 9).<br>(PS1 E4c–d, manual 7.4)"
+ },
+ {
+  "id": "ok-skatt-03",
+  "ch": 7,
+  "deck": "skatt og trade-off",
+  "front": "The same 200 of debt under three policies: permanent, rebalanced to a constant D/E, repaid after one year. PV of the tax shield? (The debt is expected to stay at 200, no growth. Cost of debt 6%, unlevered cost 10%, tax 25%)",
+  "back": "<b>50 (permanent), 30 (rebalanced), 2.8302 (one year)</b><br>1. Annual shield: 0.25 × 6% × 200 = 3.<br>2. Permanent: as safe as the debt, 3/0.06 = 50 = τ<sub>c</sub>D.<br>3. Rebalanced: future debt moves with firm value, so the shield has asset risk: 3/0.1 = 30.<br>4. One year: 3/1.06 = 2.8302.<br>Trap: τ<sub>c</sub>D = 50 for a firm that keeps a target ratio. Read the debt sentence: \"maintains D/E\" means r<sub>U</sub>, \"permanent\" means r<sub>D</sub>.<br>(Manual 7.3, APV rule in manual 18.2)"
+ },
+ {
+  "id": "ok-skatt-04",
+  "ch": 7,
+  "deck": "skatt og trade-off",
+  "front": "Tax shield on an interest-only loan. (Interest 100 a year for 10 years, principal 2 000 repaid in year 10, risk-free 5%, tax 35%)",
+  "back": "<b>PV(TS) = 35 × A(10 years, 5%) = 35 × 7.7217 = 270.26</b><br>1. Shield 0.35 × 100 = 35 a year for 10 years.<br>2. A fixed schedule of risk-free payments: discount at 5%. Annuity factor (1/0.05)(1 − 1/1.05<sup>10</sup>) = 7.7217.<br>3. The principal repayment is not deductible and creates no shield.<br>Check: the interest is worth 2 000 − 2 000/1.05<sup>10</sup> = 772.17; 0.35 × 772.17 = 270.26 ✓<br>Trap: 700 (τ<sub>c</sub>D, as if the debt were permanent). 350 (10 × 35, not discounted).<br>(Lecture 3 slide 12, manual 7.3)"
+ },
+ {
+  "id": "ok-skatt-05",
+  "ch": 7,
+  "deck": "skatt og trade-off",
+  "front": "Cost of equity with permanent debt. (Unlevered value 1 300, unlevered cost 9%, permanent debt 400 at 4%, tax 22%, all cash flow paid out)",
+  "back": "<b>r<sub>E</sub> = 9% + (400/988)(1 − 0.22)(9% − 4%) = 10.5789%</b><br>1. V<sup>L</sup> = 1 300 + 0.22 × 400 = 1 388, so E = 988.<br>2. Fixed debt: the safe shield lowers the equity's risk, hence the (1 − τ) factor.<br>Check: FCF = 0.09 × 1 300 = 117. Equity gets 117 − 0.78 × 16 = 104.52; 104.52/988 = 10.5789% ✓ (this route needs no formula)<br>Trap: 11.0243% (the formula-sheet MM II, which assumes constant D/V).<br>(Manual 7.4, lecture 8 slide 18)"
+ },
+ {
+  "id": "ok-skatt-06",
+  "ch": 8,
+  "deck": "skatt og trade-off",
+  "front": "Effective tax advantage of debt with personal taxes. (Corporate tax 22%, personal tax on equity income 30%, on interest 35%. Permanent debt 150)",
+  "back": "<b>τ* = 1 − (0.78 × 0.7)/0.65 = 16%, so PV(TS) = 0.16 × 150 = 24</b><br>1. A krone of profit paid as interest reaches the investor as 0.65. Paid through equity it is 0.78 × 0.7 = 0.546.<br>2. τ* = 1 − 0.546/0.65 = 0.16. It replaces τ<sub>c</sub> everywhere.<br>Trap: 33 (corporate rate only, 0.22 × 150). Multiplying τ* by τ<sub>c</sub>. Personal taxes on interest shrink the advantage of debt.<br>(Manual 8.3)"
+ },
+ {
+  "id": "ok-skatt-07",
+  "ch": 8,
+  "deck": "skatt og trade-off",
+  "front": "Optimal debt from a schedule. (Unlevered value 500, effective tax advantage 16%, permanent debt. PV of distress costs: 3.5 at D = 100, 9 at 150, 18.5 at 200)",
+  "back": "<b>D* = 150, V<sup>L</sup> = 500 + 24 − 9 = 515</b><br>1. V<sup>L</sup> = V<sup>U</sup> + τ*D − PV(FD): 512.5, 515 and 513.5.<br>2. Marginal rule: 100 → 150 adds 8 of shield against 5.5 of distress cost, so take it. 150 → 200 adds 8 against 9.5, so stop.<br>Trap: Using τ<sub>c</sub> = 22% instead of τ*: the optimum moves to 200. Subtracting transfers to creditors as if they were distress costs: only deadweight loss counts.<br>(Manual 8.4)"
+ },
+ {
+  "id": "ok-skatt-08",
+  "ch": 8,
+  "deck": "skatt og trade-off",
+  "front": "Value of debt, equity and the distress cost. (Firm worth 150, 135, 95 or 80 next year, equally likely, diversifiable risk. Risk-free 5%. Debt with face 100; default destroys 25% of the assets)",
+  "back": "<b>D = 78.87, E = 20.24, V<sup>L</sup> = 99.11, PV(distress) = 10.42</b><br>1. V<sup>U</sup> = (150 + 135 + 95 + 80)/4/1.05 = 109.52.<br>2. Debt gets 100, 100, 71.25, 60: D = 82.8125/1.05 = 78.87. Equity gets 50, 35, 0, 0: E = 21.25/1.05 = 20.24.<br>3. V<sup>U</sup> − V<sup>L</sup> = 10.42, exactly the expected deadweight loss: 0.25 × (23.75 + 20)/1.05 = 10.42.<br>4. YTM = 100/78.87 − 1 = 26.79%, but the expected return is r<sub>f</sub> = 5% (the risk is diversifiable).<br>Trap: Debt priced at 100/1.05 = 95.24 (default ignored). Counting the creditors' whole shortfall as the cost: only the 25% that vanishes is.<br>(PS1 E5a–d, tutorial session 1, manual 8.2)"
+ },
+ {
+  "id": "ok-skatt-09",
+  "ch": 8,
+  "deck": "skatt og trade-off",
+  "front": "Share price before and after a debt-financed buyback when default is costly. (Gladstone: unlevered value 109.52; with the debt D = 78.87 and E = 20.24; 10 million shares)",
+  "back": "<b>10.95 without debt, 9.91 with it. The buyback takes 7.96 million shares</b><br>1. No debt: 109.52/10 = 10.95.<br>2. With debt the firm is worth 99.11. The buyback runs at the price that holds after it: 99.11/10 = 9.91.<br>3. n = 78.87/9.91 = 7.96 million.<br>4. Why lower: lenders pay only the fair 78.87, so the shareholders bear the 10.42 of expected distress costs the moment the debt is issued.<br>Check: 20.24/(10 − 7.96) = 9.91 ✓<br>Trap: 10.95 kept (distress costs ignored). 2.02 (equity after the buyback divided by the old 10 million shares).<br>(PS1 E5e–f, manual 8.2)"
+ },
+ {
+  "id": "ok-skatt-10",
+  "ch": 8,
+  "deck": "skatt og trade-off",
+  "front": "Fire sale. (Debt 30. Assets worth 80 in the good state and 15 in the bad, equally likely. In default the assets sell for half their value. No discounting.) Who loses? How much?",
+  "back": "<b>Expected deadweight loss 0.5 × 7.5 = 3.75, borne by the shareholders when the debt is sold</b><br>1. Bad state: creditors get 7.5 instead of 15. The other 7.5 reaches nobody.<br>2. Debt is worth 0.5 × 30 + 0.5 × 7.5 = 18.75 instead of 22.5. Equity is 0.5 × 50 = 25 either way.<br>3. Ex post the creditors lose. Ex ante they pay only 18.75 for the bond, so the owners raise 3.75 less: V<sup>L</sup> = 43.75 against 47.5.<br>Trap: Treating the lost 7.5 as a transfer: it is destroyed. Saying the shareholders do not care because they get 0 in the bad state.<br>(Lecture 4, lecture 14 wrap-up, manual 8.1)"
+ },
+ {
+  "id": "ok-skatt-11",
+  "ch": 8,
+  "deck": "skatt og trade-off",
+  "front": "Direct bankruptcy costs are 3–4% of value for large firms. Why can they not explain why firms borrow so little? (Verbal)",
+  "back": "<b>Weighted by a default probability of about 0.85% a year they cost about 0.03% of value a year</b><br>1. 0.035 × 0.0085 = 0.0003 for a large firm. Small firms: 20–25% × 0.85% ≈ 0.2%.<br>2. The costs that matter are indirect: customers and suppliers walk, staff leave, assets are fire-sold, projects are shelved, mostly before any court is involved.<br>3. Distress strikes in recessions, so its PV is discounted at a low rate and weighs more than the probability suggests.<br>4. Add the agency costs of debt and personal taxes on interest.<br>Trap: Calling the 3–4% the expected cost: it is conditional on bankruptcy.<br>(Lecture 4 slide 8, manual 8.1)"
+ },
+ {
+  "id": "ok-skatt-12",
+  "ch": 8,
+  "deck": "skatt og trade-off",
+  "front": "Why is no firm 100% debt financed if interest is tax deductible? (Verbal, 4–6 sentences)",
+  "back": "<b>Because each extra krone of debt adds less tax shield than expected costs of distress and agency</b><br>Model answer: V<sup>L</sup> = V<sup>U</sup> + PV(TS) − PV(distress costs) − PV(agency costs). The shield grows in proportion to D, but the probability of distress grows faster and the expected direct and indirect costs grow with it. Creditors foresee these costs and the incentive problems of a levered firm and pay less for the debt, so the shareholders bear them up front. Personal taxes on interest shrink the advantage from τ<sub>c</sub> to τ*. The optimum is where the marginal shield equals the marginal expected cost.<br>Trap: Listing only bankruptcy fees. Forgetting that the cost is borne ex ante by the shareholders, not by the creditors.<br>(Lecture 4, manual 8.4)"
+ },
+ {
+  "id": "ok-skatt-13",
+  "ch": 7,
+  "deck": "skatt og trade-off",
+  "front": "A firm has large tax-loss carryforwards and expects to pay no tax for several years. Is its debt worth τD to it? (Verbal)",
+  "back": "<b>No. Its marginal tax rate is near zero, so an extra interest deduction saves little now</b><br>1. The shield is worth the tax actually saved on the last krone of interest, not the statutory rate.<br>2. Loss carryforwards, depreciation and other deductions already shelter the profit, so interest only defers the use of the losses.<br>3. Use a lower effective rate. Expect such firms to borrow less.<br>Trap: Plugging the statutory 22% into τ<sub>c</sub>D.<br>(Lecture 3, manual 7.1)"
+ },
+ {
+  "id": "ok-skatt-14",
+  "ch": 18,
+  "deck": "skatt og trade-off",
+  "front": "Tax shield on a loan repaid in instalments. (Borrows 300 at 5%, repays 100 at the end of each of years 1–3. Tax 25%)",
+  "back": "<b>PV(TS) = 3.75/1.05 + 2.5/1.05² + 1.25/1.05³ = 6.9188</b><br>1. Interest on the balance outstanding during each year: 15, 10, 5.<br>2. Shields: 3.75, 2.5, 1.25. The schedule is known, so discount at r<sub>D</sub>.<br>Trap: 10.2122 (interest on the full 300 every year). 75 (τ<sub>c</sub>D). r<sub>U</sub> applies only when the debt follows the firm's value.<br>(Manual 18.4)"
+ },
+ {
+  "id": "ok-skatt-15",
+  "ch": 8,
+  "deck": "skatt og trade-off",
+  "front": "Which firm should carry more debt: a software firm whose value is its staff and customers, or a shipping firm with vessels that trade in a liquid second-hand market? (Verbal)",
+  "back": "<b>The shipping firm</b><br>1. Its assets can be sold near full value in distress, so the fire-sale discount and the indirect costs are small.<br>2. The software firm loses customers, staff and growth options the moment default looks likely: high indirect costs.<br>3. Same tax shield per krone of debt, very different PV(distress), so the trade-off optimum is higher for the shipping firm.<br>Trap: Arguing from volatility alone. Redeployable assets lower the loss given distress, which is what the trade-off weighs.<br>(Lecture 4, manual 8.1)"
+ },
+ {
+  "id": "ok-agent-01",
+  "ch": 9,
+  "deck": "agentkostnader",
+  "front": "Which project does the manager choose with no debt? (A: 50 for sure. B: 80 or 16, 50/50. C: 150 with probability 20%, else 0)",
+  "back": "<b>A, worth 50 (B 48, C 30)</b><br>1. No debt: the shareholders own everything, so the manager maximises expected value.<br>2. A = 50. B = 0.5 × 80 + 0.5 × 16 = 48. C = 0.2 × 150 = 30.<br>3. A is first best and also the safest.<br>Trap: Picking C for its 150 upside. With no debt there is nobody to shift risk onto.<br>(H2024 E4a, manual 9.2)"
+ },
+ {
+  "id": "ok-agent-02",
+  "ch": 9,
+  "deck": "agentkostnader",
+  "front": "Same three projects, but the firm now owes 25. Which project? What is the agency cost? (A: 50 for sure. B: 80 or 16, 50/50. C: 150 with probability 20%, else 0)",
+  "back": "<b>B (equity 27.5 against 25 for A and 25 for C). Agency cost 50 − 48 = 2</b><br>1. Equity = E[max(CF − 25, 0)]: A 25, B 0.5 × 55 = 27.5, C 0.2 × 125 = 25.<br>2. Debt under B: 0.5 × 25 + 0.5 × 16 = 20.5, down 4.5 from A.<br>3. Name it: risk shifting (asset substitution). Equity is a call on the firm with strike 25.<br>Check: equity +2.5, debt −4.5, firm −2 ✓<br>Trap: Calling the 4.5 the agency cost: most of it is a transfer. Creditors price it in, so ex ante the shareholders bear the 2.<br>(H2024 E4b, manual 9.4)"
+ },
+ {
+  "id": "ok-agent-03",
+  "ch": 9,
+  "deck": "agentkostnader",
+  "front": "At which face value of debt is the manager indifferent between B and C? What happens above it? (B: 80 or 16, 50/50. C: 150 with probability 20%, else 0)",
+  "back": "<b>D = 100/3 = 33.3333. Above it the manager switches to C</b><br>1. For 16 &lt; D ≤ 80: E<sub>B</sub> = 0.5(80 − D) and E<sub>C</sub> = 0.2(150 − D).<br>2. 40 − 0.5D = 30 − 0.2D gives D = 33.3333, inside (16, 80] ✓ Both are worth 23.3333.<br>3. E<sub>B</sub> falls 0.5 per unit of debt, E<sub>C</sub> only 0.2, so more debt favours C. The agency cost jumps from 2 to 20.<br>Trap: 22.5 (the root of the D ≤ 16 branch, which lies outside that region). Always check that the root sits where the formulas hold.<br>(H2024 E4c, manual 9.3)"
+ },
+ {
+  "id": "ok-agent-04",
+  "ch": 9,
+  "deck": "agentkostnader",
+  "front": "The firm owes 25 and would pick B (80 or 16). A partner offers a zero-NPV hedge that turns B into 70 or 26 and C (150 or 0) into 140 or 2.5. Will the shareholders accept?",
+  "back": "<b>No. With the hedge the best they can get is 25 (A) against 27.5 without it</b><br>1. Hedged B: 0.5(70 − 25) + 0.5(26 − 25) = 23. Hedged C: 0.2(140 − 25) = 23. A: 25.<br>2. The hedge makes the debt safe, which kills the option value that B gave the shareholders.<br>Check: shareholders −2.5, creditors +4.5, firm +2 ✓ The creditors capture more than the whole efficiency gain<br>Trap: Accepting because the hedge has zero NPV and raises firm value. A deal with the creditors (a lower face value in return for the hedge) could split the 2.<br>(H2024 E4d, manual 9.4)"
+ },
+ {
+  "id": "ok-agent-05",
+  "ch": 9,
+  "deck": "agentkostnader",
+  "front": "Expected agency cost of debt with face value 40 and with face value 110. (A: 75 for sure. B: 140 or 0, 50/50. C: 300 with probability 10%, 40 with 90%)",
+  "back": "<b>5 at D = 40 (B chosen) and 9 at D = 110 (C chosen)</b><br>1. Firm values: A 75, B 70, C 66.<br>2. D = 40: equity A 35, B 50, C 26, so B. Cost 75 − 70 = 5.<br>3. D = 110: equity A 0, B 15, C 19, so C. Cost 75 − 66 = 9.<br>Trap: Measuring the cost as the creditors' loss. The agency cost is value destroyed: first best minus what is chosen.<br>(PS1 E7, manual 9.4)"
+ },
+ {
+  "id": "ok-agent-06",
+  "ch": 9,
+  "deck": "agentkostnader",
+  "front": "A project costs 50, financed fully by a risk-neutral lender. It pays 30 or 80 with equal probability. No discounting. What promised repayment F lets the lender break even?",
+  "back": "<b>F = 70</b><br>1. F must exceed 30, or the lender gets at most 30 &lt; 50. So the bad state pays 30 and the good state F.<br>2. 0.5 × 30 + 0.5F = 50 gives F = 70. In the bad state min(70, 30) = 30 ✓<br>3. Shareholders get 0.5 × (80 − 70) = 5 = the project's NPV.<br>Trap: F = 50 (default ignored: the lender would get only 0.5 × 30 + 0.5 × 50 = 40).<br>(Home assignment 1 E2a, manual 9.2)"
+ },
+ {
+  "id": "ok-agent-07",
+  "ch": 9,
+  "deck": "agentkostnader",
+  "front": "After financing (F = 70), management finds a costless change that turns the payoffs from 30/80 into 10/90. Will it adopt it? Who gains? (Equal probabilities, no discounting)",
+  "back": "<b>Yes. Shareholders 5 → 10, creditor 50 → 40, firm 55 → 50</b><br>1. Equity after: 0.5 × (90 − 70) = 10. Creditor: 0.5 × 10 + 0.5 × 70 = 40.<br>2. The change destroys 5 of value but takes 10 from the creditor, so the shareholders gain 5.<br>3. Name it: risk shifting (asset substitution). Limited liability caps the downside at 0.<br>Trap: Rejecting it because firm value falls. Ex ante a lender who foresees it demands F = 90 and the shareholders end with 0.<br>(Home assignment 1 E2b, manual 9.1)"
+ },
+ {
+  "id": "ok-agent-08",
+  "ch": 10,
+  "deck": "agentkostnader",
+  "front": "Bad state: the firm is worth 30 and owes 70. The creditor can liquidate for 30 now or extend one period: the firm is then worth 75 with probability X, else 25. When do the shareholders and when does the creditor prefer extension?",
+  "back": "<b>Shareholders: for every X &gt; 0. Creditor: only for X ≥ 1/9 = 0.1111</b><br>1. Liquidation: creditor 30, shareholders 0.<br>2. Extension: shareholders X × (75 − 70) = 5X. Creditor 70X + 25(1 − X) = 25 + 45X.<br>3. The creditor is indifferent at 25 + 45X = 30, so X = 1/9.<br>Trap: Paying the creditor 70 in both states. Forgetting that shareholders with nothing to lose always want to gamble on.<br>(Home assignment 1 E2c, manual 10.2)"
+ },
+ {
+  "id": "ok-agent-09",
+  "ch": 10,
+  "deck": "agentkostnader",
+  "front": "Same case: when does extension raise total firm value? Where do private incentives go wrong? (Liquidate for 30, or continue: 75 with probability X, 25 otherwise. Debt 70)",
+  "back": "<b>Efficient for X ≥ 0.1. Two wedges: 0 &lt; X &lt; 0.1 and 0.1 &lt; X &lt; 0.1111</b><br>1. Firm value if extended: 75X + 25(1 − X) = 25 + 50X ≥ 30 gives X ≥ 0.1.<br>2. For 0 &lt; X &lt; 0.1 the shareholders want a value-destroying continuation (gambling for resurrection).<br>3. For 0.1 &lt; X &lt; 1/9 the creditor liquidates a firm worth more alive, because part of the extra value goes to the shareholders.<br>Trap: Comparing with 70 instead of 30: the alternative is the liquidation value. Raising F to 75 in a renegotiation moves the creditor's threshold to 0.1.<br>(Home assignment 1 E2d, manual 10.3)"
+ },
+ {
+  "id": "ok-agent-10",
+  "ch": 9,
+  "deck": "agentkostnader",
+  "front": "Gambling for resurrection. (The firm owes 1 000K at year-end. Its assets are worth 900K for sure. A costless strategy makes them 1 300K or 300K with equal probability. No discounting.) Who gains and who loses?",
+  "back": "<b>Shareholders +150, creditors −250, firm −100: management gambles</b><br>1. Safe: D = 900, E = 0. The firm is shut down.<br>2. Gamble: E = 0.5 × (1 300 − 1 000) = 150. D = 0.5 × 1 000 + 0.5 × 300 = 650. V = 800.<br>3. The manager wins too: the firm survives with probability 0.5.<br>Check: +150 − 250 = −100 = the expected value destroyed ✓<br>Trap: Saying the shareholders would never take a negative-NPV gamble. With nothing to lose they own only the upside.<br>(Lecture 4 slides 16–17, lecture 14 wrap-up, manual 9.1)"
+ },
+ {
+  "id": "ok-agent-11",
+  "ch": 10,
+  "deck": "agentkostnader",
+  "front": "Debt overhang. (Cash flow 150 or 50 next year, 50/50. Debt with face 100. A project costs 24 and adds 30 in both states. The owner must fund it by selling new shares. Risk neutral, no discounting)",
+  "back": "<b>The owner refuses: he keeps 0.4 × 40 = 16 against 25 without the project</b><br>1. NPV = 30 − 24 = 6. With the project the cash flow is 180 or 80, so the debt still defaults in the bad state.<br>2. Equity after: 0.5 × (180 − 100) = 40. New investors need x = 24/40 = 60%.<br>3. Who gets the NPV: the debt rises from 75 to 0.5 × 100 + 0.5 × 80 = 90 (+15), the owner falls from 25 to 16 (−9).<br>Check: +15 − 9 = 6 = NPV ✓<br>Trap: Treating the debt as safe after the project (80 &lt; 100, it is not), which hands the creditors +25. Pricing the new shares on the whole firm's value instead of the equity's.<br>(PS1 E6b, lecture 4, manual 10.1)"
+ },
+ {
+  "id": "ok-agent-12",
+  "ch": 10,
+  "deck": "agentkostnader",
+  "front": "Renegotiation. The owner offers the creditors a new face value of 80 instead of 100. Does he now invest? Do they accept? (Cash flow 150 or 50 next year, 50/50. Project costs 24 and adds 30 in both states, funded with new shares)",
+  "back": "<b>Yes and yes: owner 26 &gt; 25, creditors 80 &gt; 75</b><br>1. Face 80: the cash flow 180 or 80 covers it, so the debt is safe and worth 80.<br>2. Equity after: 0.5 × (180 − 80) = 50. x = 24/50 = 48%, so the owner keeps 0.52 × 50 = 26.<br>Check: creditors +5, owner +1, sum 6 = NPV ✓<br>Trap: Comparing the creditors' 80 with the old face value 100. Their alternative is the old debt, worth 75 without the project.<br>(PS1 E6c, practice session 1, manual 10.3)"
+ },
+ {
+  "id": "ok-agent-13",
+  "ch": 10,
+  "deck": "agentkostnader",
+  "front": "A firm owes 1 000K at year-end and its assets will be worth 900K. A project costs 100K today and returns a risk-free 50%. The firm has no cash and must raise the 100K as new equity. Will it invest? (No discounting)",
+  "back": "<b>No. The equity after the project is worth only 50K, so new investors will not pay 100K</b><br>1. With the project the firm is worth 900 + 150 = 1 050K and the equity 1 050 − 1 000 = 50K.<br>2. NPV = 150 − 100 = 50K, but the creditors gain 100K (from 900 to 1 000).<br>3. The shareholders, old and new together, put in 100K and hold equity worth 50K: a loss of 50K.<br>Check: creditors +100, equity 50 − 100 = −50, sum 50 = NPV ✓<br>Trap: Approving the project because NPV &gt; 0. Ask who wins and who loses: the creditors capture more than the whole NPV.<br>(Lecture 4 slide 11, manual 10.1)"
+ },
+ {
+  "id": "ok-agent-14",
+  "ch": 9,
+  "deck": "agentkostnader",
+  "front": "A spin-off that leaves the debt behind. (Division N pays 150 or 50, division P 130 or 70, boom or bust 50/50. Debt 100 backed by both. After a spin-off, lost synergies leave N at 140/40 and P at 120/60. Which division should carry the debt?)",
+  "back": "<b>Put the debt on N: shareholders +10, creditors −30, firm −20</b><br>1. Today: cash flow 280 or 120, D = 100 (safe), E = 100.<br>2. Debt on N (140/40): D = 0.5 × 100 + 0.5 × 40 = 70. Equity 20 + 90 = 110.<br>3. Debt on P (120/60): D = 80, E = 100. Load the debt on the riskier division.<br>Check: +10 − 30 = −20, the lost synergies ✓<br>Trap: Concluding the spin-off is bad for the shareholders because firm value falls. Covenants that ban it are good for the owners ex ante: they make the debt cheaper.<br>(PS1 E8a–c, lecture 4, manual 9.4)"
+ },
+ {
+  "id": "ok-agent-15",
+  "ch": 10,
+  "deck": "agentkostnader",
+  "front": "Are debt covenants that ban asset sales and spin-offs good or bad for shareholders? (Verbal)",
+  "back": "<b>Bad ex post, good ex ante</b><br>Model answer: Once the debt is in place a covenant blocks moves like a spin-off that would transfer value from the creditors to the shareholders, so ex post it costs the owners that gain. But creditors anticipate risk shifting and charge for it when the debt is issued, so without covenants the shareholders bear the expected loss anyway, including the value destroyed. A covenant lets the firm commit not to destroy value, which buys cheaper debt: Kurbatov's necessary evil. The cost is lost flexibility, since a covenant can also block a good project.<br>Trap: Answering only ex post. Seniority, collateral and convertible debt are other ways to commit.<br>(PS1 E8d, manual 10.4)"
+ },
+ {
+  "id": "ok-agent-16",
+  "ch": 11,
+  "deck": "agentkostnader",
+  "front": "How can debt raise firm value apart from the tax shield? (Verbal, agency benefits of debt)",
+  "back": "<b>It disciplines managers who would otherwise waste free cash flow</b><br>1. Free cash flow (Jensen): a mature firm with cash and few good projects tempts managers to build empires. Interest payments commit the cash to leave the firm. Missing one is far more serious than skipping a dividend.<br>2. Ownership: debt lets management hold a larger share of a smaller equity base, so its incentives move closer to the owners'.<br>3. Pressure: the threat of default forces cost cuts and restructuring that a comfortable manager would postpone.<br>4. Too much debt brings back risk shifting and overhang, so the benefit is from moderate debt in mature, cash-rich firms (the LBO argument).<br>Trap: Listing only the tax shield. Saying debt always disciplines: highly levered firms gamble.<br>(Lecture 4 slides 22–23, manual 11.1)"
+ },
+ {
+  "id": "ok-agent-17",
+  "ch": 10,
+  "deck": "agentkostnader",
+  "front": "Buying back risky debt. (Face value 50. With the debt in place management picks a risky strategy: 100 or 0, 50/50. Without debt it would pick a safe 60. The bonds trade at 25. The shareholders offer to buy all the debt with their own cash. No discounting)",
+  "back": "<b>They lose: the creditors sell only at 50, so the shareholders pay 50 for a gain of 10</b><br>1. Today: E = 0.5 × (100 − 50) = 25, D = 25, V = 50.<br>2. Once the debt is gone the firm goes safe: V = 60, a gain of 10 for the firm.<br>3. Creditors know it: after the buyback a bond is worth 50, so nobody tenders below 50.<br>4. Shareholders end with 60 − 50 = 10 against 25 now. Creditors gain 25.<br>Check: −15 + 25 = 10 = efficiency gain ✓<br>Trap: Pricing the buyback at 25. Believing the shareholders gain from making the debt safer: as in H2024 E4d, cutting risk transfers value to the creditors, here more than the whole efficiency gain.<br>(H2024 E4d, manual 9.4)"
+ },
+ {
+  "id": "ok-info-01",
+  "ch": 12,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Pooling test. (Assets in place worth 50 or 150, equally likely to investors. A project costs 25 and pays a sure 30. Only new equity, no discounting.) What fraction must be sold? Who issues?",
+  "back": "<b>α = 25/(100 + 30) = 19.2308%. The low type issues, the high type does not: pooling fails</b><br>1. Pooled value after the project: 0.5 × 50 + 0.5 × 150 + 30 = 130. That is E[V] + I + NPV.<br>2. Low keeps (1 − α) × 80 = 64.6154 &gt; 50: issues. High keeps (1 − α) × 180 = 145.3846 &lt; 150: walks away.<br>3. Check 5: the price assumed that both types issue, but only the low type does, so the beliefs are not rational.<br>Trap: α = 25/105 = 23.8095% (the cash raised dropped from the denominator). Stopping after α without the rationality check.<br>(Home assignment 1 E3a–b, manual 12.2)"
+ },
+ {
+  "id": "ok-info-02",
+  "ch": 12,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Investors believe only the low type issues. (Assets 50 or 150, project costs 25 and pays a sure 30, equity only, no discounting.) Fraction sold and the decisions? Is the outcome efficient?",
+  "back": "<b>α = 25/80 = 31.25%. Low issues (55 &gt; 50), high does not (123.75 &lt; 150): a separating equilibrium</b><br>1. Low type: the issue is fairly priced, so its owners keep exactly V + NPV = 55.<br>2. High type on those terms: 0.6875 × 180 = 123.75. It stays out, so the beliefs are confirmed (check 5) ✓<br>3. Inefficient: the high type's project with NPV 5 is never taken, an expected loss of 0.5 × 5 = 2.5. Underinvestment from adverse selection.<br>Trap: Calling separating efficient. Pooling only moves value between the types, separating destroys NPV.<br>(Home assignment 1 E3c–d, manual 12.3)"
+ },
+ {
+  "id": "ok-info-03",
+  "ch": 13,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "The high type can buy a perfectly credible certificate for K, paid by its old shareholders. What is the most it will pay? (Assets 150, project costs 25 and pays a sure 30, equity only)",
+  "back": "<b>K = 5, the project's NPV</b><br>1. Certified, the issue is fairly priced: α = 25/180 and the old owners keep 180 − 25 = 155.<br>2. Without it the high type does not issue and keeps 150.<br>3. Pay K as long as 155 − K ≥ 150, so K ≤ 5.<br>Trap: 9.6154 (compared with the pooling payoff 145.3846, which the high type would never accept).<br>(Home assignment 1 E3e, PS1 E11c, manual 13.5)"
+ },
+ {
+  "id": "ok-info-04",
+  "ch": 12,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Assets in place worth 50 or 150, equally likely to investors. A project costs 25 and pays a sure 60. Only new equity, no discounting. Do both types issue?",
+  "back": "<b>Yes: pooling with α = 25/160 = 15.625%</b><br>1. High keeps 0.84375 × 210 = 177.19 &gt; 150. Low keeps 0.84375 × 110 = 92.81 &gt; 50.<br>2. Both issue, as investors assumed: the beliefs are rational (check 5) ✓<br>3. The high type's dilution α(150 − 100) = 7.81 is below the NPV of 35, so it still invests. The 7.81 moves from the high to the low type and no NPV is lost.<br>Trap: Concluding that pooling is inefficient. It only transfers value. The new investors break even on average.<br>(Variant of PS1 E11, where I = 35 and the equilibrium separates; manual 12.3)"
+ },
+ {
+  "id": "ok-info-05",
+  "ch": 12,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "From the fraction α to the number of new shares. (The market values the firm at 100 000 after an issue that raises 10 000. 1 000 shares outstanding)",
+  "back": "<b>N = 0.1 × 1 000/0.9 = 111.11 new shares at 90</b><br>1. α = 10 000/100 000 = 10%.<br>2. N/(1 000 + N) = 0.1, so N = 111.11.<br>3. Price = 100 000/1 111.11 = 90. The old holders keep 90 000.<br>Check: 111.11 × 90 = 10 000 ✓<br>Trap: 100 shares (α × N<sub>old</sub>, which gives the new holders only 9.09%).<br>(PS2 E1c, manual 12.2)"
+ },
+ {
+  "id": "ok-info-06",
+  "ch": 12,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "A firm is worth 100 000 (good) or 0 (bad), equally likely, so its 1 000 shares trade at 50. Investors believe that only a good firm raises 10 000 for an exhibition, so an issuer is worth 100 000 after the issue. Is that belief rational? (Risk neutral, no discounting)",
+  "back": "<b>No. The bad type would issue too, so the belief is not an equilibrium</b><br>1. Under the belief an issuer is valued at 100 000 after the issue and sells 111.11 shares at 90.<br>2. A bad firm that imitates sees its price jump from 50 to 90 on the announcement. The new investors pay 10 000 for shares in a firm that is really worth 0 and lose when the truth comes out.<br>3. Both types issue, which contradicts \"only the good type issues\": check 5 fails.<br>Trap: Stopping at the price of 90. Always ask whether every type acts as the belief assumes.<br>(PS2 E1d–e, manual 12.3)"
+ },
+ {
+  "id": "ok-info-07",
+  "ch": 13,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Debt or equity? (100 million shares trading at 13.50; true value 14.50 or 12.50; the managers know which. The firm must raise 500. Borrowing costs a net 20 in distress costs over tax benefits)",
+  "back": "<b>The overvalued firm (12.50) issues equity, the undervalued (14.50) borrows. The price moves to 12.50 or 14.50</b><br>1. Equity: 500/13.50 = 37.04 million new shares. True 12.50: (1 250 + 500)/137.04 = 12.77, a gain of 0.27 per share. True 14.50: 14.23, a loss of 0.27.<br>2. Debt costs 20/100 = 0.20 per share for either type.<br>3. So the choice reveals the type: equity means 12.50, debt means 14.50.<br>Trap: Ignoring that investors read the choice. Without distress costs every firm issues debt: the pecking order.<br>(PS1 E9, manual 13.2)"
+ },
+ {
+  "id": "ok-info-08",
+  "ch": 13,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Price reaction to an equity issue in a separating equilibrium. (Assets 50 or 150, equally likely. Only the low type issues 25 for a sure 30. No discounting.) Value of the old shares before and after the announcement?",
+  "back": "<b>From 102.5 to 55: a fall of 46.34%</b><br>1. Before the news the market weighs both types: the high stays out (150), the low issues (50 + NPV 5 = 55). 0.5 × 150 + 0.5 × 55 = 102.5.<br>2. An issue reveals the low type. The old shares are then worth E[V | issue] + NPV = 55.<br>3. (55 − 102.5)/102.5 = −46.34%. The fall is information, not dilution.<br>Trap: Comparing with 100 (the NPV left out), or valuing the old shares at 80 (the cash raised counted as theirs).<br>(Manual 13.4, home assignment 1 E3)"
+ },
+ {
+  "id": "ok-info-09",
+  "ch": 13,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Your firm announces an SEO and its share price falls 12%. What are the potential reasons? What would have been better? (About five sentences)",
+  "back": "<b>Adverse selection: investors read the issue as a sign that the shares are overpriced</b><br>Model answer: Managers know more than investors and prefer to issue equity when they think the shares are overvalued, so the market marks the price down when an issue is announced (Myers-Majluf). Choosing equity also signals that cheaper funds, internal cash and debt capacity, are exhausted, perhaps because cash flows will be weak. Investors may also fear that managers with too much free cash will spend it on poor projects. Better: follow the pecking order and use retained earnings or debt, or a rights issue, where the old owners buy the new shares and no value leaks to outsiders. A reputable underwriter or another credible signal can also shrink the discount.<br>Trap: Blaming dilution or the issue costs (in the US about 5.3% to the underwriter plus 1.7% other expenses): neither explains a 12% fall. The recording asks for the reasons in about five sentences and a better alternative, so give both.<br>(Lecture 14 wrap-up, lecture 6 slide 13, manual 13.4 and 14.5)"
+ },
+ {
+  "id": "ok-info-10",
+  "ch": 13,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Why do firms prefer internal funds, then debt, then equity? (The pecking order)",
+  "back": "<b>Debt is less sensitive to the manager's private information, so an undervalued firm gives away less by issuing it</b><br>1. Internal cash carries no information cost. Safe debt is worth the same whatever the manager knows, so nothing is transferred.<br>2. Risky debt is mispriced only in the default states, equity in every state: in the manual's Havbruk case the good firm gives away 30 by issuing debt against 48.53 by issuing equity.<br>3. Evidence: SEO announcements meet about −3%, straight debt about 0.<br>Trap: Calling the pecking order a theory of target leverage. It only ranks sources by information cost and says nothing about taxes or distress.<br>(Lecture 4, manual 13.1–13.2)"
+ },
+ {
+  "id": "ok-info-11",
+  "ch": 14,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Total cost of an IPO to the old owners. (10 million old shares. 5 million new shares sold at 20 with a 7% spread. The first-day close of 50 is fair value)",
+  "back": "<b>157 million: 7 in spread plus 150 of underpricing</b><br>1. Net proceeds: 5 × 20 × 0.93 = 93.<br>2. Post-IPO value 15 × 50 = 750. A fair issue would have left the old shares worth (750 − 93)/10 = 65.70.<br>3. Cost = (65.70 − 50) × 10 = 157.<br>Check: 0.07 × 100 + 5 × (50 − 20) = 157 ✓<br>Trap: 7 (the bank's fee only). Underpricing is never invoiced, but the old owners pay it in shares.<br>(PS2 E2, manual 14.2)"
+ },
+ {
+  "id": "ok-info-12",
+  "ch": 14,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Winner's curse. (IPO shares turn out to be worth 120 or 80, equally likely. You bid for 100 shares in each IPO and receive 10 when the IPO is good, 50 when it is bad.) Your return at a price of 100? The price at which you break even?",
+  "back": "<b>−13.33% at 100. Break-even at 86.67, which shows up as about 15% average underpricing</b><br>1. At 100: profit 10 × 20 − 50 × 20 = −800 on 6 000 invested: −13.33%.<br>2. Break-even: 10(120 − P) + 50(80 − P) = 0, so 60P = 5 200 and P = 86.67.<br>3. First-day returns: +38.46% (good) and −7.69% (bad), an average of 15.38%.<br>Trap: 100 (the average value, which ignores that you get more of the bad issues). Calling the 15% a profit: it compensates for adverse allocation.<br>(Lecture 6 slides 24–27, manual 14.3)"
+ },
+ {
+  "id": "ok-info-13",
+  "ch": 14,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Give four explanations of IPO underpricing. (Kurbatov's grouping)",
+  "back": "<b>Asymmetric information, investment bank conflicts, control, behavioural</b><br>1. Asymmetric information: the winner's curse keeps uninformed investors in only if issues are cheap; book building pays informed investors for revealing what they know.<br>2. Investment bank conflicts: a cheap issue is easy to sell and a favour to the bank's repeat clients.<br>3. Control: excess demand lets the issuer choose a dispersed owner base that will not interfere.<br>4. Behavioural: over-optimistic investors bid the first-day price above value.<br>Trap: Listing the four names without explaining them. As in the key to H2024 E2, what counts is at least two groups explained in enough detail. Litigation risk is a fifth.<br>(Lecture 6 slide 21, manual 14.3)"
+ },
+ {
+  "id": "ok-info-14",
+  "ch": 14,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Why do IPO shares often do poorly in the years after listing? (Verbal)",
+  "back": "<b>Optimists set the price while pessimists cannot yet sell short</b><br>1. Right after listing the most optimistic investors buy. Short selling is hard or impossible, so the pessimists' views are not in the price.<br>2. The price therefore sits above fundamental value.<br>3. As negative information spreads and short selling begins, the price falls back towards fundamental value. Issues from hot markets show it most.<br>Trap: Confusing this with first-day underpricing: the two coexist.<br>(Lecture 6 slide 30, manual 14.4)"
+ },
+ {
+  "id": "ok-info-15",
+  "ch": 14,
+  "deck": "asymmetrisk informasjon og emisjon",
+  "front": "Rights issue. (40 million shares at 50. A 1-for-4 rights issue at 40.) Ex-rights price and the value of one right?",
+  "back": "<b>TERP = 2 400/50 = 48, one right = 50 − 48 = 2</b><br>1. New shares 10 million at 40 raise 400.<br>2. TERP = (40 × 50 + 10 × 40)/50 = 48.<br>3. 4 rights plus 40 buy a share worth 48, so each right is worth 8/4 = 2.<br>4. A holder who subscribes or sells the rights keeps his wealth; only one who lets them lapse loses.<br>Trap: Calling the 20% subscription discount a 20% loss. Using 50 instead of 48 in later steps.<br>(Manual 14.5)"
+ },
+ {
+  "id": "ok-utbytte-01",
+  "ch": 15,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "Pay 20 of excess cash as a dividend or buy back shares? (10 million shares, no debt, cost of capital 12%, future FCF 48 a year forever. Perfect markets)",
+  "back": "<b>Dividend: 2.00 now and a 40.00 share. Buyback: a 42.00 share. Same wealth</b><br>1. Cum price: 2.00 + 4.80/0.12 = 42.00. Ex-dividend: 40.00.<br>2. Buyback at 42.00: 20/42.00 = 0.4762 million shares, leaving 9.5238 million.<br>3. Future DPS = 48/9.5238 = 5.04, so P = 5.04/0.12 = 42.00.<br>Trap: Buying back at 40.00 (the ex price). Thinking the buyback raises the price: the holders just do not get the 2.00 in cash.<br>(PS1 E13a–b, manual 15.3)"
+ },
+ {
+  "id": "ok-utbytte-02",
+  "ch": 15,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "The firm wants to pay out 48 million now, not just its 20 of cash. It issues shares at 42.00 for the rest. The new shares also get the dividend. DPS and price? (10 million shares, FCF 48 a year forever, 12%)",
+  "back": "<b>DPS = 48/10.6667 = 4.50 now and every year, price 42.00</b><br>1. It needs 48 − 20 = 28, so it issues 28/42.00 = 0.6667 million shares.<br>2. 10.6667 million shares share 48 now and 48 a year later: 4.50 each.<br>3. P<sub>cum</sub> = 4.50 + 4.50/0.12 = 42.00 ✓ More now, less later, same value.<br>Trap: 4.80 now (the new shares forgotten). In Nilpoj (PS1 E12) the new shares do not get the dividend, which changes the arithmetic but not the conclusion.<br>(PS1 E13c, manual 15.4)"
+ },
+ {
+  "id": "ok-utbytte-03",
+  "ch": 15,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "Next year an all-equity firm pays a dividend of 1.5 million instead of 1 million, raising the extra 0.5 million with new shares. Price next year after the dividend? Price today? (100 000 shares, earns 1 million a year forever, 10%)",
+  "back": "<b>P<sub>1</sub> = 95, P<sub>0</sub> = (15 + 95)/1.1 = 100: unchanged</b><br>1. To raise 0.5 million the new shares must be promised 0.05 million a year forever.<br>2. Old holders keep 0.95 million a year: 9.5 million on 100 000 shares, so P<sub>1</sub> = 95.<br>3. Today: (15 + 95)/1.1 = 100, the same as with the normal dividend of 10. A zero-NPV policy change.<br>Trap: P<sub>1</sub> = 100 (dilution ignored), which gives P<sub>0</sub> = 104.55.<br>(Lecture 5 slides 9–12, manual 15.4)"
+ },
+ {
+  "id": "ok-utbytte-04",
+  "ch": 15,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "The firm pays 4 million in year 1 instead of 1 million, raising 3 million with new shares sold right after the dividend. Price at year 1 and shares issued? Are the old owners better off? (1 million shares, FCF 1 million in year 1 growing 5%, r = 10%)",
+  "back": "<b>P<sub>1</sub> = 18, n = 166 667 shares, value to the old owners still 20 million</b><br>1. Value of the later dividends at year 1: 1.05/(0.1 − 0.05) = 21 million.<br>2. New shares raise 3: 1 million × P<sub>1</sub> + 3 = 21, so P<sub>1</sub> = 18 and n = 3/18 = 0.1667 million.<br>3. The old owners keep 6/7 of the later dividends. PV = (4 + 6/7 × 21)/1.1 = 22/1.1 = 20 ✓<br>Trap: P<sub>1</sub> = 21 (the new shares ignored). The extra dividend now is paid for by diluting the later ones.<br>(PS1 E12, manual 15.4)"
+ },
+ {
+  "id": "ok-utbytte-05",
+  "ch": 16,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "Buy back shares before or after the news? (Enterprise value 400, excess cash 100, 10 million shares, no debt. The news will move the enterprise value to 600 or 200)",
+  "back": "<b>Good news expected: buy before (75 &gt; 70). Bad news: after (30 &gt; 25)</b><br>1. Now: P = (400 + 100)/10 = 50, so the buyback takes 2 million shares.<br>2. Before the news: 600/8 = 75 or 200/8 = 25.<br>3. After: (600 + 100)/10 = 70 or (200 + 100)/10 = 30.<br>4. Managers buy when the stock is cheap, so a buyback announcement is read as good news and the price rises.<br>Trap: Saying the timing does not matter: MM assumes symmetric information. Those who sell before good news lose to those who hold.<br>(PS1 E10, lecture 5 slide 24, manual 16.4)"
+ },
+ {
+  "id": "ok-utbytte-06",
+  "ch": 16,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "Ex-dividend drop with personal taxes. (Cum price 60, dividend 4. The marginal investor pays 30% on dividends and 20% on capital gains)",
+  "back": "<b>Drop = 4 × (1 − 0.3)/(1 − 0.2) = 3.50, so P<sub>ex</sub> = 56.50</b><br>1. The investor compares what he keeps: a krone of dividend is worth 0.7, a krone of price 0.8.<br>2. Effective dividend tax: τ*<sub>d</sub> = (0.3 − 0.2)/(1 − 0.2) = 12.5%.<br>3. 0.50 per share leaks to the tax authority because the payment is labelled a dividend.<br>Trap: 56.00 (the full drop, which assumes equal tax rates). 2.80 (only the dividend after tax used as the drop).<br>(Manual 16.1)"
+ },
+ {
+  "id": "ok-utbytte-07",
+  "ch": 16,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "Tax paid now on a payout of 100 as a dividend or as a buyback. (20 million shares at 30, holders bought at 20, dividend tax 30%, capital gains tax 20%)",
+  "back": "<b>Dividend 30.00, buyback 6.67 now</b><br>1. Dividend: 0.3 × 100 = 30.00, paid by every holder at once.<br>2. Buyback: 100/30 = 3.3333 million shares, a gain of 10 each, so 0.2 × 33.33 = 6.67.<br>3. Three advantages: a lower rate, only the gain is taxed and holders who keep their shares defer.<br>Trap: 20.00 (0.2 on the whole 100). The deferred tax still counts, discounted: the manual's full saving is 15.89, not 23.33.<br>(Manual 16.2)"
+ },
+ {
+  "id": "ok-utbytte-08",
+  "ch": 16,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "Who prefers dividends and who prefers buybacks? (Clienteles)",
+  "back": "<b>Individuals: buybacks. Corporations: dividends. Institutions: indifferent</b><br>1. Individuals usually pay more tax on dividends than on gains, which they can also defer: they prefer buybacks.<br>2. Corporate holders can often deduct most of the dividends they receive but pay tax on gains: they prefer dividends.<br>3. Tax-exempt institutions such as pension funds pay neither: indifferent.<br>4. Firms attract the clientele that fits their payout, so changing policy mostly reshuffles the owners.<br>Trap: Saying every investor prefers buybacks. In Norway personal dividends and gains carry the same effective 37.84%, so the rate advantage disappears.<br>(Lecture 5 slide 18, manual 16.3)"
+ },
+ {
+  "id": "ok-utbytte-09",
+  "ch": 16,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "A mature firm generates more cash than it needs. Name four ways to use the free cash flow and say which you would choose. (Verbal)",
+  "back": "<b>Reinvest, hold cash, pay a dividend, buy back shares. My choice without positive-NPV projects: buy back shares</b><br>Model answer: (1) Reinvest: right only if NPV is positive. Without good projects it becomes empire building, the agency problem of free cash flow. (2) Hold cash: a buffer against distress and a way to avoid costly equity issues later, but idle cash invites waste. (3) Dividend: commits the firm, since dividends are sticky (General Motors) and cuts are punished. (4) Buyback: flexible, tax efficient for individuals and a signal that the shares are cheap. Under MM the choice is irrelevant, so taxes, signals and agency costs decide it. I would buy back shares with one-off excess cash and raise the dividend only if the extra cash flow will last. The firm keeps only the cash the business needs.<br>Trap: Saying reinvesting is always best because it means growth. Growth with negative NPV destroys value.<br>(Lecture 14 wrap-up, manual 16.5–16.7)"
+ },
+ {
+  "id": "ok-utbytte-10",
+  "ch": 16,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "A firm stops its usual dividend of 3 per share and spends the 60 on a buyback instead. Price effect under MM? In practice? (20 million shares, operations worth 900, excess cash 60)",
+  "back": "<b>Under MM the price stays at 48. In practice two opposite signals</b><br>1. Price with the cash inside: (900 + 60)/20 = 48. Buyback: 60/48 = 1.25 million shares. After: 900/18.75 = 48.<br>2. A holder who wanted cash sells 1/16 (6.25%) of his shares: a homemade dividend.<br>3. In practice cutting a sticky dividend can read as bad news about future cash flow, while a buyback can read as a sign that the shares are cheap.<br>Trap: 45 (treated like an ex-dividend drop). Saying the holders lose the 3: they can sell shares for it.<br>(Lecture 14 wrap-up, manual 15.3 and 16.4)"
+ },
+ {
+  "id": "ok-utbytte-11",
+  "ch": 16,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "Why do firms smooth dividends? Why does the price fall sharply when a dividend is cut? (Verbal)",
+  "back": "<b>Because a dividend is a commitment the market reads as a signal</b><br>1. Managers raise dividends only when they expect to sustain them, so dividends follow long-run earnings rather than this year's (Lintner).<br>2. A cut therefore says that management no longer believes the old level is sustainable: bad news about future cash flows, so the price falls by more than the cash saved.<br>3. A buyback carries no such commitment, which is why firms use it for one-off cash.<br>Trap: Explaining the fall by the lost cash. Under MM the cash stays in the firm, so the fall is information.<br>(Lecture 5, lecture 14 wrap-up, manual 16.4)"
+ },
+ {
+  "id": "ok-utbytte-12",
+  "ch": 16,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "Should a firm keep 100 of cash invested at 4% for a year or pay it out for the shareholders to invest? (Corporate tax 22%, personal tax on interest 35%)",
+  "back": "<b>Retain, on taxes alone: 0.52 more inside the firm</b><br>1. Inside: the interest is taxed at 22%, so 100 × 4% × 0.78 = 3.12.<br>2. Paid out: the investor keeps 100 × 4% × 0.65 = 2.60. The dividend tax is paid on both routes, so it cancels.<br>3. Retain when τ<sub>c</sub> &lt; τ<sub>i</sub>, pay out when τ<sub>c</sub> &gt; τ<sub>i</sub>.<br>Trap: Stopping at taxes. Idle cash invites empire building, which usually outweighs 0.52.<br>(Lecture 5, manual 16.2)"
+ },
+ {
+  "id": "ok-utbytte-13",
+  "ch": 15,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "You own 1 000 shares at 42 and want 2 per share in cash, but the firm buys back shares instead of paying a dividend. What do you do? (Perfect markets)",
+  "back": "<b>Sell 2 000/42 = 47.62 shares</b><br>1. You keep 952.38 shares × 42 = 40 000 plus 2 000 in cash: 42 000.<br>2. With a dividend you would hold 1 000 × 40 + 2 000 = 42 000. The same.<br>3. The reverse also works: reinvest a dividend you do not want. Payout policy is irrelevant when investors can undo it.<br>Trap: Selling 50 shares at 40 (the ex-dividend price, which never exists under a buyback).<br>(Manual 15.3)"
+ },
+ {
+  "id": "ok-utbytte-14",
+  "ch": 16,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "A CEO uses idle cash to buy back shares just before his bonus date. Does EPS rise? Does value rise? (Earnings 100, of which 10 is 5% interest on 200 of cash. 50 shares at 20. No taxes)",
+  "back": "<b>EPS rises from 2.00 to 2.25. The price stays at 20</b><br>1. The cash earned 5%, while the shares carry an earnings yield of 2.00/20 = 10%. Swapping cash for shares lifts EPS mechanically.<br>2. Earnings 100 − 10 = 90 on 50 − 10 = 40 shares: 2.25. Value: (1 000 − 200)/40 = 20.<br>3. P/E falls from 10.00 to 8.89: the remaining earnings are riskier.<br>4. Governance point: EPS targets in pay make managers short-termist.<br>Trap: Calling the EPS gain value creation.<br>(Lecture 13, lecture 14 wrap-up, manual 6.6)"
+ },
+ {
+  "id": "ok-utbytte-15",
+  "ch": 16,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "How do firms buy back shares? Name the methods. (Verbal)",
+  "back": "<b>Open market, tender offer (fixed price or Dutch auction), targeted repurchase</b><br>1. Open market: gradual and cheap, the usual route.<br>2. Fixed-price tender: an offer at a premium for a stated number of shares. Dutch auction: holders state the lowest price they will accept. The firm pays the lowest price that fills its order.<br>3. Targeted repurchase (greenmail): a block bought from one holder, often at a premium.<br>4. Selling put options commits the firm to buy if the price falls.<br>Trap: Forgetting that a tender at a premium moves value from the holders who keep their shares to those who tender, unless everyone tenders in proportion.<br>(Lecture 5, manual 16.6)"
+ },
+ {
+  "id": "ok-utbytte-16",
+  "ch": 15,
+  "deck": "utbytte og tilbakekjøp",
+  "front": "Dividend yield, payout ratio and total return. (Share price 40, expected dividend 2, EPS 5, expected price next year 42)",
+  "back": "<b>Yield 5%, payout ratio 40%, total return 10%</b><br>1. Dividend yield = 2/40 = 5%.<br>2. Payout ratio = 2/5 = 40%.<br>3. Total return = (2 + 42 − 40)/40 = 10%: dividend yield plus capital gain.<br>Trap: Treating a high yield as a high return. Under MM a bigger dividend just means a smaller capital gain.<br>(Lecture 5, manual 15.1)"
+ },
+ {
+  "id": "ok-wacc-01",
+  "ch": 17,
+  "deck": "WACC, APV og FTE",
+  "front": "Levered value by the WACC method. (FCF 40 a year forever from next year, after-tax WACC 11.48%)",
+  "back": "<b>V<sup>L</sup> = 40/0.1148 = 348.4321</b><br>1. Level perpetuity, first flow next year: FCF/r<sub>wacc</sub>.<br>2. The tax shield is inside the rate. Do not add it again.<br>Trap: 368.9953 (the APV tax shield, 2.5087/0.122 = 20.5632, added on top: double counting). Interest deducted from the FCF: the debt counted twice.<br>(H2024 E5d, manual 17.3)"
+ },
+ {
+  "id": "ok-wacc-02",
+  "ch": 18,
+  "deck": "WACC, APV og FTE",
+  "front": "APV with the debt taken from the WACC value. (FCF 40 forever, unlevered cost 12.2%, constant D/V of 30%, cost of debt 6%, tax 40%, WACC value 348.4321)",
+  "back": "<b>V<sup>L</sup> = 327.8689 + 20.5632 = 348.4321 ✓</b><br>1. V<sup>U</sup> = 40/0.122 = 327.8689.<br>2. D = 0.3 × 348.4321 = 104.5296. TS = 0.4 × 6% × 104.5296 = 2.5087 a year.<br>3. Constant D/V, so the shield has asset risk: PV(TS) = 2.5087/0.122 = 20.5632.<br>Trap: 41.8118 (the shield discounted at r<sub>D</sub>, which equals τ<sub>c</sub>D): V<sup>L</sup> = 369.6807 breaks WACC = APV.<br>(H2024 E5e, manual 18.2)"
+ },
+ {
+  "id": "ok-wacc-03",
+  "ch": 17,
+  "deck": "WACC, APV og FTE",
+  "front": "WACC value over two years. (FCF 40 in year 1 and 50 in year 2, then nothing. After-tax WACC 15.6%)",
+  "back": "<b>V<sup>L</sup><sub>0</sub> = 34.6021 + 37.4157 = 72.0178</b><br>1. 40/1.156 = 34.6021.<br>2. 50/1.156² = 50/1.336336 = 37.4157.<br>Trap: 71.2675 (discounted at r<sub>U</sub> = 16.4%: that is V<sup>U</sup>). 69.8075 (at r<sub>E</sub> = 18%). The paper asks for four decimals.<br>(H2025 E4e, manual 17.4)"
+ },
+ {
+  "id": "ok-wacc-04",
+  "ch": 19,
+  "deck": "WACC, APV og FTE",
+  "front": "Debt adjustment at the end of year 1. (Constant D/E of 25%. FCF 40 in year 1 and 50 in year 2, then nothing. After-tax WACC 15.6%, levered value today 72.0178)",
+  "back": "<b>Repay 14.403563 − 8.650519 = 5.7530 at the end of year 1</b><br>1. d = D/V = 0.25/1.25 = 0.2. D<sub>0</sub> = 0.2 × 72.0178 = 14.4036.<br>2. V<sup>L</sup><sub>1</sub> after the year-1 flow is paid: 50/1.156 = 43.2526. D<sub>1</sub> = 0.2 × 43.2526 = 8.6505.<br>3. The firm runs down, so it repays debt to keep the ratio.<br>Trap: 0 (debt held at D<sub>0</sub>). Rounding: 14.4036 − 8.6505 gives 5.7531, the key's figure; unrounded it is 5.7530. 7.1913 (0.25 used as D/V). 2.247 of new borrowing (the year-1 flow left inside V<sup>L</sup><sub>1</sub>).<br>(H2025 E4f, manual 19.4)"
+ },
+ {
+  "id": "ok-wacc-05",
+  "ch": 18,
+  "deck": "WACC, APV og FTE",
+  "front": "APV over two years. (FCF 40 and 50, unlevered cost 16.4%, cost of debt 10%, tax 40%. Debt 14.4036 at date 0 and 8.6505 at date 1, constant D/E)",
+  "back": "<b>V<sup>L</sup> = 71.267463 + 0.750353 = 72.017816 ✓ (the WACC value, 72.0178)</b><br>1. V<sup>U</sup> = 40/1.164 + 50/1.164² = 34.3643 + 36.9032 = 71.2675.<br>2. TS<sub>t</sub> = τ<sub>c</sub>r<sub>D</sub>D<sub>t−1</sub>: 0.04 × 14.4036 = 0.5761 and 0.04 × 8.6505 = 0.3460.<br>3. Constant D/E, so discount at r<sub>U</sub>: 0.4950 + 0.2554 = 0.7504.<br>Trap: Shields discounted at r<sub>D</sub>: 0.8097, so V<sup>L</sup> = 72.0772 ≠ 72.0178. Shields computed from D<sub>t</sub> instead of D<sub>t−1</sub>. Rounded parts, 71.2675 + 0.7504 = 72.0179, miss by 0.0001: carry more decimals before you add.<br>(H2025 E4g–i, manual 20.5)"
+ },
+ {
+  "id": "ok-wacc-06",
+  "ch": 17,
+  "deck": "WACC, APV og FTE",
+  "front": "Project value at the firm's WACC and its debt capacity. (Cost of equity 10%, market cap 10.8 bn, enterprise value 14.4 bn, cost of debt 6.1%, tax 35%. Project: −100 now, then 50, 100 and 70)",
+  "back": "<b>r<sub>wacc</sub> = 8.4913%, V<sub>0</sub> = 185.86, NPV = 85.86. Debt capacity 46.47, 37.91, 16.13</b><br>1. Net debt D = 14.4 − 10.8 = 3.6, so d = 0.25.<br>2. r<sub>wacc</sub> = 0.75 × 10% + 0.25 × 6.1% × 0.65 = 8.4913%.<br>3. Roll back: V<sub>2</sub> = 70/1.0849 = 64.52, V<sub>1</sub> = (100 + 64.52)/1.0849 = 151.64, V<sub>0</sub> = (50 + 151.64)/1.0849 = 185.86.<br>4. D<sub>t</sub> = 0.25 × V<sub>t</sub>.<br>Trap: Debt capacity from the NPV (0.25 × 85.86 = 21.47) or from the year's FCF. It is d times the value of the remaining flows.<br>(PS2 E3, lecture 7 slide 21, manual 17.4)"
+ },
+ {
+  "id": "ok-wacc-07",
+  "ch": 18,
+  "deck": "WACC, APV og FTE",
+  "front": "APV of the same project. (Cost of equity 10%, cost of debt 6.1%, D/V 0.25, tax 35%. FCF 50, 100 and 70. Debt capacity 46.466, 37.911, 16.13)",
+  "back": "<b>r<sub>U</sub> = 9.025%, V<sup>U</sup> = 184.006, PV(TS) = 1.857, APV = 185.863 ✓</b><br>1. r<sub>U</sub> = 0.75 × 10% + 0.25 × 6.1% = 9.025%.<br>2. V<sup>U</sup> = 45.861 + 84.129 + 54.016 = 184.006.<br>3. TS = 0.35 × 6.1% × D<sub>t−1</sub>: 0.992, 0.8094, 0.3444, discounted at r<sub>U</sub>: 1.857.<br>Trap: 1.852 if the shields are rounded to two decimals before discounting, as the course solution does (it reports 1.85). Keep four decimals until the end.<br>(PS2 E4, manual 18.2)"
+ },
+ {
+  "id": "ok-wacc-08",
+  "ch": 17,
+  "deck": "WACC, APV og FTE",
+  "front": "WACC, project value and debt capacity. (Firm value 50, market cap 35, cost of equity 25%, risk-free 3%, market return 7%, debt beta 0.5, tax 40%, constant D/E. Project: −11 now, 5 in years 1–2, 4 in years 3–4)",
+  "back": "<b>r<sub>wacc</sub> = 18.4%, V<sub>0</sub> = 12.2350, NPV = 1.2350</b><br>1. r<sub>D</sub> = 3% + 0.5 × 4% = 5%. D = 50 − 35 = 15, so D/V = 0.3.<br>2. r<sub>wacc</sub> = 0.7 × 25% + 0.3 × 5% × 0.6 = 17.5% + 0.9% = 18.4%.<br>3. Roll back at 18.4%: V<sub>3</sub> = 3.3784, V<sub>2</sub> = 6.2317, V<sub>1</sub> = 9.4863, V<sub>0</sub> = 12.2350.<br>4. Debt capacity D<sub>t</sub> = 0.3V<sub>t</sub>: 3.6705, 2.8459, 1.8695, 1.0135.<br>Trap: 18.04% (r<sub>D</sub> = r<sub>f</sub>, the debt beta ignored). Reporting 12.2350 when the question asks for the project's NPV.<br>(Home assignment 2 E1a–b, manual 17.4)"
+ },
+ {
+  "id": "ok-wacc-09",
+  "ch": 18,
+  "deck": "WACC, APV og FTE",
+  "front": "APV of the same project. (Cost of equity 25%, cost of debt 5%, D/V 0.3, tax 40%. FCF 5, 5, 4, 4. Debt capacity 3.6705, 2.8459, 1.8695, 1.0135)",
+  "back": "<b>V<sup>U</sup> = 12.1008, PV(TS) = 0.1342, V<sup>L</sup> = 12.2350 ✓</b><br>1. r<sub>U</sub> = 0.7 × 25% + 0.3 × 5% = 19%.<br>2. V<sup>U</sup> = 5/1.19 + 5/1.19² + 4/1.19³ + 4/1.19<sup>4</sup> = 12.1008.<br>3. TS<sub>t</sub> = 0.4 × 5% × D<sub>t−1</sub>: 0.0734, 0.0569, 0.0374, 0.0203, discounted at 19%: 0.1342.<br>Trap: Discounting the shields at r<sub>D</sub> (0.1705): the debt is rebalanced, so r<sub>U</sub>. The unlevered NPV is 1.1008; the financing adds 0.1342.<br>(Home assignment 2 E1c, manual 18.2)"
+ },
+ {
+  "id": "ok-wacc-10",
+  "ch": 17,
+  "deck": "WACC, APV og FTE",
+  "front": "How is a new project funded at a constant D/V? Who gets the NPV? (Target D/V 0.5. The project costs 28 and is worth 61.25 at the WACC. The firm uses its 20 of excess cash and borrows the rest of the debt capacity)",
+  "back": "<b>New debt 10.625, payout 2.625, shareholders gain 33.25 = NPV</b><br>1. Debt capacity = 0.5 × 61.25 = 30.625. Using 20 of cash raises net debt by 20, so borrow 10.625.<br>2. Cash in: 20 + 10.625 = 30.625. After the cost of 28, 2.625 is paid out.<br>3. Equity rises by 61.25 − 30.625 = 30.625, plus the 2.625 payout: 33.25 = 61.25 − 28 ✓<br>Trap: Borrowing the full 30.625 and spending the cash too (net debt then overshoots the target). Capacity from the NPV instead of the value: 0.5 × 33.25.<br>(Lecture 7 slides 19–22, manual 17.4)"
+ },
+ {
+  "id": "ok-wacc-11",
+  "ch": 18,
+  "deck": "WACC, APV og FTE",
+  "front": "Levered value when interest is kept at 20% of FCF. (FCF 2.5 next year growing 4%, unlevered cost 10%, tax 40%, cost of debt 5%)",
+  "back": "<b>V<sup>L</sup> = (1 + 0.4 × 0.2) × 41.6667 = 45</b><br>1. V<sup>U</sup> = 2.5/(0.1 − 0.04) = 41.6667.<br>2. Interest = k × FCF, so the shield is τk × FCF with the FCF's risk: PV(TS) = τkV<sup>U</sup> = 3.3333.<br>3. Debt today: interest 0.2 × 2.5 = 0.5 at 5%, so D = 10. d = 10/45 = 0.2222, r<sub>wacc</sub> = 10% − 0.2222 × 0.4 × 5% = 9.5556%.<br>Check: 2.5/(0.095556 − 0.04) = 45 ✓<br>Trap: 45.6667 (τ<sub>c</sub>D, the permanent-debt rule). Confusing interest = k × FCF with debt = k × FCF (manual 18.5).<br>(PS2 E5, lecture 8 slide 17, manual 18.5)"
+ },
+ {
+  "id": "ok-wacc-12",
+  "ch": 18,
+  "deck": "WACC, APV og FTE",
+  "front": "Project value with permanent debt by APV, checked with the WACC. (FCF 2 a year forever, no growth, unlevered cost 11%, permanent debt 12, tax 25%)",
+  "back": "<b>V<sup>L</sup> = 18.1818 + 0.25 × 12 = 21.1818</b><br>1. V<sup>U</sup> = 2/0.11 = 18.1818. Permanent debt: PV(TS) = τ<sub>c</sub>D = 3.<br>2. No growth, so D/V = 12/21.1818 = 0.5665 stays constant and the WACC method works: r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V) = 11% × (1 − 0.25 × 0.5665) = 9.4421%.<br>Check: 2/0.094421 = 21.1818 ✓<br>Trap: r<sub>wacc</sub> = r<sub>U</sub> − dτ<sub>c</sub>r<sub>D</sub>, the constant-ratio formula, which assumes the shield has asset risk. With growth the ratio drifts and only APV works.<br>(PS2 E9, practice session 2, manual 18.3)"
+ },
+ {
+  "id": "ok-wacc-13",
+  "ch": 18,
+  "deck": "WACC, APV og FTE",
+  "front": "APV when the debt grows with the firm. (EBIT 2 000 next year growing 3%, no net investment, tax 40%. Risk-free debt 5 000 at 5%, kept at a constant ratio. Asset beta 1.11, risk-free 5%, market return 11%)",
+  "back": "<b>V<sup>L</sup> = 13 857 + 1 155 = 15 012, E = 10 012</b><br>1. FCF = 2 000 × 0.6 = 1 200. r<sub>U</sub> = 5% + 1.11 × 6% = 11.66%. V<sup>U</sup> = 1 200/(0.1166 − 0.03) = 13 856.81.<br>2. Interest 5% × 5 000 = 250, shield 100, growing 3% with the debt. It carries asset risk: 100/0.0866 = 1 154.73.<br>3. E = 15 011.55 − 5 000 = 10 011.55.<br>Trap: 2 000 (τ<sub>c</sub>D, the permanent rule). Discounting the shield at r<sub>D</sub>: 100/(0.05 − 0.03) = 5 000.<br>(PS2 E6a–d, manual 18.2)"
+ },
+ {
+  "id": "ok-wacc-14",
+  "ch": 19,
+  "deck": "WACC, APV og FTE",
+  "front": "Flow to equity. (FCF 1 200 next year growing 3%. Interest 250 on debt of 5 000 that grows 3% a year. Tax 40%. Levered value 15 012, E 10 012, cost of debt 5%, unlevered cost 11.66%)",
+  "back": "<b>FCFE = 1 200 − 0.6 × 250 + 150 = 1 200, E = 1 200/(14.986% − 3%) = 10 012 ✓</b><br>1. r<sub>E</sub> = 11.66% + (5 000/10 012)(11.66% − 5%) = 14.986%.<br>2. FCFE = FCF − (1 − τ<sub>c</sub>) × interest + net borrowing, with net borrowing 3% × 5 000 = 150.<br>3. Discount at r<sub>E</sub> with 3% growth: the APV equity value again.<br>Trap: Net borrowing left out: 1 050/0.11986 = 8 760. Interest deducted without its tax saving: 1 100/0.11986 = 9 177.<br>(PS2 E6f–h, manual 19.2)"
+ },
+ {
+  "id": "ok-wacc-15",
+  "ch": 17,
+  "deck": "WACC, APV og FTE",
+  "front": "Implied growth from a market value. (Next year's FCF 40, after-tax WACC 11.48%, unlevered cost 12.2%, the market values the firm at 400)",
+  "back": "<b>g = r<sub>wacc</sub> − FCF<sub>1</sub>/V = 11.48% − 10% = 1.48%</b><br>1. V = FCF<sub>1</sub>/(r<sub>wacc</sub> − g), so g = r<sub>wacc</sub> − FCF<sub>1</sub>/V.<br>2. 40/400 = 10%, so g = 1.48%.<br>Trap: 2.2% (using r<sub>U</sub> = 12.2% on a levered value). Using today's FCF where the formula needs next year's.<br>(Manual 17.5)"
+ },
+ {
+  "id": "ok-wacc-16",
+  "ch": 19,
+  "deck": "WACC, APV og FTE",
+  "front": "Which rate goes with which method? Why is the WACC below the unlevered cost? (D/V 0.2, cost of equity 18%, cost of debt 10%, tax 40%)",
+  "back": "<b>FCF at r<sub>wacc</sub> (WACC), FCF at r<sub>U</sub> plus PV(TS) (APV), FCFE at r<sub>E</sub> (FTE)</b><br>1. r<sub>U</sub> = 0.8 × 18% + 0.2 × 10% = 16.4%. r<sub>wacc</sub> = 0.8 × 18% + 0.2 × 10% × 0.6 = 15.6%.<br>2. The gap is (D/V)τ<sub>c</sub>r<sub>D</sub> = 0.2 × 0.4 × 10% = 0.8%: the tax shield, built into the rate as a lower after-tax cost of debt. Without taxes r<sub>wacc</sub> = r<sub>U</sub>.<br>3. Given r<sub>wacc</sub>, expect the WACC method; given r<sub>U</sub>, expect APV.<br>Trap: Deducting interest from the FCF and then using r<sub>wacc</sub>: the debt is counted twice. Saying cheap debt lowers the WACC: without taxes r<sub>E</sub> rises to offset it.<br>(Lecture 14 wrap-up, H2025 E4, manual 19.6)"
+ },
+ {
+  "id": "ok-wacc-17",
+  "ch": 20,
+  "deck": "WACC, APV og FTE",
+  "front": "From the levered value to a price per share. (Levered value of the operations 348.43, debt 104.53, excess cash 20, 10 million shares)",
+  "back": "<b>P = (348.43 + 20 − 104.53)/10 = 26.39</b><br>1. The DCF value covers the operations only. Add excess cash, subtract debt.<br>2. E = 263.90 on 10 million shares.<br>Trap: 24.39 (cash forgotten). 36.84 (debt not deducted). Netting the cash twice: once in net debt and again here.<br>(Manual 20.6)"
+ },
+ {
+  "id": "ok-wacc-18",
+  "ch": 19,
+  "deck": "WACC, APV og FTE",
+  "front": "Equity value by flow to equity on a perpetuity. (FCF 40 forever, no growth. Debt 104.5296 at 6%, held at 30% of value. Tax 40%, cost of equity 14.857143%)",
+  "back": "<b>E = (40 − 0.6 × 6.2718)/0.14857143 = 243.9024 = V<sup>L</sup> − D ✓</b><br>1. Interest 6% × 104.5296 = 6.2718, after tax 3.7631.<br>2. No growth, so no net borrowing: FCFE = 36.2369.<br>3. 36.2369/0.14857143 = 243.9024, matching 348.4321 − 104.5296. With r<sub>E</sub> rounded to 14.8571% you get 243.9031: keep the unrounded rate.<br>Trap: 40/0.14857143 = 269.23 (FCF instead of FCFE). The match is a fixed point once r<sub>E</sub> came from MM II: it catches slips, not a wrong rate.<br>(H2024 E5, manual 19.2)"
+ },
+ {
+  "id": "ok-fcf-01",
+  "ch": 2,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "Free cash flow from EBIT. (Revenue 110, operating costs 60, depreciation 10, capex 15, tax 50%. Net working capital falls from 50 to 40)",
+  "back": "<b>FCF = 40 × 0.5 + 10 − 15 + 10 = 25</b><br>1. EBIT = 110 − 60 − 10 = 40. EBIT(1 − τ) = 20.<br>2. Add back depreciation 10, subtract capex 15.<br>3. ΔNWC = 40 − 50 = −10, so − ΔNWC adds 10: freed working capital is cash in.<br>Trap: 5 (sign of ΔNWC flipped). 15 (ΔNWC forgotten, \"one of the biggest fallacies\"). Interest never enters.<br>(PS2 E7, lecture 14 wrap-up, manual 2.4)"
+ },
+ {
+  "id": "ok-fcf-02",
+  "ch": 2,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "Value with a terminal value. (FCF 25 in year 1 and 13.75 in year 2, then growing 5% a year forever. Unlevered cost 10%)",
+  "back": "<b>V<sup>U</sup> = 25/1.1 + (13.75 + 288.75)/1.1² = 272.73</b><br>1. The terminal value at year 2 uses year 3's flow: 13.75 × 1.05/(0.1 − 0.05) = 288.75.<br>2. Discount it with year 2's flow: 302.5/1.21 = 250.00. Plus 25/1.1 = 22.73.<br>Trap: TV = 275 (the growth step skipped), which gives 261.36. Discounting the TV three years: it sits at year 2.<br>(PS2 E7, manual 2.5)"
+ },
+ {
+  "id": "ok-fcf-03",
+  "ch": 2,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "FCF from EBITDA. (EBITDA 90, depreciation 30, tax 25%, no capex, no change in working capital)",
+  "back": "<b>FCF = 90 × 0.75 + 0.25 × 30 = 75</b><br>1. Depreciation is not cash, but it is tax deductible: its value is the tax it saves, τ × Dep.<br>2. Check via EBIT: (90 − 30) × 0.75 + 30 = 75 ✓<br>Trap: 67.5 (the depreciation tax shield lost). 97.5 (depreciation added back to EBITDA). Amortisation is grouped with depreciation.<br>(Lecture 14 wrap-up, manual 2.2)"
+ },
+ {
+  "id": "ok-fcf-04",
+  "ch": 2,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "Working capital over a project's life. (NWC must be 10% of next year's sales. Sales: 200 in year 1, 300 in year 2, nothing after year 2.) Cash flow from NWC each year?",
+  "back": "<b>−20 at year 0, −10 at year 1, +30 at year 2</b><br>1. Levels: 20 (for year-1 sales), 30 (for year 2), then 0.<br>2. Only the change hits FCF: −ΔNWC = −20, −10, 30.<br>3. Everything invested comes back at the end, but late, so it still costs time value.<br>Trap: Subtracting the level each year. Forgetting the release at the end.<br>(Lecture 14 wrap-up, manual 2.4)"
+ },
+ {
+  "id": "ok-fcf-05",
+  "ch": 2,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "FCF from pro forma statements. (Revenue 412, COGS 309, depreciation 20.6, tax 40%. PPE 200 → 206. Operating cash 50 → 51.5, inventory 60 → 61.8, receivables 40 → 41.2, payables 40 → 41.2)",
+  "back": "<b>FCF = 49.44 + 20.6 − 26.6 − 3.3 = 40.14</b><br>1. EBIT = 412 − 309 − 20.6 = 82.4, after tax 49.44.<br>2. Capex = ΔPPE + depreciation = 6 + 20.6 = 26.6.<br>3. NWC = operating cash + inventory + receivables − payables: 110 → 113.3, ΔNWC = 3.3. Interest-bearing debt is financing, not working capital.<br>4. The course spreadsheet (PS2-E8.xlsx) also puts the short-term interest-bearing debt into NWC and gets 40.59. That debt is then counted twice, because it is subtracted again as part of D. The app's PS2 E8 solution keeps 40.14.<br>Trap: Capex = 6 (the net change only): FCF 60.74.<br>(PS2 E8, manual 2.2)"
+ },
+ {
+  "id": "ok-fcf-06",
+  "ch": 2,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "A student values a firm by discounting FCF after interest at the WACC. What goes wrong? (Verbal)",
+  "back": "<b>The debt is counted twice: once in the cash flow and once in the rate</b><br>1. FCF is the cash the assets generate for all investors, computed as if the firm had no debt: EBIT(1 − τ), never net income.<br>2. The financing enters in one place only: the after-tax cost of debt in r<sub>wacc</sub>, or PV(TS) in APV.<br>3. To deduct interest, switch method: FCFE = FCF − (1 − τ) × interest + net borrowing, discounted at r<sub>E</sub>.<br>Trap: Using net income as the cash flow: it is after interest.<br>(Lecture 14 wrap-up, manual 2.3)"
+ },
+ {
+  "id": "ok-fcf-07",
+  "ch": 2,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "Which items enter a project's FCF? (A market study already paid: 5. The new product takes 3 a year of margin from an old one. It uses a warehouse that could be rented out for 2 a year. Interest on the project loan: 4 a year)",
+  "back": "<b>Include the lost margin (−3) and the forgone rent (−2). Exclude the study and the interest</b><br>1. Sunk cost: the 5 is spent whatever you decide.<br>2. Cannibalisation: the old product's lost margin is an incremental effect of this project.<br>3. Opportunity cost: the rent you give up is a real cost even though no cash changes hands.<br>4. Interest is financing: it belongs in the discount rate, not in FCF.<br>Trap: Including the study because it was done for this project. Apply the tax rate to the margin and the rent if the question gives one.<br>(Lecture 14 wrap-up, manual 2.1)"
+ },
+ {
+  "id": "ok-fcf-08",
+  "ch": 1,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "Discount 1 000 received in 18 months. (Effective annual rate 8%)",
+  "back": "<b>PV = 1 000/1.08<sup>1.5</sup> = 890.97</b><br>1. 1.08<sup>1.5</sup> = 1.08 × √1.08 = 1.122369.<br>2. For half a year alone: √1.08 − 1 = 3.923%, not 4%.<br>Trap: 892.86 (1 000/1.12: simple interest). 857.34 (rounded up to two years).<br>(Lecture 14 wrap-up, lecture 10 slide 15, manual 1.1)"
+ },
+ {
+  "id": "ok-fcf-09",
+  "ch": 1,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "Monthly rate and a monthly annuity. (Effective annual rate 7%. A lease pays 2 000 a month for 24 months, first payment in one month)",
+  "back": "<b>r<sub>m</sub> = 1.07<sup>1/12</sup> − 1 = 0.5654%, PV = 2 000 × 22.3838 = 44 767.60</b><br>1. Convert the rate to the period of the cash flow: 1.07<sup>1/12</sup> − 1 = 0.5654%.<br>2. A(24, 0.5654%) = (1 − 1/1.07²)/0.005654 = 22.3838, so PV = 44 767.60.<br>Trap: 0.5833% (7%/12, a nominal rate): PV 44 670.20. Treating it as two annual payments of 24 000.<br>(Lecture 11 slide 16, manual 1.4)"
+ },
+ {
+  "id": "ok-fcf-10",
+  "ch": 1,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "A perpetuity of 10 a year starts in year 2. What is it worth today? (Discount rate 8%)",
+  "back": "<b>PV<sub>0</sub> = (10/0.08)/1.08 = 115.74</b><br>1. The perpetuity formula values the flows one period before the first one: at year 1, 125.<br>2. Bring it to year 0: 125/1.08 = 115.74.<br>3. Compare it with the alternative available now, for example renting out the asset in the meantime.<br>Trap: 125 (not discounted). 107.17 (discounted two years).<br>(Lecture 14 wrap-up, manual 1.2)"
+ },
+ {
+  "id": "ok-fcf-11",
+  "ch": 1,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "Implied cost of equity from a growing perpetuity. (Equity worth 20 million, FCF 1 million next year growing 5% a year forever, all paid out)",
+  "back": "<b>r = FCF<sub>1</sub>/V + g = 5% + 5% = 10%</b><br>1. V = FCF<sub>1</sub>/(r − g), solved for r.<br>2. Next year's cash flow over today's value is the yield; growth is the rest.<br>Trap: 10.25% (next year's flow grown once more). 5% (growth forgotten).<br>(PS1 E12a, manual 1.3)"
+ },
+ {
+  "id": "ok-fcf-12",
+  "ch": 1,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "Value of a fixed-life cash flow. (5 a year for 4 years, first payment in one year, discount rate 10%)",
+  "back": "<b>PV = 5 × (1/0.1)(1 − 1/1.1<sup>4</sup>) = 15.85</b><br>1. Annuity factor 3.1699.<br>2. Check: a perpetuity of 5 is worth 50 today; the part from year 5 on is worth 50/1.1<sup>4</sup> = 34.15; the difference is 15.85 ✓<br>Trap: 20 (not discounted). 50 (a perpetuity).<br>(Manual 1.4)"
+ },
+ {
+  "id": "ok-fcf-13",
+  "ch": 1,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "The question says: evaluate the project. The project costs 11 today and its cash flows are worth 12.2350 at the WACC. The firm is worth 50 without it. What do you report?",
+  "back": "<b>The project's NPV: 12.2350 − 11 = 1.2350</b><br>1. PV is the value of the future cash flows. NPV subtracts the investment.<br>2. \"Evaluate the project\" asks for the project's NPV, not the firm's value with the project (51.2350).<br>Trap: Reporting 12.2350 (the PV) or the firm's value. Kurbatov deducts heavily for answering about the wrong object.<br>(Lecture 14 wrap-up, home assignment 2, manual 1.5)"
+ },
+ {
+  "id": "ok-fcf-14",
+  "ch": 1,
+  "deck": "fri kontantstrøm og diskontering",
+  "front": "Two mutually exclusive projects. A costs 100 and pays 130 in one year. B costs 1 000 and pays 1 200 in one year. Discount rate 10%. Which one?",
+  "back": "<b>B: NPV 90.91 against 18.18, although A's IRR is higher (30% against 20%)</b><br>1. NPV A = 130/1.1 − 100 = 18.18. NPV B = 1 200/1.1 − 1 000 = 90.91.<br>2. IRR measures return per krone, not kroner of value created. With exclusive projects, rank by NPV.<br>Trap: Choosing A for its higher IRR. IRR also fails with non-standard cash flows and ignores scale.<br>(Manual 1.6)"
+ }
+]
