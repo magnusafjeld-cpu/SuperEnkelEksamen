@@ -350,7 +350,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 |---|---|
 | Manualen | **30 kapitler · 109 000 ord** · alle uavhengig tallkontrollert |
 | Studieplan | **25 moduler · 78 timer**, estimatene regnet av faktisk innhold |
-| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **8 prøveeksamener** i Kurbatov-formatet (prove1–3 fra oktober, prove4–8 fra prediksjonen 14. november) |
+| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **10 prøveeksamener** i Kurbatov-formatet (prove1–3 fra oktober, prove4–8, prove10 og prove11 fra prediksjonen 14. november) |
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **528**: 260 oppgavekort i 16 kategorier (forsiden en oppgavetype, baksiden svar og feller) og 268 begrepskort, pluss 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
