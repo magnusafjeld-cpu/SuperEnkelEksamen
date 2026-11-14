@@ -5246,6 +5246,355 @@ window.EDU_DATA.sets = [
   ]
 },
 {
+  "id": "prove9",
+  "kind": "mock",
+  "label": "Mock exam 9",
+  "minutes": 180,
+  "points": 100,
+  "format": "6 exercises · no multiple choice · calculator permitted",
+  "note": "Written for this app in Kurbatov's format. Two verbal exercises, then a shipowner with a risky bank loan, a buyout valued with a fixed amount of debt, a wind farm's debt and equity in a binomial tree and a decision on when to build. New firms and numbers throughout. Not an official exam: the course has not checked the solutions.",
+  "facts": [
+    "Mock exam in Kurbatov's format (H2024, H2025): 180 minutes, 100 points, six exercises, no multiple choice. Pen and paper, calculator and one bilingual dictionary.",
+    "Points per exercise: 12 · 12 · 18 · 18 · 20 · 20. Exercises 1 and 2 are verbal with a sentence budget; exercises 3 to 6 are chains of calculations that end with a short verbal question.",
+    "The formula sheet is handed out. Show every calculation and carry 4 decimals where the exercise asks for it. Answer in English.",
+    "Written for practice in this app, not an official exam. The course has not checked the solutions."
+  ],
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Payout policy",
+      "points": 12,
+      "topic": "Payout policy",
+      "chapters": [
+        15,
+        16
+      ],
+      "body": "<p>Hestnes Byggevarer, a mature listed company, has paid a dividend of NOK 10 per share for twelve years. It now cuts the dividend to NOK 4 and will spend the cash saved on share buybacks every year. Investment plans and earnings forecasts are unchanged.</p><p>a) In perfect capital markets, is a shareholder who lives on the NOK 10 dividend worse off and why?</p><p>b) The CFO expects the price to rise, since buybacks signal undervaluation; the CEO fears a fall. Who is more likely to be right and why?</p><p>c) In this exercise the shareholders are individuals (taxed 35% on dividends, 20% on realised gains), tax-exempt pension funds and companies taxed lightly on dividends received but fully on gains. Which group gains, which loses and which does not care? How does the shareholder base change?</p><p>2-3 sentences per part, 4 points each.</p>",
+      "solution": "<p>Three parts, 2-3 sentences each, 4 points each.</p><p><b>a) She is not worse off:</b> in perfect markets a buyback at a fair price leaves the share price unchanged, so after the payout each share is worth NOK 6 more than after a NOK 10 dividend. By selling shares worth NOK 6 for each share she owns (or tendering her pro rata part) she has NOK 10 per share in cash as before (a homemade dividend) and keeps her fraction of the firm because the firm retires the same fraction of its shares.</p><p><b>b) The CEO's fear is the more likely outcome.</b> Dividends are sticky: managers smooth them and cut them only when they expect lower cash flows for a long time (Kurbatov's GM example), so the first cut in twelve years is read as bad news about future earnings, whatever the board says. A buyback can signal that management thinks the shares are undervalued, but it commits the firm to nothing and can be stopped at any time, so it is a weaker signal than the cut and the price is likely to fall unless the board makes the undervaluation case credible (for example with insiders buying shares).</p><p><b>c) Taxes and clienteles.</b> The individuals gain: NOK 6 of every NOK 10 now arrives as a capital gain taxed at 20% instead of a dividend taxed at 35%; the tax is also due only when they sell. The other companies lose, because they pay little tax on dividends but full tax on gains, while the tax-exempt pension funds do not care. Over time the companies (and investors who want a steady dividend) sell to taxable individuals: the change attracts a new clientele (Kurbatov: individuals prefer buybacks, companies prefer dividends, institutions are indifferent).</p><p><b>Also accepted.</b> In b), the CFO can be right if investors trust the unchanged earnings forecasts and read the buyback as undervaluation: full marks when both signals are explained and the conclusion is reasoned. In a), noting that an investor who does not need cash simply keeps her shares and owns a larger fraction of the firm.</p><p><b>Not accepted.</b> «Dividends are better because they are cash in hand» (the bird-in-the-hand argument): in a perfect market the NOK 6 in the share price is worth the same as NOK 6 in cash.</p>",
+      "criteria": [
+        "Three parts, 4 points each, graded separately. 2-3 sentences per part; a label without the mechanism earns at most half of a part.",
+        "a) Not worse off: a fair buyback leaves the price unchanged, so the share keeps NOK 6 more of value; she sells shares worth NOK 6 per share (homemade dividend). «MM says payout is irrelevant» without how she gets her NOK 10 earns 2 of 4.",
+        "a) (bonus) Selling her pro rata part keeps her fraction of the firm unchanged.",
+        "b) The cut is bad news because dividends are sticky and smoothed (GM); the CFO's buyback signal is real but commits to nothing, so it is the weaker signal. A reasoned conclusion either way earns full marks when both arguments are weighed.",
+        "c) Individuals gain (20% instead of 35% and the tax is deferred), companies lose (little tax on dividends, full tax on gains), pension funds do not care: 1 point each.",
+        "c) 1 point for the clientele effect: the shareholder base shifts towards investors who prefer buybacks.",
+        "No calculations are needed and none earn extra points."
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Governance",
+      "points": 12,
+      "topic": "Corporate governance",
+      "chapters": [
+        27
+      ],
+      "body": "<p>Pemberton Foods Inc., a US-listed firm with dispersed ownership, has lagged its peers for five years. An activist hedge fund with 4% of the shares believes that selling a loss-making division and paying out the proceeds would raise the firm's value by about 20%. The CEO refuses.</p><p>a) Describe the fund's steps from its first contact with the board to a proxy contest.</p><p>b) Who pays for a proxy contest on each side and why does that favour the incumbents?</p><p>c) Every shareholder gains if the campaign succeeds. Explain the resulting free-rider problem and one way the fund can still make the campaign pay.</p><p>2-3 sentences per part, 4 points each.</p>",
+      "solution": "<p>Three parts, 2-3 sentences each, 4 points each.</p><p><b>a) The steps escalate.</b> The fund first writes to and meets the CEO and the board in private, with its analysis and its plan for the division. If the board refuses, it goes public with an open letter and a presentation, seeks the support of other institutions and of the proxy advisors (ISS, Glass Lewis) and can put a shareholder proposal on the agenda. As the last step it nominates its own candidates for some or all board seats and asks the other shareholders for their proxies, so that the annual meeting decides: the proxy contest, which is often settled before the vote with a few seats for the fund.</p><p><b>b) Who pays.</b> The fund pays all its own costs (lawyers, proxy solicitors, mailings, advertising and research, often several million dollars) and gets them back only if it wins and the new board agrees to reimburse it. The incumbents defend themselves with the company's money, so every shareholder, the fund included, pays for management's campaign. Together with management's control of the meeting and the proxy materials and the many small shareholders who do not vote or vote with management, this tilts the contest towards the incumbents: most campaigns settle or fail.</p><p><b>c) The free-rider problem.</b> The fund bears the whole cost of the campaign but receives only 4% of the gain, while the other 96% goes to shareholders who did nothing; since every small shareholder reasons the same way, none of them starts a campaign and there is too little monitoring. The fund can still make it pay by building its stake quietly before it must disclose it (in the US at 5%), so that it buys at the pre-campaign price and earns the price jump on every share it bought.</p><p><b>Also accepted.</b> In a): a «just vote no» campaign against the directors, coordinated voting, or a tender offer as the last step. In b): staggered boards or supermajority rules that make it slower to replace the board. In c): the free-rider problem in voting (small holders do not vote at all); targeting firms where the gain is large relative to the cost; coordinating with institutions so that a vote can be won cheaply; settling early for board seats; winning the proxy advisors' support.</p><p><b>Not accepted.</b> «Sell the shares» as the way to make the campaign pay: selling ends the campaign.</p>",
+      "criteria": [
+        "Three parts, 4 points each, graded separately; 2-3 sentences per part.",
+        "a) At least three distinct escalating steps: private engagement with management and the board; going public (open letter, other institutions, proxy advisors, shareholder proposal); nominating directors and soliciting proxies (the proxy contest). Noting that most contests settle with board seats is a plus.",
+        "b) The activist pays its own costs and is reimbursed at most if it wins; management fights with the company's money, so all shareholders, the activist included, pay for the defence. 2 points for the two sides, 2 points for why this favours the incumbents (cost asymmetry, control of the meeting, passive or loyal small holders).",
+        "c) Free-rider problem: the fund bears all the costs but gets only its 4% of the gain, so small shareholders never act and there is too little activism. 2 points.",
+        "c) One way to make it pay, with the mechanism, 2 points: buy the stake before disclosure at the pre-campaign price; coordinate with institutions; settle for board seats; win the proxy advisors' support.",
+        "Any reasonable step, cost or remedy with an explanation is accepted, as in Kurbatov's keys."
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Debt and risk",
+      "points": 18,
+      "topic": "Risky debt, investment and renegotiation",
+      "chapters": [
+        9,
+        10
+      ],
+      "body": "<p>Sandøy Rederi AS owns one bulk carrier and no cash. Its bank loan, face value NOK 150 million, is due at t = 1, when the assets will be worth NOK 250 million if freight rates are high (probability 40%) and NOK 90 million if low; if Sandøy cannot repay in full, the bank takes the assets. Investors are risk neutral, the risk-free rate is 0% and management acts for the existing shareholders.</p><p>A retrofit costing NOK 30 million today would raise the value of the assets at t = 1 by NOK 45 million in both states.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 2,
+          "body": "<p>Find the values of the loan and the equity today, without the retrofit.</p>",
+          "solution": "<p><b>Step 1. Payoffs at t = 1.</b> The bank gets min(V, 150) and the shareholders max(V − 150, 0):</p><table class=\"data\"><tr><th>State</th><th>Prob.</th><th>Assets</th><th>Loan</th><th>Equity</th></tr><tr><td>High</td><td class=\"n\">40%</td><td class=\"n\">250</td><td class=\"n\">150</td><td class=\"n\">100</td></tr><tr><td>Low</td><td class=\"n\">60%</td><td class=\"n\">90</td><td class=\"n\">90</td><td class=\"n\">0</td></tr></table><p><b>Step 2. Values today</b> (risk neutral and r<sub>f</sub> = 0%, so value = expected payoff):<br>D = 0.4 × 150 + 0.6 × 90 = 60 + 54 = <b>NOK 114 million</b><br>E = 0.4 × 100 + 0.6 × 0 = <b>NOK 40 million</b></p><p><b>Check.</b> D + E = 154 = 0.4 × 250 + 0.6 × 90, the value of the assets (an identity: it catches arithmetic slips only). The loan promises 150 but is worth 114: it is risky, which is what makes the rest of the exercise possible.</p>",
+          "criteria": [
+            "D = 0.4 × 150 + 0.6 × 90 = 114 and E = 0.4 × 100 = 40, NOK million, from the payoffs state by state.",
+            "Subtracting the face value from the expected asset value (154 − 150 = 4) is the classic error: limited liability makes the equity worth 40.",
+            "The check D + E = 154 is optional."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>The 30 can only be raised with new shares sold at a fair price, giving new investors a fraction x of the equity. Find x. Will the existing shareholders approve the retrofit?</p>",
+          "solution": "<p><b>Step 1. Payoffs with the retrofit.</b> The assets become 295 or 135. The loan still defaults in the low state (135 &lt; 150):</p><table class=\"data\"><tr><th>State</th><th>Prob.</th><th>Assets</th><th>Loan</th><th>Equity</th></tr><tr><td>High</td><td class=\"n\">40%</td><td class=\"n\">295</td><td class=\"n\">150</td><td class=\"n\">145</td></tr><tr><td>Low</td><td class=\"n\">60%</td><td class=\"n\">135</td><td class=\"n\">135</td><td class=\"n\">0</td></tr></table><p>Total equity with the retrofit: E′ = 0.4 × 145 = <b>58</b>.</p><p><b>Step 2. The new shareholders' fraction.</b> They pay 30 for a fraction x of equity worth 58: x × 58 = 30, so x = 30/58 = <b>0.5172</b> (51.72%).</p><p><b>Step 3. The existing shareholders.</b> They keep (1 − x) × 58 = <b>NOK 28 million</b>, against 40 without the retrofit. <b>They reject it</b>, although its NPV is positive (part c).</p><p><b>Check.</b> (1 − x)E′ = E′ − I = 58 − 30 = 28: selling fairly priced shares costs the existing shareholders exactly as much as paying the 30 themselves (an identity). Paying it themselves would not change the decision.</p>",
+          "criteria": [
+            "Equity with the retrofit = 0.4 × (295 − 150) = 58; the loan still defaults in the low state.",
+            "x from the fair-price condition x × 58 = 30: x = 0.5172.",
+            "Existing shareholders keep (1 − x) × 58 = 28 < 40, so they reject. The comparison with 40, not with 0, earns the decision point.",
+            "Using the equity without the retrofit (x = 30/40 = 0.7500) is the classic error.",
+            "(bonus) Paying the 30 themselves gives the same 58 − 30 = 28."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>Find the NPV of the retrofit and its effect on the values of the loan and of the existing shareholders' stake. Who gains and why?</p>",
+          "solution": "<p><b>NPV.</b> −30 + 45 = <b>NOK 15 million</b> (the extra 45 arrives for sure and r<sub>f</sub> = 0%).</p><p><b>Changes in value.</b> Loan: 0.4 × 150 + 0.6 × 135 = 141, up <b>27</b> from 114. Existing shareholders: 28 − 40 = <b>−12</b>. The new shareholders pay 30 for shares worth 30 and gain nothing.</p><p><b>Who gains and why.</b> The bank gains more than the whole NPV and the existing shareholders lose. In the low state (probability 60%) the extra 45 only raises what the bank recovers, from 90 to 135, so the bank captures 0.6 × 45 = 27 without paying anything; the shareholders pay the full 30 but receive only 0.4 × 45 = 18 of the payoff. This is debt overhang: risky debt makes the shareholders turn down a positive-NPV project because most of its value goes to the creditors.</p><p><b>Check.</b> 27 − 12 + 0 = 15 = NPV: the project's value is split between the three groups (a decomposition: it catches slips only).</p>",
+          "criteria": [
+            "NPV = 45 − 30 = 15.",
+            "Loan rises from 114 to 141 (+27); existing shareholders fall from 40 to 28 (−12).",
+            "Explanation: in the low state the extra value goes to the bank, so the bank captures 27 > NPV while the shareholders bear the whole cost: a wealth transfer to the creditors (debt overhang). Naming the effect without the mechanism earns at most half of the explanation.",
+            "(bonus) The decomposition 27 − 12 = 15."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>The bank offers to cut the face value to 125 if the retrofit goes ahead, financed as in b). Do the existing shareholders approve? What do they and the bank gain compared with a)?</p>",
+          "solution": "<p><b>Step 1. Payoffs with face value 125.</b> 135 ≥ 125, so the loan is now paid in full in both states: it is risk-free and worth <b>125</b>. Equity: 0.4 × (295 − 125) + 0.6 × (135 − 125) = 68 + 6 = <b>74</b>.</p><p><b>Step 2. Decision.</b> The new shareholders need x = 30/74 = 0.4054; the existing shareholders keep 74 − 30 = <b>44 &gt; 40</b>, so <b>they now approve the retrofit</b>.</p><p><b>Step 3. Gains compared with a).</b> Bank: 125 − 114 = <b>+11</b>. Existing shareholders: 44 − 40 = <b>+4</b>. Both gain: the bank gives up 25 of face value, but its claim is worth more because the smaller promise is now kept in both states.</p><p><b>Check.</b> 11 + 4 = 15 = NPV (a decomposition). <b>Beyond the question.</b> The shareholders approve as long as 199 − F′ − 30 ≥ 40, so F′ ≤ 129; the bank accepts any F′ ≥ 114: the bargaining range is 129 − 114 = 15, exactly the NPV.</p>",
+          "criteria": [
+            "Loan risk-free at 125 (135 ≥ 125); equity 0.4 × 170 + 0.6 × 10 = 74. 2 points. Forgetting the low-state equity gives 68 and is the classic slip.",
+            "Existing shareholders: 74 − 30 = 44 > 40, so they approve. 1 point.",
+            "Gains: bank +11, existing shareholders +4. 1 point.",
+            "(bonus) Why the bank accepts a lower face value: its claim becomes safe and is worth more.",
+            "(bonus) The gains sum to the NPV; the range 114 ≤ F′ ≤ 129."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Return to the face value of 150. If the bank waived its covenant against senior debt, Sandøy could borrow the 30 from a new senior lender. Would the shareholders then retrofit and would the bank agree? Why do loan contracts contain such covenants?</p>",
+          "solution": "<p><b>Step 1. The senior loan.</b> The lowest asset value with the retrofit is 135 ≥ 30, so a senior loan of 30 is risk-free: Sandøy borrows 30 with a face value of 30. The bank's loan now ranks second.</p><table class=\"data\"><tr><th>State</th><th>Prob.</th><th>Assets</th><th>Senior</th><th>Bank</th><th>Equity</th></tr><tr><td>High</td><td class=\"n\">40%</td><td class=\"n\">295</td><td class=\"n\">30</td><td class=\"n\">150</td><td class=\"n\">115</td></tr><tr><td>Low</td><td class=\"n\">60%</td><td class=\"n\">135</td><td class=\"n\">30</td><td class=\"n\">105</td><td class=\"n\">0</td></tr></table><p>Bank: 0.4 × 150 + 0.6 × 105 = <b>123</b> (+9 against 114). Equity: 0.4 × 115 = <b>46</b> (+6 against 40). <b>The shareholders carry out the retrofit and the bank gains too</b>, so it would agree to waive the covenant for this loan (9 + 6 = 15 = NPV, an identity). An equally good answer: the bank prefers the renegotiation in d), where its loan is worth 125 &gt; 123, so it may refuse the waiver and offer d) instead.</p><p><b>Why such covenants exist.</b> Without them the shareholders could issue new senior debt at any time to pay themselves a dividend or to fund a risky project, diluting the existing creditors' claim. Lenders anticipate this and would charge a higher rate when they lend, so a covenant that forbids senior debt lowers the cost of borrowing ex ante; the price is that it can block good projects later, as here, unless the lender waives it, which is easy with one bank and hard with dispersed bondholders.</p><p><b>Beyond the question.</b> An unlimited waiver would be dangerous for the bank: Sandøy could borrow 135 senior (still risk-free), spend 30 on the retrofit and pay out 105, which leaves the bank's loan worth 0.4 × 150 = 60.</p>",
+          "criteria": [
+            "The senior loan is risk-free (135 ≥ 30), so the 30 is borrowed at face value 30.",
+            "Bank (now junior): 0.4 × 150 + 0.6 × 105 = 123; equity: 0.4 × 115 = 46. Shareholders carry out the retrofit (46 > 40) and the bank agrees (123 > 114). «The bank prefers the renegotiation in d)» (125 > 123) is equally correct.",
+            "Giving the bank 135 in the low state (forgetting that the senior lender is paid first, D = 141) is the classic error.",
+            "Covenants: without them shareholders could dilute existing creditors with new senior debt (to fund payouts or risky projects); lenders would price this in, so the covenant lowers the cost of debt ex ante. About 2 points; any reasonable explanation of claim dilution is accepted.",
+            "(bonus) The cost of the covenant is lost flexibility; an unlimited waiver would let the shareholders borrow 135 senior and pay out 105, leaving the bank 60."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Valuation",
+      "points": 18,
+      "topic": "Permanent debt, APV and WACC",
+      "chapters": [
+        4,
+        7,
+        18,
+        19
+      ],
+      "body": "<p>A private-equity fund plans to buy Nordvarme AS, an unlisted district-heating firm with EBIT of NOK 60 million a year forever; capital expenditure equals depreciation and working capital is constant. The tax rate is 22% and the fund's analysts put the unlevered cost of capital at 8%. After the purchase Nordvarme will have NOK 250 million of permanent, risk-free debt at 4%, the risk-free rate. The expected market return is 9%. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 2,
+          "body": "<p>Find Nordvarme's free cash flow and its all-equity value.</p>",
+          "solution": "<p><b>Free cash flow.</b> Capital expenditure equals depreciation and working capital is constant, so FCF = EBIT(1 − τ) = 60 × 0.78 = <b>NOK 46.8 million</b> a year. Interest is not deducted: FCF belongs to all investors.</p><p><b>Unlevered value.</b> A perpetuity without growth at r<sub>U</sub>: V<sup>U</sup> = 46.8/0.08 = <b>NOK 585 million</b>.</p>",
+          "criteria": [
+            "FCF = 60 × (1 − 0.22) = 46.8, with no interest deducted.",
+            "V^U = 46.8/0.08 = 585, a perpetuity without growth.",
+            "Discounting EBIT before tax, or using a WACC here, is the error: V^U is the all-equity value at r_U."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>Find the present value of the interest tax shield, stating the rate and why. Find Nordvarme's levered value by APV and the value of its equity.</p>",
+          "solution": "<p><b>Step 1. The tax shield each year.</b> Interest = 4% × 250 = 10; tax shield = 22% × 10 = <b>2.2</b> a year forever.</p><p><b>Step 2. Discount at r<sub>D</sub> = 4%.</b> The debt is a fixed, permanent amount, so the interest and the tax saving are as certain as the debt payments themselves (given taxable profits): they do not move with Nordvarme's business risk. PV(TS) = 2.2/0.04 = <b>NOK 55 million</b> = τD = 0.22 × 250.</p><p><b>Step 3. APV.</b> V<sup>L</sup> = 585 + 55 = <b>NOK 640 million</b>; E = 640 − 250 = <b>NOK 390 million</b>.</p><p>Discounting the tax shield at r<sub>U</sub> would give 2.2/0.08 = 27.5 and V<sup>L</sup> = 612.5: that is the treatment for debt that moves with firm value (part e), not for a fixed amount.</p>",
+          "criteria": [
+            "Tax shield 0.22 × 0.04 × 250 = 2.2 a year; PV(TS) = 2.2/0.04 = 55 = τD. 1 point.",
+            "Rate r_D = 4% with the reason: a fixed permanent amount of debt makes the tax shields as safe as the interest payments. 1 point, only with the reason.",
+            "V^L = 585 + 55 = 640 and E = 640 − 250 = 390. 1 point each.",
+            "Discounting the tax shield at r_U (PV 27.5, V^L 612.5) loses the rate point; later parts are graded on the student's own numbers."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>Find Nordvarme's cost of equity and after-tax WACC and value it with the WACC method.</p>",
+          "solution": "<p><b>Step 1. Cost of equity.</b> The shareholders receive FCF minus after-tax interest; the debt is constant, so there is no net borrowing: FCFE = 46.8 − (1 − 0.22) × 10 = 46.8 − 7.8 = 39. As a perpetuity, r<sub>E</sub> = FCFE/E = 39/390 = <b>10%</b>.<br>The same from MM II with permanent debt: r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ)(r<sub>U</sub> − r<sub>D</sub>) = 8% + (250/390)(0.78)(4%) = 8% + 2% = 10%.</p><p><b>Step 2. WACC.</b> r<sub>wacc</sub> = [E × r<sub>E</sub> + D × r<sub>D</sub>(1 − τ)]/V<sup>L</sup> = (390 × 10% + 250 × 4% × 0.78)/640 = (39 + 7.8)/640 = <b>7.3125%</b>.<br>Equivalently r<sub>wacc</sub> = r<sub>U</sub>(1 − τD/V<sup>L</sup>) = 8% × (1 − 55/640) = 7.3125%, as in PS2 E9.</p><p><b>Step 3. WACC method.</b> V<sup>L</sup> = 46.8/0.073125 = <b>NOK 640 million</b>, the APV value.</p><p><b>Check.</b> The two routes to r<sub>E</sub> must agree; that check can fail: MM II without (1 − τ), r<sub>E</sub> = 8% + (250/390)(4%) = 10.5641%, gives r<sub>wacc</sub> = 7.6563% and V<sup>L</sup> = 611.2653, which misses the APV value. If r<sub>E</sub> was taken as FCFE/E, the agreement of the WACC value with APV is an identity (both rest on E = 390). With no growth the fixed debt keeps D/V at 250/640 forever, which is why a single WACC works here; solving V<sup>L</sup> = FCF/[r<sub>U</sub>(1 − τD/V<sup>L</sup>)] without APV gives V<sup>L</sup> = FCF/r<sub>U</sub> + τD = 640.</p>",
+          "criteria": [
+            "r_E = 10%, from FCFE/E = 39/390 or from r_U + (D/E)(1 − τ)(r_U − r_D). Either route earns full marks.",
+            "r_wacc = (39 + 7.8)/640 = 7.3125%, or r_U(1 − τD/V^L) = 8% × (1 − 55/640).",
+            "V^L = 46.8/0.073125 = 640, the same as APV.",
+            "Classic error: MM II without (1 − τ) gives r_E = 10.5641% and V^L = 611.2653 ≠ 640; reporting the mismatch without fixing it loses the r_E point.",
+            "Deducting interest from FCF before discounting at r_wacc counts the tax shield twice."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Fjordvarme ASA, a listed firm with the same business risk and tax rate, also has a fixed, permanent amount of risk-free debt: equity NOK 1,040 million, debt NOK 500 million, equity beta 1.1. Estimate the unlevered cost of capital from these data. Is the analysts' 8% consistent with it?</p>",
+          "solution": "<p><b>Step 1. Fjordvarme's cost of equity.</b> r<sub>E</sub> = 4% + 1.1 × (9% − 4%) = <b>9.5%</b>.</p><p><b>Step 2. Unlever with D(1 − τ) weights.</b> Fjordvarme's debt is fixed and permanent, so its tax shield τD is as safe as the debt: from V<sup>U</sup> + τD = E + D, the unlevered assets equal E + D(1 − τ) (Kurbatov, lecture 8, slide 18). With D(1 − τ) = 500 × 0.78 = 390:<br>r<sub>U</sub> = (1,040 × 9.5% + 390 × 4%)/(1,040 + 390) = (98.8 + 15.6)/1,430 = <b>8%</b><br>(or β<sub>U</sub> = (1,040/1,430) × 1.1 = 0.8 and r<sub>U</sub> = 4% + 0.8 × 5% = 8%).</p><p><b>Conclusion.</b> <b>The analysts' 8% is consistent</b> with Fjordvarme's market data.</p><p><b>Classic error.</b> The usual weights E/V and D/V give (98.8 + 20)/1,540 = 7.7143%, which would wrongly suggest that 8% is too high. Those weights assume debt that is rebalanced with firm value; they do not fit a fixed amount of debt. The β route and the return route are the same calculation (CAPM is linear), so doing both is not a check.</p>",
+          "criteria": [
+            "r_E = 4% + 1.1 × 5% = 9.5% for Fjordvarme.",
+            "Weights with D(1 − τ) because the debt is fixed and permanent: r_U = (98.8 + 15.6)/1,430 = 8%, or β_U = 0.8. Consistent with 8%.",
+            "Using E/V and D/V (7.7143%) and concluding that 8% is too high is the classic error: at most 2 of 4 if the arithmetic is right.",
+            "One phrase of reason: the tax shield of fixed debt is safe, so the equity's risk depends on the debt net of the tax shield."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Suppose Nordvarme instead kept debt at a constant fraction of firm value, rebalanced yearly. Without calculations, would the tax shield be worth more or less than in b) and why?</p>",
+          "solution": "<p><b>Less.</b> With a fixed, permanent amount of debt the interest and the tax shields are known in advance and as safe as the debt, so they are discounted at r<sub>D</sub> = 4%. If Nordvarme keeps its debt at a constant fraction of firm value, the debt and the tax shields rise and fall with the value of the business: they carry the firm's business risk and are discounted at r<sub>U</sub> = 8%. The same expected tax savings are then worth less.</p><p><b>Beyond the question.</b> Starting from the same debt of 250 and discounting its tax shield at r<sub>U</sub>: 2.2/0.08 = 27.5. Keeping instead D/V = 250/640 = 0.3906: r<sub>wacc</sub> = r<sub>U</sub> − (D/V)τr<sub>D</sub> = 8% − 0.3906 × 0.22 × 4% = 7.6563%, V<sup>L</sup> = 46.8/0.0765625 = 611.2653 and PV(TS) = 26.2653 against 55. This is the number from the classic error in c): MM II without (1 − τ) is the formula for debt kept at a constant D/V.</p>",
+          "criteria": [
+            "Answer: less (1 point).",
+            "Reason: fixed debt makes the tax shields as safe as the debt (r_D); debt kept at a constant D/V moves with firm value, so the tax shields carry business risk and are discounted at r_U = 8% > r_D (3 points).",
+            "«More, because the debt grows with the firm» is wrong: there is no growth, so expected debt stays the same.",
+            "(bonus) PV(TS) = 27.5 (the same 250 of debt with r_U) or 26.2653 (the same initial D/V), against 55. Both are accepted."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Options",
+      "points": 20,
+      "topic": "Debt and equity as options, binomial model",
+      "chapters": [
+        5,
+        9,
+        21,
+        22,
+        24
+      ],
+      "body": "<p>Havgløtt Vind AS owns one offshore wind farm, worth NOK 500 million today and NOK 620 million (high power prices) or NOK 400 million (low) in one year. Its only debt is a one-year zero-coupon bond with face value NOK 450 million; no dividend is paid before it matures. The risk-free rate is 4%. Treat the farm as a traded asset in a perfect market. Analysts put the probability of high prices at 65%. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Find the risk-neutral probability of the high state. How does it compare with the analysts' 65% and why?</p>",
+          "solution": "<p><b>Risk-neutral probability.</b> ρ makes the farm earn the risk-free rate in expectation: 500 = [ρ × 620 + (1 − ρ) × 400]/1.04, so<br>ρ = (1.04 × 500 − 400)/(620 − 400) = 120/220 = <b>0.5455</b>.</p><p><b>Comparison.</b> ρ is <b>lower than the analysts' 65%</b>. With 65% the farm's expected value next year is 0.65 × 620 + 0.35 × 400 = 543, an expected return of 8.6%: investors demand a risk premium for the farm's market risk, so its price is below the expected payoff discounted at r<sub>f</sub>. ρ moves weight to the low state until discounting at r<sub>f</sub> gives the market price; the analysts' 65% would need the risk-adjusted rate of 8.6% instead.</p>",
+          "criteria": [
+            "ρ = (1.04 × 500 − 400)/(620 − 400) = 0.5455.",
+            "ρ < 0.65 because investors are risk averse: the risk premium is built into ρ, which puts more weight on the bad state.",
+            "(bonus) The real expected return 543/500 − 1 = 8.6% against 4% under ρ.",
+            "Valuing with 65% and r_f is the error to avoid in the rest of the exercise."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 8,
+          "body": "<p>Value the equity as a call on the farm by replicating its payoff with the farm and risk-free bonds. Then value the debt as farm minus equity and as risk-free debt minus a put on the farm, priced by put-call parity.</p>",
+          "solution": "<p><b>Step 1. Payoffs.</b> The equity is a call on the farm with strike K = 450, the face value: max(V − 450, 0) = <b>170</b> in the high state and <b>0</b> in the low state.</p><p><b>Step 2. Replicate the equity.</b> Hold Δ of the farm and B in risk-free bonds:<br>Δ × 620 + 1.04B = 170 and Δ × 400 + 1.04B = 0<br>Δ = (170 − 0)/(620 − 400) = <b>0.7727</b>; B = −0.7727 × 400/1.04 = <b>−297.2028</b> (borrow 297.2028 at 4%).<br>E = Δ × 500 + B = 386.3636 − 297.2028 = <b>NOK 89.1608 million</b>.</p><p><b>Check.</b> With ρ: E = 0.5455 × 170/1.04 = 89.1608 ✓. Replication and ρ are the same model in two forms, so this is an identity that catches arithmetic slips only.</p><p><b>Step 3. Debt as farm minus equity.</b> D = V − E = 500 − 89.1608 = <b>NOK 410.8392 million</b>.</p><p><b>Step 4. Debt as risk-free debt minus a put.</b> PV(K) = 450/1.04 = 432.6923. Put-call parity on the farm, C + PV(K) = V + P, with C = E:<br>P = 89.1608 + 432.6923 − 500 = <b>21.8531</b><br>D = PV(K) − P = 432.6923 − 21.8531 = <b>410.8392</b>, the same as in Step 3.</p><p><b>Check.</b> The agreement of Steps 3 and 4 is an identity (parity says V = C + PV(K) − P), so it catches slips only. The check that can fail is to price the put directly: it pays 450 − 400 = 50 in the low state, so P = (1 − 0.5455) × 50/1.04 = 21.8531 ✓.</p><p><b>Interpretation.</b> The creditors hold a risk-free claim on 450 and have sold the shareholders a put on the farm: the right to hand over the assets instead of paying, which is limited liability. It is worth 21.8531, the difference between risk-free and risky debt.</p>",
+          "criteria": [
+            "Equity payoffs 170 and 0: a call with strike 450. 1 point.",
+            "Δ = 170/220 = 0.7727 and B = −297.2028 (borrowing), from the two replication equations. 2 points.",
+            "E = 0.7727 × 500 − 297.2028 = 89.1608. 1 point. Pricing with ρ alone earns this point but not the replication points the question asks for.",
+            "D = 500 − 89.1608 = 410.8392. 1 point.",
+            "Parity: P = C + PV(K) − V = 21.8531 with PV(K) = 450/1.04 = 432.6923; D = PV(K) − P = 410.8392. 3 points.",
+            "(bonus) What the put is: the shareholders' option to default, sold by the creditors.",
+            "Using K = 450 undiscounted in parity (P = 39.1608), or the analysts' 65% with r_f (E = 106.2500), is the classic error."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 5,
+          "body": "<p>Find the promised yield, the credit spread and the default probability implied by the debt's price. Find the expected return on the debt under the analysts' probabilities and explain the gap to the yield.</p>",
+          "solution": "<p><b>Step 1. Promised yield and spread.</b> The debt costs 410.8392 and promises 450: y = 450/410.8392 − 1 = <b>9.5319%</b>. Credit spread = 9.5319% − 4% = <b>5.5319 percentage points</b> (about 553 basis points).</p><p><b>Step 2. Implied (risk-neutral) default probability.</b> The debt defaults only in the low state, where the creditors get the farm worth 400. Solve 410.8392 = [(1 − q) × 450 + q × 400]/1.04: q = (450 − 427.2727)/50 = <b>0.4545</b> (45.45%), which is 1 − ρ, as it must be. The shortcut spread ≈ q × LGD, with LGD = 50/450 = 11.11%, gives q ≈ 5.5319%/11.11% = 0.4979: close but too high, because it ignores that the exact relation is 1 + y = (1 + r<sub>f</sub>)/(1 − q × LGD).</p><p><b>Step 3. Expected return.</b> Under the analysts' probabilities the expected payoff is 0.65 × 450 + 0.35 × 400 = 432.5, so the expected return on the debt is 432.5/410.8392 − 1 = <b>5.2723%</b>.</p><p><b>The gap.</b> The promised 9.5319% is earned only if Havgløtt does not default; on average the creditors earn 5.2723%. Of the spread of 5.5319 points, 4.2596 points compensate for the expected loss in default and 1.2723 points are a risk premium, because the debt loses in the low state, when power prices and the market are bad. The same premium is why the implied default probability (45.45%) exceeds the analysts' 35%: risk-neutral probabilities include it.</p>",
+          "criteria": [
+            "Yield 450/410.8392 − 1 = 9.5319%, spread 5.5319 points over 4%.",
+            "Implied default probability from the debt price: q = 0.4545 (= 1 − ρ). Writing 1 − ρ directly, with the reason that default happens exactly in the low state, is accepted. The shortcut spread/LGD = 0.4979 is accepted when it is called an approximation.",
+            "Expected return on the debt: 432.5/410.8392 − 1 = 5.2723%.",
+            "Explanation: the promised yield exceeds the expected return because of expected default losses; the rest of the spread is a risk premium. 1-2 sentences.",
+            "(bonus) The implied 45.45% exceeds the real 35% because risk-neutral probabilities carry the risk premium.",
+            "Calling the promised yield the expected return on the debt is the classic error."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Management can cancel the farm's fixed-price power contract for a fee and sell at spot prices. Treat the switched farm as a new traded asset, worth NOK 490 million after the fee and NOK 700 million or NOK 300 million in one year. Find the new values of equity and debt. Would the shareholders want the switch and why?</p>",
+          "solution": "<p><b>Step 1. A new tree means a new ρ.</b> ρ′ = (1.04 × 490 − 300)/(700 − 300) = 209.6/400 = <b>0.5240</b>, from the new asset's price as the exercise instructs.</p><p><b>Step 2. New values.</b> The equity pays 700 − 450 = 250 or 0: E′ = 0.5240 × 250/1.04 = <b>NOK 125.9615 million</b>. Debt: D′ = 490 − 125.9615 = <b>NOK 364.0385 million</b> (directly: (0.5240 × 450 + 0.4760 × 300)/1.04 = 364.0385 ✓).</p><table class=\"data\"><tr><th>NOK million</th><th>Before</th><th>After</th><th>Change</th></tr><tr><td>Farm</td><td class=\"n\">500</td><td class=\"n\">490</td><td class=\"n\">−10</td></tr><tr><td>Equity</td><td class=\"n\">89.1608</td><td class=\"n\">125.9615</td><td class=\"n\">+36.8007</td></tr><tr><td>Debt</td><td class=\"n\">410.8392</td><td class=\"n\">364.0385</td><td class=\"n\">−46.8007</td></tr></table><p><b>Step 3. The shareholders want the switch</b>, although it destroys NOK 10 million of value. Equity is a call on the farm; a call is worth more when the underlying is riskier: the shareholders keep the extra upside while limited liability caps their loss at zero. The creditors are short the put, which rises from 21.8531 to 432.6923 − 364.0385 = 68.6538, so they lose 46.8007, more than the fall in firm value: risk shifting from the creditors to the shareholders.</p><p><b>Also accepted.</b> Both trees have the same two states (high and low power prices), so a student may instead use the state prices of the original tree (ρ = 0.5455): the switched farm is then worth 498.2517 before the fee, with E′ = 131.1189 and D′ = 367.1329. The shareholders gain 41.9580 and the creditors lose 43.7063: the same conclusion. The exercise tells you to treat the farm as a new asset worth 490, so the main answer uses ρ′.</p>",
+          "criteria": [
+            "ρ′ = 0.5240 from the new asset worth 490, as instructed. Using the original state prices (ρ = 0.5455: E′ = 131.1189, D′ = 367.1329) is accepted when the student says why (the same two states).",
+            "E′ = 0.5240 × 250/1.04 = 125.9615 and D′ = 490 − 125.9615 = 364.0385.",
+            "Yes: the shareholders gain 36.8007 although the firm loses 10; the creditors lose 46.8007.",
+            "Why, with the option view: equity is a call that gains from volatility (limited liability); the creditors are short a put that becomes more valuable. Any correct statement of the mechanism (risk shifting to the creditors) earns the points.",
+            "(bonus) The put rises from 21.8531 to 68.6538."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Real Options",
+      "points": 20,
+      "topic": "Real options",
+      "chapters": [
+        25
+      ],
+      "body": "<p>You hold an exclusive right to build a truck-charging hub for NOK 60 million. From one year after it is built, it pays NOK 6 million a year forever if demand is high and NOK 2.7 million if low (equal probability). Demand is revealed at the end of Year 1 whether you have built or not and never changes. Demand risk is not systematic: discount at the risk-free rate of 6%. You can build now or at the end of Year 1; then the right expires. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the NPV of building now?</p>",
+          "solution": "<p>Built now, the hub pays from the end of Year 1 and the expected cash flow is 0.5 × 6 + 0.5 × 2.7 = 4.35 a year forever:<br>NPV = −60 + 4.35/0.06 = −60 + 72.5 = <b>NOK 12.5 million</b>.</p><p>Building now is profitable, but a positive NPV does not yet say that now is the best time to build (part b).</p>",
+          "criteria": [
+            "Expected cash flow 4.35 a year; NPV = −60 + 4.35/0.06 = 12.5.",
+            "Discount at r_f = 6% because the demand risk is not systematic, as the exercise states.",
+            "A positive NPV alone does not settle the timing."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>Find the NPV today of waiting a year to decide and the value of this flexibility over building now. Do you build now or wait?</p>",
+          "solution": "<p><b>Step 1. The decision at the end of Year 1.</b> Building then gives a perpetuity from Year 2, valued at Year 1:<br>High demand: −60 + 6/0.06 = <b>40</b>: build.<br>Low demand: −60 + 2.7/0.06 = <b>−15</b>: do not build, so the value is 0, not −15.</p><p><b>Step 2. NPV of waiting today.</b> (0.5 × 40 + 0.5 × 0)/1.06 = <b>NOK 18.8679 million</b>.</p><p><b>Step 3. Value of the flexibility.</b> 18.8679 − 12.5 = <b>NOK 6.3679 million</b>. <b>Wait.</b> Waiting costs one year of cash flow (expected 4.35) and delays the project, but it lets you avoid building into low demand, where the hub is worth −15.</p>",
+          "criteria": [
+            "NPV at the end of Year 1: 40 with high demand; −15 with low demand, where you do not build (value 0).",
+            "NPV of waiting = 0.5 × 40/1.06 = 18.8679.",
+            "Value of the flexibility = 18.8679 − 12.5 = 6.3679; decision: wait.",
+            "Keeping −15 in the low state gives 11.7925 < 12.5 and the wrong decision: the classic error (compare with 0).",
+            "Discounting the Year-1 values twice, or not at all, loses 1 point."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>If you have not built by the end of Year 1, a rival opens next to you then with probability 30% (independent of demand), before you decide; your cash flows would then fall to 70%. Building now keeps the rival out. What is the NPV of waiting? Do you build now or wait?</p>",
+          "solution": "<p><b>Step 1. If the rival enters.</b> Your cash flows become 4.2 or 1.89. At the end of Year 1: high demand −60 + 4.2/0.06 = <b>10</b>: still build; low demand −60 + 1.89/0.06 = −28.5: do not build. Value today: 0.5 × 10/1.06 = <b>4.7170</b>.</p><p><b>Step 2. NPV of waiting.</b> 0.7 × 18.8679 + 0.3 × 4.7170 = 13.2075 + 1.4151 = <b>NOK 14.6226 million</b>.</p><p><b>Step 3. Decision.</b> 14.6226 &gt; 12.5, so <b>you wait</b>, but the flexibility is now worth only 14.6226 − 12.5 = 2.1226.</p>",
+          "criteria": [
+            "With the rival: 10 at Year 1 in the high state (still build), nothing in the low state; value today 4.7170.",
+            "NPV of waiting = 0.7 × 18.8679 + 0.3 × 4.7170 = 14.6226.",
+            "Decision: wait (14.6226 > 12.5).",
+            "Setting the value to 0 when the rival enters (you could still build with high demand) gives 13.2075: still wait, but it loses 1 point."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>For which entry probability are you indifferent between building now and waiting? Why does the rival make waiting less attractive?</p>",
+          "solution": "<p><b>Indifference.</b> (1 − q) × 18.8679 + q × 4.7170 = 12.5 gives<br>q = (18.8679 − 12.5)/(18.8679 − 4.7170) = 6.3679/14.1509 = <b>0.45</b> (45%). Above it you build now.</p><p><b>Check.</b> 0.55 × 18.8679 + 0.45 × 4.7170 = 10.3774 + 2.1226 = 12.5000 ✓.</p><p><b>Why the rival makes waiting less attractive.</b> Entry is a cost of waiting only: it takes value from the project if you have not yet built, like a dividend that the holder of a call misses and that makes early exercise attractive. Building now gives up the option but secures the whole market.</p>",
+          "criteria": [
+            "Equation (1 − q) × 18.8679 + q × 4.7170 = 12.5 set up correctly.",
+            "q = 0.45; above it you build now.",
+            "Explanation: entry is a cost of waiting only (building now avoids it), like a dividend that makes early exercise of a call attractive. 1-2 sentences.",
+            "A student who used 0 for the rival case in c) gets q = 0.3375 and keeps full marks for the method."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Ignore the rival. If your right lasted two years, would it be worth more, less or the same? Explain briefly (2-4 sentences).</p>",
+          "solution": "<p><b>The same; the extra year is never used.</b> All the uncertainty is resolved at the end of Year 1, so the second year brings no new information: with high demand, building at the end of Year 1 is worth 40 while waiting another year is worth only 40/1.06 = 37.7358 at that date (a year of cash flow is lost); with low demand the NPV stays −15, so you never build. The right is still worth 18.8679. A longer right can never be worth less, just as an American option is worth at least as much as a European one, but it is worth more only when waiting longer brings information; here the lost cash flows work like a dividend that makes «exercising» at the end of Year 1 optimal.</p>",
+          "criteria": [
+            "Answer: the same value (18.8679); the extra year is never used. 1 point.",
+            "Reason: no new information arrives in Year 2; with high demand waiting another year loses a year of cash flow (40 at Year 1 against 37.7358), with low demand you never build. 2 points.",
+            "A longer right is never worth less (American against European option); it is worth more only when more uncertainty is resolved. 1 point.",
+            "«More, because a longer option is always worth more» without noting that no information arrives earns 1 point."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
   "id": "prove10",
   "kind": "mock",
   "label": "Mock exam 10",
