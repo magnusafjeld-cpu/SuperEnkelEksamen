@@ -5,9 +5,9 @@ window.EDU_DATA.kjerne.push({
   title: "Debt and equity as options, and credit risk",
   chapters: [5, 24],
   html: `
-<div class="callout kort"><span class="h">In short</span>This part applies options to the firm's own claims. Shareholders can walk away when the firm is worth less than its debt, so equity works like a call option on the firm's assets, with the face value of the debt as the strike price. Risky debt is then safe debt minus a put. That explains why a bond's promised yield is higher than its expected return, how default risk is priced and why more risk in the assets moves value from lenders to shareholders. Credit default swaps, which insure a lender against default, close the part.</div>
+<div class="callout kort"><span class="h">In short</span>This part applies options to the firm's own claims. Shareholders can walk away when the firm is worth less than its debt, so equity is a call on the firm's assets with the face value of the debt as strike and risky debt is safe debt minus a put. That explains why a bond's promised yield exceeds its expected return, how default risk is priced and why more asset risk moves value from lenders to shareholders. Credit default swaps, insurance against default, close the part.</div>
 
-<p class="lead-in">Credit risk and option-based debt pricing are in eight of eleven mapped papers: 2015 Problem 4 alone was worth 90 points, and 2016 Problem 4, 2021 MC7–9 and V2024 Problems 3 and 4 sit here too. Neither Kurbatov paper has used it yet, so it is a real risk rather than a certainty.</p>
+<p class="lead-in">Credit risk and option-based debt pricing are in eight of eleven mapped papers: 2015 Problem 4 alone was worth 90 points and 2016 Problem 4, 2021 MC7–9 and V2024 Problems 3 and 4 sit here too. Neither Kurbatov paper used it, but his wrap-up lists securities as options and lower borrowing costs after a merger (coinsurance) and he said he could ask you to explain why debt is risk-free debt minus a put.</p>
 
 <h3>Promised versus expected return</h3>
 <p>A zero-coupon bond with face value F and price P has yield y = (F/P)<sup>1/n</sup> − 1, a promised return earned only if every krone arrives. With default probability p and loss given default L = 1 − R (R the recovery rate):</p>
@@ -18,7 +18,7 @@ window.EDU_DATA.kjerne.push({
 <p>Let the assets be worth V<sub>T</sub> when the only debt, a zero-coupon bond with face value F, matures. Limited liability gives:</p>
 <div class="formula"><div class="eq">E<sub>T</sub> = max(V<sub>T</sub> − F, 0) · D<sub>T</sub> = min(V<sub>T</sub>, F)</div>
 <div class="eq">E = Call(V, F, T) · D = V − Call = PV(F) − Put(V, F, T)</div>
-<div class="where">The strike is the face value F (k24 calls it K), and σ is asset volatility, not share volatility. The lender has written the shareholders a put: the right to hand over the assets instead of paying F. From D, y = (F/D)<sup>1/T</sup> − 1 and the spread is y − r<sub>f</sub>.</div></div>
+<div class="where">The strike is the face value F (k24 calls it K) and σ is asset volatility, not share volatility. The lender has written the shareholders a put: the right to hand over the assets instead of paying F. From D, y = (F/D)<sup>1/T</sup> − 1 and the spread is y − r<sub>f</sub>.</div></div>
 <figure>
 <svg viewBox="0 0 620 360" xmlns="http://www.w3.org/2000/svg"
      role="img" aria-label="Payoff diagram at maturity splitting firm value between debt and equity. Equity is flat at zero up to the face value F and then rises one for one, which is a call payoff. Debt rises one for one up to F and is then flat at F, which equals a risk-free payment of F minus a put payoff, the shaded triangle below F."
@@ -50,38 +50,39 @@ window.EDU_DATA.kjerne.push({
 </svg>
 <figcaption>Equity (red) is a call struck at F. Debt (blue) is a safe F minus the shaded put.</figcaption>
 </figure>
-<p>With Black-Scholes on the assets, E = V·N(d<sub>1</sub>) − PV(F)·N(d<sub>2</sub>), and 1 − N(d<sub>2</sub>) is the risk-neutral default probability, above the true one. The equity beta follows:</p>
+<p>With Black-Scholes on the assets, E = V·N(d<sub>1</sub>) − PV(F)·N(d<sub>2</sub>) and 1 − N(d<sub>2</sub>) is the risk-neutral default probability, above the true one. The equity beta follows:</p>
 <div class="formula"><div class="eq">β<sub>E</sub> = N(d<sub>1</sub>)·(V/E)·β<sub>U</sub></div>
-<div class="where">Memorise it. N(d<sub>1</sub>) is the equity's delta with respect to V, and V/E the leverage inside the option, so β<sub>E</sub> explodes as the firm nears distress.</div></div>
-<div class="callout mech"><span class="h">Why volatility helps equity and hurts debt</span>Equity is a call, and a call gains from volatility (kj7). Raise asset volatility with V unchanged and the call gains exactly what the lender's written put loses: a pure transfer, so check 4 holds. This is risk shifting (kj5) with a price on it, and why lenders write covenants.</div>
+<div class="where">Intuition, not a computation (no N(d) on the exam): equity is a call with leverage built in, so as the firm nears distress V/E rises and β<sub>E</sub> explodes.</div></div>
+<div class="callout mech"><span class="h">Why volatility helps equity and hurts debt</span>Equity is a call and a call gains from volatility (kj7). Raise asset volatility with V unchanged and the call gains exactly what the lender's written put loses: a pure transfer, so check 4 holds. This is risk shifting (kj5) with a price on it and why lenders write covenants.</div>
 
+<p><b>Senior and junior debt, priced from listed calls.</b> Equity is a call struck at all the debt; the senior lender alone sees a strike of K<sub>S</sub>. So D<sub>S</sub> = V − C(K<sub>S</sub>), E = C(K<sub>S</sub> + K<sub>J</sub>) and D<sub>J</sub> = C(K<sub>S</sub>) − C(K<sub>S</sub> + K<sub>J</sub>). With traded calls on the shares, use the face value per share as strike and the bid-ask midpoint as price. Kurbatov's Google case: V = 135 billion, 320 million shares, face value 128 billion due in 18 months, so the call struck at 400 (86.05) gives E = 27.536, D = 107.464 and y = (128/107.464)<sup>12/18</sup> − 1 = 12.37%. Split into 96 senior and 32 junior, D<sub>J</sub> = (149.15 − 86.05) × 0.32 = 20.19 and y<sub>J</sub> = (32/20.19)<sup>12/18</sup> − 1 = 35.94% (the slide prints 34.94%).</p>
 <h3>Credit default swaps and coinsurance</h3>
 <div class="formula"><div class="eq">CDS payoff = max(F − V<sub>T</sub>, 0) · upfront price = PV(F) − D · spread s = q·L</div>
-<div class="where">A CDS buys back the lender's put, so risky bond + CDS = risk-free bond. q is the risk-neutral default probability over the period, not a historical default rate. Backwards: q = s/L.</div></div>
-<p><b>Coinsurance.</b> Merge two firms with imperfectly correlated assets and no synergies, and one firm's good state covers the other's shortfall, so the merged firm defaults less often. In k24, two independent firms worth 100 or 40 (ρ = 0.5, r<sub>f</sub> = 0) with debt of face value 60 each merge: only the bad-bad state still defaults, debt rises from 100 to 110 and equity falls from 40 to 30 (check 4). A call on a portfolio is worth no more than a portfolio of calls.</p>
+<div class="where">A CDS buys back the lender's put, so risky bond + CDS = risk-free bond. q is the risk-neutral default probability over the period, not a historical default rate. Backwards: q = s/L. Kurbatov's CDS pays 1 on default (he writes p for q), so you hedge a bond of face value K with λ = K × LGD of them: a bond paying 100 or 80 (LGD 20%, so λ = 20) priced at 100/1.10 = 90.9091 with r<sub>f</sub> = 5% implies q = (100 − 1.05 × 90.9091)/20 = 22.73%. One CDS then costs 0.2273/1.05 = 0.2165 and 90.9091 + 20 × 0.2165 = 95.24 = 100/1.05 ✓</div></div>
+<p><b>Coinsurance.</b> Merge two firms with imperfectly correlated assets and no synergies and one firm's good state covers the other's shortfall, so the merged firm defaults less often. In k24, two independent firms worth 100 or 40 (ρ = 0.5, r<sub>f</sub> = 0) with debt of face value 60 each merge: only the bad-bad state still defaults, debt rises from 100 to 110 and equity falls from 40 to 30 (check 4). A call on a portfolio is worth no more than a portfolio of calls.</p>
 
 <div class="worked"><span class="wh">Worked example: split a two-state firm and price its credit</span>
-<p>Assets V<sub>0</sub> = 100, worth 130 or 80 in one year. One zero-coupon bond, F = 90, due in one year. r<sub>f</sub> = 5.00%, and the assets are traded.</p>
+<p>Assets V<sub>0</sub> = 100, worth 130 or 80 in one year. One zero-coupon bond, F = 90, due in one year. r<sub>f</sub> = 5.00% and the assets are traded.</p>
 <table class="data">
 <tr><th>State</th><th>V<sub>T</sub></th><th>Debt</th><th>Equity</th><th>Put</th></tr>
 <tr><td>Up</td><td class="n">130</td><td class="n">90</td><td class="n">40</td><td class="n">0</td></tr>
 <tr><td>Down</td><td class="n">80</td><td class="n">80</td><td class="n">0</td><td class="n">10</td></tr>
 </table>
 <p><b>Step 1, the claims.</b> ρ = (1.05 × 100 − 80)/(130 − 80) = 0.5000. E = 0.5000(40)/1.05 = 19.0476, D = [0.5000(90) + 0.5000(80)]/1.05 = 80.9524. E + D = 100.0000 = V<sub>0</sub> ✓</p>
-<p><b>Step 2, debt as risk-free minus a put.</b> PV(F) = 90/1.05 = 85.7143, Put = 0.5000(10)/1.05 = 4.7619, and 85.7143 − 4.7619 = 80.9524 = D ✓</p>
+<p><b>Step 2, debt as risk-free minus a put.</b> PV(F) = 90/1.05 = 85.7143, Put = 0.5000(10)/1.05 = 4.7619 and 85.7143 − 4.7619 = 80.9524 = D ✓</p>
 <p><b>Step 3, yield and spread.</b> y = 90/80.9524 − 1 = 11.1765%, spread 6.1765%.</p>
 <p><b>Step 4, the CDS.</b> Protection on 90 pays 0 or 10, the put: 4.7619 upfront. Paid at year end, s = 4.7619 × 1.05/90 = 5.5556% = q·L = 0.5000 × 10/90. Bond plus CDS costs 85.7143 and pays 90 for sure: 5.0000% = r<sub>f</sub> ✓</p>
 <p><b>Step 5, expected return.</b> With a real down probability of 0.35, E[payment] = 0.65(90) + 0.35(80) = 86.5000 and r<sub>D</sub> = 86.5000/80.9524 − 1 = 6.8529%. <b>Check:</b> r<sub>f</sub> &lt; r<sub>D</sub> &lt; y ✓</p>
 </div>
 
-<div class="callout warn"><span class="h">Errors that lose points</span>Using y as r<sub>D</sub> or reading the whole spread as risk premium. Share volatility where asset volatility belongs. Pricing debt directly instead of as V − E or PV(F) − Put. Pairing real probabilities with r<sub>f</sub>. Calling 1 − N(d<sub>2</sub>) a default forecast.</div>
+<div class="callout warn"><span class="h">Errors that lose points</span>Using y as r<sub>D</sub> or reading the whole spread as risk premium. Share volatility where asset volatility belongs. Pricing debt directly instead of as V − E or PV(F) − Put. Pairing real probabilities with r<sub>f</sub> for priced risk. Calling 1 − N(d<sub>2</sub>) a default forecast.</div>
 
 <div class="callout tip husk"><span class="h">Must know</span>
-<ul><li>The yield is promised; r<sub>D</sub> = y − p·L is expected (p the default probability, L the loss given default), and the wedge p·L is expected loss, which never enters β<sub>D</sub>.</li>
+<ul><li>The yield is promised; r<sub>D</sub> = y − p·L is expected (p the default probability, L the loss given default); the wedge p·L is expected loss, which never enters β<sub>D</sub>.</li>
 <li>Equity is a call on the firm's assets struck at the face value F; risky debt = PV(F) − Put = V − Call.</li>
-<li>β<sub>E</sub> = N(d<sub>1</sub>)(V/E)β<sub>U</sub> is not on the sheet; it explodes near distress.</li>
+<li>Near distress β<sub>E</sub> explodes: V/E rises and equity behaves like a highly levered call. Know the intuition, not an N(d) computation.</li>
 <li>More asset volatility with V fixed moves value from creditors to shareholders (check 4).</li>
-<li>A CDS is the lender's put, priced off the risk-neutral default probability: spread q·L, and risky bond + CDS = risk-free bond.</li></ul></div>
+<li>A CDS is the lender's put, priced off the risk-neutral default probability: spread q·L and risky bond + CDS = risk-free bond.</li></ul></div>
 `,
   checks: [
     {
@@ -94,7 +95,7 @@ window.EDU_DATA.kjerne.push({
         "0.40, from r<sub>D</sub> = 9.00% − 3.00% = 6.00%",
       ],
       answer: 3,
-      explanation: "The expected return is r<sub>D</sub> = y − p·L = 0.0900 − 0.0300 = 0.0600, and β<sub>D</sub> = (0.0600 − 0.0400)/0.0500 = 0.40. Taking beta from the whole spread treats expected loss as a risk premium, but p·L is money the lender never expects to receive and carries no beta. The remaining 2.00 percentage points over r<sub>f</sub> is real compensation for systematic default risk, so β<sub>D</sub> is not zero.",
+      explanation: "The expected return is r<sub>D</sub> = y − p·L = 0.0900 − 0.0300 = 0.0600 and β<sub>D</sub> = (0.0600 − 0.0400)/0.0500 = 0.40. Taking beta from the whole spread treats expected loss as a risk premium, but p·L is money the lender never expects to receive and carries no beta. The remaining 2.00 percentage points over r<sub>f</sub> is real compensation for systematic default risk, so β<sub>D</sub> is not zero.",
     },
     {
       id: "kj8-s2",
@@ -106,11 +107,11 @@ window.EDU_DATA.kjerne.push({
         "Debt rises, because creditors now receive a higher promised yield",
       ],
       answer: 0,
-      explanation: "Equity is a call on V struck at F, and a call gains from volatility; debt is PV(F) minus a put, and the put gains too, so debt falls. With V fixed the change is a pure transfer: the shareholders' gain equals the creditors' loss (check 4), and the credit spread widens. The promised yield on existing debt rises only because its price falls, which hurts the holders rather than helping them.",
+      explanation: "Equity is a call on V struck at F and a call gains from volatility; debt is PV(F) minus a put and the put gains too, so debt falls. With V fixed the change is a pure transfer: the shareholders' gain equals the creditors' loss (check 4) and the credit spread widens. The promised yield on existing debt rises only because its price falls, which hurts the holders rather than helping them.",
     },
     {
       id: "kj8-s3",
-      q: "A one-year CDS on a firm trades at a spread of 3.00% of notional, and the market assumes 40% recovery. What does this tell you about default?",
+      q: "A one-year CDS on a firm trades at a spread of 3.00% of notional and the market assumes 40% recovery. What does this tell you about default?",
       options: [
         "The default probability is 3.00%, the spread itself",
         "The default probability is 7.50%, the spread divided by the recovery rate",
@@ -127,10 +128,10 @@ window.EDU_DATA.kjerne.push({
     topic: "A two-state firm: equity, debt, spread and a CDS",
     points: 6,
     minutes: 10,
-    body: `<p>Trollheim Maskin AS has assets worth V<sub>0</sub> = 150 today (NOK million). In one year the assets will be worth either 190 or 110. The firm's only liability is a zero-coupon bond with face value F = 130, due in one year. The one-year risk-free rate is r<sub>f</sub> = 4.00%, and the assets are traded, so risk-neutral valuation applies directly to V.</p>
-<p>(a) Find the risk-neutral probability ρ of the up state, value the equity and the debt, and show that they add up to V<sub>0</sub>. (2 points)</p>
-<p>(b) Compute the promised yield and the credit spread on the bond, and show that the debt equals risk-free debt minus a put. (2 points)</p>
-<p>(c) A bank sells a one-year CDS on the full face value of 130. Find its upfront price, and the running spread s, as a fraction of the 130 notional, if the premium is instead paid at the end of the year in both states. Show that the bond plus the CDS earns r<sub>f</sub>. (2 points)</p>`,
+    body: `<p>Trollheim Maskin AS has assets worth V<sub>0</sub> = 150 today (NOK million). In one year the assets will be worth either 190 or 110. The firm's only liability is a zero-coupon bond with face value F = 130, due in one year. The one-year risk-free rate is r<sub>f</sub> = 4.00% and the assets are traded, so risk-neutral valuation applies directly to V.</p>
+<p>(a) Find the risk-neutral probability ρ of the up state, value the equity and the debt and show that they add up to V<sub>0</sub>. (2 points)</p>
+<p>(b) Compute the promised yield and the credit spread on the bond and show that the debt equals risk-free debt minus a put. (2 points)</p>
+<p>(c) A bank sells a one-year CDS on the full face value of 130. Find its upfront price and the running spread s, as a fraction of the 130 notional, if the premium is instead paid at the end of the year in both states. Show that the bond plus the CDS earns r<sub>f</sub>. (2 points)</p>`,
     solution: `<p><b>(a) ρ and the two claims.</b> ρ = (1.04 × 150 − 110)/(190 − 110) = (156 − 110)/80 = 0.5750, so 1 − ρ = 0.4250. Up: debt 130, equity 60. Down: debt 110, equity 0.</p>
 <p>E = 0.5750(60)/1.04 = 34.5000/1.04 = <b>33.1731</b>. D = [0.5750(130) + 0.4250(110)]/1.04 = (74.7500 + 46.7500)/1.04 = 121.5000/1.04 = <b>116.8269</b>. Check: 33.1731 + 116.8269 = 150.0000 = V<sub>0</sub> ✓. Equity is a call on the assets struck at the face value 130.</p>
 <p><b>(b) Yield, spread and the put.</b> y = 130/116.8269 − 1 = <b>11.2757%</b>, a promised return. Spread = 11.2757% − 4.0000% = <b>7.2757%</b>.</p>

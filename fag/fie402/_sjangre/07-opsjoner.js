@@ -123,6 +123,26 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "opsjoner-15",
+      title: "Price the easier of the call and the put first, then use parity",
+      theory: `<p>Kurbatov's advice for the exam: price first the call or the put, whichever is easier. Then get the other from put-call parity. In a two-period tree a call deep in the money pays at two or three end nodes, while the put with the same strike may pay at only one. One term means less work and fewer slips. Parity then needs only today's share price and the strike discounted over the option's whole life.</p>
+<div class="formula"><div class="eq">C = P + S<sub>0</sub> − K/(1 + r<sub>f</sub>)<sup>T</sup> &nbsp;&nbsp; P = C − S<sub>0</sub> + K/(1 + r<sub>f</sub>)<sup>T</sup></div>
+<div class="eq">two periods, put paying only at the bottom: P = (1 − ρ)<sup>2</sup> × P<sub>dd</sub>/(1 + r<sub>f</sub>)<sup>2</sup></div>
+<div class="where">European options with the same strike, expiry and underlying, no dividends. T counts the periods to expiry, so a two-year option discounts K twice.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>S<sub>0</sub> = 100, u = 1.1, d = 0.9, r<sub>f</sub> = 3%, K = 95, two years. ρ = (1.03 − 0.90)/0.20 = 0.65. End nodes: 121, 99 and 81.</p><p>The put pays only at 81: 14. P = 0.35<sup>2</sup> × 14/1.03<sup>2</sup> = 1.715/1.0609 = 1.6166.</p><p>C = 1.6166 + 100 − 95/1.0609 = 1.6166 + 100 − 89.5466 = 12.0699. Directly: (0.4225 × 26 + 0.455 × 4)/1.0609 = 12.805/1.0609 = 12.0699 ✓</p></div>`,
+      q: `<p>A share trades at S<sub>0</sub> = 100 and pays no dividends. Each year it rises by the factor u = 1.2 or falls by the factor d = 0.8. The risk-free rate is 5% a year. What is the price of a two-year European call with strike K = 90?</p>`,
+      options: ["17.6020", "21.6837", "27.5794", "13.3163"],
+      answer: 1,
+      solution: `<p>ρ = (1.05 − 0.80)/(1.20 − 0.80) = 0.25/0.40 = 0.625. End nodes: 144, 96 and 64.</p><p>The call pays 54 and 6 at two nodes; the put with K = 90 pays only at 64: 26. Price the put first: P = 0.375<sup>2</sup> × 26/1.05<sup>2</sup> = 0.140625 × 26/1.1025 = 3.65625/1.1025 = 3.3163.</p><p>PV(K) = 90/1.1025 = 81.6327. C = 3.3163 + 100 − 81.6327 = <b>21.6837</b>.</p>`,
+      check: `<p>Price the call directly: (0.390625 × 54 + 0.46875 × 6)/1.1025 = (21.09375 + 2.8125)/1.1025 = 23.90625/1.1025 = 21.6837 ✓ This route uses other end nodes and no parity, so it catches a wrong PV(K) or a wrong weight on the put. The call also clears its floor S − PV(K) = 18.3673 ✓</p>`,
+      traps: [
+        "Discounted the strike for one year only: 3.3163 + 100 − 90/1.05 = 17.6020. The option runs two years.",
+        null,
+        "Weighted the bottom node with ρ<sup>2</sup> instead of (1 − ρ)<sup>2</sup>: P = 0.390625 × 26/1.1025 = 9.2120, so C = 27.5794. Two down moves carry the down weight.",
+        "Used K instead of PV(K) in parity: 3.3163 + 100 − 90 = 13.3163.",
+      ],
+    },
+    {
       id: "opsjoner-10",
       title: "Backing ρ out of an observed price",
       theory: `<p>ρ does not have to come from the share. On a two-state tree every traded asset is priced with the same weights, so any observed price X<sub>0</sub> with known payoffs X<sub>u</sub> and X<sub>d</sub> reveals ρ. The exam uses this when the share itself is not quoted but something else on the same two states is: an option, a commodity certificate, a bond or the cash flows of a project. Once you have ρ, price any other claim on the tree with it. A put works the same way: its payoff max(K − S, 0) comes in the down state, which carries the weight 1 − ρ.</p>
@@ -142,9 +162,29 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "opsjoner-16",
+      title: "One ρ prices everything on the tree, a CDS included",
+      theory: `<p>Kurbatov's own drill from the wrap-up: r<sub>f</sub> = 5%, S<sub>0</sub> = 100, up 120, down 60; find ρ. Then use it. The same weights price any claim on the same two states. A credit default swap is one more claim. If a firm's assets follow the tree and its debt defaults in the down state, a CDS pays the creditors' shortfall there and nothing in the up state. 1 − ρ is the risk-neutral default probability. Risky debt plus the CDS is risk-free debt.</p>
+<div class="formula"><div class="eq">ρ = [(1 + r<sub>f</sub>)V<sub>0</sub> − V<sub>d</sub>]/(V<sub>u</sub> − V<sub>d</sub>)</div>
+<div class="eq">CDS = (1 − ρ) × max(F − V<sub>d</sub>, 0)/(1 + r<sub>f</sub>) &nbsp;&nbsp; D = PV(F) − CDS</div>
+<div class="where">V is the firm's assets and F the face value of its debt. The CDS here pays the whole shortfall; if it pays 1 per default, drop the shortfall. Real probabilities never enter.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>Kurbatov's tree: ρ = (1.05 × 100 − 60)/(120 − 60) = 45/60 = 0.75.</p><p>Let the firm's assets follow that tree and its debt have face value 80. Default comes in the down state, shortfall 20. CDS = 0.25 × 20/1.05 = 4.7619. Debt = 80/1.05 − 4.7619 = 76.1905 − 4.7619 = 71.4286 = (0.75 × 80 + 0.25 × 60)/1.05 ✓</p></div>`,
+      q: `<p>A firm's assets are worth 250 today and will be worth 330 or 170 in one year. The real probability of the up state is 0.7. Its only debt is a one-year zero-coupon bond with face value 200. The risk-free rate is 4%. A CDS pays the bondholders' shortfall at maturity if the firm defaults. What is the price of the CDS today?</p>`,
+      options: ["16.2260", "8.6538", "13.1250", "12.6202"],
+      answer: 3,
+      solution: `<p>ρ = (1.04 × 250 − 170)/(330 − 170) = 90/160 = 0.5625, so 1 − ρ = 0.4375.</p><p>Default happens only in the down state: shortfall 200 − 170 = 30.</p><p>CDS = 0.4375 × 30/1.04 = 13.125/1.04 = <b>12.6202</b>.</p>`,
+      check: `<p>The test that can fail: the real probability of the up state is 0.7, so the assets are expected to return (0.7 × 330 + 0.3 × 170)/250 − 1 = 282/250 − 1 = 12.8%, above r<sub>f</sub>. ρ = 0.5625 must then lie below 0.7 and the risk-neutral default probability 0.4375 above the real 0.3 ✓ Pricing the bond, D = (0.5625 × 200 + 0.4375 × 170)/1.04 = 179.6875 and PV(F) − D = 192.3077 − 179.6875 = 12.6202, with equity 0.5625 × 130/1.04 = 70.3125 and D + E = 250. Those use the same ρ and only confirm the arithmetic.</p>`,
+      traps: [
+        "Put ρ on the default state: 0.5625 × 30/1.04 = 16.2260. ρ belongs to the up state.",
+        "Used the real default probability of 0.3 with r<sub>f</sub>: 0.3 × 30/1.04 = 8.6538. Default comes in the bad state, so the risk-neutral 0.4375 is higher.",
+        "Forgot to discount: 0.4375 × 30 = 13.1250 is the value in one year.",
+        null,
+      ],
+    },
+    {
       id: "opsjoner-11",
       title: "Black-Scholes: which way each input moves the value",
-      theory: `<p>Give the binomial tree more and shorter steps and its price converges to the Black-Scholes formula. N(d<sub>1</sub>) is Δ and PV(K)·N(d<sub>2</sub>) is the borrowing, so it is still C = SΔ + B. The formula sheet carries no N(d) tables, so the exam tests the direction of each effect and the reason, not the arithmetic. The key effect: a higher σ raises both a call and a put, because the payoff is floored at zero, so extra dispersion adds upside without adding downside. Four of the inputs can be read off a screen; only σ cannot. Run the formula backwards from a market price and you get the implied volatility: the σ the price is quoting.</p>
+      theory: `<p>Give the binomial tree more and shorter steps and its price converges to the Black-Scholes formula. N(d<sub>1</sub>) is Δ and PV(K)·N(d<sub>2</sub>) is the borrowing, so it is still C = SΔ + B. Kurbatov has said it plainly: the Black-Scholes calculation will not be on the exam, the intuition can be. So the exam tests the direction of each effect and the reason, not the arithmetic. The key effect: a higher σ raises both a call and a put, because the payoff is floored at zero, so extra dispersion adds upside without adding downside. Four of the inputs can be read off a screen; only σ cannot. Run the formula backwards from a market price and you get the implied volatility: the σ the price is quoting.</p>
 <div class="formula"><div class="eq">C = S·N(d<sub>1</sub>) − PV(K)·N(d<sub>2</sub>)</div><div class="eq">d<sub>1</sub> = ln[S/PV(K)]/(σ√T) + σ√T/2 &nbsp;&nbsp; d<sub>2</sub> = d<sub>1</sub> − σ√T</div>
 <div class="where">S, K, T, r<sub>f</sub> and σ are the five inputs; σ is the annual volatility of the share's return. PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup> as before: this ladder, like the manual, compounds r<sub>f</sub> annually. Textbooks that write K·e<sup>−r<sub>f</sub>T</sup> use the same formula with a continuous rate. The share's expected return appears nowhere. A dividend before expiry lowers the call and raises the put.</div></div>
 <table class="data"><tr><th>Input rises</th><th>Call</th><th>Put</th><th>Why</th></tr>
@@ -177,6 +217,55 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "opsjoner-18",
+      title: "The put side and what a dividend does",
+      theory: `<p>Read the table of the last step for the put. A put sells the share at K, so it gains when S falls, when K rises and when σ rises; a higher r<sub>f</sub> lowers it, because the K it receives at expiry is worth less today. Time cuts both ways for a European put. A dividend paid before expiry matters too: on the ex-dividend date the share price drops by the dividend, but K does not move. So a dividend raises the put and lowers the call. Kurbatov: the Black-Scholes calculation will not be on the exam, the intuition can be.</p>
+<div class="formula"><div class="eq">C − P = S − PV(Div) − PV(K)</div>
+<div class="where">Put-call parity with a dividend paid before expiry: the dividend leaves the share, so it is not part of what the call buys or the put sells. Anything that lowers S − PV(Div) − PV(K) by more than it lowers C raises P.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example (Problem Set 3, Exercise 3)</span><p>S = 60, K = 60, σ = 30%, r<sub>f</sub> = 5%, one year: the call is worth 8.50. A dividend of 1 paid immediately drops the share to 59 and the call to 7.89.</p><p>Parity, PV(K) = 60/1.05 = 57.1429. Put before: 8.50 − 60 + 57.1429 = 5.6429. After: 7.89 − 59 + 57.1429 = 6.0329. The put gains 0.39.</p></div>`,
+      q: `<p>Hold everything else fixed. Which statement about a European put on a share is correct?</p>`,
+      options: [
+        "A higher r<sub>f</sub> raises the put, because at a higher rate the strike the holder receives at expiry grows into more money.",
+        "A higher share price raises the put, because the put is then written on a share that is worth more money.",
+        "A higher σ lowers the put, because a riskier share is more likely to end far above the strike.",
+        "A dividend paid before expiry raises the put, because the share price drops by the dividend while K stays the same.",
+      ],
+      answer: 3,
+      solution: `<p>The put pays max(K − S<sub>T</sub>, 0). A dividend paid before expiry leaves the firm, so the share price falls by the dividend on the ex-dividend date while K is unchanged. The put is closer to the money: <b>a dividend raises the put</b>. In Problem Set 3 a dividend of 1 lifted the put from 5.6429 to 6.0329.</p>`,
+      check: `<p>Parity confirms the direction: P = C − S + PV(Div) + PV(K). The dividend lowers S − PV(Div) − PV(K) by 1 but the call by only 8.50 − 7.89 = 0.61, so P rises by 1 − 0.61 = 0.39 ✓ Each of the other statements fails one row of the table: a higher r<sub>f</sub> lowers PV(K) and the put, a higher S lowers the put, a higher σ raises it.</p>`,
+      traps: [
+        "Got the rate effect backwards. The holder receives K only at expiry; a higher r<sub>f</sub> shrinks PV(K), so the put is worth less.",
+        "Mixed up the put and the call. The put sells the share at K, so a higher share price makes it worth less.",
+        "Got the volatility effect backwards. The put's payoff is floored at zero too, so extra spread adds payoff in the left tail and costs nothing in the right: σ raises the put.",
+        null,
+      ],
+    },
+    {
+      id: "opsjoner-17",
+      title: "What if the option were American?",
+      theory: `<p>An American option can be exercised at any time up to expiry, a European one only at expiry. Kurbatov: no American options to compute, but you may be asked whether the price would go up or down if the option were American. An extra right can never hurt, so an American option is worth at least the European one. For a call on a share without dividends it is worth exactly the same: alive, the call is worth at least S − PV(K), which is more than the S − K you get by exercising, so you never exercise early. A put can be worth exercising early: deep in the money you take K now and earn interest on it, rather than wait for at most K later. So an American put is worth more.</p>
+<div class="formula"><div class="eq">C<sub>American</sub> = C<sub>European</sub> (no dividends) &nbsp;&nbsp; P<sub>American</sub> ≥ P<sub>European</sub></div>
+<div class="eq">C<sub>European</sub> ≥ S − PV(K) &gt; S − K</div>
+<div class="where">Put-call parity holds only for European options; with American options it becomes an inequality. With a dividend, early exercise of a call just before the ex-dividend date can pay.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>Call: S = 100, K = 84, r<sub>f</sub> = 5%, one year. Alive it is worth at least 100 − 84/1.05 = 20; exercising gives 16. Keep it.</p><p>Put: S = 2, K = 50, r<sub>f</sub> = 5%, one year. Exercising gives 48 now. A European put can pay at most 50 in a year, worth at most 50/1.05 = 47.62 today. The right to exercise now is worth something, so the American put is worth at least 48.</p></div>`,
+      q: `<p>A share pays no dividends. A one-year European call and a one-year European put on it, with the same strike, trade at C and P. If both were American instead, with everything else unchanged, what would happen to their prices?</p>`,
+      options: [
+        "Both rise: an American option adds the right to exercise early, so the call and the put each gain some value from that extra right.",
+        "The call is unchanged; the put is worth at least as much, since early exercise can pay for a deep in-the-money put but not for this call.",
+        "Both are unchanged: put-call parity ties the call and the put to the share and the strike, so neither gains from the right to exercise early.",
+        "The call rises and the put is unchanged: the holder can exercise the call as soon as S passes K and lock in the gain before the share falls back.",
+      ],
+      answer: 1,
+      solution: `<p>Call: alive it is worth at least S − PV(K), more than the S − K from exercising, so the right to exercise early is never used and is worth nothing: <b>the call is unchanged</b>. Put: deep in the money, taking K now beats waiting for at most K later, so the right to exercise early can be worth something: <b>the put is worth at least as much, often more</b>.</p>`,
+      check: `<p>Test with the example: a call with S = 100 and K = 84 is worth at least 20 alive against 16 exercised; a put with S = 2 and K = 50 gives 48 exercised against at most 47.62 for the European put ✓ The answer also respects the rule that an extra right can never lower a price.</p>`,
+      traps: [
+        "An extra right adds value only if it is ever used. Without dividends the call is never exercised early, so its price does not change.",
+        null,
+        "Parity holds only for European options. With American options it becomes an inequality. The put gains from early exercise.",
+        "Exercising a call early throws away its time value: alive it is worth at least S − PV(K), more than S − K. The put is the one that gains.",
+      ],
+    },
+    {
       id: "opsjoner-13",
       title: "Exam level: true volatility below implied (H2025 E1)",
       theory: `<p>H2025 Exercise 1 gave 12 points with no computation: a call trades at a price that implies one σ, a well-informed friend says the true σ is lower. You must say what that does to the call's value and what to do. The marks go to four moves. Name the comparative static: value rises with σ. Give the direction: at the true σ the call is worth less than its price, so it is overpriced. State the action: do not buy it; better, write it and delta-hedge with Δ = N(d<sub>1</sub>) shares, so you bet on volatility and not on the share's direction. Name one limitation: it is not an arbitrage, because your σ may be wrong.</p>
@@ -203,20 +292,20 @@ window.EDU_DATA.sjangre.push({
     {
       id: "opsjoner-14",
       title: "Exam level: risk-neutral pricing of the right to wait (H2024 E6)",
-      theory: `<p>H2024 Exercise 6 gave 20 points to an investment you can make now or in a year, once the interest rate is known. The right to wait is a call option. The underlying S is the present value of the project's cash flows, not its NPV; the investment cost I is the strike. Find S<sub>0</sub>, S<sub>u</sub> and S<sub>d</sub>, back ρ out of the underlying with the rate from year 0 to year 1, take max(S − I, 0) in each state, weight with ρ and discount at r<sub>f</sub>. The real probabilities are never needed.</p>
-<div class="formula"><div class="eq">S = CF × A(n, r) &nbsp;&nbsp; A(n, r) = [1 − (1 + r)<sup>−n</sup>]/r</div><div class="eq">ρ = [(1 + r<sub>0→1</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>) &nbsp;&nbsp; C<sub>0</sub> = [ρ·max(S<sub>u</sub> − I, 0) + (1 − ρ)·max(S<sub>d</sub> − I, 0)]/(1 + r<sub>0→1</sub>)</div><div class="eq">option to wait = C<sub>0</sub> − max(S<sub>0</sub> − I, 0)</div>
-<div class="where">S<sub>0</sub> uses today's rate. S<sub>u</sub> and S<sub>d</sub> are values at date 1 at the new rates, with all n payments starting one year after you invest. The low-rate state is the up state, because a lower rate makes the same cash flows worth more. Check that 0 &lt; ρ &lt; 1 before you use it.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>CF = 10 a year for 15 years, I = 105. Today's rate is 5%; next year it becomes 4% or 6%.</p><p>S<sub>0</sub> = 10 × 10.379658 = 103.7966, so NPV now = −1.2034. S<sub>u</sub> = 10 × 11.118387 = 111.1839, S<sub>d</sub> = 10 × 9.712249 = 97.1225.</p><p>ρ = (1.05 × 103.7966 − 97.1225)/(111.1839 − 97.1225) = (108.9864 − 97.1225)/14.0614 = 11.8639/14.0614 = 0.8437.</p><p>C<sub>u</sub> = 6.1839, C<sub>d</sub> = max(−7.8775, 0) = 0. C<sub>0</sub> = 0.8437 × 6.1839/1.05 = 5.2174/1.05 = 4.9690. Since NPV now is negative, the option to wait is worth 4.9690: wait.</p></div>`,
-      q: `<p>A licence lets you build a solar park for 18.5 (NOK million), paid when you build. The park pays 2.0 a year for 12 years, starting one year after you build. The risk-free rate today is 4.5%. If you wait a year, the rate becomes 3% or 6% for good; the rate from year 0 to year 1 stays 4.5%, the cost is still 18.5 and the park still runs 12 years. An analyst puts the real probability of 3% at 0.5. What is the value today of the option to wait?</p>`,
-      options: ["0.6737", "0.9826", "0.5338", "0.6305"],
+      theory: `<p>H2024 Exercise 6 gave 20 points to an investment you can make now or in a year, once the interest rate is known. The right to wait is a call option on the project started in one year, struck at the investment cost I. The underlying is the present value of that project's cash flows, not its NPV. S<sub>0</sub>, S<sub>u</sub> and S<sub>d</sub> must price exactly the same cash flows: if the project pays for n years from one year after you invest, waiting gives you the payments in years 2 to n + 1, so S<sub>0</sub> is today's price of those, not of the project started now. Back ρ out with the rate from year 0 to year 1, take max(S − I, 0) in each state, weight with ρ and discount at r<sub>f</sub>. The real probabilities are never needed.</p>
+<div class="formula"><div class="eq">S<sub>u</sub> = CF × A(n, r<sub>u</sub>) &nbsp;&nbsp; S<sub>d</sub> = CF × A(n, r<sub>d</sub>) &nbsp;&nbsp; S<sub>0</sub> = CF × A(n, r<sub>0</sub>)/(1 + r<sub>0</sub>)</div><div class="eq">ρ = [(1 + r<sub>0→1</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>) &nbsp;&nbsp; C<sub>0</sub> = [ρ·max(S<sub>u</sub> − I, 0) + (1 − ρ)·max(S<sub>d</sub> − I, 0)]/(1 + r<sub>0→1</sub>)</div><div class="eq">option to wait = C<sub>0</sub> − max(NPV<sub>now</sub>, 0) &nbsp;&nbsp; NPV<sub>now</sub> = CF × A(n, r<sub>0</sub>) − I</div>
+<div class="where">A(n, r) = [1 − (1 + r)<sup>−n</sup>]/r. S<sub>0</sub> assumes every maturity is discounted at r<sub>0</sub> today: it is the project started now, discounted one more year. The H2024 key prices the same stream with an annuity of 1 for n + 1 years from year 1, so S<sub>u</sub> = 1 + A(n, r<sub>u</sub>); a sure payment at date 1 does not change ρ. The low-rate state is the up state, because a lower rate makes the same cash flows worth more. Check that 0 &lt; ρ &lt; 1 before you use it.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>CF = 10 a year for 15 years, I = 105. Today every maturity is discounted at 5%; next year the rate becomes 4% or 6%.</p><p>Investing now: 10 × 10.379658 = 103.7966, so NPV now = −1.2034. The project started at date 1: S<sub>u</sub> = 10 × 11.118387 = 111.1839, S<sub>d</sub> = 10 × 9.712249 = 97.1225 and S<sub>0</sub> = 103.7966/1.05 = 98.8539.</p><p>ρ = (1.05 × 98.8539 − 97.1225)/(111.1839 − 97.1225) = (103.7966 − 97.1225)/14.0614 = 6.6741/14.0614 = 0.4746.</p><p>C<sub>u</sub> = 6.1839, C<sub>d</sub> = max(−7.8775, 0) = 0. C<sub>0</sub> = 0.474640 × 6.1839/1.05 = 2.9351/1.05 = 2.7953. Since NPV now is negative, the option to wait is worth 2.7953: wait.</p></div>`,
+      q: `<p>A licence lets you build a solar park for 18.5 (NOK million), paid when you build. The park pays 2.0 a year for 12 years, starting one year after you build. Today every maturity is discounted at 4.5%. If you wait a year, the rate becomes 3% or 6% for good; the rate from year 0 to year 1 stays 4.5%, the cost is still 18.5 and the park still runs 12 years after you build. An analyst puts the real probability of 3% at 0.5. What is the value today of the option to wait?</p>`,
+      options: ["0.9826", "0.6305", "−0.2515", "0.5182"],
       answer: 1,
-      solution: `<p><b>Underlying.</b> S<sub>0</sub> = 2.0 × A(12, 4.5%) = 2.0 × 9.118581 = 18.2372, so NPV now = 18.2372 − 18.5 = −0.2628. S<sub>u</sub> = 2.0 × A(12, 3%) = 2.0 × 9.954004 = 19.9080. S<sub>d</sub> = 2.0 × A(12, 6%) = 2.0 × 8.383844 = 16.7677.</p><p><b>ρ.</b> (1.045 × 18.2372 − 16.7677)/(19.9080 − 16.7677) = (19.0579 − 16.7677)/3.1403 = 2.2902/3.1403 = 0.7293 (0.729271 unrounded).</p><p><b>Payoffs.</b> C<sub>u</sub> = max(19.9080 − 18.5, 0) = 1.4080. C<sub>d</sub> = max(16.7677 − 18.5, 0) = 0: you would not build.</p><p><b>Value.</b> C<sub>0</sub> = 0.729271 × 1.4080/1.045 = 1.0268/1.045 = 0.9826. Option to wait = 0.9826 − max(−0.2628, 0) = <b>0.9826</b>. Wait: waiting is worth 0.9826 against −0.2628 for building now.</p>`,
-      check: `<p>Replication on the same tree: Δ = 1.408008/3.140320 = 0.448364, B = −16.767688 × 0.448364/1.045 = −7.194292, C<sub>0</sub> = 18.237162 × 0.448364 − 7.194292 = 8.176895 − 7.194292 = 0.982603 ✓. It uses the same tree, so it catches arithmetic slips only. A test from the bounds that can fail: the licence must be worth at least S<sub>0</sub> − I/1.045 = 18.237162 − 17.703349 = 0.5338, the value of committing today to build next year in both states. It must be worth at most S<sub>0</sub> = 18.2372. 0.9826 passes both. ρ = 0.7293 also lies between 0 and 1 ✓.</p>`,
+      solution: `<p><b>Building today.</b> 2.0 × A(12, 4.5%) = 2.0 × 9.118581 = 18.2372, so NPV now = 18.2372 − 18.5 = −0.2628.</p><p><b>Underlying: the park built at date 1</b>, payments in years 2 to 13. S<sub>u</sub> = 2.0 × A(12, 3%) = 2.0 × 9.954004 = 19.9080. S<sub>d</sub> = 2.0 × A(12, 6%) = 2.0 × 8.383844 = 16.7677. Today: S<sub>0</sub> = 18.2372/1.045 = 17.4518.</p><p><b>ρ.</b> (1.045 × 17.4518 − 16.7677)/(19.9080 − 16.7677) = (18.2372 − 16.7677)/3.1403 = 1.4695/3.1403 = 0.4679 (0.467938 unrounded).</p><p><b>Payoffs.</b> C<sub>u</sub> = max(19.9080 − 18.5, 0) = 1.4080. C<sub>d</sub> = max(16.7677 − 18.5, 0) = 0: you would not build.</p><p><b>Value.</b> C<sub>0</sub> = 0.467938 × 1.4080/1.045 = 0.6589/1.045 = 0.6305. Option to wait = 0.6305 − max(−0.2628, 0) = <b>0.6305</b>. Wait: waiting is worth 0.6305 against −0.2628 for building now.</p>`,
+      check: `<p>A second twin for the same stream must give the same ρ. The H2024 key's version is an annuity of 1 a year for 13 years from year 1: S<sub>0</sub> = A(13, 4.5%) = 9.682852, S<sub>u</sub> = 1 + A(12, 3%) = 10.954004, S<sub>d</sub> = 1 + A(12, 6%) = 9.383844, so ρ = (1.045 × 9.682852 − 9.383844)/(10.954004 − 9.383844) = 0.734737/1.570160 = 0.4679 ✓ Pairing today's 18.2372 with S<sub>u</sub> and S<sub>d</sub> gives 0.7293 and fails this test. Replication on the same tree catches arithmetic slips only: Δ = 1.408008/3.140320 = 0.448364, B = −16.767688 × 0.448364/1.045 = −7.194292, C<sub>0</sub> = 17.451829 × 0.448364 − 7.194292 = 7.824780 − 7.194292 = 0.630488 ✓ The bounds hold too: 0 ≤ C<sub>0</sub> ≤ S<sub>0</sub>.</p>`,
       traps: [
-        "Paired the analyst's real probability with the risk-free rate: 0.5 × 1.4080/1.045 = 0.7040/1.045 = 0.6737.",
+        "S<sub>0</sub> prices a different cash flow than S<sub>u</sub> and S<sub>d</sub>: 18.2372 is the park built today (years 1 to 12), while S<sub>u</sub> and S<sub>d</sub> value the park built at date 1 (years 2 to 13). That gives ρ = 0.7293 and C<sub>0</sub> = 0.7293 × 1.4080/1.045 = 0.9826.",
         null,
-        "Forgot that you are not forced to build: C<sub>d</sub> = 16.7677 − 18.5 = −1.7323 gives (1.0268 − 0.270729 × 1.7323)/1.045 = 0.5578/1.045 = 0.5338, the value of committing to build next year.",
-        "Did not grow S<sub>0</sub> by 1.045 in ρ: (18.2372 − 16.7677)/3.1403 = 1.4695/3.1403 = 0.4679 (0.467938 unrounded), so C<sub>0</sub> = 0.467938 × 1.4080/1.045 = 0.6305.",
+        "Forgot that you are not forced to build: C<sub>d</sub> = 16.7677 − 18.5 = −1.7323 gives C<sub>0</sub> = −0.2515, a negative value for a right you never have to use.",
+        "Grew S<sub>0</sub> at the up-branch rate of 3% instead of the 4.5% that applies this year: ρ = (1.03 × S<sub>0</sub> − 16.7677)/3.1403 = 0.3846, so C<sub>0</sub> = 0.3846 × 1.4080/1.045 = 0.5182.",
       ],
     },
   ],

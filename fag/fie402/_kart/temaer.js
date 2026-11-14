@@ -56,6 +56,6 @@ window.EDU_DATA.kartlegging = {
     { id: "ma", del: 3, navn: "M&A: aksjebytte, premie og avtalesannsynlighet", kap: [26], vekt: 5,
       øv: [["Sjangertrening: M&A", "#/sjangre/ma/1"], ["Kjernepensum 10: M&A", "#/kjerne/10"], ["Kapitteloppgaver, kapittel 26", "#/kapitteloppgaver/26"]] },
     { id: "governance", del: 3, navn: "Corporate governance", kap: [27], vekt: 4,
-      øv: [["Kjernepensum 11: corporate governance", "#/kjerne/11"], ["Kapitteloppgaver, kapittel 27", "#/kapitteloppgaver/27"]] },
+      øv: [["Sjangertrening: governance", "#/sjangre/governance/1"], ["Kjernepensum 11: corporate governance", "#/kjerne/11"], ["Kapitteloppgaver, kapittel 27", "#/kapitteloppgaver/27"]] },
   ],
 };

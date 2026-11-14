@@ -48,6 +48,26 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "realopsjon-15",
+      title: "A monthly rate from an annual one",
+      theory: `<p>Real-option cash flows often come by the month: rent, wages, a store's takings. Then the discount rate must be monthly too. An annual rate r converts to the monthly rate that compounds back to r over twelve months, not to r/12. Kurbatov said in the wrap-up that converting a rate from monthly to yearly or the other way could well be on the exam; the same idea gives (1 + r)<sup>1.5</sup> for a year and a half. With r<sub>m</sub> in hand, the perpetuity and annuity formulas work exactly as before, counted in months.</p>
+<div class="formula"><div class="eq">r<sub>m</sub> = (1 + r)<sup>1/12</sup> − 1 &nbsp;&nbsp; r = (1 + r<sub>m</sub>)<sup>12</sup> − 1</div>
+<div class="eq">monthly perpetuity = C/r<sub>m</sub> &nbsp;&nbsp; n-month annuity = C × A(n, r<sub>m</sub>), A(n, r<sub>m</sub>) = [1 − (1 + r<sub>m</sub>)<sup>−n</sup>]/r<sub>m</sub></div>
+<div class="where">C is paid every month, first payment in one month. r is the effective annual rate.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>Kurbatov's store in lecture 11 discounts at 7% a year: r<sub>m</sub> = 1.07<sup>1/12</sup> − 1 = 0.5654% a month.</p><p>2 000 a month forever: 2 000/0.005654 = 353 723. For 24 months only: A(24, 0.5654%) = 22.3838, so 2 000 × 22.3838 = 44 768.</p></div>`,
+      q: `<p>A lease pays you a net 3 000 NOK a month for 36 months, first payment in one month. The effective annual discount rate is 9%. What is the lease worth today?</p>`,
+      options: ["94 827.10", "91 126.61", "416 243.29", "94 340.42"],
+      answer: 0,
+      solution: `<p>r<sub>m</sub> = 1.09<sup>1/12</sup> − 1 = 0.720732% a month.</p><p>1.00720732<sup>−36</sup> = 0.772183, so A(36, r<sub>m</sub>) = 0.227817/0.00720732 = 31.609033.</p><p>PV = 3 000 × 31.609033 = <b>94 827.10</b>.</p>`,
+      check: `<p>Compound back: 1.00720732<sup>12</sup> = 1.0900 ✓ The answer must also lie between two bounds: below the undiscounted 36 × 3 000 = 108 000 and above 91 126.61, the value if the same 36 000 a year arrived only at each year end, which is later than monthly ✓</p>`,
+      traps: [
+        null,
+        "Lumped the payments into 36 000 at each year end: 36 000 × A(3, 9%) = 91 126.61. The money arrives every month, earlier than that.",
+        "Valued the payments forever: 3 000/0.00720732 = 416 243.29. The lease runs 36 months.",
+        "Divided the annual rate by 12: 0.75% a month compounds to 9.38% a year, too high, so 3 000 × A(36, 0.75%) = 94 340.42 is too low.",
+      ],
+    },
+    {
       id: "realopsjon-4",
       title: "The value of perfect information",
       theory: `<p>Draw the decision as a tree: a square for a choice you make, a circle for a state the world picks. If the circle comes first, you see the state and then choose, so a branch with negative NPV becomes 0: the max goes inside the expectation. If the square comes first, you make one decision on the average: invest if E[NPV] &gt; 0, otherwise do nothing and get 0. Information is worth the difference, the most you should pay for a study that reveals the state today.</p>
@@ -105,18 +125,38 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "realopsjon-16",
+      title: "The probability that makes you indifferent between waiting and investing",
+      theory: `<p>Waiting pays off through the bad news you can still avoid. If that news comes only with some probability p, the option to wait is worth more the larger p is. Investing today does not depend on p when the expected cash flow does not. So there is one p at which the two strategies are worth the same. Write the value of waiting as a function of p, set it equal to NPV<sub>now</sub> and solve. Above that p, wait; below it, invest now.</p>
+<div class="formula"><div class="eq">NPV<sub>now</sub> = E[C]/r − I &nbsp;&nbsp; value of waiting(p) = Σ p<sub>i</sub>(p)·max(0, NPV<sub>i</sub>)/(1 + r)</div>
+<div class="eq">indifference: value of waiting(p*) = NPV<sub>now</sub></div>
+<div class="where">NPV<sub>i</sub> is measured at date 1, when you invest after seeing the state. At p*, the investment saved in the bad branch exactly pays for the year of delay.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example (Problem Set 3, Exercise 9)</span><p>I = 250, r = 10%. With probability p a lawsuit comes: half succeed (cash flow 0 forever), half are dismissed (100 forever). With no lawsuit the cash flow is 50 forever. E[C] = 50 for every p, so NPV<sub>now</sub> = 50/0.10 − 250 = 250.</p><p>Waiting: [(p/2)(1 000 − 250) + (1 − p)(500 − 250)]/1.10 = 250, so 375p + 250 − 250p = 275 and p* = 25/125 = 0.20. At p = 0.1 waiting is worth 238.64 (invest now); at p = 0.3 it is worth 261.36 (wait).</p></div>`,
+      q: `<p>A firm can build a plant for 400 today; cash flows start one year after it builds. This year a regulator may rule on the industry, with probability p. A ruling is favourable with probability 0.25 (cash flow 440 a year forever) and a ban with probability 0.75 (0 forever). With no ruling, the cash flow is 110 a year forever. Discount everything at 5%. If the firm waits a year, it sees what happened and decides then, with cash flows from year 2. For what p is the firm indifferent between building today and waiting?</p>`,
+      options: ["0.6150", "0.3000", "0.0000", "0.2250"],
+      answer: 1,
+      solution: `<p><b>Building today.</b> E[C] = p × 0.25 × 440 + (1 − p) × 110 = 110 for every p, so NPV<sub>now</sub> = 110/0.05 − 400 = 2 200 − 400 = 1 800.</p><p><b>Waiting.</b> At date 1: favourable 440/0.05 − 400 = 8 400; ban: do not build, 0; no ruling 1 800. Value = [0.25p × 8 400 + (1 − p) × 1 800]/1.05 = (1 800 + 300p)/1.05.</p><p><b>Indifference.</b> (1 800 + 300p)/1.05 = 1 800 gives 300p = 90, so p* = <b>0.3000</b>. Wait if p &gt; 0.30, build now if p &lt; 0.30.</p>`,
+      check: `<p>Try both sides: p = 0.40 gives 1 920/1.05 = 1 828.57 &gt; 1 800 (wait) and p = 0.20 gives 1 860/1.05 = 1 771.43 &lt; 1 800 (build) ✓ The economics at date 1: waiting saves the 400 in the ban branch, worth 0.30 × 0.75 × 400 = 90. It costs a year on the NPV, 0.05 × 1 800 = 90 ✓</p>`,
+      traps: [
+        "Discounted the waiting strategy twice, though the date-1 NPVs need one factor: (1 800 + 300p)/1.05<sup>2</sup> = 1 800 gives p = 0.6150.",
+        null,
+        "Forgot to discount the waiting strategy: 1 800 + 300p = 1 800 gives p = 0, as if waiting cost nothing.",
+        "Counted the saved investment in every ruling, as if the favourable one were a ban too: 400p = 90 gives p = 0.2250. Only 0.75 of the rulings save the 400.",
+      ],
+    },
+    {
       id: "realopsjon-8",
       title: "The exit option: a perpetuity cut to an annuity",
       theory: `<p>An exit option is the mirror image of waiting: you commit first, then may quit once you know the state. In the bad state the perpetuity of losses is replaced by an annuity that stops at the exit date, plus any salvage value S. The good state is unchanged, since you never quit a positive perpetuity. The option is worth only the negative tail it cuts off.</p>
 <div class="formula"><div class="eq">NPV<sub>bad</sub> with exit after n years = −I + C<sub>bad</sub> × A(n, r) + S/(1 + r)<sup>n</sup></div>
-<div class="eq">value of the exit option = E[NPV with exit] − E[NPV without exit]</div>
-<div class="where">A(n, r) is the n-year annuity factor. With S = 0 the option is worth p<sub>bad</sub> × (|C<sub>bad</sub>|/r)/(1 + r)<sup>n</sup>: the PV of the losses after the exit date.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>I = 120, net cash flow +15 or −5 a year forever (p = 0.5), r = 10%, exit allowed after 1 year.</p><p>Without exit: 0.5(15 − 5)/0.10 − 120 = 50 − 120 = −70.</p><p>With exit: good 150 − 120 = 30, bad −120 − 5/1.10 = −124.55. E[NPV] = 15.00 − 62.27 = −47.27. The exit option is worth −47.27 − (−70) = 22.73 = 0.5 × (5/0.10)/1.10 ✓ Still negative: do not invest.</p></div>`,
+<div class="eq">value of the exit option = max(0, E[NPV with exit]) − max(0, E[NPV without exit])</div>
+<div class="where">A(n, r) is the n-year annuity factor. With S = 0 the exit cuts off p<sub>bad</sub> × (|C<sub>bad</sub>|/r)/(1 + r)<sup>n</sup> of expected losses: the PV of the losses after the exit date. That is the option's value only if you would invest without it. If the NPV without exit is negative, the alternative is not to invest, worth 0. Then you compare with 0.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>I = 120, net cash flow +15 or −5 a year forever (p = 0.5), r = 10%, exit allowed after 1 year.</p><p>Without exit: 0.5(15 − 5)/0.10 − 120 = 50 − 120 = −70.</p><p>With exit: good 150 − 120 = 30, bad −120 − 5/1.10 = −124.55. E[NPV] = 15.00 − 62.27 = −47.27. The exit cuts off losses worth 0.5 × (5/0.10)/1.10 = 22.73 = −47.27 − (−70) ✓ But the NPV stays negative, so you do not invest either way and the option is worth max(0, −47.27) − max(0, −70) = 0.</p></div>`,
       q: `<p>A gym costs 200 (NOK thousand) to open today. Its net cash flow is +50 a year forever or −20 a year forever, with equal probability. You learn which during year 1, after opening. The discount rate is 10%. A new rule lets you close after year 2 and walk away with nothing, so in the bad state you bear only two years of losses. What is the NPV of opening the gym today?</p>`,
       options: ["32.64", "40.91", "150.00", "50.00"],
       answer: 0,
       solution: `<p>Good state, never close: 50/0.10 − 200 = 500 − 200 = 300.</p><p>Bad state, close after year 2: A(2, 10%) = 1/1.10 + 1/1.10<sup>2</sup> = 0.909091 + 0.826446 = 1.735537, so NPV<sub>bad</sub> = −200 − 20 × 1.735537 = −200 − 34.7107 = −234.7107.</p><p>E[NPV] = 0.5(300) + 0.5(−234.7107) = 150 − 117.3554 = <b>32.64</b>. Positive: open the gym.</p>`,
-      check: `<p>Without the rule: 0.5(50 − 20)/0.10 − 200 = 150 − 200 = −50, so the exit option is worth 32.64 + 50 = 82.64. Directly: it removes a perpetuity of −20 starting in year 3, worth (20/0.10)/1.10<sup>2</sup> = 165.29 today, in a state with probability 0.5: 0.5 × 165.29 = 82.64 ✓ The option flips the decision.</p>`,
+      check: `<p>Without the rule: 0.5(50 − 20)/0.10 − 200 = 150 − 200 = −50. The rule removes a perpetuity of −20 starting in year 3, worth (20/0.10)/1.10<sup>2</sup> = 165.29 today, in a state with probability 0.5: 0.5 × 165.29 = 82.64. Then −50 + 82.64 = 32.64 ✓ The rule flips the decision. What it is worth to you is 32.64 − 0 = 32.64, not 82.64: without it you would not open.</p>`,
       traps: [
         null,
         "Counted one year of losses instead of two before closing: 0.5(300) + 0.5(−200 − 20/1.10) = 150 − 109.09 = 40.91.",
@@ -145,6 +185,25 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "realopsjon-17",
+      title: "Staged financing: pay for one stage at a time",
+      theory: `<p>Venture capital, biotech and R&amp;D are rarely funded in one go. You pay for one stage, see whether it reached its milestone and only then decide to pay for the next. Each stage buys an option on the next one: if a stage fails, you save the money for the later stages. The total cost and the overall chance of success can be exactly as before; the value rises because the later money is spent only in the branches where it can still pay off. The more a stage reveals, the more staging is worth. Roll the tree back as in the previous step.</p>
+<div class="formula"><div class="eq">NPV<sub>staged</sub> = −I<sub>1</sub> + p<sub>1</sub> × max(0, −I<sub>2</sub> + p<sub>2</sub> × V)</div>
+<div class="where">I<sub>1</sub> and I<sub>2</sub> are the costs of the two stages, p<sub>1</sub> the chance the first succeeds, p<sub>2</sub> the chance the second succeeds once the first has, V the payoff at the end. The overall success probability is p<sub>1</sub>p<sub>2</sub>. Kurbatov's example ignores discounting; so does this step.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example (lecture 11)</span><p>100 brings a start-up to an IPO worth 800 with a 10% chance. In one go: −100 + 0.1 × 800 = −20.</p><p>Staged: 10 to develop the product (50% success), then 90 to market the IPO (20% success). After stage 1: −90 + 0.2 × 800 = 70 &gt; 0, so continue. NPV = −10 + 0.5 × 70 = 25.</p><p>The three outcomes give the same: 0.1(700) + 0.4(−100) + 0.5(−10) = 70 − 40 − 5 = 25.</p></div>`,
+      q: `<p>A biotech start-up needs 60 (NOK million) to reach an IPO worth 360. Funded in one go, the chance of reaching the IPO is 15%. A venture fund offers to fund it in two stages instead: 12 for clinical trials, which succeed with probability 30%, then 48 for approval, which succeeds with probability 50% once the trials have succeeded. The fund may stop after the trials. Ignore discounting. What is the NPV of the staged plan?</p>`,
+      options: ["−6.00", "36.60", "−10.20", "27.60"],
+      answer: 3,
+      solution: `<p>After successful trials: −48 + 0.50 × 360 = 132 &gt; 0, so the fund pays for approval.</p><p>NPV = −12 + 0.30 × 132 = −12 + 39.60 = <b>27.60</b>.</p>`,
+      check: `<p>Count the three outcomes: both stages succeed, 0.15 × (360 − 60) = 45; trials succeed and approval fails, 0.15 × (−60) = −9; trials fail, 0.70 × (−12) = −8.40. Sum 27.60 ✓ In one go the plan is worth −60 + 0.15 × 360 = −6. The gap 33.60 = 0.70 × 48 is the approval money saved when the trials fail ✓</p>`,
+      traps: [
+        "Paid both stages up front: −60 + 0.15 × 360 = −6.00. That throws away the right to stop after the trials.",
+        "Left out the branch where the trials succeed and approval fails: 0.15 × 300 − 0.70 × 12 = 36.60. With probability 0.15 both stages are paid and lost.",
+        "Used the overall 15% at the second node instead of the conditional 50%: −12 + 0.30 × (−48 + 0.15 × 360) = −10.20.",
+        null,
+      ],
+    },
+    {
       id: "realopsjon-11",
       title: "When the discount rate is what is uncertain",
       theory: `<p>Sometimes the cash flows are known and the uncertainty is the interest rate. Then a lower rate is the good state, because it makes the same annuity worth more. Value each branch at date 1 with that branch's own rate, then bring it back to today with the rate from year 0 to year 1, which you know today. Read the timing: if the project simply starts a year later it keeps all T payments; if a licence expires on a fixed date, waiting costs you a payment.</p>
@@ -166,41 +225,62 @@ window.EDU_DATA.sjangre.push({
     {
       id: "realopsjon-12",
       title: "The risk-neutral probability from the underlying",
-      theory: `<p>When you have no usable probabilities, or the risk is a traded price or a rate, value the option risk-neutrally. The underlying S is the PV of the project's cash flows, not its NPV: the investment cost is the strike. As in the H2024 key, S<sub>u</sub> and S<sub>d</sub> are what the project is worth at date 1 if you start it then, so no cash flow arrives at date 1. ρ is the probability that makes S earn exactly the risk-free rate over the year, so grow today's value by (1 + r<sub>f</sub>) before you compare it with the two date-1 values. Real probabilities never enter. Always check that 0 &lt; ρ &lt; 1: outside that range ρ is not a probability and cannot price the option.</p>
+      theory: `<p>When you have no usable probabilities, or the risk is a traded price or a rate, value the option risk-neutrally. The underlying S is a stream of cash flows, not an NPV: the investment cost is the strike. ρ is the probability that makes S earn exactly the risk-free rate over the year, so grow today's price by (1 + r<sub>f</sub>) before you compare it with the two date-1 values. Real probabilities never enter. The rule that decides the answer: S<sub>0</sub>, S<sub>u</sub> and S<sub>d</sub> must price exactly the same cash flows. The option to wait delivers the project started at date 1, so if it pays C for T years from one year after you invest, the underlying is the payments in years 2 to T + 1.</p>
 <div class="formula"><div class="eq">ρ = [(1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>)</div>
-<div class="where">r<sub>f</sub> is the rate from year 0 to year 1. (1 + r<sub>f</sub>)S<sub>0</sub> is the date-1 certainty equivalent: with S<sub>0</sub> = 100 and r<sub>f</sub> = 3% it is 103, not 100. Only when S is one traded asset that pays C<sub>1</sub> at date 1, such as a listed annuity, add that payment: (1 + r<sub>f</sub>)S<sub>0</sub> = C<sub>1</sub> + ρS<sub>u</sub> + (1 − ρ)S<sub>d</sub>.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>S<sub>0</sub> = 100, S<sub>u</sub> = 120, S<sub>d</sub> = 90, r<sub>f</sub> = 4%.</p><p>ρ = (1.04 × 100 − 90)/(120 − 90) = 14/30 = 0.4667.</p><p>Check: [(14/30)(120) + (16/30)(90)]/1.04 = (56 + 48)/1.04 = 100 ✓</p></div>`,
-      q: `<p>For a ferry route, the PV of the cash flows if you invest today is S<sub>0</sub> = 7.7622 (NOK million). If you wait a year instead, the PV at date 1 of the cash flows from investing then is S<sub>u</sub> = 8.4159 if the rate has fallen to 4% or S<sub>d</sub> = 7.1833 if it has risen to 8%. The investment cost is 8 and the risk-free rate from year 0 to year 1 is 6%. An analyst puts the real probability of a falling rate at 0.5. What is the risk-neutral probability ρ of the up state?</p>`,
-      options: ["0.8475", "0.4581", "0.7216", "0.4697"],
+<div class="eq">S<sub>u</sub> = C × A(T, r<sub>u</sub>), S<sub>d</sub> = C × A(T, r<sub>d</sub>), S<sub>0</sub> = C × A(T, r<sub>0</sub>)/(1 + r<sub>0</sub>)</div>
+<div class="where">r<sub>f</sub> = r<sub>0</sub> is the rate from year 0 to year 1. S<sub>0</sub> assumes every maturity is discounted at r<sub>0</sub> today. S<sub>u</sub> and S<sub>d</sub> are values at date 1 including any payment made at date 1. The H2024 key prices the same stream with an annuity of 1 for T + 1 years from year 1, S<sub>u</sub> = 1 + A(T, r<sub>u</sub>): a sure payment at date 1 adds the same amount to (1 + r<sub>f</sub>)S<sub>0</sub>, S<sub>u</sub> and S<sub>d</sub>, so ρ is unchanged. Check that 0 &lt; ρ &lt; 1.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>A project pays 2 a year for 3 years, starting one year after you invest. Today every maturity is discounted at 5%; in one year the rate becomes 4% or 6%. The option is to invest at date 1, so the underlying is the payments in years 2 to 4.</p><p>S<sub>u</sub> = 2 × A(3, 4%) = 5.550182 and S<sub>d</sub> = 2 × A(3, 6%) = 5.346024. Today: S<sub>0</sub> = 2 × A(3, 5%)/1.05 = 5.446496/1.05 = 5.187139.</p><p>ρ = (1.05 × 5.187139 − 5.346024)/(5.550182 − 5.346024) = (5.446496 − 5.346024)/0.204158 = 0.100472/0.204158 = 0.4921.</p></div>`,
+      q: `<p>A ferry route costs 8 (NOK million) to build and pays 1.25 a year for 8 years, starting one year after you invest. Today every maturity is discounted at 6%, so investing today gives cash flows worth 7.7622. You can wait a year instead: the rate then becomes 4% or 8% for good. Investing at date 1 then gives cash flows worth S<sub>u</sub> = 8.4159 or S<sub>d</sub> = 7.1833 at date 1. The rate from year 0 to year 1 is 6%. An analyst puts the real probability of a falling rate at 0.5. To value the option to wait, a call on the route started at date 1, what is the risk-neutral probability ρ of the up state?</p>`,
+      options: ["0.4697", "0.3509", "0.8475", "0.0803"],
       answer: 0,
-      solution: `<p>(1 + r<sub>f</sub>)S<sub>0</sub> = 1.06 × 7.7622 = 8.2279.</p><p>ρ = (8.2279 − 7.1833)/(8.4159 − 7.1833) = 1.0446/1.2326 = <b>0.8475</b>.</p><p>The investment cost and the analyst's 0.5 play no role.</p>`,
-      check: `<p>Reprice the asset: [0.8475 × 8.4159 + 0.1525 × 7.1833]/1.06 = (7.132475 + 1.095453)/1.06 = 8.227928/1.06 = 7.7622 ✓ This only confirms the arithmetic, since ρ is built to make it hold. The real test is 0 &lt; ρ &lt; 1, which needs 1.06 × S<sub>0</sub> between S<sub>d</sub> and S<sub>u</sub>: 7.1833 &lt; 8.2279 &lt; 8.4159 ✓ If it fails, the three values do not describe one asset without arbitrage, so ρ cannot be used: recheck them. Under this convention it can fail for a short annuity, because S<sub>0</sub> includes a payment at date 1 that S<sub>u</sub> and S<sub>d</sub> do not. The same route over 5 years instead of 8 gives ρ = 1.03.</p>`,
+      solution: `<p>The option delivers the route started at date 1, with payments in years 2 to 9. S<sub>u</sub> and S<sub>d</sub> already price that stream at date 1. Today it is worth the 7.7622 of investing now discounted one more year: S<sub>0</sub> = 7.7622/1.06 = 7.3229.</p><p>(1 + r<sub>f</sub>)S<sub>0</sub> = 1.06 × 7.7622/1.06 = 7.7622: growing the stream one year undoes the extra year of discounting.</p><p>ρ = (7.7622 − 7.1833)/(8.4159 − 7.1833) = 0.5789/1.2326 = <b>0.4697</b>.</p><p>The investment cost and the analyst's 0.5 play no role.</p>`,
+      check: `<p>Reprice the asset: [0.4697 × 8.4159 + 0.5303 × 7.1833]/1.06 = (3.9530 + 3.8093)/1.06 = 7.7623/1.06 = 7.3229 ✓ This only confirms the arithmetic, since ρ is built to make it hold. A test that can fail is a second twin for the same stream. The H2024 key's version is an annuity of 1 a year for 9 years from year 1: S<sub>0</sub> = A(9, 6%) = 6.801692, S<sub>u</sub> = 1 + A(8, 4%) = 7.732745, S<sub>d</sub> = 1 + A(8, 8%) = 6.746639, so ρ = (1.06 × 6.801692 − 6.746639)/(7.732745 − 6.746639) = 0.463155/0.986106 = 0.4697 ✓ A twin that mixes two streams fails this test.</p>`,
       traps: [
         null,
-        "Built the tree on the NPVs instead of the PVs: [1.06(−0.2378) + 0.8167]/(0.4159 + 0.8167) = 0.4581. The 8 is the strike, not part of the asset.",
-        "Grew S<sub>0</sub> at the up-branch rate of 4% instead of the 6% that applies this year: (1.04 × 7.7622 − 7.1833)/1.2326 = 0.7216.",
-        "Forgot to grow S<sub>0</sub> by (1 + r<sub>f</sub>), the slip of using 100 instead of 100 × 1.03 as a certainty equivalent: (7.7622 − 7.1833)/1.2326 = 0.4697.",
+        "Grew S<sub>0</sub> at the up-branch rate of 4% instead of the 6% that applies this year: (1.04 × S<sub>0</sub> − 7.1833)/1.2326 = 0.3509.",
+        "S<sub>0</sub> prices a different cash flow than S<sub>u</sub> and S<sub>d</sub>: 7.7622 is the route started today (years 1 to 8), while S<sub>u</sub> and S<sub>d</sub> value the route started at date 1 (years 2 to 9). (1.06 × 7.7622 − 7.1833)/1.2326 = 0.8475.",
+        "Built the tree on NPVs instead of PVs, taking the cost of 8 off the asset at both dates: [1.06(S<sub>0</sub> − 8) + 0.8167]/(0.4159 + 0.8167) = 0.0803. The 8 is the strike, not part of the asset.",
       ],
     },
     {
       id: "realopsjon-13",
       title: "Exam level: the option to wait by risk-neutral valuation",
-      theory: `<p>Waiting gives you a call on the project, struck at the investment cost I. At date 1 you invest only if it pays, so each payoff is floored at zero. Find ρ as in the last step and check that it lies strictly between 0 and 1. Weight the payoffs with ρ, discount at r<sub>f</sub>, then subtract what you would get by investing today. A positive option value means wait.</p>
+      theory: `<p>Waiting gives you a call on the project started at date 1, struck at the investment cost I. At date 1 you invest only if it pays, so each payoff is floored at zero. Find ρ as in the last step, from S<sub>0</sub>, S<sub>u</sub> and S<sub>d</sub> for that same stream. Check that it lies strictly between 0 and 1. Weight the payoffs with ρ, discount at r<sub>f</sub>, then subtract what you would get by investing today. A positive option value means wait.</p>
 <div class="formula"><div class="eq">C<sub>u</sub> = max(S<sub>u</sub> − I, 0), C<sub>d</sub> = max(S<sub>d</sub> − I, 0)</div>
 <div class="eq">C<sub>0</sub> = [ρC<sub>u</sub> + (1 − ρ)C<sub>d</sub>]/(1 + r<sub>f</sub>)</div>
-<div class="eq">value of the option to wait = C<sub>0</sub> − max(0, S<sub>0</sub> − I)</div>
-<div class="where">Replication on the formula sheet gives the same C<sub>0</sub>: Δ = (C<sub>u</sub> − C<sub>d</sub>)/(S<sub>u</sub> − S<sub>d</sub>), B = (C<sub>d</sub> − S<sub>d</sub>Δ)/(1 + r<sub>f</sub>), C<sub>0</sub> = S<sub>0</sub>Δ + B.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>S<sub>0</sub> = 100, S<sub>u</sub> = 120, S<sub>d</sub> = 90, r<sub>f</sub> = 4%, so ρ = 14/30. The investment cost is I = 105.</p><p>C<sub>u</sub> = 15, C<sub>d</sub> = 0. C<sub>0</sub> = (14/30)(15)/1.04 = 7/1.04 = 6.7308.</p><p>NPV<sub>now</sub> = 100 − 105 = −5, so the option to wait is worth 6.7308 − 0 = 6.7308: wait.</p></div>`,
-      q: `<p>A licence lets you build a tidal plant for 24 (NOK million), paid when you build. The plant pays 3.0 a year for 10 years, starting one year after you build. The one-year risk-free rate today is 4%. If you wait a year, the rate becomes 2.5% or 5.5% for good, the rate from year 0 to year 1 stays 4%, the cost is still 24 and the plant still runs 10 years. An analyst puts the real probability of 2.5% at 0.5. What is the value today of the option to wait, measured against building today?</p>`,
-      options: ["0.7520", "1.2709", "1.6036", "0.9231"],
+<div class="eq">value of the option to wait = C<sub>0</sub> − max(0, NPV<sub>now</sub>)</div>
+<div class="where">NPV<sub>now</sub> = C × A(T, r<sub>0</sub>) − I is investing today, a different stream from the underlying. Replication on the formula sheet gives the same C<sub>0</sub>: Δ = (C<sub>u</sub> − C<sub>d</sub>)/(S<sub>u</sub> − S<sub>d</sub>), B = (C<sub>d</sub> − S<sub>d</sub>Δ)/(1 + r<sub>f</sub>), C<sub>0</sub> = S<sub>0</sub>Δ + B, with the same S<sub>0</sub> as in ρ.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>The project started at date 1 has S<sub>0</sub> = 100, S<sub>u</sub> = 120 and S<sub>d</sub> = 90, r<sub>f</sub> = 4%, so ρ = (104 − 90)/30 = 14/30. The investment cost is I = 105. Investing today instead gives cash flows worth 104, so NPV<sub>now</sub> = 104 − 105 = −1.</p><p>C<sub>u</sub> = 15, C<sub>d</sub> = 0. C<sub>0</sub> = (14/30)(15)/1.04 = 7/1.04 = 6.7308.</p><p>The option to wait is worth 6.7308 − max(0, −1) = 6.7308: wait.</p></div>`,
+      q: `<p>A licence lets you build a tidal plant for 24 (NOK million), paid when you build. The plant pays 3.0 a year for 10 years, starting one year after you build. Today every maturity is discounted at 4%. If you wait a year, the rate becomes 2.5% or 5.5% for good, the rate from year 0 to year 1 stays 4%, the cost is still 24 and the plant still runs 10 years after you build. An analyst puts the real probability of 2.5% at 0.5. What is the value today of the option to wait, measured against building today?</p>`,
+      options: ["1.2709", "0.6914", "−0.0128", "1.0241"],
       answer: 1,
-      solution: `<p><b>Underlying.</b> S<sub>0</sub> = 3.0 × A(10, 4%) = 3.0 × 8.110896 = 24.3327, so NPV<sub>now</sub> = 0.3327. S<sub>u</sub> = 3.0 × A(10, 2.5%) = 3.0 × 8.752064 = 26.2562. S<sub>d</sub> = 3.0 × A(10, 5.5%) = 3.0 × 7.537626 = 22.6129.</p><p><b>ρ.</b> (1.04 × 24.3327 − 22.6129)/(26.2562 − 22.6129) = (25.3060 − 22.6129)/3.6433 = 2.6931/3.6433 = 0.7392, strictly between 0 and 1 ✓</p><p><b>Payoffs.</b> C<sub>u</sub> = max(26.2562 − 24, 0) = 2.2562. C<sub>d</sub> = max(22.6129 − 24, 0) = 0.</p><p><b>Value.</b> C<sub>0</sub> = 0.7392 × 2.2562/1.04 = 1.66778/1.04 = 1.6036. Option to wait = 1.6036 − max(0, 0.3327) = <b>1.2709</b>. Wait.</p>`,
-      check: `<p>Replication: Δ = 2.256192/3.643314 = 0.619269, B = −22.612877 × 0.619269/1.04 = −13.464859, C<sub>0</sub> = 24.332687 × 0.619269 − 13.464859 = 15.068479 − 13.464859 = 1.603620 ✓ It uses the same tree, so it catches arithmetic slips only. A test that can fail: C<sub>0</sub> must be at least S<sub>0</sub> − I/1.04 = 24.3327 − 23.0769 = 1.2558, the value of committing today to build next year in both states. 1.6036 passes; the real-probability figure 1.0847 does not.</p>`,
+      solution: `<p><b>Building today.</b> 3.0 × A(10, 4%) = 3.0 × 8.110896 = 24.3327, so NPV<sub>now</sub> = 0.3327.</p><p><b>Underlying: the plant built at date 1</b>, payments in years 2 to 11. S<sub>u</sub> = 3.0 × A(10, 2.5%) = 3.0 × 8.752064 = 26.2562. S<sub>d</sub> = 3.0 × A(10, 5.5%) = 3.0 × 7.537626 = 22.6129. Today: S<sub>0</sub> = 24.3327/1.04 = 23.3968.</p><p><b>ρ.</b> (1.04 × 23.3968 − 22.6129)/(26.2562 − 22.6129) = (24.3327 − 22.6129)/3.6433 = 1.7198/3.6433 = 0.4720, strictly between 0 and 1 ✓</p><p><b>Payoffs.</b> C<sub>u</sub> = max(26.2562 − 24, 0) = 2.2562. C<sub>d</sub> = max(22.6129 − 24, 0) = 0.</p><p><b>Value.</b> C<sub>0</sub> = 0.472045 × 2.256192/1.04 = 1.065025/1.04 = 1.024063. Option to wait = 1.024063 − max(0, 0.332687) = <b>0.6914</b>. Wait.</p>`,
+      check: `<p>A second twin for the same stream must give the same ρ. The H2024 key's version is an annuity of 1 a year for 11 years from year 1: S<sub>0</sub> = A(11, 4%) = 8.760477, S<sub>u</sub> = 1 + A(10, 2.5%) = 9.752064, S<sub>d</sub> = 1 + A(10, 5.5%) = 8.537626, so ρ = (1.04 × 8.760477 − 8.537626)/(9.752064 − 8.537626) = 0.573270/1.214438 = 0.4720 ✓ Pairing today's 24.3327 with S<sub>u</sub> and S<sub>d</sub> gives 0.7392 and fails this test. Replication on the same tree catches arithmetic slips only: Δ = 2.256192/3.643314 = 0.619269, B = −22.612877 × 0.619269/1.04 = −13.464861, C<sub>0</sub> = 23.396815 × 0.619269 − 13.464861 = 14.488923 − 13.464861 = 1.024062 ✓</p>`,
       traps: [
-        "Used the analyst's real probability with the risk-free rate: 0.5 × 2.2562/1.04 − 0.3327 = 1.0847 − 0.3327 = 0.7520.",
+        "S<sub>0</sub> prices a different cash flow than S<sub>u</sub> and S<sub>d</sub>: 24.3327 is the plant built today (years 1 to 10), while S<sub>u</sub> and S<sub>d</sub> value the plant built at date 1 (years 2 to 11). That gives ρ = 0.7392, C<sub>0</sub> = 1.6036 and an option of 1.6036 − 0.3327 = 1.2709.",
         null,
-        "Reported the value of waiting, C<sub>0</sub> = 1.6036, as the option. The option is what waiting adds over the 0.3327 you get by building today.",
-        "Forgot that you are not forced to build at date 1: C<sub>d</sub> = 22.6129 − 24 = −1.3871 gives C<sub>0</sub> = 1.2558 and an option of 0.9231.",
+        "Forgot that you are not forced to build at date 1: C<sub>d</sub> = 22.6129 − 24 = −1.3871 gives C<sub>0</sub> = 0.3199 and an option of 0.3199 − 0.3327 = −0.0128.",
+        "Reported C<sub>0</sub> = 1.0241, the whole value of waiting, as the option. The option is only what waiting adds over building today. Building today has a positive NPV here.",
+      ],
+    },
+    {
+      id: "realopsjon-18",
+      title: "Exam level: the abandonment option with monthly cash flows",
+      theory: `<p>Kurbatov flagged this in the wrap-up as a possible exam exercise (lecture 11, the store). You can open a business now or never. In the bad state its net cash flow is negative forever, but the lease lets you leave after two years at no cost, so the perpetuity of losses becomes a 24-month annuity. The cash flows are monthly, so use r<sub>m</sub>. Then answer the question in the right units: the value the exit right adds is measured against what you would do without it. Without the right the NPV is negative and you would not open, which is worth 0. So compare with 0, not with the negative NPV. Kurbatov singles out that comparison as the mistake to avoid.</p>
+<div class="formula"><div class="eq">NPV<sub>good</sub> = (R<sub>good</sub> − c)/r<sub>m</sub> − I &nbsp;&nbsp; NPV<sub>bad</sub> = (R<sub>bad</sub> − c) × A(24, r<sub>m</sub>) − I</div>
+<div class="eq">value of the exit right = max(0, E[NPV with exit]) − max(0, E[NPV without exit])</div>
+<div class="where">R is monthly revenue, c the monthly operating cost including rent, I the set-up cost and r<sub>m</sub> = (1 + r)<sup>1/12</sup> − 1. You learn the state right after opening, so you pay I in both states.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example (lecture 11)</span><p>Set-up 400 000, costs 10 000 a month, cash flow 16 000 or 8 000 a month (50% each), monthly rate 0.565% as on the slide.</p><p>Without exit: 2 000/0.00565 − 400 000 = −46 018: do not open. Good: 6 000/0.00565 − 400 000 = 661 947. Bad, leaving after 24 months: −2 000 × A(24, 0.565%) − 400 000 = −444 770.</p><p>With exit: 0.5 × 661 947 − 0.5 × 444 770 = 108 589: open. The right is worth 108 589 − 0, not 108 589 + 46 018 = 154 607.</p></div>`,
+      q: `<p>A gym chain can open a branch for 700 (NOK thousand) now or never. Operating costs, including rent, are 25 a month. Revenue will be 40 a month forever or 16 a month forever, with equal probability; the chain learns which right after opening. The effective annual discount rate is 6%. The lease lets the chain leave at no cost after 24 months; it gets nothing after that. How much does the right to leave add to the value of the opportunity?</p>`,
+      options: ["739.12", "822.79", "698.47", "701.00"],
+      answer: 0,
+      solution: `<p><b>Monthly rate.</b> r<sub>m</sub> = 1.06<sup>1/12</sup> − 1 = 0.486755%, so 1/r<sub>m</sub> = 205.4421 and A(24, r<sub>m</sub>) = 22.599367.</p><p><b>Good state.</b> 15 × 205.4421 − 700 = 3 081.63 − 700 = 2 381.63.</p><p><b>Bad state, leave after 24 months.</b> −9 × 22.599367 − 700 = −203.39 − 700 = −903.39. With exit: E[NPV] = 0.5 × 2 381.63 − 0.5 × 903.39 = 739.12.</p><p><b>Without the right.</b> Bad state forever: −9 × 205.4421 − 700 = −2 548.98, so E[NPV] = 0.5 × (2 381.63 − 2 548.98) = −83.67. The chain would not open: 0.</p><p><b>Value of the right</b> = 739.12 − 0 = <b>739.12</b>.</p>`,
+      check: `<p>Price the losses the lease cuts off: −9 a month from month 25, worth 9 × 205.4421 = 1 848.98 at month 24, or 1 848.98/1.06<sup>2</sup> = 1 645.58 today, times 0.5 = 822.79. And −83.67 + 822.79 = 739.12 ✓ Of those 822.79, the first 83.67 only lift the NPV from −83.67 to 0, which the chain can have anyway by not opening. Only 739.12 is new value.</p>`,
+      traps: [
+        null,
+        "Compared with the negative NPV without the right: 739.12 − (−83.67) = 822.79. Without the right the chain would not open, so the alternative is worth 0.",
+        "Divided the annual rate by 12: at 0.5% a month the good state is worth 15/0.005 − 700 = 2 300 and the bad −9 × A(24, 0.5%) − 700 = −903.07, so 698.47.",
+        "Switched to annual sums at 6%: 180/0.06 − 700 = 2 300 and −108 × A(2, 6%) − 700 = −898.00, so 701.00. The money comes monthly.",
       ],
     },
     {

@@ -6,7 +6,7 @@ window.EDU_DATA.sjangre.push({
   summary: "From the market-value balance sheet to a full leveraged recapitalisation, dividend and buyback",
   chapters: [6, 15],
   exam: "11 of 11 papers · H2024 E3, H2025 E3",
-  intro: `<p>Every paper has this exercise: a firm in a perfect capital market issues debt and hands the cash to its shareholders, as a special dividend or a share repurchase. H2024 Exercise 3 and H2025 Exercise 3 were exactly this, 18 points each, in five chained sub-questions where one slip cascades. By the last step you can give r<sub>U</sub> and r<sub>E</sub> before and after, the price at announcement and after execution, the dividend per share, the shares bought back and the comparison of seller and holder, to four decimals.</p>`,
+  intro: `<p>Every paper has this exercise: a firm in a perfect capital market issues debt and hands the cash to its shareholders, as a special dividend or a share repurchase. H2024 Exercise 3 and H2025 Exercise 3 were exactly this, 18 points each, in five chained sub-questions where one slip cascades. By the last step you can give r<sub>U</sub> and r<sub>E</sub> before and after, the price at announcement and after execution, the dividend per share, the shares bought back and the comparison of seller and holder, to four decimals. Six steps follow Kurbatov's 2026 lectures: the founder's financing choice, a dividend paid with new shares, stopping the dividend to buy back, bank capital requirements, the EPS fallacy and distress costs that the shareholders bear when the debt is issued.</p>`,
   steps: [
     {
       id: "mm-1",
@@ -44,6 +44,26 @@ window.EDU_DATA.sjangre.push({
         "Treated the borrowed money as extra value: 700 + 350 = 1 050.00.",
         null,
         "Set L's equity equal to the whole firm value, forgetting the lenders' claim: 700.00.",
+      ],
+    },
+    {
+      id: "mm-15",
+      title: "A start-up's financing choice: the founder keeps the NPV either way",
+      theory: `<p>Kurbatov's opening example (lecture 2): a founder with no money has a project that costs I today. She can sell equity or borrow. Either way the investors pay a fair price, a zero-NPV deal for them, so she keeps exactly the project's NPV. With debt her claim sits behind the lenders and is riskier, so the market prices her expected payoff at a higher return than the project's. The quickest route is the balance sheet: her stake is the firm's value minus what the lenders pay today.</p>
+<div class="formula"><div class="eq">V = E[CF]/(1 + r<sub>U</sub>) &nbsp;·&nbsp; NPV = V − I</div>
+<div class="eq">Debt: stake = V − D = V − I &nbsp;·&nbsp; Equity: α = I(1 + r<sub>U</sub>)/E[CF], stake = (1 − α)V = V − I</div>
+<div class="where">r<sub>U</sub> is the return investors require on the project's cash flow. D is what the lenders pay today, not the amount they are owed next year. α is the investors' share of the firm when she sells equity.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: lecture 2</span><p>Cost 1.00, payoff 3.15 or 1.05 with equal probability, r<sub>U</sub> = 20% and r<sub>f</sub> = 5%. V = 2.10/1.20 = 1.75 and NPV = 0.75.</p><p>Equity: investors need 1.20 of the expected 2.10, so α = 4/7 and she keeps (3/7) × 1.75 = 0.75.</p><p>Debt: she owes 1.05, which the bust state covers, so the debt is risk-free. Her stake = 1.75 − 1.00 = 0.75. She expects 0.5 × 2.10 = 1.05 next year, a return of 1.05/0.75 − 1 = 40%.</p></div>`,
+      q: `<p>A founder with no money of her own has a project that costs 2.0 million today. In one year it pays 4.4 million or 2.2 million with equal probability and then closes. Investors require 10% on the project's cash flow. She borrows the 2.0 million at r<sub>f</sub> = 4%, which the bad state covers in full. Markets are perfect and there are no taxes. What is her stake worth today, in millions?</p>`,
+      options: ["1.0000", "1.1731", "1.2200", "1.1091"],
+      answer: 0,
+      solution: `<p>V = (0.5 × 4.4 + 0.5 × 2.2)/1.10 = 3.30/1.10 = 3.0000.</p><p>The lenders pay 2.0000 today for a safe claim of 2.0 × 1.04 = 2.08 next year.</p><p>Her stake = V − D = 3.0000 − 2.0000 = <b>1.0000</b>, the project's NPV.</p>`,
+      check: `<p>Equity route: investors need 2.0 × 1.10 = 2.20 of the expected 3.30, so α = 2/3 and she keeps (1/3) × 3.0000 = 1.0000 ✓. With debt she expects 3.30 − 2.08 = 1.22 next year, a return of 1.22/1.00 − 1 = 22%. That is above the project's 10%, as a claim behind the lenders must be.</p>`,
+      traps: [
+        null,
+        "Discounted her payoff at the risk-free rate: 1.22/1.04 = 1.1731. Only the lenders' claim is safe; hers carries all the project's risk.",
+        "Forgot to discount: her expected payoff 3.30 − 2.08 = 1.22 arrives in one year.",
+        "Discounted her payoff at the project's 10%: 1.22/1.10 = 1.1091. Her claim sits behind the debt and is riskier than the project.",
       ],
     },
     {
@@ -129,6 +149,50 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "mm-16",
+      title: "A dividend paid with new shares",
+      theory: `<p>MM makes dividend policy irrelevant too, as long as investment is fixed (lecture 5). A firm that pays out more than its cash flow must raise the difference, here by selling new shares right after the dividend. The new shareholders pay a fair price for a share of all later dividends. The old shareholders get more cash now but own a smaller slice of the future. The two cancel. After the dividend the firm is still worth V<sub>1</sub>, the value of the later cash flows, but X of it now belongs to the new shares.</p>
+<div class="formula"><div class="eq">(N + n) × P<sub>1</sub> = V<sub>1</sub> &nbsp;and&nbsp; n × P<sub>1</sub> = X &nbsp;⟹&nbsp; P<sub>1</sub> = (V<sub>1</sub> − X)/N</div>
+<div class="eq">P<sub>0</sub> = (DPS<sub>1</sub> + P<sub>1</sub>)/(1 + r<sub>E</sub>)</div>
+<div class="where">X is the extra payout raised by the issue, N the old share count and n the new shares. Here the new shareholders do not receive the dividend they fund. Kurbatov also uses the other set-up (PS1 Exercise 13(c)): the shares are sold before the dividend and the new holders receive it too. Read which one the question describes. P<sub>0</sub> does not change: the higher dividend is offset exactly by the lower price after it.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: lecture 5</span><p>100 000 shares, 1 million a year forever, r<sub>E</sub> = 10%: V = 10 million, P<sub>0</sub> = 100 and DPS = 10.</p><p>Next year's dividend rises to 1.5 million. The extra 500 000 is raised with new shares. V<sub>1</sub> = 10 million, so P<sub>1</sub> = (10 000 000 − 500 000)/100 000 = 95. Today: P<sub>0</sub> = (15 + 95)/1.10 = 100, unchanged.</p></div>`,
+      q: `<p>An all-equity firm has 2 million shares and pays out its whole free cash flow of 6 million a year forever. Its cost of equity is 12%. The board announces that next year's dividend will be 10 million. The extra 4 million is raised by selling new shares right after that dividend is paid, so the new shares do not receive it. From year 2 on, total dividends are back at 6 million a year. Markets are perfect. What is the share price right after the issue at the end of year 1?</p>`,
+      options: ["25.00", "20.00", "23.00", "23.33"],
+      answer: 2,
+      solution: `<p>After the year-1 dividend the firm is worth the later dividends: V<sub>1</sub> = 6/0.12 = 50 million.</p><p>The new shares must be worth the 4 million they pay: P<sub>1</sub> = (50 − 4)/2 = <b>23.00</b>.</p><p>The firm sells n = 4/23 = 0.1739 million new shares.</p>`,
+      check: `<p>Today's price is unchanged: P<sub>0</sub> = (5.00 + 23.00)/1.12 = 25.00 = 50/2 ✓. Second route: the old shareholders keep 2/2.173913 = 92% of later dividends, 0.92 × 6 = 5.52 million or 2.76 per share, so P<sub>0</sub> = (5.00 + 2.76/0.12)/1.12 = 25.00 ✓.</p>`,
+      traps: [
+        "Gave the new shares no claim on the later dividends: 50/2 = 25.00. They paid 4 million for a slice of them.",
+        "Took the whole new dividend off the ex-dividend price, 25.00 − 5.00 = 20.00, as if the regular dividend were paid twice.",
+        null,
+        "Used the set-up where the new shareholders buy before the dividend and receive it too: n = 4/28 = 0.1429 million, DPS = 10/2.1429 = 4.6667 and 28.00 − 4.6667 = 23.33. In this question the issue comes after the dividend.",
+      ],
+    },
+    {
+      id: "mm-20",
+      title: "Stopping the dividend to buy back shares",
+      theory: `<p>A firm can use free cash flow in four ways: pay a dividend, buy back shares, hold the cash or reinvest it. With investment fixed, MM makes the dividend and the buyback equivalent: the dividend taker and the seller end equally rich. Kurbatov's wrap-up added what MM leaves out. Dividends are sticky, so a cut is punished (General Motors). A buyback can signal that the shares are undervalued. Reinvesting without good projects is empire building.</p>
+<div class="formula"><div class="eq">dividend: P<sub>ex</sub> + DPS = P<sub>cum</sub> &nbsp;·&nbsp; buyback: n = cash/P<sub>cum</sub>, P after = (V − cash)/(N − n) = P<sub>cum</sub></div>
+<div class="where">P<sub>cum</sub> is the price while the cash is still in the firm. Under MM the price moves only through cash leaving per share, never through the form of the payout.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: PS1 Exercise 13</span><p>Genron has 10 million shares, 20 million of excess cash and pays 4.80 a share forever after, r<sub>E</sub> = 12%. Cum-dividend price 2 + 4.80/0.12 = 42.</p><p>Dividend: 2 in cash and a share worth 40. Buyback: 20/42 = 0.4762 million shares, leaving 9.5238 million. Later dividends are 48/9.5238 = 5.04 a share and 5.04/0.12 = 42. Same wealth either way.</p></div>`,
+      q: `<p>Hval ASA is all-equity with 10 million shares. Its operations are worth 500 million and it holds 40 million of excess cash, which it has always paid out as a dividend of 4.00 per share. This year it stops the dividend and uses the 40 million to buy back shares at the market price. What happens to the share price under MM? And what can happen in practice?</p>`,
+      options: [
+        "The price stays at 54.00, the same wealth (54.00) as with the dividend under MM. In practice the cut may read as bad news, the buyback as good news",
+        "The price falls to 50.00 as on an ex-dividend date. In practice too the holders lose the 4.00 per share they no longer get in cash",
+        "The price rises to 58.32 because fewer shares now share the firm. In practice the buyback adds to that gain as a good signal",
+        "The price rises to 54.35 because the shares are bought back at 50.00. In practice the switch only confirms that gain for the holders who keep their shares",
+      ],
+      answer: 0,
+      solution: `<p>With the cash inside, the price is (500 + 40)/10 = 54.00. The buyback runs at that price: n = 40/54.00 = 0.740741 million, leaving 9.259259 million. After it: 500/9.259259 = 54.00, so the price <b>stays at 54.00</b>.</p><p>In practice the two moves send opposite signals. Dividends are sticky, so stopping one can read as bad news about future cash flow. A buyback can read as a sign that management thinks the shares are cheap.</p>`,
+      check: `<p>Dividend route for comparison: a share worth 500/10 = 50.00 plus 4.00 in cash = 54.00, the same wealth as holding or selling in the buyback ✓. A buyback at 50.00 would give 500/9.20 = 54.35 to the holders and less to the sellers, so the price the firm pays matters. The signals come from information the perfect market assumes away.</p>`,
+      traps: [
+        null,
+        "A buyback does not create an ex-dividend date. The cash leaves only from the shares sold, at the full price.",
+        "Kept the 40 million in the firm after paying it out: 540/9.259259 = 58.32. The firm is smaller by the cash it spent.",
+        "Bought back at the price without the cash, 50.00: n = 40/50 = 0.80 million and 500/9.20 = 54.35. The firm buys at the price that holds while the cash is still inside it.",
+      ],
+    },
+    {
       id: "mm-8",
       title: "Backing out the unlevered cost of capital: the pre-tax WACC",
       theory: `<p>r<sub>U</sub> is the expected return on the firm's assets, so it is the value-weighted average of what its two claims earn: r<sub>E</sub> on the equity and r<sub>D</sub> on the debt. With no taxes there is no (1 − τ<sub>c</sub>) on the debt. This pre-tax WACC equals r<sub>U</sub>. Use market values, E = N × P. If the firm pays a level free cash flow forever, you can instead run the perpetuity backwards. r<sub>U</sub> belongs to the assets, so a financing transaction does not change it.</p>
@@ -167,6 +231,45 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "mm-19",
+      title: "Bank capital requirements: dearer equity, same funding cost",
+      theory: `<p>Bankers argue that equity costs 25% and debt 5%, so a higher equity requirement must raise their funding cost. Kurbatov's answer (lecture 2) is MM II. Swapping debt for equity leaves the bank's assets unchanged, so r<sub>U</sub>, its pre-tax funding cost, stays put. With a thicker equity cushion each krone of equity carries less risk and r<sub>E</sub> falls. The error is to hold r<sub>E</sub> fixed while the weights change.</p>
+<div class="formula"><div class="eq">r<sub>U</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub> &nbsp;·&nbsp; r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>)</div>
+<div class="where">Banks state the requirement as E/V. Convert it to D/E before you use MM II. As in the lecture, r<sub>D</sub> stays fixed.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: lecture 2</span><p>E/V = 3%, r<sub>E</sub> = 25%, r<sub>D</sub> = 5%: r<sub>U</sub> = 0.03 × 25% + 0.97 × 5% = 0.75% + 4.85% = 5.6%.</p><p>The regulator requires E/V = 6%. The bankers' figure, 0.06 × 25% + 0.94 × 5% = 6.2%, keeps r<sub>E</sub> at 25%. MM II: r<sub>E</sub> = 5.6% + (94/6)(5.6% − 5%) = 5.6% + 9.4% = 15%. Then 0.06 × 15% + 0.94 × 5% = 5.6%. The funding cost does not rise.</p></div>`,
+      q: `<p>A bank funds itself with 4% equity and 96% debt. Its shareholders expect 20% and its debt costs 4.5%. The regulator raises the equity requirement to 8% of assets. The bank's assets do not change and its debt still costs 4.5%. Markets are perfect and there are no taxes. What is the bank's cost of equity under the new requirement, to four decimals?</p>`,
+      options: ["12.2500%", "5.6904%", "20.0000%", "10.0000%"],
+      answer: 0,
+      solution: `<p>r<sub>U</sub> = 0.04 × 20% + 0.96 × 4.5% = 0.80% + 4.32% = 5.12%.</p><p>New D/E = 0.92/0.08 = 11.5.</p><p>r<sub>E</sub> = 5.12% + 11.5 × (5.12% − 4.5%) = 5.12% + 7.13% = <b>12.2500%</b>.</p>`,
+      check: `<p>Funding cost at the new weights: 0.08 × 12.25% + 0.92 × 4.5% = 0.98% + 4.14% = 5.12% = r<sub>U</sub>, unchanged ✓. The bankers' figure, 0.08 × 20% + 0.92 × 4.5% = 5.74%, fails this test: it moves the funding cost although the assets did not change.</p>`,
+      traps: [
+        null,
+        "Used D/V = 0.92 in MM II where D/E belongs: 5.12% + 0.92 × 0.62% = 5.6904%.",
+        "Kept the cost of equity at 20%, the bankers' assumption. A thicker equity cushion makes each krone of equity safer.",
+        "Halved r<sub>E</sub> because the equity share doubled: 20%/2 = 10%. MM II is linear in D/E, not in E/V.",
+      ],
+    },
+    {
+      id: "mm-17",
+      title: "The EPS fallacy: higher earnings per share, same price",
+      theory: `<p>Borrowing to buy back shares raises earnings per share whenever the firm earns more on its assets than it pays on the debt. That looks like value creation, but the price does not move (MM I). The higher EPS only pays for the extra risk: below a break-even level of earnings EPS is lower with the debt than without. So the forward P/E falls, because each krone of EPS is now riskier (lecture 2 and Yerba in tutorial 1).</p>
+<div class="formula"><div class="eq">EPS = (Earnings − r<sub>D</sub> × D)/(N − n) &nbsp;·&nbsp; n = D/P &nbsp;·&nbsp; P/E = P/EPS</div>
+<div class="eq">Break-even: Earnings/N = (Earnings − r<sub>D</sub> × D)/(N − n)</div>
+<div class="where">No taxes here, so earnings are EBIT. P is the same before and after the buyback.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: lecture 2</span><p>EBIT 10 million, 10 million shares at 7.50, so EPS = 1.00. Borrow 15 million at 8% and buy back 2 million shares.</p><p>Interest 1.2, earnings 8.8 over 8 million shares: EPS = 1.10. Break-even: EBIT/10 = (EBIT − 1.2)/8 gives EBIT = 6. Above 6 the levered firm has the higher EPS, below it the lower.</p></div>`,
+      q: `<p>An all-equity firm has 50 million shares at 30.00 and expects earnings of 120 million next year. It borrows 30% of its market value of equity at a risk-free 4% and uses all of it to buy back shares. Markets are perfect and there are no taxes. What is its forward P/E ratio after the buyback, to four decimals?</p>`,
+      options: ["12.5000", "10.2941", "14.7059", "8.7500"],
+      answer: 1,
+      solution: `<p>D = 0.30 × 1 500 = 450 million and n = 450/30.00 = 15 million, leaving 35 million.</p><p>Interest = 0.04 × 450 = 18 million, earnings = 120 − 18 = 102 million and EPS = 102/35 = 2.914286, up from 2.40.</p><p>The price stays at 30.00 (MM I), so P/E = 30.00/2.914286 = <b>10.2941</b>, down from 12.5000.</p>`,
+      check: `<p>Price from the balance sheet: (1 500 − 450)/35 = 1 050/35 = 30.00 ✓. That follows from the same numbers, so it confirms the arithmetic only. Break-even earnings: Earnings/50 = (Earnings − 18)/35 gives 60 million, an EPS of 1.20. Above 60 million the buyback raises EPS, below it the buyback lowers EPS. The spread of outcomes widens, which is why the market pays less per krone of EPS.</p>`,
+      traps: [
+        "Kept the P/E at 12.5, as if the higher EPS lifted the price. A buyback at the market price cannot move the price.",
+        null,
+        "Forgot that the buyback cuts the share count: EPS = 102/50 = 2.04, so 30.00/2.04 = 14.7059.",
+        "Forgot the interest: EPS = 120/35 = 3.428571, so 30.00/3.428571 = 8.7500.",
+      ],
+    },
+    {
       id: "mm-10",
       title: "Dividends per share before and after, priced at the new cost of equity",
       theory: `<p>When all cash flow is paid out, interest comes first and the rest goes to shareholders. The dividend per share is that residual over the shares outstanding. The share is a perpetuity of it, discounted at r<sub>E</sub>. After a debt-financed buyback, interest is due on all the debt and the residual is shared by fewer shares: the dividend per share rises, r<sub>E</sub> rises by just enough and the price is unchanged. Nothing grows, so the share trades at P + DPS just before each payment and is back at P just after.</p>
@@ -182,6 +285,26 @@ window.EDU_DATA.sjangre.push({
         "Left the buyback out entirely: (81 − 16)/10 = 6.5000 is the dividend per share before it.",
         "Charged interest on the old debt only: (81 − 16)/8 = 8.1250.",
         "Divided by the old share count, forgetting the buyback: 61/10 = 6.1000.",
+        null,
+      ],
+    },
+    {
+      id: "mm-18",
+      title: "Distress costs and fire sales: the shareholders pay when the debt is issued",
+      theory: `<p>Leave the perfect market for one step. If default destroys value, the levered firm is worth V<sup>U</sup> minus the present value of those losses. Kurbatov's wrap-up stressed fire sales: a firm in default sells its assets in a hurry, often for half their value. Direct legal costs are small, roughly 3% times the probability of default. Creditors foresee the loss and pay less for the debt, so the shareholders bear it on the day the debt is issued. A debt-financed buyback therefore lowers the share price to V<sup>L</sup>/N.</p>
+<div class="formula"><div class="eq">V<sup>L</sup> = V<sup>U</sup> − PV(distress costs) = D + E</div>
+<div class="eq">Price after a debt-financed buyback = V<sup>L</sup>/N &nbsp;·&nbsp; n = D/P</div>
+<div class="where">Value the debt state by state: the face value where the firm is solvent, what the assets fetch where it defaults. With diversifiable risk discount at r<sub>f</sub>. The yield K/D − 1 is a promise; lenders expect only r<sub>f</sub>.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: the wrap-up lecture</span><p>Debt with face value 30. The assets will be worth 80 or 15, taken here as equally likely, with no discounting. In default a fire sale fetches only half, 7.5.</p><p>Without the fire sale D = 0.5 × 30 + 0.5 × 15 = 22.50. With it D = 0.5 × 30 + 0.5 × 7.5 = 18.75. Equity is 0.5 × 50 = 25.00 either way. V<sup>L</sup> = 43.75 against V<sup>U</sup> = 47.50: the fire sale costs 3.75. The bond raises 3.75 less when it is sold. Gladstone (tutorial 1) is the same idea with four states: the price falls from 10.95 to 9.91.</p></div>`,
+      q: `<p>Next year a firm will be worth 200, 140, 80 or 60, each with probability 0.25. The risk is diversifiable and r<sub>f</sub> = 4%. If the firm defaults, its assets must be sold in a fire sale that fetches only 80% of their value. It has 10 million shares and no debt. It now issues zero-coupon debt with face value 90, due next year. It uses all the proceeds to buy back shares. There are no taxes. What is the share price after the buyback?</p>`,
+      options: ["11.54", "12.50", "3.85", "10.87"],
+      answer: 3,
+      solution: `<p><b>Debt.</b> It pays 90, 90, 0.8 × 80 = 64 and 0.8 × 60 = 48, so D = 0.25 × 292/1.04 = 70.1923.</p><p><b>Equity.</b> It pays 110, 50, 0 and 0, so E = 0.25 × 160/1.04 = 38.4615. V<sup>L</sup> = 108.6538.</p><p><b>Price.</b> The buyback runs at the price that holds after it: P = V<sup>L</sup>/N = 108.6538/10 = <b>10.87</b>. The firm buys back n = 70.1923/10.8654 = 6.4602 million shares.</p>`,
+      check: `<p>Equity per remaining share: 38.4615/(10 − 6.4602) = 38.4615/3.5398 = 10.87 ✓. Without debt the price is 0.25 × 480/1.04/10 = 11.54. The fall of 0.67 per share is the fire-sale loss 0.25 × (16 + 12)/1.04 = 6.7308 spread over 10 million shares ✓. The debt yields 90/70.1923 − 1 = 28.22%, but lenders expect 0.25 × 292/70.1923 − 1 = 4% = r<sub>f</sub>.</p>`,
+      traps: [
+        "Ignored the fire-sale loss and kept the all-equity price: 0.25 × 480/1.04/10 = 11.54.",
+        "Priced the debt as risk-free: 90/1.04 = 86.5385, so (38.4615 + 86.5385)/10 = 12.50. Lenders will not pay that for debt that defaults half the time.",
+        "Forgot that the buyback cuts the share count: 38.4615/10 = 3.85.",
         null,
       ],
     },

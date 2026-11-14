@@ -5,17 +5,18 @@ window.EDU_DATA.kjerne.push({
   title: "The exam in one page",
   chapters: [0, 28],
   html: `
-<p class="lead-in">This is the paper Andrey Kurbatov set in H2024 and H2025, and the one you will sit: what is on it, how it is marked, and how to use the parts that follow.</p>
+<p class="lead-in">Kurbatov set H2024 and H2025 and says the next paper is built "exactly the same". This is what it holds, how it is marked and how to use the parts that follow.</p>
 <h3>The format</h3>
 <ul>
-<li>Six exercises, 100 points, three hours. Closed book, pen and paper, a calculator, answered in English. No multiple choice since 2024.</li>
-<li>Points are printed per sub-question: about 1.8 minutes per point, so a 12-point exercise gets about 20 minutes.</li>
-<li>Two exercises are verbal, 12 points each, with sentence budgets ("2–3 sentences per action"). Governance has been one of them every time (kj11).</li>
-<li>Sub-questions chain: (b) uses (a). Carry four decimals on rates. If a step will not come, write it as a symbol or a labelled assumption and carry on; later steps are marked on method.</li>
+<li>Six exercises, 100 points, three or four hours (check the exam information). Pen, paper, a scientific calculator, one bilingual dictionary and the course formula sheet (the last page; no sheet of your own). English, no multiple choice.</li>
+<li>Two short theory exercises of about 10–12 points, common sense within sentence budgets; governance has been one every time (kj11). Four problems, about 80% of the paper: part (a) is easy, several end with 3–5 points of intuition.</li>
+<li>Every block appears: capital structure and payout, valuation with debt, options and real options, M&amp;A and governance, often with a twist ("what if the deal is delayed a year?").</li>
+<li>About 1.8 minutes per point on three hours. A follow-on error gets full credit on the next part, so if a step will not come, write a labelled assumption and carry on. Four decimals on rates; an A has needed about 90 points.</li>
+<li>Read the question. "Evaluate the project" means the project's NPV, not the firm's value; a PV is not an NPV. Part of a year is a power: (1 + r)<sup>1.5</sup> for 18 months, √(1 + r) for six, (1 + r)<sup>1/12</sup> − 1 a month.</li>
 </ul>
 <h3>What recurs</h3>
 <table class="data">
-<tr><th>Topic</th><th>Papers of 11</th><th>Part</th></tr>
+<tr><th>Topic</th><th>Papers of 11 (two are Kurbatov's)</th><th>Part</th></tr>
 <tr><td>Twin firm: unlever and relever β, CAPM, MM II</td><td class="n">11</td><td>kj1</td></tr>
 <tr><td>MM I and II in perfect markets, recapitalisation</td><td class="n">11</td><td>kj2</td></tr>
 <tr><td>WACC and APV on the same case</td><td class="n">11</td><td>kj4</td></tr>
@@ -24,9 +25,9 @@ window.EDU_DATA.kjerne.push({
 <tr><td>Debt and equity as options, credit risk</td><td class="n">8</td><td>kj8</td></tr>
 <tr><td>Asymmetric information, Myers-Majluf</td><td class="n">8</td><td>kj6</td></tr>
 </table>
-<p>The last two are absent from both Kurbatov papers but still on the syllabus.</p>
+<p>The last two were absent from both Kurbatov papers, but his wrap-up lists the pecking order, IPO underpricing, securities as options and lower borrowing costs after a merger (coinsurance): treat them as core.</p>
 <h3>How to score</h3>
-<p>On every quantitative sub-question: <b>state the method</b> in one sentence, <b>show the computation</b> with the numbers substituted (no calculation, no points), <b>name the mechanism</b> ("this is debt overhang"), and <b>run the check</b>. The examiner uses five checks, and every part refers to them by number:</p>
+<p>On every quantitative sub-question: <b>state the method</b>, <b>show the computation</b> with the numbers substituted (no calculation, no points), <b>name the mechanism</b> ("this is debt overhang") and <b>run the check</b>. Every part refers to the five checks by number:</p>
 <ol>
 <li>Value by WACC = value by APV</li>
 <li>[E/V]β<sub>E</sub> + [D/V]β<sub>D</sub> = β<sub>U</sub></li>
@@ -34,24 +35,16 @@ window.EDU_DATA.kjerne.push({
 <li>Creditors' gain = shareholders' loss when total value is fixed</li>
 <li>Are investors' beliefs rational given the action taken?</li>
 </ol>
-<p>Check 5 is the one candidates skip. Before you tick a check, ask which wrong number would break it; a check that cannot fail proves nothing.</p>
+<p>Check 5 is the one candidates skip.</p>
 <h3>The formula sheet</h3>
-<p>It gives FCF from EBIT, the perpetuity and growing perpetuity, the CAPM, MM II, the β<sub>U</sub> weighting, both WACCs, binomial replication and the M&amp;A stock-swap NPVs. Memorise the rest:</p>
-<ul>
-<li>V<sup>L</sup> = V<sup>U</sup> + PV(TS), and which rate discounts the shield (kj3, kj4)</li>
-<li>D<sub>t</sub> = d·V<sup>L</sup><sub>t</sub> and the debt adjustment between periods (kj4)</li>
-<li>put-call parity (kj7)</li>
-<li>β<sub>E</sub> = N(d<sub>1</sub>)(V/E)β<sub>U</sub> (kj8)</li>
-<li>the Myers-Majluf setup and its rationality check (kj6)</li>
-<li>everything about real options, including the annuity C·[1 − (1 + r)<sup>−n</sup>]/r (kj9)</li>
-</ul>
+<p>It gives FCF from EBIT, the perpetuities, the CAPM, MM II, the β<sub>U</sub> weighting, both WACCs, binomial replication and the stock-swap NPVs. Memorise: V<sup>L</sup> = V<sup>U</sup> + PV(TS) and the rate on the shield (kj3, kj4); D<sub>t</sub> = d·V<sup>L</sup><sub>t</sub> (kj4); put-call parity (kj7); Myers-Majluf and its rationality check (kj6); all of real options, with the annuity C·[1 − (1 + r)<sup>−n</sup>]/r (kj9). Black-Scholes is not computed on the exam, only its intuition.</p>
 <h3>How to use this path</h3>
-<p>Parts kj1 to kj4 are one chain, the valuation machine: read them in order. Parts kj5 to kj11 stand alone, in any order. Write each minicase on paper before you open the solution.</p>
+<p>Parts kj1 to kj4 are one chain, the valuation machine: read them in order. Parts kj5 to kj11 stand alone. Write each minicase on paper before you open the solution. Kurbatov's order of preparation: his two papers, the problem sets (anything that fits in a few lines can come), his slides ("understand everything in this presentation"), the textbook last.</p>
 <div class="callout tip husk"><span class="h">Must know</span>
-<ul><li>Six exercises, 100 points, three hours: about 1.8 minutes per point, two 12-point verbal exercises, and governance every time.</li>
-<li>On every quantitative sub-question: state the method, show the numbers, name the mechanism, run the check.</li>
+<ul><li>Six exercises, 100 points: two short theory exercises (governance every time) and four problems with intuition at the end; every block appears; a follow-on error is not punished twice.</li>
+<li>On every quantitative sub-question: state the method, show the numbers, name the mechanism, run the check. Project NPV is not firm value and PV is not NPV.</li>
 <li>The five checks: (1) value by WACC = value by APV; (2) [E/V]β<sub>E</sub> + [D/V]β<sub>D</sub> = β<sub>U</sub>; (3) creditors' gain + shareholders' gain = the project's NPV; (4) creditors' gain = shareholders' loss when total value is fixed; (5) investors' beliefs are rational given the action taken.</li>
-<li>Not on the formula sheet: V<sup>L</sup> = V<sup>U</sup> + PV(TS) and the rate on the shield, D<sub>t</sub> = d·V<sup>L</sup><sub>t</sub>, put-call parity, the annuity, β<sub>E</sub> = N(d<sub>1</sub>)(V/E)β<sub>U</sub>, the Myers-Majluf setup and all of real options.</li></ul></div>
+<li>Not on the formula sheet: the tax-shield rules, D<sub>t</sub> = d·V<sup>L</sup><sub>t</sub>, put-call parity, Myers-Majluf and all of real options. Black-Scholes and β<sub>E</sub> near distress are intuition only.</li></ul></div>
 `,
   checks: [
     {
@@ -64,11 +57,11 @@ window.EDU_DATA.kjerne.push({
         "Check 1: that the value by WACC equals the value by APV",
       ],
       answer: 1,
-      explanation: "The α you computed rests on what investors believe, and the outcome is an equilibrium only if those beliefs match who actually issues. That is check 5, and the keys single it out as the step candidates skip. Checks 1 and 3 are real checks, but they belong to levered valuation and to agency problems, not to an issue decision under private information.",
+      explanation: "The α you computed rests on what investors believe and the outcome is an equilibrium only if those beliefs match who actually issues. That is check 5 and the keys single it out as the step candidates skip. Checks 1 and 3 are real checks, but they belong to levered valuation and to agency problems, not to an issue decision under private information.",
     },
     {
       id: "kj0-s2",
-      q: "Part (a) of a chained exercise will not come out, and parts (b) to (d) need its answer. What is the best move?",
+      q: "Part (a) of a chained exercise will not come out and parts (b) to (d) need its answer. What is the best move?",
       options: [
         "State the missing number as a labelled assumption and carry on with (b) to (d)",
         "Leave the whole exercise, since the later parts cannot be right without (a)",

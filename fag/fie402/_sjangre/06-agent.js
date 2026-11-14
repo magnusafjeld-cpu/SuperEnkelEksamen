@@ -6,7 +6,7 @@ window.EDU_DATA.sjangre.push({
   summary: "From the state-by-state split of cash flow to risk shifting, hedging, debt overhang and renegotiation",
   chapters: [9, 10],
   exam: "Risk shifting 5 of 11 papers, debt overhang 5 of 11 · H2024 E4, V2024 P1, 2021 P2",
-  intro: `<p>Risky debt gives shareholders two bad incentives. Each has appeared on 5 of 11 papers. In <b>risk shifting</b> they choose a riskier project with a lower value because the creditors bear its downside: H2024 Exercise 4 (18 points) and V2024 Problem 1 (52 points). In <b>debt overhang</b> they refuse a good project because the creditors collect part of its value: 2017V Problem 3, 2017H Problems 1 and 4 plus 2021 Problem 2, which put both problems in one firm and ended with a renegotiation of the face value. The ladder starts with who gets paid in each state. At the top you can find the project management picks, the agency cost, the indifference face value, the fate of a hedge or a debt buyback and the write-down that leaves both sides better off.</p>`,
+  intro: `<p>Risky debt gives shareholders two bad incentives. Each has appeared on 5 of 11 papers. In <b>risk shifting</b> they choose a riskier project with a lower value because the creditors bear its downside: H2024 Exercise 4 (18 points) and V2024 Problem 1 (52 points). In <b>debt overhang</b> they refuse a good project because the creditors collect part of its value: 2017V Problem 3, 2017H Problems 1 and 4 plus 2021 Problem 2, which put both problems in one firm and ended with a renegotiation of the face value. The ladder starts with who gets paid in each state. At the top you can find the project management picks, the agency cost, the indifference face value, the fate of a hedge or a debt buyback and the write-down that leaves both sides better off. Three steps follow Kurbatov's 2026 lectures: gambling for resurrection, a spin-off that leaves the debt behind and overhang when new shareholders fund the project. In each, ask his question: who wins and who loses?</p>`,
   steps: [
     {
       id: "agent-2",
@@ -85,6 +85,25 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "agent-15",
+      title: "Gambling for resurrection",
+      theory: `<p>When the assets are worth less than the face value, the equity is worthless if nothing changes: the creditors take everything. Then any gamble with a chance of clearing the debt is worth something to the shareholders, even one that destroys value on average. The creditors pay for it in the bad state. Kurbatov (lecture 4) calls this gambling for resurrection. The manager likes it too: without the gamble the firm is shut down for sure, with it the firm may survive.</p>
+<div class="formula"><div class="eq">no gamble: D = min(A, K), E = max(A − K, 0) = 0 when A &lt; K</div><div class="eq">gamble: D = E[min(V, K)], E = E[max(V − K, 0)] &nbsp;·&nbsp; ΔD + ΔE = ΔV</div>
+<div class="where">A is the sure value of the assets without the gamble, V the uncertain value with it. The last identity is consistency check 3: it ties the creditors' loss, the shareholders' gain and the value destroyed.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: lecture 4</span><p>Assets worth 900 (thousand) for sure and debt with face value 1 000, so D = 900 and E = 0. A gamble pays 1 300 or 300 with probability 0.5, an expected 800.</p><p>With it: D = 0.5 × 1 000 + 0.5 × 300 = 650 and E = 0.5 × 300 = 150. Creditors −250, shareholders +150, firm −100. Check 3: −250 + 150 = −100 ✓.</p></div>`,
+      q: `<p>Fossen AS owes 750, due in one year. Its assets will be worth 600 at that date for sure. Management can switch to a strategy that leaves the firm worth 1 000 or 150, each with probability 0.5. Investors are risk neutral and the discount rate is zero. Management acts for the shareholders. By how much does the switch reduce the value of the debt?</p>`,
+      options: ["125.00", "300.00", "150.00", "25.00"],
+      answer: 2,
+      solution: `<p>Without the switch: D = min(600, 750) = 600 and E = 0.</p><p>With it: D = 0.5 × 750 + 0.5 × 150 = 450 and E = 0.5 × (1 000 − 750) = 125. The shareholders gain 125, so management switches.</p><p>The debt loses 600 − 450 = <b>150.00</b>.</p>`,
+      check: `<p>Firm value falls from 600 to 0.5 × 1 000 + 0.5 × 150 = 575. Check 3: −150 + 125 = −25 = 575 − 600 ✓. Who wins and who loses: the shareholders gain 125, the creditors lose 150 and the manager keeps the firm alive with probability 0.5 instead of losing it for sure.</p>`,
+      traps: [
+        "Reported the shareholders' gain, 0.5 × 250 = 125. The creditors' loss is larger, since they also bear the value destroyed.",
+        "Measured the debt against its face value: 750 − 450 = 300. Without the switch the creditors would get only 600, not 750.",
+        null,
+        "Reported the value destroyed, 600 − 575 = 25. That is the agency cost, not the creditors' loss.",
+      ],
+    },
+    {
       id: "agent-6",
       title: "Will shareholders accept a zero-NPV hedge?",
       theory: `<p>A hedge moves cash flow from the good state to the bad state. A fair hedge has zero NPV: what the firm pays in the good state equals, in expectation, what it receives in the bad state. Firm value is unchanged, but the split between the claims is not. If the bad state defaults, the cash received there goes to the creditors first, while the shareholders give up cash in the good state. With risky debt the shareholders therefore lose and refuse a hedge that costs the firm nothing.</p>
@@ -104,6 +123,25 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "agent-17",
+      title: "A spin-off that leaves the debt behind",
+      theory: `<p>Risk shifting does not need a new project. If the covenants allow it, the owners can split the firm and put all the debt on the riskier part. The safe part leaves debt-free, so the cash flow that used to back the creditors in bad times is gone. The shareholders can gain even when the split destroys synergies (PS1 Exercise 8; Marriott in 1993, lecture 4). Creditors who foresee this write covenants against it. Kurbatov calls covenants a necessary evil: they make the debt cheaper when it is issued, which is good for the owners.</p>
+<div class="formula"><div class="eq">D after = E[min(CF<sub>unit with the debt</sub>, K)] &nbsp;·&nbsp; E after = E[max(CF<sub>unit with the debt</sub> − K, 0)] + E[CF<sub>other unit</sub>]</div>
+<div class="where">Try the debt on each unit and keep the split that gives the shareholders the most. Close with check 3: creditors' gain + shareholders' gain = change in firm value, here the lost synergies.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: PS1 Exercise 8</span><p>Hillton: Nicole pays 150 or 50 and Paris 130 or 70, equally likely, with debt of 100 and no discounting. Together 280 or 120, so D = 100 and E = 100.</p><p>After a spin-off each unit pays 10 less in each state: Nicole 140 or 40, Paris 120 or 60. Debt on Nicole: D = 0.5 × 100 + 0.5 × 40 = 70 and E = 0.5 × 40 + 0.5 × 120 + 0.5 × 60 = 110. Shareholders +10, creditors −30, synergies −20.</p></div>`,
+      q: `<p>Bakke ASA has two divisions. X pays 160 in a boom and 40 in a bust. Y pays 120 in a boom and 80 in a bust. Boom and bust are equally likely. Bakke has debt with face value 120, backed by both divisions. Investors are risk neutral and the discount rate is zero. The CEO can spin the divisions off into two firms and put all the debt on either one. Splitting loses synergies: each division then pays 10 less in each state. If the CEO picks the split that is best for the shareholders, by how much does their wealth change?</p>`,
+      options: ["+25.00", "+45.00", "−20.00", "+10.00"],
+      answer: 0,
+      solution: `<p><b>Before.</b> The firm pays 280 or 120, so D = 120 and E = 0.5 × 160 = 80.</p><p><b>After.</b> X pays 150 or 30 and Y pays 110 or 70. Debt on X: D = 0.5 × 120 + 0.5 × 30 = 75 and E = 0.5 × 30 + 0.5 × 110 + 0.5 × 70 = 105. Debt on Y: Y defaults in both states, D = 90 and E = 0.5 × 150 + 0.5 × 30 = 90.</p><p>The CEO puts the debt on X: equity goes from 80 to 105, a change of <b>+25.00</b>.</p>`,
+      check: `<p>Who wins and who loses: creditors 120 → 75, a loss of 45. Firm value 200 → 180, a loss of 20. Check 3: −45 + 25 = −20 ✓. The shareholders gain although the split destroys 20, because the creditors lose 45.</p>`,
+      traps: [
+        null,
+        "Counted the creditors' whole loss of 45 as the shareholders' gain, as if the split were a pure transfer. Firm value falls too.",
+        "Charged the lost synergies to the shareholders: 10 per division in each state, 20 in expectation. The value taken from the creditors more than covers that.",
+        "Put the debt on Y, the safer division: equity 90 against 80. The creditors keep more of their value there.",
+      ],
+    },
+    {
       id: "agent-8",
       title: "Debt overhang: the creditors' windfall and the shareholders' gain",
       theory: `<p>Now the firm can take a new project with positive NPV that the shareholders must pay for themselves. When the debt is risky, part of the project's cash flow lands in default states, where every extra krone goes to the creditors. The existing debt rises in value although the creditors put up nothing: a windfall ΔD. The shareholders pay the whole outlay I but receive only what does not leak, so their gain is the project's NPV minus ΔD. <b>Debt overhang</b> is the case ΔD &gt; NPV &gt; 0: the project creates value, but the owners who fund it lose. With risk-free debt ΔD = 0 and overhang cannot arise. The solution keys single out one error: using the stand-alone NPV as the change in equity value. The two differ by exactly the transfer to the creditors.</p>
@@ -120,6 +158,30 @@ window.EDU_DATA.sjangre.push({
         null,
         "Forgot to subtract the outlay: equity rises by 0.5 × 50/1.05 = 23.81, but the shareholders paid 30 for it.",
         "Forgot to discount: 0.5 × 50 − 30 = −5.00.",
+      ],
+    },
+    {
+      id: "agent-16",
+      title: "Overhang when new shareholders fund the project",
+      theory: `<p>Often the owner has no cash and must sell a fraction x of the equity to new investors to pay for a project costing I (PS1 Exercise 6). Competitive investors pay a fair price, so x × E<sub>1</sub> = I, where E<sub>1</sub> is the equity after the project, still junior to the old debt. The owner keeps (1 − x)E<sub>1</sub> = E<sub>1</sub> − I: exactly what he would have if he paid I himself. So the overhang test is unchanged: he invests only if E<sub>1</sub> − I &gt; E<sub>0</sub>. The creditors' windfall can still block a positive-NPV project.</p>
+<div class="formula"><div class="eq">x = I/E<sub>1</sub> &nbsp;·&nbsp; owner keeps (1 − x)E<sub>1</sub> = E<sub>1</sub> − I &nbsp;·&nbsp; invest if (1 − x)E<sub>1</sub> &gt; E<sub>0</sub></div>
+<div class="where">E<sub>1</sub> = E[max(CF + X − K, 0)] with the old face value K. E<sub>0</sub> is the equity without the project. Price x on the equity after the project, not on the firm. A lower face value raises E<sub>1</sub>, lowers x and can turn the decision.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: PS1 Exercise 6</span><p>Cash flow 150 or 50, face value 100, no discounting: E<sub>0</sub> = 25 and D<sub>0</sub> = 75. A project costs 24 and adds 30 in both states, so NPV = 6. E<sub>1</sub> = 0.5 × 80 = 40, so x = 24/40 = 60% and the owner keeps 0.40 × 40 = 16 &lt; 25. He refuses.</p><p>Cut the face value to 80: E<sub>1</sub> = 0.5 × 100 = 50, x = 48% and the owner keeps 26 &gt; 25. Debt 75 → 80 (+5), owner +1: 5 + 1 = 6 = NPV ✓.</p></div>`,
+      q: `<p>Krog AS will have a cash flow of 200 or 60 next year, equally likely. Its debt has face value 120, due then. Its owner has no cash. A project costs 30 today and adds 40 to the cash flow in both states. The owner can fund it only by selling new shares to competitive investors. Investors are risk neutral and the discount rate is zero. Which statement is correct?</p>`,
+      options: [
+        "x = 17.65%: the owner keeps 49.41 against 40.00, so he invests",
+        "The project's NPV is 10.00, so he invests whatever x the investors ask",
+        "x = 50.00%: the owner keeps 30.00 against 40.00, so he refuses",
+        "x = 42.86%: the owner keeps 34.29 against 40.00, so he refuses",
+      ],
+      answer: 2,
+      solution: `<p>Without the project: E<sub>0</sub> = 0.5 × (200 − 120) = 40.</p><p>With it the cash flow is 240 or 100. The bad state still defaults, so E<sub>1</sub> = 0.5 × (240 − 120) = 60.</p><p>x = 30/60 = 50.00%. The owner keeps 0.50 × 60 = 30.00 = E<sub>1</sub> − I against 40.00 without the project. <b>He refuses.</b></p>`,
+      check: `<p>Who wins and who loses: the creditors' claim rises from 0.5 × 120 + 0.5 × 60 = 90 to 0.5 × 120 + 0.5 × 100 = 110, a windfall of 20. The owner goes from 40 to 30, a change of −10. The new investors break even. Check 3: 20 − 10 = 10 = NPV of 40 − 30 ✓. The windfall exceeds the NPV: debt overhang.</p>`,
+      traps: [
+        "Priced the new shares on the firm's value after the project, 0.5 × 240 + 0.5 × 100 = 170: x = 30/170. The new investors buy equity, which sits behind the debt.",
+        "Used the stand-alone NPV. It ignores the 20 that leaks to the creditors, which the owner pays for through the shares he gives away.",
+        null,
+        "Priced the new shares on the old equity plus the cash, 40 + 30 = 70: x = 30/70. Part of what the cash earns goes to the creditors, so the equity after the project is worth only 60.",
       ],
     },
     {

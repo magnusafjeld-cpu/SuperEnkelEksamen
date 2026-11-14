@@ -6,7 +6,7 @@ window.EDU_DATA.sjangre.push({
   summary: "From the CAPM to a full WACC built on a comparable firm",
   chapters: [3, 4],
   exam: "11 of 11 papers · H2024 E5, H2025 E4",
-  intro: `<p>Every FIE402 paper since 2015 has asked you to find a cost of capital you cannot observe directly. You take the business risk of a listed twin, strip out the twin's financing, put your own financing back on and build the WACC. In H2024 Exercise 5 (a twin) and H2025 Exercise 4 (your own firm, with a debt beta) this chain opens the valuation exercise. Every later number depends on it. At the end of the ladder you can run the whole chain to four decimals with debt betas on both sides. You will also know the slips that cost the most points.</p>`,
+  intro: `<p>Every FIE402 paper since 2015 has asked you to find a cost of capital you cannot observe directly. You take the business risk of a listed twin, strip out the twin's financing, put your own financing back on and build the WACC. In H2024 Exercise 5 (a twin) and H2025 Exercise 4 (your own firm, with a debt beta) this chain opens the valuation exercise. Every later number depends on it. At the end of the ladder you can run the whole chain to four decimals with debt betas on both sides. You will also know the slips that cost the most points. Two steps follow Kurbatov's 2026 lectures: net debt in the weights and an average over several twins.</p>`,
   steps: [
     {
       id: "tvilling-1",
@@ -53,7 +53,7 @@ window.EDU_DATA.sjangre.push({
       theory: `<p>A firm is a portfolio of its equity and its debt, so its asset beta β<sub>U</sub> is the value-weighted average of the two. β<sub>U</sub> measures the risk of the business alone, so two firms in the same business share it even when their leverage differs. That is why you can lift it from a twin. When the debt is risk-free, β<sub>D</sub> = 0 and only the equity term survives.</p>
 <div class="formula"><div class="eq">β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub></div>
 <div class="eq">β<sub>U</sub> = (E/V)β<sub>E</sub> &nbsp;when β<sub>D</sub> = 0</div>
-<div class="where">This course weights without taxes: the firm keeps a target D/E, so the tax shield carries the same risk as the assets. Never use the textbook version with (1 − τ<sub>c</sub>). With risk-free debt, β<sub>U</sub> is always below β<sub>E</sub>.</div></div>`,
+<div class="where">This course weights without taxes: the firm keeps a target D/E, so the tax shield carries the same risk as the assets. Do not use the textbook version with (1 − τ<sub>c</sub>) here. It belongs to a fixed, permanent amount of debt, where the shield is as safe as the debt (the valuation ladder has a step on it). With risk-free debt, β<sub>U</sub> is always below β<sub>E</sub>.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>A twin has equity worth 900 and risk-free debt worth 300. β<sub>E</sub> = 1.20.</p><p>E/V = 900/1 200 = 0.75. β<sub>U</sub> = 0.75 × 1.20 + 0.25 × 0 = 0.90.</p></div>`,
       q: `<p>A listed twin keeps a constant debt-to-equity ratio of 0.60. Its debt is risk-free and its equity beta is 1.60. The corporate tax rate is 25%. Using the course convention, what is the twin's unlevered beta?</p>`,
       options: ["2.56", "1.10", "1.00", "0.64"],
@@ -105,6 +105,26 @@ window.EDU_DATA.sjangre.push({
         "Used D/E as the debt weight: 0.75 × 11% + 0.25 × 4.5% = 8.25% + 1.125% = 9.3750%.",
         null,
         "Treated the debt as risk-free and weighted r<sub>f</sub> in place of r<sub>D</sub>: 0.80 × 11% + 0.20 × 3% = 8.80% + 0.60% = 9.4000%.",
+      ],
+    },
+    {
+      id: "tvilling-16",
+      title: "Several twins: average their unlevered cost of capital",
+      theory: `<p>One twin gives a noisy estimate. Kurbatov (lecture 8) takes several comparable firms, turns each into r<sub>U</sub> with its own weights and averages the results. Average r<sub>U</sub> or β<sub>U</sub>, never r<sub>E</sub>: each twin's r<sub>E</sub> carries its own leverage. Twins that are closer to your firm in size and Tobin's Q deserve more weight. On the board he weighted each twin by one over its distance to your firm, or by one over the squared distance, which tilts the weights even more toward the closest twin.</p>
+<div class="formula"><div class="eq">r<sub>U,i</sub> = (E/V)<sub>i</sub> r<sub>E,i</sub> + (D/V)<sub>i</sub> r<sub>D,i</sub></div>
+<div class="eq">r<sub>U</sub> = Σ w<sub>i</sub> r<sub>U,i</sub> &nbsp;·&nbsp; w<sub>i</sub> = (1/dist<sub>i</sub>)/Σ<sub>j</sub>(1/dist<sub>j</sub>)</div>
+<div class="where">Equal weights are the special case where all twins are equally close. Convert each twin's D/E to D/V before you weight its returns. The weights sum to one.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: lecture 8</span><p>Comparable 1: r<sub>E</sub> = 12%, r<sub>D</sub> = 6%, D/V = 40%, so r<sub>U</sub> = 0.60 × 12% + 0.40 × 6% = 7.2% + 2.4% = 9.6%.</p><p>Comparable 2: r<sub>E</sub> = 10.7%, r<sub>D</sub> = 5.5%, D/V = 25%, so r<sub>U</sub> = 0.75 × 10.7% + 0.25 × 5.5% = 8.025% + 1.375% = 9.4%.</p><p>Equal weights give 9.5%. If comparable 1 were twice as close, the weights would be 2/3 and 1/3: (2/3)(9.6%) + (1/3)(9.4%) = 9.5333%.</p></div>`,
+      q: `<p>You have two listed twins, both with constant leverage. Twin A has a cost of equity of 10%, an expected return on its debt of 4.5% and a debt-to-equity ratio of 0.25. Twin B has a cost of equity of 11.5%, an expected return on its debt of 5% and a debt-to-value ratio of 0.30. Measured on size and Tobin's Q, A lies at distance 2 from your firm and B at distance 6. You weight each twin by 1/distance. What unlevered cost of capital do you use, to four decimals?</p>`,
+      options: ["9.2250%", "10.3750%", "9.3875%", "9.0625%"],
+      answer: 3,
+      solution: `<p><b>Twin A.</b> D/V = 0.25/1.25 = 0.20. r<sub>U,A</sub> = 0.80 × 10% + 0.20 × 4.5% = 8.00% + 0.90% = 8.90%.</p><p><b>Twin B.</b> r<sub>U,B</sub> = 0.70 × 11.5% + 0.30 × 5% = 8.05% + 1.50% = 9.55%.</p><p><b>Weights.</b> 1/2 + 1/6 = 2/3, so w<sub>A</sub> = 0.5/(2/3) = 0.75 and w<sub>B</sub> = 0.25.</p><p>r<sub>U</sub> = 0.75 × 8.90% + 0.25 × 9.55% = 6.675% + 2.3875% = <b>9.0625%</b>.</p>`,
+      check: `<p>The average must lie between the two twins and nearer the closer one, A. Measure the gaps: 9.0625% − 8.90% = 0.1625 points and 9.55% − 9.0625% = 0.4875 points. The ratio is 1 to 3, the inverse of the 3 to 1 weights ✓. The gap ratio holds for any weighted average, so this check confirms the arithmetic and the direction of the weights, not the twins' own r<sub>U</sub>. It fails on reversed weights, which put the average nearer B.</p>`,
+      traps: [
+        "Gave the twins equal weights although A is three times closer: (8.90% + 9.55%)/2 = 9.2250%.",
+        "Averaged the twins' costs of equity instead of their r<sub>U</sub>: 0.75 × 10% + 0.25 × 11.5% = 10.3750%. Each r<sub>E</sub> still carries its twin's leverage.",
+        "Weighted by distance instead of 1/distance, which favours the far twin: 0.25 × 8.90% + 0.75 × 9.55% = 9.3875%.",
+        null,
       ],
     },
     {
@@ -188,6 +208,26 @@ window.EDU_DATA.sjangre.push({
         null,
         "Forgot to add the risk-free rate: 1.20 × 5% = 6.0000%.",
         "Took the equity beta as the business beta and ignored the cash: 3% + 0.90 × 5% = 7.5000%.",
+      ],
+    },
+    {
+      id: "tvilling-15",
+      title: "Net debt: take the excess cash off the debt",
+      theory: `<p>Kurbatov weights with <b>net debt</b>: debt minus the cash the firm does not need to run its business. Excess cash is a risk-free asset with a beta of zero, so it cancels an equal amount of risk-free debt. Only excess cash comes off. Cash the operations need stays part of the business. Then unlever on V = E + D<sub>net</sub> as usual.</p>
+<div class="formula"><div class="eq">D<sub>net</sub> = D − (cash − operating cash) &nbsp;·&nbsp; V = E + D<sub>net</sub></div>
+<div class="eq">β<sub>U</sub> = [E/(E + D<sub>net</sub>)]β<sub>E</sub> + [D<sub>net</sub>/(E + D<sub>net</sub>)]β<sub>D</sub></div>
+<div class="where">With risk-free debt the second term is zero. The same net weights go into the WACC: lecture 7 uses D = 320 − 20 = 300. PS2 Exercise 7 makes the rule explicit: only the excess cash comes off, never the cash the operations need. Leaving excess cash inside D overstates leverage and understates β<sub>U</sub>.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: PS2 Exercise 7</span><p>H&amp;M has 12 million shares at 100, so E = 1 200. Its debt of 400 has β<sub>D</sub> = 0. It holds 150 of cash and needs 50 of it to operate.</p><p>D<sub>net</sub> = 400 − (150 − 50) = 300 and V = 1 500. β<sub>U</sub> = (1 200/1 500) × 1.25 = 1.00, so r<sub>U</sub> = 4% + 1.00 × 6% = 10%.</p></div>`,
+      q: `<p>A listed twin has 15 million shares trading at NOK 80 and debt worth NOK 500 million. Its debt is risk-free. It holds NOK 200 million of cash, of which NOK 50 million is needed to run its operations. Its equity beta is 1.24. The risk-free rate is 3% and the market risk premium is 6%. Using net debt, what is the twin's unlevered cost of capital, to four decimals?</p>`,
+      options: ["8.7600%", "8.2518%", "8.9520%", "7.8259%"],
+      answer: 0,
+      solution: `<p>E = 15 million × NOK 80 = NOK 1 200 million.</p><p>Excess cash = 200 − 50 = 150, so D<sub>net</sub> = 500 − 150 = 350 and V = 1 200 + 350 = 1 550.</p><p>β<sub>U</sub> = (1 200/1 550) × 1.24 + (350/1 550) × 0 = 0.9600.</p><p>r<sub>U</sub> = 3% + 0.96 × 6% = 3% + 5.76% = <b>8.7600%</b>.</p>`,
+      check: `<p>Relever with the net weights: β<sub>U</sub>(1 + D<sub>net</sub>/E) = 0.96 × (1 + 350/1 200) = 0.96 × 1.291667 = 1.24, the beta you were given. That only confirms the arithmetic. The bounds are the real test: netting none of the cash gives β<sub>U</sub> = 0.8753 and netting all of it gives 0.9920, so the answer must lie between them. 0.9600 does.</p>`,
+      traps: [
+        null,
+        "Left all the cash in the firm and used gross debt: β<sub>U</sub> = (1 200/1 700) × 1.24 = 0.875294, so r<sub>U</sub> = 3% + 0.875294 × 6% = 8.2518%.",
+        "Netted all the cash, also the 50 the operations need: D<sub>net</sub> = 300, β<sub>U</sub> = (1 200/1 500) × 1.24 = 0.9920 and r<sub>U</sub> = 8.9520%.",
+        "Added the excess cash to the debt instead of subtracting it: β<sub>U</sub> = (1 200/1 850) × 1.24 = 0.804324, so r<sub>U</sub> = 7.8259%.",
       ],
     },
     {

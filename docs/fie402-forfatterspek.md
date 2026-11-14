@@ -155,12 +155,22 @@ reader should take from it.</figcaption>
 Use **`−`** (U+2212 minus) in mathematics, not a hyphen. Use `×` for multiplication.
 Decimal point, not comma: `0.35`, not `0,35`. Percentages as `6%`.
 
-Course conventions that differ between textbooks — this course uses:
-- **βU weighted without taxes**: β<sub>U</sub> = [E/(E+D)]β<sub>E</sub> + [D/(E+D)]β<sub>D</sub>
-  (target-leverage / rebalancing assumption). Never the (1−τ) version.
-- Pre-tax WACC = r<sub>U</sub>.
+Course conventions that differ between textbooks. This course uses:
+- **βU weighted without taxes as the default**: β<sub>U</sub> = [E/(E+D)]β<sub>E</sub> + [D/(E+D)]β<sub>D</sub>
+  (target-leverage / rebalancing assumption, the formula-sheet version).
+- **With fixed permanent debt, D(1 − τ<sub>c</sub>) goes in the weights** (for another fixed schedule
+  use D − PV(TS), k4):
+  r<sub>U</sub> = [E/(E + D(1−τ<sub>c</sub>))]r<sub>E</sub> + [D(1−τ<sub>c</sub>)/(E + D(1−τ<sub>c</sub>))]r<sub>D</sub>,
+  and the same weights for β<sub>U</sub> (Kurbatov, `lecture_8.pdf` slide 18; BDM p. 708). Equivalently
+  r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>). Use it only when the
+  question says the amount of debt is fixed and permanent. Say so.
+- Pre-tax WACC = r<sub>U</sub> under constant D/V. It does not hold under fixed debt.
 - Tax shield discounted at **r<sub>U</sub>** under constant D/E, at **r<sub>D</sub>** (or r<sub>f</sub>)
-  under fixed permanent debt. Say which assumption you are using, every time.
+  under fixed permanent debt. Say which assumption you are using.
+- **Fixed permanent debt without growth keeps D/V constant**, so the WACC method still works:
+  r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>·D/V<sup>L</sup>), solved together with V<sup>L</sup> = FCF/r<sub>wacc</sub>
+  (PS2 E9, BDM eq. 18.21) and agrees with APV, V<sup>L</sup> = V<sup>U</sup> + τ<sub>c</sub>D. Fixed debt
+  in a growing firm lets D/V drift, and then only APV works.
 
 ## 5. Length and shape per chapter
 
@@ -318,8 +328,10 @@ instead.
 is the autumn 2017 paper, and its question 6 is a twin-firm relevering with a
 debt beta of 0.4. The rule for authors stands. A reviewer, though, checks the
 PDFs before calling a citation fabricated, because the course plan is a map, not
-the source. Note that `2024 - S.pdf` is the spring 2024 paper, while
-`2025 - S.pdf` is the key to autumn 2025.
+the source. Note that `2024V - S.pdf` is the spring 2024 paper, while
+`2024 - S.pdf` and `2025 - S.pdf` are Kurbatov's keys to autumn 2024 and 2025
+(the autumn 2024 key arrived on 14 November 2026; before that, the spring paper
+sat under the name `2024 - S.pdf`).
 
 ## 9.7 Claims that overreach
 

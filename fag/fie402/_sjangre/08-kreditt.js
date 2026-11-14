@@ -89,6 +89,69 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "kreditt-18",
+      title: "In words: why debt is risk-free debt minus a written put",
+      theory: `<p>Kurbatov in the wrap-up: this could be on the exam, with the question "explain why". A full answer has three moves. Payoff: the creditors are owed F but receive min(V<sub>T</sub>, F) = F − max(F − V<sub>T</sub>, 0). Option: the second term is the payoff of a put on the firm's assets struck at F. Limited liability gives the shareholders that put, the right to hand over the assets instead of paying F, the option to default. Who holds it: the creditors have written it, so they hold a risk-free claim on F minus the put. If the shareholders had unlimited liability, the put would vanish and the debt would be risk-free (lecture 10).</p>
+<div class="formula"><div class="eq">min(V<sub>T</sub>, F) = F − max(F − V<sub>T</sub>, 0) &nbsp;⟹&nbsp; D = PV(F) − Put</div>
+<div class="where">A CDS is that same put bought back: D + Put = PV(F), the risk-free bond. Put-call parity turns it into the other reading, D = V − Call.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>F = 100 and the assets will be worth 140 or 60. The creditors get 100 = 100 − 0 or 60 = 100 − 40. The 40 is exactly what a put on the assets struck at 100 pays in the bad state. The creditors are the ones who pay it, through the shortfall.</p></div>`,
+      q: `<p>An exam question asks: "Explain why corporate debt can be seen as risk-free debt minus a put option." Which answer earns full marks?</p>`,
+      options: [
+        "The creditors own a put on the firm's assets that pays them if V falls below F. Like any insurance it costs them a premium up front, which is why the put is subtracted from the risk-free value: D = PV(F) − Put.",
+        "Creditors get min(V, F) = F − max(F − V, 0). That max is a put on the assets struck at F, the shareholders' right to default under limited liability. The creditors have written it: D = PV(F) − Put.",
+        "Debt is a call on the firm's assets struck at F: the creditors collect more as V rises, up to F. By put-call parity that call equals risk-free debt minus a put with the same strike, which gives D = PV(F) − Put.",
+        "The firm may repay early when interest rates fall, a right the creditors have sold to it at issue. That right works like a put on the bond, so the debt is worth PV(F), the risk-free value, minus the put.",
+      ],
+      answer: 1,
+      solution: `<p>The winning answer makes all three moves: it rewrites the payoff, names the put and its strike, says where the put comes from (limited liability, the right to default) and who is short it (the creditors). That is the argument of lecture 10: <b>D = PV(F) − Put</b>.</p>`,
+      check: `<p>Run the answer through the two extremes. If V<sub>T</sub> is far above F the put is worthless and the debt pays F: risk-free ✓ If V<sub>T</sub> = 0 the put pays F and the debt pays F − F = 0 ✓ An answer in which the creditors own the put fails this test: their payoff would rise as V falls.</p>`,
+      traps: [
+        "Got the holder backwards. If the creditors owned the put they would be insured: debt plus that put is the risk-free bond, D + Put = PV(F). The put belongs to the shareholders.",
+        null,
+        "Equity, not debt, is the call on the assets struck at F. Parity gives Call = Put + V − PV(F), so debt is V − Call, which is the same as PV(F) − Put.",
+        "Mixes up a callable bond with default risk. The put in risky debt is the shareholders' right to default under limited liability, not a right to repay early.",
+      ],
+    },
+    {
+      id: "kreditt-15",
+      title: "The value and yield of debt from a quoted call",
+      theory: `<p>Equity is a call on the firm's assets struck at the face value of the debt. So if calls on the firm's shares trade with the right strike and expiry, the market has already priced the equity. Kurbatov's Google exercise (lecture 10, Problem Set 3): divide the face value by the number of shares to get the strike per share, take the call price as the midpoint of bid and ask, multiply by the number of shares. Debt is the rest of the firm. Then annualise the yield with T in years, also when T is not a whole number.</p>
+<div class="formula"><div class="eq">strike per share = F/N &nbsp;&nbsp; E = N × (bid + ask)/2 &nbsp;&nbsp; D = V − E</div>
+<div class="eq">y = (F/D)<sup>1/T</sup> − 1</div>
+<div class="where">N is the number of shares and V the firm's total value, unchanged by the debt under perfect markets. For 18 months T = 18/12 and the exponent is 12/18. The firm has no debt today, so options on its shares are options on V.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example (lecture 10, Google)</span><p>320 million shares, V = 135 billion, a zero-coupon issue of 128 billion due in 18 months: 128/0.32 = 400 per share. The call with strike 400 has a midpoint of 86.05, so E = 0.32 × 86.05 = 27.536 billion and D = 135 − 27.536 = 107.464.</p><p>y = (128/107.464)<sup>12/18</sup> − 1 = 12.37%, a spread of 11.37% over r<sub>f</sub> = 1%.</p></div>`,
+      q: `<p>Kystnett ASA has 250 million shares, a total value of 60 billion NOK and no debt. Markets are perfect. It considers issuing a zero-coupon bond with face value 40 billion, due in 15 months, then paying the proceeds out. Calls on its shares with strike 160 NOK and 15 months to expiry are quoted at bid 91.60 and ask 92.40. What annual yield would the bond pay?</p>`,
+      options: ["6.4355%", "8.1081%", "10.2358%", "6.6662%"],
+      answer: 0,
+      solution: `<p>Strike per share: 40/0.25 = 160, the quoted strike. Midpoint: (91.60 + 92.40)/2 = 92.00.</p><p>E = 0.25 × 92.00 = 23.00 billion, so D = 60 − 23 = 37.00 billion.</p><p>y = (40/37)<sup>12/15</sup> − 1 = 1.081081<sup>0.8</sup> − 1 = <b>6.4355%</b> a year.</p>`,
+      check: `<p>Grow the debt back: 37 × 1.064355<sup>1.25</sup> = 40.00 ✓ The annual yield must lie below the 15-month total, 40/37 − 1 = 8.11%, because the bond runs longer than a year. It does.</p>`,
+      traps: [
+        null,
+        "Did not annualise: 40/37 − 1 = 8.1081% is the return over 15 months.",
+        "Turned the exponent upside down: (40/37)<sup>15/12</sup> − 1 = 10.2358%.",
+        "Used the ask instead of the midpoint: E = 0.25 × 92.40 = 23.10, D = 36.90 and (40/36.9)<sup>0.8</sup> − 1 = 6.6662%.",
+      ],
+    },
+    {
+      id: "kreditt-16",
+      title: "Senior and junior debt from two calls",
+      theory: `<p>With two layers of debt, value them one layer at a time (lecture 10). First pretend only the senior debt exists: equity would be the call struck at K<sub>S</sub>, so the senior debt is the rest. With both layers, equity is the call struck at K<sub>S</sub> + K<sub>J</sub>. The junior debt is what is left between them: a call spread that receives everything between K<sub>S</sub> and K<sub>S</sub> + K<sub>J</sub>. Its yield is above the yield on all the debt taken together. The senior yield is below it.</p>
+<div class="formula"><div class="eq">D<sub>S</sub> = V − C(K<sub>S</sub>) &nbsp;&nbsp; E = C(K<sub>S</sub> + K<sub>J</sub>) &nbsp;&nbsp; D<sub>J</sub> = V − D<sub>S</sub> − E = C(K<sub>S</sub>) − C(K<sub>S</sub> + K<sub>J</sub>)</div>
+<div class="where">C(K) is N times the call price per share with strike K/N. Yields as before: y = (F/D)<sup>1/T</sup> − 1 for each layer.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example (lecture 10, Google)</span><p>Senior 96 billion (300 per share): call 149.15, so 0.32 × 149.15 = 47.728 and D<sub>S</sub> = 135 − 47.728 = 87.272, y<sub>S</sub> = (96/87.272)<sup>12/18</sup> − 1 = 6.56%.</p><p>Junior 32 billion: equity is the call with strike 400, 27.536. D<sub>J</sub> = 135 − 87.272 − 27.536 = 20.192 ≈ 20.19 and y<sub>J</sub> = (32/20.19)<sup>12/18</sup> − 1 = 35.94%. (The slide prints 34.94%, an arithmetic slip.)</p></div>`,
+      q: `<p>Kystnett ASA (250 million shares, total value 60 billion NOK, no debt today, perfect markets) instead considers two zero-coupon bonds, both due in 15 months: senior debt with face value 30 billion and junior debt with face value 10 billion. Calls on its shares with 15 months to expiry have midpoints of 128.00 for strike 120 and 92.00 for strike 160. What annual yield would the junior bond pay?</p>`,
+      options: ["6.4355%", "33.0214%", "8.7943%", "11.1111%"],
+      answer: 2,
+      solution: `<p><b>Senior.</b> Strike 30/0.25 = 120: equity if only senior debt existed is 0.25 × 128 = 32, so D<sub>S</sub> = 60 − 32 = 28.</p><p><b>Equity.</b> Strike (30 + 10)/0.25 = 160: E = 0.25 × 92 = 23.</p><p><b>Junior.</b> D<sub>J</sub> = 60 − 28 − 23 = 9 = 0.25 × (128 − 92). y<sub>J</sub> = (10/9)<sup>12/15</sup> − 1 = <b>8.7943%</b>.</p>`,
+      check: `<p>The senior yield is (30/28)<sup>0.8</sup> − 1 = 5.6746% and the yield on all 40 billion together is 6.4355%. The junior yield must be the highest of the three: 5.6746% &lt; 6.4355% &lt; 8.7943% ✓ The two layers also sum to the debt of a single bond with the same total face value, 28 + 9 = 37 ✓, but that is an identity (both routes are V minus the call struck at 160) and only confirms the arithmetic.</p>`,
+      traps: [
+        "Gave the yield on all the debt together: (40/37)<sup>0.8</sup> − 1 = 6.4355%. Splitting the debt moves risk onto the junior layer.",
+        "Valued the senior debt at its face value of 30: D<sub>J</sub> = 37 − 30 = 7 and (10/7)<sup>0.8</sup> − 1 = 33.0214%. The senior debt is risky too and is worth only 28.",
+        null,
+        "Did not annualise: 10/9 − 1 = 11.1111% is the return over 15 months.",
+      ],
+    },
+    {
       id: "kreditt-6",
       title: "Valuing debt and equity in a one-period tree",
       theory: `<p>To value the claims you need prices, not expected payoffs. In a one-period tree the firm's assets move from V<sub>0</sub> to V<sub>u</sub> or V<sub>d</sub>. The risk-neutral probability ρ is the up probability under which the assets earn exactly r<sub>f</sub>. Under ρ every claim on the assets also earns r<sub>f</sub>: take its payoff in each state, weight by ρ and 1 − ρ and discount at r<sub>f</sub>. The real probabilities never enter, because the asset price V<sub>0</sub> already contains them.</p>
@@ -127,22 +190,22 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "kreditt-9",
-      title: "The beta of equity as a call: N(d1) times V/E",
-      theory: `<p>Equity is a call on the assets, so it moves with them by the option's delta: how much E changes when V changes by 1. In a tree the delta is Δ = (E<sub>u</sub> − E<sub>d</sub>)/(V<sub>u</sub> − V<sub>d</sub>); in Black-Scholes it is N(d<sub>1</sub>). A 1% move in V moves E by Δ·V/E per cent, so beta scales the same way. An exam that wants numbers must hand you N(d<sub>1</sub>) and N(d<sub>2</sub>), since the formula sheet has no N(d) table. Neither formula below is on the sheet.</p>
-<div class="formula"><div class="eq">E = V·N(d<sub>1</sub>) − PV(F)·N(d<sub>2</sub>)</div><div class="eq">β<sub>E</sub> = N(d<sub>1</sub>)·(V/E)·β<sub>U</sub> &nbsp;·&nbsp; β<sub>D</sub> = [1 − N(d<sub>1</sub>)]·(V/D)·β<sub>U</sub></div>
-<div class="where">The first line is Black-Scholes applied to the firm's assets, with the face value as strike. β<sub>U</sub> is the beta of the assets. In a tree, replace N(d<sub>1</sub>) by Δ. Weighting the two betas by E/V and D/V returns β<sub>U</sub>, but that is an identity: it holds for any N(d<sub>1</sub>).</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>V = 800, PV(F) = 500, N(d<sub>1</sub>) = 0.8830, N(d<sub>2</sub>) = 0.7549, β<sub>U</sub> = 1.0.</p><p>E = 800 × 0.8830 − 500 × 0.7549 = 706.40 − 377.45 = 328.95. V/E = 800/328.95 = 2.431981.</p><p>β<sub>E</sub> = 0.8830 × 2.4320 × 1.0 = 2.1474.</p></div>`,
-      q: `<p>A firm's assets are worth 900 and have a beta of 1.2. Its only debt is a zero-coupon bond whose face value has a present value of 600 at the risk-free rate. Black-Scholes on the assets gives N(d<sub>1</sub>) = 0.8556 and N(d<sub>2</sub>) = 0.7126. What is the equity beta?</p>`,
-      options: ["3.1535", "2.6981", "2.2472", "3.0802"],
-      answer: 1,
-      solution: `<p>E = 900 × 0.8556 − 600 × 0.7126 = 770.04 − 427.56 = 342.48.</p><p>V/E = 900/342.48 = 2.6279.</p><p>β<sub>E</sub> = 0.8556 × 2.6279 × 1.2 = <b>2.6981</b>.</p>`,
-      check: `<p>D = 900 − 342.48 = 557.52 and β<sub>D</sub> = 0.1444 × (900/557.52) × 1.2 = 0.2797. Weighted: (342.48/900)(2.6981) + (557.52/900)(0.2797) = 1.0267 + 0.1733 = 1.2000 = β<sub>U</sub>, an arithmetic check only. The bound that can fail: β<sub>E</sub> must lie below (V/E)β<sub>U</sub> = 3.1535, the value if the debt were riskless, because risky debt carries part of the asset risk.</p>`,
+      id: "kreditt-19",
+      title: "The beta of equity as a call: Δ times V/E in a tree",
+      theory: `<p>Equity is a call on the assets, so it moves with them by the option's delta Δ<sub>E</sub>: how much E changes when V changes by 1. In a one-period tree Δ<sub>E</sub> = (E<sub>u</sub> − E<sub>d</sub>)/(V<sub>u</sub> − V<sub>d</sub>), the same Δ as in replication. A 1% move in V moves E by Δ<sub>E</sub>·V/E per cent, so the equity beta scales the same way. Kurbatov has said the Black-Scholes calculation with N(d<sub>1</sub>) and N(d<sub>2</sub>) will not be on the exam, so work in the tree; in Black-Scholes N(d<sub>1</sub>) plays the role of Δ<sub>E</sub>.</p>
+<div class="formula"><div class="eq">Δ<sub>E</sub> = (E<sub>u</sub> − E<sub>d</sub>)/(V<sub>u</sub> − V<sub>d</sub>) &nbsp;·&nbsp; β<sub>E</sub> = Δ<sub>E</sub>·(V/E)·β<sub>U</sub></div>
+<div class="where">E is the equity's value today from the tree, V = V<sub>0</sub> and β<sub>U</sub> the beta of the assets. Δ<sub>E</sub> is below 1 when the debt is risky, so β<sub>E</sub> stays below (V/E)β<sub>U</sub>, the value with riskless debt.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>V<sub>0</sub> = 100, V<sub>u</sub> = 125, V<sub>d</sub> = 85, r<sub>f</sub> = 5%, F = 95, β<sub>U</sub> = 1.0. ρ = 20/40 = 0.50 and E = 0.5 × 30/1.05 = 14.2857.</p><p>Δ<sub>E</sub> = (30 − 0)/(125 − 85) = 0.75. β<sub>E</sub> = 0.75 × (100/14.2857) × 1.0 = 5.25.</p></div>`,
+      q: `<p>A firm's assets are worth 500 today and will be worth 700 or 350 in one year. Their beta is 1.1 and the risk-free rate is 4%. The firm's only debt is a one-year zero-coupon bond with face value 400. What is the equity beta, to four decimals?</p>`,
+      options: ["3.9255", "1.9067", "1.3099", "3.3647"],
+      answer: 3,
+      solution: `<p><b>ρ.</b> (1.04 × 500 − 350)/(700 − 350) = 170/350 = 0.485714.</p><p><b>E.</b> Equity pays 300 or 0, so E = 0.485714 × 300/1.04 = 140.1099.</p><p><b>Δ<sub>E</sub>.</b> (300 − 0)/(700 − 350) = 0.857143.</p><p><b>β<sub>E</sub></b> = 0.857143 × (500/140.1099) × 1.1 = 0.857143 × 3.568627 × 1.1 = <b>3.3647</b>.</p>`,
+      check: `<p>The bound that can fail: with riskless debt β<sub>E</sub> would be (V/E)β<sub>U</sub> = 3.9255; risky debt carries part of the asset risk, so β<sub>E</sub> must lie below that and above β<sub>U</sub> = 1.1. It does ✓ The debt's beta, (1 − 0.857143) × (500/359.8901) × 1.1 = 0.2183, weights back to β<sub>U</sub>: 0.280220 × 3.3647 + 0.719780 × 0.2183 = 1.1000. That last one is an identity and only confirms the arithmetic.</p>`,
       traps: [
-        "Left out N(d<sub>1</sub>): (900/342.48) × 1.2 = 3.1535. That is linear relevering with a zero debt beta.",
+        "Left out Δ<sub>E</sub>: (500/140.1099) × 1.1 = 3.9255. That is relevering as if the debt were riskless.",
+        "Used ρ as the delta: 0.485714 × 3.568627 × 1.1 = 1.9067. ρ prices the claims; Δ measures how they move with V.",
+        "Used V/D instead of V/E: 0.857143 × (500/359.8901) × 1.1 = 1.3099.",
         null,
-        "Used N(d<sub>2</sub>) where N(d<sub>1</sub>) belongs: 0.7126 × 2.6279 × 1.2 = 2.2472. N(d<sub>2</sub>) is a probability, not the delta.",
-        "Valued equity as V − PV(F) = 300, as if the debt were risk-free: 0.8556 × (900/300) × 1.2 = 3.0802.",
       ],
     },
     {
@@ -165,11 +228,30 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "kreditt-17",
+      title: "Coinsurance in yields: why the merged firm borrows cheaper",
+      theory: `<p>Kurbatov's version of coinsurance asks three questions (lecture 12). Why does a joint bond yield less than two separate ones? Because in a state where one firm falls short, the other's surplus covers the gap. When is the joint firm less risky? When the two firms' bad states do not coincide; if both are low in the same state, nothing is covered. Who pays for the lower yield? With no synergies total value is fixed, so the shareholders: the debt is worth more and the equity less (consistency check 4).</p>
+<div class="formula"><div class="eq">D<sub>merged</sub> = E[min(V<sub>A</sub> + V<sub>B</sub>, F<sub>A</sub> + F<sub>B</sub>)] &nbsp;&nbsp; y = F/D − 1</div>
+<div class="where">One-period zero-coupon debt, risk-neutral investors and r<sub>f</sub> = 0, as in the lecture, so each claim is worth its expected payoff. Add the assets state by state before you apply the min.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example (lecture 12)</span><p>Two equally likely states. A is worth 80 or 20 and owes 30; B is worth 10 or 40 and owes 15. Apart: A's debt pays 30 or 20, worth 25, yield 30/25 − 1 = 20%; B's pays 10 or 15, worth 12.5, yield 20%. Equity 25 + 12.5 = 37.5.</p><p>Merged: 90 or 60 against 45, so the debt is risk-free: 45, yield 0%. Equity pays 45 or 15, worth 30. Debt 37.5 → 45, equity 37.5 → 30.</p></div>`,
+      q: `<p>Two equally likely states, risk-neutral investors, r<sub>f</sub> = 0. Firm A will be worth 90 or 20 and owes 50. Firm B will be worth 10 or 60 and owes 40. Both debts are one-year zero-coupon bonds. The firms merge with no synergies. The merged firm owes 90 at the same date. What promised yield does the merged firm's debt carry?</p>`,
+      options: ["5.8824%", "51.4286%", "50.0000%", "0.0000%"],
+      answer: 0,
+      solution: `<p>Add first: the merged assets are worth 90 + 10 = 100 in state 1 and 20 + 60 = 80 in state 2, against F = 90.</p><p>The debt pays 90 and 80, so D = 0.5 × 90 + 0.5 × 80 = 85.</p><p>y = 90/85 − 1 = <b>5.8824%</b>.</p>`,
+      check: `<p>Apart: A's debt pays 50 or 20, worth 35, yield 42.8571%; B's pays 10 or 40, worth 25, yield 60%. The creditors gain 85 − 60 = 25. Equity apart is 20 + 10 = 30 and merged 0.5 × 10 = 5, a loss of 25 ✓ (check 4). The merged debt is still risky, since 80 &lt; 90 in state 2, so its yield stays above r<sub>f</sub> = 0.</p>`,
+      traps: [
+        null,
+        "Averaged the two stand-alone yields: (42.8571% + 60%)/2 = 51.4286%. That ignores the coinsurance.",
+        "Priced the two bonds apart and pooled them: 90/(35 + 25) − 1 = 50.0000%. That is the combined yield without the merger.",
+        "Averaged the merged assets first: min(90, 90) = 90, so the debt looks risk-free. It falls short by 10 in state 2.",
+      ],
+    },
+    {
       id: "kreditt-12",
       title: "Exam level: a debt-financed payout priced as options (2015 P4, 2022 P4)",
       theory: `<p>2015 Problem 4 (90 points) ran this chain on one firm: an all-equity firm issues zero-coupon debt and pays the proceeds out as a special dividend. Value the equity and the debt, then the yield and the credit spread, then the betas of both claims after the payout. 2022 Problem 4 (48 points) asked for the first links in a binomial tree. In a tree the delta Δ plays the role of N(d<sub>1</sub>). Close with D + E = V, which is MM I: the shareholder holds the dividend plus the levered shares.</p>
 <div class="formula"><div class="eq">ρ → E, D → y = F/D − 1 → Δ<sub>E</sub> = (E<sub>u</sub> − E<sub>d</sub>)/(V<sub>u</sub> − V<sub>d</sub>) → β<sub>E</sub> = Δ<sub>E</sub>(V/E)β<sub>U</sub> &nbsp;·&nbsp; β<sub>D</sub> = (1 − Δ<sub>E</sub>)(V/D)β<sub>U</sub></div>
-<div class="where">The debt's own delta is Δ<sub>D</sub> = (D<sub>u</sub> − D<sub>d</sub>)/(V<sub>u</sub> − V<sub>d</sub>) = 1 − Δ<sub>E</sub>. The beta of the all-equity firm before the payout is β<sub>U</sub>. With Black-Scholes the exam hands you N(d<sub>1</sub>) and N(d<sub>2</sub>) and the chain is the same.</div></div>`,
+<div class="where">The debt's own delta is Δ<sub>D</sub> = (D<sub>u</sub> − D<sub>d</sub>)/(V<sub>u</sub> − V<sub>d</sub>) = 1 − Δ<sub>E</sub>. The beta of the all-equity firm before the payout is β<sub>U</sub>. Kurbatov will not ask for the Black-Scholes calculation, so run the chain in the tree.</div></div>`,
       example: `<div class="worked"><span class="wh">Example: the whole chain</span><p>All-equity firm worth 200, assets worth 280 or 160 next year, r<sub>f</sub> = 4%, β<sub>U</sub> = 1.0. It issues a one-year zero with F = 176 and pays out the proceeds.</p><p>ρ = (208 − 160)/120 = 0.40. Equity pays 104 or 0: E = 0.40 × 104/1.04 = 40.0000. Debt pays 176 or 160: D = (70.40 + 96.00)/1.04 = 160.0000, which is the dividend.</p><p>y = 176/160 − 1 = 10.0000% and the spread is 6.0000%.</p><p>Δ<sub>E</sub> = 104/120 = 0.866667. β<sub>E</sub> = 0.866667 × (200/40) × 1.0 = 4.3333. β<sub>D</sub> = 0.133333 × (200/160) × 1.0 = 0.1667. Weighted: 0.2 × 4.3333 + 0.8 × 0.1667 = 1.0000.</p></div>`,
       q: `<p>An all-equity firm is worth 500 today. In one year its assets will be worth 750 or 375. Its asset beta is 1.1 and the risk-free rate is 5%. Markets are perfect. The firm issues a one-year zero-coupon bond with face value 450 and pays the proceeds to its shareholders as a special dividend. What is the beta of the new debt, to four decimals?</p>`,
       options: ["0.5704", "0.2852", "1.1407", "0.9625"],

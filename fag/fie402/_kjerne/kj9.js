@@ -5,15 +5,15 @@ window.EDU_DATA.kjerne.push({
   title: "Real options",
   chapters: [25],
   html: `
-<div class="callout kort"><span class="h">In short</span>Real options are choices built into a real project: waiting before you invest, learning more before you decide or shutting down if things go badly. Standard NPV treats a project as now or never and ignores that flexibility, so it can undervalue the project. This part shows how to value each choice with a simple tree of outcomes, often with the risk-neutral pricing from kj7. A project with a positive NPV today can still be worth waiting for.</div>
+<div class="callout kort"><span class="h">In short</span>Real options are choices built into a real project: waiting, learning more before you decide, investing in stages or shutting down if things go badly. Standard NPV treats a project as now or never, so it can undervalue it. This part values each choice with a simple tree of outcomes, often with the risk-neutral pricing from kj7.</div>
 
-<p class="lead-in">Real options have been a fixed exam item since 2017, and both Kurbatov papers gave them 20 points: H2024 Exercise 6 valued a real option with risk-neutral probabilities, and H2025 Exercise 5 asked for the value of information, an exit option and an indifference point. None of it is on the formula sheet.</p>
+<p class="lead-in">Real options have been a fixed exam item since 2017 and both Kurbatov papers gave them 20 points: H2024 Exercise 6 valued a real option with risk-neutral probabilities and H2025 Exercise 5 asked for the value of information, an exit option and an indifference point. None of it is on the formula sheet.</p>
 
 <h3>The option to wait</h3>
-<p>Investing today buys the average outcome, bad states included. Waiting lets you invest only in the good states, since you can always decline: each state pays max(0, NPV). The price is a year of discounting. The option needs uncertainty, information that arrives over time, and an investment that cannot be reversed for free.</p>
+<p>Investing today buys the average outcome, bad states included. Waiting lets you invest only in the good states: each pays max(0, NPV). The price is a year of discounting.</p>
 <div class="formula"><div class="eq">option to wait = Σ<sub>i</sub> p<sub>i</sub>·max(0, NPV<sub>i</sub>)/(1 + r) − max(0, NPV<sub>now</sub>)</div>
-<div class="where">p<sub>i</sub> are real probabilities and r is the project's cost of capital. NPV<sub>i</sub> is measured at the date you would invest, so it is discounted exactly once more. The outer max(0, ·) is there because the alternative to a bad project is doing nothing, worth zero. Wait whenever the option is positive, even if NPV<sub>now</sub> &gt; 0. State the timing: the whole project, cost and cash flows, shifts by one year.</div></div>
-<div class="callout mech"><span class="h">Why a positive NPV can still mean wait</span>E[max(0, NPV<sub>i</sub>)] is never below max(0, E[NPV]): deciding state by state drops the bad states, deciding now averages them in. Waiting trades the losses avoided against the cost of delaying the good states, and wins when uncertainty is large, the bad state really bad, and no rival can take the project meanwhile. It is the convexity that makes options gain from volatility (kj7).</div>
+<div class="where">p<sub>i</sub> are real probabilities and r is the project's cost of capital, which is r<sub>f</sub> when the risk is not systematic, as in many of Kurbatov's examples. NPV<sub>i</sub> is measured at the date you would invest, so it is discounted exactly once more. The outer max(0, ·): the alternative to a bad project is doing nothing, worth zero. Wait whenever the option is positive, even if NPV<sub>now</sub> &gt; 0 and state the timing: the whole project shifts by one year.</div></div>
+<div class="callout mech"><span class="h">Why a positive NPV can still mean wait</span>E[max(0, NPV<sub>i</sub>)] is never below max(0, E[NPV]): deciding state by state drops the bad states. Waiting trades the losses avoided against the cost of delay and wins when uncertainty is large and no rival can take the project meanwhile.</div>
 
 <div class="worked"><span class="wh">Worked example: invest now or wait, then the indifference point</span>
 <p>A wind farm costs I = 1000, now or in a year. From one year after it is built it pays 150 a year forever (probability 0.50) or 70 forever (0.50); the regime is revealed in one year and is permanent. r = 10.00%.</p>
@@ -25,7 +25,7 @@ window.EDU_DATA.kjerne.push({
 </div>
 <figure>
 <svg viewBox="0 0 640 350" xmlns="http://www.w3.org/2000/svg"
-     role="img" aria-label="Decision tree for the option to wait. A square decision node branches into invest now, leading to a chance node with a plus five hundred and a minus three hundred branch averaging one hundred, and wait one year, leading to a chance node whose high branch invests for plus five hundred and whose low branch does nothing for zero, averaging two hundred and fifty at date one, or two hundred and twenty seven point two seven today."
+     role="img" aria-label="Decision tree for the option to wait. A square decision node branches two ways. Invest now leads to a chance node with a plus five hundred and a minus three hundred branch averaging one hundred. Wait one year leads to a chance node whose high branch invests for plus five hundred and whose low branch does nothing for zero, averaging two hundred and fifty at date one, or two hundred and twenty seven point two seven today."
      font-family="Georgia,serif" font-size="12.5">
   <text x="88" y="26" text-anchor="middle" fill="#555" font-size="11.5">date 0</text>
   <text x="300" y="26" text-anchor="middle" fill="#555" font-size="11.5">date 1: the price regime is revealed</text>
@@ -45,7 +45,7 @@ window.EDU_DATA.kjerne.push({
   <text x="360" y="64" fill="#555" font-size="11">high, 0.50</text>
   <text x="360" y="124" fill="#555" font-size="11">low, 0.50</text>
   <text x="478" y="62" fill="#555">NPV = +500</text>
-  <text x="478" y="132" fill="#b06000">NPV = −300, and you own it</text>
+  <text x="478" y="132" fill="#b06000">NPV = −300 and you own it</text>
   <line x1="88" y1="172" x2="270" y2="250" stroke="#6b1f2a" stroke-width="2.6"/>
   <text x="140" y="228" fill="#6b1f2a" font-weight="bold">wait one year</text>
   <circle cx="278" cy="252" r="9" fill="none" stroke="#6b1f2a" stroke-width="2"/>
@@ -66,38 +66,39 @@ window.EDU_DATA.kjerne.push({
 
 <h3>The value of information</h3>
 <div class="formula"><div class="eq">VOI = E[max(0, NPV<sub>i</sub>)] − max(0, E[NPV])</div>
-<div class="where">The informed strategy, deciding state by state, minus the uninformed one, a single decision on the average. No discounting if the information arrives now. If it arrives in a year, use E[max(0, NPV<sub>i</sub>)]/(1 + r) − max(0, E[NPV]). VOI is the most you should pay for a study, and it is zero if the information would change no decision. The benchmark is the best the firm can do without the study: if it could simply wait for the answer, subtract the value of waiting instead, and the study is worth only the cost of the delay it saves.</div></div>
-<p>In k25, three states (p = 0.30, 0.50, 0.20) have NPVs of +400, +20 and −300. E[NPV] = 70.0000, so the uninformed firm launches; E[max(0, NPV<sub>i</sub>)] = 130.0000, so VOI = 60.0000. Check: only the weak-state decision changes, saving 0.20(300) = 60.0000 ✓. Delayed a year at r = 12%: 130.0000/1.12 − 70.0000 = 46.0714.</p>
+<div class="where">No discounting if the information arrives now; if it arrives in a year, use E[max(0, NPV<sub>i</sub>)]/(1 + r) − max(0, E[NPV]). VOI is the most you should pay for a study and zero if it would change no decision. The benchmark is the best the firm can do without it: if it could simply wait for the answer, the study is worth only the cost of the delay it saves.</div></div>
+<p>In k25, three states (p = 0.30, 0.50, 0.20) have NPVs of +400, +20 and −300. E[NPV] = 70.0000, so the uninformed firm launches; E[max(0, NPV<sub>i</sub>)] = 130.0000, so VOI = 60.0000. Check: only the weak-state decision changes, saving 0.20(300) = 60.0000 ✓.</p>
 
 <h3>The exit option</h3>
-<p>A running project can often be stopped and its assets sold for a salvage value S. That right is a put on the project. In the exam form, a truncated annuity plus the salvage replaces the bad branch's perpetuity:</p>
+<p>A running project can often be stopped, its assets sold for a salvage value S: a put on the project. In the exam form a truncated annuity plus the salvage replaces the bad branch's perpetuity:</p>
 <div class="formula"><div class="eq">value at the exit date = max(PV(continuing), S)</div>
 <div class="eq">C/r → C·[1 − (1 + r)<sup>−n</sup>]/r + S/(1 + r)<sup>n</sup> for exit at date n</div>
-<div class="where">C is the yearly cash flow while operating. The option is worth something only in a branch where continuing is worth less than S. Where continuing beats S you keep operating and the option adds nothing; truncating that tail would be a cost, not an option value.</div></div>
-<p>In k25 the tight branch (probability 0.40) pays 40 a year forever. At date 1 continuing is worth 40/0.10 = 400 against a sale price of 700, so the firm sells there; the favourable branch, worth 2000, keeps operating. The option is 0.40(700 − 400)/1.10 = 109.0909.</p>
-<p><b>Risk-neutral version.</b> When no probabilities are given but you can value the underlying X at each node, take ρ = [(1 + r<sub>f</sub>)X<sub>0</sub> − X<sub>d</sub>]/(X<sub>u</sub> − X<sub>d</sub>) from it, take max(0, NPV) at each node and discount at r<sub>f</sub> (kj7). In H2024 Exercise 6 the uncertainty was next year's interest rate: the underlying is the project's stream of cash flows, an annuity C·A(r, n) with A(r, n) = [1 − (1 + r)<sup>−n</sup>]/r valued at each node's rate, and the investment cost is the strike, not part of the asset. Never pair a real probability with r<sub>f</sub>.</p>
+<div class="where">C is the cash flow per period while operating. The option is worth something only where continuing is worth less than S; elsewhere truncating the tail would be a cost, not an option value.</div></div>
+<p>Kurbatov's store (lecture 11): setup 400 000, costs 10 000 a month, revenue 16 000 or 8 000 a month (0.50 each, known at once, risk not systematic), r<sub>f</sub> = 7% a year, so (1.07)<sup>1/12</sup> − 1 = 0.5654% a month. Without exit, NPV = 2 000/0.005654 − 400 000 = −46 277: stay out. The lease can be left after two years, so the bad state becomes a 24-month annuity, −2 000 × [1 − 1.005654<sup>−24</sup>]/0.005654 − 400 000 = −444 768, against 6 000/0.005654 − 400 000 = 661 168 in the good state. NPV = 0.50(661 168) + 0.50(−444 768) = 108 200 &gt; 0: open (the slide rounds the rate to 0.565% and gets 108 588). Compare with not opening, worth 0, not with the −46 277 of a store you would never open.</p>
+<p><b>Staged financing</b> is the same logic. Taking a start-up to an IPO worth 800 costs 100 with a 10% chance: −100 + 0.10 × 800 = −20 (no discounting). Paid in stages, 10 for development (50% success) and then 90 for marketing (20% success), you stop after a failure: −10 + 0.50(−90 + 0.20 × 800) = 25. Same cost and odds; the more informative the stages, the more the right to stop is worth.</p>
+<p><b>Risk-neutral version.</b> When no probabilities are given but you can value the underlying X at each node, take ρ = [(1 + r<sub>f</sub>)X<sub>0</sub> − X<sub>d</sub>]/(X<sub>u</sub> − X<sub>d</sub>) from it, take max(0, NPV) at each node and discount at r<sub>f</sub> (kj7). X<sub>0</sub>, X<sub>u</sub> and X<sub>d</sub> must price exactly the same cash flows, with X<sub>u</sub> and X<sub>d</sub> measured at date 1 including any payment made then. In H2024 Exercise 6 the uncertainty was next year's interest rate. The option to wait delivers the ferry started at date 1, 1.5 a year in years 2 to 11, so with A(r, n) = [1 − (1 + r)<sup>−n</sup>]/r the date-1 values are X<sub>u</sub> = 1.5·A(3%, 10) = 12.7953 and X<sub>d</sub> = 1.5·A(7%, 10) = 10.5354. X<sub>0</sub> is today's price of the same stream, 1.5·A(5%, 10)/1.05 = 11.0310, not the 11.5826 of the ferry started now. That gives ρ = 0.4634, the key's answer. The key prices the same stream with an annuity of 1 for 11 years from year 1, X<sub>u</sub> = 1 + A(3%, 10); a sure payment at date 1 does not change ρ. Pairing 11.5826 with 12.7953 and 10.5354 mixes two streams and gives a wrong 0.7197. The investment cost is the strike, not part of the asset. Real probabilities go with the cost of capital, which is r<sub>f</sub> only when the risk is not systematic ("uncorrelated with the market"); real probabilities with r<sub>f</sub> for priced risk is the error.</p>
 
 <div class="callout warn"><span class="h">Errors that lose points</span>Averaging before taking the maximum, which erases the option. Discounting NPV<sub>i</sub> twice, or not at all. Forgetting that the alternative to a bad project is zero, not a negative number. Solving an indifference equation outside the interval where its branch decisions hold. Staying silent on the timing assumption.</div>
 
 <div class="callout tip husk"><span class="h">Must know</span>
 <ul><li>Option to wait = Σp<sub>i</sub>·max(0, NPV<sub>i</sub>)/(1 + r) − max(0, NPV<sub>now</sub>); a positive NPV today can still mean wait.</li>
 <li>Value of perfect information = E[max(0, NPV<sub>i</sub>)] − max(0, E[NPV]); it is zero if no decision changes.</li>
-<li>An exit option turns a perpetuity into a truncated annuity plus salvage, and has value only where continuing is worth less than the salvage.</li>
-<li>Indifference point: set the two strategies equal, solve, check the answer lies in its branch interval, and say which side does what.</li>
-<li>With no probabilities given, value the underlying at each node (often an annuity, C·[1 − (1 + r)<sup>−n</sup>]/r), take ρ from it and discount at r<sub>f</sub>; the investment is the strike. With real probabilities, discount at the cost of capital.</li></ul></div>
+<li>An exit option turns a perpetuity into a truncated annuity plus salvage and has value only where continuing is worth less than the salvage.</li>
+<li>Indifference point: set the two strategies equal, solve, check the answer lies in its branch interval and say which side does what.</li>
+<li>With no probabilities given, value the underlying at each node, today and at date 1, for the same cash flows (often an annuity, C·[1 − (1 + r)<sup>−n</sup>]/r; for the option to wait, the project started at date 1). Take ρ from it and discount at r<sub>f</sub>; the investment is the strike. With real probabilities, discount at the cost of capital: r<sub>f</sub> if the risk is not systematic, never r<sub>f</sub> for priced risk.</li></ul></div>
 `,
   checks: [
     {
       id: "kj9-s1",
-      q: "A project costs 100, today or in one year. Its cash flows are worth 170 or 50 (probability 0.50 each), measured at the date you invest, and you learn which in one year. r = 10%. What should you do, and what is the option to wait worth?",
+      q: "A project costs 100, today or in one year. Its cash flows are worth 170 or 50 (probability 0.50 each), measured at the date you invest and you learn which in one year. r = 10%. What should you do and what is the option to wait worth?",
       options: [
         "Invest now, because NPV<sub>now</sub> = 10 is positive",
-        "Wait, and the option to wait is worth 0.50(70)/1.10 = 31.8182",
+        "Wait and the option to wait is worth 0.50(70)/1.10 = 31.8182",
         "Invest now, because waiting is worth only [0.50(70) + 0.50(−50)]/1.10 = 9.0909",
         "Wait, because the option to wait is worth 31.8182 − 10 = 21.8182",
       ],
       answer: 3,
-      explanation: "NPV<sub>now</sub> = 0.50(170) + 0.50(50) − 100 = 10, but waiting lets you skip the state with NPV −50: 0.50(70)/1.10 = 31.8182 today. The option is that minus max(0, NPV<sub>now</sub>), so 21.8182, and you wait. The 9.0909 answer averages before taking the maximum and so builds in the bad state, which erases the option; the 31.8182 answer forgets that investing now is the alternative you give up.",
+      explanation: "NPV<sub>now</sub> = 0.50(170) + 0.50(50) − 100 = 10, but waiting lets you skip the state with NPV −50: 0.50(70)/1.10 = 31.8182 today. The option is that minus max(0, NPV<sub>now</sub>), so 21.8182 and you wait. The 9.0909 answer averages before taking the maximum and so builds in the bad state, which erases the option; the 31.8182 answer forgets that investing now is the alternative you give up.",
     },
     {
       id: "kj9-s2",
@@ -113,7 +114,7 @@ window.EDU_DATA.kjerne.push({
     },
     {
       id: "kj9-s3",
-      q: "In a project's weak branch the cash flow is 20 a year forever from next year, worth 200 at r = 10%, and the assets can be sold now for 150. What does the option to exit add in this branch?",
+      q: "In a project's weak branch the cash flow is 20 a year forever from next year, worth 200 at r = 10% and the assets can be sold now for 150. What does the option to exit add in this branch?",
       options: [
         "Nothing, because continuing is worth more than selling, so you keep operating",
         "50, because the tail given up by truncating the perpetuity is the option's value",
@@ -130,8 +131,8 @@ window.EDU_DATA.kjerne.push({
     topic: "Wait or build, the value of information and the indifference cost",
     points: 6,
     minutes: 10,
-    body: `<p>Sandnes Datasenter AS can build a data centre for I = 1500 (NOK million), payable at once. From one year after it is built, the centre earns 220 a year forever if a large cloud customer signs (probability 0.40), or 110 a year forever if it does not (probability 0.60). The customer decides in exactly one year, and the outcome is permanent. The cost of capital is r = 10.00%. The cost is the same if the firm waits a year, and waiting shifts the whole project by one year.</p>
-<p>(a) Compute the NPV of building today and the value today of waiting one year. Should the firm build now or wait, and what is the option to wait worth? (3 points)</p>
+    body: `<p>Sandnes Datasenter AS can build a data centre for I = 1500 (NOK million), payable at once. From one year after it is built, the centre earns 220 a year forever if a large cloud customer signs (probability 0.40), or 110 a year forever if it does not (probability 0.60). The customer decides in exactly one year and the outcome is permanent. The cost of capital is r = 10.00%. The cost is the same if the firm waits a year and waiting shifts the whole project by one year.</p>
+<p>(a) Compute the NPV of building today and the value today of waiting one year. Should the firm build now or wait and what is the option to wait worth? (3 points)</p>
 <p>(b) Suppose instead that the firm must build today or never. A consultant can tell the firm today, with certainty, whether the customer will sign. What is the most the firm should pay for this? (1 point)</p>
 <p>(c) Back in the setting of (a), at what investment cost I* would the firm be indifferent between building today and waiting? Show that your answer lies in the interval your equation assumes. (2 points)</p>`,
     solution: `<p><b>(a) Build now or wait.</b> E[cash flow] = 0.40(220) + 0.60(110) = 88 + 66 = 154, so NPV<sub>now</sub> = 154/0.10 − 1500 = 1540 − 1500 = <b>40</b>. The naive NPV rule says build.</p>

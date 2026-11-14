@@ -44,9 +44,9 @@ window.EDU_DATA.formelark = {
 <li>V<sup>L</sup> = V<sup>U</sup> + PV(TS), and the rate on the shield: r<sub>U</sub> with a constant D/E, r<sub>D</sub> with fixed permanent debt (then PV(TS) = τ<sub>c</sub>D)</li>
 <li>D<sub>t</sub> = d · V<sup>L</sup><sub>t</sub> and the debt adjustment between periods</li>
 <li>Put-call parity: C − P = S − PV(K)</li>
-<li>β<sub>E</sub> = N(d<sub>1</sub>)(V/E)β<sub>U</sub></li>
 <li>Myers-Majluf: α = I/(E[V | beliefs] + I + NPV)</li>
-<li>Real options, duration and Black-Scholes (the N(d) table was removed in 2021)</li>
+<li>Real options and duration</li>
+<li>Black-Scholes is intuition only: no N(d) calculation on the exam (Kurbatov, wrap-up lecture 2026). Know which way σ, T, r, S and K move the price, and that equity is a call on the assets</li>
 </ul>
 `,
 };

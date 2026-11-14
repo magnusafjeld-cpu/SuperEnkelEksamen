@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, oppgaver]
-oppdatert: 2026-10-22
+oppdatert: 2026-11-14
 ---
 
 # Åpne spørsmål og neste steg
@@ -84,9 +84,8 @@ dette året», FIE402 først. Se [[Moduler og visninger]].
       ~2 timer lesing og ~4 t 30 min med alle sjekker og minicaser, over de
       3 timene som var målet. Er det for mye, er minicasene det naturlige å
       korte.
-- [ ] **H2024 E6(c) i FIE402-eksamenssettet:** løsningen gir ρ = 0,7197 fra to
-      ulike kontantstrømmer; konsistente oppsett gir rundt 0,46. Undersøk mot
-      2021 P4 og rett om det holder. Se [[FIE402 Corporate Finance]].
+- [x] ~~**H2024 E6(c) i FIE402-eksamenssettet.**~~ Avgjort av Kurbatovs nøkkel
+      14. november 2026: ρ = 0,4634. Rettet. Se [[FIE402 Corporate Finance]].
 - [ ] **Quizene i SAM3, FIE402 og Caseintervju har fasiten som lengste
       alternativ** i 53–66 % av spørsmålene (fallgruve 7y). Egen oppgave.
 
@@ -139,7 +138,7 @@ overstates the shield» (retningen avhenger av hvilken vei du forskyver). Ikke r
       og separering som utelukkende områder. Si at begge kan holde.
 - [ ] **k12 Worked example 2, steg 6** sier at eksamen spør etter terskelen q\* som egen
       deloppgave. Ingen av settene i `sett.js` gjør det.
-- [ ] **H2024 E6-konvensjonen for det underliggende** (S<sub>u</sub> og S<sub>d</sub> som
+- [x] ~~**H2024 E6-konvensjonen for det underliggende**~~ (avgjort 14.11.2026: nøkkelen tar med betalingen på dato 1) (S<sub>u</sub> og S<sub>d</sub> som
       dato-1-verdier av en ny annuitet uten betaling på dato 1) kan gi ρ &gt; 1 med korte
       annuiteter. V2021 P4-nøkkelen tar med betalingen. k25 bør si at ρ må kontrolleres.
 - [ ] **H2025 E1-nøkkelens 6.04** er kontinuerlig diskontert, mens manualen (k21–k23)

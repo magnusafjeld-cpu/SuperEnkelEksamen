@@ -61,11 +61,13 @@ fra docx-fila og med listen under. Hver formel har en (i) som forklarer hva den
 er og når den brukes, på engelsk og bare med eksamenshenvisninger fra kursplanen.
 Forklaringene er ikke en del av arket. Se [[Moduler og visninger]].
 
-**Ikke på arket — må pugges:** V^L = V^U + PV(TS), reglene for hvilken rente som
-diskonterer skatteskjoldet, D_t = d·V_t^L, put-call-paritet, βE = N(d1)(V/E)βU,
-durasjon, hele Myers-Majluf-oppsettet og alt om realopsjoner. **Black-Scholes og
-N(d)-tabellen ble fjernet fra arket i 2021** — derfor tester eksamen nå bare
-intuisjonen rundt Black-Scholes, ikke utregningen.
+**Ikke på arket, må kunnes:** V^L = V^U + PV(TS), reglene for hvilken rente som
+diskonterer skatteskjoldet, D_t = d·V_t^L, put-call-paritet, durasjon, hele
+Myers-Majluf-oppsettet og alt om realopsjoner. **Black-Scholes regnes ikke på eksamen.**
+Kurbatov sa det minst fire ganger i oppsummeringsforelesningen 2026: bare intuisjon
+(hva σ, T, r, S og K gjør med prisen, amerikansk mot europeisk), og N(d1) trenger ikke
+forklares. β_E = Δ(V/E)β_U står derfor som intuisjon, ikke som pugg. **Kursets nye
+formelark (november 2026) har én linje til: Δ = (C_u − C_d)/(S_u − S_d).**
 
 ## Kursets konvensjoner
 
@@ -235,14 +237,13 @@ dekningen målt mot H2024 og H2025: en leser med bare kjernepensum når anslagsv
   Kj0 fikk en «Must know»-boks med de fem sjekkene, så hovedpunktsiden definerer
   dem.
 
-> [!warning] Mulig feil i eksamenssettets løsning på H2024 E6(c)
-> Løsningen i `fag/fie402/sett.js` regner ρ = 0,7197 fra verdien i dag av
-> kontantstrømmene år 1–10 og verdiene om ett år av kontantstrømmene år 2–11.
-> Konsistente oppsett gir rundt 0,46. Det finnes ingen offisiell fasit.
-> 29. oktober 2026 fikk 6c og 6d en merknad øverst i løsningen: konsistent
-> ρ = 0,4663 (fergen startet nå: S<sub>u</sub> = 13,1792, S<sub>d</sub> = 11,2728),
-> opsjonen verdt 0,3532, samme beslutning (vent). Den opprinnelige utregningen
-> står under merknaden. Prøveeksamen 2 oppgave 6 trener den konsistente versjonen.
+> [!note] H2024 E6(c) er avgjort av Kurbatovs nøkkel (14. november 2026)
+> Appens gamle løsning regnet ρ = 0,7197 fra verdien i dag av kontantstrømmene år 1–10
+> og verdiene om ett år av kontantstrømmene år 2–11, altså en inkonsistent tvilling.
+> Nøkkelen (`2024 - S.pdf`) bruker en annuitet på 1 i 11 år og får **ρ = 0,4634** og
+> ventopsjonen 0,351. Regelen: S0, Su og Sd må prise samme kontantstrøm, og Su og Sd er
+> verdien på dato 1 inklusive en eventuell betaling da. Løsningen, realopsjon-12 og -13,
+> opsjoner-14, kj9 og kapitteloppgave k25-5 er rettet.
 
 Agentene fant i tillegg elleve feil i manualen og kursplanen, alle rettet:
 kursplanen manglet I i nevneren til α; en setning i 10.4 var avkuttet; 26.3 og
@@ -353,8 +354,8 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **268** forfattet + 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
-| Problem sets | **Problem Set 1** (capital structure and payout policy) · 13 oppgaver · 52 delspørsmål med fire hint hver |
-| Sjangertrening | **9 stiger · 96 steg**, hver fra null til eksamensnivå, etter eksamensvekt |
+| Problem sets | **Problem Set 1–4** · 36 oppgaver · 144 delspørsmål med fire hint hver (PS4 er eksemplene i M&A-forelesningen, som Kurbatov kalte PS4) |
+| Sjangertrening | **10 stiger · 151 steg**, hver fra null til eksamensnivå, etter eksamensvekt (stige 10 er governance og verbale M&A-motiver) |
 | Aktiv læring | **208** oppgaver |
 | Dybdetrening | **458** i seks banker |
 | Lynlæring | **233** elementer, med fremdriftsport |
@@ -411,9 +412,8 @@ var feil. Det kontrollørene fant mest av, var **mønstre i feilsvarene** som pe
 fasiten: den høyeste verdien var aldri riktig, fasiten sto alene utenfor ellers
 sorterte feilsvar, to alternativer summerte til 100 %, eller fasiten var det eneste
 alternativet som delte en del med hvert av de andre. De ble brutt ved å bytte
-feilsvar, aldri fasiten. Ikke dekket: governance og de verbale M&A-motivene som
-egne skriveoppgaver (stigen har flervalg om motivene), og typene som ikke finnes i
-`sett.js`. Se [[Moduler og visninger]].
+feilsvar, aldri fasiten. Governance og de verbale M&A-motivene fikk egen stige
+(nr. 10) 14. november 2026; se «Forelesningene 2026» under. Se [[Moduler og visninger]].
 
 ## Problem sets
 
@@ -446,7 +446,7 @@ av en uavhengig kontrollør: alle tall stemte. Kontrollene fant ett ledd med to 
 svar (verdien av en salgsopsjon, 5d i Mock exam 1), kriterier som krevde ting spørsmålet
 ikke ba om, og at manualen manglet r<sub>E</sub> ved permanent gjeld med skatt. Den står nå
 i k7 § 7.4, og en feil setning i k15 § 15.5 er rettet. Kontrolløren av Mock exam 2 pekte
-også på den kjente feilen i H2024 E6(c); den har nå en merknad i løsningen.
+også på feilen i H2024 E6(c), som Kurbatovs nøkkel avgjorde 14. november 2026 (se over).
 
 ## Kartleggingen
 
@@ -481,3 +481,41 @@ Se [[Eksamenssett-modulen]] for motoren og rapporten.
 Gjengis ordrett i modulen [[Eksamenssett-modulen]], med egne fullstendige
 løsninger. Ordrett gjengivelse er et bevisst valg — se [[Beslutningslogg]] — og
 betyr at NHHs oppgavetekst ligger på den offentlige Pages-siden.
+
+## Forelesningene 2026 (14. november 2026)
+
+Alt fagstoff var skrevet fra gamle eksamener og syllabus. 14. november kom Kurbatovs
+14 forelesninger, tavlenotater, practice/tutorial sessions, Problem Set 1–3 med
+løsninger, den offisielle nøkkelen til H2024, løsningene til arbeidskravene, nytt
+formelark og teksting av oppsummeringsforelesningen. Tre kontrollører sammenlignet dem
+med appen; beslutningene står i `docs/fie402-forelesninger-2026.md`, og eksamenssignalene
+fra opptaket i `Lecture 14 wrap-up eksamenssignaler fra opptaket.md` i kursmappen.
+
+**Rettet fordi appen motsa Kurbatov:**
+- Uskattede vekter er standard, men ved forhåndsbestemt fast gjeld vekter han r_U og
+  β_U med D(1−τ) (lecture 8 s. 18). WACC virker ved fast permanent gjeld uten vekst,
+  r_wacc = r_U(1 − τD/V^L) (PS2 E9). Appen sa «aldri» og «bare APV».
+- Reelle sannsynligheter går med r_f når risikoen ikke er systematisk.
+- k24 diskonterer nå diskret, som han gjør.
+- Gevinster ved oppkjøp: målselskapet ca. 15 %, kjøperen ca. 1 %, samlet 1–3 %.
+- Black-Scholes regnes ikke (se Formelarket over). Først trodde vi motsatt fra
+  lysbildene; opptaket avgjorde.
+- Governance svares generelt; norsk aksjelov bare når oppgaven sier ASA.
+
+**Lagt til:** rentedekning V^L = (1 + τk)V^U, debt capacity, netto gjeld, senior og
+junior gjeld fra noterte calls, utbytte med nye aksjer, gjeldsoverheng med ny
+egenkapital, spin-off, EPS-feilslutningen, underprisingsteoriene, aksjonærer mot
+interessenter, rådgivere for stemmegivning, motivlisten og fusjonstyper,
+dealsannsynlighet med (1 + r_f)^T, trinnvis finansiering, månedsrente og
+nedleggelsesopsjon sammenlignet med 0. 58 nye sjangersteg og governance-stigen.
+
+**Eksamenssignaler fra opptaket:** samme struktur som F24 og F25 (to teorioppgaver på
+rundt 10 poeng, fire regneoppgaver på rundt 80 %), hver blokk minst én oppgave,
+følgefeil gir full uttelling, fire desimaler, A-grense historisk 90–91. Hint om
+nedleggelsesopsjon, Mannesmann/Vodafone, SEO med kursfall på 12 %, fire måter å bruke
+fri kontantstrøm, rente for brøkdel av år og gjeld som risikofri gjeld minus put.
+
+**Kildefeil funnet underveis:** kursets regneark til PS2 E8 (r_f 5,2 % og kortsiktig
+gjeld telt to ganger: riktig $26,17), PS3 E6(a) 11,1 % (riktig 11,3 %), PS3 E7(c)
+pålydende 250 (riktig 402,6), lecture 10 s. 15 junior 34,94 % (riktig 35,94 %),
+lecture 12 s. 21 225,03 (riktig 225,003, p = 0,5884).

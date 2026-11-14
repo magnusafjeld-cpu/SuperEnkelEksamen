@@ -6,7 +6,7 @@ window.EDU_DATA.sjangre.push({
   summary: "From the premium and the exchange ratio to the market's implied probability that a deal closes",
   chapters: [26],
   exam: "8 of 11 papers · H2024 E1, H2025 E6",
-  intro: `<p>M&amp;A has appeared on 8 of 11 papers and on both of Kurbatov's. H2024 Exercise 1 asked for four reasons for a deal with synergies banned. H2025 Exercise 6 asked for the probability the market assigns to a deal closing, backed out of four share prices and a risk-free rate. The ladder starts with the premium and the exchange ratio, builds the stock-swap arithmetic the formula sheet only half gives you and ends with the long-short strategy. At the top you can price a stock swap, tell the offered premium from the actual one, argue motives without synergies and solve H2025 Exercise 6 with any numbers.</p>`,
+  intro: `<p>M&amp;A has appeared on 8 of 11 papers and on both of Kurbatov's. H2024 Exercise 1 asked for four reasons for a deal with synergies banned. H2025 Exercise 6 asked for the probability the market assigns to a deal closing, backed out of four share prices and a risk-free rate. The ladder starts with the premium and the exchange ratio, builds the stock-swap arithmetic the formula sheet only half gives you and ends with the long-short strategy and Kurbatov's Vodafone-Mannesmann exercise. At the top you can price a stock swap, tell the offered premium from the actual one, argue motives without synergies and solve H2025 Exercise 6 with any numbers.</p>`,
   steps: [
     {
       id: "ma-1",
@@ -63,6 +63,25 @@ window.EDU_DATA.sjangre.push({
         "Forgot the synergies: (3 600 + 480)/46.40 = 87.93 NOK.",
         "Forgot the new shares and divided by the old count: 4 200/40 = 105.00 NOK.",
         "Divided by both firms' old share counts, 40 + 16 = 56, instead of 40 + 6.40: 4 200/56 = 75.00 NOK.",
+      ],
+    },
+    {
+      id: "ma-15",
+      title: "Paying cash: the NPV to each side",
+      theory: `<p>In a cash deal the acquirer pays a price P for the target's equity, worth T on its own. The target's shareholders swap something worth T for P in cash, so they gain the premium P − T. The acquirer's shareholders get the merged firm A + T + S, pay P and give up A, so they gain S − (P − T): the synergies minus the premium they hand over. The two gains add up to S. With cash, the acquirer's cost is fixed once P is agreed; in a stock swap the target also gets a share of S (a later step).</p>
+<div class="formula"><div class="eq">NPV<sub>T</sub> = P − T &nbsp;&nbsp; NPV<sub>A</sub> = (A + T + S) − P − A = S − (P − T)</div>
+<div class="where">T = N<sub>T</sub> × P<sub>T</sub> at the <b>pre-announcement</b> price, P = N<sub>T</sub> × cash offer per share and S the present value of the synergies (lecture 12). The acquirer gains only if the premium is below S.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>T = 400, P = 500 and S = 150.</p><p>NPV<sub>T</sub> = 500 − 400 = 100. NPV<sub>A</sub> = 150 − 100 = 50. Sum 150 = S.</p></div>`,
+      q: `<p>Havbris AS has 20 million shares, which traded at 24 NOK before any news of a bid. Fjordline ASA offers 29 NOK per share in cash. Havbris now trades at 28 NOK. The synergies are worth 140 million NOK. What is the NPV of the deal for Fjordline's shareholders?</p>`,
+      options: ["100.00 million", "120.00 million", "240.00 million", "40.00 million"],
+      answer: 3,
+      solution: `<p>T = 20 × 24 = 480 and P = 20 × 29 = 580, so the premium is P − T = 100.</p><p>NPV<sub>A</sub> = S − (P − T) = 140 − 100 = <b>40.00 million</b>.</p>`,
+      check: `<p>NPV<sub>T</sub> = 100. Then 40 + 100 = 140 = S ✓ That sum is an identity and catches arithmetic only. The sign test is real: Fjordline gains exactly when the premium of 100 is below the synergies of 140 ✓</p>`,
+      traps: [
+        "Gave the target's NPV, the premium: 580 − 480 = 100.00 million.",
+        "Measured T at the post-announcement price of 28: 140 − (580 − 560) = 120.00 million. That price already contains most of the premium.",
+        "Added the premium instead of subtracting it: 140 + 100 = 240.00 million. The premium is what Fjordline pays away.",
+        null,
       ],
     },
     {
@@ -123,6 +142,30 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "ma-17",
+      title: "Bidding depends on alternatives",
+      theory: `<p>When several firms bid for the same target, a bidder's ceiling is not its gain over its stand-alone value. If it loses, a rival gets the target. That can hurt it: the rival becomes a stronger competitor. So the most a bidder should pay is its value if it wins minus its value if the rival who would otherwise win gets the target (lecture 12, "Bidding depends on alternatives!"). A bidder threatened by a rival can rationally pay more than its own synergies.</p>
+<div class="formula"><div class="eq">reservation price of i = V<sub>i</sub>(i wins) − V<sub>i</sub>(the rival j wins)</div>
+<div class="where">V<sub>i</sub> is bidder i's value before paying anything. The relevant rival is the one who wins if i drops out. The bidder with the highest reservation price wins, at a price just above the second highest.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example (lecture 12)</span><p>Banks A, B and C bid for bank D. A is worth 100 alone, 190 if it wins D and 90 if B or C wins. Its ceiling is 190 − 90 = 100, not its gain over stand-alone, 190 − 100 = 90. B: 170 − 70 = 100. C: 160 − 55 = 105.</p></div>`,
+      q: `<p>Nordbank, Vestbank and Sørbank bid for Østbank, which is worth 50 on its own. The table gives each bidder's value before paying anything.</p>
+<table class="data"><tr><th>Bidder</th><th>Alone</th><th>Nordbank wins</th><th>Vestbank wins</th><th>Sørbank wins</th></tr>
+<tr><td>Nordbank</td><td class="n">120</td><td class="n">210</td><td class="n">95</td><td class="n">105</td></tr>
+<tr><td>Vestbank</td><td class="n">90</td><td class="n">80</td><td class="n">185</td><td class="n">80</td></tr>
+<tr><td>Sørbank</td><td class="n">75</td><td class="n">65</td><td class="n">70</td><td class="n">160</td></tr></table>
+<p>Vestbank has dropped out. If Nordbank stops bidding, Sørbank wins. What is the most Nordbank should bid?</p>`,
+      options: ["105", "90", "115", "50"],
+      answer: 0,
+      solution: `<p>If Nordbank wins it is worth 210. If it stops, Sørbank wins and Nordbank is worth 105.</p><p>Reservation price = 210 − 105 = <b>105</b>.</p>`,
+      check: `<p>Sørbank's ceiling against Nordbank is 160 − 65 = 95, below Nordbank's 105, so Nordbank wins at just above 95 and keeps about 10 ✓ The 105 also exceeds Nordbank's own gain over stand-alone, 90: losing to Sørbank costs Nordbank 15, which is worth paying to avoid.</p>`,
+      traps: [
+        null,
+        "Took the gain over the stand-alone value: 210 − 120 = 90. If Nordbank loses, it is not left at 120; Sørbank's win pushes it down to 105.",
+        "Used the wrong rival: 210 − 95 = 115 is the ceiling against Vestbank, which has dropped out.",
+        "Bid the target's stand-alone value of 50. What Østbank is worth alone does not set what it is worth to Nordbank.",
+      ],
+    },
+    {
       id: "ma-10",
       title: "The long-short strategy and its two payoffs",
       theory: `<p>Between announcement and completion the target trades below what it will be worth if the deal closes, because the deal may fail. To read that risk off prices, build a position whose payoff you know in both outcomes: buy target shares and short acquirer shares in exactly the exchange ratio, then put the short-sale proceeds in the risk-free asset. If the deal completes, the target shares convert into exactly the acquirer shares you owe, so only the deposit is left. If it fails, you unwind at the prices that then hold.</p>
@@ -161,6 +204,26 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
+      id: "ma-16",
+      title: "The deal probability when completion is not one year away",
+      theory: `<p>Real deals close in weeks or months, not exactly one year. Then the deposit grows for T years instead of one. The certainty equivalent of the position is its cost grown at (1 + r<sub>f</sub>)<sup>T</sup>. Nothing else changes. Kurbatov used exactly this for Vodafone's bid for Mannesmann, three months from the offer.</p>
+<div class="formula"><div class="eq">cost × (1 + r<sub>f</sub>)<sup>T</sup> = p × payoff if completes + (1 − p) × payoff if fails</div>
+<div class="eq">1 − p = (1 + r<sub>f</sub>)<sup>T</sup> × spread<sup>post</sup>/spread<sup>pre</sup></div>
+<div class="where">T in years: 0.25 for three months, 0.75 for nine. Both payoffs contain the deposit grown at (1 + r<sub>f</sub>)<sup>T</sup>. r<sub>f</sub> is the effective annual rate.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example (lecture 12, Vodafone and Mannesmann)</span><p>53.7 Vodafone shares per Mannesmann share, three months to go, r<sub>f</sub> = 5.5%. Before the bid P<sub>M</sub> = 145.35 and P<sub>V</sub> = 4.19; on 17 December P<sub>M</sub> = 234 and P<sub>V</sub> = 4.96. 1.055<sup>0.25</sup> = 1.013475.</p><p>Buy 1 M for 234, short 53.7 V for 266.352 and deposit it. Completes: 266.352 × 1.013475 = 269.941. Fails: 269.941 + 145.35 − 53.7 × 4.19 = 269.941 + 145.35 − 225.003 = 190.288.</p><p>234 × 1.013475 = 237.153, so p = (237.153 − 190.288)/(269.941 − 190.288) = 46.865/79.653 = 0.5884, about 59%. (Slide 21 prints 225.03, 190.261 and 0.5885: 53.7 × 4.19 is 225.003.)</p></div>`,
+      q: `<p>Fosen ASA has bid for Lindås AS. The deal will complete or fail in exactly 9 months. If it completes, each Lindås share is exchanged for 2.5 Fosen shares. If it fails, both prices return to their pre-announcement levels. Before the announcement Fosen traded at 40 and Lindås at 80; now Fosen trades at 38 and Lindås at 88. The risk-free rate is 4% a year. Using the long-short strategy, what probability does the market assign to the deal completing?</p>`,
+      options: ["0.6360", "0.5082", "0.6500", "0.6396"],
+      answer: 3,
+      solution: `<p>Buy 1 Lindås for 88, short 2.5 Fosen for 95 and deposit the 95. Growth factor: 1.04<sup>0.75</sup> = 1.029852.</p><p>Completes: 95 × 1.029852 = 97.8360. Fails: 97.8360 + 80 − 2.5 × 40 = 77.8360.</p><p>Certainty equivalent: 88 × 1.029852 = 90.6270.</p><p>p = (90.6270 − 77.8360)/(97.8360 − 77.8360) = 12.7910/20 = <b>0.6396</b>.</p>`,
+      check: `<p>Spread route: 2.5 × 40 − 80 = 20 before and 2.5 × 38 − 88 = 7 after. 1 − p = 1.029852 × 7/20 = 0.3604, so p = 0.6396 ✓ Lindås at 88 also sits below the 2.5 × 38 = 95 it would fetch if completion were certain.</p>`,
+      traps: [
+        "Grew the position for a full year: 1 − 1.04 × 7/20 = 0.6360. The deal closes in 9 months.",
+        "Set the expected payoff equal to the cost, not the cost grown at r<sub>f</sub>: (88 − 77.8360)/20 = 0.5082.",
+        "Left out the risk-free rate altogether: 1 − 7/20 = 0.6500.",
+        null,
+      ],
+    },
+    {
       id: "ma-12",
       title: "Exam level: the motive and the vote from the price reaction",
       theory: `<p>The announcement reaction tells you what the market believes about the deal. Whatever the payment method, the two sets of shareholders together own the whole merged firm, so the change in the two firms' combined market value is the market's estimate of the synergies. If the acquirer falls and the target jumps, the market thinks the acquirer pays more than the target is worth to it, so NPV<sub>A</sub> &lt; 0. Motives that predict that pattern are agency motives: empire building (managers gain from running a bigger firm) and hubris or the winner's curse. Motives that create value, such as undervaluation, a disciplinary takeover or a tax gain, should raise the two firms' combined value; they fit a falling acquirer only if it pays away more than the gain.</p>
@@ -187,28 +250,53 @@ window.EDU_DATA.sjangre.push({
     {
       id: "ma-13",
       title: "Exam level: four reasons for a deal, none of them synergies",
-      theory: `<p>H2024 Exercise 1 asked for four reasons in a grid: one good and one bad for the acquirer, one good and one bad for the target, one to two sentences each, with synergies banned. Synergies in disguise (cost savings, economies of scale, cross-selling) are banned too. The grid is marked box by box, so a reason in the wrong box scores nothing. Test every reason with one question: whose wealth does the mechanism move and in which direction?</p>
+      theory: `<p>H2024 Exercise 1 asked for four reasons in a grid: one good and one bad for the acquirer, one good and one bad for the target, one to two sentences each, with synergies banned. Kurbatov's key accepts any reasonable reason with a short explanation. Its own list even includes economies of scale (good for the target) and supply-chain gains (good for the acquirer). Two things still fail. One is the banned reason itself in other words: "the two firms are worth more together than apart" is the definition of a synergy. The other is a reason in the wrong box, a mechanism that moves value the opposite way from what its box claims. Test every reason with one question: whose wealth does the mechanism move and in which direction?</p>
 <table class="data"><tr><th>Box</th><th>Reasons that work</th></tr>
-<tr><td>Good for the acquirer</td><td>Disciplinary takeover, undervaluation (better information), tax losses or extra debt capacity, market power</td></tr>
+<tr><td>Good for the acquirer</td><td>Market power or removing a competitor, supply-chain gains, a disciplinary takeover, undervaluation (better information), tax losses or extra debt capacity</td></tr>
 <tr><td>Bad for the acquirer</td><td>Empire building, hubris and the winner's curse, coinsurance handing value to creditors</td></tr>
-<tr><td>Good for the target</td><td>The control premium, pushed up by the free-rider problem (no small holder sells below what his share will be worth after the takeover); relief of a financing constraint</td></tr>
-<tr><td>Bad for the target</td><td>Entrenched managers accepting a low offer for private benefits, payment in overvalued acquirer shares, loss of independence</td></tr></table>`,
+<tr><td>Good for the target</td><td>The control premium, pushed up by the free-rider problem (no small holder sells below what his share will be worth after the takeover); better management and practices, economies of scale, access to larger markets, relief of a financing constraint</td></tr>
+<tr><td>Bad for the target</td><td>Entrenched managers accepting a low offer for private benefits, payment in overvalued acquirer shares, damage to the corporate culture, long-term plans cut short for quick returns</td></tr></table>
+<p>The safest answer still names a mechanism that is plainly something other than a combined gain, so a marker cannot read it as a synergy.</p>`,
       example: `<div class="worked"><span class="wh">Example</span><p>Take the reason "diversification lowers the merged firm's risk" and ask whose wealth moves. Two firms with risky debt merge, default becomes less likely and the creditors gain. Total value is unchanged, so the shareholders lose exactly what the creditors gain (consistency check 4). The reason belongs under bad for the acquirer, never under good.</p></div>`,
       q: `<p>An exam question asks for four reasons, none of them synergies: one good and one bad for the acquirer, one good and one bad for the target. Which answer earns all four boxes?</p>`,
       options: [
-        "Good for acquirer: economies of scale cut the merged firm's cost per unit, so it earns more on the same sales.<br>Bad for acquirer: winner's curse, the winning bidder is the one who overestimated the target most.<br>Good for target: a control premium, pushed up by the free-rider problem.<br>Bad for target: payment in acquirer shares that later prove overvalued.",
+        "Good for acquirer: the two firms are worth more together than apart, so the acquirer keeps part of that gain.<br>Bad for acquirer: winner's curse, the winning bidder is the one who overestimated the target most.<br>Good for target: a control premium, pushed up by the free-rider problem.<br>Bad for target: payment in acquirer shares that later prove overvalued.",
         "Good for acquirer: the merged cash flows are less volatile, so its equity becomes safer and worth more.<br>Bad for acquirer: empire building, the CEO overpays to run a bigger firm.<br>Good for target: a control premium, pushed up by the free-rider problem.<br>Bad for target: payment in acquirer shares that later prove overvalued.",
         "Good for acquirer: a disciplinary takeover, new managers run the target's assets better.<br>Bad for acquirer: winner's curse, the winning bidder is the one who overestimated the target most.<br>Good for target: a control premium, pushed up by the free-rider problem.<br>Bad for target: entrenched managers accept a low offer in return for a golden parachute.",
         "Good for acquirer: it buys a target it knows is undervalued, using better information.<br>Bad for acquirer: hubris, an overconfident CEO trusts his own high valuation.<br>Good for target: a control premium, pushed up by the free-rider problem.<br>Bad for target: empire building, the acquirer's CEO overpays to run a bigger firm.",
       ],
       answer: 2,
-      solution: `<p>Every box in the winning answer names a mechanism that moves value the way the box says. A <b>disciplinary takeover</b> creates value for the acquirer by running badly run assets better. The <b>winner's curse</b> makes the acquirer overpay. The <b>control premium</b>, forced up by the free-rider problem, is a gain to the target's shareholders. <b>Entrenched managers</b> who take a golden parachute in exchange for a low offer leave the target's shareholders with less.</p><p>Each of the other answers fails one box: economies of scale is a synergy in disguise, less volatile cash flows is coinsurance and an acquirer that overpays is good news for the target.</p>`,
-      check: `<p>Run the two tests on all sixteen lines. Is it a synergy in disguise? Only economies of scale is. Does the mechanism move value in the direction its box claims? Coinsurance moves value from shareholders to creditors, so it cannot be good for the acquirer; overpayment moves value to the target, so it cannot be bad for the target. The winning answer is the only one with no line failing either test ✓.</p>`,
+      solution: `<p>Every box in the winning answer names a mechanism that moves value the way the box says. A <b>disciplinary takeover</b> creates value for the acquirer by running badly run assets better. The <b>winner's curse</b> makes the acquirer overpay. The <b>control premium</b>, forced up by the free-rider problem, is a gain to the target's shareholders. <b>Entrenched managers</b> who take a golden parachute in exchange for a low offer leave the target's shareholders with less.</p><p>Each of the other answers fails one box: "worth more together than apart" is the definition of a synergy, the reason the question bans; less volatile cash flows is coinsurance; an acquirer that overpays is good news for the target.</p>`,
+      check: `<p>Run the two tests on all sixteen lines. Is it the banned reason in other words? Only "worth more together than apart" is. A named source such as economies of scale or supply-chain gains would have passed, because the key accepts it. Does the mechanism move value in the direction its box claims? Coinsurance moves value from shareholders to creditors, so it cannot be good for the acquirer; overpayment moves value to the target, so it cannot be bad for the target. The winning answer is the only one with no line failing either test ✓.</p>`,
       traps: [
-        "Economies of scale is a synergy in disguise, so that box scores nothing.",
+        "Worth more together than apart is the definition of a synergy, the one reason the question bans, so that box scores nothing.",
         "Less volatile cash flows is coinsurance: it moves value from shareholders to creditors, so it is bad, not good, for the acquirer.",
         null,
         "An acquirer that overpays hands value to the target's shareholders, so empire building is good, not bad, for the target.",
+      ],
+    },
+    {
+      id: "ma-19",
+      title: "What if the deal can be delayed a year?",
+      theory: `<p>Kurbatov gave this twist in the wrap-up as an intuition question: "What if we can delay this M&amp;A by one year?" Treat the deal as a real option. Delaying is an option to wait: you learn more about the synergies, the target or the regulator. Then you buy only if the news is good. That is worth more the larger the uncertainty and the more of it a year resolves. Waiting has two costs. One is a year of synergy cash flows forgone, which works like a dividend you miss. The other is the risk that a rival buys the target meanwhile, which can leave you worse off than before (bidding depends on alternatives).</p>
+<div class="formula"><div class="eq">delay if [a × E[max(0, NPV<sub>1</sub>)] + (1 − a) × L]/(1 + r) &gt; max(0, NPV<sub>now</sub>)</div>
+<div class="where">NPV<sub>1</sub> is the deal's NPV when you decide in a year, after the news. a is the probability that the target is still available. L ≤ 0 is the change in your own value if a rival buys it instead; L = 0 if the rival's win leaves you as you are. A positive NPV today does not settle the question. Neither does the option value alone.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>Synergies of 100 or 20 with equal probability, a cash premium of 50, r = 10%. Now: 0.5 × 100 + 0.5 × 20 − 50 = 10.</p><p>Wait and buy only if the synergies are 100: 0.5 × (100 − 50)/1.10 = 22.73 &gt; 10, so wait. If a rival takes the target during the year with probability 0.6: 0.4 × 22.73 = 9.09 &lt; 10, so buy now. If the rival's win would also cost you 5 (L = −5): (0.4 × 25 − 0.6 × 5)/1.10 = 6.36.</p></div>`,
+      q: `<p>Bjørkvik ASA plans to buy Holt AS for cash. The deal has a positive NPV today, but the synergies are very uncertain. A regulator's review will settle most of that uncertainty within a year. No other bidder is in sight. The board asks what happens if the acquisition is delayed by one year. Which answer is best?</p>`,
+      options: [
+        "Close now: the deal already has a positive NPV, so a year's delay mainly postpones the same synergies and shrinks their present value.",
+        "Delay: like a financial option, the right to wait gains value with time to expiry, so the longer the board waits the more the deal is worth.",
+        "It is an option to wait: buy only if the review shows large synergies. Uncertainty and no rival favour waiting; lost synergies are the cost.",
+        "Delay matters little for the acquirer: the target's holders receive the same premium a year later, so the deal's NPV stays roughly where it is today.",
+      ],
+      answer: 2,
+      solution: `<p>Waiting turns the deal into a call: Bjørkvik buys after the review only if the synergies turn out large and walks away otherwise. High uncertainty that resolves within the year makes that option valuable. With no rival the target is likely still there. Against it stands a year of synergy cash flows. So delay can beat closing now even though today's NPV is positive; the answer is <b>the option to wait</b>, weighed against its two costs.</p>`,
+      check: `<p>Test the claim against the example: with no rival, waiting gave 22.73 against 10 for closing now; with a 60% chance of losing the target to a rival, 9.09 against 10. The same deal flips both ways, so an answer that always closes now or always waits cannot be right. The answer that names both the option and its cost is the one that survives ✓</p>`,
+      traps: [
+        "Leaves out the option to wait: a positive NPV today is not enough when waiting lets Bjørkvik walk away from the bad outcome.",
+        "Leaves out the costs of waiting. Unlike a call on a share without dividends, a real option loses the synergies of the year you wait. Waiting longer does not add value by itself.",
+        null,
+        "Leaves out both the information and the time value: paid a year later the premium is cheaper in present value, the synergies start a year later and the decision can use the review.",
       ],
     },
     {
@@ -233,6 +321,26 @@ window.EDU_DATA.sjangre.push({
         null,
         "Closed the short at the post-announcement price of 69 in the failure branch: payoff 124.14, so p = (137.505 − 124.14)/18 = 0.7425.",
         "Left out the risk-free rate altogether: 1 − 4.50/24 = 0.8125.",
+      ],
+    },
+    {
+      id: "ma-18",
+      title: "Exam level: Mannesmann-style, from the deal probability to the synergies the market prices in",
+      theory: `<p>Kurbatov called Vodafone's bid for Mannesmann one of the biggest exercises to focus on. It chains four things. First the arbitrage position: long the target, short the acquirer in the exchange ratio, deposit the proceeds. Second the deal probability p, with the deposit grown at (1 + r<sub>f</sub>)<sup>T</sup>. Third risk-neutral valuation of the acquirer's own share: today's price is the discounted p-weighted average of its price if the deal completes and its old price if it fails, which you solve for the price if it completes. Fourth the synergies: the merged firm at that price against the two stand-alone values the market falls back to if the deal fails. The deal risk is diversifiable, so p is both the risk-neutral and the real probability. Slide 21 stops at p: the third and fourth links are an extension of this ladder, built with the same risk-neutral logic, to put a number on the synergies the market prices in, which Kurbatov named in the wrap-up.</p>
+<div class="formula"><div class="eq">P<sub>A,1</sub>(1 + r<sub>f</sub>)<sup>T</sup> = p × P<sub>A</sub><sup>complete</sup> + (1 − p) × P<sub>A,0</sub></div>
+<div class="eq">S<sub>implied</sub> = (N<sub>A</sub> + x) × P<sub>A</sub><sup>complete</sup> − (N<sub>A</sub>P<sub>A,0</sub> + N<sub>T</sub>P<sub>T,0</sub>)</div>
+<div class="where">x = ER × N<sub>T</sub> new shares. Both terms of S<sub>implied</sub> are values at the completion date: the merged firm if the deal goes through, the two stand-alone firms at their old prices if it fails. Today's combined price change understates S, because today's prices weight the deal by p and discount it.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example (lecture 12, Vodafone and Mannesmann)</span><p>p = 0.5884 from the previous step (slide 21 prints 0.5885, from its 225.03 for 53.7 × 4.19 = 225.003). Vodafone if the deal completes: (1.013475 × 4.96 − 0.4116 × 4.19)/0.5884 = (5.0268 − 1.7247)/0.5884 = 5.6123 euro.</p><p>Shares after the deal: 31.105 + 27.811 = 58.916 billion, worth 58.916 × 5.6123 = 330.65 billion. Stand-alone: 31.105 × 4.19 + 0.5179 × 145.35 = 130.33 + 75.28 = 205.61 billion. Implied synergies ≈ 125 billion euro.</p></div>`,
+      q: `<p>Fjellkraft ASA (400 million shares) has bid for Elvekraft ASA (50 million shares): 6 Fjellkraft shares for each Elvekraft share. The deal will complete or fail in exactly 6 months; if it fails, both prices return to their pre-announcement levels. Before the announcement Fjellkraft traded at 20 and Elvekraft at 96. Now Fjellkraft trades at 19 and Elvekraft at 108. The risk-free rate is 5% a year. What synergies, in million NOK and valued at the completion date, does the market price in?</p>`,
+      options: ["200.00", "700.48", "1 152.54", "500.00"],
+      answer: 1,
+      solution: `<p><b>1. Position.</b> Buy 1 Elvekraft for 108, short 6 Fjellkraft for 114 and deposit the 114. 1.05<sup>0.5</sup> = 1.024695. Completes: 114 × 1.024695 = 116.8152. Fails: 116.8152 + 96 − 6 × 20 = 92.8152.</p><p><b>2. p.</b> 108 × 1.024695 = 110.6671, so p = (110.6671 − 92.8152)/24 = 17.8519/24 = 0.7438.</p><p><b>3. Fjellkraft if the deal completes.</b> 1.024695 × 19 = 19.4692 = 0.7438 × P<sub>A</sub><sup>complete</sup> + 0.2562 × 20, so P<sub>A</sub><sup>complete</sup> = (19.4692 − 5.1235)/0.743826 = 19.2864.</p><p><b>4. Synergies.</b> x = 6 × 50 = 300 million new shares. Merged firm: 700 × 19.2864 = 13 500.48. Stand-alone: 400 × 20 + 50 × 96 = 12 800. S = <b>700.48</b> million.</p>`,
+      check: `<p>Reprice Elvekraft: if the deal completes it is worth 6 × 19.2864 = 115.7184. Then [0.7438 × 115.7184 + 0.2562 × 96]/1.024695 = (86.0744 + 24.5927)/1.024695 = 108.00, its observed price ✓ That only confirms the arithmetic: p and the completion price were solved from these same prices. Split the synergies: Fjellkraft's holders get 400 × (19.2864 − 20) = −285.44 and Elvekraft's 50 × (115.7184 − 96) = 985.92. They sum to 700.48 ✓, again an identity that catches slips in the split only. The market expects real synergies but thinks Fjellkraft overpays.</p>`,
+      traps: [
+        "Took the change in combined market value: 400 × (19 − 20) + 50 × (108 − 96) = −400 + 600 = 200.00. Today's prices weight the deal by p and discount it.",
+        null,
+        "Grew everything at a full year's 5% instead of 1.05<sup>0.5</sup>: p = 0.7375, Fjellkraft at completion 19.9322 and S = 700 × 19.9322 − 12 800 = 1 152.54.",
+        "Used today's price of 19 as Fjellkraft's price if the deal completes: 700 × 19 − 12 800 = 500.00. Today's price still mixes in the chance that the deal fails.",
       ],
     },
   ],

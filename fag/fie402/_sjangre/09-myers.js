@@ -3,10 +3,10 @@ window.EDU_DATA.sjangre.push({
   id: "myers",
   num: 9,
   title: "Asymmetric information: Myers-Majluf",
-  summary: "From the fair price of a new share to pooling, separating, the announcement drop and the pecking order",
+  summary: "From the fair price of a new share to pooling, separating, the announcement drop, IPO costs and the pecking order",
   chapters: [12, 13],
   exam: "8 of 11 papers · not in H2024 or H2025",
-  intro: `<p>Asymmetric information reached 8 of the 11 papers, almost always as one template: 2016 P1, 2017V P1, 2020 P2, 2022 P2 and 2023 P4, plus debt against equity in 2021 P1. Neither Kurbatov paper (H2024, H2025) used it, but it is still on the syllabus and the setup is not on the formula sheet. The ladder builds the template one piece at a time: the fair stake α, the old shareholders' payoff, the issue decision, the belief check, pooling and separating, the price reaction and the pecking order. At the top you can solve any of these exercises with new numbers.</p>`,
+  intro: `<p>Asymmetric information reached 8 of the 11 papers, almost always as one template: 2016 P1, 2017V P1, 2020 P2, 2022 P2 and 2023 P4, plus debt against equity in 2021 P1. Neither Kurbatov paper (H2024, H2025) used it, but Kurbatov taught it in 2026 (lecture 6 and problem set 2) and lists it in his summary lecture. The setup is not on the formula sheet. The ladder builds the template one piece at a time: the fair stake α, the old shareholders' payoff, the issue decision, the belief check, pooling and separating, the price reaction and the pecking order. At the top you can solve any of these exercises with new numbers. Three steps follow his 2026 material: α as a number of shares, the cost of an IPO and the winner's curse behind IPO underpricing.</p>`,
   steps: [
     {
       id: "myers-1",
@@ -25,6 +25,25 @@ window.EDU_DATA.sjangre.push({
         "Left the cash raised out of the denominator: 75/(260 + 15) = 0.2727. After the issue the firm holds the project, worth I + NPV, not just the NPV.",
         null,
         "Priced the stake against the assets alone: 75/260 = 0.2885, as if the investors bought into the firm before the issue.",
+      ],
+    },
+    {
+      id: "myers-15",
+      title: "From the stake α to the number of new shares",
+      theory: `<p>Exams often ask how many shares the firm must sell, not only α. The new shares are the fraction α of all shares after the issue, so n/(N + n) = α. Solve for n. Each new share then sells at the post-issue value per share.</p>
+<div class="formula"><div class="eq">n/(N + n) = α &nbsp;⟹&nbsp; n = αN/(1 − α) &nbsp;·&nbsp; P = (V + I + NPV)/(N + n)</div>
+<div class="where">N is the share count before the issue. α × N alone is too few shares: it ignores that the new shares are part of the total they are a fraction of. When the issue is fairly priced, P also equals (V + NPV)/N, so n = I/P is a quick check.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: PS2 Exercise 1</span><p>Rothko has 1 000 shares and the market values its art at 50 000, so P = 50. It raises 10 000 for an exhibition that will produce nothing, so NPV = −10 000 and the post-issue value is 50 000 + 10 000 − 10 000 = 50 000.</p><p>α = 10 000/50 000 = 20%. n = 0.20 × 1 000/0.80 = 250 shares. The price falls to 50 000/1 250 = 40.</p></div>`,
+      q: `<p>Everyone knows that a firm's assets in place are worth 380 million. It has 40 million shares. It raises 60 million by issuing shares to fund a project with an NPV of 20 million. Investors are competitive and there is no discounting. How many new shares, in millions, must it issue? Give four decimals.</p>`,
+      options: ["6.0000", "7.0588", "5.2174", "6.3158"],
+      answer: 0,
+      solution: `<p>α = 60/(380 + 60 + 20) = 60/460 = 0.130435.</p><p>n = 0.130435 × 40/(1 − 0.130435) = 5.217391/0.869565 = <b>6.0000</b> million.</p>`,
+      check: `<p>Price route: before the issue the shares are worth (380 + 20)/40 = 10.00 each, so n = 60/10.00 = 6.0000 ✓. After it: 460/46 = 10.00, so a fair issue leaves the price unchanged. And 6/46 = 0.130435 = α ✓.</p>`,
+      traps: [
+        null,
+        "Left the cash raised out of α: 60/(380 + 20) = 0.15, so n = 0.15 × 40/0.85 = 7.0588.",
+        "Multiplied α by the old share count: 0.130435 × 40 = 5.2174. The new shares are part of the total they are a fraction of.",
+        "Priced the new shares at V/N = 380/40 = 9.50, leaving the NPV out: 60/9.50 = 6.3158.",
       ],
     },
     {
@@ -125,6 +144,45 @@ window.EDU_DATA.sjangre.push({
         null,
         "Left the NPV out of the price after the issue: 300/411 − 1 = −27.01%.",
         "Counted the cash raised as the old shareholders': (300 + 150 + 30)/411 − 1 = 16.79%. The new investors paid for that 150.",
+      ],
+    },
+    {
+      id: "myers-16",
+      title: "IPO arithmetic: proceeds, underpricing and the cost to the old owners",
+      theory: `<p>An IPO costs the old owners twice. Issuing costs about 7% of the money raised (Kurbatov: the bank's underwriting fee of 5.3% plus 1.7% of other costs). On top, the shares are sold below the price they trade at on the first day. Kurbatov's route (PS2 Exercise 2): the first-day price tells you what the firm is worth. Take out the cash raised to find the old owners' fair price per share. Compare it with what their shares are actually worth after the IPO. Why underprice? He lists bank conflicts, control over the shareholder base, behavioural bidding and asymmetric information, the next step.</p>
+<div class="formula"><div class="eq">proceeds = n × P<sub>IPO</sub> × (1 − spread) &nbsp;·&nbsp; V = (N + n) × P<sub>1</sub></div>
+<div class="eq">P<sub>fair</sub> = (V − proceeds)/N &nbsp;·&nbsp; cost = (P<sub>fair</sub> − P<sub>1</sub>) × N</div>
+<div class="where">N old shares, n new shares and P<sub>1</sub> the first-day closing price, taken as fair value. P<sub>fair</sub> is the price a perfect market, with no spread and no underpricing, would have given while raising the same proceeds. The cost equals the underpricing n(P<sub>1</sub> − P<sub>IPO</sub>) plus the spread.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: PS2 Exercise 2</span><p>10 million old shares, 5 million new at 20, a 7% spread and a first-day price of 50.</p><p>Proceeds 5 × 20 × 0.93 = 93. V = 15 × 50 = 750. P<sub>fair</sub> = (750 − 93)/10 = 65.70. Cost (65.70 − 50) × 10 = 157 million: underpricing 5 × 30 = 150 plus the spread of 7.</p></div>`,
+      q: `<p>A firm has 20 million shares and sells 8 million new shares in an IPO at 15.00. The underwriting spread is 7%. The shares close at 24.00 on the first day, which is their fair value. What is the total cost to the original owners of the spread and the underpricing, in millions?</p>`,
+      options: ["260.40", "80.40", "8.40", "72.00"],
+      answer: 1,
+      solution: `<p>Proceeds = 8 × 15.00 × 0.93 = 111.60. V = 28 × 24.00 = 672.00.</p><p>P<sub>fair</sub> = (672.00 − 111.60)/20 = 560.40/20 = 28.02.</p><p>Cost = (28.02 − 24.00) × 20 = <b>80.40</b> million.</p>`,
+      check: `<p>Split it: the new investors paid 8 × 15 = 120 for shares worth 8 × 24 = 192, an underpricing of 72.00. The spread took 0.07 × 120 = 8.40. Together 72.00 + 8.40 = 80.40 ✓. At P<sub>fair</sub> the firm would have sold 111.60/28.02 = 3.9829 million shares. Then 672/23.9829 = 28.02 ✓.</p>`,
+      traps: [
+        "Compared the fair price with the IPO price instead of the first-day price: (28.02 − 15.00) × 20 = 260.40. The old shares are worth 24.00 after the IPO, not 15.00.",
+        null,
+        "Counted only the spread of 0.07 × 120 = 8.40 and missed the underpricing.",
+        "Counted only the underpricing of 8 × (24 − 15) = 72.00 and missed the spread.",
+      ],
+    },
+    {
+      id: "myers-17",
+      title: "The winner's curse: why IPOs are underpriced",
+      theory: `<p>Kurbatov's asymmetric-information story (lecture 6): some investors know which IPOs are good and bid only for those. Good IPOs are heavily oversubscribed, so an uninformed investor gets few shares. Bad IPOs are not, so he gets many. Priced at expected value he loses on average and would stay away. To keep him in, issuers underprice until he breaks even. Then the average IPO rises on its first day.</p>
+<div class="formula"><div class="eq">break-even price: Σ s<sub>i</sub>(V<sub>i</sub> − P*) = 0 &nbsp;⟹&nbsp; P* = Σ s<sub>i</sub>V<sub>i</sub>/Σ s<sub>i</sub></div>
+<div class="where">s<sub>i</sub> is the number of shares the uninformed investor receives in state i: his bid divided by the oversubscription. The average first-day return at P* is E[V]/P* − 1, which is positive although he only breaks even.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example: lecture 6</span><p>Shares are worth 120 or 80, equally likely. You bid for 100 shares: good IPOs are 10 times oversubscribed and give you 10, bad ones 2 times and give you 50.</p><p>At a price of 100: (10 × 20 + 50 × (−20))/(60 × 100) = −800/6 000 = −13.33%. Break-even: (10 × 120 + 50 × 80)/60 = 5 200/60 = 86.67. Good IPOs then rise 38.46% and bad ones fall 7.69%, an average first-day return of 15.38%.</p></div>`,
+      q: `<p>You bid for 100 shares in each of many IPOs. Each IPO's shares turn out to be worth 125 or 75, equally likely. Informed investors bid only for the good ones. Good IPOs are 4 times oversubscribed, so you receive 25 shares. Bad IPOs are 2 times oversubscribed, so you receive 50. Every IPO is priced the same. At what price do you, an uninformed investor, just break even on average?</p>`,
+      options: ["100.00", "75.00", "108.33", "91.67"],
+      answer: 3,
+      solution: `<p>Break-even: 25 × (125 − P) + 50 × (75 − P) = 0.</p><p>3 125 + 3 750 = 75P, so P = 6 875/75 = <b>91.67</b>.</p>`,
+      check: `<p>At 91.67 you gain 25 × 33.33 = 833.33 on the good IPOs and lose 50 × 16.67 = 833.33 on the bad ones ✓. At 100 you would earn (25 × 25 − 50 × 25)/7 500 = −8.33%. The average IPO now rises 0.5 × 36.36% + 0.5 × (−18.18%) = 9.09% on its first day: underpricing, although you only break even.</p>`,
+      traps: [
+        "Priced at the expected value 0.5 × 125 + 0.5 × 75 = 100 and ignored the rationing. You get twice as many bad shares as good ones.",
+        "Assumed you only ever get the bad IPOs. You still receive 25 shares in each good one.",
+        "Swapped the allocations to 50 good and 25 bad: (50 × 125 + 25 × 75)/75 = 108.33. Rationing hits the good IPOs, where the informed investors crowd in.",
+        null,
       ],
     },
     {
