@@ -172,7 +172,7 @@ r_E = 8% + (350/500)(8% − 5%) = 10.1%</div>` },
               `<span class="f">E[CF] = Σ p<sub>i</sub> × CF<sub>i</sub></span>. Siden firmaet er helt egenkapitalfinansiert er <span class="f">r = r<sub>U</sub> = r<sub>E</sub></span>. Kurs = V / antall aksjer.`,
               `<ol><li>Regn forventet inntjening som sannsynlighetsvektet snitt.</li><li><span class="f">V = E[inntjening] / r<sub>E</sub></span>.</li><li><span class="f">P = V / n</span>.</li></ol>`,
             ],
-            fasit: `<span class="own">Egen utregning. Offisiell fasit: Excel-filen «PS1-E4» på Canvas</span>
+            fasit: `<span class="own">Kontrollert mot kursets regneark PS1-E4.xlsx</span>
 <div class="calc">E[CF] = 0.1(1000) + 0.4(2000) + 0.5(4200) = 3000
 V = 3000 / 0.20 = 15 000
 P = 15 000 / 1000 = $15</div>` },
@@ -184,7 +184,7 @@ P = 15 000 / 1000 = $15</div>` },
               `<p>Tilbakekjøp til uendret kurs. Inntjening til aksjonærer = forventet inntjening minus rentekostnad. Egenkapitalverdi = den inntjeningen / <span class="f">r<sub>E</sub></span> (evigvarende).</p>`,
               `<ol><li>Kurs etter kunngjøring = kursen fra (a).</li><li>Antall tilbakekjøpt = <span class="f">D / P</span>.</li><li><span class="f">E = V − D</span>, regn D/E.</li><li><span class="f">r<sub>E</sub> = r<sub>U</sub> + D/E × (r<sub>U</sub> − r<sub>D</sub>)</span>.</li><li>Inntjening til aksjonærer = <span class="f">E[CF] − r<sub>D</sub> × D</span>.</li><li>Kontroller: inntjening / <span class="f">r<sub>E</sub></span> skal bli lik <span class="f">V − D</span>.</li></ol>`,
             ],
-            fasit: `<span class="own">Egen utregning. Offisiell fasit: Excel-filen «PS1-E4» på Canvas</span>
+            fasit: `<span class="own">Kontrollert mot kursets regneark PS1-E4.xlsx</span>
 <div class="calc">Kurs etter kunngjøring = $15 (MM)
 Tilbakekjøp = 7500 / 15 = 500 aksjer
 
@@ -203,7 +203,7 @@ E = 2250 / 0.30 = 7500  ✓</div>
               `<p>Samme oppsett som (a), men med kontantstrøm etter skatt.</p>`,
               `<ol><li>Forventet inntjening før skatt (fra (a)).</li><li>Gang med <span class="f">(1 − τ)</span>.</li><li>Del på <span class="f">r<sub>U</sub></span>.</li><li>Del på antall aksjer.</li></ol>`,
             ],
-            fasit: `<span class="own">Egen utregning. Offisiell fasit: Excel-filen «PS1-E4» på Canvas</span>
+            fasit: `<span class="own">Kontrollert mot kursets regneark PS1-E4.xlsx</span>
 <div class="calc">CF etter skatt = 3000 × (1 − 0.4) = 1800
 V_U = 1800 / 0.20 = 9000
 P = 9000 / 1000 = $9</div>` },
@@ -215,7 +215,7 @@ P = 9000 / 1000 = $9</div>` },
               `<p>Markedet priser inn skatteskjoldet ved kunngjøring, før tilbakekjøpet skjer. Ny kurs = <span class="f">V<sub>L</sub></span> fordelt på det opprinnelige antallet aksjer. Tilbakekjøpet skjer til den nye kursen.</p>`,
               `<ol><li><span class="f">PV(skatteskjold) = τ × D</span>.</li><li><span class="f">V<sub>L</sub> = V<sub>U</sub> + τD</span>.</li><li>Kurs etter kunngjøring = <span class="f">V<sub>L</sub> / n<sub>opprinnelig</sub></span>.</li><li>Antall tilbakekjøpt = <span class="f">D / P<sub>ny</sub></span>.</li><li>Kontroll: <span class="f">V<sub>L</sub> − D</span> = ny kurs × gjenværende aksjer.</li><li>Sammenlign kursen før og etter kunngjøring for å se hvem som får gevinsten.</li></ol>`,
             ],
-            fasit: `<span class="own">Egen utregning. Offisiell fasit: Excel-filen «PS1-E4» på Canvas</span>
+            fasit: `<span class="own">Kontrollert mot kursets regneark PS1-E4.xlsx</span>
 <div class="calc">PV(skatteskjold) = 0.4 × 7500 = 3000
 V_L = 9000 + 3000 = 12 000
 Kurs etter kunngjøring = 12 000 / 1000 = $12
@@ -267,7 +267,7 @@ Forventet avkastning = 5%</div>` },
             ],
             fasit: `<div class="calc">E = 0.25 × (50 + 35 + 0 + 0) / 1.05 = $20.24 mill.
 V = D + E = 78.87 + 20.24 = $99.11 mill.</div>
-<p>V<sub>U</sub> − V<sub>L</sub> = 10.41 mill. er nåverdien av forventede konkurskostnader.</p>` },
+<p>V<sub>U</sub> − V<sub>L</sub> = 10.42 mill. er nåverdien av forventede konkurskostnader.</p>` },
           { l: "e",
             ctx: `Suppose Gladstone has 10 million shares outstanding and no debt at the start of the year.`,
             q: `<p>If Gladstone does not issue debt, what is its share price?</p>`,
@@ -339,7 +339,7 @@ Ny gjeld: ½(80) + ½(80) = 80 > 75</div>
       /* ---------------- 7 ---------------- */
       { nr: 7, niva: 1, tema: "Risk Shifting", tittel: "Zymase",
         intro: `<p>Zymase is a biotechnology start-up firm. Researchers at Zymase must choose one of three different research strategies. The payoffs (after-tax) and their likelihood for each strategy are shown below. The risk of each project is diversifiable.</p>
-<div class="tblwrap"><table class="tbl"><thead><tr><th>Strategy</th><th>Probability</th><th>Payoff ($ mill.)</th></tr></thead><tbody>
+<div class="tblwrap"><table class="data"><thead><tr><th>Strategy</th><th>Probability</th><th>Payoff ($ mill.)</th></tr></thead><tbody>
 <tr><td>A</td><td>100%</td><td>75</td></tr>
 <tr><td rowspan="2">B</td><td>50%</td><td>140</td></tr><tr><td>50%</td><td>0</td></tr>
 <tr><td rowspan="2">C</td><td>10%</td><td>300</td></tr><tr><td>90%</td><td>40</td></tr>
@@ -392,7 +392,7 @@ D = 110: C velges  →  75 − 66 = $9 mill.</div>` },
       /* ---------------- 8 ---------------- */
       { nr: 8, niva: 2, tema: "Risk Shifting", tittel: "Hillton Hotels",
         intro: `<p>Assume a firm called "Hillton Hotels", which is only active for one period. All investors are risk-neutral, the discount rate is zero, and there are no taxes. Hillton Hotels consists of two divisions, "Paris Hotel Management" and "Nicole Property Development." The cash flows that each division will give depends on whether there is a boom or a bust in the economy, as follows:</p>
-<div class="tblwrap"><table class="tbl"><thead><tr><th>Division</th><th>Boom</th><th>Bust</th></tr></thead><tbody>
+<div class="tblwrap"><table class="data"><thead><tr><th>Division</th><th>Boom</th><th>Bust</th></tr></thead><tbody>
 <tr><td>Nicole</td><td>150</td><td>50</td></tr><tr><td>Paris</td><td>130</td><td>70</td></tr></tbody></table></div>
 <p>Boom and bust are equally likely and occur with probability ½. Hillton currently has 100 of debt outstanding, due next period, which is backed by the combined cash flow of the two divisions.</p>`,
         deler: [
@@ -404,14 +404,14 @@ D = 110: C velges  →  75 − 66 = $9 mill.</div>` },
               `<p>Sjekk om den samlede kontantstrømmen dekker gjelden også i bust.</p>`,
               `<ol><li>Samlet CF i boom og i bust.</li><li>Gjeld per tilstand: <span class="f">min(CF, F)</span>.</li><li>Egenkapital per tilstand: <span class="f">max(CF − F, 0)</span>.</li><li>Ta forventning.</li></ol>`,
             ],
-            fasit: `<span class="own">Egen utregning. Offisiell fasit: Excel-filen «PS1-E8» på Canvas</span>
+            fasit: `<span class="own">Kontrollert mot kursets regneark PS1-E8.xls</span>
 <div class="calc">Samlet CF: boom 280, bust 120
 D = ½(100) + ½(100) = 100  (risikofri)
 E = ½(180) + ½(20) = 100
 V = 200</div>` },
           { l: "b",
             ctx: `The CEO of Hillton is considering splitting the firm into two separate firms, "Nicole Corp" and "Paris Corp", in a spin-off. After reading the debt covenants carefully, the CEO has discovered that she could put all of the debt on one of the firms, making the other firm debt free. A spin-off would be costly, however, since there are synergies between the two divisions. If the divisions were separated into two firms, the cash flows would therefore decrease by 10 for each of the firms in each of the states:
-<div class="tblwrap"><table class="tbl"><thead><tr><th>Division</th><th>Boom</th><th>Bust</th></tr></thead><tbody>
+<div class="tblwrap"><table class="data"><thead><tr><th>Division</th><th>Boom</th><th>Bust</th></tr></thead><tbody>
 <tr><td>Nicole</td><td>140</td><td>40</td></tr><tr><td>Paris</td><td>120</td><td>60</td></tr></tbody></table></div>`,
             q: `<p>If the CEO wants to maximize shareholder value, which of the two divisions should be allocated the debt and which one should be debt-free? What would the value of the debt (which will now only be backed by the cash flows of one division) be after the spin-off?</p>`,
             hint: [
@@ -420,7 +420,7 @@ V = 200</div>` },
               `<p>Total egenkapital = egenkapital i selskapet med gjeld + verdien av det gjeldfrie selskapet. Velg alternativet med høyest total egenkapital.</p>`,
               `<ol><li>Alternativ 1: gjeld på Nicole. Regn D og E for Nicole og E for Paris.</li><li>Alternativ 2: gjeld på Paris. Regn D og E for Paris og E for Nicole.</li><li>Summer egenkapitalen i hvert alternativ.</li><li>Velg det høyeste og oppgi gjeldsverdien i det alternativet.</li></ol>`,
             ],
-            fasit: `<span class="own">Egen utregning. Offisiell fasit: Excel-filen «PS1-E8» på Canvas</span>
+            fasit: `<span class="own">Kontrollert mot kursets regneark PS1-E8.xls</span>
 <div class="calc">Gjeld på Nicole (140 / 40):
   D = ½(100) + ½(40) = 70
   E_Nicole = ½(40) + ½(0) = 20
@@ -441,7 +441,7 @@ Gjeld på Paris (120 / 60):
               `<p>Se også på hva som skjer med total firmaverdi og gjeldsverdi. Hvem betaler for aksjonærenes gevinst?</p>`,
               `<ol><li>Total egenkapital etter spin-off fra (b).</li><li>Trekk fra egenkapital før fra (a).</li><li>Sjekk endringen i firmaverdi (synergitap) og i gjeldsverdi.</li><li>Forklar at aksjonærene vinner på bekostning av gjeldseierne selv om firmaet samlet taper verdi.</li></ol>`,
             ],
-            fasit: `<span class="own">Egen utregning. Offisiell fasit: Excel-filen «PS1-E8» på Canvas</span>
+            fasit: `<span class="own">Kontrollert mot kursets regneark PS1-E8.xls</span>
 <div class="calc">Aksjonærer:  110 − 100 = +10
 Gjeldseiere:  70 − 100 = −30
 Firma:       180 − 200 = −20 (tapte synergier)</div>
@@ -719,6 +719,1452 @@ DPS = 48M / 10.67M = $4.50 (nå og senere)
 P_cum = 4.50 + 4.50/0.12 = $42</div>
 <p>Kursen er igjen uendret. Merk forskjellen fra oppgave 12(d), der de nye aksjonærene ikke får det ekstra utbyttet de finansierer.</p>
 <p><b>Oppsummert:</b> det er en avveining mellom utbytte nå og senere. I et perfekt kapitalmarked er utbetalingsformen irrelevant. I virkeligheten er det markedsimperfeksjonene som bør bestemme utbyttepolitikken.</p>` },
+        ] },
+    ],
+  },
+  {
+    id: "ps2", nr: 2, tittel: "Problem Set 2", tema: "Security issuance and valuation",
+    trinn: ["Retning","Verktøy","Oppsett","Oppskrift"],
+    nivaer: { 1: ["*", "Tutorial"], 2: ["**", "Forelesning"], 3: ["***", "Egen trening"] },
+    oppgaver: [
+      /* ---------------- 1 ---------------- */
+      { nr: 1, niva: 2, tema: "Asymmetric Information", tittel: "Rothko Inc.",
+        intro: `<p>Rothko Inc. is a small collective of artists, mainly painters. The market knows that the value of Rothko's current assets (mainly modern experimental paintings) is either $0 ("bad art state") or $100K ("good art state"). Rothko's managers know for certain they are in the "good state," and that the value of the art is $100K. Now, artists are often misunderstood, so Rothko's managers cannot convince the market of this, and the market simply believes that there is a 50-50 chance that Rothko is in the good or the bad art state. Like most firms run by artists turned managers, Rothko has no internal funds. Further, its management insists that all investments must be financed by equity, since borrowing jeopardizes their artistic freedom and integrity. Thus, Rothko currently has 1000 shares outstanding and no debt. All agents are risk neutral and the discount rate is zero.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>What is the price per share of Rothko?</p>`,
+            hint: [
+              `<p>Markedet vet ikke hvilken tilstand Rothko er i. Kursen settes ut fra det markedet tror, ikke ut fra det ledelsen vet.</p>`,
+              `<p>Risikonøytrale investorer og null diskontering: verdi = forventet verdi med markedets sannsynligheter. <span class="f">P = V / n</span>.</p>`,
+              `<p>Markedet gir god og dårlig tilstand 50% hver. Firmaet har ingen gjeld, så hele verdien tilhører aksjonærene.</p>`,
+              `<ol><li>Forventet verdi = sannsynlighet for dårlig tilstand × verdien der + sannsynlighet for god tilstand × verdien der.</li><li>Del på antall aksjer.</li></ol>`,
+            ],
+            fasit: `<div class="calc">V = 0.5 × 0 + 0.5 × 100 000 = 50 000
+P = 50 000 / 1000 = $50</div>` },
+          { l: "b",
+            ctx: `Now, Rothko is considering investing $10K in an exhibition of modern experimental paintings. Both Rothko and the market know perfectly well that this project will generate no cash flow whatsoever.`,
+            q: `<p>Suppose that the market conjectures that Rothko would invest in this "project" regardless of whether it is in the good state or the bad state. How many new shares must Rothko sell to raise $10k and what is the share price afterwards?</p>`,
+            hint: [
+              `<p>Investerer begge typer, sier investeringen ingenting om tilstanden. Markedet priser fortsatt snittet. Prosjektet bruker opp pengene uten å gi noe tilbake.</p>`,
+              `<p>Nye aksjonærer skal få verdier for nøyaktig det de betaler. Andelen deres er beløpet delt på firmaverdien etter emisjonen: <span class="f">N / (n + N) = 10 000 / V</span>.</p>`,
+              `<p>V etter emisjonen er markedets forventede verdi av eiendelene. De 10 000 som hentes inn, legges ikke til, fordi prosjektet gir 0.</p>`,
+              `<ol><li>V etter emisjonen = forventet verdi av eiendelene, som i (a).</li><li>Andel til nye = beløpet som hentes inn / V.</li><li>Løs <span class="f">N / (n + N)</span> = andelen for N.</li><li>Kurs = <span class="f">V / (n + N)</span>.</li><li>Kontroll: N × kurs = beløpet som hentes inn.</li></ol>`,
+            ],
+            fasit: `<div class="calc">V = 50 000 (ingen ny informasjon, prosjektet gir 0)
+Andel til nye = 10 000 / 50 000 = 20%
+N / (1000 + N) = 0.20  →  N = 250 aksjer
+P = 50 000 / 1250 = $40
+
+Kontroll: 250 × 40 = 10 000</div>
+<p>Kursen faller med $10 fordi pengene går til et prosjekt med NPV = −10 000. Det tapet bærer de gamle aksjonærene: 1000 × 10 = 10 000.</p>` },
+          { l: "c",
+            q: `<p>Suppose that the market conjectures that Rothko would only invest in this project if it is in the good state. Call this expectation "Conjecture C". When Rothko is in the bad state, it would simply do nothing. Under this conjecture, how many new shares must Rothko sell to raise $10k and what is the share price afterwards?</p>`,
+            hint: [
+              `<p>Nå er investeringen et signal. Hva slutter markedet når det ser at Rothko investerer?</p>`,
+              `<p>Under conjecture C betyr investering god tilstand. Bruk samme break-even som i (b): <span class="f">N / (n + N) = 10 000 / V</span>, men med den nye verdien.</p>`,
+              `<p>V etter emisjonen er verdien i god tilstand. Prosjektet gir fortsatt 0.</p>`,
+              `<ol><li>Sett V lik verdien i god tilstand.</li><li>Andel til nye = beløpet som hentes inn / V.</li><li>Løs for N.</li><li>Kurs = <span class="f">V / (n + N)</span>.</li><li>Kontroll: N × kurs = beløpet som hentes inn.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Investering = signal om god tilstand  →  V = 100 000
+Andel til nye = 10 000 / 100 000 = 10%
+N / (1000 + N) = 0.10  →  N = 111.1 ≈ 111 aksjer
+P = 100 000 / 1111.1 = $90
+
+Kontroll: 111.1 × 90 = 10 000</div>
+<p>Kursen stiger fra $50 til $90. Signalet løfter verdien til 100 000. De gamle aksjonærene sitter igjen med 100 000 − 10 000 = 90 000, altså $90 per aksje.</p>` },
+          { l: "d",
+            ctx: `Under conjecture C, and after observing the success of the exhibition (in particular on Rothko's share price), Okhtor is considering investing in a similar exhibition. Okhtor Inc. is a small collective of modern experimental sculptors. Their firm is an exact replica of Rothko, except they know they are in the bad state. The market has not realized this yet, and the market still thinks that there is a 50-50 chance that Okhtor is in the good or the bad state.`,
+            q: `<p>Okhtor is considering investing in a similar exhibition. Under conjecture C, how many shares do they need to issue and what is the impact on the share price? Would their shareholders want to do this?</p>`,
+            hint: [
+              `<p>Markedet kan ikke se forskjell på Rothko og Okhtor. Hvordan tolker markedet en investering under conjecture C?</p>`,
+              `<p>Prisingen avhenger bare av hva markedet tror, ikke av den sanne tilstanden. Regnestykket blir det samme som i (c).</p>`,
+              `<p>Sammenlign kursen før (fra (a)) med kursen etter. Tenk også på hvem som betaler når Okhtor egentlig er verdt 0.</p>`,
+              `<ol><li>Fastslå at markedet tolker investeringen som god tilstand.</li><li>Antall nye aksjer og kurs blir som i (c).</li><li>Sammenlign med kursen i (a).</li><li>Vurder hvem som vinner og hvem som taper når sannheten kommer fram.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Markedet tror: investering = god tilstand  →  V = 100 000
+N = 111 aksjer, P = $90 (som i c)
+Kurs før: $50  →  kurs etter: $90</div>
+<p>Ja, aksjonærene i Okhtor vil gjøre dette. Kursen stiger fra $50 til $90. De nye aksjonærene betaler 10 000 for aksjer i et firma som egentlig er verdt 0. De taper når sannheten kommer fram.</p>` },
+          { l: "e",
+            q: `<p>Is conjecture C rational/correct?</p>`,
+            hint: [
+              `<p>En forventning er rasjonell bare hvis firmaene faktisk gjør det markedet tror de gjør. Da er det en likevekt.</p>`,
+              `<p>Sjekk hver type: vil den gode typen investere og vil den dårlige la være, gitt at markedet tror på C?</p>`,
+              `<p>Bruk svaret i (d). Hva gjør den dårlige typen?</p>`,
+              `<ol><li>Skriv opp hva C sier at hver type gjør.</li><li>Sjekk med (c) og (d) hva hver type faktisk vil gjøre gitt C.</li><li>Stemmer det ikke for én av typene, er C ingen likevekt.</li></ol>`,
+            ],
+            fasit: `<p>Nei. C sier at bare den gode typen investerer. Men (d) viser at den dårlige typen også tjener på å investere når markedet tror på C. Begge typer investerer, så C stemmer ikke med det firmaene gjør. C er ingen likevekt.</p>` },
+        ] },
+      /* ---------------- 2 ---------------- */
+      { nr: 2, niva: 1, tema: "IPO", tittel: "Kostnaden ved en IPO",
+        intro: `<p>Your firm has 10 million shares outstanding, and you are about to issue 5 million new shares in an IPO. The IPO price has been set at $20 per share, and the underwriting spread is 7%. The IPO is a big success with investors, and the share price rises to $50 on the first day of trading.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>How much did your firm raise from the IPO?</p>`,
+            hint: [
+              `<p>Firmaet får IPO-prisen, ikke kursen etter første handelsdag. Og tilretteleggeren tar sin del.</p>`,
+              `<p>Netto proveny = nye aksjer × IPO-pris × <span class="f">(1 − spread)</span>.</p>`,
+              `<p>Spreaden er en prosent av bruttoprovenyet. Kursoppgangen til $50 går til dem som kjøpte i emisjonen, ikke til firmaet.</p>`,
+              `<ol><li>Brutto = nye aksjer × IPO-pris.</li><li>Netto = brutto × <span class="f">(1 − spread)</span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Brutto = 5 mill. × $20 = $100 mill.
+Netto = 100 × (1 − 0.07) = $93 mill.</div>` },
+          { l: "b",
+            q: `<p>What is the market value of the firm after the IPO?</p>`,
+            hint: [
+              `<p>Markedsverdi er kurs ganger antall aksjer, etter at de nye aksjene er utstedt.</p>`,
+              `<span class="f">MV = P × (gamle + nye aksjer)</span>.`,
+              `<p>Bruk kursen etter første handelsdag.</p>`,
+              `<ol><li>Totalt antall aksjer etter emisjonen.</li><li>Gang med kursen etter første handelsdag.</li></ol>`,
+            ],
+            fasit: `<div class="calc">MV = (10 + 5) mill. × $50 = $750 mill.</div>` },
+          { l: "c",
+            q: `<p>Assume that the post-IPO value of your firm is its fair market value. Suppose your firm could have issued shares directly to investors at their fair market value, in a perfect market with no underwriting spread and no underpricing. What would the share price have been in this case, if you raise the same amount as in part (a)?</p>`,
+            hint: [
+              `<p>I et perfekt marked selges aksjene til riktig pris. Da beholder de gamle aksjonærene all verdien de hadde før emisjonen.</p>`,
+              `<p>Firmaets verdi uten de nye pengene = MV etter IPO − proveny. Den verdien tilhører de opprinnelige aksjene.</p>`,
+              `<p>De nye pengene gir like mye verdi som de nye aksjene koster. Kursen er derfor verdien uten de nye pengene delt på de opprinnelige aksjene.</p>`,
+              `<ol><li>Verdi uten nye penger = MV fra (b) − proveny fra (a).</li><li>Kurs = denne verdien / opprinnelige aksjer.</li><li>Kontroll: nye aksjer = proveny / kurs. MV / totalt antall aksjer skal gi samme kurs.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Verdi uten nye penger = 750 − 93 = $657 mill.
+P = 657 / 10 = $65.70
+
+Kontroll: 93 / 65.70 = 1.4155 mill. nye aksjer
+          750 / 11.4155 = $65.70</div>` },
+          { l: "d",
+            q: `<p>Comparing part (b) and part (c), what is the total cost to the firm's original investors due to market imperfections from the IPO?</p>`,
+            hint: [
+              `<p>De opprinnelige aksjonærene sitter med aksjer verdt $50 i stedet for kursen de kunne hatt i (c).</p>`,
+              `<p>Kostnad = (kurs i perfekt marked − faktisk kurs) × opprinnelige aksjer.</p>`,
+              `<p>Kostnaden består av spreaden og underprisingen. Summen av de to skal gi det samme.</p>`,
+              `<ol><li>Differanse per aksje = kursen fra (c) − kursen etter IPO.</li><li>Gang med opprinnelige aksjer.</li><li>Kontroll: spread (brutto × spreadsatsen) + underprising (nye aksjer × (førstedagskurs − IPO-pris)).</li></ol>`,
+            ],
+            fasit: `<div class="calc">Kostnad = (65.70 − 50) × 10 mill. = $157 mill.
+
+Kontroll:
+Spread:        5 mill. × 20 × 0.07 = $7 mill.
+Underprising:  5 mill. × (50 − 20) = $150 mill.
+Sum                                = $157 mill.</div>` },
+        ] },
+      /* ---------------- 3 ---------------- */
+      { nr: 3, niva: 1, tema: "WACC", tittel: "Alcatel-Lucent",
+        intro: `<p>Suppose Alcatel-Lucent has an equity cost of capital of 10%, market capitalization of $10.8 billion, and an enterprise value of $14.4 billion. Suppose Alcatel-Lucent's debt cost of capital is 6.1% and its marginal tax rate is 35%.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>What is Alcatel-Lucent's WACC?</p>`,
+            hint: [
+              `<p>WACC etter skatt er snittet av avkastningskravene, vektet med markedsverdier. Gjeldskostnaden justeres for skatteskjoldet.</p>`,
+              `<span class="f">r<sub>wacc</sub> = E/V × r<sub>E</sub> + D/V × r<sub>D</sub>(1 − τ<sub>c</sub>)</span>.`,
+              `<p>Enterprise value er egenkapital pluss netto gjeld. Netto gjeld er derfor <span class="f">D = EV − E</span> og <span class="f">V = EV</span>.</p>`,
+              `<ol><li><span class="f">D = EV − E</span>.</li><li>Vekter <span class="f">E/V</span> og <span class="f">D/V</span> med V = EV.</li><li>Sett inn i formelen.</li></ol>`,
+            ],
+            fasit: `<div class="calc">D = 14.4 − 10.8 = 3.6
+E/V = 10.8 / 14.4 = 0.75,  D/V = 0.25
+
+r_wacc = 0.75 × 10% + 0.25 × 6.1% × (1 − 0.35)
+       = 7.5% + 0.99125% = 8.49%</div>` },
+          { l: "b",
+            q: `<p>If Alcatel-Lucent maintains a constant debt-equity ratio, what is the value of a project with average risk and the following expected free cash flows?</p>
+<table class="data"><tr><th>Year</th><th>0</th><th>1</th><th>2</th><th>3</th></tr>
+<tr><td>FCF</td><td class="n">−100</td><td class="n">50</td><td class="n">100</td><td class="n">70</td></tr></table>`,
+            hint: [
+              `<p>Gjennomsnittlig risiko og konstant gjeldsgrad: da kan prosjektet diskonteres med firmaets WACC.</p>`,
+              `<span class="f">V<sup>L</sup><sub>0</sub> = Σ FCF<sub>t</sub> / (1 + r<sub>wacc</sub>)<sup>t</sup></span> for t = 1, 2, 3. NPV = <span class="f">V<sup>L</sup><sub>0</sub> + FCF<sub>0</sub></span>.`,
+              `<p>Regn gjerne baklengs: <span class="f">V<sup>L</sup><sub>t</sub> = (FCF<sub>t+1</sub> + V<sup>L</sup><sub>t+1</sub>) / (1 + r<sub>wacc</sub>)</span>. Da får du verdien på hver dato. Den trenger du i (c).</p>`,
+              `<ol><li><span class="f">V<sup>L</sup><sub>3</sub> = 0</span>.</li><li><span class="f">V<sup>L</sup><sub>2</sub> = FCF<sub>3</sub> / (1 + r<sub>wacc</sub>)</span>.</li><li><span class="f">V<sup>L</sup><sub>1</sub> = (FCF<sub>2</sub> + V<sup>L</sup><sub>2</sub>) / (1 + r<sub>wacc</sub>)</span>.</li><li><span class="f">V<sup>L</sup><sub>0</sub> = (FCF<sub>1</sub> + V<sup>L</sup><sub>1</sub>) / (1 + r<sub>wacc</sub>)</span>.</li><li>NPV = <span class="f">V<sup>L</sup><sub>0</sub></span> − investeringen.</li></ol>`,
+            ],
+            fasit: `<div class="calc">r_wacc = 8.49125%
+
+V_2 = 70 / 1.08491 = 64.52
+V_1 = (100 + 64.52) / 1.08491 = 151.64
+V_0 = (50 + 151.64) / 1.08491 = 185.86
+
+NPV = 185.86 − 100 = 85.86</div>
+<p>Kontantstrømmene fra år 1 er verdt 185.86 i dag. Etter investeringen på 100 er NPV = 85.86.</p>` },
+          { l: "c",
+            q: `<p>If Alcatel-Lucent maintains its debt-equity ratio, what is the debt capacity of the project in part b?</p>`,
+            hint: [
+              `<p>Konstant gjeldsgrad betyr at gjelden følger prosjektets verdi over tid.</p>`,
+              `<p>Gjeldskapasitet <span class="f">D<sub>t</sub> = d × V<sup>L</sup><sub>t</sub></span>, der <span class="f">d = D/V</span>.</p>`,
+              `<p>Bruk <span class="f">V<sup>L</sup><sub>t</sub></span> på hver dato fra (b). Når prosjektet er ferdig, er både verdien og gjelden 0.</p>`,
+              `<ol><li><span class="f">d = D/V</span> fra (a).</li><li><span class="f">D<sub>t</sub> = d × V<sup>L</sup><sub>t</sub></span> for t = 0, 1, 2, 3.</li></ol>`,
+            ],
+            fasit: `<div class="calc">d = 3.6 / 14.4 = 0.25
+
+År             0        1        2       3
+V^L_t     185.86   151.64    64.52       0
+D_t        46.47    37.91    16.13       0</div>` },
+        ] },
+      /* ---------------- 4 ---------------- */
+      { nr: 4, niva: 1, tema: "APV", tittel: "Alcatel-Lucent med APV",
+        intro: `<p>Consider Alcatel-Lucent's project in Exercise 3.</p>
+<p class="tiny muted">Fra oppgave 3: r<sub>E</sub> = 10%, E = $10.8 mrd., EV = $14.4 mrd., r<sub>D</sub> = 6.1%, τ<sub>c</sub> = 35%, konstant gjeldsgrad.</p>
+<table class="data"><tr><th>Year</th><th>0</th><th>1</th><th>2</th><th>3</th></tr>
+<tr><td>FCF</td><td class="n">−100</td><td class="n">50</td><td class="n">100</td><td class="n">70</td></tr></table>`,
+        deler: [
+          { l: "a",
+            q: `<p>What is Alcatel-Lucent's unlevered cost of capital?</p>`,
+            hint: [
+              `<p><span class="f">r<sub>U</sub></span> er avkastningskravet på eiendelene. Med konstant gjeldsgrad er det WACC før skatt.</p>`,
+              `<span class="f">r<sub>U</sub> = E/V × r<sub>E</sub> + D/V × r<sub>D</sub></span> (kursets konvensjon: vekter uten skatt).`,
+              `<p>Samme vekter som i 3(a), men uten <span class="f">(1 − τ<sub>c</sub>)</span> på gjeldskostnaden.</p>`,
+              `<ol><li>Vekter <span class="f">E/V</span> og <span class="f">D/V</span> fra 3(a).</li><li><span class="f">r<sub>U</sub></span> = vektet snitt av <span class="f">r<sub>E</sub></span> og <span class="f">r<sub>D</sub></span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">r_U = 0.75 × 10% + 0.25 × 6.1% = 7.5% + 1.525% = 9.025%</div>` },
+          { l: "b",
+            q: `<p>What is the unlevered value of the project?</p>`,
+            hint: [
+              `<p>Ugiret verdi er verdien av prosjektet som om det var finansiert bare med egenkapital.</p>`,
+              `<span class="f">V<sup>U</sup> = Σ FCF<sub>t</sub> / (1 + r<sub>U</sub>)<sup>t</sup></span>.`,
+              `<p>Samme kontantstrømmer som i oppgave 3, men diskontert med <span class="f">r<sub>U</sub></span> i stedet for <span class="f">r<sub>wacc</sub></span>.</p>`,
+              `<ol><li>Diskonter FCF for hvert år med <span class="f">r<sub>U</sub></span> fra (a).</li><li>Summer.</li></ol>`,
+            ],
+            fasit: `<div class="calc">V^U = 50/1.09025 + 100/1.09025² + 70/1.09025³
+    = 45.861 + 84.129 + 54.016 = 184.006</div>` },
+          { l: "c",
+            q: `<p>What are the interest tax shields from the project? What is their present value?</p>`,
+            hint: [
+              `<p>Gjelden fra 3(c) gir rentefradrag hvert år. Skatteskjoldet er rentene ganger skattesatsen.</p>`,
+              `<p>Renter i år t = <span class="f">r<sub>D</sub> × D<sub>t−1</sub></span>, altså gjelden ved starten av året. <span class="f">TS<sub>t</sub> = τ<sub>c</sub> × renter<sub>t</sub></span>.</p>`,
+              `<p>Med konstant gjeldsgrad følger gjelden prosjektverdien. Skatteskjoldet har da samme risiko som eiendelene og diskonteres med <span class="f">r<sub>U</sub></span>.</p>`,
+              `<ol><li>Ta <span class="f">D<sub>0</sub></span>, <span class="f">D<sub>1</sub></span> og <span class="f">D<sub>2</sub></span> fra 3(c).</li><li>Renter<sub>t</sub> = <span class="f">r<sub>D</sub> × D<sub>t−1</sub></span>.</li><li><span class="f">TS<sub>t</sub> = τ<sub>c</sub></span> × renter<sub>t</sub>.</li><li><span class="f">PV(TS) = Σ TS<sub>t</sub> / (1 + r<sub>U</sub>)<sup>t</sup></span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">År                  1         2         3
+D_(t−1)        46.466    37.911    16.130
+Renter (6.1%)  2.8344    2.3126    0.9840
+TS (35%)       0.9920    0.8094    0.3444
+
+PV(TS) = 0.9920/1.09025 + 0.8094/1.09025² + 0.3444/1.09025³
+       = 0.910 + 0.681 + 0.266 = 1.857</div>
+<p><b>Merknad:</b> Kursets løsning får 1.85 fordi den diskonterer skatteskjoldene avrundet til to desimaler (0.99, 0.81, 0.34). Uavrundet er PV(TS) = 1.857.</p>` },
+          { l: "d",
+            q: `<p>Show that the APV of Alcatel-Lucent's project matches the value computed using the WACC method.</p>`,
+            hint: [
+              `<p>APV er ugiret verdi pluss nåverdien av skatteskjoldet.</p>`,
+              `<span class="f">V<sup>L</sup> = V<sup>U</sup> + PV(TS)</span>.`,
+              `<p>Legg sammen (b) og (c) og sammenlign med <span class="f">V<sup>L</sup><sub>0</sub></span> fra 3(b).</p>`,
+              `<ol><li><span class="f">V<sup>U</sup></span> fra (b).</li><li>PV(TS) fra (c).</li><li>Summer.</li><li>Sammenlign med verdien fra WACC-metoden.</li></ol>`,
+            ],
+            fasit: `<div class="calc">APV = 184.006 + 1.857 = 185.863
+WACC-metoden (3b): 185.863  ✓</div>
+<p>Metodene gir samme svar fordi begge bygger på konstant gjeldsgrad. Da har skatteskjoldet eiendelenes risiko og WACC-en er <span class="f">r<sub>U</sub> − d τ<sub>c</sub> r<sub>D</sub></span>. Kontrollen er et fast punkt: gjelden <span class="f">D<sub>t</sub></span> i 3(c) er hentet fra WACC-verdiene, så likheten følger av algebraen. Den avslører likevel feil rente på skatteskjoldet og regnefeil.</p>` },
+        ] },
+      /* ---------------- 5 ---------------- */
+      { nr: 5, niva: 2, tema: "APV", tittel: "Tybo Corporation",
+        intro: `<p>Tybo Corporation adjusts its debt so that its interest expenses are 20% of its free cash flow. Tybo is considering an expansion that will generate free cash flows of $2.5 million this year and is expected to grow at a rate of 4% per year from then on. Suppose Tybo's marginal corporate tax rate is 40%.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>If the unlevered cost of capital for this expansion is 10%, what is its unlevered value?</p>`,
+            hint: [
+              `<p>Kontantstrømmen vokser med en fast rate for alltid.</p>`,
+              `<p>Voksende evigvarende annuitet: <span class="f">V<sup>U</sup> = FCF<sub>1</sub> / (r<sub>U</sub> − g)</span>.</p>`,
+              `<p>FCF i år 1 er 2.5 mill. og veksten er 4%.</p>`,
+              `<ol><li>Sett inn FCF<sub>1</sub>, <span class="f">r<sub>U</sub></span> og g i formelen.</li></ol>`,
+            ],
+            fasit: `<div class="calc">V^U = 2.5 / (0.10 − 0.04) = $41.67 mill.</div>` },
+          { l: "b",
+            q: `<p>What is the levered value of the expansion?</p>`,
+            hint: [
+              `<p>Rentene er en fast andel av FCF. Da er også skatteskjoldet en fast andel av FCF og har samme risiko.</p>`,
+              `<p><span class="f">TS<sub>t</sub> = τ<sub>c</sub> × k × FCF<sub>t</sub></span>, der k = renter / FCF. Da er <span class="f">PV(TS) = τ<sub>c</sub> k V<sup>U</sup></span> og <span class="f">V<sup>L</sup> = (1 + τ<sub>c</sub> k) V<sup>U</sup></span>.</p>`,
+              `<p>Her er k = 20% og <span class="f">τ<sub>c</sub></span> = 40%.</p>`,
+              `<ol><li>Regn <span class="f">τ<sub>c</sub> × k</span>.</li><li><span class="f">V<sup>L</sup> = (1 + τ<sub>c</sub> k) × V<sup>U</sup></span>.</li><li>Kontroll: <span class="f">PV(TS) = τ<sub>c</sub> k FCF<sub>1</sub> / (r<sub>U</sub> − g)</span> og <span class="f">V<sup>U</sup> + PV(TS)</span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">V^L = (1 + 0.40 × 0.20) × 41.67 = 1.08 × 41.67 = $45.00 mill.
+
+Kontroll: PV(TS) = 0.40 × 0.20 × 2.5 / 0.06 = 3.33
+          41.67 + 3.33 = 45.00</div>` },
+          { l: "c",
+            q: `<p>If Tybo pays 5% interest on its debt, what amount of debt will it take on initially for the expansion?</p>`,
+            hint: [
+              `<p>Regelen om 20% av FCF bestemmer rentene i år 1. Gjelden må være akkurat så stor at den gir de rentene.</p>`,
+              `<span class="f">renter = k × FCF<sub>1</sub> = r<sub>D</sub> × D</span>.`,
+              `<p>Løs for D.</p>`,
+              `<ol><li>Renter = k × FCF<sub>1</sub>.</li><li><span class="f">D = renter / r<sub>D</sub></span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Renter = 0.20 × 2.5 = 0.5 mill.
+D = 0.5 / 0.05 = $10 mill.</div>` },
+          { l: "d",
+            q: `<p>What is the debt-to-value ratio for this expansion? What is its WACC?</p>`,
+            hint: [
+              `<p>Gjeldsgraden er gjelden delt på giret verdi. WACC kan regnes fra <span class="f">r<sub>U</sub></span> og gjeldsgraden.</p>`,
+              `<span class="f">d = D / V<sup>L</sup></span>. <span class="f">r<sub>wacc</sub> = r<sub>U</sub> − d τ<sub>c</sub> r<sub>D</sub></span>.`,
+              `<p>Bruk D fra (c) og <span class="f">V<sup>L</sup></span> fra (b). Formelen følger av at WACC før skatt er lik <span class="f">r<sub>U</sub></span>.</p>`,
+              `<ol><li><span class="f">d = D / V<sup>L</sup></span>.</li><li><span class="f">r<sub>wacc</sub> = r<sub>U</sub> − d × τ<sub>c</sub> × r<sub>D</sub></span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">d = 10 / 45 = 0.2222
+r_wacc = 10% − 0.2222 × 0.40 × 5% = 9.556%</div>` },
+          { l: "e",
+            q: `<p>What is the levered value of the expansion using the WACC method?</p>`,
+            hint: [
+              `<p>WACC-metoden diskonterer FCF med WACC.</p>`,
+              `<span class="f">V<sup>L</sup> = FCF<sub>1</sub> / (r<sub>wacc</sub> − g)</span>.`,
+              `<p>Svaret skal bli det samme som i (b).</p>`,
+              `<ol><li>Sett inn <span class="f">r<sub>wacc</sub></span> fra (d).</li><li>Sammenlign med (b).</li></ol>`,
+            ],
+            fasit: `<div class="calc">V^L = 2.5 / (0.09556 − 0.04) = $45.00 mill.  ✓ samme som APV i (b)</div>
+<p>Likheten er et fast punkt, fordi d er regnet med <span class="f">V<sup>L</sup></span> fra (b). Den fanger regnefeil og feil WACC-formel.</p>` },
+        ] },
+      /* ---------------- 6 ---------------- */
+      { nr: 6, niva: 2, tema: "APV, WACC and FTE", tittel: "AMC",
+        intro: `<p>In year 1, AMC will earn $2000 before interest and taxes. The market expects these earnings to grow at a rate of 3% per year. The firm will make no net investments (i.e., capital expenditures will equal depreciation) or changes to net working capital. Assume that the corporate tax rate equals 40%. Right now, the firm has $5000 in risk-free debt. It plans to keep a constant ratio of debt to equity every year, so that on average the debt will also grow by 3% per year. Suppose the risk-free rate equals 5%, and the expected return on the market equals 11%. The asset beta for this industry is 1.11.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>If AMC were an all-equity (unlevered) firm, what would its market value be?</p>`,
+            hint: [
+              `<p>Ugiret verdi: kontantstrømmen etter skatt uten renter, diskontert med <span class="f">r<sub>U</sub></span>.</p>`,
+              `<p><span class="f">FCF = EBIT(1 − τ<sub>c</sub>)</span> når capex = avskrivninger og NWC er uendret. <span class="f">r<sub>U</sub></span> fra CAPM med eiendelsbetaen. <span class="f">V<sup>U</sup> = FCF<sub>1</sub> / (r<sub>U</sub> − g)</span>.</p>`,
+              `<p>FCF vokser med 3% for alltid.</p>`,
+              `<ol><li><span class="f">FCF<sub>1</sub> = EBIT × (1 − τ<sub>c</sub>)</span>.</li><li><span class="f">r<sub>U</sub> = r<sub>f</sub> + β<sub>A</sub>(r<sub>m</sub> − r<sub>f</sub>)</span>.</li><li><span class="f">V<sup>U</sup> = FCF<sub>1</sub> / (r<sub>U</sub> − g)</span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">FCF_1 = 2000 × (1 − 0.40) = 1200
+r_U = 5% + 1.11 × (11% − 5%) = 11.66%
+V^U = 1200 / (0.1166 − 0.03) = 13 857</div>` },
+          { l: "b",
+            q: `<p>Assuming the debt is fairly priced, what is the amount of interest AMC will pay next year? If AMC's debt is expected to grow by 3% per year, at what rate are its interest payments expected to grow?</p>`,
+            hint: [
+              `<p>Gjelden er risikofri. Hvilken rente gir det?</p>`,
+              `<p>Riktig priset risikofri gjeld har <span class="f">r<sub>D</sub> = r<sub>f</sub></span>. Renter<sub>1</sub> = <span class="f">r<sub>D</sub> × D<sub>0</sub></span>.</p>`,
+              `<p>Renten er fast, så rentebeløpet vokser i takt med gjelden.</p>`,
+              `<ol><li><span class="f">r<sub>D</sub> = r<sub>f</sub></span>.</li><li>Renter = <span class="f">r<sub>f</sub></span> × dagens gjeld.</li><li>Vekst i renter = vekst i gjeld.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Renter_1 = 5% × 5000 = $250
+Vekst: 3% per år, som gjelden</div>` },
+          { l: "c",
+            q: `<p>Even though AMC's debt is riskless (the firm will not default), the future growth of AMC's debt is uncertain, so the exact amount of the future interest payments is risky. Assuming the future interest payments have the same beta as AMC's assets, what is the present value of AMC's interest tax shield?</p>`,
+            hint: [
+              `<p>Skatteskjoldet er rentene ganger skattesatsen. Det vokser med gjelden og har eiendelenes risiko.</p>`,
+              `<p><span class="f">TS<sub>1</sub> = τ<sub>c</sub> × renter<sub>1</sub></span>. <span class="f">PV(TS) = TS<sub>1</sub> / (r<sub>U</sub> − g)</span>.</p>`,
+              `<p>Diskonter med <span class="f">r<sub>U</sub></span> fra (a), fordi oppgaven sier at rentebetalingene har samme beta som eiendelene.</p>`,
+              `<ol><li><span class="f">TS<sub>1</sub> = τ<sub>c</sub></span> × renter fra (b).</li><li><span class="f">PV(TS) = TS<sub>1</sub> / (r<sub>U</sub> − g)</span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">TS_1 = 0.40 × 250 = 100
+PV(TS) = 100 / (0.1166 − 0.03) = 1155</div>` },
+          { l: "d",
+            q: `<p>Using the APV method, what is AMC's total market value, V<sup>L</sup>? What is the market value of AMC's equity?</p>`,
+            hint: [
+              `<p>APV: legg verdien av skatteskjoldet til den ugirede verdien.</p>`,
+              `<span class="f">V<sup>L</sup> = V<sup>U</sup> + PV(TS)</span>. <span class="f">E = V<sup>L</sup> − D</span>.`,
+              `<p>Bruk (a) og (c). Gjelden i dag er 5000.</p>`,
+              `<ol><li><span class="f">V<sup>L</sup></span> = (a) + (c).</li><li><span class="f">E = V<sup>L</sup></span> − dagens gjeld.</li></ol>`,
+            ],
+            fasit: `<div class="calc">V^L = 13 857 + 1155 = 15 012
+E = 15 012 − 5000 = 10 012</div>` },
+          { l: "e",
+            q: `<p>What is AMC's WACC? (Hint: Work backward from the FCF and V<sup>L</sup>.)</p>`,
+            hint: [
+              `<p>WACC er den renten som gir <span class="f">V<sup>L</sup></span> når du diskonterer FCF.</p>`,
+              `<span class="f">V<sup>L</sup> = FCF<sub>1</sub> / (r<sub>wacc</sub> − g)</span>, så <span class="f">r<sub>wacc</sub> = FCF<sub>1</sub> / V<sup>L</sup> + g</span>.`,
+              `<p>Bruk <span class="f">V<sup>L</sup></span> fra (d) uten å runde den av til 15 000.</p>`,
+              `<ol><li>Del FCF<sub>1</sub> på <span class="f">V<sup>L</sup></span>.</li><li>Legg til g.</li></ol>`,
+            ],
+            fasit: `<div class="calc">r_wacc = 1200 / 15 012 + 0.03 = 7.994% + 3% = 10.994%</div>
+<p><b>Merknad:</b> Kursets løsning runder <span class="f">V<sup>L</sup></span> til 15 000 og får <span class="f">r<sub>wacc</sub></span> = 1200 / 15 000 + 3% = 11%. Uavrundet er den 10.994%. Avrundingen følger med i (f) til (h).</p>` },
+          { l: "f",
+            q: `<p>Using the WACC method, what is the expected return for AMC equity?</p>`,
+            hint: [
+              `<p>WACC er et vektet snitt av <span class="f">r<sub>E</sub></span> og gjeldskostnaden etter skatt. Kjenner du resten, kan du løse for <span class="f">r<sub>E</sub></span>.</p>`,
+              `<span class="f">r<sub>wacc</sub> = E/V × r<sub>E</sub> + D/V × r<sub>D</sub>(1 − τ<sub>c</sub>)</span>.`,
+              `<p>E og V fra (d), D = 5000 og <span class="f">r<sub>D</sub></span> = 5%. Kontroller med MM II: <span class="f">r<sub>E</sub> = r<sub>U</sub> + D/E (r<sub>U</sub> − r<sub>D</sub>)</span>.</p>`,
+              `<ol><li>Sett inn <span class="f">r<sub>wacc</sub></span> fra (e).</li><li>Trekk fra gjeldsleddet <span class="f">D/V × r<sub>D</sub>(1 − τ<sub>c</sub>)</span>.</li><li>Del på <span class="f">E/V</span>.</li><li>Kontroller med MM II.</li></ol>`,
+            ],
+            fasit: `<div class="calc">r_wacc × V = r_E × E + r_D(1 − τ) × D
+0.10994 × 15 012 = r_E × 10 012 + 0.05 × 0.6 × 5000
+1650.4 = r_E × 10 012 + 150
+r_E = 1500.4 / 10 012 = 14.986%
+
+Kontroll (MM II): 11.66% + (5000 / 10 012)(11.66% − 5%) = 14.986%  ✓</div>
+<p>MM II-kontrollen kan ikke feile her. <span class="f">r<sub>wacc</sub></span> kommer fra APV-verdien i (d), der skatteskjoldet er diskontert med <span class="f">r<sub>U</sub></span>. Da er MM II en identitet. Kontrollen fanger bare regnefeil.</p>
+<p><b>Merknad:</b> Med <span class="f">V<sup>L</sup></span> rundet til 15 000 og E = 10 000 får kursets løsning <span class="f">r<sub>E</sub></span> = (11% − 1%) × 15 000 / 10 000 = 15%. Uavrundet er <span class="f">r<sub>E</sub></span> = 14.986%.</p>` },
+          { l: "g",
+            q: `<p>Show that the following holds for AMC: <span class="f">β<sub>A</sub> = E/(D+E) × β<sub>E</sub> + D/(D+E) × β<sub>D</sub></span></p>`,
+            hint: [
+              `<p>Du trenger <span class="f">β<sub>E</sub></span>. Den finner du fra <span class="f">r<sub>E</sub></span> i (f) med CAPM.</p>`,
+              `<p><span class="f">β<sub>E</sub> = (r<sub>E</sub> − r<sub>f</sub>) / (r<sub>m</sub> − r<sub>f</sub>)</span>. Gjelden er risikofri, så <span class="f">β<sub>D</sub> = 0</span>.</p>`,
+              `<p>Sett inn <span class="f">E/(D+E)</span> og <span class="f">β<sub>E</sub></span> på høyre side og sjekk at du får 1.11.</p>`,
+              `<ol><li><span class="f">β<sub>E</sub></span> fra CAPM.</li><li>Vekter fra (d).</li><li>Regn høyre side med <span class="f">β<sub>D</sub> = 0</span>.</li><li>Sammenlign med den oppgitte <span class="f">β<sub>A</sub></span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">β_E = (14.986% − 5%) / 6% = 1.664
+
+(10 012 / 15 012) × 1.664 + (5000 / 15 012) × 0 = 1.110 = β_A  ✓</div>
+<p>Også dette er en identitet når <span class="f">r<sub>E</sub></span> kommer fra MM II i (f).</p>
+<p><b>Merknad:</b> Kursets løsning bruker <span class="f">r<sub>E</sub></span> = 15% og får <span class="f">β<sub>E</sub></span> = (15% − 5%) / 6% = 1.67 (skrevet 1.66) og (10 000 / 15 000) × 1.67 = 1.11. Uavrundet er <span class="f">β<sub>E</sub></span> = 1.664.</p>` },
+          { l: "h",
+            q: `<p>Assuming that the proceeds from any increases in debt are paid out to equity holders, what cash flows do the equity holders expect to receive in one year? At what rate are those cash flows expected to grow? Use that information plus your answer to part (f) to derive the market value of equity using the FTE method. How does that compare to your answer in part (d)?</p>`,
+            hint: [
+              `<p>FTE verdsetter egenkapitalen direkte: kontantstrømmen til egenkapitalen diskontert med <span class="f">r<sub>E</sub></span>.</p>`,
+              `<span class="f">FCFE = FCF − renter × (1 − τ<sub>c</sub>) + netto ny gjeld</span>.`,
+              `<p>Gjelden vokser med 3%, så netto ny gjeld i år 1 er 3% av dagens gjeld. Alle leddene vokser med 3%. Da er <span class="f">E = FCFE<sub>1</sub> / (r<sub>E</sub> − g)</span>.</p>`,
+              `<ol><li>Netto ny gjeld = g × <span class="f">D<sub>0</sub></span>.</li><li><span class="f">FCFE<sub>1</sub> = (EBIT − renter)(1 − τ<sub>c</sub>)</span> + netto ny gjeld.</li><li>Vekst = g, som for gjelden og EBIT.</li><li><span class="f">E = FCFE<sub>1</sub> / (r<sub>E</sub> − g)</span> med <span class="f">r<sub>E</sub></span> fra (f).</li><li>Sammenlign med E i (d).</li></ol>`,
+            ],
+            fasit: `<div class="calc">Netto ny gjeld = 5000 × 0.03 = 150
+FCFE_1 = (2000 − 250) × (1 − 0.40) + 150 = 1050 + 150 = 1200
+Vekst: 3%
+
+E = 1200 / (0.14986 − 0.03) = 10 012  = E fra APV i (d)  ✓</div>
+<p>Også FTE = APV er en identitet når <span class="f">r<sub>E</sub></span> kommer fra MM II. Kontrollen fanger likevel feil i FCFE, for eksempel glemt netto ny gjeld.</p>
+<p><b>Merknad:</b> Kursets løsning bruker <span class="f">r<sub>E</sub></span> = 15% fra den avrundede <span class="f">V<sup>L</sup></span> og får E = 1200 / 0.12 = 10 000. Det er ikke helt likt (d), der E = 10 012, selv om løsningen sier at det er det. Uavrundet er FTE og APV nøyaktig like.</p>` },
+        ] },
+      /* ---------------- 7 ---------------- */
+      { nr: 7, niva: 3, tema: "APV", tittel: "Herring & Moose kjøper GAP",
+        intro: `<p>The publicly traded retail firm Herring & Moose (H&M) is thinking about acquiring the privately owned firm Greens And mashed Potatoes (GAP), which operates in the exact same business as H&M. The CFO of H&M, Mr. Unbefrick N. Lievable is in charge of providing a valuation of GAP in order to decide on an acquisition price. Mr. Lievable has access to the following information:</p>
+<ul><li>The corporate tax rate is 50% and there are no personal taxes.</li>
+<li>The long-term government bond rate is 4% and the expected market risk premium is 6%.</li>
+<li>H&M currently has book value of equity of $600 million and $400 million of debt. H&M's stock is trading at $100 per share and there are 12 million shares outstanding. H&M's equity beta is estimated to be equal to 1.25. H&M's debt is rated AA and is estimated to have a debt beta of zero. H&M also keeps $150 million in cash on their balance sheet, but only needs $50 million of cash in order to run their operations efficiently.</li>
+<li>GAP is expected to have revenues next year of $110 million and operating expenses (not including depreciation) next year of $60 million. Depreciation is expected to be $10 million next year, and capital expenditures are expected to be $15 million. Revenues, expenses, capital expenditures and depreciation are expected to grow at 5% per year after that point for the foreseeable future.</li>
+<li>GAP currently has $50 million of net working capital. If H&M acquires GAP, this amount can be reduced to $40 million in one year due to economies of scale between the two companies. After this, net working capital is expected to increase at 5% per year.</li>
+<li>GAP has no equity beta since it is not publicly traded. GAP currently has $150 million of debt outstanding and pays $12 million in interest expense. GAP has no excess cash. Mr. Lievable thinks that GAP has too little debt, and that the optimal leverage for GAP should be to have total debt of $250 million which would result in interest expense of $20 million one year from now.</li></ul>`,
+        deler: [
+          { l: "a",
+            q: `<p>How much is the equity of GAP worth to H&M? Base your answer on a discounted cash flow valuation using either the APV or the WACC method (although I prefer if you use APV). Clearly state any additional assumptions you make.</p>`,
+            hint: [
+              `<p>GAP er ikke børsnotert, så risikoen må hentes fra H&M, som driver i samme bransje. Verdsett deretter GAP med APV: først <span class="f">V<sup>U</sup></span>, så skatteskjoldet. Til slutt trekker du fra gjelden.</p>`,
+              `<p>Ugir H&M med overskuddskassen C trukket fra gjelden: <span class="f">β<sub>A</sub> = E/(E + D − C) × β<sub>E</sub> + (D − C)/(E + D − C) × β<sub>D</sub></span>. <span class="f">r<sub>U</sub></span> fra CAPM. <span class="f">FCF = EBIT(1 − τ<sub>c</sub>)</span> + avskrivninger − capex − ΔNWC.</p>`,
+              `<p>År 1: NWC faller fra 50 til 40, det gir +10 i FCF. Fra år 2 vokser alt med 5%, også NWC. Regn FCF for år 1 og 2 og sett en terminalverdi i år 2. Rentene er 20 neste år. Vokser gjelden med firmaet, har skatteskjoldet eiendelenes risiko.</p>`,
+              `<ol><li>H&M: E = kurs × aksjer, overskuddskasse = kontanter − det driften trenger.</li><li><span class="f">β<sub>A</sub></span> og <span class="f">r<sub>U</sub> = r<sub>f</sub> + β<sub>A</sub></span> × markedsrisikopremien.</li><li>FCF for de to første årene. Husk ΔNWC i begge.</li><li><span class="f">TV<sub>2</sub> = FCF<sub>2</sub>(1 + g) / (r<sub>U</sub> − g)</span>. <span class="f">V<sup>U</sup></span> = nåverdien av FCF<sub>1</sub>, FCF<sub>2</sub> og TV<sub>2</sub>.</li><li>Skatteskjoldet hvis gjelden vokser i takt med firmaet (g): <span class="f">PV(TS) = τ<sub>c</sub> × renter<sub>1</sub> / (r<sub>U</sub> − g)</span>.</li><li><span class="f">V<sup>L</sup> = V<sup>U</sup> + PV(TS)</span>. Egenkapitalen = <span class="f">V<sup>L</sup></span> − dagens gjeld.</li></ol>`,
+            ],
+            fasit: `<p><b>Steg 1: diskonteringsrente fra H&M.</b></p>
+<div class="calc">E = 100 × 12 = 1200,  D = 400,  overskuddskasse C = 150 − 50 = 100
+β_A = 1200 / (1200 + 400 − 100) × 1.25 = 0.8 × 1.25 = 1.0
+r_U = 4% + 1.0 × 6% = 10%</div>
+<p><b>Steg 2: FCF og V<sup>U</sup>.</b></p>
+<div class="calc">                       År 1      År 2
+Inntekter             110.0     115.5
+Driftskostnader       −60.0     −63.0
+Avskrivninger         −10.0     −10.5
+EBIT                   40.0      42.0
+EBIT × (1 − 0.5)       20.0      21.0
++ Avskrivninger        10.0      10.5
+− Capex               −15.0    −15.75
+− ΔNWC                +10.0      −2.0
+FCF                    25.0     13.75
+
+TV_2 = 13.75 × 1.05 / (0.10 − 0.05) = 288.75
+V^U = 25 / 1.1 + (13.75 + 288.75) / 1.1² = 22.73 + 250.00 = 272.73</div>
+<p><b>Steg 3: skatteskjoldet.</b> Antakelse: gjelden vokser med firmaet (5%), så skatteskjoldet har eiendelenes risiko og diskonteres med <span class="f">r<sub>U</sub></span>.</p>
+<div class="calc">PV(TS) = 0.5 × 20 / (0.10 − 0.05) = 200
+V^L = 272.73 + 200 = 472.73
+E = 472.73 − 150 = $322.7 mill.</div>
+<p>Vi trekker fra dagens gjeld på 150. De ekstra 100 i gjeld som tas opp etter kjøpet, tilfaller H&M som ny eier.</p>
+<p>Holdes gjelden i stedet fast på 250 for alltid, er PV(TS) = τD = 0.5 × 250 = 125. Da blir <span class="f">V<sup>L</sup></span> = 397.73 og E = 247.7.</p>
+<p><b>Merknad:</b> Kursets løsning skriver «E = 472.5 − 150 = 322.7». <span class="f">V<sup>L</sup></span> er 472.7, så det er en skrivefeil. Svaret 322.7 stemmer.</p>` },
+        ] },
+      /* ---------------- 8 ---------------- */
+      { nr: 8, niva: 3, tema: "APV", tittel: "Gorgon kjøper Zola",
+        intro: `<p>You are the CFO of Gorgon Inc., a publicly traded cheese manufacturing company. The CEO of Gorgon is considering acquiring your competitor Zola Industries, which is also a publicly traded cheese manufacturer and has asked you to evaluate this acquisition opportunity. Below are the most recent financials (fiscal year 2008) for the two companies, as well as the 2009 pro forma financials for Zola Industries.</p>
+<table class="data">
+<tr><th></th><th>Gorgon Inc</th><th>Zola Industries</th><th></th><th></th></tr>
+<tr><th>Balance sheet (millions of $'s)</th><th>2008</th><th>2008</th><th>2009E</th><th>% of revenues</th></tr>
+<tr><td>Operating cash</td><td class="n">75</td><td class="n">50</td><td class="n">51.5</td><td class="n">12.5%</td></tr>
+<tr><td>Excess cash</td><td class="n">425</td><td class="n">0</td><td class="n">34.1</td><td></td></tr>
+<tr><td>Inventory</td><td class="n">100</td><td class="n">60</td><td class="n">61.8</td><td class="n">15.0%</td></tr>
+<tr><td>Accounts receivable</td><td class="n">50</td><td class="n">40</td><td class="n">41.2</td><td class="n">10.0%</td></tr>
+<tr><td>PPE</td><td class="n">300</td><td class="n">200</td><td class="n">206.0</td><td class="n">50.05</td></tr>
+<tr><td>Total assets</td><td class="n">950</td><td class="n">350</td><td class="n">394.6</td><td></td></tr>
+<tr><td>Accounts payable</td><td class="n">80</td><td class="n">40</td><td class="n">41.2</td><td class="n">10.0%</td></tr>
+<tr><td>Interest bearing debt due within 1yr</td><td class="n">0</td><td class="n">15</td><td class="n">15.5</td><td></td></tr>
+<tr><td>Long-term interest bearing debt</td><td class="n">0</td><td class="n">135</td><td class="n">139.1</td><td></td></tr>
+<tr><td>Book value of equity</td><td class="n">870</td><td class="n">160</td><td class="n">198.9</td><td></td></tr>
+<tr><td>Total liabilities</td><td class="n">950</td><td class="n">350</td><td class="n">394.6</td><td></td></tr>
+<tr><th>Income statement (millions of $'s)</th><th></th><th></th><th></th><th></th></tr>
+<tr><td>Revenues</td><td class="n">600</td><td class="n">400</td><td class="n">412.0</td><td class="n">100.0%</td></tr>
+<tr><td>COGS</td><td class="n">400</td><td class="n">300</td><td class="n">309.0</td><td class="n">75.0%</td></tr>
+<tr><td>Depreciation (tax deductible)</td><td class="n">30</td><td class="n">20</td><td class="n">20.6</td><td class="n">5.0%</td></tr>
+<tr><td>Amortization (not tax deductible)</td><td class="n">0</td><td class="n">10</td><td class="n">10.0</td><td class="n">2.5%</td></tr>
+<tr><td>Interest income</td><td class="n">30</td><td class="n">0</td><td class="n">0.0</td><td></td></tr>
+<tr><td>Interest expense</td><td class="n">0</td><td class="n">9.75</td><td class="n">10.0</td><td></td></tr>
+<tr><td>Profit before tax</td><td class="n">200</td><td class="n">60.25</td><td class="n">62.4</td><td class="n">15.1%</td></tr>
+<tr><td>Tax</td><td class="n">80</td><td class="n">28.1</td><td class="n">28.9</td><td></td></tr>
+<tr><td>Net income</td><td class="n">120</td><td class="n">32.15</td><td class="n">33.4</td><td class="n">8.0%</td></tr>
+<tr><td>Equity beta</td><td class="n">1.2</td><td class="n">1.65</td><td></td><td></td></tr>
+<tr><td>Number of shares (millions)</td><td class="n">30</td><td class="n">10</td><td></td><td></td></tr>
+<tr><td>Current stock price ($'s)</td><td class="n">32</td><td class="n">30</td><td></td><td></td></tr>
+<tr><td>Current debt rating</td><td class="n">AAA</td><td class="n">A</td><td></td><td></td></tr>
+</table>
+<ul><li>The corporate tax rate is 40% and there are no personal taxes.</li>
+<li>The 30-year government bond rate is 5%, the A-rated corporate bond yield is 6.5%, and the expected equity risk premium over 30-year bonds is 6%.</li>
+<li>Next year's expected free cash flow for Zola Industries can be calculated from the pro forma 2009 financial statement above. Note that next year's capital expenditures and changes in net working capital can be inferred from the pro forma income statement and balance sheet. After 2009, Zola Inc's free cash flows are expected to grow at 3% per year in perpetuity.</li>
+<li>Zola Industries is currently operating at its optimal debt ratio, which involves growing the interest expense at 3% per year. All the cash that Zola Industries holds on its balance sheet is needed for operating purposes.</li>
+<li>Gorgon Inc. potentially has unused debt capacity, however, and also has $425 million of excess cash. Gorgon is planning to finance the acquisition of Zola with the excess cash and (if needed) by taking on new debt.</li>
+<li>If Gorgon acquires Zola, some additional synergies would be realized, which are not incorporated in the pro forma numbers for Zola. Specifically, the merger would bring additional net after-tax free cash flows of $3.0 million in 2009, $4.8 million in 2010, and $6.0 million in 2011. After 2011, the synergy cash flows would grow at 3% per year in perpetuity. The risk of the synergy cash flows is the same as the risk of the cash flows from Zola's cheese manufacturing business. The synergies would not increase the debt capacity of the company.</li></ul>`,
+        deler: [
+          { l: "a",
+            q: `<p>What is the maximum price per share that Gorgon should be willing to pay to acquire Zola's equity? Hint: you do not need to do a valuation of Gorgon in order to solve this question. Instead, proceed in two steps. First, value Zola as a stand-alone company, using the 2009 Pro Forma financials, and calculate a value per share. Second, value the synergies and calculate the synergy value per share. If you need to make additional assumptions, make sure to state them clearly in your answer.</p>`,
+            hint: [
+              `<p>Maksprisen er det Zola er verdt for Gorgon: verdien av Zola alene pluss verdien av synergiene. Verdsett Zola med APV ut fra proformatallene for 2009.</p>`,
+              `<p><span class="f">FCF = EBIT(1 − τ<sub>c</sub>)</span> + avskrivninger − capex − ΔNWC. Capex = ΔPPE + avskrivninger. NWC = driftskontanter + varelager + kundefordringer − leverandørgjeld. Amortiseringen er verken kontant eller fradragsberettiget, så den påvirker verken FCF eller skatten.</p>`,
+              `<p>Risiko: ugir egenkapitalbetaene. Zolas gjeldsbeta finner du fra A-renten med CAPM. Gorgon har ingen gjeld, men en overskuddskasse med beta 0. Kurset bruker snittet av de to eiendelsbetaene som bransjebeta. Rentene vokser med 3%, så skatteskjoldet diskonteres med <span class="f">r<sub>U</sub></span>.</p>`,
+              `<ol><li>FCF for neste år fra proformatallene.</li><li><span class="f">β<sub>D</sub></span> for Zola = (A-rente − <span class="f">r<sub>f</sub></span>) / markedsrisikopremien. <span class="f">β<sub>A</sub></span> for Zola med markedsverdier.</li><li><span class="f">β<sub>A</sub></span> for Gorgon = <span class="f">E/(E − C) × β<sub>E</sub></span>. Ta snittet av de to.</li><li><span class="f">r<sub>U</sub> = r<sub>f</sub> + β<sub>A</sub></span> × markedsrisikopremien.</li><li><span class="f">V<sup>U</sup> = FCF<sub>1</sub> / (r<sub>U</sub> − g)</span>.</li><li><span class="f">TS = τ<sub>c</sub></span> × neste års renter. <span class="f">PV(TS) = TS / (r<sub>U</sub> − g)</span>.</li><li>Egenkapital = <span class="f">V<sup>U</sup> + PV(TS)</span> − gjeld. Del på antall aksjer.</li><li>Synergier: diskonter de tre eksplisitte årene og en terminalverdi i det siste av dem med <span class="f">r<sub>U</sub></span>. Del på antall aksjer.</li><li>Makspris = summen av de to verdiene per aksje.</li></ol>`,
+            ],
+            fasit: `<p><b>Steg 1: FCF for 2009.</b></p>
+<div class="calc">EBIT = 412 − 309 − 20.6 = 82.4
+
+EBIT × (1 − 0.40)                49.44
++ Avskrivninger                  20.60
+− Capex = (206 − 200) + 20.6    −26.60
+− ΔNWC = 113.3 − 110             −3.30
+FCF                              40.14
+
+NWC = driftskontanter + varelager + kundefordringer − leverandørgjeld
+2008: 50 + 60 + 40 − 40 = 110
+2009: 51.5 + 61.8 + 41.2 − 41.2 = 113.3</div>
+<p><b>Steg 2: <span class="f">r<sub>U</sub></span>.</b> Begge firmaene lager ost. Kurset bruker snittet av eiendelsbetaene.</p>
+<div class="calc">Zola:    β_D = (6.5% − 5%) / 6% = 0.25
+         E = 30 × 10 = 300,  D = 15 + 135 = 150
+         β_A = (300/450) × 1.65 + (150/450) × 0.25 = 1.1833
+Gorgon:  E = 32 × 30 = 960, ingen gjeld, overskuddskasse 425 (beta 0)
+         β_A = 960 / (960 − 425) × 1.2 = 2.1533
+Snitt:   β_A = (1.1833 + 2.1533) / 2 = 1.6683
+
+r_U = 5% + 1.6683 × 6% = 15.0098%</div>
+<p><b>Steg 3: Zola alene (APV).</b> Rentene for 2009 er 9.75 × 1.03 = 10.04.</p>
+<div class="calc">V^U = 40.14 / (0.150098 − 0.03) = 334.23
+TS = 0.40 × 10.04 = 4.017
+PV(TS) = 4.017 / (0.150098 − 0.03) = 33.45
+V^L = 334.23 + 33.45 = 367.68
+E = 367.68 − 150 = 217.68  →  $21.77 per aksje</div>
+<p><b>Steg 4: synergiene.</b></p>
+<div class="calc">TV_2011 = 6.0 × 1.03 / (0.150098 − 0.03) = 51.46
+PV = 3.0/1.1501 + 4.8/1.1501² + (6.0 + 51.46)/1.1501³
+   = 2.61 + 3.63 + 37.77 = 44.01  →  $4.40 per aksje
+
+Makspris = 21.77 + 4.40 = $26.17 per aksje</div>
+<p>Det er under dagens kurs på $30. Med disse forutsetningene bør ikke Gorgon by markedskursen.</p>
+<p>Svaret er følsomt for betavalget. Bruker du bare Zolas egen eiendelsbeta (1.1833), blir <span class="f">r<sub>U</sub></span> = 12.1% og maksprisen $39.42.</p>
+<p><b>Merknad:</b> Kursets regneark (PS2-E8) får $25.86. Forskjellen kommer av to feil i arket:</p>
+<div class="calc">Denne fasiten (r_f = 5%, NWC uten gjeld)       $26.17
+Bare r_f = 5.2%                                $25.49
+Bare kortsiktig gjeld i NWC (FCF = 40.59)      $26.54
+Begge (regnearket)                             $25.86</div>
+<p>Oppgaven sier at 30-årsrenten er 5%. Gjeldsbetaen 0.25 i arket forutsetter også 5%. Den kortsiktige rentebærende gjelden er finansiering og er allerede med i de 150 som trekkes fra som gjeld. Oppgavens egen proformatabell bygger dessuten på FCF = 40.14: overskuddskassen for 2009E er 34.1 = 40.14 − 0.6 × 10.04, altså FCF minus rentene etter skatt. Med arkets FCF ville den vært 40.59 − 6.03 = 34.56.</p>` },
+        ] },
+      /* ---------------- 9 ---------------- */
+      { nr: 9, niva: 2, tema: "APV", tittel: "Stable Stable",
+        intro: `<p>Stable Stable company is trying to expand its stable and is considering a project that will generate $2 million per year, with an unlevered cost of capital of 11%. The company only has permanent debt, as a result of this acquisition the debt will increase by $12 million. Tax rate is 25%.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>Find the project value using APV method. Use WACC method to verify that the two methods produce the same result.</p>`,
+            hint: [
+              `<p>APV er verdien uten gjeld pluss verdien av skatteskjoldet. Med permanent gjeld er skatteskjoldet like sikkert som gjelden.</p>`,
+              `<p>Flat evigvarende annuitet: <span class="f">V<sup>U</sup> = FCF / r<sub>U</sub></span>. Permanent gjeld: <span class="f">PV(TS) = τ<sub>c</sub> × D</span>. WACC ved permanent gjeld: <span class="f">r<sub>wacc</sub> = r<sub>U</sub>(1 − d τ<sub>c</sub>)</span> med <span class="f">d = D / V<sup>L</sup></span>.</p>`,
+              `<p>Regn <span class="f">V<sup>L</sup></span> med APV først. Bruk den til å finne d og <span class="f">r<sub>wacc</sub></span>. Sjekk så at <span class="f">FCF / r<sub>wacc</sub></span> gir samme verdi.</p>`,
+              `<ol><li><span class="f">V<sup>U</sup> = FCF / r<sub>U</sub></span>.</li><li><span class="f">PV(TS) = τ<sub>c</sub> × D</span>.</li><li><span class="f">V<sup>L</sup> = V<sup>U</sup> + PV(TS)</span>.</li><li><span class="f">d = D / V<sup>L</sup></span>.</li><li><span class="f">r<sub>wacc</sub> = r<sub>U</sub>(1 − d τ<sub>c</sub>)</span>.</li><li><span class="f">V<sup>L</sup> = FCF / r<sub>wacc</sub></span>. Sammenlign med APV.</li></ol>`,
+            ],
+            fasit: `<div class="calc">APV:
+V^U = 2 / 0.11 = 18.182
+PV(TS) = 0.25 × 12 = 3.000
+V^L = 18.182 + 3.000 = 21.182 ≈ $21.18 mill.
+
+WACC:
+d = 12 / 21.182 = 0.5665
+r_wacc = 11% × (1 − 0.5665 × 0.25) = 9.442%
+V^L = 2 / 0.09442 = $21.18 mill.  ✓</div>
+<p>Formelen <span class="f">r<sub>wacc</sub> = r<sub>U</sub>(1 − d τ<sub>c</sub>)</span> gjelder for permanent gjeld, der skatteskjoldet er τD. Kurset viser til seksjon 18.8 i boka (likning 18.21). Kontrollen er et fast punkt, fordi d er regnet med <span class="f">V<sup>L</sup></span> fra APV.</p>` },
+        ] },
+    ],
+  },
+  {
+    id: "ps3", nr: 3, tittel: "Problem Set 3", tema: "Options",
+    trinn: ["Retning","Verktøy","Oppsett","Oppskrift"],
+    nivaer: { 1: ["*", "Tutorial"], 2: ["**", "Forelesning"], 3: ["***", "Egen trening"] },
+    oppgaver: [
+      /* ---------------- 1 ---------------- */
+      { nr: 1, niva: 2, tema: "Binomial Model", tittel: "Stiawmot",
+        intro: `<p>Suppose that the stock of Stiawmot is currently trading at $60. Suppose also that it can only take two possible values in a year from now: It can either go up by 25% or down by 20%. The annual risk-free rate is 10%. Assume that the stock pays no dividend.</p>
+<p class="tiny muted">Black-Scholes i (g) regnes ikke på eksamen (Kurbatov i oppsummeringsforelesningen). Øv på intuisjonen: retningen på endringene.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>Draw the one-period tree for the evolution of the stock price and the one-period tree for lending $1</p>`,
+            hint: [
+              `<p>Et ettperiodetre har én node i dag og to noder om ett år: opp og ned.</p>`,
+              `<p>Opp: <span class="f">S<sub>0</sub> × (1 + 25%)</span>. Ned: <span class="f">S<sub>0</sub> × (1 − 20%)</span>. Et risikofritt lån vokser med <span class="f">(1 + r<sub>f</sub>)</span> uansett tilstand.</p>`,
+              `<p>Lånet gir samme beløp i begge grenene. Det er det som gjør det risikofritt.</p>`,
+              `<ol><li>Aksjen: <span class="f">S<sub>0</sub></span> i dag, <span class="f">S<sub>0</sub> × (1 + oppgang)</span> og <span class="f">S<sub>0</sub> × (1 − nedgang)</span> om ett år.</li><li>Lånet: beløpet i dag, beløpet × <span class="f">(1 + r<sub>f</sub>)</span> i begge grenene.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Aksjen:                         Lån av $1:
+
+        75  (= 60 × 1.25)              1.10
+       /                              /
+    60                              1
+       \\                              \\
+        48  (= 60 × 0.80)              1.10</div>` },
+          { l: "b",
+            ctx: `Suppose that we are interested in pricing a European put option on this stock. The option has a strike price of $66, and its maturity is exactly one year from now.`,
+            q: `<p>In order to price the option, we first form a replicating portfolio by buying Δ shares of the stock and by lending B dollars at the risk-free rate. What is the cost of this portfolio as a function of Δ and B?</p>`,
+            hint: [
+              `<p>Kostnaden er det porteføljen koster i dag.</p>`,
+              `<p>Δ aksjer koster <span class="f">Δ × S<sub>0</sub></span>. Å låne ut B koster B.</p>`,
+              `<p>Legg sammen de to postene.</p>`,
+              `<ol><li>Aksjene: <span class="f">Δ × S<sub>0</sub></span>.</li><li>Utlånet: B.</li><li>Summer.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Kostnad = 60Δ + B</div>` },
+          { l: "c",
+            q: `<p>Draw the one-period binomial tree for this portfolio.</p>`,
+            hint: [
+              `<p>Porteføljen er verdt det aksjene og lånet er verdt i hver gren.</p>`,
+              `<p>Opp: <span class="f">Δ × S<sub>u</sub> + B(1 + r<sub>f</sub>)</span>. Ned: <span class="f">Δ × S<sub>d</sub> + B(1 + r<sub>f</sub>)</span>.</p>`,
+              `<p>Bruk <span class="f">S<sub>u</sub></span> og <span class="f">S<sub>d</sub></span> fra (a).</p>`,
+              `<ol><li>I dag: kostnaden fra (b).</li><li>Opp: <span class="f">Δ × S<sub>u</sub> + B × (1 + r<sub>f</sub>)</span>.</li><li>Ned: <span class="f">Δ × S<sub>d</sub> + B × (1 + r<sub>f</sub>)</span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">           75Δ + 1.1B
+          /
+   60Δ + B
+          \\
+           48Δ + 1.1B</div>` },
+          { l: "d",
+            q: `<p>What are the two equations that will have to be satisfied by Δ and B?</p>`,
+            hint: [
+              `<p>Porteføljen skal replikere putten: den skal gi nøyaktig samme payoff i begge tilstandene.</p>`,
+              `<p>Put-payoff: <span class="f">max(K − S, 0)</span>. Sett porteføljens verdi i hver gren lik put-payoffen der.</p>`,
+              `<p>Regn <span class="f">P<sub>u</sub></span> og <span class="f">P<sub>d</sub></span> med K = 66.</p>`,
+              `<ol><li><span class="f">P<sub>u</sub> = max(K − S<sub>u</sub>, 0)</span>.</li><li><span class="f">P<sub>d</sub> = max(K − S<sub>d</sub>, 0)</span>.</li><li><span class="f">Δ S<sub>u</sub> + (1 + r<sub>f</sub>)B = P<sub>u</sub></span>.</li><li><span class="f">Δ S<sub>d</sub> + (1 + r<sub>f</sub>)B = P<sub>d</sub></span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">P_u = max(66 − 75, 0) = 0
+P_d = max(66 − 48, 0) = 18
+
+75Δ + 1.1B = 0
+48Δ + 1.1B = 18</div>` },
+          { l: "e",
+            q: `<p>Solve the equations for Δ and B. In words, what is your portfolio?</p>`,
+            hint: [
+              `<p>To likninger og to ukjente. Trekk den ene fra den andre, så forsvinner B.</p>`,
+              `<span class="f">Δ = (P<sub>u</sub> − P<sub>d</sub>) / (S<sub>u</sub> − S<sub>d</sub>)</span>. <span class="f">B = (P<sub>u</sub> − Δ S<sub>u</sub>) / (1 + r<sub>f</sub>)</span>.`,
+              `<p>For en put er Δ negativ: du shorter aksjen. Fortegnet på B sier om du låner ut (+) eller låner (−).</p>`,
+              `<ol><li>Finn Δ fra differansen mellom likningene.</li><li>Sett Δ inn i en av likningene og løs for B.</li><li>Tolk fortegnene.</li></ol>`,
+            ],
+            fasit: `<div class="calc">27Δ = −18  →  Δ = −2/3
+B = (0 − 75 × (−2/3)) / 1.1 = 50 / 1.1 = 45.45</div>
+<p>Short 2/3 aksje og lån ut $45.45 til risikofri rente.</p>` },
+          { l: "f",
+            q: `<p>Using your answer from part (e), what should the price of the put option be?</p>`,
+            hint: [
+              `<p>Samme payoff i alle tilstander betyr samme pris. Ellers finnes det arbitrasje.</p>`,
+              `<span class="f">P = Δ S<sub>0</sub> + B</span>.`,
+              `<p>Sett Δ og B fra (e) inn i kostnaden fra (b).</p>`,
+              `<ol><li><span class="f">P = Δ S<sub>0</sub> + B</span>.</li><li>Kontroll med risikonøytral sannsynlighet: <span class="f">ρ = ((1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>) / (S<sub>u</sub> − S<sub>d</sub>)</span> og <span class="f">P = (ρ P<sub>u</sub> + (1 − ρ) P<sub>d</sub>) / (1 + r<sub>f</sub>)</span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">P = 60 × (−2/3) + 45.45 = −40 + 45.45 = $5.45
+
+Kontroll: ρ = (66 − 48) / (75 − 48) = 2/3
+          P = (2/3 × 0 + 1/3 × 18) / 1.1 = 6 / 1.1 = 5.45  ✓</div>` },
+          { l: "g",
+            q: `<p>Since the stock price can only take two possible values at the end of the year in this binomial world, you are not perfectly satisfied with this price. Calculate a more reasonable price for this put option using the Black-Scholes formula (and something else...!). In your calculations, use a stock price volatility (σ) of 0.22.</p>`,
+            hint: [
+              `<p>Black-Scholes gir prisen på en call. «Something else» er put-call-pariteten.</p>`,
+              `<p><span class="f">C = S N(d<sub>1</sub>) − PV(K) N(d<sub>2</sub>)</span>, <span class="f">d<sub>1</sub> = ln(S / PV(K)) / (σ√T) + σ√T / 2</span>, <span class="f">d<sub>2</sub> = d<sub>1</sub> − σ√T</span>. Paritet: <span class="f">P = C − S + PV(K)</span>.</p>`,
+              `<p>Kurset bruker <span class="f">PV(K) = K / (1 + r<sub>f</sub>)<sup>T</sup></span>. Her er PV(K) = 66 / 1.1 = 60 = S, så logaritmen blir 0.</p>`,
+              `<ol><li>Regn PV(K).</li><li>Regn <span class="f">d<sub>1</sub></span> og <span class="f">d<sub>2</sub></span>.</li><li>Slå opp <span class="f">N(d<sub>1</sub>)</span> og <span class="f">N(d<sub>2</sub>)</span>.</li><li>Regn C.</li><li><span class="f">P = C − S + PV(K)</span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">PV(K) = 66 / 1.1 = 60  →  ln(60/60) = 0
+d_1 = 0 + 0.22/2 = 0.11
+d_2 = 0.11 − 0.22 = −0.11
+N(0.11) = 0.5438,  N(−0.11) = 0.4562
+
+C = 60 × 0.5438 − 60 × 0.4562 = 32.628 − 27.372 = 5.256
+P = C − S + PV(K) = 5.256 − 60 + 60 = $5.26</div>
+<p>Siden S = PV(K), er putten og callen like mye verdt.</p>` },
+        ] },
+      /* ---------------- 2 ---------------- */
+      { nr: 2, niva: 3, tema: "Binomial Model", tittel: "Delinquent Joe Inc.",
+        intro: `<p>During the upcoming year, the stock price of Delinquent Joe Inc. (DJ) is expected to go up to $290 or down to $170 with equal probabilities. The beta of the stock is equal to 0.75. The annual risk-free rate is 10.5%, and the expected annual return on the market is 16.5%. You are interested in replicating and pricing a European call option on DJ's stock. The option has a strike price of $212 and will mature in one year.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>What is the current price of DJ's stock?</p>`,
+            hint: [
+              `<p>Kursen i dag er forventet kurs om ett år, diskontert med aksjens avkastningskrav.</p>`,
+              `<p>CAPM: <span class="f">r = r<sub>f</sub> + β(r<sub>m</sub> − r<sub>f</sub>)</span>. <span class="f">S<sub>0</sub> = E[S<sub>1</sub>] / (1 + r)</span>.</p>`,
+              `<p>Opp og ned er like sannsynlige. Aksjen betaler ikke utbytte.</p>`,
+              `<ol><li>Avkastningskrav fra CAPM.</li><li>Forventet kurs om ett år med de virkelige sannsynlighetene.</li><li>Diskonter.</li></ol>`,
+            ],
+            fasit: `<div class="calc">r = 10.5% + 0.75 × (16.5% − 10.5%) = 15%
+S_0 = (0.5 × 290 + 0.5 × 170) / 1.15 = 230 / 1.15 = $200</div>` },
+          { l: "b",
+            q: `<p>Using the stock and borrowing/lending (at the riskfree rate), form a portfolio that will replicate the call option. How many shares of DJ will you buy/sell, and how much money will you borrow/lend?</p>`,
+            hint: [
+              `<p>Finn en portefølje av aksjer og lån som gir samme payoff som callen i begge tilstandene.</p>`,
+              `<span class="f">Δ = (C<sub>u</sub> − C<sub>d</sub>) / (S<sub>u</sub> − S<sub>d</sub>)</span>. <span class="f">B = (C<sub>d</sub> − Δ S<sub>d</sub>) / (1 + r<sub>f</sub>)</span>.`,
+              `<p><span class="f">C<sub>u</sub> = max(290 − 212, 0)</span> og <span class="f">C<sub>d</sub> = max(170 − 212, 0)</span>. Negativ B betyr at du låner.</p>`,
+              `<ol><li>Call-payoff i begge tilstandene.</li><li>Δ fra differansen i payoff og kurs.</li><li>B fra ned-tilstanden.</li><li>Tolk fortegnene.</li></ol>`,
+            ],
+            fasit: `<div class="calc">C_u = 290 − 212 = 78,  C_d = 0
+Δ = (78 − 0) / (290 − 170) = 0.65
+B = (0 − 0.65 × 170) / 1.105 = −110.5 / 1.105 = −100</div>
+<p>Kjøp 0.65 aksjer og lån $100 til risikofri rente.</p>` },
+          { l: "c",
+            q: `<p>Use the portfolio derived in part (b) to price the call option.</p>`,
+            hint: [
+              `<p>Samme payoff gir samme pris.</p>`,
+              `<span class="f">C = Δ S<sub>0</sub> + B</span>.`,
+              `<p><span class="f">S<sub>0</sub></span> fra (a), Δ og B fra (b).</p>`,
+              `<ol><li>Sett inn i <span class="f">C = Δ S<sub>0</sub> + B</span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">C = 0.65 × 200 − 100 = $30</div>` },
+          { l: "d",
+            q: `<p>What is the beta and expected return of the call option?</p>`,
+            hint: [
+              `<p>Callen er en portefølje av aksjen og et risikofritt lån. Betaen til en portefølje er det verdivektede snittet av betaene.</p>`,
+              `<span class="f">β<sub>C</sub> = (Δ S<sub>0</sub> / C) β<sub>S</sub> + (B / C) β<sub>rf</sub></span>, med <span class="f">β<sub>rf</sub> = 0</span>. Deretter CAPM.`,
+              `<p>Vektene er aksjeposisjonen delt på callprisen og lånet delt på callprisen. Lånevekten er negativ. Vektene summerer til 1.</p>`,
+              `<ol><li>Vekt på aksjen = <span class="f">Δ S<sub>0</sub> / C</span>.</li><li><span class="f">β<sub>C</sub></span> = vekt × <span class="f">β<sub>S</sub></span>.</li><li><span class="f">r<sub>C</sub> = r<sub>f</sub> + β<sub>C</sub>(r<sub>m</sub> − r<sub>f</sub>)</span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">β_C = (0.65 × 200 / 30) × 0.75 + (−100 / 30) × 0 = 4.333 × 0.75 = 3.25
+r_C = 10.5% + 3.25 × 6% = 30%</div>
+<p>Callen er en giret posisjon i aksjen. Derfor er betaen mye høyere enn aksjens.</p>` },
+          { l: "e",
+            q: `<p>Using the result from part (d), show that the price of the call option found in part (c) can also be derived by discounting the expected cash flow of the option.</p>`,
+            hint: [
+              `<p>Bruk de virkelige sannsynlighetene og callens eget avkastningskrav.</p>`,
+              `<span class="f">C = E[payoff] / (1 + r<sub>C</sub>)</span>.`,
+              `<p>Forventet payoff med 50/50. <span class="f">r<sub>C</sub></span> fra (d).</p>`,
+              `<ol><li>Forventet payoff = sannsynlighet for opp × <span class="f">C<sub>u</sub></span> + sannsynlighet for ned × <span class="f">C<sub>d</sub></span>.</li><li>Del på <span class="f">1 + r<sub>C</sub></span>.</li><li>Sammenlign med (c).</li></ol>`,
+            ],
+            fasit: `<div class="calc">E[payoff] = 0.5 × 78 + 0.5 × 0 = 39
+C = 39 / 1.30 = $30  ✓ samme som (c)</div>` },
+        ] },
+      /* ---------------- 3 ---------------- */
+      { nr: 3, niva: 3, tema: "Black-Scholes", tittel: "Roslin Robotics",
+        intro: `<p>Roslin Robotics stock has a volatility of 30% and a current stock price of $60 per share. Roslin pays no dividends. The risk-free interest is 5%.</p>
+<p class="tiny muted">Black-Scholes regnes ikke på eksamen (Kurbatov i oppsummeringsforelesningen). Øv på intuisjonen: retningen på endringene.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>Determine the Black-Scholes value of a one-year, at-the-money call option on Roslin stock.</p>`,
+            hint: [
+              `<p>At-the-money betyr at strike er lik dagens kurs.</p>`,
+              `<p><span class="f">C = S N(d<sub>1</sub>) − PV(K) N(d<sub>2</sub>)</span>, <span class="f">d<sub>1</sub> = ln(S / PV(K)) / (σ√T) + σ√T / 2</span>, <span class="f">d<sub>2</sub> = d<sub>1</sub> − σ√T</span>.</p>`,
+              `<p>K = 60, T = 1 og σ = 0.30. Kurset bruker <span class="f">PV(K) = K / (1 + r<sub>f</sub>)<sup>T</sup></span>.</p>`,
+              `<ol><li>PV(K).</li><li><span class="f">d<sub>1</sub></span> og <span class="f">d<sub>2</sub></span>.</li><li><span class="f">N(d<sub>1</sub>)</span> og <span class="f">N(d<sub>2</sub>)</span>.</li><li>C.</li></ol>`,
+            ],
+            fasit: `<div class="calc">PV(K) = 60 / 1.05 = 57.143
+d_1 = ln(60 / 57.143) / 0.30 + 0.30/2 = 0.1626 + 0.15 = 0.3126
+d_2 = 0.3126 − 0.30 = 0.0126
+N(d_1) = 0.62272,  N(d_2) = 0.50504
+
+C = 60 × 0.62272 − 57.143 × 0.50504 = 37.363 − 28.860 = $8.50</div>` },
+          { l: "b",
+            ctx: `What is the impact on the value of this call option of each of the following changes (evaluated separately)?`,
+            q: `<p>The stock price increases by $1 to $61.</p>`,
+            hint: [
+              `<p>En call er retten til å kjøpe. Høyere kurs gjør den mer verdt.</p>`,
+              `<p>Regn Black-Scholes på nytt med S = 61. Endringen er omtrent <span class="f">N(d<sub>1</sub>)</span> per dollar, altså callens delta.</p>`,
+              `<p>Bare S endres. PV(K), σ og T er som i (a).</p>`,
+              `<ol><li>Nye <span class="f">d<sub>1</sub></span> og <span class="f">d<sub>2</sub></span> med den nye kursen.</li><li>Ny C.</li><li>Sammenlign med (a) og med <span class="f">N(d<sub>1</sub>)</span> fra (a).</li></ol>`,
+            ],
+            fasit: `<div class="calc">d_1 = ln(61 / 57.143) / 0.30 + 0.15 = 0.2177 + 0.15 = 0.3677
+d_2 = 0.0677
+C = 61 × 0.64346 − 57.143 × 0.52700 = 39.251 − 30.114 = $9.14   (+0.63)</div>
+<p>Økningen ligger nær <span class="f">N(d<sub>1</sub>)</span> = 0.62 fra (a).</p>` },
+          { l: "c",
+            q: `<p>The volatility of the stock goes up by 1% to 31%.</p>`,
+            hint: [
+              `<p>Høyere volatilitet gir mer oppside. For den som eier opsjonen, er nedsiden fortsatt begrenset til 0.</p>`,
+              `<p>Regn Black-Scholes på nytt med σ = 0.31.</p>`,
+              `<p>σ√T endres i både <span class="f">d<sub>1</sub></span> og <span class="f">d<sub>2</sub></span>. PV(K) er som i (a).</p>`,
+              `<ol><li>Nye <span class="f">d<sub>1</sub></span> og <span class="f">d<sub>2</sub></span> med den nye volatiliteten.</li><li>Ny C.</li><li>Sammenlign med (a).</li></ol>`,
+            ],
+            fasit: `<div class="calc">d_1 = ln(60 / 57.143) / 0.31 + 0.31/2 = 0.1574 + 0.155 = 0.3124
+d_2 = 0.3124 − 0.31 = 0.0024
+C = 60 × 0.62263 − 57.143 × 0.50095 = 37.358 − 28.626 = $8.73   (+0.23)</div>
+<p>Opsjonsverdien stiger med volatiliteten.</p>` },
+          { l: "d",
+            q: `<p>Interest rates go up by 1% to 6%.</p>`,
+            hint: [
+              `<p>Høyere rente gjør nåverdien av strike lavere. Det er bra for den som skal betale strike senere.</p>`,
+              `<p>Regn Black-Scholes på nytt med <span class="f">PV(K) = 60 / 1.06</span>.</p>`,
+              `<p>Bare PV(K) endres, men den inngår både i <span class="f">d<sub>1</sub></span> og i selve formelen.</p>`,
+              `<ol><li>Ny PV(K).</li><li>Nye <span class="f">d<sub>1</sub></span> og <span class="f">d<sub>2</sub></span>.</li><li>Ny C.</li><li>Sammenlign med (a).</li></ol>`,
+            ],
+            fasit: `<div class="calc">PV(K) = 60 / 1.06 = 56.604
+d_1 = ln(60 / 56.604) / 0.30 + 0.15 = 0.1942 + 0.15 = 0.3442
+d_2 = 0.0442
+C = 60 × 0.63466 − 56.604 × 0.51764 = 38.080 − 29.300 = $8.78   (+0.28)</div>` },
+          { l: "e",
+            q: `<p>One month elapses, with no other change.</p>`,
+            hint: [
+              `<p>Kortere løpetid gir mindre tid for kursen til å bevege seg. Strike betales også tidligere.</p>`,
+              `<p>Regn Black-Scholes på nytt med T = 11/12.</p>`,
+              `<p>Både σ√T og <span class="f">PV(K) = 60 / 1.05<sup>T</sup></span> endres.</p>`,
+              `<ol><li>Ny T = gjenværende løpetid i år.</li><li>Ny PV(K) og ny σ√T.</li><li>Nye <span class="f">d<sub>1</sub></span> og <span class="f">d<sub>2</sub></span>.</li><li>Ny C. Sammenlign med (a).</li></ol>`,
+            ],
+            fasit: `<div class="calc">T = 11/12,  σ√T = 0.30 × √(11/12) = 0.2872
+PV(K) = 60 / 1.05^(11/12) = 57.376
+d_1 = ln(60 / 57.376) / 0.2872 + 0.2872/2 = 0.1557 + 0.1436 = 0.2993
+d_2 = 0.2993 − 0.2872 = 0.0121
+C = 60 × 0.61765 − 57.376 × 0.50483 = 37.059 − 28.965 = $8.09   (−0.41)</div>` },
+          { l: "f",
+            q: `<p>The firm announces a $1 dividend, paid immediately.</p>`,
+            hint: [
+              `<p>Utbyttet tas ut av aksjen. Kursen faller med utbyttet når det betales. Opsjonseieren får ikke utbyttet.</p>`,
+              `<p>Regn Black-Scholes på nytt med kursen etter utbytte. Strike er fortsatt 60.</p>`,
+              `<p>Kursen etter utbytte er <span class="f">S − Div</span>. Alt annet er som i (a).</p>`,
+              `<ol><li>Kurs etter utbytte.</li><li>Nye <span class="f">d<sub>1</sub></span> og <span class="f">d<sub>2</sub></span>.</li><li>Ny C. Sammenlign med (a).</li></ol>`,
+            ],
+            fasit: `<div class="calc">S_ex = 60 − 1 = 59
+d_1 = ln(59 / 57.143) / 0.30 + 0.15 = 0.1066 + 0.15 = 0.2566
+d_2 = −0.0434
+C = 59 × 0.60126 − 57.143 × 0.48270 = 35.474 − 27.583 = $7.89   (−0.61)</div>` },
+        ] },
+      /* ---------------- 4 ---------------- */
+      { nr: 4, niva: 3, tema: "Risk-Neutral Pricing", tittel: "Harbin Manufacturing",
+        intro: `<p>Harbin Manufacturing has 10 million shares outstanding with a current share price of $20 per share. In one year, the share price is equally likely to be $30 or $18. The risk-free interest rate is 5%.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>What is the expected return on Harbin stock?</p>`,
+            hint: [
+              `<p>Forventet avkastning bruker de virkelige sannsynlighetene.</p>`,
+              `<span class="f">E[R] = E[S<sub>1</sub>] / S<sub>0</sub> − 1</span>.`,
+              `<p>De to utfallene er like sannsynlige.</p>`,
+              `<ol><li>Forventet kurs om ett år.</li><li>Del på dagens kurs og trekk fra 1.</li></ol>`,
+            ],
+            fasit: `<div class="calc">E[R] = (0.5 × 30 + 0.5 × 18) / 20 − 1 = 24 / 20 − 1 = 20%</div>` },
+          { l: "b",
+            q: `<p>What is the risk neutral probability that Harbin's stock price will increase?</p>`,
+            hint: [
+              `<p>Den risikonøytrale sannsynligheten er den som gjør at aksjen gir risikofri avkastning i forventning.</p>`,
+              `<span class="f">ρ = ((1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>) / (S<sub>u</sub> − S<sub>d</sub>)</span>.`,
+              `<p>Det tilsvarer å løse <span class="f">S<sub>0</sub>(1 + r<sub>f</sub>) = ρ S<sub>u</sub> + (1 − ρ) S<sub>d</sub></span>.</p>`,
+              `<ol><li><span class="f">(1 + r<sub>f</sub>)S<sub>0</sub></span>.</li><li>Trekk fra <span class="f">S<sub>d</sub></span>.</li><li>Del på <span class="f">S<sub>u</sub> − S<sub>d</sub></span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">ρ = (1.05 × 20 − 18) / (30 − 18) = 3 / 12 = 25%</div>` },
+          { l: "c",
+            q: `<p>Using the risk neutral probabilities, what is the value of a one-year call option on Harbin stock with a strike price of $25?</p>`,
+            hint: [
+              `<p>Med risikonøytrale sannsynligheter diskonterer du med den risikofrie renten.</p>`,
+              `<span class="f">C = (ρ C<sub>u</sub> + (1 − ρ) C<sub>d</sub>) / (1 + r<sub>f</sub>)</span>.`,
+              `<p><span class="f">C<sub>u</sub> = max(30 − 25, 0)</span> og <span class="f">C<sub>d</sub> = max(18 − 25, 0)</span>.</p>`,
+              `<ol><li>Call-payoff i begge tilstandene.</li><li>Vekt med ρ og 1 − ρ.</li><li>Diskonter med <span class="f">r<sub>f</sub></span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">C_u = 5,  C_d = 0
+C = (0.25 × 5 + 0.75 × 0) / 1.05 = $1.19</div>` },
+          { l: "d",
+            q: `<p>What is the expected return of the call option?</p>`,
+            hint: [
+              `<p>Forventet avkastning bruker de virkelige sannsynlighetene, ikke de risikonøytrale.</p>`,
+              `<span class="f">E[R<sub>C</sub>] = E[payoff] / C − 1</span>.`,
+              `<p>Virkelige sannsynligheter er 50/50. C fra (c).</p>`,
+              `<ol><li>Forventet payoff med de virkelige sannsynlighetene.</li><li>Del på callprisen og trekk fra 1.</li></ol>`,
+            ],
+            fasit: `<div class="calc">E[R_C] = (0.5 × 5 + 0.5 × 0) / 1.19 − 1 = 2.5 / 1.19 − 1 = 110%</div>
+<p>Callen er en giret posisjon i aksjen, så den har mye høyere forventet avkastning enn aksjen (20%).</p>` },
+          { l: "e",
+            q: `<p>Using the risk neutral probabilities, what is the value of a one-year put option on Harbin stock with a strike price of $25?</p>`,
+            hint: [
+              `<p>Samme metode som (c), men med put-payoff.</p>`,
+              `<span class="f">P = (ρ P<sub>u</sub> + (1 − ρ) P<sub>d</sub>) / (1 + r<sub>f</sub>)</span>.`,
+              `<p><span class="f">P<sub>u</sub> = max(25 − 30, 0)</span> og <span class="f">P<sub>d</sub> = max(25 − 18, 0)</span>. Kontroller med put-call-pariteten.</p>`,
+              `<ol><li>Put-payoff i begge tilstandene.</li><li>Vekt med ρ og 1 − ρ.</li><li>Diskonter med <span class="f">r<sub>f</sub></span>.</li><li>Kontroll: <span class="f">C − P = S − PV(K)</span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">P_u = 0,  P_d = 7
+P = (0.25 × 0 + 0.75 × 7) / 1.05 = 5.25 / 1.05 = $5.00
+
+Kontroll: C − P = 1.19 − 5.00 = −3.81
+          S − PV(K) = 20 − 25/1.05 = −3.81  ✓</div>` },
+          { l: "f",
+            q: `<p>What is the expected return of the put option?</p>`,
+            hint: [
+              `<p>Samme metode som (d). Putten betaler mest når aksjen faller.</p>`,
+              `<span class="f">E[R<sub>P</sub>] = E[payoff] / P − 1</span> med virkelige sannsynligheter.`,
+              `<p>P fra (e). Putten har negativ beta, så forventet avkastning kan være under risikofri rente.</p>`,
+              `<ol><li>Forventet payoff med de virkelige sannsynlighetene.</li><li>Del på putprisen og trekk fra 1.</li></ol>`,
+            ],
+            fasit: `<div class="calc">E[R_P] = (0.5 × 0 + 0.5 × 7) / 5 − 1 = 3.5 / 5 − 1 = −30%</div>
+<p>Putten er en forsikring mot kursfall. Den har negativ beta og derfor lavere forventet avkastning enn risikofri rente.</p>` },
+        ] },
+      /* ---------------- 5 ---------------- */
+      { nr: 5, niva: 3, tema: "Black-Scholes", tittel: "Up, Inc.",
+        intro: `<p>Rebecca is interested in purchasing a European call on a hot new stock, Up, Inc. The call has a strike price of $100 and expires in 90 days. The current price of Up stock is $120, and the stock has a standard deviation of 40% per year. The risk-free interest rate is 6.38% per year.</p>
+<p class="tiny muted">Black-Scholes regnes ikke på eksamen (Kurbatov i oppsummeringsforelesningen). Øv på intuisjonen: retningen på endringene.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>Using the Black-Scholes formula, compute the price of the call.</p>`,
+            hint: [
+              `<p>Løpetiden er oppgitt i dager, men volatilitet og rente er per år. Gjør T om til år.</p>`,
+              `<p><span class="f">C = S N(d<sub>1</sub>) − PV(K) N(d<sub>2</sub>)</span>, <span class="f">d<sub>1</sub> = ln(S / PV(K)) / (σ√T) + σ√T / 2</span>, <span class="f">d<sub>2</sub> = d<sub>1</sub> − σ√T</span>.</p>`,
+              `<p>T = 90/365. Kurset bruker <span class="f">PV(K) = K / (1 + r<sub>f</sub>)<sup>T</sup></span>.</p>`,
+              `<ol><li>T i år.</li><li>PV(K).</li><li>σ√T.</li><li><span class="f">d<sub>1</sub></span> og <span class="f">d<sub>2</sub></span>.</li><li><span class="f">N(d<sub>1</sub>)</span> og <span class="f">N(d<sub>2</sub>)</span>.</li><li>C.</li></ol>`,
+            ],
+            fasit: `<div class="calc">T = 90/365 = 0.2466
+PV(K) = 100 / 1.0638^(90/365) = 98.4866
+σ√T = 0.40 × √(90/365) = 0.19863
+d_1 = ln(120 / 98.4866) / 0.19863 + 0.19863/2 = 0.9947 + 0.0993 = 1.0940
+d_2 = 1.0940 − 0.19863 = 0.8954
+N(d_1) = 0.863024,  N(d_2) = 0.814708
+
+C = 120 × 0.863024 − 98.4866 × 0.814708 = 103.5629 − 80.2378 = 23.3251 ≈ $23.33</div>
+<p><b>Merknad:</b> Kursets løsning runder N(d<sub>1</sub>) og N(d<sub>2</sub>) til 0.863 og 0.815 og får $23.29. Med fire desimaler (0.8630 og 0.8147) blir det 23.32. Svaret er følsomt for avrundingen i N, så bruk minst fem desimaler.</p>` },
+          { l: "b",
+            q: `<p>Use put-call parity to compute the price of the put with the same strike and expiration date.</p>`,
+            hint: [
+              `<p>Put-call-pariteten binder sammen call, put, aksje og risikofritt lån med samme strike og forfall.</p>`,
+              `<span class="f">C + PV(K) = P + S</span>, så <span class="f">P = C + PV(K) − S</span>.`,
+              `<p>C fra (a) og samme PV(K) som i (a).</p>`,
+              `<ol><li>C fra (a).</li><li>Legg til PV(K).</li><li>Trekk fra S.</li></ol>`,
+            ],
+            fasit: `<div class="calc">P = 23.3251 + 98.4866 − 120 = 1.8117 ≈ $1.81</div>
+<p><b>Merknad:</b> Kursets løsning får $1.78 fordi den bruker callprisen 23.29 fra (a).</p>` },
+        ] },
+      /* ---------------- 6 ---------------- */
+      { nr: 6, niva: 1, tema: "Equity and Debt as Options", tittel: "Google",
+        intro: `<p>Suppose Google currently had 320 million shares outstanding, implying a market value of $135.1 billion. Assume perfect capital markets and a risk-free rate of 1%.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>Use the option data from July 13, 2009 in the following figure to determine the rate Google would have paid if it had issued $128 billion in zero-coupon debt due in January 2011.</p>
+<p><b>GOOG</b> 422.27 +7.87 · Jul 13 2009 @ 13:10 ET · Vol 2177516</p>
+<table class="data"><tr><th>Calls</th><th>Bid</th><th>Ask</th><th>Open Int</th></tr>
+<tr><td>11 Jan 150.0 (OZF AJ)</td><td class="n">273.60</td><td class="n">276.90</td><td class="n">100</td></tr>
+<tr><td>11 Jan 160.0 (OZF AL)</td><td class="n">264.50</td><td class="n">267.20</td><td class="n">82</td></tr>
+<tr><td>11 Jan 200.0 (OZF AA)</td><td class="n">228.90</td><td class="n">231.20</td><td class="n">172</td></tr>
+<tr><td>11 Jan 250.0 (OZF AU)</td><td class="n">186.50</td><td class="n">188.80</td><td class="n">103</td></tr>
+<tr><td>11 Jan 280.0 (OZF AX)</td><td class="n">162.80</td><td class="n">165.00</td><td class="n">98</td></tr>
+<tr><td>11 Jan 300.0 (OZF AT)</td><td class="n">148.20</td><td class="n">150.10</td><td class="n">408</td></tr>
+<tr><td>11 Jan 320.0 (OZF AD)</td><td class="n">133.90</td><td class="n">135.90</td><td class="n">63</td></tr>
+<tr><td>11 Jan 340.0 (OZF AI)</td><td class="n">120.50</td><td class="n">122.60</td><td class="n">99</td></tr>
+<tr><td>11 Jan 350.0 (OZF AK)</td><td class="n">114.10</td><td class="n">116.10</td><td class="n">269</td></tr>
+<tr><td>11 Jan 360.0 (OZF AM)</td><td class="n">107.90</td><td class="n">110.00</td><td class="n">66</td></tr>
+<tr><td>11 Jan 380.0 (OZF AZ)</td><td class="n">95.80</td><td class="n">98.00</td><td class="n">88</td></tr>
+<tr><td>11 Jan 400.0 (OZF AU)</td><td class="n">85.10</td><td class="n">87.00</td><td class="n">2577</td></tr>
+<tr><td>11 Jan 420.0 (OUP AG)</td><td class="n">74.60</td><td class="n">76.90</td><td class="n">66</td></tr>
+<tr><td>11 Jan 450.0 (OUP AV)</td><td class="n">61.80</td><td class="n">63.30</td><td class="n">379</td></tr>
+</table>`,
+            hint: [
+              `<p>Egenkapitalen i et firma med gjeld er en call på eiendelene med strike lik gjeldens pålydende. Calls på dagens gjeldfrie Google-aksje viser derfor hva egenkapitalen ville vært verdt med gjeld.</p>`,
+              `<p>Pålydende per aksje = 128 mrd. / 320 mill. Finn callen med den strike og forfall i januar 2011. Bruk midtkursen (snittet av bid og ask). <span class="f">D = V − E</span>. <span class="f">YTM = (F / D)<sup>1/T</sup> − 1</span>.</p>`,
+              `<p>Hver aksje etter gjeldsopptaket tilsvarer en call på én aksje i dagens Google. E = callpris × antall aksjer. Fra 13. juli 2009 til januar 2011 er det 18 måneder, så T = 1.5.</p>`,
+              `<ol><li>Strike = pålydende / antall aksjer.</li><li>Callpris = (bid + ask) / 2.</li><li>E = callpris × antall aksjer.</li><li><span class="f">D = V − E</span>.</li><li><span class="f">YTM = (F / D)<sup>1/T</sup> − 1</span>, med T i år.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Pålydende per aksje = 128 / 0.32 = $400
+Call 11 Jan 400: (85.10 + 87.00) / 2 = 86.05
+
+E = 86.05 × 320 mill. = $27.54 mrd.
+D = 135.1 − 27.54 = $107.56 mrd.
+YTM = (128 / 107.56)^(1/1.5) − 1 = 12.3%</div>
+<p>Kredittspreaden er 12.3% − 1% = 11.3%.</p>
+<p><b>Merknad:</b> Kursets løsning skriver at spreaden er 12.3% − 1% = 11.1%. Det er en regnefeil.</p>` },
+          { l: "b",
+            q: `<p>Suppose that in July 2009, Google were to issue $96 billion in zero-coupon senior debt and another $32 billion in zero-coupon junior debt, both due in January 2011. Use the option data above to determine the rate Google would pay on the junior debt issue. (Assume perfect capital markets.)</p>`,
+            hint: [
+              `<p>Seniorgjelden får betalt først, akkurat som gjelden i (a), bare med lavere pålydende. Juniorgjelden får det som ligger mellom seniorgjeldens pålydende og samlet pålydende.</p>`,
+              `<p>Senior: strike = 96 mrd. / 320 mill. per aksje. <span class="f">D<sub>senior</sub> = V − n × C(300)</span>. Junior: <span class="f">n × (C(300) − C(400))</span>. <span class="f">YTM = (F / D)<sup>1/T</sup> − 1</span>.</p>`,
+              `<p>Samlet pålydende er 128 mrd. som i (a), så egenkapitalen er den samme som i (a). Junior = V − senior − egenkapital.</p>`,
+              `<ol><li><span class="f">K<sub>senior</sub> = F<sub>senior</sub> / n</span>. Callprisen med den strike = snittet av bid og ask.</li><li><span class="f">D<sub>senior</sub> = V − n × C(K<sub>senior</sub>)</span>.</li><li>E = n × C(K<sub>total</sub>) fra (a), der <span class="f">K<sub>total</sub> = (F<sub>senior</sub> + F<sub>junior</sub>) / n</span>.</li><li><span class="f">D<sub>junior</sub> = V − D<sub>senior</sub> − E</span>.</li><li><span class="f">YTM<sub>junior</sub> = (F<sub>junior</sub> / D<sub>junior</sub>)<sup>1/T</sup> − 1</span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Strike senior = 96 / 0.32 = $300
+Call 11 Jan 300: (148.20 + 150.10) / 2 = 149.15
+
+D_senior = 135.1 − 149.15 × 0.32 = 135.1 − 47.728 = 87.372 mrd.
+E = 86.05 × 0.32 = 27.536 mrd. (som i a)
+D_junior = 135.1 − 87.372 − 27.536 = 20.192 mrd.
+         = 0.32 × (149.15 − 86.05)  ✓
+
+YTM_junior = (32 / 20.192)^(1/1.5) − 1 = 35.9%
+(YTM_senior = (96 / 87.372)^(1/1.5) − 1 = 6.48%)</div>
+<p><b>Merknad:</b> Kursets skriftlige løsning runder seniorgjelden til 87.4 før den trekkes fra. Da blir juniorgjelden 20.16 og renten 36.1% (og 6.46% på seniorgjelden). Tavlenotatene fra gjennomgangen av settet (s3.pdf, s. 2) viser 87.37, 20.19 og 35.9%, som her.</p>` },
+        ] },
+      /* ---------------- 7 ---------------- */
+      { nr: 7, niva: 1, tema: "Equity and Debt as Options", tittel: "Wesley Corp.",
+        intro: `<p>Wesley Corp. stock is trading for $25/share. Wesley has 20 million shares outstanding and a market debt-equity ratio of 0.5. Wesley's debt is zero-coupon debt with a 5-year maturity and a yield to maturity of 10%.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>Describe Wesley's equity as a call option. What is the maturity of the call option? What is the market value of the asset underlying this call option? What is the strike price of this call option?</p>`,
+            hint: [
+              `<p>Aksjonærene får det som er igjen når gjelden er betalt. Er eiendelene verdt mindre enn gjelden, får de ingenting.</p>`,
+              `<p>Egenkapital = call på firmaets eiendeler: payoff <span class="f">max(V<sub>T</sub> − F, 0)</span>. Løpetid = gjeldens forfall. Strike = gjeldens pålydende F.</p>`,
+              `<p>Eiendelene er <span class="f">V = E + D</span>, med D fra gjeldsgraden. Pålydende er markedsverdien av gjelden vokst med YTM i fem år.</p>`,
+              `<ol><li>E = kurs × aksjer.</li><li>D = (D/E) × E.</li><li>V = E + D.</li><li><span class="f">F = D × (1 + YTM)<sup>T</sup></span>, der T er gjeldens løpetid.</li><li>Beskriv: call på V med strike F og løpetid T.</li></ol>`,
+            ],
+            fasit: `<div class="calc">E = 25 × 20 = $500 mill.
+D = 0.5 × 500 = $250 mill.
+V = 500 + 250 = $750 mill.
+F = 250 × 1.10^5 = $402.6 mill.</div>
+<p>Egenkapitalen er en europeisk call på firmaets eiendeler. Løpetid 5 år, underliggende verdi $750 mill. og strike $402.6 mill. (gjeldens pålydende). Payoff ved forfall: <span class="f">max(V<sub>5</sub> − 402.6, 0)</span>.</p>
+<p><b>Merknad:</b> Kursets løsning skriver strike som «250 × (1.1) × 5». Det skal være 250 × 1.1<sup>5</sup>. Tallet 402.6 er riktig.</p>` },
+          { l: "b",
+            q: `<p>Describe Wesley's debt using a call option.</p>`,
+            hint: [
+              `<p>Eiendelene deles mellom gjeld og egenkapital. Gjelden er det som er igjen når egenkapitalen er tatt ut.</p>`,
+              `<span class="f">D = V − E = V − C(V, F)</span>.`,
+              `<p>Bruk callen fra (a). Sjekk payoff ved forfall: <span class="f">V<sub>T</sub> − max(V<sub>T</sub> − F, 0) = min(V<sub>T</sub>, F)</span>.</p>`,
+              `<ol><li>Lang posisjon i eiendelene.</li><li>Kort posisjon i callen fra (a).</li><li>Vis at payoffen er <span class="f">min(V<sub>T</sub>, F)</span>.</li></ol>`,
+            ],
+            fasit: `<p>Gjelden = lang i firmaets eiendeler + kort i callen fra (a) (callen på eiendelene med strike $402.6 mill. og 5 års løpetid, som er egenkapitalen).</p>
+<div class="calc">Payoff ved forfall: V_5 − max(V_5 − 402.6, 0) = min(V_5, 402.6)</div>` },
+          { l: "c",
+            q: `<p>Describe Wesley's debt using a put option.</p>`,
+            hint: [
+              `<p>Risikabel gjeld er risikofri gjeld minus det långiverne taper ved mislighold. Det tapet ser ut som en put.</p>`,
+              `<p><span class="f">D = PV(F) − P(V, F)</span>: risikofri obligasjon minus en put på eiendelene.</p>`,
+              `<p>Den risikofrie obligasjonen og putten har samme pålydende og strike som gjelden og samme løpetid. Sjekk payoff: <span class="f">F − max(F − V<sub>T</sub>, 0) = min(V<sub>T</sub>, F)</span>.</p>`,
+              `<ol><li>Lang i en risikofri nullkupongobligasjon med pålydende F.</li><li>Kort i en put på eiendelene med strike F og samme løpetid.</li><li>Vis at payoffen er <span class="f">min(V<sub>T</sub>, F)</span>.</li></ol>`,
+            ],
+            fasit: `<p>Gjelden = lang i en risikofri nullkupongobligasjon med pålydende $402.6 mill. og 5 års løpetid + kort i en put på firmaets eiendeler med strike $402.6 mill. og 5 års løpetid.</p>
+<div class="calc">Payoff ved forfall: 402.6 − max(402.6 − V_5, 0) = min(V_5, 402.6)</div>
+<p><b>Merknad:</b> Kursets løsning sier «$250 million face value». 250 er markedsverdien av gjelden i dag. Pålydende og strike er 402.6.</p>` },
+        ] },
+      /* ---------------- 8 ---------------- */
+      { nr: 8, niva: 3, tema: "Real Options", tittel: "Widget-prosjektet",
+        intro: `<p>You are planning to invest in a project for the production of widgets. The cost of the project is $10M and the project generates a single cash flow one year after the investment. Demand for widgets can be either high or low with equal probability. If demand is high, the cash flow that the project generates is $22M. If demand is low, this cash flow is only $6M. Assume demand is uncorrelated with the market so that you can discount at the risk free rate of 10%.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>What is the NPV of the project?</p>`,
+            hint: [
+              `<p>Investeringen skjer i dag og kontantstrømmen kommer om ett år.</p>`,
+              `<span class="f">NPV = −I + E[CF<sub>1</sub>] / (1 + r<sub>f</sub>)</span>.`,
+              `<p>Høy og lav etterspørsel er like sannsynlige. Risikoen er ikke markedsrisiko, så du diskonterer med risikofri rente.</p>`,
+              `<ol><li>Forventet kontantstrøm.</li><li>Diskonter ett år.</li><li>Trekk fra investeringen.</li></ol>`,
+            ],
+            fasit: `<div class="calc">NPV = −10 + (0.5 × 22 + 0.5 × 6) / 1.1 = −10 + 12.73 = $2.73M</div>` },
+          { l: "b",
+            q: `<p>Suppose that you can commission a study that costs $1.5M today (year 0). This study will tell you whether demand is high or low. However, the study will take one year to complete. That is, if you commission the study, you pay the $1.5M today (year 0), then you decide whether or not to invest in year 1, and if you invest, the cash flow arrives at year 2. Should you commission this study?</p>`,
+            hint: [
+              `<p>Studien gir deg en opsjon: du kan la være å investere når etterspørselen er lav. Prisen er studiekostnaden og ett års utsettelse.</p>`,
+              `<p>Lag et beslutningstre. I år 1 investerer du bare hvis verdien av å investere er positiv: <span class="f">max(−I + CF<sub>2</sub> / (1 + r<sub>f</sub>), 0)</span>.</p>`,
+              `<p>Regn verdien i år 1 i hver tilstand, ta forventningen og diskonter ett år. Trekk fra studiekostnaden og sammenlign med (a).</p>`,
+              `<ol><li>År 1, høy: <span class="f">−I + CF<sub>høy</sub> / (1 + r<sub>f</sub>)</span>. År 1, lav: <span class="f">−I + CF<sub>lav</sub> / (1 + r<sub>f</sub>)</span>.</li><li>Velg max(verdi, 0) i hver tilstand.</li><li>Forventning med de virkelige sannsynlighetene, diskontert ett år.</li><li>Trekk fra studiekostnaden.</li><li>Sammenlign med NPV i (a).</li></ol>`,
+            ],
+            fasit: `<div class="calc">År 1, høy:  −10 + 22 / 1.1 = 10     → invester
+År 1, lav:  −10 + 6 / 1.1 = −4.55   → ikke invester (0)
+
+NPV med studie = −1.5 + (0.5 × 10 + 0.5 × 0) / 1.1 = −1.5 + 4.55 = $3.05M</div>
+<p>3.05 > 2.73, så du bør kjøpe studien. Du kan betale opptil 4.55 − 2.73 = $1.82M for den.</p>` },
+          { l: "c",
+            q: `<p>Suppose that you discover that your estimate of the cash flows was wrong. You now believe that if demand is high the cash flow will be much higher than $22M and if demand is low the cash flow will be much lower than $6M. Will your decision to buy the study change? Explain. (You do not need any calculations here.)</p>`,
+            hint: [
+              `<p>Studien er en opsjon. Hva skjer med verdien av en opsjon når usikkerheten øker?</p>`,
+              `<p>Se på de to alternativene hver for seg: å investere nå og å kjøpe studien.</p>`,
+              `<p>Investerer du nå, avhenger NPV bare av forventet kontantstrøm. Med studien investerer du bare ved høy etterspørsel. Hvilken av de to grenene påvirker deg da?</p>`,
+              `<ol><li>Invester nå: anta at bare spredningen øker, slik at forventet kontantstrøm er uendret. Da er NPV uendret.</li><li>Studie: høy gren blir bedre. Lav gren betyr ingenting, du investerer ikke der.</li><li>Konkluder om beslutningen.</li></ol>`,
+            ],
+            fasit: `<p>Nei, du kjøper fortsatt studien. Den blir bare mer verdt.</p>
+<ul><li><b>Invester nå:</b> vi antar at bare spredningen øker, slik at forventet kontantstrøm er uendret. Da er NPV uendret.</li>
+<li><b>Studien:</b> ved høy etterspørsel er kontantstrømmen høyere, så verdien i den grenen stiger. Ved lav etterspørsel investerer du ikke, så det spiller ingen rolle at kontantstrømmen er lavere.</li></ul>
+<p>Høyere volatilitet øker verdien av opsjonen studien gir, akkurat som for en call.</p>` },
+        ] },
+      /* ---------------- 9 ---------------- */
+      { nr: 9, niva: 3, tema: "Real Options", tittel: "Hatch Corporation",
+        intro: `<p>Hatch Corporation is thinking of building a Survivor Camp far out in the corn fields outside of Chicago. Similar camps already exist around the US. The investment will cost $250M and cash flows will start arriving one year after the investment. Because of the violent and dangerous nature of such camps, the CEO of Hatch Corporation estimates that there is a probability p = .1 of the industry being subject to a lawsuit this year. The lawsuit is equally likely to be successful and to be dismissed. In case the lawsuit is successful, all such camps will be banned and cash flows will be 0 forever. If the lawsuit is dismissed, the extra attention created will increase demand and cash flows are expected to go up to $100M per year forever. If there is no lawsuit at all this year, the cash flows are expected to be $50M forever. The cash flows and timing if you invest in year 0 are given in the tree below.</p>
+<table class="data"><tr><th>Year 0</th><th>Probability</th><th>Year 1 to ∞</th></tr>
+<tr><td rowspan="3">−250</td><td>p/2</td><td>100 each year</td></tr>
+<tr><td>(1−p)</td><td>50 each year</td></tr>
+<tr><td>p/2</td><td>0 each year</td></tr></table>
+<p>For the calculations below, use a 10% rate for discounting all cash flows.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>Assuming the CEO decides to invest today, what is the NPV of the project?</p>`,
+            hint: [
+              `<p>Investerer du i dag, får du den forventede kontantstrømmen hvert år for alltid fra år 1.</p>`,
+              `<p>Forventet årlig kontantstrøm, deretter evigvarende annuitet: <span class="f">NPV = −I + E[CF] / r</span>.</p>`,
+              `<p>Sannsynlighetene er p/2, 1 − p og p/2 med p = 0.1.</p>`,
+              `<ol><li><span class="f">E[CF] = (p/2) × CF<sub>avvist</sub> + (1 − p) × CF<sub>ingen</sub> + (p/2) × CF<sub>vunnet</sub></span>.</li><li>Nåverdi = <span class="f">E[CF] / r</span>.</li><li>Trekk fra investeringen.</li></ol>`,
+            ],
+            fasit: `<div class="calc">E[CF] = 0.05 × 100 + 0.9 × 50 + 0.05 × 0 = 50
+NPV_0 = −250 + 50 / 0.1 = $250M</div>` },
+          { l: "b",
+            q: `<p>Now assume that the CEO decides to wait until year 1 to make the investment. (Of course, cash flows will not start arriving until in year 2 then.) Assume that the CEO can make the investment decision after observing whether there was a lawsuit or not and the outcome of the lawsuit. What is the NPV (as of year 0) of this strategy? Is he better or worse off than when he invested at 0? Explain the intuition.</p>`,
+            hint: [
+              `<p>Venter du, kan du la være å investere i tilstanden der kontantstrømmen blir 0. Men du mister kontantstrømmen i år 1.</p>`,
+              `<p>NPV i år 1 i hver tilstand: <span class="f">max(−I + CF / r, 0)</span>. Ta forventningen og diskonter ett år.</p>`,
+              `<p>Verdien i år 1 er <span class="f">−250 + CF / 0.1</span>, fordi kontantstrømmene starter i år 2. Sammenlign med (a).</p>`,
+              `<ol><li>År 1, søksmål avvist: <span class="f">−I + CF<sub>avvist</sub> / r</span>.</li><li>År 1, ikke søksmål: <span class="f">−I + CF<sub>ingen</sub> / r</span>.</li><li>År 1, søksmål vunnet: ikke invester (verdi 0).</li><li>Vekt med p/2, 1 − p og p/2 og diskonter ett år.</li><li>Sammenlign med (a) og forklar avveiningen.</li></ol>`,
+            ],
+            fasit: `<div class="calc">År 1, søksmål avvist:  −250 + 100 / 0.1 = 750
+År 1, ikke søksmål:    −250 + 50 / 0.1 = 250
+År 1, søksmål vunnet:  ikke invester    = 0
+
+NPV_vent = (0.05 × 750 + 0.9 × 250 + 0.05 × 0) / 1.1 = 262.5 / 1.1 = $238.6M</div>
+<p>238.6 < 250, så det lønner seg ikke å vente. Du mister kontantstrømmen i år 1. Informasjonen er ikke verdt nok til å veie opp for det. Det er lite sannsynlig (5%) at prosjektet blir verdiløst.</p>` },
+          { l: "c",
+            q: `<p>Now assume the risk of the lawsuit is p=.3 instead of .1. Does this change your answer to question (b)? Explain the intuition (and do the numbers, of course).</p>`,
+            hint: [
+              `<p>Høyere p gjør utfallene mer spredt. Hva gjør det med verdien av å vente?</p>`,
+              `<p>Gjenta (a) og (b) med p = 0.3.</p>`,
+              `<p>Sjekk først om forventet kontantstrøm endrer seg. Den bestemmer NPV ved å investere i dag.</p>`,
+              `<ol><li><span class="f">E[CF]</span> og NPV i dag med den nye p.</li><li>NPV ved å vente med den nye p (verdiene i år 1 er som i (b)).</li><li>Sammenlign og forklar med volatilitet.</li></ol>`,
+            ],
+            fasit: `<div class="calc">E[CF] = 0.15 × 100 + 0.7 × 50 + 0.15 × 0 = 50  →  NPV_0 = 250 (uendret)
+
+NPV_vent = (0.15 × 750 + 0.7 × 250 + 0.15 × 0) / 1.1 = 287.5 / 1.1 = $261.4M</div>
+<p>Ja, nå bør du vente (261.4 > 250). Forventet kontantstrøm er den samme, men utfallene er mer spredt. Da er informasjonen mer verdt og opsjonen på å vente stiger i verdi, akkurat som en call stiger i verdi med volatiliteten.</p>` },
+          { l: "d",
+            q: `<p>Now assume that the investment is reversible, meaning that you will be able to get your $250M investment back in any of the three scenarios by selling the land and the equipment if you so choose (of course, you would miss out on the later revenues then). Assume p=.3 as in (c). How will this affect the timing of your investment? Explain the intuition.</p>`,
+            hint: [
+              `<p>Kan du få investeringen tilbake, mister ventingen mye av poenget sitt. Du kan jo snu i den dårlige tilstanden.</p>`,
+              `<p>Invester i dag og selg i år 1 hvis søksmålet vinner fram. NPV = <span class="f">−I</span> + nåverdien av kontantstrømmene + nåverdien av salget i den dårlige tilstanden.</p>`,
+              `<p>I de to gode tilstandene beholder du prosjektet, fordi det er verdt mer enn 250. I den dårlige får du 250 tilbake i år 1.</p>`,
+              `<ol><li>Gode tilstander: <span class="f">(p/2) × CF<sub>avvist</sub> / r + (1 − p) × CF<sub>ingen</sub> / r</span>.</li><li>Dårlig tilstand: du selger og får investeringen tilbake i år 1, <span class="f">(p/2) × I / (1 + r)</span>.</li><li>NPV i dag = <span class="f">−I</span> + summen.</li><li>Sammenlign med NPV ved å vente fra (c).</li></ol>`,
+            ],
+            fasit: `<div class="calc">NPV_0 = −250 + 0.15 × 100 / 0.1 + 0.7 × 50 / 0.1 + 0.15 × 250 / 1.1
+      = −250 + 150 + 350 + 34.1 = $284.1M</div>
+<p>284.1 > 261.4, så du investerer i dag. Verdien av å vente kommer fra muligheten til å unngå den dårlige tilstanden. Når investeringen kan reverseres, har du den beskyttelsen også om du investerer nå. Da slipper du å miste kontantstrømmen i år 1.</p>` },
+        ] },
+      /* ---------------- 10 ---------------- */
+      { nr: 10, niva: 1, tema: "Real Options", tittel: "Dansk oljefelt",
+        intro: `<p>You own a minor Danish oil field (yes, Denmark is a net oil exporter). You can either extract all your oil this year, or you can wait until next year. After that, a dramatic collapse of the oil markets causes an immediate shift to ethanol and windmills as the world's main energy sources and leaves your oil field entirely worthless (a slightly unrealistic, but simplifying assumption). There are two ways to extract oil: The first is the normal way, which only costs $36 per barrel, relies on massive injections of salt water and causes the oil field to partly collapse. This method allows you to extract a total of 1M barrels of oil from your oil field. The second, more careful way, allows you to extract 2M barrels of oil, however this method costs $52 per barrel. Today, oil is trading at $60 per barrel, but next year the price may increase by 20% or decline by 20%. The risk-free rate is 10%.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>If you have to extract the oil today, which method would you use and what is the value of the oil minus the extraction cost?</p>`,
+            hint: [
+              `<p>Sammenlign de to metodene ved dagens pris.</p>`,
+              `<p>Verdi = antall fat × (oljepris − kostnad per fat).</p>`,
+              `<p>Metode 1 gir få fat med høy margin. Metode 2 gir mange fat med lav margin.</p>`,
+              `<ol><li>For hver metode: antall fat × (dagens pris − kostnad per fat).</li><li>Velg den høyeste.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Metode 1: 1M × (60 − 36) = $24M
+Metode 2: 2M × (60 − 52) = $16M</div>
+<p>Velg metode 1. Verdien er $24M.</p>` },
+          { l: "b",
+            q: `<p>Set up a binomial tree for the price of oil.</p>`,
+            hint: [
+              `<p>Ett steg: dagens pris og to mulige priser neste år.</p>`,
+              `<p>Opp: <span class="f">S<sub>0</sub> × 1.2</span>. Ned: <span class="f">S<sub>0</sub> × 0.8</span>.</p>`,
+              `<p>Dagens pris er $60.</p>`,
+              `<ol><li>Rot: dagens pris.</li><li>Opp: dagens pris × (1 + endringen). Ned: dagens pris × (1 − endringen).</li></ol>`,
+            ],
+            fasit: `<div class="calc">        72  (= 60 × 1.2)
+       /
+    60
+       \\
+        48  (= 60 × 0.8)</div>` },
+          { l: "c",
+            q: `<p>At each end-point of the tree, for each extraction method, what is the value of the extracted oil minus the extraction cost? At each end-point, which extraction method is optimal?</p>`,
+            hint: [
+              `<p>Samme regnestykke som i (a), men ved prisene neste år.</p>`,
+              `<p>Verdi = antall fat × (pris − kostnad per fat) for hver metode og hver tilstand.</p>`,
+              `<p>Ved høy pris lønner det seg å få ut flest fat. Ved lav pris er marginen viktigst.</p>`,
+              `<ol><li>Opp: metode 1 og metode 2.</li><li>Ned: metode 1 og metode 2.</li><li>Velg den beste i hver tilstand.</li></ol>`,
+            ],
+            fasit: `<div class="calc">                 Metode 1            Metode 2
+Opp (72):   1 × (72 − 36) = 36   2 × (72 − 52) = 40   → metode 2
+Ned (48):   1 × (48 − 36) = 12   2 × (48 − 52) = −8   → metode 1</div>
+<p>Ved høy pris er metode 2 best (40). Ved lav pris er metode 1 best (12).</p>` },
+          { l: "d",
+            q: `<p>What is the present value of extracting the oil next year?</p>`,
+            hint: [
+              `<p>Retten til å utvinne neste år er et derivat på oljeprisen. Prising med risikonøytrale sannsynligheter.</p>`,
+              `<span class="f">ρ = ((1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>) / (S<sub>u</sub> − S<sub>d</sub>)</span>. <span class="f">PV = (ρ V<sub>u</sub> + (1 − ρ) V<sub>d</sub>) / (1 + r<sub>f</sub>)</span>.`,
+              `<p>Bruk den beste metoden i hver tilstand fra (c) som <span class="f">V<sub>u</sub></span> og <span class="f">V<sub>d</sub></span>.</p>`,
+              `<ol><li>ρ fra oljeprisene.</li><li><span class="f">V<sub>u</sub></span> og <span class="f">V<sub>d</sub></span> fra (c).</li><li>Vekt med ρ og 1 − ρ.</li><li>Diskonter med <span class="f">r<sub>f</sub></span>.</li></ol>`,
+            ],
+            fasit: `<div class="calc">ρ = (1.1 × 60 − 48) / (72 − 48) = 18 / 24 = 0.75
+PV = (0.75 × 40 + 0.25 × 12) / 1.1 = 33 / 1.1 = $30M</div>` },
+          { l: "e",
+            q: `<p>Is it better to extract the oil today or to wait until next year? What is the value of the option to wait?</p>`,
+            hint: [
+              `<p>Sammenlign verdien av å utvinne i dag med nåverdien av å vente.</p>`,
+              `<p>Opsjonen på å vente = verdi ved å vente − verdi ved å utvinne nå.</p>`,
+              `<p>Bruk (a) og (d).</p>`,
+              `<ol><li>Verdi i dag fra (a).</li><li>Nåverdi ved å vente fra (d).</li><li>Velg den høyeste.</li><li>Opsjonsverdien er differansen.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Utvinne i dag:  $24M
+Vente:          $30M
+Verdi av opsjonen på å vente = 30 − 24 = $6M</div>
+<p>Det lønner seg å vente. Venter du, kan du velge metode etter at prisen er kjent.</p>` },
+        ] },
+    ],
+  },
+  {
+    id: "ps4", nr: 4, tittel: "Problem Set 4", tema: "Mergers and acquisitions (from lecture 12)",
+    trinn: ["Retning","Verktøy","Oppsett","Oppskrift"],
+    nivaer: { 1: ["*", "Tutorial"], 2: ["**", "Forelesning"], 3: ["***", "Egen trening"] },
+    oppgaver: [
+      /* ---------------- 1 ---------------- */
+      { nr: 1, niva: 2, tema: "Merger Arbitrage", tittel: "Vodafone og Mannesmann",
+        intro: `<p><b>Vodafone's bid for Mannesmann</b></p>
+<ul><li>November 14, 1999: first offer is rejected</li>
+<li>November 19: second offer is presented: 53.7 V shares for each M share</li>
+<li>SHROUT: 517.9M for Mannesmann and 31.105B for Vodafone</li>
+<li>December 17: Vodafone board decides over a formal hostile bid</li>
+<li>Proposed number of newly issued shares: 27.811B (47.2% of the new firm)</li>
+<li>Oct 21: P<sub>M</sub> = 145.35, P<sub>V</sub> = 4.19 (all prices are in EUR)</li>
+<li>Dec 17: P<sub>M</sub> = 234, P<sub>V</sub> = 4.96</li>
+<li>Dec 23: the offer is formalized at 53.7 shares, 3 months deadline</li>
+<li>Feb 3, 2000: Mannesmann CEO accepts a revised offer of 58.96 shares (49.5% of the combined firm, 350 EUR per share)</li>
+<li>Both CEOs got awards and bonuses (∼ 10M for Vodafone and ∼ 20M for Mannesmann), largest M&A at the time</li></ul>
+<p class="tiny muted">Kurbatovs eksempel fra forelesning 12 (lysbilde 20 til 22 og tavla). Lysbildeteksten er gjengitt ordrett. Spørsmålene er formulert ut fra lysbildene.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>How many new Vodafone shares does the offer of 53.7 V shares for each M share require, and what fraction y of the new firm do Mannesmann shareholders get? What fraction does the revised offer of 58.96 shares give?</p>`,
+            hint: [
+              `<p>I et aksjebytte betaler Vodafone med nye aksjer. Mannesmann-aksjonærene ender opp med en andel av det sammenslåtte firmaet.</p>`,
+              `<p>Nye aksjer = antall M-aksjer × bytteforholdet. <span class="f">y = X / (N<sub>V</sub> + X)</span>.</p>`,
+              `<p>Vodafone-aksjonærene beholder aksjene sine. Det sammenslåtte firmaet har derfor <span class="f">N<sub>V</sub> + X</span> aksjer.</p>`,
+              `<ol><li><span class="f">X = N<sub>M</sub></span> × bytteforholdet.</li><li><span class="f">y = X / (N<sub>V</sub> + X)</span>.</li><li>Gjenta med det reviderte bytteforholdet.</li></ol>`,
+            ],
+            fasit: `<div class="calc">X = 0.5179 mrd. × 53.7 = 27.811 mrd. nye V-aksjer
+y = 27.811 / (31.105 + 27.811) = 47.2%
+
+Revidert: X = 0.5179 × 58.96 = 30.535 mrd.
+          y = 30.535 / (31.105 + 30.535) = 49.5%</div>
+<p>Begge tallene stemmer med lysbildet.</p>` },
+          { l: "b",
+            ctx: `<ul><li>Let's look closely at the deal as the market perceived it on Dec 17th</li>
+<li>Mannesmann share price is 234 while Vodafone offers 266.352 = 4.96 × 53.7</li>
+<li>This spread (266 to 234) reflects the probability of success, synergies of merger and standalone values</li>
+<li>Assume r<sub>f</sub> = 5.5% and that prices revert to Oct 21 if the deal fails in 3 months</li>
+<li>Strategy: buy M share at 234, short sell 53.7 V shares for 266 and invest it at risk-free rate</li></ul>`,
+            q: `<p>What is the payoff of this strategy in 3 months if the deal goes through, and if the deal fails?</p>`,
+            hint: [
+              `<p>Strategien er en innsats på at avtalen går gjennom. Følg de tre postene (M-aksjen, shortposisjonen i V og det risikofrie innskuddet) til hvert av de to utfallene.</p>`,
+              `<p>Suksess: M-aksjen byttes i V-aksjer som lukker shorten, så bare innskuddet er igjen. Fiasko: M-aksjen faller tilbake til kursen 21. oktober. Du må da kjøpe tilbake V-aksjene til kursen den dagen.</p>`,
+              `<p>Innskuddet vokser med <span class="f">(1 + r<sub>f</sub>)<sup>T</sup></span> med T = 3/12. Hver M-aksje tilsvarer 53.7 V-aksjer i shortposisjonen.</p>`,
+              `<ol><li>Innskudd ved forfall = bytteforhold × <span class="f">P<sub>V</sub></span> i dag × <span class="f">(1 + r<sub>f</sub>)<sup>T</sup></span>.</li><li>Suksess: bare innskuddet.</li><li>Fiasko: gammel <span class="f">P<sub>M</sub></span> − bytteforhold × gammel <span class="f">P<sub>V</sub></span> + innskuddet.</li></ol>`,
+            ],
+            fasit: `<div class="calc">I dag: kjøp M for 234, short 53.7 V for 266.352 og sett beløpet i banken
+Netto i dag: −234
+
+Innskudd om 3 mnd. = 266.352 × 1.055^0.25 = 266.352 × 1.013475 = 269.941
+
+Suksess:  M byttes i 53.7 V som lukker shorten  →  269.941
+Fiasko:   145.35 − 53.7 × 4.19 + 269.941
+        = 145.35 − 225.003 + 269.941 = 190.288</div>
+<p><b>Merknad:</b> Lysbildet skriver 225.03 for gjenkjøpet og får 190.261. Siden 53.7 × 4.19 = 225.003, er fiasko-payoffen 190.288. Tavla viser de avrundede tallene 225 og 190.</p>` },
+          { l: "c",
+            q: `<p>What probability of success p does the Mannesmann share price on Dec 17 imply?</p>`,
+            hint: [
+              `<p>Posisjonen koster 234 i dag og betaler ett av to beløp om tre måneder. Prisen må være nåverdien av de to utfallene.</p>`,
+              `<span class="f">P<sub>M</sub> = [p × suksess + (1 − p) × fiasko] / (1 + r<sub>f</sub>)<sup>T</sup></span>. Løs for p.`,
+              `<p>Du diskonterer med risikofri rente. Da er p en risikonøytral sannsynlighet (ρ i kursets notasjon), ikke den virkelige.</p>`,
+              `<ol><li>Gang dagens M-kurs med <span class="f">(1 + r<sub>f</sub>)<sup>T</sup></span>.</li><li>Trekk fra fiasko-payoffen.</li><li>Del på suksess − fiasko.</li></ol>`,
+            ],
+            fasit: `<div class="calc">234 = [p × 269.941 + (1 − p) × 190.288] / 1.055^0.25
+234 × 1.013475 = 237.153
+p = (237.153 − 190.288) / (269.941 − 190.288) = 46.865 / 79.653 = 0.5884  ≈ 59%</div>
+<p>Markedet priser budet som om sjansen for at det går gjennom er om lag 59%. Det er en risikonøytral sannsynlighet, fordi vi diskonterer med <span class="f">r<sub>f</sub></span>. Lysbildet får 0.5885 med fiasko-payoffen 190.261, også 59%.</p>` },
+          { l: "d",
+            q: `<p>What does the spread between the offer and the Mannesmann share price reflect, and what role do merger arbitrage traders play?</p>`,
+            hint: [
+              `<p>Var avtalen sikker, ville M-aksjen handlet til verdien av tilbudet. Hva gjør at den ikke gjør det?</p>`,
+              `<p>Tenk på hva som skjer med M-kursen hvis avtalen faller bort. Tenk også på hvem som vil selge aksjen før det er avklart.</p>`,
+              `<p>Den som selger M-aksjen før avklaringen, slipper risikoen for kursfall. Den som kjøper, tar risikoen og får spreaden betalt.</p>`,
+              `<ol><li>Forklar hva som bestemmer spreaden.</li><li>Forklar at strategien i (b) er en innsats, ikke risikofri arbitrasje.</li><li>Forklar hvem som tar risikoen og hva de får betalt.</li><li>Nevn hvordan arbitrasjørene begrenser sin egen risiko.</li></ol>`,
+            ],
+            fasit: `<ul><li><b>Spreaden</b> (266 mot 234) reflekterer sannsynligheten for at avtalen går gjennom, synergiene og verdiene alene. Faller avtalen bort, faller M-kursen tilbake mot verdien alene.</li>
+<li><b>Merger arbitrage</b> er ikke risikofri arbitrasje. Strategien koster 234 og betaler 269.94 ved suksess eller 190.29 ved fiasko.</li>
+<li>Aksjonærer som selger M-aksjen før avklaringen, kjøper forsikring mot at avtalen faller bort. Spreaden er prisen på den forsikringen.</li>
+<li>Arbitrasjørene gir likviditet og forsikring mot avtalerisiko. De sprer egen risiko over mange avtaler. Historisk har strategien vært lønnsom (Mitchell og Pulvino, 2001).</li></ul>` },
+          { l: "e",
+            q: `<p>Use the stock swap condition X ≤ N<sub>A</sub> (T + S)/A with the Oct 21 prices as stand-alone values. How large must the synergies S be for the offer of 53.7 V shares for each M share not to hurt Vodafone's shareholders?</p>`,
+            hint: [
+              `<p>Vodafone-aksjonærene bytter hele det gamle firmaet mot en andel av et større firma. De taper ikke så lenge andelen er verdt minst like mye.</p>`,
+              `<p><span class="f">(1 − y)(A + T + S) ≥ A</span> gir <span class="f">X ≤ N<sub>A</sub> (T + S) / A</span>, eller <span class="f">ER ≤ (P<sub>T</sub> / P<sub>A</sub>)(1 + S / T)</span>.</p>`,
+              `<p>Her er Vodafone kjøper (A) og Mannesmann mål (T). <span class="f">A = N<sub>V</sub> × P<sub>V</sub></span> og <span class="f">T = N<sub>M</sub> × P<sub>M</sub></span> med kursene 21. oktober. X fra (a).</p>`,
+              `<ol><li>Regn A og T med kursene før budet.</li><li>Løs ulikheten for S: <span class="f">S ≥ X × A / N<sub>A</sub> − T</span>.</li><li>Kontroller med bytteforholdsformen.</li></ol>`,
+            ],
+            fasit: `<div class="calc">A = 31.105 × 4.19 = 130.33 mrd. EUR
+T = 0.5179 × 145.35 = 75.28 mrd. EUR
+
+S ≥ X × A / N_A − T = X × P_V − T
+  = 27.811 × 4.19 − 75.28 = 116.53 − 75.28 = 41.25 mrd. EUR
+
+Kontroll: ER ≤ (P_T / P_A)(1 + S/T)
+53.7 ≤ (145.35 / 4.19)(1 + S/T) = 34.69 × (1 + S/T)
+S/T ≥ 53.7 / 34.69 − 1 = 0.548  →  S ≥ 0.548 × 75.28 = 41.25</div>
+<p>Vodafone må tro på synergier på minst om lag 41 mrd. EUR, 55% av Mannesmanns verdi alene, for at budet ikke skal skade egne aksjonærer.</p>
+<p><b>Merknad:</b> Denne delen er ikke regnet på lysbildene. Den bruker formelen fra lysbilde 17 og 18 på tallene fra lysbilde 20.</p>` },
+        ] },
+      /* ---------------- 2 ---------------- */
+      { nr: 2, niva: 2, tema: "Payment Method", tittel: "Kontanter eller aksjer",
+        intro: `<p><b>Notation</b></p>
+<ul><li>A is the pre-acquisition acquiror value</li>
+<li>T is the pre-acquisition target value</li>
+<li>S is the synergy value</li>
+<li>P is the price paid by the acquiror</li>
+<li>A + T + S is the combined firm value after acquisition</li>
+<li>A + T + S − (A + T) = S: the economic gains from the merger equal the synergies</li></ul>
+<p class="tiny muted">Fra forelesning 12 (lysbilde 13 til 18, 24 og 25). Lysbildeteksten er gjengitt ordrett. Spørsmålene er formulert ut fra lysbildene, og fasiten er lysbildenes egen.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>Cash payment: what are the acquiror's NPV and the target's NPV, and what is their sum? The total gain is equal to synergies, but how is it distributed?</p>`,
+            hint: [
+              `<p>Kjøperen betaler P i kontanter og eier hele det sammenslåtte firmaet. Målselskapets aksjonærer får P i stedet for T.</p>`,
+              `<p>NPV for hver side = verdi etter − verdi før.</p>`,
+              `<p>Kjøper: verdi etter er <span class="f">A + T + S − P</span>. Mål: verdi etter er P. Legg sammen og se hva som skjer med P.</p>`,
+              `<ol><li><span class="f">NPV<sub>A</sub> = (A + T + S) − P − A</span>.</li><li><span class="f">NPV<sub>T</sub> = P − T</span>.</li><li>Summer.</li><li>Forklar hva som bestemmer P og dermed fordelingen.</li></ol>`,
+            ],
+            fasit: `<div class="calc">NPV_A = (A + T + S) − P − A = S + (T − P) = S − (P − T)
+NPV_T = P − T
+Sum   = S</div>
+<p>Den samlede gevinsten er synergiene uansett pris. Prisen avgjør bare fordelingen: målselskapet får premien <span class="f">P − T</span> og kjøperen resten av synergiene. Forhandlingsmakt bestemmer P. Empirisk får målselskapene det meste (om lag 15% unormal avkastning ved kunngjøring mot om lag 1% for kjøperne).</p>` },
+          { l: "b",
+            q: `<p>Stock swap: denote the fraction of the new firm offered to target shareholders as y. What are the acquiror's NPV and the target's NPV? How does this differ from a cash payment?</p>`,
+            hint: [
+              `<p>Nå betaler kjøperen med en andel av det sammenslåtte firmaet i stedet for kontanter.</p>`,
+              `<p>Målselskapets aksjonærer eier y av <span class="f">A + T + S</span>, kjøperens gamle aksjonærer eier <span class="f">1 − y</span>.</p>`,
+              `<p>Sammenlign med (a): hvem bærer risikoen hvis synergiene blir mindre enn ventet?</p>`,
+              `<ol><li><span class="f">NPV<sub>A</sub> = (1 − y)(A + T + S) − A</span>.</li><li><span class="f">NPV<sub>T</sub> = y(A + T + S) − T</span>.</li><li>Summer.</li><li>Forklar hvordan kjøperens kostnad nå avhenger av S og hva det betyr ved feilprising.</li></ol>`,
+            ],
+            fasit: `<div class="calc">NPV_A = (1 − y)(A + T + S) − A
+NPV_T = y(A + T + S) − T
+Sum   = S</div>
+<p>Med aksjer avhenger kjøperens kostnad <span class="f">y(A + T + S) − T</span> av synergiene, fordi målselskapet får en andel av dem. Med kontanter avhenger kostnaden ikke direkte av S (men P kan fortsatt være en funksjon av S). Aksjebytte demper derfor effekten av feilprising: blir synergiene mindre enn ventet, deler målselskapet tapet.</p>` },
+          { l: "c",
+            q: `<p>Denote N<sub>A</sub>, N<sub>T</sub> the number of shares for the firms, P<sub>A</sub> and P<sub>T</sub> the pre-merger prices and X the number of new shares. What is the maximum number of new shares and the maximum exchange ratio the acquiror is willing to offer?</p>`,
+            hint: [
+              `<p>Kjøperen gjennomfører bare hvis de gamle aksjonærene er minst like godt stilt med en andel av det nye firmaet som med hele det gamle.</p>`,
+              `<p><span class="f">y = X / (N<sub>A</sub> + X)</span>. Betingelse: <span class="f">N<sub>A</sub> / (N<sub>A</sub> + X) × (A + T + S) ≥ A</span>.</p>`,
+              `<p>Gang ut og løs for X. Bytteforholdet er <span class="f">ER = X / N<sub>T</sub></span>. Bruk <span class="f">A = P<sub>A</sub> N<sub>A</sub></span> og <span class="f">T = P<sub>T</sub> N<sub>T</sub></span>.</p>`,
+              `<ol><li>Sett opp betingelsen.</li><li>Løs for X.</li><li>Del på <span class="f">N<sub>T</sub></span>.</li><li>Sett inn A og T uttrykt med kurser og aksjetall og forenkle.</li></ol>`,
+            ],
+            fasit: `<div class="calc">N_A / (N_A + X) × (A + T + S) ≥ A
+N_A (A + T + S) ≥ A (N_A + X)
+N_A (T + S) ≥ A × X
+
+X ≤ N_A × (T + S) / A
+
+ER = X / N_T ≤ (N_A / N_T) × (T + S) / A = (P_T / P_A) × (1 + S/T)</div>
+<p>Uten synergier er det høyeste bytteforholdet forholdet mellom kursene. Synergiene gir rom for en premie. Valget for kjøperens aksjonærer er å eie det gamle firmaet eller en andel av det nye.</p>` },
+          { l: "d",
+            q: `<p>Cash or stock? What determines the choice, and which does an acquiror prefer if it believes its own stock is overvalued?</p>`,
+            hint: [
+              `<p>Tenk både praktisk (har kjøperen pengene?) og informasjonsmessig (hvem vet mest om hva aksjene er verdt?).</p>`,
+              `<p>Med aksjebytte er kjøperens kostnad <span class="f">y(T + A + S) − T</span>. Er egne aksjer overpriset, er det en billig valuta.</p>`,
+              `<p>Markedet vet at kjøperen velger betalingsform ut fra hva den vet. Hva sier valget da om kjøperen?</p>`,
+              `<ol><li>List de praktiske faktorene.</li><li>Overpriset egen aksje: hvilken betalingsform er billigst?</li><li>Undervurdert egen aksje: hvilken er billigst?</li><li>Forklar hva markedet slutter av valget.</li></ol>`,
+            ],
+            fasit: `<p>Valget avhenger av:</p>
+<ul><li>kjøperens likviditet og gjeldskapasitet</li>
+<li>asymmetrisk informasjon: hvem som vet mest</li>
+<li>usikkerhet om synergiene og verdiene alene</li>
+<li>selgerens behov: trenger de kontanter? Hva med skatt?</li>
+<li>tid</li></ul>
+<p>Tror kjøperen at egen aksje er overpriset, foretrekker den aksjebytte. Tror den at aksjen er undervurdert, foretrekker den kontanter. Men valget avslører informasjon: et aksjebud tolkes som et signal om at kjøperens aksje er overpriset. Kursen faller. Det er samme mekanisme som ved en emisjon (Myers-Majluf).</p>` },
+        ] },
+      /* ---------------- 3 ---------------- */
+      { nr: 3, niva: 2, tema: "Bidding", tittel: "Budkamp om bank D",
+        intro: `<table class="data">
+<tr><th></th><th>Stand-Alone Value</th><th colspan="3">Value with bank D</th></tr>
+<tr><th></th><th></th><th>A</th><th>B</th><th>C</th></tr>
+<tr><td>A</td><td class="n">100</td><td class="n">190</td><td class="n">90</td><td class="n">90</td></tr>
+<tr><td>B</td><td class="n">80</td><td class="n">70</td><td class="n">170</td><td class="n">70</td></tr>
+<tr><td>C</td><td class="n">70</td><td class="n">55</td><td class="n">55</td><td class="n">160</td></tr>
+<tr><td>D</td><td class="n">60</td><td class="n">0</td><td class="n">0</td><td class="n">0</td></tr>
+</table>
+<p><b>Bidding depends on alternatives!</b></p>
+<p class="tiny muted">Fra forelesning 12 (lysbilde 26). Lysbildet har bare tabellen, så spørsmålene og fasiten er laget ut fra den. Kolonnene under «Value with bank D» viser verdien av hver bank når A, B eller C har kjøpt bank D, før kjøpesummen er betalt.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>What is the total value of the four banks if no deal happens, and if A, B or C buys bank D? Which acquisition creates the most value?</p>`,
+            hint: [
+              `<p>Summer verdiene av alle bankene i hvert scenario. Kjøpesummen er bare en overføring og påvirker ikke summen.</p>`,
+              `<p>Ingen avtale: kolonnen med verdiene alene. Kjøp: kolonnen for kjøperen, der D er 0 fordi D er slått sammen med kjøperen.</p>`,
+              `<p>Skill mellom gevinsten for kjøper og D sammen og effekten på konkurrentene.</p>`,
+              `<ol><li>Summer verdiene alene.</li><li>Summer hver kolonne under «Value with bank D».</li><li>Sammenlign.</li><li>Del opp i kjøperens verdi − kjøperens og Ds verdier alene. Se så på endringen for de andre bankene.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Ingen avtale:  100 + 80 + 70 + 60 = 310
+A kjøper D:    190 + 70 + 55 = 315   (+5)
+B kjøper D:    90 + 170 + 55 = 315   (+5)
+C kjøper D:    90 + 70 + 160 = 320   (+10)
+
+Gevinst for kjøper og D sammen:
+  A: 190 − (100 + 60) = 30,  B: 170 − (80 + 60) = 30,  C: 160 − (70 + 60) = 30
+Tap for konkurrentene: A eller B kjøper: −25,  C kjøper: −20</div>
+<p>Kjøpet til C skaper mest verdi. Alle tre får samme synergi med D, men kjøpet til C skader konkurrentene minst.</p>` },
+          { l: "b",
+            q: `<p>How much would each bank be willing to pay for D if the alternative is that nobody buys D?</p>`,
+            hint: [
+              `<p>Betalingsviljen er gevinsten ved å kjøpe sammenlignet med alternativet.</p>`,
+              `<p>Betalingsvilje = verdi med D − verdi i alternativet.</p>`,
+              `<p>Her er alternativet at ingen kjøper. Da beholder banken verdien alene.</p>`,
+              `<ol><li>For hver bank: verdien når den selv kjøper D.</li><li>Trekk fra verdien alene.</li></ol>`,
+            ],
+            fasit: `<div class="calc">A: 190 − 100 = 90
+B: 170 − 80 = 90
+C: 160 − 70 = 90</div>
+<p>Mot status quo er alle tre villige til å betale 90.</p>` },
+          { l: "c",
+            q: `<p>Suppose D will be sold to one of the other banks anyway. How much is each bank willing to pay now? Who wins the bidding and at what price?</p>`,
+            hint: [
+              `<p>Nå er alternativet ikke status quo. Taper du budkampen, får en konkurrent D. Det koster deg verdi.</p>`,
+              `<p>Betalingsvilje = verdi hvis du kjøper − verdi hvis en konkurrent kjøper.</p>`,
+              `<p>Les av tabellen hva hver bank er verdt når en av de andre kjøper. I en stigende budrunde vinner den med høyest betalingsvilje til en pris lik den nest høyeste.</p>`,
+              `<ol><li>For hver bank: verdien når den selv kjøper.</li><li>Trekk fra verdien når en konkurrent kjøper.</li><li>Ranger betalingsviljene.</li><li>Vinneren betaler om lag den nest høyeste betalingsviljen.</li></ol>`,
+            ],
+            fasit: `<div class="calc">A: 190 − 90 = 100
+B: 170 − 70 = 100
+C: 160 − 55 = 105</div>
+<p>A og B gir seg ved 100. C vinner og betaler om lag 100. Det er 40 mer enn Ds verdi alene og 10 mer enn det noen ville betalt i (b). Bud avhenger av alternativene: frykten for at en konkurrent får D, driver prisen opp.</p>` },
+          { l: "d",
+            q: `<p>Who wins and who loses relative to the stand-alone values?</p>`,
+            hint: [
+              `<p>Sammenlign hver banks verdi etter budkampen (etter betalt pris) med verdien alene.</p>`,
+              `<p>Kjøperen: verdi med D − pris. D: prisen. De andre: verdien når kjøperen har D.</p>`,
+              `<p>Bruk vinneren og prisen fra (c). Summen av endringene skal være verdiskapingen fra (a).</p>`,
+              `<ol><li>D: pris − verdi alene.</li><li>Kjøperen: verdi med D − pris − verdi alene.</li><li>De to andre: verdien i kjøperens kolonne − verdi alene.</li><li>Kontroller at summen er lik endringen i samlet verdi.</li></ol>`,
+            ],
+            fasit: `<div class="calc">D:  100 − 60 = +40
+C:  (160 − 100) − 70 = −10   (men +5 mot 55 hvis en konkurrent hadde vunnet)
+A:  90 − 100 = −10
+B:  70 − 80 = −10
+Sum = +10 = verdiskapingen når C kjøper  ✓</div>
+<p>Målselskapets aksjonærer tar mer enn hele gevinsten. Alle tre kjøperne taper mot verdiene alene, men C taper mindre enn den ville gjort uten å kjøpe. Det stemmer med empirien: målselskapene vinner mest ved oppkjøp.</p>` },
+        ] },
+      /* ---------------- 4 ---------------- */
+      { nr: 4, niva: 2, tema: "Risk Reduction", tittel: "Coinsurance",
+        intro: `<p><b>Risk reduction from mergers</b></p>
+<ul><li>When two firms merge, they might borrow at a lower rate than separately</li>
+<li>Consider a case of firms A and B issuing $50M in bonds each</li>
+<li>Alternative: they merge and issue $100M in bonds instead</li></ul>
+<table class="data">
+<tr><th></th><th>State 1</th><th>State 2</th><th>Market Value</th></tr>
+<tr><td>Probability</td><td class="n">0.5</td><td class="n">0.5</td><td></td></tr>
+<tr><th>Values before merger:</th><th></th><th></th><th></th></tr>
+<tr><td>Firm A</td><td class="n">80</td><td class="n">20</td><td class="n">50</td></tr>
+<tr><td>Firm B</td><td class="n">10</td><td class="n">40</td><td class="n">25</td></tr>
+<tr><th>Value after merger</th><th></th><th></th><th></th></tr>
+<tr><td>Firm AB</td><td class="n">90</td><td class="n">60</td><td class="n">75</td></tr>
+</table>
+<p>The merger has no synergies. Assume that firm A has 30 debt and firm B has 15.</p>
+<p class="tiny muted">Fra forelesning 12 (lysbilde 27 og 28). Spørsmålene i (a), (b) og (d) står på lysbildet. Lysbildene har ingen utregning, så fasiten er laget ut fra dem.</p>`,
+        deler: [
+          { l: "a",
+            q: `<p>The joint bond will have a lower yield (why?)</p>`,
+            hint: [
+              `<p>Hva står bak den felles obligasjonen som ikke står bak hver av de to separate?</p>`,
+              `<p>Etter sammenslåingen er hele gjelden sikret i begge firmaenes kontantstrømmer.</p>`,
+              `<p>Går det dårlig i det ene firmaet, kan det andre dekke gjelden. Hva skjer da med sannsynligheten for mislighold?</p>`,
+              `<ol><li>Forklar hva som sikrer den felles obligasjonen.</li><li>Forklar hva det gjør med sannsynligheten for mislighold.</li><li>Koble lavere mislighold til lavere avkastningskrav.</li></ol>`,
+            ],
+            fasit: `<p>Den felles obligasjonen er sikret i kontantstrømmene til begge firmaene. Går det dårlig i det ene, kan det andre dekke gjelden (coinsurance). Sannsynligheten for mislighold faller. Da krever långiverne lavere rente.</p>` },
+          { l: "b",
+            q: `<p>What is the condition for the joint firm to be less risky?</p>`,
+            hint: [
+              `<p>Sammenslåingen hjelper bare hvis firmaene ikke går dårlig samtidig.</p>`,
+              `<p>Diversifisering: tenk på korrelasjonen mellom kontantstrømmene.</p>`,
+              `<p>Se på tabellen: når går det dårlig for A og når går det dårlig for B?</p>`,
+              `<ol><li>Formuler betingelsen med korrelasjon.</li><li>Forklar grensetilfellet med perfekt korrelasjon.</li><li>Knytt det til tabellen.</li></ol>`,
+            ],
+            fasit: `<p>Kontantstrømmene må ikke være perfekt positivt korrelert. Er de perfekt korrelert, går begge dårlig samtidig. Da reduserer ikke sammenslåingen risikoen. Jo lavere korrelasjon, desto større reduksjon. I tabellen går A og B i motsatt retning: A er sterk i tilstand 1, B i tilstand 2.</p>` },
+          { l: "c",
+            q: `<p>Using the table, find the value of debt and equity of firm A and firm B before the merger and of firm AB after the merger.</p>`,
+            hint: [
+              `<p>Gjelden får det den er lovet, eller hele firmaet hvis firmaet er verdt mindre. Egenkapitalen får resten.</p>`,
+              `<p>Per tilstand: gjeld = <span class="f">min(V, F)</span>, egenkapital = <span class="f">max(V − F, 0)</span>. Verdi = sannsynlighetsvektet snitt.</p>`,
+              `<p>Markedsverdiene i tabellen er forventede verdier uten diskontering. Etter sammenslåingen er pålydende summen av de to lånene.</p>`,
+              `<ol><li>A: gjeld og egenkapital i hver tilstand, så forventning.</li><li>B: det samme.</li><li>AB: med samlet pålydende.</li><li>Sammenlign summene før og etter.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Før:
+A (gjeld 30):   tilstand 1: 80 → gjeld 30, EK 50    tilstand 2: 20 → gjeld 20, EK 0
+                D_A = 0.5 × 30 + 0.5 × 20 = 25,    E_A = 0.5 × 50 = 25
+B (gjeld 15):   tilstand 1: 10 → gjeld 10, EK 0     tilstand 2: 40 → gjeld 15, EK 25
+                D_B = 0.5 × 10 + 0.5 × 15 = 12.5,  E_B = 0.5 × 25 = 12.5
+Sum før:        D = 37.5,  E = 37.5,  V = 75
+
+Etter (AB, gjeld 45):
+                tilstand 1: 90 → gjeld 45, EK 45    tilstand 2: 60 → gjeld 45, EK 15
+                D_AB = 45 (risikofri),  E_AB = 0.5 × 45 + 0.5 × 15 = 30
+Sum etter:      D = 45,  E = 30,  V = 75</div>
+<p>Før sammenslåingen misligholder ett av firmaene i hver tilstand. Etter er gjelden risikofri.</p>` },
+          { l: "d",
+            q: `<p>How does reduction in risk affect shareholders?</p>`,
+            hint: [
+              `<p>Sammenslåingen skaper ingen verdi. Hvis gjelden blir mer verdt, hvem betaler for det?</p>`,
+              `<p>Egenkapital er en call på eiendelene. Hva skjer med verdien av en call når risikoen faller?</p>`,
+              `<p>Sammenlign summene fra (c) før og etter. Tenk også på hva aksjonærene kan gjøre etter sammenslåingen for å hente tilbake verdien.</p>`,
+              `<ol><li>Endring i gjeldsverdien.</li><li>Endring i egenkapitalverdien.</li><li>Forklar overføringen med opsjonslogikk.</li><li>Nevn hva aksjonærene kan gjøre med det.</li></ol>`,
+            ],
+            fasit: `<div class="calc">Gjeld:         37.5 → 45   (+7.5)
+Egenkapital:   37.5 → 30   (−7.5)
+Firma:         75   → 75   (0)</div>
+<p>Aksjonærene taper 7.5 og långiverne vinner 7.5. Det er ingen synergier, så dette er en ren overføring (coinsurance-effekten). Egenkapitalen er en call på eiendelene. Lavere risiko gjør callen mindre verdt.</p>
+<p>Risikoreduksjon er derfor ingen god grunn til en fusjon for aksjonærene. De kan diversifisere selv ved å eie begge aksjene. Aksjonærene kan hente tilbake overføringen ved å ta opp mer gjeld etter sammenslåingen og dele ut provenyet. Den økte gjeldskapasiteten gir også et større skatteskjold.</p>` },
         ] },
     ],
   },

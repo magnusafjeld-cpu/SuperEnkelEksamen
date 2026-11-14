@@ -32,3 +32,4 @@ fag/privat-indeks.json
 # Forelesningssettene: JSON lages av <id>_regn.py, forelesningssett.js er kilden for appen
 fag/fie432/_forelesning/fl-*.json
 fag/fie432/_forelesning/__pycache__/
+fag/fie402/_manual_arbeid/

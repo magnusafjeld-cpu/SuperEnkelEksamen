@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-10-31
+oppdatert: 2026-11-14
 ---
 
 # Fallgruver
@@ -464,9 +464,9 @@ noe ble endret.
 
 **Rutinen:** et eksamenssitat sjekkes mot PDF-en, en lovpåstand mot Lovdata, og
 en påstått feil i et regnestykke regnes om med oppgavens egne mellomtall (7q).
-Kursplanen er et kart, ikke kilden. Merk også at `2024 - S.pdf` er
-**vårsettet** 2024, mens `2025 - S.pdf` er **fasiten** til høsten 2025. Navnene
-betyr ikke det samme.
+Kursplanen er et kart, ikke kilden. Merk også at vårsettet 2024 med fasit heter
+`2024V - S.pdf`, mens `2024 - S.pdf` og `2025 - S.pdf` er Kurbatovs **nøkler** til
+høsten 2024 og 2025. Før 14. november 2026 lå vårsettet under navnet `2024 - S.pdf`.
 
 ## 7u. «Sentrale eksamenstemaer» var null i to fag
 

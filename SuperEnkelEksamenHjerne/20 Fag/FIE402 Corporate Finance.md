@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-11-02
+oppdatert: 2026-11-14
 ---
 
 # FIE402 Corporate Finance
@@ -317,8 +317,10 @@ Alt ligger i `FIE402_Corp_course_files/`: 20 PDF-er med eksamener og
 løsningsforslag, syllabus for 2026, formelarket og NHHs infoside.
 
 > [!warning] To feller i kildematerialet
-> **`2024 - S.pdf` hører ikke til `2024.pdf`.** Løsningsfila er fasit til *vår*
-> 2024, mens eksamensfila er *høst* 2024. Det er altså 11 eksamenssettinger, ikke 10.
+> **Vårfasiten fra 2024 heter nå `2024V - S.pdf`.** Fram til 14. november 2026 lå den
+> under navnet `2024 - S.pdf`, selv om `2024.pdf` er *høst* 2024. Da kom Kurbatovs
+> egen nøkkel til høsten 2024 i en ny nedlasting, og den ligger nå som `2024 - S.pdf`.
+> Det er altså 11 eksamenssettinger, ikke 10, og begge 2024-settene har fasit.
 >
 > **`2015 - S.pdf` er en ren skanning** uten tekstlag, og deler av `2016 - S.pdf`
 > likeså. `2021 - S.pdf` mangler løsning på oppgave 3 og 4, og 2022 og 2023 har
