@@ -1,8 +1,18 @@
 /* ================ EKSAMENSTRENING — mange spørsmål i eksamensformat ================
    En stor bank med flervalgsspørsmål i samme form og vanskelighet som eksamen:
-   fire alternativer, ett riktig, 3 poeng for rett, −1 for feil og 0 for å stå
-   over. Du velger ett eller flere temaer og antall spørsmål, og spørsmålene
-   trekkes tilfeldig fra utvalget.
+   fire alternativer og ett riktig. Poengregelen er fagets (standard 3 poeng for
+   rett, −1 for feil og 0 for å stå over). Du velger ett eller flere temaer og
+   antall spørsmål. Spørsmålene trekkes tilfeldig fra utvalget.
+
+   Poengregelen er fagets: EDU_DATA.trening.poeng = { rett, feil, blank }. Uten
+   minuspoeng (feil 0) er det ingen minustekster og ingen råd om å stå over;
+   «Stå over» heter «Vis fasiten». Resultatet er antall riktige og prosent.
+
+   «Regn selv først»: et fag med åpen eksamen kan gi spørsmålene et tallsvar
+   (tall). Med valget på skriver du tallet du har regnet, før alternativene
+   vises. Tallet sjekkes mot verdien med fagets toleranse og teller som første
+   svar: riktig, et galt alternativ (når tallet treffer en felle) eller feil.
+   Så kommer alternativene og fasiten som før. Spørsmål uten tall er uendret.
 
    Hvorfor dette ikke er kapitteloppgavene om igjen: de er et lite, fast sett per
    kapittel, ment rett etter lesingen. Her er banken stor, mange regnespørsmål
@@ -19,20 +29,31 @@
    og fremgangsmåten. Etter et svar kan du ta en ny variant av samme
    regnestykke med en gang.
 
-   Data: EDU_DATA.trening = { temaer: [{ id, navn, kort, vekt, kap, kjerne }], sporsmal: [
+   Data: EDU_DATA.trening = { poeng?: { rett, feil, blank }, sprak?: "no" | "en",
+           regnSelv?: true, temaer: [{ id, navn, kort, vekt, kap, kjerne, intro }], sporsmal: [
            { id, tema, fam?, type, q, options[4], answer, traps[4], kort, full,
-             hint?: [tema, regel], hjelp }] }
+             hint?: [tema, regel], hjelp,
+             tall?: { verdi, tol: { rel?, abs? }, enhet?, alt?: [4 verdier] } }] }
+     poeng     standard { rett: 3, feil: −1, blank: 0 }
+     sprak     fagets tallformat, bare for tolkningen og visningen av tall. UI er norsk.
+     regnSelv  «Regn selv først» er på som standard
+     tall      verdi i enheten ved feltet (12.5 med enhet «%»); avviket godtas når det er
+               innenfor rel × |verdi| eller abs (standard rel 0,001); alt er verdien bak
+               hvert alternativ, så et tall som treffer en felle, regnes som det valget
    Bygget av tools/bygg-trening.py. Fila er stor, så faget kan laste den først
    når modulen åpnes: manifest.lazy = { "/trening": ["fag/<fag>/trening.js"] }.
 
    Lagring (state.exams):
      "tr:<id>"       { n, r, s, t, h }  forsøk, riktige, siste (1 rett, 0 feil, −1 stod over),
                      tid, og h = trinnene av hjelpen som var åpne sist (0–3)
-     "trening:okt"   { ids, svar: { id: indeks | −1 }, hjelp: { id: trinn }, temaer, modus,
-                       igjen, forsok: { id: [gale valg] }, losst: { id: true }, gitt: { id: true },
-                       start, slutt }
-                     svar er alltid første svar. forsok, losst og gitt gjelder bare «Prøv igjen».
-     "trening:valg"  { temaer, antall, modus, feil }  det du valgte sist
+     "trening:okt"   { ids, svar: { id: indeks | −1 | −2 }, hjelp: { id: trinn }, temaer, modus,
+                       igjen, regn, forsok: { id: [gale valg] }, losst: { id: true }, gitt: { id: true },
+                       tall: { id: { x, tekst } }, vistAlt: { id: true }, start, slutt }
+                     svar er alltid første svar; −1 er stått over, −2 et tall som ikke traff
+                     noe alternativ. forsok, losst og gitt gjelder bare «Prøv igjen». tall er
+                     tallet du skrev med «Regn selv først», vistAlt spørsmål der du valgte å se
+                     alternativene i stedet.
+     "trening:valg"  { temaer, antall, modus, feil, regn? }  det du valgte sist
      "trm:<id>"      { m: 1 | 0, t }  merket «Øv mer på denne». Egen nøkkel, så et merket
                      spørsmål ikke teller som sett. Å fjerne merket skriver m: 0 i stedet
                      for å slette, ellers ville synken hentet det tilbake fra den andre enheten.
@@ -49,11 +70,18 @@ window.EDU = window.EDU || {};
   const ALLE = () => (T() || {}).sporsmal || [];
   const temaFor = (id) => TEMAER().find((t) => t.id === id) || null;
 
-  const RETT = 3, FEIL = -1;
+  /* Poengregelen leses fra fagdataene hver gang, aldri på toppnivå: dataene
+     lastes etter motoren (fallgruve 2). */
+  const STD_POENG = { rett: 3, feil: -1, blank: 0 };
+  const poengregel = () => Object.assign({}, STD_POENG, (T() || {}).poeng || {});
+  const harMinus = () => poengregel().feil < 0;
   const BLANK = -1;
+  /* Et tall fra «Regn selv først» som ikke traff noe alternativ. Teller som feil. */
+  const FEILTALL = -2;
   const ANTALL = [10, 20, 30, 50];
   const MODI = [["nye", "Nye først"], ["feil", "Bare de jeg bommet på"], ["merket", "Bare merkede"], ["tilfeldig", "Helt tilfeldig"]];
   const FEILVALG = [["fasit", "Vis fasiten"], ["igjen", "Prøv igjen først"]];
+  const SVARFORM = [["valg", "Velg blant fire"], ["regn", "Regn selv først"]];
 
   /* ---------- lasting ---------- */
   let lasting = null, lastefeil = null;
@@ -71,7 +99,7 @@ window.EDU = window.EDU || {};
   const exams = () => S.store.get().exams;
   const logg = (id) => exams()["tr:" + id] || null;
   const økt = () => exams()["trening:okt"] || null;
-  const valg = () => Object.assign({ temaer: [], antall: 20, modus: "nye", feil: "fasit" }, exams()["trening:valg"] || {});
+  const valg = () => Object.assign({ temaer: [], antall: 20, modus: "nye", feil: "fasit", regn: !!(T() || {}).regnSelv }, exams()["trening:valg"] || {});
   function settValg(patch) { S.store.setExam("trening:valg", patch); }
   function lagreØkt(o) { exams()["trening:okt"] = o; S.store.emit(); }
   function forkastØkt() { delete exams()["trening:okt"]; S.store.emit(); }
@@ -83,12 +111,13 @@ window.EDU = window.EDU || {};
   const hjelpeTrinn = (sp) => [...(sp.hint || []), sp.hjelp].filter(Boolean);
   function hjelpNivå(o, id) { const v = ((o && o.hjelp) || {})[id]; return v === true ? 3 : v || 0; }
 
-  function registrer(sp, i) {
+  /* ekstra: felter som lagres i økten i samme slag, som tallet fra «Regn selv først». */
+  function registrer(sp, i, ekstra) {
     const o = økt();
     if (!o || o.svar[sp.id] != null) return;
     const før = logg(sp.id);
     const svar = Object.assign({}, o.svar, { [sp.id]: i });
-    lagreØkt(Object.assign({}, o, { svar, angre: { id: sp.id, logg: før ? Object.assign({}, før) : null } }));
+    lagreØkt(Object.assign({}, o, ekstra || {}, { svar, angre: { id: sp.id, logg: før ? Object.assign({}, før) : null } }));
     const g = før || { n: 0, r: 0 };
     const s = i === BLANK ? -1 : i === sp.answer ? 1 : 0;
     const h = Math.min(hjelpNivå(o, sp.id), hjelpeTrinn(sp).length);
@@ -101,11 +130,127 @@ window.EDU = window.EDU || {};
     const uten = (m) => { const k = Object.assign({}, m || {}); delete k[sp.id]; return k; };
     if (o.angre.logg) exams()["tr:" + sp.id] = o.angre.logg; else delete exams()["tr:" + sp.id];
     visFull = false;
-    lagreØkt(Object.assign({}, o, { svar, angre: null, forsok: uten(o.forsok), losst: uten(o.losst), gitt: uten(o.gitt) }));
+    /* Et angret tall står i feltet igjen, så en skrivefeil kan rettes. */
+    const tt = (o.tall || {})[sp.id];
+    if (tt) utkast = { id: sp.id, tekst: tt.tekst, feil: "" };
+    lagreØkt(Object.assign({}, o, { svar, angre: null, forsok: uten(o.forsok), losst: uten(o.losst), gitt: uten(o.gitt), tall: uten(o.tall) }));
   }
 
-  const poengFor = (sp, v) => v == null || v === BLANK ? 0 : v === sp.answer ? RETT : FEIL;
+  const poengFor = (sp, v) => { const P = poengregel(); return v == null ? 0 : v === BLANK ? P.blank : v === sp.answer ? P.rett : P.feil; };
   const fmt = (n) => (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n);
+
+  /* ---------- «Regn selv først» ----------
+     Spørsmålet har tall = { verdi, tol, enhet, alt }. Du skriver tallet før du
+     ser alternativene. Det første svaret teller, tall eller valg. */
+  const STD_REL = 0.001;
+  const språk = () => (T() || {}).sprak || "no";
+  const harTall = () => ALLE().some((s) => s.tall);
+  const venterTall = (o, sp) => !!(o && o.regn && sp.tall && o.svar[sp.id] == null && !(o.vistAlt || {})[sp.id]);
+  const tallFor = (o, sp) => ((o && o.tall) || {})[sp.id] || null;
+
+  /* Tolker tallet slik en student skriver det. Mellomrom er tusenskille. Både
+     punktum og komma kan være desimaltegn. −, – og «minus» er minustegn.
+     Valutategn og enhet foran og bak hoppes over. Står det et regnestykke,
+     gjelder tallet etter siste «=». Returnerer de mulige verdiene: to når «1,250»
+     kan bety både 1,25 og 1250 (fagets språk avgjør hvilken som kommer først),
+     ellers én. null når teksten ikke er et tall.
+     Med enheten % er også brøken et svar: 0.125 er 12,5 %. Skriver du % når
+     enheten er en annen, deles tallet på 100. */
+  function tolkTall(rå, enhet) {
+    let s = String(rå == null ? "" : rå).trim();
+    if (s.includes("=")) s = s.slice(s.lastIndexOf("=") + 1);
+    s = s.replace(/[\s\u00a0\u202f\u2009]/g, "").replace(/[\u2212\u2013\u2012]/g, "-").replace(/^minus/i, "-");
+    if (/[()]/.test(s)) return null;
+    let pst = false;
+    if (/%$/.test(s)) { pst = true; s = s.slice(0, -1); }
+    let neg = false;
+    s = s.replace(/^\+/, "");
+    if (s[0] === "-") { neg = true; s = s.slice(1); }
+    s = s.replace(/^[^\d.,-]+/, "");
+    if (s[0] === "-") { neg = !neg; s = s.slice(1); }
+    s = s.replace(/[^\d]+$/, "");
+    if (!/^[\d.,]+$/.test(s) || !/\d/.test(s)) return null;
+    const punkt = (s.match(/\./g) || []).length, komma = (s.match(/,/g) || []).length;
+    const grupper = (d) => d[0].length >= 1 && d[0].length <= 3 && d.slice(1).every((x) => x.length === 3);
+    let kand;
+    if (punkt && komma) {
+      const des = s.lastIndexOf(".") > s.lastIndexOf(",") ? "." : ",";
+      const tus = des === "." ? "," : ".";
+      const k = s.lastIndexOf(des);
+      const hel = s.slice(0, k), rest = s.slice(k + 1);
+      if (hel.includes(des) || !grupper(hel.split(tus))) return null;
+      kand = [Number(hel.split(tus).join("") + "." + rest)];
+    } else if (punkt + komma > 1) {
+      const deler = s.split(punkt ? "." : ",");
+      if (!grupper(deler)) return null;
+      kand = [Number(deler.join(""))];
+    } else if (punkt + komma === 1) {
+      const [a, b] = s.split(punkt ? "." : ",");
+      const somDes = Number((a || "0") + "." + b);
+      if (komma && b.length === 3 && a.length >= 1 && a.length <= 3 && Number(a) > 0) {
+        const somTus = Number(a + b);
+        kand = språk() === "en" ? [somTus, somDes] : [somDes, somTus];
+      } else kand = [somDes];
+    } else kand = [Number(s)];
+    kand = kand.filter((x) => Number.isFinite(x)).map((x) => (neg ? -x : x));
+    if (!kand.length) return null;
+    if (enhet === "%") { if (!pst) kand = kand.concat(kand.map((x) => x * 100)); }
+    else if (pst) kand = kand.map((x) => x / 100).concat(kand);
+    return kand;
+  }
+  /* Innenfor toleransen: |x − v| ≤ maks(abs, rel × |v|). Uten tol gjelder 0,1 %. */
+  function innenfor(x, t, v) {
+    if (v == null) v = t.verdi;
+    const tol = t.tol || {};
+    const rel = tol.rel != null ? tol.rel : tol.abs != null ? 0 : STD_REL;
+    const grense = Math.max(tol.abs || 0, rel * Math.abs(v));
+    return Math.abs(x - v) <= grense * (1 + 1e-9) + 1e-12;
+  }
+  /* Hva tallet ditt er: riktig, et galt alternativ (når det treffer en felle)
+     eller ingen av dem. */
+  function vurderTall(sp, kand) {
+    const t = sp.tall;
+    const treff = kand.find((x) => innenfor(x, t));
+    if (treff != null) return { i: sp.answer, x: treff };
+    let best = null;
+    (t.alt || []).forEach((v, j) => {
+      if (j === sp.answer || typeof v !== "number") return;
+      kand.forEach((x) => { if (innenfor(x, t, v) && (!best || Math.abs(x - v) < best.d)) best = { i: j, x, d: Math.abs(x - v) }; });
+    });
+    return best ? { i: best.i, x: best.x } : { i: FEILTALL, x: kand[0] };
+  }
+  function svarMedTall(sp, rå) {
+    const kand = tolkTall(rå, sp.tall.enhet);
+    if (!kand) return false;
+    const { i, x } = vurderTall(sp, kand);
+    const o = økt();
+    registrer(sp, i, { tall: Object.assign({}, o && o.tall, { [sp.id]: { x, tekst: String(rå).trim() } }) });
+    return true;
+  }
+  function visAlternativer(sp) {
+    const o = økt();
+    if (o) lagreØkt(Object.assign({}, o, { vistAlt: Object.assign({}, o.vistAlt, { [sp.id]: true }) }));
+  }
+  /* Et tall i fagets format, til fasiten og toleransen: «1 234.5678» (en) eller «1 234,5678». */
+  function visTall(x) {
+    let s = String(+Number(x).toPrecision(7));
+    if (/e/.test(s)) return s;
+    const neg = s[0] === "-";
+    if (neg) s = s.slice(1);
+    const [hel, des] = s.split(".");
+    return (neg ? "−" : "") + hel.replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0") + (des ? (språk() === "en" ? "." : ",") + des : "");
+  }
+  /* Tallet med enheten bak, men ikke to ganger når du skrev den selv («12.5%»). */
+  const medEnhet = (tekst, t) => !t.enhet || String(tekst).toLowerCase().includes(t.enhet.toLowerCase()) ? tekst
+    : t.enhet === "%" ? tekst + (språk() === "en" ? "%" : "\u00a0%") : tekst + " " + t.enhet;
+  function tolTekst(t) {
+    const tol = t.tol || {};
+    const rel = tol.rel != null ? tol.rel : tol.abs != null ? null : STD_REL;
+    const deler = [];
+    if (rel != null) deler.push(`${String(+(rel * 100).toPrecision(6)).replace(".", ",")} % av riktig verdi`);
+    if (tol.abs != null) deler.push(`±${visTall(tol.abs)}${t.enhet === "%" ? " prosentpoeng" : t.enhet ? " " + t.enhet : ""}`);
+    return `Godtatt avvik: ${deler.join(" eller ")}.`;
+  }
 
   /* ---------- trekningen ---------- */
   function stokk(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
@@ -229,7 +374,9 @@ window.EDU = window.EDU || {};
       ids = stokk(Object.entries(f).flatMap(([id, n]) => velgFraTema(id, n, modus).map((sp) => sp.id)));
     }
     if (!ids.length) { S.u.toast("Ingen spørsmål i dette utvalget"); return; }
-    lagreØkt({ ids, svar: {}, temaer: temaIds, modus, igjen: valg().feil === "igjen", start: S.u.nowTs(), slutt: null, pos: 0 });
+    utkast = { id: null, tekst: "", feil: "" };
+    lagreØkt(Object.assign({ ids, svar: {}, temaer: temaIds, modus, igjen: valg().feil === "igjen", start: S.u.nowTs(), slutt: null, pos: 0 },
+      harTall() ? { regn: !!valg().regn } : {}));
     S.app.refresh(); window.scrollTo({ top: 0 });
   }
 
@@ -247,12 +394,16 @@ window.EDU = window.EDU || {};
     const gyldige = new Set(TEMAER().map((t) => t.id));
     let temaer = v.temaer.filter((id) => gyldige.has(id));
     if (!temaer.length) temaer = TEMAER().map((t) => t.id);
-    let antall = v.antall, modus = v.modus, feilvalg = v.feil;
+    let antall = v.antall, modus = v.modus, feilvalg = v.feil, regn = !!v.regn;
+    const medTall = harTall();
+    const P = poengregel();
 
     const totalt = ALLE().length;
     const sett = ALLE().filter((s) => logg(s.id)).length;
     wrap.appendChild(sh().pageHead("Eksamenstrening", `${totalt} spørsmål i eksamensformat`,
-      "Velg temaer og antall. Spørsmålene trekkes tilfeldig. Du får fasiten med en gang: først kort, så en full gjennomgang hvis du vil. 3 poeng for rett, −1 for feil og 0 for å stå over, som på eksamen."));
+      "Velg temaer og antall. Spørsmålene trekkes tilfeldig. Du får fasiten med en gang: først kort, så en full gjennomgang hvis du vil. "
+        + (harMinus() ? `${P.rett} poeng for rett, ${fmt(P.feil)} for feil og ${P.blank} for å stå over, som på eksamen.`
+          : "Feil svar gir ikke minuspoeng, så resultatet er hvor mange du fikk riktig.")));
 
     const o = økt();
     if (o && !o.slutt && o.ids.length) {
@@ -267,12 +418,14 @@ window.EDU = window.EDU || {};
     }
 
     const kort = el(".card.pad-lg");
-    const oppdater = () => { settValg({ temaer, antall, modus, feil: feilvalg }); tegn(); };
+    /* regn lagres bare i fag som har tallsvar, så FIE432s valg ser ut som før. */
+    const oppdater = () => { settValg(Object.assign({ temaer, antall, modus, feil: feilvalg }, medTall ? { regn } : {})); tegn(); };
 
     const temaBoks = el("div");
     const antallBoks = el("div");
     const modusBoks = el("div");
     const feilBoks = el("div");
+    const svarBoks = el("div");
     const plan = el("div", { style: { marginTop: "18px" } });
     const startKnapp = el("button.btn.primary.lg", { onclick: () => start(temaer, antall, modus) }, "Start →");
 
@@ -316,8 +469,21 @@ window.EDU = window.EDU || {};
       FEILVALG.forEach(([k, l]) => fseg.appendChild(el("button" + (feilvalg === k ? ".on" : ""), { onclick: () => { feilvalg = k; oppdater(); } }, l)));
       S.u.mount(feilBoks, el(".nav-section", { style: { paddingLeft: 0 } }, "Ved feil svar"), fseg,
         el("p.tiny.muted", { style: { margin: "8px 0 0" } },
-          feilvalg === "igjen" ? "Du får vite hvorfor akkurat det alternativet frister, men ikke hva som er riktig. Så prøver du på nytt. Poengene teller første svar."
+          feilvalg === "igjen" ? "Du får vite hvorfor akkurat det alternativet frister, men ikke hva som er riktig. Så prøver du på nytt. "
+            + (harMinus() ? "Poengene teller første svar." : "Resultatet teller første svar.")
             : "Fasiten og forklaringen kommer med en gang."));
+
+      /* Bare i fag der spørsmålene har tallsvar. */
+      if (medTall) {
+        const sseg = el(".seg", { style: { flexWrap: "wrap" } });
+        SVARFORM.forEach(([k, l]) => sseg.appendChild(el("button" + ((k === "regn") === regn ? ".on" : ""), { onclick: () => { regn = k === "regn"; oppdater(); } }, l)));
+        const iUtvalg = ALLE().filter((s) => temaer.includes(s.tema));
+        const nTall = iUtvalg.filter((s) => s.tall).length;
+        S.u.mount(svarBoks, el(".nav-section", { style: { paddingLeft: 0 } }, "Svarform"), sseg,
+          el("p.tiny.muted", { style: { margin: "8px 0 0", maxWidth: "380px" } },
+            regn ? `Har spørsmålet ett tall som svar, skriver du først tallet du har regnet, som på en åpen eksamen. Tallet er svaret ditt. Så kommer alternativene og fasiten. ${nTall} av ${iUtvalg.length} spørsmål i utvalget har tallsvar.`
+              : "Du ser de fire alternativene med en gang."));
+      }
 
       const f = temaer.length ? fordel(temaer, antall, modus) : {};
       const sum = Object.values(f).reduce((a, b) => a + b, 0);
@@ -333,7 +499,7 @@ window.EDU = window.EDU || {};
     }
     tegn();
     kort.appendChild(temaBoks);
-    kort.appendChild(el(".row.wrap", { style: { gap: "28px", marginTop: "8px" } }, antallBoks, modusBoks, feilBoks));
+    kort.appendChild(el(".row.wrap", { style: { gap: "28px", marginTop: "8px" } }, antallBoks, modusBoks, feilBoks, medTall ? svarBoks : null));
     kort.appendChild(plan);
     wrap.appendChild(kort);
 
@@ -372,6 +538,10 @@ window.EDU = window.EDU || {};
 
   /* ---------- én runde ---------- */
   let visFull = false;     // om den fulle gjennomgangen er åpen for spørsmålet du står på
+  /* Det du har skrevet i tallfeltet, så det overlever at visningen tegnes på
+     nytt (hjelp, merking, synk). Lagres ikke: det er ikke et svar ennå. */
+  let utkast = { id: null, tekst: "", feil: "" };
+  let fokusertFor = null;  // feltet får fokus én gang per spørsmål, ikke ved hver omtegning
 
   function aktivtSpørsmål(o) {
     const per = new Map(ALLE().map((s) => [s.id, s]));
@@ -386,6 +556,53 @@ window.EDU = window.EDU || {};
     else { lagreØkt(Object.assign({}, o, { slutt: S.u.nowTs() })); S.app.refresh(); window.scrollTo({ top: 0 }); }
   }
 
+  /* Feltet for «Regn selv først». Telefonens tallbord har ofte ikke minustegn,
+     så ± skifter fortegn. */
+  function tallfelt(sp) {
+    const t = sp.tall;
+    if (utkast.id !== sp.id) utkast = { id: sp.id, tekst: "", feil: "" };
+    const feilEl = el("p.tr-tall-feil", { role: "alert" }, utkast.feil || "");
+    const inn = el("input.input.tr-tall-inn", { type: "text", inputmode: "decimal", autocomplete: "off", autocorrect: "off",
+      autocapitalize: "off", spellcheck: "false", enterkeyhint: "done", "aria-label": "Tallet du har regnet", placeholder: "Ditt tall" });
+    inn.value = utkast.tekst;
+    inn.addEventListener("input", () => {
+      utkast.tekst = inn.value;
+      if (utkast.feil) { utkast.feil = ""; feilEl.textContent = ""; }
+    });
+    const sjekk = () => {
+      if (!inn.value.trim()) { inn.focus(); return; }
+      if (!svarMedTall(sp, inn.value)) {
+        utkast.feil = `Fant ikke et tall. Skriv for eksempel ${språk() === "en" ? "1 234.5" : "1 234,5"}, 0,25 eller −12.`;
+        feilEl.textContent = utkast.feil;
+        return;
+      }
+      utkast = { id: null, tekst: "", feil: "" };
+      S.app.refresh();
+    };
+    inn.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); sjekk(); } });
+    const fortegn = el("button.btn.ghost.sm.tr-tall-fortegn", { type: "button", title: "Skift fortegn", "aria-label": "Skift fortegn",
+      onclick: () => {
+        const v = inn.value.trim();
+        inn.value = /^[-−–]/.test(v) ? v.replace(/^[-−–]\s*/, "") : "−" + v;
+        utkast.tekst = inn.value;
+        inn.focus();
+      } }, "±");
+    if (fokusertFor !== sp.id) {
+      fokusertFor = sp.id;
+      /* Bare med mus: på telefonen ville tastaturet dekket spørsmålet du skal lese. */
+      if (window.matchMedia && window.matchMedia("(pointer: fine)").matches)
+        requestAnimationFrame(() => { if (inn.isConnected) inn.focus({ preventScroll: true }); });
+    }
+    return el(".tr-tall",
+      el(".tr-tall-hode", "Regn selv først"),
+      el(".tr-tall-rad", fortegn, inn, t.enhet ? el("span.tr-tall-enhet", t.enhet) : null,
+        el("button.btn.primary.sm", { type: "button", onclick: sjekk }, "Sjekk")),
+      el("p.tiny.muted", { style: { margin: "8px 0 0" } },
+        `Punktum eller komma som desimaltegn, mellomrom som tusenskille. ${tolTekst(t)}`
+        + (t.enhet === "%" ? " Brøken godtas også." : "")),
+      feilEl);
+  }
+
   function runde() {
     const o = økt();
     const { liste, pos, sp } = aktivtSpørsmål(o);
@@ -394,8 +611,13 @@ window.EDU = window.EDU || {};
     const svar = o.svar[sp.id];
     const åpen = erÅpen(o, sp);
     const igjen = prøverIgjen(o, sp);
+    const tallModus = venterTall(o, sp);
+    const minus = harMinus();
+    const P = poengregel();
     const prøvd = igjen ? [svar].concat((o.forsok || {})[sp.id] || []) : [];
     const poeng = liste.reduce((a, s) => a + poengFor(s, o.svar[s.id]), 0);
+    const besvart = liste.filter((s) => o.svar[s.id] != null).length;
+    const riktige = liste.filter((s) => o.svar[s.id] === s.answer).length;
     const tema = temaFor(sp.tema);
 
     const kortEl = el(".card.pad-lg.quiz-card");
@@ -413,28 +635,40 @@ window.EDU = window.EDU || {};
         ? el("button.chip.slate.tr-temachip", { type: "button", title: "Hurtiginnføring i temaet", onclick: () => visIntro(tema, { iRunde: true }) }, tema.kort || tema.navn, el("span.tr-i", "i"))
         : el(".chip.slate", tema.kort || tema.navn)) : null,
       merkKnapp(sp),
-      el(".chip" + (poeng > 0 ? ".green" : poeng < 0 ? ".rose" : ""), `${fmt(poeng)} poeng`)));
+      minus
+        ? el(".chip" + (poeng > 0 ? ".green" : poeng < 0 ? ".rose" : ""), `${fmt(poeng)} poeng`)
+        : el(".chip" + (riktige > 0 ? ".green" : ""), `${riktige} av ${besvart} riktige`)));
 
     kortEl.appendChild(el(".tr-stem", prosa(sp.q)));
 
-    const alt = el("div", { style: { marginTop: "6px" } });
-    sp.options.forEach((tekst, i) => {
-      let kls = "button.opt";
-      if (åpen) kls += i === sp.answer ? ".correct" : i === svar ? ".wrong" : ".dim";
-      else if (prøvd.includes(i)) kls += ".wrong";
-      const låst = åpen || prøvd.includes(i);
-      alt.appendChild(el(kls, { disabled: låst, onclick: () => { if (!låst) { velg(sp, i); S.app.refresh(); } } },
-        el(".key", String.fromCharCode(65 + i)), el("span", frag(String(tekst)))));
-    });
-    kortEl.appendChild(alt);
+    if (tallModus) kortEl.appendChild(tallfelt(sp));
+    else {
+      const alt = el("div", { style: { marginTop: "6px" } });
+      sp.options.forEach((tekst, i) => {
+        let kls = "button.opt";
+        if (åpen) kls += i === sp.answer ? ".correct" : i === svar ? ".wrong" : ".dim";
+        else if (prøvd.includes(i)) kls += ".wrong";
+        const låst = åpen || prøvd.includes(i);
+        alt.appendChild(el(kls, { disabled: låst, onclick: () => { if (!låst) { velg(sp, i); S.app.refresh(); } } },
+          el(".key", String.fromCharCode(65 + i)), el("span", frag(String(tekst)))));
+      });
+      kortEl.appendChild(alt);
+    }
 
-    /* «Prøv igjen»: fella for det siste gale valget, uten fasiten. */
+    /* «Prøv igjen»: fella for det siste gale valget, uten fasiten. Var første
+       svar et tall, sier boksen hva tallet traff. */
     if (igjen) {
       const sist = prøvd[prøvd.length - 1];
+      const tt = tallFor(o, sp);
       kortEl.appendChild(el(".tr-igjen",
-        el(".tr-igjen-hode", prøvd.length === 1 ? `Ikke riktig · ${fmt(FEIL)} poeng` : `Ikke riktig denne gangen heller · forsøk ${prøvd.length}`),
+        el(".tr-igjen-hode", prøvd.length === 1 ? (minus ? `Ikke riktig · ${fmt(P.feil)} poeng` : "Ikke riktig") : `Ikke riktig denne gangen heller · forsøk ${prøvd.length}`),
+        tt && prøvd.length === 1
+          ? el("p", { style: { margin: "0 0 4px", fontSize: "14.5px" } }, sist === FEILTALL
+            ? `Tallet ditt, ${medEnhet(tt.tekst, sp.tall)}, stemmer ikke med noe av alternativene. Velg det du nå tror er riktig.`
+            : `Tallet ditt, ${medEnhet(tt.tekst, sp.tall)}, er det samme som et galt alternativ, merket rødt:`)
+          : null,
         sp.traps && sp.traps[sist] ? prosa(String(sp.traps[sist])) : null,
-        el("p.tiny.muted", { style: { margin: "6px 0 0" } }, "Prøv et annet alternativ. Poengene teller første svar.")));
+        el("p.tiny.muted", { style: { margin: "6px 0 0" } }, minus ? "Prøv et annet alternativ. Poengene teller første svar." : "Prøv et annet alternativ. Resultatet teller første svar.")));
     }
 
     /* Hjelpen i trinn, uten tallene, så du regner selv. Trinnene du har åpnet,
@@ -461,10 +695,14 @@ window.EDU = window.EDU || {};
         hjelpKnapp,
         el("button.btn.ghost.sm", { onclick: () => { giOpp(sp); S.app.refresh(); } }, "Vis fasiten")));
     } else if (!åpen) {
+      /* Uten minuspoeng er det ingen grunn til å stå over: knappen viser fasiten
+         og teller som ikke besvart. */
       kortEl.appendChild(el(".row.wrap", { style: { marginTop: "6px", gap: "10px", alignItems: "center" } },
-        el("button.btn.ghost.sm", { onclick: () => { registrer(sp, BLANK); S.app.refresh(); } }, "Stå over"),
+        el("button.btn.ghost.sm", { title: minus ? null : "Teller som ikke besvart", onclick: () => { registrer(sp, BLANK); S.app.refresh(); } }, minus ? "Stå over" : "Vis fasiten"),
         hjelpKnapp,
-        el("span.tiny.muted", "0 poeng, men ingen minus. Riktig valg når du ikke kan utelukke minst ett alternativ.")));
+        tallModus ? el("button.btn.ghost.sm", { title: "Velg blant alternativene i stedet for å skrive tallet",
+          onclick: () => { visAlternativer(sp); S.app.refresh(); } }, "Vis alternativene") : null,
+        minus && !tallModus ? el("span.tiny.muted", "0 poeng, men ingen minus. Riktig valg når du ikke kan utelukke minst ett alternativ.") : null));
     } else {
       kortEl.appendChild(fasit(sp, svar));
     }
@@ -477,26 +715,42 @@ window.EDU = window.EDU || {};
       åpen && variant ? el("button.btn.ghost.sm", { title: "Samme regnestykke med nye tall, rett etter dette (V)", onclick: () => taVariant(o, pos, variant) }, "Ny variant") : null,
       åpen ? el("button.btn.primary", { onclick: () => neste(o, liste, pos) }, pos + 1 < liste.length ? "Neste →" : "Se resultatet →") : null));
     wrap.appendChild(kortEl);
-    wrap.appendChild(el("p.tiny.muted.tr-taster", "Tastatur: A–D svarer, H gir et trinn hjelp, S står over, M merker for øving, F åpner gjennomgangen, V gir en ny variant, Enter går videre."));
+    const s = minus ? "S står over" : "S viser fasiten";
+    wrap.appendChild(el("p.tiny.muted.tr-taster", tallModus
+      ? `Tastatur: skriv tallet og trykk Enter. Utenfor feltet gir H et trinn hjelp, ${s} og M merker for øving.`
+      : `Tastatur: A–D svarer, H gir et trinn hjelp, ${s}, M merker for øving, F åpner gjennomgangen, V gir en ny variant, Enter går videre.`));
     return wrap;
   }
 
   function fasit(sp, svar) {
-    const p = poengFor(sp, svar);
+    const P = poengregel();
+    const minus = harMinus();
     const boks = el(".tr-fasit");
     const blank = svar === BLANK;
+    const rett = svar === sp.answer;
     const o = økt();
     const forsøk = 1 + (((o && o.forsok) || {})[sp.id] || []).length;
     const løst = !!((o && o.losst) || {})[sp.id];
+    const tekst = minus
+      ? (blank ? `Stod over · ${P.blank} poeng` : rett ? `Riktig · +${P.rett} poeng`
+        : løst ? `Feil første gang · −${Math.abs(P.feil)} poeng · riktig på forsøk ${forsøk + 1}`
+          : `Feil · −${Math.abs(P.feil)} poeng`)
+      : (blank ? "Uten svar" : rett ? "Riktig" : løst ? `Feil første gang · riktig på forsøk ${forsøk + 1}` : "Feil");
     boks.appendChild(el(".row", { style: { alignItems: "center", gap: "10px" } },
-      el(".tr-resultat" + (blank ? ".blank" : p > 0 ? ".rett" : ".galt"),
-        blank ? "Stod over · 0 poeng" : p > 0 ? `Riktig · +${RETT} poeng`
-          : løst ? `Feil første gang · −${Math.abs(FEIL)} poeng · riktig på forsøk ${forsøk + 1}`
-            : `Feil · −${Math.abs(FEIL)} poeng`),
+      el(".tr-resultat" + (blank ? ".blank" : rett ? ".rett" : ".galt"), tekst),
       el(".spacer"),
       o && o.angre && o.angre.id === sp.id
         ? el("button.btn.ghost.sm", { title: "For bomtrykk. Har du lest fasiten, måler et nytt forsøk ingenting.", onclick: () => { angre(sp); S.app.refresh(); } }, "Angre svaret")
         : null));
+    /* Tallet du skrev med «Regn selv først», mot den eksakte verdien. */
+    const tt = tallFor(o, sp);
+    if (tt && sp.tall) {
+      const din = medEnhet(tt.tekst, sp.tall), fasitTall = medEnhet(visTall(sp.tall.verdi), sp.tall);
+      boks.appendChild(el("p.tr-tallsvar" + (rett ? ".rett" : ""),
+        rett ? `Tallet ditt, ${din}, er innenfor det godtatte avviket. Eksakt verdi: ${fasitTall}.`
+          : svar === FEILTALL ? `Tallet ditt, ${din}, stemmer ikke med noe av alternativene. Riktig verdi: ${fasitTall}.`
+            : `Tallet ditt, ${din}, er det samme som et galt alternativ, merket rødt. Riktig verdi: ${fasitTall}.`));
+    }
     boks.appendChild(el(".explain", prosa(sp.kort)));
 
     const full = el(".tr-full", { hidden: !visFull });
@@ -507,7 +761,7 @@ window.EDU = window.EDU || {};
       const ul = el("ul.tr-feller");
       const dine = new Set([svar].concat(((o && o.forsok) || {})[sp.id] || []));
       feller.forEach((f) => ul.appendChild(el("li" + (dine.has(f.i) ? ".ditt" : ""),
-        el("b", String.fromCharCode(65 + f.i) + (f.i === svar ? " (ditt svar): " : dine.has(f.i) ? " (prøvd): " : ": ")), frag(String(f.t)))));
+        el("b", String.fromCharCode(65 + f.i) + (f.i === svar ? (tt ? " (ditt tall): " : " (ditt svar): ") : dine.has(f.i) ? " (prøvd): " : ": ")), frag(String(f.t)))));
       full.appendChild(ul);
     }
     full.appendChild(lesMer(sp));
@@ -607,23 +861,35 @@ window.EDU = window.EDU || {};
     const medHjelp = liste.filter((s) => hjelpNivå(o, s.id) && o.svar[s.id] === s.answer).length;
     const førsteGang = rett - medHjelp;
     const senere = liste.filter((s) => (o.losst || {})[s.id]).length;
-    const poeng = rett * RETT + galt * FEIL;
-    const maks = besvart * RETT;
-    const pct = maks ? Math.max(0, Math.round(100 * poeng / maks)) : 0;
+    const P = poengregel();
+    const minus = harMinus();
+    const poeng = rett * P.rett + galt * P.feil + blank * P.blank;
+    const maks = besvart * P.rett;
+    /* Uten minuspoeng er resultatet andelen riktige av de besvarte. */
+    const pct = minus ? (maks ? Math.max(0, Math.round(100 * poeng / maks)) : 0) : (besvart ? Math.round(100 * rett / besvart) : 0);
+    /* Hvor mange du svarte med et tall du regnet selv. Hvor mange av dem var riktige? */
+    const medTall = liste.filter((s) => tallFor(o, s) && o.svar[s.id] != null);
+    const tallRett = medTall.filter((s) => o.svar[s.id] === s.answer).length;
+    const tallLinje = medTall.length ? ` Med tall du regnet selv: ${tallRett} av ${medTall.length} riktige.` : "";
 
     wrap.appendChild(sh().pageHead("Eksamenstrening", "Runden er ferdig",
-      ubesvart ? `Du avsluttet med ${ubesvart} ubesvarte. De er holdt utenfor poengene.` : null));
+      ubesvart ? `Du avsluttet med ${ubesvart} ubesvarte. De er holdt utenfor ${minus ? "poengene" : "resultatet"}.` : null));
     const kort = el(".card.pad-lg");
     kort.appendChild(el(".row.wrap", { style: { gap: "22px", alignItems: "center" } },
-      S.u.ring(pct, 120, `${poeng}`, `av ${maks}`),
+      minus ? S.u.ring(pct, 120, `${poeng}`, `av ${maks}`) : S.u.ring(pct, 120, `${rett}`, `av ${besvart}`),
       el("div",
-        el("div", { style: { fontSize: "20px", fontWeight: 680 } }, `${rett} riktige · ${galt} feil · ${blank} stod over`),
+        el("div", { style: { fontSize: "20px", fontWeight: 680 } }, minus
+          ? `${rett} riktige · ${galt} feil · ${blank} stod over`
+          : `${rett} riktige · ${galt} feil` + (blank ? ` · ${blank} uten svar` : "")),
         el("p.tiny.muted", { style: { margin: "6px 0 0", maxWidth: "440px" } },
-          `Med +3/−1/0 ble det ${poeng} av ${maks} poeng (${pct} %). Uten minuspoeng hadde det vært ${rett * RETT}.`
+          (minus
+            ? `Med +${P.rett}/${fmt(P.feil)}/${P.blank} ble det ${poeng} av ${maks} poeng (${pct} %). Uten minuspoeng hadde det vært ${rett * P.rett}.`
+            : `${rett} av ${besvart} riktige (${pct} %).`)
           + ` Riktig på første forsøk uten hjelp: ${førsteGang} av ${besvart}.`
+          + tallLinje
           + (senere ? ` ${senere} fikk du riktig på et senere forsøk.` : "")
           + (medHjelp ? ` ${medHjelp} av de riktige var med hjelp. De kommer tilbake under «Nye først».` : "")
-          + (galt && blank === 0 ? " Du stod aldri over. Svar bare når du kan utelukke minst ett alternativ." : "")))));
+          + (minus && galt && blank === 0 ? " Du stod aldri over. Svar bare når du kan utelukke minst ett alternativ." : "")))));
 
     /* Per tema, når runden spenner over flere. */
     const per = new Map();
@@ -661,7 +927,7 @@ window.EDU = window.EDU || {};
       innhold.appendChild(prosa(s.q));
       innhold.appendChild(el("p.tiny", { style: { margin: "6px 0" } },
         el("b", "Riktig: "), frag(String(s.options[s.answer])),
-        v != null && v !== BLANK && v !== s.answer ? el("span", { style: { color: "var(--rose)" } }, " · ditt svar: ", frag(String(s.options[v]))) : null));
+        v != null && v !== BLANK && v !== s.answer ? el("span", { style: { color: "var(--rose)" } }, " · ditt svar: ", ...dittSvar(o, s, v)) : null));
       innhold.appendChild(el(".explain", prosa(s.kort)));
       innhold.appendChild(el("div", { style: { marginTop: "8px" } }, merkKnapp(s)));
       innhold.appendChild(el("button.btn.ghost.sm", { style: { marginTop: "8px" }, onclick: () => { const ny = Object.assign({}, o, { slutt: null, pos: i }); visFull = true; lagreØkt(ny); S.app.refresh(); window.scrollTo({ top: 0 }); } }, "Åpne med full gjennomgang"));
@@ -670,6 +936,13 @@ window.EDU = window.EDU || {};
     });
     wrap.appendChild(listeEl);
     return wrap;
+  }
+  /* Det gale svaret ditt i gjennomgangen: alternativet, tallet du skrev, eller begge. */
+  function dittSvar(o, s, v) {
+    const tt = tallFor(o, s);
+    if (!tt || !s.tall) return [frag(String(s.options[v]))];
+    const din = medEnhet(tt.tekst, s.tall);
+    return v === FEILTALL ? [`tallet ${din}`] : [frag(String(s.options[v])), ` (du skrev ${din})`];
   }
   /* Kutter ved et ordskille, ikke midt i et ord. */
   const kutt = (t, n) => { t = String(t || ""); if (t.length <= n) return t; const k = t.slice(0, n).replace(/[\s,:;·]+\S*$/, ""); return (k || t.slice(0, n)) + " …"; };
@@ -698,7 +971,10 @@ window.EDU = window.EDU || {};
       const k = e.key.toLowerCase();
       const åpen = erÅpen(o, sp);
       const i = "abcd".indexOf(k) > -1 ? "abcd".indexOf(k) : "1234".indexOf(k);
-      if (!åpen && i > -1 && i < sp.options.length) { e.preventDefault(); velg(sp, i); S.app.refresh(); return; }
+      /* Med «Regn selv først» er alternativene skjult til tallet er sjekket. Et
+         siffer utenfor feltet flytter fokus dit, så tegnet havner i feltet. */
+      if (!åpen && venterTall(o, sp) && /^[\d.,\-−]$/.test(e.key)) { const f = document.querySelector(".tr-tall-inn"); if (f) f.focus(); return; }
+      if (!åpen && i > -1 && i < sp.options.length) { if (venterTall(o, sp)) return; e.preventDefault(); velg(sp, i); S.app.refresh(); return; }
       if (!åpen && k === "s" && o.svar[sp.id] == null) { e.preventDefault(); registrer(sp, BLANK); S.app.refresh(); return; }
       if (!åpen && k === "h") { e.preventDefault(); merHjelp(sp); S.app.refresh(); return; }
       if (k === "m") { e.preventDefault(); merk(sp, !erMerket(sp.id)); S.app.refresh(); return; }

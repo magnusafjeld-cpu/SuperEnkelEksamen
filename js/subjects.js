@@ -188,7 +188,11 @@ window.EDU_SUBJECTS = [
          delene henger sammen i DETTE faget. */
       kjerneIntro: "Det viktigste i FIE402 på én kveld, i tolv korte deler bygd rundt det eksamen spør om, ikke rundt kapitlene. Del 1–4 er verdsettingsmaskinen og hører sammen; resten kan leses i hvilken som helst rekkefølge. Svar på sjekkene etter hver del, og løs minicasen på papir før du går videre. Teksten er på engelsk, som eksamen.",
     },
-    modules: ["/plan", "/curriculum", "/kjerne", "/lyn", "/quiz", "/kapitteloppgaver", "/problemsett", "/sjangre", "/flashcards", "/dybde", "/sett", "/review", "/search", "/notebooklm"],
+    modules: ["/plan", "/curriculum", "/kjerne", "/lyn", "/quiz", "/kapitteloppgaver", "/problemsett", "/sjangre", "/trening", "/flashcards", "/dybde", "/sett", "/review", "/search", "/notebooklm"],
+    /* Eksamenstreningen bygges av tools/bygg-trening.py fra fag/fie402/_trening/ og
+       lastes først når modulen åpnes. Poengregelen (ingen minuspoeng), det engelske
+       tallformatet og «Regn selv først» står i selve fila (temaer.py), ikke her. */
+    lazy: { "/trening": ["fag/fie402/trening.js"] },
   },
   {
     id: "case",

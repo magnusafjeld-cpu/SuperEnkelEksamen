@@ -354,6 +354,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **528**: 260 oppgavekort i 16 kategorier (forsiden en oppgavetype, baksiden svar og feller) og 268 begrepskort, pluss 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
+| Eksamenstrening | **692 spørsmål** i 12 temaer (89 regnefamilier med nye tall og 207 statiske), 509 med tallsvar for «Regn selv først», uten minuspoeng. Spesifikasjon `docs/fie402-trening-spek.md` |
 | Problem sets | **Problem Set 1–4** · 36 oppgaver · 144 delspørsmål med fire hint hver (PS4 er eksemplene i M&A-forelesningen, som Kurbatov kalte PS4) |
 | Sjangertrening | **10 stiger · 151 steg**, hver fra null til eksamensnivå, etter eksamensvekt (stige 10 er governance og verbale M&A-motiver) |
 | Aktiv læring | **208** oppgaver |
@@ -550,3 +551,15 @@ NotebookLM-kilder, med god tid.
 - Kontrollene fant også feil i appen: H2025 E5(d) verdsatte exit-programmet mot den
   negative NPV-en (62 388); riktig mot det beste alternativet er 45 246. PS1 E6(b) sa at
   gjelden blir risikofri; riktig er 75 → 90 og eieren 25 → 16.
+
+## Eksamenstrening (15. november 2026)
+
+Magnus ba om det samme som i Persøk: velge oppgavetype og få mange eksamensoppgaver på den.
+`/trening` er nå satt opp for FIE402 med 692 spørsmål i 12 temaer, skrevet av fire skribenter
+etter `docs/fie402-trening-spek.md` (kilder i `fag/fie402/_trening/*.py`, bygget med
+`python3 tools/bygg-trening.py fie402`). Motoren fikk poeng per fag (Corp uten minuspoeng),
+engelsk tallformat og «Regn selv først»: studenten skriver tallet før alternativene vises.
+Fire uavhengige kontrollører regnet alle regnevariantene blindt: ingen regnefeil. De fant fire
+faglige feil (diversifisering og varians, retningen på dealsannsynligheten, tilbakekjøp av
+gjeld etter V2024 P1e, og en nedleggelsesindifferens som ikke fantes), mange hint og feller som
+røpet svaret, og noen spørsmål som kunne leses to veier. Alt er rettet.

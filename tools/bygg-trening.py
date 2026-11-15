@@ -13,6 +13,20 @@
         slik at fasiten fordeler seg jevnt på A–D over hele banken,
      4. skriver fila med ett spørsmål per linje.
 
+   Fagets oppsett står i temaer.py ved siden av TEMAER. Alt er valgfritt:
+     SPRAK      «no» (standard) eller «en»: tallformatet i trening_lib og
+                språkreglene i sjekk-trening.js. Settes før de andre modulene lastes.
+     POENG      {"rett": 1, "feil": 0, "blank": 0}. Utelatt: +3/−1/0 som i FIE432.
+                Med feil 0 viser motoren antall riktige og prosent, uten minustekster.
+     REGN_SELV  True: «Regn selv først» er på som standard i oppsettet.
+   Bare det som er satt, skrives til fila, så et fag uten oppsett får samme fil
+   som før.
+
+   Spørsmål med tallsvar (sporsmal(..., tall=tallsvar(...))) får feltet
+   tall = { verdi, tol: { rel?, abs? }, enhet?, alt? }. Byggeren regner ut verdien
+   fra R-alternativet når den ikke er gitt. Den avviser spørsmålet når verdien ikke
+   stemmer med R, eller når en felle ligger innenfor toleransen.
+
    Samme kilde gir alltid byte-lik fil. id-ene er lagringsnøkler for
    fremdriften: <familie>-<nn> for varianter, egen id for statiske.
 
@@ -37,11 +51,14 @@ HODE = """/* ===================== {navn} · EKSAMENSTRENING ===================
    ============================================================================ */
 window.EDU_DATA = window.EDU_DATA || {{}};
 window.EDU_DATA.trening = {{
-temaer: {temaer},
+{oppsett}temaer: {temaer},
 sporsmal: [
 """
 
 MAKS_FORSØK = 60
+
+
+OPPSETT = ("SPRAK", "POENG", "REGN_SELV")
 
 
 def last_moduler(mappe, bare):
@@ -49,6 +66,7 @@ def last_moduler(mappe, bare):
     if "temaer.py" not in filer:
         sys.exit(f"mangler {mappe}/temaer.py")
     temaer = None
+    oppsett = {}
     for f in ["temaer.py"] + [x for x in filer if x != "temaer.py"]:
         if bare and f != "temaer.py" and f not in bare:
             continue
@@ -60,7 +78,80 @@ def last_moduler(mappe, bare):
         for x in L.STATISKE[før_s:]: x["fil"] = f
         if f == "temaer.py":
             temaer = mod.TEMAER
-    return temaer
+            oppsett = {k: getattr(mod, k) for k in OPPSETT if hasattr(mod, k)}
+            # Før de andre modulene lastes: tall() og pst() leser språket når de kalles,
+            # og de statiske spørsmålene formaterer tallene sine alt ved import.
+            L.SPRAK = oppsett.get("SPRAK", "no")
+            if L.SPRAK not in ("no", "en"):
+                sys.exit(f"temaer.py: SPRAK må være «no» eller «en», ikke «{L.SPRAK}»")
+    return temaer, oppsett
+
+
+def oppsett_tekst(oppsett):
+    """Linjene foran temaer: i fila. Tom når faget ikke har satt noe."""
+    ut = ""
+    if "POENG" in oppsett:
+        p = oppsett["POENG"]
+        if not isinstance(p, dict) or set(p) - {"rett", "feil", "blank"} \
+                or not all(isinstance(v, (int, float)) for v in p.values()):
+            sys.exit("temaer.py: POENG må være en ordbok med rett, feil og blank som tall")
+        ut += "poeng: " + json.dumps(p, separators=(",", ":")) + ",\n"
+    if "SPRAK" in oppsett:
+        ut += "sprak: " + json.dumps(oppsett["SPRAK"]) + ",\n"
+    if oppsett.get("REGN_SELV"):
+        ut += "regnSelv: true,\n"
+    return ut
+
+
+def pen(x):
+    """Flyttall uten støy i fila: 0.30000000000000004 → 0.3."""
+    return float(f"{x:.12g}")
+
+
+def innenfor(x, v, rel, abs_):
+    grense = max(abs_ or 0, (rel or 0) * abs(v))
+    return abs(x - v) <= grense * (1 + 1e-9) + 1e-12
+
+
+def lag_tall(sp, alt, hvor):
+    """Bygger tall-feltet til fila og avviser spørsmålet når tallene ikke
+       henger sammen. alt er alternativene i den rekkefølgen de skal stå."""
+    t = sp.get("tall")
+    if t is None:
+        return None
+    if not isinstance(t, dict) or not t.get("_tallsvar"):
+        raise L.Avvis(f"{hvor}: tall må lages med tallsvar(...)")
+    skala = t.get("skala") or 1
+    riktig = next(a for a in alt if isinstance(a, L.R))
+    rel, abs_ = t.get("rel"), t.get("abs")
+    if rel is None and abs_ is None:
+        rel = L.STD_REL
+    if (rel is not None and not rel > 0) or (abs_ is not None and not abs_ > 0):
+        raise L.Avvis(f"{hvor}: toleransen må være positiv")
+    verdi = t.get("verdi")
+    if verdi is None:
+        if riktig.verdi is None:
+            raise L.Avvis(f"{hvor}: tallsvar uten verdi krever verdi på R-alternativet")
+        verdi = riktig.verdi * skala
+    elif riktig.verdi is not None and not innenfor(riktig.verdi * skala, verdi, rel, abs_):
+        raise L.Avvis(f"{hvor}: tallsvar.verdi {verdi} stemmer ikke med R-verdien × skala "
+                      f"({riktig.verdi} × {skala})")
+    if not isinstance(verdi, (int, float)) or verdi != verdi or verdi in (float("inf"), float("-inf")):
+        raise L.Avvis(f"{hvor}: tallsvar.verdi må være et tall")
+    if verdi == 0 and not abs_:
+        raise L.Avvis(f"{hvor}: når svaret er 0, trenger tallsvar en absolutt toleranse (abs=…)")
+    for a in alt:
+        if isinstance(a, L.F) and a.verdi is not None and innenfor(a.verdi * skala, verdi, rel, abs_):
+            raise L.Avvis(f"{hvor}: fella «{a.felle[:50]}» ligger innenfor toleransen til svaret")
+    tol = {}
+    if rel is not None: tol["rel"] = rel
+    if abs_ is not None: tol["abs"] = abs_
+    ut = {"verdi": pen(verdi), "tol": tol}
+    if t.get("enhet"):
+        ut["enhet"] = t["enhet"]
+    if all(a.verdi is not None for a in alt):
+        ut["alt"] = [pen(a.verdi * skala) for a in alt]
+    return ut
 
 
 def norm(s):
@@ -95,6 +186,7 @@ def valider(sp, hvor):
     for k in ("q", "kort", "full"):
         if not str(sp.get(k) or "").strip():
             raise L.Avvis(f"{hvor}: mangler {k}")
+    lag_tall(sp, alt, hvor)
 
 
 def ordne(sp, rng, teller):
@@ -118,7 +210,7 @@ def ordne(sp, rng, teller):
         raise L.Avvis(f"ukjent rekkefolge «{modus}»")
     svar = next(i for i, a in enumerate(alt) if isinstance(a, L.R))
     teller[svar] += 1
-    return [a.tekst for a in alt], svar, [a.felle for a in alt], modus
+    return alt, svar, modus
 
 
 def main():
@@ -133,7 +225,7 @@ def main():
     if "--vis" in args:
         vis = args[args.index("--vis") + 1]
     mappe = os.path.join(ROT, "fag", fag, "_trening")
-    temaer = last_moduler(mappe, bare)
+    temaer, oppsett = last_moduler(mappe, bare)
     tema_ids = {t["id"] for t in temaer}
 
     ut, feil = [], []
@@ -145,11 +237,11 @@ def main():
         if tema not in tema_ids:
             raise L.Avvis(f"{hvor}: ukjent tema «{tema}»")
         valider(sp, hvor)
-        options, answer, traps, modus = ordne(sp, rng, teller)
+        alt, answer, modus = ordne(sp, rng, teller)
         rad = {"id": id_, "tema": tema}
         if fam: rad["fam"] = fam
-        rad.update({"type": typ, "q": sp["q"].strip(), "options": options, "answer": answer,
-                    "traps": traps, "kort": sp["kort"].strip(), "full": sp["full"].strip()})
+        rad.update({"type": typ, "q": sp["q"].strip(), "options": [a.tekst for a in alt], "answer": answer,
+                    "traps": [a.felle for a in alt], "kort": sp["kort"].strip(), "full": sp["full"].strip()})
         hjelp = sp.get("hjelp") or fam_hjelp
         # Tre trinn (hjelp3): tema og regel blir hint, oppsettet er hjelpen.
         if isinstance(hjelp, (tuple, list)):
@@ -158,6 +250,8 @@ def main():
             rad["hint"] = [hjelp[0].strip(), hjelp[1].strip()]
             hjelp = hjelp[2]
         if hjelp: rad["hjelp"] = hjelp.strip()
+        tall_ut = lag_tall(sp, alt, hvor)
+        if tall_ut: rad["tall"] = tall_ut
         ut.append(rad)
         return modus
 
@@ -211,6 +305,9 @@ def main():
                 print(norm(r["q"]))
                 for i, o in enumerate(r["options"]):
                     print(f"  {'ABCD'[i]}. {norm(o)}" + ("   ← riktig" if i == r["answer"] else f"   [{norm(r['traps'][i])}]"))
+                if r.get("tall"):
+                    t = r["tall"]
+                    print("TALL:", t["verdi"], t.get("enhet", ""), t["tol"], "alt:", t.get("alt"))
                 print("KORT:", norm(r["kort"]))
                 print("FULL:", norm(r["full"])[:1200])
         if feil:
@@ -223,7 +320,7 @@ def main():
 
     temaer_ut = [{k: v for k, v in t.items()} for t in temaer]
     linjer = [json.dumps(r, ensure_ascii=False, separators=(",", ":")) for r in ut]
-    tekst = HODE.format(navn=fag.upper(), fag=fag,
+    tekst = HODE.format(navn=fag.upper(), fag=fag, oppsett=oppsett_tekst(oppsett),
                         temaer=json.dumps(temaer_ut, ensure_ascii=False, separators=(",", ":"))) \
         + ",\n".join(linjer) + "\n]\n};\n"
     mål = os.path.join(ROT, "fag", fag, "trening.js")
@@ -241,7 +338,9 @@ def main():
     for t in temaer:
         v, s = per_tema[t["id"]]
         print(f"  {t['id']:<14} {v:>9} {s:>9} {v + s:>5} {t.get('mal', 0):>5}")
-    print(f"\n{len(L.FAMILIER)} familier · {len(L.STATISKE)} statiske · {len(ut)} spørsmål")
+    med_tall = sum(1 for r in ut if r.get("tall"))
+    print(f"\n{len(L.FAMILIER)} familier · {len(L.STATISKE)} statiske · {len(ut)} spørsmål"
+          + (f" · {med_tall} med tallsvar" if med_tall else ""))
     print(f"fasit på A–D: {'/'.join(str(x) for x in teller)}")
     print(f"{os.path.relpath(mål, ROT)}: {len(tekst.encode('utf-8')) / 1024:.0f} KB")
 

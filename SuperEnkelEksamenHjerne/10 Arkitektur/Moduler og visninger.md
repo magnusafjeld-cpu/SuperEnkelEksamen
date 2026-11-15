@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-10
+oppdatert: 2026-11-15
 ---
 
 # Moduler og visninger
@@ -463,6 +463,21 @@ ligger i en egen nøkkel, `"trm:<id>" = { m, t }`, ikke i `"tr:<id>"`. Ellers vi
 merket spørsmål telt som sett. Da ville «Nye først» hoppet over det. Å fjerne merket
 skriver `m: 0` i stedet for å slette nøkkelen, fordi synken slår sammen nøkler og
 ville hentet tilbake en slettet markering fra den andre enheten.
+
+**Poeng, språk og «Regn selv først» (15. november 2026, for FIE402).** Magnus ba om
+eksamenstrening også i Corp, der eksamen er åpen og uten minuspoeng. Motoren leser derfor
+`EDU_DATA.trening.poeng = { rett, feil, blank }` (standard +3/−1/0, så FIE432 er uendret). En
+`feil` som ikke er negativ slår på modusen uten minuspoeng: ingen minustekster, «Stå over» heter
+«Vis fasiten», og resultatet viser antall riktige og prosent. `temaer.py` kan sette `SPRAK`
+(«en» gir punktum som desimaltegn i `tools/trening_lib.py`), `POENG` og `REGN_SELV`.
+Spørsmål med tallsvar har `tall: { verdi, tol: { rel, abs }, enhet, alt }`: med «Regn selv
+først» skriver studenten tallet før alternativene vises; et tall som treffer en felles verdi
+(`alt`) regnes som det alternativet og fella vises. Tolkningen godtar punktum eller komma,
+mellomrom eller komma som tusenskille, minus i flere former, enhet og et regnestykke med «=».
+`sjekk-trening.js` har språkregler per fag og sjekker at `verdi` stemmer med det riktige
+alternativet og at ingen felle ligger innenfor toleransen. Spesifikasjonen for Corp er
+`docs/fie402-trening-spek.md`. Med `/trening` blir FIE402s mobilmeny Hjem, Lyn, Plan, Trening,
+Quiz, Kort (Dybde faller ut).
 
 **Familier.** Varianter av samme regnestykke har samme `fam`, og én runde tar bare
 én fra hver familie så lenge utvalget rekker. Ellers ville fem like regnestykker på

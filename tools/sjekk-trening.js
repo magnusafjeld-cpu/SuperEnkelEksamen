@@ -21,6 +21,16 @@
    - en felle som røper fasiten: teksten i det riktige alternativet eller et tall
      som bare står der. Fella vises før fasiten i «Prøv igjen».
 
+   - tallsvaret (tall) til «Regn selv først»: verdien er et tall, toleransen er
+     positiv, verdien stemmer med tallet i det riktige alternativet (innenfor
+     toleransen eller avrundingen alternativet er vist med). Ingen gale
+     alternativer ligger innenfor toleransen
+
+   Språkreglene følger fagets sprak (EDU_DATA.trening.sprak, «no» eller «en»):
+   komma foran «og» eller «and», bokstavhenvisninger og henvisninger til andre
+   spørsmål på riktig språk. Tallformatet i hint-sjekken (komma eller punktum
+   som desimaltegn). Kursets faste tall står per fag i FASTE_PER_FAG.
+
    ADVARSEL
    - et tema med færre spørsmål enn målet i temaer.py
    - fasiten samlet på én posisjon, i hele banken eller i én familie
@@ -77,8 +87,33 @@ function sjekkHtml(html, hvor) {
   if (stabel.length) feil.push(`${hvor}: aldri lukket: ${stabel.map((n) => "<" + n + ">").join(" ")}`);
 }
 
-const BOKSTAV = /\b(alternativ(?:et)?|svar(?:et)?|svaralternativ(?:et)?)\s+[A-D]\b|\(\s*[A-D]\s*\)|\b[A-D]\s+er\s+(?:riktig|feil)\b/;
-const HENVISNING = /\b(oppgaven over|forrige oppgave|forrige spørsmål|spørsmålet over|samme person som|samme selskap som)\b/i;
+/* Språkreglene per fag. «no» er reglene FIE432 ble skrevet etter, uendret. */
+const SPRÅK = T.sprak || "no";
+const REGLER = {
+  no: {
+    ogKomma: /[^\s,]+, og\b/g, og: "«og»",
+    bokstav: /\b(alternativ(?:et)?|svar(?:et)?|svaralternativ(?:et)?)\s+[A-D]\b|\(\s*[A-D]\s*\)|\b[A-D]\s+er\s+(?:riktig|feil)\b/,
+    henvisning: /\b(oppgaven over|forrige oppgave|forrige spørsmål|spørsmålet over|samme person som|samme selskap som)\b/i,
+    tall: /\d{1,3}(?: \d{3})+(?:,\d+)?|\d+(?:,\d+)?/g,
+    før: "(^|[^\\d,])", etter: "(?![\\d,])", des: ",",
+    erTall: /^[\s\d.,−\-+%krmill ()/:=]+$/i,
+  },
+  en: {
+    ogKomma: /[^\s,]+, and\b/g, og: "«and»",
+    bokstav: /\b(option|answer|alternative|choice)\s+[A-D]\b|\(\s*[A-D]\s*\)|\b[A-D]\s+is\s+(?:correct|right|wrong|incorrect)\b/i,
+    henvisning: /\b(question above|previous question|previous exercise|question before|same firm as|same company as|same person as)\b/i,
+    tall: /\d{1,3}(?: \d{3})+(?:\.\d+)?|\d+(?:\.\d+)?/g,
+    /* Et punktum etter tallet er ofte setningsslutt («is 12.»), så bare punktum
+       fulgt av et siffer hører til tallet. */
+    før: "(^|[^\\d.])", etter: "(?!\\d|\\.\\d)", des: ".",
+    erTall: /^[\s\d.,−\-+%$€£()/:=×]+$/i,
+    enheter: /\b(million|millions|billion|bn|m|NOK|USD|EUR|years?|months?|shares?|per share)\b/gi,
+  },
+};
+if (!REGLER[SPRÅK]) { console.error(`ukjent sprak «${SPRÅK}» i trening.js`); process.exit(2); }
+const RG = REGLER[SPRÅK];
+const BOKSTAV = RG.bokstav;
+const HENVISNING = RG.henvisning;
 /* Til språksjekken fjernes inline-taggene uten mellomrom: «r<sub>e</sub>, og»
    ble ellers «r e , og», og kommaet foran «og» slapp gjennom. */
 const renSpråk = (s) => String(s || "").replace(/<\/?(sub|sup|b|i|em|strong|span|code)\b[^>]*>/g, "")
@@ -86,17 +121,43 @@ const renSpråk = (s) => String(s || "").replace(/<\/?(sub|sup|b|i|em|strong|spa
 function sjekkSpråk(tekst, hvor, { fasit = false } = {}) {
   const t = renSpråk(tekst);
   if (/—/.test(t)) feil.push(`${hvor}: tankestrek (—). Bruk komma, kolon eller ny setning`);
-  const ogKomma = t.match(/[^\s,]+, og\b/g);
-  if (ogKomma) feil.push(`${hvor}: komma foran «og»: «${ogKomma[0]}»`);
+  const ogKomma = t.match(RG.ogKomma);
+  if (ogKomma) feil.push(`${hvor}: komma foran ${RG.og}: «${ogKomma[0]}»`);
   if (fasit && BOKSTAV.test(t)) feil.push(`${hvor}: viser til et alternativ med bokstav («${t.match(BOKSTAV)[0]}»). Rekkefølgen stokkes`);
   if (HENVISNING.test(t)) feil.push(`${hvor}: viser til et annet spørsmål («${t.match(HENVISNING)[0]}»). Spørsmålene trekkes tilfeldig`);
 }
 
 /* Kursets faste satser og konstanter. De er regler, ikke svar, og kan stå i en
-   hjelp selv om de også står i spørsmålet. */
-const FASTE = new Set(["22", "1,72", "37,84", "51,52", "47,4", "18,1", "7,1", "12", "0,66", "3", "1,0", "1,1",
-  "1,6", "1,44", "25", "70", "80", "75", "14", "20", "100", "90", "5", "7", "2", "10", "60", "30", "2,5", "29,6", "7,6",
-  "0", "1", "50", "0,5", "40", "62", "67", "183", "270", "36", "4", "6", "8", "9", "15", "27", "33", "3,0"]);
+   hjelp selv om de også står i spørsmålet. Skrevet i fagets tallformat. */
+const FASTE_PER_FAG = {
+  fie432: ["22", "1,72", "37,84", "51,52", "47,4", "18,1", "7,1", "12", "0,66", "3", "1,0", "1,1",
+    "1,6", "1,44", "25", "70", "80", "75", "14", "20", "100", "90", "5", "7", "2", "10", "60", "30", "2,5", "29,6", "7,6",
+    "0", "1", "50", "0,5", "40", "62", "67", "183", "270", "36", "4", "6", "8", "9", "15", "27", "33", "3,0"],
+  /* FIE402 har ingen satser å huske. Små heltall, 12 måneder og 100 prosent. */
+  fie402: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "12", "100", "1.0", "0.5"],
+};
+const FASTE = new Set(FASTE_PER_FAG[fag] || ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "100"]);
+
+/* Tallene i en tekst med fortegn og antall desimaler, i fagets format: til
+   sjekken av tallsvaret. «−1 234.50» → { x: −1234.5, d: 2 }. */
+function tallVerdier(tekst) {
+  const t = renSpråk(tekst).replace(/\u00a0/g, " ");
+  const re = new RegExp("([−\\-]?)(" + RG.tall.source + ")", "g");
+  const ut = [];
+  for (let m; (m = re.exec(t));) {
+    const tall = m[2].replace(/ /g, "");
+    const [, des = ""] = tall.split(RG.des);
+    const x = Number(tall.replace(RG.des, "."));
+    if (Number.isFinite(x)) ut.push({ x: m[1] ? -x : x, d: des.length });
+  }
+  return ut;
+}
+const innenfor = (x, t, v = t.verdi) => {
+  const tol = t.tol || {};
+  const rel = tol.rel != null ? tol.rel : tol.abs != null ? 0 : 0.001;
+  return Math.abs(x - v) <= Math.max(tol.abs || 0, rel * Math.abs(v)) * (1 + 1e-9) + 1e-12;
+};
+let medTall = 0;
 
 /* ---------- per spørsmål ---------- */
 const ider = new Set(), qTekst = new Map();
@@ -134,14 +195,14 @@ for (const s of ALLE) {
 
   /* Hjelpen: fremgangsmåten uten spørsmålets tall og uten svaret. Det samme
      gjelder de to hintene før den (tema og regel, spesifikasjonen § 2c). */
-  const tallI = (t) => (renSpråk(t).replace(/\u00a0/g, " ").match(/\d{1,3}(?: \d{3})+(?:,\d+)?|\d+(?:,\d+)?/g) || []);
+  const tallI = (t) => (renSpråk(t).replace(/\u00a0/g, " ").match(RG.tall) || []);
   const fritt = (t) => FASTE.has(t);
   const riktig = ren(s.options[s.answer]).toLowerCase();
   function røper(tekst, felt) {
     sjekkHtml(tekst, felt);
     sjekkSpråk(tekst, felt, { fasit: true });
     const h = " " + renSpråk(tekst).replace(/\u00a0/g, " ") + " ";
-    const finnes = (t) => new RegExp("(^|[^\\d,])" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![\\d,])").test(h);
+    const finnes = (t) => new RegExp(RG.før + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + RG.etter).test(h);
     const fraAlt = new Set(s.options.flatMap(tallI).filter((t) => !fritt(t) && t.replace(/\D/g, "").length >= 2));
     const fraQ = new Set(tallI(s.q).filter((t) => !fritt(t) && (t.replace(/\D/g, "").length >= 4 || t.includes(","))));
     const lekk = [...new Set([...fraAlt, ...fraQ])].filter(finnes);
@@ -166,10 +227,44 @@ for (const s of ALLE) {
   (s.traps || []).forEach((t, i) => {
     if (!t || i === s.answer) return;
     const h = " " + renSpråk(t).replace(/\u00a0/g, " ") + " ";
-    const tallet = fasitTall.find((x) => new RegExp("(^|[^\\d,])" + x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![\\d,])").test(h));
+    const tallet = fasitTall.find((x) => new RegExp(RG.før + x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + RG.etter).test(h));
     if (tallet || (riktig.length >= 12 && ren(t).toLowerCase().includes(riktig)))
       feil.push(`${hvor}.traps[${i}]: røper fasiten (${tallet || "teksten i det riktige alternativet"}). Fella vises før fasiten i «Prøv igjen»`);
   });
+
+  /* Tallsvaret til «Regn selv først»: verdien skal være tallet i det riktige
+     alternativet. Ingen gale alternativer skal godtas. */
+  if (s.tall != null) {
+    medTall++;
+    const t = s.tall;
+    const tol = t.tol || {};
+    if (typeof t !== "object" || !Number.isFinite(t.verdi)) feil.push(`${hvor}.tall: verdi må være et tall`);
+    else if ((tol.rel != null && !(tol.rel > 0)) || (tol.abs != null && !(tol.abs > 0))) feil.push(`${hvor}.tall: toleransen må være positiv`);
+    else if (t.verdi === 0 && !(tol.abs > 0)) feil.push(`${hvor}.tall: svaret er 0, så toleransen må være absolutt (abs)`);
+    else {
+      const iFasit = tallVerdier(s.options[s.answer]);
+      /* Alternativet er avrundet: godta avviket avrundingen gir, i tillegg til toleransen. */
+      const stemmer = iFasit.some(({ x, d }) => innenfor(x, t) || Math.abs(x - t.verdi) <= 0.5 * 10 ** -d * (1 + 1e-9) + 1e-12);
+      if (!iFasit.length) feil.push(`${hvor}.tall: det riktige alternativet har ikke noe tall («${ren(s.options[s.answer])}»)`);
+      else if (!stemmer) feil.push(`${hvor}.tall: verdien ${t.verdi}${t.enhet ? " " + t.enhet : ""} stemmer ikke med det riktige alternativet («${ren(s.options[s.answer])}»). Sjekk skala og enhet`);
+      /* Vist grovere enn toleransen: skriver leseren tallet slik fasiten viser det, blir det underkjent. */
+      else if (!iFasit.some(({ x }) => innenfor(x, t))) advarsel.push(`${hvor}.tall: det riktige alternativet («${ren(s.options[s.answer])}») er avrundet grovere enn toleransen. Vis flere desimaler eller gi en større toleranse`);
+      s.options.forEach((o, i) => {
+        if (i === s.answer) return;
+        const x = tallVerdier(o).find((v) => innenfor(v.x, t));
+        if (x) feil.push(`${hvor}.options[${i}]: «${ren(o)}» ligger innenfor toleransen til tallsvaret, så det ville blitt godtatt`);
+      });
+      if (t.enhet === "%" && !/%/.test(ren(s.options[s.answer]))) advarsel.push(`${hvor}.tall: enheten er %, men det riktige alternativet viser ingen prosent`);
+      if (t.enhet !== "%" && /%/.test(ren(s.options[s.answer]))) feil.push(`${hvor}.tall: alternativet er i prosent, men enheten er «${t.enhet || ""}». Bruk enhet="%" og skala=100`);
+      if (t.alt != null) {
+        if (!Array.isArray(t.alt) || t.alt.length !== 4 || !t.alt.every(Number.isFinite)) feil.push(`${hvor}.tall.alt: må være fire tall`);
+        else {
+          if (!innenfor(t.alt[s.answer], t)) feil.push(`${hvor}.tall.alt: verdien på fasitplassen stemmer ikke med verdi`);
+          t.alt.forEach((v, i) => { if (i !== s.answer && innenfor(v, t)) feil.push(`${hvor}.tall.alt[${i}]: en felle ligger innenfor toleransen`); });
+        }
+      }
+    }
+  }
 
   if (ord(s.kort) > 90) advarsel.push(`${hvor}: kort fasit er ${ord(s.kort)} ord. Den skal være kort`);
   if (ord(s.full) < 60) advarsel.push(`${hvor}: full gjennomgang er bare ${ord(s.full)} ord`);
@@ -180,7 +275,7 @@ for (const s of ALLE) {
 
   /* Fallgruve 7y: fasiten skal ikke være det lengste alternativet i hvert
      begrepsspørsmål. Tall teller ikke; der er lengden tilfeldig. */
-  const erTall = s.options.every((o) => /^[\s\d.,−\-+%krmill ()/:=]+$/i.test(ren(o)));
+  const erTall = s.options.every((o) => RG.erTall.test(RG.enheter ? ren(o).replace(RG.enheter, "") : ren(o)));
   if (!erTall) {
     tekstSp++;
     const l = s.options.map((o) => ren(o).length);
@@ -215,6 +310,7 @@ if (tekstSp >= 10 && lengst / tekstSp > 0.4) advarsel.push(`fasiten er det lengs
 
 console.log(`  ${ALLE.length} spørsmål · ${temaer.size} temaer · ${perFam.size} familier · fasit A–D ${pos.join("/")}`);
 console.log(`  fasiten er lengst i ${lengst} av ${tekstSp} tekstspørsmål`);
+if (medTall) console.log(`  ${medTall} spørsmål med tallsvar («Regn selv først») · språk ${SPRÅK}`);
 for (const [id, t] of temaer) console.log(`    ${id.padEnd(17)} ${String(perTema.get(id) || 0).padStart(4)} / ${t.mal || "–"}`);
 const vis = (liste, merke, maks) => {
   liste.slice(0, maks).forEach((x) => console.log(`${merke} ${x}`));
