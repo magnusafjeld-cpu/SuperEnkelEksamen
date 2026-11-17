@@ -465,14 +465,15 @@ Firma:       180 − 200 = −20 (tapte synergier)</div>
             q: `<p>Suppose that if IST issues equity, the share price will remain $13.50. To maximize the long term share price of the firm once its true value is known, would managers choose to issue equity or borrow the $500 million if</p><ul><li>they know the correct value of the shares is $12.50?</li><li>they know the correct value of the shares is $14.50?</li></ul>`,
             hint: [
               `<p>Gjeld har en netto kostnad. Egenkapital solgt til feil pris overfører verdi mellom gamle og nye aksjonærer.</p>`,
-              `<p>Antall nye aksjer = beløp / emisjonskurs. Overføring per ny aksje = emisjonskurs − sann verdi.</p>`,
+              `<p>Antall nye aksjer = beløp / emisjonskurs. Overføring per ny aksje = emisjonskurs − sann verdi per aksje <i>etter</i> emisjonen (firmaverdien inkluderer de nye pengene).</p>`,
               `<p>Er aksjen overpriset, er salget en gevinst for de gamle aksjonærene. Er den underpriset, er det en kostnad. Sammenlign med netto kostnad ved gjeld.</p>`,
-              `<ol><li><span class="f">n<sub>ny</sub> = beløp / emisjonskurs</span>.</li><li>Total overføring = <span class="f">n<sub>ny</sub> × (emisjonskurs − sann verdi)</span>.</li><li>Netto kostnad ved gjeld er oppgitt.</li><li>Lav sann verdi: overføringen er en gevinst. Velg det som gir mest.</li><li>Høy sann verdi: overføringen er en kostnad. Velg det billigste.</li><li>Eventuelt per aksje: del gjeldskostnaden på gamle aksjer og overføringen på totalt antall etter emisjon.</li></ol>`,
+              `<ol><li><span class="f">n<sub>ny</sub> = beløp / emisjonskurs</span>.</li><li>Sann verdi per aksje etter emisjonen = <span class="f">(sann firmaverdi + beløp) / (gamle + nye aksjer)</span>.</li><li>Total overføring = <span class="f">n<sub>ny</sub> × (emisjonskurs − sann verdi etter emisjonen)</span>.</li><li>Netto kostnad ved gjeld er oppgitt.</li><li>Lav sann verdi: overføringen er en gevinst. Velg det som gir mest.</li><li>Høy sann verdi: overføringen er en kostnad. Velg det billigste.</li><li>Eventuelt per aksje: del gjeldskostnaden på gamle aksjer og overføringen på totalt antall etter emisjon.</li></ol>`,
             ],
             fasit: `<div class="calc">Nye aksjer = 500 / 13.50 ≈ 37 mill.
 Gjeld: netto kostnad 20 mill. = $0.20 per aksje</div>
-<ul><li><b>Sann verdi $12.50:</b> salg til $1 over verdi gir gevinst 37 mill., eller 37/137 = $0.27 per aksje. Velg egenkapital.</li>
-<li><b>Sann verdi $14.50:</b> salg til $1 under verdi gir kostnad 37 mill., eller $0.27 per aksje. Velg gjeld.</li></ul>` },
+<ul><li><b>Sann verdi $12.50:</b> etter emisjonen er firmaet verdt 1 250 + 500 = 1 750 på 137.04 mill. aksjer, altså $12.77 per aksje. De gamle aksjonærene tjener $0.27 per aksje, <b>27 mill.</b> totalt (de nye betaler 500 for 473). Gjeld koster $0.20. Velg egenkapital.</li>
+<li><b>Sann verdi $14.50:</b> 1 950 / 137.04 = $14.23 per aksje. De gamle taper $0.27 per aksje, <b>27 mill.</b> totalt, mot 20 mill. ved gjeld. Velg gjeld.</li></ul>
+<p class="tiny muted">Kursets løsning og tavla sier 37 mill., fordi overføringen er regnet mot verdien før emisjonen (37.04 × $1). Da teller man ikke med at de nye pengene også eies av de nye aksjonærene. Sammenligningen per aksje, $0.27 mot $0.20, er riktig og gir samme valg.</p>` },
           { l: "b",
             q: `<p>Given your answer to part (a), what should investors conclude if IST issues equity? What will happen to the share price?</p>`,
             hint: [
