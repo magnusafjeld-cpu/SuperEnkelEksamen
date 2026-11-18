@@ -7,12 +7,16 @@
    Hvert delspørsmål har fire hint som blir gradvis mer konkrete. Ett trykk
    viser neste trinn, så du tar bare så mye hjelp du trenger. Fasiten ligger bak
    en egen knapp. Hvor langt du kom i stigen, og om du åpnet fasiten, huskes.
+   Hvert delspørsmål markeres som ferdig for seg, med knappen ved fasiten.
+   Oppgaven er ferdig når alle delspørsmålene er det.
 
    Sidene: #/problemsett (alle settene), #/problemsett/<id> (oppgavene i ett
    sett, med filter på stjernene) og #/problemsett/<id>/<nr> (én oppgave).
 
    Lagring per oppgave, så to enheter ikke overskriver hverandres oppgaver:
-   exams["ps:<settId>:<nr>"] = { ferdig, hint: { a: 2 }, fasit: { a: 1 }, t }
+   exams["ps:<settId>:<nr>"] = { ferdig, deler: { a: 1 }, hint: { a: 2 }, fasit: { a: 1 }, t }
+   ferdig er true når alle delene er ferdige. Eldre lagring har bare ferdig,
+   og da regnes alle delene som ferdige.
 
    Data: EDU_DATA.problemsett = [{ id, nr, tittel, tema, trinn, nivaer,
          oppgaver: [{ nr, niva, tema, tittel, intro, deler: [{ l, ctx, q, hint: [4], fasit }] }] }]
@@ -34,10 +38,23 @@ window.EDU = window.EDU || {};
   const nøkkel = (ps, nr) => `ps:${ps.id}:${nr}`;
   const st = (ps, nr) => S.store.get().exams[nøkkel(ps, nr)] || {};
   const lagre = (ps, nr, patch) => S.store.setExam(nøkkel(ps, nr), Object.assign({}, patch, { t: Date.now() }));
-  const erFerdig = (ps, o) => !!st(ps, o.nr).ferdig;
+  const bokstaver = (o) => (o.deler || []).map((d) => d.l);
+  const ferdigeDeler = (ps, o) => {
+    const s = st(ps, o.nr);
+    if (s.deler) return Object.assign({}, s.deler);
+    const alle = {};
+    if (s.ferdig) bokstaver(o).forEach((l) => { alle[l] = 1; });
+    return alle;
+  };
+  const antallDelerFerdig = (ps, o) => { const f = ferdigeDeler(ps, o); return bokstaver(o).filter((l) => f[l]).length; };
+  const erFerdig = (ps, o) => {
+    const n = bokstaver(o).length;
+    return n ? antallDelerFerdig(ps, o) === n : !!st(ps, o.nr).ferdig;
+  };
   const påbegynt = (ps, o) => {
     const s = st(ps, o.nr);
-    return Object.values(s.hint || {}).some((n) => n > 0) || Object.keys(s.fasit || {}).length > 0;
+    return Object.values(s.hint || {}).some((n) => n > 0) || Object.keys(s.fasit || {}).length > 0 ||
+      antallDelerFerdig(ps, o) > 0;
   };
   const antallFerdig = (ps) => (ps.oppgaver || []).filter((o) => erFerdig(ps, o)).length;
 
@@ -58,19 +75,41 @@ window.EDU = window.EDU || {};
   const stige = (ps) => el(".ps-stige", trinn(ps).map((t, i) => el("span", el("b", String(i + 1)), " " + t)));
 
   /* ---------- én oppgave ---------- */
-  function ferdigKnapp(ps, o) {
-    const k = el("button.ps-ferdig", { type: "button" }, el("span.ok"), el("span.tx"));
-    const oppdater = () => {
-      const på = erFerdig(ps, o);
-      k.setAttribute("aria-pressed", String(på));
-      k.querySelector(".tx").textContent = på ? "Ferdig" : "Marker som ferdig";
+  /* Status øverst i oppgaven: hvor mange delspørsmål som er ferdige. */
+  function status(ps, o) {
+    const n = bokstaver(o).length;
+    const s = el("span.ps-status");
+    s.oppdater = () => {
+      const f = antallDelerFerdig(ps, o), alt = f === n && n > 0;
+      s.className = "ps-status" + (alt ? " alt" : f ? " noen" : "");
+      s.replaceChildren(el("span.ok"), alt ? "Ferdig" : `${f} av ${n} ferdig`);
     };
-    k.onclick = () => { lagre(ps, o.nr, { ferdig: !erFerdig(ps, o) }); oppdater(); };
+    s.oppdater();
+    return s;
+  }
+
+  /* Ferdig-knappen for ett delspørsmål. Den står ved fasiten, så du markerer
+     delen når du har sjekket svaret ditt. */
+  function ferdigKnapp(ps, o, d, etterpå) {
+    const k = el("button.ps-ferdig", { type: "button" }, el("span.ok"), el("span.tx"));
+    const på = () => !!ferdigeDeler(ps, o)[d.l];
+    const oppdater = () => {
+      k.setAttribute("aria-pressed", String(på()));
+      k.setAttribute("aria-label", (på() ? "Ferdig med " : "Marker som ferdig: ") + d.l + ")");
+      k.querySelector(".tx").textContent = på() ? "Ferdig" : "Marker som ferdig";
+    };
+    k.onclick = () => {
+      const f = ferdigeDeler(ps, o);
+      if (f[d.l]) delete f[d.l]; else f[d.l] = 1;
+      lagre(ps, o.nr, { deler: f, ferdig: bokstaver(o).every((l) => f[l]) });
+      oppdater();
+      if (etterpå) etterpå();
+    };
     oppdater();
     return k;
   }
 
-  function del(ps, o, d) {
+  function del(ps, o, d, etterpå) {
     const T = trinn(ps), hint = d.hint || [];
     const boks = el(".ps-del");
     if (d.ctx) boks.appendChild(el(".ps-ctx", prosa(d.ctx)));
@@ -107,7 +146,7 @@ window.EDU = window.EDU || {};
     fasit.addEventListener("toggle", () => {
       if (fasit.open && !(st(ps, o.nr).fasit || {})[d.l]) lagre(ps, o.nr, { fasit: Object.assign({}, st(ps, o.nr).fasit, { [d.l]: 1 }) });
     });
-    boks.appendChild(fasit);
+    boks.appendChild(el(".ps-fasitrad", fasit, ferdigKnapp(ps, o, d, etterpå)));
     return boks;
   }
 
@@ -128,13 +167,14 @@ window.EDU = window.EDU || {};
       el("span.tiny.muted", `${ps.tittel} · oppgave ${i + 1} av ${rekke.length}` + (filtrert ? ` (${nivåer(ps)[filter][1].toLowerCase()})` : ""))));
 
     const kort = el(".card.ps-oppg", { style: { marginBottom: "14px" } });
+    const stat = status(ps, o);
     kort.appendChild(el(".ps-hode",
       el(".ps-hodetekst",
         el(".ps-kicker", nivåmerke(ps, o), o.tema ? el("span", o.tema) : null),
         el("h3", `Exercise ${o.nr}. ${o.tittel}`)),
-      ferdigKnapp(ps, o)));
+      stat));
     if (o.intro) kort.appendChild(el(".ps-intro", prosa(o.intro)));
-    (o.deler || []).forEach((d) => kort.appendChild(del(ps, o, d)));
+    (o.deler || []).forEach((d) => kort.appendChild(del(ps, o, d, stat.oppdater)));
     wrap.appendChild(kort);
 
     const forrige = i > 0 ? el("a.btn.ghost", { href: `#/problemsett/${ps.id}/${rekke[i - 1].nr}` }, "← Forrige oppgave") : null;
@@ -184,7 +224,8 @@ window.EDU = window.EDU || {};
         el("a.kap-radtekst", { href: href, style: { color: "inherit", textDecoration: "none" } },
           el(".kap-radnavn", `${o.nr}. ${o.tittel}`),
           el(".kap-radtall", el(".row", { style: { gap: "8px", alignItems: "center" } }, nivåmerke(ps, o),
-            `${o.tema ? o.tema + " · " : ""}${tellord((o.deler || []).length, "delspørsmål", "delspørsmål")}`))),
+            `${o.tema ? o.tema + " · " : ""}${tellord((o.deler || []).length, "delspørsmål", "delspørsmål")}` +
+            (igang && antallDelerFerdig(ps, o) ? ` · ${antallDelerFerdig(ps, o)} ferdig` : "")))),
         el(".kap-radhoyre",
           ferdig ? el(".chip.green", el(".dot"), "Ferdig") : igang ? el(".chip.amber", el(".dot"), "Påbegynt") : null,
           el("a.btn.sm" + (ferdig ? ".ghost" : ".primary"), { href: href }, ferdig ? "Se igjen" : igang ? "Fortsett" : "Løs"))));

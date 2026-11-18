@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-15
+oppdatert: 2026-11-18
 ---
 
 # Moduler og visninger
@@ -226,10 +226,15 @@ stjernene: tutorial, forelesning, egen trening) og én oppgave om gangen med
 forrige og neste. Filteret gjelder også når du blar, så «neste» er neste
 oppgave av samme slag.
 
-**Lagring per oppgave:** `exams["ps:<settId>:<nr>"] = { ferdig, hint: { a: 2 },
-fasit: { a: 1 }, t }`. Hintnivået og åpnet fasit huskes, og «Marker som
-ferdig» gir framdriften. Én nøkkel per oppgave, så to enheter ikke overskriver
-hverandres oppgaver i synken.
+**Ferdig per delspørsmål.** «Marker som ferdig» står ved fasiten på hvert
+delspørsmål, så du markerer delen når du har sjekket svaret. Øverst i oppgaven
+står «2 av 4 ferdig», og oppgaven er ferdig når alle delene er det.
+
+**Lagring per oppgave:** `exams["ps:<settId>:<nr>"] = { ferdig, deler: { a: 1 },
+hint: { a: 2 }, fasit: { a: 1 }, t }`. `ferdig` er true når alle delene er
+ferdige og gir framdriften. Eldre lagring med bare `ferdig` regnes som at alle
+delene er ferdige. Hintnivået og åpnet fasit huskes. Én nøkkel per oppgave, så
+to enheter ikke overskriver hverandres oppgaver i synken.
 
 **Formelarket** er ikke en del av settet. FIE402 har allerede eksamensarket
 bak knappen nederst til høyre på alle sider (se under).
