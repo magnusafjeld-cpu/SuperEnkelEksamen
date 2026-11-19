@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, kode]
-oppdatert: 2026-11-06
+oppdatert: 2026-11-19
 ---
 
 # Arkitektur
@@ -37,6 +37,8 @@ js/
                            antall, kort fasit og full gjennomgang med en gang
   bundle-sjekkliste.js     sjekkliste: alt som kan komme, punkt for punkt, merket
                            kan eller usikker (lazy som eksamenstreningen)
+  bundle-forelesninger.js  forelesninger: én interaktiv gjennomgang per
+                           forelesning, steg for steg (lazy)
   bundle-claude.js         Spør Claude: chat med sidekontekst og vurdering av
                            svar, med brukerens egen API-nøkkel (bare i nettleseren)
   account.js               Supabase-innlogging + synk (mergeState bor her)

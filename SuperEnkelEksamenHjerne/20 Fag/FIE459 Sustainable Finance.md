@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie459, innhold]
-oppdatert: 2026-10-21
+oppdatert: 2026-11-19
 ---
 
 # FIE459 Sustainable Finance
@@ -40,6 +40,7 @@ strategy!». Det finnes **ingen tidligere eksamener**. Derfor ingen
 | Quiz | **107 spørsmål: 66 flervalg og 41 sant/usant**, samme format som eksamen. Fasit 16/16/17/17 og 20 sanne/21 usanne |
 | Flashcards | 94 skrevne kort i tre kortstokker: begrep, mekanisme, intuisjon |
 | Kjernepensum | 8 deler, rundt 7 800 ord og 2 t 30 min med sjekker og minicaser (lagt inn 21. oktober 2026). Minicasene har to flervalg og ett sant/usant, uten minuspoeng |
+| Forelesninger | 13 interaktive gjennomganger, én per forelesning, 267 steg og rundt 3 timer (12–17 min hver). 146 oppgaver med poeng: gjett, sant/usant og sortering (lagt inn 19. november 2026) |
 
 Ingen dybdetrening, lynlæring, kapitteloppgaver eller eksamenssett. Det holder
 faget kort, og quizen har allerede eksamensformatet. Kapitteloppgaver i
@@ -99,6 +100,31 @@ Folketrygdfondet og Fondsfinans ligger nå også i prosjektets kildemappe, med t
 **Spesifikasjonen tok feil to steder, og agentene fulgte manualen:** Pigou, Coase og
 karbonlekkasje står ikke i k3 eller forelesning 3, og manualen knytter ikke voice og
 exit til Starks.
+
+## Forelesninger (19. november 2026)
+
+Magnus fikk lite ut av å se forelesningsopptakene og ba om en del som går
+gjennom det han må kunne fra hver forelesning, på en engasjerende måte. Modulen
+`/forelesninger` er beskrevet i [[Moduler og visninger]]. Spesifikasjonen er
+`docs/fie459-forelesninger-spek.md`, fragmentene ligger i
+`fag/fie459/_forelesninger/fN.js`, og fila bygges med
+`python3 tools/bygg-forelesninger.py fie459` og kontrolleres med
+`node tools/sjekk-forelesninger.js fie459`.
+
+- **Laget av fem agenter** (1–3, 4–6, 7–9, 10–11, 12–13) fra manualfragmentene,
+  foilteksten og rammeverkene i forfatterspek §5. Deretter kontrollerte tre
+  uavhengige fageksperter alt blindt mot kildene. Ingen fasit var feil. De fant én
+  tvetydig sortering (SF 1.0-kortene i f5), én forfatterfeil og en del hull som er
+  fylt: invest and engage hos Hart og Zingales, de seks kapitalene i <IR>,
+  koalisjonsgruppene, naturfarene i forsikring og PRI-fasene for eiendom.
+- **Målet var 8–10 minutter per forelesning.** Alle fem skribentene landet på
+  12–17 med stegblandingen og forklaringer som faktisk lærer bort. Spesifikasjonen
+  sier nå 12–16.
+- **«Bird & Walters 1989» er feil i foilen** (forelesning 2, foil 20). Artikkelen er
+  Bird & Waters (1989), «The Moral Muteness of Managers». Rettet i manualen,
+  forfatterspek og gjennomgangen.
+- **Kotsantonis og Serafeim (2019)** er artikkelen foilen i forelesning 7 bare kaller
+  «Kotsantonis».
 
 ## Kildene og hvordan de ble brukt
 

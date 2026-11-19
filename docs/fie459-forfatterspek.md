@@ -221,7 +221,7 @@ returns in k5 and k9 and is the course's backbone.
 - **Moral intensity (Jones 1991), six factors:** magnitude of consequences,
   social consensus, probability of effect, temporal immediacy, proximity,
   concentration of effect.
-- Moral framing and moral muteness (Bird & Walters 1989: fear for harmony,
+- Moral framing and moral muteness (Bird & Waters 1989: fear for harmony,
   efficiency, image of power).
 - **Rationalisation tactics:** denial of responsibility, denial of injury,
   denial of victim, social weighting, appeal to higher loyalties, metaphor of the

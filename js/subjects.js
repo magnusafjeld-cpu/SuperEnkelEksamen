@@ -422,7 +422,9 @@ window.EDU_SUBJECTS = [
     /* Ingen dybdetrening, lynlæring eller eksamenssett: det finnes ingen
        tidligere eksamener, og faget skal være kort. Eksamen er flervalg og
        sant/usant, og det er nøyaktig formatet quizen har. */
-    modules: ["/plan", "/curriculum", "/kjerne", "/quiz", "/flashcards", "/review", "/search", "/notebooklm"],
+    /* Forelesningsgjennomgangene er store og lastes først når modulen åpnes. */
+    lazy: { "/forelesninger": ["fag/fie459/forelesninger.js"] },
+    modules: ["/plan", "/curriculum", "/kjerne", "/forelesninger", "/quiz", "/flashcards", "/review", "/search", "/notebooklm"],
   },
 ];
 

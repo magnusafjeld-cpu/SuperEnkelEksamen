@@ -12,6 +12,7 @@ window.EDU = window.EDU || {};
       { route: "#/plan", match: "/plan", label: "Studieplan", ico: "calendar" },
       { route: "#/curriculum", match: "/curriculum", label: "Pensum", ico: "grid" },
       { route: "#/kjerne", match: "/kjerne", label: "Kjernepensum", ico: "star" },
+      { route: "#/forelesninger", match: "/forelesninger", label: "Forelesninger", ico: "play" },
     ]},
     { group: "Øving", items: [
       { route: "#/lyn", match: "/lyn", label: "Lynlæring", ico: "bolt", badge: () => (S.views.lyn && !S.views.lyn.dailyDone()) ? "⚡" : null },
@@ -40,6 +41,7 @@ window.EDU = window.EDU || {};
   const MOBILE = [
     { route: "#/", match: "/", label: "Hjem", ico: "home" },
     { route: "#/lyn", match: "/lyn", label: "Lyn", ico: "bolt" },
+    { route: "#/forelesninger", match: "/forelesninger", label: "Forelesning", ico: "play" },
     { route: "#/plan", match: "/plan", label: "Plan", ico: "calendar" },
     { route: "#/trening", match: "/trening", label: "Trening", ico: "target" },
     { route: "#/linjer", match: "/linjer", label: "Varianter", ico: "flag" },
@@ -92,6 +94,8 @@ window.EDU = window.EDU || {};
     "/trening": () => !!(S.views.trening && S.views.trening.finnes()),
     /* Sjekklisten lastes også først når den åpnes. */
     "/sjekkliste": () => !!(S.views.sjekkliste && S.views.sjekkliste.finnes()),
+    /* Forelesningsgjennomgangene lastes også først når de åpnes. */
+    "/forelesninger": () => !!(S.views.forelesninger && S.views.forelesninger.finnes()),
     "/linjer": () => !!(S.views.sjakk && S.views.sjakk.finnes()),
   };
   function has(match) {
@@ -202,6 +206,8 @@ window.EDU = window.EDU || {};
     when("/notebooklm", "/notebooklm", () => setView(() => V.notebooklm.render()));
     when("/trening", "/trening", () => setView(() => V.trening.render()));
     when("/sjekkliste", "/sjekkliste", () => setView(() => V.sjekkliste.render()));
+    when("/forelesninger", "/forelesninger", () => setView(() => V.forelesninger.render()));
+    when("/forelesninger", "/forelesninger/:nr", (p) => setView(() => V.forelesninger.render(p.nr)));
     when("/linjer", "/linjer", () => setView(() => V.sjakk.render()));
     /* husk før :num — ruteren tar første treff. */
     when("/kjerne", "/kjerne", () => setView(() => V.kjerne.render()));

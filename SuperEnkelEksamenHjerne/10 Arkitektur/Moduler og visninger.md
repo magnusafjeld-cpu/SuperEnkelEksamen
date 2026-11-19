@@ -1,11 +1,11 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-18
+oppdatert: 2026-11-19
 ---
 
 # Moduler og visninger
 
-15 moduler + Konto. Faget kan slå av hvilke som helst via `modules` i
+16 moduler + Konto. Faget kan slå av hvilke som helst via `modules` i
 [[Fagregisteret]]; Dashboard er alltid med.
 
 | Modul | Rute | Hva den gjør |
@@ -14,6 +14,7 @@ oppdatert: 2026-11-18
 | Studieplan | `/plan`, `/day/:n` | Dagene bygget pedagogisk: rammeverk → måling → vekst → kort sikt → repetisjon. «X av N fullført» øverst |
 | Pensum | `/curriculum`, `/chapter/:num` | Kapitlene som rene artikler; marker *lest* / *forstått* / *usikker* |
 | Kjernepensum | `/kjerne`, `/kjerne/:num`, `/kjerne/husk` | Det viktigste i faget på én kveld, i deler bygd rundt eksamensblokkene, med sjekker og en minicase etter hver del |
+| Forelesninger | `/forelesninger`, `/forelesninger/:nr` | Én interaktiv gjennomgang per forelesning, ett steg om gangen: krok, idéer, gjett først, sant/usant, sortering og avdekking, og «Dette må du kunne» til slutt. Bare FIE459 foreløpig |
 | Lynlæring | `/lyn` | 13 minispill for mobil, 2–5 min |
 | Quiz | `/quiz` | Trekker fra hele pensum, blander gammelt og nytt. Flervalg, kortsvar og sant/usant (et flervalg med nøyaktig alternativene «True» og «False», som i FIE459) |
 | Flashcards | `/flashcards` | Spaced repetition |
@@ -368,6 +369,47 @@ pålydende i agentproblemet. Formelarket har `deler.formelark` (formeldelen av h
 uten navnet) og `deler.formelark-liste` (lista «Står ikke på arket», der C og P er
 opsjoner). Nøkler med senket skrift skiller betydninger på samme ark: C alene er
 kontantstrømmen, C_u opsjonsverdien i opptilstanden.
+
+## Forelesninger: det du må kunne, steg for steg (19. november 2026)
+
+Magnus fikk lite ut av å se forelesningsopptakene i FIE459 og ba om «en del i
+appen som går igjennom hva jeg må kunne fra de forskjellige forelesningene på en
+engasjerende måte». `/forelesninger` (`js/bundle-forelesninger.js`) gir én kort
+gjennomgang per forelesning, 8–10 minutter, i forelesningens egen rekkefølge.
+
+**Ett steg om gangen**, med en segmentert fremdriftslinje øverst (et segment per
+steg, grønt eller rødt når en oppgave er besvart, og et gult mål-segment for
+oppsummeringen). Piltastene blar. Stegtypene:
+
+| Type | Hva skjer |
+|---|---|
+| `krok` | Åpningen: et spørsmål eller et funn som gjør det verdt å fortsette |
+| `ide` | Én idé, 40–90 ord, med valgfri «Husk:»-linje |
+| `felle` | En vanlig misforståelse, med rød kant |
+| `gjett` | Flervalg før forklaringen. Valget låses, fella for det valgte og forklaringen vises |
+| `sant` | Sant eller usant, så forklaringen |
+| `sorter` | 4–8 kort i 2–3 grupper, «Sjekk», riktig gruppe markeres |
+| `avdekk` | Et rammeverk som avdekkes rad for rad |
+
+Oppgavesteg som ikke er besvart, gir «Hopp over» i stedet for «Neste». Sluttskjermen
+viser poeng på første forsøk, «Dette må du kunne», snarveier tilbake til stegene du
+bommet på, og knapper til neste forelesning, kapitlet og quizen.
+
+**Alternativene stokkes fast per steg-id** (FNV-hash og xorshift), både i `gjett` og
+kortene i `sorter`. Da kan ikke skribentenes vane med å legge fasiten på B slå
+gjennom (fallgruve 7c), men forklaringene må vise til innholdet, aldri til en
+bokstav. `tools/sjekk-forelesninger.js` stopper bokstavhenvisninger, «all of the
+above», feller som siterer fasiten, tankestrek og komma før «and»/«og», og måler
+hvor ofte fasiten er det lengste alternativet (fallgruve 7y).
+
+Lagring per forelesning: `exams["fl:<nr>"] = { steg, svar: { <steg-id>: { v, ok } }, ferdig, beste: { r, n }, t }`.
+Første forsøk teller. «Ta den på nytt» nullstiller svar og steg, men beholder
+`ferdig` og beste resultat.
+
+Data lastes først når modulen åpnes (`lazy["/forelesninger"]`). Forelesningene
+skrives som fragmenter i `fag/<fag>/_forelesninger/fN.js` og settes sammen med
+`python3 tools/bygg-forelesninger.py <fag>`. Spesifikasjonen for FIE459 er
+`docs/fie459-forelesninger-spek.md`.
 
 ## Sjekkliste: finn hullene når du kan nesten alt
 
