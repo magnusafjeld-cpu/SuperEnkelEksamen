@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-11-14
+oppdatert: 2026-11-21
 ---
 
 # Fallgruver
@@ -686,3 +686,29 @@ lagring, tabeller), venter på den samme låsen og henger for alltid, uten feilm
 Det skjedde med de private fagene 16. oktober 2026: de sto på «Henter …», og «Hent på
 nytt» gjorde ingenting. Legg kallene i `setTimeout(() => …, 0)` i varslingen, og gi
 nettverksjobber et tidsavbrudd med en feilmelding.
+
+## 15. Planleggeren leser eksamenssettene selv
+
+Den private planleggeren (`fag/privat-planlegger/planlegger.js`) leser
+`EDU_DATA.sets` direkte for mestringen, settlista og dagens mål. Den velger hva som er
+prøve og hva som er «ekte eksamen» ut fra `kind`. Da deleksamenene kom 21. november
+2026, ville den sett 25 sett uten oppgaver (de har bare `lån` i rådataene) og regnet
+dem som ekte eksamener. Den leser nå gjennom `S.views.sett.alle()` og regner
+`kind: "del"` som prøve uten anslag (versjon 30).
+
+**Regelen:** et nytt `kind` eller et nytt felt i eksamenssettene må også inn i
+planleggeren. Den ligger utenfor repoet (`fag/privat-*` er i `.gitignore`), så et søk
+i `js/` finner den ikke. Endringen virker først når den er lastet opp med
+`python3 tools/last-opp-privat.py opp privat-planlegger`.
+
+## 16. Forhåndsvisningen får ikke lese Dokumenter-mappa
+
+Prosjektet ligger under `~/Documents`. macOS gir ikke forhåndsvisningen i
+Claude-appen tilgang dit: `tools/serve.py` stopper med «Operation not permitted».
+Python klarer ikke engang `os.getcwd()`. Forhåndsvisningen leser dessuten
+`launch.json` i økta sin rotmappe (`NHH/.claude/`), ikke prosjektets.
+
+Det som virket 21. november 2026: kopier `index.html`, manualen, `js/` og `fag/` til
+scratchpad-mappa med `rsync` og start en midlertidig oppføring med `/bin/sh -c "cd
+<kopien> && exec python3 -I -m http.server <port>"`. Skallet må bytte mappe før
+Python starter. Fjern oppføringen etterpå. Synk kopien på nytt etter hver endring.

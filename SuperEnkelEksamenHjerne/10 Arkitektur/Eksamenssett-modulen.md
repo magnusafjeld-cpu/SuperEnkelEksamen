@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-11-09
+oppdatert: 2026-11-21
 ---
 
 # Eksamenssett-modulen
@@ -209,6 +209,33 @@ eksamenssett per forelesning som til sammen dekker hele pensum.
   kjører alle skriptene og skriver `fag/fie432/forelesningssett.js`, som lastes etter
   `sett.js`. `--delvis --uten=<id,…>` publiserer bare ferdige sett.
 
+## Per del (kind: "del") og lånte oppgaver
+
+Lagt til 21. november 2026 for [[FIE402 Corporate Finance]]. Magnus ville kunne ta
+eksamener med oppgaver fra bare én del av pensum, sortert i det som er mest forventet
+og det som har en vri. Han ville ikke ha de ekte eksamensoppgavene der, bare lignende
+oppgaver med nye tall.
+
+- **Egen fane** «Per del (N)» etter «Prøveeksamener». Én del om gangen (knapper
+  Del 1, Del 2 …), med navn, kapitler og «X av N sett gjort». Under står settene
+  gruppert etter `art`, i rekkefølgen `EDU_DATA.perDel.arter` gir, med «X av N gjort»
+  og en forklarende tekst per art. Usikre og feil vises for delen du står i.
+- **Settet har `del` og `art`.** Navn, kapitler og tekster ligger i
+  `EDU_DATA.perDel` (`intro`, `deler`, `arter`), så motoren ikke vet noe om faget.
+  Kartleggingen bruker også `del`, men den har sin egen fane og blandes ikke inn.
+- **Lånte oppgaver.** Et sett med `lån: [{ sett, n, merke }]` har ingen egne
+  oppgaver. `SETS()` slår dem opp når lista leses, aldri når filen lastes. En
+  WeakMap gjør at samme sett gir samme objekt hver gang. Oppgavene nummereres 1, 2,
+  3 … i det nye settet, siden `n` er lagringsnøkkelen. Hver får `kilde` («Mock
+  exam 10 · oppgave 1») og `merke`, som vises som brikker ved oppgavehodet. Settets
+  `note` lages av kildene når den mangler.
+- **Hvorfor lån og ikke kopier:** en rettelse i kildesettet gjelder da også her, og
+  fila vokser ikke med en kopi av 72 oppgaver. Fremdriften er likevel egen: et lånt
+  sett starter blankt. Svar i det rører ikke kildesettet.
+- **Andre som leser settene må bruke `S.views.sett.alle()`**, som gir lista med
+  lånene slått opp. `EDU_DATA.sets` alene viser lånte sett uten oppgaver. Se
+  [[Fallgruver]] om planleggeren.
+
 ## Kartlegging (kind: "kartlegging")
 
 Lagt til 2. november 2026 for [[FIE402 Corporate Finance]]. Magnus ville ha en
@@ -258,6 +285,13 @@ markert riktige, at flervalg har `solution`, at selvvurderte oppgaver har det,
 at `criteria` er ren tekst, at `mc.wrongFactor` ligger i [−1, 0], og at
 `chapters` peker på kapitler manualen faktisk har. Testet mot et bevisst
 ødelagt sett: fjorten feil, alle funnet.
+
+Lånte sett slås opp først slik motoren gjør og sjekkes deretter som vanlige sett.
+I tillegg: at hvert lån finnes, at ingen oppgave er lånt to ganger (advarsel), at
+tiden stemmer med kildesettenes minutter per poeng (advarsel ved mer enn 10 minutters
+avvik), at `merke` er ren tekst og at `del` og `art` finnes i `EDU_DATA.perDel`.
+Testet med et ødelagt sett: manglende lån, ukjent del, ukjent art og dobbelt lån ble
+alle funnet.
 
 ## Lagring
 

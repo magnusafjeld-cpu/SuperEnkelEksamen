@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-11-14
+oppdatert: 2026-11-21
 ---
 
 # Tidslinje
@@ -96,5 +96,6 @@ ikke står i commit-meldingene.
 | 14. november 2026 | [[FIE402 Corporate Finance]]: Persøk-oppsettet for Corp: prediksjon av eksamen, 260 oppgavekort og 14 NotebookLM-kilder | Alt kontrollert uavhengig |
 | 15. november 2026 | [[FIE402 Corporate Finance]]: prøveeksamen 4–12, bygd på prediksjonen, i tre runder | Hver løst blindt av en uavhengig kontrollør (96–100 av 100, ingen regnefeil) og rettet før publisering |
 | 15. november 2026 | [[FIE402 Corporate Finance]]: eksamenstrening med 692 spørsmål i 12 temaer, «Regn selv først» og uten minuspoeng | Motoren gjort fagnøytral for poeng og språk; fire skribenter og fire uavhengige kontrollører |
+| 21. november 2026 | [[FIE402 Corporate Finance]]: 25 deleksamener i fanen «Per del», én del av pensum om gangen, sortert i «Mest forventet» og «Med vri» | Lånt fra de 72 prøveoppgavene, ingen ekte eksamensoppgaver; planleggeren leser settene gjennom motoren (versjon 30) |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

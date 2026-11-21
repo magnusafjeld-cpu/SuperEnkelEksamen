@@ -21,7 +21,7 @@ oppdatert: 2026-11-21
 | Dybdetrening | `/dybde` | Selvrettede spørsmålsbanker |
 | Oppgavebank | `/oppgaver` | Alle oppgaver med fasit, søk- og filtrerbare |
 | Eksamenstrening | `/exam` | Tidligere eksamensoppgaver koblet til temaer og repetisjon |
-| Eksamenssett | `/sett` | Hele sett, i øvingsmodus eller på tid — se [[Eksamenssett-modulen]] |
+| Eksamenssett | `/sett` | Hele sett, i øvingsmodus eller på tid. Fanen «Per del» har sett fra én del av pensum, i FIE402 sortert i «Mest forventet» og «Med vri». Se [[Eksamenssett-modulen]] |
 | Repetisjon | `/review` | Hva du bør repetere nå |
 | Søk | `/search` | På tvers av begreper, formler, figurer, økonomer, variabler |
 | Kapitteloppgaver | `/kapitteloppgaver`, `/kapitteloppgaver/:num`, `/kapitteloppgaver/:num/:oppg` | Oppgaver i fagets eksamensformat per kapittel: flervalg med fasit med en gang (FIE432) eller åpne oppgaver med løsning og sensorkriterier (FIE402) |
@@ -662,6 +662,10 @@ Den regnes på nytt hver gang siden åpnes.
   `mock` med `prog: null`, så de kan anbefales som øving uten å bli generalprøve.
   Det samme gjelder sett med `kind: "forelesning"` fra 9. november 2026
   (versjon 28): de gir ikke progresjon, men svarene teller i dagens mål.
+  Deleksamenene (`kind: "del"`, versjon 30, 21. november 2026) står også som
+  `mock` med `prog: null`, fordi et sett fra én del sier lite om hele eksamen.
+  Svarene teller i mestringen som prøveeksamenene. Planleggeren leser settene
+  gjennom `S.views.sett.alle()`, siden deleksamenene bare har `lån` i rådataene.
 - **Regnemodellen.** Gjenstår = arbeidsmengde × faktorene × gap til 85 % × (0,4 +
   0,2 × eksamensvekt), summert over kapitlene. Arbeidsmengden er tiden
   kjernepensum, kapitteloppgaver og quiz for kapitlet tar; manualens ordtall brukes

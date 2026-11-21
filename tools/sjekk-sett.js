@@ -18,7 +18,11 @@
    Hvert ledd må ha et tema som finnes i EDU_DATA.kartlegging.temaer, og en diag
    per alternativ: null på fasiten, en ren tekst som navngir feilen på hvert galt
    alternativ. Settet skal ikke ha minuspoeng. Filen fag/<id>/kartlegging.js
-   tas med når du ikke oppgir filer.                                            */
+   tas med når du ikke oppgir filer.
+
+   Lånte sett (november 2026): et sett med `lån` låner oppgavene sine fra andre
+   sett. Kontrollen slår dem opp, sjekker at hver finnes, at ingen er lånt to
+   ganger og at tiden stemmer med kildesettenes minutter per poeng.            */
 
 const fs = require("fs");
 const path = require("path");
@@ -67,6 +71,42 @@ for (const fil of filer) {
   const si = (l, hvor, m) => l.push(`${hvor}: ${m}`);
   const HTML = /<[a-zA-Z/!]/;
   const idSett = new Set();
+
+  /* Lånte sett (november 2026): et sett med `lån` har ingen egne oppgaver.
+     Oppgavene slås opp her slik motoren gjør, så resten av kontrollen ser dem som
+     vanlige oppgaver. En oppgave som er lånt to ganger, gir en advarsel. Sett med
+     kind: "del" må ha en del og en art som finnes i EDU_DATA.perDel. */
+  const lånt = new Map();
+  const perDel = w.EDU_DATA.perDel || null;
+  for (const s of sets) {
+    if (!s.lån) continue;
+    const sid = s.id || "(uten id)";
+    if (s.exercises && s.exercises.length) si(feil, sid, "har både lån og egne oppgaver");
+    const ut = []; let min = 0;
+    for (const ref of s.lån) {
+      const k = sets.find((x) => x.id === ref.sett && !x.lån);
+      const ex = k && (k.exercises || []).find((e) => e.n === ref.n);
+      if (!ex) { si(feil, sid, `lån: fant ikke ${ref.sett} oppgave ${ref.n}`); continue; }
+      const nøkkel = `${ref.sett} oppgave ${ref.n}`;
+      if (lånt.has(nøkkel)) si(advarsel, sid, `${nøkkel} er også lånt av ${lånt.get(nøkkel)}`);
+      lånt.set(nøkkel, sid);
+      if (ref.merke && HTML.test(ref.merke)) si(feil, sid, `merke på ${nøkkel} inneholder markup`);
+      min += ((ex.points || 0) * k.minutes) / k.points;
+      ut.push(Object.assign({}, ex, { n: ut.length + 1 }));
+    }
+    s.exercises = ut;
+    if (Math.abs(min - s.minutes) > 10) si(advarsel, sid, `kildene tilsier ${Math.round(min)} min, settet sier ${s.minutes}`);
+    if (s.kind === "del") {
+      const d = perDel && (perDel.deler || []).find((x) => x.del === s.del);
+      if (typeof s.del !== "number") si(feil, sid, "kind: del uten del-nummer");
+      else if (perDel && !d) si(feil, sid, `del ${s.del} finnes ikke i EDU_DATA.perDel.deler`);
+      if (perDel && s.art && !(perDel.arter || []).some((a) => a.id === s.art)) si(feil, sid, `art «${s.art}» finnes ikke i EDU_DATA.perDel.arter`);
+      if (d && d.kapitler) ut.forEach((ex) => {
+        if ((ex.chapters || []).length && !ex.chapters.some((c) => d.kapitler.includes(c)))
+          si(advarsel, sid, `oppgave ${ex.n} har ingen kapitler i del ${s.del}`);
+      });
+    }
+  }
 
   for (const s of sets) {
     const sid = s.id || "(uten id)";

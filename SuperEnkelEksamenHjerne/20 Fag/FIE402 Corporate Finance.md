@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-11-15
+oppdatert: 2026-11-21
 ---
 
 # FIE402 Corporate Finance
@@ -350,7 +350,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 |---|---|
 | Manualen | **30 kapitler · 109 000 ord** · alle uavhengig tallkontrollert |
 | Studieplan | **25 moduler · 78 timer**, estimatene regnet av faktisk innhold |
-| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **12 prøveeksamener** i Kurbatov-formatet (prove1–3 fra oktober, prove4–12 fra prediksjonen 14. november) |
+| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **12 prøveeksamener** i Kurbatov-formatet (prove1–3 fra oktober, prove4–12 fra prediksjonen 14. november). **25 deleksamener** («Per del») laget av de 72 prøveoppgavene |
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **528**: 260 oppgavekort i 16 kategorier (forsiden en oppgavetype, baksiden svar og feller) og 268 begrepskort, pluss 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
@@ -482,6 +482,41 @@ Se [[Eksamenssett-modulen]] for motoren og rapporten.
 Gjengis ordrett i modulen [[Eksamenssett-modulen]], med egne fullstendige
 løsninger. Ordrett gjengivelse er et bevisst valg — se [[Beslutningslogg]] — og
 betyr at NHHs oppgavetekst ligger på den offentlige Pages-siden.
+
+## Deleksamenene (21. november 2026)
+
+Fanen «Per del» i Eksamenssett: 25 sett med oppgaver fra bare én av pensumets tre
+deler, med samme inndeling som [[#Kartleggingen]] (del 1 grunnlag og verdsetting med
+gjeld, k1–k5 og k17–k20; del 2 kapitalstruktur, agentkostnader og informasjon,
+k6–k16; del 3 opsjoner, M&A og governance, k21–k27). Ligger sist i
+`fag/fie402/sett.js` som `EDU_DATA.perDel` og sett med `lån`.
+
+**Bare prøveoppgaver.** Magnus ville ikke ha de ekte eksamensoppgavene der, bare
+lignende oppgaver med nye tall. Alle 72 prøveoppgavene er brukt én gang. Ingen av
+dem har tallene fra en ekte oppgave (sammenlignet 21. november: overlappet var bare
+runde tall som 25, 50 og 90). De eldre settene ville uansett ikke passet: de har 1
+minutt per poeng, Kurbatov 1,8.
+
+**To arter i hver del.** Magnus ville skille det helt naturlige fra det med vri:
+
+| Del | Mest forventet | Med vri |
+|---|---|---|
+| 1 | 2 sett · 4 oppgaver | 3 sett · 8 oppgaver |
+| 2 | 2 sett · 4 oppgaver | 6 sett · 18 oppgaver |
+| 3 | 3 sett · 11 oppgaver | 9 sett · 27 oppgaver |
+
+«Mest forventet» er oppgaver i samme form som en oppgave Kurbatov har gitt i H2024
+eller H2025, med nye tall. Kolonnen K i `docs/fie402-prediksjon.md` avgjør. «Med vri»
+er samme sjanger med en vri prediksjonen mener kan komme (annen gjeldspolitikk, skatt
+eller brannsalg i rekapitaliseringen, Myers-Majluf, børsnotering, trinnvis
+finansiering, kontantbud …). Del 2 har få forventede fordi Kurbatov bare har gitt
+MM-rekapitalisering og risikoskifting der. Hver oppgave har et `merke` som sier hvilken
+ekte oppgave den ligner, eller hva vrien er. Merket navngir aldri mekanismen oppgaven
+spør etter («Vri: fusjon av to selskaper med gjeld», ikke «coinsurance»).
+
+Settene er på 2–4 oppgaver og 65–115 minutter (1,8 minutter per poeng), med de
+verbale oppgavene først som på eksamen. Hvorfor oppgavene er lånt og ikke kopiert,
+står i [[Eksamenssett-modulen]].
 
 ## Forelesningene 2026 (14. november 2026)
 

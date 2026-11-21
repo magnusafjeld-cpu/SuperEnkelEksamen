@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-11-02
+oppdatert: 2026-11-21
 ---
 
 # Beslutningslogg
@@ -243,6 +243,20 @@ rundt 90 minutter uten nedtelling, med én samlet rapport.
 **Konsekvens:** hvert galt alternativ må bygges fra en navngitt feil (`diag`), og en
 «Vet ikke»-knapp skiller hull fra gjetning. Diagnosen er bare så god som feilsvarene,
 derfor blind kontroll av hver del. Se [[Eksamenssett-modulen]].
+
+## Deleksamener av lånte prøveoppgaver (21. november 2026)
+Magnus ville ha eksamenssett med oppgaver fra bare én av pensumets tre deler, sortert i
+«Mest forventet» og «Med vri». Han ville ikke ha kopier av de ekte eksamensoppgavene. Valgt:
+settene låner oppgavene fra prøveeksamenene (`lån: [{ sett, n, merke }]`) og motoren
+slår dem opp. Alternativene var å kopiere oppgavene inn (enklere for andre lesere, men
+fila ville vokst med 72 oppgaver og rettelser måtte gjøres to steder) eller å skrive
+nye oppgaver (mye arbeid, mens prøveeksamenene allerede er bygd som lignende oppgaver med
+nye tall). Inndelingen i deler følger Kartleggingen. Skillet mellom artene følger
+prediksjonens kolonne K: samme form som en oppgave Kurbatov har gitt, eller ikke.
+
+**Konsekvens:** alle som leser settene, må bruke `S.views.sett.alle()`. Planleggeren
+måtte endres (se [[Fallgruver]]). Del 2 har bare fire forventede oppgaver, fordi
+Kurbatov bare har gitt to slike typer der. Se [[Eksamenssett-modulen]].
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på

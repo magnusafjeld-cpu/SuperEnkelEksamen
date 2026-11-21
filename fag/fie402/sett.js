@@ -6688,3 +6688,187 @@ window.EDU_DATA.sets = [
   ]
 },
 ];
+
+/* ===================== PER DEL: deleksamener (21. november 2026) =====================
+   Sett med oppgaver fra bare én av pensumets tre deler, med samme inndeling som
+   Kartleggingen. Hver del har to arter:
+
+     Mest forventet  samme form som en oppgave Kurbatov har gitt (H2024 eller H2025),
+                     med nye tall. Kolonnen K i docs/fie402-prediksjon.md avgjør.
+     Med vri         samme sjanger med en vri prediksjonen mener kan komme: en annen
+                     gjeldspolitikk, skatt eller brannsalg i rekapitaliseringen,
+                     Myers-Majluf, børsnotering, trinnvis finansiering, kontantbud …
+
+   Settene har ingen egne oppgaver. `lån` peker på prøveeksamenene over og motoren slår
+   dem opp. Oppgavene fra de ekte eksamenene er bevisst utelatt: her skal det bare være
+   lignende oppgaver med nye tall (Magnus' beskjed 21. november 2026). Hver av de 72
+   prøveoppgavene er brukt én gang. `merke` vises ved oppgaven og sier hvilken ekte
+   oppgave den ligner, eller hva vrien er. Den navngir aldri mekanismen oppgaven spør
+   etter. Retter du en oppgavetekst eller en fasit i prøveeksamenen, gjelder rettelsen
+   her også. Fremdriften lagres per sett, så et lånt sett starter blankt.
+
+   Tiden er 1,8 minutter per poeng, rundet til nærmeste 5 minutter.
+   `node tools/sjekk-sett.js fag/fie402/sett.js` slår opp lånene og sjekker dem.
+   id-ene er lagringsnøkler og endres aldri.
+   ============================================================================ */
+window.EDU_DATA.perDel = {
+  intro: "Sett med oppgaver fra bare én del av pensum, hentet fra prøveeksamenene. Ingen av dem er de ekte eksamensoppgavene, men alle ligner dem. Ta én del om gangen og gå videre til hele sett når delen sitter.",
+  deler: [
+    { del: 1, navn: "Grunnlag og verdsetting med gjeld", kapitler: [1, 2, 3, 4, 5, 17, 18, 19, 20] },
+    { del: 2, navn: "Kapitalstruktur, agentkostnader og informasjon", kapitler: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] },
+    { del: 3, navn: "Opsjoner, M&A og governance", kapitler: [21, 22, 23, 24, 25, 26, 27] },
+  ],
+  arter: [
+    { id: "forventet", navn: "Mest forventet", tekst: "Samme form som oppgavene Kurbatov har gitt i H2024 og H2025, med nye tall. Dette er oppgavene du bør kunne løse uten å nøle." },
+    { id: "vri", navn: "Med vri", tekst: "Samme sjanger med en vri som kan komme: en annen gjeldspolitikk, en friksjon eller et tema han ikke har gitt ennå. Merket ved hver oppgave sier hva som er nytt." },
+  ],
+};
+window.EDU_DATA.sets.push(
+  { id: "del1-f1", kind: "del", del: 1, art: "forventet", label: "Del 1 · Mest forventet 1", minutes: 70, points: 38, format: "2 oppgaver",
+    lån: [
+      { sett: "prove1", n: 4, merke: "Som H2025 E4: WACC og APV over to år" },
+      { sett: "prove6", n: 5, merke: "Som H2024 E5, med vekst" },
+    ] },
+  { id: "del1-f2", kind: "del", del: 1, art: "forventet", label: "Del 1 · Mest forventet 2", minutes: 70, points: 40, format: "2 oppgaver",
+    lån: [
+      { sett: "prove2", n: 5, merke: "Som H2024 E5: tvilling, WACC og APV" },
+      { sett: "prove3", n: 6, merke: "WACC og APV med konstant D/E, som H2025 E4" },
+    ] },
+  { id: "del1-v1", kind: "del", del: 1, art: "vri", label: "Del 1 · Med vri 1", minutes: 95, points: 54, format: "3 oppgaver",
+    lån: [
+      { sett: "prove8", n: 4, merke: "Vri: kapitalbudsjett for et prosjekt" },
+      { sett: "prove4", n: 4, merke: "Vri: prosjekt der du bygger FCF selv" },
+      { sett: "prove9", n: 4, merke: "Vri: permanent gjeld i stedet for konstant D/V" },
+    ] },
+  { id: "del1-v2", kind: "del", del: 1, art: "vri", label: "Del 1 · Med vri 2", minutes: 95, points: 54, format: "3 oppgaver",
+    lån: [
+      { sett: "prove5", n: 4, merke: "Vri: konstant rentedekning og FTE" },
+      { sett: "prove7", n: 4, merke: "Vri: finansieringen av gjeldskapasiteten" },
+      { sett: "prove11", n: 4, merke: "Vri: full verdsetting med FCF og terminalverdi" },
+    ] },
+  { id: "del1-v3", kind: "del", del: 1, art: "vri", label: "Del 1 · Med vri 3", minutes: 70, points: 38, format: "2 oppgaver",
+    lån: [
+      { sett: "prove10", n: 4, merke: "Vri: tre gjeldspolitikker på samme firma" },
+      { sett: "prove12", n: 5, merke: "Vri: voksende gjeld og FTE" },
+    ] },
+  { id: "del2-f1", kind: "del", del: 2, art: "forventet", label: "Del 2 · Mest forventet 1", minutes: 65, points: 36, format: "2 oppgaver",
+    lån: [
+      { sett: "prove1", n: 3, merke: "Som H2025 E3: MM-rekapitalisering" },
+      { sett: "prove2", n: 4, merke: "Som H2024 E4: prosjektvalg med gjeld" },
+    ] },
+  { id: "del2-f2", kind: "del", del: 2, art: "forventet", label: "Del 2 · Mest forventet 2", minutes: 65, points: 36, format: "2 oppgaver",
+    lån: [
+      { sett: "prove2", n: 3, merke: "Som H2024 E3: rekapitalisering med utbytte" },
+      { sett: "prove6", n: 3, merke: "Som E3 hos Kurbatov, regnet med betaer" },
+    ] },
+  { id: "del2-v1", kind: "del", del: 2, art: "vri", label: "Del 2 · Med vri 1", minutes: 85, points: 48, format: "3 oppgaver",
+    lån: [
+      { sett: "prove4", n: 1, merke: "Vri: kursfall ved emisjon, verbalt" },
+      { sett: "prove3", n: 4, merke: "Vri: skatt og konkurskostnader i rekapitaliseringen" },
+      { sett: "prove9", n: 3, merke: "Vri: nytt prosjekt finansiert med ny egenkapital" },
+    ] },
+  { id: "del2-v2", kind: "del", del: 2, art: "vri", label: "Del 2 · Med vri 2", minutes: 85, points: 48, format: "3 oppgaver",
+    lån: [
+      { sett: "prove3", n: 1, merke: "Vri: utbyttepolitikk, verbalt" },
+      { sett: "prove4", n: 3, merke: "Vri: skatt i rekapitaliseringen og brannsalg" },
+      { sett: "prove7", n: 3, merke: "Vri: emisjon med asymmetrisk informasjon" },
+    ] },
+  { id: "del2-v3", kind: "del", del: 2, art: "vri", label: "Del 2 · Med vri 3", minutes: 85, points: 48, format: "3 oppgaver",
+    lån: [
+      { sett: "prove8", n: 1, merke: "Vri: børsnotering og underprising, verbalt" },
+      { sett: "prove5", n: 3, merke: "Vri: EPS og P/E etter rekapitaliseringen" },
+      { sett: "prove6", n: 4, merke: "Vri: konkurs med brannsalg og prosjektvalg" },
+    ] },
+  { id: "del2-v4", kind: "del", del: 2, art: "vri", label: "Del 2 · Med vri 4", minutes: 85, points: 48, format: "3 oppgaver",
+    lån: [
+      { sett: "prove5", n: 1, merke: "Vri: fire måter å bruke fri kontantstrøm, verbalt" },
+      { sett: "prove8", n: 3, merke: "Vri: konkurskostnader og rekapitalisering" },
+      { sett: "prove3", n: 3, merke: "Vri: to typer selskap og et sertifikat" },
+    ] },
+  { id: "del2-v5", kind: "del", del: 2, art: "vri", label: "Del 2 · Med vri 5", minutes: 85, points: 48, format: "3 oppgaver",
+    lån: [
+      { sett: "prove9", n: 1, merke: "Vri: kutt i utbyttet og tilbakekjøp, verbalt" },
+      { sett: "prove12", n: 3, merke: "Vri: to like firmaer, ett med gjeld" },
+      { sett: "prove11", n: 3, merke: "Vri: tilbakekjøp med asymmetrisk informasjon" },
+    ] },
+  { id: "del2-v6", kind: "del", del: 2, art: "vri", label: "Del 2 · Med vri 6", minutes: 85, points: 48, format: "3 oppgaver",
+    lån: [
+      { sett: "prove11", n: 1, merke: "Vri: tre påstander om kapitalstruktur, verbalt" },
+      { sett: "prove12", n: 4, merke: "Vri: spin-off i et selskap med gjeld" },
+      { sett: "prove10", n: 3, merke: "Vri: børsnotering regnet" },
+    ] },
+  { id: "del3-f1", kind: "del", del: 3, art: "forventet", label: "Del 3 · Mest forventet 1", minutes: 115, points: 64, format: "4 oppgaver",
+    lån: [
+      { sett: "prove2", n: 1, merke: "Som H2024 E1: M&A-motiver, verbalt" },
+      { sett: "prove1", n: 2, merke: "Som H2024 E2: overvåkingsmekanismer" },
+      { sett: "prove12", n: 6, merke: "Som H2024 E6: ρ fra et omsatt verdipapir" },
+      { sett: "prove11", n: 6, merke: "Som H2025 E6: dealsannsynlighet og avstemning" },
+    ] },
+  { id: "del3-f2", kind: "del", del: 3, art: "forventet", label: "Del 3 · Mest forventet 2", minutes: 80, points: 44, format: "3 oppgaver",
+    lån: [
+      { sett: "prove12", n: 1, merke: "Som H2025 E1: opsjonsintuisjon, verbalt" },
+      { sett: "prove9", n: 2, merke: "Som H2025 E2: aksjonærtiltak" },
+      { sett: "prove1", n: 5, merke: "Som H2025 E5: informasjon og exit" },
+    ] },
+  { id: "del3-f3", kind: "del", del: 3, art: "forventet", label: "Del 3 · Mest forventet 3", minutes: 100, points: 56, format: "4 oppgaver",
+    lån: [
+      { sett: "prove1", n: 1, merke: "Som H2025 E1: opsjonsintuisjon, verbalt" },
+      { sett: "prove6", n: 1, merke: "Som H2024 E1: hvem vinner på oppkjøp, verbalt" },
+      { sett: "prove11", n: 2, merke: "Som H2024 E2: hvem overvåker og med hva" },
+      { sett: "prove2", n: 6, merke: "Som H2024 E6: ventopsjon med ρ" },
+    ] },
+  { id: "del3-v1", kind: "del", del: 3, art: "vri", label: "Del 3 · Med vri 1", minutes: 95, points: 52, format: "3 oppgaver",
+    lån: [
+      { sett: "prove10", n: 1, merke: "Vri: kontanter eller aksjer, verbalt" },
+      { sett: "prove3", n: 5, merke: "Vri: binomialprising av en finansiell opsjon og paritet" },
+      { sett: "prove4", n: 6, merke: "Vri: dealsannsynlighet over tre måneder og implisitte synergier" },
+    ] },
+  { id: "del3-v2", kind: "del", del: 3, art: "vri", label: "Del 3 · Med vri 2", minutes: 95, points: 52, format: "3 oppgaver",
+    lån: [
+      { sett: "prove2", n: 2, merke: "Vri: lederlønn" },
+      { sett: "prove4", n: 5, merke: "Vri: exit med månedlige kontantstrømmer" },
+      { sett: "prove1", n: 6, merke: "Vri: aksjebytte, NPV for partene og høyeste bytteforhold" },
+    ] },
+  { id: "del3-v3", kind: "del", del: 3, art: "vri", label: "Del 3 · Med vri 3", minutes: 95, points: 52, format: "3 oppgaver",
+    lån: [
+      { sett: "prove3", n: 2, merke: "Vri: aktivisme og forsvarstiltak" },
+      { sett: "prove5", n: 5, merke: "Vri: vente og trinnvis finansiering" },
+      { sett: "prove7", n: 6, merke: "Vri: kontanter, aksjer og budkamp" },
+    ] },
+  { id: "del3-v4", kind: "del", del: 3, art: "vri", label: "Del 3 · Med vri 4", minutes: 95, points: 52, format: "3 oppgaver",
+    lån: [
+      { sett: "prove4", n: 2, merke: "Vri: bonus knyttet til et EPS-mål" },
+      { sett: "prove6", n: 6, merke: "Vri: oljefelt med to utvinningsmetoder" },
+      { sett: "prove5", n: 6, merke: "Vri: aksjebytte og kontantbud" },
+    ] },
+  { id: "del3-v5", kind: "del", del: 3, art: "vri", label: "Del 3 · Med vri 5", minutes: 95, points: 52, format: "3 oppgaver",
+    lån: [
+      { sett: "prove5", n: 2, merke: "Vri: svakheter i styret" },
+      { sett: "prove7", n: 5, merke: "Vri: senior og junior gjeld som opsjoner" },
+      { sett: "prove8", n: 6, merke: "Vri: fusjon av to selskaper med gjeld" },
+    ] },
+  { id: "del3-v6", kind: "del", del: 3, art: "vri", label: "Del 3 · Med vri 6", minutes: 95, points: 52, format: "3 oppgaver",
+    lån: [
+      { sett: "prove6", n: 2, merke: "Vri: stemmerådgivere" },
+      { sett: "prove8", n: 5, merke: "Vri: trinnvis finansiering" },
+      { sett: "prove10", n: 6, merke: "Vri: kontantbud og dealsannsynlighet over seks måneder" },
+    ] },
+  { id: "del3-v7", kind: "del", del: 3, art: "vri", label: "Del 3 · Med vri 7", minutes: 95, points: 52, format: "3 oppgaver",
+    lån: [
+      { sett: "prove12", n: 2, merke: "Vri: forsvar mot et fiendtlig bud" },
+      { sett: "prove9", n: 5, merke: "Vri: firmaets eiendeler i et binomialtre" },
+      { sett: "prove10", n: 5, merke: "Vri: obligasjoner og CDS" },
+    ] },
+  { id: "del3-v8", kind: "del", del: 3, art: "vri", label: "Del 3 · Med vri 8", minutes: 80, points: 44, format: "3 oppgaver",
+    lån: [
+      { sett: "prove7", n: 1, merke: "Vri: amerikanske opsjoner og gjeld som put, verbalt" },
+      { sett: "prove10", n: 2, merke: "Vri: interessentmål i lederlønnen" },
+      { sett: "prove9", n: 6, merke: "Vri: ventopsjon med en konkurrent" },
+    ] },
+  { id: "del3-v9", kind: "del", del: 3, art: "vri", label: "Del 3 · Med vri 9", minutes: 80, points: 44, format: "3 oppgaver",
+    lån: [
+      { sett: "prove7", n: 2, merke: "Vri: forskjøvet styrevalg og kvalifisert flertall" },
+      { sett: "prove8", n: 2, merke: "Vri: aksjonærer eller interessenter" },
+      { sett: "prove11", n: 5, merke: "Vri: søksmålstreet" },
+    ] },
+);

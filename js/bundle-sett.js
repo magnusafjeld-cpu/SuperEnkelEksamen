@@ -32,6 +32,18 @@
    øverst om hvor mange som er gjort. Til sammen dekker de hvert punkt i
    sjekklisten (ledd.dekker). Ellers kjøres de som prøveeksamenene.
 
+   Per del. Et sett med kind: "del" øver på én del av pensum og har `del` (1, 2, 3 …)
+   og `art` (for eksempel "forventet" eller "vri"). Fanen «Per del» viser én del om
+   gangen, med settene gruppert etter art. Navnene på delene og artene og teksten
+   øverst kommer fra EDU_DATA.perDel. Ellers kjøres de som prøveeksamenene.
+
+   Lånte oppgaver. Et sett med `lån` (en liste med { sett, n, merke }) har ingen egne
+   oppgaver, men låner dem fra andre sett. Motoren slår dem opp når lista leses, og
+   gjenbruker oppslaget, så setById gir samme objekt hver gang. Oppgavene nummereres
+   1, 2, 3 … i det nye settet, siden n er lagringsnøkkelen. Hver får `kilde`
+   (settet og oppgaven den kom fra) og `merke`, som vises ved oppgaven. En rettelse i
+   kildesettet gjelder dermed også her, mens fremdriften lagres per sett.
+
    Kartlegging. Et sett med kind: "kartlegging" er en diagnose, ikke en eksamen.
    Det får en egen fane, kjøres alltid med hele settet synlig, uten nedtelling
    (klokka viser brukt tid) og uten minuspoeng. Hvert ledd har en «Vet ikke»-knapp
@@ -53,14 +65,34 @@ window.EDU = window.EDU || {};
 (function (S) {
   const { el, icon, frag } = S.u;
   const sh = () => S.views.shared;
-  const SETS = () => window.EDU_DATA.sets || [];
+  /* Lånte sett slås opp når lista leses, aldri når filen lastes: fagdata lastes
+     etter motoren. WeakMap-en gjør at samme sett gir samme objekt hver gang. */
+  const lånt = new WeakMap();
+  function slåOppLån(set, alle) {
+    if (lånt.has(set)) return lånt.get(set);
+    const oppgaver = [];
+    set.lån.forEach((ref) => {
+      const kilde = alle.find((s) => s.id === ref.sett && !s.lån);
+      const ex = kilde && (kilde.exercises || []).find((e) => e.n === ref.n);
+      if (!ex) { console.warn(`[sett] ${set.id}: fant ikke ${ref.sett} oppgave ${ref.n}`); return; }
+      oppgaver.push(Object.assign({}, ex, { n: oppgaver.length + 1, kilde: `${kilde.label} · oppgave ${ex.n}`, merke: ref.merke || "" }));
+    });
+    const k = oppgaver.map((e) => e.kilde);
+    const note = set.note || (k.length ? "Hentet fra " + (k.length > 1 ? k.slice(0, -1).join(", ") + " og " + k[k.length - 1] : k[0]) + "." : "");
+    const løst = Object.assign({}, set, { exercises: oppgaver, note });
+    lånt.set(set, løst);
+    return løst;
+  }
+  const SETS = () => { const alle = window.EDU_DATA.sets || []; return alle.map((s) => (s.lån ? slåOppLån(s, alle) : s)); };
+  const perDel = () => window.EDU_DATA.perDel || {};
 
   /* ---------- lokal tilstand (ikke persistert: hvor du er, ikke hva du har gjort) ---------- */
   let openSet = null;      // settId, eller null for listevisningen
   let mode = "practice";   // "practice" | "exam"
   let cursor = 0;          // hvilken oppgave som vises i øvingsmodus
   let ticker = null;       // intervallet som teller ned
-  let del = "eksamen";     // "eksamen" | "prove" | "svak" | "fl" | "kart": hvilken del av lista som vises
+  let del = "eksamen";     // "eksamen" | "prove" | "pd" | "svak" | "fl" | "kart": hvilken del av lista som vises
+  let valgtDel = null;     // hvilken pensumdel fanen «Per del» viser
   let bareUsikre = false;  // øvingsmodus viser bare oppgaver som er usikre eller feil
 
   const erKart = (set) => !!set && set.kind === "kartlegging";
@@ -275,13 +307,15 @@ window.EDU = window.EDU || {};
     const svake = alle.filter((x) => x.kind === "svak");
     const kart = alle.filter(erKart);
     const fl = alle.filter((x) => x.kind === "forelesning").sort((a, b) => (a.nr || 0) - (b.nr || 0));
-    const ekte = alle.filter((x) => x.kind !== "mock" && x.kind !== "svak" && x.kind !== "forelesning" && !erKart(x));
-    if ((del === "prove" && !prøver.length) || (del === "svak" && !svake.length) || (del === "fl" && !fl.length) || (del === "kart" && !kart.length)) del = "eksamen";
+    const deler = alle.filter((x) => x.kind === "del");
+    const ekte = alle.filter((x) => x.kind !== "mock" && x.kind !== "svak" && x.kind !== "forelesning" && x.kind !== "del" && !erKart(x));
+    if ((del === "prove" && !prøver.length) || (del === "pd" && !deler.length) || (del === "svak" && !svake.length) || (del === "fl" && !fl.length) || (del === "kart" && !kart.length)) del = "eksamen";
     const prøveDel = del === "prove", svakDel = del === "svak", flDel = del === "fl";
     const sets = prøveDel ? prøver : svakDel ? svake : flDel ? fl : ekte;
     const faner = () => {
       const seg = el(".seg", { style: { marginBottom: "16px" } });
       [["eksamen", `Tidligere eksamener (${ekte.length})`], prøver.length ? ["prove", `Prøveeksamener (${prøver.length})`] : null,
+       deler.length ? ["pd", `Per del (${deler.length})`] : null,
        fl.length ? ["fl", `Per forelesning (${fl.length})`] : null,
        svake.length ? ["svak", `Svake temaer (${svake.length})`] : null,
        kart.length ? ["kart", "Kartlegging"] : null].filter(Boolean).forEach(([d, label]) =>
@@ -295,6 +329,13 @@ window.EDU = window.EDU || {};
       kartListe(wrap, kart);
       return wrap;
     }
+    if (del === "pd") {
+      wrap.appendChild(sh().pageHead("Eksamenssett", `Per del · ${deler.length} sett`,
+        perDel().intro || "Sett med oppgaver fra bare én del av pensum."));
+      wrap.appendChild(faner());
+      perDelListe(wrap, deler);
+      return wrap;
+    }
     /* Ikke alle settene er eksamener: FIE432 har også flervalgstesten til
        kursgodkjenning. Undertittelen teller derfor sett. */
     wrap.appendChild(sh().pageHead("Eksamenssett", sets.length === 1 ? "1 sett" : `${sets.length} sett`,
@@ -306,7 +347,7 @@ window.EDU = window.EDU || {};
         ? "Prøveeksamener laget i formatet du møter, bygd på det de tidligere eksamenene faktisk spør om. De er ikke gitt av kurset. Kjør dem på tid med minuspoeng, og les fasiten på hvert feil svar etterpå."
         : "Hele sett, slik de ble gitt. Kjør dem som øving med fasit underveis, eller som ekte eksamen på tid der fasiten først åpner seg når du leverer."));
 
-    if (prøver.length || svake.length || fl.length || kart.length) wrap.appendChild(faner());
+    if (prøver.length || deler.length || svake.length || fl.length || kart.length) wrap.appendChild(faner());
 
     if (!sets.length) { wrap.appendChild(sh().empty("📄", "Ingen eksamenssett ennå", "Faget har ikke lagt inn sett i EDU_DATA.sets.")); return wrap; }
 
@@ -320,8 +361,59 @@ window.EDU = window.EDU || {};
     return wrap;
   }
 
-  /* Hvor langt du er kommet gjennom forelesningssettene. Et sett er gjort når det
-     er levert eller hver oppgave er rettet i øving. */
+  /* Et sett er gjort når det er levert eller hver oppgave er rettet i øving. */
+  function erGjort(set) {
+    const sum = scoreSum(set);
+    return isSubmitted(set.id) || (!!sum.total && sum.scored === sum.total);
+  }
+
+  /* Kapittellista som rekker: [1, 2, 3, 17, 18] blir «k1–k3 og k17–k18». */
+  function kapRekke(ks) {
+    const s = [...ks].sort((a, b) => a - b), ut = [];
+    for (let i = 0; i < s.length;) {
+      let j = i; while (j + 1 < s.length && s[j + 1] === s[j] + 1) j++;
+      ut.push(i === j ? `k${s[i]}` : `k${s[i]}–k${s[j]}`); i = j + 1;
+    }
+    return ut.length > 1 ? ut.slice(0, -1).join(", ") + " og " + ut[ut.length - 1] : (ut[0] || "");
+  }
+
+  /* Fanen «Per del»: én del om gangen, settene gruppert etter art i den
+     rekkefølgen EDU_DATA.perDel.arter gir. Sett uten kjent art kommer sist. */
+  function perDelListe(wrap, sets) {
+    const cfg = perDel();
+    const nr = [...new Set(sets.map((s) => s.del))].sort((a, b) => a - b);
+    if (!nr.includes(valgtDel)) valgtDel = nr[0];
+    if (nr.length > 1) {
+      const seg = el(".seg", { style: { marginBottom: "14px" } });
+      nr.forEach((n) => seg.appendChild(el("button" + (n === valgtDel ? ".on" : ""),
+        { onclick: () => { if (valgtDel !== n) { valgtDel = n; S.app.refresh(); } } }, `Del ${n}`)));
+      wrap.appendChild(seg);
+    }
+    const info = (cfg.deler || []).find((d) => d.del === valgtDel) || {};
+    const iDel = sets.filter((s) => s.del === valgtDel);
+    wrap.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline", margin: "4px 0 12px" } },
+      el("h3", { style: { fontSize: "19px" } }, `Del ${valgtDel}` + (info.navn ? " · " + info.navn : "")),
+      info.kapitler ? el(".chip.slate", kapRekke(info.kapitler)) : null,
+      el(".spacer"),
+      el(".tiny.muted", `${iDel.filter(erGjort).length} av ${iDel.length} sett gjort`)));
+    const us = usikreKort(iDel);
+    if (us) wrap.appendChild(us);
+    const arter = cfg.arter || [];
+    const grupper = arter.map((a) => ({ a, sett: iDel.filter((s) => s.art === a.id) }));
+    grupper.push({ a: null, sett: iDel.filter((s) => !arter.some((a) => a.id === s.art)) });
+    grupper.filter((g) => g.sett.length).forEach(({ a, sett }) => {
+      if (a) {
+        wrap.appendChild(el("h4", { style: { margin: "20px 0 4px" } },
+          `${a.navn} · ${sett.filter(erGjort).length} av ${sett.length} gjort`));
+        if (a.tekst) wrap.appendChild(el("p.tiny.muted", { style: { margin: "0 0 10px" } }, a.tekst));
+      }
+      const list = el(".stack", { style: { gap: "14px" } });
+      sett.forEach((s) => list.appendChild(setCard(s)));
+      wrap.appendChild(list);
+    });
+  }
+
+  /* Hvor langt du er kommet gjennom forelesningssettene. */
   function flFremdrift(fl) {
     let ledd = 0, rettet = 0, got = 0, of = 0, gjort = 0;
     fl.forEach((set) => {
@@ -482,6 +574,8 @@ window.EDU = window.EDU || {};
   function exerciseHead(set, ex) {
     return el(".row.wrap", { style: { gap: "10px", alignItems: "baseline", marginBottom: "10px" } },
       el("h3", { style: { fontSize: "18px" } }, `Oppgave ${ex.n}${ex.title ? " · " + ex.title : ""}`),
+      ex.kilde ? el(".chip.slate", { style: { fontSize: "11px" }, title: "Oppgaven er lånt herfra" }, ex.kilde) : null,
+      ex.merke ? el(".chip", { style: { fontSize: "11px" } }, ex.merke) : null,
       el(".spacer"),
       !(ex.parts || []).length ? usikkerKnapp(set, ex, "")
         : erUsikker(set.id, ex.n, "") ? usikkerKnapp(set, ex, "", "Hele oppgaven") : null,
@@ -963,5 +1057,7 @@ window.EDU = window.EDU || {};
     return SETS().filter((s) => { const r = run(s.id); return r.startedAt && !r.submittedAt; }).length;
   }
 
-  S.views.sett = { render, activeCount };
+  /* alle(): settene med lånte oppgaver slått opp, for andre som leser settene
+     (planleggeren). EDU_DATA.sets alene viser lånte sett uten oppgaver. */
+  S.views.sett = { render, activeCount, alle: SETS };
 })(window.EDU);

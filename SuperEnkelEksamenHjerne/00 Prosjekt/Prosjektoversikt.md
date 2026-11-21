@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, oversikt]
-oppdatert: 2026-09-24
+oppdatert: 2026-11-21
 ---
 
 # Prosjektoversikt
@@ -39,7 +39,7 @@ er realisert, og [[Fallgruver]] for stedene der den er brutt.
 
 | Hva | Hvor |
 |---|---|
-| Kode | `~/Desktop/Diverse Vibe Code/SuperEnkelEksamen` |
+| Kode | `~/Documents/Magnus Fjeld/NHH/SuperEnkelEksamen` (flyttet fra `~/Desktop/Diverse Vibe Code/`) |
 | GitHub | https://github.com/magnusafjeld-cpu/SuperEnkelEksamen |
 | Publisert app | https://magnusafjeld-cpu.github.io/SuperEnkelEksamen/ |
 | Supabase-prosjekt | `xjmjoolrbgfqrcovznru` — se [[Supabase]] |
