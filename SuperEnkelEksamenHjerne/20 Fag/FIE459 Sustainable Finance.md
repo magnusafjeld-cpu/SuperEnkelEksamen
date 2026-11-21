@@ -147,8 +147,8 @@ oppsettet står i `fag/fie459/_trening/temaer.py`, og hurtiginnføringene i
 - **Gjesteforelesningen 27. oktober** (Heidelberg Materials, «Beyond Longship», CO₂-fangst
   i Brevik) kom med i en ny Canvas-eksport 21. november. Teksten ligger i `_tekst/`. Den
   sjette gjesteforelesningen (Sustainability Hub) har ingen foiler på Canvas.
-- **Forbruket**: skribentene brukte rundt 40 prosentpoeng av 5-timersvinduet (fem
-  parallelle), løserne rundt 2 hver.
+- **Forbruket**: 52 prosentpoeng av 5-timersvinduet i alt (fra 6 til 58 %). De fem
+  parallelle skribentene sto for rundt 40, løserne (Sonnet) for rundt 2 hver.
 
 ## Kildene og hvordan de ble brukt
 
