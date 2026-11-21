@@ -573,7 +573,10 @@ NotebookLM-kilder, med god tid.
   tjue rettinger av kilder, avrunding og uklare forsider.
 - **NotebookLM-kilder:** 14 filer, én per forelesning, på engelsk, i kursmappen
   `NotebookLM-kilder/`. Kontrollert uavhengig; seks rettinger, blant annet IST i PS1 E9
-  (gevinsten er 27 mill., ikke 37).
+  (gevinsten er 27 mill., ikke 37). I tillegg kilder per problem set (PS1–PS3) og en
+  dypdykkfil for andre halvdel av forelesning 9 (`… lecture 9 options I after put-call
+  parity.md`, 21.11.2026): binomial, replikering, ρ, Black-Scholes-intuisjon og implisitt
+  volatilitet, med H2024 E6, H2025 E1 og 2022 P4. Alle tall regnet på nytt i Python.
 - **Prøveeksamener 4–12:** se `docs/fie402-proveeksamen-spek.md`, siste del. Runde 1
   (prove4 det mest sannsynlige settet, prove5 kjernen, prove6 H2024-formen) er lagt ut etter
   blind løsning: ingen regnefeil, men alle tre var 40–60 % lengre enn Kurbatovs (1 600–1 900
