@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-19
+oppdatert: 2026-11-21
 ---
 
 # Moduler og visninger
@@ -553,6 +553,11 @@ ingen tekst kan derfor si «alternativ B». Spesifikasjonen er
 | `python3 tools/trening-blind.py del/sammenlign` | blind kontroll: spørsmålene uten fasit ut, svarene inn, avvikene vist |
 
 Se [[FIE432 Personlig økonomi]] for hvordan banken ble skrevet og kontrollert.
+
+**FIE459 (21. november 2026)** har en bank med bare statiske flervalg: 419 spørsmål i 14
+temaer, uten minuspoeng og uten «Regn selv først». Hurtiginnføringene skrives i
+`_trening/_intro_<del>.py` og flettes inn av `temaer.py`, så flere skribenter kan skrive dem
+samtidig. Se [[FIE459 Sustainable Finance]].
 
 ## Formelarket — alltid ett trykk unna
 

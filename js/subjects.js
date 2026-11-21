@@ -421,10 +421,14 @@ window.EDU_SUBJECTS = [
     },
     /* Ingen dybdetrening, lynlæring eller eksamenssett: det finnes ingen
        tidligere eksamener, og faget skal være kort. Eksamen er flervalg og
-       sant/usant, og det er nøyaktig formatet quizen har. */
-    /* Forelesningsgjennomgangene er store og lastes først når modulen åpnes. */
-    lazy: { "/forelesninger": ["fag/fie459/forelesninger.js"] },
-    modules: ["/plan", "/curriculum", "/kjerne", "/forelesninger", "/quiz", "/flashcards", "/review", "/search", "/notebooklm"],
+       sant/usant. Quizen har begge; eksamenstreningen (/trening) er bare
+       flervalg, etter ønske fra Magnus 21. november 2026. */
+    /* Forelesningsgjennomgangene og eksamenstreningen er store og lastes først
+       når modulen åpnes. Eksamenstreningen bygges av tools/bygg-trening.py fra
+       fag/fie459/_trening/ (419 flervalg i 14 temaer, ett per forelesning pluss
+       gjesteforelesningene). */
+    lazy: { "/forelesninger": ["fag/fie459/forelesninger.js"], "/trening": ["fag/fie459/trening.js"] },
+    modules: ["/plan", "/curriculum", "/kjerne", "/forelesninger", "/trening", "/quiz", "/flashcards", "/review", "/search", "/notebooklm"],
   },
 ];
 

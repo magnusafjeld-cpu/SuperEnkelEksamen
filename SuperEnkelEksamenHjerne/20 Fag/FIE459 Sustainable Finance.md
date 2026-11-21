@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie459, innhold]
-oppdatert: 2026-11-19
+oppdatert: 2026-11-21
 ---
 
 # FIE459 Sustainable Finance
@@ -41,8 +41,9 @@ strategy!». Det finnes **ingen tidligere eksamener**. Derfor ingen
 | Flashcards | 94 skrevne kort i tre kortstokker: begrep, mekanisme, intuisjon |
 | Kjernepensum | 8 deler, rundt 7 800 ord og 2 t 30 min med sjekker og minicaser (lagt inn 21. oktober 2026). Minicasene har to flervalg og ett sant/usant, uten minuspoeng |
 | Forelesninger | 13 interaktive gjennomganger, én per forelesning, 267 steg og rundt 3 timer (12–17 min hver). 146 oppgaver med poeng: gjett, sant/usant og sortering (lagt inn 19. november 2026) |
+| Eksamenstrening | 419 flervalg i 14 temaer, ett per forelesning pluss gjesteforelesningene (Folketrygdfondet, Fondsfinans, Heidelberg Materials). Ingen minuspoeng, ingen regning (lagt inn 21. november 2026) |
 
-Ingen dybdetrening, lynlæring, kapitteloppgaver eller eksamenssett. Det holder
+Ingen dybdetrening, lynlæring, kapitteloppgaver eller eksamenssett. Eksamenstreningen kom 21. november 2026, se under. Det holder
 faget kort, og quizen har allerede eksamensformatet. Kapitteloppgaver i
 flervalgsformat, som i FIE432, er det naturlige neste steget om Magnus vil ha mer
 eksamenstrening.
@@ -125,6 +126,29 @@ gjennom det han må kunne fra hver forelesning, på en engasjerende måte. Modul
   forfatterspek og gjennomgangen.
 - **Kotsantonis og Serafeim (2019)** er artikkelen foilen i forelesning 7 bare kaller
   «Kotsantonis».
+
+## Eksamenstrening (21. november 2026)
+
+Magnus ba om «eksamenstrening slik som tidligere. Delt opp basert på de forskjellige
+temaene i faget. Bare multiple choice og meget eksamensrelevant», med høyst 80 % av
+5-timersvinduet. Spesifikasjonen er `docs/fie459-trening-spek.md`, temaene og
+oppsettet står i `fag/fie459/_trening/temaer.py`, og hurtiginnføringene i
+`_trening/_intro_<del>.py` (flettes inn av `temaer.py`).
+
+- **14 temaer**: ett per forelesning og ett for gjesteforelesningene som ikke er i
+  manualen. PwC hører til forelesning 7 og DNB til 11. Vektene bygger på læringsmålene,
+  siden det ikke finnes tidligere eksamener.
+- **Bare statiske flervalg** med fire alternativer, kort fasit, full gjennomgang, hjelp
+  i tre trinn og en felle per galt alternativ. `POENG` uten minus, `REGN_SELV` av.
+- **Fem skribenter** (1–3, 4–6, 7–9, 10–12, 13 og gjest), deretter blindtest med
+  uavhengige løsere på alle 419: 0 avvik og 0 uløselige. Løserne fant spørsmål der
+  ordlyden eller lengden røpte svaret og noen pugg-spørsmål (tall, rekkefølger); de ble
+  skrevet om.
+- **Gjesteforelesningen 27. oktober** (Heidelberg Materials, «Beyond Longship», CO₂-fangst
+  i Brevik) kom med i en ny Canvas-eksport 21. november. Teksten ligger i `_tekst/`. Den
+  sjette gjesteforelesningen (Sustainability Hub) har ingen foiler på Canvas.
+- **Forbruket**: skribentene brukte rundt 40 prosentpoeng av 5-timersvinduet (fem
+  parallelle), løserne rundt 2 hver.
 
 ## Kildene og hvordan de ble brukt
 
