@@ -18,6 +18,16 @@ skrevet svaret — vis løsningen». Låsen er hele poenget: å lese en løsning
 ikke har forsøkt på gir gjenkjennelse, ikke kunnskap. Teksten over knappen minner
 om at eksamen er penn og papir, så forsøket skal gjøres på papir.
 
+**Fasit for én deloppgave om gangen** (fra 21. november 2026). Magnus ville kunne
+sjekke a) før han regner b), siden deloppgavene bygger på hverandre og én feil
+ellers forplanter seg gjennom resten. Under hver deloppgave står «Vis fasit for a)»
+(«Rett a)» for flervalg). Den åpner løsningen for den delen og retter et flervalgsledd
+med en gang, med feilen ført inn i «Usikre og feil». De åpnede delene lagres i `åpne`.
+Når alle er åpnet, regnes oppgaven som åpnet (`revealed`). Da kommer poengraden og
+«Prøv på nytt» som før. Knappen nederst heter da «Vis fasit for resten»,
+og «Prøv på nytt» står der også, så du kan lukke delene igjen. Eksamensmodus er
+uendret.
+
 **Eksamensmodus.** Hele settet vises samtidig med nedtelling fra settets egen
 tid. **Ingen fasit er nåbar noe sted** før «Lever besvarelsen». Etterpå åpnes alle
 løsningene samtidig, og man poengsetter seg selv oppgave for oppgave mot
@@ -298,7 +308,7 @@ alle funnet.
 | Nøkkel | Innhold |
 |---|---|
 | `state.exams["<settId>-run"]` | `{ mode, startedAt, submittedAt, wrongFactor }` — selve økta |
-| `state.exams["<settId>-e<n>"]` | `{ revealed, score, scoredAt, valg }` per oppgave |
+| `state.exams["<settId>-e<n>"]` | `{ revealed, åpne, score, scoredAt, valg }` per oppgave. `åpne` er `{ "<etikett>": 1 }` for deloppgavene med åpnet fasit i øving |
 | `state.exams["<settId>-u<n>[-<del>]"]` | `{ u: 1 \| 0, t }`, usikker-merket per deloppgave |
 | `state.exams["<settId>-f<n>[-<del>]"]` | `{ f: 1 \| 0, t }`, feil fra et rettet svar, skrevet før svaret slettes |
 

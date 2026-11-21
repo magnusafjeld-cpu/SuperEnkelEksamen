@@ -4,7 +4,8 @@
 
      Øvingsmodus    én oppgave om gangen. Fasiten er låst til du selv sier at du
                     har skrevet svaret. Å lese en løsning man ikke har forsøkt på
-                    gir gjenkjennelse, ikke kunnskap.
+                    gir gjenkjennelse, ikke kunnskap. Fasiten kan åpnes for én
+                    deloppgave om gangen, så du kan sjekke a) før du går løs på b).
      Eksamensmodus  hele settet samtidig, med nedtelling. Ingen fasit er nåbar
                     noe sted før du leverer. Det er tidspresset som er poenget.
 
@@ -57,7 +58,8 @@
    som «feil» også når den er merket usikker. Øvingsmodus kan vise bare dem.
 
    Fremdrift lagres i state.exams under nøklene "<settId>-run" (økta),
-   "<settId>-e<n>" (selvvurdering per oppgave), "<settId>-u<n>[-<del>]" (usikker-merket)
+   "<settId>-e<n>" (selvvurdering per oppgave og `åpne` med deloppgavene du har åpnet
+   fasiten for i øving), "<settId>-u<n>[-<del>]" (usikker-merket)
    og "<settId>-f<n>[-<del>]" (feil fra et rettet svar som siden er slettet),
    og synkes dermed som alt annet. */
 window.EDU = window.EDU || {};
@@ -143,13 +145,28 @@ window.EDU = window.EDU || {};
     S.store.setExam(exKey(setId, n), { revealed: true });
     const set = setById(setId); if (set) noterFeil(set, n);
   }
+  /* Fasiten for én deloppgave i øving (fra 21. november 2026). De åpnede delene
+     lagres som { "<etikett>": 1 } i `åpne`. Når alle delene er åpnet, regnes hele
+     oppgaven som åpnet, så poengsummen og «Prøv på nytt» kommer som før. */
+  const åpneDeler = (setId, n) => exState(setId, n).åpne || {};
+  function delOpen(setId, n, etikett) {
+    if (solutionOpen(setId, n)) return true;
+    return mode !== "exam" && !!åpneDeler(setId, n)[etikett];
+  }
+  function revealDel(set, ex, etikett) {
+    const åpne = Object.assign({}, åpneDeler(set.id, ex.n), { [etikett]: 1 });
+    S.store.setExam(exKey(set.id, ex.n), { åpne });
+    if ((ex.parts || []).every((p) => åpne[p.label])) { reveal(set.id, ex.n); mcLagreScore(set, ex); }
+    else noterFeil(set, ex.n);
+  }
+  const harÅpneDeler = (setId, n) => Object.values(åpneDeler(setId, n)).some(Boolean);
   function setScore(setId, n, score) { S.store.setExam(exKey(setId, n), { score: score, scoredAt: S.u.nowTs() }); }
   /* «Prøv på nytt» i øving: lukker fasiten og fjerner svar og poeng for én
      oppgave. Skriver tomme verdier i stedet for å slette nøkkelen, ellers ville
      synken hentet det gamle svaret tilbake fra den andre enheten. */
   function prøvIgjen(setId, n) {
     const set = setById(setId); if (set) noterFeil(set, n);
-    S.store.setExam(exKey(setId, n), { revealed: false, valg: null, score: null, scoredAt: null });
+    S.store.setExam(exKey(setId, n), { revealed: false, åpne: null, valg: null, score: null, scoredAt: null });
   }
 
   /* ---------- usikker ---------- */
@@ -170,10 +187,12 @@ window.EDU = window.EDU || {};
      nytt») og når et svar rettes, skrives resultatet ned under en egen nøkkel.
      Slik blir feilen stående i oversikten til et senere, rettet svar er riktig. */
   const feilKey = (setId, n, etikett) => setId + "-f" + n + (etikett ? "-" + etikett : "");
-  const rettet = (setId, n) => isSubmitted(setId) || !!exState(setId, n).revealed;
+  /* Et ledd er rettet når settet er levert, hele oppgaven er åpnet, eller fasiten
+     for akkurat den deloppgaven er åpnet i øving. */
+  const rettet = (setId, n, nøkkel) => isSubmitted(setId) || !!exState(setId, n).revealed || (!!nøkkel && !!åpneDeler(setId, n)[nøkkel]);
   /* true = feil nå, false = riktig nå, null = ikke rettet eller ikke besvart. */
   function feilNå(set, ex, ledd) {
-    if (!rettet(set.id, ex.n)) return null;
+    if (!rettet(set.id, ex.n, ledd.nøkkel)) return null;
     const i = (exState(set.id, ex.n).valg || {})[ledd.nøkkel];
     if (i == null || i === VET_IKKE) return null;
     return !riktig(ledd, i);
@@ -519,8 +538,8 @@ window.EDU = window.EDU || {};
     bar.appendChild(el("h3", { style: { fontSize: "16px" } }, set.label));
     return bar;
   }
-  function anyRevealed(set) { return (set.exercises || []).some((ex) => exState(set.id, ex.n).revealed); }
-  function anyTouched(set) { return (set.exercises || []).some((ex) => { const s = exState(set.id, ex.n); return s.revealed || s.valg || typeof s.score === "number"; }); }
+  function anyRevealed(set) { return (set.exercises || []).some((ex) => exState(set.id, ex.n).revealed || harÅpneDeler(set.id, ex.n)); }
+  function anyTouched(set) { return (set.exercises || []).some((ex) => { const s = exState(set.id, ex.n); return s.revealed || harÅpneDeler(set.id, ex.n) || s.valg || typeof s.score === "number"; }); }
 
   /* Oppgaveteksten er forfattet HTML — den skal rendres, ikke escapes. */
   function body(html) { const d = el(".prose"); if (html) d.appendChild(frag(html)); return d; }
@@ -660,27 +679,42 @@ window.EDU = window.EDU || {};
     const hoved = leddFor(ex, "");
     if (hoved) card.appendChild(mcValg(set, ex, hoved, open, true));
 
+    /* Hver deloppgave har sin egen fasitknapp, så du kan sjekke a) før du
+       regner b). Et flervalgsledd rettes idet fasiten for delen åpnes. */
     (ex.parts || []).forEach((part) => {
       const pc = el(".sett-part");
       pc.appendChild(delHode(set, ex, part));
       pc.appendChild(body(part.body));
       const ledd = leddFor(ex, part.label);
-      if (ledd) pc.appendChild(mcValg(set, ex, ledd, open, true));
-      if (open) pc.appendChild(solutionPanel(`Løsning ${part.label})`, part.solution, part.criteria));
+      const delÅpen = delOpen(set.id, ex.n, part.label);
+      if (ledd) pc.appendChild(mcValg(set, ex, ledd, delÅpen, true));
+      if (delÅpen) pc.appendChild(solutionPanel(`Løsning ${part.label})`, part.solution, part.criteria));
+      else pc.appendChild(el(".row", { style: { marginTop: "10px" } },
+        el("button.btn.ghost.sm", { onclick: () => {
+          const ubesvartDel = ledd && (exState(set.id, ex.n).valg || {})[ledd.nøkkel] == null;
+          if (ubesvartDel && !confirm(`Du har ikke svart på ${part.label}). Ubesvart gir 0 poeng. Vise løsningen likevel?`)) return;
+          revealDel(set, ex, part.label); S.app.refresh();
+        } }, ledd ? `Rett ${part.label})` : `Vis fasit for ${part.label})`)));
       card.appendChild(pc);
     });
 
     if (!open) {
+      const noenÅpne = (ex.parts || []).some((p) => delOpen(set.id, ex.n, p.label));
       const ubesvart = mc && mcLedd(ex).some((l) => (exState(set.id, ex.n).valg || {})[l.nøkkel] == null);
       card.appendChild(el(".card", { style: { marginTop: "18px", background: "var(--amber-soft)", border: "1px solid #f2dcb6" } },
         el("p", { style: { margin: "0 0 12px", fontSize: "14.5px", lineHeight: 1.55 } },
           el("b", mc ? "Velg svaret ditt først. " : "Skriv svaret først. "),
           mc ? (set.practiceNote || "Regn på papir og velg alternativet før du åpner fasiten. Et alternativ du velger etter å ha sett løsningen, har du ikke lært noe av.")
              : (set.practiceNote || "Eksamen er penn og papir, så gjør det på papir her også — hele utregningen, ikke bare svaret. Å lese en løsning du ikke har forsøkt på gir gjenkjennelse, ikke kunnskap.")),
-        el("button.btn.primary", { onclick: () => {
-          if (ubesvart && !confirm("Du har ikke svart på alle leddene. Ubesvart gir 0 poeng. Vise løsningen likevel?")) return;
-          reveal(set.id, ex.n); mcLagreScore(set, ex); S.app.refresh();
-        } }, mc ? "Rett svaret mitt" : "Jeg har skrevet svaret — vis løsningen")));
+        el(".row.wrap", { style: { gap: "8px", alignItems: "center" } },
+          el("button.btn.primary", { onclick: () => {
+            if (ubesvart && !confirm("Du har ikke svart på alle leddene. Ubesvart gir 0 poeng. Vise løsningen likevel?")) return;
+            reveal(set.id, ex.n); mcLagreScore(set, ex); S.app.refresh();
+          } }, !(ex.parts || []).length ? (mc ? "Rett svaret mitt" : "Jeg har skrevet svaret — vis løsningen")
+            : noenÅpne ? (mc ? "Rett resten" : "Vis fasit for resten")
+            : (mc ? "Rett alle leddene" : "Jeg har skrevet svarene, vis hele løsningen")),
+          /* Har du åpnet noen av delene, kan du lukke dem igjen og regne på nytt. */
+          noenÅpne && !isSubmitted(set.id) ? el("button.btn.ghost.sm", { onclick: () => { prøvIgjen(set.id, ex.n); S.app.refresh(); } }, "↺ Prøv på nytt") : null)));
     } else {
       if (!(ex.parts || []).length) card.appendChild(solutionPanel("Løsning", ex.solution, ex.criteria));
       else if (ex.solution) card.appendChild(solutionPanel("Samlet kommentar", ex.solution, null));
