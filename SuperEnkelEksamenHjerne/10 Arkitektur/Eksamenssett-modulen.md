@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-11-21
+oppdatert: 2026-11-22
 ---
 
 # Eksamenssett-modulen
@@ -331,3 +331,9 @@ Se [[Datamodell og lagring]] for resten av lagringsmodellen.
   repetisjonskøen går gjennom `chapters`-feltet på oppgaven.
 - Tiden får gå på overtid i stedet for å stoppe. Klokka blir rød og teller
   oppover — det er ærligere enn å låse skjermen, og du ser hvor mye du gikk over.
+- **Statusen på kortet følger `erGjort`, ikke bare leveringen** (rettet
+  22.11.2026). Startet du eksamensmodus og så rettet hver oppgave i øving, sto
+  kortet på «Påbegynt» og menyen talte settet som uferdig, mens telleren «X av N
+  gjort» regnet det som gjort. Nå viser kortet «Levert» (levert), «Gjort» (alle
+  oppgaver rettet uten levering) eller «Påbegynt» (startet, ikke ferdig), og
+  `activeCount()` hopper over gjorte sett, som casetreningen gjør.

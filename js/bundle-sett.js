@@ -477,7 +477,10 @@ window.EDU = window.EDU || {};
     const sum = scoreSum(set);
     const r = run(set.id);
     const done = !!r.submittedAt;
-    const started = !!r.startedAt && !done;
+    /* Rettet hver oppgave i øving etter at en eksamensøkt ble startet: da er
+       settet gjort, selv om økten aldri ble levert (som i casetreningen). */
+    const gjort = !done && erGjort(set);
+    const started = !!r.startedAt && !done && !gjort;
     const m = merkede(set);
     const nFeil = m.filter((x) => x.feil).length, nUs = m.filter((x) => x.usikker).length;
 
@@ -488,7 +491,7 @@ window.EDU = window.EDU || {};
       el(".spacer"),
       nFeil ? el(".chip.rose", `${nFeil} feil`) : null,
       nUs ? el(".chip.amber", `⚑ ${nUs} usikre`) : null,
-      done ? el(".chip.green", el(".dot"), "Levert") : started ? el(".chip.amber", el(".dot"), "Påbegynt") : null));
+      done ? el(".chip.green", el(".dot"), "Levert") : gjort ? el(".chip.green", el(".dot"), "Gjort") : started ? el(".chip.amber", el(".dot"), "Påbegynt") : null));
 
     card.appendChild(el(".row.wrap", { style: { gap: "8px", margin: "8px 0 12px" } },
       el(".chip", icon("clock"), `${set.minutes} min`),
@@ -1086,9 +1089,9 @@ window.EDU = window.EDU || {};
     return erKart(set) || mode === "exam" ? renderExam(set) : renderPractice(set);
   }
 
-  /* Merke i navigasjonen: sett som er påbegynt, men ikke levert. */
+  /* Merke i navigasjonen: sett som er påbegynt, men verken levert eller gjort i øving. */
   function activeCount() {
-    return SETS().filter((s) => { const r = run(s.id); return r.startedAt && !r.submittedAt; }).length;
+    return SETS().filter((s) => { const r = run(s.id); return r.startedAt && !r.submittedAt && !erGjort(s); }).length;
   }
 
   /* alle(): settene med lånte oppgaver slått opp, for andre som leser settene
