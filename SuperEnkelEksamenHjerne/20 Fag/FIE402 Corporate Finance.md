@@ -317,6 +317,12 @@ jurisdiksjon.
 Alt ligger i `FIE402_Corp_course_files/`: 20 PDF-er med eksamener og
 løsningsforslag, syllabus for 2026, formelarket og NHHs infoside.
 
+**Tekstingen fra alle forelesningsopptakene** (hentet fra Panopto 22. november 2026) ligger
+i `NHH/7. Semester/FIE402 Corporate Finance/Forelesninger/Teksting fra Panopto/`, én fil
+per opptak med lysbildetitler og teksting med tidsstempler. Det er 17 av 18 opptak:
+Problem Set 3 (14.10) har ingen teksting. Bruk dem som kilde når du vil vite hva
+Kurbatov faktisk sa. Les fram til det du trenger i stedet for å gjengi dem.
+
 > [!warning] To feller i kildematerialet
 > **Vårfasiten fra 2024 heter nå `2024V - S.pdf`.** Fram til 14. november 2026 lå den
 > under navnet `2024 - S.pdf`, selv om `2024.pdf` er *høst* 2024. Da kom Kurbatovs
@@ -577,6 +583,14 @@ NotebookLM-kilder, med god tid.
   dypdykkfil for andre halvdel av forelesning 9 (`… lecture 9 options I after put-call
   parity.md`, 21.11.2026): binomial, replikering, ρ, Black-Scholes-intuisjon og implisitt
   volatilitet, med H2024 E6, H2025 E1 og 2022 P4. Alle tall regnet på nytt i Python.
+- **Panopto-tekstingen (22.11.2026):** alle 17 opptak ligger i kursmappen under
+  `Forelesninger/Teksting fra Panopto/`. Fem agenter leste dem mot NotebookLM-kildene;
+  funnene står i `NotebookLM-kilder/FIE402 NotebookLM source exam signals from all lecture
+  recordings.md`, som går foran de eldre kildene der de er uenige. Viktigst for appen:
+  bare formelarkets formler på eksamen (justert WACC ved permanent gjeld og D(1 − τ)-vektingen
+  er hjemmeoppgavestoff), CDS-oppgaven fra V2024 kan komme igjen, temaene kan bytte plass,
+  oppgaver med tre stjerner kan komme, skattemessige underskudd er ikke et M&A-motiv hos
+  Kurbatov, og slide 17 i Options I er riktig (√1,015). Appen er ikke sjekket mot dette ennå.
 - **Prøveeksamener 4–12:** se `docs/fie402-proveeksamen-spek.md`, siste del. Runde 1
   (prove4 det mest sannsynlige settet, prove5 kjernen, prove6 H2024-formen) er lagt ut etter
   blind løsning: ingen regnefeil, men alle tre var 40–60 % lengre enn Kurbatovs (1 600–1 900
