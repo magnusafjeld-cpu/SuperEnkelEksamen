@@ -209,6 +209,14 @@ tallalternativer, og telte uavgjort som «fasiten er lengst». En agent holdt de
 riktige prosenter ensifret, og «det tosifrede er aldri riktig» ble en ny avsløring.
 Nå teller bare et utsagnsalternativ som er strengt lengst.
 
+**Seksjoner med korte stiger (22. november 2026).** Magnus slet med del 3 i FIE402 og ba om
+korte stiger per oppgavetype nederst på siden. En sjanger med `seksjon: "<id>"` står ikke i
+hovedlista, men i en egen seksjon under den, beskrevet i `_sjangre/seksjoner.json` (bygget inn
+som `EDU_DATA.sjangerSeksjoner`), gruppert etter `emne` med en liten overskrift når emnet
+skifter. `symboler: "<sjanger>"` lar en kort stige låne symbolbetydningene til en lang stige;
+uten feltet brukes `sg-<egen id>`. Kontrollen godtar 3–8 steg i en seksjon og feiler på en
+seksjon som ikke står i `seksjoner.json`. Lagring og id-regler er de samme som før.
+
 ## Problem sets: øvingssettene fra kurset, med hintstige
 
 `/problemsett` viser settene kurset deler ut underveis (FIE402 Problem Set 1 er

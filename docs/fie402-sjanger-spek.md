@@ -195,3 +195,51 @@ avgjør resten.
 Stegene på én linje hver (tittel og fasit), hvilke eksamensdeloppgaver de siste stegene er bygd
 etter, hvilke deloppgavetyper i sjangeren som eventuelt ikke er dekket og hvorfor, og feil eller
 uklarheter du fant i manualen. Kort.
+
+## 10. Korte stiger: «Del 3 i korte stiger» (22. november 2026)
+
+Magnus sliter med del 3 (opsjoner, kreditt, realopsjoner, M&A og governance, kapittel 21–27) og
+ba om en egen seksjon nederst i Sjangertrening med **én kort stige per oppgavetype i del 3**:
+replikerende portefølje, ρ, CDS, ventopsjonen, aksjebytte og så videre. Kort, med vekt på
+intuisjon, og dekkende for det som kan komme på eksamen.
+
+Alt i §1–§7 gjelder, med disse forskjellene:
+
+- **4–6 steg, typisk 5.** Ingen stige fra null til alt: stigen tar én deloppgavetype.
+- **Intuisjon først.** Hvert steg sin `theory` slutter med en intuisjonsboks:
+  `<div class="callout tip"><span class="h">Intuition</span><p>…</p></div>`, 1–3 setninger om
+  *hvorfor* resultatet blir som det blir (ikke en gjentakelse av formelen). Minst ett steg per
+  stige er et utsagnsspørsmål om mekanismen («Why does …», «Which statement is right»), fordi
+  eksamen gir poeng for intuisjon i nesten hver oppgave.
+- **Rampen:** steg 1 er begrepet og intuisjonen, de midterste er det eksamen faktisk regner, og
+  det siste (eller de to siste) er på eksamensnivå, bygd som oppgavene i H2024, H2025, V2021–V2024
+  og prøveeksamenene (`fag/fie402/sett.js`), med nye tall. Opsjoner med fire desimaler.
+- **Ikke kopier den lange stigen.** Den lange stigen i samme emne (`_sjangre/04-realopsjon.js`,
+  `05-ma.js`, `07-opsjoner.js`, `08-kreditt.js`, `10-governance.js`) er lest; bruk nye tall og
+  ny vinkling. Samme begrep er greit.
+- **Felter i tillegg:** `seksjon: "del3"`, `emne` (`"Opsjoner"`, `"Kreditt"`, `"Realopsjoner"`,
+  `"M&A"` eller `"Governance"`) og `symboler` (id-en til den lange stigen hvis symbolene betyr
+  det samme der, for eksempel `"ma"` der S er synergier).
+- **Filnavn og num:** `fag/fie402/_sjangre/<num>-<id>.js`, num 101–114 som i tabellen.
+  Fasitposisjonene står i `fasitplan.json` under id-en.
+- **Utregninger:** lagre Python-skriptet ditt i `fag/fie402/_sjangre/regn/<id>.py`.
+
+| num | id | Emne | Tittel (forslag) |
+|---|---|---|---|
+| 101 | d3-paritet | Options | Payoffs and put-call parity |
+| 102 | d3-replikering | Options | The replicating portfolio |
+| 103 | d3-rho | Options | Risk-neutral pricing with ρ |
+| 104 | d3-bs | Options | Black-Scholes intuition and implied volatility |
+| 105 | d3-gjeld | Credit | Debt and equity as options |
+| 106 | d3-cds | Credit | Pricing default protection: the CDS |
+| 107 | d3-vente | Real options | The option to wait |
+| 108 | d3-exit | Real options | Exit, abandonment and staged financing |
+| 109 | d3-realrho | Real options | Real options priced with a traded twin |
+| 110 | d3-motiver | M&A | Why firms merge and who gains |
+| 111 | d3-aksjebytte | M&A | Stock swaps, cash offers and bidding |
+| 112 | d3-deal | M&A | The market's implied deal probability |
+| 113 | d3-overvaking | Governance | Monitoring the CEO: who and with what |
+| 114 | d3-eierverktoy | Governance | The owner's toolkit: pay, voice and defences |
+
+Seksjonen er beskrevet i `_sjangre/seksjoner.json`. Motoren viser sjangre med `seksjon` under
+hovedlista, gruppert etter `emne`.

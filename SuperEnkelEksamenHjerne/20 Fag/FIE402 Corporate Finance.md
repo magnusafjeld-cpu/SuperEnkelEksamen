@@ -362,7 +362,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
 | Eksamenstrening | **683 spørsmål** i 12 temaer (89 regnefamilier med nye tall og 207 statiske), 509 med tallsvar for «Regn selv først», uten minuspoeng. Spesifikasjon `docs/fie402-trening-spek.md` |
 | Problem sets | **Problem Set 1–4** · 36 oppgaver · 144 delspørsmål med fire hint hver (PS4 er eksemplene i M&A-forelesningen, som Kurbatov kalte PS4) |
-| Sjangertrening | **10 stiger · 151 steg**, hver fra null til eksamensnivå, etter eksamensvekt (stige 10 er governance og verbale M&A-motiver) |
+| Sjangertrening | **10 stiger · 151 steg**, hver fra null til eksamensnivå, etter eksamensvekt (stige 10 er governance og verbale M&A-motiver), pluss **«Del 3 i korte stiger»: 14 stiger · 80 steg** nederst |
 | Aktiv læring | **208** oppgaver |
 | Dybdetrening | **458** i seks banker |
 | Lynlæring | **233** elementer, med fremdriftsport |
@@ -422,6 +422,17 @@ alternativet som delte en del med hvert av de andre. De ble brutt ved å bytte
 feilsvar, aldri fasiten. Governance og de verbale M&A-motivene fikk egen stige
 (nr. 10) 14. november 2026; se «Forelesningene 2026» under. Se [[Moduler og visninger]].
 
+
+**Del 3 i korte stiger (22. november 2026).** Magnus slet med del 3 og ba om én kort stige
+per oppgavetype, med vekt på intuisjon. 14 stiger på 5–6 steg (80 i alt) i en egen seksjon
+nederst: paritet, replikerende portefølje, ρ, Black-Scholes-intuisjon, gjeld som opsjon,
+CDS, ventopsjonen, exit og trinnvis finansiering, realopsjoner med omsatt tvilling,
+fusjonsmotiver, aksjebytte og budkamp, dealsannsynlighet, overvåking og eierens verktøy.
+Hvert steg slutter teorien med en intuisjonsboks, og de siste stegene er bygd som H2024,
+H2025, V2021–V2024 og prøveeksamenene. Fragmentene er `_sjangre/101-…114-d3-*.js`,
+utregningene `_sjangre/regn/d3-*.py`, spesifikasjonen §10 i `docs/fie402-sjanger-spek.md`.
+CDS-stigen har egne symboler (`sg-d3-cds`), fordi ρ der er sannsynligheten for mislighold.
+Skrevet av fem agenter og regnet på nytt av to uavhengige kontrollører.
 ## Problem sets
 
 Øvingssettene fra kurset har egen fane, `/problemsett`. Problem Set 1 kom

@@ -150,8 +150,8 @@ for (const d of window.EDU_DATA.kjerne || [])
 /* Sjangertreningen: hele teksten i hvert steg. Alternativene står i knapper og merkes ikke. */
 for (const g of window.EDU_DATA.sjangre || [])
   for (const s of g.steps || []) {
-    for (const f of ["theory", "example", "q", "solution", "check"]) sjekk(s[f], "sg-" + g.id, false, `${s.id}.${f}`);
-    (s.traps || []).forEach((t, k) => { if (t) sjekk(t, "sg-" + g.id, false, `${s.id}.traps[${k}]`); });
+    for (const f of ["theory", "example", "q", "solution", "check"]) sjekk(s[f], "sg-" + (g.symboler || g.id), false, `${s.id}.${f}`);
+    (s.traps || []).forEach((t, k) => { if (t) sjekk(t, "sg-" + (g.symboler || g.id), false, `${s.id}.traps[${k}]`); });
   }
 /* Formelarket: formeldelen av hver rad, uten navnet og den skjulte forklaringen. */
 const ark = (window.EDU_DATA.formelark || {}).html || "";

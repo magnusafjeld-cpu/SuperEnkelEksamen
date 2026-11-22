@@ -8,7 +8,7 @@
 
        python3 tools/bygg-sjangre.py fie402
 """
-import glob, os, re, sys
+import glob, json, os, re, sys
 
 HODE = """/* ===================== {navn} · SJANGERTRENING =====================
    Én stige per oppgavesjanger: korte steg fra null til eksamensnivå, hvert med
@@ -46,8 +46,14 @@ def main():
     for num, navn, t in biter:
         print(f"  {num:>2}  {navn:<28} {len(steg_re.findall(t))} steg")
     ut = os.path.join(rot, "fag", fag, "sjangre.js")
+    # Seksjonene (korte stiger under hovedlista) står i _sjangre/seksjoner.json.
+    sek_fil = os.path.join(rot, "fag", fag, "_sjangre", "seksjoner.json")
+    hale = ""
+    if os.path.exists(sek_fil):
+        sek = json.load(open(sek_fil, encoding="utf-8"))
+        hale = "\nwindow.EDU_DATA.sjangerSeksjoner = " + json.dumps(sek, ensure_ascii=False, indent=1) + ";\n"
     with open(ut, "w", encoding="utf-8") as fil:
-        fil.write(HODE.format(navn=fag.upper(), fag=fag) + "\n\n".join(t for _, _, t in biter) + "\n")
+        fil.write(HODE.format(navn=fag.upper(), fag=fag) + "\n\n".join(t for _, _, t in biter) + "\n" + hale)
     print(f"{os.path.relpath(ut, rot)}: {len(biter)} sjangre")
 
 

@@ -90,6 +90,8 @@ function main() {
   const planFil = fag ? path.join(ROT, "fag", fag, "_sjangre", "fasitplan.json") : null;
   const plan = planFil && fs.existsSync(planFil) ? JSON.parse(fs.readFileSync(planFil, "utf8")) : null;
   const alle = last(filer);
+  const sekFil = fag ? path.join(ROT, "fag", fag, "_sjangre", "seksjoner.json") : null;
+  const seksjoner = sekFil && fs.existsSync(sekFil) ? JSON.parse(fs.readFileSync(sekFil, "utf8")).map((x) => x.id) : [];
   const feil = [], advarsel = [], rader = [];
   const ider = new Set();
   const pos = [0, 0, 0, 0];
@@ -106,7 +108,10 @@ function main() {
     språk([g.title, g.summary, g.intro, g.exam].join(" "), hvor, feil);
     const steg = g.steps || [];
     /* Så få steg som trengs (typisk 8–12), ikke et fast tall. Bare ytterpunktene varsles. */
-    if (steg.length < 5 || steg.length > 16) advarsel.push(`${hvor}: ${steg.length} steg; er stigen for tynn eller for lang?`);
+    /* Korte stiger i en seksjon (del 3 i korte stiger): typisk 4–6 steg. */
+    if (g.seksjon !== undefined && !seksjoner.includes(g.seksjon)) feil.push(`${hvor}: seksjon «${g.seksjon}» står ikke i _sjangre/seksjoner.json`);
+    const [min, maks] = g.seksjon ? [3, 8] : [5, 16];
+    if (steg.length < min || steg.length > maks) advarsel.push(`${hvor}: ${steg.length} steg; er stigen for tynn eller for lang?`);
     const gpos = [0, 0, 0, 0];
     let gOrd = 0;
     steg.forEach((s, i) => {

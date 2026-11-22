@@ -24,9 +24,16 @@
    exams["sg:<steg-id>"] = { v: indeks | null, forste: indeks, t }
 
    Data: EDU_DATA.sjangre = [{ id, num, title, summary, chapters, exam, intro,
+         seksjon?, emne?, symboler?,
          steps: [{ id, title, theory, example, q, options, answer, solution, check, traps }] }]
    Bygget fra fag/<fag>/_sjangre/*.js med tools/bygg-sjangre.py og kontrollert
    med tools/sjekk-sjangre.js. id-ene er lagringsnøkler og må aldri endres.
+
+   Seksjoner (22. november 2026): en sjanger med seksjon: "<id>" står ikke i
+   hovedlista, men i en egen seksjon under den, beskrevet i
+   EDU_DATA.sjangerSeksjoner = [{ id, tittel, tekst }]. Der står de korte
+   stigene, gruppert etter emne. symboler: "<sjanger>" lar en kort stige låne
+   symbolbetydningene til en lang («sg-ma» for S som synergier).
    ============================================================================ */
 window.EDU = window.EDU || {};
 (function (S) {
@@ -36,6 +43,8 @@ window.EDU = window.EDU || {};
 
   const ALLE = () => window.EDU_DATA.sjangre || [];
   const finn = (id) => ALLE().find((g) => g.id === id) || null;
+  const SEKSJONER = () => window.EDU_DATA.sjangerSeksjoner || [];
+  const seksjonAv = (g) => (g.seksjon && SEKSJONER().find((x) => x.id === g.seksjon)) || null;
   const BOKSTAV = "ABCD";
 
   /* ---------- lagring ---------- */
@@ -137,7 +146,7 @@ window.EDU = window.EDU || {};
     /* Hold over et symbol for å se hva det er, i teori, eksempel, oppgave og
        fasit. Sjangerens egne betydninger («sg-<id>» i symbolordlisten) går foran
        de felles: S er aksjekursen i opsjoner, men synergiene i fusjoner. */
-    if (S.symboler) S.symboler.merk(wrap, "sg-" + g.id, { overalt: true });
+    if (S.symboler) S.symboler.merk(wrap, "sg-" + (g.symboler || g.id), { overalt: true });
 
     const forrige = i > 0 ? el("a.btn.ghost", { href: `#/sjangre/${g.id}/${i}` }, "← Forrige steg") : null;
     const igjen = svart(s) && !riktig(s)
@@ -171,7 +180,8 @@ window.EDU = window.EDU || {};
     const wrap = el(".fade-in");
     wrap.appendChild(el(".row.wrap", { style: { gap: "10px", marginBottom: "16px" } },
       el("a.btn.ghost.sm", { href: "#/sjangre" }, "← Alle sjangre")));
-    wrap.appendChild(sh().pageHead("Sjangertrening", g.title, g.summary || ""));
+    const sek = seksjonAv(g);
+    wrap.appendChild(sh().pageHead(sek ? "Sjangertrening · " + sek.tittel : "Sjangertrening", g.title, g.summary || ""));
 
     const r = antallRiktig(g), neste = nesteSteg(g);
     const topp = el(".card.pad-lg", { style: { marginBottom: "18px" } });
@@ -207,6 +217,22 @@ window.EDU = window.EDU || {};
   }
 
   /* ---------- alle sjangrene ---------- */
+  function rad(g, nr) {
+    const n = (g.steps || []).length, r = antallRiktig(g), neste = nesteSteg(g), igang = påbegynt(g);
+    const href = "#/sjangre/" + g.id;
+    return el(".kap-rad",
+      el("a.kap-radtekst", { href, style: { color: "inherit", textDecoration: "none" } },
+        el(".kap-radnavn", `${nr}. ${g.title}`),
+        el(".kap-radtall", [g.summary, g.exam].filter(Boolean).join(" · ")),
+        igang ? el(".sg-framdrift", { style: { marginTop: "6px", maxWidth: "260px" } },
+          S.u.bar(n ? r / n * 100 : 0, { green: r === n, thin: true }), el("span.tiny.muted", `${r} av ${n}`)) : null),
+      el(".kap-radhoyre",
+        r === n && n ? el(".chip.green", el(".dot"), "Mestret") : null,
+        el("a.btn.sm" + (r === n && n ? ".ghost" : ".primary"),
+          { href: neste === null ? href : `${href}/${neste + 1}` },
+          r === n && n ? "Se stigen" : igang ? "Fortsett" : "Start")));
+  }
+
   function renderListe() {
     aktivt = null;
     const wrap = el(".fade-in");
@@ -215,9 +241,12 @@ window.EDU = window.EDU || {};
       wrap.appendChild(sh().empty("🪜", "Ingen sjangre ennå", "Faget har ikke lagt inn EDU_DATA.sjangre."));
       return wrap;
     }
+    const hoved = alle.filter((g) => !seksjonAv(g));
+    const korte = alle.length - hoved.length;
     const antSteg = alle.reduce((a, g) => a + (g.steps || []).length, 0);
     wrap.appendChild(sh().pageHead("Øving", "Sjangertrening",
-      `${tellord(alle.length, "sjanger", "sjangre")} · ${antSteg} steg · fra null til eksamensnivå`));
+      [tellord(hoved.length, "sjanger", "sjangre"), korte ? tellord(korte, "kort stige", "korte stiger") : null,
+        `${antSteg} steg · fra null til eksamensnivå`].filter(Boolean).join(" · ")));
     wrap.appendChild(el("p.sub", { style: { maxWidth: "64ch", margin: "0 0 22px" } },
       "Hver sjanger er én type eksamensoppgave, lært som en stige. Hvert steg tar ett nytt begrep: kort teori, "
       + "et lite eksempel med pene tall og én flervalgsoppgave. Etter svaret får du utregningen, en kontroll "
@@ -225,24 +254,28 @@ window.EDU = window.EDU || {};
       + "en oppgave på eksamensnivå. Sjangrene står etter hvor ofte de kommer på eksamen."));
 
     const kort = el(".card.pad-lg", { style: { marginBottom: "18px" } });
-    const liste = el(".kap-liste");
-    alle.forEach((g) => {
-      const n = (g.steps || []).length, r = antallRiktig(g), neste = nesteSteg(g), igang = påbegynt(g);
-      const href = "#/sjangre/" + g.id;
-      liste.appendChild(el(".kap-rad",
-        el("a.kap-radtekst", { href, style: { color: "inherit", textDecoration: "none" } },
-          el(".kap-radnavn", `${g.num}. ${g.title}`),
-          el(".kap-radtall", [g.summary, g.exam].filter(Boolean).join(" · ")),
-          igang ? el(".sg-framdrift", { style: { marginTop: "6px", maxWidth: "260px" } },
-            S.u.bar(n ? r / n * 100 : 0, { green: r === n, thin: true }), el("span.tiny.muted", `${r} av ${n}`)) : null),
-        el(".kap-radhoyre",
-          r === n && n ? el(".chip.green", el(".dot"), "Mestret") : null,
-          el("a.btn.sm" + (r === n && n ? ".ghost" : ".primary"),
-            { href: neste === null ? href : `${href}/${neste + 1}` },
-            r === n && n ? "Se stigen" : igang ? "Fortsett" : "Start"))));
-    });
-    kort.appendChild(liste);
+    kort.appendChild(el(".kap-liste", hoved.map((g) => rad(g, g.num))));
     wrap.appendChild(kort);
+
+    /* Seksjonene under hovedlista, med emneoverskrifter når emnet skifter. */
+    SEKSJONER().forEach((sek) => {
+      const egne = alle.filter((g) => g.seksjon === sek.id);
+      if (!egne.length) return;
+      wrap.appendChild(el("h2.sg-seksjon", { id: "seksjon-" + sek.id }, sek.tittel));
+      if (sek.tekst) wrap.appendChild(el("p.sub", { style: { maxWidth: "64ch", margin: "0 0 14px" } }, sek.tekst));
+      const sk = el(".card.pad-lg", { style: { marginBottom: "18px" } });
+      let emne = null, liste = null;
+      egne.forEach((g, i) => {
+        if (!liste || (g.emne && g.emne !== emne)) {
+          emne = g.emne || null;
+          if (emne) sk.appendChild(el(".sg-emne", emne));
+          liste = el(".kap-liste");
+          sk.appendChild(liste);
+        }
+        liste.appendChild(rad(g, i + 1));
+      });
+      wrap.appendChild(sk);
+    });
     return wrap;
   }
 
