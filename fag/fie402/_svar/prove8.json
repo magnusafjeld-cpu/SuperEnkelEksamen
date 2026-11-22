@@ -1,0 +1,309 @@
+{
+  "prove8:1:": {
+    "type": "tekst"
+  },
+  "prove8:2:": {
+    "type": "tekst"
+  },
+  "prove8:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 150.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Share price",
+        "verdi": 12.5,
+        "enhet": "NOK per share"
+      }
+    ]
+  },
+  "prove8:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "D",
+        "verdi": 100.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "E",
+        "verdi": 35.714285714285715,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove8:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Yield to maturity",
+        "verdi": 39.99999999999999,
+        "enhet": "%"
+      },
+      {
+        "navn": "Expected return on the debt",
+        "verdi": 5.000000000000004,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Explain briefly why they differ."
+  },
+  "prove8:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price at announcement",
+        "verdi": 11.30952380952381,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 8.842105263157894,
+        "enhet": "m shares"
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "Explain what happens to the share price when the plan is announced.",
+    "merknad": "Kriteriene gir poeng for hvorfor kursen faller (reelle konkurskostnader), derfor blandet."
+  },
+  "prove8:3:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Minimum PV(tax shield)",
+        "verdi": 14.285714285714278,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Who bears the expected costs of financial distress? Explain."
+  },
+  "prove8:4:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Discount rate r<sub>U</sub>",
+        "verdi": 9.4,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Why not 7%?"
+  },
+  "prove8:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "FCF Year 1",
+        "verdi": -34.8,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "FCF Year 2",
+        "verdi": 15.040000000000003,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "FCF Year 3",
+        "verdi": 21.520000000000003,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "FCF Year 4",
+        "verdi": 23.979999999999997,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove8:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": 7.018712670609769,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove8:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of the 18-month plan",
+        "verdi": 8.581535663893865,
+        "enhet": "NOK m",
+        "tol": 0.003,
+        "alt": [
+          15.496139147010473
+        ]
+      },
+      {
+        "navn": "Better than c) by",
+        "verdi": 1.5628229932840956,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Valget (den nye planen er bedre) følger av differansen. alt 15,4961 er følgefeilen fra en c) uten lageret, som kriteriene godtar. Toleranse 0,3 % så diskontering over ett år (8,6352) ikke godtas."
+  },
+  "prove8:4:e": {
+    "type": "tekst"
+  },
+  "prove8:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of the contract",
+        "verdi": -2.551020408163268,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove8:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of staged financing",
+        "verdi": 22.87755102040816,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove8:5:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Extra value of staging",
+        "verdi": 25.428571428571427,
+        "enhet": "NOK m",
+        "alt": [
+          29.33333333333333
+        ]
+      },
+      {
+        "navn": "Highest contract price",
+        "verdi": 19.571428571428573,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "alt 29,3333 (mot begge stegene til egne priser) godtas av kriteriene når svaret sier at det er sammenligningen. Kriteriene gir også poeng for å forklare kilden (sparte feltforsøk), men oppgaven spør bare etter tallene, så tall."
+  },
+  "prove8:5:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV of staged financing",
+        "verdi": 27.068027210884352,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Explain the change."
+  },
+  "prove8:5:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV of the contract with the clause",
+        "verdi": 24.115646258503396,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Which financing should Lysne choose? How does the clause change the value of committing early?"
+  },
+  "prove8:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Nordlaks debt",
+        "verdi": 85.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Nordlaks equity",
+        "verdi": 30.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Fjellkraft debt",
+        "verdi": 71.25,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Fjellkraft equity",
+        "verdi": 21.25,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove8:6:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Merged equity",
+        "verdi": 33.75,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Nordlaks' loan after",
+        "verdi": 99.28571428571428,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Fjellkraft's loan after",
+        "verdi": 74.46428571428571,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Nordlaks' YTM before",
+        "verdi": 17.647058823529417,
+        "enhet": "%"
+      },
+      {
+        "navn": "Nordlaks' YTM after",
+        "verdi": 0.7194244604316724,
+        "enhet": "%",
+        "abs": 0.02
+      }
+    ],
+    "merknad": "Den sammenslåtte gjelden (173,75) er utelatt for å holde fem tall: den er summen av de to lånene. abs 0,02 prosentpoeng på renten etter, fordi den er liten og følsom for avrunding av lånets verdi."
+  },
+  "prove8:6:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Gain to Nordlaks' creditors",
+        "verdi": 14.285714285714278,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Gain to Fjellkraft's creditors",
+        "verdi": 3.214285714285708,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Loss to the shareholders (both firms)",
+        "verdi": 17.5,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Is diversification a good motive for the merger from the shareholders' point of view?"
+  },
+  "prove8:6:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Torvik's EPS after the deal",
+        "verdi": 3.2758620689655173,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Is value created for Torvik's shareholders? Explain briefly."
+  }
+}

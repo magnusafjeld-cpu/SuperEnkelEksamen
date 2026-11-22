@@ -1,0 +1,280 @@
+{
+  "h2025:1:": {
+    "type": "tekst"
+  },
+  "h2025:2:": {
+    "type": "tekst"
+  },
+  "h2025:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 7.500000000000001,
+        "enhet": "%"
+      },
+      {
+        "navn": "P<sub>0</sub>",
+        "verdi": 200.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "h2025:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Div<sub>1</sub>",
+        "verdi": 15.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "P<sub>1</sub> (ex-dividend)",
+        "verdi": 199.99999999999997,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "h2025:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New debt issued",
+        "verdi": 50.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Share price on announcement",
+        "verdi": 200.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 0.25,
+        "enhet": "m shares"
+      }
+    ],
+    "merknad": "Tall og ikke blandet: alle tre spørsmålene har tallsvar. MM I (ingen skatt, kursen uendret) ligger i at kursen er 200."
+  },
+  "h2025:3:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Div<sub>1</sub>",
+        "verdi": 16.666666666666668,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "New r<sub>E</sub>",
+        "verdi": 8.333333333333332,
+        "enhet": "%"
+      }
+    ]
+  },
+  "h2025:3:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Original shareholder (no recap)",
+        "verdi": 199.99999999999997,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Shareholder who sold",
+        "verdi": 200.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Shareholder who kept",
+        "verdi": 200.00000000000003,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Compare the three payoffs and comment."
+  },
+  "h2025:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>D</sub>",
+        "verdi": 0.8000000000000002,
+        "enhet": ""
+      }
+    ]
+  },
+  "h2025:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 18.0,
+        "enhet": "%"
+      }
+    ]
+  },
+  "h2025:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 16.4,
+        "enhet": "%"
+      }
+    ]
+  },
+  "h2025:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 15.6,
+        "enhet": "%"
+      }
+    ]
+  },
+  "h2025:4:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub> (WACC)",
+        "verdi": 72.0178158786413,
+        "enhet": "$ m",
+        "tol": 0.0005
+      }
+    ],
+    "merknad": "Stram toleranse (0,05 %): feil vekter 0,25/0,75 gir 72,59, under 1 % unna. Nøkkelen godtar et avvik på om lag 0,001."
+  },
+  "h2025:4:f": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt adjustment",
+        "verdi": 5.753044144586392,
+        "enhet": "$ m",
+        "alt": [
+          -5.753044144586392
+        ]
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Say in words what the adjustment is: does the company borrow or repay?",
+    "merknad": "Begge fortegn godtas for tallet (D0 − D1 = 5,7531 eller D1 − D0 = −5,7531). Retningen (gjelden betales ned) rettes i tekstdelen, slik kriteriene krever."
+  },
+  "h2025:4:g": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup><sub>0</sub>",
+        "verdi": 71.26746259491503,
+        "enhet": "$ m",
+        "tol": 0.0005
+      }
+    ],
+    "merknad": "Stram toleranse (0,05 %) av samme grunn som i (e)."
+  },
+  "h2025:4:h": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "TS<sub>1</sub>",
+        "verdi": 0.5761425270291305,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "TS<sub>2</sub>",
+        "verdi": 0.3460207612456748,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 0.7503532837262659,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "h2025:4:i": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub> (APV)",
+        "verdi": 72.0178158786413,
+        "enhet": "$ m",
+        "tol": 0.0005
+      }
+    ],
+    "merknad": "Stram toleranse (0,05 %): skatteskjoldet diskontert med r_D gir 72,0773, 0,08 % unna."
+  },
+  "h2025:5:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": -17142.85714285716,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Will you open it?"
+  },
+  "h2025:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Maximum price for the study (C<sub>0</sub>)",
+        "verdi": 134285.71428571426,
+        "enhet": "NOK"
+      }
+    ]
+  },
+  "h2025:5:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "C<sub>1</sub>",
+        "verdi": 125500.6675567423,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Compare your result to the previous one and comment."
+  },
+  "h2025:5:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV with the exit option",
+        "verdi": 45245.623448086524,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Will you open it?"
+  },
+  "h2025:5:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "X",
+        "verdi": 12747.760000000002,
+        "enhet": "NOK"
+      }
+    ]
+  },
+  "h2025:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Probability of completion",
+        "verdi": 0.8283333333333331,
+        "enhet": ""
+      }
+    ]
+  },
+  "h2025:6:b": {
+    "type": "tekst"
+  },
+  "h2025:6:c": {
+    "type": "tekst"
+  }
+}

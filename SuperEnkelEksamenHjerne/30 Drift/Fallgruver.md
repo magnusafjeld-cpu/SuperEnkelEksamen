@@ -721,3 +721,11 @@ Det som virket 21. november 2026: kopier `index.html`, manualen, `js/` og `fag/`
 scratchpad-mappa med `rsync` og start en midlertidig oppføring med `/bin/sh -c "cd
 <kopien> && exec python3 -I -m http.server <port>"`. Skallet må bytte mappe før
 Python starter. Fjern oppføringen etterpå. Synk kopien på nytt etter hver endring.
+
+## 7z. proveN_regn.py skriver filer når det kjøres
+
+Regneskriptene for prøveeksamenene (`fag/fie402/_prove/proveN_regn.py`) skriver
+`proveN.json` og `proveN_oppgave.md` ved siden av seg når de kjøres. JSON-filen er bare
+mellomlager for `tools/flett-prove.py` og skal slettes etterpå (sett.js er kilden). Skal du
+bare lese tallene, kjør en kopi i scratchpad. Det skjedde 22.11.2026: agentene som lagde
+svar-dataene la igjen `prove3.json` og `prove6–9.json`.

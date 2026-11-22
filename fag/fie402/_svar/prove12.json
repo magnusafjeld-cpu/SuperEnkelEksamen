@@ -1,0 +1,161 @@
+{
+  "prove12:1:": { "type": "tekst" },
+  "prove12:2:": { "type": "tekst" },
+  "prove12:3:a": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Lind shareholders, high prices", "verdi": 205, "enhet": "NOK m" },
+      { "navn": "Lind shareholders, low prices", "verdi": 125, "enhet": "NOK m" },
+      { "navn": "Selje shareholders, high prices", "verdi": 142, "enhet": "NOK m" },
+      { "navn": "Selje shareholders, low prices", "verdi": 62, "enhet": "NOK m" },
+      { "navn": "Selje's loan today D", "verdi": 60, "enhet": "NOK m" }
+    ]
+  },
+  "prove12:3:b": {
+    "type": "tall",
+    "tall": [
+      { "navn": "V<sub>Lind</sub>", "verdi": 150, "enhet": "NOK m" },
+      { "navn": "V<sub>Selje</sub>", "verdi": 156, "enhet": "NOK m" },
+      { "navn": "Expected return on Lind's equity", "verdi": 10, "enhet": "%" },
+      { "navn": "Expected return on Selje's equity", "verdi": 6.25, "enhet": "%" }
+    ]
+  },
+  "prove12:3:c": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "10% of Selje, high prices", "verdi": 14.2, "enhet": "NOK m" },
+      { "navn": "10% of Selje, low prices", "verdi": 6.2, "enhet": "NOK m" },
+      { "navn": "10% of Lind with loan, high prices", "verdi": 14.83, "enhet": "NOK m" },
+      { "navn": "10% of Lind with loan, low prices", "verdi": 6.83, "enhet": "NOK m" }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Which plan is better?"
+  },
+  "prove12:3:d": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Arbitrage profit today", "verdi": 0.6, "enhet": "NOK m", "alt": [0.63, 6] },
+      { "navn": "Selje's equity value where the arbitrage disappears", "verdi": 90, "enhet": "NOK m" }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Construct the arbitrage: the positions today and the cash flows in both states.",
+    "merknad": "alt: 0.63 er gevinsten målt ved t = 1, og 6 er gevinsten med alle aksjene; kriteriene godtar begge. Konstruksjonen (retning og tilstandsvise kontantstrømmer) har egne kriterier og er tekstdelen."
+  },
+  "prove12:3:e": { "type": "tekst" },
+  "prove12:4:a": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Bond D", "verdi": 142.85714285714286, "enhet": "NOK m" },
+      { "navn": "Equity E", "verdi": 119.04761904761904, "enhet": "NOK m" }
+    ]
+  },
+  "prove12:4:b": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Total equity, bond on Seismikk", "verdi": 161.9047619047619, "enhet": "NOK m" },
+      { "navn": "Total equity, bond on Havn", "verdi": 114.28571428571428, "enhet": "NOK m" }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Which firm should take the bond if the CEO acts for the shareholders? Why?"
+  },
+  "prove12:4:c": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Change in the bond's value", "verdi": -38, "enhet": "%" },
+      { "navn": "Change in the shareholders' total wealth", "verdi": 36, "enhet": "%" }
+    ]
+  },
+  "prove12:4:d": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Shareholders' gain", "verdi": 42.85714285714286, "enhet": "NOK m" },
+      { "navn": "Bondholders' loss", "verdi": 54.28571428571429, "enhet": "NOK m", "alt": [-54.28571428571429] },
+      { "navn": "Loss in firm value (D + E)", "verdi": 11.428571428571429, "enhet": "NOK m", "alt": [-11.428571428571429] }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Does the split create value? Explain the mechanism.",
+    "merknad": "Tapene er oppgitt som positive tall med navnet «loss»; alt godtar samme tall med minus. Om splittingen skaper verdi og mekanismen (formuesoverføring ved risikoforskyvning) er tekstdelen."
+  },
+  "prove12:4:e": { "type": "tekst" },
+  "prove12:5:a": {
+    "type": "tall",
+    "tall": [
+      { "navn": "FCF<sub>1</sub>", "verdi": 330, "enhet": "NOK m" },
+      { "navn": "V<sup>U</sup>", "verdi": 6000, "enhet": "NOK m" }
+    ]
+  },
+  "prove12:5:b": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Interest tax shield Year 1", "verdi": 22, "enhet": "NOK m" },
+      { "navn": "PV(TS)", "verdi": 400, "enhet": "NOK m", "alt": [415.38461538461536] }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Which rate do you use and why?",
+    "merknad": "alt 415.3846 er Miles-Ezzell (første års skjold med r_D, resten med r_U), som kriteriene godtar hvis det er begrunnet. Følgefeil derfra er lagt inn som alt i c), d) og f)."
+  },
+  "prove12:5:c": {
+    "type": "tall",
+    "tall": [
+      { "navn": "V<sup>L</sup> (APV)", "verdi": 6400, "enhet": "NOK m", "alt": [6415.384615384615] },
+      { "navn": "Equity E", "verdi": 3900, "enhet": "NOK m", "alt": [3915.3846153846152] }
+    ],
+    "merknad": "alt er følgefeilen fra Miles-Ezzell i b), som kriteriene godtar."
+  },
+  "prove12:5:d": {
+    "type": "tall",
+    "tall": [
+      { "navn": "r<sub>wacc</sub>", "verdi": 7.65625, "enhet": "%", "tol": 0.001, "abs": 0.01, "alt": [7.643884892086331] }
+    ],
+    "merknad": "Stram toleranse (±0.01 prosentpoeng) fordi kriteriene sier at 0.001 prosentpoeng er greit og 0.05 for mye. alt er følgefeilen fra Miles-Ezzell i b)."
+  },
+  "prove12:5:e": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "r<sub>E</sub>", "verdi": 10.564102564102565, "enhet": "%" },
+      { "navn": "β<sub>E</sub>", "verdi": 1.3128205128205128, "enhet": "" }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Do its equity and debt betas, weighted by value, average to its asset beta?",
+    "merknad": "Ja-svaret med β_D = 0 og 0.6094 × 1.3128 = 0.8000 har eget kriterium og er tekstdelen. Følgefeilen fra Miles-Ezzell (r_E ≈ 10.53 %, β_E ≈ 1.307) ligger innenfor 1 %."
+  },
+  "prove12:5:f": {
+    "type": "tall",
+    "tall": [
+      { "navn": "FCFE<sub>1</sub>", "verdi": 314.5, "enhet": "NOK m" },
+      { "navn": "Equity E (FTE)", "verdi": 3900, "enhet": "NOK m", "alt": [3915.3846153846152] }
+    ],
+    "merknad": "Sammenligningen med c) (samme verdi) har ikke eget kriterium, så tall holder. alt er følgefeilen fra Miles-Ezzell i b)."
+  },
+  "prove12:6:a": {
+    "type": "tall",
+    "tall": [
+      { "navn": "NPV of expanding now", "verdi": 10, "enhet": "USD m" }
+    ]
+  },
+  "prove12:6:b": {
+    "type": "tall",
+    "tall": [
+      { "navn": "NPV at t = 1, high price", "verdi": 100, "enhet": "USD m", "alt": [96.15384615384616] },
+      { "navn": "NPV at t = 1, low price", "verdi": -162.5, "enhet": "USD m", "alt": [-156.25] },
+      { "navn": "Threshold price", "verdi": 9666.666666666666, "enhet": "USD per tonne" }
+    ],
+    "merknad": "alt er tilstandsverdiene diskontert til i dag (96.1538 og −156.25), som kriteriene godtar hvis det er sagt."
+  },
+  "prove12:6:c": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Risk-neutral probability ρ of the high price", "verdi": 0.6571428571428573, "enhet": "" }
+    ],
+    "tallPoeng": 6,
+    "tekstLedd": "Explain briefly why true probabilities are not needed."
+  },
+  "prove12:6:d": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Value today of the right to expand at t = 1", "verdi": 63.18681318681319, "enhet": "USD m" }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Do you expand now or wait? Briefly comment."
+  }
+}

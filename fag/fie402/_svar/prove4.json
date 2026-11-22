@@ -1,0 +1,312 @@
+{
+  "prove4:1:": {
+    "type": "tekst"
+  },
+  "prove4:2:": {
+    "type": "tekst"
+  },
+  "prove4:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 8.0,
+        "enhet": "%"
+      },
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 1800.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Share price",
+        "verdi": 75.0,
+        "enhet": "NOK per share"
+      }
+    ]
+  },
+  "prove4:3:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "D",
+        "verdi": 800.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 200.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "At which rate is the tax shield discounted and why?"
+  },
+  "prove4:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price on announcement",
+        "verdi": 83.33333333333333,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 9.600000000000001,
+        "enhet": "m shares"
+      },
+      {
+        "navn": "Repurchase price",
+        "verdi": 83.33333333333333,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Who gains more: sellers or keepers?"
+  },
+  "prove4:3:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "DPS",
+        "verdi": 8.333333333333334,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 10.0,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove4:3:e": {
+    "type": "tekst"
+  },
+  "prove4:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "FCF<sub>0</sub>",
+        "verdi": -66.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "FCF<sub>1</sub>",
+        "verdi": 24.740000000000002,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "FCF<sub>2</sub>",
+        "verdi": 31.42,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "FCF<sub>3</sub>",
+        "verdi": 35.58,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove4:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 8.799999999999999,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove4:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 10.45,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 8.396666666666667,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove4:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": 11.499985946450138,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>0</sub>",
+        "verdi": 25.83332864881671,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>1</sub>",
+        "verdi": 19.755800477695686,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>2</sub>",
+        "verdi": 10.941295857806203,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove4:4:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 76.90795128199419,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "TS<sub>1</sub>",
+        "verdi": 0.3125832766506822,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 0.5920346644559428,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "APV",
+        "verdi": 77.49998594645012,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "Compare with d).",
+    "merknad": "TS_1 sjekker tidskonvensjonen (D_0); TS_2 og TS_3 fanges av PV(TS)."
+  },
+  "prove4:4:f": {
+    "type": "tekst"
+  },
+  "prove4:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Monthly rate",
+        "verdi": 0.48675505653430484,
+        "enhet": "%"
+      },
+      {
+        "navn": "NPV, standard lease",
+        "verdi": -86442.07066557108,
+        "enhet": "NOK"
+      }
+    ],
+    "merknad": "Månedsrenten med full presisjon (0.486755 %); oppgaven ber om 0.4868 % og om å bruke den videre, så NPV og alle senere tall er regnet med 0.004868 slik løsningen gjør."
+  },
+  "prove4:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV with the 24-month exit",
+        "verdi": 370617.7519943283,
+        "enhet": "NOK"
+      }
+    ]
+  },
+  "prove4:5:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of the right to terminate after 24 months",
+        "verdi": 370617.7519943283,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Extra value with termination after 12 months",
+        "verdi": 27426.189632694295,
+        "enhet": "NOK"
+      }
+    ],
+    "merknad": "Verdien er målt mot å ikke åpne (0), som i løsningen. 457,060 (målt mot −86,442) gir bare delpoeng etter kriteriene og er derfor ikke alt."
+  },
+  "prove4:5:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Maximum fee F",
+        "verdi": 832861.1523153565,
+        "enhet": "NOK"
+      }
+    ]
+  },
+  "prove4:5:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "p, lease with exit (b)",
+        "verdi": 0.32898995221195637,
+        "enhet": ""
+      },
+      {
+        "navn": "p, standard lease",
+        "verdi": 0.5280533333333334,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Explain briefly why the two differ."
+  },
+  "prove4:6:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Offer per B share",
+        "verdi": 62.550000000000004,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Spread",
+        "verdi": 2.950000000000003,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Spread in percent of B's price",
+        "verdi": 4.949664429530206,
+        "enhet": "%",
+        "alt": [
+          4.716227018385296
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Why does B trade below the offer?",
+    "merknad": "Spread i prosent av tilbudet (4.7162 %) godtas også etter kriteriene."
+  },
+  "prove4:6:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "p (completion)",
+        "verdi": 0.7017358278027508,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Show the long-short position, the payoffs in both states, the certainty equivalent and the equation you solve.",
+    "merknad": "Kriteriene sier at de 9 poengene er for posisjonen, begge utfallene, sikkerhetsekvivalenten og likningen, så framgangsmåten er tekstdel."
+  },
+  "prove4:6:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "S",
+        "verdi": 900.6177161618411,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove4:6:d": {
+    "type": "tekst"
+  }
+}

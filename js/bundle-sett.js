@@ -77,7 +77,7 @@ window.EDU = window.EDU || {};
       const kilde = alle.find((s) => s.id === ref.sett && !s.lån);
       const ex = kilde && (kilde.exercises || []).find((e) => e.n === ref.n);
       if (!ex) { console.warn(`[sett] ${set.id}: fant ikke ${ref.sett} oppgave ${ref.n}`); return; }
-      oppgaver.push(Object.assign({}, ex, { n: oppgaver.length + 1, kilde: `${kilde.label} · oppgave ${ex.n}`, merke: ref.merke || "" }));
+      oppgaver.push(Object.assign({}, ex, { n: oppgaver.length + 1, kilde: `${kilde.label} · oppgave ${ex.n}`, merke: ref.merke || "", kildeId: kilde.id, kildeN: ex.n }));
     });
     const k = oppgaver.map((e) => e.kilde);
     const note = set.note || (k.length ? "Hentet fra " + (k.length > 1 ? k.slice(0, -1).join(", ") + " og " + k[k.length - 1] : k[0]) + "." : "");
@@ -160,13 +160,13 @@ window.EDU = window.EDU || {};
     else noterFeil(set, ex.n);
   }
   const harÅpneDeler = (setId, n) => Object.values(åpneDeler(setId, n)).some(Boolean);
-  function setScore(setId, n, score) { S.store.setExam(exKey(setId, n), { score: score, scoredAt: S.u.nowTs() }); }
+  function setScore(setId, n, score) { S.store.setExam(exKey(setId, n), { score: score, scoredAt: S.u.nowTs(), scoreKilde: "selv" }); }
   /* «Prøv på nytt» i øving: lukker fasiten og fjerner svar og poeng for én
      oppgave. Skriver tomme verdier i stedet for å slette nøkkelen, ellers ville
      synken hentet det gamle svaret tilbake fra den andre enheten. */
   function prøvIgjen(setId, n) {
     const set = setById(setId); if (set) noterFeil(set, n);
-    S.store.setExam(exKey(setId, n), { revealed: false, åpne: null, valg: null, score: null, scoredAt: null });
+    S.store.setExam(exKey(setId, n), { revealed: false, åpne: null, valg: null, score: null, scoredAt: null, scoreKilde: null, inn: null, rett: null });
   }
 
   /* ---------- usikker ---------- */
@@ -619,7 +619,12 @@ window.EDU = window.EDU || {};
   }
   function scoreRow(set, ex) {
     const cur = exState(set.id, ex.n).score;
-    const rowEl = el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "14px" } },
+    const rs = rettingPå(set) ? rettStatus(set, ex) : null;
+    const status = rs && rs.aktive ? el(".tiny", { style: { marginTop: "14px" } },
+      rs.komplett ? el("span", el("b", `Rettet: ${pts(rs.sum)} av ${pts(rs.of)} poeng. `),
+        exState(set.id, ex.n).scoreKilde === "selv" ? "Du har overstyrt poengsummen." : "Trykk et tall under for å overstyre.")
+        : `Rettet så langt: ${pts(rs.sum)} poeng i ${rs.ferdige} av ${rs.alle} deloppgaver. Poengsummen settes når alle er rettet, eller av deg.`) : null;
+    const rowEl = el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: status ? "6px" : "14px" } },
       el(".tiny.muted", "Din poengsum:"));
     const max = ex.points || 0;
     const steps = [0, Math.round(max * 0.25), Math.round(max * 0.5), Math.round(max * 0.75), max];
@@ -628,11 +633,381 @@ window.EDU = window.EDU || {};
         onclick: () => { setScore(set.id, ex.n, v); S.app.refresh(); },
       }, String(v)));
     });
-    rowEl.appendChild(el(".tiny.muted", `av ${max}`));
-    return rowEl;
+    rowEl.appendChild(el(".tiny.muted", typeof cur === "number" && !steps.includes(cur) ? `${pts(cur)} av ${max}` : `av ${max}`));
+    return status ? el("div", status, rowEl) : rowEl;
   }
 
   /* ================= øvingsmodus ================= */
+  /* ================= retting med egen API-nøkkel ================= */
+  /* Med en Anthropic-nøkkel (lagt inn under Konto) fører du inn svarene og får dem
+     rettet. Svar-dataene (EDU_DATA.svar, bygget av tools/bygg-svar.py, se
+     docs/fie402-svar-spek.md) gir hver deloppgave en type:
+       tall     én boks per tall oppgaven spør etter, rettes automatisk (gratis)
+       bokstav  flervalg skrevet som tekst i de gamle settene, rettes automatisk
+       tekst    tekstfelt, rettes av Claude Opus 5.5 mot løsning og kriterier
+       blandet  tallbokser og et tekstfelt: tallene automatisk, teksten med Opus
+     Uten nøkkel, uten svar-data, i kartleggingen og i oppgaver med ekte flervalg er
+     alt som før: fasitknapp og selvvurdering. Oppgavene endres aldri.
+
+     I øving retter «Rett a)» delen og åpner fasiten. I eksamensmodus fører du inn
+     mens klokka går, og ingenting rettes før du leverer: da rettes tallene med en
+     gang, og én knapp retter tekstsvarene. Er et tall feil og et tidligere tall i
+     samme oppgave også feil, kan Sonnet 5.5 sjekke om det er en følgefeil (Kurbatov
+     gir full uttelling for følgefeil).
+
+     Lagres i "<settId>-e<n>": `inn` { etikett: { t: [tekst per tallboks], x: tekst,
+     b: bokstav } } og `rett` { etikett: { tall: [true/false per tall], tp: poeng for
+     tallene, cm: maks for teksten, cp: Claudes poeng (null = venter), tb: Claudes
+     tilbakemelding, følge: godkjent som følgefeil, ft: følgefeilsvaret } }.
+     Er alle delene i en oppgave rettet, settes oppgavens poeng til summen
+     (scoreKilde: "retting"); knappene i poengraden overstyrer som før. */
+  const OPUS = "claude-opus-5-5", SONNET = "claude-sonnet-5-5";
+  const harNøkkel = () => !!(S.claude && S.claude.harNøkkel && S.claude.harNøkkel());
+  function svarData(set, ex, etikett) {
+    const d = (window.EDU_DATA.svar || {})[`${ex.kildeId || set.id}:${ex.kildeN || ex.n}:${etikett || ""}`];
+    return d && d.type && d.type !== "ingen" ? d : null;
+  }
+  function retting(set, ex, etikett) {
+    if (!harNøkkel() || erKart(set) || erMC(ex)) return null;
+    return svarData(set, ex, etikett);
+  }
+  /* Deloppgavene, eller hele oppgaven som én del når den ikke har deloppgaver. */
+  const helDel = new WeakMap();
+  function delerAv(ex) {
+    if (ex.parts && ex.parts.length) return ex.parts;
+    if (!helDel.has(ex)) helDel.set(ex, [{ label: "", points: ex.points, body: "", solution: ex.solution, criteria: ex.criteria, _hel: true }]);
+    return helDel.get(ex);
+  }
+  const rettingPå = (set) => harNøkkel() && !erKart(set) && (set.exercises || []).some((ex) => delerAv(ex).some((p) => retting(set, ex, p.label)));
+  const innFor = (set, ex, e) => ((exState(set.id, ex.n).inn || {})[e]) || {};
+  const rettFor = (set, ex, e) => ((exState(set.id, ex.n).rett || {})[e]) || null;
+  function lagreInn(set, ex, e, patch) {
+    const inn = Object.assign({}, exState(set.id, ex.n).inn || {});
+    inn[e] = Object.assign({}, inn[e] || {}, patch);
+    S.store.setExam(exKey(set.id, ex.n), { inn });
+  }
+  function lagreRett(set, ex, e, patch) {
+    const rett = Object.assign({}, exState(set.id, ex.n).rett || {});
+    rett[e] = Object.assign({}, rett[e] || {}, patch);
+    S.store.setExam(exKey(set.id, ex.n), { rett });
+  }
+  const delPoeng = (ex, part) => part.points || (part._hel ? ex.points : 0) || 0;
+  const tallMaks = (d, maks) => (d.type === "blandet" ? d.tallPoeng : d.type === "tekst" ? 0 : maks);
+  const harTekst = (d) => d.type === "tekst" || d.type === "blandet";
+  const vurderingsId = (set, ex, e) => `rett:${set.id}:${ex.n}:${e}`;
+
+  /* Et tall slik du skriver det: komma eller punktum som desimaltegn, mellomrom som
+     tusenskille, − eller - som minus og % til slutt. «1,234» kan bety begge deler,
+     så begge tolkningene prøves. */
+  function tolkTall(s) {
+    const t = String(s == null ? "" : s).trim().replace(/[−–]/g, "-").replace(/\s+/g, "").replace(/%$/, "");
+    const ut = [];
+    const legg = (x) => { const n = Number(x); if (x !== "" && x !== "-" && Number.isFinite(n)) ut.push(n); };
+    if (!t) return ut;
+    if (t.includes(",") && t.includes(".")) legg(t.replace(/,/g, ""));
+    else if (t.includes(",")) { legg(t.replace(",", ".")); if (/^-?\d{1,3}(,\d{3})+$/.test(t)) legg(t.replace(/,/g, "")); }
+    else legg(t);
+    return ut;
+  }
+  /* Riktig innenfor toleransen (standard 1 %). Prosent godtas også som desimaltall
+     (0,0925 for 9,25 %), og en sannsynlighet også i prosent (58,84 for 0,5884). */
+  function tallRiktig(inp, t) {
+    const grense = (v) => Math.max(t.abs || 0, (t.tol == null ? 0.01 : t.tol) * Math.abs(v), 1e-9);
+    const mål = [t.verdi].concat(t.alt || []);
+    return tolkTall(inp).some((n) => mål.some((v) => {
+      const ok = (x) => Math.abs(x - v) <= grense(v);
+      if (ok(n)) return true;
+      if (t.enhet === "%" && ok(n * 100)) return true;
+      if (!t.enhet && v !== 0 && Math.abs(v) < 1 && ok(n / 100)) return true;
+      return false;
+    }));
+  }
+  const visTall = (v, enhet) => v.toLocaleString("nb-NO", { maximumFractionDigits: 4 }).replace("-", "−") + (enhet ? (enhet === "%" ? " %" : " " + enhet) : "");
+
+  /* Retter tallene og bokstaven i en del. Tekstdelen venter på Claude (cp: null),
+     men et tomt tekstfelt gir 0 uten å spørre. */
+  function rettAutomatisk(set, ex, part) {
+    const d = retting(set, ex, part.label); if (!d) return;
+    const e = part.label, inn = innFor(set, ex, e), maks = delPoeng(ex, part);
+    const x = String(inn.x || "").trim();
+    if (d.type === "bokstav") {
+      const ok = String(inn.b || "").trim().toUpperCase() === d.svar;
+      lagreRett(set, ex, e, { tall: [ok], tp: ok ? maks : 0, cm: 0, cp: 0, følge: false, ft: null, tb: null });
+      return;
+    }
+    const tm = tallMaks(d, maks), per = d.tall && d.tall.length ? tm / d.tall.length : 0;
+    const ok = (d.tall || []).map((t, i) => tallRiktig((inn.t || [])[i], t));
+    const tp = Math.round(ok.filter(Boolean).length * per * 100) / 100;
+    const cm = harTekst(d) ? maks - tm : 0;
+    lagreRett(set, ex, e, { tall: ok, tp, cm, cp: cm ? (x ? null : 0) : 0, følge: false, ft: null, tb: null });
+  }
+
+  /* Status for oppgaven: summen av det som er rettet, og om alt er rettet. */
+  function rettStatus(set, ex) {
+    const deler = delerAv(ex);
+    let sum = 0, of = 0, ferdige = 0, aktive = 0;
+    deler.forEach((p) => {
+      of += delPoeng(ex, p);
+      if (!retting(set, ex, p.label)) return;
+      aktive++;
+      const r = rettFor(set, ex, p.label);
+      if (r && r.cp != null) { ferdige++; sum += (r.tp || 0) + (r.cp || 0); }
+    });
+    return { sum: Math.round(sum * 100) / 100, of, ferdige, aktive, alle: deler.length, komplett: aktive === deler.length && ferdige === deler.length };
+  }
+  function oppdaterSum(set, ex) {
+    const s = rettStatus(set, ex);
+    if (s.komplett) S.store.setExam(exKey(set.id, ex.n), { score: s.sum, scoredAt: S.u.nowTs(), scoreKilde: "retting" });
+  }
+
+  /* Tegner siden på nytt uten å ta markøren fra feltet du skriver i. */
+  function oppfrisk() {
+    const a = document.activeElement;
+    const k = a && a.getAttribute ? a.getAttribute("data-svar") : null;
+    const sel = k && typeof a.selectionStart === "number" ? [a.selectionStart, a.selectionEnd] : null;
+    S.app.refresh();
+    if (!k) return;
+    const n = [...document.querySelectorAll("[data-svar]")].find((x) => x.getAttribute("data-svar") === k);
+    if (n) { n.focus(); if (sel) { try { n.setSelectionRange(sel[0], sel[1]); } catch (e) {} } }
+  }
+
+  /* Kjører vurderinger én om gangen, så Opus ikke får mange kall samtidig. */
+  let kø = Promise.resolve(), køIgjen = 0;
+  function køVurdering(id) {
+    køIgjen++;
+    kø = kø.then(() => S.claude.kjørVurdering(id)).catch(() => {}).then(() => { køIgjen--; oppfrisk(); });
+    return kø;
+  }
+
+  /* Feltene du fører inn svaret i. Låst etter retting (og etter levering). */
+  function svarFelt(set, ex, part, d, låst) {
+    const e = part.label, inn = innFor(set, ex, e), r = rettFor(set, ex, e);
+    const boks = el(".svar-felt");
+    const nøkkel = (i) => `${set.id}:${ex.n}:${e}:${i}`;
+    const merke = (ok) => (r && låst ? el(ok ? "span.svar-ok" : "span.svar-feil", ok ? "✓" : "✗") : null);
+    if (d.type === "bokstav") {
+      const inp = el("input.svar-inn.svar-bokstav", { type: "text", maxlength: 1, autocomplete: "off", "data-svar": nøkkel("b"),
+        "aria-label": "Svaret ditt (bokstav)", oninput: (ev) => { ev.target.value = ev.target.value.toUpperCase(); lagreInn(set, ex, e, { b: ev.target.value }); } });
+      inp.value = inn.b || ""; if (låst) inp.readOnly = true;
+      boks.appendChild(el(".svar-rad", el("span.svar-navn", "Svaret ditt"), inp,
+        merke(r && r.tall && r.tall[0]), r && låst && !(r.tall && r.tall[0]) ? el("span.tiny.muted", `Fasit: ${d.svar}`) : null));
+      return boks;
+    }
+    (d.tall || []).forEach((t, i) => {
+      const inp = el("input.svar-inn", { type: "text", inputmode: "decimal", autocomplete: "off", "data-svar": nøkkel(i),
+        "aria-label": "Svaret ditt", oninput: (ev) => { const ts = (innFor(set, ex, e).t || []).slice(); ts[i] = ev.target.value; lagreInn(set, ex, e, { t: ts }); } });
+      inp.value = (inn.t || [])[i] || ""; if (låst) inp.readOnly = true;
+      const ok = r && r.tall ? r.tall[i] : null;
+      boks.appendChild(el(".svar-rad",
+        el("span.svar-navn", frag(t.navn)),
+        inp,
+        t.enhet ? el("span.svar-enhet", t.enhet) : null,
+        merke(ok),
+        r && låst && !ok ? el("span.tiny.muted", `Fasit: ${visTall(t.verdi, t.enhet)}`) : null));
+    });
+    if (harTekst(d)) {
+      const ta = el("textarea.svar-tekst", { rows: d.type === "tekst" ? 7 : 3, maxlength: 6000, "data-svar": nøkkel("x"),
+        placeholder: låst ? "" : "Write your answer in English, as on the exam.",
+        oninput: (ev) => lagreInn(set, ex, e, { x: ev.target.value }) });
+      ta.value = inn.x || ""; if (låst) ta.readOnly = true;
+      boks.appendChild(el(".svar-tekst-hode.tiny.muted", d.type === "blandet" ? (d.tekstLedd || "Kommentar") : "Svaret ditt"));
+      boks.appendChild(ta);
+    }
+    return boks;
+  }
+
+  /* Det Claude får når en tekstdel skal rettes. */
+  function rettePrompt(set, ex, part, d) {
+    const ren = S.claude.ren;
+    const e = part.label, inn = innFor(set, ex, e), r = rettFor(set, ex, e) || {};
+    const maks = delPoeng(ex, part), cm = harTekst(d) ? maks - tallMaks(d, maks) : maks;
+    const tidligere = delerAv(ex).slice(0, Math.max(0, delerAv(ex).indexOf(part))).map((p) => {
+      const dd = svarData(set, ex, p.label), ii = innFor(set, ex, p.label);
+      const tall = dd && dd.tall ? dd.tall.map((t, i) => `${ren(t.navn)} = ${(ii.t || [])[i] || "(tomt)"}${t.enhet ? " " + t.enhet : ""}`).join("; ") : "";
+      return tall || ii.x ? `- ${p.label}) ${tall}${ii.x ? (tall ? " · " : "") + "tekst: " + String(ii.x).slice(0, 400) : ""}` : "";
+    }).filter(Boolean).join("\n");
+    const tallLinjer = d.type === "blandet" ? d.tall.map((t, i) => `- ${ren(t.navn)}: skrev ${(inn.t || [])[i] || "(tomt)"}${t.enhet ? " " + t.enhet : ""}, fasit ${visTall(t.verdi, t.enhet)} (${r.tall && r.tall[i] ? "riktig" : "feil"})`).join("\n") : "";
+    const krit = (part.criteria || []).map((c, i) => `${i + 1}. ${ren(c)}`).join("\n");
+    return `Du er sensor på FIE402 Corporate Finance ved NHH (eksamen satt av Andrey Kurbatov). Jeg øver til eksamen og vil ha en streng og konkret vurdering, ikke oppmuntring.
+
+## Oppgaven: ${set.label}, oppgave ${ex.n}${ex.title ? " (" + ex.title + ")" : ""}
+${ren(ex.body || "")}
+${part._hel ? "" : `\n## Deloppgave ${e}) (${maks} poeng)\n${ren(part.body || "")}\n`}${tidligere ? `\n## Mine svar på tidligere deloppgaver\n${tidligere}\n` : ""}${tallLinjer ? `\n## Tallene i denne deloppgaven (allerede rettet automatisk, ${tallMaks(d, maks)} poeng)\n${tallLinjer}\n` : ""}
+## Svaret mitt${d.type === "blandet" ? ` på tekstdelen (${cm} poeng)` : ` (${cm} poeng)`}${d.tekstLedd ? ": " + d.tekstLedd : ""}
+${String(inn.x || "").trim() ? '"""\n' + String(inn.x).trim() + '\n"""' : "(tomt)"}
+
+## Løsningen
+${ren(part.solution || (part._hel ? ex.solution : "") || "") || "(ingen løsning)"}
+${krit ? "\n## Kriteriene sensor ser etter\n" + krit + "\n" : ""}
+## Slik retter du
+- Gi poeng bare for tekstdelen, av ${cm}${d.type === "blandet" ? ". Tallene er rettet, så ikke trekk for dem igjen" : ""}. Bruk halve poeng.
+- Vurder bare det som står i svaret. Det som er underforstått, teller ikke. Se bort fra stavefeil og grammatikk.
+- Kurbatovs sensorer belønner mekanismen, ikke merkelappen: «value creation» eller «it signals» uten hvorfor gir lite. Nøkkelfraser teller når de brukes riktig, for eksempel «wealth transfer» og «the firm forgoes positive-NPV projects».
+- Følgefeil gir ikke trekk: bygger svaret riktig videre på mine egne tidligere tall, er det riktig.
+- Eksamen besvares på engelsk. Skriver jeg på norsk, retter du innholdet som vanlig og minner meg på det i én setning.
+- Ikke gjenta løsningen. Jeg har den foran meg.
+
+## Svar kort, på norsk, i denne formen
+1. **Poeng:** «x av ${cm}» og én setning om hvorfor.
+2. **Kriterium for kriterium:** ✓ eller ✗, med et kort sitat fra svaret som bevis eller hva som manglet.
+3. **Det som kostet mest:** konkret.
+4. **Slik ville et toppsvar startet:** to linjer på engelsk, slik jeg burde skrevet dem.
+
+Avslutt med en egen linje nøyaktig slik: POENG: x av ${cm}`;
+  }
+  function lesPoeng(tekst, maks) {
+    const m = [...String(tekst || "").matchAll(/POENG:\s*([0-9]+(?:[.,][0-9]+)?)\s*av\s*([0-9]+(?:[.,][0-9]+)?)/gi)].pop();
+    if (!m) return null;
+    const x = parseFloat(m[1].replace(",", "."));
+    return Number.isFinite(x) ? Math.max(0, Math.min(maks, Math.round(x * 2) / 2)) : null;
+  }
+
+  /* Følgefeil: er et tall feil, og et tidligere tall i samme oppgave også feil, kan
+     tallet være riktig regnet på ditt eget grunnlag. Sonnet 5.5 sjekker det. */
+  function kanFølgefeil(set, ex, part) {
+    const r = rettFor(set, ex, part.label);
+    if (!r || !r.tall || r.følge || r.ft || r.tall.every(Boolean)) return false;
+    const deler = delerAv(ex), i = deler.indexOf(part);
+    return deler.slice(0, i).some((p) => { const q = rettFor(set, ex, p.label); return q && q.tall && q.tall.some((x) => x === false); });
+  }
+  function følgePrompt(set, ex, part, d) {
+    const ren = S.claude.ren;
+    const linjer = (p) => {
+      const dd = svarData(set, ex, p.label), ii = innFor(set, ex, p.label);
+      return dd && dd.tall ? dd.tall.map((t, i) => `  ${ren(t.navn)}: studenten ${(ii.t || [])[i] || "(tomt)"}, fasit ${visTall(t.verdi, t.enhet)}`).join("\n") : "  (ingen tall)";
+    };
+    const deler = delerAv(ex), i = deler.indexOf(part);
+    return `En student har regnet en eksamensoppgave i FIE402 Corporate Finance. Sjekk om et feil tall er en følgefeil: riktig metode brukt på studentens egne, feile tall fra tidligere deloppgaver.
+
+## Oppgaven
+${ren(ex.body || "")}
+
+## Tidligere deloppgaver
+${deler.slice(0, i).map((p) => `${p.label}) ${ren(p.body || "")}\n${linjer(p)}`).join("\n\n")}
+
+## Deloppgaven som sjekkes: ${part.label})
+${ren(part.body || "")}
+${linjer(part)}
+
+## Løsningen for ${part.label})
+${ren(part.solution || "")}
+
+Regn ${part.label}) på nytt med studentens egne tall fra de tidligere deloppgavene og samme metode som løsningen. Gir det studentens tall innenfor avrunding (rundt 1 %), er det en følgefeil. Ukjent metode eller andre feil i ${part.label}) er ikke følgefeil.
+Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen linje: FØLGEFEIL: JA eller FØLGEFEIL: NEI`;
+  }
+  const følgeKjører = new Set();
+  async function sjekkFølgefeil(set, ex, part) {
+    const d = retting(set, ex, part.label), id = vurderingsId(set, ex, part.label);
+    if (!d || følgeKjører.has(id)) return;
+    følgeKjører.add(id); oppfrisk();
+    try {
+      const r = await S.claude.strøm({ system: "Du er en nøyaktig sensor i bedriftsfinans. Regn sjekken i hodet og svar kort.",
+        messages: [{ role: "user", content: følgePrompt(set, ex, part, d) }], modell: SONNET, effort: "medium", maxTokens: 8000 });
+      const tekst = r.content.filter((b) => b.type === "text").map((b) => b.text || "").join("").trim();
+      const ja = /FØLGEFEIL:\s*JA/i.test(tekst);
+      const ft = tekst.replace(/\n?\s*FØLGEFEIL:\s*(JA|NEI)\s*$/i, "").trim() || (ja ? "Godkjent som følgefeil." : "Ikke en følgefeil.");
+      if (ja) lagreRett(set, ex, part.label, { følge: true, tp: tallMaks(d, delPoeng(ex, part)), ft });
+      else lagreRett(set, ex, part.label, { følge: false, ft });
+      oppdaterSum(set, ex);
+    } catch (e) {
+      S.u.toast((e && e.message) || "Følgefeilsjekken feilet. Prøv igjen.");
+    } finally { følgeKjører.delete(id); oppfrisk(); }
+  }
+
+  /* Resultatet for en rettet del: poengene, følgefeilsjekken og Claudes vurdering. */
+  function rettVisning(set, ex, part, d) {
+    const e = part.label, r = rettFor(set, ex, e);
+    if (!r) return null;
+    const wrap = el(".svar-resultat");
+    const maks = delPoeng(ex, part), tm = d.type === "bokstav" ? maks : tallMaks(d, maks);
+    const biter = [];
+    if (d.type !== "tekst") biter.push(`${d.type === "bokstav" ? "Svaret" : "Tallene"}: ${pts(r.tp || 0)} av ${pts(tm)}${r.følge ? " (følgefeil godkjent)" : ""}`);
+    if (harTekst(d)) biter.push(r.cp == null ? `Teksten: venter på Claude (${pts(r.cm)} p)` : `Teksten: ${pts(r.cp)} av ${pts(r.cm)}`);
+    const ferdig = r.cp != null;
+    wrap.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "center" } },
+      el(ferdig ? ".chip.green" : ".chip.amber", ferdig ? `${pts((r.tp || 0) + (r.cp || 0))} av ${pts(maks)} p` : "Delvis rettet"),
+      el("span.tiny.muted", biter.join(" · "))));
+    if (kanFølgefeil(set, ex, part)) {
+      const kjører = følgeKjører.has(vurderingsId(set, ex, e));
+      wrap.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "8px" } },
+        el("button.btn.sm" + (kjører ? "" : ".ghost"), { type: "button", disabled: kjører, onclick: () => sjekkFølgefeil(set, ex, part) }, kjører ? "Sjekker …" : "Sjekk følgefeil"),
+        el("span.tiny.muted", "Et tidligere tall i oppgaven er feil. Sonnet 5.5 sjekker om dette er riktig regnet på ditt eget grunnlag (rundt 2 cent).")));
+    }
+    if (r.ft) wrap.appendChild(el("p.tiny", { style: { margin: "8px 0 0" } }, el("b", r.følge ? "Følgefeil godkjent. " : "Ikke følgefeil. "), r.ft));
+    if (harTekst(d) && String(innFor(set, ex, e).x || "").trim()) {
+      wrap.appendChild(el("div", { style: { marginTop: "10px" } }, S.claude.vurdering({
+        id: vurderingsId(set, ex, e), modell: OPUS, effort: "high", lagret: r.tb || null,
+        prompt: () => rettePrompt(set, ex, part, d),
+        knapp: r.cp == null ? "Rett teksten med Claude" : "Rett teksten på nytt",
+        forklaring: `Claude Opus 5.5 retter teksten mot løsningen og kriteriene, ${pts(r.cm)} poeng. Rundt 4–8 cent.`,
+        onFerdig: (tekst) => {
+          const p = lesPoeng(tekst, r.cm);
+          if (p == null) S.u.toast("Fant ikke poengsummen i vurderingen. Sett poeng selv i poengraden.");
+          lagreRett(set, ex, e, { cp: p, tb: tekst });
+          oppdaterSum(set, ex);
+        },
+      })));
+    }
+    return wrap;
+  }
+
+  /* «Rett a)»: retter det som kan rettes automatisk, åpner fasiten og sender
+     teksten til Claude. */
+  function rettDel(set, ex, part) {
+    const d = retting(set, ex, part.label); if (!d) return;
+    const inn = innFor(set, ex, part.label);
+    const tomt = !(inn.t || []).some((x) => String(x || "").trim()) && !String(inn.x || "").trim() && !String(inn.b || "").trim();
+    const navn = part._hel ? "oppgaven" : `${part.label})`;
+    if (tomt && !confirm(`Du har ikke ført inn noe svar på ${navn}. Det gir 0 poeng. Rette og vise løsningen likevel?`)) return;
+    rettAutomatisk(set, ex, part);
+    if (part._hel) reveal(set.id, ex.n); else revealDel(set, ex, part.label);
+    oppdaterSum(set, ex);
+    oppfrisk();
+    const r = rettFor(set, ex, part.label);
+    if (r && r.cp == null) køVurdering(vurderingsId(set, ex, part.label));
+  }
+  /* «Rett alle deloppgavene» / «Rett resten»: alle delene som ikke er rettet. */
+  function rettResten(set, ex) {
+    const igjen = delerAv(ex).filter((p) => retting(set, ex, p.label) && !rettFor(set, ex, p.label));
+    const tomme = igjen.filter((p) => { const i = innFor(set, ex, p.label); return !(i.t || []).some((x) => String(x || "").trim()) && !String(i.x || "").trim() && !String(i.b || "").trim(); });
+    if (tomme.length && !confirm(`${tomme.map((p) => p.label + ")").join(", ")} ${tomme.length === 1 ? "er tom" : "er tomme"} og gir 0 poeng. Rette og vise løsningen likevel?`)) return;
+    const ids = [];
+    igjen.forEach((p) => { rettAutomatisk(set, ex, p); const r = rettFor(set, ex, p.label); if (r && r.cp == null) ids.push(vurderingsId(set, ex, p.label)); });
+    reveal(set.id, ex.n); mcLagreScore(set, ex);
+    oppdaterSum(set, ex);
+    oppfrisk();
+    ids.forEach(køVurdering);
+  }
+  /* Etter levering: tallene i hele settet rettes med en gang. */
+  function rettSettAutomatisk(set) {
+    (set.exercises || []).forEach((ex) => {
+      let noe = false;
+      delerAv(ex).forEach((p) => { if (retting(set, ex, p.label)) { rettAutomatisk(set, ex, p); noe = true; } });
+      if (noe) oppdaterSum(set, ex);
+    });
+  }
+  /* Tekstdeler som venter på Claude i et levert sett. */
+  const ventendeTekst = (set) => (set.exercises || []).flatMap((ex) => delerAv(ex)
+    .filter((p) => { const d = retting(set, ex, p.label), r = rettFor(set, ex, p.label); return d && harTekst(d) && r && r.cp == null; })
+    .map((p) => vurderingsId(set, ex, p.label)));
+  function rettingKort(set, levert) {
+    if (!rettingPå(set)) return null;
+    const kort = el(".card", { style: { marginBottom: "16px", background: "var(--accent-soft)", border: "1px solid var(--accent-soft-2)" } });
+    if (!levert) {
+      kort.appendChild(el("p.tiny", { style: { margin: 0, lineHeight: 1.55 } }, el("b", "Retting er på. "),
+        mode === "exam" ? "Regn på papir og før inn sluttsvarene (små tall med fire desimaler) og tekstsvarene her. Ingenting rettes før du leverer: da rettes tallene automatisk, og tekstsvarene kan du sende til Claude Opus 5.5."
+          : "Før inn svaret og trykk «Rett». Tall rettes automatisk og gratis, små tall med fire desimaler som på eksamen. Tekst rettes av Claude Opus 5.5, rundt 4–8 cent per svar."));
+      return kort;
+    }
+    const ids = ventendeTekst(set);
+    if (!ids.length && !køIgjen) return null;
+    kort.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "center" } },
+      el("p.tiny", { style: { margin: 0, flex: "1 1 260px", lineHeight: 1.55 } }, el("b", "Tallene er rettet. "),
+        køIgjen ? `Claude retter tekstsvarene (${køIgjen} igjen) …` : `${ids.length} tekstsvar venter. Claude Opus 5.5 retter dem ett om gangen, rundt ${(ids.length * 0.04).toFixed(2).replace(".", ",")}–${(ids.length * 0.08).toFixed(2).replace(".", ",")} dollar til sammen.`),
+      køIgjen ? null : el("button.btn.primary", { type: "button", onclick: () => ids.forEach(køVurdering) }, "Rett tekstsvarene med Claude")));
+    return kort;
+  }
+
   function renderPractice(set) {
     stopTicker();
     const wrap = el(".fade-in");
@@ -641,6 +1016,8 @@ window.EDU = window.EDU || {};
     const exs = set.exercises || [];
     if (!exs.length) { wrap.appendChild(sh().empty("📄", "Tomt sett", "Ingen oppgaver lagt inn.")); return wrap; }
     if (cursor >= exs.length) cursor = 0;
+    const rk = rettingKort(set, false);
+    if (rk) wrap.appendChild(rk);
 
     /* Med «Bare usikre og feil» viser navigasjonen og Forrige/Neste bare de merkede.
        Oppgaven du står på, vises uansett, så den ikke forsvinner idet du fjerner merket. */
@@ -679,6 +1056,13 @@ window.EDU = window.EDU || {};
 
     const open = solutionOpen(set.id, ex.n);
     const mc = erMC(ex);
+    /* Oppgave uten deloppgaver: feltene under teksten, resultatet når den er rettet. */
+    const hel = !(ex.parts || []).length ? delerAv(ex)[0] : null;
+    const dHel = hel ? retting(set, ex, "") : null;
+    if (dHel) {
+      card.appendChild(svarFelt(set, ex, hel, dHel, !!rettFor(set, ex, "")));
+      if (rettFor(set, ex, "")) card.appendChild(rettVisning(set, ex, hel, dHel));
+    }
     const hoved = leddFor(ex, "");
     if (hoved) card.appendChild(mcValg(set, ex, hoved, open, true));
 
@@ -691,8 +1075,16 @@ window.EDU = window.EDU || {};
       const ledd = leddFor(ex, part.label);
       const delÅpen = delOpen(set.id, ex.n, part.label);
       if (ledd) pc.appendChild(mcValg(set, ex, ledd, delÅpen, true));
+      const d = retting(set, ex, part.label);
+      const rettet = d ? rettFor(set, ex, part.label) : null;
+      if (d) {
+        pc.appendChild(svarFelt(set, ex, part, d, !!rettet));
+        if (rettet) pc.appendChild(rettVisning(set, ex, part, d));
+        else pc.appendChild(el(".row", { style: { marginTop: "10px" } },
+          el("button.btn.sm", { onclick: () => rettDel(set, ex, part) }, `Rett ${part.label})`)));
+      }
       if (delÅpen) pc.appendChild(solutionPanel(`Løsning ${part.label})`, part.solution, part.criteria));
-      else pc.appendChild(el(".row", { style: { marginTop: "10px" } },
+      else if (!d) pc.appendChild(el(".row", { style: { marginTop: "10px" } },
         el("button.btn.ghost.sm", { onclick: () => {
           const ubesvartDel = ledd && (exState(set.id, ex.n).valg || {})[ledd.nøkkel] == null;
           if (ubesvartDel && !confirm(`Du har ikke svart på ${part.label}). Ubesvart gir 0 poeng. Vise løsningen likevel?`)) return;
@@ -710,7 +1102,10 @@ window.EDU = window.EDU || {};
           mc ? (set.practiceNote || "Regn på papir og velg alternativet før du åpner fasiten. Et alternativ du velger etter å ha sett løsningen, har du ikke lært noe av.")
              : (set.practiceNote || "Eksamen er penn og papir, så gjør det på papir her også — hele utregningen, ikke bare svaret. Å lese en løsning du ikke har forsøkt på gir gjenkjennelse, ikke kunnskap.")),
         el(".row.wrap", { style: { gap: "8px", alignItems: "center" } },
-          el("button.btn.primary", { onclick: () => {
+          dHel ? el("button.btn.primary", { onclick: () => rettDel(set, ex, hel) }, "Rett svaret")
+          : delerAv(ex).some((p) => retting(set, ex, p.label)) ? el("button.btn.primary", { onclick: () => rettResten(set, ex) },
+            noenÅpne ? "Rett resten" : "Rett alle deloppgavene")
+          : el("button.btn.primary", { onclick: () => {
             if (ubesvart && !confirm("Du har ikke svart på alle leddene. Ubesvart gir 0 poeng. Vise løsningen likevel?")) return;
             reveal(set.id, ex.n); mcLagreScore(set, ex); S.app.refresh();
           } }, !(ex.parts || []).length ? (mc ? "Rett svaret mitt" : "Jeg har skrevet svaret — vis løsningen")
@@ -765,6 +1160,8 @@ window.EDU = window.EDU || {};
 
     const submitted = !!r.submittedAt;
     wrap.appendChild(clockBar(set, submitted));
+    const rk = rettingKort(set, submitted);
+    if (rk) wrap.appendChild(rk);
 
     if (submitted) wrap.appendChild(erKart(set) ? kartRapport([set], true) : resultCard(set));
 
@@ -775,12 +1172,23 @@ window.EDU = window.EDU || {};
       card.appendChild(body(ex.body));
       const hoved = leddFor(ex, "");
       if (hoved) card.appendChild(mcValg(set, ex, hoved, submitted, !submitted));
+      const hel = !(ex.parts || []).length ? delerAv(ex)[0] : null;
+      const dHel = hel ? retting(set, ex, "") : null;
+      if (dHel) {
+        card.appendChild(svarFelt(set, ex, hel, dHel, submitted));
+        if (submitted) { const rv = rettVisning(set, ex, hel, dHel); if (rv) card.appendChild(rv); }
+      }
       (ex.parts || []).forEach((part) => {
         const pc = el(".sett-part");
         pc.appendChild(delHode(set, ex, part));
         pc.appendChild(body(part.body));
         const ledd = leddFor(ex, part.label);
         if (ledd) pc.appendChild(mcValg(set, ex, ledd, submitted, !submitted));
+        const d = retting(set, ex, part.label);
+        if (d) {
+          pc.appendChild(svarFelt(set, ex, part, d, submitted));
+          if (submitted) { const rv = rettVisning(set, ex, part, d); if (rv) pc.appendChild(rv); }
+        }
         if (submitted) pc.appendChild(solutionPanel(`Løsning ${part.label})`, part.solution, part.criteria));
         card.appendChild(pc);
       });
@@ -804,7 +1212,7 @@ window.EDU = window.EDU || {};
             : harMC ? "Når du leverer, rettes flervalgene automatisk og alle løsningene åpnes." : "Når du leverer, åpnes alle løsningene samtidig, og du poengsetter deg selv oppgave for oppgave."),
         blanke ? el("p.tiny.muted", { style: { margin: "0 0 12px" } }, `${blanke} ${blanke === 1 ? "ledd står" : "ledd står"} ubesvart` + (wrongFactor(set) ? " — det gir 0, som er bedre enn et feil svar hvis du er i tvil" : "")) : null,
         el("button.btn.primary.lg", { onclick: () => {
-          if (confirm("Levere besvarelsen? Løsningene åpnes, og du kan ikke lukke dem igjen uten å nullstille settet.")) { submitRun(set.id); mcRettAlle(set); stopTicker(); S.app.refresh(); }
+          if (confirm("Levere besvarelsen? Løsningene åpnes, og du kan ikke lukke dem igjen uten å nullstille settet.")) { submitRun(set.id); mcRettAlle(set); rettSettAutomatisk(set); stopTicker(); S.app.refresh(); }
         } }, "Lever besvarelsen")));
     }
     return wrap;
@@ -880,9 +1288,11 @@ window.EDU = window.EDU || {};
     const harMC = settHarMC(set);
     const bareMC = harMC && (set.exercises || []).every(erMC);
     const card = el(".card.pad-lg", { style: { marginBottom: "18px" } });
-    card.appendChild(el("h3", { style: { fontSize: "18px", marginBottom: "6px" } }, bareMC ? "Resultat" : "Selvvurdering"));
+    const medRetting = rettingPå(set);
+    card.appendChild(el("h3", { style: { fontSize: "18px", marginBottom: "6px" } }, bareMC || medRetting ? "Resultat" : "Selvvurdering"));
     card.appendChild(el("p.tiny.muted", { style: { marginTop: 0 } },
-      bareMC ? "Flervalgene er rettet automatisk. Gå gjennom hver oppgave og les fasiten der du bommet — det er der læringen ligger."
+      medRetting ? "Tallene du førte inn er rettet automatisk, og tekstsvarene retter Claude når du ber om det. En oppgave får poeng når alle delene er rettet. Det som ikke kan rettes, vurderer du selv mot fasitens kriterier."
+      : bareMC ? "Flervalgene er rettet automatisk. Gå gjennom hver oppgave og les fasiten der du bommet — det er der læringen ligger."
       : harMC ? "Flervalgene er rettet automatisk. De åpne oppgavene poengsetter du selv mot fasitens kriterier. Vær streng — sensor er det."
       : "Gå gjennom oppgave for oppgave og gi deg selv poeng mot fasitens kriterier. Vær streng — sensor er det."));
     const pct = sum.of ? Math.max(0, Math.round((sum.got / sum.of) * 100)) : 0;
@@ -897,7 +1307,7 @@ window.EDU = window.EDU || {};
       const annenWf = wf ? 0 : -1 / 3;
       const annen = (set.exercises || []).reduce((s, ex) => s + (erMC(ex) ? mcRett(set, ex, annenWf).got : (exState(set.id, ex.n).score || 0)), 0);
       info.appendChild(el(".tiny.muted", { style: { marginTop: "2px" } }, `${wf ? "Uten" : "Med"} minuspoeng ville det vært ${pts(Math.round(annen * 100) / 100)} poeng.`));
-    } else {
+    } else if (!medRetting) {
       info.appendChild(el("p.tiny.muted", { style: { marginTop: "8px", maxWidth: "420px" } },
         "Poengsummen er din egen vurdering, ikke en karakter. Den er verdt noe bare hvis du trekker fra der utregningen manglet eller mekanismen ikke ble navngitt."));
     }

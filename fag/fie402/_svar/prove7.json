@@ -1,0 +1,302 @@
+{
+  "prove7:1:": {
+    "type": "tekst"
+  },
+  "prove7:2:": {
+    "type": "tekst"
+  },
+  "prove7:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Issue price",
+        "verdi": 21.5,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "New shares",
+        "verdi": 8.372093023255815,
+        "enhet": "m shares"
+      }
+    ]
+  },
+  "prove7:3:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Existing share, high type",
+        "verdi": 25.841346153846153,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Existing share, low type",
+        "verdi": 18.60576923076923,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Which type or types issue and why?"
+  },
+  "prove7:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Equilibrium issue price",
+        "verdi": 18.0,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Price change on announcing an issue",
+        "verdi": -15.492957746478863,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove7:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Price change on announcing the loan",
+        "verdi": 23.8317757009346,
+        "enhet": "%"
+      },
+      {
+        "navn": "Price change on announcing a share issue",
+        "verdi": -15.88785046728971,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "What does each type do now and why?"
+  },
+  "prove7:3:e": {
+    "type": "tekst"
+  },
+  "prove7:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 7.140000000000001,
+        "enhet": "%",
+        "tol": 0.003
+      }
+    ],
+    "merknad": "Strammere toleranse (0,3 %) så feilen med all kontanten trukket fra (7,2197 %) ikke godtas."
+  },
+  "prove7:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of the upgrade",
+        "verdi": 160.2102991820075,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV",
+        "verdi": 70.2102991820075,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove7:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "D<sub>0</sub>",
+        "verdi": 96.1261795092045,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>1</sub>",
+        "verdi": 72.98958872616168,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>2</sub>",
+        "verdi": 39.20104536120964,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>3</sub>",
+        "verdi": 0.0,
+        "enhet": "NOK m",
+        "abs": 0.01
+      }
+    ]
+  },
+  "prove7:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New debt",
+        "verdi": 26.126179509204505,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Payout",
+        "verdi": 6.126179509204505,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Gain to the shareholders",
+        "verdi": 70.21029918200752,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove7:4:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 158.1943000119311,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 2.0159991700763835,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "APV value",
+        "verdi": 160.21029918200747,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Compare with b). Which rate did you use for the tax shields and why?",
+    "merknad": "V<sup>U</sup> og PV(TS) er med fordi APV-verdien alene er lik b) og ikke skiller ut feilen med r<sub>D</sub> på skjoldene (160,3021)."
+  },
+  "prove7:5:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "E after the debt issue",
+        "verdi": 9.336,
+        "enhet": "USD bn"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Explain which quote you use."
+  },
+  "prove7:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "D, with the call",
+        "verdi": 26.664,
+        "enhet": "USD bn"
+      },
+      {
+        "navn": "D, with the put",
+        "verdi": 26.663772897431244,
+        "enhet": "USD bn"
+      },
+      {
+        "navn": "Yield (annual)",
+        "verdi": 9.889643193752784,
+        "enhet": "%",
+        "tol": 0.005
+      }
+    ],
+    "merknad": "Toleranse 0,5 % så rentesatsen fra put-verdien (9,8904 %) godtas, men enkel deling (10,0090 %) ikke."
+  },
+  "prove7:5:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Senior debt D<sub>S</sub>",
+        "verdi": 19.036,
+        "enhet": "USD bn"
+      },
+      {
+        "navn": "Junior debt D<sub>J</sub>",
+        "verdi": 7.627999999999998,
+        "enhet": "USD bn"
+      },
+      {
+        "navn": "Yield on the junior debt (annual)",
+        "verdi": 24.185660781935738,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove7:5:d": {
+    "type": "tekst"
+  },
+  "prove7:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV for Vestby",
+        "verdi": 50,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV for Lundar",
+        "verdi": 250,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove7:6:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV for Vestby",
+        "verdi": 60.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV for Lundar",
+        "verdi": 240.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove7:6:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Vestby's NPV of the cash offer (true values)",
+        "verdi": 50,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Vestby's NPV of the share offer (true values)",
+        "verdi": 168.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Which offer do they prefer? How will the market react to a share offer?"
+  },
+  "prove7:6:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Vestby's highest price",
+        "verdi": 54.0,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Nordkyst's highest price",
+        "verdi": 50.0,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Winning price (Vestby wins)",
+        "verdi": 50.0,
+        "enhet": "NOK per share",
+        "alt": [
+          54.0
+        ]
+      }
+    ],
+    "merknad": "Vinneren (Vestby) følger av de to grensene. Kriteriene godtar at Vestby betaler sin egen grense på 54,00 med en kommentar, derfor alt."
+  },
+  "prove7:6:e": {
+    "type": "tekst"
+  }
+}

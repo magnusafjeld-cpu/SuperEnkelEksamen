@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, kode]
-oppdatert: 2026-11-19
+oppdatert: 2026-11-22
 ---
 
 # Arkitektur
@@ -18,7 +18,7 @@ js/
                            quiz, flashcards, eksamen, repetisjon, søk)
   bundle-lyn.js            lynlæring: 13 minispill + XP/nivå/streak
   bundle-dybde.js          dybdetrening: spørsmålsbankene (fra manifestet)
-  bundle-sett.js           eksamenssett: øvingsmodus og eksamensmodus
+  bundle-sett.js           eksamenssett: øvingsmodus og eksamensmodus, retting med egen API-nøkkel (svar.js)
   bundle-case.js           casetrening
   bundle-mock.js           mock-intervjuer
   bundle-historier.js      historiebank

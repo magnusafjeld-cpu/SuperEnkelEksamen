@@ -668,7 +668,13 @@ Slik svarer du:
   /* ================= vurdering av et svar ================= */
   /* Boks med knapp. Med nøkkel strømmes vurderingen rett inn; uten nøkkel
      kopieres prompten og «Åpne Claude» åpner claude.ai.
-     opts: { id, prompt: () => string, knapp, forklaring, forklaringUten, effort }
+     opts: { id, prompt: () => string, knapp, forklaring, forklaringUten, effort,
+             modell, onFerdig(tekst, kostnad), lagret }
+     modell: en bestemt modell for denne vurderingen (ellers den du har valgt).
+     onFerdig: kalles når en vurdering er ferdig strømmet, med teksten.
+     lagret: tekst fra en tidligere vurdering, vist etter omlasting til du ber om ny.
+     kjørVurdering(id) starter en boks som allerede er tegnet og gir et løfte som
+     løses når den er ferdig, så flere kan kjøres etter hverandre.
 
      Visningene tegnes helt på nytt når du trykker noe (poeng, avkrysning), så
      vurderingen lagres per id i minnet. Den nye boksen tar over der den gamle
@@ -681,6 +687,8 @@ Slik svarer du:
     vurderinger.set(id, v);
     v.boks = el(".cl-vurdering");
     v.opts = opts;
+    /* En vurdering lagret av modulen (for eksempel etter omlasting) vises til du ber om ny. */
+    if (!v.tilstand && !v.ctrl && opts.lagret) v.tilstand = { prompt: null, tekst: opts.lagret, content: [{ type: "text", text: opts.lagret }], kostnad: null, lagret: true };
 
     function tegnBoks() {
       const { tilstand, ctrl, boks } = v;
@@ -689,7 +697,7 @@ Slik svarer du:
         if (ctrl) rad.appendChild(el("button.btn.sm.ghost", { type: "button", onclick: () => v.ctrl && v.ctrl.abort() }, "Stopp"));
         else rad.appendChild(el("button.btn.sm.primary", { type: "button", onclick: start }, tilstand ? "Vurder på nytt" : opts.knapp));
         if (tilstand && tilstand.content && !ctrl) rad.appendChild(el("button.btn.sm.ghost", { type: "button",
-          onclick: () => fortsettIChat(tilstand.prompt, tilstand.content, opts.effort, tilstand.sendt) }, "Svar eller spør videre i chatten"));
+          onclick: () => fortsettIChat(tilstand.prompt || opts.prompt(), tilstand.content, opts.effort, tilstand.sendt) }, "Svar eller spør videre i chatten"));
         rad.appendChild(el(".spacer"));
         if (tilstand && tilstand.kostnad != null) rad.appendChild(el("span.tiny.muted", dollar(tilstand.kostnad)));
       } else {
@@ -724,13 +732,16 @@ Slik svarer du:
       try {
         const r = await strømMedRetry({
           system: systemprompt(), messages: [{ role: "user", content: prompt }],
-          effort: v.opts.effort || "high", signal: v.ctrl.signal,
+          effort: v.opts.effort || "high", signal: v.ctrl.signal, modell: v.opts.modell,
           onTenker: () => { tilstand.tenker = true; if (tilstand.node && !tilstand.tekst) tilstand.node.innerHTML = '<p class="cl-tenker">Leser svaret ditt og tenker …</p>'; },
           onTekst: (t) => { tilstand.tekst = t; if (tilstand.node) tilstand.node.innerHTML = md(t); },
         });
         tilstand.kostnad = pris(r.usage, r.modell);
         if (r.stop === "refusal") tilstand.feil = "Claude avslo å vurdere dette.";
-        else tilstand.content = r.content;
+        else {
+          tilstand.content = r.content;
+          if (v.opts.onFerdig) { try { v.opts.onFerdig(tilstand.tekst, tilstand.kostnad); } catch (e) { console.warn("[claude] onFerdig", e); } }
+        }
       } catch (e) {
         if (!(e && e.name === "AbortError")) tilstand.feil = (e && e.message) || String(e);
         else if (!tilstand.tekst) v.tilstand = null;
@@ -739,9 +750,17 @@ Slik svarer du:
       v.tegn();
     }
 
+    v.start = () => (v.løp = start().finally(() => { v.løp = null; }));
     tegnBoks();
     return v.boks;
   }
+  /* Starter en vurderingsboks som er tegnet, og venter til den er ferdig. Kjører
+     den allerede, ventes det på den. */
+  function kjørVurdering(id) {
+    const v = vurderinger.get(id);
+    if (!v || !harNøkkel()) return Promise.resolve();
+    return v.løp || v.start();
+  }
 
-  S.claude = { mount, åpne, lukk, vurdering, innstillingskort, harNøkkel, ren, md, strøm };
+  S.claude = { mount, åpne, lukk, vurdering, kjørVurdering, innstillingskort, harNøkkel, ren, md, strøm };
 })(window.EDU);

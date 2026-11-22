@@ -1,0 +1,352 @@
+{
+  "prove3:1:": {
+    "type": "tekst"
+  },
+  "prove3:2:": {
+    "type": "tekst"
+  },
+  "prove3:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "E[V], existing assets",
+        "verdi": 132.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "α",
+        "verdi": 0.24193548387096775,
+        "enhet": ""
+      }
+    ]
+  },
+  "prove3:3:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Payoff, high-value type",
+        "verdi": 177.38709677419354,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Payoff, low-value type",
+        "verdi": 86.41935483870968,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Which type or types will issue equity and undertake the project?"
+  },
+  "prove3:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "α in equilibrium",
+        "verdi": 0.39473684210526316,
+        "enhet": ""
+      },
+      {
+        "navn": "Expected loss of value",
+        "verdi": 5.3999999999999995,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Are the investors' beliefs in a) consistent with your answer in b)? Which type issues and invests in equilibrium?"
+  },
+  "prove3:3:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Maximum K",
+        "verdi": 9.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Loss recovered, net of certificate cost",
+        "verdi": 2.9999999999999996,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove3:3:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "F",
+        "verdi": 45.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Show which types invest. Briefly explain what this implies for the order in which firms prefer to raise external funds."
+  },
+  "prove3:4:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 1300.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Share price today",
+        "verdi": 26.0,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 88.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "State which rate you discount the tax shield at and why."
+  },
+  "prove3:4:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price on announcement",
+        "verdi": 27.76,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Equity value after the debt issue",
+        "verdi": 1388.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Show the market value balance sheet just after the debt is issued. Who captures the value of the tax shield?"
+  },
+  "prove3:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Shares repurchased",
+        "verdi": 14.40922190201729,
+        "enhet": "m shares"
+      },
+      {
+        "navn": "Share price after the repurchase",
+        "verdi": 27.76,
+        "enhet": "NOK per share"
+      }
+    ]
+  },
+  "prove3:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "DPS",
+        "verdi": 2.9367157894736846,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 10.578947368421053,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove3:4:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price on announcement, 800 plan",
+        "verdi": 27.12,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Which plan gives the higher share price on announcement? Who bears the expected cost of financial distress?",
+    "merknad": "Prisen med 400-planen (27.76) er fra b). Valget av plan og hvem som bærer kostnaden er tekstdelen."
+  },
+  "prove3:5:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "ρ (high state)",
+        "verdi": 0.46199999999999997,
+        "enhet": ""
+      },
+      {
+        "navn": "1 − ρ (low state)",
+        "verdi": 0.538,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Why do you not need the analysts' estimate of 70%?"
+  },
+  "prove3:5:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Δ",
+        "verdi": 0.4,
+        "enhet": ""
+      },
+      {
+        "navn": "B",
+        "verdi": -19.41747572815534,
+        "enhet": "NOK",
+        "alt": [
+          19.41747572815534
+        ]
+      },
+      {
+        "navn": "Call price",
+        "verdi": 5.382524271844662,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Show that the portfolio replicates the call in both states.",
+    "merknad": "B er negativ (lån). Alt godtar beløpet oppgitt som positivt lånebeløp, 19.4175."
+  },
+  "prove3:5:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Put price",
+        "verdi": 9.401941747572817,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Verify that your call and put prices satisfy put-call parity."
+  },
+  "prove3:5:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Arbitrage profit today",
+        "verdi": 0.5019417475728005,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Describe the arbitrage strategy and show its cash flows today and in both states in one year."
+  },
+  "prove3:5:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Equity",
+        "verdi": 5.382524271844662,
+        "enhet": ""
+      },
+      {
+        "navn": "Debt",
+        "verdi": 56.61747572815534,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "What does the put represent for the creditors? Why would the shareholders gain if the firm's assets became riskier while their value today stayed at 62?"
+  },
+  "prove3:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>D</sub>",
+        "verdi": 5.5,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 12.0,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 9.4,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 8.915999999999999,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove3:6:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub>",
+        "verdi": 103.47372985354428,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV",
+        "verdi": 3.4737298535442847,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove3:6:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "D<sub>0</sub>",
+        "verdi": 41.38949194141772,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>1</sub>",
+        "verdi": 43.479779042914515,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>2</sub>",
+        "verdi": 31.35643614238077,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>3</sub>",
+        "verdi": 11.752175988835434,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Borrowed in Year 1 (D<sub>1</sub> − D<sub>0</sub>)",
+        "verdi": 2.0902871014967985,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Oppgaven spør etter 3 verdier, 4 gjeldskapasiteter og 5 justeringer. Holdt til 5 tall: D_t = 0.4 × V^L_t dekker verdiene. Justeringen i år 1 (+2.0903, den overraskende) dekker låne/nedbetale-delen. De øvrige justeringene er differanser av D_t."
+  },
+  "prove3:6:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup><sub>0</sub>",
+        "verdi": 102.18732012742029,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "TS<sub>1</sub>",
+        "verdi": 0.5008128524911544,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 1.2864097261239373,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "APV (V<sup>L</sup><sub>0</sub>)",
+        "verdi": 103.47372985354423,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Compare your result with b).",
+    "merknad": "TS_1 sjekker tidskonvensjonen (gjelden ved starten av året); TS_2–TS_4 fanges av PV(TS). Tekstdelen er sammenligningen med b) og begrunnelsen for r_U."
+  },
+  "prove3:6:e": {
+    "type": "tekst"
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "prove2:1:": {
+    "type": "tekst"
+  },
+  "prove2:2:": {
+    "type": "tekst"
+  },
+  "prove2:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 9.750000000000002,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove2:3:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price on announcement",
+        "verdi": 60.0,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Explain what happens to the share price upon announcement and why.",
+    "merknad": "Blandet som H2024 3b: grunnen (MM I, ingen skatteskjold) er det kriteriene gir mest for."
+  },
+  "prove2:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Special dividend per share",
+        "verdi": 18.0,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Share price after the dividend",
+        "verdi": 42.0,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Is she right? Explain."
+  },
+  "prove2:3:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New r<sub>E</sub>",
+        "verdi": 13.142857142857146,
+        "enhet": "%"
+      },
+      {
+        "navn": "New β<sub>E</sub>",
+        "verdi": 1.523809523809524,
+        "enhet": ""
+      }
+    ]
+  },
+  "prove2:3:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Shares repurchased",
+        "verdi": 7.5,
+        "enhet": "m shares"
+      },
+      {
+        "navn": "Share price after the repurchase",
+        "verdi": 60.0,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Would a shareholder prefer the special dividend or the repurchase? Explain briefly."
+  },
+  "prove2:4:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "E[payoff] S",
+        "verdi": 62.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "E[payoff] M",
+        "verdi": 60.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "E[payoff] R",
+        "verdi": 45.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Which plan will the manager choose?"
+  },
+  "prove2:4:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt value under the chosen plan",
+        "verdi": 30.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Equity value under the chosen plan",
+        "verdi": 30.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Agency cost of debt",
+        "verdi": 2.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Which plan will the manager choose?"
+  },
+  "prove2:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Face value F (S ~ M)",
+        "verdi": 24.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Upper end of the range for M",
+        "verdi": 50.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Nedre grense for intervallet er F = 24, samme tall som det første."
+  },
+  "prove2:4:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Creditors' gain",
+        "verdi": 5.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Shareholders' gain (after paying 6)",
+        "verdi": -1.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Will the manager carry out the upgrade?"
+  },
+  "prove2:4:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Lowest F′ (creditors)",
+        "verdi": 30.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Highest F′ (shareholders)",
+        "verdi": 38.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Briefly explain why such a renegotiation is hard to achieve when the debt consists of bonds held by many small investors."
+  },
+  "prove2:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 8.5325,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove2:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 10.652,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove2:5:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 8.12,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove2:5:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (WACC)",
+        "verdi": 571.8954248366014,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove2:5:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (APV)",
+        "verdi": 571.8954248366014,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Briefly explain which rate you use to discount the tax shields and why.",
+    "merknad": "Bare V^L er spurt etter. Det er samme tall som i (d); r_D på skatteskjoldet gir 614,42 og avvises."
+  },
+  "prove2:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV now",
+        "verdi": 75.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove2:6:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of waiting",
+        "verdi": 81.81818181818181,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of the option to wait",
+        "verdi": 6.818181818181813,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 5,
+    "tekstLedd": "Do you build now or wait?"
+  },
+  "prove2:6:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "ρ",
+        "verdi": 0.38636363636363635,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Explain briefly why ρ differs from management's 50% and why you do not need the true probability."
+  },
+  "prove2:6:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of waiting (risk-neutral)",
+        "verdi": 67.5198587819947,
+        "enhet": "NOK m",
+        "abs": 0.01,
+        "tol": 0.0001
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Do you build now or wait? Briefly explain why your answer differs from (b).",
+    "merknad": "Kriteriene godtar 67,52 ± 0,01 (ρ avrundet til 0,3864 gir 67,5262). ρ med 10 % gir 63,22 og 50 % med r_f gir 87,38."
+  }
+}

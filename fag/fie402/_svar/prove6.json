@@ -1,0 +1,371 @@
+{
+  "prove6:1:": {
+    "type": "tekst"
+  },
+  "prove6:2:": {
+    "type": "tekst"
+  },
+  "prove6:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>U</sub>",
+        "verdi": 1.2,
+        "enhet": ""
+      },
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 10.0,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove6:3:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after the announcement",
+        "verdi": 50.0,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "New shares issued",
+        "verdi": 20.0,
+        "enhet": "m shares"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "What happens to the share price on announcement and why?",
+    "merknad": "Kriteriene gir poeng for begrunnelsen (MM I), derfor blandet."
+  },
+  "prove6:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "β<sub>E</sub> after the issue",
+        "verdi": 1.3499999999999999,
+        "enhet": ""
+      },
+      {
+        "navn": "r<sub>E</sub> after the issue",
+        "verdi": 10.749999999999998,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "Why do they change in this direction?"
+  },
+  "prove6:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "WACC before",
+        "verdi": 10.0,
+        "enhet": "%"
+      },
+      {
+        "navn": "WACC after",
+        "verdi": 9.999999999999998,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "Explain the result using MM."
+  },
+  "prove6:3:e": {
+    "type": "tekst"
+  },
+  "prove6:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "D",
+        "verdi": 38.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "E",
+        "verdi": 42.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "V",
+        "verdi": 80.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove6:4:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "D",
+        "verdi": 34.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "E",
+        "verdi": 42.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "V",
+        "verdi": 76.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Promised yield",
+        "verdi": 47.058823529411775,
+        "enhet": "%"
+      },
+      {
+        "navn": "Expected return on the loan",
+        "verdi": 0.0,
+        "enhet": "%",
+        "abs": 0.05
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "With the loan already outstanding, who bears the cost of the fire sale?"
+  },
+  "prove6:4:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Equity under Plan N",
+        "verdi": 35,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Equity under Plan P",
+        "verdi": 42.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Which plan without debt and which with the loan? Why?"
+  },
+  "prove6:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Agency cost",
+        "verdi": 9.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Part from lower expected asset value",
+        "verdi": 5.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Part from the fire sale",
+        "verdi": 4.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Shareholders' gain (P vs N)",
+        "verdi": 7.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Bank's loss (P vs N)",
+        "verdi": 16.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Hvem vinner og taper følger direkte av tallene: aksjonærene +7, banken −16 (oppgitt som tap 16)."
+  },
+  "prove6:4:e": {
+    "type": "tekst"
+  },
+  "prove6:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 9.000000000000002,
+        "enhet": "%"
+      },
+      {
+        "navn": "β<sub>U</sub>",
+        "verdi": 1.0000000000000002,
+        "enhet": ""
+      }
+    ]
+  },
+  "prove6:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 6000.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove6:5:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Interest next year",
+        "verdi": 110.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 372.30769230769226,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Which rate do you discount the tax shields at and why?"
+  },
+  "prove6:5:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup>",
+        "verdi": 6372.307692307692,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "E",
+        "verdi": 4372.307692307692,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D/V",
+        "verdi": 31.385803959439883,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove6:5:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 8.620231772090778,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 10.600985221674877,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove6:5:f": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "β<sub>E</sub>",
+        "verdi": 1.3201970443349753,
+        "enhet": ""
+      },
+      {
+        "navn": "β<sub>D</sub>",
+        "verdi": 0.3,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Show that the weighted average of the betas equals the asset beta. Briefly explain why r<sub>wacc</sub> is lower than r<sub>U</sub>."
+  },
+  "prove6:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value now, quick method",
+        "verdi": 90,
+        "enhet": "USD m"
+      },
+      {
+        "navn": "Value now, careful method",
+        "verdi": 75,
+        "enhet": "USD m"
+      }
+    ],
+    "merknad": "Valget (rask metode, feltet verdt 90) følger direkte av de to verdiene."
+  },
+  "prove6:6:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Quick method, up",
+        "verdi": 142.5,
+        "enhet": "USD m"
+      },
+      {
+        "navn": "Careful method, up",
+        "verdi": 162.5,
+        "enhet": "USD m"
+      },
+      {
+        "navn": "Quick method, down",
+        "verdi": 48.0,
+        "enhet": "USD m"
+      },
+      {
+        "navn": "Careful method, down",
+        "verdi": 5.0,
+        "enhet": "USD m"
+      }
+    ],
+    "merknad": "Oljeprisene i treet (87,5 og 56) er ikke egne tall: de ligger i de fire verdiene, og slik holder vi oss innenfor fem tall."
+  },
+  "prove6:6:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Switching price P*",
+        "verdi": 77.5,
+        "enhet": "USD per barrel"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Which method is optimal at each end-point? Why does the careful method win at high prices?"
+  },
+  "prove6:6:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "ρ (risk-neutral probability)",
+        "verdi": 0.5555555555555556,
+        "enhet": ""
+      },
+      {
+        "navn": "PV of extracting next year",
+        "verdi": 106.29629629629629,
+        "enhet": "USD m"
+      },
+      {
+        "navn": "Δ (oil in the portfolio)",
+        "verdi": 3.634920634920635,
+        "enhet": "m barrels"
+      },
+      {
+        "navn": "B (bonds; negative = borrowing)",
+        "verdi": -148.14814814814812,
+        "enhet": "USD m",
+        "alt": [
+          148.14814814814812
+        ]
+      }
+    ],
+    "merknad": "B = −148,1481 betyr lån. 148,1481 godtas også (alt), fordi «borrow 148.1481» er samme svar."
+  },
+  "prove6:6:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of the option to wait",
+        "verdi": 16.29629629629629,
+        "enhet": "USD m"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Do you extract now or wait? Explain why the analysts' 60% was not needed in d) and what goes wrong if you use it."
+  }
+}

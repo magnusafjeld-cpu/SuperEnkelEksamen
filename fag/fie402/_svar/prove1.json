@@ -1,0 +1,371 @@
+{
+  "prove1:1:": {
+    "type": "tekst"
+  },
+  "prove1:2:": {
+    "type": "tekst"
+  },
+  "prove1:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 9.5,
+        "enhet": "%"
+      },
+      {
+        "navn": "P<sub>0</sub>",
+        "verdi": 25.0,
+        "enhet": "NOK per share"
+      }
+    ]
+  },
+  "prove1:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Debt issued",
+        "verdi": 160.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Share price on announcement",
+        "verdi": 25.0,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 6.4,
+        "enhet": "m shares"
+      }
+    ],
+    "merknad": "Tall og ikke blandet: alle tre spørsmålene har tallsvar. MM I ligger i at kursen er 25."
+  },
+  "prove1:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "E[DPS<sub>1</sub>] after the transaction",
+        "verdi": 3.291666666666667,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "E[DPS<sub>1</sub>] without the transaction",
+        "verdi": 2.375,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "New β<sub>E</sub>",
+        "verdi": 1.8333333333333335,
+        "enhet": ""
+      },
+      {
+        "navn": "New r<sub>E</sub>",
+        "verdi": 13.166666666666666,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove1:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Shares sold",
+        "verdi": 1920.0,
+        "enhet": "shares"
+      },
+      {
+        "navn": "Debt bought",
+        "verdi": 48000.0,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Show that her Year-1 cash flow is the same as without the recapitalisation in both states.",
+    "merknad": "«Show how» er en utledning, men handelen har to tall (selg 1 920 aksjer, kjøp gjeld for 48 000). Kontantstrømmene per tilstand rettes i tekstdelen."
+  },
+  "prove1:3:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Seller: Year-1 cash flow (each state)",
+        "verdi": 4800.0,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Keeper: Year-1 cash flow, FCF = 30",
+        "verdi": 11800.0,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Keeper: Year-1 cash flow, FCF = 46",
+        "verdi": 19800.0,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Seller: value today",
+        "verdi": 120000.0,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Keeper: value today",
+        "verdi": 120000.00000000001,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "Is anyone better or worse off because of the recapitalisation? Explain briefly."
+  },
+  "prove1:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>D</sub>",
+        "verdi": 0.24999999999999997,
+        "enhet": ""
+      }
+    ]
+  },
+  "prove1:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 14.200000000000001,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove1:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 10.9375,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove1:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 10.48375,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove1:4:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub> (WACC)",
+        "verdi": 157.80650936352416,
+        "enhet": "$ m",
+        "tol": 0.0005
+      }
+    ],
+    "merknad": "Stram toleranse (0,05 %), som nøkkelens avvik på om lag 0,001 tilsier. WACC avrundet til 10,48 % gir 157,8170 og godtas."
+  },
+  "prove1:4:f": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt adjustment",
+        "verdi": 3.9540149720244173,
+        "enhet": "$ m",
+        "alt": [
+          -3.9540149720244173
+        ]
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Does the company borrow or repay?",
+    "merknad": "Begge fortegn godtas for tallet. Retningen (selskapet låner mer) rettes i tekstdelen, slik spørsmålet ber om."
+  },
+  "prove1:4:g": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup><sub>0</sub>",
+        "verdi": 156.54036897440983,
+        "enhet": "$ m",
+        "tol": 0.0005
+      }
+    ],
+    "merknad": "Stram toleranse (0,05 %) som i (e)."
+  },
+  "prove1:4:h": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "TS<sub>1</sub>",
+        "verdi": 0.7160470362369907,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "TS<sub>2</sub>",
+        "verdi": 0.7638906173984862,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 1.26614038911428,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "prove1:4:i": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub> (APV)",
+        "verdi": 157.8065093635241,
+        "enhet": "$ m",
+        "tol": 0.0005
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Does it agree with your answer in (e)? Explain briefly why.",
+    "merknad": "Stram toleranse (0,05 %): skatteskjoldet diskontert med r_D gir 157,9054 (0,06 % unna) og avvises."
+  },
+  "prove1:5:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": -200000.0,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Will you open it?"
+  },
+  "prove1:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Maximum price for the study (C<sub>0</sub>)",
+        "verdi": 525000.0,
+        "enhet": "NOK"
+      }
+    ]
+  },
+  "prove1:5:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "C<sub>1</sub>",
+        "verdi": 486111.11111111107,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Compare your result with (b) and comment."
+  },
+  "prove1:5:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV with the offer",
+        "verdi": 54629.62962962955,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Increase in NPV vs (a)",
+        "verdi": 254629.62962962955,
+        "enhet": "NOK",
+        "alt": [
+          54629.62962962955
+        ]
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Will you open it?",
+    "merknad": "Økningen godtar også 54 630: kriteriene gir full uttelling for verdien av kontrakten målt mot ikke å åpne (max(0, −200 000) = 0)."
+  },
+  "prove1:5:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "X",
+        "verdi": 90560.00000000001,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Explain briefly why, once X is large enough that you would sell in the bad state, a larger X makes the hall more attractive."
+  },
+  "prove1:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "P<sub>new</sub>",
+        "verdi": 76.56903765690377,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "NPV<sub>A</sub>",
+        "verdi": 62.76150627615061,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "NPV<sub>T</sub>",
+        "verdi": 117.2384937238495,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "prove1:6:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "ER<sub>max</sub>",
+        "verdi": 0.5866666666666667,
+        "enhet": ""
+      },
+      {
+        "navn": "ER<sub>min</sub>",
+        "verdi": 0.4025157232704402,
+        "enhet": ""
+      },
+      {
+        "navn": "A's share of the synergies",
+        "verdi": 34.86750348675034,
+        "enhet": "%"
+      },
+      {
+        "navn": "B's share of the synergies",
+        "verdi": 65.13249651324972,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 5,
+    "tekstLedd": "Where does the offer of 0.52 lie in this range?",
+    "merknad": "ER_min = 32/75 = 0,4267 gir delpoeng etter kriteriene, men godtas ikke automatisk; studenten kan overstyre."
+  },
+  "prove1:6:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "S<sub>implied</sub>",
+        "verdi": 57.19999999999982,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "NPV<sub>A</sub> (market)",
+        "verdi": -40.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "NPV<sub>T</sub> (market)",
+        "verdi": 97.19999999999996,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "prove1:6:d": {
+    "type": "tekst"
+  }
+}

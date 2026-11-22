@@ -1,0 +1,258 @@
+{
+  "v2021:1:1": {
+    "type": "bokstav",
+    "svar": "D"
+  },
+  "v2021:1:2": {
+    "type": "bokstav",
+    "svar": "B"
+  },
+  "v2021:1:3": {
+    "type": "bokstav",
+    "svar": "D"
+  },
+  "v2021:1:4": {
+    "type": "bokstav",
+    "svar": "A"
+  },
+  "v2021:1:5": {
+    "type": "bokstav",
+    "svar": "D"
+  },
+  "v2021:1:6": {
+    "type": "bokstav",
+    "svar": "C"
+  },
+  "v2021:1:7": {
+    "type": "bokstav",
+    "svar": "B"
+  },
+  "v2021:1:8": {
+    "type": "bokstav",
+    "svar": "C"
+  },
+  "v2021:1:9": {
+    "type": "bokstav",
+    "svar": "A"
+  },
+  "v2021:1:10": {
+    "type": "bokstav",
+    "svar": "B"
+  },
+  "v2021:2:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Existing shareholders' payoff, debt",
+        "verdi": 130.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Existing shareholders' payoff, equity",
+        "verdi": 130.0,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 6,
+    "tekstLedd": "Will the manager undertake the new investment? Will he prefer 100% debt or 100% equity financing? Briefly comment.",
+    "merknad": "Valget (investere, likegyldig mellom gjeld og egenkapital) og kommentaren er tekstdelen. Ingen investering gir 125."
+  },
+  "v2021:2:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Existing shareholders' payoff, debt",
+        "verdi": 205.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Existing shareholders' payoff, equity",
+        "verdi": 195.0,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 6,
+    "tekstLedd": "Will the manager undertake the project? Will he prefer 100% debt or 100% equity financing? Briefly comment."
+  },
+  "v2021:2:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Existing shareholders' payoff, debt",
+        "verdi": 55.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Existing shareholders' payoff, equity",
+        "verdi": 65.0,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 6,
+    "tekstLedd": "Will the manager undertake the project? Will he prefer 100% debt or 100% equity financing? Briefly comment."
+  },
+  "v2021:2:d": {
+    "type": "tekst"
+  },
+  "v2021:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Firm value",
+        "verdi": 150.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Equity",
+        "verdi": 25.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Debt",
+        "verdi": 125.0,
+        "enhet": "$"
+      }
+    ]
+  },
+  "v2021:3:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV<sub>A</sub>",
+        "verdi": 10.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "NPV<sub>B</sub>",
+        "verdi": -30.0,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Would the current shareholders be willing to provide the $30 for the investment? Briefly discuss."
+  },
+  "v2021:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "E<sub>A</sub> (face value 128)",
+        "verdi": 62.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "E<sub>B</sub> (face value 128)",
+        "verdi": 61.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Debt value with project A (face value 128)",
+        "verdi": 128.0,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 6,
+    "tekstLedd": "Will the manager be able to raise $30? Which project would she choose? Will the debt holders accept the new contract? Briefly discuss.",
+    "merknad": "Tallene er egenkapitalverdiene og gjeldsverdien som de tre ja/nei-svarene bygger på."
+  },
+  "v2021:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "FCF<sub>1</sub>",
+        "verdi": 64.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "v2021:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 14.000000000000002,
+        "enhet": "%"
+      }
+    ]
+  },
+  "v2021:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Tax shield TS<sub>1</sub>",
+        "verdi": 18.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "v2021:4:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> at t = 0",
+        "verdi": 1120.0,
+        "enhet": "$ m",
+        "alt": [
+          1240.0
+        ]
+      }
+    ],
+    "tallPoeng": 10,
+    "tekstLedd": "State your assumptions: the debt policy and the discount rate for the tax shield.",
+    "merknad": "1120 med skattefordelen diskontert til r_U (konstant gjeldsgrad). 1240 med fast gjeldsplan diskontert til r_D godtas også i løsningen når antakelsen er oppgitt; tekstdelen sjekker at antakelse og tall henger sammen."
+  },
+  "v2021:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of investing today",
+        "verdi": -2.5377896574600083,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Value of the patent today",
+        "verdi": 0.0,
+        "enhet": "$ m",
+        "abs": 0.01
+      }
+    ],
+    "merknad": "Oppgaven spør bare etter verdien av patentet, som er 0. NPV-en (−2.5378) er tatt med fordi svaret 0 ellers kan gis uten regning. Kriteriene gir den eget poeng."
+  },
+  "v2021:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value at date 1 if rates rise to 10%",
+        "verdi": 0.0,
+        "enhet": "$ m",
+        "abs": 0.01
+      },
+      {
+        "navn": "Value at date 1 if rates fall to 2%",
+        "verdi": 0.6784620114890689,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "v2021:5:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Risk-neutral probability of 10%",
+        "verdi": 0.5253795494484262,
+        "enhet": ""
+      }
+    ]
+  },
+  "v2021:5:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of the patent today with the option to wait",
+        "verdi": 0.31263295686899895,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 8,
+    "tekstLedd": "Briefly comment."
+  }
+}

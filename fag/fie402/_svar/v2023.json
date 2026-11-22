@@ -1,0 +1,324 @@
+{
+  "v2023:1:1": {
+    "type": "bokstav",
+    "svar": "A"
+  },
+  "v2023:1:2": {
+    "type": "bokstav",
+    "svar": "C"
+  },
+  "v2023:1:3": {
+    "type": "bokstav",
+    "svar": "D"
+  },
+  "v2023:1:4": {
+    "type": "bokstav",
+    "svar": "D"
+  },
+  "v2023:1:5": {
+    "type": "bokstav",
+    "svar": "B"
+  },
+  "v2023:1:6": {
+    "type": "bokstav",
+    "svar": "A"
+  },
+  "v2023:1:7": {
+    "type": "bokstav",
+    "svar": "C"
+  },
+  "v2023:1:8": {
+    "type": "bokstav",
+    "svar": "A"
+  },
+  "v2023:1:9": {
+    "type": "bokstav",
+    "svar": "B"
+  },
+  "v2023:1:10": {
+    "type": "bokstav",
+    "svar": "C"
+  },
+  "v2023:2:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 150.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "v2023:2:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of assets incl. tax shield",
+        "verdi": 212.5,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "v2023:2:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price before the repurchase",
+        "verdi": 8.125,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 6.153846153846154,
+        "enhet": "m shares"
+      }
+    ]
+  },
+  "v2023:2:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Total assets (V<sup>L</sup>)",
+        "verdi": 162.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity",
+        "verdi": 112.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Share price after the repurchase",
+        "verdi": 8.125,
+        "enhet": "$ per share"
+      }
+    ],
+    "merknad": "Balansen er representert ved totalverdien og egenkapitalen; gjelden på 50 er gitt i oppgaven."
+  },
+  "v2023:2:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "b) Value of assets, no tax",
+        "verdi": 200.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "c) Share price before the repurchase, no tax",
+        "verdi": 7.5,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "c) Shares repurchased, no tax",
+        "verdi": 6.666666666666667,
+        "enhet": "m shares"
+      },
+      {
+        "navn": "d) Equity after the repurchase, no tax",
+        "verdi": 100.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "d) Share price after the repurchase, no tax",
+        "verdi": 7.500000000000001,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 5,
+    "tekstLedd": "How and why do your answers to b), c) and d) change?",
+    "merknad": "Firmaverdien etter (150) er utelatt for å holde fem tall; den følger av egenkapital + gjeld."
+  },
+  "v2023:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 10.0,
+        "enhet": "%"
+      }
+    ]
+  },
+  "v2023:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup> (NPV basis)",
+        "verdi": 2.1036814425243904,
+        "enhet": "$",
+        "tol": 0.002,
+        "alt": [
+          202.1036814425244
+        ]
+      }
+    ],
+    "merknad": "Løsningen godtar både netto (2,10) og brutto (202,10, uten investeringen); begge godtas. tol 0,002 så brutto i d) og f) ikke forveksles."
+  },
+  "v2023:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "PV(interest tax shield)",
+        "verdi": 3.1557452269022397,
+        "enhet": "$"
+      }
+    ]
+  },
+  "v2023:3:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (NPV basis)",
+        "verdi": 5.25942666942663,
+        "enhet": "$",
+        "tol": 0.002,
+        "alt": [
+          205.25942666942663
+        ]
+      }
+    ],
+    "merknad": "Netto (5,26) eller brutto (205,26) godtas, som i b). tol 0,002 skiller brutto i d) fra f)."
+  },
+  "v2023:3:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "PV(interest tax shield)",
+        "verdi": 3.9446815336277994,
+        "enhet": "$"
+      }
+    ]
+  },
+  "v2023:3:f": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (NPV basis)",
+        "verdi": 6.048362976152189,
+        "enhet": "$",
+        "tol": 0.002,
+        "alt": [
+          206.0483629761522
+        ]
+      },
+      {
+        "navn": "Difference from part d)",
+        "verdi": 0.7889363067255597,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Compare your result to the value in part d) and comment.",
+    "merknad": "Netto (6,05) eller brutto (206,05) godtas. tol 0,002 så brutto fra d) (205,26) ikke godtas her."
+  },
+  "v2023:3:g": {
+    "type": "tekst"
+  },
+  "v2023:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": 90909.09090909082,
+        "enhet": "$"
+      }
+    ]
+  },
+  "v2023:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": -45454.54545454547,
+        "enhet": "$"
+      }
+    ]
+  },
+  "v2023:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": 0.0,
+        "enhet": "$",
+        "abs": 1000
+      }
+    ]
+  },
+  "v2023:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of the option to do the pilot",
+        "verdi": 90909.09090909082,
+        "enhet": "$"
+      }
+    ]
+  },
+  "v2023:4:e": {
+    "type": "tekst"
+  },
+  "v2023:5:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "i. Long-run price if equity",
+        "verdi": 13.659420289855074,
+        "enhet": "$ per share",
+        "tol": 0.001
+      },
+      {
+        "navn": "i. Long-run price if debt",
+        "verdi": 13.425,
+        "enhet": "$ per share",
+        "tol": 0.001
+      },
+      {
+        "navn": "ii. Long-run price if equity",
+        "verdi": 15.340579710144928,
+        "enhet": "$ per share",
+        "tol": 0.001
+      },
+      {
+        "navn": "ii. Long-run price if debt",
+        "verdi": 15.425,
+        "enhet": "$ per share",
+        "tol": 0.001
+      }
+    ],
+    "tallPoeng": 6,
+    "tekstLedd": "Equity or debt in case i and in case ii? Explain the trade-off.",
+    "merknad": "tol 0,001 fordi aksje- og gjeldsprisen i ii. bare skiller seg med 0,55 % (15,34 mot 15,43); standard 1 % ville godtatt feil rute."
+  },
+  "v2023:5:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after an equity issue announcement",
+        "verdi": 13.5,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "What should investors conclude if IST issues equity?"
+  },
+  "v2023:5:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after a debt issue announcement",
+        "verdi": 15.5,
+        "enhet": "$ per share",
+        "alt": [
+          15.425
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "What should investors conclude if IST issues debt?",
+    "merknad": "Løsningen godtar både 15,50 (ren informasjon) og 15,425 (netto etter kostnaden på 15 mill.)."
+  },
+  "v2023:5:d": {
+    "type": "tekst",
+    "merknad": "Skattefordelen er ikke tallfestet i oppgaven. Terskelen B* = 31,88 mill. er løsningens egen utledning, ikke et tall oppgaven spør etter."
+  }
+}

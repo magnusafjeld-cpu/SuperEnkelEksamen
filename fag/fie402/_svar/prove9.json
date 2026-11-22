@@ -1,0 +1,321 @@
+{
+  "prove9:1:": {
+    "type": "tekst"
+  },
+  "prove9:2:": {
+    "type": "tekst"
+  },
+  "prove9:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Loan",
+        "verdi": 114.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Equity",
+        "verdi": 40.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove9:3:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "x (new investors' fraction)",
+        "verdi": 51.724137931034484,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Will the existing shareholders approve the retrofit? Why?"
+  },
+  "prove9:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": 15,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Change in the loan's value",
+        "verdi": 27.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Change in the existing shareholders' stake",
+        "verdi": -12.000000000000004,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "Who gains and why?"
+  },
+  "prove9:3:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Gain to the existing shareholders",
+        "verdi": 4.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Gain to the bank",
+        "verdi": 11.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "At aksjonærene godkjenner følger direkte av gevinsten på +4 mot a)."
+  },
+  "prove9:3:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Bank's loan (now junior)",
+        "verdi": 123.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Equity",
+        "verdi": 46.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Would the shareholders retrofit and would the bank agree? Why do loan contracts contain such covenants?"
+  },
+  "prove9:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "FCF",
+        "verdi": 46.800000000000004,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 585.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove9:4:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "PV(TS)",
+        "verdi": 55.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "V<sup>L</sup>",
+        "verdi": 640.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "E",
+        "verdi": 390.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Which rate do you discount the tax shields at and why?"
+  },
+  "prove9:4:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "The fund's NPV",
+        "verdi": 40.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Who captures the tax shield?"
+  },
+  "prove9:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub> from Fjordvarme",
+        "verdi": 8.200000000000001,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>U</sub> from Kystvarme",
+        "verdi": 7.800000000000002,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>U</sub>, average",
+        "verdi": 8.000000000000002,
+        "enhet": "%",
+        "tol": 0.005
+      }
+    ],
+    "merknad": "At 8 % er i samsvar følger direkte av snittet. Toleranse 0,5 % så feilen uten Kystvarmes gjeldsbeta (7,9 %) ikke godtas."
+  },
+  "prove9:4:e": {
+    "type": "tekst"
+  },
+  "prove9:5:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "ρ (risk-neutral probability of the high state)",
+        "verdi": 0.5454545454545454,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "How does it compare with the analysts' 65% and why?"
+  },
+  "prove9:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Δ (fraction of the farm)",
+        "verdi": 0.7727272727272727,
+        "enhet": ""
+      },
+      {
+        "navn": "B (bonds; negative = borrowing)",
+        "verdi": -297.20279720279717,
+        "enhet": "NOK m",
+        "alt": [
+          297.20279720279717
+        ]
+      },
+      {
+        "navn": "Equity E",
+        "verdi": 89.1608391608392,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Debt D",
+        "verdi": 410.8391608391608,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Put P",
+        "verdi": 21.85314685314688,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "D er ett tall fordi begge rutene gir 410,8392. B = −297,2028 betyr lån; 297,2028 godtas også (alt)."
+  },
+  "prove9:5:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Promised yield",
+        "verdi": 9.53191489361702,
+        "enhet": "%"
+      },
+      {
+        "navn": "Credit spread",
+        "verdi": 5.531914893617022,
+        "enhet": "%"
+      },
+      {
+        "navn": "Implied default probability",
+        "verdi": 0.454545454545455,
+        "enhet": "",
+        "alt": [
+          0.49787234042553197
+        ]
+      },
+      {
+        "navn": "Expected return on the debt",
+        "verdi": 5.2723404255319295,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 3.5,
+    "tekstLedd": "Explain the gap between the expected return and the yield.",
+    "merknad": "Kredittspreaden er i prosentpoeng. alt 0,4979 (spread/LGD) godtas av kriteriene når den kalles en tilnærming."
+  },
+  "prove9:5:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "New equity value",
+        "verdi": 125.96153846153845,
+        "enhet": "NOK m",
+        "alt": [
+          131.1188811188811
+        ]
+      },
+      {
+        "navn": "New debt value",
+        "verdi": 364.03846153846155,
+        "enhet": "NOK m",
+        "alt": [
+          367.1328671328671
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Would the shareholders want the switch and why?",
+    "merknad": "alt 131,1189 og 367,1329 er verdiene med det opprinnelige treets ρ, som kriteriene godtar når studenten begrunner det (samme to tilstander)."
+  },
+  "prove9:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of building now",
+        "verdi": 12.5,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove9:6:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of waiting",
+        "verdi": 18.867924528301884,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of the flexibility",
+        "verdi": 6.367924528301884,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Beslutningen (vent) følger direkte av at fleksibiliteten er verdt mer enn null."
+  },
+  "prove9:6:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of waiting",
+        "verdi": 14.622641509433958,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Beslutningen (vent, 14,6226 > 12,5) følger direkte av tallet."
+  },
+  "prove9:6:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Entry probability at indifference",
+        "verdi": 0.4499999999999997,
+        "enhet": "",
+        "alt": [
+          0.3374999999999999
+        ]
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "Why does the rival make waiting less attractive?",
+    "merknad": "alt 0,3375 er følgefeilen fra en c) med verdi 0 når rivalen kommer; kriteriene gir full uttelling for metoden."
+  },
+  "prove9:6:e": {
+    "type": "tekst"
+  }
+}

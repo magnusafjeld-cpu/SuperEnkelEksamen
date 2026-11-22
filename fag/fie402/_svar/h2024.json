@@ -1,0 +1,253 @@
+{
+  "h2024:1:": {
+    "type": "tekst"
+  },
+  "h2024:2:": {
+    "type": "tekst"
+  },
+  "h2024:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 8.062499999999998,
+        "enhet": "%"
+      }
+    ]
+  },
+  "h2024:3:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price on announcement",
+        "verdi": 90.0,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Explain what happens to the share price upon announcement and why.",
+    "merknad": "Blandet: kriteriene sier at grunnen (perfekt marked, ingen skatt, MM I) er poenget med deloppgaven."
+  },
+  "h2024:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after the dividend",
+        "verdi": 80.0,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Are the shareholders better off or worse off?"
+  },
+  "h2024:3:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New r<sub>E</sub>",
+        "verdi": 9.249999999999998,
+        "enhet": "%"
+      }
+    ]
+  },
+  "h2024:3:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price after the repurchase",
+        "verdi": 90.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 1.6666666666666667,
+        "enhet": "m shares"
+      }
+    ]
+  },
+  "h2024:4:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "E[payoff] A",
+        "verdi": 50.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[payoff] B",
+        "verdi": 48.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[payoff] C",
+        "verdi": 30.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Which project will the manager choose?"
+  },
+  "h2024:4:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Equity value A",
+        "verdi": 25.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity value B",
+        "verdi": 27.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity value C",
+        "verdi": 25.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Which project will the manager choose?"
+  },
+  "h2024:4:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt level D (B ~ C)",
+        "verdi": 33.333333333333336,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Briefly explain what happens if debt increases beyond that value."
+  },
+  "h2024:4:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Equity value A with hedge",
+        "verdi": 25.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity value B with hedge",
+        "verdi": 23.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity value C with hedge",
+        "verdi": 23.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Will BTC management accept the project? Explain why or why not.",
+    "merknad": "Spørsmålet ber ikke om tall, men svaret står og faller på egenkapitalverdiene med sikringen (25, 23, 23 mot 27,5 uten). Derfor blandet, som «which project will the manager choose?»."
+  },
+  "h2024:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub> (SoF)",
+        "verdi": 12.200000000000001,
+        "enhet": "%"
+      }
+    ]
+  },
+  "h2024:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub> (SoF)",
+        "verdi": 14.857142857142858,
+        "enhet": "%"
+      }
+    ]
+  },
+  "h2024:5:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 11.48,
+        "enhet": "%"
+      }
+    ]
+  },
+  "h2024:5:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (WACC)",
+        "verdi": 348.43205574912895,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "h2024:5:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (APV)",
+        "verdi": 348.4320557491289,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Bare V^L er spurt etter. Det er samme tall som i (d); feil rente på skatteskjoldet (r_D gir 369,68) slår ut."
+  },
+  "h2024:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV now",
+        "verdi": -0.41739760622277444,
+        "enhet": "NOK m",
+        "abs": 0.01
+      }
+    ],
+    "merknad": "Nær null i forhold til investeringen på 12, derfor abs-toleranse (0,01)."
+  },
+  "h2024:6:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV<sub>0</sub>, r<sub>f</sub> = 3%",
+        "verdi": 0.7574326239654791,
+        "enhet": "NOK m",
+        "abs": 0.01
+      },
+      {
+        "navn": "NPV<sub>0</sub>, r<sub>f</sub> = 7%",
+        "verdi": -1.3948835129534198,
+        "enhet": "NOK m",
+        "abs": 0.01
+      }
+    ],
+    "merknad": "Nær null i forhold til investeringen på 12, derfor abs-toleranse (0,01). Kurbatovs nøkkel har en skrivefeil i 7 %-linjen (0,7953/1,05 i stedet for −1,4646/1,05); resultatet −1,3949 er riktig."
+  },
+  "h2024:6:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "ρ (risk-neutral probability of the upside)",
+        "verdi": 0.4633900968866032,
+        "enhet": ""
+      }
+    ],
+    "merknad": "Tvillingen for år 1 til 10 gir 0,4663, innenfor standardtoleransen. Fellen (S0 = 11,5826) gir 0,7197 og avvises."
+  },
+  "h2024:6:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of the option to wait",
+        "verdi": 0.3509867770044374,
+        "enhet": "NOK m",
+        "abs": 0.005
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "What is your decision right now (Year 0): do you invest or wait? Briefly comment.",
+    "merknad": "Abs-toleranse 0,005: ρ avrundet til 0,46 gir 0,3484. Den feilparrede ρ = 0,7197 gir 0,5451 og avvises."
+  }
+}

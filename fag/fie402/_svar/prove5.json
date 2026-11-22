@@ -1,0 +1,268 @@
+{
+  "prove5:1:": {
+    "type": "tekst"
+  },
+  "prove5:2:": {
+    "type": "tekst"
+  },
+  "prove5:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price",
+        "verdi": 30.000000000000007,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Forward P/E",
+        "verdi": 9.090909090909093,
+        "enhet": ""
+      }
+    ]
+  },
+  "prove5:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price on announcement",
+        "verdi": 30.000000000000007,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Shares bought back",
+        "verdi": 5.999999999999998,
+        "enhet": "m shares"
+      },
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 13.999999999999996,
+        "enhet": "%"
+      }
+    ]
+  },
+  "prove5:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "EPS, next year",
+        "verdi": 4.199999999999999,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "The CFO says the higher EPS shows that the shareholders gain. Do you agree? Explain briefly."
+  },
+  "prove5:3:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Issue price",
+        "verdi": 28.200000000000006,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "New shares",
+        "verdi": 1.2765957446808507,
+        "enhet": "m shares"
+      }
+    ]
+  },
+  "prove5:3:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price today",
+        "verdi": 30.000000000000007,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Are the original shareholders better or worse off? Explain briefly."
+  },
+  "prove5:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 600.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove5:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup>",
+        "verdi": 639.6,
+        "enhet": "NOK m",
+        "alt": [
+          641.3052631578947
+        ]
+      }
+    ],
+    "merknad": "Alt 641.3053 er Miles-Ezzell-varianten (siste år til r_D), som løsningen godtar med begrunnelse."
+  },
+  "prove5:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "D<sub>0</sub>",
+        "verdi": 239.99999999999997,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "E",
+        "verdi": 399.6,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove5:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 11.702702702702702,
+        "enhet": "%"
+      },
+      {
+        "navn": "E (FTE)",
+        "verdi": 399.59999999999997,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove5:4:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 8.628517823639775,
+        "enhet": "%"
+      },
+      {
+        "navn": "V<sup>L</sup> (WACC)",
+        "verdi": 639.5999999999999,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Oppgaven spør bare etter verdien, men den er lik V^L fra b) og kan kopieres. r_wacc er tatt med fordi det er selve WACC-metoden og kriteriene gir den eget poeng."
+  },
+  "prove5:4:f": {
+    "type": "tekst"
+  },
+  "prove5:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of building today",
+        "verdi": 6.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove5:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of the option to wait",
+        "verdi": 15.527777777777775,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Målt mot å bygge i dag (21.5278 − 6.0). Beslutningen (vent) følger direkte av tallet."
+  },
+  "prove5:5:c": {
+    "type": "tekst"
+  },
+  "prove5:5:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV, commit to both stages",
+        "verdi": -12.201646090534979,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV, staged financing",
+        "verdi": 4.4650205761316855,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 6,
+    "tekstLedd": "Explain the difference briefly."
+  },
+  "prove5:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV<sub>A</sub>",
+        "verdi": 62.5,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV<sub>B</sub>",
+        "verdi": 237.5,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "prove5:6:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Highest exchange ratio",
+        "verdi": 0.75,
+        "enhet": ""
+      }
+    ]
+  },
+  "prove5:6:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV<sub>A</sub>, cash",
+        "verdi": 80.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV<sub>A</sub>, cash, S = 100",
+        "verdi": -120.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV<sub>A</sub>, shares, S = 100",
+        "verdi": -93.75,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Who bears the synergy risk under each method?"
+  },
+  "prove5:6:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV<sub>A</sub>, shares (A worth 72)",
+        "verdi": 150.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV<sub>A</sub>, cash",
+        "verdi": 80.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Shares better than cash by",
+        "verdi": 70.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "What does the market infer from the choice?"
+  },
+  "prove5:6:e": {
+    "type": "tekst"
+  }
+}

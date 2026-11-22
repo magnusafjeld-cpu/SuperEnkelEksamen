@@ -246,6 +246,45 @@ oppgaver med nye tall.
   lånene slått opp. `EDU_DATA.sets` alene viser lånte sett uten oppgaver. Se
   [[Fallgruver]] om planleggeren.
 
+## Retting med egen API-nøkkel (22. november 2026)
+
+Med en Anthropic-nøkkel under Konto (`js/bundle-claude.js`) fører du inn svarene og får
+dem rettet. Uten nøkkel, uten svar-data, i kartleggingen og i oppgaver med ekte flervalg
+(`options`) er alt som før. Oppgavene endres aldri: typen og fasittallene ligger i egen fil,
+`fag/<fag>/svar.js` (`EDU_DATA.svar`), bygget av `tools/bygg-svar.py` fra
+`fag/<fag>/_svar/<settId>.json` og kontrollert med `tools/sjekk-svar.js`. Formatet står i
+`docs/fie402-svar-spek.md`. Nøkkel `"<settId>:<n>:<etikett>"` (tom etikett for en oppgave
+uten deloppgaver). Lånte oppgaver slås opp via `kildeId`/`kildeN`, som `slåOppLån` nå setter.
+
+| Type | Felt | Retting |
+|---|---|---|
+| `tall` | én boks per tall, med enhet | automatisk, toleranse 1 % (eller `tol`/`abs`), komma og punktum, prosent også som desimal |
+| `bokstav` | én bokstav (flervalg skrevet som tekst i v2021–v2023) | automatisk |
+| `tekst` | tekstfelt | Claude Opus 5.5, innsats high, mot løsning og kriterier |
+| `blandet` | tallbokser og tekstfelt | tallene automatisk (`tallPoeng`), teksten med Opus |
+| `ingen` | ingenting | selvvurdering (plassholdere uten oppgavetekst) |
+
+- **Øving:** «Rett a)» retter delen og åpner fasiten. «Rett alle deloppgavene» / «Rett resten»
+  tar alle. Tekstdelene kjøres én om gangen (`køVurdering`), så Opus ikke får mange kall samtidig.
+- **Eksamen:** feltene er åpne mens klokka går, ingenting rettes før levering. Ved levering
+  rettes tallene (`rettSettAutomatisk`), og kortet øverst har «Rett tekstsvarene med Claude»
+  med anslått pris.
+- **Følgefeil:** er et tall feil og et tidligere tall i samme oppgave også feil, kan Sonnet 5.5
+  sjekke om det er riktig regnet på eget grunnlag («Sjekk følgefeil», rundt 2 cent). Ja gir
+  tallpoengene.
+- **Poeng:** Claude avslutter med «POENG: x av y», som leses ut (`lesPoeng`, halve poeng).
+  Er alle delene i en oppgave rettet, settes oppgavens poeng til summen
+  (`scoreKilde: "retting"`). Knappene i poengraden overstyrer (`scoreKilde: "selv"`).
+- **Lagring:** `inn` (det du skrev) og `rett` (resultatet, med Claudes tilbakemelding i `tb`)
+  under `"<settId>-e<n>"`. «Prøv på nytt» nullstiller begge. Lagres per tastetrykk, siden
+  `setExam` ikke tegner siden på nytt; `oppfrisk()` beholder markøren når rettingen tegner om.
+- **Vurderingsboksen** (`S.claude.vurdering`) fikk `modell`, `onFerdig` og `lagret`, og
+  `S.claude.kjørVurdering(id)` starter en tegnet boks og venter til den er ferdig.
+
+FIE402 har svar-data for alle 418 deloppgavene i de 18 egne settene (191 tall, 129 blandet,
+58 tekst, 30 bokstav, 10 ingen). Alle 636 tall godtas med fire desimaler. Testet med simulert
+API i en lokal kopi; den første ekte rettingen krever brukerens nøkkel.
+
 ## Kartlegging (kind: "kartlegging")
 
 Lagt til 2. november 2026 for [[FIE402 Corporate Finance]]. Magnus ville ha en

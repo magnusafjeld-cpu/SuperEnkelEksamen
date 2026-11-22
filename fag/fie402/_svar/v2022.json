@@ -1,0 +1,272 @@
+{
+  "v2022:1:1": {
+    "type": "bokstav",
+    "svar": "D"
+  },
+  "v2022:1:2": {
+    "type": "bokstav",
+    "svar": "C"
+  },
+  "v2022:1:3": {
+    "type": "bokstav",
+    "svar": "B"
+  },
+  "v2022:1:4": {
+    "type": "bokstav",
+    "svar": "A"
+  },
+  "v2022:1:5": {
+    "type": "bokstav",
+    "svar": "B"
+  },
+  "v2022:1:6": {
+    "type": "bokstav",
+    "svar": "D"
+  },
+  "v2022:1:7": {
+    "type": "bokstav",
+    "svar": "A"
+  },
+  "v2022:1:8": {
+    "type": "bokstav",
+    "svar": "C"
+  },
+  "v2022:1:9": {
+    "type": "bokstav",
+    "svar": "A"
+  },
+  "v2022:1:10": {
+    "type": "bokstav",
+    "svar": "C"
+  },
+  "v2022:2:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price",
+        "verdi": 32.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "After-tax EPS",
+        "verdi": 2.28,
+        "enhet": "$ per share"
+      }
+    ],
+    "merknad": "Spørsmålet spør bare etter to tall. Begrunnelsen (netto gjeld = 0, ingen skatteskjold) er det kriteriene vekter mest, men et riktig svar på 32,00 krever den."
+  },
+  "v2022:2:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price after the repurchase",
+        "verdi": 32.800000000000004,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "v2022:2:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Gain per share in the third situation",
+        "verdi": 0.7999999999999972,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Total gain = PV(tax shield)",
+        "verdi": 240.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 6,
+    "tekstLedd": "In which situation(s) are the shareholders better off? Why?"
+  },
+  "v2022:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "α if good",
+        "verdi": 38.46153846153847,
+        "enhet": "%"
+      },
+      {
+        "navn": "α if bad",
+        "verdi": 71.42857142857143,
+        "enhet": "%"
+      },
+      {
+        "navn": "Entrepreneur's stake if good",
+        "verdi": 80.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Entrepreneur's stake if bad",
+        "verdi": 20.0,
+        "enhet": "$"
+      }
+    ],
+    "merknad": "«Will investors fund?» er ja i begge tilfeller og følger direkte av at α < 1; kriteriene gir det ikke egne poeng. α med enhet % så både 38,46 og 0,3846 godtas."
+  },
+  "v2022:3:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "α (pooled)",
+        "verdi": 50.0,
+        "enhet": "%"
+      },
+      {
+        "navn": "Entrepreneur's stake if good",
+        "verdi": 65.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Entrepreneur's stake if bad",
+        "verdi": 35.0,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 6,
+    "tekstLedd": "Compare your results to part a) and discuss.",
+    "merknad": "α med enhet % så både 50 og 0,5 godtas."
+  },
+  "v2022:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "α if good",
+        "verdi": 92.3076923076923,
+        "enhet": "%"
+      },
+      {
+        "navn": "Entrepreneur's stake if good",
+        "verdi": 9.999999999999993,
+        "enhet": "$"
+      },
+      {
+        "navn": "Entrepreneur's stake if bad",
+        "verdi": 0,
+        "enhet": "$",
+        "abs": 0.5
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Which projects are financed? Discuss your results.",
+    "merknad": "α for det dårlige prosjektet (1,71) er ikke tatt med som tall: det er umulig, og poenget er at prosjektet ikke finansieres (tekstdelen)."
+  },
+  "v2022:3:d": {
+    "type": "tekst",
+    "merknad": "Svaret er at ingen finansiering skjer (α = 1,2 > 1) og at begge eierandeler er 0. Det eneste «tallet» er umulig, så hele deloppgaven er drøfting."
+  },
+  "v2022:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "FCF 2023",
+        "verdi": 0.0,
+        "enhet": "$ m",
+        "abs": 0.1
+      },
+      {
+        "navn": "FCF 2024",
+        "verdi": 30.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "FCF 2025",
+        "verdi": 35.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "v2022:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>U</sub> (Marvel)",
+        "verdi": 1.2000000000000002,
+        "enhet": ""
+      }
+    ]
+  },
+  "v2022:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 12.733333333333336,
+        "enhet": "%"
+      }
+    ]
+  },
+  "v2022:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Enterprise value",
+        "verdi": 379.72588924956705,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "v2022:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Δ (fraction of the all-equity firm held)",
+        "verdi": 0.6875,
+        "enhet": ""
+      },
+      {
+        "navn": "Amount borrowed risk-free",
+        "verdi": 523.8095238095237,
+        "enhet": "$"
+      },
+      {
+        "navn": "Value of equity",
+        "verdi": 163.69047619047626,
+        "enhet": "$"
+      }
+    ],
+    "merknad": "Oppgaven krever replikering, så porteføljen (Δ og lånebeløpet) er tatt med sammen med E. Lånet er oppgitt som positivt beløp med navnet «borrowed»."
+  },
+  "v2022:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Δ (fraction of the all-equity firm held)",
+        "verdi": 0.3125,
+        "enhet": ""
+      },
+      {
+        "navn": "Amount lent risk-free",
+        "verdi": 523.8095238095237,
+        "enhet": "$"
+      },
+      {
+        "navn": "Value of debt",
+        "verdi": 836.3095238095237,
+        "enhet": "$"
+      }
+    ],
+    "merknad": "Som i a): replikeringsporteføljen er tatt med sammen med D."
+  },
+  "v2022:5:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Risk-neutral probability of the up state",
+        "verdi": 0.3125,
+        "enhet": ""
+      },
+      {
+        "navn": "Value of equity",
+        "verdi": 163.69047619047618,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 8,
+    "tekstLedd": "Show that you get the same result as in part a), and explain why the two methods agree."
+  }
+}

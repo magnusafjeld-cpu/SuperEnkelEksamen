@@ -1,0 +1,157 @@
+{
+  "prove11:1:": { "type": "tekst" },
+  "prove11:2:": { "type": "tekst" },
+  "prove11:3:a": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Share price today P<sub>0</sub>", "verdi": 40, "enhet": "NOK per share" }
+    ]
+  },
+  "prove11:3:b": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Shares bought", "verdi": 5, "enhet": "m shares" },
+      { "navn": "Price after good news", "verdi": 57.142857142857146, "enhet": "NOK per share" },
+      { "navn": "Price after bad news", "verdi": 28.571428571428573, "enhet": "NOK per share" }
+    ]
+  },
+  "prove11:3:c": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Price after the repurchase, good news", "verdi": 55, "enhet": "NOK per share" },
+      { "navn": "Price after the repurchase, bad news", "verdi": 30, "enhet": "NOK per share" }
+    ]
+  },
+  "prove11:3:d": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Value moved from sellers to remaining shareholders (good news)", "verdi": 75, "enhet": "NOK m" }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "When does management repurchase if the news is good and when if it is bad? If the news is good, who gains and who loses?",
+    "merknad": "Tidspunktene (nå ved gode nyheter, etter ved dårlige) og hvem som taper og vinner er tekstdelen; beløpet 75 er tallet."
+  },
+  "prove11:3:e": { "type": "tekst" },
+  "prove11:4:a": {
+    "type": "tall",
+    "tall": [
+      { "navn": "FCF Year 1", "verdi": 51.8, "enhet": "NOK m" },
+      { "navn": "FCF Year 2", "verdi": 67.4, "enhet": "NOK m" },
+      { "navn": "FCF Year 3", "verdi": 74.1, "enhet": "NOK m" }
+    ]
+  },
+  "prove11:4:b": {
+    "type": "tall",
+    "tall": [
+      { "navn": "β<sub>U</sub> (Fjellsport)", "verdi": 0.9500000000000002, "enhet": "" },
+      { "navn": "r<sub>U</sub>", "verdi": 9.700000000000003, "enhet": "%" }
+    ]
+  },
+  "prove11:4:c": {
+    "type": "tall",
+    "tall": [
+      { "navn": "r<sub>wacc</sub>", "verdi": 9.172000000000002, "enhet": "%" }
+    ]
+  },
+  "prove11:4:d": {
+    "type": "tall",
+    "tall": [
+      { "navn": "V<sup>L</sup><sub>3</sub>", "verdi": 1053.8482989403233, "enhet": "NOK m" }
+    ]
+  },
+  "prove11:4:e": {
+    "type": "tall",
+    "tall": [
+      { "navn": "V<sup>L</sup><sub>0</sub>", "verdi": 970.871518166335, "enhet": "NOK m" }
+    ]
+  },
+  "prove11:4:f": {
+    "type": "tall",
+    "tall": [
+      { "navn": "D<sub>0</sub>", "verdi": 388.34860726653403, "enhet": "NOK m" },
+      { "navn": "D<sub>1</sub>", "verdi": 403.24794152502056, "enhet": "NOK m" },
+      { "navn": "New debt issued at the end of Year 1", "verdi": 14.899334258486533, "enhet": "NOK m" }
+    ]
+  },
+  "prove11:4:g": {
+    "type": "tall",
+    "tall": [
+      { "navn": "V<sup>U</sup><sub>0</sub>", "verdi": 902.903553436664, "enhet": "NOK m" }
+    ]
+  },
+  "prove11:4:h": {
+    "type": "tall",
+    "tall": [
+      { "navn": "TS<sub>1</sub>", "verdi": 5.126201615918249, "enhet": "NOK m" },
+      { "navn": "TS<sub>2</sub>", "verdi": 5.322872828130271, "enhet": "NOK m" },
+      { "navn": "TS<sub>3</sub>", "verdi": 5.455214723926379, "enhet": "NOK m" },
+      { "navn": "TS<sub>4</sub>", "verdi": 5.564319018404907, "enhet": "NOK m" },
+      { "navn": "PV(TS)", "verdi": 67.96796472967125, "enhet": "NOK m" }
+    ]
+  },
+  "prove11:4:i": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "V<sup>L</sup><sub>0</sub> (APV)", "verdi": 970.8715181663352, "enhet": "NOK m", "tol": 0.00005 }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Compare with e).",
+    "merknad": "Stram toleranse (±0.05) fordi kriteriene sier at et avvik på 0.001 er avrunding, men 0.05 er en feil. Sammenligningen med e) har eget kriterium og er tekstdelen."
+  },
+  "prove11:5:a": {
+    "type": "tall",
+    "tall": [
+      { "navn": "NPV of buying today", "verdi": 360, "enhet": "NOK m" }
+    ]
+  },
+  "prove11:5:b": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "NPV of waiting", "verdi": 346.6666666666667, "enhet": "NOK m" }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Is it better or worse than buying today? Explain the intuition."
+  },
+  "prove11:5:c": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Indifference probability p", "verdi": 0.2, "enhet": "" }
+    ]
+  },
+  "prove11:5:d": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "NPV of buying today (with resale right)", "verdi": 390, "enhet": "NOK m" },
+      { "navn": "NPV of waiting (p = 30%)", "verdi": 373.3333333333333, "enhet": "NOK m" }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Do you buy today or wait?",
+    "merknad": "NPV ved å vente spørres ikke direkte, men valget krever det og kriteriene gir det eget ledd. Valget er tekstdelen."
+  },
+  "prove11:5:e": { "type": "tekst" },
+  "prove11:6:a": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Offer per B share at the old prices", "verdi": 40, "enhet": "NOK per share" },
+      { "navn": "Offer per B share at the new prices", "verdi": 41.6, "enhet": "NOK per share" }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Why does B trade below the offer?"
+  },
+  "prove11:6:b": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Probability of completion p", "verdi": 0.7348509852931755, "enhet": "", "tol": 0.0012 }
+    ],
+    "merknad": "Stram toleranse fordi kriteriene godtar 0.7340 til 0.7355, og standard 1 % ville godtatt feilen med helt års rente (0.7296)."
+  },
+  "prove11:6:c": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "P<sub>A</sub> at completion", "verdi": 54.1230167775528, "enhet": "NOK per share" }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "How do you vote as a shareholder of A? Briefly explain."
+  },
+  "prove11:6:d": { "type": "tekst" }
+}

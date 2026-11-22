@@ -605,6 +605,10 @@ NotebookLM-kilder, med god tid.
   fordeler fasitplassene med løpende teller. `sjekk-prove.js` filtrerer nå bort deleksamenene.
   Ikke gjort: ny prøveeksamen med de varslede forelesningseksemplene (CDS, Google,
   coinsurance, bank D), og studieplanen er ikke rekalibrert (ville gått fra 78 til 85 t).
+- **Retting med egen API-nøkkel (22.11.2026):** alle 418 deloppgavene i de 18 egne settene har
+  svar-data (`fag/fie402/_svar/*.json` → `svar.js`, spesifikasjon `docs/fie402-svar-spek.md`).
+  Tall og bokstaver rettes automatisk, tekst av Opus 5.5, følgefeil av Sonnet 5.5. Se
+  [[Eksamenssett-modulen]].
 - **Prøveeksamener 4–12:** se `docs/fie402-proveeksamen-spek.md`, siste del. Runde 1
   (prove4 det mest sannsynlige settet, prove5 kjernen, prove6 H2024-formen) er lagt ut etter
   blind løsning: ingen regnefeil, men alle tre var 40–60 % lengre enn Kurbatovs (1 600–1 900

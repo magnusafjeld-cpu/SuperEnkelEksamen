@@ -907,6 +907,21 @@ textarea{font-family:inherit;}
 .sett-part{border-top:1px solid var(--hairline);margin-top:16px;padding-top:14px;}
 .sett-part .row:first-child{margin-bottom:2px;}
 .part-label{font-weight:700;font-size:15px;color:var(--accent-ink);}
+/* Retting med egen API-nøkkel i eksamenssettene (js/bundle-sett.js) */
+.svar-felt{margin-top:12px;display:flex;flex-direction:column;gap:8px;}
+.svar-rad{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
+.svar-navn{min-width:120px;font-size:14px;font-weight:600;color:var(--ink-2);}
+.svar-inn{width:150px;padding:7px 10px;border:1px solid var(--hairline-strong);border-radius:var(--r-sm);font:inherit;font-size:15px;font-variant-numeric:tabular-nums;color:var(--ink);background:var(--bg-elevated);}
+.svar-inn:focus,.svar-tekst:focus{outline:2px solid var(--accent-soft-2);border-color:var(--accent);}
+.svar-bokstav{width:56px;text-align:center;text-transform:uppercase;}
+.svar-inn[readonly],.svar-tekst[readonly]{background:var(--bg-sunken);color:var(--ink-2);}
+.svar-enhet{font-size:13px;color:var(--ink-3);}
+.svar-ok{color:var(--green);font-weight:700;}
+.svar-feil{color:var(--rose);font-weight:700;}
+.svar-tekst-hode{margin-top:2px;}
+.svar-tekst{display:block;width:100%;box-sizing:border-box;padding:9px 11px;border:1px solid var(--hairline-strong);border-radius:var(--r-md);font:inherit;font-size:14.5px;line-height:1.55;color:var(--ink);background:var(--bg-elevated);resize:vertical;}
+.svar-resultat{margin-top:12px;}
+@media (max-width:600px){.svar-navn{min-width:0;flex-basis:100%;}.svar-inn{width:140px;}}
 .sol-panel{margin-top:14px;background:var(--green-soft);border:1px solid #cfe9d8;border-left:4px solid var(--green);border-radius:var(--r-md);padding:14px 18px;}
 .sol-h{display:flex;align-items:center;gap:8px;font-weight:650;color:#1f7a46;margin-bottom:6px;}
 .sol-h .ico{width:18px;height:18px;}
@@ -1137,8 +1152,8 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=210"></script>
-<script src="js/config.js?v=210"></script>
+<script src="js/subjects.js?v=211"></script>
+<script src="js/config.js?v=211"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
@@ -1155,30 +1170,30 @@ window.EDU_DATA = {};
      privat       = private fag fra en privat Supabase-bøtte, bare for eieren
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=210"></script>
-<script src="js/bundle-views.js?v=210"></script>
-<script src="js/bundle-lyn.js?v=210"></script>
-<script src="js/bundle-dybde.js?v=210"></script>
-<script src="js/bundle-sett.js?v=210"></script>
-<script src="js/bundle-case.js?v=210"></script>
-<script src="js/bundle-mock.js?v=210"></script>
-<script src="js/bundle-historier.js?v=210"></script>
-<script src="js/bundle-kapitteloppgaver.js?v=210"></script>
-<script src="js/bundle-problemsett.js?v=210"></script>
-<script src="js/bundle-sjangre.js?v=210"></script>
-<script src="js/bundle-notebooklm.js?v=210"></script>
-<script src="js/bundle-kjerne.js?v=210"></script>
-<script src="js/bundle-formelark.js?v=210"></script>
-<script src="js/bundle-symboler.js?v=210"></script>
-<script src="js/bundle-trening.js?v=210"></script>
-<script src="js/bundle-sjekkliste.js?v=210"></script>
-<script src="js/bundle-forelesninger.js?v=210"></script>
-<script src="js/bundle-claude.js?v=210"></script>
-<script src="js/sjakk-kjerne.js?v=210"></script>
-<script src="js/bundle-sjakk.js?v=210"></script>
-<script src="js/account.js?v=210"></script>
-<script src="js/privat.js?v=210"></script>
-<script src="js/picker.js?v=210"></script>
-<script src="js/boot.js?v=210"></script>
+<script src="js/bundle-core.js?v=211"></script>
+<script src="js/bundle-views.js?v=211"></script>
+<script src="js/bundle-lyn.js?v=211"></script>
+<script src="js/bundle-dybde.js?v=211"></script>
+<script src="js/bundle-sett.js?v=211"></script>
+<script src="js/bundle-case.js?v=211"></script>
+<script src="js/bundle-mock.js?v=211"></script>
+<script src="js/bundle-historier.js?v=211"></script>
+<script src="js/bundle-kapitteloppgaver.js?v=211"></script>
+<script src="js/bundle-problemsett.js?v=211"></script>
+<script src="js/bundle-sjangre.js?v=211"></script>
+<script src="js/bundle-notebooklm.js?v=211"></script>
+<script src="js/bundle-kjerne.js?v=211"></script>
+<script src="js/bundle-formelark.js?v=211"></script>
+<script src="js/bundle-symboler.js?v=211"></script>
+<script src="js/bundle-trening.js?v=211"></script>
+<script src="js/bundle-sjekkliste.js?v=211"></script>
+<script src="js/bundle-forelesninger.js?v=211"></script>
+<script src="js/bundle-claude.js?v=211"></script>
+<script src="js/sjakk-kjerne.js?v=211"></script>
+<script src="js/bundle-sjakk.js?v=211"></script>
+<script src="js/account.js?v=211"></script>
+<script src="js/privat.js?v=211"></script>
+<script src="js/picker.js?v=211"></script>
+<script src="js/boot.js?v=211"></script>
 </body>
 </html>

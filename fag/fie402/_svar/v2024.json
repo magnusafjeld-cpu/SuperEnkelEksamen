@@ -1,0 +1,409 @@
+{
+  "v2024:1:1": {
+    "type": "ingen",
+    "merknad": "Spørsmålsteksten er tapt. Sensorveiledningen har bare fasitbokstaven (C), så det finnes ikke noe å svare på. Vises med selvvurdering."
+  },
+  "v2024:1:2": {
+    "type": "ingen",
+    "merknad": "Spørsmålsteksten er tapt. Sensorveiledningen har bare fasitbokstaven (B), så det finnes ikke noe å svare på. Vises med selvvurdering."
+  },
+  "v2024:1:3": {
+    "type": "ingen",
+    "merknad": "Spørsmålsteksten er tapt. Sensorveiledningen har bare fasitbokstaven (A), så det finnes ikke noe å svare på. Vises med selvvurdering."
+  },
+  "v2024:1:4": {
+    "type": "ingen",
+    "merknad": "Spørsmålsteksten er tapt. Sensorveiledningen har bare fasitbokstaven (B), så det finnes ikke noe å svare på. Vises med selvvurdering."
+  },
+  "v2024:1:5": {
+    "type": "ingen",
+    "merknad": "Spørsmålsteksten er tapt. Sensorveiledningen har bare fasitbokstaven (B), så det finnes ikke noe å svare på. Vises med selvvurdering."
+  },
+  "v2024:1:6": {
+    "type": "ingen",
+    "merknad": "Spørsmålsteksten er tapt. Sensorveiledningen har bare fasitbokstaven (D), så det finnes ikke noe å svare på. Vises med selvvurdering."
+  },
+  "v2024:1:7": {
+    "type": "ingen",
+    "merknad": "Spørsmålsteksten er tapt. Sensorveiledningen har bare fasitbokstaven (A), så det finnes ikke noe å svare på. Vises med selvvurdering."
+  },
+  "v2024:1:8": {
+    "type": "ingen",
+    "merknad": "Spørsmålsteksten er tapt. Sensorveiledningen har bare fasitbokstaven (C), så det finnes ikke noe å svare på. Vises med selvvurdering."
+  },
+  "v2024:1:9": {
+    "type": "ingen",
+    "merknad": "Spørsmålsteksten er tapt. Sensorveiledningen har bare fasitbokstaven (D), så det finnes ikke noe å svare på. Vises med selvvurdering."
+  },
+  "v2024:1:10": {
+    "type": "ingen",
+    "merknad": "Spørsmålsteksten er tapt. Sensorveiledningen har bare fasitbokstaven (A), så det finnes ikke noe å svare på. Vises med selvvurdering."
+  },
+  "v2024:2:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "E[V] strategy A",
+        "verdi": 50.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[V] strategy B",
+        "verdi": 48.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[V] strategy C",
+        "verdi": 42.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[V] strategy D",
+        "verdi": 32.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Which strategy maximises the expected value of the firm?",
+    "merknad": "Spørsmålet er et valg; de fire forventede verdiene er tallgrunnlaget (som NPV-ene i spesifikasjonens eksempel)."
+  },
+  "v2024:2:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "E[equity] strategy A, F = 40",
+        "verdi": 10.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[equity] strategy B, F = 40",
+        "verdi": 16.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[equity] strategy C, F = 40",
+        "verdi": 18.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[equity] strategy D, F = 40",
+        "verdi": 16.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Which strategy does management choose with (i) no debt and (ii) debt with face value $40 million? Why?",
+    "merknad": "Tallene er egenkapitalverdiene ved F = 40. Uten gjeld er de lik firmaverdiene fra a), så de er ikke tatt med på nytt; valget A/C og mekanismen er tekstdelen."
+  },
+  "v2024:2:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Agency cost",
+        "verdi": 8.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Which agency cost of debt does part (b) illustrate?"
+  },
+  "v2024:2:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "E[equity] strategy A, F = 5",
+        "verdi": 45.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[equity] strategy B, F = 5",
+        "verdi": 44.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[equity] strategy C, F = 5",
+        "verdi": 39.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[equity] strategy D, F = 5",
+        "verdi": 30.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Expected firm value",
+        "verdi": 50.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 5,
+    "tekstLedd": "Which strategy will management choose?"
+  },
+  "v2024:2:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Price you accept for your bond",
+        "verdi": 0.1,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity Petron must raise",
+        "verdi": 35,
+        "enhet": "$ m"
+      }
+    ],
+    "merknad": "Spørsmålet spør bare etter to tall. Resonnementet (gjelden blir risikofri, hold-out) ligger implisitt i at prisen er pålydende."
+  },
+  "v2024:2:f": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Shareholders, with buy-back",
+        "verdi": 10.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Shareholders, without buy-back",
+        "verdi": 18.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Debt holders, with buy-back",
+        "verdi": 40,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Debt holders, without buy-back",
+        "verdi": 24.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 6,
+    "tekstLedd": "Would the shareholders want to undertake the recapitalisation? Comment."
+  },
+  "v2024:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "E",
+        "verdi": 125.0,
+        "enhet": "$ bn"
+      },
+      {
+        "navn": "D",
+        "verdi": 25.0,
+        "enhet": "$ bn"
+      },
+      {
+        "navn": "V<sup>L</sup>",
+        "verdi": 150.0,
+        "enhet": "$ bn"
+      }
+    ]
+  },
+  "v2024:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 7.000000000000001,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 6.358333333333334,
+        "enhet": "%"
+      }
+    ]
+  },
+  "v2024:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "g",
+        "verdi": 2.358333333333334,
+        "enhet": "%"
+      }
+    ]
+  },
+  "v2024:3:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 6.533333333333334,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>E</sub> (new)",
+        "verdi": 7.550000000000001,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>wacc</sub> (new)",
+        "verdi": 6.158333333333334,
+        "enhet": "%"
+      },
+      {
+        "navn": "V<sup>L</sup> (new)",
+        "verdi": 157.89473684210526,
+        "enhet": "$ bn"
+      },
+      {
+        "navn": "D (new)",
+        "verdi": 52.63157894736842,
+        "enhet": "$ bn"
+      },
+      {
+        "navn": "E (new)",
+        "verdi": 105.26315789473685,
+        "enhet": "$ bn"
+      }
+    ],
+    "merknad": "Seks tall fordi oppgaven ber om alle seks (r_U, r_E, WACC, V, D, E)."
+  },
+  "v2024:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Price bond 1",
+        "verdi": 95.23809523809524,
+        "enhet": "$"
+      },
+      {
+        "navn": "Expected return bond 1",
+        "verdi": 5.000000000000004,
+        "enhet": "%"
+      },
+      {
+        "navn": "Price bond 2",
+        "verdi": 90.9090909090909,
+        "enhet": "$"
+      },
+      {
+        "navn": "Expected return bond 2",
+        "verdi": 7.800000000000007,
+        "enhet": "%"
+      }
+    ]
+  },
+  "v2024:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Risk-neutral default probability",
+        "verdi": 0.22727272727272735,
+        "enhet": ""
+      },
+      {
+        "navn": "CDS value (per $1 of protection)",
+        "verdi": 0.2164502164502165,
+        "enhet": "$"
+      }
+    ]
+  },
+  "v2024:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Put via the CDS (20 × CDS)",
+        "verdi": 4.32900432900433,
+        "enhet": "$"
+      },
+      {
+        "navn": "Put via the bond prices (bond 1 − bond 2)",
+        "verdi": 4.329004329004334,
+        "enhet": "$"
+      }
+    ],
+    "merknad": "Oppgaven ber om putten verdsatt på to måter; begge gir 1000/231. Ett felt per metode."
+  },
+  "v2024:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Firm A",
+        "verdi": 25.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Debt A",
+        "verdi": 12.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity A",
+        "verdi": 12.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Firm B",
+        "verdi": 12.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Debt B",
+        "verdi": 6.25,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity B",
+        "verdi": 6.25,
+        "enhet": "$ m"
+      }
+    ],
+    "merknad": "Seks tall fordi oppgaven ber om eiendeler, gjeld og egenkapital for begge foretakene."
+  },
+  "v2024:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Firm AB",
+        "verdi": 37.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Debt AB",
+        "verdi": 22.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity AB",
+        "verdi": 15.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "v2024:5:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Gain/loss shareholders A",
+        "verdi": -2.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Gain/loss shareholders B",
+        "verdi": -1.25,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Gain/loss debt holders A",
+        "verdi": 2.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Gain/loss debt holders B",
+        "verdi": 1.25,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 5,
+    "tekstLedd": "Check that the gains and losses cancel. Would the shareholders undertake the acquisition?",
+    "merknad": "Tap er negative tall (aksjonærene), gevinster positive (kreditorene)."
+  },
+  "v2024:5:d": {
+    "type": "tekst"
+  }
+}

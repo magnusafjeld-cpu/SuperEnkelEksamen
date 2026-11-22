@@ -1,0 +1,149 @@
+{
+  "prove10:1:": { "type": "tekst" },
+  "prove10:2:": { "type": "tekst" },
+  "prove10:3:a": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Net proceeds", "verdi": 334.8, "enhet": "NOK m" }
+    ]
+  },
+  "prove10:3:b": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Market value after day 1", "verdi": 1728, "enhet": "NOK m" }
+    ]
+  },
+  "prove10:3:c": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Fair price per share", "verdi": 58.05, "enhet": "NOK per share" },
+      { "navn": "Cost to the original owners", "verdi": 97.2, "enhet": "NOK m" }
+    ]
+  },
+  "prove10:3:d": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Uninformed investor's average return", "verdi": -12, "enhet": "%" }
+    ]
+  },
+  "prove10:3:e": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Break-even offer price", "verdi": 39.6, "enhet": "NOK per share" },
+      { "navn": "Average first-day return", "verdi": 13.636363636363637, "enhet": "%" }
+    ]
+  },
+  "prove10:4:a": {
+    "type": "tall",
+    "tall": [
+      { "navn": "V<sup>U</sup>", "verdi": 1000, "enhet": "NOK m" }
+    ]
+  },
+  "prove10:4:b": {
+    "type": "tall",
+    "tall": [
+      { "navn": "V<sup>L</sup> (Policy 1)", "verdi": 1038.0622837370242, "enhet": "NOK m" }
+    ]
+  },
+  "prove10:4:c": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "V<sup>L</sup> (Policy 2)", "verdi": 1066, "enhet": "NOK m" }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Which rate do you discount the tax shields at and why?"
+  },
+  "prove10:4:d": {
+    "type": "tall",
+    "tall": [
+      { "navn": "V<sup>L</sup> (Policy 3)", "verdi": 1044, "enhet": "NOK m" },
+      { "navn": "Debt today", "verdi": 360, "enhet": "NOK m" }
+    ]
+  },
+  "prove10:4:e": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Share price after the announcement", "verdi": 26.65, "enhet": "NOK per share" },
+      { "navn": "Shares bought back", "verdi": 11.257035647279551, "enhet": "m shares" }
+    ]
+  },
+  "prove10:4:f": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "PV(TS) per NOK of debt, Policy 1", "verdi": 0.12222222222222222, "enhet": "" },
+      { "navn": "PV(TS) per NOK of debt, Policy 2", "verdi": 0.22, "enhet": "" },
+      { "navn": "PV(TS) per NOK of debt, Policy 3", "verdi": 0.12222222222222222, "enhet": "" }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Rank the three policies by value and explain the ranking (2-3 sentences).",
+    "merknad": "Rangeringen og risikoforklaringen er tekstdelen; tallene er PV(TS) per krone gjeld, som kriteriene gir ett eget ledd."
+  },
+  "prove10:5:a": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Glimsdal's bond", "verdi": 857.3388203017832, "enhet": "NOK m" },
+      { "navn": "Government zero-coupon bond", "verdi": 942.5959091337544, "enhet": "NOK m" }
+    ]
+  },
+  "prove10:5:b": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Expected annual return", "verdi": 5.293076695478893, "enhet": "%" }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Why does it differ from the yield?"
+  },
+  "prove10:5:c": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Risk-neutral default probability q", "verdi": 0.1644531737124331, "enhet": "", "regnet": true }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Why does it differ from 9%?",
+    "merknad": "Sannsynlighet som desimaltall. Løsningen viser den bare i prosent (16.4453%); verdien er den samme."
+  },
+  "prove10:5:d": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Fair CDS price", "verdi": 85.25708883197116, "enhet": "NOK m" },
+      { "navn": "Arbitrage profit today", "verdi": 15.257088831971146, "enhet": "NOK m" }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Construct the arbitrage: the positions today and the cash flows in both states.",
+    "merknad": "Kriteriene gir strategien med tilstandsvise kontantstrømmer egne poeng (uten dem maks 5 av 8), så strategien er tekstdelen."
+  },
+  "prove10:5:e": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Equity value E", "verdi": 392.66117969821676, "enhet": "NOK m" }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Using put-call parity on the firm's assets, explain what would happen to the values of Glimsdal, its equity and its debt if it raised the face value of its debt to buy back shares in a perfect market (2-3 sentences)."
+  },
+  "prove10:6:a": {
+    "type": "tall",
+    "tall": [
+      { "navn": "NPV<sub>A</sub>", "verdi": 300, "enhet": "NOK m" },
+      { "navn": "NPV<sub>B</sub>", "verdi": 480, "enhet": "NOK m" },
+      { "navn": "Highest cash price per B share", "verdi": 90, "enhet": "NOK per share" }
+    ]
+  },
+  "prove10:6:b": {
+    "type": "tall",
+    "tall": [
+      { "navn": "Return if the deal completes (6 months)", "verdi": 4.5751633986928164, "enhet": "%" },
+      { "navn": "Return if the deal fails (6 months)", "verdi": -16.33986928104575, "enhet": "%" },
+      { "navn": "Implied probability of completion p", "verdi": 0.8524387795597175, "enhet": "" }
+    ]
+  },
+  "prove10:6:c": {
+    "type": "blandet",
+    "tall": [
+      { "navn": "Synergies S expected by the market", "verdi": 361.94167430338894, "enhet": "NOK m" }
+    ],
+    "tallPoeng": 5,
+    "tekstLedd": "Are A's shareholders better or worse off from the bid?",
+    "merknad": "Kriteriene: «worse off» gir sitt eget poeng uansett tall. Den enkle faktoren 1.015 gir S = 363.23, innenfor 1 %."
+  },
+  "prove10:6:d": { "type": "tekst" }
+}
