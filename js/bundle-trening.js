@@ -43,6 +43,13 @@
    Bygget av tools/bygg-trening.py. Fila er stor, så faget kan laste den først
    når modulen åpnes: manifest.lazy = { "/trening": ["fag/<fag>/trening.js"] }.
 
+   Korte sjekker (fra 22. november 2026): sjekker = { tittel, tekst, liste: [{ id,
+   navn, kort, tekst, ids }] } gir et kort øverst i oppsettet med én knapp per sjekk.
+   En sjekk er et fast utvalg i fast rekkefølge, uten trekning. Hver id står for
+   familien sin: ved start tas den varianten du har sett minst (samme regel som
+   «Nye først»), så regnespørsmålene får nye tall neste gang. Runden husker sjekken
+   (okt.sjekk) og «Ta sjekken på nytt» på resultatsiden starter den igjen.
+
    Lagring (state.exams):
      "tr:<id>"       { n, r, s, t, h }  forsøk, riktige, siste (1 rett, 0 feil, −1 stod over),
                      tid, og h = trinnene av hjelpen som var åpne sist (0–3)
@@ -366,9 +373,12 @@ window.EDU = window.EDU || {};
     return valgt;
   }
 
-  function start(temaIds, antall, modus, faste) {
+  /* ekstra.ordnet: de faste spørsmålene tas i rekkefølgen de står (sjekkene).
+     ekstra.sjekk: sjekken runden kom fra, så resultatsiden kan starte den igjen. */
+  function start(temaIds, antall, modus, faste, ekstra) {
+    const ex = ekstra || {};
     let ids;
-    if (faste) ids = stokk(faste);
+    if (faste) ids = ex.ordnet ? faste.slice() : stokk(faste);
     else {
       const f = fordel(temaIds, antall, modus);
       ids = stokk(Object.entries(f).flatMap(([id, n]) => velgFraTema(id, n, modus).map((sp) => sp.id)));
@@ -376,8 +386,52 @@ window.EDU = window.EDU || {};
     if (!ids.length) { S.u.toast("Ingen spørsmål i dette utvalget"); return; }
     utkast = { id: null, tekst: "", feil: "" };
     lagreØkt(Object.assign({ ids, svar: {}, temaer: temaIds, modus, igjen: valg().feil === "igjen", start: S.u.nowTs(), slutt: null, pos: 0 },
-      harTall() ? { regn: !!valg().regn } : {}));
+      harTall() ? { regn: !!valg().regn } : {}, ex.sjekk ? { sjekk: ex.sjekk } : {}));
     S.app.refresh(); window.scrollTo({ top: 0 });
+  }
+
+  /* ---------- korte sjekker ---------- */
+  const SJEKKER = () => ((T() || {}).sjekker || {});
+  const sjekkFor = (id) => (SJEKKER().liste || []).find((s) => s.id === id) || null;
+  const familien = (id) => { const sp = ALLE().find((s) => s.id === id); const f = sp ? (sp.fam || sp.id) : id; return ALLE().filter((s) => (s.fam || s.id) === f); };
+  /* Varianten av familien du har sett minst: aldri sett, så bommet, så riktig. */
+  function variant(id) {
+    const fam = familien(id);
+    if (!fam.length) return null;
+    const best = Math.min(...fam.map(prio));
+    return stokk(fam.filter((s) => prio(s) === best))[0];
+  }
+  function startSjekk(s) {
+    const valgt = s.ids.map(variant).filter(Boolean);
+    start([...new Set(valgt.map((sp) => sp.tema))], valgt.length, "sjekk", valgt.map((sp) => sp.id), { ordnet: true, sjekk: s.id });
+  }
+  /* Siste svar i hver familie: riktige, besvarte og antall familier. */
+  function sjekkStatus(s) {
+    let rett = 0, gjort = 0;
+    s.ids.forEach((id) => {
+      const siste = familien(id).map((sp) => logg(sp.id)).filter(Boolean).sort((a, b) => (b.t || 0) - (a.t || 0))[0];
+      if (siste) { gjort++; if (siste.s === 1) rett++; }
+    });
+    return { rett, gjort, antall: s.ids.length };
+  }
+  function sjekkKort() {
+    const cfg = SJEKKER();
+    if (!(cfg.liste || []).length) return null;
+    const kort = el(".card", { style: { marginBottom: "18px" } });
+    kort.appendChild(el("h3", { style: { margin: "0 0 4px", fontSize: "16px" } }, cfg.tittel || "Korte sjekker"));
+    if (cfg.tekst) kort.appendChild(el("p.tiny.muted", { style: { margin: "0 0 10px" } }, cfg.tekst));
+    cfg.liste.forEach((s) => {
+      const st = sjekkStatus(s);
+      const status = !st.gjort ? `${st.antall} spørsmål`
+        : st.gjort === st.antall ? `Sist: ${st.rett} av ${st.antall} riktig` : `${st.gjort} av ${st.antall} besvart`;
+      kort.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "center", padding: "10px 0", borderTop: "1px solid var(--hairline)" } },
+        el("div", { style: { flex: "1 1 220px", minWidth: 0 } },
+          el("div", { style: { fontWeight: 620 } }, s.navn + (s.kort ? " · " + s.kort : "")),
+          s.tekst ? el(".tiny.muted", s.tekst) : null),
+        el(".tiny.muted", status),
+        el("button.btn.primary.sm", { onclick: () => startSjekk(s) }, "Start")));
+    });
+    return kort;
   }
 
   /* ---------- oppsett ---------- */
@@ -416,6 +470,9 @@ window.EDU = window.EDU || {};
           el("button.btn.ghost.sm", { onclick: () => { forkastØkt(); S.app.refresh(); } }, "Forkast"),
           el("button.btn.primary.sm", { onclick: () => { S.app.refresh(); } }, "Fortsett →"))));
     }
+
+    const sk = sjekkKort();
+    if (sk) wrap.appendChild(sk);
 
     const kort = el(".card.pad-lg");
     /* regn lagres bare i fag som har tallsvar, så FIE432s valg ser ut som før. */
@@ -906,7 +963,8 @@ window.EDU = window.EDU || {};
 
     const bom = liste.filter((s) => { const v = o.svar[s.id]; return v != null && v !== s.answer; });
     kort.appendChild(el(".row.wrap", { style: { gap: "10px", marginTop: "22px" } },
-      el("button.btn.primary", { onclick: () => start(o.temaer, liste.length, o.modus) }, "Ny runde"),
+      o.sjekk && sjekkFor(o.sjekk) ? el("button.btn.primary", { onclick: () => startSjekk(sjekkFor(o.sjekk)) }, "Ta sjekken på nytt")
+        : el("button.btn.primary", { onclick: () => start(o.temaer, liste.length, o.modus) }, "Ny runde"),
       bom.length ? el("button.btn", { onclick: () => start(o.temaer, bom.length, o.modus, bom.map((s) => s.id)) }, `Øv på de ${bom.length} du ikke fikk riktig`) : null,
       liste.some((s) => erMerket(s.id)) ? el("button.btn", { onclick: () => { const ids = liste.filter((s) => erMerket(s.id)).map((s) => s.id); start(o.temaer, ids.length, "merket", ids); } },
         `Øv på de ${liste.filter((s) => erMerket(s.id)).length} du merket`) : null,

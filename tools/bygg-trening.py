@@ -19,6 +19,10 @@
      POENG      {"rett": 1, "feil": 0, "blank": 0}. Utelatt: +3/−1/0 som i FIE432.
                 Med feil 0 viser motoren antall riktige og prosent, uten minustekster.
      REGN_SELV  True: «Regn selv først» er på som standard i oppsettet.
+     SJEKKER    {"tittel", "tekst", "liste": [{"id", "navn", "kort", "tekst", "ids"}]}:
+                korte, faste sjekker i fast rekkefølge (lagt til 22. november 2026).
+                Hver id i ids står for familien sin. Motoren trekker varianten du
+                har sett minst. Byggeren avviser en id som ikke finnes i banken.
    Bare det som er satt, skrives til fila, så et fag uten oppsett får samme fil
    som før.
 
@@ -58,7 +62,7 @@ sporsmal: [
 MAKS_FORSØK = 60
 
 
-OPPSETT = ("SPRAK", "POENG", "REGN_SELV")
+OPPSETT = ("SPRAK", "POENG", "REGN_SELV", "SJEKKER")
 
 
 def last_moduler(mappe, bare):
@@ -100,6 +104,28 @@ def oppsett_tekst(oppsett):
         ut += "sprak: " + json.dumps(oppsett["SPRAK"]) + ",\n"
     if oppsett.get("REGN_SELV"):
         ut += "regnSelv: true,\n"
+    if oppsett.get("SJEKKER"):
+        ut += "sjekker: " + json.dumps(oppsett["SJEKKER"], ensure_ascii=False, separators=(",", ":")) + ",\n"
+    return ut
+
+
+def sjekk_sjekkene(sjekker, ider):
+    """Feilene i SJEKKER: manglende felt, dupliserte id-er og spørsmål som ikke finnes."""
+    ut = []
+    if not isinstance(sjekker, dict) or not isinstance(sjekker.get("liste"), list):
+        return ["SJEKKER må være en ordbok med en liste under «liste»"]
+    sett = set()
+    for s in sjekker["liste"]:
+        sid = s.get("id")
+        for f in ("id", "navn", "ids"):
+            if not s.get(f):
+                ut.append(f"sjekk {sid}: mangler {f}")
+        if sid in sett:
+            ut.append(f"sjekk {sid}: duplisert id")
+        sett.add(sid)
+        for i in s.get("ids", []):
+            if i not in ider:
+                ut.append(f"sjekk {sid}: spørsmålet {i} finnes ikke")
     return ut
 
 
@@ -313,6 +339,9 @@ def main():
         if feil:
             print("\nFEIL:\n" + "\n".join(feil))
         return
+
+    if oppsett.get("SJEKKER") and not bare:
+        feil += sjekk_sjekkene(oppsett["SJEKKER"], {r["id"] for r in ut})
 
     if feil:
         print("\n".join("FEIL " + f for f in feil))

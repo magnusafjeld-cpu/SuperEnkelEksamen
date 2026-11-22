@@ -16,10 +16,32 @@
                 som tusenskille, ekte minustegn
      POENG      ingen minuspoeng: eksamen er åpne regneoppgaver
      REGN_SELV  «Regn selv først» er på som standard, fordi eksamen er åpen
+     SJEKKER    en kort sjekk per opsjonsforelesning (9, 10 og 11), åtte spørsmål
+                hver i forelesningens rekkefølge. Magnus ba om det 22. november 2026:
+                bare det viktigste, mest som en sjekk. Utvalget følger
+                lysbildene og oppsummeringsforelesningen. Totrinnstreet er
+                utelatt, siden Kurbatov bare tar ett steg. En id står for familien
+                sin, så regnespørsmålene får nye tall neste gang.
 """
 SPRAK = "en"
 POENG = {"rett": 1, "feil": 0, "blank": 0}
 REGN_SELV = True
+
+SJEKKER = {
+    "tittel": "Opsjoner: kort sjekk per forelesning",
+    "tekst": "Åtte spørsmål fra hver av de tre opsjonsforelesningene, bare det viktigste og i forelesningens rekkefølge. Regnespørsmålene får nye tall hver gang du tar sjekken.",
+    "liste": [
+        dict(id="ops-f9", navn="Options I", kort="Forelesning 9",
+             tekst="Payoff, put-call-paritet, replikering, ρ, sann mot implisitt volatilitet, utbytte og amerikansk call",
+             ids=["ops-s11", "ops-par1-01", "ops-rep1-01", "ops-bin1-01", "ops-s09", "ops-s08", "ops-s03", "ops-s05"]),
+        dict(id="ops-f10", navn="Options II", kort="Forelesning 10",
+             tekst="Gjeld som risikofri gjeld minus en put, gjeld og egenkapital i et tre, CDS, gjeld fra noterte calls, senior og junior gjeld og mer risiko",
+             ids=["kre-s01", "kre-tre1-01", "kre-put1-01", "kre-cds1-01", "kre-exr1-01", "kre-cal1-01", "kre-snj1-01", "kre-s06"]),
+        dict(id="ops-f11", navn="Options III", kort="Forelesning 11",
+             tekst="Vente, verdien av informasjon, trinnvis finansiering, ρ fra et omsatt verdipapir, exit og månedsrente",
+             ids=["reo-ven1-01", "reo-inf1-01", "reo-trn1-01", "reo-rho1-01", "reo-s14", "reo-exi1-01", "reo-s01", "reo-s15"]),
+    ],
+}
 
 TEMAER = [
     dict(id="tvilling", navn="Twin firm and the cost of capital", kort="Twin firm", vekt=5, kap=[3, 4, 5], kjerne="kj1", mal=60,

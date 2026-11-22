@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-21
+oppdatert: 2026-11-22
 ---
 
 # Moduler og visninger
@@ -462,6 +462,14 @@ svaret kommer den korte fasiten; «Vis full gjennomgang» åpner forklaringen, f
 per galt alternativ og lenker til kjernepensumdelen og manualkapitlene. Tastatur:
 A–D, S, F, Enter. Resultatet viser poeng med og uten minuspoeng, per tema, og en
 gjennomgang du kan åpne spørsmål for spørsmål.
+
+**Korte sjekker** (fra 22. november 2026). Et fag kan sette `SJEKKER` i
+`_trening/temaer.py`. Det gir et kort øverst i oppsettet med én knapp per sjekk og
+«Sist: X av N riktig». En sjekk er et fast utvalg i fast rekkefølge, uten trekning.
+Hver id står for familien sin. Ved start tas varianten du har sett minst, så
+regnespørsmålene får nye tall neste gang. Runden husker sjekken (`okt.sjekk`) og
+resultatsiden har «Ta sjekken på nytt». Byggeren avviser en id som ikke finnes.
+FIE402 har én sjekk per opsjonsforelesning: se [[FIE402 Corporate Finance]].
 
 **Hurtiginnføring per tema.** Hvert temakort har en knapp som åpner et lite
 vindu med hva temaet tester, formlene du må kunne og de typiske fellene, og en

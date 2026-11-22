@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-11-21
+oppdatert: 2026-11-22
 ---
 
 # FIE402 Corporate Finance
@@ -601,3 +601,18 @@ Fire uavhengige kontrollører regnet alle regnevariantene blindt: ingen regnefei
 faglige feil (diversifisering og varians, retningen på dealsannsynligheten, tilbakekjøp av
 gjeld etter V2024 P1e, og en nedleggelsesindifferens som ikke fantes), mange hint og feller som
 røpet svaret, og noen spørsmål som kunne leses to veier. Alt er rettet.
+
+**Opsjoner: kort sjekk per forelesning** (22. november 2026). Magnus ville kunne ta bare
+opsjonsspørsmål fra forelesning 9, 10 eller 11 (Options I–III), bare det viktigste og mest
+som en sjekk. Åtte spørsmål per forelesning, i forelesningens rekkefølge, valgt etter
+lysbildene og oppsummeringsforelesningen:
+
+| Sjekk | Tema i banken | Innhold |
+|---|---|---|
+| Options I · forelesning 9 | `opsjoner` (k21–k23) | payoff, put-call-paritet, replikering, ρ og prising, at den virkelige sannsynligheten ikke betyr noe, sann mot implisitt volatilitet, utbytte, amerikansk call |
+| Options II · forelesning 10 | `kreditt` (k24, k5) | gjeld som risikofri gjeld minus en put, gjeld og egenkapital i et tre, gjeld via put, CDS, forventet avkastning mot yield, gjeld fra noterte calls, senior og junior, mer risiko |
+| Options III · forelesning 11 | `realopsjon` (k25) | vente, verdien av informasjon, trinnvis finansiering, ρ fra et omsatt verdipapir, hvorfor sannsynlighetene ikke trengs, exit, exit mot 0, månedsrente |
+
+Totrinnstreet er utelatt: Kurbatov tar bare ett steg (forelesning 9 nevner flere perioder
+bare som veien til Black-Scholes). Det har heller ikke vært på noen av de seks eksamenene.
+Utvalget står i `SJEKKER` i `fag/fie402/_trening/temaer.py`.
