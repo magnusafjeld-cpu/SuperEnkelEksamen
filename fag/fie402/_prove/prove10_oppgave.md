@@ -49,7 +49,7 @@ Femund Fjernvarme AS, a district-heating company, expects free cash flow of NOK 
 
 **d) (3 points)** Policy 3: Femund sets its interest payments each year equal to 20% of that year's free cash flow. Find its levered value and the debt it holds today.
 
-**e) (4 points)** Under Policy 2, value Femund with the WACC method (find the cost of equity first).
+**e) (4 points)** Suppose Femund is all equity today with 40 million shares and announces Policy 2, using all of the NOK 300 million to buy back shares. Find the share price right after the announcement and the number of shares bought back.
 
 **f) (3 points)** Rank the three policies by value and explain the ranking with the present value of the tax shields per NOK of debt today (2-3 sentences).
 

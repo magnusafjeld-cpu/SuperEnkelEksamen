@@ -10,18 +10,40 @@ already knows when he reaches it, and which real exam questions it must prepare 
 **FIE402 Corporate Finance (E), NHH. 7.5 ECTS. Autumn 2026, course responsible Andrey Kurbatov.**
 
 3-hour closed-book school exam, pen and paper. Written in English, answered in English.
-Calculator and one bilingual dictionary permitted. Grade A–F on the total; no requirement to
+Calculator and one bilingual dictionary permitted (old front pages; Kurbatov mentioned only pen
+and calculator in 2026, so check with the exam office). Grade A–F on the total; no requirement to
 pass each exercise. Textbook is Berk & DeMarzo 6th ed. (the reader does not own it).
 
 **The format changed in 2024.** Kurbatov's two papers (H2024, H2025) are what the reader will
 face:
 
 - **6 exercises, 100 points, no multiple choice**, points stated per sub-question
-- Two pure discussion exercises worth 12 points each, with explicit sentence budgets
-  ("2–3 sentences per action", "4–6 sentences is usually enough")
+- Two pure discussion exercises worth 12 points each in H2024 and H2025, with explicit sentence
+  budgets ("2–3 sentences per action", "4–6 sentences is usually enough"). For 2026 Kurbatov
+  said "only like 10 points each" and calculations "like 80 %", so 10/10/20/20/20/20 is now the
+  most likely layout (docs/fie402-prediksjon.md, updated 22 November 2026)
 - H2025 asked for **4 decimal places** of precision
 - ~1.8 minutes per point. Multi-part questions build on each other, so one arithmetic slip
   cascades. This is where points are lost.
+
+**Signals from all 2026 recordings (22 November 2026).** Source:
+`NotebookLM-kilder/FIE402 NotebookLM source exam signals from all lecture recordings.md`.
+- The structure (two theory questions, four problems) is fixed, but "the topics might shift
+  across the questions". Do not rely on the order of H2024 and H2025.
+- Lecture examples come back, often with new numbers. The spring 2024 paper (previous
+  lecturer, same slides) used the Security issues exercise for MC 1 to 6, the CDS example as
+  Problem 3 and the coinsurance example as Problem 4. H2025 E6 was "almost a direct copy" of
+  Mannesmann. Named candidates: CDS, Google senior and junior debt (PS3 E6), the bank D bidding
+  war, coinsurance, the winner's curse, two comparables, WACC and APV with interpretation,
+  signalling, gambling for resurrection and debt overhang.
+- **Only the formula sheet's formulas are needed.** WACC questions assume a constant D/E.
+  The adjusted WACC for permanent debt (r_U(1 − τD/V^L)) or constant
+  interest coverage and the D(1 − τ) weighting of r_U are homework material. τD and
+  (1 + τk)V^U are allowed shortcuts in APV; the two special cases can come as
+  intuition. Write chapter tasks and mock exams accordingly.
+- Only European options are calculated. Black-Scholes and American options come only as
+  intuition (the direction of the price).
+- Problem-set exercises with three stars can come too.
 
 H2024 exercises: M&A (verbal, synergies banned as an answer) · Governance (verbal) ·
 MM without taxes and recapitalisation · Risk shifting and hedging · Twin firm → rU → rE → WACC →
@@ -40,14 +62,14 @@ probability from market prices).
 | MM I & II in perfect markets, recapitalisation | 11/11 | Never absent |
 | WACC method **and** APV method on the same case | 11/11 | Usually the biggest single exercise |
 | Real options | 8/11 | Fixed item since 2017; 20 points in both Kurbatov papers |
-| M&A: share exchange, premium, implied deal probability | 8/11 | 20–32 points in Kurbatov papers |
-| Debt and equity as options, credit risk, CDS | 8/11 | Absent from Kurbatov papers so far |
+| M&A: share exchange, premium, implied deal probability | 8/11 | 20–32 points in Kurbatov papers. 2026: the bank D bidding war and coinsurance are flagged (V2024 Problem 4 was the coinsurance example) |
+| Debt and equity as options, credit risk, CDS | 8/11 | Absent from Kurbatov's papers, but V2024 Problem 3 was the lecture's CDS example and Kurbatov said in 2026 that "a very similar example could be in the exam". PS3 E6 (Google) is also flagged. Expect a calculation |
 | Asymmetric information, Myers-Majluf, pecking order | 8/11 | **Absent from both Kurbatov papers** but still on the syllabus — cover it, flag the risk |
 | Risk shifting (asset substitution) | 5/11 | H2024 Exercise 4 |
 | Debt overhang and renegotiation | 5/11 | |
 | Payout policy: dividends vs repurchases | 7/11 | |
 | Binomial model, risk-neutral valuation | 7/11 | |
-| Corporate governance | 5/11 | **Guaranteed 12 points in the new format** |
+| Corporate governance | 5/11 | **Near-certain theory question** (12 points in H2024 and H2025, about 10 in 2026). A new angle is expected: the owner's toolkit of three measures |
 | Trade-off theory, distress costs | 3/11 | |
 | Issuance: IPO, SEO, underpricing | 4/11 | |
 | Put-call parity | 4/11 | |
@@ -61,8 +83,9 @@ CAPM · rE = rU + (D/E)(rU − rD) · βU weighting · pre-tax and after-tax WAC
 (Δ, and the risk-neutral form with ρ) · M&A stock swap NPVs and the exchange-ratio bound.
 
 **Not on the sheet, must be memorised:** V^L = V^U + PV(TS); which rate discounts the tax shield;
-D_t = d·V_t^L; put-call parity; βE = N(d1)(V/E)βU; duration formulas; the Myers-Majluf setup;
-everything about real options.
+D_t = d·V_t^L; put-call parity; the annuity formula (Kurbatov: "please check because it's very
+important"); duration formulas; the Myers-Majluf setup; everything about real options.
+βE = Δ(V/E)βU is intuition only, since Black-Scholes is not computed.
 
 ### What the examiner rewards (from the solution keys)
 
@@ -76,11 +99,19 @@ everything about real options.
 4. **Shown calculations.** H2017 states plainly: no calculation, no points.
 5. On verbal questions, credit for reasonable, well-explained answers; H2025 gives bonus for
    creativity.
+6. **Key words the graders look for (2026 recordings):** "wealth transfer"; "the firm forgoes
+   positive-NPV projects" (about half the marks in debt overhang); "invest the cash if there are
+   good investment opportunities" (the condition earns its own point). "Value creation" alone is
+   not accepted as an M&A motive. Buying a target for its tax losses does not count either (the
+   losses are erased on a change of owner).
 
 Errors called out explicitly in the keys: using 100 instead of 100×1.03 as a certainty
 equivalent; rounding drift beyond ~0.001; confusing stand-alone NPV with the change in equity
 value; believing shareholders gain from reducing debt when creditors capture more than the
-efficiency gain.
+efficiency gain. Errors Kurbatov named in class (2026): pricing a CDS with the survival
+probability instead of ρ; dividing buyback cash by the old share price; D/V where MM II needs
+D/E; mixing τ and 1 − τ; subtracting interest in FCF; writing "risk-free debt minus a written
+put" (the debt is PV(F) − P, risk-free debt plus a written put).
 
 ---
 

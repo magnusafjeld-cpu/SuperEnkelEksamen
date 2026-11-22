@@ -223,10 +223,13 @@ noe annet i manualen eller kjernepensum, gjelder dette. Si fra i rapporten.
 
 - **β<sub>U</sub> uten skatt i vektene** er standarden (konstant D/V). D(1 − τ<sub>c</sub>)-vektene
   brukes bare når oppgaven sier at gjeldsbeløpet er fast og permanent. Si det da (A1).
+  **Ikke som regnespørsmål i treningen:** Kurbatov kalte vektingen «not mandatory» og sa «In the exam,
+  you will only use the formulas from the cheat sheet» (opptakene, 22.11.2026). Bare intuisjon.
 - **Netto gjeld i vektene**: gjeld minus overskuddskasse (B3).
 - **Skatteskjoldet** diskonteres med r<sub>U</sub> ved konstant D/V og med r<sub>D</sub> ved fast
   plan. Bare renter gir skjold, aldri hovedstolen (B8). Permanent gjeld uten vekst: WACC-metoden
-  virker, r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>) (A2). Konstant
+  virker i teorien, r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>) (A2), men formelen
+  er hjemmeoppgavestoff og skal ikke regnes i treningen. Eksamensveien er APV med τ<sub>c</sub>D. Konstant
   rentedekning: V<sup>L</sup> = (1 + τ<sub>c</sub>k)V<sup>U</sup> (B1). Debt capacity
   D<sub>t</sub> = d × V<sup>L</sup><sub>t</sub> (B2).
 - **Diskret diskontering overalt**: PV(K) = K/(1 + r<sub>f</sub>)<sup>T</sup>, y = (K/D)<sup>1/T</sup>

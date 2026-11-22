@@ -164,6 +164,10 @@ Course conventions that differ between textbooks. This course uses:
   and the same weights for β<sub>U</sub> (Kurbatov, `lecture_8.pdf` slide 18; BDM p. 708). Equivalently
   r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>). Use it only when the
   question says the amount of debt is fixed and permanent. Say so.
+  **Exam status (recordings, 22 Nov 2026):** Kurbatov called this weighting "not mandatory" (lecture 8
+  recording, 1:17:06) and said "In the exam, you will only use the formulas from the cheat sheet" (PS2
+  session, 1:26:49). Teach it as background. Never make it an exam-style calculation; ask for the
+  intuition instead.
 - Pre-tax WACC = r<sub>U</sub> under constant D/V. It does not hold under fixed debt.
 - Tax shield discounted at **r<sub>U</sub>** under constant D/E, at **r<sub>D</sub>** (or r<sub>f</sub>)
   under fixed permanent debt. Say which assumption you are using.
@@ -171,6 +175,10 @@ Course conventions that differ between textbooks. This course uses:
   r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>·D/V<sup>L</sup>), solved together with V<sup>L</sup> = FCF/r<sub>wacc</sub>
   (PS2 E9, BDM eq. 18.21) and agrees with APV, V<sup>L</sup> = V<sup>U</sup> + τ<sub>c</sub>D. Fixed debt
   in a growing firm lets D/V drift, and then only APV works.
+  **Exam status:** this WACC formula is homework material, not exam material (same sources as above).
+  Exam WACC questions assume a constant D/E and use the formula sheet. With fixed or permanent debt the
+  exam route is APV with τ<sub>c</sub>D. Permanent debt and constant interest coverage can come as
+  intuition questions.
 
 ## 5. Length and shape per chapter
 

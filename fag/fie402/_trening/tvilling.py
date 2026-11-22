@@ -1224,6 +1224,9 @@ statisk(
          "r<sub>U</sub> = [E r<sub>E</sub> + D(1 − τ<sub>c</sub>)r<sub>D</sub>]/[E + D(1 − τ<sub>c</sub>)]. The "
          "same weights unlever betas (lecture 8, slide 18). Rearranged it is r<sub>E</sub> = r<sub>U</sub> + "
          "(D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>).</p>"
+         "<p><b>On the exam.</b> Kurbatov calls the D(1 − τ<sub>c</sub>) weighting not mandatory: his WACC "
+         "questions assume a constant D/E and use only the formula sheet. Know why the weights change, not the "
+         "calculation.</p>"
          "<p><b>Remember:</b> plain weights for a target ratio, D(1 − τ<sub>c</sub>) only when the question says "
          "the debt is fixed and permanent.</p>",
 )

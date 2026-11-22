@@ -5,8 +5,9 @@ Kjør:  python3 -I prove9_regn.py
 
 Planen står i docs/fie402-prediksjon.md, del 5 (prove9). To teorioppgaver (utbyttet kuttes til
 fordel for tilbakekjøp, og aktivisme fram til proxy contest), deretter gjeldsoverheng med
-reforhandling og seniorgjeld, verdsetting av et oppkjøp med permanent gjeld (APV, WACC og
-unlevering av en tvilling med D(1 − τ)-vekter), firmaets eiendeler i et binomialtre (egenkapital
+reforhandling og seniorgjeld, verdsetting av et oppkjøp med permanent gjeld (APV med τD, fondets
+NPV og hvem som får skatteskjoldet, r_U fra to sammenlignbare selskaper med konstant D/E),
+firmaets eiendeler i et binomialtre (egenkapital
 som call, gjeld som risikofri gjeld minus put med paritet, kredittspread og risikonøytral
 misligholdssannsynlighet, risikoskifting) og en ventopsjon med en konkurrent.
 
@@ -21,9 +22,8 @@ gjentatt.
 
 Skriptet regner hvert tall som står i oppgavetekst, løsning og kriterier, og sjekker
 konsistenskontrollene med assert: D + E = V tilstand for tilstand, (1 − x)E = E − I, gevinstene
-summerer til NPV (identiteter, merket som det), r_E fra FCFE/E = r_E fra MM II med (1 − τ) (ekte:
-feiler med vanlig MM II), WACC = APV, unlevering av tvillingen med D(1 − τ)-vekter gir r_U (ekte:
-feiler med vanlige vekter), replikering = ρ, put direkte med ρ = put fra paritet (ekte), q fra
+summerer til NPV (identiteter, merket som det), gevinstene ved oppkjøpet summerer til PV(TS),
+snittet av de to unleverte betaene gir r_U, replikering = ρ, put direkte med ρ = put fra paritet (ekte), q fra
 gjeldsprisen = 1 − ρ, og likegyldighetssannsynligheten gir like verdier.
 
 Deretter sjekkes skrivereglene (ingen tankestrek, ingen komma foran «and», ingen markup i
@@ -32,8 +32,12 @@ criteria), poengene (12/12/18/18/20/20, deloppgavene summerer), lengden (1 000�
 Er alt rent, skrives prove9.json og prove9_oppgave.md (bare oppgaveteksten) i samme mappe.
 Er noe galt, skrives ingenting.
 
-Formatet følger docs/fie402-proveeksamen-spek.md. Konvensjonene (D(1 − τ)-vekter ved fast permanent
-gjeld, skatteskjoldet diskontert med r_D ved fast gjeld og r_U ved konstant D/V, diskret
+Endret 22.11.2026: del c) (r_E og WACC med permanent gjeld) og del d) (unlevering med D(1 − τ)-vekter)
+er byttet ut. Kurbatov: på eksamen brukes bare formlene på formelarket, og WACC-spørsmål forutsetter
+konstant D/E (opptak 10, 41:08 og 1:26:49). Nye c) og d) har samme poeng.
+
+Formatet følger docs/fie402-proveeksamen-spek.md. Konvensjonene (skatteskjoldet diskontert med r_D
+ved fast gjeld og r_U ved konstant D/V, diskret
 diskontering, reelle sannsynligheter med r_f bare når risikoen ikke er systematisk, ingen
 BS-regning, exit og avslag sammenlignes med 0) følger docs/fie402-forelesninger-2026.md.
 """
@@ -194,49 +198,46 @@ assert near(VL4, 640) and near(E4, 390)
 PVTS4_feil = TS4 / rU4                               # diskontert med r_U: feil her
 VL4_feil_b = VU4 + PVTS4_feil
 assert near(PVTS4_feil, 27.5) and near(VL4_feil_b, 612.5)
-# c) r_E, WACC og WACC-metoden
-FCFE4 = FCF4 - (1 - tau4) * int4                     # ingen netto opplåning
-etter_rente4 = (1 - tau4) * int4
-rE4_cf = FCFE4 / E4
-rE4 = rU4 + (D4 / E4) * (1 - tau4) * (rU4 - rD4)
-assert near(rE4, rE4_cf) and near(rE4, 0.10) and near(FCFE4, 39)   # ekte kontroll
-tillegg4 = (D4 / E4) * (1 - tau4) * (rU4 - rD4)
-assert near(tillegg4, 0.02)
-rw4 = (E4 * rE4 + D4 * rD4 * (1 - tau4)) / VL4
-assert near(E4 * rE4, 39) and near(D4 * rD4 * (1 - tau4), 7.8)
-assert near(rw4, rU4 * (1 - tau4 * D4 / VL4)) and near(rw4, 0.073125)
-assert near(FCF4 / rw4, VL4)                         # WACC = APV
-# PS2 E9-veien: løs V = FCF/(r_U(1 − τD/V)) uten APV først
-VL4_sys = FCF4 / rU4 + tau4 * D4
-assert near(VL4_sys, VL4) and near(VL4_sys, FCF4 / (rU4 * (1 - tau4 * D4 / VL4_sys)))
-# vanlig MM II uten (1 − τ): feil, og kontrollen feiler
-rE4_feil = rU4 + (D4 / E4) * (rU4 - rD4)
-rw4_feil = (E4 * rE4_feil + D4 * rD4 * (1 - tau4)) / VL4
-VL4_feil = FCF4 / rw4_feil
-assert abs(rE4_feil - rE4_cf) > 0.004 and abs(VL4_feil - VL4) > 20
-# d) tvillingen Fjordvarme ASA med fast permanent gjeld
-Ec4, Dc4, bEc4 = 1040.0, 500.0, 1.1
-rEc4 = rf4 + bEc4 * mrp4
-Dnet4 = Dc4 * (1 - tau4)
-rUc4 = (Ec4 * rEc4 + Dnet4 * rD4) / (Ec4 + Dnet4)
-bUc4 = Ec4 / (Ec4 + Dnet4) * bEc4
-assert near(rEc4, 0.095) and near(Dnet4, 390) and near(Ec4 + Dnet4, 1430)
-assert near(Ec4 * rEc4, 98.8) and near(Dnet4 * rD4, 15.6)
-assert near(rUc4, rU4) and near(bUc4, 0.8) and near(rf4 + bUc4 * mrp4, rU4)   # ekte kontroll
-rUc4_feil = (Ec4 * rEc4 + Dc4 * rD4) / (Ec4 + Dc4)
-assert near(Dc4 * rD4, 20) and abs(rUc4_feil - rU4) > 0.002
-# tvillingens verdi er konsistent: V^U = E + D(1 − τ) når skjoldet er τD
-assert near(Ec4 + Dc4 - tau4 * Dc4, Ec4 + Dnet4)
+# c) fondets kjøp: pris 600 for hele egenkapitalen, finansiert med den nye gjelden og fondets penger
+Pris4 = 600.0
+egne4 = Pris4 - D4                                   # fondets innskudd
+NPV4 = E4 - egne4                                    # fondets NPV
+assert near(egne4, 350) and near(NPV4, 40) and near(NPV4, VL4 - Pris4)
+selger4 = Pris4 - VU4                                # selgernes gevinst over V^U
+kreditor4 = 0.0                                      # gjelden er priset riktig
+assert near(selger4, 15)
+assert near(selger4 + NPV4 + kreditor4, PVTS4)       # identitet: gevinstene = PV(TS)
+NPV4_utenTS = VU4 - D4 - egne4                       # glemt skatteskjoldet: −15
+NPV4_brutto = E4 - Pris4                             # glemt at gjelden betalte en del: −210
+assert near(NPV4_utenTS, -15) and near(NPV4_brutto, -210)
+# d) to sammenlignbare selskaper med konstant D/E (formelarkets vekter uten skatt)
+Ea4, Da4, bDa4, bEa4 = 1000.0, 500.0, 0.0, 1.26     # Fjordvarme, risikofri gjeld
+Eb4, Db4, bDb4, bEb4 = 1200.0, 300.0, 0.2, 0.9      # Kystvarme
+bUa4 = Ea4 / (Ea4 + Da4) * bEa4 + Da4 / (Ea4 + Da4) * bDa4
+bUb4 = Eb4 / (Eb4 + Db4) * bEb4 + Db4 / (Eb4 + Db4) * bDb4
+assert near(bUa4, 0.84) and near(bUb4, 0.76)
+assert near(Eb4 / (Eb4 + Db4) * bEb4, 0.72) and near(Db4 / (Eb4 + Db4) * bDb4, 0.04)
+rUa4, rUb4 = rf4 + bUa4 * mrp4, rf4 + bUb4 * mrp4
+bUsnitt4 = (bUa4 + bUb4) / 2
+rUsnitt4 = rf4 + bUsnitt4 * mrp4
+assert near(rUa4, 0.082) and near(rUb4, 0.078) and near(bUsnitt4, 0.8)
+assert near(rUsnitt4, rU4) and near((rUa4 + rUb4) / 2, rUsnitt4)   # samme svar via r_U
+bUb4_feil = Eb4 / (Eb4 + Db4) * bEb4                 # glemt gjeldsbetaen til Kystvarme
+rU4_feilbD = rf4 + (bUa4 + bUb4_feil) / 2 * mrp4
+assert near(bUb4_feil, 0.72) and near(rU4_feilbD, 0.079)
+bE_snitt4 = (bEa4 + bEb4) / 2                        # snitt av egenkapitalbetaene: feil
+rE_snitt4 = rf4 + bE_snitt4 * mrp4
+assert near(bE_snitt4, 1.08) and near(rE_snitt4, 0.094)
 # e) konstant D/V (bonus): skjoldet diskonteres med r_U
 d4 = D4 / VL4
 rw4_dv = rU4 - d4 * tau4 * rD4
 VL4_dv = FCF4 / rw4_dv
 PVTS4_dv = VL4_dv - VU4
 assert PVTS4_dv < PVTS4
-assert near(rw4_dv, rw4_feil) and near(VL4_dv, VL4_feil)   # vanlig MM II = konstant D/V
-vis("Oppgave 4", FCF=FCF4, VU=VU4, TS=TS4, PVTS=PVTS4, VL=VL4, E=E4, FCFE=FCFE4, rE=rE4,
-    rw=rw4, rE_feil=rE4_feil, rw_feil=rw4_feil, VL_feil=VL4_feil, rEc=rEc4, rUc=rUc4, bUc=bUc4,
-    rUc_feil=rUc4_feil, d=d4, rw_dv=rw4_dv, VL_dv=VL4_dv, PVTS_dv=PVTS4_dv)
+vis("Oppgave 4", FCF=FCF4, VU=VU4, TS=TS4, PVTS=PVTS4, VL=VL4, E=E4, egne=egne4, NPV=NPV4,
+    selger=selger4, NPV_utenTS=NPV4_utenTS, NPV_brutto=NPV4_brutto, bUa=bUa4, bUb=bUb4,
+    bUsnitt=bUsnitt4, rUsnitt=rUsnitt4, rU_feilbD=rU4_feilbD, rE_snitt=rE_snitt4, d=d4,
+    rw_dv=rw4_dv, VL_dv=VL4_dv, PVTS_dv=PVTS4_dv)
 
 # ============================== Oppgave 5: firmaet i et binomialtre (Havgløtt Vind AS)
 V5, Vu5, Vd5 = 500.0, 620.0, 400.0
@@ -583,7 +584,9 @@ ex3 = {
                 "defaults in the low state.",
                 f"x from the fair-price condition x × {g(E3p)} = {g(I3)}: x = {f(x3)}.",
                 f"Existing shareholders keep (1 − x) × {g(E3p)} = {g(gml3)} < {g(E3a)}, so they "
-                f"reject. The comparison with {g(E3a)}, not with 0, earns the decision point.",
+                f"reject. The comparison with {g(E3a)}, not with 0, earns the decision point. "
+                "Saying that the firm forgoes a positive-NPV project is the sentence Kurbatov "
+                "gives about half the overhang marks for.",
                 f"Using the equity without the retrofit (x = {g(I3)}/{g(E3a)} = {f(feil_x3)}) is the "
                 "classic error.",
                 f"(bonus) Paying the {g(I3)} themselves gives the same {g(E3p)} − {g(I3)} = "
@@ -718,14 +721,14 @@ ex3 = {
 # ---------------------------------------------------------------- Oppgave 4
 ex4 = {
     "n": 4, "title": "Valuation", "points": 18,
-    "topic": "Permanent debt, APV and WACC", "chapters": [4, 7, 18, 19],
+    "topic": "Permanent debt, APV and comparable firms", "chapters": [4, 7, 18],
     "body": (
-        f"<p>A private-equity fund plans to buy Nordvarme AS, an unlisted district-heating firm "
+        f"<p>A private-equity fund plans to buy Nordvarme AS, a district-heating firm "
         f"with EBIT of NOK {g(EBIT4)} million a year forever; capital expenditure equals "
-        f"depreciation and working capital is constant. The tax rate is {pc(tau4)} and the fund's "
+        f"depreciation and working capital is constant. The tax rate is {pc(tau4)} and "
         f"analysts put the unlevered cost of capital at {pc(rU4)}. After the purchase "
-        f"Nordvarme will have NOK {g(D4)} million of permanent, risk-free debt at {pc(rf4)}, the "
-        f"risk-free rate. The expected market return is {pc(rm4)}. Use 4 decimal places.</p>"
+        f"Nordvarme will have NOK {g(D4)} million of permanent debt at the risk-free rate of "
+        f"{pc(rf4)}. The expected market return is {pc(rm4)}.</p>"
     ),
     "parts": [
         {
@@ -751,8 +754,8 @@ ex4 = {
         {
             "label": "b", "points": 4,
             "body": (
-                "<p>Find the present value of the interest tax shield, stating the rate and why. "
-                "Find Nordvarme's levered value by APV and the value of its equity.</p>"
+                "<p>Find PV(TS) with the rate and why. Find Nordvarme's levered value by APV "
+                "and its equity value.</p>"
             ),
             "solution": (
                 f"<p><b>Step 1. The tax shield each year.</b> Interest = {pc(rD4)} × {g(D4)} = "
@@ -783,86 +786,79 @@ ex4 = {
         {
             "label": "c", "points": 4,
             "body": (
-                "<p>Find Nordvarme's cost of equity and after-tax WACC and value it with the WACC "
-                "method.</p>"
+                f"<p>The fund pays NOK {g(Pris4)} million for the shares, using the new debt and "
+                f"NOK {g(egne4)} million of its own money. Find its NPV and say who captures the "
+                "tax shield.</p>"
             ),
             "solution": (
-                f"<p><b>Step 1. Cost of equity.</b> The shareholders receive FCF minus after-tax "
-                f"interest; the debt is constant, so there is no net borrowing: FCFE = {g(FCF4)} − "
-                f"(1 − {g(tau4)}) × {g(int4)} = {g(FCF4)} − {g(etter_rente4)} = {g(FCFE4)}. As a "
-                f"perpetuity, r<sub>E</sub> = FCFE/E = {g(FCFE4)}/{g(E4)} = <b>{pc(rE4)}</b>.<br>"
-                f"The same from MM II with permanent debt: r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − "
-                f"τ)(r<sub>U</sub> − r<sub>D</sub>) = {pc(rU4)} + ({g(D4)}/{g(E4)})({g(1 - tau4)})"
-                f"({pc(rU4 - rD4)}) = {pc(rU4)} + {pc(tillegg4)} = {pc(rE4)}.</p>"
-                f"<p><b>Step 2. WACC.</b> r<sub>wacc</sub> = [E × r<sub>E</sub> + D × r<sub>D</sub>(1 − "
-                f"τ)]/V<sup>L</sup> = ({g(E4)} × {pc(rE4)} + {g(D4)} × {pc(rD4)} × {g(1 - tau4)})/"
-                f"{g(VL4)} = ({g(E4 * rE4)} + {g(D4 * rD4 * (1 - tau4))})/{g(VL4)} = "
-                f"<b>{pc(rw4)}</b>.<br>Equivalently r<sub>wacc</sub> = r<sub>U</sub>(1 − "
-                f"τD/V<sup>L</sup>) = {pc(rU4)} × (1 − {g(PVTS4)}/{g(VL4)}) = {pc(rw4)}, as in PS2 "
-                "E9.</p>"
-                f"<p><b>Step 3. WACC method.</b> V<sup>L</sup> = {g(FCF4)}/{f(rw4, 6)} = <b>NOK "
-                f"{g(FCF4 / rw4)} million</b>, the APV value.</p>"
-                f"<p><b>Check.</b> The two routes to r<sub>E</sub> must agree; that check can "
-                f"fail: MM II without (1 − τ), r<sub>E</sub> = {pc(rU4)} + ({g(D4)}/{g(E4)})"
-                f"({pc(rU4 - rD4)}) = {pc(rE4_feil)}, gives r<sub>wacc</sub> = {pc(rw4_feil)} and "
-                f"V<sup>L</sup> = {f(VL4_feil)}, which misses the APV value. If r<sub>E</sub> was "
-                f"taken as FCFE/E, the agreement of the WACC value with APV is an identity (both rest "
-                f"on E = {g(E4)}). With no growth the fixed debt keeps D/V at {g(D4)}/{g(VL4)} "
-                "forever, which is why a single WACC works here; solving V<sup>L</sup> = "
-                "FCF/[r<sub>U</sub>(1 − τD/V<sup>L</sup>)] without APV gives V<sup>L</sup> = "
-                f"FCF/r<sub>U</sub> + τD = {g(VL4_sys)}.</p>"
+                f"<p><b>Step 1. What the fund gets.</b> After the purchase the fund owns the equity, "
+                f"worth E = <b>NOK {g(E4)} million</b> from b). It pays {g(Pris4)}, of which "
+                f"{g(D4)} comes from the new debt, so its own outlay is {g(Pris4)} − {g(D4)} = "
+                f"{g(egne4)}.</p>"
+                f"<p><b>Step 2. NPV.</b> NPV = {g(E4)} − {g(egne4)} = <b>NOK {g(NPV4)} million</b>, "
+                f"equivalently V<sup>L</sup> − price = {g(VL4)} − {g(Pris4)} = {g(NPV4)}, because "
+                "the debt is raised at a fair price.</p>"
+                f"<p><b>Step 3. Who captures the tax shield.</b> The deal creates PV(TS) = {g(PVTS4)}. "
+                f"The sellers receive {g(Pris4)} for a business worth V<sup>U</sup> = {g(VU4)} on its "
+                f"own, a gain of {g(selger4)}. The fund keeps the other {g(NPV4)}. The creditors get "
+                "nothing extra: they pay exactly what the debt is worth. The money comes from the tax "
+                "authority, which collects less tax.</p>"
+                f"<p><b>Check (an identity, but it catches a forgotten debt or premium).</b> "
+                f"{g(selger4)} + {g(NPV4)} + 0 = {g(PVTS4)} = PV(TS) ✓. Valuing the firm at "
+                f"V<sup>U</sup> instead gives {g(VU4)} − {g(Pris4)} = {g(NPV4_utenTS)}: without the "
+                "tax shield the fund would overpay.</p>"
             ),
             "criteria": [
-                f"r_E = {pc(rE4)}, from FCFE/E = {g(FCFE4)}/{g(E4)} or from r_U + (D/E)(1 − τ)(r_U − "
-                "r_D). Either route earns full marks.",
-                f"r_wacc = ({g(E4 * rE4)} + {g(D4 * rD4 * (1 - tau4))})/{g(VL4)} = {pc(rw4)}, or "
-                f"r_U(1 − τD/V^L) = {pc(rU4)} × (1 − {g(PVTS4)}/{g(VL4)}).",
-                f"V^L = {g(FCF4)}/{f(rw4, 6)} = {g(VL4)}, the same as APV.",
-                f"Classic error: MM II without (1 − τ) gives r_E = {pc(rE4_feil)} and V^L = "
-                f"{f(VL4_feil)} ≠ {g(VL4)}; reporting the mismatch without fixing it loses the r_E "
-                "point.",
-                "Deducting interest from FCF before discounting at r_wacc counts the tax shield "
-                "twice.",
+                f"Fund's outlay {g(Pris4)} − {g(D4)} = {g(egne4)} against equity worth {g(E4)}: "
+                f"NPV = {g(NPV4)}, or V^L − price = {g(VL4)} − {g(Pris4)}. 2 points.",
+                f"Comparing the equity of {g(E4)} with the full price ({g(NPV4_brutto)}) forgets that "
+                "the debt paid part of the price; using V^U gives " f"{g(NPV4_utenTS)}. Both lose the "
+                "NPV points.",
+                f"Who captures the shield: sellers {g(selger4)} through the premium over V^U, the fund "
+                f"{g(NPV4)}, the creditors nothing (fair price); the gains sum to PV(TS) = "
+                f"{g(PVTS4)}. 2 points.",
+                "Naming the tax authority as the party that pays earns credit; «the creditors gain "
+                "because they earn interest» is the error.",
             ],
         },
         {
             "label": "d", "points": 4,
             "body": (
-                "<p>Fjordvarme ASA, a listed firm with the same business risk and tax rate, also "
-                "has a fixed, "
-                f"permanent amount of risk-free debt: equity NOK {g(Ec4)} million, debt NOK "
-                f"{g(Dc4)} million, equity beta {g(bEc4)}. Estimate the unlevered cost of capital "
-                f"from these data. Is the analysts' {pc(rU4)} consistent with it?</p>"
+                "<p>Two listed firms with the same business risk keep constant debt-to-equity "
+                f"ratios. Fjordvarme ASA: equity NOK {f(Ea4, 0)} million, risk-free debt NOK "
+                f"{g(Da4)} million, equity beta {g(bEa4)}. Kystvarme ASA: equity NOK {f(Eb4, 0)} "
+                f"million, debt NOK {g(Db4)} million with beta {g(bDb4)}, equity beta {g(bEb4)}. "
+                "Estimate r<sub>U</sub> from both firms. Is the analysts' "
+                f"{pc(rU4)} consistent?</p>"
             ),
             "solution": (
-                f"<p><b>Step 1. Fjordvarme's cost of equity.</b> r<sub>E</sub> = {pc(rf4)} + "
-                f"{g(bEc4)} × ({pc(rm4)} − {pc(rf4)}) = <b>{pc(rEc4)}</b>.</p>"
-                f"<p><b>Step 2. Unlever with D(1 − τ) weights.</b> Fjordvarme's debt is fixed and "
-                "permanent, so its tax shield τD is as safe as the debt: from V<sup>U</sup> + τD = "
-                "E + D, the unlevered assets equal E + D(1 − τ) (Kurbatov, lecture 8, slide 18). With "
-                f"D(1 − τ) = {g(Dc4)} × {g(1 - tau4)} = {g(Dnet4)}:<br>"
-                f"r<sub>U</sub> = ({g(Ec4)} × {pc(rEc4)} + {g(Dnet4)} × {pc(rD4)})/({g(Ec4)} + "
-                f"{g(Dnet4)}) = ({g(Ec4 * rEc4)} + {g(Dnet4 * rD4)})/{g(Ec4 + Dnet4)} = "
-                f"<b>{pc(rUc4)}</b><br>(or β<sub>U</sub> = ({g(Ec4)}/{g(Ec4 + Dnet4)}) × {g(bEc4)} = "
-                f"{g(bUc4)} and r<sub>U</sub> = {pc(rf4)} + {g(bUc4)} × {pc(mrp4)} = {pc(rUc4)}).</p>"
-                f"<p><b>Conclusion.</b> <b>The analysts' {pc(rU4)} is consistent</b> with "
-                "Fjordvarme's market data.</p>"
-                f"<p><b>Classic error.</b> The usual weights E/V and D/V give "
-                f"({g(Ec4 * rEc4)} + {g(Dc4 * rD4)})/{g(Ec4 + Dc4)} = {pc(rUc4_feil)}, which would "
-                f"wrongly suggest that {pc(rU4)} is too high. Those weights assume debt that is "
-                "rebalanced with firm value; they do not fit a fixed amount of debt. The β route and "
-                "the return route are the same calculation (CAPM is linear), so doing both is not a "
-                "check.</p>"
+                "<p><b>Step 1. Unlever each firm</b> with the formula-sheet weights, which fit debt "
+                "kept at a constant D/E:<br>"
+                f"Fjordvarme: β<sub>U</sub> = ({f(Ea4, 0)}/{f(Ea4 + Da4, 0)}) × {g(bEa4)} + "
+                f"({g(Da4)}/{f(Ea4 + Da4, 0)}) × 0 = <b>{g(bUa4)}</b><br>"
+                f"Kystvarme: β<sub>U</sub> = ({f(Eb4, 0)}/{f(Eb4 + Db4, 0)}) × {g(bEb4)} + "
+                f"({g(Db4)}/{f(Eb4 + Db4, 0)}) × {g(bDb4)} = {g(Eb4 / (Eb4 + Db4) * bEb4)} + "
+                f"{g(Db4 / (Eb4 + Db4) * bDb4)} = <b>{g(bUb4)}</b></p>"
+                f"<p><b>Step 2. Average and price.</b> β<sub>U</sub> = ({g(bUa4)} + {g(bUb4)})/2 = "
+                f"{g(bUsnitt4)}, so r<sub>U</sub> = {pc(rf4)} + {g(bUsnitt4)} × {pc(mrp4)} = "
+                f"<b>{pc(rUsnitt4)}</b> (the two firms alone give {pc(rUa4)} and {pc(rUb4)}).</p>"
+                f"<p><b>Conclusion.</b> <b>The analysts' {pc(rU4)} is consistent</b> with the "
+                "comparables.</p>"
+                f"<p><b>Classic errors.</b> Dropping Kystvarme's debt beta gives β<sub>U</sub> = "
+                f"{g(bUb4_feil)} and r<sub>U</sub> = {pc(rU4_feilbD)}, which understates the "
+                f"business risk. Averaging the equity betas ({g(bE_snitt4)}, r = {pc(rE_snitt4)}) "
+                "mixes two capital structures and would wrongly suggest that the analysts' rate is "
+                "too low. Averaging the betas or the two r<sub>U</sub> gives the same answer, since "
+                "the CAPM is linear, so doing both is not a check.</p>"
             ),
             "criteria": [
-                f"r_E = {pc(rf4)} + {g(bEc4)} × {pc(mrp4)} = {pc(rEc4)} for Fjordvarme.",
-                f"Weights with D(1 − τ) because the debt is fixed and permanent: r_U = "
-                f"({g(Ec4 * rEc4)} + {g(Dnet4 * rD4)})/{g(Ec4 + Dnet4)} = {pc(rUc4)}, or β_U = "
-                f"{g(bUc4)}. Consistent with {pc(rU4)}.",
-                f"Using E/V and D/V ({pc(rUc4_feil)}) and concluding that {pc(rU4)} is too high is "
-                "the classic error: at most 2 of 4 if the arithmetic is right.",
-                "One phrase of reason: the tax shield of fixed debt is safe, so the equity's risk "
-                "depends on the debt net of the tax shield.",
+                f"β_U = {g(bUa4)} for Fjordvarme (β_D = 0) and {g(bUb4)} for Kystvarme (with its "
+                f"debt beta {g(bDb4)}), from β_U = [E/(E + D)]β_E + [D/(E + D)]β_D. 1 point each.",
+                f"Average β_U = {g(bUsnitt4)} and r_U = {pc(rf4)} + {g(bUsnitt4)} × {pc(mrp4)} = "
+                f"{pc(rUsnitt4)}: consistent with {pc(rU4)}. 2 points.",
+                f"Dropping Kystvarme's debt beta ({pc(rU4_feilbD)}) or averaging the equity betas "
+                f"({pc(rE_snitt4)}) is the classic error: at most 2 of 4.",
+                "Using D/E instead of D/V as the weight is the other trap Kurbatov names.",
             ],
         },
         {
@@ -884,9 +880,8 @@ ex4 = {
                 f"Keeping instead D/V = {g(D4)}/{g(VL4)} = {f(d4)}: "
                 f"r<sub>wacc</sub> = r<sub>U</sub> − (D/V)τr<sub>D</sub> = {pc(rU4)} − {f(d4)} × "
                 f"{g(tau4)} × {pc(rD4)} = {pc(rw4_dv)}, V<sup>L</sup> = {g(FCF4)}/{f(rw4_dv, 7)} = "
-                f"{f(VL4_dv)} and PV(TS) = {f(PVTS4_dv)} against {g(PVTS4)}. This is the number "
-                "from the classic error in c): MM II without (1 − τ) is the formula for debt kept at "
-                "a constant D/V.</p>"
+                f"{f(VL4_dv)} and PV(TS) = {f(PVTS4_dv)} against {g(PVTS4)}. Kurbatov: WACC works "
+                "only with a constant debt ratio; with fixed debt, use APV.</p>"
             ),
             "criteria": [
                 "Answer: less (1 point).",
@@ -1347,7 +1342,8 @@ def ren(h):
 
 SVAR = {
     3: [g(D3a), f(x3), g(D3p), g(D3s), g(E3p), g(E3r)],
-    4: [g(FCF4), g(VU4), g(PVTS4), g(VL4), g(E4), pc(rE4), pc(rw4), pc(rEc4), f(VL4_dv)],
+    4: [g(FCF4), g(VU4), g(PVTS4), g(VL4), g(E4), g(NPV4), g(selger4), g(bUa4), g(bUb4),
+        pc(rUa4), pc(rUb4), f(VL4_dv)],
     5: [f(rho5), f(E5), f(D5), f(P5), pc(y5), f(q5), pc(erD5), f(E5n), f(D5n), f(rho5n)],
     6: [g(NPV6_na), f(W6), f(flex6), f(W6c), f(W6q), f(qstar6, 2), pc(qstar6)],
 }
@@ -1404,7 +1400,7 @@ ord_n = len(kropp_md.split())
 sporsmal = len(re.findall(r"\?", kropp_md))
 imperativ = len(re.findall(
     r"(?:^|[.)?]\s+|\*\*\s)(Find|Explain|Give|Set up|Name|Recalculate|Verify|Propose|Show|"
-    r"Describe|Compare|Value|Split|Estimate|Use the|Use Fjordvarme|Calculate|Comment|State)\b",
+    r"Describe|Compare|Value|Split|Estimate|Use the|Calculate|Comment|State)\b",
     kropp_md))
 leveranser = sporsmal + imperativ
 print(f"\nOppgavetekst: {ord_n} ord, {sporsmal} spørsmål + {imperativ} imperativer = {leveranser} "

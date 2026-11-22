@@ -351,7 +351,8 @@ ex1 = {
         "out free cash flow (often with debt, as in an LBO); cutting perks and costs; breaking up "
         "the firm; the threat of a bid. As in Kurbatov's H2024 key, economies of scale, market "
         "power or access to larger markets also score when the mechanism is explained.",
-        "«Synergies» or «the merged firm is worth more» with no mechanism earns nothing.",
+        "«Synergies», «value creation» or «the merged firm is worth more» with no mechanism earns "
+        "nothing: Kurbatov wants the mechanism behind each motive.",
         "The two reasons in a part must rest on different mechanisms: hubris and the winner's "
         "curse are one reason, competition among bidders and the free-rider problem are two.",
         "1-2 sentences per reason with the mechanism stated. A bare label earns at most 1 point.",
@@ -761,7 +762,8 @@ ex4 = {
                 f"Split: {g(del_snitt)} from the lower expected asset value ({g(N4)} − {g(Va)}) and "
                 f"{g(del_fs)} from the expected fire-sale loss.",
                 f"Shareholders +{g(dE)}, bank {g(dD)}, firm {g(V_P - V_N)}; the gains and losses sum "
-                "to the change in firm value.",
+                "to the change in firm value. Calling it a wealth transfer from the bank to the "
+                "shareholders uses Kurbatov's key words.",
                 f"(bonus) Notes that without fire sales the cost would be {g(byra_uten_fs)}: distress "
                 "costs amplify risk shifting.",
             ],

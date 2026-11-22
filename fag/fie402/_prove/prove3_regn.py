@@ -128,7 +128,7 @@ ex1 = {
         "a) Names payout irrelevance in a perfect market and gives the mechanism: the dividend lowers the share price by exactly the dividend per share, while a repurchase at a fair price leaves it unchanged. Wealth (shares plus cash) is the same either way.",
         "a) Credit for the homemade-dividend argument: a shareholder can sell shares to replicate the dividend or reinvest the dividend to replicate the repurchase, at no cost.",
         "b) Repurchase. Minimal accepted answer: capital gains are taxed at 20% against 30% for dividends. Full marks name at least two of the three advantages: lower rate, smaller base (only the gain over the purchase price), deferral for those who do not sell.",
-        "b) Bonus: the conclusion is conditional on the tax rates. A tax-exempt investor is indifferent; the effective dividend tax penalty here is (0.30 − 0.20)/(1 − 0.20) = 12.5%.",
+        "b) Bonus: the conclusion is conditional on the tax rates. A tax-exempt investor is indifferent; the effective dividend tax penalty here is (0.30 − 0.20)/(1 − 0.20) = 12.5%. With equal rates, as today in the US and Norway (Kurbatov), the advantage that remains is deferral: only sellers pay and only when they sell.",
         "c) Either verdict can score if it is argued. Full marks need the key distinction: the signal in dividends comes from the commitment of a regular dividend, which a one-off special dividend does not carry.",
         "c) States what a repurchase can signal: management believes the shares are undervalued. Credit for noting that an open-market programme is not binding (so the special dividend is the firmer payment), or that the signal is stronger when insiders do not sell.",
         "Classic error: claiming that the payout itself creates value. A price reaction is information about existing value; in a perfect market neither route creates or destroys anything.",
@@ -509,6 +509,8 @@ close(FCF4 / wacc4, VL4)                 # WACC gjenskaper V^L
 wacc4_bad = wE4 * rE4_sheet + wD4 * rD4 * (1 - tau4)
 V_bad4 = FCF4 / wacc4_bad
 assert abs(V_bad4 - VL4) > 10
+P_bad4 = DPS1_4 / rE4_sheet                          # kursen formelarkets MM II ville gitt
+assert abs(P_bad4 - P2_4) > 0.5                      # kontrollen feiler med feil formel
 # Plan B
 D4b, p_fd, C_fd = 800.0, 0.30, 400.0
 PVTS4b = tau4 * D4b
@@ -644,23 +646,18 @@ ex4 = {
                 f"<b>Step 2. The cost of equity.</b> The share is a level perpetuity of {f(DPS1_4)} priced at {f(P2_4, 2)}, so "
                 f"r<sub>E</sub> = {f(DPS1_4)}/{f(P2_4, 2)} = <b>{pc(rE4)}</b> (equivalently {f(NI4, 2)}/{i0(E1_4)}). Before the "
                 f"recapitalisation it was {f(DPS0_4, 2)}/{f(P0_4, 2)} = {pc(rU4, 0)} = r<sub>U</sub>.",
-                "The same number follows from MM II for permanent debt with taxes, r<sub>E</sub> = r<sub>U</sub> + "
-                "(D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>) = "
-                f"{f(rU4, 2)} + ({i0(D4)}/{i0(E1_4)})({f(1 - tau4, 2)})({f(rU4 - rD4, 2)}) = {pc(rE4)}. The formula-sheet "
-                "version without (1 − τ<sub>c</sub>) assumes debt rebalanced to a constant ratio and would give "
-                f"{pc(rE4_sheet)} here.",
-                f"<b>Check.</b> After-tax WACC = ({i0(E1_4)}/{i0(VL4)})({f(rE4, 6)}) + ({i0(D4)}/{i0(VL4)})({f(rD4, 2)})"
-                f"({f(1 - tau4, 2)}) = {f(wE4 * rE4, 6)} + {f(wD4 * rD4 * (1 - tau4), 6)} = {pc(wacc4)}. Then "
-                f"{i0(FCF4)}/{f(wacc4, 6)} = <b>{i0(VL4)}</b> = V<sup>L</sup> {OK}. The firm is a level perpetuity with fixed "
-                f"debt, so D/V stays at {i0(D4)}/{i0(VL4)} every year and the WACC must reproduce the levered value. With "
-                f"r<sub>E</sub> = {pc(rE4_sheet)} it would give {f(V_bad4, 2)}, so this check catches the wrong formula.",
+                f"<b>Check (it can fail).</b> The formula-sheet MM II, r<sub>E</sub> = r<sub>U</sub> + "
+                f"(D/E)(r<sub>U</sub> − r<sub>D</sub>) = {pc(rE4_sheet)}, assumes debt rebalanced to a constant "
+                f"ratio. Here the debt is fixed and it fails: {f(DPS1_4)}/{f(rE4_sheet, 6)} = {f(P_bad4, 2)}, not "
+                f"the price {f(P2_4, 2)}. The dividend route needs no special formula; the fixed-debt version of MM "
+                "II with (1 − τ<sub>c</sub>) is homework material, not on the formula sheet.",
             ),
             "criteria": [
                 f"Interest 16; net income (150 − 16)(0.78) = 104.52; divides by the REDUCED share count {f(N1_4)}: DPS = {f(DPS1_4)} (up from 2.34).",
                 f"r_E = DPS/P = {f(DPS1_4)}/27.76 = {pc(rE4)}, or equivalently 104.52/988.",
                 f"Split credit: the DPS earns about half of the 3 points. The correct DPS combined with r_E = {pc(rE4_sheet)} from the formula-sheet MM II earns only the DPS part: that formula assumes debt rebalanced to a constant ratio and is inconsistent with the dividend and the price here.",
-                f"The permanent-debt form r_U + (D/E)(1 − τ_c)(r_U − r_D) = {pc(rE4)} is accepted.",
-                f"Check: the after-tax WACC of {pc(wacc4)} reproduces V^L = 117/{f(wacc4, 6)} = 1388.",
+                f"Also accepted, not needed: the fixed-debt form r_U + (D/E)(1 − τ_c)(r_U − r_D) = {pc(rE4)}, which is not on the formula sheet.",
+                f"(bonus) The check that can fail: with {pc(rE4_sheet)} the dividend would be worth {f(P_bad4, 2)}, not 27.76.",
             ],
         },
         {

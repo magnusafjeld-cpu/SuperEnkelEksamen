@@ -360,7 +360,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **528**: 260 oppgavekort i 16 kategorier (forsiden en oppgavetype, baksiden svar og feller) og 268 begrepskort, pluss 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
-| Eksamenstrening | **692 spørsmål** i 12 temaer (89 regnefamilier med nye tall og 207 statiske), 509 med tallsvar for «Regn selv først», uten minuspoeng. Spesifikasjon `docs/fie402-trening-spek.md` |
+| Eksamenstrening | **683 spørsmål** i 12 temaer (89 regnefamilier med nye tall og 207 statiske), 509 med tallsvar for «Regn selv først», uten minuspoeng. Spesifikasjon `docs/fie402-trening-spek.md` |
 | Problem sets | **Problem Set 1–4** · 36 oppgaver · 144 delspørsmål med fire hint hver (PS4 er eksemplene i M&A-forelesningen, som Kurbatov kalte PS4) |
 | Sjangertrening | **10 stiger · 151 steg**, hver fra null til eksamensnivå, etter eksamensvekt (stige 10 er governance og verbale M&A-motiver) |
 | Aktiv læring | **208** oppgaver |
@@ -590,7 +590,21 @@ NotebookLM-kilder, med god tid.
   bare formelarkets formler på eksamen (justert WACC ved permanent gjeld og D(1 − τ)-vektingen
   er hjemmeoppgavestoff), CDS-oppgaven fra V2024 kan komme igjen, temaene kan bytte plass,
   oppgaver med tre stjerner kan komme, skattemessige underskudd er ikke et M&A-motiv hos
-  Kurbatov, og slide 17 i Options I er riktig (√1,015). Appen er ikke sjekket mot dette ennå.
+  Kurbatov, og slide 17 i Options I er riktig (√1,015).
+- **Appen rettet etter opptakene (22.11.2026):** fem agenter med eget fileierskap (to for
+  NotebookLM-kildene, tre for appen). Justert WACC er tatt ut som regning overalt der det
+  likner eksamen (treningsfamiliene wac-perm1/2 fjernet, prove9 E4c/d og prove10 E4e byttet
+  ut, sjangertrinn erstattet, resten merket «not on the exam as a calculation»).
+  Skattemessige underskudd er fjernet som M&A-motiv, utbytteskatten er nyansert (likt i dag,
+  fordelen er utsatt skatt), «minus a written put» er rettet, amerikanske opsjoner og
+  Black-Scholes-regning er merket som utenfor eksamen, styrestørrelse 7–11, og
+  eksamensformatet (teori rundt 10 poeng, temaer kan bytte plass, tre stjerner kan komme,
+  governance med ny vinkel) er rettet i manual, kjerne, kort, plan og subjects.js.
+  Prediksjonen er oppdatert (10/10/20/20/20/20 45 %, kursrekkefølge 45 %, ny kode D11).
+  Treningen har nå 683 spørsmål; 331 fikk ny rekkefølge på alternativene fordi byggeren
+  fordeler fasitplassene med løpende teller. `sjekk-prove.js` filtrerer nå bort deleksamenene.
+  Ikke gjort: ny prøveeksamen med de varslede forelesningseksemplene (CDS, Google,
+  coinsurance, bank D), og studieplanen er ikke rekalibrert (ville gått fra 78 til 85 t).
 - **Prøveeksamener 4–12:** se `docs/fie402-proveeksamen-spek.md`, siste del. Runde 1
   (prove4 det mest sannsynlige settet, prove5 kjernen, prove6 H2024-formen) er lagt ut etter
   blind løsning: ingen regnefeil, men alle tre var 40–60 % lengre enn Kurbatovs (1 600–1 900

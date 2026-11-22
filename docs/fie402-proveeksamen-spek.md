@@ -178,8 +178,9 @@ debt and equity as options.
    credible certificate, and debt versus equity (pecking order). Check that beliefs are
    consistent with behaviour. HA1 Exercise 3 is the type; new numbers. (k12, k13)
 4. **Capital structure with taxes and distress (18; e.g. 4/4/4/3/3).** Leveraged recap with
-   permanent debt: PV(TS), share price on announcement, shares repurchased, rE after (MM II
-   with taxes), and expected distress costs that make a larger recap value-destroying.
+   permanent debt: PV(TS), share price on announcement, shares repurchased, rE after (from the
+   dividend and the price, since the formula sheet's MM II assumes a constant D/E) and expected
+   distress costs that make a larger recap value-destroying.
    (k7, k8)
 5. **Binomial option pricing and put-call parity (20; e.g. 4/5/4/4/3).** Risk-neutral
    probability, call and put by replication or ρ, put-call parity check, an arbitrage if a
@@ -213,9 +214,10 @@ Everything in this specification above still applies (format, data format, writi
 checks, blind review), with these updates from `docs/fie402-forelesninger-2026.md`:
 - **No Black-Scholes computation anywhere** (Kurbatov, wrap-up): intuition only. The earlier
   line «If Black-Scholes is computed, give N(d1) and N(d2)» is withdrawn.
-- Conventions: unlevered weights by default, D(1−τ) weights for predetermined permanent debt;
-  r_wacc = r_U(1 − τD/V^L) for fixed permanent debt without growth; V^L = (1 + τk)V^U for a
-  constant interest coverage ratio; FTE = FCF − (1−τ)·interest + net borrowing at r_E; real
+- Conventions: unlevered weights by default (the formula sheet). τD for permanent debt and
+  V^L = (1 + τk)V^U for a constant interest coverage ratio, as shortcuts in APV. (22 November
+  2026: the D(1−τ) weights and r_wacc = r_U(1 − τD/V^L) are withdrawn as calculations, see the
+  last section); FTE = FCF − (1−τ)·interest + net borrowing at r_E; real
   probabilities discounted at r_f only when the risk is not systematic; the twin in a waiting
   option must price the same cash flow (H2024 ρ = 0.4634); an exit or abandonment option is
   compared with 0, never with the negative NPV; discrete discounting, including fractions of a
@@ -244,3 +246,36 @@ checks, blind review), with these updates from `docs/fie402-forelesninger-2026.m
   through the bylaws, often after a shareholder proposal. Credit students who cite the lecture.
 - «Forgetting the delta» (Kurbatov) means using the level of working capital instead of the
   change.
+
+## Signals from all lecture recordings (22 November 2026)
+
+Source: `NotebookLM-kilder/FIE402 NotebookLM source exam signals from all lecture recordings.md`
+(checked against the Panopto captions). These rules override anything above that disagrees.
+
+- **Only the formula sheet's formulas.** "In the exam, you will only use the formulas from the
+  cheat sheet". WACC questions assume a constant D/E (recording 10, 41:08 and 1:26:49). No
+  part may require the adjusted WACC for permanent debt or constant interest coverage, or the
+  D(1 − τ) weighting of r_U. τD and V^U(1 + τk) are allowed shortcuts. The two special cases may
+  appear as intuition. Fixed in prove9 E4c and E4d, prove10 E4e, prove3 E4d and prove4 E3d.
+- **Options:** only European options are calculated. American options only as the direction of
+  the price, Black-Scholes only as intuition.
+- **Points and order:** theory about 10 points each and calculations about 80 % make
+  10/10/20/20/20/20 the most likely layout. The existing mocks keep 12/12/18/18/20/20, which
+  trains the same thing. Topics can move between exercises, so a new mock need not follow the
+  course order.
+- **What not to claim:** tax losses as an M&A motive (erased on a change of owner); debt as
+  "risk-free debt minus a written put" (it is PV(F) − P); dividends as generally taxed more
+  (equal today in the US and Norway, the advantage of buybacks is deferral); "a smaller board
+  works better" (Kurbatov: 7 to 11); a stock dividend as an equity issue; Hillton-type
+  transactions as illegal when the covenants allow them; Kurbatov's slips in part 6 of the
+  signal file.
+- **Criteria use Kurbatov's key words where they fit:** "wealth transfer", "the firm forgoes
+  positive-NPV projects", "invest if there are good investment opportunities". "Value creation"
+  alone is not an accepted motive. For covenants the basic answer (bad ex post) is accepted,
+  the ex ante answer is better and full marks give both.
+- **CDS can be a calculation.** The spring 2024 paper used the lecture's CDS example and Kurbatov
+  said "a very similar example could be in the exam". Define ρ as the default probability.
+- **Lecture examples come back with new numbers** (spring 2024: Security issues, CDS,
+  coinsurance; H2025: Mannesmann). The strongest unused candidates for a new mock: CDS, Google
+  senior and junior debt, the bank D bidding war, coinsurance, the winner's curse, two
+  comparables, governance as the owner's toolkit.

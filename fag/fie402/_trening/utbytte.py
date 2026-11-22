@@ -383,8 +383,9 @@ def _(r):
         f"{penger(hold, 4, val)}. Equal. This check can fail: with a drop of the full dividend, holding would pay "
         f"less.</p>"
         f"<p><b>Remember:</b> the drop is Div(1 − τ<sub>d</sub>)/(1 − τ<sub>g</sub>). The formula comes from the "
-        f"manual (k16) and the textbook. Lecture 5 states the point in words: dividends are usually taxed more, "
-        f"which favours buybacks.</p>"
+        f"manual (k16) and the textbook. Lecture 5 adds the practice: dividends used to be taxed more, which "
+        f"favoured buybacks. Today the US and Norway tax dividends and gains alike, so the buyback's remaining "
+        f"edge is deferral: only sellers pay tax and only when they sell.</p>"
     )
     return sporsmal(q, alternativer, kort, full, tall=tallsvar(enhet=f"{val} per share"))
 
@@ -629,7 +630,8 @@ statisk(
           "Under MM the cash kept is worth the same inside the firm. The price fell because of what the cut "
           "reveals, not because the cash stayed."),
         F("Dividends are taxed more lightly than gains, so the cut costs shareholders a tax benefit",
-          "Dividends are usually taxed at least as heavily as gains. A cut would save tax, not cost it."),
+          "Dividends are not taxed more lightly than gains: the rates are equal today in the US and Norway. "
+          "Dividends used to be taxed more. A cut costs no tax benefit."),
         F("A lower dividend raises the cost of equity, which pushes the share price down",
           "The payout does not change the risk of the firm's assets, so r<sub>E</sub> does not move. The fall "
           "comes from news about future cash flows."),
@@ -769,8 +771,8 @@ statisk(
     full="<p><b>Why clienteles form.</b> The tax cost of a dividend relative to a capital gain differs across "
          "investors: by income, tax jurisdiction, investment horizon and type of account. Each group gravitates "
          "to firms whose payout suits it (lecture 5, slide 18).</p>"
-         "<p><b>Step 1: individuals.</b> They usually pay more tax on dividends than on gains. They can also defer "
-         "gains by not selling. They prefer buybacks.</p>"
+         "<p><b>Step 1: individuals.</b> They used to pay more tax on dividends than on gains. Today the rates are "
+         "equal in the US and Norway, but they can still defer gains by not selling. They prefer buybacks.</p>"
          "<p><b>Step 2: corporations.</b> A firm holding shares in another firm is often taxed lightly on "
          "dividends received. It prefers dividends.</p>"
          "<p><b>Step 3: institutions.</b> Pension funds and other tax-exempt holders pay no tax either way and "
@@ -812,8 +814,8 @@ statisk(
          "dividend is taxed in full for every holder at τ<sub>d</sub>. If dividends are taxed more, firms gain by "
          "repurchasing (lecture 5, slide 15).</p>",
     full="<p><b>The tax disadvantage of dividends.</b> Shareholders pay tax on dividends when received and on "
-         "capital gains when they sell. Dividends are usually taxed at least as heavily. Gains can also be "
-         "deferred. So with τ<sub>d</sub> above τ<sub>g</sub>, paying out through buybacks saves tax and "
+         "capital gains when they sell. Dividends used to be taxed more. Today the rates are equal in the US and "
+         "Norway (Kurbatov, lecture 5). Gains can also be deferred. So with τ<sub>d</sub> above τ<sub>g</sub>, paying out through buybacks saves tax and "
          "raises firm value (lecture 5, slide 15).</p>"
          "<p><b>Step 1: who pays.</b> A dividend reaches every holder and is taxed for all of them. A buyback "
          "reaches only those who choose to sell.</p>"
@@ -823,7 +825,8 @@ statisk(
          "deferred.</p>"
          "<p><b>Caution.</b> Check the rates. In the US in 2024 dividends and long-term gains were taxed at the "
          "same rates. In Norway the effective rate on dividends is 37.84%. Gains are taxed the same way.</p>"
-         "<p><b>Remember:</b> lower rate, smaller base, later payment: three tax reasons for buybacks.</p>",
+         "<p><b>Remember:</b> lower rate, smaller base, later payment: three tax reasons for buybacks. Where the "
+         "rates are equal, deferral is the edge that remains.</p>",
 )
 
 # utb-s09 · Effektiv skattesats på utbytte (manualen k16)
@@ -1360,7 +1363,8 @@ statisk(
     alternativer=[
         R("A dividend is sticky: cutting it is costly, so it commits the cash in advance"),
         F("Dividends are taxed less than buybacks, so investors reward the firms that pay them",
-          "Dividends are usually taxed at least as heavily. The discipline comes from the commitment, not from "
+          "Dividends are not taxed less: the rates are equal today in the US and Norway. Dividends used to be "
+          "taxed more. The discipline comes from the commitment, not from "
           "tax."),
         F("A buyback has to be approved by the lenders, while a dividend does not",
           "Neither needs the lenders' approval unless a covenant says so. Covenants restrict dividends at least "

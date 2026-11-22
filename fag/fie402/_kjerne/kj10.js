@@ -16,7 +16,7 @@ window.EDU_DATA.kjerne.push({
 <tr><th>Motive</th><th>Mechanism</th><th>Value</th></tr>
 <tr><td>Undervaluation</td><td>The acquirer knows the target is worth more than its price</td><td>Captured by the acquirer; needs better information</td></tr>
 <tr><td>Market power</td><td>Fewer competitors, higher prices</td><td>At customers' expense; regulators may block it</td></tr>
-<tr><td>Tax</td><td>Use the target's tax losses; steadier cash flow carries more debt</td><td>A transfer from the tax authority</td></tr>
+<tr><td>Tax</td><td>Steadier cash flow carries more debt. Not the target's tax losses: Kurbatov says they are erased on a change of ownership</td><td>A transfer from the tax authority</td></tr>
 <tr><td>Disciplinary takeover</td><td>Replace bad management</td><td>Real: the market for corporate control (kj11)</td></tr>
 <tr><td>Diversification, coinsurance</td><td>Pooled cash flows default less, so risky debt gets safer</td><td>None: shareholders lose what creditors gain (check 4)</td></tr>
 <tr><td>EPS manipulation</td><td>Buying a lower-P/E target lifts merged EPS</td><td>None: arithmetic (below)</td></tr>

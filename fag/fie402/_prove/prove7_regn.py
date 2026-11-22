@@ -354,10 +354,12 @@ ex1 = {
         "<p><b>c) The equity rises and the bond falls by the same amount.</b> The equity is a call "
         "on V with strike K and the bond is PV(K) minus a put; more volatility raises both option "
         "values while V stays the same. The shareholders gain exactly what the bondholders lose, "
-        "a transfer rather than new value, which is why levered shareholders like risky "
+        "a wealth transfer rather than new value, which is why levered shareholders like risky "
         "strategies (risk shifting).</p>"
         "<p><b>Also accepted.</b> In a): the American option is worth at least as much as the "
-        "European because it gives an extra right (then the reason above for the call). In b): the "
+        "European because it gives an extra right. This basic direction is the level Kurbatov said "
+        "the exam asks for (wrap-up: only European options are calculated; American options appear "
+        "only as «up or down?»). In b): the "
         "equivalent form D = V − C (assets minus a call), if the put form is also explained. In c): "
         "the vega argument stated for both claims.</p>"
     ),
@@ -366,12 +368,15 @@ ex1 = {
         "and half for the reason. A direction without a reason earns at most 1 point.",
         "a) Call: same value as the European, because early exercise of a call on a non-dividend "
         "share is never optimal (worth at least S − PV(K), more than S − K). Put: worth more, "
-        "because early exercise can be optimal deep in the money. Both options must be answered.",
+        "because early exercise can be optimal deep in the money. Both options must be answered. "
+        "Minimal accepted answer: «at least as much, because the American option contains the "
+        "European plus a right to exercise early» for both, which earns 2 of the 4 points.",
         "b) Payoff min(V, K) = K − max(K − V, 0); underlying = the firm's assets, strike = face "
         "value K; the put is the shareholders' option to default (limited liability). Naming the "
         "credit spread as the price of the put is a bonus.",
         "c) Equity (a call) rises, debt (risk-free debt minus a put) falls by the same amount, V "
-        "unchanged: shareholders win, bondholders lose.",
+        "unchanged: shareholders win, bondholders lose. Naming it a wealth transfer uses Kurbatov's "
+        "key words.",
         "c) Saying that firm value rises, or that both claims gain, is the error. Linking the "
         "transfer to risk shifting earns credit.",
         "«The American option gives an extra right» and «early exercise» count as one argument, "

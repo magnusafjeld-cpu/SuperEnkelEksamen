@@ -14,12 +14,11 @@
      wac-adj1   gjeldsjusteringen mellom år 1 og 2 (H2025 E4 f)
      wac-ts2    PV(TS) over to perioder med D_t = d·V_t^L og r_U (H2025 E4 h)
      wac-fte1   FTE: FCFE = FCF − (1 − τ)·renter + nettoopplåning (PS2 E6 h)
-     wac-perm1  permanent gjeld: r_wacc = r_U(1 − τD/V^L) (A2, PS2 E9)
-     wac-perm2  permanent gjeld: D(1 − τ)-vekter og r_E med (1 − τ) (A1)
+     (wac-perm1 og wac-perm2 er fjernet: ikke eksamensstoff, se kommentaren der de sto)
      wac-ic1    konstant rentedekning: V^L = (1 + τk)V^U (B1, PS2 E5)
      wac-cap1   gjeldskapasitet og finansieringen av et prosjekt (B2)
 
-   Statiske: wac-s01 … wac-s15.
+   Statiske: wac-s01 … wac-s16.
 
    Konvensjoner (Kurbatov 2026): skatteskjoldet diskonteres med r_U ved
    konstant D/V og med r_D ved fast gjeld; D_t = d·V_t^L; renten i år t på
@@ -852,205 +851,12 @@ def _(r):
 
 
 # ---------------------------------------------------------------------------
-# wac-perm1 · Permanent gjeld: WACC-en som stemmer med APV (A2, PS2 E9)
+# wac-perm1 og wac-perm2 er fjernet (22. november 2026). De regnet den justerte
+# WACC-en for permanent gjeld, r_U(1 − τD/V^L), og D(1 − τ)-vektene. Kurbatov
+# kalte begge «not mandatory» (opptak 9, 1:17:06), og på eksamen brukes bare
+# formelarkets formler med konstant D/E (opptak 10, 1:26:49). Intuisjonen står i
+# wac-s11, wac-s16 og tvi-s10. Id-ene er lagringsnøkler: bruk dem aldri igjen.
 # ---------------------------------------------------------------------------
-@familie("wac-perm1", tema="wacc-apv", antall=5, tittel="Permanent debt: the WACC that matches APV",
-         hjelp=hjelp3(
-             "This is a firm with a fixed amount of permanent debt and no growth. You need the after-tax WACC that "
-             "values it correctly.",
-             "APV: V<sup>L</sup> = FCF/r<sub>U</sub> + τ<sub>c</sub>D. Then r<sub>wacc</sub> = r<sub>U</sub>(1 − "
-             "τ<sub>c</sub>D/V<sup>L</sup>), which is the same as FCF/V<sup>L</sup>.",
-             "<p><b>Step 1: APV first.</b> The unlevered value at r<sub>U</sub>, plus the shield of fixed permanent "
-             "debt.</p>"
-             "<p><b>Step 2: the matching rate.</b> Measure the debt against the levered value and use the formula "
-             "for permanent debt.</p>"
-             "<p><b>Watch out:</b> the shortcut r<sub>U</sub> − (D/V)τ<sub>c</sub>r<sub>D</sub> assumes the shield "
-             "is as risky as the assets. Permanent debt has a safe shield.</p>",
-         ))
-def _(r):
-    navn = r.choice(NAVN)
-    FCF = r.choice([6, 8, 9, 10, 12, 20, 40])
-    rU = r.choice([0.09, 0.10, 0.11, 0.12])
-    Vu_x = FCF / rU
-    d0 = r.choice([0.25, 0.30, 0.40, 0.50])
-    D = round(Vu_x * d0)
-    if D < 5:
-        raise Avvis("for lite gjeld")
-    rD = r.choice([0.04, 0.05, 0.06])
-    tau = r.choice([0.22, 0.25, 0.40])
-    VL_x = Vu_x + tau * D
-    w_x = rU * (1 - tau * D / VL_x)
-    Vu = rund(Vu_x, 4)
-    VL = Vu + tau * D
-    w = rU * (1 - tau * D / VL)
-
-    f_short = rU - (D / VL_x) * tau * rD
-    f_vu = rU * (1 - tau * D / Vu_x)
-    f_ru = FCF / (Vu_x + tau * rD * D / rU)
-    kand = [("R", None, w),
-            (_vp(f_short), "The constant-ratio shortcut r<sub>U</sub> − (D/V)τ<sub>c</sub>r<sub>D</sub>. It treats "
-                           "the shield as being as risky as the assets. A fixed, permanent shield is as safe as "
-                           "the debt.", f_short),
-            (_vp(f_vu), f"The debt measured against V<sup>U</sup> = {_et(Vu, 0, 4)} instead of the levered value. The "
-                        f"ratio in the formula is D/V<sup>L</sup>.", f_vu),
-            (_vp(f_ru), "The shield discounted at r<sub>U</sub>. A fixed, permanent shield is as safe as the "
-                        "interest and is discounted at r<sub>D</sub>, which gives τ<sub>c</sub>D.", f_ru),
-            (_vp(rU), "r<sub>U</sub> used as the WACC. That values the firm as if it had no debt and leaves the "
-                      "tax shield out.", rU)]
-    feller = _velg(r, kand)
-
-    q = (f"<p>{navn} has free cash flow of NOK {FCF} million a year forever, with no growth. Its unlevered cost of "
-         f"capital is {_ep(rU)}. It has NOK {D} million of permanent debt at r<sub>D</sub> = {_ep(rD)}, an amount it "
-         f"will never change. The corporate tax rate is {_ep(tau)}.</p>"
-         f"<p>Which after-tax WACC values this firm correctly, in percent?</p>")
-
-    kort = (f"<p><b>{_vp(w, w_x)}.</b> V<sup>L</sup> = {FCF}/{_ep(rU)} + {_ep(tau)} × {D} = {_et(Vu, 0, 4)} + "
-            f"{_et(tau * D)} = {_et(VL, 0, 4)}. r<sub>wacc</sub> = {_ep(rU)} × (1 − {_ep(tau)} × {D}/{_et(VL, 0, 4)}) = "
-            f"{_pct(w, 4)}.</p>")
-    full = (
-        f"<p><b>Why APV comes first.</b> With a fixed, permanent amount of debt the shield τ<sub>c</sub>r<sub>D</sub>D "
-        f"is a level perpetuity as safe as the interest. Discounted at r<sub>D</sub> it is worth τ<sub>c</sub>D. "
-        f"Nothing grows, so D/V stays constant and the WACC method still works, but with its own rate (PS2 "
-        f"Exercise 9, BDM eq. 18.21).</p>"
-        f"<p><b>Step 1: APV.</b> V<sup>U</sup> = {FCF}/{_ep(rU)} = {_et(Vu, 0, 4)}. PV(TS) = {_ep(tau)} × {D} = "
-        f"{_et(tau * D)}. V<sup>L</sup> = {_et(VL, 0, 4)}.</p>"
-        f"<p><b>Step 2: the matching WACC.</b> r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>) = "
-        f"{_ep(rU)} × (1 − {_ep(tau)} × {D}/{_et(VL, 0, 4)}) = <b>{_pct(w, 4)}</b>.</p>"
-        f"<p><b>First check.</b> Forwards: {FCF}/{_pct(w, 4)} = {_et(FCF / w, 2, 2)}, the APV value. That is an "
-        f"identity, since r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>) = FCF/V<sup>L</sup> here. The contrast is "
-        f"what teaches: the shortcut r<sub>U</sub> − (D/V)τ<sub>c</sub>r<sub>D</sub> = {_pct(f_short, 4)} would "
-        f"value the firm at {_et(FCF / f_short, 2, 2)}, below APV, because it discounts a safe shield as if it "
-        f"were risky.</p>"
-        f"<p><b>Remember:</b> permanent debt without growth: r<sub>wacc</sub> = r<sub>U</sub>(1 − "
-        f"τ<sub>c</sub>D/V<sup>L</sup>), solved together with V<sup>L</sup> = FCF/r<sub>wacc</sub>.</p>"
-    )
-    return sporsmal(q, _alt(_vp(w, w_x), w, feller), kort, full, tall=tallsvar(verdi=w_x * 100, skala=100, enhet="%"))
-
-
-# ---------------------------------------------------------------------------
-# wac-perm2 · Permanent gjeld: D(1 − τ)-vekter og r_E med (1 − τ) (A1)
-# ---------------------------------------------------------------------------
-_HJ_PERM_A = hjelp3(
-    "This is unlevering a twin whose debt is a fixed, permanent amount. You need its unlevered cost of capital.",
-    "With fixed permanent debt: r<sub>U</sub> = [E r<sub>E</sub> + D(1 − τ<sub>c</sub>) r<sub>D</sub>]/[E + D(1 − "
-    "τ<sub>c</sub>)]. The shield τ<sub>c</sub>D is safe, so the risky assets are worth E + D(1 − τ<sub>c</sub>).",
-    "<p><b>Step 1: the debt weight.</b> Multiply the debt by (1 − τ<sub>c</sub>).</p>"
-    "<p><b>Step 2: the weighted average.</b> Weight r<sub>E</sub> by E and r<sub>D</sub> by D(1 − τ<sub>c</sub>), "
-    "then divide by E + D(1 − τ<sub>c</sub>).</p>"
-    "<p><b>Watch out:</b> the tax factor goes on the weight, not on r<sub>D</sub>. Plain weights belong to a "
-    "constant ratio.</p>")
-_HJ_PERM_B = hjelp3(
-    "This is MM II with a fixed, permanent amount of debt. You need the cost of equity.",
-    "Fixed permanent debt: r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − "
-    "r<sub>D</sub>). With a constant ratio the (1 − τ<sub>c</sub>) drops out.",
-    "<p><b>Step 1: D/E.</b> Use market values and turn D/V into D/E if needed.</p>"
-    "<p><b>Step 2: the spread.</b> r<sub>U</sub> − r<sub>D</sub>, before tax.</p>"
-    "<p><b>Step 3: scale by D/E and by (1 − τ<sub>c</sub>)</b> and add to r<sub>U</sub>.</p>"
-    "<p><b>Watch out:</b> the tax factor belongs here only because the debt is fixed and permanent.</p>")
-
-
-@familie("wac-perm2", tema="wacc-apv", antall=5, tittel="Permanent debt: D(1 − τ) in the weights",
-         hjelp=_HJ_PERM_A)
-def _(r):
-    navn = r.choice(NAVN)
-    tau = r.choice([0.20, 0.25, 0.40])
-    rD = r.choice([0.04, 0.05, 0.06])
-    type_ = r.choice(["A", "B"])
-    if type_ == "A":
-        E = r.choice([400, 500, 600, 750, 900])
-        D = r.choice([200, 300, 400, 500])
-        rE = r.choice([0.10, 0.11, 0.12, 0.13, 0.14])
-        Dt = D * (1 - tau)
-        svar = (E * rE + Dt * rD) / (E + Dt)
-        f_plain = (E * rE + D * rD) / (E + D)
-        f_both = (E * rE + Dt * rD * (1 - tau)) / (E + Dt)
-        f_wacc = (E * rE + D * rD * (1 - tau)) / (E + D)
-        kand = [("R", None, svar),
-                (_vp(f_plain), "Plain market-value weights E/V and D/V. They assume a target ratio. This debt is "
-                               "fixed, so its shield is safe and the debt enters as D(1 − τ<sub>c</sub>).", f_plain),
-                (_vp(f_both), "The tax factor put on both the weight and the rate. Only the weight changes: the "
-                              "lenders still earn r<sub>D</sub> before tax.", f_both),
-                (_vp(f_wacc), "This is the after-tax WACC, the rate for the levered firm. r<sub>U</sub> is the rate "
-                              "for the assets alone.", f_wacc)]
-        feller = _velg(r, kand)
-        q = (f"<p>{navn} is listed. Its equity is worth NOK {E} million and it has NOK {D} million of permanent, "
-             f"risk-free debt at {_ep(rD)}, an amount it never changes. Its cost of equity is {_ep(rE)}. The "
-             f"corporate tax rate is {_ep(tau)}.</p><p>What is {gen(navn)} unlevered cost of capital, in "
-             f"percent?</p>")
-        kort = (f"<p><b>{_vp(svar)}.</b> D(1 − τ<sub>c</sub>) = {D} × {_et(1 - tau, 2)} = {_et(Dt)}. r<sub>U</sub> = "
-                f"({E} × {_ep(rE)} + {_et(Dt)} × {_ep(rD)})/({E} + {_et(Dt)}) = {_pct(svar, 4)}.</p>")
-        Vu = E + Dt
-        full = (
-            f"<p><b>Why the weights change.</b> The levered firm holds the risky assets and the tax shield. With a "
-            f"fixed, permanent amount of debt the shield is worth τ<sub>c</sub>D and is as safe as the debt. Take it "
-            f"out and the risky assets are worth V<sup>U</sup> = E + D − τ<sub>c</sub>D = E + D(1 − "
-            f"τ<sub>c</sub>). That is why Kurbatov weights the debt by D(1 − τ<sub>c</sub>) here (lecture 8, slide "
-            f"18).</p>"
-            f"<p><b>Step 1: the weight.</b> D(1 − τ<sub>c</sub>) = {D} × {_et(1 - tau, 2)} = {_et(Dt)}, so "
-            f"V<sup>U</sup> = {E} + {_et(Dt)} = {_et(Vu)}.</p>"
-            f"<p><b>Step 2: r<sub>U</sub>.</b> ({E} × {_ep(rE)} + {_et(Dt)} × {_ep(rD)})/{_et(Vu)} = "
-            f"({_et(E * rE)} + {_et(Dt * rD)})/{_et(Vu)} = <b>{_pct(svar, 4)}</b>.</p>"
-            f"<p><b>First check: the returns in money.</b> Investors in the levered firm expect {E} × {_ep(rE)} + "
-            f"{D} × {_ep(rD)} = {_et(E * rE)} + {_et(D * rD)} = {_et(E * rE + D * rD)} a year. The safe shield, "
-            f"worth τ<sub>c</sub>D = {_et(tau * D)}, earns r<sub>D</sub>: {_et(tau * D * rD)}. The rest, "
-            f"{_et(E * rE + D * rD - tau * D * rD)}, is earned by the risky assets, worth V<sup>U</sup> = "
-            f"V<sup>L</sup> − τ<sub>c</sub>D = {_et(E + D)} − {_et(tau * D)} = {_et(Vu)}: "
-            f"{_et(E * rE + D * rD - tau * D * rD)}/{_et(Vu)} = {_pct(svar, 4)}. This rearranges the same formula, "
-            f"so it confirms the arithmetic. Only the word permanent tells you to use these weights.</p>"
-            f"<p><b>Remember:</b> fixed permanent debt enters the weights as D(1 − τ<sub>c</sub>). A target ratio "
-            f"keeps the plain weights.</p>"
-        )
-        hj = _HJ_PERM_A
-    else:
-        rU = r.choice([0.09, 0.10, 0.11, 0.12])
-        form = r.choice(["de", "dv"])
-        if form == "de":
-            de = r.choice([0.25, 0.50, 0.60, 1.00])
-            dv = de / (1 + de)
-            lev = f"a debt-to-equity ratio of {_et(de, 2)} at market values"
-        else:
-            dv = r.choice([0.20, 0.375, 0.50])
-            de = dv / (1 - dv)
-            lev = f"a debt-to-value ratio of {_et(dv, 2)} at market values"
-        svar = rU + de * (1 - tau) * (rU - rD)
-        f_notax = rU + de * (rU - rD)
-        f_dv = rU + dv * (1 - tau) * (rU - rD)
-        f_rdt = rU + de * (rU - rD * (1 - tau))
-        kand = [("R", None, svar),
-                (_vp(f_notax), "MM II without the tax factor. That form fits a firm that keeps a constant ratio. "
-                               "With fixed permanent debt the shield is safe and the premium shrinks by (1 − "
-                               "τ<sub>c</sub>).", f_notax),
-                (_vp(f_dv), "D/V used where MM II needs D/E.", f_dv),
-                (_vp(f_rdt), "The after-tax cost of debt put into the spread. The spread is r<sub>U</sub> − "
-                             "r<sub>D</sub> before tax. The tax factor multiplies D/E.", f_rdt)]
-        feller = _velg(r, kand)
-        q = (f"<p>{navn} has an unlevered cost of capital of {_ep(rU)}. It has issued a fixed amount of permanent "
-             f"debt at r<sub>D</sub> = {_ep(rD)}, an amount it will never change. It currently has {lev}. The "
-             f"corporate tax rate is {_ep(tau)}.</p><p>What is {gen(navn)} cost of equity, in percent?</p>")
-        de_t = (f"D/E = {_et(dv, 2)}/{_et(1 - dv, 2)} = {_et(de, 2, 4)}. " if form == "dv" else "")
-        kort = (f"<p><b>{_vp(svar)}.</b> {de_t}r<sub>E</sub> = {_ep(rU)} + {_et(de, 2, 4)} × (1 − {_ep(tau)}) × "
-                f"({_ep(rU)} − {_ep(rD)}) = {_pct(svar, 4)}.</p>")
-        full = (
-            f"<p><b>Why the tax factor appears.</b> With fixed permanent debt the tax shield is a safe asset worth "
-            f"τ<sub>c</sub>D. Part of the firm's value is then riskless, so less risk is left for the shareholders "
-            f"than under a target ratio. MM II becomes r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − "
-            f"τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>), the same relation as the D(1 − τ<sub>c</sub>) weights "
-            f"(lecture 8, slide 18).</p>"
-            f"<p><b>Step 1: D/E.</b> {de_t or 'D/E = ' + _et(de, 2) + '. '}</p>"
-            f"<p><b>Step 2: the premium.</b> {_et(de, 2, 4)} × (1 − {_ep(tau)}) × ({_ep(rU)} − {_ep(rD)}) = "
-            f"{_pct(de * (1 - tau) * (rU - rD), 4)}.</p>"
-            f"<p><b>Step 3: r<sub>E</sub>.</b> {_ep(rU)} + {_pct(de * (1 - tau) * (rU - rD), 4)} = "
-            f"<b>{_pct(svar, 4)}</b>.</p>"
-            f"<p><b>First check.</b> Unlever back with D(1 − τ<sub>c</sub>) weights per unit of equity: "
-            f"[{_pct(svar, 4)} + {_et(de, 2, 4)} × {_et(1 - tau, 2)} × {_ep(rD)}]/(1 + {_et(de, 2, 4)} × "
-            f"{_et(1 - tau, 2)}) = {_pct((svar + de * (1 - tau) * rD) / (1 + de * (1 - tau)), 4)} = r<sub>U</sub>. An "
-            f"identity: it confirms the arithmetic, not the choice of formula.</p>"
-            f"<p><b>Remember:</b> (1 − τ<sub>c</sub>) in MM II only when the question says the debt is fixed and "
-            f"permanent.</p>"
-        )
-        hj = _HJ_PERM_B
-    return sporsmal(q, _alt(_vp(svar), svar, feller), kort, full, hjelp=hj,
-                    tall=tallsvar(skala=100, enhet="%"))
 
 
 # ---------------------------------------------------------------------------
@@ -1609,7 +1415,8 @@ statisk(
                               "Exercise 9)."),
     ],
     kort="<p><b>Only I.</b> With no growth D/V stays constant, so r<sub>wacc</sub> = r<sub>U</sub>(1 − "
-         "τ<sub>c</sub>D/V<sup>L</sup>) works. With growth the fixed debt shrinks relative to value: use APV.</p>",
+         "τ<sub>c</sub>D/V<sup>L</sup>) works. With growth the fixed debt shrinks relative to value: use APV. On the "
+         "exam, use APV for permanent debt.</p>",
     full="<p><b>What the WACC method needs.</b> One rate for every year requires the same D/V every year.</p>"
          "<p><b>Statement I.</b> True. Level FCF forever and permanent debt give a constant V<sup>L</sup> and a "
          "constant D, so D/V is constant. Kurbatov's PS2 Exercise 9: FCF 2 a year, r<sub>U</sub> = 11%, D = 12, "
@@ -1619,6 +1426,9 @@ statisk(
          "<p><b>Statement II.</b> False. Y's value grows at 3% while D is fixed, so D/V falls every year and so "
          "would the right WACC. There is no single rate. APV handles it: V<sup>U</sup> at r<sub>U</sub> plus "
          "τ<sub>c</sub>D.</p>"
+         "<p><b>On the exam.</b> Kurbatov calls the adjusted WACC for permanent debt not mandatory. His WACC "
+         "questions assume a constant D/E. Know why statement I holds, but value permanent debt by APV: "
+         "V<sup>U</sup> + τ<sub>c</sub>D.</p>"
          "<p><b>Remember:</b> fixed debt plus growth: APV only.</p>",
 )
 
@@ -1767,4 +1577,53 @@ statisk(
          "r/12 = 1%.</p>"
          "<p><b>Remember:</b> (1 + r)<sup>T</sup> with T in years, never 1 + rT.</p>",
     tall=tallsvar(verdi=50 / 1.12 ** 2.5, enhet="NOK million"),
+)
+
+# wac-s16 · Permanent gjeld i et voksende firma: APV, ikke WACC (opptak 8, 55:08; opptak 10, 41:08).
+# Erstatter regnefamiliene wac-perm1 og wac-perm2 med intuisjonen Kurbatov sa kan komme.
+statisk(
+    "wac-s16", tema="wacc-apv", type="begrep",
+    hjelp=hjelp3(
+        "This is about which valuation method fits a firm whose amount of debt is fixed while its value grows.",
+        "The WACC method needs a constant D/E. APV: V<sup>L</sup> = V<sup>U</sup> + PV(TS). Fixed permanent debt "
+        "gives a shield as safe as the debt, discounted at r<sub>D</sub>: PV(TS) = τ<sub>c</sub>D.",
+        "<p><b>Step 1:</b> does D/V stay put when the firm grows and the debt does not?</p>"
+        "<p><b>Step 2:</b> if it does not, which method still works?</p>"
+        "<p><b>Step 3:</b> how risky is the shield on debt that never changes? <b>Watch out:</b> a new WACC for "
+        "every year is not the course's fix.</p>",
+    ),
+    q="<p>Fjordline Media has a fixed amount of permanent debt that it will never change. Its free cash flow is "
+      "expected to grow every year. An exam asks for the firm's levered value.</p>"
+      "<p>Which approach follows the course?</p>",
+    alternativer=[
+        R("APV: V<sup>U</sup> at r<sub>U</sub> plus PV(TS) = τ<sub>c</sub>D, because the fixed debt makes D/V fall "
+          "as the firm grows"),
+        F("The WACC method with today's D/V, because the formula-sheet WACC fits any debt policy",
+          "One WACC needs a constant D/E. Here the debt is fixed while the value grows, so D/V falls every year. "
+          "Kurbatov calls forgetting this one of the biggest mistakes."),
+        F("APV with the shield discounted at r<sub>U</sub>, because the tax shield is as risky as the firm",
+          "That holds when the debt moves with the firm's value. A fixed, permanent amount of debt gives a shield "
+          "as safe as the interest, so it is discounted at r<sub>D</sub>."),
+        F("The WACC method with a new WACC each year, computed from that year's D/V",
+          "Kurbatov does not use a new WACC per year: when D/E changes, change the method. The rate path would "
+          "also need every year's value, which is what you are trying to find."),
+    ],
+    kort="<p><b>APV with τ<sub>c</sub>D.</b> The debt is fixed and the value grows, so D/V falls and no single WACC "
+         "fits. A permanent shield is as safe as the debt: PV(TS) = τ<sub>c</sub>D.</p>",
+    full="<p><b>What the WACC method needs.</b> The WACC builds the weights E/V and D/V into one discount rate. That "
+         "rate is right only if the weights stay the same every year, so the WACC method needs a constant D/E. "
+         "Kurbatov calls this the biggest takeaway of the valuation lectures and forgetting it one of the biggest "
+         "mistakes (lecture 7).</p>"
+         "<p><b>Step 1: the ratio.</b> The debt never changes while the firm's value grows, so D/V falls every "
+         "year. One WACC cannot fit.</p>"
+         "<p><b>Step 2: the method.</b> APV does not need the ratio. Value the firm without debt at "
+         "r<sub>U</sub>, then add the tax shield.</p>"
+         "<p><b>Step 3: the shield.</b> Permanent debt saves τ<sub>c</sub>r<sub>D</sub>D in tax every year "
+         "forever, as safe as the interest. Discounted at r<sub>D</sub> it is worth τ<sub>c</sub>D.</p>"
+         "<p><b>First check.</b> Before you pick a method, ask whether the question says the firm keeps D/E or "
+         "D/V constant. If it does, the WACC method works and the shield of the rebalanced debt takes "
+         "r<sub>U</sub>. If the amount of debt is fixed, use APV. A new WACC for each year is not the course's "
+         "fix: if D/E changes, change the method. The adjusted WACC formulas for permanent debt are not "
+         "mandatory. The exam uses only the formula sheet.</p>"
+         "<p><b>Remember:</b> constant D/E: WACC or APV. Fixed debt: APV with τ<sub>c</sub>D.</p>",
 )

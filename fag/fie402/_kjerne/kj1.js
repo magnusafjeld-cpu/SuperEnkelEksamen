@@ -19,7 +19,7 @@ window.EDU_DATA.kjerne.push({
 <div class="where">The default, as on the formula sheet: untaxed weights. They assume the firm rebalances to a target D/V, so the tax shield carries asset risk and then the pre-tax WACC equals r<sub>U</sub>.</div></div>
 <p>Fixed (predetermined) debt is the exception (lecture 8): its shield τ<sub>c</sub>D is as safe as the debt, so net it out of D:</p>
 <div class="formula"><div class="eq">r<sub>U</sub> = [E/(E + D(1 − τ<sub>c</sub>))]r<sub>E</sub> + [D(1 − τ<sub>c</sub>)/(E + D(1 − τ<sub>c</sub>))]r<sub>D</sub></div>
-<div class="where">Fixed permanent debt, same weights for β; the pre-tax WACC is then not r<sub>U</sub>. Solved for r<sub>E</sub> it is r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>). Use it only when the question says the debt is fixed.</div></div>
+<div class="where">Fixed permanent debt, same weights for β; the pre-tax WACC is then not r<sub>U</sub>. Solved for r<sub>E</sub> it is r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>). Not an exam calculation: Kurbatov called it "not mandatory" and the exam uses only the formula sheet's weights, so know it as intuition.</div></div>
 <p>Solve the weighting for the equity side and you get MM Proposition II, in rates or in betas:</p>
 <div class="formula"><div class="eq">r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) &nbsp;·&nbsp; β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>)</div>
 <div class="eq">r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ<sub>c</sub>) = r<sub>U</sub> − (D/V)r<sub>D</sub>τ<sub>c</sub></div>
@@ -50,7 +50,7 @@ window.EDU_DATA.kjerne.push({
 <li><b>Market values, not book values,</b> in every weight.</li>
 </ul></div>
 <div class="callout tip husk"><span class="h">Must know</span>
-<ul><li>β<sub>U</sub> = [E/V]β<sub>E</sub> + [D/V]β<sub>D</sub> with a target ratio, the default (pre-tax WACC = r<sub>U</sub>); with fixed permanent debt, weight debt by D(1 − τ<sub>c</sub>). D is net of excess cash.</li>
+<ul><li>β<sub>U</sub> = [E/V]β<sub>E</sub> + [D/V]β<sub>D</sub> with a target ratio, the default (pre-tax WACC = r<sub>U</sub>); with fixed permanent debt the weights become D(1 − τ<sub>c</sub>), as intuition only (not an exam calculation). D is net of excess cash.</li>
 <li>Twin-firm routine: twin's r<sub>E</sub>, r<sub>D</sub> → β<sub>E</sub>, β<sub>D</sub> → β<sub>U</sub> with the twin's weights → r<sub>U</sub> → relever with your own D/E and own r<sub>D</sub> → r<sub>E</sub> → r<sub>wacc</sub>.</li>
 <li>MM II multiplies by D/E, not D/V: r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>).</li>
 <li>β<sub>D</sub> = 0 on risky debt understates β<sub>U</sub>, r<sub>U</sub> and the WACC and overvalues the firm.</li>

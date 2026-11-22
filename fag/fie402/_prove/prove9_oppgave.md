@@ -44,15 +44,15 @@ A retrofit costing NOK 30 million today would raise the value of the assets at t
 
 ## Exercise 4: Valuation (18 points)
 
-A private-equity fund plans to buy Nordvarme AS, an unlisted district-heating firm with EBIT of NOK 60 million a year forever; capital expenditure equals depreciation and working capital is constant. The tax rate is 22% and the fund's analysts put the unlevered cost of capital at 8%. After the purchase Nordvarme will have NOK 250 million of permanent, risk-free debt at 4%, the risk-free rate. The expected market return is 9%. Use 4 decimal places.
+A private-equity fund plans to buy Nordvarme AS, a district-heating firm with EBIT of NOK 60 million a year forever; capital expenditure equals depreciation and working capital is constant. The tax rate is 22% and analysts put the unlevered cost of capital at 8%. After the purchase Nordvarme will have NOK 250 million of permanent debt at the risk-free rate of 4%. The expected market return is 9%.
 
 **a) (2 points)** Find Nordvarme's free cash flow and its all-equity value.
 
-**b) (4 points)** Find the present value of the interest tax shield, stating the rate and why. Find Nordvarme's levered value by APV and the value of its equity.
+**b) (4 points)** Find PV(TS) with the rate and why. Find Nordvarme's levered value by APV and its equity value.
 
-**c) (4 points)** Find Nordvarme's cost of equity and after-tax WACC and value it with the WACC method.
+**c) (4 points)** The fund pays NOK 600 million for the shares, using the new debt and NOK 350 million of its own money. Find its NPV and say who captures the tax shield.
 
-**d) (4 points)** Fjordvarme ASA, a listed firm with the same business risk and tax rate, also has a fixed, permanent amount of risk-free debt: equity NOK 1,040 million, debt NOK 500 million, equity beta 1.1. Estimate the unlevered cost of capital from these data. Is the analysts' 8% consistent with it?
+**d) (4 points)** Two listed firms with the same business risk keep constant debt-to-equity ratios. Fjordvarme ASA: equity NOK 1,000 million, risk-free debt NOK 500 million, equity beta 1.26. Kystvarme ASA: equity NOK 1,200 million, debt NOK 300 million with beta 0.2, equity beta 0.9. Estimate r_U from both firms. Is the analysts' 8% consistent?
 
 **e) (4 points)** Suppose Nordvarme instead kept debt at a constant fraction of firm value, rebalanced yearly. Without calculations, would the tax shield be worth more or less than in b) and why?
 

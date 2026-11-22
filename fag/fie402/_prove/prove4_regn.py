@@ -436,18 +436,13 @@ ex3 = {
                 f"DPS = {i0(NI3)}/{f(N1_3, 1)} = <b>NOK {f(DPS1_3)}</b>, up from {f(DPS0_3, 2)}.",
                 "<b>Step 2. Cost of equity, direct route.</b> Each share is a level perpetuity, so "
                 f"r<sub>E</sub> = DPS/P = {f(DPS1_3)}/{f(P1_3)} = <b>{pc(rE3)}</b>. This is a full answer.",
-                "<b>Step 3. The same from MM Proposition II.</b> With permanent debt and taxes, "
-                "r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>):<br>"
-                f"r<sub>E</sub> = {pc(rU3, 0)} + ({n0(D3)}/{n0(E1_3)}) × {f(1 - tau3, 2)} × ({pc(rU3, 0)} − "
-                f"{pc(rf3, 0)}) = {pc(rU3, 0)} + {pc(DE3 * (1 - tau3) * (rU3 - rf3))} = <b>{pc(rE3)}</b><br>"
-                f"Through betas: β<sub>E</sub> = {f(bU3, 1)} × (1 + {f(DE3)} × {f(1 - tau3, 2)}) = {f(bE3, 2)} and "
-                f"{pc(rf3, 0)} + {f(bE3, 2)} × {pc(mrp3, 0)} = {pc(rf3 + bE3 * mrp3)}.",
-                f"<b>Check.</b> The two routes agree {OK} This is a real check, since the price comes from APV and the "
-                f"formula from MM II: the no-tax formula would give r<sub>E</sub> = {pc(rE3_feil)} and "
-                f"{f(DPS1_3)}/{f(rE3_feil, 6)} = {f(DPS1_3 / rE3_feil)}, not {f(P1_3)}. A second check is an identity once "
-                f"r<sub>E</sub> comes from MM II with taxes: r<sub>wacc</sub> = {f(E1_3 / VL3, 1)} × {pc(rE3, 0)} + "
-                f"{f(D3 / VL3, 1)} × {pc(rf3, 0)} × {f(1 - tau3, 2)} = {pc(wacc3)} = r<sub>U</sub>(1 − "
-                f"τ<sub>c</sub>D/V<sup>L</sup>) and {i0(FCF3)}/{f(wacc3, 3)} = {n0(FCF3 / wacc3)} = V<sup>L</sup> {OK}",
+                "<b>Check (it can fail): why not the formula sheet's MM II?</b> r<sub>E</sub> = "
+                "r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) assumes debt rebalanced to a constant "
+                f"D/E, with the tax shield discounted at r<sub>U</sub>. Here the debt is fixed, so it gives "
+                f"{pc(rE3_feil)} and {f(DPS1_3)}/{f(rE3_feil, 6)} = {f(DPS1_3 / rE3_feil)}, not the price "
+                f"{f(P1_3)}. The dividend route needs no special formula. A fixed-debt version of MM II "
+                "with (1 − τ<sub>c</sub>) gives the same 10% but is homework material, not on the formula "
+                "sheet: Kurbatov says the exam uses only the sheet's formulas.",
             ),
             "criteria": [
                 f"Interest = 0.04 × {n0(D3)} = {i0(int3)}; dividends = ({i0(EBIT3)} − {i0(int3)}) × 0.75 = {i0(NI3)}; "
@@ -455,10 +450,10 @@ ex3 = {
                 "classic error.",
                 f"r_E = DPS/P = {f(DPS1_3)}/{f(P1_3)} = {pc(rE3, 2)} is a full route, since each share is a level "
                 "perpetuity.",
-                f"Equally full: r_E = r_U + (D/E)(1 − tau)(r_U − r_D) = 8% + (800/1,200) × 0.75 × 4% = {pc(rE3, 2)}, or "
-                f"beta_E = {f(bE3, 1)} with the CAPM.",
-                f"The no-tax formula (r_E = {pc(rE3_feil)}) is wrong here: the debt is permanent and the firm pays taxes. "
-                "Showing that two routes agree is a bonus.",
+                f"Also accepted, not needed: the fixed-debt form r_U + (D/E)(1 − tau)(r_U − r_D) = {pc(rE3, 2)}, "
+                "which is not on the formula sheet.",
+                f"The formula-sheet MM II (r_E = {pc(rE3_feil)}) is wrong here: it assumes a constant D/E, but the "
+                "debt is permanent. The price check above shows it.",
             ],
         },
         {
@@ -494,7 +489,7 @@ ex3 = {
                 "cost (Kurbatov's lecture numbers), so the CFO's arithmetic is not the problem.",
                 "Explains the fire sale: a distressed firm must sell fast; specialised plants can only go to rivals "
                 "hit by the same downturn, so they fetch far below their value in use. This is the core of the answer.",
-                "Adds one more mechanism: lost customers or suppliers, debt overhang, the probability of distress rising "
+                "Adds one more mechanism: lost customers or suppliers, debt overhang (the firm forgoes positive-NPV projects), the probability of distress rising "
                 "steeply with leverage, or the tax shield no longer being safe at 90% debt.",
                 "Bonus: concludes with the trade-off: creditors price the expected costs, so the shareholders bear them today; "
                 "borrow until the marginal tax benefit equals the marginal expected cost of distress.",

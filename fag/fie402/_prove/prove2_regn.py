@@ -350,8 +350,9 @@ ex1 = {
         "reserves and has few profitable investment opportunities left in shipping. Its CEO has said publicly "
         "that he wants Nordhav to become «a diversified Nordic industrial group». Nordhav now announces an "
         "all-cash offer for Solgløtt Solar ASA, a listed producer of solar panels, at a premium of 40% over "
-        "Solgløtt's pre-announcement share price. Solgløtt has accumulated large tax losses and has postponed "
-        "two new factories because it has been unable to raise financing. The two businesses have nothing in "
+        "Solgløtt's pre-announcement share price. Analysts criticise Solgløtt's management for weak cost "
+        "control. Solgløtt has also postponed two new factories because it has been unable to raise financing. "
+        "The two businesses have nothing in "
         "common, so nobody expects synergies. On the announcement day Solgløtt's share price rises by 30% "
         "while Nordhav's share price falls by 5%.</p>"
         "<p>Give four reasons: two reasons why the acquisition could destroy value for Nordhav's shareholders "
@@ -362,7 +363,7 @@ ex1 = {
     ),
     "solution": (
         "<p>Four reasons, one to two sentences each, three points each. Synergies are banned, so every reason "
-        "has to come from agency, overpayment, tax, financing constraints or a transfer of value. The text "
+        "has to come from agency, overpayment, better management, financing constraints or a transfer of value. The text "
         "plants one fact for each of the obvious answers; tying each reason to a fact is what makes it "
         "convincing.</p>"
         "<p><b>Value-destroying for Nordhav's shareholders</b></p>"
@@ -376,10 +377,11 @@ ex1 = {
         "the premium from Nordhav's shareholders to Solgløtt's. The 5% fall says the market expects the "
         "premium to exceed the value the deal creates.</p>"
         "<p><b>Value-creating despite no synergies</b></p>"
-        "<p><b>3. Using the tax losses.</b> Solgløtt's accumulated losses are worth little on their own "
-        "because it has no profits to offset them against, but highly profitable Nordhav can deduct them "
-        "much sooner. The present value of the tax saved is a real gain, paid by the tax authority and not "
-        "by anyone in the deal.</p>"
+        "<p><b>3. Replacing weak management.</b> As the new owner Nordhav can replace Solgløtt's managers and "
+        "cut the waste the analysts point to (a disciplinary takeover). The same assets then earn more, which "
+        "is value the deal creates rather than value moved between shareholders. It is not a synergy: the gain "
+        "comes from new managers, not from combining the two firms (Kurbatov's H2024 key accepts better "
+        "management).</p>"
         "<p><b>4. Relieving a financing constraint.</b> Solgløtt has postponed two factories because it "
         "cannot raise financing, for example because new equity would be sold too cheaply under asymmetric "
         "information or because its existing debt creates debt overhang. If the factories have positive NPV, "
@@ -394,17 +396,19 @@ ex1 = {
         "projects in its core business; weak governance that lets the CEO avoid paying out the cash; "
         "coinsurance, as above. Creating value: Solgløtt is undervalued and Nordhav has superior information "
         "(harder to argue for a shipping company buying a solar producer, so it needs a reason); a "
-        "disciplinary takeover if Solgløtt is badly run; the more stable combined cash flow supports more "
+        "foothold in a new, growing market; the more stable combined cash flow supports more "
         "debt and therefore a larger tax shield. Any well-explained reason other than synergies earns the "
         "points.</p>"
+        "<p><b>Not accepted.</b> Buying a target to use its tax losses: Kurbatov notes that the losses are "
+        "erased when the firm changes owner (lecture 12), so this is not a motive in this course.</p>"
     ),
     "criteria": [
         "Exactly four reasons: two that destroy value for Nordhav's shareholders and two that create value. The exercise is graded reason by reason, 3 points each, so a missing reason costs a quarter of the exercise.",
-        "Synergies in any disguise (cost savings, economies of scale, cross-selling) earn nothing. The text says the businesses have nothing in common.",
-        "1–2 sentences per reason. Each reason must name the mechanism and say how it reaches value. Writing only «hubris» or «tax» is not enough.",
-        "Strong answers use the facts in the text: the CEO's statement and the cash pile point to empire building, the 40% premium to overpayment, the tax losses to a tax gain, the postponed factories to a financing constraint.",
+        "Synergies in any disguise (cost savings from combining the firms, economies of scale, cross-selling) earn nothing; savings from replacing weak managers are a governance gain and count. The text says the businesses have nothing in common.",
+        "1–2 sentences per reason. Each reason must name the mechanism and say how it reaches value. Writing only «hubris» or «value creation» is not enough: Kurbatov wants the mechanism behind each motive.",
+        "Strong answers use the facts in the text: the CEO's statement and the cash pile point to empire building, the 40% premium to overpayment, the criticised management to a disciplinary takeover, the postponed factories to a financing constraint.",
         "Diversification counts only with its beneficiary: shareholders can diversify themselves for free, while the lower default risk benefits the creditors (coinsurance). «Diversification reduces risk, so it creates value» earns nothing.",
-        "Reasonable, well-explained alternatives are accepted, in line with Kurbatov's keys: a signal that the core business has no good projects, undervaluation with superior information, a disciplinary takeover, extra debt capacity and a larger tax shield.",
+        "Reasonable, well-explained alternatives are accepted, in line with Kurbatov's keys: a signal that the core business has no good projects, undervaluation with superior information, a foothold in a new market, extra debt capacity and a larger tax shield. Tax losses do not count: they are erased when the owner changes (Kurbatov).",
         "The 40% premium itself is a transfer from Nordhav's shareholders to Solgløtt's, not value creation, so «Solgløtt's shareholders get a premium» does not count as a value-creating reason. Note also that Solgløtt rising 30% against a 40% premium reflects the probability that the deal fails (k26.6), not evidence of overpayment.",
     ],
 }
@@ -719,7 +723,7 @@ e4b_sol = (
 )
 e4b_crit = [
     f"Values equity state by state as E[max(payoff − {f(F1, 0)}, 0)]: S {f(ES, 1)}, M {f(EM, 1)}, R {f(ER, 1)}. Subtracting {f(F1, 0)} from the expected payoff (giving {f(VS - F1, 0)}, {f(VM - F1, 0)}, {f(VR - F1, 0)}) is the fatal error and gives the wrong ranking.",
-    "Chooses M and names the mechanism: risk shifting (asset substitution); equity is a call option on the payoff with strike equal to the face value.",
+    f"Chooses M and names the mechanism: risk shifting (asset substitution); equity is a call option on the payoff with strike equal to the face value. The creditors' loss of {f(DS - DM, 0)} is a wealth transfer to the shareholders: Kurbatov looks for the words «wealth transfer».",
     f"Debt under M = 0.5({f(F1, 0)}) + 0.5(20) = {f(DM, 0)}, equity {f(EM, 0)}, firm {f(VM, 0)}.",
     f"Agency cost = first-best value minus chosen value = {f(VS, 0)} − {f(VM, 0)} = NOK {f(agency_b, 0)}M. Reporting the transfer of {f(DS - DM, 0)} or the gain of {f(EM - ES, 0)} as the agency cost loses the point.",
     f"Check 3: {f(DM - DS, 0)} + {f(EM - ES, 0)} = {f(VM - VS, 0)}, the NPV of switching from S to M.",
@@ -808,7 +812,7 @@ e4d_crit = [
     f"NPV = {f(X4, 0)} − {f(I4, 0)} = {f(NPV4, 0)}: the upgrade creates value.",
     f"Recomputes both claims state by state with the upgrade: debt {f(D0_4, 0)} → {f(D1_4, 0)}, equity {f(E0_4, 0)} → {f(E1_4, 0)}.",
     f"Shareholders' gain = {f(E1_4, 0)} − {f(E0_4, 0)} − {f(I4, 0)} = {f(gain_sh, 0)} because they pay the investment, so the manager rejects. Forgetting the {f(I4, 0)} makes it look acceptable.",
-    "Names the mechanism: debt overhang. The low-outcome part of the saving goes to creditors who paid nothing.",
+    "Names the mechanism: debt overhang. The firm forgoes a positive-NPV project because the low-outcome part of the saving goes to creditors who paid nothing; «the firm forgoes positive-NPV projects» is about half the marks in Kurbatov's grading.",
     f"Check 3: {f(gain_cred, 0)} + ({f(gain_sh, 0)}) = {f(NPV4, 0)} = NPV.",
 ]
 

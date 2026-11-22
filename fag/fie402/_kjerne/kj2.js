@@ -65,7 +65,7 @@ window.EDU_DATA.kjerne.push({
 <li>Repurchase: n = cash paid out/P at the post-announcement price. Special dividend: DPS = cash paid out/N<sub>0</sub> and P<sub>ex</sub> = P<sub>0</sub> − DPS. If old debt is refinanced, the cash paid out is D<sub>new</sub> − D<sub>old</sub>.</li>
 <li>Relever with MM II at the new D/E and the new r<sub>D</sub>; the check that can fail is new DPS / new r<sub>E</sub> = the price.</li>
 <li>Seller, holder and dividend taker end with the same wealth and homemade dividends (or reinvesting) undo any payout choice; EPS can change, value does not.</li>
-<li>With frictions: taxes favour repurchases for taxable holders when τ<sub>d</sub> &gt; τ<sub>g</sub>, signalling favours smoothed dividends, free cash flow favours committed payout and reinvesting it without good projects is empire building; a tender premium is a transfer, not value.</li></ul></div>
+<li>With frictions: taxes favour repurchases for taxable holders through deferral (only sellers pay, only when they sell), plus the rate where τ<sub>d</sub> &gt; τ<sub>g</sub> (today equal in the US and Norway), signalling favours smoothed dividends, free cash flow favours committed payout and reinvesting it without good projects is empire building; a tender premium is a transfer, not value.</li></ul></div>
 `,
   checks: [
     {

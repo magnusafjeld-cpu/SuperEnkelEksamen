@@ -175,7 +175,8 @@ c30, p30, nd1_30, nd2_30 = bs(120, 120, 0.03, 1, 0.30)
 c22, p22, nd1_22, nd2_22 = bs(120, 120, 0.03, 1, 0.22)
 assert abs((c30 - c22) - (p30 - p22)) < 1e-9   # paritet: samme overprising
 forventet["3a"] = dict(options=None, answer=0, tall=[])
-forventet["3b"] = dict(options=None, answer=3, tall=[f(nd1_30, 4), f(nd2_30, 4)])
+# 3b (byttet 22.11.2026): amerikansk mot europeisk, bare retningen (Kurbatov: «up or down?»)
+forventet["3b"] = dict(options=None, answer=3, tall=[f(c30), f(p30)])
 forventet["3c"] = dict(options=None, answer=1, tall=[f(c30), f(c22), f(c30 - c22), f(p30), f(p22)])
 
 # ------------------------------------------------------------------ Case 4
@@ -205,23 +206,18 @@ f_pal = (K4 - D4g) / K4 - r4                              # rabatt på pålydend
 f_pvk = pvk4 / D4g - 1                                     # prisavstand til risikofri obligasjon
 numerisk("4b", spread, [f_forv, f_pal, f_pvk], pct, 3)
 forventet["4b"]["tall"] = [pct(y4, 4)]
-# 4c: Merton, egenkapitalbeta
-Vm, Km, rm, Tm, sm, bU = 200.0, 160.0, 0.05, 3, 0.35, 0.90
-d1m = (log(Vm / Km) + (rm + sm ** 2 / 2) * Tm) / (sm * sqrt(Tm))
-d2m = d1m - sm * sqrt(Tm)
-Em = Vm * N(d1m) - Km * exp(-rm * Tm) * N(d2m)
-Em_g, nd1_g, nd2_g = round(Em, 2), round(N(d1m), 4), round(N(d2m), 4)
-assert (Em_g, nd1_g, nd2_g) == (78.43, 0.8209, 0.6226), (Em_g, nd1_g, nd2_g)
-bE = nd1_g * (Vm / Em_g) * bU
-f_utenN = (Vm / Em_g) * bU
-f_nd2 = nd2_g * (Vm / Em_g) * bU
-f_utenVE = nd1_g * bU
-numerisk("4c", bE, [f_utenN, f_nd2, f_utenVE], f, 2)
-Dm = Vm - Em_g
-bD = (1 - nd1_g) * (Vm / Dm) * bU
-sjekk = (Em_g / Vm) * bE + (Dm / Vm) * bD
-assert abs(sjekk - bU) < 1e-12
-forventet["4c"]["tall"] = [f(Vm / Em_g, 4), f(bE, 4), f(Dm), f(bD, 4)]
+# 4c (byttet 22.11.2026, var Merton-beta med N(d1)): riskere eiendeler, samme V0
+Vu2, Vd2 = 290.0, 130.0
+rho4n = ((1 + r4) * V0 - Vd2) / (Vu2 - Vd2)
+E4n = rho4n * max(Vu2 - K4, 0) / (1 + r4)
+D4n = V0 - E4n
+assert abs(D4n - (rho4n * K4 + (1 - rho4n) * min(Vd2, K4)) / (1 + r4)) < 1e-9
+assert abs((D4 - D4n) - (E4n - E4)) < 1e-9              # overføring: V er fast
+f_gammelrho = V0 - rho4 * max(Vu2 - K4, 0) / (1 + r4)   # beholdt gammel ρ
+f_udisk4c = V0 - rho4n * max(Vu2 - K4, 0)               # glemte å diskontere
+f_real4c = (p_hoy * K4 + (1 - p_hoy) * Vd2) / (1 + r4)  # virkelig p med rf
+numerisk("4c", D4n, [f_gammelrho, f_udisk4c, f_real4c], f, 2)
+forventet["4c"]["tall"] = [f(rho4n, 4), f(E4n, 4), f(D4n, 4), f(D4 - D4n, 4)]
 # 4d: CDS
 s_cds = q4 * L4
 f_realp = 0.30 * L4                        # virkelig misligholdssannsynlighet

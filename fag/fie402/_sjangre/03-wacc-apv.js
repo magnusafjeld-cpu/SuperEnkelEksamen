@@ -6,7 +6,7 @@ window.EDU_DATA.sjangre.push({
   summary: "From one year's tax saving to a two-period valuation by WACC and APV",
   chapters: [7, 17, 18, 19, 20],
   exam: "11 of 11 papers · H2024 E5, H2025 E4",
-  intro: `<p>Every paper since 2015 values a levered firm twice: once by discounting free cash flow at the after-tax WACC, once by APV, where the tax shield is added to the unlevered value. It is usually the largest exercise on the paper. In H2024 E5 and H2025 E4 it ran to five and nine chained sub-questions. This ladder starts with one year's tax saving and ends with H2025 E4 in full: the rates, a two-period value path, the debt adjustment between periods and the tax shield discounted at the right rate, to four decimals. Eight steps follow Kurbatov's 2026 lectures: an interest-only loan, working capital released at the end, flow to equity, which rate goes with which method, constant interest coverage, permanent debt checked with its own WACC, unlevering with D(1 − τ<sub>c</sub>) weights and debt capacity.</p>`,
+  intro: `<p>Every paper since 2015 values a levered firm twice: once by discounting free cash flow at the after-tax WACC, once by APV, where the tax shield is added to the unlevered value. It is usually the largest exercise on the paper. In H2024 E5 and H2025 E4 it ran to five and nine chained sub-questions. This ladder starts with one year's tax saving and ends with H2025 E4 in full: the rates, a two-period value path, the debt adjustment between periods and the tax shield discounted at the right rate, to four decimals. Seven steps follow Kurbatov's 2026 lectures: an interest-only loan, working capital released at the end, flow to equity, which rate goes with which method, constant interest coverage, why permanent debt is valued by APV and debt capacity.</p>`,
   steps: [
     {
       id: "wacc-apv-1",
@@ -234,41 +234,27 @@ window.EDU_DATA.sjangre.push({
       ],
     },
     {
-      id: "wacc-apv-16",
-      title: "Permanent debt: APV first, then the WACC that matches it",
-      theory: `<p>With a fixed, permanent amount of debt, APV is the natural route: V<sup>L</sup> = V<sup>U</sup> + τ<sub>c</sub>D (Kurbatov's PS2 Exercise 9). The WACC method still works when nothing grows, because D/V is then constant. The shortcut r<sub>wacc</sub> = r<sub>U</sub> − (D/V)τ<sub>c</sub>r<sub>D</sub> does not: it assumes the shield is as risky as the assets. Use the rate that matches APV, solved together with V<sup>L</sup> = FCF/r<sub>wacc</sub>.</p>
-<div class="formula"><div class="eq">V<sup>L</sup> = FCF/r<sub>U</sub> + τ<sub>c</sub>D &nbsp;·&nbsp; r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>)</div>
-<div class="where">Level perpetual FCF and permanent D, equation 18.21 in the book. Nothing grows, so D/V<sup>L</sup> stays constant. The full formula (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ<sub>c</sub>) gives the same rate once r<sub>E</sub> comes from the equity's own cash flow.</div></div>`,
-      example: `<div class="worked"><span class="wh">Example: PS2 Exercise 9</span><p>FCF 2 million a year forever, r<sub>U</sub> = 11%, permanent debt 12 million, τ<sub>c</sub> = 25%.</p><p>V<sup>U</sup> = 2/0.11 = 18.18, PV(TS) = 0.25 × 12 = 3.00 and V<sup>L</sup> = 21.18. Then r<sub>wacc</sub> = 0.11 × (1 − 0.25 × 12/21.1818) = 9.4421%. Forwards: 2/0.094421 = 21.18.</p></div>`,
-      q: `<p>A firm's free cash flow is 9 a year forever, with no growth. Its unlevered cost of capital is 12%. It has 40 of permanent debt at r<sub>D</sub> = 5%, which it will never change. The corporate tax rate is 22%. Which after-tax WACC values this firm correctly? Give four decimals.</p>`,
-      options: ["11.4749%", "10.7399%", "10.5920%", "11.4407%"],
-      answer: 1,
-      solution: `<p><b>APV.</b> V<sup>U</sup> = 9/0.12 = 75.00. The debt is fixed and permanent, so PV(TS) = 0.22 × 40 = 8.80 and V<sup>L</sup> = 83.80.</p><p><b>The matching rate.</b> r<sub>wacc</sub> = 0.12 × (1 − 0.22 × 40/83.80) = 0.12 × 0.894988 = <b>10.7399%</b>.</p>`,
-      check: `<p>Forwards: 9/0.107399 = 83.80, the APV value. Through the equity: E = 83.80 − 40 = 43.80 and its cash flow is 9 − 0.05 × 0.78 × 40 = 7.44, so r<sub>E</sub> = 7.44/43.80 = 16.9863%. Full formula: (43.80/83.80) × 16.9863% + (40/83.80) × 5% × 0.78 = 8.8783% + 1.8616% = 10.7399% ✓. The shortcut r<sub>U</sub> − (D/V)τ<sub>c</sub>r<sub>D</sub> would value the firm at only 78.43.</p>`,
-      traps: [
-        "Used the constant-D/V shortcut: 12% − (40/83.80) × 22% × 5% = 11.4749%. It treats the shield as risky as the assets, which permanent debt is not.",
-        null,
-        "Measured the debt against V<sup>U</sup> instead of V<sup>L</sup>: 0.12 × (1 − 0.22 × 40/75) = 10.5920%.",
-        "Discounted the shield at r<sub>U</sub>: PV(TS) = 0.22 × 0.05 × 40/0.12 = 3.6667, so V<sup>L</sup> = 78.6667 and 9/78.6667 = 11.4407%. A fixed, permanent shield is as safe as the debt.",
+      id: "wacc-apv-23",
+      title: "Permanent debt: why APV and what the WACC would get wrong",
+      theory: `<p>Kurbatov's biggest takeaway from the valuation lectures: the WACC method works only when the firm keeps a constant debt ratio. With a fixed, permanent amount of debt, value the firm by APV, V<sup>L</sup> = V<sup>U</sup> + τ<sub>c</sub>D, because the shield is as safe as the debt and is discounted at r<sub>D</sub> (PS2 Exercise 9). The lectures also show an adjusted WACC for permanent debt and unlevering with D(1 − τ<sub>c</sub>) weights. Kurbatov called both not mandatory: on the exam you use only the formula sheet, whose WACC assumes a constant D/E. What can come is the intuition behind them.</p>
+<div class="formula"><div class="eq">Permanent debt: V<sup>L</sup> = V<sup>U</sup> + τ<sub>c</sub>D</div>
+<div class="where">The shield τ<sub>c</sub>r<sub>D</sub>D a year never changes, so it is as safe as the interest. The formula-sheet WACC assumes a constant D/E, so the shield it builds in is as risky as the assets.</div></div>`,
+      example: `<div class="worked"><span class="wh">Example</span><p>FCF 9 a year forever, r<sub>U</sub> = 12%, permanent debt 40 at r<sub>D</sub> = 5%, τ<sub>c</sub> = 22%. APV: 9/0.12 + 0.22 × 40 = 75.00 + 8.80 = 83.80. Discount the same shield at r<sub>U</sub>, as a constant ratio would: 0.22 × 0.05 × 40/0.12 = 3.6667, so the firm comes out at only 78.67.</p></div>`,
+      q: `<p>A firm has a fixed amount of permanent debt that it will never change. An analyst values it with the formula-sheet WACC, (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ<sub>c</sub>), using today's weights and an r<sub>E</sub> from the formula-sheet MM II. What is wrong? What should you do on the exam?</p>`,
+      options: [
+        "Nothing: the WACC method gives the same value as APV for any debt policy, so the analyst's number is right",
+        "The weights should be book values: with fixed debt the market weights move, so use the balance sheet",
+        "He should discount the free cash flow at r<sub>D</sub>, since permanent debt makes the firm as safe as its lenders",
+        "His rates assume a constant D/E, so the safe shield is discounted at r<sub>U</sub>. Use APV: V<sup>U</sup> plus τ<sub>c</sub>D",
       ],
-    },
-    {
-      id: "wacc-apv-17",
-      title: "Unlevering when the debt is fixed: D(1 − τ) weights",
-      theory: `<p>The course unlevers with plain market-value weights because a firm that rebalances to a target D/V has a shield as risky as its assets. When the debt is a fixed, permanent amount, Kurbatov (lecture 8) points out that the pre-tax WACC no longer equals r<sub>U</sub>. The shield τ<sub>c</sub>D is then safe, so the risky assets are worth only V<sup>U</sup> = E + D(1 − τ<sub>c</sub>). The debt enters with weight D(1 − τ<sub>c</sub>). The same weights unlever betas.</p>
-<div class="formula"><div class="eq">r<sub>U</sub> = [E/(E + D(1 − τ<sub>c</sub>))] r<sub>E</sub> + [D(1 − τ<sub>c</sub>)/(E + D(1 − τ<sub>c</sub>))] r<sub>D</sub></div>
-<div class="where">Use it only when the question says the debt is fixed or permanent. With a target D/V or D/E keep the plain weights. Rearranged it is MM II with taxes: r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>).</div></div>`,
-      example: `<div class="worked"><span class="wh">Example</span><p>E = 360 and permanent debt D = 300 at r<sub>D</sub> = 5%, r<sub>E</sub> = 12%, τ<sub>c</sub> = 20%. D(1 − τ<sub>c</sub>) = 240.</p><p>r<sub>U</sub> = (360 × 12% + 240 × 5%)/600 = (43.20 + 12.00)/600 = 9.20%. The plain weights would give (43.20 + 15.00)/660 = 8.8182%.</p></div>`,
-      q: `<p>A listed twin has equity worth 600 and 400 of permanent, risk-free debt at r<sub>D</sub> = 4%, which it never changes. Its cost of equity is 11%. The corporate tax rate is 25%. What is the twin's unlevered cost of capital, to four decimals?</p>`,
-      options: ["8.6667%", "8.3333%", "7.8000%", "8.2000%"],
-      answer: 0,
-      solution: `<p>D(1 − τ<sub>c</sub>) = 400 × 0.75 = 300, so the weights are 600/900 and 300/900.</p><p>r<sub>U</sub> = (600 × 11% + 300 × 4%)/900 = (66 + 12)/900 = 78/900 = <b>8.6667%</b>.</p>`,
-      check: `<p>Through the cash flows: with no growth the firm's FCF is the equity's 0.11 × 600 = 66 plus after-tax interest 0.04 × 400 × 0.75 = 12, so 78. APV backwards: V<sup>U</sup> = V<sup>L</sup> − τ<sub>c</sub>D = 1 000 − 100 = 900. Then 78/900 = 8.6667% ✓. MM II with taxes returns the cost of equity: 8.6667% + (400/600) × 0.75 × (8.6667% − 4%) = 8.6667% + 2.3333% = 11% ✓. Both routes rearrange the same formula, so they confirm the arithmetic only. Only the question's word permanent tells you to use these weights.</p>`,
+      answer: 3,
+      solution: `<p>The formula-sheet WACC and MM II assume the firm keeps D/E constant. Then the shield moves with the firm's value and carries the assets' risk, so the WACC discounts it at r<sub>U</sub>. This firm's debt never changes: its shield τ<sub>c</sub>r<sub>D</sub>D is as safe as the interest and is worth <b>τ<sub>c</sub>D</b>. The analyst undervalues the shield. On the exam, value permanent debt by APV: <b>V<sup>L</sup> = V<sup>U</sup> + τ<sub>c</sub>D</b>.</p>`,
+      check: `<p>Run the example: APV gives 83.80, while the same shield discounted at r<sub>U</sub> gives 78.67. The gap is the shield's lower risk, which the constant-ratio WACC leaves out ✓ Had the question said the firm keeps D/V constant, the WACC method would have been right.</p>`,
       traps: [
+        "WACC = APV only when the inputs match the debt policy. These inputs assume a constant D/E, so the safe shield is discounted at r<sub>U</sub> and the value comes out below APV.",
+        "Book values never belong in the weights. The problem is the debt policy, not the kind of weights.",
+        "Only the tax shield is as safe as the debt. The business risk stays, so V<sup>U</sup> is still discounted at r<sub>U</sub>.",
         null,
-        "Put the tax factor on both the weight and the rate: (66 + 300 × 4% × 0.75)/900 = (66 + 9)/900 = 8.3333%.",
-        "Computed the after-tax WACC: 0.60 × 11% + 0.40 × 4% × 0.75 = 7.8000%. That rate values the levered firm, so it is not r<sub>U</sub>.",
-        "Used the plain weights E/V and D/V: 0.60 × 11% + 0.40 × 4% = 8.2000%. They assume a target D/V. This debt is fixed.",
       ],
     },
     {

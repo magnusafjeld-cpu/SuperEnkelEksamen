@@ -11,6 +11,13 @@
 
    id-ene er lagringsnøkler for valgene dine. De må aldri endres.
 
+   Vektene ble justert 22. november 2026 etter signalfilen fra opptakene (del 7):
+   agent og kreditt fra 3 til 4. Kurbatov pekte ut gjeldsoverheng, gambling for
+   resurrection og wealth transfer som eksamenskandidater, og sa at et CDS-eksempel
+   som i forelesning 10 og Google-oppgaven med senior og junior gjeld kan komme.
+   Målet for wacc-apv ble satt ned fra 70 til 65 da regnefamiliene for justert WACC
+   (wac-perm1, wac-perm2) ble fjernet: Kurbatov kalte dem «not mandatory».
+
    Oppsettet under gjelder hele faget (se tools/bygg-trening.py):
      SPRAK      engelsk tallformat: punktum som desimaltegn, hardt mellomrom
                 som tusenskille, ekte minustegn
@@ -51,18 +58,18 @@ TEMAER = [
     dict(id="skatt", navn="Taxes, the tax shield and the trade-off", kort="Tax shield", vekt=4, kap=[7, 8], kjerne="kj3", mal=55,
          beskrivelse="The interest tax shield with permanent and predetermined debt, recapitalisation with taxes, "
                      "the trade-off theory, financial distress and fire sales."),
-    dict(id="agent", navn="Agency costs of debt", kort="Agency", vekt=3, kap=[9, 10, 11], kjerne="kj5", mal=45,
+    dict(id="agent", navn="Agency costs of debt", kort="Agency", vekt=4, kap=[9, 10, 11], kjerne="kj5", mal=45,
          beskrivelse="Risk shifting, debt overhang, spin-offs and gambling for resurrection."),
     dict(id="info", navn="Asymmetric information and issuing securities", kort="Information", vekt=3, kap=[12, 13, 14], kjerne="kj6", mal=45,
          beskrivelse="Myers-Majluf, the pecking order, IPOs and SEOs."),
     dict(id="utbytte", navn="Payout policy", kort="Payout", vekt=3, kap=[15, 16], kjerne="kj2", mal=45,
          beskrivelse="Payout under MM, dividends against buybacks, signals, clienteles and taxes."),
-    dict(id="wacc-apv", navn="Valuation with leverage: WACC, APV and FTE", kort="WACC and APV", vekt=5, kap=[17, 18, 19, 20, 2], kjerne="kj4", mal=70,
+    dict(id="wacc-apv", navn="Valuation with leverage: WACC, APV and FTE", kort="WACC and APV", vekt=5, kap=[17, 18, 19, 20, 2], kjerne="kj4", mal=65,
          beskrivelse="Free cash flow, WACC, APV, FTE, debt capacity, constant interest coverage and permanent debt."),
     dict(id="opsjoner", navn="Options: payoffs, parity and binomial pricing", kort="Options", vekt=4, kap=[21, 22, 23], kjerne="kj7", mal=55,
          beskrivelse="Payoffs, put-call parity, the binomial model, the risk-neutral probability ρ and "
                      "Black-Scholes as intuition only."),
-    dict(id="kreditt", navn="Debt and equity as options: credit risk", kort="Credit risk", vekt=3, kap=[24, 5], kjerne="kj8", mal=45,
+    dict(id="kreditt", navn="Debt and equity as options: credit risk", kort="Credit risk", vekt=4, kap=[24, 5], kjerne="kj8", mal=45,
          beskrivelse="Equity and debt as options, senior and junior debt, credit spreads and CDS."),
     dict(id="realopsjon", navn="Real options", kort="Real options", vekt=5, kap=[25], kjerne="kj9", mal=60,
          beskrivelse="The options to wait and to abandon (compared with 0), staged investment, the value of "
@@ -105,7 +112,8 @@ INTRO = {
             ("r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ<sub>c</sub>)",
              "The after-tax WACC at the target weights."),
             ("Fixed permanent debt: weights E/(E + D(1 − τ<sub>c</sub>)) and D(1 − τ<sub>c</sub>)/(E + D(1 − τ<sub>c</sub>))",
-             "Only when the question says the amount of debt is fixed and permanent (lecture 8, slide 18)."),
+             "Intuition only. Kurbatov calls this weighting not mandatory: exam WACC questions assume a constant D/E "
+             "and use the formula sheet (lecture 8, slide 18)."),
         ],
         feller=[
             "β<sub>D</sub> set to 0 when the debt is risky: it understates β<sub>U</sub> and the WACC and overvalues the firm",
@@ -226,7 +234,8 @@ INTRO = {
             ("P<sub>0</sub> = (P<sub>1</sub> + Div<sub>1</sub>) / (1 + r<sub>E</sub>)",
              "Holds whether the dividend is paid from cash or from new shares. Payout policy does not change P<sub>0</sub>."),
             ("τ<sub>d</sub>* = (τ<sub>d</sub> − τ<sub>g</sub>) / (1 − τ<sub>g</sub>)",
-             "The effective tax disadvantage of dividends. The price drops by Div(1 − τ<sub>d</sub>*)."),
+             "The effective tax disadvantage of dividends. The price drops by Div(1 − τ<sub>d</sub>*). It is zero "
+             "when τ<sub>d</sub> = τ<sub>g</sub>, as in the US and Norway today."),
             ("Clienteles",
              "Individuals prefer buybacks, corporations prefer dividends, institutions are indifferent."),
         ],
@@ -240,7 +249,7 @@ INTRO = {
         tester=[
             "Free cash flow without interest, with the change in working capital",
             "WACC, APV and FTE on the same firm and why they agree",
-            "Debt capacity D<sub>t</sub> = d × V<sup>L</sup><sub>t</sub>, constant interest coverage and permanent debt",
+            "Debt capacity D<sub>t</sub> = d × V<sup>L</sup><sub>t</sub> and the shortcuts for constant interest coverage and permanent debt",
         ],
         formler=[
             ("FCF = EBIT(1 − τ<sub>c</sub>) + Dep − CapEx − ΔNWC",
@@ -253,8 +262,9 @@ INTRO = {
              "Net borrowing belongs in FCFE."),
             ("Interest = k × FCF gives V<sup>L</sup> = (1 + τ<sub>c</sub>k)V<sup>U</sup>",
              "Constant interest coverage (lecture 8, slide 17)."),
-            ("Permanent debt without growth: r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>)",
-             "Solve together with V<sup>L</sup> = FCF / r<sub>wacc</sub>. It agrees with V<sup>U</sup> + τ<sub>c</sub>D."),
+            ("Permanent debt: V<sup>L</sup> = V<sup>U</sup> + τ<sub>c</sub>D",
+             "Use APV. The adjusted WACC for permanent debt is not mandatory (Kurbatov): the WACC method on the exam "
+             "assumes a constant D/E."),
         ],
         feller=[
             "Interest subtracted in the FCF: the tax shield is then counted twice",

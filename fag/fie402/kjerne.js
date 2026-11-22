@@ -24,7 +24,7 @@ window.EDU_DATA.kjerne.push({
 <h3>The format</h3>
 <ul>
 <li>Six exercises, 100 points, three or four hours (check the exam information). Pen, paper, a scientific calculator, one bilingual dictionary and the course formula sheet (the last page; no sheet of your own). English, no multiple choice.</li>
-<li>Two short theory exercises of about 10–12 points, common sense within sentence budgets; governance has been one every time (kj11). Four problems, about 80% of the paper: part (a) is easy, several end with 3–5 points of intuition.</li>
+<li>Two short theory exercises of about 10–12 points, common sense within sentence budgets; governance has been one every time and is nearly certain again, probably from a new angle (kj11). The topics can shift between exercises, so do not count on the old order. Four problems, about 80% of the paper: part (a) is easy, several end with 3–5 points of intuition.</li>
 <li>Every block appears: capital structure and payout, valuation with debt, options and real options, M&amp;A and governance, often with a twist ("what if the deal is delayed a year?").</li>
 <li>About 1.8 minutes per point on three hours. A follow-on error gets full credit on the next part, so if a step will not come, write a labelled assumption and carry on. Four decimals on rates; an A has needed about 90 points.</li>
 <li>Read the question. "Evaluate the project" means the project's NPV, not the firm's value; a PV is not an NPV. Part of a year is a power: (1 + r)<sup>1.5</sup> for 18 months, √(1 + r) for six, (1 + r)<sup>1/12</sup> − 1 a month.</li>
@@ -54,9 +54,9 @@ window.EDU_DATA.kjerne.push({
 <h3>The formula sheet</h3>
 <p>It gives FCF from EBIT, the perpetuities, the CAPM, MM II, the β<sub>U</sub> weighting, both WACCs, binomial replication and the stock-swap NPVs. Memorise: V<sup>L</sup> = V<sup>U</sup> + PV(TS) and the rate on the shield (kj3, kj4); D<sub>t</sub> = d·V<sup>L</sup><sub>t</sub> (kj4); put-call parity (kj7); Myers-Majluf and its rationality check (kj6); all of real options, with the annuity C·[1 − (1 + r)<sup>−n</sup>]/r (kj9). Black-Scholes is not computed on the exam, only its intuition.</p>
 <h3>How to use this path</h3>
-<p>Parts kj1 to kj4 are one chain, the valuation machine: read them in order. Parts kj5 to kj11 stand alone. Write each minicase on paper before you open the solution. Kurbatov's order of preparation: his two papers, the problem sets (anything that fits in a few lines can come), his slides ("understand everything in this presentation"), the textbook last.</p>
+<p>Parts kj1 to kj4 are one chain, the valuation machine: read them in order. Parts kj5 to kj11 stand alone. Write each minicase on paper before you open the solution. Kurbatov's order of preparation: his two papers, the problem sets (anything that fits in a few lines can come, three-star exercises included), his slides ("understand everything in this presentation"), the textbook last.</p>
 <div class="callout tip husk"><span class="h">Must know</span>
-<ul><li>Six exercises, 100 points: two short theory exercises (governance every time) and four problems with intuition at the end; every block appears; a follow-on error is not punished twice.</li>
+<ul><li>Six exercises, 100 points: two short theory exercises (governance nearly certain, new angle likely) and four problems with intuition at the end; every block appears; a follow-on error is not punished twice.</li>
 <li>On every quantitative sub-question: state the method, show the numbers, name the mechanism, run the check. Project NPV is not firm value and PV is not NPV.</li>
 <li>The five checks: (1) value by WACC = value by APV; (2) [E/V]β<sub>E</sub> + [D/V]β<sub>D</sub> = β<sub>U</sub>; (3) creditors' gain + shareholders' gain = the project's NPV; (4) creditors' gain = shareholders' loss when total value is fixed; (5) investors' beliefs are rational given the action taken.</li>
 <li>Not on the formula sheet: the tax-shield rules, D<sub>t</sub> = d·V<sup>L</sup><sub>t</sub>, put-call parity, Myers-Majluf and all of real options. Black-Scholes and β<sub>E</sub> near distress are intuition only.</li></ul></div>
@@ -110,7 +110,7 @@ window.EDU_DATA.kjerne.push({
 <div class="where">The default, as on the formula sheet: untaxed weights. They assume the firm rebalances to a target D/V, so the tax shield carries asset risk and then the pre-tax WACC equals r<sub>U</sub>.</div></div>
 <p>Fixed (predetermined) debt is the exception (lecture 8): its shield τ<sub>c</sub>D is as safe as the debt, so net it out of D:</p>
 <div class="formula"><div class="eq">r<sub>U</sub> = [E/(E + D(1 − τ<sub>c</sub>))]r<sub>E</sub> + [D(1 − τ<sub>c</sub>)/(E + D(1 − τ<sub>c</sub>))]r<sub>D</sub></div>
-<div class="where">Fixed permanent debt, same weights for β; the pre-tax WACC is then not r<sub>U</sub>. Solved for r<sub>E</sub> it is r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>). Use it only when the question says the debt is fixed.</div></div>
+<div class="where">Fixed permanent debt, same weights for β; the pre-tax WACC is then not r<sub>U</sub>. Solved for r<sub>E</sub> it is r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ<sub>c</sub>)(r<sub>U</sub> − r<sub>D</sub>). Not an exam calculation: Kurbatov called it "not mandatory" and the exam uses only the formula sheet's weights, so know it as intuition.</div></div>
 <p>Solve the weighting for the equity side and you get MM Proposition II, in rates or in betas:</p>
 <div class="formula"><div class="eq">r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) &nbsp;·&nbsp; β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>)</div>
 <div class="eq">r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ<sub>c</sub>) = r<sub>U</sub> − (D/V)r<sub>D</sub>τ<sub>c</sub></div>
@@ -141,7 +141,7 @@ window.EDU_DATA.kjerne.push({
 <li><b>Market values, not book values,</b> in every weight.</li>
 </ul></div>
 <div class="callout tip husk"><span class="h">Must know</span>
-<ul><li>β<sub>U</sub> = [E/V]β<sub>E</sub> + [D/V]β<sub>D</sub> with a target ratio, the default (pre-tax WACC = r<sub>U</sub>); with fixed permanent debt, weight debt by D(1 − τ<sub>c</sub>). D is net of excess cash.</li>
+<ul><li>β<sub>U</sub> = [E/V]β<sub>E</sub> + [D/V]β<sub>D</sub> with a target ratio, the default (pre-tax WACC = r<sub>U</sub>); with fixed permanent debt the weights become D(1 − τ<sub>c</sub>), as intuition only (not an exam calculation). D is net of excess cash.</li>
 <li>Twin-firm routine: twin's r<sub>E</sub>, r<sub>D</sub> → β<sub>E</sub>, β<sub>D</sub> → β<sub>U</sub> with the twin's weights → r<sub>U</sub> → relever with your own D/E and own r<sub>D</sub> → r<sub>E</sub> → r<sub>wacc</sub>.</li>
 <li>MM II multiplies by D/E, not D/V: r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>).</li>
 <li>β<sub>D</sub> = 0 on risky debt understates β<sub>U</sub>, r<sub>U</sub> and the WACC and overvalues the firm.</li>
@@ -274,7 +274,7 @@ window.EDU_DATA.kjerne.push({
 <li>Repurchase: n = cash paid out/P at the post-announcement price. Special dividend: DPS = cash paid out/N<sub>0</sub> and P<sub>ex</sub> = P<sub>0</sub> − DPS. If old debt is refinanced, the cash paid out is D<sub>new</sub> − D<sub>old</sub>.</li>
 <li>Relever with MM II at the new D/E and the new r<sub>D</sub>; the check that can fail is new DPS / new r<sub>E</sub> = the price.</li>
 <li>Seller, holder and dividend taker end with the same wealth and homemade dividends (or reinvesting) undo any payout choice; EPS can change, value does not.</li>
-<li>With frictions: taxes favour repurchases for taxable holders when τ<sub>d</sub> &gt; τ<sub>g</sub>, signalling favours smoothed dividends, free cash flow favours committed payout and reinvesting it without good projects is empire building; a tender premium is a transfer, not value.</li></ul></div>
+<li>With frictions: taxes favour repurchases for taxable holders through deferral (only sellers pay, only when they sell), plus the rate where τ<sub>d</sub> &gt; τ<sub>g</sub> (today equal in the US and Norway), signalling favours smoothed dividends, free cash flow favours committed payout and reinvesting it without good projects is empire building; a tender premium is a transfer, not value.</li></ul></div>
 `,
   checks: [
     {
@@ -487,7 +487,7 @@ window.EDU_DATA.kjerne.push({
 <div class="callout mech"><span class="h">Why does a target ratio make the shield risky?</span>Next year's debt is d times next year's V<sup>L</sup>, so the shield moves with the assets and is priced at r<sub>U</sub>. Fixed debt is a contract number, so its shield is as safe as the interest, which r<sub>D</sub> prices.</div>
 <p>Fixed permanent debt with no growth keeps D/V constant too, so the WACC method still works, with its own r<sub>wacc</sub>:</p>
 <div class="formula"><div class="eq">r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>), with V<sup>L</sup> = FCF/r<sub>wacc</sub></div>
-<div class="where">PS2 E9: FCF 2 forever, r<sub>U</sub> = 11%, D = 12, τ<sub>c</sub> = 25%. Solving the two together, V<sup>L</sup> = (2 + 0.11 × 0.25 × 12)/0.11 = 21.18 and r<sub>wacc</sub> = 2/21.18 = 9.44%; APV gives 18.18 + 0.25 × 12 = 21.18, as it must. Only where D/V drifts (a loan being repaid, fixed debt in a growing firm) is there no single r<sub>wacc</sub>; then use APV.</div></div>
+<div class="where">PS2 E9: FCF 2 forever, r<sub>U</sub> = 11%, D = 12, τ<sub>c</sub> = 25%. Solving the two together, V<sup>L</sup> = (2 + 0.11 × 0.25 × 12)/0.11 = 21.18 and r<sub>wacc</sub> = 2/21.18 = 9.44%; APV gives 18.18 + 0.25 × 12 = 21.18, as it must. Only where D/V drifts (a loan being repaid, fixed debt in a growing firm) is there no single r<sub>wacc</sub>; then use APV. Not an exam calculation: Kurbatov called it "not mandatory" and exam WACC questions assume a constant D/E, so on the exam value fixed debt by APV with τ<sub>c</sub>D.</div></div>
 
 <h3>Flow to equity, the debt adjustment and the share price</h3>
 <p>Flow to equity discounts the cash that reaches shareholders at their own rate:</p>
@@ -510,7 +510,7 @@ window.EDU_DATA.kjerne.push({
 <div class="callout tip husk"><span class="h">Must know</span>
 <ul><li>FCF taxes full EBIT, uses ΔNWC and never contains interest; the tax shield enters once, through the lower r<sub>wacc</sub> or as PV(TS). FCF at r<sub>wacc</sub>, FCF at r<sub>U</sub> plus PV(TS), FCFE at r<sub>E</sub>.</li>
 <li>The WACC method needs a constant D/V: roll V<sup>L</sup><sub>t</sub> back date by date, then set D<sub>t</sub> = d·V<sup>L</sup><sub>t</sub>, with d the target D/V.</li>
-<li>The tax shield is discounted at r<sub>U</sub> under constant D/E and at r<sub>D</sub> (or r<sub>f</sub>) under fixed permanent debt; only the latter gives PV(TS) = τ<sub>c</sub>D and without growth r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>). Constant interest coverage gives V<sup>L</sup> = (1 + τ<sub>c</sub>k)V<sup>U</sup>.</li>
+<li>The tax shield is discounted at r<sub>U</sub> under constant D/E and at r<sub>D</sub> (or r<sub>f</sub>) under fixed permanent debt; only the latter gives PV(TS) = τ<sub>c</sub>D (its r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>) without growth is not an exam calculation). Constant interest coverage gives V<sup>L</sup> = (1 + τ<sub>c</sub>k)V<sup>U</sup>.</li>
 <li>When V<sup>L</sup> falls, the target ratio forces a repayment ΔD<sub>t</sub> = d(V<sup>L</sup><sub>t</sub> − V<sup>L</sup><sub>t−1</sub>) that shareholders fund: it enters FCFE with a minus sign.</li>
 <li>WACC = APV (check 1) is a fixed point: it catches a wrong shield rate and arithmetic slips, not a wrong β<sub>U</sub>.</li></ul></div>
 `,
@@ -1013,7 +1013,7 @@ window.EDU_DATA.kjerne.push({
   html: `
 <div class="callout kort"><span class="h">In short</span>This part applies options to the firm's own claims. Shareholders can walk away when the firm is worth less than its debt, so equity is a call on the firm's assets with the face value of the debt as strike and risky debt is safe debt minus a put. That explains why a bond's promised yield exceeds its expected return, how default risk is priced and why more asset risk moves value from lenders to shareholders. Credit default swaps, insurance against default, close the part.</div>
 
-<p class="lead-in">Credit risk and option-based debt pricing are in eight of eleven mapped papers: 2015 Problem 4 alone was worth 90 points and 2016 Problem 4, 2021 MC7–9 and V2024 Problems 3 and 4 sit here too. Neither Kurbatov paper used it, but his wrap-up lists securities as options and lower borrowing costs after a merger (coinsurance) and he said he could ask you to explain why debt is risk-free debt minus a put.</p>
+<p class="lead-in">Credit risk and option-based debt pricing are in eight of eleven mapped papers: 2015 Problem 4 alone was worth 90 points and 2016 Problem 4, 2021 MC7–9 and V2024 Problems 3 and 4 sit here too. Neither Kurbatov paper used it, but his wrap-up lists securities as options and lower borrowing costs after a merger (coinsurance) and he said he could ask you to explain why debt is risk-free debt minus a put. In Options II he added that the lecture's CDS example, which was V2024 Problem 3, could return: "a very similar example could be in the exam".</p>
 
 <h3>Promised versus expected return</h3>
 <p>A zero-coupon bond with face value F and price P has yield y = (F/P)<sup>1/n</sup> − 1, a promised return earned only if every krone arrives. With default probability p and loss given default L = 1 − R (R the recovery rate):</p>
@@ -1325,7 +1325,7 @@ window.EDU_DATA.kjerne.push({
 <tr><th>Motive</th><th>Mechanism</th><th>Value</th></tr>
 <tr><td>Undervaluation</td><td>The acquirer knows the target is worth more than its price</td><td>Captured by the acquirer; needs better information</td></tr>
 <tr><td>Market power</td><td>Fewer competitors, higher prices</td><td>At customers' expense; regulators may block it</td></tr>
-<tr><td>Tax</td><td>Use the target's tax losses; steadier cash flow carries more debt</td><td>A transfer from the tax authority</td></tr>
+<tr><td>Tax</td><td>Steadier cash flow carries more debt. Not the target's tax losses: Kurbatov says they are erased on a change of ownership</td><td>A transfer from the tax authority</td></tr>
 <tr><td>Disciplinary takeover</td><td>Replace bad management</td><td>Real: the market for corporate control (kj11)</td></tr>
 <tr><td>Diversification, coinsurance</td><td>Pooled cash flows default less, so risky debt gets safer</td><td>None: shareholders lose what creditors gain (check 4)</td></tr>
 <tr><td>EPS manipulation</td><td>Buying a lower-P/E target lifts merged EPS</td><td>None: arithmetic (below)</td></tr>
@@ -1451,7 +1451,7 @@ window.EDU_DATA.kjerne.push({
   html: `
 <div class="callout kort"><span class="h">In short</span>Shareholders own the firm, but managers run it. Their interests are not the same. Corporate governance is the set of tools that keeps managers working for the owners: the board, shareholder votes, pay, debt and the threat of a takeover. This part explains why small shareholders rarely bother to monitor (the free-rider problem), what a larger holder can do and how takeover defences cut both ways.</div>
 
-<p class="lead-in">Exercise 2 was governance in both Kurbatov papers, 12 predictable verbal points each time. H2024 asked for two distinct ways to monitor a CEO, who monitors and with which tools; H2025 asked what a 5–10% holder can do about a shirking CEO, three actions at four points each. Neither names a country, so answer in the general framework of the lectures.</p>
+<p class="lead-in">Exercise 2 was governance in both Kurbatov papers, 12 predictable verbal points each time. Expect it again but from a new angle and for about 10 points: Kurbatov said one theory question "is pretty much always a governance-related question. So probably I will ask you something different." H2024 asked for two distinct ways to monitor a CEO, who monitors and with which tools; H2025 asked what a 5–10% holder can do about a shirking CEO, three actions at four points each. Neither names a country, so answer in the general framework of the lectures.</p>
 
 <h3>The agency problem and the free rider</h3>
 <p>Owners want value; the manager also wants pay, security, size and an easy life. Name the wedges: shirking, perks, empire building, entrenchment, excessive caution, earnings management. The agency cost is the value destroyed, not what he captures: a perk worth 3 to him that costs the firm 20 is a cost of 20. Investors pricing the waste up front does not prevent it. Owners also under-monitor, because the cost is private and the gain shared:</p>
@@ -1465,7 +1465,7 @@ window.EDU_DATA.kjerne.push({
 
 <p><b>Shareholders or stakeholders?</b> Governance mostly holds managers to account to the owners; Friedman (1970) saw "social responsibility" as spending the owners' money. The stakeholder view adds employees, customers and communities; its critics see too many missions with conflicting goals. In the Stanford survey 89% of CEOs and CFOs call stakeholder interests important, only 23% rank shareholders significantly higher and employees count most.</p>
 <h3>The monitors and their tools</h3>
-<p>A monitor without a tool is not a monitor. The <b>board</b> hires, pays and dismisses the CEO; it monitors only if independent, since the CEO controls its information. Directors are insiders, grey (tied to the firm) or independent; watch for a captive board, a CEO who chairs it, a staggered board that is hard to replace, a large board and busy directors. <b>Blockholders</b> have board seats and credible votes, but may exploit minorities. <b>Institutions</b> aggregate votes, but many simply follow proxy advisers (ISS, Glass Lewis); small holders vote few of their shares, so "just vote no" seldom wins. The <b>market for corporate control</b> replaces the whole team and its threat alone disciplines. <b>Pay</b> in stock raises pay-performance sensitivity and relative performance filters out market and industry noise, but targets and KPIs make him short-termist (a buyback to hit the EPS target). <b>Debt</b> removes free cash flow and default ends careers. <b>Auditors, analysts, lenders, employees and the authorities</b> watch too; <b>regulation</b> (Sarbanes-Oxley after Enron, Dodd-Frank) sets independent audits, disclosure and compensation committees. Monitoring has a cost: a manager watched too closely becomes too passive, so the choice is freedom against control.</p>
+<p>A monitor without a tool is not a monitor. The <b>board</b> hires, pays and dismisses the CEO; it monitors only if independent, since the CEO controls its information. Directors are insiders, grey (tied to the firm) or independent; watch for a captive board, a CEO who chairs it, a staggered board that is hard to replace, a board outside about 7 to 11 members (too small lacks capacity, too large free-rides) and busy directors. <b>Blockholders</b> have board seats and credible votes, but may exploit minorities. <b>Institutions</b> aggregate votes, but many simply follow proxy advisers (ISS, Glass Lewis); small holders vote few of their shares, so "just vote no" seldom wins. The <b>market for corporate control</b> replaces the whole team and its threat alone disciplines. <b>Pay</b> in stock raises pay-performance sensitivity and relative performance filters out market and industry noise, but targets and KPIs make him short-termist (a buyback to hit the EPS target). <b>Debt</b> removes free cash flow and default ends careers. <b>Auditors, analysts, lenders, employees and the authorities</b> watch too; <b>regulation</b> (Sarbanes-Oxley after Enron, Dodd-Frank) sets independent audits, disclosure and compensation committees. Monitoring has a cost: a manager watched too closely becomes too passive, so the choice is freedom against control.</p>
 
 <h3>What a 5–10% blockholder can do</h3>
 <div class="callout mech"><span class="h">Why 5–10% is the interesting stake</span>He is at or above α*, so monitoring can pay, but he cannot outvote the register alone, so every action must persuade others. Selling a block that size moves the price: exit is costly, voice affordable.</div>

@@ -95,7 +95,7 @@
   "ch": 4,
   "deck": "tvillingfirma og beta",
   "front": "Unlever a twin whose debt is fixed and permanent. (Equity 988, permanent debt 400 at 4%, cost of equity 10.5789%, tax 22%)",
-  "back": "<b>r<sub>U</sub> = (988 × 10.5789% + 312 × 4%)/1 300 = 9%</b><br>1. Fixed permanent debt: the tax shield is as safe as the debt, so weight the debt net of it: D(1 − τ) = 400 × 0.78 = 312.<br>2. r<sub>U</sub> = (104.52 + 12.48)/1 300 = 9%. Same weights for betas.<br>3. Equivalent: r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ)(r<sub>U</sub> − r<sub>D</sub>) = 9% + 0.4049 × 0.78 × 5% = 10.5789% ✓<br>Trap: 8.683% (plain weights E/V and D/V: the pre-tax WACC, which equals r<sub>U</sub> only under constant D/V). Use D(1 − τ) only when the question says the debt is fixed.<br>(Lecture 8 slide 18, manual 7.4)"
+  "back": "<b>r<sub>U</sub> = (988 × 10.5789% + 312 × 4%)/1 300 = 9%</b><br>1. Fixed permanent debt: the tax shield is as safe as the debt, so weight the debt net of it: D(1 − τ) = 400 × 0.78 = 312.<br>2. r<sub>U</sub> = (104.52 + 12.48)/1 300 = 9%. Same weights for betas.<br>3. Equivalent: r<sub>E</sub> = r<sub>U</sub> + (D/E)(1 − τ)(r<sub>U</sub> − r<sub>D</sub>) = 9% + 0.4049 × 0.78 × 5% = 10.5789% ✓<br>4. Not on the exam as a calculation: Kurbatov calls this weighting not mandatory. His WACC questions assume a constant D/E and use only the formula sheet. Know why the weights change.<br>Trap: 8.683% (plain weights E/V and D/V: the pre-tax WACC, which equals r<sub>U</sub> only under constant D/V). Use D(1 − τ) only when the question says the debt is fixed.<br>(Lecture 8 slide 18, manual 7.4)"
  },
  {
   "id": "ok-tvilling-15",
@@ -270,7 +270,7 @@
   "ch": 7,
   "deck": "skatt og trade-off",
   "front": "Cost of equity with permanent debt. (Unlevered value 1 300, unlevered cost 9%, permanent debt 400 at 4%, tax 22%, all cash flow paid out)",
-  "back": "<b>r<sub>E</sub> = 9% + (400/988)(1 − 0.22)(9% − 4%) = 10.5789%</b><br>1. V<sup>L</sup> = 1 300 + 0.22 × 400 = 1 388, so E = 988.<br>2. Fixed debt: the safe shield lowers the equity's risk, hence the (1 − τ) factor.<br>Check: FCF = 0.09 × 1 300 = 117. Equity gets 117 − 0.78 × 16 = 104.52; 104.52/988 = 10.5789% ✓ (this route needs no formula)<br>Trap: 11.0243% (the formula-sheet MM II, which assumes constant D/V).<br>(Manual 7.4, lecture 8 slide 18)"
+  "back": "<b>r<sub>E</sub> = 9% + (400/988)(1 − 0.22)(9% − 4%) = 10.5789%</b><br>1. V<sup>L</sup> = 1 300 + 0.22 × 400 = 1 388, so E = 988.<br>2. Fixed debt: the safe shield lowers the equity's risk, hence the (1 − τ) factor.<br>3. Not on the exam as a calculation: Kurbatov calls the (1 − τ) version not mandatory. Know the direction: a safe shield makes the equity less risky.<br>Check: FCF = 0.09 × 1 300 = 117. Equity gets 117 − 0.78 × 16 = 104.52; 104.52/988 = 10.5789% ✓ (this route needs no formula)<br>Trap: 11.0243% (the formula-sheet MM II, which assumes constant D/V).<br>(Manual 7.4, lecture 8 slide 18)"
  },
  {
   "id": "ok-skatt-06",
@@ -760,7 +760,7 @@
   "ch": 18,
   "deck": "WACC, APV og FTE",
   "front": "Project value with permanent debt by APV, checked with the WACC. (FCF 2 a year forever, no growth, unlevered cost 11%, permanent debt 12, tax 25%)",
-  "back": "<b>V<sup>L</sup> = 18.1818 + 0.25 × 12 = 21.1818</b><br>1. V<sup>U</sup> = 2/0.11 = 18.1818. Permanent debt: PV(TS) = τ<sub>c</sub>D = 3.<br>2. No growth, so D/V = 12/21.1818 = 0.5665 stays constant and the WACC method works: r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V) = 11% × (1 − 0.25 × 0.5665) = 9.4421%.<br>Check: 2/0.094421 = 21.1818 ✓<br>Trap: r<sub>wacc</sub> = r<sub>U</sub> − dτ<sub>c</sub>r<sub>D</sub>, the constant-ratio formula, which assumes the shield has asset risk. With growth the ratio drifts and only APV works.<br>(PS2 E9, practice session 2, manual 18.3)"
+  "back": "<b>V<sup>L</sup> = 18.1818 + 0.25 × 12 = 21.1818</b><br>1. V<sup>U</sup> = 2/0.11 = 18.1818. Permanent debt: PV(TS) = τ<sub>c</sub>D = 3.<br>2. No growth, so D/V = 12/21.1818 = 0.5665 stays constant and the WACC method works: r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V) = 11% × (1 − 0.25 × 0.5665) = 9.4421%.<br>3. The WACC check is intuition only: Kurbatov calls the WACC for permanent debt not mandatory. On the exam, value permanent debt by APV.<br>Check: 2/0.094421 = 21.1818 ✓<br>Trap: r<sub>wacc</sub> = r<sub>U</sub> − dτ<sub>c</sub>r<sub>D</sub>, the constant-ratio formula, which assumes the shield has asset risk. With growth the ratio drifts and only APV works.<br>(PS2 E9, practice session 2, manual 18.3)"
  },
  {
   "id": "ok-wacc-13",

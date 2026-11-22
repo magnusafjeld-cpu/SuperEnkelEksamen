@@ -30,7 +30,7 @@ window.EDU_DATA.kjerne.push({
 <div class="callout mech"><span class="h">Why does a target ratio make the shield risky?</span>Next year's debt is d times next year's V<sup>L</sup>, so the shield moves with the assets and is priced at r<sub>U</sub>. Fixed debt is a contract number, so its shield is as safe as the interest, which r<sub>D</sub> prices.</div>
 <p>Fixed permanent debt with no growth keeps D/V constant too, so the WACC method still works, with its own r<sub>wacc</sub>:</p>
 <div class="formula"><div class="eq">r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>), with V<sup>L</sup> = FCF/r<sub>wacc</sub></div>
-<div class="where">PS2 E9: FCF 2 forever, r<sub>U</sub> = 11%, D = 12, τ<sub>c</sub> = 25%. Solving the two together, V<sup>L</sup> = (2 + 0.11 × 0.25 × 12)/0.11 = 21.18 and r<sub>wacc</sub> = 2/21.18 = 9.44%; APV gives 18.18 + 0.25 × 12 = 21.18, as it must. Only where D/V drifts (a loan being repaid, fixed debt in a growing firm) is there no single r<sub>wacc</sub>; then use APV.</div></div>
+<div class="where">PS2 E9: FCF 2 forever, r<sub>U</sub> = 11%, D = 12, τ<sub>c</sub> = 25%. Solving the two together, V<sup>L</sup> = (2 + 0.11 × 0.25 × 12)/0.11 = 21.18 and r<sub>wacc</sub> = 2/21.18 = 9.44%; APV gives 18.18 + 0.25 × 12 = 21.18, as it must. Only where D/V drifts (a loan being repaid, fixed debt in a growing firm) is there no single r<sub>wacc</sub>; then use APV. Not an exam calculation: Kurbatov called it "not mandatory" and exam WACC questions assume a constant D/E, so on the exam value fixed debt by APV with τ<sub>c</sub>D.</div></div>
 
 <h3>Flow to equity, the debt adjustment and the share price</h3>
 <p>Flow to equity discounts the cash that reaches shareholders at their own rate:</p>
@@ -53,7 +53,7 @@ window.EDU_DATA.kjerne.push({
 <div class="callout tip husk"><span class="h">Must know</span>
 <ul><li>FCF taxes full EBIT, uses ΔNWC and never contains interest; the tax shield enters once, through the lower r<sub>wacc</sub> or as PV(TS). FCF at r<sub>wacc</sub>, FCF at r<sub>U</sub> plus PV(TS), FCFE at r<sub>E</sub>.</li>
 <li>The WACC method needs a constant D/V: roll V<sup>L</sup><sub>t</sub> back date by date, then set D<sub>t</sub> = d·V<sup>L</sup><sub>t</sub>, with d the target D/V.</li>
-<li>The tax shield is discounted at r<sub>U</sub> under constant D/E and at r<sub>D</sub> (or r<sub>f</sub>) under fixed permanent debt; only the latter gives PV(TS) = τ<sub>c</sub>D and without growth r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>). Constant interest coverage gives V<sup>L</sup> = (1 + τ<sub>c</sub>k)V<sup>U</sup>.</li>
+<li>The tax shield is discounted at r<sub>U</sub> under constant D/E and at r<sub>D</sub> (or r<sub>f</sub>) under fixed permanent debt; only the latter gives PV(TS) = τ<sub>c</sub>D (its r<sub>wacc</sub> = r<sub>U</sub>(1 − τ<sub>c</sub>D/V<sup>L</sup>) without growth is not an exam calculation). Constant interest coverage gives V<sup>L</sup> = (1 + τ<sub>c</sub>k)V<sup>U</sup>.</li>
 <li>When V<sup>L</sup> falls, the target ratio forces a repayment ΔD<sub>t</sub> = d(V<sup>L</sup><sub>t</sub> − V<sup>L</sup><sub>t−1</sub>) that shareholders fund: it enters FCFE with a minus sign.</li>
 <li>WACC = APV (check 1) is a fixed point: it catches a wrong shield rate and arithmetic slips, not a wrong β<sub>U</sub>.</li></ul></div>
 `,

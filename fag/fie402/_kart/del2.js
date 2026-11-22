@@ -346,7 +346,7 @@ window.EDU_KART.del2 = {
         { label: "c", points: 1, tema: "utbytte",
           body: "<p>Now drop the perfect-market assumption. Which statement is correct?</p>",
           options: [
-            "Because dividends are taxed more heavily than capital gains, the share price falls by more than the dividend on the ex-dividend day.",
+            "If dividends are taxed more heavily than capital gains, the share price falls by more than the dividend on the ex-dividend day.",
             "A repurchase announcement is usually read as management believing the shares are overvalued, so the share price typically falls.",
             "Even in a perfect market a repurchase pays out the same cash, yet a higher dividend raises the price: investors value a certain dividend above an uncertain gain.",
             "With τ<sub>d</sub> above τ<sub>g</sub> repurchases are the cheaper payout, yet raising the dividend can signal strength a weaker firm cannot imitate."],
@@ -355,7 +355,7 @@ window.EDU_KART.del2 = {
             "Snudde signalet; tilbakekjøp tolkes som at ledelsen mener aksjen er billig.",
             "Fugl-i-hånden-feilen; i perfekt marked er utbyttepolitikken irrelevant.",
             null],
-          solution: "<p><b>Rule.</b> With τ<sub>d</sub> &gt; τ<sub>g</sub> a repurchase is the cheaper payout: a lower rate, only the gain is taxed, only for those who tender while the rest defer. That makes dividends a puzzle. One answer is signalling: raising the regular dividend commits the firm to payments it will be punished for cutting, which a firm without the cash flow cannot imitate, so the price tends to rise on the announcement. Statement D.</p><p><b>Wrong options.</b> A reverses the tax effect: with τ<sub>d</sub> &gt; τ<sub>g</sub> the price falls by less than the dividend, Div × (1 − τ<sub>d</sub>)/(1 − τ<sub>g</sub>). B reverses the repurchase signal: a buyback at market price pays the remaining owners when the shares are cheap, so it is read as undervaluation. C is the bird-in-the-hand fallacy: in a perfect market payout policy is irrelevant, since investors can create homemade dividends.</p>" },
+          solution: "<p><b>Rule.</b> With τ<sub>d</sub> &gt; τ<sub>g</sub> a repurchase is the cheaper payout: a lower rate, only the gain is taxed, only for those who tender while the rest defer. That makes dividends a puzzle. One answer is signalling: raising the regular dividend commits the firm to payments it will be punished for cutting, which a firm without the cash flow cannot imitate, so the price tends to rise on the announcement. Statement D.</p><p><b>Wrong options.</b> A reverses the tax effect: with τ<sub>d</sub> &gt; τ<sub>g</sub> the price falls by less than the dividend, Div × (1 − τ<sub>d</sub>)/(1 − τ<sub>g</sub>). B reverses the repurchase signal: a buyback at market price pays the remaining owners when the shares are cheap, so it is read as undervaluation. C is the bird-in-the-hand fallacy: in a perfect market payout policy is irrelevant, since investors can create homemade dividends.</p><p><b>Taxes today.</b> In the US and Norway the dividend tax now equals the capital-gains tax (Kurbatov, lecture 5). The advantage of a repurchase that remains is deferral: only those who sell pay and only when they sell.</p>" },
       ] },
   ],
 };

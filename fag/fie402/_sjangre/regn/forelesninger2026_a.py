@@ -256,6 +256,8 @@ pv_hoved = D / (1 + rD) ** T
 vis("kontroll: PV hovedstol", pv_hoved); vis("kontroll: tau(D − PV hovedstol)", tau * (D - pv_hoved))
 assert isclose(tau * (D - pv_hoved), fas)
 
+# wacc-apv-16 og wacc-apv-17 ble fjernet fra stigen 22. november 2026: Kurbatov kalte justert
+# WACC og D(1 − tau)-vekter «not mandatory». Regnestykkene står som dokumentasjon.
 steg("wacc-apv-16 · Permanent debt: APV and the WACC check")
 VU = 2 / 0.11; VL = VU + 0.25 * 12
 vis("eks: VU", VU); vis("eks: VL", VL); vis("eks: rwacc %", 0.11 * (1 - 0.25 * 12 / VL) * 100); vis("eks: FCF/VL %", 2 / VL * 100)
@@ -298,6 +300,13 @@ assert isclose(FCF / VU, fas)
 # MM II med skatt: r_E = r_U + (D/E)(1 − tau)(r_U − r_D)
 vis("kontroll: MM II m/skatt %", (fas + D / E * (1 - tau) * (fas - rD)) * 100)
 assert isclose(fas + D / E * (1 - tau) * (fas - rD), rE)
+
+steg("wacc-apv-23 · Permanent debt: why APV and what the WACC would get wrong")
+FCF, rU, D, tau, rD = 9.0, 0.12, 40.0, 0.22, 0.05
+VL = FCF / rU + tau * D                 # APV med skjoldet til r_D: tau·D
+VL_rU = FCF / rU + tau * rD * D / rU    # samme skjold diskontert med r_U
+vis("APV", VL); vis("skjold til r_U", tau * rD * D / rU); vis("verdi med skjold til r_U", VL_rU)
+assert isclose(VL, 83.80) and isclose(round(VL_rU, 2), 78.67)
 
 steg("wacc-apv-18 · Constant interest coverage")
 VU = 2.5 / 0.06; VL = VU * (1 + 0.4 * 0.2)

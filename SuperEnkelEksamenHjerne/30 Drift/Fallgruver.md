@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-11-21
+oppdatert: 2026-11-22
 ---
 
 # Fallgruver
@@ -533,8 +533,17 @@ eksempel lå bare i den bygde fila før de ble overført.
 
 **Kontrollen:** bygg til en kladdefil og sammenlign med `FIE432_Manual.html`. Er
 diffen tom, er fragmentene og manualen i takt. FIE459 er bygget på samme måte, med
-`tools/fie459-bygg-manual.py`. FIE402, SAM3 og Caseintervju har ingen fragmenter;
-der er manualfila selve kilden.
+`tools/fie459-bygg-manual.py`. SAM3 og Caseintervju har ingen fragmenter; der er
+manualfila selve kilden.
+
+**FIE402 er et mellomtilfelle.** `FIE402_Manual.html` er nøyaktig `_hode.html` +
+`k0.html` … `k29.html` + `_hale.html` fra `fag/fie402/_manual_arbeid/` (sjekket med
+`cmp` 22.11.2026). Rett i fragmentene og sett sammen med `cat` i den rekkefølgen.
+Fragmentmappa er gitignorert, så den finnes bare lokalt; den committede manualen er
+kopien som overlever.
+**Ikke bruk `tools/bygg-manual.py` på FIE402**: den skriver et annet hode
+(`lang="no"` og uten `_hode.html`). Kontroller med `python3 tools/sjekk-manual.py
+FIE402_Manual.html`.
 
 ## 7y. Fasiten var oftest det lengste alternativet
 

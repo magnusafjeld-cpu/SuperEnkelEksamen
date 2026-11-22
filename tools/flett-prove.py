@@ -25,9 +25,12 @@ if merke not in s:
     s = forran + "\n" + merke + " =====================\n   Laget for appen, ikke gitt av kurset. Spesifikasjon: docs/" + fag + "-proveeksamen-spek.md.\n   Kilden er fag/" + fag + "/_prove/proveN_regn.py; flettes inn med tools/flett-prove.py.\n   ============================================================ */\n];\n"
 i = s.index(merke)
 j = s.index("*/\n", i) + 3
-hode, kommentar, hale = s[:i], s[i:j], s[j:]
-assert hale.rstrip().endswith("];")
-kropp = hale.rstrip()[:-2].rstrip()
+hode, kommentar = s[:i], s[i:j]
+# Settlista lukkes med «];» på egen linje. Det som står etter (for eksempel
+# EDU_DATA.perDel i fie402), beholdes uendret.
+k = s.index("\n];", j)
+kropp = s[j:k].rstrip()
+etter = s[k + len("\n];"):]
 # Del opp de eksisterende prøvesettene.
 dek = json.JSONDecoder()
 sett, pos = [], 0
@@ -45,6 +48,6 @@ for id_ in ider:
     print(("bytter ut " if id_ in finnes else "legger til ") + id_)
     finnes[id_] = ny
 ut = [finnes[k] for k in sorted(finnes, key=lambda x: int(x[5:]))]
-s = hode + kommentar + "".join(json.dumps(o, ensure_ascii=False, indent=2) + ",\n" for o in ut) + "];\n"
+s = hode + kommentar + "".join(json.dumps(o, ensure_ascii=False, indent=2) + ",\n" for o in ut) + "];" + (etter if etter.strip() else "\n")
 open(p, "w").write(s)
 print("prøvesett nå:", [o["id"] for o in ut])

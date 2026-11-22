@@ -321,7 +321,8 @@ Break-even nye investorer:
 x × [½(180 − 100) + ½ × 0] = 24  →  x = 24/40 = 60%
 
 Managerens payoff: 40% × 40 = 16 < 25</div>
-<p>Nei, manageren vil ikke investere. Med prosjektet får gjeldseierne 100 i boom og 80 i resesjon, så gjelden stiger fra 75 til <b>90 (+15)</b>, mens den gamle eieren faller fra 25 til <b>16 (−9)</b>. Summen er 15 − 9 = 6 = NPV. Gjelden blir ikke risikofri: 80 er fortsatt under pålydende 100. Kreditorene tar mer enn hele gevinsten, og aksjonærene betaler differansen. Dette er debt overhang.</p>` },
+<p>Nei, manageren vil ikke investere. Med prosjektet får gjeldseierne 100 i boom og 80 i resesjon, så gjelden stiger fra 75 til <b>90 (+15)</b>, mens den gamle eieren faller fra 25 til <b>16 (−9)</b>. Summen er 15 − 9 = 6 = NPV. Gjelden blir ikke risikofri: 80 er fortsatt under pålydende 100. Kreditorene tar mer enn hele gevinsten og aksjonærene betaler differansen. Dette er debt overhang.</p>
+<p><b>Eksamenssignal:</b> Kurbatov sier at rundt halvparten av poengene i en overheng-oppgave er setningen «the firm forgoes positive-NPV projects» (opptak 04, 44:31). Resten er at de nye pengene er junior, så de gamle kreditorene tar mye av gevinsten. Bruk også ordene «wealth transfer» (opptak 06).</p>` },
           { l: "c",
             q: `<p>Suppose the manager offers existing debt holders to renegotiate their current claim which has a face value of $100: He offers to replace the existing debt contract with a new contract that stipulates a lower face value of $80. Suppose that if the debt holders reject the offer, the old contract remains in place and the face value remains at $100. If the debt holders accept the offer, will the manager subsequently want to issue equity to undertake the investment project described in part b)? Will the debtholders agree to renegotiate?</p>`,
             hint: [
@@ -445,7 +446,8 @@ Gjeld på Paris (120 / 60):
 <div class="calc">Aksjonærer:  110 − 100 = +10
 Gjeldseiere:  70 − 100 = −30
 Firma:       180 − 200 = −20 (tapte synergier)</div>
-<p>Aksjonærene tjener 10, selv om transaksjonen ødelegger 20 i verdi. Gjeldseierne taper 30.</p>` },
+<p>Aksjonærene tjener 10, selv om transaksjonen ødelegger 20 i verdi. Gjeldseierne taper 30.</p>
+<p>Kall det en «wealth transfer» fra gjeldseierne til aksjonærene. Det er ordene Kurbatov ser etter (opptak 06, 1:04:52).</p>` },
           { l: "d",
             q: `<p>In general, are debt covenants that prohibit these types of transactions good or bad for equity holders?</p>`,
             hint: [
@@ -455,7 +457,8 @@ Firma:       180 − 200 = −20 (tapte synergier)</div>
               `<ol><li>Ex post: covenants hindrer aksjonærene i å ta gevinsten i (c).</li><li>Ex ante: kreditorer priser inn muligheten for risk shifting.</li><li>Uten covenants: høyere lånekostnad og aksjonærene bærer det forventede verditapet.</li><li>Konkluder: covenants er generelt gode for aksjonærene fordi de senker lånekostnaden og hindrer verdiødeleggelse.</li></ol>`,
             ],
             fasit: `<span class="own">Egen vurdering. Offisiell fasit: Excel-filen «PS1-E8» på Canvas</span>
-<p>Ex post er slike covenants dårlige for aksjonærene, fordi de hindrer gevinsten på 10. Ex ante er de gode: kreditorene forutser risk shifting og krever høyere rente når det ikke finnes covenants. Da bærer aksjonærene den forventede kostnaden uansett, inkludert verditapet på 20. Covenants lar firmaet forplikte seg til ikke å ødelegge verdi og det gir billigere gjeld. Generelt er de derfor gode for aksjonærene.</p>` },
+<p>Ex post er slike covenants dårlige for aksjonærene, fordi de hindrer gevinsten på 10. Ex ante er de gode: kreditorene forutser risk shifting og krever høyere rente når det ikke finnes covenants. Da bærer aksjonærene den forventede kostnaden uansett, inkludert verditapet på 20. Covenants lar firmaet forplikte seg til ikke å ødelegge verdi og det gir billigere gjeld. Generelt er de derfor gode for aksjonærene.</p>
+<p><b>Kurbatov i timen</b> (opptak 06, 1:28:13): grunnsvaret, at covenants stopper transaksjonen og er dårlige ex post, godtas. Det dypere svaret, at de er gode ex ante fordi gjelden blir billigere, er bedre. Gi begge nivåene. Oppgaven sier at covenantene tillater transaksjonen, så ikke kall den ulovlig. Han varslet også «plenty of such questions in the exam where you have to provide intuition».</p>` },
         ] },
       /* ---------------- 9 ---------------- */
       { nr: 9, niva: 1, tema: "Asymmetric Information", tittel: "Info Systems Technology",
@@ -785,7 +788,8 @@ Kontroll: 111.1 × 90 = 10 000</div>
             fasit: `<div class="calc">Markedet tror: investering = god tilstand  →  V = 100 000
 N = 111 aksjer, P = $90 (som i c)
 Kurs før: $50  →  kurs etter: $90</div>
-<p>Ja, aksjonærene i Okhtor vil gjøre dette. Kursen stiger fra $50 til $90. De nye aksjonærene betaler 10 000 for aksjer i et firma som egentlig er verdt 0. De taper når sannheten kommer fram.</p>` },
+<p>Ja, aksjonærene i Okhtor vil gjøre dette. Kursen stiger fra $50 til $90. De nye aksjonærene betaler 10 000 for aksjer i et firma som egentlig er verdt 0. De taper når sannheten kommer fram.</p>
+<p><b>Sammenligningsgrunnlaget.</b> Kurbatov leste oppgaven slik i timen (opptak 10, 17:45 til 22:08): firmaene er uavhengige, så Okhtor beholder kursen 50 hvis den ikke investerer. Tavla brukte 0 (under C kan det å la være avsløre dårlig tilstand). Konklusjonen er den samme: 90 slår både 50 og 0, så Okhtor investerer.</p>` },
           { l: "e",
             q: `<p>Is conjecture C rational/correct?</p>`,
             hint: [
@@ -794,7 +798,8 @@ Kurs før: $50  →  kurs etter: $90</div>
               `<p>Bruk svaret i (d). Hva gjør den dårlige typen?</p>`,
               `<ol><li>Skriv opp hva C sier at hver type gjør.</li><li>Sjekk med (c) og (d) hva hver type faktisk vil gjøre gitt C.</li><li>Stemmer det ikke for én av typene, er C ingen likevekt.</li></ol>`,
             ],
-            fasit: `<p>Nei. C sier at bare den gode typen investerer. Men (d) viser at den dårlige typen også tjener på å investere når markedet tror på C. Begge typer investerer, så C stemmer ikke med det firmaene gjør. C er ingen likevekt.</p>` },
+            fasit: `<p>Nei. C sier at bare den gode typen investerer. Men (d) viser at den dårlige typen også tjener på å investere når markedet tror på C. Begge typer investerer, så C stemmer ikke med det firmaene gjør. C er ingen likevekt.</p>
+<p><b>Eksamenssignal:</b> Signalisering er «a topic that I really like, so you might expect something like that in the exam» (opptak 10, 3:07). Selve Rothko er neppe eksamensformen, men en strømlinjeformet versjon kan komme (23:42). Modellsvaret hans: vi testet en separerende likevekt, men den dårlige typen vil avvike, så resultatet blir pooling.</p>` },
         ] },
       /* ---------------- 2 ---------------- */
       { nr: 2, niva: 1, tema: "IPO", tittel: "Kostnaden ved en IPO",
@@ -994,7 +999,8 @@ D = 0.5 / 0.05 = $10 mill.</div>` },
               `<ol><li><span class="f">d = D / V<sup>L</sup></span>.</li><li><span class="f">r<sub>wacc</sub> = r<sub>U</sub> − d × τ<sub>c</sub> × r<sub>D</sub></span>.</li></ol>`,
             ],
             fasit: `<div class="calc">d = 10 / 45 = 0.2222
-r_wacc = 10% − 0.2222 × 0.40 × 5% = 9.556%</div>` },
+r_wacc = 10% − 0.2222 × 0.40 × 5% = 9.556%</div>
+<p><b>Eksamen:</b> WACC ved konstant rentedekning er hjemmeoppgavestoff. Kurbatov: «In the exam, you will only use the formulas from the cheat sheet». WACC-spørsmål på eksamen forutsetter konstant D/E (opptak 10, 41:08 og 1:26:49). <span class="f">V<sup>L</sup> = (1 + τ<sub>c</sub>k)V<sup>U</sup></span> kan brukes direkte (31:57) og spesialtilfellet kan komme som intuisjon.</p>` },
           { l: "e",
             q: `<p>What is the levered value of the expansion using the WACC method?</p>`,
             hint: [
@@ -1260,7 +1266,8 @@ WACC:
 d = 12 / 21.182 = 0.5665
 r_wacc = 11% × (1 − 0.5665 × 0.25) = 9.442%
 V^L = 2 / 0.09442 = $21.18 mill.  ✓</div>
-<p>Formelen <span class="f">r<sub>wacc</sub> = r<sub>U</sub>(1 − d τ<sub>c</sub>)</span> gjelder for permanent gjeld, der skatteskjoldet er τD. Kurset viser til seksjon 18.8 i boka (likning 18.21). Kontrollen er et fast punkt, fordi d er regnet med <span class="f">V<sup>L</sup></span> fra APV.</p>` },
+<p>Formelen <span class="f">r<sub>wacc</sub> = r<sub>U</sub>(1 − d τ<sub>c</sub>)</span> gjelder for permanent gjeld, der skatteskjoldet er τD. Kurset viser til seksjon 18.8 i boka (likning 18.21). Kontrollen er et fast punkt, fordi d er regnet med <span class="f">V<sup>L</sup></span> fra APV.</p>
+<p><b>Eksamen:</b> <span class="f">r<sub>wacc</sub> = r<sub>U</sub>(1 − d τ<sub>c</sub>)</span> står ikke på formelarket og er «not mandatory» (opptak 09, 1:17:06). Kurbatov: «In the exam, you will only use the formulas from the cheat sheet» (opptak 10, 1:26:49). Med permanent gjeld regner du med APV og τD. Spesialtilfellet kan komme som intuisjon, for eksempel hvorfor skatteskjoldet da diskonteres med r<sub>D</sub>.</p>` },
         ] },
     ],
   },
@@ -1639,7 +1646,8 @@ E = 86.05 × 320 mill. = $27.54 mrd.
 D = 135.1 − 27.54 = $107.56 mrd.
 YTM = (128 / 107.56)^(1/1.5) − 1 = 12.3%</div>
 <p>Kredittspreaden er 12.3% − 1% = 11.3%.</p>
-<p><b>Merknad:</b> Kursets løsning skriver at spreaden er 12.3% − 1% = 11.1%. Det er en regnefeil.</p>` },
+<p><b>Merknad:</b> Kursets løsning skriver at spreaden er 12.3% − 1% = 11.1%. Det er en regnefeil.</p>
+<p><b>Eksamenssignal:</b> Kurbatov om denne oppgaven: «So this actually could be in the exam» (opptak 13, 1:16:02). Bruk snittet av bid og ask hvis ikke annet er sagt. Si hva du bruker. Les løpetiden nøye (18 måneder, T = 1.5) og gang med antall aksjer.</p>` },
           { l: "b",
             q: `<p>Suppose that in July 2009, Google were to issue $96 billion in zero-coupon senior debt and another $32 billion in zero-coupon junior debt, both due in January 2011. Use the option data above to determine the rate Google would pay on the junior debt issue. (Assume perfect capital markets.)</p>`,
             hint: [
@@ -2095,7 +2103,8 @@ C:  (160 − 100) − 70 = −10   (men +5 mot 55 hvis en konkurrent hadde vunne
 A:  90 − 100 = −10
 B:  70 − 80 = −10
 Sum = +10 = verdiskapingen når C kjøper  ✓</div>
-<p>Målselskapets aksjonærer tar mer enn hele gevinsten. Alle tre kjøperne taper mot verdiene alene, men C taper mindre enn den ville gjort uten å kjøpe. Det stemmer med empirien: målselskapene vinner mest ved oppkjøp.</p>` },
+<p>Målselskapets aksjonærer tar mer enn hele gevinsten. Alle tre kjøperne taper mot verdiene alene, men C taper mindre enn den ville gjort uten å kjøpe. Det stemmer med empirien: målselskapene vinner mest ved oppkjøp.</p>
+<p><b>Eksamenssignal:</b> Kurbatov om budkampen: «it could be easily the exam question, so think about it» (opptak 16, 1:26:04).</p>` },
         ] },
       /* ---------------- 4 ---------------- */
       { nr: 4, niva: 2, tema: "Risk Reduction", tittel: "Coinsurance",
@@ -2165,7 +2174,8 @@ Sum etter:      D = 45,  E = 30,  V = 75</div>
 Egenkapital:   37.5 → 30   (−7.5)
 Firma:         75   → 75   (0)</div>
 <p>Aksjonærene taper 7.5 og långiverne vinner 7.5. Det er ingen synergier, så dette er en ren overføring (coinsurance-effekten). Egenkapitalen er en call på eiendelene. Lavere risiko gjør callen mindre verdt.</p>
-<p>Risikoreduksjon er derfor ingen god grunn til en fusjon for aksjonærene. De kan diversifisere selv ved å eie begge aksjene. Aksjonærene kan hente tilbake overføringen ved å ta opp mer gjeld etter sammenslåingen og dele ut provenyet. Den økte gjeldskapasiteten gir også et større skatteskjold.</p>` },
+<p>Risikoreduksjon er derfor ingen god grunn til en fusjon for aksjonærene. De kan diversifisere selv ved å eie begge aksjene. Aksjonærene kan hente tilbake overføringen ved å ta opp mer gjeld etter sammenslåingen og dele ut provenyet. Den økte gjeldskapasiteten gir også et større skatteskjold.</p>
+<p><b>Eksamenssignal:</b> Kurbatov kalte dette «a crucial example with very simple numbers» og sa «solve it at home. It's like a hint from me» (opptak 16, 1:30:58 og 1:31:43). Våreksamenen 2024 (forrige foreleser) hadde nettopp dette eksempelet med nye tall. Overføringen til kreditorene skjer fordi den gamle gjelden ble priset før fusjonen.</p>` },
         ] },
     ],
   },

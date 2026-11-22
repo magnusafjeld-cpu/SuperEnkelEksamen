@@ -6,7 +6,7 @@ Answer in English. Show every calculation.
 
 ## Exercise 1: Payout policy (12 points)
 
-Skarvøy Telecom ASA, a mature listed telecom operator with few investment needs, expects about NOK 1.2 billion of free cash flow a year. The board considers four ways to use this year's cash: (1) raise the regular dividend, (2) buy back shares, (3) keep the cash, (4) invest in data centres, a new business area proposed by the CEO. Most shareholders pay more tax on dividends than on capital gains, managers know more than investors and may pursue their own interests.
+Skarvøy Telecom ASA, a mature listed telecom operator with few investment needs, expects about NOK 1.2 billion of free cash flow a year. The board considers four ways to use this year's cash: (1) raise the regular dividend, (2) buy back shares, (3) keep the cash, (4) invest in data centres, a new business area proposed by the CEO. Dividends and capital gains are taxed at the same rate, but a gain is taxed only when the shares are sold. Managers know more than investors and may pursue their own interests.
 
 Give one advantage and one risk of each alternative. (1-2 sentences per alternative. Each alternative is worth 3 points: 1.5 for the advantage and 1.5 for the risk. An argument already used for another alternative earns no points the second time.)
 

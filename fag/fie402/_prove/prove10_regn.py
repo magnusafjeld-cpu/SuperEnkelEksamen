@@ -17,14 +17,18 @@ L6 s24–27 (120/80, 10×/2×), L8 s16–18, L14 s17, PS2 E5 og E9, L10 s8–11 
 Skriptet regner hvert tall som står i oppgavetekst, løsning og kriterier, og sjekker
 konsistenskontrollene med assert: kostnaden for gamle eiere på to veier, nullgevinst for
 uinformerte ved likevektsprisen, APV = WACC for konstant D/V og rentedekning (feiler med
-feil diskonteringsrente), r_E for permanent gjeld fra FCFE og fra MM II med (1 − τ) (feiler
-med formelarkets MM II uten skatt), sikringen obligasjon + CDS = 1 000 i begge tilstander,
+feil diskonteringsrente), kursen ved kunngjøring av permanent gjeld og tilbakekjøpet til den
+nye kursen (selgere og de som blir, får samme kurs; feiler med gammel kurs), sikringen obligasjon + CDS = 1 000 i begge tilstander,
 paritet for egenkapitalen og synergiene fra kjøperens kurs = fra samlet markedsverdi.
 
 Deretter sjekkes skrivereglene (ingen tankestrek, ingen komma foran «and», ingen markup i
 criteria), poengene (12/12/18/18/20/20, deloppgavene summerer) og lengden (1 000–1 250 ord
 oppgavetekst). Er alt rent, skrives prove10.json og prove10_oppgave.md (bare
 oppgaveteksten) i samme mappe. Er noe galt, skrives ingenting.
+
+Endret 22.11.2026: del 4e (WACC-metoden og r_E med (1 − τ) ved permanent gjeld) er byttet ut med
+kursen ved kunngjøring og tilbakekjøpet. Kurbatov: på eksamen brukes bare formlene på formelarket,
+og WACC-spørsmål forutsetter konstant D/E (opptak 10, 41:08 og 1:26:49).
 
 Formatet følger docs/fie402-proveeksamen-spek.md. Konvensjonene (diskret diskontering også
 for brøkdel av år, PV(TS) med r_D for permanent gjeld og r_U ellers, V^L = (1 + τk)V^U,
@@ -169,23 +173,18 @@ VL2 = VU4 + PVTS2
 E2 = VL2 - D2
 PVTS2_feil = TS2 / rU4                                # diskontert med r_U: feil her
 VL2_feil = VU4 + PVTS2_feil
-# e) r_E og WACC for politikk 2
-FCFE2 = FCF4 - (1 - tau4) * int2                      # ingen netto opplåning
-rE2 = FCFE2 / E2
-rE2_mm = rU4 + D2 / E2 * (1 - tau4) * (rU4 - rD4)
-assert near(rE2, rE2_mm)                              # ekte kontroll: to veier til r_E
-assert near(D2 * (1 - tau4) + E2, VU4)                # D(1 − τ)-vektene summerer til V^U
-rw2 = E2 / VL2 * rE2 + D2 / VL2 * rD4 * (1 - tau4)
-vist_sum([E2 / VL2 * rE2, D2 / VL2 * rD4 * (1 - tau4)], rw2, 6, 4)
-VL2_wacc = FCF4 / rw2
-assert near(VL2_wacc, VL2)                            # WACC = APV
-assert near(rw2, rU4 * (1 - tau4 * D2 / VL2))         # r_wacc = r_U(1 − τD/V^L), A2
-rw2_feil_formel = rU4 - D2 / VL2 * tau4 * rD4         # formelen for konstant D/V: feil her
-assert abs(rw2_feil_formel - rw2) > 0.002
-rE2_feil = rU4 + D2 / E2 * (rU4 - rD4)                # formelarkets MM II uten (1 − τ)
-rw2_feil = E2 / VL2 * rE2_feil + D2 / VL2 * rD4 * (1 - tau4)
-VL2_feil_wacc = FCF4 / rw2_feil
-assert abs(VL2_feil_wacc - VL2) > 20                  # kontrollen feiler med feil r_E
+# e) politikk 2 kunngjort av et firma uten gjeld: kurs ved kunngjøring og tilbakekjøp
+N4 = 40.0                                             # millioner aksjer i dag
+P0_4 = VU4 / N4
+P_kunn4 = VL2 / N4                                    # τD prises med en gang
+n_tk4 = D2 / P_kunn4                                  # tilbakekjøp til ny kurs
+N_igjen4 = N4 - n_tk4
+P_etter4 = E2 / N_igjen4
+assert near(P0_4, 25) and near(P_kunn4, 26.65) and near(P_etter4, P_kunn4)   # selgere = de som blir
+assert near(P_kunn4 - P0_4, PVTS2 / N4)
+n_feil4 = D2 / P0_4                                   # gammel kurs: den største feilen
+P_feil4 = E2 / (N4 - n_feil4)
+assert near(n_feil4, 12) and abs(P_feil4 - P0_4) > 2  # kontrollen feiler
 # Politikk 3: rentedekning k = 20 %
 k3 = 0.20
 VL3 = (1 + tau4 * k3) * VU4
@@ -202,8 +201,8 @@ per1, per2, per3 = PVTS1 / D1, PVTS2 / D2, PVTS3 / D3
 assert near(per2, tau4) and near(per1, tau4 * rD4 / rU4) and near(per3, tau4 * rD4 / rU4)
 assert VL2 > VL3 > VL1 and D3 > D1 > D2                # mest gjeld gir ikke høyest verdi
 vis("Oppgave 4", rU=rU4, VU=VU4, rE1=rE1, rw1=rw1, VL1=VL1, D1=D1, TS1=TS1, PVTS1=PVTS1,
-    PVTS1_feil=PVTS1_feil, VL2=VL2, VL2_feil=VL2_feil, E2=E2, FCFE2=FCFE2, rE2=rE2, rw2=rw2,
-    rw2_feil_formel=rw2_feil_formel, rE2_feil=rE2_feil, VL2_feil_wacc=VL2_feil_wacc,
+    PVTS1_feil=PVTS1_feil, VL2=VL2, VL2_feil=VL2_feil, E2=E2, P_kunn=P_kunn4, n_tk=n_tk4,
+    N_igjen=N_igjen4, P_etter=P_etter4, P_feil=P_feil4,
     VL3=VL3, D3=D3, dv3=dv3, rw3=rw3, per=(per1, per2, per3))
 
 # ================================== Oppgave 5: obligasjoner, CDS og paritet
@@ -717,40 +716,33 @@ ex4 = {
         {
             "label": "e", "points": 4,
             "body": (
-                "<p>Under Policy 2, value Femund with the WACC method (find the cost of equity "
-                "first).</p>"
+                f"<p>Suppose Femund is all equity today with {g(N4)} million shares and announces "
+                f"Policy 2, using all of the NOK {g(D2)} million to buy back shares. Find the share "
+                "price right after the announcement and the number of shares bought back.</p>"
             ),
             "solution": (
-                f"<p><b>Step 1. Cost of equity.</b> E = {g(VL2)} − {g(D2)} = {g(E2)}. With fixed "
-                f"debt and no growth the shareholders receive FCF − (1 − τ) × interest every year: "
-                f"{g(FCF4)} − {g(1 - tau4)} × {g(int2)} = {g(FCFE2)}. So r<sub>E</sub> = "
-                f"{g(FCFE2)}/{g(E2)} = <b>{pc(rE2)}</b>.</p>"
-                f"<p><b>Step 2. After-tax WACC.</b> r<sub>wacc</sub> = ({g(E2)}/{g(VL2)}) × "
-                f"{pc(rE2)} + ({g(D2)}/{g(VL2)}) × {pc(rD4)} × {g(1 - tau4)} = "
-                f"{f(100 * E2 / VL2 * rE2)}% + {f(100 * D2 / VL2 * rD4 * (1 - tau4))}% = "
-                f"<b>{pc(rw2)}</b></p>"
-                f"<p><b>Step 3. Value.</b> V<sup>L</sup> = {g(FCF4)}/{f(rw2, 6)} = "
-                f"<b>{g(round(VL2_wacc, 6))}</b>: it matches the APV value from c), a fixed point ✓.</p>"
-                f"<p><b>Check (two routes to r<sub>E</sub>, which can fail).</b> MM II with "
-                f"predetermined debt has the (1 − τ) term: r<sub>E</sub> = {pc(rU4)} + "
-                f"({g(D2)}/{g(E2)}) × {g(1 - tau4)} × ({pc(rU4)} − {pc(rD4)}) = {pc(rE2_mm)} ✓. The "
-                f"WACC also equals r<sub>U</sub>(1 − τD/V<sup>L</sup>) = {pc(rU4)} × (1 − "
-                f"{g(PVTS2)}/{g(VL2)}) = {pc(rw2)}.</p>"
-                f"<p><b>The trap.</b> The formula-sheet MM II without taxes gives r<sub>E</sub> = "
-                f"{pc(rE2_feil)}, a WACC of {pc(rw2_feil)} and V<sup>L</sup> = "
-                f"{f(VL2_feil_wacc, 2)}, which no longer matches c). That WACC is the constant-D/V "
-                f"formula r<sub>U</sub> − (D/V)τr<sub>D</sub> = {pc(rw2_feil_formel)} in disguise: "
-                "both treat the shields as if they were discounted at r<sub>U</sub>.</p>"
+                f"<p><b>Step 1. Announcement.</b> The tax shield is priced as soon as the plan is "
+                f"known: with permanent debt it is τD = {g(PVTS2)} at once. No debt has been issued "
+                f"yet, so the equity is worth V<sup>L</sup> = {g(VL2)} and P = {g(VL2)}/{g(N4)} = "
+                f"<b>NOK {f(P_kunn4, 2)}</b>, up from {g(VU4)}/{g(N4)} = {f(P0_4, 2)}.</p>"
+                f"<p><b>Step 2. Buyback at the new price.</b> n = {g(D2)}/{f(P_kunn4, 2)} = "
+                f"<b>{f(n_tk4)} million shares</b>, leaving {f(N_igjen4)} million.</p>"
+                f"<p><b>Check (it can fail).</b> After the buyback E = {g(VL2)} − {g(D2)} = {g(E2)} "
+                f"and {g(E2)}/{f(N_igjen4)} = {f(P_etter4, 2)} ✓: those who sell and those who stay "
+                f"get the same price. Buying at the old {f(P0_4, 2)} would retire {g(n_feil4)} million "
+                f"shares and leave the stayers with {g(E2)}/{g(N4 - n_feil4)} = {f(P_feil4)} per "
+                f"share against {f(P0_4, 2)} for the sellers, the buyback mistake Kurbatov calls "
+                "the biggest.</p>"
             ),
             "criteria": [
-                f"E = {g(VL2)} − {g(D2)} = {g(E2)}, from the APV value in c).",
-                f"r_E = {pc(rE2)}: from FCFE/E = {g(FCFE2)}/{g(E2)}, or from MM II with (1 − τ) "
-                "for predetermined debt.",
-                f"r_wacc = {pc(rw2)} and V^L = {g(FCF4)}/r_wacc = {g(VL2)}, equal to c).",
-                f"MM II without (1 − τ) gives r_E = {pc(rE2_feil)} and V^L = "
-                f"{f(VL2_feil_wacc, 2)}: at most 1 point, or 2 if the student points out the gap "
-                "to c) and explains it (the debt is predetermined).",
-                "Show the calculation; the WACC formula with both weights written out.",
+                f"P = V^L/N = {g(VL2)}/{g(N4)} = {f(P_kunn4, 2)} at the announcement: the market "
+                f"prices PV(TS) = {g(PVTS2)} at once. 2 points.",
+                f"n = {g(D2)}/{f(P_kunn4, 2)} = {f(n_tk4)} million at the new price, leaving "
+                f"{f(N_igjen4)} million; the price stays at {f(P_etter4, 2)}. 2 points.",
+                f"Dividing by the old price of {f(P0_4, 2)} ({g(n_feil4)} million shares) is the "
+                f"classic error: the stayers would get {f(P_feil4)} and the sellers {f(P0_4, 2)}.",
+                "No price reaction at the announcement (the no-tax MM world) or a jump that is not "
+                "τD per share loses the first 2 points.",
             ],
         },
         {

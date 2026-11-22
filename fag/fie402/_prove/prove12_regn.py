@@ -802,8 +802,10 @@ ex4 = {
                 "(higher rate, less debt).",
                 "Covenants are good for shareholders ex ante: cheaper debt in exchange for less "
                 "flexibility (a «necessary evil»).",
-                "(bonus) Covenants are bad ex post for the current shareholders, or names other "
-                "remedies (convertible debt, short maturities, renegotiation).",
+                "Covenants are bad ex post for the current shareholders, since they block the gain: "
+                "Kurbatov accepts this basic answer (PS1 E8, Hillton) but rates the ex ante answer "
+                "higher. Full marks give both sides.",
+                "(bonus) Names other remedies (convertible debt, short maturities, renegotiation).",
                 "Keep to 2-3 sentences.",
             ],
         },
