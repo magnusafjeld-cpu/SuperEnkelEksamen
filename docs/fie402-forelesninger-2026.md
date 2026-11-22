@@ -235,7 +235,7 @@ D1. **Black-Scholes regnes ikke** (se A6). Intuisjon og amerikansk mot europeisk
 D2. **Struktur:** nøyaktig som F24 og F25: to teorioppgaver («like 10 points each», sunn fornuft) og fire
 regneoppgaver; regneoppgavene er rundt 80 % med 3–5 poeng intuisjon på slutten av noen; del a er lett.
 Hver blokk får minst én oppgave eller deloppgave. Følgefeil gir full uttelling på neste ledd. Typisk fire
-desimaler. A-grensen har historisk vært rundt 90–91. Tid tre eller fire timer: sjekk eksamensinfo.
+desimaler. A-grensen har historisk vært rundt 90–91. Tid: 3 timer (NHH-emnesiden for høsten 2026; Kurbatov sa «three or four» i wrap-up).
 D3. **Rente for brøkdel av år** (1.5 år: (1 + r)^1.5; halvår: kvadratrot; måned til år og omvendt) kan
 komme. Inn i k2 eller k28-sjekklisten, kj0 og som steg der det passer (realopsjon har månedsrente).
 D4. **Prosjekt mot firma og PV mot NPV:** les hva som spørres om. Inn i k28 og kj0.

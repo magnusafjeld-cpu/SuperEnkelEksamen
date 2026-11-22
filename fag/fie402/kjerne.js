@@ -23,7 +23,7 @@ window.EDU_DATA.kjerne.push({
 <p class="lead-in">Kurbatov set H2024 and H2025 and says the next paper is built "exactly the same". This is what it holds, how it is marked and how to use the parts that follow.</p>
 <h3>The format</h3>
 <ul>
-<li>Six exercises, 100 points, three or four hours (check the exam information). Pen, paper, a scientific calculator, one bilingual dictionary and the course formula sheet (the last page; no sheet of your own). English, no multiple choice.</li>
+<li>Six exercises, 100 points, three hours (NHH course page for autumn 2026). Pen, paper, a scientific calculator, one bilingual dictionary and the course formula sheet (the last page; no sheet of your own). English, no multiple choice.</li>
 <li>Two short theory exercises of about 10–12 points, common sense within sentence budgets; governance has been one every time and is nearly certain again, probably from a new angle (kj11). The topics can shift between exercises, so do not count on the old order. Four problems, about 80% of the paper: part (a) is easy, several end with 3–5 points of intuition.</li>
 <li>Every block appears: capital structure and payout, valuation with debt, options and real options, M&amp;A and governance, often with a twist ("what if the deal is delayed a year?").</li>
 <li>About 1.8 minutes per point on three hours. A follow-on error gets full credit on the next part, so if a step will not come, write a labelled assumption and carry on. Four decimals on rates; an A has needed about 90 points.</li>

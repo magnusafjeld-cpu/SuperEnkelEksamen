@@ -1536,7 +1536,7 @@ kort(D, 0,
       "The topics can move between the questions, so do not count on the order of H2024 and H2025. Three-star exercises from the problem sets can come.",
       "Every block gets at least one exercise or sub-question: capital structure and payout, valuation with leverage, options and real options, M&A and governance.",
       "Part (a) is easy. No multiple choice. The formula sheet is the last page; your own sheets are not allowed. Calculator (ideally scientific with powers) and one bilingual dictionary.",
-      "Three or four hours: check the exam information. Graded on a curve by examiners; the A line has been about 90 to 91 points."],
+      "Three hours (NHH course page for autumn 2026), written and answered in English. Graded on a curve by examiners; the A line has been about 90 to 91 points."],
      "Preparing from pre-2024 exams as if they were his: 2022 is close and 2016 only with care. Their M&A and governance parts are not representative.",
      "lecture 14 recording")
 

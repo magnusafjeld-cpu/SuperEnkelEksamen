@@ -25,13 +25,13 @@ window.EDU_DATA.plan = {
       title: "Eksamens-DNA og time value: slik gjøres arbeid om til poeng",
       chapters: [0, 1],
       estMinutes: 125,
-      goals: ["Gjøre rede for eksamensformatet (6 oppgaver, 100 poeng, 3 eller 4 timer) og regne ut ditt eget poengbudsjett: 1,8 minutter per poeng på 3 timer, 2,4 på 4", "Skrive et svar etter malen: oppgi metoden, vis utregningen, navngi mekanismen, kjør consistency check", "Ramse opp de fem consistency checks og vite når hver av dem brukes", "Diskontere perpetuities, growing perpetuities og annuities uten å slå opp", "Begrunne hvorfor NPV-regelen slår IRR og payback"],
+      goals: ["Gjøre rede for eksamensformatet (6 oppgaver, 100 poeng, 3 timer, svar på engelsk) og regne ut ditt eget poengbudsjett: 1,8 minutter per poeng", "Skrive et svar etter malen: oppgi metoden, vis utregningen, navngi mekanismen, kjør consistency check", "Ramse opp de fem consistency checks og vite når hver av dem brukes", "Diskontere perpetuities, growing perpetuities og annuities uten å slå opp", "Begrunne hvorfor NPV-regelen slår IRR og payback"],
       keyConcepts: ["NPV rule", "Perpetuity", "Growing perpetuity", "Annuity", "Consistency checks", "Point budget"],
       review: [],
       examFocus: null,
       pastExam: null,
       milestone: "Eksamensformatet og de fem consistency checks sitter",
-      tip: "Skriv poengbudsjettet ditt på et ark og heng det over pulten i dag: 1,8 minutter per poeng på 3 timer, 2,4 på 4." },
+      tip: "Skriv poengbudsjettet ditt på et ark og heng det over pulten i dag: 1,8 minutter per poeng på 3 timer." },
     { day: 2,
       phase: "Grunnlag",
       title: "Free cash flow og CAPM: de to inngangsverdiene alt annet hviler på",
@@ -265,7 +265,7 @@ window.EDU_DATA.plan = {
       title: "Eksamenshåndverk og formelarket: slik skrives 100 poeng",
       chapters: [28, 29],
       estMinutes: 220,
-      goals: ["Fordele tre eller fire timer på seks oppgaver etter poeng og bestemme på forhånd når du forlater en oppgave", "Bruke svarmalene for twin firm-verdsettingen, recapitalisation, real option, state-by-state agency og M&A-swappen", "Skrive et 12-poengs verbalt svar og se forskjellen fra et 6-poengs", "Avslutte hvert numerisk svar med de fem consistency checks", "Bære et symbol videre og oppgi forutsetningen når du står fast i en kjedet deloppgave"],
+      goals: ["Fordele tre timer på seks oppgaver etter poeng og bestemme på forhånd når du forlater en oppgave", "Bruke svarmalene for twin firm-verdsettingen, recapitalisation, real option, state-by-state agency og M&A-swappen", "Skrive et 12-poengs verbalt svar og se forskjellen fra et 6-poengs", "Avslutte hvert numerisk svar med de fem consistency checks", "Bære et symbol videre og oppgi forutsetningen når du står fast i en kjedet deloppgave"],
       keyConcepts: ["Time budget", "Answer templates", "Consistency checks", "Rounding to 4 decimals", "Carry a symbol forward"],
       review: [6, 17, 25],
       examFocus: "Alle",
@@ -340,7 +340,7 @@ window.EDU_DATA.quizzes = [
       "4 exercises of 25 points each, all quantitative"
     ],
     "answer": 0,
-    "explanation": "Six exercises, 100 points, three or four hours, closed book, no multiple choice. The paper with 10 multiple-choice questions plus two long problems describes the pre-2024 sittings, where MC blocks were standard; the format changed in 2024 and MC is gone. There is no 4x25 structure, and the 'each exercise must be passed separately' rule belongs to other courses: here the final grade is set on the total, so a weak exercise can be carried by the others."
+    "explanation": "Six exercises, 100 points, three hours, closed book, no multiple choice. The paper with 10 multiple-choice questions plus two long problems describes the pre-2024 sittings, where MC blocks were standard; the format changed in 2024 and MC is gone. There is no 4x25 structure, and the 'each exercise must be passed separately' rule belongs to other courses: here the final grade is set on the total, so a weak exercise can be carried by the others."
   },
   {
     "id": "q2",
@@ -5408,7 +5408,7 @@ window.EDU_DATA.flashcards = [
     "ch": 0,
     "deck": "begrep",
     "front": "The exam format from 2024 onwards",
-    "back": "<b>6 exercises, 100 points, three or four hours, closed book, no multiple choice.</b><br>Two pure discussion exercises: 12 points each in H2024 and H2025, about 10 each in 2026 according to Kurbatov. About a fifth of the points are prose with no computation. The topics can move between the exercises. Calculator and one bilingual dictionary permitted. Grade A-F on the total, so no exercise has to be passed on its own."
+    "back": "<b>6 exercises, 100 points, three hours, closed book, answered in English, no multiple choice.</b><br>Two pure discussion exercises: 12 points each in H2024 and H2025, about 10 each in 2026 according to Kurbatov. About a fifth of the points are prose with no computation. The topics can move between the exercises. Calculator and one bilingual dictionary permitted. Grade A-F on the total, so no exercise has to be passed on its own."
   },
   {
     "id": "fc2",
@@ -6822,7 +6822,7 @@ window.EDU_DATA.flashcards = [
     "ch": 28,
     "deck": "begrep",
     "front": "The paper, and the clock to draw in the margin",
-    "back": "Six exercises, 100 points, three or four hours (check the exam information), no multiple choice, points printed per sub-question. The grade is set on the <b>total</b>, so no exercise has to be passed.<br><br>180 minutes less 10 for reading and 10 for checking leaves 160 for 100 points, i.e. <b>1.6 minutes per point</b>.<br><br><b>closing minute = 10 + 1.6 &times; (points on this and all earlier exercises)</b><br><br>On the 12/12/18/18/20/20 split of both Kurbatov papers that gives 29, 48, 77, 106, 138, 170. Write the <i>closing minute</i>, not the budget: it can be compared with the clock on the wall.<br><br>The budget is a <b>stop signal, not a target</b>. Candidates lose more marks to overrunning one hard sub-question than to any conceptual error.<br><br>Four hours give 220 minutes for 100 points, 2.2 a point. Kurbatov expects about 10 points per theory question this year: on a 10/10/20/20/20/20 split and three hours the ladder is 26, 42, 74, 106, 138, 170."
+    "back": "Six exercises, 100 points, three hours, no multiple choice, points printed per sub-question. The grade is set on the <b>total</b>, so no exercise has to be passed.<br><br>180 minutes less 10 for reading and 10 for checking leaves 160 for 100 points, i.e. <b>1.6 minutes per point</b>.<br><br><b>closing minute = 10 + 1.6 &times; (points on this and all earlier exercises)</b><br><br>On the 12/12/18/18/20/20 split of both Kurbatov papers that gives 29, 48, 77, 106, 138, 170. Write the <i>closing minute</i>, not the budget: it can be compared with the clock on the wall.<br><br>The budget is a <b>stop signal, not a target</b>. Candidates lose more marks to overrunning one hard sub-question than to any conceptual error.<br><br>Four hours give 220 minutes for 100 points, 2.2 a point. Kurbatov expects about 10 points per theory question this year: on a 10/10/20/20/20/20 split and three hours the ladder is 26, 42, 74, 106, 138, 170."
   },
   {
     "id": "fc338",
@@ -8995,7 +8995,7 @@ window.EDU_DATA.flashcards = [
     "ch": 0,
     "deck": "eksamensteknikk",
     "front": "What does Kurbatov's exam look like? Structure, points, time and grading.",
-    "back": "<b>The same structure as H2024 and H2025: two theory questions, four problems, every block covered</b><br>1. Two theory questions of about 10 points each (12 in H2024 and H2025), answerable with sound reasoning; four computational problems, about 80% of the paper, several ending with 3 to 5 points of intuition.<br>2. The topics can move between the questions, so do not count on the order of H2024 and H2025. Three-star exercises from the problem sets can come.<br>3. Every block gets at least one exercise or sub-question: capital structure and payout, valuation with leverage, options and real options, M&amp;A and governance.<br>4. Part (a) is easy. No multiple choice. The formula sheet is the last page; your own sheets are not allowed. Calculator (ideally scientific with powers) and one bilingual dictionary.<br>5. Three or four hours: check the exam information. Graded on a curve by examiners; the A line has been about 90 to 91 points.<br>Trap: Preparing from pre-2024 exams as if they were his: 2022 is close and 2016 only with care. Their M&amp;A and governance parts are not representative.<br>(lecture 14 recording)"
+    "back": "<b>The same structure as H2024 and H2025: two theory questions, four problems, every block covered</b><br>1. Two theory questions of about 10 points each (12 in H2024 and H2025), answerable with sound reasoning; four computational problems, about 80% of the paper, several ending with 3 to 5 points of intuition.<br>2. The topics can move between the questions, so do not count on the order of H2024 and H2025. Three-star exercises from the problem sets can come.<br>3. Every block gets at least one exercise or sub-question: capital structure and payout, valuation with leverage, options and real options, M&amp;A and governance.<br>4. Part (a) is easy. No multiple choice. The formula sheet is the last page; your own sheets are not allowed. Calculator (ideally scientific with powers) and one bilingual dictionary.<br>5. Three hours (NHH course page for autumn 2026), written and answered in English. Graded on a curve by examiners; the A line has been about 90 to 91 points.<br>Trap: Preparing from pre-2024 exams as if they were his: 2022 is close and 2016 only with care. Their M&amp;A and governance parts are not representative.<br>(lecture 14 recording)"
   },
   {
     "id": "ok-eksamen-02",
@@ -10207,7 +10207,7 @@ window.EDU_DATA.activeLearning = {
 /* ---------- tidligere eksamener ----------
    Modulen /exam er slått av for dette faget; eksamenstreningen ligger i /sett.
    Feltet må likevel finnes, siden repetisjonsmotoren leser exams.tasks. */
-window.EDU_DATA.exams = { format: { duration: "3 or 4 hours", tasks: 6, weights: [], keyInsight: "" }, tasks: [] };
+window.EDU_DATA.exams = { format: { duration: "3 hours", tasks: 6, weights: [], keyInsight: "" }, tasks: [] };
 
 /* FIE402 · glossary — economists/thinkers and symbols */
 window.EDU_DATA.glossary = {
