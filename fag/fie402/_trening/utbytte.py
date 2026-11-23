@@ -10,7 +10,6 @@
      utb-rep1  aksjer kjøpt tilbake med overskuddskasse (PS1 E13b)
      utb-sys1  tilbakekjøp med årets kontantstrøm: P1 fra likningssystemet (forelesning 5 s. 13)
      utb-iss1  utbytte finansiert med nye aksjer: emisjonskursen (forelesning 5 s. 9–12, PS1 E12)
-     utb-tax1  kursfallet på ex-dagen med personlig skatt (manualen k16)
      utb-tim1  timing av tilbakekjøp med asymmetrisk informasjon (PS1 E10)
    Statiske: utb-s01 … utb-s22.
 """
@@ -302,90 +301,6 @@ def _(r):
         f"a wrong P<sub>1</sub> would move today's price.</p>"
         f"<p><b>Remember:</b> a dividend financed by new shares moves value from later to now. P<sub>0</sub> does "
         f"not change.</p>"
-    )
-    return sporsmal(q, alternativer, kort, full, tall=tallsvar(enhet=f"{val} per share"))
-
-
-# ---------------------------------------------------------------------------
-# utb-tax1 · Kursfallet på ex-dagen med personlig skatt (manualen k16, BDM kap. 17)
-# ---------------------------------------------------------------------------
-@familie("utb-tax1", tema="utbytte", antall=5, tittel="The ex-dividend price drop with personal taxes",
-         hjelp=hjelp3(
-             "This is the tax disadvantage of dividends. When dividends are taxed more than capital gains, the "
-             "price falls by less than the dividend. You need the size of the drop.",
-             "P<sub>cum</sub> − P<sub>ex</sub> = Div × (1 − τ<sub>d</sub>)/(1 − τ<sub>g</sub>) = Div × (1 − "
-             "τ<sub>d</sub>*), with τ<sub>d</sub>* = (τ<sub>d</sub> − τ<sub>g</sub>)/(1 − τ<sub>g</sub>).",
-             "<p><b>Step 1: the after-tax dividend.</b> What the marginal investor keeps of the dividend.</p>"
-             "<p><b>Step 2: the after-tax price change.</b> A lower price means a smaller capital gain. That means less "
-             "tax on it.</p>"
-             "<p><b>Step 3: equate.</b> The investor must be indifferent between selling before and after the "
-             "ex-date.</p>"
-             "<p><b>Watch out:</b> dividing by (1 − τ<sub>g</sub>) is part of the formula. τ<sub>d</sub>* is not "
-             "τ<sub>d</sub> − τ<sub>g</sub>.</p>",
-         ))
-def _(r):
-    val = r.choice(["NOK", "$"])
-    enh = "krone" if val == "NOK" else "dollar"
-    Pcum = r.choice([40, 50, 60, 80, 100, 120])
-    Div = r.choice([2, 2.5, 3, 4, 5, 6])
-    if Div / Pcum > 0.08:
-        raise Avvis("for stort utbytte")
-    td = r.choice([0.25, 0.30, 0.35, 0.40])
-    tg = r.choice([0.15, 0.20])
-    if td - tg < 0.10:
-        raise Avvis("for lik skatt")
-    fall = Div * (1 - td) / (1 - tg)
-
-    f_hel = Div                                            # uten skatt
-    f_utenG = Div * (1 - td)                               # glemte (1 − τ_g)
-    f_diff = Div * (1 - (td - tg))                         # τ_d* som differansen
-    ulike(fall, f_hel, f_utenG, f_diff, rel=0.02)
-    dd = _des(fall, f_hel, f_utenG, f_diff)
-
-    tds = (td - tg) / (1 - tg)
-    q = (f"<p>A share trades at {penger(Pcum, 2, val)} the day before it goes ex-dividend on a dividend of "
-         f"{penger(Div, 2, val)} per share. The marginal investor pays {_p(td, 0)} tax on dividends and "
-         f"{_p(tg, 0)} on capital gains. Apart from taxes, markets are perfect.</p>"
-         f"<p>By how much does the share price fall when the share goes ex-dividend?</p>")
-
-    alternativer = [
-        R(penger(fall, dd, val), fall),
-        F(penger(f_hel, dd, val),
-          f"The full dividend: the drop in a world without taxes. With dividends taxed harder than gains, a {enh} "
-          f"of dividend is worth less to the investor than a {enh} of price.", f_hel),
-        F(penger(f_utenG, dd, val),
-          f"Only the dividend tax taken off: {_a(Div)} × (1 − {_p(td, 0)}). This leaves out that the price drop "
-          f"itself changes the investor's capital gains tax.", f_utenG),
-        F(penger(f_diff, dd, val),
-          f"τ<sub>d</sub>* taken as the simple gap {_p(td, 0)} − {_p(tg, 0)}. That treats the price change as if "
-          f"it were untaxed.", f_diff),
-    ]
-
-    kort = (f"<p><b>{penger(fall, dd, val)}.</b> Drop = {_a(Div)} × (1 − {_p(td, 0)})/(1 − {_p(tg, 0)}) = "
-            f"{_a(Div)} × {tall((1 - td) / (1 - tg), 4)} = {penger(fall, dd, val)}. Equivalently τ<sub>d</sub>* = "
-            f"{tall(tds, 4)}.</p>")
-
-    Pex = Pcum - fall
-    hold = Div * (1 - td) + Pex + tg * fall
-    full = (
-        f"<p><b>Why the price falls by less.</b> The marginal investor compares two ways to sell: the day before "
-        f"the ex-date, or the day after with the dividend in hand. A {enh} of dividend is worth (1 − "
-        f"τ<sub>d</sub>) to her. A {enh} of price given up saves tax on a {enh} of gain, so it costs her only "
-        f"(1 − τ<sub>g</sub>). She is indifferent only if the price falls by the dividend converted at that "
-        f"rate.</p>"
-        f"<p><b>Step 1: the effective tax rate.</b> τ<sub>d</sub>* = ({_p(td, 0)} − {_p(tg, 0)})/(1 − "
-        f"{_p(tg, 0)}) = {tall(tds, 4)}.</p>"
-        f"<p><b>Step 2: the drop.</b> {_a(Div)} × (1 − {tall(tds, 4)}) = {_a(Div)} × {tall(1 - tds, 4)} = "
-        f"<b>{penger(fall, dd, val)}</b>, so P<sub>ex</sub> = {penger(Pex, 4, val)}.</p>"
-        f"<p><b>First check.</b> Take an investor who bought at {penger(Pcum, 2, val)}. Selling the day before "
-        f"gives {penger(Pcum, 2, val)} with no gain to tax. Holding gives {_a(Div)} × {tall(1 - td, 2)} after tax "
-        f"plus {_a(Pex)} for the share, plus the tax saved on the loss of {_a(fall)}: "
-        f"{penger(hold, 4, val)}. Equal. This check can fail: with a drop of the full dividend, holding would pay "
-        f"less.</p>"
-        f"<p><b>Remember:</b> the drop is Div(1 − τ<sub>d</sub>)/(1 − τ<sub>g</sub>). The formula comes from the "
-        f"manual (k16) and the textbook. Lecture 5 adds the practice: dividends used to be taxed more, which "
-        f"favoured buybacks. Today the US and Norway tax dividends and gains alike, so the buyback's remaining "
-        f"edge is deferral: only sellers pay tax and only when they sell.</p>"
     )
     return sporsmal(q, alternativer, kort, full, tall=tallsvar(enhet=f"{val} per share"))
 
@@ -829,49 +744,6 @@ statisk(
          "rates are equal, deferral is the edge that remains.</p>",
 )
 
-# utb-s09 · Effektiv skattesats på utbytte (manualen k16)
-statisk(
-    "utb-s09", tema="utbytte", type="formel",
-    hjelp=hjelp3(
-        "This is the effective dividend tax rate: the extra tax on a krone received as a dividend rather than as "
-        "a capital gain.",
-        "τ<sub>d</sub>* = (τ<sub>d</sub> − τ<sub>g</sub>)/(1 − τ<sub>g</sub>). The price drops on the ex-date by "
-        "Div × (1 − τ<sub>d</sub>*).",
-        "<p><b>Step 1: the gap.</b> Dividend rate minus gains rate.</p>"
-        "<p><b>Step 2: the base.</b> A krone of gain keeps (1 − τ<sub>g</sub>) after tax. Divide the gap by "
-        "it.</p>"
-        "<p><b>Watch out:</b> the simple gap is not the answer.</p>"
-        "<p><b>Watch out:</b> divide by what a krone of gain keeps after tax, not by what a krone of dividend keeps.</p>",
-    ),
-    q="<p>Investors pay 40% tax on dividends and 20% on capital gains. Apart from taxes, markets are perfect.</p>"
-      "<p>When the share goes ex-dividend, its price falls by Div × (1 − τ<sub>d</sub>*), where τ<sub>d</sub>* is "
-      "the effective dividend tax rate. What is τ<sub>d</sub>*?</p>",
-    alternativer=[
-        R("25.00%", 0.25),
-        F("20.00%",
-          "The simple gap 40% − 20%. That treats the price change as if it were untaxed.", 0.20),
-        F("33.33%",
-          "The gap divided by (1 − τ<sub>d</sub>), what a krone of dividend keeps. That measures the gap against the "
-          "dividend rather than against the capital gain it replaces.", 1 / 3),
-        F("50.00%",
-          "The ratio of the two rates, 20%/40%. τ<sub>d</sub>* measures the extra tax relative to a capital gain, "
-          "not a ratio of rates.", 0.5),
-    ],
-    kort="<p><b>25.00%.</b> τ<sub>d</sub>* = (0.40 − 0.20)/(1 − 0.20) = 0.20/0.80 = 25%.</p>",
-    full="<p><b>What τ<sub>d</sub>* measures.</b> An investor can take value as a dividend or as a price gain. A "
-         "krone of dividend leaves her (1 − τ<sub>d</sub>). A krone of gain leaves her (1 − τ<sub>g</sub>). The "
-         "effective tax rate is how much less the dividend leaves, measured per krone of after-tax gain.</p>"
-         "<p><b>Step 1: the two after-tax amounts.</b> Dividend: 1 − 0.40 = 0.60. Gain: 1 − 0.20 = 0.80.</p>"
-         "<p><b>Step 2: the ratio.</b> 0.60/0.80 = 0.75, so a krone of dividend is worth 0.75 of a krone of "
-         "gain.</p>"
-         "<p><b>Step 3: the rate.</b> τ<sub>d</sub>* = 1 − 0.75 = <b>25%</b>, the same as (0.40 − 0.20)/0.80.</p>"
-         "<p><b>Use.</b> On the ex-date the price drops by Div × (1 − τ<sub>d</sub>*), here 75% of the dividend. "
-         "With equal rates τ<sub>d</sub>* is zero and the full drop of the perfect market returns.</p>"
-         "<p><b>Remember:</b> divide the gap by (1 − τ<sub>g</sub>). The formula is from the manual (k16) and the "
-         "textbook. Lecture 5 makes the point in words.</p>",
-    tall=tallsvar(skala=100, enhet="%"),
-)
-
 # utb-s10 · Effektiv utbytteskatt i Norge (forelesning 5 s. 15, B14)
 statisk(
     "utb-s10", tema="utbytte", type="fakta",
@@ -905,7 +777,7 @@ statisk(
          "<p><b>Step 2: the tax.</b> 22% of 172 = NOK 37.84.</p>"
          "<p><b>Step 3: the rate.</b> 37.84/100 = 37.84%.</p>"
          "<p><b>Why it matters for payout.</b> Realised gains are taxed by the same rule, so in Norway "
-         "τ<sub>d</sub> = τ<sub>g</sub> and τ<sub>d</sub>* = 0. What remains of the buyback's tax advantage is "
+         "τ<sub>d</sub> = τ<sub>g</sub>. What remains of the buyback's tax advantage is "
          "the smaller base (only the gain is taxed) and the deferral for those who do not sell.</p>"
          "<p><b>Remember:</b> 22% × 1.72 = 37.84% on the shareholder. Stacked on the 22% corporate tax the "
          "combined rate is 51.52%, which is a different number for a different question.</p>",

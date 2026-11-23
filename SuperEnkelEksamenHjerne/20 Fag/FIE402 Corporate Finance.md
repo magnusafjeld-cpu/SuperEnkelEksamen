@@ -652,6 +652,22 @@ NotebookLM-kilder, med god tid.
   negative NPV-en (62 388); riktig mot det beste alternativet er 45 246. PS1 E6(b) sa at
   gjelden blir risikofri; riktig er 75 → 90 og eieren 25 → 16.
 
+- **Rettet etter kontrollørene i Øv uten stopp (23.11.2026, versjon 214):** alt sjekket mot
+  Panopto-tekstingen. Utbytteskatt: τ*<sub>d</sub> står ikke på lysbildene eller formelarket, og
+  opptak 05 (1:15:59) sier at utbytte og kursgevinst skattlegges likt i dag. kj2 bruker Kurbatovs
+  versjon (utsettelsen), manualen 16.1 merker formelen og eksempel 1 som bakgrunn, og treningen
+  mistet utb-tax1 og utb-s09. kj8: ρ (ikke q) for risikonøytral misligholdssannsynlighet («I always
+  prefer the rho», opptak 13, 25:41; lysbildet skriver p), LGD mot pålydende i CDS-spreaden, L i
+  r<sub>D</sub> = y − p·L definert mot prisen (kilen er p × LGD × (1 + y) mot pålydende), «plus a
+  written put» (opptak 18, 1:03:55) og ingen kjønnet pronomen om Kurbatov. Samme ordlyd i
+  sjangerstige 08, ρ i prove10 E5, L-presisering i V2024 P3(a) og spek §§ 9.3–9.4. Prediksjonens
+  trekk 9 sa feilaktig at H2025 E5 kaller risikoen usystematisk. Rettede NotebookLM-kilder for
+  forelesning 11 og 14 ligger ved siden av originalene med «(rettet 2026-11-23)» i navnet.
+  Ikke rettet (bevisst): τ*<sub>d</sub> i quiz q190–q191, dybdebanken, kapitteloppgave k16,
+  kartlegging 2 oppg. 8a, oppgavekort ok-utbytte-06 og prove3 E1 (bonus); y − p·L med L mot
+  pålydende i manualen k5/k29, sjangerstige 08 (viser selv avviket), ov-tvi3 (oppgaven foreskriver
+  formelen) og flere kapitteloppgaver; q i sjangerstige 08 og treningen.
+
 ## Eksamenstrening (15. november 2026)
 
 Magnus ba om det samme som i Persøk: velge oppgavetype og få mange eksamensoppgaver på den.

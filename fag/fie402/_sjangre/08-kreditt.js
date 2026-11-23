@@ -6,7 +6,7 @@ window.EDU_DATA.sjangre.push({
   summary: "From a bond's yield to CDS prices, option-based betas and coinsurance in mergers",
   chapters: [5, 24],
   exam: "8 of 11 papers · V2024 P3 and P4, 2021 MC7–9 · not yet in the Kurbatov papers",
-  intro: `<p>Credit risk has appeared on 8 of 11 papers, though not yet on Kurbatov's two. The older papers built long chained exercises on it: 2015 Problem 4 carried 90 points, while V2024 Problems 3 and 4 gave 28 points each to a CDS and to a merger with coinsurance. V2024 Problem 3 used the CDS example from lecture 10. Kurbatov said in class that a very similar example could be on the exam. He said the same of the Google exercise with senior and junior debt (Problem Set 3). The ladder starts with a bond's yield, then turns equity into a call on the firm's assets and debt into risk-free debt minus a put. At the top you can price risky debt and a CDS, back out the market's default probability, compute option-based betas and split a merger's gains between four groups.</p>`,
+  intro: `<p>Credit risk has appeared on 8 of 11 papers, though not yet on Kurbatov's two. The older papers built long chained exercises on it: 2015 Problem 4 carried 90 points, while V2024 Problems 3 and 4 gave 28 points each to a CDS and to a merger with coinsurance. V2024 Problem 3 used the CDS example from lecture 10. Kurbatov said in class that a very similar example could be on the exam. Kurbatov said the same of the Google exercise with senior and junior debt (Problem Set 3). The ladder starts with a bond's yield, then turns equity into a call on the firm's assets and debt into risk-free debt plus a written put. At the top you can price risky debt and a CDS, back out the market's default probability, compute option-based betas and split a merger's gains between four groups.</p>`,
   steps: [
     {
       id: "kreditt-1",
@@ -30,7 +30,7 @@ window.EDU_DATA.sjangre.push({
     {
       id: "kreditt-2",
       title: "Promised versus expected return on risky debt",
-      theory: `<p>A corporate borrower can default. Let p be the probability of default over the year and R the recovery rate, the fraction of face value the creditors collect if it happens. The loss given default is L = 1 − R. The yield y assumes nothing goes wrong. The <b>expected return</b> r<sub>D</sub> takes off the expected loss. It is r<sub>D</sub>, not y, that is the cost of debt in a WACC. The course formula is not on the formula sheet: memorise it. The credit spread y − r<sub>f</sub> holds two parts. The expected loss p·L is money the lender does not expect to get. Only the rest, r<sub>D</sub> − r<sub>f</sub>, is a premium for bearing default risk.</p>
+      theory: `<p>A corporate borrower can default. Let p be the probability of default over the year and R the recovery rate, the fraction of face value the creditors collect if it happens. The loss given default is L = 1 − R. The yield y assumes nothing goes wrong. The <b>expected return</b> r<sub>D</sub> takes off the expected loss. It is r<sub>D</sub>, not y, that is the cost of debt in a WACC. The formula is the textbook's, not on Kurbatov's slides or the formula sheet; Kurbatov computes the expected payment instead (lecture 10). The credit spread y − r<sub>f</sub> holds two parts. The expected loss p·L is money the lender does not expect to get. Only the rest, r<sub>D</sub> − r<sub>f</sub>, is a premium for bearing default risk.</p>
 <div class="formula"><div class="eq">r<sub>D</sub> = y − p·L</div><div class="eq">exact, from the payoffs: r<sub>D</sub> = E[payment]/P − 1 with E[payment] = (1 − p)·F + p·R·F</div>
 <div class="where">The two routes differ by p·L·y, because the formula charges the loss on the price and the exact route on the promised payment. Use the formula when you are given y, p and L. Use the payoffs when you are given them.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>y = 8%, p = 5%, R = 50%, so L = 0.50.</p><p>p·L = 0.05 × 0.50 = 0.025. r<sub>D</sub> = 8% − 2.5% = 5.5000%.</p><p>Exact route per 100 of face: price 100/1.08 = 92.5926, expected payment 0.95 × 100 + 0.05 × 50 = 97.50, return 97.50/92.5926 − 1 = 5.3000%. The gap of 0.2% is p·L·y = 0.025 × 0.08 = 0.002.</p></div>`,
@@ -71,7 +71,7 @@ window.EDU_DATA.sjangre.push({
     },
     {
       id: "kreditt-5",
-      title: "Risky debt as risk-free debt minus a put",
+      title: "Risky debt as risk-free debt plus a written put",
       theory: `<p>Rewrite the creditors' payoff: min(V<sub>T</sub>, F) = F − max(F − V<sub>T</sub>, 0). Lending to a levered firm is lending risk-free and at the same time writing the shareholders a put on the assets with strike F. The put is their right to hand over the assets instead of paying F. Equivalently, debt is the assets minus the shareholders' call. Put-call parity, Call = Put + V − PV(F), makes the two readings the same.</p>
 <div class="formula"><div class="eq">D = PV(F) − Put = V − Call</div>
 <div class="where">PV(F) = F/(1 + r<sub>f</sub>)<sup>T</sup> is the value of the same promise if it were risk-free. Put and Call are options on V with strike F and the debt's maturity. The put enters with a minus: it is worth something to the shareholders, not to the lender. If the firm is all-equity before the issue, options on its n shares with strike F/n are options on V: n such puts make one put on V with strike F (2016 Problem 4).</div></div>`,
@@ -90,12 +90,12 @@ window.EDU_DATA.sjangre.push({
     },
     {
       id: "kreditt-18",
-      title: "In words: why debt is risk-free debt minus a put",
+      title: "In words: why debt is risk-free debt plus a written put",
       theory: `<p>Kurbatov in the wrap-up: this could be on the exam, with the question "explain why". A full answer has three moves. Payoff: the creditors are owed F but receive min(V<sub>T</sub>, F) = F − max(F − V<sub>T</sub>, 0). Option: the second term is the payoff of a put on the firm's assets struck at F. Limited liability gives the shareholders that put, the right to hand over the assets instead of paying F, the option to default. Who holds it: the creditors have written it, so they hold a risk-free claim on F minus the put. Kurbatov's wording in the wrap-up is risk-free debt plus a written put, which is the same thing: being short a put subtracts its value. Never write risk-free debt minus a written put, which flips the sign. If the shareholders had unlimited liability, the put would vanish and the debt would be risk-free (lecture 10).</p>
 <div class="formula"><div class="eq">min(V<sub>T</sub>, F) = F − max(F − V<sub>T</sub>, 0) &nbsp;⟹&nbsp; D = PV(F) − Put</div>
 <div class="where">A CDS is that same put bought back: D + Put = PV(F), the risk-free bond. Put-call parity turns it into the other reading, D = V − Call.</div></div>`,
       example: `<div class="worked"><span class="wh">Example</span><p>F = 100 and the assets will be worth 140 or 60. The creditors get 100 = 100 − 0 or 60 = 100 − 40. The 40 is exactly what a put on the assets struck at 100 pays in the bad state. The creditors are the ones who pay it, through the shortfall.</p></div>`,
-      q: `<p>An exam question asks: "Explain why corporate debt can be seen as risk-free debt minus a put option." Which answer earns full marks?</p>`,
+      q: `<p>An exam question asks: "Explain why corporate debt can be seen as risk-free debt plus a written put on the firm's assets." Which answer earns full marks?</p>`,
       options: [
         "The creditors own a put on the firm's assets that pays them if V falls below F. Like any insurance it costs them a premium up front, which is why the put is subtracted from the risk-free value: D = PV(F) − Put.",
         "Creditors get min(V, F) = F − max(F − V, 0). That max is a put on the assets struck at F, the shareholders' right to default under limited liability. The creditors have written it: D = PV(F) − Put.",

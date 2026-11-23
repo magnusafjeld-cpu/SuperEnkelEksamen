@@ -266,7 +266,7 @@ Ikke på tur som regning: permanent gjeld (PS2 E9) og rentedekning (PS2 E5) med 
 9. **Feil rente:**
    - r_U med skatt (H2025 E4c)
    - PV(TS) ved konstant D/V diskontert med noe annet enn r_U (H2025 E4h)
-   - reelle sannsynligheter med r_f når risikoen er priset (H2025 E5 og PS3 E8 sier eksplisitt at risikoen ikke er systematisk)
+   - reelle sannsynligheter med r_f når risikoen er priset (PS3 E8 sier eksplisitt at etterspørselen er ukorrelert med markedet. H2025 E5 sier det ikke: oppgaven gir bare «The risk-free rate is 7%» og «equal probability», og nøkkelen diskonterer 50/50-strømmene med r_f uten å begrunne det. Skriv forutsetningen selv: r_f med reelle sannsynligheter krever at risikoen ikke er systematisk)
 10. **Synergier som svar når de er forbudt** (H2024 E1, H2025 E6b).
 11. (22.11.2026) **ρ og 1 − ρ forvekslet i CDS-prisen:** «They confused 1 − ρ and ρ» (opptak 13, 27:31).
 12. (22.11.2026) **Tilbakekjøp delt på gammel kurs:** «the biggest mistake that people make» (opptak 05, 1:09:12; opptak 03, 1:00:59).

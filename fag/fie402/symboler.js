@@ -126,8 +126,9 @@ window.EDU_DATA.symboler = {
     },
     kj8: {
       "y": "yield to maturity: the promised return if the debt is paid in full.",
-      "p": "probability of default.",
-      "L": "loss given default, as a fraction of what was promised.",
+      "p": "real probability of default.",
+      "L": "loss in default as a fraction of the price paid: the return in default is y − L. With LGD against face value, L = LGD × (1 + y).",
+      "LGD": "loss given default: the fraction of face value lost in default, 1 − R.",
       "V": "value of the firm's assets.",
       "V_T": "value of the firm's assets at maturity.",
       "E_T": "equity payoff at maturity.",
@@ -139,7 +140,7 @@ window.EDU_DATA.symboler = {
       "d_1": "Black-Scholes term. N(d₁) is the equity's delta with respect to the firm value.",
       "CDS": "credit default swap: insurance that pays the lender's loss if the borrower defaults.",
       "s": "CDS spread: the yearly price of the protection.",
-      "q": "risk-neutral probability of default. In the lecture 10 CDS example the default probability is written ρ.",
+      "ρ": "risk-neutral probability of default, Kurbatov's notation in the lecture 10 CDS example (the bottom branch). In a binomial tree where ρ is the up-state probability, default has 1 − ρ.",
     },
     kj9: {
       "p_i": "real probability of state i.",

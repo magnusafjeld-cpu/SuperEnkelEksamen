@@ -859,22 +859,22 @@ ex5 = {
                 f"<p><b>Step 1. Grow the price at the risk-free rate.</b> Under risk-neutral "
                 f"pricing the bond earns r<sub>f</sub>: {f(D5)} × {f((1 + rf5) ** 2)} = "
                 f"{f(CE5)}.</p>"
-                f"<p><b>Step 2. Solve.</b> {f(CE5)} = (1 − q) × {g(K5)} + q × {g(rec5 * K5)}, so "
-                f"q = ({g(K5)} − {f(CE5)})/{g(LGD)} = <b>{pc(q5)}</b></p>"
-                f"<p><b>Why it exceeds {pc(pd5)}.</b> q is not a forecast. It prices the default "
+                f"<p><b>Step 2. Solve.</b> {f(CE5)} = (1 − ρ) × {g(K5)} + ρ × {g(rec5 * K5)}, so "
+                f"ρ = ({g(K5)} − {f(CE5)})/{g(LGD)} = <b>{pc(q5)}</b></p>"
+                f"<p><b>Why it exceeds {pc(pd5)}.</b> ρ is not a forecast. It prices the default "
                 "state as if it were more likely, because the loss in default arrives in bad times "
                 "when money is worth more to investors; the risk premium in b) is moved into the "
                 "probability so that discounting at r<sub>f</sub> gives the market price.</p>"
-                f"<p>(An identity: [(1 − q) × {g(K5)} + q × {g(rec5 * K5)}]/{f((1 + rf5) ** 2)} = "
+                f"<p>(An identity: [(1 − ρ) × {g(K5)} + ρ × {g(rec5 * K5)}]/{f((1 + rf5) ** 2)} = "
                 f"{f(D5)} ✓.)</p>"
             ),
             "criteria": [
                 f"Uses two years at r_f: {f(D5)} × 1.03^2 = {f(CE5)}.",
-                f"q = ({g(K5)} − {f(CE5)})/{g(LGD)} = {pc(q5)}. Growing for one year only gives "
+                f"ρ = ({g(K5)} − {f(CE5)})/{g(LGD)} = {pc(q5)}. Growing for one year only gives "
                 f"{pc(feil_q_ett_aar)}.",
-                f"Explains why q > {pc(pd5)}: risk-neutral probabilities carry the risk premium "
+                f"Explains why ρ > {pc(pd5)}: risk-neutral probabilities carry the risk premium "
                 "(defaults happen in bad states).",
-                "Calling q the real probability of default is the error.",
+                "Calling ρ the real probability of default is the error.",
             ],
         },
         {
@@ -885,13 +885,13 @@ ex5 = {
             ),
             "solution": (
                 f"<p><b>Step 1. Fair price.</b> The CDS pays {g(LGD)} with risk-neutral "
-                f"probability q, so its price is q × {g(LGD)}/{f((1 + rf5) ** 2)}. From c), q × "
+                f"probability ρ, so its price is ρ × {g(LGD)}/{f((1 + rf5) ** 2)}. From c), ρ × "
                 f"{g(LGD)} = {g(K5)} − D × {f((1 + rf5) ** 2)}, so the price is {g(K5)}/"
                 f"{f((1 + rf5) ** 2)} − D = {f(PVK)} − {f(D5)} = <b>NOK {f(CDS5)} million</b>.</p>"
                 f"<p>Bond plus CDS pays {g(K5)} for sure, so D + CDS = PV(K): {f(D5)} + {f(CDS5)} = "
-                f"{f(PVK)} (an identity, since q came from the same prices). The CDS is a put on "
+                f"{f(PVK)} (an identity, since ρ came from the same prices). The CDS is a put on "
                 "Glimsdal's assets with strike equal to the face value: risky debt is risk-free "
-                "debt minus a put.</p>"
+                "debt plus a written put.</p>"
                 f"<p><b>Step 2. Arbitrage.</b> At {g(cds_q)} the CDS is too cheap, so buy it and "
                 "sell the equivalent:</p>"
                 "<table class=\"data\"><tr><th>Position</th><th>Today</th><th>No default</th>"
@@ -911,7 +911,7 @@ ex5 = {
                 f"{g(K5)} = 0 ✓.</p>"
             ),
             "criteria": [
-                f"Fair CDS price = q × {g(LGD)}/1.03^2 = {f(CDS5)}, or PV(K) − D = {f(PVK)} − "
+                f"Fair CDS price = ρ × {g(LGD)}/1.03^2 = {f(CDS5)}, or PV(K) − D = {f(PVK)} − "
                 f"{f(D5)}.",
                 f"Pricing with the real {pc(pd5)} and r_f gives {f(feil_cds_reell)}: the classic "
                 "error.",

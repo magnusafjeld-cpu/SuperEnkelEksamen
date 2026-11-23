@@ -303,6 +303,12 @@ is wrong, and it contradicts the market-timing material in k13.
 ## 9.3 Reserved symbols
 
 - **ρ is the risk-neutral probability, always.** For correlation write `Corr`.
+  In a CDS exercise Kurbatov writes ρ for the risk-neutral probability of **default** (bottom branch,
+  lecture 10: "I always prefer the rho"). Do not introduce q for it. Where a tree's ρ is the up-state
+  probability, write the default probability as 1 − ρ and say so.
+- **Never refer to Kurbatov with a gendered pronoun.** Write "Kurbatov" or rephrase.
+- **Quote Kurbatov's wording:** debt is "a risk-free debt plus a written put on assets" (recording 18,
+  1:03:55). D = PV(F) − Put is the same thing as a formula.
 - **D is the market value of debt.** For depreciation write `Dep`.
 - **K is a strike price or a face value** — if you use it for both in one chapter,
   say which is which.
@@ -312,7 +318,12 @@ is wrong, and it contradicts the market-timing material in k13.
 - **β<sub>D</sub> = 0 when debt is actually risky *understates* β<sub>U</sub>**
   (you drop a positive term), and therefore understates r<sub>U</sub> and the
   WACC, and *over*values the firm. Get the direction right.
-- **The wedge y − r<sub>D</sub> = p·L is expected loss.** It never enters
+- **The wedge y − r<sub>D</sub> = p·L is expected loss.** Say which L you mean: the formula is
+  exact only when L is the loss in default measured against the **price** (the return in default is
+  y − L). With LGD measured against face value, L = LGD × (1 + y) and the wedge is
+  p × LGD × (1 + y); y − p × LGD is an approximation. Kurbatov's lecture 10 example computes the
+  expected payment exactly (98/90.91 − 1 = 7.8%, not 10% − 0.1 × 20% = 8.0%), so given payoffs, do the
+  same. The wedge never enters
   β<sub>D</sub>. β<sub>D</sub> is positive because r<sub>D</sub> exceeds
   r<sub>f</sub>, that is because default risk is systematic.
 - **Myers-Majluf:** α = I/(E[V | beliefs] + **I** + NPV). The denominator is the

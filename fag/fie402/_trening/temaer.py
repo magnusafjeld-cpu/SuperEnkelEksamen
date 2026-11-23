@@ -233,9 +233,9 @@ INTRO = {
              "A fair-price buyback in a perfect market leaves every shareholder as well off as a dividend."),
             ("P<sub>0</sub> = (P<sub>1</sub> + Div<sub>1</sub>) / (1 + r<sub>E</sub>)",
              "Holds whether the dividend is paid from cash or from new shares. Payout policy does not change P<sub>0</sub>."),
-            ("τ<sub>d</sub>* = (τ<sub>d</sub> − τ<sub>g</sub>) / (1 − τ<sub>g</sub>)",
-             "The effective tax disadvantage of dividends. The price drops by Div(1 − τ<sub>d</sub>*). It is zero "
-             "when τ<sub>d</sub> = τ<sub>g</sub>, as in the US and Norway today."),
+            ("Taxes: deferral",
+             "Kurbatov (lecture 5): dividend and capital gains tax are equal today in the US and Norway. A buyback's "
+             "edge is that only sellers pay, only on the gain and only when they sell."),
             ("Clienteles",
              "Individuals prefer buybacks, corporations prefer dividends, institutions are indifferent."),
         ],

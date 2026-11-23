@@ -53,7 +53,7 @@ window.EDU_DATA.kjerne.push({
 <p>Any real price reaction to a payout must come from a named friction:</p>
 <table class="data">
 <tr><th>Friction</th><th>Mechanism</th><th>Favours</th></tr>
-<tr><td>Taxes</td><td>A dividend is taxed in full for every holder at once; a repurchase taxes only sellers' gains. With τ<sub>d</sub> above τ<sub>g</sub> the ex-dividend drop is only Div(1 − τ<sub>d</sub>)/(1 − τ<sub>g</sub>).</td><td>Repurchases</td></tr>
+<tr><td>Taxes</td><td>A dividend is taxed in full for every holder every year; a repurchase taxes only the sellers and only on their gain, so the holders who keep their shares defer the tax. Kurbatov (lecture 5): dividends used to be taxed more heavily, but today dividend and capital gains tax are equal in the US and Norway, so the edge that remains is the deferral.</td><td>Repurchases, for taxable holders</td></tr>
 <tr><td>Clienteles</td><td>Investors sort by tax rate; tax-exempt holders take the high payers. The marginal investor is then indifferent, but serving a clientele already served creates nothing.</td><td>What the holders want</td></tr>
 <tr><td>Signalling</td><td>Managers know more. Dividends are smoothed: set at a sustainable level, raised slowly, cut only under pressure, so a rise is good news and a cut very bad news. A buyback signals undervaluation, more weakly: an open-market programme commits to nothing.</td><td>Smoothed dividends</td></tr>
 <tr><td>Agency</td><td>Free cash flow left inside is spent on empire building; cash paid out cannot be wasted and a sticky dividend commits more than a buyback.</td><td>Committed payout</td></tr>
@@ -65,7 +65,7 @@ window.EDU_DATA.kjerne.push({
 <li>Repurchase: n = cash paid out/P at the post-announcement price. Special dividend: DPS = cash paid out/N<sub>0</sub> and P<sub>ex</sub> = P<sub>0</sub> − DPS. If old debt is refinanced, the cash paid out is D<sub>new</sub> − D<sub>old</sub>.</li>
 <li>Relever with MM II at the new D/E and the new r<sub>D</sub>; the check that can fail is new DPS / new r<sub>E</sub> = the price.</li>
 <li>Seller, holder and dividend taker end with the same wealth and homemade dividends (or reinvesting) undo any payout choice; EPS can change, value does not.</li>
-<li>With frictions: taxes favour repurchases for taxable holders through deferral (only sellers pay, only when they sell), plus the rate where τ<sub>d</sub> &gt; τ<sub>g</sub> (today equal in the US and Norway), signalling favours smoothed dividends, free cash flow favours committed payout and reinvesting it without good projects is empire building; a tender premium is a transfer, not value.</li></ul></div>
+<li>With frictions: taxes favour repurchases for taxable holders through deferral (only sellers pay, only on the gain and only when they sell), since dividend and capital gains tax are equal today in the US and Norway, signalling favours smoothed dividends, free cash flow favours committed payout and reinvesting it without good projects is empire building; a tender premium is a transfer, not value.</li></ul></div>
 `,
   checks: [
     {

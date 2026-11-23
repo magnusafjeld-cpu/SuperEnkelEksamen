@@ -96,7 +96,7 @@
   "prove10:5:c": {
     "type": "blandet",
     "tall": [
-      { "navn": "Risk-neutral default probability q", "verdi": 0.1644531737124331, "enhet": "", "regnet": true }
+      { "navn": "Risk-neutral default probability ρ", "verdi": 0.1644531737124331, "enhet": "", "regnet": true }
     ],
     "tallPoeng": 2,
     "tekstLedd": "Why does it differ from 9%?",

@@ -3175,6 +3175,8 @@ Backwards: k6 § 6.4 supplies the recapitalisation half of worked example 4, and
 
 <h3>16.1 The two personal tax rates, and what they do to the ex-dividend drop</h3>
 
+<div class="callout tip"><span class="h">What Kurbatov teaches, and what is background</span>Lecture 5 (slide 15 and the recording): dividends used to be taxed more heavily than capital gains, which favoured buybacks, but today the two rates are equal in the US and Norway (Norway: an effective 37.84%). The buyback's tax edge that remains is the deferral: a dividend is taxed every year, a capital gain only when you sell. That is the exam answer. The formula for τ*<sub>d</sub> and Worked example 1 below are textbook background: they are on neither Kurbatov's slides nor the formula sheet, and no paper from 2015 to H2025 has asked for them. Read them for the mechanism, do not drill them.</div>
+
 <p>k8 § 8.3 taxed all equity income at a single rate τ<sub>e</sub>. Payout policy is exactly the question that rate hides, so split it: <b>τ<sub>d</sub></b> is the investor's tax rate on dividends, <b>τ<sub>g</sub></b> his rate on realised capital gains. Historically τ<sub>d</sub> was higher than τ<sub>g</sub> in most tax systems (today the two are equal in the US and Norway, see below). Gains also carry the extra advantage that the investor chooses when to realise them.</p>
 
 <p>Now redo the ex-dividend arithmetic of k15 § 15.2 for an investor who pays these taxes. He can sell the day before the dividend, or hold through it and sell the day after. Setting the two after-tax proceeds equal gives the drop the market must produce:</p>
@@ -3182,7 +3184,7 @@ Backwards: k6 § 6.4 supplies the recapitalisation half of worked example 4, and
 <div class="formula">
   <div class="eq">P<sub>cum</sub> − P<sub>ex</sub> = Div × (1 − τ<sub>d</sub>)/(1 − τ<sub>g</sub>) = Div × (1 − τ*<sub>d</sub>)</div>
   <div class="eq">τ*<sub>d</sub> = (τ<sub>d</sub> − τ<sub>g</sub>)/(1 − τ<sub>g</sub>)</div>
-  <div class="where">τ*<sub>d</sub> is the <b>effective dividend tax rate</b>: the penalty for receiving a krone as a dividend rather than as a capital gain. Not on the formula sheet. When τ<sub>d</sub> = τ<sub>g</sub> it is zero and k15's full drop returns; when τ<sub>d</sub> &gt; τ<sub>g</sub> the price falls by <em>less</em> than the dividend.</div>
+  <div class="where"><b>Background, not exam material.</b> τ*<sub>d</sub> is the textbook's <b>effective dividend tax rate</b>: the penalty for receiving a krone as a dividend rather than as a capital gain. Not on Kurbatov's slides or the formula sheet. When τ<sub>d</sub> = τ<sub>g</sub> it is zero and k15's full drop returns; when τ<sub>d</sub> &gt; τ<sub>g</sub> the price falls by <em>less</em> than the dividend.</div>
 </div>
 
 <div class="callout mech"><span class="h">Why the price falls by less than the dividend when dividends are taxed harder</span>
@@ -3190,7 +3192,7 @@ The seller and the holder are not comparing gross amounts, they are comparing wh
 
 <p>Check the actual rates before assuming τ<sub>d</sub> &gt; τ<sub>g</sub>. In the US in 2024, qualified dividends and long-term gains are taxed at the same rates (0%, 15% or 20% by income). In Norway a personal shareholder pays an effective 37.84% on dividends (22% on the dividend grossed up by 1.72). Realised gains are taxed the same way. With equal rates τ*<sub>d</sub> = 0, so what remains of the repurchase's tax advantage is the smaller base and the deferral of 16.2. Kurbatov put it the same way in lecture 5: dividends used to be taxed more heavily, but today the rates are equal in the US and Norway. The buyback's remaining advantage is deferral, since only the shareholders who sell pay tax and only when they sell. Write that on the exam, not "dividends are taxed at a higher rate".</p>
 
-<div class="worked"><span class="wh">Worked example 1: the ex-dividend drop when dividends are taxed more heavily</span>
+<div class="worked"><span class="wh">Worked example 1 (background): the ex-dividend drop when dividends are taxed more heavily</span>
 <p>A share trades at 60.00 the day before it goes ex-dividend on a dividend of 4.00. The investor who is deciding whether to sell now or after the dividend pays τ<sub>d</sub> = 30% on dividends and τ<sub>g</sub> = 20% on realised gains, and bought the share at 40.00, so that is his cost basis.</p>
 <table class="data">
 <tr><th>Input</th><th>Value</th></tr>
@@ -3293,7 +3295,7 @@ Discounted 10 years at 6.0000%: 1.060000<sup>10</sup> = 1.7908, so PV = 20.00/1.
 <p>Investors do not share a tax rate. A Norwegian pension fund pays nothing on either dividends or gains; a taxable individual pays both; a corporate holder is taxed differently again; an investor holding inside a tax-sheltered account pays on withdrawal only. Each of them has a different τ*<sub>d</sub>, and therefore a different opinion about the payout policy above:</p>
 
 <table class="data">
-<tr><th>Investor type</th><th>Effective view of τ*<sub>d</sub></th><th>Prefers</th></tr>
+<tr><th>Investor type</th><th>Tax disadvantage of dividends</th><th>Prefers</th></tr>
 <tr><td>Tax-exempt: pension funds, endowments, sheltered accounts</td><td>Zero</td><td>Indifferent, so happy to hold high-dividend shares nobody else wants</td></tr>
 <tr><td>Taxable individual, τ<sub>d</sub> above τ<sub>g</sub></td><td>Positive</td><td>Repurchases and retained gains</td></tr>
 <tr><td>Corporation holding shares</td><td>Negative where, as in the US, a corporate holder is taxed on only part of the dividends it receives but on all of its gains</td><td>Dividends</td></tr>
@@ -3409,7 +3411,7 @@ Wealth per original share = 0.2000 × 33.00 + 0.8000 × 29.25 = 6.60 + 23.40 = <
 Senator Elizabeth Warren calls buybacks a short-run "sugar high" that replaces investing in the future. William Lazonick found that 449 firms in the S&amp;P 500 spent 54% of their 2003–2012 earnings on buybacks and 37% on dividends, leaving little for productive investment or wages. The course's answer starts from k15: with investment policy fixed, the form of payout changes nothing: a firm with positive-NPV projects can fund them in a functioning capital market whatever it paid out. The 54% shows where earnings went, not which good projects were skipped. Paying out cash with no good use is the remedy of 16.5, not a symptom. The critique has force where a friction makes buybacks serve managers: EPS targets met by shrinking the share count (the fallacy of k6 § 6.6), pay tied to the short-run price, or timing that moves wealth between shareholders (worked example 3). A good answer grants those cases and rejects the general claim.</div>
 
 <div class="callout tip"><span class="h">Writing the payout discussion answer</span>
-The shape that scores is the one k11 § 11.4 used for capital structure, and it transfers unchanged. Open with the benchmark in one sentence: in a perfect market the form of payout is irrelevant, so the answer must come from a named friction. Then sign two or three frictions <em>for this firm</em>, not in general: this firm's holders are taxable and long-horizon, so τ*<sub>d</sub> bites; this firm has free cash flow and no projects, so the commitment value of a dividend is large. Then say which force dominates and conclude in the direction the question asked. Four to six sentences is the stated budget on these questions, and a well-argued unusual point is credited rather than penalised.</div>
+The shape that scores is the one k11 § 11.4 used for capital structure, and it transfers unchanged. Open with the benchmark in one sentence: in a perfect market the form of payout is irrelevant, so the answer must come from a named friction. Then sign two or three frictions <em>for this firm</em>, not in general: this firm's holders are taxable and long-horizon, so the deferral of a buyback is worth a lot to them; this firm has free cash flow and no projects, so the commitment value of a dividend is large. Then say which force dominates and conclude in the direction the question asked. Four to six sentences is the stated budget on these questions, and a well-argued unusual point is credited rather than penalised.</div>
 
 <div class="callout link"><span class="h">Where this sits</span>
 Backwards: k15 is the benchmark this chapter departs from, k8 § 8.3 supplies τ<sub>e</sub> and τ<sub>i</sub> and the personal-tax machinery, and k11 § 11.1 supplies the free cash flow problem that § 16.5 answers. Sideways: the signalling argument here is the payout case of k13, and the same rationality question that consistency check 5 asks of an equity issue applies to a dividend increase. Forwards: k27 puts payout in the governance toolkit, which is where the verbal exercise will most likely reach it.</div>

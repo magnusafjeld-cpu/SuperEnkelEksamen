@@ -1025,7 +1025,7 @@ window.EDU_DATA.sets = [
               "Bond 2: price = 100/1.1 = 90.909 — the PROMISED payment discounted at the PROMISED yield.",
               "Expected payoff of Bond 2 = 0.9(100) + 0.1(80) = 98, not 100.",
               "Expected return of Bond 2 = (98 − 90.909)/90.909 = 7.8%, clearly distinguished from the 10% promised yield.",
-              "Explaining the gap — expected loss plus a default risk premium, and the 5-point credit spread it decomposes — is what the key is fishing for. r_D = y − p·L in the notation of the course."
+              "Explaining the gap — expected loss plus a default risk premium, and the 5-point credit spread it decomposes — is what the key is fishing for. In formula form r_D = y − p·L holds exactly only with L the loss measured against the price, 20/90.909 = 22%: 10% − 0.1 × 22% = 7.8%. With LGD against face value (20%) the wedge is p × LGD × (1 + y) = 0.1 × 0.2 × 1.1 = 2.2%; 10% − 0.1 × 20% = 8.0% is only an approximation. The key computes the expected payment, as above."
             ]
           },
           {
@@ -5845,21 +5845,21 @@ window.EDU_DATA.sets = [
           "label": "c",
           "points": 3,
           "body": "<p>What risk-neutral probability of default do the bond prices imply? Why does it differ from 9%?</p>",
-          "solution": "<p><b>Step 1. Grow the price at the risk-free rate.</b> Under risk-neutral pricing the bond earns r<sub>f</sub>: 857.3388 × 1.0609 = 909.5508.</p><p><b>Step 2. Solve.</b> 909.5508 = (1 − q) × 1,000 + q × 450, so q = (1,000 − 909.5508)/550 = <b>16.4453%</b></p><p><b>Why it exceeds 9%.</b> q is not a forecast. It prices the default state as if it were more likely, because the loss in default arrives in bad times when money is worth more to investors; the risk premium in b) is moved into the probability so that discounting at r<sub>f</sub> gives the market price.</p><p>(An identity: [(1 − q) × 1,000 + q × 450]/1.0609 = 857.3388 ✓.)</p>",
+          "solution": "<p><b>Step 1. Grow the price at the risk-free rate.</b> Under risk-neutral pricing the bond earns r<sub>f</sub>: 857.3388 × 1.0609 = 909.5508.</p><p><b>Step 2. Solve.</b> 909.5508 = (1 − ρ) × 1,000 + ρ × 450, so ρ = (1,000 − 909.5508)/550 = <b>16.4453%</b></p><p><b>Why it exceeds 9%.</b> ρ is not a forecast. It prices the default state as if it were more likely, because the loss in default arrives in bad times when money is worth more to investors; the risk premium in b) is moved into the probability so that discounting at r<sub>f</sub> gives the market price.</p><p>(An identity: [(1 − ρ) × 1,000 + ρ × 450]/1.0609 = 857.3388 ✓.)</p>",
           "criteria": [
             "Uses two years at r_f: 857.3388 × 1.03^2 = 909.5508.",
-            "q = (1,000 − 909.5508)/550 = 16.4453%. Growing for one year only gives 21.2620%.",
-            "Explains why q > 9%: risk-neutral probabilities carry the risk premium (defaults happen in bad states).",
-            "Calling q the real probability of default is the error."
+            "ρ = (1,000 − 909.5508)/550 = 16.4453%. Growing for one year only gives 21.2620%.",
+            "Explains why ρ > 9%: risk-neutral probabilities carry the risk premium (defaults happen in bad states).",
+            "Calling ρ the real probability of default is the error."
           ]
         },
         {
           "label": "d",
           "points": 8,
           "body": "<p>What is the fair price of the CDS? A dealer offers it for NOK 70 million: construct an arbitrage and find the profit.</p>",
-          "solution": "<p><b>Step 1. Fair price.</b> The CDS pays 550 with risk-neutral probability q, so its price is q × 550/1.0609. From c), q × 550 = 1,000 − D × 1.0609, so the price is 1,000/1.0609 − D = 942.5959 − 857.3388 = <b>NOK 85.2571 million</b>.</p><p>Bond plus CDS pays 1,000 for sure, so D + CDS = PV(K): 857.3388 + 85.2571 = 942.5959 (an identity, since q came from the same prices). The CDS is a put on Glimsdal's assets with strike equal to the face value: risky debt is risk-free debt minus a put.</p><p><b>Step 2. Arbitrage.</b> At 70 the CDS is too cheap, so buy it and sell the equivalent:</p><table class=\"data\"><tr><th>Position</th><th>Today</th><th>No default</th><th>Default</th></tr><tr><td>Buy Glimsdal's bond</td><td class=\"n\">−857.3388</td><td class=\"n\">1,000</td><td class=\"n\">450</td></tr><tr><td>Buy the CDS from the dealer</td><td class=\"n\">−70</td><td class=\"n\">0</td><td class=\"n\">550</td></tr><tr><td>Short the government bond (or borrow at 3%)</td><td class=\"n\">+942.5959</td><td class=\"n\">−1,000</td><td class=\"n\">−1,000</td></tr><tr><td><b>Net</b></td><td class=\"n\"><b>+15.2571</b></td><td class=\"n\">0</td><td class=\"n\">0</td></tr></table><p><b>Profit: NOK 15.2571 million today</b>, with nothing owed later.</p><p><b>Check, state by state (it can fail if the CDS payoff is mis-specified).</b> No default: 1,000 + 0 − 1,000 = 0; default: 450 + 550 − 1,000 = 0 ✓.</p>",
+          "solution": "<p><b>Step 1. Fair price.</b> The CDS pays 550 with risk-neutral probability ρ, so its price is ρ × 550/1.0609. From c), ρ × 550 = 1,000 − D × 1.0609, so the price is 1,000/1.0609 − D = 942.5959 − 857.3388 = <b>NOK 85.2571 million</b>.</p><p>Bond plus CDS pays 1,000 for sure, so D + CDS = PV(K): 857.3388 + 85.2571 = 942.5959 (an identity, since ρ came from the same prices). The CDS is a put on Glimsdal's assets with strike equal to the face value: risky debt is risk-free debt plus a written put.</p><p><b>Step 2. Arbitrage.</b> At 70 the CDS is too cheap, so buy it and sell the equivalent:</p><table class=\"data\"><tr><th>Position</th><th>Today</th><th>No default</th><th>Default</th></tr><tr><td>Buy Glimsdal's bond</td><td class=\"n\">−857.3388</td><td class=\"n\">1,000</td><td class=\"n\">450</td></tr><tr><td>Buy the CDS from the dealer</td><td class=\"n\">−70</td><td class=\"n\">0</td><td class=\"n\">550</td></tr><tr><td>Short the government bond (or borrow at 3%)</td><td class=\"n\">+942.5959</td><td class=\"n\">−1,000</td><td class=\"n\">−1,000</td></tr><tr><td><b>Net</b></td><td class=\"n\"><b>+15.2571</b></td><td class=\"n\">0</td><td class=\"n\">0</td></tr></table><p><b>Profit: NOK 15.2571 million today</b>, with nothing owed later.</p><p><b>Check, state by state (it can fail if the CDS payoff is mis-specified).</b> No default: 1,000 + 0 − 1,000 = 0; default: 450 + 550 − 1,000 = 0 ✓.</p>",
           "criteria": [
-            "Fair CDS price = q × 550/1.03^2 = 85.2571, or PV(K) − D = 942.5959 − 857.3388.",
+            "Fair CDS price = ρ × 550/1.03^2 = 85.2571, or PV(K) − D = 942.5959 − 857.3388.",
             "Pricing with the real 9% and r_f gives 46.6585: the classic error.",
             "Arbitrage: buy the bond and the cheap CDS, short the government bond (or borrow) so the future cash flows cancel in both states.",
             "Profit today = 942.5959 − 857.3388 − 70 = NOK 15.2571 million.",

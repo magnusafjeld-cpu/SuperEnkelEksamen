@@ -744,3 +744,7 @@ oppgavene i Øv uten stopp før en kontrollør fant den 23. november 2026.
 Panopto-tekstingen (`Forelesninger/Teksting fra Panopto/`) eller på lysbildet, ikke i sammendraget.
 Et tall eller en konklusjon som bare står i NotebookLM-kilden, er kildens egen.
 
+Samme regel gjelder formler: τ*<sub>d</sub> = (τ<sub>d</sub> − τ<sub>g</sub>)/(1 − τ<sub>g</sub>) og
+r<sub>D</sub> = y − p·L kom fra læreboka, ikke fra Kurbatov, og ble drillet som eksamensstoff til
+23.11.2026. Før en formel blir regnefamilie eller eksamensoppgave: finn den på lysbildet, formelarket
+eller i tekstingen.

@@ -1086,7 +1086,7 @@ window.EDU_DATA.svar = {
   "type": "blandet",
   "tall": [
    {
-    "navn": "Risk-neutral default probability q",
+    "navn": "Risk-neutral default probability ρ",
     "verdi": 0.1644531737124331,
     "enhet": "",
     "regnet": true
