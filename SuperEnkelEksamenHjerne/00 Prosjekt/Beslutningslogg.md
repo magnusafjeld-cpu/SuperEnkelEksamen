@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-11-21
+oppdatert: 2026-11-22
 ---
 
 # Beslutningslogg
@@ -257,6 +257,27 @@ prediksjonens kolonne K: samme form som en oppgave Kurbatov har gitt, eller ikke
 **Konsekvens:** alle som leser settene, må bruke `S.views.sett.alle()`. Planleggeren
 måtte endres (se [[Fallgruver]]). Del 2 har bare fire forventede oppgaver, fordi
 Kurbatov bare har gitt to slike typer der. Se [[Eksamenssett-modulen]].
+
+## Øv uten stopp: FSRS og eksamensoppgaver i varianter (22. november 2026)
+Magnus ville ha «et skikkelig Anki-system» der han bare trykker og får oppgave etter
+oppgave. Valgt: en egen motor (`js/bundle-ov.js`) med FSRS-5, planleggeren Anki bruker i
+dag, i stedet for Leitner-boksene i `S.srs`. FSRS har vanskelighetsgrad per kort og
+regner intervallet fra sannsynligheten for å huske, ikke fra faste bokser.
+
+**Kortet er ferdigheten, ikke teksten.** Et kort er en deloppgave, og hver repetisjon
+får en ny variant med nye tall. Et vanlig Anki-kort kan pugges; et regnestykke med nye
+tall må løses. Derfor ble det skrevet 50 nye eksamensoppgaver med minst ti varianter
+hver, i Kurbatovs format, i stedet for å gjenbruke eksamenssettene (én versjon hver,
+og prøveeksamenene skal ikke brukes opp før de tas på tid).
+
+**Tilpasset eksamen 7. desember.** Ingen intervaller går forbi dagen før eksamen; ellers
+gir «Lett» første gang 15 dager. Delvis riktig (under 85 %) regnes som ikke lært.
+Slurvefeil og misforståelse skilles, fordi Magnus ville ha det: slurv nullstiller ikke
+kortet, misforståelse gir en lignende oppgave med en gang.
+
+**Alternativene** var å utvide `S.srs` (faste bokser, ingen vanskelighetsgrad) eller å
+bruke eksamenstreningen med «Bare de jeg bommet på» (krever valg hver gang, ingen
+repetisjon av det du kan). Se [[Moduler og visninger]].
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på

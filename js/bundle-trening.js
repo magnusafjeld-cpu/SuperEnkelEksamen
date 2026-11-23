@@ -163,7 +163,7 @@ window.EDU = window.EDU || {};
      ellers én. null når teksten ikke er et tall.
      Med enheten % er også brøken et svar: 0.125 er 12,5 %. Skriver du % når
      enheten er en annen, deles tallet på 100. */
-  function tolkTall(rå, enhet) {
+  function tolkTall(rå, enhet, sprak) {
     let s = String(rå == null ? "" : rå).trim();
     if (s.includes("=")) s = s.slice(s.lastIndexOf("=") + 1);
     s = s.replace(/[\s\u00a0\u202f\u2009]/g, "").replace(/[\u2212\u2013\u2012]/g, "-").replace(/^minus/i, "-");
@@ -196,7 +196,7 @@ window.EDU = window.EDU || {};
       const somDes = Number((a || "0") + "." + b);
       if (komma && b.length === 3 && a.length >= 1 && a.length <= 3 && Number(a) > 0) {
         const somTus = Number(a + b);
-        kand = språk() === "en" ? [somTus, somDes] : [somDes, somTus];
+        kand = (sprak || språk()) === "en" ? [somTus, somDes] : [somDes, somTus];
       } else kand = [somDes];
     } else kand = [Number(s)];
     kand = kand.filter((x) => Number.isFinite(x)).map((x) => (neg ? -x : x));
@@ -1083,5 +1083,6 @@ window.EDU = window.EDU || {};
     return kort;
   }
 
-  S.views.trening = { render, finnes, dashbordkort };
+  /* tolkTall brukes også av Øv uten stopp (js/bundle-ov.js), med fagets språk som tredje argument. */
+  S.views.trening = { render, finnes, dashbordkort, tolkTall };
 })(window.EDU);

@@ -97,6 +97,9 @@ window.EDU.views = window.EDU.views || {};
   }
   function sideColumn(day) {
     const col = el(".stack", { style: { gap: "18px" } });
+    /* Øv uten stopp først: det er stedet å bare begynne. */
+    const ov = S.views.ov && S.views.ov.dashbordkort();
+    if (ov) col.appendChild(ov);
     /* Kjernepensum har ingen plass i mobilnavigasjonen, så inngangen er her. */
     const kjerne = S.views.kjerne && S.views.kjerne.dashbordkort();
     if (kjerne) col.appendChild(kjerne);

@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-11-22
+oppdatert: 2026-11-23
 ---
 
 # Fallgruver
@@ -729,3 +729,18 @@ Regneskriptene for prøveeksamenene (`fag/fie402/_prove/proveN_regn.py`) skriver
 mellomlager for `tools/flett-prove.py` og skal slettes etterpå (sett.js er kilden). Skal du
 bare lese tallene, kjør en kopi i scratchpad. Det skjedde 22.11.2026: agentene som lagde
 svar-dataene la igjen `prove3.json` og `prove6–9.json`.
+
+## 17. NotebookLM-kildene regner ut tall Kurbatov aldri sa
+
+Kildene i `7. Semester/FIE402 Corporate Finance/NotebookLM-kilder/` er sammendrag skrevet fra
+lysbildene og opptakene. De fyller ut regnestykker selv. Kilden for forelesning 11 (og 14) sier at
+butikkens exit-klausul er verdt 108 588 − (−46 018) = 154 606. Kurbatov regner aldri ut det, og
+sier om butikken i opptak 14 (1:23:28): «Originally, if we have to commit for life, we would not
+take it.» Uten klausulen står firmaet utenfor, så klausulen måles mot 0, slik Kurbatov også sier i
+oppsummeringen (opptak 18, 1:08:11). Feilen havnet både i sjangerstige 108 (steg 4) og i to av
+oppgavene i Øv uten stopp før en kontrollør fant den 23. november 2026.
+
+**Regelen:** Skal noe tilskrives Kurbatov («Kurbatov says», «as in Kurbatov's example»), les det i
+Panopto-tekstingen (`Forelesninger/Teksting fra Panopto/`) eller på lysbildet, ikke i sammendraget.
+Et tall eller en konklusjon som bare står i NotebookLM-kilden, er kildens egen.
+

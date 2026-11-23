@@ -4365,7 +4365,7 @@ window.EDU_DATA.sjangre.push({
     {
       id: "d3-exit-4",
       title: "The value of an exit option: compare with your best alternative",
-      theory: `<p>An exit option is worth the NPV with it minus your best choice without it, max(0, NPV<sub>without</sub>). If you would invest anyway, subtract the NPV without the option. If you would not invest without it, subtract 0, never the negative NPV. Lecture 11's store example subtracts the negative NPV, which is the first case: a store already committed. In the wrap-up Kurbatov warned that comparing with the negative value instead of 0 is the classic mistake when you could stay out.</p>
+      theory: `<p>An exit option is worth the NPV with it minus your best choice without it, max(0, NPV<sub>without</sub>). If you would invest anyway, subtract the NPV without the option. If you would not invest without it, subtract 0, never the negative NPV. Kurbatov's store in lecture 11 is the second case: “if we have to commit for life, we would not take it”. Without the clause you stay out, so measured against 0 the right is worth the whole NPV with it, 108 588. In the wrap-up Kurbatov warned that comparing with the negative value instead of 0 is the classic mistake.</p>
 <div class="formula"><div class="eq">value of the exit option = max(0, NPV<sub>with</sub>) − max(0, NPV<sub>without</sub>)</div>
 <div class="eq">bad state with a sale at t = 1: −I + (C<sub>bad</sub> + S)/(1 + r)</div>
 <div class="where">You commit at t = 0, so the year-1 cash flow comes in both states. At t = 1 you sell for S only if S beats the PV of continuing, C<sub>bad</sub>/r.</div></div>

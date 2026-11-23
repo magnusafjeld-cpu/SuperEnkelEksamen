@@ -5,7 +5,7 @@ oppdatert: 2026-11-22
 
 # Moduler og visninger
 
-16 moduler + Konto. Faget kan slå av hvilke som helst via `modules` i
+17 moduler + Konto. Faget kan slå av hvilke som helst via `modules` i
 [[Fagregisteret]]; Dashboard er alltid med.
 
 | Modul | Rute | Hva den gjør |
@@ -28,6 +28,7 @@ oppdatert: 2026-11-22
 | Sjangertrening | `/sjangre`, `/sjangre/:id`, `/sjangre/:id/:n` | Én stige per oppgavesjanger, fra null til eksamensnivå: teori, eksempel og én flervalgsoppgave per steg. Bare FIE402 foreløpig |
 | Problem sets | `/problemsett`, `/problemsett/:id`, `/problemsett/:id/:nr` | Øvingssettene fra kurset, med fire hint per delspørsmål og fasit bak en knapp. Bare FIE402 foreløpig |
 | Eksamenstrening | `/trening` | Stor flervalgsbank i eksamensformat. Velg temaer og antall, få kort fasit med en gang og full gjennomgang på knapp |
+| Øv uten stopp | `/ov` | Én oppgave om gangen uten oppsett, styrt av repetisjon som Anki (FSRS). Hver deloppgave er et kort, og når det kommer tilbake, får du nye tall. Bare FIE402 foreløpig, se under |
 | Sjekkliste | `/sjekkliste` | Alt som kan komme på eksamen, punkt for punkt, merket ✓ (kan) eller ? (usikker), med testmodus og liste over usikre punkter. Bare FIE432, se under |
 | NotebookLM | `/notebooklm` | Pensum som ren tekst, ett kapittel per kilde, med kopiknapp — se under |
 | Konto | `/konto` | Innlogging, synkstatus, «Nullstill fremdrift» og «Last innhold på nytt» |
@@ -448,6 +449,60 @@ svart), «Tilfeldig punkt» (et du ikke har merket) og «Usikre punkter» (en li
 lime inn hos Claude). «Mer» tegnes først når det åpnes. Datafila er nesten 0,8 MB
 og står i `manifest.lazy`, som eksamenstreningen. Lagring: `exams["skl:<id>"]` og
 `exams["skl:valg"]` (se [[Datamodell og lagring]]).
+
+## Øv uten stopp: oppgave etter oppgave med repetisjon (22. november 2026)
+
+`/ov`, `js/bundle-ov.js`. Magnus ba om en del han «bare kan trykke på» og gjøre oppgave
+etter oppgave uten å velge noe: den skal huske hva han hadde riktig og feil, komme
+tilbake til feilene, gi mindre av det han kan, men av og til ta opp igjen noe han hadde
+riktig, «et skikkelig Anki-system» med gjenkalling og spaced repetition. I intervjuet
+valgte han: eksamensoppsett (som regel én deloppgave med casen over, av og til en hel
+oppgave), Claude-retting av alt som kan komme på eksamen, en lignende oppgave med en
+gang etter en misforståelse, nye eksamensoppgaver med minst ti varianter, svakeste tema
+først, PC først og alt levert samlet.
+
+**Kortene.** Hver deloppgave i `EDU_DATA.ov` er et kort `"<oppgave-id>:<etikett>"`, og
+hver familie i eksamenstreningen et kort `"tr:<familie>"` (typene fakta og formel er
+under eksamensnivå og er utelatt). Når et kort kommer tilbake, trekkes en variant du
+ikke har sett nylig, så det er metoden som må sitte. En eksamensoppgave starter i (a);
+senere deloppgaver blir nye når de tidligere er sett. En deloppgave som vises alene,
+har `gitt` med tallene den trenger fra de tidligere. Av og til (30 %, «Ofte» 70 %) vises
+en ny oppgave som hel oppgave med alle deloppgavene, og knappen «Ta hele oppgaven»
+gjør det samme for en deloppgave.
+
+**Planleggeren er FSRS-5** med standardvektene og 90 % ønsket hukommelse, ikke
+Leitner-boksene i `S.srs`. Vurderingen etter svaret: Misforståelse (G = 1: ny variant
+med en gang, så om ti minutter, så i morgen; kortet læres på nytt), Slurvefeil (G = 2,
+ingen nullstilling, men én gang til om ti minutter), Usikker (G = 2), Greit (G = 3) og
+Lett (G = 4). Knappene viser intervallet hver av dem gir. Ingen intervaller går forbi
+dagen før eksamen (`EDU_DATA.ov.eksamen`). Studiedagen skifter klokka fire. Et kort med
+bare én variant (statiske spørsmål) gjentas ikke med en gang; neste oppgave blir en
+lignende fra samme tema.
+
+**Retting.** Tall automatisk mot toleransen (eksamensoppgavene 0,2 %, eksamenstreningen
+0,1 %), med `tolkTall` lånt fra eksamenstreningen. Et tall som treffer en felle, viser
+fella og foreslår Misforståelse; et galt tall uten felle foreslår Slurvefeil. Tekst
+rettes av Claude (Opus 5.5 som standard, Sonnet 5.5 som valg) mot modellsvaret,
+løsningen og kriteriene; svaret slutter med `POENG: x av n` og `FEILTYPE: INGEN, SLURV
+eller MISFORSTÅELSE`, som styrer forslaget. Uten nøkkel vurderer du deg selv mot
+fasiten og kriteriene. Delvis riktig (under 85 %) regnes som ikke lært: knappene er
+Misforståelse, Slurvefeil og Usikker.
+
+**Rekkefølgen.** Lignende oppgave etter en misforståelse, så kort under læring som har
+forfalt (minst to andre oppgaver imellom), så repetisjoner (lavest sannsynlighet for å
+huske først) med en ny hver fjerde gang, så nye kort vektet med eksamensvekt × (0,4 +
+andel feil i temaet) og en bonus for eksamensoppgavene, så ekstra øving. Aldri samme
+oppgave to ganger på rad, helst ikke samme tema tre ganger. Fokusknappene Alle, Del 1,
+Del 2 og Del 3 følger delene i `EDU_DATA.perDel`. Svar på eksamenstreningens spørsmål
+skrives også til `"tr:<id>"`, og den gamle loggen der gir startstatusen (bommet sist:
+forfalt med en gang).
+
+**Innholdet** bygges av `tools/bygg-ov.py` fra `fag/fie402/_ov/*.py` med `tools/ov_lib.py`
+(spesifikasjon `docs/fie402-ov-spek.md`). Byggeren avviser varianter med ulike
+deloppgaver, feller innenfor toleransen, kriterier som ikke summerer til poengene,
+manglende `gitt`, språkfeil og ubalansert HTML. Fila lastes først når modulen åpnes
+(`lazy["/ov"]` laster også eksamenstreningen). Merket i menyen teller kort som har
+forfalt, rett fra lagringen, uten dataene.
 
 ## Eksamenstrening — mange spørsmål, fasit med en gang
 
@@ -936,6 +991,11 @@ for hvor den står. Quiz-historikken står nederst på Quiz-startsiden.
 `S.metrics` har fortsatt `readPct`, `daysPct`, `quizStats`, `understoodCount`,
 `nextMilestone` og `streak`. `streak()` teller sammenhengende dager bakover der
 enten en dag ble fullført eller et kapittel sett.
+
+### FSRS i Øv uten stopp (`js/bundle-ov.js`)
+Egen planlegger for `/ov`, se seksjonen over. Stabilitet S (dager til hukommelsen er
+90 %) og vanskelighet D per kort, med kort- og langtidsoppdatering som i FSRS-5.
+`S.views.ov._test` gir `planlegg` til simuleringer i Node.
 
 ### Søkeindeksen (`S.search`)
 Bygges én gang og cachet. Indekserer kapitler (vekt 3), formler (2,2), begreper

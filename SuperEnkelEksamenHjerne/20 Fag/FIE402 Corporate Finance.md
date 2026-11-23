@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-11-22
+oppdatert: 2026-11-23
 ---
 
 # FIE402 Corporate Finance
@@ -363,6 +363,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 | Eksamenstrening | **683 spørsmål** i 12 temaer (89 regnefamilier med nye tall og 207 statiske), 509 med tallsvar for «Regn selv først», uten minuspoeng. Spesifikasjon `docs/fie402-trening-spek.md` |
 | Problem sets | **Problem Set 1–4** · 36 oppgaver · 144 delspørsmål med fire hint hver (PS4 er eksemplene i M&A-forelesningen, som Kurbatov kalte PS4) |
 | Sjangertrening | **10 stiger · 151 steg**, hver fra null til eksamensnivå, etter eksamensvekt (stige 10 er governance og verbale M&A-motiver), pluss **«Del 3 i korte stiger»: 14 stiger · 80 steg** nederst |
+| Øv uten stopp | **51 eksamensoppgaver** i Kurbatovs format, 12 varianter hver (612), **215 kort** (128 tall, 60 tekst, 27 blandet), pluss eksamenstreningens 276 familier: **491 kort** i repetisjonen. Spesifikasjon `docs/fie402-ov-spek.md` |
 | Aktiv læring | **208** oppgaver |
 | Dybdetrening | **458** i seks banker |
 | Lynlæring | **233** elementer, med fremdriftsport |
@@ -433,6 +434,24 @@ H2025, V2021–V2024 og prøveeksamenene. Fragmentene er `_sjangre/101-…114-d3
 utregningene `_sjangre/regn/d3-*.py`, spesifikasjonen §10 i `docs/fie402-sjanger-spek.md`.
 CDS-stigen har egne symboler (`sg-d3-cds`), fordi ρ der er sannsynligheten for mislighold.
 Skrevet av fem agenter og regnet på nytt av to uavhengige kontrollører.
+
+**Øv uten stopp (23. november 2026).** Magnus ville bare trykke og få oppgave etter oppgave,
+med repetisjon som Anki. Motoren er `js/bundle-ov.js` (se [[Moduler og visninger]]); her er
+innholdet: 51 eksamensoppgaver (`fag/fie402/_ov/*.py`, bygd til `fag/fie402/ov.js` med
+`tools/bygg-ov.py`), hver en case med deloppgaver (a)–(e) og minst én tekst- eller
+blandetdel med intuisjon som Claude retter mot modellsvar og kriterier. 12 varianter med
+nye tall per oppgave, så en deloppgave du bommer på, kommer tilbake med andre tall.
+Fordelingen: verdsetting 11 (tvilling, WACC/APV, FCF og terminalverdi, gjeldskapasitet og
+FTE, rekap med skatt, avveiningen), kapitalstruktur 10 (MM, hjemmelaget gearing, utbytte
+og tilbakekjøp, risk shifting, gjeldsoverheng, gambling for resurrection), informasjon og
+M&A 10 (Myers-Majluf, hakkeordenen, IPO, aksjebytte, kontant mot aksjer, dealsannsynlighet,
+koforsikring, budkamp, to teorioppgaver), opsjoner og kreditt 10 (paritet, ett binomisk steg,
+p og ρ, straddle, intuisjon, gjeld som put, senior og junior, spread, CDS, risikoskift),
+realopsjoner 6 og governance 4 (teorioppgaver med 12 ulike vignetter). Fem skribenter og
+fem uavhengige kontrollører; hver gruppe ble kontrollert to ganger. Regningen holdt i alle
+variantene første gang; rettingene gjaldt feller som havnet innenfor toleransen,
+forutsetninger som manglet i casen, gitt-felt, modellsvar som ikke fulgte varianten og
+vignetter som lå for nær prøveeksamenene. Lærdommene står i spesifikasjonen § 6b.
 ## Problem sets
 
 Øvingssettene fra kurset har egen fane, `/problemsett`. Problem Set 1 kom

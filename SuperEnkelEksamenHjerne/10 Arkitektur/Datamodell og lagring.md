@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, data, synk]
-oppdatert: 2026-11-18
+oppdatert: 2026-11-22
 ---
 
 # Datamodell og lagring
@@ -52,7 +52,7 @@ to ganger nullstiller den.
 id, mens [[Eksamenssett-modulen]] bruker `"<settId>-run"` for selve økta og
 `"<settId>-e<n>"` for selvvurdering per oppgave. Kapitteloppgavene bruker
 `"kapoppg-<kapittel>"`, og kjernepensum `"kjerne-<del-id>"` med `lest`, `sjekk`
-og `valg` inni, problem sets `"ps:<settId>:<nr>"` med `ferdig`, `deler` (ferdig per delspørsmål), `hint` og `fasit`, sjangertreningen `"sg:<steg-id>"` med `v` og `forste` og sjekklisten `"skl:<punkt-id>"` med `v` (`kan`, `usikker` eller tomt når merket er fjernet, så også fjerningen synkes) og `t`, pluss `"skl:valg"` med testmodus og lukkede temaer (se [[Moduler og visninger]]). Nøkkelrommet er delt, så id-ene
+og `valg` inni, problem sets `"ps:<settId>:<nr>"` med `ferdig`, `deler` (ferdig per delspørsmål), `hint` og `fasit`, sjangertreningen `"sg:<steg-id>"` med `v` og `forste`, Øv uten stopp `"ov:<kort-id>"` (FSRS-tilstanden per kort: `st`, `s`, `d`, `due`, `last`, `reps`, `lapses`, `step`, `straks`, `n`, `r`, `vs`) pluss `"ov:okt"` (oppgaven på skjermen), `"ov:valg"` og `"ovdag:<dato>"`, og sjekklisten `"skl:<punkt-id>"` med `v` (`kan`, `usikker` eller tomt når merket er fjernet, så også fjerningen synkes) og `t`, pluss `"skl:valg"` med testmodus og lukkede temaer (se [[Moduler og visninger]]). Nøkkelrommet er delt, så id-ene
 må ikke kollidere. Synken slår sammen `exams` nøkkel for nøkkel, der den nyeste
 siden vinner per felt.
 

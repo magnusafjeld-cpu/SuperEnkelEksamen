@@ -534,6 +534,47 @@ body.tr-modal-åpen{overflow:hidden;}
 .sj-diagram-tekst{font-size:13px;text-align:center;margin-top:6px;color:var(--ink-2);}
 @media (max-width:860px){.sj-økt>.sj-brett{flex-basis:100%;}.card.pad-lg.sj-økt{padding:12px;}}
 
+/* ===== Øv uten stopp (js/bundle-ov.js) ===== */
+.ov-hode{margin-bottom:16px;}
+.ov-tall{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:12px;}
+.ov-tallboks{background:var(--bg-sunken);border-radius:var(--r-md);padding:10px 12px;}
+.ov-tallboks .v{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink);line-height:1.1;}
+.ov-tallboks .l{font-size:12.5px;color:var(--ink-2);margin-top:2px;}
+.ov-tallboks .u{font-size:11.5px;color:var(--ink-3);margin-top:1px;}
+.ov-fokus{gap:6px;align-items:center;}
+.ov .chip{cursor:default;}
+.ov button.chip{cursor:pointer;border:1px solid transparent;font-family:inherit;}
+.ov button.chip.på{background:var(--accent-soft);color:var(--accent-ink);border-color:var(--accent-soft-2);}
+.ov-innstillinger{margin-top:10px;}
+.ov-innstillinger summary{cursor:pointer;color:var(--ink-3);}
+.ov-innstillinger .prose p{font-size:13px;line-height:1.55;color:var(--ink-2);margin:0 0 6px;}
+.ov-tittel{font-weight:650;font-size:14.5px;color:var(--ink);}
+.ov-case .prose{font-size:15.5px;line-height:1.6;}
+.ov-case{padding-bottom:4px;border-bottom:1px solid var(--hairline);margin-bottom:12px;}
+.ov-gitt{background:var(--bg-sunken);border-radius:var(--r-md);padding:9px 13px;margin:0 0 12px;}
+.ov-gitt-hode{display:block;font-size:11.5px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-bottom:2px;}
+.ov-gitt .prose p{margin:0;font-size:14.5px;}
+.ov-q .prose{font-size:16px;line-height:1.6;}
+.ov-q .prose p{margin:4px 0;}
+.ov-skille{border:none;border-top:1px dashed var(--hairline-strong);margin:22px 0 14px;}
+.tr-resultat.delvis{color:#9a630f;}
+.ov-felle{margin-top:8px;padding:9px 13px;border-radius:var(--r-md);background:var(--rose-soft);font-size:14px;line-height:1.5;color:var(--ink-2);}
+.ov-krit{margin:6px 0 0;padding-left:20px;font-size:14px;line-height:1.5;color:var(--ink-2);}
+.ov-vurder{margin-top:16px;padding:12px 14px;border-radius:var(--r-md);border:1px solid var(--hairline-strong);background:var(--bg-elevated);}
+.ov-vurder-hode{font-size:12px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;}
+.ov-vurder-knapper{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:8px;}
+.ov-vk{display:flex;flex-direction:column;align-items:flex-start;gap:1px;padding:9px 12px 8px;border-radius:var(--r-md);border:1.5px solid var(--hairline-strong);background:#fff;cursor:pointer;font-family:inherit;text-align:left;position:relative;}
+.ov-vk:hover{border-color:var(--ink-4);}
+.ov-vk-navn{font-size:14.5px;font-weight:650;color:var(--ink);}
+.ov-vk-int{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums;}
+.ov-vk-tast{position:absolute;top:7px;right:9px;font-size:11px;color:var(--ink-4);font-variant-numeric:tabular-nums;}
+.ov-vk.rose .ov-vk-navn{color:#b8324b;}
+.ov-vk.amber .ov-vk-navn{color:#9a630f;}
+.ov-vk.green .ov-vk-navn{color:#1d7a47;}
+.ov-vk.forslag.rose{border-color:var(--rose);background:var(--rose-soft);}
+.ov-vk.forslag.amber{border-color:#e0a63a;background:var(--amber-soft);}
+.ov-vk.forslag.green{border-color:var(--green);background:var(--green-soft);}
+@media (max-width:600px){.ov-tall{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:10px;}.ov-tallboks{padding:7px 9px;}.ov-tallboks .v{font-size:18px;}.ov-tallboks .l{font-size:11.5px;line-height:1.25;}.ov-tallboks .u{display:none;}.ov-vurder-knapper{grid-template-columns:repeat(2,minmax(0,1fr));}}
 /* ===== Spør Claude (bundle-claude.js) =====
    Knappen ligger nederst til høyre. I fag med formelark flyttes formelarkets
    knapp og vindu opp over den. Panelet er et vindu på PC og hele skjermen på
@@ -1155,8 +1196,8 @@ window.EDU_DATA = {};
 
 <!-- Fag + oppsett. Fagets egne datafiler (fag/<id>/*.js) lastes dynamisk når
      faget er valgt — derfor må motoren under aldri snapshotte EDU_DATA. -->
-<script src="js/subjects.js?v=212"></script>
-<script src="js/config.js?v=212"></script>
+<script src="js/subjects.js?v=213"></script>
+<script src="js/config.js?v=213"></script>
 
 <!-- Motoren. Hver bundle er internt organisert som IIFE-komponenter:
      bundle-core  = pensumparser + utils + store + srs + søk + repetisjon + metrics + router
@@ -1168,35 +1209,37 @@ window.EDU_DATA = {};
      sjakk-kjerne + bundle-sjakk = sjakkregler og varianttreneren (/linjer)
      bundle-sjekkliste = sjekkliste over alt som kan komme, punkt for punkt (/sjekkliste)
      bundle-forelesninger = det du må kunne fra hver forelesning, steg for steg (/forelesninger)
+     bundle-ov    = Øv uten stopp: én oppgave om gangen med repetisjon som Anki (FSRS) og nye tall (/ov)
      bundle-claude = Spør Claude og vurdering med egen API-nøkkel (bare i nettleseren)
      account      = Supabase-innlogging og synk av fremdrift (valgfritt)
      privat       = private fag fra en privat Supabase-bøtte, bare for eieren
      picker       = fag-velger, tema og dynamisk lasting av fagdata
      boot         = app-skall, ruting og innholdslasting -->
-<script src="js/bundle-core.js?v=212"></script>
-<script src="js/bundle-views.js?v=212"></script>
-<script src="js/bundle-lyn.js?v=212"></script>
-<script src="js/bundle-dybde.js?v=212"></script>
-<script src="js/bundle-sett.js?v=212"></script>
-<script src="js/bundle-case.js?v=212"></script>
-<script src="js/bundle-mock.js?v=212"></script>
-<script src="js/bundle-historier.js?v=212"></script>
-<script src="js/bundle-kapitteloppgaver.js?v=212"></script>
-<script src="js/bundle-problemsett.js?v=212"></script>
-<script src="js/bundle-sjangre.js?v=212"></script>
-<script src="js/bundle-notebooklm.js?v=212"></script>
-<script src="js/bundle-kjerne.js?v=212"></script>
-<script src="js/bundle-formelark.js?v=212"></script>
-<script src="js/bundle-symboler.js?v=212"></script>
-<script src="js/bundle-trening.js?v=212"></script>
-<script src="js/bundle-sjekkliste.js?v=212"></script>
-<script src="js/bundle-forelesninger.js?v=212"></script>
-<script src="js/bundle-claude.js?v=212"></script>
-<script src="js/sjakk-kjerne.js?v=212"></script>
-<script src="js/bundle-sjakk.js?v=212"></script>
-<script src="js/account.js?v=212"></script>
-<script src="js/privat.js?v=212"></script>
-<script src="js/picker.js?v=212"></script>
-<script src="js/boot.js?v=212"></script>
+<script src="js/bundle-core.js?v=213"></script>
+<script src="js/bundle-views.js?v=213"></script>
+<script src="js/bundle-lyn.js?v=213"></script>
+<script src="js/bundle-dybde.js?v=213"></script>
+<script src="js/bundle-sett.js?v=213"></script>
+<script src="js/bundle-case.js?v=213"></script>
+<script src="js/bundle-mock.js?v=213"></script>
+<script src="js/bundle-historier.js?v=213"></script>
+<script src="js/bundle-kapitteloppgaver.js?v=213"></script>
+<script src="js/bundle-problemsett.js?v=213"></script>
+<script src="js/bundle-sjangre.js?v=213"></script>
+<script src="js/bundle-notebooklm.js?v=213"></script>
+<script src="js/bundle-kjerne.js?v=213"></script>
+<script src="js/bundle-formelark.js?v=213"></script>
+<script src="js/bundle-symboler.js?v=213"></script>
+<script src="js/bundle-trening.js?v=213"></script>
+<script src="js/bundle-ov.js?v=213"></script>
+<script src="js/bundle-sjekkliste.js?v=213"></script>
+<script src="js/bundle-forelesninger.js?v=213"></script>
+<script src="js/bundle-claude.js?v=213"></script>
+<script src="js/sjakk-kjerne.js?v=213"></script>
+<script src="js/bundle-sjakk.js?v=213"></script>
+<script src="js/account.js?v=213"></script>
+<script src="js/privat.js?v=213"></script>
+<script src="js/picker.js?v=213"></script>
+<script src="js/boot.js?v=213"></script>
 </body>
 </html>

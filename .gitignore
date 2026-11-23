@@ -20,8 +20,9 @@ FIE432 Personlig Økonomi 31. aug/
 # FIE402_Corp_course_files: opphavsrett, og 234 MB.
 FIE459 Sustainable Finance files/
 
-# Utkast fra bygg-trening.py --bare, og Pythons bufre
+# Utkast fra bygg-trening.py --bare og bygg-ov.py --bare, og Pythons bufre
 fag/*/_trening/_utkast*.js
+fag/*/_ov/_utkast*.js
 __pycache__/
 
 # Private fag. Lastes opp til den private Supabase-bøtta med

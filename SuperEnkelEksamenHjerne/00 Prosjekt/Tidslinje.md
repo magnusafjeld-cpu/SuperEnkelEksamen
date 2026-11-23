@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-11-22
+oppdatert: 2026-11-23
 ---
 
 # Tidslinje
@@ -98,5 +98,6 @@ ikke står i commit-meldingene.
 | 15. november 2026 | [[FIE402 Corporate Finance]]: eksamenstrening med 692 spørsmål i 12 temaer, «Regn selv først» og uten minuspoeng | Motoren gjort fagnøytral for poeng og språk; fire skribenter og fire uavhengige kontrollører |
 | 21. november 2026 | [[FIE402 Corporate Finance]]: 25 deleksamener i fanen «Per del», én del av pensum om gangen, sortert i «Mest forventet» og «Med vri» | Lånt fra de 72 prøveoppgavene, ingen ekte eksamensoppgaver; planleggeren leser settene gjennom motoren (versjon 30) |
 | 22. november 2026 | [[FIE402 Corporate Finance]]: «Del 3 i korte stiger» nederst i Sjangertrening, 14 korte stiger og 80 steg | Én stige per oppgavetype i del 3 (opsjoner, kreditt, realopsjoner, M&A, governance), med intuisjon i hvert steg. Motoren fikk seksjoner og emneoverskrifter |
+| 23. november 2026 | [[FIE402 Corporate Finance]]: «Øv uten stopp», oppgave etter oppgave med repetisjon som Anki (FSRS) og nye tall hver gang | 51 nye eksamensoppgaver i 612 varianter pluss eksamenstreningen, 491 kort. Claude retter tekstsvar, slurvefeil og misforståelse skilles. Fem skribenter og fem kontrollører i to runder |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

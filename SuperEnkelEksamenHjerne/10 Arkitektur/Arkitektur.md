@@ -35,6 +35,8 @@ js/
                            og se hva det står for (fag/<id>/symboler.js)
   bundle-trening.js        eksamenstrening: stor flervalgsbank, velg temaer og
                            antall, kort fasit og full gjennomgang med en gang
+  bundle-ov.js             Øv uten stopp: én oppgave om gangen, repetisjon med
+                           FSRS og nye tall hver gang et kort kommer tilbake
   bundle-sjekkliste.js     sjekkliste: alt som kan komme, punkt for punkt, merket
                            kan eller usikker (lazy som eksamenstreningen)
   bundle-forelesninger.js  forelesninger: én interaktiv gjennomgang per

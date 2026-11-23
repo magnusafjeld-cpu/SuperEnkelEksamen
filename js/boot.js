@@ -15,6 +15,7 @@ window.EDU = window.EDU || {};
       { route: "#/forelesninger", match: "/forelesninger", label: "Forelesninger", ico: "play" },
     ]},
     { group: "Øving", items: [
+      { route: "#/ov", match: "/ov", label: "Øv uten stopp", ico: "repeat", badge: () => (S.views.ov && S.views.ov.antallForfalt()) || null },
       { route: "#/lyn", match: "/lyn", label: "Lynlæring", ico: "bolt", badge: () => (S.views.lyn && !S.views.lyn.dailyDone()) ? "⚡" : null },
       { route: "#/quiz", match: "/quiz", label: "Quiz", ico: "quiz" },
       { route: "#/kapitteloppgaver", match: "/kapitteloppgaver", label: "Kapitteloppgaver", ico: "check" },
@@ -40,6 +41,7 @@ window.EDU = window.EDU || {};
   ];
   const MOBILE = [
     { route: "#/", match: "/", label: "Hjem", ico: "home" },
+    { route: "#/ov", match: "/ov", label: "Øv", ico: "repeat" },
     { route: "#/lyn", match: "/lyn", label: "Lyn", ico: "bolt" },
     { route: "#/forelesninger", match: "/forelesninger", label: "Forelesning", ico: "play" },
     { route: "#/plan", match: "/plan", label: "Plan", ico: "calendar" },
@@ -92,6 +94,8 @@ window.EDU = window.EDU || {};
     /* Spørsmålsbanken er stor og lastes først når modulen åpnes (manifest.lazy),
        så her holder det at faget har den. */
     "/trening": () => !!(S.views.trening && S.views.trening.finnes()),
+    /* Øv uten stopp laster eksamensoppgavene og eksamenstreningen først når den åpnes. */
+    "/ov": () => !!(S.views.ov && S.views.ov.finnes()),
     /* Sjekklisten lastes også først når den åpnes. */
     "/sjekkliste": () => !!(S.views.sjekkliste && S.views.sjekkliste.finnes()),
     /* Forelesningsgjennomgangene lastes også først når de åpnes. */
@@ -205,6 +209,7 @@ window.EDU = window.EDU || {};
     when("/sjangre", "/sjangre/:id/:n", (p) => setView(() => V.sjangre.render(p.id, p.n)));
     when("/notebooklm", "/notebooklm", () => setView(() => V.notebooklm.render()));
     when("/trening", "/trening", () => setView(() => V.trening.render()));
+    when("/ov", "/ov", () => setView(() => V.ov.render()));
     when("/sjekkliste", "/sjekkliste", () => setView(() => V.sjekkliste.render()));
     when("/forelesninger", "/forelesninger", () => setView(() => V.forelesninger.render()));
     when("/forelesninger", "/forelesninger/:nr", (p) => setView(() => V.forelesninger.render(p.nr)));
