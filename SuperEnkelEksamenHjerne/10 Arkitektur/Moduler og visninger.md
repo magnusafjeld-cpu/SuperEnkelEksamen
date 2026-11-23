@@ -474,8 +474,15 @@ gjør det samme for en deloppgave.
 Leitner-boksene i `S.srs`. Vurderingen etter svaret: Misforståelse (G = 1: ny variant
 med en gang, så om ti minutter, så i morgen; kortet læres på nytt), Slurvefeil (G = 2,
 ingen nullstilling, men én gang til om ti minutter), Usikker (G = 2), Greit (G = 3) og
-Lett (G = 4). Knappene viser intervallet hver av dem gir. Ingen intervaller går forbi
-dagen før eksamen (`EDU_DATA.ov.eksamen`). Studiedagen skifter klokka fire. Et kort med
+Lett (G = 4). Et kort i repetisjon kommer tilbake etter et antall andre kort
+(`dueN` mot telleren `"ovteller"`) eller når dagene er gått, det som kommer først.
+Antall kort er 8, 20 og 40 for Usikker, Greit og Lett, doblet for hver riktig på rad
+(`rk`, høyst fire doblinger). Misforståelse nullstiller rekken. Er det bare kort som
+venter på telleren, er annethvert kort nytt i stedet for hvert fjerde. Knappene viser
+begge, for eksempel «40 kort · 4 d». Før eksamen (`EDU_DATA.ov.eksamen`) er pausen
+høyst en tredjedel av dagene som er igjen og aldri forbi dagen før eksamen. Brukeren
+syntes 13 dager etter «Lett» to uker før eksamen var for lenge (23. nov. 2026).
+Studiedagen skifter klokka fire. Et kort med
 bare én variant (statiske spørsmål) gjentas ikke med en gang; neste oppgave blir en
 lignende fra samme tema.
 

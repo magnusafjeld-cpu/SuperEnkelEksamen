@@ -43,8 +43,11 @@
 
    Lagring (state.exams, én nøkkel per kort så sky-synken slår sammen enheter):
      "ov:<kort-id>"   { st, s, d, due, last, reps, lapses, step, straks, straksN,
-                        n, r, vs, sist, t }  st 0 ny, 1 lærer, 2 repetisjon,
-                        3 lærer på nytt. n forsøk, r riktige, vs nylige varianter.
+                        n, r, vs, sist, t, dueN, rk }  st 0 ny, 1 lærer,
+                        2 repetisjon, 3 lærer på nytt. n forsøk, r riktige, vs
+                        nylige varianter. dueN: telleren kortet senest kommer
+                        tilbake på. rk: riktige på rad.
+     "ovteller"       { n }  alle svar du har gitt, klokka for dueN
      "ov:okt"         oppgaven på skjermen: kort, variant, svar og retting
      "ov:valg"        { fokus, hel, modell }
      "ovdag:<dato>"   { n, r, nye }  dagens tall
@@ -103,22 +106,34 @@ window.EDU = window.EDU || {};
   const dagNr = (ms) => Math.round(dagStart(ms) / DAG);
   function dagISO(ms) { const d = new Date(dagStart(ms)); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; }
   function eksamenMs() { const e = (OV() || {}).eksamen; const t = e ? Date.parse(e + "T09:00:00") : NaN; return Number.isFinite(t) ? t : null; }
-  /* Hele dager fram til neste repetisjon, aldri forbi dagen før eksamen. */
+  /* Hele dager fram til neste repetisjon. Før eksamen er pausen høyst en tredjedel
+     av dagene som er igjen, så hvert kort rekker å komme tilbake minst tre ganger,
+     og den går aldri forbi dagen før eksamen. */
   function forfall(nå, dager, eksamen) {
     let d = Math.max(1, Math.round(dager));
     if (d >= 4) d += Math.round((Math.random() - 0.5) * 0.1 * d);
     if (eksamen && nå < eksamen) {
       const igjen = Math.round((dagStart(eksamen) - dagStart(nå)) / DAG);
-      d = Math.min(d, Math.max(1, igjen - 1));
+      d = Math.min(d, Math.max(1, Math.ceil((igjen - 1) / 3)), Math.max(1, igjen - 1));
     }
     return dagStart(nå) + d * DAG;
   }
 
+  /* Kort imellom: et kort kommer tilbake etter så mange andre svar, eller når
+     dagene er gått, det som kommer først. Tallet dobles for hver riktig på rad
+     (høyst fire doblinger), så det du kan, glir ut i takt med hvor mye du øver. */
+  const KORT_ETTER = { 2: 8, 3: 20, 4: 40 };
+  const kortEtter = (g, rk) => KORT_ETTER[g] * Math.pow(2, Math.min(rk || 0, 4));
+  const forfalt = (s, nå, t) => !!s && !!s.st && (s.due <= nå || (s.st === 2 && s.dueN != null && s.dueN <= t));
+
   /* Ny tilstand for et kort etter vurdering g. Ren funksjon, så knappene kan vise
      neste intervall før du velger. slurv: feil som ikke er en misforståelse. */
   function planlegg(k, g, nå, opt) {
-    const { slurv = false, eksamen = null, riktig = g > 1 && !slurv } = opt || {};
+    const { slurv = false, eksamen = null, riktig = g > 1 && !slurv, teller = null } = opt || {};
     const k2 = Object.assign({}, k);
+    delete k2.dueN;
+    k2.rk = g === 1 ? 0 : slurv ? (k.rk || 0) : (k.rk || 0) + 1;
+    const tilRep = () => { k2.due = forfall(nå, intervall(k2.s), eksamen); if (teller != null) k2.dueN = teller + kortEtter(g, k.rk); };
     k2.reps = (k.reps || 0) + 1; k2.t = nå; k2.sist = slurv ? 0 : g;
     k2.n = (k.n || 0) + 1; k2.r = (k.r || 0) + (riktig ? 1 : 0);
     const nyDag = !k.last || dagNr(nå) !== dagNr(k.last);
@@ -128,7 +143,7 @@ window.EDU = window.EDU || {};
       k2.d = D0(g); k2.s = W[g - 1];
       if (g === 1) { k2.st = 1; k2.step = 0; straksIgjen(); }
       else if (slurv) { ferdig(); k2.st = 1; k2.step = 1; k2.due = nå + 10 * MIN; }
-      else { ferdig(); k2.st = 2; k2.step = 0; k2.due = forfall(nå, intervall(k2.s), eksamen); }
+      else { ferdig(); k2.st = 2; k2.step = 0; tilRep(); }
     } else if (k.st === 1 || k.st === 3) {
       const s0 = k.s || W[2], d0 = k.d || D0(3);
       k2.s = nyDag && k.last ? (g === 1 ? sGlemt(d0, s0, huskes((nå - k.last) / DAG, s0)) : sHusket(d0, s0, huskes((nå - k.last) / DAG, s0), g)) : sKort(s0, g);
@@ -136,7 +151,7 @@ window.EDU = window.EDU || {};
       k2.d = nyD(d0, g);
       if (g === 1) { k2.step = 0; straksIgjen(); }
       else if (slurv || (k.step === 0 && g < 4)) { ferdig(); k2.step = 1; k2.due = nå + 10 * MIN; }
-      else { ferdig(); k2.st = 2; k2.step = 0; k2.due = forfall(nå, intervall(k2.s), eksamen); }
+      else { ferdig(); k2.st = 2; k2.step = 0; tilRep(); }
     } else {
       const r = huskes(k.last ? (nå - k.last) / DAG : 0, k.s || 1);
       k2.d = nyD(k.d || D0(3), g);
@@ -148,7 +163,7 @@ window.EDU = window.EDU || {};
         k2.s = nyDag ? sHusket(k.d || D0(3), k.s || 1, r, g) : sKort(k.s || 1, g);
         ferdig();
         if (slurv) { k2.st = 3; k2.step = 1; k2.due = nå + 10 * MIN; }
-        else k2.due = forfall(nå, intervall(k2.s), eksamen);
+        else tilRep();
       }
     }
     k2.last = nå;
@@ -220,6 +235,7 @@ window.EDU = window.EDU || {};
   const iFokus = () => { const d = fokusDeler(); return (k) => !d.length || d.includes(k.del); };
   const økt = () => exams()["ov:okt"] || null;
   function lagreØkt(o) { exams()["ov:okt"] = o; S.store.emit(); }
+  const teller = () => (exams()["ovteller"] || {}).n || 0;
   const dagLogg = (ms) => exams()["ovdag:" + dagISO(ms)] || { n: 0, r: 0, nye: 0 };
 
   /* Svakhet per tema: andelen feil, med en forsiktig start (1 av 2) når du ikke
@@ -262,10 +278,18 @@ window.EDU = window.EDU || {};
     /* 3. repetisjoner og 4. nye */
     const r = (k) => { const s = tilst.get(k.id); return huskes(s.last ? (nå - s.last) / DAG : 0, s.s || 1); };
     const variert = (liste) => liste.filter((k) => !sisteFam.includes(k.fam) && !(sisteTema.length === 2 && sisteTema.every((t) => t === k.tema)));
-    const rep = alle.filter((k) => { const s = tilst.get(k.id); return s.st === 2 && s.due <= nå && !borte(k); }).sort((a, b) => r(a) - r(b));
+    /* Forfalt på dato først, med den du mest sannsynlig har glemt øverst. Så de som
+       har forfalt fordi nok andre kort er gått, eldst først. */
+    const t = teller();
+    const påDato = alle.filter((k) => { const s = tilst.get(k.id); return s.st === 2 && s.due <= nå && !borte(k); }).sort((a, b) => r(a) - r(b));
+    const påTeller = alle.filter((k) => { const s = tilst.get(k.id); return s.st === 2 && s.due > nå && forfalt(s, nå, t) && !borte(k); })
+      .sort((a, b) => tilst.get(a.id).dueN - tilst.get(b.id).dueN);
+    const rep = påDato.concat(påTeller);
     const nye = nyeKort(alle, tilst).filter((k) => !borte(k));
     const dag = dagLogg(nå);
-    const tidForNy = nye.length && (!rep.length || (dag.n % 4) === 3);
+    /* Hvert fjerde kort er nytt. Er det bare kort som venter på telleren, annethvert,
+       så nytt stoff ikke blir liggende. */
+    const tidForNy = nye.length && (!rep.length || (påDato.length ? (dag.n % 4) === 3 : (dag.n % 2) === 1));
     if (rep.length && !tidForNy) { const v = variert(rep); return { k: (v.length ? v : rep)[0], grunn: "rep" }; }
     if (nye.length) return { k: vektetNy(variert(nye).length ? variert(nye) : nye), grunn: "ny" };
 
@@ -539,7 +563,9 @@ FEILTYPE: INGEN, SLURV eller MISFORSTÅELSE`;
     const nå = Date.now();
     const før = tilstand(k);
     const b = KNAPPER[valgt];
-    const ny = planlegg(før.frø ? Object.assign({}, før, { frø: undefined }) : før, b.g, nå, { slurv: !!b.slurv, eksamen: eksamenMs(), riktig: riktigSvar });
+    const t = teller() + 1;
+    S.store.setExam("ovteller", { n: t });
+    const ny = planlegg(før.frø ? Object.assign({}, før, { frø: undefined }) : før, b.g, nå, { slurv: !!b.slurv, eksamen: eksamenMs(), riktig: riktigSvar, teller: t });
     ny.vs = ((før.vs || []).concat([o.v])).slice(-12);
     delete ny.frø;
     /* Bare én variant: samme spørsmål med en gang lærer ingenting. Kortet kommer om
@@ -581,8 +607,10 @@ FEILTYPE: INGEN, SLURV eller MISFORSTÅELSE`;
     knapper.forEach((navn, i) => {
       const b = KNAPPER[navn];
       const riktig = b.g >= 2 && !b.slurv;
-      const neste = planlegg(før, b.g, nå, { slurv: !!b.slurv, eksamen: eks, riktig });
-      const tekst = b.g === 1 ? (k.n > 1 ? "nye tall nå" : "lignende nå") : intervallTekst(neste.due, nå);
+      const t = teller() + 1;
+      const neste = planlegg(før, b.g, nå, { slurv: !!b.slurv, eksamen: eks, riktig, teller: t });
+      const tekst = b.g === 1 ? (k.n > 1 ? "nye tall nå" : "lignende nå")
+        : neste.dueN != null ? `${neste.dueN - t} kort · ${intervallTekst(neste.due, nå)}` : intervallTekst(neste.due, nå);
       knapperad.appendChild(el(`button.ov-vk.${b.kls}` + (fsNavn === navn ? ".forslag" : ""), { type: "button", "data-ov-vurder": navn,
         onclick: () => vurder(o, k, navn, riktig) },
         el("span.ov-vk-tast", String(i + 1)), el("span.ov-vk-navn", b.navn), el("span.ov-vk-int", tekst)));
@@ -778,17 +806,17 @@ FEILTYPE: INGEN, SLURV eller MISFORSTÅELSE`;
 
   function statistikk(nå) {
     const alle = alleKort().filter(iFokus());
-    let forfalt = 0, lærer = 0, nye = 0, imorgen = 0, sikre = 0;
-    const morgen = dagStart(nå) + DAG;
+    let nå_ = 0, lærer = 0, nye = 0, imorgen = 0, sikre = 0;
+    const morgen = dagStart(nå) + DAG, t = teller();
     alle.forEach((k) => {
       const s = tilstand(k);
       if (!s.st) { nye++; return; }
       if (s.st === 1 || s.st === 3) lærer++;
-      if (s.due <= nå) forfalt++;
+      if (forfalt(s, nå, t)) nå_++;
       else if (s.due <= morgen + DAG - 1) imorgen++;
       if (s.st === 2 && (s.s || 0) >= 7) sikre++;
     });
-    return { forfalt, lærer, nye, imorgen, sikre, totalt: alle.length };
+    return { forfalt: nå_, lærer, nye, imorgen, sikre, totalt: alle.length };
   }
 
   function hode(nå) {
@@ -821,7 +849,7 @@ FEILTYPE: INGEN, SLURV eller MISFORSTÅELSE`;
         ...[["av", "Av og til"], ["ofte", "Ofte"], ["aldri", "Aldri"]].map(([id, navn]) => el("button.chip" + (v.hel === id ? ".på" : ""), { type: "button", onclick: () => { settValg({ hel: id }); S.app.refresh(); } }, navn))),
       el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "8px" } }, el("span.tiny.muted", "Claude retter med:"),
         ...[[OPUS, "Opus 5.5 (best)"], [SONNET, "Sonnet 5.5 (raskere, billigere)"]].map(([id, navn]) => el("button.chip" + (v.modell === id ? ".på" : ""), { type: "button", onclick: () => { settValg({ modell: id }); S.app.refresh(); } }, navn))),
-      el(".prose.tiny", { style: { marginTop: "10px" } }, frag(`<p>Hver deloppgave er et kort. Etter svaret vurderer du hvor godt det satt, og det bestemmer når kortet kommer tilbake: <b>Misforståelse</b> gir en lignende oppgave med nye tall med en gang, så igjen om ti minutter og i morgen. <b>Slurvefeil</b> gir én gang til i økta. <b>Usikker</b>, <b>Greit</b> og <b>Lett</b> gir stadig lengre pauser. Planleggeren er FSRS, den samme som Anki bruker, og ingen pause går forbi eksamensdagen.</p><p>Neste oppgave er først det du holder på å lære, så repetisjoner som har forfalt, så nye oppgaver fra temaene der du har flest feil, vektet med hvor mye temaet teller på eksamen. Hver gang et kort kommer tilbake, får du nye tall. Tastatur: Enter sjekker, 1–5 vurderer.</p>`)));
+      el(".prose.tiny", { style: { marginTop: "10px" } }, frag(`<p>Hver deloppgave er et kort. Etter svaret vurderer du hvor godt det satt, og det bestemmer når kortet kommer tilbake: <b>Misforståelse</b> gir en lignende oppgave med nye tall med en gang, så igjen om ti minutter og i morgen. <b>Slurvefeil</b> gir én gang til i økta. <b>Usikker</b>, <b>Greit</b> og <b>Lett</b> gir stadig lengre pauser. Et kort kommer tilbake etter et antall andre kort eller et antall dager, det som kommer først. Knappene viser begge, for eksempel «40 kort · 5 d». Antall kort dobles for hver gang du har det riktig på rad. Dagene regnes av FSRS, den samme planleggeren som Anki bruker. Før eksamen er pausen høyst en tredjedel av dagene som er igjen.</p><p>Neste oppgave er først det du holder på å lære, så repetisjoner som har forfalt, så nye oppgaver fra temaene der du har flest feil, vektet med hvor mye temaet teller på eksamen. Hver gang et kort kommer tilbake, får du nye tall. Tastatur: Enter sjekker, 1–5 vurderer.</p>`)));
     kort.appendChild(chips);
     kort.appendChild(inst);
     return kort;
@@ -897,12 +925,12 @@ FEILTYPE: INGEN, SLURV eller MISFORSTÅELSE`;
   /* Kort som har forfalt, til merket i menyen. Trenger ikke dataene: tilstanden
      ligger i lagringen. */
   function antallForfalt() {
-    const nå = Date.now(), ex = exams();
+    const nå = Date.now(), ex = exams(), t = (ex["ovteller"] || {}).n || 0;
     let n = 0;
     for (const key in ex) {
       if (key.charCodeAt(0) !== 111 || !key.startsWith("ov:") || key === "ov:okt" || key === "ov:valg") continue;
       const s = ex[key];
-      if (s && s.st && s.due <= nå) n++;
+      if (forfalt(s, nå, t)) n++;
     }
     return n;
   }
@@ -921,5 +949,5 @@ FEILTYPE: INGEN, SLURV eller MISFORSTÅELSE`;
     return kort;
   }
 
-  S.views.ov = { render, finnes, antallForfalt, dashbordkort, _test: { planlegg, huskes, intervall, forfall, dagStart, D0, W } };
+  S.views.ov = { render, finnes, antallForfalt, dashbordkort, _test: { planlegg, huskes, intervall, forfall, dagStart, D0, W, kortEtter, forfalt } };
 })(window.EDU);
