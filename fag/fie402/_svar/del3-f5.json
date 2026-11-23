@@ -1,0 +1,94 @@
+{
+  "del3-f5:3:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": -169999.99999999907,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Will you open it?"
+  },
+  "del3-f5:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Maximum price for the study (C<sub>0</sub>)",
+        "verdi": 2530000.0,
+        "enhet": "NOK"
+      }
+    ]
+  },
+  "del3-f5:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "C<sub>1</sub>",
+        "verdi": 2409523.8095238092,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Compare with (b) and comment."
+  },
+  "del3-f5:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV with the exit programme",
+        "verdi": 1229416.9096209912,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Value of the programme",
+        "verdi": 1229416.9096209912,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Will you open it?",
+    "merknad": "Verdien av programmet er målt mot 0. 1399417 (mot den negative NPV-en) er fellen og avvises."
+  },
+  "del3-f5:3:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Indifference probability with the programme",
+        "verdi": 0.38586293691776735,
+        "enhet": ""
+      },
+      {
+        "navn": "Indifference probability without the programme",
+        "verdi": 0.5660377358490566,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Comment briefly."
+  },
+  "del3-f5:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Probability of completion",
+        "verdi": 0.5745454545454552,
+        "enhet": ""
+      }
+    ],
+    "merknad": "Fellen (240 i stedet for 249,60) gir 0.3564 og avvises."
+  },
+  "del3-f5:4:b": {
+    "type": "tekst"
+  },
+  "del3-f5:4:c": {
+    "type": "tekst"
+  },
+  "del3-f5:1:": {
+    "type": "tekst"
+  },
+  "del3-f5:2:": {
+    "type": "tekst"
+  }
+}

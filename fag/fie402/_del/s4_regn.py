@@ -1,0 +1,532 @@
+# Skribent S4: de verbale oppgavene n 1 og n 2 i del3-f4, del3-f5 og del3-f6.
+# Regner referansetallene for opsjonsoppgavene (Black-Scholes, bare til løsningen,
+# studenten regner ingenting) og skriver s4.json og s4_svar.json.
+# Kjør fra hvor som helst: python3 -I fag/fie402/_del/s4_regn.py
+import json, os, re
+from math import log, sqrt, exp, erf
+
+MAPPE = os.path.dirname(os.path.abspath(__file__))
+
+
+def N(x):
+    return 0.5 * (1 + erf(x / sqrt(2)))
+
+
+def bs(S, K, T, r, s):
+    """Black-Scholes med kontinuerlig rente. Gir (call, put)."""
+    d1 = (log(S / K) + (r + s * s / 2) * T) / (s * sqrt(T))
+    d2 = d1 - s * sqrt(T)
+    c = S * N(d1) - K * exp(-r * T) * N(d2)
+    p = c - S + K * exp(-r * T)
+    return c, p
+
+
+def f2(x):
+    return f"{x:.2f}"
+
+
+# ---------------- del3-f4 n 1: flyselskapet som sikrer drivstoff ----------------
+S4, KC4, KP4, R4, T4 = 80.0, 90.0, 70.0, 0.04, 1.0
+IMP4, SANN4 = 0.40, 0.30
+c_imp = bs(S4, KC4, T4, R4, IMP4)[0]
+p_imp = bs(S4, KP4, T4, R4, IMP4)[1]
+c_san = bs(S4, KC4, T4, R4, SANN4)[0]
+p_san = bs(S4, KP4, T4, R4, SANN4)[1]
+C4, P4 = round(c_imp, 2), round(p_imp, 2)          # prisene i oppgaveteksten
+NETTO4 = round(C4 - P4, 2)
+assert abs(C4 - 10.20) < 1e-9 and abs(P4 - 6.36) < 1e-9 and abs(NETTO4 - 3.84) < 1e-9
+assert c_san < c_imp and p_san < p_imp               # lavere σ senker begge
+over_c = c_imp - c_san
+over_p = p_imp - p_san
+over_A = over_c
+over_B = over_c - over_p
+assert 0 < over_B < over_A                           # B taper mindre enn A
+netto_san = c_san - p_san
+
+# ---------------- del3-f6 n 1: beskyttende put før en rettsavgjørelse ----------------
+S6, K6, R6, T6 = 150.0, 140.0, 0.04, 1.0
+IMP6, SANN6 = 0.25, 0.40
+p6_imp = bs(S6, K6, T6, R6, IMP6)[1]
+p6_san = bs(S6, K6, T6, R6, SANN6)[1]
+P6 = round(p6_imp, 2)
+assert abs(P6 - 7.72) < 1e-9
+assert p6_san > p6_imp                               # høyere σ hever puten
+assert p6_san / p6_imp > 1.9                          # «about twice» i løsningen
+
+# =====================================================================
+# del3-f4
+# =====================================================================
+f4_1 = {
+    "n": 1, "title": "Options", "points": 12, "topic": "Options", "chapters": [21, 23],
+    "merke": "Som H2025 E1: opsjonsintuisjon uten regning, med et handlingsråd",
+    "body": (
+        "<p>Skarvheim Air ASA must hedge the jet fuel it will buy in one year. Fuel trades at $80 "
+        "per barrel; treat it like a stock without dividends. The one-year risk-free rate is "
+        "r<sub>f</sub> = 4%. The board requires one of two hedges:</p>"
+        "<ul><li>(A) buy a one-year European call with strike K = $90, trading at $" + f2(C4) + ";</li>"
+        "<li>(B) buy the same call and write (sell) a one-year European put with strike K = $70, "
+        "trading at $" + f2(P4) + ".</li></ul>"
+        "<p>Applying Black-Scholes, you find that both prices imply &sigma; = 40%. Just before you "
+        "sign, your risk team tells you that the true "
+        "annualised volatility is 30%, not 40%.</p>"
+        "<p>How would using the true volatility affect the fair prices of the call and the put? "
+        "Considering the difference between the market prices and the fair prices, which hedge "
+        "should Skarvheim choose and why? (You do not need any calculations to answer this question. "
+        "Please answer both questions, each is worth 6 points; 4-6 sentences should typically be "
+        "enough.)</p>"
+    ),
+    "solution": (
+        "<p><b>Question 1: the true volatility lowers both fair prices.</b> In the Black-Scholes "
+        "setting the value of an option rises with volatility, for calls and puts alike. The reason "
+        "is that the payoff is one-sided: the call pays max(S<sub>T</sub> &minus; K, 0) and the put "
+        "max(K &minus; S<sub>T</sub>, 0), so a wider spread of the fuel price adds payoff in the tail "
+        "where the option pays while the holder can never lose more than the premium in the other "
+        "tail. The $" + f2(C4) + " and the $" + f2(P4) + " are by construction the Black-Scholes values "
+        "at &sigma; = 40%: that is what an implied volatility of 40% means. With &sigma; = 30% "
+        "<b>both the call and the put are worth less than their market prices: both are "
+        "overpriced</b>.</p>"
+        "<p><b>Question 2: choose hedge B.</b> With hedge A Skarvheim pays the whole overpricing of "
+        "the call. With hedge B it pays the same overpricing on the call but recovers most of it, "
+        "because it sells the put for more than the put is worth. Both hedges cap the fuel cost at "
+        "$90; B also gives up the saving if fuel falls below $70, but at the true volatility that "
+        "trade-off is priced fairly, so what separates the two hedges is the mispricing. "
+        "<b>Minimum accepted answer: do not buy the plain call (A) at $" + f2(C4) + ". Full marks: "
+        "choose B, since writing the overpriced put finances most of the overpriced call.</b></p>"
+        "<p><b>The numbers behind it (not required by the question).</b> Black-Scholes with "
+        "S = 80, r<sub>f</sub> = 4% (continuously compounded) and T = 1 year:</p>"
+        "<table class=\"data\"><tr><th>&sigma;</th><th>Call, K = 90</th><th>Put, K = 70</th>"
+        "<th>Cost of A</th><th>Net cost of B</th></tr>"
+        "<tr><td>40% (market)</td><td class=\"n\">" + f2(c_imp) + "</td><td class=\"n\">" + f2(p_imp) +
+        "</td><td class=\"n\">" + f2(c_imp) + "</td><td class=\"n\">" + f2(c_imp - p_imp) + "</td></tr>"
+        "<tr><td>30% (true)</td><td class=\"n\">" + f2(c_san) + "</td><td class=\"n\">" + f2(p_san) +
+        "</td><td class=\"n\">" + f2(c_san) + "</td><td class=\"n\">" + f2(netto_san) + "</td></tr></table>"
+        "<p>Per barrel hedge A pays about $" + f2(over_A) + " more than it is worth, hedge B only "
+        "about $" + f2(over_B) + " (" + f2(over_c) + " overpaid on the call less " + f2(over_p) +
+        " overcharged on the put).</p>"
+        "<p><b>Caveats worth one sentence.</b> This is not arbitrage: it is a bet that the risk team's "
+        "estimate beats the market's. A hedge with a forward or futures contract, whose price does not "
+        "depend on volatility, would avoid the mispricing altogether; it lies outside the two hedges "
+        "the board approved, so it is a bonus remark, not the answer.</p>"
+        "<p><b>Also accepted.</b> Naming vega for the sensitivity to volatility; the edge case "
+        "&sigma; = 0 to show why volatility has value for an option holder; the point that a trader "
+        "without a hedging need would write both options and delta-hedge. Not enough on its own: "
+        "«B is better because it is cheaper ($" + f2(NETTO4) + " against $" + f2(C4) + ")». A lower "
+        "premium says nothing about value, because B also gives up the saving below $70.</p>"
+    ),
+    "criteria": [
+        "Question 1 (6 points): 2 for stating that the fair call price is LOWER at 30%, 2 for stating "
+        "that the fair put price is also LOWER, 2 for the reason: the payoff is one-sided, so more "
+        "dispersion adds upside without adding downside to the holder. A direction without a reason "
+        "earns no reason points.",
+        "Counting in question 1: the call and the put share one mechanism, so one well-explained reason "
+        "covers both. «Vega» and «convexity» are one reason, not two. Saying the put gains when "
+        "volatility falls is the classic error.",
+        "Question 2 (6 points): 2 for recognising that the market prices are the Black-Scholes values at "
+        "the implied 40%, so both options are overpriced relative to the true fair value; 2 for rejecting "
+        "the plain call A (the minimum accepted answer, as in the H2025 key: «at a minimum not buy»); 2 "
+        "for choosing B because the written put is sold for more than it is worth and so recovers most "
+        "of the overpricing.",
+        "«B is cheaper» without the mispricing argument earns at most 2 of the 6 points in question 2: "
+        "the lower net premium is paid for by giving up the saving below $70.",
+        "Answers both questions explicitly. An answer that discusses only the volatility effect and "
+        "never chooses a hedge loses the second 6 points.",
+        "No calculation is required; a purely verbal answer scores full marks. Numbers, the "
+        "not-arbitrage caveat and the forward-contract remark are a bonus.",
+    ],
+}
+
+f4_2 = {
+    "n": 2, "title": "Governance", "points": 12, "topic": "Corporate governance", "chapters": [27],
+    "merke": "Som H2024 E2: to måter å overvåke ledelsen på",
+    "body": (
+        "<p>Tallowfield Retail Inc. is a US-listed chain of home-improvement stores with dispersed "
+        "ownership: no shareholder owns more than 2% of the shares. The CEO has run the company for "
+        "eleven years and also chairs the board. Same-store sales have fallen for three years, yet the "
+        "board has approved all six acquisitions the CEO has proposed and was re-elected last year "
+        "without a single competing candidate. The corporate travel budget has doubled.</p>"
+        "<p>Select and describe two distinct ways of monitoring the CEO: one performed inside the firm "
+        "(by people who sit on its board or work for it) and one performed from outside the firm. For "
+        "each, explain who is performing the monitoring and which tools they have at their disposal. "
+        "Take Tallowfield's situation into account. (Limit your explanations to 3-4 sentences per method "
+        "at most; each method is worth 6 points.)</p>"
+    ),
+    "solution": (
+        "<p>Two methods, 6 points each: about 2 for who monitors and why that monitor has the power or "
+        "the incentive. The other 4 are for the tools, applied to Tallowfield.</p>"
+        "<p><b>Inside: the board of directors, acting through its independent directors.</b> The board "
+        "is elected by the shareholders and takes the key decisions: it hires and fires the CEO, sets "
+        "the pay through the compensation committee, approves the budget, large spending and acquisitions. "
+        "It also has the best access to internal reports and files. At Tallowfield the CEO "
+        "chairs the board, which is the red flag: the CEO sets the agenda of the body that is supposed "
+        "to monitor the CEO. The independent directors can still act by meeting in executive session "
+        "without the CEO, appointing a lead independent director, demanding the travel figures and a "
+        "post-deal review of the six acquisitions through the audit committee and, as a majority, separating the chair from the CEO or "
+        "replacing the CEO.</p>"
+        "<p><b>Outside: institutional investors and activist shareholders.</b> With no holder above 2%, "
+        "a small investor gains too little to pay for monitoring and free-rides, so the monitor is a "
+        "large institution (a pension fund, a mutual fund) or an activist hedge fund that builds a stake "
+        "big enough to make the effort pay. Its tools are requesting information and meeting management, "
+        "voting against the directors and against the pay package (say on pay) and submitting "
+        "shareholder proposals, for example for an independent chair. If management ignores it, the "
+        "investor can start a public activist campaign and a proxy fight: after an election without "
+        "competing candidates, its own slate would give the shareholders a real choice.</p>"
+        "<p><b>Other methods that score equally.</b> Inside: employees and internal audit, who can "
+        "report misuse to the audit committee, go around a corrupt boss or, as a last resort, go to "
+        "the media. Outside: the market for corporate control, where three years of falling sales make "
+        "Tallowfield a takeover target and a bidder can buy the firm and install a more efficient "
+        "management (even the threat disciplines the CEO); lenders, through covenants and demands for "
+        "information; the government, through disclosure rules, regulators, anti-fraud agencies and the "
+        "courts; external auditors; analysts and the financial press.</p>"
+        "<p><b>What the H2024 key accepts.</b> Its channels are the board, the shareholders themselves, "
+        "the government and external monitoring through the market. It gives full points for any "
+        "two groups described in enough detail.</p>"
+    ),
+    "criteria": [
+        "Two methods, 6 points each: about 2 for WHO monitors (and why that monitor has the power or the "
+        "incentive) and 4 for WHICH TOOLS they have. An answer that describes a mechanism without naming "
+        "the monitor, or names the monitor without its tools, loses those points.",
+        "One method inside the firm and one outside, as asked. Two genuinely distinct methods from the "
+        "same side (inside or outside): full points for one, at most 3 for the other. Two versions of the "
+        "same tool, such as «the board» and «the compensation committee», are one method: the second "
+        "earns 0.",
+        "Accepted inside: the board and its independent directors and committees; employees and internal "
+        "audit. Accepted outside: institutional investors, blockholders and activists; the market for "
+        "corporate control; lenders through covenants; government and regulators; external auditors; "
+        "analysts and the press.",
+        "Use the situation: about 1 of the 4 tool points of each method. Board: say how it can monitor although the CEO "
+        "chairs it (independent directors, executive sessions without the CEO, a lead independent "
+        "director, separating the roles). Kurbatov calls the CEO as chair «the only red flag» while a "
+        "CEO seat on the board is fine (lecture 13, recording 17, 40:44). Shareholders: no holder above "
+        "2% means small holders free-ride, so the monitor is an institution or an activist with a "
+        "larger stake.",
+        "Tools must be explained, not listed: five tool names without what they do earn at most half of "
+        "the tool points.",
+        "3-4 sentences per method at most, as instructed. Length is not rewarded.",
+    ],
+}
+
+# =====================================================================
+# del3-f5
+# =====================================================================
+f5_1 = {
+    "n": 1, "title": "M&A", "points": 12, "topic": "Mergers and acquisitions", "chapters": [26],
+    "merke": "Som H2024 E1: fire grunner, positivt og negativt for kjøper og mål",
+    "body": (
+        "<p>Østfold Bakeri ASA, a large listed Norwegian bakery group, makes a friendly all-cash offer "
+        "for Lundqvist Bröd AB, a listed Swedish bakery chain, at a premium of 35% over Lundqvist's "
+        "share price. Lundqvist's founder has run the company for 30 years and will retire once the "
+        "deal is completed.</p>"
+        "<p>Give four possible reasons, one for each case: why this deal could be positive for "
+        "Østfold, negative for Østfold, positive for Lundqvist and negative for Lundqvist (for "
+        "Lundqvist, consider its shareholders, its employees or the firm itself). Reasons must be other than «synergies». «Value creation» without a mechanism does "
+        "not count as a reason. Keep explanations short, 1-2 sentences per reason (3 points per "
+        "reason).</p>"
+    ),
+    "solution": (
+        "<p>Four boxes, one reason each, one to two sentences each, three points per box. Synergies "
+        "are banned, so each reason below rests on information, access, agency or a transfer of "
+        "value.</p>"
+        "<p><b>1. Positive for Østfold: a foothold in a new market.</b> Building a Swedish chain from "
+        "scratch means licences, shop sites, suppliers and staff; buying Lundqvist gives Østfold an "
+        "established brand, its customers and its relations with Swedish authorities at once.</p>"
+        "<p><b>2. Negative for Østfold: empire building.</b> Managers whose pay and prestige grow with the "
+        "size of the group may buy for size rather than for value. If the 35% cash premium is not "
+        "earned back, value moves from Østfold's shareholders to Lundqvist's, which is why acquirers "
+        "see negative announcement returns in about half of all deals.</p>"
+        "<p><b>3. Positive for Lundqvist: the control premium.</b> Lundqvist's shareholders receive 35% "
+        "above the market price, in cash and at once; since a target can always say no, it has the "
+        "bargaining power and captures most of the gains from a deal.</p>"
+        "<p><b>4. Negative for Lundqvist: loss of the founder's vision and damage to the corporate "
+        "culture.</b> The firm loses the person whose long-term plan built it. Integration into a "
+        "large group's procedures can destroy the culture that made the chain work, while the new owner "
+        "may bend long-term plans towards quick returns to justify the premium.</p>"
+        "<p><b>Other defensible answers.</b> Positive for Østfold: market power (a larger share of the "
+        "Nordic market, fewer competitors), supply-chain control, access to scarce resources such as "
+        "Lundqvist's shop sites or recipes, buying a target the market undervalues when Østfold has "
+        "better information, a disciplinary gain from replacing weaker management. Negative for "
+        "Østfold: hubris and the winner's curse (the most optimistic bidder wins and overpays), "
+        "integration costs and a clash of cultures, the market reading a cash bid as a sign that the "
+        "managers see no better use for the cash. Positive for Lundqvist: better management and more "
+        "efficient practices, access to the parent's capital and to larger or different markets, "
+        "a solved succession problem now that the founder retires, economies of scale when explained "
+        "by a mechanism such as fixed costs spread over more volume or stronger purchasing power (the "
+        "H2024 key lists economies of scale for the target; cost cuts from merging two departments "
+        "alone are synergies, recording 16, 3:50 and 11:09). Negative for Lundqvist: layoffs and loss "
+        "of key staff, loss of independence, a cash payment that triggers capital-gains tax for the "
+        "shareholders at once, a founder who wants out and accepts too low a bid.</p>"
+        "<p><b>Not accepted.</b> Buying Lundqvist for its tax losses: Kurbatov notes that the losses are "
+        "erased when the firm changes owner (recording 17, 1:14:01). «Value creation» or «the firms are "
+        "worth more together» without a mechanism: Kurbatov says this «wouldn't be really accepted "
+        "during the exam» (recording 16, 11:39).</p>"
+    ),
+    "criteria": [
+        "Exactly four reasons, one in each box: positive for Østfold, negative for Østfold, positive for "
+        "Lundqvist, negative for Lundqvist. Graded box by box, 3 points each, so an empty box loses a "
+        "quarter of the points.",
+        "Synergies are banned and «value creation» without a mechanism earns nothing. Any other "
+        "reasonable reason with a sufficient explanation is accepted (H2024 key: the list is not "
+        "exhaustive), including market power and supply-chain considerations. Economies of scale count "
+        "only with a mechanism (fixed costs spread over more volume, purchasing power); cost cuts from "
+        "merging departments alone are synergies (recording 16, 3:50 and 11:09).",
+        "Each reason must be explained in 1-2 sentences: a name alone («hubris», «culture») earns at most "
+        "1 of 3 points.",
+        "Two close reasons: the premium as a gain for Lundqvist's shareholders and «Østfold overpays» as "
+        "a loss for Østfold. Overpayment explained as a wealth transfer from Østfold's to Lundqvist's "
+        "shareholders earns 2 of 3; overpayment with a cause of its own (empire building, hubris, the "
+        "winner's curse) earns 3 of 3. «Østfold pays too much» with no explanation earns 1 of 3.",
+        "Use the deal: the Swedish market (foothold), the cash premium (capital-gains tax at once) and "
+        "the retiring founder (loss of vision and culture, a solved succession, a founder who accepts "
+        "too low a bid) are the natural hooks. Generic reasons earn full points if explained, "
+        "but naming the mechanism is what sensor rewards.",
+        "Tax losses are not an accepted motive: they are erased on a change of owner (Kurbatov, "
+        "recording 17).",
+    ],
+}
+
+f5_2 = {
+    "n": 2, "title": "Governance", "points": 12, "topic": "Corporate governance", "chapters": [27],
+    "merke": "Som H2025 E2: tre tiltak for en eier med 5–10 %",
+    "body": (
+        "<p>You manage a pension fund that owns 7% of the shares of Quillfield Outfitters Inc., a "
+        "US-listed chain of outdoor-clothing stores whose other shares are widely dispersed. For five "
+        "years Quillfield has held about $2 billion in cash that earns less than 1% a year. The CEO "
+        "refuses to pay out the cash or to say what it is for, while the company has bought a corporate "
+        "jet and sponsors a golf tournament where the CEO hosts friends. Analysts see no profitable "
+        "expansion projects in Quillfield's markets.</p>"
+        "<p>What are possible actions you could undertake? Select 3 such actions and briefly explain "
+        "(2-3 sentences per action, each action is worth 4 points).</p>"
+    ),
+    "solution": (
+        "<p>The setting is the manager-shareholder agency problem in its free-cash-flow form: idle "
+        "cash with no good projects funds the CEO's private benefits. The 7% stake matters: the fund "
+        "keeps 7 cents of every dollar of value it restores, enough to pay for monitoring that a "
+        "0.01% holder would leave to others, but not enough to give orders. Three actions in the 2-3 "
+        "sentence format:</p>"
+        "<p><b>1. Engage the board and propose a payout.</b> I demand meetings with the independent "
+        "directors and file a shareholder proposal for a special dividend or a share repurchase. A "
+        "firm should invest its cash only if there are good investment opportunities; here analysts "
+        "see none, so paying it out removes the money that funds the jet and the tournament.</p>"
+        "<p><b>2. Push for a new compensation contract for the CEO.</b> Through the compensation "
+        "committee and a vote against the pay package (say on pay), I press for pay in restricted shares "
+        "with long vesting, so that the CEO's wealth rises only with long-run share value. Perks such as "
+        "the jet are then paid partly out of the CEO's own stake, so private benefits become costly to "
+        "the CEO and not only to the shareholders.</p>"
+        "<p><b>3. Escalate: vote against the board, nominate directors and run a proxy fight.</b> If "
+        "quiet engagement fails, I vote my 7% against the directors who approved the spending, publish a "
+        "letter with a plan for the cash, solicit proxies from the other institutions and run my own "
+        "slate of directors at the annual meeting (through proxy access if Quillfield's bylaws allow "
+        "it). With 7% plus the support of "
+        "other institutions a proxy fight is winnable; the threat alone often makes the board "
+        "act.</p>"
+        "<p><b>Other actions that score.</b> Making the board more independent by replacing insider "
+        "directors; pressing to fire the CEO; a "
+        "debt-financed recapitalisation, so that interest payments commit the cash; supporting or "
+        "finding an acquirer, or an LBO that replaces the management; legal action if there is good "
+        "evidence that company money is spent for private purposes; and, as a bonus for creativity in "
+        "the H2025 key, exiting by selling the shares.</p>"
+        "<p><b>Naming the channel.</b> Each action belongs to one side of the governance system: "
+        "internal monitoring (the board and its committees), the shareholder's own toolkit (voice, "
+        "votes, proposals, proxy fights, litigation, exit) or the market for corporate control.</p>"
+    ),
+    "criteria": [
+        "Exactly three actions, 2-3 sentences each, 4 points each, graded independently.",
+        "As in the H2025 key, any reasonable action with an explanation is accepted: active monitoring "
+        "and engagement, an activist campaign, a more independent board, a better compensation contract, "
+        "voting or pressing to fire the CEO, an LBO or a friendly acquirer, legal action with good "
+        "evidence and, as a bonus for creativity, exit by selling.",
+        "Use the situation: idle cash and no profitable projects. A payout action earns full points with "
+        "the condition, the same logic as recording 05 (14:34): invest the cash only if there are good "
+        "investment opportunities; otherwise pay it out. «Pay a dividend» without that condition earns "
+        "at most 3 of 4.",
+        "Use the 7% stake: large enough to overcome the free-rider problem in monitoring, too small for "
+        "control. An answer that would read identically for a 0.01% holder is weaker.",
+        "Counting: «vote against the directors» and «run a proxy fight to replace them» count as one "
+        "action unless each gets its own mechanism (the first is a signal at the annual meeting, the "
+        "second a contest with its own slate and solicitation). A dividend and a repurchase are one "
+        "action (a payout).",
+        "Naming the channel (internal monitoring, shareholder voice, market for corporate control) is "
+        "rewarded.",
+    ],
+}
+
+# =====================================================================
+# del3-f6
+# =====================================================================
+f6_1 = {
+    "n": 1, "title": "Options", "points": 12, "topic": "Options", "chapters": [21, 23],
+    "merke": "Som H2025 E1, ny vinkel: opsjonsintuisjon uten regning",
+    "body": (
+        "<p>You hold a large position in Bjørnnes Gruve ASA, a listed mining company whose share trades "
+        "at NOK 150 and pays no dividends. A court will rule on Bjørnnes's main mining licence within "
+        "the next year. To protect the position you consider buying one-year European put options with "
+        "strike K = NOK 140, which trade at NOK " + f2(P6) + ". The one-year risk-free rate is 4%. "
+        "Applying Black-Scholes, you find that the market price implies &sigma; = 25%. Your own analysis "
+        "of the court case suggests that the true annualised volatility over the year is closer to "
+        "40%.</p>"
+        "<p>a) How would the true volatility affect the fair price of the put? (4 points)</p>"
+        "<p>b) Considering the difference between the market price and your fair price, what should you "
+        "do? (4 points)</p>"
+        "<p>c) Your broker also offers an American put with the same strike and expiry. Is its fair "
+        "value higher, lower or the same as that of the European put? Does your volatility argument in "
+        "b) also apply to the American put? "
+        "(4 points)</p>"
+        "<p>(You do not need any calculations to answer these questions. 2-3 sentences per question "
+        "should be enough.)</p>"
+    ),
+    "solution": (
+        "<p><b>a) The fair price of the put is higher than NOK " + f2(P6) + ".</b> In the Black-Scholes "
+        "setting an option's value rises with volatility, for puts as for calls, because the payoff "
+        "max(K &minus; S<sub>T</sub>, 0) is one-sided: a wider spread makes a deep fall below NOK 140 "
+        "(the licence is lost) more likely, while the holder never loses more than the premium if the "
+        "share rises. Since &sigma; enters nowhere else, replacing 25% by 40% can only raise the "
+        "value.</p>"
+        "<p><b>b) Buy the put.</b> The NOK " + f2(P6) + " is by construction the Black-Scholes value at "
+        "the implied 25%, so if your estimate is right the put is <b>underpriced</b>: you buy the "
+        "protection for less than it is worth, roughly half of its fair value. The minimum correct "
+        "answer is to buy the put; a stronger answer adds that you should not pay for it by writing "
+        "calls on your shares, since a call priced at 25% would be underpriced too and you would be "
+        "selling cheaply what you believe is valuable.</p>"
+        "<p><b>c) The American put is worth at least as much, in practice more; the volatility "
+        "argument applies to it too.</b> It gives every right of the European put plus the right to exercise early. "
+        "For a put that right has value even without dividends: if the share collapses after a ruling, "
+        "exercising at once gives you NOK 140 today instead of in a year. Higher volatility raises the "
+        "American put's value too, so if its market price also reflects 25% it is also underpriced by "
+        "your estimate. A higher price for the American put is not by itself a sign that it is "
+        "expensive: compare each price with its own fair value.</p>"
+        "<p><b>The numbers behind it (not required).</b> Black-Scholes with S = 150, K = 140, "
+        "r<sub>f</sub> = 4% (continuously compounded) and T = 1: the put is worth NOK " + f2(p6_imp) +
+        " at &sigma; = 25% and NOK " + f2(p6_san) + " at &sigma; = 40%.</p>"
+        "<p><b>Also accepted.</b> The edge case &sigma; = 0, where an out-of-the-money put would be "
+        "worthless; naming vega; the caveat that this is not arbitrage but a bet that your estimate "
+        "beats the market's; noting that the court ruling is a jump, which the lognormal assumption "
+        "behind Black-Scholes does not capture, so one σ describes the risk only roughly; Kurbatov's "
+        "rule of thumb that an option which gives more rights is priced "
+        "higher (recording 12, 12:41). Only the direction is asked in c): no pricing of the American put "
+        "is expected (recording 18, 58:09).</p>"
+    ),
+    "criteria": [
+        "a) 4 points: 2 for the direction (the fair price is HIGHER than the market price, because "
+        "option values rise with volatility for puts as well as calls), 2 for the one-sided payoff "
+        "reason. Saying the put loses value because «higher volatility helps the call» is the classic "
+        "error.",
+        "b) 4 points: 2 for recognising that the market price is the Black-Scholes value at the implied "
+        "25%, so the put is underpriced by your estimate; 2 for the action. Minimum accepted answer: "
+        "buy the put. Not financing it by writing calls is a bonus.",
+        "c) 4 points: 2 for «at least as much» or «higher» with the reason (it contains the European put "
+        "plus the right to exercise early; receiving K earlier has value); «the same» earns no "
+        "direction points, since that holds for calls without dividends, not for puts. 2 for «yes»: "
+        "higher volatility raises the American put's value too, so the argument in b) carries over.",
+        "Counting in c): «more flexibility» and «early exercise» are one reason, not two.",
+        "Answers every question explicitly. An answer that discusses volatility only and never states an "
+        "action loses the points in b).",
+        "No calculation is required and none is expected; a purely verbal answer scores full marks. "
+        "Bonus: the court ruling is a jump that the lognormal model behind Black-Scholes does not "
+        "capture.",
+    ],
+}
+
+f6_2 = {
+    "n": 2, "title": "Governance", "points": 12, "topic": "Corporate governance", "chapters": [27],
+    "merke": "Som H2025 E2 i formen: tre tiltak, nå fra eierens side",
+    "body": (
+        "<p>The Hollowmere family owns 60% of Hollowmere Therapeutics Inc., a US-listed company that "
+        "develops cancer drugs. Each drug takes about ten years and many risky trials before it earns "
+        "anything. For the first time the family will hire a CEO from outside the family. It wants the "
+        "new CEO to act in the shareholders' interest, but it does not want to monitor so harshly that "
+        "the CEO avoids every risk.</p>"
+        "<p>You advise the family. Select three measures it could put in place and briefly explain, for "
+        "each, how it makes the CEO act in the shareholders' interest and why it does not scare the CEO "
+        "away from valuable risks. (2-3 sentences per measure, each measure is worth 4 points.)</p>"
+    ),
+    "solution": (
+        "<p>Three measures, each answering both halves of the question: alignment and room for "
+        "valuable risk. The firm's ten-year, high-risk projects are the key fact: a design that "
+        "rewards this year's numbers would make the CEO cut trials.</p>"
+        "<p><b>1. Pay in shares and options that vest over many years, not an EPS bonus.</b> Restricted "
+        "shares and options with five- to seven-year vesting tie the CEO's wealth to the long-run value "
+        "of the drug pipeline. An option pays only on the upside, so it rewards taking good risks, while "
+        "an annual EPS target would invite cutting trials or buying back shares to lift EPS, the "
+        "short-termism Kurbatov warns about (recording 17, 37:19).</p>"
+        "<p><b>2. A golden parachute or an employment guarantee.</b> A severance package if the CEO is "
+        "dismissed without misconduct means that a failed trial does not end the CEO's career at a "
+        "loss, so the CEO is not afraid to start long, risky projects. It should be capped and tied to "
+        "the absence of misconduct, so that it does not simply reward failure.</p>"
+        "<p><b>3. An independent board of about 7 to 11 directors with the CEO as a member but not as "
+        "chair.</b> The family nominates some directors and recruits independent ones with industry "
+        "knowledge; the board hires and fires the CEO and approves funding trial by trial, at the "
+        "milestones, rather than second-guessing daily decisions. A CEO seat on the board keeps the "
+        "CEO informed and involved; the red flag would be the CEO also chairing it.</p>"
+        "<p><b>Other measures that score.</b> Transparency and better communication: regular reports "
+        "on each trial, press releases and meetings with the other shareholders. Funding projects in "
+        "stages, so that each new stage needs the board's approval. ESG metrics, which Kurbatov calls "
+        "«much less abusable» than EPS (recording 17, 38:23). Milestone targets tied to trial progress "
+        "are also accepted (recording 17, 37:10), with clauses that stop short-term abuse (37:19). The family voting its 60% "
+        "at the annual meeting and keeping control through dual-class shares, with both sides argued: "
+        "control and a long horizon against entrenchment and weaker outside monitoring.</p>"
+        "<p><b>Why not maximal monitoring.</b> Monitor too harshly and the CEO does only the bare "
+        "minimum; do not monitor at all and the CEO may abuse the position. The three measures aim "
+        "between the two, as the question asks.</p>"
+    ),
+    "criteria": [
+        "Three measures, 2-3 sentences each, 4 points each: 2 for how it aligns the CEO with the "
+        "shareholders and 2 for why it keeps valuable risk-taking. The question asks for both; an answer "
+        "that gives only the alignment earns at most 2 of 4 per measure.",
+        "Accepted measures (lecture 13): long-horizon equity pay; options; a golden parachute or "
+        "employment guarantee; an independent board; the CEO on the board but not as chair; "
+        "transparency and communication; staged funding with milestone reviews; ESG metrics («much less "
+        "abusable» than EPS, recording 17, 38:23); milestone targets tied to trial progress (37:10) with "
+        "clauses that stop short-term abuse (37:19); the family's own voting and nomination power; dual-class shares with both sides.",
+        "Use the situation: ten-year, risky R&D. An annual EPS or profit bonus without a guard against "
+        "short-termism earns at most 1 of 4, since it pushes the CEO to cut trials or buy back shares.",
+        "Counting: options and restricted shares are one measure (equity pay); an independent board and "
+        "a separate chair are one measure unless each gets its own mechanism.",
+        "Board size: Kurbatov's range is 7 to 11 (recording 17, 34:46). «A smaller board works better» is "
+        "not an accepted reason; too small lacks capacity and too large invites free-riding.",
+        "Golden parachute: accepted with the risk-taking argument (recording 17, 16:18). Calling it only "
+        "entrenchment misses the question; noting that it can reward failure is a bonus.",
+    ],
+}
+
+oppgaver = {
+    "del3-f4": [f4_1, f4_2],
+    "del3-f5": [f5_1, f5_2],
+    "del3-f6": [f6_1, f6_2],
+}
+
+# ---------------- kontroller ----------------
+def tekster(ex):
+    for k in ("title", "body", "solution", "merke"):
+        yield ex[k]
+    yield from ex["criteria"]
+
+brudd = []
+for sid, liste in oppgaver.items():
+    for ex in liste:
+        assert ex["points"] == 12
+        assert "parts" not in ex
+        for t in tekster(ex):
+            ren = re.sub(r"</?(sub|sup|b|i)>", "", t)
+            if "—" in ren or "&mdash;" in ren:
+                brudd.append((sid, ex["n"], "tankestrek", t[:60]))
+            for m in re.finditer(r".{0,40},\s+and\b.{0,10}", ren):
+                brudd.append((sid, ex["n"], "komma før and", m.group(0)))
+            if re.search(r"Kurbatov[^.!?]*\b(he|his|him|himself|she|her|hers)\b", ren):
+                brudd.append((sid, ex["n"], "pronomen", ""))
+for b in brudd:
+    print("BRUDD", b)
+assert not brudd
+
+svar = {f"{sid}:{ex['n']}:": {"type": "tekst"} for sid, liste in oppgaver.items() for ex in liste}
+
+json.dump(oppgaver, open(os.path.join(MAPPE, "s4.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(svar, open(os.path.join(MAPPE, "s4_svar.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+def ord_i(h):
+    return len(re.sub(r"<[^>]+>", " ", h).split())
+
+for sid, liste in oppgaver.items():
+    for ex in liste:
+        print(f"{sid} n {ex['n']} {ex['title']}: {ord_i(ex['body'])} ord oppgavetekst, {ex['points']} p")
+print(f"referanse f4: C {c_imp:.4f}/{c_san:.4f}, P {p_imp:.4f}/{p_san:.4f}, A {over_A:.4f}, B {over_B:.4f}")
+print(f"referanse f6: P {p6_imp:.4f}/{p6_san:.4f}")
+print("skrev s4.json og s4_svar.json")

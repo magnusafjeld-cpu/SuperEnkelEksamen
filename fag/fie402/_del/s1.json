@@ -1,0 +1,627 @@
+{
+ "del1-f3": [
+  {
+   "n": 1,
+   "title": "Valuation with leverage",
+   "points": 18,
+   "topic": "WACC and APV",
+   "chapters": [
+    3,
+    4,
+    17,
+    18,
+    19
+   ],
+   "merke": "Som H2025 E4: WACC og APV over to år",
+   "body": "<p>Your task is to value Utvær Decommissioning, which removes two old offshore platforms under a fixed-price contract. The company maintains a debt-to-value ratio of 35%. It will exist for 2 years: today is Year 0 and the company generates free cash flows of NOK 84 million at the end of Year 1 and NOK 36 million at the end of Year 2. The risk-free rate is 4% per year and will stay the same. The cost of debt is 6.5%. The tax rate is 22%. The market portfolio has an expected return of 9%. The equity beta of the company is 1.7.</p><p>Each question is worth 2 points. Use 4 decimal places (1.2345, not 1.23).</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 2,
+     "body": "<p>Find the debt beta of the company.</p>",
+     "solution": "<p>The debt is risky (r<sub>D</sub> = 6.5% &gt; r<sub>f</sub> = 4%), so its beta is positive. Invert the CAPM for the debt. The market risk premium is 0.09 − 0.04 = 0.0500.</p><p>β<sub>D</sub> = (r<sub>D</sub> − r<sub>f</sub>)/(E[R<sub>Mkt</sub>] − r<sub>f</sub>) = (0.065 − 0.04)/0.05 = <b>0.5000</b></p>",
+     "criteria": [
+      "CAPM in reverse on the debt: β_D = (r_D − r_f)/(E[R_Mkt] − r_f).",
+      "Market risk premium 9% − 4% = 5%, not 9%.",
+      "β_D = 0.5000. Setting β_D = 0 because 'debt is safe' contradicts r_D = 6.5%."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 2,
+     "body": "<p>Find the cost of equity of the company.</p>",
+     "solution": "<p>CAPM on the equity: r<sub>E</sub> = r<sub>f</sub> + β<sub>E</sub>(E[R<sub>Mkt</sub>] − r<sub>f</sub>) = 0.04 + 1.7 × 0.05 = <b>0.1250 (12.50%)</b></p>",
+     "criteria": [
+      "Plugs β_E = 1.7 into the CAPM with the 5% premium.",
+      "r_E = 12.50%. Using 9% as the premium (19.30%) is the trap."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 2,
+     "body": "<p>Find the unlevered cost of capital of the company.</p>",
+     "solution": "<p><b>Step 1. Weights.</b> The debt-to-value ratio is given directly: D/V = <b>0.35</b>, so E/V = <b>0.65</b>. No conversion is needed here.</p><p><b>Step 2. Weight the returns (pre-tax WACC = r<sub>U</sub>).</b><br>r<sub>U</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub> = 0.6500(0.1250) + 0.3500(0.0650) = 0.081250 + 0.022750 = 0.104000, so <b>r<sub>U</sub> = 10.40%</b></p><p><b>Or through betas.</b> β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub> = 0.6500(1.7000) + 0.3500(0.5000) = 1.105000 + 0.175000 = 1.280000. Then r<sub>U</sub> = 0.0400 + 1.280000 × 0.0500 = <b>0.1040</b>. Same answer.</p><p>r<sub>U</sub> does not take taxes into account: it is the return on the assets as if the company had no debt. The tax rate enters only in the after-tax WACC in (d).</p>",
+     "criteria": [
+      "Uses D/V = 0.35 and E/V = 0.65 directly as weights. Converting a ratio that is already D/V is an error.",
+      "r_U = 10.40%, either by weighting the returns or by weighting the betas (β_U = 1.2800, not required).",
+      "r_U does not take taxes into account. Multiplying r_D by (1 − τ) here gives the WACC instead of r_U and loses the points.",
+      "Show the calculation."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 2,
+     "body": "<p>Find the after-tax WACC of the company.</p>",
+     "solution": "<p>The tax shield enters through the after-tax cost of debt:</p><p>r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ) = 0.6500(0.1250) + 0.3500(0.0650)(1 − 0.22)<br>= 0.081250 + 0.017745 = <b>0.098995 (9.8995%)</b></p><p><b>Check.</b> The shortcut r<sub>wacc</sub> = r<sub>U</sub> − (D/V)τr<sub>D</sub> = 0.1040 − 0.3500(0.22)(0.0650) = <b>0.098995</b> ✓. And r<sub>wacc</sub> &lt; r<sub>U</sub>, as it must be: the only difference between the two is the (1 − τ) on r<sub>D</sub>.</p>",
+     "criteria": [
+      "Applies (1 − τ) to r_D only, never to r_E.",
+      "r_wacc = 9.8995%.",
+      "Same weights as in (c): E/V = 0.6500, D/V = 0.3500.",
+      "Bonus, not required: the shortcut r_U − (D/V)τ·r_D as a check. r_wacc above r_U would signal an error."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 2,
+     "body": "<p>Find the levered value of the company today using the WACC method.</p>",
+     "solution": "<p>Discount the free cash flows at the after-tax WACC. The tax shield is already in the rate, so it is not added separately.</p><p>V<sup>L</sup><sub>0</sub> = 84/1.098995 + 36/1.098995<sup>2</sup> = 76.4335 + 29.8065 = <b>NOK 106.2400 million</b></p>",
+     "criteria": [
+      "Discounts both cash flows at r_wacc = 9.8995%, the year-2 flow twice.",
+      "V^L_0 = 106.2400.",
+      "Does not add a tax shield on top: the WACC already contains it. Doing both is double counting."
+     ]
+    },
+    {
+     "label": "f",
+     "points": 2,
+     "body": "<p>Find the debt adjustment at the end of Year 1. Does the company borrow or repay?</p>",
+     "solution": "<p>The company keeps D/V = 0.3500 at all times, so D<sub>t</sub> = (D/V) × V<sup>L</sup><sub>t</sub>.</p><p><b>Year 0:</b> D<sub>0</sub> = 0.3500 × 106.2400 = <b>37.1840</b></p><p><b>Year 1:</b> after the year-1 cash flow is paid out, only the year-2 flow is left: V<sup>L</sup><sub>1</sub> = 36/1.098995 = <b>32.7572</b>, so D<sub>1</sub> = 0.3500 × 32.7572 = <b>11.4650</b></p><p><b>Debt adjustment:</b> D<sub>1</sub> − D<sub>0</sub> = 11.4650 − 37.1840 = <b>−25.7190</b>. The company <b>repays</b> debt at the end of Year 1. Most of its value is paid out as the large year-1 cash flow, so the value that remains and the debt it can carry at 35% fall sharply.</p>",
+     "criteria": [
+      "D_t = (D/V)·V^L_t at both dates, with D/V = 0.3500.",
+      "V^L_1 = 32.7572: the value after the year-1 cash flow, so only the year-2 flow. Including the year-1 flow (84) is the classic mistake.",
+      "D_0 = 37.1840, D_1 = 11.4650, adjustment 25.7190.",
+      "Says in words that the company repays part of the debt to keep the ratio constant. Kurbatov's H2025 key ends the same part with that sentence."
+     ]
+    },
+    {
+     "label": "g",
+     "points": 2,
+     "body": "<p>Find the unlevered value of the company using the APV method.</p>",
+     "solution": "<p>The APV method starts from the same free cash flows as if the company had no debt, discounted at r<sub>U</sub> = 10.40%:</p><p>V<sup>U</sup><sub>0</sub> = 84/1.1040 + 36/1.1040<sup>2</sup> = 76.0870 + 29.5369 = <b>NOK 105.6238 million</b></p><p>V<sup>U</sup> is below V<sup>L</sup> from (e). The gap is the value of the tax shield, found in (h).</p>",
+     "criteria": [
+      "Discounts the same free cash flows at r_U = 10.40%, not at the WACC.",
+      "V^U = 105.6238.",
+      "No change to the cash flows themselves: they are already unlevered."
+     ]
+    },
+    {
+     "label": "h",
+     "points": 2,
+     "body": "<p>Find the interest tax shield in each year and its present value.</p>",
+     "solution": "<p><b>Step 1. The shields.</b> The tax shield in year t is τ × r<sub>D</sub> × D<sub>t−1</sub>, on the debt outstanding at the start of the year (from (f)):</p><p>TS<sub>1</sub> = 0.22 × 0.0650 × 37.1840 = <b>0.5317</b><br>TS<sub>2</sub> = 0.22 × 0.0650 × 11.4650 = <b>0.1639</b></p><p><b>Step 2. The rate.</b> The company rebalances to a constant D/V, so its debt moves with the value of the assets and the tax shield moves with it. The shield carries asset risk and is discounted at <b>r<sub>U</sub> = 10.40%</b>, not at r<sub>D</sub>.</p><p>PV(TS) = 0.5317/1.1040 + 0.1639/1.1040<sup>2</sup> = 0.4816 + 0.1345 = <b>NOK 0.6162 million</b></p>",
+     "criteria": [
+      "TS_t = τ·r_D·D_(t−1): TS_1 = 0.5317 on D_0 and TS_2 = 0.1639 on D_1.",
+      "Discounts the shields at r_U. Using r_D gives 0.6438 and loses the point.",
+      "PV(TS) = 0.6162.",
+      "Bonus, not required: saying why r_U (constant D/V makes the debt move with firm value).",
+      "Carries 4 decimals through the chain."
+     ]
+    },
+    {
+     "label": "i",
+     "points": 2,
+     "body": "<p>Find the levered value using the APV method. Compare with (e) and explain in one sentence why you get this result.</p>",
+     "solution": "<p>V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 105.6238 + 0.6162 = <b>NOK 106.2400 million</b></p><p><b>Check.</b> The WACC method in (e) gave 106.2400, so the two methods agree. The check is not independent (the debt in (f) came from the WACC value), but it catches a wrong rate on the shield and arithmetic slips.</p><p><b>Why.</b> Both methods value the same cash flows with the same debt policy (constant D/V); WACC puts the tax shield into a lower discount rate, APV adds it as a separate cash flow discounted at r<sub>U</sub>, so they must give the same value.</p>",
+     "criteria": [
+      "V^L = V^U + PV(TS) = 106.2400.",
+      "States that this equals the WACC value from (e). A gap of about 0.001 is rounding, about 0.05 is an error (the H2025 key, part (i)).",
+      "One sentence on why: the same tax shield under the same debt policy, counted in the rate (WACC) or as a separate cash flow (APV). 'Anything reasonable' about the two being one valuation earns the point."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Valuation",
+   "points": 20,
+   "topic": "WACC and APV",
+   "chapters": [
+    3,
+    4,
+    17,
+    18
+   ],
+   "merke": "Som H2024 E5: verdsetting med en tvilling",
+   "body": "<p>A private equity fund is considering buying the unlisted fish-feed producer Hitra Feed and asks you to value it. Hitra Feed is expected to generate a free cash flow of NOK 310 million per year forever, starting next year, with no growth. It maintains a constant debt-to-value ratio of 50% and its cost of debt is 5%. The listed company Smøla Nutrition makes the same products for the same customers, so its business risk is the same as Hitra Feed's. Smøla Nutrition maintains a debt-to-equity ratio of 0.4. Its debt has a beta of 0.2 and its equity has a beta of 1.3. The tax rate is 22%, the risk-free rate is 3% and the expected return on the market portfolio is 8%.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 5,
+     "body": "<p>What is the unlevered cost of capital for Hitra Feed?</p>",
+     "solution": "<p>Hitra Feed has no market data of its own, but Smøla Nutrition has the same business risk. The two firms have different leverage, so their equity betas differ. What transfers is the <b>unlevered</b> beta.</p><p><b>Step 1. Smøla's weights.</b> D/E = 0.4, so D/V = 0.4/1.4 = <b>0.2857</b> and E/V = 1/1.4 = <b>0.7143</b>.</p><p><b>Step 2. Unlever Smøla</b> (without taxes, the course convention):<br>β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub> = 0.7143(1.3) + 0.2857(0.2) = 0.9286 + 0.0571 = <b>0.9857</b></p><p><b>Step 3. CAPM.</b> The market risk premium is 0.08 − 0.03 = 0.0500.<br>r<sub>U</sub> = 0.03 + 0.985714 × 0.05 = <b>0.079286 (7.9286%)</b></p><p><b>Step 4. Transfer.</b> Same business risk, so Hitra Feed's r<sub>U</sub> is also 7.9286%. Hitra Feed's own leverage plays no part yet.</p>",
+     "criteria": [
+      "Uses the unlevered beta, not the equity beta, of Smøla Nutrition. Bonus, not required: saying why (same business risk but different leverage).",
+      "Converts Smøla's D/E = 0.4 into D/V = 0.2857. Using 0.4 and 0.6 as weights is the trap (r_U = 7.30%).",
+      "Includes Smøla's debt beta of 0.2: β_U = 0.9857, weighted without taxes.",
+      "r_U = 7.9286%.",
+      "Does not use Hitra Feed's 50% here."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>Find the equity beta and the cost of equity of Hitra Feed.</p>",
+     "solution": "<p><b>Step 1. Hitra Feed's leverage as D/E.</b> D/V = 0.50, so E/V = 0.50 and D/E = 0.50/0.50 = <b>1.0000</b>.</p><p><b>Step 2. Hitra Feed's debt beta</b> from its cost of debt: β<sub>D</sub> = (0.0500 − 0.0300)/0.0500 = <b>0.4000</b>.</p><p><b>Step 3. Relever.</b> Rearranging β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub>:</p><p>β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>) = 0.985714 + 1.0000(0.985714 − 0.4000) = <b>1.5714</b></p><p>r<sub>E</sub> = r<sub>f</sub> + β<sub>E</sub>(E[R<sub>Mkt</sub>] − r<sub>f</sub>) = 0.0300 + 1.5714 × 0.0500 = <b>0.108571 (10.8571%)</b></p><p><b>Same answer with MM II.</b> r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) = 0.079286 + 1.0000(0.079286 − 0.0500) = <b>0.108571</b> ✓ (an identity once the CAPM holds, not an independent check).</p>",
+     "criteria": [
+      "Converts Hitra Feed's D/V = 0.5 into D/E = 1.00. Plugging 0.5 into MM II as D/E gives r_E = 9.3929% and is the trap.",
+      "Finds Hitra Feed's own debt beta from r_D = 5%: β_D = 0.4000. Using Smøla's 0.2 is an error.",
+      "β_E = 1.5714 and r_E = 10.8571%.",
+      "Either route (relevered beta in the CAPM, or MM II) earns full points."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 2,
+     "body": "<p>What is the after-tax WACC of Hitra Feed?</p>",
+     "solution": "<p>r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ) = 0.5000(0.108571) + 0.5000(0.0500)(1 − 0.22)<br>= 0.054286 + 0.019500 = <b>0.073786 (7.3786%)</b></p><p><b>Check.</b> r<sub>U</sub> − (D/V)τr<sub>D</sub> = 0.079286 − 0.5000(0.22)(0.0500) = <b>0.073786</b> ✓, below r<sub>U</sub> as it must be.</p>",
+     "criteria": [
+      "Applies (1 − τ) to r_D only.",
+      "Uses the target's own weights, E/V = 0.5000 and D/V = 0.5000.",
+      "r_wacc = 7.3786%."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 2,
+     "body": "<p>What is the levered value of Hitra Feed using the WACC method?</p>",
+     "solution": "<p>A level perpetuity starting next year, discounted at the after-tax WACC:</p><p>V<sup>L</sup> = FCF/r<sub>wacc</sub> = 310/0.073786 = <b>NOK 4,201.3553 million</b></p>",
+     "criteria": [
+      "V^L = 310/0.073786 = 4,201.3553.",
+      "No separate tax shield: the WACC already contains it."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 5,
+     "body": "<p>Using the debt implied by the WACC method, find the levered value of Hitra Feed using the APV method.</p>",
+     "solution": "<p><b>Step 1. Unlevered value.</b> V<sup>U</sup> = 310/0.079286 = <b>3,909.9099</b></p><p><b>Step 2. Debt from the WACC value.</b> D = 0.5 × 4,201.3553 = <b>2,100.6776</b></p><p><b>Step 3. Tax shield per year.</b> Interest = 0.05 × 2,100.6776 = 105.0339; TS = 0.22 × 105.0339 = <b>23.1075</b> per year, forever.</p><p><b>Step 4. The rate.</b> Hitra Feed keeps a constant D/V, so the debt moves with firm value and the tax shield carries asset risk: discount at r<sub>U</sub> = 7.9286%.<br>PV(TS) = 23.1075/0.079286 = <b>291.4454</b></p><p><b>Step 5.</b> V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 3,909.9099 + 291.4454 = <b>NOK 4,201.3553 million</b></p><p><b>Check.</b> Equal to the WACC value in (d). Not independent, since D came from (d), but it catches a wrong rate on the shield: r<sub>D</sub> would give 4,372.0590.</p>",
+     "criteria": [
+      "V^U = 3,909.9099, the same FCF discounted at r_U.",
+      "D = 0.5 × V^L from (d) = 2,100.6776, as the question instructs.",
+      "TS = τ·r_D·D = 23.1075 per year.",
+      "Discounts the shield at r_U. r_D gives V^L = 4,372.0590 and loses the points. Bonus, not required: saying why (constant D/V).",
+      "PV(TS) = 291.4454 and V^L = 4,201.3553, equal to (d)."
+     ]
+    },
+    {
+     "label": "f",
+     "points": 2,
+     "body": "<p>A colleague suggests skipping the unlevering and simply using Smøla Nutrition's equity beta of 1.3 for Hitra Feed. Would that overvalue or undervalue Hitra Feed? Explain briefly, without new calculations.</p>",
+     "solution": "<p><b>Overvalue.</b> Smøla Nutrition has less leverage (D/V = 0.29) than Hitra Feed (0.50), so its equity beta of 1.3 is lower than Hitra Feed's 1.57. Using 1.3 understates Hitra Feed's cost of equity and WACC. A lower discount rate gives too high a value. An equity beta carries the firm's own financial risk, so it does not transfer between firms with different leverage.</p><p>For reference (not required): with β<sub>E</sub> = 1.3 the WACC would be 6.70% and the value NOK 4,626.9 million.</p>",
+     "criteria": [
+      "Says overvalue.",
+      "Mechanism: Smøla is less levered, so its equity beta is lower; the cost of equity and WACC come out too low and the value too high.",
+      "Says that the equity beta includes financial risk from the firm's own leverage, so only the unlevered beta transfers. Two sentences are enough."
+     ]
+    }
+   ]
+  }
+ ],
+ "del1-f4": [
+  {
+   "n": 1,
+   "title": "Valuation with leverage",
+   "points": 18,
+   "topic": "WACC and APV",
+   "chapters": [
+    3,
+    4,
+    17,
+    18,
+    19
+   ],
+   "merke": "Som H2025 E4: WACC og APV over to år",
+   "body": "<p>Kolvik Data Centres has leased its whole server hall to one cloud provider for the next two years. Then the company will be wound up. The lease gives free cash flows of $55 million at the end of Year 1 and $55 million at the end of Year 2. Kolvik keeps a debt-to-equity ratio of 0.5 throughout. Its debt has a beta of 0.3 and investors expect a return of 13% on its equity. The risk-free rate is 3.5% per year and will stay the same. The expected return on the market portfolio is 8.5% and the tax rate is 25%.</p><p>Each question is worth 2 points. Use 4 decimal places (1.2345, not 1.23).</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 2,
+     "body": "<p>Find the cost of debt of the company.</p>",
+     "solution": "<p>CAPM on the debt, with the debt beta given. The market risk premium is 0.085 − 0.035 = 0.0500.</p><p>r<sub>D</sub> = r<sub>f</sub> + β<sub>D</sub>(E[R<sub>Mkt</sub>] − r<sub>f</sub>) = 0.035 + 0.3 × 0.05 = <b>0.0500 (5.00%)</b></p><p>The debt is risky, so r<sub>D</sub> is above r<sub>f</sub>.</p>",
+     "criteria": [
+      "CAPM on the debt: r_D = r_f + β_D(E[R_Mkt] − r_f).",
+      "Market risk premium 8.5% − 3.5% = 5%.",
+      "r_D = 5.00%. Using r_D = r_f because 'debt is safe' ignores the given beta of 0.3."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 2,
+     "body": "<p>Find the equity beta of the company.</p>",
+     "solution": "<p>This time the CAPM runs backwards, from the expected return to the beta:</p><p>β<sub>E</sub> = (r<sub>E</sub> − r<sub>f</sub>)/(E[R<sub>Mkt</sub>] − r<sub>f</sub>) = (0.13 − 0.035)/0.05 = <b>1.9000</b></p>",
+     "criteria": [
+      "Inverts the CAPM on the equity.",
+      "β_E = 1.9000. Dividing by 8.5% instead of the 5% premium is the trap."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 2,
+     "body": "<p>Find the unlevered cost of capital of the company.</p>",
+     "solution": "<p><b>Step 1. Weights.</b> D/E = 0.50, so D/V = 0.50/1.50 = <b>0.3333</b> and E/V = <b>0.6667</b>.</p><p><b>Step 2. Weight the returns (pre-tax WACC = r<sub>U</sub>).</b><br>r<sub>U</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub> = 0.6667(0.1300) + 0.3333(0.0500) = 0.086667 + 0.016667 = 0.103333, so <b>r<sub>U</sub> = 10.3333%</b></p><p><b>Or through betas.</b> β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub> = 0.6667(1.9000) + 0.3333(0.3000) = 1.266667 + 0.100000 = 1.366667. Then r<sub>U</sub> = 0.0350 + 1.366667 × 0.0500 = <b>0.103333</b>. Same answer.</p><p>r<sub>U</sub> does not take taxes into account: it is the return on the assets as if the company had no debt. The tax rate enters only in the after-tax WACC in (d).</p>",
+     "criteria": [
+      "Converts D/E = 0.50 into D/V = 0.3333 and E/V = 0.6667. Using 0.50 and 0.50 as weights is the trap.",
+      "r_U = 10.3333%, either by weighting the returns or by weighting the betas (β_U = 1.3667, not required).",
+      "r_U does not take taxes into account. Multiplying r_D by (1 − τ) here gives the WACC instead of r_U and loses the points.",
+      "Show the calculation."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 2,
+     "body": "<p>Find the after-tax WACC of the company.</p>",
+     "solution": "<p>The tax shield enters through the after-tax cost of debt:</p><p>r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ) = 0.6667(0.1300) + 0.3333(0.0500)(1 − 0.25)<br>= 0.086667 + 0.012500 = <b>0.099167 (9.9167%)</b></p><p><b>Check.</b> The shortcut r<sub>wacc</sub> = r<sub>U</sub> − (D/V)τr<sub>D</sub> = 0.103333 − 0.3333(0.25)(0.0500) = <b>0.099167</b> ✓. And r<sub>wacc</sub> &lt; r<sub>U</sub>, as it must be: the only difference between the two is the (1 − τ) on r<sub>D</sub>.</p>",
+     "criteria": [
+      "Applies (1 − τ) to r_D only, never to r_E.",
+      "r_wacc = 9.9167%.",
+      "Same weights as in (c): E/V = 0.6667, D/V = 0.3333.",
+      "Bonus, not required: the shortcut r_U − (D/V)τ·r_D as a check. r_wacc above r_U would signal an error."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 2,
+     "body": "<p>Find the levered value of the company today using the WACC method.</p>",
+     "solution": "<p>Discount the free cash flows at the after-tax WACC. The tax shield is already in the rate, so it is not added separately.</p><p>V<sup>L</sup><sub>0</sub> = 55/1.099167 + 55/1.099167<sup>2</sup> = 50.0379 + 45.5235 = <b>$95.5614 million</b></p>",
+     "criteria": [
+      "Discounts both cash flows at r_wacc = 9.9167%, the year-2 flow twice.",
+      "V^L_0 = 95.5614.",
+      "Does not add a tax shield on top: the WACC already contains it. Doing both is double counting."
+     ]
+    },
+    {
+     "label": "f",
+     "points": 2,
+     "body": "<p>Find the debt adjustment at the end of Year 1. Does the company borrow or repay?</p>",
+     "solution": "<p>The company keeps D/V = 0.3333 at all times, so D<sub>t</sub> = (D/V) × V<sup>L</sup><sub>t</sub>.</p><p><b>Year 0:</b> D<sub>0</sub> = 0.3333 × 95.5614 = <b>31.8538</b></p><p><b>Year 1:</b> after the year-1 cash flow is paid out, only the year-2 flow is left: V<sup>L</sup><sub>1</sub> = 55/1.099167 = <b>50.0379</b>, so D<sub>1</sub> = 0.3333 × 50.0379 = <b>16.6793</b></p><p><b>Debt adjustment:</b> D<sub>1</sub> − D<sub>0</sub> = 16.6793 − 31.8538 = <b>−15.1745</b>. The company <b>repays</b> debt. The cash flows are flat, but after Year 1 only one of them is left, so the value falls and the debt must fall with it to keep D/E at 0.5.</p>",
+     "criteria": [
+      "D_t = (D/V)·V^L_t at both dates, with D/V = 0.3333.",
+      "V^L_1 = 50.0379: the value after the year-1 cash flow, so only the year-2 flow. Including the year-1 flow (55) is the classic mistake.",
+      "D_0 = 31.8538, D_1 = 16.6793, adjustment 15.1745.",
+      "Says in words that the company repays part of the debt to keep the ratio constant. Kurbatov's H2025 key ends the same part with that sentence."
+     ]
+    },
+    {
+     "label": "g",
+     "points": 2,
+     "body": "<p>Find the unlevered value of the company using the APV method.</p>",
+     "solution": "<p>The APV method starts from the same free cash flows as if the company had no debt, discounted at r<sub>U</sub> = 10.3333%:</p><p>V<sup>U</sup><sub>0</sub> = 55/1.103333 + 55/1.103333<sup>2</sup> = 49.8489 + 45.1803 = <b>$95.0293 million</b></p><p>V<sup>U</sup> is below V<sup>L</sup> from (e). The gap is the value of the tax shield, found in (h).</p>",
+     "criteria": [
+      "Discounts the same free cash flows at r_U = 10.3333%, not at the WACC.",
+      "V^U = 95.0293.",
+      "No change to the cash flows themselves: they are already unlevered."
+     ]
+    },
+    {
+     "label": "h",
+     "points": 2,
+     "body": "<p>Find the interest tax shield in each year and its present value.</p>",
+     "solution": "<p><b>Step 1. The shields.</b> The tax shield in year t is τ × r<sub>D</sub> × D<sub>t−1</sub>, on the debt outstanding at the start of the year (from (f)):</p><p>TS<sub>1</sub> = 0.25 × 0.0500 × 31.8538 = <b>0.3982</b><br>TS<sub>2</sub> = 0.25 × 0.0500 × 16.6793 = <b>0.2085</b></p><p><b>Step 2. The rate.</b> The company rebalances to a constant D/V, so its debt moves with the value of the assets and the tax shield moves with it. The shield carries asset risk and is discounted at <b>r<sub>U</sub> = 10.3333%</b>, not at r<sub>D</sub>.</p><p>PV(TS) = 0.3982/1.103333 + 0.2085/1.103333<sup>2</sup> = 0.3609 + 0.1713 = <b>$0.5321 million</b></p>",
+     "criteria": [
+      "TS_t = τ·r_D·D_(t−1): TS_1 = 0.3982 on D_0 and TS_2 = 0.2085 on D_1.",
+      "Discounts the shields at r_U. Using r_D gives 0.5683 and loses the point.",
+      "PV(TS) = 0.5321.",
+      "Bonus, not required: saying why r_U (constant D/V makes the debt move with firm value).",
+      "Carries 4 decimals through the chain."
+     ]
+    },
+    {
+     "label": "i",
+     "points": 2,
+     "body": "<p>Find the levered value using the APV method and compare with (e). A colleague discounted the tax shields at the cost of debt and got $95.5976 million. Is the colleague right? Explain briefly.</p>",
+     "solution": "<p>V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 95.0293 + 0.5321 = <b>$95.5614 million</b></p><p><b>Check.</b> The WACC method in (e) gave 95.5614, so the two methods agree. They are the same valuation, with the tax shield counted once in the discount rate and once as a separate cash flow. The check is not independent (the debt in (f) came from the WACC value), but it catches a wrong rate on the shield and arithmetic slips.</p><p><b>The colleague.</b> No. With r<sub>D</sub> = 5.00% the shields are worth 0.5683 instead of 0.5321, so the value is too high. Kolvik keeps a constant D/E, so its debt and the tax shield move with the value of the assets and carry asset risk: r<sub>U</sub> is the right rate. r<sub>D</sub> fits only a debt schedule fixed in advance.</p>",
+     "criteria": [
+      "V^L = V^U + PV(TS) = 95.5614.",
+      "States that this equals the WACC value from (e). A gap of about 0.001 is rounding, about 0.05 is an error (the H2025 key, part (i)).",
+      "Says the colleague is wrong (the value is too high).",
+      "Why: with a constant D/E the debt follows firm value, so the shield has the risk of the assets and is discounted at r_U. r_D fits only debt fixed in advance."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Valuation",
+   "points": 20,
+   "topic": "WACC and APV",
+   "chapters": [
+    3,
+    4,
+    17,
+    18
+   ],
+   "merke": "Som H2024 E5: verdsetting med to sammenlignbare firmaer",
+   "body": "<p>You are valuing Torvet Logistics, an unlisted company that runs refrigerated warehouses for grocery chains, ahead of a possible stock-market listing. Torvet expects a free cash flow of $75 million per year forever, starting next year, with no growth. It keeps a constant debt-to-equity ratio of 0.6 and its cost of debt is 6%. Two listed companies run the same type of business and have the same business risk:</p><table class=\"data\"><tr><th></th><th>Kaia Freight</th><th>Lossi Transport</th></tr><tr><td>Leverage</td><td class=\"n\">D/V = 0.6</td><td class=\"n\">D/E = 0.25</td></tr><tr><td>Debt beta</td><td class=\"n\">0.30</td><td class=\"n\">0.05</td></tr><tr><td>Equity beta</td><td class=\"n\">2.30</td><td class=\"n\">1.05</td></tr></table><p>Use the average of the two unlevered betas. The tax rate is 25%, the risk-free rate is 4% and the expected return on the market portfolio is 10%.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 6,
+     "body": "<p>Find the unlevered cost of capital for Torvet Logistics.</p>",
+     "solution": "<p>Neither comparable has Torvet's leverage, so unlever each one, average the unlevered betas and only then use the CAPM. The two leverage figures are given in different forms.</p><p><b>Kaia Freight.</b> D/V = 0.6 is given directly, so E/V = 0.4.<br>β<sub>U</sub> = 0.4(2.30) + 0.6(0.30) = 0.9200 + 0.1800 = 1.1000</p><p><b>Lossi Transport.</b> D/E = 0.25, so D/V = 0.25/1.25 = 0.2000 and E/V = 0.8000.<br>β<sub>U</sub> = 0.8000(1.05) + 0.2000(0.05) = 0.8400 + 0.0100 = 0.8500</p><p><b>Average.</b> β<sub>U</sub> = (1.1000 + 0.8500)/2 = <b>0.9750</b></p><p><b>CAPM.</b> The market risk premium is 0.10 − 0.04 = 0.0600.<br>r<sub>U</sub> = 0.04 + 0.9750 × 0.06 = <b>0.0985 (9.85%)</b></p><p>The same business risk means Torvet's r<sub>U</sub> is 9.85%. The two firms' equity betas differ a lot (2.30 and 1.05), but most of the gap is leverage: their unlevered betas are 1.10 and 0.85.</p>",
+     "criteria": [
+      "Unlevers each comparable separately and averages the unlevered betas (or the two r_U, which gives the same answer).",
+      "Kaia: uses D/V = 0.6 directly, β_U = 1.1000. Reading 0.6 as D/E gives r_U = 11.20%.",
+      "Lossi: converts D/E = 0.25 into D/V = 0.2000, β_U = 0.8500. Using 0.25 as the weight gives r_U = 9.70%.",
+      "Uses both firms. Kaia alone gives r_U = 10.60%, Lossi alone 9.10%. Averaging the equity betas, leverage and debt betas first and unlevering once gives 10.45%.",
+      "Average β_U = 0.9750 and r_U = 9.85%."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 3,
+     "body": "<p>Find Torvet's equity beta and cost of equity.</p>",
+     "solution": "<p><b>Step 1. Torvet's leverage.</b> D/E = 0.60 is given, so D/V = 0.60/1.60 = <b>0.3750</b>.</p><p><b>Step 2. Torvet's debt beta</b> from its cost of debt: β<sub>D</sub> = (0.0600 − 0.0400)/0.0600 = <b>0.3333</b>.</p><p><b>Step 3. Relever.</b> Rearranging β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub>:</p><p>β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>) = 0.9750 + 0.6000(0.9750 − 0.333333) = <b>1.3600</b></p><p>r<sub>E</sub> = r<sub>f</sub> + β<sub>E</sub>(E[R<sub>Mkt</sub>] − r<sub>f</sub>) = 0.0400 + 1.3600 × 0.0600 = <b>0.1216 (12.16%)</b></p><p><b>Same answer with MM II.</b> r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) = 0.0985 + 0.6000(0.0985 − 0.0600) = <b>0.1216</b> ✓ (an identity once the CAPM holds, not an independent check).</p><p><b>Identity.</b> (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub> = 0.6250(1.3600) + 0.3750(0.3333) = 0.9750 = β<sub>U</sub> ✓. It holds by construction here, so it catches arithmetic slips only.</p>",
+     "criteria": [
+      "Uses Torvet's own D/E = 0.6 (D/V = 0.3750).",
+      "Finds Torvet's debt beta from r_D = 6%: β_D = 0.3333.",
+      "β_E = 1.3600 and r_E = 12.16%. MM II gives the same r_E."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 2,
+     "body": "<p>Find Torvet's after-tax WACC.</p>",
+     "solution": "<p>r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ) = 0.6250(0.1216) + 0.3750(0.0600)(1 − 0.25)<br>= 0.076000 + 0.016875 = <b>0.092875 (9.2875%)</b></p><p><b>Check.</b> r<sub>U</sub> − (D/V)τr<sub>D</sub> = 0.0985 − 0.3750(0.25)(0.0600) = <b>0.092875</b> ✓, below r<sub>U</sub> as it must be.</p>",
+     "criteria": [
+      "Applies (1 − τ) to r_D only.",
+      "Uses the target's own weights, E/V = 0.6250 and D/V = 0.3750.",
+      "r_wacc = 9.2875%."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 2,
+     "body": "<p>What is the levered value of Torvet using the WACC method?</p>",
+     "solution": "<p>V<sup>L</sup> = FCF/r<sub>wacc</sub> = 75/0.092875 = <b>$807.5370 million</b></p>",
+     "criteria": [
+      "V^L = 75/0.092875 = 807.5370.",
+      "No separate tax shield on top."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 4,
+     "body": "<p>Using the debt implied by the WACC method, find the present value of the interest tax shields and the levered value of Torvet using the APV method.</p>",
+     "solution": "<p><b>Step 1.</b> V<sup>U</sup> = 75/0.0985 = <b>761.4213</b></p><p><b>Step 2. Debt from the WACC value.</b> D = (D/V) × V<sup>L</sup> = 0.3750 × 807.5370 = <b>302.8264</b></p><p><b>Step 3.</b> TS = τ × r<sub>D</sub> × D = 0.25 × 0.06 × 302.8264 = <b>4.5424</b> per year.</p><p><b>Step 4.</b> Constant D/E: the debt follows firm value, so the shield is discounted at r<sub>U</sub>. PV(TS) = 4.5424/0.0985 = <b>$46.1157 million</b></p><p><b>Step 5.</b> V<sup>L</sup> = 761.4213 + 46.1157 = <b>$807.5370 million</b>, the same as (d) ✓.</p>",
+     "criteria": [
+      "V^U = 761.4213.",
+      "D = 0.3750 × V^L = 302.8264: D/V, not D/E, times the value. Using 0.6 × V^L is the trap.",
+      "TS = 4.5424, discounted at r_U. Bonus, not required: the reason (constant D/E).",
+      "PV(TS) = 46.1157 and V^L = 807.5370, equal to (d)."
+     ]
+    },
+    {
+     "label": "f",
+     "points": 3,
+     "body": "<p>Why should the two comparables be combined through their unlevered betas and not through their equity betas? Explain briefly, without new calculations.</p>",
+     "solution": "<p>An equity beta measures business risk <i>plus</i> the financial risk from the firm's own leverage. Kaia (D/V = 0.6) and Lossi (D/V = 0.2) have very different leverage, so most of the gap between their equity betas (2.30 and 1.05) is financial risk that has nothing to do with Torvet. An average of the equity betas would describe neither firm's capital structure, let alone Torvet's. The unlevered beta strips out each firm's own leverage and leaves the business risk, which all three firms share. Averaging two estimates of that same number reduces the noise in each; Torvet's own leverage is then added back when relevering in (b).</p><p>For reference (not required): averaging the equity betas, the leverage and the debt betas first and unlevering once gives r<sub>U</sub> = 10.45% instead of 9.85%.</p>",
+     "criteria": [
+      "The equity beta contains financial risk from the firm's own leverage; the unlevered beta is business risk only.",
+      "The two firms have very different leverage, so their equity betas are not comparable, while their unlevered betas measure the same business risk as Torvet's.",
+      "Torvet's own leverage is added back when relevering; averaging two unlevered betas reduces the estimation noise of one firm. Any two of these three points, each with its mechanism, earn full points."
+     ]
+    }
+   ]
+  }
+ ],
+ "del1-f5": [
+  {
+   "n": 1,
+   "title": "Valuation with leverage",
+   "points": 18,
+   "topic": "WACC and APV",
+   "chapters": [
+    3,
+    4,
+    17,
+    18,
+    19
+   ],
+   "merke": "Som H2025 E4: WACC og APV over to år",
+   "body": "<p>Brennmoen Solar will finish a solar park next year and sell it the year after. It keeps a debt-to-equity ratio of 1.5 throughout. The free cash flow is −€12 million at the end of Year 1 (last construction costs) and €160 million at the end of Year 2 (including the sale of the park). The company is then closed. The cost of debt is 6% and the equity beta is 2.2. The risk-free rate is 4% per year and will stay the same, the market portfolio has an expected return of 8% and the tax rate is 25%.</p><p>Each question is worth 2 points. Use 4 decimal places (1.2345, not 1.23).</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 2,
+     "body": "<p>Find the debt beta of the company.</p>",
+     "solution": "<p>The debt is risky (r<sub>D</sub> = 6% &gt; r<sub>f</sub> = 4%). The market risk premium is 0.08 − 0.04 = 0.0400.</p><p>β<sub>D</sub> = (r<sub>D</sub> − r<sub>f</sub>)/(E[R<sub>Mkt</sub>] − r<sub>f</sub>) = (0.06 − 0.04)/0.04 = <b>0.5000</b></p>",
+     "criteria": [
+      "CAPM in reverse on the debt.",
+      "Market risk premium 8% − 4% = 4%, not 8%.",
+      "β_D = 0.5000."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 2,
+     "body": "<p>Find the cost of equity of the company.</p>",
+     "solution": "<p>r<sub>E</sub> = r<sub>f</sub> + β<sub>E</sub>(E[R<sub>Mkt</sub>] − r<sub>f</sub>) = 0.04 + 2.2 × 0.04 = <b>0.1280 (12.80%)</b></p><p>The equity beta is high because the company is highly levered (D/E = 1.5).</p>",
+     "criteria": [
+      "CAPM on the equity with the 4% premium.",
+      "r_E = 12.80%. Using 8% as the premium (21.60%) is the trap."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 2,
+     "body": "<p>Find the unlevered cost of capital of the company.</p>",
+     "solution": "<p><b>Step 1. Weights.</b> D/E = 1.50, so D/V = 1.50/2.50 = <b>0.6000</b> and E/V = <b>0.4000</b>.</p><p><b>Step 2. Weight the returns (pre-tax WACC = r<sub>U</sub>).</b><br>r<sub>U</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub> = 0.4000(0.1280) + 0.6000(0.0600) = 0.051200 + 0.036000 = 0.087200, so <b>r<sub>U</sub> = 8.72%</b></p><p><b>Or through betas.</b> β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub> = 0.4000(2.2000) + 0.6000(0.5000) = 0.880000 + 0.300000 = 1.180000. Then r<sub>U</sub> = 0.0400 + 1.180000 × 0.0400 = <b>0.0872</b>. Same answer.</p><p>r<sub>U</sub> does not take taxes into account: it is the return on the assets as if the company had no debt. The tax rate enters only in the after-tax WACC in (d).</p>",
+     "criteria": [
+      "Converts D/E = 1.50 into D/V = 0.6000 and E/V = 0.4000. A ratio above 1 cannot be a weight, so the conversion is required.",
+      "r_U = 8.72%, either by weighting the returns or by weighting the betas (β_U = 1.1800, not required).",
+      "r_U does not take taxes into account. Multiplying r_D by (1 − τ) here gives the WACC instead of r_U and loses the points.",
+      "Show the calculation."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 2,
+     "body": "<p>Find the after-tax WACC of the company.</p>",
+     "solution": "<p>The tax shield enters through the after-tax cost of debt:</p><p>r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ) = 0.4000(0.1280) + 0.6000(0.0600)(1 − 0.25)<br>= 0.051200 + 0.027000 = <b>0.0782 (7.82%)</b></p><p><b>Check.</b> The shortcut r<sub>wacc</sub> = r<sub>U</sub> − (D/V)τr<sub>D</sub> = 0.0872 − 0.6000(0.25)(0.0600) = <b>0.0782</b> ✓. And r<sub>wacc</sub> &lt; r<sub>U</sub>, as it must be: the only difference between the two is the (1 − τ) on r<sub>D</sub>.</p>",
+     "criteria": [
+      "Applies (1 − τ) to r_D only, never to r_E.",
+      "r_wacc = 7.82%.",
+      "Same weights as in (c): E/V = 0.4000, D/V = 0.6000.",
+      "Bonus, not required: the shortcut r_U − (D/V)τ·r_D as a check. r_wacc above r_U would signal an error."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 2,
+     "body": "<p>Find the levered value of the company today using the WACC method.</p>",
+     "solution": "<p>Discount the free cash flows at the after-tax WACC. The tax shield is already in the rate, so it is not added separately.</p><p>V<sup>L</sup><sub>0</sub> = −12/1.0782 + 160/1.0782<sup>2</sup> = −11.1297 + 137.6326 = <b>€126.5029 million</b></p>",
+     "criteria": [
+      "Discounts both cash flows at r_wacc = 7.82%, the year-2 flow twice.",
+      "Keeps the sign of the negative year-1 flow (−12).",
+      "V^L_0 = 126.5029.",
+      "Does not add a tax shield on top: the WACC already contains it. Doing both is double counting."
+     ]
+    },
+    {
+     "label": "f",
+     "points": 2,
+     "body": "<p>Find the debt adjustment at the end of Year 1. Does the company borrow or repay?</p>",
+     "solution": "<p>The company keeps D/V = 0.6000 at all times, so D<sub>t</sub> = (D/V) × V<sup>L</sup><sub>t</sub>.</p><p><b>Year 0:</b> D<sub>0</sub> = 0.6000 × 126.5029 = <b>75.9018</b></p><p><b>Year 1:</b> after the year-1 cash flow is paid out, only the year-2 flow is left: V<sup>L</sup><sub>1</sub> = 160/1.0782 = <b>148.3955</b>, so D<sub>1</sub> = 0.6000 × 148.3955 = <b>89.0373</b></p><p><b>Debt adjustment:</b> D<sub>1</sub> − D<sub>0</sub> = 89.0373 − 75.9018 = <b>13.1355</b>. The company <b>borrows</b> more at the end of Year 1. Its value rises from Year 0 to Year 1, because the year-1 cash flow is negative and the large year-2 flow comes one year closer, so the company needs more debt to keep D/E at 1.5. The new borrowing also helps fund the negative year-1 cash flow.</p>",
+     "criteria": [
+      "D_t = (D/V)·V^L_t at both dates, with D/V = 0.6000.",
+      "V^L_1 = 148.3955: the value after the year-1 cash flow, so only the year-2 flow. Including the year-1 flow (−12) is the classic mistake.",
+      "D_0 = 75.9018, D_1 = 89.0373, adjustment 13.1355.",
+      "Says in words that the company borrows more to keep the ratio constant. Kurbatov's H2025 key ends the same part with that sentence.",
+      "The sign is the point of this part: here the debt goes up, not down. Assuming a repayment by habit (as in a declining project) loses the text point."
+     ]
+    },
+    {
+     "label": "g",
+     "points": 2,
+     "body": "<p>Find the unlevered value of the company using the APV method.</p>",
+     "solution": "<p>The APV method starts from the same free cash flows as if the company had no debt, discounted at r<sub>U</sub> = 8.72%:</p><p>V<sup>U</sup><sub>0</sub> = −12/1.0872 + 160/1.0872<sup>2</sup> = −11.0375 + 135.3634 = <b>€124.3258 million</b></p><p>V<sup>U</sup> is below V<sup>L</sup> from (e). The gap is the value of the tax shield, found in (h).</p>",
+     "criteria": [
+      "Discounts the same free cash flows at r_U = 8.72%, not at the WACC.",
+      "V^U = 124.3258.",
+      "No change to the cash flows themselves: they are already unlevered."
+     ]
+    },
+    {
+     "label": "h",
+     "points": 2,
+     "body": "<p>Find the interest tax shield in each year and its present value.</p>",
+     "solution": "<p><b>Step 1. The shields.</b> The tax shield in year t is τ × r<sub>D</sub> × D<sub>t−1</sub>, on the debt outstanding at the start of the year (from (f)):</p><p>TS<sub>1</sub> = 0.25 × 0.0600 × 75.9018 = <b>1.1385</b><br>TS<sub>2</sub> = 0.25 × 0.0600 × 89.0373 = <b>1.3356</b></p><p><b>Step 2. The rate.</b> The company rebalances to a constant D/V, so its debt moves with the value of the assets and the tax shield moves with it. The shield carries asset risk and is discounted at <b>r<sub>U</sub> = 8.72%</b>, not at r<sub>D</sub>.</p><p>PV(TS) = 1.1385/1.0872 + 1.3356/1.0872<sup>2</sup> = 1.0472 + 1.1299 = <b>€2.1771 million</b></p>",
+     "criteria": [
+      "TS_t = τ·r_D·D_(t−1): TS_1 = 1.1385 on D_0 and TS_2 = 1.3356 on D_1.",
+      "Discounts the shields at r_U. Using r_D gives 2.2627 and loses the point.",
+      "PV(TS) = 2.1771.",
+      "Bonus, not required: saying why r_U (constant D/V makes the debt move with firm value).",
+      "Carries 4 decimals through the chain."
+     ]
+    },
+    {
+     "label": "i",
+     "points": 2,
+     "body": "<p>Find the levered value using the APV method and compare with (e). Could a single WACC as in (e) still be used if Brennmoen kept its debt fixed at the Year-0 amount? Explain briefly.</p>",
+     "solution": "<p>V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 124.3258 + 2.1771 = <b>€126.5029 million</b></p><p><b>Check.</b> The WACC method in (e) gave 126.5029, so the two methods agree. They are the same valuation, with the tax shield counted once in the discount rate and once as a separate cash flow. The check is not independent (the debt in (f) came from the WACC value), but it catches a wrong rate on the shield and arithmetic slips.</p><p><b>Fixed debt.</b> No. A single r<sub>wacc</sub> assumes a constant D/V. With the debt fixed at D<sub>0</sub> = 75.9018, the ratio would drift (to about 0.51 at the end of Year 1 instead of 0.60), so r<sub>E</sub> and the WACC would change from year to year. The company should then use APV, with the tax shields of the fixed schedule discounted at r<sub>D</sub>.</p>",
+     "criteria": [
+      "V^L = V^U + PV(TS) = 126.5029.",
+      "States that this equals the WACC value from (e). A gap of about 0.001 is rounding, about 0.05 is an error (the H2025 key, part (i)).",
+      "Says no: one constant WACC works only with a constant debt ratio. With fixed debt D/V changes as the value changes. 'Not with one constant WACC; it would have to change every year' earns full points.",
+      "Bonus, not required: naming APV with the shields of the fixed debt discounted at r_D, or the drifting ratio (about 0.51)."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Valuation",
+   "points": 20,
+   "topic": "WACC and APV",
+   "chapters": [
+    3,
+    4,
+    17,
+    18
+   ],
+   "merke": "Som H2024 E5: verdsetting med en tvilling",
+   "body": "<p>Maple Ridge Dental runs a chain of dental clinics and is owned by its founders, who have asked you to value it. Next year's free cash flow is expected to be $24 million. Free cash flow will then grow by 2% per year forever. Maple Ridge keeps a constant debt-to-value ratio of 45% and its cost of debt is 5.6%. Cedar Point Dental, a listed chain with the same business risk, keeps a debt-to-value ratio of 25%. Cedar Point's debt has a beta of 0.2 and its equity has a beta of 1.4. The tax rate is 21%, the risk-free rate is 3.5% and the expected return on the market portfolio is 8.5%.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 5,
+     "body": "<p>What is the unlevered cost of capital for Maple Ridge Dental?</p>",
+     "solution": "<p>Cedar Point has the same business risk but different leverage, so unlever its equity beta and transfer the unlevered beta.</p><p><b>Step 1. Unlever Cedar Point.</b> D/V = 0.25 is given, so E/V = 0.75:<br>β<sub>U</sub> = 0.75(1.4) + 0.25(0.2) = 1.0500 + 0.0500 = 1.1000</p><p><b>Step 2. CAPM.</b> The market risk premium is 0.085 − 0.035 = 0.0500.<br>r<sub>U</sub> = 0.035 + 1.1000 × 0.05 = <b>0.0900 (9.00%)</b></p><p><b>Step 3.</b> Same business risk, so Maple Ridge's r<sub>U</sub> = 9.00%. Growth does not change the cost of capital.</p>",
+     "criteria": [
+      "Transfers the unlevered beta rather than the equity beta. Bonus, not required: saying why.",
+      "Includes Cedar Point's debt beta: β_U = 1.1000. Dropping it gives r_U = 8.75%.",
+      "Uses D/V = 0.25 directly as the weight; weights without taxes.",
+      "r_U = 9.00%."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>Find Maple Ridge's equity beta and cost of equity.</p>",
+     "solution": "<p><b>Step 1. Maple Ridge's leverage as D/E.</b> D/V = 0.45, so E/V = 0.55 and D/E = 0.45/0.55 = <b>0.8182</b>.</p><p><b>Step 2. Maple Ridge's debt beta</b> from its cost of debt: β<sub>D</sub> = (0.0560 − 0.0350)/0.0500 = <b>0.4200</b>.</p><p><b>Step 3. Relever.</b> Rearranging β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub>:</p><p>β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>) = 1.1000 + 0.8182(1.1000 − 0.4200) = <b>1.6564</b></p><p>r<sub>E</sub> = r<sub>f</sub> + β<sub>E</sub>(E[R<sub>Mkt</sub>] − r<sub>f</sub>) = 0.0350 + 1.6564 × 0.0500 = <b>0.117818 (11.7818%)</b></p><p><b>Same answer with MM II.</b> r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) = 0.0900 + 0.8182(0.0900 − 0.0560) = <b>0.117818</b> ✓ (an identity once the CAPM holds, not an independent check).</p>",
+     "criteria": [
+      "Converts D/V = 0.45 into D/E = 0.8182. Plugging 0.45 in as D/E gives r_E = 10.53%.",
+      "Maple Ridge's own debt beta from r_D = 5.6%: β_D = 0.4200.",
+      "β_E = 1.6564 and r_E = 11.7818%."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 2,
+     "body": "<p>Find Maple Ridge's after-tax WACC.</p>",
+     "solution": "<p>r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ) = 0.5500(0.117818) + 0.4500(0.0560)(1 − 0.21)<br>= 0.064800 + 0.019908 = <b>0.084708 (8.4708%)</b></p><p><b>Check.</b> r<sub>U</sub> − (D/V)τr<sub>D</sub> = 0.0900 − 0.4500(0.21)(0.0560) = <b>0.084708</b> ✓, below r<sub>U</sub> as it must be.</p>",
+     "criteria": [
+      "Applies (1 − τ) to r_D only.",
+      "Uses the target's own weights, E/V = 0.5500 and D/V = 0.4500.",
+      "r_wacc = 8.4708%."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 3,
+     "body": "<p>What is the levered value of Maple Ridge using the WACC method?</p>",
+     "solution": "<p>The free cash flow is a growing perpetuity, starting next year:</p><p>V<sup>L</sup> = FCF<sub>1</sub>/(r<sub>wacc</sub> − g) = 24/(0.084708 − 0.02) = 24/0.064708 = <b>$370.8970 million</b></p>",
+     "criteria": [
+      "Growing perpetuity with FCF_1 = 24 and g = 2%: V^L = 370.8970.",
+      "Forgetting the growth gives 283.3263 and loses the points.",
+      "No separate tax shield."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 4,
+     "body": "<p>Using the debt implied by the WACC method, find the unlevered value, the present value of the interest tax shields and the levered value of Maple Ridge using the APV method.</p>",
+     "solution": "<p><b>Step 1. Unlevered value.</b> V<sup>U</sup> = 24/(0.0900 − 0.02) = <b>$342.8571 million</b></p><p><b>Step 2. Debt today</b> from the WACC value: D<sub>0</sub> = 0.45 × 370.8970 = <b>166.9036</b></p><p><b>Step 3. The shield grows.</b> The company keeps D/V constant while its value grows at 2%, so the debt grows at 2% and the tax shield grows with it. Next year's shield is on D<sub>0</sub>:<br>TS<sub>1</sub> = 0.21 × 0.056 × 166.9036 = <b>1.9628</b></p><p><b>Step 4.</b> Constant D/V: the shield carries asset risk, so discount at r<sub>U</sub>, as a growing perpetuity:<br>PV(TS) = 1.9628/(0.0900 − 0.02) = <b>$28.0398 million</b></p><p><b>Step 5.</b> V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 342.8571 + 28.0398 = <b>$370.8970 million</b>, equal to (d) ✓. With the shield at r<sub>D</sub> (also growing) the value would be 397.3790, so the check would fail.</p>",
+     "criteria": [
+      "V^U = 24/(r_U − g) = 342.8571.",
+      "D_0 = 0.45 × V^L = 166.9036 and TS_1 = 1.9628.",
+      "Recognises that the shield grows at 2% with the debt and values it as a growing perpetuity. Treating it as a level perpetuity is the trap of this part.",
+      "Discounts at r_U: PV(TS) = 28.0398. Bonus, not required: the reason (constant D/V).",
+      "V^L = 370.8970, equal to (d)."
+     ]
+    },
+    {
+     "label": "f",
+     "points": 2,
+     "body": "<p>A colleague who valued Maple Ridge last week used an unlevered beta of 1.0500 for Cedar Point. Explain where that number comes from. Is the colleague's value of Maple Ridge too high, too low or right? Explain briefly, without new calculations.</p>",
+     "solution": "<p><b>Where 1.0500 comes from.</b> 0.75 × 1.4 = 1.0500: the colleague weighted only the equity beta and set Cedar Point's debt beta to zero, as if its debt were risk-free. The correct value is 1.1000, because Cedar Point's debt beta of 0.2 says its debt bears some of the business risk.</p><p><b>Too high.</b> Dropping the positive term (D/V)β<sub>D</sub> understates β<sub>U</sub>, r<sub>U</sub>, Maple Ridge's r<sub>E</sub> and its WACC. A lower discount rate gives a higher value: the colleague overvalued Maple Ridge.</p><p>For reference (not required): the colleague's value would be about $385.8 million.</p>",
+     "criteria": [
+      "Explains 1.0500 as 0.75 × 1.4: the debt beta was set to zero (debt treated as risk-free).",
+      "Says the colleague's value is too high.",
+      "Mechanism: a missing positive term makes β_U, r_U and the WACC too low and the value too high. Two sentences are enough; the number is not required."
+     ]
+    }
+   ]
+  }
+ ]
+}

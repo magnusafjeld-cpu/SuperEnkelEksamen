@@ -1,0 +1,101 @@
+[
+ {
+  "id": "del1-f3",
+  "kind": "del",
+  "del": 1,
+  "art": "forventet",
+  "label": "Del 1 · Mest forventet 3",
+  "minutes": 70,
+  "points": 38,
+  "format": "2 oppgaver",
+  "note": "Nye oppgaver skrevet for denne delen, i samme form som oppgavene Kurbatov ga i H2024 og H2025, med nye tall og nye firmaer."
+ },
+ {
+  "id": "del1-f4",
+  "kind": "del",
+  "del": 1,
+  "art": "forventet",
+  "label": "Del 1 · Mest forventet 4",
+  "minutes": 70,
+  "points": 38,
+  "format": "2 oppgaver",
+  "note": "Nye oppgaver skrevet for denne delen, i samme form som oppgavene Kurbatov ga i H2024 og H2025, med nye tall og nye firmaer."
+ },
+ {
+  "id": "del1-f5",
+  "kind": "del",
+  "del": 1,
+  "art": "forventet",
+  "label": "Del 1 · Mest forventet 5",
+  "minutes": 70,
+  "points": 38,
+  "format": "2 oppgaver",
+  "note": "Nye oppgaver skrevet for denne delen, i samme form som oppgavene Kurbatov ga i H2024 og H2025, med nye tall og nye firmaer."
+ },
+ {
+  "id": "del2-f3",
+  "kind": "del",
+  "del": 2,
+  "art": "forventet",
+  "label": "Del 2 · Mest forventet 3",
+  "minutes": 65,
+  "points": 36,
+  "format": "2 oppgaver",
+  "note": "Nye oppgaver skrevet for denne delen, i samme form som oppgavene Kurbatov ga i H2024 og H2025, med nye tall og nye firmaer."
+ },
+ {
+  "id": "del2-f4",
+  "kind": "del",
+  "del": 2,
+  "art": "forventet",
+  "label": "Del 2 · Mest forventet 4",
+  "minutes": 65,
+  "points": 36,
+  "format": "2 oppgaver",
+  "note": "Nye oppgaver skrevet for denne delen, i samme form som oppgavene Kurbatov ga i H2024 og H2025, med nye tall og nye firmaer."
+ },
+ {
+  "id": "del2-f5",
+  "kind": "del",
+  "del": 2,
+  "art": "forventet",
+  "label": "Del 2 · Mest forventet 5",
+  "minutes": 65,
+  "points": 36,
+  "format": "2 oppgaver",
+  "note": "Nye oppgaver skrevet for denne delen, i samme form som oppgavene Kurbatov ga i H2024 og H2025, med nye tall og nye firmaer."
+ },
+ {
+  "id": "del3-f4",
+  "kind": "del",
+  "del": 3,
+  "art": "forventet",
+  "label": "Del 3 · Mest forventet 4",
+  "minutes": 115,
+  "points": 64,
+  "format": "4 oppgaver",
+  "note": "Nye oppgaver skrevet for denne delen, i samme form som oppgavene Kurbatov ga i H2024 og H2025, med nye tall og nye firmaer."
+ },
+ {
+  "id": "del3-f5",
+  "kind": "del",
+  "del": 3,
+  "art": "forventet",
+  "label": "Del 3 · Mest forventet 5",
+  "minutes": 115,
+  "points": 64,
+  "format": "4 oppgaver",
+  "note": "Nye oppgaver skrevet for denne delen, i samme form som oppgavene Kurbatov ga i H2024 og H2025, med nye tall og nye firmaer."
+ },
+ {
+  "id": "del3-f6",
+  "kind": "del",
+  "del": 3,
+  "art": "forventet",
+  "label": "Del 3 · Mest forventet 6",
+  "minutes": 115,
+  "points": 64,
+  "format": "4 oppgaver",
+  "note": "Nye oppgaver skrevet for denne delen, i samme form som oppgavene Kurbatov ga i H2024 og H2025, med nye tall og nye firmaer."
+ }
+]

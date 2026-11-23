@@ -1,0 +1,188 @@
+{
+  "del1-f5:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>D</sub>",
+        "verdi": 0.4999999999999999,
+        "enhet": ""
+      }
+    ]
+  },
+  "del1-f5:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 12.8,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f5:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 8.72,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "Fellen er r_U med skatt (= WACC)."
+  },
+  "del1-f5:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 7.819999999999999,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f5:1:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub> (WACC)",
+        "verdi": 126.50294373775263,
+        "enhet": "€ m",
+        "tol": 0.0069
+      }
+    ],
+    "merknad": "Toleransen er satt så V^U (diskontert med r_U) faller utenfor."
+  },
+  "del1-f5:1:f": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt adjustment",
+        "verdi": 13.135518120175348,
+        "enhet": "€ m",
+        "tol": 0.002,
+        "alt": [
+          -13.135518120175348
+        ]
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Does the company borrow or repay?",
+    "merknad": "Begge fortegn godtas for tallet (D1 − D0 eller D0 − D1). Retningen rettes i tekstdelen. Toleransen er høyst 0,2 % fordi justeringen regnet med V^U ligger under 1 % unna."
+  },
+  "del1-f5:1:g": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup><sub>0</sub>",
+        "verdi": 124.32582283319823,
+        "enhet": "€ m",
+        "tol": 0.007
+      }
+    ],
+    "merknad": "Toleransen er satt så V^L (diskontert med WACC) faller utenfor."
+  },
+  "del1-f5:1:h": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "TS<sub>1</sub>",
+        "verdi": 1.1385264936397737,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "TS<sub>2</sub>",
+        "verdi": 1.3355592654424038,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 2.1771209045543927,
+        "enhet": "€ m"
+      }
+    ]
+  },
+  "del1-f5:1:i": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub> (APV)",
+        "verdi": 126.50294373775262,
+        "enhet": "€ m",
+        "tol": 0.00027
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Could a single WACC as in (e) still be used with the debt fixed at the Year-0 amount?",
+    "merknad": "Toleransen er satt så skjoldet diskontert med r_D faller utenfor."
+  },
+  "del1-f5:2:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 9.0,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f5:2:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>E</sub>",
+        "verdi": 1.6563636363636363,
+        "enhet": ""
+      },
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 11.781818181818181,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f5:2:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 8.4708,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f5:2:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (WACC)",
+        "verdi": 370.8969524633739,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "del1-f5:2:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 342.8571428571429,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 28.03980960623107,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "V<sup>L</sup> (APV)",
+        "verdi": 370.89695246337396,
+        "enhet": "$ m",
+        "tol": 0.0067
+      }
+    ],
+    "merknad": "Fellene er skjoldet med r_D og skjoldet som flat evigrente."
+  },
+  "del1-f5:2:f": {
+    "type": "tekst"
+  }
+}

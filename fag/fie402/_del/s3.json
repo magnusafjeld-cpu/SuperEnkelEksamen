@@ -1,0 +1,394 @@
+{
+ "del3-f4": [
+  {
+   "n": 3,
+   "title": "Risk-neutral valuation",
+   "points": 20,
+   "topic": "Real options, risk-neutral valuation",
+   "chapters": [
+    22,
+    25
+   ],
+   "merke": "Som H2024 E6: investere nå eller vente når renten er usikker",
+   "body": "<p>Straumstein Energi AS can build a shore-power station for ferries at a quay in Molde. Building it costs NOK 16 million, paid when the station is built. The municipality has signed a fixed contract: it pays NOK 2.4 million at the end of each year for 8 years, the first payment one year after the station is built. The municipality is as safe as the government, so the payments are risk-free; the only uncertainty is the interest rate. The station has no value after the eighth payment. Today the risk-free rate is 4% for all maturities. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What is the project's NPV if you build right now?</p>",
+     "solution": "<p>The payments are an 8-year annuity of NOK 2.4 million, the first at the end of Year 1, discounted at 4%.</p><p>A(8, 4%) = [1 − 1.04<sup>−8</sup>]/0.04 = <b>6.7327</b><br>PV = 2.4 × 6.7327 = <b>16.1586</b><br>NPV = 16.1586 − 16 = <b>+0.1586 million NOK</b></p><p>The static NPV is positive, so on a naive analysis you would build today. Keep the 16.1586: divided by 1.04 it is today's value of the station built a year later, which gives a second twin in (c).</p>",
+     "criteria": [
+      "Recognises an 8-year annuity, not a perpetuity: the station has no value after the eighth payment.",
+      "A(8, 4%) = 6.7327 and PV = 16.1586.",
+      "NPV = 16.1586 − 16 = +0.1586 million NOK.",
+      "Shows the annuity factor and the PV, not just the result."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 5,
+     "body": "<p>Instead, Straumstein can wait one year and decide then. By that time the uncertainty is resolved: from Year 1 on, the risk-free rate will be either 2.5% or 6% for all maturities (the rate from Year 0 to Year 1 stays at 4%). The cost and the contract are the same if you build at t = 1, so the payments then fall in Years 2 to 9.</p><p>What is the project's NPV from today's perspective (t = 0) in each case?</p>",
+     "solution": "<p>If you wait, you get the same project one year later. Value it at t = 1 with the rate that then applies, then discount one year at the 4% that applies from Year 0 to Year 1.</p><table class=\"data\"><tr><th>State at t = 1</th><th>A(8, r)</th><th>PV<sub>1</sub></th><th>NPV at t = 1</th><th>NPV at t = 0</th></tr><tr><td>r<sub>f</sub> = 2.5%</td><td class=\"n\">7.1701</td><td class=\"n\">17.2083</td><td class=\"n\">+1.2083</td><td class=\"n\"><b>+1.1619</b></td></tr><tr><td>r<sub>f</sub> = 6%</td><td class=\"n\">6.2098</td><td class=\"n\">14.9035</td><td class=\"n\">−1.0965</td><td class=\"n\"><b>−1.0543</b></td></tr></table><p>For example, 2.4 × 7.1701 − 16 = +1.2083 and +1.2083/1.04 = +1.1619 million NOK; 2.4 × 6.2098 − 16 = −1.0965 and −1.0965/1.04 = −1.0543 million NOK.</p><p>The upside for the project is the <i>low</i> rate: a fixed stream of payments is worth more when it is discounted at 2.5%.</p>",
+     "criteria": [
+      "Values each branch at t = 1 with that branch's rate, using 8 payments in Years 2 to 9.",
+      "Annuity factors 7.1701 at 2.5% and 6.2098 at 6%; PV at t = 1 = 17.2083 and 14.9035.",
+      "NPV at t = 1: +1.2083 and −1.0965.",
+      "Discounts both to t = 0 at 4%, the rate from Year 0 to Year 1: +1.1619 and −1.0543. Using 2.5% or 6% for the first year is the trap.",
+      "Bonus: identifies the 2.5% branch as the upside for the project."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 6,
+     "body": "<p>You do not know the probabilities of the two rates. A government annuity bond that pays NOK 100 at the end of each of the next 9 years (Years 1 to 9) trades today at NOK 743.53.</p><p>What is the risk-neutral probability of the 2.5% rate? Briefly explain why you do not need the true probabilities.</p>",
+     "solution": "<p><b>Step 1. The bond's values at t = 1.</b> At t = 1 the holder receives the first NOK 100 and keeps the remaining 8 payments, valued at the new rate. The payment at t = 1 belongs in the t = 1 value, as a dividend does for a share.</p><table class=\"data\"><tr><th></th><th>Calculation</th><th>Value</th></tr><tr><td>S<sub>0</sub>, today</td><td class=\"n\">market price</td><td class=\"n\">743.53</td></tr><tr><td>S<sub>u</sub>, t = 1 if r<sub>f</sub> = 2.5%</td><td class=\"n\">100 + 100 × 7.1701</td><td class=\"n\">817.0137</td></tr><tr><td>S<sub>d</sub>, t = 1 if r<sub>f</sub> = 6%</td><td class=\"n\">100 + 100 × 6.2098</td><td class=\"n\">720.9794</td></tr></table><p>The bond is a valid twin because it pays exactly the stream the option delivers, the station built at t = 1 with payments in Years 2 to 9, plus a sure payment at t = 1 that is the same in both states. (Its price is the flat 4% value: 100 × A(9, 4%) = 743.5332.)</p><p><b>Step 2. The formula-sheet expression</b> with the rate from Year 0 to Year 1:</p><p>ρ = [(1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>) = [1.04 × 743.53 − 720.9794]/(817.0137 − 720.9794) = 52.2918/96.0343 = <b>0.5445</b></p><p>and 1 − ρ = 0.4555.</p><p><b>Step 3. Check with a second twin for the same stream.</b> The station built at t = 1 is worth 17.2083 or 14.9035 at t = 1 and, at today's flat 4%, 16.1586/1.04 = 15.5371 today:</p><p>ρ = [1.04 × 15.5371 − 14.9035]/(17.2083 − 14.9035) = <b>0.5445</b> ✓ (the small gap to Step 2 is the rounding of the bond price to two decimals).</p><p><b>The traps.</b> Pairing S<sub>0</sub> = 16.1586 (the station built <i>now</i>, Years 1 to 8) with the t = 1 values of the station built <i>at t = 1</i> (Years 2 to 9) gives 0.8250. It lies between 0 and 1, so only the rule catches it: S<sub>0</sub>, S<sub>u</sub> and S<sub>d</sub> must price the same cash flows. Leaving the NOK 100 paid at t = 1 out of S<sub>u</sub> and S<sub>d</sub> gives 1.5858, which is above 1 and so caught at once.</p><p><b>Why the true probabilities are not needed.</b> The option's payoff at t = 1 can be replicated with the bond and the risk-free asset. Its price must therefore equal the cost of that portfolio, which depends only on today's prices and not on anyone's probabilities or risk aversion. ρ is the probability that makes the bond earn the risk-free rate; it is not a forecast.</p>",
+     "criteria": [
+      "Uses the bond as the twin with S_0 = 743.53, S_u = 100 + 100 × A(8, 2.5%) = 817.0137 and S_d = 100 + 100 × A(8, 6%) = 720.9794.",
+      "Includes the NOK 100 paid at t = 1 in S_u and S_d. Leaving it out gives 1.5858, above 1.",
+      "Applies rho = [(1 + r_f)S_0 − S_d]/(S_u − S_d) with r_f = 4%: rho = 0.5445.",
+      "Avoids the trap of pairing S_0 = 16.1586 (Years 1 to 8) with the t = 1 values for Years 2 to 9, which gives 0.8250. Any twin for the stream the option delivers gives the same answer, for example the station built at t = 1 with S_0 = 15.5371: rho = 0.5445.",
+      "Explains that the payoff can be replicated with the bond and the risk-free asset, so no probabilities or risk preferences enter: rho is not a forecast."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 6,
+     "body": "<p>What is the value today of waiting and deciding at t = 1? You are not forced to build at t = 1. Do you build now or wait? How much more is the better choice worth? Briefly comment.</p>",
+     "solution": "<p><b>Step 1. Payoffs at t = 1.</b> Waiting is a call on the station built at t = 1, struck at 16:</p><p>C<sub>u</sub> = max(17.2083 − 16, 0) = <b>1.2083</b>; C<sub>d</sub> = max(14.9035 − 16, 0) = <b>0</b> (you do not build).</p><p><b>Step 2. Value with ρ from (c).</b></p><p>C<sub>0</sub> = [0.5445 × 1.2083 + 0.4555 × 0]/1.04 = 0.5445 × 1.1619 = <b>0.6326 million NOK</b></p><p>Replication gives the same: Δ = 1.2083/96.0343 = 0.012582 bonds and B = −720.9794 × 0.012582/1.04 = −8.7226, so C<sub>0</sub> = 743.53 × 0.012582 + (−8.7226) = 0.6326. It shares ρ, so it catches arithmetic slips only.</p><p><b>Step 3. Decision.</b> Waiting is worth 0.6326, building now 0.1586. <b>Wait.</b> The option to wait is worth 0.6326 − max(0.1586, 0) = <b>0.4741 million NOK</b> more than building now.</p><p><b>Comment.</b> A positive NPV is not enough: building now kills the option. Waiting costs only the time value of the project (payments and outlay both move a year), while it lets you walk away from the 6% branch, where the station would lose 1.0965 million at t = 1. With the mismatched ρ = 0.8250 from (c) the same steps would give 0.9585, which is wrong.</p>",
+     "criteria": [
+      "Applies the payoff max(PV_1 − 16, 0): 1.2083 with 2.5% and 0 with 6%, because building is not forced.",
+      "Values it with rho from (c): 0.5445 × 1.1619 = 0.6326 million NOK, or equivalently 0.5445 × 1.2083/1.04.",
+      "Compares with building now (0.1586), not with 0: the static NPV is positive, yet waiting is worth more, so the decision is to wait.",
+      "The option to wait is worth 0.6326 − max(0.1586, 0) = 0.4741 more than building now. Reporting 0.6326 as the gain from waiting ignores the positive NPV of building now.",
+      "Comments briefly: a positive static NPV does not mean build now, because building now gives up the right to skip the 6% branch, while waiting costs only the time value of the project.",
+      "Optional: replication with the bond gives the same value; it shares rho, so it catches arithmetic slips only."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Credit risk",
+   "points": 20,
+   "topic": "Risky debt and credit default swaps",
+   "chapters": [
+    5,
+    22,
+    24
+   ],
+   "merke": "Som V2024 P3 og CDS-eksemplet i Options II",
+   "body": "<p>Brakstad Eiendom ASA has issued one-year zero-coupon bonds with a face value of NOK 1,000 each. They trade at a promised yield to maturity of 8%. Rating analysts estimate that Brakstad defaults with probability 5%; if it does, each bond pays NOK 600 at maturity instead of NOK 1,000. A one-year government zero-coupon bond with face value NOK 1,000 yields 3.5%, the risk-free rate.</p><p>A credit default swap (CDS) contract on Brakstad pays NOK 1 at the end of the year if Brakstad defaults and nothing otherwise. It is paid for today. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What are the prices today of the government bond and of one Brakstad bond?</p>",
+     "solution": "<p>A bond's price is its promised payment discounted at its yield to maturity.</p><p>Government bond = 1,000/1.035 = <b>NOK 966.1836</b><br>Brakstad bond = 1,000/1.08 = <b>NOK 925.9259</b></p>",
+     "criteria": [
+      "Government bond: 1,000/1.035 = 966.1836.",
+      "Brakstad bond: the promised 1,000 discounted at the promised yield, 1,000/1.08 = 925.9259.",
+      "Does not discount the expected payment at the yield: the yield is defined on the promised payment."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>What is the expected return on a Brakstad bond? Why does it differ from its yield to maturity?</p>",
+     "solution": "<p>The expected return uses the payment the bond is expected to make, not the promised one:</p><p>E[payoff] = 0.95 × 1,000 + 0.05 × 600 = <b>980</b><br>Expected return = 980/925.9259 − 1 = <b>5.84%</b></p><p>The yield of 8% is what Brakstad promises; it is earned only if Brakstad does not default. The expected return of 5.84% is lower because the 5% chance of losing NOK 400 is priced in. The spread of 8% − 3.5% = 4.5 points splits into 8% − 5.84% = 2.16 points of expected default loss and 5.84% − 3.5% = 2.34 points of risk premium: default tends to happen in bad times, so investors want more than the risk-free rate.</p>",
+     "criteria": [
+      "Expected payoff = 0.95(1,000) + 0.05(600) = 980, not 1,000.",
+      "Expected return = 980/925.9259 − 1 = 5.84%.",
+      "Explains that the yield is the promised return, earned only without default, so the expected return is lower.",
+      "Better: the expected return still exceeds the risk-free 3.5% because default risk is systematic (a risk premium of 2.34 points)."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 6,
+     "body": "<p>What is the risk-neutral probability that Brakstad defaults, as implied by the bond prices? What is the price of one CDS contract?</p>",
+     "solution": "<p><b>Step 1. The tree.</b> Let ρ be the risk-neutral probability of <b>default</b> and put it in the bottom branch. The bond pays 1,000 with probability 1 − ρ and 600 with probability ρ; the CDS pays 0 and 1 in the same two branches.</p><p><b>Step 2. Price the bond risk-neutrally.</b> Under ρ the expected payoff, discounted at the risk-free rate, must equal the market price from (a):</p><p>[(1 − ρ) × 1,000 + ρ × 600]/1.035 = 925.9259<br>1,000 − 400ρ = 1.035 × 925.9259 = 958.3333<br>ρ = 41.6667/400 = <b>0.1042</b> (10.42%)</p><p><b>Step 3. Price the CDS</b> with the same ρ and the risk-free rate. It pays 1 only in the default branch:</p><p>CDS = [(1 − ρ) × 0 + ρ × 1]/1.035 = 0.1042/1.035 = <b>NOK 0.1006</b> per contract</p><p><b>The trap.</b> Writing ρ × 1,000 + (1 − ρ) × 600 makes ρ the probability of survival (0.8958). Carrying that number into the CDS as if it were the default probability gives 0.8655, eight times too much. Either convention works if it is kept to the end. Using the analysts' 5% with the risk-free rate gives 0.0483, which underprices the protection.</p>",
+     "criteria": [
+      "States the pricing condition: expected payoff under risk-neutral probabilities, discounted at the risk-free rate, equals the market price.",
+      "Sets up [(1 − rho)(1,000) + rho(600)]/1.035 = 925.9259 and solves rho = 0.1042 as the probability of default.",
+      "Discounts at the risk-free 3.5%, not at the 8% yield.",
+      "CDS = rho/1.035 = 0.1006 per NOK 1 of protection.",
+      "Avoids confusing rho and 1 − rho: the CDS pays in default, so it uses the default probability. The survival probability 0.8958 gives 0.8655, which is wrong. Kurbatov (Options II recording) says more than half of a class lost points on exactly this.",
+      "Uses the risk-neutral probability, not the analysts' 5% (which would give 0.0483)."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 4,
+     "body": "<p>A pension fund holds Brakstad bonds with a total face value of NOK 50 million. How many CDS contracts must it buy to remove all default risk? What do they cost? What is the hedged position worth today?</p>",
+     "solution": "<p>NOK 50 million of face value is 50,000 bonds. Each loses 1,000 − 600 = 400 in default, so the fund needs 400 contracts per bond:</p><p>Contracts = 50,000 × 400 = <b>20,000,000</b> (20 million)<br>Cost = 20 million × 0.1006 = <b>NOK 2.0129 million</b></p><p>The bonds are worth 50,000 × 925.9259 = NOK 46.2963 million, so the hedged position is worth 46.2963 + 2.0129 = <b>NOK 48.3092 million</b>.</p><p><b>Check.</b> The hedged position pays NOK 50 million for sure: 50 million without default, 30 million plus 20 million from the CDS with default. It must cost what a government bond with the same face value costs: 50/1.035 = 48.3092 ✓. Equivalently, the put in one bond is worth 400 × 0.1006 = 40.2576 = 966.1836 − 925.9259. With the survival probability in the CDS price the check fails badly (the position would cost 63.6071 million).</p>",
+     "criteria": [
+      "Hedges the loss, not the face value: 400 per bond (Kurbatov's lambda, the exposure in default).",
+      "50,000 bonds × 400 = 20,000,000 contracts, costing 20 million × 0.1006 = 2.0129 million.",
+      "Hedged position = 46.2963 + 2.0129 = 48.3092 million.",
+      "Bonus (not required): checks that this equals the price of a risk-free claim on 50 million, 50/1.035 = 48.3092. The check fails if rho and 1 − rho were mixed in (c)."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 3,
+     "body": "<p>Compare the default probability you found in (c) with the analysts' 5%. Explain the difference briefly and say which of the two prices the CDS.</p>",
+     "solution": "<p>The risk-neutral default probability is 10.42%, about twice the analysts' 5%. Default tends to happen in bad states of the economy, when a krone is worth more to investors, so they require a risk premium for holding Brakstad's debt. Risk-neutral valuation keeps the risk-free discount rate and puts that premium into the probability instead, which inflates the weight on the default state. The CDS is a traded claim on the same default event, so it is priced with the risk-neutral 10.42%, not with the analysts' 5%.</p>",
+     "criteria": [
+      "States that the risk-neutral probability (10.42%) is higher than the real 5%.",
+      "Explains why: default happens in bad times, so investors demand a risk premium, which risk-neutral valuation puts into the probability rather than the discount rate.",
+      "Says that the CDS is priced with the risk-neutral probability and the risk-free rate, never with the real probability and the risk-free rate."
+     ]
+    }
+   ]
+  }
+ ],
+ "del3-f5": [
+  {
+   "n": 3,
+   "title": "Real Options",
+   "points": 20,
+   "topic": "Real options",
+   "chapters": [
+    1,
+    25
+   ],
+   "merke": "Som H2025 E5: markedsstudie, exit og likegyldighet",
+   "body": "<p>You are considering opening a self-service car wash in Harstad. It costs NOK 2,400,000 to open. Running it costs NOK 900,000 per year. It will bring in revenue of either NOK 1,250,000 or NOK 720,000 per year forever; the high revenue has probability 55%. You don't know the state of the world at the moment, but if you open the car wash you will learn it during Year 1. Demand for car washes is unrelated to the stock market, so discount all cash flows at the risk-free rate of 5%.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 2,
+     "body": "<p>What is the NPV of opening the car wash right now? Will you open it?</p>",
+     "solution": "<p>Net cash flow: 1,250,000 − 900,000 = +350,000 in the good state and 720,000 − 900,000 = −180,000 in the bad state.</p><p>Expected = 0.55 × 350,000 + 0.45 × (−180,000) = <b>111,500 NOK per year</b><br>PV = 111,500/0.05 = 2,230,000<br>NPV = 2,230,000 − 2,400,000 = <b>−170,000 NOK</b></p><p><b>Do not open.</b> Opening now commits you to run the car wash forever in both states.</p>",
+     "criteria": [
+      "Nets the running cost against revenue first: +350,000 and −180,000.",
+      "Expected cash flow 111,500 per year with the 55/45 weights, valued as a perpetuity at 5%: 2,230,000.",
+      "NPV = −170,000: do not open."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>How much would you be willing to pay for a market study? The study has already been conducted, so if you pay C<sub>0</sub> now, you immediately know the state of the market.</p>",
+     "solution": "<p><i>Good state:</i> NPV = 350,000/0.05 − 2,400,000 = 7,000,000 − 2,400,000 = <b>4,600,000</b>, so you open.<br><i>Bad state:</i> NPV = −180,000/0.05 − 2,400,000 = −6,000,000, so you do not open and get 0.</p><p>Value with the study = 0.55 × 4,600,000 + 0.45 × 0 = 2,530,000. Without it you do not open, which is worth max(NPV, 0) = 0.</p><p><b>You would pay up to C<sub>0</sub> = 2,530,000 NOK.</b> The value comes from being able to stay out in the bad state.</p>",
+     "criteria": [
+      "Values each state: good 4,600,000 (open), bad −6,000,000 (stay out, 0).",
+      "Takes the expectation of max(0, NPV): 0.55 × 4,600,000 = 2,530,000.",
+      "Compares with the base case max(NPV, 0) = 0, not with the negative NPV.",
+      "States it as a maximum willingness to pay."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 4,
+     "body": "<p>How would your answer change if the study took one year to complete? In other words, you pay C<sub>1</sub> now, wait a year, learn the state and then decide whether to open. Compare with (b) and comment.</p>",
+     "solution": "<p>You would not open immediately anyway (the NPV is negative), so you wait for the result. The good-state project is the same one year later:</p><p>C<sub>1</sub> = 0.55 × 4,600,000/1.05 = 0.55 × 4,380,952 = <b>2,409,524 NOK</b></p><p>This is 120,476 less than in (b). Waiting a year means you <b>lose the Year-1 cash flow</b> in the good state, worth 350,000/1.05 = 333,333, while the outlay costs 114,286 less in today's money: 0.55 × (333,333 − 114,286) = 120,476 ✓.</p>",
+     "criteria": [
+      "Notes that you would not open now anyway, so you wait for the result.",
+      "Discounts the good-state NPV one year: 4,600,000/1.05 = 4,380,952; C_1 = 2,409,524.",
+      "Says it is lower than in (b).",
+      "Explains why: you lose the Year-1 cash flow. As in Kurbatov's H2025 key, mentioning this is enough; the full split against the cheaper outlay is not required."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 4,
+     "body": "<p>For the rest of the exercise, the study is not available.</p><p>The municipality offers new businesses a programme: after 3 years you may close the car wash and leave the market. You recover nothing, so if you exit you get 0 forever from Year 4. What is the NPV of opening now? Will you open it? What is the programme worth to you?</p>",
+     "solution": "<p>You still open before you know the state, so the cash flows of Years 1 to 3 come in both states. After Year 3 you exit only in the bad state.</p><p><i>Good state:</i> you never exit: NPV = <b>4,600,000</b>.<br><i>Bad state:</i> NPV = −2,400,000 − 180,000 × A(3, 5%) = −2,400,000 − 180,000 × 2.7232 = <b>−2,890,185</b></p><p>NPV = 0.55 × 4,600,000 + 0.45 × (−2,890,185) = <b>1,229,417 NOK</b>. <b>Open now.</b></p><p><b>The programme's value.</b> Without it you would not open, so the alternative is 0. The programme is worth <b>1,229,417 NOK</b> to you. Measuring it against the negative NPV gives 1,229,417 − (−170,000) = 1,399,417: that is what the clause would be worth to someone already bound to run the car wash, which you are not. (Check: 0.45 × (180,000/0.05)/1.05<sup>3</sup> = 1,399,417.)</p>",
+     "criteria": [
+      "Takes Years 1 to 3 in both states: the exit comes only after the state is known and three years have passed.",
+      "Good state unchanged at 4,600,000; bad state −2,400,000 − 180,000 × 2.7232 = −2,890,185.",
+      "Expected NPV = 1,229,417: open now.",
+      "Values the programme against 0, the best alternative: 1,229,417. Using the negative NPV as the baseline (1,399,417) is wrong. Kurbatov (wrap-up): price the option against the baseline or zero, whichever is higher."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 6,
+     "body": "<p>Keep the exit programme from (d). For which probability of the high revenue are you indifferent about opening the car wash? How high would that probability have to be without the programme? Comment briefly.</p>",
+     "solution": "<p><b>Step 1. With the programme.</b> Let p be the probability of the high revenue. The two state NPVs from (d) do not depend on p:</p><p>0 = p × 4,600,000 + (1 − p) × (−2,890,185)<br>p = 2,890,185/(4,600,000 + 2,890,185) = 2,890,185/7,490,185 = <b>0.3859</b></p><p><b>Step 2. Without the programme.</b> You open if the expected perpetuity covers the outlay:</p><p>[p × 350,000 + (1 − p) × (−180,000)]/0.05 = 2,400,000<br>530,000p − 180,000 = 120,000<br>p = 300,000/530,000 = <b>0.5660</b></p><p><b>Check.</b> At 55% you are between the two: 0.3859 &lt; 0.55 &lt; 0.5660, which is why (a) said no and (d) said yes.</p><p><b>Comment.</b> The programme lowers the required probability from 56.60% to 38.59%. It cuts the bad-state perpetuity of −180,000 down to three years, while the good state keeps its perpetuity, so the downside matters much less for the decision.</p>",
+     "criteria": [
+      "With the programme: sets p × 4,600,000 + (1 − p) × (−2,890,185) = 0 and finds p = 0.3859.",
+      "Keeps the asymmetry: the good state is a perpetuity and the bad state three years of losses plus the outlay.",
+      "Without the programme: p × 350,000 − (1 − p) × 180,000 = 0.05 × 2,400,000, so p = 0.5660.",
+      "Shows the equations, not just the results.",
+      "Comments: the programme widens the range of probabilities for which you open, because it truncates only the downside.",
+      "Bonus: noting that 55% lies between the two thresholds, consistent with (a) and (d)."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "M&A",
+   "points": 20,
+   "topic": "Mergers and acquisitions",
+   "chapters": [
+    22,
+    26
+   ],
+   "merke": "Som H2025 E6: oppkjøp med aksjebytte, kursreaksjon og avstemning",
+   "body": "<p>Nordvarde Telecom ASA (A) recently announced its intention to acquire Lofotnett ASA (B). The news came suddenly and there was no anticipation effect. The deal is expected to be completed or to fail in exactly one year from now. If the deal goes through, every 4 shares of B will be exchanged for 3 shares of A. If the deal fails, prices will return to their original levels.</p><p>Share prices before the announcement were P<sub>A,0</sub> = NOK 84 and P<sub>B,0</sub> = NOK 52. Immediately after the announcement P<sub>A,1</sub> = NOK 86 and P<sub>B,1</sub> = NOK 60. The one-year risk-free rate is r<sub>f</sub> = 4%.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 12,
+     "body": "<p>Based on the market prices, calculate the probability of the deal being completed as perceived by the market. (Hint: use a long-short strategy and invest the proceeds from the short sale at the risk-free rate.)</p>",
+     "solution": "<p>Build a position whose two payoffs are known, price it against its cost and solve for the probability the market uses (the Mannesmann example).</p><p><b>Step 1. The position, at post-announcement prices.</b></p><table class=\"data\"><tr><th>Leg</th><th>Action</th><th>Cash flow today</th></tr><tr><td>Long target</td><td class=\"n\">Buy 4 shares of B at 60</td><td class=\"n\">−240</td></tr><tr><td>Short acquirer</td><td class=\"n\">Short-sell 3 shares of A at 86</td><td class=\"n\">+258</td></tr><tr><td>Risk-free</td><td class=\"n\">Invest the 258 at 4%</td><td class=\"n\">−258</td></tr><tr><td><b>Net outlay</b></td><td class=\"n\"></td><td class=\"n\"><b>−240</b></td></tr></table><p><b>Step 2. Success.</b> The 4 B shares become exactly the 3 A shares needed to close the short, so you keep the bond: 258 × 1.04 = <b>268.32</b>.</p><p><b>Step 3. Failure.</b> Prices return to 84 and 52. You buy back 3 A shares and sell the 4 B shares: 268.32 − 3 × 84 + 4 × 52 = 268.32 − 252 + 208 = <b>224.32</b>.</p><p><b>Step 4. Certainty equivalent.</b> The position cost 240 today, so its expected payoff in a year must be 240 × 1.04 = <b>249.60</b>. Do not plug in 240: that gives 0.3564.</p><p><b>Step 5. Solve.</b> 249.60 = p × 268.32 + (1 − p) × 224.32<br>p = (249.60 − 224.32)/(268.32 − 224.32) = 25.28/44 = <b>0.5745 (57.45%)</b></p><p><b>Check.</b> 0.5745 × 268.32 + 0.4255 × 224.32 = 249.60 ✓. B trades at 60, between its stand-alone 52 and the 0.75 × 86 = 64.50 it would be worth on completion, as it must.</p>",
+     "criteria": [
+      "Builds a long-short position in the exchange ratio: long 4 B for every 3 A shorted. Many constructions are valid; only internal consistency matters.",
+      "Invests the short proceeds at the risk-free rate: 258 × 1.04 = 268.32.",
+      "Success payoff 268.32: the B shares convert into the A shares needed to close the short.",
+      "Failure payoff 268.32 − 252 + 208 = 224.32, using the pre-announcement prices.",
+      "Certainty equivalent of the 240 outlay: 240 × 1.04 = 249.60. Plugging in 240 gives 0.3564.",
+      "Solves 249.60 = p(268.32) + (1 − p)(224.32): p = 0.5745. The certainty equivalent (or, with a zero-cost position, setting the expected payoff to 0) is the step that must not be skipped; reasonable approximations are fine.",
+      "Shows the whole construction: position, both payoffs, certainty equivalent and the equation."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>Based on the market's reaction to the announcement, what could be the reason for this deal? Choose one reason (not synergies!) and explain it briefly in 2-3 sentences.</p>",
+     "solution": "<p><b>Read the reaction first.</b> A rose from 84 to 86 (+2.38%) and B from 52 to 60 (+15.38%). The market believes the deal creates value for both sets of shareholders, even though A pays in shares, which often makes the acquirer's price fall.</p><p><b>Model answer (replacing poor management).</b> Lofotnett's managers may run the company badly, for example by keeping costs high or sitting on unused network capacity. Nordvarde can replace them and run the same assets better, so B's shareholders gain from the premium and A's from the improvement it keeps. This is a governance motive, not a synergy: the value comes from fixing B, not from combining the two firms.</p><p><b>Also accepted if argued from the reaction:</b> A's managers know that B is undervalued; B gains access to resources it could not finance alone (for example it lacks capital for investments); increased market power or reduced competition in the regional telecom market, which lets the merged firm charge more.</p>",
+     "criteria": [
+      "Uses the price reaction as evidence: both A and B rise, so the market sees value created for both.",
+      "Gives one reason in 2-3 sentences; it is not synergies.",
+      "Accepted: replacing inefficient target management, an undervalued target, the target gaining access to financing or resources it lacks, increased market power or reduced competition. The reason must fit A rising.",
+      "Not accepted: value creation or a good deal without the mechanism behind it; tax losses as a motive.",
+      "Bonus: noting that A rises although it pays in shares, so the market does not read the offer as a sign that A is overvalued."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 4,
+     "body": "<p>You own shares in B. B's board recommends the offer and lets B's shareholders vote on it. Based on the reason you chose in (b), how would you vote? How will the market react to the result if most other shareholders vote like you? Briefly explain.</p>",
+     "solution": "<p><b>Minimal answer.</b> As a shareholder of B I vote <b>in favour</b>: the offer is worth 0.75 × 86 = 64.50 per B share against a stand-alone value of 52. Under my reason in (b) the deal is good for both firms. If most shareholders vote yes, completion becomes more likely, so <b>B's price moves up towards 0.75 × P<sub>A</sub></b> and A stays at or above 86. The gap between B's price and the exchange value shrinks as the probability approaches 1.</p><p><b>Bonus thought.</b> Because A's price also rose, A keeps part of the gain. B's shareholders could vote no to push for a better ratio, since the target has the bargaining power to say no. The risk is that A walks away and prices fall back to 84 and 52.</p><p>What is graded is consistency with (b): a vote against is also defensible if (b) argued that B is worth more than the offer.</p>",
+     "criteria": [
+      "Votes in favour (or gives a consistent reason to vote against) and explains it from the reason in (b).",
+      "States the market reaction: with a yes, the completion probability rises, B moves towards 0.75 × P_A and A holds its gain.",
+      "The vote and the reaction are consistent with the reason in (b); an inconsistent pair loses points.",
+      "Bonus: the target's bargaining power (vote no to get a better ratio) and the risk that prices revert to 84 and 52 if A walks away."
+     ]
+    }
+   ]
+  }
+ ],
+ "del3-f6": [
+  {
+   "n": 3,
+   "title": "Risk-neutral valuation",
+   "points": 20,
+   "topic": "Real options, risk-neutral valuation",
+   "chapters": [
+    22,
+    25
+   ],
+   "merke": "Som H2024 E6: investere nå eller vente når markedet er usikkert",
+   "body": "<p>Sildvik Feeder AS can order a container feeder vessel for NOK 240 million, paid on delivery, which is immediate. A vessel earns a charter hire at the end of each year for 12 years, the first one year after delivery. It has no value after that. The hire depends on the charter market, which is revealed at t = 1 and never changes: NOK 32 million a year if the market is strong and NOK 24 million if it is weak. Once the market is known, the hire is fixed by contract and risk-free. The risk-free rate is 4%. Analysts put the probability of a strong market at 65%.</p><p>Mjøsund Shipping ASA is listed and has no debt. Its only assets are two vessels identical to Sildvik's, delivered today. It pays out each hire as a dividend when received. Its market value today is NOK 533 million. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What is the NPV of ordering the vessel now? Value the vessel with Mjøsund's market value.</p>",
+     "solution": "<p>Mjøsund owns exactly two vessels like the one Sildvik would get today, so one vessel is worth half of Mjøsund:</p><p>V = 533/2 = 266.5000<br>NPV = 266.5000 − 240 = <b>+26.5000 million NOK</b></p><p>Valuing the vessel with the analysts' 65% and the risk-free rate would give 274.0442: the charter market is risky, so its real probabilities cannot be discounted at r<sub>f</sub>. The market value already prices that risk.</p>",
+     "criteria": [
+      "One vessel is half of Mjøsund: 533/2 = 266.5000.",
+      "NPV = 266.5000 − 240 = +26.5000 million NOK.",
+      "Does not value the vessel with the 65% and the risk-free rate: the market risk is priced."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 6,
+     "body": "<p>Instead, Sildvik can wait one year, learn the market and decide then. The yard will then charge NOK 264 million, paid at t = 1; the hire then falls in Years 2 to 13. What is the NPV of ordering at t = 1 in each market, measured at t = 1 and from today's perspective?</p>",
+     "solution": "<p>Once the market is known, the hire is risk-free, so it is discounted at 4%:</p><p>A(12, 4%) = [1 − 1.04<sup>−12</sup>]/0.04 = <b>9.3851</b></p><table class=\"data\"><tr><th>Market</th><th>PV<sub>1</sub> of the hire</th><th>NPV at t = 1</th><th>NPV at t = 0</th></tr><tr><td>Strong</td><td class=\"n\">32 × 9.3851 = 300.3224</td><td class=\"n\">+36.3224</td><td class=\"n\"><b>+34.9253</b></td></tr><tr><td>Weak</td><td class=\"n\">24 × 9.3851 = 225.2418</td><td class=\"n\">−38.7582</td><td class=\"n\"><b>−37.2675</b></td></tr></table><p>NPV at t = 1 = PV<sub>1</sub> − 264; NPV at t = 0 = NPV at t = 1 divided by 1.04, for example +36.3224/1.04 = +34.9253. You would order at t = 1 only in a strong market.</p>",
+     "criteria": [
+      "Uses 12 hires in Years 2 to 13 and the higher price of 264: A(12, 4%) = 9.3851.",
+      "NPV at t = 1: 32 × 9.3851 − 264 = +36.3224 and 24 × 9.3851 − 264 = −38.7582.",
+      "From today's perspective, divided by 1.04: +34.9253 and −37.2675.",
+      "Discounts at the risk-free rate: once the market is known the hire is fixed by contract.",
+      "Bonus: notes that you would order only in a strong market."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 7,
+     "body": "<p>What is the risk-neutral probability of a strong market? Compare it with the analysts' 65% and explain the difference briefly.</p>",
+     "solution": "<p><b>Step 1. Mjøsund's values at t = 1.</b> At t = 1 Mjøsund pays the first hire on both vessels as a dividend and keeps 11 more years of hire, now risk-free. The dividend belongs in the t = 1 value, because the owner today receives it:</p><p>A(11, 4%) = 8.7605</p><table class=\"data\"><tr><th></th><th>Calculation</th><th>Value</th></tr><tr><td>S<sub>0</sub></td><td class=\"n\">market value</td><td class=\"n\">533</td></tr><tr><td>S<sub>u</sub>, strong</td><td class=\"n\">64 + 64 × 8.7605</td><td class=\"n\">624.6705</td></tr><tr><td>S<sub>d</sub>, weak</td><td class=\"n\">48 + 48 × 8.7605</td><td class=\"n\">468.5029</td></tr></table><p><b>Step 2. The formula-sheet expression.</b></p><p>ρ = [1.04 × 533 − 468.5029]/(624.6705 − 468.5029) = 85.8171/156.1676 = <b>0.5495</b></p><p>S<sub>0</sub>, S<sub>u</sub> and S<sub>d</sub> all price the same security. Mjøsund is a valid twin because in each market its value is a fixed multiple of the vessel Sildvik would order, so the option's payoff can be replicated with Mjøsund shares and the risk-free asset.</p><p><b>Comparison with 65%.</b> ρ is lower than the analysts' 65%. A strong charter market comes with a strong economy, when money is worth less to investors, so they pay less for payoffs in that state. Risk-neutral valuation keeps r<sub>f</sub> and moves the risk premium into the probabilities: less weight on the good state, more on the bad.</p><p><b>Check that can fail.</b> Leaving the t = 1 dividend out of S<sub>u</sub> and S<sub>d</sub> gives (554.3200 − 48 × 8.7605)/(16 × 8.7605) = 0.9547. It lies between 0 and 1, but it is above the real 65%, which makes no sense for a payoff that is high in good times. That comparison catches the error.</p>",
+     "criteria": [
+      "Uses Mjøsund as the twin with S_0 = 533, S_u = 64 + 64 × A(11, 4%) = 624.6705 and S_d = 48 + 48 × A(11, 4%) = 468.5029.",
+      "Includes the dividend paid at t = 1 in S_u and S_d. Leaving it out gives 0.9547.",
+      "rho = [1.04 × 533 − 468.5029]/(624.6705 − 468.5029) = 0.5495.",
+      "Uses the same security for S_0, S_u and S_d; mixing Mjøsund's price with the values of the vessel ordered at t = 1 is wrong.",
+      "Explains that rho is below 65% because the strong market is a good state of the economy, so the risk premium lowers its risk-neutral weight."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 4,
+     "body": "<p>What is the value today of waiting and deciding at t = 1? Do you order now or wait? Briefly comment.</p>",
+     "solution": "<p><b>Step 1. Value of waiting.</b> At t = 1 you order only in a strong market:</p><p>C<sub>0</sub> = [0.5495 × 36.3224 + 0.4505 × 0]/1.04 = 0.5495 × 34.9253 = <b>19.1922 million NOK</b></p><p>Replication gives the same: Δ = 36.3224/156.1676 = 0.232586 of Mjøsund and B = −468.5029 × 0.232586/1.04 = −104.7760, so 533 × 0.232586 + (−104.7760) = 19.1922. It shares ρ, so it catches arithmetic slips only.</p><p><b>Step 2. Decision.</b> Ordering now is worth +26.5000, waiting 19.1922. <b>Order now</b>: waiting is worth 7.3078 million less.</p><p><b>Comment.</b> Waiting lets you skip the weak market, but it costs a year of hire and a 10% higher price at the yard. The strong market is also the more likely state. Here the cost of waiting is larger than the value of the information. Had the price stayed at 240, waiting would be worth 31.8734 and you would wait: the higher price decides it.</p>",
+     "criteria": [
+      "Payoff max(NPV at t = 1, 0): 36.3224 in a strong market, 0 in a weak one.",
+      "Value of waiting = 0.5495 × 34.9253 = 19.1922 million NOK, using rho from (c).",
+      "Compares with ordering now (+26.5000) and decides to order now.",
+      "Comments: waiting costs a year of hire and a higher price, which outweighs the value of avoiding the weak market.",
+      "Bonus: without the price increase waiting would be worth 31.8734 and the decision would flip."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "M&A",
+   "points": 20,
+   "topic": "Mergers and acquisitions",
+   "chapters": [
+    22,
+    26
+   ],
+   "merke": "Som H2025 E6: oppkjøp med aksjebytte over et halvt år",
+   "body": "<p>Hestvik Kraft ASA (A) has announced an offer to acquire Tussen Energi ASA (B). The offer came as a surprise. A pays in shares: if the deal goes through, each share of B will be exchanged for 2 shares of A. The deal will be completed or fail in exactly 6 months. If it fails, both prices return to their pre-announcement levels.</p><p>Before the announcement P<sub>A,0</sub> = NOK 35.00 and P<sub>B,0</sub> = NOK 58.00. Immediately after, P<sub>A,1</sub> = NOK 33.00 and P<sub>B,1</sub> = NOK 61.00. The risk-free rate is 5% a year. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 10,
+     "body": "<p>Based on the market prices, what is the probability of the deal being completed as perceived by the market?</p>",
+     "solution": "<p><b>Step 1. The six-month rate.</b> Discrete compounding over half a year: (1.05)<sup>0.5</sup> = <b>1.024695</b>.</p><p><b>Step 2. The position, at post-announcement prices.</b></p><table class=\"data\"><tr><th>Leg</th><th>Action</th><th>Cash flow today</th></tr><tr><td>Long target</td><td class=\"n\">Buy 1 share of B at 61</td><td class=\"n\">−61.0000</td></tr><tr><td>Short acquirer</td><td class=\"n\">Short-sell 2 shares of A at 33</td><td class=\"n\">+66.0000</td></tr><tr><td>Risk-free</td><td class=\"n\">Invest the 66 for 6 months</td><td class=\"n\">−66.0000</td></tr><tr><td><b>Net outlay</b></td><td class=\"n\"></td><td class=\"n\"><b>−61.0000</b></td></tr></table><p><b>Step 3. Success.</b> The B share becomes 2 A shares and closes the short: 66 × 1.024695 = <b>67.6299</b>.</p><p><b>Step 4. Failure.</b> Buy back 2 A at 35 and sell B at 58: 67.6299 − 70 + 58 = <b>55.6299</b>.</p><p><b>Step 5. Certainty equivalent.</b> 61 × 1.024695 = <b>62.5064</b>.</p><p><b>Step 6. Solve.</b> p = (62.5064 − 55.6299)/(67.6299 − 55.6299) = 6.8765/12 = <b>0.5730 (57.30%)</b></p><p><b>Check.</b> 0.5730 × 67.6299 + 0.4270 × 55.6299 = 62.5064 ✓. B at 61 lies between 58 and the 2 × 33 = 66 it would be worth on completion.</p><p><b>The traps.</b> Using the full-year factor 1.05 gives 0.5625; plugging in 61 instead of the certainty equivalent gives 0.4475. Simple interest, 1 + 0.05 × 0.5, gives 0.5729: close enough, but the course uses (1 + r<sub>f</sub>)<sup>T</sup>.</p>",
+     "criteria": [
+      "Converts the rate to six months with discrete compounding: 1.05^0.5 = 1.024695, not 1.05.",
+      "Long 1 B and short 2 A (the exchange ratio), short proceeds invested at the risk-free rate. Other consistent constructions are accepted.",
+      "Success payoff 66 × 1.024695 = 67.6299; failure payoff 67.6299 − 70 + 58 = 55.6299.",
+      "Certainty equivalent 61 × 1.024695 = 62.5064, not 61 (which gives 0.4475).",
+      "p = 0.5730. The full-year factor gives 0.5625, which is wrong."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>Based on the market's reaction, give one possible reason for the deal other than synergies, in 2-3 sentences. Then explain briefly what A's choice to pay in shares rather than cash may tell the market.</p>",
+     "solution": "<p><b>Read the reaction.</b> A fell from 35 to 33 (−5.71%), B rose from 58 to 61 (+5.17%). The market thinks A overpays and that value moves from A's shareholders to B's.</p><p><b>Model reason (empire building).</b> Hestvik's CEO may want to run a larger company and buy growth in a new segment, paying more for Tussen than it is worth to Hestvik. B's shareholders collect the premium; A's shareholders pay for it. Managerial hubris, the winner's curse or diversification that shareholders could do themselves are also accepted.</p><p><b>Paying in shares.</b> Managers who believe their own shares are overvalued prefer to pay with them, as with an equity issue. Investors know this, so a share offer can signal that A is overpriced, which adds to A's fall. B's shareholders also share the risk of A's price after the deal, so A's managers may pay in shares because they are less sure of the deal's value.</p>",
+     "criteria": [
+      "Reads the reaction: A down, B up, so the market sees A overpaying and value moving to B's shareholders.",
+      "One reason other than synergies in 2-3 sentences that fits A falling (empire building, hubris, the winner's curse, unnecessary diversification).",
+      "Explains what a share offer may tell the market: managers pay with shares when they think the shares are overvalued, so A's price falls further. Also accepted: risk sharing, since paying in shares lets B's shareholders carry part of the risk when A is uncertain about the deal's value.",
+      "Not accepted: synergies, value creation without a mechanism, or tax losses."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 6,
+     "body": "<p>A's board lets its shareholders vote on the deal. The vote is advisory: the board is not bound by it. The result is announced 3 months after the announcement of the offer. Right after it P<sub>A</sub> = NOK 34.40 and P<sub>B</sub> = NOK 58.80. The deal will still be completed or fail at the original date.</p><p>What completion probability do these prices imply? As a shareholder of A, how would you have voted given your reason in (b)? Is the market reaction consistent with that? Briefly explain.</p>",
+     "solution": "<p><b>Step 1. Three months remain.</b> (1.05)<sup>0.25</sup> = <b>1.012272</b>.</p><p><b>Step 2. The same construction at the new prices.</b> Buy 1 B at 58.80, short 2 A at 34.40 and invest 68.80:</p><p>Success: 68.80 × 1.012272 = 69.6443<br>Failure: 69.6443 − 70 + 58 = 57.6443<br>Certainty equivalent: 58.80 × 1.012272 = 59.5216</p><p>p = (59.5216 − 57.6443)/12 = 1.8773/12 = <b>0.1564 (15.64%)</b></p><p><b>The vote.</b> With the reason in (b) the deal destroys value for A's shareholders, so I vote against. The prices say most shareholders did the same: the probability fell from 57.30% to 15.64%. Both prices moved most of the way back to 35 and 58.</p><p><b>Why not all the way.</b> The vote is advisory, so an entrenched board may still go ahead: a probability of about 16% survives. B may also stay a little above 58 if the bid revealed that B was worth more than the market thought; then the reversion assumption overstates p.</p><p>Using 6 months instead of the 3 that remain gives 0.1461; the full-year factor gives 0.1250.</p>",
+     "criteria": [
+      "Uses the remaining 3 months: 1.05^0.25 = 1.012272.",
+      "Success 69.6443, failure 57.6443, certainty equivalent 59.5216; p = 0.1564.",
+      "Votes consistently with the reason in (b): against if the deal destroys value for A.",
+      "Reads the reaction: the probability fell and prices moved towards 35 and 58, which fits a vote against.",
+      "For full marks (beyond the minimal answer): explains why some probability survives, because the vote is advisory and the board may proceed. Bonus: the bid may have revealed information about B, so B need not fall all the way back."
+     ]
+    }
+   ]
+  }
+ ]
+}

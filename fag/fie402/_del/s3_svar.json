@@ -1,0 +1,316 @@
+{
+ "del3-f4:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV now",
+    "verdi": 0.15858769988096455,
+    "enhet": "NOK m",
+    "abs": 0.005
+   }
+  ],
+  "merknad": "Nær null i forhold til investeringen på 16, derfor abs-toleranse (0,005)."
+ },
+ "del3-f4:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV<sub>0</sub>, r<sub>f</sub> = 2.5%",
+    "verdi": 1.1618550018684213,
+    "enhet": "NOK m",
+    "abs": 0.005
+   },
+   {
+    "navn": "NPV<sub>0</sub>, r<sub>f</sub> = 6%",
+    "verdi": -1.0543219746856356,
+    "enhet": "NOK m",
+    "abs": 0.005
+   }
+  ],
+  "merknad": "Spørsmålet ber om dagens perspektiv. Verdiene ved t = 1 (1,2083 og −1,0965) godtas ikke."
+ },
+ "del3-f4:3:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "ρ (risk-neutral probability of the 2.5% rate)",
+    "verdi": 0.5445116952050908,
+    "enhet": ""
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Briefly explain why you do not need the true probabilities.",
+  "merknad": "Eksakt pris 743,5332 gir 0.544546, innenfor toleransen. Fellen (S0 = 16,1585 for år 1 til 8) gir 0.8250 og avvises; uten betalingen ved t = 1 blir ρ 1.5858."
+ },
+ "del3-f4:3:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value today of waiting",
+    "verdi": 0.6326436366498881,
+    "enhet": "NOK m",
+    "abs": 0.005
+   },
+   {
+    "navn": "Value of waiting minus building now",
+    "verdi": 0.47405593676892355,
+    "enhet": "NOK m",
+    "abs": 0.005
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Do you build now or wait? Briefly comment.",
+  "merknad": "Den feilparrede ρ gir 0.9585 og avvises."
+ },
+ "del3-f4:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Government bond",
+    "verdi": 966.1835748792271,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Brakstad bond",
+    "verdi": 925.9259259259259,
+    "enhet": "NOK"
+   }
+  ]
+ },
+ "del3-f4:4:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Expected return",
+    "verdi": 5.840000000000001,
+    "enhet": "%"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Why does it differ from its yield to maturity?"
+ },
+ "del3-f4:4:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Risk-neutral default probability ρ",
+    "verdi": 0.10416666666666714,
+    "enhet": ""
+   },
+   {
+    "navn": "Price of one CDS contract",
+    "verdi": 0.10064412238325329,
+    "enhet": "NOK"
+   }
+  ],
+  "merknad": "Overlevelsessannsynligheten (0.8958) og CDS-prisen med den (0.8655) er fellen og avvises."
+ },
+ "del3-f4:4:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "CDS contracts",
+    "verdi": 20.0,
+    "enhet": "m contracts",
+    "alt": [
+     20000000.0
+    ]
+   },
+   {
+    "navn": "Cost of the contracts",
+    "verdi": 2.0128824476650657,
+    "enhet": "NOK m",
+    "alt": [
+     2012882.4476650658
+    ]
+   },
+   {
+    "navn": "Hedged position",
+    "verdi": 48.309178743961354,
+    "enhet": "NOK m",
+    "alt": [
+     48309178.74396136
+    ]
+   }
+  ],
+  "merknad": "alt er de samme svarene i hele kontrakter og hele kroner, siden retteren ikke skalerer enheter."
+ },
+ "del3-f4:4:e": {
+  "type": "tekst"
+ },
+ "del3-f5:3:a": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": -169999.99999999907,
+    "enhet": "NOK"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Will you open it?"
+ },
+ "del3-f5:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Maximum price for the study (C<sub>0</sub>)",
+    "verdi": 2530000.0,
+    "enhet": "NOK"
+   }
+  ]
+ },
+ "del3-f5:3:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "C<sub>1</sub>",
+    "verdi": 2409523.8095238092,
+    "enhet": "NOK"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Compare with (b) and comment."
+ },
+ "del3-f5:3:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV with the exit programme",
+    "verdi": 1229416.9096209912,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Value of the programme",
+    "verdi": 1229416.9096209912,
+    "enhet": "NOK"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Will you open it?",
+  "merknad": "Verdien av programmet er målt mot 0. 1399417 (mot den negative NPV-en) er fellen og avvises."
+ },
+ "del3-f5:3:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Indifference probability with the programme",
+    "verdi": 0.38586293691776735,
+    "enhet": ""
+   },
+   {
+    "navn": "Indifference probability without the programme",
+    "verdi": 0.5660377358490566,
+    "enhet": ""
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Comment briefly."
+ },
+ "del3-f5:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability of completion",
+    "verdi": 0.5745454545454552,
+    "enhet": ""
+   }
+  ],
+  "merknad": "Fellen (240 i stedet for 249,60) gir 0.3564 og avvises."
+ },
+ "del3-f5:4:b": {
+  "type": "tekst"
+ },
+ "del3-f5:4:c": {
+  "type": "tekst"
+ },
+ "del3-f6:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV of ordering now",
+    "verdi": 26.5,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Med 65 % og r_f blir verdien 274.0442 og NPV 34.0442; det avvises."
+ },
+ "del3-f6:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV at t = 1, strong",
+    "verdi": 36.32236033594779,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "NPV at t = 1, weak",
+    "verdi": -38.758229748039156,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "NPV at t = 0, strong",
+    "verdi": 34.925346476872875,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "NPV at t = 0, weak",
+    "verdi": -37.267528603883804,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "del3-f6:3:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "ρ (risk-neutral probability of a strong market)",
+    "verdi": 0.5495192526042584,
+    "enhet": ""
+   }
+  ],
+  "tallPoeng": 5,
+  "tekstLedd": "Compare it with the analysts' 65% and explain the difference briefly.",
+  "merknad": "Uten utbyttet ved t = 1 blir ρ 0.9547; det avvises."
+ },
+ "del3-f6:3:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value today of waiting",
+    "verdi": 19.19215029291595,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Do you order now or wait? Briefly comment."
+ },
+ "del3-f6:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability of completion",
+    "verdi": 0.5730437180850162,
+    "enhet": "",
+    "tol": 0.005
+   }
+  ],
+  "merknad": "Stram toleranse (0,5 %) så helårsfaktoren 1,05 (0.5625) avvises. Enkel rente (0.5729) havner innenfor og godtas som tilnærming."
+ },
+ "del3-f6:4:b": {
+  "type": "tekst"
+ },
+ "del3-f6:4:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Probability of completion after the vote",
+    "verdi": 0.1564398046424671,
+    "enhet": ""
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "How would you have voted? Is the market reaction consistent with that? Briefly explain.",
+  "merknad": "Med 6 måneder i stedet for 3 blir p 0.1461, med helt år 0.1250; begge avvises."
+ }
+}

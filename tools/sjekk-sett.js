@@ -96,7 +96,17 @@ for (const fil of filer) {
     }
     s.exercises = ut;
     if (Math.abs(min - s.minutes) > 10) si(advarsel, sid, `kildene tilsier ${Math.round(min)} min, settet sier ${s.minutes}`);
-    if (s.kind === "del") {
+  }
+  /* Deleksamener, både lånte og med egne oppgaver (23. november 2026). */
+  for (const s of sets) {
+    if (s.kind !== "del") continue;
+    const sid = s.id || "(uten id)", ut = s.exercises || [];
+    if (!s.lån) {
+      const min = Math.round((1.8 * (s.points || 0)) / 5) * 5;
+      if (Math.abs(min - s.minutes) > 5) si(advarsel, sid, `1,8 min per poeng gir ${min} min, settet sier ${s.minutes}`);
+      ut.forEach((ex) => { if (!ex.merke) si(advarsel, sid, `oppgave ${ex.n} mangler merke`); else if (HTML.test(ex.merke)) si(feil, sid, `merke på oppgave ${ex.n} inneholder markup`); });
+    }
+    {
       const d = perDel && (perDel.deler || []).find((x) => x.del === s.del);
       if (typeof s.del !== "number") si(feil, sid, "kind: del uten del-nummer");
       else if (perDel && !d) si(feil, sid, `del ${s.del} finnes ikke i EDU_DATA.perDel.deler`);

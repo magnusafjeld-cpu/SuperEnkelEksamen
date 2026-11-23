@@ -1,0 +1,97 @@
+{
+  "del3-f6:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of ordering now",
+        "verdi": 26.5,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Med 65 % og r_f blir verdien 274.0442 og NPV 34.0442; det avvises."
+  },
+  "del3-f6:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV at t = 1, strong",
+        "verdi": 36.32236033594779,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV at t = 1, weak",
+        "verdi": -38.758229748039156,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV at t = 0, strong",
+        "verdi": 34.925346476872875,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV at t = 0, weak",
+        "verdi": -37.267528603883804,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "del3-f6:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "ρ (risk-neutral probability of a strong market)",
+        "verdi": 0.5495192526042584,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 5,
+    "tekstLedd": "Compare it with the analysts' 65% and explain the difference briefly.",
+    "merknad": "Uten utbyttet ved t = 1 blir ρ 0.9547; det avvises."
+  },
+  "del3-f6:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value today of waiting",
+        "verdi": 19.19215029291595,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Do you order now or wait? Briefly comment."
+  },
+  "del3-f6:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Probability of completion",
+        "verdi": 0.5730437180850162,
+        "enhet": "",
+        "tol": 0.005
+      }
+    ],
+    "merknad": "Stram toleranse (0,5 %) så helårsfaktoren 1,05 (0.5625) avvises. Enkel rente (0.5729) havner innenfor og godtas som tilnærming."
+  },
+  "del3-f6:4:b": {
+    "type": "tekst"
+  },
+  "del3-f6:4:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Probability of completion after the vote",
+        "verdi": 0.1564398046424671,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "How would you have voted? Is the market reaction consistent with that? Briefly explain.",
+    "merknad": "Med 6 måneder i stedet for 3 blir p 0.1461, med helt år 0.1250; begge avvises."
+  },
+  "del3-f6:1:": {
+    "type": "tekst"
+  },
+  "del3-f6:2:": {
+    "type": "tekst"
+  }
+}

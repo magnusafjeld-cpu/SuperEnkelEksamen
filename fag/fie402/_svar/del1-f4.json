@@ -1,0 +1,184 @@
+{
+  "del1-f4:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>D</sub>",
+        "verdi": 5.0,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f4:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>E</sub>",
+        "verdi": 1.9,
+        "enhet": ""
+      }
+    ]
+  },
+  "del1-f4:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 10.333333333333334,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "Fellen er r_U med skatt (= WACC) og D/E brukt som vekt."
+  },
+  "del1-f4:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 9.916666666666668,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f4:1:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub> (WACC)",
+        "verdi": 95.5614018247334,
+        "enhet": "$ m",
+        "tol": 0.0022
+      }
+    ],
+    "merknad": "Toleransen er satt så V^U (diskontert med r_U) og D/E brukt som vekt faller utenfor."
+  },
+  "del1-f4:1:f": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt adjustment",
+        "verdi": -15.174498106349088,
+        "enhet": "$ m",
+        "tol": 0.002,
+        "alt": [
+          15.174498106349088
+        ]
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Does the company borrow or repay?",
+    "merknad": "Begge fortegn godtas for tallet (D1 − D0 eller D0 − D1). Retningen rettes i tekstdelen. Toleransen er høyst 0,2 % fordi justeringen regnet med V^U ligger under 1 % unna."
+  },
+  "del1-f4:1:g": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup><sub>0</sub>",
+        "verdi": 95.02925311013956,
+        "enhet": "$ m",
+        "tol": 0.0022
+      }
+    ],
+    "merknad": "Toleransen er satt så V^L (diskontert med WACC) faller utenfor."
+  },
+  "del1-f4:1:h": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "TS<sub>1</sub>",
+        "verdi": 0.3981725076030558,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "TS<sub>2</sub>",
+        "verdi": 0.2084912812736922,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 0.5321487145938404,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "del1-f4:1:i": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub> (APV)",
+        "verdi": 95.56140182473341,
+        "enhet": "$ m",
+        "tol": 0.00015
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Is the colleague who discounted the tax shields at r_D right?",
+    "merknad": "Toleransen er satt så skjoldet diskontert med r_D faller utenfor."
+  },
+  "del1-f4:2:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 9.85,
+        "enhet": "%",
+        "tol": 0.0061
+      }
+    ],
+    "merknad": "Fellene er feil form på gjeldsgraden for ett av firmaene, bare ett firma og snitt av beta_E."
+  },
+  "del1-f4:2:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>E</sub>",
+        "verdi": 1.3599999999999999,
+        "enhet": ""
+      },
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 12.160000000000002,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f4:2:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 9.287500000000001,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f4:2:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (WACC)",
+        "verdi": 807.5370121130551,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "del1-f4:2:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "PV(TS)",
+        "verdi": 46.115692316100855,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "V<sup>L</sup> (APV)",
+        "verdi": 807.5370121130552,
+        "enhet": "$ m"
+      }
+    ],
+    "merknad": "Fellene er skjoldet med r_D og D = 0,6 × V^L."
+  },
+  "del1-f4:2:f": {
+    "type": "tekst"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "del2-f3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 6.444444444444445,
+        "enhet": "%"
+      },
+      {
+        "navn": "P<sub>0</sub>",
+        "verdi": 48.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "del2-f3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Div<sub>1</sub>",
+        "verdi": 3.0933333333333333,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "P<sub>1</sub> (ex-dividend)",
+        "verdi": 48.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "del2-f3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New debt issued",
+        "verdi": 144.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Share price on announcement",
+        "verdi": 48.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 3.0,
+        "enhet": "m shares"
+      }
+    ],
+    "merknad": "Alle tre spørsmålene har tallsvar. MM I ligger i at kursen er uendret."
+  },
+  "del2-f3:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Div<sub>1</sub>",
+        "verdi": 3.875555555555555,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "New r<sub>E</sub>",
+        "verdi": 8.074074074074074,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del2-f3:1:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Original shareholder",
+        "verdi": 48.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Shareholder who sold",
+        "verdi": 48.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Shareholder who kept",
+        "verdi": 47.999999999999986,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Compare the three payoffs and comment."
+  },
+  "del2-f3:2:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "E[payoff] A",
+        "verdi": 60.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[payoff] B",
+        "verdi": 58.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "E[payoff] C",
+        "verdi": 43.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Which project will the manager choose?"
+  },
+  "del2-f3:2:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Equity value A",
+        "verdi": 35.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity value B",
+        "verdi": 39.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity value C",
+        "verdi": 33.75,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Value of the debt (project B)",
+        "verdi": 19.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Which project will the manager choose?"
+  },
+  "del2-f3:2:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt level D (A ~ B)",
+        "verdi": 15.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Briefly explain what happens if debt increases beyond that value."
+  },
+  "del2-f3:2:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Equity value B with the deal",
+        "verdi": 33.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Debt value B with the deal",
+        "verdi": 25.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Will the management accept the deal? Who gains and who loses if Quillmoor signs and does B?",
+    "merknad": "Spørsmålet ber ikke direkte om tall, men svaret står på egenkapitalen med garantien (33 mot 39) og gjelden (25 mot 19)."
+  }
+}

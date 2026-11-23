@@ -1,0 +1,177 @@
+{
+  "del1-f3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>D</sub>",
+        "verdi": 0.5000000000000001,
+        "enhet": ""
+      }
+    ]
+  },
+  "del1-f3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 12.5,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 10.4,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "Fellen er r_U med skatt (= WACC)."
+  },
+  "del1-f3:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 9.8995,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f3:1:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub> (WACC)",
+        "verdi": 106.23997461060637,
+        "enhet": "NOK m",
+        "tol": 0.0023
+      }
+    ],
+    "merknad": "Toleransen er satt så V^U (diskontert med r_U) faller utenfor."
+  },
+  "del1-f3:1:f": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt adjustment",
+        "verdi": -25.718970799698056,
+        "enhet": "NOK m",
+        "tol": 0.002,
+        "alt": [
+          25.718970799698056
+        ]
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Does the company borrow or repay?",
+    "merknad": "Begge fortegn godtas for tallet (D1 − D0 eller D0 − D1). Retningen rettes i tekstdelen. Toleransen er høyst 0,2 % fordi justeringen regnet med V^U ligger under 1 % unna."
+  },
+  "del1-f3:1:g": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup><sub>0</sub>",
+        "verdi": 105.62381852551984,
+        "enhet": "NOK m",
+        "tol": 0.0023
+      }
+    ],
+    "merknad": "Toleransen er satt så V^L (diskontert med WACC) faller utenfor."
+  },
+  "del1-f3:1:h": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "TS<sub>1</sub>",
+        "verdi": 0.5317310729260848,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "TS<sub>2</sub>",
+        "verdi": 0.16394979049040262,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 0.6161560850865103,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "del1-f3:1:i": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub> (APV)",
+        "verdi": 106.23997461060635,
+        "enhet": "NOK m",
+        "tol": 0.0001
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Compare with (e) and explain in one sentence.",
+    "merknad": "Toleransen er satt så skjoldet diskontert med r_D faller utenfor."
+  },
+  "del1-f3:2:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 7.928571428571429,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f3:2:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>E</sub>",
+        "verdi": 1.5714285714285712,
+        "enhet": ""
+      },
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 10.857142857142858,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f3:2:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 7.378571428571429,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del1-f3:2:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (WACC)",
+        "verdi": 4201.35527589545,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "del1-f3:2:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (APV)",
+        "verdi": 4201.355275895449,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Bare V^L er spurt etter. Skjoldet med r_D gir en verdi utenfor toleransen."
+  },
+  "del1-f3:2:f": {
+    "type": "tekst"
+  }
+}

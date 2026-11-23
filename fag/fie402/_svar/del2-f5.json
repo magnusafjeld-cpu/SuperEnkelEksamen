@@ -1,0 +1,189 @@
+{
+  "del2-f5:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "P<sub>0</sub>",
+        "verdi": 30.0,
+        "enhet": "€ per share"
+      },
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 6.75,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del2-f5:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Div<sub>1</sub>",
+        "verdi": 2.4,
+        "enhet": "€ per share"
+      },
+      {
+        "navn": "Price just before",
+        "verdi": 32.4,
+        "enhet": "€ per share"
+      },
+      {
+        "navn": "Price just after",
+        "verdi": 30.0,
+        "enhet": "€ per share"
+      }
+    ]
+  },
+  "del2-f5:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New debt issued",
+        "verdi": 350.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Share price on announcement",
+        "verdi": 30.0,
+        "enhet": "€ per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 11.666666666666666,
+        "enhet": "m shares"
+      }
+    ]
+  },
+  "del2-f5:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Div<sub>1</sub>",
+        "verdi": 3.7125,
+        "enhet": "€ per share"
+      },
+      {
+        "navn": "New r<sub>E</sub>",
+        "verdi": 12.375000000000002,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del2-f5:1:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Ben's yearly cash flow",
+        "verdi": 90.0,
+        "enhet": "€"
+      },
+      {
+        "navn": "Carla's yearly cash flow",
+        "verdi": 371.25,
+        "enhet": "€"
+      },
+      {
+        "navn": "Value of each position",
+        "verdi": 3000.0,
+        "enhet": "€"
+      },
+      {
+        "navn": "Shares held to recreate Ana",
+        "verdi": 53.333333333333336,
+        "enhet": "shares"
+      },
+      {
+        "navn": "Amount lent to recreate Ana",
+        "verdi": 1400.0,
+        "enhet": "€"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Comment. How can Ana's yearly cash flow be recreated?",
+    "merknad": "Anas 240 i året er målet for gjenskapingen og står i løsningen; den er utelatt for å holde fem tall. Den som oppgir at investoren selger 46.6667 aksjer, har samme svar som 53.3333 beholdt."
+  },
+  "del2-f5:2:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value, keep the cash",
+        "verdi": 40.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "E[payoff] A",
+        "verdi": 46.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "E[payoff] B",
+        "verdi": 43.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "E[payoff] C",
+        "verdi": 28.0,
+        "enhet": "€ m"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "What will the manager do?"
+  },
+  "del2-f5:2:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Equity, keep the cash",
+        "verdi": 10.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Equity value A",
+        "verdi": 16.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Equity value B",
+        "verdi": 21.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Equity value C",
+        "verdi": 18.0,
+        "enhet": "€ m"
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "What will the manager do?"
+  },
+  "del2-f5:2:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt level D (B ~ C)",
+        "verdi": 37.5,
+        "enhet": "€ m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Briefly explain what happens if the debt is higher."
+  },
+  "del2-f5:2:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Shares if signed",
+        "verdi": 16.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Loan if signed",
+        "verdi": 30.0,
+        "enhet": "€ m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Will the management sign the contract? Explain why or why not.",
+    "merknad": "Med kontrakten velges A: aksjene 16 og lånet 30. Lånet er 30 også om studenten glemmer å optimere på nytt (B med kontrakt er trygg), men da blir aksjene 13."
+  }
+}

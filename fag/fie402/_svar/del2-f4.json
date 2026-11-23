@@ -1,0 +1,131 @@
+{
+  "del2-f4:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 8.916666666666668,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del2-f4:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price on announcement",
+        "verdi": 125.0,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Explain what happens to the share price upon announcement and why.",
+    "merknad": "Blandet: grunnen (perfekt marked, MM I) er poenget med deloppgaven, som i h2024:3:b."
+  },
+  "del2-f4:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after the dividend",
+        "verdi": 95.0,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Are the shareholders better off or worse off?"
+  },
+  "del2-f4:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New r<sub>E</sub>",
+        "verdi": 11.184210526315791,
+        "enhet": "%"
+      }
+    ]
+  },
+  "del2-f4:1:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price after the repurchase",
+        "verdi": 125.0,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 9.6,
+        "enhet": "m shares"
+      }
+    ]
+  },
+  "del2-f4:2:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "E[value] S",
+        "verdi": 73.5,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "E[value] R",
+        "verdi": 62.5,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Which strategy will the manager choose?"
+  },
+  "del2-f4:2:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Equity value S",
+        "verdi": 23.5,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Equity value R",
+        "verdi": 32.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Agency cost of debt",
+        "verdi": 11.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Which strategy will the manager choose?"
+  },
+  "del2-f4:2:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt level D (S ~ R)",
+        "verdi": 39.375,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Briefly explain what happens if debt increases beyond that value."
+  },
+  "del2-f4:2:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Equity value S with contract",
+        "verdi": 23.5,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Equity value R with contract",
+        "verdi": 20.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Will the management accept the contract? Explain why or why not.",
+    "merknad": "Spørsmålet ber ikke direkte om tall, men svaret står på egenkapitalen med kontrakten (23.5 og 20) mot 32 uten, som i h2024:4:d."
+  }
+}

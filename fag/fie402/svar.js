@@ -6,6 +6,1364 @@
    ================================================================================ */
 window.EDU_DATA = window.EDU_DATA || {};
 window.EDU_DATA.svar = {
+ "del1-f3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "β<sub>D</sub>",
+    "verdi": 0.5000000000000001,
+    "enhet": ""
+   }
+  ]
+ },
+ "del1-f3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 12.5,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 10.4,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Fellen er r_U med skatt (= WACC)."
+ },
+ "del1-f3:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 9.8995,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f3:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup><sub>0</sub> (WACC)",
+    "verdi": 106.23997461060637,
+    "enhet": "NOK m",
+    "tol": 0.0023
+   }
+  ],
+  "merknad": "Toleransen er satt så V^U (diskontert med r_U) faller utenfor."
+ },
+ "del1-f3:1:f": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Debt adjustment",
+    "verdi": -25.718970799698056,
+    "enhet": "NOK m",
+    "tol": 0.002,
+    "alt": [
+     25.718970799698056
+    ]
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Does the company borrow or repay?",
+  "merknad": "Begge fortegn godtas for tallet (D1 − D0 eller D0 − D1). Retningen rettes i tekstdelen. Toleransen er høyst 0,2 % fordi justeringen regnet med V^U ligger under 1 % unna."
+ },
+ "del1-f3:1:g": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>U</sup><sub>0</sub>",
+    "verdi": 105.62381852551984,
+    "enhet": "NOK m",
+    "tol": 0.0023
+   }
+  ],
+  "merknad": "Toleransen er satt så V^L (diskontert med WACC) faller utenfor."
+ },
+ "del1-f3:1:h": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "TS<sub>1</sub>",
+    "verdi": 0.5317310729260848,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "TS<sub>2</sub>",
+    "verdi": 0.16394979049040262,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 0.6161560850865103,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "del1-f3:1:i": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup><sub>0</sub> (APV)",
+    "verdi": 106.23997461060635,
+    "enhet": "NOK m",
+    "tol": 0.0001
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Compare with (e) and explain in one sentence.",
+  "merknad": "Toleransen er satt så skjoldet diskontert med r_D faller utenfor."
+ },
+ "del1-f3:2:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 7.928571428571429,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f3:2:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "β<sub>E</sub>",
+    "verdi": 1.5714285714285712,
+    "enhet": ""
+   },
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 10.857142857142858,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f3:2:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 7.378571428571429,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f3:2:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup> (WACC)",
+    "verdi": 4201.35527589545,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "del1-f3:2:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup> (APV)",
+    "verdi": 4201.355275895449,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Bare V^L er spurt etter. Skjoldet med r_D gir en verdi utenfor toleransen."
+ },
+ "del1-f3:2:f": {
+  "type": "tekst"
+ },
+ "del1-f4:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>D</sub>",
+    "verdi": 5.0,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f4:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "β<sub>E</sub>",
+    "verdi": 1.9,
+    "enhet": ""
+   }
+  ]
+ },
+ "del1-f4:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 10.333333333333334,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Fellen er r_U med skatt (= WACC) og D/E brukt som vekt."
+ },
+ "del1-f4:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 9.916666666666668,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f4:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup><sub>0</sub> (WACC)",
+    "verdi": 95.5614018247334,
+    "enhet": "$ m",
+    "tol": 0.0022
+   }
+  ],
+  "merknad": "Toleransen er satt så V^U (diskontert med r_U) og D/E brukt som vekt faller utenfor."
+ },
+ "del1-f4:1:f": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Debt adjustment",
+    "verdi": -15.174498106349088,
+    "enhet": "$ m",
+    "tol": 0.002,
+    "alt": [
+     15.174498106349088
+    ]
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Does the company borrow or repay?",
+  "merknad": "Begge fortegn godtas for tallet (D1 − D0 eller D0 − D1). Retningen rettes i tekstdelen. Toleransen er høyst 0,2 % fordi justeringen regnet med V^U ligger under 1 % unna."
+ },
+ "del1-f4:1:g": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>U</sup><sub>0</sub>",
+    "verdi": 95.02925311013956,
+    "enhet": "$ m",
+    "tol": 0.0022
+   }
+  ],
+  "merknad": "Toleransen er satt så V^L (diskontert med WACC) faller utenfor."
+ },
+ "del1-f4:1:h": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "TS<sub>1</sub>",
+    "verdi": 0.3981725076030558,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "TS<sub>2</sub>",
+    "verdi": 0.2084912812736922,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 0.5321487145938404,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "del1-f4:1:i": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup><sub>0</sub> (APV)",
+    "verdi": 95.56140182473341,
+    "enhet": "$ m",
+    "tol": 0.00015
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Is the colleague who discounted the tax shields at r_D right?",
+  "merknad": "Toleransen er satt så skjoldet diskontert med r_D faller utenfor."
+ },
+ "del1-f4:2:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 9.85,
+    "enhet": "%",
+    "tol": 0.0061
+   }
+  ],
+  "merknad": "Fellene er feil form på gjeldsgraden for ett av firmaene, bare ett firma og snitt av beta_E."
+ },
+ "del1-f4:2:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "β<sub>E</sub>",
+    "verdi": 1.3599999999999999,
+    "enhet": ""
+   },
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 12.160000000000002,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f4:2:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 9.287500000000001,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f4:2:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup> (WACC)",
+    "verdi": 807.5370121130551,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "del1-f4:2:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "PV(TS)",
+    "verdi": 46.115692316100855,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "V<sup>L</sup> (APV)",
+    "verdi": 807.5370121130552,
+    "enhet": "$ m"
+   }
+  ],
+  "merknad": "Fellene er skjoldet med r_D og D = 0,6 × V^L."
+ },
+ "del1-f4:2:f": {
+  "type": "tekst"
+ },
+ "del1-f5:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "β<sub>D</sub>",
+    "verdi": 0.4999999999999999,
+    "enhet": ""
+   }
+  ]
+ },
+ "del1-f5:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 12.8,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f5:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 8.72,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Fellen er r_U med skatt (= WACC)."
+ },
+ "del1-f5:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 7.819999999999999,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f5:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup><sub>0</sub> (WACC)",
+    "verdi": 126.50294373775263,
+    "enhet": "€ m",
+    "tol": 0.0069
+   }
+  ],
+  "merknad": "Toleransen er satt så V^U (diskontert med r_U) faller utenfor."
+ },
+ "del1-f5:1:f": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Debt adjustment",
+    "verdi": 13.135518120175348,
+    "enhet": "€ m",
+    "tol": 0.002,
+    "alt": [
+     -13.135518120175348
+    ]
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Does the company borrow or repay?",
+  "merknad": "Begge fortegn godtas for tallet (D1 − D0 eller D0 − D1). Retningen rettes i tekstdelen. Toleransen er høyst 0,2 % fordi justeringen regnet med V^U ligger under 1 % unna."
+ },
+ "del1-f5:1:g": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>U</sup><sub>0</sub>",
+    "verdi": 124.32582283319823,
+    "enhet": "€ m",
+    "tol": 0.007
+   }
+  ],
+  "merknad": "Toleransen er satt så V^L (diskontert med WACC) faller utenfor."
+ },
+ "del1-f5:1:h": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "TS<sub>1</sub>",
+    "verdi": 1.1385264936397737,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "TS<sub>2</sub>",
+    "verdi": 1.3355592654424038,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 2.1771209045543927,
+    "enhet": "€ m"
+   }
+  ]
+ },
+ "del1-f5:1:i": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup><sub>0</sub> (APV)",
+    "verdi": 126.50294373775262,
+    "enhet": "€ m",
+    "tol": 0.00027
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Could a single WACC as in (e) still be used with the debt fixed at the Year-0 amount?",
+  "merknad": "Toleransen er satt så skjoldet diskontert med r_D faller utenfor."
+ },
+ "del1-f5:2:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 9.0,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f5:2:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "β<sub>E</sub>",
+    "verdi": 1.6563636363636363,
+    "enhet": ""
+   },
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 11.781818181818181,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f5:2:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 8.4708,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del1-f5:2:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup> (WACC)",
+    "verdi": 370.8969524633739,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "del1-f5:2:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>U</sup>",
+    "verdi": 342.8571428571429,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 28.03980960623107,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "V<sup>L</sup> (APV)",
+    "verdi": 370.89695246337396,
+    "enhet": "$ m",
+    "tol": 0.0067
+   }
+  ],
+  "merknad": "Fellene er skjoldet med r_D og skjoldet som flat evigrente."
+ },
+ "del1-f5:2:f": {
+  "type": "tekst"
+ },
+ "del2-f3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 6.444444444444445,
+    "enhet": "%"
+   },
+   {
+    "navn": "P<sub>0</sub>",
+    "verdi": 48.0,
+    "enhet": "$ per share"
+   }
+  ]
+ },
+ "del2-f3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Div<sub>1</sub>",
+    "verdi": 3.0933333333333333,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "P<sub>1</sub> (ex-dividend)",
+    "verdi": 48.0,
+    "enhet": "$ per share"
+   }
+  ]
+ },
+ "del2-f3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New debt issued",
+    "verdi": 144.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Share price on announcement",
+    "verdi": 48.0,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "Shares repurchased",
+    "verdi": 3.0,
+    "enhet": "m shares"
+   }
+  ],
+  "merknad": "Alle tre spørsmålene har tallsvar. MM I ligger i at kursen er uendret."
+ },
+ "del2-f3:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Div<sub>1</sub>",
+    "verdi": 3.875555555555555,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "New r<sub>E</sub>",
+    "verdi": 8.074074074074074,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del2-f3:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Original shareholder",
+    "verdi": 48.0,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "Shareholder who sold",
+    "verdi": 48.0,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "Shareholder who kept",
+    "verdi": 47.999999999999986,
+    "enhet": "$ per share"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Compare the three payoffs and comment."
+ },
+ "del2-f3:2:a": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "E[payoff] A",
+    "verdi": 60.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "E[payoff] B",
+    "verdi": 58.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "E[payoff] C",
+    "verdi": 43.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Which project will the manager choose?"
+ },
+ "del2-f3:2:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Equity value A",
+    "verdi": 35.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Equity value B",
+    "verdi": 39.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Equity value C",
+    "verdi": 33.75,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Value of the debt (project B)",
+    "verdi": 19.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Which project will the manager choose?"
+ },
+ "del2-f3:2:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Debt level D (A ~ B)",
+    "verdi": 15.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Briefly explain what happens if debt increases beyond that value."
+ },
+ "del2-f3:2:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Equity value B with the deal",
+    "verdi": 33.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Debt value B with the deal",
+    "verdi": 25.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Will the management accept the deal? Who gains and who loses if Quillmoor signs and does B?",
+  "merknad": "Spørsmålet ber ikke direkte om tall, men svaret står på egenkapitalen med garantien (33 mot 39) og gjelden (25 mot 19)."
+ },
+ "del2-f4:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 8.916666666666668,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del2-f4:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price on announcement",
+    "verdi": 125.0,
+    "enhet": "NOK per share"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Explain what happens to the share price upon announcement and why.",
+  "merknad": "Blandet: grunnen (perfekt marked, MM I) er poenget med deloppgaven, som i h2024:3:b."
+ },
+ "del2-f4:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price after the dividend",
+    "verdi": 95.0,
+    "enhet": "NOK per share"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Are the shareholders better off or worse off?"
+ },
+ "del2-f4:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New r<sub>E</sub>",
+    "verdi": 11.184210526315791,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del2-f4:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Share price after the repurchase",
+    "verdi": 125.0,
+    "enhet": "NOK per share"
+   },
+   {
+    "navn": "Shares repurchased",
+    "verdi": 9.6,
+    "enhet": "m shares"
+   }
+  ]
+ },
+ "del2-f4:2:a": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "E[value] S",
+    "verdi": 73.5,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "E[value] R",
+    "verdi": 62.5,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Which strategy will the manager choose?"
+ },
+ "del2-f4:2:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Equity value S",
+    "verdi": 23.5,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Equity value R",
+    "verdi": 32.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Agency cost of debt",
+    "verdi": 11.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Which strategy will the manager choose?"
+ },
+ "del2-f4:2:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Debt level D (S ~ R)",
+    "verdi": 39.375,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Briefly explain what happens if debt increases beyond that value."
+ },
+ "del2-f4:2:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Equity value S with contract",
+    "verdi": 23.5,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Equity value R with contract",
+    "verdi": 20.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Will the management accept the contract? Explain why or why not.",
+  "merknad": "Spørsmålet ber ikke direkte om tall, men svaret står på egenkapitalen med kontrakten (23.5 og 20) mot 32 uten, som i h2024:4:d."
+ },
+ "del2-f5:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "P<sub>0</sub>",
+    "verdi": 30.0,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 6.75,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del2-f5:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Div<sub>1</sub>",
+    "verdi": 2.4,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Price just before",
+    "verdi": 32.4,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Price just after",
+    "verdi": 30.0,
+    "enhet": "€ per share"
+   }
+  ]
+ },
+ "del2-f5:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New debt issued",
+    "verdi": 350.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Share price on announcement",
+    "verdi": 30.0,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Shares repurchased",
+    "verdi": 11.666666666666666,
+    "enhet": "m shares"
+   }
+  ]
+ },
+ "del2-f5:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Div<sub>1</sub>",
+    "verdi": 3.7125,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "New r<sub>E</sub>",
+    "verdi": 12.375000000000002,
+    "enhet": "%"
+   }
+  ]
+ },
+ "del2-f5:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Ben's yearly cash flow",
+    "verdi": 90.0,
+    "enhet": "€"
+   },
+   {
+    "navn": "Carla's yearly cash flow",
+    "verdi": 371.25,
+    "enhet": "€"
+   },
+   {
+    "navn": "Value of each position",
+    "verdi": 3000.0,
+    "enhet": "€"
+   },
+   {
+    "navn": "Shares held to recreate Ana",
+    "verdi": 53.333333333333336,
+    "enhet": "shares"
+   },
+   {
+    "navn": "Amount lent to recreate Ana",
+    "verdi": 1400.0,
+    "enhet": "€"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Comment. How can Ana's yearly cash flow be recreated?",
+  "merknad": "Anas 240 i året er målet for gjenskapingen og står i løsningen; den er utelatt for å holde fem tall. Den som oppgir at investoren selger 46.6667 aksjer, har samme svar som 53.3333 beholdt."
+ },
+ "del2-f5:2:a": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value, keep the cash",
+    "verdi": 40.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "E[payoff] A",
+    "verdi": 46.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "E[payoff] B",
+    "verdi": 43.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "E[payoff] C",
+    "verdi": 28.0,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "What will the manager do?"
+ },
+ "del2-f5:2:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Equity, keep the cash",
+    "verdi": 10.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Equity value A",
+    "verdi": 16.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Equity value B",
+    "verdi": 21.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Equity value C",
+    "verdi": 18.0,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 2.5,
+  "tekstLedd": "What will the manager do?"
+ },
+ "del2-f5:2:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Debt level D (B ~ C)",
+    "verdi": 37.5,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Briefly explain what happens if the debt is higher."
+ },
+ "del2-f5:2:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Shares if signed",
+    "verdi": 16.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Loan if signed",
+    "verdi": 30.0,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Will the management sign the contract? Explain why or why not.",
+  "merknad": "Med kontrakten velges A: aksjene 16 og lånet 30. Lånet er 30 også om studenten glemmer å optimere på nytt (B med kontrakt er trygg), men da blir aksjene 13."
+ },
+ "del3-f4:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV now",
+    "verdi": 0.15858769988096455,
+    "enhet": "NOK m",
+    "abs": 0.005
+   }
+  ],
+  "merknad": "Nær null i forhold til investeringen på 16, derfor abs-toleranse (0,005)."
+ },
+ "del3-f4:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV<sub>0</sub>, r<sub>f</sub> = 2.5%",
+    "verdi": 1.1618550018684213,
+    "enhet": "NOK m",
+    "abs": 0.005
+   },
+   {
+    "navn": "NPV<sub>0</sub>, r<sub>f</sub> = 6%",
+    "verdi": -1.0543219746856356,
+    "enhet": "NOK m",
+    "abs": 0.005
+   }
+  ],
+  "merknad": "Spørsmålet ber om dagens perspektiv. Verdiene ved t = 1 (1,2083 og −1,0965) godtas ikke."
+ },
+ "del3-f4:3:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "ρ (risk-neutral probability of the 2.5% rate)",
+    "verdi": 0.5445116952050908,
+    "enhet": ""
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Briefly explain why you do not need the true probabilities.",
+  "merknad": "Eksakt pris 743,5332 gir 0.544546, innenfor toleransen. Fellen (S0 = 16,1585 for år 1 til 8) gir 0.8250 og avvises; uten betalingen ved t = 1 blir ρ 1.5858."
+ },
+ "del3-f4:3:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value today of waiting",
+    "verdi": 0.6326436366498881,
+    "enhet": "NOK m",
+    "abs": 0.005
+   },
+   {
+    "navn": "Value of waiting minus building now",
+    "verdi": 0.47405593676892355,
+    "enhet": "NOK m",
+    "abs": 0.005
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Do you build now or wait? Briefly comment.",
+  "merknad": "Den feilparrede ρ gir 0.9585 og avvises."
+ },
+ "del3-f4:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Government bond",
+    "verdi": 966.1835748792271,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Brakstad bond",
+    "verdi": 925.9259259259259,
+    "enhet": "NOK"
+   }
+  ]
+ },
+ "del3-f4:4:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Expected return",
+    "verdi": 5.840000000000001,
+    "enhet": "%"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Why does it differ from its yield to maturity?"
+ },
+ "del3-f4:4:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Risk-neutral default probability ρ",
+    "verdi": 0.10416666666666714,
+    "enhet": ""
+   },
+   {
+    "navn": "Price of one CDS contract",
+    "verdi": 0.10064412238325329,
+    "enhet": "NOK"
+   }
+  ],
+  "merknad": "Overlevelsessannsynligheten (0.8958) og CDS-prisen med den (0.8655) er fellen og avvises."
+ },
+ "del3-f4:4:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "CDS contracts",
+    "verdi": 20.0,
+    "enhet": "m contracts",
+    "alt": [
+     20000000.0
+    ]
+   },
+   {
+    "navn": "Cost of the contracts",
+    "verdi": 2.0128824476650657,
+    "enhet": "NOK m",
+    "alt": [
+     2012882.4476650658
+    ]
+   },
+   {
+    "navn": "Hedged position",
+    "verdi": 48.309178743961354,
+    "enhet": "NOK m",
+    "alt": [
+     48309178.74396136
+    ]
+   }
+  ],
+  "merknad": "alt er de samme svarene i hele kontrakter og hele kroner, siden retteren ikke skalerer enheter."
+ },
+ "del3-f4:4:e": {
+  "type": "tekst"
+ },
+ "del3-f4:1:": {
+  "type": "tekst"
+ },
+ "del3-f4:2:": {
+  "type": "tekst"
+ },
+ "del3-f5:3:a": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": -169999.99999999907,
+    "enhet": "NOK"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Will you open it?"
+ },
+ "del3-f5:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Maximum price for the study (C<sub>0</sub>)",
+    "verdi": 2530000.0,
+    "enhet": "NOK"
+   }
+  ]
+ },
+ "del3-f5:3:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "C<sub>1</sub>",
+    "verdi": 2409523.8095238092,
+    "enhet": "NOK"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Compare with (b) and comment."
+ },
+ "del3-f5:3:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV with the exit programme",
+    "verdi": 1229416.9096209912,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Value of the programme",
+    "verdi": 1229416.9096209912,
+    "enhet": "NOK"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Will you open it?",
+  "merknad": "Verdien av programmet er målt mot 0. 1399417 (mot den negative NPV-en) er fellen og avvises."
+ },
+ "del3-f5:3:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Indifference probability with the programme",
+    "verdi": 0.38586293691776735,
+    "enhet": ""
+   },
+   {
+    "navn": "Indifference probability without the programme",
+    "verdi": 0.5660377358490566,
+    "enhet": ""
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Comment briefly."
+ },
+ "del3-f5:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability of completion",
+    "verdi": 0.5745454545454552,
+    "enhet": ""
+   }
+  ],
+  "merknad": "Fellen (240 i stedet for 249,60) gir 0.3564 og avvises."
+ },
+ "del3-f5:4:b": {
+  "type": "tekst"
+ },
+ "del3-f5:4:c": {
+  "type": "tekst"
+ },
+ "del3-f5:1:": {
+  "type": "tekst"
+ },
+ "del3-f5:2:": {
+  "type": "tekst"
+ },
+ "del3-f6:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV of ordering now",
+    "verdi": 26.5,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Med 65 % og r_f blir verdien 274.0442 og NPV 34.0442; det avvises."
+ },
+ "del3-f6:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV at t = 1, strong",
+    "verdi": 36.32236033594779,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "NPV at t = 1, weak",
+    "verdi": -38.758229748039156,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "NPV at t = 0, strong",
+    "verdi": 34.925346476872875,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "NPV at t = 0, weak",
+    "verdi": -37.267528603883804,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "del3-f6:3:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "ρ (risk-neutral probability of a strong market)",
+    "verdi": 0.5495192526042584,
+    "enhet": ""
+   }
+  ],
+  "tallPoeng": 5,
+  "tekstLedd": "Compare it with the analysts' 65% and explain the difference briefly.",
+  "merknad": "Uten utbyttet ved t = 1 blir ρ 0.9547; det avvises."
+ },
+ "del3-f6:3:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value today of waiting",
+    "verdi": 19.19215029291595,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Do you order now or wait? Briefly comment."
+ },
+ "del3-f6:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability of completion",
+    "verdi": 0.5730437180850162,
+    "enhet": "",
+    "tol": 0.005
+   }
+  ],
+  "merknad": "Stram toleranse (0,5 %) så helårsfaktoren 1,05 (0.5625) avvises. Enkel rente (0.5729) havner innenfor og godtas som tilnærming."
+ },
+ "del3-f6:4:b": {
+  "type": "tekst"
+ },
+ "del3-f6:4:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Probability of completion after the vote",
+    "verdi": 0.1564398046424671,
+    "enhet": ""
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "How would you have voted? Is the market reaction consistent with that? Briefly explain.",
+  "merknad": "Med 6 måneder i stedet for 3 blir p 0.1461, med helt år 0.1250; begge avvises."
+ },
+ "del3-f6:1:": {
+  "type": "tekst"
+ },
+ "del3-f6:2:": {
+  "type": "tekst"
+ },
  "h2024:1:": {
   "type": "tekst"
  },

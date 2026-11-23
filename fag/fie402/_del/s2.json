@@ -1,0 +1,437 @@
+{
+ "del2-f3": [
+  {
+   "n": 1,
+   "title": "Capital Structure",
+   "points": 18,
+   "topic": "MM in perfect markets, recapitalisation",
+   "chapters": [
+    4,
+    6,
+    15
+   ],
+   "merke": "Som H2025 E3: evigrente, utbytte og rekapitalisering",
+   "body": "<p>Harborline Storage Inc., a self-storage operator, operates in a perfect capital market (MM propositions hold, no taxes). It has $120 million in debt and $360 million in equity. Its debt is risk-free and r<sub>f</sub> is 4%. There are 7.5 million shares outstanding. The company generates $28 million in free cash flow every year in perpetuity and pays out all cash flows as interest and dividends at the end of each year. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What is the equity cost of capital of the firm? What is the share price right now?</p>",
+     "solution": "<p><b>Step 1. Firm value and the WACC.</b> V = D + E = 120 + 360 = <b>$480M</b>. All free cash flow is paid out, so V is a perpetuity of $28M at the WACC:</p><p>r<sub>wacc</sub> = FCF / V = 28 / 480 = <b>5.8333%</b></p><p>With no taxes this is the pre-tax WACC, which equals r<sub>U</sub>.</p><p><b>Step 2. Back out r<sub>E</sub>.</b> The debt is risk-free, so r<sub>D</sub> = r<sub>f</sub> = 4%. The weights are E/V = 360/480 = 0.75 and D/V = 0.25:</p><p>0.058333 = 0.75 r<sub>E</sub> + 0.25 × 0.04<br>r<sub>E</sub> = (0.058333 − 0.01) / 0.75 = <b>6.4444%</b></p><p>Cross-check from the equity cash flow: r<sub>E</sub> = (FCF − r<sub>f</sub>D)/E = (28 − 4.8)/360 = 23.2/360 = 6.4444%. MM II gives the same: 5.8333% + (120/360)(5.8333% − 4%) = 6.4444%.</p><p><b>Step 3. Share price.</b> P<sub>0</sub> = E / N = $360M / 7.5M = <b>$48 per share</b>.</p>",
+     "criteria": [
+      "V = D + E = $480M and r_wacc = FCF/V = 28/480 = 5.8333%, which equals r_U because there are no taxes.",
+      "Uses r_D = r_f = 4% because the debt is risk-free. Solves 5.8333% = 0.75 r_E + 0.25 × 4% for r_E = 6.4444%. MM II or (FCF − interest)/E are equally accepted.",
+      "Share price = equity value / shares = 360/7.5 = $48. Dividing firm value by the share count ($64) is the classic error.",
+      "Show the calculation. No calculation, no points."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 3,
+     "body": "<p>What is the dividend (per share) at the end of Year 1? What is the share price right after the dividend has been paid?</p>",
+     "solution": "<p><b>Step 1. Split the $28M.</b> Interest: 4% × $120M = <b>$4.8M</b>. The rest goes to the shareholders: 28 − 4.8 = <b>$23.2M</b>, so</p><p>Div<sub>1</sub> = $23.2M / 7.5M = <b>$3.0933 per share</b></p><p><b>Step 2. The ex-dividend price.</b> After the payment the share is again a claim on $3.0933 a year forever, discounted at r<sub>E</sub> = 6.4444%:</p><p>P<sub>1</sub> = 3.0933 / 0.064444 = <b>$48</b></p><p><b>Check.</b> P<sub>0</sub> = (Div<sub>1</sub> + P<sub>1</sub>)/(1 + r<sub>E</sub>) = (3.0933 + 48)/1.064444 = 51.0933/1.064444 = $48. The share trades at $51.0933 just before the payment and drops by exactly the dividend to $48. The price is flat over time because the firm neither grows nor retains cash.</p>",
+     "criteria": [
+      "Interest = 4% × 120 = $4.8M; the residual $23.2M is the dividend. Paying out all $28M as dividend loses the point.",
+      "Dividend per share = 23.2/7.5 = $3.0933.",
+      "Ex-dividend price P1 = 3.0933/6.4444% = $48, from the perpetual dividend or from P0 = (Div1 + P1)/(1 + r_E). Both routes are accepted.",
+      "Full marks note that the price stays at $48. The cum-dividend price of $51.0933 is a bonus, not a requirement."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 4,
+     "body": "<p>Instead of the projected scenario, the board of directors decides to issue debt right now and use the proceeds to repurchase shares, so that D/V = 0.55.</p><p>How much new debt will be issued? What happens to the share price upon announcement? How many shares will be repurchased?</p>",
+     "solution": "<p><b>Step 1. Any value effect?</b> No. Without taxes the recapitalisation is a purely financial transaction: MM I holds, so <b>firm value stays at $480M and the share price stays at $48</b> on announcement. There is no tax shield for the market to price in.</p><p><b>Step 2. New debt.</b> Target debt = 0.55 × 480 = $264M. The firm already owes $120M, so it issues <b>$144M of new debt</b>.</p><p><b>Step 3. Shares.</b> The $144M buys back shares at the unchanged $48:</p><p>Shares repurchased = 144 / 48 = <b>3 million</b>, leaving 7.5 − 3 = 4.5 million shares.</p><p><b>Check.</b> E = V − D = 480 − 264 = $216M over 4.5M shares = <b>$48</b> per share, as MM I requires.</p>",
+     "criteria": [
+      "Names the mechanism: no taxes, so the restructuring is purely financial, MM I holds and firm value and share price are unchanged.",
+      "Target debt = 0.55 × 480 = $264M, so NEW debt = $144M. Answering $264M ignores the $120M already outstanding.",
+      "Share price on announcement: unchanged at $48, with the reason.",
+      "Shares repurchased = 144/48 = 3 million at the unchanged price.",
+      "The closing check 216/4.5 = $48 is not required but confirms the answer."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 4,
+     "body": "<p>What is the dividend (per share) at the end of Year 1 now? What is the new equity cost of capital?</p>",
+     "solution": "<p><b>Step 1. The new dividend.</b> Interest is now 4% × $264M = <b>$10.56M</b>, leaving 28 − 10.56 = <b>$17.44M</b> for the shareholders, spread over only 4.5M shares:</p><p>Div<sub>1</sub> = 17.44 / 4.5 = <b>$3.8756 per share</b> (up from $3.0933)</p><p><b>Step 2. The new cost of equity.</b> Asset risk is unchanged, so r<sub>U</sub> = 5.8333%. With D/E = 264/216 = 1.2222:</p><p>r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) = 5.8333% + 1.2222 × (5.8333% − 4%) = <b>8.0741%</b></p><p>The same from the equity cash flow: 17.44/216 = 8.0741%. The WACC is still 0.45 × 8.0741% + 0.55 × 4% = 5.8333%.</p><p><b>Check.</b> The share is still worth 3.8756 / 0.080741 = <b>$48</b>. The dividend per share rose by 25.2874%; the discount rate rose by exactly enough to leave the price unchanged.</p>",
+     "criteria": [
+      "Interest recomputed on the new debt: 4% × 264 = $10.56M, leaving $17.44M for equity.",
+      "Divides by the REDUCED share count of 4.5M, not 7.5M: dividend per share = $3.8756. Forgetting the retired shares is the most common error.",
+      "New r_E = 8.0741%, from MM II with D/E = 264/216 or from the unchanged WACC with weights 0.45 and 0.55.",
+      "States why r_U is unchanged: a financing transaction does not change asset risk. With no taxes the WACC does not move.",
+      "Optional but valued: 3.8756/8.0741% = $48, so the price is unchanged."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 4,
+     "body": "<p>Compare the payoffs of the original scenario shareholder, the new scenario shareholder who sold their share and the new scenario shareholder who kept their share. Comment.</p>",
+     "solution": "<p>All three positions are worth exactly <b>$48 today</b>.</p><table class=\"data\"><tr><th>Position</th><th>What they hold</th><th>Value today</th></tr><tr><td>Original scenario (no recap)</td><td>One share paying $3.0933 a year forever, discounted at r<sub>E</sub> = 6.4444%</td><td class=\"n\">3.0933 / 0.064444 = $48</td></tr><tr><td>New scenario, sold the share</td><td>$48 in cash, received now in the repurchase</td><td class=\"n\">$48</td></tr><tr><td>New scenario, kept the share</td><td>One share paying $3.8756 a year forever, discounted at r<sub>E</sub> = 8.0741%</td><td class=\"n\">3.8756 / 0.080741 = $48</td></tr></table><p><b>Comment.</b> This is MM I in a perfect market: the recapitalisation neither creates nor destroys value. It only changes how the same $28M a year is split between debt and equity and over how many shares. The shareholder who kept the share gets a larger dividend but also bears more risk per share, so the required return rises from 6.4444% to 8.0741% by exactly enough to keep the price at $48. The seller was paid the fair price, so nobody is exploited or subsidised. An investor who wanted the old risk could undo the leverage by holding some of the firm's debt alongside the shares (homemade leverage).</p><p><b>Check.</b> The original shareholders as a group hold 3M × $48 in cash + 4.5M × $48 in shares = 144 + 216 = <b>$360M</b>, the equity value before the recapitalisation.</p>",
+     "criteria": [
+      "All three payoffs are stated and all three come to $48. The comparison is what is graded.",
+      "The original share is valued as 3.0933/6.4444% and the kept share as 3.8756/8.0741%: a bigger dividend and a higher discount rate cancel.",
+      "The seller receives $48 in cash now, the fair price.",
+      "Comment: anything reasonable about MM is accepted, for example MM I, value is re-sliced and not created, or homemade leverage.",
+      "The check 3 × 48 + 4.5 × 48 = $360M is a bonus."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Debt and risk",
+   "points": 18,
+   "topic": "Risk shifting and hedging",
+   "chapters": [
+    9,
+    24
+   ],
+   "merke": "Som H2024 E4: prosjektvalg med og uten gjeld og en garantiavtale",
+   "body": "<p>Quillmoor Games, a video game studio, can carry out one of three projects or none at all. Each project pays off once, at t = 1:</p><table class=\"data\"><tr><th></th><th>Probability</th><th>Payoff, $ million</th></tr><tr><td>Project A</td><td class=\"n\">100%</td><td class=\"n\">60</td></tr><tr><td>Project B</td><td class=\"n\">60%</td><td class=\"n\">90</td></tr><tr><td></td><td class=\"n\">40%</td><td class=\"n\">10</td></tr><tr><td>Project C</td><td class=\"n\">25%</td><td class=\"n\">160</td></tr><tr><td></td><td class=\"n\">75%</td><td class=\"n\">4</td></tr></table><p>For example, project B pays $90 million with a 60% chance and $10 million with a 40% chance. Any debt is a zero-coupon loan due at t = 1. Investors are risk neutral and the risk-free rate is 0%. The manager acts in the best interests of Quillmoor's shareholders.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>Assume that Quillmoor has no debt. Which project will the manager choose?</p>",
+     "solution": "<p>With no debt the shareholders own the whole firm, so the manager maximises the expected payoff:</p><table class=\"data\"><tr><th>Project</th><th>Expected payoff</th><th>Value</th></tr><tr><td>A</td><td>1.00 × 60</td><td class=\"n\">60</td></tr><tr><td>B</td><td>0.60 × 90 + 0.40 × 10 = 54 + 4</td><td class=\"n\">58</td></tr><tr><td>C</td><td>0.25 × 160 + 0.75 × 4 = 40 + 3</td><td class=\"n\">43</td></tr></table><p><b>The manager chooses project A</b>, worth $60M. This is the first-best choice that the later parts are measured against. A is also the safest project.</p>",
+     "criteria": [
+      "With no debt, equity value = firm value, so the criterion is the highest expected payoff.",
+      "All three expectations shown: 60, 58 and 43.",
+      "Chooses A and calls it the first-best benchmark.",
+      "Show the calculation. 'A, because it is safe' without numbers loses points."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 5,
+     "body": "<p>Assume that Quillmoor has debt with a face value of $25 million. Which project will the manager choose? What is the debt worth?</p>",
+     "solution": "<p>Debt is paid first and the shareholders get max(payoff − 25, 0) in each state (limited liability):</p><table class=\"data\"><tr><th>Project</th><th>Equity, state by state</th><th>Equity</th><th>Debt</th><th>Firm</th></tr><tr><td>A</td><td>1.00 × (60 − 25) = 35</td><td class=\"n\">35</td><td class=\"n\">25</td><td class=\"n\">60</td></tr><tr><td>B</td><td>0.60 × (90 − 25) + 0.40 × 0 = 0.60 × 65</td><td class=\"n\"><b>39</b></td><td class=\"n\">19</td><td class=\"n\">58</td></tr><tr><td>C</td><td>0.25 × (160 − 25) + 0.75 × 0 = 0.25 × 135</td><td class=\"n\">33.75</td><td class=\"n\">9.25</td><td class=\"n\">43</td></tr></table><p><b>The manager chooses project B</b>: 39 for the shareholders against 35 for A and 33.75 for C. Under B the debt is worth 0.60 × 25 + 0.40 × 10 = <b>$19M</b>, because the creditors get only $10M in the bad state.</p><p><b>Mechanism.</b> This is risk shifting (asset substitution). Equity is a call option on the firm's assets with strike 25: the shareholders keep the upside and the creditors bear the shortfall in the bad state, so the shareholders prefer more risk even at a lower expected value.</p><p><b>Check.</b> Relative to A, the shareholders gain 4, the creditors lose 6 and firm value falls by 2: +4 + (−6) = −2. The creditors' loss is a wealth transfer to the shareholders plus the $2M agency cost of debt.</p>",
+     "criteria": [
+      "Values equity as E[max(payoff − 25, 0)] state by state. Subtracting 25 from the expected payoff gives the wrong ranking.",
+      "Equity values A = 35, B = 39, C = 33.75; chooses B.",
+      "Debt under B = 0.6 × 25 + 0.4 × 10 = $19M, not the face value of $25M.",
+      "Names the mechanism: risk shifting, equity as a call option on the firm with strike equal to the face value.",
+      "Full marks for the accounting: shareholders +4, creditors −6, firm −2, called a wealth transfer from the creditors to the shareholders."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 5,
+     "body": "<p>Is there a level of debt for which the manager is indifferent between projects A and B? If it exists, find it and briefly explain what happens if debt increases beyond that value. If it does not exist, explain why.</p>",
+     "solution": "<p><b>Step 1. Debt up to 10.</b> The debt is safe under both projects, so E<sub>A</sub> = 60 − D and E<sub>B</sub> = 58 − D. The difference is always 2: no solution in this region. When the debt is safe the shareholders bear all of B's lower value.</p><p><b>Step 2. Debt between 10 and 60.</b> B's bad state now pays nothing to equity:</p><p>60 − D = 0.6(90 − D)<br>60 − D = 54 − 0.6D<br>0.4D = 6<br><b>D = $15M</b></p><p><b>Step 3. Verify.</b> 15 lies in (10, 60]. E<sub>A</sub> = 60 − 15 = 45 and E<sub>B</sub> = 0.6 × 75 = 45, while E<sub>C</sub> = 0.25 × 145 = 36.25 is lower, so A and B really are the two contenders.</p><p><b>Step 4. Beyond 15.</b> The manager switches to B. Relative to A, B costs the shareholders 2 of expected value but shifts part of the bad state to the creditors, worth 0.4 × (D − 10) to the shareholders. Above D = 15 that gain exceeds 2; it keeps growing with the debt. Risk shifting escalates: above D = 40 (0.6(90 − D) = 0.25(160 − D)) the manager moves on to C. The agency cost of debt rises from 2 to 17.</p><table class=\"data\"><tr><th>Debt D</th><th>E<sub>A</sub></th><th>E<sub>B</sub></th><th>E<sub>C</sub></th><th>Chosen</th></tr><tr><td class=\"n\">10</td><td class=\"n\">50</td><td class=\"n\">48</td><td class=\"n\">37.5</td><td>A</td></tr><tr><td class=\"n\">15</td><td class=\"n\">45</td><td class=\"n\">45</td><td class=\"n\">36.25</td><td>A = B</td></tr><tr><td class=\"n\">25</td><td class=\"n\">35</td><td class=\"n\">39</td><td class=\"n\">33.75</td><td>B</td></tr><tr><td class=\"n\">40</td><td class=\"n\">20</td><td class=\"n\">30</td><td class=\"n\">30</td><td>B = C</td></tr><tr><td class=\"n\">50</td><td class=\"n\">10</td><td class=\"n\">24</td><td class=\"n\">27.5</td><td>C</td></tr></table>",
+     "criteria": [
+      "Writes equity as a function of D with max(payoff − D, 0) state by state and checks the regions.",
+      "Shows that for D ≤ 10 there is no solution (the difference is always 2).",
+      "Solves 60 − D = 0.6(90 − D) for D = 15 and verifies that it lies in (10, 60] with E_A = E_B = 45. Checking that C is lower (36.25) closes the argument.",
+      "Explains the follow-up: above 15 the manager chooses B, because the creditors' share of B's bad state, 0.4(D − 10), now exceeds the 2 of value B destroys.",
+      "Full marks for noting that risk shifting escalates, with C chosen above D = 40 and an agency cost of 17."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 5,
+     "body": "<p>Keep the debt of $25 million. A streaming platform offers Quillmoor a minimum-guarantee deal that applies only to project B: if the game sells badly (the 40% state), the platform pays Quillmoor $18 million; if it sells well, Quillmoor pays the platform $12 million.</p><p>Will the management accept the deal? Who gains and who loses if Quillmoor signs the deal and carries out project B?</p>",
+     "solution": "<p><b>Step 1. The deal creates no value.</b> 0.6 × (−12) + 0.4 × 18 = −7.2 + 7.2 = 0. It only moves money from the good state to the bad state.</p><p><b>Step 2. B with the deal.</b> Payoffs become 90 − 12 = 78 and 10 + 18 = 28. Both are above the face value of 25, so the debt becomes safe:</p><table class=\"data\"><tr><th>Claim</th><th>B without the deal</th><th>B with the deal</th><th>Change</th></tr><tr><td>Shareholders</td><td class=\"n\">39</td><td class=\"n\">0.6 × 53 + 0.4 × 3 = 33</td><td class=\"n\">−6</td></tr><tr><td>Creditors</td><td class=\"n\">19</td><td class=\"n\">25</td><td class=\"n\">+6</td></tr><tr><td>Firm</td><td class=\"n\">58</td><td class=\"n\">58</td><td class=\"n\">0</td></tr></table><p><b>Conclusion: the management rejects the deal.</b> It lowers equity from 39 to 33, below even A's 35, so the manager keeps doing B without the guarantee.</p><p><b>Who gains if Quillmoor signs and does B.</b> The guarantee removes the state in which the creditors bear the loss. The creditors gain 6 and the shareholders lose exactly 6: a pure wealth transfer from the shareholders to the creditors, because the deal is zero-NPV.</p><p><b>Check.</b> −6 + (+6) = 0 = the change in firm value. With firm value fixed, the creditors' gain equals the shareholders' loss.</p><p>Hedging would be accepted if it had been agreed before the debt was issued (the creditors would then pay for the safer claim) or if the creditors gave up part of the face value in return.</p>",
+     "criteria": [
+      "Shows that the deal is zero-NPV: 0.6 × (−12) + 0.4 × 18 = 0.",
+      "Recomputes B with the deal: payoffs 78 and 28, the debt becomes safe, equity = 33 against 39 without the deal.",
+      "Concludes that management rejects the deal (and notes that A, at 35, would beat B with the deal).",
+      "Explains the mechanism: the guarantee removes the bad state in which the creditors bore the shortfall, so the risk-shifting gain goes back to the creditors. Kurbatov's key word: a wealth transfer from shareholders to debtholders.",
+      "The accounting: creditors +6, shareholders −6, firm value unchanged at 58. Claiming that the shareholders gain from de-risking is a classic error.",
+      "Bonus: hedging agreed before the debt was issued, or a cut in the face value, would make the deal acceptable."
+     ]
+    }
+   ]
+  }
+ ],
+ "del2-f4": [
+  {
+   "n": 1,
+   "title": "Capital Structure",
+   "points": 18,
+   "topic": "MM in perfect markets, recapitalisation",
+   "chapters": [
+    3,
+    4,
+    6,
+    15
+   ],
+   "merke": "Som H2024 E3: ny gjeld, utbytte og tilbakekjøp",
+   "body": "<p>Kvernes Dagligvare ASA, a grocery chain, currently has 40 million shares outstanding and the share price is NOK 125 per share. The company operates in perfect capital markets and has NOK 1,000 million in debt. Its debt is risk-free with an expected return of 3.5%, which is also the risk-free rate. Its equity cost of capital is 10%. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What is the unlevered cost of capital (r<sub>U</sub>) of the firm?</p>",
+     "solution": "<p><b>Step 1. Market values.</b> E = 40M × NOK 125 = <b>NOK 5,000M</b>, D = NOK 1,000M, V = <b>NOK 6,000M</b>.</p><p><b>Step 2. r<sub>U</sub> is the pre-tax WACC.</b> No taxes in a perfect market:</p><p>r<sub>U</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub> = (5,000 × 0.1 + 1,000 × 0.035) / 6,000 = (500 + 35) / 6,000 = <b>8.9167%</b></p><p>Cross-check with MM II: 8.9167% + (1,000/5,000)(8.9167% − 3.5%) = 10%.</p>",
+     "criteria": [
+      "E = 40 × 125 = NOK 5,000M from the share price; V = E + D = NOK 6,000M.",
+      "Weights E/V = 0.8333 and D/V = 0.1667.",
+      "Pre-tax WACC with no (1 − τ) term, because the market is perfect.",
+      "r_U = 8.9167%, with 4 decimals."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 3,
+     "body": "<p>The management announces a new issue of NOK 2,200 million of debt. The new debt will be used to repay the existing debt and the rest is paid out as a dividend.</p><p>What happens to the share price immediately upon announcement of the transaction?</p>",
+     "solution": "<p><b>Nothing. The share price stays at NOK 125.</b></p><p>In a perfect capital market there are no taxes, so no tax shield is created. There are no distress or agency costs either. By MM I the value of the firm is set by its assets, not by how their cash flows are split between creditors and shareholders. The announcement changes only the split, so there is nothing new for the market to price: V = NOK 6,000M, E = NOK 5,000M and P = NOK 125 before and after the announcement. Nothing has been paid out yet.</p>",
+     "criteria": [
+      "States clearly that the price does not change: NOK 125.",
+      "Gives the reason: perfect markets, no taxes, so no tax shield; MM I holds. The key: no immediate price reaction in an MM world.",
+      "Distinguishes the announcement from the payout: nothing has been paid yet, so the price cannot have dropped.",
+      "Bonus for the contrast with taxes, where the price would rise by the PV of the tax shield per share."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 6,
+     "body": "<p>What happens to the share price after the conclusion of the transaction? Are the shareholders better off or worse off?</p>",
+     "solution": "<p><b>Step 1. Trace the cash.</b> NOK 2,200M is raised, NOK 1,000M repays the old debt and <b>NOK 1,200M is paid out</b>: 1,200 / 40 = <b>NOK 30 per share</b>.</p><p><b>Step 2. The new equity value.</b> V is unchanged at NOK 6,000M (MM I) and the debt is now NOK 2,200M:</p><p>E = 6,000 − 2,200 = <b>NOK 3,800M</b></p><p>A dividend retires no shares, so P = 3,800 / 40 = <b>NOK 95 per share</b>. The price falls by exactly the dividend.</p><p><b>Step 3. Better or worse off? Neither.</b></p><table class=\"data\"><tr><th>Before</th><th>After</th></tr><tr><td>1 share worth NOK 125</td><td>1 share worth NOK 95 + NOK 30 in cash = <b>NOK 125</b></td></tr></table><p>The recapitalisation moves NOK 1,200M from the equity claim into the shareholders' pockets and replaces it with a larger claim held by the creditors. In a perfect market that is repackaging.</p><p><b>Check.</b> 40M × NOK 95 + NOK 1,200M = 3,800 + 1,200 = <b>NOK 5,000M</b>, the equity value before the transaction.</p>",
+     "criteria": [
+      "Dividend = 2,200 − 1,000 = NOK 1,200M, or NOK 30 per share.",
+      "New E = 6,000 − 2,200 = NOK 3,800M over an UNCHANGED 40M shares: NOK 95. Reducing the share count confuses a dividend with a repurchase.",
+      "The price falls by exactly the dividend, from 125 to 95.",
+      "Answers the second question: neither better nor worse off, since 95 + 30 = 125. A price drop is not a loss.",
+      "Names the mechanism: MM I in a perfect market and the ex-dividend drop.",
+      "Both halves, the new price and the welfare conclusion, are needed for the 6 points."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 3,
+     "body": "<p>After the transaction the debt is risky: its beta is 0.2. The risk-free rate is still 3.5% and the market risk premium is 7.5%. What is the new equity cost of capital for the firm?</p>",
+     "solution": "<p><b>Step 1. The new cost of debt (CAPM).</b> r<sub>D</sub> = 3.5% + 0.2 × 7.5% = <b>5%</b></p><p><b>Step 2. MM II with the new structure.</b> r<sub>U</sub> stays at 8.9167% (same assets). D/E = 2,200/3,800 = 0.5789:</p><p>r<sub>E</sub> = 8.9167% + 0.5789 × (8.9167% − 5%) = <b>11.1842%</b></p><p><b>Check.</b> (3,800/6,000) × 11.1842% + (2,200/6,000) × 5% = 8.9167% = r<sub>U</sub>. This identity cannot catch a wrong r<sub>D</sub>; what matters is to use the new 5%. Keeping the old 3.5% would give 12.0526%: the creditors now carry part of the risk, which pulls r<sub>E</sub> down.</p>",
+     "criteria": [
+      "r_D = 3.5% + 0.2 × 7.5% = 5% from the CAPM.",
+      "Uses the POST-transaction D/E = 2,200/3,800, not the old 1,000/5,000.",
+      "Keeps r_U = 8.9167%: a financing transaction does not change asset risk.",
+      "r_E = 11.1842%. Using the old r_D of 3.5% gives 12.0526% and loses the point."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 3,
+     "body": "<p>Instead of a dividend, the management is considering a share repurchase. It will still repay the old debt and use the remaining money to repurchase shares.</p><p>What happens to the share price after the transaction? How many shares would the management repurchase?</p>",
+     "solution": "<p>Let P be the price after the transaction and N the number of shares repurchased. Equity is still worth NOK 3,800M after the payout (MM I), so</p><p>N × P = 1,200 (the cash buys the shares)<br>(40 − N) × P = 3,800 (the remaining equity)</p><p>Adding the two: 40P = 5,000, so <b>P = NOK 125</b>, unchanged. Then N = 1,200 / 125 = <b>9.6 million shares</b>, leaving 30.4 million.</p><p><b>Check.</b> 3,800 / 30.4 = NOK 125. A repurchase at the market price is a fair exchange, so the remaining shareholders neither gain nor lose. Under the dividend a shareholder ends with NOK 95 + NOK 30; under the repurchase a seller gets NOK 125 in cash and a holder keeps a NOK 125 share. Payout policy is irrelevant in a perfect market.</p>",
+     "criteria": [
+      "Share price unchanged at NOK 125, with the reason: the repurchase is a fair-value exchange of cash for shares.",
+      "Shares repurchased = 1,200/125 = 9.6 million, using the NOK 1,200M left after repaying the old debt, not the full 2,200.",
+      "The system N × P = 1,200 and (40 − N) × P = 3,800, or the check 3,800/30.4 = 125, confirms the answer.",
+      "Bonus: the comparison with (c), dividend 95 + 30 against repurchase 125, which is payout irrelevance."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Debt and risk",
+   "points": 18,
+   "topic": "Risk shifting and hedging",
+   "chapters": [
+    9,
+    24
+   ],
+   "merke": "Som H2024 E4: valg av strategi med og uten gjeld og en kraftkontrakt",
+   "body": "<p>Rognvik Vind AS, a wind-power developer, must choose one of two strategies for its new wind farm. The value of the farm at t = 1 depends on the power price (NOK million):</p><table class=\"data\"><tr><th>Strategy</th><th>Low price (30%)</th><th>Normal (50%)</th><th>High price (20%)</th></tr><tr><td>S: fixed-price contracts</td><td class=\"n\">60</td><td class=\"n\">75</td><td class=\"n\">90</td></tr><tr><td>R: sell at spot prices</td><td class=\"n\">10</td><td class=\"n\">35</td><td class=\"n\">210</td></tr></table><p>Any debt is a zero-coupon loan due at t = 1. Investors are risk neutral and the risk-free rate is 0%. The manager acts in the best interests of Rognvik's shareholders.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>Assume that Rognvik has no debt. Which strategy will the manager choose?</p>",
+     "solution": "<p>With no debt the shareholders own the whole firm, so the manager picks the highest expected value:</p><table class=\"data\"><tr><th>Strategy</th><th>Expected value</th><th>Value</th></tr><tr><td>S</td><td>0.3 × 60 + 0.5 × 75 + 0.2 × 90 = 18 + 37.5 + 18</td><td class=\"n\">73.5</td></tr><tr><td>R</td><td>0.3 × 10 + 0.5 × 35 + 0.2 × 210 = 3 + 17.5 + 42</td><td class=\"n\">62.5</td></tr></table><p><b>The manager chooses S</b>, worth NOK 73.5M: the first-best choice.</p>",
+     "criteria": [
+      "With no debt, equity value = firm value: maximise the expected payoff.",
+      "Both expectations shown: S = 73.5, R = 62.5.",
+      "Chooses S, the first-best benchmark.",
+      "Show the calculation."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>Assume that Rognvik has debt with a face value of NOK 50 million. Which strategy will the manager choose? What is the agency cost of debt?</p>",
+     "solution": "<p>Shareholders get max(value − 50, 0) in each state:</p><table class=\"data\"><tr><th>Strategy</th><th>Equity, state by state</th><th>Equity</th><th>Debt</th><th>Firm</th></tr><tr><td>S</td><td>0.3 × 10 + 0.5 × 25 + 0.2 × 40 = 3 + 12.5 + 8</td><td class=\"n\">23.5</td><td class=\"n\">50</td><td class=\"n\">73.5</td></tr><tr><td>R</td><td>0.3 × 0 + 0.5 × 0 + 0.2 × 160</td><td class=\"n\"><b>32</b></td><td class=\"n\">30.5</td><td class=\"n\">62.5</td></tr></table><p><b>The manager chooses R</b>, which gives the shareholders 32 against 23.5. Under R the loan is repaid in full only when the price is high; the creditors get 0.3 × 10 + 0.5 × 35 + 0.2 × 50 = 30.5.</p><p><b>Agency cost of debt</b> = the firm value lost because the debt distorts the choice: 73.5 − 62.5 = <b>NOK 11M</b>.</p><p><b>Check.</b> Shareholders +8.5, creditors −19.5, firm −11: +8.5 + (−19.5) = −11. The shareholders gain at the creditors' expense: risk shifting with a wealth transfer from the creditors.</p>",
+     "criteria": [
+      "Values equity state by state with max(value − 50, 0): S = 23.5, R = 32.",
+      "Chooses R.",
+      "Agency cost = 73.5 − 62.5 = NOK 11M, the drop in firm value relative to the first best.",
+      "Full marks for the accounting: creditors −19.5, shareholders +8.5. Also for naming risk shifting (asset substitution) and the wealth transfer."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 6,
+     "body": "<p>Is there a level of debt for which the manager is indifferent between the two strategies? If it exists, find it and briefly explain what happens if debt increases beyond that value. If it does not exist, explain why.</p>",
+     "solution": "<p>Write equity as a function of the face value D, region by region. S is safe for D ≤ 60, so E<sub>S</sub> = 73.5 − D there.</p><p><b>Region D ≤ 10.</b> Both are safe: E<sub>S</sub> − E<sub>R</sub> = 73.5 − 62.5 = 11 &gt; 0. No solution.</p><p><b>Region 10 &lt; D ≤ 35.</b> R defaults only in the low state: E<sub>R</sub> = 0.5(35 − D) + 0.2(210 − D) = 59.5 − 0.7D.<br>73.5 − D = 59.5 − 0.7D gives D = 46.6667, which is not in (10, 35]. <b>Reject.</b></p><p><b>Region 35 &lt; D ≤ 60.</b> R pays equity only in the high state: E<sub>R</sub> = 0.2(210 − D).<br>73.5 − D = 42 − 0.2D<br>0.8D = 31.5<br><b>D = NOK 39.375M</b>, which lies in (35, 60].</p><p><b>Verify.</b> E<sub>S</sub> = 73.5 − 39.375 = 34.125 and E<sub>R</sub> = 0.2 × 170.625 = 34.125.</p><p><b>No other solution.</b> For 60 &lt; D ≤ 75 the equation 55.5 − 0.7D = 42 − 0.2D gives D = 27, outside the region. For 75 &lt; D ≤ 90, E<sub>S</sub> = 0.2(90 − D) is always 24 below E<sub>R</sub> = 0.2(210 − D). Above 90 S leaves the shareholders nothing while R still pays them something (until D = 210, where both are worthless).</p><p><b>Beyond 39.375</b> the manager chooses R. Each extra unit of debt costs the S shareholders a full unit (they repay it in every state), but costs the R shareholders only 0.2, because they repay only in the high state. The more debt, the more the shareholders gamble with the creditors' money. The firm loses NOK 11M of value. At D = 70, for example, E<sub>S</sub> = 6.5 and E<sub>R</sub> = 28.</p>",
+     "criteria": [
+      "Sets up E(D) with max(value − D, 0) state by state and works region by region.",
+      "Shows that the region between 10 and 35 gives D = 46.6667, outside the region, so it is rejected. Stopping there with 46.67 is the classic error (H2024 E4c had the same trap).",
+      "Solves 73.5 − D = 0.2(210 − D) for D = 39.375 in the region between 35 and 60.",
+      "Verifies that both equity values equal 34.125.",
+      "Explains the follow-up: above that level R is chosen, because R's equity falls by only 0.2 per unit of debt against 1 for S. Risk shifting gets worse with leverage.",
+      "A graph is not necessary for full marks."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 5,
+     "body": "<p>Keep the debt of NOK 50 million. An aluminium smelter wants to lock in its power cost and offers Rognvik a contract with these payments to Rognvik at t = 1 (NOK million):</p><table class=\"data\"><tr><th>Strategy</th><th>Low price (30%)</th><th>Normal (50%)</th><th>High price (20%)</th></tr><tr><td>S</td><td class=\"n\">+10</td><td class=\"n\">0</td><td class=\"n\">−15</td></tr><tr><td>R</td><td class=\"n\">+40</td><td class=\"n\">0</td><td class=\"n\">−60</td></tr></table><p>Will the management accept the contract? Explain why or why not.</p>",
+     "solution": "<p><b>Step 1. The contract creates no value.</b> Under S: 0.3 × 10 − 0.2 × 15 = 3 − 3 = 0. Under R: 0.3 × 40 − 0.2 × 60 = 12 − 12 = 0. It only moves money from the high-price state to the low-price state: a pure hedge.</p><p><b>Step 2. Choice with the contract.</b></p><table class=\"data\"><tr><th>With the contract</th><th>Values</th><th>Equity</th><th>Debt</th><th>Firm</th></tr><tr><td>S</td><td>70 / 75 / 75</td><td class=\"n\">0.3 × 20 + 0.5 × 25 + 0.2 × 25 = 23.5</td><td class=\"n\">50</td><td class=\"n\">73.5</td></tr><tr><td>R</td><td>50 / 35 / 150</td><td class=\"n\">0.2 × 100 = 20</td><td class=\"n\">42.5</td><td class=\"n\">62.5</td></tr></table><p>With the contract the best the shareholders can do is S, worth 23.5. Without it they choose R and get 32. <b>The management rejects the contract</b>, because 23.5 &lt; 32.</p><p><b>Why.</b> The contract fills the low state and makes the debt safe. The shareholders would then give up the gain from risk shifting, which was paid for by the creditors. The hedge makes the firm better off (it leads back to S) but the creditors capture all of that and more: a wealth transfer from the shareholders to the creditors.</p><p><b>Check.</b> Contract with S against R without it:</p><table class=\"data\"><tr><th>Claim</th><th>R, no contract</th><th>S with contract</th><th>Change</th></tr><tr><td>Shareholders</td><td class=\"n\">32</td><td class=\"n\">23.5</td><td class=\"n\">−8.5</td></tr><tr><td>Creditors</td><td class=\"n\">30.5</td><td class=\"n\">50</td><td class=\"n\">+19.5</td></tr><tr><td>Firm</td><td class=\"n\">62.5</td><td class=\"n\">73.5</td><td class=\"n\">+11</td></tr></table><p>−8.5 + 19.5 = +11, exactly the agency cost from (b) that disappears when the firm goes back to S. The creditors gain more than the whole 11. Renegotiating the loan, or a covenant agreed before the debt was issued, could share the gain so that both sides accept.</p>",
+     "criteria": [
+      "Shows that the contract is zero-NPV under both strategies (0.3 × 10 = 0.2 × 15 and 0.3 × 40 = 0.2 × 60), so nothing here is about expected value.",
+      "Recomputes equity with the contract and re-optimises: S = 23.5, R = 20. Checking only R with the contract misses that the manager can switch to S.",
+      "Compares with 32 without the contract and concludes that management REJECTS it.",
+      "Explains the mechanism: the contract makes the debt safe and removes the shareholders' risk-shifting gain. Key words: a wealth transfer from the shareholders to the creditors.",
+      "The accounting: shareholders −8.5, creditors +19.5, firm +11. The creditors capture more than the whole gain.",
+      "Bonus: renegotiation or covenants as the fix."
+     ]
+    }
+   ]
+  }
+ ],
+ "del2-f5": [
+  {
+   "n": 1,
+   "title": "Capital Structure",
+   "points": 18,
+   "topic": "MM in perfect markets, recapitalisation",
+   "chapters": [
+    4,
+    6,
+    15
+   ],
+   "merke": "Som H2025 E3: evigrente, utbytte og rekapitalisering",
+   "body": "<p>Vandeldt Water NV, a regulated water utility, operates in a perfect capital market with no taxes. It has 25 million shares outstanding and €250 million of risk-free debt. The risk-free rate is 3%. The company generates an expected free cash flow of €67.5 million every year in perpetuity and pays out all cash flows as interest and dividends at the end of each year. Its equity cost of capital is 8%. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What is the share price right now? What is the unlevered cost of capital of the firm?</p>",
+     "solution": "<p><b>Step 1. Equity from its own cash flow.</b> Interest is 3% × €250M = €7.5M, so the shareholders receive 67.5 − 7.5 = €60M a year forever:</p><p>E = 60 / 0.08 = <b>€750M</b> and P<sub>0</sub> = 750 / 25 = <b>€30 per share</b></p><p><b>Step 2. r<sub>U</sub>.</b> V = 750 + 250 = €1,000M. With no taxes r<sub>U</sub> is the pre-tax WACC: r<sub>U</sub> = FCF / V = 67.5 / 1,000 = <b>6.75%</b>.</p><p><b>Check.</b> (750/1,000) × 8% + (250/1,000) × 3% = 6% + 0.75% = 6.75%.</p>",
+     "criteria": [
+      "Subtracts the interest first: 67.5 − 7.5 = €60M to equity. Discounting the whole FCF at r_E is the classic error.",
+      "E = 60/0.08 = €750M and share price = €30.",
+      "r_U = 67.5/1,000 = 6.75%, or the pre-tax WACC with weights 0.75 and 0.25. Both routes are accepted.",
+      "Show the calculation."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 3,
+     "body": "<p>What is the dividend per share at the end of Year 1? What is the share price just before and just after it is paid?</p>",
+     "solution": "<p><b>Dividend.</b> €60M / 25M = <b>€2.4 per share</b>.</p><p><b>Just after.</b> The share is again a claim on €2.4 a year forever: 2.4 / 0.08 = <b>€30</b>.</p><p><b>Just before.</b> The holder is about to receive the dividend as well: 30 + 2.4 = <b>€32.4</b>.</p><p><b>Check.</b> P<sub>0</sub> = (Div<sub>1</sub> + P<sub>1</sub>)/(1 + r<sub>E</sub>) = 32.4 / 1.08 = €30. The price climbs from 30 to 32.4 over the year and drops back by the dividend.</p>",
+     "criteria": [
+      "Dividend per share = 60/25 = €2.4.",
+      "Ex-dividend price €30 = 2.4/0.08.",
+      "Cum-dividend price €32.4 = ex-dividend price + dividend, or P0 × (1 + r_E).",
+      "Notes that the price is flat from year to year because nothing is retained."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 4,
+     "body": "<p>Instead of the projected scenario, the board decides to issue debt right now and use the proceeds to repurchase shares, so that the debt-to-equity ratio becomes 1.5.</p><p>How much new debt will be issued? What happens to the share price upon announcement? How many shares will be repurchased?</p>",
+     "solution": "<p><b>Step 1. No value effect.</b> No taxes, so MM I holds: V stays at €1,000M and <b>the share price stays at €30</b> on announcement.</p><p><b>Step 2. Convert the target.</b> D/E = 1.5 means D/V = 1.5 / (1 + 1.5) = <b>0.6</b>. Target debt = 0.6 × 1,000 = €600M, so the firm issues 600 − 250 = <b>€350M of new debt</b>.</p><p><b>Step 3. Shares.</b> 350 / 30 = <b>11.6667 million shares</b> repurchased at the unchanged price, leaving 13.3333 million.</p><p><b>Check.</b> E = 1,000 − 600 = €400M, so D/E = 600/400 = 1.5 as targeted, while 400 / 13.3333 = €30 per share.</p>",
+     "criteria": [
+      "Price unchanged at €30 on announcement, because MM I holds without taxes.",
+      "Converts D/E = 1.5 into D/V = 0.6. Setting D = 1.5 × 750 = 1,125 with the OLD equity value forgets that equity shrinks and loses the point.",
+      "New debt = 0.6 × 1,000 − 250 = €350M.",
+      "Shares repurchased = 350/30 = 11.6667 million.",
+      "The check D/E = 600/400 = 1.5 is a bonus and catches the D/E-versus-D/V slip."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 3,
+     "body": "<p>What is the dividend per share at the end of Year 1 now? What is the new equity cost of capital?</p>",
+     "solution": "<p><b>Dividend.</b> Interest = 3% × 600 = €18M, so equity gets 67.5 − 18 = €49.5M over 13.3333M shares: <b>€3.7125 per share</b>.</p><p><b>Cost of equity.</b> r<sub>E</sub> = 6.75% + 1.5 × (6.75% − 3%) = <b>12.375%</b>. The same from the cash flow: 49.5 / 400 = 12.375%.</p><p><b>Check.</b> 3.7125 / 0.12375 = €30: the price is unchanged.</p>",
+     "criteria": [
+      "Interest on the new debt is 18. Dividend per share 49.5/13.3333 = €3.7125 on the REDUCED share count.",
+      "r_E = 12.375% from MM II with D/E = 1.5, or from the equity cash flow.",
+      "Optional: 3.7125/12.375% = €30."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 5,
+     "body": "<p>Three investors each own 100 shares. Ana is in the original scenario (no recapitalisation). In the new scenario Ben sells all his shares in the repurchase and lends the cash at the risk-free rate, while Carla keeps all her shares. Compare their expected yearly cash flows and the values of their positions today.</p><p>How could an investor in the new scenario get exactly Ana's yearly cash flow? Comment.</p>",
+     "solution": "<table class=\"data\"><tr><th>Investor</th><th>Expected yearly cash flow</th><th>Risk</th><th>Value today</th></tr><tr><td>Ana (no recap)</td><td>100 × €2.4 = €240</td><td>equity of the firm as it was</td><td class=\"n\">240 / 0.08 = €3,000</td></tr><tr><td>Ben (sold, lends)</td><td>€3,000 × 0.03 = €90</td><td>risk-free</td><td class=\"n\">90 / 0.03 = €3,000</td></tr><tr><td>Carla (kept)</td><td>100 × €3.7125 = €371.25</td><td>levered equity, more risk</td><td class=\"n\">371.25 / 0.12375 = €3,000</td></tr></table><p>All three positions are worth <b>€3,000</b>. The cash flows differ only because the risk differs: Ben's is lowest and safe, Carla's is highest and riskiest.</p><p><b>Recreating Ana's position (homemade leverage).</b> Sell the same fraction of the shares as the firm repurchases, 11.6667/25 = 46.6667%. Then lend the cash:</p><p>Sell 46.6667 shares × €30 = €1,400, lent at 3%: €42 a year<br>Keep 53.3333 shares × €3.7125 = €198 a year<br>Total = <b>€240 a year</b>, exactly Ana's.</p><p>The investor now owns the same fraction of the new debt and of the new equity, which together are the old firm. That is why the cash flow matches in every state, not only in expectation.</p><p><b>Comment.</b> MM I: the recapitalisation creates no value, nobody is better or worse off. Any investor can undo (or copy) the firm's leverage on their own account.</p><p><b>Check.</b> The investor's position is worth 1,400 + 53.3333 × 30 = €3,000, the same as Ana's.</p>",
+     "criteria": [
+      "Expected yearly cash flows: Ana €240, Ben €90 (risk-free), Carla €371.25.",
+      "Values: 240/8%, 90/3% and 371.25/12.375% all equal €3,000. Each is discounted at its own rate.",
+      "Explains that the higher cash flow is compensation for higher risk, not a gain.",
+      "Recreates Ana: sell 46.6667 shares (46.6667%, the fraction the firm buys back), lend €1,400 for €42 a year and keep 53.3333 shares for €198, total €240.",
+      "Comment: anything reasonable about MM, for example MM I or homemade leverage."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Debt and risk",
+   "points": 18,
+   "topic": "Risk shifting and hedging",
+   "chapters": [
+    9,
+    24
+   ],
+   "merke": "Som H2024 E4: prosjektvalg med og uten gjeld og en kontrakt",
+   "body": "<p>Lüdersen Spezialchemie GmbH holds €40 million in cash and has no other assets. It can keep the cash, which earns 0%, or invest all of it in one of three projects. Each project costs €40 million today and pays off once, at t = 1:</p><table class=\"data\"><tr><th></th><th>Probability</th><th>Payoff at t = 1, € million</th></tr><tr><td>Keep the cash</td><td class=\"n\">100%</td><td class=\"n\">40</td></tr><tr><td>Project A</td><td class=\"n\">100%</td><td class=\"n\">46</td></tr><tr><td>Project B</td><td class=\"n\">60%</td><td class=\"n\">65</td></tr><tr><td></td><td class=\"n\">40%</td><td class=\"n\">10</td></tr><tr><td>Project C</td><td class=\"n\">20%</td><td class=\"n\">120</td></tr><tr><td></td><td class=\"n\">80%</td><td class=\"n\">5</td></tr></table><p>Any debt is a zero-coupon bank loan due at t = 1. Investors are risk neutral and the risk-free rate is 0%. The manager acts in the best interests of Lüdersen's shareholders.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>Assume that Lüdersen has no debt. What will the manager do?</p>",
+     "solution": "<p>With no debt the shareholders own everything, so the manager maximises the expected payoff (the NPV is the payoff minus the €40M invested):</p><table class=\"data\"><tr><th>Alternative</th><th>Expected payoff</th><th>Value</th><th>NPV</th></tr><tr><td>Keep the cash</td><td>40</td><td class=\"n\">40</td><td class=\"n\">0</td></tr><tr><td>A</td><td>46</td><td class=\"n\">46</td><td class=\"n\">+6</td></tr><tr><td>B</td><td>0.6 × 65 + 0.4 × 10 = 39 + 4</td><td class=\"n\">43</td><td class=\"n\">+3</td></tr><tr><td>C</td><td>0.2 × 120 + 0.8 × 5 = 24 + 4</td><td class=\"n\">28</td><td class=\"n\">−12</td></tr></table><p><b>The manager invests in project A</b>, the highest value (46). C has a negative NPV and would never be chosen by an all-equity firm.</p>",
+     "criteria": [
+      "With no debt the criterion is the highest expected payoff (or NPV).",
+      "Values shown: keep 40, A 46, B 43, C 28.",
+      "Chooses A and notes that C has NPV −12.",
+      "Show the calculation."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>Assume that Lüdersen owes the bank €30 million (face value). What will the manager do?</p>",
+     "solution": "<p>Shareholders get max(payoff − 30, 0) in each state:</p><table class=\"data\"><tr><th>Alternative</th><th>Equity</th><th>Debt</th><th>Firm</th></tr><tr><td>Keep the cash</td><td class=\"n\">40 − 30 = 10</td><td class=\"n\">30</td><td class=\"n\">40</td></tr><tr><td>A</td><td class=\"n\">46 − 30 = 16</td><td class=\"n\">30</td><td class=\"n\">46</td></tr><tr><td>B</td><td class=\"n\">0.6 × 35 = <b>21</b></td><td class=\"n\">0.6 × 30 + 0.4 × 10 = 22</td><td class=\"n\">43</td></tr><tr><td>C</td><td class=\"n\">0.2 × 90 = 18</td><td class=\"n\">0.2 × 30 + 0.8 × 5 = 10</td><td class=\"n\">28</td></tr></table><p><b>The manager invests in project B</b> (21 for the shareholders against 16 for A). The firm forgoes the extra 3 of value in A because B's bad state is borne by the bank: risk shifting.</p><p><b>Check.</b> Relative to A: shareholders +5, bank −8, firm −3; +5 + (−8) = −3. A wealth transfer from the bank to the shareholders.</p>",
+     "criteria": [
+      "Equity state by state with max(payoff − 30, 0): keep 10, A 16, B 21, C 18.",
+      "Chooses B. Keeping the cash is included as an alternative.",
+      "Names the mechanism: risk shifting, with a wealth transfer from the bank. The firm gives up 3 of value.",
+      "Full marks for the accounting: bank −8, shareholders +5, firm −3."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 6,
+     "body": "<p>Is there a level of debt for which the manager is indifferent between projects B and C? If it exists, find it and briefly explain what happens if the debt is higher. If it does not exist, explain why.</p>",
+     "solution": "<p><b>Region D ≤ 5.</b> Both are safe: E<sub>B</sub> − E<sub>C</sub> = 43 − 28 = 15. No solution.</p><p><b>Region 5 &lt; D ≤ 10.</b> B is still safe, C defaults in its bad state:<br>43 − D = 0.2(120 − D) = 24 − 0.2D gives D = 23.75, not in (5, 10]. <b>Reject.</b></p><p><b>Region 10 &lt; D ≤ 65.</b> Both default in their bad states:<br>0.6(65 − D) = 0.2(120 − D)<br>39 − 0.6D = 24 − 0.2D<br>0.4D = 15<br><b>D = €37.5M</b>, inside the region.</p><p><b>Region D &gt; 65.</b> B leaves the shareholders nothing while C still pays them 0.2(120 − D), so there is no second solution.</p><p><b>Verify.</b> E<sub>B</sub> = 0.6 × 27.5 = 16.5 and E<sub>C</sub> = 0.2 × 82.5 = 16.5. A gives 8.5 and keeping the cash 2.5, so B and C really are the contenders.</p><p><b>Higher debt.</b> Above 37.5 the manager chooses C, a project with NPV −12. C's equity falls by only 0.2 per unit of debt against 0.6 for B. Once the debt exceeds the €40M of cash the shareholders get nothing by keeping the cash, so they gamble with the bank's money on the one outcome that leaves them something. Firm value falls from 46 to 28: an agency cost of €18M.</p>",
+     "criteria": [
+      "Writes E(D) with max(payoff − D, 0) and checks the regions.",
+      "Rejects the region between 5 and 10, where the equation gives D = 23.75.",
+      "Solves 0.6(65 − D) = 0.2(120 − D) for D = 37.5 and verifies E_B = E_C = 16.5, with A (8.5) and keeping the cash (2.5) lower.",
+      "Explains the follow-up: above 37.5 the negative-NPV project C is chosen, because its equity falls more slowly in D (0.2 against 0.6). Excessive risk-taking at the creditors' expense.",
+      "Bonus: the agency cost rises to 18."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 5,
+     "body": "<p>Keep the debt of €30 million. A customer whose business moves opposite to Lüdersen's offers a contract tied to the risky projects, with these payments to Lüdersen at t = 1 (€ million). It pays nothing under A or if the cash is kept.</p><table class=\"data\"><tr><th></th><th>Good outcome</th><th>Bad outcome</th></tr><tr><td>Project B</td><td class=\"n\">−14</td><td class=\"n\">+21</td></tr><tr><td>Project C</td><td class=\"n\">−20</td><td class=\"n\">+5</td></tr></table><p>Will the management sign the contract? Explain why or why not. If it were signed, what would the shares and the loan be worth?</p>",
+     "solution": "<p><b>Step 1. The contract is zero-NPV.</b> B: 0.6 × (−14) + 0.4 × 21 = −8.4 + 8.4 = 0. C: 0.2 × (−20) + 0.8 × 5 = −4 + 4 = 0. It only moves money from the good outcome to the bad one.</p><p><b>Step 2. Re-optimise with the contract, still at D = 30.</b></p><table class=\"data\"><tr><th>With the contract</th><th>Payoffs</th><th>Equity</th><th>Debt</th><th>Firm</th></tr><tr><td>Keep the cash</td><td>40</td><td class=\"n\">10</td><td class=\"n\">30</td><td class=\"n\">40</td></tr><tr><td>A</td><td>46</td><td class=\"n\"><b>16</b></td><td class=\"n\">30</td><td class=\"n\">46</td></tr><tr><td>B</td><td>51 / 31</td><td class=\"n\">43 − 30 = 13</td><td class=\"n\">30</td><td class=\"n\">43</td></tr><tr><td>C</td><td>100 / 10</td><td class=\"n\">0.2 × 70 = 14</td><td class=\"n\">14</td><td class=\"n\">28</td></tr></table><p>With the contract B no longer shifts any loss to the bank, so the shareholders' best choice is A, worth 16. Without the contract they choose B and get 21 (part b).</p><p><b>Conclusion: the management does not sign</b>, because 16 &lt; 21. If it were signed, <b>the shares would be worth €16M and the loan €30M</b> (A repays it in full).</p><p><b>Why.</b> The contract removes the bad outcomes in which the bank bears the loss. It creates value for the firm, because it leads back to A, but the bank captures all of it and more: a wealth transfer from the shareholders to the bank.</p><p><b>Check.</b> Signed (A) against not signed (B):</p><table class=\"data\"><tr><th>Claim</th><th>Not signed (B)</th><th>Signed (A)</th><th>Change</th></tr><tr><td>Shareholders</td><td class=\"n\">21</td><td class=\"n\">16</td><td class=\"n\">−5</td></tr><tr><td>Bank</td><td class=\"n\">22</td><td class=\"n\">30</td><td class=\"n\">+8</td></tr><tr><td>Firm</td><td class=\"n\">43</td><td class=\"n\">46</td><td class=\"n\">+3</td></tr></table><p>−5 + 8 = +3, the value B destroyed relative to A. The bank gains more than the whole 3. A contract agreed before the loan was made, or a cut in the face value, would let the shareholders share the gain.</p>",
+     "criteria": [
+      "Shows that the contract is zero-NPV for B and C, so nothing here is about expected value.",
+      "Re-optimises with the contract: keep 10, A 16, B 13, C 14. Asking only whether the contract helps B misses that the manager can switch to A.",
+      "Compares with 21 without the contract and concludes that management does NOT sign.",
+      "If signed: shares €16M and loan €30M. Using B with the contract (shares 13) forgets the re-optimisation.",
+      "Explains the mechanism: the contract makes the debt safe, so the shareholders lose their risk-shifting gain. Key word: a wealth transfer from the shareholders to the bank.",
+      "The accounting: shareholders −5, bank +8, firm +3. The bank captures more than the whole gain."
+     ]
+    }
+   ]
+  }
+ ]
+}

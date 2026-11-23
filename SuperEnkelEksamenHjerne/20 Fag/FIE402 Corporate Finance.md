@@ -356,7 +356,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 |---|---|
 | Manualen | **30 kapitler · 109 000 ord** · alle uavhengig tallkontrollert |
 | Studieplan | **25 moduler · 78 timer**, estimatene regnet av faktisk innhold |
-| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **12 prøveeksamener** i Kurbatov-formatet (prove1–3 fra oktober, prove4–12 fra prediksjonen 14. november). **25 deleksamener** («Per del») laget av de 72 prøveoppgavene |
+| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **12 prøveeksamener** i Kurbatov-formatet (prove1–3 fra oktober, prove4–12 fra prediksjonen 14. november). **34 deleksamener** («Per del»): 25 laget av de 72 prøveoppgavene og 9 «Mest forventet» med 24 egne oppgaver (23. november) |
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **528**: 260 oppgavekort i 16 kategorier (forsiden en oppgavetype, baksiden svar og feller) og 268 begrepskort, pluss 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
@@ -551,7 +551,25 @@ ekte oppgave den ligner, eller hva vrien er. Merket navngir aldri mekanismen opp
 spør etter («Vri: fusjon av to selskaper med gjeld», ikke «coinsurance»).
 
 Settene er på 2–4 oppgaver og 65–115 minutter (1,8 minutter per poeng), med de
-verbale oppgavene først som på eksamen. Hvorfor oppgavene er lånt og ikke kopiert,
+verbale oppgavene først som på eksamen.
+
+**Ni nye «Mest forventet» med egne oppgaver (23. november 2026).** Magnus kunne ikke nok
+ennå til settene «Med vri» og ba om tre nye forventede sett i hver del, alle på
+eksamensnivå. Prøveoppgavene var brukt opp, så de 24 oppgavene er nyskrevne:
+del1-f3–f5 (H2025 E4 og H2024 E5), del2-f3–f5 (H2025 E3 eller H2024 E3 og H2024 E4) og
+del3-f4–f6 (H2025 E1 eller H2024 E1, governance, H2024 E6 eller H2025 E5, og CDS eller
+H2025 E6). Fire skribenter og fire blinde kontrollører: alle tall stemte i første runde
+(56 + 65 + 50 regnet på nytt). Det kontrollen fant, var
+- et felletall som var regnet feil, og to sammenlignbare firmaer med så like β_U at et svar
+  med bare ett firma ble godkjent automatisk
+- c- og d-ledd i del 2 som gled over i en vri (reforhandling, gjeldsoverheng med positiv
+  NPV), skrevet om til H2024 E4-formen med en NPV-nøytral kontrakt
+- et spørsmål med to lesninger (hvem vinner om avtalen signeres) og et feilsitat av
+  Kurbatov om milepælsmål
+- kriterier som krevde begrunnelser spørsmålet ikke ba om (nå bonus) og lister med godtatte
+  svar som manglet det nøklene godtar (markedsmakt, risikodeling ved aksjebetaling).
+Spesifikasjon: `docs/fie402-deleksamen-spek.md`. Kilde: `fag/fie402/_del/` (s1–s4 og
+`sett.json`), flettet inn med `tools/flett-del.py fie402 --skriv`. Hvorfor oppgavene er lånt og ikke kopiert,
 står i [[Eksamenssett-modulen]].
 
 ## Forelesningene 2026 (14. november 2026)

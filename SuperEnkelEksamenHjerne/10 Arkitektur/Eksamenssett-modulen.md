@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-11-22
+oppdatert: 2026-11-23
 ---
 
 # Eksamenssett-modulen
@@ -245,6 +245,12 @@ oppgaver med nye tall.
 - **Andre som leser settene må bruke `S.views.sett.alle()`**, som gir lista med
   lånene slått opp. `EDU_DATA.sets` alene viser lånte sett uten oppgaver. Se
   [[Fallgruver]] om planleggeren.
+- **Egne oppgaver (23. november 2026).** Et `kind: "del"`-sett kan også ha egne
+  `exercises` uten `lån`, og da står `merke` på oppgaven. Motoren behandler det som
+  et vanlig sett, og svar-dataene har nøkler med settets egen id (`del1-f3:1:a`).
+  `tools/sjekk-sett.js` sjekker del og art for begge slagene, og for egne oppgaver
+  også tiden (1,8 minutter per poeng) og at hver oppgave har et merke.
+  `tools/sjekk-prove.js` regner ikke deleksamenene som ekte eksamener.
 
 ## Retting med egen API-nøkkel (22. november 2026)
 
