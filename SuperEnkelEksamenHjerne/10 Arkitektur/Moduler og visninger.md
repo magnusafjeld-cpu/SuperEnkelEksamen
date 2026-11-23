@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-22
+oppdatert: 2026-11-23
 ---
 
 # Moduler og visninger
@@ -493,7 +493,8 @@ forfalt (minst to andre oppgaver imellom), så repetisjoner (lavest sannsynlighe
 huske først) med en ny hver fjerde gang, så nye kort vektet med eksamensvekt × (0,4 +
 andel feil i temaet) og en bonus for eksamensoppgavene, så ekstra øving. Aldri samme
 oppgave to ganger på rad, helst ikke samme tema tre ganger. Fokusknappene Alle, Del 1,
-Del 2 og Del 3 følger delene i `EDU_DATA.perDel`. Svar på eksamenstreningens spørsmål
+Del 2 og Del 3 følger delene i `EDU_DATA.perDel`. Delene slås av og på hver for seg, så
+flere kan velges samtidig (`fokus` er 0 eller en liste, for eksempel `[1, 2]`; alle tre blir 0). Svar på eksamenstreningens spørsmål
 skrives også til `"tr:<id>"`, og den gamle loggen der gir startstatusen (bommet sist:
 forfalt med en gang).
 
