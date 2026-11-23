@@ -214,6 +214,10 @@ window.EDU = window.EDU || {};
   /* ================= valg og økt ================= */
   const valg = () => Object.assign({ fokus: 0, hel: "av", modell: OPUS }, exams()["ov:valg"] || {});
   const settValg = (patch) => S.store.setExam("ov:valg", patch);
+  /* Fokus er 0 (hele pensum) eller en liste med deler, for eksempel [1, 2].
+     Eldre lagring hadde ett tall, og det leses som en liste med én del. */
+  const fokusDeler = () => { const f = valg().fokus; return Array.isArray(f) ? f : (f ? [f] : []); };
+  const iFokus = () => { const d = fokusDeler(); return (k) => !d.length || d.includes(k.del); };
   const økt = () => exams()["ov:okt"] || null;
   function lagreØkt(o) { exams()["ov:okt"] = o; S.store.emit(); }
   const dagLogg = (ms) => exams()["ovdag:" + dagISO(ms)] || { n: 0, r: 0, nye: 0 };
@@ -231,8 +235,7 @@ window.EDU = window.EDU || {};
   }
 
   function velgNeste(nå, o) {
-    const fokus = valg().fokus;
-    const alle = alleKort().filter((k) => !fokus || k.del === fokus);
+    const alle = alleKort().filter(iFokus());
     const hist = (o && o.hist) || [];
     const hoppet = (o && o.hoppet) || {};
     const sisteFam = hist.slice(-2).map((h) => h.fam);
@@ -774,8 +777,7 @@ FEILTYPE: INGEN, SLURV eller MISFORSTÅELSE`;
   const GRUNN = { lik: ["Lik oppgave", "rose"], lær: ["Lærer", "amber"], rep: ["Repetisjon", "slate"], ny: ["Ny", "green"], ekstra: ["Ekstra øving", "slate"] };
 
   function statistikk(nå) {
-    const fokus = valg().fokus;
-    const alle = alleKort().filter((k) => !fokus || k.del === fokus);
+    const alle = alleKort().filter(iFokus());
     let forfalt = 0, lærer = 0, nye = 0, imorgen = 0, sikre = 0;
     const morgen = dagStart(nå) + DAG;
     alle.forEach((k) => {
@@ -801,9 +803,19 @@ FEILTYPE: INGEN, SLURV eller MISFORSTÅELSE`;
       tallBoks(st.sikre, "sitter godt", "7+ dager"),
       dager != null ? tallBoks(dager, dager === 1 ? "dag til eksamen" : "dager til eksamen", st.imorgen ? `${st.imorgen} i morgen` : "") : null));
     const deler = [{ del: 0, kort: "Alle" }].concat((ov.deler || []).map((d) => ({ del: d.del, kort: d.kort, navn: d.navn })));
+    /* «Alle» nullstiller. En del slår seg av og på, så du kan øve på for eksempel
+       del 1 og 2 sammen. Velger du alle delene, er det det samme som «Alle». */
+    const valgt = fokusDeler(), antallDeler = (ov.deler || []).length;
+    const på = (d) => (d.del ? valgt.includes(d.del) : !valgt.length);
+    const veksle = (d) => {
+      if (!d.del) return 0;
+      const ny = valgt.includes(d.del) ? valgt.filter((x) => x !== d.del) : valgt.concat(d.del).sort();
+      return !ny.length || ny.length >= antallDeler ? 0 : ny;
+    };
     const chips = el(".row.wrap.ov-fokus", el("span.tiny.muted", "Fokus:"),
-      ...deler.map((d) => el("button.chip" + (v.fokus === d.del ? ".på" : ""), { type: "button", title: d.navn || "Hele pensum", "aria-pressed": String(v.fokus === d.del),
-        onclick: () => { settValg({ fokus: d.del }); const o = økt(); if (o && !Object.keys(o.vurdert || {}).length && !Object.keys(o.rett || {}).length) nyOppgave(Date.now()); S.app.refresh(); } }, d.kort)));
+      ...deler.map((d) => el("button.chip" + (på(d) ? ".på" : ""), { type: "button", title: d.navn || "Hele pensum", "aria-pressed": String(på(d)),
+        onclick: () => { settValg({ fokus: veksle(d) }); const o = økt(); if (o && !Object.keys(o.vurdert || {}).length && !Object.keys(o.rett || {}).length) nyOppgave(Date.now()); S.app.refresh(); } }, d.kort)),
+      el("span.tiny.muted", valgt.length ? "Trykk flere deler for å øve på dem sammen." : ""));
     const inst = el("details.ov-innstillinger", el("summary.tiny", "Innstillinger og slik virker det"),
       el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "10px" } }, el("span.tiny.muted", "Hele oppgaver:"),
         ...[["av", "Av og til"], ["ofte", "Ofte"], ["aldri", "Aldri"]].map(([id, navn]) => el("button.chip" + (v.hel === id ? ".på" : ""), { type: "button", onclick: () => { settValg({ hel: id }); S.app.refresh(); } }, navn))),
