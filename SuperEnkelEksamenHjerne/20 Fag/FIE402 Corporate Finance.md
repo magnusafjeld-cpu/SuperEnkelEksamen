@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-11-23
+oppdatert: 2026-11-24
 ---
 
 # FIE402 Corporate Finance
@@ -630,7 +630,7 @@ NotebookLM-kilder, med god tid.
   (gevinsten er 27 mill., ikke 37). I tillegg kilder per problem set (PS1–PS3) og en
   dypdykkfil for andre halvdel av forelesning 9 (`… lecture 9 options I after put-call
   parity.md`, 21.11.2026): binomial, replikering, ρ, Black-Scholes-intuisjon og implisitt
-  volatilitet, med H2024 E6, H2025 E1 og 2022 P4. Alle tall regnet på nytt i Python.
+  volatilitet, med H2024 E6, H2025 E1 og 2022 P4. Alle tall regnet på nytt i Python. Senior og junior gjeld som calls (Google-oppgaven, PS3 E6) har egen kilde og prompt for en forklaringsvideo (24.11.2026).
 - **Panopto-tekstingen (22.11.2026):** alle 17 opptak ligger i kursmappen under
   `Forelesninger/Teksting fra Panopto/`. Fem agenter leste dem mot NotebookLM-kildene;
   funnene står i `NotebookLM-kilder/FIE402 NotebookLM source exam signals from all lecture
