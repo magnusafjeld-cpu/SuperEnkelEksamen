@@ -97,5 +97,82 @@
   "points": 64,
   "format": "4 oppgaver",
   "note": "Nye oppgaver skrevet for denne delen, i samme form som oppgavene Kurbatov ga i H2024 og H2025, med nye tall og nye firmaer."
+ },
+ {
+  "id": "hint1-1",
+  "kind": "del",
+  "del": 1,
+  "art": "hint",
+  "label": "Del 1 · Hintet 1",
+  "minutes": 108,
+  "points": 60,
+  "format": "4 oppgaver",
+  "note": "Bare oppgaver Kurbatov pekte ut i forelesning høsten 2026 som mulige eksamensoppgaver, skrevet på nytt med egne tall. Merket ved hver oppgave sier hvilken forelesning og hva som ble sagt."
+ },
+ {
+  "id": "hint2-1",
+  "kind": "del",
+  "del": 2,
+  "art": "hint",
+  "label": "Del 2 · Hintet 1",
+  "minutes": 108,
+  "points": 60,
+  "format": "4 oppgaver",
+  "note": "Bare oppgaver Kurbatov pekte ut i forelesning høsten 2026 som mulige eksamensoppgaver, skrevet på nytt med egne tall. Merket ved hver oppgave sier hvilken forelesning og hva som ble sagt."
+ },
+ {
+  "id": "hint2-2",
+  "kind": "del",
+  "del": 2,
+  "art": "hint",
+  "label": "Del 2 · Hintet 2",
+  "minutes": 108,
+  "points": 60,
+  "format": "4 oppgaver",
+  "note": "Bare oppgaver Kurbatov pekte ut i forelesning høsten 2026 som mulige eksamensoppgaver, skrevet på nytt med egne tall. Merket ved hver oppgave sier hvilken forelesning og hva som ble sagt."
+ },
+ {
+  "id": "hint2-3",
+  "kind": "del",
+  "del": 2,
+  "art": "hint",
+  "label": "Del 2 · Hintet 3",
+  "minutes": 90,
+  "points": 50,
+  "format": "3 oppgaver",
+  "note": "Bare oppgaver Kurbatov pekte ut i forelesning høsten 2026 som mulige eksamensoppgaver, skrevet på nytt med egne tall. Merket ved hver oppgave sier hvilken forelesning og hva som ble sagt."
+ },
+ {
+  "id": "hint3-1",
+  "kind": "del",
+  "del": 3,
+  "art": "hint",
+  "label": "Del 3 · Hintet 1",
+  "minutes": 108,
+  "points": 60,
+  "format": "4 oppgaver",
+  "note": "Bare oppgaver Kurbatov pekte ut i forelesning høsten 2026 som mulige eksamensoppgaver, skrevet på nytt med egne tall. Merket ved hver oppgave sier hvilken forelesning og hva som ble sagt."
+ },
+ {
+  "id": "hint3-2",
+  "kind": "del",
+  "del": 3,
+  "art": "hint",
+  "label": "Del 3 · Hintet 2",
+  "minutes": 108,
+  "points": 60,
+  "format": "4 oppgaver",
+  "note": "Bare oppgaver Kurbatov pekte ut i forelesning høsten 2026 som mulige eksamensoppgaver, skrevet på nytt med egne tall. Merket ved hver oppgave sier hvilken forelesning og hva som ble sagt."
+ },
+ {
+  "id": "hint3-3",
+  "kind": "del",
+  "del": 3,
+  "art": "hint",
+  "label": "Del 3 · Hintet 3",
+  "minutes": 90,
+  "points": 50,
+  "format": "3 oppgaver",
+  "note": "Bare oppgaver Kurbatov pekte ut i forelesning høsten 2026 som mulige eksamensoppgaver, skrevet på nytt med egne tall. Merket ved hver oppgave sier hvilken forelesning og hva som ble sagt."
  }
 ]

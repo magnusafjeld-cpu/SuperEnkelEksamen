@@ -1,0 +1,327 @@
+{
+ "hint3-1": [
+  {
+   "n": 3,
+   "title": "M&A",
+   "points": 20,
+   "topic": "Mergers and acquisitions",
+   "chapters": [
+    22,
+    26
+   ],
+   "merke": "Forelesning 16 (M&A), 1:11:07: «it can literally be an exam question and it has been»",
+   "body": "<p>In March, rumours spread that Hvalstad Data ASA (A) would bid for Lomsdal Systemer ASA (B). Before the rumours the share prices were P<sub>A,0</sub> = NOK 45.00 and P<sub>B,0</sub> = NOK 58.00. Today A has made a formal offer: if the deal goes through, each share of B will be exchanged for 1.6 new shares of A. The deal will be completed or will fail in exactly 9 months. Today's prices are P<sub>A,1</sub> = NOK 47.50 and P<sub>B,1</sub> = NOK 71.20.</p><p>The risk-free rate is 4.5% per year. Short selling is allowed. If the deal fails, assume that both prices return to their levels before the rumours. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What is A's offer worth per share of B at today's prices? What premium, in percent, is that over B's price before the rumours? What is the spread in NOK between the offer and B's price today?</p>",
+     "solution": "<p>Each B share becomes 1.6 A shares, so at today's price of A:</p><p>Offer = 1.6 × 47.50 = <b>NOK 76.00</b> per B share<br>Premium over the pre-rumour price = 76.00/58.00 − 1 = <b>31.03%</b> (NOK 18.00 per share)<br>Spread = 76.00 − 71.20 = <b>NOK 4.80</b> (6.74% of today's price)</p><p>B trades below the offer because the deal may fail; if it does, B falls back towards 58. Parts (b) and (c) turn the size of this spread into a probability.</p>",
+     "criteria": [
+      "Offer = 1.6 × 47.50 = 76.00 per B share, valued at A's price today. 1.6 × 45 = 72 is the value if the deal fails, not the offer.",
+      "Premium = 76.00/58.00 − 1 = 31.03% over the pre-rumour price.",
+      "Spread = 76.00 − 71.20 = 4.80 (6.74% of today's price).",
+      "Bonus: explains that B trades below the offer because the deal may fail."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 5,
+     "body": "<p>Build a position that profits from the spread: buy one share of B, short-sell the A shares it would be exchanged for and invest the proceeds at the risk-free rate. What is the position worth in 9 months if the deal goes through? What is it worth if the deal fails?</p>",
+     "solution": "<p><b>Step 1. The 9-month factor.</b> Discrete compounding for 0.75 of a year: (1.045)<sup>0.75</sup> = <b>1.033564</b>.</p><p><b>Step 2. The position today.</b></p><table class=\"data\"><tr><th>Leg</th><th>Action</th><th>Cash flow today</th></tr><tr><td>Long target</td><td class=\"n\">Buy 1 share of B at 71.20</td><td class=\"n\">−71.2000</td></tr><tr><td>Short acquirer</td><td class=\"n\">Short-sell 1.6 shares of A at 47.50</td><td class=\"n\">+76.0000</td></tr><tr><td>Risk-free</td><td class=\"n\">Invest the 76.00 for 9 months</td><td class=\"n\">−76.0000</td></tr><tr><td><b>Net outlay</b></td><td class=\"n\"></td><td class=\"n\"><b>−71.2000</b></td></tr></table><p><b>Step 3. Success.</b> The B share is exchanged for exactly the 1.6 A shares needed to close the short. You keep the deposit: 76.00 × 1.033564 = <b>78.5508</b>.</p><p><b>Step 4. Failure.</b> Prices return to 45 and 58. You sell the B share for 58, buy back 1.6 A shares for 1.6 × 45 = 72 and keep the deposit: 78.5508 + 58 − 72 = <b>64.5508</b>.</p><p>The two payoffs differ by 72 − 58 = 14, the gap between the two pre-rumour values of one B share.</p>",
+     "criteria": [
+      "Uses discrete compounding for 9 months: 1.045^0.75 = 1.033564, not 1.045.",
+      "Long 1 B, short 1.6 A (the exchange ratio) and the proceeds of 76.00 invested at the risk-free rate; the net outlay is B's price, 71.20. Other consistent constructions are accepted, for example Kurbatov's self-financed version (buy B with the short proceeds and deposit the remaining 4.80), whose payoffs are 4.9611 and −9.0389.",
+      "Success: the B share converts into the A shares that close the short, so the position is worth the deposit, 76.00 × 1.033564 = 78.5508.",
+      "Failure: 78.5508 + 58 − 72 = 64.5508, using the pre-rumour prices for both shares.",
+      "Shows the construction and both payoffs, not only the numbers."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 5,
+     "body": "<p>What probability of completion do today's prices imply?</p>",
+     "solution": "<p><b>Step 1. Certainty equivalent.</b> The position costs 71.20 today. Without arbitrage, its risk-neutral expected value in 9 months is that cost grown at the risk-free rate: 71.20 × 1.033564 = <b>73.5897</b>. Plugging in 71.20 itself is the classic error.</p><p><b>Step 2. Solve.</b> 73.5897 = p × 78.5508 + (1 − p) × 64.5508<br>p = (73.5897 − 64.5508)/(78.5508 − 64.5508) = 9.0389/14.0000 = <b>0.6456</b> (64.56%)</p><p><b>Check.</b> Kurbatov's self-financed version gives the same: short 1.6 A for 76.00, buy B for 71.20 and deposit the 4.80. It costs 0 today and is worth 4.80 × 1.033564 = 4.9611 on success and 4.9611 + 58 − 72 = −9.0389 on failure. Then 0 = p × 4.9611 + (1 − p) × (−9.0389) gives p = 9.0389/14.0000 = 0.6456 ✓. The two constructions share their inputs, so the check catches arithmetic slips, not a wrong reversion assumption.</p><p><b>The traps.</b> Using 71.20 instead of the certainty equivalent gives 0.4749. The full-year factor 1.045 gives 0.6417. Simple interest, 1 + 0.045 × 0.75, gives 0.6456: close enough, but the course uses (1 + r<sub>f</sub>)<sup>T</sup>.</p>",
+     "criteria": [
+      "Certainty equivalent: 71.20 × 1.033564 = 73.5897. Plugging in 71.20 gives 0.4749, which is wrong (Kurbatov's H2025 key: very important not to just plug in the price).",
+      "Sets up 73.5897 = p(78.5508) + (1 − p)(64.5508) and solves p = 9.0389/14 = 0.6456.",
+      "Uses (1 + r_f)^T with T = 0.75. The full-year factor 1.045 gives 0.6417; reasonable approximations of the 9-month factor are fine.",
+      "Bonus: confirms p with the self-financed construction (cost 0, payoffs 4.9611 and −9.0389)."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 4,
+     "body": "<p>Why might B's price not fall all the way back to 58 if the deal fails? Suppose B would then trade at NOK 62.00, while A still returns to NOK 45.00. What probability of completion do today's prices imply now? Explain the direction of the change.</p>",
+     "solution": "<p><b>Why B may not fall back.</b> The bid can reveal that B is worth more than the market thought: A has studied B closely and is willing to pay a premium. It can also attract other bidders. And B keeps operating for 9 months, so news about its business moves its fall-back value away from the old 58.</p><p><b>New failure payoff:</b> 78.5508 + 62 − 72 = 68.5508. The success payoff (78.5508) and the certainty equivalent (73.5897) are unchanged.</p><p>p = (73.5897 − 68.5508)/(78.5508 − 68.5508) = 5.0389/10.0000 = <b>0.5039</b></p><p><b>Direction.</b> The probability falls from 0.6456 to 0.5039. B's price of 71.20 is a risk-neutral average of what B is worth on success and on failure. If failure costs less, a lower chance of success is enough to explain the same price. Assuming full reversion when B would in fact stay higher therefore overstates the market's probability.</p>",
+     "criteria": [
+      "Gives a reason why B need not fall back: the bid reveals that B is undervalued, it may attract other bidders, or B's business changes over the 9 months.",
+      "New failure payoff 78.5508 + 62 − 72 = 68.5508; success 78.5508 and certainty equivalent 73.5897 unchanged.",
+      "p = 5.0389/10.0000 = 0.5039.",
+      "Explains the direction: a less costly failure needs a lower probability of success to justify B's price, so the full-reversion assumption overstates p."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 3,
+     "body": "<p>Suppose instead that the completion date is postponed by one year, to 21 months from today. Assume first that the market's probability of completion is unchanged. What happens to the spread? Why might the market nevertheless revise the probability? What would that do to the spread? Briefly explain.</p>",
+     "solution": "<p><b>Unchanged probability: the spread narrows slightly.</b> Kurbatov's self-financed position shows what the spread pays for. You receive the spread today and deposit it; on failure you also lose 72 − 58 = 14. Priced risk-neutrally, 0 = spread × (1 + r<sub>f</sub>)<sup>T</sup> − (1 − p) × 14, so spread = (1 − p) × 14/(1 + r<sub>f</sub>)<sup>T</sup>. Today: 0.354365 × 14/1.033564 = 4.8000 ✓. With T = 1.75 and p unchanged: 0.354365 × 14/1.080074 = <b>4.5933</b>. The loss on failure comes later and is discounted more, so a smaller spread is enough.</p><p><b>Why the probability may change.</b> A longer wait usually means more can go wrong: regulators may block the deal, financing or A's shareholders may turn, or bad news may hit B. If the market lowers p, the spread widens again. It ends above today's 4.80 only if p falls below 0.6297, the probability that keeps the spread at 4.80 with T = 1.75: the deposited spread now grows for longer, so a higher probability of failure is needed to offset it.</p><p>Kurbatov raised this kind of tail in the wrap-up (recording 18, 5:29): «What if we can delay this M&amp;A by one year? How would you treat it?» An intuition-based answer is what is expected.</p><p><b>Also accepted.</b> The reversion assumption becomes weaker, since pre-rumour prices are a poorer guide to failure prices 21 months later. As a practical point outside the model, arbitrageurs' capital is tied up longer in a position that is not risk-free (limits to arbitrage).</p>",
+     "criteria": [
+      "With p unchanged the spread narrows slightly, to (1 − p) × 14/1.045^1.75 = 4.5933, because the loss of 14 on failure comes later and is discounted more. The direction with this reason earns the point; the number is not required.",
+      "Explains why the market may revise p downwards: more can go wrong over a longer horizon (regulators, financing, A's shareholders, news about B).",
+      "A lower p widens the spread; it ends above today's 4.80 only if p falls below 0.6297.",
+      "Also accepted for one of the points: the reversion assumption becomes weaker after 21 months. Tied-up arbitrage capital counts only as a practical limit to arbitrage. Claiming that time value alone widens the spread is wrong for a stock swap."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Credit Risk",
+   "points": 20,
+   "topic": "Risky debt and credit default swaps",
+   "chapters": [
+    5,
+    22,
+    24
+   ],
+   "merke": "Forelesning 13 (Options II), 18:06: «a very similar example could be in the exam»",
+   "body": "<p>Gimsøy Rederi ASA has issued one-year bonds with a face value of NOK 100 and a coupon of 7%. The coupon is paid at maturity together with the face value. A bond trades today at NOK 96.80. Default can only happen at maturity. If Gimsøy defaults, a bondholder receives NOK 45 per bond and no coupon. Rating analysts estimate the probability of default at 6%. The one-year risk-free rate is 4%.</p><p>A credit default swap (CDS) contract on Gimsøy pays NOK 1 at the end of the year if Gimsøy defaults and nothing otherwise. Its price is paid today. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What is the bond's promised yield to maturity? What would the bond be worth today if its payments were risk-free?</p>",
+     "solution": "<p>The bond promises 100 + 7 = <b>107</b> in one year.</p><p>Promised yield = 107/96.80 − 1 = <b>10.54%</b><br>Risk-free value = 107/1.04 = <b>NOK 102.8846</b></p><p>The gap, 102.8846 − 96.80 = 6.0846, is what the default risk costs a bondholder today. It comes back in (d).</p>",
+     "criteria": [
+      "Promised payment 100 + 7 = 107, not 100.",
+      "Promised yield 107/96.80 − 1 = 10.54%. Using 100 gives 3.31%, below the risk-free rate, a sign that the coupon is missing.",
+      "Risk-free value 107/1.04 = 102.8846."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>What is the expected return on the bond? Compare it with the promised yield and the risk-free rate. Explain briefly.</p>",
+     "solution": "<p>The expected return uses the payment the bond is expected to make with the analysts' probability, not the promised one:</p><p>E[payoff] = 0.94 × 107 + 0.06 × 45 = 100.58 + 2.70 = <b>103.28</b><br>Expected return = 103.28/96.80 − 1 = <b>6.69%</b></p><p>The yield of 10.54% is earned only if Gimsøy does not default, so the expected return is lower: 10.54% − 6.69% = 3.84 points is the expected default loss. The expected return is still above the risk-free 4%, by 2.69 points. That is a risk premium: Gimsøy is most likely to default in a shipping slump, which tends to come in bad times for the whole economy, so the default risk is systematic.</p>",
+     "criteria": [
+      "Expected payoff 0.94 × 107 + 0.06 × 45 = 103.28 with the analysts' probability.",
+      "Expected return 103.28/96.80 − 1 = 6.69%.",
+      "Below the 10.54% yield: the yield is the promised return, earned only if Gimsøy does not default.",
+      "Above the risk-free 4%: default risk is systematic (defaults cluster in bad times), so bondholders earn a risk premium of 2.69 points."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 6,
+     "body": "<p>What is the risk-neutral probability that Gimsøy defaults, as implied by the bond price? What is the price of one CDS contract?</p>",
+     "solution": "<p><b>Step 1. The tree.</b> Let ρ be the risk-neutral probability of <b>default</b> and put it in the bottom branch. No default (1 − ρ): the bond pays 107 and the CDS 0. Default (ρ): the bond pays 45 and the CDS 1.</p><p><b>Step 2. Price the bond risk-neutrally.</b> The expected payoff under ρ, discounted at the risk-free rate, must equal the market price:</p><p>[(1 − ρ) × 107 + ρ × 45]/1.04 = 96.80<br>107 − 62ρ = 96.80 × 1.04 = 100.6720<br>ρ = 6.3280/62 = <b>0.1021</b> (10.21%)</p><p><b>Step 3. Price the CDS</b> with the same ρ and the risk-free rate. It pays 1 only in the default branch:</p><p>CDS = [(1 − ρ) × 0 + ρ × 1]/1.04 = 0.102065/1.04 = <b>NOK 0.0981</b> per contract (0.098139 unrounded)</p><p><b>The traps.</b> Writing ρ × 107 + (1 − ρ) × 45 makes ρ the survival probability (0.8979). Carrying that number into the CDS as if it were the default probability gives 0.8634, almost nine times too much. Either convention works if it is kept to the end. Forgetting the coupon (100 instead of 107) gives ρ = −0.0122, which is impossible. Using the analysts' 6% with the risk-free rate gives 0.0577, which underprices the protection.</p>",
+     "criteria": [
+      "States the pricing condition: the expected payoff under risk-neutral probabilities, discounted at the risk-free rate, equals the market price.",
+      "Sets up [(1 − rho)(107) + rho(45)]/1.04 = 96.80 and finds rho = 6.3280/62 = 0.1021 as the probability of default.",
+      "Discounts at the risk-free 4%, not at the promised yield.",
+      "CDS = rho/1.04 = 0.0981 per contract.",
+      "Keeps rho as the default probability to the end: the survival probability 0.8979 in the CDS gives 0.8634, which is wrong. Kurbatov (Options II recording, 27:31 to 32:24) said more than half of a class lost points on exactly this.",
+      "Uses the risk-neutral probability, not the analysts' 6% (which would give 0.0577)."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 4,
+     "body": "<p>How many CDS contracts must the holder of one bond buy to make the bond risk-free? What do the contracts cost? What is the bond together with the contracts worth today? Compare with your answer in (a).</p>",
+     "solution": "<p>In default the bondholder receives 45 instead of the promised 107, a loss of 107 − 45 = 62. Each contract pays 1, so the holder needs <b>62 contracts</b> per bond (Kurbatov's λ, the exposure in default).</p><p>Cost = 62 × 0.098139 = <b>NOK 6.0846</b><br>Bond plus contracts = 96.80 + 6.0846 = <b>NOK 102.8846</b></p><p><b>Check.</b> The hedged bond pays 107 without default and 45 + 62 = 107 with default, so it is a risk-free claim on 107, worth 107/1.04 = 102.8846 as in (a) ✓. The contracts cost exactly the gap of 6.0846 from (a): the protection is worth what the default risk takes off the bond's price. The check fails with the survival probability from the trap in (c) (the hedged bond would cost 150.3308) and with 55 contracts (face value minus recovery), which leaves 7 unhedged in default: 96.80 + 55 × 0.098139 = 102.1976.</p>",
+     "criteria": [
+      "Hedges the loss in default against the promised payment: 107 − 45 = 62 contracts, not 100 − 45 = 55, because the coupon is lost too.",
+      "Cost 62 × 0.098139 = 6.0846.",
+      "Bond plus contracts = 96.80 + 6.0846 = 102.8846, equal to the risk-free value in (a) because the hedged bond pays 107 in both states.",
+      "Comments that the cost of the protection equals the gap between the risk-free value and the bond price."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 3,
+     "body": "<p>How does the default probability from (c) compare with the analysts' 6%? Explain the difference. Which of the two prices the CDS?</p>",
+     "solution": "<p>The risk-neutral probability, 10.21%, is about 1.7 times the analysts' 6%. Gimsøy is most likely to default in a shipping slump, which tends to come with a weak economy, when a krone is worth more to investors. They therefore demand a risk premium for holding the bond. Risk-neutral valuation keeps the risk-free rate in the denominator and moves that premium into the probabilities instead, which puts more weight on the default state.</p><p>The CDS is a traded claim on the same default event, priced in the same market as the bond, so it is priced with ρ = 10.21% and the risk-free rate. With 6% the CDS would cost 0.0577 and the hedged bond 96.80 + 62 × 0.057692 = 100.3769, less than a risk-free claim on 107 (102.8846): an arbitrage.</p>",
+     "criteria": [
+      "States that rho (10.21%) is higher than the real 6%.",
+      "Explains why: default happens in bad times, so investors demand a risk premium, which risk-neutral valuation puts into the probability rather than the discount rate.",
+      "Says that the CDS is priced with rho and the risk-free rate, never with the real probability and the risk-free rate.",
+      "Bonus: with 6% the hedged bond would cost less than a risk-free claim on 107, an arbitrage."
+     ]
+    }
+   ]
+  }
+ ],
+ "hint3-3": [
+  {
+   "n": 1,
+   "title": "Real Options",
+   "points": 10,
+   "topic": "Real options",
+   "chapters": [
+    25,
+    23
+   ],
+   "merke": "Forelesning 14 (Options III), 9:19: «imagine that this is an exam question»",
+   "body": "<p>Kaja Brenden has built an app that matches farmers with seasonal workers. She can launch it nationwide now or wait one year and decide then. At today's numbers, launching now has a positive NPV. Her co-founder says: «Options are contracts traded on the stock exchange. They have nothing to do with our launch.»</p><p>(i) Give three examples of an option to wait from three different areas, for example business, natural resources and personal life. For each, say in 1-2 sentences what the holder can do but is not forced to do. (3 points)<br>(ii) What does it cost Kaja to wait a year? Name two different costs. (2 points)<br>(iii) Comparable listed app companies have a return volatility of either about 15% or about 60%. How does each case affect the choice between launching now and waiting? (4 points)<br>(iv) Is the co-founder right? (1 point)</p><p>No calculations are needed. 3-5 sentences should be enough for (iii).</p>",
+   "solution": "<p><b>(i) Three options to wait.</b></p><ul><li><b>Business: a plot of land with a building permit.</b> The owner can build a warehouse when demand looks strong enough, or keep the land empty and decide later; nothing forces construction now.</li><li><b>Natural resources: an oil field or a mining licence.</b> The licence holder can start extraction when prices are high and leave the resource in the ground while they are low.</li><li><b>Personal life: further education.</b> After a bachelor's degree you can start a master's now, or work for a year, learn what you want and decide then.</li></ul><p>Also accepted: a finished R&amp;D project kept on the shelf until the market is ready (Kurbatov's foldable phone example), option clauses in a football player's contract, a franchise right that can be used now or later.</p><p><b>(ii) Costs of waiting.</b> Kaja gives up the first year's cash flows from the app. Competitors may launch a similar app in the meantime and take the market she would have had. Also accepted: the right to launch may lapse, or a later launch may cost more.</p><p><b>(iii) Volatility.</b> Waiting has value because the uncertainty is resolved before Kaja commits: she keeps the upside and can walk away from the downside. With σ around 15% little is learned in a year (with σ = 0, nothing at all), so waiting mainly costs a year of cash flows and she should launch now. With σ around 60% the app may turn out much better or much worse than expected, so the option to wait is worth much more. It can exceed the NPV of launching now; then she should wait even though that NPV is positive.</p><p>Also accepted in (iii): the comparable firms' volatility stands in for the uncertainty about the app's value; launching now gives up the option, so it pays only when the NPV today is high enough to outweigh the value of waiting.</p><p><b>(iv) No.</b> Any right without an obligation is an option. The launch decision is a call on the app's value with the launch cost as the strike.</p>",
+   "criteria": [
+    "(i) 3 points, 1 per example. Each must name a real decision with a right but no obligation to act now. The three must come from different areas. Two examples of the same kind (a factory and a warehouse) count once. A call or put traded on the stock exchange earns nothing: the question is about real options.",
+    "(ii) 2 points, 1 per cost. Lost first-year cash flows and competitors moving in are the two Kurbatov names (Options III, 8:39); an expiring right or a higher later cost also counts. «It takes time» without a mechanism earns nothing.",
+    "(iii) 2 points: low volatility favours launching now. Little uncertainty is resolved by waiting (edge case sigma = 0: waiting is worthless), so with a positive NPV the cost of waiting dominates.",
+    "(iii) 2 points: high volatility can make waiting better even with a positive NPV, because waiting keeps the upside and lets Kaja walk away from the downside. The value of the option to wait rises with volatility.",
+    "(iv) 1 point: the co-founder is wrong, because any right without an obligation is an option; the launch is a call on the app's value with the launch cost as the strike.",
+    "No points for a Black-Scholes calculation: the question asks for intuition."
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Real Options",
+   "points": 20,
+   "topic": "Real options",
+   "chapters": [
+    1,
+    25
+   ],
+   "merke": "Forelesning 18 (Wrap-up), 1:08:19: «I had an exam question based on this premise»",
+   "body": "<p>You can open an indoor golf centre with simulators in Mo i Rana. The fit-out costs NOK 1,800,000, paid today. Rent, staff and other running costs are NOK 105,000 a month. Revenue will be either NOK 130,000 a month forever (probability 40%) or NOK 85,000 a month forever (probability 60%). You will learn which right after opening. All cash flows come at the end of each month, the first one month from today. Demand for indoor golf is unrelated to the stock market, so discount at the risk-free rate of 5% per year (effective annual rate). Keep at least six decimals in the monthly rate.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What is the monthly discount rate? What is the NPV of opening if you must run the centre forever? Will you open it?</p>",
+     "solution": "<p>The cash flows are monthly, so convert the annual rate: r<sub>m</sub> = 1.05<sup>1/12</sup> − 1 = <b>0.004074</b> (0.4074% a month). Dividing 5% by 12 gives 0.4167%, which compounds to more than 5% a year.</p><p>Net cash flow per month: 130,000 − 105,000 = +25,000 or 85,000 − 105,000 = −20,000.<br>Expected = 0.4 × 25,000 + 0.6 × (−20,000) = <b>−2,000</b> a month<br>NPV = −2,000/r<sub>m</sub> − 1,800,000 = −490,903 − 1,800,000 = <b>−2,290,903 NOK</b></p><p><b>Do not open.</b> Even before the fit-out, the expected monthly cash flow is negative.</p>",
+     "criteria": [
+      "Monthly rate from the effective annual rate: 1.05^(1/12) − 1 = 0.004074. 5%/12 = 0.4167% is wrong.",
+      "Nets the running costs first: +25,000 and −20,000 a month, expected −2,000.",
+      "NPV = −2,000/r_m − 1,800,000 = −490,903 − 1,800,000 = −2,290,903: do not open."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 6,
+     "body": "<p>The landlord offers a lease that lets you close the centre at no cost at the end of month 18, after that month's cash flow. After that you pay nothing and receive nothing. What is the NPV of opening in each state and in expectation? Will you open?</p>",
+     "solution": "<p>You still open before you know the state, so months 1 to 18 come in both states. After month 18 you close only in the bad state.</p><p><i>Good state:</i> you never close: NPV<sub>good</sub> = 25,000/r<sub>m</sub> − 1,800,000 = 6,136,289 − 1,800,000 = <b>4,336,289</b></p><p><i>Bad state:</i> you close after month 18. A(18, 0.4074%) = [1 − (1 + r<sub>m</sub>)<sup>−18</sup>]/r<sub>m</sub> = <b>17.321850</b><br>NPV<sub>bad</sub> = −1,800,000 − 20,000 × 17.321850 = −1,800,000 − 346,437 = <b>−2,146,437</b></p><p>Expected NPV = 0.4 × 4,336,289 + 0.6 × (−2,146,437) = 1,734,515.5 − 1,287,862.2 = <b>446,653 NOK</b>. <b>Open.</b></p><p>Closing in the bad state is right: staying open after month 18 would cost 20,000/r<sub>m</sub> = 4,909,031 in value at month 18, against 0 for closing.</p>",
+     "criteria": [
+      "Takes months 1 to 18 in both states: you open before you know the state and can close only after month 18.",
+      "Good state unchanged, a perpetuity: 6,136,289 − 1,800,000 = 4,336,289.",
+      "Bad state: A(18, 0.4074%) = 17.3218, NPV = −1,800,000 − 346,437 = −2,146,437.",
+      "Expected NPV = 0.4(4,336,289) + 0.6(−2,146,437) = 446,653: open.",
+      "Uses the monthly rate throughout. With 5%/12 the expected NPV would be 392,318."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 4,
+     "body": "<p>What is the lease clause worth to you, compared with your best choice without the clause? Briefly explain.</p>",
+     "solution": "<p>Without the clause you would not open (part a), so your alternative is to stay out and get 0. The clause is worth</p><p>446,653 − max(−2,290,903, 0) = 446,653 − 0 = <b>446,653 NOK</b></p><p>Comparing with the negative NPV from (a) gives 446,653 − (−2,290,903) = 2,737,556. That is what the clause would be worth to someone already bound to run the centre forever: it equals the bad state's losses from month 19 on, 0.6 × 4,909,031/1.05<sup>1.5</sup> = 2,737,556. You are not bound, so you would never accept the −2,290,903 in the first place. Kurbatov (wrap-up, 1:08) prices the option against the baseline case or against zero, whichever is higher.</p>",
+     "criteria": [
+      "Compares with 0, the best alternative without the clause, because the NPV in (a) is negative: value = 446,653.",
+      "Does not compare with the negative NPV: 446,653 − (−2,290,903) = 2,737,556 is wrong here.",
+      "Explains that 2,737,556 would be the clause's value only to someone already committed to run the centre forever. A student who reports 2,737,556 but says clearly that it is the value compared with being bound forever earns this explanation point (not the number)."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 4,
+     "body": "<p>The landlord now asks for a termination fee, paid at the end of month 18 if you close. What is the highest fee at which you would still open? With that fee, would you still close in the bad state?</p>",
+     "solution": "<p>You close only in the bad state, so the fee is paid with probability 0.6, 18 months from now. Opening stays worthwhile as long as</p><p>446,653 − 0.6 × F/(1 + r<sub>m</sub>)<sup>18</sup> ≥ 0, where (1 + r<sub>m</sub>)<sup>18</sup> = 1.05<sup>1.5</sup> = 1.075930<br>F ≤ 446,653 × 1.075930/0.6 = <b>800,946 NOK</b></p><p><b>Still close?</b> Yes. In the bad state, staying open after month 18 is worth −20,000/r<sub>m</sub> = −4,909,031 at month 18. Closing costs only the fee of 800,946.</p><p><b>The traps.</b> Charging the fee in both states gives 446,653 × 1.075930 = 480,568. Forgetting to discount gives 446,653/0.6 = 744,422.</p>",
+     "criteria": [
+      "Charges the fee only in the bad state (probability 0.6), where you close.",
+      "Discounts the fee 18 months: 1.05^1.5 = 1.075930.",
+      "F_max = 446,653 × 1.075930/0.6 = 800,946. The fee in both states (480,568) or no discounting (744,422) is wrong.",
+      "Checks that closing is still optimal: 800,946 is far below the 4,909,031 that staying open would cost at month 18."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 3,
+     "body": "<p>Your business partner says: «The clause is worthless. In the good state we never use it. In the bad state the centre is a poor business anyway.» Is your partner right? Explain briefly.</p>",
+     "solution": "<p><b>No.</b> The clause is a right, not an obligation: you use it only when it helps. In the bad state it cuts a perpetual loss of 20,000 a month down to 18 months, so that state is worth −2,146,437 instead of −1,800,000 − 4,909,031 = −6,709,031. You still lose money in that state, but far less. Because you decide before you know the state, the expected NPV is what counts: the clause turns −2,290,903 into 446,653 and so decides whether the centre is opened at all. Like insurance, an option is valuable even if it is not used in every state.</p>",
+     "criteria": [
+      "Says the partner is wrong: an option's value comes from the states where it is used. It is never used when that would hurt.",
+      "Explains that the clause cuts the bad state's perpetual losses to 18 months (−2,146,437 instead of −6,709,031).",
+      "Notes that the decision is made before the state is known, so the expected NPV counts: the clause turns a negative-NPV decision into a positive one."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "M&A",
+   "points": 20,
+   "topic": "Mergers and acquisitions",
+   "chapters": [
+    26,
+    24
+   ],
+   "merke": "Forelesning 16 (M&A), 1:26:04: «it could be easily the exam question» og 1:31:43: «It's like a hint from me, basically»",
+   "body": "<p>Four grocery wholesalers, A, B, C and D, compete in Western Norway. D will be sold to one of A, B and C. The table shows each firm's value (NOK million) on its own and after each possible acquisition, before the price for D is paid.</p><table class=\"data\"><tr><th>Firm</th><th>Stand-alone</th><th>A buys D</th><th>B buys D</th><th>C buys D</th></tr><tr><td>A</td><td class=\"n\">250</td><td class=\"n\">420</td><td class=\"n\">245</td><td class=\"n\">245</td></tr><tr><td>B</td><td class=\"n\">200</td><td class=\"n\">190</td><td class=\"n\">360</td><td class=\"n\">190</td></tr><tr><td>C</td><td class=\"n\">160</td><td class=\"n\">130</td><td class=\"n\">130</td><td class=\"n\">310</td></tr><tr><td>D</td><td class=\"n\">120</td><td class=\"n\">0</td><td class=\"n\">0</td><td class=\"n\">0</td></tr></table>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 4,
+     "body": "<p>What is the most each of A, B and C would pay for D? Explain what you compare with.</p>",
+     "solution": "<p>D will be sold in any case, so a bidder's alternative to winning is not its stand-alone value but its value when a rival wins. The most it will pay is the difference:</p><table class=\"data\"><tr><th>Bidder</th><th>Value if it buys D</th><th>Value if a rival buys D</th><th>Maximum bid</th></tr><tr><td>A</td><td class=\"n\">420</td><td class=\"n\">245</td><td class=\"n\"><b>175</b></td></tr><tr><td>B</td><td class=\"n\">360</td><td class=\"n\">190</td><td class=\"n\"><b>170</b></td></tr><tr><td>C</td><td class=\"n\">310</td><td class=\"n\">130</td><td class=\"n\"><b>180</b></td></tr></table><p>Each bidder's value when a rival wins is the same whichever rival it is, so each bidder has one alternative.</p><p><b>The trap.</b> Comparing with the stand-alone values gives 420 − 250 = 170, 360 − 200 = 160 and 310 − 160 = 150: D's value plus each bidder's synergy. That puts A first and C last, while C in fact bids the most: it ignores that C, the smallest, loses the most if a rival wins.</p>",
+     "criteria": [
+      "Compares winning with losing to a rival, not with the stand-alone value, because D will be sold anyway (Kurbatov: bidding depends on alternatives).",
+      "A: 420 − 245 = 175.",
+      "B: 360 − 190 = 170.",
+      "C: 310 − 130 = 180.",
+      "Comparing with stand-alone values (170, 160, 150) is the classic error."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>In an open ascending auction the winner pays the maximum bid of the last bidder to drop out. Who buys D? At what price? How much do D's shareholders and the winner's shareholders gain or lose against the stand-alone values? Briefly comment.</p>",
+     "solution": "<p>B drops out at 170 and A at 175. <b>C buys D for 175</b> (NOK million), just above A's maximum.</p><p>D's shareholders get 175 for a firm worth 120 on its own: <b>+55</b>.<br>C is worth 310 − 175 = 135 after paying, against 160 on its own: <b>−25</b>.<br>For completeness, A ends at 245 (−5) and B at 190 (−10).</p><p><b>Comment.</b> C wins although its synergy is the smallest, because it has the most to lose: without D it would fall to 130. C pays more than D adds to it (150), so its shareholders end up worse off than before D was put up for sale, but better off than if A had won (135 &gt; 130). Competition among bidders who fear the alternative hands D's owners more than the whole synergy. Comparing with stand-alone values would wrongly predict that A wins at 160.</p><p><b>Check.</b> The changes sum to 55 − 25 − 5 − 10 = 15, the value the deal adds to the four firms: (245 + 190 + 310) − (250 + 200 + 160 + 120) = 15 ✓.</p>",
+     "criteria": [
+      "C wins: B drops out at 170 and A at 175, so C pays 175.",
+      "D's shareholders gain 175 − 120 = 55.",
+      "C's shareholders: 310 − 175 = 135 against 160 alone, a loss of 25, but better than losing to A (130).",
+      "Comments that C wins because its alternative is the worst, not because its synergy is the largest. It pays more than D adds to it.",
+      "Bonus: the changes sum to 15, the value the deal adds across the four firms."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 4,
+     "body": "<p>Now consider two other firms. Gjesvær Sjømat ASA, a fish exporter, does well when the krone is weak; Vangen Import ASA, an electronics importer, when it is strong. In one year the krone is strong (probability 0.4) or weak (0.6). Values in one year (NOK million):</p><table class=\"data\"><tr><th></th><th>Strong krone</th><th>Weak krone</th></tr><tr><td>Gjesvær</td><td class=\"n\">30</td><td class=\"n\">140</td></tr><tr><td>Vangen</td><td class=\"n\">90</td><td class=\"n\">25</td></tr></table><p>Gjesvær has zero-coupon debt with face value 65 and Vangen 40, both due in one year. Investors are risk-neutral and the risk-free rate is zero. What are the values today of each firm's debt and equity?</p>",
+     "solution": "<p>State by state the creditors get min(V, F) and the shareholders max(V − F, 0):</p><table class=\"data\"><tr><th></th><th>Strong (0.4)</th><th>Weak (0.6)</th><th>Value today</th></tr><tr><td>Gjesvær debt</td><td class=\"n\">30</td><td class=\"n\">65</td><td class=\"n\"><b>51</b></td></tr><tr><td>Gjesvær equity</td><td class=\"n\">0</td><td class=\"n\">75</td><td class=\"n\"><b>45</b></td></tr><tr><td>Vangen debt</td><td class=\"n\">40</td><td class=\"n\">25</td><td class=\"n\"><b>31</b></td></tr><tr><td>Vangen equity</td><td class=\"n\">50</td><td class=\"n\">0</td><td class=\"n\"><b>20</b></td></tr></table><p>For example, Gjesvær's debt: 0.4 × 30 + 0.6 × 65 = 12 + 39 = 51; equity 0.6 × 75 = 45. Vangen's debt: 0.4 × 40 + 0.6 × 25 = 16 + 15 = 31; equity 0.4 × 50 = 20.</p><p>Each firm defaults in its bad state, where the creditors take the whole firm and the shareholders get 0. Debt plus equity equals firm value: 51 + 45 = 96 = 0.4 × 30 + 0.6 × 140; 31 + 20 = 51 = 0.4 × 90 + 0.6 × 25 ✓.</p>",
+     "criteria": [
+      "Payoffs state by state: the creditors get min(V, F), the shareholders max(V − F, 0).",
+      "Gjesvær: D = 0.4(30) + 0.6(65) = 51, E = 0.6(75) = 45.",
+      "Vangen: D = 0.4(40) + 0.6(25) = 31, E = 0.4(50) = 20.",
+      "Bonus: notes that each firm defaults in its bad state, so its creditors bear part of the risk."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 5,
+     "body": "<p>The firms merge without synergies. The merged firm takes over both debts, which rank equally. Its shares go to the old shareholders in proportion to their equity values from (c). What are the merged firm's debt and equity worth? What does each group of shareholders gain or lose? What do the creditors gain in total?</p>",
+     "solution": "<p><b>Step 1. The merged firm</b> is worth 30 + 90 = 120 with a strong krone and 140 + 25 = 165 with a weak krone. Its debt has a total face value of 65 + 40 = 105, which it can pay in both states.</p><p>Debt = <b>105</b> (now risk-free)<br>Equity = 0.4 × (120 − 105) + 0.6 × (165 − 105) = 6 + 36 = <b>42</b></p><p><b>Step 2. Who gets what.</b> The old equity was 45 + 20 = 65. Gjesvær's shareholders get 45/65 of the merged equity and Vangen's 20/65:</p><table class=\"data\"><tr><th>Group</th><th>Before</th><th>After</th><th>Change</th></tr><tr><td>Gjesvær shareholders</td><td class=\"n\">45</td><td class=\"n\">29.0769</td><td class=\"n\"><b>−15.9231</b></td></tr><tr><td>Vangen shareholders</td><td class=\"n\">20</td><td class=\"n\">12.9231</td><td class=\"n\"><b>−7.0769</b></td></tr><tr><td>Gjesvær creditors</td><td class=\"n\">51</td><td class=\"n\">65</td><td class=\"n\">+14</td></tr><tr><td>Vangen creditors</td><td class=\"n\">31</td><td class=\"n\">40</td><td class=\"n\">+9</td></tr></table><p>The creditors gain 14 + 9 = <b>23</b> in total. The shareholders lose 15.9231 + 7.0769 = 23.0000.</p><p><b>Check.</b> No synergies, so the merged firm is worth 96 + 51 = 147 = 105 + 42. Total value is fixed, so the creditors' gain must equal the shareholders' loss: 23 = 23 ✓.</p>",
+     "criteria": [
+      "Merged firm: 120 and 165. Debt of 105 is paid in both states, so D = 105 and E = 0.4(15) + 0.6(60) = 42.",
+      "Splits the merged equity 45:20: Gjesvær's shareholders 29.0769 (−15.9231), Vangen's 12.9231 (−7.0769).",
+      "Creditors: 51 to 65 and 31 to 40, a total gain of 23.",
+      "Bonus: checks that the creditors' gain equals the shareholders' loss (23), since total value is unchanged at 147.",
+      "Shows the state-by-state payoffs, not just the results."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 3,
+     "body": "<p>How would each group of shareholders vote on the merger? Why? When would such a merger leave the creditors as a whole no better off? Briefly explain.</p>",
+     "solution": "<p><b>The vote.</b> Both groups of shareholders vote against. With limited liability, equity is a call option on the firm's assets: before the merger each group could walk away from its debt in its own bad state. After the merger each firm's assets also back the other's debt (coinsurance), so the default branch disappears and the creditors are paid in full. With no synergies nothing is created, so the creditors' gain of 23 is a wealth transfer from the shareholders. Lower risk is bad news for the holder of a call.</p><p><b>When the creditors as a whole gain nothing.</b> The creditors gain because in some state one firm defaults while the other still has equity left. After the merger that equity covers the shortfall. So the merger leaves the creditors as a whole no better off exactly when there is no state in which one firm defaults while the other has equity left: for example when both debts were risk-free already, or when the two firms default in the same states and are both wiped out there. Kurbatov's lecture (recording 16, 1:28:43) puts it as perfect positive correlation. That is accepted, but correlation alone is not enough: two firms worth 100 or 50 in the same states, with debts of 40 and 80, give their creditors 40 + 50 = 90 in the bad state before the merger and 100 after. The words «as a whole» matter too: debts that rank equally are paid pro rata, which can move value between the two groups of creditors.</p><p>Bonus: the merged firm could borrow more and pay the proceeds out to restore the shareholders' position. Shareholders can also diversify on their own, so diversification is no reason for them to want the merger.</p>",
+     "criteria": [
+      "Vote: both groups of shareholders vote against, because the merger lowers default risk without creating value, so the creditors' gain (23) is a wealth transfer from the shareholders.",
+      "Explains the mechanism: equity is a call on the assets (limited liability) and loses value when risk falls; after the merger each firm's assets back the other's debt.",
+      "Condition: the creditors as a whole gain nothing if there is no state in which one firm defaults while the other has equity left, for example because both debts were risk-free already or both firms default in the same states. Kurbatov's formulation, perfect positive correlation (recording 16, 1:28:43), is also accepted.",
+      "Bonus: the merged firm can issue more debt and pay out the proceeds, or shareholders can diversify themselves, so diversification is no reason to merge."
+     ]
+    }
+   ]
+  }
+ ]
+}

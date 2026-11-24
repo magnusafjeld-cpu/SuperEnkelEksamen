@@ -1,0 +1,185 @@
+{
+  "hint2-2:1:": {
+    "type": "tekst"
+  },
+  "hint2-2:2:": {
+    "type": "tekst"
+  },
+  "hint2-2:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Interest, year 1",
+        "verdi": 63.050000000000004,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Interest, year 2",
+        "verdi": 43.05000000000001,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Interest, year 3",
+        "verdi": 22.050000000000026,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 25.991428571428578,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "hint2-2:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price after the announcement",
+        "verdi": 36.20793142857143,
+        "enhet": "NOK per share"
+      }
+    ]
+  },
+  "hint2-2:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Shares repurchased",
+        "verdi": 34.826623622164554,
+        "enhet": "m shares"
+      },
+      {
+        "navn": "Shares remaining",
+        "verdi": 90.17337637783544,
+        "enhet": "m shares"
+      },
+      {
+        "navn": "Equity after the repurchase",
+        "verdi": 3264.9914285714285,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "hint2-2:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Seller's payoff per share",
+        "verdi": 36.20793142857143,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Value per share for the one who stays",
+        "verdi": 36.20793142857143,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Who is better off? Explain briefly."
+  },
+  "hint2-2:3:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Wealth with the repurchase",
+        "verdi": 360000.0,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Wealth with the dividend",
+        "verdi": 360000.0,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Does the choice between a repurchase and a dividend matter for her?"
+  },
+  "hint2-2:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Debt",
+        "verdi": 50.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity",
+        "verdi": 4.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Expected fire-sale loss",
+        "verdi": 12.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "hint2-2:4:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change in expected asset value",
+        "verdi": -2.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Would the firm switch if it had no debt?"
+  },
+  "hint2-2:4:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt",
+        "verdi": 37.6,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity",
+        "verdi": 12.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Will the manager switch?"
+  },
+  "hint2-2:4:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Wealth transfer, size",
+        "verdi": 8.0,
+        "enhet": "$ m",
+        "alt": [
+          -8.0
+        ]
+      },
+      {
+        "navn": "Efficiency loss, size",
+        "verdi": 4.399999999999999,
+        "enhet": "$ m",
+        "alt": [
+          -4.399999999999999
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Where does the efficiency loss come from?",
+    "merknad": "alt med negativt fortegn: begge delene er tap for kreditorene, så −8 og −4,4 godtas."
+  },
+  "hint2-2:4:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Price the lender pays",
+        "verdi": 37.6,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Who bears the expected cost of the fire sales and of the aggressive strategy?"
+  },
+  "hint2-2:4:f": {
+    "type": "tekst"
+  }
+}

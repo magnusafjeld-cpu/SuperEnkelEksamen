@@ -38,6 +38,10 @@
    gangen, med settene gruppert etter art. Navnene på delene og artene og teksten
    øverst kommer fra EDU_DATA.perDel. Ellers kjøres de som prøveeksamenene.
 
+   Egne faner for en art (24. november 2026). En art som står i EDU_DATA.perDel.faner
+   ({ art, navn, intro }) får sin egen fane i stedet for å vises under «Per del».
+   Fanen viser én del om gangen som «Per del», men uten overskrift per art.
+
    Lånte oppgaver. Et sett med `lån` (en liste med { sett, n, merke }) har ingen egne
    oppgaver, men låner dem fra andre sett. Motoren slår dem opp når lista leses, og
    gjenbruker oppslaget, så setById gir samme objekt hver gang. Oppgavene nummereres
@@ -93,7 +97,7 @@ window.EDU = window.EDU || {};
   let mode = "practice";   // "practice" | "exam"
   let cursor = 0;          // hvilken oppgave som vises i øvingsmodus
   let ticker = null;       // intervallet som teller ned
-  let del = "eksamen";     // "eksamen" | "prove" | "pd" | "svak" | "fl" | "kart": hvilken del av lista som vises
+  let del = "eksamen";     // "eksamen" | "prove" | "pd" | "pd:<art>" | "svak" | "fl" | "kart": hvilken del av lista som vises
   let valgtDel = null;     // hvilken pensumdel fanen «Per del» viser
   let bareUsikre = false;  // øvingsmodus viser bare oppgaver som er usikre eller feil
 
@@ -326,15 +330,19 @@ window.EDU = window.EDU || {};
     const svake = alle.filter((x) => x.kind === "svak");
     const kart = alle.filter(erKart);
     const fl = alle.filter((x) => x.kind === "forelesning").sort((a, b) => (a.nr || 0) - (b.nr || 0));
-    const deler = alle.filter((x) => x.kind === "del");
+    /* Arter med egen fane (perDel.faner) tas ut av «Per del» og får hver sin fane. */
+    const egneFaner = (perDel().faner || []).map((f) => ({ f, id: "pd:" + f.art, sett: alle.filter((x) => x.kind === "del" && x.art === f.art) })).filter((g) => g.sett.length);
+    const deler = alle.filter((x) => x.kind === "del" && !egneFaner.some((g) => g.f.art === x.art));
+    const egenFane = egneFaner.find((g) => g.id === del);
     const ekte = alle.filter((x) => x.kind !== "mock" && x.kind !== "svak" && x.kind !== "forelesning" && x.kind !== "del" && !erKart(x));
-    if ((del === "prove" && !prøver.length) || (del === "pd" && !deler.length) || (del === "svak" && !svake.length) || (del === "fl" && !fl.length) || (del === "kart" && !kart.length)) del = "eksamen";
+    if ((del === "prove" && !prøver.length) || (del === "pd" && !deler.length) || (del.startsWith("pd:") && !egenFane) || (del === "svak" && !svake.length) || (del === "fl" && !fl.length) || (del === "kart" && !kart.length)) del = "eksamen";
     const prøveDel = del === "prove", svakDel = del === "svak", flDel = del === "fl";
     const sets = prøveDel ? prøver : svakDel ? svake : flDel ? fl : ekte;
     const faner = () => {
       const seg = el(".seg", { style: { marginBottom: "16px" } });
       [["eksamen", `Tidligere eksamener (${ekte.length})`], prøver.length ? ["prove", `Prøveeksamener (${prøver.length})`] : null,
        deler.length ? ["pd", `Per del (${deler.length})`] : null,
+       ...egneFaner.map((g) => [g.id, `${g.f.navn} (${g.sett.length})`]),
        fl.length ? ["fl", `Per forelesning (${fl.length})`] : null,
        svake.length ? ["svak", `Svake temaer (${svake.length})`] : null,
        kart.length ? ["kart", "Kartlegging"] : null].filter(Boolean).forEach(([d, label]) =>
@@ -355,6 +363,13 @@ window.EDU = window.EDU || {};
       perDelListe(wrap, deler);
       return wrap;
     }
+    if (egenFane) {
+      wrap.appendChild(sh().pageHead("Eksamenssett", `${egenFane.f.navn} · ${egenFane.sett.length} sett`,
+        egenFane.f.intro || perDel().intro || ""));
+      wrap.appendChild(faner());
+      perDelListe(wrap, egenFane.sett, true);
+      return wrap;
+    }
     /* Ikke alle settene er eksamener: FIE432 har også flervalgstesten til
        kursgodkjenning. Undertittelen teller derfor sett. */
     wrap.appendChild(sh().pageHead("Eksamenssett", sets.length === 1 ? "1 sett" : `${sets.length} sett`,
@@ -366,7 +381,7 @@ window.EDU = window.EDU || {};
         ? "Prøveeksamener laget i formatet du møter, bygd på det de tidligere eksamenene faktisk spør om. De er ikke gitt av kurset. Kjør dem på tid med minuspoeng, og les fasiten på hvert feil svar etterpå."
         : "Hele sett, slik de ble gitt. Kjør dem som øving med fasit underveis, eller som ekte eksamen på tid der fasiten først åpner seg når du leverer."));
 
-    if (prøver.length || deler.length || svake.length || fl.length || kart.length) wrap.appendChild(faner());
+    if (prøver.length || deler.length || egneFaner.length || svake.length || fl.length || kart.length) wrap.appendChild(faner());
 
     if (!sets.length) { wrap.appendChild(sh().empty("📄", "Ingen eksamenssett ennå", "Faget har ikke lagt inn sett i EDU_DATA.sets.")); return wrap; }
 
@@ -397,8 +412,9 @@ window.EDU = window.EDU || {};
   }
 
   /* Fanen «Per del»: én del om gangen, settene gruppert etter art i den
-     rekkefølgen EDU_DATA.perDel.arter gir. Sett uten kjent art kommer sist. */
-  function perDelListe(wrap, sets) {
+     rekkefølgen EDU_DATA.perDel.arter gir. Sett uten kjent art kommer sist.
+     utenArt: en arts egen fane, der overskriften per art bare gjentar fanen. */
+  function perDelListe(wrap, sets, utenArt) {
     const cfg = perDel();
     const nr = [...new Set(sets.map((s) => s.del))].sort((a, b) => a - b);
     if (!nr.includes(valgtDel)) valgtDel = nr[0];
@@ -421,7 +437,7 @@ window.EDU = window.EDU || {};
     const grupper = arter.map((a) => ({ a, sett: iDel.filter((s) => s.art === a.id) }));
     grupper.push({ a: null, sett: iDel.filter((s) => !arter.some((a) => a.id === s.art)) });
     grupper.filter((g) => g.sett.length).forEach(({ a, sett }) => {
-      if (a) {
+      if (a && !utenArt) {
         wrap.appendChild(el("h4", { style: { margin: "20px 0 4px" } },
           `${a.navn} · ${sett.filter(erGjort).length} av ${sett.length} gjort`));
         if (a.tekst) wrap.appendChild(el("p.tiny.muted", { style: { margin: "0 0 10px" } }, a.tekst));

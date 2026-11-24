@@ -1,0 +1,347 @@
+{
+ "hint1-1": [
+  {
+   "n": 1,
+   "title": "Risk and return",
+   "points": 10,
+   "topic": "Beta and the CAPM",
+   "chapters": [
+    3
+   ],
+   "merke": "Forelesning 01 (Review of Basic Concepts), 1:03:43: «it could easily be an exam question»",
+   "body": "<p>The investment committee of a Norwegian pension fund is reviewing its equity portfolio and asks you to explain beta.</p><p>Explain the concept of beta: what does it measure and which kind of risk does it capture? Then give two examples of industries with a high beta, two examples of industries with a low beta and one example of an industry or asset with a beta close to one. Give a short reason for each example. (No calculations are needed. Keep explanations short, 1–2 sentences per point.)</p>",
+   "solution": "<p><b>What beta measures.</b> Beta measures how strongly an asset's return moves with the return on the market portfolio, β<sub>i</sub> = Cov(R<sub>i</sub>, R<sub>Mkt</sub>)/Var(R<sub>Mkt</sub>). It captures systematic risk, the part that cannot be diversified away and the only risk the CAPM rewards with a premium.</p><p><b>High beta.</b> (1) <i>Hotels and leisure travel:</i> holidays are among the first expenses households cut in a downturn and among the first they add in a boom, so revenue swings more than the economy. (2) <i>Construction and building materials (or car makers):</i> demand comes from investment and big purchases that are postponed in a recession; high fixed costs amplify the swing in profits.</p><p><b>Low beta.</b> (1) <i>Grocery retail:</i> people need food in good and bad times; in a boom they may buy better food but not twice as much, so sales move little with the market. (2) <i>Regulated utilities (power grid, water):</i> demand is stable and prices are regulated, so the cash flows hardly depend on the business cycle.</p><p><b>Beta close to one.</b> <i>A broad market index fund</i>, for example one that tracks a world index: it holds the market itself, whose beta is exactly 1 by definition. A large conglomerate spread over most sectors of the economy is also accepted.</p><p><b>Also accepted.</b> High: airlines, luxury goods, semiconductors and other suppliers of capital goods, investment banking and brokerage. Low: tobacco, basic healthcare and pharmaceuticals, agriculture and food producers, telecom subscriptions. A gold miner as a low-beta example is a strong answer if it adds that the stock is volatile yet moves little with the market: beta is not total risk. Bonus, not required: a beta above 1 amplifies the market's moves and a beta below 1 dampens them; the same industry has a higher equity beta in a more levered firm, since β<sub>E</sub> rises with D/E.</p>",
+   "criteria": [
+    "Definition (2.5 points): 1.25 for the co-movement with the market return (Cov/Var or «sensitivity to the market»), 1.25 for systematic, non-diversifiable risk, the risk the CAPM prices. «Beta is the risk of the stock» without the market earns 0.5.",
+    "Each of the five examples earns 1.5 points: 0.5 for a sensible industry, 1 for a reason that ties its cash flows to the business cycle. An industry without a reason earns 0.5.",
+    "Counting: two examples from the same industry count once (hotels and cruise lines are both leisure travel). The beta-one example must be justified by its link to the whole market; «a big, stable company» is not enough.",
+    "Classic error: calling a volatile stock high-beta. A biotech or gold-mining stock can swing a lot and still have a low beta, because its swings are not tied to the market.",
+    "Sentence budget: 1–2 sentences per point. Length is not rewarded."
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Capital budgeting",
+   "points": 10,
+   "topic": "Sources of positive NPV",
+   "chapters": [
+    1
+   ],
+   "merke": "Forelesning 08 (Valuation with leverage I), 7:53: «I keep repeating it could be an exam question»",
+   "body": "<p>At a board meeting of a Norwegian consumer-electronics company, a director asks: «Our analysts keep finding projects with a positive NPV. If these projects are so good, why have our competitors not taken them already?»</p><p>Name three different sources of positive-NPV projects. For each source, explain in two sentences what it is and why a competitor cannot simply copy the project. Higher revenue, growth and diversification are not accepted as sources.</p>",
+   "solution": "<p><b>The common thread.</b> In a competitive market a project that anyone can copy earns only its cost of capital: rivals enter until the NPV is zero. A positive NPV therefore needs something scarce that the firm has and its rivals lack, a competitive advantage. Each source below is such an advantage.</p><p><b>1. Intangible assets from R&amp;D (patents and know-how).</b> Research gives the firm technology and know-how that rivals do not have; a patent gives it the legal right to be the only user of the invention for years. A competitor would have to spend the same years and money on its own research, or license the patent at a price that takes the NPV away.</p><p><b>2. Barriers to entry and market power.</b> Licences, regulation, economies of scale or network effects keep new firms out of the market, so the firm inside can price above its cost of capital, as a monopolist would. A competitor cannot copy the project because it cannot get into the market, or only at a cost that wipes out the profit.</p><p><b>3. A cost advantage.</b> Better production technology, cheaper inputs or an efficient supply chain (for example production where labour is cheaper) let the firm make the same product at a lower cost. At the market price the project then earns more than its cost of capital for this firm, while a rival with higher costs would earn nothing on the same project.</p><p><b>Also accepted.</b> First-mover advantage (the first large search engine or browser locks in its users), reputation and brand (customers trust a new product from a famous brand more than one from an unknown firm), human capital and culture (buying a start-up for its people), scarce tangible assets (the only plot above an oil field, the best location) and a competitor's failure (taking its market share or buying it cheaply). Kurbatov also accepted these in recording 08: cooperation with firms in other industries (10:07), legal loopholes (13:53), connections and lobbying (19:00 to 19:28) and having less debt than rivals, so the firm can borrow where they cannot (9:38). Each counts when the explanation says why rivals cannot copy it.</p><p><b>Not accepted.</b> Higher revenue and growth are goals, not sources. Diversification does not create value for shareholders who can diversify on their own. «Good cost-benefit analysis» is not a source either: a rival can do the same analysis. Illegal shortcuts such as tax fraud may raise the expected cash flow, but they carry a large downside and are not a legitimate source.</p>",
+   "criteria": [
+    "Each source earns 3 points: 1 for a valid source, 2 for the explanation of what it is and why a competitor cannot copy it. A source without the «why not copied» part earns at most 2.",
+    "1 point for the common thread: competition drives the NPV of an easily copied project to zero, so a positive NPV needs a scarce competitive advantage. It may be stated once or inside each explanation.",
+    "Counting: R&D and patents are one source; monopoly, licences and barriers to entry are one source; a cost advantage and cheaper labour abroad are one source. Economies of scale belong to barriers to entry when the argument is that entrants cannot reach the scale; they belong to the cost advantage when the argument is a lower unit cost; they count once. Two answers from the same group earn points once.",
+    "Higher revenue, growth, diversification or «good analysis» earn nothing, as the question says. «High risk tolerance» earns points only if it is tied to an advantage rivals lack (for example the ability to fund long, risky research).",
+    "Sentence budget: two sentences per source. Length is not rewarded."
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Capital budgeting",
+   "points": 20,
+   "topic": "Project cash flows, NPV and IRR",
+   "chapters": [
+    1,
+    2
+   ],
+   "merke": "Forelesning 18 (Wrap-up), 6:41: «it could be a trap in the exam»",
+   "body": "<p>Kvernhus Bryggeri ASA, a brewery with revenue of NOK 2.1 billion, a free cash flow of NOK 140 million last year and 35 million shares, considers a line of alcohol-free beer that will run for three years. Amounts in NOK million:</p><ul><li>The equipment costs 54 today. It is depreciated straight-line to zero over three years and has no resale value.</li><li>Sales are 70 and cash operating costs 33 per year (Years 1 to 3).</li><li>Customers who switch from Kvernhus's regular beer cost it 6 per year in operating profit (before tax).</li><li>The line uses an empty storage hall that Kvernhus could otherwise rent out for 4 per year (rental income is taxed).</li><li>The line is charged 2.5 per year of head-office costs, which do not change with the launch.</li><li>A market study paid last year cost 1.8.</li><li>The equipment is financed with a bank loan at 5% interest.</li><li>Net working capital is 8 today and 12 from the end of Year 1 to the end of Year 3. It is recovered in full six months after the end of Year 3.</li></ul><p>The tax rate is 22%. The line has the same risk as Kvernhus, whose cost of capital is 8% per year (effective annual rate). Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 5,
+     "body": "<p>Does each of these belong in the free cash flows of the line? Answer with one sentence each: the market study, the interest on the bank loan, the rent of the storage hall, the lost profit on regular beer and the head-office costs.</p>",
+     "solution": "<p><b>Market study: exclude.</b> It is a sunk cost: the 1.8 has been paid whatever Kvernhus decides now.</p><p><b>Interest on the bank loan: exclude.</b> Free cash flow is the cash flow of the project as if it were all-equity financed; the cost of financing is in the discount rate, so subtracting the interest would count it twice.</p><p><b>Rent of the storage hall: include, as a cost of 4 per year before tax.</b> It is an opportunity cost: by using the hall Kvernhus gives up the rent it could earn. Rental income is taxed, so the loss after tax is 4 × (1 − 0.22) = 3.12 per year.</p><p><b>Lost profit on regular beer: include, as a cost of 6 per year before tax.</b> It is cannibalisation, a negative side effect of the launch: only the change in Kvernhus's total cash flow counts.</p><p><b>Head-office costs: exclude.</b> They are allocated, not incremental: Kvernhus pays them whether or not the line is launched.</p><p>Only incremental cash flows count, so the firm-level figures in the text (revenue, last year's free cash flow, the number of shares) play no part either.</p>",
+     "criteria": [
+      "One point per item for the right decision with the right reason: sunk cost (exclude), financing cost already in the discount rate (exclude), opportunity cost (include), cannibalisation (include), not incremental (exclude).",
+      "A decision without a reason earns half a point.",
+      "Subtracting the interest is the classic error. Kurbatov, recording 18 at 54:48: «they subtract interest from EBIT because they panic during the exam».",
+      "Bonus, not required: noting that the rent and the lost profit are before tax, so they also lower the tax bill."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 6,
+     "body": "<p>Find the free cash flow of the line in each year, including the year in which the working capital is recovered.</p>",
+     "solution": "<p><b>Step 1. EBIT (Years 1 to 3).</b> The forgone rent and the lost profit on regular beer are costs of the line; depreciation is 54/3 = 18 per year:<br>EBIT = 70 − 33 − 6 − 4 − 18 = <b>9.00</b></p><p><b>Step 2. Operating cash flow.</b> EBIT × (1 − τ) + depreciation = 9.00 × 0.78 + 18 = 7.02 + 18 = <b>25.02</b>. Depreciation is not a payment, so it is added back after the tax has been computed.</p><p><b>Step 3. Working capital: use the change, not the level.</b> ΔNWC is +8 in Year 0 (an outflow), +4 in Year 1 (from 8 to 12), 0 in Years 2 and 3 and −12 in Year 3.5, when the working capital is recovered (an inflow).</p><table class=\"data\"><tr><th></th><th>Year 0</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 3.5</th></tr><tr><td>Sales</td><td class=\"n\"></td><td class=\"n\">70</td><td class=\"n\">70</td><td class=\"n\">70</td><td class=\"n\"></td></tr><tr><td>Operating costs</td><td class=\"n\"></td><td class=\"n\">−33</td><td class=\"n\">−33</td><td class=\"n\">−33</td><td class=\"n\"></td></tr><tr><td>Lost profit on regular beer</td><td class=\"n\"></td><td class=\"n\">−6</td><td class=\"n\">−6</td><td class=\"n\">−6</td><td class=\"n\"></td></tr><tr><td>Forgone rent</td><td class=\"n\"></td><td class=\"n\">−4</td><td class=\"n\">−4</td><td class=\"n\">−4</td><td class=\"n\"></td></tr><tr><td>Depreciation</td><td class=\"n\"></td><td class=\"n\">−18</td><td class=\"n\">−18</td><td class=\"n\">−18</td><td class=\"n\"></td></tr><tr><td>EBIT</td><td class=\"n\"></td><td class=\"n\">9.00</td><td class=\"n\">9.00</td><td class=\"n\">9.00</td><td class=\"n\"></td></tr><tr><td>EBIT × (1 − 0.22)</td><td class=\"n\"></td><td class=\"n\">7.02</td><td class=\"n\">7.02</td><td class=\"n\">7.02</td><td class=\"n\"></td></tr><tr><td>+ Depreciation</td><td class=\"n\"></td><td class=\"n\">18</td><td class=\"n\">18</td><td class=\"n\">18</td><td class=\"n\"></td></tr><tr><td>− CapEx</td><td class=\"n\">−54</td><td class=\"n\"></td><td class=\"n\"></td><td class=\"n\"></td><td class=\"n\"></td></tr><tr><td>− ΔNWC</td><td class=\"n\">−8</td><td class=\"n\">−4</td><td class=\"n\">0</td><td class=\"n\">0</td><td class=\"n\">+12</td></tr><tr><td><b>FCF</b></td><td class=\"n\"><b>−62.00</b></td><td class=\"n\"><b>21.02</b></td><td class=\"n\"><b>25.02</b></td><td class=\"n\"><b>25.02</b></td><td class=\"n\"><b>12.00</b></td></tr></table><p>The market study, the interest and the head-office costs are left out, as in (a).</p>",
+     "criteria": [
+      "EBIT = 9 per year: the forgone rent and the lost profit on regular beer are subtracted before tax; the head-office costs, the interest and the market study are not.",
+      "Adds depreciation back after tax: operating cash flow 25.02. Forgetting it gives 7.02 per year. Kurbatov, recording 18 at 13:54: «One of the biggest mistakes is people forgetting to re-add depreciation».",
+      "Uses the change in working capital: −8 in Year 0, −4 in Year 1, 0 in Years 2 and 3, +12 in Year 3.5. Subtracting the level (12 every year) is «forgetting the delta».",
+      "FCF = −62.00, 21.02, 25.02, 25.02 and 12.00 in Year 3.5. The recovery belongs in Year 3.5, not in Year 3."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 3,
+     "body": "<p>Find the NPV of the line. Should Kvernhus launch it?</p>",
+     "solution": "<p>Discount each free cash flow at 8%. The recovery comes 3.5 years from now, so the 8% must be compounded over three and a half years: 1.08<sup>3.5</sup> = 1.08<sup>3</sup> × √1.08 = 1.259712 × 1.039230 = 1.309131.</p><p>NPV = −62 + 21.02/1.08 + 25.02/1.08<sup>2</sup> + 25.02/1.08<sup>3</sup> + 12/1.08<sup>3.5</sup><br>= −62 + 19.4630 + 21.4506 + 19.8617 + 9.1664 = <b>NOK 7.9416 million</b></p><p><b>Kvernhus should launch the line</b>: the NPV is positive. The question asks for the NPV of the project, not for the value of Kvernhus and not only for the present value of the future cash flows (69.9416): the 62 paid today must be subtracted.</p>",
+     "criteria": [
+      "Values the line, not Kvernhus as a whole: the firm-level revenue, free cash flow and share count are not used.",
+      "Discounts the Year-3.5 recovery with 1.08^3.5 = 1.3091. Treating it as a Year-3 cash flow gives 8.30, as a Year-4 cash flow 7.60. Using 1.04 for the half year instead of √1.08 is a small method error (the NPV moves by less than 0.01).",
+      "Reports the NPV, 7.9416, not the present value of the future cash flows (69.9416). Kurbatov, recording 18 at 52:38: «I say find the NPV of the project, then just calculating PV is not enough».",
+      "Concludes: launch, since the NPV is positive."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 6,
+     "body": "<p>The product team can run only one launch. The alternative is a cider that costs 6 today and gives a free cash flow of 7.8 after one year and nothing after (side effects included). Find the NPV and the IRR of the cider and the NPV of the beer line at a discount rate equal to the cider's IRR. Which launch should Kvernhus choose? Why do the NPV rule and the IRR rule disagree here?</p>",
+     "solution": "<p><b>Step 1. The cider.</b> NPV = 7.8/1.08 − 6 = 7.2222 − 6 = <b>1.2222</b>. With a single cash flow after one year the IRR solves 7.8/(1 + IRR) = 6, so IRR = 7.8/6 − 1 = <b>30.00%</b>.</p><p><b>Step 2. The beer line at 30%.</b> NPV(30%) = −62 + 21.02/1.3 + 25.02/1.3<sup>2</sup> + 25.02/1.3<sup>3</sup> + 12/1.3<sup>3.5</sup><br>= −62 + 16.1692 + 14.8047 + 11.3883 + 4.7905 = <b>−14.8473</b></p><p>The cash flows are one outflow followed by inflows, so the NPV falls as the rate rises. It is negative at 30%, so the IRR of the beer line is below 30% (it is about 14.1%).</p><p><b>Step 3. The choice.</b> The IRR rule picks the cider (30% against about 14.1%). The NPV rule picks the beer line (7.9416 against 1.2222). <b>Kvernhus should launch the beer line</b>: the two launches exclude each other; the NPV rule maximises the value created for the shareholders.</p><p><b>Why the rules disagree.</b> IRR is a rate and ignores the scale of a project: the cider earns 30% on only NOK 6 million, while the beer line earns about 14% on NOK 62 million and so adds more value in kroner. The cider's higher IRR would matter only if it could be repeated or scaled up at the same return. Timing adds to the gap: the cider pays back after one year, the beer line over 3.5 years, so the beer line's NPV falls faster as the rate rises. The two NPVs are equal at 13.40% (the crossover rate); below it the beer line has the higher NPV.</p>",
+     "criteria": [
+      "Cider: NPV = 1.2222 and IRR = 30%.",
+      "NPV of the beer line at 30% = −14.8473, with the conclusion that its IRR is below 30% because the NPV falls with the rate (one outflow, then inflows). The exact IRR (about 14.1%) is not required.",
+      "Chooses the beer line: with mutually exclusive projects the higher NPV wins.",
+      "Why the rules disagree: IRR ignores scale, a high rate on a small investment against a lower rate on a large one. Bonus, not required: the cider would win only if it could be scaled up at the same return.",
+      "Timing (the cider pays after one year, the beer line over 3.5 years; crossover rate 13.40%) is also accepted as a reason: half the reason point on its own, the full point together with scale."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Valuation with leverage",
+   "points": 20,
+   "topic": "WACC and APV",
+   "chapters": [
+    4,
+    17,
+    18,
+    19
+   ],
+   "merke": "Forelesning 09 (Valuation with Leverage II), 8:09: «it could very easily be an exam question»",
+   "body": "<p>Skaret Entreprenør, a construction company, considers building and running a charging park for electric trucks under a three-year contract. The park costs NOK 300 million today and is expected to generate free cash flows of NOK 125 million, NOK 135 million and NOK 115 million at the end of Years 1, 2 and 3. Then it is handed over to the customer for free. Skaret's own cost of capital is 8.1%, but the charging business has a different risk. Two listed charging-network operators have the same business risk as the park:</p><table class=\"data\"><tr><th></th><th>Voltvei</th><th>Ladeport</th></tr><tr><td>Cost of equity</td><td class=\"n\">12.4%</td><td class=\"n\">13.0%</td></tr><tr><td>Leverage</td><td class=\"n\">D/V = 0.30</td><td class=\"n\">D/E = 0.50</td></tr></table><p>Skaret will finance the park with a constant debt-to-value ratio of 40%. All debt in this exercise is risk-free (debt beta zero) and costs the risk-free rate of 4%. The tax rate is 22%. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 4,
+     "body": "<p>Find the unlevered cost of capital of each comparable firm and use their average as the unlevered cost of capital of the park.</p>",
+     "solution": "<p>The park's risk differs from Skaret's construction business, so Skaret's own 8.1% is the wrong rate. Unlever each comparable with its own leverage. The debt is risk-free, so r<sub>D</sub> = r<sub>f</sub> = 4%; r<sub>U</sub> is the pre-tax WACC (no taxes in r<sub>U</sub>).</p><p><b>Voltvei.</b> D/V = 0.30 is given, so E/V = 0.70:<br>r<sub>U</sub> = 0.70(0.124) + 0.30(0.04) = 0.0868 + 0.0120 = 0.0988, so <b>r<sub>U</sub> = 9.88%</b></p><p><b>Ladeport.</b> D/E = 0.50, so D/V = 0.50/1.50 = 0.3333 and E/V = 0.6667:<br>r<sub>U</sub> = 0.6667(0.13) + 0.3333(0.04) = 0.086667 + 0.013333 = 0.100000, so <b>r<sub>U</sub> = 10.00%</b></p><p><b>Average.</b> r<sub>U</sub> = (0.0988 + 0.1000)/2 = <b>0.0994 (9.94%)</b></p>",
+     "criteria": [
+      "Unlevers each comparable separately with its own leverage (pre-tax weights, no (1 − τ)).",
+      "Voltvei: D/V = 0.30 used directly, r_U = 9.88%.",
+      "Ladeport: converts D/E = 0.50 into D/V = 0.3333 before weighting, r_U = 10.00%. Using 0.50 as the weight gives 8.50% and an average of 9.19%.",
+      "Average r_U = 9.94%. Using Skaret's own 8.1% is the trap of this exercise: the park has a different risk."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>Find the cost of equity and the after-tax WACC of the park.</p>",
+     "solution": "<p><b>Step 1. Convert the target ratio.</b> MM II needs D/E: D/E = 0.40/0.60 = <b>0.6667</b>.</p><p><b>Step 2. Cost of equity (MM II).</b> r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) = 0.0994 + 0.6667(0.0994 − 0.04) = 0.0994 + 0.0396 = 0.1390, so <b>r<sub>E</sub> = 13.90%</b></p><p><b>Step 3. After-tax WACC.</b> r<sub>wacc</sub> = 0.60(0.1390) + 0.40(0.04)(1 − 0.22) = 0.08340 + 0.01248 = 0.09588, so <b>r<sub>wacc</sub> = 9.588%</b></p><p><b>Check.</b> r<sub>U</sub> − (D/V)τr<sub>D</sub> = 0.0994 − 0.40(0.22)(0.04) = 0.0994 − 0.00352 = 0.09588 ✓. This is an identity once r<sub>E</sub> comes from MM II, so it catches arithmetic slips only.</p>",
+     "criteria": [
+      "Converts D/V = 0.40 into D/E = 0.6667 for MM II. Using 0.40 as D/E gives r_E = 12.32%. Kurbatov, recording 09 at 51:10: «here it's not D over V it's D over E strictly».",
+      "r_E = 13.90%.",
+      "r_wacc = 9.588%: (1 − τ) on r_D only, weights E/V = 0.60 and D/V = 0.40.",
+      "Bonus, not required: the shortcut r_U − (D/V)τr_D as a check."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 4,
+     "body": "<p>Find the levered value of the park today with the WACC method and its NPV. How much debt does the park support today and at the end of Years 1 and 2 (its debt capacity)?</p>",
+     "solution": "<p>With a constant D/V one WACC discounts every year. Work backwards from Year 3, so the value at each date (and with it the debt capacity) comes out of the same calculation:</p><p>V<sup>L</sup><sub>2</sub> = 115/1.09588 = <b>104.9385</b><br>V<sup>L</sup><sub>1</sub> = (135 + 104.9385)/1.09588 = <b>218.9460</b><br>V<sup>L</sup><sub>0</sub> = (125 + 218.9460)/1.09588 = <b>NOK 313.8537 million</b></p><p><b>NPV</b> = 313.8537 − 300 = <b>NOK 13.8537 million</b></p><p><b>Debt capacity.</b> D<sub>t</sub> = 0.40 × V<sup>L</sup><sub>t</sub>: D<sub>0</sub> = <b>125.5415</b>, D<sub>1</sub> = <b>87.5784</b>, D<sub>2</sub> = <b>41.9754</b> and D<sub>3</sub> = 0. The debt is repaid as the contract runs out, because the value it is tied to falls.</p><table class=\"data\"><tr><th></th><th>Year 0</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr><tr><td>Free cash flow</td><td class=\"n\">−300</td><td class=\"n\">125</td><td class=\"n\">135</td><td class=\"n\">115</td></tr><tr><td>V<sup>L</sup><sub>t</sub> (after the year-t cash flow)</td><td class=\"n\">313.8537</td><td class=\"n\">218.9460</td><td class=\"n\">104.9385</td><td class=\"n\">0</td></tr><tr><td>Debt capacity D<sub>t</sub> = 0.40 V<sup>L</sup><sub>t</sub></td><td class=\"n\">125.5415</td><td class=\"n\">87.5784</td><td class=\"n\">41.9754</td><td class=\"n\">0</td></tr></table>",
+     "criteria": [
+      "Discounts the free cash flows at r_wacc = 9.588%. Using r_U gives the unlevered value (311.93); Skaret's own 8.1% gives 322.20.",
+      "V^L_0 = 313.8537 and NPV = 13.8537: the 300 is subtracted, since the question asks for the NPV.",
+      "D_t = 0.40 × V^L_t, with V^L_t the value of the cash flows after year t: D_0 = 125.5415, D_1 = 87.5784, D_2 = 41.9754. Including the year-t cash flow in V^L_t is the classic error."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 5,
+     "body": "<p>Using the debt capacity from (c), find the unlevered value of the park, the present value of the interest tax shields and the levered value with the APV method. Compare with (c).</p>",
+     "solution": "<p><b>Step 1. Unlevered value.</b> The same free cash flows, discounted at r<sub>U</sub> = 9.94%:<br>V<sup>U</sup> = 125/1.0994 + 135/1.0994<sup>2</sup> + 115/1.0994<sup>3</sup> = 113.6984 + 111.6921 + 86.5427 = <b>NOK 311.9332 million</b></p><p><b>Step 2. The interest tax shields.</b> Interest in year t is paid on the debt at the start of the year: TS<sub>t</sub> = τ × r<sub>D</sub> × D<sub>t−1</sub> = 0.22 × 0.04 × D<sub>t−1</sub>:<br>TS<sub>1</sub> = 0.0088 × 125.5415 = <b>1.1048</b>, TS<sub>2</sub> = 0.0088 × 87.5784 = <b>0.7707</b>, TS<sub>3</sub> = 0.0088 × 41.9754 = <b>0.3694</b></p><p><b>Step 3. Discount at r<sub>U</sub>.</b> With a constant D/V the debt moves with the value of the park, so the shields carry the park's risk:<br>PV(TS) = 1.1048/1.0994 + 0.7707/1.0994<sup>2</sup> + 0.3694/1.0994<sup>3</sup> = 1.0049 + 0.6376 + 0.2780 = <b>NOK 1.9205 million</b></p><p><b>Step 4. APV.</b> V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 311.9332 + 1.9205 = <b>NOK 313.8537 million</b>, the same as in (c), so the NPV is again 13.8537.</p><p><b>Check.</b> The two methods agree. The check is not fully independent (the debt came from the WACC values), but it catches a wrong rate on the shields: discounted at r<sub>D</sub> = 4% they would be worth 2.1032 and the value 314.0364.</p>",
+     "criteria": [
+      "V^U = 311.9332, discounted at r_U.",
+      "Tax shields on the debt at the start of each year: 1.1048, 0.7707 and 0.3694. Using the debt at the end of the year shifts the shields one year.",
+      "PV(TS) = 1.9205, discounted at r_U (at r_D it would be 2.1032). Bonus, not required: the reason (constant D/V).",
+      "V^L = 313.8537, equal to (c). A gap of about 0.001 is rounding; a larger gap is an error."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 3,
+     "body": "<p>Compare the park's after-tax WACC with its unlevered cost of capital. Why do they differ? What would it tell you if you had found a WACC above r<sub>U</sub>?</p>",
+     "solution": "<p><b>r<sub>wacc</sub> = 9.588% is below r<sub>U</sub> = 9.94%</b>, by (D/V)τr<sub>D</sub> = 0.40 × 0.22 × 4% = 0.352 percentage points.</p><p><b>Why.</b> r<sub>U</sub> is the return the park's assets must earn whatever the financing; without taxes the WACC would equal r<sub>U</sub> (MM). The only difference is the (1 − τ) on the cost of debt: interest is tax-deductible, so debt is cheaper after tax; the WACC method builds the value of the tax shield into a lower discount rate. APV instead discounts at r<sub>U</sub> and adds the shield separately, which is why the two methods both give 313.8537.</p><p><b>A WACC above r<sub>U</sub></b> should ring an alarm bell. With risk-free debt and a positive tax rate it cannot happen, so it signals a calculation error rather than debt that destroys value. Typical culprits: relevering a comparable's r<sub>E</sub> without unlevering it first (Ladeport's 13% gives r<sub>E</sub> = 19.0% and a WACC of 12.65%), using D/E = 0.6667 as the weight on debt (10.42%), writing (1 + τ) instead of (1 − τ) (10.29%) or any other r<sub>E</sub> that is too high.</p>",
+     "criteria": [
+      "States that r_wacc is below r_U, with both numbers (9.588% and 9.94%).",
+      "Explains why: the only difference is the (1 − τ) on r_D, so the gap is the tax advantage of debt, (D/V)τr_D. «Debt is cheaper after tax» is the minimum accepted answer.",
+      "A WACC above r_U signals a calculation error. Kurbatov, recording 09 at 53:22: «it should be like a small alarming bell ringing in your head». An example of such an error is a bonus, not required.",
+      "The economic reading («the debt destroys value») earns the point only if the answer adds that this cannot happen with risk-free debt and a positive tax rate, so it must be an error.",
+      "Not required: the pre-tax WACC (it equals r_U)."
+     ]
+    }
+   ]
+  }
+ ],
+ "hint2-3": [
+  {
+   "n": 1,
+   "title": "Security issues",
+   "points": 10,
+   "topic": "Going public",
+   "chapters": [
+    14
+   ],
+   "merke": "Forelesning 07 (Security Issues), 38:30: «again this could be on the exam»",
+   "body": "<p>Ravndal Software AS is a profitable software company owned by its three founders and a venture fund. The owners are considering listing the company on Oslo Børs.</p><p>Give one benefit and one cost of being a publicly traded company. Then give one benefit and one cost of staying private. Use four different reasons: turning a benefit of one form into a cost of the other (for example «public firms must publish a lot of information» and «private firms need not publish») counts as one reason. Keep explanations short, 1–2 sentences per reason.</p>",
+   "solution": "<p><b>Public, benefit: access to capital.</b> A listed firm can raise new equity from a large pool of investors at a competitive price whenever it needs to (seasoned offerings). It can also pay for acquisitions with its own shares.</p><p><b>Public, cost: the costs of going and being public.</b> The IPO itself costs underwriter fees of around 5–7% of the proceeds plus the underpricing. Afterwards the firm faces reporting, audit and disclosure requirements that are expensive and also reveal information to competitors.</p><p><b>Private, benefit: control and a long horizon.</b> A few large owners keep control, monitor management closely and can follow long-term plans without pressure to meet quarterly earnings targets (no short-termism).</p><p><b>Private, cost: illiquid and undiversified ownership.</b> The owners cannot easily sell their shares or spread their wealth over many firms, so they carry concentrated risk; without a market price they also get no price signal on how investors judge the firm's decisions.</p><p><b>Also accepted.</b> Public benefits: liquidity and an easy exit for shareholders, price discovery (the share price as a traffic light after decisions such as an acquisition), analyst coverage and visibility, shares as currency for stock-based pay. Public costs: market pressure and short-termism, loss of control as ownership spreads (dual-class shares can limit it), exposure to hostile takeovers. Private benefits: confidentiality, lower compliance costs, owners who monitor management closely. Private costs: outside financing that is scarcer and more expensive, no market price for valuing the firm. Transparency counts in either box, as a benefit (discipline and better governance) or as a cost (expensive, reveals information), when the explanation says which.</p>",
+   "criteria": [
+    "Four boxes, 2.5 points each: 1 for a valid reason in the right box, 1.5 for the mechanism in 1–2 sentences.",
+    "Four different reasons. A box filled with the mirror image of another box (public cost «heavy reporting», private benefit «no reporting») earns at most 1 point: the two boxes count as one reason.",
+    "Transparency, monitoring and market pressure can be argued as a benefit or a cost; the explanation decides the box. Kurbatov, recording 07 at 39:38, on reporting and transparency: «it's both a benefit and the cost at the same time».",
+    "«More cash» on its own is not enough: the answer must say why a listing gives access to capital that a private firm lacks.",
+    "Sentence budget: 1–2 sentences per reason. Length is not rewarded."
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Asymmetric information",
+   "points": 20,
+   "topic": "Signalling and certification",
+   "chapters": [
+    12,
+    13
+   ],
+   "merke": "Forelesning 10 (Problem set exercises 2), 3:07: «you might expect something like that in the exam as well»",
+   "body": "<p>Kvalvik Robotics ASA owns a patent on a robot gripper and nothing else: no cash, no debt. The patent is worth NOK 168 million (good type) or NOK 48 million (bad type). Kvalvik's managers know which; the market only puts a 40% probability on the good type. The founders own all 2.4 million shares and will sell them at the market price right after any announcement and share issue, so management maximises that price. Everyone is risk-neutral and the discount rate is zero.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 2,
+     "body": "<p>What is Kvalvik's share price today?</p>",
+     "solution": "<p>The market cannot tell the types apart, so it prices Kvalvik at the expected value of the patent under its own beliefs:</p><p>V = 0.4 × 168 + 0.6 × 48 = 67.2 + 28.8 = 96.0, so P<sub>0</sub> = 96/2.4 = <b>NOK 40.00 per share</b></p>",
+     "criteria": [
+      "Expected value with the market's 40%/60% beliefs, not the managers' knowledge: V = 96.",
+      "P_0 = 40.00 per share."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>Kvalvik considers sponsoring a cycling team for NOK 18 million, raised by issuing new shares. Everyone knows the sponsorship generates no cash flow at all.</p><p>Suppose the market believes that Kvalvik sponsors whatever its type. How many new shares must it issue? What is the share price afterwards?</p>",
+     "solution": "<p>If both types sponsor, the sponsorship tells the market nothing: the patent is still worth 96 in expectation. The 18 raised is spent on something worth nothing, so after the issue the firm is still worth 96 in total, now shared by 2.4 + m million shares.</p><p>Two equations: m × P = 18 and (2.4 + m) × P = 96. Subtract the first from the second: 2.4P = 78, so <b>P = NOK 32.50</b> and <b>m = 18/32.5 = 0.5538 million new shares</b>.</p><p>The price falls by 7.50 because the old shareholders pay for a sponsorship that creates no value: 2.4 × 7.50 = 18.</p>",
+     "criteria": [
+      "Firm value after the issue stays at 96: the sponsorship adds nothing and reveals nothing.",
+      "Two equations (new shares × price = 18; all shares × price = 96), or the share of the firm sold, 18/96 = 18.75%.",
+      "P = 32.50 and m = 0.5538 million. Classic error: issuing at today's price of 40 (0.45 million shares), which ignores that the price falls when the money is spent.",
+      "Bonus, not required: the check m × P = 18."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 4,
+     "body": "<p>Suppose instead the market believes that only the good type sponsors: a sponsorship proves the good type and no sponsorship proves the bad type. How many new shares must a sponsoring Kvalvik issue and at what price? What is the price of a Kvalvik that does not sponsor?</p>",
+     "solution": "<p>Now a sponsorship is read as proof of the good type, so a sponsoring Kvalvik is valued at 168:</p><p>m × P = 18 and (2.4 + m) × P = 168, so 2.4P = 150, <b>P = NOK 62.50</b> and <b>m = 18/62.5 = 0.2880 million new shares</b>.</p><p>A Kvalvik that does not sponsor is taken for the bad type: <b>P = 48/2.4 = NOK 20.00</b>.</p><p>Under this belief a good type is glad to sponsor: 62.50 against 20.00 if it does not.</p>",
+     "criteria": [
+      "Values a sponsoring firm at 168: P = 62.50 and m = 0.2880 million.",
+      "A firm that does not sponsor is valued as bad: P = 20.00.",
+      "Bonus, not required: the check 0.288 × 62.5 = 18."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 5,
+     "body": "<p>Suppose Kvalvik is in fact the bad type and the market holds the belief in (c). Do the founders want it to sponsor? Is the belief rational? How costly must the sponsorship be before a bad type stops sponsoring? Would a good type still sponsor at that cost?</p>",
+     "solution": "<p><b>The bad type copies.</b> The market sees the sponsorship, not the type. If a bad Kvalvik sponsors, it is priced like a good one at 62.50; if it does not, it is revealed as bad and priced at 20.00. The founders sell at the market price, so they want it to sponsor: <b>62.50 &gt; 20.00</b>. The new investors pay for it: they buy at 62.50 shares that are really worth 48/2.688 = 17.86.</p><p><b>The belief in (c) is not rational.</b> If the market believes that only good types sponsor, bad types sponsor too, so a sponsorship proves nothing. The separating equilibrium fails; the market is back to pooling the two types.</p><p><b>How large would the cost have to be?</b> A bad type stops copying when (168 − X)/2.4 ≤ 48/2.4, that is when X ≥ 168 − 48 = <b>NOK 120 million</b>. But at that cost a good type gets (168 − 120)/2.4 = 20.00 from sponsoring: no more than if it is taken for a bad type and less than the pooled price of 40.00. Only at exactly X = 120 can the types separate; even then the good type gains nothing (20 either way, below the pooled 40). Burning money costs both types the same, so it is a worthless signal: a signal works only if it is cheaper for the good type or can be verified.</p>",
+     "criteria": [
+      "Compares 62.50 (sponsor, taken for good) with 20.00 (no sponsorship, taken for bad): the bad type sponsors.",
+      "Concludes that the belief in (c) is not rational: the bad type mimics, so the sponsorship cannot separate the types and they are pooled.",
+      "Threshold X = 120 = 168 − 48. Comparing with the pooled price of 40 instead of 20 gives 72 and is wrong here: under the belief in (c), not sponsoring reveals the bad type.",
+      "Only at exactly X = 120 can the types separate; even then the good type gains nothing (price 20.00, below the pooled 40): burning money is a worthless signal when it costs both types the same. The idea earns the point; the word «signal» alone does not."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 5,
+     "body": "<p>Instead, Kvalvik can pay an independent auditor to certify the patent's true value to the market, with the fee paid in new shares issued after the certificate is published. What is the highest fee a good type would pay rather than be priced as in (a)? Would a bad type buy the certificate? Once good types buy certificates, what does the market conclude about a firm without one?</p>",
+     "solution": "<p><b>Highest fee.</b> With the certificate the market values a good Kvalvik at 168. The fee C is paid with new shares, so the old shareholders keep 168 − C and P = (168 − C)/2.4. Without it the price is 40.00, as in (a). The good type pays as long as (168 − C)/2.4 ≥ 40, so <b>C<sub>max</sub> = 168 − 96 = NOK 72 million</b>: the amount by which the pooled price undervalues the good type, 2.4 × (70 − 40).</p><p><b>A bad type would not buy it.</b> The certificate would reveal a value of 48, a price of at most 20, against 40 without it.</p><p><b>No certificate is bad news.</b> Once good types certify, a firm without a certificate is taken for the bad type and priced at 20, so the pooled price disappears; even applying for a certificate tells the market something. If even applying reveals the type, the good type's alternative is 20, not 40, so it would pay up to 120; measured against the price in (a), as the question asks, the answer is 72. This is why audits, ratings and reputable underwriters have value: they make the type verifiable instead of relying on a signal the bad type can copy.</p>",
+     "criteria": [
+      "Price with the certificate (168 − C)/2.4 compared with 40: C_max = 72. Per share the undervaluation is 30 (not required).",
+      "A bad type never buys: the certificate would reveal 48.",
+      "Not buying reveals the bad type (price 20), so pooling breaks down. Kurbatov, recording 10 at 3:58: «even the fact that you applied for certification will already reveal your type».",
+      "Bonus, not required: once that is so, a good type would pay up to 120 to avoid being priced at 20."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Capital Structure",
+   "points": 20,
+   "topic": "MM in perfect markets, replication",
+   "chapters": [
+    3,
+    6
+   ],
+   "merke": "Forelesning 02 (Capital Structure I), 33:54: «like with different numbers, this could be like an exam question»",
+   "body": "<p>Ragnhild Solheim wants to start a luxury fjord-cruise business. The boat and the launch cost NOK 2 million today. In one year Ragnhild sells the business, which then pays NOK 4.48 million if the economy booms and NOK 2.08 million if it busts. A boom has probability 0.6. Ragnhild has no money of her own. She can raise the NOK 2 million either from equity investors, who demand an expected return of 10%, or as a bank loan at the risk-free rate of 4%. The market portfolio returns +100% in a boom and −100% in a bust (an expected return of 20%). It booms and busts together with the business. Markets are perfect and there are no taxes.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>Find the expected payoff of the business, the fraction of the firm the equity investors require and Ragnhild's expected cash flow with equity financing and with the bank loan.</p>",
+     "solution": "<p><b>Expected payoff.</b> E[X] = 0.6 × 4.48 + 0.4 × 2.08 = 2.688 + 0.832 = 3.520</p><p><b>Equity investors.</b> They put in 2 and want 2 × 1.10 = 2.2 in expectation, so they need 2.2/3.52 = <b>0.625 (62.5%)</b> of the firm. Ragnhild keeps 37.5%.</p><p><b>Ragnhild's expected cash flow.</b> With equity: 3.52 − 2.2 = <b>1.32</b>. With the bank loan she repays 2 × 1.04 = 2.08 in both states: 3.52 − 2.08 = <b>1.44</b>.</p><p>The loan gives the higher expected cash flow, but all of it comes in a boom (in a bust Ragnhild gets 2.08 − 2.08 = 0). Expected cash flows alone cannot rank the two, since the risk differs.</p>",
+     "criteria": [
+      "E[X] = 3.52.",
+      "Fraction to the investors 2.2/3.52 = 62.5% (5/8).",
+      "Ragnhild: 1.32 with equity, 1.44 with the bank loan.",
+      "Bonus, not required: the higher expected cash flow with the loan comes with more risk, so it does not make the loan better."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 4,
+     "body": "<p>Show that the bank loan is risk-free. Find the value today of Ragnhild's stake with the bank loan by replicating its payoff with the market portfolio and the risk-free asset.</p>",
+     "solution": "<p><b>The loan is risk-free.</b> The bank is owed 2 × 1.04 = 2.08; even the bust payoff is 2.08, so the bank is paid in full in both states.</p><p><b>Ragnhild's payoff.</b> Boom: 4.48 − 2.08 = 2.40. Bust: 2.08 − 2.08 = 0.</p><p><b>Replicate it.</b> NOK 1 in the market portfolio pays 2 in a boom and 0 in a bust: the same pattern. To get 2.40 in a boom she needs 2.40/2 = 1.20 in the market portfolio and nothing in the risk-free asset. Equivalently, 0.6 × 2.40/1.20 = 1.20: the expected payoff discounted at the market's expected return.</p><p><b>Value of Ragnhild's stake: NOK 1.20 million.</b></p>",
+     "criteria": [
+      "Shows the loan is risk-free: 2.08 is owed and even the bust pays 2.08.",
+      "Payoff 2.40 in a boom and 0 in a bust, replicated by 1.20 in the market portfolio and nothing in the risk-free asset.",
+      "Value 1.20. Discounting the expected 1.44 at the risk-free rate (1.3846) is wrong: the stake is exactly as risky as the market."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 5,
+     "body": "<p>Find the value today of Ragnhild's stake with equity financing by replication. State the replicating portfolio and compare with (b).</p>",
+     "solution": "<p><b>Ragnhild's payoff.</b> She keeps 37.5% of the firm: 0.375 × 4.48 = 1.68 in a boom and 0.375 × 2.08 = 0.78 in a bust.</p><p><b>Split it.</b> The 0.78 she gets in both states is risk-free; the remaining 1.68 − 0.78 = 0.90 comes only in a boom, like the market.</p><p>Risk-free asset: 0.78/1.04 = <b>0.75</b>. Market portfolio: 0.90/2 = <b>0.45</b> (or 0.6 × 0.90/1.20).</p><p><b>Value: 0.75 + 0.45 = 1.20, NOK 1.20 million</b>, the same as with the bank loan. Check: the portfolio pays 0.75 × 1.04 + 0.45 × 2 = 1.68 in a boom and 0.75 × 1.04 = 0.78 in a bust ✓.</p><p>This is MM I: in a perfect market the choice of financing does not change what Ragnhild's stake is worth. It only changes how her payoff is spread over the two states.</p>",
+     "criteria": [
+      "Payoff 1.68 in a boom and 0.78 in a bust (37.5% of each).",
+      "Portfolio: 0.75 in the risk-free asset and 0.45 in the market portfolio.",
+      "Value 1.20, equal to (b): financing does not matter in a perfect market (MM I).",
+      "Bonus, not required: checking that the portfolio reproduces both payoffs."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 3,
+     "body": "<p>Find the value of the equity investors' stake and the value of the firm with each form of financing. Who gets the NPV of the business?</p>",
+     "solution": "<p><b>The investors' stake.</b> 62.5% of the payoff: 2.80 in a boom and 1.30 in a bust. Risk-free part 1.30/1.04 = 1.25, market part (2.80 − 1.30)/2 = 0.75: value <b>2.00</b>, exactly what they pay. A zero-NPV deal, as is the bank loan (2 today for a risk-free 2.08).</p><p><b>Firm value.</b> Equity financing: 2.00 + 1.20 = <b>3.20</b>. Bank loan: debt 2.00 + Ragnhild's equity 1.20 = <b>3.20</b>. The same value.</p><p><b>Who gets the NPV.</b> NPV = 3.20 − 2.00 = 1.20 under both forms of financing. All of it goes to Ragnhild: her stake is worth 1.20 and she puts in nothing. The outside investors only break even.</p>",
+     "criteria": [
+      "Investors' stake 2.00, equal to the money they put in (zero NPV).",
+      "Firm value 3.20 under both forms of financing.",
+      "Ragnhild captures the whole NPV of 1.20."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 5,
+     "body": "<p>A business angel instead offers Ragnhild the NOK 2 million for 70% of the firm. Suppose you do not know the probability of a boom; call it α. The market portfolio still loses everything in a bust and still has an expected return of 20%, so its return in a boom depends on α. For which α do Ragnhild's two stakes (with the angel and with the bank loan) have the same value today? Value them by replication, as in (b) and (c). Which offer does she prefer if a boom is more likely than that? Explain briefly why this does not contradict your answer in (c).</p>",
+     "solution": "<p><b>Value of the business as a function of α.</b> The risk-free part is 2.08/1.04 = 2.00. The boom-only part, 2.40, is worth α × 2.40/1.20 = 2α (the replication from (b), with α instead of 0.6). So V(α) = 2 + 2α.</p><p><b>Ragnhild's stake.</b> Bank loan: V − 2 = 2α. Angel: 0.30 × (2 + 2α) = 0.6 + 0.6α.</p><p><b>Indifference.</b> 2α = 0.6 + 0.6α, so 1.4α = 0.6 and <b>α = 3/7 = 0.4286</b>. Equivalently, the angel's 70% is then worth exactly the NOK 2 million paid: 0.7 × (2 + 2 × 0.4286) = 2.</p><p><b>If a boom is more likely than 0.4286</b>, the firm is worth more than 2/0.7 = 2.8571, so 70% of it is worth more than the 2 million the angel pays: Ragnhild gives away too much and prefers the bank loan (at α = 0.6 her stake is worth 1.20 with the loan and 0.96 with the angel). Below 0.4286 the angel overpays and she prefers the angel.</p><p><b>No contradiction with (c).</b> In (c) the investors' fraction was set so that their claim was fairly priced, a zero-NPV deal. MM's irrelevance holds when every security is sold at its fair value. A fixed 70% is a fair price only at α = 0.4286; at any other α one side gets a positive-NPV deal at the other's expense, which a competitive, perfect market would not offer.</p>",
+     "criteria": [
+      "V(α) = 2 + 2α: the risk-free part 2.00 plus α × 2.40/1.20 for the boom-only part.",
+      "Sets Ragnhild's two stakes equal (2α = 0.6 + 0.6α), or the angel's 70% equal to 2: α = 0.4286 (3/7).",
+      "Above 0.4286 Ragnhild prefers the bank loan; below it, the angel.",
+      "MM needs fairly priced securities: the 70% is fair only at α = 0.4286, so a preference away from it reflects a mispricing, not a failure of MM.",
+      "Keeping the market's boom return at +100% makes V = 3.20 whatever α is, so the question would have no answer; that misreads the text, which keeps the expected return at 20%.",
+      "Comparing expected cash flows (0.3 × E[X] = E[X] − 2.08) or discounting them at r_f gives α = 0.3714 and earns nothing for the number: the stakes must be valued by replication."
+     ]
+    }
+   ]
+  }
+ ]
+}

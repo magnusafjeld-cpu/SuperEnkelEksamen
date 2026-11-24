@@ -1,0 +1,391 @@
+{
+ "hint2-1": [
+  {
+   "n": 1,
+   "title": "Capital Structure",
+   "points": 10,
+   "topic": "MM in perfect markets and market frictions",
+   "chapters": [
+    6,
+    7,
+    8,
+    11,
+    12
+   ],
+   "merke": "Forelesning 03 (Capital Structure II), 11:45: «So this could be an exam question, by the way. This could be like the question one»",
+   "body": "<p>At the annual general meeting of Hamnvik Kjøkken ASA, a kitchen manufacturer, a shareholder takes the floor: «Modigliani and Miller proved that the mix of debt and equity does not affect firm value. The board should stop spending time on the capital structure.»</p><p>How does the world in which the Modigliani-Miller propositions hold differ from real life? Give at least three examples and spend one or two sentences on each. For each example, name the difference and say why it makes the choice between debt and equity matter. (10 points)</p>",
+   "solution": "<p><b>Model answer (three examples, as the question asks).</b></p><p><b>1. Taxes.</b> The MM world has no taxes. In reality interest is paid before corporate tax, so debt creates an interest tax shield and V<sup>L</sup> = V<sup>U</sup> + PV(TS): the creditors are paid before the tax authority, which makes debt cheaper than equity after tax.</p><p><b>2. Costs of financial distress.</b> In the MM world default costs nothing: the creditors take over and the firm runs exactly as before. In reality a firm in distress pays lawyers and advisers, loses customers and suppliers and may have to sell specialised assets in a fire sale far below their value, so too much debt destroys value.</p><p><b>3. Asymmetric information.</b> MM assumes that managers and investors know the same. In reality managers know more, so an equity issue suggests that the shares are overvalued and the price falls on the announcement; firms therefore use internal funds first, then debt, with equity as the last resort (the pecking order).</p><p><b>Also accepted as an example.</b> Agency costs and benefits of debt: with high leverage the firm may forgo positive-NPV projects (debt overhang) or gamble with the creditors' money, while moderate debt disciplines managers who would otherwise waste free cash flow. Transaction costs and search frictions: raising money takes time and costs fees, which are higher for an equity issue than for a loan, while MM assumes all financing is free and instant. Mispricing and market timing: MM assumes prices are always right, but in inefficient markets shares can be over- or underpriced, so the firm can gain by issuing equity when it is dear and borrowing or buying back when it is cheap. Personal taxes on interest, dividends and capital gains. Investors who cannot borrow on the same terms as the firm, so homemade leverage does not undo the firm's choice.</p><p><b>Not accepted on its own.</b> «Uncertainty» or «risk»: outcomes are uncertain in the MM world too, so this names no difference. «Costs» or «frictions» without saying which. «Markets are not perfect» only repeats the question.</p>",
+   "criteria": [
+    "Three distinct differences, 3 points each: 1 for naming the difference and 2 for one or two sentences on how real life differs from the MM world and why that makes debt and equity differ. A name without an explanation earns 1 point.",
+    "The tenth point: at least one example is tied explicitly to the MM result it breaks, for example taxes to V^L = V^U + PV(TS) or distress to default no longer being costless.",
+    "«Uncertainty» or «risk» alone earns nothing: the MM world has uncertainty too. Kurbatov called it ambiguous when students suggested it (recording 03, 11:15). The same for «costs» or «imperfections» without naming which.",
+    "Counting: two close arguments count as one. Legal fees and fire sales are both costs of financial distress; debt overhang and gambling with the creditors' money are both agency costs of debt. The disciplining benefit of debt is a separate example.",
+    "Taxes need the mechanism: interest is deductible, so debt shields income from tax. «Debt is cheaper» without the reason earns 1 of 3."
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Security issues",
+   "points": 10,
+   "topic": "Seasoned equity offerings",
+   "chapters": [
+    12,
+    13,
+    14
+   ],
+   "merke": "Forelesning 18 (Wrap-up), 48:05: «Again, could be one of the first two theoretical questions in the exam»",
+   "body": "<p>Tverrdal Retail Inc., a listed grocery chain with stable cash flows and little debt, announces a seasoned equity offering (SEO) to finance a new distribution centre. On the announcement day its share price falls by 12% while the market is flat.</p><p>What are the potential reasons for the fall? What signal does the announcement send to the market? What would have been a better way to finance the distribution centre? Why? (10 points: reasons 4, signal 3, alternative 3. About five sentences should typically be enough.)</p>",
+   "solution": "<p><b>Model answer in five sentences.</b></p><p><b>Reasons (4 points).</b> The main reason is asymmetric information: managers know more than outside investors and are most willing to sell new shares when they believe the shares are overvalued, so investors mark the price down. Smaller reasons: the issue may reveal that internal cash is short or that management wants money for empire building; issue costs such as underwriting fees take a few percent of the amount raised.</p><p><b>The signal (3 points).</b> The announcement tells the market «our managers think the shares are worth less than the market price» (the lemons problem); the 12% is a revision of the value of the whole firm, not a verdict on the distribution centre, which may well have a positive NPV.</p><p><b>A better alternative (3 points).</b> Follow the pecking order: internal funds first, then debt, which Tverrdal can raise cheaply with stable cash flows and little debt. Neither depends much on what the managers know, so they send a much weaker signal than equity (and debt adds an interest tax shield).</p><p><b>Also accepted.</b> Myers-Majluf by name; the point that issue costs are far too small to explain a 12% fall in the value of the whole company; a credible way to share the information (an audited forecast or a certification) that would shrink the discount. <b>Not accepted on its own:</b> «earnings per share are diluted». New shares sold at a fair price dilute nobody; the problem only arises because the price may be wrong.</p>",
+   "criteria": [
+    "Reasons (4 points): 2 for asymmetric information with the mechanism, managers issue equity when they believe it is overvalued, so investors revise the price down. 1 point each for two further reasons: a cash shortfall revealed, fear of a value-destroying use of the money (empire building), issue costs.",
+    "Signal (3 points): the market infers that management thinks the shares are overvalued. Full marks add that the fall is about the existing assets, not proof that the distribution centre has a negative NPV.",
+    "Alternative (3 points): internal funds or debt, with the reason that they reveal little or nothing about the value of the shares (pecking order). Debt justified only by the tax shield earns 2 of 3: true, but it misses the signal.",
+    "«Dilution of earnings per share» alone earns nothing. Blaming the 12% on fees alone is the classic error: fees are a few percent of the amount raised, not of the whole market value.",
+    "Answers longer than five sentences are not penalised, but a repeated argument earns nothing extra."
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Security issues",
+   "points": 20,
+   "topic": "Initial public offerings",
+   "chapters": [
+    14
+   ],
+   "merke": "Forelesning 07 (Security Issues), 1:16:58: «this is what I will try to incorporate in the exam, say a similar exercise»",
+   "body": "<p>Next year a large number of small technology firms will go public, one IPO at a time. Each firm is either good or bad, which you cannot tell in advance. A good firm's shares will be worth $60 once trading starts, a bad firm's shares $35. 40% of the firms are good and 60% are bad. The true value is revealed at the end of the first trading day. Everyone is risk neutral and you can ignore discounting within the day. Use 4 decimal places.</p><p>You are an uninformed investor and you order 100 shares in every IPO.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>Suppose first that no investor knows more than you and every IPO is priced at the expected value of its shares. What is the issue price? What is the expected first-day return of an IPO?</p>",
+     "solution": "<p><b>Step 1. Expected value.</b> P = 0.4 × 60 + 0.6 × 35 = 24 + 21 = <b>$45 per share</b>.</p><p><b>Step 2. First-day return.</b> A good IPO rises to 60, a return of 60/45 − 1 = 33.3333%. A bad one falls to 35, a return of −22.2222%. Expected return = 0.4 × 33.3333% + 0.6 × (−22.2222%) = 13.3333% − 13.3333% = <b>0%</b>.</p><p>With nobody informed, every investor gets the same allocation in good and bad IPOs, so the uninformed investor also earns 0% on average. This is the benchmark.</p>",
+     "criteria": [
+      "Expected value 0.4 × 60 + 0.6 × 35 = $45. Using 50/50 weights ($47.5) is the classic error.",
+      "Expected first-day return 0%: +33.33% with probability 0.4 and −22.22% with probability 0.6. «The price is fair, so 0%» with the price is accepted.",
+      "Show the calculation."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 5,
+     "body": "<p>Now some investors are informed: they know each firm's type and order shares only in good IPOs. Good IPOs are therefore heavily oversubscribed and you receive only 20 of the 100 shares you order; in bad IPOs you receive 80. The issue price is still the one from (a). What is your expected profit per IPO? What is your average return per share you receive, that is your total expected profit divided by the total amount you expect to invest? Will you take part?</p>",
+     "solution": "<p><b>Step 1. Profit in each type.</b> Good: 20 shares × (60 − 45) = <b>+$300</b>. Bad: 80 shares × (35 − 45) = <b>−$800</b>.</p><p><b>Step 2. Expected profit per IPO.</b> 0.4 × 300 + 0.6 × (−800) = 120 − 480 = <b>−$360</b>.</p><p><b>Step 3. Average return per share received.</b> Expected number of shares received = 0.4 × 20 + 0.6 × 80 = 56, costing 56 × 45 = $2,520. Return = −360 / 2,520 = <b>−14.2857%</b>.</p><p><b>Decision.</b> The uninformed investor loses money on average and <b>does not take part</b>. The first-day return averaged over IPOs is still 0%, but your money is not spread evenly: you get few shares when the IPO is good and many when it is bad.</p>",
+     "criteria": [
+      "Profit per type uses the shares actually received: 20 × (60 − 45) = +300 and 80 × (35 − 45) = −800. Using the order of 100 shares in both is the classic error and gives 0.",
+      "Expected profit per IPO −$360.",
+      "Average return per share received −14.2857%: total expected profit over the expected amount invested, 2,520. Averaging the two first-day returns over IPOs gives 0% and earns no points for this step.",
+      "Decision: does not take part, because the expected profit is negative.",
+      "Show the calculation."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 5,
+     "body": "<p>At a lower issue price you still receive 20 shares in good IPOs and 80 in bad ones. What is the highest issue price at which you are still willing to take part in every IPO?</p>",
+     "solution": "<p><b>Step 1. The participation condition.</b> At the highest acceptable price P your expected profit is zero, using the shares you actually receive:</p><p>0.4 × 20 × (60 − P) + 0.6 × 80 × (35 − P) = 0<br>8(60 − P) + 48(35 − P) = 0<br>480 + 1,680 = 56P<br>P = 2,160 / 56 = <b>$38.5714</b></p><p>The price is the average value weighted by the shares you receive: 8/56 on the good type and 48/56 on the bad type, not 0.4 and 0.6.</p><p><b>Check.</b> Good: 8 × (60 − 38.571429) = +171.4286. Bad: 48 × (35 − 38.571429) = −171.4286. The sum is 0 ✓. The price lies 14.2857% below the expected value of $45, the same 1/7 as the loss rate in (b). That is no coincidence: the loss rate at a price of $45 equals (38.5714 − 45)/45.</p>",
+     "criteria": [
+      "Sets up the break-even condition with the allocated shares: 0.4 × 20 × (60 − P) + 0.6 × 80 × (35 − P) = 0.",
+      "Solves for P = 2,160/56 = $38.5714.",
+      "Answering $45 (the unweighted expected value) or using the order of 100 in both types is the classic error.",
+      "Optional but valued: the check that profits in the two types cancel, or that P is the allocation-weighted average value.",
+      "Show the calculation."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 3,
+     "body": "<p>Suppose every IPO is priced as in (c). What is the average first-day return across IPOs? What return do the informed investors earn? What do you earn?</p>",
+     "solution": "<p><b>Step 1. Average first-day return.</b> Good: 60/38.571429 − 1 = 55.5556%. Bad: 35/38.571429 − 1 = −9.2593%. Average over IPOs = 0.4 × 55.555556% + 0.6 × (−9.259259%) = 22.222222% − 5.555556% = 16.666667% ≈ <b>16.6667%</b> (the same as 45/38.571429 − 1).</p><p><b>Step 2. Informed investors</b> buy only good IPOs and earn <b>55.5556%</b>.</p><p><b>Step 3. You</b> earn <b>0%</b>: the price was set so that your gains in good IPOs exactly offset your losses in bad ones, (c).</p>",
+     "criteria": [
+      "Average first-day return 16.6667%, from the two returns 55.56% and −9.26% weighted 0.4 and 0.6.",
+      "Informed investors 55.5556%, because they buy only good IPOs.",
+      "Uninformed 0%, by construction of the price in (c)."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 4,
+     "body": "<p>Explain the intuition. Why must IPOs be underpriced on average? Why can an ordinary investor not earn the average first-day return by subscribing to every IPO? (Two to four sentences.)</p>",
+     "solution": "<p>Uninformed investors face a winner's curse: when an IPO is good the informed crowd in and the uninformed are rationed to 20 shares; when it is bad they are without the informed investors and get 80. Their allocation is tilted toward the bad firms, so at a fair price of $45 they lose on average. To keep them in the market the issuer must price below the expected value, at the level where they just break even ($38.5714). The average first-day return of 16.67% is an average over IPOs, but the uninformed investor's money sits mostly in the bad ones, so the uninformed earn 0%; the informed investors collect the underpricing.</p><p><b>Also accepted.</b> The underwriter prefers a lower price as insurance against a failed issue. <b>Not enough on its own:</b> «underwriters underprice to please their friends at hedge funds». It may happen at the margin, but the model explains underpricing without anyone cheating.</p>",
+     "criteria": [
+      "2 points for the allocation mechanism: rationed in good IPOs, filled in bad ones, because only the informed avoid the bad ones.",
+      "1 point: the price must be set so that the uninformed break even, which is below the expected value (underpricing).",
+      "1 point: the average return across IPOs is not the return on the shares you receive; the informed earn it.",
+      "Collusion between underwriters and hedge funds alone earns nothing: Kurbatov's answer to that story was no (recording 07, 1:05:12). The insurance argument is accepted as an extra reason."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Debt and risk",
+   "points": 20,
+   "topic": "Risky debt, investment and renegotiation",
+   "chapters": [
+    10
+   ],
+   "merke": "Forelesning 18 (Wrap-up), 29:40: «most likely I will tell you yes there is this firm there is this project, check whether the manager wants this project»",
+   "body": "<p>Vardhøgda Alpine AS runs a ski resort. Its only debt is a zero-coupon loan with a face value of €120 million due in one year. Next year the resort will be worth €220 million if the winter is good and €70 million if it is poor, each with probability 50%. If the firm cannot repay in full, the creditors take over the resort at no extra cost. The manager, Ingrid Vold, owns all the shares. Investors are risk neutral, the risk-free rate is 0% and there are no taxes.</p><p>Ingrid can install a snowmaking system that costs €28 million today and raises the value of the resort next year by €40 million whatever the winter.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>Without the snowmaking system, what are the values of the debt and the equity today?</p>",
+     "solution": "<p>The creditors get min(value, 120) and the shares get max(value − 120, 0) in each state:</p><table class=\"data\"><tr><th>Winter</th><th>Probability</th><th>Resort</th><th>Debt</th><th>Equity</th></tr><tr><td>Good</td><td class=\"n\">50%</td><td class=\"n\">220</td><td class=\"n\">120</td><td class=\"n\">100</td></tr><tr><td>Poor</td><td class=\"n\">50%</td><td class=\"n\">70</td><td class=\"n\">70</td><td class=\"n\">0</td></tr></table><p>D = 0.5 × 120 + 0.5 × 70 = <b>€95 million</b> and E = 0.5 × 100 = <b>€50 million</b>.</p><p><b>Check.</b> D + E = 95 + 50 = 145 = 0.5 × 220 + 0.5 × 70 ✓</p>",
+     "criteria": [
+      "Debt valued state by state: 0.5 × 120 + 0.5 × 70 = €95M. Using the face value of €120M is the classic error.",
+      "Equity 0.5 × (220 − 120) = €50M.",
+      "The check D + E = €145M is a bonus."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 2,
+     "body": "<p>What is the NPV of the snowmaking system?</p>",
+     "solution": "<p>The system adds €40M for sure and costs €28M, with no discounting: NPV = −28 + 40 = <b>€12 million</b>. From the point of view of the firm as a whole it should be installed.</p>",
+     "criteria": [
+      "NPV = −28 + 40 = €12M.",
+      "States that the project is good for the firm as a whole."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 6,
+     "body": "<p>The firm has no cash, so the system must be financed by selling new shares to outside investors in a competitive market. What fraction of the equity must the new investors receive? What is Ingrid's payoff if she issues the shares and installs the system? Will she do it? Would the creditors like the system to be installed?</p>",
+     "solution": "<p><b>Step 1. Payoffs with the system.</b> The resort is worth 260 in a good winter and 110 in a poor one. Since 110 &lt; 120, the firm still defaults in a poor winter:</p><table class=\"data\"><tr><th>Winter</th><th>Resort</th><th>Debt</th><th>All equity</th></tr><tr><td>Good</td><td class=\"n\">260</td><td class=\"n\">120</td><td class=\"n\">140</td></tr><tr><td>Poor</td><td class=\"n\">110</td><td class=\"n\">110</td><td class=\"n\">0</td></tr></table><p>All equity together is worth 0.5 × 140 = 70.</p><p><b>Step 2. The new investors' fraction.</b> In a competitive market they pay €28M for a fraction x worth exactly that: x × 70 = 28, so <b>x = 40%</b>.</p><p><b>Step 3. Ingrid's payoff.</b> She keeps 60% × 70 = <b>€42 million</b>, against €50 million without the system. <b>She does not install it.</b></p><p><b>Step 4. The creditors.</b> With the system the debt is worth 0.5 × 120 + 0.5 × 110 = €115M instead of €95M. <b>The creditors would very much like the system</b>: they receive the whole €40M in a poor winter.</p>",
+     "criteria": [
+      "Recognises that the firm still defaults in a poor winter (110 < 120), so equity is worth 0.5 × 140 = 70.",
+      "New investors' fraction from x × 70 = 28: x = 40%.",
+      "Ingrid's payoff 60% × 70 = €42M, compared with €50M without the system: she does not install it.",
+      "Creditors: debt rises from 95 to 115, so they want the project.",
+      "Answers both questions: the manager's decision and the creditors' view.",
+      "Show the calculation."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 4,
+     "body": "<p>Who gains and who loses if the system is installed as in (c)? Check that the gains and losses add up to the NPV. Explain briefly what this means for the firm.</p>",
+     "solution": "<table class=\"data\"><tr><th>Claimholder</th><th>Without the system</th><th>With the system as in (c)</th><th>Change</th></tr><tr><td>Creditors</td><td class=\"n\">95</td><td class=\"n\">115</td><td class=\"n\">+20</td></tr><tr><td>Ingrid</td><td class=\"n\">50</td><td class=\"n\">42</td><td class=\"n\">−8</td></tr><tr><td>New shareholders</td><td class=\"n\">0</td><td class=\"n\">28 for 28 paid</td><td class=\"n\">0</td></tr></table><p><b>Check.</b> +20 + (−8) + 0 = <b>+12</b> = the NPV ✓</p><p><b>What it means.</b> The project is a wealth transfer from the shareholder to the creditors: the creditors are senior, so in a poor winter the whole €40M goes to repay their claim, while Ingrid pays for the system by giving up 40% of the firm. Because the creditors take more than the whole NPV, <b>the firm forgoes a positive-NPV project</b>. This is debt overhang.</p>",
+     "criteria": [
+      "Creditors +20, Ingrid −8, new shareholders 0.",
+      "Check: +20 − 8 + 0 = 12 = NPV.",
+      "Key sentence (about half the marks for the explanation, as Kurbatov said in recording 04, 44:31): the firm forgoes a positive-NPV project.",
+      "Mechanism: the existing debt is senior, so the creditors capture the project's payoff in the bad state; a wealth transfer from the shareholder to the creditors. Naming debt overhang without the mechanism earns half."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 5,
+     "body": "<p>Ingrid offers the creditors to replace their loan with a new zero-coupon loan with a lower face value. After that, the system is financed with new shares as in (c). For which face values do both the creditors and Ingrid accept? Why may the creditors agree to write down their claim?</p>",
+     "solution": "<p><b>Step 1. The creditors' outside option.</b> If they refuse, nothing changes: their claim stays worth €95M, from (a).</p><p><b>Step 2. A new face value K.</b> With the system the resort is worth at least 110. If K ≤ 110 the new loan is paid in full in both winters, so it is worth K. The creditors accept if <b>K ≥ 95</b>.</p><p><b>Step 3. Ingrid.</b> All equity is worth 0.5(260 − K) + 0.5(110 − K) = 185 − K. The new investors take €28M of it, so Ingrid keeps 157 − K. She accepts if 157 − K ≥ 50, that is <b>K ≤ 107</b>.</p><p><b>Step 4. Verify.</b> 107 ≤ 110, so the new loan is indeed safe in the whole range and the formula in Step 2 holds. <b>Both accept any face value from €95 million to €107 million.</b> The width of the range, 107 − 95 = 12, is the NPV: the two sides share it. For example K = 100 gives the creditors +5 and Ingrid +7.</p><p><b>Why the creditors agree.</b> Their current claim of 120 is worth only 95, because they get 70 in a poor winter. A smaller claim that is paid in full is worth more than a larger claim that defaults half the time. The write-down makes the project worthwhile for Ingrid while the creditors keep a share of its NPV. Without it the NPV is lost for everyone.</p>",
+     "criteria": [
+      "Lower bound from the creditors: their outside option is 95 (the value of the old debt), so K ≥ 95. Using 120 or 115 as the creditors' benchmark is the classic error.",
+      "Upper bound from Ingrid: 157 − K ≥ 50, so K ≤ 107.",
+      "Checks that K ≤ 110 in the range, so the new debt is safe.",
+      "The range €95M to €107M. Noting that its width equals the NPV of 12 is a bonus.",
+      "Explanation: a smaller safe claim is worth more than a larger risky one. The write-down removes the overhang so the creditors share the NPV instead of blocking it."
+     ]
+    }
+   ]
+  }
+ ],
+ "hint2-2": [
+  {
+   "n": 1,
+   "title": "Payout policy",
+   "points": 10,
+   "topic": "Payout policy",
+   "chapters": [
+    15,
+    16,
+    11
+   ],
+   "merke": "Forelesning 05 (Payout policy), 12:12: «this could be an exam question, I could ask you please list four things that the company can do with the cash»",
+   "body": "<p>Lauvhaug Nett ASA owns and runs the electricity grid in a rural region. The grid is regulated and already built out, demand barely grows and the cash flows are stable. This year the company expects a free cash flow of NOK 900 million.</p><p>List four things the company can do with the free cash flow. Rank them for Lauvhaug, from the one you would prefer as a shareholder to the one you would like least. Justify your ranking. (10 points. One or two sentences per alternative should typically be enough.)</p>",
+   "solution": "<p><b>Model answer (one defensible ranking for a mature firm).</b></p><p><b>1. Repurchase shares.</b> It returns the cash without a promise to repeat it: shareholders who want cash sell while the others defer their capital gains tax. If management thinks the shares are cheap, a repurchase also signals that.</p><p><b>2. Pay a dividend.</b> Stable regulated cash flows can carry a regular dividend that keeps the cash away from managers who might waste it. Dividends are sticky, though: a later cut is punished by the market, so the level must be one Lauvhaug can hold.</p><p><b>3. Retain the cash.</b> A buffer lowers the risk of distress in a bad year and lets the firm fund future projects without issuing securities. But idle cash invites empire building and works like negative debt, so it lowers the tax shield.</p><p><b>4. Invest it.</b> Investing is the best use only if the firm has good investment opportunities (positive-NPV projects). A built-out grid with flat demand has few, so «investing» here would likely mean acquisitions outside the core business; a young growth firm would rank this alternative first.</p><p><b>Also accepted.</b> Dividend before repurchase (investors who live on a steady income, a credible commitment that disciplines management); retaining cash last. In a perfect capital market the first three alternatives are equivalent (MM), so the ranking comes from the frictions; saying so is a bonus.</p>",
+   "criteria": [
+    "Four distinct alternatives: dividend, share repurchase, retain the cash, invest. 2 points each for the alternative with a reason for its place in the ranking.",
+    "«Invest» earns 1 point for naming it and the second only with the condition: if there are good (positive-NPV) investment opportunities. Kurbatov gave this split for the same question (recording 05, 14:34). Ranking «invest» first for Lauvhaug without the condition loses the ranking points.",
+    "Ranking (2 points): any order is accepted if the reasons support it and fit a mature firm with stable cash flows. Generic pros and cons that ignore the company earn half.",
+    "Do not claim that dividends are generally taxed more heavily: the tax rates are equal today in the US and Norway. The advantage of a repurchase is that the tax is deferred until the shareholder sells.",
+    "A cash dividend and a special dividend are one alternative, not two; an open-market repurchase and a tender offer likewise.",
+    "Also accepted as one of the four: paying down debt, with a reason (lower risk of distress against a smaller tax shield). An acquisition counts as investing, not as a separate alternative."
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Capital Structure",
+   "points": 10,
+   "topic": "Costs of financial distress",
+   "chapters": [
+    8
+   ],
+   "merke": "Forelesning 04 (Capital Structure III), 26:24: «an example question, like one of the first two questions, could be name some of those costs»",
+   "body": "<p>Kvalsund Subsea AS owns a fleet of specialised offshore construction vessels. After two weak years it is unlikely to be able to make a large bond payment due in four months.</p><p>(1) Name one direct and one indirect cost of financial distress that Kvalsund may face. Explain each in three to four sentences. (6 points)<br>(2) Why do the indirect costs usually matter more than the direct ones? (2 points)<br>(3) What can happen if Kvalsund cannot make the payment? Name two possible outcomes, one sentence each. (2 points)</p>",
+   "solution": "<p><b>(1) A direct cost: legal and administrative costs.</b> If Kvalsund defaults, it must pay its own and the creditors' lawyers, financial advisers and court fees, often for years while the claims are sorted out. For a large firm these fees are a few percent of firm value; for a small one they can be a quarter of it. They are paid out of the firm's assets and reduce what is left for the investors.</p><p><b>An indirect cost: fire sales.</b> To raise cash fast, Kvalsund may have to sell vessels in a hurry. Specialised vessels have few buyers, they may have to be moved to another market and the buyers know the seller is desperate, so they pay far below fair value. The gap is value lost for good, borne by the creditors and, through the price of the debt, by the shareholders. (Other indirect costs that are accepted: customers who stop signing long contracts with a firm that may not exist next year; suppliers who demand cash up front; key employees who leave; competitors who take market share; management time spent negotiating with creditors; debt overhang, where the firm forgoes positive-NPV projects.)</p><p><b>(2) Why indirect costs matter more.</b> Direct costs are paid only if the firm actually goes bankrupt and they are modest, so the expected direct cost (a small probability times a modest cost) is tiny. Indirect costs start as soon as the firm is in distress, whether or not it ends in bankruptcy. They hit the business itself: lost customers, lost market share and assets sold below value. They are much larger and hard to reverse.</p><p><b>(3) What can happen.</b> Kvalsund can renegotiate with the bondholders, for example extend the bond or pay less now and more later, possibly with new money from the owners. If that fails, it enters formal bankruptcy: either liquidation, where the vessels are sold and the proceeds go to the creditors, or reorganisation, where the payments are frozen while management proposes a plan the creditors must approve. (Also accepted: sell assets or cut investment and costs to meet the payment.)</p>",
+   "criteria": [
+    "Direct cost (3 points): a correct example (legal, advisory, court or administrative costs of bankruptcy) and three to four sentences on what it is and why it reduces value, for example who pays it or how large it is.",
+    "Indirect cost (3 points): a correct example (fire sales, lost customers or suppliers, employees leaving, competitors taking market share, management distraction, debt overhang) with the mechanism, why distress causes it and why value is lost. A fire sale needs the reason the price is low: few buyers for specialised assets and a seller who must sell fast.",
+    "Why indirect costs matter more (2 points): the expected direct cost is a small probability times a modest cost, while indirect costs arise in distress even without bankruptcy and damage the business itself.",
+    "What can happen (2 points): two of renegotiating or restructuring the debt, raising new capital, selling assets or cutting costs and investment, liquidation, reorganisation. Liquidation and reorganisation count as two.",
+    "A fire sale classified as a direct cost earns at most half for that example: Kurbatov treats inefficient liquidation as an indirect cost (recording 04, 29:58; recording 18, 34:13)."
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Capital Structure",
+   "points": 20,
+   "topic": "Interest tax shield, repurchase and payout",
+   "chapters": [
+    7,
+    15
+   ],
+   "merke": "Forelesning 03 (Capital Structure II), 32:56: «Again, this could be... Part A of your exam question»",
+   "body": "<p>Steinsvær Packaging ASA has no debt, 125 million shares outstanding and a share price of NOK 36. The corporate tax rate is 22%. Apart from corporate taxes, capital markets are perfect.</p><p>The board decides to borrow NOK 1,261 million today as a three-year annuity loan at r<sub>D</sub> = 5% and to use all of it to repurchase shares right away. The loan is repaid in three equal annual payments of NOK 463.05 million, each covering interest and repayment of principal. Only interest is tax deductible; repayments of principal are not. The loan is risk-free and Steinsvær will always have enough taxable income to use the interest deductions. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 5,
+     "body": "<p>What is the interest payment in each of the three years? By how much does the interest tax shield increase the value of Steinsvær?</p>",
+     "solution": "<p><b>Step 1. Split each payment.</b> Interest is 5% of the balance at the start of the year; the rest of the NOK 463.05 million repays principal.</p><table class=\"data\"><tr><th>Year</th><th>Balance at start</th><th>Interest</th><th>Principal</th><th>Tax shield τ × interest</th><th>PV at 5%</th></tr><tr><td>1</td><td class=\"n\">1,261</td><td class=\"n\">63.05</td><td class=\"n\">400</td><td class=\"n\">13.871</td><td class=\"n\">13.210476</td></tr><tr><td>2</td><td class=\"n\">861</td><td class=\"n\">43.05</td><td class=\"n\">420</td><td class=\"n\">9.471</td><td class=\"n\">8.590476</td></tr><tr><td>3</td><td class=\"n\">441</td><td class=\"n\">22.05</td><td class=\"n\">441</td><td class=\"n\">4.851</td><td class=\"n\">4.190476</td></tr></table><p>Year 1: 0.05 × 1,261 = 63.05, principal 463.05 − 63.05 = 400. Year 2: 0.05 × 861 = 43.05. Year 3: 0.05 × 441 = 22.05. The last principal payment of 441 clears the loan.</p><p><b>Step 2. Only interest is deductible.</b> Repaying principal is not an expense, so it creates no tax shield. The shields are as safe as the loan, so they are discounted at r<sub>D</sub> = 5%:</p><p>PV(TS) = 13.871/1.05 + 9.471/1.05<sup>2</sup> + 4.851/1.05<sup>3</sup> = 13.210476 + 8.590476 + 4.190476 = 25.991429 ≈ <b>NOK 25.9914 million</b></p><p><b>Check.</b> The loan is paid off: the principal payments 400 + 420 + 441 sum to 1,261, the amount borrowed. τD = 0.22 × 1,261 = 277.42 would assume permanent debt (or count the principal), far too much for a loan that is gone in three years.</p>",
+     "criteria": [
+      "Interest 63.05, 43.05 and 22.05 from the declining balance. Using the whole payment of 463.05 as interest is the classic error.",
+      "Tax shield = τ × interest only: 13.871, 9.471, 4.851. Including the principal repayments (or using τD = 277.42) loses most of the points.",
+      "Discounts at r_D = 5% because the shields are as safe as the loan: PV(TS) = NOK 25.9914M. Forgetting to discount (28.1930) loses 1 point.",
+      "Show the calculation."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 3,
+     "body": "<p>What happens to the share price when the plan is announced? Find the new share price.</p>",
+     "solution": "<p>In a perfect market apart from taxes the price reacts at once, before any money is borrowed. The market adds the tax shield to the value of the firm:</p><p>V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 125 × 36 + 25.9914 = 4,500 + 25.9914 = 4,525.9914</p><p>All of it still belongs to the 125 million shares, so the price <b>rises</b> to 4,525.9914 / 125 = <b>NOK 36.2079</b>, up by PV(TS)/N = 0.2079 per share.</p>",
+     "criteria": [
+      "V^U = 125 × 36 = NOK 4,500M and V^L = V^U + PV(TS) = 4,525.9914.",
+      "The price rises on the announcement, not when the shares are bought back: NOK 36.2079.",
+      "Saying the price is unchanged at 36 (MM without taxes) or adding the loan to the firm value are the classic errors.",
+      "Adding τ × principal (for example τD = 277.42) to the value is an error: repayments of principal are not deductible, so they create no tax shield."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 4,
+     "body": "<p>How many shares does Steinsvær repurchase? How many remain outstanding? What is the market value of the equity after the repurchase?</p>",
+     "solution": "<p><b>Two equations.</b> The repurchase spends the whole loan at the new price. The remaining shares are worth the equity that is left:</p><p>n × P = 1,261<br>(125 − n) × P = V<sup>L</sup> − D = 4,525.9914 − 1,261 = 3,264.9914</p><p>Adding them gives 125 × P = 4,525.9914, so P = 36.2079 as in (b). Then</p><p>n = 1,261 / 36.207931 = <b>34.8266 million shares repurchased</b>, leaving 125 − 34.8266 = <b>90.1734 million shares</b>.</p><p>Equity after the repurchase: <b>NOK 3,264.9914 million</b>.</p><p><b>Check.</b> 90.173376 × 36.207931 = 3,264.9914 ✓. The price does not move when the shares are bought back: the firm pays a fair price.</p>",
+     "criteria": [
+      "Uses the new price: n = 1,261/36.207931 = 34.8266 million. Dividing by the old price of 36 (35.0278 million) is the classic error.",
+      "Remaining shares 90.1734 million.",
+      "Equity after = V^L − D = 4,525.9914 − 1,261 = NOK 3,264.9914M. Check: 90.173376 × 36.207931 ≈ 3,264.9914.",
+      "Uses the post-announcement price (n = D/P or the two-equation system)."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 3,
+     "body": "<p>Compare a shareholder who sells her shares in the repurchase with one who keeps his shares. Who is better off? Explain briefly.</p>",
+     "solution": "<p>The seller receives <b>NOK 36.2079</b> in cash per share. The one who stays holds a share worth <b>NOK 36.2079</b>. Both started from NOK 36 and both gain 0.2079 per share, their part of the tax shield. <b>Neither is better off.</b></p><p>The repurchase price already contains the tax shield, so selling is a fair trade. If one group were better off, nobody would want to be in the other and the price could not be right. (In real life tax on capital gains or different horizons can make investors prefer one side; the model has neither.)</p>",
+     "criteria": [
+      "Seller: NOK 36.2079 in cash per share; the one who stays: a share worth NOK 36.2079.",
+      "Both gain PV(TS)/N = 0.2079 per share; neither is better off.",
+      "Reason: the repurchase happens at the fair post-announcement price, so the gain from the tax shield is shared equally. A finding that one side is better off signals a calculation error."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 5,
+     "body": "<p>Now suppose instead that there are no taxes at all, so markets are perfect. Steinsvær borrows the same NOK 1,261 million and either (i) repurchases shares or (ii) pays the money out at once as a special dividend. Consider a shareholder who owns 10,000 shares and sells none. Compare, with numbers, her wealth under (i) and (ii). Does the choice between a repurchase and a dividend matter for her?</p>",
+     "solution": "<p><b>Step 1. No tax shield.</b> Without taxes PV(TS) = 0, so firm value stays at 4,500 and the price stays at NOK 36 on the announcement.</p><p><b>(i) Repurchase.</b> The firm buys 1,261 / 36 = 35.0278 million shares at 36. The remaining shares are worth (4,500 − 1,261) / (125 − 35.027778) = 36. Her wealth: 10,000 × 36 = <b>NOK 360,000</b>.</p><p><b>(ii) Dividend.</b> Dividend per share 1,261 / 125 = 10.088. Afterwards the equity is worth 4,500 − 1,261 = 3,239, so the ex-dividend price is 3,239 / 125 = 25.912. Her wealth: 10,000 × 10.088 + 10,000 × 25.912 = 100,880 + 259,120 = <b>NOK 360,000</b>.</p><p><b>Conclusion.</b> Her wealth is the same, NOK 360,000, so <b>the choice does not matter</b>: in a perfect market payout policy is irrelevant (MM). Only the form differs. If she wants the cash from (ii) under (i), she sells 100,880 / 36 = 2,802.22 shares herself; the remaining 7,197.78 shares are worth about 259,120, exactly as in (ii) (a homemade dividend).</p>",
+     "criteria": [
+      "No taxes, so the price stays at NOK 36; under (i) she keeps 10,000 shares worth 360,000.",
+      "Under (ii): dividend 10.088 per share and ex-dividend price 25.912, so 100,880 + 259,120 = 360,000.",
+      "Conclusion: equal wealth, so the choice is irrelevant in a perfect market.",
+      "Bonus: the homemade dividend, selling 2,802.2 shares under (i) replicates (ii).",
+      "Show the calculation. Stating MM irrelevance without numbers earns at most 1 point."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Debt and risk",
+   "points": 20,
+   "topic": "Financial distress, fire sales and risk taking",
+   "chapters": [
+    8,
+    9
+   ],
+   "merke": "Forelesning 18 (Wrap-up), 28:00: «And we might see such an exercise»",
+   "body": "<p>Rossvik Yards Inc. builds specialised ships. Its only debt is a zero-coupon loan with a face value of $80 million due in one year. Under its current plan the firm's assets will be worth $90 million next year with probability 40% and $50 million with probability 60%. If the firm cannot repay the loan in full, it goes bankrupt: the assets are sold in a fire sale that recovers only 60% of their value and the creditors receive the proceeds. Everyone is risk neutral, the risk-free rate is 0% and there are no taxes. The manager acts in the interest of the shareholders.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What are the values of the debt and the equity today? What is the expected loss from the fire sale?</p>",
+     "solution": "<table class=\"data\"><tr><th>State</th><th>Probability</th><th>Assets</th><th>Debt</th><th>Equity</th><th>Fire-sale loss</th></tr><tr><td>Good</td><td class=\"n\">40%</td><td class=\"n\">90</td><td class=\"n\">80</td><td class=\"n\">10</td><td class=\"n\">0</td></tr><tr><td>Bad (bankrupt)</td><td class=\"n\">60%</td><td class=\"n\">50</td><td class=\"n\">0.6 × 50 = 30</td><td class=\"n\">0</td><td class=\"n\">20</td></tr></table><p>D = 0.4 × 80 + 0.6 × 30 = <b>$50 million</b>. E = 0.4 × 10 = <b>$4 million</b>. Expected fire-sale loss = 0.6 × 20 = <b>$12 million</b>.</p><p><b>Check.</b> D + E + expected loss = 50 + 4 + 12 = 66 = 0.4 × 90 + 0.6 × 50, the expected value of the assets ✓</p>",
+     "criteria": [
+      "In the bad state the creditors get 0.6 × 50 = 30, not 50: D = $50M.",
+      "Equity 0.4 × 10 = $4M.",
+      "Expected fire-sale loss 0.6 × 20 = $12M."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 3,
+     "body": "<p>The manager can switch at no cost to an aggressive strategy, bidding for one very large and risky contract. The assets would then be worth $140 million with probability 20% and $45 million with probability 80%. By how much does the switch change the expected value of the assets? Would the firm switch if it had no debt?</p>",
+     "solution": "<p>Expected assets under the aggressive strategy: 0.2 × 140 + 0.8 × 45 = 28 + 36 = 64, against 66 today. The switch changes the expected value by <b>−$2 million</b>: it has a negative NPV.</p><p>Without debt there is no default and no fire sale, so the owners get the whole expected value: 64 &lt; 66. <b>An unlevered firm would not switch.</b></p>",
+     "criteria": [
+      "Expected assets 64 against 66: a change of −2.",
+      "Without debt the owners bear the whole loss, so the firm would not switch."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 4,
+     "body": "<p>What are the values of the debt and the equity under the aggressive strategy? Will the manager switch?</p>",
+     "solution": "<table class=\"data\"><tr><th>State</th><th>Probability</th><th>Assets</th><th>Debt</th><th>Equity</th><th>Fire-sale loss</th></tr><tr><td>Good</td><td class=\"n\">20%</td><td class=\"n\">140</td><td class=\"n\">80</td><td class=\"n\">60</td><td class=\"n\">0</td></tr><tr><td>Bad (bankrupt)</td><td class=\"n\">80%</td><td class=\"n\">45</td><td class=\"n\">0.6 × 45 = 27</td><td class=\"n\">0</td><td class=\"n\">18</td></tr></table><p>D = 0.2 × 80 + 0.8 × 27 = 16 + 21.6 = <b>$37.6 million</b>. E = 0.2 × 60 = <b>$12 million</b>.</p><p><b>The manager switches</b>, because the shares are worth 12 instead of 4. With limited liability the shareholders get nothing in the bad state either way, so they only care about the good state: a 20% chance of 60 beats a 40% chance of 10. This is gambling for resurrection.</p><p><b>Check.</b> 37.6 + 12 + 0.8 × 18 = 37.6 + 12 + 14.4 = 64 ✓</p>",
+     "criteria": [
+      "Debt 0.2 × 80 + 0.8 × 27 = $37.6M, with the fire-sale recovery in the bad state.",
+      "Equity 0.2 × 60 = $12M.",
+      "The manager switches because 12 > 4, with the reason: limited liability, so the shareholders keep the upside and the creditors bear the downside."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 5,
+     "body": "<p>Split the change in the value of the debt into a wealth transfer to the shareholders and a loss of efficiency. Where does the efficiency loss come from?</p>",
+     "solution": "<table class=\"data\"><tr><th></th><th>Current plan</th><th>Aggressive</th><th>Change</th></tr><tr><td>Debt</td><td class=\"n\">50</td><td class=\"n\">37.6</td><td class=\"n\">−12.4</td></tr><tr><td>Equity</td><td class=\"n\">4</td><td class=\"n\">12</td><td class=\"n\">+8</td></tr><tr><td>Debt + equity</td><td class=\"n\">54</td><td class=\"n\">49.6</td><td class=\"n\">−4.4</td></tr><tr><td>Expected fire-sale loss</td><td class=\"n\">12</td><td class=\"n\">14.4</td><td class=\"n\">+2.4</td></tr><tr><td>Expected assets</td><td class=\"n\">66</td><td class=\"n\">64</td><td class=\"n\">−2</td></tr></table><p><b>Split.</b> The creditors lose 12.4. Of this, <b>8 is a wealth transfer</b> to the shareholders (their gain) and <b>4.4 is an efficiency loss</b> that nobody receives: 12.4 = 8 + 4.4. Put differently, the creditors' 50 becomes 37.6 kept + 8 transferred + 4.4 lost.</p><p><b>Where the efficiency loss comes from.</b> 2 comes from the lower expected asset value of the aggressive strategy (b). Another 2.4 comes because bankruptcy becomes more likely (80% instead of 60%), so the expected fire-sale loss rises from 12 to 14.4: 2 + 2.4 = 4.4.</p><p><b>Check.</b> ΔE + ΔD = +8 + (−12.4) = −4.4 = −2 − 2.4 ✓</p>",
+     "criteria": [
+      "Creditors lose 12.4: 8 transferred to the shareholders and 4.4 lost.",
+      "Efficiency loss 4.4 = 2 lower expected assets + 2.4 higher expected fire-sale loss. Stopping at 2 misses the bankruptcy cost and earns at most 3 of 5.",
+      "The reason the fire-sale loss rises: bankruptcy becomes more likely, 80% instead of 60%.",
+      "Check ΔE + ΔD = −4.4."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 3,
+     "body": "<p>Suppose the loan were only being arranged today, before the manager chooses a strategy, with the proceeds paid out to the shareholders at once. The lender correctly anticipates the fire-sale losses and the manager's choice. How much would the lender pay for the loan? Who bears the expected cost of the fire sales and of the aggressive strategy?</p>",
+     "solution": "<p>The lender foresees the switch and pays what the loan will be worth: <b>$37.6 million</b> for a promise of 80.</p><p><b>The shareholders bear the costs.</b> They raise only 37.6 and keep equity worth 12, in total 49.6 = 64 − 14.4. If they could commit to the current plan, the lender would pay 50 and they would hold 50 + 4 = 54. Rational creditors price the expected fire-sale loss and the gamble into the loan, so the cost ends up with the shareholders, through a lower price for the debt (a higher promised yield).</p>",
+     "criteria": [
+      "Lender pays $37.6M, the value of the debt given the switch.",
+      "The shareholders bear the cost ex ante: 37.6 + 12 = 49.6, less than 54 under a commitment to the current plan.",
+      "Reason: creditors are rational and price the expected losses into the debt. «The creditors bear it» earns credit only for the ex post view and at most 1 point."
+     ]
+    },
+    {
+     "label": "f",
+     "points": 2,
+     "body": "<p>Name one measure the creditors could use to protect themselves against such a switch. Explain briefly how it works.</p>",
+     "solution": "<p><b>A covenant</b> in the loan agreement that forbids large changes to the business plan, such as bidding for contracts above a set size, without the lender's consent. Breaking it gives the lender the right to demand repayment, so the switch is no longer available to the manager.</p><p><b>Also accepted.</b> Convertible debt: the creditors can convert into shares and take part in the upside, so the gamble no longer transfers wealth to the shareholders. Collateral or secured debt, short maturities with close monitoring, or renegotiating the loan when the firm is close to repaying, so that it survives without gambling.</p>",
+     "criteria": [
+      "One measure (1 point): covenant, convertible debt, collateral, short maturity or monitoring, renegotiation.",
+      "How it works (1 point): it removes the option to switch or the shareholders' gain from switching.",
+      "Covenants: the basic answer (they block the switch ex post) earns the point. Full insight adds that they also make the debt cheaper ex ante."
+     ]
+    }
+   ]
+  }
+ ]
+}

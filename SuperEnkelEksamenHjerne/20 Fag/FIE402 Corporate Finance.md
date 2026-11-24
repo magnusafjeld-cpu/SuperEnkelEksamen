@@ -356,7 +356,7 @@ fragmenter er bare en arbeidsform for å skrive flere kapitler i parallell.
 |---|---|
 | Manualen | **30 kapitler · 109 000 ord** · alle uavhengig tallkontrollert |
 | Studieplan | **25 moduler · 78 timer**, estimatene regnet av faktisk innhold |
-| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **12 prøveeksamener** i Kurbatov-formatet (prove1–3 fra oktober, prove4–12 fra prediksjonen 14. november). **34 deleksamener** («Per del»): 25 laget av de 72 prøveoppgavene og 9 «Mest forventet» med 24 egne oppgaver (23. november) |
+| Eksamenssett | **alle seks** · 32 oppgaver · 147 deloppgaver. **12 prøveeksamener** i Kurbatov-formatet (prove1–3 fra oktober, prove4–12 fra prediksjonen 14. november). **34 deleksamener** («Per del»): 25 laget av de 72 prøveoppgavene og 9 «Mest forventet» med 24 egne oppgaver (23. november). **7 sett «Hintet i forelesning»** med 26 egne oppgaver (24. november) |
 | Quiz | **338** (246 flervalg / 92 kortsvar) |
 | Flashcards | **528**: 260 oppgavekort i 16 kategorier (forsiden en oppgavetype, baksiden svar og feller) og 268 begrepskort, pluss 80 auto-genererte formelkort |
 | Kapitteloppgaver | **94 åpne oppgaver** over 27 kapitler · 866 poeng · 26 t |
@@ -572,6 +572,50 @@ Spesifikasjon: `docs/fie402-deleksamen-spek.md`. Kilde: `fag/fie402/_del/` (s1�
 `sett.json`), flettet inn med `tools/flett-del.py fie402 --skriv`. Hvorfor oppgavene er lånt og ikke kopiert,
 står i [[Eksamenssett-modulen]].
 
+## Hintet i forelesning (24. november 2026)
+
+Magnus ba om en egen del i Eksamenssett med bare oppgaver Kurbatov pekte ut i forelesning
+som mulige eksamensoppgaver. Fanen «Hintet i forelesning» har sju sett (`hint1-1`, `hint2-1`
+til `hint2-3`, `hint3-1` til `hint3-3`), 26 oppgaver og 400 poeng: teorioppgaver på 10 poeng
+først, regneoppgaver på 20, 1,8 minutter per poeng. Settene er `kind: "del"` med
+`art: "hint"`. Arten har egen fane via `EDU_DATA.perDel.faner` (se
+[[Eksamenssett-modulen]]).
+
+Hver oppgave bygger på eksemplet han pekte på, med ny historie og nye tall, og merket sier
+hvilket opptak, tidsstempel og sitat («Forelesning 16 (M&A), 1:11:07: «it can literally be an
+exam question and it has been»»). Kildene er Panopto-tekstingen og oppsummeringen
+`NHH/7. Semester/FIE402 Corporate Finance/FIE402 Viktig fra forelesningene (ikke på lysbildene).md`.
+Med dette er de varslede forelesningseksemplene som manglet (CDS, Google-oppgaven med senior og
+junior gjeld, coinsurance og budkampen med bank D) dekket.
+
+| Del | Oppgavene |
+|---|---|
+| 1 | beta · kilder til positiv NPV · prosjektverdsetting med fellene (sunk cost, kannibalisering, ΔNWC, halvårsrente, NPV mot IRR) · WACC og APV med to sammenlignbare firmaer |
+| 2 | MM mot virkeligheten · SEO med kursfall på 12 % · winner's curse · gjeldsoverheng med reforhandlingsintervall · fire bruk av fri kontantstrøm · kostnader ved financial distress · skatteskjold på annuitetslån og tilbakekjøp mot utbytte · gambling for resurrection med brannsalg · børsnotert mot privat · signalisering og sertifisering · replikering av gründerens andel |
+| 3 | opsjonsintuisjon · to typer overvåking · dealsannsynlighet med utsettelse · CDS med kupong · fusjonsgrunner uten synergier · eierens tre tiltak · vente eller investere med X · senior og junior fra noterte calls · realopsjoner verbalt · exit-klausul med gebyr · budkamp og coinsurance |
+
+Fire skribenter og fire blinde kontrollører. Ingen tallfeil i noen av settene. Kontrollen fant:
+- **Kurbatovs «X under 0,5»** (opptak 14, 29:57) holder bare når NPV nå holdes fast. Når begge
+  NPV-ene avhenger av X, blir det 0,88 i timens eksempel. Fasiten i hint3-2 oppg. 3 forklarer
+  begge.
+- **Utsettelse av et aksjebytte** krymper spreaden når p er uendret, fordi fiaskotapet
+  diskonteres lenger. Den øker bare hvis markedet senker p. Spørsmålet er delt i to.
+- **Perfekt korrelasjon** er ikke nok til at coinsurance forsvinner. Betingelsen er at ingen
+  tilstand har ett firma i mislighold mens det andre har egenkapital igjen.
+- **Feil i løsningsteksten:** eksempler på WACC over r<sub>U</sub> som ikke ga det (manglende
+  1 − τ gir WACC = r<sub>U</sub>), og «omvendt rekkefølge» i budkampen.
+- **Ledd med to lesninger:** junior gjeld ved høyere volatilitet (svaret avhenger av hvor
+  eiendelene ligger), «expected return» i winner's curse, amerikansk call uten oppgitt utbytte
+  og «indifferent» uten «value today».
+- **Tallfelt som røpet svaret** på et tekstspørsmål (feltnavnene vises ved boksen), og spørsmål
+  som røpet fortegnet i et tidligere ledd.
+- **Skatteskjold på avdraget:** Kurbatov sa i opptak 03 (38:38) at skatteskjoldet «in general»
+  også tar med τ × hovedstol. Oppgaven sier nå at bare renter er fradragsberettiget.
+
+Spesifikasjon: `docs/fie402-hint-spek.md`. Kilde: `fag/fie402/_del/h1`–`h4` (`_regn.py`,
+`.json`, `_svar.json`), hodene i `_del/sett.json`, flettet inn med `tools/flett-del.py fie402
+--skriv`.
+
 ## Forelesningene 2026 (14. november 2026)
 
 Alt fagstoff var skrevet fra gamle eksamener og syllabus. 14. november kom Kurbatovs
@@ -652,7 +696,7 @@ NotebookLM-kilder, med god tid.
   Treningen har nå 683 spørsmål; 331 fikk ny rekkefølge på alternativene fordi byggeren
   fordeler fasitplassene med løpende teller. `sjekk-prove.js` filtrerer nå bort deleksamenene.
   Ikke gjort: ny prøveeksamen med de varslede forelesningseksemplene (CDS, Google,
-  coinsurance, bank D), og studieplanen er ikke rekalibrert (ville gått fra 78 til 85 t).
+  coinsurance, bank D; dekket 24. november i fanen «Hintet i forelesning»), og studieplanen er ikke rekalibrert (ville gått fra 78 til 85 t).
 - **Retting med egen API-nøkkel (22.11.2026):** alle 418 deloppgavene i de 18 egne settene har
   svar-data (`fag/fie402/_svar/*.json` → `svar.js`, spesifikasjon `docs/fie402-svar-spek.md`).
   Tall og bokstaver rettes automatisk, tekst av Opus 5.5, følgefeil av Sonnet 5.5. Se

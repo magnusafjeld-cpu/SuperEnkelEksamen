@@ -1,0 +1,174 @@
+{
+  "hint3-3:1:": {
+    "type": "tekst"
+  },
+  "hint3-3:2:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Monthly rate",
+        "verdi": 0.40741237836483535,
+        "enhet": "%"
+      },
+      {
+        "navn": "NPV if committed forever",
+        "verdi": -2290903.101183885,
+        "enhet": "NOK",
+        "tol": 0.002
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Will you open it?",
+    "merknad": "Stram toleranse på NPV (0,2 %) så 5 %/12 (-2280000) avvises; den fanges også av månedsrenten."
+  },
+  "hint3-3:2:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV, good state",
+        "verdi": 4336288.764798562,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "NPV, bad state",
+        "verdi": -2146436.9903530013,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Expected NPV with the clause",
+        "verdi": 446653.311707624,
+        "enhet": "NOK"
+      }
+    ]
+  },
+  "hint3-3:2:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of the clause",
+        "verdi": 446653.311707624,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Briefly explain.",
+    "merknad": "Verdien er målt mot 0. 2737556 (mot den negative NPV-en) er fellen og avvises."
+  },
+  "hint3-3:2:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Highest termination fee",
+        "verdi": 800946.0365411458,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "With that fee, would you still close in the bad state?",
+    "merknad": "Gebyr i begge tilstander gir 480568, uten diskontering 744422; begge avvises."
+  },
+  "hint3-3:2:e": {
+    "type": "tekst"
+  },
+  "hint3-3:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Maximum bid, A",
+        "verdi": 175,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Maximum bid, B",
+        "verdi": 170,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Maximum bid, C",
+        "verdi": 180,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Mot frittstående verdi blir svarene 170, 160 og 150; de avvises (A: 170 mot 175 er 2,9 % unna)."
+  },
+  "hint3-3:3:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Price paid for D",
+        "verdi": 175,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Gain to D's shareholders",
+        "verdi": 55,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Gain or loss to the winner's shareholders",
+        "verdi": -25,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Who buys D? Briefly comment."
+  },
+  "hint3-3:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Gjesvær debt",
+        "verdi": 51.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Gjesvær equity",
+        "verdi": 45.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Vangen debt",
+        "verdi": 31.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Vangen equity",
+        "verdi": 20.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "hint3-3:3:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Merged debt",
+        "verdi": 105.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Merged equity",
+        "verdi": 42.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Change for Gjesvær's shareholders",
+        "verdi": -15.923076923076923,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Change for Vangen's shareholders",
+        "verdi": -7.076923076923077,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Total gain to the creditors",
+        "verdi": 23.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "hint3-3:3:e": {
+    "type": "tekst"
+  }
+}

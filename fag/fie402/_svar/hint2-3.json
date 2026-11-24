@@ -1,0 +1,159 @@
+{
+  "hint2-3:1:": {
+    "type": "tekst"
+  },
+  "hint2-3:2:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "P<sub>0</sub>",
+        "verdi": 40.0,
+        "enhet": "NOK per share"
+      }
+    ]
+  },
+  "hint2-3:2:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New shares",
+        "verdi": 0.5538461538461539,
+        "enhet": "m shares"
+      },
+      {
+        "navn": "Share price",
+        "verdi": 32.5,
+        "enhet": "NOK per share"
+      }
+    ]
+  },
+  "hint2-3:2:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New shares (sponsor)",
+        "verdi": 0.288,
+        "enhet": "m shares"
+      },
+      {
+        "navn": "Share price (sponsor)",
+        "verdi": 62.5,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Share price (no sponsorship)",
+        "verdi": 20.0,
+        "enhet": "NOK per share"
+      }
+    ]
+  },
+  "hint2-3:2:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Threshold cost of the sponsorship",
+        "verdi": 120.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Will a bad type sponsor, and is the belief in (c) rational? Would a good type still sponsor at the threshold cost?"
+  },
+  "hint2-3:2:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Highest fee",
+        "verdi": 72.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Would a bad type buy the certificate? What does the market conclude about a firm without one?"
+  },
+  "hint2-3:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "E[X]",
+        "verdi": 3.5200000000000005,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Investors' fraction",
+        "verdi": 62.5,
+        "enhet": "%"
+      },
+      {
+        "navn": "Ragnhild's expected cash flow, equity",
+        "verdi": 1.3200000000000003,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Ragnhild's expected cash flow, bank loan",
+        "verdi": 1.4400000000000004,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "hint2-3:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of Ragnhild's stake (bank loan)",
+        "verdi": 1.2000000000000002,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "hint2-3:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Risk-free asset",
+        "verdi": 0.75,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Market portfolio",
+        "verdi": 0.45000000000000007,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of Ragnhild's stake (equity)",
+        "verdi": 1.2000000000000002,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "hint2-3:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of the investors' stake",
+        "verdi": 2.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Firm value",
+        "verdi": 3.2,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Who gets the NPV of the business?"
+  },
+  "hint2-3:3:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "α (indifference)",
+        "verdi": 0.42857142857142855,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Which does Ragnhild prefer if a boom is more likely, and why does this not contradict (c)?",
+    "merknad": "Fellen er å sammenligne forventede kontantstrømmer eller diskontere dem med r_f (gir 0.3714)."
+  }
+}

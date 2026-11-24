@@ -1,6 +1,6 @@
 ---
 tags: [drift, oppsett]
-oppdatert: 2026-09-28
+oppdatert: 2026-11-24
 ---
 
 # Kjøre lokalt
@@ -31,10 +31,13 @@ Port kan overstyres: `python3 tools/serve.py 5000`.
   gang (eller dra den inn); den parses og lagres lokalt etterpå.
 - **Hopp rett til et fag**: `http://127.0.0.1:4178/?fag=sam3`
 
-> [!bug] `.claude/launch.json` er utdatert
-> Den peker på `/tmp/sam3app/serve.py` på port **4182**. Den faktiske serveren er
-> `tools/serve.py` på **4178**. Fiks den før du bruker forhåndsvisning i Claude
-> Code. Se [[Åpne spørsmål og neste steg]].
+> [!bug] Forhåndsvisningen i Claude-appen får ikke lese Dokumenter-mappen
+> `.claude/launch.json` peker riktig på `tools/serve.py` på port 4178, men fra
+> desktop-appen stopper `preview_start` med «Operation not permitted» (macOS gir ikke
+> prosessen tilgang til Dokumenter, 24. november 2026). Det som virket: kopier appen
+> uten kursmappene til scratchpad med `rsync`, start `python3 tools/serve.py <port>`
+> derfra i bakgrunnen og åpne adressen med `preview_start { url }`. Endringer må
+> synkes til kopien før du laster på nytt.
 
 ## Etter endringer
 

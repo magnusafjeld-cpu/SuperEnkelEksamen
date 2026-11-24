@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-11-23
+oppdatert: 2026-11-24
 ---
 
 # Tidslinje
@@ -100,5 +100,6 @@ ikke står i commit-meldingene.
 | 22. november 2026 | [[FIE402 Corporate Finance]]: «Del 3 i korte stiger» nederst i Sjangertrening, 14 korte stiger og 80 steg | Én stige per oppgavetype i del 3 (opsjoner, kreditt, realopsjoner, M&A, governance), med intuisjon i hvert steg. Motoren fikk seksjoner og emneoverskrifter |
 | 23. november 2026 | [[FIE402 Corporate Finance]]: «Øv uten stopp», oppgave etter oppgave med repetisjon som Anki (FSRS) og nye tall hver gang | 51 nye eksamensoppgaver i 612 varianter pluss eksamenstreningen, 491 kort. Claude retter tekstsvar, slurvefeil og misforståelse skilles. Fem skribenter og fem kontrollører i to runder |
 | 23. november 2026 | [[FIE402 Corporate Finance]]: ni nye deleksamener «Mest forventet» med egne oppgaver, og «Øv uten stopp» med fokus på flere deler og retur etter antall kort eller dager | 24 nye oppgaver i formen fra H2024 og H2025, skrevet av fire skribenter og kontrollert blindt. Kortene i «Øv uten stopp» kommer tilbake etter 8, 20 eller 40 kort (doblet per riktig på rad), og pausen er høyst en tredjedel av dagene til eksamen |
+| 24. november 2026 | [[FIE402 Corporate Finance]]: fanen «Hintet i forelesning» i Eksamenssett, sju sett med 26 oppgaver Kurbatov pekte ut i forelesning | Bygd fra Panopto-tekstingen av 17 opptak; merket sier opptak, tid og sitat. Fire skribenter og fire blinde kontrollører, ingen tallfeil. Motoren fikk egne faner per art (`perDel.faner`) |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

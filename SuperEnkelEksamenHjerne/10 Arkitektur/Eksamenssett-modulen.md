@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-11-23
+oppdatert: 2026-11-24
 ---
 
 # Eksamenssett-modulen
@@ -251,6 +251,16 @@ oppgaver med nye tall.
   `tools/sjekk-sett.js` sjekker del og art for begge slagene, og for egne oppgaver
   også tiden (1,8 minutter per poeng) og at hver oppgave har et merke.
   `tools/sjekk-prove.js` regner ikke deleksamenene som ekte eksamener.
+
+### Egen fane for en art (24. november 2026)
+
+Lagt til for fanen «Hintet i forelesning» i [[FIE402 Corporate Finance]]. En art som står i
+`EDU_DATA.perDel.faner` (`{ art, navn, intro }`) tas ut av «Per del» og får sin egen fane,
+`del = "pd:<art>"`. Fanen viser én del om gangen med `perDelListe(wrap, sett, true)`, der
+`true` fjerner overskriften per art, siden den bare ville gjentatt fanen. Settene er
+fortsatt `kind: "del"`, så alt som leser deleksamenene (planleggeren, `sjekk-sett.js`,
+`sjekk-prove.js`, `flett-del.py`, svar-dataene) virker uendret. Arten må også stå i
+`perDel.arter`, ellers melder `sjekk-sett.js` feil.
 
 ## Retting med egen API-nøkkel (22. november 2026)
 

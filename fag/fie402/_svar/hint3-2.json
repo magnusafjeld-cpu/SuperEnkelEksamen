@@ -1,0 +1,161 @@
+{
+  "hint3-2:1:": {
+    "type": "tekst"
+  },
+  "hint3-2:2:": {
+    "type": "tekst"
+  },
+  "hint3-2:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of buying today",
+        "verdi": 14.5,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Uten inntekten i t = 0 blir NPV 12.0000; det avvises."
+  },
+  "hint3-2:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV at t = 1, hospital",
+        "verdi": 27.200000000000003,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV at t = 1, no hospital",
+        "verdi": -4.299999999999997,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV of waiting (t = 0)",
+        "verdi": 15.542857142857143,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Med den negative grenen beholdt blir NPV av å vente 13.9048; det avvises."
+  },
+  "hint3-2:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of the option to wait",
+        "verdi": 1.0428571428571427,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Should Kjelsnes buy today or wait?"
+  },
+  "hint3-2:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "X (indifference)",
+        "verdi": 0.854651162790697,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Write the NPV of buying today and the NPV of waiting as functions of X.",
+    "merknad": "Kurbatovs hurtigregel (NPV nå holdt fast på 14.5) gir 0.5597 og avvises; begge NPV-ene avhenger av X. Uten inntekten i t = 0 blir X 1.4651."
+  },
+  "hint3-2:3:e": {
+    "type": "tekst"
+  },
+  "hint3-2:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Strike per share",
+        "verdi": 150.0,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Equity",
+        "verdi": 32.367599999999996,
+        "enhet": "NOK bn",
+        "alt": [
+          32367.599999999995
+        ]
+      },
+      {
+        "navn": "Debt",
+        "verdi": 45.032399999999996,
+        "enhet": "NOK bn",
+        "alt": [
+          45032.399999999994
+        ]
+      }
+    ],
+    "merknad": "Strike 150 står i kurstabellen i oppgaveteksten; det er meningen, studenten skal finne raden. alt er de samme verdiene i NOK millioner."
+  },
+  "hint3-2:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Annual yield",
+        "verdi": 8.405855400053452,
+        "enhet": "%"
+      },
+      {
+        "navn": "Spread over r<sub>f</sub>",
+        "verdi": 4.905855400053452,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "Ikke annualisert (19.91 %) og lineært (8.85 %) avvises."
+  },
+  "hint3-2:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Senior debt",
+        "verdi": 32.248799999999996,
+        "enhet": "NOK bn",
+        "alt": [
+          32248.799999999996
+        ]
+      },
+      {
+        "navn": "Junior debt",
+        "verdi": 12.7836,
+        "enhet": "NOK bn",
+        "alt": [
+          12783.6
+        ]
+      },
+      {
+        "navn": "Equity",
+        "verdi": 32.367599999999996,
+        "enhet": "NOK bn",
+        "alt": [
+          32367.599999999995
+        ]
+      }
+    ],
+    "merknad": "Junior priset med call 50 gir 16.625; det avvises."
+  },
+  "hint3-2:4:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Senior yield",
+        "verdi": 5.012145040963123,
+        "enhet": "%"
+      },
+      {
+        "navn": "Junior yield",
+        "verdi": 16.426820228155936,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Explain briefly how they compare with the yield in (b)."
+  },
+  "hint3-2:4:e": {
+    "type": "tekst"
+  }
+}

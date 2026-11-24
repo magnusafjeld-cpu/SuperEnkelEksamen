@@ -1893,6 +1893,1151 @@ window.EDU_DATA.svar = {
  "h2025:6:c": {
   "type": "tekst"
  },
+ "hint1-1:1:": {
+  "type": "tekst"
+ },
+ "hint1-1:2:": {
+  "type": "tekst"
+ },
+ "hint1-1:3:a": {
+  "type": "tekst"
+ },
+ "hint1-1:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "FCF<sub>0</sub>",
+    "verdi": -62.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "FCF<sub>1</sub>",
+    "verdi": 21.02,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "FCF<sub>2</sub>",
+    "verdi": 25.02,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "FCF<sub>3</sub>",
+    "verdi": 25.02,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "FCF<sub>3.5</sub> (working capital recovered)",
+    "verdi": 12.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Fellene er arbeidskapitalens nivå i stedet for endringen, leien trukket fra etter skatt, hovedkontorkostnadene tatt med og frigjøringen lagt i år 3."
+ },
+ "hint1-1:3:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": 7.9416480781261924,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Fellene: PV uten investeringen, frigjøringen i år 3 eller år 4, sunk cost tatt med, renter trukket fra, leien etter skatt, kannibalisering eller leie utelatt, nivå i stedet for endring i arbeidskapital, hovedkontorkostnader tatt med. 1.08^3 × 1.04 for halvåret gir 7.9349 og ligger innenfor toleransen; det er en liten metodefeil, ikke en felle."
+ },
+ "hint1-1:3:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV (cider)",
+    "verdi": 1.2222222222222214,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "IRR (cider)",
+    "verdi": 30.000000000000004,
+    "enhet": "%"
+   },
+   {
+    "navn": "NPV of the beer line at 30%",
+    "verdi": -14.847293476702617,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Which launch should Kvernhus choose, and why do the two rules disagree?"
+ },
+ "hint1-1:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub> (Voltvei)",
+    "verdi": 9.879999999999999,
+    "enhet": "%"
+   },
+   {
+    "navn": "r<sub>U</sub> (Ladeport)",
+    "verdi": 10.000000000000002,
+    "enhet": "%"
+   },
+   {
+    "navn": "r<sub>U</sub> (park, average)",
+    "verdi": 9.94,
+    "enhet": "%"
+   }
+  ]
+ },
+ "hint1-1:4:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 13.900000000000002,
+    "enhet": "%"
+   },
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 9.588000000000001,
+    "enhet": "%"
+   }
+  ]
+ },
+ "hint1-1:4:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup><sub>0</sub> (WACC)",
+    "verdi": 313.85366867011,
+    "enhet": "NOK m",
+    "tol": 0.0024
+   },
+   {
+    "navn": "NPV",
+    "verdi": 13.853668670109982,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "D<sub>0</sub>",
+    "verdi": 125.541467468044,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "D<sub>1</sub>",
+    "verdi": 87.57838336888005,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "D<sub>2</sub>",
+    "verdi": 41.975398766288286,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Fellene: verdien med r_U, med Skarets egne 8,1 % og med r_E; PV i stedet for NPV; D/E brukt som andel av verdien; årets kontantstrøm tatt med i V_t."
+ },
+ "hint1-1:4:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>U</sup>",
+    "verdi": 311.93318178865013,
+    "enhet": "NOK m",
+    "tol": 0.0025
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 1.9204868814599032,
+    "enhet": "NOK m",
+    "tol": 0.003
+   },
+   {
+    "navn": "V<sup>L</sup> (APV)",
+    "verdi": 313.85366867011004,
+    "enhet": "NOK m",
+    "tol": 0.00023
+   }
+  ],
+  "merknad": "PV(TS) har tol 0,003 fordi skjoldet diskontert med r_wacc gir 1.9305 (0.52% unna), en metode kriteriene avviser."
+ },
+ "hint1-1:4:e": {
+  "type": "tekst"
+ },
+ "hint2-1:1:": {
+  "type": "tekst"
+ },
+ "hint2-1:2:": {
+  "type": "tekst"
+ },
+ "hint2-1:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Issue price",
+    "verdi": 45.0,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "Expected first-day return",
+    "verdi": 0.0,
+    "enhet": "%",
+    "abs": 0.05
+   }
+  ]
+ },
+ "hint2-1:3:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Expected profit per IPO",
+    "verdi": -360.0,
+    "enhet": "$"
+   },
+   {
+    "navn": "Average return per share received",
+    "verdi": -14.285714285714285,
+    "enhet": "%"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Will you take part?"
+ },
+ "hint2-1:3:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Highest issue price",
+    "verdi": 38.57142857142857,
+    "enhet": "$ per share"
+   }
+  ]
+ },
+ "hint2-1:3:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Average first-day return",
+    "verdi": 16.66666666666667,
+    "enhet": "%"
+   },
+   {
+    "navn": "Informed investors' return",
+    "verdi": 55.55555555555556,
+    "enhet": "%"
+   },
+   {
+    "navn": "Your return",
+    "verdi": 0.0,
+    "enhet": "%",
+    "abs": 0.05
+   }
+  ]
+ },
+ "hint2-1:3:e": {
+  "type": "tekst"
+ },
+ "hint2-1:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Debt",
+    "verdi": 95.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Equity",
+    "verdi": 50.0,
+    "enhet": "€ m"
+   }
+  ]
+ },
+ "hint2-1:4:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": 12.0,
+    "enhet": "€ m"
+   }
+  ]
+ },
+ "hint2-1:4:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "New investors' fraction x",
+    "verdi": 40.0,
+    "enhet": "%"
+   },
+   {
+    "navn": "Ingrid's payoff",
+    "verdi": 42.0,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Will Ingrid install the system? Would the creditors like it installed?"
+ },
+ "hint2-1:4:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Creditors' gain",
+    "verdi": 20.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Ingrid's gain",
+    "verdi": -8.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "New shareholders' gain",
+    "verdi": 0.0,
+    "enhet": "€ m",
+    "abs": 0.01
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Explain briefly what this means for the firm."
+ },
+ "hint2-1:4:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Lowest face value",
+    "verdi": 95.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Highest face value",
+    "verdi": 107.0,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Why may the creditors agree to write down their claim?"
+ },
+ "hint2-2:1:": {
+  "type": "tekst"
+ },
+ "hint2-2:2:": {
+  "type": "tekst"
+ },
+ "hint2-2:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Interest, year 1",
+    "verdi": 63.050000000000004,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Interest, year 2",
+    "verdi": 43.05000000000001,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Interest, year 3",
+    "verdi": 22.050000000000026,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 25.991428571428578,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "hint2-2:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Share price after the announcement",
+    "verdi": 36.20793142857143,
+    "enhet": "NOK per share"
+   }
+  ]
+ },
+ "hint2-2:3:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Shares repurchased",
+    "verdi": 34.826623622164554,
+    "enhet": "m shares"
+   },
+   {
+    "navn": "Shares remaining",
+    "verdi": 90.17337637783544,
+    "enhet": "m shares"
+   },
+   {
+    "navn": "Equity after the repurchase",
+    "verdi": 3264.9914285714285,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "hint2-2:3:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Seller's payoff per share",
+    "verdi": 36.20793142857143,
+    "enhet": "NOK per share"
+   },
+   {
+    "navn": "Value per share for the one who stays",
+    "verdi": 36.20793142857143,
+    "enhet": "NOK per share"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Who is better off? Explain briefly."
+ },
+ "hint2-2:3:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Wealth with the repurchase",
+    "verdi": 360000.0,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Wealth with the dividend",
+    "verdi": 360000.0,
+    "enhet": "NOK"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Does the choice between a repurchase and a dividend matter for her?"
+ },
+ "hint2-2:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Debt",
+    "verdi": 50.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Equity",
+    "verdi": 4.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Expected fire-sale loss",
+    "verdi": 12.0,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "hint2-2:4:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change in expected asset value",
+    "verdi": -2.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Would the firm switch if it had no debt?"
+ },
+ "hint2-2:4:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Debt",
+    "verdi": 37.6,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Equity",
+    "verdi": 12.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Will the manager switch?"
+ },
+ "hint2-2:4:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Wealth transfer, size",
+    "verdi": 8.0,
+    "enhet": "$ m",
+    "alt": [
+     -8.0
+    ]
+   },
+   {
+    "navn": "Efficiency loss, size",
+    "verdi": 4.399999999999999,
+    "enhet": "$ m",
+    "alt": [
+     -4.399999999999999
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Where does the efficiency loss come from?",
+  "merknad": "alt med negativt fortegn: begge delene er tap for kreditorene, så −8 og −4,4 godtas."
+ },
+ "hint2-2:4:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Price the lender pays",
+    "verdi": 37.6,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Who bears the expected cost of the fire sales and of the aggressive strategy?"
+ },
+ "hint2-2:4:f": {
+  "type": "tekst"
+ },
+ "hint2-3:1:": {
+  "type": "tekst"
+ },
+ "hint2-3:2:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "P<sub>0</sub>",
+    "verdi": 40.0,
+    "enhet": "NOK per share"
+   }
+  ]
+ },
+ "hint2-3:2:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New shares",
+    "verdi": 0.5538461538461539,
+    "enhet": "m shares"
+   },
+   {
+    "navn": "Share price",
+    "verdi": 32.5,
+    "enhet": "NOK per share"
+   }
+  ]
+ },
+ "hint2-3:2:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New shares (sponsor)",
+    "verdi": 0.288,
+    "enhet": "m shares"
+   },
+   {
+    "navn": "Share price (sponsor)",
+    "verdi": 62.5,
+    "enhet": "NOK per share"
+   },
+   {
+    "navn": "Share price (no sponsorship)",
+    "verdi": 20.0,
+    "enhet": "NOK per share"
+   }
+  ]
+ },
+ "hint2-3:2:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Threshold cost of the sponsorship",
+    "verdi": 120.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Will a bad type sponsor, and is the belief in (c) rational? Would a good type still sponsor at the threshold cost?"
+ },
+ "hint2-3:2:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Highest fee",
+    "verdi": 72.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Would a bad type buy the certificate? What does the market conclude about a firm without one?"
+ },
+ "hint2-3:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "E[X]",
+    "verdi": 3.5200000000000005,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Investors' fraction",
+    "verdi": 62.5,
+    "enhet": "%"
+   },
+   {
+    "navn": "Ragnhild's expected cash flow, equity",
+    "verdi": 1.3200000000000003,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Ragnhild's expected cash flow, bank loan",
+    "verdi": 1.4400000000000004,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "hint2-3:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value of Ragnhild's stake (bank loan)",
+    "verdi": 1.2000000000000002,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "hint2-3:3:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Risk-free asset",
+    "verdi": 0.75,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Market portfolio",
+    "verdi": 0.45000000000000007,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Value of Ragnhild's stake (equity)",
+    "verdi": 1.2000000000000002,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "hint2-3:3:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value of the investors' stake",
+    "verdi": 2.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Firm value",
+    "verdi": 3.2,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Who gets the NPV of the business?"
+ },
+ "hint2-3:3:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "α (indifference)",
+    "verdi": 0.42857142857142855,
+    "enhet": ""
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Which does Ragnhild prefer if a boom is more likely, and why does this not contradict (c)?",
+  "merknad": "Fellen er å sammenligne forventede kontantstrømmer eller diskontere dem med r_f (gir 0.3714)."
+ },
+ "hint3-1:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Offer per B share",
+    "verdi": 76.0,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Premium over the pre-rumour price",
+    "verdi": 31.034482758620683,
+    "enhet": "%",
+    "alt": [
+     18.0
+    ]
+   },
+   {
+    "navn": "Spread",
+    "verdi": 4.799999999999997,
+    "enhet": "NOK",
+    "alt": [
+     6.741573033707861
+    ]
+   }
+  ],
+  "merknad": "Spørsmålet oppgir enhetene (premie i prosent, spread i NOK). alt godtar også premien i NOK (18,00) og spreaden i prosent av dagens kurs (6,74)."
+ },
+ "hint3-1:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value if the deal goes through",
+    "verdi": 78.55083574873998,
+    "enhet": "NOK",
+    "alt": [
+     4.961105415709891
+    ]
+   },
+   {
+    "navn": "Value if the deal fails",
+    "verdi": 64.55083574873998,
+    "enhet": "NOK",
+    "alt": [
+     -9.038894584290105
+    ]
+   }
+  ],
+  "merknad": "alt er Kurbatovs selvfinansierte variant (kjøp B med shortinntekten, sett resten i banken), som er godtatt i kriteriene."
+ },
+ "hint3-1:3:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability of completion",
+    "verdi": 0.6456353274492942,
+    "enhet": "",
+    "tol": 0.004
+   }
+  ],
+  "merknad": "Stram toleranse (0,4 %) så helårsfaktoren 1,045 (0.6417) avvises. Enkel rente (0.6456) havner innenfor og godtas som tilnærming. 71,20 i stedet for sikkerhetsekvivalenten gir 0.4749."
+ },
+ "hint3-1:3:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Probability of completion with B at 62 on failure",
+    "verdi": 0.5038894584290119,
+    "enhet": "",
+    "tol": 0.004
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Why might B's price not fall all the way back? Explain the direction of the change.",
+  "merknad": "Fellen (71,20 i stedet for sikkerhetsekvivalenten) gir 0.2649."
+ },
+ "hint3-1:3:e": {
+  "type": "tekst"
+ },
+ "hint3-1:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Promised yield to maturity",
+    "verdi": 10.53719008264462,
+    "enhet": "%"
+   },
+   {
+    "navn": "Value if risk-free",
+    "verdi": 102.88461538461539,
+    "enhet": "NOK"
+   }
+  ],
+  "merknad": "Uten kupongen blir yielden 3.31 %; det avvises."
+ },
+ "hint3-1:4:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Expected return",
+    "verdi": 6.6942148760330555,
+    "enhet": "%"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Compare it with the promised yield and the risk-free rate. Explain briefly."
+ },
+ "hint3-1:4:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Risk-neutral default probability ρ",
+    "verdi": 0.1020645161290323,
+    "enhet": ""
+   },
+   {
+    "navn": "Price of one CDS contract",
+    "verdi": 0.09813895781637721,
+    "enhet": "NOK"
+   }
+  ],
+  "merknad": "Overlevelsessannsynligheten (0.8979) og CDS-prisen med den (0.8634) er fellen og avvises. Analytikernes 6 % gir 0.0577."
+ },
+ "hint3-1:4:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "CDS contracts per bond",
+    "verdi": 62.0,
+    "enhet": ""
+   },
+   {
+    "navn": "Cost of the contracts",
+    "verdi": 6.084615384615387,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Bond plus contracts",
+    "verdi": 102.88461538461539,
+    "enhet": "NOK"
+   }
+  ],
+  "merknad": "55 kontrakter (pålydende minus gjenvinning) er fellen; da blir posisjonen 102.1976."
+ },
+ "hint3-1:4:e": {
+  "type": "tekst"
+ },
+ "hint3-1:1:": {
+  "type": "tekst"
+ },
+ "hint3-1:2:": {
+  "type": "tekst"
+ },
+ "hint3-2:1:": {
+  "type": "tekst"
+ },
+ "hint3-2:2:": {
+  "type": "tekst"
+ },
+ "hint3-2:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV of buying today",
+    "verdi": 14.5,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Uten inntekten i t = 0 blir NPV 12.0000; det avvises."
+ },
+ "hint3-2:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV at t = 1, hospital",
+    "verdi": 27.200000000000003,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "NPV at t = 1, no hospital",
+    "verdi": -4.299999999999997,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "NPV of waiting (t = 0)",
+    "verdi": 15.542857142857143,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Med den negative grenen beholdt blir NPV av å vente 13.9048; det avvises."
+ },
+ "hint3-2:3:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value of the option to wait",
+    "verdi": 1.0428571428571427,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Should Kjelsnes buy today or wait?"
+ },
+ "hint3-2:3:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "X (indifference)",
+    "verdi": 0.854651162790697,
+    "enhet": ""
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Write the NPV of buying today and the NPV of waiting as functions of X.",
+  "merknad": "Kurbatovs hurtigregel (NPV nå holdt fast på 14.5) gir 0.5597 og avvises; begge NPV-ene avhenger av X. Uten inntekten i t = 0 blir X 1.4651."
+ },
+ "hint3-2:3:e": {
+  "type": "tekst"
+ },
+ "hint3-2:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Strike per share",
+    "verdi": 150.0,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Equity",
+    "verdi": 32.367599999999996,
+    "enhet": "NOK bn",
+    "alt": [
+     32367.599999999995
+    ]
+   },
+   {
+    "navn": "Debt",
+    "verdi": 45.032399999999996,
+    "enhet": "NOK bn",
+    "alt": [
+     45032.399999999994
+    ]
+   }
+  ],
+  "merknad": "Strike 150 står i kurstabellen i oppgaveteksten; det er meningen, studenten skal finne raden. alt er de samme verdiene i NOK millioner."
+ },
+ "hint3-2:4:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Annual yield",
+    "verdi": 8.405855400053452,
+    "enhet": "%"
+   },
+   {
+    "navn": "Spread over r<sub>f</sub>",
+    "verdi": 4.905855400053452,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Ikke annualisert (19.91 %) og lineært (8.85 %) avvises."
+ },
+ "hint3-2:4:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Senior debt",
+    "verdi": 32.248799999999996,
+    "enhet": "NOK bn",
+    "alt": [
+     32248.799999999996
+    ]
+   },
+   {
+    "navn": "Junior debt",
+    "verdi": 12.7836,
+    "enhet": "NOK bn",
+    "alt": [
+     12783.6
+    ]
+   },
+   {
+    "navn": "Equity",
+    "verdi": 32.367599999999996,
+    "enhet": "NOK bn",
+    "alt": [
+     32367.599999999995
+    ]
+   }
+  ],
+  "merknad": "Junior priset med call 50 gir 16.625; det avvises."
+ },
+ "hint3-2:4:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Senior yield",
+    "verdi": 5.012145040963123,
+    "enhet": "%"
+   },
+   {
+    "navn": "Junior yield",
+    "verdi": 16.426820228155936,
+    "enhet": "%"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Explain briefly how they compare with the yield in (b)."
+ },
+ "hint3-2:4:e": {
+  "type": "tekst"
+ },
+ "hint3-3:1:": {
+  "type": "tekst"
+ },
+ "hint3-3:2:a": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Monthly rate",
+    "verdi": 0.40741237836483535,
+    "enhet": "%"
+   },
+   {
+    "navn": "NPV if committed forever",
+    "verdi": -2290903.101183885,
+    "enhet": "NOK",
+    "tol": 0.002
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Will you open it?",
+  "merknad": "Stram toleranse på NPV (0,2 %) så 5 %/12 (-2280000) avvises; den fanges også av månedsrenten."
+ },
+ "hint3-3:2:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV, good state",
+    "verdi": 4336288.764798562,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "NPV, bad state",
+    "verdi": -2146436.9903530013,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Expected NPV with the clause",
+    "verdi": 446653.311707624,
+    "enhet": "NOK"
+   }
+  ]
+ },
+ "hint3-3:2:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value of the clause",
+    "verdi": 446653.311707624,
+    "enhet": "NOK"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Briefly explain.",
+  "merknad": "Verdien er målt mot 0. 2737556 (mot den negative NPV-en) er fellen og avvises."
+ },
+ "hint3-3:2:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Highest termination fee",
+    "verdi": 800946.0365411458,
+    "enhet": "NOK"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "With that fee, would you still close in the bad state?",
+  "merknad": "Gebyr i begge tilstander gir 480568, uten diskontering 744422; begge avvises."
+ },
+ "hint3-3:2:e": {
+  "type": "tekst"
+ },
+ "hint3-3:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Maximum bid, A",
+    "verdi": 175,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Maximum bid, B",
+    "verdi": 170,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Maximum bid, C",
+    "verdi": 180,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Mot frittstående verdi blir svarene 170, 160 og 150; de avvises (A: 170 mot 175 er 2,9 % unna)."
+ },
+ "hint3-3:3:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Price paid for D",
+    "verdi": 175,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Gain to D's shareholders",
+    "verdi": 55,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Gain or loss to the winner's shareholders",
+    "verdi": -25,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Who buys D? Briefly comment."
+ },
+ "hint3-3:3:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Gjesvær debt",
+    "verdi": 51.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Gjesvær equity",
+    "verdi": 45.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Vangen debt",
+    "verdi": 31.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Vangen equity",
+    "verdi": 20.0,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "hint3-3:3:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Merged debt",
+    "verdi": 105.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Merged equity",
+    "verdi": 42.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Change for Gjesvær's shareholders",
+    "verdi": -15.923076923076923,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Change for Vangen's shareholders",
+    "verdi": -7.076923076923077,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Total gain to the creditors",
+    "verdi": 23.0,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "hint3-3:3:e": {
+  "type": "tekst"
+ },
  "prove1:1:": {
   "type": "tekst"
  },

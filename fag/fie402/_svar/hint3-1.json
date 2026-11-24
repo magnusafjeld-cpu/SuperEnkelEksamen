@@ -1,0 +1,154 @@
+{
+  "hint3-1:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Offer per B share",
+        "verdi": 76.0,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Premium over the pre-rumour price",
+        "verdi": 31.034482758620683,
+        "enhet": "%",
+        "alt": [
+          18.0
+        ]
+      },
+      {
+        "navn": "Spread",
+        "verdi": 4.799999999999997,
+        "enhet": "NOK",
+        "alt": [
+          6.741573033707861
+        ]
+      }
+    ],
+    "merknad": "Spørsmålet oppgir enhetene (premie i prosent, spread i NOK). alt godtar også premien i NOK (18,00) og spreaden i prosent av dagens kurs (6,74)."
+  },
+  "hint3-1:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value if the deal goes through",
+        "verdi": 78.55083574873998,
+        "enhet": "NOK",
+        "alt": [
+          4.961105415709891
+        ]
+      },
+      {
+        "navn": "Value if the deal fails",
+        "verdi": 64.55083574873998,
+        "enhet": "NOK",
+        "alt": [
+          -9.038894584290105
+        ]
+      }
+    ],
+    "merknad": "alt er Kurbatovs selvfinansierte variant (kjøp B med shortinntekten, sett resten i banken), som er godtatt i kriteriene."
+  },
+  "hint3-1:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Probability of completion",
+        "verdi": 0.6456353274492942,
+        "enhet": "",
+        "tol": 0.004
+      }
+    ],
+    "merknad": "Stram toleranse (0,4 %) så helårsfaktoren 1,045 (0.6417) avvises. Enkel rente (0.6456) havner innenfor og godtas som tilnærming. 71,20 i stedet for sikkerhetsekvivalenten gir 0.4749."
+  },
+  "hint3-1:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Probability of completion with B at 62 on failure",
+        "verdi": 0.5038894584290119,
+        "enhet": "",
+        "tol": 0.004
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Why might B's price not fall all the way back? Explain the direction of the change.",
+    "merknad": "Fellen (71,20 i stedet for sikkerhetsekvivalenten) gir 0.2649."
+  },
+  "hint3-1:3:e": {
+    "type": "tekst"
+  },
+  "hint3-1:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Promised yield to maturity",
+        "verdi": 10.53719008264462,
+        "enhet": "%"
+      },
+      {
+        "navn": "Value if risk-free",
+        "verdi": 102.88461538461539,
+        "enhet": "NOK"
+      }
+    ],
+    "merknad": "Uten kupongen blir yielden 3.31 %; det avvises."
+  },
+  "hint3-1:4:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Expected return",
+        "verdi": 6.6942148760330555,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Compare it with the promised yield and the risk-free rate. Explain briefly."
+  },
+  "hint3-1:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Risk-neutral default probability ρ",
+        "verdi": 0.1020645161290323,
+        "enhet": ""
+      },
+      {
+        "navn": "Price of one CDS contract",
+        "verdi": 0.09813895781637721,
+        "enhet": "NOK"
+      }
+    ],
+    "merknad": "Overlevelsessannsynligheten (0.8979) og CDS-prisen med den (0.8634) er fellen og avvises. Analytikernes 6 % gir 0.0577."
+  },
+  "hint3-1:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "CDS contracts per bond",
+        "verdi": 62.0,
+        "enhet": ""
+      },
+      {
+        "navn": "Cost of the contracts",
+        "verdi": 6.084615384615387,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Bond plus contracts",
+        "verdi": 102.88461538461539,
+        "enhet": "NOK"
+      }
+    ],
+    "merknad": "55 kontrakter (pålydende minus gjenvinning) er fellen; da blir posisjonen 102.1976."
+  },
+  "hint3-1:4:e": {
+    "type": "tekst"
+  },
+  "hint3-1:1:": {
+    "type": "tekst"
+  },
+  "hint3-1:2:": {
+    "type": "tekst"
+  }
+}

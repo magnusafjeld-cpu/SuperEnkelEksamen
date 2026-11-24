@@ -1,0 +1,169 @@
+{
+  "hint1-1:1:": {
+    "type": "tekst"
+  },
+  "hint1-1:2:": {
+    "type": "tekst"
+  },
+  "hint1-1:3:a": {
+    "type": "tekst"
+  },
+  "hint1-1:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "FCF<sub>0</sub>",
+        "verdi": -62.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "FCF<sub>1</sub>",
+        "verdi": 21.02,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "FCF<sub>2</sub>",
+        "verdi": 25.02,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "FCF<sub>3</sub>",
+        "verdi": 25.02,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "FCF<sub>3.5</sub> (working capital recovered)",
+        "verdi": 12.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Fellene er arbeidskapitalens nivå i stedet for endringen, leien trukket fra etter skatt, hovedkontorkostnadene tatt med og frigjøringen lagt i år 3."
+  },
+  "hint1-1:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": 7.9416480781261924,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Fellene: PV uten investeringen, frigjøringen i år 3 eller år 4, sunk cost tatt med, renter trukket fra, leien etter skatt, kannibalisering eller leie utelatt, nivå i stedet for endring i arbeidskapital, hovedkontorkostnader tatt med. 1.08^3 × 1.04 for halvåret gir 7.9349 og ligger innenfor toleransen; det er en liten metodefeil, ikke en felle."
+  },
+  "hint1-1:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV (cider)",
+        "verdi": 1.2222222222222214,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "IRR (cider)",
+        "verdi": 30.000000000000004,
+        "enhet": "%"
+      },
+      {
+        "navn": "NPV of the beer line at 30%",
+        "verdi": -14.847293476702617,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Which launch should Kvernhus choose, and why do the two rules disagree?"
+  },
+  "hint1-1:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub> (Voltvei)",
+        "verdi": 9.879999999999999,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>U</sub> (Ladeport)",
+        "verdi": 10.000000000000002,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>U</sub> (park, average)",
+        "verdi": 9.94,
+        "enhet": "%"
+      }
+    ]
+  },
+  "hint1-1:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 13.900000000000002,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 9.588000000000001,
+        "enhet": "%"
+      }
+    ]
+  },
+  "hint1-1:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup><sub>0</sub> (WACC)",
+        "verdi": 313.85366867011,
+        "enhet": "NOK m",
+        "tol": 0.0024
+      },
+      {
+        "navn": "NPV",
+        "verdi": 13.853668670109982,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>0</sub>",
+        "verdi": 125.541467468044,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>1</sub>",
+        "verdi": 87.57838336888005,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "D<sub>2</sub>",
+        "verdi": 41.975398766288286,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Fellene: verdien med r_U, med Skarets egne 8,1 % og med r_E; PV i stedet for NPV; D/E brukt som andel av verdien; årets kontantstrøm tatt med i V_t."
+  },
+  "hint1-1:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 311.93318178865013,
+        "enhet": "NOK m",
+        "tol": 0.0025
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 1.9204868814599032,
+        "enhet": "NOK m",
+        "tol": 0.003
+      },
+      {
+        "navn": "V<sup>L</sup> (APV)",
+        "verdi": 313.85366867011004,
+        "enhet": "NOK m",
+        "tol": 0.00023
+      }
+    ],
+    "merknad": "PV(TS) har tol 0,003 fordi skjoldet diskontert med r_wacc gir 1.9305 (0.52% unna), en metode kriteriene avviser."
+  },
+  "hint1-1:4:e": {
+    "type": "tekst"
+  }
+}

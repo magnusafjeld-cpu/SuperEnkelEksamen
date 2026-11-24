@@ -1,0 +1,232 @@
+{
+ "hint3-1": [
+  {
+   "n": 1,
+   "title": "Options",
+   "points": 10,
+   "topic": "Options",
+   "chapters": [
+    21,
+    23,
+    24
+   ],
+   "merke": "Forelesning 18 (Wrap-up), 1:20: «Intuition can be there. I can ask you what happens to the option price if…»",
+   "body": "<p>Hestvika Batteri ASA, a listed battery maker, has a large bank loan. Marit, an engineer there, receives European calls on Hestvika shares as part of her pay. Her father owns Hestvika shares and considers buying European puts on them as insurance. Hestvika pays no dividends before the options expire. Answer without calculations, 1-3 sentences per question.</p><p>a) A coming decision on battery subsidies makes Hestvika's share more volatile, while today's price is unchanged. What happens to the value of the calls and of the puts? (3 points)</p><p>b) Hestvika offers to extend the calls' life from two to four years. Is that worth something to Marit? Would a longer life also raise the value of the European puts? (2 points)</p><p>c) Is an American call with the same strike and expiry worth more, less or the same as Marit's European call? (2 points)</p><p>d) The managers, acting for the shareholders, consider a very risky expansion with a negative NPV. Why may the shareholders still want it? Who pays for it? (3 points)</p>",
+   "solution": "<p><b>a) Both the calls and the puts gain value.</b> An option's payoff is one-sided: the call pays max(S<sub>T</sub> − K, 0) and the put max(K − S<sub>T</sub>, 0), so the holder never loses more than the premium. A wider spread of the share price therefore adds payoff in the tail where the option pays without adding anything in the other tail.</p><p><b>b) Yes for the calls; usually yes but not necessarily for the European puts.</b> A longer life gives the share more time to move far above the strike with the loss still capped at zero; Marit also pays the strike later. For a European put more time adds dispersion, but the strike is received later and its present value falls, so a put deep in the money can lose value.</p><p><b>c) The same, never less.</b> The American call gives every right of the European call plus early exercise, so it is worth at least as much. Since Hestvika pays no dividends, exercising a call early only gives up time value and pays the strike sooner, so it is never optimal and the extra right is worth nothing.</p><p><b>d) Equity is a call on the firm's assets, so the shareholders gain from risk; the bank pays.</b> With limited liability the shareholders hold a call with a strike equal to the face value of the loan; a riskier project raises its value even with a negative NPV because much of the extra downside falls on the bank. The loan is a risk-free debt plus a written put that gains with risk, so it loses value: a wealth transfer from the creditors that can exceed the NPV lost (risk shifting).</p><p><b>Also accepted.</b> In a): naming vega; the edge case σ = 0, where an out-of-the-money option is worthless. In b): for an American put a longer life can never hurt. In c): Kurbatov's rule of thumb that an option with more rights is priced higher (recording 12, 12:41) holds as «at least as much»; with dividends the American call can be worth strictly more. In d): «gambling for resurrection» when the firm is close to default; total value falls by the negative NPV, so the shareholders' gain is smaller than the bank's loss. Only the direction is asked: no Black-Scholes calculation is expected (recording 18, 1:20 and 58:09 to 58:26).</p>",
+   "criteria": [
+    "a) 3 points: 1 for the calls rising, 1 for the puts rising and 1 for the reason: the payoff is one-sided, so more dispersion adds upside without adding downside for the holder. «The put falls because the call rises» is the classic error and earns 0 for the put.",
+    "b) 2 points: 1 for the calls (more time for the share to move, the strike paid later) and 1 for the put. «Usually yes, but not necessarily, because the strike is received later and its present value falls» earns the full point; «yes, more time means more uncertainty» without the caveat earns 0.5. Only the direction is expected (recording 18, 58:26).",
+    "c) 2 points for «the same» with the reason (no dividends, so early exercise of a call is never optimal) or for «at least as much» with the reason that the American call contains every right of the European call plus early exercise. «More» without that caveat earns 1 of 2: it is Kurbatov's rule of thumb (recording 12, 12:41) but overstates the case without dividends. «Less» earns 0.",
+    "d) 3 points: 1 for equity as a call on the firm's assets with the face value of the debt as strike (limited liability), 1 for why more risk raises that call even with a negative NPV and 1 for who pays: the creditors, through a wealth transfer as the debt (risk-free debt plus a written put) loses value.",
+    "1-3 sentences per question. No calculation is required and a purely verbal answer scores full marks. Naming vega, risk shifting or gambling for resurrection is accepted, but the mechanism earns the points."
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Governance",
+   "points": 10,
+   "topic": "Corporate governance",
+   "chapters": [
+    27
+   ],
+   "merke": "Forelesning 17 (Governance), 29:13: «this was one of the exam questions a couple years ago … if a similar question could arise during the exam»",
+   "body": "<p>Brackenridge Freight Inc. is a US-listed freight company with dispersed ownership and a large bank loan. A newspaper reports that for four years Brackenridge has bought trucking services from a firm owned by the CEO's brother at prices about 20% above the market. The annual report mentions these contracts in a single sentence.</p><p>Select and describe two different types of monitoring that could have uncovered or stopped this. For each, explain who monitors, which tools they use and why they have the incentive or the power to act. (2-3 sentences per type; each type is worth 5 points.)</p>",
+   "solution": "<p>Two types, 5 points each: who monitors, with which tools and why that monitor has the incentive or the power, applied to the contracts with the CEO's brother. Two strong choices:</p><p><b>1. The board, through its independent directors and the audit committee.</b> The independent directors are elected by the shareholders to monitor the CEO, have no ties to the CEO and carry legal and reputational liability. Through the audit committee they can require advance approval of every contract with a party related to the CEO, have the external auditor compare the prices with the market and, as a last step, dismiss the CEO. Such a review would have caught a 20% overpayment long before a newspaper did.</p><p><b>2. The bank as lender.</b> Every dollar overpaid to the brother's firm is cash that no longer services the loan, so the bank has a direct incentive to watch. Its tools are the loan covenants: regular financial reports, limits on payments outside normal business, the right to demand information and the threat of calling the loan or refusing to roll it over. A bank that sees margins falling while trucking costs rise can demand an explanation before the problem grows.</p><p><b>Other types that score equally.</b> Institutional investors and activists: with dispersed ownership a small holder free-rides, so the monitor is a fund with a stake large enough to make the effort pay; its tools are engagement, votes against the directors, shareholder proposals and a proxy fight. Employees and internal audit, who can report to the audit committee, go around the CEO or, as a last resort, go to the media. The government and regulators, through disclosure rules for transactions with related parties, investigations, fines and the courts. The market for corporate control: a firm that overpays its suppliers is worth less than it could be, so a bidder can buy it and replace the CEO. The press, which uncovered the contracts in this case.</p>",
+   "criteria": [
+    "Two types, 5 points each: about 1 for WHO monitors, 2 for the TOOLS and how they are used, 1 for WHY that monitor has the incentive or the power and 1 for applying it to the contracts with the CEO's brother.",
+    "Two distinct types. Two versions of the same monitor, such as «the board» and «the audit committee», count as one: the second earns 0. The external auditor counts as a type of its own only with its own tools (the audit opinion, testing the contracts against market prices).",
+    "Accepted types (recording 17, 24:08 to 29:07): institutional shareholders and activists, the board and its independent directors, lenders, employees (internal monitoring), the authorities and the market for corporate control; also external auditors and the press.",
+    "Shareholders as monitors must deal with free riding: with dispersed ownership a small holder gains too little to monitor, so the monitor is an institution or an activist with a larger stake. «The shareholders vote» without this earns at most 3 of 5.",
+    "Tools must be explained, not listed: three tool names without what they do earn at most half of the tool points. 2-3 sentences per type; length is not rewarded."
+   ]
+  }
+ ],
+ "hint3-2": [
+  {
+   "n": 1,
+   "title": "M&A",
+   "points": 10,
+   "topic": "Mergers and acquisitions",
+   "chapters": [
+    26
+   ],
+   "merke": "Forelesning 18 (Wrap-up), 1:10:05: «one of the exam questions a couple of years ago was, explain the reasons for M&A without mentioning the word synergies»",
+   "body": "<p>Frøystad Dagligvare ASA, a listed grocery chain with large cash holdings and flat sales, makes a cash bid for Ulvenes Sport ASA, a listed chain of sporting-goods stores. Ulvenes's share price has fallen 40% in two years under a CEO known for weak cost control. Frøystad's CEO, whose bonus depends on revenue growth, calls the deal «the first step towards a Nordic retail empire».</p><p>Give three reasons why Frøystad may want to buy Ulvenes. Reasons must be other than «synergies», meaning gains from running the two firms' operations together, such as cost savings, economies of scale or joint purchasing. At least one of them must be a reason that does not create value for Frøystad's shareholders. Explain the mechanism behind each reason in 1-2 sentences; «value creation» alone does not count. (3 points per reason; 1 point for saying which of your reasons is inefficient and who bears its cost.)</p>",
+   "solution": "<p>Three reasons, 1-2 sentences each, plus a label on the inefficient one. The question defines synergies as gains from running the operations together, so each reason must rest on management, information, access, pricing power or agency.</p><p><b>1. Replacing weak management (a disciplinary takeover).</b> Ulvenes's share price reflects a CEO with weak cost control, so Frøystad can buy at that price, install a better team and keep the difference. The gain comes from running the same stores better, not from combining them with Frøystad's.</p><p><b>2. Buying an undervalued target.</b> If Frøystad's managers have better information about the retail market than the average investor, they may see that the market has overreacted to the 40% fall and prices Ulvenes below its true value. Buying at that price, even with a premium, transfers value from Ulvenes's selling shareholders to Frøystad's.</p><p><b>3. Empire building (inefficient).</b> Frøystad's CEO earns a bonus on revenue growth and gains prestige from running a larger group, so buying Ulvenes pays the CEO even if it destroys value. The large cash holdings make this easy: free cash flow with no good projects is spent on an acquisition instead of being paid out. (Empire building and the free cash flow behind it are one reason here.)</p><p><b>Which reason is inefficient and who pays.</b> Reason 3 creates no value. If the premium is not earned back, value moves from Frøystad's shareholders to Ulvenes's shareholders, who receive the premium in cash, so Frøystad's shareholders bear the cost.</p><p><b>Other defensible answers.</b> Access to scarce resources such as Ulvenes's store sites in shopping centres, which would take years to obtain otherwise; access to a brand, customers or skilled staff; market power, if explained as pricing power towards customers or suppliers (grocery and sports stores compete little, so it is weak here). Inefficient: diversification, which Frøystad's shareholders can do themselves at no cost while it lowers the risk to the managers' own jobs; hubris and the winner's curse; buying to lift earnings per share or other short-run targets (recording 16, 14:45); managerial ambition as in the Twitter example (recording 16, 15:21).</p><p><b>Not accepted.</b> Synergies under another name, such as cost savings from merging two head offices, economies of scale or joint purchasing: the question defines them as synergies, although Kurbatov lists economies of scale as a motive of its own in the lecture (recording 16, 3:50 and 11:09). «Value creation» without a mechanism: Kurbatov says this «wouldn't be really accepted during the exam» (recording 16, 11:39). Tax losses as a motive: they are erased on a change of owner (recording 17, 1:14:01).</p>",
+   "criteria": [
+    "Exactly three reasons, 1-2 sentences each, 3 points each: 1 for naming the reason and 2 for the mechanism. A name alone («empire building», «undervaluation») earns at most 1 of 3.",
+    "At least one reason must be inefficient: it does not create value for Frøystad's shareholders. The extra point goes to saying which one and who bears the cost: Frøystad's shareholders, as the premium passes to Ulvenes's shareholders.",
+    "Accepted: a disciplinary takeover, undervaluation, access to scarce resources, a brand or a market, market power as pricing power towards customers or suppliers, know-how; inefficient: empire building or managerial ambition (with the free cash flow behind it), diversification, hubris and the winner's curse, EPS manipulation.",
+    "Not accepted: anything the question defines as a synergy (cost savings from merging departments, economies of scale, joint purchasing); «value creation» without a mechanism; tax losses, which are erased on a change of owner.",
+    "Counting: empire building, managerial ambition and spending free cash flow on the deal are one reason. Undervaluation needs its own argument about mispricing (why the market is wrong or why Frøystad knows better); «the price has fallen 40%, so it is cheap» earns at most 1 of 3.",
+    "Using the case (the 40% fall, the weak CEO, the revenue bonus, the cash) is what earns the mechanism points."
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Governance",
+   "points": 10,
+   "topic": "Corporate governance",
+   "chapters": [
+    27
+   ],
+   "merke": "Forelesning 17 (Governance), 1:18:44: «this could be very easily an exam question»",
+   "body": "<p>You own 30% of Wrenfield Hotels Inc., a US-listed hotel chain whose other shares are widely held. The CEO's contract expires this year and you sit on the board that will design the new one. Under the old contract the CEO earned a bonus on revenue growth: the chain opened twelve new hotels, half of them loss-making, while maintenance of the older hotels was cut to keep reported profits up.</p><p>Select three things you would put in the new contract or in the way the board monitors the CEO. For each, explain in about three sentences how it makes the CEO act in the shareholders' interest and what its main drawback is (3 points each). Finally, explain in one or two sentences why you would not simply choose the strictest monitoring possible (1 point).</p>",
+   "solution": "<p>The old contract rewarded size, so the new one should reward value. Three measures, each with how it aligns the CEO and its main drawback:</p><p><b>1. Pay for return on capital and long-run share value, not for revenue.</b> Replace the revenue bonus with a bonus on return on invested capital above the cost of capital, paid mostly in restricted shares that vest over three to five years. A new hotel then pays the CEO only if it earns more than it costs. Long vesting makes cutting maintenance costly to the CEO's own wealth. Drawback: a return target can be gamed by refusing good projects. Long vesting also loads the CEO with risk outside the CEO's control, so the pay must be higher.</p><p><b>2. Board approval and a follow-up review of every new hotel.</b> New hotels above a set size need board approval on a written NPV analysis. The audit committee then compares each hotel's results with the plan after two years. This stops expansion for its own sake and makes the CEO's forecasts accountable. Drawback: it slows decisions. The board also knows less about each market than the CEO, so it can reject good projects or drift into micromanagement.</p><p><b>3. Transparency on maintenance.</b> Require a yearly report of maintenance spending and an independent inspection of each hotel, with a clawback of bonuses paid on profits that later prove to come from cut maintenance. Hidden cuts then show up before they hurt the brand. Drawback: inspections cost money. New metrics also invite new gaming, such as spending on what the inspector checks rather than on what guests value.</p><p><b>Why not the strictest monitoring.</b> Monitor too harshly and the CEO does only the bare minimum and avoids every risk, good projects included; monitor too little and the CEO abuses the position. The goal is the zone between the two (recording 17, 1:17:37). Monitoring also costs time and money; beyond some point the cost exceeds what it saves.</p><p><b>Other measures that score.</b> In the contract: a requirement that the CEO holds shares; capped severance pay, so that the CEO dares to close loss-making hotels; options. In the board's monitoring: using your 30% to nominate independent directors; a board of about 7 to 11 directors with the CEO not as chair; staged funding of new hotels. Each needs its own drawback.</p><p><b>Outside the question.</b> A dividend or repurchase policy, more debt and communication with the other shareholders can discipline the CEO, but they are neither part of the contract nor of the way the board monitors the CEO.</p>",
+   "criteria": [
+    "Three measures, about three sentences each, 3 points each: 2 for how it makes the CEO act in the shareholders' interest (applied to Wrenfield) and 1 for a real drawback. A measure without a drawback earns at most 2 of 3.",
+    "The last point: why not the strictest monitoring. Too harsh and the CEO does the bare minimum and avoids valuable risks; too loose and the CEO abuses the position (recording 17, 1:17:37). «Monitoring is costly and beyond some point the cost exceeds the benefit» also earns the point.",
+    "Use the situation: the old revenue bonus rewarded size and led to cut maintenance. A new bonus on revenue or on this year's profit without a guard against cut maintenance earns at most 1 of 3.",
+    "Accepted measures (recording 17): in the contract, pay design (restricted shares, options, return-on-capital targets, clawbacks, share ownership) and golden parachute or severance; in the board's monitoring, an independent board and its committees, board approval of large investments, transparency and reporting, nominating directors with the 30% stake. Payout or debt policy and communication with shareholders lie outside «the contract or the way the board monitors the CEO» and earn 0.",
+    "Counting: restricted shares and options are one measure (equity pay); a return target and long vesting count as one measure unless each gets its own mechanism and drawback.",
+    "Board size: an argument with both sides is accepted (too small lacks capacity, too large invites free riding). Kurbatov names 7 to 11 as a sweet spot but says there is no strict answer and that some boards work well with 15 (recording 17, 34:20 to 34:58). «A smaller board works better» alone is not accepted."
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Real options",
+   "points": 20,
+   "topic": "Real options, option to wait",
+   "chapters": [
+    25
+   ],
+   "merke": "Forelesning 14 (Options III), 29:46: «an exam question would be … this would be a very nice exam question»",
+   "body": "<p>Kjelsnes Parkering AS can buy an existing parking garage in Steinkjer for NOK 40 million. Its spaces are rented out on yearly permits paid at the start of each year. If Kjelsnes buys today, it receives this year's net income of NOK 2.5 million immediately (at t = 0) and then one payment at the start of every following year (t = 1, 2, 3, …), forever.</p><p>From t = 1 on, the net income depends on whether a new hospital is built next to the garage, which the health authority will decide in exactly one year: NOK 3.2 million a year with the hospital and NOK 1.7 million without, in both cases forever. The probability of the hospital is 60%. The decision is unrelated to the stock market, so discount all cash flows at the risk-free rate of 5%. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What is the NPV of buying the garage today?</p>",
+     "solution": "<p>The timeline: −40 + 2.5 at t = 0, then 3.2 (60%) or 1.7 (40%) a year from t = 1 on, forever. The first payment falls at t = 0 and is not discounted; the rest is a perpetuity whose first payment comes at t = 1, worth C/r today.</p><p>Expected income from t = 1: 0.6 × 3.2 + 0.4 × 1.7 = 2.6000<br>PV at t = 0 of the income from t = 1: 2.6000/0.05 = 52.0000<br>NPV = −40 + 2.5 + 52.0000 = <b>14.5000 million NOK</b></p><p>The static NPV is positive. Forgetting the income at t = 0 gives 12.0000.</p>",
+     "criteria": [
+      "Includes the NOK 2.5 million received at t = 0, undiscounted. Leaving it out gives 12.0, the trap Kurbatov warns about (recording 14, 17:06).",
+      "Expected income from t = 1 of 2.6000 and a perpetuity from t = 1 worth 52.0000 at t = 0.",
+      "NPV = −40 + 2.5 + 52.0000 = 14.5000 million NOK.",
+      "Note, no points of its own since the case states it: discounting real probabilities at the risk-free rate is right here because the risk is unrelated to the market."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 5,
+     "body": "<p>The seller also offers Kjelsnes the right to buy in exactly one year for the same NOK 40 million and keeps the income until then. If Kjelsnes waits, it pays at t = 1 and receives income from t = 1 on. What is the NPV at t = 1 of buying in each case? What is the NPV of waiting, seen from t = 0?</p>",
+     "solution": "<p>Value each case at t = 1, when the decision is known. The first income again comes at once, so the value at t = 1 is −40 + C + C/0.05.</p><table class=\"data\"><tr><th>Case at t = 1</th><th>Calculation</th><th>NPV at t = 1</th><th>Decision</th></tr><tr><td>Hospital</td><td class=\"n\">−40 + 3.2 + 3.2/0.05</td><td class=\"n\"><b>27.2000</b></td><td class=\"n\">buy</td></tr><tr><td>No hospital</td><td class=\"n\">−40 + 1.7 + 1.7/0.05</td><td class=\"n\"><b>−4.3000</b></td><td class=\"n\">do not buy: 0</td></tr></table><p>Without the hospital Kjelsnes simply does not buy, so that case is worth 0, not −4.3000. Discount the expectation one year at 5%:</p><p>NPV of waiting = [0.6 × 27.2000 + 0.4 × 0]/1.05 = 16.3200/1.05 = <b>15.5429 million NOK</b></p><p>Keeping the negative case, [0.6 × 27.2000 + 0.4 × (−4.3000)]/1.05 = 13.9048, is the trap: it treats waiting as a commitment to buy whatever happens.</p>",
+     "criteria": [
+      "Values each case at t = 1 with the first income at t = 1: 27.2000 with the hospital and −4.3000 without.",
+      "Compares the bad case with 0: Kjelsnes does not buy without the hospital. Using the negative value (13.9048 in total) is the classic error and loses 2 points.",
+      "Discounts the expectation one year: 0.6 × 27.2000/1.05 = 15.5429 million NOK.",
+      "Shows the calculation for both cases, not only the result."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 3,
+     "body": "<p>Should Kjelsnes buy today or wait? How much is the option to wait worth, compared with buying today?</p>",
+     "solution": "<p>Waiting is worth 15.5429 against 14.5000 for buying today, so <b>Kjelsnes should wait</b>, although buying today has a positive NPV.</p><p>Value of the option to wait = 15.5429 − 14.5000 = <b>1.0429 million NOK</b>. It is measured against the best alternative today, which is buying, since that NPV is positive.</p><p>Waiting avoids locking in the garage if the hospital is not built; the price is this year's income, net of the interest saved by paying a year later.</p>",
+     "criteria": [
+      "Decision (1.5 points): wait, because 15.5429 exceeds 14.5000. A positive static NPV is not enough to buy now.",
+      "Option value (1.5 points): 15.5429 − 14.5000 = 1.0429 million NOK, measured against buying today.",
+      "Reporting the whole 15.5429 as the value of the option earns at most half of the option-value points: the question asks for the gain over buying today. No reason is required here; (e) asks for it."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 6,
+     "body": "<p>Suppose instead that the probability of the hospital is X. Write the NPV of buying today and the NPV of waiting as functions of X. Which X makes Kjelsnes indifferent between the two?</p>",
+     "solution": "<p><b>Step 1. Buying today depends on X too.</b> The expected income from t = 1 is 3.2X + 1.7(1 − X) = 1.7 + 1.5X:</p><p>NPV<sub>now</sub>(X) = −40 + 2.5 + (1.7 + 1.5X)/0.05 = <b>−3.5000 + 30.0000X</b></p><p><b>Step 2. Waiting.</b> Kjelsnes buys only with the hospital:</p><p>NPV<sub>wait</sub>(X) = X × 27.2000/1.05 = <b>25.9048X</b></p><p><b>Step 3. Set them equal.</b></p><p>−3.5000 + 30.0000X = 25.9048X ⇒ X = 3.5000/(30.0000 − 25.9048) = 3.5000/4.0952 = <b>0.8547</b></p><p>Below X = 0.8547 waiting is better; above it Kjelsnes should buy today. At X = 0.6 the two functions give 14.5000 and 15.5429, the numbers in (a) and (b), so the answer agrees with (c): 0.6 lies below 0.8547 and waiting wins.</p><p><b>Why X is above 0.6.</b> A higher X raises the NPV of buying today faster (30.0000 per unit of X) than the NPV of waiting (25.9048 per unit). Raising X moves probability from the case without the hospital, where buying today locks in a loss and waiting gives 0, to the case with it. Buying today gains more from that shift, so the indifference point lies above 0.6.</p><p><b>The shortcut and the lecture.</b> Holding the NPV of buying today fixed at 14.5000 and solving 14.5000 = 25.9048X gives X = 0.5597, below 0.6. In the lecture example (recording 14, 29:46 to 30:20) the same shortcut, with the value of investing now held at 600, gives 600/1,545.45 = 0.3882: that is why the answer there was expected to lie below 0.5. With both NPVs as functions of X, the lecture example gives −400 + 2,000X = 1,545.45X, so X = 0.88; this case gives 0.8547. The shortcut forgets that X also changes the expected income if you buy today. It only holds when the value of investing now does not depend on X.</p>",
+     "criteria": [
+      "NPV of buying today as a function of X: −3.5000 + 30.0000X, with the income at t = 0 included.",
+      "NPV of waiting as a function of X: 25.9048X, with the bad case set to 0.",
+      "Solves −3.5000 + 30.0000X = 25.9048X: X = 0.8547. States that waiting is better below it and buying today above it.",
+      "Holding the NPV of buying today fixed at 14.5000 gives 0.5597: wrong, since both NPVs depend on X (the same shortcut gives an X below 0.5 in the lecture example). Leaving out the income at t = 0 gives X = 1.4651, above 1, which should be caught.",
+      "Bonus: checks that the functions return the values from (a) and (b) at X = 0.6."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 3,
+     "body": "<p>Explain intuitively what Kjelsnes gains and what it gives up by waiting. Would the X in (d) change if the income with the hospital were NOK 4.0 million a year instead of 3.2 million? No new calculation is needed.</p>",
+     "solution": "<p><b>What waiting gains.</b> Without the hospital, buying today locks Kjelsnes into a project worth −40 + 2.5 + 1.7/0.05 = −3.5000; by waiting it walks away with 0. Waiting removes the downside, which is worth 3.5000 in that case.</p><p><b>What waiting costs.</b> With the hospital Kjelsnes buys under both strategies, so the only difference is the first year: by waiting it loses this year's NOK 2.5 million but pays the NOK 40 million a year later, which saves 40 − 40/1.05 = 1.9048. The net cost is 0.5952.</p><p>Indifference means X × 0.5952 = (1 − X) × 3.5000, which gives X = 3.5000/(3.5000 + 0.5952) = 0.8547, the same as (d).</p><p><b>A higher income with the hospital does not change X.</b> That income is received from t = 1 on under both strategies, so it raises both NPVs by the same amount and cancels. X depends only on this year's income, the saving from paying later and the loss avoided without the hospital.</p>",
+     "criteria": [
+      "1 point: waiting avoids buying a project with a negative NPV if the hospital is not built (the option is never exercised in the bad case).",
+      "1 point: the cost of waiting is this year's income of NOK 2.5 million, partly offset by paying the price a year later.",
+      "1 point: X does not change, because the income with the hospital is received under both strategies from t = 1 on. «X falls because the project becomes more attractive» earns 0 for this point.",
+      "Numbers are a bonus: the loss avoided of 3.5000, the net cost of 0.5952 and X = 3.5000/(3.5000 + 0.5952)."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Corporate securities as options",
+   "points": 20,
+   "topic": "Debt and equity as options",
+   "chapters": [
+    24
+   ],
+   "merke": "Forelesning 13 (Options II), 1:16:02: «So this actually could be in the exam, by the way»",
+   "body": "<p>Lysneset Fiber ASA has 360 million shares trading at NOK 215 and no debt. Markets are perfect and there are no taxes. Lysneset considers issuing zero-coupon debt due in 27 months and paying the proceeds out to its shareholders at once, which leaves the value of the firm's assets unchanged. The risk-free rate is 3.5% a year (annual compounding).</p><p>European calls on Lysneset shares that expire in exactly 27 months are quoted below (NOK per share). Because Lysneset has no debt today, you can treat them as calls on the firm's assets per share. Use the midpoint of bid and ask. Give values in NOK billion with 3 decimals and yields in % with 2 decimals.</p><table class=\"data\"><tr><th>Strike (NOK)</th><th>Call bid</th><th>Call ask</th></tr><tr><td>50</td><td class=\"n\">168.42</td><td class=\"n\">169.22</td></tr><tr><td>100</td><td class=\"n\">125.22</td><td class=\"n\">125.62</td></tr><tr><td>150</td><td class=\"n\">89.71</td><td class=\"n\">90.11</td></tr><tr><td>200</td><td class=\"n\">63.39</td><td class=\"n\">63.69</td></tr></table>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 4,
+     "body": "<p>Lysneset issues a single bond with face value NOK 54 billion. Which strike per share corresponds to this debt? What are the equity and the debt worth?</p>",
+     "solution": "<p><b>Step 1. Firm value and strike.</b> Without debt the shares are the whole firm: V = 360 million × NOK 215 = NOK 77.4 billion. After the issue the equity is a call on the assets with the face value of the debt as strike. Per share: 54 billion/360 million = <b>NOK 150</b>. A share is 1/360 million of the assets, so one call on the share with strike 150 is 1/360 million of that call on the firm.</p><p><b>Step 2. Equity.</b> Midpoint of the 150 call: (89.71 + 90.11)/2 = 89.91. E = 0.36 billion × 89.91 = <b>NOK 32.368 billion</b> (32.3676).</p><p><b>Step 3. Debt.</b> D = V − E = 77.4 − 32.3676 = <b>NOK 45.032 billion</b> (45.0324).</p>",
+     "criteria": [
+      "Strike per share = 54 billion/360 million = NOK 150, not 54 billion.",
+      "Uses the midpoint of the 150 call (89.91) and multiplies by 360 million shares: E = NOK 32.368 billion.",
+      "D = V − E = 77.4 − 32.368 = NOK 45.032 billion.",
+      "Bonus, no points of its own since the case states it: with no debt today a share is 1/360 million of the assets, which is why the share call can be used."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 3,
+     "body": "<p>What annual yield does the bond offer? What is its spread over the risk-free rate?</p>",
+     "solution": "<p>T = 27/12 = 2.25 years.</p><p>y = (54/45.0324)<sup>1/2.25</sup> − 1 = 1.1991<sup>1/2.25</sup> − 1 = <b>8.41%</b> a year<br>Spread = 8.41% − 3.50% = <b>4.91%</b></p><p><b>Check.</b> The debt must be worth less than risk-free debt with the same face value: PV(54) = 54/1.035<sup>2.25</sup> = 49.9779 &gt; 45.0324 ✓. The gap of NOK 4.945 billion is the value of the put the creditors have written (see e). A yield below r<sub>f</sub> would reveal an error.</p><p><b>The traps.</b> Not annualising: 54/45.0324 − 1 = 19.91% over 27 months. Scaling it linearly, 19.91%/2.25 = 8.85%, overstates the yield because returns compound. The exponent turned the wrong way, 2.25 instead of 1/2.25, gives 50.47%.</p>",
+     "criteria": [
+      "Uses T = 27/12 = 2.25 years and the exponent 1/2.25 (12/27).",
+      "y = (54/45.032)^(1/2.25) − 1 = 8.41%.",
+      "Spread = 8.41% − 3.50% = 4.91%.",
+      "Not annualised (19.91%) or annualised linearly (8.85%) loses the yield point."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 6,
+     "body": "<p>Suppose instead that the debt is split into a senior bond with face value NOK 36 billion and a junior bond with face value NOK 18 billion, both due in 27 months. What are the senior debt, the junior debt and the equity worth?</p>",
+     "solution": "<p><b>Step 1. Senior debt.</b> Pretend only the senior bond exists. Its strike per share is 36 billion/360 million = NOK 100. Everything above it, the junior debt and the equity together, is a call with strike 100: midpoint (125.22 + 125.62)/2 = 125.42, so 0.36 × 125.42 = 45.1512.</p><p>D<sub>S</sub> = 77.4 − 45.1512 = <b>NOK 32.249 billion</b> (32.2488)</p><p><b>Step 2. Equity.</b> The shareholders are paid after both bonds, so the strike is the total face value, NOK 150 per share as in (a): E = <b>NOK 32.368 billion</b>, unchanged.</p><p><b>Step 3. Junior debt.</b> The slice between the two strikes:</p><p>D<sub>J</sub> = 0.36 × (125.42 − 89.91) = 45.1512 − 32.3676 = <b>NOK 12.784 billion</b> (12.7836), the same as V − D<sub>S</sub> − E.</p><table class=\"data\"><tr><th>Claim</th><th>Strike per share</th><th>Value (NOK billion)</th></tr><tr><td>Senior debt</td><td class=\"n\">V minus call at 100</td><td class=\"n\">32.249</td></tr><tr><td>Junior debt</td><td class=\"n\">call at 100 minus call at 150</td><td class=\"n\">12.784</td></tr><tr><td>Equity</td><td class=\"n\">call at 150</td><td class=\"n\">32.368</td></tr><tr><td>Sum</td><td class=\"n\"></td><td class=\"n\">77.400</td></tr></table><p><b>Check.</b> D<sub>S</sub> + D<sub>J</sub> = 32.2488 + 12.7836 = 45.0324, the debt in (a). That is an identity: the equity is the same call in both cases, so the total debt cannot change. A check that can fail: each layer is worth less than risk-free debt, PV(36) = 33.319 &gt; 32.249 and PV(18) = 16.659 &gt; 12.784 ✓.</p><p><b>The trap.</b> Pricing the junior bond with the 50 call as if it were the only debt gives 77.4 − 0.36 × 168.82 = 16.625, almost risk-free. It ignores that the senior bond is paid first.</p>",
+     "criteria": [
+      "Senior: strike 100 per share, D_S = V − 0.36 × 125.42 = 32.249 billion.",
+      "Equity: strike 150 per share (total face value), E = 32.368 billion, unchanged from (a).",
+      "Junior: 0.36 × (125.42 − 89.91) = 12.784 billion, or V − D_S − E.",
+      "Classic errors: junior priced with the 50 call (16.625), equity priced with strike 100 or 50, or forgetting to multiply by the number of shares.",
+      "Bonus: D_S + D_J equals the debt in (a); each layer is worth less than its risk-free PV."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 3,
+     "body": "<p>What annual yields do the senior and the junior bond offer? Explain briefly how they compare with the yield in (b).</p>",
+     "solution": "<p>y<sub>S</sub> = (36/32.2488)<sup>1/2.25</sup> − 1 = <b>5.01%</b><br>y<sub>J</sub> = (18/12.7836)<sup>1/2.25</sup> − 1 = <b>16.43%</b></p><p>r<sub>f</sub> 3.50% &lt; y<sub>S</sub> 5.01% &lt; y 8.41% &lt; y<sub>J</sub> 16.43%. The senior bond is paid first and loses only if the assets end below NOK 36 billion, so it is the safest layer. The junior bond takes the losses right after the shareholders and is wiped out below NOK 36 billion, so it needs the highest yield. The single bond in (b) is a mix of the two layers, so its yield lies between them.</p>",
+     "criteria": [
+      "y_S = (36/32.249)^(1/2.25) − 1 = 5.01%.",
+      "y_J = (18/12.784)^(1/2.25) − 1 = 16.43%. Linear annualising gives 18.14% and loses the point.",
+      "Ordering with the reason: the senior bond is paid first and the junior bond absorbs losses right after the shareholders; the single bond lies between the two."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 4,
+     "body": "<p>Explain why the debt in (a) can be seen as a risk-free debt plus a written put on the firm's assets. Suppose the volatility of the firm's assets rises while the value of the firm's assets stays at NOK 77.4 billion (NOK 215 per share). What happens to the value of the senior debt? Can you say the same about the junior debt with certainty? What determines the sign? (No calculation needed.)</p>",
+     "solution": "<p><b>Risk-free debt plus a written put.</b> At maturity the creditors receive min(V<sub>T</sub>, F) = F − max(F − V<sub>T</sub>, 0): the face value for sure, minus the payoff of a put on the assets with strike F. Limited liability gives the shareholders that put: if the assets are worth less than F, they hand them to the creditors and walk away, which is the same as selling the assets to the creditors for F. So the creditors hold a risk-free bond and have written a put to the shareholders: D = PV(F) − Put. In (a) the put is worth 49.9779 − 45.0324 = NOK 4.945 billion.</p><p><b>Senior debt: it falls.</b> The senior debt is PV(36) minus a put with strike NOK 36 billion (100 per share). A put gains value with volatility, so the senior debt <b>loses value</b>.</p><p><b>Junior debt: not with certainty.</b> The junior debt is a call with strike 100 per share minus a call with strike 150 per share (36 and 54 billion for the firm). Both calls gain value with volatility, so the sign depends on which gains more. That depends on where the assets lie relative to the two strikes. Below the junior range the junior bond would behave like equity and gain. Here the assets are worth NOK 215 per share, above the whole range from 100 to 150, so the junior bond behaves like risky debt and <b>most likely loses value</b>.</p><p><b>Why, from the quotes.</b> Volatility acts on an option's time value (its price minus S − PV(K)), which is largest close to the money. At strike 100 the time value is 125.42 − (215 − 92.5517) = 2.97 per share; at strike 150 it is 89.91 − (215 − 138.8275) = 13.74. By put-call parity these are the prices of the puts with the same strikes (0.36 × 13.74 = 4.945, the put above). The call the junior holders are short (150) carries far more time value than the call they are long (100), so it gains more when volatility rises. The equity, a call at 150, gains: with V fixed, what the creditors lose the shareholders gain, a wealth transfer.</p><p><b>The numbers behind it (not required).</b> The sign for the junior debt is certain only within a model. Under the lognormal model behind the quotes (Black-Scholes at about 40% volatility, for reference only), a volatility of 50% moves the senior debt from 32.25 to 30.94, the junior debt from 12.78 to 11.25 and the equity from 32.37 to 35.21 NOK billion.</p><p><b>Grading the junior part.</b> «It depends on where the assets are» with the call-spread reason earns half of the junior point; the full point also settles the sign here. Kurbatov's wording for the first part is «a risk-free debt plus a written put on assets» (recording 18, 1:03:55); D = PV(F) − P says the same.</p>",
+     "criteria": [
+      "2 points for the put: the creditors' payoff is min(V, F) = F − max(F − V, 0), a risk-free bond minus a put on the assets with strike F, which the creditors have written to the shareholders through limited liability.",
+      "1 point for the senior debt: it falls, because the put it has written gains value with volatility.",
+      "1 point for the junior debt: not with certainty, since it is a long call at 100 and a short call at 150 per share and both gain; the sign depends on where the assets lie. Full point for «it depends on where the assets are; here they lie above the junior range, so the junior debt behaves like debt and falls» with that reason. «It depends» with the call-spread reason but no sign for this case earns 0.5, as does «it falls, like debt» without saying why the sign is not certain.",
+      "Bonus: the time-value argument from the quotes (2.97 per share at strike 100 against 13.74 at 150, the put prices from put-call parity). No Black-Scholes calculation is expected; saying that the equity gains and the total stays at V is also a bonus."
+     ]
+    }
+   ]
+  }
+ ]
+}
