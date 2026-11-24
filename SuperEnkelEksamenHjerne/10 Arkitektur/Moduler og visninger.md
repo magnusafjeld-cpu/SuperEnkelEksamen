@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-23
+oppdatert: 2026-11-24
 ---
 
 # Moduler og visninger
@@ -819,11 +819,17 @@ Den regnes på nytt hver gang siden åpnes.
   08–16, helg 09–16) og pauser (10 min etter hver 50. minutt, 30 min lunsj fra
   11:30). Studietiden er arbeidstiden minus pausene (`studietid()`; 08–16 gir 6 t 20
   min) og er tiden anbefalingen fordeler.
-- **Arbeidsøkta.** En klokke øverst i sidepanelet, under fagnavnet, i hele appen
-  (`tegnØkt()` legger den etter `.sidebar .brand`; på mobil flyter den over
-  bunnmenyen). Du starter dagen med når du skal slutte; den viser tid jobbet uten
-  pauser og når neste pause er (varsel og ☕ i fanetittelen). Er økta startet, er
-  den dagens studietid. `T.økt` synkes som resten.
+- **Arbeidsøkta.** Et kort øverst i planleggeren (`øktKort()`), over Dagens mål. Det
+  viser tid jobbet uten pauser, tid siden forrige pause (eller hvor lenge pausen har
+  vart), antall pauser og samlet pausetid, klokkeslettene for pausene og når dagen
+  slutter. Knapper: Ta pause eller Fortsett, «Det var jobb» etter en borte-pause,
+  «Jobber ikke nå» og Avslutt dagen. `tegnØkt()` tegner kortet på nytt på plass hvert
+  20. sekund. Er økta startet, er den dagens studietid. `T.økt` synkes som resten.
+  En pause under ett minutt telles ikke.
+  **Ingen påminnelser om pause** (Magnus, 24. november 2026): til da lå klokka øverst
+  i sidepanelet med «pause om N min», varsel, blink og ☕ i fanetittelen. Nå sier appen
+  aldri fra om pause, og meldingene om automatisk start og «Velkommen tilbake» er
+  også fjernet. Pauseinnstillingene brukes bare til å regne ut studietiden.
 - **Automatisk start og pause** (versjon 29, 9. november 2026). Magnus glemte å
   starte arbeidsdagen, så planleggeren ser selv på bruken: klikk, taster, rulling og
   svar mens vinduet er synlig.
