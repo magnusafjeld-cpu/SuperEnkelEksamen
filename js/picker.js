@@ -50,11 +50,12 @@ window.EDU = window.EDU || {};
     setFavicon(sub.logo, sub.accent);
   }
   /* Velgeren har ingen fag ennå, så da er det plattformen som eier tittel og ikon. */
-  function applyPlatformTheme() { document.title = P().name; setFavicon(P().logo, P().accent); }
-  function setFavicon(logo, accent) {
+  function applyPlatformTheme() { document.title = P().name; setFavicon(P().logo, P().accent, P().ikon); }
+  function setFavicon(logo, accent, ikon) {
     const tc = document.querySelector('meta[name="theme-color"]');
     if (tc) tc.setAttribute("content", "#f5f5f7");
     const fav = document.querySelector('link[rel="icon"]');
+    if (fav && ikon) { fav.setAttribute("href", ikon); return; }
     const size = !logo ? 52 : logo.length > 2 ? 30 : logo.length > 1 ? 38 : 52;
     if (fav) fav.setAttribute("href", "data:image/svg+xml," + encodeURIComponent(
       `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='${accent || "#2f6bff"}'/><text x='50' y='${size > 40 ? 68 : 62}' font-size='${size}' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>${logo || "?"}</text></svg>`));
@@ -107,7 +108,7 @@ window.EDU = window.EDU || {};
     applyPlatformTheme();
     const head = document.createElement("div");
     head.innerHTML =
-      `<div class="picker-brand"><div class="pb-logo">${esc(P().logo || "?")}</div>` +
+      `<div class="picker-brand">${P().ikon ? `<img class="pb-logo" src="${esc(P().ikon)}" alt="">` : `<div class="pb-logo">${esc(P().logo || "?")}</div>`}` +
       `<div><div class="pb-name">${esc(P().name)}</div>` +
       `<div class="pb-tag">${esc(P().tagline || "")}</div></div></div>` +
       `<h2 class="picker-title">Hvilket fag skal du trene på?</h2>` +

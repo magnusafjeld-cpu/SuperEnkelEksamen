@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, design, css]
-oppdatert: 2026-08-19
+oppdatert: 2026-11-25
 ---
 
 # Designsystem
@@ -37,11 +37,22 @@ forsvinner, topplinja blir sticky med blur, og en fast bunnavigasjon med seks
 knapper tar over. `env(safe-area-inset-bottom)` respekteres, og appen er merket
 `apple-mobile-web-app-capable` — den er ment å legges på hjemskjermen.
 
-## Favicon og tittel
+## Logo, favicon og tittel
 
-Genereres i `js/picker.js` som en inline SVG av fagets logotegn på fagets
-aksentfarge. Skriftstørrelsen justeres etter antall tegn (1 tegn = 52, 2 = 38,
-3 = 30). Uten valgt fag brukes plattformens egen logo («SEE»).
+**Appens logo** er et eksamensark med en rød A i ring, på `--accent`-blått
+(`#2f6bff`). Den ligger i `ikon/`:
+
+- `ikon/logo.svg` med avrundede hjørner (22,5 %). Fast favicon i `index.html`
+  og velgerens logo (`EDU_PLATFORM.ikon`).
+- `ikon/apple-touch-icon.png` (180 × 180) er hjemskjermikonet. iOS leser ikke
+  SVG der. PNG-en er fullflate fordi iOS runder hjørnene selv. Bytter du
+  logoen, må PNG-en lages på nytt fra SVG-en.
+
+**Fagene** beholder sitt eget favicon: `js/picker.js` tegner en inline SVG av
+fagets logotegn på fagets aksentfarge. Skriftstørrelsen justeres etter antall
+tegn (1 tegn = 52, 2 = 38, 3 = 30). Uten valgt fag setter `setFavicon` bildet
+fra `EDU_PLATFORM.ikon` i stedet. Tekstlogoen «SEE» er bare reserve hvis
+`ikon` mangler. Logoflisen i sidepanelet viser fagets logotegn, ikke appens.
 
 ## Regel når du legger til UI
 

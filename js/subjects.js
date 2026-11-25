@@ -33,6 +33,9 @@ window.EDU_PLATFORM = {
   name: "Super Enkel Eksamen",
   short: "SEE",
   logo: "SEE",
+  /* Appens logo (arket med A). Brukes i fanen og velgeren når intet fag er
+     valgt. Tekstlogoen over er reserve hvis bildet mangler. */
+  ikon: "ikon/logo.svg",
   tagline: "Eksamenstrening som faktisk sitter",
   accent: "#2f6bff",
 };

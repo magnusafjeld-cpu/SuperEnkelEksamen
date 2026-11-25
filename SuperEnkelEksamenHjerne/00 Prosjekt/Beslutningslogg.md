@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-11-22
+oppdatert: 2026-11-25
 ---
 
 # Beslutningslogg
@@ -282,3 +282,11 @@ repetisjon av det du kan). Se [[Moduler og visninger]].
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på
 norsk. Se [[Kodekonvensjoner]].
+
+## Appens logo er arket med A, fagene beholder sine egne ikoner
+Magnus valgte logoen 25. november 2026 blant åtte forslag (hake, mestringsring,
+trapp, monogram, ark med A, blyant, kortstabel, bok). Den brukes der ingen fag
+er valgt: i fanen, i velgeren og på hjemskjermen. Inne i et fag viser fanen og
+sidepanelet fortsatt fagets logotegn på fagets farge, så du ser hvilket fag som
+er åpent. A-en og linjene forsvinner nesten i 16 px; det er godtatt fordi
+arket og fargen fortsatt kjennes igjen. Se [[Designsystem]].
