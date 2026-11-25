@@ -1,6 +1,6 @@
 ---
 tags: [fag, arkitektur]
-oppdatert: 2026-10-21
+oppdatert: 2026-11-25
 ---
 
 # Fagregisteret
@@ -93,5 +93,11 @@ appen fungerer både fra rot, fra `fag/<id>/`-mappa og fra mappa over.
 Fagbytte skjer alltid ved full sidelasting — se [[Beslutningslogg]]. Velgeren er
 alltid tilgjengelig via **«Alle fag»** nederst i sidepanelet, eller fra
 Konto-siden på mobil.
+
+**Fag du har nå (25. november 2026).** Knappen «Velg fag» nederst i velgeren gjør
+hvert fagkort til en bryter («Har nå» / «Skjult»). Skjulte fag forsvinner fra
+listen og ligger sammenfoldet under «Skjulte fag (N)», der de fortsatt kan åpnes.
+Fremdriften røres ikke. Listen ligger i `localStorage["edu.skjulteFag"]` og
+gjelder bare enheten, fordi synken er per fag og velgeren ikke har noe fag.
 
 Se [[Legge til nytt fag]] og [[SAM3 Makroøkonomi]].

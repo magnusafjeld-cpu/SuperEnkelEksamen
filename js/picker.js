@@ -18,6 +18,20 @@ window.EDU = window.EDU || {};
 
   function stored() { try { return localStorage.getItem(CHOICE_KEY); } catch (e) { return null; } }
   function remember(id) { try { localStorage.setItem(CHOICE_KEY, id); } catch (e) {} }
+
+  /* Fag du ikke har nå, skjules fra velgeren. Listen ligger i nettleseren og
+     gjelder denne enheten. Fremdriften i faget røres ikke: et skjult fag ligger
+     sammenfoldet nederst og kan åpnes eller hentes fram igjen når som helst. */
+  const SKJULT_KEY = "edu.skjulteFag";
+  function skjulte() {
+    try { const v = JSON.parse(localStorage.getItem(SKJULT_KEY) || "[]"); return Array.isArray(v) ? v : []; } catch (e) { return []; }
+  }
+  function settSkjult(id, av) {
+    const liste = skjulte().filter((x) => x !== id);
+    if (av) liste.push(id);
+    try { localStorage.setItem(SKJULT_KEY, JSON.stringify(liste)); } catch (e) {}
+  }
+  const erSkjult = (sub) => skjulte().indexOf(sub.id) >= 0;
   function fromUrl() { try { return new URLSearchParams(location.search).get("fag"); } catch (e) { return null; } }
 
   /* ?fag=alle tvinger fram velgeren selv om et fag er husket. Uten den fantes
@@ -89,6 +103,34 @@ window.EDU = window.EDU || {};
     b.onclick = () => choose(sub.id);
     return b;
   }
+  /* I redigeringen er kortet en bryter: trykk for å ta faget med eller skjule det. */
+  function velgKort(sub, opts) {
+    const b = card(sub);
+    const med = !erSkjult(sub);
+    b.classList.add("sc-rediger");
+    if (!med) b.classList.add("sc-av");
+    b.setAttribute("role", "switch");
+    b.setAttribute("aria-checked", med ? "true" : "false");
+    b.querySelector(".sc-arrow").outerHTML =
+      `<span class="sc-bryter">${med ? "Har nå" : "Skjult"}</span>`;
+    b.onclick = () => { settSkjult(sub.id, med); show(opts); };
+    return b;
+  }
+
+  /* Sammenfoldet gruppe under hovedlisten (private og skjulte fag). */
+  function gruppe(tittel, fag) {
+    const d = document.createElement("details");
+    d.className = "picker-privat";
+    const sum = document.createElement("summary");
+    sum.textContent = tittel + " (" + fag.length + ")";
+    d.appendChild(sum);
+    const pl = document.createElement("div");
+    pl.className = "subject-list";
+    fag.forEach((s) => pl.appendChild(card(s)));
+    d.appendChild(pl);
+    return d;
+  }
+
   function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
 
   /* Tegner velgeren i splash-kortet. Kalles ved oppstart uten valgt fag, og fra
@@ -117,23 +159,26 @@ window.EDU = window.EDU || {};
 
     const list = document.createElement("div");
     list.className = "subject-list";
-    all().filter((s) => !s.privat).forEach((s) => list.appendChild(card(s)));
     card_.appendChild(list);
 
-    /* De private fagene ligger sammenfoldet under de vanlige, lukket hver gang
-       velgeren åpnes, så de ikke synes med mindre du åpner dem selv. */
-    const privat = all().filter((s) => s.privat);
-    if (privat.length) {
-      const d = document.createElement("details");
-      d.className = "picker-privat";
-      const sum = document.createElement("summary");
-      sum.textContent = "Private fag (" + privat.length + ")";
-      d.appendChild(sum);
-      const pl = document.createElement("div");
-      pl.className = "subject-list";
-      privat.forEach((s) => pl.appendChild(card(s)));
-      d.appendChild(pl);
-      card_.appendChild(d);
+    if (opts.rediger) {
+      /* Alle fag i én liste, de private sist, hver med en bryter. */
+      head.querySelector(".picker-title").textContent = "Hvilke fag har du nå?";
+      head.querySelector(".picker-sub").textContent =
+        "Trykk på et fag for å ta det med eller skjule det. Skjulte fag beholder fremdriften og ligger sammenfoldet nederst. Valget gjelder denne enheten.";
+      all().filter((s) => !s.privat).concat(all().filter((s) => s.privat))
+        .forEach((s) => list.appendChild(velgKort(s, opts)));
+    } else {
+      all().filter((s) => !s.privat && !erSkjult(s)).forEach((s) => list.appendChild(card(s)));
+      /* De private fagene ligger sammenfoldet under de vanlige, lukket hver gang
+         velgeren åpnes, så de ikke synes med mindre du åpner dem selv. */
+      const privat = all().filter((s) => s.privat && !erSkjult(s));
+      if (privat.length) card_.appendChild(gruppe("Private fag", privat));
+      const borte = all().filter(erSkjult);
+      if (borte.length) card_.appendChild(gruppe("Skjulte fag", borte));
+      if (all().length && !list.children.length) {
+        list.innerHTML = `<p class="muted">Alle fagene er skjult. Trykk «Velg fag» under for å hente dem fram.</p>`;
+      }
     }
 
     /* Har du hatt private fag på denne enheten, men er logget ut, sier vi hvorfor
@@ -156,6 +201,13 @@ window.EDU = window.EDU || {};
 
     const foot = document.createElement("div");
     foot.className = "picker-foot";
+    if (all().length) {
+      const velg = document.createElement("button");
+      velg.className = opts.rediger ? "btn" : "btn ghost";
+      velg.textContent = opts.rediger ? "Ferdig" : "Velg fag";
+      velg.onclick = () => show(Object.assign({}, opts, { rediger: !opts.rediger }));
+      foot.appendChild(velg);
+    }
     if (opts.cancel) {
       const back = document.createElement("button");
       back.className = "btn ghost"; back.textContent = "Avbryt";
