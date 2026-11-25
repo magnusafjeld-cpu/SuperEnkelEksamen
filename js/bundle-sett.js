@@ -105,6 +105,17 @@ window.EDU = window.EDU || {};
   let del = "eksamen";     // "eksamen" | "prove" | "pd" | "pd:<art>" | "svak" | "fl" | "kart": hvilken del av lista som vises
   let valgtDel = null;     // hvilken pensumdel fanen «Per del» viser
   let bareUsikre = false;  // øvingsmodus viser bare oppgaver som er usikre eller feil
+  /* Fasitpaneler du selv har lukket (true) eller åpnet (false), som
+     "<settId>|<n>|<del>". Uten et eget valg avgjør svaret: riktig gir lukket fasit,
+     alt annet åpen. Bare i minnet: valget overlever at visningen tegnes på nytt,
+     men ikke at siden lastes på nytt. */
+  const fasitValg = new Map();
+  const fasitNøkkel = (setId, n, hva) => setId + "|" + n + "|" + hva;
+  /* Ny retting av en del: svaret avgjør igjen, også for den samlede kommentaren. */
+  function glemFasitValg(setId, n, e) {
+    fasitValg.delete(fasitNøkkel(setId, n, e === "" ? "hel" : e));
+    fasitValg.delete(fasitNøkkel(setId, n, "kommentar"));
+  }
 
   const erKart = (set) => !!set && set.kind === "kartlegging";
   const VET_IKKE = -1;     // valget «Vet ikke» i kartleggingen
@@ -176,6 +187,9 @@ window.EDU = window.EDU || {};
   function prøvIgjen(setId, n) {
     const set = setById(setId); if (set) noterFeil(set, n);
     S.store.setExam(exKey(setId, n), { revealed: false, åpne: null, valg: null, score: null, scoredAt: null, scoreKilde: null, inn: null, rett: null });
+    /* Nytt forsøk: svaret avgjør igjen om fasiten står åpen. */
+    const pre = fasitNøkkel(setId, n, "");
+    fasitValg.forEach((_, k) => { if (k.startsWith(pre)) fasitValg.delete(k); });
   }
 
   /* ---------- usikker ---------- */
@@ -628,10 +642,24 @@ window.EDU = window.EDU || {};
       pointsBadge(ex.points || 0));
   }
 
-  /* Fasitpanel — grønn kant, tydelig adskilt fra oppgaveteksten. */
-  function solutionPanel(title, html, criteria) {
-    const box = el(".sol-panel");
-    box.appendChild(el(".sol-h", icon("check"), el("span", title)));
+  /* Fasitpanel: grønn kant, tydelig adskilt fra oppgaveteksten. Med en nøkkel
+     kan panelet skjules (fra 25. november 2026): trykk på overskriften, så står
+     bare den igjen. `lukketSomStandard` er true når svaret er riktig, så fasiten
+     bare står åpen der du bommet. Ditt eget valg går foran. Fasiten regnes
+     fortsatt som åpnet, så poeng og retting endres ikke. Byttes i DOM-en uten
+     ny tegning, så siden ikke hopper. */
+  function solutionPanel(title, html, criteria, nøkkel, lukketSomStandard) {
+    const lukket = !!nøkkel && (fasitValg.has(nøkkel) ? fasitValg.get(nøkkel) : !!lukketSomStandard);
+    const box = el(".sol-panel" + (lukket ? ".lukket" : ""));
+    if (nøkkel) {
+      const knapp = el("button.sol-skjul", { type: "button", "aria-expanded": String(!lukket) }, lukket ? "Vis fasit" : "Skjul fasit");
+      box.appendChild(el(".sol-h.kan-skjules", { onclick: () => {
+        const nå = box.classList.toggle("lukket");
+        fasitValg.set(nøkkel, nå);
+        knapp.textContent = nå ? "Vis fasit" : "Skjul fasit";
+        knapp.setAttribute("aria-expanded", String(!nå));
+      } }, icon("check"), el("span", title), el(".spacer"), knapp));
+    } else box.appendChild(el(".sol-h", icon("check"), el("span", title)));
     if (html) box.appendChild(body(html));
     if (criteria && criteria.length) {
       box.appendChild(el(".nav-section", { style: { paddingLeft: 0 } }, "Dette må være med"));
@@ -641,6 +669,12 @@ window.EDU = window.EDU || {};
     }
     return box;
   }
+  /* Fasiten starter lukket når delen er rettet automatisk (flervalg eller innført
+     svar) og er helt riktig. Feil, delvis riktig, ubesvart, ikke rettet ennå og
+     merket usikker gir åpen fasit. Selvvurdering teller ikke: der trenger du
+     fasiten for å sette poeng. */
+  function riktigDel(set, ex, part) { const st = leddStatus(set, ex, part); return !!st.art && st.hva === "riktig" && !st.usikker; }
+  const alleRiktige = (set, ex) => delerAv(ex).every((p) => riktigDel(set, ex, p));
   function scoreRow(set, ex) {
     const cur = exState(set.id, ex.n).score;
     const rs = rettingPå(set) ? rettStatus(set, ex) : null;
@@ -720,6 +754,7 @@ window.EDU = window.EDU || {};
     const rett = Object.assign({}, exState(set.id, ex.n).rett || {});
     rett[e] = Object.assign({}, rett[e] || {}, patch);
     S.store.setExam(exKey(set.id, ex.n), { rett });
+    glemFasitValg(set.id, ex.n, e);
   }
   const delPoeng = (ex, part) => part.points || (part._hel ? ex.points : 0) || 0;
   const tallMaks = (d, maks) => (d.type === "blandet" ? d.tallPoeng : d.type === "tekst" ? 0 : maks);
@@ -1184,7 +1219,7 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
         } else pc.appendChild(el(".row", { style: { marginTop: "10px" } },
           el("button.btn.sm", { onclick: () => rettDel(set, ex, part) }, `Rett ${part.label})`)));
       }
-      if (delÅpen) pc.appendChild(solutionPanel(`Løsning ${part.label})`, part.solution, part.criteria));
+      if (delÅpen) pc.appendChild(solutionPanel(`Løsning ${part.label})`, part.solution, part.criteria, fasitNøkkel(set.id, ex.n, part.label), riktigDel(set, ex, part)));
       else if (!d) pc.appendChild(el(".row", { style: { marginTop: "10px" } },
         el("button.btn.ghost.sm", { onclick: () => {
           const ubesvartDel = ledd && (exState(set.id, ex.n).valg || {})[ledd.nøkkel] == null;
@@ -1215,8 +1250,8 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
           /* Har du åpnet noen av delene, kan du lukke dem igjen og regne på nytt. */
           noenÅpne && !isSubmitted(set.id) ? el("button.btn.ghost.sm", { onclick: () => { prøvIgjen(set.id, ex.n); S.app.refresh(); } }, "↺ Prøv på nytt") : null)));
     } else {
-      if (!(ex.parts || []).length) card.appendChild(solutionPanel("Løsning", ex.solution, ex.criteria));
-      else if (ex.solution) card.appendChild(solutionPanel("Samlet kommentar", ex.solution, null));
+      if (!(ex.parts || []).length) card.appendChild(solutionPanel("Løsning", ex.solution, ex.criteria, fasitNøkkel(set.id, ex.n, "hel"), alleRiktige(set, ex)));
+      else if (ex.solution) card.appendChild(solutionPanel("Samlet kommentar", ex.solution, null, fasitNøkkel(set.id, ex.n, "kommentar"), alleRiktige(set, ex)));
       if (mc) {
         const r = mcRett(set, ex, wrongFactor(set));
         card.appendChild(el(".explain", { style: { marginTop: "14px" } },
@@ -1296,12 +1331,12 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
           pc.appendChild(svarFelt(set, ex, part, d, submitted));
           if (submitted) { const rv = rettVisning(set, ex, part, d); if (rv) pc.appendChild(rv); }
         }
-        if (submitted) pc.appendChild(solutionPanel(`Løsning ${part.label})`, part.solution, part.criteria));
+        if (submitted) pc.appendChild(solutionPanel(`Løsning ${part.label})`, part.solution, part.criteria, fasitNøkkel(set.id, ex.n, part.label), riktigDel(set, ex, part)));
         card.appendChild(pc);
       });
       if (submitted) {
-        if (!(ex.parts || []).length) card.appendChild(solutionPanel("Løsning", ex.solution, ex.criteria));
-        else if (ex.solution) card.appendChild(solutionPanel("Samlet kommentar", ex.solution, null));
+        if (!(ex.parts || []).length) card.appendChild(solutionPanel("Løsning", ex.solution, ex.criteria, fasitNøkkel(set.id, ex.n, "hel"), alleRiktige(set, ex)));
+        else if (ex.solution) card.appendChild(solutionPanel("Samlet kommentar", ex.solution, null, fasitNøkkel(set.id, ex.n, "kommentar"), alleRiktige(set, ex)));
         if (erMC(ex)) {
           const r = mcRett(set, ex, wrongFactor(set));
           card.appendChild(el(".explain", { style: { marginTop: "14px" } },

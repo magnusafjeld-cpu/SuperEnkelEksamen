@@ -104,5 +104,6 @@ ikke står i commit-meldingene.
 | 25. november 2026 | Appens logo: et eksamensark med en rød A i ring, valgt blant åtte forslag | Erstatter tekstflisen «SEE» i fanen og velgeren. Appen fikk for første gang et hjemskjermikon (`ikon/apple-touch-icon.png`); før tok iOS et skjermbilde. Se [[Designsystem]] |
 | 25. november 2026 | Eksamenssett: knappen «Kopier det jeg ikke kunne» | Kopierer en beskrivelse av feil, delvis riktige og usikre deloppgaver med svar, fasit, feilen og Claudes retting. Bare beskrivelsen, uten bestilling, så den kan brukes til flere ting (for eksempel en NotebookLM-kilde). Se [[Eksamenssett-modulen]] |
 | 25. november 2026 | Eksamenssett: rett på nytt i øving | Svarfeltene står åpne etter retting i øvingsmodus. Endrer du svaret, kommer «Rett a) på nytt». Første forsøk lagres og blir med i «Kopier det jeg ikke kunne» hvis det var feil. Bygg 222. Se [[Eksamenssett-modulen]] |
+| 25. november 2026 | Eksamenssett: fasiten kan skjules og riktig svar gir lukket fasit | «Skjul fasit» i overskriften på det grønne fasitpanelet krymper det til en stripe. Fasiten starter lukket der svaret er rettet automatisk og helt riktig, åpen der du bommet. Bare visning, poeng og retting endres ikke. Bygg 224. Se [[Eksamenssett-modulen]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

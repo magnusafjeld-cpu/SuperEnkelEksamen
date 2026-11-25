@@ -28,6 +28,25 @@ Når alle er åpnet, regnes oppgaven som åpnet (`revealed`). Da kommer poengrad
 og «Prøv på nytt» står der også, så du kan lukke delene igjen. Eksamensmodus er
 uendret.
 
+**Skjul fasiten igjen** (fra 25. november 2026). Det grønne fasitpanelet har
+«Skjul fasit» i overskriften. Trykk på knappen eller overskriften, så står bare
+en smal stripe igjen («Løsning a) · Vis fasit»). Det gjelder hver deloppgave, hel
+oppgave og samlet kommentar, i øving og etter levering. Skjulingen er bare visning:
+fasiten regnes fortsatt som åpnet, så poeng, retting og «Usikre og feil» endres ikke.
+
+**Riktig svar gir lukket fasit.** Magnus ville bare se fasiten der han bommet.
+Fasiten starter lukket når delen er rettet automatisk (flervalg eller innført svar)
+og er helt riktig (`riktigDel`, som leser `leddStatus`). Feil, delvis riktig,
+ubesvart, «Vet ikke», ikke rettet ennå og merket usikker gir åpen fasit.
+Selvvurdering teller ikke, fordi du trenger fasiten for å sette poeng. Hel oppgave og
+«Samlet kommentar» er lukket bare når alle delene er riktige (`alleRiktige`).
+
+Ditt eget valg går foran og ligger i minnet (`fasitValg`, et Map med nøkkel
+`"<settId>|<n>|<del>"` og true for lukket). Det overlever at visningen tegnes på nytt,
+men ikke at siden lastes på nytt. En ny retting av delen (`lagreRett`) og «Prøv på
+nytt» fjerner valget, så det nye svaret avgjør igjen. Panelet byttes i DOM-en uten ny
+tegning, så siden ikke hopper.
+
 **Eksamensmodus.** Hele settet vises samtidig med nedtelling fra settets egen
 tid. **Ingen fasit er nåbar noe sted** før «Lever besvarelsen». Etterpå åpnes alle
 løsningene samtidig, og man poengsetter seg selv oppgave for oppgave mot
