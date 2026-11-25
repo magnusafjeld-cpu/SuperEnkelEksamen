@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-11-23
+oppdatert: 2026-11-25
 ---
 
 # Fallgruver
@@ -212,6 +212,10 @@ manualen, så det virker for alle tre fagene uten å røre innholdet.
 > `S.u.rullTabeller`. **Enhver modul som setter inn innholds-HTML, skal kalle
 > den.** Mål `scrollWidth − clientWidth` på 375 px med løsningene *åpne*, ikke
 > bare på oppgaveteksten.
+>
+> Eksamenssettene hadde samme hull fram til 25. november 2026: en skjermingstabell i
+> en FIE432-fasit skjøv siden 322 px sidelengs. `body()` i `bundle-sett.js` kaller nå
+> `rullTabeller`.
 
 **Pensumlisten klemte tittelen til 56 px.** `.chap-row` er et grid med fire
 kolonner der to er `auto`. På mobil vant «Forstått / Usikker»-knappene med sine

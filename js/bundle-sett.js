@@ -61,6 +61,11 @@
    har svart feil på, kommer med automatisk. Lista øverst samler begge, og en feil står
    som «feil» også når den er merket usikker. Øvingsmodus kan vise bare dem.
 
+   Kopier det jeg ikke kunne (25. november 2026). Én knapp kopierer en ferdig melding
+   til Claude med alt du ikke fikk full uttelling på eller merket som usikkert: oppgaven,
+   svaret ditt, fasiten, feilen og Claudes retting. Claude lager så en NotebookLM-kilde
+   på det. Se «det du ikke kunne» nederst i filen.
+
    Fremdrift lagres i state.exams under nøklene "<settId>-run" (økta),
    "<settId>-e<n>" (selvvurdering per oppgave og `åpne` med deloppgavene du har åpnet
    fasiten for i øving), "<settId>-u<n>[-<del>]" (usikker-merket)
@@ -477,8 +482,9 @@ window.EDU = window.EDU || {};
     if (!rader.length) return null;
     const antall = rader.reduce((n, r) => n + r.merker.length, 0);
     const card = el(".card", { style: { marginBottom: "16px", background: "var(--amber-soft)", border: "1px solid #f2dcb6" } });
-    card.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "baseline", marginBottom: "6px" } },
-      el("h4", `⚑ Usikre og feil (${antall})`)));
+    card.appendChild(el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginBottom: "6px" } },
+      el("h4", `⚑ Usikre og feil (${antall})`), el(".spacer"),
+      kopierKnapp(alle, { tekst: "Kopier alt jeg ikke kunne" })));
     card.appendChild(el("p.tiny.muted", { style: { margin: "0 0 10px" } },
       "Deloppgaver du har svart feil på eller merket som usikre. Gjør dem på nytt til du kan begrunne svaret. En feil forsvinner når du svarer riktig, et usikker-merke når du fjerner det."));
     rader.forEach(({ set, merker }) => card.appendChild(el(".row.wrap", { style: { gap: "6px", alignItems: "center", marginTop: "6px" } },
@@ -526,6 +532,7 @@ window.EDU = window.EDU || {};
     card.appendChild(el(".row.wrap", { style: { gap: "8px" } },
       el("button.btn.primary", { onclick: () => { openSet = set.id; mode = "practice"; cursor = 0; S.app.refresh(); } }, "Øvingsmodus"),
       el("button.btn", { onclick: () => { openSet = set.id; mode = "exam"; S.app.refresh(); } }, "⏱ Eksamensmodus"),
+      kopierKnapp([set]),
       (done || started || anyTouched(set)) ? el("button.btn.ghost.sm", { onclick: () => {
         if (confirm(`Nullstille «${set.label}» — leveringen, svarene og alle vurderinger? Usikker-merkene og feilene i oversikten beholdes. Kan ikke angres.`)) { resetRun(set.id); S.app.refresh(); }
       } }, "Nullstill settet") : null));
@@ -560,8 +567,9 @@ window.EDU = window.EDU || {};
   function anyRevealed(set) { return (set.exercises || []).some((ex) => exState(set.id, ex.n).revealed || harÅpneDeler(set.id, ex.n)); }
   function anyTouched(set) { return (set.exercises || []).some((ex) => { const s = exState(set.id, ex.n); return s.revealed || harÅpneDeler(set.id, ex.n) || s.valg || typeof s.score === "number"; }); }
 
-  /* Oppgaveteksten er forfattet HTML — den skal rendres, ikke escapes. */
-  function body(html) { const d = el(".prose"); if (html) d.appendChild(frag(html)); return d; }
+  /* Oppgaveteksten er forfattet HTML og skal rendres, ikke escapes. Brede tabeller
+     får sin egen rulling, ellers skyver de hele siden sidelengs på mobil (fallgruve 7i). */
+  function body(html) { const d = el(".prose"); if (html) d.appendChild(frag(html)); S.u.rullTabeller(d); return d; }
 
   /* Alternativene tegnes som quizens knapper. Før fasiten er åpen kan du velge
      og velge om; etterpå låses de og fargelegges. Alternativtekst er forfattet
@@ -1154,6 +1162,12 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
       neste != null ? el("button.btn.sm", { onclick: () => { cursor = neste; S.app.refresh(); } }, bareUsikre ? "Neste usikre →" : "Neste oppgave →") : null);
     wrap.appendChild(move);
 
+    /* Det du ikke kunne, samlet for hele settet, så snart noe er rettet feil eller merket. */
+    const kopi = kopierRad([set]);
+    if (kopi) wrap.appendChild(el(".card", { style: { marginTop: "18px" } },
+      el("p.tiny", { style: { margin: "0 0 10px", fontWeight: 620 } }, erGjort(set) ? "Ferdig med settet" : "Det du ikke kunne så langt i settet"),
+      kopi));
+
     if (ex.chapters && ex.chapters.length && S.hasModule("/curriculum")) {
       wrap.appendChild(el(".card", { style: { marginTop: "18px" } },
         el(".tiny.muted", { style: { marginBottom: "8px" } }, "Kapitler denne oppgaven bygger på"),
@@ -1329,6 +1343,8 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     }
     card.appendChild(el(".row.wrap", { style: { gap: "18px", alignItems: "center", marginTop: "10px" } },
       S.u.ring(pct, 92, `${pct}%`, "av maks"), info));
+    const kopi = kopierRad([set]);
+    if (kopi) card.appendChild(el("div", { style: { marginTop: "16px", paddingTop: "14px", borderTop: "1px solid var(--line)" } }, kopi));
     return card;
   }
 
@@ -1476,6 +1492,8 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
       if (ikke.length) card.appendChild(el("p.tiny.muted", { style: { margin: "16px 0 0" } },
         el("b", "Ikke kartlagt ennå: "), ikke.map((t) => t.navn).join(", ") + "."));
     }
+    const kopi = kopierRad(levert);
+    if (kopi) card.appendChild(el("div", { style: { marginTop: "16px", paddingTop: "14px", borderTop: "1px solid var(--line)" } }, kopi));
     return card;
   }
 
@@ -1505,6 +1523,187 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     if ((t.øv || []).length) box.appendChild(el(".row.wrap", { style: { gap: "6px" } },
       ...t.øv.map(([tekst, rute]) => el("button.btn.sm", { onclick: sh().go(rute) }, tekst))));
     return box;
+  }
+
+  /* ================= det du ikke kunne, som tekst til Claude ================= */
+  /* «Kopier det jeg ikke kunne» (fra 25. november 2026). Samler deloppgavene du ikke
+     fikk full uttelling på (feil, delvis riktig, «Vet ikke», ubesvart) og dem du har
+     merket som usikre, med oppgaveteksten, svaret ditt, fasiten, feilen og Claudes
+     retting. Teksten limes inn hos Claude, som skriver en NotebookLM-kilde på det du
+     ikke kunne. Bare ledd som er rettet eller merket kommer med. Knappen står i
+     resultatet etter levering, nederst i øvingsmodus, på settkortet, i «Usikre og
+     feil» og i kartleggingsrapporten. Retting som er gjort med nøkkel, leses også
+     uten nøkkel, så rapporten er den samme på alle enheter. */
+  /* Hevet og senket skrift skrives som ^ og _, ellers blir (1,03/1,08)<sup>15</sup>
+     til «…15» og r<sub>E</sub> til «rE». */
+  const renTekst = (html) => {
+    const h = String(html || "").replace(/<sup[^>]*>/gi, "^").replace(/<sub[^>]*>/gi, "_").replace(/<\/su[pb]>/gi, "");
+    return S.claude && S.claude.ren ? S.claude.ren(h) : h.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  };
+  const kutt = (s, n) => { s = String(s || "").trim(); return s.length > n ? s.slice(0, n).trimEnd() + " …" : s; };
+  const tilStede = (x) => !!String(x == null ? "" : x).trim();
+  const dato = (ts) => new Date(ts).toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" });
+
+  /* Status for én deloppgave (eller hele oppgaven, etikett ""). hva: "riktig", "feil",
+     "delvis", "vet ikke", "ubesvart", "selv" (selvvurdert under full uttelling) eller
+     null (ikke rettet). art: "mc", "rett" (ført inn og rettet) eller null. */
+  function leddStatus(set, ex, part) {
+    const e = part.label;
+    const s = { part, etikett: e, maks: delPoeng(ex, part), poeng: null, hva: null, art: null,
+      usikker: erUsikker(set.id, ex.n, e) || (!!e && erUsikker(set.id, ex.n, "")) };
+    const ledd = leddFor(ex, e);
+    if (ledd) {
+      s.art = "mc"; s.ledd = ledd; s.maks = ledd.points;
+      if (!rettet(set.id, ex.n, e)) {
+        if (readKey(feilKey(set.id, ex.n, e)).f === 1) { s.hva = "feil"; s.gammel = true; }
+        return s;
+      }
+      const i = (exState(set.id, ex.n).valg || {})[e]; s.valg = i;
+      if (i == null) { s.hva = "ubesvart"; s.poeng = 0; }
+      else if (i === VET_IKKE) { s.hva = "vet ikke"; s.poeng = 0; }
+      else if (riktig(ledd, i)) { s.hva = "riktig"; s.poeng = ledd.points; }
+      else { s.hva = "feil"; s.poeng = Math.round(ledd.points * wrongFactor(set) * 100) / 100; }
+      return s;
+    }
+    const d = !erKart(set) && !erMC(ex) ? svarData(set, ex, e) : null;
+    const r = d ? rettFor(set, ex, e) : null;
+    if (!r) return s;
+    s.art = "rett"; s.d = d; s.r = r; s.inn = innFor(set, ex, e);
+    s.venter = harTekst(d) && r.cp == null;
+    s.poeng = Math.round(((r.tp || 0) + (r.cp || 0)) * 100) / 100;
+    const tallFeil = (r.tall || []).some((x) => x === false) && !r.følge;
+    /* Venter teksten på Claude og tallene er riktige, vet vi ikke ennå. */
+    if (s.venter && !tallFeil) return s;
+    s.hva = s.poeng >= s.maks - 1e-9 ? "riktig" : s.poeng <= 0 ? "feil" : "delvis";
+    return s;
+  }
+  /* En oppgave uten flervalg og uten innførte svar er selvvurdert som helhet. Da vet
+     vi ikke hvilke deler som trakk ned, så alle delene kommer med. */
+  function oppgStatus(set, ex) {
+    const deler = delerAv(ex).map((p) => leddStatus(set, ex, p));
+    let selv = null;
+    if (!deler.some((s) => s.art)) {
+      const sc = exState(set.id, ex.n).score;
+      if (typeof sc === "number") {
+        selv = { poeng: sc, maks: ex.points || 0 };
+        const full = sc >= (ex.points || 0) - 1e-9;
+        deler.forEach((s) => { s.hva = full ? "riktig" : "selv"; });
+      }
+    }
+    return { ex, deler, selv };
+  }
+  const trengerRepetisjon = (s) => s.usikker || (!!s.hva && s.hva !== "riktig");
+  function rapportFor(set) {
+    const oppg = (set.exercises || []).map((ex) => oppgStatus(set, ex));
+    return { oppg, med: oppg.flatMap((o) => o.deler.filter(trengerRepetisjon)) };
+  }
+
+  function statusTekst(s) {
+    const p = s.poeng != null && s.maks ? ` · ${pts(s.poeng)} av ${pts(s.maks)} p` : "";
+    if (s.hva === "riktig") return "Riktig, men merket usikker" + p;
+    if (!s.hva) return s.venter ? "Merket usikker, tekstsvaret er ikke rettet ennå" : "Merket usikker, ikke rettet ennå";
+    const navn = { feil: "Feil", delvis: "Delvis riktig", "vet ikke": "Vet ikke", ubesvart: "Ubesvart", selv: "Ikke full uttelling (selvvurdert)" }[s.hva];
+    return navn + p + (s.usikker ? " · merket usikker" : "");
+  }
+  function leddLinjer(s) {
+    const ut = [];
+    if (s.art === "mc") {
+      const l = s.ledd, opt = (i) => `${String.fromCharCode(65 + i)}) ${renTekst(String(l.options[i]))}`;
+      ut.push("Alternativene:", ...l.options.map((o, i) => "- " + opt(i)));
+      if (s.gammel) ut.push("Svaret mitt: feil sist jeg svarte. Selve svaret er slettet siden.");
+      else ut.push("Svaret mitt: " + (s.valg == null ? "ubesvart" : s.valg === VET_IKKE ? "«Vet ikke»" : opt(s.valg)));
+      ut.push("Riktig svar: " + (Array.isArray(l.answer) ? l.answer : [l.answer]).map(opt).join(" eller "));
+      if (s.valg != null && s.valg >= 0 && !riktig(l, s.valg) && l.diag && l.diag[s.valg]) ut.push("Feilen: " + renTekst(l.diag[s.valg]));
+    } else if (s.art === "rett") {
+      const { d, r, inn } = s;
+      if (d.type === "bokstav") ut.push(`Svaret mitt: ${tilStede(inn.b) ? inn.b : "(tomt)"} · fasit ${d.svar}`);
+      else if ((d.tall || []).length) {
+        ut.push("Tallene mine:");
+        d.tall.forEach((t, i) => {
+          const mitt = (inn.t || [])[i];
+          ut.push(`- ${renTekst(t.navn)}: ${tilStede(mitt) ? String(mitt).trim() : "(tomt)"} · fasit ${visTall(t.verdi, t.enhet)} ${r.tall && r.tall[i] ? "✓" : "✗"}`);
+        });
+      }
+      if (r.ft) ut.push((r.følge ? "Følgefeil godkjent: " : "Ikke følgefeil: ") + r.ft);
+      if (harTekst(d)) {
+        ut.push("Tekstsvaret mitt" + (d.tekstLedd ? ` (${d.tekstLedd})` : "") + ":");
+        ut.push(tilStede(inn.x) ? '"""\n' + kutt(inn.x, 3000) + '\n"""' : "(tomt)");
+        if (r.tb) ut.push("Claudes retting av tekstsvaret:", kutt(r.tb, 2500));
+        else if (s.venter) ut.push("Tekstsvaret er ikke rettet ennå.");
+      }
+    }
+    if (tilStede(s.part.solution)) ut.push("Løsning:", kutt(renTekst(s.part.solution), 4000));
+    if ((s.part.criteria || []).length) ut.push("Dette må være med:", ...s.part.criteria.map((k) => "- " + renTekst(k)));
+    return ut;
+  }
+  function oppgTekst(o, med) {
+    const ex = o.ex;
+    const ut = [`## Oppgave ${ex.n}${ex.title ? " · " + ex.title : ""}${ex.points ? ` (${pts(ex.points)} p)` : ""}`];
+    const info = [ex.topic ? "Tema: " + ex.topic : null, ex.kilde ? "Hentet fra " + ex.kilde : null, ex.merke || null].filter(Boolean);
+    if (info.length) ut.push(info.join(" · "));
+    if (o.selv && o.selv.poeng < o.selv.maks - 1e-9) ut.push(`Selvvurdert til ${pts(o.selv.poeng)} av ${pts(o.selv.maks)} p. Hvilke deler som trakk ned, er ikke registrert.`);
+    if (tilStede(ex.body)) ut.push("", renTekst(ex.body));
+    med.forEach((s) => {
+      ut.push("", `### ${s.etikett ? ex.n + s.etikett + ")" : "Hele oppgaven"} · ${statusTekst(s)}`);
+      if (s.etikett && tilStede(s.part.body)) ut.push(renTekst(s.part.body));
+      ut.push(...leddLinjer(s));
+    });
+    if ((ex.parts || []).length && tilStede(ex.solution)) ut.push("", "Samlet kommentar til oppgaven:", kutt(renTekst(ex.solution), 2500));
+    return ut;
+  }
+  function settTekst(set, rap) {
+    const sum = scoreSum(set);
+    const info = [`Sett-id: ${set.id}`, isSubmitted(set.id) ? `levert i eksamensmodus ${dato(run(set.id).submittedAt)}` : "øvingsmodus"];
+    if (sum.scored) info.push(`${pts(sum.got)} av ${pts(sum.of)} poeng på ${sum.scored} av ${sum.total} oppgaver`);
+    if (settHarMC(set) && wrongFactor(set)) info.push("med minuspoeng for feil svar");
+    const ut = [`# ${set.label}`, info.join(" · ")];
+    const NAVN = { feil: "feil", delvis: "delvis riktig", "vet ikke": "«Vet ikke»", ubesvart: "ubesvart", selv: "selvvurdert under full uttelling", usikker: "usikker uten feil" };
+    const tell = {};
+    rap.med.forEach((s) => { const k = s.hva && s.hva !== "riktig" ? s.hva : "usikker"; tell[k] = (tell[k] || 0) + 1; });
+    ut.push("Med her: " + Object.entries(tell).map(([k, n]) => `${NAVN[k]} ${n}`).join(", "));
+    const alle = rap.oppg.flatMap((o) => o.deler.map((s) => ({ s, navn: o.ex.n + s.etikett })));
+    const ok = alle.filter((x) => x.s.hva === "riktig" && !x.s.usikker).map((x) => x.navn);
+    const ikke = alle.filter((x) => !x.s.hva && !x.s.usikker).map((x) => x.navn);
+    if (ok.length) ut.push("Riktig og sikker (ikke med): " + ok.join(", "));
+    if (ikke.length) ut.push("Ikke rettet ennå: " + ikke.join(", "));
+    rap.oppg.forEach((o) => { const med = o.deler.filter(trengerRepetisjon); if (med.length) ut.push("", ...oppgTekst(o, med)); });
+    return ut;
+  }
+  function rapportTekst(sets) {
+    const sub = window.EDU_SUBJECT || {};
+    const med = sets.map((set) => ({ set, rap: rapportFor(set) })).filter((x) => x.rap.med.length);
+    const ut = [
+      `Lag en NotebookLM-kilde på det jeg ikke kunne i ${sub.name || "faget"}.`,
+      "",
+      "Under står deloppgavene jeg ikke fikk full uttelling på (feil, delvis riktig, «Vet ikke» eller ubesvart) og dem jeg merket som usikre. For hver står oppgaven, svaret mitt, fasiten og hva som gikk galt. Forklar hvert tema fra grunnen og vis hvorfor svaret mitt er feil og hvordan det gjøres riktig. Legg til et nytt regneeksempel der det passer. Usikre deloppgaver med riktig svar trenger bare en kort repetisjon. Skriv kilden på samme språk som oppgavene.",
+      "",
+      `Fra Eksamenssett i appen, ${dato(S.u.nowTs())}. Fag-id: ${sub.id || "ukjent"}. ${med.length === 1 ? "Ett sett" : med.length + " sett"}.`,
+    ];
+    med.forEach(({ set, rap }) => ut.push("", ...settTekst(set, rap)));
+    return ut.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
+  }
+
+  /* Knappen. null når det ikke er noe å kopiere. */
+  function kopierKnapp(sets, opts) {
+    opts = opts || {};
+    const n = sets.reduce((a, set) => a + rapportFor(set).med.length, 0);
+    if (!n) return null;
+    return el("button.btn.sm" + (opts.primary ? ".primary" : ".ghost"), { type: "button",
+      title: "Kopierer feil, delvis riktige og usikre deloppgaver med svaret ditt, fasiten og feilen, klart til å limes inn hos Claude",
+      onclick: async () => {
+        const ok = await S.u.tilUtklipp(rapportTekst(sets));
+        S.u.toast(ok ? `Kopiert: ${n} ${n === 1 ? "deloppgave" : "deloppgaver"}. Lim det inn hos Claude` : "Fikk ikke kopiert. Prøv igjen, eller i en annen nettleser.");
+      } }, `${opts.tekst || "Kopier det jeg ikke kunne"} (${n})`);
+  }
+  /* Knappen med forklaring, til resultatet, øvingsmodus og kartleggingsrapporten. */
+  function kopierRad(sets) {
+    const knapp = kopierKnapp(sets, { primary: true });
+    if (!knapp) return null;
+    const venter = sets.reduce((n, set) => n + ventendeTekst(set).length, 0);
+    return el(".row.wrap", { style: { gap: "10px", alignItems: "center" } }, knapp,
+      el("span.tiny.muted", { style: { flex: "1 1 260px", lineHeight: 1.5 } },
+        "Kopierer det du svarte feil eller delvis feil på og det du merket som usikkert, med oppgaven, svaret ditt, fasiten og hva som gikk galt. Lim det inn hos Claude, så lager Claude en NotebookLM-kilde på det du ikke kunne."
+        + (venter ? ` ${venter} tekstsvar er ikke rettet ennå. Rett dem først, så kommer feilene der med.` : "")));
   }
 
   /* ================= inngang ================= */

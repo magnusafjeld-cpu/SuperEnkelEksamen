@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-11-24
+oppdatert: 2026-11-25
 ---
 
 # Eksamenssett-modulen
@@ -149,6 +149,28 @@ ingenting av dette.
   Feilen står derfor til et senere, rettet svar er riktig. Da skrives `f: 0`, av samme
   grunn som `u: 0`.
 - «Vet ikke» og ubesvart teller ikke som feil.
+
+### «Kopier det jeg ikke kunne» (25. november 2026)
+
+Magnus ville kunne sende det han ikke kunne til Claude, som lager en NotebookLM-kilde
+på det. Knappen kopierer en ferdig melding med et kort oppdrag øverst og så, per sett
+og oppgave, hver deloppgave som trenger repetisjon: oppgaveteksten, svaret hans,
+fasiten, feilen og løsningen med kriteriene.
+
+- **Hva som kommer med:** feil, delvis riktig, «Vet ikke», ubesvart (etter retting) og
+  alt som er merket usikkert, også når svaret ble riktig. Bredere enn «Usikre og feil»,
+  som bare tar flervalg: rettede tall og tekst med under full uttelling kommer også med,
+  med tallene hans mot fasiten og Claudes retting av teksten. En selvvurdert oppgave
+  under full pott tas med i sin helhet, siden det ikke er lagret hvilken del som trakk.
+- **Hva som står over:** «Riktig og sikker» og «Ikke rettet ennå» som lister med
+  etiketter, så Claude ser dekningen. Et tekstsvar som venter på Claude med riktige tall,
+  regnes som ikke rettet.
+- **Hvor knappen står:** i resultatkortet etter levering, nederst i øvingsmodus (så snart
+  noe er feil eller merket), på settkortet, i kortet «Usikre og feil» («Kopier alt jeg
+  ikke kunne», alle settene i fanen) og i kartleggingsrapporten.
+- Retting leses med `svarData` uten å kreve nøkkel, så meldingen blir den samme på en
+  enhet uten Anthropic-nøkkel. Hevet og senket skrift skrives som `^` og `_`.
+- Ingen nye lagringsnøkler. Alt leses av det som allerede lagres.
 
 ### Fanen «Svake temaer»
 
