@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Bygger fag/<fag>/svar.js av fag/<fag>/_svar/*.json (docs/fie402-svar-spek.md).
 
+Filene dekker både eksamenssettene og problem settene (ps1.json og videre).
+
     python3 tools/bygg-svar.py fie402
 
 Svar-dataene styrer rettingen i eksamenssettene når brukeren har lagt inn en
@@ -23,7 +25,7 @@ for f in sorted(mappe.glob("*.json")):
         if k in data:
             sys.exit(f"{k} står to ganger (siste i {f.name})")
         data[k] = v
-hode = f"""/* ============== {fag.upper()} · SVAR-DATA FOR RETTING I EKSAMENSSETTENE ==============
+hode = f"""/* ============== {fag.upper()} · SVAR-DATA FOR RETTING (EKSAMENSSETT OG PROBLEM SETS) ==============
    Bygget av tools/bygg-svar.py fra fag/{fag}/_svar/*.json. Ikke rediger her.
    Nøkkel "<settId>:<n>:<etikett>". Typen sier hvordan svaret rettes når brukeren
    har lagt inn en API-nøkkel: tall automatisk, tekst og blandet med Claude.

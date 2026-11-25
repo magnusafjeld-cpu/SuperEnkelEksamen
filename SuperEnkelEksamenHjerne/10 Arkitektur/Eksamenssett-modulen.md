@@ -47,6 +47,12 @@ men ikke at siden lastes på nytt. En ny retting av delen (`lagreRett`) og «Pr�
 nytt» fjerner valget, så det nye svaret avgjør igjen. Panelet byttes i DOM-en uten ny
 tegning, så siden ikke hopper.
 
+**Rettingen brukes også av Problem sets** (fra 25. november 2026). `S.views.sett.retting`
+eksporterer svarfeltene, «Rett a)», resultatet, «Rett på nytt», usikker-knappen,
+`riktig` og «Kopier det jeg ikke kunne» (`kopierRad(sets, { kilde })`). En annen modul
+bygger et sett i samme form og får alt dette uten egen kode. Lagringen skjer under det
+settets id, så id-en må ikke krasje med et eksamenssett. Se [[Moduler og visninger]].
+
 **Eksamensmodus.** Hele settet vises samtidig med nedtelling fra settets egen
 tid. **Ingen fasit er nåbar noe sted** før «Lever besvarelsen». Etterpå åpnes alle
 løsningene samtidig, og man poengsetter seg selv oppgave for oppgave mot

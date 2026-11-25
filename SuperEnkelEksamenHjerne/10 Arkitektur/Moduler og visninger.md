@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-24
+oppdatert: 2026-11-25
 ---
 
 # Moduler og visninger
@@ -245,6 +245,24 @@ hint: { a: 2 }, fasit: { a: 1 }, t }`. `ferdig` er true når alle delene er
 ferdige og gir framdriften. Eldre lagring med bare `ferdig` regnes som at alle
 delene er ferdige. Hintnivået og åpnet fasit huskes. Én nøkkel per oppgave, så
 to enheter ikke overskriver hverandres oppgaver i synken.
+
+**Retting som i Eksamenssett** (fra 25. november 2026). Magnus ba om at problem
+settene skulle rettes «på samme måte» som eksamenssettene. Med API-nøkkel og svar-data
+står svarfeltene under hintene, med «Rett a)», tall rettet automatisk, tekst rettet av
+Claude Opus 5.5 mot fasiten og kriteriene, «Rett a) på nytt», følgefeilsjekk og
+«⚐ Usikker». Fasiten (`<details>`) står lukket når svaret er riktig og åpen ellers, til
+du åpner eller lukker den selv; valget gjelder bare den rettingen det ble satt for.
+«Kopier det jeg ikke kunne» står nederst i oppgaven og i settet, med «Fra Problem sets»
+i teksten. «Vis fasit» virker fortsatt uten retting. «Marker som ferdig» er uendret.
+
+Rettingen er ikke kopiert: `bundle-sett.js` eksporterer den som
+`S.views.sett.retting`. `settAv(ps)` bygger problem settet om til et sett i samme
+form (delspørsmål som deloppgave, fasit som løsning). Lagringen er Eksamenssett-modulens,
+under settets id: `"ps1-e3"` (`inn`, `rett`, `score`) og `"ps1-u3-a"` (usikker). Id-ene
+`ps1` til `ps4` må derfor ikke brukes av et eksamenssett. Svar-dataene ligger i
+`fag/fie402/_svar/ps1.json` til `ps4.json` og bygges inn i `svar.js`. Problem sets har
+ikke poeng, så de kommer fra dataene: 1 per tall, 2 for tekst og `tallPoeng + 2` for
+blandet. Tekstdelene har egne `kriterier`. Se `docs/fie402-svar-spek.md`.
 
 **Formelarket** er ikke en del av settet. FIE402 har allerede eksamensarket
 bak knappen nederst til høyre på alle sider (se under).

@@ -1,0 +1,842 @@
+{
+  "ps1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>E</sub> after the transaction",
+        "verdi": 2.0,
+        "enhet": ""
+      }
+    ]
+  },
+  "ps1:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub> after the transaction",
+        "verdi": 17.5,
+        "enhet": "%"
+      }
+    ]
+  },
+  "ps1:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Expected EPS after the transaction",
+        "verdi": 1.7999999999999998,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Does this change benefit shareholders? Explain.",
+    "kriterier": [
+      "States that shareholders do not benefit: the share price stays at $21 because in a perfect market the shares are repurchased at a fair price, so the recapitalization creates no value (MM I).",
+      "Explains that the higher EPS is offset by higher risk: leverage raises the equity beta to 2.0 and the required return to 17.5%, so the extra expected earnings are discounted at a higher rate."
+    ]
+  },
+  "ps1:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Forward P/E after the transaction",
+        "verdi": 11.666666666666668,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Is this change in the P/E ratio reasonable? Explain.",
+    "kriterier": [
+      "Concludes that the fall in the P/E ratio is reasonable: the share price is unchanged at $21 while expected EPS rises, so the ratio must fall.",
+      "Explains the mechanism: levered equity is riskier (beta 2.0 and r_E = 17.5%), so investors pay less per dollar of expected earnings. A higher cost of equity means a lower P/E.",
+      "Notes that the higher risk is not bankruptcy risk, since the debt is risk-free. It is the higher systematic risk that leverage places on the equity."
+    ]
+  },
+  "ps1:2:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Cash flow to A's shareholders at t = 1",
+        "verdi": 110.0,
+        "enhet": ""
+      },
+      {
+        "navn": "Cash flow to B's shareholders at t = 1",
+        "verdi": 66.0,
+        "enhet": ""
+      },
+      {
+        "navn": "D<sub>B</sub>",
+        "verdi": 40.0,
+        "enhet": ""
+      },
+      {
+        "navn": "E<sub>B</sub>",
+        "verdi": 59.99999999999999,
+        "enhet": ""
+      },
+      {
+        "navn": "E<sub>A</sub>",
+        "verdi": 99.99999999999999,
+        "enhet": ""
+      }
+    ],
+    "merknad": "Sammenligningen (D_B + E_B = E_A = 100, altså V_A = V_B) følger direkte av tallene, så typen er tall."
+  },
+  "ps1:2:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Payoff from buying all of B's equity",
+        "verdi": 66.0,
+        "enhet": ""
+      },
+      {
+        "navn": "Payoff from buying all of A's equity",
+        "verdi": 59.40000000000001,
+        "enhet": ""
+      }
+    ]
+  },
+  "ps1:2:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "E<sub>B</sub> in equilibrium",
+        "verdi": 59.99999999999999,
+        "enhet": ""
+      },
+      {
+        "navn": "E<sub>A</sub> in equilibrium",
+        "verdi": 99.99999999999999,
+        "enhet": ""
+      },
+      {
+        "navn": "V<sub>A</sub>",
+        "verdi": 99.99999999999999,
+        "enhet": ""
+      },
+      {
+        "navn": "V<sub>B</sub>",
+        "verdi": 100.0,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Propose an arbitrage strategy. Which general theorem is this an example of? State the essence of the theorem and the assumption under which it is derived.",
+    "kriterier": [
+      "Proposes a zero-cost arbitrage that buys the underpriced B equity and sells A equity: for example short A for 100, buy all of B for 54 and lend the remaining 46 at 10%.",
+      "Shows that the strategy pays a riskless 66 + 50.6 − 110 = 6.6 at t = 1 with no own capital. Arbitrage then pushes the price of B's equity up until E_B = 60 and V_A = V_B.",
+      "Names the Modigliani-Miller irrelevance theorem (MM Proposition I): in a perfect capital market the total value of a firm is independent of its capital structure.",
+      "States the perfect capital market assumption: securities trade at competitive prices equal to the PV of their cash flows, with no taxes, transaction costs or issuance costs. Financing decisions do not change the investment cash flows or reveal new information."
+    ]
+  },
+  "ps1:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price after the announcement",
+        "verdi": 75.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps1:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price after the transaction",
+        "verdi": 50.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps1:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub> after the transaction",
+        "verdi": 10.1,
+        "enhet": "%"
+      }
+    ]
+  },
+  "ps1:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Firm value",
+        "verdi": 15000.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Share price",
+        "verdi": 15.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps1:4:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after the announcement",
+        "verdi": 15.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 500.0,
+        "enhet": "shares"
+      },
+      {
+        "navn": "r<sub>E</sub> after the recapitalization",
+        "verdi": 30.0,
+        "enhet": "%"
+      },
+      {
+        "navn": "Earnings (to equity holders)",
+        "verdi": 2250.0,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Show that equity value indeed equals $7,500. Does the recapitalization make shareholders better off, as the CEO claims?",
+    "kriterier": [
+      "Shows that equity value equals earnings to equity divided by the new cost of equity: (3000 − 0.10 × 7500) / 0.30 = 2250 / 0.30 = 7500, which matches the 500 remaining shares at $15.",
+      "Concludes that the CEO is wrong: shareholders are not better off because the share price stays at $15 (MM I), so the recapitalization creates no value.",
+      "Explains that the higher required return on equity (30% instead of 20%) is only compensation for the extra risk from leverage (MM II), not a gain to shareholders."
+    ],
+    "merknad": "E = 7500 er gitt i oppgaven og hører til tekstdelen."
+  },
+  "ps1:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Firm value (all equity)",
+        "verdi": 9000.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Share price (all equity)",
+        "verdi": 9.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps1:4:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after the announcement",
+        "verdi": 12.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 625.0,
+        "enhet": "shares"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Who captures the value from the recapitalization?",
+    "kriterier": [
+      "States that the existing shareholders capture the whole gain: the share price rises from $9 to $12 when the recapitalization is announced.",
+      "Identifies the source of the gain as the PV of the interest tax shield on permanent debt, t_c × D = 0.4 × 7500 = 3000, which equals the $3 per share rise over 1000 shares.",
+      "Explains that the gain is priced in at the announcement, before the repurchase, so shareholders who sell in the buyback and those who keep their shares both receive $12 per share."
+    ]
+  },
+  "ps1:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Equity value without leverage",
+        "verdi": 109.52380952380952,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "ps1:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Debt value",
+        "verdi": 78.86904761904762,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "ps1:5:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Yield to maturity",
+        "verdi": 26.792452830188672,
+        "enhet": "%"
+      },
+      {
+        "navn": "Expected return on the debt",
+        "verdi": 5.0,
+        "enhet": "%"
+      }
+    ]
+  },
+  "ps1:5:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Equity value with leverage",
+        "verdi": 20.238095238095237,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Total firm value with leverage",
+        "verdi": 99.10714285714286,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "ps1:5:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price without debt",
+        "verdi": 10.952380952380953,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps1:5:f": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after the debt-financed repurchase",
+        "verdi": 9.910714285714286,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Why does your answer differ from that in part (e)?",
+    "kriterier": [
+      "Explains that the share price is lower than in (e) because shareholders bear the PV of expected bankruptcy costs: firm value falls from 109.52 to 99.11, a loss of 10.42 (about $1.04 per share).",
+      "Explains that the debt holders are not hurt: they anticipate the bankruptcy costs and pay only the fair value of 78.87 for the debt, so the whole cost lands on the shareholders when the debt is issued.",
+      "Notes that with no taxes there is no benefit of debt to offset the bankruptcy costs, so leverage lowers the share price."
+    ]
+  },
+  "ps1:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Debt value",
+        "verdi": 75.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Equity value",
+        "verdi": 25.0,
+        "enhet": "$"
+      }
+    ]
+  },
+  "ps1:6:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV of the project",
+        "verdi": 6.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Manager's payoff if he issues equity and invests",
+        "verdi": 16.0,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Would he want to do this? Discuss.",
+    "kriterier": [
+      "Concludes that the manager will not issue equity and invest: his payoff falls from 25 to 16 even though the project has a positive NPV, so the firm forgoes a positive-NPV project (debt overhang).",
+      "Explains the wealth transfer: the new equity is junior to the existing debt, so the debt rises in value from 75 to 90 (+15) while the old equity falls by 9. The creditors capture more than the whole NPV of 6.",
+      "Notes that the debt stays risky with the project (80 is below the face value of 100 in the recession), which is why the existing creditors gain."
+    ]
+  },
+  "ps1:6:c": {
+    "type": "tekst",
+    "kriterier": [
+      "Answers that the manager now wants to issue equity and invest: with a face value of 80 the new investors need 48% of the equity, which leaves him 52% × 50 = 26, more than the 25 he has without the project.",
+      "Answers that the debt holders agree: the new debt pays 80 in both states and is worth 80, more than the 75 their old claim is worth, because without renegotiation the project is not undertaken (from (b)).",
+      "Explains the mechanism: writing down the debt removes the debt overhang, so the positive-NPV project goes ahead and the NPV of 6 is shared, making both parties better off (debt +5 and manager +1)."
+    ],
+    "merknad": "Spørsmålet ber om to ja/nei-svar. Tallene (26 mot 25 og 80 mot 75) er begrunnelsen og ligger i kriteriene."
+  },
+  "ps1:7:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Expected payoff, strategy A",
+        "verdi": 75.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Expected payoff, strategy B",
+        "verdi": 70.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Expected payoff, strategy C",
+        "verdi": 66.0,
+        "enhet": "$ m"
+      }
+    ],
+    "merknad": "Valget (A) følger direkte av de forventede verdiene."
+  },
+  "ps1:7:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Expected payoff to equity, strategy A",
+        "verdi": 35.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Expected payoff to equity, strategy B",
+        "verdi": 50.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Expected payoff to equity, strategy C",
+        "verdi": 26.0,
+        "enhet": "$ m"
+      }
+    ],
+    "merknad": "Valget (B) følger direkte av de forventede verdiene."
+  },
+  "ps1:7:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Expected payoff to equity, strategy A",
+        "verdi": 0.0,
+        "enhet": "$ m",
+        "abs": 0.01
+      },
+      {
+        "navn": "Expected payoff to equity, strategy B",
+        "verdi": 15.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Expected payoff to equity, strategy C",
+        "verdi": 19.0,
+        "enhet": "$ m"
+      }
+    ],
+    "merknad": "Valget (C) følger direkte av de forventede verdiene."
+  },
+  "ps1:7:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Agency cost with $40 million of debt",
+        "verdi": 5.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Agency cost with $110 million of debt",
+        "verdi": 9.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "ps1:8:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Equity value",
+        "verdi": 100.0,
+        "enhet": ""
+      },
+      {
+        "navn": "Debt value",
+        "verdi": 100.0,
+        "enhet": ""
+      }
+    ]
+  },
+  "ps1:8:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Debt value after the spin-off",
+        "verdi": 70.0,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Which division should be allocated the debt and which one should be debt-free?",
+    "kriterier": [
+      "Puts all the debt on Nicole and leaves Paris debt-free, because Nicole has the riskier cash flows (140 in the boom and 40 in the bust).",
+      "Justifies the choice by comparing total equity value: 110 with the debt on Nicole against 100 with the debt on Paris.",
+      "Explains the mechanism: shareholders keep the upside of the riskier division while the creditors bear the shortfall in the bust (they get only 40), so value shifts from debt to equity."
+    ]
+  },
+  "ps1:8:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Net gain to shareholders",
+        "verdi": 10.0,
+        "enhet": ""
+      }
+    ],
+    "merknad": "Spørsmålet spør bare etter nettogevinsten for aksjonærene. Forklaringen om wealth transfer gir ikke egne poeng her."
+  },
+  "ps1:8:d": {
+    "type": "tekst",
+    "kriterier": [
+      "Recognises that ex post (with the debt already in place) such covenants are bad for equity holders because they block the gain of 10 from the spin-off.",
+      "Explains the ex ante view: rational creditors anticipate risk shifting and demand a higher interest rate when there are no covenants, so shareholders bear the expected cost in advance, including the 20 of lost synergies.",
+      "Concludes that covenants let the firm commit not to destroy value, which makes debt cheaper, so in general they are good for equity holders.",
+      "The basic answer (bad ex post) earns partial credit. Full credit needs the ex ante argument as well."
+    ]
+  },
+  "ps1:9:a": {
+    "type": "tekst",
+    "kriterier": [
+      "With a true value of $12.50, chooses to issue equity: the shares are sold at $13.50, above their true value, so existing shareholders gain about $0.27 per share (37 m in the course's calculation), which beats the $20 m ($0.20 per share) net cost of debt.",
+      "With a true value of $14.50, chooses to borrow: selling shares at $13.50, below their true value, would cost existing shareholders about $0.27 per share (27 m, or 37 m in the course's calculation), more than the $20 m net cost of debt.",
+      "Bases both choices on the long-run share price for existing shareholders, comparing the gain or loss from issuing mispriced equity (500 / 13.50 ≈ 37 m new shares) with the net distress cost of debt."
+    ],
+    "merknad": "Valgene er svaret. Både sammenligningen per aksje ($0.27 mot $0.20) og kursets totalsum (37 mill. mot 20 mill.) godtas."
+  },
+  "ps1:9:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after an equity issue",
+        "verdi": 12.5,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "What should investors conclude if IST issues equity?",
+    "kriterier": [
+      "Concludes that investors read an equity issue as a sign that the shares are overvalued (true value $12.50), because from (a) only managers who know the value is $12.50 issue equity.",
+      "Explains that the equity issue is a negative signal (the lemons problem), so the price falls to $12.50 and the overvalued firm cannot sell shares at $13.50."
+    ]
+  },
+  "ps1:9:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after a debt issue",
+        "verdi": 14.5,
+        "enhet": "$ per share",
+        "alt": [
+          14.3
+        ]
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "What should investors conclude if IST issues debt?",
+    "kriterier": [
+      "Concludes that investors read a debt issue as a sign that the shares are undervalued (true value $14.50), because from (a) only managers who know the value is $14.50 accept the $20 m net cost of debt.",
+      "Explains that the debt issue is a positive signal, so the price rises to the true value of $14.50 (or $14.30 after the $0.20 per share net cost of debt)."
+    ],
+    "merknad": "alt 14.30: kursen når netto kostnad ved gjeld (20 mill., $0.20 per aksje) trekkes fra den sanne verdien. Kursets løsning sier 14.50 og ser bort fra kostnaden."
+  },
+  "ps1:9:d": {
+    "type": "tekst",
+    "kriterier": [
+      "Recognises that without distress costs debt has no cost (only tax benefits), so a firm that knows its shares are undervalued always borrows.",
+      "Explains that equity would then be issued only by overvalued firms. Investors know this and buy equity only at the lowest possible value ($12.50), so there is no benefit from issuing equity.",
+      "Concludes that all firms issue debt, whatever their true value."
+    ]
+  },
+  "ps1:10:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price before the repurchase",
+        "verdi": 50.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps1:10:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price if EV goes up",
+        "verdi": 75.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Share price if EV declines",
+        "verdi": 25.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps1:10:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price if EV goes up",
+        "verdi": 70.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Share price if EV declines",
+        "verdi": 30.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps1:10:d": {
+    "type": "tekst",
+    "kriterier": [
+      "If good news is expected, repurchases before the news: the remaining shareholders end up with $75 rather than $70 because the shares are bought back cheaply at $50.",
+      "If bad news is expected, repurchases after the news: the price ends at $30 rather than $25, because buying back at $50 before bad news overpays the selling shareholders.",
+      "States the principle: management repurchases when the stock is undervalued, not when it is overvalued."
+    ]
+  },
+  "ps1:10:e": {
+    "type": "tekst",
+    "kriterier": [
+      "Predicts that the stock price rises when a repurchase is announced.",
+      "Explains the signal: managers are better informed and time repurchases for before good news or after bad news, so investors read a repurchase as a sign that the stock is undervalued."
+    ]
+  },
+  "ps1:11:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "α (fraction sold to new investors)",
+        "verdi": 0.25,
+        "enhet": "",
+        "regnet": true
+      },
+      {
+        "navn": "Payoff to existing shareholders, assets worth $50",
+        "verdi": 67.5,
+        "enhet": "$"
+      },
+      {
+        "navn": "Payoff to existing shareholders, assets worth $150",
+        "verdi": 142.5,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Given that investors believe that the firm always issues equity, does the manager want to issue equity if assets in place are worth $150?",
+    "kriterier": [
+      "Concludes that the manager does not issue equity when assets are worth $150: existing shareholders get 142.5 with the project against 150 without it (while the $50 type issues, since 67.5 > 50).",
+      "Explains the mechanism: investors price the average firm (pooling), so the $150 firm's shares are underpriced and selling them transfers value from existing shareholders to new investors.",
+      "Notes that the NPV of 5 (40 − 35) is too small to make up for this wealth transfer, so the $150 firm forgoes a positive-NPV project."
+    ],
+    "merknad": "α: fasiten skriver 1/4. Verdien 0.25 er det samme tallet som desimal; 25 (prosent) godtas også av motoren."
+  },
+  "ps1:11:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "α (fraction sold to new investors)",
+        "verdi": 0.3888888888888889,
+        "enhet": "",
+        "regnet": true
+      },
+      {
+        "navn": "Payoff to existing shareholders, assets worth $50",
+        "verdi": 55.00000000000001,
+        "enhet": "$"
+      },
+      {
+        "navn": "Payoff to existing shareholders, assets worth $150",
+        "verdi": 116.11111111111111,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "What does the manager do when he knows that assets in place are worth $150? Will he want to issue equity?",
+    "kriterier": [
+      "Concludes that the $150 manager does not issue equity: existing shareholders would get about 116.1 against 150 without issuing, so he passes up the project.",
+      "Explains that this is an equilibrium: only the $50 type issues, so investors' beliefs are correct. An equity issue reveals that assets are worth $50, so the share price falls on the announcement (consistent with negative announcement returns).",
+      "Notes that the $50 type's issue is fairly priced: new investors break even and existing shareholders gain exactly the NPV (55 − 50 = 5)."
+    ],
+    "merknad": "α: fasiten skriver 35/90. Verdien er samme brøk som desimal (0.3889)."
+  },
+  "ps1:11:c": {
+    "type": "tekst",
+    "kriterier": [
+      "Recognises that the outcome in (b) is inefficient because the $150 firm forgoes a positive-NPV project, which gives it a reason to pay for certification.",
+      "With assets worth $150, pays for certification: the shares are then fairly priced, so existing shareholders get 190 − 35 = 155 and 155 − 2 = 153 > 150, since the cost of 2 is below the NPV of 5.",
+      "With assets worth $50, does not pay (willingness to pay is zero): this issue is already fairly priced in (b), so certification adds nothing.",
+      "Notes that the decision to hire or not hire the auditor itself reveals the true value to the market."
+    ],
+    "merknad": "To ja/nei-svar. 153 mot 150 og betalingsvilje 0 ligger i kriteriene."
+  },
+  "ps1:12:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 10.0,
+        "enhet": "%"
+      }
+    ]
+  },
+  "ps1:12:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price now (P<sub>0</sub>)",
+        "verdi": 20.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Firm value at the end of year 1 (after the dividend)",
+        "verdi": 21.0,
+        "enhet": "$ m",
+        "alt": [
+          21000000.0
+        ]
+      },
+      {
+        "navn": "Dividend per share at the end of year 1",
+        "verdi": 1.0,
+        "enhet": "$ per share"
+      }
+    ],
+    "merknad": "Firmaverdien godtas også i hele dollar (21 000 000), slik fasiten oppgir den."
+  },
+  "ps1:12:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Firm value at the end of year 1",
+        "verdi": 21.0,
+        "enhet": "$ m",
+        "alt": [
+          21000000.0
+        ]
+      }
+    ],
+    "merknad": "Godtas også i hele dollar (21 000 000), slik fasiten oppgir den."
+  },
+  "ps1:12:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New shares issued",
+        "verdi": 166666.66666666666,
+        "enhet": "shares",
+        "alt": [
+          0.16666666666666666
+        ]
+      },
+      {
+        "navn": "Price per share at the end of year 1",
+        "verdi": 18.0,
+        "enhet": "$ per share"
+      }
+    ],
+    "merknad": "Antall nye aksjer godtas også i millioner (0.1667)."
+  },
+  "ps1:12:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Dividend per share for the original shareholders",
+        "verdi": 4.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Fraction of future dividends to the original shareholders",
+        "verdi": 0.8571428571428571,
+        "enhet": "",
+        "regnet": true
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Briefly explain why the original shareholders keep this fraction of future dividends.",
+    "kriterier": [
+      "Explains that the extra $3 m of dividend is financed by selling about 166,667 new shares at $18, so the new shareholders own 1/7 of the 1,166,667 shares.",
+      "Concludes that the original shareholders keep 6/7 of all future dividends from year 2 on: the higher dividend now is paid for by diluting their claim on later dividends.",
+      "Notes that the new shareholders do not take part in the extra dividend they fund. They buy at the ex-dividend price of $18."
+    ],
+    "merknad": "Andelen: fasiten skriver 6/7. Verdien er samme brøk som desimal (0.857); 85.7 (prosent) godtas også av motoren."
+  },
+  "ps1:12:f": {
+    "type": "tekst",
+    "kriterier": [
+      "Values the original shareholders' cash flows at t = 0: the $4 m dividend plus their 6/7 share of the $21 m firm value at the end of year 1 ($18 m), discounted at 10%: (4 + 18) / 1.1 = $20 m.",
+      "Explains that the higher dividend is exactly offset by the dilution of future dividends, since the new shares are sold at a fair price of $18. There is no transfer of wealth.",
+      "Concludes that dividend policy is irrelevant under MM: the original shareholders' wealth stays at $20 m."
+    ]
+  },
+  "ps1:13:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Cum-dividend share price",
+        "verdi": 42.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Ex-dividend share price",
+        "verdi": 40.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps1:13:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Shares repurchased",
+        "verdi": 0.47619047619047616,
+        "enhet": "m shares",
+        "alt": [
+          476190.47619047615
+        ]
+      },
+      {
+        "navn": "Future dividend per share",
+        "verdi": 5.04,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Share price after the repurchase",
+        "verdi": 42.0,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Show that this payout is equivalent to paying the dividend in (a).",
+    "kriterier": [
+      "Shows that the repurchase leaves shareholders as well off as the dividend in (a): the shares are bought back at the cum-dividend price of $42 and the remaining shares are still worth $42, while in (a) a shareholder holds $2 in cash plus a $40 share.",
+      "Explains the mechanism: with fewer shares outstanding the future dividend per share rises from $4.80 to $5.04, which keeps the price at $42.",
+      "Explains homemade dividends: in a perfect market investors can replicate either payout by selling shares or reinvesting dividends, so they are indifferent between dividends and repurchases."
+    ],
+    "merknad": "Antall aksjer godtas også i hele aksjer (476 190)."
+  },
+  "ps1:13:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Cum-dividend share price",
+        "verdi": 42.0,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Show how the higher dividend is financed and that this policy is equivalent to (a) and (b).",
+    "kriterier": [
+      "Sets up the issue correctly: the dividend above the $20 m of cash is raised by selling new shares at the cum-dividend price of $42 and the new shareholders also receive the dividend. With the key's $48 m dividend this means 0.67 m new shares and $4.50 per share now and later. Any dividend size financed this way is accepted.",
+      "Explains why the price stays at $42: the higher dividend today is offset by lower future dividends per share because of the dilution, while the new shares are sold at a fair price.",
+      "Concludes that the three policies are equivalent in a perfect capital market: payout policy only trades off dividends now against dividends later, so in practice market imperfections such as taxes should determine it."
+    ],
+    "merknad": "Bare P_cum er med som tall, fordi størrelsen på utbyttet er studentens valg. Fasiten bruker 48 mill. (DPS $4.50 og 0.67 mill. nye aksjer), men alle valg gir $42."
+  }
+}

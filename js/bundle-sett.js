@@ -788,13 +788,16 @@ window.EDU = window.EDU || {};
     || (f.cp != null && (f.tp || 0) + (f.cp || 0) < maks - 1e-9));
 
   /* Et tall slik du skriver det: komma eller punktum som desimaltegn, mellomrom som
-     tusenskille, − eller - som minus og % til slutt. «1,234» kan bety begge deler,
+     tusenskille, − eller - som minus, % til slutt eller en brøk (2/3). «1,234» kan bety begge deler,
      så begge tolkningene prøves. */
   function tolkTall(s) {
     const t = String(s == null ? "" : s).trim().replace(/[−–]/g, "-").replace(/\s+/g, "").replace(/%$/, "");
     const ut = [];
     const legg = (x) => { const n = Number(x); if (x !== "" && x !== "-" && Number.isFinite(n)) ut.push(n); };
     if (!t) return ut;
+    /* En brøk, som «−2/3» for en delta. */
+    const brøk = t.match(/^(-?\d+(?:[.,]\d+)?)\/(\d+(?:[.,]\d+)?)$/);
+    if (brøk) { const b = Number(brøk[2].replace(",", ".")); if (b) ut.push(Number(brøk[1].replace(",", ".")) / b); return ut; }
     if (t.includes(",") && t.includes(".")) legg(t.replace(/,/g, ""));
     else if (t.includes(",")) { legg(t.replace(",", ".")); if (/^-?\d{1,3}(,\d{3})+$/.test(t)) legg(t.replace(/,/g, "")); }
     else legg(t);
@@ -1781,7 +1784,9 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     if ((ex.parts || []).length && tilStede(ex.solution)) ut.push("", "Samlet kommentar til oppgaven:", kutt(renTekst(ex.solution), 2500));
     return ut;
   }
-  function settTekst(set, rap) {
+  /* kunPåbegynte: «Ikke rettet ennå» tar bare med oppgaver der noe er rettet eller
+     merket (problem sets er lange og du tar én oppgave om gangen). */
+  function settTekst(set, rap, kunPåbegynte) {
     const sum = scoreSum(set);
     const info = [`Sett-id: ${set.id}`, isSubmitted(set.id) ? `levert i eksamensmodus ${dato(run(set.id).submittedAt)}` : "øvingsmodus"];
     if (sum.scored) info.push(`${pts(sum.got)} av ${pts(sum.of)} poeng på ${sum.scored} av ${sum.total} oppgaver`);
@@ -1793,13 +1798,16 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     ut.push("Med her: " + Object.entries(tell).map(([k, n]) => `${NAVN[k]} ${n}`).join(", "));
     const alle = rap.oppg.flatMap((o) => o.deler.map((s) => ({ s, navn: o.ex.n + s.etikett })));
     const ok = alle.filter((x) => x.s.hva === "riktig" && !x.s.usikker && !x.s.førsteFeil).map((x) => x.navn);
-    const ikke = alle.filter((x) => !x.s.hva && !x.s.usikker).map((x) => x.navn);
+    const påbegynt = (ex) => rap.oppg.some((o) => o.ex === ex && o.deler.some((s) => s.hva || s.usikker));
+    const ikke = rap.oppg.flatMap((o) => (kunPåbegynte && !påbegynt(o.ex) ? [] : o.deler.map((s) => ({ s, navn: o.ex.n + s.etikett }))))
+      .filter((x) => !x.s.hva && !x.s.usikker).map((x) => x.navn);
     if (ok.length) ut.push("Riktig og sikker (ikke med): " + ok.join(", "));
     if (ikke.length) ut.push("Ikke rettet ennå: " + ikke.join(", "));
     rap.oppg.forEach((o) => { const med = o.deler.filter(trengerRepetisjon); if (med.length) ut.push("", ...oppgTekst(o, med)); });
     return ut;
   }
-  function rapportTekst(sets) {
+  function rapportTekst(sets, opts) {
+    opts = opts || {};
     const sub = window.EDU_SUBJECT || {};
     const med = sets.map((set) => ({ set, rap: rapportFor(set) })).filter((x) => x.rap.med.length);
     /* Bare beskrivelsen, ingen bestilling: teksten skal kunne brukes til hva som helst. */
@@ -1808,9 +1816,9 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
       "",
       "Deloppgavene jeg ikke fikk full uttelling på (feil, delvis riktig, «Vet ikke» eller ubesvart), dem jeg merket som usikre og dem jeg først fikk riktig etter å ha sett fasiten. For hver står oppgaven, svaret mitt, fasiten og hva som gikk galt.",
       "",
-      `Fra Eksamenssett i appen, ${dato(S.u.nowTs())}. Fag-id: ${sub.id || "ukjent"}. ${med.length === 1 ? "Ett sett" : med.length + " sett"}.`,
+      `Fra ${opts.kilde || "Eksamenssett"} i appen, ${dato(S.u.nowTs())}. Fag-id: ${sub.id || "ukjent"}. ${med.length === 1 ? "Ett sett" : med.length + " sett"}.`,
     ];
-    med.forEach(({ set, rap }) => ut.push("", ...settTekst(set, rap)));
+    med.forEach(({ set, rap }) => ut.push("", ...settTekst(set, rap, opts.kunPåbegynte)));
     return ut.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
   }
 
@@ -1822,13 +1830,13 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     return el("button.btn.sm" + (opts.primary ? ".primary" : ".ghost"), { type: "button",
       title: "Kopierer feil, delvis riktige og usikre deloppgaver med svaret ditt, fasiten og feilen",
       onclick: async () => {
-        const ok = await S.u.tilUtklipp(rapportTekst(sets));
+        const ok = await S.u.tilUtklipp(rapportTekst(sets, opts));
         S.u.toast(ok ? `Kopiert: ${n} ${n === 1 ? "deloppgave" : "deloppgaver"}` : "Fikk ikke kopiert. Prøv igjen, eller i en annen nettleser.");
       } }, `${opts.tekst || "Kopier det jeg ikke kunne"} (${n})`);
   }
   /* Knappen med forklaring, til resultatet, øvingsmodus og kartleggingsrapporten. */
-  function kopierRad(sets) {
-    const knapp = kopierKnapp(sets, { primary: true });
+  function kopierRad(sets, opts) {
+    const knapp = kopierKnapp(sets, Object.assign({ primary: true }, opts || {}));
     if (!knapp) return null;
     const venter = sets.reduce((n, set) => n + ventendeTekst(set).length, 0);
     return el(".row.wrap", { style: { gap: "10px", alignItems: "center" } }, knapp,
@@ -1852,5 +1860,23 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
 
   /* alle(): settene med lånte oppgaver slått opp, for andre som leser settene
      (planleggeren). EDU_DATA.sets alene viser lånte sett uten oppgaver. */
-  S.views.sett = { render, activeCount, alle: SETS };
+  /* Rettingen for andre moduler (Problem sets, fra 25. november 2026). Modulen bygger
+     et sett av sine egne oppgaver i samme form som her ({ id, label, exercises: [{ n,
+     title, body, points, parts: [{ label, body, solution, criteria, points }] }] }) og
+     får de samme feltene, knappene, Claude-rettingen og «Kopier det jeg ikke kunne».
+     Svar-dataene slås opp i EDU_DATA.svar under "<id>:<n>:<del>". Lagringen er den
+     samme som her ("<id>-e<n>", "<id>-u<n>-<del>"). Id-en må derfor ikke krasje med et
+     eksamenssett. */
+  const rettingKit = {
+    harNøkkel,
+    påslått: (set, ex, part) => retting(set, ex, part.label),
+    resultat: (set, ex, part) => rettFor(set, ex, part.label),
+    endretSiden: (set, ex, part) => endretSiden(set, ex, part.label),
+    riktig: riktigDel,
+    svarFelt, rettVisning, rettDel, påNyttRad,
+    usikkerKnapp: (set, ex, part) => usikkerKnapp(set, ex, part.label),
+    kopierRad,
+  };
+
+  S.views.sett = { render, activeCount, alle: SETS, retting: rettingKit };
 })(window.EDU);

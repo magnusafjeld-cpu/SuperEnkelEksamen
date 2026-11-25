@@ -8,14 +8,26 @@
    FEIL stopper (exit 1). ADVARSEL bør leses.
    Sjekker at hver deloppgave som ikke er flervalg har én oppføring, at typen og
    feltene er gyldige, og at hvert tall finnes i løsningsteksten innenfor toleransen
-   (ellers må det være merket regnet: true med en merknad). */
+   (ellers må det være merket regnet: true med en merknad).
+   Problem sets (problemsett.js, id som ps1) sjekkes på samme måte. De har ingen poeng
+   i oppgavene, så poengene kommer fra oppføringen (`poeng`, ellers regelen i
+   psPoeng). Tekstdelene bør ha `kriterier`. */
 const fs = require("fs"), path = require("path");
 const [fag, ...ider] = process.argv.slice(2);
 if (!fag) { console.error("Bruk: node tools/sjekk-svar.js <fag> [settId …]"); process.exit(2); }
 const ROT = path.join(__dirname, "..", "fag", fag);
 global.window = { EDU_DATA: {} };
 eval(fs.readFileSync(path.join(ROT, "sett.js"), "utf8"));
-const alleSett = (window.EDU_DATA.sets || []).filter((s) => !s.lån && s.kind !== "kartlegging");
+const psFil = path.join(ROT, "problemsett.js");
+if (fs.existsSync(psFil)) eval(fs.readFileSync(psFil, "utf8"));
+/* Problem sets i samme form som settene: delspørsmålet er en deloppgave og fasiten løsningen. */
+const psSett = (window.EDU_DATA.problemsett || []).map((ps) => ({ id: ps.id, ps: true,
+  exercises: (ps.oppgaver || []).map((o) => ({ n: o.nr, body: o.intro || "",
+    parts: (o.deler || []).map((d) => ({ label: d.l, body: (d.ctx || "") + " " + (d.q || ""), solution: d.fasit || "" })) })) }));
+/* Poengene til et delspørsmål i et problem set (samme regel som i bundle-problemsett.js). */
+const psPoeng = (d) => (typeof d.poeng === "number" ? d.poeng
+  : d.type === "tall" ? (d.tall || []).length : d.type === "blandet" ? (d.tallPoeng || 0) + 2 : 2);
+const alleSett = (window.EDU_DATA.sets || []).filter((s) => !s.lån && s.kind !== "kartlegging").concat(psSett);
 const sett = ider.length ? alleSett.filter((s) => ider.includes(s.id)) : alleSett;
 ider.forEach((id) => { if (!alleSett.some((s) => s.id === id)) console.log(`ADVARSEL ${id}: ikke et eget sett (lånt, kartlegging eller finnes ikke)`); });
 
@@ -61,7 +73,13 @@ for (const s of sett) {
       if (!d) { F(k, "mangler oppføring"); continue; }
       if (!TYPER.includes(d.type)) { F(k, `ukjent type «${d.type}»`); continue; }
       telling[d.type]++;
-      const poeng = p.points || ex.points || 0;
+      const poeng = s.ps ? psPoeng(d) : (p.points || ex.points || 0);
+      if (s.ps) {
+        if (d.type === "bokstav") F(k, "bokstav finnes ikke i problem sets");
+        if (d.poeng != null && !(typeof d.poeng === "number" && d.poeng >= 1 && d.poeng <= 8)) F(k, `poeng må være et tall fra 1 til 8 (er ${d.poeng})`);
+        if (d.kriterier != null && !(Array.isArray(d.kriterier) && d.kriterier.every((x) => typeof x === "string" && x.trim()))) F(k, "kriterier må være en liste med tekster");
+        if ((d.type === "tekst" || d.type === "blandet") && !(d.kriterier || []).length) A(k, "tekstdelen har ingen kriterier; Claude retter da bare mot fasiten");
+      } else if (d.poeng != null || d.kriterier != null) F(k, "poeng og kriterier hører bare til problem sets");
       const kilde = [p.solution, p.criteria && p.criteria.join(" "), p === ex ? "" : ex.solution].join(" ");
       if (d.type === "tekst") {
         if (d.tall) F(k, "tekst skal ikke ha tall");

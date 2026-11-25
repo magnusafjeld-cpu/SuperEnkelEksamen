@@ -1,0 +1,295 @@
+{
+  "ps4:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "X (new V shares, offer of 53.7)",
+        "verdi": 27.811230000000002,
+        "enhet": "bn shares"
+      },
+      {
+        "navn": "y (offer of 53.7)",
+        "verdi": 47.204700640214085,
+        "enhet": "%"
+      },
+      {
+        "navn": "y (revised offer of 58.96)",
+        "verdi": 49.53795226194568,
+        "enhet": "%"
+      }
+    ]
+  },
+  "ps4:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Payoff if the deal goes through",
+        "verdi": 269.9411396627738,
+        "enhet": "€"
+      },
+      {
+        "navn": "Payoff if the deal fails",
+        "verdi": 190.28813966277377,
+        "enhet": "€"
+      }
+    ],
+    "merknad": "Lysbildets 190.261 (gjenkjøp 225.03 i stedet for 225.003) og tavlas 190 ligger innenfor standardtoleransen på 1 %. Det gjør også enkel rente (1 + 0.055/4) og kontinuerlig rente."
+  },
+  "ps4:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "p (implied probability of success)",
+        "verdi": 0.5883651733955649,
+        "enhet": "",
+        "tol": 0.005
+      }
+    ],
+    "merknad": "tol 0.005 skiller riktig metode fra å glemme r_f: uten diskontering blir p = 0.5938, som 1 % ville godtatt. Lysbildets 0.5885, enkel rente (0.5883) og 59 % godtas."
+  },
+  "ps4:1:d": {
+    "type": "tekst",
+    "kriterier": [
+      "Explains that the spread between the offer value (266) and the Mannesmann price (234) reflects the probability that the deal goes through, the synergies and the stand-alone values: if the deal fails, the price falls back towards the stand-alone value.",
+      "Explains that merger arbitrage is not riskless arbitrage: the long Mannesmann, short Vodafone position pays more than its cost if the deal succeeds but loses if it fails, so the arbitrageur bears the deal risk.",
+      "Explains that shareholders who sell their Mannesmann shares before the outcome is known buy insurance against the deal failing. The spread is the price of that insurance.",
+      "Explains that arbitrage traders provide liquidity and insurance against deal risk and spread their own risk across many deals, a strategy that has historically been profitable (Mitchell and Pulvino, 2001)."
+    ]
+  },
+  "ps4:1:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Minimum synergies S",
+        "verdi": 41.25228870000002,
+        "enhet": "€ bn"
+      }
+    ]
+  },
+  "ps4:2:a": {
+    "type": "tekst",
+    "kriterier": [
+      "Derives NPV_A = (A + T + S) − P − A = S − (P − T): the acquirer gets the synergies minus the premium it pays over the target's stand-alone value.",
+      "Derives NPV_T = P − T (the premium) and shows that the two NPVs sum to S whatever the price.",
+      "Explains that the price only decides how the synergies are split: the target gets the premium P − T and the acquirer the rest, with P set by bargaining power.",
+      "Notes the evidence that targets capture most of the gain (about 15% abnormal return at the announcement against about 1% for acquirers)."
+    ]
+  },
+  "ps4:2:b": {
+    "type": "tekst",
+    "kriterier": [
+      "Derives NPV_A = (1 − y)(A + T + S) − A and NPV_T = y(A + T + S) − T, which again sum to S.",
+      "Explains that with stock the acquirer's cost y(A + T + S) − T depends on the synergies, because the target shareholders own a fraction of the combined firm and so of the synergies.",
+      "Contrasts this with cash, where the cost P − T does not depend directly on S (although P may still be a function of S).",
+      "Explains that a stock swap therefore dampens the effect of mispricing: if the synergies turn out smaller than expected, the target shareholders share the loss."
+    ]
+  },
+  "ps4:2:c": {
+    "type": "tekst",
+    "kriterier": [
+      "Sets up the acquirer's condition N_A / (N_A + X) × (A + T + S) ≥ A: the old shareholders' stake in the new firm must be worth at least their stand-alone firm.",
+      "Solves the condition to the maximum number of new shares X ≤ N_A (T + S) / A.",
+      "Divides by N_T and uses A = N_A P_A and T = N_T P_T to get the maximum exchange ratio ER = X / N_T ≤ (P_T / P_A)(1 + S/T).",
+      "Explains that without synergies the maximum exchange ratio is the price ratio P_T / P_A, so the synergies are what leave room for a premium."
+    ]
+  },
+  "ps4:2:d": {
+    "type": "tekst",
+    "kriterier": [
+      "Names at least three determinants of the choice, for example the acquirer's liquidity and debt capacity, asymmetric information, uncertainty about the synergies and stand-alone values, the seller's need for cash or tax position and timing.",
+      "States that an acquirer that believes its own stock is overvalued prefers to pay with stock (and with cash if it is undervalued), because overvalued shares hand the target less real value.",
+      "Explains that the choice reveals information: a stock offer is read as a signal that the acquirer's stock is overvalued, so its price falls, the same mechanism as in an equity issue (Myers-Majluf)."
+    ]
+  },
+  "ps4:3:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Total value, no deal",
+        "verdi": 310,
+        "enhet": ""
+      },
+      {
+        "navn": "Total value, A buys D",
+        "verdi": 315,
+        "enhet": ""
+      },
+      {
+        "navn": "Total value, B buys D",
+        "verdi": 315,
+        "enhet": ""
+      },
+      {
+        "navn": "Total value, C buys D",
+        "verdi": 320,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Which acquisition creates the most value? Why?",
+    "kriterier": [
+      "Identifies C's acquisition of D as the one that creates the most value (total 320 against 315 when A or B buys).",
+      "Explains that the buyer and D gain the same 30 together whichever bank buys, so the difference comes from the effect on the competing banks.",
+      "Explains that an acquisition by A or B lowers the rivals' value by 25, while an acquisition by C lowers it by only 20."
+    ],
+    "merknad": "blandet fordi fasiten forklarer hvorfor C skaper mest verdi (lik synergi på 30, minst skade på konkurrentene), ikke bare at 320 er størst."
+  },
+  "ps4:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "A's willingness to pay",
+        "verdi": 90,
+        "enhet": ""
+      },
+      {
+        "navn": "B's willingness to pay",
+        "verdi": 90,
+        "enhet": ""
+      },
+      {
+        "navn": "C's willingness to pay",
+        "verdi": 90,
+        "enhet": ""
+      }
+    ]
+  },
+  "ps4:3:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "A's willingness to pay",
+        "verdi": 100,
+        "enhet": ""
+      },
+      {
+        "navn": "B's willingness to pay",
+        "verdi": 100,
+        "enhet": ""
+      },
+      {
+        "navn": "C's willingness to pay",
+        "verdi": 105,
+        "enhet": ""
+      },
+      {
+        "navn": "Price paid for D",
+        "verdi": 100,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Who wins the bidding? Why is the price higher than in (b)?",
+    "kriterier": [
+      "Identifies C as the winner, because C's willingness to pay (105) exceeds A's and B's (100).",
+      "Explains that the price is set where A and B drop out (about 100), not at C's own willingness to pay of 105.",
+      "Explains that willingness to pay rises from 90 because each bank's alternative is now a rival owning D, which lowers its own value: bidding depends on the alternatives."
+    ],
+    "merknad": "Prisen er nest høyeste betalingsvilje (stigende auksjon), som i fasiten («om lag 100»)."
+  },
+  "ps4:3:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change for A",
+        "verdi": -10,
+        "enhet": ""
+      },
+      {
+        "navn": "Change for B",
+        "verdi": -10,
+        "enhet": ""
+      },
+      {
+        "navn": "Change for C",
+        "verdi": -10,
+        "enhet": ""
+      },
+      {
+        "navn": "Change for D",
+        "verdi": 40,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Who wins and who loses? Interpret the result.",
+    "kriterier": [
+      "States that D's shareholders are the only winners and that all three bidders, the winner C included, lose relative to their stand-alone values.",
+      "Explains that D's gain (40) exceeds the total value created (10), so the target captures more than the whole gain and the bidders bear the difference.",
+      "Explains that C still buys because its alternative is not its stand-alone value but a rival owning D (55), so winning at 100 leaves C better off than losing the auction.",
+      "Links the result to the evidence that target shareholders capture most of the gains from acquisitions."
+    ],
+    "merknad": "Endring mot verdien alene, etter kjøpesummen på 100. C er −10 mot verdien alene (+5 mot 55 hvis en konkurrent hadde vunnet); spørsmålet ber om verdien alene, så +5 godtas ikke."
+  },
+  "ps4:4:a": {
+    "type": "tekst",
+    "kriterier": [
+      "Explains that the joint bond is a claim on the cash flows of both firms, so a shortfall in one firm can be covered by the other.",
+      "Names this the coinsurance effect: each firm in effect guarantees the other's debt.",
+      "Concludes that the lower probability of default makes lenders demand a lower yield."
+    ]
+  },
+  "ps4:4:b": {
+    "type": "tekst",
+    "kriterier": [
+      "States that the firms' cash flows must not be perfectly positively correlated.",
+      "Explains why: with perfect correlation both firms do badly in the same states, so merging does not reduce the default risk.",
+      "Explains that a lower correlation gives a larger reduction in risk and points out that A and B move in opposite directions in the table (A strong in state 1, B in state 2)."
+    ]
+  },
+  "ps4:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Debt A",
+        "verdi": 25.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity A",
+        "verdi": 25.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Debt B",
+        "verdi": 12.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity B",
+        "verdi": 12.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Debt AB",
+        "verdi": 45.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity AB",
+        "verdi": 30.0,
+        "enhet": "$ m"
+      }
+    ],
+    "merknad": "Seks tall fordi oppgaven ber om gjeld og egenkapital for A, B og AB. Enheten er $ m som i lysbildet (obligasjoner på $50M)."
+  },
+  "ps4:4:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change in equity value",
+        "verdi": -7.5,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "How does the reduction in risk affect shareholders? Explain.",
+    "kriterier": [
+      "Explains that with no synergies the firm value is unchanged, so the creditors' gain is a pure transfer from the shareholders: the coinsurance effect.",
+      "Explains the mechanism: equity is a call option on the firm's assets. Lower asset risk makes that call less valuable, while the old debt was priced before the merger.",
+      "Concludes that risk reduction is no good reason for shareholders to merge, since they can diversify themselves by holding both stocks.",
+      "Notes that shareholders can win back the transfer by borrowing more after the merger and paying out the proceeds, which also gives a larger tax shield."
+    ],
+    "merknad": "Bare aksjonærenes endring (−7.5) er tall, siden spørsmålet gjelder aksjonærene. Kreditorenes +7.5 og uendret firmaverdi ligger i kriteriene."
+  }
+}

@@ -20,6 +20,18 @@
 
    Data: EDU_DATA.problemsett = [{ id, nr, tittel, tema, trinn, nivaer,
          oppgaver: [{ nr, niva, tema, tittel, intro, deler: [{ l, ctx, q, hint: [4], fasit }] }] }]
+
+   Retting (fra 25. november 2026), som i Eksamenssett: med API-nøkkel og svar-data
+   (EDU_DATA.svar["<settId>:<nr>:<del>"], fra fag/<fag>/_svar/<settId>.json) fører
+   du inn svaret under hintene og trykker «Rett a)». Tall rettes automatisk, tekst
+   av Claude Opus 5.5 mot fasiten og kriteriene. Endrer du svaret, kommer «Rett a)
+   på nytt». Fasiten står lukket når svaret er riktig og åpen ellers, til du åpner
+   eller lukker den selv. «⚐ Usikker» og «Kopier det jeg ikke kunne» virker som der.
+   Selve rettingen er Eksamenssett-modulens (S.views.sett.retting): problem settet
+   bygges om til et sett i samme form (settAv). Lagringen ligger under settets
+   id som der ("ps1-e3", "ps1-u3-a"). Poengene står ikke i problem sets, så de
+   kommer fra svar-dataene: `poeng`, ellers 1 per tall, 2 for tekst og
+   tallPoeng + 2 for blandet (samme regel som tools/sjekk-svar.js).
    ============================================================================ */
 window.EDU = window.EDU || {};
 (function (S) {
@@ -57,6 +69,38 @@ window.EDU = window.EDU || {};
       antallDelerFerdig(ps, o) > 0;
   };
   const antallFerdig = (ps) => (ps.oppgaver || []).filter((o) => erFerdig(ps, o)).length;
+
+  /* ---------- retting ---------- */
+  const R = () => (S.views.sett && S.views.sett.retting) || null;
+  const svarFor = (ps, o, d) => (window.EDU_DATA.svar || {})[`${ps.id}:${o.nr}:${d.l}`] || null;
+  const psPoeng = (sv) => (!sv ? 0 : typeof sv.poeng === "number" ? sv.poeng
+    : sv.type === "tall" ? (sv.tall || []).length : sv.type === "blandet" ? (sv.tallPoeng || 0) + 2 : 2);
+  /* Problem settet i Eksamenssett-form: delspørsmålet er deloppgaven og fasiten løsningen. */
+  const somSett = new WeakMap();
+  function settAv(ps) {
+    if (somSett.has(ps)) return somSett.get(ps);
+    const set = { id: ps.id, kind: "problemsett", label: ps.tittel + (ps.tema ? " · " + ps.tema : ""),
+      exercises: (ps.oppgaver || []).map((o) => {
+        const parts = (o.deler || []).map((d) => {
+          const sv = svarFor(ps, o, d);
+          return { label: d.l, body: (d.ctx ? d.ctx + " " : "") + (d.q || ""), solution: d.fasit || "",
+            criteria: (sv && sv.kriterier) || [], points: psPoeng(sv) };
+        });
+        return { n: o.nr, title: o.tittel, topic: o.tema, body: o.intro || "", parts,
+          points: parts.reduce((a, p) => a + p.points, 0) };
+      }) };
+    somSett.set(ps, set);
+    return set;
+  }
+  const ledd = (ps, o, d) => {
+    const set = settAv(ps), ex = set.exercises.find((x) => x.n === o.nr);
+    return { set, ex, part: ex && ex.parts.find((p) => p.label === d.l) };
+  };
+  const rettingPå = (ps) => { const k = R(); return !!k && k.harNøkkel() && (ps.oppgaver || []).some((o) => (o.deler || []).some((d) => svarFor(ps, o, d))); };
+  /* Fasiten du selv har åpnet eller lukket etter retting. Gjelder bare den rettingen
+     den ble satt for (sig), så en ny retting eller Claudes svar lar resultatet avgjøre igjen. */
+  const fasitValg = new Map();
+  const rettSig = (r) => (r ? JSON.stringify([r.tall || null, r.tp || 0, r.cp == null ? null : r.cp, !!r.følge]) : "");
 
   /* Filteret på stjernene gjelder til du bytter det, også når du blar mellom
      oppgavene, så «neste» blir neste oppgave av samme slag. */
@@ -139,10 +183,29 @@ window.EDU = window.EDU || {};
     const settNivå = (n) => lagre(ps, o.nr, { hint: Object.assign({}, st(ps, o.nr).hint, { [d.l]: n }) });
     knapp.onclick = () => { settNivå(Math.min(nivå() + 1, hint.length)); vis(); };
     skjul.onclick = () => { settNivå(0); vis(); };
-    if (hint.length) boks.appendChild(el(".ps-handling", knapp, skjul));
-    vis();
 
+    /* Retting som i Eksamenssett, når nøkkel og svar-data finnes. */
+    const kit = R(), { set, ex, part } = ledd(ps, o, d);
+    const sv = kit && part ? kit.påslått(set, ex, part) : null;
+    const usikker = sv ? kit.usikkerKnapp(set, ex, part) : null;
+    if (hint.length || usikker) boks.appendChild(el(".ps-handling", hint.length ? knapp : null, hint.length ? skjul : null, usikker ? el(".spacer") : null, usikker));
+    vis();
+    const r = sv ? kit.resultat(set, ex, part) : null;
+    if (sv) {
+      boks.appendChild(kit.svarFelt(set, ex, part, sv, false));
+      if (r) {
+        if (kit.endretSiden(set, ex, part)) boks.appendChild(kit.påNyttRad(set, ex, part));
+        const resultat = kit.rettVisning(set, ex, part, sv);
+        if (resultat) boks.appendChild(resultat);
+      } else boks.appendChild(el(".ps-handling",
+        el("button.btn.sm.primary", { type: "button", onclick: () => kit.rettDel(set, ex, part) }, `Rett ${d.l})`)));
+    }
+
+    /* Etter retting står fasiten åpen når svaret ikke er riktig, lukket når det er det. */
+    const fk = `${ps.id}:${o.nr}:${d.l}`, sig = rettSig(r), valgt = fasitValg.get(fk);
     const fasit = el("details.ps-fasit", el("summary", "Vis fasit"), el(".ps-fasitkropp", prosa(d.fasit || "")));
+    if (r) fasit.open = valgt && valgt.sig === sig ? valgt.åpen : !kit.riktig(set, ex, part);
+    fasit.querySelector("summary").addEventListener("click", () => setTimeout(() => { if (r) fasitValg.set(fk, { sig, åpen: fasit.open }); }));
     fasit.addEventListener("toggle", () => {
       if (fasit.open && !(st(ps, o.nr).fasit || {})[d.l]) lagre(ps, o.nr, { fasit: Object.assign({}, st(ps, o.nr).fasit, { [d.l]: 1 }) });
     });
@@ -182,7 +245,15 @@ window.EDU = window.EDU || {};
       ? el("a.btn.primary", { href: `#/problemsett/${ps.id}/${rekke[i + 1].nr}` }, "Neste oppgave →")
       : el("a.btn.primary", { href: "#/problemsett/" + ps.id }, "Tilbake til oversikten");
     wrap.appendChild(el(".row.wrap", { style: { gap: "10px", marginTop: "4px" } }, forrige, el(".spacer"), neste));
+    const kopi = kopiKort(ps, "Det du ikke kunne så langt i settet");
+    if (kopi) wrap.appendChild(kopi);
     return wrap;
+  }
+  /* «Kopier det jeg ikke kunne» for hele settet, som i Eksamenssett. */
+  function kopiKort(ps, tittel) {
+    const kit = R();
+    const rad = kit && rettingPå(ps) ? kit.kopierRad([settAv(ps)], { kilde: "Problem sets", kunPåbegynte: true }) : null;
+    return rad ? el(".card", { style: { marginTop: "18px" } }, el("p.tiny", { style: { margin: "0 0 10px", fontWeight: 620 } }, tittel), rad) : null;
   }
 
   /* ---------- ett sett ---------- */
@@ -210,6 +281,8 @@ window.EDU = window.EDU || {};
     intro.appendChild(el("p.tiny", { style: { margin: "0 0 10px" } },
       "Prøv selv først. Står du fast, tar du ett hint om gangen: de går fra retning til en oppskrift uten tall, så du ser fasiten bare når du har regnet ferdig."));
     intro.appendChild(stige(ps));
+    if (rettingPå(ps)) intro.appendChild(el("p.tiny", { style: { margin: "12px 0 0", lineHeight: 1.55 } }, el("b", "Retting er på. "),
+      "Før inn svaret under hintene og trykk «Rett a)». Tall rettes automatisk og gratis. Tekst rettes av Claude Opus 5.5, rundt 4–8 cent per svar. Fasiten står lukket når svaret er riktig."));
     wrap.appendChild(intro);
 
     wrap.appendChild(el(".row.wrap", { style: { gap: "12px", alignItems: "center", marginBottom: "12px" } },
@@ -232,6 +305,9 @@ window.EDU = window.EDU || {};
     });
     kort.appendChild(liste);
     wrap.appendChild(kort);
+
+    const kopi = kopiKort(ps, "Det du ikke kunne i settet");
+    if (kopi) { kopi.style.marginTop = "0"; kopi.style.marginBottom = "18px"; wrap.appendChild(kopi); }
 
     const forklaring = Object.values(nivåer(ps)).map((n) => n[0] + " " + n[1].toLowerCase()).join(", ");
     wrap.appendChild(el("p.tiny.muted", "Stjernene er fra settet: " + forklaring + "."));

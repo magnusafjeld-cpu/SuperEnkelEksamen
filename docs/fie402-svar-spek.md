@@ -84,3 +84,24 @@ tekstdelen poeng i halve poeng. Summen blir oppgavens poengsum, og studenten kan
 - Finner du en feil i løsningen, bruk det riktige tallet, sett `regnet: true` og forklar i
   `merknad`. Rapporter det.
 - `node tools/sjekk-svar.js fie402 <settId>` må gi 0 feil før du leverer.
+
+## Problem sets (fra 25. november 2026)
+
+Problem sets (`/problemsett`, `fag/fie402/problemsett.js`) bruker samme retting. Dataene
+ligger i `fag/fie402/_svar/<id>.json` (`ps1` til `ps4`) med nøkkel `"<id>:<oppgavenr>:<bokstav>"`,
+for eksempel `"ps1:3:c"`. De bygges inn i `svar.js` sammen med settene.
+
+```bash
+node tools/svar-deler.js fie402 ps1     # delspørsmålene med kontekst, spørsmål og fasit
+node tools/sjekk-svar.js fie402 ps1     # kontroll mot fasiten (0 feil kreves)
+```
+
+Forskjellene fra settene:
+
+- Bare `tall`, `tekst` og `blandet`. Fasiten er på norsk med engelske tall.
+- Oppgavene har ikke poeng. Regelen er 1 poeng per tall, 2 for `tekst` og `tallPoeng + 2`
+  for `blandet` (`tallPoeng` = antall tall). `poeng` overstyrer, men brukes bare unntaksvis.
+- `kriterier` (2 til 4, engelsk) står på hver `tekst` og `blandet`. Oppgavene har ingen
+  kriterier selv. Uten dem retter Claude bare mot fasiten. Kriteriene vurderer bare
+  tekstdelen og skal kreve mekanismen, ikke bare konklusjonen.
+- Regneskriptene `fag/fie402/_problemsett/psN_regn.py` har tallene med full presisjon.

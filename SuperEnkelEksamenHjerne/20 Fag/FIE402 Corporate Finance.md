@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-11-24
+oppdatert: 2026-11-25
 ---
 
 # FIE402 Corporate Finance
@@ -461,6 +461,16 @@ på norsk, stjernene fra settet (tutorial, forelesning, egen trening).
 Formelarket fra HTML-siden ble utelatt, siden appen har eksamensarket på alle
 sider. Neste sett legges til som et nytt objekt i samme fil. Se
 [[Moduler og visninger]].
+
+**Retting (fra 25. november 2026).** Alle 144 delspørsmålene har svar-data i
+`fag/fie402/_svar/ps1.json` til `ps4.json`: 90 `tall`, 23 `tekst` og 31 `blandet`
+(ps1 29/8/15, ps2 28/1/3, ps3 27/7/9, ps4 6/7/4 etter at trærne i ps3 1a og 10b ble
+tall). Tallene er regnet i Python (`_problemsett/psN_regn.py`) og kontrollert mot
+fasiten med `tools/sjekk-svar.js`; ingen fasitfeil ble funnet. Tekstdelene har egne
+engelske `kriterier`, siden problem settene ikke har det. Skjønn verdt å vite: ps1 13c
+retter bare P_cum = $42 (utbyttets størrelse er studentens valg), ps2 3b godtar både
+V<sup>L</sup> og NPV, ps3 2b krever fortegnet på B og ps4 1c har `tol 0.005` så
+den som glemmer å diskontere, ikke får riktig.
 
 ## Prøveeksamenene
 

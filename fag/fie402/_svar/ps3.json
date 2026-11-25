@@ -1,0 +1,595 @@
+{
+ "ps3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Stock price, up state",
+    "verdi": 75.0,
+    "enhet": "$"
+   },
+   {
+    "navn": "Stock price, down state",
+    "verdi": 48.0,
+    "enhet": "$"
+   },
+   {
+    "navn": "Lending $1, both states",
+    "verdi": 1.1,
+    "enhet": "$"
+   }
+  ],
+  "merknad": "Treet føres inn som tallene i nodene (60 × 1.25, 60 × 0.80 og 1 × 1.10), så det rettes automatisk."
+ },
+ "ps3:1:b": {
+  "type": "tekst",
+  "kriterier": [
+   "Writes the cost as 60Δ + B: Δ shares bought at today's price of $60 plus the B dollars lent today.",
+   "Treats both terms as paid today, so a short position (Δ < 0) or borrowing (B < 0) brings money in and lowers the cost."
+  ]
+ },
+ "ps3:1:c": {
+  "type": "tekst",
+  "kriterier": [
+   "Starts the tree at the cost from (b), 60Δ + B.",
+   "Up state: 75Δ + 1.1B. Down state: 48Δ + 1.1B.",
+   "Explains how the end values are built: the Δ shares take the stock price in each state from (a) while the loan grows to 1.1B in both states."
+  ]
+ },
+ "ps3:1:d": {
+  "type": "tekst",
+  "kriterier": [
+   "Computes the put's payoffs at maturity: max(66 − 75, 0) = 0 in the up state and max(66 − 48, 0) = 18 in the down state.",
+   "Sets the portfolio equal to the put in each state: 75Δ + 1.1B = 0 and 48Δ + 1.1B = 18.",
+   "Explains the replication logic: the portfolio must pay exactly what the put pays in both states, so two states give two equations for the two unknowns."
+  ]
+ },
+ "ps3:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Δ (shares bought)",
+    "verdi": -0.6666666666666666,
+    "enhet": "",
+    "regnet": true,
+    "merknad": "Fasiten skriver Δ = −2/3 som brøk, som kontrollen ikke leser som desimaltall."
+   },
+   {
+    "navn": "B (amount lent)",
+    "verdi": 45.45454545454545,
+    "enhet": "$"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "In words, what is your portfolio?",
+  "kriterier": [
+   "Describes the portfolio in words: sell short 2/3 of a share and lend $45.45 at the risk-free rate (B > 0 means lending).",
+   "Explains why the stock position is short: the put pays more when the stock falls, so the replicating portfolio must lose value when the stock rises.",
+   "Explains how the lending makes the payoffs match: the loan pays 50 in both states, which offsets the short position (−50) in the up state and leaves 18 (−32 + 50) in the down state."
+  ]
+ },
+ "ps3:1:f": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Put price P",
+    "verdi": 5.454545454545453,
+    "enhet": "$"
+   }
+  ]
+ },
+ "ps3:1:g": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Black-Scholes put price P",
+    "verdi": 5.255437505078014,
+    "enhet": "$",
+    "alt": [
+     5.10396410011721
+    ]
+   }
+  ],
+  "merknad": "Kurset bruker PV(K) = K/(1 + r)^T, som gir 5.2554. Leses 10 % som kontinuerlig rente (PV(K) = 66e^(−0.1) = 59.72), blir putten 5.1040. Det godtas som alt. «Something else» er put-call-pariteten."
+ },
+ "ps3:2:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Share price S<sub>0</sub>",
+    "verdi": 200.00000000000003,
+    "enhet": "$ per share"
+   }
+  ]
+ },
+ "ps3:2:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Δ (shares bought)",
+    "verdi": 0.65,
+    "enhet": ""
+   },
+   {
+    "navn": "B (amount lent, negative = borrowing)",
+    "verdi": -100.0,
+    "enhet": "$"
+   }
+  ],
+  "merknad": "Fortegn som i oppgave 1: Δ er aksjer kjøpt og B er beløp lånt ut. Kjøp 0.65 aksjer og lån $100 gir Δ = 0.65 og B = −100. Retningen ligger i fortegnet, så typen er tall."
+ },
+ "ps3:2:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Call price C",
+    "verdi": 30.00000000000003,
+    "enhet": "$"
+   }
+  ]
+ },
+ "ps3:2:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "β<sub>C</sub>",
+    "verdi": 3.249999999999998,
+    "enhet": ""
+   },
+   {
+    "navn": "r<sub>C</sub> (expected return)",
+    "verdi": 29.99999999999999,
+    "enhet": "%"
+   }
+  ]
+ },
+ "ps3:2:e": {
+  "type": "tekst",
+  "kriterier": [
+   "Computes the expected payoff of the call with the true probabilities: 0.5 × 78 + 0.5 × 0 = 39.",
+   "Discounts at the call's expected return of 30% from (d), not at the risk-free rate or the stock's 15%: 39 / 1.30 = 30.",
+   "Concludes that this equals the price from (c) and explains why: the 30% rate reflects the call's leveraged risk (beta 3.25), so CAPM discounting and replication give the same value."
+  ]
+ },
+ "ps3:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Call value C",
+    "verdi": 8.503803246980205,
+    "enhet": "$"
+   }
+  ],
+  "merknad": "Kontinuerlig rente gir 8.5388, innenfor 1 %."
+ },
+ "ps3:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "C at S = 61",
+    "verdi": 9.136956154084508,
+    "enhet": "$"
+   },
+   {
+    "navn": "Change in C from (a)",
+    "verdi": 0.6331529071043036,
+    "enhet": "$",
+    "abs": 0.01
+   }
+  ],
+  "merknad": "Endringen har abs 0.01 fordi den ofte regnes som differansen mellom avrundede priser. Med kontinuerlig rente ligger prisen innenfor 1 %."
+ },
+ "ps3:3:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "C at σ = 31%",
+    "verdi": 8.73176288642382,
+    "enhet": "$"
+   },
+   {
+    "navn": "Change in C from (a)",
+    "verdi": 0.22795963944361475,
+    "enhet": "$",
+    "abs": 0.01
+   }
+  ],
+  "merknad": "Endringen har abs 0.01 fordi den ofte regnes som differansen mellom avrundede priser. Med kontinuerlig rente ligger prisen innenfor 1 %."
+ },
+ "ps3:3:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "C at r = 6%",
+    "verdi": 8.779453214717748,
+    "enhet": "$"
+   },
+   {
+    "navn": "Change in C from (a)",
+    "verdi": 0.275649967737543,
+    "enhet": "$",
+    "abs": 0.01,
+    "alt": [
+     0.29149058058208155
+    ]
+   }
+  ],
+  "merknad": "Endringen har abs 0.01 fordi den ofte regnes som differansen mellom avrundede priser. Med kontinuerlig rente blir endringen 0.2915 (godtas som alt) og prisen 8.8302, innenfor 1 %."
+ },
+ "ps3:3:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "C with 11 months left",
+    "verdi": 8.094520006779703,
+    "enhet": "$"
+   },
+   {
+    "navn": "Change in C from (a)",
+    "verdi": -0.40928324020050155,
+    "enhet": "$",
+    "abs": 0.01
+   }
+  ],
+  "merknad": "Endringen har abs 0.01 fordi den ofte regnes som differansen mellom avrundede priser. Med kontinuerlig rente ligger prisen innenfor 1 %."
+ },
+ "ps3:3:f": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "C after the $1 dividend",
+    "verdi": 7.89175431770709,
+    "enhet": "$"
+   },
+   {
+    "navn": "Change in C from (a)",
+    "verdi": -0.612048929273115,
+    "enhet": "$",
+    "abs": 0.01
+   }
+  ],
+  "merknad": "Endringen har abs 0.01 fordi den ofte regnes som differansen mellom avrundede priser. Med kontinuerlig rente ligger prisen innenfor 1 %."
+ },
+ "ps3:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "E[R] (expected return on the stock)",
+    "verdi": 19.999999999999996,
+    "enhet": "%"
+   }
+  ]
+ },
+ "ps3:4:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "ρ (risk-neutral probability of an increase)",
+    "verdi": 0.25,
+    "enhet": "",
+    "regnet": true,
+    "merknad": "Fasiten skriver 25 %, som kontrollen ikke leser som 0.25. Motoren godtar både 0.25 og 25."
+   }
+  ]
+ },
+ "ps3:4:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Call value C",
+    "verdi": 1.1904761904761905,
+    "enhet": "$"
+   }
+  ]
+ },
+ "ps3:4:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "E[R<sub>C</sub>] (expected return on the call)",
+    "verdi": 110.00000000000001,
+    "enhet": "%"
+   }
+  ]
+ },
+ "ps3:4:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Put value P",
+    "verdi": 5.0,
+    "enhet": "$"
+   }
+  ]
+ },
+ "ps3:4:f": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "E[R<sub>P</sub>] (expected return on the put)",
+    "verdi": -30.000000000000004,
+    "enhet": "%"
+   }
+  ]
+ },
+ "ps3:5:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Call price C",
+    "verdi": 23.325050906418667,
+    "enhet": "$"
+   }
+  ],
+  "merknad": "Kursets 23.29 (N avrundet til tre desimaler), kontinuerlig rente (23.36) og T = 0.25 (23.38) ligger alle innenfor 1 %."
+ },
+ "ps3:5:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Put price P",
+    "verdi": 1.8116157484620317,
+    "enhet": "$"
+   }
+  ],
+  "merknad": "Fire desimaler i N gir 1.81 og kontinuerlig rente 1.80, begge innenfor 1 %. Kursets 1.78 bygger på callprisen 23.29 og godtas ikke, i tråd med fasiten."
+ },
+ "ps3:6:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Rate on the debt (yield to maturity)",
+    "verdi": 12.295413090128271,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Effektiv årlig rente med T = 1.5 og midtkurs, som i fasiten. Kredittspreaden er ikke spurt om."
+ },
+ "ps3:6:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Rate on the junior debt (yield to maturity)",
+    "verdi": 35.92951286421171,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Kursets 36.1 % (seniorgjelden avrundet til 87.4) ligger innenfor 1 %."
+ },
+ "ps3:7:a": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Maturity T",
+    "verdi": 5,
+    "enhet": "years"
+   },
+   {
+    "navn": "Value of the underlying",
+    "verdi": 750.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Strike price K",
+    "verdi": 402.6275000000001,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Describe Wesley's equity as a call option.",
+  "kriterier": [
+   "Describes the equity as a European call option on the firm's assets with a strike equal to the face value of the debt, maturing when the debt matures.",
+   "Explains the payoff at maturity: the shareholders get max(V_5 − 402.6, 0), what is left of the assets after the debt is repaid.",
+   "Explains the option feature: with limited liability the shareholders can walk away if the assets are worth less than the face value, so they repay the debt (exercise) only when V_5 > 402.6."
+  ]
+ },
+ "ps3:7:b": {
+  "type": "tekst",
+  "kriterier": [
+   "Describes the debt as a long position in the firm's assets plus a short position in the call from (a), with strike $402.6M (the face value) and a 5-year maturity.",
+   "Shows the payoff at maturity: V_5 − max(V_5 − 402.6, 0) = min(V_5, 402.6).",
+   "Explains the logic: the creditors own the assets but have in effect sold the shareholders the right to buy them back for the face value, so the creditors get at most 402.6."
+  ]
+ },
+ "ps3:7:c": {
+  "type": "tekst",
+  "kriterier": [
+   "Describes the debt as a long risk-free zero-coupon bond with face value $402.6M maturing in 5 years plus a short put on the firm's assets with strike $402.6M and the same maturity (the face value, not today's market value of 250).",
+   "Shows the payoff at maturity: 402.6 − max(402.6 − V_5, 0) = min(V_5, 402.6).",
+   "Explains that the short put is the default risk: if V_5 is below 402.6 the shareholders hand the assets over to the creditors, who receive only V_5 instead of the face value."
+  ]
+ },
+ "ps3:8:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": 2.7272727272727266,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "ps3:8:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV with the study",
+    "verdi": 3.045454545454545,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Should you commission this study?",
+  "kriterier": [
+   "Concludes that you should commission the study, comparing the NPV with the study with the NPV of investing now from (a) (2.73), not with zero.",
+   "Explains the decision in year 1: invest only if demand is high (worth 10 at year 1) and skip the project if demand is low (−4.55), so the study turns the investment into an option.",
+   "Explains why it pays: avoiding the low-demand state is worth more than the $1.5M cost and the one-year delay. Optional: the study is worth up to 4.55 − 2.73 = $1.82M."
+  ]
+ },
+ "ps3:8:c": {
+  "type": "tekst",
+  "kriterier": [
+   "Answers no: you still commission the study. It only becomes more valuable.",
+   "Explains that investing now is unaffected when only the spread increases: the expected cash flow is unchanged, so the NPV from (a) is unchanged.",
+   "Explains the asymmetry: the higher cash flow in the high state raises the value of the study, while the lower cash flow in the low state does not matter because you do not invest then.",
+   "Links it to option theory: more volatility raises the value of the option the study gives, just as for a call."
+  ]
+ },
+ "ps3:9:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV (invest today)",
+    "verdi": 250.0,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "ps3:9:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV of waiting (as of year 0)",
+    "verdi": 238.63636363636363,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Is he better or worse off than when he invested at 0? Explain the intuition.",
+  "kriterier": [
+   "Concludes that he is worse off waiting (238.6 < 250), so the CEO should invest today.",
+   "Explains the cost of waiting: the cash flows start a year later, so he gives up the year-1 cash flow (50 expected).",
+   "Explains why the information is worth little: waiting only lets him avoid the state where the lawsuit succeeds, which has a probability of only 5%."
+  ]
+ },
+ "ps3:9:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV of investing today (p = 0.3)",
+    "verdi": 250.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "NPV of waiting (p = 0.3)",
+    "verdi": 261.3636363636363,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Does this change your answer to question (b)? Explain the intuition.",
+  "kriterier": [
+   "Concludes yes: now it pays to wait, since 261.4 > 250.",
+   "Notes that the expected cash flow is still 50, so investing today still gives 250. Only the spread of the outcomes has increased.",
+   "Explains the intuition: with a 15% chance that the project becomes worthless the information is worth more, so the option to wait rises in value, just as a call rises in value with volatility."
+  ]
+ },
+ "ps3:9:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV of investing today (reversible)",
+    "verdi": 284.09090909090907,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "How will this affect the timing of your investment? Explain the intuition.",
+  "kriterier": [
+   "Concludes that you now invest today, because 284.1 exceeds the 261.4 from waiting in (c).",
+   "Explains that the value of waiting came from avoiding the bad state where the lawsuit succeeds. Reversibility gives that protection even if you invest now, since you get the $250M back in the bad state.",
+   "Explains that investing now then also keeps the year-1 cash flow, which waiting gives up."
+  ],
+  "merknad": "Verdien av å vente er uendret (261.4), fordi du uansett ikke investerer i den dårlige tilstanden når du venter."
+ },
+ "ps3:10:a": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value today (best method)",
+    "verdi": 24.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Which method would you use?",
+  "kriterier": [
+   "Chooses method 1 (the normal method), since it gives $24M against 2 × (60 − 52) = $16M for the careful method.",
+   "Explains the trade-off: method 2 doubles the barrels but cuts the margin per barrel from $24 to $8, so at today's price the lower margin outweighs the extra volume."
+  ]
+ },
+ "ps3:10:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Oil price, up state",
+    "verdi": 72.0,
+    "enhet": "$"
+   },
+   {
+    "navn": "Oil price, down state",
+    "verdi": 48.0,
+    "enhet": "$"
+   }
+  ],
+  "merknad": "Treet føres inn som tallene i nodene (60 × 1.2 og 60 × 0.8), så det rettes automatisk."
+ },
+ "ps3:10:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Up (72), method 1",
+    "verdi": 36.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Up (72), method 2",
+    "verdi": 40.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Down (48), method 1",
+    "verdi": 12.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Down (48), method 2",
+    "verdi": -8.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "At each end-point, which extraction method is optimal?",
+  "kriterier": [
+   "Picks method 2 (the careful method) in the up state at $72, since 40 > 36.",
+   "Picks method 1 (the normal method) in the down state at $48, since 12 > −8. Method 2 loses money there because $48 is below its cost of $52 per barrel.",
+   "Explains the pattern: the extra barrels from method 2 pay off only when the price is well above its $52 cost, so a high price favours volume and a low price favours the cheap method."
+  ],
+  "merknad": "Fasiten viser en tabell, men spørsmålet ber om verdiene, så de rettes som tall. Valget av metode er tekstdelen."
+ },
+ "ps3:10:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "PV of extracting next year",
+    "verdi": 29.999999999999996,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "ps3:10:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value of the option to wait",
+    "verdi": 5.9999999999999964,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Is it better to extract the oil today or to wait until next year?",
+  "kriterier": [
+   "Concludes that it is better to wait, comparing the PV of waiting ($30M) with extracting today ($24M).",
+   "Explains where the value comes from: waiting lets you choose the extraction method after the price is known (method 2 if the price rises, method 1 if it falls)."
+  ]
+ }
+}

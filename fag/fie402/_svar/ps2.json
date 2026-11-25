@@ -1,0 +1,455 @@
+{
+  "ps2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price",
+        "verdi": 50.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New shares issued",
+        "verdi": 250.0,
+        "enhet": "shares"
+      },
+      {
+        "navn": "Share price after the issue",
+        "verdi": 40.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps2:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New shares issued",
+        "verdi": 111.11111111111111,
+        "enhet": "shares"
+      },
+      {
+        "navn": "Share price after the issue",
+        "verdi": 90.0,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps2:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "New shares issued",
+        "verdi": 111.11111111111111,
+        "enhet": "shares"
+      },
+      {
+        "navn": "Share price after the issue",
+        "verdi": 90.0,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Would their shareholders want to do this? Explain.",
+    "kriterier": [
+      "States that Okhtor's shareholders want to invest: under conjecture C the market reads the investment as a signal of the good state and values the firm at $100K, so the share price rises from $50 to $90.",
+      "Explains where the gain comes from: the new shareholders pay $10K for shares in a firm that is really worth 0, so the old shareholders gain at the new shareholders' expense (a wealth transfer that is reversed when the truth comes out).",
+      "Compares with not investing: the price would stay at $50 (if the market keeps its 50-50 belief) or drop to 0 (if staying out reveals the bad state under C), so investing is better either way. Either baseline is accepted."
+    ]
+  },
+  "ps2:1:e": {
+    "type": "tekst",
+    "kriterier": [
+      "States clearly that conjecture C is not rational: it is not an equilibrium because it does not match what the firms would actually do.",
+      "Gives the mechanism from (d): if the market believes C, the bad type also gains from investing (its price goes to $90 instead of $50 or 0), so the bad type has an incentive to mimic the good type.",
+      "Concludes that both types invest, so the investment reveals nothing about the state and the outcome is pooling rather than the separating outcome C assumes."
+    ]
+  },
+  "ps2:2:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Net amount raised",
+        "verdi": 93.0,
+        "enhet": "$ m"
+      }
+    ],
+    "merknad": "Netto etter spread (93). Brutto 100 godtas ikke: spørsmålet er hva firmaet får inn. Del (c) bygger også på 93."
+  },
+  "ps2:2:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Market value after the IPO",
+        "verdi": 750,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "ps2:2:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price at fair value",
+        "verdi": 65.7,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "ps2:2:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Total cost to the original investors",
+        "verdi": 157.00000000000003,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "ps2:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 8.49125,
+        "enhet": "%"
+      }
+    ]
+  },
+  "ps2:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Project value V<sup>L</sup><sub>0</sub>",
+        "verdi": 185.86272516081615,
+        "enhet": "$ m",
+        "alt": [
+          85.86272516081615
+        ]
+      }
+    ],
+    "merknad": "«The value of a project» kan leses som V^L_0 = 185.86 (verdien av kontantstrømmene fra år 1) eller som NPV = 85.86 etter investeringen på 100. Fasiten gir begge, så NPV godtas som alt. Oppgaven oppgir ingen enhet; $ m som i læreboka."
+  },
+  "ps2:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "D<sub>0</sub>",
+        "verdi": 46.46568129020403,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "D<sub>1</sub>",
+        "verdi": 37.91119845275848,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "D<sub>2</sub>",
+        "verdi": 16.130333091378333,
+        "enhet": "$ m"
+      }
+    ],
+    "merknad": "D_3 = 0 er utelatt (prosjektet er slutt). Gjeldskapasiteten er 25 % av V^L_t."
+  },
+  "ps2:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 9.025,
+        "enhet": "%"
+      }
+    ]
+  },
+  "ps2:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 184.00611281206955,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "ps2:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "TS<sub>1</sub>",
+        "verdi": 0.992042295545856,
+        "enhet": "$ m",
+        "abs": 0.005
+      },
+      {
+        "navn": "TS<sub>2</sub>",
+        "verdi": 0.8094040869663934,
+        "enhet": "$ m",
+        "abs": 0.005
+      },
+      {
+        "navn": "TS<sub>3</sub>",
+        "verdi": 0.34438261150092736,
+        "enhet": "$ m",
+        "abs": 0.005
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 1.8566123487466055,
+        "enhet": "$ m"
+      }
+    ],
+    "merknad": "abs 0.005 på skatteskjoldene så kursets avrunding til to desimaler (0.99, 0.81, 0.34) godtas; 0.34 er 1.3 % fra 0.3444. Kursets PV(TS) 1.85 ligger innenfor 1 %."
+  },
+  "ps2:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "APV = V<sup>U</sup> + PV(TS)",
+        "verdi": 185.86272516081615,
+        "enhet": "$ m"
+      }
+    ],
+    "merknad": "At APV er lik WACC-verdien 185.86 fra 3(b) følger direkte av tallet."
+  },
+  "ps2:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 41.666666666666664,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "ps2:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup>",
+        "verdi": 45.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "ps2:5:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Initial debt D",
+        "verdi": 10.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "ps2:5:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "d = D/V<sup>L</sup>",
+        "verdi": 0.2222222222222222,
+        "enhet": ""
+      },
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 9.555555555555555,
+        "enhet": "%"
+      }
+    ]
+  },
+  "ps2:5:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (WACC method)",
+        "verdi": 45.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "ps2:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 13856.812933025403,
+        "enhet": "$"
+      }
+    ]
+  },
+  "ps2:6:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Interest next year",
+        "verdi": 250.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Growth rate of interest",
+        "verdi": 3.0,
+        "enhet": "%"
+      }
+    ]
+  },
+  "ps2:6:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "PV(interest tax shield)",
+        "verdi": 1154.7344110854501,
+        "enhet": "$"
+      }
+    ]
+  },
+  "ps2:6:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup>",
+        "verdi": 15011.547344110853,
+        "enhet": "$"
+      },
+      {
+        "navn": "Equity E",
+        "verdi": 10011.547344110853,
+        "enhet": "$"
+      }
+    ]
+  },
+  "ps2:6:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 10.993846153846153,
+        "enhet": "%"
+      }
+    ]
+  },
+  "ps2:6:f": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 14.986159169550174,
+        "enhet": "%"
+      }
+    ]
+  },
+  "ps2:6:g": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>E</sub>",
+        "verdi": 1.6643598615916955,
+        "enhet": ""
+      },
+      {
+        "navn": "E/(D+E) β<sub>E</sub> + D/(D+E) β<sub>D</sub>",
+        "verdi": 1.11,
+        "enhet": ""
+      }
+    ],
+    "merknad": "β_D = 0 fordi gjelden er risikofri. At summen blir β_A = 1.11 er selve «show that»; β_E er tallet som må regnes."
+  },
+  "ps2:6:h": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Equity cash flow in year 1 (FCFE)",
+        "verdi": 1200.0,
+        "enhet": "$"
+      },
+      {
+        "navn": "Growth rate of FCFE",
+        "verdi": 3.0,
+        "enhet": "%"
+      },
+      {
+        "navn": "E (FTE method)",
+        "verdi": 10011.547344110855,
+        "enhet": "$"
+      }
+    ],
+    "merknad": "At FTE gir samme E som APV i (d) følger direkte av tallet. Kursets E = 10 000 (fra r_E = 15 %) ligger innenfor 1 %."
+  },
+  "ps2:7:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of GAP's equity to H&M",
+        "verdi": 322.7272727272727,
+        "enhet": "$ m",
+        "alt": [
+          247.7272727272727
+        ]
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "State the additional assumptions you make.",
+    "kriterier": [
+      "States that H&M is used as the comparable because GAP is private and in the same business. H&M's equity beta is unlevered with net debt (excess cash of $100 million netted against the debt) and a debt beta of zero.",
+      "States the debt policy and discounts the tax shield to match it: if debt grows with the firm at 5%, the tax shield has the risk of the assets and is a growing perpetuity at r_U; if the $250 million is held fixed forever, PV(TS) = τD. Either is accepted when stated.",
+      "States what is subtracted to get equity: GAP's current debt of $150 million, because the extra $100 million borrowed after the deal accrues to H&M as the new owner.",
+      "Treats the cut in NWC to $40 million as a gain only H&M can realise (a cash inflow in year 1) and lets all items grow at 5% from year 2, so the terminal value starts there."
+    ],
+    "merknad": "Fasiten lar gjelden vokse med 5 % (PV(TS) = 200, E = 322.7). Alt 247.7 er fasitens egen variant med fast gjeld på 250 for alltid (PV(TS) = τD = 125). Oppgaven ber om å oppgi antakelsene, så begge godtas."
+  },
+  "ps2:8:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Stand-alone value of Zola per share",
+        "verdi": 21.767433173806474,
+        "enhet": "$ per share",
+        "alt": [
+          33.52417582417584
+        ]
+      },
+      {
+        "navn": "Synergy value per share",
+        "verdi": 4.400718870598747,
+        "enhet": "$ per share",
+        "alt": [
+          5.8964386753309785
+        ]
+      },
+      {
+        "navn": "Maximum price per share",
+        "verdi": 26.16815204440522,
+        "enhet": "$ per share",
+        "alt": [
+          39.42061449950682
+        ]
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "State the additional assumptions you make.",
+    "kriterier": [
+      "States how r_U is chosen: both firms make cheese, so the equity betas are unlevered (Zola with a debt beta of 0.25 from the A-rated yield spread, Gorgon with its $425 million excess cash at beta 0) and averaged. Using Zola's own asset beta instead is accepted when stated.",
+      "States the leverage assumption and what follows from it: Zola stays at its optimal debt ratio with interest growing at 3%, so the tax shields have the risk of the assets and are discounted at r_U. The synergies add no debt capacity, so they get no tax shield.",
+      "States how FCF is read from the pro forma statements: capex is the change in PPE plus depreciation, NWC uses operating items only (all cash is operating and interest-bearing debt is financing) and the non-deductible amortization is left out because it is neither a cash flow nor a tax deduction."
+    ],
+    "merknad": "Hovedverdiene bruker snittet av eiendelsbetaene (1.6683, r_U = 15.01 %) som kurset. Alt er fasitens følsomhet med bare Zolas egen eiendelsbeta (1.1833, r_U = 12.1 %): 33.52, 5.90 og 39.42 per aksje. Kursets regneark ($25.86) godtas ikke: det bruker r_f = 5.2 % og trekker kortsiktig gjeld fra i NWC, se fasiten."
+  },
+  "ps2:9:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (APV)",
+        "verdi": 21.181818181818183,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 9.44206008583691,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "At WACC-metoden gir samme verdi (2 / r_wacc = 21.18) følger direkte av tallene."
+  }
+}
