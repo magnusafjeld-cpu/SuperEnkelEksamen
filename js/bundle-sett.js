@@ -61,10 +61,10 @@
    har svart feil på, kommer med automatisk. Lista øverst samler begge, og en feil står
    som «feil» også når den er merket usikker. Øvingsmodus kan vise bare dem.
 
-   Kopier det jeg ikke kunne (25. november 2026). Én knapp kopierer en ferdig melding
-   til Claude med alt du ikke fikk full uttelling på eller merket som usikkert: oppgaven,
-   svaret ditt, fasiten, feilen og Claudes retting. Claude lager så en NotebookLM-kilde
-   på det. Se «det du ikke kunne» nederst i filen.
+   Kopier det jeg ikke kunne (25. november 2026). Én knapp kopierer en beskrivelse av
+   alt du ikke fikk full uttelling på eller merket som usikkert: oppgaven, svaret ditt,
+   fasiten, feilen og Claudes retting. Bare beskrivelsen, ingen bestilling, så den kan
+   brukes til hva som helst. Se «det du ikke kunne» nederst i filen.
 
    Fremdrift lagres i state.exams under nøklene "<settId>-run" (økta),
    "<settId>-e<n>" (selvvurdering per oppgave og `åpne` med deloppgavene du har åpnet
@@ -1525,12 +1525,13 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     return box;
   }
 
-  /* ================= det du ikke kunne, som tekst til Claude ================= */
+  /* ================= det du ikke kunne, som tekst ================= */
   /* «Kopier det jeg ikke kunne» (fra 25. november 2026). Samler deloppgavene du ikke
      fikk full uttelling på (feil, delvis riktig, «Vet ikke», ubesvart) og dem du har
      merket som usikre, med oppgaveteksten, svaret ditt, fasiten, feilen og Claudes
-     retting. Teksten limes inn hos Claude, som skriver en NotebookLM-kilde på det du
-     ikke kunne. Bare ledd som er rettet eller merket kommer med. Knappen står i
+     retting. Teksten er bare en beskrivelse, uten bestilling til noen (Magnus ville
+     det slik 25. november 2026, så den kan brukes til flere ting). Bare ledd som er
+     rettet eller merket kommer med. Knappen står i
      resultatet etter levering, nederst i øvingsmodus, på settkortet, i «Usikre og
      feil» og i kartleggingsrapporten. Retting som er gjort med nøkkel, leses også
      uten nøkkel, så rapporten er den samme på alle enheter. */
@@ -1672,10 +1673,11 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
   function rapportTekst(sets) {
     const sub = window.EDU_SUBJECT || {};
     const med = sets.map((set) => ({ set, rap: rapportFor(set) })).filter((x) => x.rap.med.length);
+    /* Bare beskrivelsen, ingen bestilling: teksten skal kunne brukes til hva som helst. */
     const ut = [
-      `Lag en NotebookLM-kilde på det jeg ikke kunne i ${sub.name || "faget"}.`,
+      `Det jeg ikke kunne i ${sub.name || "faget"}`,
       "",
-      "Under står deloppgavene jeg ikke fikk full uttelling på (feil, delvis riktig, «Vet ikke» eller ubesvart) og dem jeg merket som usikre. For hver står oppgaven, svaret mitt, fasiten og hva som gikk galt. Forklar hvert tema fra grunnen og vis hvorfor svaret mitt er feil og hvordan det gjøres riktig. Legg til et nytt regneeksempel der det passer. Usikre deloppgaver med riktig svar trenger bare en kort repetisjon. Skriv kilden på samme språk som oppgavene.",
+      "Deloppgavene jeg ikke fikk full uttelling på (feil, delvis riktig, «Vet ikke» eller ubesvart) og dem jeg merket som usikre. For hver står oppgaven, svaret mitt, fasiten og hva som gikk galt.",
       "",
       `Fra Eksamenssett i appen, ${dato(S.u.nowTs())}. Fag-id: ${sub.id || "ukjent"}. ${med.length === 1 ? "Ett sett" : med.length + " sett"}.`,
     ];
@@ -1689,10 +1691,10 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     const n = sets.reduce((a, set) => a + rapportFor(set).med.length, 0);
     if (!n) return null;
     return el("button.btn.sm" + (opts.primary ? ".primary" : ".ghost"), { type: "button",
-      title: "Kopierer feil, delvis riktige og usikre deloppgaver med svaret ditt, fasiten og feilen, klart til å limes inn hos Claude",
+      title: "Kopierer feil, delvis riktige og usikre deloppgaver med svaret ditt, fasiten og feilen",
       onclick: async () => {
         const ok = await S.u.tilUtklipp(rapportTekst(sets));
-        S.u.toast(ok ? `Kopiert: ${n} ${n === 1 ? "deloppgave" : "deloppgaver"}. Lim det inn hos Claude` : "Fikk ikke kopiert. Prøv igjen, eller i en annen nettleser.");
+        S.u.toast(ok ? `Kopiert: ${n} ${n === 1 ? "deloppgave" : "deloppgaver"}` : "Fikk ikke kopiert. Prøv igjen, eller i en annen nettleser.");
       } }, `${opts.tekst || "Kopier det jeg ikke kunne"} (${n})`);
   }
   /* Knappen med forklaring, til resultatet, øvingsmodus og kartleggingsrapporten. */
@@ -1702,7 +1704,7 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     const venter = sets.reduce((n, set) => n + ventendeTekst(set).length, 0);
     return el(".row.wrap", { style: { gap: "10px", alignItems: "center" } }, knapp,
       el("span.tiny.muted", { style: { flex: "1 1 260px", lineHeight: 1.5 } },
-        "Kopierer det du svarte feil eller delvis feil på og det du merket som usikkert, med oppgaven, svaret ditt, fasiten og hva som gikk galt. Lim det inn hos Claude, så lager Claude en NotebookLM-kilde på det du ikke kunne."
+        "Kopierer det du svarte feil eller delvis feil på og det du merket som usikkert, med oppgaven, svaret ditt, fasiten og hva som gikk galt."
         + (venter ? ` ${venter} tekstsvar er ikke rettet ennå. Rett dem først, så kommer feilene der med.` : "")));
   }
 

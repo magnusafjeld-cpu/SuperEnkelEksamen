@@ -152,10 +152,16 @@ ingenting av dette.
 
 ### «Kopier det jeg ikke kunne» (25. november 2026)
 
-Magnus ville kunne sende det han ikke kunne til Claude, som lager en NotebookLM-kilde
-på det. Knappen kopierer en ferdig melding med et kort oppdrag øverst og så, per sett
-og oppgave, hver deloppgave som trenger repetisjon: oppgaveteksten, svaret hans,
+Magnus ville kunne kopiere det han ikke kunne, for eksempel for å få Claude til å lage
+en NotebookLM-kilde på det. Knappen kopierer en beskrivelse med en kort overskrift og så,
+per sett og oppgave, hver deloppgave som trenger repetisjon: oppgaveteksten, svaret hans,
 fasiten, feilen og løsningen med kriteriene.
+
+> [!note] Bare beskrivelsen, ingen bestilling
+> Den første versjonen (bygg 220) hadde et oppdrag til Claude øverst («Lag en
+> NotebookLM-kilde …»). Magnus ville ikke det, fordi han vil bruke teksten til flere
+> ting. Fra bygg 221 står bare beskrivelsen, og knappen og varselet nevner ikke Claude.
+> Legg ikke inn en bestilling igjen.
 
 - **Hva som kommer med:** feil, delvis riktig, «Vet ikke», ubesvart (etter retting) og
   alt som er merket usikkert, også når svaret ble riktig. Bredere enn «Usikre og feil»,
