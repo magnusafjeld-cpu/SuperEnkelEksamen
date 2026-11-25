@@ -673,7 +673,11 @@ window.EDU = window.EDU || {};
      Uten nøkkel, uten svar-data, i kartleggingen og i oppgaver med ekte flervalg er
      alt som før: fasitknapp og selvvurdering. Oppgavene endres aldri.
 
-     I øving retter «Rett a)» delen og åpner fasiten. I eksamensmodus fører du inn
+     I øving retter «Rett a)» delen og åpner fasiten. Feltene står åpne etterpå
+     (fra 25. november 2026): endrer du svaret, kommer «Rett a) på nytt». Den første
+     rettingen lagres i `første` og blir med i «Kopier det jeg ikke kunne», fordi
+     et svar du retter etter å ha sett fasiten, ikke viser at du kunne det. Er
+     teksten uendret, beholdes Claudes retting av den. I eksamensmodus fører du inn
      mens klokka går, og ingenting rettes før du leverer: da rettes tallene med en
      gang, og én knapp retter tekstsvarene. Er et tall feil og et tidligere tall i
      samme oppgave også feil, kan Sonnet 5.5 sjekke om det er en følgefeil (Kurbatov
@@ -682,7 +686,9 @@ window.EDU = window.EDU || {};
      Lagres i "<settId>-e<n>": `inn` { etikett: { t: [tekst per tallboks], x: tekst,
      b: bokstav } } og `rett` { etikett: { tall: [true/false per tall], tp: poeng for
      tallene, cm: maks for teksten, cp: Claudes poeng (null = venter), tb: Claudes
-     tilbakemelding, følge: godkjent som følgefeil, ft: følgefeilsvaret } }.
+     tilbakemelding, følge: godkjent som følgefeil, ft: følgefeilsvaret, svar: { t,
+     x, b } slik svaret var da det ble rettet, første: den første rettingen når
+     delen er rettet på nytt, endret/xEndret: merker for rettinger uten `svar` } }.
      Er alle delene i en oppgave rettet, settes oppgavens poeng til summen
      (scoreKilde: "retting"); knappene i poengraden overstyrer som før. */
   const OPUS = "claude-opus-5-5", SONNET = "claude-sonnet-5-5";
@@ -720,6 +726,32 @@ window.EDU = window.EDU || {};
   const harTekst = (d) => d.type === "tekst" || d.type === "blandet";
   const vurderingsId = (set, ex, e) => `rett:${set.id}:${ex.n}:${e}`;
 
+  /* Har du endret et rettet svar? Rettingen lagrer svaret slik det var (`svar`).
+     Rettinger fra før 25. november 2026 har det ikke. Der merker første
+     tastetrykk svaret som endret (`endret`, og `xEndret` for teksten). */
+  const samme = (a, b) => String(a == null ? "" : a).trim() === String(b == null ? "" : b).trim();
+  const svarNå = (inn) => ({ svar: { t: (inn.t || []).slice(), x: inn.x || "", b: inn.b || "" }, endret: null, xEndret: null });
+  const feltEndret = (r, inn, i) => (r.svar ? !samme((inn.t || [])[i], (r.svar.t || [])[i]) : !!r.endret);
+  const bokstavEndret = (r, inn) => (r.svar ? !samme(inn.b, r.svar.b) : !!r.endret);
+  const tekstEndret = (r, inn) => (r.svar ? !samme(inn.x, r.svar.x) : !!r.xEndret);
+  function endretSiden(set, ex, e) {
+    const r = rettFor(set, ex, e); if (!r) return false;
+    if (!r.svar) return !!r.endret;
+    const inn = innFor(set, ex, e), n = Math.max((inn.t || []).length, (r.svar.t || []).length);
+    for (let i = 0; i < n; i++) if (feltEndret(r, inn, i)) return true;
+    return tekstEndret(r, inn) || bokstavEndret(r, inn);
+  }
+  /* Hvilke felt som er endret, som én streng. Endrer den seg mens du skriver,
+     tegnes delen på nytt, så merkene og «Rett på nytt» følger svaret. */
+  function endringsSig(set, ex, e, d) {
+    const r = rettFor(set, ex, e); if (!r) return "";
+    const inn = innFor(set, ex, e);
+    return [endretSiden(set, ex, e), bokstavEndret(r, inn), ...(d.tall || []).map((_, i) => feltEndret(r, inn, i))].join(",");
+  }
+  /* Ga en retting mindre enn full uttelling? En godkjent følgefeil teller som riktig. */
+  const feilIRetting = (f, maks) => !!f && ((((f.tall || []).some((x) => x === false)) && !f.følge)
+    || (f.cp != null && (f.tp || 0) + (f.cp || 0) < maks - 1e-9));
+
   /* Et tall slik du skriver det: komma eller punktum som desimaltegn, mellomrom som
      tusenskille, − eller - som minus og % til slutt. «1,234» kan bety begge deler,
      så begge tolkningene prøves. */
@@ -756,14 +788,14 @@ window.EDU = window.EDU || {};
     const x = String(inn.x || "").trim();
     if (d.type === "bokstav") {
       const ok = String(inn.b || "").trim().toUpperCase() === d.svar;
-      lagreRett(set, ex, e, { tall: [ok], tp: ok ? maks : 0, cm: 0, cp: 0, følge: false, ft: null, tb: null });
+      lagreRett(set, ex, e, { tall: [ok], tp: ok ? maks : 0, cm: 0, cp: 0, følge: false, ft: null, tb: null, ...svarNå(inn) });
       return;
     }
     const tm = tallMaks(d, maks), per = d.tall && d.tall.length ? tm / d.tall.length : 0;
     const ok = (d.tall || []).map((t, i) => tallRiktig((inn.t || [])[i], t));
     const tp = Math.round(ok.filter(Boolean).length * per * 100) / 100;
     const cm = harTekst(d) ? maks - tm : 0;
-    lagreRett(set, ex, e, { tall: ok, tp, cm, cp: cm ? (x ? null : 0) : 0, følge: false, ft: null, tb: null });
+    lagreRett(set, ex, e, { tall: ok, tp, cm, cp: cm ? (x ? null : 0) : 0, følge: false, ft: null, tb: null, ...svarNå(inn) });
   }
 
   /* Status for oppgaven: summen av det som er rettet, og om alt er rettet. */
@@ -803,36 +835,42 @@ window.EDU = window.EDU || {};
     return kø;
   }
 
-  /* Feltene du fører inn svaret i. Låst etter retting (og etter levering). */
+  /* Feltene du fører inn svaret i. Låst etter levering. I øving står de åpne også
+     etter retting, og ✓, ✗ og fasiten vises bare ved felt du ikke har endret siden. */
   function svarFelt(set, ex, part, d, låst) {
     const e = part.label, inn = innFor(set, ex, e), r = rettFor(set, ex, e);
     const boks = el(".svar-felt");
     const nøkkel = (i) => `${set.id}:${ex.n}:${e}:${i}`;
-    const merke = (ok) => (r && låst ? el(ok ? "span.svar-ok" : "span.svar-feil", ok ? "✓" : "✗") : null);
+    const vis = (endret) => !!r && (låst || !endret);
+    const merke = (ok, endret) => (vis(endret) ? el(ok ? "span.svar-ok" : "span.svar-feil", ok ? "✓" : "✗") : null);
+    const sig = r && !låst ? endringsSig(set, ex, e, d) : null;
+    const etter = (tekst) => { if (sig != null) etterInn(set, ex, e, d, sig, tekst); };
     if (d.type === "bokstav") {
       const inp = el("input.svar-inn.svar-bokstav", { type: "text", maxlength: 1, autocomplete: "off", "data-svar": nøkkel("b"),
-        "aria-label": "Svaret ditt (bokstav)", oninput: (ev) => { ev.target.value = ev.target.value.toUpperCase(); lagreInn(set, ex, e, { b: ev.target.value }); } });
+        "aria-label": "Svaret ditt (bokstav)", oninput: (ev) => { ev.target.value = ev.target.value.toUpperCase(); lagreInn(set, ex, e, { b: ev.target.value }); etter(false); } });
       inp.value = inn.b || ""; if (låst) inp.readOnly = true;
+      const bEndret = !!r && bokstavEndret(r, inn);
       boks.appendChild(el(".svar-rad", el("span.svar-navn", "Svaret ditt"), inp,
-        merke(r && r.tall && r.tall[0]), r && låst && !(r.tall && r.tall[0]) ? el("span.tiny.muted", `Fasit: ${d.svar}`) : null));
+        merke(r && r.tall && r.tall[0], bEndret), vis(bEndret) && !(r.tall && r.tall[0]) ? el("span.tiny.muted", `Fasit: ${d.svar}`) : null));
       return boks;
     }
     (d.tall || []).forEach((t, i) => {
       const inp = el("input.svar-inn", { type: "text", inputmode: "decimal", autocomplete: "off", "data-svar": nøkkel(i),
-        "aria-label": "Svaret ditt", oninput: (ev) => { const ts = (innFor(set, ex, e).t || []).slice(); ts[i] = ev.target.value; lagreInn(set, ex, e, { t: ts }); } });
+        "aria-label": "Svaret ditt", oninput: (ev) => { const ts = (innFor(set, ex, e).t || []).slice(); ts[i] = ev.target.value; lagreInn(set, ex, e, { t: ts }); etter(false); } });
       inp.value = (inn.t || [])[i] || ""; if (låst) inp.readOnly = true;
       const ok = r && r.tall ? r.tall[i] : null;
+      const endret = !!r && feltEndret(r, inn, i);
       boks.appendChild(el(".svar-rad",
         el("span.svar-navn", frag(t.navn)),
         inp,
         t.enhet ? el("span.svar-enhet", t.enhet) : null,
-        merke(ok),
-        r && låst && !ok ? el("span.tiny.muted", `Fasit: ${visTall(t.verdi, t.enhet)}`) : null));
+        merke(ok, endret),
+        vis(endret) && !ok ? el("span.tiny.muted", `Fasit: ${visTall(t.verdi, t.enhet)}`) : null));
     });
     if (harTekst(d)) {
       const ta = el("textarea.svar-tekst", { rows: d.type === "tekst" ? 7 : 3, maxlength: 6000, "data-svar": nøkkel("x"),
         placeholder: låst ? "" : "Write your answer in English, as on the exam.",
-        oninput: (ev) => lagreInn(set, ex, e, { x: ev.target.value }) });
+        oninput: (ev) => { lagreInn(set, ex, e, { x: ev.target.value }); etter(true); } });
       ta.value = inn.x || ""; if (låst) ta.readOnly = true;
       boks.appendChild(el(".svar-tekst-hode.tiny.muted", d.type === "blandet" ? (d.tekstLedd || "Kommentar") : "Svaret ditt"));
       boks.appendChild(ta);
@@ -990,6 +1028,39 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     const r = rettFor(set, ex, part.label);
     if (r && r.cp == null) køVurdering(vurderingsId(set, ex, part.label));
   }
+  /* Etter hvert tastetrykk i et rettet svar i øving. Tegner delen på nytt bare når
+     et felt går fra likt til endret eller tilbake, ikke for hvert tegn. */
+  function etterInn(set, ex, e, d, sig, tekst) {
+    const r = rettFor(set, ex, e); if (!r) return;
+    if (!r.svar && (!r.endret || (tekst && !r.xEndret))) lagreRett(set, ex, e, tekst ? { endret: 1, xEndret: 1 } : { endret: 1 });
+    if (endringsSig(set, ex, e, d) !== sig) oppfrisk();
+  }
+  /* «Rett a) på nytt»: retter et endret svar en gang til. Den første rettingen
+     lagres i `første` (bare første gang), så rapporten fortsatt viser hva du svarte
+     før du så fasiten. Er teksten uendret, beholdes Claudes retting av den. */
+  function rettPåNytt(set, ex, part) {
+    const e = part.label, d = retting(set, ex, e), r = rettFor(set, ex, e);
+    if (!d || !r) return;
+    const behold = harTekst(d) && r.cp != null && !tekstEndret(r, innFor(set, ex, e));
+    const første = r.første || { svar: r.svar || null, tall: r.tall || null, tp: r.tp || 0, cp: r.cp == null ? null : r.cp, følge: !!r.følge };
+    rettAutomatisk(set, ex, part);
+    lagreRett(set, ex, e, behold ? { første, cp: r.cp, tb: r.tb } : { første });
+    oppdaterSum(set, ex);
+    oppfrisk();
+    const ny = rettFor(set, ex, e);
+    if (ny && ny.cp == null) køVurdering(vurderingsId(set, ex, e));
+  }
+  function påNyttRad(set, ex, part) {
+    const e = part.label, d = retting(set, ex, e), r = rettFor(set, ex, e), inn = innFor(set, ex, e);
+    const nyTekst = d && harTekst(d) && tekstEndret(r, inn) && String(inn.x || "").trim();
+    const blirMed = feilIRetting(r.første || r, delPoeng(ex, part));
+    return el(".row.wrap", { style: { gap: "8px", alignItems: "center", marginTop: "10px" } },
+      el("button.btn.sm.primary", { type: "button", onclick: () => rettPåNytt(set, ex, part) }, part._hel ? "Rett svaret på nytt" : `Rett ${e}) på nytt`),
+      el("span.tiny.muted", { style: { flex: "1 1 220px", lineHeight: 1.5 } },
+        "Du har endret svaret. Resultatet under gjelder det forrige."
+        + (nyTekst ? " Claude retter teksten på nytt." : "")
+        + (blirMed ? " Det første svaret blir likevel med i «Kopier det jeg ikke kunne»." : "")));
+  }
   /* «Rett alle deloppgavene» / «Rett resten»: alle delene som ikke er rettet. */
   function rettResten(set, ex) {
     const igjen = delerAv(ex).filter((p) => retting(set, ex, p.label) && !rettFor(set, ex, p.label));
@@ -1083,9 +1154,13 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     /* Oppgave uten deloppgaver: feltene under teksten, resultatet når den er rettet. */
     const hel = !(ex.parts || []).length ? delerAv(ex)[0] : null;
     const dHel = hel ? retting(set, ex, "") : null;
+    /* Feltene låses bare når settet er levert. Ellers kan du endre og rette på nytt. */
+    const levert = isSubmitted(set.id);
     if (dHel) {
-      card.appendChild(svarFelt(set, ex, hel, dHel, !!rettFor(set, ex, "")));
-      if (rettFor(set, ex, "")) card.appendChild(rettVisning(set, ex, hel, dHel));
+      const rH = rettFor(set, ex, "");
+      card.appendChild(svarFelt(set, ex, hel, dHel, !!rH && levert));
+      if (rH && !levert && endretSiden(set, ex, "")) card.appendChild(påNyttRad(set, ex, hel));
+      if (rH) card.appendChild(rettVisning(set, ex, hel, dHel));
     }
     const hoved = leddFor(ex, "");
     if (hoved) card.appendChild(mcValg(set, ex, hoved, open, true));
@@ -1102,9 +1177,11 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
       const d = retting(set, ex, part.label);
       const rettet = d ? rettFor(set, ex, part.label) : null;
       if (d) {
-        pc.appendChild(svarFelt(set, ex, part, d, !!rettet));
-        if (rettet) pc.appendChild(rettVisning(set, ex, part, d));
-        else pc.appendChild(el(".row", { style: { marginTop: "10px" } },
+        pc.appendChild(svarFelt(set, ex, part, d, !!rettet && levert));
+        if (rettet) {
+          if (!levert && endretSiden(set, ex, part.label)) pc.appendChild(påNyttRad(set, ex, part));
+          pc.appendChild(rettVisning(set, ex, part, d));
+        } else pc.appendChild(el(".row", { style: { marginTop: "10px" } },
           el("button.btn.sm", { onclick: () => rettDel(set, ex, part) }, `Rett ${part.label})`)));
       }
       if (delÅpen) pc.appendChild(solutionPanel(`Løsning ${part.label})`, part.solution, part.criteria));
@@ -1570,6 +1647,8 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     const r = d ? rettFor(set, ex, e) : null;
     if (!r) return s;
     s.art = "rett"; s.d = d; s.r = r; s.inn = innFor(set, ex, e);
+    /* Rettet på nytt etter fasiten: det første svaret avgjør om delen er med. */
+    s.førsteFeil = !!r.første && feilIRetting(r.første, s.maks);
     s.venter = harTekst(d) && r.cp == null;
     s.poeng = Math.round(((r.tp || 0) + (r.cp || 0)) * 100) / 100;
     const tallFeil = (r.tall || []).some((x) => x === false) && !r.følge;
@@ -1593,7 +1672,7 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     }
     return { ex, deler, selv };
   }
-  const trengerRepetisjon = (s) => s.usikker || (!!s.hva && s.hva !== "riktig");
+  const trengerRepetisjon = (s) => s.usikker || s.førsteFeil || (!!s.hva && s.hva !== "riktig");
   function rapportFor(set) {
     const oppg = (set.exercises || []).map((ex) => oppgStatus(set, ex));
     return { oppg, med: oppg.flatMap((o) => o.deler.filter(trengerRepetisjon)) };
@@ -1601,10 +1680,11 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
 
   function statusTekst(s) {
     const p = s.poeng != null && s.maks ? ` · ${pts(s.poeng)} av ${pts(s.maks)} p` : "";
-    if (s.hva === "riktig") return "Riktig, men merket usikker" + p;
-    if (!s.hva) return s.venter ? "Merket usikker, tekstsvaret er ikke rettet ennå" : "Merket usikker, ikke rettet ennå";
+    const us = s.usikker ? " · merket usikker" : "";
+    if (s.hva === "riktig") return s.førsteFeil ? "Riktig etter ny retting, men feil før jeg så fasiten" + p + us : "Riktig, men merket usikker" + p;
+    if (!s.hva) return (s.førsteFeil ? "Rettet på nytt etter fasiten" : "Merket usikker") + (s.venter ? ", tekstsvaret er ikke rettet ennå" : ", ikke rettet ennå");
     const navn = { feil: "Feil", delvis: "Delvis riktig", "vet ikke": "Vet ikke", ubesvart: "Ubesvart", selv: "Ikke full uttelling (selvvurdert)" }[s.hva];
-    return navn + p + (s.usikker ? " · merket usikker" : "");
+    return navn + p + (s.førsteFeil ? " · også etter ny retting" : "") + us;
   }
   function leddLinjer(s) {
     const ut = [];
@@ -1616,10 +1696,24 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
       ut.push("Riktig svar: " + (Array.isArray(l.answer) ? l.answer : [l.answer]).map(opt).join(" eller "));
       if (s.valg != null && s.valg >= 0 && !riktig(l, s.valg) && l.diag && l.diag[s.valg]) ut.push("Feilen: " + renTekst(l.diag[s.valg]));
     } else if (s.art === "rett") {
-      const { d, r, inn } = s;
-      if (d.type === "bokstav") ut.push(`Svaret mitt: ${tilStede(inn.b) ? inn.b : "(tomt)"} · fasit ${d.svar}`);
+      const { d, r, inn } = s, f = r.første;
+      /* Rettet på nytt: først svaret før fasiten, så det nye. */
+      if (f) {
+        const fp = f.cp != null || !harTekst(d) ? ` (${pts((f.tp || 0) + (f.cp || 0))} av ${pts(s.maks)} p)` : "";
+        ut.push(`Første svar, før jeg så fasiten${fp}:`);
+        if (!f.svar) ut.push("- Selve svaret ble ikke lagret.");
+        else if (d.type === "bokstav") ut.push(`- ${tilStede(f.svar.b) ? f.svar.b : "(tomt)"} ${f.tall && f.tall[0] ? "✓" : "✗"}`);
+        else {
+          (d.tall || []).forEach((t, i) => {
+            const v = (f.svar.t || [])[i];
+            ut.push(`- ${renTekst(t.navn)}: ${tilStede(v) ? String(v).trim() : "(tomt)"} ${f.tall && f.tall[i] ? "✓" : "✗"}`);
+          });
+          if (harTekst(d) && !samme(f.svar.x, inn.x)) ut.push(tilStede(f.svar.x) ? '- Tekstsvaret:\n"""\n' + kutt(f.svar.x, 1500) + '\n"""' : "- Tekstsvaret: (tomt)");
+        }
+      }
+      if (d.type === "bokstav") ut.push(`${f ? "Svaret etter ny retting" : "Svaret mitt"}: ${tilStede(inn.b) ? inn.b : "(tomt)"} · fasit ${d.svar}`);
       else if ((d.tall || []).length) {
-        ut.push("Tallene mine:");
+        ut.push(f ? "Tallene etter ny retting:" : "Tallene mine:");
         d.tall.forEach((t, i) => {
           const mitt = (inn.t || [])[i];
           ut.push(`- ${renTekst(t.navn)}: ${tilStede(mitt) ? String(mitt).trim() : "(tomt)"} · fasit ${visTall(t.verdi, t.enhet)} ${r.tall && r.tall[i] ? "✓" : "✗"}`);
@@ -1658,12 +1752,12 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     if (sum.scored) info.push(`${pts(sum.got)} av ${pts(sum.of)} poeng på ${sum.scored} av ${sum.total} oppgaver`);
     if (settHarMC(set) && wrongFactor(set)) info.push("med minuspoeng for feil svar");
     const ut = [`# ${set.label}`, info.join(" · ")];
-    const NAVN = { feil: "feil", delvis: "delvis riktig", "vet ikke": "«Vet ikke»", ubesvart: "ubesvart", selv: "selvvurdert under full uttelling", usikker: "usikker uten feil" };
+    const NAVN = { feil: "feil", delvis: "delvis riktig", "vet ikke": "«Vet ikke»", ubesvart: "ubesvart", selv: "selvvurdert under full uttelling", første: "riktig først etter fasiten", usikker: "usikker uten feil" };
     const tell = {};
-    rap.med.forEach((s) => { const k = s.hva && s.hva !== "riktig" ? s.hva : "usikker"; tell[k] = (tell[k] || 0) + 1; });
+    rap.med.forEach((s) => { const k = s.hva && s.hva !== "riktig" ? s.hva : s.førsteFeil ? "første" : "usikker"; tell[k] = (tell[k] || 0) + 1; });
     ut.push("Med her: " + Object.entries(tell).map(([k, n]) => `${NAVN[k]} ${n}`).join(", "));
     const alle = rap.oppg.flatMap((o) => o.deler.map((s) => ({ s, navn: o.ex.n + s.etikett })));
-    const ok = alle.filter((x) => x.s.hva === "riktig" && !x.s.usikker).map((x) => x.navn);
+    const ok = alle.filter((x) => x.s.hva === "riktig" && !x.s.usikker && !x.s.førsteFeil).map((x) => x.navn);
     const ikke = alle.filter((x) => !x.s.hva && !x.s.usikker).map((x) => x.navn);
     if (ok.length) ut.push("Riktig og sikker (ikke med): " + ok.join(", "));
     if (ikke.length) ut.push("Ikke rettet ennå: " + ikke.join(", "));
@@ -1677,7 +1771,7 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     const ut = [
       `Det jeg ikke kunne i ${sub.name || "faget"}`,
       "",
-      "Deloppgavene jeg ikke fikk full uttelling på (feil, delvis riktig, «Vet ikke» eller ubesvart) og dem jeg merket som usikre. For hver står oppgaven, svaret mitt, fasiten og hva som gikk galt.",
+      "Deloppgavene jeg ikke fikk full uttelling på (feil, delvis riktig, «Vet ikke» eller ubesvart), dem jeg merket som usikre og dem jeg først fikk riktig etter å ha sett fasiten. For hver står oppgaven, svaret mitt, fasiten og hva som gikk galt.",
       "",
       `Fra Eksamenssett i appen, ${dato(S.u.nowTs())}. Fag-id: ${sub.id || "ukjent"}. ${med.length === 1 ? "Ett sett" : med.length + " sett"}.`,
     ];
@@ -1704,7 +1798,7 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     const venter = sets.reduce((n, set) => n + ventendeTekst(set).length, 0);
     return el(".row.wrap", { style: { gap: "10px", alignItems: "center" } }, knapp,
       el("span.tiny.muted", { style: { flex: "1 1 260px", lineHeight: 1.5 } },
-        "Kopierer det du svarte feil eller delvis feil på og det du merket som usikkert, med oppgaven, svaret ditt, fasiten og hva som gikk galt."
+        "Kopierer det du svarte feil eller delvis feil på, det du merket som usikkert og det du rettet etter å ha sett fasiten. Hver del kommer med oppgaven, svaret ditt, fasiten og hva som gikk galt."
         + (venter ? ` ${venter} tekstsvar er ikke rettet ennå. Rett dem først, så kommer feilene der med.` : "")));
   }
 

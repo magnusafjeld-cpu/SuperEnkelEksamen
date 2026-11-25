@@ -103,5 +103,6 @@ ikke står i commit-meldingene.
 | 24. november 2026 | [[FIE402 Corporate Finance]]: fanen «Hintet i forelesning» i Eksamenssett, sju sett med 26 oppgaver Kurbatov pekte ut i forelesning | Bygd fra Panopto-tekstingen av 17 opptak; merket sier opptak, tid og sitat. Fire skribenter og fire blinde kontrollører, ingen tallfeil. Motoren fikk egne faner per art (`perDel.faner`) |
 | 25. november 2026 | Appens logo: et eksamensark med en rød A i ring, valgt blant åtte forslag | Erstatter tekstflisen «SEE» i fanen og velgeren. Appen fikk for første gang et hjemskjermikon (`ikon/apple-touch-icon.png`); før tok iOS et skjermbilde. Se [[Designsystem]] |
 | 25. november 2026 | Eksamenssett: knappen «Kopier det jeg ikke kunne» | Kopierer en beskrivelse av feil, delvis riktige og usikre deloppgaver med svar, fasit, feilen og Claudes retting. Bare beskrivelsen, uten bestilling, så den kan brukes til flere ting (for eksempel en NotebookLM-kilde). Se [[Eksamenssett-modulen]] |
+| 25. november 2026 | Eksamenssett: rett på nytt i øving | Svarfeltene står åpne etter retting i øvingsmodus. Endrer du svaret, kommer «Rett a) på nytt». Første forsøk lagres og blir med i «Kopier det jeg ikke kunne» hvis det var feil. Bygg 222. Se [[Eksamenssett-modulen]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

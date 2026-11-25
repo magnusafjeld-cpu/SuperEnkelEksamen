@@ -310,6 +310,17 @@ uten deloppgaver). Lånte oppgaver slås opp via `kildeId`/`kildeN`, som `slåOp
 
 - **Øving:** «Rett a)» retter delen og åpner fasiten. «Rett alle deloppgavene» / «Rett resten»
   tar alle. Tekstdelene kjøres én om gangen (`køVurdering`), så Opus ikke får mange kall samtidig.
+- **Rett på nytt i øving (25. november 2026):** feltene låses ikke etter retting, bare etter
+  levering. Endrer du et rettet svar, kommer «Rett a) på nytt» (`påNyttRad`, `rettPåNytt`), og
+  ✓, ✗ og fasiten skjules ved feltene du har endret. Rettingen lagrer svaret slik det var
+  (`rett.svar`), og `endretSiden` sammenligner med det. Delen tegnes på nytt bare når et felt
+  går fra likt til endret eller tilbake (`endringsSig`), ikke per tastetrykk. Den første
+  rettingen lagres i `rett.første` (bare første gang). Var den feil, blir delen med i «Kopier
+  det jeg ikke kunne» med begge svarene, fordi et svar rettet etter fasiten ikke viser at du
+  kunne det. Er teksten uendret, beholdes Claudes retting, så du ikke betaler to ganger.
+  Rettinger fra før dette har ingen `svar`; der merker første tastetrykk delen som endret
+  (`endret`, `xEndret`). Bakgrunnen: en skrivefeil i y (0,1638 for 0,1632) i Mock exam 1 6a
+  ga 2 av 6, og svaret kunne ikke rettes.
 - **Eksamen:** feltene er åpne mens klokka går, ingenting rettes før levering. Ved levering
   rettes tallene (`rettSettAutomatisk`), og kortet øverst har «Rett tekstsvarene med Claude»
   med anslått pris.
