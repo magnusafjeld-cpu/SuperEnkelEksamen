@@ -108,6 +108,11 @@ def summN(ledd, total):
     return s, N(total)
 
 
+def M(x, cur):
+    """Beløp med to desimaler og minustegnet foran valutategnet (−€376,833.26)."""
+    return (MINUS if round(x, 2) < 0 else "") + cur + F(abs(x), 2)
+
+
 def USD(x):
     """Dollarbeløp med minustegn foran valutategnet."""
     return (MINUS if x < 0 else "") + "$" + N(abs(x))
@@ -116,7 +121,8 @@ def USD(x):
 SVAR = {}
 
 
-def tall(navn, verdi, enhet, feller=(), alt=None, tolmax=0.01, drift=(), tol=None, abs_=None):
+def tall(navn, verdi, enhet, feller=(), alt=None, tolmax=0.01, drift=(), tol=None, abs_=None,
+         felle_i_alt=(), to_des=True):
     """Ett tall i svar-dataene. Toleransen velges så ingen felle havner innenfor
     (spek 6b.1), og så avrunding alltid godtas: verdien rundet til to desimaler og
     verdiene i drift (en student som runder underveis) må ligge innenfor. tol overstyrer.
@@ -141,9 +147,10 @@ def tall(navn, verdi, enhet, feller=(), alt=None, tolmax=0.01, drift=(), tol=Non
     for f in feller:
         assert abs(f - verdi) > tol * abs(verdi), (navn, f)
         for a in (alt or []):
-            assert abs(f - a) > tol * abs(a), (navn, "felle innenfor alt", f, a)
+            if f not in felle_i_alt:                   # unntak må begrunnes i merknaden
+                assert abs(f - a) > tol * abs(a), (navn, "felle innenfor alt", f, a)
     alt = [a for a in (alt or []) if abs(a - verdi) > tol * abs(verdi)]   # alt innenfor svaret er overflødig
-    for x in list(drift) + ([round(verdi, 2)] if abs(verdi) >= 0.1 else []):
+    for x in list(drift) + ([round(verdi, 2)] if abs(verdi) >= 0.1 and to_des else []):
         assert abs(x - verdi) <= tol * abs(verdi), (navn, "avrunding faller utenfor", x, tol)
     if tol < 0.01:
         t["tol"] = tol
@@ -273,14 +280,25 @@ for t in (1, 2, 3):
     assert near(Eprev * (1 + rE1), fcfe + Enext, 1e-12)
 gap1 = rU1 - w1
 assert near(gap1, 0.005)
-# reserveverdi i (c): r_wacc = 7,5 % (ikke svaret); svarene bygd på den blir alt i (c), (d) og (e)
+# reserveverdier i (c): FCF = −50, 24, 33, 28 og r_wacc = 7,5 % (ikke svarene). Svarene bygd på dem,
+# hver for seg og sammen, blir alt i (c), (d) og (e).
 w1_fb = 0.075
-assert not near(w1_fb, w1, 1e-3)
-V_1fb = backward(FCF1, w1_fb)
-NPV1_fb = F0_1 + V_1fb[0]
-Dc1_fb = [d1 * v for v in V_1fb]
-PVTS1_fb = sum(disk([tau1 * rD1 * Dc1_fb[t] for t in (0, 1, 2)], rU1))
-NPVa1_fb = F0_1 + VU1 + PVTS1_fb
+F0_1fb, FCF1_fb = -50.0, [24.0, 33.0, 28.0]
+assert not near(w1_fb, w1, 1e-3) and FCF1_fb != FCF1
+
+
+def e1_kjede(F0, cf, w):
+    """NPV (WACC), gjeld D_0..D_2, V^U, PV(TS) og NPV (APV) for gitte FCF og r_wacc."""
+    V = backward(cf, w)
+    D = [d1 * v for v in V]
+    VU = sum(disk(cf, rU1))
+    PVTS = sum(disk([tau1 * rD1 * D[t] for t in (0, 1, 2)], rU1))
+    return {"NPV": F0 + V[0], "D": D, "VU": VU, "PVTS": PVTS, "APV": F0 + VU + PVTS}
+
+
+K1 = {"w": e1_kjede(F0_1, FCF1, w1_fb), "F": e1_kjede(F0_1fb, FCF1_fb, w1), "Fw": e1_kjede(F0_1fb, FCF1_fb, w1_fb)}
+assert near(K1["F"]["NPV"], K1["F"]["APV"], 1e-12)                 # med sann WACC er WACC = APV også her
+NPV1_fb, Dc1_fb, PVTS1_fb, NPVa1_fb = K1["w"]["NPV"], K1["w"]["D"], K1["w"]["PVTS"], K1["w"]["APV"]
 
 # feller
 w1_brutto = (E1 / (E1 + D1g)) * rE1 + (D1g / (E1 + D1g)) * rD1 * (1 - tau1)
@@ -384,25 +402,27 @@ svar("mk-wacc-apv-1:1:b", "tall", [
 
 ex1_c = del_(
     "c", 2,
-    "<p>Find the NPV of the project using the WACC method. (If you could not solve (b), use "
-    "r<sub>wacc</sub> = 7.5% here and in (d).)</p>",
+    "<p>Find the NPV of the project using the WACC method. (If you could not solve (a), use FCF = −50, "
+    "24, 33 and 28. If you could not solve (b), use r<sub>wacc</sub> = 7.5%. Use them here and below.)</p>",
     "<p>Discount the free cash flows at r<sub>wacc</sub>. FCF<sub>0</sub> is paid today and is not "
     "discounted. The tax shield is already in the discount rate, so nothing is added.</p>"
     f"<p>NPV = {N(F0_1)} + {frac_terms(FCF1, '1.081')}<br>= {s_pvw1} = <b>€{t_pvw1} million</b></p>"
     f"<p>The present value of the future cash flows is {F(PV1)}. The question asks for the NPV, so the "
     f"investment of {N(-F0_1)} must be subtracted.</p>"
-    f"<p>With the fallback r<sub>wacc</sub> = 7.5%, the NPV is {F(NPV1_fb)}.</p>",
+    f"<p>With the fallbacks: {F(NPV1_fb)} (r<sub>wacc</sub> = 7.5%), {F(K1['F']['NPV'])} (the fallback "
+    f"FCF) or {F(K1['Fw']['NPV'])} (both).</p>",
     [
         "Discounts at r_wacc = 8.10% with the right powers and does not discount FCF_0.",
         f"Gives the NPV, {F(NPV1)}, not the PV of the future cash flows ({F(PV1)}). Stopping at the PV loses a point.",
-        f"Full marks with the fallback 7.5%: NPV = {F(NPV1_fb)}.",
+        f"Full marks with the fallbacks: {F(NPV1_fb)}, {F(K1['F']['NPV'])} or {F(K1['Fw']['NPV'])}.",
         "Does not add a tax shield on top: the WACC already contains it.",
     ],
 )
 svar("mk-wacc-apv-1:1:c", "tall", [
-    tall("NPV (WACC)", NPV1, "€ m", feller=[NPV1_rU, NPV1_brutto, PV1], alt=[NPV1_fb]),
+    tall("NPV (WACC)", NPV1, "€ m", feller=[NPV1_rU, NPV1_brutto, PV1],
+         alt=[K1[k]["NPV"] for k in ("w", "F", "Fw")]),
 ], merknad=f"Fellene er NPV med r_U ({F(NPV1_rU)}), med WACC fra brutto gjeld og PV uten investeringen. "
-           f"alt ({F(NPV1_fb)}) er svaret med reserveverdien r_wacc = 7.5 %.")
+           "alt er svarene med reserve-WACC, reserve-FCF og begge.")
 
 ex1_d = del_(
     "d", 4,
@@ -430,22 +450,28 @@ ex1_d = del_(
     f"the NPV or the investment (0.4 × {N(-F0_1)} = {N(-d1 * F0_1)}): once the {N(-F0_1)} has "
     "been spent, the future cash flows are what the project adds to the value of Orvelle's assets, as "
     "in the lecture example.</p>"
-    f"<p>With the fallback r<sub>wacc</sub> = 7.5%: D<sub>0</sub> = {F(Dc1_fb[0])}, D<sub>1</sub> = "
-    f"{F(Dc1_fb[1])}, D<sub>2</sub> = {F(Dc1_fb[2])}.</p>",
+    "<p>With the fallbacks: " + "; ".join(
+        f"{lab}: {F(K1[k]['D'][0])}, {F(K1[k]['D'][1])} and {F(K1[k]['D'][2])}"
+        for k, lab in (("w", "r<sub>wacc</sub> = 7.5%"), ("F", "the fallback FCF"), ("Fw", "both"))) + ".</p>",
     [
         "Uses D_t = d × V^L_t with d = D/V = 0.4. Multiplying by D/E = 0.6667 is the classic slip.",
         f"V^L_t is the value of the cash flows still to come, found backwards at r_wacc: V^L_2 = {F(V_1[2])}, V^L_1 = {F(V_1[1])}, V^L_0 = {F(V_1[0])}.",
-        f"D_0 = {F(Dc1[0])}, D_1 = {F(Dc1[1])}, D_2 = {F(Dc1[2])} (and D_3 = 0). Basing D_0 on the NPV (giving {F(d1 * NPV1)}), on the investment (0.4 × 51 = {N(-d1 * F0_1)}) or on V^U is wrong. With the fallback 7.5%: {F(Dc1_fb[0])}, {F(Dc1_fb[1])} and {F(Dc1_fb[2])}.",
-        "Says that Orvelle repays debt in every year from Year 1 to Year 3 as the project winds down.",
+        f"D_0 = {F(Dc1[0])}, D_1 = {F(Dc1[1])}, D_2 = {F(Dc1[2])} (and D_3 = 0). Basing D_0 on the NPV (giving {F(d1 * NPV1)}), on the investment (0.4 × 51 = {N(-d1 * F0_1)}) or on V^U is wrong.",
+        "Full marks with the fallbacks: " + "; ".join(f"{F(K1[k]['D'][0])}, {F(K1[k]['D'][1])}, {F(K1[k]['D'][2])}" for k in ("w", "F", "Fw")) + ".",
+        "Says that Orvelle repays debt in every year from Year 1 to Year 3. Bonus, not required: why (the project winds down).",
     ],
 )
 svar("mk-wacc-apv-1:1:d", "blandet", [
-    tall("D<sub>0</sub>", Dc1[0], "€ m", feller=[D1_VU[0], d1 * NPV1, D1_DE[0], -d1 * F0_1], alt=[Dc1_fb[0]]),
-    tall("D<sub>1</sub>", Dc1[1], "€ m", feller=[D1_VU[1], D1_DE[1], d1 * (FCF1[0] + V_1[1])], alt=[Dc1_fb[1]]),
-    tall("D<sub>2</sub>", Dc1[2], "€ m", feller=[D1_VU[2], D1_DE[2], d1 * (FCF1[1] + V_1[2])], alt=[Dc1_fb[2]]),
+    tall("D<sub>0</sub>", Dc1[0], "€ m", feller=[D1_VU[0], d1 * NPV1, D1_DE[0], -d1 * F0_1],
+         alt=[K1[k]["D"][0] for k in ("w", "F", "Fw")], felle_i_alt=(D1_VU[0],)),
+    tall("D<sub>1</sub>", Dc1[1], "€ m", feller=[D1_VU[1], D1_DE[1], d1 * (FCF1[0] + V_1[1])],
+         alt=[K1[k]["D"][1] for k in ("w", "F", "Fw")], felle_i_alt=(D1_VU[1],)),
+    tall("D<sub>2</sub>", Dc1[2], "€ m", feller=[D1_VU[2], D1_DE[2], d1 * (FCF1[1] + V_1[2])],
+         alt=[K1[k]["D"][2] for k in ("w", "F", "Fw")], felle_i_alt=(D1_VU[2],)),
 ], tallPoeng=3, tekstLedd="Does Orvelle borrow or repay in Years 1 to 3?",
     merknad="Toleransen er stram fordi gjeld regnet fra V^U (diskontert med r_U) ligger under 1 % unna. "
-            "Tekstdelen: Orvelle betaler ned gjeld hvert år. alt er gjelden med reserveverdien r_wacc = 7.5 %.")
+            "Tekstdelen: Orvelle betaler ned gjeld hvert år. alt er gjelden med reserve-WACC, reserve-FCF og "
+            "begge; gjeld fra V^U kan havne innenfor et alt-bånd.")
 
 ex1_e = del_(
     "e", 5,
@@ -470,26 +496,31 @@ ex1_e = del_(
     f"<p><b>Check.</b> The WACC method in (c) gave {F(NPV1)} and APV gives {F(NPVa1)}. They match. "
     "This is a fixed point rather than two independent estimates, because the debt in APV came from "
     "the WACC values, but it catches the wrong rate on the tax shield and slips in the arithmetic.</p>"
-    f"<p>With the debt from the fallback r<sub>wacc</sub> = 7.5%: PV(TS) = {F(PVTS1_fb)} and NPV = "
-    f"{F(NPVa1_fb)}. It no longer equals (c) exactly, because the fallback is not the true WACC.</p>",
+    f"<p>With the fallbacks: r<sub>wacc</sub> = 7.5% gives PV(TS) = {F(PVTS1_fb)} and NPV = {F(NPVa1_fb)} "
+    "(no longer equal to (c), because the fallback is not the true WACC). The fallback FCF gives V<sup>U</sup> "
+    f"= {F(K1['F']['VU'])}, PV(TS) = {F(K1['F']['PVTS'])} and NPV = {F(K1['F']['APV'])}. Both give "
+    f"PV(TS) = {F(K1['Fw']['PVTS'])} and NPV = {F(K1['Fw']['APV'])}.</p>",
     [
         "r_U = pre-tax WACC = 0.6(11%) + 0.4(5%) = 8.60%. Putting (1 − τ) here gives the WACC, not r_U.",
         f"V^U_0 = {F(VU1)}: the same FCF discounted at r_U.",
         f"TS_t = τ × r_D × D_(t−1): {F(TS1[0])}, {F(TS1[1])} and {F(TS1[2])}. Using D_t instead of D_(t−1) is a slip.",
         f"Discounts the tax shields at r_U: PV(TS) = {F(PVTS1)}; at r_D it would be {F(PVTS1_rD)}. Bonus, not required: saying why (under a constant ratio the debt moves with the project's value and the shield with it).",
-        f"NPV = −51 + {F(VU1)} + {F(PVTS1)} = {F(NPVa1)}, the same as in (c). With the fallback 7.5%: PV(TS) = {F(PVTS1_fb)} and NPV = {F(NPVa1_fb)}.",
+        f"NPV = −51 + {F(VU1)} + {F(PVTS1)} = {F(NPVa1)}, the same as in (c).",
+        f"Full marks with the fallbacks: NPV = {F(NPVa1_fb)} (7.5%), {F(K1['F']['APV'])} (fallback FCF, with V^U = {F(K1['F']['VU'])}) or {F(K1['Fw']['APV'])} (both).",
     ],
 )
 svar("mk-wacc-apv-1:1:e", "tall", [
     tall("r<sub>U</sub>", 100 * rU1, "%", feller=[100 * w1]),
-    tall("V<sup>U</sup><sub>0</sub>", VU1, "€ m", feller=[PV1]),
-    tall("PV(TS)", PVTS1, "€ m", feller=[PVTS1_rD, PVTS1_Dt], alt=[PVTS1_fb]),
+    tall("V<sup>U</sup><sub>0</sub>", VU1, "€ m", feller=[PV1], alt=[K1["F"]["VU"]]),
+    tall("PV(TS)", PVTS1, "€ m", feller=[PVTS1_rD, PVTS1_Dt, PVTS1_w], tol=0.005, to_des=False,
+         alt=[K1[k]["PVTS"] for k in ("w", "F", "Fw")], felle_i_alt=(PVTS1_w,)),
     tall("NPV (APV)", NPVa1, "€ m", feller=[NPV1_rU, PV1, F0_1 + VU1 + PVTS1_rD], tol=0.001,
-         drift=[student_apv(F0_1, FCF1, w1, rU1, d1, tau1, rD1)], alt=[NPVa1_fb]),
+         drift=[student_apv(F0_1, FCF1, w1, rU1, d1, tau1, rD1)], alt=[K1[k]["APV"] for k in ("w", "F", "Fw")]),
 ], merknad=f"Diskonteres skjoldet med r_D, blir NPV {F(F0_1 + VU1 + PVTS1_rD)}, "
-           f"{100 * (PVTS1_rD - PVTS1) / NPV1:.2f} % unna, så toleransen på NPV er 0.1 %. PV(TS) med r_D "
-           f"({F(PVTS1_rD)} mot {F(PVTS1)}) avvises med standardtoleransen. PV(TS) diskontert med r_wacc "
-           f"({F(PVTS1_w)}) ligger innenfor 1 % og godtas. alt er svarene med reserveverdien r_wacc = 7.5 %.")
+           f"{100 * (PVTS1_rD - PVTS1) / NPV1:.2f} % unna, så toleransen på NPV er 0.1 %. PV(TS) har tol 0.5 % "
+           f"(fire desimaler kreves; 0.66 med to desimaler faller utenfor): r_D ({F(PVTS1_rD)}) og r_wacc "
+           f"({F(PVTS1_w)}) avvises mot {F(PVTS1)}, men r_wacc-fellen ligger innenfor alt-båndet til "
+           f"reserve-WACC ({F(PVTS1_fb)}). alt er svarene med reserve-WACC, reserve-FCF og begge.")
 
 ex1_f = del_(
     "f", 3,
@@ -507,8 +538,8 @@ ex1_f = del_(
     "<p>Also accepted: a WACC above r<sub>U</sub> would be an alarm bell for an error, as the lecturer "
     "pointed out in lecture 09.</p>",
     [
-        "States that r_wacc = 8.10% is below r_U = 8.60%, a gap of (D/V)τr_D = 0.5 percentage points.",
-        "Explains the source: the only difference between the formulas is (1 − τ) on r_D, because interest is tax deductible, so the WACC holds the tax shield inside the rate while APV adds it separately.",
+        "States that r_wacc = 8.10% is below r_U = 8.60%, a gap of 0.5 percentage points.",
+        "Explains the gap by the tax deduction on interest: the only difference between the formulas is (1 − τ) on r_D, so the WACC holds the tax shield inside the rate while APV adds it separately. The formula (D/V)τr_D is not required.",
         "Higher target leverage: r_U is unchanged (business risk), the gap widens and r_wacc falls. Saying r_U rises with leverage loses this point.",
         "1 to 3 sentences per point are enough; no new calculation is needed.",
     ],
@@ -1087,29 +1118,33 @@ def ipo_be(nH, nL, H, L):
     return (nH * H + nL * L) / (nH + nL)
 
 
-# ------------------------------------------------ mk-ipo-1: forelesningsformen (€, 50/50, 5× og 2×)
+# ------------------------------------------------ mk-ipo-1: forelesningsformen (€, 50/50, 8× og 2,5×, 200 aksjer)
 H1, L1, q1 = 55.0, 34.0, 0.5
-ord1, k1H, k1L, nIPO1 = 100.0, 5.0, 2.0, 100
+ord1, k1H, k1L, nIPO1 = 200.0, 8.0, 2.5, 100
 EV1 = q1 * H1 + (1 - q1) * L1
 aH1, aL1 = ord1 / k1H, ord1 / k1L
+assert near(aH1, 25) and near(aL1, 80)
 sH1, sL1 = q1 * nIPO1 * aH1, (1 - q1) * nIPO1 * aL1            # aksjer totalt i gode og dårlige
 r1_EV = ipo_ret(sH1, sL1, H1, L1, EV1)
 prof1 = sH1 * (H1 - EV1) + sL1 * (L1 - EV1)
 inv1 = (sH1 + sL1) * EV1
 X1 = ipo_be(sH1, sL1, H1, L1)
-assert near(X1, 40) and near(EV1, 44.5) and near(ipo_ret(sH1, sL1, H1, L1, X1), 0)
+assert near(X1, 39) and near(EV1, 44.5) and near(ipo_ret(sH1, sL1, H1, L1, X1), 0)
 gH1, gL1 = H1 / X1 - 1, L1 / X1 - 1
 avg1 = q1 * gH1 + (1 - q1) * gL1
 assert near(avg1, EV1 / X1 - 1) and avg1 > 0 and r1_EV < 0
-# reserveverdier: (c) 25 og 50 aksjer, (d) pris €41
-aH1fb, aL1fb, X1fb = 25.0, 40.0, 42.0
+# reserveverdier: (b) og (c) 30 og 70 aksjer og pris €45, (d) pris €41
+aH1fb, aL1fb, P1fb, X1fb = 30.0, 70.0, 45.0, 41.0
+r1_fb = ipo_ret(q1 * nIPO1 * aH1fb, (1 - q1) * nIPO1 * aL1fb, H1, L1, P1fb)
+r1_fbP = ipo_ret(sH1, sL1, H1, L1, P1fb)            # riktige tildelinger, reserveprisen
+r1_fbA = ipo_ret(q1 * nIPO1 * aH1fb, (1 - q1) * nIPO1 * aL1fb, H1, L1, EV1)
 X1_alt = ipo_be(aH1fb, aL1fb, H1, L1)
 assert not near(X1_alt, X1, 1e-3) and not near(X1fb, X1, 1e-3)
 avg1fb, inf1fb = EV1 / X1fb - 1, H1 / X1fb - 1
 you1fb = ipo_ret(sH1, sL1, H1, L1, X1fb)
 s_prof1, t_prof1 = summN([sH1 * (H1 - EV1), sL1 * (L1 - EV1)], prof1)
 # feller
-X1_lik = ipo_be(aH1, aL1, H1, L1) * 0 + (aH1 * H1 + aL1 * L1) / (2 * ord1)
+X1_lik = (aH1 * H1 + aL1 * L1) / (2 * ord1)
 
 ex_i1 = {
     "n": 1, "title": "Security issues", "points": 20, "topic": "Initial public offerings",
@@ -1119,69 +1154,66 @@ ex_i1 = {
         "<p>Over the next year 100 small European tech firms will go public, one IPO at a time. The firms "
         "are independent and look identical to you. A firm's shares are worth either €55 (a good firm) or "
         "€34 (a bad firm) at the end of the first trading day, with equal probability. You are an "
-        "uninformed investor and order 100 shares in every IPO. Oversubscribed IPOs are allocated pro "
-        "rata. Everyone is risk neutral; ignore discounting within the day. Use 4 decimal places.</p>"
+        "uninformed investor and order 200 shares in every IPO. Some investors know each firm's type and "
+        "order shares only in good IPOs: good IPOs are 8 times oversubscribed and bad IPOs 2.5 times. "
+        "Oversubscribed IPOs are allocated pro rata. Everyone is risk neutral; ignore discounting within "
+        "the day. Use 4 decimal places.</p>"
     ),
     "parts": [
         del_("a", 3,
-             "<p>Suppose no investor knows more than you. At what price will the shares be sold? What is your "
-             "expected first-day return?</p>",
-             f"<p>All investors see the same thing, so the fair price is the expected value:</p>"
-             f"<p>P = 0.5 × {N(H1)} + 0.5 × {N(L1)} = <b>€{N(EV1)}</b></p>"
-             f"<p>Half the IPOs rise to {N(H1)} ({PP(H1 / EV1 - 1)}) and half fall to {N(L1)} "
-             f"({PP(L1 / EV1 - 1)}), so the expected first-day return is <b>0%</b>. Every IPO is the same "
-             "for you and you receive the same allocation in all of them.</p>",
-             [f"Price = expected value = 0.5 × 55 + 0.5 × 34 = €{N(EV1)}.",
-              "Expected first-day return 0%: the price is fair and nobody has better information.",
-              "«The price is fair, so the expected return is 0%» earns full marks for the return."]),
+             "<p>How many shares do you receive in a good and in a bad IPO? What is the expected value of a "
+             "share?</p>",
+             f"<p>Good IPO: 200/8 = <b>{N(aH1)}</b> shares. Bad IPO: 200/2.5 = <b>{N(aL1)}</b> shares.</p>"
+             f"<p>Expected value: 0.5 × {N(H1)} + 0.5 × {N(L1)} = <b>€{N(EV1)}</b>. Without informed investors "
+             "this would be the fair price and every IPO would give you an expected first-day return of 0%.</p>",
+             [f"Allocations 200/8 = {N(aH1)} and 200/2.5 = {N(aL1)} shares.",
+              f"Expected value 0.5 × 55 + 0.5 × 34 = €{N(EV1)}."]),
         del_("b", 4,
-             "<p>Now some investors know each firm's type and order shares only in good IPOs. Good IPOs become "
-             "5 times oversubscribed and bad IPOs 2 times. Each IPO is still priced at the expected value of a "
-             "share. How many shares do you receive in a good and in a bad IPO? What is your average return "
-             "per share you receive?</p>",
-             f"<p><b>Step 1. Allocation.</b> Good IPO: 100/5 = <b>{N(aH1)}</b> shares. Bad IPO: 100/2 = "
-             f"<b>{N(aL1)}</b> shares.</p>"
-             f"<p><b>Step 2. Over all 100 IPOs.</b> You expect 50 good and 50 bad IPOs, so you receive 50 × "
-             f"{N(aH1)} = {N(sH1)} good shares and 50 × {N(aL1)} = {N(sL1)} bad shares.</p>"
+             "<p>Each IPO is priced at the expected value of a share. What is your average return (in %) on "
+             "the shares you receive? (If you could not solve (a), use 30 shares in good IPOs, 70 in bad IPOs "
+             "and a price of €45.)</p>",
+             f"<p>Over all 100 IPOs you expect 50 good and 50 bad ones, so you receive 50 × {N(aH1)} = "
+             f"{N(sH1)} good shares and 50 × {N(aL1)} = {N(sL1)} bad shares.</p>"
              f"<p>Profit = {N(sH1)} × ({N(H1)} − {N(EV1)}) + {N(sL1)} × ({N(L1)} − {N(EV1)}) = {s_prof1} = "
              f"{t_prof1}<br>Invested = {N(sH1 + sL1)} × {N(EV1)} = {N(inv1)}</p>"
              f"<p>Return = {N(prof1)}/{N(inv1)} = <b>{PP(r1_EV)}</b></p>"
              "<p>Even though half the IPOs are good, most of your shares are in bad ones. At this price you "
-             "lose money and would stay away.</p>",
-             [f"Allocations 100/5 = {N(aH1)} and 100/2 = {N(aL1)} shares.",
-              f"Weights the returns by the shares actually received: ({N(sH1)} × 10.5 − {N(sL1)} × 10.5)/{N(inv1)} = {PP(r1_EV)}.",
-              "Using the order of 100 shares in both types gives 0% and misses the point of the exercise.",
+             "lose money and would stay away.</p>"
+             f"<p>With the fallback numbers (30, 70 and €45): {PP(r1_fb)}.</p>",
+             [f"Weights the returns by the shares actually received: ({N(sH1)} × 10.5 − {N(sL1)} × 10.5)/{N(inv1)} = {PP(r1_EV)}.",
+              "Using the order of 200 shares in both types gives 0% and misses the point of the exercise.",
+              f"Full marks with the fallback numbers: {PP(r1_fb)}.",
               "Show the calculation."]),
         del_("c", 5,
-             "<p>The allocations stay as in (b). At what issue price do you just break even, so that you are "
-             "still willing to take part in every IPO? (If you could not solve (b), use 25 shares in good IPOs "
-             "and 40 in bad.)</p>",
+             "<p>The allocations stay as in (a). At what issue price do you just break even, so that you are "
+             "still willing to take part in every IPO? (If you could not solve (a), use 30 shares in good IPOs "
+             "and 70 in bad.)</p>",
              "<p>Call the price X. Your expected profit over all IPOs must be zero:</p>"
              f"<p>{N(sH1)} × ({N(H1)} − X) + {N(sL1)} × ({N(L1)} − X) = 0<br>"
              f"{N(sH1 * H1)} + {N(sL1 * L1)} = {N(sH1 + sL1)}X<br>"
              f"X = {N(sH1 * H1 + sL1 * L1)}/{N(sH1 + sL1)} = <b>€{N(X1)}</b></p>"
              f"<p>The break-even price is the average value weighted by your allocations: ({N(aH1)} × {N(H1)} + "
              f"{N(aL1)} × {N(L1)})/({N(aH1)} + {N(aL1)}) = {N(X1)}, below the expected value of {N(EV1)}.</p>"
-             f"<p>With the fallback allocations (25 and 40): X = (25 × 55 + 40 × 34)/65 = {F(X1_alt)}.</p>",
+             f"<p>With the fallback allocations (30 and 70): X = (30 × 55 + 70 × 34)/100 = {N(X1_alt)}.</p>",
              ["Sets up the break-even condition with the shares actually received, as the lecturer wrote it on the board.",
               f"X = {N(sH1 * H1 + sL1 * L1)}/{N(sH1 + sL1)} = €{N(X1)}. Using equal weights brings back the expected value of €{N(EV1)}.",
-              f"Full marks with the fallback allocations: X = €{F(X1_alt)}.",
+              f"Full marks with the fallback allocations: X = €{N(X1_alt)}.",
               "Show the calculation."]),
         del_("d", 4,
              "<p>Suppose every IPO is priced as in (c). What is the average first-day return across all IPOs? "
              "What return do the informed investors earn? What do you earn? (If you could not solve (c), use "
-             "€42.)</p>",
+             "€41.)</p>",
              f"<p>A good IPO rises from {N(X1)} to {N(H1)}: {PP(gH1)}. A bad IPO falls to {N(L1)}: {PP(gL1)}.</p>"
              f"<p>Average first-day return = 0.5 × {PP(gH1)} + 0.5 × ({PP(gL1)}) = <b>{PP(avg1)}</b> "
              f"(the same as {N(EV1)}/{N(X1)} − 1).</p>"
              f"<p>The informed investors buy only good IPOs: <b>{PP(gH1)}</b>. You break even: <b>0%</b>, "
              "because the price was set to make you indifferent.</p>"
-             f"<p>With the fallback €42: average {PP(avg1fb)} and informed {PP(inf1fb)}. You earn "
-             f"{PP(you1fb)} with the allocations from (b).</p>",
+             f"<p>With the fallback €41: average {PP(avg1fb)} and informed {PP(inf1fb)}. You earn "
+             f"{PP(you1fb)} with the allocations from (a).</p>",
              [f"Average first-day return {PP(avg1)}, the equal-weighted average of {PP(gH1)} and {PP(gL1)}.",
               f"Informed investors earn {PP(gH1)} because they buy only good IPOs.",
               "You earn 0%: the price is your break-even price.",
-              f"Full marks with the fallback €42: {PP(avg1fb)}, {PP(inf1fb)} and {PP(you1fb)}."]),
+              f"Full marks with the fallback €41: {PP(avg1fb)}, {PP(inf1fb)} and {PP(you1fb)}."]),
         del_("e", 4,
              "<p>A journalist writes: «IPOs rise sharply on the first day on average, so ordinary investors "
              "should buy every IPO. The underpricing shows that banks favour their hedge-fund clients.» Comment "
@@ -1196,7 +1228,7 @@ ex_i1 = {
              "the expected value. The informed investors earn the gain, but the bank does not have to favour "
              "anyone. A conflict of interest at the bank is a possible extra explanation, but the lecturer's "
              "answer was that it is not the main one.</p>",
-             ["2 points: the uninformed are rationed in good IPOs and filled in bad ones, so they cannot earn the average first-day return; they earn 0% at this price.",
+             ["2 points: the uninformed are rationed in good IPOs and get much more in bad ones, so they cannot earn the average first-day return; they earn 0% at this price.",
               "2 points: underpricing arises even with an honest bank, because the price must let the uninformed break even (asymmetric information, the winner's curse).",
               "Bonus, not required: mentioning the bank-conflict or insurance explanations as possible extra causes.",
               "2 to 4 sentences are enough."]),
@@ -1204,23 +1236,23 @@ ex_i1 = {
 }
 UT["mk-ipo-1"] = ex_i1
 svar("mk-ipo-1:1:a", "tall", [
-    tall("Price", EV1, "€", feller=[X1]),
-    tall("Expected first-day return", 0.0, "%", abs_=0.05),
-])
-svar("mk-ipo-1:1:b", "tall", [
     tall("Shares, good IPO", aH1, "", feller=[ord1]),
     tall("Shares, bad IPO", aL1, "", feller=[ord1]),
-    tall("Average return per share", 100 * r1_EV, "%"),
+    tall("Expected value of a share", EV1, "€", feller=[X1]),
 ])
+svar("mk-ipo-1:1:b", "tall", [
+    tall("Average return on your shares", 100 * r1_EV, "%", alt=[100 * r1_fb, 100 * r1_fbP, 100 * r1_fbA]),
+], merknad=f"alt er svarene med reservetallene: alle tre ({PP(r1_fb)}), bare prisen €45 ({PP(r1_fbP)}) og "
+           f"bare tildelingene 30 og 70 ({PP(r1_fbA)}).")
 svar("mk-ipo-1:1:c", "tall", [
     tall("Break-even price", X1, "€", feller=[EV1, X1_lik], alt=[X1_alt]),
-], merknad=f"alt ({F(X1_alt)}) er svaret med reserveallokeringene 25 og 40.")
+], merknad=f"alt ({N(X1_alt)}) er svaret med reservetildelingene 30 og 70.")
 svar("mk-ipo-1:1:d", "tall", [
     tall("Average first-day return", 100 * avg1, "%", feller=[0.0], alt=[100 * avg1fb]),
     tall("Informed investors' return", 100 * gH1, "%", feller=[100 * avg1], alt=[100 * inf1fb]),
     tall("Your return", 0.0, "%", abs_=0.05, alt=[100 * you1fb]),
-], merknad=f"alt er svarene med reserveprisen 42 ({PP(avg1fb)}, {PP(inf1fb)} og {PP(you1fb)} for deg "
-           "med allokeringene fra (b)).")
+], merknad=f"alt er svarene med reserveprisen 41 ({PP(avg1fb)}, {PP(inf1fb)} og {PP(you1fb)} for deg "
+           "med tildelingene fra (a)).")
 svar("mk-ipo-1:1:e", "tekst")
 
 # ------------------------------------------------ mk-ipo-2: etterspørsel i aksjer, full tegning (NOK)
@@ -1260,8 +1292,9 @@ ex_i2 = {
         "A firm is good or bad with equal probability. Its shares are worth NOK 124 (good) or NOK 72 (bad) "
         "at the end of the first trading day. Informed investors know each firm's type: together they "
         "order 1.5 million shares in every good IPO and none in bad ones. Uninformed investors cannot tell "
-        "the types apart and together order 2.5 million shares in every IPO. All IPOs have the same price "
-        "and oversubscribed IPOs are allocated pro rata. Everyone is risk neutral. Use 4 decimal places.</p>"
+        "the types apart and together order 2.5 million shares in every IPO, but they take part only if "
+        "they expect at least to break even. All IPOs have the same price and oversubscribed IPOs are "
+        "allocated pro rata. Everyone is risk neutral. Use 4 decimal places.</p>"
     ),
     "parts": [
         del_("a", 3,
@@ -1276,7 +1309,8 @@ ex_i2 = {
               "Leaving the informed demand out of the good IPOs gives the same fill rate in both and loses the points."]),
         del_("b", 4,
              "<p>Every IPO is priced at the expected value of a share. What is the uninformed investors' average "
-             "return on the shares they receive? (If you could not solve (a), use fill rates of 40% and 75%.)</p>",
+             "return on the shares they receive? (If you could not solve (a), use fill rates of 40% in good "
+             "IPOs and 75% in bad IPOs.)</p>",
              f"<p>Expected value: 0.5 × 124 + 0.5 × 72 = NOK {N(EV2i)}.</p>"
              f"<p>Per pair of one good and one bad IPO the uninformed receive 0.5 × 2.5 = {N(uH2p)} million good "
              f"shares and 0.8 × 2.5 = {N(uL2p)} million bad shares.</p>"
@@ -1305,7 +1339,8 @@ ex_i2 = {
               f"Swapping the fill rates gives NOK {N(P2_byttet)}, above the expected value: a sign that something is wrong."]),
         del_("d", 5,
              "<p>Suppose every IPO is priced as in (c). How much do the original owners leave on the table in a "
-             "good and in a bad IPO (the first-day value of the shares sold minus the proceeds)? What is the "
+             "good and in a bad IPO (the first-day value of the shares sold minus the proceeds, which can be "
+             "negative)? What is the "
              "average per IPO? What is the average first-day return? (If you could not solve (c), use NOK "
              "90.)</p>",
              f"<p>Good IPO: 2 × (124 − 92) = <b>NOK {N(lt_g)} million</b>. The buyers gain what the owners give up.</p>"
@@ -1315,7 +1350,7 @@ ex_i2 = {
              f"2 × (98 − 92) = {N(lt_avg)}).</p><p>Average first-day return = 98/92 − 1 = <b>{PP(avg2)}</b>.</p>"
              f"<p>With the fallback NOK 90: {N(lt_gfb)}, {N(lt_bfb)}, average {N(lt_avgfb)} and {PP(avg2fb)}.</p>",
              [f"Good IPO: 2 × (124 − 92) = {N(lt_g)}, so NOK {N(lt_g)} million is left on the table.",
-              f"Bad IPO: {N(lt_b)}, a gain of NOK {N(-lt_b)} million for the owners. Either sign is accepted if it is explained.",
+              f"Bad IPO: 2 × (72 − 92) = {N(lt_b)}: the owners receive NOK {N(-lt_b)} million more than the shares are worth.",
               f"Average NOK {N(lt_avg)} million per IPO = 2 × (98 − 92); average first-day return {PP(avg2)}.",
               f"Full marks with the fallback NOK 90: {N(lt_gfb)}, {N(lt_bfb)}, {N(lt_avgfb)} and {PP(avg2fb)}."]),
         del_("e", 4,
@@ -1330,7 +1365,8 @@ ex_i2 = {
              "own shares worth 124. The uninformed only break even.</p>",
              ["2 points: informed demand is too small and absent from bad IPOs, so the uninformed are needed. They take part only at their break-even price below the expected value (the winner's curse).",
               "1 point: the cost falls on the original owners (money left on the table).",
-              "1 point: the informed investors gain; the uninformed break even.",
+              "1 point: the informed investors gain.",
+              "Bonus, not required: the uninformed only break even.",
               "2 to 4 sentences are enough."]),
     ],
 }
@@ -1349,11 +1385,11 @@ svar("mk-ipo-2:1:c", "tall", [
 ], merknad=f"alt ({F(P2_alt)}) er svaret med reservefyllingsgradene.")
 svar("mk-ipo-2:1:d", "tall", [
     tall("Left on the table, good IPO", lt_g, "NOK m", alt=[lt_gfb]),
-    tall("Left on the table, bad IPO", lt_b, "NOK m", alt=[-lt_b, lt_bfb, -lt_bfb]),
+    tall("Left on the table, bad IPO", lt_b, "NOK m", feller=[-lt_b], alt=[lt_bfb]),
     tall("Average per IPO", lt_avg, "NOK m", alt=[lt_avgfb]),
     tall("Average first-day return", 100 * avg2, "%", alt=[100 * avg2fb]),
-], merknad="Begge fortegn godtas for den dårlige IPO-en (forklaringen rettes av teksten). alt inneholder også "
-           "svarene med reserveprisen 90.")
+], merknad="Fortegnet er definert i oppgaven (verdi minus proveny), så +40 for den dårlige IPO-en er feil. "
+           "alt er svarene med reserveprisen 90.")
 svar("mk-ipo-2:1:e", "tekst")
 
 # ------------------------------------------------ mk-ipo-3: sannsynligheter som ikke er 50/50 ($)
@@ -1414,7 +1450,7 @@ ex_i3 = {
              "almost alone and are largely filled. Getting a large allocation is itself bad news.</p>"
              f"<p>With the fallback numbers: 1,200/2,000 = {PP(andel3fb)}.</p>",
              [f"Fraction {N(sL3)}/{N(sH3 + sL3)} = {PP(andel3)} of your shares are in bad IPOs, against 25% of the IPOs.",
-              "One sentence on why: rationing in good IPOs (informed demand) and full allocation in bad ones.",
+              "One sentence on why: rationing in good IPOs (informed demand) and a much larger allocation in bad ones.",
               f"Full marks with the fallback numbers: {PP(andel3fb)}."]),
         del_("c", 4,
              "<p>Every IPO is priced at the expected value of a share. What is your total expected profit? What "
@@ -1456,7 +1492,8 @@ ex_i3 = {
              f"{N(P3_hale)}.</p>",
              ["2 points: the price falls, because the winner's curse gets worse (more of your shares in bad IPOs).",
               "1 point: the original owners lose (more underpricing, more money left on the table).",
-              "1 point: the informed investors gain; the uninformed still only break even.",
+              "1 point: the informed investors gain (as a group, or the newly informed).",
+              "Bonus, not required: the uninformed still only break even.",
               "No calculation is needed."]),
     ],
 }
@@ -1481,6 +1518,480 @@ svar("mk-ipo-3:1:d", "tall", [
 ], merknad="alt er svarene med reservetallene 800 og 1 200.")
 svar("mk-ipo-3:1:e", "tekst")
 assert len({round(x, 4) for x in (X1, P2, P3)}) == 3 and len({round(x, 4) for x in (r1_EV, r2_EV, r3_EV)}) == 3
+
+
+# ============================================================ AVVIKLE: realopsjon, avvikle eller gå ut (tier 3)
+def ann(c, r, n):
+    """Nåverdi av c per periode i n perioder."""
+    return c * (1 - (1 + r) ** -n) / r
+
+
+# ------------------------------------------------ mk-avvikle-1: forelesningsformen (måned, gratis exit etter 30 mnd)
+I_a1, cost_a1, revG_a1, revB_a1, p_a1, n_a1, ry_a1 = 250000.0, 18000.0, 21500.0, 13500.0, 0.5, 30, 0.05
+rm_a1 = (1 + ry_a1) ** (1 / 12) - 1
+nG_a1, nB_a1 = revG_a1 - cost_a1, revB_a1 - cost_a1
+
+
+def a1_kjede(rm):
+    com = -I_a1 + (p_a1 * nG_a1 + (1 - p_a1) * nB_a1) / rm
+    good = -I_a1 + nG_a1 / rm
+    bad = -I_a1 + ann(nB_a1, rm, n_a1)
+    w = p_a1 * good + (1 - p_a1) * bad
+    return {"com": com, "good": good, "bad": bad, "w": w, "verdi": w - max(com, 0)}
+
+
+A1 = a1_kjede(rm_a1)
+A1fb = a1_kjede(0.004)                                   # reserverenten 0,4 % per måned
+assert A1["com"] < 0 < A1["w"] and A1["bad"] < 0 < A1["good"]
+gG_fb, gB_fb = 600000.0, -380000.0                       # reserve-NPV-er i (d)
+w_a1fb2 = p_a1 * gG_fb + (1 - p_a1) * gB_fb
+assert near(A1["verdi"], A1["w"])                        # beste valg uten klausulen er å la være (0)
+a30 = ann(1, rm_a1, n_a1)
+assert round(-I_a1 + nB_a1 * round(a30, 6), 2) == round(A1["bad"], 2)      # vist faktor gir vist svar
+A1_12 = -I_a1 + ann(nB_a1, rm_a1, 12)
+assert p_a1 * A1["good"] + (1 - p_a1) * A1_12 > A1["w"]  # halen: kortere binding gir mer verdi
+
+ex_a1 = {
+    "n": 1, "title": "Real options", "points": 20, "topic": "Real options",
+    "chapters": [25],
+    "merke": "Samme form som butikkeksemplet med exit-klausul i forelesning 14",
+    "body": (
+        "<p>You can open a franchised salad bar in an office district in Lyon. The fit-out costs €250,000, "
+        "paid today. Rent, staff and food cost €18,000 a month. Revenue will be either €21,500 a month "
+        "forever (good demand) or €13,500 a month forever (bad demand), with equal probability. You learn "
+        "which right after opening. All cash flows come at the end of each month, the first one month "
+        "from today. Demand for salads is unrelated to the stock market, so discount at the risk-free rate "
+        "of 5% per year. Use 4 decimal places.</p>"
+    ),
+    "parts": [
+        del_("a", 2,
+             "<p>What is the monthly discount rate?</p>",
+             f"<p>r<sub>m</sub> = 1.05<sup>1/12</sup> − 1 = <b>{R(rm_a1)} ({PP(rm_a1)})</b> per month. "
+             "Dividing 5% by 12 ignores the compounding within the year.</p>",
+             [f"r_m = 1.05^(1/12) − 1 = {PP(rm_a1)}.",
+              "5%/12 = 0.4167% ignores the compounding within the year and loses the point."]),
+        del_("b", 3,
+             "<p>What is the NPV of opening if you must run the bar forever? Do you open it? (If you could not "
+             "solve (a), use 0.4% per month here and below.)</p>",
+             f"<p>Expected net cash flow: 0.5 × ({N(revG_a1)} − {N(cost_a1)}) + 0.5 × ({N(revB_a1)} − {N(cost_a1)}) "
+             f"= 0.5 × {N(nG_a1)} + 0.5 × ({N(nB_a1)}) = {N(p_a1 * nG_a1 + (1 - p_a1) * nB_a1)} a month.</p>"
+             f"<p>NPV = −250,000 + ({N(p_a1 * nG_a1 + (1 - p_a1) * nB_a1)})/{R(rm_a1)} = <b>{M(A1['com'], '€')}</b>. "
+             "Negative: committed forever, you do not open.</p>"
+             f"<p>With the fallback 0.4%: {F(A1fb['com'], 2)}.</p>",
+             [f"Expected net cash flow −500 a month, valued as a perpetuity at the monthly rate: NPV = {M(A1['com'], '€')}.",
+              "Decision: do not open.",
+              f"Full marks with the fallback 0.4%: {M(A1fb['com'], '€')}."]),
+        del_("c", 6,
+             "<p>The franchise contract lets you close the bar at no cost at the end of month 30, after that "
+             "month's cash flow. After that you pay and receive nothing. What is the NPV of opening in the good "
+             "and in the bad state?</p>",
+             f"<p><b>Good demand.</b> You earn {N(nG_a1)} a month and never close: NPV = −250,000 + "
+             f"{N(nG_a1)}/{R(rm_a1)} = <b>{M(A1['good'], '€')}</b>.</p>"
+             f"<p><b>Bad demand.</b> At month 30 you compare staying, which loses {N(-nB_a1)} a month forever, "
+             "with closing, which gives 0. You close, so you lose money for 30 months only:</p>"
+             f"<p>NPV = −250,000 − {N(-nB_a1)} × (1 − {R(1 + rm_a1)}<sup>−30</sup>)/{R(rm_a1)} = −250,000 − "
+             f"{N(-nB_a1)} × {F(a30, 6)} = <b>{M(A1['bad'], '€')}</b></p>"
+             f"<p>With the fallback 0.4%: {F(A1fb['good'], 2)} and {F(A1fb['bad'], 2)}.</p>",
+             [f"Good state: a perpetuity of 3,500 a month, NPV = {M(A1['good'], '€')}.",
+              f"Bad state: compares staying with 0 and closes; an annuity of −4,500 for 30 months, NPV = {M(A1['bad'], '€')}.",
+              f"Keeping the bad state's loss as a perpetuity ({F(-I_a1 + nB_a1 / rm_a1, 2)}) ignores the clause and loses the points.",
+              f"Full marks with the fallback 0.4%: {F(A1fb['good'], 2)} and {F(A1fb['bad'], 2)}."]),
+        del_("d", 5,
+             "<p>What is the NPV of opening with the clause? Do you open? What is the clause worth to you? "
+             "(If you could not solve (c), use NPVs of €600,000 in the good state and −€380,000 in the bad "
+             "state.)</p>",
+             f"<p>NPV = 0.5 × {F(A1['good'], 2)} + 0.5 × ({F(A1['bad'], 2)}) = <b>{M(A1['w'], '€')}</b>. Positive: "
+             "with the clause you open.</p>"
+             "<p>Without the clause your best choice is not to open, which is worth 0, not the negative NPV "
+             f"from (b). The clause is therefore worth <b>{M(A1['verdi'], '€')}</b>: it turns a project you "
+             "would reject into one worth that much.</p>"
+             f"<p>With the fallback NPVs: {N(w_a1fb2)} for both. With the fallback rate: {F(A1fb['w'], 2)}.</p>",
+             [f"NPV with the clause = {M(A1['w'], '€')}; open.",
+              f"Value of the clause = NPV with the clause − max(0, NPV without) = {M(A1['verdi'], '€')}.",
+              f"Subtracting the negative NPV from (b) (giving {F(A1['w'] - A1['com'], 2)}) treats a project you would never take as your alternative.",
+              f"Full marks with the fallbacks: {M(w_a1fb2, '€')} or {M(A1fb['w'], '€')}."]),
+        del_("e", 4,
+             "<p>Without new calculations: how would the value of the clause change if you could close already "
+             "after 12 months? What would the clause be worth if bad-demand revenue were €19,000 a month "
+             "instead? Explain briefly.</p>",
+             "<p><b>Exit after 12 months: worth more.</b> The clause cuts off the losses of the bad state. "
+             "With a shorter lock-in you suffer the €4,500 loss for 12 months instead of 30, so the bad-state "
+             "NPV is less negative and the clause adds more value.</p>"
+             "<p><b>Bad-demand revenue of €19,000: worthless.</b> Revenue would then exceed the running costs, "
+             "so the bar earns money in both states and you would never use the right to close. An option "
+             "you never exercise is worth nothing; its value comes only from avoiding losses.</p>",
+             ["2 points: a shorter lock-in raises the value, because the losses in the bad state are cut off earlier.",
+              "2 points: with €19,000 the bad state earns money, you never close, so the clause is worth 0.",
+              "Bonus, not required: the general point that an exit option is valuable only where the continuation value is below 0."]),
+    ],
+}
+UT["mk-avvikle-1"] = ex_a1
+svar("mk-avvikle-1:1:a", "tall", [tall("Monthly rate", 100 * rm_a1, "%", feller=[100 * ry_a1 / 12])],
+     merknad="5 %/12 = 0.4167 % ligger 2.3 % unna og avvises.")
+svar("mk-avvikle-1:1:b", "tall", [tall("NPV, committed", A1["com"], "€", alt=[A1fb["com"]])],
+     merknad="alt er svaret med reserverenten 0.4 %.")
+svar("mk-avvikle-1:1:c", "tall", [
+    tall("NPV, good state", A1["good"], "€", alt=[A1fb["good"]]),
+    tall("NPV, bad state", A1["bad"], "€", feller=[-I_a1 + nB_a1 / rm_a1, -I_a1], alt=[A1fb["bad"]]),
+], merknad="alt er svarene med reserverenten 0.4 %.")
+svar("mk-avvikle-1:1:d", "tall", [
+    tall("NPV with the clause", A1["w"], "€", alt=[w_a1fb2, A1fb["w"]]),
+    tall("Value of the clause", A1["verdi"], "€", feller=[A1["w"] - A1["com"]], alt=[w_a1fb2, A1fb["verdi"]]),
+], merknad="Fellen er verdien målt mot den negative NPV-en fra (b). alt er svarene med reserve-NPV-ene og reserverenten.")
+svar("mk-avvikle-1:1:e", "tekst")
+
+# ------------------------------------------------ mk-avvikle-2: eksamensformen (år, exit etter år 2, indifferent X)
+I_a2, g_a2, b_a2, p_a2, r_a2, n_a2 = 900000.0, 150000.0, -70000.0, 0.5, 0.06, 2
+mean_a2 = p_a2 * g_a2 + (1 - p_a2) * b_a2
+com_a2 = -I_a2 + mean_a2 / r_a2
+good_a2 = -I_a2 + g_a2 / r_a2
+bad_a2 = -I_a2 + ann(b_a2, r_a2, n_a2)
+w_a2 = p_a2 * good_a2 + (1 - p_a2) * bad_a2
+verdi_a2 = w_a2 - max(com_a2, 0)
+assert com_a2 < 0 < w_a2
+af2 = 1 / 1.06 + 1 / 1.06 ** 2
+X_a2 = (2 * I_a2 - mean_a2 / r_a2 - mean_a2 * af2) / (1 / r_a2 - af2)
+assert near(-I_a2 + 0.5 * ((mean_a2 + X_a2) / r_a2 + (mean_a2 - X_a2) * af2), 0) and X_a2 > mean_a2
+assert X_a2 < (g_a2 - b_a2) / 2                          # dagens spredning (110 000) er over X: åpne
+fb_a2 = 300000.0
+teller_a2 = round(2 * I_a2 - round(mean_a2 / r_a2, 2) - round(mean_a2 * af2, 2), 2)
+nevner_a2 = round(round(1 / r_a2, 6) - round(af2, 6), 6)
+assert round(teller_a2 / nevner_a2, 2) == round(X_a2, 2)                  # viste tall gir vist svar
+s_b2, t_b2 = summ([-I_a2, b_a2 / 1.06, b_a2 / 1.06 ** 2], bad_a2, d0=2, maks=2)
+s_w2, t_w2 = summ([p_a2 * good_a2, (1 - p_a2) * bad_a2], w_a2, d0=2, maks=2)
+
+ex_a2 = {
+    "n": 1, "title": "Real options", "points": 20, "topic": "Real options",
+    "chapters": [25],
+    "merke": "Samme form som H2025 E5 (d) og (e)",
+    "body": (
+        "<p>You can open an escape-room venue in Stavanger. Fitting out the rooms costs NOK 900,000, paid "
+        "today. With good demand the venue earns NOK 150,000 a year forever; with bad demand it loses NOK "
+        "70,000 a year forever. Both are equally likely. You learn which right after opening. Cash flows "
+        "come at the end of each year, the first one year from today. The risk is unrelated to the market, "
+        "so discount at the risk-free rate of 6% a year.</p>"
+    ),
+    "parts": [
+        del_("a", 3,
+             "<p>What is the NPV of opening if you must run the venue forever? Do you open?</p>",
+             f"<p>Expected cash flow: 0.5 × 150,000 + 0.5 × (−70,000) = {N(mean_a2)} a year.</p>"
+             f"<p>NPV = −900,000 + {N(mean_a2)}/0.06 = <b>NOK {F(com_a2, 2)}</b>. You do not open.</p>",
+             [f"NPV = −900,000 + 40,000/0.06 = {F(com_a2, 2)}; do not open."]),
+        del_("b", 6,
+             "<p>The landlord lets you close the venue at no cost at the end of Year 2, after that year's cash "
+             "flow. After that you pay and receive nothing. What is the NPV of opening now? Do you open?</p>",
+             f"<p><b>Good demand:</b> you never close. NPV = −900,000 + 150,000/0.06 = <b>{F(good_a2, 2)}</b>.</p>"
+             "<p><b>Bad demand:</b> at the end of Year 2 the venue's remaining value is −70,000/0.06, below the "
+             "0 you get by closing, so you close. You lose 70,000 in Years 1 and 2 only:</p>"
+             f"<p>NPV = −900,000 − 70,000/1.06 − 70,000/1.06<sup>2</sup> = {s_b2} = <b>{t_b2}</b></p>"
+             f"<p>NPV of opening = 0.5 × {F(good_a2, 2)} + 0.5 × ({F(bad_a2, 2)}) = {s_w2} = <b>NOK {t_w2}</b>. "
+             "Positive, so you open.</p>",
+             ["Good state: 150,000/0.06 − 900,000 = 1,600,000.",
+              f"Bad state: compares the continuation value with 0 and closes after Year 2: {F(bad_a2, 2)}.",
+              f"NPV = {F(w_a2, 2)}; open.",
+              "Using −70,000 forever in the bad state, or comparing with the negative value instead of 0, is the mistake the lecturer warned about."]),
+        del_("c", 3,
+             "<p>What is the right to close worth to you? (If you could not solve (b), use an NPV of NOK "
+             "300,000.)</p>",
+             "<p>Without the right your best choice is not to open (0). With it the project is worth "
+             f"{F(w_a2, 2)}. The right is worth <b>NOK {F(verdi_a2, 2)}</b>.</p>"
+             f"<p>Subtracting the negative NPV from (a) instead gives {F(w_a2 - com_a2, 2)}, which values the "
+             "right against a project you would never take. With the fallback: NOK 300,000.</p>",
+             [f"Value = NPV with the right − max(0, NPV without) = {F(verdi_a2, 2)}.",
+              f"Using the negative NPV from (a) as the alternative ({F(w_a2 - com_a2, 2)}) loses the point.",
+              "Full marks with the fallback: 300,000."]),
+        del_("d", 5,
+             "<p>Keep the right to close at the end of Year 2. Suppose the yearly cash flow is 40,000 + X with "
+             "good demand and 40,000 − X with bad demand. For which X are you indifferent about opening?</p>",
+             "<p>At indifference the bad state loses money (X is larger than 40,000), so you close after Year 2:</p>"
+             "<p>0 = −900,000 + 0.5 × [(40,000 + X)/0.06 + (40,000 − X)(1/1.06 + 1/1.06<sup>2</sup>)]</p>"
+             f"<p>With 1/1.06 + 1/1.06<sup>2</sup> = {F(af2, 6)}:<br>"
+             f"1,800,000 = {F(mean_a2 / r_a2, 2)} + {F(1 / r_a2, 6)}X + {F(mean_a2 * af2, 2)} − {F(af2, 6)}X<br>"
+             f"X = ({N(2 * I_a2)} − {F(mean_a2 / r_a2, 2)} − {F(mean_a2 * af2, 2)})/({F(1 / r_a2, 6)} − {F(af2, 6)}) "
+             f"= {F(teller_a2, 2)}/{F(nevner_a2, 6)} = <b>NOK {F(X_a2, 2)}</b></p>"
+             f"<p>Sanity check (not required): in the original setting X = 110,000, above {F(X_a2, 0)}, so you "
+             "open, as in (b).</p>",
+             ["Sets up the indifference condition with the exit after Year 2 in the bad state.",
+              f"X = NOK {F(X_a2, 2)}.",
+              "Treating the bad state as a perpetuity (no exit) gives no solution with a positive NPV and loses the points.",
+              "Show the calculation."]),
+        del_("e", 3,
+             "<p>In (d) a larger X leaves the expected yearly cash flow unchanged. Why does it still make "
+             "opening more attractive? Explain briefly.</p>",
+             "<p>Because of the right to close, the two states are treated differently. A larger X raises the "
+             "good state's cash flow forever but lowers the bad state's only for two years, since you then "
+             "close. The upside grows while the downside is capped, so more spread means more value. The right "
+             "to close is an option; options are worth more when uncertainty is larger.</p>",
+             ["2 points: the upside is kept forever while the downside is cut off after two years.",
+              "1 point: the right to close is an option; options gain value with more uncertainty (spread).",
+              "2 to 3 sentences are enough."]),
+    ],
+}
+UT["mk-avvikle-2"] = ex_a2
+svar("mk-avvikle-2:1:a", "tall", [tall("NPV, committed", com_a2, "NOK", feller=[-I_a2])])
+svar("mk-avvikle-2:1:b", "tall", [
+    tall("NPV, good state", good_a2, "NOK"),
+    tall("NPV, bad state", bad_a2, "NOK", feller=[-I_a2 + b_a2 / r_a2, -I_a2]),
+    tall("NPV of opening", w_a2, "NOK", feller=[com_a2]),
+])
+svar("mk-avvikle-2:1:c", "tall", [tall("Value of the right", verdi_a2, "NOK", feller=[w_a2 - com_a2], alt=[fb_a2])],
+     merknad="Fellen er verdien målt mot den negative NPV-en fra (a). alt er reserveverdien.")
+svar("mk-avvikle-2:1:d", "tall", [tall("X", X_a2, "NOK")])
+svar("mk-avvikle-2:1:e", "tekst")
+
+# ------------------------------------------------ mk-avvikle-3: varslet tillegg (kvartal, exit-gebyr)
+I_a3, cost_a3, revG_a3, revB_a3, p_a3, n_a3, ry_a3, fee_a3 = 600000.0, 90000.0, 130000.0, 60000.0, 0.45, 6, 0.08, 50000.0
+rq_a3 = (1 + ry_a3) ** 0.25 - 1
+nG_a3, nB_a3 = revG_a3 - cost_a3, revB_a3 - cost_a3
+
+
+def a3_kjede(rq):
+    com = -I_a3 + (p_a3 * nG_a3 + (1 - p_a3) * nB_a3) / rq
+    good = -I_a3 + nG_a3 / rq
+    bad = -I_a3 + ann(nB_a3, rq, n_a3) - fee_a3 / (1 + rq) ** n_a3
+    w = p_a3 * good + (1 - p_a3) * bad
+    return {"com": com, "good": good, "bad": bad, "w": w, "Fmax": -nB_a3 / rq}
+
+
+A3 = a3_kjede(rq_a3)
+A3fb = a3_kjede(0.02)
+assert A3["com"] < 0 < A3["w"] and A3["Fmax"] > fee_a3      # du går ut ved dårlig etterspørsel
+a6 = ann(1, rq_a3, n_a3)
+v6 = (1 + rq_a3) ** -n_a3
+assert abs((-I_a3 + nB_a3 * round(a6, 6) - fee_a3 * round(v6, 6)) - A3["bad"]) < 0.01
+bad3_utengebyr = -I_a3 + ann(nB_a3, rq_a3, n_a3)
+
+ex_a3 = {
+    "n": 1, "title": "Real options", "points": 20, "topic": "Real options",
+    "chapters": [25],
+    "merke": "Samme form som exit-eksemplet i forelesning 14 og 18, med kvartalsvise kontantstrømmer",
+    "body": (
+        "<p>A US mattress brand can open a showroom in a Denver mall. The fit-out costs $600,000, paid today. "
+        "Rent, staff and other costs are $90,000 a quarter. Revenue will be $130,000 a quarter forever with "
+        "probability 45% (good demand) or $60,000 a quarter forever with probability 55% (bad demand). The "
+        "brand learns which right after opening. Cash flows come at the end of each quarter, the first "
+        "one quarter from today. Demand is unrelated to the market, so discount at the risk-free rate of 8% "
+        "a year. Use 4 decimal places.</p>"
+    ),
+    "parts": [
+        del_("a", 2,
+             "<p>What is the quarterly discount rate?</p>",
+             f"<p>r<sub>q</sub> = 1.08<sup>1/4</sup> − 1 = <b>{R(rq_a3)} ({PP(rq_a3)})</b> per quarter.</p>",
+             [f"r_q = 1.08^(1/4) − 1 = {PP(rq_a3)}.", "8%/4 = 2% ignores the compounding within the year and loses the point."]),
+        del_("b", 3,
+             "<p>What is the NPV of opening if the brand must keep the showroom forever? Does it open? (If you "
+             "could not solve (a), use 2% per quarter here and below.)</p>",
+             f"<p>Expected net cash flow: 0.45 × {N(nG_a3)} + 0.55 × ({N(nB_a3)}) = "
+             f"{N(p_a3 * nG_a3 + (1 - p_a3) * nB_a3)} a quarter.</p>"
+             f"<p>NPV = −600,000 + {N(p_a3 * nG_a3 + (1 - p_a3) * nB_a3)}/{R(rq_a3)} = <b>${F(A3['com'], 2)}</b>. "
+             "It does not open.</p>"
+             f"<p>With the fallback 2%: {F(A3fb['com'], 2)}.</p>",
+             [f"Expected net cash flow +1,500 a quarter; NPV = {F(A3['com'], 2)}; do not open.",
+              "Using 50/50 instead of 45/55 is an error.",
+              f"Full marks with the fallback 2%: {F(A3fb['com'], 2)}."]),
+        del_("c", 7,
+             "<p>The mall offers a lease that lets the brand leave at the end of quarter 6, after that "
+             "quarter's cash flow, if it pays an exit fee of $50,000 then. After that it pays and receives "
+             "nothing. Does the brand leave with bad demand? What is the NPV of opening in each state and in "
+             "total? Does it open?</p>",
+             f"<p><b>Good demand:</b> it never leaves. NPV = −600,000 + {N(nG_a3)}/{R(rq_a3)} = "
+             f"<b>{F(A3['good'], 2)}</b>.</p>"
+             f"<p><b>Bad demand, the exit decision.</b> At the end of quarter 6, staying is worth "
+             f"−{N(-nB_a3)}/{R(rq_a3)} = −{F(A3['Fmax'], 2)}, while leaving costs the fee of 50,000. "
+             "−50,000 is better, so it <b>leaves</b>.</p>"
+             f"<p><b>Bad demand, NPV:</b> −600,000 − {N(-nB_a3)} × (1 − {R(1 + rq_a3)}<sup>−6</sup>)/{R(rq_a3)} − "
+             f"50,000/{R(1 + rq_a3)}<sup>6</sup> = −600,000 − {N(-nB_a3)} × {F(a6, 6)} − 50,000 × {F(v6, 6)} = "
+             f"<b>{F(A3['bad'], 2)}</b></p>"
+             f"<p><b>Total:</b> 0.45 × {F(A3['good'], 2)} + 0.55 × ({F(A3['bad'], 2)}) = <b>${F(A3['w'], 2)}</b>. "
+             "Positive, so it opens.</p>"
+             f"<p>With the fallback 2%: {F(A3fb['good'], 2)}, {F(A3fb['bad'], 2)} and {F(A3fb['w'], 2)}.</p>",
+             ["Exit decision: compares staying (a perpetuity of −30,000) with paying the fee, not with 0; leaves.",
+              f"Good state {F(A3['good'], 2)}; bad state {F(A3['bad'], 2)}, with the fee discounted from quarter 6.",
+              f"Total NPV {F(A3['w'], 2)}; open.",
+              f"Forgetting the fee gives {F(bad3_utengebyr, 2)} in the bad state.",
+              f"Full marks with the fallback 2%: {F(A3fb['good'], 2)}, {F(A3fb['bad'], 2)}, {F(A3fb['w'], 2)}."]),
+        del_("d", 4,
+             "<p>What is the largest exit fee at which the brand would still leave with bad demand at the end "
+             "of quarter 6? Explain what you compare.</p>",
+             "<p>At the end of quarter 6 the brand compares the value of staying with the cost of leaving. "
+             f"Staying is worth −{N(-nB_a3)}/{R(rq_a3)} = −{F(A3['Fmax'], 2)}. It leaves as long as the fee is "
+             f"smaller than that loss: the largest fee is <b>${F(A3['Fmax'], 2)}</b>.</p>"
+             "<p>The fit-out cost and the losses of the first six quarters play no role: they are already "
+             "spent. Only the cash flows from quarter 7 on are compared.</p>"
+             f"<p>With the fallback 2%: {F(A3fb['Fmax'], 2)}.</p>",
+             [f"Largest fee = present value at quarter 6 of the future losses = 30,000/{R(rq_a3)} = {F(A3['Fmax'], 2)}.",
+              "Says what is compared: staying (the perpetuity of losses) against paying the fee and leaving.",
+              f"Full marks with the fallback 2%: {F(A3fb['Fmax'], 2)}."]),
+        del_("e", 4,
+             "<p>At the end of quarter 6, with bad demand, the brand's founder says: «We have spent $600,000 "
+             "on this showroom. If we leave now, that money is lost, so we should stay until we earn it back.» "
+             "Comment briefly.</p>",
+             "<p>The founder is wrong. The $600,000 is a sunk cost: it is gone whether the brand stays or "
+             "leaves, so it must not affect the decision. Only the future matters: staying loses $30,000 a "
+             f"quarter forever (worth −{F(A3['Fmax'], 0)}), leaving costs $50,000. With bad demand the showroom "
+             "never earns the money back, so staying only adds to the losses. Treat the present as given and "
+             "take the best decision from here.</p>",
+             ["2 points: the fit-out cost is sunk and irrelevant for the decision at quarter 6.",
+              "2 points: compares only future cash flows (stay: losses forever; leave: the fee), so the brand should leave.",
+              "2 to 4 sentences are enough."]),
+    ],
+}
+UT["mk-avvikle-3"] = ex_a3
+svar("mk-avvikle-3:1:a", "tall", [tall("Quarterly rate", 100 * rq_a3, "%", feller=[100 * ry_a3 / 4])],
+     merknad="8 %/4 = 2 % ligger 3 % unna og avvises.")
+svar("mk-avvikle-3:1:b", "tall", [tall("NPV, committed", A3["com"], "$", feller=[-I_a3 + 0.5 * (nG_a3 + nB_a3) / rq_a3],
+                                       alt=[A3fb["com"]])],
+     merknad="Fellen er 50/50-vekter. alt er svaret med reserverenten 2 %.")
+svar("mk-avvikle-3:1:c", "blandet", [
+    tall("NPV, good state", A3["good"], "$", alt=[A3fb["good"]]),
+    tall("NPV, bad state", A3["bad"], "$", feller=[bad3_utengebyr, -I_a3 + nB_a3 / rq_a3], alt=[A3fb["bad"]]),
+    tall("NPV of opening", A3["w"], "$", alt=[A3fb["w"]]),
+], tallPoeng=5, tekstLedd="Does the brand leave with bad demand? Does it open?",
+    merknad="alt er svarene med reserverenten 2 %.")
+svar("mk-avvikle-3:1:d", "blandet", [tall("Largest exit fee", A3["Fmax"], "$", alt=[A3fb["Fmax"]])],
+     tallPoeng=2, tekstLedd="Explain what you compare.", merknad="alt er svaret med reserverenten 2 %.")
+svar("mk-avvikle-3:1:e", "tekst")
+
+# ============================================================ MA-MOTIVER: teori, 10 poeng (tier 3)
+UT["mk-ma-motiver-1"] = {
+    "n": 1, "title": "M&A", "points": 10, "topic": "Mergers and acquisitions", "chapters": [26],
+    "merke": "Samme form som H2024 E1, med synergier utelukket som i forelesning 16 og 18",
+    "body": (
+        "<p>Give three reasons for an acquisition other than synergies (gains from running the two firms' "
+        "operations together): (i) one where the acquirer creates value by changing how the target is run, "
+        "(ii) one where the acquirer's shareholders gain at the expense of someone else and (iii) one that "
+        "is not in the interest of the acquirer's shareholders. Explain the mechanism behind each reason in "
+        "1-2 sentences; naming a reason or writing «value creation» is not enough (3 points per reason). "
+        "Finally, explain in one sentence why buying a firm to use its accumulated tax losses does not count "
+        "as a reason (1 point).</p>"
+    ),
+    "solution": (
+        "<p><b>(i) Replacing inefficient management (a disciplinary takeover).</b> If the target is badly run, "
+        "its price reflects that; the acquirer buys it, installs better managers and runs the same assets "
+        "more efficiently, so the gain comes from better management, not from combining operations.</p>"
+        "<p><b>(ii) Market power.</b> Buying a competitor reduces competition, so the merged firm can raise "
+        "prices or pay suppliers less; the acquirer's shareholders gain, but the value comes from customers "
+        "and suppliers rather than from new value created.</p>"
+        "<p><b>(iii) Managerial ambition (empire building).</b> A CEO whose pay, power or prestige grows with "
+        "the size of the firm may buy targets that do not pay off for the shareholders, often overpaying; "
+        "the lecturer's example was the purchase of Twitter. This is an agency problem: the shareholders "
+        "bear the cost.</p>"
+        "<p><b>Tax losses.</b> Accumulated tax losses are erased when a firm changes owner, so the acquirer "
+        "cannot use them (lecture 17).</p>"
+        "<p><b>Also accepted.</b> (i) more efficient practices or better access to markets for the target; "
+        "(ii) buying an undervalued target with better information, or buying a distressed target cheaply; "
+        "(iii) hubris and the winner's curse, buying to meet a KPI or to inflate earnings per share, "
+        "diversification that the shareholders could do themselves.</p>"
+    ),
+    "criteria": [
+        "3 points per reason: 1 for a reason in the right category, 2 for the mechanism in 1-2 sentences.",
+        "(i) must change how the target is run (new management, better practices). Economies of scale or cost savings from merging departments are synergies and score nothing here.",
+        "(ii) must say who loses (customers, suppliers or the target's sellers). Market power, an undervalued target or a distressed target are accepted.",
+        "(iii) must be against the acquirer's shareholders' interest and name the mechanism (agency problem, overconfidence, overpaying). «Value creation» or a reason without a mechanism scores nothing.",
+        "1 point: tax losses are erased on a change of owner, so they are not a motive.",
+        "Two answers that rest on the same mechanism count once.",
+    ],
+}
+svar("mk-ma-motiver-1:1:", "tekst")
+
+# ma-motiver-2: hvem får synergiene
+A_m2, T_m2, S_m2, P_m2, Pd_m2 = 800.0, 200.0, 100.0, 290.0, 215.0
+T_gain2, A_gain2 = P_m2 - T_m2, S_m2 - (P_m2 - T_m2)
+T_gaind, A_gaind = Pd_m2 - T_m2, S_m2 - (Pd_m2 - T_m2)
+assert near(T_gain2 + A_gain2, S_m2) and near(T_gaind + A_gaind, S_m2) and T_gain2 > A_gain2 and A_gaind > T_gaind
+UT["mk-ma-motiver-2"] = {
+    "n": 1, "title": "M&A", "points": 10, "topic": "Mergers and acquisitions", "chapters": [26],
+    "merke": "Samme form som teorispørsmålene i forelesning 16 om hvem som vinner",
+    "body": (
+        "<p>Westerly Foods (A) is worth $800 million and Kellan Organics (T) $200 million on their own. A "
+        "agrees to buy T for $290 million in cash and expects synergies of $100 million.</p>"
+        "<p>a) How are the expected gains split between A's and T's shareholders? Why does the target "
+        "usually capture most of the synergies? (4 points; 2-3 sentences)</p>"
+        "<p>b) Suppose instead that T had been close to default: its owners' alternative to selling was "
+        "bankruptcy and A could have bought it for $215 million (same stand-alone value and synergies). How would the gains have been split? Why? (3 points; 1-2 sentences)</p>"
+        "<p>c) When the deal is announced, A's share price falls. Give one reason why this can happen even "
+        "though A's managers expect synergies of $100 million. (3 points; 1-2 sentences)</p>"
+    ),
+    "solution": (
+        f"<p><b>a)</b> T's shareholders gain P − T = 290 − 200 = <b>${N(T_gain2)} million</b>; A's gain "
+        f"S − (P − T) = 100 − 90 = <b>${N(A_gain2)} million</b>. The two add up to the synergies. The target "
+        "captures most because it can say no: its owners keep a firm worth $200 million unless they are "
+        "paid more. With competing bidders the price is pushed towards T + S. The bid also tells the "
+        "market that T is worth more than it thought, so T's price jumps.</p>"
+        f"<p><b>b)</b> T would gain only 215 − 200 = <b>${N(T_gaind)} million</b> and A <b>${N(A_gaind)} "
+        "million</b>. A distressed target has lost its bargaining power: refusing means bankruptcy, so the "
+        "acquirer can keep most of the synergies.</p>"
+        "<p><b>c)</b> The market may not believe the synergies: if investors expect less than the $90 "
+        "million premium, A overpays and its value falls. Also accepted: the market reads the deal as empire "
+        "building or hubris, or fears problems integrating the firms (for example the corporate culture).</p>"
+    ),
+    "criteria": [
+        f"a) 2 points for the split: T + {N(T_gain2)}, A + {N(A_gain2)}, summing to S = 100.",
+        "a) 2 points for why: the target can refuse (bargaining power), competition among bidders, the bid signals the target is worth more.",
+        f"b) 1 point for the split (T + {N(T_gaind)}, A + {N(A_gaind)}), 2 points for why: the target in distress has no bargaining power, so the acquirer captures most of the synergies.",
+        "c) 3 points for one reason with its mechanism: the market expects synergies below the premium (overpayment), empire building or hubris, integration costs. «The market is negative» without a reason scores nothing.",
+    ],
+}
+svar("mk-ma-motiver-2:1:", "blandet", [
+    tall("Change for T's shareholders, a)", T_gain2, "$ m"),
+    tall("Change for A's shareholders, a)", A_gain2, "$ m"),
+    tall("Change for T's shareholders, b)", T_gaind, "$ m"),
+    tall("Change for A's shareholders, b)", A_gaind, "$ m"),
+], tallPoeng=3, tekstLedd="Explain why the target usually captures most of the synergies, why the split changes in b) and give the reason in c).")
+
+# ma-motiver-3: kontanter mot aksjer og synergirisiko
+A_m3, T_m3, S_m3, C_m3, y_m3, S2_m3 = 700.0, 200.0, 100.0, 250.0, 0.25, 40.0
+V_m3, V2_m3 = A_m3 + T_m3 + S_m3, A_m3 + T_m3 + S2_m3
+cash_T, cash_A = C_m3 - T_m3, V_m3 - C_m3 - A_m3
+stock_T, stock_A = y_m3 * V_m3 - T_m3, (1 - y_m3) * V_m3 - A_m3
+assert near(cash_T, stock_T) and near(cash_A, stock_A)
+cash_T2, cash_A2 = C_m3 - T_m3, V2_m3 - C_m3 - A_m3
+stock_T2, stock_A2 = y_m3 * V2_m3 - T_m3, (1 - y_m3) * V2_m3 - A_m3
+assert cash_A2 < 0 < stock_A2 and stock_T2 < cash_T2
+UT["mk-ma-motiver-3"] = {
+    "n": 1, "title": "M&A", "points": 10, "topic": "Mergers and acquisitions", "chapters": [26],
+    "merke": "Samme form som kontanter mot aksjer i forelesning 16",
+    "body": (
+        "<p>Oakridge Software (A) is worth €700 million and will buy Pellow Analytics (T), worth €200 million "
+        "on its own. The expected synergies are €100 million. A can pay €250 million in cash or give T's "
+        "shareholders new A shares that make up 25% of the combined firm.</p>"
+        "<p>a) How are the expected gains split between A's and T's shareholders under each offer? (2 points)</p>"
+        "<p>b) After the deal the synergies turn out to be only €40 million. What is the gain or loss for A's "
+        "and T's shareholders under each offer? Who bears the synergy risk? (4 points; 1-2 sentences for the "
+        "explanation)</p>"
+        "<p>c) Give one reason why A's managers might prefer to pay in shares that the market would dislike. "
+        "Give one reason why T's owners might insist on cash. (4 points; 1-2 sentences each)</p>"
+    ),
+    "solution": (
+        f"<p><b>a)</b> Cash: T gains 250 − 200 = {N(cash_T)} and A gains 1,000 − 250 − 700 = {N(cash_A)}. "
+        f"Shares: T owns 0.25 × 1,000 = 250 and gains {N(stock_T)}; A keeps 0.75 × 1,000 = 750 and gains "
+        f"{N(stock_A)}. At the expected synergies the split is the same, €{N(cash_T)} million each.</p>"
+        f"<p><b>b)</b> The combined firm is worth 940. Cash: T still gains <b>{N(cash_T2)}</b>, A gains "
+        f"940 − 250 − 700 = <b>{N(cash_A2)}</b>. Shares: T gains 0.25 × 940 − 200 = <b>{N(stock_T2)}</b> and A "
+        f"0.75 × 940 − 700 = <b>{N(stock_A2)}</b>. With cash the target's payment is fixed, so A's shareholders "
+        "bear all of the synergy risk; with shares the shortfall is shared in proportion to ownership "
+        "(25% for T, 75% for A).</p>"
+        "<p><b>c)</b> A's managers may pay in shares because they think A's shares are overvalued: paying with "
+        "expensive paper is cheap for A, but the market knows this and reads a share offer as a sign of "
+        "overvaluation, so A's price falls. T's owners may insist on cash because they want to leave and "
+        "spend the money, or because they doubt the value of A's shares and do not want to carry the risk of "
+        "A and of the synergies. Also accepted: A has cash it does not need (A prefers cash); the target's "
+        "founders want to stay on and share in the firm (they prefer shares, the opposite case).</p>"
+    ),
+    "criteria": [
+        f"a) 2 points: both offers give T + {N(cash_T)} and A + {N(cash_A)} at the expected synergies.",
+        f"b) 2 points for the numbers: cash T + {N(cash_T2)}, A {N(cash_A2)}; shares T + {N(stock_T2)}, A + {N(stock_A2)}.",
+        "b) 2 points: with cash the acquirer bears all the synergy risk; with shares it is shared in proportion to ownership.",
+        "c) 2 points for A: overvalued shares (paying with expensive paper), with the market reading it as a negative signal.",
+        "c) 2 points for T: wants liquidity or to exit, or doubts the value of A's shares and the synergies. A reason without a mechanism scores 1 point.",
+    ],
+}
+svar("mk-ma-motiver-3:1:", "blandet", [
+    tall("Change for A's shareholders, cash", cash_A2, "€ m"),
+    tall("Change for T's shareholders, cash", cash_T2, "€ m"),
+    tall("Change for A's shareholders, shares", stock_A2, "€ m"),
+    tall("Change for T's shareholders, shares", stock_T2, "€ m"),
+], tallPoeng=2, tekstLedd="Explain the split in a), who bears the synergy risk and give the reasons in c).")
 
 
 # ============================================================ kontroller
@@ -1517,6 +2028,38 @@ def tekster(ex):
 
 feil = []
 for sid, ex in UT.items():
+    if "parts" not in ex:                                   # teorioppgave, 10 poeng
+        assert ex["n"] == 1 and ex["points"] == 10, sid
+        key = f"{sid}:1:"
+        assert key in SVAR, key
+        for t in [ex["title"], ex["body"], ex["merke"], ex["solution"]] + ex["criteria"]:
+            r = ren(t)
+            if "—" in r:
+                feil.append(f"{sid} tankestrek: {r[:80]}")
+            m = re.search(r",\s+and\b", r)
+            if m:
+                feil.append(f"{sid} komma før and: {r[max(0, m.start() - 50):][:90]}")
+            m = re.search(r",\s+og\b", r)
+            if m:
+                feil.append(f"{sid} komma før og: {r[max(0, m.start() - 50):][:90]}")
+            if re.search(r"(Kurbatov|lecturer)[^.!?]*\b(he|his|him|himself|she|her|hers)\b", r):
+                feil.append(f"{sid} pronomen om Kurbatov")
+            if re.search(r"(?<![\w(/])-\d(?!-)", r) and not re.search(r"\d-\d", r):
+                feil.append(f"{sid} bindestrek som minus: {r[:80]}")
+        for c in ex["criteria"]:
+            if "<" in c:
+                feil.append(f"{sid} markup i criteria: {c[:60]}")
+        e = SVAR[key]
+        if e["type"] == "blandet":
+            assert 0 < e["tallPoeng"] < ex["points"], key
+        nums = tall_i(ex["solution"] + " " + " ".join(ex["criteria"]))
+        for t in e.get("tall", []):
+            kand = [t["verdi"]] + t.get("alt", [])
+            if not any(innenfor(n, v, t) for v in kand for n in nums):
+                feil.append(f"{key}: {t['navn']} = {t['verdi']} står ikke i løsningen")
+        ord_ = len(ren(ex["body"]).split())
+        print(f"{sid}: {ord_} ord, {ex['points']} p ({ord_ / ex['points']:.1f} ord per poeng), teori")
+        continue
     assert ex["n"] == 1 and ex["points"] == 20
     assert 4 <= len(ex["parts"]) <= 7
     assert sum(p["points"] for p in ex["parts"]) == ex["points"], sid
@@ -1569,7 +2112,8 @@ for sid, ex in UT.items():
     print(f"{sid}: {ord_} ord, {ex['points']} p ({ord_ / ex['points']:.1f} ord per poeng), "
           f"deler {[p['points'] for p in ex['parts']]}")
 
-assert set(SVAR) == {f"{s}:1:{p['label']}" for s, ex in UT.items() for p in ex["parts"]}
+assert set(SVAR) == ({f"{s}:1:{p['label']}" for s, ex in UT.items() for p in ex.get("parts", [])}
+                    | {f"{s}:1:" for s, ex in UT.items() if "parts" not in ex})
 
 # De tre oppgavene skal være ulike: ingen felles hovedtall (NPV/verdi, r_wacc, r_U)
 hoved = [(NPV1, w1, rU1), (VL2, w2, rU2), (NPV3, w3, rU3)]

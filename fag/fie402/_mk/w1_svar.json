@@ -45,11 +45,13 @@
     "enhet": "€ m",
     "tol": 0.0031,
     "alt": [
-     20.86574767001649
+     20.86574767001649,
+     22.60720034786239,
+     23.420453544970897
     ]
    }
   ],
-  "merknad": "Fellene er NPV med r_U (19.4104), med WACC fra brutto gjeld og PV uten investeringen. alt (20.8657) er svaret med reserveverdien r_wacc = 7.5 %."
+  "merknad": "Fellene er NPV med r_U (19.4104), med WACC fra brutto gjeld og PV uten investeringen. alt er svarene med reserve-WACC, reserve-FCF og begge."
  },
  "mk-wacc-apv-1:1:d": {
   "type": "blandet",
@@ -60,7 +62,9 @@
     "enhet": "€ m",
     "tol": 0.0036,
     "alt": [
-     28.746299068006596
+     28.746299068006596,
+     29.042880139144955,
+     29.36818141798836
     ]
    },
    {
@@ -69,7 +73,9 @@
     "enhet": "€ m",
     "tol": 0.0025,
     "alt": [
-     22.202271498107088
+     22.202271498107088,
+     21.7953534304157,
+     21.970795024337484
     ]
    },
    {
@@ -78,13 +84,15 @@
     "enhet": "€ m",
     "tol": 0.0018,
     "alt": [
-     9.767441860465118
+     9.767441860465118,
+     10.360777058279373,
+     10.418604651162791
     ]
    }
   ],
   "tallPoeng": 3,
   "tekstLedd": "Does Orvelle borrow or repay in Years 1 to 3?",
-  "merknad": "Toleransen er stram fordi gjeld regnet fra V^U (diskontert med r_U) ligger under 1 % unna. Tekstdelen: Orvelle betaler ned gjeld hvert år. alt er gjelden med reserveverdien r_wacc = 7.5 %."
+  "merknad": "Toleransen er stram fordi gjeld regnet fra V^U (diskontert med r_U) ligger under 1 % unna. Tekstdelen: Orvelle betaler ned gjeld hvert år. alt er gjelden med reserve-WACC, reserve-FCF og begge; gjeld fra V^U kan havne innenfor et alt-bånd."
  },
  "mk-wacc-apv-1:1:e": {
   "type": "tall",
@@ -98,21 +106,34 @@
     "navn": "V<sup>U</sup><sub>0</sub>",
     "verdi": 70.410422553775,
     "enhet": "€ m",
-    "tol": 0.0037
+    "tol": 0.0037,
+    "alt": [
+     71.9407974642225
+    ]
    },
    {
     "navn": "PV(TS)",
     "verdi": 0.6554620943882123,
-    "enhet": "€ m"
+    "enhet": "€ m",
+    "tol": 0.005,
+    "alt": [
+     0.6615114164733892,
+     0.6664028836398767,
+     0.6725709457947117
+    ]
    },
    {
     "navn": "NPV (APV)",
     "verdi": 20.06588464816322,
     "enhet": "€ m",
-    "tol": 0.001
+    "tol": 0.001,
+    "alt": [
+     22.607200347862374,
+     22.61336841001721
+    ]
    }
   ],
-  "merknad": "Diskonteres skjoldet med r_D, blir NPV 20.1035, 0.19 % unna, så toleransen på NPV er 0.1 %. PV(TS) med r_D (0.6931 mot 0.6555) avvises med standardtoleransen. PV(TS) diskontert med r_wacc (0.6605) ligger innenfor 1 % og godtas. alt er svarene med reserveverdien r_wacc = 7.5 %."
+  "merknad": "Diskonteres skjoldet med r_D, blir NPV 20.1035, 0.19 % unna, så toleransen på NPV er 0.1 %. PV(TS) har tol 0.5 % (fire desimaler kreves; 0.66 med to desimaler faller utenfor): r_D (0.6931) og r_wacc (0.6605) avvises mot 0.6555, men r_wacc-fellen ligger innenfor alt-båndet til reserve-WACC (0.6615). alt er svarene med reserve-WACC, reserve-FCF og begge."
  },
  "mk-wacc-apv-1:1:f": {
   "type": "tekst"
@@ -328,15 +349,19 @@
   "type": "tall",
   "tall": [
    {
-    "navn": "Price",
-    "verdi": 44.5,
-    "enhet": "€"
+    "navn": "Shares, good IPO",
+    "verdi": 25.0,
+    "enhet": ""
    },
    {
-    "navn": "Expected first-day return",
-    "verdi": 0.0,
-    "enhet": "%",
-    "abs": 0.05
+    "navn": "Shares, bad IPO",
+    "verdi": 80.0,
+    "enhet": ""
+   },
+   {
+    "navn": "Expected value of a share",
+    "verdi": 44.5,
+    "enhet": "€"
    }
   ]
  },
@@ -344,53 +369,49 @@
   "type": "tall",
   "tall": [
    {
-    "navn": "Shares, good IPO",
-    "verdi": 20.0,
-    "enhet": ""
-   },
-   {
-    "navn": "Shares, bad IPO",
-    "verdi": 50.0,
-    "enhet": ""
-   },
-   {
-    "navn": "Average return per share",
-    "verdi": -10.112359550561797,
-    "enhet": "%"
+    "navn": "Average return on your shares",
+    "verdi": -12.359550561797752,
+    "enhet": "%",
+    "alt": [
+     -10.444444444444445,
+     -13.333333333333334,
+     -9.438202247191011
+    ]
    }
-  ]
+  ],
+  "merknad": "alt er svarene med reservetallene: alle tre (−10.4444%), bare prisen €45 (−13.3333%) og bare tildelingene 30 og 70 (−9.4382%)."
  },
  "mk-ipo-1:1:c": {
   "type": "tall",
   "tall": [
    {
     "navn": "Break-even price",
-    "verdi": 40.0,
+    "verdi": 39.0,
     "enhet": "€",
     "alt": [
-     42.07692307692308
+     40.3
     ]
    }
   ],
-  "merknad": "alt (42.0769) er svaret med reserveallokeringene 25 og 40."
+  "merknad": "alt (40.3) er svaret med reservetildelingene 30 og 70."
  },
  "mk-ipo-1:1:d": {
   "type": "tall",
   "tall": [
    {
     "navn": "Average first-day return",
-    "verdi": 11.249999999999998,
+    "verdi": 14.102564102564108,
     "enhet": "%",
     "alt": [
-     5.952380952380953
+     8.536585365853666
     ]
    },
    {
     "navn": "Informed investors' return",
-    "verdi": 37.5,
+    "verdi": 41.025641025641036,
     "enhet": "%",
     "alt": [
-     30.952380952380953
+     34.14634146341464
     ]
    },
    {
@@ -399,11 +420,11 @@
     "enhet": "%",
     "abs": 0.05,
     "alt": [
-     -4.761904761904762
+     -4.878048780487805
     ]
    }
   ],
-  "merknad": "alt er svarene med reserveprisen 42 (5.9524%, 30.9524% og −4.7619% for deg med allokeringene fra (b))."
+  "merknad": "alt er svarene med reserveprisen 41 (8.5366%, 34.1463% og −4.8780% for deg med tildelingene fra (a))."
  },
  "mk-ipo-1:1:e": {
   "type": "tekst"
@@ -477,9 +498,7 @@
     "verdi": -40.0,
     "enhet": "NOK m",
     "alt": [
-     40.0,
-     -36.0,
-     36.0
+     -36.0
     ]
    },
    {
@@ -499,7 +518,7 @@
     ]
    }
   ],
-  "merknad": "Begge fortegn godtas for den dårlige IPO-en (forklaringen rettes av teksten). alt inneholder også svarene med reserveprisen 90."
+  "merknad": "Fortegnet er definert i oppgaven (verdi minus proveny), så +40 for den dårlige IPO-en er feil. alt er svarene med reserveprisen 90."
  },
  "mk-ipo-2:1:e": {
   "type": "tekst"
@@ -589,5 +608,258 @@
  },
  "mk-ipo-3:1:e": {
   "type": "tekst"
+ },
+ "mk-avvikle-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Monthly rate",
+    "verdi": 0.40741237836483535,
+    "enhet": "%",
+    "tol": 0.009
+   }
+  ],
+  "merknad": "5 %/12 = 0.4167 % ligger 2.3 % unna og avvises."
+ },
+ "mk-avvikle-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV, committed",
+    "verdi": -372725.77529597125,
+    "enhet": "€"
+   }
+  ],
+  "merknad": "alt er svaret med reserverenten 0.4 %."
+ },
+ "mk-avvikle-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV, good state",
+    "verdi": 609080.4270717987,
+    "enhet": "€",
+    "alt": [
+     625000.0
+    ]
+   },
+   {
+    "navn": "NPV, bad state",
+    "verdi": -376833.2587739172,
+    "enhet": "€"
+   }
+  ],
+  "merknad": "alt er svarene med reserverenten 0.4 %."
+ },
+ "mk-avvikle-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV with the clause",
+    "verdi": 116123.58414894075,
+    "enhet": "€",
+    "alt": [
+     110000.0,
+     124012.17586877197
+    ]
+   },
+   {
+    "navn": "Value of the clause",
+    "verdi": 116123.58414894075,
+    "enhet": "€",
+    "alt": [
+     110000.0,
+     124012.17586877197
+    ]
+   }
+  ],
+  "merknad": "Fellen er verdien målt mot den negative NPV-en fra (b). alt er svarene med reserve-NPV-ene og reserverenten."
+ },
+ "mk-avvikle-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-avvikle-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV, committed",
+    "verdi": -233333.33333333326,
+    "enhet": "NOK"
+   }
+  ]
+ },
+ "mk-avvikle-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV, good state",
+    "verdi": 1600000.0,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "NPV, bad state",
+    "verdi": -1028337.4866500535,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "NPV of opening",
+    "verdi": 285831.25667497324,
+    "enhet": "NOK"
+   }
+  ]
+ },
+ "mk-avvikle-2:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value of the right",
+    "verdi": 285831.25667497324,
+    "enhet": "NOK",
+    "alt": [
+     300000.0
+    ]
+   }
+  ],
+  "merknad": "Fellen er verdien målt mot den negative NPV-en fra (a). alt er reserveverdien."
+ },
+ "mk-avvikle-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "X",
+    "verdi": 71460.79999999999,
+    "enhet": "NOK"
+   }
+  ]
+ },
+ "mk-avvikle-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-avvikle-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Quarterly rate",
+    "verdi": 1.94265469082735,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "8 %/4 = 2 % ligger 3 % unna og avvises."
+ },
+ "mk-avvikle-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV, committed",
+    "verdi": -522786.0717047367,
+    "enhet": "$"
+   }
+  ],
+  "merknad": "Fellen er 50/50-vekter. alt er svaret med reserverenten 2 %."
+ },
+ "mk-avvikle-3:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV, good state",
+    "verdi": 1459038.0878736894,
+    "enhet": "$",
+    "alt": [
+     1400000.0
+    ]
+   },
+   {
+    "navn": "NPV, bad state",
+    "verdi": -812917.2506742579,
+    "enhet": "$"
+   },
+   {
+    "navn": "NPV of opening",
+    "verdi": 209462.65167231834,
+    "enhet": "$",
+    "alt": [
+     183157.17729348806
+    ]
+   }
+  ],
+  "tallPoeng": 5,
+  "tekstLedd": "Does the brand leave with bad demand? Does it open?",
+  "merknad": "alt er svarene med reserverenten 2 %."
+ },
+ "mk-avvikle-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Largest exit fee",
+    "verdi": 1544278.565905267,
+    "enhet": "$",
+    "alt": [
+     1500000.0
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Explain what you compare.",
+  "merknad": "alt er svaret med reserverenten 2 %."
+ },
+ "mk-avvikle-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-ma-motiver-1:1:": {
+  "type": "tekst"
+ },
+ "mk-ma-motiver-2:1:": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change for T's shareholders, a)",
+    "verdi": 90.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Change for A's shareholders, a)",
+    "verdi": 10.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Change for T's shareholders, b)",
+    "verdi": 15.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Change for A's shareholders, b)",
+    "verdi": 85.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Explain why the target usually captures most of the synergies, why the split changes in b) and give the reason in c)."
+ },
+ "mk-ma-motiver-3:1:": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change for A's shareholders, cash",
+    "verdi": -10.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change for T's shareholders, cash",
+    "verdi": 50.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change for A's shareholders, shares",
+    "verdi": 5.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change for T's shareholders, shares",
+    "verdi": 35.0,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Explain the split in a), who bears the synergy risk and give the reasons in c)."
  }
 }

@@ -1,0 +1,81 @@
+{
+  "mk-coinsurance-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of Breiset's debt",
+        "verdi": 34.8,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of Breiset's equity",
+        "verdi": 22.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of Lysvann's debt",
+        "verdi": 22.8,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of Lysvann's equity",
+        "verdi": 27.599999999999998,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "mk-coinsurance-3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of the merged firm's debt",
+        "verdi": 75.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of the merged firm's equity",
+        "verdi": 40.2,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "mk-coinsurance-3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Change for the shareholders as a group",
+        "verdi": -9.399999999999991,
+        "enhet": "NOK m",
+        "alt": [
+          -12
+        ]
+      },
+      {
+        "navn": "Change for the creditors as a group",
+        "verdi": 17.400000000000006,
+        "enhet": "NOK m",
+        "alt": [
+          20
+        ]
+      }
+    ],
+    "merknad": "alt: reserveverdiene i oppgaveteksten."
+  },
+  "mk-coinsurance-3:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Synergy per state that leaves the shareholders no worse off",
+        "verdi": 17.400000000000006,
+        "enhet": "NOK m",
+        "alt": [
+          15
+        ]
+      }
+    ],
+    "merknad": "alt: reserveverdien i oppgaveteksten."
+  },
+  "mk-coinsurance-3:1:e": {
+    "type": "tekst"
+  }
+}

@@ -1006,6 +1006,1115 @@ OPPG["mk-governance-3"] = {
 
 
 # ======================================================================
+# TIER 2 · mk-budkamp-1 · tabellformen fra bank D (forelesning 16, 1:25:55)
+# ======================================================================
+B1 = {  # verdi (SEK m) alene og etter hvert mulig kjøp, før prisen for D er betalt
+    "A": {"alene": 420, "A": 630, "B": 395, "C": 395},
+    "B": {"alene": 360, "A": 350, "B": 580, "C": 350},
+    "C": {"alene": 300, "A": 290, "B": 290, "C": 515},
+}
+TD1 = 180
+N1 = {"A": 60, "B": 40, "C": 48, "D": 24}           # millioner aksjer
+by1 = ["A", "B", "C"]
+syn1 = {k: B1[k][k] - B1[k]["alene"] - TD1 for k in by1}
+tap1b = {k: B1[k]["alene"] - B1[k][[j for j in by1 if j != k][0]] for k in by1}
+for k in by1:   # samme tap uansett hvilken rival som kjøper
+    assert len({B1[k][j] for j in by1 if j != k}) == 1
+maks_sq1 = {k: B1[k][k] - B1[k]["alene"] for k in by1}
+maks_r1 = {k: B1[k][k] - B1[k][[j for j in by1 if j != k][0]] for k in by1}
+assert maks_sq1 == {"A": 210, "B": 220, "C": 215} and maks_r1 == {"A": 235, "B": 230, "C": 225}
+vinner1 = max(by1, key=lambda k: maks_r1[k])
+pris1 = sorted(maks_r1.values())[-2]
+assert vinner1 == "A" and pris1 == 230
+assert max(by1, key=lambda k: maks_sq1[k]) == "B" and max(by1, key=lambda k: syn1[k]) == "B"   # alternativet snur vinneren
+tot0_1 = sum(B1[k]["alene"] for k in by1) + TD1
+tot1 = {j: sum(B1[k][j] for k in by1) - tot0_1 for j in by1}
+assert tot1 == {"A": 10, "B": 5, "C": 0}
+
+
+def b1_utfall(v, P):
+    dD = P - TD1
+    dV = B1[v][v] - P - B1[v]["alene"]
+    mot_tap = B1[v][v] - P - B1[v][[j for j in by1 if j != v][0]]
+    kurs = (B1[v][v] - P) / N1[v]
+    x = P / kurs
+    return dD, dV, mot_tap, kurs, x, x / N1["D"]
+
+
+dD1, dV1, mot1, kurs1, x1, ER1b = b1_utfall("A", pris1)
+RES_v1, RES_p1 = "C", 222
+dD1r, dV1r, mot1r, kurs1r, x1r, ER1br = b1_utfall(RES_v1, RES_p1)
+assert RES_p1 <= maks_r1["C"] and (RES_v1, RES_p1) != (vinner1, pris1)
+assert near(dD1, 50) and near(dV1, -20) and near(mot1, 5) and near(x1, 34.5) and near(ER1b, 1.4375)
+assert mot1r > 0 and dV1r < 0
+assert near(x1 * kurs1 + N1["A"] * kurs1, B1["A"]["A"], 1e-9)      # sammenslått verdi stemmer
+sum1 = dD1 + dV1 + (B1["B"]["A"] - B1["B"]["alene"]) + (B1["C"]["A"] - B1["C"]["alene"])
+assert near(sum1, tot1["A"])
+
+tab_b1 = ("<table class=\"data\"><tr><th>Firm</th><th>Stand-alone</th><th>A buys D</th><th>B buys D</th>"
+          "<th>C buys D</th></tr>"
+          + "".join(f"<tr><td>{k}</td><td class=\"n\">{B1[k]['alene']}</td><td class=\"n\">{B1[k]['A']}</td>"
+                    f"<td class=\"n\">{B1[k]['B']}</td><td class=\"n\">{B1[k]['C']}</td></tr>" for k in by1)
+          + f"<tr><td>D</td><td class=\"n\">{TD1}</td><td class=\"n\">0</td><td class=\"n\">0</td>"
+            "<td class=\"n\">0</td></tr></table>")
+
+bk1_body = (
+    "<p>Four Swedish parcel-delivery firms compete. D is for sale and A, B and C are interested. The table shows "
+    "each firm's market value (SEK million) alone and after each possible purchase of D, before the price is paid; "
+    "a firm's value is the same whichever rival buys D.</p>"
+    + tab_b1 +
+    f"<p>A has {N1['A']} million shares, B {N1['B']} million, C {N1['C']} million and D {N1['D']} million.</p>"
+)
+bk1_a = {
+    "label": "a", "points": 3,
+    "body": "<p>If the alternative were that nobody buys D, what is the most each of A, B and C would pay for D?</p>",
+    "solution": (
+        "<p>Against no deal, a bidder gains its value with D minus its value alone:</p>"
+        + tab(["Bidder", "Calculation", "Most it would pay"], [
+            [k, f"{B1[k][k]} − {B1[k]['alene']}", f"<b>{maks_sq1[k]}</b>"] for k in by1])
+        + f"<p>Each figure is D's value {TD1} plus the bidder's synergy ({', '.join(f'{k}: {syn1[k]}' for k in by1[:2])} "
+        f"and C: {syn1['C']}). On this view B would bid the most.</p>"
+    ),
+    "criteria": [
+        f"A: {B1['A']['A']} − {B1['A']['alene']} = {maks_sq1['A']}; B: {maks_sq1['B']}; C: {maks_sq1['C']} (1 point each).",
+        "The comparison is the bidder's value with D against its value alone.",
+        "Using the values after a rival's purchase here answers (b), not (a).",
+    ],
+}
+SVAR["mk-budkamp-1:1:a"] = {"type": "tall", "tall": [
+    t("Most A would pay", maks_sq1["A"], "SEK m"), t("Most B would pay", maks_sq1["B"], "SEK m"),
+    t("Most C would pay", maks_sq1["C"], "SEK m")]}
+
+bk1_b = {
+    "label": "b", "points": 5,
+    "body": ("<p>D will be sold to one of A, B or C in any case. What is the most each would pay now? In an open "
+             "ascending auction the winner pays the maximum of the last bidder to drop out. Who buys D and at what "
+             "price?</p>"),
+    "solution": (
+        "<p><b>Step 1. The right alternative.</b> Losing now means that a rival gets D, so each bidder compares its "
+        "value with D against its value after a rival's purchase:</p>"
+        + tab(["Bidder", "Calculation", "Most it would pay", "Of which: loss avoided"], [
+            [k, f"{B1[k][k]} − {B1[k][[j for j in by1 if j != k][0]]}", f"<b>{maks_r1[k]}</b>", f"{tap1b[k]}"]
+            for k in by1])
+        + f"<p><b>Step 2. The auction.</b> C drops out at {maks_r1['C']} and B at {maks_r1['B']}. <b>A buys D for "
+        f"SEK {pris1} million</b>, just as B gives up.</p>"
+        f"<p>B has the largest synergy ({syn1['B']}), but A fears losing the most: a rival with D would cost A "
+        f"{tap1b['A']}. Bidding depends on the alternatives.</p>"
+    ),
+    "criteria": [
+        f"Maximum = value with D − value if a rival buys D: A {maks_r1['A']}, B {maks_r1['B']}, C {maks_r1['C']}, "
+        "that is the gain plus the loss avoided.",
+        f"A wins and pays {pris1}, the maximum of B, the last bidder to drop out (the question states the rule).",
+        f"Using the stand-alone values gives the bids in (a) and B as the winner at {maks_sq1['C']}: wrong here, "
+        "since D is sold in any case.",
+        "The numbers carry 4 points and the winner 1 point.",
+    ],
+}
+SVAR["mk-budkamp-1:1:b"] = {
+    "type": "blandet",
+    "tall": [t("Most A would pay", maks_r1["A"], "SEK m"), t("Most B would pay", maks_r1["B"], "SEK m"),
+             t("Most C would pay", maks_r1["C"], "SEK m"), t("Price paid for D", pris1, "SEK m")],
+    "tallPoeng": 4,
+    "tekstLedd": "Who buys D?",
+}
+
+bk1_c = {
+    "label": "c", "points": 4,
+    "body": (f"<p>The winner pays the price in cash. (If you could not solve (b), assume that {RES_v1} buys D for "
+             f"SEK {RES_p1} million.) Against their stand-alone values, how much do D's shareholders and the "
+             "winner's shareholders gain or lose? Is the winner better off than if it had lost the auction?</p>"),
+    "solution": (
+        f"<p><b>D's shareholders.</b> {pris1} − {TD1} = <b>+{f(dD1, 0)}</b>.</p>"
+        f"<p><b>A's shareholders.</b> A is worth {B1['A']['A']} with D but pays {pris1}: {B1['A']['A']} − {pris1} − "
+        f"{B1['A']['alene']} = <b>{f(dV1, 0)}</b>.</p>"
+        f"<p><b>Better off than losing?</b> Yes. Had B or C bought D, A would be worth {B1['A']['B']}; now it is worth "
+        f"{B1['A']['A'] - pris1}, {f(mot1, 0)} more. A loses against the stand-alone value only because the old "
+        "position is gone either way.</p>"
+        f"<p><b>Check.</b> With B and C at {f(B1['B']['A'] - B1['B']['alene'], 0)} and {f(B1['C']['A'] - B1['C']['alene'], 0)}, "
+        f"the changes add up to {f(sum1, 0)}, the total value A's purchase creates.</p>"
+        f"<p><b>With the assumption in the question.</b> C buys at {RES_p1}: D {f(dD1r, 0)}, C {B1['C']['C']} − "
+        f"{RES_p1} − {B1['C']['alene']} = {f(dV1r, 0)}; C is {f(mot1r, 0)} better off than if it had lost.</p>"
+    ),
+    "criteria": [
+        f"D's shareholders gain {pris1} − {TD1} = {f(dD1, 0)}; A's shareholders lose {f(-dV1, 0)} against the "
+        "stand-alone value (1 point each).",
+        f"Better off than losing (2 points): yes, {B1['A']['A'] - pris1} against {B1['A']['B']} if a rival had bought D.",
+        f"Follow-through: with C buying for {RES_p1}, D gains {f(dD1r, 0)} and C loses {f(-dV1r, 0)} but is better off "
+        "than losing; full marks for a correct method on the result from (b).",
+    ],
+}
+SVAR["mk-budkamp-1:1:c"] = {
+    "type": "blandet",
+    "tall": [t("Change for D's shareholders", dD1, "SEK m", alt=[dD1r]),
+             t("Change for the winner's shareholders", dV1, "SEK m", alt=[dV1r])],
+    "tallPoeng": 2,
+    "tekstLedd": "Is the winner better off than if it had lost the auction?",
+    "merknad": f"alt: reserveantakelsen ({RES_v1} kjøper for {RES_p1}).",
+}
+
+bk1_d = {
+    "label": "d", "points": 5,
+    "body": ("<p>Suppose instead that the winner pays with new shares, so that D's shareholders receive the same "
+             "value as in (c). The market values the merged firm at the winner's value with D in the table. How "
+             "many new shares must the winner issue? What are the exchange ratio (new shares per D share) and the price "
+             "of a merged share?</p>"),
+    "solution": (
+        f"<p><b>Step 1. The merged share price.</b> The old A shareholders keep what is left after D's shareholders "
+        f"get {pris1}: ({B1['A']['A']} − {pris1})/{N1['A']} = {B1['A']['A'] - pris1}/{N1['A']} = "
+        f"<b>SEK {f(kurs1)}</b>.</p>"
+        f"<p><b>Step 2. New shares.</b> x = {pris1}/{f(kurs1)} = <b>{f(x1)} million</b>. Check: y = {f(x1)}/"
+        f"({N1['A']} + {f(x1)}) = {f(x1 / (N1['A'] + x1))} and y × {B1['A']['A']} = {f(x1 / (N1['A'] + x1) * B1['A']['A'], 2)} ✓.</p>"
+        f"<p><b>Step 3. Exchange ratio.</b> {f(x1)}/{N1['D']} = <b>{f(ER1b)} A shares per D share</b>.</p>"
+        "<p>The formula sheet's NPV for A, (1 − y)(A + T + S) − A, gives "
+        f"{f(1 - x1 / (N1['A'] + x1), 6)} × {B1['A']['A']} − {B1['A']['alene']} = {f(dV1, 2)}, the same as with cash: "
+        "the payment form only changes who carries the risk.</p>"
+        f"<p><b>With the assumption in (c).</b> C: price ({B1['C']['C']} − {RES_p1})/{N1['C']} = {f(kurs1r)}, "
+        f"x = {f(x1r)} million, exchange ratio {f(ER1br)}.</p>"
+    ),
+    "criteria": [
+        f"Merged price ({B1['A']['A']} − {pris1})/{N1['A']} = {f(kurs1)}; or solving y = {pris1}/{B1['A']['A']} and "
+        "x = y·N_A/(1 − y), an equivalent route.",
+        f"New shares {f(x1)} million and exchange ratio {f(ER1b)} (x divided by D's {N1['D']} million shares).",
+        f"Dividing {pris1} by A's old price {f(B1['A']['alene'] / N1['A'], 2)} ignores that the merged share is worth "
+        "less after paying for D.",
+        f"Follow-through: with C buying for {RES_p1}, {f(kurs1r)}, {f(x1r)} million and {f(ER1br)}.",
+    ],
+}
+SVAR["mk-budkamp-1:1:d"] = {"type": "tall", "tall": [
+    t("New shares issued", x1, "m shares", alt=[x1r]),
+    t("Exchange ratio", ER1b, "", alt=[ER1br]),
+    t("Price of a merged share", kurs1, "SEK", alt=[kurs1r]),
+], "merknad": f"alt: reserveantakelsen ({RES_v1} kjøper for {RES_p1}) med {N1['C']} millioner C-aksjer."}
+assert rel(pris1 / (B1["A"]["alene"] / N1["A"]), x1) > 0.02
+
+bk1_e = {
+    "label": "e", "points": 3,
+    "body": ("<p>Which bidder has the largest synergy with D? Compare with the winner in (b) and explain. Which "
+             "purchase creates the most value for the four firms together? (2–3 sentences)</p>"),
+    "solution": (
+        f"<p>B has the largest synergy ({syn1['B']}). But the most a bidder pays is its gain plus the loss it avoids: A would lose {tap1b['A']} if a rival got D, "
+        f"B only {tap1b['B']}, so A outbids B although B's synergy is larger. Together the four firms gain "
+        f"{tot1['A']} when A buys and {tot1['B']} when B buys (C: {tot1['C']}), because a purchase by B or C would "
+        "hurt A badly, so here the auction picks the purchase that creates the most value.</p>"
+        "<p>The totals: no deal "
+        f"{tot0_1}; A buys {tot0_1 + tot1['A']}; B buys {tot0_1 + tot1['B']}; C buys {tot0_1 + tot1['C']}.</p>"
+    ),
+    "criteria": [
+        f"Largest synergy and why (2 points): B ({syn1['B']}); the maximum bid includes the loss avoided and A's loss "
+        f"({tap1b['A']}) is the largest, so A bids more although B's synergy is larger.",
+        f"Total value (1 point): +{tot1['A']} when A buys against +{tot1['B']} when B buys, so A's purchase creates more.",
+        f"Bonus: A's bid counts A's own loss if a rival wins ({tap1b['A']}), but not the losses A's purchase causes "
+        f"B and C ({tap1b['B']} each); those losses enter only the total in the last question.",
+    ],
+}
+SVAR["mk-budkamp-1:1:e"] = {"type": "tekst"}
+
+OPPG["mk-budkamp-1"] = {
+    "n": 1, "title": "M&A", "points": 20, "topic": "Mergers and acquisitions", "chapters": [26],
+    "merke": "Samme form som bank D-eksemplet i forelesning 16 (1:25:55)",
+    "body": bk1_body, "parts": [bk1_a, bk1_b, bk1_c, bk1_d, bk1_e],
+}
+
+# ======================================================================
+# mk-budkamp-2 · kontanter mot aksjer og høyeste bytteforhold med rival
+# ======================================================================
+NA2b, PA2b = 64, 62.50
+NT2b, PT2b = 24, 50.00
+A2b, T2b = NA2b * PA2b, NT2b * PT2b
+S2b, LA2b = 450, 150          # Kessingtons synergi og tap hvis Brockhurst kjøper
+SR2b, LR2b = 300, 100         # Brockhursts synergi og tap hvis Kessington kjøper
+assert near(A2b, 4_000) and near(T2b, 1_200)
+Rmaks2 = T2b + SR2b + LR2b
+Rmaks2_ps = Rmaks2 / NT2b
+bud2 = 67.00
+P2b = bud2 * NT2b
+npvT2 = P2b - T2b
+npvA2 = S2b - (P2b - T2b)
+assert bud2 > Rmaks2_ps and npvA2 > 0
+V2b = A2b + T2b + S2b
+ER2b = 1.08
+x2b = ER2b * NT2b
+y2b = x2b / (NA2b + x2b)
+npvT2s = y2b * V2b - T2b
+npvA2s = (1 - y2b) * V2b - A2b
+assert near(npvT2s + npvA2s, S2b) and y2b * V2b > Rmaks2
+RES_R2 = 1_580
+assert y2b * V2b > RES_R2                         # samme konklusjon med reserveverdien
+ERmaks2 = (T2b + S2b) / A2b * NA2b / NT2b
+ERmaks2r = NA2b / NT2b * (T2b + S2b + LA2b) / (A2b - LA2b)
+yr2 = (T2b + S2b + LA2b) / V2b
+assert near(ERmaks2, 1.1) and ERmaks2 < ERmaks2r
+assert near((1 - yr2) * V2b, A2b - LA2b) and near(yr2 / (1 - yr2) * NA2b / NT2b, ERmaks2r)
+assert ER2b < ERmaks2                              # tilbudet er under begge grensene
+ERfelle2 = (T2b + S2b) / A2b                       # glemmer NA/NT
+assert rel(ERfelle2, ERmaks2) > 0.5
+
+bk2_body = (
+    "<p>Kessington Labs Inc. (A), a US chain of clinical laboratories, competes with its rival Brockhurst Health Inc. "
+    f"(R) to buy Wenlow Diagnostics Inc. (T). Kessington has {NA2b} million shares at ${f(PA2b, 2)} and Wenlow "
+    f"{NT2b} million shares at ${f(PT2b, 2)}; the prices reflect stand-alone values. Kessington expects synergies "
+    f"of ${S2b} million with Wenlow; if Brockhurst buys Wenlow instead, Kessington's value falls by ${LA2b} million. "
+    f"Brockhurst's synergies would be ${SR2b} million; its value falls by ${LR2b} million if Kessington wins. "
+    "From (b) on, measure each NPV against the firm's stand-alone value.</p>"
+)
+bk2_a = {
+    "label": "a", "points": 3,
+    "body": ("<p>Compared with losing Wenlow to Kessington, what is the most Brockhurst would pay for Wenlow in "
+             "cash, in total and per Wenlow share?</p>"),
+    "solution": (
+        f"<p>Brockhurst gains Wenlow's value and its synergies and avoids the loss if Kessington wins:</p>"
+        f"<p>{f(T2b, 0)} + {SR2b} + {LR2b} = <b>${f(Rmaks2, 0)} million</b>, or {f(Rmaks2, 0)}/{NT2b} = "
+        f"<b>${f(Rmaks2_ps, 2)} per share</b>.</p>"
+        f"<p>Without the threat from Kessington it would pay at most {f(T2b + SR2b, 0)}.</p>"
+    ),
+    "criteria": [
+        f"Maximum = T + S_R + loss avoided = {f(T2b, 0)} + {SR2b} + {LR2b} = ${f(Rmaks2, 0)} million.",
+        f"Per share {f(Rmaks2, 0)}/{NT2b} = ${f(Rmaks2_ps, 2)}.",
+        f"Leaving out the loss avoided gives {f(T2b + SR2b, 0)}: the question is about a contest, so the loss counts.",
+    ],
+}
+SVAR["mk-budkamp-2:1:a"] = {"type": "tall", "tall": [
+    t("Most Brockhurst would pay, total", Rmaks2, "$ m"),
+    t("Most Brockhurst would pay per Wenlow share", Rmaks2_ps, "$ per share")]}
+
+bk2_b = {
+    "label": "b", "points": 4,
+    "body": (f"<p>Kessington wins with a cash offer of ${f(bud2, 2)} per Wenlow share. What is the NPV for "
+             "Wenlow's shareholders and for Kessington's shareholders?</p>"),
+    "solution": (
+        f"<p>Price P = {f(bud2, 2)} × {NT2b} = {f(P2b, 0)}.</p>"
+        f"<p>NPV<sub>T</sub> = P − T = {f(P2b, 0)} − {f(T2b, 0)} = <b>${f(npvT2, 0)} million</b>.<br>"
+        f"NPV<sub>A</sub> = S − (P − T) = {S2b} − {f(npvT2, 0)} = <b>${f(npvA2, 0)} million</b>.</p>"
+        f"<p><b>Check.</b> {f(npvT2, 0)} + {f(npvA2, 0)} = {S2b} = S: the price only splits the synergies. Wenlow's "
+        "shareholders get most of them, as the lecture says targets usually do.</p>"
+    ),
+    "criteria": [
+        f"NPV_T = {f(P2b, 0)} − {f(T2b, 0)} = ${f(npvT2, 0)} million (2 points).",
+        f"NPV_A = {S2b} − {f(npvT2, 0)} = ${f(npvA2, 0)} million (2 points).",
+        "Bonus: the two NPVs add up to the synergies.",
+    ],
+}
+SVAR["mk-budkamp-2:1:b"] = {"type": "tall", "tall": [
+    t("NPV for Wenlow's shareholders", npvT2, "$ m"), t("NPV for Kessington's shareholders", npvA2, "$ m")]}
+
+bk2_c = {
+    "label": "c", "points": 5,
+    "body": (f"<p>Kessington could instead offer {f(ER2b, 2)} new Kessington shares per Wenlow share. What fraction y "
+             "of the merged firm would Wenlow's shareholders own? What are the NPVs for both sides? Does the offer "
+             "beat Brockhurst's maximum from (a)? (If you could not solve (a), use "
+             f"${f(RES_R2, 0)} million.)</p>"),
+    "solution": (
+        f"<p><b>Step 1. New shares and y.</b> x = {f(ER2b, 2)} × {NT2b} = {f(x2b, 2)} million; y = {f(x2b, 2)}/"
+        f"({NA2b} + {f(x2b, 2)}) = <b>{f(y2b)} ({pc(y2b)})</b>.</p>"
+        f"<p><b>Step 2. NPVs (formula sheet).</b> A + T + S = {f(A2b, 0)} + {f(T2b, 0)} + {S2b} = {f(V2b, 0)}.<br>"
+        f"NPV<sub>T</sub> = y(A + T + S) − T = {f(y2b, 6)} × {f(V2b, 0)} − {f(T2b, 0)} = <b>${f(npvT2s, 2)} million</b><br>"
+        f"NPV<sub>A</sub> = (1 − y)(A + T + S) − A = {f(1 - y2b, 6)} × {f(V2b, 0)} − {f(A2b, 0)} = "
+        f"<b>${f(npvA2s, 2)} million</b></p>"
+        f"<p><b>Step 3. Against Brockhurst.</b> Wenlow's shareholders receive {f(y2b * V2b, 2)}, more than "
+        f"Brockhurst's {f(Rmaks2, 0)}, so <b>the offer beats it</b>.</p>"
+        f"<p><b>Check.</b> {f(npvT2s, 2)} + {f(npvA2s, 2)} = {S2b} ✓.</p>"
+    ),
+    "criteria": [
+        f"x = {f(x2b, 2)} million, y = {f(x2b, 2)}/{f(NA2b + x2b, 2)} = {pc(y2b)}.",
+        f"NPV_T = {f(npvT2s, 2)} and NPV_A = {f(npvA2s, 2)} with the formula sheet and A + T + S = {f(V2b, 0)}.",
+        f"Beats Brockhurst (1 point): {f(y2b * V2b, 2)} against {f(Rmaks2, 0)} (or against {f(RES_R2, 0)} with the "
+        "value given in the question).",
+        "Using y = x/N_T or leaving S out of the merged value is the classic error.",
+    ],
+}
+SVAR["mk-budkamp-2:1:c"] = {
+    "type": "blandet",
+    "tall": [t("Fraction y owned by Wenlow's shareholders", y2b * 100, "%"),
+             t("NPV for Wenlow's shareholders", npvT2s, "$ m"), t("NPV for Kessington's shareholders", npvA2s, "$ m", abs=0.3)],
+    "tallPoeng": 4,
+    "tekstLedd": "Does the offer beat Brockhurst's maximum from (a)?",
+}
+
+bk2_d = {
+    "label": "d", "points": 5,
+    "body": ("<p>What is the highest exchange ratio Kessington's shareholders should accept if the alternative is "
+             "to stay as they are, as on the formula sheet? What is it if the alternative is that Brockhurst buys "
+             "Wenlow?</p>"),
+    "solution": (
+        f"<p><b>Against staying alone (formula sheet).</b> ER ≤ [(T + S)/A] × N<sub>A</sub>/N<sub>T</sub> = "
+        f"({f(T2b + S2b, 0)}/{f(A2b, 0)}) × {NA2b}/{NT2b} = <b>{f(ERmaks2)}</b>.</p>"
+        f"<p><b>Against Brockhurst winning.</b> Kessington would then be worth {f(A2b, 0)} − {LA2b} = "
+        f"{f(A2b - LA2b, 0)}, so its old shareholders accept any y with (1 − y) × {f(V2b, 0)} ≥ {f(A2b - LA2b, 0)}: "
+        f"y ≤ {f(T2b + S2b + LA2b, 0)}/{f(V2b, 0)} = {f(yr2)}. Then x ≤ {f(yr2)}/{f(1 - yr2)} × {NA2b} = "
+        f"{f(yr2 / (1 - yr2) * NA2b)} million and ER ≤ {f(yr2 / (1 - yr2) * NA2b)}/{NT2b} = <b>{f(ERmaks2r)}</b>.</p>"
+        "<p>The same formula with the loss added: ER ≤ (N<sub>A</sub>/N<sub>T</sub>) × (T + S + L)/(A − L). The "
+        f"threat of losing Wenlow to a rival raises the ceiling from {f(ERmaks2)} to {f(ERmaks2r)}; the offer of "
+        f"{f(ER2b, 2)} in (c) lies below both.</p>"
+    ),
+    "criteria": [
+        f"Formula sheet: ER ≤ (1,650/4,000) × 64/24 = {f(ERmaks2)} (2.5 points).",
+        f"With Brockhurst as the alternative: (1 − y) × {f(V2b, 0)} ≥ {f(A2b - LA2b, 0)}, giving ER ≤ {f(ERmaks2r)} "
+        "(2.5 points). Any correct route is accepted.",
+        f"Forgetting N_A/N_T gives {f(ERfelle2)}, a ratio of values rather than of shares.",
+    ],
+}
+SVAR["mk-budkamp-2:1:d"] = {"type": "tall", "tall": [
+    t("Highest exchange ratio, alternative: stay alone", ERmaks2, ""),
+    t("Highest exchange ratio, alternative: Brockhurst buys Wenlow", ERmaks2r, "")]}
+
+bk2_e = {
+    "label": "e", "points": 3,
+    "body": ("<p>Wenlow's two founders own most of its shares. One will stay on and run Wenlow inside Kessington; "
+             "the other wants to retire. Which form of payment would each founder prefer? Why? (2–3 sentences)</p>"),
+    "solution": (
+        "<p>The founder who stays prefers shares: a stake in the merged firm keeps the founder's wealth tied to the "
+        "value the founder helps create, synergies included; Kessington also gets a manager with the right "
+        "incentives. The founder who retires prefers cash: a fixed amount now, with no exposure to a firm the founder "
+        "no longer influences or to the risk that the synergies fall short.</p>"
+        "<p><b>Also accepted.</b> Liquidity or timing (the retiring founder wants to spend the money); either founder "
+        "preferring cash if they doubt the synergies; a share offer as a signal that Kessington thinks its own shares "
+        "are overvalued. The lecture uses the same two sellers: one who wants «to remain just as a manager» and one "
+        "who would rather «build a yacht» (recording 16, 1:24:11 to 1:24:48).</p>"
+    ),
+    "criteria": [
+        "Staying founder (1.5 points): shares, with a reason such as keeping a stake in the value the founder creates "
+        "or aligned incentives.",
+        "Retiring founder (1.5 points): cash, with a reason such as a fixed amount now, no exposure to a firm the "
+        "founder no longer runs or to synergy risk.",
+        "Bonus: Kessington also gains from paying the staying founder in shares, since it ties the founder to the "
+        "merged firm's value.",
+    ],
+}
+SVAR["mk-budkamp-2:1:e"] = {"type": "tekst"}
+
+OPPG["mk-budkamp-2"] = {
+    "n": 1, "title": "M&A", "points": 20, "topic": "Mergers and acquisitions", "chapters": [26],
+    "merke": "Forelesningsformen fra forelesning 16 (38:03 til 52:52 og 1:25:55) med formelarkets bytteforhold",
+    "body": bk2_body, "parts": [bk2_a, bk2_b, bk2_c, bk2_d, bk2_e],
+}
+
+# ======================================================================
+# mk-budkamp-3 · synergiene blir lavere enn ventet
+# ======================================================================
+NA3b, PA3b = 100, 48.0
+NT3b, PT3b = 25, 64.0
+A3b, T3b = NA3b * PA3b, NT3b * PT3b
+S3b, LA3b = 500, 80
+SR3b, LR3b = 180, 120
+S3b_ny = 100
+Amaks3 = T3b + S3b + LA3b
+Rmaks3 = T3b + SR3b + LR3b
+assert Amaks3 > Rmaks3
+P3b = Rmaks3
+P3b_ps = P3b / NT3b
+npvT3 = P3b - T3b
+npvA3 = S3b - npvT3
+RES_P3 = 1_850
+npvT3r, npvA3r = RES_P3 - T3b, S3b - (RES_P3 - T3b)
+ER3b = 1.52
+x3b = ER3b * NT3b
+y3b = x3b / (NA3b + x3b)
+V3b = A3b + T3b + S3b
+npvT3s = y3b * V3b - T3b
+npvA3s = (1 - y3b) * V3b - A3b
+assert near(npvT3s, npvT3, 1e-9) and near(npvA3s, npvA3, 1e-9)    # samme verdi ex ante
+V3b_ny = A3b + T3b + S3b_ny
+kA3 = S3b_ny - npvT3
+kT3 = npvT3
+sA3 = (1 - y3b) * V3b_ny - A3b
+sT3 = y3b * V3b_ny - T3b
+kA3r = S3b_ny - npvT3r
+mangel3 = S3b - S3b_ny
+assert near(npvA3 - kA3, mangel3) and near(npvA3s - sA3, (1 - y3b) * mangel3) and near(npvT3s - sT3, y3b * mangel3)
+assert sA3 > kA3 and sT3 < kT3
+
+bk3_body = (
+    "<p>Vesterhav Service A/S (A) and Hvidsand Energi A/S (R) both bid for Skovlund Mølleservice A/S (T), a Danish "
+    f"firm that services wind turbines. Vesterhav has {NA3b} million shares at DKK {f(PA3b, 2)} and Skovlund "
+    f"{NT3b} million shares at DKK {f(PT3b, 2)}, their stand-alone values. Vesterhav expects synergies of DKK {S3b} "
+    f"million with Skovlund and would lose DKK {LA3b} million of value if Hvidsand bought it. Hvidsand's synergies "
+    f"would be DKK {SR3b} million; it would lose DKK {LR3b} million if Vesterhav won. The bidding stops when one "
+    "bidder reaches its maximum; the other then pays that amount. From (b) on, measure NPVs against stand-alone "
+    "values.</p>"
+)
+bk3_a = {
+    "label": "a", "points": 3,
+    "body": ("<p>Compared with losing Skovlund to the other bidder, what is the most each bidder would pay? What "
+             "does the winning bidder pay per Skovlund share?</p>"),
+    "solution": (
+        f"<p>Vesterhav: {f(T3b, 0)} + {S3b} + {LA3b} = <b>{f(Amaks3, 0)}</b>. Hvidsand: {f(T3b, 0)} + {SR3b} + "
+        f"{LR3b} = <b>{f(Rmaks3, 0)}</b> (DKK million).</p>"
+        f"<p>Hvidsand stops at {f(Rmaks3, 0)}, so <b>Vesterhav wins</b> and pays {f(P3b, 0)}/{NT3b} = "
+        f"<b>DKK {f(P3b_ps, 2)} per share</b>.</p>"
+    ),
+    "criteria": [
+        f"Each maximum is T + own synergies + the loss avoided: {f(Amaks3, 0)} and {f(Rmaks3, 0)} (1 point each).",
+        f"Vesterhav wins and pays Hvidsand's maximum, {f(P3b, 0)}, which is DKK {f(P3b_ps, 2)} per share (1 point).",
+        "Leaving out the loss avoided gives 2,100 and 1,780; the winner is the same but the price is wrong.",
+    ],
+}
+SVAR["mk-budkamp-3:1:a"] = {"type": "tall", "tall": [
+    t("Most Vesterhav would pay", Amaks3, "DKK m"), t("Most Hvidsand would pay", Rmaks3, "DKK m"),
+    t("Price per Skovlund share paid by the winner", P3b_ps, "DKK per share")]}
+assert near(T3b + S3b, 2_100) and near(T3b + SR3b, 1_780)
+
+bk3_b = {
+    "label": "b", "points": 3,
+    "body": ("<p>The winner pays in cash. What is the NPV for each side? (If you could not solve (a), use a price "
+             f"of DKK {f(RES_P3, 0)} million.)</p>"),
+    "solution": (
+        f"<p>NPV<sub>T</sub> = {f(P3b, 0)} − {f(T3b, 0)} = <b>DKK {f(npvT3, 0)} million</b>; NPV<sub>A</sub> = {S3b} "
+        f"− {f(npvT3, 0)} = <b>DKK {f(npvA3, 0)} million</b>.</p>"
+        f"<p>With the price in the question: {f(npvT3r, 0)} and {f(npvA3r, 0)}.</p>"
+    ),
+    "criteria": [
+        f"NPV_T = P − T = {f(npvT3, 0)} and NPV_A = S − (P − T) = {f(npvA3, 0)} (1.5 points each).",
+        f"Follow-through: with {f(RES_P3, 0)}, {f(npvT3r, 0)} and {f(npvA3r, 0)}.",
+        "The two NPVs add up to the synergies; a pair that does not signals an error.",
+    ],
+}
+SVAR["mk-budkamp-3:1:b"] = {"type": "tall", "tall": [
+    t("NPV for Skovlund's shareholders", npvT3, "DKK m", alt=[npvT3r]),
+    t("NPV for Vesterhav's shareholders", npvA3, "DKK m", alt=[npvA3r])],
+    "merknad": f"alt: reserveprisen {f(RES_P3, 0)}."}
+
+bk3_c = {
+    "label": "c", "points": 4,
+    "body": (f"<p>The winning bidder could instead offer {f(ER3b, 2)} of its own new shares per Skovlund share. Using the "
+             "formula sheet and the expected synergies, what are the NPVs for both sides? Compare with (b).</p>"),
+    "solution": (
+        f"<p>x = {f(ER3b, 2)} × {NT3b} = {f(x3b, 0)} million; y = {f(x3b, 0)}/({NA3b} + {f(x3b, 0)}) = {f(y3b)}.<br>"
+        f"A + T + S = {f(A3b, 0)} + {f(T3b, 0)} + {S3b} = {f(V3b, 0)}.</p>"
+        f"<p>NPV<sub>T</sub> = {f(y3b, 6)} × {f(V3b, 0)} − {f(T3b, 0)} = <b>{f(npvT3s, 2)}</b>; NPV<sub>A</sub> = "
+        f"{f(1 - y3b, 6)} × {f(V3b, 0)} − {f(A3b, 0)} = <b>{f(npvA3s, 2)}</b> (DKK million).</p>"
+        "<p>The same as with cash: at the expected synergies the share offer gives Skovlund's shareholders exactly "
+        f"the cash price, since {f(y3b, 6)} × {f(V3b, 0)} = {f(y3b * V3b, 2)}. The difference only shows when the "
+        "synergies turn out differently.</p>"
+    ),
+    "criteria": [
+        f"y = {f(x3b, 0)}/{f(NA3b + x3b, 0)} = {f(y3b)} and A + T + S = {f(V3b, 0)}.",
+        f"NPV_T = {f(npvT3s, 2)} and NPV_A = {f(npvA3s, 2)} (1.5 points each).",
+        "Comparison (1 point): the same as in (b), because the shares are worth the cash price when the synergies "
+        "are as expected.",
+    ],
+}
+SVAR["mk-budkamp-3:1:c"] = {"type": "blandet", "tall": [
+    t("NPV for Skovlund's shareholders", npvT3s, "DKK m"), t("NPV for Vesterhav's shareholders", npvA3s, "DKK m")],
+    "tallPoeng": 3, "tekstLedd": "Compare with (b)."}
+
+bk3_d = {
+    "label": "d", "points": 6,
+    "body": (f"<p>After the deal the synergies turn out to be only DKK {S3b_ny} million. What are the NPVs for both "
+             "sides if the winning bidder paid in cash as in (b)? If it paid in shares as in (c)?</p>"),
+    "solution": (
+        "<p><b>Cash.</b> Skovlund's shareholders already have their price: NPV<sub>T</sub> = <b>"
+        f"{f(kT3, 0)}</b> (unchanged). NPV<sub>A</sub> = {S3b_ny} − {f(npvT3, 0)} = <b>{f(kA3, 0)}</b>: Vesterhav's "
+        f"shareholders carry the whole shortfall of {f(mangel3, 0)}.</p>"
+        f"<p><b>Shares.</b> The merged firm is worth {f(A3b, 0)} + {f(T3b, 0)} + {S3b_ny} = {f(V3b_ny, 0)}.<br>"
+        f"NPV<sub>T</sub> = {f(y3b, 6)} × {f(V3b_ny, 0)} − {f(T3b, 0)} = <b>{f(sT3, 2)}</b><br>"
+        f"NPV<sub>A</sub> = {f(1 - y3b, 6)} × {f(V3b_ny, 0)} − {f(A3b, 0)} = <b>{f(sA3, 2)}</b></p>"
+        f"<p><b>Check.</b> The shortfall of {f(mangel3, 0)} is split {f(npvA3s - sA3, 2)} to Vesterhav and "
+        f"{f(npvT3s - sT3, 2)} to Skovlund, in proportion {f(1 - y3b)} and {f(y3b)}.</p>"
+        f"<p>With the reserve price {f(RES_P3, 0)} from (b): cash gives NPV<sub>A</sub> = {f(kA3r, 0)} and "
+        f"NPV<sub>T</sub> = {f(npvT3r, 0)}; the share figures do not change.</p>"
+    ),
+    "criteria": [
+        f"Cash: NPV_T = {f(kT3, 0)} and NPV_A = {f(kA3, 0)}; the acquirer bears the whole shortfall.",
+        f"Shares: NPV_T = {f(sT3, 2)} and NPV_A = {f(sA3, 2)}, from y × {f(V3b_ny, 0)} and (1 − y) × {f(V3b_ny, 0)}.",
+        "1.5 points per number; show the merged value with the lower synergies.",
+        f"Follow-through for cash with the reserve price {f(RES_P3, 0)}: {f(kA3r, 0)} and {f(npvT3r, 0)}.",
+    ],
+}
+SVAR["mk-budkamp-3:1:d"] = {"type": "tall", "tall": [
+    t("Cash: NPV for Vesterhav's shareholders", kA3, "DKK m", alt=[kA3r]),
+    t("Cash: NPV for Skovlund's shareholders", kT3, "DKK m", alt=[npvT3r]),
+    t("Shares: NPV for Vesterhav's shareholders", sA3, "DKK m"),
+    t("Shares: NPV for Skovlund's shareholders", sT3, "DKK m")],
+    "merknad": f"alt: reserveprisen {f(RES_P3, 0)} i (b) endrer bare kontanttallene."}
+
+bk3_e = {
+    "label": "e", "points": 4,
+    "body": ("<p>Who bears the synergy risk under each form of payment? If the winning bidder's managers had "
+             "doubted the synergies before bidding, or believed that their own shares were overvalued, which payment would "
+             "they have chosen? How would the market read that choice? (3–4 sentences)</p>"),
+    "solution": (
+        "<p>With cash, the target's shareholders get a fixed price and the acquirer's shareholders bear all of the "
+        f"synergy risk; with shares, the target's shareholders own {pc(y3b, 1)} of the merged firm and bear that part "
+        "of it. Managers who doubted the synergies would therefore have preferred shares, to hedge against the worst "
+        "case; so would managers who thought their shares were overvalued, since they pay with an expensive "
+        "currency. The market knows this, so a share offer is read as a sign that the acquirer's shares may be "
+        "overvalued or that its managers doubt the deal; its price tends to fall on the announcement.</p>"
+        "<p>The lecture makes both points: shares «hedge yourself against the worst case», while a stock offer makes "
+        "the market think the acquirer is «probably overvalued» (recording 16, 1:23:53 to 1:25:46).</p>"
+    ),
+    "criteria": [
+        "Risk (1 point): cash puts all of it on the acquirer; shares share it in proportion y and 1 − y.",
+        "Doubtful managers (1 point): prefer shares as a hedge.",
+        "Overvalued shares (1 point): prefer shares, a cheap currency.",
+        "Market reading (1 point): a share offer signals overvaluation or doubt, so the acquirer's price falls.",
+    ],
+}
+SVAR["mk-budkamp-3:1:e"] = {"type": "tekst"}
+
+OPPG["mk-budkamp-3"] = {
+    "n": 1, "title": "M&A", "points": 20, "topic": "Mergers and acquisitions", "chapters": [26],
+    "merke": "Forelesningsformen fra forelesning 16 (38:03 til 46:37 og 1:25:55), med et tillegg i del d",
+    "body": bk3_body, "parts": [bk3_a, bk3_b, bk3_c, bk3_d, bk3_e],
+}
+
+
+# ======================================================================
+# mk-coinsurance · hjelper
+# ======================================================================
+def to_tilstander(VA, VB, FA, FB, p, rf, s=0):
+    """Gjeld og egenkapital per tilstand og i verdi, alene og fusjonert (lån med lik prioritet)."""
+    d = lambda V, F: min(V, F)
+    e = lambda V, F: max(V - F, 0.0)
+    disk = 1 + rf
+    pv = lambda x: (p[0] * x[0] + p[1] * x[1]) / disk
+    r = {}
+    r["DA"], r["EA"] = pv([d(v, FA) for v in VA]), pv([e(v, FA) for v in VA])
+    r["DB"], r["EB"] = pv([d(v, FB) for v in VB]), pv([e(v, FB) for v in VB])
+    VAB = [VA[i] + VB[i] + s for i in range(2)]
+    F = FA + FB
+    r["DAB"], r["EAB"] = pv([d(v, F) for v in VAB]), pv([e(v, F) for v in VAB])
+    r["lanA"] = pv([d(v, F) * FA / F for v in VAB])
+    r["lanB"] = pv([d(v, F) * FB / F for v in VAB])
+    r["VAB"] = VAB
+    return r
+
+
+# ======================================================================
+# mk-coinsurance-1 · forelesningsformen (16, 1:27:49)
+# ======================================================================
+VA_c1, VB_c1 = [120, 40], [25, 90]
+FA_c1, FB_c1 = 50, 36
+r1 = to_tilstander(VA_c1, VB_c1, FA_c1, FB_c1, [0.5, 0.5], 0.0)
+assert all(v >= FA_c1 + FB_c1 for v in r1["VAB"])           # fusjonert gjeld er risikofri
+assert VA_c1[1] < FA_c1 and VB_c1[0] < FB_c1                # hver alene misligholder i sin dårlige tilstand
+E0_c1, D0_c1 = r1["EA"] + r1["EB"], r1["DA"] + r1["DB"]
+dE_c1, dD_c1 = r1["EAB"] - E0_c1, r1["DAB"] - D0_c1
+andA_c1 = r1["EA"] / E0_c1
+dEA_c1 = andA_c1 * r1["EAB"] - r1["EA"]
+dEB_c1 = (1 - andA_c1) * r1["EAB"] - r1["EB"]
+assert near(dE_c1 + dD_c1, 0) and dE_c1 < 0 and near(dEA_c1 + dEB_c1, dE_c1)
+yA0_c1, yB0_c1 = FA_c1 / r1["DA"] - 1, FB_c1 / r1["DB"] - 1
+yAB_c1 = (FA_c1 + FB_c1) / r1["DAB"] - 1
+assert near(yAB_c1, 0)
+RES_c1 = dict(EA=40, EB=20, DA=42, DB=33, EAB=55, DAB=80)
+assert near(RES_c1["EA"] + RES_c1["EB"] + RES_c1["DA"] + RES_c1["DB"], RES_c1["EAB"] + RES_c1["DAB"])
+rdE_c1 = RES_c1["EAB"] - RES_c1["EA"] - RES_c1["EB"]
+rdD_c1 = RES_c1["DAB"] - RES_c1["DA"] - RES_c1["DB"]
+rdEA_c1 = RES_c1["EAB"] * RES_c1["EA"] / (RES_c1["EA"] + RES_c1["EB"]) - RES_c1["EA"]
+rdEB_c1 = RES_c1["EAB"] * RES_c1["EB"] / (RES_c1["EA"] + RES_c1["EB"]) - RES_c1["EB"]
+ryA_c1, ryB_c1 = FA_c1 / RES_c1["DA"] - 1, FB_c1 / RES_c1["DB"] - 1
+ryAB_c1 = (FA_c1 + FB_c1) / RES_c1["DAB"] - 1
+for k in ("EA", "EB", "DA", "DB", "EAB", "DAB"):
+    assert abs(RES_c1[k] - r1[k]) > 1
+
+
+c1_body = (
+    "<p>Tverrå Kraft ASA runs hydropower plants and earns most in a wet year; Sandvoll Sol ASA runs solar parks and "
+    "earns most in a dry year. Next year is wet or dry with equal probability. The firms' values next year (NOK "
+    "million) are:</p>"
+    "<table class=\"data\"><tr><th>Firm</th><th>Wet year</th><th>Dry year</th></tr>"
+    f"<tr><td>Tverrå (A)</td><td class=\"n\">{VA_c1[0]}</td><td class=\"n\">{VA_c1[1]}</td></tr>"
+    f"<tr><td>Sandvoll (B)</td><td class=\"n\">{VB_c1[0]}</td><td class=\"n\">{VB_c1[1]}</td></tr></table>"
+    f"<p>Tverrå has a zero-coupon loan with face value {FA_c1} and Sandvoll one with face value {FB_c1}, both due "
+    "next year. Investors are risk neutral, the risk-free rate is 0% and there are no taxes or bankruptcy costs. The "
+    "firms consider merging without synergies: the merged firm takes over both loans and its shares go to the old "
+    "shareholders in proportion to their stand-alone equity values.</p>"
+)
+c1_a = {
+    "label": "a", "points": 4,
+    "body": "<p>What are the debt and the equity of each firm worth today if they do not merge?</p>",
+    "solution": (
+        "<p>In each state the lender gets min(V, F) and the shareholders max(V − F, 0):</p>"
+        + tab(["Firm", "Wet: debt / equity", "Dry: debt / equity", "Debt today", "Equity today"], [
+            ["Tverrå", f"{min(VA_c1[0], FA_c1)} / {VA_c1[0] - FA_c1}", f"{VA_c1[1]} / 0", f"<b>{f(r1['DA'], 2)}</b>",
+             f"<b>{f(r1['EA'], 2)}</b>"],
+            ["Sandvoll", f"{VB_c1[0]} / 0", f"{FB_c1} / {VB_c1[1] - FB_c1}", f"<b>{f(r1['DB'], 2)}</b>",
+             f"<b>{f(r1['EB'], 2)}</b>"],
+        ])
+        + f"<p>For example Tverrå's debt: 0.5 × {FA_c1} + 0.5 × {VA_c1[1]} = {f(r1['DA'], 2)}. Each firm defaults in "
+        "its bad year.</p>"
+    ),
+    "criteria": [
+        f"Tverrå: debt {f(r1['DA'], 2)}, equity {f(r1['EA'], 2)}; Sandvoll: debt {f(r1['DB'], 2)}, equity "
+        f"{f(r1['EB'], 2)} (1 point each).",
+        "Per state the lender gets min(V, F); no discounting since the risk-free rate is 0%.",
+        "Treating the face value as the value of the debt ignores the default in the bad year.",
+    ],
+}
+SVAR["mk-coinsurance-1:1:a"] = {"type": "tall", "tall": [
+    t("Value of Tverrå's debt", r1["DA"], "NOK m"), t("Value of Tverrå's equity", r1["EA"], "NOK m"),
+    t("Value of Sandvoll's debt", r1["DB"], "NOK m"), t("Value of Sandvoll's equity", r1["EB"], "NOK m")]}
+
+c1_b = {
+    "label": "b", "points": 4,
+    "body": "<p>What are the debt and the equity of the merged firm worth?</p>",
+    "solution": (
+        f"<p>The merged firm is worth {r1['VAB'][0]} in a wet year and {r1['VAB'][1]} in a dry year and owes "
+        f"{FA_c1 + FB_c1}. It can pay in both years:</p>"
+        + tab(["State", "Value", "Debt", "Equity"], [
+            ["Wet", f"{r1['VAB'][0]}", f"{FA_c1 + FB_c1}", f"{r1['VAB'][0] - FA_c1 - FB_c1}"],
+            ["Dry", f"{r1['VAB'][1]}", f"{FA_c1 + FB_c1}", f"{r1['VAB'][1] - FA_c1 - FB_c1}"],
+        ])
+        + f"<p>Debt = <b>{f(r1['DAB'], 2)}</b>, equity = 0.5 × {r1['VAB'][0] - FA_c1 - FB_c1} + 0.5 × "
+        f"{r1['VAB'][1] - FA_c1 - FB_c1} = <b>{f(r1['EAB'], 2)}</b>. The debt has become risk-free.</p>"
+        f"<p><b>Check.</b> {f(r1['DAB'], 2)} + {f(r1['EAB'], 2)} = {f(r1['DAB'] + r1['EAB'], 2)} = "
+        f"{f(r1['DA'] + r1['EA'], 2)} + {f(r1['DB'] + r1['EB'], 2)}: without synergies the total value is unchanged.</p>"
+    ),
+    "criteria": [
+        f"Merged value {r1['VAB'][0]} and {r1['VAB'][1]} against a face value of {FA_c1 + FB_c1}: no default.",
+        f"Debt {f(r1['DAB'], 2)} and equity {f(r1['EAB'], 2)} (2 points each).",
+        "Bonus: the total value is the same as before, since there are no synergies.",
+    ],
+}
+SVAR["mk-coinsurance-1:1:b"] = {"type": "tall", "tall": [
+    t("Value of the merged firm's debt", r1["DAB"], "NOK m"), t("Value of the merged firm's equity", r1["EAB"], "NOK m")]}
+
+res_c1 = (f"(If you could not solve (a) and (b), use E<sub>A</sub> = {RES_c1['EA']}, E<sub>B</sub> = {RES_c1['EB']}, "
+          f"D<sub>A</sub> = {RES_c1['DA']} and D<sub>B</sub> = {RES_c1['DB']} before; E = {RES_c1['EAB']} and "
+          f"D = {RES_c1['DAB']} after.)")
+c1_c = {
+    "label": "c", "points": 4,
+    "body": ("<p>What do the shareholders as a group and the creditors as a group gain or lose from the merger? How "
+             f"is the shareholders' change split between Tverrå's and Sandvoll's shareholders? {res_c1}</p>"),
+    "solution": (
+        f"<p><b>Groups.</b> Shareholders: {f(r1['EAB'], 2)} − ({f(r1['EA'], 2)} + {f(r1['EB'], 2)}) = "
+        f"<b>{f(dE_c1, 2)}</b>. Creditors: {f(r1['DAB'], 2)} − ({f(r1['DA'], 2)} + {f(r1['DB'], 2)}) = "
+        f"<b>+{f(dD_c1, 2)}</b>.</p>"
+        f"<p><b>Split.</b> Tverrå's shareholders get {f(r1['EA'], 2)}/{f(E0_c1, 2)} = {pc(andA_c1)} of the merged "
+        f"equity: {f(andA_c1, 6)} × {f(r1['EAB'], 2)} − {f(r1['EA'], 2)} = <b>{f(dEA_c1, 4)}</b>. Sandvoll's: "
+        f"{f(1 - andA_c1, 6)} × {f(r1['EAB'], 2)} − {f(r1['EB'], 2)} = <b>{f(dEB_c1, 4)}</b>.</p>"
+        f"<p>The creditors' gain equals the shareholders' loss: a wealth transfer of {f(dD_c1, 2)}, with no value "
+        "created.</p>"
+        f"<p><b>With the values in the question.</b> Shareholders {f(rdE_c1, 2)}, creditors +{f(rdD_c1, 2)}, Tverrå's "
+        f"shareholders {f(rdEA_c1, 4)} and Sandvoll's {f(rdEB_c1, 4)}.</p>"
+    ),
+    "criteria": [
+        f"Shareholders {f(dE_c1, 2)} and creditors +{f(dD_c1, 2)}: a wealth transfer, the gain equals the loss.",
+        f"Split by equity values: Tverrå {f(dEA_c1, 4)}, Sandvoll {f(dEB_c1, 4)} (1 point each).",
+        "Follow-through: full marks for the method on the values given in the question.",
+    ],
+}
+SVAR["mk-coinsurance-1:1:c"] = {"type": "tall", "tall": [
+    t("Change for the shareholders as a group", dE_c1, "NOK m", alt=[rdE_c1]),
+    t("Change for the creditors as a group", dD_c1, "NOK m", alt=[rdD_c1]),
+    t("Change for Tverrå's shareholders", dEA_c1, "NOK m", alt=[rdEA_c1]),
+    t("Change for Sandvoll's shareholders", dEB_c1, "NOK m", alt=[rdEB_c1])],
+    "merknad": "alt: reserveverdiene i oppgaveteksten."}
+
+c1_d = {
+    "label": "d", "points": 3,
+    "body": ("<p>What yield to maturity does each loan offer at its market value before the merger? What does the "
+             "merged firm's debt offer? (Use the values from (a) and (b), or those given in (c).)</p>"),
+    "solution": (
+        f"<p>Before: Tverrå {FA_c1}/{f(r1['DA'], 2)} − 1 = <b>{pc(yA0_c1)}</b>; Sandvoll {FB_c1}/{f(r1['DB'], 2)} − 1 "
+        f"= <b>{pc(yB0_c1)}</b>.</p>"
+        f"<p>After: {FA_c1 + FB_c1}/{f(r1['DAB'], 2)} − 1 = <b>{pc(yAB_c1)}</b>, the risk-free rate, since the merged "
+        "firm never defaults. The joint debt has a lower yield because each firm now backs the other's loan.</p>"
+        f"<p>With the values in (c): {pc(ryA_c1)}, {pc(ryB_c1)} and {pc(ryAB_c1)}.</p>"
+    ),
+    "criteria": [
+        f"Tverrå {pc(yA0_c1)} and Sandvoll {pc(yB0_c1)} before (1 point each).",
+        f"Merged debt {pc(yAB_c1)}: risk-free (1 point).",
+        f"Follow-through with the values in (c): {pc(ryA_c1)}, {pc(ryB_c1)} and {pc(ryAB_c1)}.",
+    ],
+}
+SVAR["mk-coinsurance-1:1:d"] = {"type": "tall", "tall": [
+    t("Yield on Tverrå's loan before the merger", yA0_c1 * 100, "%", alt=[ryA_c1 * 100]),
+    t("Yield on Sandvoll's loan before the merger", yB0_c1 * 100, "%", alt=[ryB_c1 * 100]),
+    t("Yield on the merged firm's debt", yAB_c1 * 100, "%", abs=0.05, alt=[ryAB_c1 * 100])],
+    "merknad": "alt: reserveverdiene i (c)."}
+
+c1_e = {
+    "label": "e", "points": 5,
+    "body": ("<p>Explain who gains and who loses from the merger and why, although it creates no value. Would you "
+             "vote for it as a Tverrå shareholder? When would such a merger change nothing for either group? "
+             "(3–4 sentences)</p>"),
+    "solution": (
+        "<p>After the merger each firm's assets back both loans: in a dry year Sandvoll's surplus pays Tverrå's lender "
+        "and in a wet year Tverrå's pays Sandvoll's, so the debt becomes risk-free (coinsurance). The total value is "
+        "unchanged, so the creditors' gain is taken from the shareholders, who lose the part of the upside they kept "
+        "when their firm alone could default. As a Tverrå shareholder I would vote against. The merger changes "
+        "nothing for either group if, in every state, the two firms either both default or both pay in full, for "
+        "example when neither can default on its own: then no surplus of one firm is ever used for the other's "
+        "loan.</p>"
+        "<p><b>Correlation.</b> «Perfectly positively correlated values» is accepted as the lecture's phrasing "
+        "(recording 16, 1:28:43), but it is not enough on its own: with Tverrå at 120/40 and a second firm at "
+        "100/70 owing 36, the values move together, yet only Tverrå defaults in the dry year and the merger still "
+        "raises the debt from 81 to 86. What matters is whether the default states overlap.</p>"
+        "<p><b>Also accepted.</b> Shareholders like risk because equity is like a call on the firm's assets; "
+        "diversification inside the firm only helps the lenders unless the firm uses the lower risk, for example by "
+        "borrowing more at a lower rate.</p>"
+    ),
+    "criteria": [
+        "Mechanism (2 points): each firm's assets now back both loans, so default disappears and the debt is safer.",
+        "Wealth transfer (1 point): no value is created, so the creditors' gain is the shareholders' loss.",
+        "Vote (1 point): against, as a shareholder.",
+        "Condition (1 point): no effect when in every state both firms default or both pay in full, for example "
+        "when neither can default alone. «Perfectly positively correlated values» is accepted as the lecture's "
+        "phrasing.",
+    ],
+}
+SVAR["mk-coinsurance-1:1:e"] = {"type": "tekst"}
+
+OPPG["mk-coinsurance-1"] = {
+    "n": 1, "title": "M&A", "points": 20, "topic": "Mergers and acquisitions, merging levered firms",
+    "chapters": [26],
+    "merke": "Samme form som eksemplet med to belånte firmaer i forelesning 16 (1:27:49 til 1:31:43)",
+    "body": c1_body, "parts": [c1_a, c1_b, c1_c, c1_d, c1_e],
+}
+
+# ======================================================================
+# mk-coinsurance-2 · V2024 P4-formen, ulike sannsynligheter, rente og delvis mislighold
+# ======================================================================
+VA_c2, VB_c2 = [140, 70], [48, 75]
+FA_c2, FB_c2 = 90, 60
+p_c2, rf_c2 = [0.6, 0.4], 0.05
+r2 = to_tilstander(VA_c2, VB_c2, FA_c2, FB_c2, p_c2, rf_c2)
+F2 = FA_c2 + FB_c2
+assert r2["VAB"][0] >= F2 > r2["VAB"][1]                # fusjonert misligholder bare i lav-tilstanden
+E0_c2, D0_c2 = r2["EA"] + r2["EB"], r2["DA"] + r2["DB"]
+andA_c2 = r2["EA"] / E0_c2
+dEA_c2 = andA_c2 * r2["EAB"] - r2["EA"]
+dEB_c2 = (1 - andA_c2) * r2["EAB"] - r2["EB"]
+dlA_c2, dlB_c2 = r2["lanA"] - r2["DA"], r2["lanB"] - r2["DB"]
+assert near(dEA_c2 + dEB_c2 + dlA_c2 + dlB_c2, 0) and dlA_c2 > 0 and dlB_c2 > 0
+assert near(r2["lanA"] + r2["lanB"], r2["DAB"])
+yA0_c2, yB0_c2 = FA_c2 / r2["DA"] - 1, FB_c2 / r2["DB"] - 1
+yA1_c2, yB1_c2 = FA_c2 / r2["lanA"] - 1, FB_c2 / r2["lanB"] - 1
+assert near(yA1_c2, yB1_c2) and yA1_c2 < yA0_c2 and yA1_c2 > rf_c2
+RES_c2 = dict(EA=25, EB=10, EAB=23, lA0=80, lB0=48, lA1=84, lB1=56)
+assert near(RES_c2["EA"] + RES_c2["EB"] + RES_c2["lA0"] + RES_c2["lB0"], RES_c2["EAB"] + RES_c2["lA1"] + RES_c2["lB1"])
+rE0 = RES_c2["EA"] + RES_c2["EB"]
+rdEA_c2 = RES_c2["EAB"] * RES_c2["EA"] / rE0 - RES_c2["EA"]
+rdEB_c2 = RES_c2["EAB"] * RES_c2["EB"] / rE0 - RES_c2["EB"]
+rdlA_c2, rdlB_c2 = RES_c2["lA1"] - RES_c2["lA0"], RES_c2["lB1"] - RES_c2["lB0"]
+ry_c2 = [FA_c2 / RES_c2["lA0"] - 1, FB_c2 / RES_c2["lB0"] - 1, FA_c2 / RES_c2["lA1"] - 1, FB_c2 / RES_c2["lB1"] - 1]
+lavA_c2 = r2["VAB"][1] * FA_c2 / F2
+lavB_c2 = r2["VAB"][1] * FB_c2 / F2
+
+c2_body = (
+    "<p>Redmarsh Drilling Inc. (A) does well when the oil price is high; Bluewing Airlines Inc. (B) does well when it is "
+    f"low. Next year the oil price is high with probability {f(p_c2[0], 1)} and low with probability "
+    f"{f(p_c2[1], 1)}. The firms' values next year ($ million) are:</p>"
+    "<table class=\"data\"><tr><th>Firm</th><th>High oil price</th><th>Low oil price</th></tr>"
+    f"<tr><td>Redmarsh (A)</td><td class=\"n\">{VA_c2[0]}</td><td class=\"n\">{VA_c2[1]}</td></tr>"
+    f"<tr><td>Bluewing (B)</td><td class=\"n\">{VB_c2[0]}</td><td class=\"n\">{VB_c2[1]}</td></tr></table>"
+    f"<p>Redmarsh owes {FA_c2} and Bluewing {FB_c2} on zero-coupon loans due next year. Investors are risk neutral, "
+    "the risk-free rate is 5% and there are no taxes or bankruptcy costs. The firms merge without synergies. The "
+    "merged firm takes over both loans, which rank equally: if it cannot pay in full, each lender gets the same "
+    "fraction of its face value. The merged shares go to the old shareholders in proportion to their stand-alone "
+    "equity values. Use 3 decimal places.</p>"
+)
+c2_a = {
+    "label": "a", "points": 4,
+    "body": "<p>What are each firm's debt and equity worth today without the merger?</p>",
+    "solution": (
+        f"<p>Expected payoff under the given probabilities, discounted at 5%:</p>"
+        + tab(["", "High: debt / equity", "Low: debt / equity", "Debt today", "Equity today"], [
+            ["Redmarsh", f"{FA_c2} / {VA_c2[0] - FA_c2}", f"{VA_c2[1]} / 0", f"<b>{f(r2['DA'], 3)}</b>",
+             f"<b>{f(r2['EA'], 3)}</b>"],
+            ["Bluewing", f"{VB_c2[0]} / 0", f"{FB_c2} / {VB_c2[1] - FB_c2}", f"<b>{f(r2['DB'], 3)}</b>",
+             f"<b>{f(r2['EB'], 3)}</b>"],
+        ])
+        + f"<p>For example Redmarsh's debt: ({f(p_c2[0], 1)} × {FA_c2} + {f(p_c2[1], 1)} × {VA_c2[1]})/1.05 = "
+        f"{f(p_c2[0] * FA_c2 + p_c2[1] * VA_c2[1], 0)}/1.05 = {f(r2['DA'], 3)}.</p>"
+    ),
+    "criteria": [
+        f"Redmarsh: debt {f(r2['DA'], 3)}, equity {f(r2['EA'], 3)}; Bluewing: debt {f(r2['DB'], 3)}, equity "
+        f"{f(r2['EB'], 3)} (1 point each).",
+        "Probabilities 0.6 and 0.4 (not 0.5) and discounting at 5%, since investors are risk neutral.",
+        "Forgetting to discount gives values 5% too high.",
+    ],
+}
+SVAR["mk-coinsurance-2:1:a"] = {"type": "tall", "tall": [
+    t("Value of Redmarsh's debt", r2["DA"], "$ m"), t("Value of Redmarsh's equity", r2["EA"], "$ m"),
+    t("Value of Bluewing's debt", r2["DB"], "$ m"), t("Value of Bluewing's equity", r2["EB"], "$ m")]}
+
+c2_b = {
+    "label": "b", "points": 5,
+    "body": "<p>What are the merged firm's debt and equity worth? What is each lender's loan worth after the merger?</p>",
+    "solution": (
+        f"<p><b>Step 1. Per state.</b> High: {r2['VAB'][0]} against {F2}, so the lenders get {F2} and the shareholders "
+        f"{r2['VAB'][0] - F2}. Low: {r2['VAB'][1]} &lt; {F2}, so the firm defaults and the lenders get all "
+        f"{r2['VAB'][1]}.</p>"
+        f"<p><b>Step 2. Values.</b> Debt = ({f(p_c2[0], 1)} × {F2} + {f(p_c2[1], 1)} × {r2['VAB'][1]})/1.05 = "
+        f"<b>{f(r2['DAB'], 3)}</b>; equity = {f(p_c2[0], 1)} × {r2['VAB'][0] - F2}/1.05 = <b>{f(r2['EAB'], 3)}</b>.</p>"
+        f"<p><b>Step 3. Each loan.</b> In the low state Redmarsh's lender gets {FA_c2}/{F2} of {r2['VAB'][1]} = "
+        f"{f(lavA_c2, 0)} and Bluewing's {f(lavB_c2, 0)}.<br>Redmarsh's loan: ({f(p_c2[0], 1)} × {FA_c2} + "
+        f"{f(p_c2[1], 1)} × {f(lavA_c2, 0)})/1.05 = <b>{f(r2['lanA'], 3)}</b><br>Bluewing's loan: ({f(p_c2[0], 1)} × "
+        f"{FB_c2} + {f(p_c2[1], 1)} × {f(lavB_c2, 0)})/1.05 = <b>{f(r2['lanB'], 3)}</b></p>"
+        f"<p><b>Check.</b> {f(r2['lanA'], 3)} + {f(r2['lanB'], 3)} = {f(r2['DAB'], 3)} ✓; debt plus equity is "
+        f"{f(r2['DAB'] + r2['EAB'], 3)}, the same as before the merger.</p>"
+    ),
+    "criteria": [
+        f"The merged firm defaults in the low state ({r2['VAB'][1]} &lt; {F2}) but not in the high state.".replace("&lt;", "<"),
+        f"Debt {f(r2['DAB'], 3)} and equity {f(r2['EAB'], 3)}.",
+        f"Each loan with equal ranking: {f(r2['lanA'], 3)} and {f(r2['lanB'], 3)}, which add up to the debt.",
+        "1.25 points per number, shown with its calculation.",
+    ],
+}
+SVAR["mk-coinsurance-2:1:b"] = {"type": "tall", "tall": [
+    t("Value of the merged firm's debt", r2["DAB"], "$ m"), t("Value of the merged firm's equity", r2["EAB"], "$ m"),
+    t("Value of Redmarsh's loan after the merger", r2["lanA"], "$ m"),
+    t("Value of Bluewing's loan after the merger", r2["lanB"], "$ m")]}
+
+res_c2 = (f"(If you could not solve (a) and (b), use equity {RES_c2['EA']} (Redmarsh) and {RES_c2['EB']} (Bluewing) "
+          f"and loans {RES_c2['lA0']} and {RES_c2['lB0']} before; equity {RES_c2['EAB']} and loans {RES_c2['lA1']} "
+          f"and {RES_c2['lB1']} after.)")
+c2_c = {
+    "label": "c", "points": 4,
+    "body": ("<p>What does each group of shareholders and each lender gain or lose? Would the shareholders want the "
+             f"merger? {res_c2}</p>"),
+    "solution": (
+        f"<p><b>Shareholders.</b> Redmarsh's own {f(r2['EA'], 3)}/{f(E0_c2, 3)} = {pc(andA_c2)} of the merged equity: "
+        f"{f(andA_c2, 6)} × {f(r2['EAB'], 3)} − {f(r2['EA'], 3)} = <b>{f(dEA_c2, 3)}</b>. Bluewing's: {f(1 - andA_c2, 6)} × "
+        f"{f(r2['EAB'], 3)} − {f(r2['EB'], 3)} = <b>{f(dEB_c2, 3)}</b>.</p>"
+        f"<p><b>Lenders.</b> Redmarsh's: {f(r2['lanA'], 3)} − {f(r2['DA'], 3)} = <b>+{f(dlA_c2, 3)}</b>. Bluewing's: "
+        f"{f(r2['lanB'], 3)} − {f(r2['DB'], 3)} = <b>+{f(dlB_c2, 3)}</b>.</p>"
+        f"<p>The lenders gain {f(dlA_c2 + dlB_c2, 3)} and the shareholders lose the same: <b>the shareholders would "
+        "not want the merger</b>.</p>"
+        f"<p><b>With the values in the question.</b> {f(rdEA_c2, 3)}, {f(rdEB_c2, 3)}, +{f(rdlA_c2, 3)} and "
+        f"+{f(rdlB_c2, 3)}.</p>"
+    ),
+    "criteria": [
+        f"Shareholders: Redmarsh {f(dEA_c2, 3)}, Bluewing {f(dEB_c2, 3)}, split by stand-alone equity values.",
+        f"Lenders: Redmarsh +{f(dlA_c2, 3)}, Bluewing +{f(dlB_c2, 3)}; the gains equal the losses.",
+        "Verdict (1 point): the shareholders would not want it.",
+        "Follow-through: full marks for the method on the values given in the question.",
+    ],
+}
+SVAR["mk-coinsurance-2:1:c"] = {
+    "type": "blandet",
+    "tall": [t("Change for Redmarsh's shareholders", dEA_c2, "$ m", alt=[rdEA_c2]),
+             t("Change for Bluewing's shareholders", dEB_c2, "$ m", alt=[rdEB_c2]),
+             t("Change for Redmarsh's lender", dlA_c2, "$ m", alt=[rdlA_c2]),
+             t("Change for Bluewing's lender", dlB_c2, "$ m", alt=[rdlB_c2])],
+    "tallPoeng": 3,
+    "tekstLedd": "Would the shareholders want the merger?",
+    "merknad": "alt: reserveverdiene i oppgaveteksten.",
+}
+
+c2_d = {
+    "label": "d", "points": 3,
+    "body": ("<p>What yield to maturity does each loan offer at its market value before and after the merger? (Use the "
+             "values from (a) and (b), or those given in (c).)</p>"),
+    "solution": (
+        f"<p>Before: Redmarsh {FA_c2}/{f(r2['DA'], 3)} − 1 = <b>{pc(yA0_c2)}</b>; Bluewing {FB_c2}/{f(r2['DB'], 3)} − 1 "
+        f"= <b>{pc(yB0_c2)}</b>.<br>After: Redmarsh {FA_c2}/{f(r2['lanA'], 3)} − 1 = <b>{pc(yA1_c2)}</b>; Bluewing "
+        f"{FB_c2}/{f(r2['lanB'], 3)} − 1 = <b>{pc(yB1_c2)}</b>.</p>"
+        "<p>Both yields fall. After the merger they are equal because the two loans share the same assets and "
+        "rank equally. They stay above 5% because the merged firm can still default.</p>"
+        f"<p>With the values in (c): {pc(ry_c2[0])}, {pc(ry_c2[1])}, {pc(ry_c2[2])} and {pc(ry_c2[3])}.</p>"
+    ),
+    "criteria": [
+        f"Before: {pc(yA0_c2)} and {pc(yB0_c2)}; after: {pc(yA1_c2)} for both.",
+        "Yield = face value/market value − 1. Bonus: the expected return is still 5% because investors are risk "
+        "neutral.",
+        "Follow-through with the values in (c) is accepted.",
+    ],
+}
+SVAR["mk-coinsurance-2:1:d"] = {"type": "tall", "tall": [
+    t("Yield on Redmarsh's loan before", yA0_c2 * 100, "%", alt=[ry_c2[0] * 100]),
+    t("Yield on Bluewing's loan before", yB0_c2 * 100, "%", alt=[ry_c2[1] * 100]),
+    t("Yield on Redmarsh's loan after", yA1_c2 * 100, "%", alt=[ry_c2[2] * 100]),
+    t("Yield on Bluewing's loan after", yB1_c2 * 100, "%", alt=[ry_c2[3] * 100])],
+    "merknad": "alt: reserveverdiene i (c)."}
+
+c2_e = {
+    "label": "e", "points": 4,
+    "body": ("<p>Explain the mechanism behind your results in (b) to (d). Why does a merger without synergies change "
+             "the positions of the shareholders and the lenders? (3–4 sentences)</p>"),
+    "solution": (
+        "<p>Before the merger each lender could only draw on its own borrower's assets; after it both can draw on the "
+        f"combined assets, so in the high state Redmarsh's surplus covers Bluewing's loan and in the low state the "
+        f"lenders recover {r2['VAB'][1]} of {F2} instead of losing more on one firm alone. This mutual guarantee "
+        "(coinsurance) makes the debt less risky, so its value rises although the firm's total value does not change. "
+        "With no synergies the lenders' gain must come from the shareholders, who give up the option to walk away "
+        "from one firm's debt while keeping the other firm's upside.</p>"
+    ),
+    "criteria": [
+        "Mechanism (2 points): each lender can now draw on both firms' assets, a mutual guarantee, so default is "
+        "less likely and losses in default are smaller.",
+        "Wealth transfer (1 point): total value is unchanged, so the lenders' gain is the shareholders' loss.",
+        "Why shareholders lose (1 point): they lose the limited-liability option on each firm separately (equity as "
+        "a call); lower risk helps the lenders, not them.",
+    ],
+}
+SVAR["mk-coinsurance-2:1:e"] = {"type": "tekst"}
+
+OPPG["mk-coinsurance-2"] = {
+    "n": 1, "title": "M&A", "points": 20, "topic": "Mergers and acquisitions, merging levered firms",
+    "chapters": [26],
+    "merke": "Samme form som V2024 P4, med ulike vekter på tilstandene og positiv rente",
+    "body": c2_body, "parts": [c2_a, c2_b, c2_c, c2_d, c2_e],
+}
+
+# ======================================================================
+# mk-coinsurance-3 · liten synergi, likegyldig synergi og konkurskostnader
+# ======================================================================
+VA_c3, VB_c3 = [100, 28], [12, 76]
+FA_c3, FB_c3 = 45, 30
+p_c3 = [0.4, 0.6]
+s_c3 = 8
+r3 = to_tilstander(VA_c3, VB_c3, FA_c3, FB_c3, p_c3, 0.0, s=s_c3)
+r3_0 = to_tilstander(VA_c3, VB_c3, FA_c3, FB_c3, p_c3, 0.0, s=0)
+F3 = FA_c3 + FB_c3
+assert all(v >= F3 for v in r3_0["VAB"])                    # risikofri også uten synergi
+E0_c3, D0_c3 = r3["EA"] + r3["EB"], r3["DA"] + r3["DB"]
+dE_c3, dD_c3 = r3["EAB"] - E0_c3, r3["DAB"] - D0_c3
+assert near(dE_c3 + dD_c3, s_c3) and dE_c3 < 0
+s_stjerne = F3 - D0_c3
+r3_s = to_tilstander(VA_c3, VB_c3, FA_c3, FB_c3, p_c3, 0.0, s=s_stjerne)
+assert near(r3_s["EAB"], E0_c3) and s_stjerne > s_c3
+RES_c3 = dict(E0=50, D0=55, EAB=38)
+assert near(RES_c3["E0"] + RES_c3["D0"] + s_c3, RES_c3["EAB"] + F3)
+rdE_c3, rdD_c3 = RES_c3["EAB"] - RES_c3["E0"], F3 - RES_c3["D0"]
+RES_c3d = 60
+rs_stjerne = F3 - RES_c3d
+# halen: konkurskostnader 20 % ved mislighold alene, uten synergi
+kk = 0.20
+DA_kk = p_c3[0] * FA_c3 + p_c3[1] * VA_c3[1] * (1 - kk)
+DB_kk = p_c3[0] * VB_c3[0] * (1 - kk) + p_c3[1] * FB_c3
+spart_kk = (r3["DA"] - DA_kk) + (r3["DB"] - DB_kk)
+assert near(spart_kk, kk * (p_c3[1] * VA_c3[1] + p_c3[0] * VB_c3[0]))
+
+c3_body = (
+    "<p>Breiset Alpin AS runs ski resorts and does well in a cold winter; Lysvann Golf AS runs golf courses and does "
+    f"well in a mild one. Next winter is cold with probability {f(p_c3[0], 1)} and mild with probability "
+    f"{f(p_c3[1], 1)}. The firms' values next year (NOK million) are:</p>"
+    "<table class=\"data\"><tr><th>Firm</th><th>Cold winter</th><th>Mild winter</th></tr>"
+    f"<tr><td>Breiset (A)</td><td class=\"n\">{VA_c3[0]}</td><td class=\"n\">{VA_c3[1]}</td></tr>"
+    f"<tr><td>Lysvann (B)</td><td class=\"n\">{VB_c3[0]}</td><td class=\"n\">{VB_c3[1]}</td></tr></table>"
+    f"<p>Breiset owes {FA_c3} and Lysvann {FB_c3} on zero-coupon loans due next year. Investors are risk neutral, "
+    "the risk-free rate is 0% and there are no taxes or bankruptcy costs. If they merge, the merged firm takes over "
+    f"both loans and gains synergies of {s_c3} in each state (a shared booking system).</p>"
+)
+c3_a = {
+    "label": "a", "points": 4,
+    "body": "<p>What are each firm's debt and equity worth today without the merger?</p>",
+    "solution": (
+        tab(["", "Cold: debt / equity", "Mild: debt / equity", "Debt today", "Equity today"], [
+            ["Breiset", f"{FA_c3} / {VA_c3[0] - FA_c3}", f"{VA_c3[1]} / 0", f"<b>{f(r3['DA'], 2)}</b>",
+             f"<b>{f(r3['EA'], 2)}</b>"],
+            ["Lysvann", f"{VB_c3[0]} / 0", f"{FB_c3} / {VB_c3[1] - FB_c3}", f"<b>{f(r3['DB'], 2)}</b>",
+             f"<b>{f(r3['EB'], 2)}</b>"],
+        ])
+        + f"<p>For example Breiset's debt: {f(p_c3[0], 1)} × {FA_c3} + {f(p_c3[1], 1)} × {VA_c3[1]} = "
+        f"{f(r3['DA'], 2)}.</p>"
+    ),
+    "criteria": [
+        f"Breiset: debt {f(r3['DA'], 2)}, equity {f(r3['EA'], 2)}; Lysvann: debt {f(r3['DB'], 2)}, equity "
+        f"{f(r3['EB'], 2)} (1 point each).",
+        "Probabilities 0.4 and 0.6; no discounting since the risk-free rate is 0%.",
+        "Each firm defaults in its bad winter.",
+    ],
+}
+SVAR["mk-coinsurance-3:1:a"] = {"type": "tall", "tall": [
+    t("Value of Breiset's debt", r3["DA"], "NOK m"), t("Value of Breiset's equity", r3["EA"], "NOK m"),
+    t("Value of Lysvann's debt", r3["DB"], "NOK m"), t("Value of Lysvann's equity", r3["EB"], "NOK m")]}
+
+c3_b = {
+    "label": "b", "points": 4,
+    "body": "<p>The firms merge. What are the merged firm's debt and equity worth?</p>",
+    "solution": (
+        f"<p>With the synergies the merged firm is worth {VA_c3[0]} + {VB_c3[0]} + {s_c3} = {r3['VAB'][0]} in a cold "
+        f"winter and {VA_c3[1]} + {VB_c3[1]} + {s_c3} = {r3['VAB'][1]} in a mild one, against debt of {F3}: it never "
+        "defaults.</p>"
+        f"<p>Debt = <b>{f(r3['DAB'], 2)}</b>; equity = {f(p_c3[0], 1)} × {r3['VAB'][0] - F3} + {f(p_c3[1], 1)} × "
+        f"{r3['VAB'][1] - F3} = <b>{f(r3['EAB'], 2)}</b>.</p>"
+    ),
+    "criteria": [
+        f"Merged values {r3['VAB'][0]} and {r3['VAB'][1]} include the synergies of {s_c3} in each state.",
+        f"No default, so debt {f(r3['DAB'], 2)} and equity {f(r3['EAB'], 2)} (2 points each).",
+        "Leaving out the synergies gives equity 8 lower.",
+    ],
+}
+SVAR["mk-coinsurance-3:1:b"] = {"type": "tall", "tall": [
+    t("Value of the merged firm's debt", r3["DAB"], "NOK m"), t("Value of the merged firm's equity", r3["EAB"], "NOK m")]}
+
+c3_c = {
+    "label": "c", "points": 4,
+    "body": ("<p>What do the shareholders as a group and the creditors as a group gain or lose? (If you could not "
+             f"solve (a) and (b), use equity of {RES_c3['E0']} and debt of {RES_c3['D0']} before the merger and equity "
+             f"of {RES_c3['EAB']} after it.)</p>"),
+    "solution": (
+        f"<p>Shareholders: {f(r3['EAB'], 2)} − ({f(r3['EA'], 2)} + {f(r3['EB'], 2)}) = <b>{f(dE_c3, 2)}</b>.<br>"
+        f"Creditors: {f(r3['DAB'], 2)} − ({f(r3['DA'], 2)} + {f(r3['DB'], 2)}) = <b>+{f(dD_c3, 2)}</b>.</p>"
+        f"<p><b>Check.</b> {f(dE_c3, 2)} + {f(dD_c3, 2)} = {f(dE_c3 + dD_c3, 2)}, the synergies: the merger now "
+        "creates value, but the creditors take more than all of it.</p>"
+        f"<p><b>With the values in the question.</b> Shareholders {f(rdE_c3, 2)}, creditors +{f(rdD_c3, 2)}.</p>"
+    ),
+    "criteria": [
+        f"Shareholders {f(dE_c3, 2)} and creditors +{f(dD_c3, 2)} (2 points each).",
+        f"Bonus: the two changes add up to the synergies of {s_c3}.",
+        "Follow-through: full marks for the method on the values given in the question.",
+    ],
+}
+SVAR["mk-coinsurance-3:1:c"] = {"type": "tall", "tall": [
+    t("Change for the shareholders as a group", dE_c3, "NOK m", alt=[rdE_c3]),
+    t("Change for the creditors as a group", dD_c3, "NOK m", alt=[rdD_c3])],
+    "merknad": "alt: reserveverdiene i oppgaveteksten."}
+
+c3_d = {
+    "label": "d", "points": 4,
+    "body": ("<p>What synergy, the same in each state, would leave the shareholders as a group exactly as well off as "
+             f"without the merger? (If you could not solve (a), use debt worth {RES_c3d} before the merger.)</p>"),
+    "solution": (
+        "<p>As long as the merged firm never defaults, its debt is worth the face value "
+        f"{F3}, so the creditors always gain {F3} − {f(D0_c3, 2)} = {f(F3 - D0_c3, 2)}. The total value rises by the "
+        "synergy s, so the shareholders gain s − "
+        f"{f(F3 - D0_c3, 2)}.</p>"
+        f"<p>Exactly as well off: s = <b>{f(s_stjerne, 2)}</b> in each state; a larger synergy makes them better off.</p>"
+        f"<p><b>Check.</b> With s = {f(s_stjerne, 2)}, equity = {f(p_c3[0], 1)} × "
+        f"{f(r3_s['VAB'][0] - F3, 2)} + {f(p_c3[1], 1)} × {f(r3_s['VAB'][1] - F3, 2)} = {f(r3_s['EAB'], 2)} = "
+        f"{f(E0_c3, 2)}, the shareholders' value before ✓.</p>"
+        f"<p>With debt worth {RES_c3d}: s = {F3} − {RES_c3d} = {f(rs_stjerne, 2)}.</p>"
+    ),
+    "criteria": [
+        f"The synergy must cover the transfer to the creditors: s = {F3} − {f(D0_c3, 2)} = {f(s_stjerne, 2)}.",
+        "An equivalent route: set the merged equity equal to the shareholders' value before and solve for s.",
+        "The debt stays risk-free at that synergy, so the creditors' gain does not change.",
+        f"Follow-through: with debt of {RES_c3d}, s = {f(rs_stjerne, 2)}.",
+    ],
+}
+SVAR["mk-coinsurance-3:1:d"] = {"type": "tall", "tall": [
+    t("Synergy per state that leaves the shareholders no worse off", s_stjerne, "NOK m", alt=[rs_stjerne])],
+    "merknad": "alt: reserveverdien i oppgaveteksten."}
+
+c3_e = {
+    "label": "e", "points": 4,
+    "body": ("<p>Suppose instead there are no synergies, but a firm that cannot repay its loan loses 20% of its "
+             "assets in bankruptcy costs. Who gains from the merger now? Does that change how the shareholders "
+             "should vote? (3–4 sentences, no full calculation needed.)</p>"),
+    "solution": (
+        "<p>Standing alone, each firm would default in its bad winter and lose 20% of its assets, a cost the creditors "
+        "bear since they take the assets; the merged firm never defaults, so the merger now saves those costs and "
+        f"raises total value (by {f(spart_kk, 2)} in expectation). All of the saving goes to the creditors, who also "
+        "keep the coinsurance gain; the shareholders get nothing in default in either case, so they still lose "
+        f"the coinsurance transfer of {f(-(r3_0['EAB'] - E0_c3), 2)}. They should still vote against, unless they can share "
+        "the gain, for example by borrowing more afterwards at the lower risk or by renegotiating the loans.</p>"
+        f"<p>The numbers, not required: saved costs 0.2 × ({f(p_c3[1], 1)} × {VA_c3[1]} + {f(p_c3[0], 1)} × "
+        f"{VB_c3[0]}) = {f(spart_kk, 2)}.</p>"
+    ),
+    "criteria": [
+        "Who gains (2 points): the creditors, because they bear the bankruptcy costs in default and the merger "
+        "removes default.",
+        "Value (1 point): the merger now creates value by avoiding the expected bankruptcy costs.",
+        "Vote (1 point): the shareholders still lose and vote against. Bonus: they could capture the gain only by, "
+        "for example, borrowing more at the lower rate or renegotiating the loans.",
+    ],
+}
+SVAR["mk-coinsurance-3:1:e"] = {"type": "tekst"}
+
+OPPG["mk-coinsurance-3"] = {
+    "n": 1, "title": "M&A", "points": 20, "topic": "Mergers and acquisitions, merging levered firms",
+    "chapters": [26],
+    "merke": "Forelesningsformen fra forelesning 16 (1:27:49) med en liten synergi og konkurskostnader som tillegg",
+    "body": c3_body, "parts": [c3_a, c3_b, c3_c, c3_d, c3_e],
+}
+
+
+# ======================================================================
 # kontroll
 # ======================================================================
 feil = []
@@ -1036,11 +2145,12 @@ for sid, ex in OPPG.items():
         feil.append(f"{hvor}: n skal være 1")
     if ex.get("parts") and sum(p["points"] for p in ex["parts"]) != ex["points"]:
         feil.append(f"{hvor}: poengene summerer ikke")
-    if sid.startswith("mk-deal") and not (ex["points"] == 20 and 4 <= len(ex["parts"]) <= 7):
+    regn = sid.startswith(("mk-deal", "mk-budkamp", "mk-coinsurance"))
+    if regn and not (ex["points"] == 20 and 4 <= len(ex["parts"]) <= 7):
         feil.append(f"{hvor}: regneoppgaven skal ha 20 poeng og 4 til 7 deler")
-    if sid.startswith("mk-deal") and ex["parts"][-1]["points"] not in (3, 4, 5):
+    if regn and ex["parts"][-1]["points"] not in (3, 4, 5):
         feil.append(f"{hvor}: halen skal være 3 til 5 poeng")
-    if sid.startswith("mk-deal") and ex["parts"][0]["points"] > 3:
+    if regn and ex["parts"][0]["points"] > (3 if sid.startswith("mk-deal") else 4):
         feil.append(f"{hvor}: del a er tung")
     if sid.startswith("mk-governance") and ex["points"] != 10:
         feil.append(f"{hvor}: teorioppgaven skal ha 10 poeng")
@@ -1119,7 +2229,8 @@ for s in alle(OPPG):
 
 # merket navngir ikke mekanismen
 for sid, ex in OPPG.items():
-    for ordet in ("sannsynlighet", "arbitrasje", "selvfinans", "utsett", "giftpille", "forskans", "fallskjerm"):
+    for ordet in ("sannsynlighet", "arbitrasje", "selvfinans", "utsett", "giftpille", "forskans", "fallskjerm",
+                  "coinsurance", "formuesoverf", "risikoovert", "synergirisiko"):
         if ordet in ex["merke"].lower():
             feil.append(f"{sid}: merket navngir mekanismen ({ordet})")
 

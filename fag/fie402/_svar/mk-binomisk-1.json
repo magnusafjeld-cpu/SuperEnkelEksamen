@@ -1,0 +1,89 @@
+{
+  "mk-binomisk-1:1:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Call payoff, up",
+        "verdi": 14.0,
+        "enhet": "USD"
+      },
+      {
+        "navn": "Put payoff, down",
+        "verdi": 16.0,
+        "enhet": "USD"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Check that (1 + r_f)S_0 lies between the two prices and explain why it must.",
+    "merknad": "De to nullutbetalingene er ikke med som tall."
+  },
+  "mk-binomisk-1:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "N (shares)",
+        "verdi": 0.4666666666666667,
+        "enhet": ""
+      },
+      {
+        "navn": "X (lending +, borrowing −)",
+        "verdi": -16.153846153846153,
+        "enhet": "USD"
+      },
+      {
+        "navn": "Call price",
+        "verdi": 6.246153846153845,
+        "enhet": "USD"
+      }
+    ]
+  },
+  "mk-binomisk-1:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "ρ",
+        "verdi": 46.400000000000006,
+        "enhet": "%"
+      },
+      {
+        "navn": "Call price",
+        "verdi": 6.246153846153847,
+        "enhet": "USD"
+      }
+    ],
+    "merknad": "Sannsynlighet i prosent (46.40 %; 0.4640 godtas også)."
+  },
+  "mk-binomisk-1:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Put price",
+        "verdi": 8.246153846153845,
+        "enhet": "USD",
+        "alt": [
+          8.0
+        ]
+      }
+    ],
+    "merknad": "alt 8.0000 er svaret med reserveverdien 6.00 for call."
+  },
+  "mk-binomisk-1:1:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Cash flow today per call",
+        "verdi": 0.6538461538461551,
+        "enhet": "USD",
+        "alt": [
+          0.9000000000000004
+        ]
+      }
+    ],
+    "merknad": "alt 0.9000 er svaret med reserveverdien 6.00 for call.",
+    "tallPoeng": 1.5,
+    "tekstLedd": "Describe the strategy and its cash flows in each state."
+  },
+  "mk-binomisk-1:1:f": {
+    "type": "tekst"
+  }
+}

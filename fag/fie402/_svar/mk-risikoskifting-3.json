@@ -1,0 +1,114 @@
+{
+  "mk-risikoskifting-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Bank loan",
+        "verdi": 116.9,
+        "enhet": "£ m"
+      },
+      {
+        "navn": "Shares",
+        "verdi": 21.0,
+        "enhet": "£ m"
+      },
+      {
+        "navn": "Expected fire-sale loss",
+        "verdi": 8.100000000000001,
+        "enhet": "£ m"
+      }
+    ],
+    "merknad": "Uten brannsalget blir lånet 125; det avvises."
+  },
+  "mk-risikoskifting-3:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Expected value of the assets",
+        "verdi": 120.0,
+        "enhet": "£ m"
+      },
+      {
+        "navn": "Bank loan",
+        "verdi": 71.39999999999999,
+        "enhet": "£ m"
+      },
+      {
+        "navn": "Shares",
+        "verdi": 36.0,
+        "enhet": "£ m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Will the manager switch?"
+  },
+  "mk-risikoskifting-3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Change in the value of the loan (negative if it falls)",
+        "verdi": -45.500000000000014,
+        "enhet": "£ m",
+        "alt": [
+          45.500000000000014,
+          -40.0,
+          40.0
+        ]
+      },
+      {
+        "navn": "Wealth transfer to the shareholders",
+        "verdi": 15.0,
+        "enhet": "£ m",
+        "alt": [
+          12.0
+        ]
+      },
+      {
+        "navn": "Loss of value",
+        "verdi": 30.5,
+        "enhet": "£ m",
+        "alt": [
+          28.0
+        ]
+      },
+      {
+        "navn": "Part due to the higher expected fire-sale loss",
+        "verdi": 4.5,
+        "enhet": "£ m",
+        "alt": [
+          2.0
+        ]
+      }
+    ],
+    "merknad": "alt godtar fallet som positivt tall og svarene med reserveverdiene (fall 40, økning 12)."
+  },
+  "mk-risikoskifting-3:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Face value without a covenant",
+        "verdi": 235.33333333333337,
+        "enhet": "£ m"
+      },
+      {
+        "navn": "Face value with the covenant",
+        "verdi": 115.85714285714286,
+        "enhet": "£ m"
+      },
+      {
+        "navn": "Shares without a covenant",
+        "verdi": 7.399999999999988,
+        "enhet": "£ m"
+      },
+      {
+        "navn": "Shares with the covenant",
+        "verdi": 37.89999999999999,
+        "enhet": "£ m"
+      }
+    ],
+    "merknad": "Uten brannsalg blir pålydendene 193.3333 og 104.2857; begge avvises. Antar man at lederen beholder planen uten covenant, blir pålydendet 115.8571."
+  },
+  "mk-risikoskifting-3:1:e": {
+    "type": "tekst"
+  }
+}

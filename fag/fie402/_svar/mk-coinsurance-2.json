@@ -1,0 +1,133 @@
+{
+  "mk-coinsurance-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of Redmarsh's debt",
+        "verdi": 78.09523809523809,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Value of Redmarsh's equity",
+        "verdi": 28.57142857142857,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Value of Bluewing's debt",
+        "verdi": 50.28571428571428,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Value of Bluewing's equity",
+        "verdi": 5.714285714285714,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "mk-coinsurance-2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of the merged firm's debt",
+        "verdi": 140.95238095238093,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Value of the merged firm's equity",
+        "verdi": 21.714285714285715,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Value of Redmarsh's loan after the merger",
+        "verdi": 84.57142857142858,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Value of Bluewing's loan after the merger",
+        "verdi": 56.38095238095238,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "mk-coinsurance-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change for Redmarsh's shareholders",
+        "verdi": -10.476190476190474,
+        "enhet": "$ m",
+        "alt": [
+          -8.571428571428573
+        ]
+      },
+      {
+        "navn": "Change for Bluewing's shareholders",
+        "verdi": -2.0952380952380936,
+        "enhet": "$ m",
+        "alt": [
+          -3.428571428571429
+        ]
+      },
+      {
+        "navn": "Change for Redmarsh's lender",
+        "verdi": 6.476190476190496,
+        "enhet": "$ m",
+        "alt": [
+          4
+        ]
+      },
+      {
+        "navn": "Change for Bluewing's lender",
+        "verdi": 6.095238095238102,
+        "enhet": "$ m",
+        "alt": [
+          8
+        ]
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Would the shareholders want the merger?",
+    "merknad": "alt: reserveverdiene i oppgaveteksten."
+  },
+  "mk-coinsurance-2:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Yield on Redmarsh's loan before",
+        "verdi": 15.243902439024403,
+        "enhet": "%",
+        "alt": [
+          12.5
+        ]
+      },
+      {
+        "navn": "Yield on Bluewing's loan before",
+        "verdi": 19.318181818181834,
+        "enhet": "%",
+        "alt": [
+          25.0
+        ]
+      },
+      {
+        "navn": "Yield on Redmarsh's loan after",
+        "verdi": 6.418918918918903,
+        "enhet": "%",
+        "alt": [
+          7.14285714285714
+        ]
+      },
+      {
+        "navn": "Yield on Bluewing's loan after",
+        "verdi": 6.4189189189189255,
+        "enhet": "%",
+        "alt": [
+          7.14285714285714
+        ]
+      }
+    ],
+    "merknad": "alt: reserveverdiene i (c)."
+  },
+  "mk-coinsurance-2:1:e": {
+    "type": "tekst"
+  }
+}

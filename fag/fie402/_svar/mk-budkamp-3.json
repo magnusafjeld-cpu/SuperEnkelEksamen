@@ -1,0 +1,96 @@
+{
+  "mk-budkamp-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Most Vesterhav would pay",
+        "verdi": 2180.0,
+        "enhet": "DKK m"
+      },
+      {
+        "navn": "Most Hvidsand would pay",
+        "verdi": 1900.0,
+        "enhet": "DKK m"
+      },
+      {
+        "navn": "Price per Skovlund share paid by the winner",
+        "verdi": 76.0,
+        "enhet": "DKK per share"
+      }
+    ]
+  },
+  "mk-budkamp-3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV for Skovlund's shareholders",
+        "verdi": 300.0,
+        "enhet": "DKK m",
+        "alt": [
+          250.0
+        ]
+      },
+      {
+        "navn": "NPV for Vesterhav's shareholders",
+        "verdi": 200.0,
+        "enhet": "DKK m",
+        "alt": [
+          250.0
+        ]
+      }
+    ],
+    "merknad": "alt: reserveprisen 1,850."
+  },
+  "mk-budkamp-3:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV for Skovlund's shareholders",
+        "verdi": 300.0,
+        "enhet": "DKK m"
+      },
+      {
+        "navn": "NPV for Vesterhav's shareholders",
+        "verdi": 200.0,
+        "enhet": "DKK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Compare with (b)."
+  },
+  "mk-budkamp-3:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Cash: NPV for Vesterhav's shareholders",
+        "verdi": -200.0,
+        "enhet": "DKK m",
+        "alt": [
+          -150.0
+        ]
+      },
+      {
+        "navn": "Cash: NPV for Skovlund's shareholders",
+        "verdi": 300.0,
+        "enhet": "DKK m",
+        "alt": [
+          250.0
+        ]
+      },
+      {
+        "navn": "Shares: NPV for Vesterhav's shareholders",
+        "verdi": -89.85507246376801,
+        "enhet": "DKK m"
+      },
+      {
+        "navn": "Shares: NPV for Skovlund's shareholders",
+        "verdi": 189.85507246376824,
+        "enhet": "DKK m"
+      }
+    ],
+    "merknad": "alt: reserveprisen 1,850 i (b) endrer bare kontanttallene."
+  },
+  "mk-budkamp-3:1:e": {
+    "type": "tekst"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "mk-coinsurance-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of Tverrå's debt",
+        "verdi": 45.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of Tverrå's equity",
+        "verdi": 35.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of Sandvoll's debt",
+        "verdi": 30.5,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of Sandvoll's equity",
+        "verdi": 27.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "mk-coinsurance-1:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Value of the merged firm's debt",
+        "verdi": 86.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of the merged firm's equity",
+        "verdi": 51.5,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "mk-coinsurance-1:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Change for the shareholders as a group",
+        "verdi": -10.5,
+        "enhet": "NOK m",
+        "alt": [
+          -5
+        ]
+      },
+      {
+        "navn": "Change for the creditors as a group",
+        "verdi": 10.5,
+        "enhet": "NOK m",
+        "alt": [
+          5
+        ]
+      },
+      {
+        "navn": "Change for Tverrå's shareholders",
+        "verdi": -5.927419354838708,
+        "enhet": "NOK m",
+        "alt": [
+          -3.3333333333333357
+        ]
+      },
+      {
+        "navn": "Change for Sandvoll's shareholders",
+        "verdi": -4.572580645161292,
+        "enhet": "NOK m",
+        "alt": [
+          -1.6666666666666679
+        ]
+      }
+    ],
+    "merknad": "alt: reserveverdiene i oppgaveteksten."
+  },
+  "mk-coinsurance-1:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Yield on Tverrå's loan before the merger",
+        "verdi": 11.111111111111116,
+        "enhet": "%",
+        "alt": [
+          19.047619047619047
+        ]
+      },
+      {
+        "navn": "Yield on Sandvoll's loan before the merger",
+        "verdi": 18.032786885245898,
+        "enhet": "%",
+        "alt": [
+          9.090909090909083
+        ]
+      },
+      {
+        "navn": "Yield on the merged firm's debt",
+        "verdi": 0.0,
+        "enhet": "%",
+        "abs": 0.05,
+        "alt": [
+          7.499999999999996
+        ]
+      }
+    ],
+    "merknad": "alt: reserveverdiene i (c)."
+  },
+  "mk-coinsurance-1:1:e": {
+    "type": "tekst"
+  }
+}

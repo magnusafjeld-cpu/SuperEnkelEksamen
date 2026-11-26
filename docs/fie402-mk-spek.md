@@ -128,6 +128,10 @@ Ingen regnefeil i de 21 oppgavene. Det kontrollørene fant, går igjen:
 - **Feltnavnene i svar-dataene vises før studenten svarer** (`js/bundle-sett.js`). `navn` skal
   være nøytralt og ikke røpe svaret eller retningen: «Change for the bank», ikke «Bank's gain»;
   «F (if it exists)», ikke «F at indifference».
+- **`topic` vises som en brikke på oppgaven** før studenten svarer. Den skal navngi temaet,
+  ikke svaret («Downsides of debt», ikke «Costs of financial distress and agency costs of
+  debt»). Ord som «still» i et senere ledd («Would the manager still switch?») røper også et
+  tidligere svar.
 - **Reserveverdi der et senere ledd trenger et tidligere tall.** Rettingen av tall er automatisk
   uten følgefeil, så én feil tidlig gir null på resten. Kurbatov gir full uttelling for senere
   ledd selv om et tidligere tall er feil (opptak 18, 1:15:33). Oppgi en hypotetisk verdi som ikke

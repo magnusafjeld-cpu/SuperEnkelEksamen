@@ -1,0 +1,108 @@
+{
+  "mk-skatt-rekap-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 810.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 70.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "mk-skatt-rekap-1:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price on announcement",
+        "verdi": 24.4444444444,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Why does the price move at the announcement and not when the debt is issued?"
+  },
+  "mk-skatt-rekap-1:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Shares repurchased",
+        "verdi": 11.4545454545,
+        "enhet": "m shares",
+        "alt": [
+          11.6666666667
+        ]
+      },
+      {
+        "navn": "Debt after",
+        "verdi": 280.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity after",
+        "verdi": 600.0,
+        "enhet": "$ m",
+        "alt": [
+          584.0
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reservekursen $24.00: 11.6667 millioner aksjer og egenkapital 584. Fellen 12.4444 (gammel kurs) avvises."
+  },
+  "mk-skatt-rekap-1:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Dividend per share before",
+        "verdi": 2.25,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Dividend per share after",
+        "verdi": 2.8722222222,
+        "enhet": "$ per share",
+        "alt": [
+          3.0652173913
+        ]
+      },
+      {
+        "navn": "r<sub>E</sub> after",
+        "verdi": 11.75,
+        "enhet": "%",
+        "alt": [
+          12.7717391304,
+          12.0719178082
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveverdiene (kurs 24.00, 23 millioner aksjer): 3.0652 og 12.7717 %, og r_E 12.0719 % med reserven fra (c) (24.3333 millioner aksjer; utbyttet 2.8973 ligger innenfor toleransen). Formelarkets MM II gir 12.3333 % (12.5362 % på reserveveien) og avvises."
+  },
+  "mk-skatt-rekap-1:1:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change for a seller, per original share",
+        "verdi": 1.9444444444,
+        "enhet": "$ per share",
+        "alt": [
+          1.5
+        ]
+      },
+      {
+        "navn": "Change for a keeper, per original share",
+        "verdi": 1.9444444444,
+        "enhet": "$ per share",
+        "alt": [
+          1.5
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Who captures the value? Are the seller and the keeper better or worse off?",
+    "merknad": "alt 1.50 er svaret med reservekursen $24.00 fra (c) og (d)."
+  }
+}

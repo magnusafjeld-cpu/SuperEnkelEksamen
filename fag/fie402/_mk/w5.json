@@ -41,8 +41,7 @@
      "Recognises that the firm still defaults when prices are low (166 is below 170), so all equity is worth 0.5 × 176 = 88.",
      "Fraction from x × 88 = 42: x = 47.73%. Using the high-state payoff alone (42/176 = 23.86%) forgets the probability.",
      "Sigurd's payoff (1 − x) × 88 = 46, compared with 60 without the line: he does not install it.",
-     "The bank: the loan rises from 140 to 168, so the bank wants the line.",
-     "Show the calculation."
+     "The bank: the loan rises from 140 to 168, so the bank wants the line."
     ]
    },
    {
@@ -103,8 +102,7 @@
      "Payoffs with the system 248 and 140; the bonds become safe, so all equity is worth 0.5 × 123 + 0.5 × 15 = 69.",
      "Fraction x = 30/69 = 43.48%.",
      "Existing shareholders: 69 − 30 = 39, below 52.5, so the manager, acting for them, does not install the system.",
-     "Bonus: says that the firm forgoes a positive-NPV project because of its debt (Kurbatov's key sentence).",
-     "Show the calculation."
+     "Bonus: says that the firm forgoes a positive-NPV project because of its debt (Kurbatov's key sentence)."
     ]
    },
    {
@@ -423,8 +421,8 @@
    {
     "label": "d",
     "points": 4,
-    "body": "<p>What is the expected annual return on a Vellmar bond, using the analysts' probability? Compare it with the promised yield and with the risk-free rate.</p>",
-    "solution": "<p>E[payoff] = 0.945 × 100 + 0.055 × 60 = 94.5 + 3.3 = 97.8 in 1.5 years.<br>Return over the 1.5 years = 97.8/89.7196 − 1 = 9.0063%<br>Expected annual return = (97.8/89.7196)<sup>1/1.5</sup> − 1 = <b>5.9175%</b></p><p>The promised yield of 7.5% a year is earned only if Vellmar does not default, so the expected return is lower. It stays above the risk-free 3%: the difference is the risk premium for default risk that is systematic. That premium is also why ρ from (c) is higher than the analysts' 5.5%. Dividing 9.0063% by 1.5 (6.0042%) does not give the annual rate.</p>",
+    "body": "<p>What is the expected annual return on a Vellmar bond, using the analysts' probability? Compare it with the promised yield and with the risk-free rate. (If you could not solve (a), use a price of €89.)</p>",
+    "solution": "<p>E[payoff] = 0.945 × 100 + 0.055 × 60 = 94.5 + 3.3 = 97.8 in 1.5 years.<br>Return over the 1.5 years = 97.8/89.7196 − 1 = 9.0063%<br>Expected annual return = (97.8/89.7196)<sup>1/1.5</sup> − 1 = <b>5.9175%</b></p><p>The promised yield of 7.5% a year is earned only if Vellmar does not default, so the expected return is lower. It stays above the risk-free 3%: the difference is the risk premium for default risk that is systematic. That premium is also why ρ from (c) is higher than the analysts' 5.5%. Dividing 9.0063% by 1.5 (6.0042%) does not give the annual rate. With the fallback price of 89 the expected annual return is (97.8/89)<sup>1/1.5</sup> − 1 = 6.4876%.</p>",
     "criteria": [
      "Expected payoff 0.945 × 100 + 0.055 × 60 = 97.8 with the analysts' probability.",
      "Annualises correctly: (97.8/89.7196)^(1/1.5) − 1 = 5.92% a year. Reporting the 1.5-year return of 9.01%, or dividing it by 1.5, is the classic error.",
@@ -487,15 +485,14 @@
      "Values the claims state by state: the bank gets min(assets, face value), the shares max(assets − face value, 0).",
      "Bank loan 0.5 × 260 + 0.5 × 60 = 160.",
      "Shares 0.5 × (340 − 260) = 40.",
-     "The manager switches, because 40 is more than 0, even though the firm loses value.",
-     "Show the calculation."
+     "The manager switches, because 40 is more than 0, even though the firm loses value."
     ]
    },
    {
     "label": "d",
     "points": 4,
-    "body": "<p>By how much does the switch change the value of the bank loan? Split the change into a wealth transfer to the shareholders and a loss of value.</p>",
-    "solution": "<p>The bank loan falls from 220 to 160: a change of <b>−60</b>.</p><table class=\"data\"><tr><th>Part of the bank's loss</th><th>Amount</th><th>Why</th></tr><tr><td>Wealth transfer to the shareholders</td><td class=\"n\">40</td><td class=\"n\">the shares rise from 0 to 40</td></tr><tr><td>Loss of value</td><td class=\"n\">20</td><td class=\"n\">the assets are worth 200 instead of 220</td></tr><tr><td>Total</td><td class=\"n\">60</td><td class=\"n\"></td></tr></table><p><b>Check.</b> 40 + 20 = 60 ✓. In other words, the 220 the bank would have received splits into 160 it still expects, 40 that goes to the shareholders and 20 that disappears. The bank pays for both the transfer and the inefficiency.</p>",
+    "body": "<p>By how much does the switch change the value of the bank loan? Split the change into a wealth transfer to the shareholders and a loss of value. (If you could not solve (c), use a loan worth 150 and shares worth 45 after the switch.)</p>",
+    "solution": "<p>The bank loan falls from 220 to 160: a change of <b>−60</b>.</p><table class=\"data\"><tr><th>Part of the bank's loss</th><th>Amount</th><th>Why</th></tr><tr><td>Wealth transfer to the shareholders</td><td class=\"n\">40</td><td class=\"n\">the shares rise from 0 to 40</td></tr><tr><td>Loss of value</td><td class=\"n\">20</td><td class=\"n\">the assets are worth 200 instead of 220</td></tr><tr><td>Total</td><td class=\"n\">60</td><td class=\"n\"></td></tr></table><p><b>Check.</b> 40 + 20 = 60 ✓. In other words, the 220 the bank would have received splits into 160 it still expects, 40 that goes to the shareholders and 20 that disappears. The bank pays for both the transfer and the inefficiency.</p><p>With the fallback values the loan changes by 150 − 220 = −70, the transfer is 45 and the loss of value 70 − 45 = 25.</p>",
     "criteria": [
      "Change in the loan: 160 − 220 = −60.",
      "Wealth transfer to the shareholders: 40.",
@@ -506,18 +503,18 @@
    {
     "label": "e",
     "points": 3,
-    "body": "<p>Suppose the probability of the good outcome were only 5%, with the two values unchanged. Would the manager still switch? What would the bank loan, the shares and the assets then be worth?</p>",
-    "solution": "<p>Shares = 0.05 × 80 = <b>NOK 4 million</b>, still more than 0, so <b>the manager still switches</b>.<br>Bank loan = 0.05 × 260 + 0.95 × 60 = 13 + 57 = <b>NOK 70 million</b><br>Assets = 0.05 × 340 + 0.95 × 60 = <b>NOK 74 million</b></p><p>The strategy now destroys 220 − 74 = 146 of value to give the shareholders 4. The manager gambles however small the chance, because the shareholders have nothing to lose.</p>",
+    "body": "<p>Suppose the probability of the good outcome were only 5%, with the two values unchanged. Will the manager switch? What would the bank loan, the shares and the assets then be worth?</p>",
+    "solution": "<p>Shares = 0.05 × 80 = <b>NOK 4 million</b>, more than 0, so <b>the manager switches</b>.<br>Bank loan = 0.05 × 260 + 0.95 × 60 = 13 + 57 = <b>NOK 70 million</b><br>Assets = 0.05 × 340 + 0.95 × 60 = <b>NOK 74 million</b></p><p>The strategy now destroys 220 − 74 = 146 of value to give the shareholders 4. The manager gambles however small the chance, because the shareholders have nothing to lose.</p>",
     "criteria": [
-     "Shares 0.05 × 80 = 4, above 0, so the manager still switches.",
+     "Shares 0.05 × 80 = 4, above 0, so the manager switches.",
      "Bank loan 0.05 × 260 + 0.95 × 60 = 70; assets 74.",
-     "Notes that any positive chance of survival is enough for the manager."
+     "Bonus: notes that any positive chance of survival is enough for the manager."
     ]
    },
    {
     "label": "f",
     "points": 3,
-    "body": "<p>Explain briefly why the manager switches even when the chance of success is small. If the bank had foreseen this behaviour when it made the loan, who would in the end bear the cost?</p>",
+    "body": "<p>Explain briefly what drives the manager's choice in (c) and (e). If the bank had foreseen this behaviour when it made the loan, who would in the end bear the cost?</p>",
     "solution": "<p><b>Why the manager gambles.</b> With limited liability the shareholders get zero whether the firm defaults with the contract or fails with the export strategy. They keep every krone above the face value but lose nothing extra below it, so any chance of survival is worth taking. The bank bears the downside: the switch is a wealth transfer from the bank to the shareholders plus a loss of value. Kurbatov calls this gambling for resurrection.</p><p><b>Who bears the cost in the end.</b> A rational bank that foresees the switch lends less for the same face value, or demands a higher face value for the same loan. The shareholders then receive less when the loan is made, so they bear the expected cost of the gamble: the cost is absorbed by the shareholders.</p>",
     "criteria": [
      "Limited liability: the shareholders get zero in default either way, so they only care about the chance of a positive payoff (gambling for resurrection).",
@@ -558,27 +555,26 @@
      "Division values after the split: Equipment 180/40 and Services 130/90.",
      "Bonds on Equipment: bonds 92.5, all shares 127.5 (Equipment's shares plus the debt-free Services).",
      "Bonds on Services: bonds 110, all shares 110.",
-     "The CEO splits and puts the bonds on Equipment, because 127.5 is more than 110 and 95.",
-     "Show the calculation."
+     "The CEO splits and puts the bonds on Equipment, because 127.5 is more than 110 and 95."
     ]
    },
    {
     "label": "c",
     "points": 4,
-    "body": "<p>Split the change in the value of the bonds caused by the CEO's choice into a wealth transfer to the shareholders and a loss of value. Explain briefly where the loss of value comes from.</p>",
-    "solution": "<table class=\"data\"><tr><th>Claim</th><th>Before the split</th><th>After the split</th><th>Change</th></tr><tr><td>Bonds</td><td class=\"n\">145</td><td class=\"n\">92.5</td><td class=\"n\">−52.5</td></tr><tr><td>Shares</td><td class=\"n\">95</td><td class=\"n\">127.5</td><td class=\"n\">+32.5</td></tr><tr><td>Cardwell in total</td><td class=\"n\">240</td><td class=\"n\">220</td><td class=\"n\">−20</td></tr></table><p>The bonds lose 52.5: <b>32.5</b> is a wealth transfer to the shareholders and <b>20</b> is a loss of value. <b>Check.</b> 32.5 + 20 = 52.5 ✓</p><p>The loss of value is the lost synergies, 10 in each division in both states: 2 × 10 = 20. The bonds were safe because the stable division covered the bust; after the split they carry all of Equipment's bust risk. This is risk shifting: the shareholders gain although the firm is worth less.</p>",
+    "body": "<p>Split the change in the value of the bonds caused by the CEO's choice into a wealth transfer to the shareholders and a loss of value. Explain briefly where the loss of value comes from. (If you could not solve (b), use bonds worth 90 and shares worth 125 after the split.)</p>",
+    "solution": "<table class=\"data\"><tr><th>Claim</th><th>Before the split</th><th>After the split</th><th>Change</th></tr><tr><td>Bonds</td><td class=\"n\">145</td><td class=\"n\">92.5</td><td class=\"n\">−52.5</td></tr><tr><td>Shares</td><td class=\"n\">95</td><td class=\"n\">127.5</td><td class=\"n\">+32.5</td></tr><tr><td>Cardwell in total</td><td class=\"n\">240</td><td class=\"n\">220</td><td class=\"n\">−20</td></tr></table><p>The bonds lose 52.5: <b>32.5</b> is a wealth transfer to the shareholders and <b>20</b> is a loss of value. <b>Check.</b> 32.5 + 20 = 52.5 ✓</p><p>The loss of value is the lost synergies, 10 in each division in both states: 2 × 10 = 20. The bonds were safe because the stable division covered the bust; after the split they carry all of Equipment's bust risk. This is risk shifting: the shareholders gain although the firm is worth less.</p><p>With the fallback values the bonds change by 90 − 145 = −55, the transfer is 30 and the loss of value 55 − 30 = 25.</p>",
     "criteria": [
      "Change in the bonds 92.5 − 145 = −52.5.",
      "Wealth transfer to the shareholders 32.5 (95 to 127.5); loss of value 20.",
      "The parts add up: 32.5 + 20 = 52.5.",
-     "The loss of value is the lost synergies; the bonds lose the protection of the stable division."
+     "The loss of value is the lost synergies. Bonus: the bonds lose the protection of the stable division."
     ]
    },
    {
     "label": "d",
     "points": 4,
-    "body": "<p>Suppose instead that the split lowers the value of each division by s in both states. The CEO assigns the bonds as in (b). What is the largest s at which the CEO would still split the firm?</p>",
-    "solution": "<p>With the bonds on Equipment, Equipment pays the bonds in full in a boom as long as 190 − s ≥ 145. It defaults in a bust. All shares are worth</p><p>0.5(190 − s − 145) + [0.5(140 − s) + 0.5(100 − s)] = 142.5 − 1.5s</p><p>The CEO splits if this is at least 95:<br>142.5 − 1.5s ≥ 95 ⇒ s ≤ 47.5/1.5 = <b>$31.6667 million</b></p><p><b>Check.</b> At s = 31.6667 Equipment is worth 158.3333 in a boom (above 145) and 18.3333 in a bust, so the assumed region holds ✓. Putting the bonds on Services would give only 88.3333. The shareholders would accept destroying up to 2 × 31.6667 = 63.3333 of value, because the bondholders pay for it.</p>",
+    "body": "<p>Suppose instead that the split lowers the value of each division by s in both states. The CEO assigns the bonds as in (b). What is the largest s at which the CEO would split the firm? (If you could not solve (a), use a share value of 100 without the split.)</p>",
+    "solution": "<p>With the bonds on Equipment, Equipment pays the bonds in full in a boom as long as 190 − s ≥ 145. It defaults in a bust. All shares are worth</p><p>0.5(190 − s − 145) + [0.5(140 − s) + 0.5(100 − s)] = 142.5 − 1.5s</p><p>The CEO splits if this is at least 95:<br>142.5 − 1.5s ≥ 95 ⇒ s ≤ 47.5/1.5 = <b>$31.6667 million</b></p><p><b>Check.</b> At s = 31.6667 Equipment is worth 158.3333 in a boom (above 145) and 18.3333 in a bust, so the assumed region holds ✓. Putting the bonds on Services would give only 88.3333. The shareholders would accept destroying up to 2 × 31.6667 = 63.3333 of value, because the bondholders pay for it. With the fallback share value of 100, s ≤ 42.5/1.5 = 28.3333.</p>",
     "criteria": [
      "Share value with the bonds on Equipment as a function of s: 142.5 − 1.5s (both divisions lose s).",
      "Sets it equal to 95 and finds s = 31.6667.",
@@ -637,8 +633,8 @@
    {
     "label": "c",
     "points": 4,
-    "body": "<p>Split the change in the value of the bank loan into a wealth transfer to the shareholders and a loss of value. How much of the loss of value comes from the fire sale?</p>",
-    "solution": "<p>The bank loan falls from 116.9 to 71.4: a change of <b>−45.5</b>.</p><table class=\"data\"><tr><th>Part of the bank's loss</th><th>Amount</th></tr><tr><td>Wealth transfer to the shareholders</td><td class=\"n\">36 − 21 = 15</td></tr><tr><td>Lower expected value of the assets</td><td class=\"n\">146 − 120 = 26</td></tr><tr><td>Higher expected fire-sale loss</td><td class=\"n\">12.6 − 8.1 = 4.5</td></tr><tr><td>Total</td><td class=\"n\">45.5</td></tr></table><p>The loss of value is <b>30.5</b>, of which <b>4.5</b> comes from the fire sale: bankruptcy becomes more likely (70% instead of 30%), so more value is lost in fire sales. <b>Check.</b> 15 + 26 + 4.5 = 45.5 ✓</p>",
+    "body": "<p>Split the change in the value of the bank loan into a wealth transfer to the shareholders and a loss of value. How much of the loss of value is due to the higher expected fire-sale loss? (If you could not solve (a) or (b), use a fall in the value of the loan of 40 and a rise in the value of the shares of 12.)</p>",
+    "solution": "<p>The bank loan falls from 116.9 to 71.4: a change of <b>−45.5</b>.</p><table class=\"data\"><tr><th>Part of the bank's loss</th><th>Amount</th></tr><tr><td>Wealth transfer to the shareholders</td><td class=\"n\">36 − 21 = 15</td></tr><tr><td>Lower expected value of the assets</td><td class=\"n\">146 − 120 = 26</td></tr><tr><td>Higher expected fire-sale loss</td><td class=\"n\">12.6 − 8.1 = 4.5</td></tr><tr><td>Total</td><td class=\"n\">45.5</td></tr></table><p>The loss of value is <b>30.5</b>, of which <b>4.5</b> comes from the fire sale: bankruptcy becomes more likely (70% instead of 30%), so more value is lost in fire sales. <b>Check.</b> 15 + 26 + 4.5 = 45.5 ✓</p><p>With the fallback values the loan changes by −40, the transfer is 12, the loss of value 40 − 12 = 28 and the part due to the fire sale 28 − 26 = 2.</p>",
     "criteria": [
      "Change in the loan 71.4 − 116.9 = −45.5.",
      "Wealth transfer to the shareholders 15.",
@@ -649,7 +645,7 @@
    {
     "label": "d",
     "points": 5,
-    "body": "<p>Suppose instead that the loan is made today: the bank lends £100 million, which is paid out to the shareholders. The asset values are unchanged. The bank prices the loan fairly and foresees the manager's choice. What face value must the loan have? What face value would do if a covenant bound Ashworth to its current plan? What are the shares worth in each case?</p>",
+    "body": "<p>Suppose instead that the loan is made today: the bank lends £100 million, which is paid out to the shareholders. The asset values are unchanged. The bank prices the loan fairly and foresees the manager's choice. What face value must the loan have? What face value would do if a covenant bound Ashworth to its current plan? What are the shares worth after the payout in each case?</p>",
     "solution": "<p><b>Without a covenant.</b> Suppose the bank expects the manager to take the large order. It then needs</p><p>0.3F + 0.7 × 42 = 100 ⇒ F = (100 − 29.4)/0.3 = <b>£235.3333 million</b></p><p>Check: this face value is above 170, so the current plan would leave the shareholders nothing, while the large order gives them 0.3 × (260 − 235.3333) = 7.4. The manager does switch, so the bank's expectation is right ✓.</p><p><b>With the covenant.</b> 0.7F + 0.3 × 63 = 100 ⇒ F = (100 − 18.9)/0.7 = <b>£115.8571 million</b>. Without the covenant this face value would not hold: the large order would give the shares 0.3 × (260 − 115.8571) = 43.2429, more than 37.9, so the manager would switch.</p><p><b>Shares.</b> Without the covenant 0.3 × (260 − 235.3333) = <b>£7.4 million</b>; with it 0.7 × (170 − 115.8571) = <b>£37.9 million</b>. The shareholders receive the same £100 million today in both cases, so the covenant makes them 30.5 better off. That is exactly the loss of value from (c), 26 + 4.5 = 30.5: when the bank anticipates the switch, the shareholders bear its whole cost.</p>",
     "criteria": [
      "Recognises that without a covenant the manager will switch (and checks it at the new face value), so the bank values the loan under the large order: 0.3F + 0.7 × 42 = 100, F = 235.3333.",
@@ -666,7 +662,222 @@
     "criteria": [
      "No: the shareholders get zero in bankruptcy whatever the fire sale raises, so the discount does not affect the manager's choice.",
      "After the loan is made, the bank bears the fire-sale losses through a lower recovery.",
-     "Before it is made, the bank prices them in, so the shareholders bear them; firms with assets that sell badly in distress should borrow less (Kurbatov, recording 18, 26:46 to 28:35)."
+     "Before it is made, the bank prices them in, so the shareholders bear them. Bonus: firms with assets that sell badly in distress should borrow less (Kurbatov, recording 18, 26:46 to 28:35)."
+    ]
+   }
+  ]
+ },
+ "mk-entreprenor-1": {
+  "n": 1,
+  "title": "Capital Structure",
+  "points": 20,
+  "topic": "MM in perfect markets, replication",
+  "chapters": [
+   6
+  ],
+  "merke": "Samme form som gründereksemplet i forelesning 02 (5:23 til 42:44)",
+  "body": "<p>Dana Whitlock wants to start a vertical farm in Oregon. The building and the equipment cost $3 million today. In one year Dana sells the farm, which then pays $6.99 million if the economy booms and $3.09 million if it busts, each with probability 50%. Dana has no money of her own. She can raise the $3 million from equity investors, who demand an expected return of 12%, or as a bank loan at the risk-free rate of 3%. The market portfolio returns +160% in a boom and −100% in a bust; the farm booms and busts with the market. Markets are perfect and there are no taxes. Value every claim by replicating it with the market portfolio and the risk-free asset. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What is the farm's expected payoff? What fraction of the farm must the equity investors receive? What is Dana's expected cash flow with equity financing and with the bank loan?</p>",
+    "solution": "<p>E[payoff] = 0.5 × 6.99 + 0.5 × 3.09 = <b>$5.04 million</b></p><p><b>Equity investors.</b> They put in 3 and want 3 × 1.12 = 3.36 in expectation, so they need 3.36/5.04 = <b>2/3 = 66.67%</b> of the farm. Dana keeps 1/3: her expected cash flow is 5.04 − 3.36 = <b>$1.68 million</b>.</p><p><b>Bank loan.</b> Dana repays 3 × 1.03 = 3.09 in both states: expected cash flow 5.04 − 3.09 = <b>$1.95 million</b>.</p>",
+    "criteria": [
+     "Expected payoff 0.5 × 6.99 + 0.5 × 3.09 = 5.04.",
+     "Investors' fraction 3.36/5.04 = 66.67%.",
+     "Dana's expected cash flow 1.68 with equity and 1.95 with the loan."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>Show that the bank loan is risk-free. What is Dana's stake worth today with the bank loan?</p>",
+    "solution": "<p><b>Risk-free.</b> The bank is owed 3.09. Even in a bust the farm pays 3.09, so the bank is paid in full in both states.</p><p><b>Dana's payoff.</b> Boom: 6.99 − 3.09 = 3.9. Bust: 0.</p><p><b>Replicate it.</b> $1 in the market portfolio pays 2.6 in a boom and 0 in a bust: the same pattern. Dana's stake is worth 3.9/2.6 = <b>$1.5 million</b> in the market portfolio and nothing in the risk-free asset.</p>",
+    "criteria": [
+     "The loan is risk-free: 3 × 1.03 = 3.09 is paid even in a bust.",
+     "Dana gets 3.9 in a boom and 0 in a bust, the payoff pattern of the market portfolio.",
+     "Stake = 3.9/2.6 = 1.5."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 5,
+    "body": "<p>What is Dana's stake worth with equity financing? Give the replicating portfolio and compare with (b). (If you could not solve (a), assume that Dana keeps 40% of the farm.)</p>",
+    "solution": "<p><b>Dana's payoff.</b> She keeps 1/3: 2.33 in a boom and 1.03 in a bust.</p><p><b>Split it.</b> The 1.03 she gets in both states is risk-free; the remaining 2.33 − 1.03 = 1.3 comes only in a boom, like the market.<br>Risk-free asset: 1.03/1.03 = <b>1</b><br>Market portfolio: 1.3/2.6 = <b>0.5</b><br>Stake = 1 + 0.5 = <b>$1.5 million</b>, the same as with the bank loan.</p><p><b>Check.</b> The portfolio pays 1 × 1.03 + 0.5 × 2.6 = 2.33 in a boom and 1 × 1.03 = 1.03 in a bust ✓</p><p>With the fallback 40%: 1.2 in the risk-free asset and 0.6 in the market, a stake of 1.8.</p>",
+    "criteria": [
+     "Dana's payoff 2.33 and 1.03.",
+     "Replicating portfolio: 1 in the risk-free asset and 0.5 in the market portfolio.",
+     "Stake 1.5, the same as in (b).",
+     "Check that the portfolio pays Dana's payoff in both states is a bonus."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>What are the investors' stake and the farm worth with each form of financing? What expected return does Dana earn on her stake with the bank loan and with equity financing? (If you could not solve (b) or (c), use a stake value of $1.4 million.)</p>",
+    "solution": "<p><b>Investors.</b> They get 2/3: 4.66 or 2.06. Risk-free part 2.06/1.03 = 2, market part 2.6/2.6 = 1: <b>$3 million</b>, exactly what they pay. The bank loan is worth 3.09/1.03 = 3 too.</p><p><b>The farm.</b> Equity financing: 3 + 1.5 = <b>$4.5 million</b>. Bank loan: 3 + 1.5 = 4.5. The NPV, 4.5 − 3 = 1.5, goes to Dana either way.</p><p><b>Dana's expected return.</b> With the loan 1.95/1.5 − 1 = <b>30.00%</b>, the market's expected return (0.5 × 160% − 0.5 × 100%). With equity 1.68/1.5 − 1 = <b>12.00%</b>, the farm's own expected return.</p><p>With the fallback stake of 1.4: 1.95/1.4 − 1 = 39.2857% and 1.68/1.4 − 1 = 20.0000%.</p>",
+    "criteria": [
+     "Investors' stake 3: a zero-NPV deal, like the risk-free loan.",
+     "The farm is worth 4.5 with both forms of financing (MM).",
+     "Dana's expected return 30% with the loan and 12% with equity.",
+     "Bonus: the NPV of 1.5 goes to Dana either way."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Dana's expected cash flow is higher with the bank loan. Explain briefly how that fits with your values in (b) and (c). Why would discounting the farm's expected payoff at the risk-free rate give the wrong value?</p>",
+    "solution": "<p><b>Why the stake is worth the same.</b> In a perfect market the financing choice only splits the farm's payoff; it does not change it, so the farm and Dana's stake are worth the same (MM I). With the loan Dana gets the whole upside and nothing in a bust: her stake is as risky as the market and must earn 30%, not 12%. The higher expected cash flow (1.95 against 1.68) is exactly the compensation for that risk (MM II).</p><p><b>Why not the risk-free rate.</b> The farm's payoff is risky: it is high when the market is high. Discounting 5.04 at 3% gives an NPV of 1.8932, which ignores that investors demand a premium for that risk. Replication prices the risk with traded assets and gives 1.5. Only risk-free payoffs may be discounted at the risk-free rate.</p>",
+    "criteria": [
+     "MM in a perfect market: the financing only splits the payoff, so the stake and the farm are worth the same.",
+     "With the loan Dana bears all the risk, her stake behaves like the market and must earn 30%; the higher expected cash flow is the compensation for risk.",
+     "Discounting the risky payoff at the risk-free rate overstates the NPV (1.8932 against 1.5); only risk-free payoffs are discounted at the risk-free rate."
+    ]
+   }
+  ]
+ },
+ "mk-entreprenor-2": {
+  "n": 1,
+  "title": "Capital Structure",
+  "points": 20,
+  "topic": "MM in perfect markets, replication",
+  "chapters": [
+   6,
+   22
+  ],
+  "merke": "Gründereksemplet fra forelesning 02 med et marked som ikke taper alt og et tilbud om en andel (forelesning 02, 8:16 og 1:25:02)",
+  "body": "<p>Lena Brandt wants to start an e-bike rental business in Leipzig. The bikes and the app cost €5.6 million today. In one year Lena sells the business, which then pays €9.59 million if the economy booms and €6.09 million if it busts, each with probability 50%. The market portfolio returns +50% in a boom and −20% in a bust. The risk-free rate is 4.5%. The business booms and busts with the market. Lena has no money of her own. Markets are perfect and there are no taxes. Value every claim by replication with the market portfolio and the risk-free asset. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What are the expected return on the market portfolio and the expected payoff of the business?</p>",
+    "solution": "<p>E[R<sub>m</sub>] = 0.5 × 50% + 0.5 × (−20%) = <b>15%</b><br>E[payoff] = 0.5 × 9.59 + 0.5 × 6.09 = <b>€7.84 million</b></p>",
+    "criteria": [
+     "E[Rm] = 0.5 × 50% − 0.5 × 20% = 15%.",
+     "Expected payoff 0.5 × 9.59 + 0.5 × 6.09 = 7.84.",
+     "Uses the stated probabilities of 50%."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>Find the portfolio of the market and the risk-free asset that replicates the payoff of the business. What is the business worth today? What is the NPV of the project and what expected return does the business offer?</p>",
+    "solution": "<p>Let A be the amount in the market portfolio and B the amount in the risk-free asset. The portfolio must pay what the business pays in both states:</p><p>Boom: 1.5A + 1.045B = 9.59<br>Bust: 0.8A + 1.045B = 6.09</p><p>Subtracting: 0.7A = 3.5, so <b>A = 5</b>. Then B = (6.09 − 0.8 × 5)/1.045 = 2.09/1.045 = <b>2</b>.</p><p>Value = 5 + 2 = <b>€7 million</b>, so NPV = 7 − 5.6 = <b>€1.4 million</b>.<br>Expected return = 7.84/7 − 1 = <b>12%</b></p><p><b>Check.</b> The replicating portfolio earns (5 × 15% + 2 × 4.5%)/7 = 12% ✓. Discounting 7.84 at the risk-free rate would give 7.5024, too high, because the payoff is risky.</p>",
+    "criteria": [
+     "Sets up one equation per state and finds A = 5 in the market and B = 2 in the risk-free asset.",
+     "Value 7; NPV 1.4.",
+     "Expected return 7.84/7 − 1 = 12%.",
+     "Discounting the expected payoff at the risk-free rate (7.5024) is the classic error."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>A bank offers to lend Lena the €5.6 million at the risk-free rate. Is the loan risk-free? Which portfolio of the market and the risk-free asset replicates Lena's stake? What is the stake worth?</p>",
+    "solution": "<p><b>Risk-free.</b> Lena owes 5.6 × 1.045 = 5.852, less than the 6.09 the business pays even in a bust.</p><p><b>Lena's payoff.</b> Boom: 9.59 − 5.852 = 3.738. Bust: 6.09 − 5.852 = 0.238.</p><p><b>Replicate it.</b> 0.7A = 3.738 − 0.238 gives <b>A = 5</b> in the market; B = (0.238 − 0.8 × 5)/1.045 = <b>−3.6</b>, that is, borrowing 3.6 at the risk-free rate.</p><p>Stake = 5 − 3.6 = <b>€1.4 million</b>, the whole NPV. Lena's stake is a levered position in the market: the same market exposure as the business, financed partly with borrowed money.</p>",
+    "criteria": [
+     "The loan is risk-free: 5.852 is below 6.09.",
+     "Lena's payoff 3.738 and 0.238.",
+     "Replicating portfolio 5 in the market and −3.6 in the risk-free asset (borrowing).",
+     "Stake 1.4, equal to the NPV."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 5,
+    "body": "<p>A business angel instead offers Lena the €5.6 million for 75% of the business. What would Lena's stake then be worth? What expected return would the angel earn? What is the largest fraction Lena would give up rather than take the bank loan? (If you could not solve (b), use a value of €6.5 million for the business.)</p>",
+    "solution": "<p><b>Lena's stake.</b> She keeps 25% of a business worth 7: 0.25 × 7 = <b>€1.75 million</b>, more than the 1.4 with the loan, so she should accept.</p><p><b>The angel.</b> Expected payoff 0.75 × 7.84 = 5.88 on 5.6: an expected return of <b>5%</b>, below the 12% the business must earn. The angel overpays: the 0.75 stake is worth only 5.25.</p><p><b>Largest fraction.</b> Lena is indifferent when (1 − α) × 7 = 1.4, that is when the angel's stake is worth exactly the 5.6 paid: α = 5.6/7 = <b>80%</b>. She accepts any offer for a smaller fraction.</p><p>With the fallback value 6.5: stake 0.25 × 6.5 = 1.625 and α = 5.6/6.5 = 86.15%.</p>",
+    "criteria": [
+     "Lena's stake 0.25 × 7 = 1.75, more than 1.4: she accepts.",
+     "The angel's expected return 0.75 × 7.84/5.6 − 1 = 5%, below 12%.",
+     "Indifference: α = 5.6/7 = 80%.",
+     "Values the stakes by replication (value of the business), not by expected cash flows alone."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>You did not need the probability of a boom to value the business in (b). Explain briefly why. Where does the probability matter?</p>",
+    "solution": "<p><b>Why not.</b> The payoff of the business is the payoff of a portfolio of traded assets whose prices are known today. Two things that pay the same in every state must cost the same, otherwise there is an arbitrage. The probabilities and investors' attitude to risk are already in the price of the market portfolio.</p><p><b>Where it matters.</b> The probability matters for expected payoffs and expected returns: the business's expected return of 12% and the angel's 5% both use it. An equity investor's required return must match the value from replication, so it depends on the probability too, but the value itself does not.</p>",
+    "criteria": [
+     "Replication: the business is equivalent to a portfolio of traded assets, so by no arbitrage it costs the same; no probabilities are needed.",
+     "The probabilities and risk attitudes are already reflected in the market's price.",
+     "The probability matters for expected payoffs and returns (the required return), not for the value."
+    ]
+   }
+  ]
+ },
+ "mk-entreprenor-3": {
+  "n": 1,
+  "title": "Capital Structure",
+  "points": 20,
+  "topic": "MM in perfect markets, replication and beta",
+  "chapters": [
+   4,
+   6
+  ],
+  "merke": "Gründereksemplet fra forelesning 02 med ny gjeldsgrad og beta (forelesning 02, 1:13:05 til 1:20:00)",
+  "body": "<p>Ida Sandvold is building an indoor surf centre in Kristiansand. It costs NOK 6 million today. In one year Ida sells the centre, which then pays NOK 10.8 million if the economy booms and NOK 7.8 million if it busts, each with probability 50%. The market portfolio returns +45% in a boom and −5% in a bust. The risk-free rate is 5%. Ida pays NOK 4.4 million of her own savings and borrows NOK 1.6 million from a bank at the risk-free rate, to be repaid with interest in one year. Markets are perfect, the CAPM holds and there are no taxes. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What are the expected return on the market portfolio and the expected payoff of the centre?</p>",
+    "solution": "<p>E[R<sub>m</sub>] = 0.5 × 45% + 0.5 × (−5%) = <b>20%</b><br>E[payoff] = 0.5 × 10.8 + 0.5 × 7.8 = <b>NOK 9.3 million</b></p>",
+    "criteria": [
+     "E[Rm] = 0.5 × 45% − 0.5 × 5% = 20%.",
+     "Expected payoff 0.5 × 10.8 + 0.5 × 7.8 = 9.3.",
+     "Uses the stated probabilities of 50%."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>Value the centre by replicating its payoff with the market portfolio and the risk-free asset. What are its expected return r<sub>U</sub> and its beta β<sub>U</sub>?</p>",
+    "solution": "<p>Boom: 1.45A + 1.05B = 10.8<br>Bust: 0.95A + 1.05B = 7.8</p><p>0.5A = 3, so A = 6 in the market; B = (7.8 − 0.95 × 6)/1.05 = 2 in the risk-free asset. Value = 6 + 2 = <b>NOK 8 million</b>.</p><p>r<sub>U</sub> = 9.3/8 − 1 = <b>16.25%</b><br>β<sub>U</sub> = the beta of the replicating portfolio = (6/8) × 1 + (2/8) × 0 = <b>0.75</b></p><p><b>Check.</b> CAPM: 5% + 0.75 × (20% − 5%) = 16.25% ✓</p>",
+    "criteria": [
+     "Replicating portfolio 6 in the market and 2 in the risk-free asset; value 8.",
+     "r_U = 9.3/8 − 1 = 16.25%.",
+     "β_U = 0.75, as the weighted beta of the replicating portfolio or from the CAPM.",
+     "The CAPM check is a bonus."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>Is the bank loan risk-free? What are the loan and Ida's equity worth today? What are the beta β<sub>E</sub> and the expected return r<sub>E</sub> of her equity? (If you could not solve (b), use a value of NOK 8.5 million and β<sub>U</sub> = 0.8.)</p>",
+    "solution": "<p><b>Risk-free.</b> Ida owes 1.6 × 1.05 = 1.68, far below the 7.8 the centre pays in a bust, so β<sub>D</sub> = 0 and the loan is worth <b>NOK 1.6 million</b>.</p><p>Equity = 8 − 1.6 = <b>NOK 6.4 million</b>, so D/E = 1.6/6.4 = 0.25.</p><p>β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>) = 0.75 + 0.25 × 0.75 = <b>0.9375</b><br>r<sub>E</sub> = 5% + 0.9375 × 15% = <b>19.0625%</b></p><p><b>Check.</b> The equity pays 9.12 or 6.12, expected 7.62: 7.62/6.4 − 1 = 19.0625% ✓</p><p>With the fallback values: equity 6.9, β<sub>E</sub> = 0.8 × (1 + 1.6/6.9) = 0.9855 and r<sub>E</sub> = 19.7826%.</p>",
+    "criteria": [
+     "The loan is risk-free (1.68 is below 7.8), so it is worth 1.6 and β_D = 0.",
+     "Equity 8 − 1.6 = 6.4; D/E = 0.25.",
+     "β_E = 0.75 × (1 + 0.25) = 0.9375; r_E = 19.0625% by the CAPM or by MM II.",
+     "Using D/V instead of D/E in the formula is the classic error."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>Once the centre is built, the bank offers to lend more at the risk-free rate, so that the loan becomes 50% of the centre's value. The extra money is paid out to Ida. Is the new loan risk-free? What are the new β<sub>E</sub> and r<sub>E</sub>?</p>",
+    "solution": "<p><b>Risk-free.</b> The loan becomes 0.5 × 8 = 4, with 4 × 1.05 = 4.2 to repay, still below 7.8. (Any loan up to 7.8/1.05 = 7.4286 is risk-free.)</p><p>D/V = 50% means D/E = 4/4 = 1.<br>β<sub>E</sub> = 0.75 + 1 × 0.75 = <b>1.5</b><br>r<sub>E</sub> = 5% + 1.5 × 15% = <b>27.50%</b></p><p><b>Check.</b> The equity now pays 6.6 or 3.6, expected 5.1: 5.1/4 − 1 = 27.50% ✓. Using D/V = 0.5 as if it were D/E gives 1.125, which is wrong. With the fallback β<sub>U</sub> = 0.8: β<sub>E</sub> = 1.6 and r<sub>E</sub> = 29.00%.</p>",
+    "criteria": [
+     "The new loan of 4 is risk-free (4.2 is below 7.8).",
+     "Converts D/V = 50% to D/E = 1.",
+     "β_E = 0.75 × 2 = 1.5 and r_E = 27.50%.",
+     "Bonus: checks r_E from the equity's expected payoff."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Explain briefly why β<sub>E</sub> changes while β<sub>U</sub> does not. Does the higher r<sub>E</sub> make Ida worse off or the centre less valuable?</p>",
+    "solution": "<p><b>Why β<sub>E</sub> rises.</b> β<sub>U</sub> measures the risk of the business. The business is the same: the centre pays the same in each state. More debt only splits that payoff differently. The bank takes a fixed, safe amount, so the equity bears all the business risk on a smaller base and becomes riskier: β<sub>E</sub> and r<sub>E</sub> rise mechanically with leverage (MM II).</p><p><b>No one is worse off.</b> The centre is still worth 8 (MM I) and its cost of capital is still 16.25%: 0.5 × 27.50% + 0.5 × 5% = 16.25%. Ida receives 2.4 in cash and her equity falls from 6.4 to 4, so her wealth is unchanged: 4 + 2.4 = 6.4. The higher r<sub>E</sub> is only the compensation for the higher risk.</p>",
+    "criteria": [
+     "β_U is the risk of the business, which has not changed; leverage only splits the payoff (Kurbatov, recording 02, 1:19:08).",
+     "The equity takes all the business risk on a smaller base, so β_E and r_E rise with leverage.",
+     "Firm value and the weighted cost of capital (16.25%) are unchanged; Ida's wealth is unchanged, the higher r_E is compensation for risk.",
+     "Bonus: shows that Ida's cash of 2.4 plus her equity of 4 equals 6.4."
     ]
    }
   ]

@@ -1,0 +1,102 @@
+{
+  "mk-senior-junior-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Senior strike per share",
+        "verdi": 40.0,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Total-debt strike per share",
+        "verdi": 60.0,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Equity value",
+        "verdi": 8.186399999999999,
+        "enhet": "NOK bn"
+      }
+    ]
+  },
+  "mk-senior-junior-2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Senior debt",
+        "verdi": 6.265800000000002,
+        "enhet": "NOK bn"
+      },
+      {
+        "navn": "Junior debt",
+        "verdi": 2.6478,
+        "enhet": "NOK bn"
+      }
+    ]
+  },
+  "mk-senior-junior-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Dividend per share",
+        "verdi": 49.52000000000001,
+        "enhet": "NOK",
+        "alt": [
+          46.666666666666664
+        ]
+      },
+      {
+        "navn": "Share price after the payout",
+        "verdi": 45.48,
+        "enhet": "NOK",
+        "alt": [
+          48.33333333333334
+        ]
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "Are the shareholders better or worse off?",
+    "merknad": "alt er svarene med reserveverdiene 6.0 og 2.4."
+  },
+  "mk-senior-junior-2:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Senior yield",
+        "verdi": 4.741467896027851,
+        "enhet": "%",
+        "alt": [
+          6.265856918261115
+        ]
+      },
+      {
+        "navn": "Junior yield",
+        "verdi": 10.78282636951955,
+        "enhet": "%",
+        "alt": [
+          14.471424255333186
+        ]
+      },
+      {
+        "navn": "Senior spread",
+        "verdi": 0.741467896027851,
+        "enhet": "%",
+        "alt": [
+          2.2658569182611146
+        ]
+      },
+      {
+        "navn": "Junior spread",
+        "verdi": 6.782826369519548,
+        "enhet": "%",
+        "alt": [
+          10.471424255333186
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveverdiene 6.0 og 2.4. Spredningene er i prosentpoeng."
+  },
+  "mk-senior-junior-2:1:e": {
+    "type": "tekst"
+  }
+}

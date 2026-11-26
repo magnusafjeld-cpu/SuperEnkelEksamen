@@ -1,0 +1,96 @@
+{
+  "mk-risikoskifting-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Bonds",
+        "verdi": 145.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Shares",
+        "verdi": 95.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "mk-risikoskifting-2:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Bonds, if assigned to Equipment",
+        "verdi": 92.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "All shares, if the bonds are on Equipment",
+        "verdi": 127.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Bonds, if assigned to Services",
+        "verdi": 110.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "All shares, if the bonds are on Services",
+        "verdi": 110.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Which company should get the bonds? Will the CEO split the firm?",
+    "merknad": "Uten synergitapet blir obligasjonene på Equipment 97.5; det avvises."
+  },
+  "mk-risikoskifting-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change in the value of the bonds (negative if it falls)",
+        "verdi": -52.5,
+        "enhet": "$ m",
+        "alt": [
+          52.5,
+          -55.0,
+          55.0
+        ]
+      },
+      {
+        "navn": "Wealth transfer to the shareholders",
+        "verdi": 32.5,
+        "enhet": "$ m",
+        "alt": [
+          30.0
+        ]
+      },
+      {
+        "navn": "Loss of value",
+        "verdi": 20.0,
+        "enhet": "$ m",
+        "alt": [
+          25.0
+        ]
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Where does the loss of value come from?",
+    "merknad": "alt godtar fallet som positivt tall og svarene med reserveverdiene fra (b)."
+  },
+  "mk-risikoskifting-2:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Largest s",
+        "verdi": 31.666666666666668,
+        "enhet": "$ m",
+        "alt": [
+          28.333333333333332
+        ]
+      }
+    ],
+    "merknad": "Svaret er s ≤ 95/3. alt er svaret med reserveverdien 100 fra (a). Å trekke s bare fra Equipment gir 95, utenfor regionen."
+  },
+  "mk-risikoskifting-2:1:e": {
+    "type": "tekst"
+  }
+}

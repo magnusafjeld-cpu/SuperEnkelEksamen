@@ -24,12 +24,15 @@
         "enhet": "€ m"
       },
       {
-        "navn": "Change for Altmark",
+        "navn": "Change for Altmark (negative for a loss)",
         "verdi": -16.000000000000007,
-        "enhet": "€ m"
+        "enhet": "€ m",
+        "alt": [
+          16.000000000000007
+        ]
       },
       {
-        "navn": "Change for the bank",
+        "navn": "Change for the bank (negative for a loss)",
         "verdi": 36.00000000000003,
         "enhet": "€ m"
       }

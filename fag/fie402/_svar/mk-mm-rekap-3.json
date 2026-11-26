@@ -69,11 +69,12 @@
           44.132231405,
           42.8342245989,
           42.6063829787,
-          46.3636363636
+          46.3636363636,
+          43.8974854932
         ]
       }
     ],
-    "merknad": "alt er svarene med reserveverdiene 12 millioner nye aksjer og r_E = 11%: utbyttet 4.8545, kursen 44.13 med begge, 42.83 med bare r_E-reserven og 42.61 med r_E fra reserve-r_U i (c). 46.36 med bare reserveantallet. Fellene 46.98 og 45.63 avvises."
+    "merknad": "alt er svarene med reserveverdiene 12 millioner nye aksjer og r_E = 11%: utbyttet 4.8545, kursen 44.13 med begge, 42.83 med bare r_E-reserven og 42.61 med r_E fra reserve-r_U i (c). 46.36 med bare reserveantallet og 43.90 med reserveantallet og r_E fra reserve-r_U. Fellene 46.98 og 45.63 avvises."
   },
   "mk-mm-rekap-3:1:e": {
     "type": "tekst"

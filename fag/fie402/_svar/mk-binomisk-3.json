@@ -1,0 +1,72 @@
+{
+  "mk-binomisk-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Six-month growth factor",
+        "verdi": 1.019803902718557,
+        "enhet": "",
+        "tol": 0.0005
+      },
+      {
+        "navn": "ρ",
+        "verdi": 54.197777396405314,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "ρ i prosent (54.20 %; 0.5420 godtas også). Med 1.02 blir ρ 0.5426, innenfor toleransen; med 1.04 0.6070, avvist."
+  },
+  "mk-binomisk-3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Δ (shares, long +, short −)",
+        "verdi": -0.6521739130434783,
+        "enhet": ""
+      },
+      {
+        "navn": "B (lending +, borrowing −)",
+        "verdi": 54.997785723534214,
+        "enhet": "EUR"
+      },
+      {
+        "navn": "Put price",
+        "verdi": 6.7369161583168236,
+        "enhet": "EUR"
+      }
+    ]
+  },
+  "mk-binomisk-3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Call price",
+        "verdi": 4.251623454425058,
+        "enhet": "EUR",
+        "alt": [
+          4.014707296108227
+        ]
+      }
+    ],
+    "merknad": "alt 4.0147 er svaret med reserveverdien 6.50 for put. Diskontert med 1.04: 5.7369, avvist."
+  },
+  "mk-binomisk-3:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of the product",
+        "verdi": 80.73691615831683,
+        "enhet": "EUR",
+        "alt": [
+          80.5
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Would you buy it? How could you build the same payoff yourself?",
+    "merknad": "alt 80.5000 er svaret med reserveverdien 6.50 for put."
+  },
+  "mk-binomisk-3:1:e": {
+    "type": "tekst"
+  }
+}

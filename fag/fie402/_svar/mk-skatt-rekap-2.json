@@ -1,0 +1,75 @@
+{
+  "mk-skatt-rekap-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "E[EBIT]",
+        "verdi": 150.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 1300.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Share price",
+        "verdi": 65.0,
+        "enhet": "NOK per share"
+      }
+    ]
+  },
+  "mk-skatt-rekap-2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Annual tax shield",
+        "verdi": 4.95,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 32.6496360334,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Fellene 110 (τD) og 34.1189 (første skjold i dag) avvises."
+  },
+  "mk-skatt-rekap-2:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price on announcement",
+        "verdi": 66.6324818017,
+        "enhet": "NOK per share",
+        "alt": [
+          68.0
+        ]
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 7.5038477703,
+        "enhet": "m shares",
+        "alt": [
+          7.3529411765
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveverdien PV(TS) = 60: kurs 68.00 og 7.3529 millioner aksjer. Fellen 7.6923 (gammel kurs) avvises."
+  },
+  "mk-skatt-rekap-2:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price if τ × D held",
+        "verdi": 70.5,
+        "enhet": "NOK per share"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Is the CFO right? For which kind of loan does τ × D hold?"
+  },
+  "mk-skatt-rekap-2:1:e": {
+    "type": "tekst"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "mk-binomisk-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "ρ, high state",
+        "verdi": 55.55555555555556,
+        "enhet": "%"
+      },
+      {
+        "navn": "1 − ρ, low state",
+        "verdi": 44.44444444444444,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "Sannsynligheter i prosent; desimaltall godtas også."
+  },
+  "mk-binomisk-2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Call price",
+        "verdi": 13.227513227513228,
+        "enhet": "NOK",
+        "alt": [
+          11.904761904761905
+        ]
+      },
+      {
+        "navn": "Put price",
+        "verdi": 16.08465608465609,
+        "enhet": "NOK",
+        "alt": [
+          14.76190476190476,
+          18.095238095238095
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveverdien ρ = 0.50: call 11.9048, put 14.7619 fra paritet eller 18.0952 direkte. Begge veiene er lov."
+  },
+  "mk-binomisk-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Cash flow today per unit of the trade",
+        "verdi": 2.2428571428571615,
+        "enhet": "NOK",
+        "alt": [
+          1.0275132275132286,
+          1.2153439153439116
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Is there an arbitrage? Describe it and its cash flows.",
+    "merknad": "alt er gevinsten når bare én opsjon handles og sikres med replikasjon: call 1.0275, put 1.2153."
+  },
+  "mk-binomisk-2:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Strike",
+        "verdi": 147.0,
+        "enhet": "NOK"
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "Explain."
+  },
+  "mk-binomisk-2:1:e": {
+    "type": "tekst"
+  }
+}

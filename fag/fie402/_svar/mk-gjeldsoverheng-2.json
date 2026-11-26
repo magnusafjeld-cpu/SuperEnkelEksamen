@@ -40,14 +40,17 @@
     "type": "blandet",
     "tall": [
       {
-        "navn": "Change for bondholders",
+        "navn": "Change for bondholders (negative for a loss)",
         "verdi": 22.5,
         "enhet": "$ m"
       },
       {
-        "navn": "Change for existing shareholders",
+        "navn": "Change for existing shareholders (negative for a loss)",
         "verdi": -13.5,
-        "enhet": "$ m"
+        "enhet": "$ m",
+        "alt": [
+          13.5
+        ]
       }
     ],
     "tallPoeng": 2,

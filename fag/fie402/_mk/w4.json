@@ -312,5 +312,422 @@
     ]
    }
   ]
+ },
+ "mk-budkamp-1": {
+  "n": 1,
+  "title": "M&A",
+  "points": 20,
+  "topic": "Mergers and acquisitions",
+  "chapters": [
+   26
+  ],
+  "merke": "Samme form som bank D-eksemplet i forelesning 16 (1:25:55)",
+  "body": "<p>Four Swedish parcel-delivery firms compete. D is for sale and A, B and C are interested. The table shows each firm's market value (SEK million) alone and after each possible purchase of D, before the price is paid; a firm's value is the same whichever rival buys D.</p><table class=\"data\"><tr><th>Firm</th><th>Stand-alone</th><th>A buys D</th><th>B buys D</th><th>C buys D</th></tr><tr><td>A</td><td class=\"n\">420</td><td class=\"n\">630</td><td class=\"n\">395</td><td class=\"n\">395</td></tr><tr><td>B</td><td class=\"n\">360</td><td class=\"n\">350</td><td class=\"n\">580</td><td class=\"n\">350</td></tr><tr><td>C</td><td class=\"n\">300</td><td class=\"n\">290</td><td class=\"n\">290</td><td class=\"n\">515</td></tr><tr><td>D</td><td class=\"n\">180</td><td class=\"n\">0</td><td class=\"n\">0</td><td class=\"n\">0</td></tr></table><p>A has 60 million shares, B 40 million, C 48 million and D 24 million.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>If the alternative were that nobody buys D, what is the most each of A, B and C would pay for D?</p>",
+    "solution": "<p>Against no deal, a bidder gains its value with D minus its value alone:</p><table class=\"data\"><tr><th>Bidder</th><th>Calculation</th><th>Most it would pay</th></tr><tr><td>A</td><td class=\"n\">630 − 420</td><td class=\"n\"><b>210</b></td></tr><tr><td>B</td><td class=\"n\">580 − 360</td><td class=\"n\"><b>220</b></td></tr><tr><td>C</td><td class=\"n\">515 − 300</td><td class=\"n\"><b>215</b></td></tr></table><p>Each figure is D's value 180 plus the bidder's synergy (A: 30, B: 40 and C: 35). On this view B would bid the most.</p>",
+    "criteria": [
+     "A: 630 − 420 = 210; B: 220; C: 215 (1 point each).",
+     "The comparison is the bidder's value with D against its value alone.",
+     "Using the values after a rival's purchase here answers (b), not (a)."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>D will be sold to one of A, B or C in any case. What is the most each would pay now? In an open ascending auction the winner pays the maximum of the last bidder to drop out. Who buys D and at what price?</p>",
+    "solution": "<p><b>Step 1. The right alternative.</b> Losing now means that a rival gets D, so each bidder compares its value with D against its value after a rival's purchase:</p><table class=\"data\"><tr><th>Bidder</th><th>Calculation</th><th>Most it would pay</th><th>Of which: loss avoided</th></tr><tr><td>A</td><td class=\"n\">630 − 395</td><td class=\"n\"><b>235</b></td><td class=\"n\">25</td></tr><tr><td>B</td><td class=\"n\">580 − 350</td><td class=\"n\"><b>230</b></td><td class=\"n\">10</td></tr><tr><td>C</td><td class=\"n\">515 − 290</td><td class=\"n\"><b>225</b></td><td class=\"n\">10</td></tr></table><p><b>Step 2. The auction.</b> C drops out at 225 and B at 230. <b>A buys D for SEK 230 million</b>, just as B gives up.</p><p>B has the largest synergy (40), but A fears losing the most: a rival with D would cost A 25. Bidding depends on the alternatives.</p>",
+    "criteria": [
+     "Maximum = value with D − value if a rival buys D: A 235, B 230, C 225, that is the gain plus the loss avoided.",
+     "A wins and pays 230, the maximum of B, the last bidder to drop out (the question states the rule).",
+     "Using the stand-alone values gives the bids in (a) and B as the winner at 215: wrong here, since D is sold in any case.",
+     "The numbers carry 4 points and the winner 1 point."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>The winner pays the price in cash. (If you could not solve (b), assume that C buys D for SEK 222 million.) Against their stand-alone values, how much do D's shareholders and the winner's shareholders gain or lose? Is the winner better off than if it had lost the auction?</p>",
+    "solution": "<p><b>D's shareholders.</b> 230 − 180 = <b>+50</b>.</p><p><b>A's shareholders.</b> A is worth 630 with D but pays 230: 630 − 230 − 420 = <b>−20</b>.</p><p><b>Better off than losing?</b> Yes. Had B or C bought D, A would be worth 395; now it is worth 400, 5 more. A loses against the stand-alone value only because the old position is gone either way.</p><p><b>Check.</b> With B and C at −10 and −10, the changes add up to 10, the total value A's purchase creates.</p><p><b>With the assumption in the question.</b> C buys at 222: D 42, C 515 − 222 − 300 = −7; C is 3 better off than if it had lost.</p>",
+    "criteria": [
+     "D's shareholders gain 230 − 180 = 50; A's shareholders lose 20 against the stand-alone value (1 point each).",
+     "Better off than losing (2 points): yes, 400 against 395 if a rival had bought D.",
+     "Follow-through: with C buying for 222, D gains 42 and C loses 7 but is better off than losing; full marks for a correct method on the result from (b)."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 5,
+    "body": "<p>Suppose instead that the winner pays with new shares, so that D's shareholders receive the same value as in (c). The market values the merged firm at the winner's value with D in the table. How many new shares must the winner issue? What are the exchange ratio (new shares per D share) and the price of a merged share?</p>",
+    "solution": "<p><b>Step 1. The merged share price.</b> The old A shareholders keep what is left after D's shareholders get 230: (630 − 230)/60 = 400/60 = <b>SEK 6.6667</b>.</p><p><b>Step 2. New shares.</b> x = 230/6.6667 = <b>34.5000 million</b>. Check: y = 34.5000/(60 + 34.5000) = 0.3651 and y × 630 = 230.00 ✓.</p><p><b>Step 3. Exchange ratio.</b> 34.5000/24 = <b>1.4375 A shares per D share</b>.</p><p>The formula sheet's NPV for A, (1 − y)(A + T + S) − A, gives 0.634921 × 630 − 420 = −20.00, the same as with cash: the payment form only changes who carries the risk.</p><p><b>With the assumption in (c).</b> C: price (515 − 222)/48 = 6.1042, x = 36.3686 million, exchange ratio 1.5154.</p>",
+    "criteria": [
+     "Merged price (630 − 230)/60 = 6.6667; or solving y = 230/630 and x = y·N_A/(1 − y), an equivalent route.",
+     "New shares 34.5000 million and exchange ratio 1.4375 (x divided by D's 24 million shares).",
+     "Dividing 230 by A's old price 7.00 ignores that the merged share is worth less after paying for D.",
+     "Follow-through: with C buying for 222, 6.1042, 36.3686 million and 1.5154."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>Which bidder has the largest synergy with D? Compare with the winner in (b) and explain. Which purchase creates the most value for the four firms together? (2–3 sentences)</p>",
+    "solution": "<p>B has the largest synergy (40). But the most a bidder pays is its gain plus the loss it avoids: A would lose 25 if a rival got D, B only 10, so A outbids B although B's synergy is larger. Together the four firms gain 10 when A buys and 5 when B buys (C: 0), because a purchase by B or C would hurt A badly, so here the auction picks the purchase that creates the most value.</p><p>The totals: no deal 1260; A buys 1270; B buys 1265; C buys 1260.</p>",
+    "criteria": [
+     "Largest synergy and why (2 points): B (40); the maximum bid includes the loss avoided and A's loss (25) is the largest, so A bids more although B's synergy is larger.",
+     "Total value (1 point): +10 when A buys against +5 when B buys, so A's purchase creates more.",
+     "Bonus: A's bid counts A's own loss if a rival wins (25), but not the losses A's purchase causes B and C (10 each); those losses enter only the total in the last question."
+    ]
+   }
+  ]
+ },
+ "mk-budkamp-2": {
+  "n": 1,
+  "title": "M&A",
+  "points": 20,
+  "topic": "Mergers and acquisitions",
+  "chapters": [
+   26
+  ],
+  "merke": "Forelesningsformen fra forelesning 16 (38:03 til 52:52 og 1:25:55) med formelarkets bytteforhold",
+  "body": "<p>Kessington Labs Inc. (A), a US chain of clinical laboratories, competes with its rival Brockhurst Health Inc. (R) to buy Wenlow Diagnostics Inc. (T). Kessington has 64 million shares at $62.50 and Wenlow 24 million shares at $50.00; the prices reflect stand-alone values. Kessington expects synergies of $450 million with Wenlow; if Brockhurst buys Wenlow instead, Kessington's value falls by $150 million. Brockhurst's synergies would be $300 million; its value falls by $100 million if Kessington wins. From (b) on, measure each NPV against the firm's stand-alone value.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Compared with losing Wenlow to Kessington, what is the most Brockhurst would pay for Wenlow in cash, in total and per Wenlow share?</p>",
+    "solution": "<p>Brockhurst gains Wenlow's value and its synergies and avoids the loss if Kessington wins:</p><p>1,200 + 300 + 100 = <b>$1,600 million</b>, or 1,600/24 = <b>$66.67 per share</b>.</p><p>Without the threat from Kessington it would pay at most 1,500.</p>",
+    "criteria": [
+     "Maximum = T + S_R + loss avoided = 1,200 + 300 + 100 = $1,600 million.",
+     "Per share 1,600/24 = $66.67.",
+     "Leaving out the loss avoided gives 1,500: the question is about a contest, so the loss counts."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>Kessington wins with a cash offer of $67.00 per Wenlow share. What is the NPV for Wenlow's shareholders and for Kessington's shareholders?</p>",
+    "solution": "<p>Price P = 67.00 × 24 = 1,608.</p><p>NPV<sub>T</sub> = P − T = 1,608 − 1,200 = <b>$408 million</b>.<br>NPV<sub>A</sub> = S − (P − T) = 450 − 408 = <b>$42 million</b>.</p><p><b>Check.</b> 408 + 42 = 450 = S: the price only splits the synergies. Wenlow's shareholders get most of them, as the lecture says targets usually do.</p>",
+    "criteria": [
+     "NPV_T = 1,608 − 1,200 = $408 million (2 points).",
+     "NPV_A = 450 − 408 = $42 million (2 points).",
+     "Bonus: the two NPVs add up to the synergies."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 5,
+    "body": "<p>Kessington could instead offer 1.08 new Kessington shares per Wenlow share. What fraction y of the merged firm would Wenlow's shareholders own? What are the NPVs for both sides? Does the offer beat Brockhurst's maximum from (a)? (If you could not solve (a), use $1,580 million.)</p>",
+    "solution": "<p><b>Step 1. New shares and y.</b> x = 1.08 × 24 = 25.92 million; y = 25.92/(64 + 25.92) = <b>0.2883 (28.83%)</b>.</p><p><b>Step 2. NPVs (formula sheet).</b> A + T + S = 4,000 + 1,200 + 450 = 5,650.<br>NPV<sub>T</sub> = y(A + T + S) − T = 0.288256 × 5,650 − 1,200 = <b>$428.65 million</b><br>NPV<sub>A</sub> = (1 − y)(A + T + S) − A = 0.711744 × 5,650 − 4,000 = <b>$21.35 million</b></p><p><b>Step 3. Against Brockhurst.</b> Wenlow's shareholders receive 1,628.65, more than Brockhurst's 1,600, so <b>the offer beats it</b>.</p><p><b>Check.</b> 428.65 + 21.35 = 450 ✓.</p>",
+    "criteria": [
+     "x = 25.92 million, y = 25.92/89.92 = 28.83%.",
+     "NPV_T = 428.65 and NPV_A = 21.35 with the formula sheet and A + T + S = 5,650.",
+     "Beats Brockhurst (1 point): 1,628.65 against 1,600 (or against 1,580 with the value given in the question).",
+     "Using y = x/N_T or leaving S out of the merged value is the classic error."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 5,
+    "body": "<p>What is the highest exchange ratio Kessington's shareholders should accept if the alternative is to stay as they are, as on the formula sheet? What is it if the alternative is that Brockhurst buys Wenlow?</p>",
+    "solution": "<p><b>Against staying alone (formula sheet).</b> ER ≤ [(T + S)/A] × N<sub>A</sub>/N<sub>T</sub> = (1,650/4,000) × 64/24 = <b>1.1000</b>.</p><p><b>Against Brockhurst winning.</b> Kessington would then be worth 4,000 − 150 = 3,850, so its old shareholders accept any y with (1 − y) × 5,650 ≥ 3,850: y ≤ 1,800/5,650 = 0.3186. Then x ≤ 0.3186/0.6814 × 64 = 29.9221 million and ER ≤ 29.9221/24 = <b>1.2468</b>.</p><p>The same formula with the loss added: ER ≤ (N<sub>A</sub>/N<sub>T</sub>) × (T + S + L)/(A − L). The threat of losing Wenlow to a rival raises the ceiling from 1.1000 to 1.2468; the offer of 1.08 in (c) lies below both.</p>",
+    "criteria": [
+     "Formula sheet: ER ≤ (1,650/4,000) × 64/24 = 1.1000 (2.5 points).",
+     "With Brockhurst as the alternative: (1 − y) × 5,650 ≥ 3,850, giving ER ≤ 1.2468 (2.5 points). Any correct route is accepted.",
+     "Forgetting N_A/N_T gives 0.4125, a ratio of values rather than of shares."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>Wenlow's two founders own most of its shares. One will stay on and run Wenlow inside Kessington; the other wants to retire. Which form of payment would each founder prefer? Why? (2–3 sentences)</p>",
+    "solution": "<p>The founder who stays prefers shares: a stake in the merged firm keeps the founder's wealth tied to the value the founder helps create, synergies included; Kessington also gets a manager with the right incentives. The founder who retires prefers cash: a fixed amount now, with no exposure to a firm the founder no longer influences or to the risk that the synergies fall short.</p><p><b>Also accepted.</b> Liquidity or timing (the retiring founder wants to spend the money); either founder preferring cash if they doubt the synergies; a share offer as a signal that Kessington thinks its own shares are overvalued. The lecture uses the same two sellers: one who wants «to remain just as a manager» and one who would rather «build a yacht» (recording 16, 1:24:11 to 1:24:48).</p>",
+    "criteria": [
+     "Staying founder (1.5 points): shares, with a reason such as keeping a stake in the value the founder creates or aligned incentives.",
+     "Retiring founder (1.5 points): cash, with a reason such as a fixed amount now, no exposure to a firm the founder no longer runs or to synergy risk.",
+     "Bonus: Kessington also gains from paying the staying founder in shares, since it ties the founder to the merged firm's value."
+    ]
+   }
+  ]
+ },
+ "mk-budkamp-3": {
+  "n": 1,
+  "title": "M&A",
+  "points": 20,
+  "topic": "Mergers and acquisitions",
+  "chapters": [
+   26
+  ],
+  "merke": "Forelesningsformen fra forelesning 16 (38:03 til 46:37 og 1:25:55), med et tillegg i del d",
+  "body": "<p>Vesterhav Service A/S (A) and Hvidsand Energi A/S (R) both bid for Skovlund Mølleservice A/S (T), a Danish firm that services wind turbines. Vesterhav has 100 million shares at DKK 48.00 and Skovlund 25 million shares at DKK 64.00, their stand-alone values. Vesterhav expects synergies of DKK 500 million with Skovlund and would lose DKK 80 million of value if Hvidsand bought it. Hvidsand's synergies would be DKK 180 million; it would lose DKK 120 million if Vesterhav won. The bidding stops when one bidder reaches its maximum; the other then pays that amount. From (b) on, measure NPVs against stand-alone values.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Compared with losing Skovlund to the other bidder, what is the most each bidder would pay? What does the winning bidder pay per Skovlund share?</p>",
+    "solution": "<p>Vesterhav: 1,600 + 500 + 80 = <b>2,180</b>. Hvidsand: 1,600 + 180 + 120 = <b>1,900</b> (DKK million).</p><p>Hvidsand stops at 1,900, so <b>Vesterhav wins</b> and pays 1,900/25 = <b>DKK 76.00 per share</b>.</p>",
+    "criteria": [
+     "Each maximum is T + own synergies + the loss avoided: 2,180 and 1,900 (1 point each).",
+     "Vesterhav wins and pays Hvidsand's maximum, 1,900, which is DKK 76.00 per share (1 point).",
+     "Leaving out the loss avoided gives 2,100 and 1,780; the winner is the same but the price is wrong."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 3,
+    "body": "<p>The winner pays in cash. What is the NPV for each side? (If you could not solve (a), use a price of DKK 1,850 million.)</p>",
+    "solution": "<p>NPV<sub>T</sub> = 1,900 − 1,600 = <b>DKK 300 million</b>; NPV<sub>A</sub> = 500 − 300 = <b>DKK 200 million</b>.</p><p>With the price in the question: 250 and 250.</p>",
+    "criteria": [
+     "NPV_T = P − T = 300 and NPV_A = S − (P − T) = 200 (1.5 points each).",
+     "Follow-through: with 1,850, 250 and 250.",
+     "The two NPVs add up to the synergies; a pair that does not signals an error."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>The winning bidder could instead offer 1.52 of its own new shares per Skovlund share. Using the formula sheet and the expected synergies, what are the NPVs for both sides? Compare with (b).</p>",
+    "solution": "<p>x = 1.52 × 25 = 38 million; y = 38/(100 + 38) = 0.2754.<br>A + T + S = 4,800 + 1,600 + 500 = 6,900.</p><p>NPV<sub>T</sub> = 0.275362 × 6,900 − 1,600 = <b>300.00</b>; NPV<sub>A</sub> = 0.724638 × 6,900 − 4,800 = <b>200.00</b> (DKK million).</p><p>The same as with cash: at the expected synergies the share offer gives Skovlund's shareholders exactly the cash price, since 0.275362 × 6,900 = 1,900.00. The difference only shows when the synergies turn out differently.</p>",
+    "criteria": [
+     "y = 38/138 = 0.2754 and A + T + S = 6,900.",
+     "NPV_T = 300.00 and NPV_A = 200.00 (1.5 points each).",
+     "Comparison (1 point): the same as in (b), because the shares are worth the cash price when the synergies are as expected."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 6,
+    "body": "<p>After the deal the synergies turn out to be only DKK 100 million. What are the NPVs for both sides if the winning bidder paid in cash as in (b)? If it paid in shares as in (c)?</p>",
+    "solution": "<p><b>Cash.</b> Skovlund's shareholders already have their price: NPV<sub>T</sub> = <b>300</b> (unchanged). NPV<sub>A</sub> = 100 − 300 = <b>−200</b>: Vesterhav's shareholders carry the whole shortfall of 400.</p><p><b>Shares.</b> The merged firm is worth 4,800 + 1,600 + 100 = 6,500.<br>NPV<sub>T</sub> = 0.275362 × 6,500 − 1,600 = <b>189.86</b><br>NPV<sub>A</sub> = 0.724638 × 6,500 − 4,800 = <b>−89.86</b></p><p><b>Check.</b> The shortfall of 400 is split 289.86 to Vesterhav and 110.14 to Skovlund, in proportion 0.7246 and 0.2754.</p><p>With the reserve price 1,850 from (b): cash gives NPV<sub>A</sub> = −150 and NPV<sub>T</sub> = 250; the share figures do not change.</p>",
+    "criteria": [
+     "Cash: NPV_T = 300 and NPV_A = −200; the acquirer bears the whole shortfall.",
+     "Shares: NPV_T = 189.86 and NPV_A = −89.86, from y × 6,500 and (1 − y) × 6,500.",
+     "1.5 points per number; show the merged value with the lower synergies.",
+     "Follow-through for cash with the reserve price 1,850: −150 and 250."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Who bears the synergy risk under each form of payment? If the winning bidder's managers had doubted the synergies before bidding, or believed that their own shares were overvalued, which payment would they have chosen? How would the market read that choice? (3–4 sentences)</p>",
+    "solution": "<p>With cash, the target's shareholders get a fixed price and the acquirer's shareholders bear all of the synergy risk; with shares, the target's shareholders own 27.5% of the merged firm and bear that part of it. Managers who doubted the synergies would therefore have preferred shares, to hedge against the worst case; so would managers who thought their shares were overvalued, since they pay with an expensive currency. The market knows this, so a share offer is read as a sign that the acquirer's shares may be overvalued or that its managers doubt the deal; its price tends to fall on the announcement.</p><p>The lecture makes both points: shares «hedge yourself against the worst case», while a stock offer makes the market think the acquirer is «probably overvalued» (recording 16, 1:23:53 to 1:25:46).</p>",
+    "criteria": [
+     "Risk (1 point): cash puts all of it on the acquirer; shares share it in proportion y and 1 − y.",
+     "Doubtful managers (1 point): prefer shares as a hedge.",
+     "Overvalued shares (1 point): prefer shares, a cheap currency.",
+     "Market reading (1 point): a share offer signals overvaluation or doubt, so the acquirer's price falls."
+    ]
+   }
+  ]
+ },
+ "mk-coinsurance-1": {
+  "n": 1,
+  "title": "M&A",
+  "points": 20,
+  "topic": "Mergers and acquisitions, merging levered firms",
+  "chapters": [
+   26
+  ],
+  "merke": "Samme form som eksemplet med to belånte firmaer i forelesning 16 (1:27:49 til 1:31:43)",
+  "body": "<p>Tverrå Kraft ASA runs hydropower plants and earns most in a wet year; Sandvoll Sol ASA runs solar parks and earns most in a dry year. Next year is wet or dry with equal probability. The firms' values next year (NOK million) are:</p><table class=\"data\"><tr><th>Firm</th><th>Wet year</th><th>Dry year</th></tr><tr><td>Tverrå (A)</td><td class=\"n\">120</td><td class=\"n\">40</td></tr><tr><td>Sandvoll (B)</td><td class=\"n\">25</td><td class=\"n\">90</td></tr></table><p>Tverrå has a zero-coupon loan with face value 50 and Sandvoll one with face value 36, both due next year. Investors are risk neutral, the risk-free rate is 0% and there are no taxes or bankruptcy costs. The firms consider merging without synergies: the merged firm takes over both loans and its shares go to the old shareholders in proportion to their stand-alone equity values.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 4,
+    "body": "<p>What are the debt and the equity of each firm worth today if they do not merge?</p>",
+    "solution": "<p>In each state the lender gets min(V, F) and the shareholders max(V − F, 0):</p><table class=\"data\"><tr><th>Firm</th><th>Wet: debt / equity</th><th>Dry: debt / equity</th><th>Debt today</th><th>Equity today</th></tr><tr><td>Tverrå</td><td class=\"n\">50 / 70</td><td class=\"n\">40 / 0</td><td class=\"n\"><b>45.00</b></td><td class=\"n\"><b>35.00</b></td></tr><tr><td>Sandvoll</td><td class=\"n\">25 / 0</td><td class=\"n\">36 / 54</td><td class=\"n\"><b>30.50</b></td><td class=\"n\"><b>27.00</b></td></tr></table><p>For example Tverrå's debt: 0.5 × 50 + 0.5 × 40 = 45.00. Each firm defaults in its bad year.</p>",
+    "criteria": [
+     "Tverrå: debt 45.00, equity 35.00; Sandvoll: debt 30.50, equity 27.00 (1 point each).",
+     "Per state the lender gets min(V, F); no discounting since the risk-free rate is 0%.",
+     "Treating the face value as the value of the debt ignores the default in the bad year."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>What are the debt and the equity of the merged firm worth?</p>",
+    "solution": "<p>The merged firm is worth 145 in a wet year and 130 in a dry year and owes 86. It can pay in both years:</p><table class=\"data\"><tr><th>State</th><th>Value</th><th>Debt</th><th>Equity</th></tr><tr><td>Wet</td><td class=\"n\">145</td><td class=\"n\">86</td><td class=\"n\">59</td></tr><tr><td>Dry</td><td class=\"n\">130</td><td class=\"n\">86</td><td class=\"n\">44</td></tr></table><p>Debt = <b>86.00</b>, equity = 0.5 × 59 + 0.5 × 44 = <b>51.50</b>. The debt has become risk-free.</p><p><b>Check.</b> 86.00 + 51.50 = 137.50 = 80.00 + 57.50: without synergies the total value is unchanged.</p>",
+    "criteria": [
+     "Merged value 145 and 130 against a face value of 86: no default.",
+     "Debt 86.00 and equity 51.50 (2 points each).",
+     "Bonus: the total value is the same as before, since there are no synergies."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>What do the shareholders as a group and the creditors as a group gain or lose from the merger? How is the shareholders' change split between Tverrå's and Sandvoll's shareholders? (If you could not solve (a) and (b), use E<sub>A</sub> = 40, E<sub>B</sub> = 20, D<sub>A</sub> = 42 and D<sub>B</sub> = 33 before; E = 55 and D = 80 after.)</p>",
+    "solution": "<p><b>Groups.</b> Shareholders: 51.50 − (35.00 + 27.00) = <b>−10.50</b>. Creditors: 86.00 − (45.00 + 30.50) = <b>+10.50</b>.</p><p><b>Split.</b> Tverrå's shareholders get 35.00/62.00 = 56.45% of the merged equity: 0.564516 × 51.50 − 35.00 = <b>−5.9274</b>. Sandvoll's: 0.435484 × 51.50 − 27.00 = <b>−4.5726</b>.</p><p>The creditors' gain equals the shareholders' loss: a wealth transfer of 10.50, with no value created.</p><p><b>With the values in the question.</b> Shareholders −5.00, creditors +5.00, Tverrå's shareholders −3.3333 and Sandvoll's −1.6667.</p>",
+    "criteria": [
+     "Shareholders −10.50 and creditors +10.50: a wealth transfer, the gain equals the loss.",
+     "Split by equity values: Tverrå −5.9274, Sandvoll −4.5726 (1 point each).",
+     "Follow-through: full marks for the method on the values given in the question."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 3,
+    "body": "<p>What yield to maturity does each loan offer at its market value before the merger? What does the merged firm's debt offer? (Use the values from (a) and (b), or those given in (c).)</p>",
+    "solution": "<p>Before: Tverrå 50/45.00 − 1 = <b>11.11%</b>; Sandvoll 36/30.50 − 1 = <b>18.03%</b>.</p><p>After: 86/86.00 − 1 = <b>0.00%</b>, the risk-free rate, since the merged firm never defaults. The joint debt has a lower yield because each firm now backs the other's loan.</p><p>With the values in (c): 19.05%, 9.09% and 7.50%.</p>",
+    "criteria": [
+     "Tverrå 11.11% and Sandvoll 18.03% before (1 point each).",
+     "Merged debt 0.00%: risk-free (1 point).",
+     "Follow-through with the values in (c): 19.05%, 9.09% and 7.50%."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 5,
+    "body": "<p>Explain who gains and who loses from the merger and why, although it creates no value. Would you vote for it as a Tverrå shareholder? When would such a merger change nothing for either group? (3–4 sentences)</p>",
+    "solution": "<p>After the merger each firm's assets back both loans: in a dry year Sandvoll's surplus pays Tverrå's lender and in a wet year Tverrå's pays Sandvoll's, so the debt becomes risk-free (coinsurance). The total value is unchanged, so the creditors' gain is taken from the shareholders, who lose the part of the upside they kept when their firm alone could default. As a Tverrå shareholder I would vote against. The merger changes nothing for either group if, in every state, the two firms either both default or both pay in full, for example when neither can default on its own: then no surplus of one firm is ever used for the other's loan.</p><p><b>Correlation.</b> «Perfectly positively correlated values» is accepted as the lecture's phrasing (recording 16, 1:28:43), but it is not enough on its own: with Tverrå at 120/40 and a second firm at 100/70 owing 36, the values move together, yet only Tverrå defaults in the dry year and the merger still raises the debt from 81 to 86. What matters is whether the default states overlap.</p><p><b>Also accepted.</b> Shareholders like risk because equity is like a call on the firm's assets; diversification inside the firm only helps the lenders unless the firm uses the lower risk, for example by borrowing more at a lower rate.</p>",
+    "criteria": [
+     "Mechanism (2 points): each firm's assets now back both loans, so default disappears and the debt is safer.",
+     "Wealth transfer (1 point): no value is created, so the creditors' gain is the shareholders' loss.",
+     "Vote (1 point): against, as a shareholder.",
+     "Condition (1 point): no effect when in every state both firms default or both pay in full, for example when neither can default alone. «Perfectly positively correlated values» is accepted as the lecture's phrasing."
+    ]
+   }
+  ]
+ },
+ "mk-coinsurance-2": {
+  "n": 1,
+  "title": "M&A",
+  "points": 20,
+  "topic": "Mergers and acquisitions, merging levered firms",
+  "chapters": [
+   26
+  ],
+  "merke": "Samme form som V2024 P4, med ulike vekter på tilstandene og positiv rente",
+  "body": "<p>Redmarsh Drilling Inc. (A) does well when the oil price is high; Bluewing Airlines Inc. (B) does well when it is low. Next year the oil price is high with probability 0.6 and low with probability 0.4. The firms' values next year ($ million) are:</p><table class=\"data\"><tr><th>Firm</th><th>High oil price</th><th>Low oil price</th></tr><tr><td>Redmarsh (A)</td><td class=\"n\">140</td><td class=\"n\">70</td></tr><tr><td>Bluewing (B)</td><td class=\"n\">48</td><td class=\"n\">75</td></tr></table><p>Redmarsh owes 90 and Bluewing 60 on zero-coupon loans due next year. Investors are risk neutral, the risk-free rate is 5% and there are no taxes or bankruptcy costs. The firms merge without synergies. The merged firm takes over both loans, which rank equally: if it cannot pay in full, each lender gets the same fraction of its face value. The merged shares go to the old shareholders in proportion to their stand-alone equity values. Use 3 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 4,
+    "body": "<p>What are each firm's debt and equity worth today without the merger?</p>",
+    "solution": "<p>Expected payoff under the given probabilities, discounted at 5%:</p><table class=\"data\"><tr><th></th><th>High: debt / equity</th><th>Low: debt / equity</th><th>Debt today</th><th>Equity today</th></tr><tr><td>Redmarsh</td><td class=\"n\">90 / 50</td><td class=\"n\">70 / 0</td><td class=\"n\"><b>78.095</b></td><td class=\"n\"><b>28.571</b></td></tr><tr><td>Bluewing</td><td class=\"n\">48 / 0</td><td class=\"n\">60 / 15</td><td class=\"n\"><b>50.286</b></td><td class=\"n\"><b>5.714</b></td></tr></table><p>For example Redmarsh's debt: (0.6 × 90 + 0.4 × 70)/1.05 = 82/1.05 = 78.095.</p>",
+    "criteria": [
+     "Redmarsh: debt 78.095, equity 28.571; Bluewing: debt 50.286, equity 5.714 (1 point each).",
+     "Probabilities 0.6 and 0.4 (not 0.5) and discounting at 5%, since investors are risk neutral.",
+     "Forgetting to discount gives values 5% too high."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>What are the merged firm's debt and equity worth? What is each lender's loan worth after the merger?</p>",
+    "solution": "<p><b>Step 1. Per state.</b> High: 188 against 150, so the lenders get 150 and the shareholders 38. Low: 145 &lt; 150, so the firm defaults and the lenders get all 145.</p><p><b>Step 2. Values.</b> Debt = (0.6 × 150 + 0.4 × 145)/1.05 = <b>140.952</b>; equity = 0.6 × 38/1.05 = <b>21.714</b>.</p><p><b>Step 3. Each loan.</b> In the low state Redmarsh's lender gets 90/150 of 145 = 87 and Bluewing's 58.<br>Redmarsh's loan: (0.6 × 90 + 0.4 × 87)/1.05 = <b>84.571</b><br>Bluewing's loan: (0.6 × 60 + 0.4 × 58)/1.05 = <b>56.381</b></p><p><b>Check.</b> 84.571 + 56.381 = 140.952 ✓; debt plus equity is 162.667, the same as before the merger.</p>",
+    "criteria": [
+     "The merged firm defaults in the low state (145 < 150) but not in the high state.",
+     "Debt 140.952 and equity 21.714.",
+     "Each loan with equal ranking: 84.571 and 56.381, which add up to the debt.",
+     "1.25 points per number, shown with its calculation."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>What does each group of shareholders and each lender gain or lose? Would the shareholders want the merger? (If you could not solve (a) and (b), use equity 25 (Redmarsh) and 10 (Bluewing) and loans 80 and 48 before; equity 23 and loans 84 and 56 after.)</p>",
+    "solution": "<p><b>Shareholders.</b> Redmarsh's own 28.571/34.286 = 83.33% of the merged equity: 0.833333 × 21.714 − 28.571 = <b>−10.476</b>. Bluewing's: 0.166667 × 21.714 − 5.714 = <b>−2.095</b>.</p><p><b>Lenders.</b> Redmarsh's: 84.571 − 78.095 = <b>+6.476</b>. Bluewing's: 56.381 − 50.286 = <b>+6.095</b>.</p><p>The lenders gain 12.571 and the shareholders lose the same: <b>the shareholders would not want the merger</b>.</p><p><b>With the values in the question.</b> −8.571, −3.429, +4.000 and +8.000.</p>",
+    "criteria": [
+     "Shareholders: Redmarsh −10.476, Bluewing −2.095, split by stand-alone equity values.",
+     "Lenders: Redmarsh +6.476, Bluewing +6.095; the gains equal the losses.",
+     "Verdict (1 point): the shareholders would not want it.",
+     "Follow-through: full marks for the method on the values given in the question."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 3,
+    "body": "<p>What yield to maturity does each loan offer at its market value before and after the merger? (Use the values from (a) and (b), or those given in (c).)</p>",
+    "solution": "<p>Before: Redmarsh 90/78.095 − 1 = <b>15.24%</b>; Bluewing 60/50.286 − 1 = <b>19.32%</b>.<br>After: Redmarsh 90/84.571 − 1 = <b>6.42%</b>; Bluewing 60/56.381 − 1 = <b>6.42%</b>.</p><p>Both yields fall. After the merger they are equal because the two loans share the same assets and rank equally. They stay above 5% because the merged firm can still default.</p><p>With the values in (c): 12.50%, 25.00%, 7.14% and 7.14%.</p>",
+    "criteria": [
+     "Before: 15.24% and 19.32%; after: 6.42% for both.",
+     "Yield = face value/market value − 1. Bonus: the expected return is still 5% because investors are risk neutral.",
+     "Follow-through with the values in (c) is accepted."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Explain the mechanism behind your results in (b) to (d). Why does a merger without synergies change the positions of the shareholders and the lenders? (3–4 sentences)</p>",
+    "solution": "<p>Before the merger each lender could only draw on its own borrower's assets; after it both can draw on the combined assets, so in the high state Redmarsh's surplus covers Bluewing's loan and in the low state the lenders recover 145 of 150 instead of losing more on one firm alone. This mutual guarantee (coinsurance) makes the debt less risky, so its value rises although the firm's total value does not change. With no synergies the lenders' gain must come from the shareholders, who give up the option to walk away from one firm's debt while keeping the other firm's upside.</p>",
+    "criteria": [
+     "Mechanism (2 points): each lender can now draw on both firms' assets, a mutual guarantee, so default is less likely and losses in default are smaller.",
+     "Wealth transfer (1 point): total value is unchanged, so the lenders' gain is the shareholders' loss.",
+     "Why shareholders lose (1 point): they lose the limited-liability option on each firm separately (equity as a call); lower risk helps the lenders, not them."
+    ]
+   }
+  ]
+ },
+ "mk-coinsurance-3": {
+  "n": 1,
+  "title": "M&A",
+  "points": 20,
+  "topic": "Mergers and acquisitions, merging levered firms",
+  "chapters": [
+   26
+  ],
+  "merke": "Forelesningsformen fra forelesning 16 (1:27:49) med en liten synergi og konkurskostnader som tillegg",
+  "body": "<p>Breiset Alpin AS runs ski resorts and does well in a cold winter; Lysvann Golf AS runs golf courses and does well in a mild one. Next winter is cold with probability 0.4 and mild with probability 0.6. The firms' values next year (NOK million) are:</p><table class=\"data\"><tr><th>Firm</th><th>Cold winter</th><th>Mild winter</th></tr><tr><td>Breiset (A)</td><td class=\"n\">100</td><td class=\"n\">28</td></tr><tr><td>Lysvann (B)</td><td class=\"n\">12</td><td class=\"n\">76</td></tr></table><p>Breiset owes 45 and Lysvann 30 on zero-coupon loans due next year. Investors are risk neutral, the risk-free rate is 0% and there are no taxes or bankruptcy costs. If they merge, the merged firm takes over both loans and gains synergies of 8 in each state (a shared booking system).</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 4,
+    "body": "<p>What are each firm's debt and equity worth today without the merger?</p>",
+    "solution": "<table class=\"data\"><tr><th></th><th>Cold: debt / equity</th><th>Mild: debt / equity</th><th>Debt today</th><th>Equity today</th></tr><tr><td>Breiset</td><td class=\"n\">45 / 55</td><td class=\"n\">28 / 0</td><td class=\"n\"><b>34.80</b></td><td class=\"n\"><b>22.00</b></td></tr><tr><td>Lysvann</td><td class=\"n\">12 / 0</td><td class=\"n\">30 / 46</td><td class=\"n\"><b>22.80</b></td><td class=\"n\"><b>27.60</b></td></tr></table><p>For example Breiset's debt: 0.4 × 45 + 0.6 × 28 = 34.80.</p>",
+    "criteria": [
+     "Breiset: debt 34.80, equity 22.00; Lysvann: debt 22.80, equity 27.60 (1 point each).",
+     "Probabilities 0.4 and 0.6; no discounting since the risk-free rate is 0%.",
+     "Each firm defaults in its bad winter."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>The firms merge. What are the merged firm's debt and equity worth?</p>",
+    "solution": "<p>With the synergies the merged firm is worth 100 + 12 + 8 = 120 in a cold winter and 28 + 76 + 8 = 112 in a mild one, against debt of 75: it never defaults.</p><p>Debt = <b>75.00</b>; equity = 0.4 × 45 + 0.6 × 37 = <b>40.20</b>.</p>",
+    "criteria": [
+     "Merged values 120 and 112 include the synergies of 8 in each state.",
+     "No default, so debt 75.00 and equity 40.20 (2 points each).",
+     "Leaving out the synergies gives equity 8 lower."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>What do the shareholders as a group and the creditors as a group gain or lose? (If you could not solve (a) and (b), use equity of 50 and debt of 55 before the merger and equity of 38 after it.)</p>",
+    "solution": "<p>Shareholders: 40.20 − (22.00 + 27.60) = <b>−9.40</b>.<br>Creditors: 75.00 − (34.80 + 22.80) = <b>+17.40</b>.</p><p><b>Check.</b> −9.40 + 17.40 = 8.00, the synergies: the merger now creates value, but the creditors take more than all of it.</p><p><b>With the values in the question.</b> Shareholders −12.00, creditors +20.00.</p>",
+    "criteria": [
+     "Shareholders −9.40 and creditors +17.40 (2 points each).",
+     "Bonus: the two changes add up to the synergies of 8.",
+     "Follow-through: full marks for the method on the values given in the question."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>What synergy, the same in each state, would leave the shareholders as a group exactly as well off as without the merger? (If you could not solve (a), use debt worth 60 before the merger.)</p>",
+    "solution": "<p>As long as the merged firm never defaults, its debt is worth the face value 75, so the creditors always gain 75 − 57.60 = 17.40. The total value rises by the synergy s, so the shareholders gain s − 17.40.</p><p>Exactly as well off: s = <b>17.40</b> in each state; a larger synergy makes them better off.</p><p><b>Check.</b> With s = 17.40, equity = 0.4 × 54.40 + 0.6 × 46.40 = 49.60 = 49.60, the shareholders' value before ✓.</p><p>With debt worth 60: s = 75 − 60 = 15.00.</p>",
+    "criteria": [
+     "The synergy must cover the transfer to the creditors: s = 75 − 57.60 = 17.40.",
+     "An equivalent route: set the merged equity equal to the shareholders' value before and solve for s.",
+     "The debt stays risk-free at that synergy, so the creditors' gain does not change.",
+     "Follow-through: with debt of 60, s = 15.00."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Suppose instead there are no synergies, but a firm that cannot repay its loan loses 20% of its assets in bankruptcy costs. Who gains from the merger now? Does that change how the shareholders should vote? (3–4 sentences, no full calculation needed.)</p>",
+    "solution": "<p>Standing alone, each firm would default in its bad winter and lose 20% of its assets, a cost the creditors bear since they take the assets; the merged firm never defaults, so the merger now saves those costs and raises total value (by 4.32 in expectation). All of the saving goes to the creditors, who also keep the coinsurance gain; the shareholders get nothing in default in either case, so they still lose the coinsurance transfer of 17.40. They should still vote against, unless they can share the gain, for example by borrowing more afterwards at the lower risk or by renegotiating the loans.</p><p>The numbers, not required: saved costs 0.2 × (0.6 × 28 + 0.4 × 12) = 4.32.</p>",
+    "criteria": [
+     "Who gains (2 points): the creditors, because they bear the bankruptcy costs in default and the merger removes default.",
+     "Value (1 point): the merger now creates value by avoiding the expected bankruptcy costs.",
+     "Vote (1 point): the shareholders still lose and vote against. Bonus: they could capture the gain only by, for example, borrowing more at the lower rate or renegotiating the loans."
+    ]
+   }
+  ]
  }
 }

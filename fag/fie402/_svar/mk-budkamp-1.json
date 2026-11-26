@@ -1,0 +1,106 @@
+{
+  "mk-budkamp-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Most A would pay",
+        "verdi": 210,
+        "enhet": "SEK m"
+      },
+      {
+        "navn": "Most B would pay",
+        "verdi": 220,
+        "enhet": "SEK m"
+      },
+      {
+        "navn": "Most C would pay",
+        "verdi": 215,
+        "enhet": "SEK m"
+      }
+    ]
+  },
+  "mk-budkamp-1:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Most A would pay",
+        "verdi": 235,
+        "enhet": "SEK m"
+      },
+      {
+        "navn": "Most B would pay",
+        "verdi": 230,
+        "enhet": "SEK m"
+      },
+      {
+        "navn": "Most C would pay",
+        "verdi": 225,
+        "enhet": "SEK m"
+      },
+      {
+        "navn": "Price paid for D",
+        "verdi": 230,
+        "enhet": "SEK m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Who buys D?"
+  },
+  "mk-budkamp-1:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change for D's shareholders",
+        "verdi": 50,
+        "enhet": "SEK m",
+        "alt": [
+          42
+        ]
+      },
+      {
+        "navn": "Change for the winner's shareholders",
+        "verdi": -20,
+        "enhet": "SEK m",
+        "alt": [
+          -7
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Is the winner better off than if it had lost the auction?",
+    "merknad": "alt: reserveantakelsen (C kjøper for 222)."
+  },
+  "mk-budkamp-1:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New shares issued",
+        "verdi": 34.5,
+        "enhet": "m shares",
+        "alt": [
+          36.36860068259386
+        ]
+      },
+      {
+        "navn": "Exchange ratio",
+        "verdi": 1.4375,
+        "enhet": "",
+        "alt": [
+          1.5153583617747441
+        ]
+      },
+      {
+        "navn": "Price of a merged share",
+        "verdi": 6.666666666666667,
+        "enhet": "SEK",
+        "alt": [
+          6.104166666666667
+        ]
+      }
+    ],
+    "merknad": "alt: reserveantakelsen (C kjøper for 222) med 48 millioner C-aksjer."
+  },
+  "mk-budkamp-1:1:e": {
+    "type": "tekst"
+  }
+}

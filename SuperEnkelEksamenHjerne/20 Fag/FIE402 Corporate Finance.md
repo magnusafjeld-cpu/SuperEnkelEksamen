@@ -616,8 +616,8 @@ Kurbatovs eksamensoppgave. Oppgave 1 ligger nærmest forelesningen, oppgave 2 n�
 eksamen og oppgave 3 tar med tillegget han varslet. Fem skribenter skrev, og en blind
 kontrollør per skribent regnet alt på nytt. I tier 1 fant kontrollørene ingen regnefeil, bare
 formuleringer, for strenge toleranser, kriterier som krevde mer enn spørsmålet og feltnavn som
-røpet svaret (lærdommene står i spesifikasjonen). **Tier 1 (21 oppgaver) lagt ut 26. november**,
-tier 2 og 3 skrives og kontrolleres.
+røpet svaret (lærdommene står i spesifikasjonen). **Tier 1 (21 oppgaver) og tier 2 (24) lagt ut 26.
+november.** Ingen regnefeil i tier 2 heller. Tier 3 skrives og kontrolleres.
 
 ## Hintet i forelesning (24. november 2026)
 

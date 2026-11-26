@@ -269,11 +269,15 @@
   "type": "blandet",
   "tall": [
    {
-    "navn": "Cash flow today",
+    "navn": "Cash flow today per call",
     "verdi": 0.6538461538461551,
-    "enhet": "USD"
+    "enhet": "USD",
+    "alt": [
+     0.9000000000000004
+    ]
    }
   ],
+  "merknad": "alt 0.9000 er svaret med reserveverdien 6.00 for call.",
   "tallPoeng": 1.5,
   "tekstLedd": "Describe the strategy and its cash flows in each state."
  },
@@ -312,23 +316,29 @@
     "verdi": 16.08465608465609,
     "enhet": "NOK",
     "alt": [
-     14.76190476190476
+     14.76190476190476,
+     18.095238095238095
     ]
    }
   ],
-  "merknad": "alt er svarene med reserveverdien ρ = 0.50 (11.9048 og 14.7619)."
+  "merknad": "alt er svarene med reserveverdien ρ = 0.50: call 11.9048, put 14.7619 fra paritet eller 18.0952 direkte. Begge veiene er lov."
  },
  "mk-binomisk-2:1:c": {
   "type": "blandet",
   "tall": [
    {
-    "navn": "Cash flow today",
+    "navn": "Cash flow today per unit of the trade",
     "verdi": 2.2428571428571615,
-    "enhet": "NOK"
+    "enhet": "NOK",
+    "alt": [
+     1.0275132275132286,
+     1.2153439153439116
+    ]
    }
   ],
   "tallPoeng": 2,
-  "tekstLedd": "Is there an arbitrage? Describe it and its cash flows."
+  "tekstLedd": "Is there an arbitrage? Describe it and its cash flows.",
+  "merknad": "alt er gevinsten når bare én opsjon handles og sikres med replikasjon: call 1.0275, put 1.2153."
  },
  "mk-binomisk-2:1:d": {
   "type": "blandet",
@@ -366,7 +376,7 @@
   "type": "tall",
   "tall": [
    {
-    "navn": "Δ (shares, short −)",
+    "navn": "Δ (shares, long +, short −)",
     "verdi": -0.6521739130434783,
     "enhet": ""
    },
@@ -425,7 +435,7 @@
    },
    {
     "navn": "Equity value",
-    "verdi": 7.1425,
+    "verdi": 7.85675,
     "enhet": "USD bn"
    }
   ]
@@ -435,15 +445,15 @@
   "tall": [
    {
     "navn": "Debt value",
-    "verdi": 8.8575,
+    "verdi": 9.743250000000002,
     "enhet": "USD bn",
     "alt": [
-     8.5
+     9.350000000000001
     ]
    },
    {
     "navn": "Annual yield",
-    "verdi": 6.253787433948488,
+    "verdi": 6.253787433948466,
     "enhet": "%",
     "alt": [
      8.465228909328083
@@ -451,57 +461,58 @@
    },
    {
     "navn": "Spread",
-    "verdi": 3.753787433948488,
+    "verdi": 3.7537874339484656,
     "enhet": "%",
     "alt": [
      5.965228909328082
     ]
    }
   ],
-  "merknad": "alt er svarene med reserveverdien E = 7.5. Spredningen er i prosentpoeng."
+  "merknad": "alt er svarene med reserveverdien E = 8.25. Spredningen er i prosentpoeng."
  },
  "mk-senior-junior-1:1:c": {
   "type": "tall",
   "tall": [
    {
     "navn": "Senior debt",
-    "verdi": 5.640000000000001,
+    "verdi": 6.204000000000001,
     "enhet": "USD bn"
    },
    {
     "navn": "Junior debt",
-    "verdi": 3.2174999999999994,
-    "enhet": "USD bn"
+    "verdi": 3.539250000000001,
+    "enhet": "USD bn",
+    "tol": 0.005
    },
    {
     "navn": "Equity",
-    "verdi": 7.1425,
+    "verdi": 7.85675,
     "enhet": "USD bn"
    }
   ],
-  "merknad": "Junior som én call med strike 16 gir 12.2000; det avvises."
+  "merknad": "Junior som én call med strike 16 gir 13.4200; det avvises."
  },
  "mk-senior-junior-1:1:d": {
   "type": "tall",
   "tall": [
    {
     "navn": "Senior yield",
-    "verdi": 3.14212462587935,
+    "verdi": 3.142124625879328,
     "enhet": "%",
     "alt": [
-     4.4465935734187
+     4.880884817015141
     ]
    },
    {
     "navn": "Junior yield",
-    "verdi": 11.498934667612115,
+    "verdi": 11.498934667612094,
     "enhet": "%",
     "alt": [
-     15.470053837925146
+     15.470053837925168
     ]
    }
   ],
-  "merknad": "alt er svarene med reserveverdiene 5.5 og 3.0."
+  "merknad": "alt er svarene med reserveverdiene 6.0 og 3.3."
  },
  "mk-senior-junior-1:1:e": {
   "type": "tekst"
@@ -622,9 +633,11 @@
    {
     "navn": "Equity value",
     "verdi": 7.3932,
-    "enhet": "EUR bn"
+    "enhet": "EUR bn",
+    "tol": 0.005
    }
-  ]
+  ],
+  "merknad": "tol 0,5 % så bid eller ask i stedet for midtkurs avvises."
  },
  "mk-senior-junior-3:1:b": {
   "type": "tall",
@@ -632,12 +645,14 @@
    {
     "navn": "Senior debt",
     "verdi": 8.232,
-    "enhet": "EUR bn"
+    "enhet": "EUR bn",
+    "tol": 0.005
    },
    {
     "navn": "Junior debt",
     "verdi": 2.3748000000000005,
-    "enhet": "EUR bn"
+    "enhet": "EUR bn",
+    "tol": 0.002
    }
   ],
   "merknad": "Junior som én call med strike 25 gir 15.2136; det avvises."
@@ -677,6 +692,27 @@
   "tekstLedd": "Do the two values agree?"
  },
  "mk-senior-junior-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-1:1:": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-2:1:a": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-2:1:b": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-2:1:c": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-3:1:a": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-3:1:b": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-3:1:c": {
   "type": "tekst"
  }
 }

@@ -54,11 +54,11 @@
       },
       {
         "navn": "Risk-neutral default probability ρ",
-        "verdi": 0.1553223192748323,
-        "enhet": "",
+        "verdi": 15.532231927483231,
+        "enhet": "%",
         "tol": 0.002,
         "alt": [
-          0.13066697890056234
+          13.066697890056233
         ]
       }
     ],
@@ -71,12 +71,15 @@
         "navn": "Expected annual return",
         "verdi": 5.917494959568592,
         "enhet": "%",
-        "tol": 0.005
+        "tol": 0.005,
+        "alt": [
+          6.487647324658741
+        ]
       }
     ],
     "tallPoeng": 2,
     "tekstLedd": "Compare it with the promised yield and with the risk-free rate.",
-    "merknad": "Toleranse 0,5 % så avkastningen over 1,5 år delt på 1,5 (6.0042%) avvises."
+    "merknad": "Toleranse 0,5 % så avkastningen over 1,5 år delt på 1,5 (6.0042%) avvises. alt er svaret med reserveprisen 89."
   },
   "mk-cds-3:1:e": {
     "type": "tekst"

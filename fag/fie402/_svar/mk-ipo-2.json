@@ -1,0 +1,96 @@
+{
+  "mk-ipo-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Oversubscription, good IPO",
+        "verdi": 2.0,
+        "enhet": ""
+      },
+      {
+        "navn": "Oversubscription, bad IPO",
+        "verdi": 1.25,
+        "enhet": ""
+      },
+      {
+        "navn": "Fill rate, good IPO",
+        "verdi": 50.0,
+        "enhet": "%"
+      },
+      {
+        "navn": "Fill rate, bad IPO",
+        "verdi": 80.0,
+        "enhet": "%"
+      }
+    ]
+  },
+  "mk-ipo-2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Uninformed return",
+        "verdi": -6.122448979591836,
+        "enhet": "%",
+        "alt": [
+          -8.074534161490684
+        ]
+      }
+    ],
+    "merknad": "alt (−8.0745%) er svaret med reservefyllingsgradene 40 % og 75 %."
+  },
+  "mk-ipo-2:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Price",
+        "verdi": 92.0,
+        "enhet": "NOK",
+        "alt": [
+          90.08695652173913
+        ]
+      }
+    ],
+    "merknad": "alt (90.0870) er svaret med reservefyllingsgradene."
+  },
+  "mk-ipo-2:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Left on the table, good IPO",
+        "verdi": 64.0,
+        "enhet": "NOK m",
+        "alt": [
+          68.0
+        ]
+      },
+      {
+        "navn": "Left on the table, bad IPO",
+        "verdi": -40.0,
+        "enhet": "NOK m",
+        "alt": [
+          -36.0
+        ]
+      },
+      {
+        "navn": "Average per IPO",
+        "verdi": 12.0,
+        "enhet": "NOK m",
+        "alt": [
+          16.0
+        ]
+      },
+      {
+        "navn": "Average first-day return",
+        "verdi": 6.521739130434789,
+        "enhet": "%",
+        "alt": [
+          8.888888888888879
+        ]
+      }
+    ],
+    "merknad": "Fortegnet er definert i oppgaven (verdi minus proveny), så +40 for den dårlige IPO-en er feil. alt er svarene med reserveprisen 90."
+  },
+  "mk-ipo-2:1:e": {
+    "type": "tekst"
+  }
+}

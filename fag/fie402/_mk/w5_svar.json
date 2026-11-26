@@ -105,14 +105,17 @@
   "type": "blandet",
   "tall": [
    {
-    "navn": "Change for bondholders",
+    "navn": "Change for bondholders (negative for a loss)",
     "verdi": 22.5,
     "enhet": "$ m"
    },
    {
-    "navn": "Change for existing shareholders",
+    "navn": "Change for existing shareholders (negative for a loss)",
     "verdi": -13.5,
-    "enhet": "$ m"
+    "enhet": "$ m",
+    "alt": [
+     13.5
+    ]
    }
   ],
   "tallPoeng": 2,
@@ -159,12 +162,15 @@
     "enhet": "€ m"
    },
    {
-    "navn": "Change for Altmark",
+    "navn": "Change for Altmark (negative for a loss)",
     "verdi": -16.000000000000007,
-    "enhet": "€ m"
+    "enhet": "€ m",
+    "alt": [
+     16.000000000000007
+    ]
    },
    {
-    "navn": "Change for the bank",
+    "navn": "Change for the bank (negative for a loss)",
     "verdi": 36.00000000000003,
     "enhet": "€ m"
    }
@@ -241,8 +247,8 @@
   "tall": [
    {
     "navn": "Risk-neutral default probability ρ",
-    "verdi": 0.11849901250822857,
-    "enhet": ""
+    "verdi": 11.849901250822857,
+    "enhet": "%"
    }
   ],
   "merknad": "Overlevelsessannsynligheten 0.8815 er fellen og avvises."
@@ -316,8 +322,8 @@
   "tall": [
    {
     "navn": "Risk-neutral default probability ρ",
-    "verdi": 0.11316872427983576,
-    "enhet": ""
+    "verdi": 11.316872427983576,
+    "enhet": "%"
    },
    {
     "navn": "Price of one CDS contract",
@@ -406,11 +412,11 @@
    },
    {
     "navn": "Risk-neutral default probability ρ",
-    "verdi": 0.1553223192748323,
-    "enhet": "",
+    "verdi": 15.532231927483231,
+    "enhet": "%",
     "tol": 0.002,
     "alt": [
-     0.13066697890056234
+     13.066697890056233
     ]
    }
   ],
@@ -423,12 +429,15 @@
     "navn": "Expected annual return",
     "verdi": 5.917494959568592,
     "enhet": "%",
-    "tol": 0.005
+    "tol": 0.005,
+    "alt": [
+     6.487647324658741
+    ]
    }
   ],
   "tallPoeng": 2,
   "tekstLedd": "Compare it with the promised yield and with the risk-free rate.",
-  "merknad": "Toleranse 0,5 % så avkastningen over 1,5 år delt på 1,5 (6.0042%) avvises."
+  "merknad": "Toleranse 0,5 % så avkastningen over 1,5 år delt på 1,5 (6.0042%) avvises. alt er svaret med reserveprisen 89."
  },
  "mk-cds-3:1:e": {
   "type": "tekst"
@@ -483,21 +492,33 @@
   "type": "tall",
   "tall": [
    {
-    "navn": "Change in the value of the loan",
+    "navn": "Change in the value of the loan (negative if it falls)",
     "verdi": -60.0,
-    "enhet": "NOK m"
+    "enhet": "NOK m",
+    "alt": [
+     60.0,
+     -70.0,
+     70.0
+    ]
    },
    {
     "navn": "Wealth transfer to the shareholders",
     "verdi": 40.0,
-    "enhet": "NOK m"
+    "enhet": "NOK m",
+    "alt": [
+     45.0
+    ]
    },
    {
     "navn": "Loss of value",
     "verdi": 20.0,
-    "enhet": "NOK m"
+    "enhet": "NOK m",
+    "alt": [
+     25.0
+    ]
    }
-  ]
+  ],
+  "merknad": "alt godtar fallet som positivt tall og svarene med reserveverdiene fra (c)."
  },
  "mk-risikoskifting-1:1:e": {
   "type": "blandet",
@@ -519,7 +540,7 @@
    }
   ],
   "tallPoeng": 2,
-  "tekstLedd": "Would the manager still switch?"
+  "tekstLedd": "Will the manager switch?"
  },
  "mk-risikoskifting-1:1:f": {
   "type": "tekst"
@@ -571,23 +592,35 @@
   "type": "blandet",
   "tall": [
    {
-    "navn": "Change in the value of the bonds",
+    "navn": "Change in the value of the bonds (negative if it falls)",
     "verdi": -52.5,
-    "enhet": "$ m"
+    "enhet": "$ m",
+    "alt": [
+     52.5,
+     -55.0,
+     55.0
+    ]
    },
    {
     "navn": "Wealth transfer to the shareholders",
     "verdi": 32.5,
-    "enhet": "$ m"
+    "enhet": "$ m",
+    "alt": [
+     30.0
+    ]
    },
    {
     "navn": "Loss of value",
     "verdi": 20.0,
-    "enhet": "$ m"
+    "enhet": "$ m",
+    "alt": [
+     25.0
+    ]
    }
   ],
   "tallPoeng": 3,
-  "tekstLedd": "Where does the loss of value come from?"
+  "tekstLedd": "Where does the loss of value come from?",
+  "merknad": "alt godtar fallet som positivt tall og svarene med reserveverdiene fra (b)."
  },
  "mk-risikoskifting-2:1:d": {
   "type": "tall",
@@ -595,10 +628,13 @@
    {
     "navn": "Largest s",
     "verdi": 31.666666666666668,
-    "enhet": "$ m"
+    "enhet": "$ m",
+    "alt": [
+     28.333333333333332
+    ]
    }
   ],
-  "merknad": "Svaret er s ≤ 95/3. Å trekke s bare fra Equipment gir 95, utenfor regionen."
+  "merknad": "Svaret er s ≤ 95/3. alt er svaret med reserveverdien 100 fra (a). Å trekke s bare fra Equipment gir 95, utenfor regionen."
  },
  "mk-risikoskifting-2:1:e": {
   "type": "tekst"
@@ -650,26 +686,41 @@
   "type": "tall",
   "tall": [
    {
-    "navn": "Change in the value of the loan",
+    "navn": "Change in the value of the loan (negative if it falls)",
     "verdi": -45.500000000000014,
-    "enhet": "£ m"
+    "enhet": "£ m",
+    "alt": [
+     45.500000000000014,
+     -40.0,
+     40.0
+    ]
    },
    {
     "navn": "Wealth transfer to the shareholders",
     "verdi": 15.0,
-    "enhet": "£ m"
+    "enhet": "£ m",
+    "alt": [
+     12.0
+    ]
    },
    {
     "navn": "Loss of value",
     "verdi": 30.5,
-    "enhet": "£ m"
+    "enhet": "£ m",
+    "alt": [
+     28.0
+    ]
    },
    {
-    "navn": "Part of the loss from the fire sale",
+    "navn": "Part due to the higher expected fire-sale loss",
     "verdi": 4.5,
-    "enhet": "£ m"
+    "enhet": "£ m",
+    "alt": [
+     2.0
+    ]
    }
-  ]
+  ],
+  "merknad": "alt godtar fallet som positivt tall og svarene med reserveverdiene (fall 40, økning 12)."
  },
  "mk-risikoskifting-3:1:d": {
   "type": "tall",
@@ -698,6 +749,310 @@
   "merknad": "Uten brannsalg blir pålydendene 193.3333 og 104.2857; begge avvises. Antar man at lederen beholder planen uten covenant, blir pålydendet 115.8571."
  },
  "mk-risikoskifting-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-entreprenor-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Expected payoff",
+    "verdi": 5.04,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Investors' fraction",
+    "verdi": 66.66666666666667,
+    "enhet": "%"
+   },
+   {
+    "navn": "Dana's expected cash flow with equity",
+    "verdi": 1.6799999999999997,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Dana's expected cash flow with the loan",
+    "verdi": 1.9500000000000002,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "mk-entreprenor-1:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Dana's stake with the loan",
+    "verdi": 1.5,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Why is the loan risk-free?"
+ },
+ "mk-entreprenor-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Amount in the risk-free asset",
+    "verdi": 0.9999999999999998,
+    "enhet": "$ m",
+    "alt": [
+     1.2
+    ]
+   },
+   {
+    "navn": "Amount in the market portfolio",
+    "verdi": 0.4999999999999999,
+    "enhet": "$ m",
+    "alt": [
+     0.6000000000000001
+    ]
+   },
+   {
+    "navn": "Dana's stake with equity",
+    "verdi": 1.4999999999999996,
+    "enhet": "$ m",
+    "alt": [
+     1.8
+    ]
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Compare with (b).",
+  "merknad": "alt er svarene med reserveandelen 40 %."
+ },
+ "mk-entreprenor-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Investors' stake",
+    "verdi": 3.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Value of the farm",
+    "verdi": 4.5,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Dana's expected return with the loan",
+    "verdi": 30.000000000000004,
+    "enhet": "%",
+    "alt": [
+     39.2857142857143
+    ]
+   },
+   {
+    "navn": "Dana's expected return with equity",
+    "verdi": 12.00000000000001,
+    "enhet": "%",
+    "alt": [
+     19.999999999999996
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdien 1.4. NPV med r_f (1.8932) er fellen."
+ },
+ "mk-entreprenor-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-entreprenor-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Expected return on the market",
+    "verdi": 15.0,
+    "enhet": "%"
+   },
+   {
+    "navn": "Expected payoff",
+    "verdi": 7.84,
+    "enhet": "€ m"
+   }
+  ]
+ },
+ "mk-entreprenor-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Amount in the market portfolio",
+    "verdi": 5.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Amount in the risk-free asset",
+    "verdi": 2.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Value of the business",
+    "verdi": 7.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "NPV",
+    "verdi": 1.4000000000000004,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Expected return",
+    "verdi": 11.99999999999999,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Diskontering med r_f gir 7.5024; det avvises."
+ },
+ "mk-entreprenor-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Amount in the market portfolio",
+    "verdi": 5.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Amount in the risk-free asset (negative if borrowed)",
+    "verdi": -3.5999999999999996,
+    "enhet": "€ m",
+    "alt": [
+     3.5999999999999996
+    ]
+   },
+   {
+    "navn": "Lena's stake",
+    "verdi": 1.4000000000000004,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Is the loan risk-free?"
+ },
+ "mk-entreprenor-2:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Lena's stake with the angel",
+    "verdi": 1.75,
+    "enhet": "€ m",
+    "alt": [
+     1.625
+    ]
+   },
+   {
+    "navn": "The angel's expected return",
+    "verdi": 5.000000000000004,
+    "enhet": "%"
+   },
+   {
+    "navn": "Largest fraction",
+    "verdi": 80.0,
+    "enhet": "%",
+    "alt": [
+     86.15384615384615
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Should Lena accept the angel's offer?",
+  "merknad": "alt er svarene med reserveverdien 6.5."
+ },
+ "mk-entreprenor-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-entreprenor-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Expected return on the market",
+    "verdi": 20.0,
+    "enhet": "%"
+   },
+   {
+    "navn": "Expected payoff",
+    "verdi": 9.299999999999999,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "mk-entreprenor-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value of the centre",
+    "verdi": 8.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 16.249999999999986,
+    "enhet": "%"
+   },
+   {
+    "navn": "β<sub>U</sub>",
+    "verdi": 0.75,
+    "enhet": ""
+   }
+  ]
+ },
+ "mk-entreprenor-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Bank loan",
+    "verdi": 1.6,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Ida's equity",
+    "verdi": 6.4,
+    "enhet": "NOK m",
+    "alt": [
+     6.9
+    ]
+   },
+   {
+    "navn": "β<sub>E</sub>",
+    "verdi": 0.9375,
+    "enhet": "",
+    "alt": [
+     0.9855072463768115
+    ]
+   },
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 19.062500000000004,
+    "enhet": "%",
+    "alt": [
+     19.782608695652176
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdiene V = 8.5 og β_U = 0.8."
+ },
+ "mk-entreprenor-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "New β<sub>E</sub>",
+    "verdi": 1.5,
+    "enhet": "",
+    "alt": [
+     1.6
+    ]
+   },
+   {
+    "navn": "New r<sub>E</sub>",
+    "verdi": 27.500000000000004,
+    "enhet": "%",
+    "alt": [
+     29.000000000000004
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Is the new loan risk-free?",
+  "merknad": "D/V brukt som D/E gir β_E = 1.125; det avvises. alt er svarene med β_U = 0.8."
+ },
+ "mk-entreprenor-3:1:e": {
   "type": "tekst"
  }
 }

@@ -1,0 +1,84 @@
+{
+  "mk-skatt-rekap-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>U</sup>",
+        "verdi": 700.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Share price",
+        "verdi": 28.0,
+        "enhet": "€ per share"
+      }
+    ]
+  },
+  "mk-skatt-rekap-3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Tax shield in Year 1",
+        "verdi": 3.675,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 61.25,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "V<sup>L</sup>",
+        "verdi": 761.25,
+        "enhet": "€ m"
+      }
+    ],
+    "merknad": "Fellene 183.75 (r_D) og 45.9375 (uten vekst) avvises."
+  },
+  "mk-skatt-rekap-3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Debt today",
+        "verdi": 367.5,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Share price on announcement",
+        "verdi": 30.45,
+        "enhet": "€ per share",
+        "alt": [
+          31.6
+        ]
+      }
+    ],
+    "merknad": "alt 31.60 er svaret med reserveverdien V^L = 790."
+  },
+  "mk-skatt-rekap-3:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Shares repurchased",
+        "verdi": 12.0689655172,
+        "enhet": "m shares",
+        "alt": [
+          9.375,
+          11.6297468354
+        ]
+      },
+      {
+        "navn": "Shares remaining",
+        "verdi": 12.9310344828,
+        "enhet": "m shares",
+        "alt": [
+          15.625,
+          13.3702531646
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveverdiene (gjeld 300, kurs 32.00): 9.3750 og 15.6250, og med gjelden 367.5 og reservekursen 31.60 fra (c): 11.6297 og 13.3703. Fellen 13.1250 (gammel kurs) avvises."
+  },
+  "mk-skatt-rekap-3:1:e": {
+    "type": "tekst"
+  }
+}

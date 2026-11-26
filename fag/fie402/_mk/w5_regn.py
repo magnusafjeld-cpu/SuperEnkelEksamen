@@ -353,6 +353,9 @@ avkC = EpC / P2C - 1                                # over 1,5 år
 ErC = (EpC / P2C) ** (1 / TC) - 1
 ErC_delt = avkC / TC                                # felle: delt på 1,5
 assert rfC < ErC < yC and rel(ErC_delt, ErC) > 0.005 and rel(avkC, ErC) > 0.05
+P2C_res = 89.0                                      # reserveverdi i d)
+ErC_res = (EpC / P2C_res) ** (1 / TC) - 1
+assert rel(ErC_res, ErC) > 0.05
 # e) analytikerne hever p til 8 %, prisen står stille
 pC2 = 0.08
 EpC2 = (1 - pC2) * FC + pC2 * RC
@@ -388,6 +391,11 @@ D4_e = p4e * gjeld(H4, K4) + (1 - p4e) * gjeld(L4, K4)
 E4_e = p4e * ek(H4, K4) + (1 - p4e) * ek(L4, K4)
 V4_e = p4e * H4 + (1 - p4e) * L4
 assert E4_e > 0 and near(D4_e + E4_e, V4_e)
+# reserveverdi i d): lånet 150 og aksjene 45 etter byttet
+D4_res, E4_res = 150.0, 45.0
+dD4_res, overf4_res = D4_res - D4_0, E4_res - E4_0
+tap4_res = -dD4_res - overf4_res
+assert rel(dD4_res, dD4) > 0.05 and rel(overf4_res, overf4) > 0.05 and rel(tap4_res, tap4) > 0.05
 vis("risikoskifting-1", D0=D4_0, E0=E4_0, V_r=V4_r, NPV=NPV4, D_r=D4_r, E_r=E4_r, dD=dD4, overf=overf4,
     tap=tap4, D_e=D4_e, E_e=E4_e, V_e=V4_e)
 
@@ -432,6 +440,14 @@ assert near(spin5(ss5, "Equipment")[1], E5_0)
 assert U5["Equipment"][0] - ss5 >= F5 and U5["Equipment"][1] - ss5 >= 0   # regionen holder
 assert spin5(ss5, "Services")[1] < E5_0              # det andre valget er verre ved s*
 assert spin5(ss5 - 0.01, "Equipment")[1] > E5_0 > spin5(ss5 + 0.01, "Equipment")[1]
+# reserveverdier i c) og d)
+D5_res, E5_res = 90.0, 125.0
+dD5_res, overf5_res = D5_res - D5_0, E5_res - E5_0
+tap5_res = -dD5_res - overf5_res
+assert rel(dD5_res, dD5) > 0.02 and rel(overf5_res, overf5) > 0.02 and rel(tap5_res, tap5) > 0.02
+E5_0_res = 100.0
+ss5_res = (p5 * (U5["Equipment"][0] - F5) + p5 * sum(U5["Services"]) - E5_0_res) / (p5 + 1)
+assert rel(ss5_res, ss5) > 0.05 and U5["Equipment"][0] - ss5_res >= F5
 vis("risikoskifting-2", H=H5, L=L5, D0=D5_0, E0=E5_0, V0=V5_0, D_eq=D5_eq, E_eq=E5_eq, D_sv=D5_sv, E_sv=E5_sv,
     dD=dD5, overf=overf5, tap=tap5, s_stjerne=ss5)
 
@@ -479,9 +495,149 @@ Er6_ex = krav6(r6, Hr6, Lr6, Fr6)[1]
 Ec6_ex = krav6(q6, H6, L6, Fc6)[1]
 gev6 = Ec6_ex - Er6_ex
 assert near(gev6, tapV6 + tapB6)                      # eierne bærer hele effektivitetstapet på forhånd
+# reserveverdier i c): lånet faller 40 og aksjene stiger 12
+dD6_res, overf6_res = -40.0, 12.0
+tap6_res = -dD6_res - overf6_res
+tapB6_res = tap6_res - tapV6                          # aktivatapet 26 regnes fra teksten
+assert tapB6_res > 0 and rel(tap6_res, tapV6 + tapB6) > 0.05 and rel(tapB6_res, tapB6) > 0.05
 vis("risikoskifting-3", D0=D6_0, E0=E6_0, T0=T6_0, V0=V6_0, V_r=V6_r, D_r=D6_r, E_r=E6_r, T_r=T6_r, dD=dD6,
     overf=overf6, tapV=tapV6, tapB=tapB6, D0_uten=D6_0_uten, F_risk=Fr6, F_cov=Fc6, E_risk=Er6_ex,
     E_cov=Ec6_ex, gevinst=gev6)
+
+
+# ======================================================================
+#  mk-entreprenor-1: Dana Whitlock, vertikal gård (forelesning 02, 5:23 til 42:44)
+# ======================================================================
+I7, H7, L7, rf7, mH7, pE7, rE7 = 3.0, 6.99, 3.09, 0.03, 1.60, 0.5, 0.12   # markedet +160 % / −100 %
+EX7 = pE7 * H7 + (1 - pE7) * L7
+ERm7 = pE7 * mH7 + (1 - pE7) * (-1.0)
+assert near(L7, I7 * (1 + rf7))                       # lånet på 3 er akkurat risikofritt
+# replikasjon: risikofri del L/(1+rf), resten som markedet (betaler 1 + mH i boom, 0 i bust)
+V7 = L7 / (1 + rf7) + (H7 - L7) / (1 + mH7)
+assert near(V7, 4.5) and near(EX7 / V7 - 1, rE7)      # investorenes krav stemmer med replikasjonen
+x7 = I7 * (1 + rE7) / EX7                             # andelen investorene krever
+CFe7 = (1 - x7) * EX7                                 # Danas forventede kontantstrøm med EK
+CFd7 = EX7 - I7 * (1 + rf7)                           # med lånet
+# b) lånet: Dana får H − 3,09 i boom og 0 i bust
+eierH7_d, eierL7_d = H7 - L7, 0.0
+stake7_d = eierH7_d / (1 + mH7)
+# c) egenkapital: hun beholder 1 − x
+eierH7_e, eierL7_e = (1 - x7) * H7, (1 - x7) * L7
+rf_del7 = eierL7_e / (1 + rf7)
+m_del7 = (eierH7_e - eierL7_e) / (1 + mH7)
+stake7_e = rf_del7 + m_del7
+assert near(stake7_d, stake7_e) and near(stake7_d, V7 - I7)
+# reserveverdi i c): Dana beholder 40 %
+k7_res = 0.40
+stake7_e_res = k7_res * L7 / (1 + rf7) + k7_res * (H7 - L7) / (1 + mH7)
+rf_del7_res, m_del7_res = k7_res * L7 / (1 + rf7), k7_res * (H7 - L7) / (1 + mH7)
+assert rel(stake7_e_res, stake7_e) > 0.05
+# d) investorene, firmaet, forventet avkastning på Danas andel
+inv7 = x7 * L7 / (1 + rf7) + x7 * (H7 - L7) / (1 + mH7)
+assert near(inv7, I7) and near(inv7 + stake7_e, V7)
+Rd7 = CFd7 / stake7_d - 1
+Re7 = CFe7 / stake7_e - 1
+assert near(Rd7, ERm7) and near(Re7, rE7)             # med lån: like risikabel som markedet
+stake7_res = 1.4                                      # reserveverdi i d)
+Rd7_res, Re7_res = CFd7 / stake7_res - 1, CFe7 / stake7_res - 1
+NPV7_rf = EX7 / (1 + rf7) - I7                        # felle: risikable kontantstrømmer diskontert med r_f
+assert rel(NPV7_rf, V7 - I7) > 0.05
+vis("entreprenor-1", EX=EX7, ERm=ERm7, V=V7, x=x7, CFe=CFe7, CFd=CFd7, stake_d=stake7_d, rf_del=rf_del7,
+    m_del=m_del7, stake_e=stake7_e, stake_e_res=stake7_e_res, inv=inv7, Rd=Rd7, Re=Re7, Rd_res=Rd7_res,
+    Re_res=Re7_res, NPV_rf=NPV7_rf)
+
+# ======================================================================
+#  mk-entreprenor-2: Lena Brandt, el-sykkelutleie (markedet +50 % / −20 %)
+# ======================================================================
+I8, rf8, mH8, mL8, p8 = 5.6, 0.045, 0.50, -0.20, 0.5
+a8_, b8_ = 5.0, 2.0                                   # replikerende portefølje som definerer kontantstrømmene
+H8 = a8_ * (1 + mH8) + b8_ * (1 + rf8)
+L8 = a8_ * (1 + mL8) + b8_ * (1 + rf8)
+assert near(H8, 9.59) and near(L8, 6.09)
+ERm8 = p8 * mH8 + (1 - p8) * mL8
+EX8 = p8 * H8 + (1 - p8) * L8
+# b) replikasjon med to likninger
+a8 = (H8 - L8) / (mH8 - mL8)
+b8 = (L8 - a8 * (1 + mL8)) / (1 + rf8)
+V8 = a8 + b8
+NPV8 = V8 - I8
+rU8 = EX8 / V8 - 1
+assert near(a8, a8_) and near(b8, b8_) and near(V8, 7.0) and near(rU8, (a8 * ERm8 + b8 * rf8) / V8)
+# c) banklån på 5,6 til r_f
+F8 = I8 * (1 + rf8)
+assert F8 <= L8                                        # risikofritt
+eH8, eL8 = H8 - F8, L8 - F8
+ae8 = (eH8 - eL8) / (mH8 - mL8)
+be8 = (eL8 - ae8 * (1 + mL8)) / (1 + rf8)
+stake8_d = ae8 + be8
+assert near(stake8_d, NPV8) and be8 < 0               # hjemmelaget gearing: lån i den risikofrie
+# d) engelen tilbyr 5,6 for 75 %
+alfa8 = 0.75
+stake8_eng = (1 - alfa8) * V8
+alfa8_maks = I8 / V8
+Reng8 = alfa8 * EX8 / I8 - 1                          # engelens forventede avkastning
+assert stake8_eng > stake8_d and near(alfa8_maks, 0.8) and Reng8 < rU8
+V8_res = 6.5                                          # reserveverdi i d)
+stake8_eng_res, alfa8_maks_res = (1 - alfa8) * V8_res, I8 / V8_res
+assert rel(alfa8_maks_res, alfa8_maks) > 0.05
+alfa8_felle = I8 * (1 + rU8) / EX8                    # samme svar via forventet avkastning (ingen felle)
+assert near(alfa8_felle, alfa8_maks)
+V8_rf = EX8 / (1 + rf8)                               # felle: diskontert med r_f
+assert rel(V8_rf, V8) > 0.05
+vis("entreprenor-2", H=H8, L=L8, ERm=ERm8, EX=EX8, a=a8, b=b8, V=V8, NPV=NPV8, rU=rU8, F=F8, eH=eH8, eL=eL8,
+    ae=ae8, be=be8, stake_d=stake8_d, stake_eng=stake8_eng, alfa_maks=alfa8_maks, Reng=Reng8,
+    stake_eng_res=stake8_eng_res, alfa_maks_res=alfa8_maks_res, V_rf=V8_rf)
+
+# ======================================================================
+#  mk-entreprenor-3: Ida Sandvold, innendørs surfepark (relevering av beta)
+# ======================================================================
+I9, rf9, mH9, mL9, p9 = 6.0, 0.05, 0.45, -0.05, 0.5     # kostnad 6,0; Ida betaler 4,4 og låner 1,6
+a9_, b9_ = 6.0, 2.0
+H9 = a9_ * (1 + mH9) + b9_ * (1 + rf9)
+L9 = a9_ * (1 + mL9) + b9_ * (1 + rf9)
+assert near(H9, 10.8) and near(L9, 7.8)
+ERm9 = p9 * mH9 + (1 - p9) * mL9
+EX9 = p9 * H9 + (1 - p9) * L9
+a9 = (H9 - L9) / (mH9 - mL9)
+b9 = (L9 - a9 * (1 + mL9)) / (1 + rf9)
+V9 = a9 + b9
+rU9 = EX9 / V9 - 1
+bU9 = a9 / V9                                          # markedets vekt i den replikerende porteføljen
+assert near(V9, 8.0) and near(rU9, rf9 + bU9 * (ERm9 - rf9)) and near(bU9, 0.75)
+# c) lån på 1,6 til r_f, resten egne penger
+D9 = 1.6
+F9 = D9 * (1 + rf9)
+assert F9 <= L9
+E9 = V9 - D9
+bE9 = bU9 + D9 / E9 * (bU9 - 0)
+rE9 = rf9 + bE9 * (ERm9 - rf9)
+assert near(rE9, (EX9 - F9) / E9 - 1)                 # samme r_E fra aksjenes forventede utbetaling
+assert near(rE9, rU9 + D9 / E9 * (rU9 - rf9))         # MM II
+# d) banken låner mer så D/V = 50 %, det ekstra betales ut til Ida
+dv9 = 0.5
+D9n = dv9 * V9
+F9n = D9n * (1 + rf9)
+assert F9n <= L9                                       # fortsatt risikofritt
+E9n = V9 - D9n
+bE9n = bU9 + D9n / E9n * bU9
+rE9n = rf9 + bE9n * (ERm9 - rf9)
+assert near(rE9n, (EX9 - F9n) / E9n - 1)
+assert near(rU9, E9n / V9 * rE9n + D9n / V9 * rf9)    # WACC uendret = r_U
+bE9n_felle = bU9 * (1 + dv9)                           # felle: D/V brukt som D/E
+assert rel(bE9n_felle, bE9n) > 0.05
+Dmaks9 = L9 / (1 + rf9)                                # største risikofrie lån
+# reserveverdier i c) og d): V = 8,5 og beta_U = 0,8
+V9_res, bU9_res = 8.5, 0.8
+E9_res = V9_res - D9
+bE9_res = bU9_res * (1 + D9 / E9_res)
+rE9_res = rf9 + bE9_res * (ERm9 - rf9)
+bE9n_res = bU9_res * 2
+rE9n_res = rf9 + bE9n_res * (ERm9 - rf9)
+D9n_res = dv9 * V9_res
+assert rel(bE9_res, bE9) > 0.02 and rel(bE9n_res, bE9n) > 0.02
+vis("entreprenor-3", H=H9, L=L9, ERm=ERm9, EX=EX9, a=a9, b=b9, V=V9, rU=rU9, bU=bU9, D=D9, F=F9, E=E9,
+    bE=bE9, rE=rE9, Dn=D9n, Fn=F9n, En=E9n, bEn=bE9n, rEn=rE9n, bEn_felle=bE9n_felle, Dmaks=Dmaks9,
+    E_res=E9_res, bE_res=bE9_res, rE_res=rE9_res, bEn_res=bE9n_res, rEn_res=rE9n_res)
 
 
 # ======================================================================
@@ -557,8 +713,7 @@ OPPG["mk-gjeldsoverheng-1"] = {
              f"({g(I1)}/{g(ek(H1 + d1, F1))} = {pc(x1_felle_hoy)}) forgets the probability.",
              f"Sigurd's payoff (1 − x) × {g(E1_med)} = {g(eier1)}, compared with {g(E1_0)} without the line: he "
              "does not install it.",
-             f"The bank: the loan rises from {g(D1_0)} to {g(D1_med)}, so the bank wants the line.",
-             "Show the calculation."]},
+             f"The bank: the loan rises from {g(D1_0)} to {g(D1_med)}, so the bank wants the line."]},
         {"label": "d", "points": 5,
          "body": (
              "<p>Sigurd offers the bank to replace its loan with a new zero-coupon loan with a face value of "
@@ -687,8 +842,7 @@ OPPG["mk-gjeldsoverheng-2"] = {
              f"Existing shareholders: {g(E2_med)} − {g(I2)} = {g(gml2)}, below {g(E2_0)}, so the manager, acting "
              "for them, does not install the system.",
              "Bonus: says that the firm forgoes a positive-NPV project because of its debt (Kurbatov's key "
-             "sentence).",
-             "Show the calculation."]},
+             "sentence)."]},
         {"label": "c", "points": 4,
          "body": (
              "<p>Who gains and who loses if the system is installed as in (b)? Check that the gains and losses "
@@ -1252,7 +1406,8 @@ OPPG["mk-cds-3"] = {
         {"label": "d", "points": 4,
          "body": (
              "<p>What is the expected annual return on a Vellmar bond, using the analysts' probability? Compare it "
-             "with the promised yield and with the risk-free rate.</p>"),
+             f"with the promised yield and with the risk-free rate. (If you could not solve (a), use a price of "
+             f"€{g(P2C_res)}.)</p>"),
          "solution": (
              f"<p>E[payoff] = {g(1 - pC)} × 100 + {g(pC)} × {g(RC)} = {g((1 - pC) * FC)} + {g(pC * RC)} = "
              f"{g(EpC)} in 1.5 years.<br>Return over the 1.5 years = {g(EpC)}/{f(P2C)} − 1 = {pc(avkC, 4)}<br>"
@@ -1261,7 +1416,8 @@ OPPG["mk-cds-3"] = {
              f"expected return is lower. It stays above the risk-free {pc(rfC, 0)}: the difference is the risk "
              "premium for default risk that is systematic. That premium is also why ρ from (c) is higher than the "
              f"analysts' {pc(pC, 1)}. Dividing {pc(avkC, 4)} by 1.5 ({pc(ErC_delt, 4)}) does not give the annual "
-             "rate.</p>"),
+             f"rate. With the fallback price of {g(P2C_res)} the expected annual return is ({g(EpC)}/"
+             f"{g(P2C_res)})<sup>1/1.5</sup> − 1 = {pc(ErC_res, 4)}.</p>"),
          "criteria": [
              f"Expected payoff {g(1 - pC)} × 100 + {g(pC)} × {g(RC)} = {g(EpC)} with the analysts' probability.",
              f"Annualises correctly: ({g(EpC)}/{f(P2C)})^(1/1.5) − 1 = {pc(ErC)} a year. Reporting the 1.5-year "
@@ -1348,12 +1504,12 @@ OPPG["mk-risikoskifting-1"] = {
              "value, 0).",
              f"Bank loan 0.5 × {g(K4)} + 0.5 × {g(L4)} = {g(D4_r)}.",
              f"Shares 0.5 × ({g(H4)} − {g(K4)}) = {g(E4_r)}.",
-             f"The manager switches, because {g(E4_r)} is more than 0, even though the firm loses value.",
-             "Show the calculation."]},
+             f"The manager switches, because {g(E4_r)} is more than 0, even though the firm loses value."]},
         {"label": "d", "points": 4,
          "body": (
              "<p>By how much does the switch change the value of the bank loan? Split the change into a wealth "
-             "transfer to the shareholders and a loss of value.</p>"),
+             "transfer to the shareholders and a loss of value. (If you could not solve (c), use a loan worth "
+             f"{g(D4_res)} and shares worth {g(E4_res)} after the switch.)</p>"),
          "solution": (
              f"<p>The bank loan falls from {g(D4_0)} to {g(D4_r)}: a change of <b>{g(dD4)}</b>.</p>"
              + tab(["Part of the bank's loss", "Amount", "Why"],
@@ -1364,7 +1520,10 @@ OPPG["mk-risikoskifting-1"] = {
              + f"<p><b>Check.</b> {g(overf4)} + {g(tap4)} = {g(-dD4)} ✓. In other words, the {g(A4)} the bank "
                f"would have received splits into {g(D4_r)} it still expects, {g(overf4)} that goes to the "
                f"shareholders and {g(tap4)} that disappears. The bank pays for both the transfer and the "
-               "inefficiency.</p>"),
+               "inefficiency.</p>"
+               f"<p>With the fallback values the loan changes by {g(D4_res)} − {g(D4_0)} = {g(dD4_res)}, the "
+               f"transfer is {g(overf4_res)} and the loss of value {g(-dD4_res)} − {g(overf4_res)} = "
+               f"{g(tap4_res)}.</p>"),
          "criteria": [
              f"Change in the loan: {g(D4_r)} − {g(D4_0)} = {g(dD4)}.",
              f"Wealth transfer to the shareholders: {g(overf4)}.",
@@ -1373,11 +1532,11 @@ OPPG["mk-risikoskifting-1"] = {
         {"label": "e", "points": 3,
          "body": (
              f"<p>Suppose the probability of the good outcome were only {pc(p4e, 0)}, with the two values "
-             "unchanged. Would the manager still switch? What would the bank loan, the shares and the assets then "
-             "be worth?</p>"),
+             "unchanged. Will the manager switch? What would the bank loan, the shares and the assets then be "
+             "worth?</p>"),
          "solution": (
-             f"<p>Shares = {g(p4e)} × {g(ek(H4, K4))} = <b>NOK {g(E4_e)} million</b>, still more than 0, so <b>the "
-             "manager still switches</b>.<br>"
+             f"<p>Shares = {g(p4e)} × {g(ek(H4, K4))} = <b>NOK {g(E4_e)} million</b>, more than 0, so <b>the "
+             "manager switches</b>.<br>"
              f"Bank loan = {g(p4e)} × {g(K4)} + {g(1 - p4e)} × {g(L4)} = {g(p4e * K4)} + {g((1 - p4e) * L4)} = <b>NOK "
              f"{g(D4_e)} million</b><br>Assets = {g(p4e)} × {g(H4)} + {g(1 - p4e)} × {g(L4)} = <b>NOK {g(V4_e)} "
              "million</b></p>"
@@ -1385,13 +1544,13 @@ OPPG["mk-risikoskifting-1"] = {
              f"{g(E4_e)}. The manager gambles however small the chance, because the shareholders have nothing to "
              "lose.</p>"),
          "criteria": [
-             f"Shares {g(p4e)} × {g(ek(H4, K4))} = {g(E4_e)}, above 0, so the manager still switches.",
+             f"Shares {g(p4e)} × {g(ek(H4, K4))} = {g(E4_e)}, above 0, so the manager switches.",
              f"Bank loan {g(p4e)} × {g(K4)} + {g(1 - p4e)} × {g(L4)} = {g(D4_e)}; assets {g(V4_e)}.",
-             "Notes that any positive chance of survival is enough for the manager."]},
+             "Bonus: notes that any positive chance of survival is enough for the manager."]},
         {"label": "f", "points": 3,
          "body": (
-             "<p>Explain briefly why the manager switches even when the chance of success is small. If the bank "
-             "had foreseen this behaviour when it made the loan, who would in the end bear the cost?</p>"),
+             "<p>Explain briefly what drives the manager's choice in (c) and (e). If the bank had foreseen this "
+             "behaviour when it made the loan, who would in the end bear the cost?</p>"),
          "solution": (
              "<p><b>Why the manager gambles.</b> With limited liability the shareholders get zero whether the firm "
              "defaults with the contract or fails with the export strategy. They keep every krone above the face "
@@ -1467,12 +1626,12 @@ OPPG["mk-risikoskifting-2"] = {
              "Services).",
              f"Bonds on Services: bonds {g(D5_sv)}, all shares {g(E5_sv)}.",
              f"The CEO splits and puts the bonds on Equipment, because {g(E5_eq)} is more than {g(E5_sv)} and "
-             f"{g(E5_0)}.",
-             "Show the calculation."]},
+             f"{g(E5_0)}."]},
         {"label": "c", "points": 4,
          "body": (
              "<p>Split the change in the value of the bonds caused by the CEO's choice into a wealth transfer to "
-             "the shareholders and a loss of value. Explain briefly where the loss of value comes from.</p>"),
+             "the shareholders and a loss of value. Explain briefly where the loss of value comes from. (If you "
+             f"could not solve (b), use bonds worth {g(D5_res)} and shares worth {g(E5_res)} after the split.)</p>"),
          "solution": (
              tab(["Claim", "Before the split", "After the split", "Change"],
                  [["Bonds", g(D5_0), g(D5_eq), g(dD5)], ["Shares", g(E5_0), g(E5_eq), sg(overf5)],
@@ -1482,16 +1641,21 @@ OPPG["mk-risikoskifting-2"] = {
                f"<p>The loss of value is the lost synergies, {g(s5)} in each division in both states: 2 × {g(s5)} = "
                f"{g(tap5)}. The bonds were safe because the stable division covered the bust; after the split they "
                "carry all of Equipment's bust risk. This is risk shifting: the shareholders gain although the firm is "
-               "worth less.</p>"),
+               "worth less.</p>"
+               f"<p>With the fallback values the bonds change by {g(D5_res)} − {g(D5_0)} = {g(dD5_res)}, the "
+               f"transfer is {g(overf5_res)} and the loss of value {g(-dD5_res)} − {g(overf5_res)} = "
+               f"{g(tap5_res)}.</p>"),
          "criteria": [
              f"Change in the bonds {g(D5_eq)} − {g(D5_0)} = {g(dD5)}.",
              f"Wealth transfer to the shareholders {g(overf5)} ({g(E5_0)} to {g(E5_eq)}); loss of value {g(tap5)}.",
              f"The parts add up: {g(overf5)} + {g(tap5)} = {g(-dD5)}.",
-             "The loss of value is the lost synergies; the bonds lose the protection of the stable division."]},
+             "The loss of value is the lost synergies. Bonus: the bonds lose the protection of the stable "
+             "division."]},
         {"label": "d", "points": 4,
          "body": (
              "<p>Suppose instead that the split lowers the value of each division by s in both states. The CEO "
-             "assigns the bonds as in (b). What is the largest s at which the CEO would still split the firm?</p>"),
+             "assigns the bonds as in (b). What is the largest s at which the CEO would split the firm? (If you "
+             f"could not solve (a), use a share value of {g(E5_0_res)} without the split.)</p>"),
          "solution": (
              f"<p>With the bonds on Equipment, Equipment pays the bonds in full in a boom as long as "
              f"{g(U5['Equipment'][0])} − s ≥ {g(F5)}. It defaults in a bust. All shares are worth</p>"
@@ -1505,7 +1669,9 @@ OPPG["mk-risikoskifting-2"] = {
              f"<p><b>Check.</b> At s = {f(ss5)} Equipment is worth {f(U5['Equipment'][0] - ss5)} in a boom (above "
              f"{g(F5)}) and {f(U5['Equipment'][1] - ss5)} in a bust, so the assumed region holds ✓. Putting the "
              f"bonds on Services would give only {f(spin5(ss5, 'Services')[1])}. The shareholders would accept "
-             f"destroying up to 2 × {f(ss5)} = {f(2 * ss5)} of value, because the bondholders pay for it.</p>"),
+             f"destroying up to 2 × {f(ss5)} = {f(2 * ss5)} of value, because the bondholders pay for it. With the "
+             f"fallback share value of {g(E5_0_res)}, s ≤ {g(p5 * (U5['Equipment'][0] - F5) + p5 * sum(U5['Services']) - E5_0_res)}/1.5 = "
+             f"{f(ss5_res)}.</p>"),
          "criteria": [
              f"Share value with the bonds on Equipment as a function of s: "
              f"{g(p5 * (U5['Equipment'][0] - F5) + p5 * sum(U5['Services']))} − 1.5s (both divisions lose s).",
@@ -1595,7 +1761,9 @@ OPPG["mk-risikoskifting-3"] = {
         {"label": "c", "points": 4,
          "body": (
              "<p>Split the change in the value of the bank loan into a wealth transfer to the shareholders and a "
-             "loss of value. How much of the loss of value comes from the fire sale?</p>"),
+             "loss of value. How much of the loss of value is due to the higher expected fire-sale loss? (If you "
+             f"could not solve (a) or (b), use a fall in the value of the loan of {g(-dD6_res)} and a rise in the "
+             f"value of the shares of {g(overf6_res)}.)</p>"),
          "solution": (
              f"<p>The bank loan falls from {g(D6_0)} to {g(D6_r)}: a change of <b>{g(dD6)}</b>.</p>"
              + tab(["Part of the bank's loss", "Amount"],
@@ -1605,7 +1773,10 @@ OPPG["mk-risikoskifting-3"] = {
                     ["Total", g(-dD6)]])
              + f"<p>The loss of value is <b>{g(tapV6 + tapB6)}</b>, of which <b>{g(tapB6)}</b> comes from the fire "
                f"sale: bankruptcy becomes more likely ({pc(1 - r6, 0)} instead of {pc(1 - q6, 0)}), so more value is "
-               f"lost in fire sales. <b>Check.</b> {g(overf6)} + {g(tapV6)} + {g(tapB6)} = {g(-dD6)} ✓</p>"),
+               f"lost in fire sales. <b>Check.</b> {g(overf6)} + {g(tapV6)} + {g(tapB6)} = {g(-dD6)} ✓</p>"
+               f"<p>With the fallback values the loan changes by {g(dD6_res)}, the transfer is {g(overf6_res)}, "
+               f"the loss of value {g(-dD6_res)} − {g(overf6_res)} = {g(tap6_res)} and the part due to the fire "
+               f"sale {g(tap6_res)} − {g(tapV6)} = {g(tapB6_res)}.</p>"),
          "criteria": [
              f"Change in the loan {g(D6_r)} − {g(D6_0)} = {g(dD6)}.",
              f"Wealth transfer to the shareholders {g(overf6)}.",
@@ -1617,7 +1788,7 @@ OPPG["mk-risikoskifting-3"] = {
              f"<p>Suppose instead that the loan is made today: the bank lends £{g(X6)} million, which is paid out to the "
              "shareholders. The asset values are unchanged. The bank prices the loan fairly and foresees the "
              "manager's choice. What face value must the loan have? What face value would do if a covenant bound "
-             "Ashworth to its current plan? What are the shares worth in each case?</p>"),
+             "Ashworth to its current plan? What are the shares worth after the payout in each case?</p>"),
          "solution": (
              "<p><b>Without a covenant.</b> Suppose the bank expects the manager to take the large order. It then "
              "needs</p>"
@@ -1660,8 +1831,335 @@ OPPG["mk-risikoskifting-3"] = {
              "No: the shareholders get zero in bankruptcy whatever the fire sale raises, so the discount does not "
              "affect the manager's choice.",
              "After the loan is made, the bank bears the fire-sale losses through a lower recovery.",
-             "Before it is made, the bank prices them in, so the shareholders bear them; firms with assets that sell "
-             "badly in distress should borrow less (Kurbatov, recording 18, 26:46 to 28:35)."]},
+             "Before it is made, the bank prices them in, so the shareholders bear them. Bonus: firms with assets "
+             "that sell badly in distress should borrow less (Kurbatov, recording 18, 26:46 to 28:35)."]},
+    ],
+}
+
+# ---------------------------------------------------------------- entreprenor-1
+OPPG["mk-entreprenor-1"] = {
+    "n": 1, "title": "Capital Structure", "points": 20,
+    "topic": "MM in perfect markets, replication", "chapters": [6],
+    "merke": "Samme form som gründereksemplet i forelesning 02 (5:23 til 42:44)",
+    "body": (
+        f"<p>Dana Whitlock wants to start a vertical farm in Oregon. The building and the equipment cost "
+        f"${g(I7)} million today. In one year Dana sells the farm, which then pays ${g(H7)} million if the economy "
+        f"booms and ${g(L7)} million if it busts, each with probability 50%. Dana has no money of her own. She can "
+        f"raise the ${g(I7)} million from equity investors, who demand an expected return of {pc(rE7, 0)}, or as a "
+        f"bank loan at the risk-free rate of {pc(rf7, 0)}. The market portfolio returns +{pc(mH7, 0)} in a boom and "
+        "−100% in a bust; the farm booms and busts with the market. Markets are perfect and there are no taxes. "
+        "Value every claim by replicating it with the market portfolio and the risk-free asset. Use 4 decimal "
+        "places.</p>"),
+    "parts": [
+        {"label": "a", "points": 3,
+         "body": (
+             "<p>What is the farm's expected payoff? What fraction of the farm must the equity investors receive? "
+             "What is Dana's expected cash flow with equity financing and with the bank loan?</p>"),
+         "solution": (
+             f"<p>E[payoff] = 0.5 × {g(H7)} + 0.5 × {g(L7)} = <b>${g(EX7)} million</b></p>"
+             f"<p><b>Equity investors.</b> They put in {g(I7)} and want {g(I7)} × {g(1 + rE7)} = {g(I7 * (1 + rE7))} "
+             f"in expectation, so they need {g(I7 * (1 + rE7))}/{g(EX7)} = <b>2/3 = {pc(x7)}</b> of the farm. Dana "
+             f"keeps 1/3: her expected cash flow is {g(EX7)} − {g(I7 * (1 + rE7))} = <b>${g(CFe7)} million</b>.</p>"
+             f"<p><b>Bank loan.</b> Dana repays {g(I7)} × {g(1 + rf7)} = {g(L7)} in both states: expected cash flow "
+             f"{g(EX7)} − {g(L7)} = <b>${g(CFd7)} million</b>.</p>"),
+         "criteria": [
+             f"Expected payoff 0.5 × {g(H7)} + 0.5 × {g(L7)} = {g(EX7)}.",
+             f"Investors' fraction {g(I7 * (1 + rE7))}/{g(EX7)} = {pc(x7)}.",
+             f"Dana's expected cash flow {g(CFe7)} with equity and {g(CFd7)} with the loan."]},
+        {"label": "b", "points": 4,
+         "body": "<p>Show that the bank loan is risk-free. What is Dana's stake worth today with the bank loan?</p>",
+         "solution": (
+             f"<p><b>Risk-free.</b> The bank is owed {g(L7)}. Even in a bust the farm pays {g(L7)}, so the bank is paid "
+             "in full in both states.</p>"
+             f"<p><b>Dana's payoff.</b> Boom: {g(H7)} − {g(L7)} = {g(eierH7_d)}. Bust: 0.</p>"
+             f"<p><b>Replicate it.</b> $1 in the market portfolio pays {g(1 + mH7)} in a boom and 0 in a bust: the same "
+             f"pattern. Dana's stake is worth {g(eierH7_d)}/{g(1 + mH7)} = <b>${g(stake7_d)} million</b> in the "
+             "market portfolio and nothing in the risk-free asset.</p>"),
+         "criteria": [
+             f"The loan is risk-free: {g(I7)} × {g(1 + rf7)} = {g(L7)} is paid even in a bust.",
+             f"Dana gets {g(eierH7_d)} in a boom and 0 in a bust, the payoff pattern of the market portfolio.",
+             f"Stake = {g(eierH7_d)}/{g(1 + mH7)} = {g(stake7_d)}."]},
+        {"label": "c", "points": 5,
+         "body": (
+             "<p>What is Dana's stake worth with equity financing? Give the replicating portfolio and compare with "
+             f"(b). (If you could not solve (a), assume that Dana keeps {pc(k7_res, 0)} of the farm.)</p>"),
+         "solution": (
+             f"<p><b>Dana's payoff.</b> She keeps 1/3: {g(eierH7_e)} in a boom and {g(eierL7_e)} in a bust.</p>"
+             f"<p><b>Split it.</b> The {g(eierL7_e)} she gets in both states is risk-free; the remaining "
+             f"{g(eierH7_e)} − {g(eierL7_e)} = {g(eierH7_e - eierL7_e)} comes only in a boom, like the market.<br>"
+             f"Risk-free asset: {g(eierL7_e)}/{g(1 + rf7)} = <b>{g(rf_del7)}</b><br>"
+             f"Market portfolio: {g(eierH7_e - eierL7_e)}/{g(1 + mH7)} = <b>{g(m_del7)}</b><br>"
+             f"Stake = {g(rf_del7)} + {g(m_del7)} = <b>${g(stake7_e)} million</b>, the same as with the bank loan.</p>"
+             f"<p><b>Check.</b> The portfolio pays {g(rf_del7)} × {g(1 + rf7)} + {g(m_del7)} × {g(1 + mH7)} = "
+             f"{g(eierH7_e)} in a boom and {g(rf_del7)} × {g(1 + rf7)} = {g(eierL7_e)} in a bust ✓</p>"
+             f"<p>With the fallback {pc(k7_res, 0)}: {g(rf_del7_res)} in the risk-free asset and {g(m_del7_res)} in "
+             f"the market, a stake of {g(stake7_e_res)}.</p>"),
+         "criteria": [
+             f"Dana's payoff {g(eierH7_e)} and {g(eierL7_e)}.",
+             f"Replicating portfolio: {g(rf_del7)} in the risk-free asset and {g(m_del7)} in the market portfolio.",
+             f"Stake {g(stake7_e)}, the same as in (b).",
+             "Check that the portfolio pays Dana's payoff in both states is a bonus."]},
+        {"label": "d", "points": 4,
+         "body": (
+             "<p>What are the investors' stake and the farm worth with each form of financing? What "
+             "expected return does Dana earn on her stake with the bank loan and with equity financing? (If you "
+             f"could not solve (b) or (c), use a stake value of ${g(stake7_res)} million.)</p>"),
+         "solution": (
+             f"<p><b>Investors.</b> They get 2/3: {g(x7 * H7)} or {g(x7 * L7)}. Risk-free part {g(x7 * L7)}/"
+             f"{g(1 + rf7)} = {g(x7 * L7 / (1 + rf7))}, market part {g(x7 * (H7 - L7))}/{g(1 + mH7)} = "
+             f"{g(x7 * (H7 - L7) / (1 + mH7))}: <b>${g(inv7)} million</b>, exactly what they pay. The bank loan is "
+             f"worth {g(L7)}/{g(1 + rf7)} = {g(I7)} too.</p>"
+             f"<p><b>The farm.</b> Equity financing: {g(inv7)} + {g(stake7_e)} = <b>${g(V7)} million</b>. Bank loan: "
+             f"{g(I7)} + {g(stake7_d)} = {g(V7)}. The NPV, {g(V7)} − {g(I7)} = {g(V7 - I7)}, goes to Dana either "
+             "way.</p>"
+             f"<p><b>Dana's expected return.</b> With the loan {g(CFd7)}/{g(stake7_d)} − 1 = <b>{pc(Rd7)}</b>, the "
+             f"market's expected return (0.5 × {pc(mH7, 0)} − 0.5 × 100%). With equity {g(CFe7)}/{g(stake7_e)} − 1 = "
+             f"<b>{pc(Re7)}</b>, the farm's own expected return.</p>"
+             f"<p>With the fallback stake of {g(stake7_res)}: {g(CFd7)}/{g(stake7_res)} − 1 = {pc(Rd7_res, 4)} and "
+             f"{g(CFe7)}/{g(stake7_res)} − 1 = {pc(Re7_res, 4)}.</p>"),
+         "criteria": [
+             f"Investors' stake {g(inv7)}: a zero-NPV deal, like the risk-free loan.",
+             f"The farm is worth {g(V7)} with both forms of financing (MM).",
+             f"Dana's expected return {pc(Rd7, 0)} with the loan and {pc(Re7, 0)} with equity.",
+             f"Bonus: the NPV of {g(V7 - I7)} goes to Dana either way."]},
+        {"label": "e", "points": 4,
+         "body": (
+             "<p>Dana's expected cash flow is higher with the bank loan. Explain briefly how that fits with your "
+             "values in (b) and (c). Why would discounting the farm's expected payoff at the risk-free rate give the "
+             "wrong value?</p>"),
+         "solution": (
+             "<p><b>Why the stake is worth the same.</b> In a perfect market the financing choice only splits the "
+             "farm's payoff; it does not change it, so the farm and Dana's stake are worth the same (MM I). With the "
+             f"loan Dana gets the whole upside and nothing in a bust: her stake is as risky as the market and must "
+             f"earn {pc(Rd7, 0)}, not {pc(Re7, 0)}. The higher expected cash flow ({g(CFd7)} against {g(CFe7)}) is "
+             "exactly the compensation for that risk (MM II).</p>"
+             "<p><b>Why not the risk-free rate.</b> The farm's payoff is risky: it is high when the market is high. "
+             f"Discounting {g(EX7)} at {pc(rf7, 0)} gives an NPV of {f(NPV7_rf)}, which ignores that investors "
+             f"demand a premium for that risk. Replication prices the risk with traded assets and gives {g(V7 - I7)}. "
+             "Only risk-free payoffs may be discounted at the risk-free rate.</p>"),
+         "criteria": [
+             "MM in a perfect market: the financing only splits the payoff, so the stake and the farm are worth the "
+             "same.",
+             f"With the loan Dana bears all the risk, her stake behaves like the market and must earn {pc(Rd7, 0)}; "
+             "the higher expected cash flow is the compensation for risk.",
+             f"Discounting the risky payoff at the risk-free rate overstates the NPV ({f(NPV7_rf)} against "
+             f"{g(V7 - I7)}); only risk-free payoffs are discounted at the risk-free rate."]},
+    ],
+}
+
+# ---------------------------------------------------------------- entreprenor-2
+OPPG["mk-entreprenor-2"] = {
+    "n": 1, "title": "Capital Structure", "points": 20,
+    "topic": "MM in perfect markets, replication", "chapters": [6, 22],
+    "merke": "Gründereksemplet fra forelesning 02 med et marked som ikke taper alt og et tilbud om en andel "
+             "(forelesning 02, 8:16 og 1:25:02)",
+    "body": (
+        f"<p>Lena Brandt wants to start an e-bike rental business in Leipzig. The bikes and the app cost €{g(I8)} "
+        f"million today. In one year Lena sells the business, which then pays €{g(H8)} million if the economy booms "
+        f"and €{g(L8)} million if it busts, each with probability 50%. The market portfolio returns +{pc(mH8, 0)} in "
+        f"a boom and {pc(mL8, 0).replace('-', '−')} in a bust. The risk-free rate is {pc(rf8, 1)}. The business "
+        "booms and busts with the market. Lena has no money of her own. Markets are perfect and there are no taxes. "
+        "Value every claim by replication with the market portfolio and the risk-free asset. Use 4 decimal "
+        "places.</p>"),
+    "parts": [
+        {"label": "a", "points": 3,
+         "body": "<p>What are the expected return on the market portfolio and the expected payoff of the business?</p>",
+         "solution": (
+             f"<p>E[R<sub>m</sub>] = 0.5 × {pc(mH8, 0)} + 0.5 × ({pc(mL8, 0).replace('-', '−')}) = "
+             f"<b>{pc(ERm8, 0)}</b><br>E[payoff] = 0.5 × {g(H8)} + 0.5 × {g(L8)} = <b>€{g(EX8)} million</b></p>"),
+         "criteria": [
+             f"E[Rm] = 0.5 × {pc(mH8, 0)} − 0.5 × {pc(-mL8, 0)} = {pc(ERm8, 0)}.",
+             f"Expected payoff 0.5 × {g(H8)} + 0.5 × {g(L8)} = {g(EX8)}.",
+             "Uses the stated probabilities of 50%."]},
+        {"label": "b", "points": 5,
+         "body": (
+             "<p>Find the portfolio of the market and the risk-free asset that replicates the payoff of the "
+             "business. What is the business worth today? What is the NPV of the project and what expected return "
+             "does the business offer?</p>"),
+         "solution": (
+             "<p>Let A be the amount in the market portfolio and B the amount in the risk-free asset. The portfolio "
+             "must pay what the business pays in both states:</p>"
+             f"<p>Boom: {g(1 + mH8)}A + {g(1 + rf8)}B = {g(H8)}<br>Bust: {g(1 + mL8)}A + {g(1 + rf8)}B = {g(L8)}</p>"
+             f"<p>Subtracting: {g(mH8 - mL8)}A = {g(H8 - L8)}, so <b>A = {g(a8)}</b>. Then B = ({g(L8)} − "
+             f"{g(1 + mL8)} × {g(a8)})/{g(1 + rf8)} = {g(L8 - (1 + mL8) * a8)}/{g(1 + rf8)} = <b>{g(b8)}</b>.</p>"
+             f"<p>Value = {g(a8)} + {g(b8)} = <b>€{g(V8)} million</b>, so NPV = {g(V8)} − {g(I8)} = <b>€{g(NPV8)} "
+             f"million</b>.<br>Expected return = {g(EX8)}/{g(V8)} − 1 = <b>{pc(rU8, 0)}</b></p>"
+             f"<p><b>Check.</b> The replicating portfolio earns ({g(a8)} × {pc(ERm8, 0)} + {g(b8)} × {pc(rf8, 1)})/"
+             f"{g(V8)} = {pc(rU8, 0)} ✓. Discounting {g(EX8)} at the risk-free rate would give {f(V8_rf)}, too high, "
+             "because the payoff is risky.</p>"),
+         "criteria": [
+             f"Sets up one equation per state and finds A = {g(a8)} in the market and B = {g(b8)} in the "
+             "risk-free asset.",
+             f"Value {g(V8)}; NPV {g(NPV8)}.",
+             f"Expected return {g(EX8)}/{g(V8)} − 1 = {pc(rU8, 0)}.",
+             f"Discounting the expected payoff at the risk-free rate ({f(V8_rf)}) is the classic error."]},
+        {"label": "c", "points": 4,
+         "body": (
+             f"<p>A bank offers to lend Lena the €{g(I8)} million at the risk-free rate. Is the loan risk-free? Which "
+             "portfolio of the market and the risk-free asset replicates Lena's stake? What is the stake "
+             "worth?</p>"),
+         "solution": (
+             f"<p><b>Risk-free.</b> Lena owes {g(I8)} × {g(1 + rf8)} = {g(F8)}, less than the {g(L8)} the business "
+             "pays even in a bust.</p>"
+             f"<p><b>Lena's payoff.</b> Boom: {g(H8)} − {g(F8)} = {g(eH8)}. Bust: {g(L8)} − {g(F8)} = {g(eL8)}.</p>"
+             f"<p><b>Replicate it.</b> {g(mH8 - mL8)}A = {g(eH8)} − {g(eL8)} gives <b>A = {g(ae8)}</b> in the market; "
+             f"B = ({g(eL8)} − {g(1 + mL8)} × {g(ae8)})/{g(1 + rf8)} = <b>{g(be8)}</b>, that is, borrowing "
+             f"{g(-be8)} at the risk-free rate.</p>"
+             f"<p>Stake = {g(ae8)} − {g(-be8)} = <b>€{g(stake8_d)} million</b>, the whole NPV. Lena's stake is a "
+             "levered position in the market: the same market exposure as the business, financed partly with "
+             "borrowed money.</p>"),
+         "criteria": [
+             f"The loan is risk-free: {g(F8)} is below {g(L8)}.",
+             f"Lena's payoff {g(eH8)} and {g(eL8)}.",
+             f"Replicating portfolio {g(ae8)} in the market and {g(be8)} in the risk-free asset (borrowing).",
+             f"Stake {g(stake8_d)}, equal to the NPV."]},
+        {"label": "d", "points": 5,
+         "body": (
+             f"<p>A business angel instead offers Lena the €{g(I8)} million for {pc(alfa8, 0)} of the business. What "
+             "would Lena's stake then be worth? What expected return would the angel earn? What is the largest "
+             "fraction Lena would give up rather than take the bank loan? (If you could not solve (b), use a value "
+             f"of €{g(V8_res)} million for the business.)</p>"),
+         "solution": (
+             f"<p><b>Lena's stake.</b> She keeps {pc(1 - alfa8, 0)} of a business worth {g(V8)}: {g(1 - alfa8)} × "
+             f"{g(V8)} = <b>€{g(stake8_eng)} million</b>, more than the {g(stake8_d)} with the loan, so she should "
+             "accept.</p>"
+             f"<p><b>The angel.</b> Expected payoff {g(alfa8)} × {g(EX8)} = {g(alfa8 * EX8)} on {g(I8)}: an expected "
+             f"return of <b>{pc(Reng8, 0)}</b>, below the {pc(rU8, 0)} the business must earn. The angel overpays: "
+             f"the {g(alfa8)} stake is worth only {g(alfa8 * V8)}.</p>"
+             f"<p><b>Largest fraction.</b> Lena is indifferent when (1 − α) × {g(V8)} = {g(stake8_d)}, that is when "
+             f"the angel's stake is worth exactly the {g(I8)} paid: α = {g(I8)}/{g(V8)} = <b>{pc(alfa8_maks, 0)}</b>. "
+             "She accepts any offer for a smaller fraction.</p>"
+             f"<p>With the fallback value {g(V8_res)}: stake {g(1 - alfa8)} × {g(V8_res)} = {g(stake8_eng_res)} and "
+             f"α = {g(I8)}/{g(V8_res)} = {pc(alfa8_maks_res)}.</p>"),
+         "criteria": [
+             f"Lena's stake {g(1 - alfa8)} × {g(V8)} = {g(stake8_eng)}, more than {g(stake8_d)}: she accepts.",
+             f"The angel's expected return {g(alfa8)} × {g(EX8)}/{g(I8)} − 1 = {pc(Reng8, 0)}, below {pc(rU8, 0)}.",
+             f"Indifference: α = {g(I8)}/{g(V8)} = {pc(alfa8_maks, 0)}.",
+             "Values the stakes by replication (value of the business), not by expected cash flows alone."]},
+        {"label": "e", "points": 3,
+         "body": (
+             "<p>You did not need the probability of a boom to value the business in (b). Explain briefly why. "
+             "Where does the probability matter?</p>"),
+         "solution": (
+             "<p><b>Why not.</b> The payoff of the business is the payoff of a portfolio of traded assets whose "
+             "prices are known today. Two things that pay the same in every state must cost the same, otherwise "
+             "there is an arbitrage. The probabilities and investors' attitude to risk are already in the price of "
+             "the market portfolio.</p>"
+             "<p><b>Where it matters.</b> The probability matters for expected payoffs and expected returns: "
+             f"the business's expected return of {pc(rU8, 0)} and the angel's {pc(Reng8, 0)} both use it. An equity "
+             "investor's required return must match the value from replication, so it depends on the probability "
+             "too, but the value itself does not.</p>"),
+         "criteria": [
+             "Replication: the business is equivalent to a portfolio of traded assets, so by no arbitrage it costs "
+             "the same; no probabilities are needed.",
+             "The probabilities and risk attitudes are already reflected in the market's price.",
+             "The probability matters for expected payoffs and returns (the required return), not for the value."]},
+    ],
+}
+
+# ---------------------------------------------------------------- entreprenor-3
+OPPG["mk-entreprenor-3"] = {
+    "n": 1, "title": "Capital Structure", "points": 20,
+    "topic": "MM in perfect markets, replication and beta", "chapters": [4, 6],
+    "merke": "Gründereksemplet fra forelesning 02 med ny gjeldsgrad og beta (forelesning 02, 1:13:05 til 1:20:00)",
+    "body": (
+        f"<p>Ida Sandvold is building an indoor surf centre in Kristiansand. It costs NOK {g(I9)} million today. In one "
+        f"year Ida sells the centre, which then pays NOK {g(H9)} million if the economy booms and NOK {g(L9)} "
+        f"million if it busts, each with probability 50%. The market portfolio returns +{pc(mH9, 0)} in a boom and "
+        f"{pc(mL9, 0).replace('-', '−')} in a bust. The risk-free rate is {pc(rf9, 0)}. Ida pays NOK "
+        f"{g(I9 - D9)} million of her own savings and borrows NOK {g(D9)} million from a bank at the risk-free rate, "
+        "to be repaid with interest in one year. Markets are perfect, the CAPM holds and there are no taxes. Use 4 "
+        "decimal places.</p>"),
+    "parts": [
+        {"label": "a", "points": 3,
+         "body": "<p>What are the expected return on the market portfolio and the expected payoff of the centre?</p>",
+         "solution": (
+             f"<p>E[R<sub>m</sub>] = 0.5 × {pc(mH9, 0)} + 0.5 × ({pc(mL9, 0).replace('-', '−')}) = "
+             f"<b>{pc(ERm9, 0)}</b><br>E[payoff] = 0.5 × {g(H9)} + 0.5 × {g(L9)} = <b>NOK {g(EX9)} million</b></p>"),
+         "criteria": [
+             f"E[Rm] = 0.5 × {pc(mH9, 0)} − 0.5 × {pc(-mL9, 0)} = {pc(ERm9, 0)}.",
+             f"Expected payoff 0.5 × {g(H9)} + 0.5 × {g(L9)} = {g(EX9)}.",
+             "Uses the stated probabilities of 50%."]},
+        {"label": "b", "points": 5,
+         "body": (
+             "<p>Value the centre by replicating its payoff with the market portfolio and the risk-free asset. What "
+             "are its expected return r<sub>U</sub> and its beta β<sub>U</sub>?</p>"),
+         "solution": (
+             f"<p>Boom: {g(1 + mH9)}A + {g(1 + rf9)}B = {g(H9)}<br>Bust: {g(1 + mL9)}A + {g(1 + rf9)}B = {g(L9)}</p>"
+             f"<p>{g(mH9 - mL9)}A = {g(H9 - L9)}, so A = {g(a9)} in the market; B = ({g(L9)} − {g(1 + mL9)} × "
+             f"{g(a9)})/{g(1 + rf9)} = {g(b9)} in the risk-free asset. Value = {g(a9)} + {g(b9)} = <b>NOK {g(V9)} "
+             "million</b>.</p>"
+             f"<p>r<sub>U</sub> = {g(EX9)}/{g(V9)} − 1 = <b>{pc(rU9)}</b><br>β<sub>U</sub> = the beta of the "
+             f"replicating portfolio = ({g(a9)}/{g(V9)}) × 1 + ({g(b9)}/{g(V9)}) × 0 = <b>{g(bU9)}</b></p>"
+             f"<p><b>Check.</b> CAPM: {pc(rf9, 0)} + {g(bU9)} × ({pc(ERm9, 0)} − {pc(rf9, 0)}) = {pc(rU9)} ✓</p>"),
+         "criteria": [
+             f"Replicating portfolio {g(a9)} in the market and {g(b9)} in the risk-free asset; value {g(V9)}.",
+             f"r_U = {g(EX9)}/{g(V9)} − 1 = {pc(rU9)}.",
+             f"β_U = {g(bU9)}, as the weighted beta of the replicating portfolio or from the CAPM.",
+             "The CAPM check is a bonus."]},
+        {"label": "c", "points": 4,
+         "body": (
+             "<p>Is the bank loan risk-free? What are the loan and Ida's equity worth today? What are the beta "
+             "β<sub>E</sub> and the expected return r<sub>E</sub> of her equity? (If you could not solve (b), use a "
+             f"value of NOK {g(V9_res)} million and β<sub>U</sub> = {g(bU9_res)}.)</p>"),
+         "solution": (
+             f"<p><b>Risk-free.</b> Ida owes {g(D9)} × {g(1 + rf9)} = {g(F9)}, far below the {g(L9)} the centre pays "
+             f"in a bust, so β<sub>D</sub> = 0 and the loan is worth <b>NOK {g(D9)} million</b>.</p>"
+             f"<p>Equity = {g(V9)} − {g(D9)} = <b>NOK {g(E9)} million</b>, so D/E = {g(D9)}/{g(E9)} = {g(D9 / E9)}.</p>"
+             f"<p>β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>) = {g(bU9)} + {g(D9 / E9)} × "
+             f"{g(bU9)} = <b>{g(bE9)}</b><br>r<sub>E</sub> = {pc(rf9, 0)} + {g(bE9)} × {pc(ERm9 - rf9, 0)} = "
+             f"<b>{pc(rE9, 4)}</b></p>"
+             f"<p><b>Check.</b> The equity pays {g(H9 - F9)} or {g(L9 - F9)}, expected {g(EX9 - F9)}: "
+             f"{g(EX9 - F9)}/{g(E9)} − 1 = {pc(rE9, 4)} ✓</p>"
+             f"<p>With the fallback values: equity {g(E9_res)}, β<sub>E</sub> = {g(bU9_res)} × (1 + {g(D9)}/"
+             f"{g(E9_res)}) = {f(bE9_res)} and r<sub>E</sub> = {pc(rE9_res, 4)}.</p>"),
+         "criteria": [
+             f"The loan is risk-free ({g(F9)} is below {g(L9)}), so it is worth {g(D9)} and β_D = 0.",
+             f"Equity {g(V9)} − {g(D9)} = {g(E9)}; D/E = {g(D9 / E9)}.",
+             f"β_E = {g(bU9)} × (1 + {g(D9 / E9)}) = {g(bE9)}; r_E = {pc(rE9, 4)} by the CAPM or by MM II.",
+             "Using D/V instead of D/E in the formula is the classic error."]},
+        {"label": "d", "points": 4,
+         "body": (
+             "<p>Once the centre is built, the bank offers to lend more at the risk-free rate, so that the loan "
+             f"becomes {pc(dv9, 0)} of the centre's value. The extra money is paid out to Ida. Is the new loan "
+             "risk-free? What are the new β<sub>E</sub> and r<sub>E</sub>?</p>"),
+         "solution": (
+             f"<p><b>Risk-free.</b> The loan becomes {g(dv9)} × {g(V9)} = {g(D9n)}, with {g(D9n)} × {g(1 + rf9)} = "
+             f"{g(F9n)} to repay, still below {g(L9)}. (Any loan up to {g(L9)}/{g(1 + rf9)} = {f(Dmaks9)} is "
+             "risk-free.)</p>"
+             f"<p>D/V = {pc(dv9, 0)} means D/E = {g(D9n)}/{g(E9n)} = {g(D9n / E9n)}.<br>β<sub>E</sub> = {g(bU9)} + "
+             f"{g(D9n / E9n)} × {g(bU9)} = <b>{g(bE9n)}</b><br>r<sub>E</sub> = {pc(rf9, 0)} + {g(bE9n)} × "
+             f"{pc(ERm9 - rf9, 0)} = <b>{pc(rE9n)}</b></p>"
+             f"<p><b>Check.</b> The equity now pays {g(H9 - F9n)} or {g(L9 - F9n)}, expected {g(EX9 - F9n)}: "
+             f"{g(EX9 - F9n)}/{g(E9n)} − 1 = {pc(rE9n)} ✓. Using D/V = {g(dv9)} as if it were D/E gives "
+             f"{g(bE9n_felle)}, which is wrong. With the fallback β<sub>U</sub> = {g(bU9_res)}: β<sub>E</sub> = "
+             f"{g(bE9n_res)} and r<sub>E</sub> = {pc(rE9n_res)}.</p>"),
+         "criteria": [
+             f"The new loan of {g(D9n)} is risk-free ({g(F9n)} is below {g(L9)}).",
+             f"Converts D/V = {pc(dv9, 0)} to D/E = {g(D9n / E9n)}.",
+             f"β_E = {g(bU9)} × 2 = {g(bE9n)} and r_E = {pc(rE9n)}.",
+             f"Bonus: checks r_E from the equity's expected payoff."]},
+        {"label": "e", "points": 4,
+         "body": (
+             "<p>Explain briefly why β<sub>E</sub> changes while β<sub>U</sub> does not. Does the higher "
+             "r<sub>E</sub> make Ida worse off or the centre less valuable?</p>"),
+         "solution": (
+             "<p><b>Why β<sub>E</sub> rises.</b> β<sub>U</sub> measures the risk of the business. The business "
+             "is the same: the centre pays the same in each state. More debt only splits that payoff differently. "
+             "The bank takes a fixed, safe amount, so the equity bears all the business risk on a smaller base and "
+             "becomes riskier: β<sub>E</sub> and r<sub>E</sub> rise mechanically with leverage (MM II).</p>"
+             f"<p><b>No one is worse off.</b> The centre is still worth {g(V9)} (MM I) and its cost of capital is "
+             f"still {pc(rU9)}: {g(1 - dv9)} × {pc(rE9n)} + {g(dv9)} × {pc(rf9, 0)} = {pc(rU9)}. Ida receives "
+             f"{g(D9n - D9)} in cash and her equity falls from {g(E9)} to {g(E9n)}, so her wealth is unchanged: "
+             f"{g(E9n)} + {g(D9n - D9)} = {g(E9)}. The higher r<sub>E</sub> is only the compensation for the higher "
+             "risk.</p>"),
+         "criteria": [
+             "β_U is the risk of the business, which has not changed; leverage only splits the payoff "
+             "(Kurbatov, recording 02, 1:19:08).",
+             "The equity takes all the business risk on a smaller base, so β_E and r_E rise with leverage.",
+             f"Firm value and the weighted cost of capital ({pc(rU9)}) are unchanged; Ida's wealth is unchanged, "
+             "the higher r_E is compensation for risk.",
+             f"Bonus: shows that Ida's cash of {g(D9n - D9)} plus her equity of {g(E9n)} equals {g(E9)}."]},
     ],
 }
 
@@ -1699,7 +2197,8 @@ SVAR = {
         t("Value of the existing shareholders' shares", gml2, "$ m")],
         "tallPoeng": 4, "tekstLedd": "Will the manager install the system?"},
     "mk-gjeldsoverheng-2:1:c": {"type": "blandet", "tall": [
-        t("Change for bondholders", gev2_obl, "$ m"), t("Change for existing shareholders", gev2_eier, "$ m")],
+        t("Change for bondholders (negative for a loss)", gev2_obl, "$ m"),
+        t("Change for existing shareholders (negative for a loss)", gev2_eier, "$ m", alt=[-gev2_eier])],
         "tallPoeng": 2, "tekstLedd": "Would the bondholders like the system to be installed? Explain briefly."},
     "mk-gjeldsoverheng-2:1:d": {"type": "blandet", "tall": [t("F (if it exists)", Fs2, "$ m")],
                                 "tallPoeng": 2, "tekstLedd": "For which face values will the manager install the system?",
@@ -1710,8 +2209,8 @@ SVAR = {
         t("Bank loan", D3_0, "€ m"), t("Altmark's equity", E3_0, "€ m")],
         "merknad": f"50/50 gir {f(D3_0_50)} og udiskontert {g(D3_0_udisk)} for lånet; begge avvises."},
     "mk-gjeldsoverheng-3:1:b": {"type": "blandet", "tall": [
-        t("NPV", NPV3, "€ m"), t("Change for Altmark", endr3_eier, "€ m"),
-        t("Change for the bank", endr3_bank, "€ m")],
+        t("NPV", NPV3, "€ m"), t("Change for Altmark (negative for a loss)", endr3_eier, "€ m", alt=[-endr3_eier]),
+        t("Change for the bank (negative for a loss)", endr3_bank, "€ m")],
         "tallPoeng": 3, "tekstLedd": "Will Altmark install the panels?"},
     "mk-gjeldsoverheng-3:1:c": {"type": "tall", "tall": [t("Probability threshold p", 100 * ps3, "%")],
                                 "merknad": f"Svaret er p ≥ 2/3. Udiskontert gir {pc(ps3_felle)}; det avvises."},
@@ -1725,7 +2224,7 @@ SVAR = {
     "mk-cds-1:1:a": {"type": "tall", "tall": [t("Price of bond 1", P1A, "$"), t("Price of bond 2", P2A, "$")]},
     "mk-cds-1:1:b": {"type": "blandet", "tall": [t("Expected return on bond 2", 100 * ErA, "%")], "tallPoeng": 2,
                      "tekstLedd": "Why does it differ from the promised yield?"},
-    "mk-cds-1:1:c": {"type": "tall", "tall": [t("Risk-neutral default probability ρ", rhoA, "")],
+    "mk-cds-1:1:c": {"type": "tall", "tall": [t("Risk-neutral default probability ρ", 100 * rhoA, "%")],
                      "merknad": f"Overlevelsessannsynligheten {f(1 - rhoA)} er fellen og avvises."},
     "mk-cds-1:1:d": {"type": "tall", "tall": [t("Price of one CDS contract", cdsA, "$", alt=[cdsA_reserve])],
                      "merknad": f"alt er svaret med reserveverdien ρ = 0,10. Fellene {f(cdsA_felle)} (overlevelse), "
@@ -1744,7 +2243,7 @@ SVAR = {
         t("Expected return on an Oksfjord bond", 100 * ErB, "%")],
         "merknad": f"Gjenvinning {g(VdB)} per obligasjon gir {pc(ErB_felle)}; det avvises."},
     "mk-cds-2:1:b": {"type": "tall", "tall": [
-        t("Risk-neutral default probability ρ", rhoB, ""), t("Price of one CDS contract", cdsB, "NOK")],
+        t("Risk-neutral default probability ρ", 100 * rhoB, "%"), t("Price of one CDS contract", cdsB, "NOK")],
         "merknad": f"Overlevelse {f(1 - rhoB)} og CDS {f(cdsB_felle)} med den avvises, det samme gjør reell p "
                    f"({f(cdsB_sann)})."},
     "mk-cds-2:1:c": {"type": "blandet", "tall": [
@@ -1766,13 +2265,14 @@ SVAR = {
                    f"(bare r_f) eller {f(kostC_helenkel)} (overalt). {g(HC)} millioner kontrakter er fellen."},
     "mk-cds-3:1:c": {"type": "tall", "tall": [
         t("Price of one CDS contract", cdsC, "€", tol=0.002, alt=[cdsC_reserve]),
-        t("Risk-neutral default probability ρ", rhoC, "", tol=0.002, alt=[rhoC_reserve])],
+        t("Risk-neutral default probability ρ", 100 * rhoC, "%", tol=0.002, alt=[100 * rhoC_reserve])],
         "merknad": f"alt er svarene med reserveverdien €{g(kostC_reserve)} millioner. Toleranse 0,2 % så enkel rente "
                    f"avvises: på r_f alene CDS {f(cdsC_enkel)} og ρ {f(rhoC_enkel)}, overalt {f(cdsC_helenkel)} og "
                    f"{f(rhoC_helenkel)}. Ett år gir ρ = {f(rhoC_ettaar)}."},
-    "mk-cds-3:1:d": {"type": "blandet", "tall": [t("Expected annual return", 100 * ErC, "%", tol=0.005)],
+    "mk-cds-3:1:d": {"type": "blandet", "tall": [t("Expected annual return", 100 * ErC, "%", tol=0.005, alt=[100 * ErC_res])],
                      "tallPoeng": 2, "tekstLedd": "Compare it with the promised yield and with the risk-free rate.",
-                     "merknad": f"Toleranse 0,5 % så avkastningen over 1,5 år delt på 1,5 ({pc(ErC_delt, 4)}) avvises."},
+                     "merknad": f"Toleranse 0,5 % så avkastningen over 1,5 år delt på 1,5 ({pc(ErC_delt, 4)}) avvises. alt er svaret "
+                                f"med reserveprisen {g(P2C_res)}."},
     "mk-cds-3:1:e": {"type": "tekst"},
     # risikoskifting-1
     "mk-risikoskifting-1:1:a": {"type": "tall", "tall": [
@@ -1784,11 +2284,13 @@ SVAR = {
         t("Bank loan", D4_r, "NOK m"), t("Shares", E4_r, "NOK m")],
         "tallPoeng": 3, "tekstLedd": "Will the manager switch?"},
     "mk-risikoskifting-1:1:d": {"type": "tall", "tall": [
-        t("Change in the value of the loan", dD4, "NOK m"), t("Wealth transfer to the shareholders", overf4, "NOK m"),
-        t("Loss of value", tap4, "NOK m")]},
+        t("Change in the value of the loan (negative if it falls)", dD4, "NOK m", alt=[-dD4, dD4_res, -dD4_res]),
+        t("Wealth transfer to the shareholders", overf4, "NOK m", alt=[overf4_res]),
+        t("Loss of value", tap4, "NOK m", alt=[tap4_res])],
+        "merknad": "alt godtar fallet som positivt tall og svarene med reserveverdiene fra (c)."},
     "mk-risikoskifting-1:1:e": {"type": "blandet", "tall": [
         t("Bank loan", D4_e, "NOK m"), t("Shares", E4_e, "NOK m"), t("Expected value of the assets", V4_e, "NOK m")],
-        "tallPoeng": 2, "tekstLedd": "Would the manager still switch?"},
+        "tallPoeng": 2, "tekstLedd": "Will the manager switch?"},
     "mk-risikoskifting-1:1:f": {"type": "tekst"},
     # risikoskifting-2
     "mk-risikoskifting-2:1:a": {"type": "tall", "tall": [t("Bonds", D5_0, "$ m"), t("Shares", E5_0, "$ m")]},
@@ -1799,11 +2301,14 @@ SVAR = {
         "merknad": f"Uten synergitapet blir obligasjonene på Equipment {g(p5 * F5 + (1 - p5) * U5['Equipment'][1])}; "
                    "det avvises."},
     "mk-risikoskifting-2:1:c": {"type": "blandet", "tall": [
-        t("Change in the value of the bonds", dD5, "$ m"), t("Wealth transfer to the shareholders", overf5, "$ m"),
-        t("Loss of value", tap5, "$ m")],
-        "tallPoeng": 3, "tekstLedd": "Where does the loss of value come from?"},
-    "mk-risikoskifting-2:1:d": {"type": "tall", "tall": [t("Largest s", ss5, "$ m")],
-                                "merknad": "Svaret er s ≤ 95/3. Å trekke s bare fra Equipment gir 95, utenfor regionen."},
+        t("Change in the value of the bonds (negative if it falls)", dD5, "$ m", alt=[-dD5, dD5_res, -dD5_res]),
+        t("Wealth transfer to the shareholders", overf5, "$ m", alt=[overf5_res]),
+        t("Loss of value", tap5, "$ m", alt=[tap5_res])],
+        "tallPoeng": 3, "tekstLedd": "Where does the loss of value come from?",
+        "merknad": "alt godtar fallet som positivt tall og svarene med reserveverdiene fra (b)."},
+    "mk-risikoskifting-2:1:d": {"type": "tall", "tall": [t("Largest s", ss5, "$ m", alt=[ss5_res])],
+                                "merknad": "Svaret er s ≤ 95/3. alt er svaret med reserveverdien 100 fra (a). Å trekke s "
+                                           "bare fra Equipment gir 95, utenfor regionen."},
     "mk-risikoskifting-2:1:e": {"type": "tekst"},
     # risikoskifting-3
     "mk-risikoskifting-3:1:a": {"type": "tall", "tall": [
@@ -1813,14 +2318,68 @@ SVAR = {
         t("Expected value of the assets", V6_r, "£ m"), t("Bank loan", D6_r, "£ m"), t("Shares", E6_r, "£ m")],
         "tallPoeng": 3, "tekstLedd": "Will the manager switch?"},
     "mk-risikoskifting-3:1:c": {"type": "tall", "tall": [
-        t("Change in the value of the loan", dD6, "£ m"), t("Wealth transfer to the shareholders", overf6, "£ m"),
-        t("Loss of value", tapV6 + tapB6, "£ m"), t("Part of the loss from the fire sale", tapB6, "£ m")]},
+        t("Change in the value of the loan (negative if it falls)", dD6, "£ m", alt=[-dD6, dD6_res, -dD6_res]),
+        t("Wealth transfer to the shareholders", overf6, "£ m", alt=[overf6_res]),
+        t("Loss of value", tapV6 + tapB6, "£ m", alt=[tap6_res]),
+        t("Part due to the higher expected fire-sale loss", tapB6, "£ m", alt=[tapB6_res])],
+        "merknad": "alt godtar fallet som positivt tall og svarene med reserveverdiene (fall 40, økning 12)."},
     "mk-risikoskifting-3:1:d": {"type": "tall", "tall": [
         t("Face value without a covenant", Fr6, "£ m"), t("Face value with the covenant", Fc6, "£ m"),
         t("Shares without a covenant", Er6_ex, "£ m"), t("Shares with the covenant", Ec6_ex, "£ m")],
         "merknad": f"Uten brannsalg blir pålydendene {f((X6 - (1 - r6) * Lr6) / r6)} og {f((X6 - (1 - q6) * L6) / q6)}; "
                    f"begge avvises. Antar man at lederen beholder planen uten covenant, blir pålydendet {f(Fc6)}."},
     "mk-risikoskifting-3:1:e": {"type": "tekst"},
+    # entreprenor-1
+    "mk-entreprenor-1:1:a": {"type": "tall", "tall": [
+        t("Expected payoff", EX7, "$ m"), t("Investors' fraction", 100 * x7, "%"),
+        t("Dana's expected cash flow with equity", CFe7, "$ m"), t("Dana's expected cash flow with the loan", CFd7, "$ m")]},
+    "mk-entreprenor-1:1:b": {"type": "blandet", "tall": [t("Dana's stake with the loan", stake7_d, "$ m")],
+                             "tallPoeng": 3, "tekstLedd": "Why is the loan risk-free?"},
+    "mk-entreprenor-1:1:c": {"type": "blandet", "tall": [
+        t("Amount in the risk-free asset", rf_del7, "$ m", alt=[rf_del7_res]),
+        t("Amount in the market portfolio", m_del7, "$ m", alt=[m_del7_res]),
+        t("Dana's stake with equity", stake7_e, "$ m", alt=[stake7_e_res])],
+        "tallPoeng": 4, "tekstLedd": "Compare with (b).",
+        "merknad": "alt er svarene med reserveandelen 40 %."},
+    "mk-entreprenor-1:1:d": {"type": "tall", "tall": [
+        t("Investors' stake", inv7, "$ m"), t("Value of the farm", V7, "$ m"),
+        t("Dana's expected return with the loan", 100 * Rd7, "%", alt=[100 * Rd7_res]),
+        t("Dana's expected return with equity", 100 * Re7, "%", alt=[100 * Re7_res])],
+        "merknad": f"alt er svarene med reserveverdien {g(stake7_res)}. NPV med r_f ({f(NPV7_rf)}) er fellen."},
+    "mk-entreprenor-1:1:e": {"type": "tekst"},
+    # entreprenor-2
+    "mk-entreprenor-2:1:a": {"type": "tall", "tall": [
+        t("Expected return on the market", 100 * ERm8, "%"), t("Expected payoff", EX8, "€ m")]},
+    "mk-entreprenor-2:1:b": {"type": "tall", "tall": [
+        t("Amount in the market portfolio", a8, "€ m"), t("Amount in the risk-free asset", b8, "€ m"),
+        t("Value of the business", V8, "€ m"), t("NPV", NPV8, "€ m"), t("Expected return", 100 * rU8, "%")],
+        "merknad": f"Diskontering med r_f gir {f(V8_rf)}; det avvises."},
+    "mk-entreprenor-2:1:c": {"type": "blandet", "tall": [
+        t("Amount in the market portfolio", ae8, "€ m"),
+        t("Amount in the risk-free asset (negative if borrowed)", be8, "€ m", alt=[-be8]),
+        t("Lena's stake", stake8_d, "€ m")],
+        "tallPoeng": 3, "tekstLedd": "Is the loan risk-free?"},
+    "mk-entreprenor-2:1:d": {"type": "blandet", "tall": [
+        t("Lena's stake with the angel", stake8_eng, "€ m", alt=[stake8_eng_res]),
+        t("The angel's expected return", 100 * Reng8, "%"),
+        t("Largest fraction", 100 * alfa8_maks, "%", alt=[100 * alfa8_maks_res])],
+        "tallPoeng": 3, "tekstLedd": "Should Lena accept the angel's offer?",
+        "merknad": f"alt er svarene med reserveverdien {g(V8_res)}."},
+    "mk-entreprenor-2:1:e": {"type": "tekst"},
+    # entreprenor-3
+    "mk-entreprenor-3:1:a": {"type": "tall", "tall": [
+        t("Expected return on the market", 100 * ERm9, "%"), t("Expected payoff", EX9, "NOK m")]},
+    "mk-entreprenor-3:1:b": {"type": "tall", "tall": [
+        t("Value of the centre", V9, "NOK m"), t("r<sub>U</sub>", 100 * rU9, "%"), t("β<sub>U</sub>", bU9, "")]},
+    "mk-entreprenor-3:1:c": {"type": "tall", "tall": [
+        t("Bank loan", D9, "NOK m"), t("Ida's equity", E9, "NOK m", alt=[E9_res]),
+        t("β<sub>E</sub>", bE9, "", alt=[bE9_res]), t("r<sub>E</sub>", 100 * rE9, "%", alt=[100 * rE9_res])],
+        "merknad": f"alt er svarene med reserveverdiene V = {g(V9_res)} og β_U = {g(bU9_res)}."},
+    "mk-entreprenor-3:1:d": {"type": "blandet", "tall": [
+        t("New β<sub>E</sub>", bE9n, "", alt=[bE9n_res]), t("New r<sub>E</sub>", 100 * rE9n, "%", alt=[100 * rE9n_res])],
+        "tallPoeng": 3, "tekstLedd": "Is the new loan risk-free?",
+        "merknad": f"D/V brukt som D/E gir β_E = {g(bE9n_felle)}; det avvises. alt er svarene med β_U = {g(bU9_res)}."},
+    "mk-entreprenor-3:1:e": {"type": "tekst"},
 }
 
 
@@ -1855,7 +2414,7 @@ def funnet(tt, nums):
     return True
 
 
-TYPER = ("gjeldsoverheng", "cds", "risikoskifting")
+TYPER = ("gjeldsoverheng", "cds", "risikoskifting", "entreprenor")
 for typ in TYPER:
     for nr in (1, 2, 3):
         if f"mk-{typ}-{nr}" not in OPPG:
@@ -1915,7 +2474,11 @@ for k in SVAR:
 
 # lekkasje: svarene skal ikke stå i oppgaveteksten til samme oppgave
 # Unntak: lånet ved sikkert mislighold er verdien av eiendelene, og trygg gjeld er pålydendet.
-LEKK_OK = {("mk-risikoskifting-1:1:a", "Bank loan"), ("mk-risikoskifting-2:1:a", "Bonds")}
+LEKK_OK = {("mk-risikoskifting-1:1:a", "Bank loan"), ("mk-risikoskifting-2:1:a", "Bonds"),
+           # en rettferdig avtale er verdt det investorene betaler, og r_E med EK er investorenes krav
+           ("mk-entreprenor-1:1:d", "Investors' stake"), ("mk-entreprenor-1:1:d", "Dana's expected return with equity"),
+           # et risikofritt lån er verdt det som lånes
+           ("mk-entreprenor-3:1:c", "Bank loan")}
 for sid, ex in OPPG.items():
     tekst = ren(ex["body"]) + " " + " ".join(ren(p["body"]) for p in ex["parts"])
     tall_tekst = tall_i(tekst)
@@ -1942,7 +2505,7 @@ utenfor("mk-gjeldsoverheng-3:1:a", 0, D3_0_50)
 utenfor("mk-gjeldsoverheng-3:1:a", 0, D3_0_udisk)
 utenfor("mk-gjeldsoverheng-3:1:c", 0, 100 * ps3_felle)
 utenfor("mk-gjeldsoverheng-3:1:d", 0, I3)
-utenfor("mk-cds-1:1:c", 0, 1 - rhoA)
+utenfor("mk-cds-1:1:c", 0, 100 * (1 - rhoA))
 for x in (cdsA_felle, cdsA_sann, cdsA_udisk):
     utenfor("mk-cds-1:1:d", 0, x)
 utenfor("mk-cds-1:1:e", 0, FA)
@@ -1957,9 +2520,9 @@ utenfor("mk-cds-3:1:b", 2, kostC_enkel)
 utenfor("mk-cds-3:1:b", 2, kostC_helenkel)
 utenfor("mk-cds-3:1:c", 0, cdsC_enkel)
 utenfor("mk-cds-3:1:c", 0, cdsC_helenkel)
-utenfor("mk-cds-3:1:c", 1, rhoC_enkel)
-utenfor("mk-cds-3:1:c", 1, rhoC_helenkel)
-utenfor("mk-cds-3:1:c", 1, rhoC_ettaar)
+utenfor("mk-cds-3:1:c", 1, 100 * rhoC_enkel)
+utenfor("mk-cds-3:1:c", 1, 100 * rhoC_helenkel)
+utenfor("mk-cds-3:1:c", 1, 100 * rhoC_ettaar)
 utenfor("mk-cds-3:1:d", 0, 100 * ErC_delt)
 utenfor("mk-cds-3:1:d", 0, 100 * avkC)
 utenfor("mk-risikoskifting-1:1:a", 0, K4)
@@ -1968,6 +2531,8 @@ utenfor("mk-risikoskifting-3:1:a", 0, D6_0_uten)
 utenfor("mk-risikoskifting-3:1:d", 0, (X6 - (1 - r6) * Lr6) / r6)
 utenfor("mk-risikoskifting-3:1:d", 1, (X6 - (1 - q6) * L6) / q6)
 utenfor("mk-risikoskifting-3:1:d", 0, Fc6)
+utenfor("mk-entreprenor-2:1:b", 2, V8_rf)
+utenfor("mk-entreprenor-3:1:d", 0, bE9n_felle)
 # reserveverdiene skal ikke ligge nær det riktige svaret
 for k, i in (("mk-cds-1:1:d", 0), ("mk-cds-2:1:c", 0), ("mk-cds-3:1:c", 0), ("mk-cds-3:1:c", 1)):
     tt = SVAR[k]["tall"][i]
@@ -2014,7 +2579,9 @@ for sid, ex in OPPG.items():
 # lengde: rundt 11 ord oppgavetekst per poeng
 print("\nOrd i oppgaveteksten:")
 for sid, ex in OPPG.items():
-    ord_ = len(ren(ex["body"] + " ".join(p["body"] for p in ex["parts"])).split())
+    # reserveverdiene i parentes («If you could not solve …») telles ikke: Kurbatov bruker dem ikke
+    tekst_ = re.sub(r"\(If you could not solve.*?\.\)", " ", ex["body"] + " " + " ".join(p["body"] for p in ex["parts"]))
+    ord_ = len(ren(tekst_).split())
     print(f"   {sid}: {ord_} ord ({ord_ / ex['points']:.1f} per poeng)")
     if not 170 <= ord_ <= 320:
         feil.append(f"{sid}: {ord_} ord")

@@ -1,0 +1,88 @@
+{
+  "mk-ipo-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Shares received, good IPOs",
+        "verdi": 750.0,
+        "enhet": ""
+      },
+      {
+        "navn": "Shares received, bad IPOs",
+        "verdi": 1500.0,
+        "enhet": ""
+      }
+    ]
+  },
+  "mk-ipo-3:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Fraction of your shares in bad IPOs",
+        "verdi": 66.66666666666666,
+        "enhet": "%",
+        "alt": [
+          60.0
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Compare with the fraction of IPOs that are bad and explain the difference.",
+    "merknad": "alt (60.00%) er svaret med reservetallene 800 og 1 200."
+  },
+  "mk-ipo-3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Total expected profit",
+        "verdi": -11250.0,
+        "enhet": "$",
+        "alt": [
+          -8400.0
+        ]
+      },
+      {
+        "navn": "Return",
+        "verdi": -18.51851851851852,
+        "enhet": "%",
+        "alt": [
+          -15.555555555555555
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reservetallene 800 og 1 200."
+  },
+  "mk-ipo-3:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Break-even price",
+        "verdi": 22.0,
+        "enhet": "$",
+        "alt": [
+          22.8
+        ]
+      },
+      {
+        "navn": "Average first-day return",
+        "verdi": 22.72727272727273,
+        "enhet": "%",
+        "alt": [
+          18.421052631578938
+        ]
+      },
+      {
+        "navn": "Informed investors' return",
+        "verdi": 36.36363636363635,
+        "enhet": "%",
+        "alt": [
+          31.57894736842104
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reservetallene 800 og 1 200."
+  },
+  "mk-ipo-3:1:e": {
+    "type": "tekst"
+  }
+}

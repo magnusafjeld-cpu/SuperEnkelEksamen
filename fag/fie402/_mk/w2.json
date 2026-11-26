@@ -161,7 +161,7 @@
   "n": 1,
   "title": "Capital Structure",
   "points": 20,
-  "topic": "MM in perfect markets, refinancing risky debt",
+  "topic": "MM in perfect markets, recapitalisation",
   "chapters": [
    4,
    5,
@@ -236,7 +236,7 @@
   "n": 1,
   "title": "Capital Structure",
   "points": 20,
-  "topic": "Interest tax shield, recapitalisation",
+  "topic": "Recapitalisation with taxes",
   "chapters": [
    7,
    15
@@ -281,8 +281,8 @@
    {
     "label": "d",
     "points": 4,
-    "body": "<p>What is the expected dividend per share before and after the recapitalisation? Use the dividend and the share price after the repurchase to find the equity cost of capital. (If you could not solve (b) or (c), use a share price of $24.00 and 23.5 million shares after the repurchase.)</p>",
-    "solution": "<p><b>Step 1. Before.</b> 108 × (1 − 0.25) / 36 = 81 / 36 = <b>$2.2500 per share</b>.</p><p><b>Step 2. After.</b> Interest is paid before tax: (108 − 14) × (1 − 0.25) = $70.5M for the shareholders, shared by 24.5455M shares:</p><p>Div = 70.5 / 24.5455 = <b>$2.8722 per share</b></p><p><b>Step 3. The equity cost of capital.</b> The share is a perpetuity of this dividend:</p><p>r<sub>E</sub> = 2.8722 / 24.4444 = <b>11.7500%</b> (the same as 70.5 / 600), up from r<sub>E</sub> = r<sub>U</sub> = 10% before.</p><p>MM II from the formula sheet with D/E = 280/600 would give 12.3333%. That formula assumes a constant D/E with a tax shield as risky as the firm, which is not the case for permanent debt; the question asks for the cash-flow route.</p><p>With the fallback values: Div = 70.5 / 23.5 = $3.0000 and r<sub>E</sub> = 3.0000 / 24.00 = 12.5000%.</p>",
+    "body": "<p>What is the expected dividend per share before and after the recapitalisation? Use the dividend and the share price after the repurchase to find the equity cost of capital. (If you could not solve (b) or (c), use a share price of $24.00 and 23 million shares after the repurchase.)</p>",
+    "solution": "<p><b>Step 1. Before.</b> 108 × (1 − 0.25) / 36 = 81 / 36 = <b>$2.2500 per share</b>.</p><p><b>Step 2. After.</b> Interest is paid before tax: (108 − 14) × (1 − 0.25) = $70.5M for the shareholders, shared by 24.5455M shares:</p><p>Div = 70.5 / 24.5455 = <b>$2.8722 per share</b></p><p><b>Step 3. The equity cost of capital.</b> The share is a perpetuity of this dividend:</p><p>r<sub>E</sub> = 2.8722 / 24.4444 = <b>11.7500%</b> (the same as 70.5 / 600), up from r<sub>E</sub> = r<sub>U</sub> = 10% before.</p><p>MM II from the formula sheet with D/E = 280/600 would give 12.3333%. That formula assumes a constant D/E with a tax shield as risky as the firm, which is not the case for permanent debt; the question asks for the cash-flow route.</p><p>With the fallback values: Div = 70.5 / 23 = $3.0652 and r<sub>E</sub> = 3.0652 / 24.00 = 12.7717%. With only the fallback price from (c) (24.3333 million shares remain): r<sub>E</sub> = 70.5 / 24.3333 / 24.00 = 12.0719%.</p>",
     "criteria": [
      "Before: $2.2500 per share.",
      "After: interest deducted before tax, (108 − 14) × 0.75 = 70.5, over the 24.5455M remaining shares: $2.8722. Dividing by the old 36M shares is the error.",
@@ -293,12 +293,12 @@
     "label": "e",
     "points": 5,
     "body": "<p>Who captures the value created by the recapitalisation? Compare a shareholder who sells in the buyback with one who keeps the shares. Is either of them better or worse off than if the firm had stayed all-equity? Explain briefly.</p>",
-    "solution": "<p><b>The original shareholders capture all of it, all of them equally.</b> The value comes from the tax shield: the government collects $3.5M less tax every year, worth $70M today. That is exactly the rise in firm value. The new lenders pay $280M for debt worth $280M, so they gain nothing.</p><table class=\"data\"><tr><th>Shareholder</th><th>Before the announcement</th><th>After</th><th>Change per share</th></tr><tr><td>Sells in the buyback</td><td>A share worth $22.50</td><td>$24.4444 in cash</td><td class=\"n\">+$1.9444</td></tr><tr><td>Keeps the share</td><td>A share worth $22.50</td><td>A share worth $24.4444</td><td class=\"n\">+$1.9444</td></tr></table><p>Both are better off by $1.9444 per share: 36M × 1.9444 = $70M = PV(TS). Since the buyback is at the fair new price, a shareholder is indifferent between selling and keeping. If one of the two came out ahead, the price would be wrong (the lecturer: then you probably calculated something wrong).</p>",
+    "solution": "<p><b>The original shareholders capture all of it, all of them equally.</b> The value comes from the tax shield: the government collects $3.5M less tax every year, worth $70M today. That is exactly the rise in firm value. The new lenders pay $280M for debt worth $280M, so they gain nothing.</p><table class=\"data\"><tr><th>Shareholder</th><th>Before the announcement</th><th>After</th><th>Change per share</th></tr><tr><td>Sells in the buyback</td><td>A share worth $22.50</td><td>$24.4444 in cash</td><td class=\"n\">+$1.9444</td></tr><tr><td>Keeps the share</td><td>A share worth $22.50</td><td>A share worth $24.4444</td><td class=\"n\">+$1.9444</td></tr></table><p>Both are better off by $1.9444 per share: 36M × 1.9444 = $70M = PV(TS). Since the buyback is at the fair new price, a shareholder is indifferent between selling and keeping. If one of the two came out ahead, the price would be wrong (the lecturer: then you probably calculated something wrong).</p><p>With the fallback price of $24.00 the change is 24.00 − 22.50 = $1.50 for both.</p>",
     "criteria": [
      "The original shareholders capture the whole PV(TS). They capture it at the announcement.",
      "Seller and keeper gain the same $1.9444 per share: the seller gets $24.4444 in cash, the keeper holds a share worth $24.4444. Both are better off than if the firm had stayed all-equity.",
      "Explains why they are indifferent: the repurchase happens at the fair price after the jump.",
-     "Names the source: lower taxes (the government's claim shrinks). The new debt holders get a fair deal."
+     "Bonus: names the source (lower taxes: the government's claim shrinks) and notes that the new debt holders get a fair deal."
     ]
    }
   ]
@@ -307,7 +307,7 @@
   "n": 1,
   "title": "Capital Structure",
   "points": 20,
-  "topic": "Interest tax shield of a fixed-term loan, recapitalisation",
+  "topic": "Recapitalisation with taxes",
   "chapters": [
    1,
    7
@@ -330,38 +330,27 @@
     "label": "b",
     "points": 4,
     "body": "<p>What is the annual interest tax shield and its present value?</p>",
-    "solution": "<p><b>Step 1. The yearly shield.</b> Interest = 4.5% × 500 = NOK 22.5M a year, so the tax saved is 0.22 × 22.5 = <b>NOK 4.95M a year</b> for 8 years, the first in one year. The repayment of the NOK 500M is not deductible and saves no tax.</p><p><b>Step 2. Present value.</b> The loan is risk-free, so the shield is discounted at 4.5% as an annuity:</p><p>PV(TS) = 4.95 × (1/0.045) × (1 − 1/1.045<sup>8</sup>) = 4.95 × 6.5959 = <b>NOK 32.6496M</b></p><p>τD = 110 would be the answer for permanent debt. 34.1189 would be the answer if the first saving came today. Neither fits this loan.</p>",
+    "solution": "<p><b>Step 1. The yearly shield.</b> Interest = 4.5% × 500 = NOK 22.5M a year, so the tax saved is 0.22 × 22.5 = <b>NOK 4.95M a year</b> for 8 years, the first in one year. The repayment of the NOK 500M is not deductible and saves no tax.</p><p><b>Step 2. Present value.</b> The loan is risk-free and EBIT is at least NOK 70M, more than the NOK 22.5M of interest, so the shield is always used and is as safe as the interest itself. It is discounted at 4.5% as an annuity:</p><p>PV(TS) = 4.95 × (1/0.045) × (1 − 1/1.045<sup>8</sup>) = 4.95 × 6.5959 = <b>NOK 32.6496M</b></p><p>τD = 110 would be the answer for permanent debt. 34.1189 would be the answer if the first saving came today. Neither fits this loan.</p>",
     "criteria": [
      "Annual tax shield = τ × interest = 0.22 × 22.5 = NOK 4.95M.",
-     "PV as an 8-year annuity at the risk-free 4.5%: NOK 32.6496M. The annuity formula with 1 + r in the bracket and r outside (the lecturer stresses this) is expected.",
+     "PV as an 8-year annuity at the risk-free 4.5%: NOK 32.6496M. The annuity formula (1 + r in the bracket and r outside, as the lecturer stresses) or the sum of the 8 discounted terms are both accepted.",
      "No tax shield from repaying the principal. Using τD = 110 ignores that the loan ends.",
      "Show the calculation. No calculation, no points."
     ]
    },
    {
     "label": "c",
-    "points": 5,
-    "body": "<p>What happens to the share price upon announcement? How many shares are repurchased? Who captures the change in firm value? (If you could not solve (b), use a present value of the tax shield of NOK 60 million.)</p>",
-    "solution": "<p><b>Step 1. The price.</b> V<sup>L</sup> = 1,300 + 32.6496 = NOK 1,332.6496M, priced at once because the plan is credible:</p><p>P = 1,332.6496 / 20 = <b>NOK 66.6325</b>, up by 32.6496 / 20 = NOK 1.6325.</p><p><b>Step 2. The buyback, at the new price.</b> P × n = 500 and P × (20 − n) = V<sup>L</sup> − D = 832.6496, so n = 500 / 66.6325 = <b>7.5038 million shares</b>, leaving 12.4962 million. Dividing by the old NOK 65.00 would give 7.6923 million.</p><p><b>Step 3. Who captures it.</b> The original shareholders, all of them, at the announcement: those who sell get NOK 66.6325 in cash and those who keep hold a share worth NOK 66.6325, both NOK 1.6325 more than before. The value comes from lower taxes; the bank gets a fair loan.</p><p>With the fallback PV(TS) of NOK 60M: P = (1,300 + 60) / 20 = NOK 68.00 and n = 500 / 68.00 = 7.3529 million.</p>",
+    "points": 4,
+    "body": "<p>What happens to the share price upon announcement? How many shares are repurchased? (If you could not solve (b), use a present value of the tax shield of NOK 60 million.)</p>",
+    "solution": "<p><b>Step 1. The price.</b> V<sup>L</sup> = 1,300 + 32.6496 = NOK 1,332.6496M, priced at once because the plan is credible:</p><p>P = 1,332.6496 / 20 = <b>NOK 66.6325</b>, up by 32.6496 / 20 = NOK 1.6325.</p><p><b>Step 2. The buyback, at the new price.</b> P × n = 500 and P × (20 − n) = V<sup>L</sup> − D = 832.6496, so n = 500 / 66.6325 = <b>7.5038 million shares</b>, leaving 12.4962 million. Dividing by the old NOK 65.00 would give 7.6923 million.</p><p>With the fallback PV(TS) of NOK 60M: P = (1,300 + 60) / 20 = NOK 68.00 and n = 500 / 68.00 = 7.3529 million.</p>",
     "criteria": [
      "P = (1,300 + 32.6496)/20 = NOK 66.6325: the price rises at the announcement.",
-     "n = 500/66.6325 = 7.5038 million, at the new price. The two equations or equivalent direct reasoning are both accepted. Using the old price (7.6923 million) is the classic error.",
-     "The original shareholders capture the gain, sellers and keepers equally, because the buyback is at the fair new price."
+     "n = 500/66.6325 = 7.5038 million, at the new price. The two equations or equivalent direct reasoning are both accepted.",
+     "Using the old price (7.6923 million) is the classic error."
     ]
    },
    {
     "label": "d",
-    "points": 4,
-    "body": "<p>What is the expected dividend per share in Year 1 without the recapitalisation and with it? (If you could not solve (c), use 8 million shares repurchased.)</p>",
-    "solution": "<p><b>Without.</b> 150 × (1 − 0.22) / 20 = 117 / 20 = <b>NOK 5.8500 per share</b>.</p><p><b>With.</b> Interest is paid before tax: (150 − 22.5) × (1 − 0.22) = NOK 99.45M for the shareholders, shared by 12.4962M shares:</p><p>Div<sub>1</sub> = 99.45 / 12.4962 = <b>NOK 7.9584 per share</b></p><p>The dividend per share is higher, but so is the risk of each share: the shareholders now carry the business risk over a smaller base.</p><p>With the fallback of 8 million shares repurchased: 99.45 / 12 = NOK 8.2875.</p>",
-    "criteria": [
-     "Without: NOK 5.8500 per share.",
-     "With: interest before tax, (150 − 22.5) × 0.78 = 99.45, over the 12.4962M remaining shares: NOK 7.9584.",
-     "Dividing by the original 20M shares (NOK 4.9725) or taking interest after tax is the error."
-    ]
-   },
-   {
-    "label": "e",
     "points": 4,
     "body": "<p>The CFO says: «The tax shield of a loan is always worth τ × D. So our loan adds 22% × NOK 500 million = NOK 110 million to the firm value.» Is the CFO right? What would the share price on announcement be if the CFO's figure were right? For which kind of loan does τ × D hold? Explain briefly.</p>",
     "solution": "<p><b>No.</b> τ × D is the value of the tax shield of <b>permanent</b> debt: the firm then saves τ × r<sub>D</sub> × D every year forever, worth τ × r<sub>D</sub> × D / r<sub>D</sub> = τD. This loan pays interest for only 8 years, so the shield is the 8-year annuity in (b), NOK 32.6496M, less than a third of NOK 110M. The repayment of the principal saves no tax, so nothing can be added for it.</p><p>If the loan were permanent (rolled over forever at 4.5%), V<sup>L</sup> = 1,300 + 110 = NOK 1,410M and the price on announcement would be 1,410 / 20 = <b>NOK 70.50</b>.</p>",
@@ -371,6 +360,18 @@
      "Share price if τD were right: (1,300 + 110)/20 = NOK 70.50.",
      "Bonus: notes that the repayment of the principal is not tax-deductible."
     ]
+   },
+   {
+    "label": "e",
+    "points": 5,
+    "body": "<p>A board member proposes to go much further and borrow so much that almost all of Lyngdal's value is debt. In the setting of this exercise (only corporate taxes), would that be optimal? Give two reasons why Lyngdal would not do it in reality. Explain briefly (3 to 4 sentences).</p>",
+    "solution": "<p><b>In the model, yes.</b> With corporate taxes as the only imperfection, every krone of debt adds a tax shield and nothing is lost, so firm value rises with debt and close to 100% debt is optimal. The lecturer is clear that this is the answer in an MM world with taxes.</p><p><b>In reality, no.</b> (1) The shield is only worth something while EBIT covers the interest. In the weak state Lyngdal earns NOK 70M, so above about 70 / 0.045 = NOK 1,556M of debt at 4.5% the interest exceeds EBIT in bad years and part of the shield is lost. (2) The debt would no longer be risk-free: in a bad year Lyngdal could not pay. The costs of financial distress (lawyers, quarries and machines sold in a fire sale, customers who move to safer suppliers) would eat the tax gain. Debt overhang and the temptation to take excessive risks near default are also accepted.</p>",
+    "criteria": [
+     "Answers the model question: with only corporate taxes, more debt always adds value, so (close to) 100% debt is optimal.",
+     "Two distinct real-world reasons, each with its mechanism: costs of financial distress (direct or indirect), a tax shield that cannot be used when EBIT is lower than the interest, debt overhang, excessive risk-taking, personal taxes on interest.",
+     "Credit for tying a reason to Lyngdal: EBIT can fall to NOK 70M, so with very high debt the interest is not covered in bad years.",
+     "3 to 4 sentences, as asked. Naming a reason without its mechanism earns half its points."
+    ]
    }
   ]
  },
@@ -378,7 +379,7 @@
   "n": 1,
   "title": "Capital Structure",
   "points": 20,
-  "topic": "Interest tax shield with a constant interest coverage, recapitalisation",
+  "topic": "Recapitalisation with taxes",
   "chapters": [
    7,
    19
@@ -416,14 +417,14 @@
     "criteria": [
      "D0 = 14.7/4% = €367.5M, because next year's interest is r_D times today's debt.",
      "P = 761.25/25 = €30.45: the price rises at the announcement.",
-     "Reason: the commitment is credible, so the present value of all future tax shields is priced at once."
+     "Bonus: the reason, a credible commitment, so the present value of all future tax shields is priced at once."
     ]
    },
    {
     "label": "d",
     "points": 3,
     "body": "<p>How many shares are repurchased and how many remain? (If you could not solve (c), use debt of €300 million and a share price of €32.00.)</p>",
-    "solution": "<p>The buyback is at the new price: n = 367.5 / 30.45 = <b>12.0690 million shares</b>, leaving <b>12.9310 million</b>.</p><p><b>Check.</b> E = V<sup>L</sup> − D = 761.25 − 367.5 = €393.75M and 12.9310 × 30.45 = €393.75M. ✓ Dividing by the old €28.00 gives 13.1250 million.</p><p>With the fallback values: n = 300 / 32.00 = 9.3750 million, leaving 15.6250 million.</p>",
+    "solution": "<p>The buyback is at the new price: n = 367.5 / 30.45 = <b>12.0690 million shares</b>, leaving <b>12.9310 million</b>.</p><p><b>Check.</b> E = V<sup>L</sup> − D = 761.25 − 367.5 = €393.75M and 12.9310 × 30.45 = €393.75M. ✓ Dividing by the old €28.00 gives 13.1250 million.</p><p>With the fallback values: n = 300 / 32.00 = 9.3750 million, leaving 15.6250 million. With the debt from (c) and the price from its fallback: n = 367.5 / 31.60 = 11.6297 million, leaving 13.3703 million.</p>",
     "criteria": [
      "n = 367.5/30.45 = 12.0690 million, at the new price; 12.9310 million remain. The two equations or equivalent direct reasoning are accepted.",
      "Using the old price (13.1250 million) is the classic error.",
@@ -437,9 +438,9 @@
     "solution": "<p><b>The rate is r<sub>U</sub> = 8%</b> (net of growth: r<sub>U</sub> − g). The firm sets the interest as a fixed 35% of each year's free cash flow, so the tax shield is always 8.75% of the free cash flow: high when the business does well, low when it does badly. It carries the risk of the firm's assets, not the risk of the debt. With permanent, fixed debt the shield would be known in advance and discounted at r<sub>D</sub>, which gives τD.</p><p><b>The original shareholders capture all of it.</b> The policy is credible, so the present value of every future shield, also those from the debt added later as the free cash flow grows, is in the price of €30.45 at the announcement. Shareholders who sell get it in cash and those who keep hold it in the share. Investors who buy later pay a price that already includes it, so they gain nothing. (Bonus: the debt and the firm value both grow at 2%, so D/V stays at 367.5 / 761.25 = 0.4828.)</p>",
     "criteria": [
      "Names r_U (8%, as r_U − g in the perpetuity) and explains it: the interest (and so the tax shield) is a fixed share of the free cash flow, so it has the risk of the assets.",
-     "Contrasts with permanent fixed debt, where the shield is known and is discounted at r_D (τD). Credit for either part of this comparison.",
+     "Bonus: contrasts with permanent fixed debt, where the shield is known and is discounted at r_D (τD).",
      "The original shareholders capture the value of all future shields at the announcement, sellers and keepers alike, because the market prices the credible policy at once.",
-     "Later buyers pay a price that already includes the shields and gain nothing."
+     "Bonus: later buyers pay a price that already includes the shields and gain nothing."
     ]
    }
   ]
@@ -448,17 +449,17 @@
   "n": 1,
   "title": "Capital Structure",
   "points": 10,
-  "topic": "Costs of financial distress and agency costs of debt",
+  "topic": "Downsides of debt",
   "chapters": [
    8,
    9,
    10
   ],
   "merke": "Teorispørsmål som i forelesning 4 (4:56): ulemper ved gjeld",
-  "body": "<p>In a market that is perfect apart from corporate taxes, firm value rises with every unit of debt, so 100% debt is optimal. Real firms borrow far less.</p><p>(a) Give three distinct downsides of debt that this model leaves out. Explain each in two to three sentences. (6 points)</p><p>(b) Strandvik Eiendom ASA owns office buildings in central Oslo, let on long leases to government agencies. Nordlys Regnskap AS sells accounting software to small firms on three-year subscriptions; its value lies in a team of programmers and in customers who need updates and support for years. All else equal, which firm should borrow more? Use your answer to (a) in two to three sentences. (4 points)</p>",
-  "solution": "<p><b>(a) Model answer, three downsides (2 points each).</b></p><p>1. <b>Costs of financial distress.</b> A firm that cannot pay its creditors pays lawyers, advisers and court fees (direct costs). It also loses value indirectly: assets are sold in a fire sale below their value, customers and suppliers walk away and management spends its time on creditors instead of the business. The expected cost rises with leverage because the probability of distress rises.</p><p>2. <b>Debt overhang.</b> With heavy debt, a positive-NPV project financed with new equity mainly makes the existing debt safer, so much of its value is a wealth transfer to the creditors. The shareholders then reject it and the firm forgoes positive-NPV projects.</p><p>3. <b>Excessive risk-taking (risk shifting).</b> Close to default, the shareholders keep the upside of a gamble while the creditors bear the downside, so a manager acting for the shareholders may take a risky project even if its NPV is negative. Creditors anticipate this and demand a higher rate.</p><p>Also accepted as a third: a higher cost of future financing and less financial flexibility, because a highly levered firm finds it expensive to raise more money when it needs it.</p><p><b>(b) Strandvik should borrow more.</b> Its buildings are tangible, easy to value and easy to sell close to their value. Long leases to government tenants give stable cash flows, so both the probability and the cost of distress are low. Nordlys's value sits in people, code and customer relationships, which melt away in distress: customers stop signing three-year subscriptions with a firm that may not exist, the programmers leave and the software fetches little in a fire sale. Its growth is also exposed to debt overhang, so the trade-off between the tax shield and these costs puts its optimal leverage much lower.</p>",
+  "body": "<p>In a market that is perfect apart from corporate taxes, firm value rises with every unit of debt, so 100% debt is optimal. Real firms borrow far less.</p><p>(a) Give three distinct downsides of debt that this model leaves out. Explain each in two to three sentences. Direct and indirect costs of financial distress count as one downside. (6 points)</p><p>(b) Strandvik Eiendom ASA owns office buildings in central Oslo, let on long leases to government agencies. Nordlys Regnskap AS sells accounting software to small firms on three-year subscriptions; its value lies in a team of programmers and in customers who need updates and support for years. All else equal, which firm should borrow more? Use your answer to (a) in two to three sentences. (4 points)</p>",
+  "solution": "<p><b>(a) Model answer, three downsides (2 points each).</b></p><p>1. <b>Costs of financial distress.</b> A firm that cannot pay its creditors pays lawyers, advisers and court fees (direct costs). It also loses value indirectly: assets are sold in a fire sale below their value, customers and suppliers walk away and management spends its time on creditors instead of the business. The expected cost rises with leverage because the probability of distress rises.</p><p>2. <b>Debt overhang.</b> With heavy debt, a positive-NPV project financed with new equity mainly makes the existing debt safer, so much of its value is a wealth transfer to the creditors. The shareholders then reject it and the firm forgoes positive-NPV projects.</p><p>3. <b>Excessive risk-taking (risk shifting).</b> Close to default, the shareholders keep the upside of a gamble while the creditors bear the downside, so a manager acting for the shareholders may take a risky project even if its NPV is negative. Creditors anticipate this and demand a higher rate.</p><p>Also accepted as a third: a higher cost of future financing and less financial flexibility, because a highly levered firm finds it expensive to raise more money when it needs it; a tax shield the firm cannot use, because EBIT in a bad year (or other deductions such as depreciation and losses carried forward) leaves no taxable income to shield; personal taxes on interest, which investors pay and which reduce the net tax advantage of debt.</p><p><b>(b) Strandvik should borrow more.</b> Its buildings are tangible, easy to value and easy to sell close to their value. Long leases to government tenants give stable cash flows, so both the probability and the cost of distress are low. Nordlys's value sits in people, code and customer relationships, which melt away in distress: customers stop signing three-year subscriptions with a firm that may not exist, the programmers leave and the software fetches little in a fire sale. Its growth is also exposed to debt overhang, so the trade-off between the tax shield and these costs puts its optimal leverage much lower.</p>",
   "criteria": [
-   "(a) Three distinct downsides, each explained, 2 points each: costs of financial distress, debt overhang, excessive risk-taking (risk shifting), or a higher cost of future capital and lost flexibility. Direct and indirect distress costs count as one downside, not two.",
+   "(a) Three distinct downsides, each explained, 2 points each: costs of financial distress, debt overhang, excessive risk-taking (risk shifting), a higher cost of future capital and lost flexibility, a tax shield that cannot be used, personal taxes on interest. Direct and indirect distress costs count as one downside, as the question says.",
    "(a) Each downside needs its mechanism: the expected cost rising with the probability of default; the wealth transfer to creditors that makes the firm forgo positive-NPV projects; the shareholders keeping the upside while creditors bear the downside.",
    "(a) Naming a downside without explaining it earns at most half its points. Two to three sentences each, as asked.",
    "(b) Chooses Strandvik (1 point) and ties it to (a) (3 points): tangible, saleable assets mean small fire-sale losses; stable rents mean a low probability of distress; Nordlys's intangible assets, customers who need support for years and key employees mean large indirect costs.",
@@ -489,7 +490,7 @@
   "n": 1,
   "title": "Capital Structure",
   "points": 10,
-  "topic": "MM in perfect markets and market frictions",
+  "topic": "MM and the real world",
   "chapters": [
    6,
    7,
@@ -504,8 +505,220 @@
    "Fact 1: no taxes; favours debt through the interest tax shield.",
    "Fact 2: no transaction or issue costs; favours internal funds (and debt) over a new share issue. 'Perfect markets without frictions' is accepted as the assumption.",
    "Fact 3: symmetric (equal) information; an equity issue signals overvaluation, so the pecking order: internal funds, debt, equity. Mentioning that a buyback signals undervaluation is also accepted.",
-   "Fact 4: no personal taxes; favours a buyback (or retention) because the tax is deferred. Claiming that dividends are generally taxed at a higher rate is not accepted: the rates are about equal today, the point is the deferral.",
+   "Fact 4: no personal taxes; favours a buyback (or retention) because the tax is deferred. No mechanism point without the deferral: dividends are not generally taxed at a higher rate today, so the point is that the tax on a capital gain can be deferred.",
    "One to two sentences per fact, as asked. Length is not rewarded."
+  ]
+ },
+ "mk-signal-1": {
+  "n": 1,
+  "title": "Security Issues",
+  "points": 20,
+  "topic": "Equity issues",
+  "chapters": [
+   12,
+   13
+  ],
+  "merke": "Samme form som SEO-eksemplet i forelesning 7 (1:29:09)",
+  "body": "<p>Hovdenes Marine ASA builds aluminium workboats. It is all-equity financed with 20 million shares, held by long-term shareholders who keep them until t = 1. At t = 1 its existing assets will be worth NOK 330 million if its new hull design is approved or NOK 130 million if it is not. The managers already know which; investors think both are equally likely. The manager acts in the interest of the existing shareholders. Everyone is risk-neutral and the risk-free rate is 0%. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What is the market value of Hovdenes's existing assets today? What is the share price?</p>",
+    "solution": "<p>Investors cannot tell the types apart, so they value the firm at the expectation: V = 0.5 × 330 + 0.5 × 130 = <b>NOK 230M</b>. The share price is P = 230 / 20 = <b>NOK 11.50</b>.</p>",
+    "criteria": [
+     "V = 0.5 × 330 + 0.5 × 130 = NOK 230M, because investors only know the probabilities.",
+     "P = 230/20 = NOK 11.50.",
+     "No discounting: the risk-free rate is 0% and everyone is risk-neutral."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>Hovdenes can invest NOK 30 million today in a new paint shop that will pay NOK 36 million for sure at t = 1. It must pay for it by issuing new shares to competitive investors. Suppose investors price the issue as if both types issue. What fraction of the firm must the new investors receive?</p>",
+    "solution": "<p><b>Step 1. The firm after the investment, as investors see it.</b> 230 + 36 = NOK 266M at t = 1. The NOK 30M raised is spent on the paint shop, so the denominator includes the project's payoff.</p><p><b>Step 2. The fraction.</b> Competitive investors pay 30 for a stake worth 30:</p><p>α = 30 / 266 = <b>11.2782%</b></p>",
+    "criteria": [
+     "α = I / (pooled value after the investment) = 30/(230 + 36) = 11.2782%.",
+     "Leaving the project out of the denominator (30/230 = 13.0435%) is the classic error.",
+     "The new investors break even on average: they pay the fair price given what they know."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 5,
+    "body": "<p>On the terms in (b), what are the existing shareholders' stakes worth at t = 1 for each type? Which type issues and invests? (If you could not solve (b), use a fraction of 13%.)</p>",
+    "solution": "<p>The existing shareholders keep 1 − α = 0.887218 of the firm with the paint shop:</p><table class=\"data\"><tr><th>Type</th><th>Without the issue</th><th>With the issue</th><th>Decision</th></tr><tr><td>High value</td><td class=\"n\">330</td><td class=\"n\">0.887218 × 366 = 324.7218</td><td>Does not issue</td></tr><tr><td>Low value</td><td class=\"n\">130</td><td class=\"n\">0.887218 × 166 = 147.2782</td><td>Issues</td></tr></table><p><b>Only the low-value type issues.</b> It gains 17.2782: the NPV of 6 plus 11.2782 from selling shares priced as if the firm were worth 230 when it is worth 130. The high-value type pays that subsidy: its shares are underpriced, so it gives away 0.112782 × 366 = 41.2782 of value for NOK 30M of cash. The excess of 11.2782 outweighs the NPV of 6 and it loses 5.2782.</p><p>With the fallback of 13%: 0.87 × 366 = 318.4200 and 0.87 × 166 = 144.4200. Same decisions.</p>",
+    "criteria": [
+     "High value: 0.887218 × 366 = 324.7218, below 330, so it does not issue.",
+     "Low value: 0.887218 × 166 = 147.2782, above 130, so it issues.",
+     "Compares each stake with the value without the project, not with the other type.",
+     "Mechanism: the low type gains the NPV plus the overpricing of its shares; the high type's shares are underpriced, so the dilution costs more than the NPV."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>Investors understand your answer to (c). What is the share price right after Hovdenes announces the issue? How many new shares must it sell?</p>",
+    "solution": "<p><b>Step 1. What the announcement reveals.</b> Only a low-value firm issues, so the issue tells investors that the assets are worth 130. With the paint shop the firm will be worth 130 + 36 = NOK 166M, of which the new investors pay for 30.</p><p><b>Step 2. Two equations.</b> P × n = 30 and P × (20 + n) = 166, so 20 × P = 136:</p><p>P = <b>NOK 6.80</b> and n = 30 / 6.80 = <b>4.4118 million shares</b></p><p>The price falls from NOK 11.50 to NOK 6.80 (−40.87%). The new investors get 30 / 166 = 18.0723% of the firm.</p><p><b>Check that the belief is rational.</b> On these terms the low type keeps 136 > 130 and still issues; a high type would keep 299.8554 < 330 and stays out. ✓</p>",
+    "criteria": [
+     "The issue reveals the low type: P = (130 + 36 − 30)/20 = NOK 6.80.",
+     "n = 30/6.80 = 4.4118 million, from P × n = 30 and P × (20 + n) = 166 or equivalent reasoning.",
+     "Pricing at the pooled value (NOK 11.80) ignores what the issue reveals.",
+     "Bonus: checks that the belief is rational (the low type still issues, the high type does not imitate)."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Is the outcome efficient? Compared with a world where investors also knew the type, who gains and who loses? Explain briefly (3 to 4 sentences).</p>",
+    "solution": "<p><b>No.</b> The high-value Hovdenes forgoes a positive-NPV project: with full information it could sell shares at a fair price and its shareholders would end up with 330 + 6 = 336; now they keep 330, so they lose the NPV of 6. The low-value firm ends up with 136 in both worlds, because investors see through the issue. The new investors break even. The fall in the share price at the announcement is the market learning the type, not a verdict on the paint shop, which has a positive NPV for both types. This is underinvestment caused by asymmetric information: the firm forgoes positive-NPV projects.</p>",
+    "criteria": [
+     "Says the outcome is inefficient because the high-value type forgoes a positive-NPV project (underinvestment).",
+     "The high type's shareholders lose the NPV (6) compared with full information; the low type and the new investors are no better or worse off.",
+     "Explains the price fall as information revealed by the decision to issue, not as a judgement on the project.",
+     "3 to 4 sentences, as asked."
+    ]
+   }
+  ]
+ },
+ "mk-signal-2": {
+  "n": 1,
+  "title": "Security Issues",
+  "points": 20,
+  "topic": "Equity issues",
+  "chapters": [
+   12,
+   13
+  ],
+  "merke": "Som HA1 E3 og PS2 E1 i forelesning 10, strammet inn, med sertifisering (forelesning 10, 3:07)",
+  "body": "<p>Larkhaven Biosensors Inc. makes glucose sensors. It has 25 million shares, no debt and no cash. At t = 1 its existing assets will be worth $400 million (high-value type) or $200 million (low-value type). The managers know the type; investors put a probability of 30% on the high-value type. The shareholders keep their shares until t = 1 and the manager acts in their interest.</p><p>Larkhaven can invest $50 million today in a production line that pays $60 million for sure at t = 1. It must issue new shares to competitive investors to pay for it. Everyone is risk-neutral and the risk-free rate is 0%. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What is the market value of Larkhaven's existing assets and the share price today?</p>",
+    "solution": "<p>V = 0.3 × 400 + 0.7 × 200 = <b>$260M</b> and P = 260 / 25 = <b>$10.40</b>.</p>",
+    "criteria": [
+     "Uses the given probabilities, not 50/50: V = 0.3 × 400 + 0.7 × 200 = $260M.",
+     "P = 260/25 = $10.40.",
+     "A 50/50 average ($300M) is the error."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>Suppose investors price the issue as if both types issue. What fraction of the firm must the new investors receive? What are the existing shareholders' stakes worth at t = 1 for each type if Larkhaven issues? Which type issues?</p>",
+    "solution": "<p><b>Step 1. The fraction.</b> α = 50 / (260 + 60) = 50 / 320 = <b>15.6250%</b>.</p><p><b>Step 2. The stakes.</b> High value: 0.84375 × 460 = <b>388.1250</b> &lt; 400. Low value: 0.84375 × 260 = <b>219.3750</b> &gt; 200.</p><p><b>Only the low-value type issues.</b> The pooled price overvalues it and undervalues the high type, so the high type would give away 71.8750 of value to raise 50 and lose 11.8750.</p>",
+    "criteria": [
+     "α = 50/(260 + 60) = 15.6250%, with the project in the denominator.",
+     "Stakes: 388.1250 for the high type (below 400) and 219.3750 for the low type (above 200).",
+     "Conclusion: only the low-value type issues."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>Now suppose investors believe that only the low-value type issues. What fraction must an issuing firm give the new investors? What is the share price right after an issue is announced?</p>",
+    "solution": "<p><b>Step 1. The fraction.</b> An issuer is priced as the low type: α = 50 / (200 + 60) = <b>19.2308%</b>.</p><p><b>Step 2. The price.</b> The old shareholders' part is worth 200 + 60 − 50 = 210, so P = 210 / 25 = <b>$8.40</b>, down from $10.40 (−19.23%). The issue is 50 / 8.40 = 5.9524 million new shares.</p>",
+    "criteria": [
+     "α = 50/(200 + 60) = 19.2308%.",
+     "P = (200 + 60 − 50)/25 = $8.40: the announcement reveals the low type, so the price falls.",
+     "Two equations (P × n = I and P × (N + n) = L + C) or equivalent reasoning are both accepted."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 5,
+    "body": "<p>An independent laboratory offers to certify Larkhaven's type to the market. The fee is paid today and raised in the same share issue at the certified (fair) price. What is the highest fee a high-value Larkhaven would pay? Would a low-value Larkhaven buy the certificate? Explain briefly.</p>",
+    "solution": "<p><b>High value.</b> With the certificate it is priced at its true value. Raising 50 + F at a fair price, its old shareholders keep 400 + 60 − 50 − F = 410 − F. Without the certificate it does not invest (from (b) and (c)) and keeps 400. It pays up to 410 − 400 = <b>$10M</b>, the NPV of the project the certificate lets it take.</p><p><b>Low value: no.</b> A certificate would only confirm what an issue already reveals under the belief in (c): it would keep 210 − F instead of 210. Since only the high type buys a certificate, an issue without one marks the firm as the low type.</p>",
+    "criteria": [
+     "Highest fee = $10M: the high type's gain from investing at a fair price (410 − F against 400 without the project).",
+     "Sets the comparison right: the alternative for the high type is not investing, not issuing at the pooled price.",
+     "The low type does not buy: it gains nothing from being revealed and would pay the fee. Its loss in (b) (61.8750) is not the value of the certificate.",
+     "Bonus: notes that the existence of the certificate makes an uncertified issue a sign of the low type."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Is the belief in (c) rational given what the two types do? Without a certificate, is the outcome efficient? Explain briefly.</p>",
+    "solution": "<p><b>Rational: yes.</b> On the terms in (c) the low type keeps 0.807692 × 260 = 210 &gt; 200, so it issues; a high type that imitated would keep 0.807692 × 460 = 371.5385 &lt; 400, so it stays out. Only low types issue, exactly as investors believe. (The belief in (b) was not rational, because only the low type issued.)</p><p><b>Efficient: no.</b> The high type forgoes a project with NPV 10: underinvestment, the firm forgoes positive-NPV projects. Before the type is known, the expected loss is 0.3 × 10 = 3 per firm. A certificate that costs less than 10 removes it.</p>",
+    "criteria": [
+     "Checks the belief with numbers: the low type issues (210, above 200) and the high type does not imitate (371.5385, below 400), so the belief is consistent with the actions.",
+     "Inefficient: the high-value type forgoes a positive-NPV project.",
+     "Bonus: the expected loss 3, or that a certificate cheaper than 10 restores investment."
+    ]
+   }
+  ]
+ },
+ "mk-signal-3": {
+  "n": 1,
+  "title": "Security Issues",
+  "points": 20,
+  "topic": "Financing a project",
+  "chapters": [
+   12,
+   13
+  ],
+  "merke": "Som SEO-eksemplet i forelesning 7, med lån som alternativ (forelesning 4, 1:31:05)",
+  "body": "<p>Montclair Vineyards SA owns vineyards in the south of France. It has 10 million shares, no debt and no cash. At t = 1 its existing assets will be worth €220 million (high-value type) or €100 million (low-value type), depending on soil tests that only the managers have seen. Investors put a probability of 60% on the high-value type.</p><p>Montclair can invest €40 million today in a new cellar that pays €46 million for sure at t = 1. Everyone is risk-neutral and the risk-free rate is 0%. The manager acts for the existing shareholders, who keep their shares until t = 1. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What is the market value of the existing assets and the share price today?</p>",
+    "solution": "<p>V = 0.6 × 220 + 0.4 × 100 = <b>€172M</b> and P = 172 / 10 = <b>€17.20</b>.</p>",
+    "criteria": [
+     "V = €172M with the given probabilities.",
+     "P = €17.20.",
+     "Show the calculation. No calculation, no points."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>Suppose Montclair must finance the cellar with new shares and investors price the issue as if both types issue. What fraction of the firm must the new investors receive? What are the existing shareholders' stakes worth at t = 1 for each type? Which type issues?</p>",
+    "solution": "<p><b>Step 1.</b> α = 40 / (172 + 46) = 40 / 218 = <b>18.3486%</b>.</p><p><b>Step 2.</b> High value: 0.816514 × 266 = <b>217.1927</b> &lt; 220, so it does not issue. Low value: 0.816514 × 146 = <b>119.2110</b> &gt; 100, so it issues.</p><p>Only the low type issues. Even with a 60% chance of the high type, the pooled price undervalues a high-value Montclair: it would give away 48.8073 of value for €40M of cash, more than the €46M the cellar returns.</p>",
+    "criteria": [
+     "α = 40/(172 + 46) = 18.3486%.",
+     "Stakes 217.1927 (high, below 220) and 119.2110 (low, above 100).",
+     "Only the low type issues; each type compares with its value without the project."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>Investors understand your answer to (b). What is the share price right after an equity issue is announced? How many new shares must be sold?</p>",
+    "solution": "<p>The issue reveals the low type, so the firm with the cellar is worth 100 + 46 = €146M. P × n = 40 and P × (10 + n) = 146 give 10 × P = 106:</p><p>P = <b>€10.60</b> and n = 40 / 10.60 = <b>3.7736 million shares</b></p><p>The price falls from €17.20 (−38.37%).</p>",
+    "criteria": [
+     "P = (100 + 46 − 40)/10 = €10.60.",
+     "n = 40/10.60 = 3.7736 million (two equations or equivalent reasoning).",
+     "Pricing at the pooled value (€17.80) ignores what the issue reveals."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>Instead, Montclair can borrow the €40 million from a bank, to be repaid at t = 1 with no interest (the loan is risk-free). Which types invest? What happens to the share price when the loan is announced?</p>",
+    "solution": "<p><b>Both types invest.</b> The loan is repaid in full from the cellar's €46M whatever the type, so its value does not depend on what the managers know and nothing is mispriced. A high-value Montclair keeps 220 + 46 − 40 = 226 &gt; 220 and a low-value one 106 &gt; 100. (A low-value firm gains nothing from issuing shares instead: an equity issue would reveal it.)</p><p>Since both types borrow, the announcement reveals nothing about the type and only adds the NPV: P = (172 + 6) / 10 = <b>€17.80</b>, up from €17.20.</p>",
+    "criteria": [
+     "Both types invest: 226 is above 220 and 106 above 100.",
+     "Reason: risk-free debt is worth the same whatever the type, so its price cannot be wrong.",
+     "P = (172 + 6)/10 = €17.80: the price rises by the NPV per share."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Explain the result in (d) with the pecking order: in which order should Montclair prefer internal cash, debt and equity? Why? Would your answer change if the loan were risky? Explain briefly (3 to 4 sentences).</p>",
+    "solution": "<p><b>Internal cash first, then debt, then equity.</b> Cash already in the firm reveals nothing and does not have to be sold to anyone, so no information problem arises. Risk-free debt comes next: its value does not depend on what the managers know, so it cannot be mispriced and borrowing sends no signal. Equity comes last: its value depends most on the private information, so issuing it signals that managers think the shares are overvalued and the price falls. A risky loan would be worth less for the low type than for the high type, so it would carry part of the same problem, but much less than equity.</p>",
+    "criteria": [
+     "The order: internal funds, then debt, then equity (the pecking order).",
+     "Mechanism: the more a security's value depends on the managers' private information, the more it can be mispriced and the stronger the negative signal; risk-free debt is not sensitive at all.",
+     "Risky debt: partly sensitive to the private information, so somewhat mispriced, but less than equity.",
+     "3 to 4 sentences, as asked."
+    ]
+   }
   ]
  }
 }

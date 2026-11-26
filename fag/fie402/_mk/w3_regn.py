@@ -18,6 +18,29 @@ Oppdraget står i docs/fie402-mk-spek.md (raden `vente`). Tre hele oppgaver på 
   senteret bygges (16 mot 17-fella), rentetre, ρ fra en omsatt statsannuitet, opsjonsverdi.
   Hale: «what if σ is very low?» (14, 46:34), bare intuisjon.
 
+Tier 2 (lagt til 26. november 2026):
+
+- mk-binomisk-1: forelesning 12 (47:01 til 1:23:00), USD. Utbetalinger, replikasjon av call (aksjer og
+  lån), ρ og call med ρ, put fra paritet (reserveverdi for call), arbitrasje når en megler kjøper call for
+  dyrt, hale om reelle sannsynligheter (12, 1:08:02).
+- mk-binomisk-2: Home Assignment 2 oppgave 2, NOK. ρ, call og put (pris den letteste først, 18, 57:02),
+  arbitrasje fra paritet med to feile kurser, strike der call og put koster det samme, hale om større
+  spredning.
+- mk-binomisk-3: seks måneder (√1,04, 12, 1:21:03), EUR. ρ, put ved replikasjon (short aksjer og utlån),
+  call fra paritet, produkt som betaler max(S, K) = aksje + put, hale om amerikansk put (bare retning,
+  18, 58:18).
+- mk-senior-junior-1: Google-formen (13, 57:39 til 1:16:02), USD. Ett lån (E, D, rente, spread), så delt
+  i senior og junior, renter, sjekk av summen, hale om rekkefølgen på rentene og lovet mot forventet.
+- mk-senior-junior-2: to lån fra start, NOK. Strikes, E, senior, junior, utbytte per aksje og kurs etter
+  utbetaling (MM), renter og spread, hale om ett lån i stedet for to (13, 45:25).
+- mk-senior-junior-3: 30 måneder (T = 2,5), EUR. Senior og junior med calls, renter, senior på nytt som
+  PV(F) − put, hale om høyere volatilitet (13, 1:17:39). Black-Scholes brukes bare internt til å lage
+  konsistente kurser.
+
+Tier 3 (teori, 10 poeng): mk-opsjonsintuisjon-1 (σ og løpetid for call og put, amerikansk mot
+europeisk), -2 (egenkapital som call, gjeld som PV(F) − put, risikoskifting nær konkurs), -3 (realopsjon
+og σ, forelesning 14, 44:00 til 49:25). Ingen Black-Scholes-tall.
+
 Skriptet regner alle tall, asserter sjekkene og skriver w3.json og w3_svar.json i samme mappe.
 Brytes en skriveregel, mangler et svar-tall i løsningen eller lekker et svar i oppgaveteksten,
 skrives ingenting.
@@ -840,6 +863,9 @@ ulik(C1b, RES_C1b)
 ulik(P1b, P1b_res)
 TILBUD1b = 6.90                                  # forhandleren kjøper call til denne prisen
 gevinst1b = TILBUD1b - C1b
+gevinst1b_res = TILBUD1b - RES_C1b               # med reserveverdien 6.00 for call (fortsatt: selg)
+assert gevinst1b_res > 0
+ulik(gevinst1b, gevinst1b_res)
 assert gevinst1b > 0
 opp1b = N1b * Su1b - (1 + rf1b) * -X1b - Cu1b    # kontantstrøm i t = 1, opp
 ned1b = N1b * Sd1b - (1 + rf1b) * -X1b - Cd1b
@@ -861,6 +887,7 @@ assert abs(P2b - (1 - rho2b) * Pd2b / (1 + rf2b)) < 1e-12
 RHO_RES2b = 0.50
 C2b_res = RHO_RES2b * Cu2b / (1 + rf2b)
 P2b_res = C2b_res - S2b + pvK2b
+P2b_res_dir = (1 - RHO_RES2b) * Pd2b / (1 + rf2b)  # direkte med ρ = 0.50 (ikke paritetskonsistent)
 ulik(rho2b, RHO_RES2b)
 ulik(C2b, C2b_res)
 ulik(P2b, P2b_res)
@@ -918,6 +945,9 @@ assert abs(prod3b - (rho3b * Su3b + (1 - rho3b) * K3b) / g3b) < 1e-12
 prod3b_res = S3b + RES_P3b
 assert PRIS3b > prod3b and PRIS3b > prod3b_res
 # prod3b_res ligger nær svaret (S0 + P); begge godtas som alt
+Dprod3b = (Su3b - K3b) / (Su3b - Sd3b)          # direkte replikasjon av max(S, K)
+Bprod3b = (K3b - Dprod3b * Sd3b) / g3b
+assert abs(Dprod3b * S3b + Bprod3b - prod3b) < 1e-12 and abs(Dprod3b * Su3b + g3b * Bprod3b - Su3b) < 1e-12
 straks3b = K3b - S3b                             # verdien av å innløse en amerikansk put i dag
 assert straks3b < P3b                            # i dette ett-trinnstreet lønner det seg ikke i dag
 
@@ -966,9 +996,9 @@ def pk(x, d=2):
 
 # ================================================================== mk-senior-junior-1
 # Google-formen (forelesning 13, 57:39 til 1:16:02): ett lån, så delt i senior og junior.
-n1s, S1s, T1s, rf1s, sig1s = 250e6, 64.0, 2, 0.025, 0.40
+n1s, S1s, T1s, rf1s, sig1s = 275e6, 64.0, 2, 0.025, 0.40
 V1s = n1s * S1s / 1e9                                   # USD mrd.
-F1s, FS1s, FJ1s = 10.0, 6.0, 4.0
+F1s, FS1s, FJ1s = 11.0, 6.6, 4.4
 tab1s = kurser(S1s, T1s, rf1s, sig1s, [16, 24, 32, 40, 48], [0.35, 0.40, 0.45, 0.50, 0.55])
 k1s = F1s * 1e9 / n1s
 kS1s = FS1s * 1e9 / n1s
@@ -979,7 +1009,7 @@ E1s = n1s * c40_1s / 1e9
 D1s = V1s - E1s
 y1s = yld(F1s, D1s, T1s)
 spr1s = y1s - rf1s
-RES_E1s = 7.5
+RES_E1s = 8.25
 D1s_res = V1s - RES_E1s
 y1s_res = yld(F1s, D1s_res, T1s)
 ulik(E1s, RES_E1s)
@@ -992,7 +1022,7 @@ DJ1s_felle = n1s * c16_1s / 1e9                         # junior priset som én 
 ulik(DJ1s, DJ1s_felle)
 yS1s, yJ1s = yld(FS1s, DS1s, T1s), yld(FJ1s, DJ1s, T1s)
 assert rf1s < yS1s < y1s < yJ1s
-RES_DS1s, RES_DJ1s = 5.5, 3.0
+RES_DS1s, RES_DJ1s = 6.0, 3.3
 yS1s_res, yJ1s_res = yld(FS1s, RES_DS1s, T1s), yld(FJ1s, RES_DJ1s, T1s)
 ulik(yS1s, yS1s_res)
 ulik(yJ1s, yJ1s_res)
@@ -1066,6 +1096,16 @@ c75h, c100h = _bs_call(S3s, 75, T3s, rf3s, sig3h), _bs_call(S3s, 100, T3s, rf3s,
 c75l, c100l = _bs_call(S3s, 75, T3s, rf3s, sig3s), _bs_call(S3s, 100, T3s, rf3s, sig3s)
 assert c100h > c100l and c75h > c75l                   # EK opp, senior (V − C75) ned
 assert (c75h - c100h) < (c75l - c100l)                  # junior ned med disse tallene
+# toleransene i svar-dataene avviser bid eller ask i stedet for midtkurs
+for felt in ("bid", "ask"):
+    E3x = n3s * kurs(tab3s, 100, felt) / 1e9
+    DS3x = V3s - n3s * kurs(tab3s, 75, felt) / 1e9
+    DJ3x = n3s * (kurs(tab3s, 75, felt) - kurs(tab3s, 100, felt)) / 1e9
+    ulik(E3s, E3x, tol=0.005 / 2)
+    ulik(DS3s, DS3x, tol=0.005 / 2)
+    ulik(DJ3s, DJ3x, tol=0.002 / 2)
+    DJ1x = n1s * (kurs(tab1s, 24, felt) - kurs(tab1s, 40, felt)) / 1e9
+    ulik(DJ1s, DJ1x, tol=0.005 / 2)
 
 
 def kurstabell(tab, valuta, med_put=False):
@@ -1074,7 +1114,7 @@ def kurstabell(tab, valuta, med_put=False):
     for x in tab:
         rad = [f(x["K"], 0), f(x["bid"], 2), f(x["ask"], 2)]
         if med_put:
-            rad += [f(x["pbid"], 2), f(x["pask"], 2)] if x["pmid"] >= 0.05 else ["–", "–"]
+            rad += [f(x["pbid"], 2), f(x["pask"], 2)] if x["pmid"] >= 0.05 else ["n/a", "n/a"]
         rader.append(rad)
     return tabell(hode, rader)
 
@@ -1174,7 +1214,7 @@ bin1 = {
             "body": P(
                 "A dealer offers to buy Corvallis calls (strike USD 52, one year) from you at USD 6.90 each. "
                 "Describe a strategy that gives a riskless profit. Show its cash flows today and in each state "
-                "in one year."),
+                "in one year. (If you could not find the call price, use USD 6.00.)"),
             "solution": P(
                 f"The call is worth {f(C1b)}, so the dealer overpays. <b>Sell</b> one call to the dealer and "
                 f"<b>buy the replicating portfolio</b> from (b): buy {f(N1b)} shares and borrow {f(-X1b)}.")
@@ -1187,11 +1227,14 @@ bin1 = {
             + P(
                 f"You pocket <b>USD {f(gevinst1b)}</b> per call today and owe nothing later: the portfolio covers "
                 "the call in both states. Buying from the dealer would be the wrong side, since the dealer's "
-                "price is above the value."),
+                f"price is above the value. With the fallback call price of 6.00 the conclusion is the same (sell); "
+                f"the gain is 6.90 − 6.00 = {f(gevinst1b_res)} per call."),
             "criteria": [
                 f"Sees that 6.90 is above the call's value of {f(C1b)}, so the call should be sold.",
                 f"Hedges the sold call with the replicating portfolio: buy {f(N1b)} shares and borrow {f(-X1b)}.",
-                f"Cash flows: +{f(gevinst1b)} today and 0 in both states. Shows the table or the equivalent sums.",
+                f"Cash flows: +{f(gevinst1b)} today per call and 0 in both states. Shows the table or the equivalent "
+                f"sums. With the fallback 6.00: {f(gevinst1b_res)}, full marks. A scaled trade is fine if the gain "
+                "per call is stated.",
                 "A strategy with risk left in one of the states does not count as an arbitrage.",
             ],
         },
@@ -1236,7 +1279,8 @@ sv_bin1 = {
         {"navn": "Put price", "verdi": P1b, "enhet": "USD", "alt": [P1b_res]}],
         "merknad": f"alt {f(P1b_res)} er svaret med reserveverdien 6.00 for call."},
     "mk-binomisk-1:1:e": {"type": "blandet", "tall": [
-        {"navn": "Cash flow today", "verdi": gevinst1b, "enhet": "USD"}],
+        {"navn": "Cash flow today per call", "verdi": gevinst1b, "enhet": "USD", "alt": [gevinst1b_res]}],
+        "merknad": f"alt {f(gevinst1b_res)} er svaret med reserveverdien 6.00 for call.",
         "tallPoeng": 1.5, "tekstLedd": "Describe the strategy and its cash flows in each state."},
     "mk-binomisk-1:1:f": {"type": "tekst"},
 }
@@ -1286,13 +1330,15 @@ bin2 = {
                 f"{f(C2b)} − 140 + {f(pvK2b)} = <b>NOK {f(P2b)}</b>",
                 f"Check with ρ: {f(1 - rho2b)} × {f(Pd2b, 0)}/1.05 = {f((1 - rho2b) * Pd2b)}/1.05 = {f(P2b)}. ✓",
                 f"With the fallback ρ = 0.50: C = 0.50 × 25/1.05 = {f(C2b_res)} and P = {f(C2b_res)} − 140 + "
-                f"{f(pvK2b)} = {f(P2b_res)}."),
+                f"{f(pvK2b)} = {f(P2b_res)} by parity, or 0.50 × 38/1.05 = {f(P2b_res_dir)} directly. The two "
+                "routes differ because 0.50 is not the probability that prices the share; both are accepted."),
             "criteria": [
                 f"Payoffs {f(Cu2b, 0)} for the call in the high state and {f(Pd2b, 0)} for the put in the low state.",
                 f"C = {f(rho2b)} × 25/1.05 = {f(C2b)}.",
                 f"P = {f(P2b)}, by parity or directly with 1 − ρ.",
                 "Discounts with the risk-free rate, not with the share's expected return.",
-                f"With the fallback ρ = 0.50: {f(C2b_res)} and {f(P2b_res)}, full marks.",
+                f"With the fallback ρ = 0.50: {f(C2b_res)} and {f(P2b_res)} (parity) or {f(P2b_res_dir)} "
+                "(direct), full marks.",
                 "Bonus: prices the second option both ways as a check.",
             ],
         },
@@ -1326,8 +1372,9 @@ bin2 = {
                 "arbitrage.",
                 "Buys the cheap side (call and lending) and sells the expensive side (put and short share).",
                 f"Cash flows: +{f(arb2b)} today and 0 in both states.",
-                "Also accepted: buying the call and hedging it with the replicating portfolio (short shares and "
-                "lending), if the cash flows are shown.",
+                f"Also accepted: trading only one option and hedging it with its replicating portfolio, for example "
+                f"buying the call and selling the replicating portfolio (gain {f(C2b - QC2b)}) or selling the put "
+                f"and buying its replicating portfolio (gain {f(QP2b - P2b)}), if the cash flows are shown.",
             ],
         },
         {
@@ -1346,8 +1393,8 @@ bin2 = {
             "criteria": [
                 "Uses put-call parity: C − P = S_0 − PV(K).",
                 f"K = 140 × 1.05 = {f(Kstar2b, 0)}.",
-                "Explains: the strike equals the share price compounded at the risk-free rate, the expected price "
-                "under ρ, so the two options have the same risk-neutral expected payoff.",
+                "Explains: from parity, C = P exactly when PV(K) = S_0. This alone is a full explanation. Adding "
+                "that the strike then equals the share's expected price under ρ is a bonus.",
                 "Bonus: checks with ρ that both options cost 14.8148.",
             ],
         },
@@ -1383,11 +1430,15 @@ sv_bin2 = {
         "merknad": "Sannsynligheter i prosent; desimaltall godtas også."},
     "mk-binomisk-2:1:b": {"type": "tall", "tall": [
         {"navn": "Call price", "verdi": C2b, "enhet": "NOK", "alt": [C2b_res]},
-        {"navn": "Put price", "verdi": P2b, "enhet": "NOK", "alt": [P2b_res]}],
-        "merknad": f"alt er svarene med reserveverdien ρ = 0.50 ({f(C2b_res)} og {f(P2b_res)})."},
+        {"navn": "Put price", "verdi": P2b, "enhet": "NOK", "alt": [P2b_res, P2b_res_dir]}],
+        "merknad": f"alt er svarene med reserveverdien ρ = 0.50: call {f(C2b_res)}, put {f(P2b_res)} fra paritet "
+                   f"eller {f(P2b_res_dir)} direkte. Begge veiene er lov."},
     "mk-binomisk-2:1:c": {"type": "blandet", "tall": [
-        {"navn": "Cash flow today", "verdi": arb2b, "enhet": "NOK"}],
-        "tallPoeng": 2, "tekstLedd": "Is there an arbitrage? Describe it and its cash flows."},
+        {"navn": "Cash flow today per unit of the trade", "verdi": arb2b, "enhet": "NOK",
+         "alt": [C2b - QC2b, QP2b - P2b]}],
+        "tallPoeng": 2, "tekstLedd": "Is there an arbitrage? Describe it and its cash flows.",
+        "merknad": f"alt er gevinsten når bare én opsjon handles og sikres med replikasjon: call {f(C2b - QC2b)}, "
+                   f"put {f(QP2b - P2b)}."},
     "mk-binomisk-2:1:d": {"type": "blandet", "tall": [
         {"navn": "Strike", "verdi": Kstar2b, "enhet": "NOK"}],
         "tallPoeng": 2.5, "tekstLedd": "Explain."},
@@ -1483,12 +1534,16 @@ bin3 = {
                 f"<b>Step 3. Decision.</b> The bank charges 81.60, {f(PRIS3b - prod3b)} more than the product is "
                 "worth. <b>Do not buy it</b>; build it yourself by buying one share and one put with strike 78, or "
                 f"one call and a six-month deposit of {f(pvK3b)}. With the fallback put: 74 + 6.50 = "
-                f"{f(prod3b_res)}, still below 81.60."),
+                f"{f(prod3b_res)}, still below 81.60.",
+                f"Also correct: replicate the product directly. It pays 86 or 78, so Δ = (86 − 78)/23 = "
+                f"{f(Dprod3b)} shares and B = (78 − {f(Dprod3b, 6)} × 63)/{f(g3b, 6)} = {f(Bprod3b)} in lending; "
+                f"cost {f(Dprod3b, 6)} × 74 + {f(Bprod3b)} = {f(prod3b)}. ✓"),
             "criteria": [
                 "Recognises the payoff as one share plus one put with strike 78 (or one call plus a risk-free deposit of PV(78)).",
                 f"Value 74 + {f(P3b)} = {f(prod3b)}. With the fallback put: {f(prod3b_res)}, full marks.",
                 f"Concludes that the product is overpriced by {f(PRIS3b - prod3b)}, so you should not buy it.",
-                "Says how to build it yourself: share plus put, or call plus lending.",
+                f"Says how to build it yourself: share plus put, call plus lending, or the direct replication with "
+                f"{f(Dprod3b)} shares and {f(Bprod3b)} in lending. All three are full answers.",
             ],
         },
         {
@@ -1498,7 +1553,8 @@ bin3 = {
                 "Without calculation: would you expect its price to be higher or lower than the price of the "
                 "European put? Explain briefly."),
             "solution": P(
-                "<b>Not lower; in general higher.</b> An American put gives every right the European put gives, plus "
+                "<b>Not lower: at least as high, higher whenever early exercise pays.</b> An American put gives "
+                "every right the European put gives, plus "
                 "the right to exercise early. Extra rights cannot have a negative value, so the American put is "
                 "worth at least as much (recording 12, 12:41; recording 18, 58:18).",
                 "Early exercise of a put can pay when it is deep in the money: you receive the strike now and can "
@@ -1508,9 +1564,12 @@ bin3 = {
                 "here. For a call on a share without dividends, early exercise never pays, so an American call "
                 "would be worth the same as the European one."),
             "criteria": [
-                "1 point: the American put is worth at least as much (higher or equal), never less.",
-                "1 point: it contains all the rights of the European put plus early exercise.",
-                "1 point: says when early exercise can pay (a deep in-the-money put: getting the strike early earns "
+                "1.5 points: the American put is priced at least as high as the European one (higher or equal), "
+                "never lower.",
+                "1.5 points: the reason in Kurbatov's terms: it gives every right of the European put plus the right "
+                "to exercise early; more rights or more flexibility are priced at least as high (recording 12, "
+                "12:41; recording 18, 58:18). This is a full answer.",
+                "Bonus: says when early exercise of a put can pay (deep in the money: the strike received early earns "
                 "interest).",
                 "Bonus: notes that exercising today pays only 4 here, so in this tree the two are worth the same.",
             ],
@@ -1525,7 +1584,7 @@ sv_bin3 = {
         "merknad": f"ρ i prosent ({f(100 * rho3b, 2)} %; {f(rho3b)} godtas også). Med 1.02 blir ρ "
                    f"{f(rho3b_halv_rente)}, innenfor toleransen; med 1.04 {f(rho3b_felle_helt_aar)}, avvist."},
     "mk-binomisk-3:1:b": {"type": "tall", "tall": [
-        {"navn": "Δ (shares, short −)", "verdi": D3b, "enhet": ""},
+        {"navn": "Δ (shares, long +, short −)", "verdi": D3b, "enhet": ""},
         {"navn": "B (lending +, borrowing −)", "verdi": B3b, "enhet": "EUR"},
         {"navn": "Put price", "verdi": P3b, "enhet": "EUR"}]},
     "mk-binomisk-3:1:c": {"type": "tall", "tall": [
@@ -1549,7 +1608,7 @@ sj1 = {
     "chapters": [21, 24],
     "merke": "Samme form som Google-eksemplet i forelesning 13 (57:39 til 1:16:02)",
     "body": P(
-        "Quillback Genomics Inc. has 250 million shares trading at USD 64 and no debt. Markets are perfect and "
+        "Quillback Genomics Inc. has 275 million shares trading at USD 64 and no debt. Markets are perfect and "
         "there are no taxes. Quillback considers issuing zero-coupon debt due in exactly 2 years and paying the "
         "proceeds out to its shareholders at once, which leaves the value of its assets unchanged. The risk-free "
         "rate is 2.5% a year (annual compounding).",
@@ -1561,19 +1620,19 @@ sj1 = {
         {
             "label": "a", "points": 3,
             "body": P(
-                "Quillback issues a single bond with face value USD 10 billion. Which strike per share corresponds "
+                "Quillback issues a single bond with face value USD 11 billion. Which strike per share corresponds "
                 "to this debt? What is the equity worth after the issue?"),
             "solution": P(
-                f"Firm value V = 250 million × 64 = USD {f(V1s, 1)} billion. The equity is a call on the assets with "
-                f"strike equal to the face value of the debt: per share, 10 billion/250 million = <b>USD "
+                f"Firm value V = 275 million × 64 = USD {f(V1s, 1)} billion. The equity is a call on the assets with "
+                f"strike equal to the face value of the debt: per share, 11 billion/275 million = <b>USD "
                 f"{f(k1s, 0)}</b>.",
                 f"Call with strike 40: midpoint of {f(kurs(tab1s, 40, 'bid'), 2)} and {f(kurs(tab1s, 40, 'ask'), 2)} "
                 f"= {f(c40_1s, 2)}.",
-                f"E = 250 million × {f(c40_1s, 2)} = <b>USD {f(E1s)} billion</b>"),
+                f"E = 275 million × {f(c40_1s, 2)} = <b>USD {f(E1s)} billion</b>"),
             "criteria": [
                 f"Strike per share = face value/number of shares = {f(k1s, 0)}.",
                 f"Midpoint {f(c40_1s, 2)} for the call with strike 40.",
-                f"Multiplies by 250 million: E = {f(E1s)} {UB}. Forgetting to multiply by the number of shares is "
+                f"Multiplies by 275 million: E = {f(E1s)} {UB}. Forgetting to multiply by the number of shares is "
                 "the classic slip (recording 13, 1:13:30).",
             ],
         },
@@ -1581,18 +1640,18 @@ sj1 = {
             "label": "b", "points": 4,
             "body": P(
                 "What is the debt worth? What annual yield does the bond offer? What is its spread over the "
-                "risk-free rate? (If you could not solve (a), use an equity value of USD 7.5 billion.)"),
+                "risk-free rate? (If you could not solve (a), use an equity value of USD 8.25 billion.)"),
             "solution": P(
                 f"D = V − E = {f(V1s, 1)} − {f(E1s)} = <b>USD {f(D1s)} billion</b>",
-                f"The bond pays 10 in 2 years, so (1 + y)<sup>2</sup> = 10/{f(D1s)} = {f(F1s / D1s)} and "
+                f"The bond pays 11 in 2 years, so (1 + y)<sup>2</sup> = 11/{f(D1s)} = {f(F1s / D1s)} and "
                 f"y = {f(F1s / D1s)}<sup>1/2</sup> − 1 = <b>{pk(y1s)}</b>.",
                 f"Spread = {pk(y1s)} − 2.50% = <b>{f(100 * spr1s, 2)} percentage points</b>.",
                 f"Forgetting to annualise gives {pk(y1s_felle_T)} over two years, not a yearly rate. With the "
-                f"fallback E = 7.5: D = 8.5, y = {pk(y1s_res)} and the spread is {f(100 * (y1s_res - rf1s), 2)} "
+                f"fallback E = 8.25: D = {f(V1s - RES_E1s, 2)}, y = {pk(y1s_res)} and the spread is {f(100 * (y1s_res - rf1s), 2)} "
                 "percentage points."),
             "criteria": [
                 f"D = {f(V1s, 1)} − {f(E1s)} = {f(D1s)} {UB}.",
-                f"Annual yield (10/{f(D1s)})^(1/2) − 1 = {pk(y1s)}. With the fallback: {pk(y1s_res)}, full marks.",
+                f"Annual yield (11/{f(D1s)})^(1/2) − 1 = {pk(y1s)}. With the fallback: {pk(y1s_res)}, full marks.",
                 f"Spread {f(100 * spr1s, 2)} percentage points over 2.5%.",
                 f"Reporting the two-year return {pk(y1s_felle_T)} as the yield is wrong.",
             ],
@@ -1600,15 +1659,15 @@ sj1 = {
         {
             "label": "c", "points": 6,
             "body": P(
-                "Suppose instead that the debt is split into a senior bond with face value USD 6 billion and a "
-                "junior bond with face value USD 4 billion, both zero-coupon and due in 2 years. What are the "
+                "Suppose instead that the debt is split into a senior bond with face value USD 6.6 billion and a "
+                "junior bond with face value USD 4.4 billion, both zero-coupon and due in 2 years. What are the "
                 "senior debt, the junior debt and the equity worth?"),
             "solution": P(
                 f"<b>Step 1. Equity.</b> The shareholders are paid only after both bonds, so the strike is the total "
-                f"face value, 10 billion, or USD 40 per share as before: E = <b>USD {f(E1s)} billion</b>.",
-                f"<b>Step 2. Senior debt.</b> Everything above the senior face value is a call with strike 6 "
-                f"billion/250 million = USD {f(kS1s, 0)} per share: midpoint {f(c24_1s, 2)}, so C(F<sub>S</sub>) = "
-                f"250 million × {f(c24_1s, 2)} = {f(CS1s)}. The senior creditors get the rest:<br>"
+                f"face value, 11 billion, or USD 40 per share as before: E = <b>USD {f(E1s)} billion</b>.",
+                f"<b>Step 2. Senior debt.</b> Everything above the senior face value is a call with strike 6.6 "
+                f"billion/275 million = USD {f(kS1s, 0)} per share: midpoint {f(c24_1s, 2)}, so C(F<sub>S</sub>) = "
+                f"275 million × {f(c24_1s, 2)} = {f(CS1s)}. The senior creditors get the rest:<br>"
                 f"D<sub>S</sub> = V − C(F<sub>S</sub>) = {f(V1s, 1)} − {f(CS1s)} = <b>USD {f(DS1s)} billion</b>",
                 f"<b>Step 3. Junior debt</b> is the slice between the two strikes:<br>D<sub>J</sub> = "
                 f"C(F<sub>S</sub>) − C(F<sub>S</sub> + F<sub>J</sub>) = {f(CS1s)} − {f(E1s)} = <b>USD {f(DJ1s)} "
@@ -1620,39 +1679,38 @@ sj1 = {
                 f"Senior strike {f(kS1s, 0)} per share; D_S = {f(V1s, 1)} − {f(CS1s)} = {f(DS1s)}.",
                 f"Junior debt as the difference between two calls: {f(CS1s)} − {f(E1s)} = {f(DJ1s)}.",
                 f"Pricing junior as one call with strike 16 ({f(DJ1s_felle)}) is the classic error.",
-                "Multiplies every per-share call by 250 million.",
+                "Multiplies every per-share call by 275 million.",
             ],
         },
         {
             "label": "d", "points": 4,
             "body": P(
-                "What annual yields do the senior and the junior bonds offer? Check that the three claims add up to "
-                "the firm value. (If you could not solve (c), use USD 5.5 billion for the senior and USD 3.0 billion "
-                "for the junior debt.)"),
+                "What annual yields do the senior and the junior bonds offer? (If you could not solve (c), use USD "
+                "6.0 billion for the senior and USD 3.3 billion for the junior debt.)"),
             "solution": P(
-                f"Senior: (6/{f(DS1s)})<sup>1/2</sup> − 1 = <b>{pk(yS1s)}</b>",
-                f"Junior: (4/{f(DJ1s)})<sup>1/2</sup> − 1 = <b>{pk(yJ1s)}</b>",
-                f"Sum: {f(DS1s)} + {f(DJ1s)} + {f(E1s)} = {f(DS1s + DJ1s + E1s)} = V. ✓ This holds by construction, "
-                "since the three claims are cut from the same firm with the same calls; it catches arithmetic slips "
-                "such as a missing multiplication by the number of shares.",
+                f"Senior: (6.6/{f(DS1s)})<sup>1/2</sup> − 1 = <b>{pk(yS1s)}</b>",
+                f"Junior: (4.4/{f(DJ1s)})<sup>1/2</sup> − 1 = <b>{pk(yJ1s)}</b>",
+                f"Check (not asked): {f(DS1s)} + {f(DJ1s)} + {f(E1s)} = {f(DS1s + DJ1s + E1s)} = V. ✓ This holds by "
+                "construction, since the three claims are cut from the same firm with the same calls; it catches "
+                "arithmetic slips such as a missing multiplication by the number of shares.",
                 f"With the fallback values: senior {pk(yS1s_res)} and junior {pk(yJ1s_res)}."),
             "criteria": [
                 f"Senior yield {pk(yS1s)}.",
                 f"Junior yield {pk(yJ1s)}. With the fallback values: {pk(yS1s_res)} and {pk(yJ1s_res)}, full marks.",
-                f"Sum of the three claims = {f(V1s, 1)}, labelled as an identity that catches slips.",
+                "Annualises with the power 1/2 for the two-year maturity.",
+                f"Bonus: checks that the three claims add up to {f(V1s, 1)}, labelled as an identity.",
             ],
         },
         {
             "label": "e", "points": 3,
             "body": P(
-                "Explain briefly why the junior yield is higher than the yield on the single bond in (b), which in "
-                "turn is higher than the senior yield. Is the junior yield the return junior creditors should "
-                "expect?"),
+                "Compare the three yields from (b) and (d) and explain the ordering. Is the junior yield the return "
+                "junior creditors should expect?"),
             "solution": P(
-                f"<b>Ordering.</b> The senior creditors are paid first and lose only if the assets end below USD 6 "
+                f"<b>Ordering.</b> The senior creditors are paid first and lose only if the assets end below USD 6.6 "
                 f"billion, so their bond is the safest ({pk(yS1s)}). The single bond is the senior and junior "
                 f"slices together, so its risk and yield ({pk(y1s)}) lie in between. The junior creditors take the "
-                f"first losses after the shareholders and are wiped out below 6 billion, so they demand the most "
+                f"first losses after the shareholders and are wiped out below 6.6 billion, so they demand the most "
                 f"({pk(yJ1s)}).",
                 "<b>Not the expected return.</b> The yield is the promised return if the bond is paid in full. The "
                 "expected return is lower, because with some probability the junior bond pays less than its face "
@@ -1674,16 +1732,16 @@ sv_sj1 = {
         {"navn": "Debt value", "verdi": D1s, "enhet": "USD bn", "alt": [V1s - RES_E1s]},
         {"navn": "Annual yield", "verdi": 100 * y1s, "enhet": "%", "alt": [100 * y1s_res]},
         {"navn": "Spread", "verdi": 100 * spr1s, "enhet": "%", "alt": [100 * (y1s_res - rf1s)]}],
-        "merknad": "alt er svarene med reserveverdien E = 7.5. Spredningen er i prosentpoeng."},
+        "merknad": "alt er svarene med reserveverdien E = 8.25. Spredningen er i prosentpoeng."},
     "mk-senior-junior-1:1:c": {"type": "tall", "tall": [
         {"navn": "Senior debt", "verdi": DS1s, "enhet": "USD bn"},
-        {"navn": "Junior debt", "verdi": DJ1s, "enhet": "USD bn"},
+        {"navn": "Junior debt", "verdi": DJ1s, "enhet": "USD bn", "tol": 0.005},
         {"navn": "Equity", "verdi": E1s, "enhet": "USD bn"}],
         "merknad": f"Junior som én call med strike 16 gir {f(DJ1s_felle)}; det avvises."},
     "mk-senior-junior-1:1:d": {"type": "tall", "tall": [
         {"navn": "Senior yield", "verdi": 100 * yS1s, "enhet": "%", "alt": [100 * yS1s_res]},
         {"navn": "Junior yield", "verdi": 100 * yJ1s, "enhet": "%", "alt": [100 * yJ1s_res]}],
-        "merknad": "alt er svarene med reserveverdiene 5.5 og 3.0."},
+        "merknad": "alt er svarene med reserveverdiene 6.0 og 3.3."},
     "mk-senior-junior-1:1:e": {"type": "tekst"},
 }
 
@@ -1704,7 +1762,8 @@ sj2 = {
         "unchanged. The risk-free rate is 4% a year (annual compounding).",
         "European calls on Brattheim shares that expire in exactly 3 years are quoted below (NOK per share). "
         "Because Brattheim has no debt today, you can treat them as calls on its assets per share. Use the "
-        "midpoint of bid and ask. Use 4 decimal places.")
+        "midpoint of bid and ask. Give values in NOK billion with 4 decimals, per-share amounts with 2 "
+        "decimals and yields in % with 2 decimals.")
     + kurstabell(tab2s, "NOK"),
     "parts": [
         {
@@ -1749,12 +1808,14 @@ sj2 = {
             "body": P(
                 "What special dividend per share do the shareholders receive? What is the share price right after "
                 "the payout? Are the shareholders better or worse off? (If you could not solve (b), use NOK 6.0 "
-                "billion for the senior and NOK 2.4 billion for the junior debt.)"),
+                "billion for the senior and NOK 2.4 billion for the junior debt. Find the share price as the "
+                "firm value less the debt, divided by the number of shares.)"),
             "solution": P(
                 f"The proceeds are the market value of the two bonds: {f(DS2s)} + {f(DJ2s)} = {f(DS2s + DJ2s)} "
                 f"billion, or {f(DS2s + DJ2s)} billion/180 million = <b>NOK {f(utb2s, 2)} per share</b>.",
-                f"After the payout each share is a claim on the equity: {f(E2s)} billion/180 million = <b>NOK "
-                f"{f(kurs2s, 2)}</b>, the call price with strike 60.",
+                f"After the payout each share is a claim on the equity: (V − D)/N = ({f(V2s, 1)} − {f(DS2s + DJ2s)}) "
+                f"billion/180 million = {f(E2s)} billion/180 million = <b>NOK {f(kurs2s, 2)}</b>, the call price "
+                "with strike 60.",
                 f"A shareholder had 95 and now has {f(utb2s, 2)} + {f(kurs2s, 2)} = {f(utb2s + kurs2s, 2)}: "
                 "<b>neither better nor worse off</b>. In a perfect market the payout only moves value from the "
                 "shares into cash; the firm value is unchanged (MM).",
@@ -1763,7 +1824,9 @@ sj2 = {
             "criteria": [
                 f"Dividend = (D_S + D_J)/180 million = {f(utb2s, 2)} per share.",
                 f"Share price after the payout = E/180 million = {f(kurs2s, 2)}.",
-                f"Shareholders are neither better nor worse off: {f(utb2s, 2)} + {f(kurs2s, 2)} = 95.",
+                f"Shareholders are neither better nor worse off: {f(utb2s, 2)} + {f(kurs2s, 2)} = 95. The MM argument "
+                "(the payout moves value from shares into cash, V is unchanged) earns the text points even if the "
+                "numbers are off.",
                 f"With the fallback values: {f(utb2s_res, 2)} and {f(kurs2s_res, 2)}, full marks.",
             ],
         },
@@ -1929,7 +1992,7 @@ sj3 = {
             "body": P(
                 "Rheinberg's managers consider a strategy that makes the firm's assets riskier while their value "
                 "today stays at EUR 18 billion. Using the option view, explain what this does to the equity, the "
-                "senior debt and the junior debt. No calculation is needed."),
+                "senior debt and the junior debt. Who gains and who loses? No calculation is needed."),
             "solution": P(
                 "<b>Equity rises.</b> It is a call on the assets. A call gains from volatility: the upside grows, "
                 "the downside stays at 0 (recording 13, 1:17:39).",
@@ -1943,9 +2006,11 @@ sj3 = {
             "criteria": [
                 "1 point: equity rises, because it is a call on the assets.",
                 "1 point: senior debt falls, because it contains a written put.",
-                "1 point: junior debt is a call spread (long C(75), short C(100)), so the sign is not certain in "
-                "general; here, with V well above 100 per share, it most likely falls.",
-                "1 point: names the wealth transfer from creditors to shareholders with V unchanged.",
+                "1 point: junior debt most likely falls. Full credit for «junior falls: it is debt and contains a "
+                "written put». Noting that it is a call spread (long C(75), short C(100)), so the sign is not "
+                "certain in general, is a bonus.",
+                "1 point: who gains and who loses: the shareholders gain and the creditors lose (a wealth transfer, "
+                "since V is unchanged).",
                 "No Black-Scholes calculation is required.",
             ],
         },
@@ -1956,10 +2021,11 @@ sv_sj3 = {
     "mk-senior-junior-3:1:a": {"type": "tall", "tall": [
         {"navn": "Senior strike per share", "verdi": kS3s, "enhet": "EUR"},
         {"navn": "Total-debt strike per share", "verdi": kT3s, "enhet": "EUR"},
-        {"navn": "Equity value", "verdi": E3s, "enhet": "EUR bn"}]},
+        {"navn": "Equity value", "verdi": E3s, "enhet": "EUR bn", "tol": 0.005}],
+        "merknad": "tol 0,5 % så bid eller ask i stedet for midtkurs avvises."},
     "mk-senior-junior-3:1:b": {"type": "tall", "tall": [
-        {"navn": "Senior debt", "verdi": DS3s, "enhet": "EUR bn"},
-        {"navn": "Junior debt", "verdi": DJ3s, "enhet": "EUR bn"}],
+        {"navn": "Senior debt", "verdi": DS3s, "enhet": "EUR bn", "tol": 0.005},
+        {"navn": "Junior debt", "verdi": DJ3s, "enhet": "EUR bn", "tol": 0.002}],
         "merknad": f"Junior som én call med strike 25 gir {f(DJ3s_felle)}; det avvises."},
     "mk-senior-junior-3:1:c": {"type": "tall", "tall": [
         {"navn": "Senior yield", "verdi": 100 * yS3s, "enhet": "%", "alt": [100 * yS3s_res]},
@@ -1972,11 +2038,251 @@ sv_sj3 = {
 }
 
 
+
+# ################################################################## TIER 3
+# ------------------------------------------------------------------ opsjonsintuisjon 1
+# Vinkel 1: volatilitet og løpetid for call og put, amerikansk mot europeisk (bare retning).
+oi1 = {
+    "n": 1,
+    "title": "Options",
+    "points": 10,
+    "topic": "Options, volatility, time to maturity and American options",
+    "chapters": [21, 23],
+    "merke": "Samme form som H2025 E1: opsjonsintuisjon uten regning",
+    "body": P(
+        "Your aunt owns shares in Sølvberget Mineral ASA, a listed mining company that pays no dividends. To "
+        "protect herself she has bought one-year European puts on the shares. She was also given one-year European "
+        "calls on the same shares as a present. Both have a strike price equal to today's share price. Treat each "
+        "piece of news below separately and assume that today's share price and the interest rate stay the same.",
+        "(i) Sølvberget announces that it will spend its cash on exploration in a region where nobody has mined "
+        "before, so the share becomes far more volatile. What happens to the value of the calls and of the puts? "
+        "(3 points)",
+        "(ii) Her broker offers to swap the options for otherwise identical options that expire in three years "
+        "instead of one. Would the calls be worth more? Would the puts? (4 points)",
+        "(iii) The broker also offers American versions of the one-year options, with the same strike. Would you "
+        "expect them to be priced higher or lower than the European ones? (3 points)",
+        "You do not need any calculations. Two to three sentences per piece of news should be enough. A direction "
+        "without a reason earns no points."),
+    "solution": P(
+        "<b>(i) Higher volatility: both the calls and the puts gain value.</b> An option pays only on one side: "
+        "the call gains from large rises, the put from large falls; neither can pay less than 0. With more "
+        "volatility, large moves in either direction become more likely, so the expected payoff of both rises "
+        "while the worst case stays at 0 (recording 13, 1:16:52). Kurbatov's limit case shows the logic: with "
+        "zero volatility the option is simply in or out of the money (recording 13, 1:17:01). Bonus: by put-call "
+        "parity, C − P = S<sub>0</sub> − PV(K) is unchanged, so both rise by the same amount.",
+        "<b>(ii) Longer maturity: the calls are worth more; the puts are usually worth more, but not for "
+        "certain.</b> More time means a wider range of possible share prices at expiry, which helps both options. "
+        "For the call the strike is also paid later, which helps it too. For a European put the second effect "
+        "works the other way: the holder receives the strike later, so its present value falls. The put is "
+        "therefore usually worth more with more time, but a European put that is far in the money can be worth "
+        "less.",
+        "<b>(iii) American options are priced at least as high, never lower.</b> An American option gives every "
+        "right the European one gives plus the right to exercise early; more rights or more flexibility "
+        "cannot be worth less (recording 12, 12:41; recording 18, 58:18). Also accepted as a bonus: for a call on "
+        "a share without dividends, early exercise never pays, so the American call is worth the same; for the "
+        "put, early exercise can pay, so the American put can be worth strictly more."),
+    "criteria": [
+        "(i), 3 points: both rise (1 point), because the payoff is one-sided, so more dispersion raises the "
+        "expected payoff of both while the downside stays at 0 (2 points). A direction without the mechanism "
+        "earns no points.",
+        "(ii) call, 2 points: worth more, because more time widens the range of outcomes while the downside stays "
+        "at 0 (paying the strike later also helps).",
+        "(ii) put, 2 points: usually worth more for the same reason (1 point), but not certain for a European put, "
+        "because the strike is received later (1 point). 'Always worth more' for the European put earns at most 1 "
+        "point.",
+        "(iii), 3 points: at least as high, never lower (1.5 points), because the American option contains all the "
+        "European rights plus early exercise and more flexibility is priced at least as high (1.5 points). "
+        "'Higher' with this reason gets full marks.",
+        "Bonus: parity shows that the call and the put move by the same amount in (i); the American call on a "
+        "share without dividends is worth the same as the European one.",
+        "No calculation is required or expected; Black-Scholes need not be used.",
+    ],
+}
+
+sv_oi1 = {"mk-opsjonsintuisjon-1:1:": {"type": "tekst"}}
+
+# ------------------------------------------------------------------ opsjonsintuisjon 2
+# Vinkel 2: egenkapital som call, gjeld som PV(F) − put, hvorfor eiere av et belånt firma liker risiko.
+oi2 = {
+    "n": 1,
+    "title": "Corporate securities as options",
+    "points": 10,
+    "topic": "Debt and equity as options, risk shifting",
+    "chapters": [24, 9],
+    "merke": "Samme form som forelesning 13 (2:33 til 12:57) og wrap-up (1:01:47)",
+    "body": P(
+        "Lunde Hotellgruppe ASA owns a chain of hotels and has one debt: a zero-coupon bank loan with face value "
+        "NOK 4 billion, due in three years. It pays no dividends before the loan is due. If the hotels are worth "
+        "less than NOK 4 billion at maturity, the bank takes them over. Answer without calculations."),
+    "parts": [
+        {
+            "label": "a", "points": 3,
+            "body": P(
+                "Explain why Lunde's shares can be seen as a call option. Name the underlying asset, the strike "
+                "and the maturity. (Two to three sentences.)"),
+            "solution": P(
+                "At maturity the shareholders get max(V<sub>T</sub> − 4, 0) billion: whatever the hotels are worth "
+                "above the loan, nothing if they are worth less, because limited liability means they can walk "
+                "away and leave the hotels to the bank. That is the payoff of a call on the hotels (the firm's "
+                "assets V) with a strike equal to the face value of the loan, NOK 4 billion, expiring in three "
+                "years when the loan is due (recording 13, 4:30).",
+                "Also accepted: describing the hockey-stick payoff in words. Using the market value of the debt as "
+                "the strike, or the share as the underlying, is wrong (recording 13, 4:44)."),
+            "criteria": [
+                "Payoff max(V_T − F, 0) with limited liability (1 point).",
+                "Underlying: the firm's assets (the hotels), not the share (1 point).",
+                "Strike: the face value of the loan, NOK 4 billion; maturity: three years (1 point).",
+            ],
+        },
+        {
+            "label": "b", "points": 3,
+            "body": P(
+                "Explain why the bank's claim is worth the same as risk-free debt plus a written put on the hotels. "
+                "What does the put pay? Who receives it? (Two to three sentences.)"),
+            "solution": P(
+                "The bank receives min(V<sub>T</sub>, 4) = 4 − max(4 − V<sub>T</sub>, 0): the full 4 billion as if "
+                "the loan were risk-free, less the shortfall when the hotels are worth less than 4 billion. The "
+                "shortfall is the payoff of a put on the hotels with strike 4 billion that the bank has in effect "
+                "written, so D = PV(4) − P (recording 18, 1:03:55).",
+                "The put pays the shareholders: in default they hand over hotels worth less than 4 billion and are "
+                "released from the debt, which is the same as selling the hotels to the bank at 4 billion. Note the "
+                "sign: the debt is risk-free debt <i>plus</i> a written put, that is PV(F) minus the value of the "
+                "put."),
+            "criteria": [
+                "Payoff min(V_T, F) written as F − max(F − V_T, 0) (1 point).",
+                "D = PV(F) − P: risk-free debt plus a written put on the assets with strike F (1 point). 'Risk-free "
+                "debt minus a written put' has the sign wrong.",
+                "The put pays the shareholders in default: they deliver assets worth less than F and are freed from "
+                "the debt (1 point).",
+            ],
+        },
+        {
+            "label": "c", "points": 4,
+            "body": P(
+                "After a slump the hotels are worth only a little more than NOK 4 billion. The board considers "
+                "selling the city hotels and buying a casino resort. The plan makes the firm's assets much riskier "
+                "and has a slightly negative NPV. Why might the shareholders still want it? Who pays for it? (Three "
+                "to four sentences.)"),
+            "solution": P(
+                "The shares are a call on the hotels that is close to the money. A call gains from risk: the "
+                "shareholders keep all of the upside if the casino does well, while limited liability caps their "
+                "loss at 0 if it fails (recording 13, 1:18:24). The extra volatility can raise the value of their "
+                "call by more than the small negative NPV lowers it.",
+                "The bank pays. The put it has written becomes more valuable when the assets get riskier, so the "
+                "debt falls in value by more than the NPV lost: a wealth transfer from the creditors to the "
+                "shareholders. Total firm value falls by the negative NPV, so this is value-destroying risk "
+                "shifting, often called gambling for resurrection.",
+                "Bonus: banks anticipate this and protect themselves with covenants that limit asset sales or new "
+                "risky investments, or with a higher interest rate in advance."),
+            "criteria": [
+                "Equity is a call near the money whose value rises with volatility; limited liability caps the "
+                "downside at 0 (1.5 points).",
+                "The gain from more risk can exceed the small negative NPV, so the shareholders may approve it (1 point).",
+                "The creditors pay: the written put gains value, debt loses more than the NPV, a wealth transfer "
+                "(1.5 points).",
+                "Bonus: names covenants or a higher interest rate as the creditors' protection.",
+            ],
+        },
+    ],
+}
+
+sv_oi2 = {
+    "mk-opsjonsintuisjon-2:1:a": {"type": "tekst"},
+    "mk-opsjonsintuisjon-2:1:b": {"type": "tekst"},
+    "mk-opsjonsintuisjon-2:1:c": {"type": "tekst"},
+}
+
+# ------------------------------------------------------------------ opsjonsintuisjon 3
+# Vinkel 3: realopsjon og volatilitet (forelesning 14, 44:00 til 49:25).
+oi3 = {
+    "n": 1,
+    "title": "Real options",
+    "points": 10,
+    "topic": "Real options and volatility",
+    "chapters": [25, 23],
+    "merke": "Samme form som realopsjonsintuisjonen i forelesning 14 (44:00 til 49:25)",
+    "body": P(
+        "Kvaløy Hydrogen AS holds a licence that gives it the exclusive right to build a hydrogen plant at any "
+        "time in the next four years. Building the plant today would have a small negative NPV. The value of the "
+        "plant depends on the future price of hydrogen, which is very uncertain. Answer without calculations."),
+    "parts": [
+        {
+            "label": "a", "points": 3,
+            "body": P(
+                "Why is the licence worth something, even though building today has a negative NPV? (Two to three "
+                "sentences.)"),
+            "solution": P(
+                "The licence is an option, not an obligation: Kvaløy can wait, watch the hydrogen price and build "
+                "only if the plant turns out to be worth more than it costs. If prices stay low, it simply does not "
+                "build and loses nothing beyond what it paid for the licence, so the downside is 0. As long as "
+                "there is some chance that building will have a positive NPV before the licence expires, the right "
+                "to wait has value (recording 14, 1:14:09)."),
+            "criteria": [
+                "The licence is a right, not an obligation: build only if it pays (1 point).",
+                "The downside is 0, while the upside is a positive NPV in good states (1 point).",
+                "Any chance of a positive NPV later gives the option value, even though today's NPV is negative "
+                "(1 point).",
+            ],
+        },
+        {
+            "label": "b", "points": 4,
+            "body": P(
+                "An analyst values the licence as an option on the plant, with σ the volatility of the plant's "
+                "value. What would you expect for the value of the licence and for Kvaløy's decision if σ were very "
+                "low? And if σ were very high? (Three to four sentences.)"),
+            "solution": P(
+                "<b>Very low σ.</b> The plant's value would stay close to today's, so the NPV of building would "
+                "stay slightly negative. The licence is then worth almost nothing. Kvaløy takes the same "
+                "decision as today: it does not build. The lecture makes this point: with a very low σ, \"we would "
+                "still take the same exact decision\" (recording 14, 47:10).",
+                "<b>Very high σ.</b> There is a large chance that the plant becomes worth far more than it costs, "
+                "while the downside stays at 0 because Kvaløy can choose not to build. The licence is worth much "
+                "more. Waiting to see where the price goes is clearly the right choice."),
+            "criteria": [
+                "Low σ: the plant's value stays near today's, the NPV stays negative, the licence is worth close to "
+                "0 and the decision is the same as today, do not build (2 points).",
+                "High σ: more upside with the downside capped at 0, so the licence is worth more and waiting is "
+                "more attractive (2 points).",
+                "An answer that only says 'more volatility, more value' without the low-σ case earns at most 2 points.",
+            ],
+        },
+        {
+            "label": "c", "points": 3,
+            "body": P(
+                "Two years later the hydrogen price has risen sharply. Building now would have a large positive "
+                "NPV. Should Kvaløy wait until the licence is about to expire? Explain what it gives up by waiting. "
+                "(Two to three sentences.)"),
+            "solution": P(
+                "Not necessarily: it should probably build now. Waiting is valuable when it lets you avoid a bad "
+                "outcome, but with a large positive NPV the plant would be worth building in almost every future "
+                "state, so there is little left to avoid. Meanwhile waiting costs the cash flows the plant would "
+                "have earned in the meantime. The lecture's rule of thumb: if you are already in a very good "
+                "situation, invest now (recording 14, 47:30 and 49:15).",
+                "Also accepted: risks that rivals enter or that the price falls back, as further costs of waiting."),
+            "criteria": [
+                "Builds now (or says waiting is unlikely to pay) when the NPV is large (1 point).",
+                "Reason: little chance of a bad outcome left to avoid, so the option to wait adds little (1 point).",
+                "Names the cost of waiting: the cash flows lost in the meantime (1 point). Competition or a price "
+                "fall are accepted as further costs.",
+            ],
+        },
+    ],
+}
+
+sv_oi3 = {
+    "mk-opsjonsintuisjon-3:1:a": {"type": "tekst"},
+    "mk-opsjonsintuisjon-3:1:b": {"type": "tekst"},
+    "mk-opsjonsintuisjon-3:1:c": {"type": "tekst"},
+}
+
+
 # ================================================================== kontroll
 oppg = {"mk-vente-1": ex1, "mk-vente-2": ex2, "mk-vente-3": ex3,
         "mk-binomisk-1": bin1, "mk-binomisk-2": bin2, "mk-binomisk-3": bin3,
-        "mk-senior-junior-1": sj1, "mk-senior-junior-2": sj2, "mk-senior-junior-3": sj3}
-svar = {**svar1, **svar2, **svar3, **sv_bin1, **sv_bin2, **sv_bin3, **sv_sj1, **sv_sj2, **sv_sj3}
+        "mk-senior-junior-1": sj1, "mk-senior-junior-2": sj2, "mk-senior-junior-3": sj3,
+        "mk-opsjonsintuisjon-1": oi1, "mk-opsjonsintuisjon-2": oi2, "mk-opsjonsintuisjon-3": oi3}
+svar = {**svar1, **svar2, **svar3, **sv_bin1, **sv_bin2, **sv_bin3, **sv_sj1, **sv_sj2, **sv_sj3,
+        **sv_oi1, **sv_oi2, **sv_oi3}
 # strikes per aksje står i kurstabellen med vilje; de er ikke lekkasje
 LEKK_UNNTAK = {("mk-senior-junior-1:1:a", "Strike per share"),
                ("mk-senior-junior-2:1:a", "Senior strike per share"),
@@ -1985,10 +2291,18 @@ LEKK_UNNTAK = {("mk-senior-junior-1:1:a", "Strike per share"),
                ("mk-senior-junior-3:1:a", "Total-debt strike per share")}
 
 
+def deler_av(ex):
+    """Deloppgavene, eller hele oppgaven som én del når en teorioppgave ikke har deler."""
+    if ex.get("parts"):
+        return ex["parts"]
+    return [{"label": "", "points": ex["points"], "body": "", "solution": ex["solution"],
+             "criteria": ex["criteria"]}]
+
+
 def tekster(ex):
     for k in ("title", "body", "merke"):
         yield ex.get(k, "")
-    for p in ex["parts"]:
+    for p in deler_av(ex):
         yield p["body"]
         yield p["solution"]
         yield from p["criteria"]
@@ -2014,8 +2328,10 @@ def tall_i(tekst):
 
 feil = []
 for sid, ex in oppg.items():
-    assert ex["n"] == 1 and sum(p["points"] for p in ex["parts"]) == ex["points"] == 20, sid
-    assert len(ex["parts"]) in range(4, 8), sid
+    deler = deler_av(ex)
+    assert ex["n"] == 1 and sum(p["points"] for p in deler) == ex["points"] and ex["points"] in (10, 20), sid
+    assert ex["points"] == 10 or len(deler) in range(4, 8), sid
+    assert "merke" in ex and ex["merke"], sid
     for t in tekster(ex):
         r = re.sub(r"</?(sub|sup|b|i)>", "", str(t))
         if "—" in r:
@@ -2027,11 +2343,11 @@ for sid, ex in oppg.items():
             feil.append(f"{sid}: pronomen om Kurbatov")
         if re.search(r"(?:^|[\s(=\[])-(?=\d)", ren(t)):
             feil.append(f"{sid}: bindestrek som minus i «{ren(t)[:60]}»")
-    for c in (c for p in ex["parts"] for c in p["criteria"]):
+    for c in (c for p in deler for c in p["criteria"]):
         if "<" in c or ">" in c:
             feil.append(f"{sid}: HTML i kriterium «{c[:50]}»")
     # alle svar-tall står i løsningen eller kriteriene, innenfor toleransen
-    for p in ex["parts"]:
+    for p in deler:
         k = f"{sid}:1:{p['label']}"
         assert k in svar, k
         d = svar[k]
@@ -2050,11 +2366,11 @@ for sid, ex in oppg.items():
         if d["type"] == "blandet":
             assert 0 < d["tallPoeng"] < p["points"], k
     # ingen svar lekker i oppgaveteksten (felles tekst og alle deloppgavetekster)
-    tekst_opp = " ".join([ex["body"]] + [p["body"] for p in ex["parts"]])
+    tekst_opp = " ".join([ex["body"]] + [p["body"] for p in deler])
     for fr in ("4 decimal places", "with 4 decimals", "with 2 decimals"):
         tekst_opp = tekst_opp.replace(fr, "")
     i_tekst = tall_i(tekst_opp)
-    for p in ex["parts"]:
+    for p in deler:
         d = svar[f"{sid}:1:{p['label']}"]
         for tt in d.get("tall", []):
             if (f"{sid}:1:{p['label']}", tt["navn"]) in LEKK_UNNTAK:
@@ -2073,7 +2389,7 @@ json.dump(svar, open(UT_SVAR, "w", encoding="utf-8"), ensure_ascii=False, indent
 
 
 def ord_i(ex):
-    return len(ren(" ".join([ex["body"]] + [p["body"] for p in ex["parts"]])).split())
+    return len(ren(" ".join([ex["body"]] + [p["body"] for p in deler_av(ex)])).split())
 
 
 print("mk-vente-1: NPV nå", f(now1), "· t=1 høy/lav", f(gu1), f(gd1), "· vente", f(wait1), "· opsjon", f(opt1),
@@ -2082,4 +2398,18 @@ print("mk-vente-2: NPV nå", f(now2), "· t=1", f(gh2), f(gl2), "· vente", f(wa
       "(grense", f(grense2) + ") ·", ord_i(ex2), "ord")
 print("mk-vente-3: NPV nå", f(now3), "· t=1", f(gu3), f(gd3), "· t=0", f(gu3_0), f(gd3_0), "· ρ", f(rho),
       "(feller", f(rho_felle_uten100), f(rho_felle_uten_rf) + ") · opsjon", f(C3), "·", ord_i(ex3), "ord")
+print("mk-binomisk-1: N", f(N1b), "· X", f(X1b), "· C", f(C1b), "· ρ", f(rho1b), "· P", f(P1b), "· arbitrasje",
+      f(gevinst1b), "·", ord_i(bin1), "ord")
+print("mk-binomisk-2: ρ", f(rho2b), "· C", f(C2b), "· P", f(P2b), "· arbitrasje", f(arb2b), "· K*", f(Kstar2b),
+      "·", ord_i(bin2), "ord")
+print("mk-binomisk-3: g", f(g3b, 6), "· ρ", f(rho3b), "· Δ", f(D3b), "· B", f(B3b), "· P", f(P3b), "· C", f(C3b),
+      "· produkt", f(prod3b), "·", ord_i(bin3), "ord")
+print("mk-senior-junior-1: E", f(E1s), "· D", f(D1s), "· y", pk(y1s), "· DS", f(DS1s), "· DJ", f(DJ1s), "· yS", pk(yS1s),
+      "· yJ", pk(yJ1s), "·", ord_i(sj1), "ord")
+print("mk-senior-junior-2: E", f(E2s), "· DS", f(DS2s), "· DJ", f(DJ2s), "· utbytte", f(utb2s, 2), "· kurs", f(kurs2s, 2),
+      "· yS", pk(yS2s), "· yJ", pk(yJ2s), "·", ord_i(sj2), "ord")
+print("mk-senior-junior-3: E", f(E3s), "· DS", f(DS3s), "(put", f(DS3s_put) + ") · DJ", f(DJ3s), "· yS", pk(yS3s),
+      "· yJ", pk(yJ3s), "·", ord_i(sj3), "ord")
+for sid in ("mk-opsjonsintuisjon-1", "mk-opsjonsintuisjon-2", "mk-opsjonsintuisjon-3"):
+    print(sid + ":", oppg[sid]["points"], "poeng ·", ord_i(oppg[sid]), "ord")
 print("skrev", os.path.basename(UT), "og", os.path.basename(UT_SVAR))

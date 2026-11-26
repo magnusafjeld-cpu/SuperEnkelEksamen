@@ -1,0 +1,105 @@
+{
+  "mk-risikoskifting-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Bank loan",
+        "verdi": 220.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Shares",
+        "verdi": 0.0,
+        "enhet": "NOK m",
+        "abs": 0.01
+      }
+    ],
+    "merknad": "Pålydende 260 for lånet er fellen."
+  },
+  "mk-risikoskifting-1:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Expected value of the assets",
+        "verdi": 200.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Would Vikebygd switch if it had no debt?"
+  },
+  "mk-risikoskifting-1:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Bank loan",
+        "verdi": 160.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Shares",
+        "verdi": 40.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Will the manager switch?"
+  },
+  "mk-risikoskifting-1:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Change in the value of the loan (negative if it falls)",
+        "verdi": -60.0,
+        "enhet": "NOK m",
+        "alt": [
+          60.0,
+          -70.0,
+          70.0
+        ]
+      },
+      {
+        "navn": "Wealth transfer to the shareholders",
+        "verdi": 40.0,
+        "enhet": "NOK m",
+        "alt": [
+          45.0
+        ]
+      },
+      {
+        "navn": "Loss of value",
+        "verdi": 20.0,
+        "enhet": "NOK m",
+        "alt": [
+          25.0
+        ]
+      }
+    ],
+    "merknad": "alt godtar fallet som positivt tall og svarene med reserveverdiene fra (c)."
+  },
+  "mk-risikoskifting-1:1:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Bank loan",
+        "verdi": 70.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Shares",
+        "verdi": 4.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Expected value of the assets",
+        "verdi": 74.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Will the manager switch?"
+  },
+  "mk-risikoskifting-1:1:f": {
+    "type": "tekst"
+  }
+}

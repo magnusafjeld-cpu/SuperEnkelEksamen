@@ -1,0 +1,79 @@
+{
+  "mk-senior-junior-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Senior strike per share",
+        "verdi": 75.0,
+        "enhet": "EUR"
+      },
+      {
+        "navn": "Total-debt strike per share",
+        "verdi": 100.0,
+        "enhet": "EUR"
+      },
+      {
+        "navn": "Equity value",
+        "verdi": 7.3932,
+        "enhet": "EUR bn",
+        "tol": 0.005
+      }
+    ],
+    "merknad": "tol 0,5 % så bid eller ask i stedet for midtkurs avvises."
+  },
+  "mk-senior-junior-3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Senior debt",
+        "verdi": 8.232,
+        "enhet": "EUR bn",
+        "tol": 0.005
+      },
+      {
+        "navn": "Junior debt",
+        "verdi": 2.3748000000000005,
+        "enhet": "EUR bn",
+        "tol": 0.002
+      }
+    ],
+    "merknad": "Junior som én call med strike 25 gir 15.2136; det avvises."
+  },
+  "mk-senior-junior-3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Senior yield",
+        "verdi": 3.6322336976071234,
+        "enhet": "%",
+        "alt": [
+          4.824067815736877
+        ]
+      },
+      {
+        "navn": "Junior yield",
+        "verdi": 9.798823281259295,
+        "enhet": "%",
+        "alt": [
+          13.208602569246764
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveverdiene 8.0 og 2.2."
+  },
+  "mk-senior-junior-3:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Senior debt (second way)",
+        "verdi": 8.2317061207264,
+        "enhet": "EUR bn"
+      }
+    ],
+    "tallPoeng": 2.5,
+    "tekstLedd": "Do the two values agree?"
+  },
+  "mk-senior-junior-3:1:e": {
+    "type": "tekst"
+  }
+}

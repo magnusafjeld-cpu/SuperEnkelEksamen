@@ -45,11 +45,13 @@
         "enhet": "€ m",
         "tol": 0.0031,
         "alt": [
-          20.86574767001649
+          20.86574767001649,
+          22.60720034786239,
+          23.420453544970897
         ]
       }
     ],
-    "merknad": "Fellene er NPV med r_U (19.4104), med WACC fra brutto gjeld og PV uten investeringen. alt (20.8657) er svaret med reserveverdien r_wacc = 7.5 %."
+    "merknad": "Fellene er NPV med r_U (19.4104), med WACC fra brutto gjeld og PV uten investeringen. alt er svarene med reserve-WACC, reserve-FCF og begge."
   },
   "mk-wacc-apv-1:1:d": {
     "type": "blandet",
@@ -60,7 +62,9 @@
         "enhet": "€ m",
         "tol": 0.0036,
         "alt": [
-          28.746299068006596
+          28.746299068006596,
+          29.042880139144955,
+          29.36818141798836
         ]
       },
       {
@@ -69,7 +73,9 @@
         "enhet": "€ m",
         "tol": 0.0025,
         "alt": [
-          22.202271498107088
+          22.202271498107088,
+          21.7953534304157,
+          21.970795024337484
         ]
       },
       {
@@ -78,13 +84,15 @@
         "enhet": "€ m",
         "tol": 0.0018,
         "alt": [
-          9.767441860465118
+          9.767441860465118,
+          10.360777058279373,
+          10.418604651162791
         ]
       }
     ],
     "tallPoeng": 3,
     "tekstLedd": "Does Orvelle borrow or repay in Years 1 to 3?",
-    "merknad": "Toleransen er stram fordi gjeld regnet fra V^U (diskontert med r_U) ligger under 1 % unna. Tekstdelen: Orvelle betaler ned gjeld hvert år. alt er gjelden med reserveverdien r_wacc = 7.5 %."
+    "merknad": "Toleransen er stram fordi gjeld regnet fra V^U (diskontert med r_U) ligger under 1 % unna. Tekstdelen: Orvelle betaler ned gjeld hvert år. alt er gjelden med reserve-WACC, reserve-FCF og begge; gjeld fra V^U kan havne innenfor et alt-bånd."
   },
   "mk-wacc-apv-1:1:e": {
     "type": "tall",
@@ -98,21 +106,34 @@
         "navn": "V<sup>U</sup><sub>0</sub>",
         "verdi": 70.410422553775,
         "enhet": "€ m",
-        "tol": 0.0037
+        "tol": 0.0037,
+        "alt": [
+          71.9407974642225
+        ]
       },
       {
         "navn": "PV(TS)",
         "verdi": 0.6554620943882123,
-        "enhet": "€ m"
+        "enhet": "€ m",
+        "tol": 0.005,
+        "alt": [
+          0.6615114164733892,
+          0.6664028836398767,
+          0.6725709457947117
+        ]
       },
       {
         "navn": "NPV (APV)",
         "verdi": 20.06588464816322,
         "enhet": "€ m",
-        "tol": 0.001
+        "tol": 0.001,
+        "alt": [
+          22.607200347862374,
+          22.61336841001721
+        ]
       }
     ],
-    "merknad": "Diskonteres skjoldet med r_D, blir NPV 20.1035, 0.19 % unna, så toleransen på NPV er 0.1 %. PV(TS) med r_D (0.6931 mot 0.6555) avvises med standardtoleransen. PV(TS) diskontert med r_wacc (0.6605) ligger innenfor 1 % og godtas. alt er svarene med reserveverdien r_wacc = 7.5 %."
+    "merknad": "Diskonteres skjoldet med r_D, blir NPV 20.1035, 0.19 % unna, så toleransen på NPV er 0.1 %. PV(TS) har tol 0.5 % (fire desimaler kreves; 0.66 med to desimaler faller utenfor): r_D (0.6931) og r_wacc (0.6605) avvises mot 0.6555, men r_wacc-fellen ligger innenfor alt-båndet til reserve-WACC (0.6615). alt er svarene med reserve-WACC, reserve-FCF og begge."
   },
   "mk-wacc-apv-1:1:f": {
     "type": "tekst"

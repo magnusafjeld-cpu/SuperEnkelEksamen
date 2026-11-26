@@ -253,11 +253,12 @@
      44.132231405,
      42.8342245989,
      42.6063829787,
-     46.3636363636
+     46.3636363636,
+     43.8974854932
     ]
    }
   ],
-  "merknad": "alt er svarene med reserveverdiene 12 millioner nye aksjer og r_E = 11%: utbyttet 4.8545, kursen 44.13 med begge, 42.83 med bare r_E-reserven og 42.61 med r_E fra reserve-r_U i (c). 46.36 med bare reserveantallet. Fellene 46.98 og 45.63 avvises."
+  "merknad": "alt er svarene med reserveverdiene 12 millioner nye aksjer og r_E = 11%: utbyttet 4.8545, kursen 44.13 med begge, 42.83 med bare r_E-reserven og 42.61 med r_E fra reserve-r_U i (c). 46.36 med bare reserveantallet og 43.90 med reserveantallet og r_E fra reserve-r_U. Fellene 46.98 og 45.63 avvises."
  },
  "mk-mm-rekap-3:1:e": {
   "type": "tekst"
@@ -329,7 +330,7 @@
     "verdi": 2.8722222222,
     "enhet": "$ per share",
     "alt": [
-     3.0
+     3.0652173913
     ]
    },
    {
@@ -337,23 +338,36 @@
     "verdi": 11.75,
     "enhet": "%",
     "alt": [
-     12.5
+     12.7717391304,
+     12.0719178082
     ]
    }
   ],
-  "merknad": "alt er svarene med reserveverdiene (kurs 24.00, 23.5 millioner aksjer): 3.0000 og 12.5000 %. Formelarkets MM II gir 12.3333 % og avvises."
+  "merknad": "alt er svarene med reserveverdiene (kurs 24.00, 23 millioner aksjer): 3.0652 og 12.7717 %, og r_E 12.0719 % med reserven fra (c) (24.3333 millioner aksjer; utbyttet 2.8973 ligger innenfor toleransen). Formelarkets MM II gir 12.3333 % (12.5362 % på reserveveien) og avvises."
  },
  "mk-skatt-rekap-1:1:e": {
   "type": "blandet",
   "tall": [
    {
-    "navn": "Change in value per original share",
+    "navn": "Change for a seller, per original share",
     "verdi": 1.9444444444,
-    "enhet": "$ per share"
+    "enhet": "$ per share",
+    "alt": [
+     1.5
+    ]
+   },
+   {
+    "navn": "Change for a keeper, per original share",
+    "verdi": 1.9444444444,
+    "enhet": "$ per share",
+    "alt": [
+     1.5
+    ]
    }
   ],
-  "tallPoeng": 1,
-  "tekstLedd": "Who captures the value? Compare a shareholder who sells with one who keeps the shares."
+  "tallPoeng": 2,
+  "tekstLedd": "Who captures the value? Are the seller and the keeper better or worse off?",
+  "merknad": "alt 1.50 er svaret med reservekursen $24.00 fra (c) og (d)."
  },
  "mk-skatt-rekap-2:1:a": {
   "type": "tall",
@@ -392,7 +406,7 @@
   "merknad": "Fellene 110 (τD) og 34.1189 (første skjold i dag) avvises."
  },
  "mk-skatt-rekap-2:1:c": {
-  "type": "blandet",
+  "type": "tall",
   "tall": [
    {
     "navn": "Share price on announcement",
@@ -411,30 +425,9 @@
     ]
    }
   ],
-  "tallPoeng": 3,
-  "tekstLedd": "Who captures the change in firm value?",
   "merknad": "alt er svarene med reserveverdien PV(TS) = 60: kurs 68.00 og 7.3529 millioner aksjer. Fellen 7.6923 (gammel kurs) avvises."
  },
  "mk-skatt-rekap-2:1:d": {
-  "type": "tall",
-  "tall": [
-   {
-    "navn": "Div<sub>1</sub> without the recapitalisation",
-    "verdi": 5.85,
-    "enhet": "NOK per share"
-   },
-   {
-    "navn": "Div<sub>1</sub> with the recapitalisation",
-    "verdi": 7.958449783,
-    "enhet": "NOK per share",
-    "alt": [
-     8.2875
-    ]
-   }
-  ],
-  "merknad": "alt 8.2875 er svaret med reserveverdien 8 millioner aksjer kjøpt tilbake."
- },
- "mk-skatt-rekap-2:1:e": {
   "type": "blandet",
   "tall": [
    {
@@ -445,6 +438,9 @@
   ],
   "tallPoeng": 1.5,
   "tekstLedd": "Is the CFO right? For which kind of loan does τ × D hold?"
+ },
+ "mk-skatt-rekap-2:1:e": {
+  "type": "tekst"
  },
  "mk-skatt-rekap-3:1:a": {
   "type": "tall",
@@ -509,7 +505,8 @@
     "verdi": 12.0689655172,
     "enhet": "m shares",
     "alt": [
-     9.375
+     9.375,
+     11.6297468354
     ]
    },
    {
@@ -517,11 +514,12 @@
     "verdi": 12.9310344828,
     "enhet": "m shares",
     "alt": [
-     15.625
+     15.625,
+     13.3702531646
     ]
    }
   ],
-  "merknad": "alt er svarene med reserveverdiene (gjeld 300, kurs 32.00): 9.3750 og 15.6250. Fellen 13.1250 (gammel kurs) avvises."
+  "merknad": "alt er svarene med reserveverdiene (gjeld 300, kurs 32.00): 9.3750 og 15.6250, og med gjelden 367.5 og reservekursen 31.60 fra (c): 11.6297 og 13.3703. Fellen 13.1250 (gammel kurs) avvises."
  },
  "mk-skatt-rekap-3:1:e": {
   "type": "tekst"
@@ -533,6 +531,209 @@
   "type": "tekst"
  },
  "mk-teori-kapital-3:1:": {
+  "type": "tekst"
+ },
+ "mk-signal-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V",
+    "verdi": 230.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Share price",
+    "verdi": 11.5,
+    "enhet": "NOK per share"
+   }
+  ]
+ },
+ "mk-signal-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Fraction to new investors",
+    "verdi": 11.2781954887,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Fellen 13.0435 % (prosjektet utelatt i nevneren) avvises."
+ },
+ "mk-signal-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Stake at t = 1, high-value type",
+    "verdi": 324.7218045113,
+    "enhet": "NOK m",
+    "alt": [
+     318.42
+    ]
+   },
+   {
+    "navn": "Stake at t = 1, low-value type",
+    "verdi": 147.2781954887,
+    "enhet": "NOK m",
+    "alt": [
+     144.42
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Which type issues and invests?",
+  "merknad": "alt er svarene med reserveverdien 13%: 318.4200 og 144.4200."
+ },
+ "mk-signal-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Share price after the announcement",
+    "verdi": 6.8,
+    "enhet": "NOK per share"
+   },
+   {
+    "navn": "New shares",
+    "verdi": 4.4117647059,
+    "enhet": "m shares"
+   }
+  ],
+  "merknad": "Fellen 11.80 (samlet pris) avvises."
+ },
+ "mk-signal-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-signal-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V",
+    "verdi": 260.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Share price",
+    "verdi": 10.4,
+    "enhet": "$ per share"
+   }
+  ]
+ },
+ "mk-signal-2:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Fraction to new investors",
+    "verdi": 15.625,
+    "enhet": "%"
+   },
+   {
+    "navn": "Stake at t = 1, high-value type",
+    "verdi": 388.125,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Stake at t = 1, low-value type",
+    "verdi": 219.375,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Which type issues?"
+ },
+ "mk-signal-2:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Fraction to new investors",
+    "verdi": 19.2307692308,
+    "enhet": "%"
+   },
+   {
+    "navn": "Share price after the announcement",
+    "verdi": 8.4,
+    "enhet": "$ per share"
+   }
+  ]
+ },
+ "mk-signal-2:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Highest fee, high-value type",
+    "verdi": 10.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Would a low-value Larkhaven buy the certificate? Why?"
+ },
+ "mk-signal-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-signal-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V",
+    "verdi": 172.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Share price",
+    "verdi": 17.2,
+    "enhet": "€ per share"
+   }
+  ]
+ },
+ "mk-signal-3:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Fraction to new investors",
+    "verdi": 18.3486238532,
+    "enhet": "%"
+   },
+   {
+    "navn": "Stake at t = 1, high-value type",
+    "verdi": 217.1926605505,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Stake at t = 1, low-value type",
+    "verdi": 119.2110091743,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Which type issues?"
+ },
+ "mk-signal-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Share price after the announcement",
+    "verdi": 10.6,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "New shares",
+    "verdi": 3.7735849057,
+    "enhet": "m shares"
+   }
+  ]
+ },
+ "mk-signal-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price when the loan is announced",
+    "verdi": 17.8,
+    "enhet": "€ per share"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Which types invest? Why?"
+ },
+ "mk-signal-3:1:e": {
   "type": "tekst"
  }
 }

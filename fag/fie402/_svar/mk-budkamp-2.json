@@ -1,0 +1,73 @@
+{
+  "mk-budkamp-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Most Brockhurst would pay, total",
+        "verdi": 1600.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Most Brockhurst would pay per Wenlow share",
+        "verdi": 66.66666666666667,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "mk-budkamp-2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV for Wenlow's shareholders",
+        "verdi": 408.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "NPV for Kessington's shareholders",
+        "verdi": 42.0,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "mk-budkamp-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Fraction y owned by Wenlow's shareholders",
+        "verdi": 28.825622775800714,
+        "enhet": "%"
+      },
+      {
+        "navn": "NPV for Wenlow's shareholders",
+        "verdi": 428.6476868327402,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "NPV for Kessington's shareholders",
+        "verdi": 21.35231316725958,
+        "enhet": "$ m",
+        "abs": 0.3
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Does the offer beat Brockhurst's maximum from (a)?"
+  },
+  "mk-budkamp-2:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Highest exchange ratio, alternative: stay alone",
+        "verdi": 1.0999999999999999,
+        "enhet": ""
+      },
+      {
+        "navn": "Highest exchange ratio, alternative: Brockhurst buys Wenlow",
+        "verdi": 1.2467532467532467,
+        "enhet": ""
+      }
+    ]
+  },
+  "mk-budkamp-2:1:e": {
+    "type": "tekst"
+  }
+}

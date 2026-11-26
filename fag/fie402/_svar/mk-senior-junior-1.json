@@ -1,0 +1,94 @@
+{
+  "mk-senior-junior-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Strike per share",
+        "verdi": 40.0,
+        "enhet": "USD"
+      },
+      {
+        "navn": "Equity value",
+        "verdi": 7.85675,
+        "enhet": "USD bn"
+      }
+    ]
+  },
+  "mk-senior-junior-1:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Debt value",
+        "verdi": 9.743250000000002,
+        "enhet": "USD bn",
+        "alt": [
+          9.350000000000001
+        ]
+      },
+      {
+        "navn": "Annual yield",
+        "verdi": 6.253787433948466,
+        "enhet": "%",
+        "alt": [
+          8.465228909328083
+        ]
+      },
+      {
+        "navn": "Spread",
+        "verdi": 3.7537874339484656,
+        "enhet": "%",
+        "alt": [
+          5.965228909328082
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveverdien E = 8.25. Spredningen er i prosentpoeng."
+  },
+  "mk-senior-junior-1:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Senior debt",
+        "verdi": 6.204000000000001,
+        "enhet": "USD bn"
+      },
+      {
+        "navn": "Junior debt",
+        "verdi": 3.539250000000001,
+        "enhet": "USD bn",
+        "tol": 0.005
+      },
+      {
+        "navn": "Equity",
+        "verdi": 7.85675,
+        "enhet": "USD bn"
+      }
+    ],
+    "merknad": "Junior som én call med strike 16 gir 13.4200; det avvises."
+  },
+  "mk-senior-junior-1:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Senior yield",
+        "verdi": 3.142124625879328,
+        "enhet": "%",
+        "alt": [
+          4.880884817015141
+        ]
+      },
+      {
+        "navn": "Junior yield",
+        "verdi": 11.498934667612094,
+        "enhet": "%",
+        "alt": [
+          15.470053837925168
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveverdiene 6.0 og 3.3."
+  },
+  "mk-senior-junior-1:1:e": {
+    "type": "tekst"
+  }
+}

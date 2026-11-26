@@ -34,6 +34,16 @@ Tier 2 (lagt til 26. november 2026):
   Andre vinkler enn hint2-1 og hint2-2 (_del/h2.json), som har SEO-fallet på 12 %, fire bruk for
   et modent firma, direkte og indirekte kostnader og MM mot virkeligheten med tre eksempler.
 
+Tier 3 (lagt til 26. november 2026):
+
+  mk-signal-1  NOK. Båtbygger. SEO-eksemplet i forelesning 7 i samme rekkefølge: verdi og kurs,
+               andel ved samlet pris, hvem som utsteder, kurs og antall aksjer når emisjonen avslører
+               typen, effektivitet og hvem som taper.
+  mk-signal-2  USD. Sensorprodusent, 30 % sannsynlighet for høy type. HA1 E3 og PS2 E1 strammet inn.
+               Konstruksjonsleddet er høyeste gebyr for en sertifisering; hale om rasjonell tro.
+  mk-signal-3  EUR. Vingård, 60 % høy type. Det varslede tillegget: risikofritt lån i stedet for aksjer,
+               begge typer investerer; hale om hakkeorden og risikabel gjeld.
+
 Reserveverdier («If you could not solve (b), use …») står der et senere ledd trenger et tall fra
 et tidligere og en feil ellers ville forplante seg. Svarene som bygger på dem ligger som alt i
 svar-dataene. Feltnavnene (navn) vises før studenten svarer og røper aldri et svar eller en retning.
@@ -68,6 +78,11 @@ def g(x):
         if abs(round(x, d) - x) < 1e-9:
             return f(x, d)
     return f(x, 4)
+
+
+def fx(x):
+    """Opptil 6 desimaler uten etterfølgende nuller, så viste faktorer gir de viste produktene."""
+    return f(x, 6).rstrip("0").rstrip(".")
 
 
 def pc(x, d=None):
@@ -576,7 +591,8 @@ dps1_res = (FCF - til_D1) / (N + nn_res)                      # (d) med reservea
 P_res = [dps1_res / rE1_res3,                                 # begge reserveverdiene
          dps1 / rE1_res3,                                     # bare reserve-r_E
          dps1 / rE1_fra_res,                                  # r_E fra reserve-r_U i (c)
-         dps1_res / rE1]                                      # bare reserveantallet
+         dps1_res / rE1,                                      # bare reserveantallet
+         dps1_res / rE1_fra_res]                              # reserveantallet og r_E fra reserve-r_U i (c)
 for x in [rE1_fra_res]:
     assert utenfor(x, rE1) and utenfor(x, felle_c_gammel) and utenfor(x, felle_c_dv) and utenfor(x, rE0)
 assert utenfor(dps1_res, dps1) and utenfor(dps1_res, (FCF - til_D1) / N)
@@ -585,7 +601,7 @@ for x in P_res:
 
 ex = {
     "n": 1, "title": "Capital Structure", "points": 20,
-    "topic": "MM in perfect markets, refinancing risky debt", "chapters": [4, 5, 6],
+    "topic": "MM in perfect markets, recapitalisation", "chapters": [4, 5, 6],
     "merke": "Samme form som PS1 E3 i forelesning 6, med evigrente og en emisjon som innfrir gjelden",
     "body": (f"<p>Heggedal Heis ASA, an elevator service company, operates in a perfect capital market (MM "
              f"propositions hold, no taxes). It has {g(N)} million shares trading at NOK {g(P0)} and perpetual debt "
@@ -730,7 +746,7 @@ SVAR["mk-mm-rekap-3:1:c"] = {"type": "tall", "tall": [T("New r<sub>E</sub>", 100
 SVAR["mk-mm-rekap-3:1:d"] = {"type": "tall", "tall": [T("Div<sub>1</sub> without the refinancing", dps0, "NOK per share"),
                                                       T("Div<sub>1</sub> with the refinancing", dps1, "NOK per share", alt=[round(dps1_res, 10)]),
                                                       T("Share price after the refinancing", Pd, "NOK per share", alt=[round(x, 10) for x in P_res])],
-                             "merknad": f"alt er svarene med reserveverdiene {g(nn_res)} millioner nye aksjer og r_E = {pc(rE1_res3)}: utbyttet {f(dps1_res)}, kursen {f(P_res[0], 2)} med begge, {f(P_res[1], 2)} med bare r_E-reserven og {f(P_res[2], 2)} med r_E fra reserve-r_U i (c). {f(P_res[3], 2)} med bare reserveantallet. Fellene {f(P_feil_gammel, 2)} og {f(P_feil_dv, 2)} avvises."}
+                             "merknad": f"alt er svarene med reserveverdiene {g(nn_res)} millioner nye aksjer og r_E = {pc(rE1_res3)}: utbyttet {f(dps1_res)}, kursen {f(P_res[0], 2)} med begge, {f(P_res[1], 2)} med bare r_E-reserven og {f(P_res[2], 2)} med r_E fra reserve-r_U i (c). {f(P_res[3], 2)} med bare reserveantallet og {f(P_res[4], 2)} med reserveantallet og r_E fra reserve-r_U. Fellene {f(P_feil_gammel, 2)} og {f(P_feil_dv, 2)} avvises."}
 SVAR["mk-mm-rekap-3:1:e"] = {"type": "tekst"}
 
 
@@ -761,19 +777,25 @@ gevinst = P1 - P0
 assert near(N * gevinst, TS)                              # de opprinnelige eierne får hele PV(TS)
 assert near(n * P1 + Nrest * P1, VL)
 # reserveverdier (ikke svaret) og svarene som bygger på dem
-P_res, Nrest_res = 24.0, 23.5
+P_res, Nrest_res = 24.0, 23.0
 assert utenfor(P_res, P1) and utenfor(Nrest_res, Nrest)
 n_res = D / P_res
 E_res = (N - n_res) * P_res
 div1_res = til_eier1 / Nrest_res
 rE1_res = div1_res / P_res
+rE1_kaskade = til_eier1 / (N - n_res) / P_res            # (d) bygd på reserven i (c): 24.3333 mill. aksjer
+felle_rE_res = rU + (D / (Nrest_res * P_res)) * (rU - rD)  # formelarkets MM II på reserveveien
+gevinst_res = P_res - P0                                  # (e) bygd på reservekursen
+assert utenfor(rE1_kaskade, rE1) and utenfor(rE1_kaskade, felle_rE_ark) and utenfor(rE1_res, felle_rE_res)
+assert not utenfor(til_eier1 / (N - n_res), div1)         # utbyttet på kaskadeveien ligger innenfor toleransen
+assert utenfor(gevinst_res, gevinst)
 for res, sv, felle in ((n_res, n, felle_n), (div1_res, div1, None), (rE1_res, rE1, felle_rE_ark)):
     assert utenfor(res, sv) and (felle is None or utenfor(res, felle))
 assert near(P1, 880 / 36) and near(rU, 0.10)
 
 ex = {
     "n": 1, "title": "Capital Structure", "points": 20,
-    "topic": "Interest tax shield, recapitalisation", "chapters": [7, 15],
+    "topic": "Recapitalisation with taxes", "chapters": [7, 15],
     "merke": "Samme form som rekapitaliseringseksemplet i forelesning 3",
     "body": (f"<p>Tamarack Freight Inc., a US trucking company, is all-equity financed with {g(N)} million shares "
              f"trading at ${f(P0, 2)}. It expects EBIT of ${g(EBIT)} million every year in perpetuity. Capital "
@@ -863,7 +885,9 @@ pd = {
         f"assumes a constant D/E with a tax shield as risky as the firm, which is not the case for permanent debt; "
         f"the question asks for the cash-flow route.</p>"
         f"<p>With the fallback values: Div = {g(til_eier1)} / {g(Nrest_res)} = ${f(div1_res)} and r<sub>E</sub> = "
-        f"{f(div1_res)} / {f(P_res, 2)} = {pc(rE1_res, 4)}.</p>"),
+        f"{f(div1_res)} / {f(P_res, 2)} = {pc(rE1_res, 4)}. With only the fallback price from (c) "
+        f"({f(N - n_res)} million shares remain): r<sub>E</sub> = {g(til_eier1)} / {f(N - n_res)} / {f(P_res, 2)} = "
+        f"{pc(rE1_kaskade, 4)}.</p>"),
     "criteria": [
         f"Before: ${f(div0)} per share.",
         f"After: interest deducted before tax, ({g(EBIT)} − {g(rD * D)}) × {g(1 - tau)} = {g(til_eier1)}, over the {f(Nrest)}M remaining shares: ${f(div1)}. Dividing by the old {g(N)}M shares is the error.",
@@ -887,12 +911,14 @@ pe = {
         + f"<p>Both are better off by ${f(gevinst)} per share: {g(N)}M × {f(gevinst)} = ${g(N * gevinst)}M = "
           f"PV(TS). Since the buyback is at the fair new price, a shareholder is indifferent between selling and "
           f"keeping. If one of the two came out ahead, the price would be wrong (the lecturer: then you probably "
-          f"calculated something wrong).</p>"),
+          f"calculated something wrong).</p>"
+          f"<p>With the fallback price of ${f(P_res, 2)} the change is {f(P_res, 2)} − {f(P0, 2)} = "
+          f"${f(gevinst_res, 2)} for both.</p>"),
     "criteria": [
         "The original shareholders capture the whole PV(TS). They capture it at the announcement.",
         f"Seller and keeper gain the same ${f(gevinst)} per share: the seller gets ${f(P1)} in cash, the keeper holds a share worth ${f(P1)}. Both are better off than if the firm had stayed all-equity.",
         "Explains why they are indifferent: the repurchase happens at the fair price after the jump.",
-        "Names the source: lower taxes (the government's claim shrinks). The new debt holders get a fair deal.",
+        "Bonus: names the source (lower taxes: the government's claim shrinks) and notes that the new debt holders get a fair deal.",
     ],
 }
 ex["parts"] = [pa, pb, pc_, pd, pe]
@@ -907,11 +933,13 @@ SVAR["mk-skatt-rekap-1:1:c"] = {"type": "tall", "tall": [T("Shares repurchased",
                                 "merknad": f"alt er svarene med reservekursen ${f(P_res, 2)}: {f(n_res)} millioner aksjer og egenkapital {g(E_res)}. Fellen {f(felle_n)} (gammel kurs) avvises."}
 SVAR["mk-skatt-rekap-1:1:d"] = {"type": "tall", "tall": [T("Dividend per share before", div0, "$ per share"),
                                                          T("Dividend per share after", div1, "$ per share", alt=[round(div1_res, 10)]),
-                                                         T("r<sub>E</sub> after", 100 * rE1, "%", alt=[round(100 * rE1_res, 10)])],
-                                "merknad": f"alt er svarene med reserveverdiene (kurs {f(P_res, 2)}, {g(Nrest_res)} millioner aksjer): {f(div1_res)} og {f(100 * rE1_res)} %. Formelarkets MM II gir {f(100 * felle_rE_ark)} % og avvises."}
-SVAR["mk-skatt-rekap-1:1:e"] = {"type": "blandet", "tall": [T("Change in value per original share", gevinst, "$ per share")],
-                                "tallPoeng": 1,
-                                "tekstLedd": "Who captures the value? Compare a shareholder who sells with one who keeps the shares."}
+                                                         T("r<sub>E</sub> after", 100 * rE1, "%", alt=[round(100 * rE1_res, 10), round(100 * rE1_kaskade, 10)])],
+                                "merknad": f"alt er svarene med reserveverdiene (kurs {f(P_res, 2)}, {g(Nrest_res)} millioner aksjer): {f(div1_res)} og {f(100 * rE1_res)} %, og r_E {f(100 * rE1_kaskade)} % med reserven fra (c) ({f(N - n_res)} millioner aksjer; utbyttet {f(til_eier1 / (N - n_res))} ligger innenfor toleransen). Formelarkets MM II gir {f(100 * felle_rE_ark)} % ({f(100 * felle_rE_res)} % på reserveveien) og avvises."}
+SVAR["mk-skatt-rekap-1:1:e"] = {"type": "blandet", "tall": [T("Change for a seller, per original share", gevinst, "$ per share", alt=[round(gevinst_res, 10)]),
+                                                            T("Change for a keeper, per original share", gevinst, "$ per share", alt=[round(gevinst_res, 10)])],
+                                "tallPoeng": 2,
+                                "tekstLedd": "Who captures the value? Are the seller and the keeper better or worse off?",
+                                "merknad": f"alt {f(gevinst_res, 2)} er svaret med reservekursen ${f(P_res, 2)} fra (c) og (d)."}
 
 # ======================================================================
 # mk-skatt-rekap-2 · Lyngdal Grus (lån som betales tilbake: annuitet; EBIT i tre tilstander som PS1 E4)
@@ -932,9 +960,6 @@ P1 = VL / N
 n = D / P1
 Nrest = N - n
 assert near(P1 * (N - n), VL - D)
-div0 = EBIT * (1 - tau) / N
-til_eier = (EBIT - rente) * (1 - tau)
-div1 = til_eier / Nrest
 P_perm = (VU + tau * D) / N                     # finansdirektørens tall: permanent gjeld
 felle_tauD = tau * D
 felle_tidlig = PVTS * (1 + rD)                  # annuitet som starter i dag
@@ -942,18 +967,18 @@ felle_n = D / P0
 assert utenfor(felle_tauD, PVTS) and utenfor(felle_tidlig, PVTS) and utenfor(felle_n, n)
 assert near(tau * D, PVTS + tau * D / (1 + rD) ** T_)   # τD = skjold på renter + τ × PV(pålydende)
 # reserveverdier
-PVTS_res, n_res2 = 60.0, 8.0
+PVTS_res = 60.0
 P1_res = (VU + PVTS_res) / N
 n_fra_res = D / P1_res
-div1_res = til_eier / (N - n_res2)
-for res, sv in ((P1_res, P1), (n_fra_res, n), (div1_res, div1)):
+for res, sv in ((P1_res, P1), (n_fra_res, n)):
     assert utenfor(res, sv)
-assert utenfor(n_fra_res, felle_n) and utenfor(P1_res, P_perm) and utenfor(div1_res, til_eier / N)
+assert utenfor(n_fra_res, felle_n) and utenfor(P1_res, P_perm)
+assert min(eb) > rente                          # skjoldet brukes i alle tilstander: diskonter med r_D
 assert near(EBIT, 150) and near(VU, 1300) and near(P0, 65)
 
 ex = {
     "n": 1, "title": "Capital Structure", "points": 20,
-    "topic": "Interest tax shield of a fixed-term loan, recapitalisation", "chapters": [1, 7],
+    "topic": "Recapitalisation with taxes", "chapters": [1, 7],
     "merke": "Som rekapitaliseringen i forelesning 3, med et lån som betales tilbake og EBIT i tre tilstander (PS1 E4)",
     "body": (f"<p>Lyngdal Grus ASA, a gravel and aggregates producer, is all-equity financed with {g(N)} million "
              f"shares. Its EBIT next year and every year after depends on building activity: NOK {g(eb[0])} million "
@@ -989,24 +1014,24 @@ pb = {
         f"<p><b>Step 1. The yearly shield.</b> Interest = {pc(rD)} × {g(D)} = NOK {g(rente)}M a year, so the tax "
         f"saved is {g(tau)} × {g(rente)} = <b>NOK {f(ts, 2)}M a year</b> for {T_} years, the first in one year. The "
         f"repayment of the NOK {g(D)}M is not deductible and saves no tax.</p>"
-        f"<p><b>Step 2. Present value.</b> The loan is risk-free, so the shield is discounted at {pc(rD)} as an "
-        f"annuity:</p>"
+        f"<p><b>Step 2. Present value.</b> The loan is risk-free and EBIT is at least NOK {g(min(eb))}M, more than "
+        f"the NOK {g(rente)}M of interest, so the shield is always used and is as safe as the interest itself. It is "
+        f"discounted at {pc(rD)} as an annuity:</p>"
         f"<p>PV(TS) = {f(ts, 2)} × (1/{g(rD)}) × (1 − 1/{g(1 + rD)}<sup>{T_}</sup>) = {f(ts, 2)} × {f(af)} = "
         f"<b>NOK {f(PVTS)}M</b></p>"
         f"<p>τD = {g(tau * D)} would be the answer for permanent debt. {f(felle_tidlig)} would be the answer if "
         f"the first saving came today. Neither fits this loan.</p>"),
     "criteria": [
         f"Annual tax shield = τ × interest = {g(tau)} × {g(rente)} = NOK {f(ts, 2)}M.",
-        f"PV as an {T_}-year annuity at the risk-free {pc(rD)}: NOK {f(PVTS)}M. The annuity formula with 1 + r in the bracket and r outside (the lecturer stresses this) is expected.",
+        f"PV as an {T_}-year annuity at the risk-free {pc(rD)}: NOK {f(PVTS)}M. The annuity formula (1 + r in the bracket and r outside, as the lecturer stresses) or the sum of the {T_} discounted terms are both accepted.",
         f"No tax shield from repaying the principal. Using τD = {g(tau * D)} ignores that the loan ends.",
         "Show the calculation. No calculation, no points.",
     ],
 }
 pc_ = {
-    "label": "c", "points": 5,
-    "body": (f"<p>What happens to the share price upon announcement? How many shares are repurchased? Who captures "
-             f"the change in firm value? (If you could not solve (b), use a present value of the tax shield of "
-             f"NOK {g(PVTS_res)} million.)</p>"),
+    "label": "c", "points": 4,
+    "body": (f"<p>What happens to the share price upon announcement? How many shares are repurchased? (If you could "
+             f"not solve (b), use a present value of the tax shield of NOK {g(PVTS_res)} million.)</p>"),
     "solution": (
         f"<p><b>Step 1. The price.</b> V<sup>L</sup> = {g(VU)} + {f(PVTS)} = NOK {f(VL)}M, priced at once because "
         f"the plan is credible:</p>"
@@ -1014,39 +1039,16 @@ pc_ = {
         f"<p><b>Step 2. The buyback, at the new price.</b> P × n = {g(D)} and P × ({g(N)} − n) = V<sup>L</sup> − D = "
         f"{f(VL - D)}, so n = {g(D)} / {f(P1)} = <b>{f(n)} million shares</b>, leaving {f(Nrest)} million. Dividing "
         f"by the old NOK {f(P0, 2)} would give {f(felle_n)} million.</p>"
-        f"<p><b>Step 3. Who captures it.</b> The original shareholders, all of them, at the announcement: those who "
-        f"sell get NOK {f(P1)} in cash and those who keep hold a share worth NOK {f(P1)}, both NOK {f(P1 - P0)} more "
-        f"than before. The value comes from lower taxes; the bank gets a fair loan.</p>"
         f"<p>With the fallback PV(TS) of NOK {g(PVTS_res)}M: P = ({g(VU)} + {g(PVTS_res)}) / {g(N)} = NOK "
         f"{f(P1_res, 2)} and n = {g(D)} / {f(P1_res, 2)} = {f(n_fra_res)} million.</p>"),
     "criteria": [
         f"P = ({g(VU)} + {f(PVTS)})/{g(N)} = NOK {f(P1)}: the price rises at the announcement.",
-        f"n = {g(D)}/{f(P1)} = {f(n)} million, at the new price. The two equations or equivalent direct reasoning are both accepted. Using the old price ({f(felle_n)} million) is the classic error.",
-        "The original shareholders capture the gain, sellers and keepers equally, because the buyback is at the fair new price.",
+        f"n = {g(D)}/{f(P1)} = {f(n)} million, at the new price. The two equations or equivalent direct reasoning are both accepted.",
+        f"Using the old price ({f(felle_n)} million) is the classic error.",
     ],
 }
 pd = {
     "label": "d", "points": 4,
-    "body": (f"<p>What is the expected dividend per share in Year 1 without the recapitalisation and with it? (If you "
-             f"could not solve (c), use {g(n_res2)} million shares repurchased.)</p>"),
-    "solution": (
-        f"<p><b>Without.</b> {g(EBIT)} × (1 − {g(tau)}) / {g(N)} = {g(EBIT * (1 - tau))} / {g(N)} = "
-        f"<b>NOK {f(div0)} per share</b>.</p>"
-        f"<p><b>With.</b> Interest is paid before tax: ({g(EBIT)} − {g(rente)}) × (1 − {g(tau)}) = NOK "
-        f"{g(til_eier)}M for the shareholders, shared by {f(Nrest)}M shares:</p>"
-        f"<p>Div<sub>1</sub> = {g(til_eier)} / {f(Nrest)} = <b>NOK {f(div1)} per share</b></p>"
-        f"<p>The dividend per share is higher, but so is the risk of each share: the shareholders now carry the "
-        f"business risk over a smaller base.</p>"
-        f"<p>With the fallback of {g(n_res2)} million shares repurchased: {g(til_eier)} / {g(N - n_res2)} = NOK "
-        f"{f(div1_res)}.</p>"),
-    "criteria": [
-        f"Without: NOK {f(div0)} per share.",
-        f"With: interest before tax, ({g(EBIT)} − {g(rente)}) × {g(1 - tau)} = {g(til_eier)}, over the {f(Nrest)}M remaining shares: NOK {f(div1)}.",
-        f"Dividing by the original {g(N)}M shares (NOK {f(til_eier / N)}) or taking interest after tax is the error.",
-    ],
-}
-pe = {
-    "label": "e", "points": 4,
     "body": (f"<p>The CFO says: «The tax shield of a loan is always worth τ × D. So our loan adds {pc(tau)} × "
              f"NOK {g(D)} million = NOK {g(tau * D)} million to the firm value.» Is the CFO right? What would the share "
              f"price on announcement be if the CFO's figure were right? For which kind of loan does τ × D hold? "
@@ -1066,21 +1068,40 @@ pe = {
         "Bonus: notes that the repayment of the principal is not tax-deductible.",
     ],
 }
+pe = {
+    "label": "e", "points": 5,
+    "body": ("<p>A board member proposes to go much further and borrow so much that almost all of Lyngdal's value is "
+             "debt. In the setting of this exercise (only corporate taxes), would that be optimal? Give two reasons why "
+             "Lyngdal would not do it in reality. Explain briefly (3 to 4 sentences).</p>"),
+    "solution": (
+        f"<p><b>In the model, yes.</b> With corporate taxes as the only imperfection, every krone of debt adds a tax "
+        f"shield and nothing is lost, so firm value rises with debt and close to 100% debt is optimal. The lecturer "
+        f"is clear that this is the answer in an MM world with taxes.</p>"
+        f"<p><b>In reality, no.</b> (1) The shield is only worth something while EBIT covers the interest. In the "
+        f"weak state Lyngdal earns NOK {g(eb[0])}M, so above about {g(eb[0])} / {g(rD)} = NOK {f(eb[0] / rD, 0)}M of "
+        f"debt at {pc(rD)} the interest exceeds EBIT in bad years and part of the shield is lost. (2) The debt would no "
+        f"longer be risk-free: in a bad year Lyngdal could not pay. The costs of financial distress (lawyers, "
+        f"quarries and machines sold in a fire sale, customers who move to safer suppliers) would eat the tax "
+        f"gain. Debt overhang and the temptation to take excessive risks near default are also accepted.</p>"),
+    "criteria": [
+        "Answers the model question: with only corporate taxes, more debt always adds value, so (close to) 100% debt is optimal.",
+        "Two distinct real-world reasons, each with its mechanism: costs of financial distress (direct or indirect), a tax shield that cannot be used when EBIT is lower than the interest, debt overhang, excessive risk-taking, personal taxes on interest.",
+        f"Credit for tying a reason to Lyngdal: EBIT can fall to NOK {g(eb[0])}M, so with very high debt the interest is not covered in bad years.",
+        "3 to 4 sentences, as asked. Naming a reason without its mechanism earns half its points.",
+    ],
+}
 ex["parts"] = [pa, pb, pc_, pd, pe]
 OPPG["mk-skatt-rekap-2"] = ex
 SVAR["mk-skatt-rekap-2:1:a"] = {"type": "tall", "tall": [T("E[EBIT]", EBIT, "NOK m"), T("V<sup>U</sup>", VU, "NOK m"),
                                                          T("Share price", P0, "NOK per share")]}
 SVAR["mk-skatt-rekap-2:1:b"] = {"type": "tall", "tall": [T("Annual tax shield", ts, "NOK m"), T("PV(TS)", PVTS, "NOK m")],
                                 "merknad": f"Fellene {g(tau * D)} (τD) og {f(felle_tidlig)} (første skjold i dag) avvises."}
-SVAR["mk-skatt-rekap-2:1:c"] = {"type": "blandet", "tall": [T("Share price on announcement", P1, "NOK per share", alt=[round(P1_res, 10)]),
-                                                            T("Shares repurchased", n, "m shares", alt=[round(n_fra_res, 10)])],
-                                "tallPoeng": 3, "tekstLedd": "Who captures the change in firm value?",
+SVAR["mk-skatt-rekap-2:1:c"] = {"type": "tall", "tall": [T("Share price on announcement", P1, "NOK per share", alt=[round(P1_res, 10)]),
+                                                         T("Shares repurchased", n, "m shares", alt=[round(n_fra_res, 10)])],
                                 "merknad": f"alt er svarene med reserveverdien PV(TS) = {g(PVTS_res)}: kurs {f(P1_res, 2)} og {f(n_fra_res)} millioner aksjer. Fellen {f(felle_n)} (gammel kurs) avvises."}
-SVAR["mk-skatt-rekap-2:1:d"] = {"type": "tall", "tall": [T("Div<sub>1</sub> without the recapitalisation", div0, "NOK per share"),
-                                                         T("Div<sub>1</sub> with the recapitalisation", div1, "NOK per share", alt=[round(div1_res, 10)])],
-                                "merknad": f"alt {f(div1_res)} er svaret med reserveverdien {g(n_res2)} millioner aksjer kjøpt tilbake."}
-SVAR["mk-skatt-rekap-2:1:e"] = {"type": "blandet", "tall": [T("Share price if τ × D held", P_perm, "NOK per share")],
+SVAR["mk-skatt-rekap-2:1:d"] = {"type": "blandet", "tall": [T("Share price if τ × D held", P_perm, "NOK per share")],
                                 "tallPoeng": 1.5, "tekstLedd": "Is the CFO right? For which kind of loan does τ × D hold?"}
+SVAR["mk-skatt-rekap-2:1:e"] = {"type": "tekst"}
 
 # ======================================================================
 # mk-skatt-rekap-3 · Brandvoort Fitness (det varslede tillegget: konstant rentedekning, V^L = (1 + τk)V^U)
@@ -1110,11 +1131,13 @@ VL_res, D_res, P_res3 = 790.0, 300.0, 32.0
 P1_res = VL_res / N
 n_res = D_res / P_res3
 assert utenfor(P1_res, P1) and utenfor(n_res, n) and utenfor(n_res, felle_n) and utenfor(N - n_res, Nrest)
+n_kaskade = D0 / P1_res                         # (d) bygd på reservekursen fra (c)
+assert utenfor(n_kaskade, n) and utenfor(n_kaskade, felle_n) and utenfor(N - n_kaskade, Nrest)
 assert near(VU, 700) and near(P1, 30.45) and near(D0, 367.5)
 
 ex = {
     "n": 1, "title": "Capital Structure", "points": 20,
-    "topic": "Interest tax shield with a constant interest coverage, recapitalisation", "chapters": [7, 19],
+    "topic": "Recapitalisation with taxes", "chapters": [7, 19],
     "merke": "Som rekapitaliseringen i forelesning 3, med renter som fast andel av kontantstrømmen (forelesning 18, 32:14)",
     "body": (f"<p>Brandvoort Fitness NV runs a chain of gyms. It is all-equity financed with {g(N)} million shares. "
              f"Its free cash flow next year is expected to be €{g(F1)} million and to grow by {pc(gr)} a year "
@@ -1173,7 +1196,7 @@ pc_ = {
     "criteria": [
         f"D0 = {g(rente1)}/{pc(rD)} = €{g(D0)}M, because next year's interest is r_D times today's debt.",
         f"P = {g(VL)}/{g(N)} = €{f(P1, 2)}: the price rises at the announcement.",
-        "Reason: the commitment is credible, so the present value of all future tax shields is priced at once.",
+        "Bonus: the reason, a credible commitment, so the present value of all future tax shields is priced at once.",
     ],
 }
 pd = {
@@ -1186,7 +1209,8 @@ pd = {
         f"<p><b>Check.</b> E = V<sup>L</sup> − D = {g(VL)} − {g(D0)} = €{g(E1)}M and {f(Nrest)} × {f(P1, 2)} = "
         f"€{g(Nrest * P1)}M. ✓ Dividing by the old €{f(P0, 2)} gives {f(felle_n)} million.</p>"
         f"<p>With the fallback values: n = {g(D_res)} / {f(P_res3, 2)} = {f(n_res)} million, leaving "
-        f"{f(N - n_res)} million.</p>"),
+        f"{f(N - n_res)} million. With the debt from (c) and the price from its fallback: n = {g(D0)} / "
+        f"{f(P1_res, 2)} = {f(n_kaskade)} million, leaving {f(N - n_kaskade)} million.</p>"),
     "criteria": [
         f"n = {g(D0)}/{f(P1, 2)} = {f(n)} million, at the new price; {f(Nrest)} million remain. The two equations or equivalent direct reasoning are accepted.",
         f"Using the old price ({f(felle_n)} million) is the classic error.",
@@ -1210,9 +1234,9 @@ pe = {
         f"the debt and the firm value both grow at {pc(gr)}, so D/V stays at {g(D0)} / {g(VL)} = {f(dv)}.)</p>"),
     "criteria": [
         f"Names r_U ({pc(rU3)}, as r_U − g in the perpetuity) and explains it: the interest (and so the tax shield) is a fixed share of the free cash flow, so it has the risk of the assets.",
-        "Contrasts with permanent fixed debt, where the shield is known and is discounted at r_D (τD). Credit for either part of this comparison.",
+        "Bonus: contrasts with permanent fixed debt, where the shield is known and is discounted at r_D (τD).",
         "The original shareholders capture the value of all future shields at the announcement, sellers and keepers alike, because the market prices the credible policy at once.",
-        "Later buyers pay a price that already includes the shields and gain nothing.",
+        "Bonus: later buyers pay a price that already includes the shields and gain nothing.",
     ],
 }
 ex["parts"] = [pa, pb, pc_, pd, pe]
@@ -1224,9 +1248,9 @@ SVAR["mk-skatt-rekap-3:1:b"] = {"type": "tall", "tall": [T("Tax shield in Year 1
 SVAR["mk-skatt-rekap-3:1:c"] = {"type": "tall", "tall": [T("Debt today", D0, "€ m"),
                                                          T("Share price on announcement", P1, "€ per share", alt=[round(P1_res, 10)])],
                                 "merknad": f"alt {f(P1_res, 2)} er svaret med reserveverdien V^L = {g(VL_res)}."}
-SVAR["mk-skatt-rekap-3:1:d"] = {"type": "tall", "tall": [T("Shares repurchased", n, "m shares", alt=[round(n_res, 10)]),
-                                                         T("Shares remaining", Nrest, "m shares", alt=[round(N - n_res, 10)])],
-                                "merknad": f"alt er svarene med reserveverdiene (gjeld {g(D_res)}, kurs {f(P_res3, 2)}): {f(n_res)} og {f(N - n_res)}. Fellen {f(felle_n)} (gammel kurs) avvises."}
+SVAR["mk-skatt-rekap-3:1:d"] = {"type": "tall", "tall": [T("Shares repurchased", n, "m shares", alt=[round(n_res, 10), round(n_kaskade, 10)]),
+                                                         T("Shares remaining", Nrest, "m shares", alt=[round(N - n_res, 10), round(N - n_kaskade, 10)])],
+                                "merknad": f"alt er svarene med reserveverdiene (gjeld {g(D_res)}, kurs {f(P_res3, 2)}): {f(n_res)} og {f(N - n_res)}, og med gjelden {g(D0)} og reservekursen {f(P1_res, 2)} fra (c): {f(n_kaskade)} og {f(N - n_kaskade)}. Fellen {f(felle_n)} (gammel kurs) avvises."}
 SVAR["mk-skatt-rekap-3:1:e"] = {"type": "tekst"}
 
 # ======================================================================
@@ -1234,12 +1258,12 @@ SVAR["mk-skatt-rekap-3:1:e"] = {"type": "tekst"}
 # ======================================================================
 OPPG["mk-teori-kapital-1"] = {
     "n": 1, "title": "Capital Structure", "points": 10,
-    "topic": "Costs of financial distress and agency costs of debt", "chapters": [8, 9, 10],
+    "topic": "Downsides of debt", "chapters": [8, 9, 10],
     "merke": "Teorispørsmål som i forelesning 4 (4:56): ulemper ved gjeld",
     "body": ("<p>In a market that is perfect apart from corporate taxes, firm value rises with every unit of debt, so "
              "100% debt is optimal. Real firms borrow far less.</p>"
              "<p>(a) Give three distinct downsides of debt that this model leaves out. Explain each in two to three "
-             "sentences. (6 points)</p>"
+             "sentences. Direct and indirect costs of financial distress count as one downside. (6 points)</p>"
              "<p>(b) Strandvik Eiendom ASA owns office buildings in central Oslo, let on long leases to government "
              "agencies. Nordlys Regnskap AS sells accounting software to small firms on three-year subscriptions; its "
              "value lies in a team of programmers and in customers who need updates and support for years. All else "
@@ -1257,7 +1281,10 @@ OPPG["mk-teori-kapital-1"] = {
         "gamble while the creditors bear the downside, so a manager acting for the shareholders may take a risky "
         "project even if its NPV is negative. Creditors anticipate this and demand a higher rate.</p>"
         "<p>Also accepted as a third: a higher cost of future financing and less financial flexibility, because a "
-        "highly levered firm finds it expensive to raise more money when it needs it.</p>"
+        "highly levered firm finds it expensive to raise more money when it needs it; a tax shield the firm cannot "
+        "use, because EBIT in a bad year (or other deductions such as depreciation and losses carried forward) leaves "
+        "no taxable income to shield; personal taxes on interest, which investors pay and which reduce the net tax "
+        "advantage of debt.</p>"
         "<p><b>(b) Strandvik should borrow more.</b> Its buildings are tangible, easy to value and easy to sell close "
         "to their value. Long leases to government tenants give stable cash flows, so both the probability and "
         "the cost of distress are low. Nordlys's value sits in people, code and customer relationships, which melt "
@@ -1266,7 +1293,7 @@ OPPG["mk-teori-kapital-1"] = {
         "overhang, so the trade-off between the tax shield and these costs puts its optimal leverage much "
         "lower.</p>"),
     "criteria": [
-        "(a) Three distinct downsides, each explained, 2 points each: costs of financial distress, debt overhang, excessive risk-taking (risk shifting), or a higher cost of future capital and lost flexibility. Direct and indirect distress costs count as one downside, not two.",
+        "(a) Three distinct downsides, each explained, 2 points each: costs of financial distress, debt overhang, excessive risk-taking (risk shifting), a higher cost of future capital and lost flexibility, a tax shield that cannot be used, personal taxes on interest. Direct and indirect distress costs count as one downside, as the question says.",
         "(a) Each downside needs its mechanism: the expected cost rising with the probability of default; the wealth transfer to creditors that makes the firm forgo positive-NPV projects; the shareholders keeping the upside while creditors bear the downside.",
         "(a) Naming a downside without explaining it earns at most half its points. Two to three sentences each, as asked.",
         "(b) Chooses Strandvik (1 point) and ties it to (a) (3 points): tangible, saleable assets mean small fire-sale losses; stable rents mean a low probability of distress; Nordlys's intangible assets, customers who need support for years and key employees mean large indirect costs.",
@@ -1322,7 +1349,7 @@ SVAR["mk-teori-kapital-2:1:"] = {"type": "tekst"}
 # ======================================================================
 OPPG["mk-teori-kapital-3"] = {
     "n": 1, "title": "Capital Structure", "points": 10,
-    "topic": "MM in perfect markets and market frictions", "chapters": [6, 7, 13, 16],
+    "topic": "MM and the real world", "chapters": [6, 7, 13, 16],
     "merke": "Teorispørsmål som i forelesning 3 (11:33): MM mot virkeligheten",
     "body": ("<p>In a perfect capital market neither the mix of debt and equity nor the choice between dividends and "
              "buybacks affects firm value. Each fact below breaks one of the assumptions behind this result. For each "
@@ -1350,11 +1377,418 @@ OPPG["mk-teori-kapital-3"] = {
         "Fact 1: no taxes; favours debt through the interest tax shield.",
         "Fact 2: no transaction or issue costs; favours internal funds (and debt) over a new share issue. 'Perfect markets without frictions' is accepted as the assumption.",
         "Fact 3: symmetric (equal) information; an equity issue signals overvaluation, so the pecking order: internal funds, debt, equity. Mentioning that a buyback signals undervaluation is also accepted.",
-        "Fact 4: no personal taxes; favours a buyback (or retention) because the tax is deferred. Claiming that dividends are generally taxed at a higher rate is not accepted: the rates are about equal today, the point is the deferral.",
+        "Fact 4: no personal taxes; favours a buyback (or retention) because the tax is deferred. No mechanism point without the deferral: dividends are not generally taxed at a higher rate today, so the point is that the tax on a capital gain can be deferred.",
         "One to two sentences per fact, as asked. Length is not rewarded.",
     ],
 }
 SVAR["mk-teori-kapital-3:1:"] = {"type": "tekst"}
+
+
+# ======================================================================
+# signal: emisjon under asymmetrisk informasjon (Myers-Majluf), felles regning
+# ======================================================================
+def emisjon(H, L, p, I, C, N):
+    """To typer (H, L), sannsynlighet p for H, prosjekt I i dag mot sikre C ved t = 1, N aksjer."""
+    r = {"V": p * H + (1 - p) * L}
+    r["P0"] = r["V"] / N
+    r["a"] = I / (r["V"] + C)                    # samlet pris: begge utsteder
+    r["sH"] = (1 - r["a"]) * (H + C)
+    r["sL"] = (1 - r["a"]) * (L + C)
+    r["aL"] = I / (L + C)                        # bare L utsteder
+    r["L_beholder"] = (1 - r["aL"]) * (L + C)
+    r["H_imiterer"] = (1 - r["aL"]) * (H + C)
+    r["P_ann"] = (L + C - I) / N                 # kurs rett etter kunngjøring når emisjonen avslører L
+    r["n"] = I / r["P_ann"]
+    assert near(r["P_ann"] * (N + r["n"]), L + C)    # P·n = I og P·(N + n) = L + C
+    assert r["sH"] < H and r["sL"] > L               # bare L utsteder til samlet pris
+    assert utenfor(r["sH"], H) and utenfor(r["sL"], L)   # andelene ligger utenfor toleransen av verdien uten prosjekt
+    assert r["L_beholder"] > L and r["H_imiterer"] < H   # troen «bare L utsteder» er rasjonell
+    assert near(r["sL"] - L, (C - I) + r["a"] * ((r["V"] + C) - (L + C)))   # NPV + overprising
+    assert near(H - r["sH"], r["a"] * ((H + C) - (r["V"] + C)) - (C - I))   # subsidie − NPV
+    return r
+
+
+# ======================================================================
+# mk-signal-1 · Hovdenes Marine (SEO-eksemplet i forelesning 7: 140/40, 8 → 10)
+# ======================================================================
+H, L, p, I, C, N = 330.0, 130.0, 0.5, 30.0, 36.0, 20.0
+s1 = emisjon(H, L, p, I, C, N)
+a_res = 0.13
+assert utenfor(a_res, s1["a"])
+sH_res, sL_res = (1 - a_res) * (H + C), (1 - a_res) * (L + C)
+assert sH_res < H and sL_res > L                      # samme beslutning med reserveverdien
+assert utenfor(sH_res, s1["sH"]) and utenfor(sL_res, s1["sL"])
+felle_P = (s1["V"] + C - I) / N                       # kurs uten at markedet lærer typen
+assert utenfor(felle_P, s1["P_ann"])
+assert near(s1["a"], 30 / 266) and near(s1["P_ann"], 6.8)
+
+ex = {
+    "n": 1, "title": "Security Issues", "points": 20,
+    "topic": "Equity issues", "chapters": [12, 13],
+    "merke": "Samme form som SEO-eksemplet i forelesning 7 (1:29:09)",
+    "body": (f"<p>Hovdenes Marine ASA builds aluminium workboats. It is all-equity financed with {g(N)} million "
+             f"shares, held by long-term shareholders who keep them until t = 1. At t = 1 its existing assets will be "
+             f"worth NOK {g(H)} million if its new hull design is approved or NOK {g(L)} million if it is not. The "
+             f"managers already know which; investors think both are equally likely. The manager acts in the "
+             f"interest of the existing shareholders. Everyone is risk-neutral and the risk-free rate is 0%. Use 4 "
+             f"decimal places.</p>"),
+}
+pa = {
+    "label": "a", "points": 3,
+    "body": "<p>What is the market value of Hovdenes's existing assets today? What is the share price?</p>",
+    "solution": (
+        f"<p>Investors cannot tell the types apart, so they value the firm at the expectation: V = {g(p)} × {g(H)} + "
+        f"{g(1 - p)} × {g(L)} = <b>NOK {g(s1['V'])}M</b>. The share price is P = {g(s1['V'])} / {g(N)} = "
+        f"<b>NOK {f(s1['P0'], 2)}</b>.</p>"),
+    "criteria": [
+        f"V = {g(p)} × {g(H)} + {g(1 - p)} × {g(L)} = NOK {g(s1['V'])}M, because investors only know the probabilities.",
+        f"P = {g(s1['V'])}/{g(N)} = NOK {f(s1['P0'], 2)}.",
+        "No discounting: the risk-free rate is 0% and everyone is risk-neutral.",
+    ],
+}
+pb = {
+    "label": "b", "points": 4,
+    "body": (f"<p>Hovdenes can invest NOK {g(I)} million today in a new paint shop that will pay NOK {g(C)} million for "
+             f"sure at t = 1. It must pay for it by issuing new shares to competitive investors. Suppose investors "
+             f"price the issue as if both types issue. What fraction of the firm must the new investors receive?</p>"),
+    "solution": (
+        f"<p><b>Step 1. The firm after the investment, as investors see it.</b> {g(s1['V'])} + {g(C)} = "
+        f"NOK {g(s1['V'] + C)}M at t = 1. The NOK {g(I)}M raised is spent on the paint shop, so the denominator "
+        f"includes the project's payoff.</p>"
+        f"<p><b>Step 2. The fraction.</b> Competitive investors pay {g(I)} for a stake worth {g(I)}:</p>"
+        f"<p>α = {g(I)} / {g(s1['V'] + C)} = <b>{pc(s1['a'], 4)}</b></p>"),
+    "criteria": [
+        f"α = I / (pooled value after the investment) = {g(I)}/({g(s1['V'])} + {g(C)}) = {pc(s1['a'], 4)}.",
+        f"Leaving the project out of the denominator ({g(I)}/{g(s1['V'])} = {pc(I / s1['V'], 4)}) is the classic error.",
+        "The new investors break even on average: they pay the fair price given what they know.",
+    ],
+}
+pc_ = {
+    "label": "c", "points": 5,
+    "body": (f"<p>On the terms in (b), what are the existing shareholders' stakes worth at t = 1 for each type? Which "
+             f"type issues and invests? (If you could not solve (b), use a fraction of {pc(a_res)}.)</p>"),
+    "solution": (
+        f"<p>The existing shareholders keep 1 − α = {fx(1 - s1['a'])} of the firm with the paint shop:</p>"
+        + tab(["Type", "Without the issue", "With the issue", "Decision"], [
+            ["High value", f"#{g(H)}", f"#{fx(1 - s1['a'])} × {g(H + C)} = {f(s1['sH'])}", "Does not issue"],
+            ["Low value", f"#{g(L)}", f"#{fx(1 - s1['a'])} × {g(L + C)} = {f(s1['sL'])}", "Issues"],
+        ])
+        + f"<p><b>Only the low-value type issues.</b> It gains {f(s1['sL'] - L)}: the NPV of {g(C - I)} plus "
+          f"{f(s1['sL'] - L - (C - I))} from selling shares priced as if the firm were worth {g(s1['V'])} when it is "
+          f"worth {g(L)}. The high-value type pays that subsidy: its shares are underpriced, so it gives away "
+          f"{fx(s1['a'])} × {g(H + C)} = {f(s1['a'] * (H + C))} of value for NOK {g(I)}M of cash. The excess of "
+          f"{f(s1['a'] * (H + C) - I)} outweighs the NPV of {g(C - I)} and it loses {f(H - s1['sH'])}.</p>"
+          f"<p>With the fallback of {pc(a_res)}: {g(1 - a_res)} × {g(H + C)} = {f(sH_res)} and {g(1 - a_res)} × "
+          f"{g(L + C)} = {f(sL_res)}. Same decisions.</p>"),
+    "criteria": [
+        f"High value: {fx(1 - s1['a'])} × {g(H + C)} = {f(s1['sH'])}, below {g(H)}, so it does not issue.",
+        f"Low value: {fx(1 - s1['a'])} × {g(L + C)} = {f(s1['sL'])}, above {g(L)}, so it issues.",
+        "Compares each stake with the value without the project, not with the other type.",
+        "Mechanism: the low type gains the NPV plus the overpricing of its shares; the high type's shares are underpriced, so the dilution costs more than the NPV.",
+    ],
+}
+pd = {
+    "label": "d", "points": 4,
+    "body": ("<p>Investors understand your answer to (c). What is the share price right after Hovdenes announces the "
+             "issue? How many new shares must it sell?</p>"),
+    "solution": (
+        f"<p><b>Step 1. What the announcement reveals.</b> Only a low-value firm issues, so the issue tells investors "
+        f"that the assets are worth {g(L)}. With the paint shop the firm will be worth {g(L)} + {g(C)} = "
+        f"NOK {g(L + C)}M, of which the new investors pay for {g(I)}.</p>"
+        f"<p><b>Step 2. Two equations.</b> P × n = {g(I)} and P × ({g(N)} + n) = {g(L + C)}, so {g(N)} × P = "
+        f"{g(L + C - I)}:</p>"
+        f"<p>P = <b>NOK {f(s1['P_ann'], 2)}</b> and n = {g(I)} / {f(s1['P_ann'], 2)} = <b>{f(s1['n'])} million "
+        f"shares</b></p>"
+        f"<p>The price falls from NOK {f(s1['P0'], 2)} to NOK {f(s1['P_ann'], 2)} "
+        f"({pc(s1['P_ann'] / s1['P0'] - 1, 2)}). The new investors get {g(I)} / {g(L + C)} = {pc(s1['aL'], 4)} of the "
+        f"firm.</p>"
+        f"<p><b>Check that the belief is rational.</b> On these terms the low type keeps {g(s1['L_beholder'])} > "
+        f"{g(L)} and still issues; a high type would keep {f(s1['H_imiterer'])} < {g(H)} and stays out. ✓</p>"),
+    "criteria": [
+        f"The issue reveals the low type: P = ({g(L)} + {g(C)} − {g(I)})/{g(N)} = NOK {f(s1['P_ann'], 2)}.",
+        f"n = {g(I)}/{f(s1['P_ann'], 2)} = {f(s1['n'])} million, from P × n = {g(I)} and P × ({g(N)} + n) = {g(L + C)} or equivalent reasoning.",
+        f"Pricing at the pooled value (NOK {f(felle_P, 2)}) ignores what the issue reveals.",
+        "Bonus: checks that the belief is rational (the low type still issues, the high type does not imitate).",
+    ],
+}
+pe = {
+    "label": "e", "points": 4,
+    "body": ("<p>Is the outcome efficient? Compared with a world where investors also knew the type, who gains and who "
+             "loses? Explain briefly (3 to 4 sentences).</p>"),
+    "solution": (
+        f"<p><b>No.</b> The high-value Hovdenes forgoes a positive-NPV project: with full information it could sell "
+        f"shares at a fair price and its shareholders would end up with {g(H)} + {g(C - I)} = {g(H + C - I)}; now "
+        f"they keep {g(H)}, so they lose the NPV of {g(C - I)}. The low-value firm ends up with {g(s1['L_beholder'])} "
+        f"in both worlds, because investors see through the issue. The new investors break even. The fall in the "
+        f"share price at the announcement is the market learning the type, not a verdict on the paint shop, which "
+        f"has a positive NPV for both types. This is underinvestment caused by asymmetric information: the firm "
+        f"forgoes positive-NPV projects.</p>"),
+    "criteria": [
+        "Says the outcome is inefficient because the high-value type forgoes a positive-NPV project (underinvestment).",
+        f"The high type's shareholders lose the NPV ({g(C - I)}) compared with full information; the low type and the new investors are no better or worse off.",
+        "Explains the price fall as information revealed by the decision to issue, not as a judgement on the project.",
+        "3 to 4 sentences, as asked.",
+    ],
+}
+ex["parts"] = [pa, pb, pc_, pd, pe]
+OPPG["mk-signal-1"] = ex
+SVAR["mk-signal-1:1:a"] = {"type": "tall", "tall": [T("V", s1["V"], "NOK m"), T("Share price", s1["P0"], "NOK per share")]}
+SVAR["mk-signal-1:1:b"] = {"type": "tall", "tall": [T("Fraction to new investors", 100 * s1["a"], "%")],
+                           "merknad": f"Fellen {f(100 * I / s1['V'])} % (prosjektet utelatt i nevneren) avvises."}
+SVAR["mk-signal-1:1:c"] = {"type": "blandet", "tall": [T("Stake at t = 1, high-value type", s1["sH"], "NOK m", alt=[round(sH_res, 10)]),
+                                                       T("Stake at t = 1, low-value type", s1["sL"], "NOK m", alt=[round(sL_res, 10)])],
+                           "tallPoeng": 2, "tekstLedd": "Which type issues and invests?",
+                           "merknad": f"alt er svarene med reserveverdien {pc(a_res)}: {f(sH_res)} og {f(sL_res)}."}
+SVAR["mk-signal-1:1:d"] = {"type": "tall", "tall": [T("Share price after the announcement", s1["P_ann"], "NOK per share"),
+                                                    T("New shares", s1["n"], "m shares")],
+                           "merknad": f"Fellen {f(felle_P, 2)} (samlet pris) avvises."}
+SVAR["mk-signal-1:1:e"] = {"type": "tekst"}
+
+# ======================================================================
+# mk-signal-2 · Larkhaven Biosensors (HA1 E3 og PS2 E1 strammet inn: skjeve sannsynligheter, sertifisering)
+# ======================================================================
+H, L, p, I, C, N = 400.0, 200.0, 0.3, 50.0, 60.0, 25.0
+s2 = emisjon(H, L, p, I, C, N)
+F_maks = (H + C - I) - H                      # sertifikatet er verdt NPV-en det låser opp
+assert near(F_maks, C - I)
+# med sertifikat og gebyr F hentet i samme emisjon til riktig kurs: de gamle eierne beholder H + C − I − F
+assert near((H + C) - (I + F_maks), H)
+L_med_sert = (L + C) - I                      # lavtypen avsløres uansett: beholder L + C − I − F
+assert near(L_med_sert, s2["L_beholder"])
+felle_F = s2["a"] * (H + C) - (C - I)         # høytypens tap ved samlet pris i (b)
+assert utenfor(felle_F, F_maks)
+assert near(s2["a"], 0.15625) and near(s2["P_ann"], 8.4)
+
+ex = {
+    "n": 1, "title": "Security Issues", "points": 20,
+    "topic": "Equity issues", "chapters": [12, 13],
+    "merke": "Som HA1 E3 og PS2 E1 i forelesning 10, strammet inn, med sertifisering (forelesning 10, 3:07)",
+    "body": (f"<p>Larkhaven Biosensors Inc. makes glucose sensors. It has {g(N)} million shares, no debt and no cash. "
+             f"At t = 1 its existing assets will be worth ${g(H)} million (high-value type) or ${g(L)} million "
+             f"(low-value type). The managers know the type; investors put a probability of {pc(p)} on the high-value "
+             f"type. The shareholders keep their shares until t = 1 and the manager acts in their interest.</p>"
+             f"<p>Larkhaven can invest ${g(I)} million today in a production line that pays ${g(C)} million for sure "
+             f"at t = 1. It must issue new shares to competitive investors to pay for it. Everyone is risk-neutral and "
+             f"the risk-free rate is 0%. Use 4 decimal places.</p>"),
+}
+pa = {
+    "label": "a", "points": 3,
+    "body": "<p>What is the market value of Larkhaven's existing assets and the share price today?</p>",
+    "solution": (
+        f"<p>V = {g(p)} × {g(H)} + {g(1 - p)} × {g(L)} = <b>${g(s2['V'])}M</b> and P = {g(s2['V'])} / {g(N)} = "
+        f"<b>${f(s2['P0'], 2)}</b>.</p>"),
+    "criteria": [
+        f"Uses the given probabilities, not 50/50: V = {g(p)} × {g(H)} + {g(1 - p)} × {g(L)} = ${g(s2['V'])}M.",
+        f"P = {g(s2['V'])}/{g(N)} = ${f(s2['P0'], 2)}.",
+        f"A 50/50 average (${g((H + L) / 2)}M) is the error.",
+    ],
+}
+pb = {
+    "label": "b", "points": 4,
+    "body": ("<p>Suppose investors price the issue as if both types issue. What fraction of the firm must the new "
+             "investors receive? What are the existing shareholders' stakes worth at t = 1 for each type if Larkhaven "
+             "issues? Which type issues?</p>"),
+    "solution": (
+        f"<p><b>Step 1. The fraction.</b> α = {g(I)} / ({g(s2['V'])} + {g(C)}) = {g(I)} / {g(s2['V'] + C)} = "
+        f"<b>{pc(s2['a'], 4)}</b>.</p>"
+        f"<p><b>Step 2. The stakes.</b> High value: {fx(1 - s2['a'])} × {g(H + C)} = <b>{f(s2['sH'])}</b> &lt; "
+        f"{g(H)}. Low value: {fx(1 - s2['a'])} × {g(L + C)} = <b>{f(s2['sL'])}</b> &gt; {g(L)}.</p>"
+        f"<p><b>Only the low-value type issues.</b> The pooled price overvalues it and undervalues the high type, so "
+        f"the high type would give away {f(s2['a'] * (H + C))} of value to raise {g(I)} and lose {f(H - s2['sH'])}.</p>"),
+    "criteria": [
+        f"α = {g(I)}/({g(s2['V'])} + {g(C)}) = {pc(s2['a'], 4)}, with the project in the denominator.",
+        f"Stakes: {f(s2['sH'])} for the high type (below {g(H)}) and {f(s2['sL'])} for the low type (above {g(L)}).",
+        "Conclusion: only the low-value type issues.",
+    ],
+}
+pc_ = {
+    "label": "c", "points": 4,
+    "body": ("<p>Now suppose investors believe that only the low-value type issues. What fraction must an issuing firm "
+             "give the new investors? What is the share price right after an issue is announced?</p>"),
+    "solution": (
+        f"<p><b>Step 1. The fraction.</b> An issuer is priced as the low type: α = {g(I)} / ({g(L)} + {g(C)}) = "
+        f"<b>{pc(s2['aL'], 4)}</b>.</p>"
+        f"<p><b>Step 2. The price.</b> The old shareholders' part is worth {g(L)} + {g(C)} − {g(I)} = {g(L + C - I)}, "
+        f"so P = {g(L + C - I)} / {g(N)} = <b>${f(s2['P_ann'], 2)}</b>, down from ${f(s2['P0'], 2)} "
+        f"({pc(s2['P_ann'] / s2['P0'] - 1, 2)}). The issue is {g(I)} / {f(s2['P_ann'], 2)} = {f(s2['n'])} million new "
+        f"shares.</p>"),
+    "criteria": [
+        f"α = {g(I)}/({g(L)} + {g(C)}) = {pc(s2['aL'], 4)}.",
+        f"P = ({g(L)} + {g(C)} − {g(I)})/{g(N)} = ${f(s2['P_ann'], 2)}: the announcement reveals the low type, so the price falls.",
+        "Two equations (P × n = I and P × (N + n) = L + C) or equivalent reasoning are both accepted.",
+    ],
+}
+pd = {
+    "label": "d", "points": 5,
+    "body": ("<p>An independent laboratory offers to certify Larkhaven's type to the market. The fee is paid today and "
+             "raised in the same share issue at the certified (fair) price. What is the highest fee a high-value "
+             "Larkhaven would pay? Would a low-value Larkhaven buy the certificate? Explain briefly.</p>"),
+    "solution": (
+        f"<p><b>High value.</b> With the certificate it is priced at its true value. Raising {g(I)} + F at a fair "
+        f"price, its old shareholders keep {g(H)} + {g(C)} − {g(I)} − F = {g(H + C - I)} − F. Without the certificate "
+        f"it does not invest (from (b) and (c)) and keeps {g(H)}. It pays up to {g(H + C - I)} − {g(H)} = "
+        f"<b>${g(F_maks)}M</b>, the NPV of the project the certificate lets it take.</p>"
+        f"<p><b>Low value: no.</b> A certificate would only confirm what an issue already reveals under the belief in "
+        f"(c): it would keep {g(L + C - I)} − F instead of {g(L + C - I)}. Since only the high type buys a "
+        f"certificate, an issue without one marks the firm as the low type.</p>"),
+    "criteria": [
+        f"Highest fee = ${g(F_maks)}M: the high type's gain from investing at a fair price ({g(H + C - I)} − F against {g(H)} without the project).",
+        "Sets the comparison right: the alternative for the high type is not investing, not issuing at the pooled price.",
+        f"The low type does not buy: it gains nothing from being revealed and would pay the fee. Its loss in (b) ({f(felle_F)}) is not the value of the certificate.",
+        "Bonus: notes that the existence of the certificate makes an uncertified issue a sign of the low type.",
+    ],
+}
+pe = {
+    "label": "e", "points": 4,
+    "body": ("<p>Is the belief in (c) rational given what the two types do? Without a certificate, is the outcome "
+             "efficient? Explain briefly.</p>"),
+    "solution": (
+        f"<p><b>Rational: yes.</b> On the terms in (c) the low type keeps {fx(1 - s2['aL'])} × {g(L + C)} = "
+        f"{g(s2['L_beholder'])} &gt; {g(L)}, so it issues; a high type that imitated would keep {fx(1 - s2['aL'])} × "
+        f"{g(H + C)} = {f(s2['H_imiterer'])} &lt; {g(H)}, so it stays out. Only low types issue, exactly as investors "
+        f"believe. (The belief in (b) was not rational, because only the low type issued.)</p>"
+        f"<p><b>Efficient: no.</b> The high type forgoes a project with NPV {g(C - I)}: underinvestment, the firm "
+        f"forgoes positive-NPV projects. Before the type is known, the expected loss is {g(p)} × {g(C - I)} = "
+        f"{g(p * (C - I))} per firm. A certificate that costs less than {g(F_maks)} removes it.</p>"),
+    "criteria": [
+        f"Checks the belief with numbers: the low type issues ({g(s2['L_beholder'])}, above {g(L)}) and the high type does not imitate ({f(s2['H_imiterer'])}, below {g(H)}), so the belief is consistent with the actions.",
+        "Inefficient: the high-value type forgoes a positive-NPV project.",
+        f"Bonus: the expected loss {g(p * (C - I))}, or that a certificate cheaper than {g(F_maks)} restores investment.",
+    ],
+}
+ex["parts"] = [pa, pb, pc_, pd, pe]
+OPPG["mk-signal-2"] = ex
+SVAR["mk-signal-2:1:a"] = {"type": "tall", "tall": [T("V", s2["V"], "$ m"), T("Share price", s2["P0"], "$ per share")]}
+SVAR["mk-signal-2:1:b"] = {"type": "blandet", "tall": [T("Fraction to new investors", 100 * s2["a"], "%"),
+                                                       T("Stake at t = 1, high-value type", s2["sH"], "$ m"),
+                                                       T("Stake at t = 1, low-value type", s2["sL"], "$ m")],
+                           "tallPoeng": 3, "tekstLedd": "Which type issues?"}
+SVAR["mk-signal-2:1:c"] = {"type": "tall", "tall": [T("Fraction to new investors", 100 * s2["aL"], "%"),
+                                                    T("Share price after the announcement", s2["P_ann"], "$ per share")]}
+SVAR["mk-signal-2:1:d"] = {"type": "blandet", "tall": [T("Highest fee, high-value type", F_maks, "$ m")],
+                           "tallPoeng": 2, "tekstLedd": "Would a low-value Larkhaven buy the certificate? Why?"}
+SVAR["mk-signal-2:1:e"] = {"type": "tekst"}
+
+# ======================================================================
+# mk-signal-3 · Montclair Vineyards (det varslede tillegget: hakkeorden, lån i stedet for aksjer)
+# ======================================================================
+H, L, p, I, C, N = 220.0, 100.0, 0.6, 40.0, 46.0, 10.0
+s3 = emisjon(H, L, p, I, C, N)
+H_lan, L_lan = H + C - I, L + C - I            # risikofritt lån: ingen feilprising, begge investerer
+assert H_lan > H and L_lan > L
+P_lan = (s3["V"] + C - I) / N                  # kunngjøringen avslører ingenting, legger til NPV
+assert near(P_lan, s3["P0"] + (C - I) / N)
+assert min(H, L) + C >= I                      # lånet kan alltid betales: det er risikofritt
+assert near(s3["P_ann"], 10.6) and near(P_lan, 17.8)
+
+ex = {
+    "n": 1, "title": "Security Issues", "points": 20,
+    "topic": "Financing a project", "chapters": [12, 13],
+    "merke": "Som SEO-eksemplet i forelesning 7, med lån som alternativ (forelesning 4, 1:31:05)",
+    "body": (f"<p>Montclair Vineyards SA owns vineyards in the south of France. It has {g(N)} million shares, no debt "
+             f"and no cash. At t = 1 its existing assets will be worth €{g(H)} million (high-value type) or "
+             f"€{g(L)} million (low-value type), depending on soil tests that only the managers have seen. Investors "
+             f"put a probability of {pc(p)} on the high-value type.</p>"
+             f"<p>Montclair can invest €{g(I)} million today in a new cellar that pays €{g(C)} million for sure at "
+             f"t = 1. Everyone is risk-neutral and the risk-free rate is 0%. The manager acts for the existing "
+             f"shareholders, who keep their shares until t = 1. Use 4 decimal places.</p>"),
+}
+pa = {
+    "label": "a", "points": 3,
+    "body": "<p>What is the market value of the existing assets and the share price today?</p>",
+    "solution": (
+        f"<p>V = {g(p)} × {g(H)} + {g(1 - p)} × {g(L)} = <b>€{g(s3['V'])}M</b> and P = {g(s3['V'])} / {g(N)} = "
+        f"<b>€{f(s3['P0'], 2)}</b>.</p>"),
+    "criteria": [
+        f"V = €{g(s3['V'])}M with the given probabilities.",
+        f"P = €{f(s3['P0'], 2)}.",
+        "Show the calculation. No calculation, no points.",
+    ],
+}
+pb = {
+    "label": "b", "points": 5,
+    "body": ("<p>Suppose Montclair must finance the cellar with new shares and investors price the issue as if both "
+             "types issue. What fraction of the firm must the new investors receive? What are the existing "
+             "shareholders' stakes worth at t = 1 for each type? Which type issues?</p>"),
+    "solution": (
+        f"<p><b>Step 1.</b> α = {g(I)} / ({g(s3['V'])} + {g(C)}) = {g(I)} / {g(s3['V'] + C)} = "
+        f"<b>{pc(s3['a'], 4)}</b>.</p>"
+        f"<p><b>Step 2.</b> High value: {fx(1 - s3['a'])} × {g(H + C)} = <b>{f(s3['sH'])}</b> &lt; {g(H)}, so it does "
+        f"not issue. Low value: {fx(1 - s3['a'])} × {g(L + C)} = <b>{f(s3['sL'])}</b> &gt; {g(L)}, so it issues.</p>"
+        f"<p>Only the low type issues. Even with a {pc(p)} chance of the high type, the pooled price undervalues a "
+        f"high-value Montclair: it would give away {f(s3['a'] * (H + C))} of value for €{g(I)}M of cash, more than "
+        f"the €{g(C)}M the cellar returns.</p>"),
+    "criteria": [
+        f"α = {g(I)}/({g(s3['V'])} + {g(C)}) = {pc(s3['a'], 4)}.",
+        f"Stakes {f(s3['sH'])} (high, below {g(H)}) and {f(s3['sL'])} (low, above {g(L)}).",
+        "Only the low type issues; each type compares with its value without the project.",
+    ],
+}
+pc_ = {
+    "label": "c", "points": 4,
+    "body": ("<p>Investors understand your answer to (b). What is the share price right after an equity issue is "
+             "announced? How many new shares must be sold?</p>"),
+    "solution": (
+        f"<p>The issue reveals the low type, so the firm with the cellar is worth {g(L)} + {g(C)} = €{g(L + C)}M. "
+        f"P × n = {g(I)} and P × ({g(N)} + n) = {g(L + C)} give {g(N)} × P = {g(L + C - I)}:</p>"
+        f"<p>P = <b>€{f(s3['P_ann'], 2)}</b> and n = {g(I)} / {f(s3['P_ann'], 2)} = <b>{f(s3['n'])} million "
+        f"shares</b></p>"
+        f"<p>The price falls from €{f(s3['P0'], 2)} ({pc(s3['P_ann'] / s3['P0'] - 1, 2)}).</p>"),
+    "criteria": [
+        f"P = ({g(L)} + {g(C)} − {g(I)})/{g(N)} = €{f(s3['P_ann'], 2)}.",
+        f"n = {g(I)}/{f(s3['P_ann'], 2)} = {f(s3['n'])} million (two equations or equivalent reasoning).",
+        f"Pricing at the pooled value (€{f((s3['V'] + C - I) / N, 2)}) ignores what the issue reveals.",
+    ],
+}
+pd = {
+    "label": "d", "points": 4,
+    "body": (f"<p>Instead, Montclair can borrow the €{g(I)} million from a bank, to be repaid at t = 1 with no interest "
+             f"(the loan is risk-free). Which types invest? What happens to the share price when the loan is "
+             f"announced?</p>"),
+    "solution": (
+        f"<p><b>Both types invest.</b> The loan is repaid in full from the cellar's €{g(C)}M whatever the type, so "
+        f"its value does not depend on what the managers know and nothing is mispriced. A high-value Montclair keeps "
+        f"{g(H)} + {g(C)} − {g(I)} = {g(H_lan)} &gt; {g(H)} and a low-value one {g(L_lan)} &gt; {g(L)}. (A low-value "
+        f"firm gains nothing from issuing shares instead: an equity issue would reveal it.)</p>"
+        f"<p>Since both types borrow, the announcement reveals nothing about the type and only adds the NPV: "
+        f"P = ({g(s3['V'])} + {g(C - I)}) / {g(N)} = <b>€{f(P_lan, 2)}</b>, up from €{f(s3['P0'], 2)}.</p>"),
+    "criteria": [
+        f"Both types invest: {g(H_lan)} is above {g(H)} and {g(L_lan)} above {g(L)}.",
+        "Reason: risk-free debt is worth the same whatever the type, so its price cannot be wrong.",
+        f"P = ({g(s3['V'])} + {g(C - I)})/{g(N)} = €{f(P_lan, 2)}: the price rises by the NPV per share.",
+    ],
+}
+pe = {
+    "label": "e", "points": 4,
+    "body": ("<p>Explain the result in (d) with the pecking order: in which order should Montclair prefer internal "
+             "cash, debt and equity? Why? Would your answer change if the loan were risky? Explain briefly (3 to "
+             "4 sentences).</p>"),
+    "solution": (
+        "<p><b>Internal cash first, then debt, then equity.</b> Cash already in the firm reveals nothing and does not "
+        "have to be sold to anyone, so no information problem arises. Risk-free debt comes next: its value does not "
+        "depend on what the managers know, so it cannot be mispriced and borrowing sends no signal. Equity comes last: "
+        "its value depends most on the private information, so issuing it signals that managers think the shares are "
+        "overvalued and the price falls. A risky loan would be worth less for the low type than for the high type, so "
+        "it would carry part of the same problem, but much less than equity.</p>"),
+    "criteria": [
+        "The order: internal funds, then debt, then equity (the pecking order).",
+        "Mechanism: the more a security's value depends on the managers' private information, the more it can be mispriced and the stronger the negative signal; risk-free debt is not sensitive at all.",
+        "Risky debt: partly sensitive to the private information, so somewhat mispriced, but less than equity.",
+        "3 to 4 sentences, as asked.",
+    ],
+}
+ex["parts"] = [pa, pb, pc_, pd, pe]
+OPPG["mk-signal-3"] = ex
+SVAR["mk-signal-3:1:a"] = {"type": "tall", "tall": [T("V", s3["V"], "€ m"), T("Share price", s3["P0"], "€ per share")]}
+SVAR["mk-signal-3:1:b"] = {"type": "blandet", "tall": [T("Fraction to new investors", 100 * s3["a"], "%"),
+                                                       T("Stake at t = 1, high-value type", s3["sH"], "€ m"),
+                                                       T("Stake at t = 1, low-value type", s3["sL"], "€ m")],
+                           "tallPoeng": 3, "tekstLedd": "Which type issues?"}
+SVAR["mk-signal-3:1:c"] = {"type": "tall", "tall": [T("Share price after the announcement", s3["P_ann"], "€ per share"),
+                                                    T("New shares", s3["n"], "m shares")]}
+SVAR["mk-signal-3:1:d"] = {"type": "blandet", "tall": [T("Share price when the loan is announced", P_lan, "€ per share")],
+                           "tallPoeng": 2, "tekstLedd": "Which types invest? Why?"}
+SVAR["mk-signal-3:1:e"] = {"type": "tekst"}
 
 
 # ======================================================================
@@ -1388,7 +1822,7 @@ def tall_i(tekst):
     return ut
 
 
-TYPER = {"mm-rekap": 20, "skatt-rekap": 20, "teori-kapital": 10}
+TYPER = {"mm-rekap": 20, "skatt-rekap": 20, "teori-kapital": 10, "signal": 20}
 # ord i feltnavn som røper et svar eller en retning (svar-dataene vises før studenten svarer)
 RØPER = re.compile(r"\b(gain|loss|rise|fall|higher|lower|unchanged|increase|decrease|better|worse|profit)\b", re.I)
 

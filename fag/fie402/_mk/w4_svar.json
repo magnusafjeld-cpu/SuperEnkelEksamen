@@ -202,5 +202,596 @@
  },
  "mk-governance-3:1:c": {
   "type": "tekst"
+ },
+ "mk-budkamp-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Most A would pay",
+    "verdi": 210,
+    "enhet": "SEK m"
+   },
+   {
+    "navn": "Most B would pay",
+    "verdi": 220,
+    "enhet": "SEK m"
+   },
+   {
+    "navn": "Most C would pay",
+    "verdi": 215,
+    "enhet": "SEK m"
+   }
+  ]
+ },
+ "mk-budkamp-1:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Most A would pay",
+    "verdi": 235,
+    "enhet": "SEK m"
+   },
+   {
+    "navn": "Most B would pay",
+    "verdi": 230,
+    "enhet": "SEK m"
+   },
+   {
+    "navn": "Most C would pay",
+    "verdi": 225,
+    "enhet": "SEK m"
+   },
+   {
+    "navn": "Price paid for D",
+    "verdi": 230,
+    "enhet": "SEK m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Who buys D?"
+ },
+ "mk-budkamp-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change for D's shareholders",
+    "verdi": 50,
+    "enhet": "SEK m",
+    "alt": [
+     42
+    ]
+   },
+   {
+    "navn": "Change for the winner's shareholders",
+    "verdi": -20,
+    "enhet": "SEK m",
+    "alt": [
+     -7
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Is the winner better off than if it had lost the auction?",
+  "merknad": "alt: reserveantakelsen (C kjøper for 222)."
+ },
+ "mk-budkamp-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New shares issued",
+    "verdi": 34.5,
+    "enhet": "m shares",
+    "alt": [
+     36.36860068259386
+    ]
+   },
+   {
+    "navn": "Exchange ratio",
+    "verdi": 1.4375,
+    "enhet": "",
+    "alt": [
+     1.5153583617747441
+    ]
+   },
+   {
+    "navn": "Price of a merged share",
+    "verdi": 6.666666666666667,
+    "enhet": "SEK",
+    "alt": [
+     6.104166666666667
+    ]
+   }
+  ],
+  "merknad": "alt: reserveantakelsen (C kjøper for 222) med 48 millioner C-aksjer."
+ },
+ "mk-budkamp-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-budkamp-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Most Brockhurst would pay, total",
+    "verdi": 1600.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Most Brockhurst would pay per Wenlow share",
+    "verdi": 66.66666666666667,
+    "enhet": "$ per share"
+   }
+  ]
+ },
+ "mk-budkamp-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV for Wenlow's shareholders",
+    "verdi": 408.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "NPV for Kessington's shareholders",
+    "verdi": 42.0,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "mk-budkamp-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Fraction y owned by Wenlow's shareholders",
+    "verdi": 28.825622775800714,
+    "enhet": "%"
+   },
+   {
+    "navn": "NPV for Wenlow's shareholders",
+    "verdi": 428.6476868327402,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "NPV for Kessington's shareholders",
+    "verdi": 21.35231316725958,
+    "enhet": "$ m",
+    "abs": 0.3
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Does the offer beat Brockhurst's maximum from (a)?"
+ },
+ "mk-budkamp-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Highest exchange ratio, alternative: stay alone",
+    "verdi": 1.0999999999999999,
+    "enhet": ""
+   },
+   {
+    "navn": "Highest exchange ratio, alternative: Brockhurst buys Wenlow",
+    "verdi": 1.2467532467532467,
+    "enhet": ""
+   }
+  ]
+ },
+ "mk-budkamp-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-budkamp-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Most Vesterhav would pay",
+    "verdi": 2180.0,
+    "enhet": "DKK m"
+   },
+   {
+    "navn": "Most Hvidsand would pay",
+    "verdi": 1900.0,
+    "enhet": "DKK m"
+   },
+   {
+    "navn": "Price per Skovlund share paid by the winner",
+    "verdi": 76.0,
+    "enhet": "DKK per share"
+   }
+  ]
+ },
+ "mk-budkamp-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV for Skovlund's shareholders",
+    "verdi": 300.0,
+    "enhet": "DKK m",
+    "alt": [
+     250.0
+    ]
+   },
+   {
+    "navn": "NPV for Vesterhav's shareholders",
+    "verdi": 200.0,
+    "enhet": "DKK m",
+    "alt": [
+     250.0
+    ]
+   }
+  ],
+  "merknad": "alt: reserveprisen 1,850."
+ },
+ "mk-budkamp-3:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV for Skovlund's shareholders",
+    "verdi": 300.0,
+    "enhet": "DKK m"
+   },
+   {
+    "navn": "NPV for Vesterhav's shareholders",
+    "verdi": 200.0,
+    "enhet": "DKK m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Compare with (b)."
+ },
+ "mk-budkamp-3:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Cash: NPV for Vesterhav's shareholders",
+    "verdi": -200.0,
+    "enhet": "DKK m",
+    "alt": [
+     -150.0
+    ]
+   },
+   {
+    "navn": "Cash: NPV for Skovlund's shareholders",
+    "verdi": 300.0,
+    "enhet": "DKK m",
+    "alt": [
+     250.0
+    ]
+   },
+   {
+    "navn": "Shares: NPV for Vesterhav's shareholders",
+    "verdi": -89.85507246376801,
+    "enhet": "DKK m"
+   },
+   {
+    "navn": "Shares: NPV for Skovlund's shareholders",
+    "verdi": 189.85507246376824,
+    "enhet": "DKK m"
+   }
+  ],
+  "merknad": "alt: reserveprisen 1,850 i (b) endrer bare kontanttallene."
+ },
+ "mk-budkamp-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-coinsurance-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value of Tverrå's debt",
+    "verdi": 45.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Value of Tverrå's equity",
+    "verdi": 35.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Value of Sandvoll's debt",
+    "verdi": 30.5,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Value of Sandvoll's equity",
+    "verdi": 27.0,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "mk-coinsurance-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value of the merged firm's debt",
+    "verdi": 86.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Value of the merged firm's equity",
+    "verdi": 51.5,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "mk-coinsurance-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Change for the shareholders as a group",
+    "verdi": -10.5,
+    "enhet": "NOK m",
+    "alt": [
+     -5
+    ]
+   },
+   {
+    "navn": "Change for the creditors as a group",
+    "verdi": 10.5,
+    "enhet": "NOK m",
+    "alt": [
+     5
+    ]
+   },
+   {
+    "navn": "Change for Tverrå's shareholders",
+    "verdi": -5.927419354838708,
+    "enhet": "NOK m",
+    "alt": [
+     -3.3333333333333357
+    ]
+   },
+   {
+    "navn": "Change for Sandvoll's shareholders",
+    "verdi": -4.572580645161292,
+    "enhet": "NOK m",
+    "alt": [
+     -1.6666666666666679
+    ]
+   }
+  ],
+  "merknad": "alt: reserveverdiene i oppgaveteksten."
+ },
+ "mk-coinsurance-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Yield on Tverrå's loan before the merger",
+    "verdi": 11.111111111111116,
+    "enhet": "%",
+    "alt": [
+     19.047619047619047
+    ]
+   },
+   {
+    "navn": "Yield on Sandvoll's loan before the merger",
+    "verdi": 18.032786885245898,
+    "enhet": "%",
+    "alt": [
+     9.090909090909083
+    ]
+   },
+   {
+    "navn": "Yield on the merged firm's debt",
+    "verdi": 0.0,
+    "enhet": "%",
+    "abs": 0.05,
+    "alt": [
+     7.499999999999996
+    ]
+   }
+  ],
+  "merknad": "alt: reserveverdiene i (c)."
+ },
+ "mk-coinsurance-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-coinsurance-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value of Redmarsh's debt",
+    "verdi": 78.09523809523809,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Value of Redmarsh's equity",
+    "verdi": 28.57142857142857,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Value of Bluewing's debt",
+    "verdi": 50.28571428571428,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Value of Bluewing's equity",
+    "verdi": 5.714285714285714,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "mk-coinsurance-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value of the merged firm's debt",
+    "verdi": 140.95238095238093,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Value of the merged firm's equity",
+    "verdi": 21.714285714285715,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Value of Redmarsh's loan after the merger",
+    "verdi": 84.57142857142858,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Value of Bluewing's loan after the merger",
+    "verdi": 56.38095238095238,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "mk-coinsurance-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change for Redmarsh's shareholders",
+    "verdi": -10.476190476190474,
+    "enhet": "$ m",
+    "alt": [
+     -8.571428571428573
+    ]
+   },
+   {
+    "navn": "Change for Bluewing's shareholders",
+    "verdi": -2.0952380952380936,
+    "enhet": "$ m",
+    "alt": [
+     -3.428571428571429
+    ]
+   },
+   {
+    "navn": "Change for Redmarsh's lender",
+    "verdi": 6.476190476190496,
+    "enhet": "$ m",
+    "alt": [
+     4
+    ]
+   },
+   {
+    "navn": "Change for Bluewing's lender",
+    "verdi": 6.095238095238102,
+    "enhet": "$ m",
+    "alt": [
+     8
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Would the shareholders want the merger?",
+  "merknad": "alt: reserveverdiene i oppgaveteksten."
+ },
+ "mk-coinsurance-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Yield on Redmarsh's loan before",
+    "verdi": 15.243902439024403,
+    "enhet": "%",
+    "alt": [
+     12.5
+    ]
+   },
+   {
+    "navn": "Yield on Bluewing's loan before",
+    "verdi": 19.318181818181834,
+    "enhet": "%",
+    "alt": [
+     25.0
+    ]
+   },
+   {
+    "navn": "Yield on Redmarsh's loan after",
+    "verdi": 6.418918918918903,
+    "enhet": "%",
+    "alt": [
+     7.14285714285714
+    ]
+   },
+   {
+    "navn": "Yield on Bluewing's loan after",
+    "verdi": 6.4189189189189255,
+    "enhet": "%",
+    "alt": [
+     7.14285714285714
+    ]
+   }
+  ],
+  "merknad": "alt: reserveverdiene i (c)."
+ },
+ "mk-coinsurance-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-coinsurance-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value of Breiset's debt",
+    "verdi": 34.8,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Value of Breiset's equity",
+    "verdi": 22.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Value of Lysvann's debt",
+    "verdi": 22.8,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Value of Lysvann's equity",
+    "verdi": 27.599999999999998,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "mk-coinsurance-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value of the merged firm's debt",
+    "verdi": 75.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Value of the merged firm's equity",
+    "verdi": 40.2,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "mk-coinsurance-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Change for the shareholders as a group",
+    "verdi": -9.399999999999991,
+    "enhet": "NOK m",
+    "alt": [
+     -12
+    ]
+   },
+   {
+    "navn": "Change for the creditors as a group",
+    "verdi": 17.400000000000006,
+    "enhet": "NOK m",
+    "alt": [
+     20
+    ]
+   }
+  ],
+  "merknad": "alt: reserveverdiene i oppgaveteksten."
+ },
+ "mk-coinsurance-3:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Synergy per state that leaves the shareholders no worse off",
+    "verdi": 17.400000000000006,
+    "enhet": "NOK m",
+    "alt": [
+     15
+    ]
+   }
+  ],
+  "merknad": "alt: reserveverdien i oppgaveteksten."
+ },
+ "mk-coinsurance-3:1:e": {
+  "type": "tekst"
  }
 }

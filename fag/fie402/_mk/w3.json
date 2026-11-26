@@ -291,12 +291,12 @@
    {
     "label": "e",
     "points": 4,
-    "body": "<p>A dealer offers to buy Corvallis calls (strike USD 52, one year) from you at USD 6.90 each. Describe a strategy that gives a riskless profit. Show its cash flows today and in each state in one year.</p>",
-    "solution": "<p>The call is worth 6.2462, so the dealer overpays. <b>Sell</b> one call to the dealer and <b>buy the replicating portfolio</b> from (b): buy 0.4667 shares and borrow 16.1538.</p><table class=\"data\"><tr><th>Position</th><th>Today</th><th>Up (S = 66)</th><th>Down (S = 36)</th></tr><tr><td>Sell one call</td><td class=\"n\">6.90</td><td class=\"n\">−14.0000</td><td class=\"n\">0</td></tr><tr><td>Buy 0.4667 shares</td><td class=\"n\">−22.4000</td><td class=\"n\">30.8000</td><td class=\"n\">16.8000</td></tr><tr><td>Borrow 16.1538</td><td class=\"n\">16.1538</td><td class=\"n\">−16.8000</td><td class=\"n\">−16.8000</td></tr><tr><td><b>Total</b></td><td class=\"n\"><b>0.6538</b></td><td class=\"n\">0</td><td class=\"n\">0</td></tr></table><p>You pocket <b>USD 0.6538</b> per call today and owe nothing later: the portfolio covers the call in both states. Buying from the dealer would be the wrong side, since the dealer's price is above the value.</p>",
+    "body": "<p>A dealer offers to buy Corvallis calls (strike USD 52, one year) from you at USD 6.90 each. Describe a strategy that gives a riskless profit. Show its cash flows today and in each state in one year. (If you could not find the call price, use USD 6.00.)</p>",
+    "solution": "<p>The call is worth 6.2462, so the dealer overpays. <b>Sell</b> one call to the dealer and <b>buy the replicating portfolio</b> from (b): buy 0.4667 shares and borrow 16.1538.</p><table class=\"data\"><tr><th>Position</th><th>Today</th><th>Up (S = 66)</th><th>Down (S = 36)</th></tr><tr><td>Sell one call</td><td class=\"n\">6.90</td><td class=\"n\">−14.0000</td><td class=\"n\">0</td></tr><tr><td>Buy 0.4667 shares</td><td class=\"n\">−22.4000</td><td class=\"n\">30.8000</td><td class=\"n\">16.8000</td></tr><tr><td>Borrow 16.1538</td><td class=\"n\">16.1538</td><td class=\"n\">−16.8000</td><td class=\"n\">−16.8000</td></tr><tr><td><b>Total</b></td><td class=\"n\"><b>0.6538</b></td><td class=\"n\">0</td><td class=\"n\">0</td></tr></table><p>You pocket <b>USD 0.6538</b> per call today and owe nothing later: the portfolio covers the call in both states. Buying from the dealer would be the wrong side, since the dealer's price is above the value. With the fallback call price of 6.00 the conclusion is the same (sell); the gain is 6.90 − 6.00 = 0.9000 per call.</p>",
     "criteria": [
      "Sees that 6.90 is above the call's value of 6.2462, so the call should be sold.",
      "Hedges the sold call with the replicating portfolio: buy 0.4667 shares and borrow 16.1538.",
-     "Cash flows: +0.6538 today and 0 in both states. Shows the table or the equivalent sums.",
+     "Cash flows: +0.6538 today per call and 0 in both states. Shows the table or the equivalent sums. With the fallback 6.00: 0.9000, full marks. A scaled trade is fine if the gain per call is stated.",
      "A strategy with risk left in one of the states does not count as an arbitrage."
     ]
    },
@@ -340,13 +340,13 @@
     "label": "b",
     "points": 5,
     "body": "<p>Calculate the prices of the call and the put. (If you could not solve (a), use a probability of 0.50 for the high state.)</p>",
-    "solution": "<p>Payoffs: the call pays 25 in the high state and 0 in the low; the put pays 0 and 38. Kurbatov's advice is to price first whichever option is easier and get the other from parity (recording 18, 57:02). Here both pay in only one state, so either order works and the second route is the check.</p><p>Call: C = [0.5556 × 25 + 0.4444 × 0]/1.05 = 13.8889/1.05 = <b>NOK 13.2275</b></p><p>Put from parity: P = C − S<sub>0</sub> + K/(1 + r<sub>f</sub>) = 13.2275 − 140 + 150/1.05 = 13.2275 − 140 + 142.8571 = <b>NOK 16.0847</b></p><p>Check with ρ: 0.4444 × 38/1.05 = 16.8889/1.05 = 16.0847. ✓</p><p>With the fallback ρ = 0.50: C = 0.50 × 25/1.05 = 11.9048 and P = 11.9048 − 140 + 142.8571 = 14.7619.</p>",
+    "solution": "<p>Payoffs: the call pays 25 in the high state and 0 in the low; the put pays 0 and 38. Kurbatov's advice is to price first whichever option is easier and get the other from parity (recording 18, 57:02). Here both pay in only one state, so either order works and the second route is the check.</p><p>Call: C = [0.5556 × 25 + 0.4444 × 0]/1.05 = 13.8889/1.05 = <b>NOK 13.2275</b></p><p>Put from parity: P = C − S<sub>0</sub> + K/(1 + r<sub>f</sub>) = 13.2275 − 140 + 150/1.05 = 13.2275 − 140 + 142.8571 = <b>NOK 16.0847</b></p><p>Check with ρ: 0.4444 × 38/1.05 = 16.8889/1.05 = 16.0847. ✓</p><p>With the fallback ρ = 0.50: C = 0.50 × 25/1.05 = 11.9048 and P = 11.9048 − 140 + 142.8571 = 14.7619 by parity, or 0.50 × 38/1.05 = 18.0952 directly. The two routes differ because 0.50 is not the probability that prices the share; both are accepted.</p>",
     "criteria": [
      "Payoffs 25 for the call in the high state and 38 for the put in the low state.",
      "C = 0.5556 × 25/1.05 = 13.2275.",
      "P = 16.0847, by parity or directly with 1 − ρ.",
      "Discounts with the risk-free rate, not with the share's expected return.",
-     "With the fallback ρ = 0.50: 11.9048 and 14.7619, full marks.",
+     "With the fallback ρ = 0.50: 11.9048 and 14.7619 (parity) or 18.0952 (direct), full marks.",
      "Bonus: prices the second option both ways as a check."
     ]
    },
@@ -359,7 +359,7 @@
      "Compares C + PV(K) = 155.0571 with P + S_0 = 157.3000 and concludes that there is an arbitrage.",
      "Buys the cheap side (call and lending) and sells the expensive side (put and short share).",
      "Cash flows: +2.2429 today and 0 in both states.",
-     "Also accepted: buying the call and hedging it with the replicating portfolio (short shares and lending), if the cash flows are shown."
+     "Also accepted: trading only one option and hedging it with its replicating portfolio, for example buying the call and selling the replicating portfolio (gain 1.0275) or selling the put and buying its replicating portfolio (gain 1.2153), if the cash flows are shown."
     ]
    },
    {
@@ -370,7 +370,7 @@
     "criteria": [
      "Uses put-call parity: C − P = S_0 − PV(K).",
      "K = 140 × 1.05 = 147.",
-     "Explains: the strike equals the share price compounded at the risk-free rate, the expected price under ρ, so the two options have the same risk-neutral expected payoff.",
+     "Explains: from parity, C = P exactly when PV(K) = S_0. This alone is a full explanation. Adding that the strike then equals the share's expected price under ρ is a bonus.",
      "Bonus: checks with ρ that both options cost 14.8148."
     ]
    },
@@ -438,23 +438,23 @@
     "label": "d",
     "points": 5,
     "body": "<p>A bank sells a six-month product on Vandermeer shares. At maturity it pays the higher of the share price and EUR 78. The bank charges EUR 81.60. What is the product worth? Would you buy it, or could you build the same payoff more cheaply yourself? How? (If you could not solve (b), use EUR 6.50 for the put.)</p>",
-    "solution": "<p><b>Step 1. Recognise the payoff.</b> max(S<sub>T</sub>, 78) = S<sub>T</sub> + max(78 − S<sub>T</sub>, 0): one share plus one put with strike 78, the share-plus-put line from the lecture (recording 12, 36:16).</p><p><b>Step 2. Value it.</b> 74 + 6.7369 = <b>EUR 80.7369</b>. By parity the same payoff is one call plus lending PV(78): 4.2516 + 76.4853 = 80.7369. ✓ Directly with ρ: the product pays 86 or 78, so [0.541978 × 86 + 0.458022 × 78]/1.019804 = 80.7369. ✓</p><p><b>Step 3. Decision.</b> The bank charges 81.60, 0.8631 more than the product is worth. <b>Do not buy it</b>; build it yourself by buying one share and one put with strike 78, or one call and a six-month deposit of 76.4853. With the fallback put: 74 + 6.50 = 80.5000, still below 81.60.</p>",
+    "solution": "<p><b>Step 1. Recognise the payoff.</b> max(S<sub>T</sub>, 78) = S<sub>T</sub> + max(78 − S<sub>T</sub>, 0): one share plus one put with strike 78, the share-plus-put line from the lecture (recording 12, 36:16).</p><p><b>Step 2. Value it.</b> 74 + 6.7369 = <b>EUR 80.7369</b>. By parity the same payoff is one call plus lending PV(78): 4.2516 + 76.4853 = 80.7369. ✓ Directly with ρ: the product pays 86 or 78, so [0.541978 × 86 + 0.458022 × 78]/1.019804 = 80.7369. ✓</p><p><b>Step 3. Decision.</b> The bank charges 81.60, 0.8631 more than the product is worth. <b>Do not buy it</b>; build it yourself by buying one share and one put with strike 78, or one call and a six-month deposit of 76.4853. With the fallback put: 74 + 6.50 = 80.5000, still below 81.60.</p><p>Also correct: replicate the product directly. It pays 86 or 78, so Δ = (86 − 78)/23 = 0.3478 shares and B = (78 − 0.347826 × 63)/1.019804 = 54.9978 in lending; cost 0.347826 × 74 + 54.9978 = 80.7369. ✓</p>",
     "criteria": [
      "Recognises the payoff as one share plus one put with strike 78 (or one call plus a risk-free deposit of PV(78)).",
      "Value 74 + 6.7369 = 80.7369. With the fallback put: 80.5000, full marks.",
      "Concludes that the product is overpriced by 0.8631, so you should not buy it.",
-     "Says how to build it yourself: share plus put, or call plus lending."
+     "Says how to build it yourself: share plus put, call plus lending, or the direct replication with 0.3478 shares and 54.9978 in lending. All three are full answers."
     ]
    },
    {
     "label": "e",
     "points": 3,
     "body": "<p>Suppose the put were American instead, so it could be exercised at any time before it expires. Without calculation: would you expect its price to be higher or lower than the price of the European put? Explain briefly.</p>",
-    "solution": "<p><b>Not lower; in general higher.</b> An American put gives every right the European put gives, plus the right to exercise early. Extra rights cannot have a negative value, so the American put is worth at least as much (recording 12, 12:41; recording 18, 58:18).</p><p>Early exercise of a put can pay when it is deep in the money: you receive the strike now and can earn interest on it instead of waiting.</p><p>Bonus: in this one-step tree, exercising today pays 78 − 74 = 4, less than the European value 6.7369, so it would not be exercised today and the two would be worth the same here. For a call on a share without dividends, early exercise never pays, so an American call would be worth the same as the European one.</p>",
+    "solution": "<p><b>Not lower: at least as high, higher whenever early exercise pays.</b> An American put gives every right the European put gives, plus the right to exercise early. Extra rights cannot have a negative value, so the American put is worth at least as much (recording 12, 12:41; recording 18, 58:18).</p><p>Early exercise of a put can pay when it is deep in the money: you receive the strike now and can earn interest on it instead of waiting.</p><p>Bonus: in this one-step tree, exercising today pays 78 − 74 = 4, less than the European value 6.7369, so it would not be exercised today and the two would be worth the same here. For a call on a share without dividends, early exercise never pays, so an American call would be worth the same as the European one.</p>",
     "criteria": [
-     "1 point: the American put is worth at least as much (higher or equal), never less.",
-     "1 point: it contains all the rights of the European put plus early exercise.",
-     "1 point: says when early exercise can pay (a deep in-the-money put: getting the strike early earns interest).",
+     "1.5 points: the American put is priced at least as high as the European one (higher or equal), never lower.",
+     "1.5 points: the reason in Kurbatov's terms: it gives every right of the European put plus the right to exercise early; more rights or more flexibility are priced at least as high (recording 12, 12:41; recording 18, 58:18). This is a full answer.",
+     "Bonus: says when early exercise of a put can pay (deep in the money: the strike received early earns interest).",
      "Bonus: notes that exercising today pays only 4 here, so in this tree the two are worth the same."
     ]
    }
@@ -470,27 +470,27 @@
    24
   ],
   "merke": "Samme form som Google-eksemplet i forelesning 13 (57:39 til 1:16:02)",
-  "body": "<p>Quillback Genomics Inc. has 250 million shares trading at USD 64 and no debt. Markets are perfect and there are no taxes. Quillback considers issuing zero-coupon debt due in exactly 2 years and paying the proceeds out to its shareholders at once, which leaves the value of its assets unchanged. The risk-free rate is 2.5% a year (annual compounding).</p><p>European calls on Quillback shares that expire in exactly 2 years are quoted below (USD per share). Because Quillback has no debt today, you can treat them as calls on the firm's assets per share. Use the midpoint of bid and ask. Give values in USD billion with 4 decimals and yields in % with 2 decimals.</p><table class=\"data\"><tr><th>Strike (USD)</th><th>Call bid</th><th>Call ask</th></tr><tr><td>16</td><td class=\"n\">48.45</td><td class=\"n\">49.15</td></tr><tr><td>24</td><td class=\"n\">41.04</td><td class=\"n\">41.84</td></tr><tr><td>32</td><td class=\"n\">34.17</td><td class=\"n\">35.07</td></tr><tr><td>40</td><td class=\"n\">28.07</td><td class=\"n\">29.07</td></tr><tr><td>48</td><td class=\"n\">22.85</td><td class=\"n\">23.95</td></tr></table>",
+  "body": "<p>Quillback Genomics Inc. has 275 million shares trading at USD 64 and no debt. Markets are perfect and there are no taxes. Quillback considers issuing zero-coupon debt due in exactly 2 years and paying the proceeds out to its shareholders at once, which leaves the value of its assets unchanged. The risk-free rate is 2.5% a year (annual compounding).</p><p>European calls on Quillback shares that expire in exactly 2 years are quoted below (USD per share). Because Quillback has no debt today, you can treat them as calls on the firm's assets per share. Use the midpoint of bid and ask. Give values in USD billion with 4 decimals and yields in % with 2 decimals.</p><table class=\"data\"><tr><th>Strike (USD)</th><th>Call bid</th><th>Call ask</th></tr><tr><td>16</td><td class=\"n\">48.45</td><td class=\"n\">49.15</td></tr><tr><td>24</td><td class=\"n\">41.04</td><td class=\"n\">41.84</td></tr><tr><td>32</td><td class=\"n\">34.17</td><td class=\"n\">35.07</td></tr><tr><td>40</td><td class=\"n\">28.07</td><td class=\"n\">29.07</td></tr><tr><td>48</td><td class=\"n\">22.85</td><td class=\"n\">23.95</td></tr></table>",
   "parts": [
    {
     "label": "a",
     "points": 3,
-    "body": "<p>Quillback issues a single bond with face value USD 10 billion. Which strike per share corresponds to this debt? What is the equity worth after the issue?</p>",
-    "solution": "<p>Firm value V = 250 million × 64 = USD 16.0 billion. The equity is a call on the assets with strike equal to the face value of the debt: per share, 10 billion/250 million = <b>USD 40</b>.</p><p>Call with strike 40: midpoint of 28.07 and 29.07 = 28.57.</p><p>E = 250 million × 28.57 = <b>USD 7.1425 billion</b></p>",
+    "body": "<p>Quillback issues a single bond with face value USD 11 billion. Which strike per share corresponds to this debt? What is the equity worth after the issue?</p>",
+    "solution": "<p>Firm value V = 275 million × 64 = USD 17.6 billion. The equity is a call on the assets with strike equal to the face value of the debt: per share, 11 billion/275 million = <b>USD 40</b>.</p><p>Call with strike 40: midpoint of 28.07 and 29.07 = 28.57.</p><p>E = 275 million × 28.57 = <b>USD 7.8567 billion</b></p>",
     "criteria": [
      "Strike per share = face value/number of shares = 40.",
      "Midpoint 28.57 for the call with strike 40.",
-     "Multiplies by 250 million: E = 7.1425 USD billion. Forgetting to multiply by the number of shares is the classic slip (recording 13, 1:13:30)."
+     "Multiplies by 275 million: E = 7.8567 USD billion. Forgetting to multiply by the number of shares is the classic slip (recording 13, 1:13:30)."
     ]
    },
    {
     "label": "b",
     "points": 4,
-    "body": "<p>What is the debt worth? What annual yield does the bond offer? What is its spread over the risk-free rate? (If you could not solve (a), use an equity value of USD 7.5 billion.)</p>",
-    "solution": "<p>D = V − E = 16.0 − 7.1425 = <b>USD 8.8575 billion</b></p><p>The bond pays 10 in 2 years, so (1 + y)<sup>2</sup> = 10/8.8575 = 1.1290 and y = 1.1290<sup>1/2</sup> − 1 = <b>6.25%</b>.</p><p>Spread = 6.25% − 2.50% = <b>3.75 percentage points</b>.</p><p>Forgetting to annualise gives 12.90% over two years, not a yearly rate. With the fallback E = 7.5: D = 8.5, y = 8.47% and the spread is 5.97 percentage points.</p>",
+    "body": "<p>What is the debt worth? What annual yield does the bond offer? What is its spread over the risk-free rate? (If you could not solve (a), use an equity value of USD 8.25 billion.)</p>",
+    "solution": "<p>D = V − E = 17.6 − 7.8567 = <b>USD 9.7433 billion</b></p><p>The bond pays 11 in 2 years, so (1 + y)<sup>2</sup> = 11/9.7433 = 1.1290 and y = 1.1290<sup>1/2</sup> − 1 = <b>6.25%</b>.</p><p>Spread = 6.25% − 2.50% = <b>3.75 percentage points</b>.</p><p>Forgetting to annualise gives 12.90% over two years, not a yearly rate. With the fallback E = 8.25: D = 9.35, y = 8.47% and the spread is 5.97 percentage points.</p>",
     "criteria": [
-     "D = 16.0 − 7.1425 = 8.8575 USD billion.",
-     "Annual yield (10/8.8575)^(1/2) − 1 = 6.25%. With the fallback: 8.47%, full marks.",
+     "D = 17.6 − 7.8567 = 9.7433 USD billion.",
+     "Annual yield (11/9.7433)^(1/2) − 1 = 6.25%. With the fallback: 8.47%, full marks.",
      "Spread 3.75 percentage points over 2.5%.",
      "Reporting the two-year return 12.90% as the yield is wrong."
     ]
@@ -498,32 +498,33 @@
    {
     "label": "c",
     "points": 6,
-    "body": "<p>Suppose instead that the debt is split into a senior bond with face value USD 6 billion and a junior bond with face value USD 4 billion, both zero-coupon and due in 2 years. What are the senior debt, the junior debt and the equity worth?</p>",
-    "solution": "<p><b>Step 1. Equity.</b> The shareholders are paid only after both bonds, so the strike is the total face value, 10 billion, or USD 40 per share as before: E = <b>USD 7.1425 billion</b>.</p><p><b>Step 2. Senior debt.</b> Everything above the senior face value is a call with strike 6 billion/250 million = USD 24 per share: midpoint 41.44, so C(F<sub>S</sub>) = 250 million × 41.44 = 10.3600. The senior creditors get the rest:<br>D<sub>S</sub> = V − C(F<sub>S</sub>) = 16.0 − 10.3600 = <b>USD 5.6400 billion</b></p><p><b>Step 3. Junior debt</b> is the slice between the two strikes:<br>D<sub>J</sub> = C(F<sub>S</sub>) − C(F<sub>S</sub> + F<sub>J</sub>) = 10.3600 − 7.1425 = <b>USD 3.2175 billion</b> (recording 13, 50:56).</p><p>Pricing the junior bond as a single call with strike 16 gives 12.2000, more than its face value: wrong, since the junior creditors are paid only after the senior ones.</p>",
+    "body": "<p>Suppose instead that the debt is split into a senior bond with face value USD 6.6 billion and a junior bond with face value USD 4.4 billion, both zero-coupon and due in 2 years. What are the senior debt, the junior debt and the equity worth?</p>",
+    "solution": "<p><b>Step 1. Equity.</b> The shareholders are paid only after both bonds, so the strike is the total face value, 11 billion, or USD 40 per share as before: E = <b>USD 7.8567 billion</b>.</p><p><b>Step 2. Senior debt.</b> Everything above the senior face value is a call with strike 6.6 billion/275 million = USD 24 per share: midpoint 41.44, so C(F<sub>S</sub>) = 275 million × 41.44 = 11.3960. The senior creditors get the rest:<br>D<sub>S</sub> = V − C(F<sub>S</sub>) = 17.6 − 11.3960 = <b>USD 6.2040 billion</b></p><p><b>Step 3. Junior debt</b> is the slice between the two strikes:<br>D<sub>J</sub> = C(F<sub>S</sub>) − C(F<sub>S</sub> + F<sub>J</sub>) = 11.3960 − 7.8567 = <b>USD 3.5393 billion</b> (recording 13, 50:56).</p><p>Pricing the junior bond as a single call with strike 16 gives 13.4200, more than its face value: wrong, since the junior creditors are paid only after the senior ones.</p>",
     "criteria": [
-     "Equity is still the call with strike 40 (total face value): 7.1425.",
-     "Senior strike 24 per share; D_S = 16.0 − 10.3600 = 5.6400.",
-     "Junior debt as the difference between two calls: 10.3600 − 7.1425 = 3.2175.",
-     "Pricing junior as one call with strike 16 (12.2000) is the classic error.",
-     "Multiplies every per-share call by 250 million."
+     "Equity is still the call with strike 40 (total face value): 7.8567.",
+     "Senior strike 24 per share; D_S = 17.6 − 11.3960 = 6.2040.",
+     "Junior debt as the difference between two calls: 11.3960 − 7.8567 = 3.5393.",
+     "Pricing junior as one call with strike 16 (13.4200) is the classic error.",
+     "Multiplies every per-share call by 275 million."
     ]
    },
    {
     "label": "d",
     "points": 4,
-    "body": "<p>What annual yields do the senior and the junior bonds offer? Check that the three claims add up to the firm value. (If you could not solve (c), use USD 5.5 billion for the senior and USD 3.0 billion for the junior debt.)</p>",
-    "solution": "<p>Senior: (6/5.6400)<sup>1/2</sup> − 1 = <b>3.14%</b></p><p>Junior: (4/3.2175)<sup>1/2</sup> − 1 = <b>11.50%</b></p><p>Sum: 5.6400 + 3.2175 + 7.1425 = 16.0000 = V. ✓ This holds by construction, since the three claims are cut from the same firm with the same calls; it catches arithmetic slips such as a missing multiplication by the number of shares.</p><p>With the fallback values: senior 4.45% and junior 15.47%.</p>",
+    "body": "<p>What annual yields do the senior and the junior bonds offer? (If you could not solve (c), use USD 6.0 billion for the senior and USD 3.3 billion for the junior debt.)</p>",
+    "solution": "<p>Senior: (6.6/6.2040)<sup>1/2</sup> − 1 = <b>3.14%</b></p><p>Junior: (4.4/3.5393)<sup>1/2</sup> − 1 = <b>11.50%</b></p><p>Check (not asked): 6.2040 + 3.5393 + 7.8567 = 17.6000 = V. ✓ This holds by construction, since the three claims are cut from the same firm with the same calls; it catches arithmetic slips such as a missing multiplication by the number of shares.</p><p>With the fallback values: senior 4.88% and junior 15.47%.</p>",
     "criteria": [
      "Senior yield 3.14%.",
-     "Junior yield 11.50%. With the fallback values: 4.45% and 15.47%, full marks.",
-     "Sum of the three claims = 16.0, labelled as an identity that catches slips."
+     "Junior yield 11.50%. With the fallback values: 4.88% and 15.47%, full marks.",
+     "Annualises with the power 1/2 for the two-year maturity.",
+     "Bonus: checks that the three claims add up to 17.6, labelled as an identity."
     ]
    },
    {
     "label": "e",
     "points": 3,
-    "body": "<p>Explain briefly why the junior yield is higher than the yield on the single bond in (b), which in turn is higher than the senior yield. Is the junior yield the return junior creditors should expect?</p>",
-    "solution": "<p><b>Ordering.</b> The senior creditors are paid first and lose only if the assets end below USD 6 billion, so their bond is the safest (3.14%). The single bond is the senior and junior slices together, so its risk and yield (6.25%) lie in between. The junior creditors take the first losses after the shareholders and are wiped out below 6 billion, so they demand the most (11.50%).</p><p><b>Not the expected return.</b> The yield is the promised return if the bond is paid in full. The expected return is lower, because with some probability the junior bond pays less than its face value.</p>",
+    "body": "<p>Compare the three yields from (b) and (d) and explain the ordering. Is the junior yield the return junior creditors should expect?</p>",
+    "solution": "<p><b>Ordering.</b> The senior creditors are paid first and lose only if the assets end below USD 6.6 billion, so their bond is the safest (3.14%). The single bond is the senior and junior slices together, so its risk and yield (6.25%) lie in between. The junior creditors take the first losses after the shareholders and are wiped out below 6.6 billion, so they demand the most (11.50%).</p><p><b>Not the expected return.</b> The yield is the promised return if the bond is paid in full. The expected return is lower, because with some probability the junior bond pays less than its face value.</p>",
     "criteria": [
      "1 point: seniority: senior is paid first and is the safest, junior takes the first losses after equity.",
      "1 point: the single bond combines the two slices, so its yield lies between them.",
@@ -542,7 +543,7 @@
    24
   ],
   "merke": "Samme form som Google-eksemplet i forelesning 13, med to lån fra start",
-  "body": "<p>Brattheim Kraft ASA has 180 million shares trading at NOK 95 and no debt. Markets are perfect and there are no taxes. Brattheim plans to issue two zero-coupon bonds due in exactly 3 years: a senior bond with face value NOK 7.2 billion and a junior bond with face value NOK 3.6 billion. It will pay all the proceeds out to its shareholders at once as a special dividend, so the value of its assets is unchanged. The risk-free rate is 4% a year (annual compounding).</p><p>European calls on Brattheim shares that expire in exactly 3 years are quoted below (NOK per share). Because Brattheim has no debt today, you can treat them as calls on its assets per share. Use the midpoint of bid and ask. Use 4 decimal places.</p><table class=\"data\"><tr><th>Strike (NOK)</th><th>Call bid</th><th>Call ask</th></tr><tr><td>30</td><td class=\"n\">68.12</td><td class=\"n\">68.92</td></tr><tr><td>40</td><td class=\"n\">59.74</td><td class=\"n\">60.64</td></tr><tr><td>50</td><td class=\"n\">51.97</td><td class=\"n\">52.97</td></tr><tr><td>60</td><td class=\"n\">44.93</td><td class=\"n\">46.03</td></tr><tr><td>70</td><td class=\"n\">38.68</td><td class=\"n\">39.88</td></tr></table>",
+  "body": "<p>Brattheim Kraft ASA has 180 million shares trading at NOK 95 and no debt. Markets are perfect and there are no taxes. Brattheim plans to issue two zero-coupon bonds due in exactly 3 years: a senior bond with face value NOK 7.2 billion and a junior bond with face value NOK 3.6 billion. It will pay all the proceeds out to its shareholders at once as a special dividend, so the value of its assets is unchanged. The risk-free rate is 4% a year (annual compounding).</p><p>European calls on Brattheim shares that expire in exactly 3 years are quoted below (NOK per share). Because Brattheim has no debt today, you can treat them as calls on its assets per share. Use the midpoint of bid and ask. Give values in NOK billion with 4 decimals, per-share amounts with 2 decimals and yields in % with 2 decimals.</p><table class=\"data\"><tr><th>Strike (NOK)</th><th>Call bid</th><th>Call ask</th></tr><tr><td>30</td><td class=\"n\">68.12</td><td class=\"n\">68.92</td></tr><tr><td>40</td><td class=\"n\">59.74</td><td class=\"n\">60.64</td></tr><tr><td>50</td><td class=\"n\">51.97</td><td class=\"n\">52.97</td></tr><tr><td>60</td><td class=\"n\">44.93</td><td class=\"n\">46.03</td></tr><tr><td>70</td><td class=\"n\">38.68</td><td class=\"n\">39.88</td></tr></table>",
   "parts": [
    {
     "label": "a",
@@ -571,12 +572,12 @@
    {
     "label": "c",
     "points": 4,
-    "body": "<p>What special dividend per share do the shareholders receive? What is the share price right after the payout? Are the shareholders better or worse off? (If you could not solve (b), use NOK 6.0 billion for the senior and NOK 2.4 billion for the junior debt.)</p>",
-    "solution": "<p>The proceeds are the market value of the two bonds: 6.2658 + 2.6478 = 8.9136 billion, or 8.9136 billion/180 million = <b>NOK 49.52 per share</b>.</p><p>After the payout each share is a claim on the equity: 8.1864 billion/180 million = <b>NOK 45.48</b>, the call price with strike 60.</p><p>A shareholder had 95 and now has 49.52 + 45.48 = 95.00: <b>neither better nor worse off</b>. In a perfect market the payout only moves value from the shares into cash; the firm value is unchanged (MM).</p><p>With the fallback values: dividend 46.67 and share price 48.33, which again sum to 95.</p>",
+    "body": "<p>What special dividend per share do the shareholders receive? What is the share price right after the payout? Are the shareholders better or worse off? (If you could not solve (b), use NOK 6.0 billion for the senior and NOK 2.4 billion for the junior debt. Find the share price as the firm value less the debt, divided by the number of shares.)</p>",
+    "solution": "<p>The proceeds are the market value of the two bonds: 6.2658 + 2.6478 = 8.9136 billion, or 8.9136 billion/180 million = <b>NOK 49.52 per share</b>.</p><p>After the payout each share is a claim on the equity: (V − D)/N = (17.1 − 8.9136) billion/180 million = 8.1864 billion/180 million = <b>NOK 45.48</b>, the call price with strike 60.</p><p>A shareholder had 95 and now has 49.52 + 45.48 = 95.00: <b>neither better nor worse off</b>. In a perfect market the payout only moves value from the shares into cash; the firm value is unchanged (MM).</p><p>With the fallback values: dividend 46.67 and share price 48.33, which again sum to 95.</p>",
     "criteria": [
      "Dividend = (D_S + D_J)/180 million = 49.52 per share.",
      "Share price after the payout = E/180 million = 45.48.",
-     "Shareholders are neither better nor worse off: 49.52 + 45.48 = 95.",
+     "Shareholders are neither better nor worse off: 49.52 + 45.48 = 95. The MM argument (the payout moves value from shares into cash, V is unchanged) earns the text points even if the numbers are off.",
      "With the fallback values: 46.67 and 48.33, full marks."
     ]
    },
@@ -615,7 +616,7 @@
    24
   ],
   "merke": "Samme form som Google-eksemplet i forelesning 13 og PS3 E6",
-  "body": "<p>Rheinberg Logistik AG has 120 million shares trading at EUR 150 and no debt. Markets are perfect and there are no taxes. Rheinberg plans to issue a senior zero-coupon bond with face value EUR 9 billion and a junior zero-coupon bond with face value EUR 3 billion, both due in exactly 30 months. The proceeds are paid out to the shareholders at once, so the value of the assets is unchanged. The risk-free rate is 3% a year (annual compounding).</p><p>European options on Rheinberg shares that expire in exactly 30 months are quoted below (EUR per share). Because Rheinberg has no debt today, you can treat them as options on its assets per share. Use the midpoint of bid and ask. Give values in EUR billion with 4 decimals and yields in % with 2 decimals.</p><table class=\"data\"><tr><th>Strike (EUR)</th><th>Call bid</th><th>Call ask</th><th>Put bid</th><th>Put ask</th></tr><tr><td>25</td><td class=\"n\">126.48</td><td class=\"n\">127.08</td><td class=\"n\">–</td><td class=\"n\">–</td></tr><tr><td>50</td><td class=\"n\">103.30</td><td class=\"n\">104.00</td><td class=\"n\">0.08</td><td class=\"n\">0.10</td></tr><tr><td>75</td><td class=\"n\">81.00</td><td class=\"n\">81.80</td><td class=\"n\">0.91</td><td class=\"n\">1.21</td></tr><tr><td>100</td><td class=\"n\">61.16</td><td class=\"n\">62.06</td><td class=\"n\">4.04</td><td class=\"n\">4.94</td></tr><tr><td>125</td><td class=\"n\">44.86</td><td class=\"n\">45.86</td><td class=\"n\">10.96</td><td class=\"n\">11.96</td></tr></table>",
+  "body": "<p>Rheinberg Logistik AG has 120 million shares trading at EUR 150 and no debt. Markets are perfect and there are no taxes. Rheinberg plans to issue a senior zero-coupon bond with face value EUR 9 billion and a junior zero-coupon bond with face value EUR 3 billion, both due in exactly 30 months. The proceeds are paid out to the shareholders at once, so the value of the assets is unchanged. The risk-free rate is 3% a year (annual compounding).</p><p>European options on Rheinberg shares that expire in exactly 30 months are quoted below (EUR per share). Because Rheinberg has no debt today, you can treat them as options on its assets per share. Use the midpoint of bid and ask. Give values in EUR billion with 4 decimals and yields in % with 2 decimals.</p><table class=\"data\"><tr><th>Strike (EUR)</th><th>Call bid</th><th>Call ask</th><th>Put bid</th><th>Put ask</th></tr><tr><td>25</td><td class=\"n\">126.48</td><td class=\"n\">127.08</td><td class=\"n\">n/a</td><td class=\"n\">n/a</td></tr><tr><td>50</td><td class=\"n\">103.30</td><td class=\"n\">104.00</td><td class=\"n\">0.08</td><td class=\"n\">0.10</td></tr><tr><td>75</td><td class=\"n\">81.00</td><td class=\"n\">81.80</td><td class=\"n\">0.91</td><td class=\"n\">1.21</td></tr><tr><td>100</td><td class=\"n\">61.16</td><td class=\"n\">62.06</td><td class=\"n\">4.04</td><td class=\"n\">4.94</td></tr><tr><td>125</td><td class=\"n\">44.86</td><td class=\"n\">45.86</td><td class=\"n\">10.96</td><td class=\"n\">11.96</td></tr></table>",
   "parts": [
    {
     "label": "a",
@@ -666,14 +667,130 @@
    {
     "label": "e",
     "points": 4,
-    "body": "<p>Rheinberg's managers consider a strategy that makes the firm's assets riskier while their value today stays at EUR 18 billion. Using the option view, explain what this does to the equity, the senior debt and the junior debt. No calculation is needed.</p>",
+    "body": "<p>Rheinberg's managers consider a strategy that makes the firm's assets riskier while their value today stays at EUR 18 billion. Using the option view, explain what this does to the equity, the senior debt and the junior debt. Who gains and who loses? No calculation is needed.</p>",
     "solution": "<p><b>Equity rises.</b> It is a call on the assets. A call gains from volatility: the upside grows, the downside stays at 0 (recording 13, 1:17:39).</p><p><b>Senior debt falls.</b> It is risk-free debt plus a written put. The put the creditors have written becomes more valuable when risk rises.</p><p><b>Junior debt: not certain in general.</b> It is long the call with strike 75 and short the call with strike 100; both calls gain. Here the assets are worth 150 per share, well above the total face value of 100, so the junior bond behaves mostly like debt and will most likely lose. Since V is unchanged, what the shareholders gain the creditors lose: a wealth transfer, the risk-shifting incentive from the lecture (recording 13, 1:18:24).</p>",
     "criteria": [
      "1 point: equity rises, because it is a call on the assets.",
      "1 point: senior debt falls, because it contains a written put.",
-     "1 point: junior debt is a call spread (long C(75), short C(100)), so the sign is not certain in general; here, with V well above 100 per share, it most likely falls.",
-     "1 point: names the wealth transfer from creditors to shareholders with V unchanged.",
+     "1 point: junior debt most likely falls. Full credit for «junior falls: it is debt and contains a written put». Noting that it is a call spread (long C(75), short C(100)), so the sign is not certain in general, is a bonus.",
+     "1 point: who gains and who loses: the shareholders gain and the creditors lose (a wealth transfer, since V is unchanged).",
      "No Black-Scholes calculation is required."
+    ]
+   }
+  ]
+ },
+ "mk-opsjonsintuisjon-1": {
+  "n": 1,
+  "title": "Options",
+  "points": 10,
+  "topic": "Options, volatility, time to maturity and American options",
+  "chapters": [
+   21,
+   23
+  ],
+  "merke": "Samme form som H2025 E1: opsjonsintuisjon uten regning",
+  "body": "<p>Your aunt owns shares in Sølvberget Mineral ASA, a listed mining company that pays no dividends. To protect herself she has bought one-year European puts on the shares. She was also given one-year European calls on the same shares as a present. Both have a strike price equal to today's share price. Treat each piece of news below separately and assume that today's share price and the interest rate stay the same.</p><p>(i) Sølvberget announces that it will spend its cash on exploration in a region where nobody has mined before, so the share becomes far more volatile. What happens to the value of the calls and of the puts? (3 points)</p><p>(ii) Her broker offers to swap the options for otherwise identical options that expire in three years instead of one. Would the calls be worth more? Would the puts? (4 points)</p><p>(iii) The broker also offers American versions of the one-year options, with the same strike. Would you expect them to be priced higher or lower than the European ones? (3 points)</p><p>You do not need any calculations. Two to three sentences per piece of news should be enough. A direction without a reason earns no points.</p>",
+  "solution": "<p><b>(i) Higher volatility: both the calls and the puts gain value.</b> An option pays only on one side: the call gains from large rises, the put from large falls; neither can pay less than 0. With more volatility, large moves in either direction become more likely, so the expected payoff of both rises while the worst case stays at 0 (recording 13, 1:16:52). Kurbatov's limit case shows the logic: with zero volatility the option is simply in or out of the money (recording 13, 1:17:01). Bonus: by put-call parity, C − P = S<sub>0</sub> − PV(K) is unchanged, so both rise by the same amount.</p><p><b>(ii) Longer maturity: the calls are worth more; the puts are usually worth more, but not for certain.</b> More time means a wider range of possible share prices at expiry, which helps both options. For the call the strike is also paid later, which helps it too. For a European put the second effect works the other way: the holder receives the strike later, so its present value falls. The put is therefore usually worth more with more time, but a European put that is far in the money can be worth less.</p><p><b>(iii) American options are priced at least as high, never lower.</b> An American option gives every right the European one gives plus the right to exercise early; more rights or more flexibility cannot be worth less (recording 12, 12:41; recording 18, 58:18). Also accepted as a bonus: for a call on a share without dividends, early exercise never pays, so the American call is worth the same; for the put, early exercise can pay, so the American put can be worth strictly more.</p>",
+  "criteria": [
+   "(i), 3 points: both rise (1 point), because the payoff is one-sided, so more dispersion raises the expected payoff of both while the downside stays at 0 (2 points). A direction without the mechanism earns no points.",
+   "(ii) call, 2 points: worth more, because more time widens the range of outcomes while the downside stays at 0 (paying the strike later also helps).",
+   "(ii) put, 2 points: usually worth more for the same reason (1 point), but not certain for a European put, because the strike is received later (1 point). 'Always worth more' for the European put earns at most 1 point.",
+   "(iii), 3 points: at least as high, never lower (1.5 points), because the American option contains all the European rights plus early exercise and more flexibility is priced at least as high (1.5 points). 'Higher' with this reason gets full marks.",
+   "Bonus: parity shows that the call and the put move by the same amount in (i); the American call on a share without dividends is worth the same as the European one.",
+   "No calculation is required or expected; Black-Scholes need not be used."
+  ]
+ },
+ "mk-opsjonsintuisjon-2": {
+  "n": 1,
+  "title": "Corporate securities as options",
+  "points": 10,
+  "topic": "Debt and equity as options, risk shifting",
+  "chapters": [
+   24,
+   9
+  ],
+  "merke": "Samme form som forelesning 13 (2:33 til 12:57) og wrap-up (1:01:47)",
+  "body": "<p>Lunde Hotellgruppe ASA owns a chain of hotels and has one debt: a zero-coupon bank loan with face value NOK 4 billion, due in three years. It pays no dividends before the loan is due. If the hotels are worth less than NOK 4 billion at maturity, the bank takes them over. Answer without calculations.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Explain why Lunde's shares can be seen as a call option. Name the underlying asset, the strike and the maturity. (Two to three sentences.)</p>",
+    "solution": "<p>At maturity the shareholders get max(V<sub>T</sub> − 4, 0) billion: whatever the hotels are worth above the loan, nothing if they are worth less, because limited liability means they can walk away and leave the hotels to the bank. That is the payoff of a call on the hotels (the firm's assets V) with a strike equal to the face value of the loan, NOK 4 billion, expiring in three years when the loan is due (recording 13, 4:30).</p><p>Also accepted: describing the hockey-stick payoff in words. Using the market value of the debt as the strike, or the share as the underlying, is wrong (recording 13, 4:44).</p>",
+    "criteria": [
+     "Payoff max(V_T − F, 0) with limited liability (1 point).",
+     "Underlying: the firm's assets (the hotels), not the share (1 point).",
+     "Strike: the face value of the loan, NOK 4 billion; maturity: three years (1 point)."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 3,
+    "body": "<p>Explain why the bank's claim is worth the same as risk-free debt plus a written put on the hotels. What does the put pay? Who receives it? (Two to three sentences.)</p>",
+    "solution": "<p>The bank receives min(V<sub>T</sub>, 4) = 4 − max(4 − V<sub>T</sub>, 0): the full 4 billion as if the loan were risk-free, less the shortfall when the hotels are worth less than 4 billion. The shortfall is the payoff of a put on the hotels with strike 4 billion that the bank has in effect written, so D = PV(4) − P (recording 18, 1:03:55).</p><p>The put pays the shareholders: in default they hand over hotels worth less than 4 billion and are released from the debt, which is the same as selling the hotels to the bank at 4 billion. Note the sign: the debt is risk-free debt <i>plus</i> a written put, that is PV(F) minus the value of the put.</p>",
+    "criteria": [
+     "Payoff min(V_T, F) written as F − max(F − V_T, 0) (1 point).",
+     "D = PV(F) − P: risk-free debt plus a written put on the assets with strike F (1 point). 'Risk-free debt minus a written put' has the sign wrong.",
+     "The put pays the shareholders in default: they deliver assets worth less than F and are freed from the debt (1 point)."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>After a slump the hotels are worth only a little more than NOK 4 billion. The board considers selling the city hotels and buying a casino resort. The plan makes the firm's assets much riskier and has a slightly negative NPV. Why might the shareholders still want it? Who pays for it? (Three to four sentences.)</p>",
+    "solution": "<p>The shares are a call on the hotels that is close to the money. A call gains from risk: the shareholders keep all of the upside if the casino does well, while limited liability caps their loss at 0 if it fails (recording 13, 1:18:24). The extra volatility can raise the value of their call by more than the small negative NPV lowers it.</p><p>The bank pays. The put it has written becomes more valuable when the assets get riskier, so the debt falls in value by more than the NPV lost: a wealth transfer from the creditors to the shareholders. Total firm value falls by the negative NPV, so this is value-destroying risk shifting, often called gambling for resurrection.</p><p>Bonus: banks anticipate this and protect themselves with covenants that limit asset sales or new risky investments, or with a higher interest rate in advance.</p>",
+    "criteria": [
+     "Equity is a call near the money whose value rises with volatility; limited liability caps the downside at 0 (1.5 points).",
+     "The gain from more risk can exceed the small negative NPV, so the shareholders may approve it (1 point).",
+     "The creditors pay: the written put gains value, debt loses more than the NPV, a wealth transfer (1.5 points).",
+     "Bonus: names covenants or a higher interest rate as the creditors' protection."
+    ]
+   }
+  ]
+ },
+ "mk-opsjonsintuisjon-3": {
+  "n": 1,
+  "title": "Real options",
+  "points": 10,
+  "topic": "Real options and volatility",
+  "chapters": [
+   25,
+   23
+  ],
+  "merke": "Samme form som realopsjonsintuisjonen i forelesning 14 (44:00 til 49:25)",
+  "body": "<p>Kvaløy Hydrogen AS holds a licence that gives it the exclusive right to build a hydrogen plant at any time in the next four years. Building the plant today would have a small negative NPV. The value of the plant depends on the future price of hydrogen, which is very uncertain. Answer without calculations.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Why is the licence worth something, even though building today has a negative NPV? (Two to three sentences.)</p>",
+    "solution": "<p>The licence is an option, not an obligation: Kvaløy can wait, watch the hydrogen price and build only if the plant turns out to be worth more than it costs. If prices stay low, it simply does not build and loses nothing beyond what it paid for the licence, so the downside is 0. As long as there is some chance that building will have a positive NPV before the licence expires, the right to wait has value (recording 14, 1:14:09).</p>",
+    "criteria": [
+     "The licence is a right, not an obligation: build only if it pays (1 point).",
+     "The downside is 0, while the upside is a positive NPV in good states (1 point).",
+     "Any chance of a positive NPV later gives the option value, even though today's NPV is negative (1 point)."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>An analyst values the licence as an option on the plant, with σ the volatility of the plant's value. What would you expect for the value of the licence and for Kvaløy's decision if σ were very low? And if σ were very high? (Three to four sentences.)</p>",
+    "solution": "<p><b>Very low σ.</b> The plant's value would stay close to today's, so the NPV of building would stay slightly negative. The licence is then worth almost nothing. Kvaløy takes the same decision as today: it does not build. The lecture makes this point: with a very low σ, \"we would still take the same exact decision\" (recording 14, 47:10).</p><p><b>Very high σ.</b> There is a large chance that the plant becomes worth far more than it costs, while the downside stays at 0 because Kvaløy can choose not to build. The licence is worth much more. Waiting to see where the price goes is clearly the right choice.</p>",
+    "criteria": [
+     "Low σ: the plant's value stays near today's, the NPV stays negative, the licence is worth close to 0 and the decision is the same as today, do not build (2 points).",
+     "High σ: more upside with the downside capped at 0, so the licence is worth more and waiting is more attractive (2 points).",
+     "An answer that only says 'more volatility, more value' without the low-σ case earns at most 2 points."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 3,
+    "body": "<p>Two years later the hydrogen price has risen sharply. Building now would have a large positive NPV. Should Kvaløy wait until the licence is about to expire? Explain what it gives up by waiting. (Two to three sentences.)</p>",
+    "solution": "<p>Not necessarily: it should probably build now. Waiting is valuable when it lets you avoid a bad outcome, but with a large positive NPV the plant would be worth building in almost every future state, so there is little left to avoid. Meanwhile waiting costs the cash flows the plant would have earned in the meantime. The lecture's rule of thumb: if you are already in a very good situation, invest now (recording 14, 47:30 and 49:15).</p><p>Also accepted: risks that rivals enter or that the price falls back, as further costs of waiting.</p>",
+    "criteria": [
+     "Builds now (or says waiting is unlikely to pay) when the NPV is large (1 point).",
+     "Reason: little chance of a bad outcome left to avoid, so the option to wait adds little (1 point).",
+     "Names the cost of waiting: the cash flows lost in the meantime (1 point). Competition or a price fall are accepted as further costs."
     ]
    }
   ]

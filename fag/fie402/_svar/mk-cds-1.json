@@ -31,8 +31,8 @@
     "tall": [
       {
         "navn": "Risk-neutral default probability ρ",
-        "verdi": 0.11849901250822857,
-        "enhet": ""
+        "verdi": 11.849901250822857,
+        "enhet": "%"
       }
     ],
     "merknad": "Overlevelsessannsynligheten 0.8815 er fellen og avvises."
