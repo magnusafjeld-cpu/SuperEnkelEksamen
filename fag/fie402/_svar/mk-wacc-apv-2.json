@@ -1,0 +1,103 @@
+{
+  "mk-wacc-apv-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>U</sub> Cratewell",
+        "verdi": 1.0,
+        "enhet": ""
+      },
+      {
+        "navn": "β<sub>U</sub> Mealmont",
+        "verdi": 1.2,
+        "enhet": ""
+      }
+    ]
+  },
+  "mk-wacc-apv-2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 10.55,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 13.583333333333336,
+        "enhet": "%"
+      }
+    ]
+  },
+  "mk-wacc-apv-2:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 10.046000000000003,
+        "enhet": "%",
+        "alt": [
+          9.496
+        ]
+      }
+    ],
+    "merknad": "alt (9.4960%) er svaret med reserveverdien r_U = 10 %."
+  },
+  "mk-wacc-apv-2:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V<sup>L</sup> (WACC)",
+        "verdi": 344.5534057778955,
+        "enhet": "$ m",
+        "alt": [
+          371.64093767867354
+        ]
+      }
+    ],
+    "merknad": "Fellene er V^U (322.9814) og verdien uten vekst. alt er svaret med reserveverdien r_U = 10 %."
+  },
+  "mk-wacc-apv-2:1:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "D<sub>0</sub>",
+        "verdi": 137.8213623111582,
+        "enhet": "$ m",
+        "alt": [
+          148.65637507146943
+        ]
+      },
+      {
+        "navn": "D<sub>1</sub>",
+        "verdi": 141.26689636893715,
+        "enhet": "$ m",
+        "tol": 0.0097,
+        "alt": [
+          152.37278444825614
+        ]
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 21.57203931826823,
+        "enhet": "$ m",
+        "alt": [
+          24.974271012006856
+        ]
+      },
+      {
+        "navn": "V<sup>L</sup> (APV)",
+        "verdi": 344.55340577789553,
+        "enhet": "$ m",
+        "tol": 0.0059,
+        "alt": [
+          371.64093767867354
+        ]
+      }
+    ],
+    "merknad": "Fellene for D_1 er gjeld holdt fast (D_1 = D_0) og gjeld fra V^U. alt er svarene med reserveverdien r_U = 10 %."
+  },
+  "mk-wacc-apv-2:1:f": {
+    "type": "tekst"
+  }
+}

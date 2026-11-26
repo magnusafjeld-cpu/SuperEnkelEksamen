@@ -1,0 +1,35 @@
+{
+  "mk-deal-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Offer value per B share",
+        "verdi": 27.400000000000002,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Premium over B's price before the announcement",
+        "verdi": 9.600000000000009,
+        "enhet": "%"
+      }
+    ]
+  },
+  "mk-deal-2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Probability of completion",
+        "verdi": 75.36842105263155,
+        "enhet": "%",
+        "tol": 0.005
+      }
+    ],
+    "merknad": "Stram toleranse (0,5 %): 132.50 i stedet for sikkerhetsekvivalenten gir 0.4747 og ingen rente i det hele tatt gir 0.7632; begge avvises."
+  },
+  "mk-deal-2:1:c": {
+    "type": "tekst"
+  },
+  "mk-deal-2:1:d": {
+    "type": "tekst"
+  }
+}

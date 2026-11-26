@@ -1,0 +1,593 @@
+{
+ "mk-wacc-apv-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "FCF<sub>0</sub>",
+    "verdi": -51.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "FCF<sub>1</sub>",
+    "verdi": 21.75,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "FCF<sub>2</sub>",
+    "verdi": 35.25,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "FCF<sub>3</sub>",
+    "verdi": 26.25,
+    "enhet": "€ m"
+   }
+  ]
+ },
+ "mk-wacc-apv-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 8.1,
+    "enhet": "%",
+    "tol": 0.0058
+   }
+  ],
+  "merknad": "Fellene er brutto gjeld (7.98%) og r_U uten skatt (8.60%)."
+ },
+ "mk-wacc-apv-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV (WACC)",
+    "verdi": 20.065884648163234,
+    "enhet": "€ m",
+    "tol": 0.0031,
+    "alt": [
+     20.86574767001649
+    ]
+   }
+  ],
+  "merknad": "Fellene er NPV med r_U (19.4104), med WACC fra brutto gjeld og PV uten investeringen. alt (20.8657) er svaret med reserveverdien r_wacc = 7.5 %."
+ },
+ "mk-wacc-apv-1:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "D<sub>0</sub>",
+    "verdi": 28.426353859265294,
+    "enhet": "€ m",
+    "tol": 0.0036,
+    "alt": [
+     28.746299068006596
+    ]
+   },
+   {
+    "navn": "D<sub>1</sub>",
+    "verdi": 22.02888852186578,
+    "enhet": "€ m",
+    "tol": 0.0025,
+    "alt": [
+     22.202271498107088
+    ]
+   },
+   {
+    "navn": "D<sub>2</sub>",
+    "verdi": 9.713228492136912,
+    "enhet": "€ m",
+    "tol": 0.0018,
+    "alt": [
+     9.767441860465118
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Does Orvelle borrow or repay in Years 1 to 3?",
+  "merknad": "Toleransen er stram fordi gjeld regnet fra V^U (diskontert med r_U) ligger under 1 % unna. Tekstdelen: Orvelle betaler ned gjeld hvert år. alt er gjelden med reserveverdien r_wacc = 7.5 %."
+ },
+ "mk-wacc-apv-1:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 8.600000000000001,
+    "enhet": "%"
+   },
+   {
+    "navn": "V<sup>U</sup><sub>0</sub>",
+    "verdi": 70.410422553775,
+    "enhet": "€ m",
+    "tol": 0.0037
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 0.6554620943882123,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "NPV (APV)",
+    "verdi": 20.06588464816322,
+    "enhet": "€ m",
+    "tol": 0.001
+   }
+  ],
+  "merknad": "Diskonteres skjoldet med r_D, blir NPV 20.1035, 0.19 % unna, så toleransen på NPV er 0.1 %. PV(TS) med r_D (0.6931 mot 0.6555) avvises med standardtoleransen. PV(TS) diskontert med r_wacc (0.6605) ligger innenfor 1 % og godtas. alt er svarene med reserveverdien r_wacc = 7.5 %."
+ },
+ "mk-wacc-apv-1:1:f": {
+  "type": "tekst"
+ },
+ "mk-wacc-apv-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "β<sub>U</sub> Cratewell",
+    "verdi": 1.0,
+    "enhet": ""
+   },
+   {
+    "navn": "β<sub>U</sub> Mealmont",
+    "verdi": 1.2,
+    "enhet": ""
+   }
+  ]
+ },
+ "mk-wacc-apv-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 10.55,
+    "enhet": "%"
+   },
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 13.583333333333336,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-wacc-apv-2:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 10.046000000000003,
+    "enhet": "%",
+    "alt": [
+     9.496
+    ]
+   }
+  ],
+  "merknad": "alt (9.4960%) er svaret med reserveverdien r_U = 10 %."
+ },
+ "mk-wacc-apv-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup> (WACC)",
+    "verdi": 344.5534057778955,
+    "enhet": "$ m",
+    "alt": [
+     371.64093767867354
+    ]
+   }
+  ],
+  "merknad": "Fellene er V^U (322.9814) og verdien uten vekst. alt er svaret med reserveverdien r_U = 10 %."
+ },
+ "mk-wacc-apv-2:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "D<sub>0</sub>",
+    "verdi": 137.8213623111582,
+    "enhet": "$ m",
+    "alt": [
+     148.65637507146943
+    ]
+   },
+   {
+    "navn": "D<sub>1</sub>",
+    "verdi": 141.26689636893715,
+    "enhet": "$ m",
+    "tol": 0.0097,
+    "alt": [
+     152.37278444825614
+    ]
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 21.57203931826823,
+    "enhet": "$ m",
+    "alt": [
+     24.974271012006856
+    ]
+   },
+   {
+    "navn": "V<sup>L</sup> (APV)",
+    "verdi": 344.55340577789553,
+    "enhet": "$ m",
+    "tol": 0.0059,
+    "alt": [
+     371.64093767867354
+    ]
+   }
+  ],
+  "merknad": "Fellene for D_1 er gjeld holdt fast (D_1 = D_0) og gjeld fra V^U. alt er svarene med reserveverdien r_U = 10 %."
+ },
+ "mk-wacc-apv-2:1:f": {
+  "type": "tekst"
+ },
+ "mk-wacc-apv-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 9.0,
+    "enhet": "%"
+   },
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 7.470000000000001,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-wacc-apv-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "FCF<sub>0</sub>",
+    "verdi": -74.0,
+    "enhet": "DKK m"
+   },
+   {
+    "navn": "FCF<sub>1</sub>",
+    "verdi": 37.36,
+    "enhet": "DKK m"
+   },
+   {
+    "navn": "FCF<sub>2</sub>",
+    "verdi": 60.82,
+    "enhet": "DKK m"
+   }
+  ],
+  "merknad": "Fellene er sunk cost tatt med, NWC-nivå i stedet for endring, kannibaliseringen utelatt og ΔNWC utelatt. FCF_2 med nivå og uten ΔNWC er samme tall (44.82)."
+ },
+ "mk-wacc-apv-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV (WACC)",
+    "verdi": 13.422106124790432,
+    "enhet": "DKK m",
+    "alt": [
+     12.178299324622998
+    ]
+   }
+  ],
+  "merknad": "Fellene er NPV med r_U (12.9938), med r_E, PV uten investeringen og sunk cost tatt med. alt (12.1783) er svaret med reservekontantstrømmene."
+ },
+ "mk-wacc-apv-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "D<sub>0</sub>",
+    "verdi": 26.22663183743713,
+    "enhet": "DKK m",
+    "tol": 0.0019,
+    "alt": [
+     26.1534897973869
+    ]
+   },
+   {
+    "navn": "Debt adjustment, Year 1",
+    "verdi": -9.248870601743448,
+    "enhet": "DKK m",
+    "tol": 0.0033,
+    "alt": [
+     9.248870601743448,
+     -8.846334312135202,
+     8.846334312135202
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Does Brandholm borrow or repay?",
+  "merknad": "Begge fortegn godtas for justeringen (D_1 − D_0 eller D_0 − D_1). Retningen (nedbetaling) rettes i tekstdelen. Toleransen er stram fordi tallene regnet fra V^U ligger under 1 % unna. 0.3 × 74 = 22.2 (gjeld fra utlegget) er en felle. Resten av alt er svarene med reservekontantstrømmene."
+ },
+ "mk-wacc-apv-3:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 7.8,
+    "enhet": "%"
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 0.42832598497265256,
+    "enhet": "DKK m"
+   },
+   {
+    "navn": "NPV (APV)",
+    "verdi": 13.422106124790425,
+    "enhet": "DKK m",
+    "tol": 0.001,
+    "alt": [
+     12.178299324622985
+    ]
+   }
+  ],
+  "merknad": "Diskonteres skjoldet med r_D, blir NPV 0.12 % høyere, så toleransen på NPV er 0.1 % (hver nåverdi rundet til to desimaler gir 13.43, innenfor). PV(TS) (0.4441 mot 0.4283) avviser r_D med standardtoleransen. alt er svarene med reservekontantstrømmene."
+ },
+ "mk-wacc-apv-3:1:f": {
+  "type": "tekst"
+ },
+ "mk-ipo-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price",
+    "verdi": 44.5,
+    "enhet": "€"
+   },
+   {
+    "navn": "Expected first-day return",
+    "verdi": 0.0,
+    "enhet": "%",
+    "abs": 0.05
+   }
+  ]
+ },
+ "mk-ipo-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Shares, good IPO",
+    "verdi": 20.0,
+    "enhet": ""
+   },
+   {
+    "navn": "Shares, bad IPO",
+    "verdi": 50.0,
+    "enhet": ""
+   },
+   {
+    "navn": "Average return per share",
+    "verdi": -10.112359550561797,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-ipo-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Break-even price",
+    "verdi": 40.0,
+    "enhet": "€",
+    "alt": [
+     42.07692307692308
+    ]
+   }
+  ],
+  "merknad": "alt (42.0769) er svaret med reserveallokeringene 25 og 40."
+ },
+ "mk-ipo-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Average first-day return",
+    "verdi": 11.249999999999998,
+    "enhet": "%",
+    "alt": [
+     5.952380952380953
+    ]
+   },
+   {
+    "navn": "Informed investors' return",
+    "verdi": 37.5,
+    "enhet": "%",
+    "alt": [
+     30.952380952380953
+    ]
+   },
+   {
+    "navn": "Your return",
+    "verdi": 0.0,
+    "enhet": "%",
+    "abs": 0.05,
+    "alt": [
+     -4.761904761904762
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveprisen 42 (5.9524%, 30.9524% og −4.7619% for deg med allokeringene fra (b))."
+ },
+ "mk-ipo-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-ipo-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Oversubscription, good IPO",
+    "verdi": 2.0,
+    "enhet": ""
+   },
+   {
+    "navn": "Oversubscription, bad IPO",
+    "verdi": 1.25,
+    "enhet": ""
+   },
+   {
+    "navn": "Fill rate, good IPO",
+    "verdi": 50.0,
+    "enhet": "%"
+   },
+   {
+    "navn": "Fill rate, bad IPO",
+    "verdi": 80.0,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-ipo-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Uninformed return",
+    "verdi": -6.122448979591836,
+    "enhet": "%",
+    "alt": [
+     -8.074534161490684
+    ]
+   }
+  ],
+  "merknad": "alt (−8.0745%) er svaret med reservefyllingsgradene 40 % og 75 %."
+ },
+ "mk-ipo-2:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price",
+    "verdi": 92.0,
+    "enhet": "NOK",
+    "alt": [
+     90.08695652173913
+    ]
+   }
+  ],
+  "merknad": "alt (90.0870) er svaret med reservefyllingsgradene."
+ },
+ "mk-ipo-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Left on the table, good IPO",
+    "verdi": 64.0,
+    "enhet": "NOK m",
+    "alt": [
+     68.0
+    ]
+   },
+   {
+    "navn": "Left on the table, bad IPO",
+    "verdi": -40.0,
+    "enhet": "NOK m",
+    "alt": [
+     40.0,
+     -36.0,
+     36.0
+    ]
+   },
+   {
+    "navn": "Average per IPO",
+    "verdi": 12.0,
+    "enhet": "NOK m",
+    "alt": [
+     16.0
+    ]
+   },
+   {
+    "navn": "Average first-day return",
+    "verdi": 6.521739130434789,
+    "enhet": "%",
+    "alt": [
+     8.888888888888879
+    ]
+   }
+  ],
+  "merknad": "Begge fortegn godtas for den dårlige IPO-en (forklaringen rettes av teksten). alt inneholder også svarene med reserveprisen 90."
+ },
+ "mk-ipo-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-ipo-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Shares received, good IPOs",
+    "verdi": 750.0,
+    "enhet": ""
+   },
+   {
+    "navn": "Shares received, bad IPOs",
+    "verdi": 1500.0,
+    "enhet": ""
+   }
+  ]
+ },
+ "mk-ipo-3:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Fraction of your shares in bad IPOs",
+    "verdi": 66.66666666666666,
+    "enhet": "%",
+    "alt": [
+     60.0
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Compare with the fraction of IPOs that are bad and explain the difference.",
+  "merknad": "alt (60.00%) er svaret med reservetallene 800 og 1 200."
+ },
+ "mk-ipo-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Total expected profit",
+    "verdi": -11250.0,
+    "enhet": "$",
+    "alt": [
+     -8400.0
+    ]
+   },
+   {
+    "navn": "Return",
+    "verdi": -18.51851851851852,
+    "enhet": "%",
+    "alt": [
+     -15.555555555555555
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reservetallene 800 og 1 200."
+ },
+ "mk-ipo-3:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Break-even price",
+    "verdi": 22.0,
+    "enhet": "$",
+    "alt": [
+     22.8
+    ]
+   },
+   {
+    "navn": "Average first-day return",
+    "verdi": 22.72727272727273,
+    "enhet": "%",
+    "alt": [
+     18.421052631578938
+    ]
+   },
+   {
+    "navn": "Informed investors' return",
+    "verdi": 36.36363636363635,
+    "enhet": "%",
+    "alt": [
+     31.57894736842104
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reservetallene 800 og 1 200."
+ },
+ "mk-ipo-3:1:e": {
+  "type": "tekst"
+ }
+}

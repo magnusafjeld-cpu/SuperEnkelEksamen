@@ -10005,3 +10005,2028 @@ window.EDU_DATA.sets.push(
   ]
 },
 );
+
+/* ===================== MÅ KUNNE (26. november 2026) =====================
+   Eksamenstrening › Må kunne: oppgavetypene Kurbatov har hintet til, i tiers, med
+   tre hele oppgaver per type (kind: "must", ett sett per oppgave). Kilden er
+   fag/fie402/_mk/, bygd med tools/flett-mk.py. Alt herfra skrives på nytt av skriptet.
+   ============================================================ */
+window.EDU_DATA.mustKunne = {
+  "intro": "Oppgavetypene Kurbatov har pekt ut i forelesningene, sortert etter hvor sikkert de kommer. Hver type har tre nye eksamensoppgaver i samme form som forelesningseksemplet eller eksamensoppgaven den bygger på. Start med tier 1 og ta oppgavene i rekkefølge.",
+  "tiers": [
+    {
+      "nr": 1,
+      "navn": "Tier 1 · Må kunnes perfekt",
+      "tekst": "Typene som nesten sikkert kommer i en eller annen form. De har vært på begge Kurbatovs eksamener, eller Kurbatov har sagt rett ut at de kan komme. Sitter disse, har du det meste av poengene."
+    },
+    {
+      "nr": 2,
+      "navn": "Tier 2 · Viktig",
+      "tekst": "Forelesningseksempler Kurbatov har pekt ut som mulige eksamensoppgaver, og det andre teorispørsmålet. Noen av disse kommer trolig, men du vet ikke hvilke."
+    },
+    {
+      "nr": 3,
+      "navn": "Tier 3 · Bør kunnes",
+      "tekst": "Hintet, men svakere eller brukt nylig. Ta dem når tier 1 og 2 sitter."
+    }
+  ],
+  "typer": [
+    {
+      "id": "wacc-apv",
+      "tier": 1,
+      "navn": "WACC og APV på samme prosjekt",
+      "hvorfor": "Har vært på alle elleve eksamenssett siden 2015, også begge Kurbatovs (H2024 E5 og H2025 E4). Kurbatov beskrev selve oppgaven: verdsett med WACC, verdsett med APV, vis at de stemmer og tolk. Del a er nesten alltid fri kontantstrøm for prosjektet, ikke firmaet.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 08 (Valuation I), 1:19:30",
+          "sitat": "One exam question would be, evaluate this firm using VAC method, evaluate it using the APV method, make sure they match and interpret."
+        },
+        {
+          "hvor": "Forelesning 09 (Valuation II), 44:22",
+          "sitat": "Such an exercise could easily be in the exam. With only two comparable firms, there should be no issues."
+        },
+        {
+          "hvor": "Forelesning 18 (Wrap-up), 51:00",
+          "sitat": "in an exercise you could be asked to calculate rvac and then interpret why is rvac lower or higher than ru"
+        },
+        {
+          "hvor": "Forelesning 18 (Wrap-up), 6:41",
+          "sitat": "it could be a trap in the exam where I give you information for the entire company"
+        }
+      ],
+      "sett": [
+        "mk-wacc-apv-1",
+        "mk-wacc-apv-2",
+        "mk-wacc-apv-3"
+      ]
+    },
+    {
+      "id": "mm-rekap",
+      "tier": 1,
+      "navn": "MM-rekapitalisering, utbytte og tilbakekjøp",
+      "hvorfor": "Oppgave 3 på begge Kurbatovs eksamener (18 poeng hver gang). Fellene han gjentok: tilbakekjøpet skjer til den nye kursen, et tilbakekjøp gir to likninger, og spørsmålet om hvem som er bedre eller verre stilt.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 03 (Capital Structure II), 1:00:59",
+          "sitat": "the biggest mistake that people make in the exam... they divide it by their original price, not the new one"
+        },
+        {
+          "hvor": "Forelesning 05 (Payout policy), 1:14:10",
+          "sitat": "there have been exam questions where people have to show that a buyback is equivalent to a dividend"
+        },
+        {
+          "hvor": "Forelesning 06 (Problem set exercises), 16:09",
+          "sitat": "in an exam setting i could ask here like is something like is some player better or worse off from this"
+        },
+        {
+          "hvor": "Forelesning 18 (Wrap-up), 21:07",
+          "sitat": "if you open the exam and like exercise three has something like assume perfect capital markets it immediately should ring a bell"
+        }
+      ],
+      "sett": [
+        "mk-mm-rekap-1",
+        "mk-mm-rekap-2",
+        "mk-mm-rekap-3"
+      ]
+    },
+    {
+      "id": "gjeldsoverheng",
+      "tier": 1,
+      "navn": "Gjeldsoverheng: hvem vil ha prosjektet?",
+      "hvorfor": "Kurbatov sa at dette spørres veldig ofte, og i wrap-up at han mest sannsynlig gir et firma og et prosjekt og ber deg sjekke om lederen vil ha det. Halve poengene går til nøkkelsetningen «the firm forgoes positive-NPV projects», resten til forklaringen med formuesoverføring til kreditorene.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 03 (Capital Structure II), 17:29",
+          "sitat": "very often asked on the exam, why, if you had extremely high leverage, you might skip beneficial projects"
+        },
+        {
+          "hvor": "Forelesning 18 (Wrap-up), 29:31",
+          "sitat": "most likely i will tell you yes there is this firm there is this project check whether the manager wants this project"
+        },
+        {
+          "hvor": "Forelesning 06 (Problem set exercises), 1:15:48",
+          "sitat": "a very crucial exercise to understand properly… the key word you have to have ingrained in your mind is the wealth transfer"
+        }
+      ],
+      "sett": [
+        "mk-gjeldsoverheng-1",
+        "mk-gjeldsoverheng-2",
+        "mk-gjeldsoverheng-3"
+      ]
+    },
+    {
+      "id": "vente",
+      "tier": 1,
+      "navn": "Realopsjon: investere nå eller vente",
+      "hvorfor": "Realopsjoner var 20 poeng på begge Kurbatovs eksamener (H2024 E6 og H2025 E5). Kurbatov pekte ut indifferent-sannsynligheten som en fin eksamensoppgave og advarte mot fella med en kontantstrøm som starter nå.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 14 (Options III), 29:57",
+          "sitat": "Find X for which we are indifferent between starting the project today and waiting for one year. So this would be a very nice exam question."
+        },
+        {
+          "hvor": "Forelesning 14 (Options III), 19:57",
+          "sitat": "many people in the exam would just write 2000 here they would forget about year zero"
+        },
+        {
+          "hvor": "Forelesning 14 (Options III), 1:07:41",
+          "sitat": "If we don't know probabilities, immediately it should be like a light bulb lighting in your head."
+        }
+      ],
+      "sett": [
+        "mk-vente-1",
+        "mk-vente-2",
+        "mk-vente-3"
+      ]
+    },
+    {
+      "id": "deal",
+      "tier": 1,
+      "navn": "Fusjonsarbitrasje og implisitt dealsannsynlighet",
+      "hvorfor": "H2025 E6 var «almost a direct copy» av Mannesmann-eksemplet, og Kurbatov kalte det i wrap-up en av de største oppgavene du bør fokusere på. Ny form ventes: brøkdel av år, selvfinansiert posisjon eller et spørsmål om hva som skjer om avtalen utsettes.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 18 (Wrap-up), 1:11:04",
+          "sitat": "very important exercise for M&A. This is one of the biggest exercises that you should focus on."
+        },
+        {
+          "hvor": "Forelesning 16 (M&A), 1:11:07",
+          "sitat": "it can literally be an exam question and it has been"
+        },
+        {
+          "hvor": "Forelesning 18 (Wrap-up), 5:29",
+          "sitat": "What if we can delay this M&A by one year? How would you treat it?"
+        }
+      ],
+      "sett": [
+        "mk-deal-1",
+        "mk-deal-2",
+        "mk-deal-3"
+      ]
+    },
+    {
+      "id": "cds",
+      "tier": 1,
+      "navn": "Risikabel obligasjon og CDS",
+      "hvorfor": "CDS-eksemplet fra forelesningen var oppgave 3 på våreksamenen 2024, og Kurbatov sa at et veldig likt eksempel kan komme. Mer enn halvparten tapte poeng fordi de byttet om ρ og 1 − ρ.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 13 (Options II), 18:06",
+          "sitat": "I probably wouldn't copy this verbatim, but a very similar example could be in the exam"
+        },
+        {
+          "hvor": "Forelesning 13 (Options II), 25:53",
+          "sitat": "note this will be very important for potential exam question"
+        },
+        {
+          "hvor": "Forelesning 13 (Options II), 27:31",
+          "sitat": "One major mistake that so many people made in the exam question … they confused one minus rho and rho."
+        }
+      ],
+      "sett": [
+        "mk-cds-1",
+        "mk-cds-2",
+        "mk-cds-3"
+      ]
+    },
+    {
+      "id": "governance",
+      "tier": 1,
+      "navn": "Governance (teori, 10 poeng)",
+      "hvorfor": "Et av de to teorispørsmålene er nesten alltid governance. H2024 spurte om overvåking og H2025 om en blokkaksjonær, så Kurbatov spør trolig om noe annet i år. Malen han rettet live i timen er eierens verktøykasse.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 17 (Governance), 2:08",
+          "sitat": "the exams that I have made usually have two open-ended questions in the beginning. So one of those is pretty much always a governance-related question."
+        },
+        {
+          "hvor": "Forelesning 17 (Governance), 1:18:44",
+          "sitat": "this could be very easily an exam question"
+        },
+        {
+          "hvor": "Forelesning 17 (Governance), 0:45",
+          "sitat": "its content will definitely be on the exam"
+        }
+      ],
+      "sett": [
+        "mk-governance-1",
+        "mk-governance-2",
+        "mk-governance-3"
+      ]
+    }
+  ]
+};
+window.EDU_DATA.sets.push(
+{
+  "id": "mk-wacc-apv-1",
+  "kind": "must",
+  "label": "WACC og APV på samme prosjekt · oppgave 1",
+  "mk": {
+    "type": "wacc-apv",
+    "tier": 1,
+    "nr": 1
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Valuation with leverage",
+      "points": 20,
+      "topic": "WACC and APV",
+      "chapters": [
+        2,
+        4,
+        17,
+        18,
+        19
+      ],
+      "merke": "Samme form som prosjekteksemplet i forelesning 08 (WACC, deretter APV)",
+      "body": "<p>Orvelle Appliances, a European kitchen-appliance maker, considers a countertop steam oven that it will sell for three years. Today is Year 0 and the project has the same risk as the firm. In market values Orvelle has equity of €540 million, debt of €385 million and excess cash of €25 million. It measures leverage with net debt (debt minus cash) and keeps its net debt-to-equity ratio constant, also with the project. Its cost of equity is 11%, its cost of debt 5% and the tax rate 25%.</p><table class=\"data\"><tr><th>€ million</th><th>Year 0</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr><tr><td>Sales</td><td class=\"n\"></td><td class=\"n\">60</td><td class=\"n\">90</td><td class=\"n\">70</td></tr><tr><td>Cost of goods sold</td><td class=\"n\"></td><td class=\"n\">24</td><td class=\"n\">36</td><td class=\"n\">28</td></tr><tr><td>Operating expenses</td><td class=\"n\"></td><td class=\"n\">12</td><td class=\"n\">12</td><td class=\"n\">12</td></tr><tr><td>Launch costs</td><td class=\"n\">8</td><td class=\"n\"></td><td class=\"n\"></td><td class=\"n\"></td></tr><tr><td>Equipment purchase</td><td class=\"n\">45</td><td class=\"n\"></td><td class=\"n\"></td><td class=\"n\"></td></tr></table><p>The launch costs are expensed in Year 0 and lower Orvelle's tax bill that year. The equipment is depreciated straight-line to zero over Years 1 to 3. There is no working capital. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Find the free cash flow of the project in each year.</p>",
+          "solution": "<p>Use the formula-sheet definition FCF = EBIT(1 − τ) + Depreciation − CapEx − ΔNWC. The free cash flow is unlevered: no interest is subtracted, even though Orvelle has debt. The financing enters later, through the discount rate (WACC) or the tax shield (APV).</p><p><b>Step 1. Depreciation.</b> 45/3 = <b>15</b> per year in Years 1 to 3.</p><p><b>Step 2. Year 0.</b> The launch costs give EBIT = −8. Because Orvelle is profitable elsewhere, its tax bill falls by 0.25 × 8 = 2, so the after-tax cost is 8(1 − 0.25) = 6. With the equipment: FCF<sub>0</sub> = −6 − 45 = <b>−51</b>.</p><p><b>Step 3. Years 1 to 3.</b></p><table class=\"data\"><tr><th>€ million</th><th>Year 0</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr><tr><td>Sales</td><td class=\"n\"></td><td class=\"n\">60</td><td class=\"n\">90</td><td class=\"n\">70</td></tr><tr><td>− Cost of goods sold</td><td class=\"n\"></td><td class=\"n\">−24</td><td class=\"n\">−36</td><td class=\"n\">−28</td></tr><tr><td>− Operating expenses</td><td class=\"n\"></td><td class=\"n\">−12</td><td class=\"n\">−12</td><td class=\"n\">−12</td></tr><tr><td>− Launch costs</td><td class=\"n\">−8</td><td class=\"n\"></td><td class=\"n\"></td><td class=\"n\"></td></tr><tr><td>− Depreciation</td><td class=\"n\"></td><td class=\"n\">−15</td><td class=\"n\">−15</td><td class=\"n\">−15</td></tr><tr><td>EBIT</td><td class=\"n\">−8</td><td class=\"n\">9</td><td class=\"n\">27</td><td class=\"n\">15</td></tr><tr><td>− Tax (25%)</td><td class=\"n\">2</td><td class=\"n\">−2.25</td><td class=\"n\">−6.75</td><td class=\"n\">−3.75</td></tr><tr><td>EBIT(1 − τ)</td><td class=\"n\">−6</td><td class=\"n\">6.75</td><td class=\"n\">20.25</td><td class=\"n\">11.25</td></tr><tr><td>+ Depreciation</td><td class=\"n\"></td><td class=\"n\">15</td><td class=\"n\">15</td><td class=\"n\">15</td></tr><tr><td>− CapEx</td><td class=\"n\">−45</td><td class=\"n\"></td><td class=\"n\"></td><td class=\"n\"></td></tr><tr><td><b>FCF</b></td><td class=\"n\"><b>−51</b></td><td class=\"n\"><b>21.75</b></td><td class=\"n\"><b>35.25</b></td><td class=\"n\"><b>26.25</b></td></tr></table><p>FCF<sub>0</sub> = <b>−51</b>, FCF<sub>1</sub> = <b>21.75</b>, FCF<sub>2</sub> = <b>35.25</b>, FCF<sub>3</sub> = <b>26.25</b> (€ million).</p>",
+          "criteria": [
+            "FCF is unlevered: no interest is subtracted. The lecturer warns against subtracting interest again and again (lectures 08 and 18).",
+            "Year 0: the launch costs lower the tax bill, so the after-tax cost is 8(1 − 0.25) = 6 and FCF_0 = −6 − 45 = −51. Writing −53 forgets the tax saving.",
+            "Depreciation of 15 per year is subtracted before tax and added back after tax. Forgetting to add it back gives 6.75, 20.25 and 11.25.",
+            "FCF = 21.75, 35.25 and 26.25 in Years 1 to 3. Show the calculation."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Find Orvelle's after-tax WACC.</p>",
+          "solution": "<p><b>Step 1. Net debt.</b> Cash is negative debt: D = 385 − 25 = <b>360</b>. Then V = E + D = 540 + 360 = 900, so D/V = 360/900 = <b>0.4000</b> and E/V = <b>0.6000</b> (D/E = 360/540 = 0.6667).</p><p><b>Step 2. After-tax WACC.</b></p><p>r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ) = 0.6000(0.1100) + 0.4000(0.0500)(1 − 0.25)<br>= 0.0660 + 0.0150 = <b>0.0810 (8.10%)</b></p>",
+          "criteria": [
+            "Nets the excess cash against the debt (cash is negative debt): D = 385 − 25 = 360, V = 900, D/V = 0.4.",
+            "Using the gross debt of 385 gives D/V = 0.4162 and r_wacc = 7.98%, which loses a point.",
+            "Applies (1 − τ) to r_D only, never to r_E.",
+            "r_wacc = 0.6(11%) + 0.4(5%)(0.75) = 8.10%."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 2,
+          "body": "<p>Find the NPV of the project using the WACC method. (If you could not solve (b), use r<sub>wacc</sub> = 7.5% here and in (d).)</p>",
+          "solution": "<p>Discount the free cash flows at r<sub>wacc</sub>. FCF<sub>0</sub> is paid today and is not discounted. The tax shield is already in the discount rate, so nothing is added.</p><p>NPV = −51 + 21.75/1.081 + 35.25/1.081<sup>2</sup> + 26.25/1.081<sup>3</sup><br>= −51.0000 + 20.1203 + 30.1653 + 20.7803 = <b>€20.0659 million</b></p><p>The present value of the future cash flows is 71.0659. The question asks for the NPV, so the investment of 51 must be subtracted.</p><p>With the fallback r<sub>wacc</sub> = 7.5%, the NPV is 20.8657.</p>",
+          "criteria": [
+            "Discounts at r_wacc = 8.10% with the right powers and does not discount FCF_0.",
+            "Gives the NPV, 20.0659, not the PV of the future cash flows (71.0659). Stopping at the PV loses a point.",
+            "Full marks with the fallback 7.5%: NPV = 20.8657.",
+            "Does not add a tax shield on top: the WACC already contains it."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Find the project's debt capacity (the extra net debt Orvelle must hold) at the end of Years 0, 1 and 2. Does Orvelle borrow or repay in Years 1 to 3?</p>",
+          "solution": "<p>To keep its ratio constant Orvelle must hold debt equal to d = D/V = 0.4 of the project's value at every date: D<sub>t</sub> = d × V<sup>L</sup><sub>t</sub>. V<sup>L</sup><sub>t</sub> is the value at date t of the cash flows that are still to come, so solve backwards at r<sub>wacc</sub>.</p><p><b>Step 1. Values.</b></p><p>V<sup>L</sup><sub>3</sub> = 0<br>V<sup>L</sup><sub>2</sub> = 26.25/1.081 = <b>24.2831</b><br>V<sup>L</sup><sub>1</sub> = (35.25 + 24.2831)/1.081 = <b>55.0722</b><br>V<sup>L</sup><sub>0</sub> = (21.75 + 55.0722)/1.081 = <b>71.0659</b></p><p><b>Step 2. Debt capacity.</b></p><table class=\"data\"><tr><th>€ million</th><th>Year 0</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr><tr><td>V<sup>L</sup><sub>t</sub></td><td class=\"n\">71.0659</td><td class=\"n\">55.0722</td><td class=\"n\">24.2831</td><td class=\"n\">0.0000</td></tr><tr><td>D<sub>t</sub> = 0.4 × V<sup>L</sup><sub>t</sub></td><td class=\"n\"><b>28.4264</b></td><td class=\"n\"><b>22.0289</b></td><td class=\"n\"><b>9.7132</b></td><td class=\"n\"><b>0.0000</b></td></tr><tr><td>Change in debt</td><td class=\"n\"></td><td class=\"n\">−6.3975</td><td class=\"n\">−12.3157</td><td class=\"n\">−9.7132</td></tr></table><p>Orvelle borrows <b>€28.4264 million</b> today because of the project. It then <b>repays</b> 6.3975 in Year 1, 12.3157 in Year 2 and the last 9.7132 in Year 3. The project's value falls as its cash flows are paid out, so the debt that keeps the ratio constant falls too.</p><p>Note that D<sub>0</sub> is based on the value of the future cash flows (71.0659), not on the NPV or the investment (0.4 × 51 = 20.4): once the 51 has been spent, the future cash flows are what the project adds to the value of Orvelle's assets, as in the lecture example.</p><p>With the fallback r<sub>wacc</sub> = 7.5%: D<sub>0</sub> = 28.7463, D<sub>1</sub> = 22.2023, D<sub>2</sub> = 9.7674.</p>",
+          "criteria": [
+            "Uses D_t = d × V^L_t with d = D/V = 0.4. Multiplying by D/E = 0.6667 is the classic slip.",
+            "V^L_t is the value of the cash flows still to come, found backwards at r_wacc: V^L_2 = 24.2831, V^L_1 = 55.0722, V^L_0 = 71.0659.",
+            "D_0 = 28.4264, D_1 = 22.0289, D_2 = 9.7132 (and D_3 = 0). Basing D_0 on the NPV (giving 8.0264), on the investment (0.4 × 51 = 20.4) or on V^U is wrong. With the fallback 7.5%: 28.7463, 22.2023 and 9.7674.",
+            "Says that Orvelle repays debt in every year from Year 1 to Year 3 as the project winds down."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 5,
+          "body": "<p>Find r<sub>U</sub>. Then, with the debt from (d), find the unlevered value of the project's future cash flows, the present value of the tax shields and the NPV using APV. Compare with (c).</p>",
+          "solution": "<p><b>Step 1. r<sub>U</sub>.</b> Under a constant ratio the pre-tax WACC is r<sub>U</sub>:</p><p>r<sub>U</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub> = 0.6000(0.1100) + 0.4000(0.0500) = 0.0660 + 0.0200 = <b>0.0860 (8.60%)</b></p><p><b>Step 2. Unlevered value.</b> The same free cash flows, discounted at r<sub>U</sub>:</p><p>V<sup>U</sup><sub>0</sub> = 21.75/1.086 + 35.25/1.086<sup>2</sup> + 26.25/1.086<sup>3</sup> = 20.0276 + 29.8882 + 20.4946 = <b>70.4104</b></p><p><b>Step 3. Tax shields.</b> TS<sub>t</sub> = τ × r<sub>D</sub> × D<sub>t−1</sub>, with the debt from (d):</p><p>TS<sub>1</sub> = 0.25 × 0.05 × 28.4264 = 0.3553<br>TS<sub>2</sub> = 0.25 × 0.05 × 22.0289 = 0.2754<br>TS<sub>3</sub> = 0.25 × 0.05 × 9.7132 = 0.1214</p><p>Orvelle keeps its ratio constant, so the debt moves with the project's value and the tax shields are as risky as the project. Discount them at <b>r<sub>U</sub></b>, not at r<sub>D</sub>:</p><p>PV(TS) = 0.3553/1.086 + 0.2754/1.086<sup>2</sup> + 0.1214/1.086<sup>3</sup> = 0.3272 + 0.2335 + 0.0948 = <b>0.6555</b></p><p><b>Step 4. APV.</b></p><p>NPV = FCF<sub>0</sub> + V<sup>U</sup><sub>0</sub> + PV(TS) = −51.0000 + 70.4104 + 0.6555 = <b>€20.0659 million</b></p><p><b>Check.</b> The WACC method in (c) gave 20.0659 and APV gives 20.0659. They match. This is a fixed point rather than two independent estimates, because the debt in APV came from the WACC values, but it catches the wrong rate on the tax shield and slips in the arithmetic.</p><p>With the debt from the fallback r<sub>wacc</sub> = 7.5%: PV(TS) = 0.6615 and NPV = 20.0719. It no longer equals (c) exactly, because the fallback is not the true WACC.</p>",
+          "criteria": [
+            "r_U = pre-tax WACC = 0.6(11%) + 0.4(5%) = 8.60%. Putting (1 − τ) here gives the WACC, not r_U.",
+            "V^U_0 = 70.4104: the same FCF discounted at r_U.",
+            "TS_t = τ × r_D × D_(t−1): 0.3553, 0.2754 and 0.1214. Using D_t instead of D_(t−1) is a slip.",
+            "Discounts the tax shields at r_U: PV(TS) = 0.6555; at r_D it would be 0.6931. Bonus, not required: saying why (under a constant ratio the debt moves with the project's value and the shield with it).",
+            "NPV = −51 + 70.4104 + 0.6555 = 20.0659, the same as in (c). With the fallback 7.5%: PV(TS) = 0.6615 and NPV = 20.0719."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 3,
+          "body": "<p>Compare r<sub>wacc</sub> from (b) with r<sub>U</sub> from (e). Where does the difference come from? What happens to it if Orvelle chooses a higher target leverage? Explain briefly.</p>",
+          "solution": "<p>r<sub>wacc</sub> = 8.10% is lower than r<sub>U</sub> = 8.60%. The gap is (D/V)τr<sub>D</sub> = 0.4 × 0.25 × 0.05 = 0.0050, or half a percentage point.</p><p>The two formulas differ only by the factor (1 − τ) on the cost of debt. Interest is tax deductible, so debt is cheaper after tax than its 5%. The WACC method puts this tax saving into the discount rate. APV discounts at r<sub>U</sub> (business risk only) and adds the tax shields as a separate value. Both give the same NPV.</p><p>With a higher target leverage r<sub>U</sub> stays the same, because the business risk does not change, while D/V rises. The gap (D/V)τr<sub>D</sub> widens and r<sub>wacc</sub> falls: more of the financing earns the tax deduction. Without corporate taxes the two rates would be equal.</p><p>Also accepted: a WACC above r<sub>U</sub> would be an alarm bell for an error, as the lecturer pointed out in lecture 09.</p>",
+          "criteria": [
+            "States that r_wacc = 8.10% is below r_U = 8.60%, a gap of (D/V)τr_D = 0.5 percentage points.",
+            "Explains the source: the only difference between the formulas is (1 − τ) on r_D, because interest is tax deductible, so the WACC holds the tax shield inside the rate while APV adds it separately.",
+            "Higher target leverage: r_U is unchanged (business risk), the gap widens and r_wacc falls. Saying r_U rises with leverage loses this point.",
+            "1 to 3 sentences per point are enough; no new calculation is needed."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-wacc-apv-2",
+  "kind": "must",
+  "label": "WACC og APV på samme prosjekt · oppgave 2",
+  "mk": {
+    "type": "wacc-apv",
+    "tier": 1,
+    "nr": 2
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Valuation",
+      "points": 20,
+      "topic": "WACC and APV",
+      "chapters": [
+        3,
+        4,
+        17,
+        18
+      ],
+      "merke": "Samme form som H2024 E5, med to sammenlignbare firmaer som i forelesning 09",
+      "body": "<p>Corliss Markets, a US supermarket chain, plans a new division that will sell meal kits by subscription. The division's free cash flow is expected to be $26 million next year and to grow by 2.5% per year forever. The division will keep a constant debt-to-value ratio of 40% and its cost of debt is 6%. Meal kits carry very different risk from supermarkets, but two listed meal-kit companies have the same business risk as the division. Both keep their leverage ratios constant:</p><table class=\"data\"><tr><th></th><th>Cratewell</th><th>Mealmont</th></tr><tr><td>Leverage</td><td class=\"n\">D/E = 0.6</td><td class=\"n\">D/V = 0.25</td></tr><tr><td>Debt beta</td><td class=\"n\">0</td><td class=\"n\">0.36</td></tr><tr><td>Equity beta</td><td class=\"n\">1.60</td><td class=\"n\">1.48</td></tr></table><p>Use the average of the two unlevered betas. The tax rate is 21%, the risk-free rate is 4.5% and the expected return on the market portfolio is 10%. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Find the unlevered beta of each comparable.</p>",
+          "solution": "<p>The comparables have different leverage, so their equity betas cannot be compared directly. Strip out the leverage with the formula-sheet weighting (without taxes): β<sub>U</sub> = (E/V)β<sub>E</sub> + (D/V)β<sub>D</sub>.</p><p><b>Cratewell.</b> D/E = 0.6, so D/V = 0.6/1.6 = <b>0.3750</b> and E/V = <b>0.6250</b>. Its debt beta is zero:<br>β<sub>U</sub> = 0.6250 × 1.60 + 0.3750 × 0 = <b>1.0000</b></p><p><b>Mealmont.</b> D/V = 0.25 is already a weight:<br>β<sub>U</sub> = 0.75 × 1.48 + 0.25 × 0.36 = 1.1100 + 0.0900 = <b>1.2000</b></p>",
+          "criteria": [
+            "Converts Cratewell's D/E = 0.6 into D/V = 0.375 before weighting. Using 0.6 as the debt weight gives 0.64.",
+            "Cratewell: beta_U = 0.625 × 1.60 + 0.375 × 0 = 1.0000.",
+            "Mealmont: beta_U = 0.75 × 1.48 + 0.25 × 0.36 = 1.2000. Dropping the debt beta gives 1.1100 and understates the asset risk.",
+            "Weights without taxes, as on the formula sheet."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>Find the unlevered cost of capital and the cost of equity of the division.</p>",
+          "solution": "<p><b>Step 1. Average.</b> β<sub>U</sub> = (1.0000 + 1.2000)/2 = <b>1.1000</b></p><p><b>Step 2. CAPM.</b> The market risk premium is 10% − 4.5% = 5.50%.<br>r<sub>U</sub> = 0.0450 + 1.1000 × 0.0550 = 0.0450 + 0.0605 = <b>0.1055 (10.55%)</b></p><p><b>Step 3. Relever at the division's leverage.</b> MM II needs D/E, not D/V: D/E = 0.4/0.6 = <b>0.6667</b>.</p><p>r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) = 0.1055 + 0.6667(0.1055 − 0.0600)<br>= 0.1055 + 0.6667 × 0.0455 = 0.1055 + 0.030333 = <b>0.135833 (13.5833%)</b></p><p>Identity, not a check that can fail: the pre-tax WACC returns r<sub>U</sub>: 0.6(0.135833) + 0.4(0.0600) = 0.1055.</p>",
+          "criteria": [
+            "Averages the unlevered betas (1.1000), not the equity betas. Averaging the equity betas gives 1.5400 and mixes in the comparables' leverage.",
+            "r_U = 4.5% + 1.1 × 5.5% = 10.55%. Using the full market return of 10% as the premium is the trap.",
+            "Converts the division's D/V = 0.40 into D/E = 0.6667 before MM II. Plugging in 0.40 gives 12.37%.",
+            "r_E = 10.55% + 0.6667(10.55% − 6%) = 13.5833%."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 2,
+          "body": "<p>Find the division's after-tax WACC. (If you could not solve (b), use r<sub>U</sub> = 10% here and below.)</p>",
+          "solution": "<p>r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ) = 0.6(0.135833) + 0.4(0.0600)(1 − 0.21)<br>= 0.0815 + 0.018960 = <b>0.100460 (10.0460%)</b></p><p>Cross-check: r<sub>U</sub> − (D/V)τr<sub>D</sub> = 0.1055 − 0.4 × 0.21 × 0.06 = 0.1055 − 0.005040 = 0.100460.</p><p>With the fallback r<sub>U</sub> = 10%: r<sub>wacc</sub> = 0.10 − 0.00504 = 0.094960 (9.4960%).</p>",
+          "criteria": [
+            "Uses the division's own weights E/V = 0.6 and D/V = 0.4, with (1 − τ) on r_D only.",
+            "r_wacc = 0.6 × 13.5833% + 0.4 × 6% × 0.79 = 10.0460%.",
+            "The shortcut r_U − (D/V)τr_D gives the same number and is a quick cross-check.",
+            "Full marks with the fallback r_U = 10%: r_wacc = 9.4960%."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 3,
+          "body": "<p>What is the levered value of the division using the WACC method?</p>",
+          "solution": "<p>The free cash flow is a growing perpetuity that starts next year:</p><p>V<sup>L</sup> = FCF<sub>1</sub>/(r<sub>wacc</sub> − g) = 26/(0.100460 − 0.0250) = 26/0.075460 = <b>$344.5534 million</b></p><p>The tax shield is inside the WACC, so nothing is added.</p><p>With the fallback r<sub>U</sub> = 10%: V<sup>L</sup> = 26/(0.094960 − 0.025) = 371.6409.</p>",
+          "criteria": [
+            "Uses the growing-perpetuity formula with the after-tax WACC: 26/(0.10046 − 0.025).",
+            "V^L = 344.5534. Leaving out the growth gives 258.8095.",
+            "Does not add a tax shield on top of the WACC value.",
+            "Full marks with the fallback r_U = 10%: V^L = 371.6409."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 5,
+          "body": "<p>How much debt will the division carry today and one year from now? Use this debt to find the present value of the interest tax shields and the levered value of the division with the APV method. Compare with (d).</p>",
+          "solution": "<p><b>Step 1. Debt.</b> D<sub>t</sub> = 0.4 × V<sup>L</sup><sub>t</sub>. One year from now the division is worth the perpetuity that then starts with FCF<sub>2</sub> = 26 × 1.025. Its value has grown by 2.5% and the debt grows with it:</p><p>D<sub>0</sub> = 0.4 × 344.5534 = <b>$137.8214 million</b><br>V<sup>L</sup><sub>1</sub> = 26.65/0.075460 = 353.1672, so D<sub>1</sub> = 0.4 × 353.1672 = <b>$141.2669 million</b></p><p>A value-creating, growing division forces the firm to borrow more every year to keep the ratio constant.</p><p><b>Step 2. Tax shields.</b> TS<sub>1</sub> = τ × r<sub>D</sub> × D<sub>0</sub> = 0.21 × 0.06 × 137.8214 = <b>1.7365</b>. The shields grow at 2.5% with the debt (TS<sub>2</sub> = 1.7800). Under a constant D/V the shields carry the division's business risk, so they are discounted at r<sub>U</sub>:</p><p>PV(TS) = TS<sub>1</sub>/(r<sub>U</sub> − g) = 0.21 × 0.06 × 137.8214/(0.1055 − 0.0250) = <b>21.5720</b></p><p><b>Step 3. APV.</b></p><p>V<sup>U</sup> = 26/(0.1055 − 0.0250) = 26/0.0805 = <b>322.9814</b><br>V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 322.9814 + 21.5720 = <b>$344.5534 million</b></p><p><b>Check.</b> The WACC method in (d) gave 344.5534. The two methods agree. The debt came from the WACC value, so this is a fixed point, but it catches the wrong rate or the wrong growth on the tax shield.</p><p>With the fallback r<sub>U</sub> = 10%: D<sub>0</sub> = 148.6564, D<sub>1</sub> = 152.3728, PV(TS) = 24.9743 and V<sup>L</sup> = 371.6409.</p>",
+          "criteria": [
+            "D_0 = 0.4 × 344.5534 = 137.8214 and D_1 = 141.2669: the debt grows with the value at 2.5%. Keeping D_1 = D_0 breaks the constant ratio.",
+            "TS_1 = 0.21 × 0.06 × 137.8214 = 1.7365, growing at 2.5%.",
+            "Discounts the shields at r_U and with growth: PV(TS) = 0.21 × 0.06 × 137.8214/(0.1055 − 0.025) = 21.5720. Without growth 16.4602, at r_D 49.6157. Bonus, not required: saying why (under a constant D/V the shield moves with the value).",
+            "V^U = 26/0.0805 = 322.9814 and V^L = 322.9814 + 21.5720 = 344.5534.",
+            "Notes that APV equals the WACC value in (d).",
+            "Full marks with the fallback r_U = 10%: D_0 = 148.6564, D_1 = 152.3728, PV(TS) = 24.9743, V^L = 371.6409."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 3,
+          "body": "<p>Corliss's own after-tax WACC is 6.2%. The CFO suggests discounting the division's free cash flows at this rate instead. Would that overvalue or undervalue the division? Explain briefly why the comparables are used, without new calculations.</p>",
+          "solution": "<p><b>It would overvalue the division.</b> 6.2% is well below the division's own WACC of 10.0460%. A lower rate gives a higher value.</p><p>The discount rate must match the risk of the cash flows being valued, not the risk of the firm that owns them. Corliss's WACC reflects a supermarket chain, a stable business, while meal kits by subscription carry more systematic risk. Used for every project, the firm's own rate makes risky projects look better than they are, so Corliss could accept projects with a negative NPV at the correct rate.</p><p>The comparables are pure meal-kit companies, so their betas show the division's business risk. Their leverage differs from the division's, so they are unlevered first and the average β<sub>U</sub> is relevered at the division's own D/V of 40%.</p>",
+          "criteria": [
+            "Overvalue: 6.2% is below the division's r_wacc of 10.0460%. A lower rate gives a higher value.",
+            "Why: the rate must reflect the risk of the division's cash flows (meal kits), not of the firm that owns them (supermarkets).",
+            "Why comparables: pure plays in the same business show the business risk. They are unlevered because their leverage differs, then relevered at the division's D/V.",
+            "Bonus, not required: the consequence, that Corliss could take on negative-NPV projects.",
+            "No new calculation is needed. 1 to 2 sentences per point are enough."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-wacc-apv-3",
+  "kind": "must",
+  "label": "WACC og APV på samme prosjekt · oppgave 3",
+  "mk": {
+    "type": "wacc-apv",
+    "tier": 1,
+    "nr": 3
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Valuation with leverage",
+      "points": 20,
+      "topic": "WACC and APV",
+      "chapters": [
+        2,
+        3,
+        4,
+        17,
+        18,
+        19
+      ],
+      "merke": "Samme form som H2025 E4 og prosjekteksemplet i forelesning 08",
+      "body": "<p>Brandholm Toys, a listed Danish toy maker, earns a free cash flow of DKK 230 million per year from its existing business. Its equity is worth DKK 1,680 million and its debt DKK 720 million. Brandholm keeps this debt-to-value ratio constant, also for new projects. Its equity beta is 1.30 and its cost of debt 5%. The risk-free rate is 2.5%, the expected market return 7.5% and the tax rate 22%.</p><p>Brandholm holds a two-year licence for toys based on an animated series, a project with the same risk as the existing business. Today is Year 0. In DKK million:</p><ul><li>A design agency has already been paid 3 for the designs.</li><li>Moulds cost 60 today, are depreciated straight-line to zero over Years 1 and 2 and are worthless afterwards.</li><li>Sales are 140 in Year 1 and 160 in Year 2. Costs other than depreciation are 65% of sales.</li><li>Lost sales of Brandholm's own range cut the EBITDA of the existing business by 7 in each of Years 1 and 2.</li><li>The project's net working capital is 14 at the end of Year 0, 16 at the end of Year 1 and zero at the end of Year 2.</li></ul><p>Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Find Brandholm's cost of equity and its after-tax WACC.</p>",
+          "solution": "<p><b>Step 1. CAPM.</b> r<sub>E</sub> = 0.0250 + 1.30 × (0.0750 − 0.0250) = 0.0250 + 0.0650 = <b>0.0900 (9.00%)</b></p><p><b>Step 2. Weights from market values.</b> V = 1,680 + 720 = 2,400, so D/V = 720/2,400 = <b>0.3000</b> and E/V = <b>0.7000</b>. The free cash flow of the existing business is not needed.</p><p><b>Step 3. WACC.</b> r<sub>wacc</sub> = 0.7000(0.0900) + 0.3000(0.0500)(1 − 0.22) = 0.0630 + 0.0117 = <b>0.0747 (7.47%)</b></p>",
+          "criteria": [
+            "r_E = 2.5% + 1.30 × 5% = 9.00%, with the market risk premium of 5%, not 7.5%.",
+            "Weights from market values: D/V = 720/2,400 = 0.3. Using D/E = 0.4286 as a weight is wrong.",
+            "r_wacc = 0.7 × 9.00% + 0.3 × 5% × 0.78 = 7.47%, with (1 − τ) on r_D only."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>Find the free cash flow of the project in Years 0, 1 and 2.</p>",
+          "solution": "<p>Value the project, not the firm: only the incremental cash flows count. The DKK 230 million from the existing business is irrelevant. The DKK 3 million paid to the design agency is sunk: it is gone whether or not Brandholm makes the toys. The lost EBITDA on the existing range is an indirect effect of the project and is subtracted. No interest is subtracted.</p><p>FCF = EBIT(1 − τ) + Depreciation − CapEx − ΔNWC, with depreciation 60/2 = 30 per year and ΔNWC the <i>change</i> in working capital, not its level:</p><table class=\"data\"><tr><th>DKK million</th><th>Year 0</th><th>Year 1</th><th>Year 2</th></tr><tr><td>Sales</td><td class=\"n\"></td><td class=\"n\">140</td><td class=\"n\">160</td></tr><tr><td>− Costs (65% of sales)</td><td class=\"n\"></td><td class=\"n\">−91</td><td class=\"n\">−104</td></tr><tr><td>− Lost EBITDA, existing range</td><td class=\"n\"></td><td class=\"n\">−7</td><td class=\"n\">−7</td></tr><tr><td>Incremental EBITDA</td><td class=\"n\"></td><td class=\"n\">42</td><td class=\"n\">49</td></tr><tr><td>− Depreciation</td><td class=\"n\"></td><td class=\"n\">−30</td><td class=\"n\">−30</td></tr><tr><td>EBIT</td><td class=\"n\"></td><td class=\"n\">12</td><td class=\"n\">19</td></tr><tr><td>− Tax (22%)</td><td class=\"n\"></td><td class=\"n\">−2.64</td><td class=\"n\">−4.18</td></tr><tr><td>EBIT(1 − τ)</td><td class=\"n\"></td><td class=\"n\">9.36</td><td class=\"n\">14.82</td></tr><tr><td>+ Depreciation</td><td class=\"n\"></td><td class=\"n\">30</td><td class=\"n\">30</td></tr><tr><td>− CapEx</td><td class=\"n\">−60</td><td class=\"n\"></td><td class=\"n\"></td></tr><tr><td>NWC (level)</td><td class=\"n\">14</td><td class=\"n\">16</td><td class=\"n\">0</td></tr><tr><td>− ΔNWC</td><td class=\"n\">−14</td><td class=\"n\">−2</td><td class=\"n\">16</td></tr><tr><td><b>FCF</b></td><td class=\"n\"><b>−74</b></td><td class=\"n\"><b>37.36</b></td><td class=\"n\"><b>60.82</b></td></tr></table><p>FCF<sub>0</sub> = <b>−74</b>, FCF<sub>1</sub> = <b>37.36</b>, FCF<sub>2</sub> = <b>60.82</b>. In Year 2 the working capital of 16 is released, which is a cash inflow.</p>",
+          "criteria": [
+            "Leaves out the 230 of the existing business and the sunk 3 for the designs. Including the sunk cost gives FCF_0 = −77.",
+            "Subtracts the lost EBITDA of 7 per year before tax: incremental EBITDA = 42 and 49.",
+            "Depreciation of 30 per year is subtracted before tax and added back after tax.",
+            "Uses ΔNWC, not the level: −14 in Year 0, −2 in Year 1 and +16 in Year 2. Using the levels ('forgetting the delta') gives 23.36 and 44.82.",
+            "FCF = −74, 37.36 and 60.82. Show the calculation."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 2,
+          "body": "<p>Find the NPV of the project using the WACC method. (If you could not solve (b), use FCF = −75, 36 and 62 here and below.)</p>",
+          "solution": "<p>NPV = −74 + 37.36/1.0747 + 60.82/1.0747<sup>2</sup><br>= −74.0000 + 34.7632 + 52.6589 = <b>DKK 13.4221 million</b></p><p>The present value of the future cash flows is 87.4221, but the question asks for the NPV, so the outlay of 74 today is included. The NPV is positive, so the project is worth doing.</p><p>With the fallback cash flows: NPV = −75 + 36/1.0747 + 62/1.0747<sup>2</sup> = 12.1783.</p>",
+          "criteria": [
+            "Discounts the project's FCF at r_wacc = 7.47% and includes FCF_0 undiscounted.",
+            "NPV = 13.4221. Stopping at the PV (87.4221) answers a different question and loses a point.",
+            "Values the project, not the firm: a firm value built on the 230 earns nothing here.",
+            "Full marks with the fallback cash flows: NPV = 12.1783."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 3,
+          "body": "<p>Find the project's debt capacity today and the debt adjustment at the end of Year 1. Does Brandholm borrow or repay?</p>",
+          "solution": "<p>To keep D/V = 0.3, the project must carry debt D<sub>t</sub> = 0.3 × V<sup>L</sup><sub>t</sub>, where V<sup>L</sup><sub>t</sub> is the value of the cash flows still to come.</p><p>V<sup>L</sup><sub>1</sub> = 60.82/1.0747 = 56.5925, so D<sub>1</sub> = 0.3 × 56.5925 = <b>16.9778</b><br>V<sup>L</sup><sub>0</sub> = (37.36 + 56.5925)/1.0747 = 87.4221, so D<sub>0</sub> = 0.3 × 87.4221 = <b>26.2266</b></p><p>Brandholm raises <b>DKK 26.2266 million</b> of debt today: 0.3 of the value of the future cash flows, not 0.3 of the outlay (0.3 × 74 = 22.2). At the end of Year 1 the adjustment is D<sub>1</sub> − D<sub>0</sub> = 0.3 × (56.5925 − 87.4221) = 0.3 × (−30.8296) = <b>−9.2489</b>: Brandholm <b>repays</b> DKK 9.2489 million, because the value of what is left of the project falls once FCF<sub>1</sub> has been paid out. The rest, 16.9778, is repaid at the end of Year 2.</p><p>With the fallback cash flows: D<sub>0</sub> = 26.1535 and the adjustment is −8.8463.</p>",
+          "criteria": [
+            "D_t = 0.3 × V^L_t, with V^L_t the value of the cash flows still to come, discounted at r_wacc.",
+            "D_0 = 0.3 × 87.4221 = 26.2266. Basing it on the outlay (0.3 × 74 = 22.2), on the NPV or on V^U is wrong.",
+            "V^L_1 = 60.82/1.0747 = 56.5925, so D_1 = 16.9778 and the adjustment is −9.2489. Leaving FCF_1 inside V^L_1 is the classic mistake.",
+            "Says in words that Brandholm repays debt at the end of Year 1.",
+            "Full marks with the fallback cash flows: D_0 = 26.1535, adjustment −8.8463."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Find r<sub>U</sub>, the present value of the tax shields and the NPV using the APV method. Compare with (c).</p>",
+          "solution": "<p><b>Step 1. r<sub>U</sub>.</b> r<sub>U</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub> = 0.7000(0.0900) + 0.3000(0.0500) = 0.0630 + 0.0150 = <b>0.0780 (7.80%)</b></p><p><b>Step 2. Unlevered value.</b> V<sup>U</sup><sub>0</sub> = 37.36/1.0780 + 60.82/1.0780<sup>2</sup> = 34.6568 + 52.3370 = <b>86.9938</b></p><p><b>Step 3. Tax shields</b> on the debt from (d), paid on the debt at the start of each year:</p><p>TS<sub>1</sub> = 0.22 × 0.05 × 26.2266 = 0.2885<br>TS<sub>2</sub> = 0.22 × 0.05 × 16.9778 = 0.1868</p><p>The debt follows the project's value, so the shields carry the project's risk and are discounted at r<sub>U</sub>:</p><p>PV(TS) = 0.011 × 26.2266/1.0780 + 0.011 × 16.9778/1.0780<sup>2</sup> = 0.2676 + 0.1607 = <b>0.4283</b> (0.011 = 0.22 × 0.05)</p><p><b>Step 4. APV.</b> NPV = FCF<sub>0</sub> + V<sup>U</sup><sub>0</sub> + PV(TS) = −74.0000 + 86.9938 + 0.4283 = <b>DKK 13.4221 million</b></p><p><b>Check.</b> The WACC method in (c) gave 13.4221. The two NPVs agree, as they must when the debt follows D<sub>t</sub> = d × V<sup>L</sup><sub>t</sub>.</p><p>With the fallback cash flows: PV(TS) = 0.4307 and NPV = 12.1783.</p>",
+          "criteria": [
+            "r_U = 0.7 × 9.00% + 0.3 × 5% = 7.80%, without (1 − τ).",
+            "V^U_0 = 86.9938, TS_1 = 0.2885 and TS_2 = 0.1868, based on D_0 and D_1 from (d).",
+            "Discounts the tax shields at r_U: PV(TS) = 0.4283. At r_D it would be 0.4441. Bonus, not required: saying why (the debt is rebalanced to a constant D/V).",
+            "NPV = −74 + 86.9938 + 0.4283 = 13.4221, the same as in (c). The answer is an NPV, so FCF_0 is included. With the fallback cash flows: PV(TS) = 0.4307, NPV = 12.1783."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 3,
+          "body": "<p>A colleague subtracts the after-tax interest on the project's debt from each FCF and discounts at the WACC from (a). Is this right? Is the colleague's NPV too high or too low? Explain briefly.</p>",
+          "solution": "<p><b>It is not right. The NPV is too low.</b> The WACC method discounts unlevered free cash flows. The cost of debt, after tax, is already inside r<sub>wacc</sub> through the term (D/V)r<sub>D</sub>(1 − τ). Subtracting the interest from the cash flows as well counts the cost of debt twice, so every cash flow is too small and the NPV is understated.</p><p>For illustration (not required): with the debt from (d) the after-tax interest is 1.0228 in Year 1 and 0.6621 in Year 2, so the colleague's NPV is lower by 1.0228/1.0747 + 0.6621/1.0747<sup>2</sup> = 0.9517 + 0.5733 = 1.5250.</p><p>Cash flows after interest belong to the flow-to-equity method, which also adds net borrowing and discounts at r<sub>E</sub> to value the equity. The lecturer called subtracting interest from EBIT a big mistake people make in the exam (lecture 18).</p>",
+          "criteria": [
+            "Not right: the WACC method uses unlevered free cash flows, with no interest subtracted.",
+            "The after-tax cost of debt is already in r_wacc through (D/V)r_D(1 − τ), so subtracting interest counts it twice.",
+            "The colleague's NPV is too low.",
+            "Bonus, not required: flows after interest belong to the flow-to-equity method (plus net borrowing, discounted at r_E)."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-mm-rekap-1",
+  "kind": "must",
+  "label": "MM-rekapitalisering, utbytte og tilbakekjøp · oppgave 1",
+  "mk": {
+    "type": "mm-rekap",
+    "tier": 1,
+    "nr": 1
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Payout Policy",
+      "points": 20,
+      "topic": "MM in perfect markets, dividends and repurchases",
+      "chapters": [
+        6,
+        15
+      ],
+      "merke": "Samme form som utbytte- og tilbakekjøpseksemplet i forelesning 5",
+      "body": "<p>Lindewaard Toll Bridge NV operates in a perfect capital market (MM propositions hold, no taxes). It has no debt and 12.5 million shares. Its free cash flow of €31.5 million a year in perpetuity, the first in one year, is all paid out as dividends at year-end. Its cost of capital is 7%. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What are the firm value, the share price today and the dividend per share at the end of Year 1?</p>",
+          "solution": "<p><b>Step 1. Firm value.</b> The firm is a perpetuity of €31.5M discounted at 7%:</p><p>V = FCF / r = 31.5 / 0.07 = <b>€450M</b></p><p><b>Step 2. Share price.</b> There is no debt, so E = V and P<sub>0</sub> = 450 / 12.5 = <b>€36.00 per share</b>.</p><p><b>Step 3. Dividend.</b> Div<sub>1</sub> = 31.5 / 12.5 = <b>€2.52 per share</b>.</p><p><b>Check.</b> P<sub>0</sub> = Div<sub>1</sub> / r = 2.52 / 0.07 = €36.00. ✓</p>",
+          "criteria": [
+            "V = 31.5/0.07 = €450M as a perpetuity. Using an annuity or adding the first cash flow at t = 0 is wrong: the first cash flow comes in one year.",
+            "P0 = €450M / 12.5M shares = €36.00.",
+            "Div1 = €31.5M / 12.5M = €2.52 per share.",
+            "All three numbers are asked for. Answering only the firm value loses points (the lecturer warns about this in lecture 6)."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>The board announces today a Year 1 dividend of €50 million in total. The shortfall is raised by selling new shares at the market price right after the payment. From Year 2 on, all free cash flow is paid out as before.</p><p>What is the Year 1 dividend per share? At what price are the new shares sold and how many? What is the dividend per share from Year 2 on?</p>",
+          "solution": "<p><b>Step 1. The Year 1 dividend.</b> €50M / 12.5M = <b>€4.00 per share</b>. The Year 1 free cash flow covers €31.5M, so €50M − €31.5M = <b>€18.5M</b> must come from new shares.</p><p><b>Step 2. What the shares are worth after the dividend.</b> Right after the payment the firm still owns the bridge, which pays €31.5M a year from Year 2 on. All shares together, old and new, are therefore worth 31.5 / 0.07 = €450M. The new shares are sold at the market price P<sub>1</sub> (n = number of new shares, in millions). Two equations:</p><p>P<sub>1</sub> × n = 18.5 (the issue raises the shortfall)<br>P<sub>1</sub> × (12.5 + n) = 450 (all shares are worth the firm)</p><p>Subtract the first from the second: 12.5 × P<sub>1</sub> = 450 − 18.5 = 431.5, so <b>P<sub>1</sub> = €34.52</b> and n = 18.5 / 34.52 = <b>0.5359 million new shares</b>.</p><p><b>Equivalently (the route in lecture 5).</b> The new investors pay €18.5M for a perpetual claim of 18.5 × 0.07 = €1.295M a year from Year 2. The old shareholders keep 31.5 − 1.295 = €30.205M a year, worth 30.205 / 0.07 = €431.5M or €34.52 per share.</p><p><b>Step 3. The dividend from Year 2 on.</b> €31.5M is now shared by 12.5 + 0.5359 = 13.0359M shares:</p><p>Div = 31.5 / 13.0359 = <b>€2.4164 per share</b></p><p><b>Check.</b> 2.4164 / 0.07 = €34.52 = P<sub>1</sub>. ✓ The new shareholders paid €34.52 for a share worth €34.52.</p>",
+          "criteria": [
+            "Year 1 dividend €4.00 per share and a shortfall of €18.5M to be raised with new shares.",
+            "Prices the new shares ex dividend: the firm left after the payment is worth 31.5/0.07 = €450M and the old shareholders keep 450 − 18.5 = 431.5, so P1 = 431.5/12.5 = €34.52. The two equations (P1 × n = 18.5 and P1 × (12.5 + n) = 450) or, equivalently, the lecture 5 route through the new investors' perpetual claim (18.5 × 0.07 = 1.295 a year, so the old shareholders keep 30.205 a year) are both accepted.",
+            "n = 18.5/34.52 = 0.5359 million. Selling at today's €36.00 gives 0.5139 million and is the classic error: the new shares are sold at the price that holds when they are sold.",
+            "Dividend from Year 2 = 31.5/13.0359 = €2.4164, on the larger share count.",
+            "Show the calculation. No calculation, no points."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>What is the share price today, after the announcement in (b)? Are the current shareholders better or worse off? Explain briefly.</p>",
+          "solution": "<p><b>Step 1. Price today.</b> A share pays €4.00 at the end of Year 1 and is then worth €34.52:</p><p>P<sub>0</sub> = (4.00 + 34.52) / 1.07 = 38.52 / 1.07 = <b>€36.00</b>, unchanged.</p><p><b>Step 2. Better or worse off?</b> <b>Neither.</b> The current shareholders get €1.48 more per share in Year 1 (€4.00 instead of €2.52) and €0.1036 less every year after that (€2.4164 instead of €2.52). The two are worth the same today: 1.48 / 1.07 = 1.3832 and (0.1036 / 0.07) / 1.07 = 1.3832. The extra cash is paid for by the new shareholders, who buy a fair claim on part of the future dividends. There is no wealth transfer: we live in a perfect capital market, so the firm value stays at €450M. Payout policy only changes when the shareholders receive the value, not how much it is.</p>",
+          "criteria": [
+            "P0 = (4.00 + 34.52)/1.07 = €36.00: the price does not change on announcement.",
+            "Answers the question: the current shareholders are neither better nor worse off. A higher dividend now is offset by a lower dividend later (2.4164 instead of 2.52). Both have the same present value (1.3832).",
+            "Gives the reason: perfect capital market (MM), the firm's free cash flow does not change and the new shares are sold at a fair price, so the firm value is unchanged."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 5,
+          "body": "<p>Instead, the board considers spending the whole Year 1 free cash flow on a buyback at the market price at the end of Year 1, with no Year 1 dividend and all free cash flow paid out from Year 2 on.</p><p>At what price are the shares bought back and how many? What is the dividend per share from Year 2 on?</p>",
+          "solution": "<p><b>Step 1. Two equations.</b> At the end of Year 1 the firm holds €31.5M of cash and the bridge, whose cash flows from Year 2 on are worth 31.5 / 0.07 = €450M. Let P<sub>1</sub> be the buyback price and m the number of shares bought back (millions):</p><p>P<sub>1</sub> × m = 31.5 (the cash spent on the buyback)<br>P<sub>1</sub> × (12.5 − m) = 450 (the shares that remain are worth the firm)</p><p>Add the two: 12.5 × P<sub>1</sub> = 31.5 + 450 = 481.5, so <b>P<sub>1</sub> = €38.52 per share</b> and m = 31.5 / 38.52 = <b>0.8178 million shares</b>. 11.6822 million shares remain.</p><p>The buyback price is not today's €36.00. A year has passed and the firm is holding the Year 1 cash, so the share is worth €36.00 × 1.07 = €38.52 when the buyback takes place. Dividing €31.5M by €36.00 (giving 0.8750 million) is the mistake the lecturer calls the biggest one in the exam.</p><p><b>Step 2. The dividend from Year 2 on.</b> Div = 31.5 / 11.6822 = <b>€2.6964 per share</b>.</p><p><b>Check.</b> 2.6964 / 0.07 = €38.52 = P<sub>1</sub>. Also 11.6822 × 38.52 = €450M. ✓</p>",
+          "criteria": [
+            "Sets up the system of two equations, P1 × m = 31.5 and P1 × (12.5 − m) = 450, or equivalent direct reasoning (the share is worth (450 + 31.5)/12.5 just before the buyback, then m = cash/P1). The lecturer stresses that a repurchase always gives two equations.",
+            "P1 = (31.5 + 450)/12.5 = €38.52, the price at the end of Year 1 with the cash still in the firm.",
+            "m = 31.5/38.52 = 0.8178 million shares. Dividing by today's €36.00 (0.8750 million) is the classic error and loses most of the points.",
+            "Dividend from Year 2 = 31.5/11.6822 = €2.6964, on the smaller share count.",
+            "Show the calculation. No calculation, no points."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Compare the position at the end of Year 1, per share held today, of a shareholder under the old policy, one who sells in the buyback and one who keeps the share. Comment.</p>",
+          "solution": "<p>All three positions are worth <b>€38.52</b> at the end of Year 1.</p><table class=\"data\"><tr><th>Position</th><th>What they hold at the end of Year 1</th><th>Value</th></tr><tr><td>Old policy</td><td>Dividend €2.52 plus a share worth 2.52 / 0.07 = €36.00</td><td class=\"n\">€38.52</td></tr><tr><td>Buyback, sells</td><td>Cash from the buyback</td><td class=\"n\">€38.52</td></tr><tr><td>Buyback, keeps</td><td>A share paying €2.6964 a year from Year 2: 2.6964 / 0.07</td><td class=\"n\">€38.52</td></tr></table><p>The plan in (b) gives the same: 4.00 + 34.52 = €38.52. So today's price is 38.52 / 1.07 = €36.00 under every plan.</p><p><b>Comment.</b> In a perfect capital market payout policy is irrelevant: a dividend and a buyback are equivalent and nobody is better or worse off. The firm value stays at €450M because the bridge's free cash flow does not depend on how it is paid out. The seller is paid the fair price; the holder gets a higher dividend per share later because there are fewer shares. Only the form of the payout differs (cash now or a larger claim later), which matters only once frictions such as taxes or investor preferences come in.</p>",
+          "criteria": [
+            "All three positions are stated and all come to €38.52: 2.52 + 36.00 under the old policy, 38.52 in cash for the seller, 2.6964/0.07 = 38.52 for the holder. The comparison is what is graded.",
+            "Comment: anything reasonable about MM. Names payout irrelevance (a dividend and a buyback are equivalent), says why the firm value is unchanged (perfect capital market, the free cash flow is the same) and that the seller gets a fair price, so there is no wealth transfer between sellers and holders.",
+            "Bonus: noticing that the plan in (b) also gives €38.52 at the end of Year 1 (4.00 + 34.52)."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-mm-rekap-2",
+  "kind": "must",
+  "label": "MM-rekapitalisering, utbytte og tilbakekjøp · oppgave 2",
+  "mk": {
+    "type": "mm-rekap",
+    "tier": 1,
+    "nr": 2
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Capital Structure",
+      "points": 20,
+      "topic": "MM in perfect markets, recapitalisation",
+      "chapters": [
+        4,
+        6,
+        15
+      ],
+      "merke": "Samme form som H2024 E3: ny gjeld, utbytte og tilbakekjøp som alternativ",
+      "body": "<p>Hollis Creek Veterinary Inc., a US chain of veterinary clinics, has 18 million shares outstanding at a share price of $70. The company operates in perfect capital markets with no taxes and has $315 million of debt. The debt is risk-free with an expected return of 3.5%. The equity cost of capital is 10.5%. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the unlevered cost of capital (r<sub>U</sub>) of the firm?</p>",
+          "solution": "<p><b>Step 1. Market values.</b> E = 18M × $70 = <b>$1,260M</b>, D = $315M, V = E + D = <b>$1,575M</b>. Weights: E/V = 0.8 and D/V = 0.2.</p><p><b>Step 2. r<sub>U</sub> is the pre-tax WACC</b> (no taxes, so no (1 − τ<sub>c</sub>)):</p><p>r<sub>U</sub> = 0.8 × 10.5% + 0.2 × 3.5% = 8.4% + 0.7% = <b>9.1000%</b></p><p><b>Cross-check with MM II.</b> 9.1% + (315/1,260)(9.1% − 3.5%) = 9.1% + 0.2500 × 5.6% = 10.5%. ✓</p>",
+          "criteria": [
+            "E = 18 × 70 = $1,260M from the share price. V = E + D = $1,575M.",
+            "Uses market-value weights E/V = 0.8 and D/V = 0.2, with no (1 − τ) term because there are no taxes.",
+            "r_U = 9.1000%."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>The management announces that it will issue new debt, use it to repay all the existing debt and pay out the rest as a special dividend right away. After the transaction the debt-to-equity ratio (D/E) will be 0.75.</p><p>How much new debt must be issued in total and what is the dividend per share? What happens to the share price immediately upon announcement? Explain briefly.</p>",
+          "solution": "<p><b>Step 1. The firm value does not change.</b> We live in a perfect capital market: there are no taxes (so no tax shield) and no costs of distress. By MM I the firm value is set by the clinics' cash flows, not by how they are split between debt and equity. V stays at <b>$1,575M</b>.</p><p><b>Step 2. The new debt.</b> D/E = 0.75 means D/V = 0.75 / 1.75 = 0.4286:</p><p>D<sub>new</sub> = 0.4286 × 1,575 = <b>$675M in total</b> (a net increase of 675 − 315 = $360M)</p><p><b>Step 3. The dividend.</b> $675M − $315M to repay the old debt = $360M, or 360 / 18 = <b>$20.00 per share</b>.</p><p><b>Step 4. The share price on announcement.</b> <b>Nothing happens: it stays at $70.00.</b> The firm value is unchanged and nothing has been paid out yet, so each share is still worth 1,260 / 18 = $70.00 (cum dividend).</p>",
+          "criteria": [
+            "Keeps V at $1,575M and converts D/E = 0.75 into D/V = 0.4286: new debt = $675M. Using 0.75 × 1,575 = 1,181.25 confuses D/E with D/V.",
+            "Dividend = 675 − 315 = $360M, or $20.00 per share. Paying out the whole $675M forgets the old debt.",
+            "Share price on announcement: unchanged at $70.00.",
+            "Gives the reason: perfect capital market (MM I), no taxes and so no tax shield, so the financing decision does not change the firm value. One line is enough, as in the lecturer's key to H2024 E3."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>What is the share price after the dividend has been paid? Are the shareholders better or worse off? (If you could not solve (b), use $630 million of new debt in total.)</p>",
+          "solution": "<p><b>Step 1. The new equity value.</b> E = V − D = 1,575 − 675 = <b>$900M</b>. A dividend retires no shares, so the share count is still 18M:</p><p>P = 900 / 18 = <b>$50.00 per share</b></p><p><b>Step 2. Better or worse off?</b> <b>Neither.</b> Each shareholder now holds a share worth $50.00 plus $20.00 in cash, which is $70.00, exactly the $70.00 before. The price falls by the dividend, which is the ordinary ex-dividend drop and not a loss.</p><p><b>Check.</b> 18 × 50.00 + 360 = $1,260M, the equity value before the transaction. ✓ With the fallback of $630M: P = (1,575 − 630) / 18 = $52.50, plus a dividend of $17.50, again $70.00.</p>",
+          "criteria": [
+            "E = 1,575 − 675 = $900M over an unchanged 18M shares: P = $50.00. Reducing the share count confuses a dividend with a repurchase.",
+            "Answers the second question: neither better nor worse off, because $50.00 + $20.00 = $70.00.",
+            "Names the mechanism: MM I in a perfect capital market and the ex-dividend price drop, so there is no wealth transfer. A lower price is not a loss."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 3,
+          "body": "<p>After the transaction the debt is risky and has an expected return of 5.5%. What is the new equity cost of capital? (If you could not solve (a), use r<sub>U</sub> = 9.5%.)</p>",
+          "solution": "<p><b>Step 1. The new capital structure.</b> D = $675M and E = $900M, so D/E = 0.75. r<sub>U</sub> is still 9.1000%: the clinics and their business risk have not changed.</p><p><b>Step 2. From r<sub>U</sub> to the new r<sub>E</sub> (MM II with the new r<sub>D</sub>).</b></p><p>r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) = 9.1% + 0.75 × (9.1% − 5.5%) = 9.1% + 0.75 × 3.6% = <b>11.8000%</b></p><p><b>Check</b> (an identity once MM II is used, so it only catches arithmetic slips): 0.5714 × 11.8% + 0.4286 × 5.5% = 0.0674 + 0.0236 = 0.0910 = r<sub>U</sub>. ✓ With the fallback r<sub>U</sub> = 9.5%: 9.5% + 0.75 × (9.5% − 5.5%) = 12.5000%.</p>",
+          "criteria": [
+            "Uses the post-transaction D/E = 675/900 = 0.75, not D/V = 0.4286 (10.6429%) and not the old 0.2500.",
+            "Keeps r_U = 9.1000% and uses the NEW r_D = 5.5%. The old 3.5% gives 13.3000% and is the error.",
+            "r_E = 11.8000%."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Instead of the dividend, the management considers issuing the same new debt, repaying the old debt and using the rest to repurchase shares. What is the share price after the transaction? How many shares are repurchased? (If you could not solve (b), use $630 million of new debt in total.)</p>",
+          "solution": "<p><b>Step 1. Two equations.</b> The firm has $360M to spend after repaying the old debt. Let P be the price after the transaction and n the number of shares repurchased (millions). The equity left must be worth V − D = $900M:</p><p>P × n = 360 (the repurchase)<br>P × (18 − n) = 900 (the remaining equity)</p><p>Add them: 18 × P = 1,260, so <b>P = $70.00</b>, unchanged. Since we live in a perfect capital market, the repurchase at the market price is a fair exchange of cash for shares.</p><p><b>Step 2. Shares repurchased.</b> n = 360 / 70.00 = <b>5.1429 million shares</b>, leaving 12.8571 million.</p><p><b>Check.</b> 900 / 12.8571 = $70.00. ✓ D/E is again 0.75, so r<sub>E</sub> is the same 11.8000% as in (d). With the fallback of $630M: the price is still $70.00 and n = 315 / 70.00 = 4.5000 million.</p>",
+          "criteria": [
+            "Share price unchanged at $70.00. Bonus: the reason (a repurchase at a fair price in a perfect capital market).",
+            "Uses only the $360M left after repaying the old debt: n = 360/70.00 = 5.1429 million. Using the whole $675M (9.6429 million) is the error.",
+            "Sets up the two equations P × n = 360 and P × (18 − n) = 900, as in the lecturer's key to H2024 E3, or equivalent direct reasoning (the price stays at $70.00, so n = 360/70.00), as in the key to H2025 E3.",
+            "Bonus: the comparison with (c). The dividend leaves $50.00 + $20.00, the repurchase $70.00 in cash or in shares, so a dividend and a repurchase are equivalent."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 3,
+          "body": "<p>The CFO argues: «Our new debt costs only 5.5%, much less than our equity. Replacing equity with this cheap debt lowers our cost of capital and therefore raises the value of the firm.» Is the CFO right? Explain briefly (3 to 4 sentences).</p>",
+          "solution": "<p><b>No.</b> Every dollar of debt makes the remaining equity riskier, so r<sub>E</sub> rises from 10.5% to 11.8% (MM II) and the cheaper debt is exactly offset: the WACC is 0.5714 × 11.8% + 0.4286 × 5.5% = 9.1% = r<sub>U</sub>, the same as before (0.8 × 10.5% + 0.2 × 3.5%). The firm value stays at $1,575M because we live in a perfect capital market: with no taxes there is no tax shield and the clinics' cash flows do not depend on how they are financed. That the new debt is risky only moves part of the same total risk from the shareholders to the lenders.</p>",
+          "criteria": [
+            "Says clearly that the CFO is wrong.",
+            "Mechanism: cheaper debt is offset by a higher cost of equity (MM II), because the equity holders carry the same business risk over a smaller base.",
+            "The WACC stays at r_U = 9.1% and the firm value at $1,575M, because we live in a perfect capital market (no taxes, no tax shield). Stating this reason is required for full marks.",
+            "Bonus: the one-line WACC check before and after, or noting that the risky debt shifts part of the same risk to the lenders."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-mm-rekap-3",
+  "kind": "must",
+  "label": "MM-rekapitalisering, utbytte og tilbakekjøp · oppgave 3",
+  "mk": {
+    "type": "mm-rekap",
+    "tier": 1,
+    "nr": 3
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Capital Structure",
+      "points": 20,
+      "topic": "MM in perfect markets, refinancing risky debt",
+      "chapters": [
+        4,
+        5,
+        6
+      ],
+      "merke": "Samme form som PS1 E3 i forelesning 6, med evigrente og en emisjon som innfrir gjelden",
+      "body": "<p>Heggedal Heis ASA, an elevator service company, operates in a perfect capital market (MM propositions hold, no taxes). It has 32 million shares trading at NOK 45 and perpetual debt worth NOK 960 million. The debt is risky with an expected return of 6.5%: the debt holders expect 6.5% of NOK 960 million each year. The risk-free rate is 4%. The firm expects a free cash flow of NOK 228 million a year in perpetuity, all paid out as interest and dividends at the end of each year. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the unlevered cost of capital (r<sub>U</sub>) of the firm? What is the equity cost of capital?</p>",
+          "solution": "<p><b>Step 1. Firm value.</b> E = 32M × NOK 45 = NOK 1,440M and V = 1,440 + 960 = <b>NOK 2,400M</b>.</p><p><b>Step 2. r<sub>U</sub>.</b> All free cash flow is paid out, so V is a perpetuity of NOK 228M at the pre-tax WACC, which equals r<sub>U</sub> when there are no taxes:</p><p>r<sub>U</sub> = FCF / V = 228 / 2,400 = <b>9.5000%</b></p><p><b>Step 3. r<sub>E</sub>.</b> The debt holders expect 6.5% × 960 = NOK 62.4M, so the shareholders expect 228 − 62.4 = NOK 165.6M a year:</p><p>r<sub>E</sub> = 165.6 / 1,440 = <b>11.5000%</b></p><p><b>Cross-check with MM II</b> and the risky r<sub>D</sub>: 9.5% + (960/1,440)(9.5% − 6.5%) = 9.5% + 0.6667 × 3% = 11.5%. ✓</p>",
+          "criteria": [
+            "V = 1,440 + 960 = NOK 2,400M and r_U = 228/2,400 = 9.5000% (pre-tax WACC = r_U without taxes).",
+            "r_E = (228 − 62.4)/1,440 = 11.5000%. The weighted-average route or MM II are equally accepted.",
+            "Uses the risky r_D = 6.5% for the old debt. MM II with r_f = 4% gives 13.1667% and is the error."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>The board announces a refinancing: the firm will sell new shares at the market price for NOK 600 million and take a new risk-free perpetual bank loan of NOK 360 million. The NOK 960 million repays all the old debt at its market value.</p><p>What happens to the share price upon announcement? How many new shares must be sold? Explain briefly why the firm value changes or does not change.</p>",
+          "solution": "<p><b>Step 1. The firm value.</b> It stays at <b>NOK 2,400M</b>. We live in a perfect capital market: the refinancing does not change the NOK 228M of free cash flow, there are no taxes and no issue costs, the old lenders are paid exactly what their claim is worth and the new investors pay a fair price. Only the split of V between debt and equity changes.</p><p><b>Step 2. Two equations.</b> After the refinancing D = NOK 360M, so the shares, old and new, are worth 2,400 − 360 = NOK 2,040M. With P the price and n the new shares (millions):</p><p>P × n = 600 (the issue)<br>P × (32 + n) = 2,040 (all shares after the refinancing)</p><p>Subtract: 32 × P = 1,440, so <b>P = NOK 45.00</b>, unchanged on announcement. Then n = 600 / 45.00 = <b>13.3333 million new shares</b>. There are 45.3333 million shares afterwards.</p>",
+          "criteria": [
+            "Share price unchanged at NOK 45.00 on announcement.",
+            "n = 600/45.00 = 13.3333 million, from the two equations P × n = 600 and P × (32 + n) = 2,040. Selling at a lower 'diluted' price is the error.",
+            "Firm value unchanged at NOK 2,400M because we live in a perfect capital market: the free cash flow is the same, there are no taxes and every claim is bought or repaid at a fair price.",
+            "Show the calculation. No calculation, no points."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>What is the equity cost of capital after the refinancing? (If you could not solve (a), use r<sub>U</sub> = 10%.)</p>",
+          "solution": "<p><b>Step 1. The new structure.</b> D = NOK 360M, E = NOK 2,040M, so D/E = 360 / 2,040 = 0.1765. r<sub>U</sub> is still 9.5000%. The new loan is risk-free, so r<sub>D</sub> is now r<sub>f</sub> = 4%: the old 6.5% belonged to debt that no longer exists.</p><p><b>Step 2. From r<sub>U</sub> to the new r<sub>E</sub>.</b></p><p>r<sub>E</sub> = 9.5% + 0.1765 × (9.5% − 4%) = 9.5% + 0.1765 × 5.5% = <b>10.4706%</b></p><p><b>Check</b> (an identity after MM II): 0.8500 × 10.4706% + 0.1500 × 4% = 0.0950 = r<sub>U</sub>. ✓ The independent check comes in (d). With the fallback r<sub>U</sub> = 10%: 10% + 0.1765 × (10% − 4%) = 11.0588%.</p>",
+          "criteria": [
+            "Goes from levered to r_U and back: r_U = 9.5000% is unchanged by the refinancing.",
+            "Uses the new D/E = 360/2,040 = 0.1765 (not D/V = 0.1500, which gives 10.3250%).",
+            "Uses the NEW r_D = r_f = 4%. Keeping the old 6.5% gives 10.0294% and is the error this part tests.",
+            "r_E = 10.4706%."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>What is the expected dividend per share at the end of Year 1 without the refinancing and with it? Use the second figure to find the share price right after the refinancing. (If you could not solve (b) or (c), use 12 million new shares and r<sub>E</sub> = 11%.)</p>",
+          "solution": "<p><b>Step 1. Without the refinancing.</b> (228 − 62.4) / 32 = 165.6 / 32 = <b>NOK 5.1750 per share</b>.</p><p><b>Step 2. With the refinancing.</b> Interest is 4% × 360 = NOK 14.4M, so the shareholders get 228 − 14.4 = NOK 213.6M, shared by 45.3333M shares:</p><p>Div<sub>1</sub> = 213.6 / 45.3333 = <b>NOK 4.7118 per share</b></p><p><b>Step 3. The share price.</b> The share is a perpetuity of NOK 4.7118 at the new r<sub>E</sub>:</p><p>P = 4.7118 / 0.104706 = <b>NOK 45.00</b></p><p><b>Check.</b> This is the price from (b), found a different way. Unlike the WACC identity it can fail: r<sub>E</sub> = 10.0294% (old r<sub>D</sub>) would give NOK 46.98 and 10.3250% (D/V weights) NOK 45.63. It cannot catch a student who uses the same wrong r<sub>D</sub> for both the interest and MM II, but the loan's 4% is given.</p><p><b>With the fallback values</b> (12 million new shares, r<sub>E</sub> = 11%): Div<sub>1</sub> = 213.6 / 44 = NOK 4.8545 and P = 4.8545 / 0.11 = NOK 44.13. That the price is not NOK 45 only shows that the fallback values are not the true ones.</p>",
+          "criteria": [
+            "Without: (228 − 62.4)/32 = NOK 5.1750, with interest at the risky 6.5%.",
+            "With: interest 4% × 360 = 14.4, so (228 − 14.4)/45.3333 = NOK 4.7118. Dividing by the old 32M shares forgets the new shares.",
+            "P = 4.7118/10.4706% = NOK 45.00, the same as before the refinancing.",
+            "Bonus: says that this checks the r_E from (c) independently."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 5,
+          "body": "<p>A board member says that the share issue dilutes the existing shareholders. Is the board member right? Are the old debt holders, the investors who buy the new shares and the existing shareholders better or worse off? Explain briefly.</p>",
+          "solution": "<p><b>The board member is wrong.</b> The expected dividend per share falls from NOK 5.1750 to NOK 4.7118, but the shares are now safer: with less debt the shareholders carry the business risk over a larger base, so r<sub>E</sub> falls from 11.5000% to 10.4706%. The lower dividend at the lower discount rate is worth the same NOK 45.00. A smaller dividend per share is not dilution of value.</p><table class=\"data\"><tr><th>Group</th><th>Before</th><th>After</th><th>Better or worse off?</th></tr><tr><td>Old debt holders</td><td>A claim worth NOK 960M</td><td>NOK 960M in cash</td><td>Neither: repaid at market value</td></tr><tr><td>New shareholders</td><td>NOK 600M in cash</td><td>13.3333M shares × NOK 45.00 = NOK 600M</td><td>Neither: fair price, they expect to earn r<sub>E</sub> = 10.4706%</td></tr><tr><td>Existing shareholders</td><td>32M shares × NOK 45.00 = NOK 1,440M</td><td>32M shares × NOK 45.00 = NOK 1,440M</td><td>Neither</td></tr></table><p>Nobody gains and nobody loses: there is no wealth transfer. The firm value stays at NOK 2,400M because we live in a perfect capital market, so the refinancing only re-slices the same NOK 228M a year between lenders and shareholders.</p>",
+          "criteria": [
+            "Says the board member is wrong and explains why: the dividend per share falls, but r_E falls too because the equity is less risky, so the share price is unchanged.",
+            "Old debt holders: neither better nor worse off, because they are repaid at market value.",
+            "New shareholders: neither, because they buy at the fair price and get a fair expected return.",
+            "Existing shareholders: neither, their shares are still worth NOK 45 each. Credit for saying there is no wealth transfer.",
+            "Gives the reason the firm value does not change: perfect capital market (MM I), the free cash flow is the same."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-gjeldsoverheng-1",
+  "kind": "must",
+  "label": "Gjeldsoverheng: hvem vil ha prosjektet? · oppgave 1",
+  "mk": {
+    "type": "gjeldsoverheng",
+    "tier": 1,
+    "nr": 1
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Debt and risk",
+      "points": 20,
+      "topic": "Risky debt, investment and renegotiation",
+      "chapters": [
+        10
+      ],
+      "merke": "Samme form som PS1 E6 (MXK), regnet i forelesning 06",
+      "body": "<p>Skarvholmen Sjømat AS runs a salmon processing plant in Lofoten. Its only debt is a zero-coupon bank loan with a face value of NOK 170 million, due in one year. Next year the firm will be worth NOK 290 million if salmon prices are high and NOK 110 million if they are low, each with probability 50%. If the firm cannot repay in full, the bank takes over the firm at no extra cost. The manager, Sigurd Brekmo, owns all the shares. Everyone is risk neutral, there is no discounting and there are no taxes.</p><p>Sigurd can install a new filleting line that costs NOK 42 million today and raises the firm's value next year by NOK 56 million whatever the salmon price. The firm has no cash.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Without the new line, what are the bank loan and the equity worth today?</p>",
+          "solution": "<p>The bank gets min(value, 170) and Sigurd gets max(value − 170, 0) in each state:</p><table class=\"data\"><tr><th>Salmon price</th><th>Probability</th><th>Firm</th><th>Loan</th><th>Equity</th></tr><tr><td>High</td><td class=\"n\">50%</td><td class=\"n\">290</td><td class=\"n\">170</td><td class=\"n\">120</td></tr><tr><td>Low</td><td class=\"n\">50%</td><td class=\"n\">110</td><td class=\"n\">110</td><td class=\"n\">0</td></tr></table><p>Loan = 0.5 × 170 + 0.5 × 110 = <b>NOK 140 million</b> and equity = 0.5 × 120 + 0.5 × 0 = <b>NOK 60 million</b>.</p><p><b>Check.</b> 140 + 60 = 200 = 0.5 × 290 + 0.5 × 110 ✓</p>",
+          "criteria": [
+            "Loan valued state by state: 0.5 × 170 + 0.5 × 110 = NOK 140 million. Using the face value of 170 is the classic error.",
+            "Equity 0.5 × (290 − 170) = NOK 60 million.",
+            "The check D + E = 200 = the expected value of the firm is a bonus."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 2,
+          "body": "<p>What is the NPV of the filleting line?</p>",
+          "solution": "<p>The line adds 56 in both states and costs 42, with no discounting: NPV = −42 + 56 = <b>NOK 14 million</b>. For the firm as a whole it is a good project.</p>",
+          "criteria": [
+            "NPV = −42 + 56 = NOK 14 million.",
+            "No discounting is needed: everyone is risk neutral and the rate is zero.",
+            "States that the line creates value for the firm as a whole."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 6,
+          "body": "<p>The line can only be financed by selling new shares to outside investors in a competitive market. What fraction of the equity must the new investors receive? What is Sigurd's payoff if he issues the shares and installs the line? Will he do it? Would the bank like the line to be installed?</p>",
+          "solution": "<p><b>Step 1. Payoffs with the line.</b> The firm is worth 290 + 56 = 346 if prices are high and 110 + 56 = 166 if they are low. Since 166 is below 170, the firm still defaults when prices are low:</p><table class=\"data\"><tr><th>Salmon price</th><th>Firm</th><th>Loan</th><th>All equity</th></tr><tr><td>High</td><td class=\"n\">346</td><td class=\"n\">170</td><td class=\"n\">176</td></tr><tr><td>Low</td><td class=\"n\">166</td><td class=\"n\">166</td><td class=\"n\">0</td></tr></table><p>All the equity together is worth 0.5 × 176 + 0.5 × 0 = 88.</p><p><b>Step 2. The new investors' fraction.</b> In a competitive market they pay 42 for a stake worth exactly 42: x × 88 = 42, so <b>x = 42/88 = 47.73%</b>.</p><p><b>Step 3. Sigurd's payoff.</b> He keeps 52.27% × 88 = <b>NOK 46 million</b> (the same as 88 − 42), against 60 without the line. <b>He does not install it.</b></p><p><b>Step 4. The bank.</b> With the line the loan is worth 0.5 × 170 + 0.5 × 166 = 168 instead of 140. <b>The bank would like the line</b>: it receives the whole 56 when prices are low.</p>",
+          "criteria": [
+            "Recognises that the firm still defaults when prices are low (166 is below 170), so all equity is worth 0.5 × 176 = 88.",
+            "Fraction from x × 88 = 42: x = 47.73%. Using the high-state payoff alone (42/176 = 23.86%) forgets the probability.",
+            "Sigurd's payoff (1 − x) × 88 = 46, compared with 60 without the line: he does not install it.",
+            "The bank: the loan rises from 140 to 168, so the bank wants the line.",
+            "Show the calculation."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 5,
+          "body": "<p>Sigurd offers the bank to replace its loan with a new zero-coupon loan with a face value of NOK 146 million. If the bank accepts, the line is financed with new shares as in (c). If it refuses, the old loan stays in place. Will the bank accept? Will Sigurd go ahead? How much does each of them gain or lose compared with (a)?</p>",
+          "solution": "<p><b>Step 1. The bank's outside option.</b> If the bank refuses, the old loan stays and Sigurd does not install the line, from (c). The bank keeps a claim worth 140, from (a).</p><p><b>Step 2. The new loan with the line.</b> The firm is worth at least 166, which is above 146, so the new loan is paid in full in both states:</p><table class=\"data\"><tr><th>Salmon price</th><th>Firm</th><th>New loan</th><th>All equity</th></tr><tr><td>High</td><td class=\"n\">346</td><td class=\"n\">146</td><td class=\"n\">200</td></tr><tr><td>Low</td><td class=\"n\">166</td><td class=\"n\">146</td><td class=\"n\">20</td></tr></table><p>The new loan is worth 146 for sure. 146 is more than 140, so <b>the bank accepts</b>: it gains <b>+6</b>.</p><p><b>Step 3. Sigurd.</b> All equity is worth 0.5 × 200 + 0.5 × 20 = 110. The new investors need x × 110 = 42, so x = 38.18%. Sigurd keeps 61.82% × 110 = 68 (= 110 − 42). 68 is more than 60, so <b>Sigurd goes ahead</b>: he gains <b>+8</b>.</p><p><b>Check.</b> Bank +6, Sigurd +8, new shareholders 0 (they pay 42 for 42): +6 + 8 + 0 = 14 = the NPV ✓. With a safe new face value K, Sigurd keeps 256 − K − 42 = 214 − K, so both accept any K from 140 (the bank's floor) to 154 (where Sigurd keeps 60). 146 lies inside.</p>",
+          "criteria": [
+            "The bank's benchmark is its claim without the deal, 140 from (a). Comparing with the face value of 170, or with 168 from (c), is the classic error: without the write-down the line is not installed.",
+            "Recognises that the new loan of 146 is safe (166 is above 146), so it is worth 146 and the bank gains 6.",
+            "New fraction x = 42/110 = 38.18%; Sigurd keeps 68, a gain of 8 over 60, so he goes ahead.",
+            "Bonus: the check 6 + 8 = 14 = the NPV (the new shareholders break even), or the whole range 140 to 154."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Explain briefly Sigurd's decision in (c) and the bank's decision in (d). Who captures the value that the filleting line creates in each case?</p>",
+          "solution": "<p><b>In (c).</b> The line has a positive NPV, but Sigurd rejects it: <b>the firm forgoes a positive-NPV project</b>. This is debt overhang. The bank's loan is senior, so when prices are low the whole 56 from the line goes to the bank (its payoff rises from 110 to 166), while Sigurd pays for the line by giving away 47.73% of the equity. The line is a <b>wealth transfer</b> from Sigurd to the bank: the bank gains 168 − 140 = +28, Sigurd loses 46 − 60 = −14 and +28 − 14 = 14 is the NPV. The bank takes more than the whole NPV, so Sigurd says no.</p><p><b>In (d).</b> The bank's claim of 170 is worth only 140, because it gets 110 when prices are low. A smaller claim that is paid in full in both states is worth more than a larger claim that defaults half the time. With the face value at 146 the firm no longer defaults, so Sigurd keeps the payoff of the line above the new face value and the NPV is shared: +6 to the bank and +8 to Sigurd. Without the write-down the NPV of 14 is lost for everyone.</p>",
+          "criteria": [
+            "Key sentence (about half the marks, as Kurbatov said in recording 04, 44:31): the firm forgoes a positive-NPV project because of its debt.",
+            "Mechanism: the existing loan is senior, so the bank captures the payoff of the line when prices are low; a wealth transfer from Sigurd to the bank (bank +28, Sigurd −14, sum 14).",
+            "Renegotiation: a smaller safe claim (146) is worth more to the bank than a larger risky one (170, worth 140), so the bank gives up face value to gain value.",
+            "The write-down removes default, so Sigurd keeps the payoff of the line and the NPV is shared instead of lost. Naming debt overhang without the mechanism earns half."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-gjeldsoverheng-2",
+  "kind": "must",
+  "label": "Gjeldsoverheng: hvem vil ha prosjektet? · oppgave 2",
+  "mk": {
+    "type": "gjeldsoverheng",
+    "tier": 1,
+    "nr": 2
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Debt and risk",
+      "points": 20,
+      "topic": "Risky debt and investment",
+      "chapters": [
+        10
+      ],
+      "merke": "Formen fra PS1 E6 med et konstruksjonsledd i stilen til H2024 E4 c",
+      "body": "<p>Brannock Aluminum Inc. runs a smelter in Ohio. Its only debt is a zero-coupon bond issue with a face value of $125 million, due in one year. Next year the smelter will be worth $230 million if power prices are low and $80 million if they are high, each with probability 50%. If Brannock cannot repay in full, the bondholders take over the smelter at no extra cost. The manager acts in the best interests of Brannock's shareholders. All investors are risk neutral, there is no discounting and there are no taxes.</p><p>A heat-recovery system costs $30 million today. It cuts power use, so it raises the smelter's value next year by $18 million if power prices are low and by $60 million if they are high.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Without the system, what are Brannock's bonds and equity worth today?</p>",
+          "solution": "<table class=\"data\"><tr><th>Power prices</th><th>Probability</th><th>Smelter</th><th>Bonds</th><th>Equity</th></tr><tr><td>Low</td><td class=\"n\">50%</td><td class=\"n\">230</td><td class=\"n\">125</td><td class=\"n\">105</td></tr><tr><td>High</td><td class=\"n\">50%</td><td class=\"n\">80</td><td class=\"n\">80</td><td class=\"n\">0</td></tr></table><p>Bonds = 0.5 × 125 + 0.5 × 80 = <b>$102.5 million</b> and equity = 0.5 × 105 = <b>$52.5 million</b>.</p><p><b>Check.</b> 102.5 + 52.5 = 155 = 0.5 × 230 + 0.5 × 80 ✓</p>",
+          "criteria": [
+            "Bonds valued state by state: 0.5 × 125 + 0.5 × 80 = $102.5 million. Using the face value of 125 is the classic error.",
+            "Equity 0.5 × (230 − 125) = $52.5 million.",
+            "The check D + E = 155 is a bonus."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 6,
+          "body": "<p>What is the NPV of the system? Brannock has no cash, so the system must be financed by selling new shares at a fair price. What fraction of the equity must the new shareholders receive? What are the existing shareholders' shares then worth? Will the manager install the system?</p>",
+          "solution": "<p><b>Step 1. NPV.</b> The system adds 18 or 60 with probability 50% each: NPV = 0.5 × 18 + 0.5 × 60 − 30 = 39 − 30 = <b>$9 million</b>.</p><p><b>Step 2. Payoffs with the system.</b> The smelter is worth 248 if power is cheap and 140 if it is expensive. Since 140 is above 125, the bonds are now paid in full in both states:</p><table class=\"data\"><tr><th>Power prices</th><th>Smelter</th><th>Bonds</th><th>All equity</th></tr><tr><td>Low</td><td class=\"n\">248</td><td class=\"n\">125</td><td class=\"n\">123</td></tr><tr><td>High</td><td class=\"n\">140</td><td class=\"n\">125</td><td class=\"n\">15</td></tr></table><p>All equity is worth 0.5 × 123 + 0.5 × 15 = 69.</p><p><b>Step 3. The new shareholders.</b> x × 69 = 30, so <b>x = 43.48%</b>. The existing shareholders keep 56.52% × 69 = <b>$39 million</b> (= 69 − 30), against 52.5 without the system.</p><p><b>Decision.</b> <b>The manager does not install the system</b>, although its NPV is positive: the firm forgoes a positive-NPV project because of its debt.</p>",
+          "criteria": [
+            "NPV = 0.5 × 18 + 0.5 × 60 − 30 = $9 million, with the probabilities on the state-dependent gains.",
+            "Payoffs with the system 248 and 140; the bonds become safe, so all equity is worth 0.5 × 123 + 0.5 × 15 = 69.",
+            "Fraction x = 30/69 = 43.48%.",
+            "Existing shareholders: 69 − 30 = 39, below 52.5, so the manager, acting for them, does not install the system.",
+            "Bonus: says that the firm forgoes a positive-NPV project because of its debt (Kurbatov's key sentence).",
+            "Show the calculation."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>Who gains and who loses if the system is installed as in (b)? Check that the gains and losses add up to the NPV. Would the bondholders like the system to be installed? Explain briefly.</p>",
+          "solution": "<table class=\"data\"><tr><th>Claimholder</th><th>Without the system</th><th>With the system as in (b)</th><th>Change</th></tr><tr><td>Bondholders</td><td class=\"n\">102.5</td><td class=\"n\">125</td><td class=\"n\">+22.5</td></tr><tr><td>Existing shareholders</td><td class=\"n\">52.5</td><td class=\"n\">39</td><td class=\"n\">−13.5</td></tr><tr><td>New shareholders</td><td class=\"n\">0</td><td class=\"n\">30 for 30 paid</td><td class=\"n\">0</td></tr></table><p><b>Check.</b> +22.5 − 13.5 + 0 = <b>+9</b> = the NPV ✓</p><p><b>The bondholders would like the system</b>: it makes their bonds safe. Their payoff when power is expensive rises from 80 to 125, so they capture 22.5 of value while the shareholders pay the full $30 million. The system pays most in the state where the shareholders get nothing, which is why the bondholders gain more than the whole NPV.</p>",
+          "criteria": [
+            "Bondholders +22.5 (102.5 to 125), existing shareholders −13.5 (52.5 to 39), new shareholders 0.",
+            "Check: +22.5 − 13.5 + 0 = 9 = the NPV.",
+            "The bondholders want the system: it removes their default risk.",
+            "Calls it a wealth transfer from the shareholders to the bondholders, in Kurbatov's key words."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Suppose instead that the bonds had a face value of F, with everything else unchanged. Is there a value of F at which the shareholders are indifferent between installing the system (financed as in (b)) and not installing it? If it exists, find it. For which face values will the manager install the system?</p>",
+          "solution": "<p><b>Step 1. Where can F lie?</b> If F ≤ 80, the bonds are safe with or without the system, so the shareholders receive the whole NPV and install it. If F is above 140, the firm defaults when power is expensive even with the system, so the shareholders get only the 18 in the cheap-power state: 0.5 × 18 = 9 is less than the 30 they pay and they never install it. Indifference must lie between 80 and 140, where the system makes the bonds safe.</p><p><b>Step 2. Set the two equity values equal for 80 &lt; F ≤ 140.</b></p><p>Without the system: 0.5(230 − F)<br>With the system, after paying 30: 0.5(248 − F) + 0.5(140 − F) − 30 = 164 − F</p><p>0.5(230 − F) = 164 − F ⇒ 115 − 0.5F = 164 − F ⇒ 0.5F = 49 ⇒ <b>F = $98 million</b></p><p><b>Check.</b> F = 98 lies between 80 and 140 ✓. Without the system the shareholders get 0.5 × 132 = 66; with it 0.5 × 150 + 0.5 × 42 − 30 = 66 ✓. At F = 98 the bondholders' gain, 0.5 × (98 − 80) = 9, is exactly the NPV.</p><p><b>Range.</b> The shareholders' gain from the system, 9 − 0.5(F − 80), falls as F rises. <b>The manager installs the system if F ≤ $98 million</b> and rejects it above that. The more debt, the larger the share of the NPV that goes to the bondholders.</p>",
+          "criteria": [
+            "Equity values as functions of F in the region where the system makes the bonds safe: 0.5(230 − F) without and 164 − F with the system, net of the 30.",
+            "Solves 0.5(230 − F) = 164 − F to get F = $98 million.",
+            "Checks that 98 lies in the assumed region (between 80 and 140) or that both equity values equal 66.",
+            "Range: the manager installs the system for F up to 98 and rejects it above; the bondholders' gain 0.5(F − 80) grows with F until it exceeds the NPV.",
+            "Concluding that no such F exists (by assuming default when power is expensive in both cases) is the classic error. So is F = 89 (forgetting the probability)."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Return to a face value of $125 million. Would the manager's decision change if the $30 million were borrowed from a competitive new lender on a loan that is junior to the bonds? The lender prices the loan fairly. Explain briefly.</p>",
+          "solution": "<p><b>No.</b> A junior lender is paid only after the bondholders. Fairly priced, the new loan must still be worth $30 million to the lender, so the existing shareholders bear the whole cost, as with new shares, while the bondholders still capture the gain in the expensive-power state. For example, a junior loan with face value J pays min(J, 123) if power is cheap and min(J, 15) if it is expensive; 0.5J + 0.5 × 15 = 30 gives J = 45. The shareholders then keep 0.5 × (248 − 125 − 45) = 39, exactly as in (b).</p><p>Junior money never removes the problem, because the existing senior claim still takes the project's payoff first. Money that is senior to the bonds, or a renegotiation of their face value, could help.</p>",
+          "criteria": [
+            "Answers no: the decision is the same as with new shares.",
+            "Reason: the junior lender is paid after the bondholders and must break even, so the shareholders still pay the full cost while the bondholders keep their gain.",
+            "Showing that the shareholders keep 39 again (junior face value 45) is a bonus.",
+            "Bonus: senior debt or a renegotiation of the face value could solve the problem (Kurbatov, recording 04, 45:12 to 50:13)."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-gjeldsoverheng-3",
+  "kind": "must",
+  "label": "Gjeldsoverheng: hvem vil ha prosjektet? · oppgave 3",
+  "mk": {
+    "type": "gjeldsoverheng",
+    "tier": 1,
+    "nr": 3
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Debt and risk",
+      "points": 20,
+      "topic": "Risky debt, investment and new financing",
+      "chapters": [
+        10,
+        11
+      ],
+      "merke": "Som eksemplet i forelesning 04 (33:41) og PS1 E6, med sannsynligheter som ikke er 50/50 og en ny finansieringsmåte",
+      "body": "<p>Rheinfeld Logistik GmbH, a warehouse operator near Hamburg, is wholly owned by the private equity fund Altmark Capital. Its only debt is a zero-coupon bank loan with a face value of €180 million, due in one year. Next year Rheinfeld will be worth €300 million if its largest customer renews its contract (probability 40%) and €110 million if not (probability 60%). If Rheinfeld cannot repay in full, the bank takes over the company at no extra cost. All investors are risk neutral, the risk-free rate is 5% and there are no taxes. Use 4 decimal places.</p><p>Solar panels on the warehouse roofs would cost €40 million today and raise Rheinfeld's value next year by €63 million whether or not the contract is renewed.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Without the panels, what are the bank loan and Altmark's equity worth today?</p>",
+          "solution": "<table class=\"data\"><tr><th>Contract</th><th>Probability</th><th>Rheinfeld</th><th>Loan</th><th>Equity</th></tr><tr><td>Renewed</td><td class=\"n\">40%</td><td class=\"n\">300</td><td class=\"n\">180</td><td class=\"n\">120</td></tr><tr><td>Not renewed</td><td class=\"n\">60%</td><td class=\"n\">110</td><td class=\"n\">110</td><td class=\"n\">0</td></tr></table><p>Loan = (0.4 × 180 + 0.6 × 110)/1.05 = 138/1.05 = <b>€131.4286 million</b><br>Equity = 0.4 × 120/1.05 = 48/1.05 = <b>€45.7143 million</b></p><p><b>Check.</b> 131.4286 + 45.7143 = 177.1429 = (0.4 × 300 + 0.6 × 110)/1.05 ✓</p>",
+          "criteria": [
+            "Loan valued state by state with the 40%/60% probabilities: (0.4 × 180 + 0.6 × 110)/1.05 = 131.4286.",
+            "Equity 0.4 × 120/1.05 = 45.7143.",
+            "Discounts at the risk-free 5%. Using 50/50 probabilities (138.0952 for the loan) or forgetting to discount (138) is the classic error."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>What is the NPV of the panels? Rheinfeld has no cash, but Altmark can pay for the panels by injecting €40 million of new equity. How much would Altmark and the bank each gain or lose compared with (a)? Will Altmark install the panels?</p>",
+          "solution": "<p><b>Step 1. NPV.</b> NPV = −40 + 63/1.05 = −40 + 60 = <b>€20 million</b>.</p><p><b>Step 2. Payoffs with the panels.</b> Rheinfeld is worth 363 if the contract is renewed and 173 if not. 173 is below 180, so the company still defaults without renewal:</p><table class=\"data\"><tr><th>Contract</th><th>Rheinfeld</th><th>Loan</th><th>Equity</th></tr><tr><td>Renewed</td><td class=\"n\">363</td><td class=\"n\">180</td><td class=\"n\">183</td></tr><tr><td>Not renewed</td><td class=\"n\">173</td><td class=\"n\">173</td><td class=\"n\">0</td></tr></table><p><b>Step 3. Gains and losses.</b> Altmark's equity is worth 0.4 × 183/1.05 = 69.7143; net of the 40 it injects, Altmark has 29.7143 against 45.7143 without the panels: a change of <b>−€16 million</b>. The loan is worth (0.4 × 180 + 0.6 × 173)/1.05 = 167.4286 against 131.4286: a change of <b>+€36 million</b>.</p><p><b>Check.</b> −16 + 36 = 20 = the NPV ✓</p><p><b>Decision.</b> <b>Altmark does not install the panels.</b> It pays the whole €40 million, but it receives the payoff of the panels only if the contract is renewed. Without renewal the whole 63 goes to the bank. <b>The firm forgoes a positive-NPV project</b> because of its debt.</p>",
+          "criteria": [
+            "NPV = 63/1.05 − 40 = €20 million.",
+            "Recognises that the company still defaults without renewal (173 is below 180).",
+            "Altmark: 0.4 × 183/1.05 − 40 = 29.7143 against 45.7143, a loss of 16. Bank: 167.4286 against 131.4286, a gain of 36.",
+            "Altmark does not install the panels: the bank captures more than the whole NPV, a wealth transfer from the owner to the bank. Saying that the firm forgoes a positive-NPV project because of its debt is Kurbatov's key sentence.",
+            "The check −16 + 36 = 20 is a bonus."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>For which probabilities of renewal would Altmark install the panels when it pays for them as in (b)? The values of Rheinfeld in the two states are unchanged.</p>",
+          "solution": "<p>Without renewal the company defaults with or without the panels (173 is below 180 whatever the probability), so Altmark receives the extra 63 only if the contract is renewed. With a renewal probability p, the panels raise Altmark's equity by p × 63/1.05 = 60p and cost 40. Altmark installs them if</p><p>60p ≥ 40 ⇒ <b>p ≥ 2/3 = 66.67%</b></p><p>At p = 40% the owner's share of the payoff, 0.4 × 60 = 24, is far below the cost. The owner invests only when the good state is likely enough for the owner's part of the payoff to cover the whole cost.</p>",
+          "criteria": [
+            "Recognises that Altmark gains from the panels only if the contract is renewed, because the company still defaults otherwise.",
+            "Condition p × 63/1.05 ≥ 40, or equivalently equal equity values with and without the panels for a general p.",
+            "Answer: p of at least 2/3 (66.67%). Forgetting to discount gives 63.49%."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 6,
+          "body": "<p>Return to a probability of 40%. The loan agreement allows a new loan that is senior to the bank's. Altmark considers financing the panels with a one-year zero-coupon senior loan from a competitive new lender, who prices the loan fairly, instead of new equity. What face value must that loan have? What are the bank loan and Altmark's equity then worth? Will Altmark install the panels? Is the bank better or worse off than in (a)?</p>",
+          "solution": "<p><b>Step 1. The new loan's face value.</b> Without renewal Rheinfeld is worth 173 with the panels, far above what the new lender is owed. The new lender is also paid first, so the new loan is risk-free: its face value is 40 × 1.05 = <b>€42 million</b>.</p><p><b>Step 2. Payoffs.</b></p><table class=\"data\"><tr><th>Contract</th><th>Rheinfeld</th><th>New loan</th><th>Bank</th><th>Equity</th></tr><tr><td>Renewed</td><td class=\"n\">363</td><td class=\"n\">42</td><td class=\"n\">180</td><td class=\"n\">141</td></tr><tr><td>Not renewed</td><td class=\"n\">173</td><td class=\"n\">42</td><td class=\"n\">131</td><td class=\"n\">0</td></tr></table><p>Bank loan = (0.4 × 180 + 0.6 × 131)/1.05 = 150.6/1.05 = <b>€143.4286 million</b><br>Altmark's equity = 0.4 × 141/1.05 = 56.4/1.05 = <b>€53.7143 million</b></p><p><b>Step 3. Decisions.</b> Altmark's equity rises from 45.7143 to 53.7143 (+8) without any injection, so <b>Altmark installs the panels</b>. The bank's loan rises from 131.4286 to 143.4286 (+12), so <b>the bank is better off than in (a)</b>, even though a new claim now stands ahead of it.</p><p><b>Check.</b> +8 + 12 = 20 = the NPV ✓. The new lender breaks even. The senior loan is repaid first in both states: out of Altmark's payoff if the contract is renewed and out of the bank's if not. Each side now pays for the panels in the state where it receives their payoff, so the NPV is split by the probabilities: 0.4 × 20 = 8 and 0.6 × 20 = 12.</p>",
+          "criteria": [
+            "The senior loan is risk-free (173 covers it), so its face value is 40 × 1.05 = €42 million. A face value of 40 forgets the interest.",
+            "Bank: (0.4 × 180 + 0.6 × 131)/1.05 = 143.4286.",
+            "Equity: 0.4 × (363 − 42 − 180)/1.05 = 53.7143, above 45.7143, so Altmark installs the panels.",
+            "The bank is better off than in (a): 143.4286 against 131.4286.",
+            "The check +8 + 12 = 20 = the NPV is a bonus."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Most loan agreements forbid new debt that is senior to the existing loan. Why do lenders insist on this covenant? Is it always bad for the owners? Explain briefly.</p>",
+          "solution": "<p><b>Why lenders insist.</b> If a firm could freely issue new senior debt, every new loan would push the existing lender further back in the queue. The owner could borrow senior to pay a dividend or to fund a bad project. The new lender would then be paid out of the assets the existing lender counted on. Lenders who expect this would refuse to lend or demand a much higher rate. Senior debt used for a safe positive-NPV project, as in (d), can help both sides; used for a risky project or a payout, it takes value from the existing lender.</p><p><b>Is the covenant bad for the owners?</b> Ex post it can be: here it would block a positive-NPV project unless the bank waives it or renegotiates. Ex ante it is good for them: by promising not to dilute the lender, the owners can borrow on better terms, so they bear less of the agency cost of debt.</p>",
+          "criteria": [
+            "Lenders want the covenant because new senior debt would dilute their claim: the owner could keep issuing claims ahead of them (Kurbatov, recording 04, 46:24 to 47:49).",
+            "Bonus: senior debt for a risky project or a payout would transfer wealth from the bank.",
+            "Basic answer accepted: ex post the covenant can block a positive-NPV project, as here, unless the bank waives it.",
+            "Full marks also give the ex ante view: the covenant makes the debt cheaper when it is issued, so the owners benefit."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-vente-1",
+  "kind": "must",
+  "label": "Realopsjon: investere nå eller vente · oppgave 1",
+  "mk": {
+    "type": "vente",
+    "tier": 1,
+    "nr": 1
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Real options",
+      "points": 20,
+      "topic": "Real options, option to wait",
+      "chapters": [
+        25
+      ],
+      "merke": "Samme form som det første venteeksemplet i forelesning 14 (17:06 til 30:40)",
+      "body": "<p>Lusoliva SA can buy an olive estate in the Alentejo, Portugal, for EUR 52 million, paid at once. It yields 1,200 tonnes of olive oil a year forever, starting now: this year's oil is already pressed, so Lusoliva sells 1,200 tonnes immediately (at t = 0) and then 1,200 tonnes at the end of every year (t = 1, 2, 3, …).</p><p>Olive oil sells at EUR 4,500 per tonne today. At t = 1 the price becomes EUR 7,750 (probability 35%) or EUR 2,750 (probability 65%) per tonne and stays there forever. Oil sold at t = 0 fetches today's price, all later oil the price from t = 1. Prices are net of all costs. The price risk is unrelated to the stock market, so discount at the risk-free rate of 8%. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the NPV of buying the estate today?</p>",
+          "solution": "<p><b>Step 1. The timeline.</b> At t = 0 Lusoliva pays 52 and sells this year's oil at once: 1,200 × 4,500 = EUR 5.4 million, not discounted. From t = 1 it sells 1,200 tonnes a year forever at the price from t = 1, which is 7,750 or 2,750 (EUR 9.3 million or EUR 3.3 million a year).</p><p>Expected cash flow from t = 1: 0.35 × 9.3 + 0.65 × 3.3 = 3.2550 + 2.1450 = <b>5.4000</b> EUR million a year</p><p><b>Step 2. Value it.</b> The stream from t = 1 is a perpetuity whose first payment comes in one year, worth C/r today: 5.4000/0.08 = <b>67.5000</b>.</p><p>NPV<sub>now</sub> = −52 + 5.4 + 67.5000 = <b>20.9000 EUR million</b></p><p>The static NPV is positive. Leaving out the oil sold at t = 0 gives −52 + 67.5000 = 15.5000: the first unit comes now, not in a year (recording 14, 19:47). Here the expected price from t = 1 equals today's price, so valuing all oil at EUR 4,500 gives the same 20.9000.</p>",
+          "criteria": [
+            "Includes the EUR 5.4 million sold at t = 0, undiscounted, because production starts now. Leaving it out gives 15.5000, the year-zero trap from the lecture (recording 14, 19:47).",
+            "Expected cash flow from t = 1 of 5.4000 a year, valued as a perpetuity from t = 1: 5.4000/0.08 = 67.5000.",
+            "NPV = −52 + 5.4 + 67.5000 = 20.9000 EUR million.",
+            "Shows the timeline or the calculation, not only the result."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>The owner also offers Lusoliva the right to buy in exactly one year for the same EUR 52 million; the owner keeps the oil until then. If Lusoliva waits, it pays at t = 1 and sells its first 1,200 tonnes at once (at t = 1). What is the NPV at t = 1 of buying in each state? Would Lusoliva buy in each state?</p>",
+          "solution": "<p>Value each state at t = 1, when the price is known. The first oil is again sold at once, so the value at t = 1 is −52 + C + C/0.08, with C = 1,200 × price.</p><table class=\"data\"><tr><th>State at t = 1</th><th>C</th><th>Calculation</th><th>NPV at t = 1</th><th>Decision</th></tr><tr><td>High, EUR 7,750</td><td class=\"n\">9.3</td><td class=\"n\">−52 + 9.3 + 9.3/0.08 = −52 + 9.3 + 116.2500</td><td class=\"n\"><b>73.5500</b></td><td class=\"n\">buy</td></tr><tr><td>Low, EUR 2,750</td><td class=\"n\">3.3</td><td class=\"n\">−52 + 3.3 + 3.3/0.08 = −52 + 3.3 + 41.2500</td><td class=\"n\"><b>−7.4500</b></td><td class=\"n\">do not buy: 0</td></tr></table><p>At the low price Lusoliva would pay 52 for oil worth 44.5500, so it walks away: that state is worth <b>0</b>, not −7.4500. At the high price it buys.</p><p>Seen from t = 0 the high state is worth 73.5500/1.08 = 68.1019. The same number follows from −52/1.08 + 9.3/0.08 = −48.1481 + 116.2500 = 68.1019: both the outlay and the first sale move one year, so the oil from t = 1 is a perpetuity starting in one year (recording 14, 21:50).</p>",
+          "criteria": [
+            "Values each state at t = 1 with the first oil sold at t = 1: 73.5500 at the high price and −7.4500 at the low price.",
+            "Moves both the outlay and the first sale one year. Keeping the first sale or the outlay at t = 0 is wrong.",
+            "Compares the low state with 0: Lusoliva does not buy at the low price, so that state is worth 0, not −7.4500.",
+            "States the decision in each state: buy at EUR 7,750, do not buy at EUR 2,750."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>What is the NPV of waiting, seen from t = 0? Should Lusoliva buy today or wait? How much is the option to wait worth compared with buying today? (If you could not solve (b), use an NPV at t = 1 of EUR 70 million at the high price.)</p>",
+          "solution": "<p><b>Step 1. NPV of waiting.</b> Lusoliva buys only at the high price. Discount the expectation one year at 8%:</p><p>NPV<sub>wait</sub> = [0.35 × 73.5500 + 0.65 × 0]/1.08 = 25.7425/1.08 = <b>23.8356 EUR million</b></p><p><b>Step 2. Decision.</b> 23.8356 &gt; 20.9000, so <b>Lusoliva should wait</b>, although buying today has a positive NPV. Buying today and waiting exclude each other, so the right comparison is between the two, not with 0.</p><p><b>Step 3. Value of the option to wait</b>, measured against the best alternative today, which is buying (positive NPV):</p><p>23.8356 − 20.9000 = <b>2.9356 EUR million</b></p><p>Keeping the low state at −7.4500 gives [0.35 × 73.5500 + 0.65 × (−7.4500)]/1.08 = 19.3519: that treats waiting as a promise to buy whatever happens. It is simply 20.9000/1.08, the project of (a) one year later, so it can never beat buying today.</p><p>With the fallback of 70 from (b): NPV<sub>wait</sub> = 0.35 × 70/1.08 = 22.6852 and the option value is 22.6852 − 20.9000 = 1.7852. The decision is the same.</p>",
+          "criteria": [
+            "NPV of waiting = 0.35 × 73.5500/1.08 = 23.8356 EUR million, with the low state set to 0.",
+            "Decision: wait, because 23.8356 is more than 20.9000. A positive NPV today is not enough to buy today when waiting is worth more.",
+            "Option value = 23.8356 − 20.9000 = 2.9356 EUR million, measured against buying today. Reporting 23.8356 as the option value earns at most half of these points.",
+            "Keeping the negative low state (19.3519) is the classic error.",
+            "With the fallback of 70 from (b): 22.6852 and 1.7852, full marks."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 5,
+          "body": "<p>Suppose instead that the probability of the high price is X, with today's price and the two prices at t = 1 unchanged. For which X is Lusoliva indifferent between buying today and waiting? (If you could not solve (b), use an NPV at t = 1 of EUR 70 million at the high price.)</p>",
+          "solution": "<p><b>Step 1. Buying today depends on X too.</b> The expected cash flow from t = 1 is 9.3X + 3.3(1 − X) = 3.3 + 6.0X, so</p><p>NPV<sub>now</sub>(X) = −52 + 5.4 + (3.3 + 6.0X)/0.08 = −46.6 + 41.2500 + 75.0000X = <b>−5.3500 + 75.0000X</b></p><p><b>Step 2. Waiting.</b> Lusoliva buys only at the high price:</p><p>NPV<sub>wait</sub>(X) = X × 73.5500/1.08 = <b>68.1019X</b></p><p><b>Step 3. Set them equal.</b></p><p>−5.3500 + 75.0000X = 68.1019X ⇒ X = 5.3500/(75.0000 − 68.1019) = 5.3500/6.8981 = <b>0.7756</b></p><p>Below X = 0.7756 Lusoliva should wait; above it, buy today. Check: at X = 0.35 the two functions give −5.3500 + 26.2500 = 20.9000 and 23.8356, the numbers from (a) and (c).</p><p><b>The same answer from what waiting gains and costs.</b> At the low price, buying today locks in −52 + 5.4 + 3.3/0.08 = −5.3500, which waiting avoids. At the high price Lusoliva buys under both plans, so waiting only costs this year's oil, 5.4, less the saving from paying a year later, 52 − 52/1.08 = 3.8519: net 1.5481. Indifference: X × 1.5481 = (1 − X) × 5.3500, so X = 5.3500/6.8981 = 0.7756.</p><p><b>The shortcut to avoid.</b> Holding the NPV of buying today at 20.9000 and solving 20.9000 = 68.1019X gives 0.3069. That forgets that X also changes the expected price if Lusoliva buys today. It even lies below 0.35, where waiting was already better.</p><p><b>The lecture remark.</b> In the lecture example Kurbatov expected X to lie \"somewhere lower than 0.5\" (recording 14, 30:06). That holds only if the NPV of investing now stays fixed, as it would if buying today locked in today's price forever. This text rules that out: all oil after t = 0 sells at the price from t = 1, so the NPV of buying today moves with X.</p><p>With the fallback of 70 from (b): NPV<sub>wait</sub>(X) = X × 70/1.08 = 64.8148X and X = 5.3500/(75.0000 − 64.8148) = 0.5253.</p>",
+          "criteria": [
+            "NPV of buying today as a function of X: −5.3500 + 75.0000X, with the oil sold at t = 0 included.",
+            "NPV of waiting as a function of X: 68.1019X, with the low state set to 0. These points are given even if the student then holds the NPV of buying today fixed.",
+            "Solves −5.3500 + 75.0000X = 68.1019X: X = 0.7756.",
+            "Holding the NPV of buying today fixed at 20.9000 gives 0.3069: wrong here, because the text says that all oil after t = 0 sells at the price from t = 1, so both NPVs depend on X. The lecture remark that X lies below 0.5 (recording 14, 30:06) assumed a fixed NPV now. Partial credit: such an answer keeps the points for a correct NPV of waiting as a function of X (about 2 of 5), but not for X.",
+            "With the fallback of 70 from (b): 64.8148X and X = 0.5253, full marks.",
+            "Bonus: states that waiting is better below X and buying today above it.",
+            "Bonus: checks that the two functions return the values from (a) and (c) at X = 0.35."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Without calculation: would X in (d) be higher or lower if the risk-free rate were 10% instead of 8%, all prices unchanged? Explain briefly.</p>",
+          "solution": "<p><b>X would be higher.</b> Waiting trades a cost in the high state against a gain in the low state. A higher rate moves both in favour of waiting:</p><p><b>The cost of waiting falls.</b> At the high price Lusoliva buys either way, so waiting costs this year's oil less the saving from paying a year later. A higher rate makes that saving larger: 52 − 52/1.10 = 4.7273 instead of 3.8519.</p><p><b>The gain from waiting rises.</b> At the low price the perpetuity is worth less at 10%, so buying today locks in a larger loss: −13.6000 instead of −5.3500.</p><p>Both effects make waiting more attractive, so buying today needs a higher probability of the high price to catch up. (Bonus: X = 13.6000/(0.6727 + 13.6000) = 0.9529.)</p><p>The short standard version is also accepted: a higher rate lowers the present value of the investment cost paid at t = 1, so the option to wait is worth more and X rises.</p>",
+          "criteria": [
+            "1 point: the answer, X is higher.",
+            "1 point: names the cost of waiting (this year's oil, net of the saving from paying a year later) and explains that a higher rate makes the saving larger.",
+            "1 point: names the gain from waiting (avoiding the loss in the low state) and explains that a higher rate makes that loss larger, because the low-price perpetuity is worth less.",
+            "Also accepted for the answer and the cost point: the standard argument that a higher r lowers the present value of the investment cost paid at t = 1, so the option to wait is worth more.",
+            "An answer that only says future cash flows are worth less gets at most 1 point: it must say which side of the comparison moves. No calculation is required."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-vente-2",
+  "kind": "must",
+  "label": "Realopsjon: investere nå eller vente · oppgave 2",
+  "mk": {
+    "type": "vente",
+    "tier": 1,
+    "nr": 2
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Real Options",
+      "points": 20,
+      "topic": "Real options, option to wait",
+      "chapters": [
+        25
+      ],
+      "merke": "Samme form som H2025 E5 (butikken)",
+      "body": "<p>You are considering opening a staff canteen at a new business park at Forus, outside Stavanger. Fitting it out costs NOK 6 million, paid at opening. Running it costs NOK 1.5 million a year. Revenue will be NOK 2.3 million or NOK 1.9 million a year forever with equal probability, depending on how many firms move into the park. You learn which at the end of Year 1, whether or not you have opened. Cash flows arrive at the end of each year, the first one year after opening. Once open, the canteen must run forever. Demand is unrelated to the stock market, so discount at the risk-free rate of 6%. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 2,
+          "body": "<p>What is the NPV of opening the canteen now? Will you open it?</p>",
+          "solution": "<p><b>Step 1. Net the running cost off the revenue, state by state.</b></p><table class=\"data\"><tr><th>State</th><th>Probability</th><th>Revenue</th><th>Cost</th><th>Net cash flow per year</th></tr><tr><td>Many firms</td><td class=\"n\">0.5</td><td class=\"n\">2.3</td><td class=\"n\">1.5</td><td class=\"n\">0.8</td></tr><tr><td>Few firms</td><td class=\"n\">0.5</td><td class=\"n\">1.9</td><td class=\"n\">1.5</td><td class=\"n\">0.4</td></tr></table><p>Expected net cash flow = 0.5 × 0.8 + 0.5 × 0.4 = <b>0.6 NOK million a year</b>, forever from Year 1.</p><p><b>Step 2. Value it.</b> Opening now commits you whatever the state, so you discount the expected flow: PV = 0.6/0.06 = 10.0000; NPV<sub>now</sub> = 10.0000 − 6 = <b>4.0000 NOK million</b>.</p><p><b>Yes, you would open it:</b> the NPV is positive, so opening beats doing nothing. Whether it also beats waiting is the question in (b) and (c).</p>",
+          "criteria": [
+            "Nets the NOK 1.5 million running cost against the revenue: 0.8 and 0.4 a year.",
+            "Expected net cash flow 0.6, valued as a perpetuity from Year 1 at 6%: 10.0000.",
+            "NPV = 10.0000 − 6 = 4.0000 NOK million.",
+            "Answers the question asked: yes, open, since the NPV is positive."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>Instead, you can wait one year, learn the state and then decide. The cost is still NOK 6 million, paid at t = 1. The first cash flow then arrives at t = 2. What is the NPV of opening at t = 1 in each state, measured at t = 1? In which states would you open?</p>",
+          "solution": "<p>Seen from t = 1 the project is the one in (a) with the state known. The first cash flow comes one year after opening, so each state is a perpetuity valued at t = 1:</p><table class=\"data\"><tr><th>State</th><th>Net cash flow</th><th>NPV at t = 1</th><th>Decision</th></tr><tr><td>Many firms</td><td class=\"n\">0.8</td><td class=\"n\">0.8/0.06 − 6 = 13.3333 − 6 = <b>7.3333</b></td><td class=\"n\">open</td></tr><tr><td>Few firms</td><td class=\"n\">0.4</td><td class=\"n\">0.4/0.06 − 6 = 6.6667 − 6 = <b>0.6667</b></td><td class=\"n\">open</td></tr></table><p><b>You open in both states.</b> Even with few firms, a net cash flow of 0.4 a year is worth more than the NOK 6 million it costs, so there is no state you would want to avoid.</p>",
+          "criteria": [
+            "Values each state at t = 1 as a perpetuity starting one year after opening: 13.3333 and 6.6667.",
+            "NPV at t = 1: 7.3333 with many firms and 0.6667 with few firms.",
+            "Concludes that you open in both states, because the few-firms state is still profitable.",
+            "Compares each state with 0 before deciding; here neither is negative."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 5,
+          "body": "<p>What is the NPV of waiting, seen from today? Do you open now or wait? Compare with (a) and explain briefly.</p>",
+          "solution": "<p><b>Step 1. NPV of waiting.</b> You open in both states, so</p><p>NPV<sub>wait</sub> = [0.5 × 7.3333 + 0.5 × 0.6667]/1.06 = 4.0000/1.06 = <b>3.7736 NOK million</b></p><p><b>Step 2. Decision.</b> 3.7736 &lt; 4.0000: <b>open now</b>. Opening now is better by 0.2264.</p><p><b>Why.</b> Waiting has value only if what you learn lets you avoid a bad state. Here you open in both states anyway, so waiting just delays the same project by a year: NPV<sub>wait</sub> = NPV<sub>now</sub>/1.06. You give up the Year-1 cash flow, worth 0.6/1.06 = 0.5660 today. You gain only from paying the NOK 6 million a year later, 6 − 6/1.06 = 0.3396. Net: 0.5660 − 0.3396 = 0.2264. ✓</p>",
+          "criteria": [
+            "NPV of waiting = [0.5 × 7.3333 + 0.5 × 0.6667]/1.06 = 3.7736 NOK million.",
+            "Decision: open now, because 4.0000 is more than 3.7736.",
+            "Explains why: you open in both states, so waiting avoids nothing and only delays the project; the minimal accepted cost of waiting is the lost Year-1 cash flow.",
+            "Bonus, not required for full marks: the decomposition into the lost Year-1 cash flow (0.5660) less the saving from paying later (0.3396), net 0.2264."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 6,
+          "body": "<p>Your analyst says the two revenues are not NOK 2.3 million and NOK 1.9 million but NOK (2.1 + X) million and NOK (2.1 − X) million, still 2.1 in expectation. Find X for which you are indifferent between opening now and waiting one year.</p>",
+          "solution": "<p><b>Step 1. Opening now does not depend on X.</b> The expected net cash flow stays at 0.6, so NPV<sub>now</sub> = 4.0000 for every X.</p><p><b>Step 2. When can waiting compete?</b> The net cash flows are 0.6 + X and 0.6 − X. As long as the few-firms state is profitable, you open in both states and waiting is worth 4.0000/1.06 = 3.7736, always below 4.0000, as in (c). The few-firms state stops being profitable when (0.6 − X)/0.06 &lt; 6, that is 0.6 − X &lt; 0.36, or X &gt; 0.24. So the indifference point lies above X = 0.24, where you open only with many firms:</p><p>NPV<sub>wait</sub>(X) = 0.5 × [(0.6 + X)/0.06 − 6]/1.06</p><p><b>Step 3. Set it equal to NPV<sub>now</sub>.</b></p><p>0.5 × [(0.6 + X)/0.06 − 6]/1.06 = 4.0000<br>(0.6 + X)/0.06 − 6 = 4.0000 × 2 × 1.06 = 8.4800<br>(0.6 + X)/0.06 = 14.4800 ⇒ 0.6 + X = 0.8688<br>X = <b>0.2688 NOK million</b> (NOK 268,800)</p><p><b>Step 4. Check the assumption.</b> 0.2688 &gt; 0.24, so with few firms the net cash flow is 0.6 − 0.2688 = 0.3312, worth 0.3312/0.06 − 6 = 5.5200 − 6 = −0.4800 at t = 1: negative, so you really do skip that state. With many firms: 0.8688/0.06 − 6 = 8.4800, so 0.5 × 8.4800/1.06 = 4.0000 = NPV<sub>now</sub>. ✓</p><p>For X above 0.2688 waiting is better; below it, open now. The spread in (b) and (c) was 0.2, below 0.2688, which agrees with opening now. Forgetting to discount the t = 1 value back to today gives X = 0.24, the point where the few-firms state just breaks even: wrong, because at that spread waiting is still worse.</p>",
+          "criteria": [
+            "Recognises that NPV_now = 4.0000 does not depend on X: the expected revenue is unchanged and opening now commits you in both states.",
+            "Writes the net cash flows as 0.6 + X and 0.6 − X (revenue less the 1.5 running cost), not 2.1 ± X.",
+            "Sets up waiting with the few-firms state at 0: 0.5 × [(0.6 + X)/0.06 − 6]/1.06.",
+            "Solves: X = 0.2688 NOK million (NOK 268,800).",
+            "Bonus, not required (Kurbatov's 2025 key marks the matching check as not required): checks that the few-firms state is unprofitable at this X (X above 0.24), so skipping it is optimal.",
+            "Forgetting to discount by 1.06 gives 0.24, which is wrong."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>A catering chain is also eyeing the park. If you open now, it stays away. If you wait, it may open first, so your revenue in both states would be lower if you open at t = 1. Without calculation: how does this affect the value of waiting and X from (d)? Explain briefly.</p>",
+          "solution": "<p><b>Waiting is worth less.</b> If you wait, you may have to open at t = 1 next to a competitor, so every state in which you would open yields less. The upside you wait for shrinks.</p><p><b>X rises.</b> NPV<sub>wait</sub> falls for every X, while NPV<sub>now</sub> stays at 4.0000 because opening now keeps the chain away. The revenue spread must therefore be wider than 0.2688 before waiting catches up.</p><p>The threat of entry is a cost of waiting on top of the lost Year-1 cash flow. The lecture makes the same point: while you wait, other firms may move in and take market share (recording 14, 31:31). Also accepted: the threat can make it right to open now even when the spread is wide, to keep the rival out.</p>",
+          "criteria": [
+            "1 point: waiting becomes less valuable, because opening at t = 1 pays less when a rival may have entered.",
+            "1 point: NPV_now is unchanged (opening now keeps the chain away), so X must be higher than 0.2688 for waiting to catch up.",
+            "1 point: names the mechanism: competition is an extra cost of waiting on top of the lost Year-1 cash flow.",
+            "No calculation is required; a numerical illustration is a bonus."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-vente-3",
+  "kind": "must",
+  "label": "Realopsjon: investere nå eller vente · oppgave 3",
+  "mk": {
+    "type": "vente",
+    "tier": 1,
+    "nr": 3
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Risk-neutral valuation",
+      "points": 20,
+      "topic": "Real options, risk-neutral valuation",
+      "chapters": [
+        22,
+        23,
+        25
+      ],
+      "merke": "Samme form som H2024 E6 og legemiddeleksemplet i forelesning 14 (1:05:41)",
+      "body": "<p>Sandhill Data LLC can build a secure data centre for a US federal agency for USD 51 million, paid when it is built. The agency leases it for USD 5 million a year, paid at the end of each year, the first payment one year after completion. The agency moves to its own campus at the end of Year 15, so the lease ends with the Year-15 payment whenever the centre is built; the centre is worthless after that. The agency is as safe as the US Treasury, so the payments are risk-free; only the interest rate is uncertain. Today the risk-free rate is 6% for all maturities. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the NPV if Sandhill builds the centre now?</p>",
+          "solution": "<p>Building now gives 15 lease payments, Years 1 to 15: a 15-year annuity at 6%.</p><p>A(15, 6%) = [1 − 1.06<sup>−15</sup>]/0.06 = [1 − 0.4173]/0.06 = <b>9.7122</b></p><p>PV = 5 × 9.7122 = <b>48.5612</b>; NPV<sub>now</sub> = 48.5612 − 51 = <b>−2.4388 USD million</b></p><p>The static NPV is negative, so building now does not pay on its own.</p>",
+          "criteria": [
+            "Recognises a 15-year annuity, not a perpetuity: the lease ends in Year 15.",
+            "A(15, 6%) = 9.7122 and PV = 48.5612.",
+            "NPV = 48.5612 − 51 = −2.4388 USD million."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>Instead, Sandhill can wait one year and decide then. From Year 1 on, the risk-free rate will be either 3.5% or 7.5% for all maturities (the rate from Year 0 to Year 1 stays at 6%). If Sandhill builds at t = 1, it pays USD 51 million then and the lease payments start one year later. What is the NPV of building at t = 1 in each case, at t = 1 and from today's perspective (t = 0)?</p>",
+          "solution": "<p><b>Step 1. Count the payments.</b> The lease still ends in Year 15. Built at t = 1, the centre receives payments in Years 2 to 15: <b>14 payments</b>, not 15. Value them at t = 1 with that case's rate, then bring the NPV back to t = 0 at 6%, the rate from Year 0 to Year 1.</p><table class=\"data\"><tr><th>Rate from Year 1</th><th>A(14, r)</th><th>PV at t = 1</th><th>NPV at t = 1</th><th>NPV at t = 0</th></tr><tr><td>3.5%</td><td class=\"n\">10.9205</td><td class=\"n\">54.6026</td><td class=\"n\"><b>3.6026</b></td><td class=\"n\"><b>3.3987</b></td></tr><tr><td>7.5%</td><td class=\"n\">8.4892</td><td class=\"n\">42.4458</td><td class=\"n\"><b>−8.5542</b></td><td class=\"n\"><b>−8.0700</b></td></tr></table><p>With 3.5%: NPV<sub>1</sub> = 5 × 10.9205 − 51 = 3.6026 and NPV<sub>0</sub> = 3.6026/1.06 = 3.3987. With 7.5%: NPV<sub>1</sub> = 5 × 8.4892 − 51 = −8.5542 and NPV<sub>0</sub> = −8.5542/1.06 = −8.0700.</p><p>A low rate is the good case for this project: the same fixed payments are worth more. Keeping 15 payments after waiting (Years 2 to 16) ignores the fixed end of the lease and gives 6.5871 in the good case; the drug-development example in the lecture uses 16 rather than 17 years for the same reason (recording 14, 1:08:14). Discounting the first year at 3.5% or 7.5% instead of 6% is the other trap.</p>",
+          "criteria": [
+            "Uses 14 payments (Years 2 to 15) after waiting, because the lease ends in Year 15 whatever happens.",
+            "Annuity factors A(14, 3.5%) = 10.9205 and A(14, 7.5%) = 8.4892; PV at t = 1 of 54.6026 and 42.4458.",
+            "NPV at t = 1: 3.6026 and −8.5542.",
+            "Discounts both to t = 0 at 6%, the rate from Year 0 to Year 1: 3.3987 and −8.0700. Using 3.5% or 7.5% for that first year is the trap.",
+            "Bonus: identifies the 3.5% case as the good one, because a lower rate raises the value of fixed payments."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 6,
+          "body": "<p>Nobody knows the probabilities of the two rates. A Treasury bond pays USD 100 at the end of each year from Year 1 to Year 15 and nothing else; today it is priced at the 6% rate. What is the risk-neutral probability of the 3.5% rate? Briefly explain why you do not need the true probabilities.</p>",
+          "solution": "<p><b>Step 1. Price the bond today and in each case at t = 1.</b> At t = 1 the holder receives the Year-1 payment of 100 and keeps 14 more payments, valued at the new rate:</p><table class=\"data\"><tr><th></th><th>Calculation</th><th>Value</th></tr><tr><td>S<sub>0</sub>, today at 6%</td><td class=\"n\">100 × A(15, 6%) = 100 × 9.712249</td><td class=\"n\">971.2249</td></tr><tr><td>S<sub>u</sub>, t = 1 if r = 3.5%</td><td class=\"n\">100 + 100 × A(14, 3.5%) = 100 + 1,092.0520</td><td class=\"n\">1,192.0520</td></tr><tr><td>S<sub>d</sub>, t = 1 if r = 7.5%</td><td class=\"n\">100 + 100 × A(14, 7.5%) = 100 + 848.9154</td><td class=\"n\">948.9154</td></tr></table><p>The 100 paid at t = 1 belongs in S<sub>u</sub> and S<sub>d</sub>: the holder receives it then, like a dividend on a share.</p><p><b>Step 2. The formula-sheet expression</b> with the one-year rate of 6%:</p><p>ρ = [(1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>) = [1.06 × 971.2249 − 948.9154]/(1,192.0520 − 948.9154) = (1,029.4984 − 948.9154)/243.1367 = 80.5830/243.1367 = <b>0.3314</b></p><p>and 1 − ρ = 0.6686.</p><p><b>Step 3. Check.</b> The bond must earn 6% under ρ: [0.331431 × 1,192.0520 + 0.668569 × 948.9154]/1.06 = (395.0830 + 634.4154)/1.06 = 1,029.4984/1.06 = 971.2249 = S<sub>0</sub>. ✓ This only confirms the arithmetic, since ρ is built to make it hold.</p><p><b>Second route.</b> Price the stream the option delivers, the lease in Years 2 to 15. Today it is worth the lease started now less its sure Year-1 payment, 48.5612 − 5/1.06 = 43.8443; at t = 1 it is worth 54.6026 or 42.4458 from (b). Then (46.4749 − 42.4458)/(54.6026 − 42.4458) = 0.3314. ✓ The two twins differ only by a sure payment and the scale, so they must agree; a mismatch would reveal a slip in (b).</p><p><b>Traps.</b> Leaving the 100 out of S<sub>u</sub> and S<sub>d</sub> gives 0.7427. So does pairing the lease started now (48.5612) with the values from (b). Using S<sub>0</sub> instead of (1 + r<sub>f</sub>)S<sub>0</sub> gives 0.0918. Both lie between 0 and 1, so only the rule catches them.</p><p><b>Why the true probabilities are not needed.</b> The payoff of the decision at t = 1 can be replicated with the traded bond and risk-free borrowing or lending, so its value today follows from the bond's price, whatever investors believe and however risk averse they are. ρ is the probability that makes the bond earn the risk-free rate; it is not a forecast.</p>",
+          "criteria": [
+            "Prices the bond today at 6%: S_0 = 100 × A(15, 6%) = 971.2249.",
+            "Includes the Year-1 payment in the t = 1 values: S_u = 100 + 100 × A(14, 3.5%) = 1,192.0520 and S_d = 100 + 100 × A(14, 7.5%) = 948.9154. Leaving it out, or pairing 48.5612 with the values from (b), gives 0.7427.",
+            "Uses ρ = [(1 + r_f)S_0 − S_d]/(S_u − S_d) with r_f = 6%, the rate from Year 0 to Year 1. Forgetting (1 + r_f) gives 0.0918.",
+            "ρ = 0.3314 for the 3.5% rate and 1 − ρ = 0.6686.",
+            "Explains why the true probabilities are not needed: the payoff can be replicated with the traded bond and the risk-free asset, so no beliefs or risk preferences enter; ρ is not a forecast.",
+            "Bonus: verifies that ρ reprices the bond, [ρ S_u + (1 − ρ) S_d]/1.06 = S_0. It confirms the arithmetic only."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 3,
+          "body": "<p>What is the value today of the option to wait? Sandhill is not forced to build at t = 1. Do you build now or wait? Briefly comment. (If you could not solve (b), use an NPV at t = 1 of USD 4 million at 3.5%. If you could not solve (c), use ρ = 0.40.)</p>",
+          "solution": "<p><b>Step 1. Payoffs at t = 1.</b> Sandhill builds only if the rate falls to 3.5%: C<sub>u</sub> = max(3.6026, 0) = 3.6026 and C<sub>d</sub> = max(−8.5542, 0) = 0.</p><p><b>Step 2. Value with ρ.</b> C<sub>0</sub> = ρ × NPV<sub>0,u</sub> + (1 − ρ) × 0 = 0.331431 × 3.398681 = <b>1.1264 USD million</b>, or equivalently 0.331431 × 3.602601/1.06.</p><p><b>Step 3. Decision: wait.</b> Waiting is worth 1.1264, building now −2.4388. Since building now does not pay, the whole 1.1264 is the value of the option to wait. Measuring it against the negative NPV, 1.1264 − (−2.4388) = 3.5652, uses the wrong baseline: the alternative to waiting is not building, worth 0.</p><p><b>Comment.</b> The right to build is a call on the lease stream with a strike of USD 51 million. It has value although the static NPV is negative, because Sandhill builds only if rates fall and walks away otherwise.</p><p>Optional replication check with the bond: Δ = 3.6026/243.1367 = 0.014817 bonds, B = −948.9154 × 0.014817/1.06 = −13.2644; then S<sub>0</sub>Δ + B = 14.3908 − 13.2644 = 1.1264 ✓. It shares ρ with the first route, so it catches arithmetic slips only.</p><p>With the fallbacks: ρ = 0.40 gives 0.40 × 3.3987 = 1.3595, an NPV of 4 gives 0.3314 × 4/1.06 = 1.2507, both give 0.40 × 4/1.06 = 1.5094. The decision is the same.</p>",
+          "criteria": [
+            "Applies max(NPV, 0) at t = 1: 3.6026 if the rate is 3.5% and 0 if it is 7.5%, because Sandhill is not forced to build.",
+            "Values it with ρ from (c): 0.3314 × 3.3987 = 1.1264 USD million, or 0.3314 × 3.6026/1.06. With the fallbacks: 1.3595 (ρ = 0.40), 1.2507 (NPV 4) or 1.5094 (both), full marks.",
+            "Decision: wait. Waiting is worth 1.1264, building now −2.4388. Measuring the option against the negative NPV, 1.1264 − (−2.4388) = 3.5652, is wrong: the baseline is 0.",
+            "Comment: a call on the lease stream, valuable because Sandhill builds only in the good case, although the static NPV is negative."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>A colleague suggests Black-Scholes instead, with σ the volatility of the value of the lease stream. Without calculation: what would you expect for the value of waiting and for your decision if σ were very low? And if it were very high?</p>",
+          "solution": "<p><b>Very low σ.</b> In a year the lease stream would be worth close to what its 14 payments are worth at today's 6%, 5 × A(14, 6%) = 46.4749, below the USD 51 million cost. The project would then be unprofitable in practically every outcome, so the right to wait is worth almost nothing and you take the same decision as today: do not build now. The lecture makes this point: with a very low σ, \"we would still take the same exact decision\" (recording 14, 47:10).</p><p><b>Very high σ.</b> There is a large chance that the stream ends up worth well above USD 51 million, while the downside stays at 0 because Sandhill can walk away. The right to wait is worth more. Waiting is even more clearly the right choice.</p><p>The general rule: more uncertainty makes the option to wait more valuable, because the upside grows while the downside stays capped at 0.</p>",
+          "criteria": [
+            "1 point: low σ, the value of the stream stays near today's level, below the cost, so the option is worth close to 0 and the decision is the same as today (do not build now).",
+            "1 point: high σ, more upside with the downside capped at 0, so the option to wait is worth more and waiting is more attractive.",
+            "1 point: names the mechanism: an option gains from uncertainty because its payoff is asymmetric.",
+            "Today's level means the 14 payments from Year 2, worth 46.4749 at 6%. Using 48.5612 (the lease started now, which includes the Year-1 payment lost by waiting) is a slip, although the conclusion is the same.",
+            "No Black-Scholes calculation is required or expected."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-deal-1",
+  "kind": "must",
+  "label": "Fusjonsarbitrasje og implisitt dealsannsynlighet · oppgave 1",
+  "mk": {
+    "type": "deal",
+    "tier": 1,
+    "nr": 1
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "M&A",
+      "points": 20,
+      "topic": "Mergers and acquisitions",
+      "chapters": [
+        22,
+        26
+      ],
+      "merke": "Samme form som Mannesmann-eksemplet i forelesning 16 (54:58 til 1:22:12)",
+      "body": "<p>In September rumours spread that the French drug maker Marveaux Pharma SA (A) would bid for the German biotech firm Lindgau Biotech AG (T). Today A has made a formal offer: if the deal goes through, each T share will be exchanged for 36 new A shares. The deal will be completed or fail in exactly three months. A has 7,200 million shares outstanding and T has 150 million.</p><p>Before the rumours the share prices were P<sub>A,0</sub> = €2.75 and P<sub>T,0</sub> = €84.00. Today they are P<sub>A,1</sub> = €2.95 and P<sub>T,1</sub> = €101.20. The risk-free rate is 4% a year, compounded annually. Short selling is allowed. If the deal fails, assume that both prices return to their levels before the rumours. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is A's offer worth per T share at today's prices? What premium over T's price before the rumours is that, in percent? What fraction of the combined company would T's shareholders own?</p>",
+          "solution": "<p><b>Offer value.</b> One T share becomes 36 A shares: 36 × €2.95 = <b>€106.20</b> per T share at today's prices.</p><p><b>Premium.</b> 106.20/84.00 − 1 = <b>26.43%</b> over T's price before the rumours. T trades at €101.20, €5.00 below the offer: the market is not sure that the deal will go through.</p><p><b>Ownership.</b> A issues 36 × 150 million = 5,400 million new shares. T's shareholders would own 5,400/(7,200 + 5,400) = 5,400/12,600 = <b>42.86%</b> of the combined company and A's old shareholders 57.14%. The large exchange ratio only reflects that an A share is cheap: A has many more shares than T.</p>",
+          "criteria": [
+            "Offer value 36 × 2.95 = €106.20 per T share at today's A price; 36 × 2.75 = 99.00 is the offer at the old prices.",
+            "Premium 106.20/84.00 − 1 = 26.43% over the price before the rumours.",
+            "Fraction for T's shareholders: 5,400 million new shares out of 12,600 million, so 42.86%. Dividing by A's old 7,200 million shares only gives 75%, which is wrong.",
+            "Part a is the easy part: 1 point for each number."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>By how much did the market values of A and T change from before the rumours to today? What do the changes suggest about the deal's total gains and who captures them?</p>",
+          "solution": "<p><b>Changes in market value</b> (€ million).</p><table class=\"data\"><tr><th>Firm</th><th>Calculation</th><th>Change</th></tr><tr><td>A</td><td class=\"n\">7,200 × (2.95 − 2.75)</td><td class=\"n\"><b>+1,440</b></td></tr><tr><td>T</td><td class=\"n\">150 × (101.20 − 84.00)</td><td class=\"n\"><b>+2,580</b></td></tr><tr><td>Together</td><td class=\"n\"></td><td class=\"n\">+4,020</td></tr></table><p><b>Reading.</b> Both values rose although the deal may still fail, so the market expects the combination to add value in total. T's shareholders capture the larger part through the premium A offers, but A's shareholders gain too: the market does not think A is overpaying.</p><p><b>Caveat.</b> The changes are weighted by the chance that the deal goes through. Part of them may also come from other news during the rumour period: firms do not exist in a vacuum, as the lecture warns about prices taken too early (recording 16, 54:33).</p>",
+          "criteria": [
+            "Change for A: 7,200 million × 0.20 = €1,440 million; for T: 150 million × 17.20 = €2,580 million (1 point each).",
+            "Reading (1 point): the combined value rose by €4,020 million, so the market expects total gains; T's shareholders get most of them, but A's shareholders gain too, so A is not seen as overpaying.",
+            "Bonus, not required: the changes are weighted by the chance of completion and may include other news from the rumour period."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 5,
+          "body": "<p>Today you buy one T share, short-sell the 36 A shares it would be exchanged for and invest the short-sale proceeds at the risk-free rate. What is the position worth in three months if the deal goes through? If it fails?</p>",
+          "solution": "<p><b>Step 1. The position today.</b></p><table class=\"data\"><tr><th>Leg</th><th>Action</th><th>Cash flow today (€)</th></tr><tr><td>Long target</td><td class=\"n\">Buy 1 T share at 101.20</td><td class=\"n\">−101.20</td></tr><tr><td>Short acquirer</td><td class=\"n\">Short-sell 36 A shares at 2.95</td><td class=\"n\">+106.20</td></tr><tr><td>Risk-free</td><td class=\"n\">Invest the 106.20 for three months</td><td class=\"n\">−106.20</td></tr><tr><td><b>Net outlay</b></td><td class=\"n\"></td><td class=\"n\"><b>−101.20</b></td></tr></table><p><b>Step 2. Three months of interest.</b> T = 3/12 = 0.25 years, so the factor is 1.04<sup>0.25</sup> = 1.009853. The deposit grows to 106.20 × 1.009853 = 107.2464.</p><p><b>Step 3. The deal goes through.</b> The T share is converted into 36 A shares, which you hand back to close the short. Only the deposit is left: <b>€107.2464</b>.</p><p><b>Step 4. The deal fails.</b> Both prices return to their levels before the rumours. You sell the T share at 84.00 and buy back 36 A shares at 2.75, which costs 99.00: 107.2464 + 84.00 − 99.00 = <b>€92.2464</b>.</p><p><b>Check.</b> The two payoffs differ by 99.00 − 84.00 = 15.00, what you lose on the shares if the deal fails. The position cost you €101.20 out of your own pocket.</p>",
+          "criteria": [
+            "Long 1 T and short 36 A (the exchange ratio), with the 106.20 from the short sale invested at the risk-free rate; the cost out of pocket is 101.20.",
+            "Three months is T = 0.25: 1.04^0.25 = 1.009853, not 1.04.",
+            "Success: 106.20 × 1.009853 = €107.2464, since the converted T share closes the short.",
+            "Failure: 107.2464 + 84.00 − 36 × 2.75 = €92.2464, at the prices before the rumours.",
+            "Other consistent constructions are accepted, for example several T shares with the matching number of A shares."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 5,
+          "body": "<p>What probability of completion do today's prices imply? (If you could not solve (c), use €108.00 for success and €93.00 for failure.)</p>",
+          "solution": "<p><b>Step 1. The certainty equivalent of the cost.</b> The position cost 101.20 today. If the market prices it fairly, its expected payoff in three months equals that cost grown at the risk-free rate: 101.20 × 1.009853 = 102.1972. Do not plug in 101.20 itself.</p><p><b>Step 2. Solve.</b> 102.1972 = p × 107.2464 + (1 − p) × 92.2464<br>p = (102.1972 − 92.2464)/(107.2464 − 92.2464) = 9.9507/15.0000 = <b>0.6634 (66.34%)</b></p><p>The same equation in present values: 101.20 = [p × 107.2464 + (1 − p) × 92.2464]/1.04<sup>0.25</sup>.</p><p><b>Check.</b> 0.663382 × 107.2464 + 0.336618 × 92.2464 = 102.1972 ✓. T at 101.20 lies between its failure price 84.00 and the offer value 106.20.</p><p><b>With the values given in the question.</b> p = (102.1972 − 93.00)/(108.00 − 93.00) = 0.6131 (61.31%), full marks if the method is right.</p><p><b>The traps.</b> Using 101.20 instead of the certainty equivalent gives 0.5969. Ignoring the interest altogether gives 0.6667. A full year (1.04) in both (c) and (d) gives 0.6533: wrong, but it is the same error as in (c) and is penalised only there. Simple interest, 1 + 0.04 × 0.25, gives 0.6633: close enough, but the course uses (1 + r<sub>f</sub>)<sup>T</sup>.</p>",
+          "criteria": [
+            "Certainty equivalent 101.20 × 1.04^0.25 = 102.1972. Plugging in 101.20 gives 0.5969 and loses most of the points.",
+            "Equation 102.1972 = p × 107.2464 + (1 − p) × 92.2464, so p = 9.9507/15.00 = 0.6634 (66.34%).",
+            "Follow-through: with the values given in the question, p = 0.6131. A student who used 1.04 instead of 1.04^0.25 in (c) and here gets 0.6533 and loses the points for the factor only once, in (c).",
+            "Reasonable rounding is fine; show the equation."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Is the position in (c) an arbitrage? Would you advise a private investor to put most of her savings into it? How can a professional merger-arbitrage fund make such trades pay? (3–4 sentences)</p>",
+          "solution": "<p><b>Model answer.</b> No, it is not an arbitrage: compared with the risk-free alternative (102.1972), you gain 5.05 if the deal goes through but lose 9.95 if it fails. At the market's probability the expected payoff is exactly the cost grown at the risk-free rate. For a private investor with one deal this is an all-or-nothing bet: a failure costs 8.85% in three months (from 101.20 to 92.25), so most of her savings would ride on one event. A fund earns more than the risk-free rate only if the true chance of completion is higher than the implied one, that is if the spread carries a premium for bearing deal risk, or if it picks deals better than the market; spreading its capital over many largely independent deals then makes that excess return reliable instead of a gamble.</p><p><b>Also accepted.</b> The calculation rests on the strong assumption that prices return to their levels before the rumours; if they would not, the true risk differs from the model's. The lecture makes the same point: a small investor «would lose quite a bit of money» if the deal fails, while big funds spread their bets over many deals (recording 16, 1:22:46). Evidence on merger arbitrage (Mitchell and Pulvino, 2001) shows losses concentrated in sharp market declines, when many deals fail together, so the risk is not fully diversifiable.</p>",
+          "criteria": [
+            "Not an arbitrage (1 point): the position loses if the deal fails (92.2464 against a certainty equivalent of 102.1972); at the market's p its expected payoff equals the cost grown at the risk-free rate.",
+            "Private investor (1 point): one deal is a concentrated all-or-nothing bet; a failure costs about 8.8% in three months.",
+            "Fund (1 point): it beats the risk-free rate only if the true probability is above the implied one (the spread carries a risk premium) or if it picks deals well. Diversification alone does not create a return: a diversified set of fairly priced bets still earns only the risk-free rate.",
+            "Fourth point: diversification over many independent deals makes the fund's return reliable, or naming the strong assumption that prices return to their levels before the rumours. Bonus: failures cluster in market crashes, so the risk is not fully diversifiable."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-deal-2",
+  "kind": "must",
+  "label": "Fusjonsarbitrasje og implisitt dealsannsynlighet · oppgave 2",
+  "mk": {
+    "type": "deal",
+    "tier": 1,
+    "nr": 2
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "M&A",
+      "points": 20,
+      "topic": "Mergers and acquisitions",
+      "chapters": [
+        22,
+        26
+      ],
+      "merke": "Samme form som H2025 E6",
+      "body": "<p>Ostrander Media Inc. (A), a US film and television group, recently announced its intention to acquire the video-game developer Hartsell Games Inc. (B). The news came suddenly and there was no anticipation effect. The deal is expected to be completed or to fail in exactly 1 year from now. If the deal goes through, every 5 shares of B will be exchanged for 2 shares of A. If the deal fails, prices will return to their original levels.</p><p>Share prices before the announcement were P<sub>A,0</sub> = $72.00 and P<sub>B,0</sub> = $25.00. Immediately after the announcement the market incorporated the new information: P<sub>A,1</sub> = $68.50 and P<sub>B,1</sub> = $26.50. The one-year risk-free rate is r<sub>f</sub> = 4%.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 2,
+          "body": "<p>What is A's offer worth per B share at the prices immediately after the announcement? What premium over B's price before the announcement is that, in percent?</p>",
+          "solution": "<p>Every 5 B shares become 2 A shares, so one B share becomes 2/5 = 0.4 A shares.</p><p>Offer value = 0.4 × $68.50 = <b>$27.40</b> per B share. Premium = 27.40/25.00 − 1 = <b>9.60%</b>.</p><p>B trades at $26.50, below the offer, because the deal may fail. Since A pays in shares, A's fall from 72.00 to 68.50 has cut the offer from 0.4 × 72.00 = $28.80 (a 15.20% premium) to $27.40.</p>",
+          "criteria": [
+            "Exchange ratio per B share 2/5 = 0.4 A shares (5/2 = 2.5 is the ratio turned upside down).",
+            "Offer value 0.4 × 68.50 = $27.40 at the prices after the announcement and a premium of 9.60% over $25.00 (1 point each).",
+            "Using A's old price (28.80 and 15.20%) gives the offer at the old prices, not at the prices after the announcement."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 10,
+          "body": "<p>Based on the market prices, calculate the probability of the deal being successfully completed as perceived by the market. (Hint: use a long-short strategy and invest the proceeds from the short sale at the risk-free rate.)</p>",
+          "solution": "<p><b>Step 1. Build the position at the prices after the announcement.</b> The exchange ratio tells you how to pair the legs: 5 B shares against 2 A shares.</p><table class=\"data\"><tr><th>Leg</th><th>Action</th><th>Cash flow today ($)</th></tr><tr><td>Long target</td><td class=\"n\">Buy 5 B shares at 26.50</td><td class=\"n\">−132.50</td></tr><tr><td>Short acquirer</td><td class=\"n\">Short-sell 2 A shares at 68.50</td><td class=\"n\">+137.00</td></tr><tr><td>Risk-free</td><td class=\"n\">Invest the 137.00 at 4%</td><td class=\"n\">−137.00</td></tr><tr><td><b>Net outlay</b></td><td class=\"n\"></td><td class=\"n\"><b>−132.50</b></td></tr></table><p><b>Step 2. The deal goes through.</b> The 5 B shares are converted into 2 A shares, which close the short. Only the deposit is left: 137.00 × 1.04 = <b>142.48</b>.</p><p><b>Step 3. The deal fails.</b> Prices return to 72.00 and 25.00. You buy back 2 A shares for 144.00 and sell 5 B shares for 125.00: 142.48 − 144.00 + 125.00 = <b>123.48</b>.</p><p><b>Step 4. The certainty equivalent.</b> The strategy cost 132.50 today, so its expected payoff in one year must equal 132.50 × 1.04 = <b>137.80</b>. Do not plug in 132.50.</p><p><b>Step 5. Solve.</b> 137.80 = p × 142.48 + (1 − p) × 123.48<br>p = (137.80 − 123.48)/(142.48 − 123.48) = 14.32/19.00 = <b>0.7537 (75.37%)</b></p><p><b>Check.</b> 0.753684 × 142.48 + 0.246316 × 123.48 = 137.80 ✓. B at 26.50 lies between its failure price 25.00 and the offer value 27.40.</p><p><b>The traps.</b> Plugging in 132.50 instead of 137.80 gives 0.4747. Ignoring the interest altogether (no deposit growth and no certainty equivalent) gives 0.7632.</p>",
+          "criteria": [
+            "Long 5 B and short 2 A, because the exchange ratio is 5 for 2; the short-sale proceeds of 137.00 are invested at the risk-free rate. Other consistent constructions are accepted (for example 1 B against 0.4 A).",
+            "Success payoff 137.00 × 1.04 = 142.48: the converted B shares close the short.",
+            "Failure payoff 142.48 − 144.00 + 125.00 = 123.48, at the prices before the announcement.",
+            "Certainty equivalent 132.50 × 1.04 = 137.80. Plugging in 132.50 gives 0.4747, the error Kurbatov's key calls out.",
+            "p = 14.32/19.00 = 0.7537. Reasonable approximations are fine.",
+            "This part is worth 10 of the 20 points, so show the whole construction: the position, both payoffs, the certainty equivalent and the equation."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>Based on the market's reaction to the announcement, what could be the reason for this deal? (There can be several answers: choose one reason (not synergies!) and explain it briefly in 2–3 sentences.)</p>",
+          "solution": "<p><b>Read the reaction first.</b> A fell from 72.00 to 68.50 (−4.86%) and B rose from 25.00 to 26.50 (+6.00%). The market sees the deal as bad for A's shareholders and good for B's: value moves from A to B.</p><p><b>Model answer (empire building).</b> Ostrander's CEO may want to turn a film and television group into a larger entertainment group and buy a game developer for size and prestige rather than for value, so A pays more for B than B is worth to A. B's shareholders collect the premium and B may gain access to A's distribution and marketing, which is why B rises while A falls. This is an agency problem between A's managers and A's shareholders.</p><p><b>Also accepted.</b> Any reason other than synergies that fits A down and B up, as Kurbatov's H2025 key puts it: «Plenty of possible reasons». For example managerial hubris or overconfidence and the winner's curse; diversification that A's shareholders could get more cheaply by buying game shares themselves; paying with A shares the managers think are overvalued, which the market reads as bad news about A; coinsurance, where the merger makes A's debt safer at the expense of A's shareholders; B's managers being weak, so that B gains from any new owner. Not accepted: synergies, «value creation» without a mechanism, or tax losses, which are erased on a change of owner.</p>",
+          "criteria": [
+            "Uses the reaction as evidence: A down and B up, so the market sees the deal as inefficient for A and B's shareholders extract the benefits.",
+            "One reason other than synergies, explained in 2–3 sentences, that fits A down and B up. Any such reason is accepted (the H2025 key: «Plenty of possible reasons»): empire building, hubris or overconfidence, the winner's curse, unnecessary diversification, paying with overvalued A shares, coinsurance, or B gaining access to a larger firm's resources.",
+            "Not accepted: synergies, «value creation» alone or tax losses.",
+            "Keep it to 2–3 sentences; length is not rewarded."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>You are a shareholder of A. A's largest shareholders force a vote on whether A should proceed with the deal. Based on the reason you chose in (c), how would you vote? How will the market react to the result if most other shareholders vote like you? Briefly explain.</p>",
+          "solution": "<p><b>Minimal accepted answer.</b> With the reason in (c) the deal moves value from A's shareholders to B's, so as a shareholder of A I vote against. If most others vote the same way, the deal is blocked and prices return towards their levels before the announcement: A up towards $72.00 and B down towards $25.00.</p><p><b>For full marks.</b> The reversion may be incomplete. An entrenched management may try to go ahead anyway, so a small chance of completion survives. The bid may also have revealed that B is worth more than the market thought, or attract another bidder, so B can stay above $25.00.</p><p><b>Consistency.</b> The vote must follow from the reason in (c). If you argued there that A's fall was a temporary overreaction, a vote in favour with the matching market reaction is also defensible.</p>",
+          "criteria": [
+            "Votes against and gives the reason: the deal is inefficient for A's shareholders, who you are.",
+            "Answers the second question too: prices revert towards their original levels (A up towards 72.00, B down towards 25.00). This is the minimal accepted answer.",
+            "The vote must be consistent with the reason in (c).",
+            "Bonus: an entrenched manager may proceed anyway, so prices do not fully revert; the bid may have revealed that B was undervalued, so B stays above its old price."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-deal-3",
+  "kind": "must",
+  "label": "Fusjonsarbitrasje og implisitt dealsannsynlighet · oppgave 3",
+  "mk": {
+    "type": "deal",
+    "tier": 1,
+    "nr": 3
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "M&A",
+      "points": 20,
+      "topic": "Mergers and acquisitions",
+      "chapters": [
+        22,
+        26
+      ],
+      "merke": "Mannesmann-formen med variantene Kurbatov nevnte i forelesning 16 (1:14:18) og i wrap-up (5:29)",
+      "body": "<p>Carrowmore Insurance plc (A) has made a surprise offer for Ellisford Assurance plc (T): if the deal goes through, every 2 T shares will be exchanged for 5 A shares. The deal will be completed or fail in exactly six months; if it fails, both prices return to their pre-announcement levels.</p><p>Before the announcement P<sub>A,0</sub> = £13.80 and P<sub>T,0</sub> = £30.00; just after it P<sub>A,1</sub> = £14.60 and P<sub>T,1</sub> = £35.10. The risk-free rate is 4.5% a year, compounded annually. Short selling is allowed and fractions of shares are fine. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the offer worth per T share at today's prices? What is the spread to T's price, in £ and in percent of T's price?</p>",
+          "solution": "<p>One T share becomes 5/2 = 2.5 A shares.</p><p>Offer value = 2.5 × £14.60 = <b>£36.50</b> per T share.<br>Spread = 36.50 − 35.10 = <b>£1.40</b>, or 1.40/35.10 = <b>3.99%</b> of T's price.</p><p>The spread is what a buyer of T earns over six months if the deal goes through, before interest. It is the market's compensation for the risk that the deal fails.</p>",
+          "criteria": [
+            "Exchange ratio 5/2 = 2.5 A shares per T share; 2/5 is the ratio turned upside down.",
+            "Offer value 2.5 × 14.60 = £36.50 at today's A price.",
+            "Spread £1.40 and 3.99% of T's price, as the question asks (in percent of the offer it would be 3.84%)."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 6,
+          "body": "<p>You trade without money of your own: for each T share you buy, short-sell the A shares it converts into, pay for T with the proceeds and invest the rest at the risk-free rate. How much do you invest? What is the position worth in six months if the deal goes through? If it fails?</p>",
+          "solution": "<p><b>Step 1. The position today.</b></p><table class=\"data\"><tr><th>Leg</th><th>Action</th><th>Cash flow today (£)</th></tr><tr><td>Short acquirer</td><td class=\"n\">Short-sell 2.5 A shares at 14.60</td><td class=\"n\">+36.50</td></tr><tr><td>Long target</td><td class=\"n\">Buy 1 T share at 35.10</td><td class=\"n\">−35.10</td></tr><tr><td>Risk-free</td><td class=\"n\">Invest what is left</td><td class=\"n\"><b>−1.40</b></td></tr><tr><td><b>Net cash flow</b></td><td class=\"n\"></td><td class=\"n\"><b>0</b></td></tr></table><p>You invest <b>£1.40</b> per T share, which is the spread from (a). Nothing comes out of your own pocket.</p><p><b>Step 2. Six months of interest.</b> T = 0.5: 1.045<sup>0.5</sup> = 1.022252. The deposit grows to 1.40 × 1.022252 = 1.4312.</p><p><b>Step 3. The deal goes through.</b> The T share becomes 2.5 A shares, which close the short. Only the deposit is left: <b>£1.4312</b>.</p><p><b>Step 4. The deal fails.</b> You sell the T share at 30.00 and buy back 2.5 A shares at 13.80, which costs 34.50: 1.4312 + 30.00 − 34.50 = <b>−3.0688</b>, a loss of £3.0688. You owe more on the short than the T share and the deposit are worth.</p><p><b>Check.</b> The two payoffs differ by 34.50 − 30.00 = 4.50, the loss on the shares if the deal fails. A position that costs nothing must be able to lose money, or it would be an arbitrage.</p>",
+          "criteria": [
+            "Short 2.5 A for each T, T paid with the proceeds: 36.50 − 35.10 = £1.40 invested at the risk-free rate and a net cash flow of 0 today.",
+            "Six months is T = 0.5: 1.045^0.5 = 1.022252, not 1.045.",
+            "Success: 1.40 × 1.022252 = £1.4312, since the converted T share closes the short.",
+            "Failure: 1.4312 + 30.00 − 2.5 × 13.80 = −3.0688 (£), a loss, at the prices before the announcement.",
+            "2 points for each number; the construction must be shown."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>What probability of completion do today's prices imply? (If you could not solve (b), use £1.50 for success and −£3.00 for failure.)</p>",
+          "solution": "<p><b>Step 1. What the price must satisfy.</b> The position costs nothing today. If the market prices it fairly, its expected payoff in six months must therefore be zero: the certainty equivalent of a cost of 0 is 0.</p><p><b>Step 2. Solve.</b> 0 = p × 1.4312 + (1 − p) × (−3.0688)<br>p = 3.0688/(1.4312 + 3.0688) = 3.0688/4.5000 = <b>0.6820 (68.20%)</b></p><p><b>Check.</b> 0.681966 × 1.431153 − 0.318034 × 3.068847 = 0.0000 ✓.</p><p><b>With the values given in the question.</b> p = 3.00/(1.50 + 3.00) = 0.6667 (66.67%), full marks if the method is right.</p><p><b>The traps.</b> No interest at all gives 0.6889. A full year of interest (1.045) gives 0.6749: wrong, but it is the error already penalised in (b). Simple interest, 1 + 0.045 × 0.5, gives 0.6819, close enough.</p>",
+          "criteria": [
+            "The position costs 0 today, so its expected payoff must be 0 (no certainty equivalent to compute).",
+            "0 = p × 1.4312 − (1 − p) × 3.0688, so p = 3.0688/4.5000 = 0.6820 (68.20%).",
+            "Follow-through: with the values given in the question, p = 0.6667. A student who used 1.045 for six months in (b) gets 0.6749 here and loses the points for the factor only once, in (b).",
+            "Reasonable rounding is fine; show the equation."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 3,
+          "body": "<p>A colleague instead pays for one T share with her own money, short-sells the same A shares and invests all the proceeds at the risk-free rate. What probability does her position imply? Compare with (c) in one sentence.</p>",
+          "solution": "<p><b>Her payoffs.</b> She deposits 36.50, which grows to 36.50 × 1.022252 = 37.3122 (success). If the deal fails: 37.3122 + 30.00 − 34.50 = 32.8122.</p><p><b>Her certainty equivalent.</b> She paid 35.10: 35.10 × 1.022252 = 35.8811.</p><p>p = (35.8811 − 32.8122)/(37.3122 − 32.8122) = 3.0688/4.5000 = <b>0.6820</b></p><p><b>Comparison.</b> The same probability as in (c). Her position is yours plus a risk-free deposit of £35.10, which pays 35.8811 whether or not the deal goes through, so it adds nothing about the deal. Both ways are equally correct, as the lecture says about this variant (recording 16, 1:21:33).</p>",
+          "criteria": [
+            "Her payoffs 37.3122 and 32.8122, certainty equivalent 35.8811 and p = 0.6820 (2 points).",
+            "Explanation (1 point): her position is yours plus a risk-free deposit of 35.10 that pays the same in both states, so the implied probability cannot change.",
+            "Leaving out the certainty equivalent (plugging in 35.10) gives 0.5084, which is wrong. Using 1.045 again gives 0.6749: the same factor error as in (b), penalised only there."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Just after you trade, the regulator says it needs one more year: the deal will be decided 18 months from today. How would you treat this? If prices did not move, would the implied probability be higher or lower than in (c)? Why? Why would prices probably move anyway? (3–4 sentences, no calculation needed.)</p>",
+          "solution": "<p><b>Model answer.</b> The position and the payoffs on failure stay the same, but the deposit now grows for 1.5 years instead of 0.5, so I use 1.045<sup>1.5</sup> = 1.068254 in place of 1.045<sup>0.5</sup>. With unchanged prices the implied probability is lower: the spread earns interest for longer, so the same spread can pay for a larger expected loss, while the loss on failure (4.50) is fixed. The prices would probably move anyway, because a delay is news: more can go wrong over 18 months (the regulator may block the deal, a rival may bid, A's shareholders or financing may turn), so the market is likely to lower p and T's price would fall relative to the offer.</p><p><b>The numbers, not required.</b> Unchanged prices: success 1.40 × 1.068254 = 1.4956, failure 1.4956 − 4.50 = −3.0044, so p = 3.0044/4.5000 = 0.6677, down from 0.6820. With p unchanged the spread would instead narrow slightly, to (1 − 0.6820) × 4.50/1.068254 = 1.3397: in a share offer both legs are discounted, so time value alone does not widen the spread. It widens if the market lowers p.</p><p><b>Bonus.</b> The assumption that prices return to their levels before the announcement is weaker after 18 months, since both firms keep operating and news arrives.</p><p>The lecturer raised this tail in the wrap-up (recording 18, 5:29): «What if we can delay this M&amp;A by one year? How would you treat it?», with an intuition-based answer in mind.</p>",
+          "criteria": [
+            "Treatment (1 point): same position and failure prices, but the money grows for 1.5 years: 1.045^1.5 = 1.068254 instead of 1.045^0.5.",
+            "Direction (1 point): with unchanged prices p is lower (about 0.6677). Saying that p rises because there is more time to complete the deal is wrong.",
+            "Reason (1 point): the spread earns interest for longer, so it covers a larger expected loss, while the loss on failure is fixed.",
+            "Why prices move (1 point): the delay is news and more can go wrong, so the market is likely to lower p and T's price falls relative to the offer. Bonus: the reversion to the old prices is less credible after 18 months."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-cds-1",
+  "kind": "must",
+  "label": "Risikabel obligasjon og CDS · oppgave 1",
+  "mk": {
+    "type": "cds",
+    "tier": 1,
+    "nr": 1
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Credit risk",
+      "points": 20,
+      "topic": "Risky debt and credit default swaps",
+      "chapters": [
+        5,
+        22,
+        24
+      ],
+      "merke": "Samme form som CDS-eksemplet i forelesning 13",
+      "body": "<p>Consider two one-year zero-coupon bonds, each with a face value of $100. Bond 1 is a US Treasury bill with a yield to maturity of 4%, the risk-free rate. Bond 2 is issued by Kettering Paper Mills Inc. and has a promised yield to maturity of 8.5%. Analysts estimate that Kettering defaults with probability 7%. Default can only happen at maturity. In default a holder of bond 2 receives $65 instead of $100.</p><p>A credit default swap (CDS) contract on Kettering pays $1 at maturity if Kettering defaults and nothing otherwise. It is paid for today. Let ρ denote the risk-neutral probability that Kettering defaults. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What are the prices of bond 1 and bond 2 today?</p>",
+          "solution": "<p>Each bond promises $100 in one year.</p><p>Bond 1 = 100/1.04 = <b>$96.1538</b><br>Bond 2 = 100/1.085 = <b>$92.1659</b></p><p>The price of bond 2 comes from its promised payment and its promised yield. It says nothing yet about the chance of default.</p>",
+          "criteria": [
+            "Bond 1 priced at the risk-free rate: 100/1.04 = 96.1538.",
+            "Bond 2 priced from the promised payment and the promised yield: 100/1.085 = 92.1659.",
+            "Putting the default probability or the recovery into the price of bond 2 is an error: the yield already gives the market price."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>What is the expected return on bond 2? Why does it differ from the promised yield?</p>",
+          "solution": "<p>The expected return uses the analysts' probability:</p><p>E[payoff] = 0.93 × 100 + 0.07 × 65 = 93 + 4.55 = 97.55<br>Expected return = 97.55/92.1659 − 1 = <b>5.8417%</b></p><p>The promised yield of 8.5% is earned only if Kettering does not default. With a 7% chance of receiving 65 instead of 100, the expected return is lower. It is still above the risk-free 4%: the 1.84 points are a risk premium, because Kettering is most likely to default when the economy is weak.</p>",
+          "criteria": [
+            "Expected payoff 0.93 × 100 + 0.07 × 65 = 97.55 with the analysts' probability.",
+            "Expected return 97.55/92.1659 − 1 = 5.84%.",
+            "Lower than the 8.5% yield because the yield is the promised return, earned only without default.",
+            "Bonus: above the risk-free 4% because default risk is systematic, so bondholders earn a risk premium."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>What risk-neutral probability of default ρ does the price of bond 2 imply?</p>",
+          "solution": "<p><b>Draw the tree.</b> ρ is the risk-neutral probability of <b>default</b>, so it goes on the bottom branch:</p><table class=\"data\"><tr><th>Branch</th><th>Probability</th><th>Bond 2</th><th>CDS</th></tr><tr><td>No default</td><td class=\"n\">1 − ρ</td><td class=\"n\">100</td><td class=\"n\">0</td></tr><tr><td>Default</td><td class=\"n\">ρ</td><td class=\"n\">65</td><td class=\"n\">1</td></tr></table><p><b>Price bond 2 risk-neutrally.</b> The expected payoff under ρ, discounted at the risk-free rate, must equal the market price:</p><p>92.1659 × 1.04 = (1 − ρ) × 100 + ρ × 65<br>95.8525 = 100 − 35ρ<br>ρ = 4.1475/35 = <b>0.1185</b> (11.85%)</p><p><b>The trap.</b> Writing ρ × 100 + (1 − ρ) × 65 gives 0.8815, the probability of <i>survival</i>. Either convention works if it is kept to the end, but here ρ is defined as the default probability.</p>",
+          "criteria": [
+            "Pricing condition: the expected payoff under risk-neutral probabilities, discounted at the risk-free rate, equals the market price: 92.1659 × 1.04 = (1 − ρ)100 + 65ρ.",
+            "ρ = 4.1475/35 = 0.1185 as the probability of default.",
+            "Discounts at the risk-free 4%, not at the promised yield (which would give ρ = 0).",
+            "Confusing ρ and 1 − ρ (0.8815) is the error Kurbatov singled out (recording 13, 27:31)."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 3,
+          "body": "<p>What is the price of one CDS contract? (If you could not solve (c), use ρ = 0.10.)</p>",
+          "solution": "<p>The CDS pays 1 only in the default branch. Price it with the same ρ and the risk-free rate:</p><p>CDS = [(1 − ρ) × 0 + ρ × 1]/1.04 = 0.1185/1.04 = <b>$0.1139</b> per contract (0.113941 unrounded)</p><p>With the fallback ρ = 0.10 the price would be 0.10/1.04 = 0.0962. Using the survival probability gives 0.8476 and using the analysts' 7% gives 0.0673; both are wrong.</p>",
+          "criteria": [
+            "CDS = ρ/1.04 = 0.1139.",
+            "Uses the risk-neutral ρ and the risk-free rate. The analysts' 7% gives 0.0673.",
+            "Keeps ρ as the default probability: the CDS pays in the default branch. Using 0.8815 gives 0.8476.",
+            "With the fallback ρ = 0.10, the answer 0.10/1.04 = 0.0962 earns full marks."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>An investor holds one bond 2. How many CDS contracts must the investor buy so that the position pays the same amount whether or not Kettering defaults? What do the contracts cost and what is the bond together with the contracts worth today? Compare with the price of bond 1.</p>",
+          "solution": "<p>In default the holder receives 65 instead of the promised 100, a loss of 35. Each contract pays 1 in default, so the investor needs <b>35 contracts</b> (face value × loss given default = 100 × 35%, Kurbatov's λ).</p><p>Cost of the contracts = 35 × 0.113941 = <b>$3.9879</b><br>Bond plus contracts = 92.1659 + 3.9879 = <b>$96.1538</b></p><p>The position pays 100 without default and 65 + 35 = 100 with default, so it is a risk-free claim on 100: <b>it costs exactly as much as bond 1</b> ✓. The contracts cost the gap between the two bond prices, 96.1538 − 92.1659 = 3.9879. With the fallback CDS price from (d) the contracts would cost 35 × 0.0962 = 3.3654.</p>",
+          "criteria": [
+            "Number of contracts = the loss in default: 100 − 65 = 35 (face value × loss given default).",
+            "Cost 35 × 0.1139 = 3.9879.",
+            "Bond plus contracts = 92.1659 + 3.9879 = 96.1538, equal to the price of bond 1, because the position pays 100 in both states.",
+            "Buying 100 contracts (one per dollar of face value) is the classic error."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 3,
+          "body": "<p>Compare ρ with the analysts' 7%. Why is there a difference? Which of the two should be used to price the CDS?</p>",
+          "solution": "<p>ρ = 11.85% is about 1.7 times the analysts' 7%, which is the real probability. Kettering is most likely to default when the economy is weak, when a dollar is worth more to investors, so they demand a risk premium for holding the bond. Risk-neutral valuation keeps the risk-free rate in the denominator and moves that premium into the probabilities instead, which puts more weight on the default state. ρ is the probability at which the market price makes sense.</p><p>The CDS is a traded claim on the same default event, so it must be priced with ρ and the risk-free rate. With the real 7% the CDS would cost 0.0673. Bond 2 plus 35 contracts would then cost 92.1659 + 35 × 0.0673 = 94.5217, less than bond 1 for the same risk-free payoff of 100: an arbitrage.</p>",
+          "criteria": [
+            "States that ρ (11.85%) is higher than the real 7%.",
+            "Explains why: default happens in bad times, so investors demand a risk premium, which risk-neutral valuation puts into the probability instead of the discount rate.",
+            "Says that the CDS is priced with ρ and the risk-free rate, not with the real probability.",
+            "Bonus: with 7% the hedged bond would cost less than bond 1, an arbitrage."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-cds-2",
+  "kind": "must",
+  "label": "Risikabel obligasjon og CDS · oppgave 2",
+  "mk": {
+    "type": "cds",
+    "tier": 1,
+    "nr": 2
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Credit risk",
+      "points": 20,
+      "topic": "Risky debt, credit default swaps and put options",
+      "chapters": [
+        5,
+        22,
+        24
+      ],
+      "merke": "Samme form som V2024 Problem 3",
+      "body": "<p>Oksfjord Havbruk ASA, a salmon farmer, has one bond issue: zero-coupon bonds with a total face value of NOK 600 million, due in one year and split into bonds of NOK 1,000 each. The bonds trade at a promised yield to maturity of 8%. Default can only happen at maturity. If Oksfjord defaults, the bondholders take over its assets, which will then be worth NOK 330 million. Rating analysts estimate the probability of default at 4%. One-year government zero-coupon bonds yield 2.5%, the risk-free rate.</p><p>A CDS contract on Oksfjord pays NOK 1 at maturity if Oksfjord defaults and nothing otherwise. It is paid for today. Let ρ denote the risk-neutral probability that Oksfjord defaults. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 4,
+          "body": "<p>What are the prices today of a government bond and an Oksfjord bond, both with face value NOK 1,000? What is the expected return on an Oksfjord bond?</p>",
+          "solution": "<p>Government bond = 1,000/1.025 = <b>NOK 975.6098</b><br>Oksfjord bond = 1,000/1.08 = <b>NOK 925.9259</b></p><p>In default the assets of NOK 330 million are shared by bonds with a face value of NOK 600 million, so a bond of NOK 1,000 receives 1,000 × 330/600 = 550.</p><p>E[payoff] = 0.96 × 1,000 + 0.04 × 550 = 960 + 22 = 982<br>Expected return = 982/925.9259 − 1 = <b>6.0560%</b></p><p>The expected return lies between the risk-free 2.5% and the promised 8%: below the yield because of the expected loss in default, above the risk-free rate because default risk is systematic.</p>",
+          "criteria": [
+            "Government bond 1,000/1.025 = 975.6098; Oksfjord bond 1,000/1.08 = 925.9259.",
+            "Recovery per bond 1,000 × 330/600 = 550.",
+            "Expected payoff 0.96 × 1,000 + 0.04 × 550 = 982 and expected return 982/925.9259 − 1 = 6.06%.",
+            "Using 330 per bond as the recovery (expected return 5.11%) is the classic error."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 6,
+          "body": "<p>What is ρ, as implied by the bond prices? What is the price of one CDS contract?</p>",
+          "solution": "<table class=\"data\"><tr><th>Branch</th><th>Probability</th><th>Oksfjord bond</th><th>CDS</th></tr><tr><td>No default</td><td class=\"n\">1 − ρ</td><td class=\"n\">1,000</td><td class=\"n\">0</td></tr><tr><td>Default</td><td class=\"n\">ρ</td><td class=\"n\">550</td><td class=\"n\">1</td></tr></table><p><b>ρ from the bond price.</b> 925.9259 × 1.025 = (1 − ρ) × 1,000 + ρ × 550<br>949.0741 = 1,000 − 450ρ<br>ρ = 50.9259/450 = <b>0.1132</b> (11.32%)</p><p><b>The CDS.</b> CDS = [(1 − ρ) × 0 + ρ × 1]/1.025 = 0.113169/1.025 = <b>NOK 0.1104</b> per contract (0.110409 unrounded)</p><p>ρ is the default probability, on the bottom branch. The survival probability, 0.8868, would give a CDS price of 0.8652, far too high for insurance that pays only in default.</p>",
+          "criteria": [
+            "Pricing condition with risk-neutral probabilities and the risk-free rate: 925.9259 × 1.025 = (1 − ρ)1,000 + 550ρ.",
+            "ρ = 50.9259/450 = 0.1132 as the probability of default.",
+            "CDS = ρ/1.025 = 0.1104.",
+            "Confusing ρ and 1 − ρ (0.8868) or using the analysts' 4% (0.0390) is the classic error.",
+            "Show the calculation."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 6,
+          "body": "<p>Consider a European put option on Oksfjord's assets with a strike price of NOK 600 million that expires when the bonds mature. What is it worth today? Compare it with the difference between the value of an otherwise identical risk-free bond issue and the market value of Oksfjord's bond issue. (If you could not solve (b), use a CDS price of 0.09.)</p>",
+          "solution": "<p><b>The put's payoff.</b> Oksfjord defaults exactly when its assets are worth less than the face value of 600. Then the assets are worth 330 and the put pays 600 − 330 = 270 (NOK million). Without default the assets are worth more than 600 and the put pays nothing. So the put pays 270 in the default branch: it is worth 270 million CDS contracts.</p><p>Put = 270 × 0.110409 = <b>NOK 29.8103 million</b></p><p><b>The two bond issues.</b> Risk-free issue = 600/1.025 = <b>NOK 585.3659 million</b>. Oksfjord's issue = 600,000 bonds × 925.9259 = 600/1.08 = <b>NOK 555.5556 million</b>. Difference = 585.3659 − 555.5556 = <b>29.8103</b>, the value of the put ✓</p><p>Per bond the same holds: 975.6098 − 925.9259 = 49.6838 = (1,000 − 550) × CDS. With the fallback CDS price of 0.09, the put would be worth 270 × 0.09 = 24.30.</p>",
+          "criteria": [
+            "The put pays 600 − 330 = 270 million in default and nothing otherwise.",
+            "Put = 270 × CDS = 270 × 0.1104 = NOK 29.81 million (or ρ × 270/1.025).",
+            "Risk-free issue 600/1.025 = 585.3659; market value of the issue 600/1.08 = 555.5556.",
+            "The difference, 29.8103, equals the put: risky debt = PV(face value) − put. A student on the fallback CDS price (put 24.30) gets these points for saying that the two should be equal.",
+            "A per-bond answer (49.6838 per bond of 1,000) earns the points only if it is scaled to the whole issue."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Explain the comparison in (c). In effect, who holds this put and what right does it represent? What would happen to the value of Oksfjord's bonds if its assets became riskier while the face value stayed the same?</p>",
+          "solution": "<p><b>Why the gap is the put.</b> The bondholders receive min(V, 600) = 600 − max(600 − V, 0): the face value minus the payoff of a put on the assets with strike 600. So Oksfjord's debt = PV(600) − put, or in Kurbatov's words a risk-free debt plus a written put on the assets. The bonds are worth less than risk-free bonds by exactly the value of that put.</p><p><b>Who holds the put.</b> The shareholders. Limited liability gives them the right to default: if the assets are worth less than 600, they hand the assets (330) to the bondholders instead of paying 600. Buying 270 million CDS contracts would buy that put back and make the bonds risk-free.</p><p><b>Riskier assets.</b> A put is worth more when the underlying is more volatile. With riskier assets and the same face value, the shareholders' option to default is worth more, so the bonds are worth less and the equity more: a wealth transfer from the bondholders to the shareholders.</p>",
+          "criteria": [
+            "Payoff to the bondholders min(V, 600) = 600 − max(600 − V, 0), so the debt is worth PV(face value) − put (a risk-free debt plus a written put on the assets).",
+            "The shareholders hold the put: limited liability gives them the right to default and hand over the assets instead of paying the face value.",
+            "Riskier assets raise the value of the put, so the bonds lose value and the equity gains.",
+            "The sign error, risk-free debt plus a bought put, is wrong: the bondholders have written the put, so debt = PV(F) − P."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-cds-3",
+  "kind": "must",
+  "label": "Risikabel obligasjon og CDS · oppgave 3",
+  "mk": {
+    "type": "cds",
+    "tier": 1,
+    "nr": 3
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Credit risk",
+      "points": 20,
+      "topic": "Risky debt and credit default swaps",
+      "chapters": [
+        5,
+        22,
+        24
+      ],
+      "merke": "Som CDS-eksemplet i forelesning 13, med løpetid 18 måneder og sikringen først",
+      "body": "<p>Vellmar Autoteile AG, a German car-parts supplier, has issued zero-coupon bonds with a face value of €100 that mature in 18 months. They trade at a promised yield to maturity of 7.5% a year. German government zero-coupon bonds with the same maturity yield 3% a year, the risk-free rate. Default can only happen at maturity. Analysts put the probability that Vellmar defaults before the bonds are repaid at 5.5% (over the whole 18 months, not per year). In default a bondholder receives €60 per bond.</p><p>A CDS contract on Vellmar pays €1 at maturity if Vellmar defaults and nothing otherwise. It is paid for today. Let ρ denote the risk-neutral probability that Vellmar defaults. All rates are annually compounded; use (1 + r)<sup>T</sup> also for a fraction of a year. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What are the prices today of a government bond and a Vellmar bond, each with face value €100?</p>",
+          "solution": "<p>Both bonds pay €100 in 1.5 years. Discount with (1 + r)<sup>1.5</sup>:</p><p>Government bond = 100/1.03<sup>1.5</sup> = 100/1.045336 = <b>€95.6630</b><br>Vellmar bond = 100/1.075<sup>1.5</sup> = 100/1.114584 = <b>€89.7196</b></p><p>Simple interest, 100/(1 + 1.5 × r), is not the convention here.</p>",
+          "criteria": [
+            "Discounts over 1.5 years with (1 + r) raised to 1.5: 100/1.03^1.5 = 95.6630.",
+            "Vellmar bond 100/1.075^1.5 = 89.7196.",
+            "Discounting one year only (97.0874 and 93.0233) or using simple interest (95.6938 and 89.8876) is an error."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>An insurance company holds Vellmar bonds with a total face value of €30 million and wants to remove all default risk with CDS contracts. How many contracts must it buy? Without using any probability, what must the bonds together with the contracts be worth today? What must the contracts then cost in total?</p>",
+          "solution": "<p><b>Number of contracts.</b> A bond with face €100 loses 100 − 60 = 40 in default, 40% of the face value. The holding has a face value of €30 million, so the insurer loses 30 × 40% = €12 million in default and needs <b>12 million contracts</b> (face value × loss given default, Kurbatov's λ).</p><p><b>Value of the hedged holding.</b> Without default the bonds pay 30 million and the contracts nothing; with default the bonds pay 30 × 60% = 18 million and the contracts 12 million. The holding pays €30 million in 1.5 years in both states, so it is worth as much as government bonds with the same face value:</p><p>Hedged holding = 30/1.03<sup>1.5</sup> = <b>€28.6989 million</b></p><p><b>Cost of the contracts.</b> The bonds are worth 300,000 × 89.7196 = €26.9159 million, so the contracts must cost 28.6989 − 26.9159 = <b>€1.7830 million</b>. If they cost less, buying the bonds and the contracts and selling government bonds would be an arbitrage.</p>",
+          "criteria": [
+            "Contracts = face value × loss given default = 30 million × 40% = 12 million. Buying 30 million (one per euro of face value) is the classic error.",
+            "The hedged holding pays 30 million in both states, so it is worth 30/1.03^1.5 = €28.6989 million, the value of government bonds with the same face value.",
+            "Contracts in total: 28.6989 − 26.9159 = €1.7830 million.",
+            "No probability is needed: the answer follows from the absence of arbitrage."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 5,
+          "body": "<p>What is the price of one CDS contract? What risk-neutral probability of default ρ does it imply? Check that the same ρ prices the Vellmar bond. (If you could not solve (b), use a total cost of €1.5 million.)</p>",
+          "solution": "<p><b>One contract.</b> CDS = 1.783033/12 = <b>€0.1486</b> (0.148586 unrounded)</p><p><b>ρ.</b> The CDS pays €1 in 1.5 years in the default branch, so CDS = ρ/1.03<sup>1.5</sup> and ρ = 0.148586 × 1.045336 = <b>0.1553</b> (15.53%), the probability of default over the whole 1.5 years.</p><table class=\"data\"><tr><th>Branch</th><th>Probability</th><th>Vellmar bond</th><th>CDS</th></tr><tr><td>No default</td><td class=\"n\">1 − ρ</td><td class=\"n\">100</td><td class=\"n\">0</td></tr><tr><td>Default</td><td class=\"n\">ρ</td><td class=\"n\">60</td><td class=\"n\">1</td></tr></table><p><b>Check.</b> [(1 − ρ) × 100 + ρ × 60]/1.03<sup>1.5</sup> = (100 − 40 × 0.1553)/1.045336 = 93.7871/1.045336 = 89.7196 ✓, the price from (a).</p><p>With the fallback cost of €1.5 million, CDS = 0.1250 and ρ = 0.1307. Simple interest on the risk-free rate gives a CDS price of 0.1494 and ρ = 0.1561; simple interest everywhere gives 0.1452 and 0.1517. Discounting one year only gives ρ = 0.1897.</p>",
+          "criteria": [
+            "CDS = total cost / number of contracts = 1.7830/12 = 0.1486.",
+            "ρ = CDS × 1.03^1.5 = 0.1553, the probability of default over the life of the bond.",
+            "Check: (1 − ρ)100 + 60ρ discounted over 1.5 years at the risk-free rate returns 89.7196.",
+            "Keeps ρ as the default probability: confusing ρ and 1 − ρ is the classic error.",
+            "With the fallback €1.5 million, 0.1250 and 0.1307 earn full marks."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>What is the expected annual return on a Vellmar bond, using the analysts' probability? Compare it with the promised yield and with the risk-free rate.</p>",
+          "solution": "<p>E[payoff] = 0.945 × 100 + 0.055 × 60 = 94.5 + 3.3 = 97.8 in 1.5 years.<br>Return over the 1.5 years = 97.8/89.7196 − 1 = 9.0063%<br>Expected annual return = (97.8/89.7196)<sup>1/1.5</sup> − 1 = <b>5.9175%</b></p><p>The promised yield of 7.5% a year is earned only if Vellmar does not default, so the expected return is lower. It stays above the risk-free 3%: the difference is the risk premium for default risk that is systematic. That premium is also why ρ from (c) is higher than the analysts' 5.5%. Dividing 9.0063% by 1.5 (6.0042%) does not give the annual rate.</p>",
+          "criteria": [
+            "Expected payoff 0.945 × 100 + 0.055 × 60 = 97.8 with the analysts' probability.",
+            "Annualises correctly: (97.8/89.7196)^(1/1.5) − 1 = 5.92% a year. Reporting the 1.5-year return of 9.01%, or dividing it by 1.5, is the classic error.",
+            "Below the 7.5% promised yield because the yield is earned only without default.",
+            "Above the risk-free 3% because default risk is systematic, so bondholders earn a risk premium."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>The analysts raise their estimate of the default probability from 5.5% to 8%, but the price of the Vellmar bond does not move. What happens to ρ, to the CDS price and to the expected return on the bond? Explain briefly.</p>",
+          "solution": "<p><b>ρ and the CDS price do not change.</b> ρ comes from the market price of the bond, the risk-free rate, the face value and the recovery. None of these has moved, so ρ stays at 0.1553 and the CDS at €0.1486. The CDS is priced from traded prices, not from the analysts' estimate.</p><p><b>The expected return falls.</b> With 8%, E[payoff] = 0.92 × 100 + 0.08 × 60 = 96.8 and the expected annual return is (96.8/89.7196)<sup>1/1.5</sup> − 1 = 5.19%, against 5.92% before. It is still above the risk-free 3%, but the risk premium is smaller: the same price now buys a riskier claim. ρ stays above the real probability because the market still demands compensation for losses that come in bad times.</p>",
+          "criteria": [
+            "ρ and the CDS price are unchanged: they depend only on the bond price, the risk-free rate, the face value and the recovery, not on the real probability.",
+            "The expected return falls (to about 5.19% a year) because more of the promised payment is expected to be lost; the risk premium over the risk-free rate shrinks.",
+            "Recomputing the CDS with the new real probability (8% gives 0.0765) is the classic error."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-governance-1",
+  "kind": "must",
+  "label": "Governance (teori, 10 poeng) · oppgave 1",
+  "mk": {
+    "type": "governance",
+    "tier": 1,
+    "nr": 1
+  },
+  "points": 10,
+  "minutes": 18,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Governance",
+      "points": 10,
+      "topic": "Corporate governance",
+      "chapters": [
+        27
+      ],
+      "merke": "Samme form som eierspørsmålet i forelesning 17 (1:18:44): «select three things and elaborate»",
+      "body": "<p>You founded and own all of Vantrell Health Software, which makes booking systems for hospitals. Next year Vantrell will list on a US exchange: you will keep 35% of the shares and the rest will be widely held. You will hand the CEO job to an outsider and stay on the board.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 6,
+          "body": "<p>Select three things you would put in the new CEO's contract or in the way the company monitors the CEO. Elaborate each in about three sentences: how it makes the CEO act in the shareholders' interest and its main drawback (2 points each). Leave share classes out; they come in (b).</p>",
+          "solution": "<p>Three things, each with how it works and its drawback. As a 35% owner you capture 35% of any gain from monitoring, so free riding is not your problem.</p><p><b>1. An independent board.</b> Most of the 7 to 11 directors have no ties to the CEO, the chair is not the CEO and independent committees handle audit, pay and nominations. Such directors can question the CEO, set the pay and fire the CEO without being the CEO's friends; the lecture calls this «one of the first check marks» (recording 17, 1:19:39). Drawback: outsiders know less than the CEO and depend on the CEO's own information, so they can miss problems or block good projects.</p><p><b>2. Long-term equity pay with a clawback.</b> Much of the pay comes as restricted shares that vest over four to five years, with bonuses that can be taken back if results are restated. The CEO's wealth then rises and falls with the long-run share value, like yours. Drawback: the share price also moves with the market and luck, so the CEO bears risk outside the CEO's control and must be paid more for it.</p><p><b>3. Your own monitoring, written into the bylaws.</b> Proxy access lets large shareholders put director candidates on the company's ballot; an annual investor meeting lets you and the institutions question the CEO. The CEO knows that the owners can replace directors, while the institutions get a reason to vote. Drawback: monitoring that is too tight makes the CEO passive, doing only the safest things (recording 17, 1:17:10).</p><p><b>Other things that score.</b> Options, with their own drawback (they reward excessive risk); a bonus on targets with clauses against gaming (EPS raised by a share buyback does not count); a golden parachute if Vantrell needs the CEO to take R&amp;D risk; transparency and regular reporting; limits on perks such as private use of a company jet; the CEO on the board but never as chair. «Make the shareholders vote» earns the points only with a how: investor meetings, communication, proxy access or the institutions, since small owners cannot be forced (recording 17, 1:20:22 to 1:21:51).</p>",
+          "criteria": [
+            "Three distinct things, about three sentences each, 2 points each: 1 for how it makes the CEO act in the shareholders' interest and 1 for a real drawback. A thing without a drawback earns at most 1 of 2.",
+            "As in Kurbatov's H2025 key for the same kind of question: «Any reasonable action with explanation should be accepted». Examples (recording 17): an independent board and its committees, the CEO not as chair, restricted shares, options, clawbacks, bonuses with clauses against EPS gaming, a golden parachute for R&D risk, transparency and reporting, limits on perks, proxy access in the bylaws, special meetings, investor meetings with the owners.",
+            "Counting: two versions of the same tool with the same drawback count once. Restricted shares and options count as two things if the drawbacks given differ (for example market luck against excessive risk-taking). Share classes earn nothing here, since (b) asks for them.",
+            "«Make the shareholders vote» counts only with a concrete how; without one it earns at most 1 of 2.",
+            "Board size: an argument with both sides is accepted (about 7 to 11 directors). «A smaller board works better» alone is not accepted."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>Your bank suggests two share classes: you keep B shares with ten votes each and the new investors buy A shares with one vote each. Give one argument for and one against this structure, seen from the new outside shareholders (2–3 sentences each, 2 points each).</p>",
+          "solution": "<p><b>For.</b> The structure lets you sell 65% of the cash flows and still control the firm (about 84% of the votes), so the long-term plan is protected against short-term pressure and hostile bids. The lecture gives the Ford family as the example: it raised a lot of capital and kept control with a small share of the equity. The lecture calls dual-class shares «not a completely stupid measure» (recording 17, 1:19:49).</p><p><b>Against.</b> Votes are separated from cash-flow rights: you carry 35% of the cost of a bad decision but hold about 84% of the votes. The outside shareholders cannot replace the board, win a proxy fight or sell to a hostile bidder, so a poor CEO you back or your private benefits cannot be stopped: the firm is entrenched.</p><p><b>Also accepted.</b> For: investors buy knowing the terms, so the price they pay already reflects them; the structure protects the people and culture a software firm depends on. Against: the A shares are likely to trade at a discount; the control lasts after the founder's skill or interest fades, unless the B shares convert to one vote after some years (a sunset).</p>",
+          "criteria": [
+            "For (2 points): control and the long-term plan are protected from short-term pressure and hostile bids while the firm raises capital. Noting that investors buy knowing the terms is optional.",
+            "Against (2 points): votes are separated from cash-flow rights, so the founder bears only part of the cost of bad decisions and the outside owners cannot use their vote, proxy fights or the takeover market: entrenchment.",
+            "Seen from the outside shareholders, as the question asks. «It is good for the founder» alone earns at most 1 of 2.",
+            "Bonus: a sunset clause, or noting that the votes are about 84% for 35% of the equity."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-governance-2",
+  "kind": "must",
+  "label": "Governance (teori, 10 poeng) · oppgave 2",
+  "mk": {
+    "type": "governance",
+    "tier": 1,
+    "nr": 2
+  },
+  "points": 10,
+  "minutes": 18,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Governance",
+      "points": 10,
+      "topic": "Corporate governance",
+      "chapters": [
+        27
+      ],
+      "merke": "Samme form som kontraktsspørsmålet i forelesning 17 (35:23): hvordan lønnen styrer CEO-en",
+      "body": "<p>Aldwyn Aero Engines Inc., a US-listed maker of aircraft engines with dispersed ownership, is developing an engine that will burn 20% less fuel. The programme will take eight years and may fail. The board proposes this pay package for a new CEO:</p><ol><li>an annual cash bonus of up to 100% of salary if earnings per share (EPS) grow by at least 8% in the year;</li><li>an annual bonus of up to 50% of salary tied to the company's score from an independent ESG rating agency;</li><li>a golden parachute: three years' pay if the CEO is fired.</li></ol><p>For each element, explain in 2–3 sentences what it encourages the CEO to do and how it can backfire or be abused (3 points each). Then say in one sentence which element you would change first as a long-term shareholder and how (1 point).</p>",
+      "solution": "<p><b>1. EPS bonus.</b> It pushes the CEO to raise earnings every year, which is simple to measure and tied to profits. But it invites short-termism: the CEO can lift EPS mechanically with a share buyback that cuts the number of shares, even an inefficient one, or cut spending on the eight-year engine programme to raise this year's earnings. The lecture warns that a CEO will «do everything in their power to achieve this bonus and nothing else» (recording 18, 1:13:49).</p><p><b>2. ESG bonus.</b> It rewards real changes the rating agency can see and here points the same way as the business, since an engine that burns less fuel is both greener and cheaper for airlines to run. It backfires because ratings are noisy and can be raised by reporting and box-ticking. Pay for a score that is not tied to value can also make the CEO spend shareholders' money on what the agency checks.</p><p><b>3. Golden parachute.</b> It protects the CEO if a risky but valuable programme fails, so the CEO does not avoid the R&amp;D risk the engine needs; the lecture recommends it for exactly this kind of firm (recording 17, 16:18). It backfires because it rewards failure: the CEO is paid even after poor effort or reckless bets. Three years' pay also makes it costly for the board to fire the CEO or for a bidder to take over, which protects a weak CEO.</p><p><b>Change first.</b> The EPS bonus, since it is the easiest to abuse and works against an eight-year programme: measure performance over several years, exclude the effect of buybacks and pay the bonus in restricted shares. Any other choice with a reason is accepted.</p><p><b>Also accepted.</b> For 1: managing accruals or delaying maintenance. For 2: an ESG score is much harder to game than EPS, since raising a governance score means actually improving governance (recording 17, 38:23); a score built for other stakeholders can conflict with shareholder value, so whose interest is the CEO serving? For 3: a parachute only on a takeover, or one capped or tied to the programme's milestones, limits the abuse.</p>",
+      "criteria": [
+        "3 points per element: 1 for what it encourages and 2 for how it backfires or is abused, with the mechanism. A label alone («short-termism», «moral hazard») earns at most 1 of the 2.",
+        "EPS: a share buyback raises EPS mechanically by cutting the number of shares; cutting R&D or maintenance lifts this year's earnings at the cost of the engine programme.",
+        "ESG: rewards real change and here fits the fuel goal; it backfires through noisy ratings, box-ticking or spending at the shareholders' expense. Saying it is harder to game than EPS is optional.",
+        "Golden parachute: encourages the risk the programme needs; backfires by rewarding failure or low effort and by making it costly to fire the CEO or to take the firm over.",
+        "The last point: one element to change first, with how. The EPS bonus with a multi-year target, no credit for buybacks or pay in restricted shares is the natural answer, but any reasoned choice earns the point."
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-governance-3",
+  "kind": "must",
+  "label": "Governance (teori, 10 poeng) · oppgave 3",
+  "mk": {
+    "type": "governance",
+    "tier": 1,
+    "nr": 3
+  },
+  "points": 10,
+  "minutes": 18,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Governance",
+      "points": 10,
+      "topic": "Corporate governance",
+      "chapters": [
+        27
+      ],
+      "merke": "Teoriformen fra H2024 E2 og H2025 E2 (setningsbudsjett og poeng per del), med stoffet fra forelesning 17, 1:08:04",
+      "body": "<p>Two US-listed firms adopt the same poison pill: if anyone buys over 15% without board approval, all other shareholders get one new share per share.</p><ul><li><b>Orrin Fusion</b> is in year six of a nine-year plan to build a fusion plant. Its losses are as planned and reported quarterly; most owners are long-term pension funds. After a hedge fund pushing for quick payouts began buying, 78% of votes approved the board's pill.</li><li><b>Mallory Home Goods</b> has lagged its peers for five years. Its CEO chairs a board with five executives among nine directors. The board adopted the pill overnight without a vote, two days after a private equity firm disclosed a 9% stake.</li></ul>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 2,
+          "body": "<p>How does the pill stop a hostile bidder? (2–3 sentences)</p>",
+          "solution": "<p>Once a bidder crosses 15%, every other shareholder gets one new share per share, so the number of shares nearly doubles while the bidder's stake does not: 15% becomes 15/(100 + 85) = 8.1%. Much of the money it paid for its shares is lost to the other owners. Buying control on the market becomes far too expensive, so the bidder has to negotiate with the board, which can withdraw the pill; in effect the board gets a veto over any takeover.</p>",
+          "criteria": [
+            "Mechanism (1 point): crossing 15% triggers new shares for everyone except the bidder, which dilutes the bidder's stake (to about 8%) and its value.",
+            "Consequence (1 point): a takeover without the board's consent becomes too costly, so the bidder must negotiate with the board, which can remove the pill.",
+            "Kurbatov's words fit: the pill forces the bidder «to the table of negotiations» (recording 17, 30:13)."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 6,
+          "body": "<p>For each firm, is the pill more likely to protect shareholder value or to entrench the managers? (2–3 sentences and 3 points per firm)</p>",
+          "solution": "<p><b>Orrin: more likely to protect the shareholders' value.</b> The losses are planned and reported, so they do not signal poor management; a bidder could buy in year six before the plant earns anything and cut the programme or the research team just before it pays off. The owners themselves approved the pill, the firm is transparent and the owners are stable and long-term, which is when the lecture says entrenchment can be positive: it preserves the vision and the human capital (recording 17, 1:08:35 to 1:10:54). The cost is weaker outside monitoring, so the board and the owners must watch the CEO more closely.</p><p><b>Mallory: more likely to entrench the managers.</b> Five years of lagging peers suggests poor management, which is exactly what a takeover would discipline by putting in a better team. The board is captive (the CEO chairs it and a majority are insiders) and it adopted the pill overnight without asking the owners, two days after a bidder appeared, so the pill mainly protects the managers' jobs and private benefits. The other shareholders lose the takeover premium and the threat that keeps the managers in line.</p>",
+          "criteria": [
+            "3 points per firm: 1 for the right verdict and 2 for the reasons drawn from the case.",
+            "Orrin: protects value; planned and reported losses, a vote by the owners, stable long-term owners and a long programme that a bidder could cut (positive entrenchment). Naming the cost, weaker external monitoring, is a bonus.",
+            "Mallory: entrenches; long underperformance means the takeover threat is the discipline needed, the board is captive (CEO as chair, insiders) and the pill came overnight without a vote right after the stake was disclosed.",
+            "An answer that calls both pills bad, or both good, earns at most 3 of 6: the question tests that the same defence can serve different interests."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 2,
+          "body": "<p>How should each share price react to the pill? (1–2 sentences)</p>",
+          "solution": "<p>Mallory's price should fall: the market reads the pill as entrenchment and lowers the chance of a takeover premium; the lecture notes that the market reaction to such pills is usually very negative (recording 17, 22:51). Orrin's price should react little, or even rise, since the owners approved the pill and it protects the programme; a small fall for the lost takeover premium is also accepted with that reason.</p>",
+          "criteria": [
+            "Mallory (1 point): the price falls, because the pill signals entrenchment and removes the expected takeover premium.",
+            "Orrin (1 point): a small or no reaction, or a rise, because the owners approved it and it protects the programme; a small fall is accepted if it is explained by the lost chance of a takeover premium.",
+            "The direction must be consistent with the verdicts in (b)."
+          ]
+        }
+      ]
+    }
+  ]
+}
+);
+/* ===================== MÅ KUNNE SLUTT ===================== */

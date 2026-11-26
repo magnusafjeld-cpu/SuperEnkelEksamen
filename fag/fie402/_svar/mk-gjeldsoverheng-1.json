@@ -1,0 +1,67 @@
+{
+  "mk-gjeldsoverheng-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Bank loan",
+        "verdi": 140.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Equity",
+        "verdi": 60.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "merknad": "Pålydende 170 for lånet er fellen; da blir egenkapitalen 30."
+  },
+  "mk-gjeldsoverheng-1:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": 14.0,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "mk-gjeldsoverheng-1:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Fraction to new investors x",
+        "verdi": 47.72727272727273,
+        "enhet": "%"
+      },
+      {
+        "navn": "Sigurd's payoff",
+        "verdi": 46.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Will Sigurd do it? Would the bank like the line to be installed?",
+    "merknad": "Fellene: 42/176 = 23.86% (bare høy tilstand) og 48.84% (pålydende trukket fra forventet verdi) faller utenfor toleransen."
+  },
+  "mk-gjeldsoverheng-1:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change for the bank",
+        "verdi": 6.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Change for Sigurd",
+        "verdi": 8.0,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Will the bank accept? Will Sigurd go ahead?",
+    "merknad": "Bankens målestokk er 140 fra (a), ikke 170 eller 168."
+  },
+  "mk-gjeldsoverheng-1:1:e": {
+    "type": "tekst"
+  }
+}

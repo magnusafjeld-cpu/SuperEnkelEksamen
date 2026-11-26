@@ -1,0 +1,511 @@
+{
+ "mk-mm-rekap-1": {
+  "n": 1,
+  "title": "Payout Policy",
+  "points": 20,
+  "topic": "MM in perfect markets, dividends and repurchases",
+  "chapters": [
+   6,
+   15
+  ],
+  "merke": "Samme form som utbytte- og tilbakekjøpseksemplet i forelesning 5",
+  "body": "<p>Lindewaard Toll Bridge NV operates in a perfect capital market (MM propositions hold, no taxes). It has no debt and 12.5 million shares. Its free cash flow of €31.5 million a year in perpetuity, the first in one year, is all paid out as dividends at year-end. Its cost of capital is 7%. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What are the firm value, the share price today and the dividend per share at the end of Year 1?</p>",
+    "solution": "<p><b>Step 1. Firm value.</b> The firm is a perpetuity of €31.5M discounted at 7%:</p><p>V = FCF / r = 31.5 / 0.07 = <b>€450M</b></p><p><b>Step 2. Share price.</b> There is no debt, so E = V and P<sub>0</sub> = 450 / 12.5 = <b>€36.00 per share</b>.</p><p><b>Step 3. Dividend.</b> Div<sub>1</sub> = 31.5 / 12.5 = <b>€2.52 per share</b>.</p><p><b>Check.</b> P<sub>0</sub> = Div<sub>1</sub> / r = 2.52 / 0.07 = €36.00. ✓</p>",
+    "criteria": [
+     "V = 31.5/0.07 = €450M as a perpetuity. Using an annuity or adding the first cash flow at t = 0 is wrong: the first cash flow comes in one year.",
+     "P0 = €450M / 12.5M shares = €36.00.",
+     "Div1 = €31.5M / 12.5M = €2.52 per share.",
+     "All three numbers are asked for. Answering only the firm value loses points (the lecturer warns about this in lecture 6)."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>The board announces today a Year 1 dividend of €50 million in total. The shortfall is raised by selling new shares at the market price right after the payment. From Year 2 on, all free cash flow is paid out as before.</p><p>What is the Year 1 dividend per share? At what price are the new shares sold and how many? What is the dividend per share from Year 2 on?</p>",
+    "solution": "<p><b>Step 1. The Year 1 dividend.</b> €50M / 12.5M = <b>€4.00 per share</b>. The Year 1 free cash flow covers €31.5M, so €50M − €31.5M = <b>€18.5M</b> must come from new shares.</p><p><b>Step 2. What the shares are worth after the dividend.</b> Right after the payment the firm still owns the bridge, which pays €31.5M a year from Year 2 on. All shares together, old and new, are therefore worth 31.5 / 0.07 = €450M. The new shares are sold at the market price P<sub>1</sub> (n = number of new shares, in millions). Two equations:</p><p>P<sub>1</sub> × n = 18.5 (the issue raises the shortfall)<br>P<sub>1</sub> × (12.5 + n) = 450 (all shares are worth the firm)</p><p>Subtract the first from the second: 12.5 × P<sub>1</sub> = 450 − 18.5 = 431.5, so <b>P<sub>1</sub> = €34.52</b> and n = 18.5 / 34.52 = <b>0.5359 million new shares</b>.</p><p><b>Equivalently (the route in lecture 5).</b> The new investors pay €18.5M for a perpetual claim of 18.5 × 0.07 = €1.295M a year from Year 2. The old shareholders keep 31.5 − 1.295 = €30.205M a year, worth 30.205 / 0.07 = €431.5M or €34.52 per share.</p><p><b>Step 3. The dividend from Year 2 on.</b> €31.5M is now shared by 12.5 + 0.5359 = 13.0359M shares:</p><p>Div = 31.5 / 13.0359 = <b>€2.4164 per share</b></p><p><b>Check.</b> 2.4164 / 0.07 = €34.52 = P<sub>1</sub>. ✓ The new shareholders paid €34.52 for a share worth €34.52.</p>",
+    "criteria": [
+     "Year 1 dividend €4.00 per share and a shortfall of €18.5M to be raised with new shares.",
+     "Prices the new shares ex dividend: the firm left after the payment is worth 31.5/0.07 = €450M and the old shareholders keep 450 − 18.5 = 431.5, so P1 = 431.5/12.5 = €34.52. The two equations (P1 × n = 18.5 and P1 × (12.5 + n) = 450) or, equivalently, the lecture 5 route through the new investors' perpetual claim (18.5 × 0.07 = 1.295 a year, so the old shareholders keep 30.205 a year) are both accepted.",
+     "n = 18.5/34.52 = 0.5359 million. Selling at today's €36.00 gives 0.5139 million and is the classic error: the new shares are sold at the price that holds when they are sold.",
+     "Dividend from Year 2 = 31.5/13.0359 = €2.4164, on the larger share count.",
+     "Show the calculation. No calculation, no points."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 3,
+    "body": "<p>What is the share price today, after the announcement in (b)? Are the current shareholders better or worse off? Explain briefly.</p>",
+    "solution": "<p><b>Step 1. Price today.</b> A share pays €4.00 at the end of Year 1 and is then worth €34.52:</p><p>P<sub>0</sub> = (4.00 + 34.52) / 1.07 = 38.52 / 1.07 = <b>€36.00</b>, unchanged.</p><p><b>Step 2. Better or worse off?</b> <b>Neither.</b> The current shareholders get €1.48 more per share in Year 1 (€4.00 instead of €2.52) and €0.1036 less every year after that (€2.4164 instead of €2.52). The two are worth the same today: 1.48 / 1.07 = 1.3832 and (0.1036 / 0.07) / 1.07 = 1.3832. The extra cash is paid for by the new shareholders, who buy a fair claim on part of the future dividends. There is no wealth transfer: we live in a perfect capital market, so the firm value stays at €450M. Payout policy only changes when the shareholders receive the value, not how much it is.</p>",
+    "criteria": [
+     "P0 = (4.00 + 34.52)/1.07 = €36.00: the price does not change on announcement.",
+     "Answers the question: the current shareholders are neither better nor worse off. A higher dividend now is offset by a lower dividend later (2.4164 instead of 2.52). Both have the same present value (1.3832).",
+     "Gives the reason: perfect capital market (MM), the firm's free cash flow does not change and the new shares are sold at a fair price, so the firm value is unchanged."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 5,
+    "body": "<p>Instead, the board considers spending the whole Year 1 free cash flow on a buyback at the market price at the end of Year 1, with no Year 1 dividend and all free cash flow paid out from Year 2 on.</p><p>At what price are the shares bought back and how many? What is the dividend per share from Year 2 on?</p>",
+    "solution": "<p><b>Step 1. Two equations.</b> At the end of Year 1 the firm holds €31.5M of cash and the bridge, whose cash flows from Year 2 on are worth 31.5 / 0.07 = €450M. Let P<sub>1</sub> be the buyback price and m the number of shares bought back (millions):</p><p>P<sub>1</sub> × m = 31.5 (the cash spent on the buyback)<br>P<sub>1</sub> × (12.5 − m) = 450 (the shares that remain are worth the firm)</p><p>Add the two: 12.5 × P<sub>1</sub> = 31.5 + 450 = 481.5, so <b>P<sub>1</sub> = €38.52 per share</b> and m = 31.5 / 38.52 = <b>0.8178 million shares</b>. 11.6822 million shares remain.</p><p>The buyback price is not today's €36.00. A year has passed and the firm is holding the Year 1 cash, so the share is worth €36.00 × 1.07 = €38.52 when the buyback takes place. Dividing €31.5M by €36.00 (giving 0.8750 million) is the mistake the lecturer calls the biggest one in the exam.</p><p><b>Step 2. The dividend from Year 2 on.</b> Div = 31.5 / 11.6822 = <b>€2.6964 per share</b>.</p><p><b>Check.</b> 2.6964 / 0.07 = €38.52 = P<sub>1</sub>. Also 11.6822 × 38.52 = €450M. ✓</p>",
+    "criteria": [
+     "Sets up the system of two equations, P1 × m = 31.5 and P1 × (12.5 − m) = 450, or equivalent direct reasoning (the share is worth (450 + 31.5)/12.5 just before the buyback, then m = cash/P1). The lecturer stresses that a repurchase always gives two equations.",
+     "P1 = (31.5 + 450)/12.5 = €38.52, the price at the end of Year 1 with the cash still in the firm.",
+     "m = 31.5/38.52 = 0.8178 million shares. Dividing by today's €36.00 (0.8750 million) is the classic error and loses most of the points.",
+     "Dividend from Year 2 = 31.5/11.6822 = €2.6964, on the smaller share count.",
+     "Show the calculation. No calculation, no points."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Compare the position at the end of Year 1, per share held today, of a shareholder under the old policy, one who sells in the buyback and one who keeps the share. Comment.</p>",
+    "solution": "<p>All three positions are worth <b>€38.52</b> at the end of Year 1.</p><table class=\"data\"><tr><th>Position</th><th>What they hold at the end of Year 1</th><th>Value</th></tr><tr><td>Old policy</td><td>Dividend €2.52 plus a share worth 2.52 / 0.07 = €36.00</td><td class=\"n\">€38.52</td></tr><tr><td>Buyback, sells</td><td>Cash from the buyback</td><td class=\"n\">€38.52</td></tr><tr><td>Buyback, keeps</td><td>A share paying €2.6964 a year from Year 2: 2.6964 / 0.07</td><td class=\"n\">€38.52</td></tr></table><p>The plan in (b) gives the same: 4.00 + 34.52 = €38.52. So today's price is 38.52 / 1.07 = €36.00 under every plan.</p><p><b>Comment.</b> In a perfect capital market payout policy is irrelevant: a dividend and a buyback are equivalent and nobody is better or worse off. The firm value stays at €450M because the bridge's free cash flow does not depend on how it is paid out. The seller is paid the fair price; the holder gets a higher dividend per share later because there are fewer shares. Only the form of the payout differs (cash now or a larger claim later), which matters only once frictions such as taxes or investor preferences come in.</p>",
+    "criteria": [
+     "All three positions are stated and all come to €38.52: 2.52 + 36.00 under the old policy, 38.52 in cash for the seller, 2.6964/0.07 = 38.52 for the holder. The comparison is what is graded.",
+     "Comment: anything reasonable about MM. Names payout irrelevance (a dividend and a buyback are equivalent), says why the firm value is unchanged (perfect capital market, the free cash flow is the same) and that the seller gets a fair price, so there is no wealth transfer between sellers and holders.",
+     "Bonus: noticing that the plan in (b) also gives €38.52 at the end of Year 1 (4.00 + 34.52)."
+    ]
+   }
+  ]
+ },
+ "mk-mm-rekap-2": {
+  "n": 1,
+  "title": "Capital Structure",
+  "points": 20,
+  "topic": "MM in perfect markets, recapitalisation",
+  "chapters": [
+   4,
+   6,
+   15
+  ],
+  "merke": "Samme form som H2024 E3: ny gjeld, utbytte og tilbakekjøp som alternativ",
+  "body": "<p>Hollis Creek Veterinary Inc., a US chain of veterinary clinics, has 18 million shares outstanding at a share price of $70. The company operates in perfect capital markets with no taxes and has $315 million of debt. The debt is risk-free with an expected return of 3.5%. The equity cost of capital is 10.5%. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What is the unlevered cost of capital (r<sub>U</sub>) of the firm?</p>",
+    "solution": "<p><b>Step 1. Market values.</b> E = 18M × $70 = <b>$1,260M</b>, D = $315M, V = E + D = <b>$1,575M</b>. Weights: E/V = 0.8 and D/V = 0.2.</p><p><b>Step 2. r<sub>U</sub> is the pre-tax WACC</b> (no taxes, so no (1 − τ<sub>c</sub>)):</p><p>r<sub>U</sub> = 0.8 × 10.5% + 0.2 × 3.5% = 8.4% + 0.7% = <b>9.1000%</b></p><p><b>Cross-check with MM II.</b> 9.1% + (315/1,260)(9.1% − 3.5%) = 9.1% + 0.2500 × 5.6% = 10.5%. ✓</p>",
+    "criteria": [
+     "E = 18 × 70 = $1,260M from the share price. V = E + D = $1,575M.",
+     "Uses market-value weights E/V = 0.8 and D/V = 0.2, with no (1 − τ) term because there are no taxes.",
+     "r_U = 9.1000%."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>The management announces that it will issue new debt, use it to repay all the existing debt and pay out the rest as a special dividend right away. After the transaction the debt-to-equity ratio (D/E) will be 0.75.</p><p>How much new debt must be issued in total and what is the dividend per share? What happens to the share price immediately upon announcement? Explain briefly.</p>",
+    "solution": "<p><b>Step 1. The firm value does not change.</b> We live in a perfect capital market: there are no taxes (so no tax shield) and no costs of distress. By MM I the firm value is set by the clinics' cash flows, not by how they are split between debt and equity. V stays at <b>$1,575M</b>.</p><p><b>Step 2. The new debt.</b> D/E = 0.75 means D/V = 0.75 / 1.75 = 0.4286:</p><p>D<sub>new</sub> = 0.4286 × 1,575 = <b>$675M in total</b> (a net increase of 675 − 315 = $360M)</p><p><b>Step 3. The dividend.</b> $675M − $315M to repay the old debt = $360M, or 360 / 18 = <b>$20.00 per share</b>.</p><p><b>Step 4. The share price on announcement.</b> <b>Nothing happens: it stays at $70.00.</b> The firm value is unchanged and nothing has been paid out yet, so each share is still worth 1,260 / 18 = $70.00 (cum dividend).</p>",
+    "criteria": [
+     "Keeps V at $1,575M and converts D/E = 0.75 into D/V = 0.4286: new debt = $675M. Using 0.75 × 1,575 = 1,181.25 confuses D/E with D/V.",
+     "Dividend = 675 − 315 = $360M, or $20.00 per share. Paying out the whole $675M forgets the old debt.",
+     "Share price on announcement: unchanged at $70.00.",
+     "Gives the reason: perfect capital market (MM I), no taxes and so no tax shield, so the financing decision does not change the firm value. One line is enough, as in the lecturer's key to H2024 E3."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 3,
+    "body": "<p>What is the share price after the dividend has been paid? Are the shareholders better or worse off? (If you could not solve (b), use $630 million of new debt in total.)</p>",
+    "solution": "<p><b>Step 1. The new equity value.</b> E = V − D = 1,575 − 675 = <b>$900M</b>. A dividend retires no shares, so the share count is still 18M:</p><p>P = 900 / 18 = <b>$50.00 per share</b></p><p><b>Step 2. Better or worse off?</b> <b>Neither.</b> Each shareholder now holds a share worth $50.00 plus $20.00 in cash, which is $70.00, exactly the $70.00 before. The price falls by the dividend, which is the ordinary ex-dividend drop and not a loss.</p><p><b>Check.</b> 18 × 50.00 + 360 = $1,260M, the equity value before the transaction. ✓ With the fallback of $630M: P = (1,575 − 630) / 18 = $52.50, plus a dividend of $17.50, again $70.00.</p>",
+    "criteria": [
+     "E = 1,575 − 675 = $900M over an unchanged 18M shares: P = $50.00. Reducing the share count confuses a dividend with a repurchase.",
+     "Answers the second question: neither better nor worse off, because $50.00 + $20.00 = $70.00.",
+     "Names the mechanism: MM I in a perfect capital market and the ex-dividend price drop, so there is no wealth transfer. A lower price is not a loss."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 3,
+    "body": "<p>After the transaction the debt is risky and has an expected return of 5.5%. What is the new equity cost of capital? (If you could not solve (a), use r<sub>U</sub> = 9.5%.)</p>",
+    "solution": "<p><b>Step 1. The new capital structure.</b> D = $675M and E = $900M, so D/E = 0.75. r<sub>U</sub> is still 9.1000%: the clinics and their business risk have not changed.</p><p><b>Step 2. From r<sub>U</sub> to the new r<sub>E</sub> (MM II with the new r<sub>D</sub>).</b></p><p>r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) = 9.1% + 0.75 × (9.1% − 5.5%) = 9.1% + 0.75 × 3.6% = <b>11.8000%</b></p><p><b>Check</b> (an identity once MM II is used, so it only catches arithmetic slips): 0.5714 × 11.8% + 0.4286 × 5.5% = 0.0674 + 0.0236 = 0.0910 = r<sub>U</sub>. ✓ With the fallback r<sub>U</sub> = 9.5%: 9.5% + 0.75 × (9.5% − 5.5%) = 12.5000%.</p>",
+    "criteria": [
+     "Uses the post-transaction D/E = 675/900 = 0.75, not D/V = 0.4286 (10.6429%) and not the old 0.2500.",
+     "Keeps r_U = 9.1000% and uses the NEW r_D = 5.5%. The old 3.5% gives 13.3000% and is the error.",
+     "r_E = 11.8000%."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Instead of the dividend, the management considers issuing the same new debt, repaying the old debt and using the rest to repurchase shares. What is the share price after the transaction? How many shares are repurchased? (If you could not solve (b), use $630 million of new debt in total.)</p>",
+    "solution": "<p><b>Step 1. Two equations.</b> The firm has $360M to spend after repaying the old debt. Let P be the price after the transaction and n the number of shares repurchased (millions). The equity left must be worth V − D = $900M:</p><p>P × n = 360 (the repurchase)<br>P × (18 − n) = 900 (the remaining equity)</p><p>Add them: 18 × P = 1,260, so <b>P = $70.00</b>, unchanged. Since we live in a perfect capital market, the repurchase at the market price is a fair exchange of cash for shares.</p><p><b>Step 2. Shares repurchased.</b> n = 360 / 70.00 = <b>5.1429 million shares</b>, leaving 12.8571 million.</p><p><b>Check.</b> 900 / 12.8571 = $70.00. ✓ D/E is again 0.75, so r<sub>E</sub> is the same 11.8000% as in (d). With the fallback of $630M: the price is still $70.00 and n = 315 / 70.00 = 4.5000 million.</p>",
+    "criteria": [
+     "Share price unchanged at $70.00. Bonus: the reason (a repurchase at a fair price in a perfect capital market).",
+     "Uses only the $360M left after repaying the old debt: n = 360/70.00 = 5.1429 million. Using the whole $675M (9.6429 million) is the error.",
+     "Sets up the two equations P × n = 360 and P × (18 − n) = 900, as in the lecturer's key to H2024 E3, or equivalent direct reasoning (the price stays at $70.00, so n = 360/70.00), as in the key to H2025 E3.",
+     "Bonus: the comparison with (c). The dividend leaves $50.00 + $20.00, the repurchase $70.00 in cash or in shares, so a dividend and a repurchase are equivalent."
+    ]
+   },
+   {
+    "label": "f",
+    "points": 3,
+    "body": "<p>The CFO argues: «Our new debt costs only 5.5%, much less than our equity. Replacing equity with this cheap debt lowers our cost of capital and therefore raises the value of the firm.» Is the CFO right? Explain briefly (3 to 4 sentences).</p>",
+    "solution": "<p><b>No.</b> Every dollar of debt makes the remaining equity riskier, so r<sub>E</sub> rises from 10.5% to 11.8% (MM II) and the cheaper debt is exactly offset: the WACC is 0.5714 × 11.8% + 0.4286 × 5.5% = 9.1% = r<sub>U</sub>, the same as before (0.8 × 10.5% + 0.2 × 3.5%). The firm value stays at $1,575M because we live in a perfect capital market: with no taxes there is no tax shield and the clinics' cash flows do not depend on how they are financed. That the new debt is risky only moves part of the same total risk from the shareholders to the lenders.</p>",
+    "criteria": [
+     "Says clearly that the CFO is wrong.",
+     "Mechanism: cheaper debt is offset by a higher cost of equity (MM II), because the equity holders carry the same business risk over a smaller base.",
+     "The WACC stays at r_U = 9.1% and the firm value at $1,575M, because we live in a perfect capital market (no taxes, no tax shield). Stating this reason is required for full marks.",
+     "Bonus: the one-line WACC check before and after, or noting that the risky debt shifts part of the same risk to the lenders."
+    ]
+   }
+  ]
+ },
+ "mk-mm-rekap-3": {
+  "n": 1,
+  "title": "Capital Structure",
+  "points": 20,
+  "topic": "MM in perfect markets, refinancing risky debt",
+  "chapters": [
+   4,
+   5,
+   6
+  ],
+  "merke": "Samme form som PS1 E3 i forelesning 6, med evigrente og en emisjon som innfrir gjelden",
+  "body": "<p>Heggedal Heis ASA, an elevator service company, operates in a perfect capital market (MM propositions hold, no taxes). It has 32 million shares trading at NOK 45 and perpetual debt worth NOK 960 million. The debt is risky with an expected return of 6.5%: the debt holders expect 6.5% of NOK 960 million each year. The risk-free rate is 4%. The firm expects a free cash flow of NOK 228 million a year in perpetuity, all paid out as interest and dividends at the end of each year. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What is the unlevered cost of capital (r<sub>U</sub>) of the firm? What is the equity cost of capital?</p>",
+    "solution": "<p><b>Step 1. Firm value.</b> E = 32M × NOK 45 = NOK 1,440M and V = 1,440 + 960 = <b>NOK 2,400M</b>.</p><p><b>Step 2. r<sub>U</sub>.</b> All free cash flow is paid out, so V is a perpetuity of NOK 228M at the pre-tax WACC, which equals r<sub>U</sub> when there are no taxes:</p><p>r<sub>U</sub> = FCF / V = 228 / 2,400 = <b>9.5000%</b></p><p><b>Step 3. r<sub>E</sub>.</b> The debt holders expect 6.5% × 960 = NOK 62.4M, so the shareholders expect 228 − 62.4 = NOK 165.6M a year:</p><p>r<sub>E</sub> = 165.6 / 1,440 = <b>11.5000%</b></p><p><b>Cross-check with MM II</b> and the risky r<sub>D</sub>: 9.5% + (960/1,440)(9.5% − 6.5%) = 9.5% + 0.6667 × 3% = 11.5%. ✓</p>",
+    "criteria": [
+     "V = 1,440 + 960 = NOK 2,400M and r_U = 228/2,400 = 9.5000% (pre-tax WACC = r_U without taxes).",
+     "r_E = (228 − 62.4)/1,440 = 11.5000%. The weighted-average route or MM II are equally accepted.",
+     "Uses the risky r_D = 6.5% for the old debt. MM II with r_f = 4% gives 13.1667% and is the error."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>The board announces a refinancing: the firm will sell new shares at the market price for NOK 600 million and take a new risk-free perpetual bank loan of NOK 360 million. The NOK 960 million repays all the old debt at its market value.</p><p>What happens to the share price upon announcement? How many new shares must be sold? Explain briefly why the firm value changes or does not change.</p>",
+    "solution": "<p><b>Step 1. The firm value.</b> It stays at <b>NOK 2,400M</b>. We live in a perfect capital market: the refinancing does not change the NOK 228M of free cash flow, there are no taxes and no issue costs, the old lenders are paid exactly what their claim is worth and the new investors pay a fair price. Only the split of V between debt and equity changes.</p><p><b>Step 2. Two equations.</b> After the refinancing D = NOK 360M, so the shares, old and new, are worth 2,400 − 360 = NOK 2,040M. With P the price and n the new shares (millions):</p><p>P × n = 600 (the issue)<br>P × (32 + n) = 2,040 (all shares after the refinancing)</p><p>Subtract: 32 × P = 1,440, so <b>P = NOK 45.00</b>, unchanged on announcement. Then n = 600 / 45.00 = <b>13.3333 million new shares</b>. There are 45.3333 million shares afterwards.</p>",
+    "criteria": [
+     "Share price unchanged at NOK 45.00 on announcement.",
+     "n = 600/45.00 = 13.3333 million, from the two equations P × n = 600 and P × (32 + n) = 2,040. Selling at a lower 'diluted' price is the error.",
+     "Firm value unchanged at NOK 2,400M because we live in a perfect capital market: the free cash flow is the same, there are no taxes and every claim is bought or repaid at a fair price.",
+     "Show the calculation. No calculation, no points."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 3,
+    "body": "<p>What is the equity cost of capital after the refinancing? (If you could not solve (a), use r<sub>U</sub> = 10%.)</p>",
+    "solution": "<p><b>Step 1. The new structure.</b> D = NOK 360M, E = NOK 2,040M, so D/E = 360 / 2,040 = 0.1765. r<sub>U</sub> is still 9.5000%. The new loan is risk-free, so r<sub>D</sub> is now r<sub>f</sub> = 4%: the old 6.5% belonged to debt that no longer exists.</p><p><b>Step 2. From r<sub>U</sub> to the new r<sub>E</sub>.</b></p><p>r<sub>E</sub> = 9.5% + 0.1765 × (9.5% − 4%) = 9.5% + 0.1765 × 5.5% = <b>10.4706%</b></p><p><b>Check</b> (an identity after MM II): 0.8500 × 10.4706% + 0.1500 × 4% = 0.0950 = r<sub>U</sub>. ✓ The independent check comes in (d). With the fallback r<sub>U</sub> = 10%: 10% + 0.1765 × (10% − 4%) = 11.0588%.</p>",
+    "criteria": [
+     "Goes from levered to r_U and back: r_U = 9.5000% is unchanged by the refinancing.",
+     "Uses the new D/E = 360/2,040 = 0.1765 (not D/V = 0.1500, which gives 10.3250%).",
+     "Uses the NEW r_D = r_f = 4%. Keeping the old 6.5% gives 10.0294% and is the error this part tests.",
+     "r_E = 10.4706%."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>What is the expected dividend per share at the end of Year 1 without the refinancing and with it? Use the second figure to find the share price right after the refinancing. (If you could not solve (b) or (c), use 12 million new shares and r<sub>E</sub> = 11%.)</p>",
+    "solution": "<p><b>Step 1. Without the refinancing.</b> (228 − 62.4) / 32 = 165.6 / 32 = <b>NOK 5.1750 per share</b>.</p><p><b>Step 2. With the refinancing.</b> Interest is 4% × 360 = NOK 14.4M, so the shareholders get 228 − 14.4 = NOK 213.6M, shared by 45.3333M shares:</p><p>Div<sub>1</sub> = 213.6 / 45.3333 = <b>NOK 4.7118 per share</b></p><p><b>Step 3. The share price.</b> The share is a perpetuity of NOK 4.7118 at the new r<sub>E</sub>:</p><p>P = 4.7118 / 0.104706 = <b>NOK 45.00</b></p><p><b>Check.</b> This is the price from (b), found a different way. Unlike the WACC identity it can fail: r<sub>E</sub> = 10.0294% (old r<sub>D</sub>) would give NOK 46.98 and 10.3250% (D/V weights) NOK 45.63. It cannot catch a student who uses the same wrong r<sub>D</sub> for both the interest and MM II, but the loan's 4% is given.</p><p><b>With the fallback values</b> (12 million new shares, r<sub>E</sub> = 11%): Div<sub>1</sub> = 213.6 / 44 = NOK 4.8545 and P = 4.8545 / 0.11 = NOK 44.13. That the price is not NOK 45 only shows that the fallback values are not the true ones.</p>",
+    "criteria": [
+     "Without: (228 − 62.4)/32 = NOK 5.1750, with interest at the risky 6.5%.",
+     "With: interest 4% × 360 = 14.4, so (228 − 14.4)/45.3333 = NOK 4.7118. Dividing by the old 32M shares forgets the new shares.",
+     "P = 4.7118/10.4706% = NOK 45.00, the same as before the refinancing.",
+     "Bonus: says that this checks the r_E from (c) independently."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 5,
+    "body": "<p>A board member says that the share issue dilutes the existing shareholders. Is the board member right? Are the old debt holders, the investors who buy the new shares and the existing shareholders better or worse off? Explain briefly.</p>",
+    "solution": "<p><b>The board member is wrong.</b> The expected dividend per share falls from NOK 5.1750 to NOK 4.7118, but the shares are now safer: with less debt the shareholders carry the business risk over a larger base, so r<sub>E</sub> falls from 11.5000% to 10.4706%. The lower dividend at the lower discount rate is worth the same NOK 45.00. A smaller dividend per share is not dilution of value.</p><table class=\"data\"><tr><th>Group</th><th>Before</th><th>After</th><th>Better or worse off?</th></tr><tr><td>Old debt holders</td><td>A claim worth NOK 960M</td><td>NOK 960M in cash</td><td>Neither: repaid at market value</td></tr><tr><td>New shareholders</td><td>NOK 600M in cash</td><td>13.3333M shares × NOK 45.00 = NOK 600M</td><td>Neither: fair price, they expect to earn r<sub>E</sub> = 10.4706%</td></tr><tr><td>Existing shareholders</td><td>32M shares × NOK 45.00 = NOK 1,440M</td><td>32M shares × NOK 45.00 = NOK 1,440M</td><td>Neither</td></tr></table><p>Nobody gains and nobody loses: there is no wealth transfer. The firm value stays at NOK 2,400M because we live in a perfect capital market, so the refinancing only re-slices the same NOK 228M a year between lenders and shareholders.</p>",
+    "criteria": [
+     "Says the board member is wrong and explains why: the dividend per share falls, but r_E falls too because the equity is less risky, so the share price is unchanged.",
+     "Old debt holders: neither better nor worse off, because they are repaid at market value.",
+     "New shareholders: neither, because they buy at the fair price and get a fair expected return.",
+     "Existing shareholders: neither, their shares are still worth NOK 45 each. Credit for saying there is no wealth transfer.",
+     "Gives the reason the firm value does not change: perfect capital market (MM I), the free cash flow is the same."
+    ]
+   }
+  ]
+ },
+ "mk-skatt-rekap-1": {
+  "n": 1,
+  "title": "Capital Structure",
+  "points": 20,
+  "topic": "Interest tax shield, recapitalisation",
+  "chapters": [
+   7,
+   15
+  ],
+  "merke": "Samme form som rekapitaliseringseksemplet i forelesning 3",
+  "body": "<p>Tamarack Freight Inc., a US trucking company, is all-equity financed with 36 million shares trading at $22.50. It expects EBIT of $108 million every year in perpetuity. Capital expenditure equals depreciation, working capital is constant and all earnings are paid out as dividends at the end of each year. The corporate tax rate is 25%. Apart from corporate taxes, capital markets are perfect.</p><p>Management announces that it will borrow $280 million of permanent debt at the risk-free rate of 5% and use all of it to repurchase shares. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What is the value of the firm before the announcement? What is the present value of the interest tax shield from the new debt?</p>",
+    "solution": "<p><b>Step 1. The unlevered firm.</b> With no debt the firm is its equity: V<sup>U</sup> = 36M × $22.50 = <b>$810M</b>. (Consistent with the earnings: 108 × (1 − 0.25) = 81 a year, so r<sub>U</sub> = 81 / 810 = 10%.)</p><p><b>Step 2. The tax shield.</b> The debt is permanent, so the firm pays 5% × 280 = $14M of interest every year forever and saves 0.25 × 14 = $3.5M of tax a year. Discounted at the risk-free rate: 3.5 / 0.05 = τD = 0.25 × 280 = <b>$70M</b>.</p>",
+    "criteria": [
+     "V^U = 36 × 22.50 = $810M.",
+     "PV(TS) = τD = 0.25 × 280 = $70M, because the debt is permanent. Writing out the perpetuity 3.5/0.05 is equally good.",
+     "Calls it the present value of the interest tax shield, not the annual tax saving."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>What happens to the share price when the plan is announced? Why does the price move at the announcement and not when the debt is issued?</p>",
+    "solution": "<p><b>Step 1. The levered firm.</b> V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 810 + 70 = $880M. Nothing has been bought back yet, so all 36M shares share it:</p><p>P = 880 / 36 = <b>$24.4444 per share</b>, up from $22.50 by 70 / 36 = $1.9444.</p><p><b>Step 2. Why at the announcement.</b> In an otherwise perfect market the plan is credible and everyone sees the tax savings it will bring, so investors price the whole PV(TS) the moment it is announced, before any debt exists. If the price waited until the debt was issued, the firm could buy back shares at $22.50 that are worth $24.4444. Nobody would sell at that price. The lecturer puts it as: the price jumps precisely at the moment of announcement.</p>",
+    "criteria": [
+     "V^L = 810 + 70 = $880M over all 36M shares: P = $24.4444.",
+     "States the direction: the price rises at the announcement, by PV(TS)/N.",
+     "Reason: the commitment is credible and the market prices the present value of all future tax savings at once. Any argument that a later jump would let the firm buy back shares below their value is accepted.",
+     "Dividing by fewer shares here, or subtracting the 280 before the buyback has happened, is the error."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>How many shares does the firm repurchase? What are the market values of the debt and the equity after the repurchase? (If you could not solve (b), use a share price of $24.00.)</p>",
+    "solution": "<p><b>Step 1. Two equations.</b> The buyback happens at the new price P. With n shares repurchased (millions), the cash spent and the equity left must satisfy:</p><p>P × n = 280<br>P × (36 − n) = 880 − 280 = 600</p><p>Adding them gives 36 × P = 880, so P = $24.4444 and n = 280 / 24.4444 = <b>11.4545 million shares</b>. 24.5455 million shares remain.</p><p><b>Step 2. Market values.</b> D = <b>$280M</b> and E = V<sup>L</sup> − D = 880 − 280 = <b>$600M</b>.</p><p><b>Check.</b> 24.5455 × 24.4444 = $600M. ✓ Dividing 280 by the old $22.50 gives 12.4444 million, the mistake the lecturer calls the biggest one.</p><p>With the fallback price of $24.00: n = 280 / 24.00 = 11.6667 million and E = (36 − 11.6667) × 24.00 = $584M.</p>",
+    "criteria": [
+     "Repurchases at the NEW price: n = 280/24.4444 = 11.4545 million. The two equations or equivalent direct reasoning are both accepted.",
+     "D = $280M and E = 880 − 280 = $600M (24.5455M shares × $24.4444).",
+     "Dividing by the old $22.50 (12.4444 million) is the classic error."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>What is the expected dividend per share before and after the recapitalisation? Use the dividend and the share price after the repurchase to find the equity cost of capital. (If you could not solve (b) or (c), use a share price of $24.00 and 23.5 million shares after the repurchase.)</p>",
+    "solution": "<p><b>Step 1. Before.</b> 108 × (1 − 0.25) / 36 = 81 / 36 = <b>$2.2500 per share</b>.</p><p><b>Step 2. After.</b> Interest is paid before tax: (108 − 14) × (1 − 0.25) = $70.5M for the shareholders, shared by 24.5455M shares:</p><p>Div = 70.5 / 24.5455 = <b>$2.8722 per share</b></p><p><b>Step 3. The equity cost of capital.</b> The share is a perpetuity of this dividend:</p><p>r<sub>E</sub> = 2.8722 / 24.4444 = <b>11.7500%</b> (the same as 70.5 / 600), up from r<sub>E</sub> = r<sub>U</sub> = 10% before.</p><p>MM II from the formula sheet with D/E = 280/600 would give 12.3333%. That formula assumes a constant D/E with a tax shield as risky as the firm, which is not the case for permanent debt; the question asks for the cash-flow route.</p><p>With the fallback values: Div = 70.5 / 23.5 = $3.0000 and r<sub>E</sub> = 3.0000 / 24.00 = 12.5000%.</p>",
+    "criteria": [
+     "Before: $2.2500 per share.",
+     "After: interest deducted before tax, (108 − 14) × 0.75 = 70.5, over the 24.5455M remaining shares: $2.8722. Dividing by the old 36M shares is the error.",
+     "r_E = 2.8722/24.4444 = 11.7500%. Using the formula-sheet MM II (12.3333%) does not answer the question as asked."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 5,
+    "body": "<p>Who captures the value created by the recapitalisation? Compare a shareholder who sells in the buyback with one who keeps the shares. Is either of them better or worse off than if the firm had stayed all-equity? Explain briefly.</p>",
+    "solution": "<p><b>The original shareholders capture all of it, all of them equally.</b> The value comes from the tax shield: the government collects $3.5M less tax every year, worth $70M today. That is exactly the rise in firm value. The new lenders pay $280M for debt worth $280M, so they gain nothing.</p><table class=\"data\"><tr><th>Shareholder</th><th>Before the announcement</th><th>After</th><th>Change per share</th></tr><tr><td>Sells in the buyback</td><td>A share worth $22.50</td><td>$24.4444 in cash</td><td class=\"n\">+$1.9444</td></tr><tr><td>Keeps the share</td><td>A share worth $22.50</td><td>A share worth $24.4444</td><td class=\"n\">+$1.9444</td></tr></table><p>Both are better off by $1.9444 per share: 36M × 1.9444 = $70M = PV(TS). Since the buyback is at the fair new price, a shareholder is indifferent between selling and keeping. If one of the two came out ahead, the price would be wrong (the lecturer: then you probably calculated something wrong).</p>",
+    "criteria": [
+     "The original shareholders capture the whole PV(TS). They capture it at the announcement.",
+     "Seller and keeper gain the same $1.9444 per share: the seller gets $24.4444 in cash, the keeper holds a share worth $24.4444. Both are better off than if the firm had stayed all-equity.",
+     "Explains why they are indifferent: the repurchase happens at the fair price after the jump.",
+     "Names the source: lower taxes (the government's claim shrinks). The new debt holders get a fair deal."
+    ]
+   }
+  ]
+ },
+ "mk-skatt-rekap-2": {
+  "n": 1,
+  "title": "Capital Structure",
+  "points": 20,
+  "topic": "Interest tax shield of a fixed-term loan, recapitalisation",
+  "chapters": [
+   1,
+   7
+  ],
+  "merke": "Som rekapitaliseringen i forelesning 3, med et lån som betales tilbake og EBIT i tre tilstander (PS1 E4)",
+  "body": "<p>Lyngdal Grus ASA, a gravel and aggregates producer, is all-equity financed with 20 million shares. Its EBIT next year and every year after depends on building activity: NOK 70 million (probability 20%), NOK 140 million (50%) or NOK 220 million (30%). Capital expenditure equals depreciation, working capital is constant and all earnings are paid out as dividends. The tax rate is 22% and the unlevered cost of capital is 9%. Apart from corporate taxes, capital markets are perfect.</p><p>The board announces that it will take an 8-year bank loan of NOK 500 million at the risk-free rate of 4.5% and use all of it to repurchase shares. The loan pays interest at the end of each year and is repaid in full after 8 years. Only interest is tax-deductible. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What are the expected EBIT, the value of the firm and the share price before the announcement?</p>",
+    "solution": "<p><b>Step 1. Expected EBIT.</b> 0.2 × 70 + 0.5 × 140 + 0.3 × 220 = 14 + 70 + 66 = <b>NOK 150M</b> a year.</p><p><b>Step 2. The unlevered firm.</b> After tax the shareholders expect 150 × (1 − 0.22) = 117 a year forever, discounted at r<sub>U</sub>:</p><p>V<sup>U</sup> = 117 / 0.09 = <b>NOK 1,300M</b> and P = 1,300 / 20 = <b>NOK 65.00</b></p>",
+    "criteria": [
+     "E[EBIT] = NOK 150M, weighting each state by its probability.",
+     "Takes tax off before discounting: V^U = 150 × 0.78 / 0.09 = NOK 1,300M. Discounting EBIT before tax, or for one period only, is the error.",
+     "P = 1,300/20 = NOK 65.00."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>What is the annual interest tax shield and its present value?</p>",
+    "solution": "<p><b>Step 1. The yearly shield.</b> Interest = 4.5% × 500 = NOK 22.5M a year, so the tax saved is 0.22 × 22.5 = <b>NOK 4.95M a year</b> for 8 years, the first in one year. The repayment of the NOK 500M is not deductible and saves no tax.</p><p><b>Step 2. Present value.</b> The loan is risk-free, so the shield is discounted at 4.5% as an annuity:</p><p>PV(TS) = 4.95 × (1/0.045) × (1 − 1/1.045<sup>8</sup>) = 4.95 × 6.5959 = <b>NOK 32.6496M</b></p><p>τD = 110 would be the answer for permanent debt. 34.1189 would be the answer if the first saving came today. Neither fits this loan.</p>",
+    "criteria": [
+     "Annual tax shield = τ × interest = 0.22 × 22.5 = NOK 4.95M.",
+     "PV as an 8-year annuity at the risk-free 4.5%: NOK 32.6496M. The annuity formula with 1 + r in the bracket and r outside (the lecturer stresses this) is expected.",
+     "No tax shield from repaying the principal. Using τD = 110 ignores that the loan ends.",
+     "Show the calculation. No calculation, no points."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 5,
+    "body": "<p>What happens to the share price upon announcement? How many shares are repurchased? Who captures the change in firm value? (If you could not solve (b), use a present value of the tax shield of NOK 60 million.)</p>",
+    "solution": "<p><b>Step 1. The price.</b> V<sup>L</sup> = 1,300 + 32.6496 = NOK 1,332.6496M, priced at once because the plan is credible:</p><p>P = 1,332.6496 / 20 = <b>NOK 66.6325</b>, up by 32.6496 / 20 = NOK 1.6325.</p><p><b>Step 2. The buyback, at the new price.</b> P × n = 500 and P × (20 − n) = V<sup>L</sup> − D = 832.6496, so n = 500 / 66.6325 = <b>7.5038 million shares</b>, leaving 12.4962 million. Dividing by the old NOK 65.00 would give 7.6923 million.</p><p><b>Step 3. Who captures it.</b> The original shareholders, all of them, at the announcement: those who sell get NOK 66.6325 in cash and those who keep hold a share worth NOK 66.6325, both NOK 1.6325 more than before. The value comes from lower taxes; the bank gets a fair loan.</p><p>With the fallback PV(TS) of NOK 60M: P = (1,300 + 60) / 20 = NOK 68.00 and n = 500 / 68.00 = 7.3529 million.</p>",
+    "criteria": [
+     "P = (1,300 + 32.6496)/20 = NOK 66.6325: the price rises at the announcement.",
+     "n = 500/66.6325 = 7.5038 million, at the new price. The two equations or equivalent direct reasoning are both accepted. Using the old price (7.6923 million) is the classic error.",
+     "The original shareholders capture the gain, sellers and keepers equally, because the buyback is at the fair new price."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>What is the expected dividend per share in Year 1 without the recapitalisation and with it? (If you could not solve (c), use 8 million shares repurchased.)</p>",
+    "solution": "<p><b>Without.</b> 150 × (1 − 0.22) / 20 = 117 / 20 = <b>NOK 5.8500 per share</b>.</p><p><b>With.</b> Interest is paid before tax: (150 − 22.5) × (1 − 0.22) = NOK 99.45M for the shareholders, shared by 12.4962M shares:</p><p>Div<sub>1</sub> = 99.45 / 12.4962 = <b>NOK 7.9584 per share</b></p><p>The dividend per share is higher, but so is the risk of each share: the shareholders now carry the business risk over a smaller base.</p><p>With the fallback of 8 million shares repurchased: 99.45 / 12 = NOK 8.2875.</p>",
+    "criteria": [
+     "Without: NOK 5.8500 per share.",
+     "With: interest before tax, (150 − 22.5) × 0.78 = 99.45, over the 12.4962M remaining shares: NOK 7.9584.",
+     "Dividing by the original 20M shares (NOK 4.9725) or taking interest after tax is the error."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>The CFO says: «The tax shield of a loan is always worth τ × D. So our loan adds 22% × NOK 500 million = NOK 110 million to the firm value.» Is the CFO right? What would the share price on announcement be if the CFO's figure were right? For which kind of loan does τ × D hold? Explain briefly.</p>",
+    "solution": "<p><b>No.</b> τ × D is the value of the tax shield of <b>permanent</b> debt: the firm then saves τ × r<sub>D</sub> × D every year forever, worth τ × r<sub>D</sub> × D / r<sub>D</sub> = τD. This loan pays interest for only 8 years, so the shield is the 8-year annuity in (b), NOK 32.6496M, less than a third of NOK 110M. The repayment of the principal saves no tax, so nothing can be added for it.</p><p>If the loan were permanent (rolled over forever at 4.5%), V<sup>L</sup> = 1,300 + 110 = NOK 1,410M and the price on announcement would be 1,410 / 20 = <b>NOK 70.50</b>.</p>",
+    "criteria": [
+     "Says the CFO is wrong for this loan.",
+     "τD holds for permanent debt (interest saved forever); an 8-year loan only saves tax for 8 years, worth NOK 32.6496M.",
+     "Share price if τD were right: (1,300 + 110)/20 = NOK 70.50.",
+     "Bonus: notes that the repayment of the principal is not tax-deductible."
+    ]
+   }
+  ]
+ },
+ "mk-skatt-rekap-3": {
+  "n": 1,
+  "title": "Capital Structure",
+  "points": 20,
+  "topic": "Interest tax shield with a constant interest coverage, recapitalisation",
+  "chapters": [
+   7,
+   19
+  ],
+  "merke": "Som rekapitaliseringen i forelesning 3, med renter som fast andel av kontantstrømmen (forelesning 18, 32:14)",
+  "body": "<p>Brandvoort Fitness NV runs a chain of gyms. It is all-equity financed with 25 million shares. Its free cash flow next year is expected to be €42 million and to grow by 2% a year forever. The unlevered cost of capital is 8%, the corporate tax rate is 25% and the risk-free rate is 4%. Apart from corporate taxes, capital markets are perfect.</p><p>The board announces a new debt policy. Starting today, the firm will borrow at the risk-free rate so that each year's interest equals 35% of that year's free cash flow. It will adjust the debt every year to keep it so. The money borrowed today is used at once to repurchase shares. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What is the value of the firm and the share price before the announcement?</p>",
+    "solution": "<p>A growing perpetuity at r<sub>U</sub>: V<sup>U</sup> = 42 / (0.08 − 0.02) = <b>€700M</b> and P = 700 / 25 = <b>€28.00</b>.</p>",
+    "criteria": [
+     "V^U = 42/(8% − 2%) = €700M with the growing perpetuity. Forgetting the growth (525) is the error.",
+     "P = 700/25 = €28.00.",
+     "Show the calculation. No calculation, no points."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>What is the tax shield in Year 1? What is the present value of all the tax shields and the value of the levered firm?</p>",
+    "solution": "<p><b>Step 1. Year 1.</b> Interest = 0.35 × 42 = €14.7M, so the tax shield is 0.25 × 14.7 = <b>€3.675M</b>.</p><p><b>Step 2. All the shields.</b> Every year the shield is τk = 0.25 × 0.35 = 8.75% of that year's free cash flow. It grows with the free cash flow and has its risk, so it is discounted like the free cash flow:</p><p>PV(TS) = 3.675 / (0.08 − 0.02) = <b>€61.25M</b></p><p><b>Step 3. The levered firm.</b> V<sup>L</sup> = 700 + 61.25 = <b>€761.25M</b>. The shortcut from the lecture gives the same: V<sup>L</sup> = (1 + τk)V<sup>U</sup> = 1.0875 × 700 = 761.25.</p><p>Discounting the shields at r<sub>D</sub> would give 3.675 / (0.04 − 0.02) = 183.75. Forgetting the growth would give 45.9375.</p>",
+    "criteria": [
+     "TS in Year 1 = 0.25 × 0.35 × 42 = €3.675M.",
+     "PV(TS) = 3.675/(8% − 2%) = €61.25M, or τk V^U = 0.0875 × 700. Discounting at r_D (183.75) is the error.",
+     "V^L = €761.25M, either as V^U + PV(TS) or with the shortcut (1 + τk)V^U."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>How much does the firm borrow today? What happens to the share price upon announcement? (If you could not solve (b), use a levered firm value of €790 million.)</p>",
+    "solution": "<p><b>Step 1. Debt today.</b> Next year's interest must be 35% of next year's free cash flow, €14.7M. It is also 4% of the debt borrowed today:</p><p>D<sub>0</sub> = 14.7 / 0.04 = <b>€367.5M</b></p><p><b>Step 2. The price.</b> The policy is credible, so the market prices all the future tax shields at once: P = 761.25 / 25 = <b>€30.45</b>, up by 61.25 / 25 = €2.45.</p><p>With the fallback V<sup>L</sup> of €790M: P = 790 / 25 = €31.60.</p>",
+    "criteria": [
+     "D0 = 14.7/4% = €367.5M, because next year's interest is r_D times today's debt.",
+     "P = 761.25/25 = €30.45: the price rises at the announcement.",
+     "Reason: the commitment is credible, so the present value of all future tax shields is priced at once."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 3,
+    "body": "<p>How many shares are repurchased and how many remain? (If you could not solve (c), use debt of €300 million and a share price of €32.00.)</p>",
+    "solution": "<p>The buyback is at the new price: n = 367.5 / 30.45 = <b>12.0690 million shares</b>, leaving <b>12.9310 million</b>.</p><p><b>Check.</b> E = V<sup>L</sup> − D = 761.25 − 367.5 = €393.75M and 12.9310 × 30.45 = €393.75M. ✓ Dividing by the old €28.00 gives 13.1250 million.</p><p>With the fallback values: n = 300 / 32.00 = 9.3750 million, leaving 15.6250 million.</p>",
+    "criteria": [
+     "n = 367.5/30.45 = 12.0690 million, at the new price; 12.9310 million remain. The two equations or equivalent direct reasoning are accepted.",
+     "Using the old price (13.1250 million) is the classic error.",
+     "Bonus: the check E = 761.25 − 367.5 = 393.75 = 12.9310 × 30.45."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 5,
+    "body": "<p>At what rate did you discount the tax shields in (b)? Explain why. Who captures the value of the tax shields from the debt that the firm will only add in later years? Explain briefly.</p>",
+    "solution": "<p><b>The rate is r<sub>U</sub> = 8%</b> (net of growth: r<sub>U</sub> − g). The firm sets the interest as a fixed 35% of each year's free cash flow, so the tax shield is always 8.75% of the free cash flow: high when the business does well, low when it does badly. It carries the risk of the firm's assets, not the risk of the debt. With permanent, fixed debt the shield would be known in advance and discounted at r<sub>D</sub>, which gives τD.</p><p><b>The original shareholders capture all of it.</b> The policy is credible, so the present value of every future shield, also those from the debt added later as the free cash flow grows, is in the price of €30.45 at the announcement. Shareholders who sell get it in cash and those who keep hold it in the share. Investors who buy later pay a price that already includes it, so they gain nothing. (Bonus: the debt and the firm value both grow at 2%, so D/V stays at 367.5 / 761.25 = 0.4828.)</p>",
+    "criteria": [
+     "Names r_U (8%, as r_U − g in the perpetuity) and explains it: the interest (and so the tax shield) is a fixed share of the free cash flow, so it has the risk of the assets.",
+     "Contrasts with permanent fixed debt, where the shield is known and is discounted at r_D (τD). Credit for either part of this comparison.",
+     "The original shareholders capture the value of all future shields at the announcement, sellers and keepers alike, because the market prices the credible policy at once.",
+     "Later buyers pay a price that already includes the shields and gain nothing."
+    ]
+   }
+  ]
+ },
+ "mk-teori-kapital-1": {
+  "n": 1,
+  "title": "Capital Structure",
+  "points": 10,
+  "topic": "Costs of financial distress and agency costs of debt",
+  "chapters": [
+   8,
+   9,
+   10
+  ],
+  "merke": "Teorispørsmål som i forelesning 4 (4:56): ulemper ved gjeld",
+  "body": "<p>In a market that is perfect apart from corporate taxes, firm value rises with every unit of debt, so 100% debt is optimal. Real firms borrow far less.</p><p>(a) Give three distinct downsides of debt that this model leaves out. Explain each in two to three sentences. (6 points)</p><p>(b) Strandvik Eiendom ASA owns office buildings in central Oslo, let on long leases to government agencies. Nordlys Regnskap AS sells accounting software to small firms on three-year subscriptions; its value lies in a team of programmers and in customers who need updates and support for years. All else equal, which firm should borrow more? Use your answer to (a) in two to three sentences. (4 points)</p>",
+  "solution": "<p><b>(a) Model answer, three downsides (2 points each).</b></p><p>1. <b>Costs of financial distress.</b> A firm that cannot pay its creditors pays lawyers, advisers and court fees (direct costs). It also loses value indirectly: assets are sold in a fire sale below their value, customers and suppliers walk away and management spends its time on creditors instead of the business. The expected cost rises with leverage because the probability of distress rises.</p><p>2. <b>Debt overhang.</b> With heavy debt, a positive-NPV project financed with new equity mainly makes the existing debt safer, so much of its value is a wealth transfer to the creditors. The shareholders then reject it and the firm forgoes positive-NPV projects.</p><p>3. <b>Excessive risk-taking (risk shifting).</b> Close to default, the shareholders keep the upside of a gamble while the creditors bear the downside, so a manager acting for the shareholders may take a risky project even if its NPV is negative. Creditors anticipate this and demand a higher rate.</p><p>Also accepted as a third: a higher cost of future financing and less financial flexibility, because a highly levered firm finds it expensive to raise more money when it needs it.</p><p><b>(b) Strandvik should borrow more.</b> Its buildings are tangible, easy to value and easy to sell close to their value. Long leases to government tenants give stable cash flows, so both the probability and the cost of distress are low. Nordlys's value sits in people, code and customer relationships, which melt away in distress: customers stop signing three-year subscriptions with a firm that may not exist, the programmers leave and the software fetches little in a fire sale. Its growth is also exposed to debt overhang, so the trade-off between the tax shield and these costs puts its optimal leverage much lower.</p>",
+  "criteria": [
+   "(a) Three distinct downsides, each explained, 2 points each: costs of financial distress, debt overhang, excessive risk-taking (risk shifting), or a higher cost of future capital and lost flexibility. Direct and indirect distress costs count as one downside, not two.",
+   "(a) Each downside needs its mechanism: the expected cost rising with the probability of default; the wealth transfer to creditors that makes the firm forgo positive-NPV projects; the shareholders keeping the upside while creditors bear the downside.",
+   "(a) Naming a downside without explaining it earns at most half its points. Two to three sentences each, as asked.",
+   "(b) Chooses Strandvik (1 point) and ties it to (a) (3 points): tangible, saleable assets mean small fire-sale losses; stable rents mean a low probability of distress; Nordlys's intangible assets, customers who need support for years and key employees mean large indirect costs.",
+   "(b) Credit for naming the trade-off: the firm borrows until the extra tax shield is worth less than the extra expected costs of distress and agency."
+  ]
+ },
+ "mk-teori-kapital-2": {
+  "n": 1,
+  "title": "Payout Policy",
+  "points": 10,
+  "topic": "Payout policy",
+  "chapters": [
+   15,
+   16
+  ],
+  "merke": "Teorispørsmål som i forelesning 5 (12:17): fire måter å bruke fri kontantstrøm",
+  "body": "<p>Solvarde Energi ASA installs rooftop solar systems for homes and farms. Demand is growing fast and the company has a list of new regional markets that earn well above their cost of capital, but its bank will not lend more on good terms. This year it expects a free cash flow of NOK 250 million.</p><p>List four things the company can do with the free cash flow and rank them for Solvarde, from the one you would prefer as a shareholder to the one you would like least. Justify your ranking in one or two sentences per alternative. (8 points, 2 per alternative)</p><p>Would your ranking change if management believed the shares were clearly undervalued? One or two sentences. (2 points)</p>",
+  "solution": "<p><b>Model answer (one defensible ranking for a growth firm).</b></p><p>1. <b>Invest in the new markets.</b> Investing is the best use when there are good investment opportunities. Solvarde has them: projects that earn more than their cost of capital create value for the shareholders. With the bank closed and a share issue costly, internal cash is the cheapest way to fund them.</p><p>2. <b>Retain the cash.</b> A reserve lets Solvarde fund next year's projects without going to the market and is a buffer in a bad year. The cost is that idle cash works like negative debt and can tempt managers into wasteful spending, so it should be earmarked for the pipeline.</p><p>3. <b>Repurchase shares.</b> A buyback returns cash without a promise to repeat it, so Solvarde keeps its flexibility; shareholders who want cash sell and the others defer their capital gains tax.</p><p>4. <b>Pay a dividend.</b> Dividends are sticky: once paid, investors expect them every year and a cut is punished by the market, which is a poor fit for a firm that needs its cash to grow.</p><p><b>If the shares are undervalued.</b> Investing still comes first. Among the payouts the buyback gains, because buying shares below their value benefits the shareholders who stay and signals the undervaluation; keeping the cash also looks better, since raising equity at too low a price later would be costly.</p>",
+  "criteria": [
+   "Four distinct alternatives: invest, retain the cash, repurchase shares, pay a dividend. A special dividend and a regular dividend count as one.",
+   "2 points per alternative: the alternative and a reason that fits Solvarde. Any ranking is accepted if it is justified, but a ranking that puts investing last ignores that the firm has good projects.",
+   "Investing earns full points only with the qualification: it is best because there are good investment opportunities (projects that earn more than their cost of capital), not because growth is good in itself. The lecturer gives a separate point for this (lecture 5, 14:43).",
+   "Credit for the mechanisms behind the payouts: dividends are sticky and a cut is punished; a buyback is flexible, defers the capital gains tax and signals undervaluation; retained cash is a buffer and cheaper than outside money but invites waste and works like negative debt.",
+   "Undervaluation (2 points): investing stays first; the buyback moves ahead of the dividend, or keeping the cash gains. Either, with a reason, is accepted."
+  ]
+ },
+ "mk-teori-kapital-3": {
+  "n": 1,
+  "title": "Capital Structure",
+  "points": 10,
+  "topic": "MM in perfect markets and market frictions",
+  "chapters": [
+   6,
+   7,
+   13,
+   16
+  ],
+  "merke": "Teorispørsmål som i forelesning 3 (11:33): MM mot virkeligheten",
+  "body": "<p>In a perfect capital market neither the mix of debt and equity nor the choice between dividends and buybacks affects firm value. Each fact below breaks one of the assumptions behind this result. For each fact, name the assumption it breaks and say which financing or payout choice it favours and why. One to two sentences per fact. (2.5 points each)</p><ol><li>Interest payments are deducted from taxable income; dividends are not.</li><li>Banks charge fees of 5 to 7% of the amount raised in a share issue.</li><li>Managers know more about the firm's prospects than outside investors.</li><li>Shareholders pay tax on a dividend when it is paid but on a capital gain only when they sell the share.</li></ol>",
+  "solution": "<p><b>Model answer.</b></p><p>1. <b>No taxes.</b> Interest is paid before corporate tax, so debt creates an interest tax shield (V<sup>L</sup> = V<sup>U</sup> + PV(TS)) and is favoured over equity.</p><p>2. <b>No transaction (issue) costs.</b> Fees make outside equity expensive, so the firm prefers internal funds (keeping cash rather than paying it out and raising it again) and debt, which is cheaper to issue.</p><p>3. <b>Symmetric information.</b> Investors read a share issue as a sign that managers think the shares are overvalued and mark the price down, so firms prefer internal funds, then debt, then equity (the pecking order); by the same logic a buyback signals undervaluation.</p><p>4. <b>No personal taxes.</b> A taxable investor can defer the tax on a buyback (sell later or not at all) but not on a dividend, so a buyback or keeping the cash is favoured over a dividend. In the US and Norway the two rates are now about equal, so the advantage is the deferral, not a lower rate.</p>",
+  "criteria": [
+   "Per fact: 1 point for the assumption and 1.5 points for the choice it favours with the mechanism.",
+   "Fact 1: no taxes; favours debt through the interest tax shield.",
+   "Fact 2: no transaction or issue costs; favours internal funds (and debt) over a new share issue. 'Perfect markets without frictions' is accepted as the assumption.",
+   "Fact 3: symmetric (equal) information; an equity issue signals overvaluation, so the pecking order: internal funds, debt, equity. Mentioning that a buyback signals undervaluation is also accepted.",
+   "Fact 4: no personal taxes; favours a buyback (or retention) because the tax is deferred. Claiming that dividends are generally taxed at a higher rate is not accepted: the rates are about equal today, the point is the deferral.",
+   "One to two sentences per fact, as asked. Length is not rewarded."
+  ]
+ }
+}

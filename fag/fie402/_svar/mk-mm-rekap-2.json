@@ -1,0 +1,86 @@
+{
+  "mk-mm-rekap-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 9.1,
+        "enhet": "%"
+      }
+    ]
+  },
+  "mk-mm-rekap-2:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "New debt issued",
+        "verdi": 675.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Dividend per share",
+        "verdi": 20.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Share price on announcement",
+        "verdi": 70.0,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Why does the share price react as it does upon announcement?"
+  },
+  "mk-mm-rekap-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after the dividend",
+        "verdi": 50.0,
+        "enhet": "$ per share",
+        "alt": [
+          52.5
+        ]
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Are the shareholders better or worse off?",
+    "merknad": "alt 52.5 er svaret med reserveverdien $630M ny gjeld."
+  },
+  "mk-mm-rekap-2:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New r<sub>E</sub>",
+        "verdi": 11.8,
+        "enhet": "%",
+        "alt": [
+          12.5
+        ]
+      }
+    ],
+    "merknad": "alt 12.5 er svaret med reserveverdien r_U = 9.5%. Fellene 13.3 (gammel r_D) og 10.6429 (D/V) avvises."
+  },
+  "mk-mm-rekap-2:1:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price after the repurchase",
+        "verdi": 70.0,
+        "enhet": "$ per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 5.1428571429,
+        "enhet": "m shares",
+        "alt": [
+          4.5
+        ]
+      }
+    ],
+    "merknad": "alt 4.5 er svaret med reserveverdien $630M ny gjeld (kursen er 70 uansett)."
+  },
+  "mk-mm-rekap-2:1:f": {
+    "type": "tekst"
+  }
+}

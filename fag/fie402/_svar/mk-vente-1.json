@@ -1,0 +1,71 @@
+{
+  "mk-vente-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of buying today",
+        "verdi": 20.9,
+        "enhet": "EUR m"
+      }
+    ],
+    "merknad": "Uten salget i t = 0 blir NPV 15.5000; det avvises."
+  },
+  "mk-vente-1:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV at t = 1, high price",
+        "verdi": 73.55,
+        "enhet": "EUR m"
+      },
+      {
+        "navn": "NPV at t = 1, low price",
+        "verdi": -7.450000000000003,
+        "enhet": "EUR m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Would Lusoliva buy in each state?"
+  },
+  "mk-vente-1:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV of waiting (t = 0)",
+        "verdi": 23.83564814814814,
+        "enhet": "EUR m",
+        "alt": [
+          22.685185185185183
+        ]
+      },
+      {
+        "navn": "Value of the option to wait",
+        "verdi": 2.935648148148143,
+        "enhet": "EUR m",
+        "alt": [
+          1.7851851851851848
+        ]
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Should Lusoliva buy today or wait?",
+    "merknad": "alt er svarene med reserveverdien 70 fra b). Med den negative lave tilstanden beholdt blir NPV av å vente 19.3519; det avvises."
+  },
+  "mk-vente-1:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "X",
+        "verdi": 77.55704697986559,
+        "enhet": "%",
+        "alt": [
+          52.527272727272646
+        ]
+      }
+    ],
+    "merknad": "Sannsynlighet i prosent (77.56 %; 0.7756 godtas også). alt 52.53 % er svaret med reserveverdien 70 fra b). NPV nå holdt fast på 20.9000 gir 0.3069 og avvises; begge NPV-ene avhenger av X."
+  },
+  "mk-vente-1:1:e": {
+    "type": "tekst"
+  }
+}

@@ -1,0 +1,674 @@
+{
+ "mk-gjeldsoverheng-1": {
+  "n": 1,
+  "title": "Debt and risk",
+  "points": 20,
+  "topic": "Risky debt, investment and renegotiation",
+  "chapters": [
+   10
+  ],
+  "merke": "Samme form som PS1 E6 (MXK), regnet i forelesning 06",
+  "body": "<p>Skarvholmen Sjømat AS runs a salmon processing plant in Lofoten. Its only debt is a zero-coupon bank loan with a face value of NOK 170 million, due in one year. Next year the firm will be worth NOK 290 million if salmon prices are high and NOK 110 million if they are low, each with probability 50%. If the firm cannot repay in full, the bank takes over the firm at no extra cost. The manager, Sigurd Brekmo, owns all the shares. Everyone is risk neutral, there is no discounting and there are no taxes.</p><p>Sigurd can install a new filleting line that costs NOK 42 million today and raises the firm's value next year by NOK 56 million whatever the salmon price. The firm has no cash.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Without the new line, what are the bank loan and the equity worth today?</p>",
+    "solution": "<p>The bank gets min(value, 170) and Sigurd gets max(value − 170, 0) in each state:</p><table class=\"data\"><tr><th>Salmon price</th><th>Probability</th><th>Firm</th><th>Loan</th><th>Equity</th></tr><tr><td>High</td><td class=\"n\">50%</td><td class=\"n\">290</td><td class=\"n\">170</td><td class=\"n\">120</td></tr><tr><td>Low</td><td class=\"n\">50%</td><td class=\"n\">110</td><td class=\"n\">110</td><td class=\"n\">0</td></tr></table><p>Loan = 0.5 × 170 + 0.5 × 110 = <b>NOK 140 million</b> and equity = 0.5 × 120 + 0.5 × 0 = <b>NOK 60 million</b>.</p><p><b>Check.</b> 140 + 60 = 200 = 0.5 × 290 + 0.5 × 110 ✓</p>",
+    "criteria": [
+     "Loan valued state by state: 0.5 × 170 + 0.5 × 110 = NOK 140 million. Using the face value of 170 is the classic error.",
+     "Equity 0.5 × (290 − 170) = NOK 60 million.",
+     "The check D + E = 200 = the expected value of the firm is a bonus."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 2,
+    "body": "<p>What is the NPV of the filleting line?</p>",
+    "solution": "<p>The line adds 56 in both states and costs 42, with no discounting: NPV = −42 + 56 = <b>NOK 14 million</b>. For the firm as a whole it is a good project.</p>",
+    "criteria": [
+     "NPV = −42 + 56 = NOK 14 million.",
+     "No discounting is needed: everyone is risk neutral and the rate is zero.",
+     "States that the line creates value for the firm as a whole."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 6,
+    "body": "<p>The line can only be financed by selling new shares to outside investors in a competitive market. What fraction of the equity must the new investors receive? What is Sigurd's payoff if he issues the shares and installs the line? Will he do it? Would the bank like the line to be installed?</p>",
+    "solution": "<p><b>Step 1. Payoffs with the line.</b> The firm is worth 290 + 56 = 346 if prices are high and 110 + 56 = 166 if they are low. Since 166 is below 170, the firm still defaults when prices are low:</p><table class=\"data\"><tr><th>Salmon price</th><th>Firm</th><th>Loan</th><th>All equity</th></tr><tr><td>High</td><td class=\"n\">346</td><td class=\"n\">170</td><td class=\"n\">176</td></tr><tr><td>Low</td><td class=\"n\">166</td><td class=\"n\">166</td><td class=\"n\">0</td></tr></table><p>All the equity together is worth 0.5 × 176 + 0.5 × 0 = 88.</p><p><b>Step 2. The new investors' fraction.</b> In a competitive market they pay 42 for a stake worth exactly 42: x × 88 = 42, so <b>x = 42/88 = 47.73%</b>.</p><p><b>Step 3. Sigurd's payoff.</b> He keeps 52.27% × 88 = <b>NOK 46 million</b> (the same as 88 − 42), against 60 without the line. <b>He does not install it.</b></p><p><b>Step 4. The bank.</b> With the line the loan is worth 0.5 × 170 + 0.5 × 166 = 168 instead of 140. <b>The bank would like the line</b>: it receives the whole 56 when prices are low.</p>",
+    "criteria": [
+     "Recognises that the firm still defaults when prices are low (166 is below 170), so all equity is worth 0.5 × 176 = 88.",
+     "Fraction from x × 88 = 42: x = 47.73%. Using the high-state payoff alone (42/176 = 23.86%) forgets the probability.",
+     "Sigurd's payoff (1 − x) × 88 = 46, compared with 60 without the line: he does not install it.",
+     "The bank: the loan rises from 140 to 168, so the bank wants the line.",
+     "Show the calculation."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 5,
+    "body": "<p>Sigurd offers the bank to replace its loan with a new zero-coupon loan with a face value of NOK 146 million. If the bank accepts, the line is financed with new shares as in (c). If it refuses, the old loan stays in place. Will the bank accept? Will Sigurd go ahead? How much does each of them gain or lose compared with (a)?</p>",
+    "solution": "<p><b>Step 1. The bank's outside option.</b> If the bank refuses, the old loan stays and Sigurd does not install the line, from (c). The bank keeps a claim worth 140, from (a).</p><p><b>Step 2. The new loan with the line.</b> The firm is worth at least 166, which is above 146, so the new loan is paid in full in both states:</p><table class=\"data\"><tr><th>Salmon price</th><th>Firm</th><th>New loan</th><th>All equity</th></tr><tr><td>High</td><td class=\"n\">346</td><td class=\"n\">146</td><td class=\"n\">200</td></tr><tr><td>Low</td><td class=\"n\">166</td><td class=\"n\">146</td><td class=\"n\">20</td></tr></table><p>The new loan is worth 146 for sure. 146 is more than 140, so <b>the bank accepts</b>: it gains <b>+6</b>.</p><p><b>Step 3. Sigurd.</b> All equity is worth 0.5 × 200 + 0.5 × 20 = 110. The new investors need x × 110 = 42, so x = 38.18%. Sigurd keeps 61.82% × 110 = 68 (= 110 − 42). 68 is more than 60, so <b>Sigurd goes ahead</b>: he gains <b>+8</b>.</p><p><b>Check.</b> Bank +6, Sigurd +8, new shareholders 0 (they pay 42 for 42): +6 + 8 + 0 = 14 = the NPV ✓. With a safe new face value K, Sigurd keeps 256 − K − 42 = 214 − K, so both accept any K from 140 (the bank's floor) to 154 (where Sigurd keeps 60). 146 lies inside.</p>",
+    "criteria": [
+     "The bank's benchmark is its claim without the deal, 140 from (a). Comparing with the face value of 170, or with 168 from (c), is the classic error: without the write-down the line is not installed.",
+     "Recognises that the new loan of 146 is safe (166 is above 146), so it is worth 146 and the bank gains 6.",
+     "New fraction x = 42/110 = 38.18%; Sigurd keeps 68, a gain of 8 over 60, so he goes ahead.",
+     "Bonus: the check 6 + 8 = 14 = the NPV (the new shareholders break even), or the whole range 140 to 154."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Explain briefly Sigurd's decision in (c) and the bank's decision in (d). Who captures the value that the filleting line creates in each case?</p>",
+    "solution": "<p><b>In (c).</b> The line has a positive NPV, but Sigurd rejects it: <b>the firm forgoes a positive-NPV project</b>. This is debt overhang. The bank's loan is senior, so when prices are low the whole 56 from the line goes to the bank (its payoff rises from 110 to 166), while Sigurd pays for the line by giving away 47.73% of the equity. The line is a <b>wealth transfer</b> from Sigurd to the bank: the bank gains 168 − 140 = +28, Sigurd loses 46 − 60 = −14 and +28 − 14 = 14 is the NPV. The bank takes more than the whole NPV, so Sigurd says no.</p><p><b>In (d).</b> The bank's claim of 170 is worth only 140, because it gets 110 when prices are low. A smaller claim that is paid in full in both states is worth more than a larger claim that defaults half the time. With the face value at 146 the firm no longer defaults, so Sigurd keeps the payoff of the line above the new face value and the NPV is shared: +6 to the bank and +8 to Sigurd. Without the write-down the NPV of 14 is lost for everyone.</p>",
+    "criteria": [
+     "Key sentence (about half the marks, as Kurbatov said in recording 04, 44:31): the firm forgoes a positive-NPV project because of its debt.",
+     "Mechanism: the existing loan is senior, so the bank captures the payoff of the line when prices are low; a wealth transfer from Sigurd to the bank (bank +28, Sigurd −14, sum 14).",
+     "Renegotiation: a smaller safe claim (146) is worth more to the bank than a larger risky one (170, worth 140), so the bank gives up face value to gain value.",
+     "The write-down removes default, so Sigurd keeps the payoff of the line and the NPV is shared instead of lost. Naming debt overhang without the mechanism earns half."
+    ]
+   }
+  ]
+ },
+ "mk-gjeldsoverheng-2": {
+  "n": 1,
+  "title": "Debt and risk",
+  "points": 20,
+  "topic": "Risky debt and investment",
+  "chapters": [
+   10
+  ],
+  "merke": "Formen fra PS1 E6 med et konstruksjonsledd i stilen til H2024 E4 c",
+  "body": "<p>Brannock Aluminum Inc. runs a smelter in Ohio. Its only debt is a zero-coupon bond issue with a face value of $125 million, due in one year. Next year the smelter will be worth $230 million if power prices are low and $80 million if they are high, each with probability 50%. If Brannock cannot repay in full, the bondholders take over the smelter at no extra cost. The manager acts in the best interests of Brannock's shareholders. All investors are risk neutral, there is no discounting and there are no taxes.</p><p>A heat-recovery system costs $30 million today. It cuts power use, so it raises the smelter's value next year by $18 million if power prices are low and by $60 million if they are high.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Without the system, what are Brannock's bonds and equity worth today?</p>",
+    "solution": "<table class=\"data\"><tr><th>Power prices</th><th>Probability</th><th>Smelter</th><th>Bonds</th><th>Equity</th></tr><tr><td>Low</td><td class=\"n\">50%</td><td class=\"n\">230</td><td class=\"n\">125</td><td class=\"n\">105</td></tr><tr><td>High</td><td class=\"n\">50%</td><td class=\"n\">80</td><td class=\"n\">80</td><td class=\"n\">0</td></tr></table><p>Bonds = 0.5 × 125 + 0.5 × 80 = <b>$102.5 million</b> and equity = 0.5 × 105 = <b>$52.5 million</b>.</p><p><b>Check.</b> 102.5 + 52.5 = 155 = 0.5 × 230 + 0.5 × 80 ✓</p>",
+    "criteria": [
+     "Bonds valued state by state: 0.5 × 125 + 0.5 × 80 = $102.5 million. Using the face value of 125 is the classic error.",
+     "Equity 0.5 × (230 − 125) = $52.5 million.",
+     "The check D + E = 155 is a bonus."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 6,
+    "body": "<p>What is the NPV of the system? Brannock has no cash, so the system must be financed by selling new shares at a fair price. What fraction of the equity must the new shareholders receive? What are the existing shareholders' shares then worth? Will the manager install the system?</p>",
+    "solution": "<p><b>Step 1. NPV.</b> The system adds 18 or 60 with probability 50% each: NPV = 0.5 × 18 + 0.5 × 60 − 30 = 39 − 30 = <b>$9 million</b>.</p><p><b>Step 2. Payoffs with the system.</b> The smelter is worth 248 if power is cheap and 140 if it is expensive. Since 140 is above 125, the bonds are now paid in full in both states:</p><table class=\"data\"><tr><th>Power prices</th><th>Smelter</th><th>Bonds</th><th>All equity</th></tr><tr><td>Low</td><td class=\"n\">248</td><td class=\"n\">125</td><td class=\"n\">123</td></tr><tr><td>High</td><td class=\"n\">140</td><td class=\"n\">125</td><td class=\"n\">15</td></tr></table><p>All equity is worth 0.5 × 123 + 0.5 × 15 = 69.</p><p><b>Step 3. The new shareholders.</b> x × 69 = 30, so <b>x = 43.48%</b>. The existing shareholders keep 56.52% × 69 = <b>$39 million</b> (= 69 − 30), against 52.5 without the system.</p><p><b>Decision.</b> <b>The manager does not install the system</b>, although its NPV is positive: the firm forgoes a positive-NPV project because of its debt.</p>",
+    "criteria": [
+     "NPV = 0.5 × 18 + 0.5 × 60 − 30 = $9 million, with the probabilities on the state-dependent gains.",
+     "Payoffs with the system 248 and 140; the bonds become safe, so all equity is worth 0.5 × 123 + 0.5 × 15 = 69.",
+     "Fraction x = 30/69 = 43.48%.",
+     "Existing shareholders: 69 − 30 = 39, below 52.5, so the manager, acting for them, does not install the system.",
+     "Bonus: says that the firm forgoes a positive-NPV project because of its debt (Kurbatov's key sentence).",
+     "Show the calculation."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>Who gains and who loses if the system is installed as in (b)? Check that the gains and losses add up to the NPV. Would the bondholders like the system to be installed? Explain briefly.</p>",
+    "solution": "<table class=\"data\"><tr><th>Claimholder</th><th>Without the system</th><th>With the system as in (b)</th><th>Change</th></tr><tr><td>Bondholders</td><td class=\"n\">102.5</td><td class=\"n\">125</td><td class=\"n\">+22.5</td></tr><tr><td>Existing shareholders</td><td class=\"n\">52.5</td><td class=\"n\">39</td><td class=\"n\">−13.5</td></tr><tr><td>New shareholders</td><td class=\"n\">0</td><td class=\"n\">30 for 30 paid</td><td class=\"n\">0</td></tr></table><p><b>Check.</b> +22.5 − 13.5 + 0 = <b>+9</b> = the NPV ✓</p><p><b>The bondholders would like the system</b>: it makes their bonds safe. Their payoff when power is expensive rises from 80 to 125, so they capture 22.5 of value while the shareholders pay the full $30 million. The system pays most in the state where the shareholders get nothing, which is why the bondholders gain more than the whole NPV.</p>",
+    "criteria": [
+     "Bondholders +22.5 (102.5 to 125), existing shareholders −13.5 (52.5 to 39), new shareholders 0.",
+     "Check: +22.5 − 13.5 + 0 = 9 = the NPV.",
+     "The bondholders want the system: it removes their default risk.",
+     "Calls it a wealth transfer from the shareholders to the bondholders, in Kurbatov's key words."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>Suppose instead that the bonds had a face value of F, with everything else unchanged. Is there a value of F at which the shareholders are indifferent between installing the system (financed as in (b)) and not installing it? If it exists, find it. For which face values will the manager install the system?</p>",
+    "solution": "<p><b>Step 1. Where can F lie?</b> If F ≤ 80, the bonds are safe with or without the system, so the shareholders receive the whole NPV and install it. If F is above 140, the firm defaults when power is expensive even with the system, so the shareholders get only the 18 in the cheap-power state: 0.5 × 18 = 9 is less than the 30 they pay and they never install it. Indifference must lie between 80 and 140, where the system makes the bonds safe.</p><p><b>Step 2. Set the two equity values equal for 80 &lt; F ≤ 140.</b></p><p>Without the system: 0.5(230 − F)<br>With the system, after paying 30: 0.5(248 − F) + 0.5(140 − F) − 30 = 164 − F</p><p>0.5(230 − F) = 164 − F ⇒ 115 − 0.5F = 164 − F ⇒ 0.5F = 49 ⇒ <b>F = $98 million</b></p><p><b>Check.</b> F = 98 lies between 80 and 140 ✓. Without the system the shareholders get 0.5 × 132 = 66; with it 0.5 × 150 + 0.5 × 42 − 30 = 66 ✓. At F = 98 the bondholders' gain, 0.5 × (98 − 80) = 9, is exactly the NPV.</p><p><b>Range.</b> The shareholders' gain from the system, 9 − 0.5(F − 80), falls as F rises. <b>The manager installs the system if F ≤ $98 million</b> and rejects it above that. The more debt, the larger the share of the NPV that goes to the bondholders.</p>",
+    "criteria": [
+     "Equity values as functions of F in the region where the system makes the bonds safe: 0.5(230 − F) without and 164 − F with the system, net of the 30.",
+     "Solves 0.5(230 − F) = 164 − F to get F = $98 million.",
+     "Checks that 98 lies in the assumed region (between 80 and 140) or that both equity values equal 66.",
+     "Range: the manager installs the system for F up to 98 and rejects it above; the bondholders' gain 0.5(F − 80) grows with F until it exceeds the NPV.",
+     "Concluding that no such F exists (by assuming default when power is expensive in both cases) is the classic error. So is F = 89 (forgetting the probability)."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>Return to a face value of $125 million. Would the manager's decision change if the $30 million were borrowed from a competitive new lender on a loan that is junior to the bonds? The lender prices the loan fairly. Explain briefly.</p>",
+    "solution": "<p><b>No.</b> A junior lender is paid only after the bondholders. Fairly priced, the new loan must still be worth $30 million to the lender, so the existing shareholders bear the whole cost, as with new shares, while the bondholders still capture the gain in the expensive-power state. For example, a junior loan with face value J pays min(J, 123) if power is cheap and min(J, 15) if it is expensive; 0.5J + 0.5 × 15 = 30 gives J = 45. The shareholders then keep 0.5 × (248 − 125 − 45) = 39, exactly as in (b).</p><p>Junior money never removes the problem, because the existing senior claim still takes the project's payoff first. Money that is senior to the bonds, or a renegotiation of their face value, could help.</p>",
+    "criteria": [
+     "Answers no: the decision is the same as with new shares.",
+     "Reason: the junior lender is paid after the bondholders and must break even, so the shareholders still pay the full cost while the bondholders keep their gain.",
+     "Showing that the shareholders keep 39 again (junior face value 45) is a bonus.",
+     "Bonus: senior debt or a renegotiation of the face value could solve the problem (Kurbatov, recording 04, 45:12 to 50:13)."
+    ]
+   }
+  ]
+ },
+ "mk-gjeldsoverheng-3": {
+  "n": 1,
+  "title": "Debt and risk",
+  "points": 20,
+  "topic": "Risky debt, investment and new financing",
+  "chapters": [
+   10,
+   11
+  ],
+  "merke": "Som eksemplet i forelesning 04 (33:41) og PS1 E6, med sannsynligheter som ikke er 50/50 og en ny finansieringsmåte",
+  "body": "<p>Rheinfeld Logistik GmbH, a warehouse operator near Hamburg, is wholly owned by the private equity fund Altmark Capital. Its only debt is a zero-coupon bank loan with a face value of €180 million, due in one year. Next year Rheinfeld will be worth €300 million if its largest customer renews its contract (probability 40%) and €110 million if not (probability 60%). If Rheinfeld cannot repay in full, the bank takes over the company at no extra cost. All investors are risk neutral, the risk-free rate is 5% and there are no taxes. Use 4 decimal places.</p><p>Solar panels on the warehouse roofs would cost €40 million today and raise Rheinfeld's value next year by €63 million whether or not the contract is renewed.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Without the panels, what are the bank loan and Altmark's equity worth today?</p>",
+    "solution": "<table class=\"data\"><tr><th>Contract</th><th>Probability</th><th>Rheinfeld</th><th>Loan</th><th>Equity</th></tr><tr><td>Renewed</td><td class=\"n\">40%</td><td class=\"n\">300</td><td class=\"n\">180</td><td class=\"n\">120</td></tr><tr><td>Not renewed</td><td class=\"n\">60%</td><td class=\"n\">110</td><td class=\"n\">110</td><td class=\"n\">0</td></tr></table><p>Loan = (0.4 × 180 + 0.6 × 110)/1.05 = 138/1.05 = <b>€131.4286 million</b><br>Equity = 0.4 × 120/1.05 = 48/1.05 = <b>€45.7143 million</b></p><p><b>Check.</b> 131.4286 + 45.7143 = 177.1429 = (0.4 × 300 + 0.6 × 110)/1.05 ✓</p>",
+    "criteria": [
+     "Loan valued state by state with the 40%/60% probabilities: (0.4 × 180 + 0.6 × 110)/1.05 = 131.4286.",
+     "Equity 0.4 × 120/1.05 = 45.7143.",
+     "Discounts at the risk-free 5%. Using 50/50 probabilities (138.0952 for the loan) or forgetting to discount (138) is the classic error."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>What is the NPV of the panels? Rheinfeld has no cash, but Altmark can pay for the panels by injecting €40 million of new equity. How much would Altmark and the bank each gain or lose compared with (a)? Will Altmark install the panels?</p>",
+    "solution": "<p><b>Step 1. NPV.</b> NPV = −40 + 63/1.05 = −40 + 60 = <b>€20 million</b>.</p><p><b>Step 2. Payoffs with the panels.</b> Rheinfeld is worth 363 if the contract is renewed and 173 if not. 173 is below 180, so the company still defaults without renewal:</p><table class=\"data\"><tr><th>Contract</th><th>Rheinfeld</th><th>Loan</th><th>Equity</th></tr><tr><td>Renewed</td><td class=\"n\">363</td><td class=\"n\">180</td><td class=\"n\">183</td></tr><tr><td>Not renewed</td><td class=\"n\">173</td><td class=\"n\">173</td><td class=\"n\">0</td></tr></table><p><b>Step 3. Gains and losses.</b> Altmark's equity is worth 0.4 × 183/1.05 = 69.7143; net of the 40 it injects, Altmark has 29.7143 against 45.7143 without the panels: a change of <b>−€16 million</b>. The loan is worth (0.4 × 180 + 0.6 × 173)/1.05 = 167.4286 against 131.4286: a change of <b>+€36 million</b>.</p><p><b>Check.</b> −16 + 36 = 20 = the NPV ✓</p><p><b>Decision.</b> <b>Altmark does not install the panels.</b> It pays the whole €40 million, but it receives the payoff of the panels only if the contract is renewed. Without renewal the whole 63 goes to the bank. <b>The firm forgoes a positive-NPV project</b> because of its debt.</p>",
+    "criteria": [
+     "NPV = 63/1.05 − 40 = €20 million.",
+     "Recognises that the company still defaults without renewal (173 is below 180).",
+     "Altmark: 0.4 × 183/1.05 − 40 = 29.7143 against 45.7143, a loss of 16. Bank: 167.4286 against 131.4286, a gain of 36.",
+     "Altmark does not install the panels: the bank captures more than the whole NPV, a wealth transfer from the owner to the bank. Saying that the firm forgoes a positive-NPV project because of its debt is Kurbatov's key sentence.",
+     "The check −16 + 36 = 20 is a bonus."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 3,
+    "body": "<p>For which probabilities of renewal would Altmark install the panels when it pays for them as in (b)? The values of Rheinfeld in the two states are unchanged.</p>",
+    "solution": "<p>Without renewal the company defaults with or without the panels (173 is below 180 whatever the probability), so Altmark receives the extra 63 only if the contract is renewed. With a renewal probability p, the panels raise Altmark's equity by p × 63/1.05 = 60p and cost 40. Altmark installs them if</p><p>60p ≥ 40 ⇒ <b>p ≥ 2/3 = 66.67%</b></p><p>At p = 40% the owner's share of the payoff, 0.4 × 60 = 24, is far below the cost. The owner invests only when the good state is likely enough for the owner's part of the payoff to cover the whole cost.</p>",
+    "criteria": [
+     "Recognises that Altmark gains from the panels only if the contract is renewed, because the company still defaults otherwise.",
+     "Condition p × 63/1.05 ≥ 40, or equivalently equal equity values with and without the panels for a general p.",
+     "Answer: p of at least 2/3 (66.67%). Forgetting to discount gives 63.49%."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 6,
+    "body": "<p>Return to a probability of 40%. The loan agreement allows a new loan that is senior to the bank's. Altmark considers financing the panels with a one-year zero-coupon senior loan from a competitive new lender, who prices the loan fairly, instead of new equity. What face value must that loan have? What are the bank loan and Altmark's equity then worth? Will Altmark install the panels? Is the bank better or worse off than in (a)?</p>",
+    "solution": "<p><b>Step 1. The new loan's face value.</b> Without renewal Rheinfeld is worth 173 with the panels, far above what the new lender is owed. The new lender is also paid first, so the new loan is risk-free: its face value is 40 × 1.05 = <b>€42 million</b>.</p><p><b>Step 2. Payoffs.</b></p><table class=\"data\"><tr><th>Contract</th><th>Rheinfeld</th><th>New loan</th><th>Bank</th><th>Equity</th></tr><tr><td>Renewed</td><td class=\"n\">363</td><td class=\"n\">42</td><td class=\"n\">180</td><td class=\"n\">141</td></tr><tr><td>Not renewed</td><td class=\"n\">173</td><td class=\"n\">42</td><td class=\"n\">131</td><td class=\"n\">0</td></tr></table><p>Bank loan = (0.4 × 180 + 0.6 × 131)/1.05 = 150.6/1.05 = <b>€143.4286 million</b><br>Altmark's equity = 0.4 × 141/1.05 = 56.4/1.05 = <b>€53.7143 million</b></p><p><b>Step 3. Decisions.</b> Altmark's equity rises from 45.7143 to 53.7143 (+8) without any injection, so <b>Altmark installs the panels</b>. The bank's loan rises from 131.4286 to 143.4286 (+12), so <b>the bank is better off than in (a)</b>, even though a new claim now stands ahead of it.</p><p><b>Check.</b> +8 + 12 = 20 = the NPV ✓. The new lender breaks even. The senior loan is repaid first in both states: out of Altmark's payoff if the contract is renewed and out of the bank's if not. Each side now pays for the panels in the state where it receives their payoff, so the NPV is split by the probabilities: 0.4 × 20 = 8 and 0.6 × 20 = 12.</p>",
+    "criteria": [
+     "The senior loan is risk-free (173 covers it), so its face value is 40 × 1.05 = €42 million. A face value of 40 forgets the interest.",
+     "Bank: (0.4 × 180 + 0.6 × 131)/1.05 = 143.4286.",
+     "Equity: 0.4 × (363 − 42 − 180)/1.05 = 53.7143, above 45.7143, so Altmark installs the panels.",
+     "The bank is better off than in (a): 143.4286 against 131.4286.",
+     "The check +8 + 12 = 20 = the NPV is a bonus."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>Most loan agreements forbid new debt that is senior to the existing loan. Why do lenders insist on this covenant? Is it always bad for the owners? Explain briefly.</p>",
+    "solution": "<p><b>Why lenders insist.</b> If a firm could freely issue new senior debt, every new loan would push the existing lender further back in the queue. The owner could borrow senior to pay a dividend or to fund a bad project. The new lender would then be paid out of the assets the existing lender counted on. Lenders who expect this would refuse to lend or demand a much higher rate. Senior debt used for a safe positive-NPV project, as in (d), can help both sides; used for a risky project or a payout, it takes value from the existing lender.</p><p><b>Is the covenant bad for the owners?</b> Ex post it can be: here it would block a positive-NPV project unless the bank waives it or renegotiates. Ex ante it is good for them: by promising not to dilute the lender, the owners can borrow on better terms, so they bear less of the agency cost of debt.</p>",
+    "criteria": [
+     "Lenders want the covenant because new senior debt would dilute their claim: the owner could keep issuing claims ahead of them (Kurbatov, recording 04, 46:24 to 47:49).",
+     "Bonus: senior debt for a risky project or a payout would transfer wealth from the bank.",
+     "Basic answer accepted: ex post the covenant can block a positive-NPV project, as here, unless the bank waives it.",
+     "Full marks also give the ex ante view: the covenant makes the debt cheaper when it is issued, so the owners benefit."
+    ]
+   }
+  ]
+ },
+ "mk-cds-1": {
+  "n": 1,
+  "title": "Credit risk",
+  "points": 20,
+  "topic": "Risky debt and credit default swaps",
+  "chapters": [
+   5,
+   22,
+   24
+  ],
+  "merke": "Samme form som CDS-eksemplet i forelesning 13",
+  "body": "<p>Consider two one-year zero-coupon bonds, each with a face value of $100. Bond 1 is a US Treasury bill with a yield to maturity of 4%, the risk-free rate. Bond 2 is issued by Kettering Paper Mills Inc. and has a promised yield to maturity of 8.5%. Analysts estimate that Kettering defaults with probability 7%. Default can only happen at maturity. In default a holder of bond 2 receives $65 instead of $100.</p><p>A credit default swap (CDS) contract on Kettering pays $1 at maturity if Kettering defaults and nothing otherwise. It is paid for today. Let ρ denote the risk-neutral probability that Kettering defaults. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What are the prices of bond 1 and bond 2 today?</p>",
+    "solution": "<p>Each bond promises $100 in one year.</p><p>Bond 1 = 100/1.04 = <b>$96.1538</b><br>Bond 2 = 100/1.085 = <b>$92.1659</b></p><p>The price of bond 2 comes from its promised payment and its promised yield. It says nothing yet about the chance of default.</p>",
+    "criteria": [
+     "Bond 1 priced at the risk-free rate: 100/1.04 = 96.1538.",
+     "Bond 2 priced from the promised payment and the promised yield: 100/1.085 = 92.1659.",
+     "Putting the default probability or the recovery into the price of bond 2 is an error: the yield already gives the market price."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 3,
+    "body": "<p>What is the expected return on bond 2? Why does it differ from the promised yield?</p>",
+    "solution": "<p>The expected return uses the analysts' probability:</p><p>E[payoff] = 0.93 × 100 + 0.07 × 65 = 93 + 4.55 = 97.55<br>Expected return = 97.55/92.1659 − 1 = <b>5.8417%</b></p><p>The promised yield of 8.5% is earned only if Kettering does not default. With a 7% chance of receiving 65 instead of 100, the expected return is lower. It is still above the risk-free 4%: the 1.84 points are a risk premium, because Kettering is most likely to default when the economy is weak.</p>",
+    "criteria": [
+     "Expected payoff 0.93 × 100 + 0.07 × 65 = 97.55 with the analysts' probability.",
+     "Expected return 97.55/92.1659 − 1 = 5.84%.",
+     "Lower than the 8.5% yield because the yield is the promised return, earned only without default.",
+     "Bonus: above the risk-free 4% because default risk is systematic, so bondholders earn a risk premium."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>What risk-neutral probability of default ρ does the price of bond 2 imply?</p>",
+    "solution": "<p><b>Draw the tree.</b> ρ is the risk-neutral probability of <b>default</b>, so it goes on the bottom branch:</p><table class=\"data\"><tr><th>Branch</th><th>Probability</th><th>Bond 2</th><th>CDS</th></tr><tr><td>No default</td><td class=\"n\">1 − ρ</td><td class=\"n\">100</td><td class=\"n\">0</td></tr><tr><td>Default</td><td class=\"n\">ρ</td><td class=\"n\">65</td><td class=\"n\">1</td></tr></table><p><b>Price bond 2 risk-neutrally.</b> The expected payoff under ρ, discounted at the risk-free rate, must equal the market price:</p><p>92.1659 × 1.04 = (1 − ρ) × 100 + ρ × 65<br>95.8525 = 100 − 35ρ<br>ρ = 4.1475/35 = <b>0.1185</b> (11.85%)</p><p><b>The trap.</b> Writing ρ × 100 + (1 − ρ) × 65 gives 0.8815, the probability of <i>survival</i>. Either convention works if it is kept to the end, but here ρ is defined as the default probability.</p>",
+    "criteria": [
+     "Pricing condition: the expected payoff under risk-neutral probabilities, discounted at the risk-free rate, equals the market price: 92.1659 × 1.04 = (1 − ρ)100 + 65ρ.",
+     "ρ = 4.1475/35 = 0.1185 as the probability of default.",
+     "Discounts at the risk-free 4%, not at the promised yield (which would give ρ = 0).",
+     "Confusing ρ and 1 − ρ (0.8815) is the error Kurbatov singled out (recording 13, 27:31)."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 3,
+    "body": "<p>What is the price of one CDS contract? (If you could not solve (c), use ρ = 0.10.)</p>",
+    "solution": "<p>The CDS pays 1 only in the default branch. Price it with the same ρ and the risk-free rate:</p><p>CDS = [(1 − ρ) × 0 + ρ × 1]/1.04 = 0.1185/1.04 = <b>$0.1139</b> per contract (0.113941 unrounded)</p><p>With the fallback ρ = 0.10 the price would be 0.10/1.04 = 0.0962. Using the survival probability gives 0.8476 and using the analysts' 7% gives 0.0673; both are wrong.</p>",
+    "criteria": [
+     "CDS = ρ/1.04 = 0.1139.",
+     "Uses the risk-neutral ρ and the risk-free rate. The analysts' 7% gives 0.0673.",
+     "Keeps ρ as the default probability: the CDS pays in the default branch. Using 0.8815 gives 0.8476.",
+     "With the fallback ρ = 0.10, the answer 0.10/1.04 = 0.0962 earns full marks."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>An investor holds one bond 2. How many CDS contracts must the investor buy so that the position pays the same amount whether or not Kettering defaults? What do the contracts cost and what is the bond together with the contracts worth today? Compare with the price of bond 1.</p>",
+    "solution": "<p>In default the holder receives 65 instead of the promised 100, a loss of 35. Each contract pays 1 in default, so the investor needs <b>35 contracts</b> (face value × loss given default = 100 × 35%, Kurbatov's λ).</p><p>Cost of the contracts = 35 × 0.113941 = <b>$3.9879</b><br>Bond plus contracts = 92.1659 + 3.9879 = <b>$96.1538</b></p><p>The position pays 100 without default and 65 + 35 = 100 with default, so it is a risk-free claim on 100: <b>it costs exactly as much as bond 1</b> ✓. The contracts cost the gap between the two bond prices, 96.1538 − 92.1659 = 3.9879. With the fallback CDS price from (d) the contracts would cost 35 × 0.0962 = 3.3654.</p>",
+    "criteria": [
+     "Number of contracts = the loss in default: 100 − 65 = 35 (face value × loss given default).",
+     "Cost 35 × 0.1139 = 3.9879.",
+     "Bond plus contracts = 92.1659 + 3.9879 = 96.1538, equal to the price of bond 1, because the position pays 100 in both states.",
+     "Buying 100 contracts (one per dollar of face value) is the classic error."
+    ]
+   },
+   {
+    "label": "f",
+    "points": 3,
+    "body": "<p>Compare ρ with the analysts' 7%. Why is there a difference? Which of the two should be used to price the CDS?</p>",
+    "solution": "<p>ρ = 11.85% is about 1.7 times the analysts' 7%, which is the real probability. Kettering is most likely to default when the economy is weak, when a dollar is worth more to investors, so they demand a risk premium for holding the bond. Risk-neutral valuation keeps the risk-free rate in the denominator and moves that premium into the probabilities instead, which puts more weight on the default state. ρ is the probability at which the market price makes sense.</p><p>The CDS is a traded claim on the same default event, so it must be priced with ρ and the risk-free rate. With the real 7% the CDS would cost 0.0673. Bond 2 plus 35 contracts would then cost 92.1659 + 35 × 0.0673 = 94.5217, less than bond 1 for the same risk-free payoff of 100: an arbitrage.</p>",
+    "criteria": [
+     "States that ρ (11.85%) is higher than the real 7%.",
+     "Explains why: default happens in bad times, so investors demand a risk premium, which risk-neutral valuation puts into the probability instead of the discount rate.",
+     "Says that the CDS is priced with ρ and the risk-free rate, not with the real probability.",
+     "Bonus: with 7% the hedged bond would cost less than bond 1, an arbitrage."
+    ]
+   }
+  ]
+ },
+ "mk-cds-2": {
+  "n": 1,
+  "title": "Credit risk",
+  "points": 20,
+  "topic": "Risky debt, credit default swaps and put options",
+  "chapters": [
+   5,
+   22,
+   24
+  ],
+  "merke": "Samme form som V2024 Problem 3",
+  "body": "<p>Oksfjord Havbruk ASA, a salmon farmer, has one bond issue: zero-coupon bonds with a total face value of NOK 600 million, due in one year and split into bonds of NOK 1,000 each. The bonds trade at a promised yield to maturity of 8%. Default can only happen at maturity. If Oksfjord defaults, the bondholders take over its assets, which will then be worth NOK 330 million. Rating analysts estimate the probability of default at 4%. One-year government zero-coupon bonds yield 2.5%, the risk-free rate.</p><p>A CDS contract on Oksfjord pays NOK 1 at maturity if Oksfjord defaults and nothing otherwise. It is paid for today. Let ρ denote the risk-neutral probability that Oksfjord defaults. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 4,
+    "body": "<p>What are the prices today of a government bond and an Oksfjord bond, both with face value NOK 1,000? What is the expected return on an Oksfjord bond?</p>",
+    "solution": "<p>Government bond = 1,000/1.025 = <b>NOK 975.6098</b><br>Oksfjord bond = 1,000/1.08 = <b>NOK 925.9259</b></p><p>In default the assets of NOK 330 million are shared by bonds with a face value of NOK 600 million, so a bond of NOK 1,000 receives 1,000 × 330/600 = 550.</p><p>E[payoff] = 0.96 × 1,000 + 0.04 × 550 = 960 + 22 = 982<br>Expected return = 982/925.9259 − 1 = <b>6.0560%</b></p><p>The expected return lies between the risk-free 2.5% and the promised 8%: below the yield because of the expected loss in default, above the risk-free rate because default risk is systematic.</p>",
+    "criteria": [
+     "Government bond 1,000/1.025 = 975.6098; Oksfjord bond 1,000/1.08 = 925.9259.",
+     "Recovery per bond 1,000 × 330/600 = 550.",
+     "Expected payoff 0.96 × 1,000 + 0.04 × 550 = 982 and expected return 982/925.9259 − 1 = 6.06%.",
+     "Using 330 per bond as the recovery (expected return 5.11%) is the classic error."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 6,
+    "body": "<p>What is ρ, as implied by the bond prices? What is the price of one CDS contract?</p>",
+    "solution": "<table class=\"data\"><tr><th>Branch</th><th>Probability</th><th>Oksfjord bond</th><th>CDS</th></tr><tr><td>No default</td><td class=\"n\">1 − ρ</td><td class=\"n\">1,000</td><td class=\"n\">0</td></tr><tr><td>Default</td><td class=\"n\">ρ</td><td class=\"n\">550</td><td class=\"n\">1</td></tr></table><p><b>ρ from the bond price.</b> 925.9259 × 1.025 = (1 − ρ) × 1,000 + ρ × 550<br>949.0741 = 1,000 − 450ρ<br>ρ = 50.9259/450 = <b>0.1132</b> (11.32%)</p><p><b>The CDS.</b> CDS = [(1 − ρ) × 0 + ρ × 1]/1.025 = 0.113169/1.025 = <b>NOK 0.1104</b> per contract (0.110409 unrounded)</p><p>ρ is the default probability, on the bottom branch. The survival probability, 0.8868, would give a CDS price of 0.8652, far too high for insurance that pays only in default.</p>",
+    "criteria": [
+     "Pricing condition with risk-neutral probabilities and the risk-free rate: 925.9259 × 1.025 = (1 − ρ)1,000 + 550ρ.",
+     "ρ = 50.9259/450 = 0.1132 as the probability of default.",
+     "CDS = ρ/1.025 = 0.1104.",
+     "Confusing ρ and 1 − ρ (0.8868) or using the analysts' 4% (0.0390) is the classic error.",
+     "Show the calculation."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 6,
+    "body": "<p>Consider a European put option on Oksfjord's assets with a strike price of NOK 600 million that expires when the bonds mature. What is it worth today? Compare it with the difference between the value of an otherwise identical risk-free bond issue and the market value of Oksfjord's bond issue. (If you could not solve (b), use a CDS price of 0.09.)</p>",
+    "solution": "<p><b>The put's payoff.</b> Oksfjord defaults exactly when its assets are worth less than the face value of 600. Then the assets are worth 330 and the put pays 600 − 330 = 270 (NOK million). Without default the assets are worth more than 600 and the put pays nothing. So the put pays 270 in the default branch: it is worth 270 million CDS contracts.</p><p>Put = 270 × 0.110409 = <b>NOK 29.8103 million</b></p><p><b>The two bond issues.</b> Risk-free issue = 600/1.025 = <b>NOK 585.3659 million</b>. Oksfjord's issue = 600,000 bonds × 925.9259 = 600/1.08 = <b>NOK 555.5556 million</b>. Difference = 585.3659 − 555.5556 = <b>29.8103</b>, the value of the put ✓</p><p>Per bond the same holds: 975.6098 − 925.9259 = 49.6838 = (1,000 − 550) × CDS. With the fallback CDS price of 0.09, the put would be worth 270 × 0.09 = 24.30.</p>",
+    "criteria": [
+     "The put pays 600 − 330 = 270 million in default and nothing otherwise.",
+     "Put = 270 × CDS = 270 × 0.1104 = NOK 29.81 million (or ρ × 270/1.025).",
+     "Risk-free issue 600/1.025 = 585.3659; market value of the issue 600/1.08 = 555.5556.",
+     "The difference, 29.8103, equals the put: risky debt = PV(face value) − put. A student on the fallback CDS price (put 24.30) gets these points for saying that the two should be equal.",
+     "A per-bond answer (49.6838 per bond of 1,000) earns the points only if it is scaled to the whole issue."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>Explain the comparison in (c). In effect, who holds this put and what right does it represent? What would happen to the value of Oksfjord's bonds if its assets became riskier while the face value stayed the same?</p>",
+    "solution": "<p><b>Why the gap is the put.</b> The bondholders receive min(V, 600) = 600 − max(600 − V, 0): the face value minus the payoff of a put on the assets with strike 600. So Oksfjord's debt = PV(600) − put, or in Kurbatov's words a risk-free debt plus a written put on the assets. The bonds are worth less than risk-free bonds by exactly the value of that put.</p><p><b>Who holds the put.</b> The shareholders. Limited liability gives them the right to default: if the assets are worth less than 600, they hand the assets (330) to the bondholders instead of paying 600. Buying 270 million CDS contracts would buy that put back and make the bonds risk-free.</p><p><b>Riskier assets.</b> A put is worth more when the underlying is more volatile. With riskier assets and the same face value, the shareholders' option to default is worth more, so the bonds are worth less and the equity more: a wealth transfer from the bondholders to the shareholders.</p>",
+    "criteria": [
+     "Payoff to the bondholders min(V, 600) = 600 − max(600 − V, 0), so the debt is worth PV(face value) − put (a risk-free debt plus a written put on the assets).",
+     "The shareholders hold the put: limited liability gives them the right to default and hand over the assets instead of paying the face value.",
+     "Riskier assets raise the value of the put, so the bonds lose value and the equity gains.",
+     "The sign error, risk-free debt plus a bought put, is wrong: the bondholders have written the put, so debt = PV(F) − P."
+    ]
+   }
+  ]
+ },
+ "mk-cds-3": {
+  "n": 1,
+  "title": "Credit risk",
+  "points": 20,
+  "topic": "Risky debt and credit default swaps",
+  "chapters": [
+   5,
+   22,
+   24
+  ],
+  "merke": "Som CDS-eksemplet i forelesning 13, med løpetid 18 måneder og sikringen først",
+  "body": "<p>Vellmar Autoteile AG, a German car-parts supplier, has issued zero-coupon bonds with a face value of €100 that mature in 18 months. They trade at a promised yield to maturity of 7.5% a year. German government zero-coupon bonds with the same maturity yield 3% a year, the risk-free rate. Default can only happen at maturity. Analysts put the probability that Vellmar defaults before the bonds are repaid at 5.5% (over the whole 18 months, not per year). In default a bondholder receives €60 per bond.</p><p>A CDS contract on Vellmar pays €1 at maturity if Vellmar defaults and nothing otherwise. It is paid for today. Let ρ denote the risk-neutral probability that Vellmar defaults. All rates are annually compounded; use (1 + r)<sup>T</sup> also for a fraction of a year. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What are the prices today of a government bond and a Vellmar bond, each with face value €100?</p>",
+    "solution": "<p>Both bonds pay €100 in 1.5 years. Discount with (1 + r)<sup>1.5</sup>:</p><p>Government bond = 100/1.03<sup>1.5</sup> = 100/1.045336 = <b>€95.6630</b><br>Vellmar bond = 100/1.075<sup>1.5</sup> = 100/1.114584 = <b>€89.7196</b></p><p>Simple interest, 100/(1 + 1.5 × r), is not the convention here.</p>",
+    "criteria": [
+     "Discounts over 1.5 years with (1 + r) raised to 1.5: 100/1.03^1.5 = 95.6630.",
+     "Vellmar bond 100/1.075^1.5 = 89.7196.",
+     "Discounting one year only (97.0874 and 93.0233) or using simple interest (95.6938 and 89.8876) is an error."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>An insurance company holds Vellmar bonds with a total face value of €30 million and wants to remove all default risk with CDS contracts. How many contracts must it buy? Without using any probability, what must the bonds together with the contracts be worth today? What must the contracts then cost in total?</p>",
+    "solution": "<p><b>Number of contracts.</b> A bond with face €100 loses 100 − 60 = 40 in default, 40% of the face value. The holding has a face value of €30 million, so the insurer loses 30 × 40% = €12 million in default and needs <b>12 million contracts</b> (face value × loss given default, Kurbatov's λ).</p><p><b>Value of the hedged holding.</b> Without default the bonds pay 30 million and the contracts nothing; with default the bonds pay 30 × 60% = 18 million and the contracts 12 million. The holding pays €30 million in 1.5 years in both states, so it is worth as much as government bonds with the same face value:</p><p>Hedged holding = 30/1.03<sup>1.5</sup> = <b>€28.6989 million</b></p><p><b>Cost of the contracts.</b> The bonds are worth 300,000 × 89.7196 = €26.9159 million, so the contracts must cost 28.6989 − 26.9159 = <b>€1.7830 million</b>. If they cost less, buying the bonds and the contracts and selling government bonds would be an arbitrage.</p>",
+    "criteria": [
+     "Contracts = face value × loss given default = 30 million × 40% = 12 million. Buying 30 million (one per euro of face value) is the classic error.",
+     "The hedged holding pays 30 million in both states, so it is worth 30/1.03^1.5 = €28.6989 million, the value of government bonds with the same face value.",
+     "Contracts in total: 28.6989 − 26.9159 = €1.7830 million.",
+     "No probability is needed: the answer follows from the absence of arbitrage."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 5,
+    "body": "<p>What is the price of one CDS contract? What risk-neutral probability of default ρ does it imply? Check that the same ρ prices the Vellmar bond. (If you could not solve (b), use a total cost of €1.5 million.)</p>",
+    "solution": "<p><b>One contract.</b> CDS = 1.783033/12 = <b>€0.1486</b> (0.148586 unrounded)</p><p><b>ρ.</b> The CDS pays €1 in 1.5 years in the default branch, so CDS = ρ/1.03<sup>1.5</sup> and ρ = 0.148586 × 1.045336 = <b>0.1553</b> (15.53%), the probability of default over the whole 1.5 years.</p><table class=\"data\"><tr><th>Branch</th><th>Probability</th><th>Vellmar bond</th><th>CDS</th></tr><tr><td>No default</td><td class=\"n\">1 − ρ</td><td class=\"n\">100</td><td class=\"n\">0</td></tr><tr><td>Default</td><td class=\"n\">ρ</td><td class=\"n\">60</td><td class=\"n\">1</td></tr></table><p><b>Check.</b> [(1 − ρ) × 100 + ρ × 60]/1.03<sup>1.5</sup> = (100 − 40 × 0.1553)/1.045336 = 93.7871/1.045336 = 89.7196 ✓, the price from (a).</p><p>With the fallback cost of €1.5 million, CDS = 0.1250 and ρ = 0.1307. Simple interest on the risk-free rate gives a CDS price of 0.1494 and ρ = 0.1561; simple interest everywhere gives 0.1452 and 0.1517. Discounting one year only gives ρ = 0.1897.</p>",
+    "criteria": [
+     "CDS = total cost / number of contracts = 1.7830/12 = 0.1486.",
+     "ρ = CDS × 1.03^1.5 = 0.1553, the probability of default over the life of the bond.",
+     "Check: (1 − ρ)100 + 60ρ discounted over 1.5 years at the risk-free rate returns 89.7196.",
+     "Keeps ρ as the default probability: confusing ρ and 1 − ρ is the classic error.",
+     "With the fallback €1.5 million, 0.1250 and 0.1307 earn full marks."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>What is the expected annual return on a Vellmar bond, using the analysts' probability? Compare it with the promised yield and with the risk-free rate.</p>",
+    "solution": "<p>E[payoff] = 0.945 × 100 + 0.055 × 60 = 94.5 + 3.3 = 97.8 in 1.5 years.<br>Return over the 1.5 years = 97.8/89.7196 − 1 = 9.0063%<br>Expected annual return = (97.8/89.7196)<sup>1/1.5</sup> − 1 = <b>5.9175%</b></p><p>The promised yield of 7.5% a year is earned only if Vellmar does not default, so the expected return is lower. It stays above the risk-free 3%: the difference is the risk premium for default risk that is systematic. That premium is also why ρ from (c) is higher than the analysts' 5.5%. Dividing 9.0063% by 1.5 (6.0042%) does not give the annual rate.</p>",
+    "criteria": [
+     "Expected payoff 0.945 × 100 + 0.055 × 60 = 97.8 with the analysts' probability.",
+     "Annualises correctly: (97.8/89.7196)^(1/1.5) − 1 = 5.92% a year. Reporting the 1.5-year return of 9.01%, or dividing it by 1.5, is the classic error.",
+     "Below the 7.5% promised yield because the yield is earned only without default.",
+     "Above the risk-free 3% because default risk is systematic, so bondholders earn a risk premium."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>The analysts raise their estimate of the default probability from 5.5% to 8%, but the price of the Vellmar bond does not move. What happens to ρ, to the CDS price and to the expected return on the bond? Explain briefly.</p>",
+    "solution": "<p><b>ρ and the CDS price do not change.</b> ρ comes from the market price of the bond, the risk-free rate, the face value and the recovery. None of these has moved, so ρ stays at 0.1553 and the CDS at €0.1486. The CDS is priced from traded prices, not from the analysts' estimate.</p><p><b>The expected return falls.</b> With 8%, E[payoff] = 0.92 × 100 + 0.08 × 60 = 96.8 and the expected annual return is (96.8/89.7196)<sup>1/1.5</sup> − 1 = 5.19%, against 5.92% before. It is still above the risk-free 3%, but the risk premium is smaller: the same price now buys a riskier claim. ρ stays above the real probability because the market still demands compensation for losses that come in bad times.</p>",
+    "criteria": [
+     "ρ and the CDS price are unchanged: they depend only on the bond price, the risk-free rate, the face value and the recovery, not on the real probability.",
+     "The expected return falls (to about 5.19% a year) because more of the promised payment is expected to be lost; the risk premium over the risk-free rate shrinks.",
+     "Recomputing the CDS with the new real probability (8% gives 0.0765) is the classic error."
+    ]
+   }
+  ]
+ },
+ "mk-risikoskifting-1": {
+  "n": 1,
+  "title": "Debt and risk",
+  "points": 20,
+  "topic": "Risky debt and risk taking",
+  "chapters": [
+   9
+  ],
+  "merke": "Samme form som eksemplet i forelesning 04 (55:46 til 1:03:12)",
+  "body": "<p>Vikebygd Gartneri AS grows vegetables in greenhouses on a supply contract with a supermarket chain. Its only debt is a zero-coupon bank loan with a face value of NOK 260 million, due in one year. If Vikebygd keeps the contract, its assets will be worth NOK 220 million next year for sure. If Vikebygd cannot repay in full, the bank takes over the assets at no extra cost. The manager acts in the interests of the shareholders. Everyone is risk neutral, there is no discounting and there are no taxes.</p><p>At no cost, the manager can drop the contract and grow an exotic crop for export at spot prices. The assets would then be worth NOK 340 million next year with probability 50% and NOK 60 million with probability 50%.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>If Vikebygd keeps the contract, what are the bank loan and the shares worth today?</p>",
+    "solution": "<p>The assets will be worth 220, which is below the face value of 260, so Vikebygd defaults for sure. The bank takes the whole 220 and the shareholders get nothing.</p><p>Bank loan = <b>NOK 220 million</b> and shares = <b>NOK 0</b>.</p><p><b>Check.</b> 220 + 0 = 220, the value of the assets ✓</p>",
+    "criteria": [
+     "Recognises certain default: 220 is below the face value of 260.",
+     "Loan worth 220, not the face value of 260; shares worth 0.",
+     "Limited liability: the shareholders cannot be worth less than zero."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 2,
+    "body": "<p>What are the assets expected to be worth with the export strategy? Would Vikebygd switch if it had no debt?</p>",
+    "solution": "<p>Expected value = 0.5 × 340 + 0.5 × 60 = <b>NOK 200 million</b>, against 220 with the contract. The switch lowers the value by 20: its NPV is −20. <b>Without debt Vikebygd would not switch</b>, because the shareholders would own all the assets and bear the whole loss.</p>",
+    "criteria": [
+     "Expected value 0.5 × 340 + 0.5 × 60 = 200.",
+     "Compares with 220: the switch has a negative NPV of −20.",
+     "Without debt the firm would keep the contract."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 5,
+    "body": "<p>What are the bank loan and the shares worth today if the manager switches? Will the manager switch?</p>",
+    "solution": "<table class=\"data\"><tr><th>Outcome</th><th>Probability</th><th>Assets</th><th>Bank loan</th><th>Shares</th></tr><tr><td>Good</td><td class=\"n\">50%</td><td class=\"n\">340</td><td class=\"n\">260</td><td class=\"n\">80</td></tr><tr><td>Bad</td><td class=\"n\">50%</td><td class=\"n\">60</td><td class=\"n\">60</td><td class=\"n\">0</td></tr></table><p>Bank loan = 0.5 × 260 + 0.5 × 60 = <b>NOK 160 million</b><br>Shares = 0.5 × 80 + 0.5 × 0 = <b>NOK 40 million</b></p><p><b>Check.</b> 160 + 40 = 200 ✓</p><p><b>The manager switches</b>: the shares are worth 40 instead of 0. Keeping the contract means certain default, while the export strategy gives the firm a chance to survive.</p>",
+    "criteria": [
+     "Values the claims state by state: the bank gets min(assets, face value), the shares max(assets − face value, 0).",
+     "Bank loan 0.5 × 260 + 0.5 × 60 = 160.",
+     "Shares 0.5 × (340 − 260) = 40.",
+     "The manager switches, because 40 is more than 0, even though the firm loses value.",
+     "Show the calculation."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>By how much does the switch change the value of the bank loan? Split the change into a wealth transfer to the shareholders and a loss of value.</p>",
+    "solution": "<p>The bank loan falls from 220 to 160: a change of <b>−60</b>.</p><table class=\"data\"><tr><th>Part of the bank's loss</th><th>Amount</th><th>Why</th></tr><tr><td>Wealth transfer to the shareholders</td><td class=\"n\">40</td><td class=\"n\">the shares rise from 0 to 40</td></tr><tr><td>Loss of value</td><td class=\"n\">20</td><td class=\"n\">the assets are worth 200 instead of 220</td></tr><tr><td>Total</td><td class=\"n\">60</td><td class=\"n\"></td></tr></table><p><b>Check.</b> 40 + 20 = 60 ✓. In other words, the 220 the bank would have received splits into 160 it still expects, 40 that goes to the shareholders and 20 that disappears. The bank pays for both the transfer and the inefficiency.</p>",
+    "criteria": [
+     "Change in the loan: 160 − 220 = −60.",
+     "Wealth transfer to the shareholders: 40.",
+     "Loss of value: 220 − 200 = 20.",
+     "The parts add up: 40 + 20 = 60."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>Suppose the probability of the good outcome were only 5%, with the two values unchanged. Would the manager still switch? What would the bank loan, the shares and the assets then be worth?</p>",
+    "solution": "<p>Shares = 0.05 × 80 = <b>NOK 4 million</b>, still more than 0, so <b>the manager still switches</b>.<br>Bank loan = 0.05 × 260 + 0.95 × 60 = 13 + 57 = <b>NOK 70 million</b><br>Assets = 0.05 × 340 + 0.95 × 60 = <b>NOK 74 million</b></p><p>The strategy now destroys 220 − 74 = 146 of value to give the shareholders 4. The manager gambles however small the chance, because the shareholders have nothing to lose.</p>",
+    "criteria": [
+     "Shares 0.05 × 80 = 4, above 0, so the manager still switches.",
+     "Bank loan 0.05 × 260 + 0.95 × 60 = 70; assets 74.",
+     "Notes that any positive chance of survival is enough for the manager."
+    ]
+   },
+   {
+    "label": "f",
+    "points": 3,
+    "body": "<p>Explain briefly why the manager switches even when the chance of success is small. If the bank had foreseen this behaviour when it made the loan, who would in the end bear the cost?</p>",
+    "solution": "<p><b>Why the manager gambles.</b> With limited liability the shareholders get zero whether the firm defaults with the contract or fails with the export strategy. They keep every krone above the face value but lose nothing extra below it, so any chance of survival is worth taking. The bank bears the downside: the switch is a wealth transfer from the bank to the shareholders plus a loss of value. Kurbatov calls this gambling for resurrection.</p><p><b>Who bears the cost in the end.</b> A rational bank that foresees the switch lends less for the same face value, or demands a higher face value for the same loan. The shareholders then receive less when the loan is made, so they bear the expected cost of the gamble: the cost is absorbed by the shareholders.</p>",
+    "criteria": [
+     "Limited liability: the shareholders get zero in default either way, so they only care about the chance of a positive payoff (gambling for resurrection).",
+     "The bank bears the downside: a wealth transfer from the bank to the shareholders plus a loss of value.",
+     "Ex ante: a bank that foresees it prices the loan accordingly, so the shareholders bear the cost (Kurbatov, recording 04, 52:41 to 55:33)."
+    ]
+   }
+  ]
+ },
+ "mk-risikoskifting-2": {
+  "n": 1,
+  "title": "Debt and risk",
+  "points": 20,
+  "topic": "Risky debt, spin-offs and covenants",
+  "chapters": [
+   9
+  ],
+  "merke": "Samme form som PS1 E8 (Hillton), regnet i forelesning 06",
+  "body": "<p>Cardwell Industries Inc. has two divisions. Next year each division will be worth the following ($ million), with a boom and a bust equally likely:</p><table class=\"data\"><tr><th>Division</th><th>Boom</th><th>Bust</th></tr><tr><td>Equipment</td><td class=\"n\">190</td><td class=\"n\">50</td></tr><tr><td>Services</td><td class=\"n\">140</td><td class=\"n\">100</td></tr></table><p>Cardwell's only debt is a zero-coupon bond issue with a face value of $145 million, due in one year. The CEO acts in the best interests of the shareholders. Investors are risk neutral, there is no discounting and there are no taxes. Use 4 decimal places.</p><p>The CEO can split Cardwell into two companies with one division each. The split costs synergies: each division would then be worth $10 million less in both states. The bond contract allows the whole bond issue to be assigned to either company; the other company would have no debt.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Without the split, what are Cardwell's bonds and shares worth today?</p>",
+    "solution": "<p>Cardwell is worth 330 in a boom and 150 in a bust. Both are above 145, so the bonds are safe: bonds = <b>$145 million</b>.<br>Shares = 0.5 × (330 − 145) + 0.5 × (150 − 145) = 0.5 × 185 + 0.5 × 5 = <b>$95 million</b></p><p><b>Check.</b> 145 + 95 = 240 = 0.5 × 330 + 0.5 × 150 ✓</p>",
+    "criteria": [
+     "Adds the divisions: 330 in a boom and 150 in a bust.",
+     "The bonds are safe (150 is above 145), so they are worth 145.",
+     "Shares 0.5 × 185 + 0.5 × 5 = 95."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 6,
+    "body": "<p>If Cardwell is split, which company should get the bonds to maximise the value of the shares? For each choice, find the value of the bonds and of all the shares in the two companies together. Will the CEO split the firm?</p>",
+    "solution": "<p>After the split the divisions are worth:</p><table class=\"data\"><tr><th>Company</th><th>Boom</th><th>Bust</th><th>Expected</th></tr><tr><td>Equipment</td><td class=\"n\">180</td><td class=\"n\">40</td><td class=\"n\">110</td></tr><tr><td>Services</td><td class=\"n\">130</td><td class=\"n\">90</td><td class=\"n\">110</td></tr></table><p><b>Bonds on Equipment.</b> Equipment pays 145 in a boom and only 40 in a bust. Bonds = 0.5 × 145 + 0.5 × 40 = <b>92.5</b>. Equipment's shares = 0.5 × 35 = 17.5. The debt-free Services is worth 110. All shares = <b>127.5</b>.</p><p><b>Bonds on Services.</b> Services is worth 130 or 90, both below 145, so the bondholders take all of it: bonds = <b>110</b>. The debt-free Equipment is worth 110, so all shares = <b>110</b>.</p><p><b>Decision.</b> The shares are worth most with the bonds on Equipment, the volatile division: 127.5 against 110 and against 95 without the split. <b>The CEO splits the firm and puts the bonds on Equipment.</b></p>",
+    "criteria": [
+     "Division values after the split: Equipment 180/40 and Services 130/90.",
+     "Bonds on Equipment: bonds 92.5, all shares 127.5 (Equipment's shares plus the debt-free Services).",
+     "Bonds on Services: bonds 110, all shares 110.",
+     "The CEO splits and puts the bonds on Equipment, because 127.5 is more than 110 and 95.",
+     "Show the calculation."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>Split the change in the value of the bonds caused by the CEO's choice into a wealth transfer to the shareholders and a loss of value. Explain briefly where the loss of value comes from.</p>",
+    "solution": "<table class=\"data\"><tr><th>Claim</th><th>Before the split</th><th>After the split</th><th>Change</th></tr><tr><td>Bonds</td><td class=\"n\">145</td><td class=\"n\">92.5</td><td class=\"n\">−52.5</td></tr><tr><td>Shares</td><td class=\"n\">95</td><td class=\"n\">127.5</td><td class=\"n\">+32.5</td></tr><tr><td>Cardwell in total</td><td class=\"n\">240</td><td class=\"n\">220</td><td class=\"n\">−20</td></tr></table><p>The bonds lose 52.5: <b>32.5</b> is a wealth transfer to the shareholders and <b>20</b> is a loss of value. <b>Check.</b> 32.5 + 20 = 52.5 ✓</p><p>The loss of value is the lost synergies, 10 in each division in both states: 2 × 10 = 20. The bonds were safe because the stable division covered the bust; after the split they carry all of Equipment's bust risk. This is risk shifting: the shareholders gain although the firm is worth less.</p>",
+    "criteria": [
+     "Change in the bonds 92.5 − 145 = −52.5.",
+     "Wealth transfer to the shareholders 32.5 (95 to 127.5); loss of value 20.",
+     "The parts add up: 32.5 + 20 = 52.5.",
+     "The loss of value is the lost synergies; the bonds lose the protection of the stable division."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>Suppose instead that the split lowers the value of each division by s in both states. The CEO assigns the bonds as in (b). What is the largest s at which the CEO would still split the firm?</p>",
+    "solution": "<p>With the bonds on Equipment, Equipment pays the bonds in full in a boom as long as 190 − s ≥ 145. It defaults in a bust. All shares are worth</p><p>0.5(190 − s − 145) + [0.5(140 − s) + 0.5(100 − s)] = 142.5 − 1.5s</p><p>The CEO splits if this is at least 95:<br>142.5 − 1.5s ≥ 95 ⇒ s ≤ 47.5/1.5 = <b>$31.6667 million</b></p><p><b>Check.</b> At s = 31.6667 Equipment is worth 158.3333 in a boom (above 145) and 18.3333 in a bust, so the assumed region holds ✓. Putting the bonds on Services would give only 88.3333. The shareholders would accept destroying up to 2 × 31.6667 = 63.3333 of value, because the bondholders pay for it.</p>",
+    "criteria": [
+     "Share value with the bonds on Equipment as a function of s: 142.5 − 1.5s (both divisions lose s).",
+     "Sets it equal to 95 and finds s = 31.6667.",
+     "Checks that Equipment still pays the bonds in a boom at that s (158.3333 is above 145).",
+     "Bonus: notes that up to twice that amount of value would be destroyed at the bondholders' expense."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>Would a covenant in the bond contract that forbids assigning the bonds to only part of the group be good or bad for Cardwell's shareholders? Explain briefly.</p>",
+    "solution": "<p><b>Ex post it is bad for them.</b> Once the bonds are issued, the covenant blocks a split that would move 32.5 from the bondholders to the shareholders.</p><p><b>Ex ante it is good for them.</b> Bondholders are not naive. If the contract allowed such a split, they would expect it and pay less for the bonds or demand a higher face value, so the shareholders would bear the expected cost, including the 20 of lost synergies. By giving up the option to shift risk, the shareholders can borrow on better terms. The covenant protects value that would otherwise be destroyed.</p>",
+    "criteria": [
+     "Basic answer accepted: ex post the covenant is bad for the shareholders, because it blocks a wealth transfer from the bondholders.",
+     "Better answer: ex ante bondholders anticipate the split and price the bonds accordingly, so the shareholders bear the cost; the covenant makes the debt cheaper.",
+     "Full marks give both views (Kurbatov, recording 06, 1:28:13 to 1:31:10)."
+    ]
+   }
+  ]
+ },
+ "mk-risikoskifting-3": {
+  "n": 1,
+  "title": "Debt and risk",
+  "points": 20,
+  "topic": "Fire sales and risk taking",
+  "chapters": [
+   8,
+   9
+  ],
+  "merke": "Som eksemplet i forelesning 04, med konkurs der bare en del av verdien gjenvinnes (forelesning 18, 28:00)",
+  "body": "<p>Ashworth Precision plc makes specialised machine tools. Its only debt is a zero-coupon bank loan with a face value of £140 million, due in one year. Under its current plan its assets will be worth £170 million next year if orders are strong (probability 70%) and £90 million if they are weak (probability 30%). If Ashworth cannot repay in full, it goes bankrupt and the bank receives what a fire sale of the machines raises: only 70% of their value. The manager acts in the interests of the shareholders. Everyone is risk neutral, there is no discounting and there are no taxes. Use 4 decimal places.</p><p>At no cost, the manager can instead bet the firm on one large order from a new customer. The assets would then be worth £260 million with probability 30% and £60 million with probability 70%.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 4,
+    "body": "<p>Under the current plan, what are the bank loan and the shares worth today? What is the expected loss from the fire sale?</p>",
+    "solution": "<table class=\"data\"><tr><th>Orders</th><th>Probability</th><th>Assets</th><th>Bank loan</th><th>Shares</th><th>Fire-sale loss</th></tr><tr><td>Strong</td><td class=\"n\">70%</td><td class=\"n\">170</td><td class=\"n\">140</td><td class=\"n\">30</td><td class=\"n\">0</td></tr><tr><td>Weak</td><td class=\"n\">30%</td><td class=\"n\">90</td><td class=\"n\">0.7 × 90 = 63</td><td class=\"n\">0</td><td class=\"n\">27</td></tr></table><p>Bank loan = 0.7 × 140 + 0.3 × 63 = 98 + 18.9 = <b>£116.9 million</b><br>Shares = 0.7 × 30 = <b>£21 million</b><br>Expected fire-sale loss = 0.3 × 27 = <b>£8.1 million</b></p><p><b>Check.</b> 116.9 + 21 + 8.1 = 146 = 0.7 × 170 + 0.3 × 90, the expected value of the assets ✓</p>",
+    "criteria": [
+     "In the weak state the bank receives only 0.7 × 90 = 63.",
+     "Bank loan 0.7 × 140 + 0.3 × 63 = 116.9. Ignoring the fire sale (125) is the classic error.",
+     "Shares 0.7 × 30 = 21.",
+     "Expected fire-sale loss 0.3 × 27 = 8.1."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>What are the assets expected to be worth with the large order? What are the bank loan and the shares then worth? Will the manager switch?</p>",
+    "solution": "<p>Expected assets = 0.3 × 260 + 0.7 × 60 = 78 + 42 = <b>£120 million</b>, against 146 with the current plan.</p><p>In the bad state Ashworth is bankrupt and the fire sale raises 0.7 × 60 = 42.<br>Bank loan = 0.3 × 140 + 0.7 × 42 = 42 + 29.4 = <b>£71.4 million</b><br>Shares = 0.3 × 120 = <b>£36 million</b> (expected fire-sale loss 0.7 × 18 = 12.6)</p><p><b>The manager switches</b>: the shares rise from 21 to 36, although the assets lose 26 of expected value.</p>",
+    "criteria": [
+     "Expected assets 0.3 × 260 + 0.7 × 60 = 120, below 146: a negative-NPV switch.",
+     "Bank loan 0.3 × 140 + 0.7 × 0.7 × 60 = 71.4, with the fire sale.",
+     "Shares 0.3 × 120 = 36, more than 21, so the manager switches."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>Split the change in the value of the bank loan into a wealth transfer to the shareholders and a loss of value. How much of the loss of value comes from the fire sale?</p>",
+    "solution": "<p>The bank loan falls from 116.9 to 71.4: a change of <b>−45.5</b>.</p><table class=\"data\"><tr><th>Part of the bank's loss</th><th>Amount</th></tr><tr><td>Wealth transfer to the shareholders</td><td class=\"n\">36 − 21 = 15</td></tr><tr><td>Lower expected value of the assets</td><td class=\"n\">146 − 120 = 26</td></tr><tr><td>Higher expected fire-sale loss</td><td class=\"n\">12.6 − 8.1 = 4.5</td></tr><tr><td>Total</td><td class=\"n\">45.5</td></tr></table><p>The loss of value is <b>30.5</b>, of which <b>4.5</b> comes from the fire sale: bankruptcy becomes more likely (70% instead of 30%), so more value is lost in fire sales. <b>Check.</b> 15 + 26 + 4.5 = 45.5 ✓</p>",
+    "criteria": [
+     "Change in the loan 71.4 − 116.9 = −45.5.",
+     "Wealth transfer to the shareholders 15.",
+     "Loss of value 30.5: 26 from the lower asset value and 4.5 from the higher expected fire-sale loss.",
+     "The parts add up: 15 + 26 + 4.5 = 45.5."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 5,
+    "body": "<p>Suppose instead that the loan is made today: the bank lends £100 million, which is paid out to the shareholders. The asset values are unchanged. The bank prices the loan fairly and foresees the manager's choice. What face value must the loan have? What face value would do if a covenant bound Ashworth to its current plan? What are the shares worth in each case?</p>",
+    "solution": "<p><b>Without a covenant.</b> Suppose the bank expects the manager to take the large order. It then needs</p><p>0.3F + 0.7 × 42 = 100 ⇒ F = (100 − 29.4)/0.3 = <b>£235.3333 million</b></p><p>Check: this face value is above 170, so the current plan would leave the shareholders nothing, while the large order gives them 0.3 × (260 − 235.3333) = 7.4. The manager does switch, so the bank's expectation is right ✓.</p><p><b>With the covenant.</b> 0.7F + 0.3 × 63 = 100 ⇒ F = (100 − 18.9)/0.7 = <b>£115.8571 million</b>. Without the covenant this face value would not hold: the large order would give the shares 0.3 × (260 − 115.8571) = 43.2429, more than 37.9, so the manager would switch.</p><p><b>Shares.</b> Without the covenant 0.3 × (260 − 235.3333) = <b>£7.4 million</b>; with it 0.7 × (170 − 115.8571) = <b>£37.9 million</b>. The shareholders receive the same £100 million today in both cases, so the covenant makes them 30.5 better off. That is exactly the loss of value from (c), 26 + 4.5 = 30.5: when the bank anticipates the switch, the shareholders bear its whole cost.</p>",
+    "criteria": [
+     "Recognises that without a covenant the manager will switch (and checks it at the new face value), so the bank values the loan under the large order: 0.3F + 0.7 × 42 = 100, F = 235.3333.",
+     "With the covenant: 0.7F + 0.3 × 63 = 100, F = 115.8571. Pricing the loan without the fire sale (193.3333 and 104.2857) is the classic error.",
+     "Shares 7.4 without and 37.9 with the covenant.",
+     "Bonus: the difference, 30.5, equals the loss of value in (c), so the shareholders bear the cost ex ante."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>Does the fire-sale discount affect the manager's choice in (b)? Who bears the expected fire-sale losses, after the loan is made and before? Explain briefly.</p>",
+    "solution": "<p><b>No.</b> The shareholders get nothing in bankruptcy, however much the fire sale raises, so the discount does not enter their payoff: 21 against 36 for any recovery rate. The manager ignores the cost of the fire sale.</p><p><b>Who bears it.</b> Once the loan has been made, the bank does: its recovery in bankruptcy falls. Before the loan is made, a bank that prices fairly demands a higher face value, as in (d), so the shareholders bear the expected fire-sale losses. This is one reason why firms with specialised assets that sell badly in distress borrow less.</p>",
+    "criteria": [
+     "No: the shareholders get zero in bankruptcy whatever the fire sale raises, so the discount does not affect the manager's choice.",
+     "After the loan is made, the bank bears the fire-sale losses through a lower recovery.",
+     "Before it is made, the bank prices them in, so the shareholders bear them; firms with assets that sell badly in distress should borrow less (Kurbatov, recording 18, 26:46 to 28:35)."
+    ]
+   }
+  ]
+ }
+}

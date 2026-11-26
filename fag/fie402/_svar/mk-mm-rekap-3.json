@@ -1,0 +1,81 @@
+{
+  "mk-mm-rekap-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 9.5,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 11.5,
+        "enhet": "%"
+      }
+    ]
+  },
+  "mk-mm-rekap-3:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price on announcement",
+        "verdi": 45.0,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "New shares",
+        "verdi": 13.3333333333,
+        "enhet": "m shares"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Explain briefly why the firm value changes or does not change."
+  },
+  "mk-mm-rekap-3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New r<sub>E</sub>",
+        "verdi": 10.4705882353,
+        "enhet": "%",
+        "alt": [
+          11.0588235294
+        ]
+      }
+    ],
+    "merknad": "alt 11.0588 er svaret med reserveverdien r_U = 10%. Fellene 10.0294 (gammel r_D) og 10.3250 (D/V) avvises."
+  },
+  "mk-mm-rekap-3:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Div<sub>1</sub> without the refinancing",
+        "verdi": 5.175,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Div<sub>1</sub> with the refinancing",
+        "verdi": 4.7117647059,
+        "enhet": "NOK per share",
+        "alt": [
+          4.8545454545
+        ]
+      },
+      {
+        "navn": "Share price after the refinancing",
+        "verdi": 45.0,
+        "enhet": "NOK per share",
+        "alt": [
+          44.132231405,
+          42.8342245989,
+          42.6063829787,
+          46.3636363636
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveverdiene 12 millioner nye aksjer og r_E = 11%: utbyttet 4.8545, kursen 44.13 med begge, 42.83 med bare r_E-reserven og 42.61 med r_E fra reserve-r_U i (c). 46.36 med bare reserveantallet. Fellene 46.98 og 45.63 avvises."
+  },
+  "mk-mm-rekap-3:1:e": {
+    "type": "tekst"
+  }
+}

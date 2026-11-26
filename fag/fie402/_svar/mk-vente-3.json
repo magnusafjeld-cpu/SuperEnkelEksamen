@@ -1,0 +1,73 @@
+{
+  "mk-vente-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of building now",
+        "verdi": -2.4387550612950406,
+        "enhet": "USD m"
+      }
+    ]
+  },
+  "mk-vente-3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV at t = 1, 3.5%",
+        "verdi": 3.60260138904669,
+        "enhet": "USD m"
+      },
+      {
+        "navn": "NPV at t = 1, 7.5%",
+        "verdi": -8.5542313704278,
+        "enhet": "USD m"
+      },
+      {
+        "navn": "NPV at t = 0, 3.5%",
+        "verdi": 3.3986805557044244,
+        "enhet": "USD m"
+      },
+      {
+        "navn": "NPV at t = 0, 7.5%",
+        "verdi": -8.070029594743207,
+        "enhet": "USD m",
+        "tol": 0.005
+      }
+    ],
+    "merknad": "Med 15 betalinger etter å vente blir NPV ved 3,5 % 6.5871; det avvises."
+  },
+  "mk-vente-3:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "ρ (3.5% rate)",
+        "verdi": 33.1430980846135,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Briefly explain why you do not need the true probabilities.",
+    "merknad": "Sannsynlighet i prosent (33.14 %; 0.3314 godtas også). Uten år 1-betalingen i S_u og S_d blir ρ 0.7427; uten (1 + r_f) 0.0918."
+  },
+  "mk-vente-3:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of the option to wait",
+        "verdi": 1.1264280301598044,
+        "enhet": "USD m",
+        "alt": [
+          1.35947222228177,
+          1.2506829465891884,
+          1.509433962264151
+        ]
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Do you build now or wait? Briefly comment.",
+    "merknad": "alt er svarene med reserveverdiene som oppgaven gir: ρ = 0.40 (1.3595), NPV 4 (1.2507) og begge (1.5094). Målt mot den negative NPV-en blir det 3.5652; det avvises."
+  },
+  "mk-vente-3:1:e": {
+    "type": "tekst"
+  }
+}

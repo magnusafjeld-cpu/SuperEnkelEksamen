@@ -1,0 +1,102 @@
+{
+  "mk-mm-rekap-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V",
+        "verdi": 450.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "P<sub>0</sub>",
+        "verdi": 36.0,
+        "enhet": "€ per share"
+      },
+      {
+        "navn": "Div<sub>1</sub>",
+        "verdi": 2.52,
+        "enhet": "€ per share"
+      }
+    ]
+  },
+  "mk-mm-rekap-1:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Year 1 dividend per share",
+        "verdi": 4.0,
+        "enhet": "€ per share"
+      },
+      {
+        "navn": "Price of the new shares",
+        "verdi": 34.52,
+        "enhet": "€ per share"
+      },
+      {
+        "navn": "New shares",
+        "verdi": 0.5359212051,
+        "enhet": "m shares"
+      },
+      {
+        "navn": "Dividend from Year 2",
+        "verdi": 2.4164,
+        "enhet": "€ per share"
+      }
+    ]
+  },
+  "mk-mm-rekap-1:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "P<sub>0</sub> after the announcement",
+        "verdi": 36.0,
+        "enhet": "€ per share"
+      }
+    ],
+    "tallPoeng": 1,
+    "tekstLedd": "Are the current shareholders better or worse off than under the old policy? Explain briefly."
+  },
+  "mk-mm-rekap-1:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Buyback price",
+        "verdi": 38.52,
+        "enhet": "€ per share"
+      },
+      {
+        "navn": "Shares bought back",
+        "verdi": 0.8177570093,
+        "enhet": "m shares"
+      },
+      {
+        "navn": "Dividend from Year 2",
+        "verdi": 2.6964,
+        "enhet": "€ per share"
+      }
+    ]
+  },
+  "mk-mm-rekap-1:1:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Old policy, end of Year 1",
+        "verdi": 38.52,
+        "enhet": "€ per share"
+      },
+      {
+        "navn": "Sells in the buyback",
+        "verdi": 38.52,
+        "enhet": "€ per share"
+      },
+      {
+        "navn": "Keeps the share",
+        "verdi": 38.52,
+        "enhet": "€ per share"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Comment.",
+    "merknad": "Ingen reserveverdi for (d): enhver annen tilbakekjøpskurs enn 38.52 bryter likheten som kommentaren handler om. Posisjonen under gammel politikk avhenger bare av (a)."
+  }
+}

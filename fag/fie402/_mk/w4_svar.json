@@ -1,0 +1,206 @@
+{
+ "mk-deal-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Offer value per T share",
+    "verdi": 106.2,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Premium over T's price before the rumours",
+    "verdi": 26.428571428571423,
+    "enhet": "%"
+   },
+   {
+    "navn": "Fraction owned by T's shareholders",
+    "verdi": 42.857142857142854,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-deal-1:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change in A's market value",
+    "verdi": 1440.0000000000014,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change in T's market value",
+    "verdi": 2580.0000000000005,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "What do the changes suggest about the deal's total gains and who captures them?"
+ },
+ "mk-deal-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value if the deal goes through",
+    "verdi": 107.2464317755005,
+    "enhet": "€",
+    "tol": 0.005
+   },
+   {
+    "navn": "Value if the deal fails",
+    "verdi": 92.2464317755005,
+    "enhet": "€",
+    "tol": 0.005
+   }
+  ],
+  "merknad": "Helt år (1.04) gir 110.4480 og 95.4480, utenfor 0,5 %. Enkel rente havner innenfor og godtas som tilnærming."
+ },
+ "mk-deal-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability of completion",
+    "verdi": 66.33821978170099,
+    "enhet": "%",
+    "tol": 0.002,
+    "alt": [
+     61.31443161837098,
+     65.33333333333331
+    ]
+   }
+  ],
+  "merknad": "Toleranse 0,2 %: ingen rente (0.6667) og 101.20 i stedet for sikkerhetsekvivalenten (0.5969) avvises; enkel rente (0.6633) godtas. alt: reserveverdiene i oppgaveteksten gir 0.6131 og helt år i både (c) og (d) gir 0.6533 (følgefeil, straffet i (c))."
+ },
+ "mk-deal-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-deal-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Offer value per B share",
+    "verdi": 27.400000000000002,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "Premium over B's price before the announcement",
+    "verdi": 9.600000000000009,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-deal-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability of completion",
+    "verdi": 75.36842105263155,
+    "enhet": "%",
+    "tol": 0.005
+   }
+  ],
+  "merknad": "Stram toleranse (0,5 %): 132.50 i stedet for sikkerhetsekvivalenten gir 0.4747 og ingen rente i det hele tatt gir 0.7632; begge avvises."
+ },
+ "mk-deal-2:1:c": {
+  "type": "tekst"
+ },
+ "mk-deal-2:1:d": {
+  "type": "tekst"
+ },
+ "mk-deal-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Offer value per T share",
+    "verdi": 36.5,
+    "enhet": "£ per share"
+   },
+   {
+    "navn": "Spread in £",
+    "verdi": 1.3999999999999986,
+    "enhet": "£"
+   },
+   {
+    "navn": "Spread in percent of T's price",
+    "verdi": 3.9886039886039844,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-deal-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Amount invested at the risk-free rate",
+    "verdi": 1.3999999999999986,
+    "enhet": "£"
+   },
+   {
+    "navn": "Value if the deal goes through",
+    "verdi": 1.4311533810182597,
+    "enhet": "£",
+    "tol": 0.005
+   },
+   {
+    "navn": "Value if the deal fails (negative if a loss)",
+    "verdi": -3.0688466189817403,
+    "enhet": "£",
+    "tol": 0.005
+   }
+  ],
+  "merknad": "Helt år (1.045) gir 1.4630 og −3.0370; uten rente 1.4000 og −3.1000. Alle avvises med 0,5 %. Enkel rente godtas. Feltnavnet sier at et tap føres med minus."
+ },
+ "mk-deal-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability of completion",
+    "verdi": 68.19659153292757,
+    "enhet": "%",
+    "tol": 0.005,
+    "alt": [
+     66.66666666666666,
+     67.48888888888892
+    ]
+   }
+  ],
+  "merknad": "Toleranse 0,5 %: ingen rente (0.6889) avvises, enkel rente (0.6819) godtas. alt: reserveverdiene gir 0.6667, helt år fra (b) gir 0.6749 (følgefeil, straffet i (b))."
+ },
+ "mk-deal-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Probability of completion, colleague's position",
+    "verdi": 68.1965915329275,
+    "enhet": "%",
+    "tol": 0.005,
+    "alt": [
+     67.48888888888892
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Compare with (c) in one sentence.",
+  "merknad": "alt 0.6749: samme faktorfeil (1.045) som i (b), straffet bare der."
+ },
+ "mk-deal-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-governance-1:1:a": {
+  "type": "tekst"
+ },
+ "mk-governance-1:1:b": {
+  "type": "tekst"
+ },
+ "mk-governance-2:1:": {
+  "type": "tekst"
+ },
+ "mk-governance-3:1:a": {
+  "type": "tekst"
+ },
+ "mk-governance-3:1:b": {
+  "type": "tekst"
+ },
+ "mk-governance-3:1:c": {
+  "type": "tekst"
+ }
+}

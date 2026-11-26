@@ -1,0 +1,83 @@
+{
+  "mk-cds-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Price of bond 1",
+        "verdi": 96.15384615384615,
+        "enhet": "$"
+      },
+      {
+        "navn": "Price of bond 2",
+        "verdi": 92.16589861751153,
+        "enhet": "$"
+      }
+    ]
+  },
+  "mk-cds-1:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Expected return on bond 2",
+        "verdi": 5.841749999999979,
+        "enhet": "%"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Why does it differ from the promised yield?"
+  },
+  "mk-cds-1:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Risk-neutral default probability ρ",
+        "verdi": 0.11849901250822857,
+        "enhet": ""
+      }
+    ],
+    "merknad": "Overlevelsessannsynligheten 0.8815 er fellen og avvises."
+  },
+  "mk-cds-1:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Price of one CDS contract",
+        "verdi": 0.11394135818098901,
+        "enhet": "$",
+        "alt": [
+          0.09615384615384616
+        ]
+      }
+    ],
+    "merknad": "alt er svaret med reserveverdien ρ = 0,10. Fellene 0.8476 (overlevelse), 0.0673 (reell p) og 0.1185 (udiskontert) avvises."
+  },
+  "mk-cds-1:1:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Number of CDS contracts",
+        "verdi": 35.0,
+        "enhet": ""
+      },
+      {
+        "navn": "Cost of the contracts",
+        "verdi": 3.987947536334615,
+        "enhet": "$",
+        "alt": [
+          3.3653846153846154
+        ]
+      },
+      {
+        "navn": "Bond plus contracts",
+        "verdi": 96.15384615384615,
+        "enhet": "$"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Compare with the price of bond 1.",
+    "merknad": "100 kontrakter er fellen; da blir posisjonen 103.5600. alt for kostnaden er svaret med CDS-prisen fra reserveverdien i (d) (3.3654); posisjonen med den (95.5313) ligger innenfor toleransen."
+  },
+  "mk-cds-1:1:f": {
+    "type": "tekst"
+  }
+}

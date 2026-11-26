@@ -1,0 +1,63 @@
+{
+  "mk-cds-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Price of a government bond",
+        "verdi": 975.6097560975611,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Price of an Oksfjord bond",
+        "verdi": 925.9259259259259,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "Expected return on an Oksfjord bond",
+        "verdi": 6.056000000000017,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "Gjenvinning 330 per obligasjon gir 5.11%; det avvises."
+  },
+  "mk-cds-2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Risk-neutral default probability ρ",
+        "verdi": 0.11316872427983576,
+        "enhet": ""
+      },
+      {
+        "navn": "Price of one CDS contract",
+        "verdi": 0.1104085114925227,
+        "enhet": "NOK"
+      }
+    ],
+    "merknad": "Overlevelse 0.8868 og CDS 0.8652 med den avvises, det samme gjør reell p (0.0390)."
+  },
+  "mk-cds-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of the put",
+        "verdi": 29.81029810298113,
+        "enhet": "NOK m",
+        "alt": [
+          24.3
+        ]
+      },
+      {
+        "navn": "Risk-free issue minus Oksfjord's issue",
+        "verdi": 29.81029810298105,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Compare the put with the difference between the two issue values.",
+    "merknad": "alt for putten er svaret med reserveverdien 0,09 (24.30). Per obligasjon er putten 49.6838; den teller bare skalert til hele utstedelsen."
+  },
+  "mk-cds-2:1:d": {
+    "type": "tekst"
+  }
+}

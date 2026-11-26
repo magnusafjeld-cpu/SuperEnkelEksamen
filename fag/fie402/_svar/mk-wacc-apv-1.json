@@ -1,0 +1,120 @@
+{
+  "mk-wacc-apv-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "FCF<sub>0</sub>",
+        "verdi": -51.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "FCF<sub>1</sub>",
+        "verdi": 21.75,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "FCF<sub>2</sub>",
+        "verdi": 35.25,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "FCF<sub>3</sub>",
+        "verdi": 26.25,
+        "enhet": "€ m"
+      }
+    ]
+  },
+  "mk-wacc-apv-1:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 8.1,
+        "enhet": "%",
+        "tol": 0.0058
+      }
+    ],
+    "merknad": "Fellene er brutto gjeld (7.98%) og r_U uten skatt (8.60%)."
+  },
+  "mk-wacc-apv-1:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV (WACC)",
+        "verdi": 20.065884648163234,
+        "enhet": "€ m",
+        "tol": 0.0031,
+        "alt": [
+          20.86574767001649
+        ]
+      }
+    ],
+    "merknad": "Fellene er NPV med r_U (19.4104), med WACC fra brutto gjeld og PV uten investeringen. alt (20.8657) er svaret med reserveverdien r_wacc = 7.5 %."
+  },
+  "mk-wacc-apv-1:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "D<sub>0</sub>",
+        "verdi": 28.426353859265294,
+        "enhet": "€ m",
+        "tol": 0.0036,
+        "alt": [
+          28.746299068006596
+        ]
+      },
+      {
+        "navn": "D<sub>1</sub>",
+        "verdi": 22.02888852186578,
+        "enhet": "€ m",
+        "tol": 0.0025,
+        "alt": [
+          22.202271498107088
+        ]
+      },
+      {
+        "navn": "D<sub>2</sub>",
+        "verdi": 9.713228492136912,
+        "enhet": "€ m",
+        "tol": 0.0018,
+        "alt": [
+          9.767441860465118
+        ]
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Does Orvelle borrow or repay in Years 1 to 3?",
+    "merknad": "Toleransen er stram fordi gjeld regnet fra V^U (diskontert med r_U) ligger under 1 % unna. Tekstdelen: Orvelle betaler ned gjeld hvert år. alt er gjelden med reserveverdien r_wacc = 7.5 %."
+  },
+  "mk-wacc-apv-1:1:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 8.600000000000001,
+        "enhet": "%"
+      },
+      {
+        "navn": "V<sup>U</sup><sub>0</sub>",
+        "verdi": 70.410422553775,
+        "enhet": "€ m",
+        "tol": 0.0037
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 0.6554620943882123,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "NPV (APV)",
+        "verdi": 20.06588464816322,
+        "enhet": "€ m",
+        "tol": 0.001
+      }
+    ],
+    "merknad": "Diskonteres skjoldet med r_D, blir NPV 20.1035, 0.19 % unna, så toleransen på NPV er 0.1 %. PV(TS) med r_D (0.6931 mot 0.6555) avvises med standardtoleransen. PV(TS) diskontert med r_wacc (0.6605) ligger innenfor 1 % og godtas. alt er svarene med reserveverdien r_wacc = 7.5 %."
+  },
+  "mk-wacc-apv-1:1:f": {
+    "type": "tekst"
+  }
+}

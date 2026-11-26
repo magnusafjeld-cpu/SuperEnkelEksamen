@@ -1,0 +1,72 @@
+{
+  "mk-gjeldsoverheng-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Bonds",
+        "verdi": 102.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Equity",
+        "verdi": 52.5,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "mk-gjeldsoverheng-2:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": 9.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Fraction to new shareholders x",
+        "verdi": 43.47826086956522,
+        "enhet": "%"
+      },
+      {
+        "navn": "Value of the existing shareholders' shares",
+        "verdi": 39.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Will the manager install the system?"
+  },
+  "mk-gjeldsoverheng-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change for bondholders",
+        "verdi": 22.5,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Change for existing shareholders",
+        "verdi": -13.5,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Would the bondholders like the system to be installed? Explain briefly."
+  },
+  "mk-gjeldsoverheng-2:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "F (if it exists)",
+        "verdi": 98.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "For which face values will the manager install the system?",
+    "merknad": "Fellen L + NPV = 89 (glemt 1/(1 − p)) avvises."
+  },
+  "mk-gjeldsoverheng-2:1:e": {
+    "type": "tekst"
+  }
+}

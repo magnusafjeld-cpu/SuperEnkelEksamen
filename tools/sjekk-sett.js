@@ -126,13 +126,26 @@ for (const fil of filer) {
     }
   }
 
+  /* Må kunne (26. november 2026): én oppgave per sett, og typen må stå i
+     EDU_DATA.mustKunne med settet i lista si. */
+  const mk = w.EDU_DATA.mustKunne || null;
+  for (const s of sets) {
+    if (s.kind !== "must") continue;
+    const sid = s.id || "(uten id)";
+    const t = mk && (mk.typer || []).find((x) => x.id === (s.mk || {}).type);
+    if (!t) si(feil, sid, "kind: must uten en type i EDU_DATA.mustKunne");
+    else if (!(t.sett || []).includes(s.id)) si(feil, sid, `står ikke i typen ${t.id} sin liste`);
+    if (t && !(mk.tiers || []).some((x) => x.nr === t.tier)) si(feil, sid, `tier ${t.tier} finnes ikke`);
+    if ((s.exercises || []).length !== 1) si(feil, sid, "et Må kunne-sett skal ha nøyaktig én oppgave");
+  }
+
   for (const s of sets) {
     const sid = s.id || "(uten id)";
     if (!s.id) si(feil, sid, "mangler id — id-en er lagringsnøkkel for selvvurdering");
     if (idSett.has(s.id)) si(feil, sid, "duplisert sett-id");
     idSett.add(s.id);
     for (const f of ["label", "minutes", "points"]) if (s[f] == null) si(feil, sid, `mangler ${f}`);
-    if (typeof s.minutes !== "number" || s.minutes < 30) si(feil, sid, "minutes er urimelig");
+    if (typeof s.minutes !== "number" || s.minutes < (s.kind === "must" ? 10 : 30)) si(feil, sid, "minutes er urimelig");
     if (typeof s.points !== "number" || s.points <= 0) si(feil, sid, "points er urimelig");
     if (s.facts && !Array.isArray(s.facts)) si(feil, sid, "facts må være en liste");
     const kart = s.kind === "kartlegging";

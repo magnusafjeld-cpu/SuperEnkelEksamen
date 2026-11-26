@@ -325,6 +325,19 @@ fortsatt `kind: "del"`, så alt som leser deleksamenene (planleggeren, `sjekk-se
 `sjekk-prove.js`, `flett-del.py`, svar-dataene) virker uendret. Arten må også stå i
 `perDel.arter`, ellers melder `sjekk-sett.js` feil.
 
+### Må kunne: sett som vises et annet sted (26. november 2026)
+
+Et sett med `kind: "must"` er én oppgave i Eksamenstrening, fanen «Må kunne»
+(`js/bundle-trening.js`). Lista i Eksamenssett viser dem aldri, og de teller ikke i merket
+i navigasjonen. Eksamenstrening åpner dem med `S.views.sett.åpne(settId, { mode, tilbake:
+{ tekst, hash } })`, som setter `openSet` og bytter til `#/sett`. Med `tilbake` sier knappen
+øverst «← Må kunne» og går til `hash` i stedet for til lista. `S.views.sett.status(id)` gir
+levert, gjort, påbegynt, poeng, feil og usikre til kortene der, og `nullstill(id)` nullstiller.
+Settene og `EDU_DATA.mustKunne` (tiers og typer) står sist i `fag/fie402/sett.js` mellom
+merkene MÅ KUNNE og MÅ KUNNE SLUTT, skrevet av `tools/flett-mk.py` fra `fag/fie402/_mk/`.
+`sjekk-sett.js` krever at typen finnes og at settet har nøyaktig én oppgave, og godtar ned til
+10 minutter. `sjekk-prove.js` regner dem ikke som ekte eksamener.
+
 ## Retting med egen API-nøkkel (22. november 2026)
 
 Med en Anthropic-nøkkel under Konto (`js/bundle-claude.js`) fører du inn svarene og får

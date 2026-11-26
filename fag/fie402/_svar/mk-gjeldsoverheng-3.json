@@ -1,0 +1,77 @@
+{
+  "mk-gjeldsoverheng-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Bank loan",
+        "verdi": 131.42857142857142,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Altmark's equity",
+        "verdi": 45.714285714285715,
+        "enhet": "€ m"
+      }
+    ],
+    "merknad": "50/50 gir 138.0952 og udiskontert 138 for lånet; begge avvises."
+  },
+  "mk-gjeldsoverheng-3:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV",
+        "verdi": 20.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Change for Altmark",
+        "verdi": -16.000000000000007,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Change for the bank",
+        "verdi": 36.00000000000003,
+        "enhet": "€ m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Will Altmark install the panels?"
+  },
+  "mk-gjeldsoverheng-3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Probability threshold p",
+        "verdi": 66.66666666666666,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "Svaret er p ≥ 2/3. Udiskontert gir 63.49%; det avvises."
+  },
+  "mk-gjeldsoverheng-3:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Face value of the new senior loan",
+        "verdi": 42.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Bank loan",
+        "verdi": 143.42857142857142,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Altmark's equity",
+        "verdi": 53.714285714285715,
+        "enhet": "€ m"
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Will Altmark install the panels? Is the bank better or worse off than in (a)?",
+    "merknad": "Pålydende 40 (glemt renten) avvises."
+  },
+  "mk-gjeldsoverheng-3:1:e": {
+    "type": "tekst"
+  }
+}

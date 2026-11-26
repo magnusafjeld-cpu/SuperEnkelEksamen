@@ -596,6 +596,29 @@ navn i del 3. Settene låner oppgavene og motoren tar dem ut av deleksamenene, s
 lagringsnummeret og vises med løpenummer, så ingen lagret fremdrift flyttet seg. Se
 [[Eksamenssett-modulen]].
 
+## Må kunne i Eksamenstrening (26. november 2026)
+
+Magnus ba om de oppgavetypene han må ha full kontroll på, hentet fra forelesningene, i en egen
+del av Eksamenstrening med tiers og tre oppgaver per type. Fire agenter leste alle 17
+Panopto-opptakene linje for linje på nytt. Funnene ble satt sammen med H2024, H2025 og
+`docs/fie402-prediksjon.md` til 20 typer i tre tiers (`fag/fie402/_mk/typer.json`, med
+hvorfor og ordrette sitater kontrollert mot tekstingen). Spesifikasjonen er
+`docs/fie402-mk-spek.md`.
+
+| Tier | Typer |
+|---|---|
+| 1 · Må kunnes perfekt | WACC og APV på samme prosjekt · MM-rekapitalisering, utbytte og tilbakekjøp · gjeldsoverheng · vente eller investere · fusjonsarbitrasje og dealsannsynlighet · risikabel obligasjon og CDS · governance (10 p) |
+| 2 · Viktig | rekapitalisering med skatt · binomisk prising og put-call-paritet · senior og junior gjeld som calls · vinnerens forbannelse · budkamp og kontanter mot aksjer · coinsurance · risikoskifting og brannsalg · teori om kapitalstruktur, utbetaling og emisjon (10 p) |
+| 3 · Bør kunnes | avvikle eller gå ut · signal og sertifisering · gründeren og replikasjon · opsjonsintuisjon (10 p) · M&A-motiver (10 p) |
+
+Hver oppgave er helt ny, 20 poeng (teori 10), og formen er forelesningseksemplets eller
+Kurbatovs eksamensoppgave. Oppgave 1 ligger nærmest forelesningen, oppgave 2 nærmest
+eksamen og oppgave 3 tar med tillegget han varslet. Fem skribenter skrev, og en blind
+kontrollør per skribent regnet alt på nytt. I tier 1 fant kontrollørene ingen regnefeil, bare
+formuleringer, for strenge toleranser, kriterier som krevde mer enn spørsmålet og feltnavn som
+røpet svaret (lærdommene står i spesifikasjonen). **Tier 1 (21 oppgaver) lagt ut 26. november**,
+tier 2 og 3 skrives og kontrolleres.
+
 ## Hintet i forelesning (24. november 2026)
 
 Magnus ba om en egen del i Eksamenssett med bare oppgaver Kurbatov pekte ut i forelesning

@@ -1,0 +1,681 @@
+{
+ "mk-vente-1": {
+  "n": 1,
+  "title": "Real options",
+  "points": 20,
+  "topic": "Real options, option to wait",
+  "chapters": [
+   25
+  ],
+  "merke": "Samme form som det første venteeksemplet i forelesning 14 (17:06 til 30:40)",
+  "body": "<p>Lusoliva SA can buy an olive estate in the Alentejo, Portugal, for EUR 52 million, paid at once. It yields 1,200 tonnes of olive oil a year forever, starting now: this year's oil is already pressed, so Lusoliva sells 1,200 tonnes immediately (at t = 0) and then 1,200 tonnes at the end of every year (t = 1, 2, 3, …).</p><p>Olive oil sells at EUR 4,500 per tonne today. At t = 1 the price becomes EUR 7,750 (probability 35%) or EUR 2,750 (probability 65%) per tonne and stays there forever. Oil sold at t = 0 fetches today's price, all later oil the price from t = 1. Prices are net of all costs. The price risk is unrelated to the stock market, so discount at the risk-free rate of 8%. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What is the NPV of buying the estate today?</p>",
+    "solution": "<p><b>Step 1. The timeline.</b> At t = 0 Lusoliva pays 52 and sells this year's oil at once: 1,200 × 4,500 = EUR 5.4 million, not discounted. From t = 1 it sells 1,200 tonnes a year forever at the price from t = 1, which is 7,750 or 2,750 (EUR 9.3 million or EUR 3.3 million a year).</p><p>Expected cash flow from t = 1: 0.35 × 9.3 + 0.65 × 3.3 = 3.2550 + 2.1450 = <b>5.4000</b> EUR million a year</p><p><b>Step 2. Value it.</b> The stream from t = 1 is a perpetuity whose first payment comes in one year, worth C/r today: 5.4000/0.08 = <b>67.5000</b>.</p><p>NPV<sub>now</sub> = −52 + 5.4 + 67.5000 = <b>20.9000 EUR million</b></p><p>The static NPV is positive. Leaving out the oil sold at t = 0 gives −52 + 67.5000 = 15.5000: the first unit comes now, not in a year (recording 14, 19:47). Here the expected price from t = 1 equals today's price, so valuing all oil at EUR 4,500 gives the same 20.9000.</p>",
+    "criteria": [
+     "Includes the EUR 5.4 million sold at t = 0, undiscounted, because production starts now. Leaving it out gives 15.5000, the year-zero trap from the lecture (recording 14, 19:47).",
+     "Expected cash flow from t = 1 of 5.4000 a year, valued as a perpetuity from t = 1: 5.4000/0.08 = 67.5000.",
+     "NPV = −52 + 5.4 + 67.5000 = 20.9000 EUR million.",
+     "Shows the timeline or the calculation, not only the result."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>The owner also offers Lusoliva the right to buy in exactly one year for the same EUR 52 million; the owner keeps the oil until then. If Lusoliva waits, it pays at t = 1 and sells its first 1,200 tonnes at once (at t = 1). What is the NPV at t = 1 of buying in each state? Would Lusoliva buy in each state?</p>",
+    "solution": "<p>Value each state at t = 1, when the price is known. The first oil is again sold at once, so the value at t = 1 is −52 + C + C/0.08, with C = 1,200 × price.</p><table class=\"data\"><tr><th>State at t = 1</th><th>C</th><th>Calculation</th><th>NPV at t = 1</th><th>Decision</th></tr><tr><td>High, EUR 7,750</td><td class=\"n\">9.3</td><td class=\"n\">−52 + 9.3 + 9.3/0.08 = −52 + 9.3 + 116.2500</td><td class=\"n\"><b>73.5500</b></td><td class=\"n\">buy</td></tr><tr><td>Low, EUR 2,750</td><td class=\"n\">3.3</td><td class=\"n\">−52 + 3.3 + 3.3/0.08 = −52 + 3.3 + 41.2500</td><td class=\"n\"><b>−7.4500</b></td><td class=\"n\">do not buy: 0</td></tr></table><p>At the low price Lusoliva would pay 52 for oil worth 44.5500, so it walks away: that state is worth <b>0</b>, not −7.4500. At the high price it buys.</p><p>Seen from t = 0 the high state is worth 73.5500/1.08 = 68.1019. The same number follows from −52/1.08 + 9.3/0.08 = −48.1481 + 116.2500 = 68.1019: both the outlay and the first sale move one year, so the oil from t = 1 is a perpetuity starting in one year (recording 14, 21:50).</p>",
+    "criteria": [
+     "Values each state at t = 1 with the first oil sold at t = 1: 73.5500 at the high price and −7.4500 at the low price.",
+     "Moves both the outlay and the first sale one year. Keeping the first sale or the outlay at t = 0 is wrong.",
+     "Compares the low state with 0: Lusoliva does not buy at the low price, so that state is worth 0, not −7.4500.",
+     "States the decision in each state: buy at EUR 7,750, do not buy at EUR 2,750."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>What is the NPV of waiting, seen from t = 0? Should Lusoliva buy today or wait? How much is the option to wait worth compared with buying today? (If you could not solve (b), use an NPV at t = 1 of EUR 70 million at the high price.)</p>",
+    "solution": "<p><b>Step 1. NPV of waiting.</b> Lusoliva buys only at the high price. Discount the expectation one year at 8%:</p><p>NPV<sub>wait</sub> = [0.35 × 73.5500 + 0.65 × 0]/1.08 = 25.7425/1.08 = <b>23.8356 EUR million</b></p><p><b>Step 2. Decision.</b> 23.8356 &gt; 20.9000, so <b>Lusoliva should wait</b>, although buying today has a positive NPV. Buying today and waiting exclude each other, so the right comparison is between the two, not with 0.</p><p><b>Step 3. Value of the option to wait</b>, measured against the best alternative today, which is buying (positive NPV):</p><p>23.8356 − 20.9000 = <b>2.9356 EUR million</b></p><p>Keeping the low state at −7.4500 gives [0.35 × 73.5500 + 0.65 × (−7.4500)]/1.08 = 19.3519: that treats waiting as a promise to buy whatever happens. It is simply 20.9000/1.08, the project of (a) one year later, so it can never beat buying today.</p><p>With the fallback of 70 from (b): NPV<sub>wait</sub> = 0.35 × 70/1.08 = 22.6852 and the option value is 22.6852 − 20.9000 = 1.7852. The decision is the same.</p>",
+    "criteria": [
+     "NPV of waiting = 0.35 × 73.5500/1.08 = 23.8356 EUR million, with the low state set to 0.",
+     "Decision: wait, because 23.8356 is more than 20.9000. A positive NPV today is not enough to buy today when waiting is worth more.",
+     "Option value = 23.8356 − 20.9000 = 2.9356 EUR million, measured against buying today. Reporting 23.8356 as the option value earns at most half of these points.",
+     "Keeping the negative low state (19.3519) is the classic error.",
+     "With the fallback of 70 from (b): 22.6852 and 1.7852, full marks."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 5,
+    "body": "<p>Suppose instead that the probability of the high price is X, with today's price and the two prices at t = 1 unchanged. For which X is Lusoliva indifferent between buying today and waiting? (If you could not solve (b), use an NPV at t = 1 of EUR 70 million at the high price.)</p>",
+    "solution": "<p><b>Step 1. Buying today depends on X too.</b> The expected cash flow from t = 1 is 9.3X + 3.3(1 − X) = 3.3 + 6.0X, so</p><p>NPV<sub>now</sub>(X) = −52 + 5.4 + (3.3 + 6.0X)/0.08 = −46.6 + 41.2500 + 75.0000X = <b>−5.3500 + 75.0000X</b></p><p><b>Step 2. Waiting.</b> Lusoliva buys only at the high price:</p><p>NPV<sub>wait</sub>(X) = X × 73.5500/1.08 = <b>68.1019X</b></p><p><b>Step 3. Set them equal.</b></p><p>−5.3500 + 75.0000X = 68.1019X ⇒ X = 5.3500/(75.0000 − 68.1019) = 5.3500/6.8981 = <b>0.7756</b></p><p>Below X = 0.7756 Lusoliva should wait; above it, buy today. Check: at X = 0.35 the two functions give −5.3500 + 26.2500 = 20.9000 and 23.8356, the numbers from (a) and (c).</p><p><b>The same answer from what waiting gains and costs.</b> At the low price, buying today locks in −52 + 5.4 + 3.3/0.08 = −5.3500, which waiting avoids. At the high price Lusoliva buys under both plans, so waiting only costs this year's oil, 5.4, less the saving from paying a year later, 52 − 52/1.08 = 3.8519: net 1.5481. Indifference: X × 1.5481 = (1 − X) × 5.3500, so X = 5.3500/6.8981 = 0.7756.</p><p><b>The shortcut to avoid.</b> Holding the NPV of buying today at 20.9000 and solving 20.9000 = 68.1019X gives 0.3069. That forgets that X also changes the expected price if Lusoliva buys today. It even lies below 0.35, where waiting was already better.</p><p><b>The lecture remark.</b> In the lecture example Kurbatov expected X to lie \"somewhere lower than 0.5\" (recording 14, 30:06). That holds only if the NPV of investing now stays fixed, as it would if buying today locked in today's price forever. This text rules that out: all oil after t = 0 sells at the price from t = 1, so the NPV of buying today moves with X.</p><p>With the fallback of 70 from (b): NPV<sub>wait</sub>(X) = X × 70/1.08 = 64.8148X and X = 5.3500/(75.0000 − 64.8148) = 0.5253.</p>",
+    "criteria": [
+     "NPV of buying today as a function of X: −5.3500 + 75.0000X, with the oil sold at t = 0 included.",
+     "NPV of waiting as a function of X: 68.1019X, with the low state set to 0. These points are given even if the student then holds the NPV of buying today fixed.",
+     "Solves −5.3500 + 75.0000X = 68.1019X: X = 0.7756.",
+     "Holding the NPV of buying today fixed at 20.9000 gives 0.3069: wrong here, because the text says that all oil after t = 0 sells at the price from t = 1, so both NPVs depend on X. The lecture remark that X lies below 0.5 (recording 14, 30:06) assumed a fixed NPV now. Partial credit: such an answer keeps the points for a correct NPV of waiting as a function of X (about 2 of 5), but not for X.",
+     "With the fallback of 70 from (b): 64.8148X and X = 0.5253, full marks.",
+     "Bonus: states that waiting is better below X and buying today above it.",
+     "Bonus: checks that the two functions return the values from (a) and (c) at X = 0.35."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>Without calculation: would X in (d) be higher or lower if the risk-free rate were 10% instead of 8%, all prices unchanged? Explain briefly.</p>",
+    "solution": "<p><b>X would be higher.</b> Waiting trades a cost in the high state against a gain in the low state. A higher rate moves both in favour of waiting:</p><p><b>The cost of waiting falls.</b> At the high price Lusoliva buys either way, so waiting costs this year's oil less the saving from paying a year later. A higher rate makes that saving larger: 52 − 52/1.10 = 4.7273 instead of 3.8519.</p><p><b>The gain from waiting rises.</b> At the low price the perpetuity is worth less at 10%, so buying today locks in a larger loss: −13.6000 instead of −5.3500.</p><p>Both effects make waiting more attractive, so buying today needs a higher probability of the high price to catch up. (Bonus: X = 13.6000/(0.6727 + 13.6000) = 0.9529.)</p><p>The short standard version is also accepted: a higher rate lowers the present value of the investment cost paid at t = 1, so the option to wait is worth more and X rises.</p>",
+    "criteria": [
+     "1 point: the answer, X is higher.",
+     "1 point: names the cost of waiting (this year's oil, net of the saving from paying a year later) and explains that a higher rate makes the saving larger.",
+     "1 point: names the gain from waiting (avoiding the loss in the low state) and explains that a higher rate makes that loss larger, because the low-price perpetuity is worth less.",
+     "Also accepted for the answer and the cost point: the standard argument that a higher r lowers the present value of the investment cost paid at t = 1, so the option to wait is worth more.",
+     "An answer that only says future cash flows are worth less gets at most 1 point: it must say which side of the comparison moves. No calculation is required."
+    ]
+   }
+  ]
+ },
+ "mk-vente-2": {
+  "n": 1,
+  "title": "Real Options",
+  "points": 20,
+  "topic": "Real options, option to wait",
+  "chapters": [
+   25
+  ],
+  "merke": "Samme form som H2025 E5 (butikken)",
+  "body": "<p>You are considering opening a staff canteen at a new business park at Forus, outside Stavanger. Fitting it out costs NOK 6 million, paid at opening. Running it costs NOK 1.5 million a year. Revenue will be NOK 2.3 million or NOK 1.9 million a year forever with equal probability, depending on how many firms move into the park. You learn which at the end of Year 1, whether or not you have opened. Cash flows arrive at the end of each year, the first one year after opening. Once open, the canteen must run forever. Demand is unrelated to the stock market, so discount at the risk-free rate of 6%. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 2,
+    "body": "<p>What is the NPV of opening the canteen now? Will you open it?</p>",
+    "solution": "<p><b>Step 1. Net the running cost off the revenue, state by state.</b></p><table class=\"data\"><tr><th>State</th><th>Probability</th><th>Revenue</th><th>Cost</th><th>Net cash flow per year</th></tr><tr><td>Many firms</td><td class=\"n\">0.5</td><td class=\"n\">2.3</td><td class=\"n\">1.5</td><td class=\"n\">0.8</td></tr><tr><td>Few firms</td><td class=\"n\">0.5</td><td class=\"n\">1.9</td><td class=\"n\">1.5</td><td class=\"n\">0.4</td></tr></table><p>Expected net cash flow = 0.5 × 0.8 + 0.5 × 0.4 = <b>0.6 NOK million a year</b>, forever from Year 1.</p><p><b>Step 2. Value it.</b> Opening now commits you whatever the state, so you discount the expected flow: PV = 0.6/0.06 = 10.0000; NPV<sub>now</sub> = 10.0000 − 6 = <b>4.0000 NOK million</b>.</p><p><b>Yes, you would open it:</b> the NPV is positive, so opening beats doing nothing. Whether it also beats waiting is the question in (b) and (c).</p>",
+    "criteria": [
+     "Nets the NOK 1.5 million running cost against the revenue: 0.8 and 0.4 a year.",
+     "Expected net cash flow 0.6, valued as a perpetuity from Year 1 at 6%: 10.0000.",
+     "NPV = 10.0000 − 6 = 4.0000 NOK million.",
+     "Answers the question asked: yes, open, since the NPV is positive."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>Instead, you can wait one year, learn the state and then decide. The cost is still NOK 6 million, paid at t = 1. The first cash flow then arrives at t = 2. What is the NPV of opening at t = 1 in each state, measured at t = 1? In which states would you open?</p>",
+    "solution": "<p>Seen from t = 1 the project is the one in (a) with the state known. The first cash flow comes one year after opening, so each state is a perpetuity valued at t = 1:</p><table class=\"data\"><tr><th>State</th><th>Net cash flow</th><th>NPV at t = 1</th><th>Decision</th></tr><tr><td>Many firms</td><td class=\"n\">0.8</td><td class=\"n\">0.8/0.06 − 6 = 13.3333 − 6 = <b>7.3333</b></td><td class=\"n\">open</td></tr><tr><td>Few firms</td><td class=\"n\">0.4</td><td class=\"n\">0.4/0.06 − 6 = 6.6667 − 6 = <b>0.6667</b></td><td class=\"n\">open</td></tr></table><p><b>You open in both states.</b> Even with few firms, a net cash flow of 0.4 a year is worth more than the NOK 6 million it costs, so there is no state you would want to avoid.</p>",
+    "criteria": [
+     "Values each state at t = 1 as a perpetuity starting one year after opening: 13.3333 and 6.6667.",
+     "NPV at t = 1: 7.3333 with many firms and 0.6667 with few firms.",
+     "Concludes that you open in both states, because the few-firms state is still profitable.",
+     "Compares each state with 0 before deciding; here neither is negative."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 5,
+    "body": "<p>What is the NPV of waiting, seen from today? Do you open now or wait? Compare with (a) and explain briefly.</p>",
+    "solution": "<p><b>Step 1. NPV of waiting.</b> You open in both states, so</p><p>NPV<sub>wait</sub> = [0.5 × 7.3333 + 0.5 × 0.6667]/1.06 = 4.0000/1.06 = <b>3.7736 NOK million</b></p><p><b>Step 2. Decision.</b> 3.7736 &lt; 4.0000: <b>open now</b>. Opening now is better by 0.2264.</p><p><b>Why.</b> Waiting has value only if what you learn lets you avoid a bad state. Here you open in both states anyway, so waiting just delays the same project by a year: NPV<sub>wait</sub> = NPV<sub>now</sub>/1.06. You give up the Year-1 cash flow, worth 0.6/1.06 = 0.5660 today. You gain only from paying the NOK 6 million a year later, 6 − 6/1.06 = 0.3396. Net: 0.5660 − 0.3396 = 0.2264. ✓</p>",
+    "criteria": [
+     "NPV of waiting = [0.5 × 7.3333 + 0.5 × 0.6667]/1.06 = 3.7736 NOK million.",
+     "Decision: open now, because 4.0000 is more than 3.7736.",
+     "Explains why: you open in both states, so waiting avoids nothing and only delays the project; the minimal accepted cost of waiting is the lost Year-1 cash flow.",
+     "Bonus, not required for full marks: the decomposition into the lost Year-1 cash flow (0.5660) less the saving from paying later (0.3396), net 0.2264."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 6,
+    "body": "<p>Your analyst says the two revenues are not NOK 2.3 million and NOK 1.9 million but NOK (2.1 + X) million and NOK (2.1 − X) million, still 2.1 in expectation. Find X for which you are indifferent between opening now and waiting one year.</p>",
+    "solution": "<p><b>Step 1. Opening now does not depend on X.</b> The expected net cash flow stays at 0.6, so NPV<sub>now</sub> = 4.0000 for every X.</p><p><b>Step 2. When can waiting compete?</b> The net cash flows are 0.6 + X and 0.6 − X. As long as the few-firms state is profitable, you open in both states and waiting is worth 4.0000/1.06 = 3.7736, always below 4.0000, as in (c). The few-firms state stops being profitable when (0.6 − X)/0.06 &lt; 6, that is 0.6 − X &lt; 0.36, or X &gt; 0.24. So the indifference point lies above X = 0.24, where you open only with many firms:</p><p>NPV<sub>wait</sub>(X) = 0.5 × [(0.6 + X)/0.06 − 6]/1.06</p><p><b>Step 3. Set it equal to NPV<sub>now</sub>.</b></p><p>0.5 × [(0.6 + X)/0.06 − 6]/1.06 = 4.0000<br>(0.6 + X)/0.06 − 6 = 4.0000 × 2 × 1.06 = 8.4800<br>(0.6 + X)/0.06 = 14.4800 ⇒ 0.6 + X = 0.8688<br>X = <b>0.2688 NOK million</b> (NOK 268,800)</p><p><b>Step 4. Check the assumption.</b> 0.2688 &gt; 0.24, so with few firms the net cash flow is 0.6 − 0.2688 = 0.3312, worth 0.3312/0.06 − 6 = 5.5200 − 6 = −0.4800 at t = 1: negative, so you really do skip that state. With many firms: 0.8688/0.06 − 6 = 8.4800, so 0.5 × 8.4800/1.06 = 4.0000 = NPV<sub>now</sub>. ✓</p><p>For X above 0.2688 waiting is better; below it, open now. The spread in (b) and (c) was 0.2, below 0.2688, which agrees with opening now. Forgetting to discount the t = 1 value back to today gives X = 0.24, the point where the few-firms state just breaks even: wrong, because at that spread waiting is still worse.</p>",
+    "criteria": [
+     "Recognises that NPV_now = 4.0000 does not depend on X: the expected revenue is unchanged and opening now commits you in both states.",
+     "Writes the net cash flows as 0.6 + X and 0.6 − X (revenue less the 1.5 running cost), not 2.1 ± X.",
+     "Sets up waiting with the few-firms state at 0: 0.5 × [(0.6 + X)/0.06 − 6]/1.06.",
+     "Solves: X = 0.2688 NOK million (NOK 268,800).",
+     "Bonus, not required (Kurbatov's 2025 key marks the matching check as not required): checks that the few-firms state is unprofitable at this X (X above 0.24), so skipping it is optimal.",
+     "Forgetting to discount by 1.06 gives 0.24, which is wrong."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>A catering chain is also eyeing the park. If you open now, it stays away. If you wait, it may open first, so your revenue in both states would be lower if you open at t = 1. Without calculation: how does this affect the value of waiting and X from (d)? Explain briefly.</p>",
+    "solution": "<p><b>Waiting is worth less.</b> If you wait, you may have to open at t = 1 next to a competitor, so every state in which you would open yields less. The upside you wait for shrinks.</p><p><b>X rises.</b> NPV<sub>wait</sub> falls for every X, while NPV<sub>now</sub> stays at 4.0000 because opening now keeps the chain away. The revenue spread must therefore be wider than 0.2688 before waiting catches up.</p><p>The threat of entry is a cost of waiting on top of the lost Year-1 cash flow. The lecture makes the same point: while you wait, other firms may move in and take market share (recording 14, 31:31). Also accepted: the threat can make it right to open now even when the spread is wide, to keep the rival out.</p>",
+    "criteria": [
+     "1 point: waiting becomes less valuable, because opening at t = 1 pays less when a rival may have entered.",
+     "1 point: NPV_now is unchanged (opening now keeps the chain away), so X must be higher than 0.2688 for waiting to catch up.",
+     "1 point: names the mechanism: competition is an extra cost of waiting on top of the lost Year-1 cash flow.",
+     "No calculation is required; a numerical illustration is a bonus."
+    ]
+   }
+  ]
+ },
+ "mk-vente-3": {
+  "n": 1,
+  "title": "Risk-neutral valuation",
+  "points": 20,
+  "topic": "Real options, risk-neutral valuation",
+  "chapters": [
+   22,
+   23,
+   25
+  ],
+  "merke": "Samme form som H2024 E6 og legemiddeleksemplet i forelesning 14 (1:05:41)",
+  "body": "<p>Sandhill Data LLC can build a secure data centre for a US federal agency for USD 51 million, paid when it is built. The agency leases it for USD 5 million a year, paid at the end of each year, the first payment one year after completion. The agency moves to its own campus at the end of Year 15, so the lease ends with the Year-15 payment whenever the centre is built; the centre is worthless after that. The agency is as safe as the US Treasury, so the payments are risk-free; only the interest rate is uncertain. Today the risk-free rate is 6% for all maturities. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What is the NPV if Sandhill builds the centre now?</p>",
+    "solution": "<p>Building now gives 15 lease payments, Years 1 to 15: a 15-year annuity at 6%.</p><p>A(15, 6%) = [1 − 1.06<sup>−15</sup>]/0.06 = [1 − 0.4173]/0.06 = <b>9.7122</b></p><p>PV = 5 × 9.7122 = <b>48.5612</b>; NPV<sub>now</sub> = 48.5612 − 51 = <b>−2.4388 USD million</b></p><p>The static NPV is negative, so building now does not pay on its own.</p>",
+    "criteria": [
+     "Recognises a 15-year annuity, not a perpetuity: the lease ends in Year 15.",
+     "A(15, 6%) = 9.7122 and PV = 48.5612.",
+     "NPV = 48.5612 − 51 = −2.4388 USD million."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>Instead, Sandhill can wait one year and decide then. From Year 1 on, the risk-free rate will be either 3.5% or 7.5% for all maturities (the rate from Year 0 to Year 1 stays at 6%). If Sandhill builds at t = 1, it pays USD 51 million then and the lease payments start one year later. What is the NPV of building at t = 1 in each case, at t = 1 and from today's perspective (t = 0)?</p>",
+    "solution": "<p><b>Step 1. Count the payments.</b> The lease still ends in Year 15. Built at t = 1, the centre receives payments in Years 2 to 15: <b>14 payments</b>, not 15. Value them at t = 1 with that case's rate, then bring the NPV back to t = 0 at 6%, the rate from Year 0 to Year 1.</p><table class=\"data\"><tr><th>Rate from Year 1</th><th>A(14, r)</th><th>PV at t = 1</th><th>NPV at t = 1</th><th>NPV at t = 0</th></tr><tr><td>3.5%</td><td class=\"n\">10.9205</td><td class=\"n\">54.6026</td><td class=\"n\"><b>3.6026</b></td><td class=\"n\"><b>3.3987</b></td></tr><tr><td>7.5%</td><td class=\"n\">8.4892</td><td class=\"n\">42.4458</td><td class=\"n\"><b>−8.5542</b></td><td class=\"n\"><b>−8.0700</b></td></tr></table><p>With 3.5%: NPV<sub>1</sub> = 5 × 10.9205 − 51 = 3.6026 and NPV<sub>0</sub> = 3.6026/1.06 = 3.3987. With 7.5%: NPV<sub>1</sub> = 5 × 8.4892 − 51 = −8.5542 and NPV<sub>0</sub> = −8.5542/1.06 = −8.0700.</p><p>A low rate is the good case for this project: the same fixed payments are worth more. Keeping 15 payments after waiting (Years 2 to 16) ignores the fixed end of the lease and gives 6.5871 in the good case; the drug-development example in the lecture uses 16 rather than 17 years for the same reason (recording 14, 1:08:14). Discounting the first year at 3.5% or 7.5% instead of 6% is the other trap.</p>",
+    "criteria": [
+     "Uses 14 payments (Years 2 to 15) after waiting, because the lease ends in Year 15 whatever happens.",
+     "Annuity factors A(14, 3.5%) = 10.9205 and A(14, 7.5%) = 8.4892; PV at t = 1 of 54.6026 and 42.4458.",
+     "NPV at t = 1: 3.6026 and −8.5542.",
+     "Discounts both to t = 0 at 6%, the rate from Year 0 to Year 1: 3.3987 and −8.0700. Using 3.5% or 7.5% for that first year is the trap.",
+     "Bonus: identifies the 3.5% case as the good one, because a lower rate raises the value of fixed payments."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 6,
+    "body": "<p>Nobody knows the probabilities of the two rates. A Treasury bond pays USD 100 at the end of each year from Year 1 to Year 15 and nothing else; today it is priced at the 6% rate. What is the risk-neutral probability of the 3.5% rate? Briefly explain why you do not need the true probabilities.</p>",
+    "solution": "<p><b>Step 1. Price the bond today and in each case at t = 1.</b> At t = 1 the holder receives the Year-1 payment of 100 and keeps 14 more payments, valued at the new rate:</p><table class=\"data\"><tr><th></th><th>Calculation</th><th>Value</th></tr><tr><td>S<sub>0</sub>, today at 6%</td><td class=\"n\">100 × A(15, 6%) = 100 × 9.712249</td><td class=\"n\">971.2249</td></tr><tr><td>S<sub>u</sub>, t = 1 if r = 3.5%</td><td class=\"n\">100 + 100 × A(14, 3.5%) = 100 + 1,092.0520</td><td class=\"n\">1,192.0520</td></tr><tr><td>S<sub>d</sub>, t = 1 if r = 7.5%</td><td class=\"n\">100 + 100 × A(14, 7.5%) = 100 + 848.9154</td><td class=\"n\">948.9154</td></tr></table><p>The 100 paid at t = 1 belongs in S<sub>u</sub> and S<sub>d</sub>: the holder receives it then, like a dividend on a share.</p><p><b>Step 2. The formula-sheet expression</b> with the one-year rate of 6%:</p><p>ρ = [(1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>) = [1.06 × 971.2249 − 948.9154]/(1,192.0520 − 948.9154) = (1,029.4984 − 948.9154)/243.1367 = 80.5830/243.1367 = <b>0.3314</b></p><p>and 1 − ρ = 0.6686.</p><p><b>Step 3. Check.</b> The bond must earn 6% under ρ: [0.331431 × 1,192.0520 + 0.668569 × 948.9154]/1.06 = (395.0830 + 634.4154)/1.06 = 1,029.4984/1.06 = 971.2249 = S<sub>0</sub>. ✓ This only confirms the arithmetic, since ρ is built to make it hold.</p><p><b>Second route.</b> Price the stream the option delivers, the lease in Years 2 to 15. Today it is worth the lease started now less its sure Year-1 payment, 48.5612 − 5/1.06 = 43.8443; at t = 1 it is worth 54.6026 or 42.4458 from (b). Then (46.4749 − 42.4458)/(54.6026 − 42.4458) = 0.3314. ✓ The two twins differ only by a sure payment and the scale, so they must agree; a mismatch would reveal a slip in (b).</p><p><b>Traps.</b> Leaving the 100 out of S<sub>u</sub> and S<sub>d</sub> gives 0.7427. So does pairing the lease started now (48.5612) with the values from (b). Using S<sub>0</sub> instead of (1 + r<sub>f</sub>)S<sub>0</sub> gives 0.0918. Both lie between 0 and 1, so only the rule catches them.</p><p><b>Why the true probabilities are not needed.</b> The payoff of the decision at t = 1 can be replicated with the traded bond and risk-free borrowing or lending, so its value today follows from the bond's price, whatever investors believe and however risk averse they are. ρ is the probability that makes the bond earn the risk-free rate; it is not a forecast.</p>",
+    "criteria": [
+     "Prices the bond today at 6%: S_0 = 100 × A(15, 6%) = 971.2249.",
+     "Includes the Year-1 payment in the t = 1 values: S_u = 100 + 100 × A(14, 3.5%) = 1,192.0520 and S_d = 100 + 100 × A(14, 7.5%) = 948.9154. Leaving it out, or pairing 48.5612 with the values from (b), gives 0.7427.",
+     "Uses ρ = [(1 + r_f)S_0 − S_d]/(S_u − S_d) with r_f = 6%, the rate from Year 0 to Year 1. Forgetting (1 + r_f) gives 0.0918.",
+     "ρ = 0.3314 for the 3.5% rate and 1 − ρ = 0.6686.",
+     "Explains why the true probabilities are not needed: the payoff can be replicated with the traded bond and the risk-free asset, so no beliefs or risk preferences enter; ρ is not a forecast.",
+     "Bonus: verifies that ρ reprices the bond, [ρ S_u + (1 − ρ) S_d]/1.06 = S_0. It confirms the arithmetic only."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 3,
+    "body": "<p>What is the value today of the option to wait? Sandhill is not forced to build at t = 1. Do you build now or wait? Briefly comment. (If you could not solve (b), use an NPV at t = 1 of USD 4 million at 3.5%. If you could not solve (c), use ρ = 0.40.)</p>",
+    "solution": "<p><b>Step 1. Payoffs at t = 1.</b> Sandhill builds only if the rate falls to 3.5%: C<sub>u</sub> = max(3.6026, 0) = 3.6026 and C<sub>d</sub> = max(−8.5542, 0) = 0.</p><p><b>Step 2. Value with ρ.</b> C<sub>0</sub> = ρ × NPV<sub>0,u</sub> + (1 − ρ) × 0 = 0.331431 × 3.398681 = <b>1.1264 USD million</b>, or equivalently 0.331431 × 3.602601/1.06.</p><p><b>Step 3. Decision: wait.</b> Waiting is worth 1.1264, building now −2.4388. Since building now does not pay, the whole 1.1264 is the value of the option to wait. Measuring it against the negative NPV, 1.1264 − (−2.4388) = 3.5652, uses the wrong baseline: the alternative to waiting is not building, worth 0.</p><p><b>Comment.</b> The right to build is a call on the lease stream with a strike of USD 51 million. It has value although the static NPV is negative, because Sandhill builds only if rates fall and walks away otherwise.</p><p>Optional replication check with the bond: Δ = 3.6026/243.1367 = 0.014817 bonds, B = −948.9154 × 0.014817/1.06 = −13.2644; then S<sub>0</sub>Δ + B = 14.3908 − 13.2644 = 1.1264 ✓. It shares ρ with the first route, so it catches arithmetic slips only.</p><p>With the fallbacks: ρ = 0.40 gives 0.40 × 3.3987 = 1.3595, an NPV of 4 gives 0.3314 × 4/1.06 = 1.2507, both give 0.40 × 4/1.06 = 1.5094. The decision is the same.</p>",
+    "criteria": [
+     "Applies max(NPV, 0) at t = 1: 3.6026 if the rate is 3.5% and 0 if it is 7.5%, because Sandhill is not forced to build.",
+     "Values it with ρ from (c): 0.3314 × 3.3987 = 1.1264 USD million, or 0.3314 × 3.6026/1.06. With the fallbacks: 1.3595 (ρ = 0.40), 1.2507 (NPV 4) or 1.5094 (both), full marks.",
+     "Decision: wait. Waiting is worth 1.1264, building now −2.4388. Measuring the option against the negative NPV, 1.1264 − (−2.4388) = 3.5652, is wrong: the baseline is 0.",
+     "Comment: a call on the lease stream, valuable because Sandhill builds only in the good case, although the static NPV is negative."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>A colleague suggests Black-Scholes instead, with σ the volatility of the value of the lease stream. Without calculation: what would you expect for the value of waiting and for your decision if σ were very low? And if it were very high?</p>",
+    "solution": "<p><b>Very low σ.</b> In a year the lease stream would be worth close to what its 14 payments are worth at today's 6%, 5 × A(14, 6%) = 46.4749, below the USD 51 million cost. The project would then be unprofitable in practically every outcome, so the right to wait is worth almost nothing and you take the same decision as today: do not build now. The lecture makes this point: with a very low σ, \"we would still take the same exact decision\" (recording 14, 47:10).</p><p><b>Very high σ.</b> There is a large chance that the stream ends up worth well above USD 51 million, while the downside stays at 0 because Sandhill can walk away. The right to wait is worth more. Waiting is even more clearly the right choice.</p><p>The general rule: more uncertainty makes the option to wait more valuable, because the upside grows while the downside stays capped at 0.</p>",
+    "criteria": [
+     "1 point: low σ, the value of the stream stays near today's level, below the cost, so the option is worth close to 0 and the decision is the same as today (do not build now).",
+     "1 point: high σ, more upside with the downside capped at 0, so the option to wait is worth more and waiting is more attractive.",
+     "1 point: names the mechanism: an option gains from uncertainty because its payoff is asymmetric.",
+     "Today's level means the 14 payments from Year 2, worth 46.4749 at 6%. Using 48.5612 (the lease started now, which includes the Year-1 payment lost by waiting) is a slip, although the conclusion is the same.",
+     "No Black-Scholes calculation is required or expected."
+    ]
+   }
+  ]
+ },
+ "mk-binomisk-1": {
+  "n": 1,
+  "title": "Options",
+  "points": 20,
+  "topic": "Options, binomial model and put-call parity",
+  "chapters": [
+   21,
+   22
+  ],
+  "merke": "Samme form som binomeksemplet i forelesning 12 (47:01 til 1:23:00)",
+  "body": "<p>Corvallis Robotics Inc. shares trade at USD 48 today. In one year the share price will be either USD 66 or USD 36. The one-year risk-free rate is 4%; you can borrow and lend at this rate. Corvallis pays no dividends. Consider European options on one Corvallis share that expire in one year and have a strike price of USD 52. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 2,
+    "body": "<p>What do the call and the put pay in each state? Check that (1 + r<sub>f</sub>)S<sub>0</sub> lies between the two possible share prices and explain briefly why it must.</p>",
+    "solution": "<p>Call: C<sub>u</sub> = max(66 − 52, 0) = <b>14</b> and C<sub>d</sub> = max(36 − 52, 0) = <b>0</b>. Put: P<sub>u</sub> = max(52 − 66, 0) = <b>0</b> and P<sub>d</sub> = max(52 − 36, 0) = <b>16</b>.</p><p>(1 + r<sub>f</sub>)S<sub>0</sub> = 1.04 × 48 = <b>49.92</b>, which lies between 36 and 66. It must: if it were above 66, selling the share and investing at the risk-free rate would beat holding the share in both states; if it were below 36, borrowing to buy the share would always win. Either would be an arbitrage (recording 12, 1:01:40).</p>",
+    "criteria": [
+     "Payoffs: call 14 and 0, put 0 and 16.",
+     "(1 + r_f)S_0 = 49.92, between 36 and 66.",
+     "Reason: otherwise the share or the risk-free asset would dominate in both states, which is an arbitrage."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>Construct a portfolio of N shares and a risk-free position X (borrowing or lending) that replicates the call. Show that it pays the same as the call in both states. What is the call worth today?</p>",
+    "solution": "<p><b>Step 1. Two equations.</b> The portfolio must pay what the call pays in each state:</p><p>Up: 66N + 1.04X = 14<br>Down: 36N + 1.04X = 0</p><p><b>Step 2. Solve.</b> Subtracting: 30N = 14, so N = 14/30 = <b>0.4667</b> shares. Then 1.04X = −36 × 0.466667 = −16.8000, so X = <b>−16.1538</b>: you <b>borrow</b> USD 16.1538.</p><p><b>Step 3. Check.</b> Up: 0.466667 × 66 − 16.8000 = 30.8000 − 16.8000 = 14.0000. Down: 16.8000 − 16.8000 = 0. ✓</p><p><b>Step 4. Price.</b> The call must cost what the portfolio costs:<br>C<sub>0</sub> = 0.466667 × 48 − 16.1538 = 22.4000 − 16.1538 = <b>USD 6.2462</b></p><p>As the lecture notes, replicating a call always means borrowing and holding less than one share (recording 12, 1:10:42).</p>",
+    "criteria": [
+     "Sets up the two replication equations, one per state, with the risk-free position growing at 4%.",
+     "N = 0.4667 shares.",
+     "X = −16.1538: borrow USD 16.1538. Writing the borrowing as lending loses these points.",
+     "Shows that the portfolio pays 14 and 0, as the question asks.",
+     "C_0 = 0.4667 × 48 − 16.1538 = 6.2462."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 3,
+    "body": "<p>Find the risk-neutral probability ρ of the up state and use it to price the call. Compare with (b).</p>",
+    "solution": "<p>ρ = [(1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>) = (49.92 − 36)/(66 − 36) = 13.92/30 = <b>0.4640</b></p><p>C<sub>0</sub> = [ρ × 14 + (1 − ρ) × 0]/1.04 = 6.4960/1.04 = <b>6.2462</b>, the same as in (b). ✓</p><p>Check that ρ prices the share: [0.464 × 66 + 0.536 × 36]/1.04 = (30.6240 + 19.2960)/1.04 = 49.92/1.04 = 48. ✓ Forgetting (1 + r<sub>f</sub>) gives ρ = 0.4000, which is wrong.</p>",
+    "criteria": [
+     "ρ = (49.92 − 36)/30 = 0.4640.",
+     "C_0 = 0.4640 × 14/1.04 = 6.2462, equal to (b).",
+     "Uses (1 + r_f)S_0, not S_0 (which gives 0.4000)."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 3,
+    "body": "<p>Use put-call parity to find the price of the put. (If you could not find the call price, use USD 6.00.)</p>",
+    "solution": "<p>Put-call parity: C + PV(K) = P + S<sub>0</sub>, so</p><p>P = C − S<sub>0</sub> + K/(1 + r<sub>f</sub>) = 6.2462 − 48 + 52/1.04 = 6.2462 − 48 + 50.0000 = <b>USD 8.2462</b></p><p>Check with ρ: (1 − 0.464) × 16/1.04 = 8.5760/1.04 = 8.2462. ✓</p><p>With the fallback call price of 6.00: P = 6.00 − 48 + 50.0000 = 8.0000.</p>",
+    "criteria": [
+     "States put-call parity, C + PV(K) = P + S_0. Discounts K one year at 4%.",
+     "P = 6.2462 − 48 + 50.0000 = 8.2462. With the fallback 6.00: 8.0000, full marks.",
+     "Bonus: checks the put with ρ."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>A dealer offers to buy Corvallis calls (strike USD 52, one year) from you at USD 6.90 each. Describe a strategy that gives a riskless profit. Show its cash flows today and in each state in one year.</p>",
+    "solution": "<p>The call is worth 6.2462, so the dealer overpays. <b>Sell</b> one call to the dealer and <b>buy the replicating portfolio</b> from (b): buy 0.4667 shares and borrow 16.1538.</p><table class=\"data\"><tr><th>Position</th><th>Today</th><th>Up (S = 66)</th><th>Down (S = 36)</th></tr><tr><td>Sell one call</td><td class=\"n\">6.90</td><td class=\"n\">−14.0000</td><td class=\"n\">0</td></tr><tr><td>Buy 0.4667 shares</td><td class=\"n\">−22.4000</td><td class=\"n\">30.8000</td><td class=\"n\">16.8000</td></tr><tr><td>Borrow 16.1538</td><td class=\"n\">16.1538</td><td class=\"n\">−16.8000</td><td class=\"n\">−16.8000</td></tr><tr><td><b>Total</b></td><td class=\"n\"><b>0.6538</b></td><td class=\"n\">0</td><td class=\"n\">0</td></tr></table><p>You pocket <b>USD 0.6538</b> per call today and owe nothing later: the portfolio covers the call in both states. Buying from the dealer would be the wrong side, since the dealer's price is above the value.</p>",
+    "criteria": [
+     "Sees that 6.90 is above the call's value of 6.2462, so the call should be sold.",
+     "Hedges the sold call with the replicating portfolio: buy 0.4667 shares and borrow 16.1538.",
+     "Cash flows: +0.6538 today and 0 in both states. Shows the table or the equivalent sums.",
+     "A strategy with risk left in one of the states does not count as an arbitrage."
+    ]
+   },
+   {
+    "label": "f",
+    "points": 3,
+    "body": "<p>An analyst says that the share rises with probability 80%, so the call must be worth more than you found. Do you agree? Explain briefly.</p>",
+    "solution": "<p><b>No.</b> The portfolio in (b) pays exactly what the call pays in both states, whatever the probabilities are, so the call must cost what the portfolio costs, 6.2462. The lecture stresses that the replication does not use the probabilities at all (recording 12, 1:08:02).</p><p>The real probabilities and investors' attitude to risk are already in the share price of 48. A higher chance of the up state would show up as a higher S<sub>0</sub>, not as a higher call price for a given S<sub>0</sub>. ρ = 0.4640 is not a forecast. If the call sold for more, the strategy in (e) would make money.</p>",
+    "criteria": [
+     "1 point: no, the call value does not depend on the real probabilities.",
+     "1 point: because the call can be replicated with the share and the risk-free asset, its price follows from their prices.",
+     "1 point: the real probabilities are already reflected in S_0; ρ is not a forecast."
+    ]
+   }
+  ]
+ },
+ "mk-binomisk-2": {
+  "n": 1,
+  "title": "Risk-neutral option valuation",
+  "points": 20,
+  "topic": "Options, risk-neutral probabilities and put-call parity",
+  "chapters": [
+   21,
+   22
+  ],
+  "merke": "Samme form som Home Assignment 2, oppgave 2",
+  "body": "<p>Hellefoss Papir ASA trades at NOK 140 per share. In one year the share price will be either NOK 175 or NOK 112. The one-year risk-free rate is 5%. This uncertainty is the only factor affecting the share price, so the observed prices are fair. Hellefoss pays no dividends. Consider one-year European call and put options on one Hellefoss share, both with a strike price of NOK 150. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Find the market-implied (risk-neutral) probabilities of the high and the low state.</p>",
+    "solution": "<p>ρ = [(1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>) = (1.05 × 140 − 112)/(175 − 112) = (147 − 112)/63 = 35/63 = <b>0.5556</b></p><p>1 − ρ = <b>0.4444</b> for the low state.</p><p>Check: [0.555556 × 175 + 0.444444 × 112]/1.05 = (97.2222 + 49.7778)/1.05 = 147.0000/1.05 = 140. ✓</p>",
+    "criteria": [
+     "ρ = (147 − 112)/63 = 0.5556 for the high state.",
+     "1 − ρ = 0.4444 for the low state.",
+     "Uses (1 + r_f)S_0, the certainty equivalent, not S_0."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>Calculate the prices of the call and the put. (If you could not solve (a), use a probability of 0.50 for the high state.)</p>",
+    "solution": "<p>Payoffs: the call pays 25 in the high state and 0 in the low; the put pays 0 and 38. Kurbatov's advice is to price first whichever option is easier and get the other from parity (recording 18, 57:02). Here both pay in only one state, so either order works and the second route is the check.</p><p>Call: C = [0.5556 × 25 + 0.4444 × 0]/1.05 = 13.8889/1.05 = <b>NOK 13.2275</b></p><p>Put from parity: P = C − S<sub>0</sub> + K/(1 + r<sub>f</sub>) = 13.2275 − 140 + 150/1.05 = 13.2275 − 140 + 142.8571 = <b>NOK 16.0847</b></p><p>Check with ρ: 0.4444 × 38/1.05 = 16.8889/1.05 = 16.0847. ✓</p><p>With the fallback ρ = 0.50: C = 0.50 × 25/1.05 = 11.9048 and P = 11.9048 − 140 + 142.8571 = 14.7619.</p>",
+    "criteria": [
+     "Payoffs 25 for the call in the high state and 38 for the put in the low state.",
+     "C = 0.5556 × 25/1.05 = 13.2275.",
+     "P = 16.0847, by parity or directly with 1 − ρ.",
+     "Discounts with the risk-free rate, not with the share's expected return.",
+     "With the fallback ρ = 0.50: 11.9048 and 14.7619, full marks.",
+     "Bonus: prices the second option both ways as a check."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 5,
+    "body": "<p>A broker quotes the call at NOK 12.20 and the put at NOK 17.30; you can buy or sell at these prices. You can also trade the share and borrow or lend at 5%. Is there an arbitrage? If so, describe it and show its cash flows today and in each state in one year.</p>",
+    "solution": "<p><b>Step 1. Test put-call parity with the quotes.</b></p><p>C + PV(K) = 12.20 + 142.8571 = 155.0571<br>P + S<sub>0</sub> = 17.30 + 140 = 157.3000</p><p>The two portfolios pay the same in every state, but the call side is 2.2429 cheaper. <b>Yes, there is an arbitrage.</b> Compared with (b), the call is quoted below its value (13.2275) and the put above its value (16.0847).</p><p><b>Step 2. Buy the cheap side, sell the expensive side.</b> Buy the call and lend PV(K); sell the put and sell the share short.</p><table class=\"data\"><tr><th>Position</th><th>Today</th><th>High (S = 175)</th><th>Low (S = 112)</th></tr><tr><td>Buy the call</td><td class=\"n\">−12.20</td><td class=\"n\">25</td><td class=\"n\">0</td></tr><tr><td>Lend PV(150)</td><td class=\"n\">−142.8571</td><td class=\"n\">150</td><td class=\"n\">150</td></tr><tr><td>Sell the put</td><td class=\"n\">17.30</td><td class=\"n\">0</td><td class=\"n\">−38</td></tr><tr><td>Short one share</td><td class=\"n\">140.00</td><td class=\"n\">−175</td><td class=\"n\">−112</td></tr><tr><td><b>Total</b></td><td class=\"n\"><b>2.2429</b></td><td class=\"n\">0</td><td class=\"n\">0</td></tr></table><p>You receive <b>NOK 2.2429</b> today and nothing is owed later. Parity uses only the quoted prices, so the arbitrage does not depend on ρ.</p>",
+    "criteria": [
+     "Compares C + PV(K) = 155.0571 with P + S_0 = 157.3000 and concludes that there is an arbitrage.",
+     "Buys the cheap side (call and lending) and sells the expensive side (put and short share).",
+     "Cash flows: +2.2429 today and 0 in both states.",
+     "Also accepted: buying the call and hedging it with the replicating portfolio (short shares and lending), if the cash flows are shown."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>For which strike price would a one-year call and a one-year put on Hellefoss cost the same? Explain.</p>",
+    "solution": "<p>Put-call parity gives C − P = S<sub>0</sub> − K/(1 + r<sub>f</sub>). The two prices are equal when the right-hand side is zero:</p><p>K = S<sub>0</sub>(1 + r<sub>f</sub>) = 140 × 1.05 = <b>NOK 147</b></p><p>Check with ρ: the call pays 175 − 147 = 28 and the put 147 − 112 = 35, so C = 0.5556 × 28/1.05 = 14.8148 and P = 0.4444 × 35/1.05 = 14.8148. ✓</p><p><b>Why.</b> At this strike the share's expected price under ρ, 147, equals the strike, so the risk-neutral expected payoff of the call equals that of the put. A call and a put with the same strike cost the same exactly when the strike is the price of the share compounded at the risk-free rate.</p>",
+    "criteria": [
+     "Uses put-call parity: C − P = S_0 − PV(K).",
+     "K = 140 × 1.05 = 147.",
+     "Explains: the strike equals the share price compounded at the risk-free rate, the expected price under ρ, so the two options have the same risk-neutral expected payoff.",
+     "Bonus: checks with ρ that both options cost 14.8148."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>Suppose the share could instead end at NOK 190 or NOK 98, with today's price and the risk-free rate unchanged. Without calculation: what happens to the prices of the call and the put with strike NOK 150? Explain briefly.</p>",
+    "solution": "<p><b>Both rise.</b> The share still earns the risk-free rate under ρ, so its expected price under ρ stays at 147, but the outcomes are further apart. The call now pays more in the high state (40 instead of 25) and the put more in the low state (52 instead of 38), while neither can pay less than 0. Options gain from uncertainty because their payoff is asymmetric (recording 13, 1:16:52).</p><p>By parity, C − P = S<sub>0</sub> − PV(K) is unchanged, so both rise by the same amount. (Bonus: C = 20.2899 and P = 23.1470.)</p>",
+    "criteria": [
+     "1 point: both prices rise.",
+     "1 point: more spread between the outcomes raises the payoff in the state where each option pays, while the payoff cannot fall below 0.",
+     "1 point: parity, C − P = S_0 − PV(K), does not change, so both rise by the same amount; or an equivalent volatility argument."
+    ]
+   }
+  ]
+ },
+ "mk-binomisk-3": {
+  "n": 1,
+  "title": "Options",
+  "points": 20,
+  "topic": "Options, binomial model over six months",
+  "chapters": [
+   21,
+   22
+  ],
+  "merke": "Samme form som seksmånederseksemplet i forelesning 12 (1:20:47)",
+  "body": "<p>Vandermeer Chemie NV shares trade at EUR 74. In six months the share price will be either EUR 86 or EUR 63. The risk-free rate is 4% a year (annual compounding). Vandermeer pays no dividends. Consider a European put and a European call on one Vandermeer share, both expiring in six months with a strike price of EUR 78. Use 4 decimal places.</p>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>What is the risk-free growth factor for six months? Find the risk-neutral probability of the up state.</p>",
+    "solution": "<p>Half a year at 4% a year: 1.04<sup>0.5</sup> = √1.04 = <b>1.019804</b> (recording 12, 1:21:03).</p><p>ρ = (1.019804 × 74 − 63)/(86 − 63) = (75.4655 − 63)/23 = 12.4655/23 = <b>0.5420</b></p><p>Using the full-year factor 1.04 gives 0.6070, which is wrong. Halving the rate (1.02) is a different compounding convention; the text says annual compounding, although here it gives almost the same ρ (0.5426).</p>",
+    "criteria": [
+     "Six-month factor √1.04 = 1.019804.",
+     "ρ = (75.4655 − 63)/23 = 0.5420.",
+     "Using 1.04 for six months gives 0.6070: wrong."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>Construct a portfolio of Δ shares and a risk-free position B that replicates the put. What is the put worth today? Check your answer with ρ.</p>",
+    "solution": "<p>Payoffs: P<sub>u</sub> = max(78 − 86, 0) = 0 and P<sub>d</sub> = max(78 − 63, 0) = 15.</p><p><b>Step 1. Two equations.</b> Up: 86Δ + 1.019804B = 0. Down: 63Δ + 1.019804B = 15.</p><p><b>Step 2. Solve.</b> Subtracting: 23Δ = −15, so Δ = <b>−0.6522</b>: sell 0.6522 shares short. Then B = 0.652174 × 86/1.019804 = 56.0870/1.019804 = <b>54.9978</b>: lend EUR 54.9978.</p><p><b>Step 3. Check.</b> Up: −56.0870 + 56.0870 = 0. Down: −41.0870 + 56.0870 = 15.0000. ✓</p><p><b>Step 4. Price.</b> P<sub>0</sub> = −0.652174 × 74 + 54.9978 = −48.2609 + 54.9978 = <b>EUR 6.7369</b></p><p>Check with ρ: (1 − 0.541978) × 15/1.019804 = 6.8703/1.019804 = 6.7369. ✓ A put is replicated by selling shares short and lending, the mirror image of a call.</p>",
+    "criteria": [
+     "Sets up the two equations with the six-month factor on the risk-free position.",
+     "Δ = −0.6522 (a short position) and B = 54.9978 (lending).",
+     "Shows that the portfolio pays 0 and 15.",
+     "P_0 = 6.7369, confirmed with ρ."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>Use put-call parity to price the call. Check your answer with ρ. (If you could not solve (b), use a put price of EUR 6.50.)</p>",
+    "solution": "<p>PV(K) = 78/1.019804 = 76.4853, discounted for six months.</p><p>C = P + S<sub>0</sub> − PV(K) = 6.7369 + 74 − 76.4853 = <b>EUR 4.2516</b></p><p>Check with ρ: the call pays 8 in the up state, so C = 0.541978 × 8/1.019804 = 4.2516. ✓</p><p>Discounting K with 1.04 instead gives 5.7369: wrong for a six-month option. With the fallback put of 6.50: C = 6.50 + 74 − 76.4853 = 4.0147.</p>",
+    "criteria": [
+     "PV(K) with the six-month factor: 76.4853.",
+     "C = 6.7369 + 74 − 76.4853 = 4.2516. With the fallback put: 4.0147, full marks.",
+     "Checks with ρ: 0.5420 × 8/1.0198 = 4.2516.",
+     "Discounting with 1.04 gives 5.7369: wrong."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 5,
+    "body": "<p>A bank sells a six-month product on Vandermeer shares. At maturity it pays the higher of the share price and EUR 78. The bank charges EUR 81.60. What is the product worth? Would you buy it, or could you build the same payoff more cheaply yourself? How? (If you could not solve (b), use EUR 6.50 for the put.)</p>",
+    "solution": "<p><b>Step 1. Recognise the payoff.</b> max(S<sub>T</sub>, 78) = S<sub>T</sub> + max(78 − S<sub>T</sub>, 0): one share plus one put with strike 78, the share-plus-put line from the lecture (recording 12, 36:16).</p><p><b>Step 2. Value it.</b> 74 + 6.7369 = <b>EUR 80.7369</b>. By parity the same payoff is one call plus lending PV(78): 4.2516 + 76.4853 = 80.7369. ✓ Directly with ρ: the product pays 86 or 78, so [0.541978 × 86 + 0.458022 × 78]/1.019804 = 80.7369. ✓</p><p><b>Step 3. Decision.</b> The bank charges 81.60, 0.8631 more than the product is worth. <b>Do not buy it</b>; build it yourself by buying one share and one put with strike 78, or one call and a six-month deposit of 76.4853. With the fallback put: 74 + 6.50 = 80.5000, still below 81.60.</p>",
+    "criteria": [
+     "Recognises the payoff as one share plus one put with strike 78 (or one call plus a risk-free deposit of PV(78)).",
+     "Value 74 + 6.7369 = 80.7369. With the fallback put: 80.5000, full marks.",
+     "Concludes that the product is overpriced by 0.8631, so you should not buy it.",
+     "Says how to build it yourself: share plus put, or call plus lending."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>Suppose the put were American instead, so it could be exercised at any time before it expires. Without calculation: would you expect its price to be higher or lower than the price of the European put? Explain briefly.</p>",
+    "solution": "<p><b>Not lower; in general higher.</b> An American put gives every right the European put gives, plus the right to exercise early. Extra rights cannot have a negative value, so the American put is worth at least as much (recording 12, 12:41; recording 18, 58:18).</p><p>Early exercise of a put can pay when it is deep in the money: you receive the strike now and can earn interest on it instead of waiting.</p><p>Bonus: in this one-step tree, exercising today pays 78 − 74 = 4, less than the European value 6.7369, so it would not be exercised today and the two would be worth the same here. For a call on a share without dividends, early exercise never pays, so an American call would be worth the same as the European one.</p>",
+    "criteria": [
+     "1 point: the American put is worth at least as much (higher or equal), never less.",
+     "1 point: it contains all the rights of the European put plus early exercise.",
+     "1 point: says when early exercise can pay (a deep in-the-money put: getting the strike early earns interest).",
+     "Bonus: notes that exercising today pays only 4 here, so in this tree the two are worth the same."
+    ]
+   }
+  ]
+ },
+ "mk-senior-junior-1": {
+  "n": 1,
+  "title": "Corporate securities as options",
+  "points": 20,
+  "topic": "Debt and equity as options, senior and junior debt",
+  "chapters": [
+   21,
+   24
+  ],
+  "merke": "Samme form som Google-eksemplet i forelesning 13 (57:39 til 1:16:02)",
+  "body": "<p>Quillback Genomics Inc. has 250 million shares trading at USD 64 and no debt. Markets are perfect and there are no taxes. Quillback considers issuing zero-coupon debt due in exactly 2 years and paying the proceeds out to its shareholders at once, which leaves the value of its assets unchanged. The risk-free rate is 2.5% a year (annual compounding).</p><p>European calls on Quillback shares that expire in exactly 2 years are quoted below (USD per share). Because Quillback has no debt today, you can treat them as calls on the firm's assets per share. Use the midpoint of bid and ask. Give values in USD billion with 4 decimals and yields in % with 2 decimals.</p><table class=\"data\"><tr><th>Strike (USD)</th><th>Call bid</th><th>Call ask</th></tr><tr><td>16</td><td class=\"n\">48.45</td><td class=\"n\">49.15</td></tr><tr><td>24</td><td class=\"n\">41.04</td><td class=\"n\">41.84</td></tr><tr><td>32</td><td class=\"n\">34.17</td><td class=\"n\">35.07</td></tr><tr><td>40</td><td class=\"n\">28.07</td><td class=\"n\">29.07</td></tr><tr><td>48</td><td class=\"n\">22.85</td><td class=\"n\">23.95</td></tr></table>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Quillback issues a single bond with face value USD 10 billion. Which strike per share corresponds to this debt? What is the equity worth after the issue?</p>",
+    "solution": "<p>Firm value V = 250 million × 64 = USD 16.0 billion. The equity is a call on the assets with strike equal to the face value of the debt: per share, 10 billion/250 million = <b>USD 40</b>.</p><p>Call with strike 40: midpoint of 28.07 and 29.07 = 28.57.</p><p>E = 250 million × 28.57 = <b>USD 7.1425 billion</b></p>",
+    "criteria": [
+     "Strike per share = face value/number of shares = 40.",
+     "Midpoint 28.57 for the call with strike 40.",
+     "Multiplies by 250 million: E = 7.1425 USD billion. Forgetting to multiply by the number of shares is the classic slip (recording 13, 1:13:30)."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 4,
+    "body": "<p>What is the debt worth? What annual yield does the bond offer? What is its spread over the risk-free rate? (If you could not solve (a), use an equity value of USD 7.5 billion.)</p>",
+    "solution": "<p>D = V − E = 16.0 − 7.1425 = <b>USD 8.8575 billion</b></p><p>The bond pays 10 in 2 years, so (1 + y)<sup>2</sup> = 10/8.8575 = 1.1290 and y = 1.1290<sup>1/2</sup> − 1 = <b>6.25%</b>.</p><p>Spread = 6.25% − 2.50% = <b>3.75 percentage points</b>.</p><p>Forgetting to annualise gives 12.90% over two years, not a yearly rate. With the fallback E = 7.5: D = 8.5, y = 8.47% and the spread is 5.97 percentage points.</p>",
+    "criteria": [
+     "D = 16.0 − 7.1425 = 8.8575 USD billion.",
+     "Annual yield (10/8.8575)^(1/2) − 1 = 6.25%. With the fallback: 8.47%, full marks.",
+     "Spread 3.75 percentage points over 2.5%.",
+     "Reporting the two-year return 12.90% as the yield is wrong."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 6,
+    "body": "<p>Suppose instead that the debt is split into a senior bond with face value USD 6 billion and a junior bond with face value USD 4 billion, both zero-coupon and due in 2 years. What are the senior debt, the junior debt and the equity worth?</p>",
+    "solution": "<p><b>Step 1. Equity.</b> The shareholders are paid only after both bonds, so the strike is the total face value, 10 billion, or USD 40 per share as before: E = <b>USD 7.1425 billion</b>.</p><p><b>Step 2. Senior debt.</b> Everything above the senior face value is a call with strike 6 billion/250 million = USD 24 per share: midpoint 41.44, so C(F<sub>S</sub>) = 250 million × 41.44 = 10.3600. The senior creditors get the rest:<br>D<sub>S</sub> = V − C(F<sub>S</sub>) = 16.0 − 10.3600 = <b>USD 5.6400 billion</b></p><p><b>Step 3. Junior debt</b> is the slice between the two strikes:<br>D<sub>J</sub> = C(F<sub>S</sub>) − C(F<sub>S</sub> + F<sub>J</sub>) = 10.3600 − 7.1425 = <b>USD 3.2175 billion</b> (recording 13, 50:56).</p><p>Pricing the junior bond as a single call with strike 16 gives 12.2000, more than its face value: wrong, since the junior creditors are paid only after the senior ones.</p>",
+    "criteria": [
+     "Equity is still the call with strike 40 (total face value): 7.1425.",
+     "Senior strike 24 per share; D_S = 16.0 − 10.3600 = 5.6400.",
+     "Junior debt as the difference between two calls: 10.3600 − 7.1425 = 3.2175.",
+     "Pricing junior as one call with strike 16 (12.2000) is the classic error.",
+     "Multiplies every per-share call by 250 million."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>What annual yields do the senior and the junior bonds offer? Check that the three claims add up to the firm value. (If you could not solve (c), use USD 5.5 billion for the senior and USD 3.0 billion for the junior debt.)</p>",
+    "solution": "<p>Senior: (6/5.6400)<sup>1/2</sup> − 1 = <b>3.14%</b></p><p>Junior: (4/3.2175)<sup>1/2</sup> − 1 = <b>11.50%</b></p><p>Sum: 5.6400 + 3.2175 + 7.1425 = 16.0000 = V. ✓ This holds by construction, since the three claims are cut from the same firm with the same calls; it catches arithmetic slips such as a missing multiplication by the number of shares.</p><p>With the fallback values: senior 4.45% and junior 15.47%.</p>",
+    "criteria": [
+     "Senior yield 3.14%.",
+     "Junior yield 11.50%. With the fallback values: 4.45% and 15.47%, full marks.",
+     "Sum of the three claims = 16.0, labelled as an identity that catches slips."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>Explain briefly why the junior yield is higher than the yield on the single bond in (b), which in turn is higher than the senior yield. Is the junior yield the return junior creditors should expect?</p>",
+    "solution": "<p><b>Ordering.</b> The senior creditors are paid first and lose only if the assets end below USD 6 billion, so their bond is the safest (3.14%). The single bond is the senior and junior slices together, so its risk and yield (6.25%) lie in between. The junior creditors take the first losses after the shareholders and are wiped out below 6 billion, so they demand the most (11.50%).</p><p><b>Not the expected return.</b> The yield is the promised return if the bond is paid in full. The expected return is lower, because with some probability the junior bond pays less than its face value.</p>",
+    "criteria": [
+     "1 point: seniority: senior is paid first and is the safest, junior takes the first losses after equity.",
+     "1 point: the single bond combines the two slices, so its yield lies between them.",
+     "1 point: the yield is the promised return if paid in full, above the expected return."
+    ]
+   }
+  ]
+ },
+ "mk-senior-junior-2": {
+  "n": 1,
+  "title": "Corporate securities as options",
+  "points": 20,
+  "topic": "Debt and equity as options, senior and junior debt",
+  "chapters": [
+   21,
+   24
+  ],
+  "merke": "Samme form som Google-eksemplet i forelesning 13, med to lån fra start",
+  "body": "<p>Brattheim Kraft ASA has 180 million shares trading at NOK 95 and no debt. Markets are perfect and there are no taxes. Brattheim plans to issue two zero-coupon bonds due in exactly 3 years: a senior bond with face value NOK 7.2 billion and a junior bond with face value NOK 3.6 billion. It will pay all the proceeds out to its shareholders at once as a special dividend, so the value of its assets is unchanged. The risk-free rate is 4% a year (annual compounding).</p><p>European calls on Brattheim shares that expire in exactly 3 years are quoted below (NOK per share). Because Brattheim has no debt today, you can treat them as calls on its assets per share. Use the midpoint of bid and ask. Use 4 decimal places.</p><table class=\"data\"><tr><th>Strike (NOK)</th><th>Call bid</th><th>Call ask</th></tr><tr><td>30</td><td class=\"n\">68.12</td><td class=\"n\">68.92</td></tr><tr><td>40</td><td class=\"n\">59.74</td><td class=\"n\">60.64</td></tr><tr><td>50</td><td class=\"n\">51.97</td><td class=\"n\">52.97</td></tr><tr><td>60</td><td class=\"n\">44.93</td><td class=\"n\">46.03</td></tr><tr><td>70</td><td class=\"n\">38.68</td><td class=\"n\">39.88</td></tr></table>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Which strike per share belongs to the senior bond and which to the total debt? What is the equity worth after the issue?</p>",
+    "solution": "<p>Senior: 7.2 billion/180 million = <b>NOK 40</b> per share. Total debt: 10.8 billion/180 million = <b>NOK 60</b> per share.</p><p>The equity is a call on the assets with strike equal to the total face value: midpoint of 44.93 and 46.03 = 45.48, so E = 180 million × 45.48 = <b>NOK 8.1864 billion</b>.</p>",
+    "criteria": [
+     "Strikes per share: 40 for the senior bond and 60 for the total debt.",
+     "Equity = call with strike 60 (both bonds rank ahead of the shareholders): 8.1864 NOK billion.",
+     "Using strike 40 or 20 for the equity is wrong."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 6,
+    "body": "<p>What are the senior and the junior debt worth?</p>",
+    "solution": "<p>Firm value V = 180 million × 95 = NOK 17.1 billion.</p><p><b>Senior.</b> Everything above the senior face value is the call with strike 40: midpoint 60.19, so C(F<sub>S</sub>) = 180 million × 60.19 = 10.8342. D<sub>S</sub> = V − C(F<sub>S</sub>) = 17.1 − 10.8342 = <b>NOK 6.2658 billion</b></p><p><b>Junior.</b> D<sub>J</sub> = C(F<sub>S</sub>) − C(F<sub>S</sub> + F<sub>J</sub>) = 10.8342 − 8.1864 = <b>NOK 2.6478 billion</b></p><p>Check: 6.2658 + 2.6478 + 8.1864 = 17.1 = V. ✓ This holds by construction and catches arithmetic slips.</p>",
+    "criteria": [
+     "V = 17.1 NOK billion.",
+     "Senior = V − 180 million × 60.19 = 6.2658.",
+     "Junior = C(40) − C(60) in totals: 10.8342 − 8.1864 = 2.6478.",
+     "Pricing the junior bond as one call, or as V minus a call, is wrong: it is the slice between two calls.",
+     "Bonus: checks that the three claims add up to V."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>What special dividend per share do the shareholders receive? What is the share price right after the payout? Are the shareholders better or worse off? (If you could not solve (b), use NOK 6.0 billion for the senior and NOK 2.4 billion for the junior debt.)</p>",
+    "solution": "<p>The proceeds are the market value of the two bonds: 6.2658 + 2.6478 = 8.9136 billion, or 8.9136 billion/180 million = <b>NOK 49.52 per share</b>.</p><p>After the payout each share is a claim on the equity: 8.1864 billion/180 million = <b>NOK 45.48</b>, the call price with strike 60.</p><p>A shareholder had 95 and now has 49.52 + 45.48 = 95.00: <b>neither better nor worse off</b>. In a perfect market the payout only moves value from the shares into cash; the firm value is unchanged (MM).</p><p>With the fallback values: dividend 46.67 and share price 48.33, which again sum to 95.</p>",
+    "criteria": [
+     "Dividend = (D_S + D_J)/180 million = 49.52 per share.",
+     "Share price after the payout = E/180 million = 45.48.",
+     "Shareholders are neither better nor worse off: 49.52 + 45.48 = 95.",
+     "With the fallback values: 46.67 and 48.33, full marks."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>What annual yields do the senior and the junior bonds offer? What are their spreads over the risk-free rate? (If you could not solve (b), use NOK 6.0 billion for the senior and NOK 2.4 billion for the junior debt.)</p>",
+    "solution": "<p>Senior: (7.2/6.2658)<sup>1/3</sup> − 1 = <b>4.74%</b>, spread 0.74 percentage points.</p><p>Junior: (3.6/2.6478)<sup>1/3</sup> − 1 = <b>10.78%</b>, spread 6.78 percentage points.</p><p>With the fallback values: 6.27% and 14.47%.</p>",
+    "criteria": [
+     "Senior yield 4.74% and junior yield 10.78%, annualised with the power 1/3.",
+     "Spreads 0.74 and 6.78 percentage points.",
+     "With the fallback values: 6.27% and 14.47%, full marks."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 3,
+    "body": "<p>A board member suggests issuing all NOK 10.8 billion as one bond instead of two. Without calculation: would the shareholders be better or worse off? Would the creditors as a group pay more or less for their bonds? Explain.</p>",
+    "solution": "<p><b>No change for either group.</b> The equity is the call with strike equal to the total face value, 60 per share, whether the debt is one bond or two, so the shareholders get the same. The creditors as a group hold V − E = 8.9136 billion either way; splitting the debt only divides their claim into a safer and a riskier slice. This is MM in option language: the face value can be cut in any way without changing the total (recording 13, 45:25).</p><p>Bonus: one bond would be worth 8.9136 with a yield of 6.61%, between the senior and the junior yields.</p>",
+    "criteria": [
+     "1 point: the shareholders are equally well off, because the equity is the same call (strike = total face value).",
+     "1 point: the creditors as a group pay the same, V − E; the split only divides their claim.",
+     "1 point: names the mechanism: the total value does not depend on how the claims are cut (MM, perfect markets)."
+    ]
+   }
+  ]
+ },
+ "mk-senior-junior-3": {
+  "n": 1,
+  "title": "Corporate securities as options",
+  "points": 20,
+  "topic": "Debt and equity as options, senior and junior debt",
+  "chapters": [
+   21,
+   23,
+   24
+  ],
+  "merke": "Samme form som Google-eksemplet i forelesning 13 og PS3 E6",
+  "body": "<p>Rheinberg Logistik AG has 120 million shares trading at EUR 150 and no debt. Markets are perfect and there are no taxes. Rheinberg plans to issue a senior zero-coupon bond with face value EUR 9 billion and a junior zero-coupon bond with face value EUR 3 billion, both due in exactly 30 months. The proceeds are paid out to the shareholders at once, so the value of the assets is unchanged. The risk-free rate is 3% a year (annual compounding).</p><p>European options on Rheinberg shares that expire in exactly 30 months are quoted below (EUR per share). Because Rheinberg has no debt today, you can treat them as options on its assets per share. Use the midpoint of bid and ask. Give values in EUR billion with 4 decimals and yields in % with 2 decimals.</p><table class=\"data\"><tr><th>Strike (EUR)</th><th>Call bid</th><th>Call ask</th><th>Put bid</th><th>Put ask</th></tr><tr><td>25</td><td class=\"n\">126.48</td><td class=\"n\">127.08</td><td class=\"n\">–</td><td class=\"n\">–</td></tr><tr><td>50</td><td class=\"n\">103.30</td><td class=\"n\">104.00</td><td class=\"n\">0.08</td><td class=\"n\">0.10</td></tr><tr><td>75</td><td class=\"n\">81.00</td><td class=\"n\">81.80</td><td class=\"n\">0.91</td><td class=\"n\">1.21</td></tr><tr><td>100</td><td class=\"n\">61.16</td><td class=\"n\">62.06</td><td class=\"n\">4.04</td><td class=\"n\">4.94</td></tr><tr><td>125</td><td class=\"n\">44.86</td><td class=\"n\">45.86</td><td class=\"n\">10.96</td><td class=\"n\">11.96</td></tr></table>",
+  "parts": [
+   {
+    "label": "a",
+    "points": 3,
+    "body": "<p>Which strike per share belongs to the senior bond and which to the total debt? What is the equity worth?</p>",
+    "solution": "<p>Senior: 9 billion/120 million = <b>EUR 75</b> per share. Total debt: 12 billion/120 million = <b>EUR 100</b> per share.</p><p>Equity = call with strike 100: midpoint 61.61, so E = 120 million × 61.61 = <b>EUR 7.3932 billion</b>.</p>",
+    "criteria": [
+     "Strikes 75 and 100 per share.",
+     "E = 120 million × 61.61 = 7.3932 EUR billion.",
+     "Using the junior face value per share (25) as a strike for any claim is wrong."
+    ]
+   },
+   {
+    "label": "b",
+    "points": 5,
+    "body": "<p>Using the calls, what are the senior and the junior debt worth?</p>",
+    "solution": "<p>V = 120 million × 150 = EUR 18.0 billion.</p><p>Senior: C(F<sub>S</sub>) = 120 million × 81.40 = 9.7680, so D<sub>S</sub> = 18.0 − 9.7680 = <b>EUR 8.2320 billion</b>.</p><p>Junior: D<sub>J</sub> = C(F<sub>S</sub>) − C(F<sub>S</sub> + F<sub>J</sub>) = 9.7680 − 7.3932 = <b>EUR 2.3748 billion</b>.</p><p>Check: 8.2320 + 2.3748 + 7.3932 = 18.0. ✓ (an identity that catches slips). The call with strike 25 would give 15.2136 for the junior bond, far above its face value of 3: wrong.</p>",
+    "criteria": [
+     "Senior = 18.0 − 120 million × 81.40 = 8.2320.",
+     "Junior = C(75) − C(100) in totals = 2.3748.",
+     "Multiplies the per-share prices by 120 million and keeps billions and millions apart.",
+     "Junior priced as the call with strike 25 (15.2136) is the classic error."
+    ]
+   },
+   {
+    "label": "c",
+    "points": 4,
+    "body": "<p>What annual yields do the two bonds offer? (If you could not solve (b), use EUR 8.0 billion for the senior and EUR 2.2 billion for the junior debt.)</p>",
+    "solution": "<p>30 months is T = 2.5 years, so the yield solves (1 + y)<sup>2.5</sup> = F/D:</p><p>Senior: (9/8.2320)<sup>1/2.5</sup> − 1 = <b>3.63%</b></p><p>Junior: (3/2.3748)<sup>1/2.5</sup> − 1 = <b>9.80%</b></p><p>Using T = 3 gives 3.02% and 8.10%: wrong. With the fallback values: 4.82% and 13.21%.</p>",
+    "criteria": [
+     "Converts 30 months to T = 2.5 years and annualises with the power 1/2.5.",
+     "Senior 3.63%, junior 9.80%. With the fallback values: 4.82% and 13.21%, full marks.",
+     "Using T = 3 (8.10% for junior) or a 30-month return is wrong."
+    ]
+   },
+   {
+    "label": "d",
+    "points": 4,
+    "body": "<p>Value the senior debt a second way, as risk-free debt plus a written put on the firm's assets. Do the two values agree?</p>",
+    "solution": "<p>Senior creditors receive min(V<sub>T</sub>, F<sub>S</sub>) = F<sub>S</sub> − max(F<sub>S</sub> − V<sub>T</sub>, 0): the face value for sure, less a put on the assets with strike F<sub>S</sub> that they have written. So D<sub>S</sub> = PV(F<sub>S</sub>) − P(F<sub>S</sub>).</p><p>PV(F<sub>S</sub>) = 9/1.03<sup>2.5</sup> = 8.3589. Put with strike 75: midpoint 1.06, so P(F<sub>S</sub>) = 120 million × 1.06 = 0.1272.</p><p>D<sub>S</sub> = 8.3589 − 0.1272 = <b>EUR 8.2317 billion</b></p><p><b>Yes</b>, the same as 8.2320 from (b) up to the rounding of the quoted prices. This is put-call parity: V − C(F<sub>S</sub>) = PV(F<sub>S</sub>) − P(F<sub>S</sub>).</p>",
+    "criteria": [
+     "Writes the senior payoff as the face value less a written put: D_S = PV(F_S) − P(F_S). Calling it risk-free debt minus a written put has the sign wrong.",
+     "PV(9) = 8.3589 with T = 2.5.",
+     "Put total 120 million × 1.06 = 0.1272; D_S = 8.2317.",
+     "Agrees with (b) up to rounding, because of put-call parity."
+    ]
+   },
+   {
+    "label": "e",
+    "points": 4,
+    "body": "<p>Rheinberg's managers consider a strategy that makes the firm's assets riskier while their value today stays at EUR 18 billion. Using the option view, explain what this does to the equity, the senior debt and the junior debt. No calculation is needed.</p>",
+    "solution": "<p><b>Equity rises.</b> It is a call on the assets. A call gains from volatility: the upside grows, the downside stays at 0 (recording 13, 1:17:39).</p><p><b>Senior debt falls.</b> It is risk-free debt plus a written put. The put the creditors have written becomes more valuable when risk rises.</p><p><b>Junior debt: not certain in general.</b> It is long the call with strike 75 and short the call with strike 100; both calls gain. Here the assets are worth 150 per share, well above the total face value of 100, so the junior bond behaves mostly like debt and will most likely lose. Since V is unchanged, what the shareholders gain the creditors lose: a wealth transfer, the risk-shifting incentive from the lecture (recording 13, 1:18:24).</p>",
+    "criteria": [
+     "1 point: equity rises, because it is a call on the assets.",
+     "1 point: senior debt falls, because it contains a written put.",
+     "1 point: junior debt is a call spread (long C(75), short C(100)), so the sign is not certain in general; here, with V well above 100 per share, it most likely falls.",
+     "1 point: names the wealth transfer from creditors to shareholders with V unchanged.",
+     "No Black-Scholes calculation is required."
+    ]
+   }
+  ]
+ }
+}

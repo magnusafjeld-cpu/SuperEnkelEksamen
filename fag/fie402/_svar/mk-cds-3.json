@@ -1,0 +1,84 @@
+{
+  "mk-cds-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Price of a government bond",
+        "verdi": 95.66303671497991,
+        "enhet": "€",
+        "tol": 0.0002
+      },
+      {
+        "navn": "Price of a Vellmar bond",
+        "verdi": 89.71959482240227,
+        "enhet": "€",
+        "tol": 0.001
+      }
+    ],
+    "merknad": "Stram toleranse (0,02 % og 0,1 %) så enkel rente (95.6938 og 89.8876) avvises."
+  },
+  "mk-cds-3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Number of CDS contracts",
+        "verdi": 12.0,
+        "enhet": "m contracts"
+      },
+      {
+        "navn": "Value of bonds plus contracts",
+        "verdi": 28.698911014493973,
+        "enhet": "€ m",
+        "tol": 0.0002
+      },
+      {
+        "navn": "Total cost of the contracts",
+        "verdi": 1.7830325677732937,
+        "enhet": "€ m",
+        "tol": 0.003
+      }
+    ],
+    "merknad": "Stram toleranse så enkel rente avvises: sikret verdi 28.7081, kostnad 1.7923 (bare r_f) eller 1.7418 (overalt). 30 millioner kontrakter er fellen."
+  },
+  "mk-cds-3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Price of one CDS contract",
+        "verdi": 0.14858604731444114,
+        "enhet": "€",
+        "tol": 0.002,
+        "alt": [
+          0.125
+        ]
+      },
+      {
+        "navn": "Risk-neutral default probability ρ",
+        "verdi": 0.1553223192748323,
+        "enhet": "",
+        "tol": 0.002,
+        "alt": [
+          0.13066697890056234
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveverdien €1.5 millioner. Toleranse 0,2 % så enkel rente avvises: på r_f alene CDS 0.1494 og ρ 0.1561, overalt 0.1452 og 0.1517. Ett år gir ρ = 0.1897."
+  },
+  "mk-cds-3:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Expected annual return",
+        "verdi": 5.917494959568592,
+        "enhet": "%",
+        "tol": 0.005
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Compare it with the promised yield and with the risk-free rate.",
+    "merknad": "Toleranse 0,5 % så avkastningen over 1,5 år delt på 1,5 (6.0042%) avvises."
+  },
+  "mk-cds-3:1:e": {
+    "type": "tekst"
+  }
+}

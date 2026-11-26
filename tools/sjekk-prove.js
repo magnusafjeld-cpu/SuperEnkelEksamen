@@ -24,7 +24,7 @@ global.window = { EDU_DATA: {} };
 eval(fs.readFileSync(path.join(rot, "fag", fag, "sett.js"), "utf8"));
 const sets = window.EDU_DATA.sets || [];
 const prøver = sets.filter((s) => s.kind === "mock");
-const ekte = sets.filter((s) => s.kind !== "mock" && s.kind !== "del" && Array.isArray(s.exercises)); /* deleksamenene er laget for appen, ikke ekte */
+const ekte = sets.filter((s) => s.kind !== "mock" && s.kind !== "del" && s.kind !== "must" && Array.isArray(s.exercises)); /* deleksamenene og «Må kunne» er laget for appen, ikke ekte */
 const planFil = path.join(rot, "fag", fag, "_prove", "fasitplan.json");
 const plan = fs.existsSync(planFil) ? JSON.parse(fs.readFileSync(planFil, "utf8")) : {};
 

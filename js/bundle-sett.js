@@ -57,6 +57,12 @@
    (settet og oppgaven den kom fra) og `merke`, som vises ved oppgaven. En rettelse i
    kildesettet gjelder dermed også her, mens fremdriften lagres per sett.
 
+   Må kunne (26. november 2026). Et sett med kind: "must" er én oppgave i
+   Eksamenstrening, fanen «Må kunne» (bundle-trening.js), ikke et eksamenssett. Lista
+   her viser dem aldri. Eksamenstrening åpner dem med åpne(settId, { tilbake }), og
+   knappen øverst går da tilbake dit i stedet for til lista. Metadataene (tiers og
+   oppgavetyper) står i EDU_DATA.mustKunne.
+
    Kartlegging. Et sett med kind: "kartlegging" er en diagnose, ikke en eksamen.
    Det får en egen fane, kjøres alltid med hele settet synlig, uten nedtelling
    (klokka viser brukt tid) og uten minuspoeng. Hvert ledd har en «Vet ikke»-knapp
@@ -148,6 +154,7 @@ window.EDU = window.EDU || {};
   let del = "eksamen";     // "eksamen" | "prove" | "pd" | "pd:<art>" | "svak" | "fl" | "kart": hvilken del av lista som vises
   let valgtDel = null;     // hvilken pensumdel fanen «Per del» viser
   let bareUsikre = false;  // øvingsmodus viser bare oppgaver som er usikre eller feil
+  let tilbake = null;      // { tekst, hash } når settet ble åpnet fra en annen side (Må kunne)
   /* Fasitpaneler du selv har lukket (true) eller åpnet (false), som
      "<settId>|<n>|<del>". Uten et eget valg avgjør svaret: riktig gir lukket fasit,
      alt annet åpen. Bare i minnet: valget overlever at visningen tegnes på nytt,
@@ -396,7 +403,7 @@ window.EDU = window.EDU || {};
     const egneFaner = (perDel().faner || []).map((f) => ({ f, id: "pd:" + f.art, sett: alle.filter((x) => x.kind === "del" && x.art === f.art) })).filter((g) => g.sett.length);
     const deler = alle.filter((x) => x.kind === "del" && !egneFaner.some((g) => g.f.art === x.art));
     const egenFane = egneFaner.find((g) => g.id === del);
-    const ekte = alle.filter((x) => x.kind !== "mock" && x.kind !== "svak" && x.kind !== "forelesning" && x.kind !== "del" && !erKart(x));
+    const ekte = alle.filter((x) => x.kind !== "mock" && x.kind !== "svak" && x.kind !== "forelesning" && x.kind !== "del" && x.kind !== "must" && !erKart(x));
     if ((del === "prove" && !prøver.length) || (del === "pd" && !deler.length) || (del.startsWith("pd:") && !egenFane) || (del === "svak" && !svake.length) || (del === "fl" && !fl.length) || (del === "kart" && !kart.length)) del = "eksamen";
     const prøveDel = del === "prove", svakDel = del === "svak", flDel = del === "fl";
     const sets = prøveDel ? prøver : svakDel ? svake : flDel ? fl : ekte;
@@ -608,7 +615,10 @@ window.EDU = window.EDU || {};
       bar.appendChild(el("h3", { style: { fontSize: "16px" } }, set.label));
       return bar;
     }
-    bar.appendChild(el("button.btn.ghost.sm", { onclick: () => { openSet = null; stopTicker(); S.app.refresh(); } }, "← Alle sett"));
+    if (tilbake) {
+      const t = tilbake;
+      bar.appendChild(el("button.btn.ghost.sm", { onclick: () => { openSet = null; tilbake = null; stopTicker(); location.hash = t.hash; window.scrollTo({ top: 0 }); } }, t.tekst));
+    } else bar.appendChild(el("button.btn.ghost.sm", { onclick: () => { openSet = null; stopTicker(); S.app.refresh(); } }, "← Alle sett"));
     const seg = el(".seg");
     [["practice", "Øving"], ["exam", "⏱ Eksamen"]].forEach(([m, label]) => {
       seg.appendChild(el("button" + (mode === m ? ".on" : ""), { onclick: () => {
@@ -1898,13 +1908,13 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
   function render() {
     stopTicker();
     const set = openSet ? setById(openSet) : null;
-    if (!set) { openSet = null; return renderList(); }
+    if (!set) { openSet = null; tilbake = null; return renderList(); }
     return erKart(set) || mode === "exam" ? renderExam(set) : renderPractice(set);
   }
 
   /* Merke i navigasjonen: sett som er påbegynt, men verken levert eller gjort i øving. */
   function activeCount() {
-    return SETS().filter((s) => { const r = run(s.id); return r.startedAt && !r.submittedAt && !erGjort(s); }).length;
+    return SETS().filter((s) => { const r = run(s.id); return s.kind !== "must" && r.startedAt && !r.submittedAt && !erGjort(s); }).length;
   }
 
   /* alle(): settene med lånte oppgaver slått opp, for andre som leser settene
@@ -1927,5 +1937,24 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     kopierRad,
   };
 
-  S.views.sett = { render, activeCount, alle: SETS, retting: rettingKit };
+  /* For Eksamenstrening («Må kunne»): åpne et sett herfra med en egen tilbakeknapp,
+     og status per sett til kortene der. */
+  function åpne(setId, opts) {
+    opts = opts || {};
+    openSet = setId; mode = opts.mode || "practice"; cursor = 0; bareUsikre = false;
+    tilbake = opts.tilbake || null;
+    if (location.hash.replace(/^#/, "").split("?")[0] === "/sett") S.app.refresh(); else location.hash = "#/sett";
+    window.scrollTo({ top: 0 });
+  }
+  function status(setId) {
+    const set = setById(setId);
+    if (!set) return null;
+    const sum = scoreSum(set), r = run(set.id), m = merkede(set);
+    return { levert: !!r.submittedAt, gjort: erGjort(set), påbegynt: !!r.startedAt || anyTouched(set),
+      got: sum.got, of: sum.of, scored: sum.scored, total: sum.total,
+      feil: m.filter((x) => x.feil).length, usikre: m.filter((x) => x.usikker).length };
+  }
+  function nullstill(setId) { resetRun(setId); }
+
+  S.views.sett = { render, activeCount, alle: SETS, retting: rettingKit, åpne, status, nullstill };
 })(window.EDU);

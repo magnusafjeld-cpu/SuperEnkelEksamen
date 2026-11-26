@@ -65,6 +65,16 @@
                      spørsmål ikke teller som sett. Å fjerne merket skriver m: 0 i stedet
                      for å slette, ellers ville synken hentet det tilbake fra den andre enheten.
    Én nøkkel per spørsmål, så sky-synken slår sammen to enheter per spørsmål.
+
+   Må kunne (26. november 2026). Har faget EDU_DATA.mustKunne, får siden to faner:
+   «Må kunne» og spørsmålsbanken over. Må kunne er oppgavetypene Kurbatov har hintet
+   til, sortert i tiers (1 = må kunnes perfekt). Hver type har tre hele
+   eksamensoppgaver. De er eksamenssett med kind: "must" i EDU_DATA.sets og åpnes i
+   Eksamenssett-motoren (S.views.sett.åpne) med en knapp tilbake hit. Fremdriften er
+   derfor settenes egen ("<settId>-e<n>", "<settId>-run").
+     EDU_DATA.mustKunne = { intro, tiers: [{ nr, navn, tekst }],
+       typer: [{ id, tier, navn, hvorfor, signaler: [{ hvor, sitat }], sett: [settId × 3] }] }
+     "trening:mk"    { fane: "mk" | "bank", tier }  valgt fane og tier
    ============================================================================ */
 window.EDU = window.EDU || {};
 (function (S) {
@@ -458,6 +468,9 @@ window.EDU = window.EDU || {};
       "Velg temaer og antall. Spørsmålene trekkes tilfeldig. Du får fasiten med en gang: først kort, så en full gjennomgang hvis du vil. "
         + (harMinus() ? `${P.rett} poeng for rett, ${fmt(P.feil)} for feil og ${P.blank} for å stå over, som på eksamen.`
           : "Feil svar gir ikke minuspoeng, så resultatet er hvor mange du fikk riktig.")));
+
+    const fr = faner("bank");
+    if (fr) wrap.appendChild(fr);
 
     const o = økt();
     if (o && !o.slutt && o.ids.length) {
@@ -1044,7 +1057,133 @@ window.EDU = window.EDU || {};
   }
 
   /* ---------- inngang ---------- */
+  /* ================= Må kunne ================= */
+  const MK = () => (window.EDU_DATA || {}).mustKunne || null;
+  const mkValg = () => Object.assign({ fane: "mk", tier: 0 }, exams()["trening:mk"] || {});
+  function settMk(patch) { S.store.setExam("trening:mk", patch); S.app.refresh(); window.scrollTo({ top: 0 }); }
+  const mkTyper = (tier) => ((MK() || {}).typer || []).filter((t) => !tier || t.tier === tier);
+  const settStatus = (id) => (S.views.sett && S.views.sett.status ? S.views.sett.status(id) : null);
+  const mkPoeng = (x) => String(Math.round(x * 10) / 10).replace(".", ",");
+  /* Typen er gjort når alle tre oppgavene er gjort (rettet eller levert). */
+  const typeGjort = (t) => (t.sett || []).filter((id) => (settStatus(id) || {}).gjort).length;
+  /* Tiers med minst én type (tier 2 og 3 kan komme senere enn tier 1). */
+  const mkTiers = () => ((MK() || {}).tiers || []).filter((ti) => mkTyper(ti.nr).length);
+  /* Tieren du står i: den du valgte, ellers den første som ikke er ferdig. */
+  function aktivTier() {
+    const tiers = mkTiers();
+    const v = mkValg().tier;
+    if (v && tiers.some((t) => t.nr === v)) return v;
+    const uferdig = tiers.find((ti) => mkTyper(ti.nr).some((t) => typeGjort(t) < (t.sett || []).length));
+    return (uferdig || tiers[0] || {}).nr || 1;
+  }
+  function åpneMk(id, mode) {
+    S.views.sett.åpne(id, { mode, tilbake: { tekst: "← Må kunne", hash: "#/trening" } });
+  }
+
+  function faner(aktiv) {
+    if (!MK()) return null;
+    const seg = el(".seg", { style: { marginBottom: "16px", flexWrap: "wrap" } });
+    const n = mkTyper().length;
+    [["mk", `Må kunne (${n} typer)`], ["bank", "Spørsmålsbank"]].forEach(([f, l]) =>
+      seg.appendChild(el("button" + (aktiv === f ? ".on" : ""), { onclick: () => { if (aktiv !== f) settMk({ fane: f }); } }, l)));
+    return el("div", seg);
+  }
+
+  function mkOppgaveRad(t, id, i) {
+    const set = (S.views.sett.alle() || []).find((x) => x.id === id);
+    if (!set) return null;
+    const st = settStatus(id) || {};
+    const ex = (set.exercises || [])[0] || {};
+    const chip = st.levert ? el(".chip.green", el(".dot"), `Levert · ${mkPoeng(st.got)} av ${st.of}`)
+      : st.gjort ? el(".chip.green", el(".dot"), `Gjort · ${mkPoeng(st.got)} av ${st.of}`)
+        : st.påbegynt ? el(".chip.amber", el(".dot"), st.scored ? `Påbegynt · ${mkPoeng(st.got)} p så langt` : "Påbegynt")
+          : el(".chip.slate", "Ikke startet");
+    return el(".mk-oppg",
+      el(".mk-oppg-topp",
+        el("div", el("div.mk-oppg-navn", `Oppgave ${i + 1}`), ex.title ? el(".tiny.muted", ex.title) : null),
+        el(".spacer"),
+        st.feil ? el(".chip.rose", `${st.feil} feil`) : null,
+        st.usikre ? el(".chip.amber", `⚑ ${st.usikre}`) : null,
+        chip),
+      el(".row.wrap", { style: { gap: "8px", marginTop: "10px", alignItems: "center" } },
+        el(".chip", icon("clock"), `${set.minutes} min`), el(".chip", `${set.points} poeng`),
+        el(".spacer"),
+        el("button.btn.primary.sm", { onclick: () => åpneMk(id, "practice") }, st.påbegynt && !st.gjort ? "Fortsett" : "Øving"),
+        el("button.btn.sm", { onclick: () => åpneMk(id, "exam") }, "⏱ På tid"),
+        (st.påbegynt || st.levert) ? el("button.btn.ghost.sm", { onclick: () => {
+          if (confirm(`Nullstille ${t.navn}, oppgave ${i + 1}? Svarene, rettingen og leveringen slettes. Kan ikke angres.`)) { S.views.sett.nullstill(id); S.app.refresh(); }
+        } }, "Nullstill") : null));
+  }
+
+  function mkTypeKort(t, nr) {
+    const gjort = typeGjort(t), n = (t.sett || []).length;
+    const kort = el(".card.pad-lg.mk-type");
+    kort.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline" } },
+      el("span.mk-nr", String(nr)),
+      el("h3", { style: { fontSize: "18px", margin: 0, flex: "1 1 220px" } }, t.navn),
+      el(gjort === n ? ".chip.green" : gjort ? ".chip.amber" : ".chip.slate", `${gjort} av ${n} gjort`)));
+    if (t.hvorfor) kort.appendChild(el("p", { style: { margin: "10px 0 0", fontSize: "14.5px", lineHeight: 1.55 } }, frag(t.hvorfor)));
+    if ((t.signaler || []).length) {
+      const d = el("details.mk-signaler");
+      d.appendChild(el("summary", `Hva Kurbatov sa (${t.signaler.length})`));
+      d.appendChild(el("ul", ...t.signaler.map((g) => el("li", g.sitat ? el("i", `«${g.sitat}»`) : null, g.sitat ? " " : null, el("span.muted", g.hvor)))));
+      kort.appendChild(d);
+    }
+    const liste = el(".mk-oppgaver");
+    (t.sett || []).forEach((id, i) => { const r = mkOppgaveRad(t, id, i); if (r) liste.appendChild(r); });
+    kort.appendChild(liste);
+    return kort;
+  }
+
+  function renderMk() {
+    const mk = MK();
+    const wrap = el(".fade-in");
+    const tiers = mkTiers();
+    const tier = aktivTier();
+    const ti = tiers.find((x) => x.nr === tier) || {};
+    const typer = mkTyper(tier);
+    const alle = mkTyper();
+    const oppgTotalt = alle.reduce((a, t) => a + (t.sett || []).length, 0);
+    const oppgGjort = alle.reduce((a, t) => a + typeGjort(t), 0);
+    wrap.appendChild(sh().pageHead("Eksamenstrening", `Må kunne · ${alle.length} oppgavetyper · ${oppgTotalt} oppgaver`, mk.intro || ""));
+    wrap.appendChild(faner("mk"));
+
+    /* Én tier om gangen. Hver knapp viser hvor mye som er gjort. */
+    const seg = el(".seg.mk-tiers", { style: { flexWrap: "wrap", marginBottom: "10px" } });
+    tiers.forEach((x) => {
+      const ts = mkTyper(x.nr);
+      const n = ts.reduce((a, t) => a + (t.sett || []).length, 0), g = ts.reduce((a, t) => a + typeGjort(t), 0);
+      seg.appendChild(el("button" + (x.nr === tier ? ".on" : ""), { onclick: () => { if (x.nr !== tier) settMk({ tier: x.nr }); } },
+        `${x.navn} · ${g}/${n}`));
+    });
+    wrap.appendChild(el("div", el(".nav-section", { style: { paddingLeft: 0 } }, "Velg tier"), seg));
+    if (ti.tekst) wrap.appendChild(el("p.tiny.muted", { style: { margin: "0 0 16px", maxWidth: "640px", lineHeight: 1.55 } }, frag(ti.tekst)));
+
+    /* Neste oppgave i tieren: første som ikke er gjort, i rekkefølgen typene står. */
+    let neste = null;
+    for (const t of typer) {
+      const i = (t.sett || []).findIndex((id) => !(settStatus(id) || {}).gjort);
+      if (i >= 0) { neste = { t, id: t.sett[i], i }; break; }
+    }
+    if (neste) wrap.appendChild(el(".card", { style: { marginBottom: "16px", background: "var(--accent-soft)", borderColor: "var(--accent-soft-2)" } },
+      el(".row.wrap", { style: { gap: "12px", alignItems: "center" } },
+        el("div", el(".tiny.muted", "Neste i " + (ti.navn || "tieren")), el("div", { style: { fontWeight: 640 } }, `${neste.t.navn} · oppgave ${neste.i + 1}`)),
+        el(".spacer"),
+        el("button.btn.primary.sm", { onclick: () => åpneMk(neste.id, "practice") }, "Start →"))));
+    else if (typer.length) wrap.appendChild(el(".card", { style: { marginBottom: "16px", background: "var(--green-soft, #e3f4ee)" } },
+      el("div", { style: { fontWeight: 640 } }, `Alle oppgavene i ${ti.navn || "tieren"} er gjort.`),
+      el(".tiny.muted", { style: { marginTop: "4px" } }, "Ta dem på tid, eller gå videre til neste tier.")));
+
+    const liste = el(".stack", { style: { gap: "14px" } });
+    typer.forEach((t, i) => liste.appendChild(mkTypeKort(t, i + 1)));
+    wrap.appendChild(liste);
+    wrap.appendChild(el("p.tiny.muted", { style: { marginTop: "16px", lineHeight: 1.55 } },
+      `${oppgGjort} av ${oppgTotalt} oppgaver gjort. En oppgave er gjort når hver del er rettet i øving eller du har levert den på tid. Oppgavene åpnes i samme visning som Eksamenssett, med retting og fasit, og knappen øverst tar deg tilbake hit.`));
+    return wrap;
+  }
+
   function render() {
+    if (MK() && S.views.sett && mkValg().fane === "mk") return renderMk();
     if (!T()) {
       sikreData();
       if (lastefeil) return sh().empty("⚠️", "Fant ikke spørsmålene", String(lastefeil.message || lastefeil));

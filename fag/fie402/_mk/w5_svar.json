@@ -1,0 +1,703 @@
+{
+ "mk-gjeldsoverheng-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Bank loan",
+    "verdi": 140.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Equity",
+    "verdi": 60.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Pålydende 170 for lånet er fellen; da blir egenkapitalen 30."
+ },
+ "mk-gjeldsoverheng-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": 14.0,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "mk-gjeldsoverheng-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Fraction to new investors x",
+    "verdi": 47.72727272727273,
+    "enhet": "%"
+   },
+   {
+    "navn": "Sigurd's payoff",
+    "verdi": 46.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Will Sigurd do it? Would the bank like the line to be installed?",
+  "merknad": "Fellene: 42/176 = 23.86% (bare høy tilstand) og 48.84% (pålydende trukket fra forventet verdi) faller utenfor toleransen."
+ },
+ "mk-gjeldsoverheng-1:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change for the bank",
+    "verdi": 6.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Change for Sigurd",
+    "verdi": 8.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Will the bank accept? Will Sigurd go ahead?",
+  "merknad": "Bankens målestokk er 140 fra (a), ikke 170 eller 168."
+ },
+ "mk-gjeldsoverheng-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-gjeldsoverheng-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Bonds",
+    "verdi": 102.5,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Equity",
+    "verdi": 52.5,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "mk-gjeldsoverheng-2:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": 9.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Fraction to new shareholders x",
+    "verdi": 43.47826086956522,
+    "enhet": "%"
+   },
+   {
+    "navn": "Value of the existing shareholders' shares",
+    "verdi": 39.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Will the manager install the system?"
+ },
+ "mk-gjeldsoverheng-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change for bondholders",
+    "verdi": 22.5,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Change for existing shareholders",
+    "verdi": -13.5,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Would the bondholders like the system to be installed? Explain briefly."
+ },
+ "mk-gjeldsoverheng-2:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "F (if it exists)",
+    "verdi": 98.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "For which face values will the manager install the system?",
+  "merknad": "Fellen L + NPV = 89 (glemt 1/(1 − p)) avvises."
+ },
+ "mk-gjeldsoverheng-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-gjeldsoverheng-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Bank loan",
+    "verdi": 131.42857142857142,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Altmark's equity",
+    "verdi": 45.714285714285715,
+    "enhet": "€ m"
+   }
+  ],
+  "merknad": "50/50 gir 138.0952 og udiskontert 138 for lånet; begge avvises."
+ },
+ "mk-gjeldsoverheng-3:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": 20.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change for Altmark",
+    "verdi": -16.000000000000007,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change for the bank",
+    "verdi": 36.00000000000003,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Will Altmark install the panels?"
+ },
+ "mk-gjeldsoverheng-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability threshold p",
+    "verdi": 66.66666666666666,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Svaret er p ≥ 2/3. Udiskontert gir 63.49%; det avvises."
+ },
+ "mk-gjeldsoverheng-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Face value of the new senior loan",
+    "verdi": 42.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Bank loan",
+    "verdi": 143.42857142857142,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Altmark's equity",
+    "verdi": 53.714285714285715,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Will Altmark install the panels? Is the bank better or worse off than in (a)?",
+  "merknad": "Pålydende 40 (glemt renten) avvises."
+ },
+ "mk-gjeldsoverheng-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-cds-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price of bond 1",
+    "verdi": 96.15384615384615,
+    "enhet": "$"
+   },
+   {
+    "navn": "Price of bond 2",
+    "verdi": 92.16589861751153,
+    "enhet": "$"
+   }
+  ]
+ },
+ "mk-cds-1:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Expected return on bond 2",
+    "verdi": 5.841749999999979,
+    "enhet": "%"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Why does it differ from the promised yield?"
+ },
+ "mk-cds-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Risk-neutral default probability ρ",
+    "verdi": 0.11849901250822857,
+    "enhet": ""
+   }
+  ],
+  "merknad": "Overlevelsessannsynligheten 0.8815 er fellen og avvises."
+ },
+ "mk-cds-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price of one CDS contract",
+    "verdi": 0.11394135818098901,
+    "enhet": "$",
+    "alt": [
+     0.09615384615384616
+    ]
+   }
+  ],
+  "merknad": "alt er svaret med reserveverdien ρ = 0,10. Fellene 0.8476 (overlevelse), 0.0673 (reell p) og 0.1185 (udiskontert) avvises."
+ },
+ "mk-cds-1:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Number of CDS contracts",
+    "verdi": 35.0,
+    "enhet": ""
+   },
+   {
+    "navn": "Cost of the contracts",
+    "verdi": 3.987947536334615,
+    "enhet": "$",
+    "alt": [
+     3.3653846153846154
+    ]
+   },
+   {
+    "navn": "Bond plus contracts",
+    "verdi": 96.15384615384615,
+    "enhet": "$"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Compare with the price of bond 1.",
+  "merknad": "100 kontrakter er fellen; da blir posisjonen 103.5600. alt for kostnaden er svaret med CDS-prisen fra reserveverdien i (d) (3.3654); posisjonen med den (95.5313) ligger innenfor toleransen."
+ },
+ "mk-cds-1:1:f": {
+  "type": "tekst"
+ },
+ "mk-cds-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price of a government bond",
+    "verdi": 975.6097560975611,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Price of an Oksfjord bond",
+    "verdi": 925.9259259259259,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Expected return on an Oksfjord bond",
+    "verdi": 6.056000000000017,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Gjenvinning 330 per obligasjon gir 5.11%; det avvises."
+ },
+ "mk-cds-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Risk-neutral default probability ρ",
+    "verdi": 0.11316872427983576,
+    "enhet": ""
+   },
+   {
+    "navn": "Price of one CDS contract",
+    "verdi": 0.1104085114925227,
+    "enhet": "NOK"
+   }
+  ],
+  "merknad": "Overlevelse 0.8868 og CDS 0.8652 med den avvises, det samme gjør reell p (0.0390)."
+ },
+ "mk-cds-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value of the put",
+    "verdi": 29.81029810298113,
+    "enhet": "NOK m",
+    "alt": [
+     24.3
+    ]
+   },
+   {
+    "navn": "Risk-free issue minus Oksfjord's issue",
+    "verdi": 29.81029810298105,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Compare the put with the difference between the two issue values.",
+  "merknad": "alt for putten er svaret med reserveverdien 0,09 (24.30). Per obligasjon er putten 49.6838; den teller bare skalert til hele utstedelsen."
+ },
+ "mk-cds-2:1:d": {
+  "type": "tekst"
+ },
+ "mk-cds-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price of a government bond",
+    "verdi": 95.66303671497991,
+    "enhet": "€",
+    "tol": 0.0002
+   },
+   {
+    "navn": "Price of a Vellmar bond",
+    "verdi": 89.71959482240227,
+    "enhet": "€",
+    "tol": 0.001
+   }
+  ],
+  "merknad": "Stram toleranse (0,02 % og 0,1 %) så enkel rente (95.6938 og 89.8876) avvises."
+ },
+ "mk-cds-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Number of CDS contracts",
+    "verdi": 12.0,
+    "enhet": "m contracts"
+   },
+   {
+    "navn": "Value of bonds plus contracts",
+    "verdi": 28.698911014493973,
+    "enhet": "€ m",
+    "tol": 0.0002
+   },
+   {
+    "navn": "Total cost of the contracts",
+    "verdi": 1.7830325677732937,
+    "enhet": "€ m",
+    "tol": 0.003
+   }
+  ],
+  "merknad": "Stram toleranse så enkel rente avvises: sikret verdi 28.7081, kostnad 1.7923 (bare r_f) eller 1.7418 (overalt). 30 millioner kontrakter er fellen."
+ },
+ "mk-cds-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price of one CDS contract",
+    "verdi": 0.14858604731444114,
+    "enhet": "€",
+    "tol": 0.002,
+    "alt": [
+     0.125
+    ]
+   },
+   {
+    "navn": "Risk-neutral default probability ρ",
+    "verdi": 0.1553223192748323,
+    "enhet": "",
+    "tol": 0.002,
+    "alt": [
+     0.13066697890056234
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdien €1.5 millioner. Toleranse 0,2 % så enkel rente avvises: på r_f alene CDS 0.1494 og ρ 0.1561, overalt 0.1452 og 0.1517. Ett år gir ρ = 0.1897."
+ },
+ "mk-cds-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Expected annual return",
+    "verdi": 5.917494959568592,
+    "enhet": "%",
+    "tol": 0.005
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Compare it with the promised yield and with the risk-free rate.",
+  "merknad": "Toleranse 0,5 % så avkastningen over 1,5 år delt på 1,5 (6.0042%) avvises."
+ },
+ "mk-cds-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-risikoskifting-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Bank loan",
+    "verdi": 220.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Shares",
+    "verdi": 0.0,
+    "enhet": "NOK m",
+    "abs": 0.01
+   }
+  ],
+  "merknad": "Pålydende 260 for lånet er fellen."
+ },
+ "mk-risikoskifting-1:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Expected value of the assets",
+    "verdi": 200.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Would Vikebygd switch if it had no debt?"
+ },
+ "mk-risikoskifting-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Bank loan",
+    "verdi": 160.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Shares",
+    "verdi": 40.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Will the manager switch?"
+ },
+ "mk-risikoskifting-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Change in the value of the loan",
+    "verdi": -60.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Wealth transfer to the shareholders",
+    "verdi": 40.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Loss of value",
+    "verdi": 20.0,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "mk-risikoskifting-1:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Bank loan",
+    "verdi": 70.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Shares",
+    "verdi": 4.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Expected value of the assets",
+    "verdi": 74.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Would the manager still switch?"
+ },
+ "mk-risikoskifting-1:1:f": {
+  "type": "tekst"
+ },
+ "mk-risikoskifting-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Bonds",
+    "verdi": 145.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Shares",
+    "verdi": 95.0,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "mk-risikoskifting-2:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Bonds, if assigned to Equipment",
+    "verdi": 92.5,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "All shares, if the bonds are on Equipment",
+    "verdi": 127.5,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Bonds, if assigned to Services",
+    "verdi": 110.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "All shares, if the bonds are on Services",
+    "verdi": 110.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Which company should get the bonds? Will the CEO split the firm?",
+  "merknad": "Uten synergitapet blir obligasjonene på Equipment 97.5; det avvises."
+ },
+ "mk-risikoskifting-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change in the value of the bonds",
+    "verdi": -52.5,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Wealth transfer to the shareholders",
+    "verdi": 32.5,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Loss of value",
+    "verdi": 20.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Where does the loss of value come from?"
+ },
+ "mk-risikoskifting-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Largest s",
+    "verdi": 31.666666666666668,
+    "enhet": "$ m"
+   }
+  ],
+  "merknad": "Svaret er s ≤ 95/3. Å trekke s bare fra Equipment gir 95, utenfor regionen."
+ },
+ "mk-risikoskifting-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-risikoskifting-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Bank loan",
+    "verdi": 116.9,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Shares",
+    "verdi": 21.0,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Expected fire-sale loss",
+    "verdi": 8.100000000000001,
+    "enhet": "£ m"
+   }
+  ],
+  "merknad": "Uten brannsalget blir lånet 125; det avvises."
+ },
+ "mk-risikoskifting-3:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Expected value of the assets",
+    "verdi": 120.0,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Bank loan",
+    "verdi": 71.39999999999999,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Shares",
+    "verdi": 36.0,
+    "enhet": "£ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Will the manager switch?"
+ },
+ "mk-risikoskifting-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Change in the value of the loan",
+    "verdi": -45.500000000000014,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Wealth transfer to the shareholders",
+    "verdi": 15.0,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Loss of value",
+    "verdi": 30.5,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Part of the loss from the fire sale",
+    "verdi": 4.5,
+    "enhet": "£ m"
+   }
+  ]
+ },
+ "mk-risikoskifting-3:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Face value without a covenant",
+    "verdi": 235.33333333333337,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Face value with the covenant",
+    "verdi": 115.85714285714286,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Shares without a covenant",
+    "verdi": 7.399999999999988,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Shares with the covenant",
+    "verdi": 37.89999999999999,
+    "enhet": "£ m"
+   }
+  ],
+  "merknad": "Uten brannsalg blir pålydendene 193.3333 og 104.2857; begge avvises. Antar man at lederen beholder planen uten covenant, blir pålydendet 115.8571."
+ },
+ "mk-risikoskifting-3:1:e": {
+  "type": "tekst"
+ }
+}

@@ -1,0 +1,60 @@
+{
+  "mk-vente-2:1:a": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV of opening now",
+        "verdi": 3.9999999999999947,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Will you open it?"
+  },
+  "mk-vente-2:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV at t = 1, many firms",
+        "verdi": 7.33333333333333,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "NPV at t = 1, few firms",
+        "verdi": 0.6666666666666652,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "In which states would you open?"
+  },
+  "mk-vente-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV of waiting (t = 0)",
+        "verdi": 3.773584905660375,
+        "enhet": "NOK m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Do you open now or wait? Compare with (a) and explain briefly."
+  },
+  "mk-vente-2:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "X (indifference)",
+        "verdi": 0.2687999999999997,
+        "enhet": "NOK m",
+        "alt": [
+          268799.9999999997
+        ]
+      }
+    ],
+    "merknad": "X kan oppgis i NOK mill. (0.2688) eller i NOK (268,800). Uten diskontering fra t = 1 blir X 0.24; det avvises."
+  },
+  "mk-vente-2:1:e": {
+    "type": "tekst"
+  }
+}

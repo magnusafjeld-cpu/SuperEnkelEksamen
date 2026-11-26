@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, pedagogikk]
-oppdatert: 2026-11-25
+oppdatert: 2026-11-26
 ---
 
 # Moduler og visninger
@@ -551,6 +551,17 @@ svaret kommer den korte fasiten; «Vis full gjennomgang» åpner forklaringen, f
 per galt alternativ og lenker til kjernepensumdelen og manualkapitlene. Tastatur:
 A–D, S, F, Enter. Resultatet viser poeng med og uten minuspoeng, per tema, og en
 gjennomgang du kan åpne spørsmål for spørsmål.
+
+**Må kunne** (26. november 2026). Har faget `EDU_DATA.mustKunne`, får siden to faner
+øverst: «Må kunne» og spørsmålsbanken. Må kunne viser oppgavetypene Kurbatov har hintet
+til, én tier om gangen (tier 1 = må kunnes perfekt), med «Neste i tieren» øverst og et
+kort per type: hvorfor den er viktig, sitatene fra opptakene og tre hele eksamensoppgaver
+med status og poeng. Oppgavene er eksamenssett med `kind: "must"` og åpnes i
+Eksamenssett-motoren med `S.views.sett.åpne(id, { mode, tilbake })`, så retting, fasit og
+eksamensmodus på tid er de samme. Knappen øverst der går tilbake hit. Valgt fane og tier
+lagres i `exams["trening:mk"]`. Fanen «Må kunne» tegnes uten å vente på spørsmålsbanken,
+som lastes først når du bytter fane. Se [[Eksamenssett-modulen]] og
+[[FIE402 Corporate Finance]].
 
 **Korte sjekker** (fra 22. november 2026). Et fag kan sette `SJEKKER` i
 `_trening/temaer.py`. Det gir et kort øverst i oppsettet med én knapp per sjekk og

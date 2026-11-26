@@ -1,0 +1,682 @@
+{
+ "mk-vente-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV of buying today",
+    "verdi": 20.9,
+    "enhet": "EUR m"
+   }
+  ],
+  "merknad": "Uten salget i t = 0 blir NPV 15.5000; det avvises."
+ },
+ "mk-vente-1:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV at t = 1, high price",
+    "verdi": 73.55,
+    "enhet": "EUR m"
+   },
+   {
+    "navn": "NPV at t = 1, low price",
+    "verdi": -7.450000000000003,
+    "enhet": "EUR m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Would Lusoliva buy in each state?"
+ },
+ "mk-vente-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV of waiting (t = 0)",
+    "verdi": 23.83564814814814,
+    "enhet": "EUR m",
+    "alt": [
+     22.685185185185183
+    ]
+   },
+   {
+    "navn": "Value of the option to wait",
+    "verdi": 2.935648148148143,
+    "enhet": "EUR m",
+    "alt": [
+     1.7851851851851848
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Should Lusoliva buy today or wait?",
+  "merknad": "alt er svarene med reserveverdien 70 fra b). Med den negative lave tilstanden beholdt blir NPV av å vente 19.3519; det avvises."
+ },
+ "mk-vente-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "X",
+    "verdi": 77.55704697986559,
+    "enhet": "%",
+    "alt": [
+     52.527272727272646
+    ]
+   }
+  ],
+  "merknad": "Sannsynlighet i prosent (77.56 %; 0.7756 godtas også). alt 52.53 % er svaret med reserveverdien 70 fra b). NPV nå holdt fast på 20.9000 gir 0.3069 og avvises; begge NPV-ene avhenger av X."
+ },
+ "mk-vente-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-vente-2:1:a": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV of opening now",
+    "verdi": 3.9999999999999947,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Will you open it?"
+ },
+ "mk-vente-2:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV at t = 1, many firms",
+    "verdi": 7.33333333333333,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "NPV at t = 1, few firms",
+    "verdi": 0.6666666666666652,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "In which states would you open?"
+ },
+ "mk-vente-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV of waiting (t = 0)",
+    "verdi": 3.773584905660375,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Do you open now or wait? Compare with (a) and explain briefly."
+ },
+ "mk-vente-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "X (indifference)",
+    "verdi": 0.2687999999999997,
+    "enhet": "NOK m",
+    "alt": [
+     268799.9999999997
+    ]
+   }
+  ],
+  "merknad": "X kan oppgis i NOK mill. (0.2688) eller i NOK (268,800). Uten diskontering fra t = 1 blir X 0.24; det avvises."
+ },
+ "mk-vente-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-vente-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV of building now",
+    "verdi": -2.4387550612950406,
+    "enhet": "USD m"
+   }
+  ]
+ },
+ "mk-vente-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV at t = 1, 3.5%",
+    "verdi": 3.60260138904669,
+    "enhet": "USD m"
+   },
+   {
+    "navn": "NPV at t = 1, 7.5%",
+    "verdi": -8.5542313704278,
+    "enhet": "USD m"
+   },
+   {
+    "navn": "NPV at t = 0, 3.5%",
+    "verdi": 3.3986805557044244,
+    "enhet": "USD m"
+   },
+   {
+    "navn": "NPV at t = 0, 7.5%",
+    "verdi": -8.070029594743207,
+    "enhet": "USD m",
+    "tol": 0.005
+   }
+  ],
+  "merknad": "Med 15 betalinger etter å vente blir NPV ved 3,5 % 6.5871; det avvises."
+ },
+ "mk-vente-3:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "ρ (3.5% rate)",
+    "verdi": 33.1430980846135,
+    "enhet": "%"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Briefly explain why you do not need the true probabilities.",
+  "merknad": "Sannsynlighet i prosent (33.14 %; 0.3314 godtas også). Uten år 1-betalingen i S_u og S_d blir ρ 0.7427; uten (1 + r_f) 0.0918."
+ },
+ "mk-vente-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value of the option to wait",
+    "verdi": 1.1264280301598044,
+    "enhet": "USD m",
+    "alt": [
+     1.35947222228177,
+     1.2506829465891884,
+     1.509433962264151
+    ]
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Do you build now or wait? Briefly comment.",
+  "merknad": "alt er svarene med reserveverdiene som oppgaven gir: ρ = 0.40 (1.3595), NPV 4 (1.2507) og begge (1.5094). Målt mot den negative NPV-en blir det 3.5652; det avvises."
+ },
+ "mk-vente-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-binomisk-1:1:a": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Call payoff, up",
+    "verdi": 14.0,
+    "enhet": "USD"
+   },
+   {
+    "navn": "Put payoff, down",
+    "verdi": 16.0,
+    "enhet": "USD"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Check that (1 + r_f)S_0 lies between the two prices and explain why it must.",
+  "merknad": "De to nullutbetalingene er ikke med som tall."
+ },
+ "mk-binomisk-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "N (shares)",
+    "verdi": 0.4666666666666667,
+    "enhet": ""
+   },
+   {
+    "navn": "X (lending +, borrowing −)",
+    "verdi": -16.153846153846153,
+    "enhet": "USD"
+   },
+   {
+    "navn": "Call price",
+    "verdi": 6.246153846153845,
+    "enhet": "USD"
+   }
+  ]
+ },
+ "mk-binomisk-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "ρ",
+    "verdi": 46.400000000000006,
+    "enhet": "%"
+   },
+   {
+    "navn": "Call price",
+    "verdi": 6.246153846153847,
+    "enhet": "USD"
+   }
+  ],
+  "merknad": "Sannsynlighet i prosent (46.40 %; 0.4640 godtas også)."
+ },
+ "mk-binomisk-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Put price",
+    "verdi": 8.246153846153845,
+    "enhet": "USD",
+    "alt": [
+     8.0
+    ]
+   }
+  ],
+  "merknad": "alt 8.0000 er svaret med reserveverdien 6.00 for call."
+ },
+ "mk-binomisk-1:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Cash flow today",
+    "verdi": 0.6538461538461551,
+    "enhet": "USD"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Describe the strategy and its cash flows in each state."
+ },
+ "mk-binomisk-1:1:f": {
+  "type": "tekst"
+ },
+ "mk-binomisk-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "ρ, high state",
+    "verdi": 55.55555555555556,
+    "enhet": "%"
+   },
+   {
+    "navn": "1 − ρ, low state",
+    "verdi": 44.44444444444444,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Sannsynligheter i prosent; desimaltall godtas også."
+ },
+ "mk-binomisk-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Call price",
+    "verdi": 13.227513227513228,
+    "enhet": "NOK",
+    "alt": [
+     11.904761904761905
+    ]
+   },
+   {
+    "navn": "Put price",
+    "verdi": 16.08465608465609,
+    "enhet": "NOK",
+    "alt": [
+     14.76190476190476
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdien ρ = 0.50 (11.9048 og 14.7619)."
+ },
+ "mk-binomisk-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Cash flow today",
+    "verdi": 2.2428571428571615,
+    "enhet": "NOK"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Is there an arbitrage? Describe it and its cash flows."
+ },
+ "mk-binomisk-2:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Strike",
+    "verdi": 147.0,
+    "enhet": "NOK"
+   }
+  ],
+  "tallPoeng": 2.5,
+  "tekstLedd": "Explain."
+ },
+ "mk-binomisk-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-binomisk-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Six-month growth factor",
+    "verdi": 1.019803902718557,
+    "enhet": "",
+    "tol": 0.0005
+   },
+   {
+    "navn": "ρ",
+    "verdi": 54.197777396405314,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "ρ i prosent (54.20 %; 0.5420 godtas også). Med 1.02 blir ρ 0.5426, innenfor toleransen; med 1.04 0.6070, avvist."
+ },
+ "mk-binomisk-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Δ (shares, short −)",
+    "verdi": -0.6521739130434783,
+    "enhet": ""
+   },
+   {
+    "navn": "B (lending +, borrowing −)",
+    "verdi": 54.997785723534214,
+    "enhet": "EUR"
+   },
+   {
+    "navn": "Put price",
+    "verdi": 6.7369161583168236,
+    "enhet": "EUR"
+   }
+  ]
+ },
+ "mk-binomisk-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Call price",
+    "verdi": 4.251623454425058,
+    "enhet": "EUR",
+    "alt": [
+     4.014707296108227
+    ]
+   }
+  ],
+  "merknad": "alt 4.0147 er svaret med reserveverdien 6.50 for put. Diskontert med 1.04: 5.7369, avvist."
+ },
+ "mk-binomisk-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value of the product",
+    "verdi": 80.73691615831683,
+    "enhet": "EUR",
+    "alt": [
+     80.5
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Would you buy it? How could you build the same payoff yourself?",
+  "merknad": "alt 80.5000 er svaret med reserveverdien 6.50 for put."
+ },
+ "mk-binomisk-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-senior-junior-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Strike per share",
+    "verdi": 40.0,
+    "enhet": "USD"
+   },
+   {
+    "navn": "Equity value",
+    "verdi": 7.1425,
+    "enhet": "USD bn"
+   }
+  ]
+ },
+ "mk-senior-junior-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Debt value",
+    "verdi": 8.8575,
+    "enhet": "USD bn",
+    "alt": [
+     8.5
+    ]
+   },
+   {
+    "navn": "Annual yield",
+    "verdi": 6.253787433948488,
+    "enhet": "%",
+    "alt": [
+     8.465228909328083
+    ]
+   },
+   {
+    "navn": "Spread",
+    "verdi": 3.753787433948488,
+    "enhet": "%",
+    "alt": [
+     5.965228909328082
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdien E = 7.5. Spredningen er i prosentpoeng."
+ },
+ "mk-senior-junior-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Senior debt",
+    "verdi": 5.640000000000001,
+    "enhet": "USD bn"
+   },
+   {
+    "navn": "Junior debt",
+    "verdi": 3.2174999999999994,
+    "enhet": "USD bn"
+   },
+   {
+    "navn": "Equity",
+    "verdi": 7.1425,
+    "enhet": "USD bn"
+   }
+  ],
+  "merknad": "Junior som én call med strike 16 gir 12.2000; det avvises."
+ },
+ "mk-senior-junior-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Senior yield",
+    "verdi": 3.14212462587935,
+    "enhet": "%",
+    "alt": [
+     4.4465935734187
+    ]
+   },
+   {
+    "navn": "Junior yield",
+    "verdi": 11.498934667612115,
+    "enhet": "%",
+    "alt": [
+     15.470053837925146
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdiene 5.5 og 3.0."
+ },
+ "mk-senior-junior-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-senior-junior-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Senior strike per share",
+    "verdi": 40.0,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Total-debt strike per share",
+    "verdi": 60.0,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Equity value",
+    "verdi": 8.186399999999999,
+    "enhet": "NOK bn"
+   }
+  ]
+ },
+ "mk-senior-junior-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Senior debt",
+    "verdi": 6.265800000000002,
+    "enhet": "NOK bn"
+   },
+   {
+    "navn": "Junior debt",
+    "verdi": 2.6478,
+    "enhet": "NOK bn"
+   }
+  ]
+ },
+ "mk-senior-junior-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Dividend per share",
+    "verdi": 49.52000000000001,
+    "enhet": "NOK",
+    "alt": [
+     46.666666666666664
+    ]
+   },
+   {
+    "navn": "Share price after the payout",
+    "verdi": 45.48,
+    "enhet": "NOK",
+    "alt": [
+     48.33333333333334
+    ]
+   }
+  ],
+  "tallPoeng": 2.5,
+  "tekstLedd": "Are the shareholders better or worse off?",
+  "merknad": "alt er svarene med reserveverdiene 6.0 og 2.4."
+ },
+ "mk-senior-junior-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Senior yield",
+    "verdi": 4.741467896027851,
+    "enhet": "%",
+    "alt": [
+     6.265856918261115
+    ]
+   },
+   {
+    "navn": "Junior yield",
+    "verdi": 10.78282636951955,
+    "enhet": "%",
+    "alt": [
+     14.471424255333186
+    ]
+   },
+   {
+    "navn": "Senior spread",
+    "verdi": 0.741467896027851,
+    "enhet": "%",
+    "alt": [
+     2.2658569182611146
+    ]
+   },
+   {
+    "navn": "Junior spread",
+    "verdi": 6.782826369519548,
+    "enhet": "%",
+    "alt": [
+     10.471424255333186
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdiene 6.0 og 2.4. Spredningene er i prosentpoeng."
+ },
+ "mk-senior-junior-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-senior-junior-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Senior strike per share",
+    "verdi": 75.0,
+    "enhet": "EUR"
+   },
+   {
+    "navn": "Total-debt strike per share",
+    "verdi": 100.0,
+    "enhet": "EUR"
+   },
+   {
+    "navn": "Equity value",
+    "verdi": 7.3932,
+    "enhet": "EUR bn"
+   }
+  ]
+ },
+ "mk-senior-junior-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Senior debt",
+    "verdi": 8.232,
+    "enhet": "EUR bn"
+   },
+   {
+    "navn": "Junior debt",
+    "verdi": 2.3748000000000005,
+    "enhet": "EUR bn"
+   }
+  ],
+  "merknad": "Junior som én call med strike 25 gir 15.2136; det avvises."
+ },
+ "mk-senior-junior-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Senior yield",
+    "verdi": 3.6322336976071234,
+    "enhet": "%",
+    "alt": [
+     4.824067815736877
+    ]
+   },
+   {
+    "navn": "Junior yield",
+    "verdi": 9.798823281259295,
+    "enhet": "%",
+    "alt": [
+     13.208602569246764
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdiene 8.0 og 2.2."
+ },
+ "mk-senior-junior-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Senior debt (second way)",
+    "verdi": 8.2317061207264,
+    "enhet": "EUR bn"
+   }
+  ],
+  "tallPoeng": 2.5,
+  "tekstLedd": "Do the two values agree?"
+ },
+ "mk-senior-junior-3:1:e": {
+  "type": "tekst"
+ }
+}

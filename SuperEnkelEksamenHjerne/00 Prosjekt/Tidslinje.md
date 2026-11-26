@@ -109,5 +109,6 @@ ikke står i commit-meldingene.
 | 26. november 2026 | Eksamenssett: Kortsvar i «Per del» | De 30 drøftingsoppgavene på 12 poeng er flyttet ut av deleksamenene til 14 kortsvarsett under eget valg, før Del 1, 2 og 3. Lagret fremdrift beholder nøklene, oppgavene vises med løpenummer. Bygg 228. Se [[Eksamenssett-modulen]] |
 | 26. november 2026 | Retting: kriteriene er nivået for full pott | Claude-rettingen i Eksamenssett, Problem sets, Øv uten stopp og Kapitteloppgaver gir full pott når innholdet i kriteriene står i svaret, også kort eller med andre ord. «Optional:» og detaljer som bare står i løsningen, gir ikke trekk. Kriteriene i ps3 9b til 9d er lagt på nivå med den offisielle løsningen. Bygg 229. Se [[Eksamenssett-modulen]] |
 | 26. november 2026 | Retting: kortere tilbakemelding | Claude svarer med poeng og én setning, én linje per kriterium og et toppsvar på én til to setninger. «Det som kostet mest» er borte. Bygg 229. Se [[Eksamenssett-modulen]] |
+| 26. november 2026 | FIE402: «Må kunne» i Eksamenstrening | Ny fane med 20 oppgavetyper Kurbatov har hintet til, i tre tiers, med tre nye eksamensoppgaver per type som åpnes i Eksamenssett-motoren. Tier 1 (sju typer, 21 oppgaver) lagt ut etter blind kontroll. Bygg 230. Se [[FIE402 Corporate Finance]] og [[Moduler og visninger]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

@@ -1,0 +1,108 @@
+{
+  "mk-wacc-apv-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 9.0,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 7.470000000000001,
+        "enhet": "%"
+      }
+    ]
+  },
+  "mk-wacc-apv-3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "FCF<sub>0</sub>",
+        "verdi": -74.0,
+        "enhet": "DKK m"
+      },
+      {
+        "navn": "FCF<sub>1</sub>",
+        "verdi": 37.36,
+        "enhet": "DKK m"
+      },
+      {
+        "navn": "FCF<sub>2</sub>",
+        "verdi": 60.82,
+        "enhet": "DKK m"
+      }
+    ],
+    "merknad": "Fellene er sunk cost tatt med, NWC-nivå i stedet for endring, kannibaliseringen utelatt og ΔNWC utelatt. FCF_2 med nivå og uten ΔNWC er samme tall (44.82)."
+  },
+  "mk-wacc-apv-3:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV (WACC)",
+        "verdi": 13.422106124790432,
+        "enhet": "DKK m",
+        "alt": [
+          12.178299324622998
+        ]
+      }
+    ],
+    "merknad": "Fellene er NPV med r_U (12.9938), med r_E, PV uten investeringen og sunk cost tatt med. alt (12.1783) er svaret med reservekontantstrømmene."
+  },
+  "mk-wacc-apv-3:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "D<sub>0</sub>",
+        "verdi": 26.22663183743713,
+        "enhet": "DKK m",
+        "tol": 0.0019,
+        "alt": [
+          26.1534897973869
+        ]
+      },
+      {
+        "navn": "Debt adjustment, Year 1",
+        "verdi": -9.248870601743448,
+        "enhet": "DKK m",
+        "tol": 0.0033,
+        "alt": [
+          9.248870601743448,
+          -8.846334312135202,
+          8.846334312135202
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Does Brandholm borrow or repay?",
+    "merknad": "Begge fortegn godtas for justeringen (D_1 − D_0 eller D_0 − D_1). Retningen (nedbetaling) rettes i tekstdelen. Toleransen er stram fordi tallene regnet fra V^U ligger under 1 % unna. 0.3 × 74 = 22.2 (gjeld fra utlegget) er en felle. Resten av alt er svarene med reservekontantstrømmene."
+  },
+  "mk-wacc-apv-3:1:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 7.8,
+        "enhet": "%"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 0.42832598497265256,
+        "enhet": "DKK m"
+      },
+      {
+        "navn": "NPV (APV)",
+        "verdi": 13.422106124790425,
+        "enhet": "DKK m",
+        "tol": 0.001,
+        "alt": [
+          12.178299324622985
+        ]
+      }
+    ],
+    "merknad": "Diskonteres skjoldet med r_D, blir NPV 0.12 % høyere, så toleransen på NPV er 0.1 % (hver nåverdi rundet til to desimaler gir 13.43, innenfor). PV(TS) (0.4441 mot 0.4283) avviser r_D med standardtoleransen. alt er svarene med reservekontantstrømmene."
+  },
+  "mk-wacc-apv-3:1:f": {
+    "type": "tekst"
+  }
+}

@@ -1,0 +1,538 @@
+{
+ "mk-mm-rekap-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V",
+    "verdi": 450.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "P<sub>0</sub>",
+    "verdi": 36.0,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Div<sub>1</sub>",
+    "verdi": 2.52,
+    "enhet": "€ per share"
+   }
+  ]
+ },
+ "mk-mm-rekap-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Year 1 dividend per share",
+    "verdi": 4.0,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Price of the new shares",
+    "verdi": 34.52,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "New shares",
+    "verdi": 0.5359212051,
+    "enhet": "m shares"
+   },
+   {
+    "navn": "Dividend from Year 2",
+    "verdi": 2.4164,
+    "enhet": "€ per share"
+   }
+  ]
+ },
+ "mk-mm-rekap-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "P<sub>0</sub> after the announcement",
+    "verdi": 36.0,
+    "enhet": "€ per share"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Are the current shareholders better or worse off than under the old policy? Explain briefly."
+ },
+ "mk-mm-rekap-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Buyback price",
+    "verdi": 38.52,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Shares bought back",
+    "verdi": 0.8177570093,
+    "enhet": "m shares"
+   },
+   {
+    "navn": "Dividend from Year 2",
+    "verdi": 2.6964,
+    "enhet": "€ per share"
+   }
+  ]
+ },
+ "mk-mm-rekap-1:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Old policy, end of Year 1",
+    "verdi": 38.52,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Sells in the buyback",
+    "verdi": 38.52,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Keeps the share",
+    "verdi": 38.52,
+    "enhet": "€ per share"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Comment.",
+  "merknad": "Ingen reserveverdi for (d): enhver annen tilbakekjøpskurs enn 38.52 bryter likheten som kommentaren handler om. Posisjonen under gammel politikk avhenger bare av (a)."
+ },
+ "mk-mm-rekap-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 9.1,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-mm-rekap-2:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "New debt issued",
+    "verdi": 675.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Dividend per share",
+    "verdi": 20.0,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "Share price on announcement",
+    "verdi": 70.0,
+    "enhet": "$ per share"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Why does the share price react as it does upon announcement?"
+ },
+ "mk-mm-rekap-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price after the dividend",
+    "verdi": 50.0,
+    "enhet": "$ per share",
+    "alt": [
+     52.5
+    ]
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Are the shareholders better or worse off?",
+  "merknad": "alt 52.5 er svaret med reserveverdien $630M ny gjeld."
+ },
+ "mk-mm-rekap-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New r<sub>E</sub>",
+    "verdi": 11.8,
+    "enhet": "%",
+    "alt": [
+     12.5
+    ]
+   }
+  ],
+  "merknad": "alt 12.5 er svaret med reserveverdien r_U = 9.5%. Fellene 13.3 (gammel r_D) og 10.6429 (D/V) avvises."
+ },
+ "mk-mm-rekap-2:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Share price after the repurchase",
+    "verdi": 70.0,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "Shares repurchased",
+    "verdi": 5.1428571429,
+    "enhet": "m shares",
+    "alt": [
+     4.5
+    ]
+   }
+  ],
+  "merknad": "alt 4.5 er svaret med reserveverdien $630M ny gjeld (kursen er 70 uansett)."
+ },
+ "mk-mm-rekap-2:1:f": {
+  "type": "tekst"
+ },
+ "mk-mm-rekap-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 9.5,
+    "enhet": "%"
+   },
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 11.5,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-mm-rekap-3:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price on announcement",
+    "verdi": 45.0,
+    "enhet": "NOK per share"
+   },
+   {
+    "navn": "New shares",
+    "verdi": 13.3333333333,
+    "enhet": "m shares"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Explain briefly why the firm value changes or does not change."
+ },
+ "mk-mm-rekap-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New r<sub>E</sub>",
+    "verdi": 10.4705882353,
+    "enhet": "%",
+    "alt": [
+     11.0588235294
+    ]
+   }
+  ],
+  "merknad": "alt 11.0588 er svaret med reserveverdien r_U = 10%. Fellene 10.0294 (gammel r_D) og 10.3250 (D/V) avvises."
+ },
+ "mk-mm-rekap-3:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Div<sub>1</sub> without the refinancing",
+    "verdi": 5.175,
+    "enhet": "NOK per share"
+   },
+   {
+    "navn": "Div<sub>1</sub> with the refinancing",
+    "verdi": 4.7117647059,
+    "enhet": "NOK per share",
+    "alt": [
+     4.8545454545
+    ]
+   },
+   {
+    "navn": "Share price after the refinancing",
+    "verdi": 45.0,
+    "enhet": "NOK per share",
+    "alt": [
+     44.132231405,
+     42.8342245989,
+     42.6063829787,
+     46.3636363636
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdiene 12 millioner nye aksjer og r_E = 11%: utbyttet 4.8545, kursen 44.13 med begge, 42.83 med bare r_E-reserven og 42.61 med r_E fra reserve-r_U i (c). 46.36 med bare reserveantallet. Fellene 46.98 og 45.63 avvises."
+ },
+ "mk-mm-rekap-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-skatt-rekap-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>U</sup>",
+    "verdi": 810.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 70.0,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "mk-skatt-rekap-1:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price on announcement",
+    "verdi": 24.4444444444,
+    "enhet": "$ per share"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Why does the price move at the announcement and not when the debt is issued?"
+ },
+ "mk-skatt-rekap-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Shares repurchased",
+    "verdi": 11.4545454545,
+    "enhet": "m shares",
+    "alt": [
+     11.6666666667
+    ]
+   },
+   {
+    "navn": "Debt after",
+    "verdi": 280.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Equity after",
+    "verdi": 600.0,
+    "enhet": "$ m",
+    "alt": [
+     584.0
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reservekursen $24.00: 11.6667 millioner aksjer og egenkapital 584. Fellen 12.4444 (gammel kurs) avvises."
+ },
+ "mk-skatt-rekap-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Dividend per share before",
+    "verdi": 2.25,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "Dividend per share after",
+    "verdi": 2.8722222222,
+    "enhet": "$ per share",
+    "alt": [
+     3.0
+    ]
+   },
+   {
+    "navn": "r<sub>E</sub> after",
+    "verdi": 11.75,
+    "enhet": "%",
+    "alt": [
+     12.5
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdiene (kurs 24.00, 23.5 millioner aksjer): 3.0000 og 12.5000 %. Formelarkets MM II gir 12.3333 % og avvises."
+ },
+ "mk-skatt-rekap-1:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change in value per original share",
+    "verdi": 1.9444444444,
+    "enhet": "$ per share"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Who captures the value? Compare a shareholder who sells with one who keeps the shares."
+ },
+ "mk-skatt-rekap-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "E[EBIT]",
+    "verdi": 150.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "V<sup>U</sup>",
+    "verdi": 1300.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Share price",
+    "verdi": 65.0,
+    "enhet": "NOK per share"
+   }
+  ]
+ },
+ "mk-skatt-rekap-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Annual tax shield",
+    "verdi": 4.95,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 32.6496360334,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Fellene 110 (τD) og 34.1189 (første skjold i dag) avvises."
+ },
+ "mk-skatt-rekap-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price on announcement",
+    "verdi": 66.6324818017,
+    "enhet": "NOK per share",
+    "alt": [
+     68.0
+    ]
+   },
+   {
+    "navn": "Shares repurchased",
+    "verdi": 7.5038477703,
+    "enhet": "m shares",
+    "alt": [
+     7.3529411765
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Who captures the change in firm value?",
+  "merknad": "alt er svarene med reserveverdien PV(TS) = 60: kurs 68.00 og 7.3529 millioner aksjer. Fellen 7.6923 (gammel kurs) avvises."
+ },
+ "mk-skatt-rekap-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Div<sub>1</sub> without the recapitalisation",
+    "verdi": 5.85,
+    "enhet": "NOK per share"
+   },
+   {
+    "navn": "Div<sub>1</sub> with the recapitalisation",
+    "verdi": 7.958449783,
+    "enhet": "NOK per share",
+    "alt": [
+     8.2875
+    ]
+   }
+  ],
+  "merknad": "alt 8.2875 er svaret med reserveverdien 8 millioner aksjer kjøpt tilbake."
+ },
+ "mk-skatt-rekap-2:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price if τ × D held",
+    "verdi": 70.5,
+    "enhet": "NOK per share"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Is the CFO right? For which kind of loan does τ × D hold?"
+ },
+ "mk-skatt-rekap-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>U</sup>",
+    "verdi": 700.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Share price",
+    "verdi": 28.0,
+    "enhet": "€ per share"
+   }
+  ]
+ },
+ "mk-skatt-rekap-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Tax shield in Year 1",
+    "verdi": 3.675,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 61.25,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "V<sup>L</sup>",
+    "verdi": 761.25,
+    "enhet": "€ m"
+   }
+  ],
+  "merknad": "Fellene 183.75 (r_D) og 45.9375 (uten vekst) avvises."
+ },
+ "mk-skatt-rekap-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Debt today",
+    "verdi": 367.5,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Share price on announcement",
+    "verdi": 30.45,
+    "enhet": "€ per share",
+    "alt": [
+     31.6
+    ]
+   }
+  ],
+  "merknad": "alt 31.60 er svaret med reserveverdien V^L = 790."
+ },
+ "mk-skatt-rekap-3:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Shares repurchased",
+    "verdi": 12.0689655172,
+    "enhet": "m shares",
+    "alt": [
+     9.375
+    ]
+   },
+   {
+    "navn": "Shares remaining",
+    "verdi": 12.9310344828,
+    "enhet": "m shares",
+    "alt": [
+     15.625
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdiene (gjeld 300, kurs 32.00): 9.3750 og 15.6250. Fellen 13.1250 (gammel kurs) avvises."
+ },
+ "mk-skatt-rekap-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-teori-kapital-1:1:": {
+  "type": "tekst"
+ },
+ "mk-teori-kapital-2:1:": {
+  "type": "tekst"
+ },
+ "mk-teori-kapital-3:1:": {
+  "type": "tekst"
+ }
+}

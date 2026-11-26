@@ -1,0 +1,143 @@
+{
+  "intro": "Oppgavetypene Kurbatov har pekt ut i forelesningene, sortert etter hvor sikkert de kommer. Hver type har tre nye eksamensoppgaver i samme form som forelesningseksemplet eller eksamensoppgaven den bygger på. Start med tier 1 og ta oppgavene i rekkefølge.",
+  "tiers": [
+    { "nr": 1, "navn": "Tier 1 · Må kunnes perfekt", "tekst": "Typene som nesten sikkert kommer i en eller annen form. De har vært på begge Kurbatovs eksamener, eller Kurbatov har sagt rett ut at de kan komme. Sitter disse, har du det meste av poengene." },
+    { "nr": 2, "navn": "Tier 2 · Viktig", "tekst": "Forelesningseksempler Kurbatov har pekt ut som mulige eksamensoppgaver, og det andre teorispørsmålet. Noen av disse kommer trolig, men du vet ikke hvilke." },
+    { "nr": 3, "navn": "Tier 3 · Bør kunnes", "tekst": "Hintet, men svakere eller brukt nylig. Ta dem når tier 1 og 2 sitter." }
+  ],
+  "typer": [
+    { "id": "wacc-apv", "tier": 1, "navn": "WACC og APV på samme prosjekt", "skribent": "w1",
+      "hvorfor": "Har vært på alle elleve eksamenssett siden 2015, også begge Kurbatovs (H2024 E5 og H2025 E4). Kurbatov beskrev selve oppgaven: verdsett med WACC, verdsett med APV, vis at de stemmer og tolk. Del a er nesten alltid fri kontantstrøm for prosjektet, ikke firmaet.",
+      "signaler": [
+        { "hvor": "Forelesning 08 (Valuation I), 1:19:30", "sitat": "One exam question would be, evaluate this firm using VAC method, evaluate it using the APV method, make sure they match and interpret." },
+        { "hvor": "Forelesning 09 (Valuation II), 44:22", "sitat": "Such an exercise could easily be in the exam. With only two comparable firms, there should be no issues." },
+        { "hvor": "Forelesning 18 (Wrap-up), 51:00", "sitat": "in an exercise you could be asked to calculate rvac and then interpret why is rvac lower or higher than ru" },
+        { "hvor": "Forelesning 18 (Wrap-up), 6:41", "sitat": "it could be a trap in the exam where I give you information for the entire company" }
+      ] },
+    { "id": "mm-rekap", "tier": 1, "navn": "MM-rekapitalisering, utbytte og tilbakekjøp", "skribent": "w2",
+      "hvorfor": "Oppgave 3 på begge Kurbatovs eksamener (18 poeng hver gang). Fellene han gjentok: tilbakekjøpet skjer til den nye kursen, et tilbakekjøp gir to likninger, og spørsmålet om hvem som er bedre eller verre stilt.",
+      "signaler": [
+        { "hvor": "Forelesning 03 (Capital Structure II), 1:00:59", "sitat": "the biggest mistake that people make in the exam... they divide it by their original price, not the new one" },
+        { "hvor": "Forelesning 05 (Payout policy), 1:14:10", "sitat": "there have been exam questions where people have to show that a buyback is equivalent to a dividend" },
+        { "hvor": "Forelesning 06 (Problem set exercises), 16:09", "sitat": "in an exam setting i could ask here like is something like is some player better or worse off from this" },
+        { "hvor": "Forelesning 18 (Wrap-up), 21:07", "sitat": "if you open the exam and like exercise three has something like assume perfect capital markets it immediately should ring a bell" }
+      ] },
+    { "id": "gjeldsoverheng", "tier": 1, "navn": "Gjeldsoverheng: hvem vil ha prosjektet?", "skribent": "w5",
+      "hvorfor": "Kurbatov sa at dette spørres veldig ofte, og i wrap-up at han mest sannsynlig gir et firma og et prosjekt og ber deg sjekke om lederen vil ha det. Halve poengene går til nøkkelsetningen «the firm forgoes positive-NPV projects», resten til forklaringen med formuesoverføring til kreditorene.",
+      "signaler": [
+        { "hvor": "Forelesning 03 (Capital Structure II), 17:29", "sitat": "very often asked on the exam, why, if you had extremely high leverage, you might skip beneficial projects" },
+        { "hvor": "Forelesning 18 (Wrap-up), 29:31", "sitat": "most likely i will tell you yes there is this firm there is this project check whether the manager wants this project" },
+        { "hvor": "Forelesning 06 (Problem set exercises), 1:15:48", "sitat": "a very crucial exercise to understand properly… the key word you have to have ingrained in your mind is the wealth transfer" }
+      ] },
+    { "id": "vente", "tier": 1, "navn": "Realopsjon: investere nå eller vente", "skribent": "w3",
+      "hvorfor": "Realopsjoner var 20 poeng på begge Kurbatovs eksamener (H2024 E6 og H2025 E5). Kurbatov pekte ut indifferent-sannsynligheten som en fin eksamensoppgave og advarte mot fella med en kontantstrøm som starter nå.",
+      "signaler": [
+        { "hvor": "Forelesning 14 (Options III), 29:57", "sitat": "Find X for which we are indifferent between starting the project today and waiting for one year. So this would be a very nice exam question." },
+        { "hvor": "Forelesning 14 (Options III), 19:57", "sitat": "many people in the exam would just write 2000 here they would forget about year zero" },
+        { "hvor": "Forelesning 14 (Options III), 1:07:41", "sitat": "If we don't know probabilities, immediately it should be like a light bulb lighting in your head." }
+      ] },
+    { "id": "deal", "tier": 1, "navn": "Fusjonsarbitrasje og implisitt dealsannsynlighet", "skribent": "w4",
+      "hvorfor": "H2025 E6 var «almost a direct copy» av Mannesmann-eksemplet, og Kurbatov kalte det i wrap-up en av de største oppgavene du bør fokusere på. Ny form ventes: brøkdel av år, selvfinansiert posisjon eller et spørsmål om hva som skjer om avtalen utsettes.",
+      "signaler": [
+        { "hvor": "Forelesning 18 (Wrap-up), 1:11:04", "sitat": "very important exercise for M&A. This is one of the biggest exercises that you should focus on." },
+        { "hvor": "Forelesning 16 (M&A), 1:11:07", "sitat": "it can literally be an exam question and it has been" },
+        { "hvor": "Forelesning 18 (Wrap-up), 5:29", "sitat": "What if we can delay this M&A by one year? How would you treat it?" }
+      ] },
+    { "id": "cds", "tier": 1, "navn": "Risikabel obligasjon og CDS", "skribent": "w5",
+      "hvorfor": "CDS-eksemplet fra forelesningen var oppgave 3 på våreksamenen 2024, og Kurbatov sa at et veldig likt eksempel kan komme. Mer enn halvparten tapte poeng fordi de byttet om ρ og 1 − ρ.",
+      "signaler": [
+        { "hvor": "Forelesning 13 (Options II), 18:06", "sitat": "I probably wouldn't copy this verbatim, but a very similar example could be in the exam" },
+        { "hvor": "Forelesning 13 (Options II), 25:53", "sitat": "note this will be very important for potential exam question" },
+        { "hvor": "Forelesning 13 (Options II), 27:31", "sitat": "One major mistake that so many people made in the exam question … they confused one minus rho and rho." }
+      ] },
+    { "id": "governance", "tier": 1, "navn": "Governance (teori, 10 poeng)", "skribent": "w4",
+      "hvorfor": "Et av de to teorispørsmålene er nesten alltid governance. H2024 spurte om overvåking og H2025 om en blokkaksjonær, så Kurbatov spør trolig om noe annet i år. Malen han rettet live i timen er eierens verktøykasse.",
+      "signaler": [
+        { "hvor": "Forelesning 17 (Governance), 2:08", "sitat": "the exams that I have made usually have two open-ended questions in the beginning. So one of those is pretty much always a governance-related question." },
+        { "hvor": "Forelesning 17 (Governance), 1:18:44", "sitat": "this could be very easily an exam question" },
+        { "hvor": "Forelesning 17 (Governance), 0:45", "sitat": "its content will definitely be on the exam" }
+      ] },
+    { "id": "skatt-rekap", "tier": 2, "navn": "Rekapitalisering med skatt og skatteskjoldet", "skribent": "w2",
+      "hvorfor": "Den mest sannsynlige vrien på MM-oppgaven. Kurbatov kalte PV av rentenes skatteskjold «Part A» av en eksamensoppgave og τD en formel du skal ha i ryggmargen.",
+      "signaler": [
+        { "hvor": "Forelesning 03 (Capital Structure II), 32:55", "sitat": "this could be... Part A of your exam question" },
+        { "hvor": "Forelesning 03 (Capital Structure II), 1:18:26", "sitat": "could be an exam question" },
+        { "hvor": "Forelesning 18 (Wrap-up), 31:50", "sitat": "something that you really should understand really well" }
+      ] },
+    { "id": "binomisk", "tier": 2, "navn": "Opsjonsprising: replikasjon, ρ og put-call-paritet", "skribent": "w3",
+      "hvorfor": "Opsjoner kommer helt sikkert, og den binomiske modellen er verktøyet bak både realopsjoner og CDS. Kurbatov varslet en europeisk opsjon regnet ut og så et spørsmål om retningen hvis den var amerikansk.",
+      "signaler": [
+        { "hvor": "Forelesning 12 (Options I), 10:12", "sitat": "Options will 100% be on the exam. That's unavoidable." },
+        { "hvor": "Forelesning 18 (Wrap-up), 57:02", "sitat": "if i ask you to price put and call in an exercise be smart and price first the call or the put which one is easier" },
+        { "hvor": "Forelesning 18 (Wrap-up), 58:18", "sitat": "You do the calculation and then what if the option was American? Do you expect the price would go up and down?" }
+      ] },
+    { "id": "senior-junior", "tier": 2, "navn": "Senior og junior gjeld som calls", "skribent": "w3",
+      "hvorfor": "Google-oppgaven (PS3 E6) er pekt ut direkte. Fellene er strike per aksje, å gange med antall aksjer og å annualisere yielden riktig.",
+      "signaler": [
+        { "hvor": "Forelesning 13 (Options II), 1:16:02", "sitat": "So this actually could be in the exam, by the way. So if you are not familiar with how to solve it" },
+        { "hvor": "Forelesning 18 (Wrap-up), 1:04:19", "sitat": "I ask you to explain why is the debt possible to represent as a risk-free debt plus a written put on assets" }
+      ] },
+    { "id": "ipo", "tier": 2, "navn": "Vinnerens forbannelse i IPO-er", "skribent": "w1",
+      "hvorfor": "Kurbatov sa to ganger i samme forelesning at han vil prøve å få en lignende oppgave inn på eksamen. Den har aldri vært på hans eksamener, så den er ubrukt.",
+      "signaler": [
+        { "hvor": "Forelesning 07 (Security Issues), 1:16:51", "sitat": "this is the key concept that you have to understand and this is what i will try to incorporate in the exam say a similar exercise" },
+        { "hvor": "Forelesning 07 (Security Issues), 1:05:24", "sitat": "a very, very important example. Again, maybe I will try to include something like that in the exam" }
+      ] },
+    { "id": "budkamp", "tier": 2, "navn": "Budkamp og kontanter mot aksjer", "skribent": "w4",
+      "hvorfor": "Budkampen om bank D er pekt ut direkte. Den passer som M&A-oppgaven hvis Kurbatov ikke vil gjenta Mannesmann, sammen med regnestykket for kontanter mot aksjer.",
+      "signaler": [
+        { "hvor": "Forelesning 16 (M&A), 1:26:04", "sitat": "it could be easily the exam question, so think about it." },
+        { "hvor": "Forelesning 18 (Wrap-up), 1:09:54", "sitat": "especially in M&As, we also have had some exercises, similar exercises could be in the exam." }
+      ] },
+    { "id": "coinsurance", "tier": 2, "navn": "Fusjon av belånte firmaer (coinsurance)", "skribent": "w4",
+      "hvorfor": "Kurbatov kalte dette et hint. Våreksamenen 2024 hadde nøyaktig dette eksemplet med nye tall.",
+      "signaler": [
+        { "hvor": "Forelesning 16 (M&A), 1:30:58", "sitat": "This is a crucial example with very simple numbers." },
+        { "hvor": "Forelesning 16 (M&A), 1:31:43", "sitat": "It's like a hint from me, basically." }
+      ] },
+    { "id": "risikoskifting", "tier": 2, "navn": "Risikoskifting og brannsalg", "skribent": "w5",
+      "hvorfor": "Kurbatov kalte risikoskifting et av de viktigste eksemplene i kurset. Det var H2024 E4, så det kommer i så fall i ny form, for eksempel med brannsalg ved konkurs, som han pekte ut i wrap-up.",
+      "signaler": [
+        { "hvor": "Forelesning 04 (Capital Structure III), 1:02:44", "sitat": "a crucial example, probably one of the most important in this lecture" },
+        { "hvor": "Forelesning 18 (Wrap-up), 28:00", "sitat": "we might see such an exercise" },
+        { "hvor": "Forelesning 06 (Problem set exercises), 1:28:24", "sitat": "trust me, there will be plenty of such questions in the exam where you have to provide intuition" }
+      ] },
+    { "id": "teori-kapital", "tier": 2, "navn": "Teori: kapitalstruktur, utbetaling og emisjon (10 poeng)", "skribent": "w2",
+      "hvorfor": "Det andre teorispørsmålet er ikke governance. Kurbatov ga flere ferdige formater: kostnader ved financial distress, fire måter å bruke fri kontantstrøm og en emisjon der kursen faller 12 %.",
+      "signaler": [
+        { "hvor": "Forelesning 18 (Wrap-up), 39:15", "sitat": "This could be a very nice exam question for the theoretical part. The four ways to manage the free cash flow" },
+        { "hvor": "Forelesning 18 (Wrap-up), 48:05", "sitat": "Again, could be one of the first two theoretical questions in the exam." },
+        { "hvor": "Forelesning 04 (Capital Structure III), 29:37", "sitat": "I could ask you, name one direct and one indirect cost of financial distress." }
+      ] },
+    { "id": "avvikle", "tier": 3, "navn": "Realopsjon: avvikle, gå ut eller trinnvis", "skribent": "w1",
+      "hvorfor": "Kurbatov sa at opsjonen til å avvikle kan komme, men brukte den selv i H2025 E5. Fellene er å sammenligne med 0, ikke med den negative verdien, og å bruke månedsrente når kontantstrømmene er månedlige.",
+      "signaler": [
+        { "hvor": "Forelesning 18 (Wrap-up), 1:06:01", "sitat": "I'm not sure if it was in the exam recently, but it could be something that we could explore" },
+        { "hvor": "Forelesning 14 (Options III), 1:18:41", "sitat": "If I give you a yearly rate, but the question is about months, then use the monthly rate." }
+      ] },
+    { "id": "signal", "tier": 3, "navn": "Asymmetrisk informasjon: emisjon, signal og sertifisering", "skribent": "w2",
+      "hvorfor": "Kurbatov sa at signalisering er et tema han liker godt. Det har ikke vært på hans eksamener, men var på 8 av 11 eldre sett.",
+      "signaler": [
+        { "hvor": "Forelesning 10 (Problem set exercises 2), 3:07", "sitat": "is a topic that I really like so you might expect something like that in the exam as well" },
+        { "hvor": "Forelesning 04 (Capital Structure III), 1:31:05", "sitat": "explain briefly in three sentences, explain pecking order. Or it could be like part D or part E of some exercise" }
+      ] },
+    { "id": "entreprenor", "tier": 3, "navn": "Replikasjon: gjeld eller egenkapital i perfekt marked", "skribent": "w5",
+      "hvorfor": "Fra første forelesning om kapitalstruktur. Kurbatov sa at han kan be deg finne sannsynligheten α i stedet for NPV, og at han liker indifferens-spørsmål.",
+      "signaler": [
+        { "hvor": "Forelesning 02 (Capital Structure I), 8:16", "sitat": "in the exam I could ask you not to solve for NPV, but solve for alpha" },
+        { "hvor": "Forelesning 02 (Capital Structure I), 1:25:02", "sitat": "I really like including such questions. Instead of find something, some outcome, I say find the x level where the person is indifferent" }
+      ] },
+    { "id": "opsjonsintuisjon", "tier": 3, "navn": "Opsjoner og gjeld som opsjoner (teori, 10 poeng)", "skribent": "w3",
+      "hvorfor": "Black-Scholes regnes ikke, men intuisjonen kan komme. H2025 E1 var dette, så en hel oppgave er mindre sannsynlig i år. Det kommer heller som en hale.",
+      "signaler": [
+        { "hvor": "Forelesning 18 (Wrap-up), 1:20", "sitat": "black shows calculation will not be in the exam. Intuition can be there." },
+        { "hvor": "Forelesning 12 (Options I), 1:23:59", "sitat": "the intuition for Black-Scholes can be in the exam I can ask you please like what happens if the volatility increases in the stock" }
+      ] },
+    { "id": "ma-motiver", "tier": 3, "navn": "M&A-motiver og hvem som vinner (teori, 10 poeng)", "skribent": "w1",
+      "hvorfor": "H2024 E1 var motiver uten synergier, så det kommer trolig i ny vinkel. «Value creation» alene gir ikke poeng.",
+      "signaler": [
+        { "hvor": "Forelesning 18 (Wrap-up), 1:10:05", "sitat": "explain the reasons for M&A without mentioning the word synergies" },
+        { "hvor": "Forelesning 16 (M&A), 7:04", "sitat": "I think this was an exam question, like slightly rephrased a couple years ago" }
+      ] }
+  ]
+}

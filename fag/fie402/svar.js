@@ -3038,6 +3038,1430 @@ window.EDU_DATA.svar = {
  "hint3-3:3:e": {
   "type": "tekst"
  },
+ "mk-cds-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price of bond 1",
+    "verdi": 96.15384615384615,
+    "enhet": "$"
+   },
+   {
+    "navn": "Price of bond 2",
+    "verdi": 92.16589861751153,
+    "enhet": "$"
+   }
+  ]
+ },
+ "mk-cds-1:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Expected return on bond 2",
+    "verdi": 5.841749999999979,
+    "enhet": "%"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Why does it differ from the promised yield?"
+ },
+ "mk-cds-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Risk-neutral default probability ρ",
+    "verdi": 0.11849901250822857,
+    "enhet": ""
+   }
+  ],
+  "merknad": "Overlevelsessannsynligheten 0.8815 er fellen og avvises."
+ },
+ "mk-cds-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price of one CDS contract",
+    "verdi": 0.11394135818098901,
+    "enhet": "$",
+    "alt": [
+     0.09615384615384616
+    ]
+   }
+  ],
+  "merknad": "alt er svaret med reserveverdien ρ = 0,10. Fellene 0.8476 (overlevelse), 0.0673 (reell p) og 0.1185 (udiskontert) avvises."
+ },
+ "mk-cds-1:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Number of CDS contracts",
+    "verdi": 35.0,
+    "enhet": ""
+   },
+   {
+    "navn": "Cost of the contracts",
+    "verdi": 3.987947536334615,
+    "enhet": "$",
+    "alt": [
+     3.3653846153846154
+    ]
+   },
+   {
+    "navn": "Bond plus contracts",
+    "verdi": 96.15384615384615,
+    "enhet": "$"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Compare with the price of bond 1.",
+  "merknad": "100 kontrakter er fellen; da blir posisjonen 103.5600. alt for kostnaden er svaret med CDS-prisen fra reserveverdien i (d) (3.3654); posisjonen med den (95.5313) ligger innenfor toleransen."
+ },
+ "mk-cds-1:1:f": {
+  "type": "tekst"
+ },
+ "mk-cds-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price of a government bond",
+    "verdi": 975.6097560975611,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Price of an Oksfjord bond",
+    "verdi": 925.9259259259259,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "Expected return on an Oksfjord bond",
+    "verdi": 6.056000000000017,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Gjenvinning 330 per obligasjon gir 5.11%; det avvises."
+ },
+ "mk-cds-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Risk-neutral default probability ρ",
+    "verdi": 0.11316872427983576,
+    "enhet": ""
+   },
+   {
+    "navn": "Price of one CDS contract",
+    "verdi": 0.1104085114925227,
+    "enhet": "NOK"
+   }
+  ],
+  "merknad": "Overlevelse 0.8868 og CDS 0.8652 med den avvises, det samme gjør reell p (0.0390)."
+ },
+ "mk-cds-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value of the put",
+    "verdi": 29.81029810298113,
+    "enhet": "NOK m",
+    "alt": [
+     24.3
+    ]
+   },
+   {
+    "navn": "Risk-free issue minus Oksfjord's issue",
+    "verdi": 29.81029810298105,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Compare the put with the difference between the two issue values.",
+  "merknad": "alt for putten er svaret med reserveverdien 0,09 (24.30). Per obligasjon er putten 49.6838; den teller bare skalert til hele utstedelsen."
+ },
+ "mk-cds-2:1:d": {
+  "type": "tekst"
+ },
+ "mk-cds-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price of a government bond",
+    "verdi": 95.66303671497991,
+    "enhet": "€",
+    "tol": 0.0002
+   },
+   {
+    "navn": "Price of a Vellmar bond",
+    "verdi": 89.71959482240227,
+    "enhet": "€",
+    "tol": 0.001
+   }
+  ],
+  "merknad": "Stram toleranse (0,02 % og 0,1 %) så enkel rente (95.6938 og 89.8876) avvises."
+ },
+ "mk-cds-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Number of CDS contracts",
+    "verdi": 12.0,
+    "enhet": "m contracts"
+   },
+   {
+    "navn": "Value of bonds plus contracts",
+    "verdi": 28.698911014493973,
+    "enhet": "€ m",
+    "tol": 0.0002
+   },
+   {
+    "navn": "Total cost of the contracts",
+    "verdi": 1.7830325677732937,
+    "enhet": "€ m",
+    "tol": 0.003
+   }
+  ],
+  "merknad": "Stram toleranse så enkel rente avvises: sikret verdi 28.7081, kostnad 1.7923 (bare r_f) eller 1.7418 (overalt). 30 millioner kontrakter er fellen."
+ },
+ "mk-cds-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price of one CDS contract",
+    "verdi": 0.14858604731444114,
+    "enhet": "€",
+    "tol": 0.002,
+    "alt": [
+     0.125
+    ]
+   },
+   {
+    "navn": "Risk-neutral default probability ρ",
+    "verdi": 0.1553223192748323,
+    "enhet": "",
+    "tol": 0.002,
+    "alt": [
+     0.13066697890056234
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdien €1.5 millioner. Toleranse 0,2 % så enkel rente avvises: på r_f alene CDS 0.1494 og ρ 0.1561, overalt 0.1452 og 0.1517. Ett år gir ρ = 0.1897."
+ },
+ "mk-cds-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Expected annual return",
+    "verdi": 5.917494959568592,
+    "enhet": "%",
+    "tol": 0.005
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Compare it with the promised yield and with the risk-free rate.",
+  "merknad": "Toleranse 0,5 % så avkastningen over 1,5 år delt på 1,5 (6.0042%) avvises."
+ },
+ "mk-cds-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-deal-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Offer value per T share",
+    "verdi": 106.2,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Premium over T's price before the rumours",
+    "verdi": 26.428571428571423,
+    "enhet": "%"
+   },
+   {
+    "navn": "Fraction owned by T's shareholders",
+    "verdi": 42.857142857142854,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-deal-1:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change in A's market value",
+    "verdi": 1440.0000000000014,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change in T's market value",
+    "verdi": 2580.0000000000005,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "What do the changes suggest about the deal's total gains and who captures them?"
+ },
+ "mk-deal-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Value if the deal goes through",
+    "verdi": 107.2464317755005,
+    "enhet": "€",
+    "tol": 0.005
+   },
+   {
+    "navn": "Value if the deal fails",
+    "verdi": 92.2464317755005,
+    "enhet": "€",
+    "tol": 0.005
+   }
+  ],
+  "merknad": "Helt år (1.04) gir 110.4480 og 95.4480, utenfor 0,5 %. Enkel rente havner innenfor og godtas som tilnærming."
+ },
+ "mk-deal-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability of completion",
+    "verdi": 66.33821978170099,
+    "enhet": "%",
+    "tol": 0.002,
+    "alt": [
+     61.31443161837098,
+     65.33333333333331
+    ]
+   }
+  ],
+  "merknad": "Toleranse 0,2 %: ingen rente (0.6667) og 101.20 i stedet for sikkerhetsekvivalenten (0.5969) avvises; enkel rente (0.6633) godtas. alt: reserveverdiene i oppgaveteksten gir 0.6131 og helt år i både (c) og (d) gir 0.6533 (følgefeil, straffet i (c))."
+ },
+ "mk-deal-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-deal-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Offer value per B share",
+    "verdi": 27.400000000000002,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "Premium over B's price before the announcement",
+    "verdi": 9.600000000000009,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-deal-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability of completion",
+    "verdi": 75.36842105263155,
+    "enhet": "%",
+    "tol": 0.005
+   }
+  ],
+  "merknad": "Stram toleranse (0,5 %): 132.50 i stedet for sikkerhetsekvivalenten gir 0.4747 og ingen rente i det hele tatt gir 0.7632; begge avvises."
+ },
+ "mk-deal-2:1:c": {
+  "type": "tekst"
+ },
+ "mk-deal-2:1:d": {
+  "type": "tekst"
+ },
+ "mk-deal-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Offer value per T share",
+    "verdi": 36.5,
+    "enhet": "£ per share"
+   },
+   {
+    "navn": "Spread in £",
+    "verdi": 1.3999999999999986,
+    "enhet": "£"
+   },
+   {
+    "navn": "Spread in percent of T's price",
+    "verdi": 3.9886039886039844,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-deal-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Amount invested at the risk-free rate",
+    "verdi": 1.3999999999999986,
+    "enhet": "£"
+   },
+   {
+    "navn": "Value if the deal goes through",
+    "verdi": 1.4311533810182597,
+    "enhet": "£",
+    "tol": 0.005
+   },
+   {
+    "navn": "Value if the deal fails (negative if a loss)",
+    "verdi": -3.0688466189817403,
+    "enhet": "£",
+    "tol": 0.005
+   }
+  ],
+  "merknad": "Helt år (1.045) gir 1.4630 og −3.0370; uten rente 1.4000 og −3.1000. Alle avvises med 0,5 %. Enkel rente godtas. Feltnavnet sier at et tap føres med minus."
+ },
+ "mk-deal-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability of completion",
+    "verdi": 68.19659153292757,
+    "enhet": "%",
+    "tol": 0.005,
+    "alt": [
+     66.66666666666666,
+     67.48888888888892
+    ]
+   }
+  ],
+  "merknad": "Toleranse 0,5 %: ingen rente (0.6889) avvises, enkel rente (0.6819) godtas. alt: reserveverdiene gir 0.6667, helt år fra (b) gir 0.6749 (følgefeil, straffet i (b))."
+ },
+ "mk-deal-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Probability of completion, colleague's position",
+    "verdi": 68.1965915329275,
+    "enhet": "%",
+    "tol": 0.005,
+    "alt": [
+     67.48888888888892
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Compare with (c) in one sentence.",
+  "merknad": "alt 0.6749: samme faktorfeil (1.045) som i (b), straffet bare der."
+ },
+ "mk-deal-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-gjeldsoverheng-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Bank loan",
+    "verdi": 140.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Equity",
+    "verdi": 60.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "merknad": "Pålydende 170 for lånet er fellen; da blir egenkapitalen 30."
+ },
+ "mk-gjeldsoverheng-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": 14.0,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "mk-gjeldsoverheng-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Fraction to new investors x",
+    "verdi": 47.72727272727273,
+    "enhet": "%"
+   },
+   {
+    "navn": "Sigurd's payoff",
+    "verdi": 46.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Will Sigurd do it? Would the bank like the line to be installed?",
+  "merknad": "Fellene: 42/176 = 23.86% (bare høy tilstand) og 48.84% (pålydende trukket fra forventet verdi) faller utenfor toleransen."
+ },
+ "mk-gjeldsoverheng-1:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change for the bank",
+    "verdi": 6.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Change for Sigurd",
+    "verdi": 8.0,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Will the bank accept? Will Sigurd go ahead?",
+  "merknad": "Bankens målestokk er 140 fra (a), ikke 170 eller 168."
+ },
+ "mk-gjeldsoverheng-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-gjeldsoverheng-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Bonds",
+    "verdi": 102.5,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Equity",
+    "verdi": 52.5,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "mk-gjeldsoverheng-2:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": 9.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Fraction to new shareholders x",
+    "verdi": 43.47826086956522,
+    "enhet": "%"
+   },
+   {
+    "navn": "Value of the existing shareholders' shares",
+    "verdi": 39.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Will the manager install the system?"
+ },
+ "mk-gjeldsoverheng-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change for bondholders",
+    "verdi": 22.5,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Change for existing shareholders",
+    "verdi": -13.5,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Would the bondholders like the system to be installed? Explain briefly."
+ },
+ "mk-gjeldsoverheng-2:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "F (if it exists)",
+    "verdi": 98.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "For which face values will the manager install the system?",
+  "merknad": "Fellen L + NPV = 89 (glemt 1/(1 − p)) avvises."
+ },
+ "mk-gjeldsoverheng-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-gjeldsoverheng-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Bank loan",
+    "verdi": 131.42857142857142,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Altmark's equity",
+    "verdi": 45.714285714285715,
+    "enhet": "€ m"
+   }
+  ],
+  "merknad": "50/50 gir 138.0952 og udiskontert 138 for lånet; begge avvises."
+ },
+ "mk-gjeldsoverheng-3:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": 20.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change for Altmark",
+    "verdi": -16.000000000000007,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change for the bank",
+    "verdi": 36.00000000000003,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Will Altmark install the panels?"
+ },
+ "mk-gjeldsoverheng-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Probability threshold p",
+    "verdi": 66.66666666666666,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Svaret er p ≥ 2/3. Udiskontert gir 63.49%; det avvises."
+ },
+ "mk-gjeldsoverheng-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Face value of the new senior loan",
+    "verdi": 42.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Bank loan",
+    "verdi": 143.42857142857142,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Altmark's equity",
+    "verdi": 53.714285714285715,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Will Altmark install the panels? Is the bank better or worse off than in (a)?",
+  "merknad": "Pålydende 40 (glemt renten) avvises."
+ },
+ "mk-gjeldsoverheng-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-governance-1:1:a": {
+  "type": "tekst"
+ },
+ "mk-governance-1:1:b": {
+  "type": "tekst"
+ },
+ "mk-governance-2:1:": {
+  "type": "tekst"
+ },
+ "mk-governance-3:1:a": {
+  "type": "tekst"
+ },
+ "mk-governance-3:1:b": {
+  "type": "tekst"
+ },
+ "mk-governance-3:1:c": {
+  "type": "tekst"
+ },
+ "mk-mm-rekap-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V",
+    "verdi": 450.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "P<sub>0</sub>",
+    "verdi": 36.0,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Div<sub>1</sub>",
+    "verdi": 2.52,
+    "enhet": "€ per share"
+   }
+  ]
+ },
+ "mk-mm-rekap-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Year 1 dividend per share",
+    "verdi": 4.0,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Price of the new shares",
+    "verdi": 34.52,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "New shares",
+    "verdi": 0.5359212051,
+    "enhet": "m shares"
+   },
+   {
+    "navn": "Dividend from Year 2",
+    "verdi": 2.4164,
+    "enhet": "€ per share"
+   }
+  ]
+ },
+ "mk-mm-rekap-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "P<sub>0</sub> after the announcement",
+    "verdi": 36.0,
+    "enhet": "€ per share"
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Are the current shareholders better or worse off than under the old policy? Explain briefly."
+ },
+ "mk-mm-rekap-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Buyback price",
+    "verdi": 38.52,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Shares bought back",
+    "verdi": 0.8177570093,
+    "enhet": "m shares"
+   },
+   {
+    "navn": "Dividend from Year 2",
+    "verdi": 2.6964,
+    "enhet": "€ per share"
+   }
+  ]
+ },
+ "mk-mm-rekap-1:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Old policy, end of Year 1",
+    "verdi": 38.52,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Sells in the buyback",
+    "verdi": 38.52,
+    "enhet": "€ per share"
+   },
+   {
+    "navn": "Keeps the share",
+    "verdi": 38.52,
+    "enhet": "€ per share"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Comment.",
+  "merknad": "Ingen reserveverdi for (d): enhver annen tilbakekjøpskurs enn 38.52 bryter likheten som kommentaren handler om. Posisjonen under gammel politikk avhenger bare av (a)."
+ },
+ "mk-mm-rekap-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 9.1,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-mm-rekap-2:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "New debt issued",
+    "verdi": 675.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Dividend per share",
+    "verdi": 20.0,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "Share price on announcement",
+    "verdi": 70.0,
+    "enhet": "$ per share"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Why does the share price react as it does upon announcement?"
+ },
+ "mk-mm-rekap-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price after the dividend",
+    "verdi": 50.0,
+    "enhet": "$ per share",
+    "alt": [
+     52.5
+    ]
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Are the shareholders better or worse off?",
+  "merknad": "alt 52.5 er svaret med reserveverdien $630M ny gjeld."
+ },
+ "mk-mm-rekap-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New r<sub>E</sub>",
+    "verdi": 11.8,
+    "enhet": "%",
+    "alt": [
+     12.5
+    ]
+   }
+  ],
+  "merknad": "alt 12.5 er svaret med reserveverdien r_U = 9.5%. Fellene 13.3 (gammel r_D) og 10.6429 (D/V) avvises."
+ },
+ "mk-mm-rekap-2:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Share price after the repurchase",
+    "verdi": 70.0,
+    "enhet": "$ per share"
+   },
+   {
+    "navn": "Shares repurchased",
+    "verdi": 5.1428571429,
+    "enhet": "m shares",
+    "alt": [
+     4.5
+    ]
+   }
+  ],
+  "merknad": "alt 4.5 er svaret med reserveverdien $630M ny gjeld (kursen er 70 uansett)."
+ },
+ "mk-mm-rekap-2:1:f": {
+  "type": "tekst"
+ },
+ "mk-mm-rekap-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 9.5,
+    "enhet": "%"
+   },
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 11.5,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-mm-rekap-3:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price on announcement",
+    "verdi": 45.0,
+    "enhet": "NOK per share"
+   },
+   {
+    "navn": "New shares",
+    "verdi": 13.3333333333,
+    "enhet": "m shares"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Explain briefly why the firm value changes or does not change."
+ },
+ "mk-mm-rekap-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New r<sub>E</sub>",
+    "verdi": 10.4705882353,
+    "enhet": "%",
+    "alt": [
+     11.0588235294
+    ]
+   }
+  ],
+  "merknad": "alt 11.0588 er svaret med reserveverdien r_U = 10%. Fellene 10.0294 (gammel r_D) og 10.3250 (D/V) avvises."
+ },
+ "mk-mm-rekap-3:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Div<sub>1</sub> without the refinancing",
+    "verdi": 5.175,
+    "enhet": "NOK per share"
+   },
+   {
+    "navn": "Div<sub>1</sub> with the refinancing",
+    "verdi": 4.7117647059,
+    "enhet": "NOK per share",
+    "alt": [
+     4.8545454545
+    ]
+   },
+   {
+    "navn": "Share price after the refinancing",
+    "verdi": 45.0,
+    "enhet": "NOK per share",
+    "alt": [
+     44.132231405,
+     42.8342245989,
+     42.6063829787,
+     46.3636363636
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdiene 12 millioner nye aksjer og r_E = 11%: utbyttet 4.8545, kursen 44.13 med begge, 42.83 med bare r_E-reserven og 42.61 med r_E fra reserve-r_U i (c). 46.36 med bare reserveantallet. Fellene 46.98 og 45.63 avvises."
+ },
+ "mk-mm-rekap-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-vente-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV of buying today",
+    "verdi": 20.9,
+    "enhet": "EUR m"
+   }
+  ],
+  "merknad": "Uten salget i t = 0 blir NPV 15.5000; det avvises."
+ },
+ "mk-vente-1:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV at t = 1, high price",
+    "verdi": 73.55,
+    "enhet": "EUR m"
+   },
+   {
+    "navn": "NPV at t = 1, low price",
+    "verdi": -7.450000000000003,
+    "enhet": "EUR m"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Would Lusoliva buy in each state?"
+ },
+ "mk-vente-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV of waiting (t = 0)",
+    "verdi": 23.83564814814814,
+    "enhet": "EUR m",
+    "alt": [
+     22.685185185185183
+    ]
+   },
+   {
+    "navn": "Value of the option to wait",
+    "verdi": 2.935648148148143,
+    "enhet": "EUR m",
+    "alt": [
+     1.7851851851851848
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Should Lusoliva buy today or wait?",
+  "merknad": "alt er svarene med reserveverdien 70 fra b). Med den negative lave tilstanden beholdt blir NPV av å vente 19.3519; det avvises."
+ },
+ "mk-vente-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "X",
+    "verdi": 77.55704697986559,
+    "enhet": "%",
+    "alt": [
+     52.527272727272646
+    ]
+   }
+  ],
+  "merknad": "Sannsynlighet i prosent (77.56 %; 0.7756 godtas også). alt 52.53 % er svaret med reserveverdien 70 fra b). NPV nå holdt fast på 20.9000 gir 0.3069 og avvises; begge NPV-ene avhenger av X."
+ },
+ "mk-vente-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-vente-2:1:a": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV of opening now",
+    "verdi": 3.9999999999999947,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Will you open it?"
+ },
+ "mk-vente-2:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV at t = 1, many firms",
+    "verdi": 7.33333333333333,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "NPV at t = 1, few firms",
+    "verdi": 0.6666666666666652,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "In which states would you open?"
+ },
+ "mk-vente-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV of waiting (t = 0)",
+    "verdi": 3.773584905660375,
+    "enhet": "NOK m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Do you open now or wait? Compare with (a) and explain briefly."
+ },
+ "mk-vente-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "X (indifference)",
+    "verdi": 0.2687999999999997,
+    "enhet": "NOK m",
+    "alt": [
+     268799.9999999997
+    ]
+   }
+  ],
+  "merknad": "X kan oppgis i NOK mill. (0.2688) eller i NOK (268,800). Uten diskontering fra t = 1 blir X 0.24; det avvises."
+ },
+ "mk-vente-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-vente-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV of building now",
+    "verdi": -2.4387550612950406,
+    "enhet": "USD m"
+   }
+  ]
+ },
+ "mk-vente-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV at t = 1, 3.5%",
+    "verdi": 3.60260138904669,
+    "enhet": "USD m"
+   },
+   {
+    "navn": "NPV at t = 1, 7.5%",
+    "verdi": -8.5542313704278,
+    "enhet": "USD m"
+   },
+   {
+    "navn": "NPV at t = 0, 3.5%",
+    "verdi": 3.3986805557044244,
+    "enhet": "USD m"
+   },
+   {
+    "navn": "NPV at t = 0, 7.5%",
+    "verdi": -8.070029594743207,
+    "enhet": "USD m",
+    "tol": 0.005
+   }
+  ],
+  "merknad": "Med 15 betalinger etter å vente blir NPV ved 3,5 % 6.5871; det avvises."
+ },
+ "mk-vente-3:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "ρ (3.5% rate)",
+    "verdi": 33.1430980846135,
+    "enhet": "%"
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Briefly explain why you do not need the true probabilities.",
+  "merknad": "Sannsynlighet i prosent (33.14 %; 0.3314 godtas også). Uten år 1-betalingen i S_u og S_d blir ρ 0.7427; uten (1 + r_f) 0.0918."
+ },
+ "mk-vente-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value of the option to wait",
+    "verdi": 1.1264280301598044,
+    "enhet": "USD m",
+    "alt": [
+     1.35947222228177,
+     1.2506829465891884,
+     1.509433962264151
+    ]
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Do you build now or wait? Briefly comment.",
+  "merknad": "alt er svarene med reserveverdiene som oppgaven gir: ρ = 0.40 (1.3595), NPV 4 (1.2507) og begge (1.5094). Målt mot den negative NPV-en blir det 3.5652; det avvises."
+ },
+ "mk-vente-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-wacc-apv-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "FCF<sub>0</sub>",
+    "verdi": -51.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "FCF<sub>1</sub>",
+    "verdi": 21.75,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "FCF<sub>2</sub>",
+    "verdi": 35.25,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "FCF<sub>3</sub>",
+    "verdi": 26.25,
+    "enhet": "€ m"
+   }
+  ]
+ },
+ "mk-wacc-apv-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 8.1,
+    "enhet": "%",
+    "tol": 0.0058
+   }
+  ],
+  "merknad": "Fellene er brutto gjeld (7.98%) og r_U uten skatt (8.60%)."
+ },
+ "mk-wacc-apv-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV (WACC)",
+    "verdi": 20.065884648163234,
+    "enhet": "€ m",
+    "tol": 0.0031,
+    "alt": [
+     20.86574767001649
+    ]
+   }
+  ],
+  "merknad": "Fellene er NPV med r_U (19.4104), med WACC fra brutto gjeld og PV uten investeringen. alt (20.8657) er svaret med reserveverdien r_wacc = 7.5 %."
+ },
+ "mk-wacc-apv-1:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "D<sub>0</sub>",
+    "verdi": 28.426353859265294,
+    "enhet": "€ m",
+    "tol": 0.0036,
+    "alt": [
+     28.746299068006596
+    ]
+   },
+   {
+    "navn": "D<sub>1</sub>",
+    "verdi": 22.02888852186578,
+    "enhet": "€ m",
+    "tol": 0.0025,
+    "alt": [
+     22.202271498107088
+    ]
+   },
+   {
+    "navn": "D<sub>2</sub>",
+    "verdi": 9.713228492136912,
+    "enhet": "€ m",
+    "tol": 0.0018,
+    "alt": [
+     9.767441860465118
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Does Orvelle borrow or repay in Years 1 to 3?",
+  "merknad": "Toleransen er stram fordi gjeld regnet fra V^U (diskontert med r_U) ligger under 1 % unna. Tekstdelen: Orvelle betaler ned gjeld hvert år. alt er gjelden med reserveverdien r_wacc = 7.5 %."
+ },
+ "mk-wacc-apv-1:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 8.600000000000001,
+    "enhet": "%"
+   },
+   {
+    "navn": "V<sup>U</sup><sub>0</sub>",
+    "verdi": 70.410422553775,
+    "enhet": "€ m",
+    "tol": 0.0037
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 0.6554620943882123,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "NPV (APV)",
+    "verdi": 20.06588464816322,
+    "enhet": "€ m",
+    "tol": 0.001
+   }
+  ],
+  "merknad": "Diskonteres skjoldet med r_D, blir NPV 20.1035, 0.19 % unna, så toleransen på NPV er 0.1 %. PV(TS) med r_D (0.6931 mot 0.6555) avvises med standardtoleransen. PV(TS) diskontert med r_wacc (0.6605) ligger innenfor 1 % og godtas. alt er svarene med reserveverdien r_wacc = 7.5 %."
+ },
+ "mk-wacc-apv-1:1:f": {
+  "type": "tekst"
+ },
+ "mk-wacc-apv-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "β<sub>U</sub> Cratewell",
+    "verdi": 1.0,
+    "enhet": ""
+   },
+   {
+    "navn": "β<sub>U</sub> Mealmont",
+    "verdi": 1.2,
+    "enhet": ""
+   }
+  ]
+ },
+ "mk-wacc-apv-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 10.55,
+    "enhet": "%"
+   },
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 13.583333333333336,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-wacc-apv-2:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 10.046000000000003,
+    "enhet": "%",
+    "alt": [
+     9.496
+    ]
+   }
+  ],
+  "merknad": "alt (9.4960%) er svaret med reserveverdien r_U = 10 %."
+ },
+ "mk-wacc-apv-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup> (WACC)",
+    "verdi": 344.5534057778955,
+    "enhet": "$ m",
+    "alt": [
+     371.64093767867354
+    ]
+   }
+  ],
+  "merknad": "Fellene er V^U (322.9814) og verdien uten vekst. alt er svaret med reserveverdien r_U = 10 %."
+ },
+ "mk-wacc-apv-2:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "D<sub>0</sub>",
+    "verdi": 137.8213623111582,
+    "enhet": "$ m",
+    "alt": [
+     148.65637507146943
+    ]
+   },
+   {
+    "navn": "D<sub>1</sub>",
+    "verdi": 141.26689636893715,
+    "enhet": "$ m",
+    "tol": 0.0097,
+    "alt": [
+     152.37278444825614
+    ]
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 21.57203931826823,
+    "enhet": "$ m",
+    "alt": [
+     24.974271012006856
+    ]
+   },
+   {
+    "navn": "V<sup>L</sup> (APV)",
+    "verdi": 344.55340577789553,
+    "enhet": "$ m",
+    "tol": 0.0059,
+    "alt": [
+     371.64093767867354
+    ]
+   }
+  ],
+  "merknad": "Fellene for D_1 er gjeld holdt fast (D_1 = D_0) og gjeld fra V^U. alt er svarene med reserveverdien r_U = 10 %."
+ },
+ "mk-wacc-apv-2:1:f": {
+  "type": "tekst"
+ },
+ "mk-wacc-apv-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 9.0,
+    "enhet": "%"
+   },
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 7.470000000000001,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-wacc-apv-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "FCF<sub>0</sub>",
+    "verdi": -74.0,
+    "enhet": "DKK m"
+   },
+   {
+    "navn": "FCF<sub>1</sub>",
+    "verdi": 37.36,
+    "enhet": "DKK m"
+   },
+   {
+    "navn": "FCF<sub>2</sub>",
+    "verdi": 60.82,
+    "enhet": "DKK m"
+   }
+  ],
+  "merknad": "Fellene er sunk cost tatt med, NWC-nivå i stedet for endring, kannibaliseringen utelatt og ΔNWC utelatt. FCF_2 med nivå og uten ΔNWC er samme tall (44.82)."
+ },
+ "mk-wacc-apv-3:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV (WACC)",
+    "verdi": 13.422106124790432,
+    "enhet": "DKK m",
+    "alt": [
+     12.178299324622998
+    ]
+   }
+  ],
+  "merknad": "Fellene er NPV med r_U (12.9938), med r_E, PV uten investeringen og sunk cost tatt med. alt (12.1783) er svaret med reservekontantstrømmene."
+ },
+ "mk-wacc-apv-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "D<sub>0</sub>",
+    "verdi": 26.22663183743713,
+    "enhet": "DKK m",
+    "tol": 0.0019,
+    "alt": [
+     26.1534897973869
+    ]
+   },
+   {
+    "navn": "Debt adjustment, Year 1",
+    "verdi": -9.248870601743448,
+    "enhet": "DKK m",
+    "tol": 0.0033,
+    "alt": [
+     9.248870601743448,
+     -8.846334312135202,
+     8.846334312135202
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Does Brandholm borrow or repay?",
+  "merknad": "Begge fortegn godtas for justeringen (D_1 − D_0 eller D_0 − D_1). Retningen (nedbetaling) rettes i tekstdelen. Toleransen er stram fordi tallene regnet fra V^U ligger under 1 % unna. 0.3 × 74 = 22.2 (gjeld fra utlegget) er en felle. Resten av alt er svarene med reservekontantstrømmene."
+ },
+ "mk-wacc-apv-3:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 7.8,
+    "enhet": "%"
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 0.42832598497265256,
+    "enhet": "DKK m"
+   },
+   {
+    "navn": "NPV (APV)",
+    "verdi": 13.422106124790425,
+    "enhet": "DKK m",
+    "tol": 0.001,
+    "alt": [
+     12.178299324622985
+    ]
+   }
+  ],
+  "merknad": "Diskonteres skjoldet med r_D, blir NPV 0.12 % høyere, så toleransen på NPV er 0.1 % (hver nåverdi rundet til to desimaler gir 13.43, innenfor). PV(TS) (0.4441 mot 0.4283) avviser r_D med standardtoleransen. alt er svarene med reservekontantstrømmene."
+ },
+ "mk-wacc-apv-3:1:f": {
+  "type": "tekst"
+ },
  "prove1:1:": {
   "type": "tekst"
  },
