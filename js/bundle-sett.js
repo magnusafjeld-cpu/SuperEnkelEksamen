@@ -42,6 +42,14 @@
    ({ art, navn, intro }) får sin egen fane i stedet for å vises under «Per del».
    Fanen viser én del om gangen som «Per del», men uten overskrift per art.
 
+   Kortsvar (26. november 2026). EDU_DATA.perDel.kortsvar ({ del, navn, tekst }) gir
+   «Per del» et eget valg før Del 1, 2, 3 med settene som har den del-verdien (for
+   FIE402 "kort"): de korte drøftingsoppgavene, lånt fra kildesettene. En oppgave et
+   kortsvarsett låner, tas ut av de andre deleksamenene (utenKortsvar), så den bare
+   står ett sted. Oppgavene som blir igjen, beholder n (lagringsnøkkelen, så lagret
+   fremdrift ikke flytter seg), men vises med løpenummer (visN). Poeng, minutter og
+   antall oppgaver regnes om.
+
    Lånte oppgaver. Et sett med `lån` (en liste med { sett, n, merke }) har ingen egne
    oppgaver, men låner dem fra andre sett. Motoren slår dem opp når lista leses, og
    gjenbruker oppslaget, så setById gir samme objekt hver gang. Oppgavene nummereres
@@ -88,14 +96,49 @@ window.EDU = window.EDU || {};
       if (!ex) { console.warn(`[sett] ${set.id}: fant ikke ${ref.sett} oppgave ${ref.n}`); return; }
       oppgaver.push(Object.assign({}, ex, { n: oppgaver.length + 1, kilde: `${kilde.label} · oppgave ${ex.n}`, merke: ref.merke || "", kildeId: kilde.id, kildeN: ex.n }));
     });
-    const k = oppgaver.map((e) => e.kilde);
-    const note = set.note || (k.length ? "Hentet fra " + (k.length > 1 ? k.slice(0, -1).join(", ") + " og " + k[k.length - 1] : k[0]) + "." : "");
-    const løst = Object.assign({}, set, { exercises: oppgaver, note });
+    const løst = Object.assign({}, set, { exercises: oppgaver, note: set.note || hentetFra(oppgaver), _lagetNote: !set.note });
     lånt.set(set, løst);
     return løst;
   }
-  const SETS = () => { const alle = window.EDU_DATA.sets || []; return alle.map((s) => (s.lån ? slåOppLån(s, alle) : s)); };
+  const hentetFra = (oppgaver) => {
+    const k = oppgaver.map((e) => e.kilde).filter(Boolean);
+    return k.length ? "Hentet fra " + (k.length > 1 ? k.slice(0, -1).join(", ") + " og " + k[k.length - 1] : k[0]) + "." : "";
+  };
   const perDel = () => window.EDU_DATA.perDel || {};
+  const KORT = () => (perDel().kortsvar || {}).del;
+  /* Oppgavene kortsvarsettene låner, som "<settId>:<n>" i kildesettet. */
+  function kortsvarRefs(alle) {
+    const k = KORT(), ut = new Set();
+    if (k == null) return ut;
+    alle.forEach((s) => { if (s.kind === "del" && s.del === k) (s.lån || []).forEach((r) => ut.add(r.sett + ":" + r.n)); });
+    return ut;
+  }
+  /* En deleksamen uten oppgavene som står under Kortsvar. Samme objekt hver gang. */
+  const utenKort = new WeakMap();
+  function utenKortsvar(set, refs) {
+    if (utenKort.has(set)) return utenKort.get(set);
+    const alle = set.exercises || [];
+    const igjen = alle.filter((ex) => !refs.has(`${ex.kildeId || set.id}:${ex.kildeN || ex.n}`));
+    let løst = set;
+    if (igjen.length && igjen.length < alle.length) {
+      const poeng = igjen.reduce((a, ex) => a + (ex.points || 0), 0);
+      const exercises = igjen.map((ex, i) => (ex.n === i + 1 ? ex : Object.assign({}, ex, { visN: i + 1 })));
+      løst = Object.assign({}, set, { exercises, points: poeng,
+        minutes: Math.max(5, Math.round(((set.minutes || 0) * poeng) / (set.points || poeng) / 5) * 5),
+        format: igjen.length === 1 ? "1 oppgave" : `${igjen.length} oppgaver`,
+        note: set._lagetNote ? hentetFra(exercises) : set.note });
+    }
+    utenKort.set(set, løst);
+    return løst;
+  }
+  const SETS = () => {
+    const alle = window.EDU_DATA.sets || [];
+    const løst = alle.map((s) => (s.lån ? slåOppLån(s, alle) : s));
+    const refs = kortsvarRefs(alle), k = KORT();
+    return refs.size ? løst.map((s) => (s.kind === "del" && s.del !== k ? utenKortsvar(s, refs) : s)) : løst;
+  };
+  /* Nummeret som vises. n er lagringsnøkkelen og kan ha hull etter utenKortsvar. */
+  const nrAv = (ex) => ex.visN || ex.n;
 
   /* ---------- lokal tilstand (ikke persistert: hvor du er, ikke hva du har gjort) ---------- */
   let openSet = null;      // settId, eller null for listevisningen
@@ -434,22 +477,25 @@ window.EDU = window.EDU || {};
      rekkefølgen EDU_DATA.perDel.arter gir. Sett uten kjent art kommer sist.
      utenArt: en arts egen fane, der overskriften per art bare gjentar fanen. */
   function perDelListe(wrap, sets, utenArt) {
-    const cfg = perDel();
-    const nr = [...new Set(sets.map((s) => s.del))].sort((a, b) => a - b);
+    const cfg = perDel(), kort = cfg.kortsvar || {}, K = kort.del;
+    /* Kortsvar først, så delene i nummerrekkefølge. */
+    const nr = [...new Set(sets.map((s) => s.del))].sort((a, b) => (a === K ? -1 : b === K ? 1 : a - b));
+    const navn = (n) => (n === K ? kort.navn || "Kortsvar" : `Del ${n}`);
     if (!nr.includes(valgtDel)) valgtDel = nr[0];
     if (nr.length > 1) {
       const seg = el(".seg", { style: { marginBottom: "14px" } });
       nr.forEach((n) => seg.appendChild(el("button" + (n === valgtDel ? ".on" : ""),
-        { onclick: () => { if (valgtDel !== n) { valgtDel = n; S.app.refresh(); } } }, `Del ${n}`)));
+        { onclick: () => { if (valgtDel !== n) { valgtDel = n; S.app.refresh(); } } }, navn(n))));
       wrap.appendChild(seg);
     }
-    const info = (cfg.deler || []).find((d) => d.del === valgtDel) || {};
+    const info = valgtDel === K ? {} : (cfg.deler || []).find((d) => d.del === valgtDel) || {};
     const iDel = sets.filter((s) => s.del === valgtDel);
     wrap.appendChild(el(".row.wrap", { style: { gap: "10px", alignItems: "baseline", margin: "4px 0 12px" } },
-      el("h3", { style: { fontSize: "19px" } }, `Del ${valgtDel}` + (info.navn ? " · " + info.navn : "")),
+      el("h3", { style: { fontSize: "19px" } }, navn(valgtDel) + (info.navn ? " · " + info.navn : "")),
       info.kapitler ? el(".chip.slate", kapRekke(info.kapitler)) : null,
       el(".spacer"),
       el(".tiny.muted", `${iDel.filter(erGjort).length} av ${iDel.length} sett gjort`)));
+    if (valgtDel === K && kort.tekst) wrap.appendChild(el("p.tiny.muted", { style: { margin: "-4px 0 12px", lineHeight: 1.55 } }, kort.tekst));
     const us = usikreKort(iDel);
     if (us) wrap.appendChild(us);
     const arter = cfg.arter || [];
@@ -505,7 +551,7 @@ window.EDU = window.EDU || {};
       el(".tiny", { style: { fontWeight: 620, minWidth: "120px" } }, set.label),
       ...merker.map(({ ex, etikett, usikker, feil }) => el(feil ? "button.chip.rose.sett-nav" : "button.chip.amber.sett-nav", {
         type: "button", title: (feil && usikker ? "Feil svar, og merket som usikker" : feil ? "Feil svar" : "Merket som usikker") + (ex.title ? " · " + ex.title : ""),
-        onclick: () => åpneOppgave(set, ex) }, (usikker ? "⚑ " : "") + ex.n + etikett + (feil ? " · feil" : ""))))));
+        onclick: () => åpneOppgave(set, ex) }, (usikker ? "⚑ " : "") + nrAv(ex) + etikett + (feil ? " · feil" : ""))))));
     return card;
   }
 
@@ -633,7 +679,7 @@ window.EDU = window.EDU || {};
 
   function exerciseHead(set, ex) {
     return el(".row.wrap", { style: { gap: "10px", alignItems: "baseline", marginBottom: "10px" } },
-      el("h3", { style: { fontSize: "18px" } }, `Oppgave ${ex.n}${ex.title ? " · " + ex.title : ""}`),
+      el("h3", { style: { fontSize: "18px" } }, `Oppgave ${nrAv(ex)}${ex.title ? " · " + ex.title : ""}`),
       ex.kilde ? el(".chip.slate", { style: { fontSize: "11px" }, title: "Oppgaven er lånt herfra" }, ex.kilde) : null,
       ex.merke ? el(".chip", { style: { fontSize: "11px" } }, ex.merke) : null,
       el(".spacer"),
@@ -930,7 +976,7 @@ window.EDU = window.EDU || {};
     const krit = (part.criteria || []).map((c, i) => `${i + 1}. ${ren(c)}`).join("\n");
     return `Du er sensor på FIE402 Corporate Finance ved NHH (eksamen satt av Andrey Kurbatov). Jeg øver til eksamen og vil ha en streng og konkret vurdering, ikke oppmuntring.
 
-## Oppgaven: ${set.label}, oppgave ${ex.n}${ex.title ? " (" + ex.title + ")" : ""}
+## Oppgaven: ${set.label}, oppgave ${nrAv(ex)}${ex.title ? " (" + ex.title + ")" : ""}
 ${ren(ex.body || "")}
 ${part._hel ? "" : `\n## Deloppgave ${e}) (${maks} poeng)\n${ren(part.body || "")}\n`}${tidligere ? `\n## Mine svar på tidligere deloppgaver\n${tidligere}\n` : ""}${tallLinjer ? `\n## Tallene i denne deloppgaven (allerede rettet automatisk, ${tallMaks(d, maks)} poeng)\n${tallLinjer}\n` : ""}
 ## Svaret mitt${d.type === "blandet" ? ` på tekstdelen (${cm} poeng)` : ` (${cm} poeng)`}${d.tekstLedd ? ": " + d.tekstLedd : ""}
@@ -1177,7 +1223,7 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
       const us = harMerke(set, ex);
       const cls = i === cursor ? "button.chip.sett-nav.on" : us ? "button.chip.amber.sett-nav" : revealed ? "button.chip.green.sett-nav" : "button.chip.sett-nav";
       nav.appendChild(el(cls, { title: us ? "Usikker eller feil" : "", onclick: () => { cursor = i; S.app.refresh(); } },
-        `${ex.n}`, us ? el("span", { style: { marginLeft: "4px" } }, "⚑") : revealed && i !== cursor ? el("span", { style: { marginLeft: "4px" } }, "✓") : null));
+        `${nrAv(ex)}`, us ? el("span", { style: { marginLeft: "4px" } }, "⚑") : revealed && i !== cursor ? el("span", { style: { marginLeft: "4px" } }, "✓") : null));
     });
     wrap.appendChild(nav);
 
@@ -1544,7 +1590,7 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
         if (!l.tema) return;
         const t = per[l.tema] || (per[l.tema] = { n: 0, rett: 0, usikker: 0, feil: 0, vet: 0, blank: 0, feilene: [], hvor: [] });
         const i = valg[l.nøkkel];
-        const sted = { set, ex, etikett: ex.n + l.nøkkel };
+        const sted = { set, ex, etikett: nrAv(ex) + l.nøkkel };
         t.n++;
         if (i == null) { t.blank++; t.hvor.push(Object.assign(sted, { hva: "ubesvart" })); }
         else if (i === VET_IKKE) { t.vet++; t.hvor.push(Object.assign(sted, { hva: "vet ikke" })); }
@@ -1771,13 +1817,13 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
   }
   function oppgTekst(o, med) {
     const ex = o.ex;
-    const ut = [`## Oppgave ${ex.n}${ex.title ? " · " + ex.title : ""}${ex.points ? ` (${pts(ex.points)} p)` : ""}`];
+    const ut = [`## Oppgave ${nrAv(ex)}${ex.title ? " · " + ex.title : ""}${ex.points ? ` (${pts(ex.points)} p)` : ""}`];
     const info = [ex.topic ? "Tema: " + ex.topic : null, ex.kilde ? "Hentet fra " + ex.kilde : null, ex.merke || null].filter(Boolean);
     if (info.length) ut.push(info.join(" · "));
     if (o.selv && o.selv.poeng < o.selv.maks - 1e-9) ut.push(`Selvvurdert til ${pts(o.selv.poeng)} av ${pts(o.selv.maks)} p. Hvilke deler som trakk ned, er ikke registrert.`);
     if (tilStede(ex.body)) ut.push("", renTekst(ex.body));
     med.forEach((s) => {
-      ut.push("", `### ${s.etikett ? ex.n + s.etikett + ")" : "Hele oppgaven"} · ${statusTekst(s)}`);
+      ut.push("", `### ${s.etikett ? nrAv(ex) + s.etikett + ")" : "Hele oppgaven"} · ${statusTekst(s)}`);
       if (s.etikett && tilStede(s.part.body)) ut.push(renTekst(s.part.body));
       ut.push(...leddLinjer(s));
     });
@@ -1796,10 +1842,10 @@ Svar på norsk med to til tre setninger, med tallet du fikk. Avslutt med en egen
     const tell = {};
     rap.med.forEach((s) => { const k = s.hva && s.hva !== "riktig" ? s.hva : s.førsteFeil ? "første" : "usikker"; tell[k] = (tell[k] || 0) + 1; });
     ut.push("Med her: " + Object.entries(tell).map(([k, n]) => `${NAVN[k]} ${n}`).join(", "));
-    const alle = rap.oppg.flatMap((o) => o.deler.map((s) => ({ s, navn: o.ex.n + s.etikett })));
+    const alle = rap.oppg.flatMap((o) => o.deler.map((s) => ({ s, navn: nrAv(o.ex) + s.etikett })));
     const ok = alle.filter((x) => x.s.hva === "riktig" && !x.s.usikker && !x.s.førsteFeil).map((x) => x.navn);
     const påbegynt = (ex) => rap.oppg.some((o) => o.ex === ex && o.deler.some((s) => s.hva || s.usikker));
-    const ikke = rap.oppg.flatMap((o) => (kunPåbegynte && !påbegynt(o.ex) ? [] : o.deler.map((s) => ({ s, navn: o.ex.n + s.etikett }))))
+    const ikke = rap.oppg.flatMap((o) => (kunPåbegynte && !påbegynt(o.ex) ? [] : o.deler.map((s) => ({ s, navn: nrAv(o.ex) + s.etikett }))))
       .filter((x) => !x.s.hva && !x.s.usikker).map((x) => x.navn);
     if (ok.length) ut.push("Riktig og sikker (ikke med): " + ok.join(", "));
     if (ikke.length) ut.push("Ikke rettet ennå: " + ikke.join(", "));

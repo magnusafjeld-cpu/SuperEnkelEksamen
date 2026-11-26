@@ -6714,7 +6714,11 @@ window.EDU_DATA.sets = [
    id-ene er lagringsnøkler og endres aldri.
    ============================================================================ */
 window.EDU_DATA.perDel = {
-  intro: "Sett med oppgaver fra bare én del av pensum. De fleste er hentet fra prøveeksamenene, og noen av settene «Mest forventet» har egne oppgaver. Ingen av dem er de ekte eksamensoppgavene, men alle ligner dem. Ta én del om gangen og gå videre til hele sett når delen sitter.",
+  intro: "Sett med oppgaver fra bare én del av pensum. De fleste er hentet fra prøveeksamenene og noen av settene «Mest forventet» har egne oppgaver. Ingen av dem er de ekte eksamensoppgavene, men alle ligner dem. Ta én del om gangen og gå videre til hele sett når delen sitter. De korte drøftingsoppgavene på 12 poeng ligger for seg under Kortsvar.",
+  /* Kortsvar (26. november 2026): settene med del: "kort" får et eget valg før Del 1,
+     og oppgavene de låner, tas ut av deleksamenene. Se js/bundle-sett.js. */
+  kortsvar: { del: "kort", navn: "Kortsvar",
+    tekst: "De korte drøftingsoppgavene på 12 poeng, som oppgave 1 og 2 på eksamen: opsjonsintuisjon eller M&A og så governance. Ingen regning, bare forklaring med mekanismen. Regn 1,8 minutter per poeng, rundt 22 minutter per oppgave. Oppgavene sto før i deleksamenene, så Del 1, 2 og 3 har nå bare regneoppgavene." },
   deler: [
     { del: 1, navn: "Grunnlag og verdsetting med gjeld", kapitler: [1, 2, 3, 4, 5, 17, 18, 19, 20] },
     { del: 2, navn: "Kapitalstruktur, agentkostnader og informasjon", kapitler: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] },
@@ -6879,6 +6883,85 @@ window.EDU_DATA.sets.push(
       { sett: "prove7", n: 2, merke: "Vri: forskjøvet styrevalg og kvalifisert flertall" },
       { sett: "prove8", n: 2, merke: "Vri: aksjonærer eller interessenter" },
       { sett: "prove11", n: 5, merke: "Vri: søksmålstreet" },
+    ] },
+  /* ===================== KORTSVAR (26. november 2026) =====================
+     De korte drøftingsoppgavene på 12 poeng, tatt ut av deleksamenene over og samlet
+     under «Kortsvar» i «Per del» (EDU_DATA.perDel.kortsvar). Motoren tar en oppgave
+     som lånes her, ut av deleksamenen den sto i. Parene følger eksamen: oppgave 1
+     (opsjoner eller M&A) og oppgave 2 (governance). «Mest forventet» er parene fra
+     settene med samme navn i del 3. «Med vri» samler vriene fra del 2 og del 3.
+     ============================================================ */
+  { id: "kort-f1", kind: "del", del: "kort", art: "forventet", label: "Kortsvar · Mest forventet 1", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "prove2", n: 1, merke: "Som H2024 E1: M&A-motiver, verbalt" },
+      { sett: "prove1", n: 2, merke: "Som H2024 E2: overvåkingsmekanismer" },
+    ] },
+  { id: "kort-f2", kind: "del", del: "kort", art: "forventet", label: "Kortsvar · Mest forventet 2", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "prove12", n: 1, merke: "Som H2025 E1: opsjonsintuisjon, verbalt" },
+      { sett: "prove9", n: 2, merke: "Som H2025 E2: aksjonærtiltak" },
+    ] },
+  { id: "kort-f3", kind: "del", del: "kort", art: "forventet", label: "Kortsvar · Mest forventet 3", minutes: 65, points: 36, format: "3 oppgaver",
+    lån: [
+      { sett: "prove1", n: 1, merke: "Som H2025 E1: opsjonsintuisjon, verbalt" },
+      { sett: "prove6", n: 1, merke: "Som H2024 E1: hvem vinner på oppkjøp, verbalt" },
+      { sett: "prove11", n: 2, merke: "Som H2024 E2: hvem overvåker og med hva" },
+    ] },
+  { id: "kort-f4", kind: "del", del: "kort", art: "forventet", label: "Kortsvar · Mest forventet 4", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "del3-f4", n: 1, merke: "Som H2025 E1: opsjonsintuisjon uten regning, med et handlingsråd" },
+      { sett: "del3-f4", n: 2, merke: "Som H2024 E2: to måter å overvåke ledelsen på" },
+    ] },
+  { id: "kort-f5", kind: "del", del: "kort", art: "forventet", label: "Kortsvar · Mest forventet 5", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "del3-f5", n: 1, merke: "Som H2024 E1: fire grunner, positivt og negativt for kjøper og mål" },
+      { sett: "del3-f5", n: 2, merke: "Som H2025 E2: tre tiltak for en eier med 5–10 %" },
+    ] },
+  { id: "kort-f6", kind: "del", del: "kort", art: "forventet", label: "Kortsvar · Mest forventet 6", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "del3-f6", n: 1, merke: "Som H2025 E1, ny vinkel: opsjonsintuisjon uten regning" },
+      { sett: "del3-f6", n: 2, merke: "Som H2025 E2 i formen: tre tiltak, nå fra eierens side" },
+    ] },
+  { id: "kort-v1", kind: "del", del: "kort", art: "vri", label: "Kortsvar · Med vri 1", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "prove4", n: 1, merke: "Vri: kursfall ved emisjon, verbalt" },
+      { sett: "prove3", n: 1, merke: "Vri: utbyttepolitikk, verbalt" },
+    ] },
+  { id: "kort-v2", kind: "del", del: "kort", art: "vri", label: "Kortsvar · Med vri 2", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "prove8", n: 1, merke: "Vri: børsnotering og underprising, verbalt" },
+      { sett: "prove5", n: 1, merke: "Vri: fire måter å bruke fri kontantstrøm, verbalt" },
+    ] },
+  { id: "kort-v3", kind: "del", del: "kort", art: "vri", label: "Kortsvar · Med vri 3", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "prove9", n: 1, merke: "Vri: kutt i utbyttet og tilbakekjøp, verbalt" },
+      { sett: "prove11", n: 1, merke: "Vri: tre påstander om kapitalstruktur, verbalt" },
+    ] },
+  { id: "kort-v4", kind: "del", del: "kort", art: "vri", label: "Kortsvar · Med vri 4", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "prove10", n: 1, merke: "Vri: kontanter eller aksjer, verbalt" },
+      { sett: "prove2", n: 2, merke: "Vri: lederlønn" },
+    ] },
+  { id: "kort-v5", kind: "del", del: "kort", art: "vri", label: "Kortsvar · Med vri 5", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "prove7", n: 1, merke: "Vri: amerikanske opsjoner og gjeld som put, verbalt" },
+      { sett: "prove10", n: 2, merke: "Vri: interessentmål i lederlønnen" },
+    ] },
+  { id: "kort-v6", kind: "del", del: "kort", art: "vri", label: "Kortsvar · Med vri 6", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "prove3", n: 2, merke: "Vri: aktivisme og forsvarstiltak" },
+      { sett: "prove4", n: 2, merke: "Vri: bonus knyttet til et EPS-mål" },
+    ] },
+  { id: "kort-v7", kind: "del", del: "kort", art: "vri", label: "Kortsvar · Med vri 7", minutes: 45, points: 24, format: "2 oppgaver",
+    lån: [
+      { sett: "prove5", n: 2, merke: "Vri: svakheter i styret" },
+      { sett: "prove6", n: 2, merke: "Vri: stemmerådgivere" },
+    ] },
+  { id: "kort-v8", kind: "del", del: "kort", art: "vri", label: "Kortsvar · Med vri 8", minutes: 65, points: 36, format: "3 oppgaver",
+    lån: [
+      { sett: "prove12", n: 2, merke: "Vri: forsvar mot et fiendtlig bud" },
+      { sett: "prove7", n: 2, merke: "Vri: forskjøvet styrevalg og kvalifisert flertall" },
+      { sett: "prove8", n: 2, merke: "Vri: aksjonærer eller interessenter" },
     ] },
   /* ===================== EGNE OPPGAVER (23. november 2026) =====================
      Deleksamener med egne oppgaver, ikke lånt. Kilden er fag/fie402/_del/, bygd med

@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-11-25
+oppdatert: 2026-11-26
 ---
 
 # FIE402 Corporate Finance
@@ -581,6 +581,17 @@ H2025 E6). Fire skribenter og fire blinde kontrollører: alle tall stemte i før
 Spesifikasjon: `docs/fie402-deleksamen-spek.md`. Kilde: `fag/fie402/_del/` (s1–s4 og
 `sett.json`), flettet inn med `tools/flett-del.py fie402 --skriv`. Hvorfor oppgavene er lånt og ikke kopiert,
 står i [[Eksamenssett-modulen]].
+
+**Kortsvar (26. november 2026).** Magnus ba om at de korte drøftingsoppgavene på 12
+poeng skulle stå for seg i «Per del», med valgene Kortsvar, Del 1, Del 2 og Del 3. Alle 30
+(13 fra settene «Mest forventet» i del 3, 17 vrier fra del 2 og del 3) ligger nå i 14
+kortsvarsett (`kort-f1`–`f6` og `kort-v1`–`v8`, `del: "kort"`), to eller tre oppgaver
+hver, som oppgave 1 og 2 på eksamen. «Mest forventet» er parene fra settene med samme
+navn i del 3. Settene låner oppgavene og motoren tar dem ut av deleksamenene, så Del 1,
+2 og 3 har bare regneoppgavene. Poeng og minutter i de deleksamenene regnes om
+(Del 3 · Mest forventet 1 er nå 40 poeng og 70 minutter). Oppgavene beholder
+lagringsnummeret og vises med løpenummer, så ingen lagret fremdrift flyttet seg. Se
+[[Eksamenssett-modulen]].
 
 ## Hintet i forelesning (24. november 2026)
 

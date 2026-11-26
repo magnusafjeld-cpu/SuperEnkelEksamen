@@ -22,7 +22,11 @@
 
    Lånte sett (november 2026): et sett med `lån` låner oppgavene sine fra andre
    sett. Kontrollen slår dem opp, sjekker at hver finnes, at ingen er lånt to
-   ganger og at tiden stemmer med kildesettenes minutter per poeng.            */
+   ganger og at tiden stemmer med kildesettenes minutter per poeng.
+
+   Kortsvar (26. november 2026): sett med del lik EDU_DATA.perDel.kortsvar.del låner
+   oppgaver som allerede står i en deleksamen. Motoren tar dem ut der, så det er ikke
+   et dobbelt lån. To kortsvarsett skal likevel ikke låne den samme.              */
 
 const fs = require("fs");
 const path = require("path");
@@ -76,8 +80,10 @@ for (const fil of filer) {
      Oppgavene slås opp her slik motoren gjør, så resten av kontrollen ser dem som
      vanlige oppgaver. En oppgave som er lånt to ganger, gir en advarsel. Sett med
      kind: "del" må ha en del og en art som finnes i EDU_DATA.perDel. */
-  const lånt = new Map();
+  const lånt = new Map(), kortLånt = new Map();
   const perDel = w.EDU_DATA.perDel || null;
+  const KORT = perDel && perDel.kortsvar ? perDel.kortsvar.del : undefined;
+  const erKort = (s) => s.kind === "del" && KORT !== undefined && s.del === KORT;
   for (const s of sets) {
     if (!s.lån) continue;
     const sid = s.id || "(uten id)";
@@ -88,8 +94,9 @@ for (const fil of filer) {
       const ex = k && (k.exercises || []).find((e) => e.n === ref.n);
       if (!ex) { si(feil, sid, `lån: fant ikke ${ref.sett} oppgave ${ref.n}`); continue; }
       const nøkkel = `${ref.sett} oppgave ${ref.n}`;
-      if (lånt.has(nøkkel)) si(advarsel, sid, `${nøkkel} er også lånt av ${lånt.get(nøkkel)}`);
-      lånt.set(nøkkel, sid);
+      const reg = erKort(s) ? kortLånt : lånt;
+      if (reg.has(nøkkel)) si(advarsel, sid, `${nøkkel} er også lånt av ${reg.get(nøkkel)}`);
+      reg.set(nøkkel, sid);
       if (ref.merke && HTML.test(ref.merke)) si(feil, sid, `merke på ${nøkkel} inneholder markup`);
       min += ((ex.points || 0) * k.minutes) / k.points;
       ut.push(Object.assign({}, ex, { n: ut.length + 1 }));
@@ -108,7 +115,8 @@ for (const fil of filer) {
     }
     {
       const d = perDel && (perDel.deler || []).find((x) => x.del === s.del);
-      if (typeof s.del !== "number") si(feil, sid, "kind: del uten del-nummer");
+      if (erKort(s)) { if (!s.lån) si(feil, sid, "et kortsvarsett skal låne oppgavene sine"); }
+      else if (typeof s.del !== "number") si(feil, sid, "kind: del uten del-nummer");
       else if (perDel && !d) si(feil, sid, `del ${s.del} finnes ikke i EDU_DATA.perDel.deler`);
       if (perDel && s.art && !(perDel.arter || []).some((a) => a.id === s.art)) si(feil, sid, `art «${s.art}» finnes ikke i EDU_DATA.perDel.arter`);
       if (d && d.kapitler) ut.forEach((ex) => {

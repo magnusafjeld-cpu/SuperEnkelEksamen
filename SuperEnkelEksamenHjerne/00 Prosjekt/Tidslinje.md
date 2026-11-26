@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-11-25
+oppdatert: 2026-11-26
 ---
 
 # Tidslinje
@@ -106,5 +106,6 @@ ikke står i commit-meldingene.
 | 25. november 2026 | Eksamenssett: rett på nytt i øving | Svarfeltene står åpne etter retting i øvingsmodus. Endrer du svaret, kommer «Rett a) på nytt». Første forsøk lagres og blir med i «Kopier det jeg ikke kunne» hvis det var feil. Bygg 222. Se [[Eksamenssett-modulen]] |
 | 25. november 2026 | Eksamenssett: fasiten kan skjules og riktig svar gir lukket fasit | «Skjul fasit» i overskriften på det grønne fasitpanelet krymper det til en stripe. Fasiten starter lukket der svaret er rettet automatisk og helt riktig, åpen der du bommet. Bare visning, poeng og retting endres ikke. Bygg 224. Se [[Eksamenssett-modulen]] |
 | 25. november 2026 | Problem sets: retting som i Eksamenssett | Svarfelt under hintene, «Rett a)», tall automatisk, tekst med Claude, «Rett på nytt», usikker, fasit lukket ved riktig svar og «Kopier det jeg ikke kunne». Rettingen er eksportert fra `bundle-sett.js`, ikke kopiert. Svar-data for 144 delspørsmål i `_svar/ps1–ps4.json`. Bygg 227. Se [[Moduler og visninger]] |
+| 26. november 2026 | Eksamenssett: Kortsvar i «Per del» | De 30 drøftingsoppgavene på 12 poeng er flyttet ut av deleksamenene til 14 kortsvarsett under eget valg, før Del 1, 2 og 3. Lagret fremdrift beholder nøklene, oppgavene vises med løpenummer. Bygg 228. Se [[Eksamenssett-modulen]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

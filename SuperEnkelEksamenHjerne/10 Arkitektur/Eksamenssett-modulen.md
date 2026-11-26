@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-11-25
+oppdatert: 2026-11-26
 ---
 
 # Eksamenssett-modulen
@@ -46,6 +46,16 @@ Ditt eget valg går foran og ligger i minnet (`fasitValg`, et Map med nøkkel
 men ikke at siden lastes på nytt. En ny retting av delen (`lagreRett`) og «Prøv på
 nytt» fjerner valget, så det nye svaret avgjør igjen. Panelet byttes i DOM-en uten ny
 tegning, så siden ikke hopper.
+
+**Kortsvar i «Per del»** (fra 26. november 2026). `EDU_DATA.perDel.kortsvar = { del,
+navn, tekst }` gir et eget valg før Del 1, 2, 3 med settene som har den del-verdien. En
+oppgave et kortsvarsett låner, tas ut av de andre deleksamenene i `SETS()`
+(`utenKortsvar`), så den bare står ett sted. Oppgavene som blir igjen, beholder `n` (lagringsnøkkelen)
+og får `visN` til visning. Alt som viser et oppgavenummer, bruker
+`nrAv(ex)`: hodet, navigasjonen, usikre-lista, Claude-prompten og kopiteksten. Poeng,
+minutter (samme minutter per poeng som før) og «N oppgaver» regnes om. «Hentet fra»
+lages på nytt når den var laget av lånene. `tools/sjekk-sett.js` godtar at et kortsvarsett
+låner en oppgave en deleksamen også låner, men ikke at to kortsvarsett låner den samme.
 
 **Rettingen brukes også av Problem sets** (fra 25. november 2026). `S.views.sett.retting`
 eksporterer svarfeltene, «Rett a)», resultatet, «Rett på nytt», usikker-knappen,
