@@ -289,10 +289,10 @@ ikke kreve mer enn løsningen. Derfor: kriteriene setter nivået, innhold teller
 ordlyd, ekstra detaljer merkes «Optional:» og en formulering sjekkes økonomisk før den
 kalles feil. Se [[Eksamenssett-modulen]].
 
-## Opus retter Eksamenssett og Problem sets, og tilbakemeldingen er kort (26. november 2026)
+## Opus retter Eksamenssett og Problem sets med kort tilbakemelding (26. november 2026)
 Magnus spurte om Sonnet 5.5 er like bra når feilen i ps3 9b kom fra kriteriet. Valget ble
 å beholde Opus 5.5. Den nye regelen ber sensoren sjekke økonomisk om en uvanlig
-formulering stemmer, og der er Opus sterkere. Sonnet leser oftere kriteriene som en
+formulering stemmer. Der er Opus sterkere. Sonnet leser oftere kriteriene som en
 ordliste. Prisforskjellen er rundt 2 cent per tekstsvar (Opus koster det dobbelte).
 Eksamenssett og Problem sets får derfor ikke modellvalget som Øv uten stopp har.
 Samtidig ble tilbakemeldingen kortet ned til poeng, én linje per kriterium og et
