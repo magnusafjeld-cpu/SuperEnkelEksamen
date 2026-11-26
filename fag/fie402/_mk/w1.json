@@ -297,19 +297,19 @@
    {
     "label": "b",
     "points": 4,
-    "body": "<p>Each IPO is priced at the expected value of a share. What is your average return (in %) on the shares you receive? (If you could not solve (a), use 30 shares in good IPOs, 70 in bad IPOs and a price of €45.)</p>",
-    "solution": "<p>Over all 100 IPOs you expect 50 good and 50 bad ones, so you receive 50 × 25 = 1,250 good shares and 50 × 80 = 4,000 bad shares.</p><p>Profit = 1,250 × (55 − 44.5) + 4,000 × (34 − 44.5) = 13,125 − 42,000 = −28,875<br>Invested = 5,250 × 44.5 = 233,625</p><p>Return = −28,875/233,625 = <b>−12.3596%</b></p><p>Even though half the IPOs are good, most of your shares are in bad ones. At this price you lose money and would stay away.</p><p>With the fallback numbers (30, 70 and €45): −10.4444%.</p>",
+    "body": "<p>Each IPO is priced at the expected value of a share. What is your average return (in %) on the shares you receive? (If you could not solve (a), use 30 shares in good IPOs, 70 in bad IPOs and a price of €47.)</p>",
+    "solution": "<p>Over all 100 IPOs you expect 50 good and 50 bad ones, so you receive 50 × 25 = 1,250 good shares and 50 × 80 = 4,000 bad shares.</p><p>Profit = 1,250 × (55 − 44.5) + 4,000 × (34 − 44.5) = 13,125 − 42,000 = −28,875<br>Invested = 5,250 × 44.5 = 233,625</p><p>Return = −28,875/233,625 = <b>−12.3596%</b></p><p>Even though half the IPOs are good, most of your shares are in bad ones. At this price you lose money and would stay away.</p><p>With the fallback numbers (30, 70 and €47): −14.2553%.</p>",
     "criteria": [
      "Weights the returns by the shares actually received: (1,250 × 10.5 − 4,000 × 10.5)/233,625 = −12.3596%.",
      "Using the order of 200 shares in both types gives 0% and misses the point of the exercise.",
-     "Full marks with the fallback numbers: −10.4444%.",
+     "Full marks with the fallback numbers: −14.2553%.",
      "Show the calculation."
     ]
    },
    {
     "label": "c",
     "points": 5,
-    "body": "<p>The allocations stay as in (a). At what issue price do you just break even, so that you are still willing to take part in every IPO? (If you could not solve (a), use 30 shares in good IPOs and 70 in bad.)</p>",
+    "body": "<p>The allocations stay as in (a). At what issue price do you just break even, so that you are willing to take part in every IPO? (If you could not solve (a), use 30 shares in good IPOs and 70 in bad.)</p>",
     "solution": "<p>Call the price X. Your expected profit over all IPOs must be zero:</p><p>1,250 × (55 − X) + 4,000 × (34 − X) = 0<br>68,750 + 136,000 = 5,250X<br>X = 204,750/5,250 = <b>€39</b></p><p>The break-even price is the average value weighted by your allocations: (25 × 55 + 80 × 34)/(25 + 80) = 39, below the expected value of 44.5.</p><p>With the fallback allocations (30 and 70): X = (30 × 55 + 70 × 34)/100 = 40.3.</p>",
     "criteria": [
      "Sets up the break-even condition with the shares actually received, as the lecturer wrote it on the board.",
@@ -497,7 +497,7 @@
    25
   ],
   "merke": "Samme form som butikkeksemplet med exit-klausul i forelesning 14",
-  "body": "<p>You can open a franchised salad bar in an office district in Lyon. The fit-out costs €250,000, paid today. Rent, staff and food cost €18,000 a month. Revenue will be either €21,500 a month forever (good demand) or €13,500 a month forever (bad demand), with equal probability. You learn which right after opening. All cash flows come at the end of each month, the first one month from today. Demand for salads is unrelated to the stock market, so discount at the risk-free rate of 5% per year. Use 4 decimal places.</p>",
+  "body": "<p>You can open a franchised salad bar in an office district in Lyon. The fit-out costs €250,000, paid today. Rent, staff and food cost €18,000 a month. Revenue will be either €21,500 a month forever (good demand) or €13,500 a month forever (bad demand), with equal probability. You learn which right after opening. All cash flows come at the end of each month, the first one month from today. Demand for salads is unrelated to the stock market, so discount at the risk-free rate of 5% per year. Give rates in % with 4 decimals (0.1234%) and amounts with 2 decimals.</p>",
   "parts": [
    {
     "label": "a",
@@ -535,13 +535,13 @@
    {
     "label": "d",
     "points": 5,
-    "body": "<p>What is the NPV of opening with the clause? Do you open? What is the clause worth to you? (If you could not solve (c), use NPVs of €600,000 in the good state and −€380,000 in the bad state.)</p>",
-    "solution": "<p>NPV = 0.5 × 609,080.43 + 0.5 × (−376,833.26) = <b>€116,123.58</b>. Positive: with the clause you open.</p><p>Without the clause your best choice is not to open, which is worth 0, not the negative NPV from (b). The clause is therefore worth <b>€116,123.58</b>: it turns a project you would reject into one worth that much.</p><p>With the fallback NPVs: 110,000 for both. With the fallback rate: 124,012.18.</p>",
+    "body": "<p>What is the NPV of opening with the clause? Do you open? What is the clause worth to you, compared with your best choice without it? (If you could not solve (c), use NPVs of €700,000 in the good state and −€500,000 in the bad state.)</p>",
+    "solution": "<p>NPV = 0.5 × 609,080.43 + 0.5 × (−376,833.26) = <b>€116,123.58</b>. Positive: with the clause you open.</p><p>Without the clause your best choice is not to open, which is worth 0, not the negative NPV from (b). The clause is therefore worth <b>€116,123.58</b>: it turns a project you would reject into one worth that much.</p><p>With the fallback NPVs: 100,000 for both. With the fallback rate: 124,012.18.</p>",
     "criteria": [
      "NPV with the clause = €116,123.58; open.",
      "Value of the clause = NPV with the clause − max(0, NPV without) = €116,123.58.",
      "Subtracting the negative NPV from (b) (giving 488,849.36) treats a project you would never take as your alternative.",
-     "Full marks with the fallbacks: €110,000.00 or €124,012.18."
+     "Full marks with the fallbacks: €100,000.00 or €124,012.18."
     ]
    },
    {
@@ -566,50 +566,50 @@
    25
   ],
   "merke": "Samme form som H2025 E5 (d) og (e)",
-  "body": "<p>You can open an escape-room venue in Stavanger. Fitting out the rooms costs NOK 900,000, paid today. With good demand the venue earns NOK 150,000 a year forever; with bad demand it loses NOK 70,000 a year forever. Both are equally likely. You learn which right after opening. Cash flows come at the end of each year, the first one year from today. The risk is unrelated to the market, so discount at the risk-free rate of 6% a year.</p>",
+  "body": "<p>You can open an escape-room venue in Stavanger. Fitting out the rooms costs NOK 900,000, paid today. Rent, staff and other running costs are NOK 250,000 a year. Ticket revenue will be NOK 400,000 a year forever (good demand) or NOK 180,000 a year forever (bad demand). Both are equally likely. You learn which right after opening. Cash flows come at the end of each year, the first one year from today. The risk is unrelated to the market, so discount at the risk-free rate of 6% a year. Give amounts with 2 decimals.</p>",
   "parts": [
    {
     "label": "a",
     "points": 3,
     "body": "<p>What is the NPV of opening if you must run the venue forever? Do you open?</p>",
-    "solution": "<p>Expected cash flow: 0.5 × 150,000 + 0.5 × (−70,000) = 40,000 a year.</p><p>NPV = −900,000 + 40,000/0.06 = <b>NOK −233,333.33</b>. You do not open.</p>",
+    "solution": "<p>Net cash flow: 400,000 − 250,000 = 150,000 with good demand, 180,000 − 250,000 = −70,000 with bad demand. Expected: 0.5 × 150,000 + 0.5 × (−70,000) = 40,000 a year.</p><p>NPV = −900,000 + 40,000/0.06 = <b>NOK −233,333.33</b>. You do not open.</p>",
     "criteria": [
+     "Nets revenue and running costs first: +150,000 and −70,000 a year, expected 40,000.",
      "NPV = −900,000 + 40,000/0.06 = −233,333.33; do not open."
     ]
    },
    {
     "label": "b",
-    "points": 6,
-    "body": "<p>The landlord lets you close the venue at no cost at the end of Year 2, after that year's cash flow. After that you pay and receive nothing. What is the NPV of opening now? Do you open?</p>",
-    "solution": "<p><b>Good demand:</b> you never close. NPV = −900,000 + 150,000/0.06 = <b>1,600,000.00</b>.</p><p><b>Bad demand:</b> at the end of Year 2 the venue's remaining value is −70,000/0.06, below the 0 you get by closing, so you close. You lose 70,000 in Years 1 and 2 only:</p><p>NPV = −900,000 − 70,000/1.06 − 70,000/1.06<sup>2</sup> = −900,000.00 − 66,037.74 − 62,299.75 = <b>−1,028,337.49</b></p><p>NPV of opening = 0.5 × 1,600,000.00 + 0.5 × (−1,028,337.49) = 800,000.00 − 514,168.74 = <b>NOK 285,831.26</b>. Positive, so you open.</p>",
+    "points": 5,
+    "body": "<p>The landlord lets you close the venue at no cost at the end of Year 2, after that year's cash flow. After that you pay and receive nothing. What is the NPV of opening in the good and in the bad state?</p>",
+    "solution": "<p><b>Good demand:</b> you never close. NPV = −900,000 + 150,000/0.06 = <b>1,600,000.00</b>.</p><p><b>Bad demand:</b> at the end of Year 2 the venue's remaining value is −70,000/0.06, below the 0 you get by closing, so you close. You lose 70,000 in Years 1 and 2 only:</p><p>NPV = −900,000 − 70,000/1.06 − 70,000/1.06<sup>2</sup> = −900,000.00 − 66,037.74 − 62,299.75 = <b>−1,028,337.49</b></p>",
     "criteria": [
      "Good state: 150,000/0.06 − 900,000 = 1,600,000.",
      "Bad state: compares the continuation value with 0 and closes after Year 2: −1,028,337.49.",
-     "NPV = 285,831.26; open.",
      "Using −70,000 forever in the bad state, or comparing with the negative value instead of 0, is the mistake the lecturer warned about."
     ]
    },
    {
     "label": "c",
-    "points": 3,
-    "body": "<p>What is the right to close worth to you? (If you could not solve (b), use an NPV of NOK 300,000.)</p>",
-    "solution": "<p>Without the right your best choice is not to open (0). With it the project is worth 285,831.26. The right is worth <b>NOK 285,831.26</b>.</p><p>Subtracting the negative NPV from (a) instead gives 519,164.59, which values the right against a project you would never take. With the fallback: NOK 300,000.</p>",
+    "points": 4,
+    "body": "<p>Do you open? What is the right to close worth to you, compared with your best choice without it? (If you could not solve (b), use NPVs of NOK 1,500,000 in the good state and −NOK 1,100,000 in the bad state.)</p>",
+    "solution": "<p>NPV of opening = 0.5 × 1,600,000.00 + 0.5 × (−1,028,337.49) = 800,000.00 − 514,168.74 = <b>NOK 285,831.26</b>. Positive, so you open.</p><p>Without the right your best choice is not to open, which is worth 0, not the negative NPV from (a). The right is therefore worth <b>NOK 285,831.26</b>.</p><p>With the fallback NPVs: 200,000.</p>",
     "criteria": [
+     "NPV with the right 285,831.26: open.",
      "Value = NPV with the right − max(0, NPV without) = 285,831.26.",
-     "Using the negative NPV from (a) as the alternative (519,164.59) loses the point.",
-     "Full marks with the fallback: 300,000."
+     "Subtracting the negative NPV from (a) (519,164.59) values the right against a project you would never take and loses the point.",
+     "Full marks with the fallback NPVs: 200,000."
     ]
    },
    {
     "label": "d",
     "points": 5,
-    "body": "<p>Keep the right to close at the end of Year 2. Suppose the yearly cash flow is 40,000 + X with good demand and 40,000 − X with bad demand. For which X are you indifferent about opening?</p>",
-    "solution": "<p>At indifference the bad state loses money (X is larger than 40,000), so you close after Year 2:</p><p>0 = −900,000 + 0.5 × [(40,000 + X)/0.06 + (40,000 − X)(1/1.06 + 1/1.06<sup>2</sup>)]</p><p>With 1/1.06 + 1/1.06<sup>2</sup> = 1.833393:<br>1,800,000 = 666,666.67 + 16.666667X + 73,335.71 − 1.833393X<br>X = (1,800,000 − 666,666.67 − 73,335.71)/(16.666667 − 1.833393) = 1,059,997.62/14.833274 = <b>NOK 71,460.80</b></p><p>Sanity check (not required): in the original setting X = 110,000, above 71,461, so you open, as in (b).</p>",
+    "body": "<p>Keep the right to close at the end of Year 2. Suppose the yearly net cash flow is 40,000 + X with good demand and 40,000 − X with bad demand. For which X are you indifferent about opening?</p>",
+    "solution": "<p>At indifference the bad state loses money (X is larger than 40,000), so you close after Year 2:</p><p>0 = −900,000 + 0.5 × [(40,000 + X)/0.06 + (40,000 − X)(1/1.06 + 1/1.06<sup>2</sup>)]</p><p>With 1/1.06 + 1/1.06<sup>2</sup> = 1.833393:<br>1,800,000 = 666,666.67 + 16.666667X + 73,335.71 − 1.833393X<br>X = (1,800,000 − 666,666.67 − 73,335.71)/(16.666667 − 1.833393) = 1,059,997.62/14.833274 = <b>NOK 71,460.80</b></p><p>Sanity check (not required): in the original setting X = 110,000, above 71,461, so you open, as in (c).</p>",
     "criteria": [
      "Sets up the indifference condition with the exit after Year 2 in the bad state.",
      "X = NOK 71,460.80.",
-     "Treating the bad state as a perpetuity (no exit) gives no solution with a positive NPV and loses the points.",
-     "Show the calculation."
+     "Treating the bad state as a perpetuity (no exit) gives no solution with a positive NPV and loses the points."
     ]
    },
    {
@@ -634,7 +634,7 @@
    25
   ],
   "merke": "Samme form som exit-eksemplet i forelesning 14 og 18, med kvartalsvise kontantstrømmer",
-  "body": "<p>A US mattress brand can open a showroom in a Denver mall. The fit-out costs $600,000, paid today. Rent, staff and other costs are $90,000 a quarter. Revenue will be $130,000 a quarter forever with probability 45% (good demand) or $60,000 a quarter forever with probability 55% (bad demand). The brand learns which right after opening. Cash flows come at the end of each quarter, the first one quarter from today. Demand is unrelated to the market, so discount at the risk-free rate of 8% a year. Use 4 decimal places.</p>",
+  "body": "<p>A US mattress brand can open a showroom in a Denver mall. The fit-out costs $600,000, paid today. Rent, staff and other costs are $90,000 a quarter. Revenue will be $130,000 a quarter forever with probability 45% (good demand) or $60,000 a quarter forever with probability 55% (bad demand). The brand learns which right after opening. Cash flows come at the end of each quarter, the first one quarter from today. Demand is unrelated to the market, so discount at the risk-free rate of 8% a year. Give rates in % with 4 decimals and amounts with 2 decimals.</p>",
   "parts": [
    {
     "label": "a",
@@ -649,36 +649,36 @@
    {
     "label": "b",
     "points": 3,
-    "body": "<p>What is the NPV of opening if the brand must keep the showroom forever? Does it open? (If you could not solve (a), use 2% per quarter here and below.)</p>",
-    "solution": "<p>Expected net cash flow: 0.45 × 40,000 + 0.55 × (−30,000) = 1,500 a quarter.</p><p>NPV = −600,000 + 1,500/0.019427 = <b>$−522,786.07</b>. It does not open.</p><p>With the fallback 2%: −525,000.00.</p>",
+    "body": "<p>What is the NPV of opening if the brand must keep the showroom forever? Does it open? (If you could not solve (a), use 1.9% per quarter here and below.)</p>",
+    "solution": "<p>Expected net cash flow: 0.45 × 40,000 + 0.55 × (−30,000) = 1,500 a quarter.</p><p>NPV = −600,000 + 1,500/0.019427 = <b>$−522,786.07</b>. It does not open.</p><p>With the fallback 1.9%: −521,052.63.</p>",
     "criteria": [
      "Expected net cash flow +1,500 a quarter; NPV = −522,786.07; do not open.",
      "Using 50/50 instead of 45/55 is an error.",
-     "Full marks with the fallback 2%: −525,000.00."
+     "Full marks with the fallback 1.9%: −521,052.63."
     ]
    },
    {
     "label": "c",
     "points": 7,
     "body": "<p>The mall offers a lease that lets the brand leave at the end of quarter 6, after that quarter's cash flow, if it pays an exit fee of $50,000 then. After that it pays and receives nothing. Does the brand leave with bad demand? What is the NPV of opening in each state and in total? Does it open?</p>",
-    "solution": "<p><b>Good demand:</b> it never leaves. NPV = −600,000 + 40,000/0.019427 = <b>1,459,038.09</b>.</p><p><b>Bad demand, the exit decision.</b> At the end of quarter 6, staying is worth −30,000/0.019427 = −1,544,278.57, while leaving costs the fee of 50,000. −50,000 is better, so it <b>leaves</b>.</p><p><b>Bad demand, NPV:</b> −600,000 − 30,000 × (1 − 1.019427<sup>−6</sup>)/0.019427 − 50,000/1.019427<sup>6</sup> = −600,000 − 30,000 × 5.612287 − 50,000 × 0.890973 = <b>−812,917.25</b></p><p><b>Total:</b> 0.45 × 1,459,038.09 + 0.55 × (−812,917.25) = <b>$209,462.65</b>. Positive, so it opens.</p><p>With the fallback 2%: 1,400,000.00, −812,441.50 and 183,157.18.</p>",
+    "solution": "<p><b>Good demand:</b> it never leaves. NPV = −600,000 + 40,000/0.019427 = <b>1,459,038.09</b>.</p><p><b>Bad demand, the exit decision.</b> At the end of quarter 6, staying is worth −30,000/0.019427 = −1,544,278.57, while leaving costs the fee of 50,000. −50,000 is better, so it <b>leaves</b>.</p><p><b>Bad demand, NPV:</b> −600,000 − 30,000 × (1 − 1.019427<sup>−6</sup>)/0.019427 − 50,000/1.019427<sup>6</sup> = −600,000 − 30,000 × 5.612287 − 50,000 × 0.890973 = <b>−812,917.25</b></p><p><b>Total:</b> 0.45 × 1,459,038.09 + 0.55 × (−812,917.25) = <b>$209,462.65</b>. Positive, so it opens.</p><p>With the fallback 1.9%: 1,505,263.16, −813,272.14 and 230,068.74.</p>",
     "criteria": [
      "Exit decision: compares staying (a perpetuity of −30,000) with paying the fee, not with 0; leaves.",
      "Good state 1,459,038.09; bad state −812,917.25, with the fee discounted from quarter 6.",
      "Total NPV 209,462.65; open.",
      "Forgetting the fee gives −768,368.62 in the bad state.",
-     "Full marks with the fallback 2%: 1,400,000.00, −812,441.50, 183,157.18."
+     "Full marks with the fallback 1.9%: 1,505,263.16, −813,272.14, 230,068.74."
     ]
    },
    {
     "label": "d",
     "points": 4,
-    "body": "<p>What is the largest exit fee at which the brand would still leave with bad demand at the end of quarter 6? Explain what you compare.</p>",
-    "solution": "<p>At the end of quarter 6 the brand compares the value of staying with the cost of leaving. Staying is worth −30,000/0.019427 = −1,544,278.57. It leaves as long as the fee is smaller than that loss: the largest fee is <b>$1,544,278.57</b>.</p><p>The fit-out cost and the losses of the first six quarters play no role: they are already spent. Only the cash flows from quarter 7 on are compared.</p><p>With the fallback 2%: 1,500,000.00.</p>",
+    "body": "<p>What is the largest exit fee at which the brand would leave with bad demand at the end of quarter 6? Explain what you compare.</p>",
+    "solution": "<p>At the end of quarter 6 the brand compares the value of staying with the cost of leaving. Staying is worth −30,000/0.019427 = −1,544,278.57. It leaves as long as the fee is smaller than that loss: the largest fee is <b>$1,544,278.57</b>.</p><p>The fit-out cost and the losses of the first six quarters play no role: they are already spent. Only the cash flows from quarter 7 on are compared.</p><p>With the fallback 1.9%: 1,578,947.37.</p>",
     "criteria": [
      "Largest fee = present value at quarter 6 of the future losses = 30,000/0.019427 = 1,544,278.57.",
      "Says what is compared: staying (the perpetuity of losses) against paying the fee and leaving.",
-     "Full marks with the fallback 2%: 1,500,000.00."
+     "Full marks with the fallback 1.9%: 1,578,947.37."
     ]
    },
    {
@@ -704,12 +704,13 @@
   ],
   "merke": "Samme form som H2024 E1, med synergier utelukket som i forelesning 16 og 18",
   "body": "<p>Give three reasons for an acquisition other than synergies (gains from running the two firms' operations together): (i) one where the acquirer creates value by changing how the target is run, (ii) one where the acquirer's shareholders gain at the expense of someone else and (iii) one that is not in the interest of the acquirer's shareholders. Explain the mechanism behind each reason in 1-2 sentences; naming a reason or writing «value creation» is not enough (3 points per reason). Finally, explain in one sentence why buying a firm to use its accumulated tax losses does not count as a reason (1 point).</p>",
-  "solution": "<p><b>(i) Replacing inefficient management (a disciplinary takeover).</b> If the target is badly run, its price reflects that; the acquirer buys it, installs better managers and runs the same assets more efficiently, so the gain comes from better management, not from combining operations.</p><p><b>(ii) Market power.</b> Buying a competitor reduces competition, so the merged firm can raise prices or pay suppliers less; the acquirer's shareholders gain, but the value comes from customers and suppliers rather than from new value created.</p><p><b>(iii) Managerial ambition (empire building).</b> A CEO whose pay, power or prestige grows with the size of the firm may buy targets that do not pay off for the shareholders, often overpaying; the lecturer's example was the purchase of Twitter. This is an agency problem: the shareholders bear the cost.</p><p><b>Tax losses.</b> Accumulated tax losses are erased when a firm changes owner, so the acquirer cannot use them (lecture 17).</p><p><b>Also accepted.</b> (i) more efficient practices or better access to markets for the target; (ii) buying an undervalued target with better information, or buying a distressed target cheaply; (iii) hubris and the winner's curse, buying to meet a KPI or to inflate earnings per share, diversification that the shareholders could do themselves.</p>",
+  "solution": "<p><b>(i) Replacing inefficient management (a disciplinary takeover).</b> If the target is badly run, its price reflects that; the acquirer buys it, installs better managers and runs the same assets more efficiently, so the gain comes from better management, not from combining operations.</p><p><b>(ii) Market power.</b> Buying a competitor reduces competition, so the merged firm can raise prices or pay suppliers less; the acquirer's shareholders gain, but the value comes from customers and suppliers rather than from new value created.</p><p><b>(iii) Managerial ambition (empire building).</b> A CEO whose pay, power or prestige grows with the size of the firm may buy targets that do not pay off for the shareholders, often overpaying; the lecturer's example was the purchase of Twitter. This is an agency problem: the shareholders bear the cost.</p><p><b>Tax losses.</b> Accumulated tax losses are erased when a firm changes owner, so the acquirer cannot use them (lecture 17).</p><p><b>Also accepted.</b> (i) more efficient practices in the target; (ii) buying an undervalued target with better information, buying a distressed target cheaply or buying the target so that a rival cannot (the competitors lose, as with bank D in lecture 16); (iii) hubris and the winner's curse, buying to meet a KPI or to inflate earnings per share, diversification that the shareholders could do themselves.</p>",
   "criteria": [
    "3 points per reason: 1 for a reason in the right category, 2 for the mechanism in 1-2 sentences.",
    "(i) must change how the target is run (new management, better practices). Economies of scale or cost savings from merging departments are synergies and score nothing here.",
-   "(ii) must say who loses (customers, suppliers or the target's sellers). Market power, an undervalued target or a distressed target are accepted.",
-   "(iii) must be against the acquirer's shareholders' interest and name the mechanism (agency problem, overconfidence, overpaying). «Value creation» or a reason without a mechanism scores nothing.",
+   "(ii) must say who loses, for example customers or suppliers (market power), the target's sellers (an undervalued or distressed target) or competitors (buying the target so that a rival cannot, as with bank D in lecture 16).",
+   "(iii) must be against the acquirer's shareholders' interest; the mechanism (agency problem, overconfidence, overpaying) earns the 2 mechanism points. «Value creation» on its own is not a reason and scores 0.",
+   "The lecture's vertical example (a dairy buys its unreliable box supplier and replaces its manager) scores under (i) when the answer rests on replacing the manager. If it rests on the cost savings of integrating the supply chain, it is a synergy and scores 0.",
    "1 point: tax losses are erased on a change of owner, so they are not a motive.",
    "Two answers that rest on the same mechanism count once."
   ]
@@ -723,13 +724,13 @@
    26
   ],
   "merke": "Samme form som teorispørsmålene i forelesning 16 om hvem som vinner",
-  "body": "<p>Westerly Foods (A) is worth $800 million and Kellan Organics (T) $200 million on their own. A agrees to buy T for $290 million in cash and expects synergies of $100 million.</p><p>a) How are the expected gains split between A's and T's shareholders? Why does the target usually capture most of the synergies? (4 points; 2-3 sentences)</p><p>b) Suppose instead that T had been close to default: its owners' alternative to selling was bankruptcy and A could have bought it for $215 million (same stand-alone value and synergies). How would the gains have been split? Why? (3 points; 1-2 sentences)</p><p>c) When the deal is announced, A's share price falls. Give one reason why this can happen even though A's managers expect synergies of $100 million. (3 points; 1-2 sentences)</p>",
-  "solution": "<p><b>a)</b> T's shareholders gain P − T = 290 − 200 = <b>$90 million</b>; A's gain S − (P − T) = 100 − 90 = <b>$10 million</b>. The two add up to the synergies. The target captures most because it can say no: its owners keep a firm worth $200 million unless they are paid more. With competing bidders the price is pushed towards T + S. The bid also tells the market that T is worth more than it thought, so T's price jumps.</p><p><b>b)</b> T would gain only 215 − 200 = <b>$15 million</b> and A <b>$85 million</b>. A distressed target has lost its bargaining power: refusing means bankruptcy, so the acquirer can keep most of the synergies.</p><p><b>c)</b> The market may not believe the synergies: if investors expect less than the $90 million premium, A overpays and its value falls. Also accepted: the market reads the deal as empire building or hubris, or fears problems integrating the firms (for example the corporate culture).</p>",
+  "body": "<p>Westerly Foods (A) is worth $900 million and Kellan Organics (T) $300 million on their own. A agrees to buy T for $405 million in cash and expects synergies of $150 million. Measure all gains against the stand-alone values.</p><p>a) How are the expected gains split between A's and T's shareholders? Why does the target usually capture most of the synergies? (4 points; 2-3 sentences)</p><p>b) Suppose instead that T had been close to default: its owners' alternative to selling was bankruptcy and A could have bought it for $320 million (same stand-alone value and synergies). How would the gains have been split? Why? (3 points; 1-2 sentences)</p><p>c) When the deal is announced, A's share price falls. Give one reason why this can happen even though A's managers expect synergies of $150 million. (3 points; 1-2 sentences)</p>",
+  "solution": "<p><b>a)</b> T's shareholders gain 405 − 300 = <b>$105 million</b> and A's 150 − 105 = <b>$45 million</b>, which adds up to the synergies. The target captures most because it can say no and keep a firm worth $300 million, so A must keep raising the price until T accepts; competing bidders push it further towards T + S.</p><p><b>b)</b> T would gain only 320 − 300 = <b>$20 million</b> and A <b>$130 million</b>: a distressed target has lost its bargaining power, because refusing means bankruptcy.</p><p><b>c)</b> For example: the market does not believe the synergies. If investors expect less than the $105 million premium, A overpays and its value falls. Other reasons with a mechanism score too, such as empire building or hubris, or expected integration problems (for example the corporate culture).</p>",
   "criteria": [
-   "a) 2 points for the split: T + 90, A + 10, summing to S = 100.",
-   "a) 2 points for why: the target can refuse (bargaining power), competition among bidders, the bid signals the target is worth more.",
-   "b) 1 point for the split (T + 15, A + 85), 2 points for why: the target in distress has no bargaining power, so the acquirer captures most of the synergies.",
-   "c) 3 points for one reason with its mechanism: the market expects synergies below the premium (overpayment), empire building or hubris, integration costs. «The market is negative» without a reason scores nothing."
+   "a) 2 points for the split: T + 105, A + 45, summing to S = 150.",
+   "a) 2 points for any one of: the target can refuse and keep its stand-alone value (bargaining power); competition among bidders pushes the price up.",
+   "b) 1 point for the split (T + 20, A + 130), 2 points for why: the target in distress has no bargaining power, so the acquirer captures most of the synergies.",
+   "c) 3 points for one reason with its mechanism, for example that the market expects synergies below the premium (overpayment), empire building or hubris, or integration costs. «The market is negative» without a reason scores nothing."
   ]
  },
  "mk-ma-motiver-3": {
@@ -741,14 +742,14 @@
    26
   ],
   "merke": "Samme form som kontanter mot aksjer i forelesning 16",
-  "body": "<p>Oakridge Software (A) is worth €700 million and will buy Pellow Analytics (T), worth €200 million on its own. The expected synergies are €100 million. A can pay €250 million in cash or give T's shareholders new A shares that make up 25% of the combined firm.</p><p>a) How are the expected gains split between A's and T's shareholders under each offer? (2 points)</p><p>b) After the deal the synergies turn out to be only €40 million. What is the gain or loss for A's and T's shareholders under each offer? Who bears the synergy risk? (4 points; 1-2 sentences for the explanation)</p><p>c) Give one reason why A's managers might prefer to pay in shares that the market would dislike. Give one reason why T's owners might insist on cash. (4 points; 1-2 sentences each)</p>",
-  "solution": "<p><b>a)</b> Cash: T gains 250 − 200 = 50 and A gains 1,000 − 250 − 700 = 50. Shares: T owns 0.25 × 1,000 = 250 and gains 50; A keeps 0.75 × 1,000 = 750 and gains 50. At the expected synergies the split is the same, €50 million each.</p><p><b>b)</b> The combined firm is worth 940. Cash: T still gains <b>50</b>, A gains 940 − 250 − 700 = <b>−10</b>. Shares: T gains 0.25 × 940 − 200 = <b>35</b> and A 0.75 × 940 − 700 = <b>5</b>. With cash the target's payment is fixed, so A's shareholders bear all of the synergy risk; with shares the shortfall is shared in proportion to ownership (25% for T, 75% for A).</p><p><b>c)</b> A's managers may pay in shares because they think A's shares are overvalued: paying with expensive paper is cheap for A, but the market knows this and reads a share offer as a sign of overvaluation, so A's price falls. T's owners may insist on cash because they want to leave and spend the money, or because they doubt the value of A's shares and do not want to carry the risk of A and of the synergies. Also accepted: A has cash it does not need (A prefers cash); the target's founders want to stay on and share in the firm (they prefer shares, the opposite case).</p>",
+  "body": "<p>Oakridge Software (A) is worth €700 million and will buy Pellow Analytics (T), worth €200 million on its own. The expected synergies are €100 million. A can pay €250 million in cash or give T's shareholders new A shares that make up 25% of the combined firm.</p><p>a) How are the expected gains split between A's and T's shareholders under each offer? (2 points)</p><p>b) After the deal the synergies turn out to be €160 million. What is the gain for A's and T's shareholders under each offer? Who gets the extra synergies? (4 points; 1-2 sentences for the explanation)</p><p>c) Apart from how the synergies are shared, give one reason why A's managers might prefer to pay in shares and one reason why T's owners might prefer cash. (4 points; 1-2 sentences each)</p>",
+  "solution": "<p><b>a)</b> Cash: T gains 250 − 200 = 50 and A gains 1,000 − 250 − 700 = 50. Shares: T owns 0.25 × 1,000 = 250 and gains 50; A keeps 0.75 × 1,000 = 750 and gains 50. At the expected synergies the split is the same, €50 million each.</p><p><b>b)</b> The combined firm is worth 1,060. Cash: T still gains <b>50</b> and A gains 1,060 − 250 − 700 = <b>110</b>. Shares: T gains 0.25 × 1,060 − 200 = <b>65</b> and A 0.75 × 1,060 − 700 = <b>95</b>. With cash the target's payment is fixed, so A's shareholders keep all the extra synergies (and would bear any shortfall); with shares the surprise is shared in proportion to ownership (25% for T, 75% for A).</p><p><b>c)</b> For A, for example: A's managers think its shares are overvalued, so paying with them is cheap; or A lacks the cash and does not want to borrow €250 million. For T, for example: the owners want to leave and use the money (liquidity); or they doubt the value of A's shares and do not want to carry A's risk.</p>",
   "criteria": [
    "a) 2 points: both offers give T + 50 and A + 50 at the expected synergies.",
-   "b) 2 points for the numbers: cash T + 50, A −10; shares T + 35, A + 5.",
-   "b) 2 points: with cash the acquirer bears all the synergy risk; with shares it is shared in proportion to ownership.",
-   "c) 2 points for A: overvalued shares (paying with expensive paper), with the market reading it as a negative signal.",
-   "c) 2 points for T: wants liquidity or to exit, or doubts the value of A's shares and the synergies. A reason without a mechanism scores 1 point."
+   "b) 2 points for the numbers: cash T + 50, A + 110; shares T + 65, A + 95.",
+   "b) 2 points: with cash the acquirer keeps all of the extra synergies; with shares they are shared in proportion to ownership.",
+   "c) 2 points for A, for example overvalued shares (paying with expensive paper) or no spare cash or debt capacity. Sharing the synergy risk is excluded by the question.",
+   "c) 2 points for T, for example liquidity or wanting to exit, or doubt about the value of A's shares. A reason without a mechanism scores 1 point."
   ]
  }
 }

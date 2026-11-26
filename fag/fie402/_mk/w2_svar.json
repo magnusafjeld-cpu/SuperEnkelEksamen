@@ -567,7 +567,7 @@
     "verdi": 324.7218045113,
     "enhet": "NOK m",
     "alt": [
-     318.42
+     311.1
     ]
    },
    {
@@ -575,13 +575,13 @@
     "verdi": 147.2781954887,
     "enhet": "NOK m",
     "alt": [
-     144.42
+     141.1
     ]
    }
   ],
   "tallPoeng": 2,
-  "tekstLedd": "Which type issues and invests?",
-  "merknad": "alt er svarene med reserveverdien 13%: 318.4200 og 144.4200."
+  "tekstLedd": "Which type or types issue? Explain briefly.",
+  "merknad": "alt er svarene med reserveverdien 15%: 311.1000 og 141.1000."
  },
  "mk-signal-1:1:d": {
   "type": "tall",
@@ -589,15 +589,21 @@
    {
     "navn": "Share price after the announcement",
     "verdi": 6.8,
-    "enhet": "NOK per share"
+    "enhet": "NOK per share",
+    "alt": [
+     11.8
+    ]
    },
    {
     "navn": "New shares",
     "verdi": 4.4117647059,
-    "enhet": "m shares"
+    "enhet": "m shares",
+    "alt": [
+     2.5423728814
+    ]
    }
   ],
-  "merknad": "Fellen 11.80 (samlet pris) avvises."
+  "merknad": "alt 11.80 og 2.5424 er følgefeil for en student som i (c) kom til at begge typer utsteder; da er samlet pris konsistent."
  },
  "mk-signal-1:1:e": {
   "type": "tekst"
@@ -622,49 +628,51 @@
   "tall": [
    {
     "navn": "Fraction to new investors",
-    "verdi": 15.625,
+    "verdi": 14.7058823529,
     "enhet": "%"
    },
    {
     "navn": "Stake at t = 1, high-value type",
-    "verdi": 388.125,
+    "verdi": 409.4117647059,
     "enhet": "$ m"
    },
    {
     "navn": "Stake at t = 1, low-value type",
-    "verdi": 219.375,
+    "verdi": 238.8235294118,
     "enhet": "$ m"
    }
   ],
   "tallPoeng": 3,
-  "tekstLedd": "Which type issues?"
+  "tekstLedd": "Which type or types issue?"
  },
  "mk-signal-2:1:c": {
-  "type": "tall",
+  "type": "blandet",
   "tall": [
    {
-    "navn": "Fraction to new investors",
-    "verdi": 19.2307692308,
-    "enhet": "%"
-   },
-   {
     "navn": "Share price after the announcement",
-    "verdi": 8.4,
+    "verdi": 11.6,
     "enhet": "$ per share"
    }
-  ]
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Is the investors' belief in (b) rational?",
+  "merknad": "9.20 (bare lav type utsteder) godtas ikke som følgefeil, på linje med fellen i (d)."
  },
  "mk-signal-2:1:d": {
   "type": "blandet",
   "tall": [
    {
     "navn": "Highest fee, high-value type",
-    "verdi": 10.0,
-    "enhet": "$ m"
+    "verdi": 20.5882352941,
+    "enhet": "$ m",
+    "alt": [
+     25.0
+    ]
    }
   ],
   "tallPoeng": 2,
-  "tekstLedd": "Would a low-value Larkhaven buy the certificate? Why?"
+  "tekstLedd": "Would a low-value Larkhaven buy the certificate? Why?",
+  "merknad": "alt 25 er svaret med reserveverdien 405. Fellen 30 (NPV-en, feil alternativ) avvises."
  },
  "mk-signal-2:1:e": {
   "type": "tekst"
@@ -688,6 +696,18 @@
   "type": "blandet",
   "tall": [
    {
+    "navn": "Share price when the loan is announced",
+    "verdi": 17.8,
+    "enhet": "€ per share"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Which type or types invest? Why?"
+ },
+ "mk-signal-3:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
     "navn": "Fraction to new investors",
     "verdi": 18.3486238532,
     "enhet": "%"
@@ -704,34 +724,29 @@
    }
   ],
   "tallPoeng": 3,
-  "tekstLedd": "Which type issues?"
+  "tekstLedd": "Which type or types issue?"
  },
- "mk-signal-3:1:c": {
+ "mk-signal-3:1:d": {
   "type": "tall",
   "tall": [
    {
     "navn": "Share price after the announcement",
     "verdi": 10.6,
-    "enhet": "€ per share"
+    "enhet": "€ per share",
+    "alt": [
+     17.8
+    ]
    },
    {
     "navn": "New shares",
     "verdi": 3.7735849057,
-    "enhet": "m shares"
-   }
-  ]
- },
- "mk-signal-3:1:d": {
-  "type": "blandet",
-  "tall": [
-   {
-    "navn": "Share price when the loan is announced",
-    "verdi": 17.8,
-    "enhet": "€ per share"
+    "enhet": "m shares",
+    "alt": [
+     2.2471910112
+    ]
    }
   ],
-  "tallPoeng": 2,
-  "tekstLedd": "Which types invest? Why?"
+  "merknad": "alt 17.80 og 2.2472 er følgefeil for en student som i (c) kom til at begge typer utsteder."
  },
  "mk-signal-3:1:e": {
   "type": "tekst"

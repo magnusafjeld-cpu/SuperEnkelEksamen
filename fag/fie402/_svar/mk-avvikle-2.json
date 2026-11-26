@@ -1,0 +1,56 @@
+{
+  "mk-avvikle-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV, committed",
+        "verdi": -233333.33333333326,
+        "enhet": "NOK"
+      }
+    ]
+  },
+  "mk-avvikle-2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV, good state",
+        "verdi": 1600000.0,
+        "enhet": "NOK"
+      },
+      {
+        "navn": "NPV, bad state",
+        "verdi": -1028337.4866500535,
+        "enhet": "NOK"
+      }
+    ]
+  },
+  "mk-avvikle-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of the right to close",
+        "verdi": 285831.25667497324,
+        "enhet": "NOK",
+        "alt": [
+          200000.0
+        ]
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Do you open? Explain what you compare the right with.",
+    "merknad": "Fellen er verdien målt mot den negative NPV-en fra (a) (NPV med − NPV uten). Verdien er lik NPV med retten, fordi beste valg uten retten er å la være. alt er svaret med reserve-NPV-ene."
+  },
+  "mk-avvikle-2:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "X",
+        "verdi": 71460.79999999999,
+        "enhet": "NOK"
+      }
+    ]
+  },
+  "mk-avvikle-2:1:e": {
+    "type": "tekst"
+  }
+}

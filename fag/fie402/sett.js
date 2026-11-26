@@ -10397,6 +10397,111 @@ window.EDU_DATA.mustKunne = {
         "mk-teori-kapital-2",
         "mk-teori-kapital-3"
       ]
+    },
+    {
+      "id": "avvikle",
+      "tier": 3,
+      "navn": "Realopsjon: avvikle eller gå ut",
+      "hvorfor": "Kurbatov sa at opsjonen til å avvikle kan komme, men brukte den selv i H2025 E5. Fellene er å sammenligne med 0, ikke med den negative verdien, og å bruke månedsrente når kontantstrømmene er månedlige.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 18 (Wrap-up), 1:06:01",
+          "sitat": "I'm not sure if it was in the exam recently, but it could be something that we could explore"
+        },
+        {
+          "hvor": "Forelesning 14 (Options III), 1:18:41",
+          "sitat": "If I give you a yearly rate, but the question is about months, then use the monthly rate."
+        }
+      ],
+      "sett": [
+        "mk-avvikle-1",
+        "mk-avvikle-2",
+        "mk-avvikle-3"
+      ]
+    },
+    {
+      "id": "signal",
+      "tier": 3,
+      "navn": "Asymmetrisk informasjon: emisjon, signal og sertifisering",
+      "hvorfor": "Kurbatov sa at signalisering er et tema han liker godt. Det har ikke vært på hans eksamener, men var på 8 av 11 eldre sett.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 10 (Problem set exercises 2), 3:07",
+          "sitat": "is a topic that I really like so you might expect something like that in the exam as well"
+        },
+        {
+          "hvor": "Forelesning 04 (Capital Structure III), 1:31:05",
+          "sitat": "explain briefly in three sentences, explain pecking order. Or it could be like part D or part E of some exercise"
+        }
+      ],
+      "sett": [
+        "mk-signal-1",
+        "mk-signal-2",
+        "mk-signal-3"
+      ]
+    },
+    {
+      "id": "entreprenor",
+      "tier": 3,
+      "navn": "Replikasjon: gjeld eller egenkapital i perfekt marked",
+      "hvorfor": "Fra første forelesning om kapitalstruktur. Kurbatov sa at han kan be deg finne sannsynligheten α i stedet for NPV, og at han liker indifferens-spørsmål.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 02 (Capital Structure I), 8:16",
+          "sitat": "in the exam I could ask you not to solve for NPV, but solve for alpha"
+        },
+        {
+          "hvor": "Forelesning 02 (Capital Structure I), 1:25:02",
+          "sitat": "I really like including such questions. Instead of find something, some outcome, I say find the x level where the person is indifferent"
+        }
+      ],
+      "sett": [
+        "mk-entreprenor-1",
+        "mk-entreprenor-2",
+        "mk-entreprenor-3"
+      ]
+    },
+    {
+      "id": "opsjonsintuisjon",
+      "tier": 3,
+      "navn": "Opsjoner og gjeld som opsjoner (teori, 10 poeng)",
+      "hvorfor": "Black-Scholes regnes ikke, men intuisjonen kan komme. H2025 E1 var dette, så en hel oppgave er mindre sannsynlig i år. Det kommer heller som en hale.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 18 (Wrap-up), 1:20",
+          "sitat": "black shows calculation will not be in the exam. Intuition can be there."
+        },
+        {
+          "hvor": "Forelesning 12 (Options I), 1:23:59",
+          "sitat": "the intuition for Black-Scholes can be in the exam I can ask you please like what happens if the volatility increases in the stock"
+        }
+      ],
+      "sett": [
+        "mk-opsjonsintuisjon-1",
+        "mk-opsjonsintuisjon-2",
+        "mk-opsjonsintuisjon-3"
+      ]
+    },
+    {
+      "id": "ma-motiver",
+      "tier": 3,
+      "navn": "M&A-motiver og hvem som vinner (teori, 10 poeng)",
+      "hvorfor": "H2024 E1 var motiver uten synergier, så det kommer trolig i ny vinkel. «Value creation» alene gir ikke poeng.",
+      "signaler": [
+        {
+          "hvor": "Forelesning 18 (Wrap-up), 1:10:05",
+          "sitat": "explain the reasons for M&A without mentioning the word synergies"
+        },
+        {
+          "hvor": "Forelesning 16 (M&A), 7:04",
+          "sitat": "I think this was an exam question, like slightly rephrased a couple years ago"
+        }
+      ],
+      "sett": [
+        "mk-ma-motiver-1",
+        "mk-ma-motiver-2",
+        "mk-ma-motiver-3"
+      ]
     }
   ]
 };
@@ -13046,19 +13151,19 @@ window.EDU_DATA.sets.push(
         {
           "label": "b",
           "points": 4,
-          "body": "<p>Each IPO is priced at the expected value of a share. What is your average return (in %) on the shares you receive? (If you could not solve (a), use 30 shares in good IPOs, 70 in bad IPOs and a price of €45.)</p>",
-          "solution": "<p>Over all 100 IPOs you expect 50 good and 50 bad ones, so you receive 50 × 25 = 1,250 good shares and 50 × 80 = 4,000 bad shares.</p><p>Profit = 1,250 × (55 − 44.5) + 4,000 × (34 − 44.5) = 13,125 − 42,000 = −28,875<br>Invested = 5,250 × 44.5 = 233,625</p><p>Return = −28,875/233,625 = <b>−12.3596%</b></p><p>Even though half the IPOs are good, most of your shares are in bad ones. At this price you lose money and would stay away.</p><p>With the fallback numbers (30, 70 and €45): −10.4444%.</p>",
+          "body": "<p>Each IPO is priced at the expected value of a share. What is your average return (in %) on the shares you receive? (If you could not solve (a), use 30 shares in good IPOs, 70 in bad IPOs and a price of €47.)</p>",
+          "solution": "<p>Over all 100 IPOs you expect 50 good and 50 bad ones, so you receive 50 × 25 = 1,250 good shares and 50 × 80 = 4,000 bad shares.</p><p>Profit = 1,250 × (55 − 44.5) + 4,000 × (34 − 44.5) = 13,125 − 42,000 = −28,875<br>Invested = 5,250 × 44.5 = 233,625</p><p>Return = −28,875/233,625 = <b>−12.3596%</b></p><p>Even though half the IPOs are good, most of your shares are in bad ones. At this price you lose money and would stay away.</p><p>With the fallback numbers (30, 70 and €47): −14.2553%.</p>",
           "criteria": [
             "Weights the returns by the shares actually received: (1,250 × 10.5 − 4,000 × 10.5)/233,625 = −12.3596%.",
             "Using the order of 200 shares in both types gives 0% and misses the point of the exercise.",
-            "Full marks with the fallback numbers: −10.4444%.",
+            "Full marks with the fallback numbers: −14.2553%.",
             "Show the calculation."
           ]
         },
         {
           "label": "c",
           "points": 5,
-          "body": "<p>The allocations stay as in (a). At what issue price do you just break even, so that you are still willing to take part in every IPO? (If you could not solve (a), use 30 shares in good IPOs and 70 in bad.)</p>",
+          "body": "<p>The allocations stay as in (a). At what issue price do you just break even, so that you are willing to take part in every IPO? (If you could not solve (a), use 30 shares in good IPOs and 70 in bad.)</p>",
           "solution": "<p>Call the price X. Your expected profit over all IPOs must be zero:</p><p>1,250 × (55 − X) + 4,000 × (34 − X) = 0<br>68,750 + 136,000 = 5,250X<br>X = 204,750/5,250 = <b>€39</b></p><p>The break-even price is the average value weighted by your allocations: (25 × 55 + 80 × 34)/(25 + 80) = 39, below the expected value of 44.5.</p><p>With the fallback allocations (30 and 70): X = (30 × 55 + 70 × 34)/100 = 40.3.</p>",
           "criteria": [
             "Sets up the break-even condition with the shares actually received, as the lecturer wrote it on the board.",
@@ -14150,6 +14255,1057 @@ window.EDU_DATA.sets.push(
         "Fact 3: symmetric (equal) information; an equity issue signals overvaluation, so the pecking order: internal funds, debt, equity. Mentioning that a buyback signals undervaluation is also accepted.",
         "Fact 4: no personal taxes; favours a buyback (or retention) because the tax is deferred. No mechanism point without the deferral: dividends are not generally taxed at a higher rate today, so the point is that the tax on a capital gain can be deferred.",
         "One to two sentences per fact, as asked. Length is not rewarded."
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-avvikle-1",
+  "kind": "must",
+  "label": "Realopsjon: avvikle eller gå ut · oppgave 1",
+  "mk": {
+    "type": "avvikle",
+    "tier": 3,
+    "nr": 1
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Real options",
+      "points": 20,
+      "topic": "Real options",
+      "chapters": [
+        25
+      ],
+      "merke": "Samme form som butikkeksemplet med exit-klausul i forelesning 14",
+      "body": "<p>You can open a franchised salad bar in an office district in Lyon. The fit-out costs €250,000, paid today. Rent, staff and food cost €18,000 a month. Revenue will be either €21,500 a month forever (good demand) or €13,500 a month forever (bad demand), with equal probability. You learn which right after opening. All cash flows come at the end of each month, the first one month from today. Demand for salads is unrelated to the stock market, so discount at the risk-free rate of 5% per year. Give rates in % with 4 decimals (0.1234%) and amounts with 2 decimals.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 2,
+          "body": "<p>What is the monthly discount rate?</p>",
+          "solution": "<p>r<sub>m</sub> = 1.05<sup>1/12</sup> − 1 = <b>0.004074 (0.4074%)</b> per month. Dividing 5% by 12 ignores the compounding within the year.</p>",
+          "criteria": [
+            "r_m = 1.05^(1/12) − 1 = 0.4074%.",
+            "5%/12 = 0.4167% ignores the compounding within the year and loses the point."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>What is the NPV of opening if you must run the bar forever? Do you open it? (If you could not solve (a), use 0.4% per month here and below.)</p>",
+          "solution": "<p>Expected net cash flow: 0.5 × (21,500 − 18,000) + 0.5 × (13,500 − 18,000) = 0.5 × 3,500 + 0.5 × (−4,500) = −500 a month.</p><p>NPV = −250,000 + (−500)/0.004074 = <b>−€372,725.78</b>. Negative: committed forever, you do not open.</p><p>With the fallback 0.4%: −375,000.00.</p>",
+          "criteria": [
+            "Expected net cash flow −500 a month, valued as a perpetuity at the monthly rate: NPV = −€372,725.78.",
+            "Decision: do not open.",
+            "Full marks with the fallback 0.4%: −€375,000.00."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 6,
+          "body": "<p>The franchise contract lets you close the bar at no cost at the end of month 30, after that month's cash flow. After that you pay and receive nothing. What is the NPV of opening in the good and in the bad state?</p>",
+          "solution": "<p><b>Good demand.</b> You earn 3,500 a month and never close: NPV = −250,000 + 3,500/0.004074 = <b>€609,080.43</b>.</p><p><b>Bad demand.</b> At month 30 you compare staying, which loses 4,500 a month forever, with closing, which gives 0. You close, so you lose money for 30 months only:</p><p>NPV = −250,000 − 4,500 × (1 − 1.004074<sup>−30</sup>)/0.004074 = −250,000 − 4,500 × 28.185169 = <b>−€376,833.26</b></p><p>With the fallback 0.4%: 625,000.00 and −376,975.65.</p>",
+          "criteria": [
+            "Good state: a perpetuity of 3,500 a month, NPV = €609,080.43.",
+            "Bad state: compares staying with 0 and closes; an annuity of −4,500 for 30 months, NPV = −€376,833.26.",
+            "Keeping the bad state's loss as a perpetuity (−1,354,531.98) ignores the clause and loses the points.",
+            "Full marks with the fallback 0.4%: 625,000.00 and −376,975.65."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 5,
+          "body": "<p>What is the NPV of opening with the clause? Do you open? What is the clause worth to you, compared with your best choice without it? (If you could not solve (c), use NPVs of €700,000 in the good state and −€500,000 in the bad state.)</p>",
+          "solution": "<p>NPV = 0.5 × 609,080.43 + 0.5 × (−376,833.26) = <b>€116,123.58</b>. Positive: with the clause you open.</p><p>Without the clause your best choice is not to open, which is worth 0, not the negative NPV from (b). The clause is therefore worth <b>€116,123.58</b>: it turns a project you would reject into one worth that much.</p><p>With the fallback NPVs: 100,000 for both. With the fallback rate: 124,012.18.</p>",
+          "criteria": [
+            "NPV with the clause = €116,123.58; open.",
+            "Value of the clause = NPV with the clause − max(0, NPV without) = €116,123.58.",
+            "Subtracting the negative NPV from (b) (giving 488,849.36) treats a project you would never take as your alternative.",
+            "Full marks with the fallbacks: €100,000.00 or €124,012.18."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Without new calculations: how would the value of the clause change if you could close already after 12 months? What would the clause be worth if bad-demand revenue were €19,000 a month instead? Explain briefly.</p>",
+          "solution": "<p><b>Exit after 12 months: worth more.</b> The clause cuts off the losses of the bad state. With a shorter lock-in you suffer the €4,500 loss for 12 months instead of 30, so the bad-state NPV is less negative and the clause adds more value.</p><p><b>Bad-demand revenue of €19,000: worthless.</b> Revenue would then exceed the running costs, so the bar earns money in both states and you would never use the right to close. An option you never exercise is worth nothing; its value comes only from avoiding losses.</p>",
+          "criteria": [
+            "2 points: a shorter lock-in raises the value, because the losses in the bad state are cut off earlier.",
+            "2 points: with €19,000 the bad state earns money, you never close, so the clause is worth 0.",
+            "Bonus, not required: the general point that an exit option is valuable only where the continuation value is below 0."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-avvikle-2",
+  "kind": "must",
+  "label": "Realopsjon: avvikle eller gå ut · oppgave 2",
+  "mk": {
+    "type": "avvikle",
+    "tier": 3,
+    "nr": 2
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Real options",
+      "points": 20,
+      "topic": "Real options",
+      "chapters": [
+        25
+      ],
+      "merke": "Samme form som H2025 E5 (d) og (e)",
+      "body": "<p>You can open an escape-room venue in Stavanger. Fitting out the rooms costs NOK 900,000, paid today. Rent, staff and other running costs are NOK 250,000 a year. Ticket revenue will be NOK 400,000 a year forever (good demand) or NOK 180,000 a year forever (bad demand). Both are equally likely. You learn which right after opening. Cash flows come at the end of each year, the first one year from today. The risk is unrelated to the market, so discount at the risk-free rate of 6% a year. Give amounts with 2 decimals.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the NPV of opening if you must run the venue forever? Do you open?</p>",
+          "solution": "<p>Net cash flow: 400,000 − 250,000 = 150,000 with good demand, 180,000 − 250,000 = −70,000 with bad demand. Expected: 0.5 × 150,000 + 0.5 × (−70,000) = 40,000 a year.</p><p>NPV = −900,000 + 40,000/0.06 = <b>NOK −233,333.33</b>. You do not open.</p>",
+          "criteria": [
+            "Nets revenue and running costs first: +150,000 and −70,000 a year, expected 40,000.",
+            "NPV = −900,000 + 40,000/0.06 = −233,333.33; do not open."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>The landlord lets you close the venue at no cost at the end of Year 2, after that year's cash flow. After that you pay and receive nothing. What is the NPV of opening in the good and in the bad state?</p>",
+          "solution": "<p><b>Good demand:</b> you never close. NPV = −900,000 + 150,000/0.06 = <b>1,600,000.00</b>.</p><p><b>Bad demand:</b> at the end of Year 2 the venue's remaining value is −70,000/0.06, below the 0 you get by closing, so you close. You lose 70,000 in Years 1 and 2 only:</p><p>NPV = −900,000 − 70,000/1.06 − 70,000/1.06<sup>2</sup> = −900,000.00 − 66,037.74 − 62,299.75 = <b>−1,028,337.49</b></p>",
+          "criteria": [
+            "Good state: 150,000/0.06 − 900,000 = 1,600,000.",
+            "Bad state: compares the continuation value with 0 and closes after Year 2: −1,028,337.49.",
+            "Using −70,000 forever in the bad state, or comparing with the negative value instead of 0, is the mistake the lecturer warned about."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>Do you open? What is the right to close worth to you, compared with your best choice without it? (If you could not solve (b), use NPVs of NOK 1,500,000 in the good state and −NOK 1,100,000 in the bad state.)</p>",
+          "solution": "<p>NPV of opening = 0.5 × 1,600,000.00 + 0.5 × (−1,028,337.49) = 800,000.00 − 514,168.74 = <b>NOK 285,831.26</b>. Positive, so you open.</p><p>Without the right your best choice is not to open, which is worth 0, not the negative NPV from (a). The right is therefore worth <b>NOK 285,831.26</b>.</p><p>With the fallback NPVs: 200,000.</p>",
+          "criteria": [
+            "NPV with the right 285,831.26: open.",
+            "Value = NPV with the right − max(0, NPV without) = 285,831.26.",
+            "Subtracting the negative NPV from (a) (519,164.59) values the right against a project you would never take and loses the point.",
+            "Full marks with the fallback NPVs: 200,000."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 5,
+          "body": "<p>Keep the right to close at the end of Year 2. Suppose the yearly net cash flow is 40,000 + X with good demand and 40,000 − X with bad demand. For which X are you indifferent about opening?</p>",
+          "solution": "<p>At indifference the bad state loses money (X is larger than 40,000), so you close after Year 2:</p><p>0 = −900,000 + 0.5 × [(40,000 + X)/0.06 + (40,000 − X)(1/1.06 + 1/1.06<sup>2</sup>)]</p><p>With 1/1.06 + 1/1.06<sup>2</sup> = 1.833393:<br>1,800,000 = 666,666.67 + 16.666667X + 73,335.71 − 1.833393X<br>X = (1,800,000 − 666,666.67 − 73,335.71)/(16.666667 − 1.833393) = 1,059,997.62/14.833274 = <b>NOK 71,460.80</b></p><p>Sanity check (not required): in the original setting X = 110,000, above 71,461, so you open, as in (c).</p>",
+          "criteria": [
+            "Sets up the indifference condition with the exit after Year 2 in the bad state.",
+            "X = NOK 71,460.80.",
+            "Treating the bad state as a perpetuity (no exit) gives no solution with a positive NPV and loses the points."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>In (d) a larger X leaves the expected yearly cash flow unchanged. Why does it still make opening more attractive? Explain briefly.</p>",
+          "solution": "<p>Because of the right to close, the two states are treated differently. A larger X raises the good state's cash flow forever but lowers the bad state's only for two years, since you then close. The upside grows while the downside is capped, so more spread means more value. The right to close is an option; options are worth more when uncertainty is larger.</p>",
+          "criteria": [
+            "2 points: the upside is kept forever while the downside is cut off after two years.",
+            "1 point: the right to close is an option; options gain value with more uncertainty (spread).",
+            "2 to 3 sentences are enough."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-avvikle-3",
+  "kind": "must",
+  "label": "Realopsjon: avvikle eller gå ut · oppgave 3",
+  "mk": {
+    "type": "avvikle",
+    "tier": 3,
+    "nr": 3
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Real options",
+      "points": 20,
+      "topic": "Real options",
+      "chapters": [
+        25
+      ],
+      "merke": "Samme form som exit-eksemplet i forelesning 14 og 18, med kvartalsvise kontantstrømmer",
+      "body": "<p>A US mattress brand can open a showroom in a Denver mall. The fit-out costs $600,000, paid today. Rent, staff and other costs are $90,000 a quarter. Revenue will be $130,000 a quarter forever with probability 45% (good demand) or $60,000 a quarter forever with probability 55% (bad demand). The brand learns which right after opening. Cash flows come at the end of each quarter, the first one quarter from today. Demand is unrelated to the market, so discount at the risk-free rate of 8% a year. Give rates in % with 4 decimals and amounts with 2 decimals.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 2,
+          "body": "<p>What is the quarterly discount rate?</p>",
+          "solution": "<p>r<sub>q</sub> = 1.08<sup>1/4</sup> − 1 = <b>0.019427 (1.9427%)</b> per quarter.</p>",
+          "criteria": [
+            "r_q = 1.08^(1/4) − 1 = 1.9427%.",
+            "8%/4 = 2% ignores the compounding within the year and loses the point."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>What is the NPV of opening if the brand must keep the showroom forever? Does it open? (If you could not solve (a), use 1.9% per quarter here and below.)</p>",
+          "solution": "<p>Expected net cash flow: 0.45 × 40,000 + 0.55 × (−30,000) = 1,500 a quarter.</p><p>NPV = −600,000 + 1,500/0.019427 = <b>$−522,786.07</b>. It does not open.</p><p>With the fallback 1.9%: −521,052.63.</p>",
+          "criteria": [
+            "Expected net cash flow +1,500 a quarter; NPV = −522,786.07; do not open.",
+            "Using 50/50 instead of 45/55 is an error.",
+            "Full marks with the fallback 1.9%: −521,052.63."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 7,
+          "body": "<p>The mall offers a lease that lets the brand leave at the end of quarter 6, after that quarter's cash flow, if it pays an exit fee of $50,000 then. After that it pays and receives nothing. Does the brand leave with bad demand? What is the NPV of opening in each state and in total? Does it open?</p>",
+          "solution": "<p><b>Good demand:</b> it never leaves. NPV = −600,000 + 40,000/0.019427 = <b>1,459,038.09</b>.</p><p><b>Bad demand, the exit decision.</b> At the end of quarter 6, staying is worth −30,000/0.019427 = −1,544,278.57, while leaving costs the fee of 50,000. −50,000 is better, so it <b>leaves</b>.</p><p><b>Bad demand, NPV:</b> −600,000 − 30,000 × (1 − 1.019427<sup>−6</sup>)/0.019427 − 50,000/1.019427<sup>6</sup> = −600,000 − 30,000 × 5.612287 − 50,000 × 0.890973 = <b>−812,917.25</b></p><p><b>Total:</b> 0.45 × 1,459,038.09 + 0.55 × (−812,917.25) = <b>$209,462.65</b>. Positive, so it opens.</p><p>With the fallback 1.9%: 1,505,263.16, −813,272.14 and 230,068.74.</p>",
+          "criteria": [
+            "Exit decision: compares staying (a perpetuity of −30,000) with paying the fee, not with 0; leaves.",
+            "Good state 1,459,038.09; bad state −812,917.25, with the fee discounted from quarter 6.",
+            "Total NPV 209,462.65; open.",
+            "Forgetting the fee gives −768,368.62 in the bad state.",
+            "Full marks with the fallback 1.9%: 1,505,263.16, −813,272.14, 230,068.74."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>What is the largest exit fee at which the brand would leave with bad demand at the end of quarter 6? Explain what you compare.</p>",
+          "solution": "<p>At the end of quarter 6 the brand compares the value of staying with the cost of leaving. Staying is worth −30,000/0.019427 = −1,544,278.57. It leaves as long as the fee is smaller than that loss: the largest fee is <b>$1,544,278.57</b>.</p><p>The fit-out cost and the losses of the first six quarters play no role: they are already spent. Only the cash flows from quarter 7 on are compared.</p><p>With the fallback 1.9%: 1,578,947.37.</p>",
+          "criteria": [
+            "Largest fee = present value at quarter 6 of the future losses = 30,000/0.019427 = 1,544,278.57.",
+            "Says what is compared: staying (the perpetuity of losses) against paying the fee and leaving.",
+            "Full marks with the fallback 1.9%: 1,578,947.37."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>At the end of quarter 6, with bad demand, the brand's founder says: «We have spent $600,000 on this showroom. If we leave now, that money is lost, so we should stay until we earn it back.» Comment briefly.</p>",
+          "solution": "<p>The founder is wrong. The $600,000 is a sunk cost: it is gone whether the brand stays or leaves, so it must not affect the decision. Only the future matters: staying loses $30,000 a quarter forever (worth −1,544,279), leaving costs $50,000. With bad demand the showroom never earns the money back, so staying only adds to the losses. Treat the present as given and take the best decision from here.</p>",
+          "criteria": [
+            "2 points: the fit-out cost is sunk and irrelevant for the decision at quarter 6.",
+            "2 points: compares only future cash flows (stay: losses forever; leave: the fee), so the brand should leave.",
+            "2 to 4 sentences are enough."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-signal-1",
+  "kind": "must",
+  "label": "Asymmetrisk informasjon: emisjon, signal og sertifisering · oppgave 1",
+  "mk": {
+    "type": "signal",
+    "tier": 3,
+    "nr": 1
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Security Issues",
+      "points": 20,
+      "topic": "Equity issues",
+      "chapters": [
+        12,
+        13
+      ],
+      "merke": "Samme form som SEO-eksemplet i forelesning 7 (1:29:09)",
+      "body": "<p>Hovdenes Marine ASA builds aluminium workboats. It is all-equity financed with 20 million shares, held by long-term shareholders who keep them until t = 1. At t = 1 its existing assets will be worth NOK 330 million if its new hull design is approved or NOK 130 million if it is not. The managers already know which; investors think both are equally likely. The manager acts in the interest of the existing shareholders. Everyone is risk-neutral and the risk-free rate is 0%.</p><p>Hovdenes can invest NOK 30 million today in a new paint shop that will pay NOK 36 million for sure at t = 1. It must pay for it by issuing new shares to competitive investors. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the market value of Hovdenes's existing assets and the share price today, before the project is announced?</p>",
+          "solution": "<p>Investors cannot tell the types apart, so they value the firm at the expectation: V = 0.5 × 330 + 0.5 × 130 = <b>NOK 230M</b>. The share price is P = 230 / 20 = <b>NOK 11.50</b>.</p>",
+          "criteria": [
+            "V = 0.5 × 330 + 0.5 × 130 = NOK 230M, because investors only know the probabilities.",
+            "P = 230/20 = NOK 11.50.",
+            "No discounting: the risk-free rate is 0% and everyone is risk-neutral."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Suppose investors price the issue as if both types issue. What fraction of the firm must the new investors receive?</p>",
+          "solution": "<p>As investors see it, the firm with the paint shop is worth 230 + 36 = NOK 266M at t = 1. Competitive investors pay 30 for a stake worth 30:</p><p>α = 30 / 266 = <b>11.2782%</b></p>",
+          "criteria": [
+            "α = I / (pooled value after the investment) = 30/(230 + 36) = 11.2782%.",
+            "Leaving the project out of the denominator (30/230 = 13.0435%) is the classic error.",
+            "The denominator includes the project's payoff because the money raised is spent on it."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 5,
+          "body": "<p>On these terms, what are the existing shareholders' stakes worth at t = 1 for each type? Which type or types issue? Explain briefly. (If you could not solve (b), use a fraction of 15%.)</p>",
+          "solution": "<p>The existing shareholders keep 1 − α = 0.887218 of the firm with the paint shop:</p><table class=\"data\"><tr><th>Type</th><th>Without the issue</th><th>With the issue</th><th>Decision</th></tr><tr><td>High value</td><td class=\"n\">330</td><td class=\"n\">0.887218 × 366 = 324.7218</td><td>Does not issue</td></tr><tr><td>Low value</td><td class=\"n\">130</td><td class=\"n\">0.887218 × 166 = 147.2782</td><td>Issues</td></tr></table><p><b>Only the low-value type issues.</b> At the pooled price its shares are overpriced (worth 130, priced as 230), so it gains the NPV of 6 plus 11.2782 from selling them. The high type's shares are underpriced by the same logic: it gives away 0.112782 × 366 = 41.2782 of value for NOK 30M. The excess of 11.2782 outweighs the NPV, so it would lose 5.2782.</p><p>With the fallback of 15%: 0.85 × 366 = 311.1000 and 0.85 × 166 = 141.1000. Same decisions.</p>",
+          "criteria": [
+            "High value: 0.887218 × 366 = 324.7218, below 330, so it does not issue.",
+            "Low value: 0.887218 × 166 = 147.2782, above 130, so it issues.",
+            "Compares each stake with the value without the project, not with the other type.",
+            "Explanation: the low type's shares are overpriced at the pooled price and the high type's underpriced; for the high type the dilution costs more than the NPV."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Investors anticipate your answer to (c). What is the share price right after Hovdenes announces the issue? How many new shares must it sell?</p>",
+          "solution": "<p><b>Step 1. What the announcement reveals.</b> Only a low-value firm issues, so the issue tells investors that the assets are worth 130. With the paint shop the firm will be worth 130 + 36 = NOK 166M, of which the new investors pay for 30.</p><p><b>Step 2. Two equations.</b> P × n = 30 and P × (20 + n) = 166, so 20 × P = 136:</p><p>P = <b>NOK 6.80</b> and n = 30 / 6.80 = <b>4.4118 million shares</b></p><p>The price falls from NOK 11.50 (−40.87%). On these terms the low type keeps 136 &gt; 130 and still issues, while a high type would keep 299.8554 &lt; 330: the belief is rational. ✓</p><p>A student who concluded in (c) that both types issue would consistently price at the pooled value: (230 + 6) / 20 = NOK 11.80 and 2.5424 million shares.</p>",
+          "criteria": [
+            "The issue reveals the low type: P = (130 + 36 − 30)/20 = NOK 6.80.",
+            "n = 30/6.80 = 4.4118 million, from P × n = 30 and P × (20 + n) = 166 or equivalent reasoning.",
+            "With the answer to (c) right, pricing at the pooled value (NOK 11.80) ignores what the issue reveals. It is consistent follow-through only if (c) concluded that both types issue.",
+            "Bonus: checks that the belief is rational (the low type still issues, the high type does not imitate)."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 5,
+          "body": "<p>Is the outcome efficient? Compared with a world where investors also knew the type, who, if anyone, is better or worse off? Explain briefly (3 to 4 sentences).</p>",
+          "solution": "<p><b>No.</b> The high-value Hovdenes forgoes a positive-NPV project, which is underinvestment caused by asymmetric information: the firm forgoes positive-NPV projects. With full information it could sell shares at a fair price and its shareholders would end up with 330 + 6 = 336, so they are worse off by the NPV of 6. The low-value firm's shareholders get 136 in both worlds because investors see through the issue; the new investors break even, so neither group is better or worse off.</p>",
+          "criteria": [
+            "Says the outcome is inefficient because the high-value type forgoes a positive-NPV project (underinvestment).",
+            "The high type's shareholders are worse off by the NPV (6) compared with full information.",
+            "The low type and the new investors are neither better nor worse off: investors see through the issue and pay a fair price.",
+            "Bonus: explains the price fall in (d) as information revealed by the decision to issue, not a verdict on the project."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-signal-2",
+  "kind": "must",
+  "label": "Asymmetrisk informasjon: emisjon, signal og sertifisering · oppgave 2",
+  "mk": {
+    "type": "signal",
+    "tier": 3,
+    "nr": 2
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Security Issues",
+      "points": 20,
+      "topic": "Equity issues",
+      "chapters": [
+        12,
+        13
+      ],
+      "merke": "Som HA1 E3 og PS2 E1 i forelesning 10, strammet inn, med sertifisering (forelesning 10, 3:07)",
+      "body": "<p>Larkhaven Biosensors Inc. makes glucose sensors. It has 25 million shares, no debt and no cash. At t = 1 its existing assets will be worth $400 million (high-value type) or $200 million (low-value type). The managers know the type; investors put a probability of 30% on the high-value type. The shareholders keep their shares until t = 1 and the manager acts in their interest.</p><p>Larkhaven can invest $50 million today in a production line that pays $80 million for sure at t = 1. It must issue new shares to competitive investors to pay for it. Everyone is risk-neutral and the risk-free rate is 0%. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the market value of Larkhaven's existing assets and the share price today, before the project is announced?</p>",
+          "solution": "<p>V = 0.3 × 400 + 0.7 × 200 = <b>$260M</b> and P = 260 / 25 = <b>$10.40</b>.</p>",
+          "criteria": [
+            "Uses the given probabilities, not 50/50: V = 0.3 × 400 + 0.7 × 200 = $260M.",
+            "P = 260/25 = $10.40.",
+            "A 50/50 average ($300M) is the error."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>Suppose investors price the issue as if both types issue. What fraction of the firm must the new investors receive? What are the existing shareholders' stakes worth at t = 1 for each type if Larkhaven issues? Which type or types issue?</p>",
+          "solution": "<p><b>Step 1. The fraction.</b> α = 50 / (260 + 80) = 50 / 340 = <b>14.7059%</b>.</p><p><b>Step 2. The stakes.</b> High value: 0.852941 × 480 = <b>409.4118</b> &gt; 400. Low value: 0.852941 × 280 = <b>238.8235</b> &gt; 200.</p><p><b>Both types issue.</b> The high type's shares are underpriced, which costs it 0.147059 × (400 − 260) = 20.5882, but the project's NPV of 30 is larger, so it still gains 9.4118.</p>",
+          "criteria": [
+            "α = 50/(260 + 80) = 14.7059%, with the project in the denominator.",
+            "Stakes: 409.4118 for the high type (above 400) and 238.8235 for the low type (above 200).",
+            "Conclusion: both types issue. Each type compares its stake with its value without the project.",
+            "Mechanism: the high type's loss from underpriced shares is smaller than the NPV."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>Is the investors' belief in (b) rational? What happens to the share price when the issue is announced?</p>",
+          "solution": "<p><b>Yes.</b> Investors priced the issue as if both types issue. Both do, so the belief is consistent with the actions. The announcement therefore reveals nothing about the type and only adds the NPV:</p><p>P = (260 + 30) / 25 = <b>$11.60</b>, up from $10.40 by 30 / 25 = $1.20.</p><p>A student who concluded in (b) that only the low type issues would consistently price the issuer as the low type: (200 + 30) / 25 = $9.20.</p>",
+          "criteria": [
+            "The belief is rational because both types do issue, as investors assumed.",
+            "P = (260 + 30)/25 = $11.60: the price rises by the NPV per share.",
+            "Credit for noting that a pooling issue sends no signal about the type."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 5,
+          "body": "<p>An independent laboratory offers to certify Larkhaven's type to the market. The fee is paid today and raised in the same share issue at the certified (fair) price. What is the highest fee a high-value Larkhaven would pay? Would a low-value Larkhaven buy the certificate? Explain briefly. (If you could not solve (b), use a stake of $405 million for the high-value type.)</p>",
+          "solution": "<p><b>High value.</b> With the certificate it is priced at its true value: raising 50 + F at a fair price, its old shareholders keep 400 + 80 − 50 − F = 430 − F. Without the certificate it issues at the pooled price and keeps 409.4118. It pays up to 430 − 409.4118 = <b>$20.5882M</b>, which is the underpricing it avoids.</p><p><b>Low value: no.</b> A certificate would reveal it and leave 230 − F, against 238.8235 when it pools with the high type.</p><p>With the fallback stake of $405M: F = 430 − 405 = $25M.</p>",
+          "criteria": [
+            "Highest fee = 430 − 409.4118 = $20.5882M: the fair outcome with the certificate against pooling.",
+            "The alternative is issuing at the pooled price, not skipping the project. Comparing with 400 (giving 30, the NPV) is the error.",
+            "The low type does not buy: it would be revealed and keep 230 − F instead of 238.8235. Also full credit: once the high type certifies, the low type is recognised without a certificate anyway, so it compares 230 − F with 230.",
+            "Bonus: names the fee as the value of avoiding underpriced shares."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Without a certificate, is the outcome efficient? Who, if anyone, gains at whose expense? Explain briefly.</p>",
+          "solution": "<p><b>Efficient: yes.</b> Both types invest, so the NPV of 30 is never lost. Pooling only moves value: the high type's old shareholders give up 20.5882 through underpriced shares, the low type's gain 8.8235 over a fair price. The new investors break even on average (0.3 × 20.5882 = 0.7 × 8.8235 = 6.1765). A certificate would move this value back to the high type, but its fee is a real cost.</p>",
+          "criteria": [
+            "Efficient: both types invest, so no positive-NPV project is lost.",
+            "Value moves from the high type's shareholders (20.5882) to the low type's (8.8235); the new investors break even on average. A verbal version of this argument earns full points.",
+            "Bonus: the check 0.3 × 20.5882 = 0.7 × 8.8235, or that the certificate only redistributes and its fee is a cost."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-signal-3",
+  "kind": "must",
+  "label": "Asymmetrisk informasjon: emisjon, signal og sertifisering · oppgave 3",
+  "mk": {
+    "type": "signal",
+    "tier": 3,
+    "nr": 3
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Security Issues",
+      "points": 20,
+      "topic": "Financing a project",
+      "chapters": [
+        12,
+        13
+      ],
+      "merke": "Som SEO-eksemplet i forelesning 7, med lån som alternativ (forelesning 4, 1:31:05)",
+      "body": "<p>Montclair Vineyards SA owns vineyards in the south of France. It has 10 million shares, no debt and no cash. At t = 1 its existing assets will be worth €220 million (high-value type) or €100 million (low-value type), depending on soil tests that only the managers have seen. Investors put a probability of 60% on the high-value type.</p><p>Montclair can invest €40 million today in a new cellar that pays €46 million for sure at t = 1. Everyone is risk-neutral and the risk-free rate is 0%. The manager acts for the existing shareholders, who keep their shares until t = 1. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the market value of the existing assets and the share price today, before the project is announced?</p>",
+          "solution": "<p>V = 0.6 × 220 + 0.4 × 100 = <b>€172M</b> and P = 172 / 10 = <b>€17.20</b>.</p>",
+          "criteria": [
+            "V = €172M with the given probabilities.",
+            "P = €17.20.",
+            "Investors only know the probabilities, so they price the expected value."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>First suppose Montclair borrows the €40 million from a bank, to be repaid at t = 1 with no interest (the loan is risk-free). Which type or types invest? What happens to the share price when the loan is announced? Explain briefly.</p>",
+          "solution": "<p><b>Both types invest.</b> The loan is repaid in full from the cellar's €46M whatever the type, so its value does not depend on what the managers know and nothing is mispriced. A high-value Montclair keeps 220 + 46 − 40 = 226 &gt; 220 and a low-value one 106 &gt; 100.</p><p>Since both types borrow, the announcement reveals nothing about the type and only adds the NPV: P = (172 + 6) / 10 = <b>€17.80</b>, up from €17.20.</p>",
+          "criteria": [
+            "Both types invest: 226 is above 220 and 106 above 100.",
+            "Reason: risk-free debt is worth the same whatever the type, so its price cannot be wrong.",
+            "P = (172 + 6)/10 = €17.80: the price rises by the NPV per share."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 5,
+          "body": "<p>Now suppose the bank refuses and Montclair must issue new shares to competitive investors, who price the issue as if both types issue. What fraction of the firm must the new investors receive? What are the existing shareholders' stakes worth at t = 1 for each type? Which type or types issue?</p>",
+          "solution": "<p><b>Step 1.</b> α = 40 / (172 + 46) = 40 / 218 = <b>18.3486%</b>.</p><p><b>Step 2.</b> High value: 0.816514 × 266 = <b>217.1927</b> &lt; 220, so it does not issue. Low value: 0.816514 × 146 = <b>119.2110</b> &gt; 100, so it issues.</p><p>Only the low type issues. Even with a 60% chance of the high type, the pooled price undervalues a high-value Montclair: it would give away 48.8073 of value for €40M of cash, more than the €46M the cellar returns.</p>",
+          "criteria": [
+            "α = 40/(172 + 46) = 18.3486%.",
+            "Stakes 217.1927 (high, below 220) and 119.2110 (low, above 100).",
+            "Only the low type issues; each type compares with its value without the project."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Investors anticipate your answer to (c). What is the share price right after an equity issue is announced? How many new shares must be sold?</p>",
+          "solution": "<p>The issue reveals the low type, so the firm with the cellar is worth 100 + 46 = €146M. P × n = 40 and P × (10 + n) = 146 give 10 × P = 106:</p><p>P = <b>€10.60</b> and n = 40 / 10.60 = <b>3.7736 million shares</b></p><p>The price falls from €17.20 (−38.37%), while the loan in (b) raised it.</p><p>A student who concluded in (c) that both types issue would consistently price at the pooled value: €17.80 and 2.2472 million shares.</p>",
+          "criteria": [
+            "P = (100 + 46 − 40)/10 = €10.60.",
+            "n = 40/10.60 = 3.7736 million (two equations or equivalent reasoning).",
+            "With the answer to (c) right, pricing at the pooled value (€17.80) ignores what the issue reveals."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Explain the results in (b) and (d) with the pecking order: in which order should Montclair prefer internal cash, debt and equity? Why? Would your answer change if the loan were risky? Explain briefly (3 to 4 sentences).</p>",
+          "solution": "<p><b>Internal cash first, then debt, then equity:</b> the less a source's value depends on what the managers know, the less it can be mispriced and the weaker the negative signal. Cash reveals nothing and risk-free debt cannot be mispriced, which is why both types invest in (b); equity is the most sensitive, which is why the high type stays out in (c) and the price falls in (d). With a risky loan the order stays the same, but the loan would be worth less for the low type than for the high type and so partly mispriced. If that mispricing exceeded the NPV of 6, the high type would again forgo the cellar.</p>",
+          "criteria": [
+            "The order: internal funds, then debt, then equity (the pecking order).",
+            "Mechanism: the more a security's value depends on the managers' private information, the more it can be mispriced and the stronger the negative signal; risk-free debt is not sensitive at all.",
+            "Risky debt: the order stays the same, but the loan is partly mispriced; the high type may underinvest again if that mispricing exceeds the NPV.",
+            "3 to 4 sentences, as asked."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-entreprenor-1",
+  "kind": "must",
+  "label": "Replikasjon: gjeld eller egenkapital i perfekt marked · oppgave 1",
+  "mk": {
+    "type": "entreprenor",
+    "tier": 3,
+    "nr": 1
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Capital Structure",
+      "points": 20,
+      "topic": "Financing a new venture",
+      "chapters": [
+        6
+      ],
+      "merke": "Samme form som gründereksemplet i forelesning 02 (5:23 til 42:44)",
+      "body": "<p>Dana Whitlock wants to start a vertical farm in Oregon. The building and the equipment cost $3 million today. In one year Dana sells the farm, which then pays $6.99 million if the economy booms and $3.09 million if it busts, each with probability 50%. Dana has no money of her own. She can raise the $3 million from equity investors, who demand an expected return of 12%, or as a bank loan at the risk-free rate of 3%. The market portfolio returns +160% in a boom and −100% in a bust; the farm booms and busts with the market. Markets are perfect and there are no taxes. Value every claim by replicating it with the market portfolio and the risk-free asset. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the farm's expected payoff? What fraction of the farm must the equity investors receive? What is Dana's expected cash flow with equity financing and with the bank loan?</p>",
+          "solution": "<p>E[payoff] = 0.5 × 6.99 + 0.5 × 3.09 = <b>$5.04 million</b></p><p><b>Equity investors.</b> They put in 3 and want 3 × 1.12 = 3.36 in expectation, so they need 3.36/5.04 = <b>2/3 = 66.67%</b> of the farm. Dana keeps 1/3: her expected cash flow is 5.04 − 3.36 = <b>$1.68 million</b>.</p><p><b>Bank loan.</b> Dana repays 3 × 1.03 = 3.09 in both states: expected cash flow 5.04 − 3.09 = <b>$1.95 million</b>.</p>",
+          "criteria": [
+            "Expected payoff 0.5 × 6.99 + 0.5 × 3.09 = 5.04.",
+            "Investors' fraction 3.36/5.04 = 66.67%.",
+            "Dana's expected cash flow 1.68 with equity and 1.95 with the loan."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Show that the bank loan is risk-free. What is Dana's stake worth today with the bank loan?</p>",
+          "solution": "<p><b>Risk-free.</b> The bank is owed 3.09. Even in a bust the farm pays 3.09, so the bank is paid in full in both states.</p><p><b>Dana's payoff.</b> Boom: 6.99 − 3.09 = 3.9. Bust: 0.</p><p><b>Replicate it.</b> $1 in the market portfolio pays 2.6 in a boom and 0 in a bust: the same pattern. Dana's stake is worth 3.9/2.6 = <b>$1.5 million</b> in the market portfolio and nothing in the risk-free asset.</p>",
+          "criteria": [
+            "The loan is risk-free: 3 × 1.03 = 3.09 is paid even in a bust.",
+            "Dana gets 3.9 in a boom and 0 in a bust, the payoff pattern of the market portfolio.",
+            "Stake = 3.9/2.6 = 1.5."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 5,
+          "body": "<p>What is Dana's stake worth with equity financing? Give the replicating portfolio and compare with (b). (If you could not solve (a), assume that Dana keeps 40% of the farm.)</p>",
+          "solution": "<p><b>Dana's payoff.</b> She keeps 1/3: 2.33 in a boom and 1.03 in a bust.</p><p><b>Split it.</b> The 1.03 she gets in both states is risk-free; the remaining 2.33 − 1.03 = 1.3 comes only in a boom, like the market.<br>Risk-free asset: 1.03/1.03 = <b>1</b><br>Market portfolio: 1.3/2.6 = <b>0.5</b><br>Stake = 1 + 0.5 = <b>$1.5 million</b>, the same as with the bank loan.</p><p><b>Check.</b> The portfolio pays 1 × 1.03 + 0.5 × 2.6 = 2.33 in a boom and 1 × 1.03 = 1.03 in a bust ✓</p><p>With the fallback 40%: 1.2 in the risk-free asset and 0.6 in the market, a stake of 1.8.</p>",
+          "criteria": [
+            "Dana's payoff 2.33 and 1.03.",
+            "Replicating portfolio: 1 in the risk-free asset and 0.5 in the market portfolio.",
+            "Stake 1.5, the same as in (b).",
+            "Check that the portfolio pays Dana's payoff in both states is a bonus."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 3,
+          "body": "<p>What are the equity investors' stake and the bank loan worth today? What is the farm worth with equity financing and with the bank loan? (If you could not solve (a) to (c), use an investors' fraction of 60% and stakes for Dana of $1.4 million with the loan and $1.6 million with equity.)</p>",
+          "solution": "<p><b>Investors.</b> They get 2/3: 4.66 or 2.06. Risk-free part 2.06/1.03 = 2, market part 2.6/2.6 = 1: <b>$3 million</b>, exactly what they pay. The bank loan is worth 3.09/1.03 = <b>$3 million</b>: also a zero-NPV deal.</p><p><b>The farm.</b> Equity financing: 3 + 1.5 = <b>$4.5 million</b>. Bank loan: 3 + 1.5 = <b>$4.5 million</b>. The NPV, 4.5 − 3 = 1.5, goes to Dana either way.</p><p>With the fallback values: investors 0.6 × 4.5 = 2.7, farm 2.7 + 1.6 = 4.3 with equity and 3 + 1.4 = 4.4 with the loan. Reading Dana's 1.6 as 0.4 of the farm instead gives investors 2.4 and a farm of 4 with equity; both readings are accepted.</p>",
+          "criteria": [
+            "Investors' stake 3 by replication: a zero-NPV deal.",
+            "Bank loan worth 3.",
+            "The farm is worth 4.5 with both forms of financing (MM I).",
+            "Bonus: the NPV of 1.5 goes to Dana either way."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>What expected return does Dana earn on her stake with the bank loan and with equity financing? (If you could not solve (b) or (c), use stakes of $1.4 million with the loan and $1.6 million with equity.)</p>",
+          "solution": "<p>With the loan 1.95/1.5 − 1 = <b>30.00%</b>, the market's expected return (0.5 × 160% − 0.5 × 100%).<br>With equity 1.68/1.5 − 1 = <b>12.00%</b>, the farm's own expected return.</p><p>With the fallback stakes: 1.95/1.4 − 1 = 39.2857% and 1.68/1.6 − 1 = 5.0000%.</p>",
+          "criteria": [
+            "With the loan: 1.95/1.5 − 1 = 30%.",
+            "With equity: 1.68/1.5 − 1 = 12%.",
+            "Bonus: notes that the levered stake earns the market's expected return."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 3,
+          "body": "<p>Compare Dana's expected cash flows from (a) with the values of her stake in (b) and (c). Explain briefly. Why would discounting the farm's expected payoff at the risk-free rate give the wrong value?</p>",
+          "solution": "<p><b>Cash flows and values.</b> The loan gives Dana the higher expected cash flow (1.95 against 1.68), but her stake is worth the same. In a perfect market the financing choice only splits the farm's payoff; it does not change it (MM I). With the loan Dana gets the whole upside and nothing in a bust: her stake is as risky as the market and must earn 30%, not 12%. The higher expected cash flow is exactly the compensation for that risk (MM II).</p><p><b>Why not the risk-free rate.</b> The farm's payoff is risky: it is high when the market is high. Discounting 5.04 at 3% gives an NPV of 1.8932, which ignores that investors demand a premium for that risk. Replication prices the risk with traded assets and gives 1.5. Only risk-free payoffs may be discounted at the risk-free rate.</p>",
+          "criteria": [
+            "MM in a perfect market: the financing only splits the payoff, so Dana's stake is worth the same although her expected cash flow differs; the higher expected cash flow with the loan compensates for higher risk.",
+            "Risky payoffs must not be discounted at the risk-free rate, because investors demand a premium for risk.",
+            "Bonus: her levered stake behaves like the market and must earn 30%; discounting at the risk-free rate would give an NPV of 1.8932 instead of 1.5."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-entreprenor-2",
+  "kind": "must",
+  "label": "Replikasjon: gjeld eller egenkapital i perfekt marked · oppgave 2",
+  "mk": {
+    "type": "entreprenor",
+    "tier": 3,
+    "nr": 2
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Capital Structure",
+      "points": 20,
+      "topic": "Financing a new venture",
+      "chapters": [
+        6
+      ],
+      "merke": "Gründereksemplet fra forelesning 02 med et tilbud om en andel og en ukjent sannsynlighet (forelesning 02, 8:16 og 1:25:02)",
+      "body": "<p>Lena Brandt wants to start an e-bike rental business in Leipzig. The bikes and the app cost €4.8 million today. In one year Lena sells the business, which then pays €10.05 million if the economy booms and €5.25 million if it busts, each with probability 50%. The market portfolio returns +140% in a boom and −100% in a bust; the business booms and busts with the market. The risk-free rate is 5%. Lena has no money of her own. Markets are perfect and there are no taxes. Value every claim by replication with the market portfolio and the risk-free asset. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What are the expected return on the market portfolio and the expected payoff of the business?</p>",
+          "solution": "<p>E[R<sub>m</sub>] = 0.5 × 140% + 0.5 × (−100%) = <b>20%</b><br>E[payoff] = 0.5 × 10.05 + 0.5 × 5.25 = <b>€7.65 million</b></p>",
+          "criteria": [
+            "E[Rm] = 0.5 × 140% − 0.5 × 100% = 20%.",
+            "Expected payoff 0.5 × 10.05 + 0.5 × 5.25 = 7.65.",
+            "Uses the stated probabilities of 50%."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>Which portfolio of the risk-free asset and the market portfolio pays exactly what the business pays? What is the business worth today and what is the NPV of the project?</p>",
+          "solution": "<p><b>Split the payoff.</b> The business pays at least 5.25 in both states: that part is risk-free. The remaining 10.05 − 5.25 = 4.8 comes only in a boom, like the market.</p><p>Risk-free asset: 5.25/1.05 = <b>5</b><br>Market portfolio: 4.8/2.4 = <b>2</b> (€1 in the market pays 2.4 in a boom and 0 in a bust)</p><p>Value = 5 + 2 = <b>€7 million</b>; NPV = 7 − 4.8 = <b>€2.2 million</b>.</p><p>Discounting the expected payoff at the risk-free rate would give 7.2857, too high, because the payoff is risky.</p>",
+          "criteria": [
+            "Risk-free part 5.25/1.05 = 5; boom part 4.8/2.4 = 2.",
+            "Value 7 and NPV 2.2.",
+            "Discounting the expected payoff at the risk-free rate (7.2857) is the classic error."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>A bank offers to lend Lena the €4.8 million at the risk-free rate. Is the loan risk-free? What is Lena's stake worth with the loan?</p>",
+          "solution": "<p><b>Risk-free.</b> Lena owes 4.8 × 1.05 = 5.04, less than the 5.25 the business pays even in a bust.</p><p><b>Lena's stake.</b> She gets 10.05 − 5.04 = 5.01 in a boom and 5.25 − 5.04 = 0.21 in a bust: 0.21/1.05 = 0.2 in the risk-free asset and (5.01 − 0.21)/2.4 = 2 in the market, together <b>€2.2 million</b>, the whole NPV.</p>",
+          "criteria": [
+            "The loan is risk-free: 5.04 is below 5.25.",
+            "Lena's payoff 5.01 and 0.21, replicated by 0.2 risk-free and 2 in the market.",
+            "Stake 2.2, equal to the NPV."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>A business angel instead offers Lena the €4.8 million for 64% of the business. What would Lena's stake then be worth? Should she accept the offer or take the bank loan? What is the largest fraction she would give up? (If you could not solve (b), use a value of €6.5 million for the business.)</p>",
+          "solution": "<p><b>Lena's stake.</b> She keeps 36% of a business worth 7: 0.36 × 7 = <b>€2.52 million</b>, more than the 2.2 with the loan. <b>She should accept.</b> The angel's 64% is worth only 4.48 for the 4.8 paid.</p><p><b>Largest fraction.</b> Lena is indifferent when the angel's stake is worth exactly the 4.8 paid: α = 4.8/7 = <b>68.57%</b>.</p><p>With the fallback value 6.5: stake 0.36 × 6.5 = 2.34 and 4.8/6.5 = 73.85%.</p>",
+          "criteria": [
+            "Lena's stake 0.36 × 7 = 2.52, more than 2.2: she accepts.",
+            "Largest fraction 4.8/7 = 68.57%.",
+            "Values the stakes by replication (the value of the business), not by expected cash flows."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Suppose instead that a boom has probability q, which you do not know. The market still loses everything in a bust and still has the expected return you found in (a), so its return in a boom depends on q. For which q is Lena indifferent between the angel's offer and the bank loan? Which does she prefer if a boom is more likely than that?</p>",
+          "solution": "<p><b>Value as a function of q.</b> €1 in the market pays 1.2/q in a boom, so a euro paid only in a boom costs q/1.2 today. The business is worth 5 + q × 4.8/1.2 = 5 + 4q.</p><p><b>Indifference.</b> 0.36V = V − 4.8 ⇒ V = 4.8/0.64 = 7.5 ⇒ 5 + 4q = 7.5 ⇒ <b>q = 0.6250</b></p><p><b>A more likely boom.</b> The business is then worth more, so the angel's 64% is worth more than the 4.8 paid: <b>Lena prefers the bank loan</b>, which leaves her the whole NPV. At q = 0.5 the angel's offer is better, as in (d).</p>",
+          "criteria": [
+            "Value of the business 5 + q × 4.8/1.2: a boom-only payoff is worth q/1.2 per euro.",
+            "Indifference when V = 7.5: q = 0.6250.",
+            "If a boom is more likely, the business is worth more and Lena prefers the bank loan."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 3,
+          "body": "<p>In (b) you do not need the probability of a boom to value the business, but in (e) the value depends on q. Explain briefly why.</p>",
+          "solution": "<p><b>In (b)</b> the market's payoffs in both states and its price are given. The business pays the same as a portfolio of traded assets, so by no arbitrage it costs the same: the probabilities and investors' attitude to risk are already in the market's price.</p><p><b>In (e)</b> the market's expected return is held at 20% instead. A different q then means a different boom return, so the price of a euro paid in a boom changes. The probability enters the value only through the price of the traded asset that replicates the payoff.</p>",
+          "criteria": [
+            "In (b): replication with given payoffs and prices of traded assets; by no arbitrage no probabilities are needed.",
+            "In (e): fixing the expected return at 20% makes the market's boom return depend on q, so the price of a boom payoff depends on q too.",
+            "Bonus: the probability matters for expected payoffs and returns; for value it matters only through prices."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-entreprenor-3",
+  "kind": "must",
+  "label": "Replikasjon: gjeld eller egenkapital i perfekt marked · oppgave 3",
+  "mk": {
+    "type": "entreprenor",
+    "tier": 3,
+    "nr": 3
+  },
+  "points": 20,
+  "minutes": 36,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Capital Structure",
+      "points": 20,
+      "topic": "Financing a new venture: leverage and beta",
+      "chapters": [
+        4,
+        6
+      ],
+      "merke": "Gründereksemplet fra forelesning 02 med ny gjeldsgrad og beta (forelesning 02, 1:13:05 til 1:20:00)",
+      "body": "<p>Ida Sandvold is building an indoor surf centre in Kristiansand. It costs NOK 6 million today. In one year Ida sells the centre, which then pays NOK 10.8 million if the economy booms and NOK 7.8 million if it busts, each with probability 50%. The market portfolio returns +45% in a boom and −5% in a bust. The risk-free rate is 5%. Ida pays NOK 4.4 million of her own savings and borrows NOK 1.6 million from a bank at the risk-free rate, to be repaid with interest in one year. Markets are perfect, the CAPM holds and there are no taxes. Use 4 decimal places.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>What is the market risk premium E[R<sub>m</sub>] − r<sub>f</sub>? How much is the centre expected to pay in one year?</p>",
+          "solution": "<p>E[R<sub>m</sub>] = 0.5 × 45% + 0.5 × (−5%) = 20%, so the risk premium is 20% − 5% = <b>15%</b>.<br>E[payoff] = 0.5 × 10.8 + 0.5 × 7.8 = <b>NOK 9.3 million</b></p>",
+          "criteria": [
+            "E[Rm] = 0.5 × 45% − 0.5 × 5% = 20%; risk premium 15%.",
+            "Expected payoff 0.5 × 10.8 + 0.5 × 7.8 = 9.3.",
+            "Uses the stated probabilities of 50%."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>Find the amounts A in the market portfolio and B in the risk-free asset that together pay exactly what the centre pays. What is the centre worth? Use the portfolio to find the beta β<sub>U</sub> of the centre and then its expected return r<sub>U</sub> from the CAPM.</p>",
+          "solution": "<p>Boom: 1.45A + 1.05B = 10.8<br>Bust: 0.95A + 1.05B = 7.8</p><p>0.5A = 3, so A = 6 in the market; B = (7.8 − 0.95 × 6)/1.05 = 2 in the risk-free asset. Value = 6 + 2 = <b>NOK 8 million</b>.</p><p>β<sub>U</sub> = the beta of the replicating portfolio = (6/8) × 1 + (2/8) × 0 = <b>0.75</b><br>r<sub>U</sub> = 5% + 0.75 × 15% = <b>16.25%</b></p><p><b>Check.</b> 9.3/8 − 1 = 16.25% ✓</p>",
+          "criteria": [
+            "Replicating portfolio 6 in the market and 2 in the risk-free asset; value 8.",
+            "β_U = 0.75, the weighted beta of the replicating portfolio.",
+            "r_U = 5% + 0.75 × 15% = 16.25%.",
+            "The check with the expected payoff is a bonus."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>Is the bank loan risk-free? What are the loan and Ida's equity worth today? What are the beta β<sub>E</sub> and the expected return r<sub>E</sub> of her equity? (If you could not solve (b), use a value of NOK 8.5 million and β<sub>U</sub> = 0.8. Find r<sub>E</sub> with the CAPM.)</p>",
+          "solution": "<p><b>Risk-free.</b> Ida owes 1.6 × 1.05 = 1.68, far below the 7.8 the centre pays in a bust, so β<sub>D</sub> = 0 and the loan is worth <b>NOK 1.6 million</b>.</p><p>Equity = 8 − 1.6 = <b>NOK 6.4 million</b>, so D/E = 1.6/6.4 = 0.25.</p><p>β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>) = 0.75 + 0.25 × 0.75 = <b>0.9375</b><br>r<sub>E</sub> = 5% + 0.9375 × 15% = <b>19.0625%</b></p><p><b>Check.</b> The equity pays 9.12 or 6.12, expected 7.62: 7.62/6.4 − 1 = 19.0625% ✓</p><p>With the fallback values: equity 6.9, β<sub>E</sub> = 0.8 × (1 + 1.6/6.9) = 0.9855 and r<sub>E</sub> = 19.7826% by the CAPM (the payoff check would give 10.4348%, because the fallback value does not fit the payoffs).</p>",
+          "criteria": [
+            "The loan is risk-free (1.68 is below 7.8), so it is worth 1.6 and β_D = 0.",
+            "Equity 8 − 1.6 = 6.4; D/E = 0.25.",
+            "β_E = 0.75 × (1 + 0.25) = 0.9375; r_E = 19.0625% by the CAPM or by MM II.",
+            "Using D/V instead of D/E in the formula is the classic error."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>Once the centre is built, the bank offers to lend more at the risk-free rate, so that the loan becomes 50% of the centre's market value. The extra money is paid out to Ida. Is the new loan risk-free? What are the new β<sub>E</sub> and r<sub>E</sub>? (If you used the fallback values in (c), keep them.)</p>",
+          "solution": "<p><b>Risk-free.</b> The loan becomes 0.5 × 8 = 4, with 4 × 1.05 = 4.2 to repay, still below 7.8. (Any loan up to 7.8/1.05 = 7.4286 is risk-free.)</p><p>D/V = 50% means D/E = 4/4 = 1.<br>β<sub>E</sub> = 0.75 + 1 × 0.75 = <b>1.5</b><br>r<sub>E</sub> = 5% + 1.5 × 15% = <b>27.50%</b></p><p><b>Check.</b> The equity now pays 6.6 or 3.6, expected 5.1: 5.1/4 − 1 = 27.50% ✓. Using D/V = 0.5 as if it were D/E gives 1.125. Taking 50% of the cost of 6 instead of the market value gives 1.2. Both are wrong. With the fallback β<sub>U</sub> = 0.8: β<sub>E</sub> = 1.6 and r<sub>E</sub> = 29.00%.</p>",
+          "criteria": [
+            "The new loan of 4 is risk-free (4.2 is below 7.8).",
+            "Converts D/V = 50% to D/E = 1.",
+            "β_E = 0.75 × 2 = 1.5 and r_E = 27.50%.",
+            "Bonus: checks r_E from the equity's expected payoff."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Explain briefly why β<sub>E</sub> changes while β<sub>U</sub> does not. Does the higher r<sub>E</sub> make Ida worse off or the centre less valuable?</p>",
+          "solution": "<p><b>Why β<sub>E</sub> rises.</b> β<sub>U</sub> measures the risk of the business. The business is the same: the centre pays the same in each state. More debt only splits that payoff differently. The bank takes a fixed, safe amount, so the equity bears all the business risk on a smaller base and becomes riskier: β<sub>E</sub> and r<sub>E</sub> rise mechanically with leverage (MM II).</p><p><b>No one is worse off.</b> The centre is still worth 8 (MM I) and its cost of capital is still 16.25%: 0.5 × 27.50% + 0.5 × 5% = 16.25%. Ida receives 2.4 in cash and her equity falls from 6.4 to 4, so her wealth is unchanged: 4 + 2.4 = 6.4. The higher r<sub>E</sub> is only the compensation for the higher risk.</p>",
+          "criteria": [
+            "β_U is the risk of the business, which has not changed; leverage only splits the payoff (Kurbatov, recording 02, 1:19:08).",
+            "The equity takes all the business risk on a smaller base, so β_E and r_E rise with leverage.",
+            "Firm value and Ida's wealth are unchanged; the higher r_E is compensation for risk.",
+            "Bonus: the weighted cost of capital stays 16.25%, or Ida's cash of 2.4 plus her equity of 4 equals 6.4."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-opsjonsintuisjon-1",
+  "kind": "must",
+  "label": "Opsjoner og gjeld som opsjoner (teori, 10 poeng) · oppgave 1",
+  "mk": {
+    "type": "opsjonsintuisjon",
+    "tier": 3,
+    "nr": 1
+  },
+  "points": 10,
+  "minutes": 18,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Options",
+      "points": 10,
+      "topic": "Options, volatility, time to maturity and American options",
+      "chapters": [
+        21,
+        23
+      ],
+      "merke": "Samme form som H2025 E1: opsjonsintuisjon uten regning",
+      "body": "<p>Your aunt holds one-year European calls and puts on Sølvberget Mineral ASA, a mining company that pays no dividends. Both have a strike equal to today's share price. Treat each item separately; today's share price and the interest rate stay the same.</p><p>(i) Sølvberget will spend its cash on exploration in an unmined region, so the share becomes far more volatile. What happens to the calls and the puts? (3 points)</p><p>(ii) Her broker offers identical options that expire in three years instead of one. Would the calls be worth more? The puts? (4 points)</p><p>(iii) The broker also offers American versions of the one-year options. Would you expect them to be priced higher or lower than the European ones? (3 points)</p><p>No calculations are needed. Two to three sentences per item; a direction without a reason earns no points.</p>",
+      "solution": "<p><b>(i) Higher volatility: both the calls and the puts gain value.</b> An option pays only on one side: the call gains from large rises, the put from large falls; neither can pay less than 0. With more volatility, large moves in either direction become more likely, so the expected payoff of both rises while the worst case stays at 0 (recording 13, 1:16:52). Kurbatov's limit case shows the logic: with zero volatility the option is simply in or out of the money (recording 13, 1:17:01). Bonus: by put-call parity, C − P = S<sub>0</sub> − PV(K) is unchanged, so both rise by the same amount.</p><p><b>(ii) Longer maturity: the calls are worth more; the puts are usually worth more, but not for certain.</b> More time means a wider range of possible share prices at expiry, which helps both options. For the call the strike is also paid later, which helps it too. For a European put the second effect works the other way: the holder receives the strike later, so its present value falls. The put is therefore usually worth more with more time, but a European put that is far in the money can be worth less.</p><p><b>(iii) American options are priced at least as high, never lower.</b> An American option gives every right the European one gives plus the right to exercise early; more rights or more flexibility cannot be worth less (recording 12, 12:41; recording 18, 58:18). Also accepted as a bonus: for a call on a share without dividends, early exercise never pays, so the American call is worth the same; for the put, early exercise can pay, so the American put can be worth strictly more.</p>",
+      "criteria": [
+        "(i), 3 points: both rise (1 point), because the payoff is one-sided, so more dispersion raises the expected payoff of both while the downside stays at 0 (2 points). A direction without the mechanism earns no points.",
+        "(ii) call, 2 points: worth more, because more time widens the range of outcomes while the downside stays at 0 (paying the strike later also helps).",
+        "(ii) put, 2 points: either 'worth more' with the dispersion reason, or 'ambiguous': more dispersion against receiving the strike later. Both earn 2 points for this at-the-money put. The model answer, usually more but not certain, is the fullest version.",
+        "(iii), 3 points: at least as high, never lower (1.5 points), because the American option contains all the European rights plus early exercise and more flexibility is priced at least as high (1.5 points). 'Higher' with this reason gets full marks. So does 'the call the same, the put higher' with reasons (early exercise of a call on a share without dividends never pays; for a put it can).",
+        "Bonus: parity shows that the call and the put move by the same amount in (i); the American call on a share without dividends is worth the same as the European one.",
+        "No calculation is required or expected; Black-Scholes need not be used."
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-opsjonsintuisjon-2",
+  "kind": "must",
+  "label": "Opsjoner og gjeld som opsjoner (teori, 10 poeng) · oppgave 2",
+  "mk": {
+    "type": "opsjonsintuisjon",
+    "tier": 3,
+    "nr": 2
+  },
+  "points": 10,
+  "minutes": 18,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Corporate securities as options",
+      "points": 10,
+      "topic": "Debt and equity as options",
+      "chapters": [
+        24,
+        9
+      ],
+      "merke": "Samme form som forelesning 13 (2:33 til 12:57) og wrap-up (1:01:47)",
+      "body": "<p>Lunde Hotellgruppe ASA owns a chain of hotels and has one debt: a zero-coupon bank loan with face value NOK 4 billion, due in three years. It pays no dividends before the loan is due. If the hotels are worth less than NOK 4 billion at maturity, the bank takes them over. Answer without calculations.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Explain why Lunde's shares can be seen as a call option. Name the underlying asset, the strike and the maturity. (Two to three sentences.)</p>",
+          "solution": "<p>At maturity the shareholders get max(V<sub>T</sub> − 4, 0) billion: whatever the hotels are worth above the loan, nothing if they are worth less, because limited liability means they can walk away and leave the hotels to the bank. That is the payoff of a call on the hotels (the firm's assets V) with a strike equal to the face value of the loan, NOK 4 billion, expiring in three years when the loan is due (recording 13, 4:30).</p><p>Also accepted: describing the hockey-stick payoff in words. The strike is the face value, not the market value of the debt. The underlying is the assets, not the share; the lecture warns not to confuse V and D (recording 13, 4:44).</p>",
+          "criteria": [
+            "Payoff max(V_T − F, 0) with limited liability (1 point).",
+            "Underlying: the firm's assets (the hotels), not the share (1 point).",
+            "Strike: the face value of the loan, NOK 4 billion; maturity: three years (1 point)."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 3,
+          "body": "<p>Explain why the bank's claim is worth the same as risk-free debt plus a written put on the hotels. What does the put pay? Who holds the put? (Two to three sentences.)</p>",
+          "solution": "<p>The bank receives min(V<sub>T</sub>, 4) = 4 − max(4 − V<sub>T</sub>, 0): the full 4 billion as if the loan were risk-free, less the shortfall when the hotels are worth less than 4 billion. The shortfall is the payoff of a put on the hotels with strike 4 billion that the bank has in effect written, so D = PV(4) − P (recording 18, 1:03:55).</p><p>The shareholders hold the put: in default they hand over hotels worth less than 4 billion and are released from the debt, which is the same as selling the hotels to the bank at 4 billion. Note the sign: the debt is risk-free debt <i>plus</i> a written put, that is PV(F) minus the value of the put.</p>",
+          "criteria": [
+            "Payoff min(V_T, F) written as F − max(F − V_T, 0), or explained in words (1 point).",
+            "D = PV(F) − P: risk-free debt plus a written put on the assets with strike F (1 point). 'Risk-free debt minus a written put' has the sign wrong.",
+            "The shareholders hold the put: in default they deliver assets worth less than F and are freed from the debt (1 point)."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>After a slump the hotels are worth only a little more than NOK 4 billion. The board considers selling the city hotels and buying a casino resort. The plan makes the firm's assets much riskier and has a slightly negative NPV. Why might the shareholders still want it? Who pays for it? (Three to four sentences.)</p>",
+          "solution": "<p>The shares are a call on the hotels that is close to the money. A call gains from risk: the shareholders keep all of the upside if the casino does well, while limited liability caps their loss at 0 if it fails (recording 13, 1:18:24). The extra volatility can raise the value of their call by more than the small negative NPV lowers it.</p><p>The bank pays. The put it has written becomes more valuable when the assets get riskier, so the debt falls in value by more than the NPV lost: a wealth transfer from the creditors to the shareholders. Total firm value falls by the negative NPV, so this is value-destroying risk shifting, often called gambling for resurrection.</p><p>Bonus: banks anticipate this and protect themselves with covenants that limit asset sales or new risky investments, or with a higher interest rate in advance.</p>",
+          "criteria": [
+            "Equity is a call near the money whose value rises with volatility; limited liability caps the downside at 0 (1.5 points).",
+            "The gain from more risk can exceed the small negative NPV, so the shareholders may approve it (1 point).",
+            "The creditors pay: the written put gains value, debt loses more than the NPV, a wealth transfer (1.5 points).",
+            "Bonus: names covenants or a higher interest rate as the creditors' protection."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-opsjonsintuisjon-3",
+  "kind": "must",
+  "label": "Opsjoner og gjeld som opsjoner (teori, 10 poeng) · oppgave 3",
+  "mk": {
+    "type": "opsjonsintuisjon",
+    "tier": 3,
+    "nr": 3
+  },
+  "points": 10,
+  "minutes": 18,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Real options",
+      "points": 10,
+      "topic": "Real options, the option to wait",
+      "chapters": [
+        25,
+        23
+      ],
+      "merke": "Samme form som realopsjonsintuisjonen i forelesning 14 (44:00 til 49:25 og 1:13:15)",
+      "body": "<p>Kvaløy Hydrogen AS holds a licence that gives it the exclusive right to build a hydrogen plant at any time in the next four years. Building the plant today would have a small negative NPV. The value of the plant depends on the future price of hydrogen, which is very uncertain. Answer without calculations.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Why is the licence worth something, even though building today has a negative NPV? (Two to three sentences.)</p>",
+          "solution": "<p>The licence is an option, not an obligation: Kvaløy can wait, watch the hydrogen price and build only if the plant turns out to be worth more than it costs. If prices stay low, it simply does not build and loses nothing beyond what it paid for the licence, so the downside is 0. As long as there is some chance that building will have a positive NPV before the licence expires, the right to wait has value (recording 14, 1:14:09).</p>",
+          "criteria": [
+            "The licence is a right, not an obligation: build only if it pays (1 point).",
+            "The downside is 0, while the upside is a positive NPV in good states (1 point).",
+            "Any chance of a positive NPV later gives the option value, even though today's NPV is negative (1 point)."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>The government proposes to cut the licence from four years to one. Kvaløy's CFO says this does not matter, because the company can still build today if it wants to. Is the CFO right? What happens to the value of the licence? (Three to four sentences.)</p>",
+          "solution": "<p><b>The CFO is wrong.</b> The right to build today is worth nothing, since building today has a negative NPV. The licence is valuable because the hydrogen price may rise while Kvaløy waits, so its value lies in the future chances to build.</p><p><b>The licence is worth less.</b> With one year instead of four there is less time for the price to move into the range where the plant pays, so fewer good outcomes are possible. A longer licence contains every choice the shorter one gives, so it can never be worth less. In the limit, a licence that expires today is worth max(NPV today, 0) = 0.</p>",
+          "criteria": [
+            "The CFO is wrong: the right to build today is worth 0 because today's NPV is negative (1 point).",
+            "The licence is worth less, because less time means fewer chances for the price to rise far enough (1.5 points).",
+            "A longer licence contains every choice of the shorter one, so it is never worth less; or the limit case, a licence that expires now is worth max(NPV, 0) = 0; or any equivalent reason that the value of an option to wait rises with time to maturity, for example less time for prices to move (1.5 points)."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>Two years later the hydrogen price has risen sharply. Building now would have a large positive NPV. Should Kvaløy wait until the licence is about to expire? Explain what it gives up by waiting. (Two to three sentences.)</p>",
+          "solution": "<p>Not necessarily: it should probably build now. Waiting is valuable when it lets you avoid a bad outcome, but with a large positive NPV the plant would be worth building in almost every future state, so there is little left to avoid. Meanwhile waiting costs the cash flows the plant would have earned in the meantime. The lecture's rule of thumb: if you are already in a very good situation, invest now (recording 14, 47:30 and 49:15).</p><p>Also accepted: risks that rivals enter or that the price falls back, as further costs of waiting.</p>",
+          "criteria": [
+            "Builds now (or says waiting is unlikely to pay) when the NPV is large (1 point).",
+            "Reason: little chance of a bad outcome left to avoid, so the option to wait adds little (1 point).",
+            "Names the cost of waiting: the cash flows lost in the meantime (1 point). Competition or a price fall are accepted as further costs."
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-ma-motiver-1",
+  "kind": "must",
+  "label": "M&A-motiver og hvem som vinner (teori, 10 poeng) · oppgave 1",
+  "mk": {
+    "type": "ma-motiver",
+    "tier": 3,
+    "nr": 1
+  },
+  "points": 10,
+  "minutes": 18,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "M&A",
+      "points": 10,
+      "topic": "Mergers and acquisitions",
+      "chapters": [
+        26
+      ],
+      "merke": "Samme form som H2024 E1, med synergier utelukket som i forelesning 16 og 18",
+      "body": "<p>Give three reasons for an acquisition other than synergies (gains from running the two firms' operations together): (i) one where the acquirer creates value by changing how the target is run, (ii) one where the acquirer's shareholders gain at the expense of someone else and (iii) one that is not in the interest of the acquirer's shareholders. Explain the mechanism behind each reason in 1-2 sentences; naming a reason or writing «value creation» is not enough (3 points per reason). Finally, explain in one sentence why buying a firm to use its accumulated tax losses does not count as a reason (1 point).</p>",
+      "solution": "<p><b>(i) Replacing inefficient management (a disciplinary takeover).</b> If the target is badly run, its price reflects that; the acquirer buys it, installs better managers and runs the same assets more efficiently, so the gain comes from better management, not from combining operations.</p><p><b>(ii) Market power.</b> Buying a competitor reduces competition, so the merged firm can raise prices or pay suppliers less; the acquirer's shareholders gain, but the value comes from customers and suppliers rather than from new value created.</p><p><b>(iii) Managerial ambition (empire building).</b> A CEO whose pay, power or prestige grows with the size of the firm may buy targets that do not pay off for the shareholders, often overpaying; the lecturer's example was the purchase of Twitter. This is an agency problem: the shareholders bear the cost.</p><p><b>Tax losses.</b> Accumulated tax losses are erased when a firm changes owner, so the acquirer cannot use them (lecture 17).</p><p><b>Also accepted.</b> (i) more efficient practices in the target; (ii) buying an undervalued target with better information, buying a distressed target cheaply or buying the target so that a rival cannot (the competitors lose, as with bank D in lecture 16); (iii) hubris and the winner's curse, buying to meet a KPI or to inflate earnings per share, diversification that the shareholders could do themselves.</p>",
+      "criteria": [
+        "3 points per reason: 1 for a reason in the right category, 2 for the mechanism in 1-2 sentences.",
+        "(i) must change how the target is run (new management, better practices). Economies of scale or cost savings from merging departments are synergies and score nothing here.",
+        "(ii) must say who loses, for example customers or suppliers (market power), the target's sellers (an undervalued or distressed target) or competitors (buying the target so that a rival cannot, as with bank D in lecture 16).",
+        "(iii) must be against the acquirer's shareholders' interest; the mechanism (agency problem, overconfidence, overpaying) earns the 2 mechanism points. «Value creation» on its own is not a reason and scores 0.",
+        "The lecture's vertical example (a dairy buys its unreliable box supplier and replaces its manager) scores under (i) when the answer rests on replacing the manager. If it rests on the cost savings of integrating the supply chain, it is a synergy and scores 0.",
+        "1 point: tax losses are erased on a change of owner, so they are not a motive.",
+        "Two answers that rest on the same mechanism count once."
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-ma-motiver-2",
+  "kind": "must",
+  "label": "M&A-motiver og hvem som vinner (teori, 10 poeng) · oppgave 2",
+  "mk": {
+    "type": "ma-motiver",
+    "tier": 3,
+    "nr": 2
+  },
+  "points": 10,
+  "minutes": 18,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "M&A",
+      "points": 10,
+      "topic": "Mergers and acquisitions",
+      "chapters": [
+        26
+      ],
+      "merke": "Samme form som teorispørsmålene i forelesning 16 om hvem som vinner",
+      "body": "<p>Westerly Foods (A) is worth $900 million and Kellan Organics (T) $300 million on their own. A agrees to buy T for $405 million in cash and expects synergies of $150 million. Measure all gains against the stand-alone values.</p><p>a) How are the expected gains split between A's and T's shareholders? Why does the target usually capture most of the synergies? (4 points; 2-3 sentences)</p><p>b) Suppose instead that T had been close to default: its owners' alternative to selling was bankruptcy and A could have bought it for $320 million (same stand-alone value and synergies). How would the gains have been split? Why? (3 points; 1-2 sentences)</p><p>c) When the deal is announced, A's share price falls. Give one reason why this can happen even though A's managers expect synergies of $150 million. (3 points; 1-2 sentences)</p>",
+      "solution": "<p><b>a)</b> T's shareholders gain 405 − 300 = <b>$105 million</b> and A's 150 − 105 = <b>$45 million</b>, which adds up to the synergies. The target captures most because it can say no and keep a firm worth $300 million, so A must keep raising the price until T accepts; competing bidders push it further towards T + S.</p><p><b>b)</b> T would gain only 320 − 300 = <b>$20 million</b> and A <b>$130 million</b>: a distressed target has lost its bargaining power, because refusing means bankruptcy.</p><p><b>c)</b> For example: the market does not believe the synergies. If investors expect less than the $105 million premium, A overpays and its value falls. Other reasons with a mechanism score too, such as empire building or hubris, or expected integration problems (for example the corporate culture).</p>",
+      "criteria": [
+        "a) 2 points for the split: T + 105, A + 45, summing to S = 150.",
+        "a) 2 points for any one of: the target can refuse and keep its stand-alone value (bargaining power); competition among bidders pushes the price up.",
+        "b) 1 point for the split (T + 20, A + 130), 2 points for why: the target in distress has no bargaining power, so the acquirer captures most of the synergies.",
+        "c) 3 points for one reason with its mechanism, for example that the market expects synergies below the premium (overpayment), empire building or hubris, or integration costs. «The market is negative» without a reason scores nothing."
+      ]
+    }
+  ]
+},
+{
+  "id": "mk-ma-motiver-3",
+  "kind": "must",
+  "label": "M&A-motiver og hvem som vinner (teori, 10 poeng) · oppgave 3",
+  "mk": {
+    "type": "ma-motiver",
+    "tier": 3,
+    "nr": 3
+  },
+  "points": 10,
+  "minutes": 18,
+  "format": "1 oppgave",
+  "exercises": [
+    {
+      "n": 1,
+      "title": "M&A",
+      "points": 10,
+      "topic": "Mergers and acquisitions",
+      "chapters": [
+        26
+      ],
+      "merke": "Samme form som kontanter mot aksjer i forelesning 16",
+      "body": "<p>Oakridge Software (A) is worth €700 million and will buy Pellow Analytics (T), worth €200 million on its own. The expected synergies are €100 million. A can pay €250 million in cash or give T's shareholders new A shares that make up 25% of the combined firm.</p><p>a) How are the expected gains split between A's and T's shareholders under each offer? (2 points)</p><p>b) After the deal the synergies turn out to be €160 million. What is the gain for A's and T's shareholders under each offer? Who gets the extra synergies? (4 points; 1-2 sentences for the explanation)</p><p>c) Apart from how the synergies are shared, give one reason why A's managers might prefer to pay in shares and one reason why T's owners might prefer cash. (4 points; 1-2 sentences each)</p>",
+      "solution": "<p><b>a)</b> Cash: T gains 250 − 200 = 50 and A gains 1,000 − 250 − 700 = 50. Shares: T owns 0.25 × 1,000 = 250 and gains 50; A keeps 0.75 × 1,000 = 750 and gains 50. At the expected synergies the split is the same, €50 million each.</p><p><b>b)</b> The combined firm is worth 1,060. Cash: T still gains <b>50</b> and A gains 1,060 − 250 − 700 = <b>110</b>. Shares: T gains 0.25 × 1,060 − 200 = <b>65</b> and A 0.75 × 1,060 − 700 = <b>95</b>. With cash the target's payment is fixed, so A's shareholders keep all the extra synergies (and would bear any shortfall); with shares the surprise is shared in proportion to ownership (25% for T, 75% for A).</p><p><b>c)</b> For A, for example: A's managers think its shares are overvalued, so paying with them is cheap; or A lacks the cash and does not want to borrow €250 million. For T, for example: the owners want to leave and use the money (liquidity); or they doubt the value of A's shares and do not want to carry A's risk.</p>",
+      "criteria": [
+        "a) 2 points: both offers give T + 50 and A + 50 at the expected synergies.",
+        "b) 2 points for the numbers: cash T + 50, A + 110; shares T + 65, A + 95.",
+        "b) 2 points: with cash the acquirer keeps all of the extra synergies; with shares they are shared in proportion to ownership.",
+        "c) 2 points for A, for example overvalued shares (paying with expensive paper) or no spare cash or debt capacity. Sharing the synergy risk is excluded by the question.",
+        "c) 2 points for T, for example liquidity or wanting to exit, or doubt about the value of A's shares. A reason without a mechanism scores 1 point."
       ]
     }
   ]

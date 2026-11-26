@@ -1,0 +1,133 @@
+{
+  "mk-entreprenor-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Expected payoff",
+        "verdi": 5.04,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Investors' fraction",
+        "verdi": 66.66666666666667,
+        "enhet": "%"
+      },
+      {
+        "navn": "Dana's expected cash flow with equity",
+        "verdi": 1.6799999999999997,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Dana's expected cash flow with the loan",
+        "verdi": 1.9500000000000002,
+        "enhet": "$ m"
+      }
+    ]
+  },
+  "mk-entreprenor-1:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Dana's stake with the loan",
+        "verdi": 1.5,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Why is the loan risk-free?"
+  },
+  "mk-entreprenor-1:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Amount in the risk-free asset",
+        "verdi": 0.9999999999999998,
+        "enhet": "$ m",
+        "alt": [
+          1.2
+        ]
+      },
+      {
+        "navn": "Amount in the market portfolio",
+        "verdi": 0.4999999999999999,
+        "enhet": "$ m",
+        "alt": [
+          0.6000000000000001
+        ]
+      },
+      {
+        "navn": "Dana's stake with equity",
+        "verdi": 1.4999999999999996,
+        "enhet": "$ m",
+        "alt": [
+          1.8
+        ]
+      }
+    ],
+    "tallPoeng": 4,
+    "tekstLedd": "Compare with (b).",
+    "merknad": "alt er svarene med reserveandelen 40 %."
+  },
+  "mk-entreprenor-1:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Investors' stake with equity financing",
+        "verdi": 3.0,
+        "enhet": "$ m",
+        "alt": [
+          2.6999999999999997,
+          2.4
+        ]
+      },
+      {
+        "navn": "Bank loan",
+        "verdi": 3.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Farm with equity financing",
+        "verdi": 4.5,
+        "enhet": "$ m",
+        "alt": [
+          4.3,
+          4.0
+        ]
+      },
+      {
+        "navn": "Farm with the bank loan",
+        "verdi": 4.5,
+        "enhet": "$ m",
+        "alt": [
+          4.4
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveverdiene (andel 0.6, andeler 1.4 og 1.6), også lest som at Danas andel 1.6 er 0.4 av firmaet (investorene 2.4, firmaet 4)."
+  },
+  "mk-entreprenor-1:1:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Dana's expected return with the loan",
+        "verdi": 30.000000000000004,
+        "enhet": "%",
+        "alt": [
+          39.2857142857143
+        ]
+      },
+      {
+        "navn": "Dana's expected return with equity",
+        "verdi": 12.00000000000001,
+        "enhet": "%",
+        "alt": [
+          4.999999999999982
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserveandelene 1.4 og 1.6."
+  },
+  "mk-entreprenor-1:1:f": {
+    "type": "tekst"
+  }
+}

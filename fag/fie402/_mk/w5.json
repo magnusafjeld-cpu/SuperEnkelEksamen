@@ -671,7 +671,7 @@
   "n": 1,
   "title": "Capital Structure",
   "points": 20,
-  "topic": "MM in perfect markets, replication",
+  "topic": "Financing a new venture",
   "chapters": [
    6
   ],
@@ -691,7 +691,7 @@
    },
    {
     "label": "b",
-    "points": 4,
+    "points": 3,
     "body": "<p>Show that the bank loan is risk-free. What is Dana's stake worth today with the bank loan?</p>",
     "solution": "<p><b>Risk-free.</b> The bank is owed 3.09. Even in a bust the farm pays 3.09, so the bank is paid in full in both states.</p><p><b>Dana's payoff.</b> Boom: 6.99 − 3.09 = 3.9. Bust: 0.</p><p><b>Replicate it.</b> $1 in the market portfolio pays 2.6 in a boom and 0 in a bust: the same pattern. Dana's stake is worth 3.9/2.6 = <b>$1.5 million</b> in the market portfolio and nothing in the risk-free asset.</p>",
     "criteria": [
@@ -714,25 +714,36 @@
    },
    {
     "label": "d",
-    "points": 4,
-    "body": "<p>What are the investors' stake and the farm worth with each form of financing? What expected return does Dana earn on her stake with the bank loan and with equity financing? (If you could not solve (b) or (c), use a stake value of $1.4 million.)</p>",
-    "solution": "<p><b>Investors.</b> They get 2/3: 4.66 or 2.06. Risk-free part 2.06/1.03 = 2, market part 2.6/2.6 = 1: <b>$3 million</b>, exactly what they pay. The bank loan is worth 3.09/1.03 = 3 too.</p><p><b>The farm.</b> Equity financing: 3 + 1.5 = <b>$4.5 million</b>. Bank loan: 3 + 1.5 = 4.5. The NPV, 4.5 − 3 = 1.5, goes to Dana either way.</p><p><b>Dana's expected return.</b> With the loan 1.95/1.5 − 1 = <b>30.00%</b>, the market's expected return (0.5 × 160% − 0.5 × 100%). With equity 1.68/1.5 − 1 = <b>12.00%</b>, the farm's own expected return.</p><p>With the fallback stake of 1.4: 1.95/1.4 − 1 = 39.2857% and 1.68/1.4 − 1 = 20.0000%.</p>",
+    "points": 3,
+    "body": "<p>What are the equity investors' stake and the bank loan worth today? What is the farm worth with equity financing and with the bank loan? (If you could not solve (a) to (c), use an investors' fraction of 60% and stakes for Dana of $1.4 million with the loan and $1.6 million with equity.)</p>",
+    "solution": "<p><b>Investors.</b> They get 2/3: 4.66 or 2.06. Risk-free part 2.06/1.03 = 2, market part 2.6/2.6 = 1: <b>$3 million</b>, exactly what they pay. The bank loan is worth 3.09/1.03 = <b>$3 million</b>: also a zero-NPV deal.</p><p><b>The farm.</b> Equity financing: 3 + 1.5 = <b>$4.5 million</b>. Bank loan: 3 + 1.5 = <b>$4.5 million</b>. The NPV, 4.5 − 3 = 1.5, goes to Dana either way.</p><p>With the fallback values: investors 0.6 × 4.5 = 2.7, farm 2.7 + 1.6 = 4.3 with equity and 3 + 1.4 = 4.4 with the loan. Reading Dana's 1.6 as 0.4 of the farm instead gives investors 2.4 and a farm of 4 with equity; both readings are accepted.</p>",
     "criteria": [
-     "Investors' stake 3: a zero-NPV deal, like the risk-free loan.",
-     "The farm is worth 4.5 with both forms of financing (MM).",
-     "Dana's expected return 30% with the loan and 12% with equity.",
+     "Investors' stake 3 by replication: a zero-NPV deal.",
+     "Bank loan worth 3.",
+     "The farm is worth 4.5 with both forms of financing (MM I).",
      "Bonus: the NPV of 1.5 goes to Dana either way."
     ]
    },
    {
     "label": "e",
-    "points": 4,
-    "body": "<p>Dana's expected cash flow is higher with the bank loan. Explain briefly how that fits with your values in (b) and (c). Why would discounting the farm's expected payoff at the risk-free rate give the wrong value?</p>",
-    "solution": "<p><b>Why the stake is worth the same.</b> In a perfect market the financing choice only splits the farm's payoff; it does not change it, so the farm and Dana's stake are worth the same (MM I). With the loan Dana gets the whole upside and nothing in a bust: her stake is as risky as the market and must earn 30%, not 12%. The higher expected cash flow (1.95 against 1.68) is exactly the compensation for that risk (MM II).</p><p><b>Why not the risk-free rate.</b> The farm's payoff is risky: it is high when the market is high. Discounting 5.04 at 3% gives an NPV of 1.8932, which ignores that investors demand a premium for that risk. Replication prices the risk with traded assets and gives 1.5. Only risk-free payoffs may be discounted at the risk-free rate.</p>",
+    "points": 3,
+    "body": "<p>What expected return does Dana earn on her stake with the bank loan and with equity financing? (If you could not solve (b) or (c), use stakes of $1.4 million with the loan and $1.6 million with equity.)</p>",
+    "solution": "<p>With the loan 1.95/1.5 − 1 = <b>30.00%</b>, the market's expected return (0.5 × 160% − 0.5 × 100%).<br>With equity 1.68/1.5 − 1 = <b>12.00%</b>, the farm's own expected return.</p><p>With the fallback stakes: 1.95/1.4 − 1 = 39.2857% and 1.68/1.6 − 1 = 5.0000%.</p>",
     "criteria": [
-     "MM in a perfect market: the financing only splits the payoff, so the stake and the farm are worth the same.",
-     "With the loan Dana bears all the risk, her stake behaves like the market and must earn 30%; the higher expected cash flow is the compensation for risk.",
-     "Discounting the risky payoff at the risk-free rate overstates the NPV (1.8932 against 1.5); only risk-free payoffs are discounted at the risk-free rate."
+     "With the loan: 1.95/1.5 − 1 = 30%.",
+     "With equity: 1.68/1.5 − 1 = 12%.",
+     "Bonus: notes that the levered stake earns the market's expected return."
+    ]
+   },
+   {
+    "label": "f",
+    "points": 3,
+    "body": "<p>Compare Dana's expected cash flows from (a) with the values of her stake in (b) and (c). Explain briefly. Why would discounting the farm's expected payoff at the risk-free rate give the wrong value?</p>",
+    "solution": "<p><b>Cash flows and values.</b> The loan gives Dana the higher expected cash flow (1.95 against 1.68), but her stake is worth the same. In a perfect market the financing choice only splits the farm's payoff; it does not change it (MM I). With the loan Dana gets the whole upside and nothing in a bust: her stake is as risky as the market and must earn 30%, not 12%. The higher expected cash flow is exactly the compensation for that risk (MM II).</p><p><b>Why not the risk-free rate.</b> The farm's payoff is risky: it is high when the market is high. Discounting 5.04 at 3% gives an NPV of 1.8932, which ignores that investors demand a premium for that risk. Replication prices the risk with traded assets and gives 1.5. Only risk-free payoffs may be discounted at the risk-free rate.</p>",
+    "criteria": [
+     "MM in a perfect market: the financing only splits the payoff, so Dana's stake is worth the same although her expected cash flow differs; the higher expected cash flow with the loan compensates for higher risk.",
+     "Risky payoffs must not be discounted at the risk-free rate, because investors demand a premium for risk.",
+     "Bonus: her levered stake behaves like the market and must earn 30%; discounting at the risk-free rate would give an NPV of 1.8932 instead of 1.5."
     ]
    }
   ]
@@ -741,70 +752,77 @@
   "n": 1,
   "title": "Capital Structure",
   "points": 20,
-  "topic": "MM in perfect markets, replication",
+  "topic": "Financing a new venture",
   "chapters": [
-   6,
-   22
+   6
   ],
-  "merke": "Gründereksemplet fra forelesning 02 med et marked som ikke taper alt og et tilbud om en andel (forelesning 02, 8:16 og 1:25:02)",
-  "body": "<p>Lena Brandt wants to start an e-bike rental business in Leipzig. The bikes and the app cost €5.6 million today. In one year Lena sells the business, which then pays €9.59 million if the economy booms and €6.09 million if it busts, each with probability 50%. The market portfolio returns +50% in a boom and −20% in a bust. The risk-free rate is 4.5%. The business booms and busts with the market. Lena has no money of her own. Markets are perfect and there are no taxes. Value every claim by replication with the market portfolio and the risk-free asset. Use 4 decimal places.</p>",
+  "merke": "Gründereksemplet fra forelesning 02 med et tilbud om en andel og en ukjent sannsynlighet (forelesning 02, 8:16 og 1:25:02)",
+  "body": "<p>Lena Brandt wants to start an e-bike rental business in Leipzig. The bikes and the app cost €4.8 million today. In one year Lena sells the business, which then pays €10.05 million if the economy booms and €5.25 million if it busts, each with probability 50%. The market portfolio returns +140% in a boom and −100% in a bust; the business booms and busts with the market. The risk-free rate is 5%. Lena has no money of her own. Markets are perfect and there are no taxes. Value every claim by replication with the market portfolio and the risk-free asset. Use 4 decimal places.</p>",
   "parts": [
    {
     "label": "a",
     "points": 3,
     "body": "<p>What are the expected return on the market portfolio and the expected payoff of the business?</p>",
-    "solution": "<p>E[R<sub>m</sub>] = 0.5 × 50% + 0.5 × (−20%) = <b>15%</b><br>E[payoff] = 0.5 × 9.59 + 0.5 × 6.09 = <b>€7.84 million</b></p>",
+    "solution": "<p>E[R<sub>m</sub>] = 0.5 × 140% + 0.5 × (−100%) = <b>20%</b><br>E[payoff] = 0.5 × 10.05 + 0.5 × 5.25 = <b>€7.65 million</b></p>",
     "criteria": [
-     "E[Rm] = 0.5 × 50% − 0.5 × 20% = 15%.",
-     "Expected payoff 0.5 × 9.59 + 0.5 × 6.09 = 7.84.",
+     "E[Rm] = 0.5 × 140% − 0.5 × 100% = 20%.",
+     "Expected payoff 0.5 × 10.05 + 0.5 × 5.25 = 7.65.",
      "Uses the stated probabilities of 50%."
     ]
    },
    {
     "label": "b",
-    "points": 5,
-    "body": "<p>Find the portfolio of the market and the risk-free asset that replicates the payoff of the business. What is the business worth today? What is the NPV of the project and what expected return does the business offer?</p>",
-    "solution": "<p>Let A be the amount in the market portfolio and B the amount in the risk-free asset. The portfolio must pay what the business pays in both states:</p><p>Boom: 1.5A + 1.045B = 9.59<br>Bust: 0.8A + 1.045B = 6.09</p><p>Subtracting: 0.7A = 3.5, so <b>A = 5</b>. Then B = (6.09 − 0.8 × 5)/1.045 = 2.09/1.045 = <b>2</b>.</p><p>Value = 5 + 2 = <b>€7 million</b>, so NPV = 7 − 5.6 = <b>€1.4 million</b>.<br>Expected return = 7.84/7 − 1 = <b>12%</b></p><p><b>Check.</b> The replicating portfolio earns (5 × 15% + 2 × 4.5%)/7 = 12% ✓. Discounting 7.84 at the risk-free rate would give 7.5024, too high, because the payoff is risky.</p>",
+    "points": 4,
+    "body": "<p>Which portfolio of the risk-free asset and the market portfolio pays exactly what the business pays? What is the business worth today and what is the NPV of the project?</p>",
+    "solution": "<p><b>Split the payoff.</b> The business pays at least 5.25 in both states: that part is risk-free. The remaining 10.05 − 5.25 = 4.8 comes only in a boom, like the market.</p><p>Risk-free asset: 5.25/1.05 = <b>5</b><br>Market portfolio: 4.8/2.4 = <b>2</b> (€1 in the market pays 2.4 in a boom and 0 in a bust)</p><p>Value = 5 + 2 = <b>€7 million</b>; NPV = 7 − 4.8 = <b>€2.2 million</b>.</p><p>Discounting the expected payoff at the risk-free rate would give 7.2857, too high, because the payoff is risky.</p>",
     "criteria": [
-     "Sets up one equation per state and finds A = 5 in the market and B = 2 in the risk-free asset.",
-     "Value 7; NPV 1.4.",
-     "Expected return 7.84/7 − 1 = 12%.",
-     "Discounting the expected payoff at the risk-free rate (7.5024) is the classic error."
+     "Risk-free part 5.25/1.05 = 5; boom part 4.8/2.4 = 2.",
+     "Value 7 and NPV 2.2.",
+     "Discounting the expected payoff at the risk-free rate (7.2857) is the classic error."
     ]
    },
    {
     "label": "c",
-    "points": 4,
-    "body": "<p>A bank offers to lend Lena the €5.6 million at the risk-free rate. Is the loan risk-free? Which portfolio of the market and the risk-free asset replicates Lena's stake? What is the stake worth?</p>",
-    "solution": "<p><b>Risk-free.</b> Lena owes 5.6 × 1.045 = 5.852, less than the 6.09 the business pays even in a bust.</p><p><b>Lena's payoff.</b> Boom: 9.59 − 5.852 = 3.738. Bust: 6.09 − 5.852 = 0.238.</p><p><b>Replicate it.</b> 0.7A = 3.738 − 0.238 gives <b>A = 5</b> in the market; B = (0.238 − 0.8 × 5)/1.045 = <b>−3.6</b>, that is, borrowing 3.6 at the risk-free rate.</p><p>Stake = 5 − 3.6 = <b>€1.4 million</b>, the whole NPV. Lena's stake is a levered position in the market: the same market exposure as the business, financed partly with borrowed money.</p>",
+    "points": 3,
+    "body": "<p>A bank offers to lend Lena the €4.8 million at the risk-free rate. Is the loan risk-free? What is Lena's stake worth with the loan?</p>",
+    "solution": "<p><b>Risk-free.</b> Lena owes 4.8 × 1.05 = 5.04, less than the 5.25 the business pays even in a bust.</p><p><b>Lena's stake.</b> She gets 10.05 − 5.04 = 5.01 in a boom and 5.25 − 5.04 = 0.21 in a bust: 0.21/1.05 = 0.2 in the risk-free asset and (5.01 − 0.21)/2.4 = 2 in the market, together <b>€2.2 million</b>, the whole NPV.</p>",
     "criteria": [
-     "The loan is risk-free: 5.852 is below 6.09.",
-     "Lena's payoff 3.738 and 0.238.",
-     "Replicating portfolio 5 in the market and −3.6 in the risk-free asset (borrowing).",
-     "Stake 1.4, equal to the NPV."
+     "The loan is risk-free: 5.04 is below 5.25.",
+     "Lena's payoff 5.01 and 0.21, replicated by 0.2 risk-free and 2 in the market.",
+     "Stake 2.2, equal to the NPV."
     ]
    },
    {
     "label": "d",
-    "points": 5,
-    "body": "<p>A business angel instead offers Lena the €5.6 million for 75% of the business. What would Lena's stake then be worth? What expected return would the angel earn? What is the largest fraction Lena would give up rather than take the bank loan? (If you could not solve (b), use a value of €6.5 million for the business.)</p>",
-    "solution": "<p><b>Lena's stake.</b> She keeps 25% of a business worth 7: 0.25 × 7 = <b>€1.75 million</b>, more than the 1.4 with the loan, so she should accept.</p><p><b>The angel.</b> Expected payoff 0.75 × 7.84 = 5.88 on 5.6: an expected return of <b>5%</b>, below the 12% the business must earn. The angel overpays: the 0.75 stake is worth only 5.25.</p><p><b>Largest fraction.</b> Lena is indifferent when (1 − α) × 7 = 1.4, that is when the angel's stake is worth exactly the 5.6 paid: α = 5.6/7 = <b>80%</b>. She accepts any offer for a smaller fraction.</p><p>With the fallback value 6.5: stake 0.25 × 6.5 = 1.625 and α = 5.6/6.5 = 86.15%.</p>",
+    "points": 4,
+    "body": "<p>A business angel instead offers Lena the €4.8 million for 64% of the business. What would Lena's stake then be worth? Should she accept the offer or take the bank loan? What is the largest fraction she would give up? (If you could not solve (b), use a value of €6.5 million for the business.)</p>",
+    "solution": "<p><b>Lena's stake.</b> She keeps 36% of a business worth 7: 0.36 × 7 = <b>€2.52 million</b>, more than the 2.2 with the loan. <b>She should accept.</b> The angel's 64% is worth only 4.48 for the 4.8 paid.</p><p><b>Largest fraction.</b> Lena is indifferent when the angel's stake is worth exactly the 4.8 paid: α = 4.8/7 = <b>68.57%</b>.</p><p>With the fallback value 6.5: stake 0.36 × 6.5 = 2.34 and 4.8/6.5 = 73.85%.</p>",
     "criteria": [
-     "Lena's stake 0.25 × 7 = 1.75, more than 1.4: she accepts.",
-     "The angel's expected return 0.75 × 7.84/5.6 − 1 = 5%, below 12%.",
-     "Indifference: α = 5.6/7 = 80%.",
-     "Values the stakes by replication (value of the business), not by expected cash flows alone."
+     "Lena's stake 0.36 × 7 = 2.52, more than 2.2: she accepts.",
+     "Largest fraction 4.8/7 = 68.57%.",
+     "Values the stakes by replication (the value of the business), not by expected cash flows."
     ]
    },
    {
     "label": "e",
     "points": 3,
-    "body": "<p>You did not need the probability of a boom to value the business in (b). Explain briefly why. Where does the probability matter?</p>",
-    "solution": "<p><b>Why not.</b> The payoff of the business is the payoff of a portfolio of traded assets whose prices are known today. Two things that pay the same in every state must cost the same, otherwise there is an arbitrage. The probabilities and investors' attitude to risk are already in the price of the market portfolio.</p><p><b>Where it matters.</b> The probability matters for expected payoffs and expected returns: the business's expected return of 12% and the angel's 5% both use it. An equity investor's required return must match the value from replication, so it depends on the probability too, but the value itself does not.</p>",
+    "body": "<p>Suppose instead that a boom has probability q, which you do not know. The market still loses everything in a bust and still has the expected return you found in (a), so its return in a boom depends on q. For which q is Lena indifferent between the angel's offer and the bank loan? Which does she prefer if a boom is more likely than that?</p>",
+    "solution": "<p><b>Value as a function of q.</b> €1 in the market pays 1.2/q in a boom, so a euro paid only in a boom costs q/1.2 today. The business is worth 5 + q × 4.8/1.2 = 5 + 4q.</p><p><b>Indifference.</b> 0.36V = V − 4.8 ⇒ V = 4.8/0.64 = 7.5 ⇒ 5 + 4q = 7.5 ⇒ <b>q = 0.6250</b></p><p><b>A more likely boom.</b> The business is then worth more, so the angel's 64% is worth more than the 4.8 paid: <b>Lena prefers the bank loan</b>, which leaves her the whole NPV. At q = 0.5 the angel's offer is better, as in (d).</p>",
     "criteria": [
-     "Replication: the business is equivalent to a portfolio of traded assets, so by no arbitrage it costs the same; no probabilities are needed.",
-     "The probabilities and risk attitudes are already reflected in the market's price.",
-     "The probability matters for expected payoffs and returns (the required return), not for the value."
+     "Value of the business 5 + q × 4.8/1.2: a boom-only payoff is worth q/1.2 per euro.",
+     "Indifference when V = 7.5: q = 0.6250.",
+     "If a boom is more likely, the business is worth more and Lena prefers the bank loan."
+    ]
+   },
+   {
+    "label": "f",
+    "points": 3,
+    "body": "<p>In (b) you do not need the probability of a boom to value the business, but in (e) the value depends on q. Explain briefly why.</p>",
+    "solution": "<p><b>In (b)</b> the market's payoffs in both states and its price are given. The business pays the same as a portfolio of traded assets, so by no arbitrage it costs the same: the probabilities and investors' attitude to risk are already in the market's price.</p><p><b>In (e)</b> the market's expected return is held at 20% instead. A different q then means a different boom return, so the price of a euro paid in a boom changes. The probability enters the value only through the price of the traded asset that replicates the payoff.</p>",
+    "criteria": [
+     "In (b): replication with given payoffs and prices of traded assets; by no arbitrage no probabilities are needed.",
+     "In (e): fixing the expected return at 20% makes the market's boom return depend on q, so the price of a boom payoff depends on q too.",
+     "Bonus: the probability matters for expected payoffs and returns; for value it matters only through prices."
     ]
    }
   ]
@@ -813,7 +831,7 @@
   "n": 1,
   "title": "Capital Structure",
   "points": 20,
-  "topic": "MM in perfect markets, replication and beta",
+  "topic": "Financing a new venture: leverage and beta",
   "chapters": [
    4,
    6
@@ -824,10 +842,10 @@
    {
     "label": "a",
     "points": 3,
-    "body": "<p>What are the expected return on the market portfolio and the expected payoff of the centre?</p>",
-    "solution": "<p>E[R<sub>m</sub>] = 0.5 × 45% + 0.5 × (−5%) = <b>20%</b><br>E[payoff] = 0.5 × 10.8 + 0.5 × 7.8 = <b>NOK 9.3 million</b></p>",
+    "body": "<p>What is the market risk premium E[R<sub>m</sub>] − r<sub>f</sub>? How much is the centre expected to pay in one year?</p>",
+    "solution": "<p>E[R<sub>m</sub>] = 0.5 × 45% + 0.5 × (−5%) = 20%, so the risk premium is 20% − 5% = <b>15%</b>.<br>E[payoff] = 0.5 × 10.8 + 0.5 × 7.8 = <b>NOK 9.3 million</b></p>",
     "criteria": [
-     "E[Rm] = 0.5 × 45% − 0.5 × 5% = 20%.",
+     "E[Rm] = 0.5 × 45% − 0.5 × 5% = 20%; risk premium 15%.",
      "Expected payoff 0.5 × 10.8 + 0.5 × 7.8 = 9.3.",
      "Uses the stated probabilities of 50%."
     ]
@@ -835,20 +853,20 @@
    {
     "label": "b",
     "points": 5,
-    "body": "<p>Value the centre by replicating its payoff with the market portfolio and the risk-free asset. What are its expected return r<sub>U</sub> and its beta β<sub>U</sub>?</p>",
-    "solution": "<p>Boom: 1.45A + 1.05B = 10.8<br>Bust: 0.95A + 1.05B = 7.8</p><p>0.5A = 3, so A = 6 in the market; B = (7.8 − 0.95 × 6)/1.05 = 2 in the risk-free asset. Value = 6 + 2 = <b>NOK 8 million</b>.</p><p>r<sub>U</sub> = 9.3/8 − 1 = <b>16.25%</b><br>β<sub>U</sub> = the beta of the replicating portfolio = (6/8) × 1 + (2/8) × 0 = <b>0.75</b></p><p><b>Check.</b> CAPM: 5% + 0.75 × (20% − 5%) = 16.25% ✓</p>",
+    "body": "<p>Find the amounts A in the market portfolio and B in the risk-free asset that together pay exactly what the centre pays. What is the centre worth? Use the portfolio to find the beta β<sub>U</sub> of the centre and then its expected return r<sub>U</sub> from the CAPM.</p>",
+    "solution": "<p>Boom: 1.45A + 1.05B = 10.8<br>Bust: 0.95A + 1.05B = 7.8</p><p>0.5A = 3, so A = 6 in the market; B = (7.8 − 0.95 × 6)/1.05 = 2 in the risk-free asset. Value = 6 + 2 = <b>NOK 8 million</b>.</p><p>β<sub>U</sub> = the beta of the replicating portfolio = (6/8) × 1 + (2/8) × 0 = <b>0.75</b><br>r<sub>U</sub> = 5% + 0.75 × 15% = <b>16.25%</b></p><p><b>Check.</b> 9.3/8 − 1 = 16.25% ✓</p>",
     "criteria": [
      "Replicating portfolio 6 in the market and 2 in the risk-free asset; value 8.",
-     "r_U = 9.3/8 − 1 = 16.25%.",
-     "β_U = 0.75, as the weighted beta of the replicating portfolio or from the CAPM.",
-     "The CAPM check is a bonus."
+     "β_U = 0.75, the weighted beta of the replicating portfolio.",
+     "r_U = 5% + 0.75 × 15% = 16.25%.",
+     "The check with the expected payoff is a bonus."
     ]
    },
    {
     "label": "c",
     "points": 4,
-    "body": "<p>Is the bank loan risk-free? What are the loan and Ida's equity worth today? What are the beta β<sub>E</sub> and the expected return r<sub>E</sub> of her equity? (If you could not solve (b), use a value of NOK 8.5 million and β<sub>U</sub> = 0.8.)</p>",
-    "solution": "<p><b>Risk-free.</b> Ida owes 1.6 × 1.05 = 1.68, far below the 7.8 the centre pays in a bust, so β<sub>D</sub> = 0 and the loan is worth <b>NOK 1.6 million</b>.</p><p>Equity = 8 − 1.6 = <b>NOK 6.4 million</b>, so D/E = 1.6/6.4 = 0.25.</p><p>β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>) = 0.75 + 0.25 × 0.75 = <b>0.9375</b><br>r<sub>E</sub> = 5% + 0.9375 × 15% = <b>19.0625%</b></p><p><b>Check.</b> The equity pays 9.12 or 6.12, expected 7.62: 7.62/6.4 − 1 = 19.0625% ✓</p><p>With the fallback values: equity 6.9, β<sub>E</sub> = 0.8 × (1 + 1.6/6.9) = 0.9855 and r<sub>E</sub> = 19.7826%.</p>",
+    "body": "<p>Is the bank loan risk-free? What are the loan and Ida's equity worth today? What are the beta β<sub>E</sub> and the expected return r<sub>E</sub> of her equity? (If you could not solve (b), use a value of NOK 8.5 million and β<sub>U</sub> = 0.8. Find r<sub>E</sub> with the CAPM.)</p>",
+    "solution": "<p><b>Risk-free.</b> Ida owes 1.6 × 1.05 = 1.68, far below the 7.8 the centre pays in a bust, so β<sub>D</sub> = 0 and the loan is worth <b>NOK 1.6 million</b>.</p><p>Equity = 8 − 1.6 = <b>NOK 6.4 million</b>, so D/E = 1.6/6.4 = 0.25.</p><p>β<sub>E</sub> = β<sub>U</sub> + (D/E)(β<sub>U</sub> − β<sub>D</sub>) = 0.75 + 0.25 × 0.75 = <b>0.9375</b><br>r<sub>E</sub> = 5% + 0.9375 × 15% = <b>19.0625%</b></p><p><b>Check.</b> The equity pays 9.12 or 6.12, expected 7.62: 7.62/6.4 − 1 = 19.0625% ✓</p><p>With the fallback values: equity 6.9, β<sub>E</sub> = 0.8 × (1 + 1.6/6.9) = 0.9855 and r<sub>E</sub> = 19.7826% by the CAPM (the payoff check would give 10.4348%, because the fallback value does not fit the payoffs).</p>",
     "criteria": [
      "The loan is risk-free (1.68 is below 7.8), so it is worth 1.6 and β_D = 0.",
      "Equity 8 − 1.6 = 6.4; D/E = 0.25.",
@@ -859,8 +877,8 @@
    {
     "label": "d",
     "points": 4,
-    "body": "<p>Once the centre is built, the bank offers to lend more at the risk-free rate, so that the loan becomes 50% of the centre's value. The extra money is paid out to Ida. Is the new loan risk-free? What are the new β<sub>E</sub> and r<sub>E</sub>?</p>",
-    "solution": "<p><b>Risk-free.</b> The loan becomes 0.5 × 8 = 4, with 4 × 1.05 = 4.2 to repay, still below 7.8. (Any loan up to 7.8/1.05 = 7.4286 is risk-free.)</p><p>D/V = 50% means D/E = 4/4 = 1.<br>β<sub>E</sub> = 0.75 + 1 × 0.75 = <b>1.5</b><br>r<sub>E</sub> = 5% + 1.5 × 15% = <b>27.50%</b></p><p><b>Check.</b> The equity now pays 6.6 or 3.6, expected 5.1: 5.1/4 − 1 = 27.50% ✓. Using D/V = 0.5 as if it were D/E gives 1.125, which is wrong. With the fallback β<sub>U</sub> = 0.8: β<sub>E</sub> = 1.6 and r<sub>E</sub> = 29.00%.</p>",
+    "body": "<p>Once the centre is built, the bank offers to lend more at the risk-free rate, so that the loan becomes 50% of the centre's market value. The extra money is paid out to Ida. Is the new loan risk-free? What are the new β<sub>E</sub> and r<sub>E</sub>? (If you used the fallback values in (c), keep them.)</p>",
+    "solution": "<p><b>Risk-free.</b> The loan becomes 0.5 × 8 = 4, with 4 × 1.05 = 4.2 to repay, still below 7.8. (Any loan up to 7.8/1.05 = 7.4286 is risk-free.)</p><p>D/V = 50% means D/E = 4/4 = 1.<br>β<sub>E</sub> = 0.75 + 1 × 0.75 = <b>1.5</b><br>r<sub>E</sub> = 5% + 1.5 × 15% = <b>27.50%</b></p><p><b>Check.</b> The equity now pays 6.6 or 3.6, expected 5.1: 5.1/4 − 1 = 27.50% ✓. Using D/V = 0.5 as if it were D/E gives 1.125. Taking 50% of the cost of 6 instead of the market value gives 1.2. Both are wrong. With the fallback β<sub>U</sub> = 0.8: β<sub>E</sub> = 1.6 and r<sub>E</sub> = 29.00%.</p>",
     "criteria": [
      "The new loan of 4 is risk-free (4.2 is below 7.8).",
      "Converts D/V = 50% to D/E = 1.",
@@ -876,8 +894,8 @@
     "criteria": [
      "β_U is the risk of the business, which has not changed; leverage only splits the payoff (Kurbatov, recording 02, 1:19:08).",
      "The equity takes all the business risk on a smaller base, so β_E and r_E rise with leverage.",
-     "Firm value and the weighted cost of capital (16.25%) are unchanged; Ida's wealth is unchanged, the higher r_E is compensation for risk.",
-     "Bonus: shows that Ida's cash of 2.4 plus her equity of 4 equals 6.4."
+     "Firm value and Ida's wealth are unchanged; the higher r_E is compensation for risk.",
+     "Bonus: the weighted cost of capital stays 16.25%, or Ida's cash of 2.4 plus her equity of 4 equals 6.4."
     ]
    }
   ]

@@ -27,13 +27,13 @@
         "verdi": -12.359550561797752,
         "enhet": "%",
         "alt": [
-          -10.444444444444445,
-          -13.333333333333334,
+          -14.255319148936172,
+          -17.02127659574468,
           -9.438202247191011
         ]
       }
     ],
-    "merknad": "alt er svarene med reservetallene: alle tre (−10.4444%), bare prisen €45 (−13.3333%) og bare tildelingene 30 og 70 (−9.4382%)."
+    "merknad": "alt er svarene med reservetallene: alle tre (−14.2553%), bare prisen €47 (−17.0213%) og bare tildelingene 30 og 70 (−9.4382%)."
   },
   "mk-ipo-1:1:c": {
     "type": "tall",
@@ -57,7 +57,8 @@
         "verdi": 14.102564102564108,
         "enhet": "%",
         "alt": [
-          8.536585365853666
+          8.536585365853666,
+          10.421836228287852
         ]
       },
       {
@@ -65,7 +66,8 @@
         "verdi": 41.025641025641036,
         "enhet": "%",
         "alt": [
-          34.14634146341464
+          34.14634146341464,
+          36.47642679900744
         ]
       },
       {
@@ -74,11 +76,12 @@
         "enhet": "%",
         "abs": 0.05,
         "alt": [
-          -4.878048780487805
+          -4.878048780487805,
+          -3.225806451612897
         ]
       }
     ],
-    "merknad": "alt er svarene med reserveprisen 41 (8.5366%, 34.1463% og −4.8780% for deg med tildelingene fra (a))."
+    "merknad": "alt er svarene med reserveprisen 41 (8.5366%, 34.1463% og −4.8780% for deg med tildelingene fra (a)), og kaskaden fra prisen 40.3 i (c) (10.4218%, 36.4764%, −3.2258%)."
   },
   "mk-ipo-1:1:e": {
     "type": "tekst"

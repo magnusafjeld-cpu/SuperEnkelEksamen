@@ -1,0 +1,29 @@
+{
+  "mk-ma-motiver-2:1:": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change for T's shareholders, a)",
+        "verdi": 105.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Change for A's shareholders, a)",
+        "verdi": 45.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Change for T's shareholders, b)",
+        "verdi": 20.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Change for A's shareholders, b)",
+        "verdi": 130.0,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Explain why the target usually captures most of the synergies, why the split changes in b) and give the reason in c)."
+  }
+}

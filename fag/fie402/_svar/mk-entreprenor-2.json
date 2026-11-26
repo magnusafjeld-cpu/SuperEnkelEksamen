@@ -1,0 +1,95 @@
+{
+  "mk-entreprenor-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Expected return on the market",
+        "verdi": 19.999999999999996,
+        "enhet": "%"
+      },
+      {
+        "navn": "Expected payoff",
+        "verdi": 7.65,
+        "enhet": "€ m"
+      }
+    ]
+  },
+  "mk-entreprenor-2:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Amount in the risk-free asset",
+        "verdi": 5.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Amount in the market portfolio",
+        "verdi": 2.0000000000000004,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Value of the business",
+        "verdi": 7.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "NPV",
+        "verdi": 2.2,
+        "enhet": "€ m"
+      }
+    ],
+    "merknad": "Diskontering med r_f gir 7.2857; det avvises."
+  },
+  "mk-entreprenor-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Lena's stake with the loan",
+        "verdi": 2.2,
+        "enhet": "€ m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Is the loan risk-free?"
+  },
+  "mk-entreprenor-2:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Lena's stake with the angel",
+        "verdi": 2.52,
+        "enhet": "€ m",
+        "alt": [
+          2.34
+        ]
+      },
+      {
+        "navn": "Largest fraction",
+        "verdi": 68.57142857142857,
+        "enhet": "%",
+        "alt": [
+          73.84615384615384
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Should Lena accept the offer or take the bank loan?",
+    "merknad": "alt er svarene med reserveverdien 6.5."
+  },
+  "mk-entreprenor-2:1:e": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Probability q",
+        "verdi": 0.6249999999999999,
+        "enhet": ""
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Which does she prefer if a boom is more likely than that?",
+    "merknad": "Uten å diskontere boom-delen blir q = 0.5208; det avvises."
+  },
+  "mk-entreprenor-2:1:f": {
+    "type": "tekst"
+  }
+}

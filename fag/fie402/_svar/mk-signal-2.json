@@ -1,0 +1,71 @@
+{
+  "mk-signal-2:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V",
+        "verdi": 260.0,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Share price",
+        "verdi": 10.4,
+        "enhet": "$ per share"
+      }
+    ]
+  },
+  "mk-signal-2:1:b": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Fraction to new investors",
+        "verdi": 14.7058823529,
+        "enhet": "%"
+      },
+      {
+        "navn": "Stake at t = 1, high-value type",
+        "verdi": 409.4117647059,
+        "enhet": "$ m"
+      },
+      {
+        "navn": "Stake at t = 1, low-value type",
+        "verdi": 238.8235294118,
+        "enhet": "$ m"
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Which type or types issue?"
+  },
+  "mk-signal-2:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Share price after the announcement",
+        "verdi": 11.6,
+        "enhet": "$ per share"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Is the investors' belief in (b) rational?",
+    "merknad": "9.20 (bare lav type utsteder) godtas ikke som følgefeil, på linje med fellen i (d)."
+  },
+  "mk-signal-2:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Highest fee, high-value type",
+        "verdi": 20.5882352941,
+        "enhet": "$ m",
+        "alt": [
+          25.0
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Would a low-value Larkhaven buy the certificate? Why?",
+    "merknad": "alt 25 er svaret med reserveverdien 405. Fellen 30 (NPV-en, feil alternativ) avvises."
+  },
+  "mk-signal-2:1:e": {
+    "type": "tekst"
+  }
+}

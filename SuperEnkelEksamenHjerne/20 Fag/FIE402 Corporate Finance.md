@@ -616,8 +616,10 @@ Kurbatovs eksamensoppgave. Oppgave 1 ligger nærmest forelesningen, oppgave 2 n�
 eksamen og oppgave 3 tar med tillegget han varslet. Fem skribenter skrev, og en blind
 kontrollør per skribent regnet alt på nytt. I tier 1 fant kontrollørene ingen regnefeil, bare
 formuleringer, for strenge toleranser, kriterier som krevde mer enn spørsmålet og feltnavn som
-røpet svaret (lærdommene står i spesifikasjonen). **Tier 1 (21 oppgaver) og tier 2 (24) lagt ut 26.
-november.** Ingen regnefeil i tier 2 heller. Tier 3 skrives og kontrolleres.
+røpet svaret (lærdommene står i spesifikasjonen). **Alle tre tiers er lagt ut 26. november: 20 typer, 60 oppgaver.** Ingen
+regnefeil i noen tier. Oppgaver som ble bygd om etter første kontroll, ble kontrollert blindt
+én gang til. «Avvikle» heter nå «avvikle eller gå ut», siden ingen av oppgavene er trinnvis
+finansiering.
 
 ## Hintet i forelesning (24. november 2026)
 

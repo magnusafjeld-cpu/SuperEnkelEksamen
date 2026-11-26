@@ -373,13 +373,13 @@
     "verdi": -12.359550561797752,
     "enhet": "%",
     "alt": [
-     -10.444444444444445,
-     -13.333333333333334,
+     -14.255319148936172,
+     -17.02127659574468,
      -9.438202247191011
     ]
    }
   ],
-  "merknad": "alt er svarene med reservetallene: alle tre (−10.4444%), bare prisen €45 (−13.3333%) og bare tildelingene 30 og 70 (−9.4382%)."
+  "merknad": "alt er svarene med reservetallene: alle tre (−14.2553%), bare prisen €47 (−17.0213%) og bare tildelingene 30 og 70 (−9.4382%)."
  },
  "mk-ipo-1:1:c": {
   "type": "tall",
@@ -403,7 +403,8 @@
     "verdi": 14.102564102564108,
     "enhet": "%",
     "alt": [
-     8.536585365853666
+     8.536585365853666,
+     10.421836228287852
     ]
    },
    {
@@ -411,7 +412,8 @@
     "verdi": 41.025641025641036,
     "enhet": "%",
     "alt": [
-     34.14634146341464
+     34.14634146341464,
+     36.47642679900744
     ]
    },
    {
@@ -420,11 +422,12 @@
     "enhet": "%",
     "abs": 0.05,
     "alt": [
-     -4.878048780487805
+     -4.878048780487805,
+     -3.225806451612897
     ]
    }
   ],
-  "merknad": "alt er svarene med reserveprisen 41 (8.5366%, 34.1463% og −4.8780% for deg med tildelingene fra (a))."
+  "merknad": "alt er svarene med reserveprisen 41 (8.5366%, 34.1463% og −4.8780% for deg med tildelingene fra (a)), og kaskaden fra prisen 40.3 i (c) (10.4218%, 36.4764%, −3.2258%)."
  },
  "mk-ipo-1:1:e": {
   "type": "tekst"
@@ -619,7 +622,7 @@
     "tol": 0.009
    }
   ],
-  "merknad": "5 %/12 = 0.4167 % ligger 2.3 % unna og avvises."
+  "merknad": "5 %/12 = 0.4167 % ligger 2.3 % unna og avvises. Svar som bygger videre på 5 %/12 i (b) til (d) får ikke alt: omregningen er ferdigheten som testes."
  },
  "mk-avvikle-1:1:b": {
   "type": "tall",
@@ -627,10 +630,14 @@
    {
     "navn": "NPV, committed",
     "verdi": -372725.77529597125,
-    "enhet": "€"
+    "enhet": "€",
+    "tol": 0.0029,
+    "alt": [
+     -375000.0
+    ]
    }
   ],
-  "merknad": "alt er svaret med reserverenten 0.4 %."
+  "merknad": "alt er svaret med reserverenten 0.4 %. Svaret bygd på 5 %/12 avvises."
  },
  "mk-avvikle-1:1:c": {
   "type": "tall",
@@ -646,34 +653,30 @@
    {
     "navn": "NPV, bad state",
     "verdi": -376833.2587739172,
-    "enhet": "€"
-   }
-  ],
-  "merknad": "alt er svarene med reserverenten 0.4 %."
- },
- "mk-avvikle-1:1:d": {
-  "type": "tall",
-  "tall": [
-   {
-    "navn": "NPV with the clause",
-    "verdi": 116123.58414894075,
     "enhet": "€",
     "alt": [
-     110000.0,
-     124012.17586877197
+     -376975.64826245606
     ]
-   },
+   }
+  ],
+  "merknad": "alt er svarene med reserverenten 0.4 %. Med 5 %/12 avvises den gode tilstanden; den dårlige havner innenfor toleransen, så fellen fanges i (a) og i den gode tilstanden."
+ },
+ "mk-avvikle-1:1:d": {
+  "type": "blandet",
+  "tall": [
    {
     "navn": "Value of the clause",
     "verdi": 116123.58414894075,
     "enhet": "€",
     "alt": [
-     110000.0,
+     100000.0,
      124012.17586877197
     ]
    }
   ],
-  "merknad": "Fellen er verdien målt mot den negative NPV-en fra (b). alt er svarene med reserve-NPV-ene og reserverenten."
+  "tallPoeng": 3,
+  "tekstLedd": "What is the NPV with the clause? Do you open?",
+  "merknad": "Verdien er målt mot beste valg uten klausulen (ikke åpne, 0), og er derfor lik NPV med klausulen. Fellen er NPV med − NPV uten (den negative NPV-en fra (b)). alt er svarene med reserve-NPV-ene og reserverenten. Svar bygd på 5 %/12 avvises (se (a))."
  },
  "mk-avvikle-1:1:e": {
   "type": "tekst"
@@ -700,27 +703,24 @@
     "navn": "NPV, bad state",
     "verdi": -1028337.4866500535,
     "enhet": "NOK"
-   },
-   {
-    "navn": "NPV of opening",
-    "verdi": 285831.25667497324,
-    "enhet": "NOK"
    }
   ]
  },
  "mk-avvikle-2:1:c": {
-  "type": "tall",
+  "type": "blandet",
   "tall": [
    {
-    "navn": "Value of the right",
+    "navn": "Value of the right to close",
     "verdi": 285831.25667497324,
     "enhet": "NOK",
     "alt": [
-     300000.0
+     200000.0
     ]
    }
   ],
-  "merknad": "Fellen er verdien målt mot den negative NPV-en fra (a). alt er reserveverdien."
+  "tallPoeng": 3,
+  "tekstLedd": "Do you open? Explain what you compare the right with.",
+  "merknad": "Fellen er verdien målt mot den negative NPV-en fra (a) (NPV med − NPV uten). Verdien er lik NPV med retten, fordi beste valg uten retten er å la være. alt er svaret med reserve-NPV-ene."
  },
  "mk-avvikle-2:1:d": {
   "type": "tall",
@@ -752,10 +752,13 @@
    {
     "navn": "NPV, committed",
     "verdi": -522786.0717047367,
-    "enhet": "$"
+    "enhet": "$",
+    "alt": [
+     -521052.63157894736
+    ]
    }
   ],
-  "merknad": "Fellen er 50/50-vekter. alt er svaret med reserverenten 2 %."
+  "merknad": "Fellen er 50/50-vekter. alt er svaret med reserverenten 1.9 %. Svar bygd på 8 %/4 avvises: omregningen er ferdigheten som testes."
  },
  "mk-avvikle-3:1:c": {
   "type": "blandet",
@@ -765,26 +768,29 @@
     "verdi": 1459038.0878736894,
     "enhet": "$",
     "alt": [
-     1400000.0
+     1505263.157894737
     ]
    },
    {
     "navn": "NPV, bad state",
     "verdi": -812917.2506742579,
-    "enhet": "$"
+    "enhet": "$",
+    "alt": [
+     -813272.1406481932
+    ]
    },
    {
     "navn": "NPV of opening",
     "verdi": 209462.65167231834,
     "enhet": "$",
     "alt": [
-     183157.17729348806
+     230068.7436961254
     ]
    }
   ],
   "tallPoeng": 5,
   "tekstLedd": "Does the brand leave with bad demand? Does it open?",
-  "merknad": "alt er svarene med reserverenten 2 %."
+  "merknad": "alt er svarene med reserverenten 1.9 %."
  },
  "mk-avvikle-3:1:d": {
   "type": "blandet",
@@ -794,13 +800,13 @@
     "verdi": 1544278.565905267,
     "enhet": "$",
     "alt": [
-     1500000.0
+     1578947.3684210526
     ]
    }
   ],
   "tallPoeng": 2,
   "tekstLedd": "Explain what you compare.",
-  "merknad": "alt er svaret med reserverenten 2 %."
+  "merknad": "alt er svaret med reserverenten 1.9 %."
  },
  "mk-avvikle-3:1:e": {
   "type": "tekst"
@@ -813,22 +819,22 @@
   "tall": [
    {
     "navn": "Change for T's shareholders, a)",
-    "verdi": 90.0,
+    "verdi": 105.0,
     "enhet": "$ m"
    },
    {
     "navn": "Change for A's shareholders, a)",
-    "verdi": 10.0,
+    "verdi": 45.0,
     "enhet": "$ m"
    },
    {
     "navn": "Change for T's shareholders, b)",
-    "verdi": 15.0,
+    "verdi": 20.0,
     "enhet": "$ m"
    },
    {
     "navn": "Change for A's shareholders, b)",
-    "verdi": 85.0,
+    "verdi": 130.0,
     "enhet": "$ m"
    }
   ],
@@ -839,27 +845,27 @@
   "type": "blandet",
   "tall": [
    {
-    "navn": "Change for A's shareholders, cash",
-    "verdi": -10.0,
+    "navn": "Change for A's shareholders, cash, b) (synergies €160m)",
+    "verdi": 110.0,
     "enhet": "€ m"
    },
    {
-    "navn": "Change for T's shareholders, cash",
+    "navn": "Change for T's shareholders, cash, b) (synergies €160m)",
     "verdi": 50.0,
     "enhet": "€ m"
    },
    {
-    "navn": "Change for A's shareholders, shares",
-    "verdi": 5.0,
+    "navn": "Change for A's shareholders, shares, b) (synergies €160m)",
+    "verdi": 95.0,
     "enhet": "€ m"
    },
    {
-    "navn": "Change for T's shareholders, shares",
-    "verdi": 35.0,
+    "navn": "Change for T's shareholders, shares, b) (synergies €160m)",
+    "verdi": 65.0,
     "enhet": "€ m"
    }
   ],
   "tallPoeng": 2,
-  "tekstLedd": "Explain the split in a), who bears the synergy risk and give the reasons in c)."
+  "tekstLedd": "Explain the split in a), who gets the extra synergies and give the reasons in c)."
  }
 }

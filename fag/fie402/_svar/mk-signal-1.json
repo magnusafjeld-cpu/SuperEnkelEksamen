@@ -1,0 +1,77 @@
+{
+  "mk-signal-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "V",
+        "verdi": 230.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Share price",
+        "verdi": 11.5,
+        "enhet": "NOK per share"
+      }
+    ]
+  },
+  "mk-signal-1:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Fraction to new investors",
+        "verdi": 11.2781954887,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "Fellen 13.0435 % (prosjektet utelatt i nevneren) avvises."
+  },
+  "mk-signal-1:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Stake at t = 1, high-value type",
+        "verdi": 324.7218045113,
+        "enhet": "NOK m",
+        "alt": [
+          311.1
+        ]
+      },
+      {
+        "navn": "Stake at t = 1, low-value type",
+        "verdi": 147.2781954887,
+        "enhet": "NOK m",
+        "alt": [
+          141.1
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Which type or types issue? Explain briefly.",
+    "merknad": "alt er svarene med reserveverdien 15%: 311.1000 og 141.1000."
+  },
+  "mk-signal-1:1:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Share price after the announcement",
+        "verdi": 6.8,
+        "enhet": "NOK per share",
+        "alt": [
+          11.8
+        ]
+      },
+      {
+        "navn": "New shares",
+        "verdi": 4.4117647059,
+        "enhet": "m shares",
+        "alt": [
+          2.5423728814
+        ]
+      }
+    ],
+    "merknad": "alt 11.80 og 2.5424 er følgefeil for en student som i (c) kom til at begge typer utsteder; da er samlet pris konsistent."
+  },
+  "mk-signal-1:1:e": {
+    "type": "tekst"
+  }
+}

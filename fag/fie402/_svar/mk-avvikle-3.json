@@ -1,0 +1,78 @@
+{
+  "mk-avvikle-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Quarterly rate",
+        "verdi": 1.94265469082735,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "8 %/4 = 2 % ligger 3 % unna og avvises."
+  },
+  "mk-avvikle-3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV, committed",
+        "verdi": -522786.0717047367,
+        "enhet": "$",
+        "alt": [
+          -521052.63157894736
+        ]
+      }
+    ],
+    "merknad": "Fellen er 50/50-vekter. alt er svaret med reserverenten 1.9 %. Svar bygd på 8 %/4 avvises: omregningen er ferdigheten som testes."
+  },
+  "mk-avvikle-3:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV, good state",
+        "verdi": 1459038.0878736894,
+        "enhet": "$",
+        "alt": [
+          1505263.157894737
+        ]
+      },
+      {
+        "navn": "NPV, bad state",
+        "verdi": -812917.2506742579,
+        "enhet": "$",
+        "alt": [
+          -813272.1406481932
+        ]
+      },
+      {
+        "navn": "NPV of opening",
+        "verdi": 209462.65167231834,
+        "enhet": "$",
+        "alt": [
+          230068.7436961254
+        ]
+      }
+    ],
+    "tallPoeng": 5,
+    "tekstLedd": "Does the brand leave with bad demand? Does it open?",
+    "merknad": "alt er svarene med reserverenten 1.9 %."
+  },
+  "mk-avvikle-3:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Largest exit fee",
+        "verdi": 1544278.565905267,
+        "enhet": "$",
+        "alt": [
+          1578947.3684210526
+        ]
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Explain what you compare.",
+    "merknad": "alt er svaret med reserverenten 1.9 %."
+  },
+  "mk-avvikle-3:1:e": {
+    "type": "tekst"
+  }
+}

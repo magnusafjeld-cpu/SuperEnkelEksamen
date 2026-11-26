@@ -1,0 +1,71 @@
+{
+  "mk-avvikle-1:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Monthly rate",
+        "verdi": 0.40741237836483535,
+        "enhet": "%",
+        "tol": 0.009
+      }
+    ],
+    "merknad": "5 %/12 = 0.4167 % ligger 2.3 % unna og avvises. Svar som bygger videre på 5 %/12 i (b) til (d) får ikke alt: omregningen er ferdigheten som testes."
+  },
+  "mk-avvikle-1:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV, committed",
+        "verdi": -372725.77529597125,
+        "enhet": "€",
+        "tol": 0.0029,
+        "alt": [
+          -375000.0
+        ]
+      }
+    ],
+    "merknad": "alt er svaret med reserverenten 0.4 %. Svaret bygd på 5 %/12 avvises."
+  },
+  "mk-avvikle-1:1:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV, good state",
+        "verdi": 609080.4270717987,
+        "enhet": "€",
+        "alt": [
+          625000.0
+        ]
+      },
+      {
+        "navn": "NPV, bad state",
+        "verdi": -376833.2587739172,
+        "enhet": "€",
+        "alt": [
+          -376975.64826245606
+        ]
+      }
+    ],
+    "merknad": "alt er svarene med reserverenten 0.4 %. Med 5 %/12 avvises den gode tilstanden; den dårlige havner innenfor toleransen, så fellen fanges i (a) og i den gode tilstanden."
+  },
+  "mk-avvikle-1:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Value of the clause",
+        "verdi": 116123.58414894075,
+        "enhet": "€",
+        "alt": [
+          100000.0,
+          124012.17586877197
+        ]
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "What is the NPV with the clause? Do you open?",
+    "merknad": "Verdien er målt mot beste valg uten klausulen (ikke åpne, 0), og er derfor lik NPV med klausulen. Fellen er NPV med − NPV uten (den negative NPV-en fra (b)). alt er svarene med reserve-NPV-ene og reserverenten. Svar bygd på 5 %/12 avvises (se (a))."
+  },
+  "mk-avvikle-1:1:e": {
+    "type": "tekst"
+  }
+}

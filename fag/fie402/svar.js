@@ -3038,6 +3038,205 @@ window.EDU_DATA.svar = {
  "hint3-3:3:e": {
   "type": "tekst"
  },
+ "mk-avvikle-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Monthly rate",
+    "verdi": 0.40741237836483535,
+    "enhet": "%",
+    "tol": 0.009
+   }
+  ],
+  "merknad": "5 %/12 = 0.4167 % ligger 2.3 % unna og avvises. Svar som bygger videre på 5 %/12 i (b) til (d) får ikke alt: omregningen er ferdigheten som testes."
+ },
+ "mk-avvikle-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV, committed",
+    "verdi": -372725.77529597125,
+    "enhet": "€",
+    "tol": 0.0029,
+    "alt": [
+     -375000.0
+    ]
+   }
+  ],
+  "merknad": "alt er svaret med reserverenten 0.4 %. Svaret bygd på 5 %/12 avvises."
+ },
+ "mk-avvikle-1:1:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV, good state",
+    "verdi": 609080.4270717987,
+    "enhet": "€",
+    "alt": [
+     625000.0
+    ]
+   },
+   {
+    "navn": "NPV, bad state",
+    "verdi": -376833.2587739172,
+    "enhet": "€",
+    "alt": [
+     -376975.64826245606
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserverenten 0.4 %. Med 5 %/12 avvises den gode tilstanden; den dårlige havner innenfor toleransen, så fellen fanges i (a) og i den gode tilstanden."
+ },
+ "mk-avvikle-1:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value of the clause",
+    "verdi": 116123.58414894075,
+    "enhet": "€",
+    "alt": [
+     100000.0,
+     124012.17586877197
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "What is the NPV with the clause? Do you open?",
+  "merknad": "Verdien er målt mot beste valg uten klausulen (ikke åpne, 0), og er derfor lik NPV med klausulen. Fellen er NPV med − NPV uten (den negative NPV-en fra (b)). alt er svarene med reserve-NPV-ene og reserverenten. Svar bygd på 5 %/12 avvises (se (a))."
+ },
+ "mk-avvikle-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-avvikle-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV, committed",
+    "verdi": -233333.33333333326,
+    "enhet": "NOK"
+   }
+  ]
+ },
+ "mk-avvikle-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV, good state",
+    "verdi": 1600000.0,
+    "enhet": "NOK"
+   },
+   {
+    "navn": "NPV, bad state",
+    "verdi": -1028337.4866500535,
+    "enhet": "NOK"
+   }
+  ]
+ },
+ "mk-avvikle-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Value of the right to close",
+    "verdi": 285831.25667497324,
+    "enhet": "NOK",
+    "alt": [
+     200000.0
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Do you open? Explain what you compare the right with.",
+  "merknad": "Fellen er verdien målt mot den negative NPV-en fra (a) (NPV med − NPV uten). Verdien er lik NPV med retten, fordi beste valg uten retten er å la være. alt er svaret med reserve-NPV-ene."
+ },
+ "mk-avvikle-2:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "X",
+    "verdi": 71460.79999999999,
+    "enhet": "NOK"
+   }
+  ]
+ },
+ "mk-avvikle-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-avvikle-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Quarterly rate",
+    "verdi": 1.94265469082735,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "8 %/4 = 2 % ligger 3 % unna og avvises."
+ },
+ "mk-avvikle-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV, committed",
+    "verdi": -522786.0717047367,
+    "enhet": "$",
+    "alt": [
+     -521052.63157894736
+    ]
+   }
+  ],
+  "merknad": "Fellen er 50/50-vekter. alt er svaret med reserverenten 1.9 %. Svar bygd på 8 %/4 avvises: omregningen er ferdigheten som testes."
+ },
+ "mk-avvikle-3:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV, good state",
+    "verdi": 1459038.0878736894,
+    "enhet": "$",
+    "alt": [
+     1505263.157894737
+    ]
+   },
+   {
+    "navn": "NPV, bad state",
+    "verdi": -812917.2506742579,
+    "enhet": "$",
+    "alt": [
+     -813272.1406481932
+    ]
+   },
+   {
+    "navn": "NPV of opening",
+    "verdi": 209462.65167231834,
+    "enhet": "$",
+    "alt": [
+     230068.7436961254
+    ]
+   }
+  ],
+  "tallPoeng": 5,
+  "tekstLedd": "Does the brand leave with bad demand? Does it open?",
+  "merknad": "alt er svarene med reserverenten 1.9 %."
+ },
+ "mk-avvikle-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Largest exit fee",
+    "verdi": 1544278.565905267,
+    "enhet": "$",
+    "alt": [
+     1578947.3684210526
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Explain what you compare.",
+  "merknad": "alt er svaret med reserverenten 1.9 %."
+ },
+ "mk-avvikle-3:1:e": {
+  "type": "tekst"
+ },
  "mk-binomisk-1:1:a": {
   "type": "blandet",
   "tall": [
@@ -4270,6 +4469,335 @@ window.EDU_DATA.svar = {
  "mk-deal-3:1:e": {
   "type": "tekst"
  },
+ "mk-entreprenor-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Expected payoff",
+    "verdi": 5.04,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Investors' fraction",
+    "verdi": 66.66666666666667,
+    "enhet": "%"
+   },
+   {
+    "navn": "Dana's expected cash flow with equity",
+    "verdi": 1.6799999999999997,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Dana's expected cash flow with the loan",
+    "verdi": 1.9500000000000002,
+    "enhet": "$ m"
+   }
+  ]
+ },
+ "mk-entreprenor-1:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Dana's stake with the loan",
+    "verdi": 1.5,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Why is the loan risk-free?"
+ },
+ "mk-entreprenor-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Amount in the risk-free asset",
+    "verdi": 0.9999999999999998,
+    "enhet": "$ m",
+    "alt": [
+     1.2
+    ]
+   },
+   {
+    "navn": "Amount in the market portfolio",
+    "verdi": 0.4999999999999999,
+    "enhet": "$ m",
+    "alt": [
+     0.6000000000000001
+    ]
+   },
+   {
+    "navn": "Dana's stake with equity",
+    "verdi": 1.4999999999999996,
+    "enhet": "$ m",
+    "alt": [
+     1.8
+    ]
+   }
+  ],
+  "tallPoeng": 4,
+  "tekstLedd": "Compare with (b).",
+  "merknad": "alt er svarene med reserveandelen 40 %."
+ },
+ "mk-entreprenor-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Investors' stake with equity financing",
+    "verdi": 3.0,
+    "enhet": "$ m",
+    "alt": [
+     2.6999999999999997,
+     2.4
+    ]
+   },
+   {
+    "navn": "Bank loan",
+    "verdi": 3.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Farm with equity financing",
+    "verdi": 4.5,
+    "enhet": "$ m",
+    "alt": [
+     4.3,
+     4.0
+    ]
+   },
+   {
+    "navn": "Farm with the bank loan",
+    "verdi": 4.5,
+    "enhet": "$ m",
+    "alt": [
+     4.4
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveverdiene (andel 0.6, andeler 1.4 og 1.6), også lest som at Danas andel 1.6 er 0.4 av firmaet (investorene 2.4, firmaet 4)."
+ },
+ "mk-entreprenor-1:1:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Dana's expected return with the loan",
+    "verdi": 30.000000000000004,
+    "enhet": "%",
+    "alt": [
+     39.2857142857143
+    ]
+   },
+   {
+    "navn": "Dana's expected return with equity",
+    "verdi": 12.00000000000001,
+    "enhet": "%",
+    "alt": [
+     4.999999999999982
+    ]
+   }
+  ],
+  "merknad": "alt er svarene med reserveandelene 1.4 og 1.6."
+ },
+ "mk-entreprenor-1:1:f": {
+  "type": "tekst"
+ },
+ "mk-entreprenor-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Expected return on the market",
+    "verdi": 19.999999999999996,
+    "enhet": "%"
+   },
+   {
+    "navn": "Expected payoff",
+    "verdi": 7.65,
+    "enhet": "€ m"
+   }
+  ]
+ },
+ "mk-entreprenor-2:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Amount in the risk-free asset",
+    "verdi": 5.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Amount in the market portfolio",
+    "verdi": 2.0000000000000004,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Value of the business",
+    "verdi": 7.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "NPV",
+    "verdi": 2.2,
+    "enhet": "€ m"
+   }
+  ],
+  "merknad": "Diskontering med r_f gir 7.2857; det avvises."
+ },
+ "mk-entreprenor-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Lena's stake with the loan",
+    "verdi": 2.2,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Is the loan risk-free?"
+ },
+ "mk-entreprenor-2:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Lena's stake with the angel",
+    "verdi": 2.52,
+    "enhet": "€ m",
+    "alt": [
+     2.34
+    ]
+   },
+   {
+    "navn": "Largest fraction",
+    "verdi": 68.57142857142857,
+    "enhet": "%",
+    "alt": [
+     73.84615384615384
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Should Lena accept the offer or take the bank loan?",
+  "merknad": "alt er svarene med reserveverdien 6.5."
+ },
+ "mk-entreprenor-2:1:e": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Probability q",
+    "verdi": 0.6249999999999999,
+    "enhet": ""
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Which does she prefer if a boom is more likely than that?",
+  "merknad": "Uten å diskontere boom-delen blir q = 0.5208; det avvises."
+ },
+ "mk-entreprenor-2:1:f": {
+  "type": "tekst"
+ },
+ "mk-entreprenor-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Market risk premium",
+    "verdi": 15.000000000000002,
+    "enhet": "%"
+   },
+   {
+    "navn": "Expected payoff",
+    "verdi": 9.299999999999999,
+    "enhet": "NOK m"
+   }
+  ]
+ },
+ "mk-entreprenor-3:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "A, in the market portfolio",
+    "verdi": 6.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "B, in the risk-free asset",
+    "verdi": 1.9999999999999996,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Value of the centre",
+    "verdi": 8.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "β<sub>U</sub>",
+    "verdi": 0.75,
+    "enhet": ""
+   },
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 16.249999999999986,
+    "enhet": "%"
+   }
+  ]
+ },
+ "mk-entreprenor-3:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Ida's equity",
+    "verdi": 6.4,
+    "enhet": "NOK m",
+    "alt": [
+     6.9
+    ]
+   },
+   {
+    "navn": "β<sub>E</sub>",
+    "verdi": 0.9375,
+    "enhet": "",
+    "alt": [
+     0.9855072463768115
+    ]
+   },
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 19.062500000000004,
+    "enhet": "%",
+    "alt": [
+     19.782608695652176,
+     10.434782608695636
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Is the bank loan risk-free?",
+  "merknad": "alt er svarene med reserveverdiene V = 8.5 og β_U = 0.8; r_E godtas både med CAPM (19.7826%) og med betalingssjekken (10.4348%)."
+ },
+ "mk-entreprenor-3:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "New β<sub>E</sub>",
+    "verdi": 1.5,
+    "enhet": "",
+    "alt": [
+     1.6
+    ]
+   },
+   {
+    "navn": "New r<sub>E</sub>",
+    "verdi": 27.500000000000004,
+    "enhet": "%",
+    "alt": [
+     29.000000000000004
+    ]
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Is the new loan risk-free?",
+  "merknad": "D/V brukt som D/E gir β_E = 1.125 og 50 % av kostnaden gir 1.2; begge avvises. alt er svarene med β_U = 0.8."
+ },
+ "mk-entreprenor-3:1:e": {
+  "type": "tekst"
+ },
  "mk-gjeldsoverheng-1:1:a": {
   "type": "tall",
   "tall": [
@@ -4532,13 +5060,13 @@ window.EDU_DATA.svar = {
     "verdi": -12.359550561797752,
     "enhet": "%",
     "alt": [
-     -10.444444444444445,
-     -13.333333333333334,
+     -14.255319148936172,
+     -17.02127659574468,
      -9.438202247191011
     ]
    }
   ],
-  "merknad": "alt er svarene med reservetallene: alle tre (−10.4444%), bare prisen €45 (−13.3333%) og bare tildelingene 30 og 70 (−9.4382%)."
+  "merknad": "alt er svarene med reservetallene: alle tre (−14.2553%), bare prisen €47 (−17.0213%) og bare tildelingene 30 og 70 (−9.4382%)."
  },
  "mk-ipo-1:1:c": {
   "type": "tall",
@@ -4562,7 +5090,8 @@ window.EDU_DATA.svar = {
     "verdi": 14.102564102564108,
     "enhet": "%",
     "alt": [
-     8.536585365853666
+     8.536585365853666,
+     10.421836228287852
     ]
    },
    {
@@ -4570,7 +5099,8 @@ window.EDU_DATA.svar = {
     "verdi": 41.025641025641036,
     "enhet": "%",
     "alt": [
-     34.14634146341464
+     34.14634146341464,
+     36.47642679900744
     ]
    },
    {
@@ -4579,11 +5109,12 @@ window.EDU_DATA.svar = {
     "enhet": "%",
     "abs": 0.05,
     "alt": [
-     -4.878048780487805
+     -4.878048780487805,
+     -3.225806451612897
     ]
    }
   ],
-  "merknad": "alt er svarene med reserveprisen 41 (8.5366%, 34.1463% og −4.8780% for deg med tildelingene fra (a))."
+  "merknad": "alt er svarene med reserveprisen 41 (8.5366%, 34.1463% og −4.8780% for deg med tildelingene fra (a)), og kaskaden fra prisen 40.3 i (c) (10.4218%, 36.4764%, −3.2258%)."
  },
  "mk-ipo-1:1:e": {
   "type": "tekst"
@@ -4767,6 +5298,63 @@ window.EDU_DATA.svar = {
  },
  "mk-ipo-3:1:e": {
   "type": "tekst"
+ },
+ "mk-ma-motiver-1:1:": {
+  "type": "tekst"
+ },
+ "mk-ma-motiver-2:1:": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change for T's shareholders, a)",
+    "verdi": 105.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Change for A's shareholders, a)",
+    "verdi": 45.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Change for T's shareholders, b)",
+    "verdi": 20.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Change for A's shareholders, b)",
+    "verdi": 130.0,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Explain why the target usually captures most of the synergies, why the split changes in b) and give the reason in c)."
+ },
+ "mk-ma-motiver-3:1:": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change for A's shareholders, cash, b) (synergies €160m)",
+    "verdi": 110.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change for T's shareholders, cash, b) (synergies €160m)",
+    "verdi": 50.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change for A's shareholders, shares, b) (synergies €160m)",
+    "verdi": 95.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Change for T's shareholders, shares, b) (synergies €160m)",
+    "verdi": 65.0,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Explain the split in a), who gets the extra synergies and give the reasons in c)."
  },
  "mk-mm-rekap-1:1:a": {
   "type": "tall",
@@ -5030,6 +5618,27 @@ window.EDU_DATA.svar = {
   "merknad": "alt er svarene med reserveverdiene 12 millioner nye aksjer og r_E = 11%: utbyttet 4.8545, kursen 44.13 med begge, 42.83 med bare r_E-reserven og 42.61 med r_E fra reserve-r_U i (c). 46.36 med bare reserveantallet og 43.90 med reserveantallet og r_E fra reserve-r_U. Fellene 46.98 og 45.63 avvises."
  },
  "mk-mm-rekap-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-1:1:": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-2:1:a": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-2:1:b": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-2:1:c": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-3:1:a": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-3:1:b": {
+  "type": "tekst"
+ },
+ "mk-opsjonsintuisjon-3:1:c": {
   "type": "tekst"
  },
  "mk-risikoskifting-1:1:a": {
@@ -5608,6 +6217,224 @@ window.EDU_DATA.svar = {
   "tekstLedd": "Do the two values agree?"
  },
  "mk-senior-junior-3:1:e": {
+  "type": "tekst"
+ },
+ "mk-signal-1:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V",
+    "verdi": 230.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Share price",
+    "verdi": 11.5,
+    "enhet": "NOK per share"
+   }
+  ]
+ },
+ "mk-signal-1:1:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Fraction to new investors",
+    "verdi": 11.2781954887,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Fellen 13.0435 % (prosjektet utelatt i nevneren) avvises."
+ },
+ "mk-signal-1:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Stake at t = 1, high-value type",
+    "verdi": 324.7218045113,
+    "enhet": "NOK m",
+    "alt": [
+     311.1
+    ]
+   },
+   {
+    "navn": "Stake at t = 1, low-value type",
+    "verdi": 147.2781954887,
+    "enhet": "NOK m",
+    "alt": [
+     141.1
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Which type or types issue? Explain briefly.",
+  "merknad": "alt er svarene med reserveverdien 15%: 311.1000 og 141.1000."
+ },
+ "mk-signal-1:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Share price after the announcement",
+    "verdi": 6.8,
+    "enhet": "NOK per share",
+    "alt": [
+     11.8
+    ]
+   },
+   {
+    "navn": "New shares",
+    "verdi": 4.4117647059,
+    "enhet": "m shares",
+    "alt": [
+     2.5423728814
+    ]
+   }
+  ],
+  "merknad": "alt 11.80 og 2.5424 er følgefeil for en student som i (c) kom til at begge typer utsteder; da er samlet pris konsistent."
+ },
+ "mk-signal-1:1:e": {
+  "type": "tekst"
+ },
+ "mk-signal-2:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V",
+    "verdi": 260.0,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Share price",
+    "verdi": 10.4,
+    "enhet": "$ per share"
+   }
+  ]
+ },
+ "mk-signal-2:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Fraction to new investors",
+    "verdi": 14.7058823529,
+    "enhet": "%"
+   },
+   {
+    "navn": "Stake at t = 1, high-value type",
+    "verdi": 409.4117647059,
+    "enhet": "$ m"
+   },
+   {
+    "navn": "Stake at t = 1, low-value type",
+    "verdi": 238.8235294118,
+    "enhet": "$ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Which type or types issue?"
+ },
+ "mk-signal-2:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price after the announcement",
+    "verdi": 11.6,
+    "enhet": "$ per share"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Is the investors' belief in (b) rational?",
+  "merknad": "9.20 (bare lav type utsteder) godtas ikke som følgefeil, på linje med fellen i (d)."
+ },
+ "mk-signal-2:1:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Highest fee, high-value type",
+    "verdi": 20.5882352941,
+    "enhet": "$ m",
+    "alt": [
+     25.0
+    ]
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Would a low-value Larkhaven buy the certificate? Why?",
+  "merknad": "alt 25 er svaret med reserveverdien 405. Fellen 30 (NPV-en, feil alternativ) avvises."
+ },
+ "mk-signal-2:1:e": {
+  "type": "tekst"
+ },
+ "mk-signal-3:1:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V",
+    "verdi": 172.0,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Share price",
+    "verdi": 17.2,
+    "enhet": "€ per share"
+   }
+  ]
+ },
+ "mk-signal-3:1:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Share price when the loan is announced",
+    "verdi": 17.8,
+    "enhet": "€ per share"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Which type or types invest? Why?"
+ },
+ "mk-signal-3:1:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Fraction to new investors",
+    "verdi": 18.3486238532,
+    "enhet": "%"
+   },
+   {
+    "navn": "Stake at t = 1, high-value type",
+    "verdi": 217.1926605505,
+    "enhet": "€ m"
+   },
+   {
+    "navn": "Stake at t = 1, low-value type",
+    "verdi": 119.2110091743,
+    "enhet": "€ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Which type or types issue?"
+ },
+ "mk-signal-3:1:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Share price after the announcement",
+    "verdi": 10.6,
+    "enhet": "€ per share",
+    "alt": [
+     17.8
+    ]
+   },
+   {
+    "navn": "New shares",
+    "verdi": 3.7735849057,
+    "enhet": "m shares",
+    "alt": [
+     2.2471910112
+    ]
+   }
+  ],
+  "merknad": "alt 17.80 og 2.2472 er følgefeil for en student som i (c) kom til at begge typer utsteder."
+ },
+ "mk-signal-3:1:e": {
   "type": "tekst"
  },
  "mk-skatt-rekap-1:1:a": {

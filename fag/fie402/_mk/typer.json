@@ -109,7 +109,7 @@
         { "hvor": "Forelesning 18 (Wrap-up), 48:05", "sitat": "Again, could be one of the first two theoretical questions in the exam." },
         { "hvor": "Forelesning 04 (Capital Structure III), 29:37", "sitat": "I could ask you, name one direct and one indirect cost of financial distress." }
       ] },
-    { "id": "avvikle", "tier": 3, "navn": "Realopsjon: avvikle, gå ut eller trinnvis", "skribent": "w1",
+    { "id": "avvikle", "tier": 3, "navn": "Realopsjon: avvikle eller gå ut", "skribent": "w1",
       "hvorfor": "Kurbatov sa at opsjonen til å avvikle kan komme, men brukte den selv i H2025 E5. Fellene er å sammenligne med 0, ikke med den negative verdien, og å bruke månedsrente når kontantstrømmene er månedlige.",
       "signaler": [
         { "hvor": "Forelesning 18 (Wrap-up), 1:06:01", "sitat": "I'm not sure if it was in the exam recently, but it could be something that we could explore" },

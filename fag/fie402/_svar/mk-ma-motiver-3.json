@@ -1,0 +1,29 @@
+{
+  "mk-ma-motiver-3:1:": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change for A's shareholders, cash, b) (synergies €160m)",
+        "verdi": 110.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Change for T's shareholders, cash, b) (synergies €160m)",
+        "verdi": 50.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Change for A's shareholders, shares, b) (synergies €160m)",
+        "verdi": 95.0,
+        "enhet": "€ m"
+      },
+      {
+        "navn": "Change for T's shareholders, shares, b) (synergies €160m)",
+        "verdi": 65.0,
+        "enhet": "€ m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Explain the split in a), who gets the extra synergies and give the reasons in c)."
+  }
+}

@@ -519,12 +519,12 @@
    13
   ],
   "merke": "Samme form som SEO-eksemplet i forelesning 7 (1:29:09)",
-  "body": "<p>Hovdenes Marine ASA builds aluminium workboats. It is all-equity financed with 20 million shares, held by long-term shareholders who keep them until t = 1. At t = 1 its existing assets will be worth NOK 330 million if its new hull design is approved or NOK 130 million if it is not. The managers already know which; investors think both are equally likely. The manager acts in the interest of the existing shareholders. Everyone is risk-neutral and the risk-free rate is 0%. Use 4 decimal places.</p>",
+  "body": "<p>Hovdenes Marine ASA builds aluminium workboats. It is all-equity financed with 20 million shares, held by long-term shareholders who keep them until t = 1. At t = 1 its existing assets will be worth NOK 330 million if its new hull design is approved or NOK 130 million if it is not. The managers already know which; investors think both are equally likely. The manager acts in the interest of the existing shareholders. Everyone is risk-neutral and the risk-free rate is 0%.</p><p>Hovdenes can invest NOK 30 million today in a new paint shop that will pay NOK 36 million for sure at t = 1. It must pay for it by issuing new shares to competitive investors. Use 4 decimal places.</p>",
   "parts": [
    {
     "label": "a",
     "points": 3,
-    "body": "<p>What is the market value of Hovdenes's existing assets today? What is the share price?</p>",
+    "body": "<p>What is the market value of Hovdenes's existing assets and the share price today, before the project is announced?</p>",
     "solution": "<p>Investors cannot tell the types apart, so they value the firm at the expectation: V = 0.5 × 330 + 0.5 × 130 = <b>NOK 230M</b>. The share price is P = 230 / 20 = <b>NOK 11.50</b>.</p>",
     "criteria": [
      "V = 0.5 × 330 + 0.5 × 130 = NOK 230M, because investors only know the probabilities.",
@@ -534,49 +534,49 @@
    },
    {
     "label": "b",
-    "points": 4,
-    "body": "<p>Hovdenes can invest NOK 30 million today in a new paint shop that will pay NOK 36 million for sure at t = 1. It must pay for it by issuing new shares to competitive investors. Suppose investors price the issue as if both types issue. What fraction of the firm must the new investors receive?</p>",
-    "solution": "<p><b>Step 1. The firm after the investment, as investors see it.</b> 230 + 36 = NOK 266M at t = 1. The NOK 30M raised is spent on the paint shop, so the denominator includes the project's payoff.</p><p><b>Step 2. The fraction.</b> Competitive investors pay 30 for a stake worth 30:</p><p>α = 30 / 266 = <b>11.2782%</b></p>",
+    "points": 3,
+    "body": "<p>Suppose investors price the issue as if both types issue. What fraction of the firm must the new investors receive?</p>",
+    "solution": "<p>As investors see it, the firm with the paint shop is worth 230 + 36 = NOK 266M at t = 1. Competitive investors pay 30 for a stake worth 30:</p><p>α = 30 / 266 = <b>11.2782%</b></p>",
     "criteria": [
      "α = I / (pooled value after the investment) = 30/(230 + 36) = 11.2782%.",
      "Leaving the project out of the denominator (30/230 = 13.0435%) is the classic error.",
-     "The new investors break even on average: they pay the fair price given what they know."
+     "The denominator includes the project's payoff because the money raised is spent on it."
     ]
    },
    {
     "label": "c",
     "points": 5,
-    "body": "<p>On the terms in (b), what are the existing shareholders' stakes worth at t = 1 for each type? Which type issues and invests? (If you could not solve (b), use a fraction of 13%.)</p>",
-    "solution": "<p>The existing shareholders keep 1 − α = 0.887218 of the firm with the paint shop:</p><table class=\"data\"><tr><th>Type</th><th>Without the issue</th><th>With the issue</th><th>Decision</th></tr><tr><td>High value</td><td class=\"n\">330</td><td class=\"n\">0.887218 × 366 = 324.7218</td><td>Does not issue</td></tr><tr><td>Low value</td><td class=\"n\">130</td><td class=\"n\">0.887218 × 166 = 147.2782</td><td>Issues</td></tr></table><p><b>Only the low-value type issues.</b> It gains 17.2782: the NPV of 6 plus 11.2782 from selling shares priced as if the firm were worth 230 when it is worth 130. The high-value type pays that subsidy: its shares are underpriced, so it gives away 0.112782 × 366 = 41.2782 of value for NOK 30M of cash. The excess of 11.2782 outweighs the NPV of 6 and it loses 5.2782.</p><p>With the fallback of 13%: 0.87 × 366 = 318.4200 and 0.87 × 166 = 144.4200. Same decisions.</p>",
+    "body": "<p>On these terms, what are the existing shareholders' stakes worth at t = 1 for each type? Which type or types issue? Explain briefly. (If you could not solve (b), use a fraction of 15%.)</p>",
+    "solution": "<p>The existing shareholders keep 1 − α = 0.887218 of the firm with the paint shop:</p><table class=\"data\"><tr><th>Type</th><th>Without the issue</th><th>With the issue</th><th>Decision</th></tr><tr><td>High value</td><td class=\"n\">330</td><td class=\"n\">0.887218 × 366 = 324.7218</td><td>Does not issue</td></tr><tr><td>Low value</td><td class=\"n\">130</td><td class=\"n\">0.887218 × 166 = 147.2782</td><td>Issues</td></tr></table><p><b>Only the low-value type issues.</b> At the pooled price its shares are overpriced (worth 130, priced as 230), so it gains the NPV of 6 plus 11.2782 from selling them. The high type's shares are underpriced by the same logic: it gives away 0.112782 × 366 = 41.2782 of value for NOK 30M. The excess of 11.2782 outweighs the NPV, so it would lose 5.2782.</p><p>With the fallback of 15%: 0.85 × 366 = 311.1000 and 0.85 × 166 = 141.1000. Same decisions.</p>",
     "criteria": [
      "High value: 0.887218 × 366 = 324.7218, below 330, so it does not issue.",
      "Low value: 0.887218 × 166 = 147.2782, above 130, so it issues.",
      "Compares each stake with the value without the project, not with the other type.",
-     "Mechanism: the low type gains the NPV plus the overpricing of its shares; the high type's shares are underpriced, so the dilution costs more than the NPV."
+     "Explanation: the low type's shares are overpriced at the pooled price and the high type's underpriced; for the high type the dilution costs more than the NPV."
     ]
    },
    {
     "label": "d",
     "points": 4,
-    "body": "<p>Investors understand your answer to (c). What is the share price right after Hovdenes announces the issue? How many new shares must it sell?</p>",
-    "solution": "<p><b>Step 1. What the announcement reveals.</b> Only a low-value firm issues, so the issue tells investors that the assets are worth 130. With the paint shop the firm will be worth 130 + 36 = NOK 166M, of which the new investors pay for 30.</p><p><b>Step 2. Two equations.</b> P × n = 30 and P × (20 + n) = 166, so 20 × P = 136:</p><p>P = <b>NOK 6.80</b> and n = 30 / 6.80 = <b>4.4118 million shares</b></p><p>The price falls from NOK 11.50 to NOK 6.80 (−40.87%). The new investors get 30 / 166 = 18.0723% of the firm.</p><p><b>Check that the belief is rational.</b> On these terms the low type keeps 136 > 130 and still issues; a high type would keep 299.8554 < 330 and stays out. ✓</p>",
+    "body": "<p>Investors anticipate your answer to (c). What is the share price right after Hovdenes announces the issue? How many new shares must it sell?</p>",
+    "solution": "<p><b>Step 1. What the announcement reveals.</b> Only a low-value firm issues, so the issue tells investors that the assets are worth 130. With the paint shop the firm will be worth 130 + 36 = NOK 166M, of which the new investors pay for 30.</p><p><b>Step 2. Two equations.</b> P × n = 30 and P × (20 + n) = 166, so 20 × P = 136:</p><p>P = <b>NOK 6.80</b> and n = 30 / 6.80 = <b>4.4118 million shares</b></p><p>The price falls from NOK 11.50 (−40.87%). On these terms the low type keeps 136 &gt; 130 and still issues, while a high type would keep 299.8554 &lt; 330: the belief is rational. ✓</p><p>A student who concluded in (c) that both types issue would consistently price at the pooled value: (230 + 6) / 20 = NOK 11.80 and 2.5424 million shares.</p>",
     "criteria": [
      "The issue reveals the low type: P = (130 + 36 − 30)/20 = NOK 6.80.",
      "n = 30/6.80 = 4.4118 million, from P × n = 30 and P × (20 + n) = 166 or equivalent reasoning.",
-     "Pricing at the pooled value (NOK 11.80) ignores what the issue reveals.",
+     "With the answer to (c) right, pricing at the pooled value (NOK 11.80) ignores what the issue reveals. It is consistent follow-through only if (c) concluded that both types issue.",
      "Bonus: checks that the belief is rational (the low type still issues, the high type does not imitate)."
     ]
    },
    {
     "label": "e",
-    "points": 4,
-    "body": "<p>Is the outcome efficient? Compared with a world where investors also knew the type, who gains and who loses? Explain briefly (3 to 4 sentences).</p>",
-    "solution": "<p><b>No.</b> The high-value Hovdenes forgoes a positive-NPV project: with full information it could sell shares at a fair price and its shareholders would end up with 330 + 6 = 336; now they keep 330, so they lose the NPV of 6. The low-value firm ends up with 136 in both worlds, because investors see through the issue. The new investors break even. The fall in the share price at the announcement is the market learning the type, not a verdict on the paint shop, which has a positive NPV for both types. This is underinvestment caused by asymmetric information: the firm forgoes positive-NPV projects.</p>",
+    "points": 5,
+    "body": "<p>Is the outcome efficient? Compared with a world where investors also knew the type, who, if anyone, is better or worse off? Explain briefly (3 to 4 sentences).</p>",
+    "solution": "<p><b>No.</b> The high-value Hovdenes forgoes a positive-NPV project, which is underinvestment caused by asymmetric information: the firm forgoes positive-NPV projects. With full information it could sell shares at a fair price and its shareholders would end up with 330 + 6 = 336, so they are worse off by the NPV of 6. The low-value firm's shareholders get 136 in both worlds because investors see through the issue; the new investors break even, so neither group is better or worse off.</p>",
     "criteria": [
      "Says the outcome is inefficient because the high-value type forgoes a positive-NPV project (underinvestment).",
-     "The high type's shareholders lose the NPV (6) compared with full information; the low type and the new investors are no better or worse off.",
-     "Explains the price fall as information revealed by the decision to issue, not as a judgement on the project.",
-     "3 to 4 sentences, as asked."
+     "The high type's shareholders are worse off by the NPV (6) compared with full information.",
+     "The low type and the new investors are neither better nor worse off: investors see through the issue and pay a fair price.",
+     "Bonus: explains the price fall in (d) as information revealed by the decision to issue, not a verdict on the project."
     ]
    }
   ]
@@ -591,12 +591,12 @@
    13
   ],
   "merke": "Som HA1 E3 og PS2 E1 i forelesning 10, strammet inn, med sertifisering (forelesning 10, 3:07)",
-  "body": "<p>Larkhaven Biosensors Inc. makes glucose sensors. It has 25 million shares, no debt and no cash. At t = 1 its existing assets will be worth $400 million (high-value type) or $200 million (low-value type). The managers know the type; investors put a probability of 30% on the high-value type. The shareholders keep their shares until t = 1 and the manager acts in their interest.</p><p>Larkhaven can invest $50 million today in a production line that pays $60 million for sure at t = 1. It must issue new shares to competitive investors to pay for it. Everyone is risk-neutral and the risk-free rate is 0%. Use 4 decimal places.</p>",
+  "body": "<p>Larkhaven Biosensors Inc. makes glucose sensors. It has 25 million shares, no debt and no cash. At t = 1 its existing assets will be worth $400 million (high-value type) or $200 million (low-value type). The managers know the type; investors put a probability of 30% on the high-value type. The shareholders keep their shares until t = 1 and the manager acts in their interest.</p><p>Larkhaven can invest $50 million today in a production line that pays $80 million for sure at t = 1. It must issue new shares to competitive investors to pay for it. Everyone is risk-neutral and the risk-free rate is 0%. Use 4 decimal places.</p>",
   "parts": [
    {
     "label": "a",
     "points": 3,
-    "body": "<p>What is the market value of Larkhaven's existing assets and the share price today?</p>",
+    "body": "<p>What is the market value of Larkhaven's existing assets and the share price today, before the project is announced?</p>",
     "solution": "<p>V = 0.3 × 400 + 0.7 × 200 = <b>$260M</b> and P = 260 / 25 = <b>$10.40</b>.</p>",
     "criteria": [
      "Uses the given probabilities, not 50/50: V = 0.3 × 400 + 0.7 × 200 = $260M.",
@@ -606,47 +606,48 @@
    },
    {
     "label": "b",
-    "points": 4,
-    "body": "<p>Suppose investors price the issue as if both types issue. What fraction of the firm must the new investors receive? What are the existing shareholders' stakes worth at t = 1 for each type if Larkhaven issues? Which type issues?</p>",
-    "solution": "<p><b>Step 1. The fraction.</b> α = 50 / (260 + 60) = 50 / 320 = <b>15.6250%</b>.</p><p><b>Step 2. The stakes.</b> High value: 0.84375 × 460 = <b>388.1250</b> &lt; 400. Low value: 0.84375 × 260 = <b>219.3750</b> &gt; 200.</p><p><b>Only the low-value type issues.</b> The pooled price overvalues it and undervalues the high type, so the high type would give away 71.8750 of value to raise 50 and lose 11.8750.</p>",
+    "points": 5,
+    "body": "<p>Suppose investors price the issue as if both types issue. What fraction of the firm must the new investors receive? What are the existing shareholders' stakes worth at t = 1 for each type if Larkhaven issues? Which type or types issue?</p>",
+    "solution": "<p><b>Step 1. The fraction.</b> α = 50 / (260 + 80) = 50 / 340 = <b>14.7059%</b>.</p><p><b>Step 2. The stakes.</b> High value: 0.852941 × 480 = <b>409.4118</b> &gt; 400. Low value: 0.852941 × 280 = <b>238.8235</b> &gt; 200.</p><p><b>Both types issue.</b> The high type's shares are underpriced, which costs it 0.147059 × (400 − 260) = 20.5882, but the project's NPV of 30 is larger, so it still gains 9.4118.</p>",
     "criteria": [
-     "α = 50/(260 + 60) = 15.6250%, with the project in the denominator.",
-     "Stakes: 388.1250 for the high type (below 400) and 219.3750 for the low type (above 200).",
-     "Conclusion: only the low-value type issues."
+     "α = 50/(260 + 80) = 14.7059%, with the project in the denominator.",
+     "Stakes: 409.4118 for the high type (above 400) and 238.8235 for the low type (above 200).",
+     "Conclusion: both types issue. Each type compares its stake with its value without the project.",
+     "Mechanism: the high type's loss from underpriced shares is smaller than the NPV."
     ]
    },
    {
     "label": "c",
-    "points": 4,
-    "body": "<p>Now suppose investors believe that only the low-value type issues. What fraction must an issuing firm give the new investors? What is the share price right after an issue is announced?</p>",
-    "solution": "<p><b>Step 1. The fraction.</b> An issuer is priced as the low type: α = 50 / (200 + 60) = <b>19.2308%</b>.</p><p><b>Step 2. The price.</b> The old shareholders' part is worth 200 + 60 − 50 = 210, so P = 210 / 25 = <b>$8.40</b>, down from $10.40 (−19.23%). The issue is 50 / 8.40 = 5.9524 million new shares.</p>",
+    "points": 3,
+    "body": "<p>Is the investors' belief in (b) rational? What happens to the share price when the issue is announced?</p>",
+    "solution": "<p><b>Yes.</b> Investors priced the issue as if both types issue. Both do, so the belief is consistent with the actions. The announcement therefore reveals nothing about the type and only adds the NPV:</p><p>P = (260 + 30) / 25 = <b>$11.60</b>, up from $10.40 by 30 / 25 = $1.20.</p><p>A student who concluded in (b) that only the low type issues would consistently price the issuer as the low type: (200 + 30) / 25 = $9.20.</p>",
     "criteria": [
-     "α = 50/(200 + 60) = 19.2308%.",
-     "P = (200 + 60 − 50)/25 = $8.40: the announcement reveals the low type, so the price falls.",
-     "Two equations (P × n = I and P × (N + n) = L + C) or equivalent reasoning are both accepted."
+     "The belief is rational because both types do issue, as investors assumed.",
+     "P = (260 + 30)/25 = $11.60: the price rises by the NPV per share.",
+     "Credit for noting that a pooling issue sends no signal about the type."
     ]
    },
    {
     "label": "d",
     "points": 5,
-    "body": "<p>An independent laboratory offers to certify Larkhaven's type to the market. The fee is paid today and raised in the same share issue at the certified (fair) price. What is the highest fee a high-value Larkhaven would pay? Would a low-value Larkhaven buy the certificate? Explain briefly.</p>",
-    "solution": "<p><b>High value.</b> With the certificate it is priced at its true value. Raising 50 + F at a fair price, its old shareholders keep 400 + 60 − 50 − F = 410 − F. Without the certificate it does not invest (from (b) and (c)) and keeps 400. It pays up to 410 − 400 = <b>$10M</b>, the NPV of the project the certificate lets it take.</p><p><b>Low value: no.</b> A certificate would only confirm what an issue already reveals under the belief in (c): it would keep 210 − F instead of 210. Since only the high type buys a certificate, an issue without one marks the firm as the low type.</p>",
+    "body": "<p>An independent laboratory offers to certify Larkhaven's type to the market. The fee is paid today and raised in the same share issue at the certified (fair) price. What is the highest fee a high-value Larkhaven would pay? Would a low-value Larkhaven buy the certificate? Explain briefly. (If you could not solve (b), use a stake of $405 million for the high-value type.)</p>",
+    "solution": "<p><b>High value.</b> With the certificate it is priced at its true value: raising 50 + F at a fair price, its old shareholders keep 400 + 80 − 50 − F = 430 − F. Without the certificate it issues at the pooled price and keeps 409.4118. It pays up to 430 − 409.4118 = <b>$20.5882M</b>, which is the underpricing it avoids.</p><p><b>Low value: no.</b> A certificate would reveal it and leave 230 − F, against 238.8235 when it pools with the high type.</p><p>With the fallback stake of $405M: F = 430 − 405 = $25M.</p>",
     "criteria": [
-     "Highest fee = $10M: the high type's gain from investing at a fair price (410 − F against 400 without the project).",
-     "Sets the comparison right: the alternative for the high type is not investing, not issuing at the pooled price.",
-     "The low type does not buy: it gains nothing from being revealed and would pay the fee. Its loss in (b) (61.8750) is not the value of the certificate.",
-     "Bonus: notes that the existence of the certificate makes an uncertified issue a sign of the low type."
+     "Highest fee = 430 − 409.4118 = $20.5882M: the fair outcome with the certificate against pooling.",
+     "The alternative is issuing at the pooled price, not skipping the project. Comparing with 400 (giving 30, the NPV) is the error.",
+     "The low type does not buy: it would be revealed and keep 230 − F instead of 238.8235. Also full credit: once the high type certifies, the low type is recognised without a certificate anyway, so it compares 230 − F with 230.",
+     "Bonus: names the fee as the value of avoiding underpriced shares."
     ]
    },
    {
     "label": "e",
     "points": 4,
-    "body": "<p>Is the belief in (c) rational given what the two types do? Without a certificate, is the outcome efficient? Explain briefly.</p>",
-    "solution": "<p><b>Rational: yes.</b> On the terms in (c) the low type keeps 0.807692 × 260 = 210 &gt; 200, so it issues; a high type that imitated would keep 0.807692 × 460 = 371.5385 &lt; 400, so it stays out. Only low types issue, exactly as investors believe. (The belief in (b) was not rational, because only the low type issued.)</p><p><b>Efficient: no.</b> The high type forgoes a project with NPV 10: underinvestment, the firm forgoes positive-NPV projects. Before the type is known, the expected loss is 0.3 × 10 = 3 per firm. A certificate that costs less than 10 removes it.</p>",
+    "body": "<p>Without a certificate, is the outcome efficient? Who, if anyone, gains at whose expense? Explain briefly.</p>",
+    "solution": "<p><b>Efficient: yes.</b> Both types invest, so the NPV of 30 is never lost. Pooling only moves value: the high type's old shareholders give up 20.5882 through underpriced shares, the low type's gain 8.8235 over a fair price. The new investors break even on average (0.3 × 20.5882 = 0.7 × 8.8235 = 6.1765). A certificate would move this value back to the high type, but its fee is a real cost.</p>",
     "criteria": [
-     "Checks the belief with numbers: the low type issues (210, above 200) and the high type does not imitate (371.5385, below 400), so the belief is consistent with the actions.",
-     "Inefficient: the high-value type forgoes a positive-NPV project.",
-     "Bonus: the expected loss 3, or that a certificate cheaper than 10 restores investment."
+     "Efficient: both types invest, so no positive-NPV project is lost.",
+     "Value moves from the high type's shareholders (20.5882) to the low type's (8.8235); the new investors break even on average. A verbal version of this argument earns full points.",
+     "Bonus: the check 0.3 × 20.5882 = 0.7 × 8.8235, or that the certificate only redistributes and its fee is a cost."
     ]
    }
   ]
@@ -666,18 +667,29 @@
    {
     "label": "a",
     "points": 3,
-    "body": "<p>What is the market value of the existing assets and the share price today?</p>",
+    "body": "<p>What is the market value of the existing assets and the share price today, before the project is announced?</p>",
     "solution": "<p>V = 0.6 × 220 + 0.4 × 100 = <b>€172M</b> and P = 172 / 10 = <b>€17.20</b>.</p>",
     "criteria": [
      "V = €172M with the given probabilities.",
      "P = €17.20.",
-     "Show the calculation. No calculation, no points."
+     "Investors only know the probabilities, so they price the expected value."
     ]
    },
    {
     "label": "b",
+    "points": 4,
+    "body": "<p>First suppose Montclair borrows the €40 million from a bank, to be repaid at t = 1 with no interest (the loan is risk-free). Which type or types invest? What happens to the share price when the loan is announced? Explain briefly.</p>",
+    "solution": "<p><b>Both types invest.</b> The loan is repaid in full from the cellar's €46M whatever the type, so its value does not depend on what the managers know and nothing is mispriced. A high-value Montclair keeps 220 + 46 − 40 = 226 &gt; 220 and a low-value one 106 &gt; 100.</p><p>Since both types borrow, the announcement reveals nothing about the type and only adds the NPV: P = (172 + 6) / 10 = <b>€17.80</b>, up from €17.20.</p>",
+    "criteria": [
+     "Both types invest: 226 is above 220 and 106 above 100.",
+     "Reason: risk-free debt is worth the same whatever the type, so its price cannot be wrong.",
+     "P = (172 + 6)/10 = €17.80: the price rises by the NPV per share."
+    ]
+   },
+   {
+    "label": "c",
     "points": 5,
-    "body": "<p>Suppose Montclair must finance the cellar with new shares and investors price the issue as if both types issue. What fraction of the firm must the new investors receive? What are the existing shareholders' stakes worth at t = 1 for each type? Which type issues?</p>",
+    "body": "<p>Now suppose the bank refuses and Montclair must issue new shares to competitive investors, who price the issue as if both types issue. What fraction of the firm must the new investors receive? What are the existing shareholders' stakes worth at t = 1 for each type? Which type or types issue?</p>",
     "solution": "<p><b>Step 1.</b> α = 40 / (172 + 46) = 40 / 218 = <b>18.3486%</b>.</p><p><b>Step 2.</b> High value: 0.816514 × 266 = <b>217.1927</b> &lt; 220, so it does not issue. Low value: 0.816514 × 146 = <b>119.2110</b> &gt; 100, so it issues.</p><p>Only the low type issues. Even with a 60% chance of the high type, the pooled price undervalues a high-value Montclair: it would give away 48.8073 of value for €40M of cash, more than the €46M the cellar returns.</p>",
     "criteria": [
      "α = 40/(172 + 46) = 18.3486%.",
@@ -686,36 +698,25 @@
     ]
    },
    {
-    "label": "c",
+    "label": "d",
     "points": 4,
-    "body": "<p>Investors understand your answer to (b). What is the share price right after an equity issue is announced? How many new shares must be sold?</p>",
-    "solution": "<p>The issue reveals the low type, so the firm with the cellar is worth 100 + 46 = €146M. P × n = 40 and P × (10 + n) = 146 give 10 × P = 106:</p><p>P = <b>€10.60</b> and n = 40 / 10.60 = <b>3.7736 million shares</b></p><p>The price falls from €17.20 (−38.37%).</p>",
+    "body": "<p>Investors anticipate your answer to (c). What is the share price right after an equity issue is announced? How many new shares must be sold?</p>",
+    "solution": "<p>The issue reveals the low type, so the firm with the cellar is worth 100 + 46 = €146M. P × n = 40 and P × (10 + n) = 146 give 10 × P = 106:</p><p>P = <b>€10.60</b> and n = 40 / 10.60 = <b>3.7736 million shares</b></p><p>The price falls from €17.20 (−38.37%), while the loan in (b) raised it.</p><p>A student who concluded in (c) that both types issue would consistently price at the pooled value: €17.80 and 2.2472 million shares.</p>",
     "criteria": [
      "P = (100 + 46 − 40)/10 = €10.60.",
      "n = 40/10.60 = 3.7736 million (two equations or equivalent reasoning).",
-     "Pricing at the pooled value (€17.80) ignores what the issue reveals."
-    ]
-   },
-   {
-    "label": "d",
-    "points": 4,
-    "body": "<p>Instead, Montclair can borrow the €40 million from a bank, to be repaid at t = 1 with no interest (the loan is risk-free). Which types invest? What happens to the share price when the loan is announced?</p>",
-    "solution": "<p><b>Both types invest.</b> The loan is repaid in full from the cellar's €46M whatever the type, so its value does not depend on what the managers know and nothing is mispriced. A high-value Montclair keeps 220 + 46 − 40 = 226 &gt; 220 and a low-value one 106 &gt; 100. (A low-value firm gains nothing from issuing shares instead: an equity issue would reveal it.)</p><p>Since both types borrow, the announcement reveals nothing about the type and only adds the NPV: P = (172 + 6) / 10 = <b>€17.80</b>, up from €17.20.</p>",
-    "criteria": [
-     "Both types invest: 226 is above 220 and 106 above 100.",
-     "Reason: risk-free debt is worth the same whatever the type, so its price cannot be wrong.",
-     "P = (172 + 6)/10 = €17.80: the price rises by the NPV per share."
+     "With the answer to (c) right, pricing at the pooled value (€17.80) ignores what the issue reveals."
     ]
    },
    {
     "label": "e",
     "points": 4,
-    "body": "<p>Explain the result in (d) with the pecking order: in which order should Montclair prefer internal cash, debt and equity? Why? Would your answer change if the loan were risky? Explain briefly (3 to 4 sentences).</p>",
-    "solution": "<p><b>Internal cash first, then debt, then equity.</b> Cash already in the firm reveals nothing and does not have to be sold to anyone, so no information problem arises. Risk-free debt comes next: its value does not depend on what the managers know, so it cannot be mispriced and borrowing sends no signal. Equity comes last: its value depends most on the private information, so issuing it signals that managers think the shares are overvalued and the price falls. A risky loan would be worth less for the low type than for the high type, so it would carry part of the same problem, but much less than equity.</p>",
+    "body": "<p>Explain the results in (b) and (d) with the pecking order: in which order should Montclair prefer internal cash, debt and equity? Why? Would your answer change if the loan were risky? Explain briefly (3 to 4 sentences).</p>",
+    "solution": "<p><b>Internal cash first, then debt, then equity:</b> the less a source's value depends on what the managers know, the less it can be mispriced and the weaker the negative signal. Cash reveals nothing and risk-free debt cannot be mispriced, which is why both types invest in (b); equity is the most sensitive, which is why the high type stays out in (c) and the price falls in (d). With a risky loan the order stays the same, but the loan would be worth less for the low type than for the high type and so partly mispriced. If that mispricing exceeded the NPV of 6, the high type would again forgo the cellar.</p>",
     "criteria": [
      "The order: internal funds, then debt, then equity (the pecking order).",
      "Mechanism: the more a security's value depends on the managers' private information, the more it can be mispriced and the stronger the negative signal; risk-free debt is not sensitive at all.",
-     "Risky debt: partly sensitive to the private information, so somewhat mispriced, but less than equity.",
+     "Risky debt: the order stays the same, but the loan is partly mispriced; the high type may underinvest again if that mispricing exceeds the NPV.",
      "3 to 4 sentences, as asked."
     ]
    }

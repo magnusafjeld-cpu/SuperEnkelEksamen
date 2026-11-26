@@ -689,13 +689,13 @@
    23
   ],
   "merke": "Samme form som H2025 E1: opsjonsintuisjon uten regning",
-  "body": "<p>Your aunt owns shares in Sølvberget Mineral ASA, a listed mining company that pays no dividends. To protect herself she has bought one-year European puts on the shares. She was also given one-year European calls on the same shares as a present. Both have a strike price equal to today's share price. Treat each piece of news below separately and assume that today's share price and the interest rate stay the same.</p><p>(i) Sølvberget announces that it will spend its cash on exploration in a region where nobody has mined before, so the share becomes far more volatile. What happens to the value of the calls and of the puts? (3 points)</p><p>(ii) Her broker offers to swap the options for otherwise identical options that expire in three years instead of one. Would the calls be worth more? Would the puts? (4 points)</p><p>(iii) The broker also offers American versions of the one-year options, with the same strike. Would you expect them to be priced higher or lower than the European ones? (3 points)</p><p>You do not need any calculations. Two to three sentences per piece of news should be enough. A direction without a reason earns no points.</p>",
+  "body": "<p>Your aunt holds one-year European calls and puts on Sølvberget Mineral ASA, a mining company that pays no dividends. Both have a strike equal to today's share price. Treat each item separately; today's share price and the interest rate stay the same.</p><p>(i) Sølvberget will spend its cash on exploration in an unmined region, so the share becomes far more volatile. What happens to the calls and the puts? (3 points)</p><p>(ii) Her broker offers identical options that expire in three years instead of one. Would the calls be worth more? The puts? (4 points)</p><p>(iii) The broker also offers American versions of the one-year options. Would you expect them to be priced higher or lower than the European ones? (3 points)</p><p>No calculations are needed. Two to three sentences per item; a direction without a reason earns no points.</p>",
   "solution": "<p><b>(i) Higher volatility: both the calls and the puts gain value.</b> An option pays only on one side: the call gains from large rises, the put from large falls; neither can pay less than 0. With more volatility, large moves in either direction become more likely, so the expected payoff of both rises while the worst case stays at 0 (recording 13, 1:16:52). Kurbatov's limit case shows the logic: with zero volatility the option is simply in or out of the money (recording 13, 1:17:01). Bonus: by put-call parity, C − P = S<sub>0</sub> − PV(K) is unchanged, so both rise by the same amount.</p><p><b>(ii) Longer maturity: the calls are worth more; the puts are usually worth more, but not for certain.</b> More time means a wider range of possible share prices at expiry, which helps both options. For the call the strike is also paid later, which helps it too. For a European put the second effect works the other way: the holder receives the strike later, so its present value falls. The put is therefore usually worth more with more time, but a European put that is far in the money can be worth less.</p><p><b>(iii) American options are priced at least as high, never lower.</b> An American option gives every right the European one gives plus the right to exercise early; more rights or more flexibility cannot be worth less (recording 12, 12:41; recording 18, 58:18). Also accepted as a bonus: for a call on a share without dividends, early exercise never pays, so the American call is worth the same; for the put, early exercise can pay, so the American put can be worth strictly more.</p>",
   "criteria": [
    "(i), 3 points: both rise (1 point), because the payoff is one-sided, so more dispersion raises the expected payoff of both while the downside stays at 0 (2 points). A direction without the mechanism earns no points.",
    "(ii) call, 2 points: worth more, because more time widens the range of outcomes while the downside stays at 0 (paying the strike later also helps).",
-   "(ii) put, 2 points: usually worth more for the same reason (1 point), but not certain for a European put, because the strike is received later (1 point). 'Always worth more' for the European put earns at most 1 point.",
-   "(iii), 3 points: at least as high, never lower (1.5 points), because the American option contains all the European rights plus early exercise and more flexibility is priced at least as high (1.5 points). 'Higher' with this reason gets full marks.",
+   "(ii) put, 2 points: either 'worth more' with the dispersion reason, or 'ambiguous': more dispersion against receiving the strike later. Both earn 2 points for this at-the-money put. The model answer, usually more but not certain, is the fullest version.",
+   "(iii), 3 points: at least as high, never lower (1.5 points), because the American option contains all the European rights plus early exercise and more flexibility is priced at least as high (1.5 points). 'Higher' with this reason gets full marks. So does 'the call the same, the put higher' with reasons (early exercise of a call on a share without dividends never pays; for a put it can).",
    "Bonus: parity shows that the call and the put move by the same amount in (i); the American call on a share without dividends is worth the same as the European one.",
    "No calculation is required or expected; Black-Scholes need not be used."
   ]
@@ -704,7 +704,7 @@
   "n": 1,
   "title": "Corporate securities as options",
   "points": 10,
-  "topic": "Debt and equity as options, risk shifting",
+  "topic": "Debt and equity as options",
   "chapters": [
    24,
    9
@@ -716,7 +716,7 @@
     "label": "a",
     "points": 3,
     "body": "<p>Explain why Lunde's shares can be seen as a call option. Name the underlying asset, the strike and the maturity. (Two to three sentences.)</p>",
-    "solution": "<p>At maturity the shareholders get max(V<sub>T</sub> − 4, 0) billion: whatever the hotels are worth above the loan, nothing if they are worth less, because limited liability means they can walk away and leave the hotels to the bank. That is the payoff of a call on the hotels (the firm's assets V) with a strike equal to the face value of the loan, NOK 4 billion, expiring in three years when the loan is due (recording 13, 4:30).</p><p>Also accepted: describing the hockey-stick payoff in words. Using the market value of the debt as the strike, or the share as the underlying, is wrong (recording 13, 4:44).</p>",
+    "solution": "<p>At maturity the shareholders get max(V<sub>T</sub> − 4, 0) billion: whatever the hotels are worth above the loan, nothing if they are worth less, because limited liability means they can walk away and leave the hotels to the bank. That is the payoff of a call on the hotels (the firm's assets V) with a strike equal to the face value of the loan, NOK 4 billion, expiring in three years when the loan is due (recording 13, 4:30).</p><p>Also accepted: describing the hockey-stick payoff in words. The strike is the face value, not the market value of the debt. The underlying is the assets, not the share; the lecture warns not to confuse V and D (recording 13, 4:44).</p>",
     "criteria": [
      "Payoff max(V_T − F, 0) with limited liability (1 point).",
      "Underlying: the firm's assets (the hotels), not the share (1 point).",
@@ -726,12 +726,12 @@
    {
     "label": "b",
     "points": 3,
-    "body": "<p>Explain why the bank's claim is worth the same as risk-free debt plus a written put on the hotels. What does the put pay? Who receives it? (Two to three sentences.)</p>",
-    "solution": "<p>The bank receives min(V<sub>T</sub>, 4) = 4 − max(4 − V<sub>T</sub>, 0): the full 4 billion as if the loan were risk-free, less the shortfall when the hotels are worth less than 4 billion. The shortfall is the payoff of a put on the hotels with strike 4 billion that the bank has in effect written, so D = PV(4) − P (recording 18, 1:03:55).</p><p>The put pays the shareholders: in default they hand over hotels worth less than 4 billion and are released from the debt, which is the same as selling the hotels to the bank at 4 billion. Note the sign: the debt is risk-free debt <i>plus</i> a written put, that is PV(F) minus the value of the put.</p>",
+    "body": "<p>Explain why the bank's claim is worth the same as risk-free debt plus a written put on the hotels. What does the put pay? Who holds the put? (Two to three sentences.)</p>",
+    "solution": "<p>The bank receives min(V<sub>T</sub>, 4) = 4 − max(4 − V<sub>T</sub>, 0): the full 4 billion as if the loan were risk-free, less the shortfall when the hotels are worth less than 4 billion. The shortfall is the payoff of a put on the hotels with strike 4 billion that the bank has in effect written, so D = PV(4) − P (recording 18, 1:03:55).</p><p>The shareholders hold the put: in default they hand over hotels worth less than 4 billion and are released from the debt, which is the same as selling the hotels to the bank at 4 billion. Note the sign: the debt is risk-free debt <i>plus</i> a written put, that is PV(F) minus the value of the put.</p>",
     "criteria": [
-     "Payoff min(V_T, F) written as F − max(F − V_T, 0) (1 point).",
+     "Payoff min(V_T, F) written as F − max(F − V_T, 0), or explained in words (1 point).",
      "D = PV(F) − P: risk-free debt plus a written put on the assets with strike F (1 point). 'Risk-free debt minus a written put' has the sign wrong.",
-     "The put pays the shareholders in default: they deliver assets worth less than F and are freed from the debt (1 point)."
+     "The shareholders hold the put: in default they deliver assets worth less than F and are freed from the debt (1 point)."
     ]
    },
    {
@@ -752,12 +752,12 @@
   "n": 1,
   "title": "Real options",
   "points": 10,
-  "topic": "Real options and volatility",
+  "topic": "Real options, the option to wait",
   "chapters": [
    25,
    23
   ],
-  "merke": "Samme form som realopsjonsintuisjonen i forelesning 14 (44:00 til 49:25)",
+  "merke": "Samme form som realopsjonsintuisjonen i forelesning 14 (44:00 til 49:25 og 1:13:15)",
   "body": "<p>Kvaløy Hydrogen AS holds a licence that gives it the exclusive right to build a hydrogen plant at any time in the next four years. Building the plant today would have a small negative NPV. The value of the plant depends on the future price of hydrogen, which is very uncertain. Answer without calculations.</p>",
   "parts": [
    {
@@ -774,12 +774,12 @@
    {
     "label": "b",
     "points": 4,
-    "body": "<p>An analyst values the licence as an option on the plant, with σ the volatility of the plant's value. What would you expect for the value of the licence and for Kvaløy's decision if σ were very low? And if σ were very high? (Three to four sentences.)</p>",
-    "solution": "<p><b>Very low σ.</b> The plant's value would stay close to today's, so the NPV of building would stay slightly negative. The licence is then worth almost nothing. Kvaløy takes the same decision as today: it does not build. The lecture makes this point: with a very low σ, \"we would still take the same exact decision\" (recording 14, 47:10).</p><p><b>Very high σ.</b> There is a large chance that the plant becomes worth far more than it costs, while the downside stays at 0 because Kvaløy can choose not to build. The licence is worth much more. Waiting to see where the price goes is clearly the right choice.</p>",
+    "body": "<p>The government proposes to cut the licence from four years to one. Kvaløy's CFO says this does not matter, because the company can still build today if it wants to. Is the CFO right? What happens to the value of the licence? (Three to four sentences.)</p>",
+    "solution": "<p><b>The CFO is wrong.</b> The right to build today is worth nothing, since building today has a negative NPV. The licence is valuable because the hydrogen price may rise while Kvaløy waits, so its value lies in the future chances to build.</p><p><b>The licence is worth less.</b> With one year instead of four there is less time for the price to move into the range where the plant pays, so fewer good outcomes are possible. A longer licence contains every choice the shorter one gives, so it can never be worth less. In the limit, a licence that expires today is worth max(NPV today, 0) = 0.</p>",
     "criteria": [
-     "Low σ: the plant's value stays near today's, the NPV stays negative, the licence is worth close to 0 and the decision is the same as today, do not build (2 points).",
-     "High σ: more upside with the downside capped at 0, so the licence is worth more and waiting is more attractive (2 points).",
-     "An answer that only says 'more volatility, more value' without the low-σ case earns at most 2 points."
+     "The CFO is wrong: the right to build today is worth 0 because today's NPV is negative (1 point).",
+     "The licence is worth less, because less time means fewer chances for the price to rise far enough (1.5 points).",
+     "A longer licence contains every choice of the shorter one, so it is never worth less; or the limit case, a licence that expires now is worth max(NPV, 0) = 0; or any equivalent reason that the value of an option to wait rises with time to maturity, for example less time for prices to move (1.5 points)."
     ]
    },
    {

@@ -1,0 +1,107 @@
+{
+  "mk-entreprenor-3:1:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Market risk premium",
+        "verdi": 15.000000000000002,
+        "enhet": "%"
+      },
+      {
+        "navn": "Expected payoff",
+        "verdi": 9.299999999999999,
+        "enhet": "NOK m"
+      }
+    ]
+  },
+  "mk-entreprenor-3:1:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "A, in the market portfolio",
+        "verdi": 6.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "B, in the risk-free asset",
+        "verdi": 1.9999999999999996,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Value of the centre",
+        "verdi": 8.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "β<sub>U</sub>",
+        "verdi": 0.75,
+        "enhet": ""
+      },
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 16.249999999999986,
+        "enhet": "%"
+      }
+    ]
+  },
+  "mk-entreprenor-3:1:c": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Ida's equity",
+        "verdi": 6.4,
+        "enhet": "NOK m",
+        "alt": [
+          6.9
+        ]
+      },
+      {
+        "navn": "β<sub>E</sub>",
+        "verdi": 0.9375,
+        "enhet": "",
+        "alt": [
+          0.9855072463768115
+        ]
+      },
+      {
+        "navn": "r<sub>E</sub>",
+        "verdi": 19.062500000000004,
+        "enhet": "%",
+        "alt": [
+          19.782608695652176,
+          10.434782608695636
+        ]
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Is the bank loan risk-free?",
+    "merknad": "alt er svarene med reserveverdiene V = 8.5 og β_U = 0.8; r_E godtas både med CAPM (19.7826%) og med betalingssjekken (10.4348%)."
+  },
+  "mk-entreprenor-3:1:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "New β<sub>E</sub>",
+        "verdi": 1.5,
+        "enhet": "",
+        "alt": [
+          1.6
+        ]
+      },
+      {
+        "navn": "New r<sub>E</sub>",
+        "verdi": 27.500000000000004,
+        "enhet": "%",
+        "alt": [
+          29.000000000000004
+        ]
+      }
+    ],
+    "tallPoeng": 3,
+    "tekstLedd": "Is the new loan risk-free?",
+    "merknad": "D/V brukt som D/E gir β_E = 1.125 og 50 % av kostnaden gir 1.2; begge avvises. alt er svarene med β_U = 0.8."
+  },
+  "mk-entreprenor-3:1:e": {
+    "type": "tekst"
+  }
+}

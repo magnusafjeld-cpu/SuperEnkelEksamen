@@ -39,10 +39,11 @@ Tier 3 (lagt til 26. november 2026):
   mk-signal-1  NOK. Båtbygger. SEO-eksemplet i forelesning 7 i samme rekkefølge: verdi og kurs,
                andel ved samlet pris, hvem som utsteder, kurs og antall aksjer når emisjonen avslører
                typen, effektivitet og hvem som taper.
-  mk-signal-2  USD. Sensorprodusent, 30 % sannsynlighet for høy type. HA1 E3 og PS2 E1 strammet inn.
-               Konstruksjonsleddet er høyeste gebyr for en sertifisering; hale om rasjonell tro.
-  mk-signal-3  EUR. Vingård, 60 % høy type. Det varslede tillegget: risikofritt lån i stedet for aksjer,
-               begge typer investerer; hale om hakkeorden og risikabel gjeld.
+  mk-signal-2  USD. Sensorprodusent, 30 % sannsynlighet for høy type. HA1 E3 og PS2 E1 strammet inn, men
+               her utsteder begge typer (pooling): troen er rasjonell, kursen stiger, sertifikatet er verdt
+               underprisingen høytypen slipper; hale om at pooling flytter verdi uten å ødelegge den.
+  mk-signal-3  EUR. Vingård, 60 % høy type. Det varslede tillegget, i omvendt rekkefølge: risikofritt lån
+               først (begge investerer), så aksjer (bare lav type); hale om hakkeorden og risikabel gjeld.
 
 Reserveverdier («If you could not solve (b), use …») står der et senere ledd trenger et tall fra
 et tidligere og en feil ellers ville forplante seg. Svarene som bygger på dem ligger som alt i
@@ -1387,8 +1388,9 @@ SVAR["mk-teori-kapital-3:1:"] = {"type": "tekst"}
 # ======================================================================
 # signal: emisjon under asymmetrisk informasjon (Myers-Majluf), felles regning
 # ======================================================================
-def emisjon(H, L, p, I, C, N):
-    """To typer (H, L), sannsynlighet p for H, prosjekt I i dag mot sikre C ved t = 1, N aksjer."""
+def emisjon(H, L, p, I, C, N, begge=False):
+    """To typer (H, L), sannsynlighet p for H, prosjekt I i dag mot sikre C ved t = 1, N aksjer.
+    begge=False: bare L utsteder til samlet pris (separering). begge=True: begge utsteder (pooling)."""
     r = {"V": p * H + (1 - p) * L}
     r["P0"] = r["V"] / N
     r["a"] = I / (r["V"] + C)                    # samlet pris: begge utsteder
@@ -1397,30 +1399,36 @@ def emisjon(H, L, p, I, C, N):
     r["aL"] = I / (L + C)                        # bare L utsteder
     r["L_beholder"] = (1 - r["aL"]) * (L + C)
     r["H_imiterer"] = (1 - r["aL"]) * (H + C)
-    r["P_ann"] = (L + C - I) / N                 # kurs rett etter kunngjøring når emisjonen avslører L
-    r["n"] = I / r["P_ann"]
-    assert near(r["P_ann"] * (N + r["n"]), L + C)    # P·n = I og P·(N + n) = L + C
-    assert r["sH"] < H and r["sL"] > L               # bare L utsteder til samlet pris
-    assert utenfor(r["sH"], H) and utenfor(r["sL"], L)   # andelene ligger utenfor toleransen av verdien uten prosjekt
-    assert r["L_beholder"] > L and r["H_imiterer"] < H   # troen «bare L utsteder» er rasjonell
-    assert near(r["sL"] - L, (C - I) + r["a"] * ((r["V"] + C) - (L + C)))   # NPV + overprising
-    assert near(H - r["sH"], r["a"] * ((H + C) - (r["V"] + C)) - (C - I))   # subsidie − NPV
+    r["P_sep"] = (L + C - I) / N                 # kurs når emisjonen avslører L
+    r["n_sep"] = I / r["P_sep"]
+    r["P_pool"] = (r["V"] + C - I) / N           # kurs når begge utsteder
+    r["n_pool"] = I / r["P_pool"]
+    assert near(r["P_sep"] * (N + r["n_sep"]), L + C) and near(r["P_pool"] * (N + r["n_pool"]), r["V"] + C)
+    assert r["sL"] > L
+    if begge:
+        assert r["sH"] > H                       # begge utsteder: troen i (b) er rasjonell
+    else:
+        assert r["sH"] < H                       # bare L utsteder til samlet pris
+        assert r["L_beholder"] > L and r["H_imiterer"] < H   # troen «bare L utsteder» er rasjonell
+    assert utenfor(r["sH"], H) and utenfor(r["sL"], L)      # andelene ligger utenfor toleransen av verdien uten prosjekt
+    assert near(r["sL"] - L, (C - I) + r["a"] * (r["V"] - L))   # NPV + overprising
+    assert near(r["sH"] - H, (C - I) - r["a"] * (H - r["V"]))   # NPV − underprising
     return r
 
 
 # ======================================================================
-# mk-signal-1 · Hovdenes Marine (SEO-eksemplet i forelesning 7: 140/40, 8 → 10)
+# mk-signal-1 · Hovdenes Marine (SEO-eksemplet i forelesning 7: 140/40, 8 → 10) · bare lav type utsteder
 # ======================================================================
 H, L, p, I, C, N = 330.0, 130.0, 0.5, 30.0, 36.0, 20.0
 s1 = emisjon(H, L, p, I, C, N)
-a_res = 0.13
-assert utenfor(a_res, s1["a"])
+a_res = 0.15
+felle_a = I / s1["V"]                                 # prosjektet utelatt i nevneren
+assert utenfor(a_res, s1["a"]) and utenfor(a_res, felle_a)
 sH_res, sL_res = (1 - a_res) * (H + C), (1 - a_res) * (L + C)
 assert sH_res < H and sL_res > L                      # samme beslutning med reserveverdien
 assert utenfor(sH_res, s1["sH"]) and utenfor(sL_res, s1["sL"])
-felle_P = (s1["V"] + C - I) / N                       # kurs uten at markedet lærer typen
-assert utenfor(felle_P, s1["P_ann"])
-assert near(s1["a"], 30 / 266) and near(s1["P_ann"], 6.8)
+assert utenfor(s1["P_pool"], s1["P_sep"]) and utenfor(s1["n_pool"], s1["n_sep"])
+assert near(s1["a"], 30 / 266) and near(s1["P_sep"], 6.8)
 
 ex = {
     "n": 1, "title": "Security Issues", "points": 20,
@@ -1430,12 +1438,15 @@ ex = {
              f"shares, held by long-term shareholders who keep them until t = 1. At t = 1 its existing assets will be "
              f"worth NOK {g(H)} million if its new hull design is approved or NOK {g(L)} million if it is not. The "
              f"managers already know which; investors think both are equally likely. The manager acts in the "
-             f"interest of the existing shareholders. Everyone is risk-neutral and the risk-free rate is 0%. Use 4 "
-             f"decimal places.</p>"),
+             f"interest of the existing shareholders. Everyone is risk-neutral and the risk-free rate is 0%.</p>"
+             f"<p>Hovdenes can invest NOK {g(I)} million today in a new paint shop that will pay NOK {g(C)} million "
+             f"for sure at t = 1. It must pay for it by issuing new shares to competitive investors. Use 4 decimal "
+             f"places.</p>"),
 }
 pa = {
     "label": "a", "points": 3,
-    "body": "<p>What is the market value of Hovdenes's existing assets today? What is the share price?</p>",
+    "body": ("<p>What is the market value of Hovdenes's existing assets and the share price today, before the project "
+             "is announced?</p>"),
     "solution": (
         f"<p>Investors cannot tell the types apart, so they value the firm at the expectation: V = {g(p)} × {g(H)} + "
         f"{g(1 - p)} × {g(L)} = <b>NOK {g(s1['V'])}M</b>. The share price is P = {g(s1['V'])} / {g(N)} = "
@@ -1447,49 +1458,46 @@ pa = {
     ],
 }
 pb = {
-    "label": "b", "points": 4,
-    "body": (f"<p>Hovdenes can invest NOK {g(I)} million today in a new paint shop that will pay NOK {g(C)} million for "
-             f"sure at t = 1. It must pay for it by issuing new shares to competitive investors. Suppose investors "
-             f"price the issue as if both types issue. What fraction of the firm must the new investors receive?</p>"),
+    "label": "b", "points": 3,
+    "body": ("<p>Suppose investors price the issue as if both types issue. What fraction of the firm must the new "
+             "investors receive?</p>"),
     "solution": (
-        f"<p><b>Step 1. The firm after the investment, as investors see it.</b> {g(s1['V'])} + {g(C)} = "
-        f"NOK {g(s1['V'] + C)}M at t = 1. The NOK {g(I)}M raised is spent on the paint shop, so the denominator "
-        f"includes the project's payoff.</p>"
-        f"<p><b>Step 2. The fraction.</b> Competitive investors pay {g(I)} for a stake worth {g(I)}:</p>"
+        f"<p>As investors see it, the firm with the paint shop is worth {g(s1['V'])} + {g(C)} = NOK "
+        f"{g(s1['V'] + C)}M at t = 1. Competitive investors pay {g(I)} for a stake worth {g(I)}:</p>"
         f"<p>α = {g(I)} / {g(s1['V'] + C)} = <b>{pc(s1['a'], 4)}</b></p>"),
     "criteria": [
         f"α = I / (pooled value after the investment) = {g(I)}/({g(s1['V'])} + {g(C)}) = {pc(s1['a'], 4)}.",
-        f"Leaving the project out of the denominator ({g(I)}/{g(s1['V'])} = {pc(I / s1['V'], 4)}) is the classic error.",
-        "The new investors break even on average: they pay the fair price given what they know.",
+        f"Leaving the project out of the denominator ({g(I)}/{g(s1['V'])} = {pc(felle_a, 4)}) is the classic error.",
+        "The denominator includes the project's payoff because the money raised is spent on it.",
     ],
 }
 pc_ = {
     "label": "c", "points": 5,
-    "body": (f"<p>On the terms in (b), what are the existing shareholders' stakes worth at t = 1 for each type? Which "
-             f"type issues and invests? (If you could not solve (b), use a fraction of {pc(a_res)}.)</p>"),
+    "body": (f"<p>On these terms, what are the existing shareholders' stakes worth at t = 1 for each type? Which type "
+             f"or types issue? Explain briefly. (If you could not solve (b), use a fraction of {pc(a_res)}.)</p>"),
     "solution": (
         f"<p>The existing shareholders keep 1 − α = {fx(1 - s1['a'])} of the firm with the paint shop:</p>"
         + tab(["Type", "Without the issue", "With the issue", "Decision"], [
             ["High value", f"#{g(H)}", f"#{fx(1 - s1['a'])} × {g(H + C)} = {f(s1['sH'])}", "Does not issue"],
             ["Low value", f"#{g(L)}", f"#{fx(1 - s1['a'])} × {g(L + C)} = {f(s1['sL'])}", "Issues"],
         ])
-        + f"<p><b>Only the low-value type issues.</b> It gains {f(s1['sL'] - L)}: the NPV of {g(C - I)} plus "
-          f"{f(s1['sL'] - L - (C - I))} from selling shares priced as if the firm were worth {g(s1['V'])} when it is "
-          f"worth {g(L)}. The high-value type pays that subsidy: its shares are underpriced, so it gives away "
-          f"{fx(s1['a'])} × {g(H + C)} = {f(s1['a'] * (H + C))} of value for NOK {g(I)}M of cash. The excess of "
-          f"{f(s1['a'] * (H + C) - I)} outweighs the NPV of {g(C - I)} and it loses {f(H - s1['sH'])}.</p>"
+        + f"<p><b>Only the low-value type issues.</b> At the pooled price its shares are overpriced (worth {g(L)}, "
+          f"priced as {g(s1['V'])}), so it gains the NPV of {g(C - I)} plus {f(s1['sL'] - L - (C - I))} from selling "
+          f"them. The high type's shares are underpriced by the same logic: it gives away "
+          f"{fx(s1['a'])} × {g(H + C)} = {f(s1['a'] * (H + C))} of value for NOK {g(I)}M. The excess of "
+          f"{f(s1['a'] * (H + C) - I)} outweighs the NPV, so it would lose {f(H - s1['sH'])}.</p>"
           f"<p>With the fallback of {pc(a_res)}: {g(1 - a_res)} × {g(H + C)} = {f(sH_res)} and {g(1 - a_res)} × "
           f"{g(L + C)} = {f(sL_res)}. Same decisions.</p>"),
     "criteria": [
         f"High value: {fx(1 - s1['a'])} × {g(H + C)} = {f(s1['sH'])}, below {g(H)}, so it does not issue.",
         f"Low value: {fx(1 - s1['a'])} × {g(L + C)} = {f(s1['sL'])}, above {g(L)}, so it issues.",
         "Compares each stake with the value without the project, not with the other type.",
-        "Mechanism: the low type gains the NPV plus the overpricing of its shares; the high type's shares are underpriced, so the dilution costs more than the NPV.",
+        "Explanation: the low type's shares are overpriced at the pooled price and the high type's underpriced; for the high type the dilution costs more than the NPV.",
     ],
 }
 pd = {
     "label": "d", "points": 4,
-    "body": ("<p>Investors understand your answer to (c). What is the share price right after Hovdenes announces the "
+    "body": ("<p>Investors anticipate your answer to (c). What is the share price right after Hovdenes announces the "
              "issue? How many new shares must it sell?</p>"),
     "solution": (
         f"<p><b>Step 1. What the announcement reveals.</b> Only a low-value firm issues, so the issue tells investors "
@@ -1497,67 +1505,73 @@ pd = {
         f"NOK {g(L + C)}M, of which the new investors pay for {g(I)}.</p>"
         f"<p><b>Step 2. Two equations.</b> P × n = {g(I)} and P × ({g(N)} + n) = {g(L + C)}, so {g(N)} × P = "
         f"{g(L + C - I)}:</p>"
-        f"<p>P = <b>NOK {f(s1['P_ann'], 2)}</b> and n = {g(I)} / {f(s1['P_ann'], 2)} = <b>{f(s1['n'])} million "
+        f"<p>P = <b>NOK {f(s1['P_sep'], 2)}</b> and n = {g(I)} / {f(s1['P_sep'], 2)} = <b>{f(s1['n_sep'])} million "
         f"shares</b></p>"
-        f"<p>The price falls from NOK {f(s1['P0'], 2)} to NOK {f(s1['P_ann'], 2)} "
-        f"({pc(s1['P_ann'] / s1['P0'] - 1, 2)}). The new investors get {g(I)} / {g(L + C)} = {pc(s1['aL'], 4)} of the "
-        f"firm.</p>"
-        f"<p><b>Check that the belief is rational.</b> On these terms the low type keeps {g(s1['L_beholder'])} > "
-        f"{g(L)} and still issues; a high type would keep {f(s1['H_imiterer'])} < {g(H)} and stays out. ✓</p>"),
+        f"<p>The price falls from NOK {f(s1['P0'], 2)} ({pc(s1['P_sep'] / s1['P0'] - 1, 2)}). On these terms the low "
+        f"type keeps {g(s1['L_beholder'])} &gt; {g(L)} and still issues, while a high type would keep "
+        f"{f(s1['H_imiterer'])} &lt; {g(H)}: the belief is rational. ✓</p>"
+        f"<p>A student who concluded in (c) that both types issue would consistently price at the pooled value: "
+        f"({g(s1['V'])} + {g(C - I)}) / {g(N)} = NOK {f(s1['P_pool'], 2)} and {f(s1['n_pool'])} million shares.</p>"),
     "criteria": [
-        f"The issue reveals the low type: P = ({g(L)} + {g(C)} − {g(I)})/{g(N)} = NOK {f(s1['P_ann'], 2)}.",
-        f"n = {g(I)}/{f(s1['P_ann'], 2)} = {f(s1['n'])} million, from P × n = {g(I)} and P × ({g(N)} + n) = {g(L + C)} or equivalent reasoning.",
-        f"Pricing at the pooled value (NOK {f(felle_P, 2)}) ignores what the issue reveals.",
+        f"The issue reveals the low type: P = ({g(L)} + {g(C)} − {g(I)})/{g(N)} = NOK {f(s1['P_sep'], 2)}.",
+        f"n = {g(I)}/{f(s1['P_sep'], 2)} = {f(s1['n_sep'])} million, from P × n = {g(I)} and P × ({g(N)} + n) = {g(L + C)} or equivalent reasoning.",
+        f"With the answer to (c) right, pricing at the pooled value (NOK {f(s1['P_pool'], 2)}) ignores what the issue reveals. It is consistent follow-through only if (c) concluded that both types issue.",
         "Bonus: checks that the belief is rational (the low type still issues, the high type does not imitate).",
     ],
 }
 pe = {
-    "label": "e", "points": 4,
-    "body": ("<p>Is the outcome efficient? Compared with a world where investors also knew the type, who gains and who "
-             "loses? Explain briefly (3 to 4 sentences).</p>"),
+    "label": "e", "points": 5,
+    "body": ("<p>Is the outcome efficient? Compared with a world where investors also knew the type, who, if anyone, "
+             "is better or worse off? Explain briefly (3 to 4 sentences).</p>"),
     "solution": (
-        f"<p><b>No.</b> The high-value Hovdenes forgoes a positive-NPV project: with full information it could sell "
-        f"shares at a fair price and its shareholders would end up with {g(H)} + {g(C - I)} = {g(H + C - I)}; now "
-        f"they keep {g(H)}, so they lose the NPV of {g(C - I)}. The low-value firm ends up with {g(s1['L_beholder'])} "
-        f"in both worlds, because investors see through the issue. The new investors break even. The fall in the "
-        f"share price at the announcement is the market learning the type, not a verdict on the paint shop, which "
-        f"has a positive NPV for both types. This is underinvestment caused by asymmetric information: the firm "
-        f"forgoes positive-NPV projects.</p>"),
+        f"<p><b>No.</b> The high-value Hovdenes forgoes a positive-NPV project, which is underinvestment caused by "
+        f"asymmetric information: the firm forgoes positive-NPV projects. With full information it could sell shares "
+        f"at a fair price and its shareholders would end up with {g(H)} + {g(C - I)} = {g(H + C - I)}, so they are "
+        f"worse off by the NPV of {g(C - I)}. The low-value firm's shareholders get {g(s1['L_beholder'])} in both "
+        f"worlds because investors see through the issue; the new investors break even, so neither group is better "
+        f"or worse off.</p>"),
     "criteria": [
         "Says the outcome is inefficient because the high-value type forgoes a positive-NPV project (underinvestment).",
-        f"The high type's shareholders lose the NPV ({g(C - I)}) compared with full information; the low type and the new investors are no better or worse off.",
-        "Explains the price fall as information revealed by the decision to issue, not as a judgement on the project.",
-        "3 to 4 sentences, as asked.",
+        f"The high type's shareholders are worse off by the NPV ({g(C - I)}) compared with full information.",
+        "The low type and the new investors are neither better nor worse off: investors see through the issue and pay a fair price.",
+        "Bonus: explains the price fall in (d) as information revealed by the decision to issue, not a verdict on the project.",
     ],
 }
 ex["parts"] = [pa, pb, pc_, pd, pe]
 OPPG["mk-signal-1"] = ex
 SVAR["mk-signal-1:1:a"] = {"type": "tall", "tall": [T("V", s1["V"], "NOK m"), T("Share price", s1["P0"], "NOK per share")]}
 SVAR["mk-signal-1:1:b"] = {"type": "tall", "tall": [T("Fraction to new investors", 100 * s1["a"], "%")],
-                           "merknad": f"Fellen {f(100 * I / s1['V'])} % (prosjektet utelatt i nevneren) avvises."}
+                           "merknad": f"Fellen {f(100 * felle_a)} % (prosjektet utelatt i nevneren) avvises."}
 SVAR["mk-signal-1:1:c"] = {"type": "blandet", "tall": [T("Stake at t = 1, high-value type", s1["sH"], "NOK m", alt=[round(sH_res, 10)]),
                                                        T("Stake at t = 1, low-value type", s1["sL"], "NOK m", alt=[round(sL_res, 10)])],
-                           "tallPoeng": 2, "tekstLedd": "Which type issues and invests?",
+                           "tallPoeng": 2, "tekstLedd": "Which type or types issue? Explain briefly.",
                            "merknad": f"alt er svarene med reserveverdien {pc(a_res)}: {f(sH_res)} og {f(sL_res)}."}
-SVAR["mk-signal-1:1:d"] = {"type": "tall", "tall": [T("Share price after the announcement", s1["P_ann"], "NOK per share"),
-                                                    T("New shares", s1["n"], "m shares")],
-                           "merknad": f"Fellen {f(felle_P, 2)} (samlet pris) avvises."}
+SVAR["mk-signal-1:1:d"] = {"type": "tall", "tall": [T("Share price after the announcement", s1["P_sep"], "NOK per share", alt=[round(s1["P_pool"], 10)]),
+                                                    T("New shares", s1["n_sep"], "m shares", alt=[round(s1["n_pool"], 10)])],
+                           "merknad": f"alt {f(s1['P_pool'], 2)} og {f(s1['n_pool'])} er følgefeil for en student som i (c) kom til at begge typer utsteder; da er samlet pris konsistent."}
 SVAR["mk-signal-1:1:e"] = {"type": "tekst"}
 
 # ======================================================================
-# mk-signal-2 · Larkhaven Biosensors (HA1 E3 og PS2 E1 strammet inn: skjeve sannsynligheter, sertifisering)
+# mk-signal-2 · Larkhaven Biosensors (HA1 E3 og PS2 E1 strammet inn) · begge typer utsteder, sertifisering
 # ======================================================================
-H, L, p, I, C, N = 400.0, 200.0, 0.3, 50.0, 60.0, 25.0
-s2 = emisjon(H, L, p, I, C, N)
-F_maks = (H + C - I) - H                      # sertifikatet er verdt NPV-en det låser opp
-assert near(F_maks, C - I)
-# med sertifikat og gebyr F hentet i samme emisjon til riktig kurs: de gamle eierne beholder H + C − I − F
-assert near((H + C) - (I + F_maks), H)
-L_med_sert = (L + C) - I                      # lavtypen avsløres uansett: beholder L + C − I − F
-assert near(L_med_sert, s2["L_beholder"])
-felle_F = s2["a"] * (H + C) - (C - I)         # høytypens tap ved samlet pris i (b)
+H, L, p, I, C, N = 400.0, 200.0, 0.3, 50.0, 80.0, 25.0
+s2 = emisjon(H, L, p, I, C, N, begge=True)
+H_rettferdig = H + C - I                      # med sertifikat: riktig pris, de gamle eierne beholder H + C − I − F
+F_maks = H_rettferdig - s2["sH"]              # alternativet er å utstede til samlet pris i (b)
+assert near(F_maks, s2["a"] * (H - s2["V"]))  # = underprisingen høytypen slipper
+felle_F = H_rettferdig - H                    # feil alternativ: å la være å investere (= NPV)
 assert utenfor(felle_F, F_maks)
-assert near(s2["a"], 0.15625) and near(s2["P_ann"], 8.4)
+L_avslort = L + C - I                         # lavtypen avslørt: beholder L + C − I (− F med sertifikat)
+assert L_avslort < s2["sL"]                   # lavtypen kjøper ikke sertifikat
+# pooling flytter verdi, ødelegger ingen: q × høytypens tap = (1 − q) × lavtypens gevinst
+tap_H = H_rettferdig - s2["sH"]
+gevinst_L = s2["sL"] - L_avslort
+assert near(p * tap_H, (1 - p) * gevinst_L)
+sH_res2 = 405.0                               # reserve for (d)
+F_res = H_rettferdig - sH_res2
+assert utenfor(F_res, F_maks) and utenfor(F_res, felle_F) and utenfor(sH_res2, s2["sH"])
+assert utenfor(s2["P_pool"], s2["P_sep"])
+assert near(s2["a"], 50 / 340) and near(s2["P_pool"], 11.6)
 
 ex = {
     "n": 1, "title": "Security Issues", "points": 20,
@@ -1573,7 +1587,8 @@ ex = {
 }
 pa = {
     "label": "a", "points": 3,
-    "body": "<p>What is the market value of Larkhaven's existing assets and the share price today?</p>",
+    "body": ("<p>What is the market value of Larkhaven's existing assets and the share price today, before the "
+             "project is announced?</p>"),
     "solution": (
         f"<p>V = {g(p)} × {g(H)} + {g(1 - p)} × {g(L)} = <b>${g(s2['V'])}M</b> and P = {g(s2['V'])} / {g(N)} = "
         f"<b>${f(s2['P0'], 2)}</b>.</p>"),
@@ -1584,76 +1599,78 @@ pa = {
     ],
 }
 pb = {
-    "label": "b", "points": 4,
+    "label": "b", "points": 5,
     "body": ("<p>Suppose investors price the issue as if both types issue. What fraction of the firm must the new "
              "investors receive? What are the existing shareholders' stakes worth at t = 1 for each type if Larkhaven "
-             "issues? Which type issues?</p>"),
+             "issues? Which type or types issue?</p>"),
     "solution": (
         f"<p><b>Step 1. The fraction.</b> α = {g(I)} / ({g(s2['V'])} + {g(C)}) = {g(I)} / {g(s2['V'] + C)} = "
         f"<b>{pc(s2['a'], 4)}</b>.</p>"
-        f"<p><b>Step 2. The stakes.</b> High value: {fx(1 - s2['a'])} × {g(H + C)} = <b>{f(s2['sH'])}</b> &lt; "
+        f"<p><b>Step 2. The stakes.</b> High value: {fx(1 - s2['a'])} × {g(H + C)} = <b>{f(s2['sH'])}</b> &gt; "
         f"{g(H)}. Low value: {fx(1 - s2['a'])} × {g(L + C)} = <b>{f(s2['sL'])}</b> &gt; {g(L)}.</p>"
-        f"<p><b>Only the low-value type issues.</b> The pooled price overvalues it and undervalues the high type, so "
-        f"the high type would give away {f(s2['a'] * (H + C))} of value to raise {g(I)} and lose {f(H - s2['sH'])}.</p>"),
+        f"<p><b>Both types issue.</b> The high type's shares are underpriced, which costs it "
+        f"{fx(s2['a'])} × ({g(H)} − {g(s2['V'])}) = {f(s2['a'] * (H - s2['V']))}, but the project's NPV of "
+        f"{g(C - I)} is larger, so it still gains {f(s2['sH'] - H)}.</p>"),
     "criteria": [
         f"α = {g(I)}/({g(s2['V'])} + {g(C)}) = {pc(s2['a'], 4)}, with the project in the denominator.",
-        f"Stakes: {f(s2['sH'])} for the high type (below {g(H)}) and {f(s2['sL'])} for the low type (above {g(L)}).",
-        "Conclusion: only the low-value type issues.",
+        f"Stakes: {f(s2['sH'])} for the high type (above {g(H)}) and {f(s2['sL'])} for the low type (above {g(L)}).",
+        "Conclusion: both types issue. Each type compares its stake with its value without the project.",
+        "Mechanism: the high type's loss from underpriced shares is smaller than the NPV.",
     ],
 }
 pc_ = {
-    "label": "c", "points": 4,
-    "body": ("<p>Now suppose investors believe that only the low-value type issues. What fraction must an issuing firm "
-             "give the new investors? What is the share price right after an issue is announced?</p>"),
+    "label": "c", "points": 3,
+    "body": ("<p>Is the investors' belief in (b) rational? What happens to the share price when the issue is "
+             "announced?</p>"),
     "solution": (
-        f"<p><b>Step 1. The fraction.</b> An issuer is priced as the low type: α = {g(I)} / ({g(L)} + {g(C)}) = "
-        f"<b>{pc(s2['aL'], 4)}</b>.</p>"
-        f"<p><b>Step 2. The price.</b> The old shareholders' part is worth {g(L)} + {g(C)} − {g(I)} = {g(L + C - I)}, "
-        f"so P = {g(L + C - I)} / {g(N)} = <b>${f(s2['P_ann'], 2)}</b>, down from ${f(s2['P0'], 2)} "
-        f"({pc(s2['P_ann'] / s2['P0'] - 1, 2)}). The issue is {g(I)} / {f(s2['P_ann'], 2)} = {f(s2['n'])} million new "
-        f"shares.</p>"),
+        f"<p><b>Yes.</b> Investors priced the issue as if both types issue. Both do, so the belief is consistent "
+        f"with the actions. The announcement therefore reveals nothing about the type and only adds the NPV:</p>"
+        f"<p>P = ({g(s2['V'])} + {g(C - I)}) / {g(N)} = <b>${f(s2['P_pool'], 2)}</b>, up from ${f(s2['P0'], 2)} by "
+        f"{g(C - I)} / {g(N)} = ${f((C - I) / N, 2)}.</p>"
+        f"<p>A student who concluded in (b) that only the low type issues would consistently price the issuer as the "
+        f"low type: ({g(L)} + {g(C - I)}) / {g(N)} = ${f(s2['P_sep'], 2)}.</p>"),
     "criteria": [
-        f"α = {g(I)}/({g(L)} + {g(C)}) = {pc(s2['aL'], 4)}.",
-        f"P = ({g(L)} + {g(C)} − {g(I)})/{g(N)} = ${f(s2['P_ann'], 2)}: the announcement reveals the low type, so the price falls.",
-        "Two equations (P × n = I and P × (N + n) = L + C) or equivalent reasoning are both accepted.",
+        "The belief is rational because both types do issue, as investors assumed.",
+        f"P = ({g(s2['V'])} + {g(C - I)})/{g(N)} = ${f(s2['P_pool'], 2)}: the price rises by the NPV per share.",
+        "Credit for noting that a pooling issue sends no signal about the type.",
     ],
 }
 pd = {
     "label": "d", "points": 5,
-    "body": ("<p>An independent laboratory offers to certify Larkhaven's type to the market. The fee is paid today and "
-             "raised in the same share issue at the certified (fair) price. What is the highest fee a high-value "
-             "Larkhaven would pay? Would a low-value Larkhaven buy the certificate? Explain briefly.</p>"),
+    "body": (f"<p>An independent laboratory offers to certify Larkhaven's type to the market. The fee is paid today and "
+             f"raised in the same share issue at the certified (fair) price. What is the highest fee a high-value "
+             f"Larkhaven would pay? Would a low-value Larkhaven buy the certificate? Explain briefly. (If you could "
+             f"not solve (b), use a stake of ${g(sH_res2)} million for the high-value type.)</p>"),
     "solution": (
-        f"<p><b>High value.</b> With the certificate it is priced at its true value. Raising {g(I)} + F at a fair "
-        f"price, its old shareholders keep {g(H)} + {g(C)} − {g(I)} − F = {g(H + C - I)} − F. Without the certificate "
-        f"it does not invest (from (b) and (c)) and keeps {g(H)}. It pays up to {g(H + C - I)} − {g(H)} = "
-        f"<b>${g(F_maks)}M</b>, the NPV of the project the certificate lets it take.</p>"
-        f"<p><b>Low value: no.</b> A certificate would only confirm what an issue already reveals under the belief in "
-        f"(c): it would keep {g(L + C - I)} − F instead of {g(L + C - I)}. Since only the high type buys a "
-        f"certificate, an issue without one marks the firm as the low type.</p>"),
+        f"<p><b>High value.</b> With the certificate it is priced at its true value: raising {g(I)} + F at a fair "
+        f"price, its old shareholders keep {g(H)} + {g(C)} − {g(I)} − F = {g(H_rettferdig)} − F. Without the "
+        f"certificate it issues at the pooled price and keeps {f(s2['sH'])}. It pays up to {g(H_rettferdig)} − "
+        f"{f(s2['sH'])} = <b>${f(F_maks)}M</b>, which is the underpricing it avoids.</p>"
+        f"<p><b>Low value: no.</b> A certificate would reveal it and leave {g(L_avslort)} − F, against "
+        f"{f(s2['sL'])} when it pools with the high type.</p>"
+        f"<p>With the fallback stake of ${g(sH_res2)}M: F = {g(H_rettferdig)} − {g(sH_res2)} = ${g(F_res)}M.</p>"),
     "criteria": [
-        f"Highest fee = ${g(F_maks)}M: the high type's gain from investing at a fair price ({g(H + C - I)} − F against {g(H)} without the project).",
-        "Sets the comparison right: the alternative for the high type is not investing, not issuing at the pooled price.",
-        f"The low type does not buy: it gains nothing from being revealed and would pay the fee. Its loss in (b) ({f(felle_F)}) is not the value of the certificate.",
-        "Bonus: notes that the existence of the certificate makes an uncertified issue a sign of the low type.",
+        f"Highest fee = {g(H_rettferdig)} − {f(s2['sH'])} = ${f(F_maks)}M: the fair outcome with the certificate against pooling.",
+        f"The alternative is issuing at the pooled price, not skipping the project. Comparing with {g(H)} (giving {g(felle_F)}, the NPV) is the error.",
+        f"The low type does not buy: it would be revealed and keep {g(L_avslort)} − F instead of {f(s2['sL'])}. "
+        f"Also full credit: once the high type certifies, the low type is recognised without a certificate anyway, so it compares {g(L_avslort)} − F with {g(L_avslort)}.",
+        "Bonus: names the fee as the value of avoiding underpriced shares.",
     ],
 }
 pe = {
     "label": "e", "points": 4,
-    "body": ("<p>Is the belief in (c) rational given what the two types do? Without a certificate, is the outcome "
-             "efficient? Explain briefly.</p>"),
+    "body": ("<p>Without a certificate, is the outcome efficient? Who, if anyone, gains at whose expense? Explain "
+             "briefly.</p>"),
     "solution": (
-        f"<p><b>Rational: yes.</b> On the terms in (c) the low type keeps {fx(1 - s2['aL'])} × {g(L + C)} = "
-        f"{g(s2['L_beholder'])} &gt; {g(L)}, so it issues; a high type that imitated would keep {fx(1 - s2['aL'])} × "
-        f"{g(H + C)} = {f(s2['H_imiterer'])} &lt; {g(H)}, so it stays out. Only low types issue, exactly as investors "
-        f"believe. (The belief in (b) was not rational, because only the low type issued.)</p>"
-        f"<p><b>Efficient: no.</b> The high type forgoes a project with NPV {g(C - I)}: underinvestment, the firm "
-        f"forgoes positive-NPV projects. Before the type is known, the expected loss is {g(p)} × {g(C - I)} = "
-        f"{g(p * (C - I))} per firm. A certificate that costs less than {g(F_maks)} removes it.</p>"),
+        f"<p><b>Efficient: yes.</b> Both types invest, so the NPV of {g(C - I)} is never lost. Pooling only moves "
+        f"value: the high type's old shareholders give up {f(tap_H)} through underpriced shares, the low type's gain "
+        f"{f(gevinst_L)} over a fair price. The new investors break even on average "
+        f"({g(p)} × {f(tap_H)} = {g(1 - p)} × {f(gevinst_L)} = {f(p * tap_H)}). A certificate would move this value back "
+        f"to the high type, but its fee is a real cost.</p>"),
     "criteria": [
-        f"Checks the belief with numbers: the low type issues ({g(s2['L_beholder'])}, above {g(L)}) and the high type does not imitate ({f(s2['H_imiterer'])}, below {g(H)}), so the belief is consistent with the actions.",
-        "Inefficient: the high-value type forgoes a positive-NPV project.",
-        f"Bonus: the expected loss {g(p * (C - I))}, or that a certificate cheaper than {g(F_maks)} restores investment.",
+        "Efficient: both types invest, so no positive-NPV project is lost.",
+        f"Value moves from the high type's shareholders ({f(tap_H)}) to the low type's ({f(gevinst_L)}); the new investors break even on average. A verbal version of this argument earns full points.",
+        f"Bonus: the check {g(p)} × {f(tap_H)} = {g(1 - p)} × {f(gevinst_L)}, or that the certificate only redistributes and its fee is a cost.",
     ],
 }
 ex["parts"] = [pa, pb, pc_, pd, pe]
@@ -1662,24 +1679,26 @@ SVAR["mk-signal-2:1:a"] = {"type": "tall", "tall": [T("V", s2["V"], "$ m"), T("S
 SVAR["mk-signal-2:1:b"] = {"type": "blandet", "tall": [T("Fraction to new investors", 100 * s2["a"], "%"),
                                                        T("Stake at t = 1, high-value type", s2["sH"], "$ m"),
                                                        T("Stake at t = 1, low-value type", s2["sL"], "$ m")],
-                           "tallPoeng": 3, "tekstLedd": "Which type issues?"}
-SVAR["mk-signal-2:1:c"] = {"type": "tall", "tall": [T("Fraction to new investors", 100 * s2["aL"], "%"),
-                                                    T("Share price after the announcement", s2["P_ann"], "$ per share")]}
-SVAR["mk-signal-2:1:d"] = {"type": "blandet", "tall": [T("Highest fee, high-value type", F_maks, "$ m")],
-                           "tallPoeng": 2, "tekstLedd": "Would a low-value Larkhaven buy the certificate? Why?"}
+                           "tallPoeng": 3, "tekstLedd": "Which type or types issue?"}
+SVAR["mk-signal-2:1:c"] = {"type": "blandet", "tall": [T("Share price after the announcement", s2["P_pool"], "$ per share")],
+                           "tallPoeng": 1.5, "tekstLedd": "Is the investors' belief in (b) rational?",
+                           "merknad": f"{f(s2['P_sep'], 2)} (bare lav type utsteder) godtas ikke som følgefeil, på linje med fellen i (d)."}
+SVAR["mk-signal-2:1:d"] = {"type": "blandet", "tall": [T("Highest fee, high-value type", F_maks, "$ m", alt=[round(F_res, 10)])],
+                           "tallPoeng": 2, "tekstLedd": "Would a low-value Larkhaven buy the certificate? Why?",
+                           "merknad": f"alt {g(F_res)} er svaret med reserveverdien {g(sH_res2)}. Fellen {g(felle_F)} (NPV-en, feil alternativ) avvises."}
 SVAR["mk-signal-2:1:e"] = {"type": "tekst"}
 
 # ======================================================================
-# mk-signal-3 · Montclair Vineyards (det varslede tillegget: hakkeorden, lån i stedet for aksjer)
+# mk-signal-3 · Montclair Vineyards (det varslede tillegget: lån først, så aksjer, hale om hakkeorden)
 # ======================================================================
 H, L, p, I, C, N = 220.0, 100.0, 0.6, 40.0, 46.0, 10.0
 s3 = emisjon(H, L, p, I, C, N)
 H_lan, L_lan = H + C - I, L + C - I            # risikofritt lån: ingen feilprising, begge investerer
 assert H_lan > H and L_lan > L
 P_lan = (s3["V"] + C - I) / N                  # kunngjøringen avslører ingenting, legger til NPV
-assert near(P_lan, s3["P0"] + (C - I) / N)
+assert near(P_lan, s3["P_pool"]) and near(P_lan, s3["P0"] + (C - I) / N)
 assert min(H, L) + C >= I                      # lånet kan alltid betales: det er risikofritt
-assert near(s3["P_ann"], 10.6) and near(P_lan, 17.8)
+assert near(s3["P_sep"], 10.6) and near(P_lan, 17.8)
 
 ex = {
     "n": 1, "title": "Security Issues", "points": 20,
@@ -1695,21 +1714,38 @@ ex = {
 }
 pa = {
     "label": "a", "points": 3,
-    "body": "<p>What is the market value of the existing assets and the share price today?</p>",
+    "body": "<p>What is the market value of the existing assets and the share price today, before the project is announced?</p>",
     "solution": (
         f"<p>V = {g(p)} × {g(H)} + {g(1 - p)} × {g(L)} = <b>€{g(s3['V'])}M</b> and P = {g(s3['V'])} / {g(N)} = "
         f"<b>€{f(s3['P0'], 2)}</b>.</p>"),
     "criteria": [
         f"V = €{g(s3['V'])}M with the given probabilities.",
         f"P = €{f(s3['P0'], 2)}.",
-        "Show the calculation. No calculation, no points.",
+        "Investors only know the probabilities, so they price the expected value.",
     ],
 }
 pb = {
-    "label": "b", "points": 5,
-    "body": ("<p>Suppose Montclair must finance the cellar with new shares and investors price the issue as if both "
-             "types issue. What fraction of the firm must the new investors receive? What are the existing "
-             "shareholders' stakes worth at t = 1 for each type? Which type issues?</p>"),
+    "label": "b", "points": 4,
+    "body": (f"<p>First suppose Montclair borrows the €{g(I)} million from a bank, to be repaid at t = 1 with no "
+             f"interest (the loan is risk-free). Which type or types invest? What happens to the share price when the "
+             f"loan is announced? Explain briefly.</p>"),
+    "solution": (
+        f"<p><b>Both types invest.</b> The loan is repaid in full from the cellar's €{g(C)}M whatever the type, so "
+        f"its value does not depend on what the managers know and nothing is mispriced. A high-value Montclair keeps "
+        f"{g(H)} + {g(C)} − {g(I)} = {g(H_lan)} &gt; {g(H)} and a low-value one {g(L_lan)} &gt; {g(L)}.</p>"
+        f"<p>Since both types borrow, the announcement reveals nothing about the type and only adds the NPV: "
+        f"P = ({g(s3['V'])} + {g(C - I)}) / {g(N)} = <b>€{f(P_lan, 2)}</b>, up from €{f(s3['P0'], 2)}.</p>"),
+    "criteria": [
+        f"Both types invest: {g(H_lan)} is above {g(H)} and {g(L_lan)} above {g(L)}.",
+        "Reason: risk-free debt is worth the same whatever the type, so its price cannot be wrong.",
+        f"P = ({g(s3['V'])} + {g(C - I)})/{g(N)} = €{f(P_lan, 2)}: the price rises by the NPV per share.",
+    ],
+}
+pc_ = {
+    "label": "c", "points": 5,
+    "body": ("<p>Now suppose the bank refuses and Montclair must issue new shares to competitive investors, who price "
+             "the issue as if both types issue. What fraction of the firm must the new investors receive? What are "
+             "the existing shareholders' stakes worth at t = 1 for each type? Which type or types issue?</p>"),
     "solution": (
         f"<p><b>Step 1.</b> α = {g(I)} / ({g(s3['V'])} + {g(C)}) = {g(I)} / {g(s3['V'] + C)} = "
         f"<b>{pc(s3['a'], 4)}</b>.</p>"
@@ -1724,70 +1760,56 @@ pb = {
         "Only the low type issues; each type compares with its value without the project.",
     ],
 }
-pc_ = {
-    "label": "c", "points": 4,
-    "body": ("<p>Investors understand your answer to (b). What is the share price right after an equity issue is "
+pd = {
+    "label": "d", "points": 4,
+    "body": ("<p>Investors anticipate your answer to (c). What is the share price right after an equity issue is "
              "announced? How many new shares must be sold?</p>"),
     "solution": (
         f"<p>The issue reveals the low type, so the firm with the cellar is worth {g(L)} + {g(C)} = €{g(L + C)}M. "
         f"P × n = {g(I)} and P × ({g(N)} + n) = {g(L + C)} give {g(N)} × P = {g(L + C - I)}:</p>"
-        f"<p>P = <b>€{f(s3['P_ann'], 2)}</b> and n = {g(I)} / {f(s3['P_ann'], 2)} = <b>{f(s3['n'])} million "
+        f"<p>P = <b>€{f(s3['P_sep'], 2)}</b> and n = {g(I)} / {f(s3['P_sep'], 2)} = <b>{f(s3['n_sep'])} million "
         f"shares</b></p>"
-        f"<p>The price falls from €{f(s3['P0'], 2)} ({pc(s3['P_ann'] / s3['P0'] - 1, 2)}).</p>"),
+        f"<p>The price falls from €{f(s3['P0'], 2)} ({pc(s3['P_sep'] / s3['P0'] - 1, 2)}), while the loan in (b) "
+        f"raised it.</p>"
+        f"<p>A student who concluded in (c) that both types issue would consistently price at the pooled value: "
+        f"€{f(s3['P_pool'], 2)} and {f(s3['n_pool'])} million shares.</p>"),
     "criteria": [
-        f"P = ({g(L)} + {g(C)} − {g(I)})/{g(N)} = €{f(s3['P_ann'], 2)}.",
-        f"n = {g(I)}/{f(s3['P_ann'], 2)} = {f(s3['n'])} million (two equations or equivalent reasoning).",
-        f"Pricing at the pooled value (€{f((s3['V'] + C - I) / N, 2)}) ignores what the issue reveals.",
-    ],
-}
-pd = {
-    "label": "d", "points": 4,
-    "body": (f"<p>Instead, Montclair can borrow the €{g(I)} million from a bank, to be repaid at t = 1 with no interest "
-             f"(the loan is risk-free). Which types invest? What happens to the share price when the loan is "
-             f"announced?</p>"),
-    "solution": (
-        f"<p><b>Both types invest.</b> The loan is repaid in full from the cellar's €{g(C)}M whatever the type, so "
-        f"its value does not depend on what the managers know and nothing is mispriced. A high-value Montclair keeps "
-        f"{g(H)} + {g(C)} − {g(I)} = {g(H_lan)} &gt; {g(H)} and a low-value one {g(L_lan)} &gt; {g(L)}. (A low-value "
-        f"firm gains nothing from issuing shares instead: an equity issue would reveal it.)</p>"
-        f"<p>Since both types borrow, the announcement reveals nothing about the type and only adds the NPV: "
-        f"P = ({g(s3['V'])} + {g(C - I)}) / {g(N)} = <b>€{f(P_lan, 2)}</b>, up from €{f(s3['P0'], 2)}.</p>"),
-    "criteria": [
-        f"Both types invest: {g(H_lan)} is above {g(H)} and {g(L_lan)} above {g(L)}.",
-        "Reason: risk-free debt is worth the same whatever the type, so its price cannot be wrong.",
-        f"P = ({g(s3['V'])} + {g(C - I)})/{g(N)} = €{f(P_lan, 2)}: the price rises by the NPV per share.",
+        f"P = ({g(L)} + {g(C)} − {g(I)})/{g(N)} = €{f(s3['P_sep'], 2)}.",
+        f"n = {g(I)}/{f(s3['P_sep'], 2)} = {f(s3['n_sep'])} million (two equations or equivalent reasoning).",
+        f"With the answer to (c) right, pricing at the pooled value (€{f(s3['P_pool'], 2)}) ignores what the issue reveals.",
     ],
 }
 pe = {
     "label": "e", "points": 4,
-    "body": ("<p>Explain the result in (d) with the pecking order: in which order should Montclair prefer internal "
-             "cash, debt and equity? Why? Would your answer change if the loan were risky? Explain briefly (3 to "
-             "4 sentences).</p>"),
+    "body": ("<p>Explain the results in (b) and (d) with the pecking order: in which order should Montclair prefer "
+             "internal cash, debt and equity? Why? Would your answer change if the loan were risky? Explain briefly "
+             "(3 to 4 sentences).</p>"),
     "solution": (
-        "<p><b>Internal cash first, then debt, then equity.</b> Cash already in the firm reveals nothing and does not "
-        "have to be sold to anyone, so no information problem arises. Risk-free debt comes next: its value does not "
-        "depend on what the managers know, so it cannot be mispriced and borrowing sends no signal. Equity comes last: "
-        "its value depends most on the private information, so issuing it signals that managers think the shares are "
-        "overvalued and the price falls. A risky loan would be worth less for the low type than for the high type, so "
-        "it would carry part of the same problem, but much less than equity.</p>"),
+        f"<p><b>Internal cash first, then debt, then equity:</b> the less a source's value depends on what the managers "
+        f"know, the less it can be mispriced and the weaker the negative signal. Cash reveals nothing and risk-free "
+        f"debt cannot be mispriced, which is why both types invest in (b); equity is the most sensitive, which is why "
+        f"the high type stays out in (c) and the price falls in (d). With a risky loan the order stays the same, but "
+        f"the loan would be worth less for the low type than for the high type and so partly mispriced. If that "
+        f"mispricing exceeded the NPV of {g(C - I)}, the high type would again forgo the cellar.</p>"),
     "criteria": [
         "The order: internal funds, then debt, then equity (the pecking order).",
         "Mechanism: the more a security's value depends on the managers' private information, the more it can be mispriced and the stronger the negative signal; risk-free debt is not sensitive at all.",
-        "Risky debt: partly sensitive to the private information, so somewhat mispriced, but less than equity.",
+        "Risky debt: the order stays the same, but the loan is partly mispriced; the high type may underinvest again if that mispricing exceeds the NPV.",
         "3 to 4 sentences, as asked.",
     ],
 }
 ex["parts"] = [pa, pb, pc_, pd, pe]
 OPPG["mk-signal-3"] = ex
 SVAR["mk-signal-3:1:a"] = {"type": "tall", "tall": [T("V", s3["V"], "€ m"), T("Share price", s3["P0"], "€ per share")]}
-SVAR["mk-signal-3:1:b"] = {"type": "blandet", "tall": [T("Fraction to new investors", 100 * s3["a"], "%"),
+SVAR["mk-signal-3:1:b"] = {"type": "blandet", "tall": [T("Share price when the loan is announced", P_lan, "€ per share")],
+                           "tallPoeng": 2, "tekstLedd": "Which type or types invest? Why?"}
+SVAR["mk-signal-3:1:c"] = {"type": "blandet", "tall": [T("Fraction to new investors", 100 * s3["a"], "%"),
                                                        T("Stake at t = 1, high-value type", s3["sH"], "€ m"),
                                                        T("Stake at t = 1, low-value type", s3["sL"], "€ m")],
-                           "tallPoeng": 3, "tekstLedd": "Which type issues?"}
-SVAR["mk-signal-3:1:c"] = {"type": "tall", "tall": [T("Share price after the announcement", s3["P_ann"], "€ per share"),
-                                                    T("New shares", s3["n"], "m shares")]}
-SVAR["mk-signal-3:1:d"] = {"type": "blandet", "tall": [T("Share price when the loan is announced", P_lan, "€ per share")],
-                           "tallPoeng": 2, "tekstLedd": "Which types invest? Why?"}
+                           "tallPoeng": 3, "tekstLedd": "Which type or types issue?"}
+SVAR["mk-signal-3:1:d"] = {"type": "tall", "tall": [T("Share price after the announcement", s3["P_sep"], "€ per share", alt=[round(s3["P_pool"], 10)]),
+                                                    T("New shares", s3["n_sep"], "m shares", alt=[round(s3["n_pool"], 10)])],
+                           "merknad": f"alt {f(s3['P_pool'], 2)} og {f(s3['n_pool'])} er følgefeil for en student som i (c) kom til at begge typer utsteder."}
 SVAR["mk-signal-3:1:e"] = {"type": "tekst"}
 
 
