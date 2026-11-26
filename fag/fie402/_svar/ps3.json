@@ -457,8 +457,8 @@
   "tekstLedd": "Is he better or worse off than when he invested at 0? Explain the intuition.",
   "kriterier": [
    "Concludes that he is worse off waiting (238.6 < 250), so the CEO should invest today.",
-   "Explains the cost of waiting: the cash flows start a year later, so he gives up the year-1 cash flow (50 expected).",
-   "Explains why the information is worth little: waiting only lets him avoid the state where the lawsuit succeeds, which has a probability of only 5%."
+   "Explains the cost of waiting: he loses the early cash flows, since the project starts a year later (the year-1 cash flow, 50 expected).",
+   "Explains that the value of the information (avoiding the $250M investment, or the expected loss, if the lawsuit succeeds) is too small to make up for the lost early cash flows. Optional: that state has a probability of only 5%."
   ]
  },
  "ps3:9:c": {
@@ -479,8 +479,8 @@
   "tekstLedd": "Does this change your answer to question (b)? Explain the intuition.",
   "kriterier": [
    "Concludes yes: now it pays to wait, since 261.4 > 250.",
-   "Notes that the expected cash flow is still 50, so investing today still gives 250. Only the spread of the outcomes has increased.",
-   "Explains the intuition: with a 15% chance that the project becomes worthless the information is worth more, so the option to wait rises in value, just as a call rises in value with volatility."
+   "Explains that the cash flows are now more volatile, which raises the value of the information. Optional: the expected cash flow is still 50, so investing today still gives 250.",
+   "Links it to options: more volatility raises the value of the option to wait, just as a call rises in value with the volatility of the underlying asset."
   ]
  },
  "ps3:9:d": {
@@ -496,8 +496,8 @@
   "tekstLedd": "How will this affect the timing of your investment? Explain the intuition.",
   "kriterier": [
    "Concludes that you now invest today, because 284.1 exceeds the 261.4 from waiting in (c).",
-   "Explains that the value of waiting came from avoiding the bad state where the lawsuit succeeds. Reversibility gives that protection even if you invest now, since you get the $250M back in the bad state.",
-   "Explains that investing now then also keeps the year-1 cash flow, which waiting gives up."
+   "Explains that the value of waiting came from avoiding the investment in the bad state. Reversibility makes this option worth much less, since you get the $250M back in the bad state even if you invest now.",
+   "Optional: investing now also keeps the early cash flows that waiting gives up."
   ],
   "merknad": "Verdien av å vente er uendret (261.4), fordi du uansett ikke investerer i den dårlige tilstanden når du venter."
  },

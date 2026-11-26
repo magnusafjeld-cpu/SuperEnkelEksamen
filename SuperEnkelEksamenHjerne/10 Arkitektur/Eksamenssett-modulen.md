@@ -343,6 +343,20 @@ uten deloppgaver). Lånte oppgaver slås opp via `kildeId`/`kildeN`, som `slåOp
 | `blandet` | tallbokser og tekstfelt | tallene automatisk (`tallPoeng`), teksten med Opus |
 | `ingen` | ingenting | selvvurdering (plassholdere uten oppgavetekst) |
 
+**Nivået for full pott (26. november 2026).** `rettePrompt` sier at kriteriene setter nivået
+(løsningen når det ikke finnes kriterier). Et kriterium er oppfylt når innholdet står der, også
+kort eller med andre ord. Detaljer som bare står i løsningen eller er merket «Optional:» i et
+kriterium, gir ikke trekk. En formulering skal sjekkes økonomisk før den kalles feil. En
+riktig, men upresis formulering koster høyst et halvt poeng. Samme regel står i `bundle-ov.js`
+og `bundle-kapitteloppgaver.js`. Grunnen: ps3 9b fikk 1 av 2 for et svar som dekket den
+offisielle løsningen, fordi et kriterium krevde mer enn løsningen og sensoren leste
+«expected loss from the lawsuit» feil. Se [[Beslutningslogg]].
+
+**Kort tilbakemelding (26. november 2026).** Svaret har tre punkter: poeng med én kort
+setning, én linje per kriterium (✓, delvis eller ✗, høyst 15 ord) og et toppsvar på én til
+to setninger. «Det som kostet mest» er fjernet fordi det gjentok kriteriet med ✗. Samme
+form i `bundle-ov.js` (med `FEILTYPE`-linjen) og `bundle-kapitteloppgaver.js`.
+
 - **Øving:** «Rett a)» retter delen og åpner fasiten. «Rett alle deloppgavene» / «Rett resten»
   tar alle. Tekstdelene kjøres én om gangen (`køVurdering`), så Opus ikke får mange kall samtidig.
 - **Rett på nytt i øving (25. november 2026):** feltene låses ikke etter retting, bare etter

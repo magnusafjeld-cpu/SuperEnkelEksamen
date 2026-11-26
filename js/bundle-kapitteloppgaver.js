@@ -286,7 +286,7 @@ window.EDU = window.EDU || {};
        poeng. Du setter fortsatt poengene selv, rett under. */
     if (S.claude && (felt.value || st.svar || "").trim()) boks.appendChild(el("div", { style: { marginTop: "14px" } },
       S.claude.vurdering({ id: `kap:${num}:${t.id}`, prompt: () => sensorPrompt(t, felt.value || st.svar), knapp: "Vurder svaret med Claude", effort: "high",
-        forklaring: "Claude leser svaret ditt mot løsningen og kriteriene, foreslår poeng og peker på det som kostet mest.",
+        forklaring: "Claude leser svaret ditt mot løsningen og kriteriene, foreslår poeng og sier kort hva som manglet.",
         forklaringUten: "Kopierer oppgaven, svaret ditt, løsningen og kriteriene som én melding du kan lime inn i Claude." })));
 
     /* Selvvurdering i fire trinn av maks. Kriteriene over er det du måler mot. */
@@ -314,7 +314,7 @@ window.EDU = window.EDU || {};
     const ren = S.claude.ren;
     const p = t.points || 6;
     const krit = (t.criteria || []).map((c, n) => `${n + 1}. ${ren(c)}`).join("\n");
-    return `Du er sensor på en skriftlig eksamen i ${(window.EDU_SUBJECT || {}).name || "emnet"}. Jeg øver og vil ha en streng og konkret vurdering, ikke oppmuntring.
+    return `Du er sensor på en skriftlig eksamen i ${(window.EDU_SUBJECT || {}).name || "emnet"}. Jeg øver og vil ha en streng, rettferdig og konkret vurdering, ikke oppmuntring.
 
 ## Oppgaven (${p} poeng)
 ${ren(t.body || t.q || "")}
@@ -327,14 +327,17 @@ ${ren(t.solution || "") || "(ingen løsning)"}
 ${krit ? "\n## Kriteriene sensor ser etter\n" + krit + "\n" : ""}
 ## Slik vurderer du
 - Vurder bare det som står i svaret. Det som er underforstått, teller ikke. Svaret kan være skrevet raskt, så se bort fra stavefeil.
+- Kriteriene setter nivået for full pott (uten kriterier gjør løsningen det). Får svaret med innholdet i et kriterium, er det oppfylt, også når svaret er kort eller bruker andre ord. Du sjekker innhold, ikke ordlyd.
+- Ikke trekk for detaljer som bare står i løsningen eller i kriterier merket «Optional». Ta dem heller med i toppsvaret.
+- Før du kaller en formulering feil, sjekk om den stemmer faglig, gjerne med tallene. Er den riktig, men upresis, trekker du høyst et halvt poeng for den.
 - Riktig tall uten metode gir lite. Riktig metode med en regnefeil gir mye.
 - Ikke gjenta løsningen. Jeg har lest den.
 
 ## Svar kort, på norsk, i denne formen
-1. **Poeng:** «x av ${p}» og én setning om hvorfor.
-2. **Kriterium for kriterium:** ✓ eller ✗, med et kort sitat fra svaret som bevis eller hva som manglet.
-3. **Feilen som kostet mest:** hvor i resonnementet det gikk galt, konkret.
-4. **Slik ville et toppsvar startet:** de to første linjene, skrevet slik jeg burde skrevet dem.`;
+Kort er viktigere enn fullstendig: høyst 15 ord per linje utenom toppsvaret. Ikke si det samme to ganger.
+1. **Poeng:** «x av ${p}» og én kort setning om hvorfor.
+2. **Kriteriene:** én linje per kriterium med ✓, delvis eller ✗. Ved ✓ holder et kort sitat. Ellers sier du bare hva som manglet.
+3. **Toppsvar:** én til to setninger, skrevet slik jeg burde skrevet dem.`;
   }
 
   function oppgave(num, t, i) {

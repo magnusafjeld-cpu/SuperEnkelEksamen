@@ -974,7 +974,7 @@ window.EDU = window.EDU || {};
     }).filter(Boolean).join("\n");
     const tallLinjer = d.type === "blandet" ? d.tall.map((t, i) => `- ${ren(t.navn)}: skrev ${(inn.t || [])[i] || "(tomt)"}${t.enhet ? " " + t.enhet : ""}, fasit ${visTall(t.verdi, t.enhet)} (${r.tall && r.tall[i] ? "riktig" : "feil"})`).join("\n") : "";
     const krit = (part.criteria || []).map((c, i) => `${i + 1}. ${ren(c)}`).join("\n");
-    return `Du er sensor på FIE402 Corporate Finance ved NHH (eksamen satt av Andrey Kurbatov). Jeg øver til eksamen og vil ha en streng og konkret vurdering, ikke oppmuntring.
+    return `Du er sensor på FIE402 Corporate Finance ved NHH (eksamen satt av Andrey Kurbatov). Jeg øver til eksamen og vil ha en streng, rettferdig og konkret vurdering, ikke oppmuntring.
 
 ## Oppgaven: ${set.label}, oppgave ${nrAv(ex)}${ex.title ? " (" + ex.title + ")" : ""}
 ${ren(ex.body || "")}
@@ -988,16 +988,19 @@ ${krit ? "\n## Kriteriene sensor ser etter\n" + krit + "\n" : ""}
 ## Slik retter du
 - Gi poeng bare for tekstdelen, av ${cm}${d.type === "blandet" ? ". Tallene er rettet, så ikke trekk for dem igjen" : ""}. Bruk halve poeng.
 - Vurder bare det som står i svaret. Det som er underforstått, teller ikke. Se bort fra stavefeil og grammatikk.
+- Kriteriene setter nivået for full pott (uten kriterier gjør løsningen det). Får svaret med innholdet i et kriterium, er det oppfylt, også når svaret er kort eller bruker andre ord. Du sjekker innhold, ikke ordlyd.
+- Ikke trekk for detaljer som bare står i løsningen eller i kriterier merket «Optional». Ta dem heller med i toppsvaret.
+- Før du kaller en formulering feil, sjekk om den stemmer økonomisk, gjerne med tallene. Er den riktig, men upresis, trekker du høyst et halvt poeng for den.
 - Kurbatovs sensorer belønner mekanismen, ikke merkelappen: «value creation» eller «it signals» uten hvorfor gir lite. Nøkkelfraser teller når de brukes riktig, for eksempel «wealth transfer» og «the firm forgoes positive-NPV projects».
 - Følgefeil gir ikke trekk: bygger svaret riktig videre på mine egne tidligere tall, er det riktig.
 - Eksamen besvares på engelsk. Skriver jeg på norsk, retter du innholdet som vanlig og minner meg på det i én setning.
 - Ikke gjenta løsningen. Jeg har den foran meg.
 
 ## Svar kort, på norsk, i denne formen
-1. **Poeng:** «x av ${cm}» og én setning om hvorfor.
-2. **Kriterium for kriterium:** ✓ eller ✗, med et kort sitat fra svaret som bevis eller hva som manglet.
-3. **Det som kostet mest:** konkret.
-4. **Slik ville et toppsvar startet:** to linjer på engelsk, slik jeg burde skrevet dem.
+Kort er viktigere enn fullstendig: høyst 15 ord per linje utenom toppsvaret. Ikke si det samme to ganger.
+1. **Poeng:** «x av ${cm}» og én kort setning om hvorfor.
+2. **Kriteriene:** én linje per kriterium med ✓, delvis eller ✗. Ved ✓ holder et kort sitat. Ellers sier du bare hva som manglet.
+3. **Toppsvar:** én til to setninger på engelsk, slik jeg burde skrevet dem.
 
 Avslutt med en egen linje nøyaktig slik: POENG: x av ${cm}`;
   }

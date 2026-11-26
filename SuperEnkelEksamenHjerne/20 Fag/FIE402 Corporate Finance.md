@@ -470,7 +470,10 @@ fasiten med `tools/sjekk-svar.js`; ingen fasitfeil ble funnet. Tekstdelene har e
 engelske `kriterier`, siden problem settene ikke har det. Skjønn verdt å vite: ps1 13c
 retter bare P_cum = $42 (utbyttets størrelse er studentens valg), ps2 3b godtar både
 V<sup>L</sup> og NPV, ps3 2b krever fortegnet på B og ps4 1c har `tol 0.005` så
-den som glemmer å diskontere, ikke får riktig.
+den som glemmer å diskontere, ikke får riktig. Kriteriene i ps3 9b til 9d ble 26. november
+2026 lagt på nivå med den offisielle løsningen: det den ikke krever (5 % i 9b, forventet
+kontantstrøm 50 i 9c, tapt år-1-kontantstrøm i 9d), er merket «Optional:». Kriterier skal
+ikke kreve mer enn løsningen i Problem Set N solution.docx.
 
 ## Prøveeksamenene
 

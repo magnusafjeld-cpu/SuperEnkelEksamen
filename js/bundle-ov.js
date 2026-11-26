@@ -498,7 +498,7 @@ window.EDU = window.EDU || {};
     const tp = d.type === "blandet" ? d.tallPoeng : 0, cm = d.poeng - tp;
     const tallLinjer = d.type === "blandet" ? d.svar.map((t, i) => `- ${ren(t.navn)}: skrev ${(inn.t || [])[i] || "(tomt)"}${t.enhet ? " " + t.enhet : ""}, fasit ${visTall(t.verdi, t.enhet)} (${(r.tall || [])[i] && r.tall[i].ok ? "riktig" : "feil"})`).join("\n") : "";
     const krit = (d.kriterier || []).map((x, i) => `${i + 1}. ${ren(x)}`).join("\n");
-    return `Du er sensor på FIE402 Corporate Finance ved NHH (eksamen satt av Andrey Kurbatov). Jeg øver til eksamen med repetisjon og vil ha en streng og konkret vurdering, ikke oppmuntring.
+    return `Du er sensor på FIE402 Corporate Finance ved NHH (eksamen satt av Andrey Kurbatov). Jeg øver til eksamen med repetisjon og vil ha en streng, rettferdig og konkret vurdering, ikke oppmuntring.
 
 ## Casen: ${k.o.tittel}
 ${ren(c.case)}
@@ -523,16 +523,19 @@ ${krit}
 ## Slik retter du
 - Gi poeng bare for tekstdelen, av ${cm}${d.type === "blandet" ? ". Tallene er rettet, så ikke trekk for dem igjen" : ""}. Bruk halve poeng.
 - Vurder bare det som står i svaret. Det som er underforstått, teller ikke. Se bort fra stavefeil og grammatikk.
+- Kriteriene setter nivået for full pott. Får svaret med innholdet i et kriterium, er det oppfylt, også når svaret er kort eller bruker andre ord. Du sjekker innhold, ikke ordlyd.
+- Ikke trekk for detaljer som bare står i løsningen eller i kriterier merket «Optional». Ta dem heller med i toppsvaret.
+- Før du kaller en formulering feil, sjekk om den stemmer økonomisk, gjerne med tallene. Er den riktig, men upresis, trekker du høyst et halvt poeng for den.
 - Kurbatovs sensorer belønner mekanismen, ikke merkelappen: et begrep uten hvorfor gir lite.
 - Eksamen besvares på engelsk. Skriver jeg på norsk, retter du innholdet som vanlig og minner meg på det i én setning.
 - Ikke gjenta løsningen. Jeg har den foran meg.
 - Si også hva slags feil det største avviket er: SLURV (jeg kan mekanismen, men glemte et ledd, regnet feil eller skrev upresist), MISFORSTÅELSE (jeg forstår ikke mekanismen eller bruker feil begrep) eller INGEN (svaret er i hovedsak riktig).
 
 ## Svar kort, på norsk, i denne formen
-1. **Poeng:** «x av ${cm}» og én setning om hvorfor.
-2. **Kriterium for kriterium:** ✓ eller ✗, med et kort sitat fra svaret eller hva som manglet.
-3. **Det som kostet mest:** konkret, og om det var slurv eller en misforståelse.
-4. **Slik ville et toppsvar startet:** én til to linjer på engelsk.
+Kort er viktigere enn fullstendig: høyst 15 ord per linje utenom toppsvaret. Ikke si det samme to ganger.
+1. **Poeng:** «x av ${cm}» og én kort setning om hvorfor.
+2. **Kriteriene:** én linje per kriterium med ✓, delvis eller ✗. Ved ✓ holder et kort sitat. Ellers sier du bare hva som manglet.
+3. **Toppsvar:** én til to setninger på engelsk, slik jeg burde skrevet dem.
 
 Avslutt med to egne linjer nøyaktig slik:
 POENG: x av ${cm}

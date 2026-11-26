@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, beslutninger]
-oppdatert: 2026-11-25
+oppdatert: 2026-11-26
 ---
 
 # Beslutningslogg
@@ -278,6 +278,25 @@ kortet, misforståelse gir en lignende oppgave med en gang.
 **Alternativene** var å utvide `S.srs` (faste bokser, ingen vanskelighetsgrad) eller å
 bruke eksamenstreningen med «Bare de jeg bommet på» (krever valg hver gang, ingen
 repetisjon av det du kan). Se [[Moduler og visninger]].
+
+## Rettingen er streng, men kriteriene er taket (26. november 2026)
+Magnus fikk 1 av 2 på teksten i ps3 9b for et svar som sa det samme som den
+offisielle løsningen. Kriteriet krevde 5 % og «avoid investing in the bad state», som
+løsningen ikke nevner. Sensoren kalte «expected loss from the lawsuit» feil selv om
+det er nettopp verdien av å vente (0,05 × 250 / 1,1 = 11,4 mot netto 22,7 i tapt
+kontantstrøm). Rettingen skal fortsatt være streng på mekanisme, men full pott skal
+ikke kreve mer enn løsningen. Derfor: kriteriene setter nivået, innhold teller framfor
+ordlyd, ekstra detaljer merkes «Optional:» og en formulering sjekkes økonomisk før den
+kalles feil. Se [[Eksamenssett-modulen]].
+
+## Opus retter Eksamenssett og Problem sets, og tilbakemeldingen er kort (26. november 2026)
+Magnus spurte om Sonnet 5.5 er like bra når feilen i ps3 9b kom fra kriteriet. Valget ble
+å beholde Opus 5.5. Den nye regelen ber sensoren sjekke økonomisk om en uvanlig
+formulering stemmer, og der er Opus sterkere. Sonnet leser oftere kriteriene som en
+ordliste. Prisforskjellen er rundt 2 cent per tekstsvar (Opus koster det dobbelte).
+Eksamenssett og Problem sets får derfor ikke modellvalget som Øv uten stopp har.
+Samtidig ble tilbakemeldingen kortet ned til poeng, én linje per kriterium og et
+toppsvar, fordi den var for lang. Se [[Eksamenssett-modulen]].
 
 ## Norsk i kode og grensesnitt
 Kommentarer, UI-tekst, commit-meldinger og variabelnavn for domenebegreper er på
