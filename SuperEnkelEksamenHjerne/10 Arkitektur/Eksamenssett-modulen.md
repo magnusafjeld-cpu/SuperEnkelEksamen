@@ -1,6 +1,6 @@
 ---
 tags: [arkitektur, moduler, eksamen]
-oppdatert: 2026-11-26
+oppdatert: 2026-11-28
 ---
 
 # Eksamenssett-modulen
@@ -249,6 +249,20 @@ settets `mc.wrongFactor`, så prøveeksamenene i 2026-formatet starter med
 minuspoeng på. Lagt til 29. oktober 2026 for FIE432.
 
 For åpne, selvvurderte prøveeksamener (FIE402) sjekker den i stedet poengmønsteret mot de nyeste ekte settene og at hvert ledd har løsning og kriterier. Prøvesettene flettes inn med `tools/flett-prove.py <rot> <fag> <id …>`.
+
+### Egen fane for prøveeksamener: `fane` (28. november 2026)
+
+Et mock-sett med `fane: "<id>"` vises i sin egen fane i stedet for under «Prøveeksamener».
+Navn og tekst øverst kommer fra `EDU_DATA.mockFaner[<id>]` (`{ navn, intro }`), så motoren
+ikke vet noe om faget. Settet er fortsatt `kind: "mock"`, så planleggeren, `sjekk-prove.js`
+og alt annet som leser prøveeksamenene virker uendret. Et sett med en fane som ikke står i
+`mockFaner`, havner under «Prøveeksamener». `sjekk-sett.js` melder feil om fanen mangler.
+
+Brukt til prediksjonseksamenene i [[FIE402 Corporate Finance]] (fanen «Prediksjon», id
+`pred`, sett `pred1`, `pred2` …). De står i `sett.js` mellom merkene PREDIKSJON og
+PREDIKSJON SLUTT, rett før MÅ KUNNE, skrevet av `tools/flett-pred.py` fra
+`fag/fie402/_pred/`. Blokken må stå foran MÅ KUNNE, fordi `flett-mk.py` skriver alt fra
+MÅ KUNNE og ut på nytt. Spesifikasjon: `docs/fie402-prediksjon-spek.md`.
 
 `tools/sjekk-prove.js <fag>` måler kalibreringen mot skoleeksamenene (ord per
 ledd, andel tallsvar) og ser etter det som lar studenten finne svaret uten å

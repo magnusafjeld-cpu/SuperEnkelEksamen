@@ -1,6 +1,6 @@
 ---
 tags: [prosjekt, historikk]
-oppdatert: 2026-11-26
+oppdatert: 2026-11-28
 ---
 
 # Tidslinje
@@ -110,5 +110,6 @@ ikke står i commit-meldingene.
 | 26. november 2026 | Retting: kriteriene er nivået for full pott | Claude-rettingen i Eksamenssett, Problem sets, Øv uten stopp og Kapitteloppgaver gir full pott når innholdet i kriteriene står i svaret, også kort eller med andre ord. «Optional:» og detaljer som bare står i løsningen, gir ikke trekk. Kriteriene i ps3 9b til 9d er lagt på nivå med den offisielle løsningen. Bygg 229. Se [[Eksamenssett-modulen]] |
 | 26. november 2026 | Retting: kortere tilbakemelding | Claude svarer med poeng og én setning, én linje per kriterium og et toppsvar på én til to setninger. «Det som kostet mest» er borte. Bygg 229. Se [[Eksamenssett-modulen]] |
 | 26. november 2026 | FIE402: «Må kunne» i Eksamenstrening | Ny fane med 20 oppgavetyper Kurbatov har hintet til, i tre tiers, med tre nye eksamensoppgaver per type som åpnes i Eksamenssett-motoren. Tier 1 (sju typer, 21 oppgaver) lagt ut etter blind kontroll i bygg 230, tier 2 (åtte typer, 24 oppgaver) i bygg 231 og tier 3 (fem typer, 15 oppgaver) i bygg 232. Se [[FIE402 Corporate Finance]] og [[Moduler og visninger]] |
+| 28. november 2026 | [[FIE402 Corporate Finance]]: fanen «Prediksjon» i Eksamenssett med prediksjon 1 og 2, hele eksamener bygd på det som mest sannsynlig kommer | Magnus ville ha prediksjonseksamener der hvert nytt sett tar med en oppgave som ligner det han bommet på i forrige. To skribenter og to blinde kontrollører: ingen regnefeil, reserveverdiene fjernet og toleransene strammet. Mock-sett kan nå ha `fane`. Bygg 233. Se [[Eksamenssett-modulen]] |
 
 Lest ovenfra og ned er fortellingen: *ett fag → en plattform*.

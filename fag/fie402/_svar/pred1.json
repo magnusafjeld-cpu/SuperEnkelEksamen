@@ -1,0 +1,308 @@
+{
+  "pred1:1:": {
+    "type": "tekst"
+  },
+  "pred1:2:": {
+    "type": "tekst"
+  },
+  "pred1:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 7.8066666666666675,
+        "enhet": "%"
+      }
+    ]
+  },
+  "pred1:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New debt issued",
+        "verdi": 900.0,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Share price after the announcement",
+        "verdi": 85.0,
+        "enhet": "NOK per share"
+      },
+      {
+        "navn": "Shares repurchased",
+        "verdi": 10.588235294117647,
+        "enhet": "m shares"
+      }
+    ]
+  },
+  "pred1:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "New r<sub>E</sub>",
+        "verdi": 11.252,
+        "enhet": "%"
+      }
+    ]
+  },
+  "pred1:3:d": {
+    "type": "tekst"
+  },
+  "pred1:3:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "PV of the tax shield on the new debt",
+        "verdi": 264.00000000000006,
+        "enhet": "NOK m"
+      },
+      {
+        "navn": "Share price after the announcement",
+        "verdi": 91.6,
+        "enhet": "NOK per share"
+      }
+    ]
+  },
+  "pred1:3:f": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Shares repurchased",
+        "verdi": 13.100436681222709,
+        "enhet": "m shares"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Who captures the value of the tax shield? Explain briefly.",
+    "merknad": "Fellen 1200/85 = 14.1176 (gammel kurs) ligger 7,8 % unna og avvises."
+  },
+  "pred1:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "FCF<sub>1</sub>",
+        "verdi": 14.111999999999998,
+        "enhet": "SEK m"
+      },
+      {
+        "navn": "Cash outlay at t = 0",
+        "verdi": 234.0,
+        "enhet": "SEK m",
+        "alt": [
+          -234.0
+        ]
+      }
+    ],
+    "merknad": "alt: utlegget skrevet som negativ kontantstrøm (−234) godtas."
+  },
+  "pred1:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "β<sub>D</sub> of Klarälven",
+        "verdi": 0.3,
+        "enhet": ""
+      },
+      {
+        "navn": "r<sub>U</sub>",
+        "verdi": 7.833333333333334,
+        "enhet": "%"
+      }
+    ]
+  },
+  "pred1:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>E</sub> of the line",
+        "verdi": 9.722222222222223,
+        "enhet": "%",
+        "tol": 0.003
+      },
+      {
+        "navn": "r<sub>wacc</sub>",
+        "verdi": 7.421333333333335,
+        "enhet": "%",
+        "tol": 0.003
+      }
+    ],
+    "merknad": "tol 0,3 %: Klarälvens D/E gir 9.2500 og 7.4900, Klarälvens r_D gir 7.4625; alle avvises. r_U rundet til 0,0783 gir 9.7167 og 7.4180 og godtas."
+  },
+  "pred1:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV (WACC method)",
+        "verdi": 26.304968027545385,
+        "enhet": "SEK m"
+      }
+    ]
+  },
+  "pred1:4:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Debt capacity at t = 0",
+        "verdi": 104.12198721101817,
+        "enhet": "SEK m"
+      },
+      {
+        "navn": "PV(TS)",
+        "verdi": 18.384968027545494,
+        "enhet": "SEK m"
+      },
+      {
+        "navn": "NPV (APV method)",
+        "verdi": 26.304968027545442,
+        "enhet": "SEK m"
+      }
+    ],
+    "merknad": "Feller som avvises: gjeld som 40 % av NPV (10.5220), skjoldet med r_D (35.7485, NPV 43.6685), skjoldet uten vekst (13.6909). r_U rundet til 0,0783 gir NPV 26.4651 og godtas."
+  },
+  "pred1:4:f": {
+    "type": "tekst"
+  },
+  "pred1:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV at t = 1, high state",
+        "verdi": 93.0,
+        "enhet": "EUR m"
+      },
+      {
+        "navn": "NPV at t = 1, low state",
+        "verdi": -54.0,
+        "enhet": "EUR m"
+      }
+    ]
+  },
+  "pred1:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "ρ (high state)",
+        "verdi": 43.75000000000003,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "Fellene (1 + r_f)S_0 mot 80/48 (0.5344) og 1 − ρ (0.5625) avvises."
+  },
+  "pred1:5:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV of building today",
+        "verdi": 10.250000000000057,
+        "enhet": "EUR m"
+      }
+    ]
+  },
+  "pred1:5:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV today of waiting",
+        "verdi": 38.75000000000003,
+        "enhet": "EUR m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Do you build today or wait? Briefly comment.",
+    "merknad": "Fellen med −54 i den lave tilstanden gir 9.8214 og avvises."
+  },
+  "pred1:5:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "X",
+        "verdi": 8.533333333333335,
+        "enhet": "EUR m",
+        "tol": 0.002
+      }
+    ],
+    "merknad": "tol 0,2 %: den statiske nullpunktverdien 180/21 = 8.5714 og fellen uten dagens kontantstrøm (9.3333) avvises; ρ rundet til 0,44 gir 8.5332 og godtas."
+  },
+  "pred1:5:f": {
+    "type": "tekst"
+  },
+  "pred1:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Offer value per Mors share",
+        "verdi": 134.0,
+        "enhet": "DKK"
+      },
+      {
+        "navn": "Premium over the price before the rumours",
+        "verdi": 16.521739130434774,
+        "enhet": "%"
+      }
+    ]
+  },
+  "pred1:6:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Net outlay today",
+        "verdi": 248.0,
+        "enhet": "DKK",
+        "alt": [
+          -248.0
+        ]
+      },
+      {
+        "navn": "Value at T if the deal goes through",
+        "verdi": 269.9877752364324,
+        "enhet": "DKK",
+        "tol": 0.003
+      },
+      {
+        "navn": "Value at T if the deal fails",
+        "verdi": 219.9877752364324,
+        "enhet": "DKK",
+        "tol": 0.003
+      }
+    ],
+    "merknad": "tol 0,3 %: uten rente (268 og 218) avvises, helt år (1.03) avvises, enkel rente godtas."
+  },
+  "pred1:6:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Certainty equivalent of the outlay",
+        "verdi": 249.83943380087774,
+        "enhet": "DKK",
+        "tol": 0.003
+      },
+      {
+        "navn": "Implied probability of completion",
+        "verdi": 59.70331712889067,
+        "enhet": "%",
+        "tol": 0.003
+      }
+    ],
+    "merknad": "tol 0,3 %: «plug 248.00» gir 56.02 %, helt år 58.80 %, ingen rente 60.00 %; alle avvises. Enkel rente (1 + 0,03 × 0,25) skiller seg med under 0,01 % og godtas."
+  },
+  "pred1:6:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "Change in Thyholm's market value",
+        "verdi": -720.0,
+        "enhet": "DKK m"
+      },
+      {
+        "navn": "Change in Mors's market value",
+        "verdi": 450.0,
+        "enhet": "DKK m"
+      }
+    ],
+    "tallPoeng": 1.5,
+    "tekstLedd": "Create or destroy value? Who pays too much? Explain briefly."
+  },
+  "pred1:6:e": {
+    "type": "tekst"
+  }
+}

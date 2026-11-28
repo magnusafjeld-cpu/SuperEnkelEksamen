@@ -23,6 +23,12 @@
    Et sett kan ha `badge` (for eksempel «Vanskeligere»), som vises som en brikke
    ved navnet i lista.
 
+   Egen fane for prøveeksamener (28. november 2026). Et mock-sett med `fane` (en id
+   som står i EDU_DATA.mockFaner, { navn, intro }) vises i sin egen fane i stedet for
+   under «Prøveeksamener». Settet er fortsatt kind: "mock", så alt annet som leser
+   prøveeksamenene (planleggeren, sjekk-prove.js) virker uendret. Brukt til
+   prediksjonseksamenene i FIE402. Et sett med ukjent fane står under «Prøveeksamener».
+
    Svake temaer. Et sett med kind: "svak" øver bare på temaer du har svart feil på
    eller merket som usikre. Slike sett kommer fra en privat utvidelse, ikke fra
    faget, så fanen «Svake temaer» vises bare for den som har dem. Ellers kjøres de
@@ -395,7 +401,12 @@ window.EDU = window.EDU || {};
   function renderList() {
     const wrap = el(".fade-in");
     const alle = SETS();
-    const prøver = alle.filter((x) => x.kind === "mock");
+    /* Mock-sett med en kjent fane (EDU_DATA.mockFaner) får hver sin fane. */
+    const mockFaner = window.EDU_DATA.mockFaner || {};
+    const mockGrupper = Object.keys(mockFaner).map((id) => ({ f: mockFaner[id], id: "mf:" + id,
+      sett: alle.filter((x) => x.kind === "mock" && x.fane === id) })).filter((g) => g.sett.length);
+    const mockGruppe = mockGrupper.find((g) => g.id === del);
+    const prøver = alle.filter((x) => x.kind === "mock" && !(x.fane && mockFaner[x.fane]));
     const svake = alle.filter((x) => x.kind === "svak");
     const kart = alle.filter(erKart);
     const fl = alle.filter((x) => x.kind === "forelesning").sort((a, b) => (a.nr || 0) - (b.nr || 0));
@@ -404,12 +415,13 @@ window.EDU = window.EDU || {};
     const deler = alle.filter((x) => x.kind === "del" && !egneFaner.some((g) => g.f.art === x.art));
     const egenFane = egneFaner.find((g) => g.id === del);
     const ekte = alle.filter((x) => x.kind !== "mock" && x.kind !== "svak" && x.kind !== "forelesning" && x.kind !== "del" && x.kind !== "must" && !erKart(x));
-    if ((del === "prove" && !prøver.length) || (del === "pd" && !deler.length) || (del.startsWith("pd:") && !egenFane) || (del === "svak" && !svake.length) || (del === "fl" && !fl.length) || (del === "kart" && !kart.length)) del = "eksamen";
+    if ((del === "prove" && !prøver.length) || (del === "pd" && !deler.length) || (del.startsWith("pd:") && !egenFane) || (del.startsWith("mf:") && !mockGruppe) || (del === "svak" && !svake.length) || (del === "fl" && !fl.length) || (del === "kart" && !kart.length)) del = "eksamen";
     const prøveDel = del === "prove", svakDel = del === "svak", flDel = del === "fl";
-    const sets = prøveDel ? prøver : svakDel ? svake : flDel ? fl : ekte;
+    const sets = mockGruppe ? mockGruppe.sett : prøveDel ? prøver : svakDel ? svake : flDel ? fl : ekte;
     const faner = () => {
       const seg = el(".seg", { style: { marginBottom: "16px" } });
       [["eksamen", `Tidligere eksamener (${ekte.length})`], prøver.length ? ["prove", `Prøveeksamener (${prøver.length})`] : null,
+       ...mockGrupper.map((g) => [g.id, `${g.f.navn} (${g.sett.length})`]),
        deler.length ? ["pd", `Per del (${deler.length})`] : null,
        ...egneFaner.map((g) => [g.id, `${g.f.navn} (${g.sett.length})`]),
        fl.length ? ["fl", `Per forelesning (${fl.length})`] : null,
@@ -442,7 +454,9 @@ window.EDU = window.EDU || {};
     /* Ikke alle settene er eksamener: FIE432 har også flervalgstesten til
        kursgodkjenning. Undertittelen teller derfor sett. */
     wrap.appendChild(sh().pageHead("Eksamenssett", sets.length === 1 ? "1 sett" : `${sets.length} sett`,
-      flDel
+      mockGruppe
+        ? (mockGruppe.f.intro || "")
+        : flDel
         ? "Ett sett per forelesning, i samme rekkefølge som kurset. Til sammen dekker de hvert punkt i sjekklisten, så når alle er gjort, er du testet på hele pensum. Satser og regler står i oppgaveteksten, slik de blir oppgitt på eksamen."
         : svakDel
         ? "Nye oppgaver bare på temaene du har svart feil på eller merket som usikre. Kjør dem på tid med minuspoeng, og les fasiten på hvert feil svar etterpå."
@@ -450,7 +464,7 @@ window.EDU = window.EDU || {};
         ? "Prøveeksamener laget i formatet du møter, bygd på det de tidligere eksamenene faktisk spør om. De er ikke gitt av kurset. Kjør dem på tid med minuspoeng, og les fasiten på hvert feil svar etterpå."
         : "Hele sett, slik de ble gitt. Kjør dem som øving med fasit underveis, eller som ekte eksamen på tid der fasiten først åpner seg når du leverer."));
 
-    if (prøver.length || deler.length || egneFaner.length || svake.length || fl.length || kart.length) wrap.appendChild(faner());
+    if (prøver.length || mockGrupper.length || deler.length || egneFaner.length || svake.length || fl.length || kart.length) wrap.appendChild(faner());
 
     if (!sets.length) { wrap.appendChild(sh().empty("📄", "Ingen eksamenssett ennå", "Faget har ikke lagt inn sett i EDU_DATA.sets.")); return wrap; }
 

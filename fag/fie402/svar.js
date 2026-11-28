@@ -7251,6 +7251,680 @@ window.EDU_DATA.svar = {
  "mk-wacc-apv-3:1:f": {
   "type": "tekst"
  },
+ "pred1:1:": {
+  "type": "tekst"
+ },
+ "pred1:2:": {
+  "type": "tekst"
+ },
+ "pred1:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 7.8066666666666675,
+    "enhet": "%"
+   }
+  ]
+ },
+ "pred1:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New debt issued",
+    "verdi": 900.0,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Share price after the announcement",
+    "verdi": 85.0,
+    "enhet": "NOK per share"
+   },
+   {
+    "navn": "Shares repurchased",
+    "verdi": 10.588235294117647,
+    "enhet": "m shares"
+   }
+  ]
+ },
+ "pred1:3:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "New r<sub>E</sub>",
+    "verdi": 11.252,
+    "enhet": "%"
+   }
+  ]
+ },
+ "pred1:3:d": {
+  "type": "tekst"
+ },
+ "pred1:3:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "PV of the tax shield on the new debt",
+    "verdi": 264.00000000000006,
+    "enhet": "NOK m"
+   },
+   {
+    "navn": "Share price after the announcement",
+    "verdi": 91.6,
+    "enhet": "NOK per share"
+   }
+  ]
+ },
+ "pred1:3:f": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Shares repurchased",
+    "verdi": 13.100436681222709,
+    "enhet": "m shares"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Who captures the value of the tax shield? Explain briefly.",
+  "merknad": "Fellen 1200/85 = 14.1176 (gammel kurs) ligger 7,8 % unna og avvises."
+ },
+ "pred1:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "FCF<sub>1</sub>",
+    "verdi": 14.111999999999998,
+    "enhet": "SEK m"
+   },
+   {
+    "navn": "Cash outlay at t = 0",
+    "verdi": 234.0,
+    "enhet": "SEK m",
+    "alt": [
+     -234.0
+    ]
+   }
+  ],
+  "merknad": "alt: utlegget skrevet som negativ kontantstrøm (−234) godtas."
+ },
+ "pred1:4:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "β<sub>D</sub> of Klarälven",
+    "verdi": 0.3,
+    "enhet": ""
+   },
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 7.833333333333334,
+    "enhet": "%"
+   }
+  ]
+ },
+ "pred1:4:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>E</sub> of the line",
+    "verdi": 9.722222222222223,
+    "enhet": "%",
+    "tol": 0.003
+   },
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 7.421333333333335,
+    "enhet": "%",
+    "tol": 0.003
+   }
+  ],
+  "merknad": "tol 0,3 %: Klarälvens D/E gir 9.2500 og 7.4900, Klarälvens r_D gir 7.4625; alle avvises. r_U rundet til 0,0783 gir 9.7167 og 7.4180 og godtas."
+ },
+ "pred1:4:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV (WACC method)",
+    "verdi": 26.304968027545385,
+    "enhet": "SEK m"
+   }
+  ]
+ },
+ "pred1:4:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Debt capacity at t = 0",
+    "verdi": 104.12198721101817,
+    "enhet": "SEK m"
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 18.384968027545494,
+    "enhet": "SEK m"
+   },
+   {
+    "navn": "NPV (APV method)",
+    "verdi": 26.304968027545442,
+    "enhet": "SEK m"
+   }
+  ],
+  "merknad": "Feller som avvises: gjeld som 40 % av NPV (10.5220), skjoldet med r_D (35.7485, NPV 43.6685), skjoldet uten vekst (13.6909). r_U rundet til 0,0783 gir NPV 26.4651 og godtas."
+ },
+ "pred1:4:f": {
+  "type": "tekst"
+ },
+ "pred1:5:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV at t = 1, high state",
+    "verdi": 93.0,
+    "enhet": "EUR m"
+   },
+   {
+    "navn": "NPV at t = 1, low state",
+    "verdi": -54.0,
+    "enhet": "EUR m"
+   }
+  ]
+ },
+ "pred1:5:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "ρ (high state)",
+    "verdi": 43.75000000000003,
+    "enhet": "%"
+   }
+  ],
+  "merknad": "Fellene (1 + r_f)S_0 mot 80/48 (0.5344) og 1 − ρ (0.5625) avvises."
+ },
+ "pred1:5:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV of building today",
+    "verdi": 10.250000000000057,
+    "enhet": "EUR m"
+   }
+  ]
+ },
+ "pred1:5:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV today of waiting",
+    "verdi": 38.75000000000003,
+    "enhet": "EUR m"
+   }
+  ],
+  "tallPoeng": 2,
+  "tekstLedd": "Do you build today or wait? Briefly comment.",
+  "merknad": "Fellen med −54 i den lave tilstanden gir 9.8214 og avvises."
+ },
+ "pred1:5:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "X",
+    "verdi": 8.533333333333335,
+    "enhet": "EUR m",
+    "tol": 0.002
+   }
+  ],
+  "merknad": "tol 0,2 %: den statiske nullpunktverdien 180/21 = 8.5714 og fellen uten dagens kontantstrøm (9.3333) avvises; ρ rundet til 0,44 gir 8.5332 og godtas."
+ },
+ "pred1:5:f": {
+  "type": "tekst"
+ },
+ "pred1:6:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Offer value per Mors share",
+    "verdi": 134.0,
+    "enhet": "DKK"
+   },
+   {
+    "navn": "Premium over the price before the rumours",
+    "verdi": 16.521739130434774,
+    "enhet": "%"
+   }
+  ]
+ },
+ "pred1:6:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Net outlay today",
+    "verdi": 248.0,
+    "enhet": "DKK",
+    "alt": [
+     -248.0
+    ]
+   },
+   {
+    "navn": "Value at T if the deal goes through",
+    "verdi": 269.9877752364324,
+    "enhet": "DKK",
+    "tol": 0.003
+   },
+   {
+    "navn": "Value at T if the deal fails",
+    "verdi": 219.9877752364324,
+    "enhet": "DKK",
+    "tol": 0.003
+   }
+  ],
+  "merknad": "tol 0,3 %: uten rente (268 og 218) avvises, helt år (1.03) avvises, enkel rente godtas."
+ },
+ "pred1:6:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Certainty equivalent of the outlay",
+    "verdi": 249.83943380087774,
+    "enhet": "DKK",
+    "tol": 0.003
+   },
+   {
+    "navn": "Implied probability of completion",
+    "verdi": 59.70331712889067,
+    "enhet": "%",
+    "tol": 0.003
+   }
+  ],
+  "merknad": "tol 0,3 %: «plug 248.00» gir 56.02 %, helt år 58.80 %, ingen rente 60.00 %; alle avvises. Enkel rente (1 + 0,03 × 0,25) skiller seg med under 0,01 % og godtas."
+ },
+ "pred1:6:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Change in Thyholm's market value",
+    "verdi": -720.0,
+    "enhet": "DKK m"
+   },
+   {
+    "navn": "Change in Mors's market value",
+    "verdi": 450.0,
+    "enhet": "DKK m"
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Create or destroy value? Who pays too much? Explain briefly."
+ },
+ "pred1:6:e": {
+  "type": "tekst"
+ },
+ "pred2:1:": {
+  "type": "tekst"
+ },
+ "pred2:2:": {
+  "type": "tekst"
+ },
+ "pred2:3:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Bond",
+    "verdi": 121.15384615384615,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Equity",
+    "verdi": 63.46153846153846,
+    "enhet": "£ m"
+   }
+  ],
+  "merknad": "Fellen er pålydende diskontert, 144.2308; da blir egenkapitalen 40.3846."
+ },
+ "pred2:3:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV",
+    "verdi": 4.807692307692307,
+    "enhet": "£ m"
+   }
+  ],
+  "merknad": "Udiskontert NPV 6,2 faller utenfor toleransen."
+ },
+ "pred2:3:c": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Fraction to new shareholders",
+    "verdi": 37.956204379562045,
+    "enhet": "%"
+   },
+   {
+    "navn": "Change for the founder",
+    "verdi": -14.42307692307692,
+    "enhet": "£ m",
+    "alt": [
+     14.42307692307692
+    ]
+   },
+   {
+    "navn": "Change for the bondholders",
+    "verdi": 19.23076923076924,
+    "enhet": "£ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Will the founder go ahead?",
+  "merknad": "Fellene: 30/82,2 = 36.50% (udiskontert) og 30/131,7308 = 22.77% (bare lav tilstand). Begge fortegn godtas for gründerens endring; retningen rettes i tekstdelen."
+ },
+ "pred2:3:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Smallest F",
+    "verdi": 126.0,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Largest F",
+    "verdi": 131.0,
+    "enhet": "£ m"
+   }
+  ],
+  "merknad": "Fellene: 146 (kreditorene sammenlignet med (c)), 150 og 162.2 (gründeren uten de 30 som betales) faller utenfor."
+ },
+ "pred2:3:e": {
+  "type": "tekst"
+ },
+ "pred2:4:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "β<sub>D</sub> of Redwater",
+    "verdi": 0.20000000000000007,
+    "enhet": ""
+   }
+  ]
+ },
+ "pred2:4:b": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>U</sub>",
+    "verdi": 9.72,
+    "enhet": "%",
+    "abs": 0.05,
+    "tol": 0.0001
+   }
+  ],
+  "merknad": "Fellene 9.375% (D/E som vekt), 9.544% (skatt i r_U) og 11.1% (Redwaters r_E) faller utenfor."
+ },
+ "pred2:4:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>E</sub>",
+    "verdi": 12.866666666666667,
+    "enhet": "%",
+    "abs": 0.05,
+    "tol": 0.0001
+   }
+  ],
+  "merknad": "Fellene 11.608% (D/V i MM II) og 10.900% (Redwaters D/E) faller utenfor."
+ },
+ "pred2:4:d": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "r<sub>wacc</sub>",
+    "verdi": 9.3,
+    "enhet": "%",
+    "abs": 0.02,
+    "tol": 0.0001
+   }
+  ],
+  "merknad": "Fellen r_U (uten skatt) faller utenfor."
+ },
+ "pred2:4:e": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup><sub>0</sub> (WACC)",
+    "verdi": 106.69577423996505,
+    "enhet": "$ m",
+    "tol": 0.0025
+   }
+  ],
+  "merknad": "Toleransen er 0,25 % så V^U faller utenfor."
+ },
+ "pred2:4:f": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup><sub>1</sub>",
+    "verdi": 68.6184812442818,
+    "enhet": "$ m",
+    "tol": 0.002
+   },
+   {
+    "navn": "D<sub>0</sub>",
+    "verdi": 42.67830969598602,
+    "enhet": "$ m",
+    "tol": 0.0025
+   },
+   {
+    "navn": "D<sub>1</sub>",
+    "verdi": 27.44739249771272,
+    "enhet": "$ m",
+    "tol": 0.002
+   },
+   {
+    "navn": "Debt adjustment",
+    "verdi": 15.230917198273303,
+    "enhet": "$ m",
+    "tol": 0.005,
+    "alt": [
+     -15.230917198273303
+    ]
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Does Kittredge borrow or repay?",
+  "merknad": "Begge fortegn godtas for justeringen; retningen rettes i tekstdelen. Toleransene skiller ut gjelden regnet fra V^U."
+ },
+ "pred2:4:g": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "V<sup>U</sup><sub>0</sub>",
+    "verdi": 106.04795370152428,
+    "enhet": "$ m",
+    "tol": 0.0025
+   }
+  ],
+  "merknad": "Toleransen er 0,25 % så V^L faller utenfor."
+ },
+ "pred2:4:h": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "TS<sub>1</sub>",
+    "verdi": 0.44812225180785326,
+    "enhet": "$ m",
+    "tol": 0.0025
+   },
+   {
+    "navn": "TS<sub>2</sub>",
+    "verdi": 0.2881976212259836,
+    "enhet": "$ m",
+    "tol": 0.002
+   },
+   {
+    "navn": "PV(TS)",
+    "verdi": 0.6478205384407719,
+    "enhet": "$ m",
+    "tol": 0.002
+   }
+  ],
+  "merknad": "Toleransen for PV(TS) er 0,2 % så skjoldet diskontert med r_wacc (0.6512) faller utenfor; med r_D blir det 0.6882."
+ },
+ "pred2:4:i": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "V<sup>L</sup><sub>0</sub> (APV)",
+    "verdi": 106.69577423996505,
+    "enhet": "$ m",
+    "tol": 0.0001
+   }
+  ],
+  "tallPoeng": 1,
+  "tekstLedd": "Explain what the difference between r_U and r_wacc represents.",
+  "merknad": "Toleransen er 0,01 % så skjoldet diskontert med r_D (106.7361) faller utenfor. Skjoldet med r_wacc (106.6992) kan ikke skilles ut her; det fanges i (h)."
+ },
+ "pred2:5:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "Price of the government bond",
+    "verdi": 95.18143961927424,
+    "enhet": "€",
+    "tol": 0.0002
+   },
+   {
+    "navn": "Price of the Oberwald bond",
+    "verdi": 88.16592827701736,
+    "enhet": "€",
+    "tol": 0.0002
+   }
+  ],
+  "merknad": "Toleransen er 0,02 % så enkel rente (95.2381 og 88.4956) faller utenfor; 95.18 og 88.17 godtas."
+ },
+ "pred2:5:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Expected return per year",
+    "verdi": 5.14953780212255,
+    "enhet": "%",
+    "abs": 0.05,
+    "tol": 0.0001
+   }
+  ],
+  "tallPoeng": 1.5,
+  "tekstLedd": "Compare with the promised yield and the risk-free rate and explain the difference.",
+  "merknad": "Fellene: toårsavkastningen 10.56% og halvparten av den (5.28%) faller utenfor."
+ },
+ "pred2:5:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "ρ",
+    "verdi": 17.54921810466343,
+    "enhet": "%",
+    "abs": 0.1,
+    "tol": 0.0001
+   },
+   {
+    "navn": "Price of one CDS contract",
+    "verdi": 0.1670359843394497,
+    "enhet": "€",
+    "tol": 0.004
+   }
+  ],
+  "merknad": "Fellene: overlevelse 82.45%, ettårs diskontering 22.93% og enkel rente 17.68% faller utenfor. CDS-toleransen er 0,4 % så enkel rente gjennom hele kjeden (0.1605), udiskontert 0.1755 og ett år 0.1712 faller utenfor."
+ },
+ "pred2:5:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "Number of CDS contracts",
+    "verdi": 8.4,
+    "enhet": "million contracts",
+    "alt": [
+     8400000.0
+    ]
+   },
+   {
+    "navn": "Cost of the contracts",
+    "verdi": 1.4031022684513774,
+    "enhet": "€ m",
+    "tol": 0.004
+   },
+   {
+    "navn": "Bonds plus contracts",
+    "verdi": 19.03628792385485,
+    "enhet": "€ m",
+    "tol": 0.0004
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "How does that compare with government bonds with the same face value?",
+  "merknad": "alt godtar antallet skrevet ut (8400000). 20 millioner kontrakter er fellen. Toleransen for summen er 0,04 % så 20/1,05 = 19.0476 (enkel rente) faller utenfor."
+ },
+ "pred2:5:e": {
+  "type": "tekst"
+ },
+ "pred2:6:a": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV of committing now",
+    "verdi": -6.49704142011835,
+    "enhet": "£ m",
+    "tol": 0.005
+   }
+  ],
+  "merknad": "Toleransen er 0,5 % så enkel rente (−6.4444) faller utenfor; ett års diskontering gir −5.0769."
+ },
+ "pred2:6:b": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV at Year 1 after a passed pilot",
+    "verdi": 44.07692307692308,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "NPV at Year 1 after a failed pilot",
+    "verdi": -32.84615384615385,
+    "enhet": "£ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "What does Kirkstall do after each result?",
+  "merknad": "Fellen uten diskontering etter et ja (47.4000) faller utenfor."
+ },
+ "pred2:6:c": {
+  "type": "tall",
+  "tall": [
+   {
+    "navn": "NPV of the staged plan",
+    "verdi": 11.952662721893493,
+    "enhet": "£ m"
+   },
+   {
+    "navn": "Value of the possibility of staging",
+    "verdi": 11.952662721893493,
+    "enhet": "£ m"
+   }
+  ],
+  "merknad": "Fellene: 18.4497 (sammenlignet med den negative NPV-en), 12.6308 (uten diskontering) og −6.9970 (bygger også etter et nei)."
+ },
+ "pred2:6:d": {
+  "type": "blandet",
+  "tall": [
+   {
+    "navn": "NPV with the thorough pilot",
+    "verdi": 15.502958579881657,
+    "enhet": "£ m"
+   }
+  ],
+  "tallPoeng": 3,
+  "tekstLedd": "Which pilot should Kirkstall choose?"
+ },
+ "pred2:6:e": {
+  "type": "tekst"
+ },
  "prove1:1:": {
   "type": "tekst"
  },

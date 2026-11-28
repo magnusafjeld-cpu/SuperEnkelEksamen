@@ -1,6 +1,6 @@
 ---
 tags: [fag, fie402, innhold]
-oppdatert: 2026-11-26
+oppdatert: 2026-11-28
 ---
 
 # FIE402 Corporate Finance
@@ -68,6 +68,18 @@ Kurbatov sa det minst fire ganger i oppsummeringsforelesningen 2026: bare intuis
 (hva σ, T, r, S og K gjør med prisen, amerikansk mot europeisk), og N(d1) trenger ikke
 forklares. β_E = Δ(V/E)β_U står derfor som intuisjon, ikke som pugg. **Kursets nye
 formelark (november 2026) har én linje til: Δ = (C_u − C_d)/(S_u − S_d).**
+
+## Prediksjonseksamener (28. november 2026)
+
+Fanen «Prediksjon» i Eksamenssett: hele eksamener (6 oppgaver, 100 poeng, 180 min) bygd på det
+som mest sannsynlig kommer. `pred1` er den mest sannsynlige (10 · 10 · 20 · 20 · 20 · 20),
+`pred2` den nest mest sannsynlige (12 · 12 · 18 · 18 · 20 · 20). Når Magnus er ferdig med et sett,
+lages neste: én oppgave som ligner det han bommet på, og resten fra prediksjonen. Prediksjon 1
+ferdig gir prediksjon 3, prediksjon 2 ferdig gir prediksjon 4 og så videre. Oppskriften står i
+`docs/fie402-prediksjon-spek.md`, kildene i `fag/fie402/_pred/` (loggen i `logg.md`), og
+`tools/flett-pred.py` fletter inn. Settene er `kind: "mock"` med `fane: "pred"`, se
+[[Eksamenssett-modulen]]. Begge ble løst blindt: ingen regnefeil, men reserveverdiene lekket svar
+og ble fjernet, og toleransene ble strammet så kjente feller avvises.
 
 ## Kursets konvensjoner
 

@@ -148,6 +148,9 @@ for (const fil of filer) {
     if (typeof s.minutes !== "number" || s.minutes < (s.kind === "must" ? 10 : 30)) si(feil, sid, "minutes er urimelig");
     if (typeof s.points !== "number" || s.points <= 0) si(feil, sid, "points er urimelig");
     if (s.facts && !Array.isArray(s.facts)) si(feil, sid, "facts må være en liste");
+    /* Egen fane for prøveeksamener (28. november 2026): fanen må finnes i EDU_DATA.mockFaner. */
+    if (s.fane !== undefined && (s.kind !== "mock" || !(w.EDU_DATA.mockFaner || {})[s.fane]))
+      si(feil, sid, `fane «${s.fane}» krever kind: mock og en oppføring i EDU_DATA.mockFaner`);
     const kart = s.kind === "kartlegging";
     if (kart && s.mc && s.mc.wrongFactor) si(feil, sid, "kartleggingen skal ikke ha minuspoeng");
     if (kart && !temaIder.size) si(feil, sid, "kartlegging uten EDU_DATA.kartlegging.temaer i samme fil");

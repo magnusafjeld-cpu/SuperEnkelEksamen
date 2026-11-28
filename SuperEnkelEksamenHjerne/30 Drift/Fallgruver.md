@@ -1,6 +1,6 @@
 ---
 tags: [drift, fallgruver, viktig]
-oppdatert: 2026-11-25
+oppdatert: 2026-11-28
 ---
 
 # Fallgruver
@@ -752,3 +752,10 @@ Samme regel gjelder formler: τ*<sub>d</sub> = (τ<sub>d</sub> − τ<sub>g</sub
 r<sub>D</sub> = y − p·L kom fra læreboka, ikke fra Kurbatov, og ble drillet som eksamensstoff til
 23.11.2026. Før en formel blir regnefamilie eller eksamensoppgave: finn den på lysbildet, formelarket
 eller i tekstingen.
+
+## 18. flett-mk.py skriver alt fra MÅ KUNNE og ut på nytt
+
+`tools/flett-mk.py --skriv` kutter `fag/fie402/sett.js` ved merket MÅ KUNNE og skriver blokken
+på nytt sist i filen. Alt som står etter merket, forsvinner. Prediksjonseksamenene
+(`tools/flett-pred.py`, 28. november 2026) står derfor rett **før** MÅ KUNNE, og verktøyet
+setter dem inn der. Legger du til en ny blokk i `sett.js`, plasser den foran MÅ KUNNE.

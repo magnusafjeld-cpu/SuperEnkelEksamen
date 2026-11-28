@@ -1,0 +1,396 @@
+{
+ "id": "pred2",
+ "kind": "mock",
+ "fane": "pred",
+ "nr": 2,
+ "label": "Prediksjon 2",
+ "minutes": 180,
+ "points": 100,
+ "format": "6 oppgaver · 100 poeng · ingen flervalg",
+ "note": "Den nest mest sannsynlige eksamenen: temaene prediksjon 1 ikke dekker, med kreditt og trinnvis investering med en pilot som gir informasjon. Poengfordelingen er den samme som i begge Kurbatov-settene.",
+ "facts": [
+  "Prediction exam in Kurbatov's format: 6 exercises, 100 points, 180 minutes, no multiple choice, calculator and one bilingual dictionary permitted.",
+  "Points per exercise: 12 · 12 · 18 · 18 · 20 · 20, as in both of Kurbatov's papers. Two verbal exercises with sentence budgets, then four computational exercises.",
+  "The formula sheet is handed out.",
+  "Recommended precision: 4 decimal places. An error carried forward is not penalised again in later parts.",
+  "Written for this app from the prediction of the 2026 exam. Every number in the solutions is computed in a script."
+ ],
+ "exercises": [
+  {
+   "n": 1,
+   "title": "Governance",
+   "points": 12,
+   "topic": "Corporate governance",
+   "chapters": [
+    27
+   ],
+   "merke": "Som H2025 E2: setningsbudsjett og poeng per svar · governance 90 %, vinkelen lønn og KPI-er 20 %",
+   "body": "<p>Haverford Instruments Inc., a US-listed maker of laboratory instruments with dispersed ownership, develops each new generation of instruments over four to six years. The board pays the CEO a cash bonus of 150% of salary if earnings per share (EPS) grow by at least 10% in the year. Three quarters into this year EPS was on track to grow by only 6%, but the CEO still met the target.</p><p>Answer the four questions below in 2–3 sentences each (3 points each).</p><ol><li>Why might a board choose an EPS target? What behaviour can a one-year EPS target encourage?</li><li>Describe one action the CEO could have taken in the last quarter to reach the target without creating value: how does it raise EPS and why can it hurt long-term shareholders?</li><li>Do the same for a second action that works differently.</li><li>Propose a better design for the bonus and explain why it works better.</li></ol>",
+   "solution": "<p><b>Model answer (2–3 sentences per question).</b></p><p><b>1. Why EPS and what it encourages.</b> EPS is simple, audited and published every quarter, so the board can verify the target and tie a large part of pay to the profits shareholders care about; pay that depends on performance makes low effort costly for the CEO. But the target covers one year and one accounting number, so it encourages the CEO to maximise this year's reported EPS rather than the long-term value of the firm: it makes the CEO myopic.</p><p><b>2. A share buyback.</b> Buying back shares cuts the number of shares, so EPS rises mechanically even if total earnings do not change, as long as the earnings yield of the shares bought (EPS divided by the price) exceeds the after-tax interest rate on the cash used or the debt raised. Since EPS uses the weighted-average number of shares, a buyback late in the fourth quarter lowers that number only partly, so it must be large to lift this year's EPS. The buyback itself creates no value: at a fair price the remaining shareholders are no better off. It destroys value if the shares are overpriced or if the cash or the new debt raised to pay for it was needed for positive-NPV projects. This is the lecturer's own example: a slightly inefficient buyback announced only to reach the EPS target (recording 17, 37:19; recording 18, 1:14:07).</p><p><b>3. A cut in R&amp;D.</b> R&amp;D is expensed at once, so cutting the budget for the next generation of instruments raises this year's earnings almost one for one (after tax). The projects that are cut may well have positive NPV, so the firm gives up long-term value to hit a one-year number; with a development cycle of four to six years the damage shows only after the bonus has been paid.</p><p><b>4. A better design.</b> Measure performance over several years (for example three-year growth in economic profit, or total shareholder return relative to peers) and pay the bonus in restricted shares that vest over three to five years, with a clawback if results are reversed. Then a buyback or an R&amp;D cut that only moves one year's number no longer pays, because the CEO's wealth depends on the long-run value of the shares. Long-term milestones such as product launches, or ESG targets, which the lecturer called much less abusable than EPS (recording 17, 38:23), can be added.</p><p><b>Also accepted.</b> For 2 and 3: cutting marketing, training or maintenance; recognising revenue early or delaying expenses; selling an asset at a gain to book a one-off profit. For 4: EPS measured with a fixed number of shares so buybacks do not count; a mix of financial and non-financial targets; options with long vesting (with the caveat that options reward risk); an independent compensation committee that can adjust the target for one-off actions.</p>",
+   "criteria": [
+    "3 points per question, graded separately: 1 for the action or claim and 2 for the mechanism with its consequence for long-term shareholders. A label alone («short-termism», «agency problem») earns at most 1.",
+    "Question 1: EPS is observable and ties pay to profits, which rewards effort; but a one-year target rewards one year's accounting number, so the CEO becomes myopic. Both halves (effort and the one-year horizon) are needed for 3 points.",
+    "Questions 2 and 3: two actions that work differently. The natural pair is a share buyback (EPS rises because the number of shares falls, no value is created) and a cut in R&D or other long-term spending (earnings rise now, but the firm forgoes positive-NPV projects). Accounting choices such as booking revenue early are accepted as one of the two.",
+    "Two versions of the same action (two ways to buy back shares, or cutting R&D and cutting the R&D staff) count as one.",
+    "Question 4: a concrete design (several years of measurement, restricted shares with vesting, a clawback, a relative or value-based measure, long-term or ESG milestones) with the reason it removes the gain from the actions in 2 and 3. A design without a reason earns 1.",
+    "Each answer is 2–3 sentences. Length is not rewarded."
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Security Issues",
+   "points": 12,
+   "topic": "Equity issues",
+   "chapters": [
+    11,
+    13,
+    14
+   ],
+   "merke": "Teorispørsmålet Kurbatov skisserte i wrap-up (opptak 18, 48:05) · emisjon 40 %",
+   "body": "<p>Westerschelde Terminals N.V. runs container terminals in the Netherlands and is listed on Euronext Amsterdam. It holds €180 million in cash and has little debt. It announces a seasoned equity offering (SEO) of €450 million to build a new terminal. On the day of the announcement its share price falls by 12%.</p><p>What are the possible reasons for the fall? Give two different reasons. What would have been a better way to finance the terminal? Around five sentences in total should be enough (each reason is worth 4 points and the better alternative 4 points).</p>",
+   "solution": "<p><b>Model answer (about five sentences).</b></p><p><b>Reason 1: the issue signals that the shares are overvalued.</b> Managers know more about the firm than outside investors and prefer to sell new shares when they believe the market price is too high, so investors read the announcement as bad news and mark the price down (Myers-Majluf). The signal is especially strong here, because Westerschelde had cash and spare debt capacity and still chose equity.</p><p><b>Reason 2: agency costs of free cash flow.</b> €450 million on top of €180 million in cash puts more money under the managers' control. Investors may fear it will be spent on empire building or on a terminal with a negative NPV. Lower leverage also removes the discipline that fixed interest payments put on managers.</p><p><b>Better alternative.</b> Follow the pecking order: use the €180 million in cash first and borrow the rest, because internal funds reveal nothing and debt is much less sensitive to the managers' private information (it also brings a tax shield and discipline); new equity comes last.</p><p><b>Also accepted.</b> As a reason: the need for outside money reveals that internally generated cash flows are weaker than investors expected; the market doubts the terminal itself; with little debt the market expected the terminal to be financed with debt, so equity gives up the expected tax shields; price pressure, because the demand for the shares slopes downwards and new shares must be sold at a discount. If equity must be raised, reduce the information gap first (publish the contracts with shipping lines, bring in a well-known anchor investor who certifies the value) or issue when the gap is small. Not accepted on its own: «dilution». New shares sold at a fair price do not lower the value of the old shares, so the fall must come from what the issue tells investors. Issue costs are real but far too small to explain a 12% fall in the value of all the shares.</p>",
+   "criteria": [
+    "Each reason is worth 4 points: 1 for naming it and 3 for the mechanism (who knows what, what investors infer and why the price falls).",
+    "Reason 1: asymmetric information. Managers issue equity when the shares are overpriced, so the issue is a negative signal and the price falls (Myers-Majluf, adverse selection). Using the cash and the low debt to sharpen the argument is a bonus.",
+    "Reason 2: agency costs of free cash flow: more cash for managers to spend on empire building or negative-NPV projects, with less debt to discipline them. A reason based on the project (investors think the terminal is a poor investment) is accepted if it is explained.",
+    "Also accepted with a mechanism (any reasonable reason counts, as in Kurbatov's keys): the issue reveals that internal cash flows are weaker than expected; lost expected tax shields (with little debt the market expected debt financing); price pressure (downward-sloping demand for the shares). «Dilution» alone earns nothing; issue costs alone cannot explain 12% of the whole market value.",
+    "Better alternative (4 points): internal funds first, then debt, then equity (the pecking order), with the reason: cash reveals nothing and debt is less sensitive to private information. Naming debt without a reason earns 2.",
+    "About five sentences in total. Two reasons that are really the same (two versions of overvaluation) count as one."
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Debt and risk",
+   "points": 18,
+   "topic": "Risky debt and investment",
+   "chapters": [
+    10
+   ],
+   "merke": "Som eksemplet i forelesning 04 (33:41) og PS1 E6, med diskontering og ulik gevinst i tilstandene · denne typen 40 %",
+   "body": "<p>Northgale Airways Ltd, a regional airline in the north of England, is owned entirely and run by its founder. Its only debt is a zero-coupon bond with a face value of £150 million due in one year. Next year its assets will be worth £260 million if fuel prices are low (probability 60%) and £90 million if they are high (probability 40%). In default the bondholders take over the firm at no cost. Investors are risk neutral, the risk-free rate is 4% and there are no taxes. Treat the bondholders as one party. Use 4 decimal places.</p><p>A fuel-saving retrofit costs £30 million today. It adds £27 million to next year's asset value if fuel prices are low and £50 million if they are high. Northgale has no cash.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>Without the retrofit, what are Northgale's bond and its equity worth today?</p>",
+     "solution": "<p><b>Step 1. Payoffs state by state.</b> The bondholders get min(assets, 150) and the founder gets max(assets − 150, 0):</p><table class=\"data\"><tr><th>Fuel prices</th><th>Assets</th><th>Bond</th><th>Equity</th></tr><tr><td>Low (60%)</td><td class=\"n\">260</td><td class=\"n\">150</td><td class=\"n\">110</td></tr><tr><td>High (40%)</td><td class=\"n\">90</td><td class=\"n\">90</td><td class=\"n\">0</td></tr></table><p><b>Step 2. Discount the expected payoffs at r<sub>f</sub> = 4%</b> (everyone is risk neutral):</p><p>Bond = (0.6 × 150 + 0.4 × 90)/1.04 = 126/1.04 = <b>£121.1538 million</b><br>Equity = (0.6 × 110 + 0.4 × 0)/1.04 = 66/1.04 = <b>£63.4615 million</b></p><p><b>Check.</b> 121.1538 + 63.4615 = 184.6154 = (0.6 × 260 + 0.4 × 90)/1.04 ✓. The bond is worth far less than 150/1.04 = 144.2308, because Northgale defaults when fuel prices are high.</p>",
+     "criteria": [
+      "Bond valued state by state: (0.6 × 150 + 0.4 × 90)/1.04 = 121.1538. Discounting the face value (150/1.04 = 144.2308) ignores default and is the classic error.",
+      "Equity = 0.6 × 110/1.04 = 63.4615.",
+      "Discounts at the risk-free rate, since investors are risk neutral.",
+      "The check D + E = 184.6154 is a bonus."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 2,
+     "body": "<p>What is the NPV of the retrofit?</p>",
+     "solution": "<p>The retrofit pays 27 or 50 next year and costs 30 today:</p><p>NPV = −30 + (0.6 × 27 + 0.4 × 50)/1.04 = −30 + 36.2/1.04 = −30 + 34.8077 = <b>£4.8077 million</b></p><p>The NPV is positive, so for the firm as a whole the retrofit is a good project.</p>",
+     "criteria": [
+      "NPV = −30 + 36.2/1.04 = 4.8077.",
+      "Uses the expected increase in each state, not the increase in one state only.",
+      "Says that the retrofit creates value for the firm as a whole."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 5,
+     "body": "<p>The retrofit can only be financed by selling new shares to outside investors at a fair price. What fraction of the equity must they receive? Will the founder go ahead? How much do the founder and the bondholders each gain or lose compared with (a)?</p>",
+     "solution": "<p><b>Step 1. Payoffs with the retrofit.</b> With high fuel prices the assets are worth 90 + 50 = 140, still below 150, so Northgale still defaults:</p><table class=\"data\"><tr><th>Fuel prices</th><th>Assets with retrofit</th><th>Bond (F = 150)</th><th>All equity</th></tr><tr><td>Low (60%)</td><td class=\"n\">287</td><td class=\"n\">150</td><td class=\"n\">137</td></tr><tr><td>High (40%)</td><td class=\"n\">140</td><td class=\"n\">140</td><td class=\"n\">0</td></tr></table><p><b>Step 2. Value of all the equity with the retrofit.</b> 0.6 × 137/1.04 = 82.2/1.04 = <b>79.0385</b>.</p><p><b>Step 3. The new shareholders' fraction.</b> In a competitive market they pay 30 for a stake worth exactly 30: x × 79.0385 = 30, so x = <b>37.96%</b>.</p><p><b>Step 4. The founder.</b> The founder keeps 62.04% × 79.0385 = 49.0385 (the same as 79.0385 − 30), against 63.4615 without the retrofit: a change of <b>−14.4231</b>. <b>The founder does not go ahead</b>: the firm forgoes a positive-NPV project.</p><p><b>Step 5. The bondholders.</b> With the retrofit the bond is worth (0.6 × 150 + 0.4 × 140)/1.04 = 146/1.04 = 140.3846, against 121.1538: a change of <b>+19.2308</b>. The bondholders would love the retrofit: in the high-fuel state they receive the whole 50 it adds.</p><p><b>Check.</b> Bondholders +19.2308, founder −14.4231, new shareholders 0 (they pay 30 for 30): 19.2308 − 14.4231 = 4.8077 = the NPV ✓. The bondholders capture more than the whole NPV, which is why the founder says no.</p>",
+     "criteria": [
+      "Sees that the firm still defaults with high fuel prices (140 is below 150), so only the low-fuel state gives equity: all equity is worth 0.6 × 137/1.04 = 79.0385.",
+      "Fraction from x × 79.0385 = 30: x = 37.96%. Dividing by the undiscounted 82.2 (36.50%) or by the low-state payoff alone is wrong.",
+      "Founder: 49.0385 against 63.4615, a loss of 14.4231, so the founder does not go ahead.",
+      "Bondholders: 140.3846 against 121.1538, a gain of 19.2308.",
+      "The check 19.2308 − 14.4231 = 4.8077 = NPV is a bonus."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 5,
+     "body": "<p>The founder asks the bondholders to cut the face value to £F million if the retrofit is installed, again financed by selling new shares to outside investors at a fair price; otherwise it stays at £150 million. For which F are both the bondholders and the founder at least as well off as in (a)?</p>",
+     "solution": "<p><b>Step 1. The benchmarks.</b> If the bondholders refuse, the retrofit is not installed (from (c)), so each party compares with (a): the bondholders with 121.1538 and the founder with 63.4615. Not with the face value of 150 and not with 140.3846 from (c).</p><p><b>Step 2. Is the new bond safe?</b> With the retrofit the assets are worth at least 140. For F ≤ 140 the bond is repaid in full in both states and is worth F/1.04.</p><p><b>Step 3. The bondholders accept</b> if F/1.04 ≥ 121.1538, that is F ≥ 121.1538 × 1.04 = <b>126.0000</b>.</p><p><b>Step 4. The founder goes ahead</b> if the stake left after selling shares worth 30 is worth at least 63.4615. All equity is worth [0.6(287 − F) + 0.4(140 − F)]/1.04 = (228.2 − F)/1.04, so</p><p>(228.2 − F)/1.04 − 30 ≥ 63.4615 ⇔ 228.2 − F ≥ 93.4615 × 1.04 = 97.2000 ⇔ F ≤ <b>131.0000</b></p><p><b>Step 5. Face values above 140.</b> Then Northgale defaults with high fuel prices and the founder needs 0.6(287 − F)/1.04 − 30 ≥ 63.4615, that is F ≤ 125.0000, which contradicts F &gt; 140. No such F works.</p><p><b>Answer: any F from 126 to 131</b> (£ million) gets everyone on board; strictly inside the range both parties gain.</p><p><b>Example and check.</b> With F = 128 the bond is safe and worth 128/1.04 = 123.0769 (+1.9231), the new shareholders receive 30/96.3462 = 31.14% and the founder keeps 66.3462 (+2.8846). 1.9231 + 2.8846 = 4.8077 = the NPV ✓. The range is 5 wide: the NPV measured at Year 1, 4.8077 × 1.04 = 5, is what the two parties can share.</p>",
+     "criteria": [
+      "Uses the right benchmarks: the values without the retrofit from (a), 121.1538 and 63.4615. Comparing the bondholders with 150 or with 140.3846 from (c) is the classic error: without the cut the retrofit is not installed.",
+      "Sees that the new bond is safe for F ≤ 140, so it is worth F/1.04.",
+      "Bondholders: F ≥ 126.",
+      "Founder: (228.2 − F)/1.04 − 30 ≥ 63.4615, so F ≤ 131. Forgetting that the founder pays for the retrofit by giving up shares worth 30 is the second classic error.",
+      "States the range 126 ≤ F ≤ 131. Ruling out F above 140, an example inside the range or the check that the gains add up to the NPV is a bonus."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 3,
+     "body": "<p>Explain briefly the founder's decision in (c) and the bondholders' position in (d). Who captures the value of the retrofit in each case?</p>",
+     "solution": "<p><b>In (c).</b> The retrofit has a positive NPV of 4.8077, yet the founder turns it down: the firm forgoes a positive-NPV project because of its debt (debt overhang). The bond is senior, so with high fuel prices the whole 50 from the retrofit goes to the bondholders (their payoff rises from 90 to 140), while the founder pays for the retrofit by giving away 37.96% of the equity. The project is a wealth transfer from the founder to the bondholders: they gain 19.2308, more than the whole NPV, while the founder loses 14.4231.</p><p><b>In (d).</b> A claim of 150 is worth only 121.1538 to the bondholders, because they receive just 90 when fuel prices are high. A smaller claim that is repaid in full is worth more than a larger one that defaults 40% of the time, so they gain by cutting the face value to between 126 and 131. With the cut Northgale no longer defaults, the founder keeps the upside of the retrofit and the NPV is shared instead of lost.</p><p><b>Also accepted.</b> In practice renegotiation is hard when the bonds are held by many investors: each one would rather keep the full claim and let the others take the cut (a hold-out problem).</p>",
+     "criteria": [
+      "Key sentence, about half the marks (lecture 04, 44:31): the firm forgoes a positive-NPV project because of its existing debt.",
+      "Mechanism: the bond is senior, so the bondholders capture the payoff of the retrofit in the default state; a wealth transfer from the founder to the bondholders (+19.2308 against −14.4231).",
+      "Renegotiation: a smaller safe claim is worth more than a larger risky one worth 121.1538, so the bondholders gain by cutting the face value and the NPV is shared.",
+      "Naming debt overhang without the mechanism earns 1 of 3."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Valuation with leverage",
+   "points": 18,
+   "topic": "WACC and APV",
+   "chapters": [
+    3,
+    4,
+    17,
+    18,
+    19
+   ],
+   "merke": "Som H2025 E4: 9 × 2 poeng, med en sammenlignbar bedrift · WACC og APV 80 %",
+   "body": "<p>Kittredge Environmental Inc. holds a two-year contract to clean up a former steel works. Its free cash flows are $48 million at the end of Year 1 and $75 million at the end of Year 2; then it is wound up. It keeps a debt-to-value ratio of 40% and its cost of debt is 5%. Kittredge is not listed, but Redwater Remediation Corp. has the same business risk. Redwater keeps a debt-to-equity ratio of 0.25; its debt has an expected return of 4.2% and its equity beta is 1.35. The risk-free rate is 3% per year and will stay the same, the expected market return is 9% and the tax rate is 21%.</p><p>Each question is worth 2 points. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 2,
+     "body": "<p>Find the debt beta of Redwater.</p>",
+     "solution": "<p>Redwater's debt is risky (4.2% &gt; 3%), so invert the CAPM for the debt. The market risk premium is 9% − 3% = 6%:</p><p>β<sub>D</sub> = (r<sub>D</sub> − r<sub>f</sub>)/(E[R<sub>Mkt</sub>] − r<sub>f</sub>) = (0.042 − 0.03)/0.06 = <b>0.2000</b></p>",
+     "criteria": [
+      "Inverts the CAPM on the debt: β_D = (r_D − r_f)/(E[R_Mkt] − r_f).",
+      "Market risk premium 0.09 − 0.03 = 0.06, not 0.09.",
+      "β_D = 0.2000."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 2,
+     "body": "<p>Find the unlevered cost of capital for Kittredge.</p>",
+     "solution": "<p><b>Step 1. Redwater's weights.</b> D/E = 0.25, so D/V = 0.25/1.25 = 0.2000 and E/V = 0.8000.</p><p><b>Step 2. Unlever Redwater</b>, through betas or directly:</p><p>β<sub>U</sub> = 0.8 × 1.35 + 0.2 × 0.2 = 1.08 + 0.04 = 1.1200, so r<sub>U</sub> = 0.03 + 1.12 × 0.06 = <b>0.0972 (9.72%)</b><br>Directly: r<sub>E</sub> of Redwater = 0.03 + 1.35 × 0.06 = 0.1110, so r<sub>U</sub> = 0.8 × 0.111 + 0.2 × 0.042 = 0.0888 + 0.0084 = 0.0972 ✓</p><p><b>Step 3.</b> Kittredge has the same business risk, so its r<sub>U</sub> is also 9.72%. r<sub>U</sub> does not depend on leverage or taxes.</p>",
+     "criteria": [
+      "Converts Redwater's D/E = 0.25 into D/V = 0.2 and E/V = 0.8. Using 0.25 and 0.75 as weights gives 9.375% and is the classic error.",
+      "r_U = 9.72%, through betas (β_U = 1.12) or by weighting Redwater's returns.",
+      "No (1 − τ) in r_U. The comparable is used because it has the same business risk."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 2,
+     "body": "<p>Find Kittredge's cost of equity.</p>",
+     "solution": "<p>Kittredge's D/V = 0.4, so D/E = 0.4/0.6 = 0.6667. MM Proposition II:</p><p>r<sub>E</sub> = r<sub>U</sub> + (D/E)(r<sub>U</sub> − r<sub>D</sub>) = 0.0972 + 0.6667 × (0.0972 − 0.05) = 0.0972 + 0.0315 = <b>0.1287 (12.87%)</b></p><p>Same result through betas: β<sub>D</sub> = (0.05 − 0.03)/0.06 = 0.3333 and β<sub>E</sub> = 1.12 + 0.6667 × (1.12 − 0.3333) = 1.6444, so r<sub>E</sub> = 0.03 + 1.6444 × 0.06 = 0.1287 ✓</p>",
+     "criteria": [
+      "Uses Kittredge's own leverage: D/E = 0.4/0.6 = 0.6667. Putting D/V = 0.4 into MM II gives 11.608%; using Redwater's D/E gives 10.900%.",
+      "r_E = 12.87%, from MM II or by relevering the betas.",
+      "Uses Kittredge's cost of debt, 5%, not Redwater's 4.2%."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 2,
+     "body": "<p>Find Kittredge's after-tax WACC.</p>",
+     "solution": "<p>r<sub>wacc</sub> = (E/V)r<sub>E</sub> + (D/V)r<sub>D</sub>(1 − τ<sub>c</sub>) = 0.6 × 0.1287 + 0.4 × 0.05 × 0.79 = 0.0772 + 0.0158 = <b>0.0930 (9.30%)</b></p><p>Cross-check: r<sub>wacc</sub> = r<sub>U</sub> − d·τ<sub>c</sub>·r<sub>D</sub> = 0.0972 − 0.4 × 0.21 × 0.05 = 0.0972 − 0.0042 = 0.0930 ✓</p>",
+     "criteria": [
+      "(1 − τ) applies to r_D only, with the weights E/V = 0.6 and D/V = 0.4.",
+      "r_wacc = 9.30%.",
+      "The shortcut r_U − d·τ·r_D is a fast cross-check, not a requirement."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 2,
+     "body": "<p>Find the levered value today using the WACC method.</p>",
+     "solution": "<p>Discount the free cash flows at r<sub>wacc</sub>; the tax shield is already in the rate:</p><p>V<sup>L</sup><sub>0</sub> = 48/1.093 + 75/1.093<sup>2</sup> = 43.91583 + 62.77995 = <b>$106.6958 million</b></p>",
+     "criteria": [
+      "Discounts both cash flows at 9.30%, the Year-2 flow over two years.",
+      "V^L_0 = 106.6958.",
+      "Discounting at r_U gives V^U = 106.0480, which is part (g), not this part."
+     ]
+    },
+    {
+     "label": "f",
+     "points": 2,
+     "body": "<p>Find the levered value at the end of Year 1 (of the cash flow still to come) and the debt at Year 0 and Year 1. How much does Kittredge borrow or repay at the end of Year 1?</p>",
+     "solution": "<p>With a constant D/V the debt is D<sub>t</sub> = 0.4 × V<sup>L</sup><sub>t</sub>.</p><p>V<sup>L</sup><sub>1</sub> = 75/1.093 = <b>68.6185</b> (only the Year-2 flow is left once the Year-1 flow has been paid)<br>D<sub>0</sub> = 0.4 × 106.6958 = <b>42.6783</b><br>D<sub>1</sub> = 0.4 × 68.6185 = <b>27.4474</b></p><p>Debt adjustment = 42.6783 − 27.4474 = <b>$15.2309 million repaid</b> at the end of Year 1. The firm's value falls as the contract runs down, so Kittredge pays back debt to keep D/V at 40%.</p>",
+     "criteria": [
+      "D_t = 0.4 × V^L_t at both dates.",
+      "V^L_1 = 75/1.093 = 68.6185: the value after the Year-1 flow. Including the $48 million (D_1 = 46.6474) is the classic error.",
+      "D_0 = 42.6783, D_1 = 27.4474, adjustment 15.2309.",
+      "Says that Kittredge repays debt."
+     ]
+    },
+    {
+     "label": "g",
+     "points": 2,
+     "body": "<p>Find the unlevered value of Kittredge today using the APV method.</p>",
+     "solution": "<p>The same free cash flows at r<sub>U</sub> = 9.72%:</p><p>V<sup>U</sup><sub>0</sub> = 48/1.0972 + 75/1.0972<sup>2</sup> = 43.74772 + 62.30023 = <b>$106.0480 million</b></p><p>V<sup>U</sup> is below V<sup>L</sup> from (e); the difference is the value of the tax shield, part (h).</p>",
+     "criteria": [
+      "Discounts the free cash flows at r_U, not at r_wacc or r_D.",
+      "V^U = 106.0480."
+     ]
+    },
+    {
+     "label": "h",
+     "points": 2,
+     "body": "<p>Find the interest tax shield in each year and its present value.</p>",
+     "solution": "<p><b>Step 1. The shields.</b> TS<sub>t</sub> = τ<sub>c</sub> × r<sub>D</sub> × D<sub>t−1</sub>, with the debt at the start of each year from (f):</p><p>TS<sub>1</sub> = 0.21 × 0.05 × 42.6783 = <b>0.4481</b><br>TS<sub>2</sub> = 0.21 × 0.05 × 27.4474 = <b>0.2882</b></p><p><b>Step 2. The rate.</b> With a constant D/V the debt (and so the shield) moves with the value of the firm, so the shield is as risky as the assets: discount at r<sub>U</sub>.</p><p>PV(TS) = 0.4481/1.0972 + 0.2882/1.0972<sup>2</sup> = 0.4084 + 0.2394 = <b>$0.6478 million</b></p>",
+     "criteria": [
+      "TS_t = τ × r_D × D_(t−1): 0.4481 and 0.2882.",
+      "Discounts at r_U and says why (constant D/V). At r_D the answer would be 0.6882; at r_wacc 0.6512.",
+      "PV(TS) = 0.6478. Carry 4 decimals: the key to H2025 accepted an error of about 0.001."
+     ]
+    },
+    {
+     "label": "i",
+     "points": 2,
+     "body": "<p>Find the levered value with APV and compare with (e). What does the difference between r<sub>U</sub> and r<sub>wacc</sub> represent (one or two sentences)?</p>",
+     "solution": "<p>V<sup>L</sup> = V<sup>U</sup> + PV(TS) = 106.0480 + 0.6478 = <b>$106.6958 million</b>, the same as the WACC value in (e) ✓.</p><p><b>Interpretation.</b> r<sub>wacc</sub> = r<sub>U</sub> − d·τ<sub>c</sub>·r<sub>D</sub>: the gap of 0.42 percentage points is the interest tax shield, built into the discount rate through the after-tax cost of debt. APV values the same shields as a separate cash flow, so the two methods must agree. Because APV used the debt from the WACC method, this is a consistency check that catches a wrong rate on the shield or an arithmetic slip, not two independent estimates.</p>",
+     "criteria": [
+      "V^L = 106.0480 + 0.6478 = 106.6958, equal to (e).",
+      "Interpretation: the gap between r_U and r_wacc is the tax shield on interest (only the (1 − τ) on r_D differs); WACC puts it in the rate, APV adds it as a separate value.",
+      "A difference of about 0.001 from (e) is rounding; much more means a real error."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "title": "Credit risk",
+   "points": 20,
+   "topic": "Risky debt and credit default swaps",
+   "chapters": [
+    5,
+    22,
+    24
+   ],
+   "merke": "Som CDS-eksemplet i forelesning 13 og V2024 P3, med løpetid to år · kreditt 40 %",
+   "body": "<p>Oberwald Kunststoffe AG, a German plastics maker, has two-year zero-coupon bonds with a face value of €100 and a promised yield of 6.5% per year. Two-year government bonds yield 2.5% per year, the risk-free rate. Oberwald can default only at maturity and then pays €58 per bond. Analysts put the probability of default at 6% over the two years.</p><p>A credit default swap (CDS) contract pays €1 at maturity if Oberwald defaults and nothing otherwise. It is paid for today. Let ρ be the risk-neutral probability of default over the two years. Rates are annually compounded. Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>Find the prices today of a government bond and an Oberwald bond (face value €100).</p>",
+     "solution": "<p>Both are zero-coupon bonds, so discount the face value over two years at the yield:</p><p>Government bond: 100/1.025<sup>2</sup> = 100/1.050625 = <b>€95.1814</b><br>Oberwald bond: 100/1.065<sup>2</sup> = 100/1.134225 = <b>€88.1659</b></p><p>The promised yield prices the bond as if the €100 were certain; the risk of default is in the higher yield.</p>",
+     "criteria": [
+      "Government bond 100/1.025² = 95.1814.",
+      "Oberwald bond 100/1.065² = 88.1659: the promised yield discounts the promised €100.",
+      "Simple interest (100/1.05 = 95.2381, 100/1.13 = 88.4956) or discounting one year only is the error."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 3,
+     "body": "<p>Using the analysts' probability, find the expected return per year on an Oberwald bond. Compare it with the promised yield and the risk-free rate and explain the difference briefly.</p>",
+     "solution": "<p><b>Step 1. Expected payoff.</b> 0.94 × 100 + 0.06 × 58 = 94 + 3.48 = <b>€97.48</b>.</p><p><b>Step 2. Expected return.</b> Over two years: 97.48/88.1659 − 1 = 10.56%. Per year: √1.105643 − 1 = <b>5.15%</b>.</p><p><b>Comparison.</b> 2.5% &lt; 5.15% &lt; 6.5%. The promised yield is what the bond earns if Oberwald repays in full; with a 6% chance of receiving only €58 the expected return is lower. It is still above the risk-free rate, because default tends to happen in bad times, so investors demand a risk premium for holding the bond.</p>",
+     "criteria": [
+      "Expected payoff 0.94 × 100 + 0.06 × 58 = 97.48.",
+      "Annualises with the square root: 5.15% per year. The two-year return 10.56% or half of it (5.28%) is not the annual rate.",
+      "The yield is the return if there is no default; the expected return includes the chance of default, so it is lower.",
+      "Saying why it is above r_f (systematic default risk, a risk premium) is a bonus."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 7,
+     "body": "<p>What risk-neutral probability of default ρ does the price of the Oberwald bond imply? What is the price of one CDS contract?</p>",
+     "solution": "<p><b>Step 1. ρ from the bond.</b> Under risk-neutral probabilities the expected payoff discounted at the risk-free rate equals the price. With ρ the probability of <b>default</b> (bottom branch):</p><table class=\"data\"><tr><th>At maturity (Year 2)</th><th>Analysts' probability</th><th>Risk-neutral probability</th><th>Oberwald bond</th><th>CDS</th></tr><tr><td>No default</td><td class=\"n\">0.94</td><td class=\"n\">0.8245</td><td class=\"n\">100</td><td class=\"n\">0</td></tr><tr><td>Default</td><td class=\"n\">0.06</td><td class=\"n\">0.1755</td><td class=\"n\">58</td><td class=\"n\">1</td></tr></table><p>[(1 − ρ) × 100 + ρ × 58]/1.025<sup>2</sup> = 88.1659<br>100 − 42ρ = 88.1659 × 1.050625 = 92.6293<br>ρ = 7.3707/42 = <b>0.1755 (17.55%)</b></p><p><b>Step 2. The CDS.</b> It pays €1 in default and 0 otherwise. Same risk-neutral probability, discounted two years at the risk-free rate:</p><p>CDS = [ρ × 1 + (1 − ρ) × 0]/1.025<sup>2</sup> = 0.1755/1.050625 = <b>€0.1670</b></p><p>Keep ρ as the default probability to the end. Solving for survival gives 0.8245, the mistake the lecturer singled out: when this example was on an exam, more than half of the students lost points by confusing ρ and 1 − ρ (recording 13, 27:31 to 32:24).</p>",
+     "criteria": [
+      "Sets up [(1 − ρ) × 100 + ρ × 58]/1.025² = price, with ρ on the default branch.",
+      "Discounts over two years at the risk-free rate (the certainty equivalent is the price × 1.025²).",
+      "ρ = 0.1755. The survival probability 0.8245 is the classic error; discounting one year gives 0.2293 and simple interest 0.1768.",
+      "CDS = ρ/1.025² = €0.1670. Using the analysts' 6% (0.0571), forgetting to discount (0.1755) or discounting one year (0.1712) loses the points."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 4,
+     "body": "<p>A pension fund holds Oberwald bonds with a total face value of €20 million and wants to remove all default risk. How many CDS contracts must it buy and what do they cost? What are the bonds and contracts worth together, compared with government bonds with the same face value?</p>",
+     "solution": "<p><b>Step 1. Exposure.</b> In default each €100 of face value pays 58, a loss of €42. €20 million of face value is 200,000 bonds, so the loss in default is 200,000 × 42 = €8.4 million. Each contract pays €1, so the fund buys <b>8.4 million contracts</b> (face value × loss rate = 20 × 0.42).</p><p><b>Step 2. Cost.</b> 8.4 million × 0.1670 = <b>€1.4031 million</b>.</p><p><b>Step 3. Together.</b> The bonds are worth 20 × 0.881659 = €17.6332 million, so bonds plus contracts are worth 17.6332 + 1.4031 = <b>€19.0363 million</b>. That is exactly the price of government bonds with the same face value, 20/1.025<sup>2</sup> = 19.0363 ✓: the hedged position pays €20 million in both states, so it must be worth the same as a risk-free bond.</p><p><b>Second check.</b> Per bond, 42 × 0.1670 = 7.0155 = 95.1814 − 88.1659: the protection is worth exactly the gap between the risk-free and the risky bond, the put that the bondholders have written.</p>",
+     "criteria": [
+      "Number of contracts = face value × loss per €1 of face = 20 × 0.42 = 8.4 million. Buying 20 million (one per € of face value) over-insures.",
+      "Cost 8.4 × 0.1670 = €1.4031 million.",
+      "Bonds 17.6332 + contracts 1.4031 = 19.0363, equal to 20/1.025² for a government bond: the hedge makes the position risk-free.",
+      "Seeing that the total must equal the risk-free value without any probability is the insight the comparison asks for."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 3,
+     "body": "<p>Compare ρ with the analysts' 6%. Why do they differ? Which should be used to price the CDS?</p>",
+     "solution": "<p>ρ = 17.55% is almost three times the analysts' 6%. ρ is not a forecast: it is the probability that makes the bond price fair when payoffs are discounted at the risk-free rate, so it includes the risk premium investors demand. Defaults cluster in recessions, when money is worth most to investors, so they price the default state as if it were more likely than it is (other premia, such as for illiquidity, end up in ρ too). The CDS must be priced with ρ: it pays in exactly the same state as the bond defaults. Only ρ is consistent with the market prices. With 6% the CDS would be too cheap: buying bonds plus cheap protection would beat the government bond with no risk.</p>",
+     "criteria": [
+      "ρ is higher because it embeds the risk premium: default happens in bad times and investors are risk averse. Saying ρ is the market's «real» forecast earns nothing.",
+      "Price the CDS with ρ, because it is consistent with the bond prices (no arbitrage: bond plus CDS equals the risk-free bond).",
+      "Illiquidity or a liquidity premium in the yield is accepted as an extra reason."
+     ]
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "title": "Real Options",
+   "points": 20,
+   "topic": "Real options",
+   "chapters": [
+    25
+   ],
+   "merke": "Som eksemplet i L11 s12 (opptak 14, 56:52), med diskontering · realopsjon 85 %, trinnvis investering med en pilot som gir informasjon",
+   "body": "<p>Kirkstall Robotics Ltd in Leeds has designed a hospital robot. Whatever Kirkstall does, the robot reaches the market at the end of Year 2, either as a success, with the business then worth £160 million, or as a failure worth nothing. The probability of success is 24%. The risk is unrelated to the market, so discount at the risk-free rate of 4% per year. Kirkstall has two plans:</p><ul><li><b>Commit now:</b> pay £42 million today for development and the production line.</li><li><b>Stage:</b> pay £5 million today for a one-year pilot. At the end of Year 1 Kirkstall learns whether the pilot passed (probability 40%) and decides whether to pay £39 million for the line. After a pass the probability of success is 54%, after a fail 4% (24% overall). Without the line the project is worth nothing.</li></ul><p>Use 4 decimal places.</p>",
+   "parts": [
+    {
+     "label": "a",
+     "points": 3,
+     "body": "<p>What is the NPV of committing now? Will Kirkstall do it?</p>",
+     "solution": "<p>The £42 million is paid today and the robot is worth 160 with probability 24% at the end of Year 2:</p><p>NPV = −42 + 0.24 × 160/1.04<sup>2</sup> = −42 + 38.4/1.0816 = −42 + 35.5030 = <b>−£6.4970 million</b></p><p>Negative, so <b>Kirkstall does not commit now</b>.</p>",
+     "criteria": [
+      "Discounts the Year-2 value over two years.",
+      "NPV = −6.4970. Discounting only one year gives −5.0769.",
+      "Answers the question: no, Kirkstall does not commit now."
+     ]
+    },
+    {
+     "label": "b",
+     "points": 5,
+     "body": "<p>Suppose Kirkstall stages. At the end of Year 1, what is the NPV of building the line after a passed pilot and after a failed one? What does Kirkstall do in each case?</p>",
+     "solution": "<p>Stand at the end of Year 1 and look forward. The £5 million is already spent and does not enter; the line costs 39 now and the robot's value arrives one year later.</p><p><b>Pilot passed:</b> −39 + 0.54 × 160/1.04 = −39 + 83.0769 = <b>£44.0769 million</b> &gt; 0, so <b>Kirkstall builds the line</b>.<br><b>Pilot failed:</b> −39 + 0.04 × 160/1.04 = −39 + 6.1538 = <b>−£32.8462 million</b> &lt; 0, so <b>Kirkstall stops</b> and gets 0.</p><p>The stop decision compares with 0, the value of walking away, not with the negative NPV of going on: after a failed pilot the project is worth max(−32.8462, 0) = 0.</p>",
+     "criteria": [
+      "Values each node from the end of Year 1: the line costs 39 then and the value of 160 comes one year later.",
+      "After a pass: −39 + 0.54 × 160/1.04 = 44.0769, so build.",
+      "After a fail: −39 + 0.04 × 160/1.04 = −32.8462, so stop; the value of that node is 0 (compared with 0, not with the negative number).",
+      "The £5 million pilot cost is sunk at Year 1 and must not enter these NPVs."
+     ]
+    },
+    {
+     "label": "c",
+     "points": 4,
+     "body": "<p>What is the NPV today of the staged plan? What is the possibility of staging worth to Kirkstall, compared with what it would do if staging were not possible?</p>",
+     "solution": "<p><b>Step 1. Fold back.</b> Kirkstall builds only after a pass (probability 40%), so</p><p>NPV<sub>staged</sub> = −5 + [0.4 × 44.0769 + 0.6 × 0]/1.04 = −5 + 17.6308/1.04 = −5 + 16.9527 = <b>£11.9527 million</b></p><p><b>Step 2. The value of staging.</b> Without the option to stage Kirkstall would not invest at all (part (a)), so the alternative is worth 0, not −6.4970:</p><p>Value of staging = 11.9527 − max(−6.4970, 0) = <b>£11.9527 million</b></p><p>The number 11.9527 − (−6.4970) = 18.4497 only measures how much staging helps a firm that is forced to go ahead; comparing with the negative NPV instead of 0 is the classic mistake. Kirkstall starts the pilot, although staging costs £2 million more in total (5 + 39 = 44 against 42): it pays the large cost a year later and only in the 40% of cases where the pilot passes.</p>",
+     "criteria": [
+      "Folds back: −5 + 0.4 × 44.0769/1.04 = 11.9527, with 0 after a failed pilot.",
+      "Using the negative node (−32.8462) instead of 0 gives −6.9970; forgetting to discount Year 1 gives 12.6308.",
+      "Value of staging = 11.9527 − 0 = 11.9527, since without staging Kirkstall would not invest. 18.4497 (against the negative NPV) is the classic error.",
+      "Saying that Kirkstall starts the pilot is expected but carries no separate point."
+     ]
+    },
+    {
+     "label": "d",
+     "points": 4,
+     "body": "<p>A more thorough pilot costs £8 million today and passes with probability 32%. After a pass the probability of success is 75%; after a fail the robot never succeeds. The line still costs £39 million. What is the NPV today of staging with this pilot? Which pilot should Kirkstall choose?</p>",
+     "solution": "<p>The probabilities are again consistent with 24% overall (0.32 × 0.75 = 0.24).</p><p><b>After a pass:</b> −39 + 0.75 × 160/1.04 = −39 + 115.3846 = 76.3846 &gt; 0, so build. <b>After a fail:</b> the robot is worthless, so stop (0).</p><p>NPV = −8 + 0.32 × 76.3846/1.04 = −8 + 23.5030 = <b>£15.5030 million</b></p><p>15.5030 &gt; 11.9527, so <b>Kirkstall should choose the thorough pilot</b>, although it costs £3 million more: it is worth 3.5503 more.</p>",
+     "criteria": [
+      "Node after a pass: −39 + 0.75 × 160/1.04 = 76.3846; after a fail: stop.",
+      "NPV = −8 + 0.32 × 76.3846/1.04 = 15.5030.",
+      "Compares with 11.9527 from (c) and chooses the thorough pilot."
+     ]
+    },
+    {
+     "label": "e",
+     "points": 4,
+     "body": "<p>Kirkstall runs the pilot from (b) and it fails. The project manager wants to build the line anyway «so that the £5 million is not wasted». Do you agree? Then explain briefly what makes a pilot valuable and how this explains your choice in (d).</p>",
+     "solution": "<p><b>Sunk cost.</b> No. The £5 million is spent whatever Kirkstall does now, so it must not affect the decision; only future cash flows count. Building the line after a failed pilot has an NPV of −32.8462, so it would lose a further £32.8462 million in expectation. Stopping is the option the staged plan paid for: the value of staging comes precisely from being able to walk away after bad news.</p><p><b>What makes a pilot valuable.</b> A pilot tells Kirkstall, before the large £39 million is spent, whether the robot is likely to succeed, so the line is built after good news and not after bad news. The more sharply the pilot separates the outcomes, the more this option to stop is worth (recording 14, 56:52; L11 slide 12). The thorough pilot raises the chance of success after a pass from 54% to 75% and leaves none after a fail, so the £39 million is spent only where success is likely. That information is worth 3.5503 more, more than the extra £3 million it costs, which is why Kirkstall chooses it in (d).</p>",
+     "criteria": [
+      "Sunk cost (2 points): disagrees, because the £5 million is spent whatever happens and only future cash flows matter; building now has an NPV of −32.8462 < 0.",
+      "Ties it to the option: the value of staging comes from stopping after bad news.",
+      "What makes a pilot valuable (2 points): it resolves uncertainty before the large investment, so the line is built only after good news; the more informative the pilot, the more the option to stop is worth. Links this to (d): the thorough pilot separates the outcomes more sharply.",
+      "«More uncertainty resolved before the big investment» is an accepted way to say the same."
+     ]
+    }
+   ]
+  }
+ ]
+}
