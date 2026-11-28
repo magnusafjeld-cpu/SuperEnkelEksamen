@@ -10799,6 +10799,387 @@ window.EDU_DATA.sets.push(
       ]
     }
   ]
+},
+{
+  "id": "pred3",
+  "kind": "mock",
+  "fane": "pred",
+  "nr": 3,
+  "label": "Prediksjon 3",
+  "minutes": 180,
+  "points": 100,
+  "format": "6 oppgaver · 100 poeng · ingen flervalg",
+  "note": "To av regneoppgavene er nye runder på det som gikk galt i prediksjon 1. Resten er temaer de to første settene ikke dekket: forsvar mot et fiendtlig bud, utbetaling, IPO og aksjebytte. Ta den på tid med penn og papir.",
+  "facts": [
+    "Prediction exam in Kurbatov's format: 6 exercises, 100 points, 180 minutes, no multiple choice, calculator and one bilingual dictionary permitted.",
+    "Points per exercise: 10 · 10 · 20 · 20 · 20 · 20. Two verbal exercises with sentence budgets, then four computational exercises.",
+    "The formula sheet is handed out.",
+    "Recommended precision: 4 decimal places. An error carried forward is not penalised again in later parts.",
+    "Written for this app from the prediction of the 2026 exam. Every number in the solutions is computed in a script."
+  ],
+  "exercises": [
+    {
+      "n": 1,
+      "title": "Governance",
+      "points": 10,
+      "topic": "Corporate governance",
+      "chapters": [
+        26,
+        27
+      ],
+      "merke": "Ny vinkel: et fiendtlig bud møtt med forsvarstiltak · governance som teori 90 %, denne vinkelen 15 %",
+      "body": "<p>Tallowood Therapeutics is a widely held Delaware biotech company listed on Nasdaq. Its founder is both CEO and chair of a board of 13. Six of the other directors are former executives or old friends of the founder. Directors serve staggered three-year terms. The share price has fallen 40% in two years; Tallowood's only late-stage drug is in a trial that reports in 18 months.</p><p>A larger rival has made a hostile cash bid at a 25% premium; the same night the board adopted a poison pill. Your pension fund owns 7% of Tallowood.</p><p>Answer in 2–3 sentences each, using the facts about Tallowood.</p><ol><li>How do the poison pill and the staggered board together block or delay the bid? (2 points)</li><li>Give one argument that the defences serve Tallowood's shareholders here. (3 points)</li><li>Give one argument that they harm them here. (3 points)</li><li>What would you push for as a 7% owner to keep the benefit from 2 but limit the harm from 3? (2 points)</li></ol>",
+      "solution": "<p><b>Model answer (2–3 sentences per question).</b></p><p><b>1. How the two defences work together (2 points).</b> Once a bidder buys more than a threshold, the poison pill lets every other shareholder buy new shares at a deep discount, so buying control without the board's consent becomes prohibitively expensive and the bidder is forced to negotiate (recording 17, 29:47 to 30:22). The usual way around a pill is to win a proxy fight and let a new board remove it, but with staggered terms the rival can win only four or five of the 13 seats at one annual meeting and needs two meetings, more than a year, to control the board (recording 17, 32:58 to 33:50).</p><p><b>2. An argument that the defences serve the shareholders (3 points).</b> Tallowood's value hangs on a trial that reports in 18 months, so the 40% fall may reflect uncertainty the market cannot yet resolve; the rival may be trying to buy the drug cheaply before the results are known. The pill buys time and bargaining power: the board can wait for the data, look for other bidders and push the price up, while owners who believe in the long-run plan keep the upside, as in the lecture's firm seven years into a ten-year plan to cure cancer (recording 17, 1:08:27 to 1:10:26).</p><p><b>3. An argument that they harm the shareholders (3 points).</b> The board is captive: the founder chairs the body that should monitor the founder as CEO, while half of the other directors are former executives or friends, so the defences may protect the founder's job rather than the owners' wealth (entrenchment; recording 17, 32:40 and 40:41). The 40% fall may also reflect weak management. Blocking a 25% premium without letting the owners decide removes the outside discipline of the market for corporate control; the market punished Ford's pill when it was seen as entrenching management (recording 17, 1:15:33).</p><p><b>4. What to push for (2 points).</b> Ask that the pill be put to a shareholder vote or given a sunset clause that ends it soon after the trial reports. A committee of independent directors with its own advisers should evaluate the bid. Over time, push to declassify the board and to split the roles of CEO and chair, so the defences can be used to bargain for a higher price but not to block every bid.</p><p><b>Also accepted.</b> For 2: time to find a white knight or run an auction; the bid exploits temporary undervaluation; the pill protects a research team that a buyer might break up. For 3: the founder's pay and private benefits depend on staying; a captive board will not weigh the bid for the owners; a staggered board makes it hard even for a 7% holder to change the board. For 4: vote against the directors up for election and rally the other institutions; a shareholder proposal to redeem the pill or to declassify the board; proxy access in the bylaws to nominate independent directors; an independent chair and a board of about 7 to 11 with a majority of independent directors.</p>",
+      "criteria": [
+        "Question 1 (2 points): the pill makes buying control without the board's consent prohibitively expensive, so the bidder must negotiate; the staggered board delays removing the pill through a proxy fight to at least two annual meetings. 1 point each.",
+        "Questions 2 and 3 (3 points each): 1 for the argument and 2 for tying it to Tallowood's facts. An argument that would read the same for any firm («defences entrench managers», «defences give bargaining power») earns at most 1.",
+        "Facts that earn the situation points. For 2: the trial that reports in 18 months and the 40% fall (temporary undervaluation, time and bargaining power). For 3: the founder as CEO and chair, the six insider or friendly directors, the staggered board and the 25% premium the owners are not allowed to consider (entrenchment, a captive board).",
+        "Question 4 (2 points): a concrete measure that keeps the bargaining benefit but limits entrenchment (a shareholder vote on the pill, a sunset clause, an independent committee that evaluates the bid, declassifying the board, splitting CEO and chair), with the reason it fits. «Remove the pill» alone earns 1, since it also removes the benefit from 2.",
+        "Board size: an argument for about 7 to 11 directors is accepted; «a smaller board works better» alone is not.",
+        "Each answer is 2–3 sentences. Length is not rewarded."
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Payout Policy",
+      "points": 10,
+      "topic": "Payout policy",
+      "chapters": [
+        11,
+        15,
+        16
+      ],
+      "merke": "Teorispørsmålet varslet i forelesning 5 (12:17) og i wrap-up (39:15) · utbetaling verbalt 35 %",
+      "body": "<p>Shirakaba Bearings, a Tokyo-listed bearings maker with little debt, is in a mature market: flat sales, a stable free cash flow of about JPY 12 billion a year and no positive-NPV projects in its industry. This year it also sold an old factory site for a one-off JPY 60 billion. The CEO wants to use the cash to buy a restaurant chain “to find growth”.</p><p>Name the four ways a firm can use its free cash flow and explain in 1–2 sentences whether each suits Shirakaba (2 points each). Then say which use suits the stable JPY 12 billion and which suits the one-off 60 billion, with a reason (2 points).</p>",
+      "solution": "<p><b>1. Invest the cash, if there are good investment opportunities.</b> Investing creates value only in positive-NPV projects, which Shirakaba lacks in its own industry (recording 05, 14:34 to 14:51). A restaurant chain gives its owners diversification they could buy themselves; a cash pile without projects invites empire building (recording 18, 40:47).</p><p><b>2. Buy back shares.</b> A buyback pays only the owners who want to sell and sets no expectation for next year, so it suits the one-off JPY 60 billion. It can also signal that management sees the shares as undervalued (recording 05, 1:27:11); taxes matter little, since dividends and capital gains are taxed about alike and holders who do not sell only defer their tax (recording 05, 1:14:36 to 1:16:12).</p><p><b>3. Pay a dividend.</b> Dividends are sticky: a cut sends a strongly negative signal, so a firm should raise its regular dividend only with cash flow it expects to keep (recording 05, 1:22:15 to 1:24:13). Shirakaba's stable JPY 12 billion a year suits a higher regular dividend; the one-off gain does not, unless it is paid as a clearly labelled special dividend.</p><p><b>4. Keep the cash.</b> Cash is a safety cushion and spares the firm costly outside financing for future projects (recording 05, 1:19:22 to 1:20:54). But with little debt, stable cash flow and no projects, a large pile mainly gives the CEO room for wasteful spending such as the restaurant chain (recording 05, 1:21:04), so Shirakaba should keep only a buffer.</p><p><b>Which use for which cash (2 points).</b> The stable JPY 12 billion a year suits a higher regular dividend, because a sticky dividend should rest on cash flow the firm expects to keep. The one-off JPY 60 billion suits a buyback (or a special dividend), because it should not create an expectation that it will be repeated; neither amount should go to the restaurant chain, since there are no positive-NPV projects.</p><p><b>Also accepted.</b> A steady buyback programme for the stable cash flow, if the answer argues for flexibility; a special dividend for the one-off; keeping part of the one-off if the answer names a concrete need (debt that matures, a downturn in demand). In a perfect capital market the choice would not matter (MM); the arguments above are the frictions.</p>",
+      "criteria": [
+        "Four ways, 2 points each: 1 for naming it with its mechanism and 1 for whether it suits Shirakaba, using the facts (mature, no positive-NPV projects, stable FCF of JPY 12 billion, a one-off JPY 60 billion, little debt, the restaurant chain).",
+        "Invest: the point needs the condition «if there are good investment opportunities» (recording 05, 14:43). Here there are none; the restaurant chain points to empire building or to diversification the owners can do themselves.",
+        "Dividend: stickiness, so the regular dividend follows the stable cash flow and not the one-off. Buyback: flexible, no commitment, a possible undervaluation signal; it fits the one-off.",
+        "Keep the cash: both the benefit (a buffer, no costly outside financing) and the cost (agency cost of free cash flow, empire building) are needed for the point.",
+        "Which use for which cash (2 points): a use for the stable JPY 12 billion and one for the one-off JPY 60 billion, each with a reason (stickiness, flexibility, no positive-NPV projects). The natural answer is a regular dividend for the stable flow and a buyback or special dividend for the one-off; any alternative with a reason based on Shirakaba's facts is accepted. Putting either amount into the restaurant chain without addressing the lack of positive-NPV projects earns at most 1.",
+        "Taxes are not the main argument: «dividends are taxed more» is not accepted as a general claim. Mentioning that holders who do not sell defer their tax is fine."
+      ]
+    },
+    {
+      "n": 3,
+      "title": "IPO",
+      "points": 20,
+      "topic": "Initial public offerings",
+      "chapters": [
+        12,
+        14
+      ],
+      "merke": "Som IPO-eksemplet i forelesning 7 (1:05:12), med sannsynligheter som ikke er 50/50 · IPO 25 %",
+      "body": "<p>In many small Spanish IPOs the founders sell existing shares at an offer price set by the underwriter. Each firm is good with probability 40%, independently of the others. A share is worth EUR 26.00 in a good firm and EUR 16.00 in a bad one, which becomes known at the end of the first trading day.</p><p>You cannot tell good firms from bad, so you order 1,200 shares in every IPO. An IPO oversubscribed k times fills every order at 1/k. Ignore discounting over the first day.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>If nobody knew which firms are good, all IPOs would attract the same demand. At what offer price would you break even? What would the average first-day return be?</p>",
+          "solution": "<p>With the same demand everywhere, every order is filled in the same proportion, so the shares you receive are spread over good and bad firms like the IPOs themselves.</p><p>Break-even price = expected value per share = 0.40 × 26.00 + 0.60 × 16.00 = 10.40 + 9.60 = <b>EUR 20.00</b>.</p><p>Average first-day return at 20.00: good firms gain 30% and bad firms lose 20%, so 0.40 × 30% − 0.60 × 20% = <b>0%</b>. This is the lecture's baseline (recording 07, 1:07:05 to 1:08:50).</p>",
+          "criteria": [
+            "Break-even price = expected value = 0.4 × 26 + 0.6 × 16 = 20.00.",
+            "Average first-day return at that price = 0%.",
+            "Uses the 40/60 probabilities, not 50/50."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>Now informed investors order only in good IPOs, so good IPOs are oversubscribed 8 times and bad ones 2.5 times. At an offer price of EUR 19.00, what is your average return on the money you invest?</p>",
+          "solution": "<p><b>Step 1. Allocation.</b> Good IPO: 1,200/8 = <b>150 shares</b>. Bad IPO: 1,200/2.5 = <b>480 shares</b>.</p><p><b>Step 2. Weight by what you actually get.</b> Per average IPO you receive 0.40 × 150 = 60 shares in good firms and 0.60 × 480 = 288 in bad firms, 348 in all. <table class=\"data\"><tr><th>Per average IPO</th><th>Shares</th><th>Value at day end (EUR)</th><th>Cost at 19.00 (EUR)</th></tr><tr><td>Good firms</td><td class=\"n\">60</td><td class=\"n\">1,560.00</td><td class=\"n\">1,140.00</td></tr><tr><td>Bad firms</td><td class=\"n\">288</td><td class=\"n\">4,608.00</td><td class=\"n\">5,472.00</td></tr><tr><td><b>Total</b></td><td class=\"n\">348</td><td class=\"n\">6,168.00</td><td class=\"n\">6,612.00</td></tr></table></p><p>Average return = 6,168.00/6,612.00 − 1 = <b>−6.7151%</b>.</p><p><b>Why it is negative although 19.00 &lt; 20.00.</b> You get many shares where nobody else wants them and few where the informed investors crowd in: only 60 of every 348 shares you receive are in good firms, although 40% of the IPOs are good. Ignoring the allocation gives 20.00/19.00 − 1 = 5.2632%, which is wrong (recording 07, 1:11:02 to 1:13:38).</p>",
+          "criteria": [
+            "Allocation: 1,200/8 = 150 in a good IPO and 1,200/2.5 = 480 in a bad IPO.",
+            "Weights the values by the shares actually received (and the probabilities): value 6,168.00 against cost 6,612.00 per average IPO.",
+            "Average return = −6.7151%. A per-IPO average that ignores the allocation (5.26%) is the trap.",
+            "Any equivalent count (for example per 100 IPOs) is accepted."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 4,
+          "body": "<p>With the same oversubscription as in (b), what is the highest offer price at which you still break even?</p>",
+          "solution": "<p><b>Step 1. Break-even condition.</b> At the offer price P the money paid must equal the value received: 348 × P = 60 × 26.00 + 288 × 16.00 = 6,168.00.</p><p><b>Step 2. Solve.</b> P* = 6,168.00/348 = <b>EUR 17.7241</b>. It is the value of an average share you receive: (60/348) × 26.00 + (288/348) × 16.00.</p><p><b>Check.</b> At 17.7241 you pay 348 × 17.7241 = 6,168.00 and receive 6,168.00: a return of 0% ✓. The fair value 20.00 is not the answer: at that price an uninformed investor loses and stays away (recording 07, 1:14:09 to 1:15:12).</p>",
+          "criteria": [
+            "Sets the allocation-weighted value equal to the price paid (or the return from (b) equal to zero).",
+            "P* = 6,168.00/348 = 17.7241.",
+            "The fair value 20.00 ignores the allocation and is the trap; so is (150 × 26 + 480 × 16)/630 = 18.3810, which drops the probabilities."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 3,
+          "body": "<p>Every IPO is priced at your answer to (c). What is the average first-day return across IPOs? What first-day return do the informed investors earn on the IPOs they buy?</p>",
+          "solution": "<p><b>Across IPOs</b> (each IPO counts once): good firms rise 26.00/17.7241 − 1 = 46.6926% and bad firms fall 16.00/17.7241 − 1 = −9.7276%. Average: 0.40 × 46.6926% + 0.60 × (−9.7276%) = <b>12.8405%</b>, the same as 20.00/17.7241 − 1.</p><p><b>Informed investors</b> buy only good IPOs, so each IPO they buy rises <b>46.6926%</b>. The uninformed earn 0% by construction.</p><p>So the statistics show large average underpricing while the uninformed investor, who buys everything, earns nothing (recording 07, 1:15:12 to 1:16:51).</p>",
+          "criteria": [
+            "Average first-day return across IPOs = 20.00/17.7241 − 1 = 12.8405% (equally weighted IPOs, not weighted by your allocation).",
+            "Informed investors, on the good IPOs they buy: 26.00/17.7241 − 1 = 46.6926%. Averaging it over all IPOs (18.6770%) answers a different question.",
+            "Using the price 19.00 from (b) instead of (c) gives 5.2632% and is wrong."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Each firm's founders sell 3.5 million shares at that price. How much do the founders of a good and of a bad firm gain or lose against the true value? What is their expected cost per IPO?</p>",
+          "solution": "<p>Good firm: 3.5 × (17.7241 − 26.00) = <b>EUR −28.9655 million</b> (a loss).</p><p>Bad firm: 3.5 × (17.7241 − 16.00) = <b>EUR +6.0345 million</b> (a gain: the shares are sold above their value).</p><p>Expected cost per IPO: 0.40 × 28.9655 − 0.60 × 6.0345 = <b>EUR 7.9655 million</b>, the same as 3.5 × (20.00 − 17.7241). The cost of keeping the uninformed investors in the market falls on the founders, mostly on those of good firms.</p>",
+          "criteria": [
+            "Good firm: 3.5 × (17.7241 − 26) = −28.9655; bad firm: 3.5 × (17.7241 − 16) = +6.0345.",
+            "Expected cost = 3.5 × (20 − 17.7241) = 7.9655 million per IPO.",
+            "The sign is read from the wording: a cost of 7.97 or a change of −7.97 are both accepted."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 3,
+          "body": "<p>A newspaper sees the average return from (d) and concludes that buying every IPO is a free lunch and that underwriters cheat the founders. Comment briefly.</p>",
+          "solution": "<p><b>No free lunch.</b> An uninformed investor who buys in every IPO earns 0% on average, because the allocation is tilted towards the bad IPOs: the investor gets two fifths of the order in the IPOs the informed avoid and only an eighth in the good ones (the winner's curse). The 12.84% average is earned only by those who get large allocations in good IPOs, the informed investors (46.69%).</p><p><b>Not cheating.</b> The underpricing is the price of keeping uninformed investors in the market. At a fair price they would lose and stay away; the IPOs could not be sold (recording 07, 1:13:38 to 1:18:15). The founders pay this cost, but it is a consequence of asymmetric information, not of the underwriter favouring friends.</p>",
+          "criteria": [
+            "Uninformed investors earn about 0% because they receive more shares in bad IPOs and fewer in good ones (allocation, winner's curse); the name is not required.",
+            "The average first-day return goes to the informed investors, who buy only good IPOs.",
+            "Underpricing keeps the uninformed in the market and is a cost for the founders, not evidence of cheating. A mechanism is needed; «IPOs are risky» alone earns nothing."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Valuation",
+      "points": 20,
+      "topic": "Valuation with leverage",
+      "chapters": [
+        2,
+        3,
+        4,
+        17,
+        18,
+        19
+      ],
+      "merke": "Ny runde: fri kontantstrøm fra prediksjon 1 · prosjekt over tre år med fast låneplan og to sammenlignbare · verdsetting 90 %, FCF-bygging 30 %",
+      "body": "<p>Orobica Pasta is evaluating a production line for a three-year contract. The line costs EUR 270 million today (t = 0), is depreciated straight-line to zero over three years for tax and has no value after Year 3; no other capital expenditure is needed. Revenue is EUR 205 million a year in Years 1 to 3 and operating costs (excluding depreciation) are 40% of revenue. Net working capital is EUR 15 million at t = 0, 21 million at t = 1 and t = 2 and 0 at t = 3. The tax rate is 24%.</p><p>To finance the line, Orobica borrows EUR 150 million from a bank at t = 0 and repays EUR 50 million of principal at t = 1, 2 and 3. Interest is 5% on the balance at the start of each year. The schedule is fixed whatever the line turns out to be worth.</p><p>Two listed firms with the same business risk as the line keep their debt-to-value ratios constant: Brenta Alimentari (equity beta 1.15, debt-to-value ratio 25%, risk-free debt) and Garda Foods (equity beta 1.45, debt-to-equity ratio 0.5, cost of debt 4.6%). The risk-free rate is 3.4% and the expected market return 8.9%.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 4,
+          "body": "<p>Find the line's free cash flow at t = 0, 1, 2 and 3.</p>",
+          "solution": "<p><b>Step 1. From revenue to FCF.</b> <table class=\"data\"><tr><th>EUR million</th><th>t = 0</th><th>t = 1</th><th>t = 2</th><th>t = 3</th></tr><tr><td>Revenue</td><td class=\"n\"></td><td class=\"n\">205.00</td><td class=\"n\">205.00</td><td class=\"n\">205.00</td></tr><tr><td>Operating costs (40%)</td><td class=\"n\"></td><td class=\"n\">−82.00</td><td class=\"n\">−82.00</td><td class=\"n\">−82.00</td></tr><tr><td>Depreciation (270/3)</td><td class=\"n\"></td><td class=\"n\">−90.00</td><td class=\"n\">−90.00</td><td class=\"n\">−90.00</td></tr><tr><td>EBIT</td><td class=\"n\"></td><td class=\"n\">33.00</td><td class=\"n\">33.00</td><td class=\"n\">33.00</td></tr><tr><td>Taxes (24% of EBIT)</td><td class=\"n\"></td><td class=\"n\">−7.92</td><td class=\"n\">−7.92</td><td class=\"n\">−7.92</td></tr><tr><td>EBIT × (1 − τ)</td><td class=\"n\"></td><td class=\"n\">25.08</td><td class=\"n\">25.08</td><td class=\"n\">25.08</td></tr><tr><td>+ Depreciation</td><td class=\"n\"></td><td class=\"n\">90.00</td><td class=\"n\">90.00</td><td class=\"n\">90.00</td></tr><tr><td>− Capital expenditure</td><td class=\"n\">−270.00</td><td class=\"n\">0.00</td><td class=\"n\">0.00</td><td class=\"n\">0.00</td></tr><tr><td>− ΔNWC</td><td class=\"n\">−15.00</td><td class=\"n\">−6.00</td><td class=\"n\">0.00</td><td class=\"n\">21.00</td></tr><tr><td><b>FCF</b></td><td class=\"n\"><b>−285.00</b></td><td class=\"n\"><b>109.08</b></td><td class=\"n\"><b>115.08</b></td><td class=\"n\"><b>136.08</b></td></tr></table></p><p>So FCF<sub>0</sub> = <b>−285.00</b>, FCF<sub>1</sub> = <b>109.08</b>, FCF<sub>2</sub> = <b>115.08</b> and FCF<sub>3</sub> = <b>136.08</b> (EUR million). ΔNWC is 21 − 15 = 6 at t = 1, 0 at t = 2 and 0 − 21 = −21 at t = 3, when the working capital comes back: «one of the biggest fallacies would be forgetting the delta» (recording 18, 12:44).</p><p><b>Step 2. What depreciation does.</b> Depreciation is not a cash outflow, but it is deducted before tax: it is subtracted to find taxable profit and added back after tax (recording 18, 13:21 to 14:14). Its only cash effect is the tax it saves, τ × Dep = 0.24 × 90 = 21.60 a year. The same FCF from EBITDA: 123.00 × 0.76 + 21.60 − 6.00 = 109.08 at t = 1 ✓. The investment is a cash outflow at t = 0 only; depreciation and capital expenditure are different numbers in every year, so they cannot be netted against each other.</p><p><b>The traps.</b> Taxing EBITDA without the depreciation deduction gives 87.48, 93.48 and 114.48; leaving depreciation out altogether gives 19.08 at t = 1; subtracting the level of working capital instead of the change gives 94.08 at t = 1.</p>",
+          "criteria": [
+            "FCF = EBIT(1 − τ) + Dep − CapEx − ΔNWC (the formula sheet), with taxes on EBIT after the depreciation of 90 is deducted and depreciation added back.",
+            "FCF_0 = −270 − 15 = −285.00; FCF_1 = 109.08; FCF_2 = 115.08; FCF_3 = 136.08 with the working capital of 21 recovered.",
+            "ΔNWC, not the level: +6 at t = 1, 0 at t = 2, −21 at t = 3.",
+            "EBITDA × (1 − τ) − ΔNWC (taxes on EBITDA, so the tax saved by depreciation is lost: 87.48 at t = 1) is the classic error and earns no points for the number.",
+            "Show the calculation (a table is fine)."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>Find the unlevered cost of capital (r<sub>U</sub>) of each comparable firm and use their average as the line's r<sub>U</sub>.</p>",
+          "solution": "<p>The market risk premium is 8.9% − 3.4% = 5.5%.</p><p><b>Brenta.</b> The debt is risk-free, so β<sub>D</sub> = 0: β<sub>U</sub> = 0.75 × 1.15 + 0.25 × 0 = 0.8625. Then r<sub>U</sub> = 3.4% + 0.8625 × 5.5% = <b>8.1437%</b>.</p><p><b>Garda.</b> Debt beta from the CAPM: β<sub>D</sub> = (4.6% − 3.4%)/5.5% = 0.2182. D/E = 0.5 means D/V = 0.5/1.5 = 0.3333: β<sub>U</sub> = 0.6667 × 1.45 + 0.3333 × 0.2182 = 0.9667 + 0.0727 = 1.0394. Then r<sub>U</sub> = 3.4% + 1.0394 × 5.5% = <b>9.1167%</b>.</p><p><b>The line.</b> r<sub>U</sub> = (8.1437% + 9.1167%)/2 = <b>8.6302%</b>. Averaging the betas gives the same: β<sub>U</sub> = 0.9509 and 3.4% + 0.9509 × 5.5% = 8.6302% ✓. Both comparables keep a constant D/V, so their tax shields carry asset risk and r<sub>U</sub> is the plain weighted average, with no tax in it.</p>",
+          "criteria": [
+            "Brenta: β_D = 0, β_U = 0.75 × 1.15 = 0.8625, r_U = 8.1437%.",
+            "Garda: β_D = (4.6% − 3.4%)/5.5% = 0.2182; D/E = 0.5 converted to D/V = 1/3; β_U = 1.0394, r_U = 9.1167%. Through returns: r_E = 11.3750% and (2/3) × 11.3750% + (1/3) × 4.6% gives the same.",
+            "Line: r_U = 8.6302%. Setting Garda's β_D = 0 (8.4302%), weighting with D/E as if it were D/V (8.0656%) or using 8.9% instead of the premium (11.8634%) are the traps. The weights with D(1 − τ) for permanent debt (8.9780%) do not apply, since the comparables keep D/V constant."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>What is the NPV of the line if it were financed with equity only?</p>",
+          "solution": "<p>Discount the FCF from (a) at r<sub>U</sub>:</p><p>V<sup>U</sup><sub>0</sub> = 109.08/1.086302 + 115.08/1.086302<sup>2</sup> + 136.08/1.086302<sup>3</sup> = 100.4141 + 97.5211 + 106.1555 = 304.0907</p><p>NPV = 304.0907 − 285.00 = <b>EUR 19.0907 million</b>. The question asks for the NPV of the line, so the outlay at t = 0, working capital included, is subtracted (recording 18, 6:41 to 7:13).</p><p>With the FCF of the classic error in (a), the NPV would be −35.95 and the line would be rejected: the tax saved by depreciation is worth about 55.04 today.</p>",
+          "criteria": [
+            "Discounts FCF_1 to FCF_3 at r_U (no tax shield yet).",
+            "V^U = 304.0907 and NPV = V^U − 285 = 19.0907.",
+            "Reporting the PV (304.09) instead of the NPV, or subtracting only the 270, loses the point for the NPV."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 5,
+          "body": "<p>Find the present value of the interest tax shields. What is the line's NPV with the APV method?</p>",
+          "solution": "<p><b>Step 1. Debt and interest.</b> The loan falls by 50 a year: 150 during Year 1, 100 during Year 2 and 50 during Year 3. The interest is paid on the amount outstanding at the start of each year.</p><p><table class=\"data\"><tr><th>Year</th><th>Debt at start</th><th>Interest (5%)</th><th>Tax shield (24% of interest)</th></tr><tr><td>1</td><td class=\"n\">150</td><td class=\"n\">7.50</td><td class=\"n\"><b>1.80</b></td></tr><tr><td>2</td><td class=\"n\">100</td><td class=\"n\">5.00</td><td class=\"n\"><b>1.20</b></td></tr><tr><td>3</td><td class=\"n\">50</td><td class=\"n\">2.50</td><td class=\"n\"><b>0.60</b></td></tr></table></p><p><b>Step 2. Which rate.</b> The debt follows a fixed schedule, so the shields are known in advance and are as risky as the debt itself: discount them at r<sub>D</sub> = 5% (recording 09, 1:11:58 to 1:12:52).</p><p>PV(TS) = 1.80/1.05 + 1.20/1.05<sup>2</sup> + 0.60/1.05<sup>3</sup> = 1.7143 + 1.0884 + 0.5183 = <b>EUR 3.3210 million</b></p><p><b>Step 3. APV.</b> NPV = NPV with equity only + PV(TS) = 19.0907 + 3.3210 = <b>EUR 22.4117 million</b>. The line is worth doing.</p><p><b>The traps.</b> Discounting the shields at r<sub>U</sub> gives 3.1420 (NPV 22.2326); that rate belongs to debt that is rebalanced to a constant D/V. τD = 36 holds only for permanent debt; this loan is gone after three years. The shield is τ times the interest, not the interest itself.</p><p>The tax shields per year are shown for the method; only PV(TS) and the NPV are asked for.</p>",
+          "criteria": [
+            "Tax shields τ × r_D × D on the debt at the start of each year: 1.80, 1.20 and 0.60.",
+            "PV(TS) discounted at r_D = 5% because the debt schedule is fixed: 3.3210.",
+            "APV NPV = 19.0907 + 3.3210 = 22.4117.",
+            "Discounting at r_U (3.1420) or using τD = 36 are the traps.",
+            "Show the calculation."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 4,
+          "body": "<p>Which rate did you use for the tax shield in (d)? Why would it differ if Orobica kept a constant debt-to-value ratio? Could a single r<sub>wacc</sub> value this line?</p>",
+          "solution": "<p><b>Which rate: r<sub>D</sub>.</b> The rate must match the risk of the shields. Here the debt (and so the interest and the shields) is fixed in advance and does not move with the value of the line; their only risk is the risk of the debt itself, so r<sub>D</sub> is the right rate (recording 09, 1:11:58 to 1:12:52). When the debt is rebalanced to a constant D/V, it rises and falls with the value of the assets, so the shields carry the assets' risk and are discounted at r<sub>U</sub>.</p><p><b>WACC.</b> No. The WACC method «only works when this ratio is constant» (recording 08, 55:08). Here D/V<sup>L</sup> is 150/307.41 = 0.49 at t = 0, 100/222.94 = 0.45 at t = 1 and 50/125.84 = 0.40 at t = 2, so the right r<sub>wacc</sub> would change every year. APV handles any fixed schedule directly, which is why it is the method for predetermined debt (recording 09, 1:15:20 to 1:17:31).</p>",
+          "criteria": [
+            "Fixed schedule: the shields do not depend on the line's value and are as risky as the debt, so the right rate is r_D (2 points). A student who used r_U in (d) still earns these points by explaining correctly which rate is right.",
+            "Constant D/V: the debt moves with the value of the assets, so the shields carry asset risk and r_U is used. Naming both cases is needed for full points on the first question.",
+            "WACC: no, a single r_wacc requires a constant D/V and here the ratio falls each year as the loan is repaid (2 points). The D/V numbers are a bonus."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Real Options",
+      "points": 20,
+      "topic": "Real options, risk-neutral valuation",
+      "chapters": [
+        22,
+        25
+      ],
+      "merke": "Ny runde: ρ fra et omsatt verdipapir fra prediksjon 1 · utvidelse av en gruve, med et notert sertifikat som betaler i ti år · realopsjon 85 %, ρ fra et omsatt verdipapir 30 %",
+      "body": "<p>Kenogami Lithium can open a lithium mine in Quebec for CAD 280 million today (t = 0). At t = 1 the lithium market settles for good in one of two states. From Year 1 to Year 10 the mine earns CAD 60 million a year in the high state and CAD 20 million in the low state; once the state is known, these cash flows are certain. The risk-free rate is 6% a year and does not change.</p><p>If the mine is open, Kenogami can add a second processing line at t = 1 (and only then), after it learns the state. The line costs CAD 150 million at t = 1 and raises the mine's cash flow by 50% from Year 2 to Year 10.</p><p>Nobody knows the probabilities of the states. Default-free lithium-linked notes trade at CAD 23.50 today. A note pays at the end of each year from Year 1 to Year 10 (nothing after Year 10): CAD 5.00 a year in the high state and CAD 2.00 in the low state.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 3,
+          "body": "<p>Suppose the mine is open. What is the NPV at t = 1 of adding the second line in each state? In which state is it added?</p>",
+          "solution": "<p>The line adds 50% of the mine's cash flow for nine years, Years 2 to 10, starting one year after the payment at t = 1: annuity factor A(9, 6%) = [1 − 1.06<sup>−9</sup>]/0.06 = 6.8017.</p><p><table class=\"data\"><tr><th>State at t = 1</th><th>Extra cash flow a year</th><th>Value at t = 1</th><th>NPV at t = 1</th></tr><tr><td>High</td><td class=\"n\">30</td><td class=\"n\">30 × 6.8017 = 204.0508</td><td class=\"n\"><b>+54.0508</b></td></tr><tr><td>Low</td><td class=\"n\">10</td><td class=\"n\">10 × 6.8017 = 68.0169</td><td class=\"n\"><b>−81.9831</b></td></tr></table></p><p>Kenogami adds the line <b>only in the high state</b>. In the low state it does not, so the payoff there is 0, not −81.98.</p>",
+          "criteria": [
+            "Nine extra cash flows (Years 2 to 10) valued at t = 1 with A(9, 6%) = 6.8017.",
+            "High: 30 × 6.8017 − 150 = +54.0508; low: 10 × 6.8017 − 150 = −81.9831.",
+            "Adds the line only in the high state.",
+            "Ten cash flows (+70.80 in the high state) or a cash flow at t = 1 (+84.05) is wrong: the line starts producing in Year 2."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 5,
+          "body": "<p>What is the risk-neutral probability of the high state?</p>",
+          "solution": "<p><b>Step 1. One traded claim, three values.</b> Risk-neutral valuation needs a traded asset with a price today and a value at t = 1 in each state, all for the same claim. The note is that asset. Its price today, S<sub>0</sub> = 23.50, buys the payments from Year 1 to Year 10. At t = 1 the holder receives the Year-1 payment and keeps a claim on the nine payments from Year 2 to Year 10:</p><p>S<sub>u</sub> = 5.00 + 5.00 × A(9, 6%) = 5.00 + 34.0085 = <b>39.0085</b><br>S<sub>d</sub> = 2.00 + 2.00 × A(9, 6%) = 2.00 + 13.6034 = <b>15.6034</b></p><p><b>Step 2. The formula sheet.</b> ρ = [(1 + r<sub>f</sub>)S<sub>0</sub> − S<sub>d</sub>]/(S<sub>u</sub> − S<sub>d</sub>) = (1.06 × 23.50 − 15.6034)/(39.0085 − 15.6034) = (24.9100 − 15.6034)/23.4051 = 9.3066/23.4051 = <b>0.3976</b> (0.397632 before rounding), so 1 − ρ = 0.6024.</p><p><b>Check.</b> [0.3976 × 39.0085 + 0.6024 × 15.6034]/1.06 = 23.50 returns today's price. This cannot fail once ρ came from the same note, so it only catches slips; the real safeguard is step 1.</p><p><b>An equivalent route at t = 0.</b> Value each stream today: 23.50 = A(10, 6%) × [5.00ρ + 2.00(1 − ρ)] = 7.3601 × (2.00 + 3.00ρ), so ρ = (3.1929 − 2.00)/3.00 = 0.3976, the same answer, because A(10, 6%) = [1 + A(9, 6%)]/1.06.</p><p><b>The trap.</b> Values at t = 1 without the Year-1 payment (34.0085 and 13.6034) together with 1.06 × S<sub>0</sub> give ρ = 0.5541; without the factor 1.06 they give 0.4850. Both lie between 0 and 1, so only the rule catches them: the value at t = 1 includes the payment made then, as with the lecture's annuity that «pays us $1,000 yearly, so including year one» (recording 14, 1:10:26).</p>",
+          "criteria": [
+            "S_u and S_d are values at t = 1 including the payment made then: 39.0085 and 15.6034. S_0 = 23.50 is the price of the same claim (Years 1 to 10).",
+            "ρ = (1.06 × 23.50 − 15.6034)/(39.0085 − 15.6034) = 0.3976.",
+            "The t = 0 route 23.50 = 7.3601 × (2 + 3ρ) gives the same 0.3976 and is equally accepted. 0.5541 comes from combining 1.06 × S_0 with the values without the Year-1 payment; 0.6024 is 1 − ρ. Both are wrong.",
+            "This part is the construction step: show the three values of the traded note and the formula."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>What is the NPV today of opening the mine if the line could never be added?</p>",
+          "solution": "<p><b>Step 1. The mine at t = 1.</b> Including the Year-1 cash flow, the mine is worth 60 × [1 + A(9, 6%)] = 468.1015 in the high state and 20 × 7.8017 = 156.0338 in the low state.</p><p><b>Step 2. Value today with ρ.</b> [0.397632 × 468.1015 + 0.602368 × 156.0338]/1.06 = (186.1323 + 93.9897)/1.06 = 264.2661. Shortcut: A(10, 6%) × [0.397632 × 60 + 0.602368 × 20] = 7.3601 × 35.9053 = 264.2661.</p><p><b>Step 3. NPV.</b> 264.2661 − 280 = <b>CAD −15.7339 million</b>. Without the option, Kenogami would not open the mine.</p><p>Using 50/50 instead of ρ gives +14.40 and has no basis: the probabilities are unknown and ρ is what the market prices with.</p>",
+          "criteria": [
+            "Values the ten cash flows (Years 1 to 10) with ρ and discounts at r_f.",
+            "PV = 264.2661 and NPV = −15.7339; negative, so the mine alone is not worth opening.",
+            "50/50 (+14.40) or leaving out the Year-1 cash flow (−49.61) is wrong."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 3,
+          "body": "<p>What is the NPV today of opening the mine with the option to add the line? What is the option worth? Does Kenogami open the mine?</p>",
+          "solution": "<p><b>Step 1. The option.</b> At t = 1 it pays 54.0508 in the high state and 0 in the low state (from (a)). Today: 0.397632 × 54.0508/1.06 = 21.4923/1.06 = <b>CAD 20.2758 million</b>.</p><p><b>Step 2. NPV with the option.</b> −15.7339 + 20.2758 = <b>CAD +4.5419 million</b>.</p><p><b>Decision: open the mine.</b> The mine alone has a negative NPV, but opening it also buys the right to expand if the market turns out well. That right is worth more than the loss.</p><p>Letting the low state count with −81.98 (adding the line in both states) gives −42.05 and is the trap: Kenogami is not forced to expand.</p>",
+          "criteria": [
+            "Option value = ρ × 54.05/1.06 = 20.2758, with 0 in the low state (never −81.98).",
+            "NPV with the option = −15.7339 + 20.2758 = +4.5419.",
+            "Decision: open, because the option turns the negative NPV positive."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Let X be the mine's yearly cash flow in the low state. For which X is Kenogami indifferent today between opening the mine (option included) and not opening it?</p>",
+          "solution": "<p><b>Step 1. NPV as a function of X.</b> As long as 0.5 × X × A(9, 6%) &lt; 150, that is X &lt; 44.11, the line is still added only in the high state, so the option keeps its value of 20.2758 from (d):<br>NPV(X) = A(10, 6%) × [ρ × 60 + (1 − ρ)X] − 280 + 20.2758</p><p><b>Step 2. Set it to 0.</b> X = (259.7242 − 7.3601 × 0.397632 × 60)/(7.3601 × 0.602368) = (259.7242 − 175.5965)/4.4335 = <b>CAD 18.9756 million</b> a year.</p><p><b>Check.</b> 18.98 &lt; 44.11, as step 1 assumed. Quick route: at X = 20 the NPV is 4.5419 from (d); each unit of X adds A(10, 6%)(1 − ρ) = 4.4335, so X = 20 − 4.5419/4.4335 = 18.9756 ✓. The low state can fall only to about 18.98 a year before the mine is not worth opening.</p>",
+          "criteria": [
+            "Writes the NPV of opening as a function of X and keeps the option value from (d), since the line is still not added in the low state.",
+            "Solves for X = 18.9756.",
+            "Leaving out the option gives 23.55 and is wrong. Checking that X < 44.11 is a bonus."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 3,
+          "body": "<p>A colleague says the option is worthless because adding the line in both states has a negative NPV today. Is the colleague right? Explain briefly.</p>",
+          "solution": "<p><b>No.</b> Committing today to add the line in both states would indeed be worth [0.397632 × 54.05 + 0.602368 × (−81.98)]/1.06 = −26.31. But Kenogami does not have to commit: it decides at t = 1 once it knows the state and adds the line only in the high state. The low state then gives 0, not −81.98, so the right is worth 20.28 today.</p><p><b>Where the value comes from.</b> Uncertainty combined with the right, but not the obligation, to act once it is resolved: the firm keeps the upside and walks away from the downside. The wider apart the two states, the more the option is worth. If both states gave close to the average of 40 a year, the line would be worth 136.03 &lt; 150 in either state and the option would be worth nothing (recording 14, 1:13:40 to 1:14:09).</p>",
+          "criteria": [
+            "No (2 points): the decision is made after the state is known, so the low state gives 0 and the option has positive value even though committing in both states has a negative NPV.",
+            "The explanation names where the value comes from (1 point): uncertainty plus the right, not the obligation, to act later, keeping the upside and avoiding the downside.",
+            "Bonus: the option is worth more the more the states differ (volatility); the commitment value −26.31 is not required."
+          ]
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "M&A",
+      "points": 20,
+      "topic": "Mergers and acquisitions",
+      "chapters": [
+        26
+      ],
+      "merke": "Aksjebytte og kontantbud med formlene på formelarket · M&A med regning 65 %",
+      "body": "<p>Banksia Foodstores, an Australian supermarket chain, has offered to buy Yarrabee Wines: each Yarrabee share will be exchanged for 0.86 new Banksia shares. Banksia's management expects synergies of AUD 470 million.</p><table class=\"data\"><tr><th></th><th>Banksia</th><th>Yarrabee</th></tr><tr><td>Shares outstanding (million)</td><td class=\"n\">150</td><td class=\"n\">66</td></tr><tr><td>Share price before the news (AUD)</td><td class=\"n\">36.00</td><td class=\"n\">25.00</td></tr></table><p>Treat the prices before the news as the stand-alone values of the two firms.</p>",
+      "parts": [
+        {
+          "label": "a",
+          "points": 2,
+          "body": "<p>What is the offer worth per Yarrabee share at the prices before the news? What premium does it offer?</p>",
+          "solution": "<p>Offer value: 0.86 × 36.00 = <b>AUD 30.96</b> per Yarrabee share.</p><p>Premium: 30.96/25.00 − 1 = <b>23.84%</b>.</p>",
+          "criteria": [
+            "Offer value = 0.86 × 36.00 = 30.96.",
+            "Premium = 30.96/25.00 − 1 = 23.84%."
+          ]
+        },
+        {
+          "label": "b",
+          "points": 4,
+          "body": "<p>Assume management's synergies. What fraction of the combined firm will Yarrabee's former shareholders own? What is the NPV of the deal for Banksia's and for Yarrabee's shareholders?</p>",
+          "solution": "<p><b>Step 1. New shares and y.</b> Banksia issues x = 0.86 × 66 = 56.76 million shares, so y = x/(N<sub>A</sub> + x) = 56.76/206.76 = <b>0.2745 (27.4521%)</b>.</p><p><b>Step 2. The formula sheet.</b> A = 150 × 36.00 = 5,400, T = 66 × 25.00 = 1,650, so A + T + S = 7,520.<br>Acquirer NPV = (1 − y)(A + T + S) − A = 0.725479 × 7,520 − 5,400 = <b>AUD 55.6007 million</b><br>Target NPV = y(A + T + S) − T = 0.274521 × 7,520 − 1,650 = <b>AUD 414.3993 million</b></p><p><b>Check.</b> 55.6007 + 414.3993 = 470.00 = S ✓: the two NPVs split the synergies. Yarrabee gets the larger part.</p>",
+          "criteria": [
+            "y = 56.76/206.76 = 27.4521%. Dividing by the old 150 million shares (37.84%) is the trap.",
+            "Acquirer NPV = (1 − y)(7,520) − 5,400 = 55.6007; target NPV = y(7,520) − 1,650 = 414.3993.",
+            "The check that the NPVs sum to S is a bonus."
+          ]
+        },
+        {
+          "label": "c",
+          "points": 3,
+          "body": "<p>With management's synergies, what is the highest exchange ratio Banksia's shareholders should accept?</p>",
+          "solution": "<p>Banksia's NPV is zero when the shares it gives away are worth exactly T + S. The formula sheet gives:</p><p>ER &lt; [(T + S)/A] × N<sub>A</sub>/N<sub>T</sub> = [(1,650 + 470)/5,400] × 150/66 = 0.3926 × 2.27273 = <b>0.8923</b></p><p>Equivalently (P<sub>T</sub>/P<sub>A</sub>)(1 + S/T) = (25.00/36.00) × 1.28 = 0.8923 (recording 16, 52:25). The offer of 0.86 is below it, so with management's synergies Banksia gains, as in (b).</p>",
+          "criteria": [
+            "Highest ER = [(T + S)/A](N_A/N_T) = 0.8923.",
+            "Leaving out the synergies (25/36 = 0.6944) is wrong."
+          ]
+        },
+        {
+          "label": "d",
+          "points": 4,
+          "body": "<p>On the announcement day Banksia fell to AUD 34.50 and Yarrabee rose to AUD 29.67; the market sees the deal as certain. How much did each firm's market value change? What synergies does the market expect?</p>",
+          "solution": "<p>Banksia: 150 × (34.50 − 36.00) = <b>AUD −225.00 million</b>.<br>Yarrabee: 66 × (29.67 − 25.00) = <b>AUD +308.22 million</b>.</p><p>With the deal certain, the two changes together are the value the deal creates: S = −225.00 + 308.22 = <b>AUD 83.22 million</b> (recording 16, 53:53 to 54:19).</p><p><b>Check.</b> Yarrabee trades at the offer, 0.86 × 34.50 = 29.67. The combined firm is worth (150 + 56.76) × 34.50 = 7,133.22 = 5,400 + 1,650 + 83.22 ✓.</p>",
+          "criteria": [
+            "Changes in market value: Banksia −225.00, Yarrabee +308.22 (price change × shares).",
+            "Market's synergies = the sum = 83.22, far below management's 470.",
+            "The combined-value check is a bonus."
+          ]
+        },
+        {
+          "label": "e",
+          "points": 3,
+          "body": "<p>Banksia had also considered paying AUD 30.00 per Yarrabee share in cash. With the synergies the market expects, what is Banksia's NPV with that cash offer and with the share offer?</p>",
+          "solution": "<p><b>Cash.</b> Banksia pays 30.00 × 66 = 1,980 for a firm worth 1,650: NPV<sub>A</sub> = S − (P − T) = 83.22 − 330 = <b>AUD −246.78 million</b>.</p><p><b>Shares.</b> NPV<sub>A</sub> = (1 − y)(A + T + S) − A = 0.725479 × 7,133.22 − 5,400 = <b>AUD −225.00 million</b>, the fall in Banksia's market value from (d).</p><p>With cash, Banksia's shareholders bear the whole shortfall in synergies; with shares, Yarrabee's former owners bear 27.45% of it (Yarrabee's NPV falls from 414.40 to 308.22), so shares protect the acquirer when the synergies are uncertain (recording 16, 45:24 to 46:48).</p>",
+          "criteria": [
+            "Cash: NPV_A = 83.22 − (1,980 − 1,650) = −246.78.",
+            "Shares: NPV_A = (1 − y)(7,133.22) − 5,400 = −225.00.",
+            "Using management's 470 instead of the market's synergies is wrong here."
+          ]
+        },
+        {
+          "label": "f",
+          "points": 4,
+          "body": "<p>Does the market expect the deal to create or destroy value? Who pays too much? Give one motive other than synergies that fits these price reactions. Explain briefly.</p>",
+          "solution": "<p><b>Create, but little.</b> The combined value rises by 83.22 million, so the market expects the deal to create some value.</p><p><b>Banksia's shareholders pay too much.</b> They lose 225.00 million while Yarrabee's shareholders gain 308.22 million: the premium Yarrabee receives is larger than all the synergies the market expects. At the market's synergies the highest exchange ratio Banksia should accept is [(1,650 + 83.22)/5,400] × 2.27273 = 0.7295, below the 0.86 it offered.</p><p><b>Motive: managerial hubris.</b> Banksia's managers expect synergies of 470 million, more than five times what the market sees. They set the exchange ratio on that belief. The market does not share it, so Banksia's price falls while Yarrabee's owners, who receive the premium, gain.</p><p><b>Also accepted.</b> Empire building (a supermarket chain growing by buying a winemaker); diversification the owners could get more cheaply themselves; managers reducing the risk to their own jobs. Each must fit Banksia down and Yarrabee up. «Value creation» without a mechanism earns nothing.</p>",
+          "criteria": [
+            "Uses the changes from (d): combined +83.22, so value is created, but Banksia −225.00 and Yarrabee +308.22 (1 point).",
+            "Banksia's shareholders pay too much: the premium exceeds the synergies; Yarrabee's shareholders capture more than the whole gain (1 point).",
+            "One motive other than synergies, with its mechanism, that fits the acquirer falling and the target rising: hubris or overconfidence, empire building, diversification, managers' own interests (2 points).",
+            "Synergies or «value creation» alone earn nothing for the motive."
+          ]
+        }
+      ]
+    }
+  ]
 }
 );
 /* ===================== PREDIKSJON SLUTT ===================== */

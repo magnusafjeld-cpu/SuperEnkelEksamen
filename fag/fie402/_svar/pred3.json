@@ -1,0 +1,324 @@
+{
+  "pred3:1:": {
+    "type": "tekst"
+  },
+  "pred3:2:": {
+    "type": "tekst"
+  },
+  "pred3:3:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Break-even offer price",
+        "verdi": 20.0,
+        "enhet": "EUR"
+      },
+      {
+        "navn": "Average first-day return",
+        "verdi": 0.0,
+        "enhet": "%",
+        "abs": 0.05
+      }
+    ]
+  },
+  "pred3:3:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Average return on the money invested",
+        "verdi": -6.715063520871145,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "Fellen uten tildeling (5.2632 %) har motsatt fortegn og avvises."
+  },
+  "pred3:3:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Break-even offer price",
+        "verdi": 17.724137931034484,
+        "enhet": "EUR"
+      }
+    ],
+    "merknad": "Fellene 20.0000 (rettferdig verdi) og 18.3810 (tildeling uten sannsynligheter) avvises."
+  },
+  "pred3:3:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Average first-day return across IPOs",
+        "verdi": 12.840466926070032,
+        "enhet": "%"
+      },
+      {
+        "navn": "First-day return of informed investors on the IPOs they buy",
+        "verdi": 46.69260700389104,
+        "enhet": "%"
+      }
+    ]
+  },
+  "pred3:3:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Gain (+) or loss (−) for the founders of a good firm",
+        "verdi": -28.965517241379306,
+        "enhet": "EUR m"
+      },
+      {
+        "navn": "Gain (+) or loss (−) for the founders of a bad firm",
+        "verdi": 6.034482758620694,
+        "enhet": "EUR m"
+      },
+      {
+        "navn": "Expected cost per IPO",
+        "verdi": 7.965517241379306,
+        "enhet": "EUR m",
+        "alt": [
+          -7.965517241379306
+        ]
+      }
+    ],
+    "merknad": "alt: kostnaden skrevet som negativ endring godtas."
+  },
+  "pred3:3:f": {
+    "type": "tekst"
+  },
+  "pred3:4:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "FCF<sub>0</sub>",
+        "verdi": -285.0,
+        "enhet": "EUR m",
+        "alt": [
+          285.0
+        ]
+      },
+      {
+        "navn": "FCF<sub>1</sub>",
+        "verdi": 109.08,
+        "enhet": "EUR m"
+      },
+      {
+        "navn": "FCF<sub>2</sub>",
+        "verdi": 115.08,
+        "enhet": "EUR m"
+      },
+      {
+        "navn": "FCF<sub>3</sub>",
+        "verdi": 136.07999999999998,
+        "enhet": "EUR m"
+      }
+    ],
+    "merknad": "alt: FCF_0 skrevet som utlegg (285) godtas. Fellen EBITDA(1 − τ) − ΔNWC (87.48, 93.48, 114.48) avvises i hvert år."
+  },
+  "pred3:4:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "r<sub>U</sub> of Brenta",
+        "verdi": 8.143749999999999,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>U</sub> of Garda",
+        "verdi": 9.116666666666667,
+        "enhet": "%"
+      },
+      {
+        "navn": "r<sub>U</sub> of the line",
+        "verdi": 8.630208333333334,
+        "enhet": "%",
+        "tol": 0.005
+      }
+    ],
+    "merknad": "tol 0,5 % på linjens r_U: β_D = 0 for Garda gir 8.4302, D/E som vekt 8.0656; begge avvises."
+  },
+  "pred3:4:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV, all-equity financed",
+        "verdi": 19.090656919898265,
+        "enhet": "EUR m"
+      }
+    ],
+    "merknad": "r_U rundet til 0.0863 gir 19.0918 og godtas; PV (304.0907) og NPV med bare maskinen (34.0907) avvises."
+  },
+  "pred3:4:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "PV(TS)",
+        "verdi": 3.3210236475542594,
+        "enhet": "EUR m",
+        "tol": 0.005
+      },
+      {
+        "navn": "NPV with the APV method",
+        "verdi": 22.411680567452525,
+        "enhet": "EUR m",
+        "tol": 0.003
+      }
+    ],
+    "merknad": "tol 0,5 % på PV(TS): skjoldet med r_U (3.1420) og et annuitetslån (3.3728) avvises. tol 0,3 % på NPV: med r_U (22.2326) avvises, avrundede mellomtall (22.4129) godtas."
+  },
+  "pred3:4:e": {
+    "type": "tekst"
+  },
+  "pred3:5:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV at t = 1, high state",
+        "verdi": 54.050768234987515,
+        "enhet": "CAD m"
+      },
+      {
+        "navn": "NPV at t = 1, low state",
+        "verdi": -81.98307725500416,
+        "enhet": "CAD m"
+      }
+    ]
+  },
+  "pred3:5:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "ρ (high state)",
+        "verdi": 39.763233939300584,
+        "enhet": "%"
+      }
+    ],
+    "merknad": "Fellene uten betalingen ved t = 1 (0.5541 og 0.4850) og 1 − ρ (0.6024) avvises."
+  },
+  "pred3:5:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV without the second line",
+        "verdi": -15.733913676098041,
+        "enhet": "CAD m"
+      }
+    ]
+  },
+  "pred3:5:d": {
+    "type": "blandet",
+    "tall": [
+      {
+        "navn": "NPV with the option",
+        "verdi": 4.5418725684937655,
+        "enhet": "CAD m",
+        "tol": 0.005
+      },
+      {
+        "navn": "Value of the option",
+        "verdi": 20.27578624459175,
+        "enhet": "CAD m"
+      }
+    ],
+    "tallPoeng": 2,
+    "tekstLedd": "Does Kenogami open the mine?",
+    "merknad": "tol 0,5 % på NPV: ρ rundet til 0.3976 gir 4.5307 og godtas."
+  },
+  "pred3:5:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "X",
+        "verdi": 18.97555099196962,
+        "enhet": "CAD m"
+      }
+    ],
+    "merknad": "Uten opsjonen (23.5489) avvises; følgefeilen fra fellene i (b) gir 2.1477 og 10.8398 (veldefinert, men utenfor); ρ rundet til 0.3976 gir 18.9781 og godtas."
+  },
+  "pred3:5:f": {
+    "type": "tekst"
+  },
+  "pred3:6:a": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Offer value per Yarrabee share",
+        "verdi": 30.96,
+        "enhet": "AUD"
+      },
+      {
+        "navn": "Premium",
+        "verdi": 23.839999999999996,
+        "enhet": "%"
+      }
+    ]
+  },
+  "pred3:6:b": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Fraction owned by Yarrabee's former shareholders",
+        "verdi": 27.452118398142773,
+        "enhet": "%"
+      },
+      {
+        "navn": "NPV for Banksia's shareholders",
+        "verdi": 55.600696459663595,
+        "enhet": "AUD m"
+      },
+      {
+        "navn": "NPV for Yarrabee's shareholders",
+        "verdi": 414.3993035403364,
+        "enhet": "AUD m"
+      }
+    ]
+  },
+  "pred3:6:c": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Highest exchange ratio",
+        "verdi": 0.8922558922558923,
+        "enhet": ""
+      }
+    ]
+  },
+  "pred3:6:d": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "Change in Banksia's market value",
+        "verdi": -225.0,
+        "enhet": "AUD m"
+      },
+      {
+        "navn": "Change in Yarrabee's market value",
+        "verdi": 308.22000000000014,
+        "enhet": "AUD m"
+      },
+      {
+        "navn": "Synergies the market expects",
+        "verdi": 83.22000000000014,
+        "enhet": "AUD m"
+      }
+    ]
+  },
+  "pred3:6:e": {
+    "type": "tall",
+    "tall": [
+      {
+        "navn": "NPV for Banksia, cash offer",
+        "verdi": -246.77999999999986,
+        "enhet": "AUD m"
+      },
+      {
+        "navn": "NPV for Banksia, share offer",
+        "verdi": -224.9999999999991,
+        "enhet": "AUD m"
+      }
+    ],
+    "merknad": "Med ledelsens synergier ville kontant gitt 140.00; avvises."
+  },
+  "pred3:6:f": {
+    "type": "tekst"
+  }
+}

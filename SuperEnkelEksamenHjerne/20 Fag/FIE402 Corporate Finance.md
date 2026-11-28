@@ -81,6 +81,12 @@ ferdig gir prediksjon 3, prediksjon 2 ferdig gir prediksjon 4 og så videre. Opp
 [[Eksamenssett-modulen]]. Begge ble løst blindt: ingen regnefeil, men reserveverdiene lekket svar
 og ble fjernet, og toleransene ble strammet så kjente feller avvises.
 
+Prediksjon 1 ble tatt 28. november: 85 av 100 med følgefeil (72 uten). Feilene var ρ fra et
+omsatt verdipapir (verdiene ved t = 1 uten betalingen da) og FCF med avskrivningen strøket mot
+investeringen før skatt. Samme dag kom `pred3` med nye runder på begge (E4 og E5), pluss
+fiendtlig bud, utbetaling, IPO og aksjebytte. Bygg 234. Resultatene og hva hvert sett tar opp
+igjen står i `fag/fie402/_pred/logg.md`.
+
 ## Kursets konvensjoner
 
 Disse skiller seg mellom lærebøker, og hele manualen følger kursets valg:
